@@ -17,10 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::linear_congruential_engine" = type { i64 }
 %"class.std::uniform_int_distribution" = type { %"struct.std::uniform_int_distribution<>::param_type" }
 %"struct.std::uniform_int_distribution<>::param_type" = type { i32, i32 }
-%"struct.moodycamel::ReaderWriterQueue<int>::Block" = type { %"class.moodycamel::weak_atomic.9", i64, [48 x i8], %"class.moodycamel::weak_atomic.9", i64, [48 x i8], %"class.moodycamel::weak_atomic", ptr, i64, ptr }
-%"class.moodycamel::weak_atomic.9" = type { %"struct.std::atomic.10" }
-%"struct.std::atomic.10" = type { %"struct.std::__atomic_base.11" }
-%"struct.std::__atomic_base.11" = type { i64 }
 %class.BlockingReaderWriterCircularBufferAdapter = type { %"class.moodycamel::BlockingReaderWriterCircularBuffer" }
 %"class.moodycamel::BlockingReaderWriterCircularBuffer" = type { i64, i64, ptr, ptr, %"class.std::unique_ptr", %"class.std::unique_ptr", [16 x i8], i64, [56 x i8], i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -29,46 +25,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.31" }
 %"struct.std::_Head_base.31" = type { ptr }
-%"class.moodycamel::spsc_sema::LightweightSemaphore" = type { %"class.moodycamel::weak_atomic.42", %"class.moodycamel::spsc_sema::Semaphore" }
-%"class.moodycamel::weak_atomic.42" = type { %"struct.std::atomic.43" }
-%"struct.std::atomic.43" = type { %"struct.std::__atomic_base.44" }
-%"struct.std::__atomic_base.44" = type { i64 }
-%"class.moodycamel::spsc_sema::Semaphore" = type { %union.sem_t }
-%union.sem_t = type { i64, [24 x i8] }
 %class.spsc_queue = type { ptr, [64 x i8], ptr, ptr, ptr }
-%"struct.spsc_queue<int>::node" = type { ptr, i32 }
 %"struct.folly::ProducerConsumerQueue" = type { i32, ptr, %"struct.std::atomic.95", %"struct.std::atomic.95" }
 %"struct.std::atomic.95" = type { %"struct.std::__atomic_base.96" }
 %"struct.std::__atomic_base.96" = type { i32 }
-%class.anon = type { ptr, ptr }
-%class.anon.1 = type { ptr, ptr, ptr, ptr, ptr }
-%class.anon.3 = type { ptr, ptr }
-%class.anon.4 = type { ptr, ptr, ptr, ptr }
-%class.anon.5 = type { ptr, ptr }
-%class.anon.7 = type { ptr, ptr, ptr, ptr }
-%class.anon.8 = type { ptr, ptr, ptr }
 %struct.timespec = type { i64, i64 }
-%class.anon.32 = type { ptr, ptr }
-%class.anon.34 = type { ptr, ptr, ptr, ptr, ptr }
-%class.anon.36 = type { ptr, ptr }
-%class.anon.37 = type { ptr, ptr, ptr, ptr }
-%class.anon.38 = type { ptr, ptr }
-%class.anon.40 = type { ptr, ptr, ptr, ptr }
-%class.anon.41 = type { ptr, ptr, ptr }
-%class.anon.65 = type { ptr, ptr }
-%class.anon.67 = type { ptr, ptr, ptr, ptr, ptr }
-%class.anon.69 = type { ptr, ptr }
-%class.anon.70 = type { ptr, ptr, ptr, ptr }
-%class.anon.71 = type { ptr, ptr }
-%class.anon.73 = type { ptr, ptr, ptr, ptr }
-%class.anon.74 = type { ptr, ptr, ptr }
-%class.anon.97 = type { ptr, ptr }
-%class.anon.99 = type { ptr, ptr, ptr, ptr, ptr }
-%class.anon.101 = type { ptr, ptr }
-%class.anon.102 = type { ptr, ptr, ptr, ptr }
-%class.anon.103 = type { ptr, ptr }
-%class.anon.105 = type { ptr, ptr, ptr, ptr }
-%class.anon.106 = type { ptr, ptr, ptr }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 
 $_Z12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRd = comdat any
@@ -320,16 +281,16 @@ for.inc76:                                        ; preds = %for.body61
 for.body82:                                       ; preds = %for.inc76, %for.body82
   %indvars.iv236 = phi i64 [ %indvars.iv.next237, %for.body82 ], [ 0, %for.inc76 ]
   %arrayidx84 = getelementptr inbounds [8 x [25 x double]], ptr %rwqResults, i64 0, i64 %indvars.iv236
-  %add.ptr = getelementptr inbounds double, ptr %arrayidx84, i64 25
+  %add.ptr = getelementptr inbounds i8, ptr %arrayidx84, i64 200
   call void @_ZSt6__sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_(ptr noundef nonnull %arrayidx84, ptr noundef nonnull %add.ptr)
   %arrayidx90 = getelementptr inbounds [8 x [25 x double]], ptr %brwcbResults, i64 0, i64 %indvars.iv236
-  %add.ptr95 = getelementptr inbounds double, ptr %arrayidx90, i64 25
+  %add.ptr95 = getelementptr inbounds i8, ptr %arrayidx90, i64 200
   call void @_ZSt6__sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_(ptr noundef nonnull %arrayidx90, ptr noundef nonnull %add.ptr95)
   %arrayidx97 = getelementptr inbounds [8 x [25 x double]], ptr %spscResults, i64 0, i64 %indvars.iv236
-  %add.ptr102 = getelementptr inbounds double, ptr %arrayidx97, i64 25
+  %add.ptr102 = getelementptr inbounds i8, ptr %arrayidx97, i64 200
   call void @_ZSt6__sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_(ptr noundef nonnull %arrayidx97, ptr noundef nonnull %add.ptr102)
   %arrayidx104 = getelementptr inbounds [8 x [25 x double]], ptr %follyResults, i64 0, i64 %indvars.iv236
-  %add.ptr109 = getelementptr inbounds double, ptr %arrayidx104, i64 25
+  %add.ptr109 = getelementptr inbounds i8, ptr %arrayidx104, i64 200
   call void @_ZSt6__sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_(ptr noundef nonnull %arrayidx104, ptr noundef nonnull %add.ptr109)
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next237, 8
@@ -815,13 +776,13 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 do.body.i:                                        ; preds = %do.body.i, %lpad
   %block.0.i = phi ptr [ %atomic-temp.i.0.i.i.i.i, %lpad ], [ %atomic-temp.i.0.i.i.i10.i, %do.body.i ]
-  %next.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i, i64 0, i32 6
+  %next.i = getelementptr inbounds i8, ptr %block.0.i, i64 128
   %4 = load atomic i64, ptr %next.i monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i = inttoptr i64 %4 to ptr
   %5 = load atomic i64, ptr %block.0.i monotonic, align 8
-  %tail.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i, i64 0, i32 3
+  %tail.i = getelementptr inbounds i8, ptr %block.0.i, i64 64
   %6 = load atomic i64, ptr %tail.i monotonic, align 8
-  %rawThis.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i, i64 0, i32 9
+  %rawThis.i = getelementptr inbounds i8, ptr %block.0.i, i64 152
   %7 = load ptr, ptr %rawThis.i, align 8
   call void @free(ptr noundef %7) #18
   %cmp6.not.i = icmp eq ptr %atomic-temp.i.0.i.i.i10.i, %atomic-temp.i.0.i.i.i.i
@@ -834,14 +795,14 @@ for.end:                                          ; preds = %invoke.cont1
 invoke.cont4:                                     ; preds = %for.end
   %8 = load atomic i64, ptr %q monotonic, align 64
   %atomic-temp.i.0.i.i.i = inttoptr i64 %8 to ptr
-  %localTail.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 1
+  %localTail.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
   %9 = load i64, ptr %localTail.i, align 8
   %10 = load atomic i64, ptr %atomic-temp.i.0.i.i.i monotonic, align 8
   %cmp.not.i = icmp eq i64 %10, %9
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %invoke.cont4
-  %tail.i46 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 3
+  %tail.i46 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 64
   %11 = load atomic i64, ptr %tail.i46 monotonic, align 8
   store i64 %11, ptr %localTail.i, align 8
   %cmp5.not.i = icmp eq i64 %9, %11
@@ -852,7 +813,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %return.sink.split.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %tailBlock.i = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %q, i64 0, i32 2
+  %tailBlock.i = getelementptr inbounds i8, ptr %q, i64 64
   %12 = load atomic i64, ptr %tailBlock.i monotonic, align 64
   %atomic-temp.i.0.i.i6.i = inttoptr i64 %12 to ptr
   %cmp9.not.i = icmp eq ptr %atomic-temp.i.0.i.i.i, %atomic-temp.i.0.i.i6.i
@@ -862,9 +823,9 @@ if.then10.i:                                      ; preds = %if.else.i
   fence acquire
   %13 = load atomic i64, ptr %q monotonic, align 64
   %atomic-temp.i.0.i.i7.i = inttoptr i64 %13 to ptr
-  %tail13.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i, i64 0, i32 3
+  %tail13.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i, i64 64
   %14 = load atomic i64, ptr %tail13.i monotonic, align 8
-  %localTail15.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i, i64 0, i32 1
+  %localTail15.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i, i64 8
   store i64 %14, ptr %localTail15.i, align 8
   %15 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i monotonic, align 8
   fence acquire
@@ -872,13 +833,13 @@ if.then10.i:                                      ; preds = %if.else.i
   br i1 %cmp18.not.i, label %if.end.i, label %return.sink.split.i
 
 if.end.i:                                         ; preds = %if.then10.i
-  %next.i47 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i, i64 0, i32 6
+  %next.i47 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i, i64 128
   %16 = load atomic i64, ptr %next.i47 monotonic, align 8
   %atomic-temp.i.0.i.i.i.i48 = inttoptr i64 %16 to ptr
   %17 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i48 monotonic, align 8
-  %tail23.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i48, i64 0, i32 3
+  %tail23.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i48, i64 64
   %18 = load atomic i64, ptr %tail23.i monotonic, align 8
-  %localTail25.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i48, i64 0, i32 1
+  %localTail25.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i48, i64 8
   store i64 %18, ptr %localTail25.i, align 8
   fence acquire
   fence release
@@ -889,13 +850,13 @@ if.end.i:                                         ; preds = %if.then10.i
 return.sink.split.i:                              ; preds = %if.end.i, %if.then10.i, %if.then.i
   %frontBlock_.0.sink24.i = phi ptr [ %atomic-temp.i.0.i.i.i.i48, %if.end.i ], [ %atomic-temp.i.0.i.i7.i, %if.then10.i ], [ %atomic-temp.i.0.i.i.i, %if.then.i ]
   %blockFront.0.sink23.i = phi i64 [ %17, %if.end.i ], [ %15, %if.then10.i ], [ %10, %if.then.i ]
-  %data.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i, i64 0, i32 7
+  %data.i = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i, i64 136
   %19 = load ptr, ptr %data.i, align 8
   %mul.i = shl i64 %blockFront.0.sink23.i, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 %mul.i
   %20 = load i32, ptr %add.ptr.i, align 4
   %add.i = add i64 %blockFront.0.sink23.i, 1
-  %sizeMask.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i, i64 0, i32 8
+  %sizeMask.i = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i, i64 144
   %21 = load i64, ptr %sizeMask.i, align 8
   %and.i = and i64 %21, %add.i
   fence release
@@ -912,13 +873,13 @@ invoke.cont6:                                     ; preds = %return.sink.split.i
 
 do.body.i50:                                      ; preds = %do.body.i50, %invoke.cont6
   %block.0.i51 = phi ptr [ %atomic-temp.i.0.i.i.i.i49, %invoke.cont6 ], [ %atomic-temp.i.0.i.i.i10.i53, %do.body.i50 ]
-  %next.i52 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i51, i64 0, i32 6
+  %next.i52 = getelementptr inbounds i8, ptr %block.0.i51, i64 128
   %23 = load atomic i64, ptr %next.i52 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i53 = inttoptr i64 %23 to ptr
   %24 = load atomic i64, ptr %block.0.i51 monotonic, align 8
-  %tail.i54 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i51, i64 0, i32 3
+  %tail.i54 = getelementptr inbounds i8, ptr %block.0.i51, i64 64
   %25 = load atomic i64, ptr %tail.i54 monotonic, align 8
-  %rawThis.i55 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i51, i64 0, i32 9
+  %rawThis.i55 = getelementptr inbounds i8, ptr %block.0.i51, i64 152
   %26 = load ptr, ptr %rawThis.i55, align 8
   call void @free(ptr noundef %26) #18
   %cmp6.not.i56 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i53, %atomic-temp.i.0.i.i.i.i49
@@ -962,13 +923,13 @@ lpad16:                                           ; preds = %lpad16.loopexit.spl
 
 do.body.i61:                                      ; preds = %do.body.i61, %lpad16
   %block.0.i62 = phi ptr [ %atomic-temp.i.0.i.i.i.i60, %lpad16 ], [ %atomic-temp.i.0.i.i.i10.i64, %do.body.i61 ]
-  %next.i63 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i62, i64 0, i32 6
+  %next.i63 = getelementptr inbounds i8, ptr %block.0.i62, i64 128
   %29 = load atomic i64, ptr %next.i63 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i64 = inttoptr i64 %29 to ptr
   %30 = load atomic i64, ptr %block.0.i62 monotonic, align 8
-  %tail.i65 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i62, i64 0, i32 3
+  %tail.i65 = getelementptr inbounds i8, ptr %block.0.i62, i64 64
   %31 = load atomic i64, ptr %tail.i65 monotonic, align 8
-  %rawThis.i66 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i62, i64 0, i32 9
+  %rawThis.i66 = getelementptr inbounds i8, ptr %block.0.i62, i64 152
   %32 = load ptr, ptr %rawThis.i66, align 8
   call void @free(ptr noundef %32) #18
   %cmp6.not.i67 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i64, %atomic-temp.i.0.i.i.i.i60
@@ -981,7 +942,7 @@ for.end22:                                        ; preds = %invoke.cont17
 
 invoke.cont24:                                    ; preds = %for.end22
   %33 = extractvalue { i64, i64 } %call25, 0
-  %tailBlock.i87 = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %q10, i64 0, i32 2
+  %tailBlock.i87 = getelementptr inbounds i8, ptr %q10, i64 64
   br label %for.body29
 
 for.body29:                                       ; preds = %invoke.cont24, %invoke.cont30
@@ -990,14 +951,14 @@ for.body29:                                       ; preds = %invoke.cont24, %inv
   %element.0467 = phi i32 [ -1, %invoke.cont24 ], [ %element.1, %invoke.cont30 ]
   %34 = load atomic i64, ptr %q10 monotonic, align 64
   %atomic-temp.i.0.i.i.i69 = inttoptr i64 %34 to ptr
-  %localTail.i70 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i69, i64 0, i32 1
+  %localTail.i70 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i69, i64 8
   %35 = load i64, ptr %localTail.i70, align 8
   %36 = load atomic i64, ptr %atomic-temp.i.0.i.i.i69 monotonic, align 8
   %cmp.not.i71 = icmp eq i64 %36, %35
   br i1 %cmp.not.i71, label %lor.lhs.false.i83, label %if.then.i72
 
 lor.lhs.false.i83:                                ; preds = %for.body29
-  %tail.i84 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i69, i64 0, i32 3
+  %tail.i84 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i69, i64 64
   %37 = load atomic i64, ptr %tail.i84 monotonic, align 8
   store i64 %37, ptr %localTail.i70, align 8
   %cmp5.not.i85 = icmp eq i64 %35, %37
@@ -1017,9 +978,9 @@ if.then10.i90:                                    ; preds = %if.else.i86
   fence acquire
   %39 = load atomic i64, ptr %q10 monotonic, align 64
   %atomic-temp.i.0.i.i7.i91 = inttoptr i64 %39 to ptr
-  %tail13.i92 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i91, i64 0, i32 3
+  %tail13.i92 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i91, i64 64
   %40 = load atomic i64, ptr %tail13.i92 monotonic, align 8
-  %localTail15.i93 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i91, i64 0, i32 1
+  %localTail15.i93 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i91, i64 8
   store i64 %40, ptr %localTail15.i93, align 8
   %41 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i91 monotonic, align 8
   fence acquire
@@ -1027,13 +988,13 @@ if.then10.i90:                                    ; preds = %if.else.i86
   br i1 %cmp18.not.i94, label %if.end.i95, label %return.sink.split.i73
 
 if.end.i95:                                       ; preds = %if.then10.i90
-  %next.i96 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i91, i64 0, i32 6
+  %next.i96 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i91, i64 128
   %42 = load atomic i64, ptr %next.i96 monotonic, align 8
   %atomic-temp.i.0.i.i.i.i97 = inttoptr i64 %42 to ptr
   %43 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i97 monotonic, align 8
-  %tail23.i98 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i97, i64 0, i32 3
+  %tail23.i98 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i97, i64 64
   %44 = load atomic i64, ptr %tail23.i98 monotonic, align 8
-  %localTail25.i99 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i97, i64 0, i32 1
+  %localTail25.i99 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i97, i64 8
   store i64 %44, ptr %localTail25.i99, align 8
   fence acquire
   fence release
@@ -1044,13 +1005,13 @@ if.end.i95:                                       ; preds = %if.then10.i90
 return.sink.split.i73:                            ; preds = %if.end.i95, %if.then10.i90, %if.then.i72
   %frontBlock_.0.sink24.i74 = phi ptr [ %atomic-temp.i.0.i.i.i.i97, %if.end.i95 ], [ %atomic-temp.i.0.i.i7.i91, %if.then10.i90 ], [ %atomic-temp.i.0.i.i.i69, %if.then.i72 ]
   %blockFront.0.sink23.i75 = phi i64 [ %43, %if.end.i95 ], [ %41, %if.then10.i90 ], [ %36, %if.then.i72 ]
-  %data.i76 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i74, i64 0, i32 7
+  %data.i76 = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i74, i64 136
   %45 = load ptr, ptr %data.i76, align 8
   %mul.i77 = shl i64 %blockFront.0.sink23.i75, 2
   %add.ptr.i78 = getelementptr inbounds i8, ptr %45, i64 %mul.i77
   %46 = load i32, ptr %add.ptr.i78, align 4
   %add.i79 = add i64 %blockFront.0.sink23.i75, 1
-  %sizeMask.i80 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i74, i64 0, i32 8
+  %sizeMask.i80 = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i74, i64 144
   %47 = load i64, ptr %sizeMask.i80, align 8
   %and.i81 = and i64 %47, %add.i79
   fence release
@@ -1078,13 +1039,13 @@ invoke.cont36:                                    ; preds = %for.end34
 
 do.body.i102:                                     ; preds = %do.body.i102, %invoke.cont36
   %block.0.i103 = phi ptr [ %atomic-temp.i.0.i.i.i.i101, %invoke.cont36 ], [ %atomic-temp.i.0.i.i.i10.i105, %do.body.i102 ]
-  %next.i104 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i103, i64 0, i32 6
+  %next.i104 = getelementptr inbounds i8, ptr %block.0.i103, i64 128
   %50 = load atomic i64, ptr %next.i104 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i105 = inttoptr i64 %50 to ptr
   %51 = load atomic i64, ptr %block.0.i103 monotonic, align 8
-  %tail.i106 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i103, i64 0, i32 3
+  %tail.i106 = getelementptr inbounds i8, ptr %block.0.i103, i64 64
   %52 = load atomic i64, ptr %tail.i106 monotonic, align 8
-  %rawThis.i107 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i103, i64 0, i32 9
+  %rawThis.i107 = getelementptr inbounds i8, ptr %block.0.i103, i64 152
   %53 = load ptr, ptr %rawThis.i107, align 8
   call void @free(ptr noundef %53) #18
   %cmp6.not.i108 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i105, %atomic-temp.i.0.i.i.i.i101
@@ -1144,13 +1105,13 @@ invoke.cont55:                                    ; preds = %invoke.cont53
 
 do.body.i114:                                     ; preds = %do.body.i114, %invoke.cont55
   %block.0.i115 = phi ptr [ %atomic-temp.i.0.i.i.i.i113, %invoke.cont55 ], [ %atomic-temp.i.0.i.i.i10.i117, %do.body.i114 ]
-  %next.i116 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i115, i64 0, i32 6
+  %next.i116 = getelementptr inbounds i8, ptr %block.0.i115, i64 128
   %59 = load atomic i64, ptr %next.i116 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i117 = inttoptr i64 %59 to ptr
   %60 = load atomic i64, ptr %block.0.i115 monotonic, align 8
-  %tail.i118 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i115, i64 0, i32 3
+  %tail.i118 = getelementptr inbounds i8, ptr %block.0.i115, i64 64
   %61 = load atomic i64, ptr %tail.i118 monotonic, align 8
-  %rawThis.i119 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i115, i64 0, i32 9
+  %rawThis.i119 = getelementptr inbounds i8, ptr %block.0.i115, i64 152
   %62 = load ptr, ptr %rawThis.i119, align 8
   call void @free(ptr noundef %62) #18
   %cmp6.not.i120 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i117, %atomic-temp.i.0.i.i.i.i113
@@ -1186,13 +1147,13 @@ ehcleanup57:                                      ; preds = %ehcleanup, %lpad43
 
 do.body.i123:                                     ; preds = %do.body.i123, %ehcleanup57
   %block.0.i124 = phi ptr [ %atomic-temp.i.0.i.i.i.i122, %ehcleanup57 ], [ %atomic-temp.i.0.i.i.i10.i126, %do.body.i123 ]
-  %next.i125 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i124, i64 0, i32 6
+  %next.i125 = getelementptr inbounds i8, ptr %block.0.i124, i64 128
   %67 = load atomic i64, ptr %next.i125 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i126 = inttoptr i64 %67 to ptr
   %68 = load atomic i64, ptr %block.0.i124 monotonic, align 8
-  %tail.i127 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i124, i64 0, i32 3
+  %tail.i127 = getelementptr inbounds i8, ptr %block.0.i124, i64 64
   %69 = load atomic i64, ptr %tail.i127 monotonic, align 8
-  %rawThis.i128 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i124, i64 0, i32 9
+  %rawThis.i128 = getelementptr inbounds i8, ptr %block.0.i124, i64 152
   %70 = load ptr, ptr %rawThis.i128, align 8
   call void @free(ptr noundef %70) #18
   %cmp6.not.i129 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i126, %atomic-temp.i.0.i.i.i.i122
@@ -1205,7 +1166,7 @@ sw.bb58:                                          ; preds = %entry
   %storemerge.i.i = zext nneg i32 %71 to i64
   store i64 %storemerge.i.i, ptr %rng, align 8
   store i32 0, ptr %rand, align 4
-  %_M_b.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand, i64 0, i32 1
+  %_M_b.i.i = getelementptr inbounds i8, ptr %rand, i64 4
   store i32 1, ptr %_M_b.i.i, align 4
   call void @_ZN10moodycamel17ReaderWriterQueueIiLm512EEC2Em(ptr noundef nonnull align 64 dereferenceable(80) %q60, i64 noundef 200000)
   store i32 0, ptr %num61, align 4
@@ -1215,7 +1176,7 @@ sw.bb58:                                          ; preds = %entry
 invoke.cont65:                                    ; preds = %sw.bb58
   %72 = extractvalue { i64, i64 } %call66, 0
   %73 = extractvalue { i64, i64 } %call66, 1
-  %tailBlock.i163 = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %q60, i64 0, i32 2
+  %tailBlock.i163 = getelementptr inbounds i8, ptr %q60, i64 64
   br label %for.body70
 
 for.body70:                                       ; preds = %invoke.cont65, %for.inc79
@@ -1256,13 +1217,13 @@ lpad64:                                           ; preds = %lpad64.loopexit.spl
 
 do.body.i137:                                     ; preds = %do.body.i137, %lpad64
   %block.0.i138 = phi ptr [ %atomic-temp.i.0.i.i.i.i136, %lpad64 ], [ %atomic-temp.i.0.i.i.i10.i140, %do.body.i137 ]
-  %next.i139 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i138, i64 0, i32 6
+  %next.i139 = getelementptr inbounds i8, ptr %block.0.i138, i64 128
   %76 = load atomic i64, ptr %next.i139 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i140 = inttoptr i64 %76 to ptr
   %77 = load atomic i64, ptr %block.0.i138 monotonic, align 8
-  %tail.i141 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i138, i64 0, i32 3
+  %tail.i141 = getelementptr inbounds i8, ptr %block.0.i138, i64 64
   %78 = load atomic i64, ptr %tail.i141 monotonic, align 8
-  %rawThis.i142 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i138, i64 0, i32 9
+  %rawThis.i142 = getelementptr inbounds i8, ptr %block.0.i138, i64 152
   %79 = load ptr, ptr %rawThis.i142, align 8
   call void @free(ptr noundef %79) #18
   %cmp6.not.i143 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i140, %atomic-temp.i.0.i.i.i.i136
@@ -1271,14 +1232,14 @@ do.body.i137:                                     ; preds = %do.body.i137, %lpad
 if.else:                                          ; preds = %invoke.cont71
   %80 = load atomic i64, ptr %q60 monotonic, align 64
   %atomic-temp.i.0.i.i.i145 = inttoptr i64 %80 to ptr
-  %localTail.i146 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i145, i64 0, i32 1
+  %localTail.i146 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i145, i64 8
   %81 = load i64, ptr %localTail.i146, align 8
   %82 = load atomic i64, ptr %atomic-temp.i.0.i.i.i145 monotonic, align 8
   %cmp.not.i147 = icmp eq i64 %82, %81
   br i1 %cmp.not.i147, label %lor.lhs.false.i159, label %if.then.i148
 
 lor.lhs.false.i159:                               ; preds = %if.else
-  %tail.i160 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i145, i64 0, i32 3
+  %tail.i160 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i145, i64 64
   %83 = load atomic i64, ptr %tail.i160 monotonic, align 8
   store i64 %83, ptr %localTail.i146, align 8
   %cmp5.not.i161 = icmp eq i64 %81, %83
@@ -1298,9 +1259,9 @@ if.then10.i166:                                   ; preds = %if.else.i162
   fence acquire
   %85 = load atomic i64, ptr %q60 monotonic, align 64
   %atomic-temp.i.0.i.i7.i167 = inttoptr i64 %85 to ptr
-  %tail13.i168 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i167, i64 0, i32 3
+  %tail13.i168 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i167, i64 64
   %86 = load atomic i64, ptr %tail13.i168 monotonic, align 8
-  %localTail15.i169 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i167, i64 0, i32 1
+  %localTail15.i169 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i167, i64 8
   store i64 %86, ptr %localTail15.i169, align 8
   %87 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i167 monotonic, align 8
   fence acquire
@@ -1308,13 +1269,13 @@ if.then10.i166:                                   ; preds = %if.else.i162
   br i1 %cmp18.not.i170, label %if.end.i171, label %return.sink.split.i149
 
 if.end.i171:                                      ; preds = %if.then10.i166
-  %next.i172 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i167, i64 0, i32 6
+  %next.i172 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i167, i64 128
   %88 = load atomic i64, ptr %next.i172 monotonic, align 8
   %atomic-temp.i.0.i.i.i.i173 = inttoptr i64 %88 to ptr
   %89 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i173 monotonic, align 8
-  %tail23.i174 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i173, i64 0, i32 3
+  %tail23.i174 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i173, i64 64
   %90 = load atomic i64, ptr %tail23.i174 monotonic, align 8
-  %localTail25.i175 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i173, i64 0, i32 1
+  %localTail25.i175 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i173, i64 8
   store i64 %90, ptr %localTail25.i175, align 8
   fence acquire
   fence release
@@ -1326,7 +1287,7 @@ return.sink.split.i149:                           ; preds = %if.end.i171, %if.th
   %frontBlock_.0.sink24.i150 = phi ptr [ %atomic-temp.i.0.i.i.i.i173, %if.end.i171 ], [ %atomic-temp.i.0.i.i7.i167, %if.then10.i166 ], [ %atomic-temp.i.0.i.i.i145, %if.then.i148 ]
   %blockFront.0.sink23.i151 = phi i64 [ %89, %if.end.i171 ], [ %87, %if.then10.i166 ], [ %82, %if.then.i148 ]
   %add.i155 = add i64 %blockFront.0.sink23.i151, 1
-  %sizeMask.i156 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i150, i64 0, i32 8
+  %sizeMask.i156 = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i150, i64 144
   %91 = load i64, ptr %sizeMask.i156, align 8
   %and.i157 = and i64 %91, %add.i155
   fence release
@@ -1345,14 +1306,14 @@ for.end81:                                        ; preds = %for.inc79
 invoke.cont83:                                    ; preds = %for.end81
   %92 = load atomic i64, ptr %q60 monotonic, align 64
   %atomic-temp.i.0.i.i.i177 = inttoptr i64 %92 to ptr
-  %localTail.i178 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i177, i64 0, i32 1
+  %localTail.i178 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i177, i64 8
   %93 = load i64, ptr %localTail.i178, align 8
   %94 = load atomic i64, ptr %atomic-temp.i.0.i.i.i177 monotonic, align 8
   %cmp.not.i179 = icmp eq i64 %94, %93
   br i1 %cmp.not.i179, label %lor.lhs.false.i191, label %if.then.i180
 
 lor.lhs.false.i191:                               ; preds = %invoke.cont83
-  %tail.i192 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i177, i64 0, i32 3
+  %tail.i192 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i177, i64 64
   %95 = load atomic i64, ptr %tail.i192 monotonic, align 8
   store i64 %95, ptr %localTail.i178, align 8
   %cmp5.not.i193 = icmp eq i64 %93, %95
@@ -1372,9 +1333,9 @@ if.then10.i198:                                   ; preds = %if.else.i194
   fence acquire
   %97 = load atomic i64, ptr %q60 monotonic, align 64
   %atomic-temp.i.0.i.i7.i199 = inttoptr i64 %97 to ptr
-  %tail13.i200 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i199, i64 0, i32 3
+  %tail13.i200 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i199, i64 64
   %98 = load atomic i64, ptr %tail13.i200 monotonic, align 8
-  %localTail15.i201 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i199, i64 0, i32 1
+  %localTail15.i201 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i199, i64 8
   store i64 %98, ptr %localTail15.i201, align 8
   %99 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i199 monotonic, align 8
   fence acquire
@@ -1382,13 +1343,13 @@ if.then10.i198:                                   ; preds = %if.else.i194
   br i1 %cmp18.not.i202, label %if.end.i203, label %return.sink.split.i181
 
 if.end.i203:                                      ; preds = %if.then10.i198
-  %next.i204 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i199, i64 0, i32 6
+  %next.i204 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i199, i64 128
   %100 = load atomic i64, ptr %next.i204 monotonic, align 8
   %atomic-temp.i.0.i.i.i.i205 = inttoptr i64 %100 to ptr
   %101 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i205 monotonic, align 8
-  %tail23.i206 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i205, i64 0, i32 3
+  %tail23.i206 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i205, i64 64
   %102 = load atomic i64, ptr %tail23.i206 monotonic, align 8
-  %localTail25.i207 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i205, i64 0, i32 1
+  %localTail25.i207 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i205, i64 8
   store i64 %102, ptr %localTail25.i207, align 8
   fence acquire
   fence release
@@ -1400,7 +1361,7 @@ return.sink.split.i181:                           ; preds = %if.end.i203, %if.th
   %frontBlock_.0.sink24.i182 = phi ptr [ %atomic-temp.i.0.i.i.i.i205, %if.end.i203 ], [ %atomic-temp.i.0.i.i7.i199, %if.then10.i198 ], [ %atomic-temp.i.0.i.i.i177, %if.then.i180 ]
   %blockFront.0.sink23.i183 = phi i64 [ %101, %if.end.i203 ], [ %99, %if.then10.i198 ], [ %94, %if.then.i180 ]
   %add.i187 = add i64 %blockFront.0.sink23.i183, 1
-  %sizeMask.i188 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i182, i64 0, i32 8
+  %sizeMask.i188 = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i182, i64 144
   %103 = load i64, ptr %sizeMask.i188, align 8
   %and.i189 = and i64 %103, %add.i187
   fence release
@@ -1417,13 +1378,13 @@ invoke.cont85:                                    ; preds = %return.sink.split.i
 
 do.body.i210:                                     ; preds = %do.body.i210, %invoke.cont85
   %block.0.i211 = phi ptr [ %atomic-temp.i.0.i.i.i.i209, %invoke.cont85 ], [ %atomic-temp.i.0.i.i.i10.i213, %do.body.i210 ]
-  %next.i212 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i211, i64 0, i32 6
+  %next.i212 = getelementptr inbounds i8, ptr %block.0.i211, i64 128
   %105 = load atomic i64, ptr %next.i212 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i213 = inttoptr i64 %105 to ptr
   %106 = load atomic i64, ptr %block.0.i211 monotonic, align 8
-  %tail.i214 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i211, i64 0, i32 3
+  %tail.i214 = getelementptr inbounds i8, ptr %block.0.i211, i64 64
   %107 = load atomic i64, ptr %tail.i214 monotonic, align 8
-  %rawThis.i215 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i211, i64 0, i32 9
+  %rawThis.i215 = getelementptr inbounds i8, ptr %block.0.i211, i64 152
   %108 = load ptr, ptr %rawThis.i215, align 8
   call void @free(ptr noundef %108) #18
   %cmp6.not.i216 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i213, %atomic-temp.i.0.i.i.i.i209
@@ -1437,7 +1398,7 @@ sw.bb89:                                          ; preds = %entry
   %storemerge.i.i219 = zext nneg i32 %109 to i64
   store i64 %storemerge.i.i219, ptr %rng91, align 8
   store i32 0, ptr %rand93, align 4
-  %_M_b.i.i220 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand93, i64 0, i32 1
+  %_M_b.i.i220 = getelementptr inbounds i8, ptr %rand93, i64 4
   store i32 3, ptr %_M_b.i.i220, align 4
   call void @_ZN10moodycamel17ReaderWriterQueueIiLm512EEC2Em(ptr noundef nonnull align 64 dereferenceable(80) %q94, i64 noundef 1200000)
   store i32 -1, ptr %element95, align 4
@@ -1488,14 +1449,14 @@ invoke.cont109:                                   ; preds = %invoke.cont108
 invoke.cont111:                                   ; preds = %invoke.cont109
   %113 = load atomic i64, ptr %q94 monotonic, align 64
   %atomic-temp.i.0.i.i.i225 = inttoptr i64 %113 to ptr
-  %localTail.i226 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i225, i64 0, i32 1
+  %localTail.i226 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i225, i64 8
   %114 = load i64, ptr %localTail.i226, align 8
   %115 = load atomic i64, ptr %atomic-temp.i.0.i.i.i225 monotonic, align 8
   %cmp.not.i227 = icmp eq i64 %115, %114
   br i1 %cmp.not.i227, label %lor.lhs.false.i239, label %if.then.i228
 
 lor.lhs.false.i239:                               ; preds = %invoke.cont111
-  %tail.i240 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i225, i64 0, i32 3
+  %tail.i240 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i225, i64 64
   %116 = load atomic i64, ptr %tail.i240 monotonic, align 8
   store i64 %116, ptr %localTail.i226, align 8
   %cmp5.not.i241 = icmp eq i64 %114, %116
@@ -1506,7 +1467,7 @@ if.then.i228:                                     ; preds = %lor.lhs.false.i239,
   br label %return.sink.split.i229
 
 if.else.i242:                                     ; preds = %lor.lhs.false.i239
-  %tailBlock.i243 = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %q94, i64 0, i32 2
+  %tailBlock.i243 = getelementptr inbounds i8, ptr %q94, i64 64
   %117 = load atomic i64, ptr %tailBlock.i243 monotonic, align 64
   %atomic-temp.i.0.i.i6.i244 = inttoptr i64 %117 to ptr
   %cmp9.not.i245 = icmp eq ptr %atomic-temp.i.0.i.i.i225, %atomic-temp.i.0.i.i6.i244
@@ -1516,9 +1477,9 @@ if.then10.i246:                                   ; preds = %if.else.i242
   fence acquire
   %118 = load atomic i64, ptr %q94 monotonic, align 64
   %atomic-temp.i.0.i.i7.i247 = inttoptr i64 %118 to ptr
-  %tail13.i248 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i247, i64 0, i32 3
+  %tail13.i248 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i247, i64 64
   %119 = load atomic i64, ptr %tail13.i248 monotonic, align 8
-  %localTail15.i249 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i247, i64 0, i32 1
+  %localTail15.i249 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i247, i64 8
   store i64 %119, ptr %localTail15.i249, align 8
   %120 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i247 monotonic, align 8
   fence acquire
@@ -1526,13 +1487,13 @@ if.then10.i246:                                   ; preds = %if.else.i242
   br i1 %cmp18.not.i250, label %if.end.i251, label %return.sink.split.i229
 
 if.end.i251:                                      ; preds = %if.then10.i246
-  %next.i252 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i247, i64 0, i32 6
+  %next.i252 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i247, i64 128
   %121 = load atomic i64, ptr %next.i252 monotonic, align 8
   %atomic-temp.i.0.i.i.i.i253 = inttoptr i64 %121 to ptr
   %122 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i253 monotonic, align 8
-  %tail23.i254 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i253, i64 0, i32 3
+  %tail23.i254 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i253, i64 64
   %123 = load atomic i64, ptr %tail23.i254 monotonic, align 8
-  %localTail25.i255 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i253, i64 0, i32 1
+  %localTail25.i255 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i253, i64 8
   store i64 %123, ptr %localTail25.i255, align 8
   fence acquire
   fence release
@@ -1543,14 +1504,14 @@ if.end.i251:                                      ; preds = %if.then10.i246
 return.sink.split.i229:                           ; preds = %if.end.i251, %if.then10.i246, %if.then.i228
   %frontBlock_.0.sink24.i230 = phi ptr [ %atomic-temp.i.0.i.i.i.i253, %if.end.i251 ], [ %atomic-temp.i.0.i.i7.i247, %if.then10.i246 ], [ %atomic-temp.i.0.i.i.i225, %if.then.i228 ]
   %blockFront.0.sink23.i231 = phi i64 [ %122, %if.end.i251 ], [ %120, %if.then10.i246 ], [ %115, %if.then.i228 ]
-  %data.i232 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i230, i64 0, i32 7
+  %data.i232 = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i230, i64 136
   %124 = load ptr, ptr %data.i232, align 8
   %mul.i233 = shl i64 %blockFront.0.sink23.i231, 2
   %add.ptr.i234 = getelementptr inbounds i8, ptr %124, i64 %mul.i233
   %125 = load i32, ptr %add.ptr.i234, align 4
   store i32 %125, ptr %element95, align 4
   %add.i235 = add i64 %blockFront.0.sink23.i231, 1
-  %sizeMask.i236 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i230, i64 0, i32 8
+  %sizeMask.i236 = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i230, i64 144
   %126 = load i64, ptr %sizeMask.i236, align 8
   %and.i237 = and i64 %126, %add.i235
   fence release
@@ -1574,13 +1535,13 @@ invoke.cont113:                                   ; preds = %return.sink.split.i
 
 do.body.i258:                                     ; preds = %do.body.i258, %invoke.cont113
   %block.0.i259 = phi ptr [ %atomic-temp.i.0.i.i.i.i257, %invoke.cont113 ], [ %atomic-temp.i.0.i.i.i10.i261, %do.body.i258 ]
-  %next.i260 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i259, i64 0, i32 6
+  %next.i260 = getelementptr inbounds i8, ptr %block.0.i259, i64 128
   %130 = load atomic i64, ptr %next.i260 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i261 = inttoptr i64 %130 to ptr
   %131 = load atomic i64, ptr %block.0.i259 monotonic, align 8
-  %tail.i262 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i259, i64 0, i32 3
+  %tail.i262 = getelementptr inbounds i8, ptr %block.0.i259, i64 64
   %132 = load atomic i64, ptr %tail.i262 monotonic, align 8
-  %rawThis.i263 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i259, i64 0, i32 9
+  %rawThis.i263 = getelementptr inbounds i8, ptr %block.0.i259, i64 152
   %133 = load ptr, ptr %rawThis.i263, align 8
   call void @free(ptr noundef %133) #18
   %cmp6.not.i264 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i261, %atomic-temp.i.0.i.i.i.i257
@@ -1616,13 +1577,13 @@ ehcleanup120:                                     ; preds = %ehcleanup119, %lpad
 
 do.body.i267:                                     ; preds = %do.body.i267, %ehcleanup120
   %block.0.i268 = phi ptr [ %atomic-temp.i.0.i.i.i.i266, %ehcleanup120 ], [ %atomic-temp.i.0.i.i.i10.i270, %do.body.i267 ]
-  %next.i269 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i268, i64 0, i32 6
+  %next.i269 = getelementptr inbounds i8, ptr %block.0.i268, i64 128
   %138 = load atomic i64, ptr %next.i269 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i270 = inttoptr i64 %138 to ptr
   %139 = load atomic i64, ptr %block.0.i268 monotonic, align 8
-  %tail.i271 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i268, i64 0, i32 3
+  %tail.i271 = getelementptr inbounds i8, ptr %block.0.i268, i64 64
   %140 = load atomic i64, ptr %tail.i271 monotonic, align 8
-  %rawThis.i272 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i268, i64 0, i32 9
+  %rawThis.i272 = getelementptr inbounds i8, ptr %block.0.i268, i64 152
   %141 = load ptr, ptr %rawThis.i272, align 8
   call void @free(ptr noundef %141) #18
   %cmp6.not.i273 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i270, %atomic-temp.i.0.i.i.i.i266
@@ -1636,7 +1597,7 @@ sw.bb121:                                         ; preds = %entry
   %storemerge.i.i276 = zext nneg i32 %142 to i64
   store i64 %storemerge.i.i276, ptr %rng123, align 8
   store i32 0, ptr %rand125, align 4
-  %_M_b.i.i277 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand125, i64 0, i32 1
+  %_M_b.i.i277 = getelementptr inbounds i8, ptr %rand125, i64 4
   store i32 3, ptr %_M_b.i.i277, align 4
   call void @_ZN10moodycamel17ReaderWriterQueueIiLm512EEC2Em(ptr noundef nonnull align 64 dereferenceable(80) %q126, i64 noundef 1200000)
   store i32 -1, ptr %element127, align 4
@@ -1686,14 +1647,14 @@ invoke.cont141:                                   ; preds = %invoke.cont140
 invoke.cont143:                                   ; preds = %invoke.cont141
   %145 = load atomic i64, ptr %q126 monotonic, align 64
   %atomic-temp.i.0.i.i.i282 = inttoptr i64 %145 to ptr
-  %localTail.i283 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i282, i64 0, i32 1
+  %localTail.i283 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i282, i64 8
   %146 = load i64, ptr %localTail.i283, align 8
   %147 = load atomic i64, ptr %atomic-temp.i.0.i.i.i282 monotonic, align 8
   %cmp.not.i284 = icmp eq i64 %147, %146
   br i1 %cmp.not.i284, label %lor.lhs.false.i296, label %if.then.i285
 
 lor.lhs.false.i296:                               ; preds = %invoke.cont143
-  %tail.i297 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i282, i64 0, i32 3
+  %tail.i297 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i282, i64 64
   %148 = load atomic i64, ptr %tail.i297 monotonic, align 8
   store i64 %148, ptr %localTail.i283, align 8
   %cmp5.not.i298 = icmp eq i64 %146, %148
@@ -1704,7 +1665,7 @@ if.then.i285:                                     ; preds = %lor.lhs.false.i296,
   br label %return.sink.split.i286
 
 if.else.i299:                                     ; preds = %lor.lhs.false.i296
-  %tailBlock.i300 = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %q126, i64 0, i32 2
+  %tailBlock.i300 = getelementptr inbounds i8, ptr %q126, i64 64
   %149 = load atomic i64, ptr %tailBlock.i300 monotonic, align 64
   %atomic-temp.i.0.i.i6.i301 = inttoptr i64 %149 to ptr
   %cmp9.not.i302 = icmp eq ptr %atomic-temp.i.0.i.i.i282, %atomic-temp.i.0.i.i6.i301
@@ -1714,9 +1675,9 @@ if.then10.i303:                                   ; preds = %if.else.i299
   fence acquire
   %150 = load atomic i64, ptr %q126 monotonic, align 64
   %atomic-temp.i.0.i.i7.i304 = inttoptr i64 %150 to ptr
-  %tail13.i305 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i304, i64 0, i32 3
+  %tail13.i305 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i304, i64 64
   %151 = load atomic i64, ptr %tail13.i305 monotonic, align 8
-  %localTail15.i306 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i304, i64 0, i32 1
+  %localTail15.i306 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i304, i64 8
   store i64 %151, ptr %localTail15.i306, align 8
   %152 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i304 monotonic, align 8
   fence acquire
@@ -1724,13 +1685,13 @@ if.then10.i303:                                   ; preds = %if.else.i299
   br i1 %cmp18.not.i307, label %if.end.i308, label %return.sink.split.i286
 
 if.end.i308:                                      ; preds = %if.then10.i303
-  %next.i309 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i304, i64 0, i32 6
+  %next.i309 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i304, i64 128
   %153 = load atomic i64, ptr %next.i309 monotonic, align 8
   %atomic-temp.i.0.i.i.i.i310 = inttoptr i64 %153 to ptr
   %154 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i310 monotonic, align 8
-  %tail23.i311 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i310, i64 0, i32 3
+  %tail23.i311 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i310, i64 64
   %155 = load atomic i64, ptr %tail23.i311 monotonic, align 8
-  %localTail25.i312 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i310, i64 0, i32 1
+  %localTail25.i312 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i310, i64 8
   store i64 %155, ptr %localTail25.i312, align 8
   fence acquire
   fence release
@@ -1741,14 +1702,14 @@ if.end.i308:                                      ; preds = %if.then10.i303
 return.sink.split.i286:                           ; preds = %if.end.i308, %if.then10.i303, %if.then.i285
   %frontBlock_.0.sink24.i287 = phi ptr [ %atomic-temp.i.0.i.i.i.i310, %if.end.i308 ], [ %atomic-temp.i.0.i.i7.i304, %if.then10.i303 ], [ %atomic-temp.i.0.i.i.i282, %if.then.i285 ]
   %blockFront.0.sink23.i288 = phi i64 [ %154, %if.end.i308 ], [ %152, %if.then10.i303 ], [ %147, %if.then.i285 ]
-  %data.i289 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i287, i64 0, i32 7
+  %data.i289 = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i287, i64 136
   %156 = load ptr, ptr %data.i289, align 8
   %mul.i290 = shl i64 %blockFront.0.sink23.i288, 2
   %add.ptr.i291 = getelementptr inbounds i8, ptr %156, i64 %mul.i290
   %157 = load i32, ptr %add.ptr.i291, align 4
   store i32 %157, ptr %element127, align 4
   %add.i292 = add i64 %blockFront.0.sink23.i288, 1
-  %sizeMask.i293 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i287, i64 0, i32 8
+  %sizeMask.i293 = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i287, i64 144
   %158 = load i64, ptr %sizeMask.i293, align 8
   %and.i294 = and i64 %158, %add.i292
   fence release
@@ -1772,13 +1733,13 @@ invoke.cont145:                                   ; preds = %return.sink.split.i
 
 do.body.i315:                                     ; preds = %do.body.i315, %invoke.cont145
   %block.0.i316 = phi ptr [ %atomic-temp.i.0.i.i.i.i314, %invoke.cont145 ], [ %atomic-temp.i.0.i.i.i10.i318, %do.body.i315 ]
-  %next.i317 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i316, i64 0, i32 6
+  %next.i317 = getelementptr inbounds i8, ptr %block.0.i316, i64 128
   %162 = load atomic i64, ptr %next.i317 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i318 = inttoptr i64 %162 to ptr
   %163 = load atomic i64, ptr %block.0.i316 monotonic, align 8
-  %tail.i319 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i316, i64 0, i32 3
+  %tail.i319 = getelementptr inbounds i8, ptr %block.0.i316, i64 64
   %164 = load atomic i64, ptr %tail.i319 monotonic, align 8
-  %rawThis.i320 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i316, i64 0, i32 9
+  %rawThis.i320 = getelementptr inbounds i8, ptr %block.0.i316, i64 152
   %165 = load ptr, ptr %rawThis.i320, align 8
   call void @free(ptr noundef %165) #18
   %cmp6.not.i321 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i318, %atomic-temp.i.0.i.i.i.i314
@@ -1814,13 +1775,13 @@ ehcleanup152:                                     ; preds = %ehcleanup151, %lpad
 
 do.body.i324:                                     ; preds = %do.body.i324, %ehcleanup152
   %block.0.i325 = phi ptr [ %atomic-temp.i.0.i.i.i.i323, %ehcleanup152 ], [ %atomic-temp.i.0.i.i.i10.i327, %do.body.i324 ]
-  %next.i326 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i325, i64 0, i32 6
+  %next.i326 = getelementptr inbounds i8, ptr %block.0.i325, i64 128
   %170 = load atomic i64, ptr %next.i326 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i327 = inttoptr i64 %170 to ptr
   %171 = load atomic i64, ptr %block.0.i325 monotonic, align 8
-  %tail.i328 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i325, i64 0, i32 3
+  %tail.i328 = getelementptr inbounds i8, ptr %block.0.i325, i64 64
   %172 = load atomic i64, ptr %tail.i328 monotonic, align 8
-  %rawThis.i329 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i325, i64 0, i32 9
+  %rawThis.i329 = getelementptr inbounds i8, ptr %block.0.i325, i64 152
   %173 = load ptr, ptr %rawThis.i329, align 8
   call void @free(ptr noundef %173) #18
   %cmp6.not.i330 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i327, %atomic-temp.i.0.i.i.i.i323
@@ -1871,14 +1832,14 @@ invoke.cont170:                                   ; preds = %invoke.cont169
 invoke.cont172:                                   ; preds = %invoke.cont170
   %177 = load atomic i64, ptr %q155 monotonic, align 64
   %atomic-temp.i.0.i.i.i336 = inttoptr i64 %177 to ptr
-  %localTail.i337 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i336, i64 0, i32 1
+  %localTail.i337 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i336, i64 8
   %178 = load i64, ptr %localTail.i337, align 8
   %179 = load atomic i64, ptr %atomic-temp.i.0.i.i.i336 monotonic, align 8
   %cmp.not.i338 = icmp eq i64 %179, %178
   br i1 %cmp.not.i338, label %lor.lhs.false.i350, label %if.then.i339
 
 lor.lhs.false.i350:                               ; preds = %invoke.cont172
-  %tail.i351 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i336, i64 0, i32 3
+  %tail.i351 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i336, i64 64
   %180 = load atomic i64, ptr %tail.i351 monotonic, align 8
   store i64 %180, ptr %localTail.i337, align 8
   %cmp5.not.i352 = icmp eq i64 %178, %180
@@ -1889,7 +1850,7 @@ if.then.i339:                                     ; preds = %lor.lhs.false.i350,
   br label %return.sink.split.i340
 
 if.else.i353:                                     ; preds = %lor.lhs.false.i350
-  %tailBlock.i354 = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %q155, i64 0, i32 2
+  %tailBlock.i354 = getelementptr inbounds i8, ptr %q155, i64 64
   %181 = load atomic i64, ptr %tailBlock.i354 monotonic, align 64
   %atomic-temp.i.0.i.i6.i355 = inttoptr i64 %181 to ptr
   %cmp9.not.i356 = icmp eq ptr %atomic-temp.i.0.i.i.i336, %atomic-temp.i.0.i.i6.i355
@@ -1899,9 +1860,9 @@ if.then10.i357:                                   ; preds = %if.else.i353
   fence acquire
   %182 = load atomic i64, ptr %q155 monotonic, align 64
   %atomic-temp.i.0.i.i7.i358 = inttoptr i64 %182 to ptr
-  %tail13.i359 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i358, i64 0, i32 3
+  %tail13.i359 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i358, i64 64
   %183 = load atomic i64, ptr %tail13.i359 monotonic, align 8
-  %localTail15.i360 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i358, i64 0, i32 1
+  %localTail15.i360 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i358, i64 8
   store i64 %183, ptr %localTail15.i360, align 8
   %184 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i358 monotonic, align 8
   fence acquire
@@ -1909,13 +1870,13 @@ if.then10.i357:                                   ; preds = %if.else.i353
   br i1 %cmp18.not.i361, label %if.end.i362, label %return.sink.split.i340
 
 if.end.i362:                                      ; preds = %if.then10.i357
-  %next.i363 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i358, i64 0, i32 6
+  %next.i363 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i358, i64 128
   %185 = load atomic i64, ptr %next.i363 monotonic, align 8
   %atomic-temp.i.0.i.i.i.i364 = inttoptr i64 %185 to ptr
   %186 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i364 monotonic, align 8
-  %tail23.i365 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i364, i64 0, i32 3
+  %tail23.i365 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i364, i64 64
   %187 = load atomic i64, ptr %tail23.i365 monotonic, align 8
-  %localTail25.i366 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i364, i64 0, i32 1
+  %localTail25.i366 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i364, i64 8
   store i64 %187, ptr %localTail25.i366, align 8
   fence acquire
   fence release
@@ -1926,14 +1887,14 @@ if.end.i362:                                      ; preds = %if.then10.i357
 return.sink.split.i340:                           ; preds = %if.end.i362, %if.then10.i357, %if.then.i339
   %frontBlock_.0.sink24.i341 = phi ptr [ %atomic-temp.i.0.i.i.i.i364, %if.end.i362 ], [ %atomic-temp.i.0.i.i7.i358, %if.then10.i357 ], [ %atomic-temp.i.0.i.i.i336, %if.then.i339 ]
   %blockFront.0.sink23.i342 = phi i64 [ %186, %if.end.i362 ], [ %184, %if.then10.i357 ], [ %179, %if.then.i339 ]
-  %data.i343 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i341, i64 0, i32 7
+  %data.i343 = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i341, i64 136
   %188 = load ptr, ptr %data.i343, align 8
   %mul.i344 = shl i64 %blockFront.0.sink23.i342, 2
   %add.ptr.i345 = getelementptr inbounds i8, ptr %188, i64 %mul.i344
   %189 = load i32, ptr %add.ptr.i345, align 4
   store i32 %189, ptr %element156, align 4
   %add.i346 = add i64 %blockFront.0.sink23.i342, 1
-  %sizeMask.i347 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i341, i64 0, i32 8
+  %sizeMask.i347 = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i341, i64 144
   %190 = load i64, ptr %sizeMask.i347, align 8
   %and.i348 = and i64 %190, %add.i346
   fence release
@@ -1952,13 +1913,13 @@ invoke.cont174:                                   ; preds = %return.sink.split.i
 
 do.body.i369:                                     ; preds = %do.body.i369, %invoke.cont174
   %block.0.i370 = phi ptr [ %atomic-temp.i.0.i.i.i.i368, %invoke.cont174 ], [ %atomic-temp.i.0.i.i.i10.i372, %do.body.i369 ]
-  %next.i371 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i370, i64 0, i32 6
+  %next.i371 = getelementptr inbounds i8, ptr %block.0.i370, i64 128
   %192 = load atomic i64, ptr %next.i371 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i372 = inttoptr i64 %192 to ptr
   %193 = load atomic i64, ptr %block.0.i370 monotonic, align 8
-  %tail.i373 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i370, i64 0, i32 3
+  %tail.i373 = getelementptr inbounds i8, ptr %block.0.i370, i64 64
   %194 = load atomic i64, ptr %tail.i373 monotonic, align 8
-  %rawThis.i374 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i370, i64 0, i32 9
+  %rawThis.i374 = getelementptr inbounds i8, ptr %block.0.i370, i64 152
   %195 = load ptr, ptr %rawThis.i374, align 8
   call void @free(ptr noundef %195) #18
   %cmp6.not.i375 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i372, %atomic-temp.i.0.i.i.i.i368
@@ -1994,13 +1955,13 @@ ehcleanup179:                                     ; preds = %ehcleanup178, %lpad
 
 do.body.i378:                                     ; preds = %do.body.i378, %ehcleanup179
   %block.0.i379 = phi ptr [ %atomic-temp.i.0.i.i.i.i377, %ehcleanup179 ], [ %atomic-temp.i.0.i.i.i10.i381, %do.body.i378 ]
-  %next.i380 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i379, i64 0, i32 6
+  %next.i380 = getelementptr inbounds i8, ptr %block.0.i379, i64 128
   %200 = load atomic i64, ptr %next.i380 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i381 = inttoptr i64 %200 to ptr
   %201 = load atomic i64, ptr %block.0.i379 monotonic, align 8
-  %tail.i382 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i379, i64 0, i32 3
+  %tail.i382 = getelementptr inbounds i8, ptr %block.0.i379, i64 64
   %202 = load atomic i64, ptr %tail.i382 monotonic, align 8
-  %rawThis.i383 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i379, i64 0, i32 9
+  %rawThis.i383 = getelementptr inbounds i8, ptr %block.0.i379, i64 152
   %203 = load ptr, ptr %rawThis.i383, align 8
   call void @free(ptr noundef %203) #18
   %cmp6.not.i384 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i381, %atomic-temp.i.0.i.i.i.i377
@@ -2059,14 +2020,14 @@ invoke.cont199:                                   ; preds = %invoke.cont198
 invoke.cont201:                                   ; preds = %invoke.cont199
   %206 = load atomic i64, ptr %q184 monotonic, align 64
   %atomic-temp.i.0.i.i.i390 = inttoptr i64 %206 to ptr
-  %localTail.i391 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i390, i64 0, i32 1
+  %localTail.i391 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i390, i64 8
   %207 = load i64, ptr %localTail.i391, align 8
   %208 = load atomic i64, ptr %atomic-temp.i.0.i.i.i390 monotonic, align 8
   %cmp.not.i392 = icmp eq i64 %208, %207
   br i1 %cmp.not.i392, label %lor.lhs.false.i404, label %if.then.i393
 
 lor.lhs.false.i404:                               ; preds = %invoke.cont201
-  %tail.i405 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i390, i64 0, i32 3
+  %tail.i405 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i390, i64 64
   %209 = load atomic i64, ptr %tail.i405 monotonic, align 8
   store i64 %209, ptr %localTail.i391, align 8
   %cmp5.not.i406 = icmp eq i64 %207, %209
@@ -2077,7 +2038,7 @@ if.then.i393:                                     ; preds = %lor.lhs.false.i404,
   br label %return.sink.split.i394
 
 if.else.i407:                                     ; preds = %lor.lhs.false.i404
-  %tailBlock.i408 = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %q184, i64 0, i32 2
+  %tailBlock.i408 = getelementptr inbounds i8, ptr %q184, i64 64
   %210 = load atomic i64, ptr %tailBlock.i408 monotonic, align 64
   %atomic-temp.i.0.i.i6.i409 = inttoptr i64 %210 to ptr
   %cmp9.not.i410 = icmp eq ptr %atomic-temp.i.0.i.i.i390, %atomic-temp.i.0.i.i6.i409
@@ -2087,9 +2048,9 @@ if.then10.i411:                                   ; preds = %if.else.i407
   fence acquire
   %211 = load atomic i64, ptr %q184 monotonic, align 64
   %atomic-temp.i.0.i.i7.i412 = inttoptr i64 %211 to ptr
-  %tail13.i413 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i412, i64 0, i32 3
+  %tail13.i413 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i412, i64 64
   %212 = load atomic i64, ptr %tail13.i413 monotonic, align 8
-  %localTail15.i414 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i412, i64 0, i32 1
+  %localTail15.i414 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i412, i64 8
   store i64 %212, ptr %localTail15.i414, align 8
   %213 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i412 monotonic, align 8
   fence acquire
@@ -2097,13 +2058,13 @@ if.then10.i411:                                   ; preds = %if.else.i407
   br i1 %cmp18.not.i415, label %if.end.i416, label %return.sink.split.i394
 
 if.end.i416:                                      ; preds = %if.then10.i411
-  %next.i417 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i412, i64 0, i32 6
+  %next.i417 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i412, i64 128
   %214 = load atomic i64, ptr %next.i417 monotonic, align 8
   %atomic-temp.i.0.i.i.i.i418 = inttoptr i64 %214 to ptr
   %215 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i418 monotonic, align 8
-  %tail23.i419 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i418, i64 0, i32 3
+  %tail23.i419 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i418, i64 64
   %216 = load atomic i64, ptr %tail23.i419 monotonic, align 8
-  %localTail25.i420 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i418, i64 0, i32 1
+  %localTail25.i420 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i418, i64 8
   store i64 %216, ptr %localTail25.i420, align 8
   fence acquire
   fence release
@@ -2114,14 +2075,14 @@ if.end.i416:                                      ; preds = %if.then10.i411
 return.sink.split.i394:                           ; preds = %if.end.i416, %if.then10.i411, %if.then.i393
   %frontBlock_.0.sink24.i395 = phi ptr [ %atomic-temp.i.0.i.i.i.i418, %if.end.i416 ], [ %atomic-temp.i.0.i.i7.i412, %if.then10.i411 ], [ %atomic-temp.i.0.i.i.i390, %if.then.i393 ]
   %blockFront.0.sink23.i396 = phi i64 [ %215, %if.end.i416 ], [ %213, %if.then10.i411 ], [ %208, %if.then.i393 ]
-  %data.i397 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i395, i64 0, i32 7
+  %data.i397 = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i395, i64 136
   %217 = load ptr, ptr %data.i397, align 8
   %mul.i398 = shl i64 %blockFront.0.sink23.i396, 2
   %add.ptr.i399 = getelementptr inbounds i8, ptr %217, i64 %mul.i398
   %218 = load i32, ptr %add.ptr.i399, align 4
   store i32 %218, ptr %element185, align 4
   %add.i400 = add i64 %blockFront.0.sink23.i396, 1
-  %sizeMask.i401 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i395, i64 0, i32 8
+  %sizeMask.i401 = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i395, i64 144
   %219 = load i64, ptr %sizeMask.i401, align 8
   %and.i402 = and i64 %219, %add.i400
   fence release
@@ -2145,13 +2106,13 @@ invoke.cont203:                                   ; preds = %return.sink.split.i
 
 do.body.i423:                                     ; preds = %do.body.i423, %invoke.cont203
   %block.0.i424 = phi ptr [ %atomic-temp.i.0.i.i.i.i422, %invoke.cont203 ], [ %atomic-temp.i.0.i.i.i10.i426, %do.body.i423 ]
-  %next.i425 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i424, i64 0, i32 6
+  %next.i425 = getelementptr inbounds i8, ptr %block.0.i424, i64 128
   %223 = load atomic i64, ptr %next.i425 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i426 = inttoptr i64 %223 to ptr
   %224 = load atomic i64, ptr %block.0.i424 monotonic, align 8
-  %tail.i427 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i424, i64 0, i32 3
+  %tail.i427 = getelementptr inbounds i8, ptr %block.0.i424, i64 64
   %225 = load atomic i64, ptr %tail.i427 monotonic, align 8
-  %rawThis.i428 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i424, i64 0, i32 9
+  %rawThis.i428 = getelementptr inbounds i8, ptr %block.0.i424, i64 152
   %226 = load ptr, ptr %rawThis.i428, align 8
   call void @free(ptr noundef %226) #18
   %cmp6.not.i429 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i426, %atomic-temp.i.0.i.i.i.i422
@@ -2187,13 +2148,13 @@ ehcleanup210:                                     ; preds = %ehcleanup209, %lpad
 
 do.body.i432:                                     ; preds = %do.body.i432, %ehcleanup210
   %block.0.i433 = phi ptr [ %atomic-temp.i.0.i.i.i.i431, %ehcleanup210 ], [ %atomic-temp.i.0.i.i.i10.i435, %do.body.i432 ]
-  %next.i434 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i433, i64 0, i32 6
+  %next.i434 = getelementptr inbounds i8, ptr %block.0.i433, i64 128
   %231 = load atomic i64, ptr %next.i434 monotonic, align 8
   %atomic-temp.i.0.i.i.i10.i435 = inttoptr i64 %231 to ptr
   %232 = load atomic i64, ptr %block.0.i433 monotonic, align 8
-  %tail.i436 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i433, i64 0, i32 3
+  %tail.i436 = getelementptr inbounds i8, ptr %block.0.i433, i64 64
   %233 = load atomic i64, ptr %tail.i436 monotonic, align 8
-  %rawThis.i437 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i433, i64 0, i32 9
+  %rawThis.i437 = getelementptr inbounds i8, ptr %block.0.i433, i64 152
   %234 = load ptr, ptr %rawThis.i437, align 8
   call void @free(ptr noundef %234) #18
   %cmp6.not.i438 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i435, %atomic-temp.i.0.i.i.i.i431
@@ -2277,11 +2238,11 @@ sw.bb:                                            ; preds = %entry
 invoke.cont:                                      ; preds = %sw.bb
   %0 = extractvalue { i64, i64 } %call, 0
   %1 = extractvalue { i64, i64 } %call, 1
-  %slots_.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q, i64 0, i32 4
-  %nextSlot.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q, i64 0, i32 7
-  %data.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q, i64 0, i32 3
-  %mask.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q, i64 0, i32 1
-  %items.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q, i64 0, i32 5
+  %slots_.i.i = getelementptr inbounds i8, ptr %q, i64 32
+  %nextSlot.i.i.i = getelementptr inbounds i8, ptr %q, i64 64
+  %data.i.i.i = getelementptr inbounds i8, ptr %q, i64 24
+  %mask.i.i.i = getelementptr inbounds i8, ptr %q, i64 8
+  %items.i.i.i = getelementptr inbounds i8, ptr %q, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont, %invoke.cont1
@@ -2321,7 +2282,7 @@ while.end.i.i:                                    ; preds = %call2.i.i.i.noexc, 
   br i1 %cmp.i.i1.i.i, label %if.then.i.i.i.i, label %invoke.cont1
 
 if.then.i.i.i.i:                                  ; preds = %while.end.i.i
-  %m_sema.i.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %8, i64 0, i32 1
+  %m_sema.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   br label %while.cond2.i.i.i.i.i
 
 while.cond2.i.i.i.i.i:                            ; preds = %while.cond2.i.i.i.i.i, %if.then.i.i.i.i
@@ -2356,7 +2317,7 @@ invoke.cont3:                                     ; preds = %for.end
 
 if.end.i:                                         ; preds = %invoke.cont3
   %12 = atomicrmw add ptr %10, i64 -1 acquire, align 8
-  %nextItem.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q, i64 0, i32 9
+  %nextItem.i.i = getelementptr inbounds i8, ptr %q, i64 128
   %13 = load i64, ptr %nextItem.i.i, align 8
   %inc.i.i = add i64 %13, 1
   store i64 %inc.i.i, ptr %nextItem.i.i, align 8
@@ -2371,7 +2332,7 @@ if.end.i:                                         ; preds = %invoke.cont3
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %invoke.cont5
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %m_sema.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %17, i64 0, i32 1
+  %m_sema.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   br label %while.cond2.i.i.i.i
 
 while.cond2.i.i.i.i:                              ; preds = %while.cond2.i.i.i.i, %if.then.i.i.i
@@ -2384,7 +2345,7 @@ invoke.cont5:                                     ; preds = %while.cond2.i.i.i.i
   store volatile i32 %temp.0, ptr %forceNoOptimizeDummy, align 4
   %19 = load ptr, ptr %items.i.i.i, align 8
   %20 = load atomic i64, ptr %19 monotonic, align 8
-  %rawData.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q, i64 0, i32 2
+  %rawData.i.i = getelementptr inbounds i8, ptr %q, i64 16
   %21 = load ptr, ptr %rawData.i.i, align 8
   call void @free(ptr noundef %21) #18
   %22 = load ptr, ptr %items.i.i.i, align 8
@@ -2392,7 +2353,7 @@ invoke.cont5:                                     ; preds = %while.cond2.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i: ; preds = %invoke.cont5
-  %m_sema.i.i.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %22, i64 0, i32 1
+  %m_sema.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %call.i.i.i.i.i.i = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i) #18
   call void @_ZdlPv(ptr noundef nonnull %22) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i
@@ -2406,11 +2367,11 @@ _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_dele
 sw.bb7:                                           ; preds = %entry
   store double 1.000000e+05, ptr %out_Ops, align 8
   call void @_ZN10moodycamel34BlockingReaderWriterCircularBufferIiEC2Em(ptr noundef nonnull align 8 dereferenceable(136) %q9, i64 noundef 100000)
-  %slots_.i.i48 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q9, i64 0, i32 4
-  %nextSlot.i.i.i53 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q9, i64 0, i32 7
-  %data.i.i.i55 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q9, i64 0, i32 3
-  %mask.i.i.i56 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q9, i64 0, i32 1
-  %items.i.i.i59 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q9, i64 0, i32 5
+  %slots_.i.i48 = getelementptr inbounds i8, ptr %q9, i64 32
+  %nextSlot.i.i.i53 = getelementptr inbounds i8, ptr %q9, i64 64
+  %data.i.i.i55 = getelementptr inbounds i8, ptr %q9, i64 24
+  %mask.i.i.i56 = getelementptr inbounds i8, ptr %q9, i64 8
+  %items.i.i.i59 = getelementptr inbounds i8, ptr %q9, i64 40
   br label %for.body14
 
 for.body14:                                       ; preds = %sw.bb7, %invoke.cont16
@@ -2450,7 +2411,7 @@ while.end.i.i52:                                  ; preds = %call2.i.i.i.noexc67
   br i1 %cmp.i.i1.i.i60, label %if.then.i.i.i.i61, label %invoke.cont16
 
 if.then.i.i.i.i61:                                ; preds = %while.end.i.i52
-  %m_sema.i.i.i.i62 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %30, i64 0, i32 1
+  %m_sema.i.i.i.i62 = getelementptr inbounds i8, ptr %30, i64 8
   br label %while.cond2.i.i.i.i.i63
 
 while.cond2.i.i.i.i.i63:                          ; preds = %while.cond2.i.i.i.i.i63, %if.then.i.i.i.i61
@@ -2479,7 +2440,7 @@ for.end20:                                        ; preds = %invoke.cont16
 
 invoke.cont22:                                    ; preds = %for.end20
   %32 = extractvalue { i64, i64 } %call23, 0
-  %nextItem.i.i73 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q9, i64 0, i32 9
+  %nextItem.i.i73 = getelementptr inbounds i8, ptr %q9, i64 128
   br label %for.body27
 
 for.body27:                                       ; preds = %invoke.cont22, %invoke.cont28
@@ -2507,7 +2468,7 @@ if.end.i72:                                       ; preds = %for.body27
   br i1 %cmp.i.i.i80, label %if.then.i.i.i81, label %invoke.cont28
 
 if.then.i.i.i81:                                  ; preds = %if.end.i72
-  %m_sema.i.i.i82 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %40, i64 0, i32 1
+  %m_sema.i.i.i82 = getelementptr inbounds i8, ptr %40, i64 8
   br label %while.cond2.i.i.i.i83
 
 while.cond2.i.i.i.i83:                            ; preds = %while.cond2.i.i.i.i83, %if.then.i.i.i81
@@ -2531,7 +2492,7 @@ invoke.cont34:                                    ; preds = %for.end32
   store volatile i32 %add, ptr %forceNoOptimizeDummy, align 4
   %43 = load ptr, ptr %items.i.i.i59, align 8
   %44 = load atomic i64, ptr %43 monotonic, align 8
-  %rawData.i.i88 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q9, i64 0, i32 2
+  %rawData.i.i88 = getelementptr inbounds i8, ptr %q9, i64 16
   %45 = load ptr, ptr %rawData.i.i88, align 8
   call void @free(ptr noundef %45) #18
   %46 = load ptr, ptr %items.i.i.i59, align 8
@@ -2539,7 +2500,7 @@ invoke.cont34:                                    ; preds = %for.end32
   br i1 %cmp.not.i.i.i89, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i93, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i90
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i90: ; preds = %invoke.cont34
-  %m_sema.i.i.i.i.i91 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %46, i64 0, i32 1
+  %m_sema.i.i.i.i.i91 = getelementptr inbounds i8, ptr %46, i64 8
   %call.i.i.i.i.i.i92 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i91) #18
   call void @_ZdlPv(ptr noundef nonnull %46) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i93
@@ -2597,10 +2558,10 @@ invoke.cont53:                                    ; preds = %invoke.cont51
   store volatile i32 %51, ptr %forceNoOptimizeDummy, align 4
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer) #18
-  %items.i.i103 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q38, i64 0, i32 5
+  %items.i.i103 = getelementptr inbounds i8, ptr %q38, i64 40
   %52 = load ptr, ptr %items.i.i103, align 8
   %53 = load atomic i64, ptr %52 monotonic, align 8
-  %rawData.i.i104 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q38, i64 0, i32 2
+  %rawData.i.i104 = getelementptr inbounds i8, ptr %q38, i64 16
   %54 = load ptr, ptr %rawData.i.i104, align 8
   call void @free(ptr noundef %54) #18
   %55 = load ptr, ptr %items.i.i103, align 8
@@ -2608,14 +2569,14 @@ invoke.cont53:                                    ; preds = %invoke.cont51
   br i1 %cmp.not.i.i.i105, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i106
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i106: ; preds = %invoke.cont53
-  %m_sema.i.i.i.i.i107 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %55, i64 0, i32 1
+  %m_sema.i.i.i.i.i107 = getelementptr inbounds i8, ptr %55, i64 8
   %call.i.i.i.i.i.i108 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i107) #18
   call void @_ZdlPv(ptr noundef nonnull %55) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109
 
 _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109: ; preds = %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i106, %invoke.cont53
   store ptr null, ptr %items.i.i103, align 8
-  %slots_.i.i110 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q38, i64 0, i32 4
+  %slots_.i.i110 = getelementptr inbounds i8, ptr %q38, i64 32
   %56 = load ptr, ptr %slots_.i.i110, align 8
   %cmp.not.i2.i.i111 = icmp eq ptr %56, null
   br i1 %cmp.not.i2.i.i111, label %sw.epilog, label %sw.epilog.sink.split
@@ -2648,7 +2609,7 @@ sw.bb56:                                          ; preds = %entry
   %storemerge.i.i = zext nneg i32 %60 to i64
   store i64 %storemerge.i.i, ptr %rng, align 8
   store i32 0, ptr %rand, align 4
-  %_M_b.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand, i64 0, i32 1
+  %_M_b.i.i = getelementptr inbounds i8, ptr %rand, i64 4
   store i32 1, ptr %_M_b.i.i, align 4
   call void @_ZN10moodycamel34BlockingReaderWriterCircularBufferIiEC2Em(ptr noundef nonnull align 8 dereferenceable(136) %q58, i64 noundef 200000)
   %call64 = invoke { i64, i64 } @_ZN10moodycamel13getSystemTimeEv()
@@ -2657,12 +2618,12 @@ sw.bb56:                                          ; preds = %entry
 invoke.cont63:                                    ; preds = %sw.bb56
   %61 = extractvalue { i64, i64 } %call64, 0
   %62 = extractvalue { i64, i64 } %call64, 1
-  %items.i140 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q58, i64 0, i32 5
-  %nextItem.i.i143 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q58, i64 0, i32 9
-  %slots_.i.i149 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q58, i64 0, i32 4
-  %nextSlot.i.i.i123 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q58, i64 0, i32 7
-  %data.i.i.i125 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q58, i64 0, i32 3
-  %mask.i.i.i126 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q58, i64 0, i32 1
+  %items.i140 = getelementptr inbounds i8, ptr %q58, i64 40
+  %nextItem.i.i143 = getelementptr inbounds i8, ptr %q58, i64 128
+  %slots_.i.i149 = getelementptr inbounds i8, ptr %q58, i64 32
+  %nextSlot.i.i.i123 = getelementptr inbounds i8, ptr %q58, i64 64
+  %data.i.i.i125 = getelementptr inbounds i8, ptr %q58, i64 24
+  %mask.i.i.i126 = getelementptr inbounds i8, ptr %q58, i64 8
   br label %for.body68
 
 for.body68:                                       ; preds = %invoke.cont63, %for.inc76
@@ -2707,7 +2668,7 @@ while.end.i.i122:                                 ; preds = %call2.i.i.i.noexc13
   br i1 %cmp.i.i1.i.i130, label %if.then.i.i.i.i131, label %invoke.cont72
 
 if.then.i.i.i.i131:                               ; preds = %while.end.i.i122
-  %m_sema.i.i.i.i132 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %69, i64 0, i32 1
+  %m_sema.i.i.i.i132 = getelementptr inbounds i8, ptr %69, i64 8
   br label %while.cond2.i.i.i.i.i133
 
 while.cond2.i.i.i.i.i133:                         ; preds = %while.cond2.i.i.i.i.i133, %if.then.i.i.i.i131
@@ -2751,7 +2712,7 @@ if.end.i142:                                      ; preds = %if.else
   br i1 %cmp.i.i.i150, label %if.then.i.i.i151, label %for.inc76
 
 if.then.i.i.i151:                                 ; preds = %if.end.i142
-  %m_sema.i.i.i152 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %75, i64 0, i32 1
+  %m_sema.i.i.i152 = getelementptr inbounds i8, ptr %75, i64 8
   br label %while.cond2.i.i.i.i153
 
 while.cond2.i.i.i.i153:                           ; preds = %while.cond2.i.i.i.i153, %if.then.i.i.i151
@@ -2786,7 +2747,7 @@ if.end.i159:                                      ; preds = %invoke.cont80
   br i1 %cmp.i.i.i167, label %if.then.i.i.i168, label %invoke.cont82
 
 if.then.i.i.i168:                                 ; preds = %if.end.i159
-  %m_sema.i.i.i169 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %81, i64 0, i32 1
+  %m_sema.i.i.i169 = getelementptr inbounds i8, ptr %81, i64 8
   br label %while.cond2.i.i.i.i170
 
 while.cond2.i.i.i.i170:                           ; preds = %while.cond2.i.i.i.i170, %if.then.i.i.i168
@@ -2799,7 +2760,7 @@ invoke.cont82:                                    ; preds = %while.cond2.i.i.i.i
   store volatile i32 %conv84, ptr %forceNoOptimizeDummy, align 4
   %83 = load ptr, ptr %items.i140, align 8
   %84 = load atomic i64, ptr %83 monotonic, align 8
-  %rawData.i.i175 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q58, i64 0, i32 2
+  %rawData.i.i175 = getelementptr inbounds i8, ptr %q58, i64 16
   %85 = load ptr, ptr %rawData.i.i175, align 8
   call void @free(ptr noundef %85) #18
   %86 = load ptr, ptr %items.i140, align 8
@@ -2807,7 +2768,7 @@ invoke.cont82:                                    ; preds = %while.cond2.i.i.i.i
   br i1 %cmp.not.i.i.i176, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i177
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i177: ; preds = %invoke.cont82
-  %m_sema.i.i.i.i.i178 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %86, i64 0, i32 1
+  %m_sema.i.i.i.i.i178 = getelementptr inbounds i8, ptr %86, i64 8
   %call.i.i.i.i.i.i179 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i178) #18
   call void @_ZdlPv(ptr noundef nonnull %86) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180
@@ -2826,7 +2787,7 @@ sw.bb86:                                          ; preds = %entry
   %storemerge.i.i188 = zext nneg i32 %88 to i64
   store i64 %storemerge.i.i188, ptr %rng88, align 8
   store i32 0, ptr %rand90, align 4
-  %_M_b.i.i189 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand90, i64 0, i32 1
+  %_M_b.i.i189 = getelementptr inbounds i8, ptr %rand90, i64 4
   store i32 3, ptr %_M_b.i.i189, align 4
   call void @_ZN10moodycamel34BlockingReaderWriterCircularBufferIiEC2Em(ptr noundef nonnull align 8 dereferenceable(136) %q91, i64 noundef 1200000)
   store i32 -1, ptr %element92, align 4
@@ -2875,7 +2836,7 @@ invoke.cont106:                                   ; preds = %invoke.cont105
           to label %invoke.cont108 unwind label %lpad104
 
 invoke.cont108:                                   ; preds = %invoke.cont106
-  %items.i194 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 5
+  %items.i194 = getelementptr inbounds i8, ptr %q91, i64 40
   %92 = load ptr, ptr %items.i194, align 8
   %93 = load atomic i64, ptr %92 monotonic, align 8
   %cmp.i.i195 = icmp sgt i64 %93, 0
@@ -2883,26 +2844,26 @@ invoke.cont108:                                   ; preds = %invoke.cont106
 
 if.end.i196:                                      ; preds = %invoke.cont108
   %94 = atomicrmw add ptr %92, i64 -1 acquire, align 8
-  %nextItem.i.i197 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 9
+  %nextItem.i.i197 = getelementptr inbounds i8, ptr %q91, i64 128
   %95 = load i64, ptr %nextItem.i.i197, align 8
   %inc.i.i198 = add i64 %95, 1
   store i64 %inc.i.i198, ptr %nextItem.i.i197, align 8
-  %data.i.i199 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 3
+  %data.i.i199 = getelementptr inbounds i8, ptr %q91, i64 24
   %96 = load ptr, ptr %data.i.i199, align 8
-  %mask.i.i200 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 1
+  %mask.i.i200 = getelementptr inbounds i8, ptr %q91, i64 8
   %97 = load i64, ptr %mask.i.i200, align 8
   %and.i.i201 = and i64 %97, %95
   %arrayidx.i.i202 = getelementptr inbounds i32, ptr %96, i64 %and.i.i201
   %98 = load i32, ptr %arrayidx.i.i202, align 4
   store i32 %98, ptr %element92, align 4
-  %slots_.i.i203 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 4
+  %slots_.i.i203 = getelementptr inbounds i8, ptr %q91, i64 32
   %99 = load ptr, ptr %slots_.i.i203, align 8
   %100 = atomicrmw add ptr %99, i64 1 release, align 8
   %cmp.i.i.i204 = icmp slt i64 %100, 0
   br i1 %cmp.i.i.i204, label %if.then.i.i.i205, label %invoke.cont110
 
 if.then.i.i.i205:                                 ; preds = %if.end.i196
-  %m_sema.i.i.i206 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %99, i64 0, i32 1
+  %m_sema.i.i.i206 = getelementptr inbounds i8, ptr %99, i64 8
   br label %while.cond2.i.i.i.i207
 
 while.cond2.i.i.i.i207:                           ; preds = %while.cond2.i.i.i.i207, %if.then.i.i.i205
@@ -2922,7 +2883,7 @@ invoke.cont110:                                   ; preds = %while.cond2.i.i.i.i
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer97) #18
   %103 = load ptr, ptr %items.i194, align 8
   %104 = load atomic i64, ptr %103 monotonic, align 8
-  %rawData.i.i212 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 2
+  %rawData.i.i212 = getelementptr inbounds i8, ptr %q91, i64 16
   %105 = load ptr, ptr %rawData.i.i212, align 8
   call void @free(ptr noundef %105) #18
   %106 = load ptr, ptr %items.i194, align 8
@@ -2930,14 +2891,14 @@ invoke.cont110:                                   ; preds = %while.cond2.i.i.i.i
   br i1 %cmp.not.i.i.i213, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i214
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i214: ; preds = %invoke.cont110
-  %m_sema.i.i.i.i.i215 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %106, i64 0, i32 1
+  %m_sema.i.i.i.i.i215 = getelementptr inbounds i8, ptr %106, i64 8
   %call.i.i.i.i.i.i216 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i215) #18
   call void @_ZdlPv(ptr noundef nonnull %106) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217
 
 _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217: ; preds = %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i214, %invoke.cont110
   store ptr null, ptr %items.i194, align 8
-  %slots_.i.i218 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 4
+  %slots_.i.i218 = getelementptr inbounds i8, ptr %q91, i64 32
   %107 = load ptr, ptr %slots_.i.i218, align 8
   %cmp.not.i2.i.i219 = icmp eq ptr %107, null
   br i1 %cmp.not.i2.i.i219, label %sw.epilog, label %sw.epilog.sink.split
@@ -2971,7 +2932,7 @@ sw.bb118:                                         ; preds = %entry
   %storemerge.i.i225 = zext nneg i32 %111 to i64
   store i64 %storemerge.i.i225, ptr %rng120, align 8
   store i32 0, ptr %rand122, align 4
-  %_M_b.i.i226 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand122, i64 0, i32 1
+  %_M_b.i.i226 = getelementptr inbounds i8, ptr %rand122, i64 4
   store i32 3, ptr %_M_b.i.i226, align 4
   call void @_ZN10moodycamel34BlockingReaderWriterCircularBufferIiEC2Em(ptr noundef nonnull align 8 dereferenceable(136) %q123, i64 noundef 1200000)
   store i32 -1, ptr %element124, align 4
@@ -3019,7 +2980,7 @@ invoke.cont138:                                   ; preds = %invoke.cont137
           to label %invoke.cont140 unwind label %lpad136
 
 invoke.cont140:                                   ; preds = %invoke.cont138
-  %items.i231 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 5
+  %items.i231 = getelementptr inbounds i8, ptr %q123, i64 40
   %114 = load ptr, ptr %items.i231, align 8
   %115 = load atomic i64, ptr %114 monotonic, align 8
   %cmp.i.i232 = icmp sgt i64 %115, 0
@@ -3027,26 +2988,26 @@ invoke.cont140:                                   ; preds = %invoke.cont138
 
 if.end.i233:                                      ; preds = %invoke.cont140
   %116 = atomicrmw add ptr %114, i64 -1 acquire, align 8
-  %nextItem.i.i234 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 9
+  %nextItem.i.i234 = getelementptr inbounds i8, ptr %q123, i64 128
   %117 = load i64, ptr %nextItem.i.i234, align 8
   %inc.i.i235 = add i64 %117, 1
   store i64 %inc.i.i235, ptr %nextItem.i.i234, align 8
-  %data.i.i236 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 3
+  %data.i.i236 = getelementptr inbounds i8, ptr %q123, i64 24
   %118 = load ptr, ptr %data.i.i236, align 8
-  %mask.i.i237 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 1
+  %mask.i.i237 = getelementptr inbounds i8, ptr %q123, i64 8
   %119 = load i64, ptr %mask.i.i237, align 8
   %and.i.i238 = and i64 %119, %117
   %arrayidx.i.i239 = getelementptr inbounds i32, ptr %118, i64 %and.i.i238
   %120 = load i32, ptr %arrayidx.i.i239, align 4
   store i32 %120, ptr %element124, align 4
-  %slots_.i.i240 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 4
+  %slots_.i.i240 = getelementptr inbounds i8, ptr %q123, i64 32
   %121 = load ptr, ptr %slots_.i.i240, align 8
   %122 = atomicrmw add ptr %121, i64 1 release, align 8
   %cmp.i.i.i241 = icmp slt i64 %122, 0
   br i1 %cmp.i.i.i241, label %if.then.i.i.i242, label %invoke.cont142
 
 if.then.i.i.i242:                                 ; preds = %if.end.i233
-  %m_sema.i.i.i243 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %121, i64 0, i32 1
+  %m_sema.i.i.i243 = getelementptr inbounds i8, ptr %121, i64 8
   br label %while.cond2.i.i.i.i244
 
 while.cond2.i.i.i.i244:                           ; preds = %while.cond2.i.i.i.i244, %if.then.i.i.i242
@@ -3066,7 +3027,7 @@ invoke.cont142:                                   ; preds = %while.cond2.i.i.i.i
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer129) #18
   %125 = load ptr, ptr %items.i231, align 8
   %126 = load atomic i64, ptr %125 monotonic, align 8
-  %rawData.i.i249 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 2
+  %rawData.i.i249 = getelementptr inbounds i8, ptr %q123, i64 16
   %127 = load ptr, ptr %rawData.i.i249, align 8
   call void @free(ptr noundef %127) #18
   %128 = load ptr, ptr %items.i231, align 8
@@ -3074,14 +3035,14 @@ invoke.cont142:                                   ; preds = %while.cond2.i.i.i.i
   br i1 %cmp.not.i.i.i250, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i251
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i251: ; preds = %invoke.cont142
-  %m_sema.i.i.i.i.i252 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %128, i64 0, i32 1
+  %m_sema.i.i.i.i.i252 = getelementptr inbounds i8, ptr %128, i64 8
   %call.i.i.i.i.i.i253 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i252) #18
   call void @_ZdlPv(ptr noundef nonnull %128) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254
 
 _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254: ; preds = %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i251, %invoke.cont142
   store ptr null, ptr %items.i231, align 8
-  %slots_.i.i255 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 4
+  %slots_.i.i255 = getelementptr inbounds i8, ptr %q123, i64 32
   %129 = load ptr, ptr %slots_.i.i255, align 8
   %cmp.not.i2.i.i256 = icmp eq ptr %129, null
   br i1 %cmp.not.i2.i.i256, label %sw.epilog, label %sw.epilog.sink.split
@@ -3150,7 +3111,7 @@ invoke.cont167:                                   ; preds = %invoke.cont166
           to label %invoke.cont169 unwind label %lpad165
 
 invoke.cont169:                                   ; preds = %invoke.cont167
-  %items.i265 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 5
+  %items.i265 = getelementptr inbounds i8, ptr %q152, i64 40
   %136 = load ptr, ptr %items.i265, align 8
   %137 = load atomic i64, ptr %136 monotonic, align 8
   %cmp.i.i266 = icmp sgt i64 %137, 0
@@ -3158,26 +3119,26 @@ invoke.cont169:                                   ; preds = %invoke.cont167
 
 if.end.i267:                                      ; preds = %invoke.cont169
   %138 = atomicrmw add ptr %136, i64 -1 acquire, align 8
-  %nextItem.i.i268 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 9
+  %nextItem.i.i268 = getelementptr inbounds i8, ptr %q152, i64 128
   %139 = load i64, ptr %nextItem.i.i268, align 8
   %inc.i.i269 = add i64 %139, 1
   store i64 %inc.i.i269, ptr %nextItem.i.i268, align 8
-  %data.i.i270 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 3
+  %data.i.i270 = getelementptr inbounds i8, ptr %q152, i64 24
   %140 = load ptr, ptr %data.i.i270, align 8
-  %mask.i.i271 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 1
+  %mask.i.i271 = getelementptr inbounds i8, ptr %q152, i64 8
   %141 = load i64, ptr %mask.i.i271, align 8
   %and.i.i272 = and i64 %141, %139
   %arrayidx.i.i273 = getelementptr inbounds i32, ptr %140, i64 %and.i.i272
   %142 = load i32, ptr %arrayidx.i.i273, align 4
   store i32 %142, ptr %element153, align 4
-  %slots_.i.i274 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 4
+  %slots_.i.i274 = getelementptr inbounds i8, ptr %q152, i64 32
   %143 = load ptr, ptr %slots_.i.i274, align 8
   %144 = atomicrmw add ptr %143, i64 1 release, align 8
   %cmp.i.i.i275 = icmp slt i64 %144, 0
   br i1 %cmp.i.i.i275, label %if.then.i.i.i276, label %invoke.cont171
 
 if.then.i.i.i276:                                 ; preds = %if.end.i267
-  %m_sema.i.i.i277 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %143, i64 0, i32 1
+  %m_sema.i.i.i277 = getelementptr inbounds i8, ptr %143, i64 8
   br label %while.cond2.i.i.i.i278
 
 while.cond2.i.i.i.i278:                           ; preds = %while.cond2.i.i.i.i278, %if.then.i.i.i276
@@ -3192,7 +3153,7 @@ invoke.cont171:                                   ; preds = %while.cond2.i.i.i.i
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer158) #18
   %145 = load ptr, ptr %items.i265, align 8
   %146 = load atomic i64, ptr %145 monotonic, align 8
-  %rawData.i.i283 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 2
+  %rawData.i.i283 = getelementptr inbounds i8, ptr %q152, i64 16
   %147 = load ptr, ptr %rawData.i.i283, align 8
   call void @free(ptr noundef %147) #18
   %148 = load ptr, ptr %items.i265, align 8
@@ -3200,14 +3161,14 @@ invoke.cont171:                                   ; preds = %while.cond2.i.i.i.i
   br i1 %cmp.not.i.i.i284, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i285
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i285: ; preds = %invoke.cont171
-  %m_sema.i.i.i.i.i286 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %148, i64 0, i32 1
+  %m_sema.i.i.i.i.i286 = getelementptr inbounds i8, ptr %148, i64 8
   %call.i.i.i.i.i.i287 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i286) #18
   call void @_ZdlPv(ptr noundef nonnull %148) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288
 
 _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288: ; preds = %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i285, %invoke.cont171
   store ptr null, ptr %items.i265, align 8
-  %slots_.i.i289 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 4
+  %slots_.i.i289 = getelementptr inbounds i8, ptr %q152, i64 32
   %149 = load ptr, ptr %slots_.i.i289, align 8
   %cmp.not.i2.i.i290 = icmp eq ptr %149, null
   br i1 %cmp.not.i2.i.i290, label %sw.epilog, label %sw.epilog.sink.split
@@ -3284,7 +3245,7 @@ invoke.cont196:                                   ; preds = %invoke.cont195
           to label %invoke.cont198 unwind label %lpad194
 
 invoke.cont198:                                   ; preds = %invoke.cont196
-  %items.i299 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 5
+  %items.i299 = getelementptr inbounds i8, ptr %q181, i64 40
   %155 = load ptr, ptr %items.i299, align 8
   %156 = load atomic i64, ptr %155 monotonic, align 8
   %cmp.i.i300 = icmp sgt i64 %156, 0
@@ -3292,26 +3253,26 @@ invoke.cont198:                                   ; preds = %invoke.cont196
 
 if.end.i301:                                      ; preds = %invoke.cont198
   %157 = atomicrmw add ptr %155, i64 -1 acquire, align 8
-  %nextItem.i.i302 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 9
+  %nextItem.i.i302 = getelementptr inbounds i8, ptr %q181, i64 128
   %158 = load i64, ptr %nextItem.i.i302, align 8
   %inc.i.i303 = add i64 %158, 1
   store i64 %inc.i.i303, ptr %nextItem.i.i302, align 8
-  %data.i.i304 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 3
+  %data.i.i304 = getelementptr inbounds i8, ptr %q181, i64 24
   %159 = load ptr, ptr %data.i.i304, align 8
-  %mask.i.i305 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 1
+  %mask.i.i305 = getelementptr inbounds i8, ptr %q181, i64 8
   %160 = load i64, ptr %mask.i.i305, align 8
   %and.i.i306 = and i64 %160, %158
   %arrayidx.i.i307 = getelementptr inbounds i32, ptr %159, i64 %and.i.i306
   %161 = load i32, ptr %arrayidx.i.i307, align 4
   store i32 %161, ptr %element182, align 4
-  %slots_.i.i308 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 4
+  %slots_.i.i308 = getelementptr inbounds i8, ptr %q181, i64 32
   %162 = load ptr, ptr %slots_.i.i308, align 8
   %163 = atomicrmw add ptr %162, i64 1 release, align 8
   %cmp.i.i.i309 = icmp slt i64 %163, 0
   br i1 %cmp.i.i.i309, label %if.then.i.i.i310, label %invoke.cont200
 
 if.then.i.i.i310:                                 ; preds = %if.end.i301
-  %m_sema.i.i.i311 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %162, i64 0, i32 1
+  %m_sema.i.i.i311 = getelementptr inbounds i8, ptr %162, i64 8
   br label %while.cond2.i.i.i.i312
 
 while.cond2.i.i.i.i312:                           ; preds = %while.cond2.i.i.i.i312, %if.then.i.i.i310
@@ -3331,7 +3292,7 @@ invoke.cont200:                                   ; preds = %while.cond2.i.i.i.i
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer187) #18
   %166 = load ptr, ptr %items.i299, align 8
   %167 = load atomic i64, ptr %166 monotonic, align 8
-  %rawData.i.i317 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 2
+  %rawData.i.i317 = getelementptr inbounds i8, ptr %q181, i64 16
   %168 = load ptr, ptr %rawData.i.i317, align 8
   call void @free(ptr noundef %168) #18
   %169 = load ptr, ptr %items.i299, align 8
@@ -3339,14 +3300,14 @@ invoke.cont200:                                   ; preds = %while.cond2.i.i.i.i
   br i1 %cmp.not.i.i.i318, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i319
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i319: ; preds = %invoke.cont200
-  %m_sema.i.i.i.i.i320 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %169, i64 0, i32 1
+  %m_sema.i.i.i.i.i320 = getelementptr inbounds i8, ptr %169, i64 8
   %call.i.i.i.i.i.i321 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i320) #18
   call void @_ZdlPv(ptr noundef nonnull %169) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322
 
 _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322: ; preds = %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i319, %invoke.cont200
   store ptr null, ptr %items.i299, align 8
-  %slots_.i.i323 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 4
+  %slots_.i.i323 = getelementptr inbounds i8, ptr %q181, i64 32
   %170 = load ptr, ptr %slots_.i.i323, align 8
   %cmp.not.i2.i.i324 = icmp eq ptr %170, null
   br i1 %cmp.not.i2.i.i324, label %sw.epilog, label %sw.epilog.sink.split
@@ -3379,7 +3340,7 @@ sw.default:                                       ; preds = %entry
 sw.epilog.sink.split:                             ; preds = %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i93, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i
   %.sink381 = phi ptr [ %23, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i ], [ %47, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i93 ], [ %56, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109 ], [ %87, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180 ], [ %107, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217 ], [ %129, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254 ], [ %149, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288 ], [ %170, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322 ]
   %result.0.ph = phi double [ %call4, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i ], [ %call35, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i93 ], [ %call54, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109 ], [ %call81, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180 ], [ %call109, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217 ], [ %call141, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254 ], [ %call170, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288 ], [ %call199, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322 ]
-  %m_sema.i.i.i4.i.i326 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %.sink381, i64 0, i32 1
+  %m_sema.i.i.i4.i.i326 = getelementptr inbounds i8, ptr %.sink381, i64 8
   %call.i.i.i.i5.i.i327 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i4.i.i326) #18
   call void @_ZdlPv(ptr noundef nonnull %.sink381) #20
   br label %sw.epilog
@@ -3489,7 +3450,7 @@ _ZN10spsc_queueIiE7enqueueEi.exit.i:              ; preds = %if.end15.i.i.i, %if
   %q.sroa.26.1 = phi ptr [ %q.sroa.15.0, %if.end15.i.i.i ], [ %q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.432, %if.then9.i.i.i ], [ %q.sroa.26.0, %if.then.i.i.i ]
   %retval.0.i.i.i = phi ptr [ %call17.i.i.i, %if.end15.i.i.i ], [ %q.sroa.15.0, %if.then9.i.i.i ], [ %q.sroa.15.0, %if.then.i.i.i ]
   store ptr null, ptr %retval.0.i.i.i, align 8
-  %value_.i.i = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i, i64 0, i32 1
+  %value_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   store i32 0, ptr %value_.i.i, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %retval.0.i.i.i, ptr %q.sroa.10.0, align 8
@@ -3556,7 +3517,7 @@ invoke.cont1:                                     ; preds = %invoke.cont1.sink.s
   %q.sroa.26.3 = phi ptr [ %q.sroa.26.2488, %if.end15.i.i ], [ %q.sroa.26.3.ph, %invoke.cont1.sink.split ]
   %retval.0.i.i = phi ptr [ %call17.i.i50, %if.end15.i.i ], [ %q.sroa.26.2488.sink, %invoke.cont1.sink.split ]
   store ptr null, ptr %retval.0.i.i, align 8
-  %value_.i = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i, i64 0, i32 1
+  %value_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store i32 %indvars509, ptr %value_.i, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %retval.0.i.i, ptr %q.sroa.10.1486, align 8
@@ -3601,7 +3562,7 @@ invoke.cont3:                                     ; preds = %for.end
 if.then.i:                                        ; preds = %invoke.cont3
   %q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.435 = load ptr, ptr %q.sroa.0, align 8
   %9 = load ptr, ptr %q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.435, align 8
-  %value_.i53 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %9, i64 0, i32 1
+  %value_.i53 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i32, ptr %value_.i53, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %9, ptr %q.sroa.0, align 8
@@ -3657,7 +3618,7 @@ _ZN10spsc_queueIiE7enqueueEi.exit.i67:            ; preds = %if.end15.i.i.i83, %
   %q9.sroa.26.1 = phi ptr [ %q9.sroa.15.0, %if.end15.i.i.i83 ], [ %q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.419, %if.then9.i.i.i82 ], [ %q9.sroa.26.0, %if.then.i.i.i66 ]
   %retval.0.i.i.i68 = phi ptr [ %call17.i.i.i84, %if.end15.i.i.i83 ], [ %q9.sroa.15.0, %if.then9.i.i.i82 ], [ %q9.sroa.15.0, %if.then.i.i.i66 ]
   store ptr null, ptr %retval.0.i.i.i68, align 8
-  %value_.i.i69 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i68, i64 0, i32 1
+  %value_.i.i69 = getelementptr inbounds i8, ptr %retval.0.i.i.i68, i64 8
   store i32 0, ptr %value_.i.i69, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %retval.0.i.i.i68, ptr %q9.sroa.10.0, align 8
@@ -3715,7 +3676,7 @@ invoke.cont16:                                    ; preds = %invoke.cont16.sink.
   %q9.sroa.26.3 = phi ptr [ %q9.sroa.26.2480, %if.end15.i.i96 ], [ %q9.sroa.26.3.ph, %invoke.cont16.sink.split ]
   %retval.0.i.i90 = phi ptr [ %call17.i.i98, %if.end15.i.i96 ], [ %q9.sroa.26.2480.sink, %invoke.cont16.sink.split ]
   store ptr null, ptr %retval.0.i.i90, align 8
-  %value_.i91 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i90, i64 0, i32 1
+  %value_.i91 = getelementptr inbounds i8, ptr %retval.0.i.i90, i64 8
   store i32 %indvars508, ptr %value_.i91, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %retval.0.i.i90, ptr %q9.sroa.10.1478, align 8
@@ -3766,7 +3727,7 @@ for.body27:                                       ; preds = %invoke.cont22, %_ZN
 if.then.i106:                                     ; preds = %for.body27
   %q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.422 = load ptr, ptr %q9.sroa.0, align 8
   %20 = load ptr, ptr %q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.422, align 8
-  %value_.i107 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %20, i64 0, i32 1
+  %value_.i107 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i32, ptr %value_.i107, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %20, ptr %q9.sroa.0, align 8
@@ -3799,11 +3760,11 @@ sw.bb36:                                          ; preds = %entry
   store double 2.000000e+06, ptr %out_Ops, align 8
   %call.i114 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   store ptr null, ptr %call.i114, align 8
-  %tail_copy_.i115 = getelementptr inbounds %class.spsc_queue, ptr %q38, i64 0, i32 4
+  %tail_copy_.i115 = getelementptr inbounds i8, ptr %q38, i64 88
   store ptr %call.i114, ptr %tail_copy_.i115, align 8
-  %first_.i116 = getelementptr inbounds %class.spsc_queue, ptr %q38, i64 0, i32 3
+  %first_.i116 = getelementptr inbounds i8, ptr %q38, i64 80
   store ptr %call.i114, ptr %first_.i116, align 8
-  %head_.i117 = getelementptr inbounds %class.spsc_queue, ptr %q38, i64 0, i32 2
+  %head_.i117 = getelementptr inbounds i8, ptr %q38, i64 72
   store ptr %call.i114, ptr %head_.i117, align 8
   store ptr %call.i114, ptr %q38, align 8
   br label %for.body.i118
@@ -3840,7 +3801,7 @@ if.end15.i.i.i138:                                ; preds = %if.end.i.i.i135
 _ZN10spsc_queueIiE7enqueueEi.exit.i122:           ; preds = %if.end15.i.i.i138, %if.then9.i.i.i137, %if.then.i.i.i121
   %retval.0.i.i.i123 = phi ptr [ %24, %if.then.i.i.i121 ], [ %28, %if.then9.i.i.i137 ], [ %call17.i.i.i139, %if.end15.i.i.i138 ]
   store ptr null, ptr %retval.0.i.i.i123, align 8
-  %value_.i.i124 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i123, i64 0, i32 1
+  %value_.i.i124 = getelementptr inbounds i8, ptr %retval.0.i.i.i123, i64 8
   store i32 0, ptr %value_.i.i124, align 8
   %30 = load ptr, ptr %head_.i117, align 8
   fence syncscope("singlethread") seq_cst
@@ -3965,7 +3926,7 @@ sw.bb56:                                          ; preds = %entry
   %storemerge.i.i = zext nneg i32 %46 to i64
   store i64 %storemerge.i.i, ptr %rng, align 8
   store i32 0, ptr %rand, align 4
-  %_M_b.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand, i64 0, i32 1
+  %_M_b.i.i = getelementptr inbounds i8, ptr %rand, i64 4
   store i32 1, ptr %_M_b.i.i, align 4
   %call.i155 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   store ptr null, ptr %call.i155, align 8
@@ -4003,7 +3964,7 @@ _ZN10spsc_queueIiE7enqueueEi.exit.i163:           ; preds = %if.end15.i.i.i179, 
   %q58.sroa.30.1 = phi ptr [ %q58.sroa.19.0, %if.end15.i.i.i179 ], [ %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.403, %if.then9.i.i.i178 ], [ %q58.sroa.30.0, %if.then.i.i.i162 ]
   %retval.0.i.i.i164 = phi ptr [ %call17.i.i.i180, %if.end15.i.i.i179 ], [ %q58.sroa.19.0, %if.then9.i.i.i178 ], [ %q58.sroa.19.0, %if.then.i.i.i162 ]
   store ptr null, ptr %retval.0.i.i.i164, align 8
-  %value_.i.i165 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i164, i64 0, i32 1
+  %value_.i.i165 = getelementptr inbounds i8, ptr %retval.0.i.i.i164, i64 8
   store i32 0, ptr %value_.i.i165, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %retval.0.i.i.i164, ptr %q58.sroa.14.0, align 8
@@ -4078,7 +4039,7 @@ invoke.cont72:                                    ; preds = %invoke.cont72.sink.
   %q58.sroa.30.3 = phi ptr [ %q58.sroa.30.2475, %if.end15.i.i194 ], [ %q58.sroa.30.3.ph, %invoke.cont72.sink.split ]
   %retval.0.i.i188 = phi ptr [ %call17.i.i196, %if.end15.i.i194 ], [ %q58.sroa.30.2475.sink, %invoke.cont72.sink.split ]
   store ptr null, ptr %retval.0.i.i188, align 8
-  %value_.i189 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i188, i64 0, i32 1
+  %value_.i189 = getelementptr inbounds i8, ptr %retval.0.i.i188, i64 8
   store i32 %num59.0477, ptr %value_.i189, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %retval.0.i.i188, ptr %q58.sroa.14.1473, align 8
@@ -4170,15 +4131,15 @@ sw.bb86:                                          ; preds = %entry
   %storemerge.i.i217 = zext nneg i32 %60 to i64
   store i64 %storemerge.i.i217, ptr %rng88, align 8
   store i32 0, ptr %rand90, align 4
-  %_M_b.i.i218 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand90, i64 0, i32 1
+  %_M_b.i.i218 = getelementptr inbounds i8, ptr %rand90, i64 4
   store i32 3, ptr %_M_b.i.i218, align 4
   %call.i219 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   store ptr null, ptr %call.i219, align 8
-  %tail_copy_.i220 = getelementptr inbounds %class.spsc_queue, ptr %q91, i64 0, i32 4
+  %tail_copy_.i220 = getelementptr inbounds i8, ptr %q91, i64 88
   store ptr %call.i219, ptr %tail_copy_.i220, align 8
-  %first_.i221 = getelementptr inbounds %class.spsc_queue, ptr %q91, i64 0, i32 3
+  %first_.i221 = getelementptr inbounds i8, ptr %q91, i64 80
   store ptr %call.i219, ptr %first_.i221, align 8
-  %head_.i222 = getelementptr inbounds %class.spsc_queue, ptr %q91, i64 0, i32 2
+  %head_.i222 = getelementptr inbounds i8, ptr %q91, i64 72
   store ptr %call.i219, ptr %head_.i222, align 8
   store ptr %call.i219, ptr %q91, align 8
   br label %for.body.i223
@@ -4215,7 +4176,7 @@ if.end15.i.i.i243:                                ; preds = %if.end.i.i.i240
 _ZN10spsc_queueIiE7enqueueEi.exit.i227:           ; preds = %if.end15.i.i.i243, %if.then9.i.i.i242, %if.then.i.i.i226
   %retval.0.i.i.i228 = phi ptr [ %61, %if.then.i.i.i226 ], [ %65, %if.then9.i.i.i242 ], [ %call17.i.i.i244, %if.end15.i.i.i243 ]
   store ptr null, ptr %retval.0.i.i.i228, align 8
-  %value_.i.i229 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i228, i64 0, i32 1
+  %value_.i.i229 = getelementptr inbounds i8, ptr %retval.0.i.i.i228, i64 8
   store i32 0, ptr %value_.i.i229, align 8
   %67 = load ptr, ptr %head_.i222, align 8
   fence syncscope("singlethread") seq_cst
@@ -4301,7 +4262,7 @@ invoke.cont108:                                   ; preds = %invoke.cont106
 if.then.i251:                                     ; preds = %invoke.cont108
   %77 = load ptr, ptr %q91, align 8
   %78 = load ptr, ptr %77, align 8
-  %value_.i252 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %78, i64 0, i32 1
+  %value_.i252 = getelementptr inbounds i8, ptr %78, i64 8
   %79 = load i32, ptr %value_.i252, align 8
   store i32 %79, ptr %element92, align 4
   fence syncscope("singlethread") seq_cst
@@ -4369,15 +4330,15 @@ sw.bb118:                                         ; preds = %entry
   %storemerge.i.i265 = zext nneg i32 %89 to i64
   store i64 %storemerge.i.i265, ptr %rng120, align 8
   store i32 0, ptr %rand122, align 4
-  %_M_b.i.i266 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand122, i64 0, i32 1
+  %_M_b.i.i266 = getelementptr inbounds i8, ptr %rand122, i64 4
   store i32 3, ptr %_M_b.i.i266, align 4
   %call.i267 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   store ptr null, ptr %call.i267, align 8
-  %tail_copy_.i268 = getelementptr inbounds %class.spsc_queue, ptr %q123, i64 0, i32 4
+  %tail_copy_.i268 = getelementptr inbounds i8, ptr %q123, i64 88
   store ptr %call.i267, ptr %tail_copy_.i268, align 8
-  %first_.i269 = getelementptr inbounds %class.spsc_queue, ptr %q123, i64 0, i32 3
+  %first_.i269 = getelementptr inbounds i8, ptr %q123, i64 80
   store ptr %call.i267, ptr %first_.i269, align 8
-  %head_.i270 = getelementptr inbounds %class.spsc_queue, ptr %q123, i64 0, i32 2
+  %head_.i270 = getelementptr inbounds i8, ptr %q123, i64 72
   store ptr %call.i267, ptr %head_.i270, align 8
   store ptr %call.i267, ptr %q123, align 8
   br label %for.body.i271
@@ -4414,7 +4375,7 @@ if.end15.i.i.i291:                                ; preds = %if.end.i.i.i288
 _ZN10spsc_queueIiE7enqueueEi.exit.i275:           ; preds = %if.end15.i.i.i291, %if.then9.i.i.i290, %if.then.i.i.i274
   %retval.0.i.i.i276 = phi ptr [ %90, %if.then.i.i.i274 ], [ %94, %if.then9.i.i.i290 ], [ %call17.i.i.i292, %if.end15.i.i.i291 ]
   store ptr null, ptr %retval.0.i.i.i276, align 8
-  %value_.i.i277 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i276, i64 0, i32 1
+  %value_.i.i277 = getelementptr inbounds i8, ptr %retval.0.i.i.i276, i64 8
   store i32 0, ptr %value_.i.i277, align 8
   %96 = load ptr, ptr %head_.i270, align 8
   fence syncscope("singlethread") seq_cst
@@ -4499,7 +4460,7 @@ invoke.cont140:                                   ; preds = %invoke.cont138
 if.then.i299:                                     ; preds = %invoke.cont140
   %105 = load ptr, ptr %q123, align 8
   %106 = load ptr, ptr %105, align 8
-  %value_.i300 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %106, i64 0, i32 1
+  %value_.i300 = getelementptr inbounds i8, ptr %106, i64 8
   %107 = load i32, ptr %value_.i300, align 8
   store i32 %107, ptr %element124, align 4
   fence syncscope("singlethread") seq_cst
@@ -4563,11 +4524,11 @@ sw.bb150:                                         ; preds = %entry
   store double 2.000000e+06, ptr %out_Ops, align 8
   %call.i312 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   store ptr null, ptr %call.i312, align 8
-  %tail_copy_.i313 = getelementptr inbounds %class.spsc_queue, ptr %q152, i64 0, i32 4
+  %tail_copy_.i313 = getelementptr inbounds i8, ptr %q152, i64 88
   store ptr %call.i312, ptr %tail_copy_.i313, align 8
-  %first_.i314 = getelementptr inbounds %class.spsc_queue, ptr %q152, i64 0, i32 3
+  %first_.i314 = getelementptr inbounds i8, ptr %q152, i64 80
   store ptr %call.i312, ptr %first_.i314, align 8
-  %head_.i315 = getelementptr inbounds %class.spsc_queue, ptr %q152, i64 0, i32 2
+  %head_.i315 = getelementptr inbounds i8, ptr %q152, i64 72
   store ptr %call.i312, ptr %head_.i315, align 8
   store ptr %call.i312, ptr %q152, align 8
   br label %for.body.i316
@@ -4604,7 +4565,7 @@ if.end15.i.i.i336:                                ; preds = %if.end.i.i.i333
 _ZN10spsc_queueIiE7enqueueEi.exit.i320:           ; preds = %if.end15.i.i.i336, %if.then9.i.i.i335, %if.then.i.i.i319
   %retval.0.i.i.i321 = phi ptr [ %117, %if.then.i.i.i319 ], [ %121, %if.then9.i.i.i335 ], [ %call17.i.i.i337, %if.end15.i.i.i336 ]
   store ptr null, ptr %retval.0.i.i.i321, align 8
-  %value_.i.i322 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i321, i64 0, i32 1
+  %value_.i.i322 = getelementptr inbounds i8, ptr %retval.0.i.i.i321, i64 8
   store i32 0, ptr %value_.i.i322, align 8
   %123 = load ptr, ptr %head_.i315, align 8
   fence syncscope("singlethread") seq_cst
@@ -4684,7 +4645,7 @@ invoke.cont169:                                   ; preds = %invoke.cont167
 if.then.i344:                                     ; preds = %invoke.cont169
   %133 = load ptr, ptr %q152, align 8
   %134 = load ptr, ptr %133, align 8
-  %value_.i345 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %134, i64 0, i32 1
+  %value_.i345 = getelementptr inbounds i8, ptr %134, i64 8
   %135 = load i32, ptr %value_.i345, align 8
   store i32 %135, ptr %element153, align 4
   fence syncscope("singlethread") seq_cst
@@ -4744,11 +4705,11 @@ sw.bb177:                                         ; preds = %entry
   store i32 0, ptr %writeOps180, align 4
   %call.i357 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   store ptr null, ptr %call.i357, align 8
-  %tail_copy_.i358 = getelementptr inbounds %class.spsc_queue, ptr %q181, i64 0, i32 4
+  %tail_copy_.i358 = getelementptr inbounds i8, ptr %q181, i64 88
   store ptr %call.i357, ptr %tail_copy_.i358, align 8
-  %first_.i359 = getelementptr inbounds %class.spsc_queue, ptr %q181, i64 0, i32 3
+  %first_.i359 = getelementptr inbounds i8, ptr %q181, i64 80
   store ptr %call.i357, ptr %first_.i359, align 8
-  %head_.i360 = getelementptr inbounds %class.spsc_queue, ptr %q181, i64 0, i32 2
+  %head_.i360 = getelementptr inbounds i8, ptr %q181, i64 72
   store ptr %call.i357, ptr %head_.i360, align 8
   store ptr %call.i357, ptr %q181, align 8
   br label %for.body.i361
@@ -4785,7 +4746,7 @@ if.end15.i.i.i381:                                ; preds = %if.end.i.i.i378
 _ZN10spsc_queueIiE7enqueueEi.exit.i365:           ; preds = %if.end15.i.i.i381, %if.then9.i.i.i380, %if.then.i.i.i364
   %retval.0.i.i.i366 = phi ptr [ %143, %if.then.i.i.i364 ], [ %147, %if.then9.i.i.i380 ], [ %call17.i.i.i382, %if.end15.i.i.i381 ]
   store ptr null, ptr %retval.0.i.i.i366, align 8
-  %value_.i.i367 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i366, i64 0, i32 1
+  %value_.i.i367 = getelementptr inbounds i8, ptr %retval.0.i.i.i366, i64 8
   store i32 0, ptr %value_.i.i367, align 8
   %149 = load ptr, ptr %head_.i360, align 8
   fence syncscope("singlethread") seq_cst
@@ -4872,7 +4833,7 @@ invoke.cont198:                                   ; preds = %invoke.cont196
 if.then.i389:                                     ; preds = %invoke.cont198
   %158 = load ptr, ptr %q181, align 8
   %159 = load ptr, ptr %158, align 8
-  %value_.i390 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %159, i64 0, i32 1
+  %value_.i390 = getelementptr inbounds i8, ptr %159, i64 8
   %160 = load i32, ptr %value_.i390, align 8
   store i32 %160, ptr %element182, align 4
   fence syncscope("singlethread") seq_cst
@@ -5151,12 +5112,12 @@ invoke.cont36:                                    ; preds = %for.end34
 sw.bb38:                                          ; preds = %entry
   store double 2.000000e+06, ptr %out_Ops, align 8
   store i32 2000001, ptr %q40, align 8
-  %records_.i91 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q40, i64 0, i32 1
+  %records_.i91 = getelementptr inbounds i8, ptr %q40, i64 8
   %call.i92 = tail call noalias dereferenceable_or_null(8000004) ptr @malloc(i64 noundef 8000004) #21
   store ptr %call.i92, ptr %records_.i91, align 8
-  %readIndex_.i93 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q40, i64 0, i32 2
+  %readIndex_.i93 = getelementptr inbounds i8, ptr %q40, i64 16
   store i32 0, ptr %readIndex_.i93, align 8
-  %writeIndex_.i94 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q40, i64 0, i32 3
+  %writeIndex_.i94 = getelementptr inbounds i8, ptr %q40, i64 20
   store i32 0, ptr %writeIndex_.i94, align 4
   %tobool.not.i95 = icmp eq ptr %call.i92, null
   br i1 %tobool.not.i95, label %if.then.i97, label %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit99
@@ -5250,7 +5211,7 @@ sw.bb58:                                          ; preds = %entry
   %storemerge.i.i = zext nneg i32 %17 to i64
   store i64 %storemerge.i.i, ptr %rng, align 8
   store i32 0, ptr %rand, align 4
-  %_M_b.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand, i64 0, i32 1
+  %_M_b.i.i = getelementptr inbounds i8, ptr %rand, i64 4
   store i32 1, ptr %_M_b.i.i, align 4
   %call66 = tail call { i64, i64 } @_ZN10moodycamel13getSystemTimeEv()
   %18 = extractvalue { i64, i64 } %call66, 0
@@ -5305,15 +5266,15 @@ sw.bb89:                                          ; preds = %entry
   %storemerge.i.i153 = zext nneg i32 %20 to i64
   store i64 %storemerge.i.i153, ptr %rng91, align 8
   store i32 0, ptr %rand93, align 4
-  %_M_b.i.i154 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand93, i64 0, i32 1
+  %_M_b.i.i154 = getelementptr inbounds i8, ptr %rand93, i64 4
   store i32 3, ptr %_M_b.i.i154, align 4
   store i32 1200001, ptr %q94, align 8
-  %records_.i155 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q94, i64 0, i32 1
+  %records_.i155 = getelementptr inbounds i8, ptr %q94, i64 8
   %call.i156 = tail call noalias dereferenceable_or_null(4800004) ptr @malloc(i64 noundef 4800004) #21
   store ptr %call.i156, ptr %records_.i155, align 8
-  %readIndex_.i157 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q94, i64 0, i32 2
+  %readIndex_.i157 = getelementptr inbounds i8, ptr %q94, i64 16
   store i32 0, ptr %readIndex_.i157, align 8
-  %writeIndex_.i158 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q94, i64 0, i32 3
+  %writeIndex_.i158 = getelementptr inbounds i8, ptr %q94, i64 20
   store i32 0, ptr %writeIndex_.i158, align 4
   %tobool.not.i159 = icmp eq ptr %call.i156, null
   br i1 %tobool.not.i159, label %if.then.i161, label %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit163
@@ -5438,15 +5399,15 @@ sw.bb121:                                         ; preds = %entry
   %storemerge.i.i182 = zext nneg i32 %36 to i64
   store i64 %storemerge.i.i182, ptr %rng123, align 8
   store i32 0, ptr %rand125, align 4
-  %_M_b.i.i183 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand125, i64 0, i32 1
+  %_M_b.i.i183 = getelementptr inbounds i8, ptr %rand125, i64 4
   store i32 3, ptr %_M_b.i.i183, align 4
   store i32 1200001, ptr %q126, align 8
-  %records_.i184 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q126, i64 0, i32 1
+  %records_.i184 = getelementptr inbounds i8, ptr %q126, i64 8
   %call.i185 = tail call noalias dereferenceable_or_null(4800004) ptr @malloc(i64 noundef 4800004) #21
   store ptr %call.i185, ptr %records_.i184, align 8
-  %readIndex_.i186 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q126, i64 0, i32 2
+  %readIndex_.i186 = getelementptr inbounds i8, ptr %q126, i64 16
   store i32 0, ptr %readIndex_.i186, align 8
-  %writeIndex_.i187 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q126, i64 0, i32 3
+  %writeIndex_.i187 = getelementptr inbounds i8, ptr %q126, i64 20
   store i32 0, ptr %writeIndex_.i187, align 4
   %tobool.not.i188 = icmp eq ptr %call.i185, null
   br i1 %tobool.not.i188, label %if.then.i190, label %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit192
@@ -5565,12 +5526,12 @@ ehcleanup152:                                     ; preds = %ehcleanup151, %lpad
 sw.bb153:                                         ; preds = %entry
   store double 2.000000e+06, ptr %out_Ops, align 8
   store i32 1000001, ptr %q155, align 8
-  %records_.i210 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q155, i64 0, i32 1
+  %records_.i210 = getelementptr inbounds i8, ptr %q155, i64 8
   %call.i211 = tail call noalias dereferenceable_or_null(4000004) ptr @malloc(i64 noundef 4000004) #21
   store ptr %call.i211, ptr %records_.i210, align 8
-  %readIndex_.i212 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q155, i64 0, i32 2
+  %readIndex_.i212 = getelementptr inbounds i8, ptr %q155, i64 16
   store i32 0, ptr %readIndex_.i212, align 8
-  %writeIndex_.i213 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q155, i64 0, i32 3
+  %writeIndex_.i213 = getelementptr inbounds i8, ptr %q155, i64 20
   store i32 0, ptr %writeIndex_.i213, align 4
   %tobool.not.i214 = icmp eq ptr %call.i211, null
   br i1 %tobool.not.i214, label %if.then.i216, label %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit218
@@ -5680,12 +5641,12 @@ sw.bb180:                                         ; preds = %entry
   store i32 0, ptr %readOps182, align 4
   store i32 0, ptr %writeOps183, align 4
   store i32 800001, ptr %q184, align 8
-  %records_.i236 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q184, i64 0, i32 1
+  %records_.i236 = getelementptr inbounds i8, ptr %q184, i64 8
   %call.i237 = tail call noalias dereferenceable_or_null(3200004) ptr @malloc(i64 noundef 3200004) #21
   store ptr %call.i237, ptr %records_.i236, align 8
-  %readIndex_.i238 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q184, i64 0, i32 2
+  %readIndex_.i238 = getelementptr inbounds i8, ptr %q184, i64 16
   store i32 0, ptr %readIndex_.i238, align 8
-  %writeIndex_.i239 = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %q184, i64 0, i32 3
+  %writeIndex_.i239 = getelementptr inbounds i8, ptr %q184, i64 20
   store i32 0, ptr %writeIndex_.i239, align 4
   %tobool.not.i240 = icmp eq ptr %call.i237, null
   br i1 %tobool.not.i240, label %if.then.i242, label %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit244
@@ -5831,7 +5792,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZSt4leftRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #4 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -177
   %or.i.i.i = or disjoint i32 %and.i.i.i, 32
@@ -5863,7 +5824,7 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZSt5fixedRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #4 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -261
   %or.i.i.i = or disjoint i32 %and.i.i.i, 4
@@ -5881,7 +5842,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 define linkonce_odr dso_local void @_ZN10moodycamel17ReaderWriterQueueIiLm512EEC2Em(ptr noundef nonnull align 64 dereferenceable(80) %this, i64 noundef %size) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %this, align 64
-  %tailBlock = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %this, i64 0, i32 2
+  %tailBlock = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %tailBlock, align 64
   %shr.i = lshr i64 %size, 1
   %or.i = or i64 %shr.i, %size
@@ -5903,7 +5864,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE10ceilToPow2Em.exit: ; preds = %for.body.i
   %inc.i = add i64 %or6.i, 1
-  %largestBlockSize = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %this, i64 0, i32 3
+  %largestBlockSize = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %inc.i, ptr %largestBlockSize, align 8
   %cmp = icmp ugt i64 %inc.i, 1024
   br i1 %cmp, label %if.then, label %if.else16
@@ -5933,15 +5894,15 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit: ; preds = %for.b
   %sub.i5.i = sub i64 0, %1
   %rem1.i6.i = and i64 %sub.i5.i, 3
   %add.ptr.i7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %rem1.i6.i
-  %tail.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i, i64 0, i32 3
-  %next.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i, i64 0, i32 6
-  %data.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i, i64 0, i32 7
+  %tail.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 64
+  %next.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 128
+  %data.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tail.i.i, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i7.i, ptr %data.i.i, align 8
-  %sizeMask.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i, i64 0, i32 8
+  %sizeMask.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 144
   store i64 511, ptr %sizeMask.i.i, align 8
-  %rawThis.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i, i64 0, i32 9
+  %rawThis.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 152
   store ptr %call.i, ptr %rawThis.i.i, align 8
   %cmp10 = icmp eq ptr %firstBlock.034, null
   br i1 %cmp10, label %if.end13, label %if.else
@@ -5953,7 +5914,7 @@ if.then9:                                         ; preds = %for.body
   unreachable
 
 if.else:                                          ; preds = %_ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit
-  %next = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %lastBlock.035, i64 0, i32 6
+  %next = getelementptr inbounds i8, ptr %lastBlock.035, i64 128
   %2 = ptrtoint ptr %add.ptr.i.i to i64
   store atomic i64 %2, ptr %next monotonic, align 8
   br label %if.end13
@@ -5983,15 +5944,15 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit22: ; preds = %if.
   %sub.i5.i13 = sub i64 0, %5
   %rem1.i6.i14 = and i64 %sub.i5.i13, 3
   %add.ptr.i7.i15 = getelementptr inbounds i8, ptr %add.ptr.i12, i64 %rem1.i6.i14
-  %tail.i.i16 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i11, i64 0, i32 3
-  %next.i.i17 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i11, i64 0, i32 6
-  %data.i.i18 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i11, i64 0, i32 7
+  %tail.i.i16 = getelementptr inbounds i8, ptr %add.ptr.i.i11, i64 64
+  %next.i.i17 = getelementptr inbounds i8, ptr %add.ptr.i.i11, i64 128
+  %data.i.i18 = getelementptr inbounds i8, ptr %add.ptr.i.i11, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i11, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tail.i.i16, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i7.i15, ptr %data.i.i18, align 8
-  %sizeMask.i.i19 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i11, i64 0, i32 8
+  %sizeMask.i.i19 = getelementptr inbounds i8, ptr %add.ptr.i.i11, i64 144
   store i64 %or6.i, ptr %sizeMask.i.i19, align 8
-  %rawThis.i.i20 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i11, i64 0, i32 9
+  %rawThis.i.i20 = getelementptr inbounds i8, ptr %add.ptr.i.i11, i64 152
   store ptr %call.i6, ptr %rawThis.i.i20, align 8
   %6 = ptrtoint ptr %add.ptr.i.i11 to i64
   store atomic i64 %6, ptr %next.i.i17 monotonic, align 8
@@ -6039,15 +6000,15 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN10moodycamel17ReaderWriterQueueIiLm512EE13inner_enqueueILNS1_14AllocationModeE0EJRKiEEEbDpOT0_(ptr noundef nonnull align 64 dereferenceable(80) %this, ptr noundef nonnull align 4 dereferenceable(4) %args) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tailBlock = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %this, i64 0, i32 2
+  %tailBlock = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load atomic i64, ptr %tailBlock monotonic, align 64
   %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %localFront = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i, i64 0, i32 4
+  %localFront = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 72
   %1 = load i64, ptr %localFront, align 8
-  %tail = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i, i64 0, i32 3
+  %tail = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 64
   %2 = load atomic i64, ptr %tail monotonic, align 8
   %add = add i64 %2, 1
-  %sizeMask = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i, i64 0, i32 8
+  %sizeMask = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 144
   %3 = load i64, ptr %sizeMask, align 8
   %and = and i64 %add, %3
   %cmp.not = icmp eq i64 %and, %1
@@ -6061,7 +6022,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   fence acquire
-  %data = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i, i64 0, i32 7
+  %data = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 136
   %5 = load ptr, ptr %data, align 8
   %mul = shl i64 %2, 2
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %mul
@@ -6073,7 +6034,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 if.else:                                          ; preds = %lor.lhs.false
   fence acquire
-  %next = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i, i64 0, i32 6
+  %next = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 128
   %7 = load atomic i64, ptr %next monotonic, align 8
   %atomic-temp.i.0.i.i15 = inttoptr i64 %7 to ptr
   %8 = load atomic i64, ptr %this monotonic, align 64
@@ -6086,20 +6047,20 @@ if.then11:                                        ; preds = %if.else
   %9 = load atomic i64, ptr %next monotonic, align 8
   %atomic-temp.i.0.i.i16 = inttoptr i64 %9 to ptr
   %10 = load atomic i64, ptr %atomic-temp.i.0.i.i16 monotonic, align 8
-  %localFront16 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i16, i64 0, i32 4
+  %localFront16 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i16, i64 72
   store i64 %10, ptr %localFront16, align 8
-  %tail17 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i16, i64 0, i32 3
+  %tail17 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i16, i64 64
   %11 = load atomic i64, ptr %tail17 monotonic, align 8
   fence acquire
   store i64 %10, ptr %localFront16, align 8
-  %data21 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i16, i64 0, i32 7
+  %data21 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i16, i64 136
   %12 = load ptr, ptr %data21, align 8
   %mul22 = shl i64 %11, 2
   %add.ptr23 = getelementptr inbounds i8, ptr %12, i64 %mul22
   %13 = load i32, ptr %args, align 4
   store i32 %13, ptr %add.ptr23, align 4
   %add24 = add i64 %11, 1
-  %sizeMask25 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i16, i64 0, i32 8
+  %sizeMask25 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i16, i64 144
   %14 = load i64, ptr %sizeMask25, align 8
   %and26 = and i64 %14, %add24
   store atomic i64 %and26, ptr %tail17 monotonic, align 8
@@ -6108,7 +6069,7 @@ if.then11:                                        ; preds = %if.else
   br label %return
 
 if.else31:                                        ; preds = %if.else
-  %largestBlockSize = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %this, i64 0, i32 3
+  %largestBlockSize = getelementptr inbounds i8, ptr %this, i64 72
   %15 = load i64, ptr %largestBlockSize, align 8
   %cmp32 = icmp ult i64 %15, 512
   %mul35 = zext i1 %cmp32 to i64
@@ -6129,23 +6090,23 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit: ; preds = %if.el
   %sub.i5.i = sub i64 0, %17
   %rem1.i6.i = and i64 %sub.i5.i, 3
   %add.ptr.i7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %rem1.i6.i
-  %tail.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i, i64 0, i32 3
-  %next.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i, i64 0, i32 6
+  %tail.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 64
+  %next.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 128
   store ptr null, ptr %next.i.i, align 8
-  %data.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i, i64 0, i32 7
+  %data.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 136
   store i64 0, ptr %add.ptr.i.i, align 8
-  %18 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i, i64 0, i32 4
+  %18 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 72
   store i64 0, ptr %18, align 8
   store ptr %add.ptr.i7.i, ptr %data.i.i, align 8
-  %sizeMask.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i, i64 0, i32 8
+  %sizeMask.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 144
   %sub.i8.i = add i64 %cond, -1
   store i64 %sub.i8.i, ptr %sizeMask.i.i, align 8
-  %rawThis.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i, i64 0, i32 9
+  %rawThis.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 152
   store ptr %call.i, ptr %rawThis.i.i, align 8
   store i64 %cond, ptr %largestBlockSize, align 8
   %19 = load i32, ptr %args, align 4
   store i32 %19, ptr %add.ptr.i7.i, align 4
-  %localTail = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %add.ptr.i.i, i64 0, i32 1
+  %localTail = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i64 1, ptr %localTail, align 8
   store atomic i64 1, ptr %tail.i.i monotonic, align 8
   %20 = load atomic i64, ptr %next monotonic, align 8
@@ -6175,7 +6136,7 @@ declare void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds %class.anon, ptr %wrapper, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -6183,14 +6144,14 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %1 = load ptr, ptr %wrapper, align 8
   %2 = load atomic i64, ptr %1 monotonic, align 8
   %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %2 to ptr
-  %localTail.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i.i, i64 0, i32 1
+  %localTail.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i, i64 8
   %3 = load i64, ptr %localTail.i.i.i, align 8
   %4 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i.i monotonic, align 8
   %cmp.not.i.i.i = icmp eq i64 %4, %3
   br i1 %cmp.not.i.i.i, label %lor.lhs.false.i.i.i, label %if.then.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %for.body.i.i
-  %tail.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i.i, i64 0, i32 3
+  %tail.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i, i64 64
   %5 = load atomic i64, ptr %tail.i.i.i monotonic, align 8
   store i64 %5, ptr %localTail.i.i.i, align 8
   %cmp5.not.i.i.i = icmp eq i64 %3, %5
@@ -6201,7 +6162,7 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br label %if.then.i.i
 
 if.else.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
-  %tailBlock.i.i.i = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %1, i64 0, i32 2
+  %tailBlock.i.i.i = getelementptr inbounds i8, ptr %1, i64 64
   %6 = load atomic i64, ptr %tailBlock.i.i.i monotonic, align 8
   %atomic-temp.i.0.i.i6.i.i.i = inttoptr i64 %6 to ptr
   %cmp9.not.i.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i.i.i, %atomic-temp.i.0.i.i6.i.i.i
@@ -6211,9 +6172,9 @@ if.then10.i.i.i:                                  ; preds = %if.else.i.i.i
   fence acquire
   %7 = load atomic i64, ptr %1 monotonic, align 8
   %atomic-temp.i.0.i.i7.i.i.i = inttoptr i64 %7 to ptr
-  %tail13.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i.i.i, i64 0, i32 3
+  %tail13.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i.i.i, i64 64
   %8 = load atomic i64, ptr %tail13.i.i.i monotonic, align 8
-  %localTail15.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i.i.i, i64 0, i32 1
+  %localTail15.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i.i.i, i64 8
   store i64 %8, ptr %localTail15.i.i.i, align 8
   %9 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i.i.i monotonic, align 8
   fence acquire
@@ -6221,13 +6182,13 @@ if.then10.i.i.i:                                  ; preds = %if.else.i.i.i
   br i1 %cmp18.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i.i
-  %next.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i.i.i, i64 0, i32 6
+  %next.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i.i.i, i64 128
   %10 = load atomic i64, ptr %next.i.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %10 to ptr
   %11 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i.i.i monotonic, align 8
-  %tail23.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 0, i32 3
+  %tail23.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 64
   %12 = load atomic i64, ptr %tail23.i.i.i monotonic, align 8
-  %localTail25.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 0, i32 1
+  %localTail25.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 8
   store i64 %12, ptr %localTail25.i.i.i, align 8
   fence acquire
   fence release
@@ -6238,13 +6199,13 @@ if.end.i.i.i:                                     ; preds = %if.then10.i.i.i
 if.then.i.i:                                      ; preds = %if.end.i.i.i, %if.then10.i.i.i, %if.then.i.i.i
   %frontBlock_.0.sink24.i.i.i = phi ptr [ %atomic-temp.i.0.i.i.i.i.i.i, %if.end.i.i.i ], [ %atomic-temp.i.0.i.i7.i.i.i, %if.then10.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i, %if.then.i.i.i ]
   %blockFront.0.sink23.i.i.i = phi i64 [ %11, %if.end.i.i.i ], [ %9, %if.then10.i.i.i ], [ %4, %if.then.i.i.i ]
-  %data.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i.i.i, i64 0, i32 7
+  %data.i.i.i = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i.i.i, i64 136
   %13 = load ptr, ptr %data.i.i.i, align 8
   %mul.i.i.i = shl i64 %blockFront.0.sink23.i.i.i, 2
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %13, i64 %mul.i.i.i
   %14 = load i32, ptr %add.ptr.i.i.i, align 4
   %add.i.i.i = add i64 %blockFront.0.sink23.i.i.i, 1
-  %sizeMask.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i.i.i, i64 0, i32 8
+  %sizeMask.i.i.i = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i.i.i, i64 144
   %15 = load i64, ptr %sizeMask.i.i.i, align 8
   %and.i.i.i = and i64 %15, %add.i.i.i
   fence release
@@ -6302,7 +6263,7 @@ _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17Reade
 define linkonce_odr dso_local noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__urng, ptr noundef nonnull align 4 dereferenceable(8) %__param) local_unnamed_addr #4 comdat align 2 {
 entry:
   %ref.tmp = alloca %"struct.std::uniform_int_distribution<>::param_type", align 4
-  %_M_b.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %__param, i64 0, i32 1
+  %_M_b.i = getelementptr inbounds i8, ptr %__param, i64 4
   %0 = load i32, ptr %_M_b.i, align 4
   %conv = sext i32 %0 to i64
   %1 = load i32, ptr %__param, align 4
@@ -6340,7 +6301,7 @@ if.else:                                          ; preds = %entry
 do.body10.preheader:                              ; preds = %if.else
   %div11 = udiv i64 %sub, 2147483646
   %conv12 = trunc i64 %div11 to i32
-  %_M_b.i17 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %ref.tmp, i64 0, i32 1
+  %_M_b.i17 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   br label %do.body10
 
 do.body10:                                        ; preds = %do.body10.preheader, %do.body10
@@ -6387,10 +6348,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdENKUlvE1_clEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds %class.anon.1, ptr %this, i64 0, i32 1
-  %1 = getelementptr inbounds %class.anon.1, ptr %this, i64 0, i32 2
-  %2 = getelementptr inbounds %class.anon.1, ptr %this, i64 0, i32 3
-  %3 = getelementptr inbounds %class.anon.1, ptr %this, i64 0, i32 4
+  %0 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = getelementptr inbounds i8, ptr %this, i64 24
+  %3 = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -6406,14 +6367,14 @@ if.then:                                          ; preds = %for.body
   %7 = load ptr, ptr %2, align 8
   %8 = load atomic i64, ptr %6 monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %8 to ptr
-  %localTail.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 1
+  %localTail.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
   %9 = load i64, ptr %localTail.i, align 8
   %10 = load atomic i64, ptr %atomic-temp.i.0.i.i.i monotonic, align 8
   %cmp.not.i = icmp eq i64 %10, %9
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %if.then
-  %tail.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 3
+  %tail.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 64
   %11 = load atomic i64, ptr %tail.i monotonic, align 8
   store i64 %11, ptr %localTail.i, align 8
   %cmp5.not.i = icmp eq i64 %9, %11
@@ -6424,7 +6385,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %return.sink.split.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %tailBlock.i = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %6, i64 0, i32 2
+  %tailBlock.i = getelementptr inbounds i8, ptr %6, i64 64
   %12 = load atomic i64, ptr %tailBlock.i monotonic, align 8
   %atomic-temp.i.0.i.i6.i = inttoptr i64 %12 to ptr
   %cmp9.not.i = icmp eq ptr %atomic-temp.i.0.i.i.i, %atomic-temp.i.0.i.i6.i
@@ -6434,9 +6395,9 @@ if.then10.i:                                      ; preds = %if.else.i
   fence acquire
   %13 = load atomic i64, ptr %6 monotonic, align 8
   %atomic-temp.i.0.i.i7.i = inttoptr i64 %13 to ptr
-  %tail13.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i, i64 0, i32 3
+  %tail13.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i, i64 64
   %14 = load atomic i64, ptr %tail13.i monotonic, align 8
-  %localTail15.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i, i64 0, i32 1
+  %localTail15.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i, i64 8
   store i64 %14, ptr %localTail15.i, align 8
   %15 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i monotonic, align 8
   fence acquire
@@ -6444,13 +6405,13 @@ if.then10.i:                                      ; preds = %if.else.i
   br i1 %cmp18.not.i, label %if.end.i, label %return.sink.split.i
 
 if.end.i:                                         ; preds = %if.then10.i
-  %next.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i, i64 0, i32 6
+  %next.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i, i64 128
   %16 = load atomic i64, ptr %next.i monotonic, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %16 to ptr
   %17 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i monotonic, align 8
-  %tail23.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i, i64 0, i32 3
+  %tail23.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 64
   %18 = load atomic i64, ptr %tail23.i monotonic, align 8
-  %localTail25.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i, i64 0, i32 1
+  %localTail25.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 8
   store i64 %18, ptr %localTail25.i, align 8
   fence acquire
   fence release
@@ -6461,14 +6422,14 @@ if.end.i:                                         ; preds = %if.then10.i
 return.sink.split.i:                              ; preds = %if.end.i, %if.then10.i, %if.then.i
   %frontBlock_.0.sink24.i = phi ptr [ %atomic-temp.i.0.i.i.i.i, %if.end.i ], [ %atomic-temp.i.0.i.i7.i, %if.then10.i ], [ %atomic-temp.i.0.i.i.i, %if.then.i ]
   %blockFront.0.sink23.i = phi i64 [ %17, %if.end.i ], [ %15, %if.then10.i ], [ %10, %if.then.i ]
-  %data.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i, i64 0, i32 7
+  %data.i = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i, i64 136
   %19 = load ptr, ptr %data.i, align 8
   %mul.i = shl i64 %blockFront.0.sink23.i, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 %mul.i
   %20 = load i32, ptr %add.ptr.i, align 4
   store i32 %20, ptr %7, align 4
   %add.i = add i64 %blockFront.0.sink23.i, 1
-  %sizeMask.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i, i64 0, i32 8
+  %sizeMask.i = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i, i64 144
   %21 = load i64, ptr %sizeMask.i, align 8
   %and.i = and i64 %21, %add.i
   fence release
@@ -6519,7 +6480,7 @@ _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17Reade
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE3_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds %class.anon.3, ptr %wrapper, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i, %entry
@@ -6528,14 +6489,14 @@ for.body.i.i:                                     ; preds = %_ZN10moodycamel17Re
   %2 = load ptr, ptr %0, align 8
   %3 = load atomic i64, ptr %1 monotonic, align 8
   %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %3 to ptr
-  %localTail.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i.i, i64 0, i32 1
+  %localTail.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i, i64 8
   %4 = load i64, ptr %localTail.i.i.i, align 8
   %5 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i.i monotonic, align 8
   %cmp.not.i.i.i = icmp eq i64 %5, %4
   br i1 %cmp.not.i.i.i, label %lor.lhs.false.i.i.i, label %if.then.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %for.body.i.i
-  %tail.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i.i, i64 0, i32 3
+  %tail.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i, i64 64
   %6 = load atomic i64, ptr %tail.i.i.i monotonic, align 8
   store i64 %6, ptr %localTail.i.i.i, align 8
   %cmp5.not.i.i.i = icmp eq i64 %4, %6
@@ -6546,7 +6507,7 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br label %return.sink.split.i.i.i
 
 if.else.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
-  %tailBlock.i.i.i = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %1, i64 0, i32 2
+  %tailBlock.i.i.i = getelementptr inbounds i8, ptr %1, i64 64
   %7 = load atomic i64, ptr %tailBlock.i.i.i monotonic, align 8
   %atomic-temp.i.0.i.i6.i.i.i = inttoptr i64 %7 to ptr
   %cmp9.not.i.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i.i.i, %atomic-temp.i.0.i.i6.i.i.i
@@ -6556,9 +6517,9 @@ if.then10.i.i.i:                                  ; preds = %if.else.i.i.i
   fence acquire
   %8 = load atomic i64, ptr %1 monotonic, align 8
   %atomic-temp.i.0.i.i7.i.i.i = inttoptr i64 %8 to ptr
-  %tail13.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i.i.i, i64 0, i32 3
+  %tail13.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i.i.i, i64 64
   %9 = load atomic i64, ptr %tail13.i.i.i monotonic, align 8
-  %localTail15.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i.i.i, i64 0, i32 1
+  %localTail15.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i.i.i, i64 8
   store i64 %9, ptr %localTail15.i.i.i, align 8
   %10 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i.i.i monotonic, align 8
   fence acquire
@@ -6566,13 +6527,13 @@ if.then10.i.i.i:                                  ; preds = %if.else.i.i.i
   br i1 %cmp18.not.i.i.i, label %if.end.i.i.i, label %return.sink.split.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i.i
-  %next.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i.i.i, i64 0, i32 6
+  %next.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i.i.i, i64 128
   %11 = load atomic i64, ptr %next.i.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %11 to ptr
   %12 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i.i.i monotonic, align 8
-  %tail23.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 0, i32 3
+  %tail23.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 64
   %13 = load atomic i64, ptr %tail23.i.i.i monotonic, align 8
-  %localTail25.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 0, i32 1
+  %localTail25.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 8
   store i64 %13, ptr %localTail25.i.i.i, align 8
   fence acquire
   fence release
@@ -6583,14 +6544,14 @@ if.end.i.i.i:                                     ; preds = %if.then10.i.i.i
 return.sink.split.i.i.i:                          ; preds = %if.end.i.i.i, %if.then10.i.i.i, %if.then.i.i.i
   %frontBlock_.0.sink24.i.i.i = phi ptr [ %atomic-temp.i.0.i.i.i.i.i.i, %if.end.i.i.i ], [ %atomic-temp.i.0.i.i7.i.i.i, %if.then10.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i, %if.then.i.i.i ]
   %blockFront.0.sink23.i.i.i = phi i64 [ %12, %if.end.i.i.i ], [ %10, %if.then10.i.i.i ], [ %5, %if.then.i.i.i ]
-  %data.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i.i.i, i64 0, i32 7
+  %data.i.i.i = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i.i.i, i64 136
   %14 = load ptr, ptr %data.i.i.i, align 8
   %mul.i.i.i = shl i64 %blockFront.0.sink23.i.i.i, 2
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 %mul.i.i.i
   %15 = load i32, ptr %add.ptr.i.i.i, align 4
   store i32 %15, ptr %2, align 4
   %add.i.i.i = add i64 %blockFront.0.sink23.i.i.i, 1
-  %sizeMask.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i.i.i, i64 0, i32 8
+  %sizeMask.i.i.i = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i.i.i, i64 144
   %16 = load i64, ptr %sizeMask.i.i.i, align 8
   %and.i.i.i = and i64 %16, %add.i.i.i
   fence release
@@ -6613,8 +6574,8 @@ entry:
   %num.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %num.i.i)
   store i32 0, ptr %num.i.i, align 4
-  %0 = getelementptr inbounds %class.anon.4, ptr %wrapper, i64 0, i32 1
-  %1 = getelementptr inbounds %class.anon.4, ptr %wrapper, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
+  %1 = getelementptr inbounds i8, ptr %wrapper, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -6640,7 +6601,7 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit: ; preds = %for.inc.i.i
   %6 = load i32, ptr %num.i.i, align 4
-  %7 = getelementptr inbounds %class.anon.4, ptr %wrapper, i64 0, i32 3
+  %7 = getelementptr inbounds i8, ptr %wrapper, i64 24
   %8 = load ptr, ptr %7, align 8
   store i32 %6, ptr %8, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %num.i.i)
@@ -6651,7 +6612,7 @@ _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17Reade
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE5_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds %class.anon.5, ptr %wrapper, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i, %entry
@@ -6660,14 +6621,14 @@ for.body.i.i:                                     ; preds = %_ZN10moodycamel17Re
   %2 = load ptr, ptr %0, align 8
   %3 = load atomic i64, ptr %1 monotonic, align 8
   %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %3 to ptr
-  %localTail.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i.i, i64 0, i32 1
+  %localTail.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i, i64 8
   %4 = load i64, ptr %localTail.i.i.i, align 8
   %5 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i.i monotonic, align 8
   %cmp.not.i.i.i = icmp eq i64 %5, %4
   br i1 %cmp.not.i.i.i, label %lor.lhs.false.i.i.i, label %if.then.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %for.body.i.i
-  %tail.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i.i, i64 0, i32 3
+  %tail.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i, i64 64
   %6 = load atomic i64, ptr %tail.i.i.i monotonic, align 8
   store i64 %6, ptr %localTail.i.i.i, align 8
   %cmp5.not.i.i.i = icmp eq i64 %4, %6
@@ -6678,7 +6639,7 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br label %return.sink.split.i.i.i
 
 if.else.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
-  %tailBlock.i.i.i = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %1, i64 0, i32 2
+  %tailBlock.i.i.i = getelementptr inbounds i8, ptr %1, i64 64
   %7 = load atomic i64, ptr %tailBlock.i.i.i monotonic, align 8
   %atomic-temp.i.0.i.i6.i.i.i = inttoptr i64 %7 to ptr
   %cmp9.not.i.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i.i.i, %atomic-temp.i.0.i.i6.i.i.i
@@ -6688,9 +6649,9 @@ if.then10.i.i.i:                                  ; preds = %if.else.i.i.i
   fence acquire
   %8 = load atomic i64, ptr %1 monotonic, align 8
   %atomic-temp.i.0.i.i7.i.i.i = inttoptr i64 %8 to ptr
-  %tail13.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i.i.i, i64 0, i32 3
+  %tail13.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i.i.i, i64 64
   %9 = load atomic i64, ptr %tail13.i.i.i monotonic, align 8
-  %localTail15.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i.i.i, i64 0, i32 1
+  %localTail15.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i.i.i, i64 8
   store i64 %9, ptr %localTail15.i.i.i, align 8
   %10 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i.i.i monotonic, align 8
   fence acquire
@@ -6698,13 +6659,13 @@ if.then10.i.i.i:                                  ; preds = %if.else.i.i.i
   br i1 %cmp18.not.i.i.i, label %if.end.i.i.i, label %return.sink.split.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i.i
-  %next.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i.i.i, i64 0, i32 6
+  %next.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i.i.i, i64 128
   %11 = load atomic i64, ptr %next.i.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %11 to ptr
   %12 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i.i.i monotonic, align 8
-  %tail23.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 0, i32 3
+  %tail23.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 64
   %13 = load atomic i64, ptr %tail23.i.i.i monotonic, align 8
-  %localTail25.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 0, i32 1
+  %localTail25.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 8
   store i64 %13, ptr %localTail25.i.i.i, align 8
   fence acquire
   fence release
@@ -6715,14 +6676,14 @@ if.end.i.i.i:                                     ; preds = %if.then10.i.i.i
 return.sink.split.i.i.i:                          ; preds = %if.end.i.i.i, %if.then10.i.i.i, %if.then.i.i.i
   %frontBlock_.0.sink24.i.i.i = phi ptr [ %atomic-temp.i.0.i.i.i.i.i.i, %if.end.i.i.i ], [ %atomic-temp.i.0.i.i7.i.i.i, %if.then10.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i, %if.then.i.i.i ]
   %blockFront.0.sink23.i.i.i = phi i64 [ %12, %if.end.i.i.i ], [ %10, %if.then10.i.i.i ], [ %5, %if.then.i.i.i ]
-  %data.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i.i.i, i64 0, i32 7
+  %data.i.i.i = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i.i.i, i64 136
   %14 = load ptr, ptr %data.i.i.i, align 8
   %mul.i.i.i = shl i64 %blockFront.0.sink23.i.i.i, 2
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 %mul.i.i.i
   %15 = load i32, ptr %add.ptr.i.i.i, align 4
   store i32 %15, ptr %2, align 4
   %add.i.i.i = add i64 %blockFront.0.sink23.i.i.i, 1
-  %sizeMask.i.i.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i.i.i, i64 0, i32 8
+  %sizeMask.i.i.i = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i.i.i, i64 144
   %16 = load i64, ptr %sizeMask.i.i.i, align 8
   %and.i.i.i = and i64 %16, %add.i.i.i
   fence release
@@ -6784,11 +6745,11 @@ entry:
   %storemerge.i.i = zext nneg i32 %2 to i64
   store i64 %storemerge.i.i, ptr %rng, align 8
   store i32 0, ptr %rand, align 4
-  %_M_b.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand, i64 0, i32 1
+  %_M_b.i.i = getelementptr inbounds i8, ptr %rand, i64 4
   store i32 15, ptr %_M_b.i.i, align 4
-  %3 = getelementptr inbounds %class.anon.7, ptr %this, i64 0, i32 1
-  %4 = getelementptr inbounds %class.anon.7, ptr %this, i64 0, i32 2
-  %5 = getelementptr inbounds %class.anon.7, ptr %this, i64 0, i32 3
+  %3 = getelementptr inbounds i8, ptr %this, i64 8
+  %4 = getelementptr inbounds i8, ptr %this, i64 16
+  %5 = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -6802,14 +6763,14 @@ if.then:                                          ; preds = %for.body
   %7 = load ptr, ptr %4, align 8
   %8 = load atomic i64, ptr %6 monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %8 to ptr
-  %localTail.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 1
+  %localTail.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
   %9 = load i64, ptr %localTail.i, align 8
   %10 = load atomic i64, ptr %atomic-temp.i.0.i.i.i monotonic, align 8
   %cmp.not.i = icmp eq i64 %10, %9
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %if.then
-  %tail.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 3
+  %tail.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 64
   %11 = load atomic i64, ptr %tail.i monotonic, align 8
   store i64 %11, ptr %localTail.i, align 8
   %cmp5.not.i = icmp eq i64 %9, %11
@@ -6820,7 +6781,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %return.sink.split.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %tailBlock.i = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %6, i64 0, i32 2
+  %tailBlock.i = getelementptr inbounds i8, ptr %6, i64 64
   %12 = load atomic i64, ptr %tailBlock.i monotonic, align 8
   %atomic-temp.i.0.i.i6.i = inttoptr i64 %12 to ptr
   %cmp9.not.i = icmp eq ptr %atomic-temp.i.0.i.i.i, %atomic-temp.i.0.i.i6.i
@@ -6830,9 +6791,9 @@ if.then10.i:                                      ; preds = %if.else.i
   fence acquire
   %13 = load atomic i64, ptr %6 monotonic, align 8
   %atomic-temp.i.0.i.i7.i = inttoptr i64 %13 to ptr
-  %tail13.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i, i64 0, i32 3
+  %tail13.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i, i64 64
   %14 = load atomic i64, ptr %tail13.i monotonic, align 8
-  %localTail15.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i, i64 0, i32 1
+  %localTail15.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i, i64 8
   store i64 %14, ptr %localTail15.i, align 8
   %15 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i monotonic, align 8
   fence acquire
@@ -6840,13 +6801,13 @@ if.then10.i:                                      ; preds = %if.else.i
   br i1 %cmp18.not.i, label %if.end.i, label %return.sink.split.i
 
 if.end.i:                                         ; preds = %if.then10.i
-  %next.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i, i64 0, i32 6
+  %next.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i7.i, i64 128
   %16 = load atomic i64, ptr %next.i monotonic, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %16 to ptr
   %17 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i monotonic, align 8
-  %tail23.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i, i64 0, i32 3
+  %tail23.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 64
   %18 = load atomic i64, ptr %tail23.i monotonic, align 8
-  %localTail25.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i, i64 0, i32 1
+  %localTail25.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 8
   store i64 %18, ptr %localTail25.i, align 8
   fence acquire
   fence release
@@ -6857,14 +6818,14 @@ if.end.i:                                         ; preds = %if.then10.i
 return.sink.split.i:                              ; preds = %if.end.i, %if.then10.i, %if.then.i
   %frontBlock_.0.sink24.i = phi ptr [ %atomic-temp.i.0.i.i.i.i, %if.end.i ], [ %atomic-temp.i.0.i.i7.i, %if.then10.i ], [ %atomic-temp.i.0.i.i.i, %if.then.i ]
   %blockFront.0.sink23.i = phi i64 [ %17, %if.end.i ], [ %15, %if.then10.i ], [ %10, %if.then.i ]
-  %data.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i, i64 0, i32 7
+  %data.i = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i, i64 136
   %19 = load ptr, ptr %data.i, align 8
   %mul.i = shl i64 %blockFront.0.sink23.i, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 %mul.i
   %20 = load i32, ptr %add.ptr.i, align 4
   store i32 %20, ptr %7, align 4
   %add.i = add i64 %blockFront.0.sink23.i, 1
-  %sizeMask.i = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i, i64 0, i32 8
+  %sizeMask.i = getelementptr inbounds i8, ptr %frontBlock_.0.sink24.i, i64 144
   %21 = load i64, ptr %sizeMask.i, align 8
   %and.i = and i64 %21, %add.i
   fence release
@@ -6905,10 +6866,10 @@ entry:
   %storemerge.i.i.i.i = zext nneg i32 %2 to i64
   store i64 %storemerge.i.i.i.i, ptr %rng.i.i, align 8
   store i32 0, ptr %rand.i.i, align 4
-  %_M_b.i.i.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand.i.i, i64 0, i32 1
+  %_M_b.i.i.i.i = getelementptr inbounds i8, ptr %rand.i.i, i64 4
   store i32 15, ptr %_M_b.i.i.i.i, align 4
   store i32 0, ptr %num.i.i, align 4
-  %3 = getelementptr inbounds %class.anon.8, ptr %wrapper, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -6932,7 +6893,7 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit: ; preds = %for.inc.i.i
   %6 = load i32, ptr %num.i.i, align 4
-  %7 = getelementptr inbounds %class.anon.8, ptr %wrapper, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %wrapper, i64 16
   %8 = load ptr, ptr %7, align 8
   store i32 %6, ptr %8, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rng.i.i)
@@ -6945,10 +6906,10 @@ _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17Reade
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN41BlockingReaderWriterCircularBufferAdapterIiED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %items.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %this, i64 0, i32 5
+  %items.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %items.i, align 8
   %1 = load atomic i64, ptr %0 monotonic, align 8
-  %rawData.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %this, i64 0, i32 2
+  %rawData.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %rawData.i, align 8
   tail call void @free(ptr noundef %2) #18
   %3 = load ptr, ptr %items.i, align 8
@@ -6956,20 +6917,20 @@ entry:
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i: ; preds = %entry
-  %m_sema.i.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %3, i64 0, i32 1
+  %m_sema.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %call.i.i.i.i.i = tail call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %3) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i, %entry
   store ptr null, ptr %items.i, align 8
-  %slots_.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %this, i64 0, i32 4
+  %slots_.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %slots_.i, align 8
   %cmp.not.i2.i = icmp eq ptr %4, null
   br i1 %cmp.not.i2.i, label %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i3.i
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i3.i: ; preds = %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i
-  %m_sema.i.i.i4.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %4, i64 0, i32 1
+  %m_sema.i.i.i4.i = getelementptr inbounds i8, ptr %4, i64 8
   %call.i.i.i.i5.i = tail call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i4.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %4) #20
   br label %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit
@@ -6983,12 +6944,12 @@ _ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit: ; preds = %_ZNS
 define linkonce_odr dso_local void @_ZN10moodycamel34BlockingReaderWriterCircularBufferIiEC2Em(ptr noundef nonnull align 8 dereferenceable(136) %this, i64 noundef %capacity) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store i64 %capacity, ptr %this, align 8
-  %mask = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %this, i64 0, i32 1
-  %slots_ = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %this, i64 0, i32 4
+  %mask = getelementptr inbounds i8, ptr %this, i64 8
+  %slots_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mask, i8 0, i64 24, i1 false)
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
   store i64 %capacity, ptr %call, align 8
-  %m_sema.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %call, i64 0, i32 1
+  %m_sema.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i, i8 0, i64 32, i1 false)
   %call.i.i = tail call i32 @sem_init(ptr noundef nonnull %m_sema.i, i32 noundef 0, i32 noundef 0) #18
   store ptr %call, ptr %slots_, align 8
@@ -6996,14 +6957,14 @@ invoke.cont:
           to label %invoke.cont6 unwind label %lpad2
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  %items = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %this, i64 0, i32 5
-  %m_sema.i17 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %call4, i64 0, i32 1
+  %items = getelementptr inbounds i8, ptr %this, i64 40
+  %m_sema.i17 = getelementptr inbounds i8, ptr %call4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call4, i8 0, i64 40, i1 false)
   %call.i.i18 = tail call i32 @sem_init(ptr noundef nonnull %m_sema.i17, i32 noundef 0, i32 noundef 0) #18
   store ptr %call4, ptr %items, align 8
-  %nextSlot = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %this, i64 0, i32 7
+  %nextSlot = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %nextSlot, align 8
-  %nextItem = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %this, i64 0, i32 9
+  %nextItem = getelementptr inbounds i8, ptr %this, i64 128
   store i64 0, ptr %nextItem, align 8
   %dec = add i64 %capacity, -1
   %shr = lshr i64 %dec, 1
@@ -7031,8 +6992,8 @@ lpad2:                                            ; preds = %invoke.cont
   resume { ptr, i32 } %0
 
 for.end:                                          ; preds = %for.body
-  %data = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %this, i64 0, i32 3
-  %rawData = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %this, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %this, i64 24
+  %rawData = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %or12, ptr %mask, align 8
   %inc = shl i64 %or12, 2
   %sub = add i64 %inc, 7
@@ -7054,7 +7015,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit: ; preds = %entry
-  %m_sema.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %0, i64 0, i32 1
+  %m_sema.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i.i.i = tail call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   br label %if.end
@@ -7102,7 +7063,7 @@ if.end9:                                          ; preds = %while.end
   br i1 %cmp10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %m_sema = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %this, i64 0, i32 1
+  %m_sema = getelementptr inbounds i8, ptr %this, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.then11
@@ -7123,7 +7084,7 @@ if.end15:                                         ; preds = %do.body.i, %land.rh
   br i1 %cmp16, label %land.lhs.true, label %if.end20
 
 land.lhs.true:                                    ; preds = %if.end15
-  %m_sema17 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %this, i64 0, i32 1
+  %m_sema17 = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
   %call.i5 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts.i) #18
   %div.i = udiv i64 %timeout_usecs, 1000000
@@ -7132,7 +7093,7 @@ land.lhs.true:                                    ; preds = %if.end15
   store i64 %add.i, ptr %ts.i, align 8
   %rem.i = urem i64 %timeout_usecs, 1000000
   %mul.i = mul nuw nsw i64 %rem.i, 1000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %5 = load i64, ptr %tv_nsec.i, align 8
   %add2.i = add nsw i64 %5, %mul.i
   store i64 %add2.i, ptr %tv_nsec.i, align 8
@@ -7175,7 +7136,7 @@ if.end20:                                         ; preds = %_ZN10moodycamel9sps
   br i1 %cmp2523, label %return, label %if.end27.lr.ph
 
 if.end27.lr.ph:                                   ; preds = %if.end20
-  %m_sema32 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %this, i64 0, i32 1
+  %m_sema32 = getelementptr inbounds i8, ptr %this, i64 8
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end27.lr.ph, %if.end35
@@ -7225,13 +7186,13 @@ declare i32 @sem_post(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.32, ptr %wrapper, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %i.07.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.inc.i.i ]
   %1 = load ptr, ptr %wrapper, align 8
-  %items.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 5
+  %items.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %items.i.i.i, align 8
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %cmp.i.i.i.i = icmp sgt i64 %3, 0
@@ -7239,25 +7200,25 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i
   %4 = atomicrmw add ptr %2, i64 -1 acquire, align 8
-  %nextItem.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 9
+  %nextItem.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 128
   %5 = load i64, ptr %nextItem.i.i.i.i, align 8
   %inc.i.i.i.i = add i64 %5, 1
   store i64 %inc.i.i.i.i, ptr %nextItem.i.i.i.i, align 8
-  %data.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 3
+  %data.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %data.i.i.i.i, align 8
-  %mask.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 1
+  %mask.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %mask.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %7, %5
   %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %6, i64 %and.i.i.i.i
   %8 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %slots_.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 4
+  %slots_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load ptr, ptr %slots_.i.i.i.i, align 8
   %10 = atomicrmw add ptr %9, i64 1 release, align 8
   %cmp.i.i.i.i.i = icmp slt i64 %10, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.then.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %m_sema.i.i.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %9, i64 0, i32 1
+  %m_sema.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   br label %while.cond2.i.i.i.i.i.i
 
 while.cond2.i.i.i.i.i.i:                          ; preds = %while.cond2.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -7304,7 +7265,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %0 = load ptr, ptr %this, align 8
-  %slots_.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 4
+  %slots_.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %slots_.i.i, align 8
   %2 = load atomic i64, ptr %1 monotonic, align 8
   %cmp.i.i.i.i11 = icmp sgt i64 %2, 0
@@ -7332,7 +7293,7 @@ while.end.i:                                      ; preds = %if.end.i
   br i1 %cmp7.i, label %while.end.i.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %while.end.i
-  %m_sema.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %3, i64 0, i32 1
+  %m_sema.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end9.i
@@ -7388,25 +7349,25 @@ while.end.i.i.sink.split:                         ; preds = %_ZN10moodycamel9sps
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i, %do.body.i.i, %do.body.i9.i, %while.end.i.i.sink.split
-  %nextSlot.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 7
+  %nextSlot.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load i64, ptr %nextSlot.i.i.i, align 8
   %inc.i.i.i = add i64 %14, 1
   store i64 %inc.i.i.i, ptr %nextSlot.i.i.i, align 8
-  %data.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 3
+  %data.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load ptr, ptr %data.i.i.i, align 8
-  %mask.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 1
+  %mask.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i64, ptr %mask.i.i.i, align 8
   %and.i.i.i = and i64 %16, %14
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %15, i64 %and.i.i.i
   store i32 %num.012, ptr %add.ptr.i.i.i, align 4
-  %items.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 5
+  %items.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load ptr, ptr %items.i.i.i, align 8
   %18 = atomicrmw add ptr %17, i64 1 release, align 8
   %cmp.i.i1.i.i = icmp slt i64 %18, 0
   br i1 %cmp.i.i1.i.i, label %if.then.i.i.i.i, label %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit
 
 if.then.i.i.i.i:                                  ; preds = %while.end.i.i
-  %m_sema.i.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %17, i64 0, i32 1
+  %m_sema.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   br label %while.cond2.i.i.i.i.i
 
 while.cond2.i.i.i.i.i:                            ; preds = %while.cond2.i.i.i.i.i, %if.then.i.i.i.i
@@ -7431,10 +7392,10 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE1_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.34, ptr %wrapper, i64 0, i32 1
-  %1 = getelementptr inbounds %class.anon.34, ptr %wrapper, i64 0, i32 2
-  %2 = getelementptr inbounds %class.anon.34, ptr %wrapper, i64 0, i32 3
-  %3 = getelementptr inbounds %class.anon.34, ptr %wrapper, i64 0, i32 4
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
+  %1 = getelementptr inbounds i8, ptr %wrapper, i64 16
+  %2 = getelementptr inbounds i8, ptr %wrapper, i64 24
+  %3 = getelementptr inbounds i8, ptr %wrapper, i64 32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -7448,7 +7409,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
 if.then.i.i:                                      ; preds = %for.body.i.i
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %2, align 8
-  %items.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %6, i64 0, i32 5
+  %items.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %items.i.i.i, align 8
   %9 = load atomic i64, ptr %8 monotonic, align 8
   %cmp.i.i.i.i = icmp sgt i64 %9, 0
@@ -7456,26 +7417,26 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %10 = atomicrmw add ptr %8, i64 -1 acquire, align 8
-  %nextItem.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %6, i64 0, i32 9
+  %nextItem.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 128
   %11 = load i64, ptr %nextItem.i.i.i.i, align 8
   %inc.i.i.i.i = add i64 %11, 1
   store i64 %inc.i.i.i.i, ptr %nextItem.i.i.i.i, align 8
-  %data.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %6, i64 0, i32 3
+  %data.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %12 = load ptr, ptr %data.i.i.i.i, align 8
-  %mask.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %6, i64 0, i32 1
+  %mask.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %13 = load i64, ptr %mask.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %13, %11
   %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %12, i64 %and.i.i.i.i
   %14 = load i32, ptr %arrayidx.i.i.i.i, align 4
   store i32 %14, ptr %7, align 4
-  %slots_.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %6, i64 0, i32 4
+  %slots_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %15 = load ptr, ptr %slots_.i.i.i.i, align 8
   %16 = atomicrmw add ptr %15, i64 1 release, align 8
   %cmp.i.i.i.i.i = icmp slt i64 %16, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %m_sema.i.i.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %15, i64 0, i32 1
+  %m_sema.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   br label %while.cond2.i.i.i.i.i.i
 
 while.cond2.i.i.i.i.i.i:                          ; preds = %while.cond2.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -7517,7 +7478,7 @@ for.body:                                         ; preds = %entry, %_ZN41Blocki
   %i.012 = phi i64 [ 0, %entry ], [ %inc2, %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit ]
   %indvars21 = trunc i64 %i.012 to i32
   %0 = load ptr, ptr %this, align 8
-  %slots_.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 4
+  %slots_.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %slots_.i.i, align 8
   %2 = load atomic i64, ptr %1 monotonic, align 8
   %cmp.i.i.i.i10 = icmp sgt i64 %2, 0
@@ -7545,7 +7506,7 @@ while.end.i:                                      ; preds = %if.end.i
   br i1 %cmp7.i, label %while.end.i.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %while.end.i
-  %m_sema.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %3, i64 0, i32 1
+  %m_sema.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end9.i
@@ -7601,25 +7562,25 @@ while.end.i.i.sink.split:                         ; preds = %_ZN10moodycamel9sps
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i, %do.body.i.i, %do.body.i9.i, %while.end.i.i.sink.split
-  %nextSlot.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 7
+  %nextSlot.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load i64, ptr %nextSlot.i.i.i, align 8
   %inc.i.i.i = add i64 %14, 1
   store i64 %inc.i.i.i, ptr %nextSlot.i.i.i, align 8
-  %data.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 3
+  %data.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load ptr, ptr %data.i.i.i, align 8
-  %mask.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 1
+  %mask.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i64, ptr %mask.i.i.i, align 8
   %and.i.i.i = and i64 %16, %14
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %15, i64 %and.i.i.i
   store i32 %indvars21, ptr %add.ptr.i.i.i, align 4
-  %items.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 5
+  %items.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load ptr, ptr %items.i.i.i, align 8
   %18 = atomicrmw add ptr %17, i64 1 release, align 8
   %cmp.i.i1.i.i = icmp slt i64 %18, 0
   br i1 %cmp.i.i1.i.i, label %if.then.i.i.i.i, label %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit
 
 if.then.i.i.i.i:                                  ; preds = %while.end.i.i
-  %m_sema.i.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %17, i64 0, i32 1
+  %m_sema.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   br label %while.cond2.i.i.i.i.i
 
 while.cond2.i.i.i.i.i:                            ; preds = %while.cond2.i.i.i.i.i, %if.then.i.i.i.i
@@ -7639,14 +7600,14 @@ for.end:                                          ; preds = %_ZN41BlockingReader
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE3_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.36, ptr %wrapper, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i, %entry
   %i.02.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i ]
   %1 = load ptr, ptr %wrapper, align 8
   %2 = load ptr, ptr %0, align 8
-  %items.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 5
+  %items.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %items.i.i.i, align 8
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %cmp.i.i.i.i = icmp sgt i64 %4, 0
@@ -7654,26 +7615,26 @@ for.body.i.i:                                     ; preds = %_ZN10moodycamel34Bl
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i
   %5 = atomicrmw add ptr %3, i64 -1 acquire, align 8
-  %nextItem.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 9
+  %nextItem.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 128
   %6 = load i64, ptr %nextItem.i.i.i.i, align 8
   %inc.i.i.i.i = add i64 %6, 1
   store i64 %inc.i.i.i.i, ptr %nextItem.i.i.i.i, align 8
-  %data.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 3
+  %data.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load ptr, ptr %data.i.i.i.i, align 8
-  %mask.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 1
+  %mask.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i64, ptr %mask.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %8, %6
   %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %7, i64 %and.i.i.i.i
   %9 = load i32, ptr %arrayidx.i.i.i.i, align 4
   store i32 %9, ptr %2, align 4
-  %slots_.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 4
+  %slots_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load ptr, ptr %slots_.i.i.i.i, align 8
   %11 = atomicrmw add ptr %10, i64 1 release, align 8
   %cmp.i.i.i.i.i = icmp slt i64 %11, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %m_sema.i.i.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %10, i64 0, i32 1
+  %m_sema.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   br label %while.cond2.i.i.i.i.i.i
 
 while.cond2.i.i.i.i.i.i:                          ; preds = %while.cond2.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -7702,8 +7663,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdENKUlvE4_clEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.37, ptr %this, i64 0, i32 1
-  %1 = getelementptr inbounds %class.anon.37, ptr %this, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -7717,7 +7678,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %4 = load ptr, ptr %1, align 8
-  %slots_.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %4, i64 0, i32 4
+  %slots_.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load ptr, ptr %slots_.i.i, align 8
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %cmp.i.i.i.i11 = icmp sgt i64 %6, 0
@@ -7745,7 +7706,7 @@ while.end.i:                                      ; preds = %if.end.i
   br i1 %cmp7.i, label %while.end.i.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %while.end.i
-  %m_sema.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %7, i64 0, i32 1
+  %m_sema.i = getelementptr inbounds i8, ptr %7, i64 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end9.i
@@ -7801,25 +7762,25 @@ while.end.i.i.sink.split:                         ; preds = %_ZN10moodycamel9sps
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i, %do.body.i.i, %do.body.i9.i, %while.end.i.i.sink.split
-  %nextSlot.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %4, i64 0, i32 7
+  %nextSlot.i.i.i = getelementptr inbounds i8, ptr %4, i64 64
   %18 = load i64, ptr %nextSlot.i.i.i, align 8
   %inc.i.i.i = add i64 %18, 1
   store i64 %inc.i.i.i, ptr %nextSlot.i.i.i, align 8
-  %data.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %4, i64 0, i32 3
+  %data.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %19 = load ptr, ptr %data.i.i.i, align 8
-  %mask.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %4, i64 0, i32 1
+  %mask.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %20 = load i64, ptr %mask.i.i.i, align 8
   %and.i.i.i = and i64 %20, %18
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %19, i64 %and.i.i.i
   store i32 %num.012, ptr %add.ptr.i.i.i, align 4
-  %items.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %4, i64 0, i32 5
+  %items.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   %21 = load ptr, ptr %items.i.i.i, align 8
   %22 = atomicrmw add ptr %21, i64 1 release, align 8
   %cmp.i.i1.i.i = icmp slt i64 %22, 0
   br i1 %cmp.i.i1.i.i, label %if.then.i.i.i.i, label %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit
 
 if.then.i.i.i.i:                                  ; preds = %while.end.i.i
-  %m_sema.i.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %21, i64 0, i32 1
+  %m_sema.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   br label %while.cond2.i.i.i.i.i
 
 while.cond2.i.i.i.i.i:                            ; preds = %while.cond2.i.i.i.i.i, %if.then.i.i.i.i
@@ -7838,7 +7799,7 @@ for.inc:                                          ; preds = %for.body, %_ZN41Blo
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !62
 
 for.end:                                          ; preds = %for.inc
-  %23 = getelementptr inbounds %class.anon.37, ptr %this, i64 0, i32 3
+  %23 = getelementptr inbounds i8, ptr %this, i64 24
   %24 = load ptr, ptr %23, align 8
   store i32 %num.1, ptr %24, align 4
   ret void
@@ -7847,14 +7808,14 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE5_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.38, ptr %wrapper, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i, %entry
   %i.02.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i ]
   %1 = load ptr, ptr %wrapper, align 8
   %2 = load ptr, ptr %0, align 8
-  %items.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 5
+  %items.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %items.i.i.i, align 8
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %cmp.i.i.i.i = icmp sgt i64 %4, 0
@@ -7862,26 +7823,26 @@ for.body.i.i:                                     ; preds = %_ZN10moodycamel34Bl
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i
   %5 = atomicrmw add ptr %3, i64 -1 acquire, align 8
-  %nextItem.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 9
+  %nextItem.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 128
   %6 = load i64, ptr %nextItem.i.i.i.i, align 8
   %inc.i.i.i.i = add i64 %6, 1
   store i64 %inc.i.i.i.i, ptr %nextItem.i.i.i.i, align 8
-  %data.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 3
+  %data.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load ptr, ptr %data.i.i.i.i, align 8
-  %mask.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 1
+  %mask.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i64, ptr %mask.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %8, %6
   %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %7, i64 %and.i.i.i.i
   %9 = load i32, ptr %arrayidx.i.i.i.i, align 4
   store i32 %9, ptr %2, align 4
-  %slots_.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %1, i64 0, i32 4
+  %slots_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load ptr, ptr %slots_.i.i.i.i, align 8
   %11 = atomicrmw add ptr %10, i64 1 release, align 8
   %cmp.i.i.i.i.i = icmp slt i64 %11, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %m_sema.i.i.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %10, i64 0, i32 1
+  %m_sema.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   br label %while.cond2.i.i.i.i.i.i
 
 while.cond2.i.i.i.i.i.i:                          ; preds = %while.cond2.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -7916,7 +7877,7 @@ for.body:                                         ; preds = %entry, %_ZN41Blocki
   %i.012 = phi i64 [ 0, %entry ], [ %inc2, %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit ]
   %indvars21 = trunc i64 %i.012 to i32
   %0 = load ptr, ptr %this, align 8
-  %slots_.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 4
+  %slots_.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %slots_.i.i, align 8
   %2 = load atomic i64, ptr %1 monotonic, align 8
   %cmp.i.i.i.i10 = icmp sgt i64 %2, 0
@@ -7944,7 +7905,7 @@ while.end.i:                                      ; preds = %if.end.i
   br i1 %cmp7.i, label %while.end.i.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %while.end.i
-  %m_sema.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %3, i64 0, i32 1
+  %m_sema.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end9.i
@@ -8000,25 +7961,25 @@ while.end.i.i.sink.split:                         ; preds = %_ZN10moodycamel9sps
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i, %do.body.i.i, %do.body.i9.i, %while.end.i.i.sink.split
-  %nextSlot.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 7
+  %nextSlot.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load i64, ptr %nextSlot.i.i.i, align 8
   %inc.i.i.i = add i64 %14, 1
   store i64 %inc.i.i.i, ptr %nextSlot.i.i.i, align 8
-  %data.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 3
+  %data.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load ptr, ptr %data.i.i.i, align 8
-  %mask.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 1
+  %mask.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i64, ptr %mask.i.i.i, align 8
   %and.i.i.i = and i64 %16, %14
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %15, i64 %and.i.i.i
   store i32 %indvars21, ptr %add.ptr.i.i.i, align 4
-  %items.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %0, i64 0, i32 5
+  %items.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load ptr, ptr %items.i.i.i, align 8
   %18 = atomicrmw add ptr %17, i64 1 release, align 8
   %cmp.i.i1.i.i = icmp slt i64 %18, 0
   br i1 %cmp.i.i1.i.i, label %if.then.i.i.i.i, label %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit
 
 if.then.i.i.i.i:                                  ; preds = %while.end.i.i
-  %m_sema.i.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %17, i64 0, i32 1
+  %m_sema.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   br label %while.cond2.i.i.i.i.i
 
 while.cond2.i.i.i.i.i:                            ; preds = %while.cond2.i.i.i.i.i, %if.then.i.i.i.i
@@ -8049,11 +8010,11 @@ entry:
   %storemerge.i.i.i.i = zext nneg i32 %2 to i64
   store i64 %storemerge.i.i.i.i, ptr %rng.i.i, align 8
   store i32 0, ptr %rand.i.i, align 4
-  %_M_b.i.i.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand.i.i, i64 0, i32 1
+  %_M_b.i.i.i.i = getelementptr inbounds i8, ptr %rand.i.i, i64 4
   store i32 15, ptr %_M_b.i.i.i.i, align 4
-  %3 = getelementptr inbounds %class.anon.40, ptr %wrapper, i64 0, i32 1
-  %4 = getelementptr inbounds %class.anon.40, ptr %wrapper, i64 0, i32 2
-  %5 = getelementptr inbounds %class.anon.40, ptr %wrapper, i64 0, i32 3
+  %3 = getelementptr inbounds i8, ptr %wrapper, i64 8
+  %4 = getelementptr inbounds i8, ptr %wrapper, i64 16
+  %5 = getelementptr inbounds i8, ptr %wrapper, i64 24
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -8065,7 +8026,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
 if.then.i.i:                                      ; preds = %for.body.i.i
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
-  %items.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %6, i64 0, i32 5
+  %items.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %items.i.i.i, align 8
   %9 = load atomic i64, ptr %8 monotonic, align 8
   %cmp.i.i.i.i = icmp sgt i64 %9, 0
@@ -8073,26 +8034,26 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %10 = atomicrmw add ptr %8, i64 -1 acquire, align 8
-  %nextItem.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %6, i64 0, i32 9
+  %nextItem.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 128
   %11 = load i64, ptr %nextItem.i.i.i.i, align 8
   %inc.i.i.i.i = add i64 %11, 1
   store i64 %inc.i.i.i.i, ptr %nextItem.i.i.i.i, align 8
-  %data.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %6, i64 0, i32 3
+  %data.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %12 = load ptr, ptr %data.i.i.i.i, align 8
-  %mask.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %6, i64 0, i32 1
+  %mask.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %13 = load i64, ptr %mask.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %13, %11
   %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %12, i64 %and.i.i.i.i
   %14 = load i32, ptr %arrayidx.i.i.i.i, align 4
   store i32 %14, ptr %7, align 4
-  %slots_.i.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %6, i64 0, i32 4
+  %slots_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %15 = load ptr, ptr %slots_.i.i.i.i, align 8
   %16 = atomicrmw add ptr %15, i64 1 release, align 8
   %cmp.i.i.i.i.i = icmp slt i64 %16, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %m_sema.i.i.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %15, i64 0, i32 1
+  %m_sema.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   br label %while.cond2.i.i.i.i.i.i
 
 while.cond2.i.i.i.i.i.i:                          ; preds = %while.cond2.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -8141,9 +8102,9 @@ entry:
   %storemerge.i.i = zext nneg i32 %2 to i64
   store i64 %storemerge.i.i, ptr %rng, align 8
   store i32 0, ptr %rand, align 4
-  %_M_b.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand, i64 0, i32 1
+  %_M_b.i.i = getelementptr inbounds i8, ptr %rand, i64 4
   store i32 15, ptr %_M_b.i.i, align 4
-  %3 = getelementptr inbounds %class.anon.41, ptr %this, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -8155,7 +8116,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %4 = load ptr, ptr %3, align 8
-  %slots_.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %4, i64 0, i32 4
+  %slots_.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load ptr, ptr %slots_.i.i, align 8
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %cmp.i.i.i.i12 = icmp sgt i64 %6, 0
@@ -8183,7 +8144,7 @@ while.end.i:                                      ; preds = %if.end.i
   br i1 %cmp7.i, label %while.end.i.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %while.end.i
-  %m_sema.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %7, i64 0, i32 1
+  %m_sema.i = getelementptr inbounds i8, ptr %7, i64 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end9.i
@@ -8239,25 +8200,25 @@ while.end.i.i.sink.split:                         ; preds = %_ZN10moodycamel9sps
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.i, %do.body.i.i, %do.body.i9.i, %while.end.i.i.sink.split
-  %nextSlot.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %4, i64 0, i32 7
+  %nextSlot.i.i.i = getelementptr inbounds i8, ptr %4, i64 64
   %18 = load i64, ptr %nextSlot.i.i.i, align 8
   %inc.i.i.i = add i64 %18, 1
   store i64 %inc.i.i.i, ptr %nextSlot.i.i.i, align 8
-  %data.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %4, i64 0, i32 3
+  %data.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %19 = load ptr, ptr %data.i.i.i, align 8
-  %mask.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %4, i64 0, i32 1
+  %mask.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %20 = load i64, ptr %mask.i.i.i, align 8
   %and.i.i.i = and i64 %20, %18
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %19, i64 %and.i.i.i
   store i32 %num.013, ptr %add.ptr.i.i.i, align 4
-  %items.i.i.i = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %4, i64 0, i32 5
+  %items.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   %21 = load ptr, ptr %items.i.i.i, align 8
   %22 = atomicrmw add ptr %21, i64 1 release, align 8
   %cmp.i.i1.i.i = icmp slt i64 %22, 0
   br i1 %cmp.i.i1.i.i, label %if.then.i.i.i.i, label %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit
 
 if.then.i.i.i.i:                                  ; preds = %while.end.i.i
-  %m_sema.i.i.i.i = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %21, i64 0, i32 1
+  %m_sema.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   br label %while.cond2.i.i.i.i.i
 
 while.cond2.i.i.i.i.i:                            ; preds = %while.cond2.i.i.i.i.i, %if.then.i.i.i.i
@@ -8276,7 +8237,7 @@ for.inc:                                          ; preds = %for.body, %_ZN41Blo
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !66
 
 for.end:                                          ; preds = %for.inc
-  %23 = getelementptr inbounds %class.anon.41, ptr %this, i64 0, i32 2
+  %23 = getelementptr inbounds i8, ptr %this, i64 16
   %24 = load ptr, ptr %23, align 8
   store i32 %num.1, ptr %24, align 4
   ret void
@@ -8285,7 +8246,7 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.65, ptr %wrapper, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -8300,7 +8261,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
 if.then.i.i:                                      ; preds = %for.body.i.i
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
-  %value_.i.i.i = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %5, i64 0, i32 1
+  %value_.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %value_.i.i.i, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %5, ptr %1, align 8
@@ -8334,9 +8295,9 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %0 = load ptr, ptr %wrapper, align 8
-  %first_.i.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %0, i64 0, i32 3
+  %first_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %first_.i.i.i.i, align 8
-  %tail_copy_.i.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %0, i64 0, i32 4
+  %tail_copy_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 88
   %2 = load ptr, ptr %tail_copy_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
@@ -8366,9 +8327,9 @@ if.end15.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 _ZN10spsc_queueIiE7enqueueEi.exit.i.i:            ; preds = %if.end15.i.i.i.i, %if.then9.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %1, %if.then.i.i.i.i ], [ %5, %if.then9.i.i.i.i ], [ %call17.i.i.i.i, %if.end15.i.i.i.i ]
   store ptr null, ptr %retval.0.i.i.i.i, align 8
-  %value_.i.i.i = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %value_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   store i32 %num.04.i.i, ptr %value_.i.i.i, align 8
-  %head_.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %0, i64 0, i32 2
+  %head_.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load ptr, ptr %head_.i.i.i, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %retval.0.i.i.i.i, ptr %7, align 8
@@ -8390,10 +8351,10 @@ _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13B
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE1_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.67, ptr %wrapper, i64 0, i32 1
-  %1 = getelementptr inbounds %class.anon.67, ptr %wrapper, i64 0, i32 2
-  %2 = getelementptr inbounds %class.anon.67, ptr %wrapper, i64 0, i32 3
-  %3 = getelementptr inbounds %class.anon.67, ptr %wrapper, i64 0, i32 4
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
+  %1 = getelementptr inbounds i8, ptr %wrapper, i64 16
+  %2 = getelementptr inbounds i8, ptr %wrapper, i64 24
+  %3 = getelementptr inbounds i8, ptr %wrapper, i64 32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -8416,7 +8377,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %10, align 8
-  %value_.i.i.i = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %11, i64 0, i32 1
+  %value_.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i32, ptr %value_.i.i.i, align 8
   store i32 %12, ptr %7, align 4
   %13 = load ptr, ptr %6, align 8
@@ -8451,9 +8412,9 @@ for.body.i.i:                                     ; preds = %_ZN10spsc_queueIiE7
   %i.04.i.i = phi i64 [ 0, %entry ], [ %inc2.i.i, %_ZN10spsc_queueIiE7enqueueEi.exit.i.i ]
   %indvars5.i.i = trunc i64 %i.04.i.i to i32
   %0 = load ptr, ptr %wrapper, align 8
-  %first_.i.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %0, i64 0, i32 3
+  %first_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %first_.i.i.i.i, align 8
-  %tail_copy_.i.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %0, i64 0, i32 4
+  %tail_copy_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 88
   %2 = load ptr, ptr %tail_copy_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
@@ -8483,9 +8444,9 @@ if.end15.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 _ZN10spsc_queueIiE7enqueueEi.exit.i.i:            ; preds = %if.end15.i.i.i.i, %if.then9.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %1, %if.then.i.i.i.i ], [ %5, %if.then9.i.i.i.i ], [ %call17.i.i.i.i, %if.end15.i.i.i.i ]
   store ptr null, ptr %retval.0.i.i.i.i, align 8
-  %value_.i.i.i = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %value_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   store i32 %indvars5.i.i, ptr %value_.i.i.i, align 8
-  %head_.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %0, i64 0, i32 2
+  %head_.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load ptr, ptr %head_.i.i.i, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %retval.0.i.i.i.i, ptr %7, align 8
@@ -8502,7 +8463,7 @@ _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13B
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE3_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.69, ptr %wrapper, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i, %entry
@@ -8518,7 +8479,7 @@ for.body.i.i:                                     ; preds = %_ZN10spsc_queueIiE1
 if.then.i.i.i:                                    ; preds = %for.body.i.i
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %5, align 8
-  %value_.i.i.i = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %6, i64 0, i32 1
+  %value_.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %value_.i.i.i, align 8
   store i32 %7, ptr %2, align 4
   %8 = load ptr, ptr %1, align 8
@@ -8540,8 +8501,8 @@ _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13B
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE4_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.70, ptr %wrapper, i64 0, i32 1
-  %1 = getelementptr inbounds %class.anon.70, ptr %wrapper, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
+  %1 = getelementptr inbounds i8, ptr %wrapper, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -8555,9 +8516,9 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %4 = load ptr, ptr %1, align 8
-  %first_.i.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %4, i64 0, i32 3
+  %first_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 80
   %5 = load ptr, ptr %first_.i.i.i.i, align 8
-  %tail_copy_.i.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %4, i64 0, i32 4
+  %tail_copy_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 88
   %6 = load ptr, ptr %tail_copy_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
@@ -8587,9 +8548,9 @@ if.end15.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 _ZN10spsc_queueIiE7enqueueEi.exit.i.i:            ; preds = %if.end15.i.i.i.i, %if.then9.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %5, %if.then.i.i.i.i ], [ %9, %if.then9.i.i.i.i ], [ %call17.i.i.i.i, %if.end15.i.i.i.i ]
   store ptr null, ptr %retval.0.i.i.i.i, align 8
-  %value_.i.i.i = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %value_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   store i32 %num.04.i.i, ptr %value_.i.i.i, align 8
-  %head_.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %4, i64 0, i32 2
+  %head_.i.i.i = getelementptr inbounds i8, ptr %4, i64 72
   %11 = load ptr, ptr %head_.i.i.i, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %retval.0.i.i.i.i, ptr %11, align 8
@@ -8604,7 +8565,7 @@ for.inc.i.i:                                      ; preds = %_ZN10spsc_queueIiE7
   br i1 %cmp.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit, label %for.body.i.i, !llvm.loop !72
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit: ; preds = %for.inc.i.i
-  %12 = getelementptr inbounds %class.anon.70, ptr %wrapper, i64 0, i32 3
+  %12 = getelementptr inbounds i8, ptr %wrapper, i64 24
   %13 = load ptr, ptr %12, align 8
   store i32 %num.1.i.i, ptr %13, align 4
   tail call void @_ZdlPv(ptr noundef nonnull %wrapper) #20
@@ -8614,7 +8575,7 @@ _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13B
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE5_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.71, ptr %wrapper, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i, %entry
@@ -8630,7 +8591,7 @@ for.body.i.i:                                     ; preds = %_ZN10spsc_queueIiE1
 if.then.i.i.i:                                    ; preds = %for.body.i.i
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %5, align 8
-  %value_.i.i.i = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %6, i64 0, i32 1
+  %value_.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %value_.i.i.i, align 8
   store i32 %7, ptr %2, align 4
   %8 = load ptr, ptr %1, align 8
@@ -8658,9 +8619,9 @@ for.body.i.i:                                     ; preds = %_ZN10spsc_queueIiE7
   %i.04.i.i = phi i64 [ 0, %entry ], [ %inc2.i.i, %_ZN10spsc_queueIiE7enqueueEi.exit.i.i ]
   %indvars5.i.i = trunc i64 %i.04.i.i to i32
   %0 = load ptr, ptr %wrapper, align 8
-  %first_.i.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %0, i64 0, i32 3
+  %first_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %first_.i.i.i.i, align 8
-  %tail_copy_.i.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %0, i64 0, i32 4
+  %tail_copy_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 88
   %2 = load ptr, ptr %tail_copy_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
@@ -8690,9 +8651,9 @@ if.end15.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 _ZN10spsc_queueIiE7enqueueEi.exit.i.i:            ; preds = %if.end15.i.i.i.i, %if.then9.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %1, %if.then.i.i.i.i ], [ %5, %if.then9.i.i.i.i ], [ %call17.i.i.i.i, %if.end15.i.i.i.i ]
   store ptr null, ptr %retval.0.i.i.i.i, align 8
-  %value_.i.i.i = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %value_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   store i32 %indvars5.i.i, ptr %value_.i.i.i, align 8
-  %head_.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %0, i64 0, i32 2
+  %head_.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load ptr, ptr %head_.i.i.i, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %retval.0.i.i.i.i, ptr %7, align 8
@@ -8720,11 +8681,11 @@ entry:
   %storemerge.i.i.i.i = zext nneg i32 %2 to i64
   store i64 %storemerge.i.i.i.i, ptr %rng.i.i, align 8
   store i32 0, ptr %rand.i.i, align 4
-  %_M_b.i.i.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand.i.i, i64 0, i32 1
+  %_M_b.i.i.i.i = getelementptr inbounds i8, ptr %rand.i.i, i64 4
   store i32 15, ptr %_M_b.i.i.i.i, align 4
-  %3 = getelementptr inbounds %class.anon.73, ptr %wrapper, i64 0, i32 1
-  %4 = getelementptr inbounds %class.anon.73, ptr %wrapper, i64 0, i32 2
-  %5 = getelementptr inbounds %class.anon.73, ptr %wrapper, i64 0, i32 3
+  %3 = getelementptr inbounds i8, ptr %wrapper, i64 8
+  %4 = getelementptr inbounds i8, ptr %wrapper, i64 16
+  %5 = getelementptr inbounds i8, ptr %wrapper, i64 24
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -8745,7 +8706,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %10, align 8
-  %value_.i.i.i = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %11, i64 0, i32 1
+  %value_.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i32, ptr %value_.i.i.i, align 8
   store i32 %12, ptr %7, align 4
   %13 = load ptr, ptr %6, align 8
@@ -8789,9 +8750,9 @@ entry:
   %storemerge.i.i.i.i = zext nneg i32 %2 to i64
   store i64 %storemerge.i.i.i.i, ptr %rng.i.i, align 8
   store i32 0, ptr %rand.i.i, align 4
-  %_M_b.i.i.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand.i.i, i64 0, i32 1
+  %_M_b.i.i.i.i = getelementptr inbounds i8, ptr %rand.i.i, i64 4
   store i32 15, ptr %_M_b.i.i.i.i, align 4
-  %3 = getelementptr inbounds %class.anon.74, ptr %wrapper, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -8803,9 +8764,9 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %4 = load ptr, ptr %3, align 8
-  %first_.i.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %4, i64 0, i32 3
+  %first_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 80
   %5 = load ptr, ptr %first_.i.i.i.i, align 8
-  %tail_copy_.i.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %4, i64 0, i32 4
+  %tail_copy_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 88
   %6 = load ptr, ptr %tail_copy_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
@@ -8835,9 +8796,9 @@ if.end15.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 _ZN10spsc_queueIiE7enqueueEi.exit.i.i:            ; preds = %if.end15.i.i.i.i, %if.then9.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %5, %if.then.i.i.i.i ], [ %9, %if.then9.i.i.i.i ], [ %call17.i.i.i.i, %if.end15.i.i.i.i ]
   store ptr null, ptr %retval.0.i.i.i.i, align 8
-  %value_.i.i.i = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %value_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   store i32 %num.05.i.i, ptr %value_.i.i.i, align 8
-  %head_.i.i.i = getelementptr inbounds %class.spsc_queue, ptr %4, i64 0, i32 2
+  %head_.i.i.i = getelementptr inbounds i8, ptr %4, i64 72
   %11 = load ptr, ptr %head_.i.i.i, align 8
   fence syncscope("singlethread") seq_cst
   store volatile ptr %retval.0.i.i.i.i, ptr %11, align 8
@@ -8852,7 +8813,7 @@ for.inc.i.i:                                      ; preds = %_ZN10spsc_queueIiE7
   br i1 %cmp.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit, label %for.body.i.i, !llvm.loop !76
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit: ; preds = %for.inc.i.i
-  %12 = getelementptr inbounds %class.anon.74, ptr %wrapper, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %wrapper, i64 16
   %13 = load ptr, ptr %12, align 8
   store i32 %num.1.i.i, ptr %13, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rng.i.i)
@@ -8864,22 +8825,22 @@ _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13B
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.97, ptr %wrapper, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %i.05.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.inc.i.i ]
   %1 = load ptr, ptr %wrapper, align 8
-  %readIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %1, i64 0, i32 2
+  %readIndex_.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load atomic i32, ptr %readIndex_.i.i.i monotonic, align 4
-  %writeIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %1, i64 0, i32 3
+  %writeIndex_.i.i.i = getelementptr inbounds i8, ptr %1, i64 20
   %3 = load atomic i32, ptr %writeIndex_.i.i.i acquire, align 4
   %cmp.i.not.i.i = icmp eq i32 %2, %3
   br i1 %cmp.i.not.i.i, label %for.inc.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %4 = load i32, ptr %1, align 8
-  %records_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %1, i64 0, i32 1
+  %records_.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %records_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %2 to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i.i.i
@@ -8918,19 +8879,19 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %0 = load ptr, ptr %wrapper, align 8
-  %writeIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %0, i64 0, i32 3
+  %writeIndex_.i.i.i = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load atomic i32, ptr %writeIndex_.i.i.i monotonic, align 4
   %add.i.i.i = add nsw i32 %1, 1
   %2 = load i32, ptr %0, align 8
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, %2
   %spec.store.select.i.i.i = select i1 %cmp.i.i.i, i32 0, i32 %add.i.i.i
-  %readIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %0, i64 0, i32 2
+  %readIndex_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i32, ptr %readIndex_.i.i.i acquire, align 4
   %cmp3.not.i.not.i.i = icmp eq i32 %spec.store.select.i.i.i, %3
   br i1 %cmp3.not.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i
-  %records_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %0, i64 0, i32 1
+  %records_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %records_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %1 to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i.i
@@ -8956,10 +8917,10 @@ _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerCon
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE1_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.99, ptr %wrapper, i64 0, i32 1
-  %1 = getelementptr inbounds %class.anon.99, ptr %wrapper, i64 0, i32 2
-  %2 = getelementptr inbounds %class.anon.99, ptr %wrapper, i64 0, i32 3
-  %3 = getelementptr inbounds %class.anon.99, ptr %wrapper, i64 0, i32 4
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
+  %1 = getelementptr inbounds i8, ptr %wrapper, i64 16
+  %2 = getelementptr inbounds i8, ptr %wrapper, i64 24
+  %3 = getelementptr inbounds i8, ptr %wrapper, i64 32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -8973,16 +8934,16 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
 if.then.i.i:                                      ; preds = %for.body.i.i
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %2, align 8
-  %readIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %6, i64 0, i32 2
+  %readIndex_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load atomic i32, ptr %readIndex_.i.i.i monotonic, align 4
-  %writeIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %6, i64 0, i32 3
+  %writeIndex_.i.i.i = getelementptr inbounds i8, ptr %6, i64 20
   %9 = load atomic i32, ptr %writeIndex_.i.i.i acquire, align 4
   %cmp.i.not.i.i = icmp eq i32 %8, %9
   br i1 %cmp.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %10 = load i32, ptr %6, align 8
-  %records_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %6, i64 0, i32 1
+  %records_.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load ptr, ptr %records_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %8 to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %11, i64 %idxprom.i.i.i
@@ -9019,20 +8980,20 @@ entry:
 for.body.i.i:                                     ; preds = %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, %entry
   %i.04.i.i = phi i64 [ 0, %entry ], [ %inc2.i.i, %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i ]
   %0 = load ptr, ptr %wrapper, align 8
-  %writeIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %0, i64 0, i32 3
+  %writeIndex_.i.i.i = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load atomic i32, ptr %writeIndex_.i.i.i monotonic, align 4
   %add.i.i.i = add nsw i32 %1, 1
   %2 = load i32, ptr %0, align 8
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, %2
   %spec.store.select.i.i.i = select i1 %cmp.i.i.i, i32 0, i32 %add.i.i.i
-  %readIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %0, i64 0, i32 2
+  %readIndex_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i32, ptr %readIndex_.i.i.i acquire, align 4
   %cmp3.not.i.not.i.i = icmp eq i32 %spec.store.select.i.i.i, %3
   br i1 %cmp3.not.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %for.body.i.i
   %indvars5.i.i = trunc i64 %i.04.i.i to i32
-  %records_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %0, i64 0, i32 1
+  %records_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %records_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %1 to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i.i
@@ -9053,23 +9014,23 @@ _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerCon
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE3_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.101, ptr %wrapper, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i, %entry
   %i.02.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i ]
   %1 = load ptr, ptr %wrapper, align 8
   %2 = load ptr, ptr %0, align 8
-  %readIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %1, i64 0, i32 2
+  %readIndex_.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load atomic i32, ptr %readIndex_.i.i.i monotonic, align 4
-  %writeIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %1, i64 0, i32 3
+  %writeIndex_.i.i.i = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load atomic i32, ptr %writeIndex_.i.i.i acquire, align 4
   %cmp.i.not.i.i = icmp eq i32 %3, %4
   br i1 %cmp.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i
   %5 = load i32, ptr %1, align 8
-  %records_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %1, i64 0, i32 1
+  %records_.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %records_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %3 to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i.i.i
@@ -9094,8 +9055,8 @@ _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerCon
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE4_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.102, ptr %wrapper, i64 0, i32 1
-  %1 = getelementptr inbounds %class.anon.102, ptr %wrapper, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
+  %1 = getelementptr inbounds i8, ptr %wrapper, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -9109,19 +9070,19 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %4 = load ptr, ptr %1, align 8
-  %writeIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %4, i64 0, i32 3
+  %writeIndex_.i.i.i = getelementptr inbounds i8, ptr %4, i64 20
   %5 = load atomic i32, ptr %writeIndex_.i.i.i monotonic, align 4
   %add.i.i.i = add nsw i32 %5, 1
   %6 = load i32, ptr %4, align 8
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, %6
   %spec.store.select.i.i.i = select i1 %cmp.i.i.i, i32 0, i32 %add.i.i.i
-  %readIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %4, i64 0, i32 2
+  %readIndex_.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load atomic i32, ptr %readIndex_.i.i.i acquire, align 4
   %cmp3.not.i.not.i.i = icmp eq i32 %spec.store.select.i.i.i, %7
   br i1 %cmp3.not.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i
-  %records_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %4, i64 0, i32 1
+  %records_.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %records_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %5 to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %8, i64 %idxprom.i.i.i
@@ -9140,7 +9101,7 @@ for.inc.i.i:                                      ; preds = %_ZN5folly21Producer
   br i1 %cmp.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit, label %for.body.i.i, !llvm.loop !82
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit: ; preds = %for.inc.i.i
-  %9 = getelementptr inbounds %class.anon.102, ptr %wrapper, i64 0, i32 3
+  %9 = getelementptr inbounds i8, ptr %wrapper, i64 24
   %10 = load ptr, ptr %9, align 8
   store i32 %num.1.i.i, ptr %10, align 4
   tail call void @_ZdlPv(ptr noundef nonnull %wrapper) #20
@@ -9150,23 +9111,23 @@ _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerCon
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE5_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv(ptr noundef %wrapper) #4 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.103, ptr %wrapper, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i, %entry
   %i.02.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i ]
   %1 = load ptr, ptr %wrapper, align 8
   %2 = load ptr, ptr %0, align 8
-  %readIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %1, i64 0, i32 2
+  %readIndex_.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load atomic i32, ptr %readIndex_.i.i.i monotonic, align 4
-  %writeIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %1, i64 0, i32 3
+  %writeIndex_.i.i.i = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load atomic i32, ptr %writeIndex_.i.i.i acquire, align 4
   %cmp.i.not.i.i = icmp eq i32 %3, %4
   br i1 %cmp.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i
   %5 = load i32, ptr %1, align 8
-  %records_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %1, i64 0, i32 1
+  %records_.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %records_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %3 to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i.i.i
@@ -9196,20 +9157,20 @@ entry:
 for.body.i.i:                                     ; preds = %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, %entry
   %i.04.i.i = phi i64 [ 0, %entry ], [ %inc2.i.i, %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i ]
   %0 = load ptr, ptr %wrapper, align 8
-  %writeIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %0, i64 0, i32 3
+  %writeIndex_.i.i.i = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load atomic i32, ptr %writeIndex_.i.i.i monotonic, align 4
   %add.i.i.i = add nsw i32 %1, 1
   %2 = load i32, ptr %0, align 8
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, %2
   %spec.store.select.i.i.i = select i1 %cmp.i.i.i, i32 0, i32 %add.i.i.i
-  %readIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %0, i64 0, i32 2
+  %readIndex_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i32, ptr %readIndex_.i.i.i acquire, align 4
   %cmp3.not.i.not.i.i = icmp eq i32 %spec.store.select.i.i.i, %3
   br i1 %cmp3.not.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %for.body.i.i
   %indvars5.i.i = trunc i64 %i.04.i.i to i32
-  %records_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %0, i64 0, i32 1
+  %records_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %records_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %1 to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i.i
@@ -9241,11 +9202,11 @@ entry:
   %storemerge.i.i.i.i = zext nneg i32 %2 to i64
   store i64 %storemerge.i.i.i.i, ptr %rng.i.i, align 8
   store i32 0, ptr %rand.i.i, align 4
-  %_M_b.i.i.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand.i.i, i64 0, i32 1
+  %_M_b.i.i.i.i = getelementptr inbounds i8, ptr %rand.i.i, i64 4
   store i32 15, ptr %_M_b.i.i.i.i, align 4
-  %3 = getelementptr inbounds %class.anon.105, ptr %wrapper, i64 0, i32 1
-  %4 = getelementptr inbounds %class.anon.105, ptr %wrapper, i64 0, i32 2
-  %5 = getelementptr inbounds %class.anon.105, ptr %wrapper, i64 0, i32 3
+  %3 = getelementptr inbounds i8, ptr %wrapper, i64 8
+  %4 = getelementptr inbounds i8, ptr %wrapper, i64 16
+  %5 = getelementptr inbounds i8, ptr %wrapper, i64 24
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -9257,16 +9218,16 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
 if.then.i.i:                                      ; preds = %for.body.i.i
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
-  %readIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %6, i64 0, i32 2
+  %readIndex_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load atomic i32, ptr %readIndex_.i.i.i monotonic, align 4
-  %writeIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %6, i64 0, i32 3
+  %writeIndex_.i.i.i = getelementptr inbounds i8, ptr %6, i64 20
   %9 = load atomic i32, ptr %writeIndex_.i.i.i acquire, align 4
   %cmp.i.not.i.i = icmp eq i32 %8, %9
   br i1 %cmp.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %10 = load i32, ptr %6, align 8
-  %records_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %6, i64 0, i32 1
+  %records_.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load ptr, ptr %records_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %8 to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %11, i64 %idxprom.i.i.i
@@ -9313,9 +9274,9 @@ entry:
   %storemerge.i.i.i.i = zext nneg i32 %2 to i64
   store i64 %storemerge.i.i.i.i, ptr %rng.i.i, align 8
   store i32 0, ptr %rand.i.i, align 4
-  %_M_b.i.i.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand.i.i, i64 0, i32 1
+  %_M_b.i.i.i.i = getelementptr inbounds i8, ptr %rand.i.i, i64 4
   store i32 15, ptr %_M_b.i.i.i.i, align 4
-  %3 = getelementptr inbounds %class.anon.106, ptr %wrapper, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %wrapper, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
@@ -9327,19 +9288,19 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %4 = load ptr, ptr %3, align 8
-  %writeIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %4, i64 0, i32 3
+  %writeIndex_.i.i.i = getelementptr inbounds i8, ptr %4, i64 20
   %5 = load atomic i32, ptr %writeIndex_.i.i.i monotonic, align 4
   %add.i.i.i = add nsw i32 %5, 1
   %6 = load i32, ptr %4, align 8
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, %6
   %spec.store.select.i.i.i = select i1 %cmp.i.i.i, i32 0, i32 %add.i.i.i
-  %readIndex_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %4, i64 0, i32 2
+  %readIndex_.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load atomic i32, ptr %readIndex_.i.i.i acquire, align 4
   %cmp3.not.i.not.i.i = icmp eq i32 %spec.store.select.i.i.i, %7
   br i1 %cmp3.not.i.not.i.i, label %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i
-  %records_.i.i.i = getelementptr inbounds %"struct.folly::ProducerConsumerQueue", ptr %4, i64 0, i32 1
+  %records_.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %records_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %5 to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %8, i64 %idxprom.i.i.i
@@ -9358,7 +9319,7 @@ for.inc.i.i:                                      ; preds = %_ZN5folly21Producer
   br i1 %cmp.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit, label %for.body.i.i, !llvm.loop !86
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit: ; preds = %for.inc.i.i
-  %9 = getelementptr inbounds %class.anon.106, ptr %wrapper, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %wrapper, i64 16
   %10 = load ptr, ptr %9, align 8
   store i32 %num.1.i.i, ptr %10, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rng.i.i)
@@ -9383,15 +9344,12 @@ if.then:                                          ; preds = %entry
   %mul = xor i64 %sub.i, 126
   tail call void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %__first, ptr noundef %__last, i64 noundef %mul)
   %cmp.i = icmp sgt i64 %sub.ptr.sub, 128
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %if.then
   %scevgep.i = getelementptr i8, ptr %__first, i64 8
-  br label %for.body.i.i
+  br i1 %cmp.i, label %for.body.i.i, label %if.else.i
 
-for.body.i.i:                                     ; preds = %for.inc.i.i, %if.then.i
-  %__i.015.i.idx.i = phi i64 [ 8, %if.then.i ], [ %__i.015.i.add.i, %for.inc.i.i ]
-  %__first.pn14.i.i = phi ptr [ %__first, %if.then.i ], [ %__i.015.i.ptr.i, %for.inc.i.i ]
+for.body.i.i:                                     ; preds = %if.then, %for.inc.i.i
+  %__i.015.i.idx.i = phi i64 [ %__i.015.i.add.i, %for.inc.i.i ], [ 8, %if.then ]
+  %__first.pn14.i.i = phi ptr [ %__i.015.i.ptr.i, %for.inc.i.i ], [ %__first, %if.then ]
   %__i.015.i.ptr.i = getelementptr inbounds i8, ptr %__first, i64 %__i.015.i.idx.i
   %1 = load double, ptr %__i.015.i.ptr.i, align 8
   %2 = load double, ptr %__first, align 8
@@ -9412,7 +9370,7 @@ while.body.i.i.i:                                 ; preds = %if.else.i.i, %while
   %__next.012.i.i.i = phi ptr [ %__next.0.i.i.i, %while.body.i.i.i ], [ %__first.pn14.i.i, %if.else.i.i ]
   %__last.addr.011.i.i.i = phi ptr [ %__next.012.i.i.i, %while.body.i.i.i ], [ %__i.015.i.ptr.i, %if.else.i.i ]
   store double %4, ptr %__last.addr.011.i.i.i, align 8
-  %__next.0.i.i.i = getelementptr inbounds double, ptr %__next.012.i.i.i, i64 -1
+  %__next.0.i.i.i = getelementptr inbounds i8, ptr %__next.012.i.i.i, i64 -8
   %5 = load double, ptr %__next.0.i.i.i, align 8
   %cmp.i.i.i.i = fcmp olt double %1, %5
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i, label %for.inc.i.i, !llvm.loop !88
@@ -9425,14 +9383,14 @@ for.inc.i.i:                                      ; preds = %while.body.i.i.i, %
   br i1 %cmp1.not.i.i, label %_ZSt16__insertion_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i, label %for.body.i.i, !llvm.loop !89
 
 _ZSt16__insertion_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i: ; preds = %for.inc.i.i
-  %add.ptr.i = getelementptr inbounds double, ptr %__first, i64 16
+  %add.ptr.i = getelementptr inbounds i8, ptr %__first, i64 128
   %cmp.not3.i.i = icmp eq ptr %add.ptr.i, %__last
   br i1 %cmp.not3.i.i, label %if.end, label %for.body.i7.i
 
 for.body.i7.i:                                    ; preds = %_ZSt16__insertion_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i
   %__i.04.i.i = phi ptr [ %incdec.ptr.i.i, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i ], [ %add.ptr.i, %_ZSt16__insertion_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i ]
   %6 = load double, ptr %__i.04.i.i, align 8
-  %__next.09.i.i.i = getelementptr inbounds double, ptr %__i.04.i.i, i64 -1
+  %__next.09.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i, i64 -8
   %7 = load double, ptr %__next.09.i.i.i, align 8
   %cmp.i10.i.i8.i = fcmp olt double %6, %7
   br i1 %cmp.i10.i.i8.i, label %while.body.i.i9.i, label %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i
@@ -9442,7 +9400,7 @@ while.body.i.i9.i:                                ; preds = %for.body.i7.i, %whi
   %__next.012.i.i10.i = phi ptr [ %__next.0.i.i12.i, %while.body.i.i9.i ], [ %__next.09.i.i.i, %for.body.i7.i ]
   %__last.addr.011.i.i11.i = phi ptr [ %__next.012.i.i10.i, %while.body.i.i9.i ], [ %__i.04.i.i, %for.body.i7.i ]
   store double %8, ptr %__last.addr.011.i.i11.i, align 8
-  %__next.0.i.i12.i = getelementptr inbounds double, ptr %__next.012.i.i10.i, i64 -1
+  %__next.0.i.i12.i = getelementptr inbounds i8, ptr %__next.012.i.i10.i, i64 -8
   %9 = load double, ptr %__next.0.i.i12.i, align 8
   %cmp.i.i.i13.i = fcmp olt double %6, %9
   br i1 %cmp.i.i.i13.i, label %while.body.i.i9.i, label %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i, !llvm.loop !88
@@ -9450,17 +9408,16 @@ while.body.i.i9.i:                                ; preds = %for.body.i7.i, %whi
 _ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i: ; preds = %while.body.i.i9.i, %for.body.i7.i
   %__last.addr.0.lcssa.i.i.i = phi ptr [ %__i.04.i.i, %for.body.i7.i ], [ %__next.012.i.i10.i, %while.body.i.i9.i ]
   store double %6, ptr %__last.addr.0.lcssa.i.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds double, ptr %__i.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__i.04.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
   br i1 %cmp.not.i.i, label %if.end, label %for.body.i7.i, !llvm.loop !90
 
 if.else.i:                                        ; preds = %if.then
-  %__i.012.i14.i = getelementptr inbounds double, ptr %__first, i64 1
-  %cmp1.not13.i.i = icmp eq ptr %__i.012.i14.i, %__last
+  %cmp1.not13.i.i = icmp eq ptr %scevgep.i, %__last
   br i1 %cmp1.not13.i.i, label %if.end, label %for.body.i16.i
 
 for.body.i16.i:                                   ; preds = %if.else.i, %for.inc.i22.i
-  %__i.015.i17.i = phi ptr [ %__i.0.i24.i, %for.inc.i22.i ], [ %__i.012.i14.i, %if.else.i ]
+  %__i.015.i17.i = phi ptr [ %__i.0.i24.i, %for.inc.i22.i ], [ %scevgep.i, %if.else.i ]
   %__first.pn14.i18.i = phi ptr [ %__i.015.i17.i, %for.inc.i22.i ], [ %__first, %if.else.i ]
   %10 = load double, ptr %__i.015.i17.i, align 8
   %11 = load double, ptr %__first, align 8
@@ -9468,13 +9425,13 @@ for.body.i16.i:                                   ; preds = %if.else.i, %for.inc
   br i1 %cmp.i.i19.i, label %if.then2.i31.i, label %if.else.i20.i
 
 if.then2.i31.i:                                   ; preds = %for.body.i16.i
-  %add.ptr3.i32.i = getelementptr inbounds double, ptr %__first.pn14.i18.i, i64 2
+  %add.ptr3.i32.i = getelementptr inbounds i8, ptr %__first.pn14.i18.i, i64 16
   %sub.ptr.lhs.cast.i.i.i.i.i.i33.i = ptrtoint ptr %__i.015.i17.i to i64
   %sub.ptr.sub.i.i.i.i.i.i34.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i33.i, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i35.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i34.i, 3
   %.pre.i.i.i.i.i.i36.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i35.i
   %add.ptr.i.i.i.i.i.i37.i = getelementptr inbounds double, ptr %add.ptr3.i32.i, i64 %.pre.i.i.i.i.i.i36.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i37.i, ptr nonnull align 8 %__first, i64 %sub.ptr.sub.i.i.i.i.i.i34.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i37.i, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i34.i, i1 false)
   br label %for.inc.i22.i
 
 if.else.i20.i:                                    ; preds = %for.body.i16.i
@@ -9487,7 +9444,7 @@ while.body.i.i26.i:                               ; preds = %if.else.i20.i, %whi
   %__next.012.i.i27.i = phi ptr [ %__next.0.i.i29.i, %while.body.i.i26.i ], [ %__first.pn14.i18.i, %if.else.i20.i ]
   %__last.addr.011.i.i28.i = phi ptr [ %__next.012.i.i27.i, %while.body.i.i26.i ], [ %__i.015.i17.i, %if.else.i20.i ]
   store double %13, ptr %__last.addr.011.i.i28.i, align 8
-  %__next.0.i.i29.i = getelementptr inbounds double, ptr %__next.012.i.i27.i, i64 -1
+  %__next.0.i.i29.i = getelementptr inbounds i8, ptr %__next.012.i.i27.i, i64 -8
   %14 = load double, ptr %__next.0.i.i29.i, align 8
   %cmp.i.i.i30.i = fcmp olt double %10, %14
   br i1 %cmp.i.i.i30.i, label %while.body.i.i26.i, label %for.inc.i22.i, !llvm.loop !88
@@ -9495,7 +9452,7 @@ while.body.i.i26.i:                               ; preds = %if.else.i20.i, %whi
 for.inc.i22.i:                                    ; preds = %while.body.i.i26.i, %if.else.i20.i, %if.then2.i31.i
   %__first.sink.i23.i = phi ptr [ %__first, %if.then2.i31.i ], [ %__i.015.i17.i, %if.else.i20.i ], [ %__next.012.i.i27.i, %while.body.i.i26.i ]
   store double %10, ptr %__first.sink.i23.i, align 8
-  %__i.0.i24.i = getelementptr inbounds double, ptr %__i.015.i17.i, i64 1
+  %__i.0.i24.i = getelementptr inbounds i8, ptr %__i.015.i17.i, i64 8
   %cmp1.not.i25.i = icmp eq ptr %__i.0.i24.i, %__last
   br i1 %cmp1.not.i25.i, label %if.end, label %for.body.i16.i, !llvm.loop !89
 
@@ -9514,7 +9471,7 @@ entry:
   br i1 %cmp21, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr1.i = getelementptr inbounds double, ptr %__first, i64 1
+  %add.ptr1.i = getelementptr inbounds i8, ptr %__first, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_less_iterEET_S4_S4_T0_.exit
@@ -9532,7 +9489,7 @@ if.then:                                          ; preds = %while.body
 
 while.body.i.i:                                   ; preds = %if.then, %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i
   %__last.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i ], [ %__last.addr.023, %if.then ]
-  %incdec.ptr.i.i = getelementptr inbounds double, ptr %__last.addr.08.i.i, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__last.addr.08.i.i, i64 -8
   %0 = load double, ptr %incdec.ptr.i.i, align 8
   %1 = load double, ptr %__first, align 8
   store double %1, ptr %incdec.ptr.i.i, align 8
@@ -9614,7 +9571,7 @@ if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.022, -1
   %div.i1314 = lshr i64 %sub.ptr.sub24, 4
   %add.ptr.i = getelementptr inbounds double, ptr %__first, i64 %div.i1314
-  %add.ptr2.i = getelementptr inbounds double, ptr %__last.addr.023, i64 -1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.023, i64 -8
   %8 = load double, ptr %add.ptr1.i, align 8
   %9 = load double, ptr %add.ptr.i, align 8
   %cmp.i.i.i = fcmp olt double %8, %9
@@ -9684,12 +9641,12 @@ while.cond1.i.i:                                  ; preds = %while.cond1.i.i, %w
   %__first.addr.1.i.i = phi ptr [ %__first.addr.0.i.i, %while.body.i.i10 ], [ %incdec.ptr.i.i11, %while.cond1.i.i ]
   %16 = load double, ptr %__first.addr.1.i.i, align 8
   %cmp.i.i8.i = fcmp olt double %16, %15
-  %incdec.ptr.i.i11 = getelementptr inbounds double, ptr %__first.addr.1.i.i, i64 1
+  %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %__first.addr.1.i.i, i64 8
   br i1 %cmp.i.i8.i, label %while.cond1.i.i, label %while.cond4.i.i, !llvm.loop !94
 
 while.cond4.i.i:                                  ; preds = %while.cond1.i.i, %while.cond4.i.i
   %__last.addr.0.pn.i.i = phi ptr [ %__last.addr.1.i.i, %while.cond4.i.i ], [ %__last.addr.0.i.i, %while.cond1.i.i ]
-  %__last.addr.1.i.i = getelementptr inbounds double, ptr %__last.addr.0.pn.i.i, i64 -1
+  %__last.addr.1.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i, i64 -8
   %17 = load double, ptr %__last.addr.1.i.i, align 8
   %cmp.i11.i.i = fcmp olt double %15, %17
   br i1 %cmp.i11.i.i, label %while.cond4.i.i, label %while.end8.i.i, !llvm.loop !95

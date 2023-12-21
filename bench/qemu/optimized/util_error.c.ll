@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.Error = type { ptr, i32, ptr, ptr, i32, ptr }
 
 @.str = private unnamed_addr constant [20 x i8] c"Could not open '%s'\00", align 1
 @error_abort = dso_local global ptr null, align 8
@@ -45,13 +44,13 @@ if.end3.i:                                        ; preds = %if.end.i
   %call4.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #11
   %call5.i = call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #12
   store ptr %call5.i, ptr %call4.i, align 8
-  %err_class12.i = getelementptr inbounds %struct.Error, ptr %call4.i, i64 0, i32 1
+  %err_class12.i = getelementptr inbounds i8, ptr %call4.i, i64 8
   store i32 %err_class, ptr %err_class12.i, align 8
-  %src13.i = getelementptr inbounds %struct.Error, ptr %call4.i, i64 0, i32 2
+  %src13.i = getelementptr inbounds i8, ptr %call4.i, i64 16
   store ptr %src, ptr %src13.i, align 8
-  %line14.i = getelementptr inbounds %struct.Error, ptr %call4.i, i64 0, i32 4
+  %line14.i = getelementptr inbounds i8, ptr %call4.i, i64 32
   store i32 %line, ptr %line14.i, align 8
-  %func15.i = getelementptr inbounds %struct.Error, ptr %call4.i, i64 0, i32 3
+  %func15.i = getelementptr inbounds i8, ptr %call4.i, i64 24
   store ptr %func, ptr %func15.i, align 8
   call fastcc void @error_handle(ptr noundef nonnull %errp, ptr noundef nonnull %call4.i)
   store i32 %0, ptr %call.i, align 4
@@ -91,13 +90,13 @@ if.end3.i:                                        ; preds = %if.end.i
   %call4.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #11
   %call5.i = call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #12
   store ptr %call5.i, ptr %call4.i, align 8
-  %err_class12.i = getelementptr inbounds %struct.Error, ptr %call4.i, i64 0, i32 1
+  %err_class12.i = getelementptr inbounds i8, ptr %call4.i, i64 8
   store i32 0, ptr %err_class12.i, align 8
-  %src13.i = getelementptr inbounds %struct.Error, ptr %call4.i, i64 0, i32 2
+  %src13.i = getelementptr inbounds i8, ptr %call4.i, i64 16
   store ptr %src, ptr %src13.i, align 8
-  %line14.i = getelementptr inbounds %struct.Error, ptr %call4.i, i64 0, i32 4
+  %line14.i = getelementptr inbounds i8, ptr %call4.i, i64 32
   store i32 %line, ptr %line14.i, align 8
-  %func15.i = getelementptr inbounds %struct.Error, ptr %call4.i, i64 0, i32 3
+  %func15.i = getelementptr inbounds i8, ptr %call4.i, i64 24
   store ptr %func, ptr %func15.i, align 8
   call fastcc void @error_handle(ptr noundef nonnull %errp, ptr noundef nonnull %call4.i)
   store i32 %0, ptr %call.i, align 4
@@ -151,13 +150,13 @@ if.then6.i:                                       ; preds = %if.end3.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then6.i, %if.end3.i
-  %err_class12.i = getelementptr inbounds %struct.Error, ptr %call4.i, i64 0, i32 1
+  %err_class12.i = getelementptr inbounds i8, ptr %call4.i, i64 8
   store i32 0, ptr %err_class12.i, align 8
-  %src13.i = getelementptr inbounds %struct.Error, ptr %call4.i, i64 0, i32 2
+  %src13.i = getelementptr inbounds i8, ptr %call4.i, i64 16
   store ptr %src, ptr %src13.i, align 8
-  %line14.i = getelementptr inbounds %struct.Error, ptr %call4.i, i64 0, i32 4
+  %line14.i = getelementptr inbounds i8, ptr %call4.i, i64 32
   store i32 %line, ptr %line14.i, align 8
-  %func15.i = getelementptr inbounds %struct.Error, ptr %call4.i, i64 0, i32 3
+  %func15.i = getelementptr inbounds i8, ptr %call4.i, i64 24
   store ptr %func, ptr %func15.i, align 8
   call fastcc void @error_handle(ptr noundef nonnull %errp, ptr noundef nonnull %call4.i)
   store i32 %1, ptr %call, align 4
@@ -266,7 +265,7 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %hint = getelementptr inbounds %struct.Error, ptr %1, i64 0, i32 5
+  %hint = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %hint, align 8
   %tobool6.not = icmp eq ptr %2, null
   br i1 %tobool6.not, label %if.then7, label %if.end10
@@ -300,19 +299,19 @@ entry:
   %0 = load ptr, ptr %err, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #12
   store ptr %call1, ptr %call, align 8
-  %err_class = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 1
+  %err_class = getelementptr inbounds i8, ptr %err, i64 8
   %1 = load i32, ptr %err_class, align 8
-  %err_class3 = getelementptr inbounds %struct.Error, ptr %call, i64 0, i32 1
+  %err_class3 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %1, ptr %err_class3, align 8
-  %src = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 2
-  %src4 = getelementptr inbounds %struct.Error, ptr %call, i64 0, i32 2
-  %line = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 4
+  %src = getelementptr inbounds i8, ptr %err, i64 16
+  %src4 = getelementptr inbounds i8, ptr %call, i64 16
+  %line = getelementptr inbounds i8, ptr %err, i64 32
   %2 = load i32, ptr %line, align 8
-  %line5 = getelementptr inbounds %struct.Error, ptr %call, i64 0, i32 4
+  %line5 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %2, ptr %line5, align 8
   %3 = load <2 x ptr>, ptr %src, align 8
   store <2 x ptr> %3, ptr %src4, align 8
-  %hint = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 5
+  %hint = getelementptr inbounds i8, ptr %err, i64 40
   %4 = load ptr, ptr %hint, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -320,7 +319,7 @@ entry:
 if.then:                                          ; preds = %entry
   %5 = load ptr, ptr %4, align 8
   %call8 = tail call ptr @g_string_new(ptr noundef %5) #12
-  %hint9 = getelementptr inbounds %struct.Error, ptr %call, i64 0, i32 5
+  %hint9 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call8, ptr %hint9, align 8
   br label %if.end
 
@@ -336,7 +335,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @error_get_class(ptr nocapture noundef readonly %err) local_unnamed_addr #7 {
 entry:
-  %err_class = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 1
+  %err_class = getelementptr inbounds i8, ptr %err, i64 8
   %0 = load i32, ptr %err_class, align 8
   ret i32 %0
 }
@@ -353,7 +352,7 @@ define dso_local void @error_report_err(ptr noundef %err) local_unnamed_addr #0 
 entry:
   %0 = load ptr, ptr %err, align 8
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3, ptr noundef %0) #12
-  %hint = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 5
+  %hint = getelementptr inbounds i8, ptr %err, i64 40
   %1 = load ptr, ptr %hint, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
@@ -392,7 +391,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %err, align 8
   tail call void @g_free(ptr noundef %0) #12
-  %hint = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 5
+  %hint = getelementptr inbounds i8, ptr %err, i64 40
   %1 = load ptr, ptr %hint, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end, label %if.then2
@@ -414,7 +413,7 @@ define dso_local void @warn_report_err(ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %err, align 8
   tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.3, ptr noundef %0) #12
-  %hint = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 5
+  %hint = getelementptr inbounds i8, ptr %err, i64 40
   %1 = load ptr, ptr %hint, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
@@ -458,7 +457,7 @@ entry:
   call void @llvm.va_end(ptr nonnull %ap)
   %2 = load ptr, ptr %err, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3, ptr noundef %2) #12
-  %hint.i = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 5
+  %hint.i = getelementptr inbounds i8, ptr %err, i64 40
   %3 = load ptr, ptr %hint.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.then.i.i, label %if.then.i
@@ -500,7 +499,7 @@ entry:
   call void @llvm.va_end(ptr nonnull %ap)
   %2 = load ptr, ptr %err, align 8
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.3, ptr noundef %2) #12
-  %hint.i = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 5
+  %hint.i = getelementptr inbounds i8, ptr %err, i64 40
   %3 = load ptr, ptr %hint.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.then.i.i, label %if.then.i
@@ -544,7 +543,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
 if.then.i:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %1) #12
-  %hint.i = getelementptr inbounds %struct.Error, ptr %0, i64 0, i32 5
+  %hint.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %hint.i, align 8
   %tobool1.not.i = icmp eq ptr %2, null
   br i1 %tobool1.not.i, label %error_free.exit, label %if.then2.i
@@ -581,16 +580,16 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %func = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 3
+  %func = getelementptr inbounds i8, ptr %err, i64 24
   %1 = load ptr, ptr %func, align 8
-  %src = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 2
+  %src = getelementptr inbounds i8, ptr %err, i64 16
   %2 = load ptr, ptr %src, align 8
-  %line = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 4
+  %line = getelementptr inbounds i8, ptr %err, i64 32
   %3 = load i32, ptr %line, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef %2, i32 noundef %3) #13
   %4 = load ptr, ptr %err, align 8
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3, ptr noundef %4) #12
-  %hint = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 5
+  %hint = getelementptr inbounds i8, ptr %err, i64 40
   %5 = load ptr, ptr %hint, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.end, label %if.then2
@@ -620,7 +619,7 @@ if.end8:                                          ; preds = %if.end5
 if.then10:                                        ; preds = %if.end8
   %7 = load ptr, ptr %err, align 8
   tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.3, ptr noundef %7) #12
-  %hint.i = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 5
+  %hint.i = getelementptr inbounds i8, ptr %err, i64 40
   %8 = load ptr, ptr %hint.i, align 8
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %if.then.i.i, label %if.then.i
@@ -665,7 +664,7 @@ if.else14:                                        ; preds = %land.lhs.true, %if.
 if.then.i16:                                      ; preds = %if.else14
   %13 = load ptr, ptr %err, align 8
   tail call void @g_free(ptr noundef %13) #12
-  %hint.i17 = getelementptr inbounds %struct.Error, ptr %err, i64 0, i32 5
+  %hint.i17 = getelementptr inbounds i8, ptr %err, i64 40
   %14 = load ptr, ptr %hint.i17, align 8
   %tobool1.not.i = icmp eq ptr %14, null
   br i1 %tobool1.not.i, label %if.end.i, label %if.then2.i

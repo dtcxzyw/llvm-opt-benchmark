@@ -3,78 +3,22 @@ source_filename = "bench/hermes/original/CodeBlock.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.hermes::vm::CodeBlock" = type <{ ptr, %"class.hermes::hbc::RuntimeFunctionHeader", ptr, i32, i32, i32, [4 x i8] }>
-%"class.hermes::hbc::RuntimeFunctionHeader" = type { ptr }
-%"class.hermes::vm::RuntimeModule" = type { %"class.llvh::ilist_node", ptr, %"class.std::vector", %"class.hermes::vm::WeakRoot", %"class.std::vector.19", %"class.std::shared_ptr", %"union.hermes::vm::RuntimeModuleFlags", %"class.std::__cxx11::basic_string", i32, [4 x i8], %"class.llvh::DenseMap", %"class.llvh::DenseMap.25" }
-%"class.llvh::ilist_node" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::ilist_node_impl" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::ilist_node_base" = type { ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<hermes::vm::RootSymbolID, std::allocator<hermes::vm::RootSymbolID>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::RootSymbolID, std::allocator<hermes::vm::RootSymbolID>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::RootSymbolID, std::allocator<hermes::vm::RootSymbolID>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::RootSymbolID, std::allocator<hermes::vm::RootSymbolID>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.hermes::vm::WeakRoot" = type { %"class.hermes::vm::WeakRootBase" }
-%"class.hermes::vm::WeakRootBase" = type { %"class.hermes::vm::CompressedPointer" }
-%"class.hermes::vm::CompressedPointer" = type { %"class.hermes::vm::BasedPointer" }
-%"class.hermes::vm::BasedPointer" = type { i32 }
-%"class.std::vector.19" = type { %"struct.std::_Vector_base.20" }
-%"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<hermes::vm::CodeBlock *, std::allocator<hermes::vm::CodeBlock *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::CodeBlock *, std::allocator<hermes::vm::CodeBlock *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::CodeBlock *, std::allocator<hermes::vm::CodeBlock *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::CodeBlock *, std::allocator<hermes::vm::CodeBlock *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"union.hermes::vm::RuntimeModuleFlags" = type { %struct.anon.24 }
-%struct.anon.24 = type { i8 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::DenseMap.25" = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %"class.hermes::vm::SerializedLiteralParser" = type { %"class.hermes::hbc::SerializedLiteralParserBase", ptr }
 %"class.hermes::hbc::SerializedLiteralParserBase" = type { %"class.llvh::ArrayRef.1", i32, i8, i32, i32 }
 %"class.llvh::ArrayRef.1" = type { ptr, i64 }
-%"class.hermes::hbc::BCProviderBase" = type { ptr, %"union.hermes::hbc::BytecodeOptions", i32, i32, i32, %"class.llvh::ArrayRef", %"class.llvh::ArrayRef.0", %"class.llvh::ArrayRef.1", %"class.llvh::ArrayRef.1", %"class.llvh::ArrayRef.1", %"class.llvh::ArrayRef.1", %"class.llvh::ArrayRef.2", %"class.llvh::ArrayRef.1", %"class.llvh::ArrayRef.3", %"class.llvh::ArrayRef.1", i32, %"class.llvh::ArrayRef.4", %"class.llvh::ArrayRef.4", %"class.llvh::ArrayRef.4", ptr, %"class.std::__cxx11::basic_string" }
-%"union.hermes::hbc::BytecodeOptions" = type { %struct.anon }
-%struct.anon = type { i8 }
-%"class.llvh::ArrayRef" = type { ptr, i64 }
-%"class.llvh::ArrayRef.0" = type { ptr, i64 }
-%"class.llvh::ArrayRef.2" = type { ptr, i64 }
-%"class.llvh::ArrayRef.3" = type { ptr, i64 }
-%"class.llvh::ArrayRef.4" = type { ptr, i64 }
 %"class.hermes::StringTableEntry" = type { i32, i32 }
 %"class.hermes::vm::RootSymbolID" = type { %"class.hermes::vm::SymbolID" }
 %"class.hermes::vm::SymbolID" = type { i32 }
-%"class.hermes::hbc::BCProviderFromBuffer" = type { %"class.hermes::hbc::BCProviderBase", %"class.std::unique_ptr", ptr, ptr, ptr, %"class.llvh::ArrayRef.7", i32, [4 x i8], %"class.llvh::Optional", %"struct.std::atomic", %"class.std::unique_ptr.8", ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
-%"struct.std::_Head_base.6" = type { ptr }
-%"class.llvh::ArrayRef.7" = type { ptr, i64 }
-%"class.llvh::Optional" = type { %"struct.llvh::optional_detail::OptionalStorage" }
-%"struct.llvh::optional_detail::OptionalStorage" = type { %"struct.llvh::AlignedCharArrayUnion", i8, [7 x i8] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [8 x i8] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"class.std::unique_ptr.8" = type { %"struct.std::__uniq_ptr_data.9" }
-%"struct.std::__uniq_ptr_data.9" = type { %"class.std::__uniq_ptr_impl.10" }
-%"class.std::__uniq_ptr_impl.10" = type { %"class.std::tuple.11" }
-%"class.std::tuple.11" = type { %"struct.std::_Tuple_impl.12" }
-%"struct.std::_Tuple_impl.12" = type { %"struct.std::_Head_base.15" }
-%"struct.std::_Head_base.15" = type { ptr }
 %"struct.hermes::hbc::SmallStringTableEntry" = type { i32 }
 %"struct.hermes::hbc::OverflowStringTableEntry" = type { i32, i32 }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"struct.std::pair.48" = type { %"class.llvh::ArrayRef.50", ptr }
 %"class.llvh::ArrayRef.50" = type { ptr, i64 }
 %"class.hermes::OptValue.29" = type <{ %"struct.hermes::hbc::DebugSourceLocation", i8, [3 x i8] }>
 %"struct.hermes::hbc::DebugSourceLocation" = type { i32, i32, i32, i32, i32, i32, i32, i32 }
 %"struct.std::pair" = type { i32, i32 }
-%"struct.hermes::hbc::DebugOffsets" = type { i32, i32, i32 }
-%"struct.hermes::vm::PropertyCacheEntry" = type { %"class.hermes::vm::WeakRoot.46", i32 }
-%"class.hermes::vm::WeakRoot.46" = type { %"class.hermes::vm::WeakRootBase" }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noalias noundef nonnull ptr @_ZN6hermes2vm9CodeBlock15createCodeBlockEPNS0_13RuntimeModuleENS_3hbc21RuntimeFunctionHeaderEPKhj(ptr noundef %runtimeModule, ptr %header.coerce, ptr noundef %bytecode, i32 noundef %functionID) local_unnamed_addr #0 align 2 {
@@ -121,21 +65,21 @@ _ZNK6hermes3hbc21RuntimeFunctionHeader22highestWriteCacheIndexEv.exit: ; preds =
   %add.i.i = add nuw nsw i64 %mul.i.i.i, 40
   %call1.i = tail call noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef %add.i.i) #8
   store ptr %runtimeModule, ptr %call1.i, align 8
-  %functionHeader_.i.i = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %call1.i, i64 0, i32 1
+  %functionHeader_.i.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %header.coerce, ptr %functionHeader_.i.i, align 8
-  %bytecode_.i.i = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %call1.i, i64 0, i32 2
+  %bytecode_.i.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr %bytecode, ptr %bytecode_.i.i, align 8
-  %functionID_.i.i = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %call1.i, i64 0, i32 3
+  %functionID_.i.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store i32 %functionID, ptr %functionID_.i.i, align 8
-  %propertyCacheSize_.i.i = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %call1.i, i64 0, i32 4
+  %propertyCacheSize_.i.i = getelementptr inbounds i8, ptr %call1.i, i64 28
   store i32 %add, ptr %propertyCacheSize_.i.i, align 4
-  %writePropCacheOffset_.i.i = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %call1.i, i64 0, i32 5
+  %writePropCacheOffset_.i.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   store i32 %cond.i21, ptr %writePropCacheOffset_.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq i32 %add, 0
   br i1 %cmp.not4.i.i.i.i.i, label %_ZN6hermes2vm9CodeBlock6createEPNS0_13RuntimeModuleENS_3hbc21RuntimeFunctionHeaderEPKhjjj.exit, label %for.body.i.i.i.preheader.i.i
 
 for.body.i.i.i.preheader.i.i:                     ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader22highestWriteCacheIndexEv.exit
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %call1.i, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i, i8 0, i64 %mul.i.i.i, i1 false)
   br label %_ZN6hermes2vm9CodeBlock6createEPNS0_13RuntimeModuleENS_3hbc21RuntimeFunctionHeaderEPKhjjj.exit
 
@@ -147,9 +91,9 @@ _ZN6hermes2vm9CodeBlock6createEPNS0_13RuntimeModuleENS_3hbc21RuntimeFunctionHead
 define hidden noundef i32 @_ZN6hermes2vm9CodeBlock21findCatchTargetOffsetEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %exceptionOffset) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %bcProvider_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %0, i64 0, i32 5
+  %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %bcProvider_.i, align 8
-  %functionID_ = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %this, i64 0, i32 3
+  %functionID_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %functionID_, align 8
   %call2 = tail call noundef i32 @_ZNK6hermes3hbc14BCProviderBase21findCatchTargetOffsetEjj(ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2, i32 noundef %exceptionOffset) #8
   ret i32 %call2
@@ -161,11 +105,11 @@ declare noundef i32 @_ZNK6hermes3hbc14BCProviderBase21findCatchTargetOffsetEjj(p
 define hidden void @_ZNK6hermes2vm9CodeBlock18getArrayBufferIterEjj(ptr noalias nocapture writeonly sret(%"class.hermes::vm::SerializedLiteralParser") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i32 noundef %numLiterals) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %bcProvider_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %0, i64 0, i32 5
+  %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %bcProvider_.i, align 8
-  %arrayBuffer_.i = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %1, i64 0, i32 8
+  %arrayBuffer_.i = getelementptr inbounds i8, ptr %1, i64 72
   %retval.sroa.0.0.copyload.i = load ptr, ptr %arrayBuffer_.i, align 8
-  %retval.sroa.2.0.arrayBuffer_.sroa_idx.i = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %1, i64 0, i32 8, i32 1
+  %retval.sroa.2.0.arrayBuffer_.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 80
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.arrayBuffer_.sroa_idx.i, align 8
   %conv = zext i32 %idx to i64
   %sub.i = sub i64 %retval.sroa.2.0.copyload.i, %conv
@@ -173,13 +117,13 @@ entry:
   store ptr %add.ptr.i.i, ptr %agg.result, align 8
   %buff.sroa.2.0.buffer_.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %sub.i, ptr %buff.sroa.2.0.buffer_.sroa_idx.i.i, align 8
-  %elemsLeft_.i.i = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %agg.result, i64 0, i32 1
+  %elemsLeft_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 %numLiterals, ptr %elemsLeft_.i.i, align 8
-  %leftInSeq_.i.i = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %agg.result, i64 0, i32 3
+  %leftInSeq_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %leftInSeq_.i.i, align 8
-  %currIdx_.i.i = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %agg.result, i64 0, i32 4
+  %currIdx_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i32 0, ptr %currIdx_.i.i, align 4
-  %runtimeModule_.i = getelementptr inbounds %"class.hermes::vm::SerializedLiteralParser", ptr %agg.result, i64 0, i32 1
+  %runtimeModule_.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store ptr %0, ptr %runtimeModule_.i, align 8
   ret void
 }
@@ -188,11 +132,11 @@ entry:
 define hidden void @_ZNK6hermes2vm9CodeBlock22getObjectBufferKeyIterEjj(ptr noalias nocapture writeonly sret(%"class.hermes::vm::SerializedLiteralParser") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i32 noundef %numLiterals) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %bcProvider_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %0, i64 0, i32 5
+  %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %bcProvider_.i, align 8
-  %objKeyBuffer_.i = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %1, i64 0, i32 9
+  %objKeyBuffer_.i = getelementptr inbounds i8, ptr %1, i64 88
   %retval.sroa.0.0.copyload.i = load ptr, ptr %objKeyBuffer_.i, align 8
-  %retval.sroa.2.0.objKeyBuffer_.sroa_idx.i = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %1, i64 0, i32 9, i32 1
+  %retval.sroa.2.0.objKeyBuffer_.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 96
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.objKeyBuffer_.sroa_idx.i, align 8
   %conv = zext i32 %idx to i64
   %sub.i = sub i64 %retval.sroa.2.0.copyload.i, %conv
@@ -200,9 +144,9 @@ entry:
   store ptr %add.ptr.i.i, ptr %agg.result, align 8
   %buff.sroa.2.0.buffer_.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %sub.i, ptr %buff.sroa.2.0.buffer_.sroa_idx.i.i, align 8
-  %elemsLeft_.i.i = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %agg.result, i64 0, i32 1
+  %elemsLeft_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 %numLiterals, ptr %elemsLeft_.i.i, align 8
-  %leftInSeq_.i.i = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %agg.result, i64 0, i32 3
+  %leftInSeq_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leftInSeq_.i.i, i8 0, i64 16, i1 false)
   ret void
 }
@@ -211,11 +155,11 @@ entry:
 define hidden void @_ZNK6hermes2vm9CodeBlock24getObjectBufferValueIterEjj(ptr noalias nocapture writeonly sret(%"class.hermes::vm::SerializedLiteralParser") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i32 noundef %numLiterals) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %bcProvider_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %0, i64 0, i32 5
+  %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %bcProvider_.i, align 8
-  %objValueBuffer_.i = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %1, i64 0, i32 10
+  %objValueBuffer_.i = getelementptr inbounds i8, ptr %1, i64 104
   %retval.sroa.0.0.copyload.i = load ptr, ptr %objValueBuffer_.i, align 8
-  %retval.sroa.2.0.objValueBuffer_.sroa_idx.i = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %1, i64 0, i32 10, i32 1
+  %retval.sroa.2.0.objValueBuffer_.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 112
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.objValueBuffer_.sroa_idx.i, align 8
   %conv = zext i32 %idx to i64
   %sub.i = sub i64 %retval.sroa.2.0.copyload.i, %conv
@@ -223,13 +167,13 @@ entry:
   store ptr %add.ptr.i.i, ptr %agg.result, align 8
   %buff.sroa.2.0.buffer_.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %sub.i, ptr %buff.sroa.2.0.buffer_.sroa_idx.i.i, align 8
-  %elemsLeft_.i.i = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %agg.result, i64 0, i32 1
+  %elemsLeft_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 %numLiterals, ptr %elemsLeft_.i.i, align 8
-  %leftInSeq_.i.i = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %agg.result, i64 0, i32 3
+  %leftInSeq_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %leftInSeq_.i.i, align 8
-  %currIdx_.i.i = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %agg.result, i64 0, i32 4
+  %currIdx_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i32 0, ptr %currIdx_.i.i, align 4
-  %runtimeModule_.i = getelementptr inbounds %"class.hermes::vm::SerializedLiteralParser", ptr %agg.result, i64 0, i32 1
+  %runtimeModule_.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store ptr %0, ptr %runtimeModule_.i, align 8
   ret void
 }
@@ -239,7 +183,7 @@ define hidden i32 @_ZNK6hermes2vm9CodeBlock18getNameMayAllocateEv(ptr nocapture 
 entry:
   %entry4.i = alloca %"class.hermes::StringTableEntry", align 8
   %0 = load ptr, ptr %this, align 8
-  %functionHeader_ = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %this, i64 0, i32 1
+  %functionHeader_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %functionHeader_, align 8
   %2 = ptrtoint ptr %1 to i64
   %and.i.i = and i64 %2, 1
@@ -261,7 +205,7 @@ if.else.i:                                        ; preds = %entry
 _ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit: ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi i32 [ %3, %if.then.i ], [ %bf.cast.i, %if.else.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %entry4.i)
-  %stringIDMap_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %0, i64 0, i32 2
+  %stringIDMap_.i = getelementptr inbounds i8, ptr %0, i64 24
   %conv.i = zext i32 %retval.0.i to i64
   %5 = load ptr, ptr %stringIDMap_.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.hermes::vm::RootSymbolID", ptr %5, i64 %conv.i
@@ -270,9 +214,9 @@ _ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit: ; preds = %if.then.
   br i1 %cmp.i.i, label %_ZN6hermes2vm13RuntimeModule34getSymbolIDFromStringIDMayAllocateEj.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit
-  %bcProvider_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %0, i64 0, i32 5
+  %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80
   %7 = load ptr, ptr %bcProvider_.i, align 8
-  %stringTableEntries_.i.i = getelementptr inbounds %"class.hermes::hbc::BCProviderFromBuffer", ptr %7, i64 0, i32 4
+  %stringTableEntries_.i.i = getelementptr inbounds i8, ptr %7, i64 304
   %8 = load ptr, ptr %stringTableEntries_.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds %"struct.hermes::hbc::SmallStringTableEntry", ptr %8, i64 %conv.i
   %bf.load.i.i.i = load i32, ptr %arrayidx.i.i, align 1
@@ -280,7 +224,7 @@ if.then.i1:                                       ; preds = %_ZNK6hermes3hbc21Ru
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i1
-  %overflowStringTableEntries_.i.i = getelementptr inbounds %"class.hermes::hbc::BCProviderFromBuffer", ptr %7, i64 0, i32 5
+  %overflowStringTableEntries_.i.i = getelementptr inbounds i8, ptr %7, i64 312
   %bf.lshr.i.i = lshr i32 %bf.load.i.i.i, 1
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 8388607
   %conv.i.i = zext nneg i32 %bf.clear.i.i to i64
@@ -320,7 +264,7 @@ _ZN6hermes2vm13RuntimeModule34getSymbolIDFromStringIDMayAllocateEj.exit: ; preds
 define hidden void @_ZNK6hermes2vm9CodeBlock13getNameStringB5cxx11ERNS0_6GCBase11GCCallbacksE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %runtime) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %functionHeader_ = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %this, i64 0, i32 1
+  %functionHeader_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %functionHeader_, align 8
   %2 = ptrtoint ptr %1 to i64
   %and.i.i = and i64 %2, 1
@@ -352,13 +296,13 @@ define hidden i64 @_ZNK6hermes2vm9CodeBlock29getDebugSourceLocationsOffsetEv(ptr
 entry:
   %ref.tmp.i = alloca %"struct.std::pair.48", align 8
   %0 = load ptr, ptr %this, align 8
-  %bcProvider_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %0, i64 0, i32 5
+  %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %bcProvider_.i, align 8
-  %functionID_ = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %this, i64 0, i32 3
+  %functionID_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %functionID_, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj(ptr nonnull sret(%"struct.std::pair.48") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(376) %1, i32 noundef %2) #8
-  %second.i = getelementptr inbounds %"struct.std::pair.48", ptr %ref.tmp.i, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %3 = load ptr, ptr %second.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   %tobool.not = icmp eq ptr %3, null
@@ -383,13 +327,13 @@ define hidden void @_ZNK6hermes2vm9CodeBlock17getSourceLocationEj(ptr noalias sr
 entry:
   %ref.tmp.i.i = alloca %"struct.std::pair.48", align 8
   %0 = load ptr, ptr %this, align 8
-  %bcProvider_.i.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %0, i64 0, i32 5
+  %bcProvider_.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %bcProvider_.i.i, align 8
-  %functionID_.i = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %this, i64 0, i32 3
+  %functionID_.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %functionID_.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   call void @_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj(ptr nonnull sret(%"struct.std::pair.48") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(376) %1, i32 noundef %2) #8
-  %second.i.i = getelementptr inbounds %"struct.std::pair.48", ptr %ref.tmp.i.i, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   %3 = load ptr, ptr %second.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   %tobool.not.i = icmp eq ptr %3, null
@@ -401,18 +345,18 @@ _ZNK6hermes2vm9CodeBlock29getDebugSourceLocationsOffsetEv.exit: ; preds = %entry
   br i1 %cmp.not.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNK6hermes2vm9CodeBlock29getDebugSourceLocationsOffsetEv.exit
-  %envReg.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugSourceLocation", ptr %agg.result, i64 0, i32 7
+  %envReg.i.i = getelementptr inbounds i8, ptr %agg.result, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.result, i8 0, i64 28, i1 false)
   store i32 -1, ptr %envReg.i.i, align 4
-  %hasValue_.i1 = getelementptr inbounds %"class.hermes::OptValue.29", ptr %agg.result, i64 0, i32 1
+  %hasValue_.i1 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasValue_.i1, align 4
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm9CodeBlock29getDebugSourceLocationsOffsetEv.exit
   %5 = load ptr, ptr %this, align 8
-  %bcProvider_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %5, i64 0, i32 5
+  %bcProvider_.i = getelementptr inbounds i8, ptr %5, i64 80
   %6 = load ptr, ptr %bcProvider_.i, align 8
-  %debugInfo_.i = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %6, i64 0, i32 19
+  %debugInfo_.i = getelementptr inbounds i8, ptr %6, i64 240
   %7 = load ptr, ptr %debugInfo_.i, align 8
   %tobool.not.i2 = icmp eq ptr %7, null
   br i1 %tobool.not.i2, label %if.then.i, label %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit
@@ -439,14 +383,14 @@ declare void @_ZNK6hermes3hbc9DebugInfo21getLocationForAddressEjj(ptr sret(%"cla
 define hidden i64 @_ZNK6hermes2vm9CodeBlock19getFunctionSourceIDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %bcProvider_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %0, i64 0, i32 5
+  %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %bcProvider_.i, align 8
-  %functionSourceTable_.i = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %1, i64 0, i32 18
+  %functionSourceTable_.i = getelementptr inbounds i8, ptr %1, i64 224
   %retval.sroa.0.0.copyload.i = load ptr, ptr %functionSourceTable_.i, align 8
-  %retval.sroa.2.0.functionSourceTable_.sroa_idx.i = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %1, i64 0, i32 18, i32 1
+  %retval.sroa.2.0.functionSourceTable_.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 232
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.functionSourceTable_.sroa_idx.i, align 8
   %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i
-  %functionID_ = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %this, i64 0, i32 3
+  %functionID_ = getelementptr inbounds i8, ptr %this, i64 24
   %functionID_.val = load i32, ptr %functionID_, align 8
   %cmp4.i.i = icmp sgt i64 %retval.sroa.2.0.copyload.i, 0
   br i1 %cmp4.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit"
@@ -455,11 +399,11 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %__first.addr.06.i.i = phi ptr [ %__first.addr.1.i.i, %while.body.i.i ], [ %retval.sroa.0.0.copyload.i, %entry ]
   %__len.05.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %retval.sroa.2.0.copyload.i, %entry ]
   %shr.i.i = lshr i64 %__len.05.i.i, 1
-  %incdec.ptr4.sink.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i, i64 %shr.i.i
-  %.val.i.i = load i64, ptr %incdec.ptr4.sink.i.i.i.i, align 4
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i, i64 %shr.i.i
+  %.val.i.i = load i64, ptr %add.ptr.i.i.i.i, align 4
   %entry2.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %.val.i.i to i32
   %cmp.i.i8.i.i = icmp ugt i32 %functionID_.val, %entry2.sroa.0.0.extract.trunc.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %incdec.ptr4.sink.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
   %2 = xor i64 %shr.i.i, -1
   %sub2.i.i = add nsw i64 %__len.05.i.i, %2
   %__len.1.i.i = select i1 %cmp.i.i8.i.i, i64 %sub2.i.i, i64 %shr.i.i
@@ -478,7 +422,7 @@ lor.lhs.false:                                    ; preds = %"_ZSt11lower_boundI
   br i1 %cmp9.not, label %if.else, label %return
 
 if.else:                                          ; preds = %lor.lhs.false
-  %second = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.0.lcssa.i.i, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i, i64 4
   %4 = load i32, ptr %second, align 4
   %5 = zext i32 %4 to i64
   br label %return
@@ -495,20 +439,20 @@ define hidden i64 @_ZNK6hermes2vm9CodeBlock22getScopeDescDataOffsetEv(ptr nocapt
 entry:
   %ref.tmp.i = alloca %"struct.std::pair.48", align 8
   %0 = load ptr, ptr %this, align 8
-  %bcProvider_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %0, i64 0, i32 5
+  %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %bcProvider_.i, align 8
-  %functionID_ = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %this, i64 0, i32 3
+  %functionID_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %functionID_, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj(ptr nonnull sret(%"struct.std::pair.48") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(376) %1, i32 noundef %2) #8
-  %second.i = getelementptr inbounds %"struct.std::pair.48", ptr %ref.tmp.i, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %3 = load ptr, ptr %second.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %scopeDescData = getelementptr inbounds %"struct.hermes::hbc::DebugOffsets", ptr %3, i64 0, i32 1
+  %scopeDescData = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %scopeDescData, align 4
   %cmp.not = icmp eq i32 %4, -1
   %spec.select = select i1 %cmp.not, i32 0, i32 %4
@@ -527,20 +471,20 @@ define hidden i64 @_ZNK6hermes2vm9CodeBlock24getTextifiedCalleeOffsetEv(ptr noca
 entry:
   %ref.tmp.i = alloca %"struct.std::pair.48", align 8
   %0 = load ptr, ptr %this, align 8
-  %bcProvider_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %0, i64 0, i32 5
+  %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %bcProvider_.i, align 8
-  %functionID_ = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %this, i64 0, i32 3
+  %functionID_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %functionID_, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj(ptr nonnull sret(%"struct.std::pair.48") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(376) %1, i32 noundef %2) #8
-  %second.i = getelementptr inbounds %"struct.std::pair.48", ptr %ref.tmp.i, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %3 = load ptr, ptr %second.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %textifiedCallees = getelementptr inbounds %"struct.hermes::hbc::DebugOffsets", ptr %3, i64 0, i32 2
+  %textifiedCallees = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %textifiedCallees, align 4
   %cmp.not = icmp eq i32 %4, -1
   %spec.select = select i1 %cmp.not, i32 0, i32 %4
@@ -563,7 +507,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm9CodeBlock23markCachedHiddenClassesERNS0_7RuntimeERNS0_16WeakRootAcceptorE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) local_unnamed_addr #0 align 2 {
 entry:
-  %propertyCacheSize_ = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %this, i64 0, i32 4
+  %propertyCacheSize_ = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %propertyCacheSize_, align 4
   %conv = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv, 3
@@ -584,13 +528,13 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then:                                          ; preds = %for.body
   %vtable = load ptr, ptr %acceptor, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 4 dereferenceable(4) %__begin2.07) #8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %incdec.ptr = getelementptr inbounds %"struct.hermes::vm::PropertyCacheEntry", ptr %__begin2.07, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.07, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -602,9 +546,9 @@ for.end:                                          ; preds = %for.inc, %entry
 define hidden noundef i32 @_ZNK6hermes2vm9CodeBlock16getVirtualOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %bcProvider_.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %0, i64 0, i32 5
+  %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %bcProvider_.i, align 8
-  %functionID_ = getelementptr inbounds %"class.hermes::vm::CodeBlock", ptr %this, i64 0, i32 3
+  %functionID_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %functionID_, align 8
   %call3 = tail call noundef i32 @_ZNK6hermes3hbc14BCProviderBase27getVirtualOffsetForFunctionEj(ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) #8
   ret i32 %call3

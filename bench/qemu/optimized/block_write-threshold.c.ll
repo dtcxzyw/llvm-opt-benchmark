@@ -3,28 +3,6 @@ source_filename = "bench/qemu/original/block_write-threshold.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.0, %union.anon.1, i32, [16 x %struct.anon.2], ptr, %struct.anon.3, ptr, ptr, %struct.anon.4, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.5, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.6, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.anon.2 = type { ptr }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.6 = type { ptr }
-%struct.CoQueue = type { %struct.anon.7 }
-%struct.anon.7 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.8, %struct.anon.8, i32, i32, ptr }
-%struct.anon.8 = type { ptr }
-
 @.str = private unnamed_addr constant [32 x i8] c"../qemu/block/write-threshold.c\00", align 1
 @__func__.qmp_block_set_write_threshold = private unnamed_addr constant [30 x i8] c"qmp_block_set_write_threshold\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"Device '%s' not found\00", align 1
@@ -32,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @bdrv_write_threshold_get(ptr nocapture noundef readonly %bs) local_unnamed_addr #0 {
 entry:
-  %write_threshold_offset = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 38
+  %write_threshold_offset = getelementptr inbounds i8, ptr %bs, i64 16896
   %0 = load i64, ptr %write_threshold_offset, align 8
   ret i64 %0
 }
@@ -40,7 +18,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @bdrv_write_threshold_set(ptr nocapture noundef writeonly %bs, i64 noundef %threshold_bytes) local_unnamed_addr #1 {
 entry:
-  %write_threshold_offset = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 38
+  %write_threshold_offset = getelementptr inbounds i8, ptr %bs, i64 16896
   store i64 %threshold_bytes, ptr %write_threshold_offset, align 8
   ret void
 }
@@ -59,7 +37,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %call) #4
   tail call void @aio_context_acquire(ptr noundef %call1) #4
-  %write_threshold_offset.i = getelementptr inbounds %struct.BlockDriverState, ptr %call, i64 0, i32 38
+  %write_threshold_offset.i = getelementptr inbounds i8, ptr %call, i64 16896
   store i64 %threshold_bytes, ptr %write_threshold_offset.i, align 8
   tail call void @aio_context_release(ptr noundef %call1) #4
   br label %return
@@ -82,7 +60,7 @@ declare void @aio_context_release(ptr noundef) local_unnamed_addr #3
 define dso_local void @bdrv_write_threshold_check_write(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #2 {
 entry:
   %add = add i64 %bytes, %offset
-  %write_threshold_offset = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 38
+  %write_threshold_offset = getelementptr inbounds i8, ptr %bs, i64 16896
   %0 = load i64, ptr %write_threshold_offset, align 8
   %cmp.not = icmp ne i64 %0, 0
   %cmp1 = icmp ugt i64 %add, %0
@@ -90,7 +68,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %node_name = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 22
+  %node_name = getelementptr inbounds i8, ptr %bs, i64 16600
   %sub = sub i64 %add, %0
   tail call void @qapi_event_send_block_write_threshold(ptr noundef nonnull %node_name, i64 noundef %sub, i64 noundef %0) #4
   store i64 0, ptr %write_threshold_offset, align 8

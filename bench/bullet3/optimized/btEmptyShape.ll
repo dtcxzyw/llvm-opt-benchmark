@@ -3,14 +3,6 @@ source_filename = "bench/bullet3/original/btEmptyShape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btCollisionShape = type { ptr, i32, ptr, i32, i32 }
-%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%class.btVector3 = type { [4 x float] }
-%class.btEmptyShape = type { %class.btConcaveShape.base, %class.btVector3, [4 x i8] }
-%class.btConcaveShape.base = type <{ %class.btCollisionShape, float }>
-%class.btConcaveShape = type <{ %class.btCollisionShape, float, [4 x i8] }>
-
 $_ZN12btEmptyShape15setLocalScalingERK9btVector3 = comdat any
 
 $_ZNK12btEmptyShape15getLocalScalingEv = comdat any
@@ -45,7 +37,7 @@ define dso_local void @_ZN12btEmptyShapeC2Ev(ptr noundef nonnull align 8 derefer
 entry:
   tail call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this)
   store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV12btEmptyShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this, i64 0, i32 1
+  %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
   store i32 27, ptr %m_shapeType, align 8
   ret void
 }
@@ -86,23 +78,23 @@ _ZN12btEmptyShapedlEPv.exit:                      ; preds = %entry
 define dso_local void @_ZNK12btEmptyShape7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %t, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMax) unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(36) %this)
   %vtable3 = load ptr, ptr %this, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 12
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 96
   %1 = load ptr, ptr %vfn4, align 8
   %call5 = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(36) %this)
   %vtable7 = load ptr, ptr %this, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 12
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 96
   %2 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef float %2(ptr noundef nonnull align 8 dereferenceable(36) %this)
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %t, i64 0, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %t, i64 48
   %3 = load <2 x float>, ptr %m_origin.i, align 4
   %4 = insertelement <2 x float> poison, float %call, i64 0
   %5 = insertelement <2 x float> %4, float %call5, i64 1
   %6 = fsub <2 x float> %3, %5
-  %arrayidx11.i = getelementptr inbounds %class.btTransform, ptr %t, i64 0, i32 1, i32 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %t, i64 56
   %7 = load float, ptr %arrayidx11.i, align 4
   %sub14.i = fsub float %7, %call9
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
@@ -138,7 +130,7 @@ declare noundef float @_ZNK16btCollisionShape27getContactBreakingThresholdEf(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12btEmptyShape15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 4 dereferenceable(16) %scaling) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_localScaling = getelementptr inbounds %class.btEmptyShape, ptr %this, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_localScaling, ptr noundef nonnull align 4 dereferenceable(16) %scaling, i64 16, i1 false)
   ret void
 }
@@ -146,7 +138,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btEmptyShape15getLocalScalingEv(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_localScaling = getelementptr inbounds %class.btEmptyShape, ptr %this, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
   ret ptr %m_localScaling
 }
 
@@ -165,7 +157,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14btConcaveShape9setMarginEf(ptr noundef nonnull align 8 dereferenceable(36) %this, float noundef %collisionMargin) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConcaveShape, ptr %this, i64 0, i32 1
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
   store float %collisionMargin, ptr %m_collisionMargin, align 8
   ret void
 }
@@ -173,7 +165,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK14btConcaveShape9getMarginEv(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConcaveShape, ptr %this, i64 0, i32 1
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load float, ptr %m_collisionMargin, align 8
   ret float %0
 }

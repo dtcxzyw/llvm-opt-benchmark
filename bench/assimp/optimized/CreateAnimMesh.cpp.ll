@@ -3,29 +3,23 @@ source_filename = "bench/assimp/original/CreateAnimMesh.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.aiString = type { i32, [1024 x i8] }
-%struct.aiAnimMesh = type { %struct.aiString, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], i32, float }
-%struct.aiMesh = type { i32, i32, i32, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], [8 x i32], ptr, i32, ptr, i32, %struct.aiString, i32, ptr, i32, %struct.aiAABB, ptr }
-%struct.aiAABB = type { %class.aiVector3t, %class.aiVector3t }
-%class.aiVector3t = type { float, float, float }
-
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @_ZN6Assimp16aiCreateAnimMeshEPK6aiMeshbbbbb(ptr nocapture noundef readonly %mesh, i1 noundef zeroext %needPositions, i1 noundef zeroext %needNormals, i1 noundef zeroext %needTangents, i1 noundef zeroext %needColors, i1 noundef zeroext %needTexCoords) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1200) ptr @_Znwm(i64 noundef 1200) #4
   store i32 0, ptr %call, align 4
-  %data.i.i = getelementptr inbounds %struct.aiString, ptr %call, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %call, i64 4
   store i8 0, ptr %data.i.i, align 4
-  %mVertices.i = getelementptr inbounds %struct.aiAnimMesh, ptr %call, i64 0, i32 1
+  %mVertices.i = getelementptr inbounds i8, ptr %call, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %mVertices.i, i8 0, i64 168, i1 false)
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 1
+  %mNumVertices = getelementptr inbounds i8, ptr %mesh, i64 4
   %0 = load i32, ptr %mNumVertices, align 4
-  %mNumVertices5 = getelementptr inbounds %struct.aiAnimMesh, ptr %call, i64 0, i32 7
+  %mNumVertices5 = getelementptr inbounds i8, ptr %call, i64 1192
   store i32 %0, ptr %mNumVertices5, align 8
   br i1 %needPositions, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 3
+  %mVertices = getelementptr inbounds i8, ptr %mesh, i64 16
   %1 = load ptr, ptr %mVertices, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %if.end, label %if.then
@@ -54,7 +48,7 @@ if.end:                                           ; preds = %arrayctor.cont, %la
   br i1 %needNormals, label %land.lhs.true15, label %if.end35
 
 land.lhs.true15:                                  ; preds = %if.end
-  %mNormals = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 4
+  %mNormals = getelementptr inbounds i8, ptr %mesh, i64 24
   %7 = load ptr, ptr %mNormals, align 8
   %tobool16.not = icmp eq ptr %7, null
   br i1 %tobool16.not, label %if.end35, label %if.then17
@@ -75,7 +69,7 @@ new.ctorloop22:                                   ; preds = %if.then17
   br label %arrayctor.cont28
 
 arrayctor.cont28:                                 ; preds = %new.ctorloop22, %if.then17
-  %mNormals29 = getelementptr inbounds %struct.aiAnimMesh, ptr %call, i64 0, i32 2
+  %mNormals29 = getelementptr inbounds i8, ptr %call, i64 1040
   store ptr %call20, ptr %mNormals29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call20, ptr nonnull align 4 %7, i64 %8, i1 false)
   br label %if.end35
@@ -84,7 +78,7 @@ if.end35:                                         ; preds = %arrayctor.cont28, %
   br i1 %needTangents, label %land.lhs.true37, label %if.end79
 
 land.lhs.true37:                                  ; preds = %if.end35
-  %mTangents = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 5
+  %mTangents = getelementptr inbounds i8, ptr %mesh, i64 32
   %13 = load ptr, ptr %mTangents, align 8
   %tobool38.not = icmp eq ptr %13, null
   br i1 %tobool38.not, label %land.lhs.true59, label %if.then39
@@ -105,13 +99,13 @@ new.ctorloop44:                                   ; preds = %if.then39
   br label %land.lhs.true59.sink.split
 
 land.lhs.true59.sink.split:                       ; preds = %if.then39, %new.ctorloop44
-  %mTangents51 = getelementptr inbounds %struct.aiAnimMesh, ptr %call, i64 0, i32 3
+  %mTangents51 = getelementptr inbounds i8, ptr %call, i64 1048
   store ptr %call42, ptr %mTangents51, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call42, ptr nonnull align 4 %13, i64 %14, i1 false)
   br label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %land.lhs.true59.sink.split, %land.lhs.true37
-  %mBitangents = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 6
+  %mBitangents = getelementptr inbounds i8, ptr %mesh, i64 40
   %19 = load ptr, ptr %mBitangents, align 8
   %tobool60.not = icmp eq ptr %19, null
   br i1 %tobool60.not, label %if.end79, label %if.then61
@@ -132,7 +126,7 @@ new.ctorloop66:                                   ; preds = %if.then61
   br label %arrayctor.cont72
 
 arrayctor.cont72:                                 ; preds = %new.ctorloop66, %if.then61
-  %mBitangents73 = getelementptr inbounds %struct.aiAnimMesh, ptr %call, i64 0, i32 4
+  %mBitangents73 = getelementptr inbounds i8, ptr %call, i64 1056
   store ptr %call64, ptr %mBitangents73, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call64, ptr nonnull align 4 %19, i64 %20, i1 false)
   br label %if.end79
@@ -141,13 +135,15 @@ if.end79:                                         ; preds = %if.end35, %arraycto
   br i1 %needColors, label %for.cond.preheader, label %if.end111
 
 for.cond.preheader:                               ; preds = %if.end79
+  %mColors = getelementptr inbounds i8, ptr %mesh, i64 48
+  %mColors95 = getelementptr inbounds i8, ptr %call, i64 1064
   %conv105 = zext i32 %0 to i64
   %mul106 = shl nuw nsw i64 %conv105, 4
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 7, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [8 x ptr], ptr %mColors, i64 0, i64 %indvars.iv
   %25 = load ptr, ptr %arrayidx, align 8
   %tobool82.not = icmp eq ptr %25, null
   br i1 %tobool82.not, label %if.else, label %if.then83
@@ -165,13 +161,13 @@ new.ctorloop88:                                   ; preds = %if.then83
   br label %arrayctor.cont94
 
 arrayctor.cont94:                                 ; preds = %new.ctorloop88, %if.then83
-  %arrayidx97 = getelementptr inbounds %struct.aiAnimMesh, ptr %call, i64 0, i32 5, i64 %indvars.iv
+  %arrayidx97 = getelementptr inbounds [8 x ptr], ptr %mColors95, i64 0, i64 %indvars.iv
   store ptr %call86, ptr %arrayidx97, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call86, ptr nonnull align 4 %25, i64 %mul106, i1 false)
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %arrayidx109 = getelementptr inbounds %struct.aiAnimMesh, ptr %call, i64 0, i32 5, i64 %indvars.iv
+  %arrayidx109 = getelementptr inbounds [8 x ptr], ptr %mColors95, i64 0, i64 %indvars.iv
   store ptr null, ptr %arrayidx109, align 8
   br label %for.inc
 
@@ -184,13 +180,15 @@ if.end111:                                        ; preds = %for.inc, %if.end79
   br i1 %needTexCoords, label %for.cond115.preheader, label %if.end153
 
 for.cond115.preheader:                            ; preds = %if.end111
+  %mTextureCoords = getelementptr inbounds i8, ptr %mesh, i64 112
+  %mTextureCoords133 = getelementptr inbounds i8, ptr %call, i64 1128
   %conv143 = zext i32 %0 to i64
   %mul144 = mul nuw nsw i64 %conv143, 12
   br label %for.body117
 
 for.body117:                                      ; preds = %for.cond115.preheader, %for.inc150
   %indvars.iv66 = phi i64 [ 0, %for.cond115.preheader ], [ %indvars.iv.next67, %for.inc150 ]
-  %arrayidx119 = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 8, i64 %indvars.iv66
+  %arrayidx119 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %indvars.iv66
   %28 = load ptr, ptr %arrayidx119, align 8
   %tobool120.not = icmp eq ptr %28, null
   br i1 %tobool120.not, label %if.else145, label %if.then121
@@ -212,13 +210,13 @@ new.ctorloop126:                                  ; preds = %if.then121
   br label %arrayctor.cont132
 
 arrayctor.cont132:                                ; preds = %new.ctorloop126, %if.then121
-  %arrayidx135 = getelementptr inbounds %struct.aiAnimMesh, ptr %call, i64 0, i32 6, i64 %indvars.iv66
+  %arrayidx135 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords133, i64 0, i64 %indvars.iv66
   store ptr %call124, ptr %arrayidx135, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call124, ptr nonnull align 4 %28, i64 %mul144, i1 false)
   br label %for.inc150
 
 if.else145:                                       ; preds = %for.body117
-  %arrayidx148 = getelementptr inbounds %struct.aiAnimMesh, ptr %call, i64 0, i32 6, i64 %indvars.iv66
+  %arrayidx148 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords133, i64 0, i64 %indvars.iv66
   store ptr null, ptr %arrayidx148, align 8
   br label %for.inc150
 

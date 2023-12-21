@@ -8,30 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.facebook::velox::type::fbhive::HiveTypeSerializer" = type { i8 }
 %"class.std::allocator" = type { i8 }
-%"class.facebook::velox::Type" = type <{ %"class.facebook::velox::Tree", %"class.facebook::velox::ISerializable", i8, [7 x i8] }>
-%"class.facebook::velox::Tree" = type { ptr }
-%"class.facebook::velox::ISerializable" = type { ptr }
-%"class.facebook::velox::RowType" = type { %"class.facebook::velox::TypeBase.base.6", %"class.std::vector.7", %"class.std::vector.12", %"class.std::vector", %"class.folly::F14FastMap" }
-%"class.facebook::velox::TypeBase.base.6" = type { %"class.facebook::velox::Type.base" }
-%"class.facebook::velox::Type.base" = type <{ %"class.facebook::velox::Tree", %"class.facebook::velox::ISerializable", i8 }>
-%"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
-%"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
-%"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<std::shared_ptr<const facebook::velox::Type>, std::allocator<std::shared_ptr<const facebook::velox::Type>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<const facebook::velox::Type>, std::allocator<std::shared_ptr<const facebook::velox::Type>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<const facebook::velox::Type>, std::allocator<std::shared_ptr<const facebook::velox::Type>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<const facebook::velox::Type>, std::allocator<std::shared_ptr<const facebook::velox::Type>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<facebook::velox::TypeParameter, std::allocator<facebook::velox::TypeParameter>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::velox::TypeParameter, std::allocator<facebook::velox::TypeParameter>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::velox::TypeParameter, std::allocator<facebook::velox::TypeParameter>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::velox::TypeParameter, std::allocator<facebook::velox::TypeParameter>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::F14FastMap" = type { %"class.folly::f14::detail::F14VectorMapImpl" }
-%"class.folly::f14::detail::F14VectorMapImpl" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { %"class.folly::f14::detail::VectorContainerPolicy", ptr, i32, %"struct.folly::f14::detail::SizeAndPackedBegin" }
-%"class.folly::f14::detail::VectorContainerPolicy" = type { ptr }
-%"struct.folly::f14::detail::SizeAndPackedBegin" = type { i32 }
 %struct._Guard = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
@@ -111,7 +87,7 @@ entry:
   %ref.tmp48 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp57 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp58 = alloca %"class.std::__cxx11::basic_string", align 8
-  %kind_.i = getelementptr inbounds %"class.facebook::velox::Type", ptr %type, i64 0, i32 2
+  %kind_.i = getelementptr inbounds i8, ptr %type, i64 16
   %0 = load i8, ptr %kind_.i, align 8
   switch i8 %0, label %sw.default [
     i8 0, label %sw.bb
@@ -623,7 +599,7 @@ entry:
 for.cond:                                         ; preds = %invoke.cont13, %entry
   %i.0 = phi i64 [ 0, %entry ], [ %inc, %invoke.cont13 ]
   %vtable = load ptr, ptr %t, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = invoke noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %t)
           to label %invoke.cont unwind label %lpad
@@ -649,7 +625,7 @@ lpad:                                             ; preds = %invoke.cont8, %if.e
 if.end:                                           ; preds = %if.then, %for.body
   %conv5 = trunc i64 %i.0 to i32
   %vtable6 = load ptr, ptr %t, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 3
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 24
   %2 = load ptr, ptr %vfn7, align 8
   %call9 = invoke noundef nonnull align 8 dereferenceable(16) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %t, i32 noundef %conv5)
           to label %invoke.cont8 unwind label %lpad
@@ -691,14 +667,14 @@ define void @_ZNK8facebook5velox4type6fbhive18HiveTypeSerializer13visitChildrenB
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #7
-  %names_.i = getelementptr inbounds %"class.facebook::velox::RowType", ptr %t, i64 0, i32 1
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.facebook::velox::RowType", ptr %t, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %names_.i = getelementptr inbounds i8, ptr %t, i64 24
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 32
   br label %for.cond
 
 for.cond:                                         ; preds = %invoke.cont20, %entry
   %i.0 = phi i64 [ 0, %entry ], [ %inc, %invoke.cont20 ]
   %vtable = load ptr, ptr %t, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = invoke noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(120) %t)
           to label %invoke.cont unwind label %lpad.loopexit
@@ -756,7 +732,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   %vtable13 = load ptr, ptr %t, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 3
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 24
   %3 = load ptr, ptr %vfn14, align 8
   %call16 = invoke noundef nonnull align 8 dereferenceable(16) ptr %3(ptr noundef nonnull align 8 dereferenceable(120) %t, i32 noundef %conv5)
           to label %invoke.cont15 unwind label %lpad.loopexit

@@ -69,7 +69,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %name = getelementptr inbounds [30 x %struct.EXT_LIST], ptr @ext_list, i64 0, i64 %i.013, i32 2
+  %name = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load ptr, ptr %name, align 8
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.1, i32 noundef 91, ptr noundef nonnull @.str.4, ptr noundef %1, i64 noundef %0, i64 noundef %i.013) #2
   br label %if.end
@@ -77,14 +77,14 @@ if.then:                                          ; preds = %for.body
 if.end:                                           ; preds = %if.then, %for.body
   %retval1.1 = phi i32 [ %retval1.014, %for.body ], [ 0, %if.then ]
   %call7 = tail call i32 @ossl_get_extension_type(i64 noundef %0) #2
-  %type9 = getelementptr inbounds [30 x %struct.EXT_LIST], ptr @ext_list, i64 0, i64 %i.013, i32 1
+  %type9 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i32, ptr %type9, align 8
   %call10 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %call7, i32 noundef %2) #2
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.then12, label %for.inc
 
 if.then12:                                        ; preds = %if.end
-  %name14 = getelementptr inbounds [30 x %struct.EXT_LIST], ptr @ext_list, i64 0, i64 %i.013, i32 2
+  %name14 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load ptr, ptr %name14, align 8
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.1, i32 noundef 98, ptr noundef nonnull @.str.7, ptr noundef %3, i64 noundef %0, i32 noundef %2, i32 noundef %call7) #2
   br label %for.inc

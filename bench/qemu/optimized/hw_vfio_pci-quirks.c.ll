@@ -8,62 +8,19 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.14 = type { i32, i32, i8, ptr }
 %struct.anon.15 = type { i32, i32, i8 }
 %struct.timeval = type { i64, i64 }
-%struct.VFIOPCIDevice = type { %struct.PCIDevice, %struct.VFIODevice, %struct.VFIOINTx, i32, ptr, i64, i32, i64, ptr, i32, ptr, ptr, i32, i32, [6 x %struct.VFIOBAR], ptr, ptr, %struct.PCIHostDeviceAddress, %struct.QemuUUID, %struct.EventNotifier, %struct.EventNotifier, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, ptr, %struct.Notifier }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
+%struct.VFIOVGARegion = type { %struct.MemoryRegion, i64, i32, %struct.anon.13 }
 %struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
+%struct.Object = type { ptr, ptr, ptr, i32, ptr }
 %union.anon.1 = type { %struct.QTailQLink }
+%struct.QTailQLink = type { ptr, ptr }
 %union.anon.2 = type { %struct.QTailQLink }
 %union.anon.3 = type { %struct.QTailQLink }
-%struct.VFIODevice = type { %struct.anon.4, %struct.anon.5, %struct.anon.6, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, i8, i32, ptr, i32, i32, i32, ptr, ptr, i32, i8, i8 }
-%struct.anon.4 = type { ptr, ptr }
-%struct.anon.5 = type { ptr, ptr }
-%struct.anon.6 = type { ptr, ptr }
-%struct.VFIOINTx = type { i8, i8, i8, %struct.EventNotifier, %struct.EventNotifier, %struct.PCIINTxRoute, i32, ptr }
-%struct.PCIINTxRoute = type { i32, i32 }
+%struct.anon.13 = type { ptr }
 %struct.VFIOBAR = type { %struct.VFIORegion, ptr, i64, i8, i8, i8, %struct.anon.7 }
 %struct.VFIORegion = type { ptr, i64, ptr, i64, i32, i32, ptr, i8 }
 %struct.anon.7 = type { ptr }
-%struct.PCIHostDeviceAddress = type { i32, i32, i32, i32 }
-%struct.QemuUUID = type { %union.anon.8 }
-%union.anon.8 = type { %struct.anon.9 }
-%struct.anon.9 = type { i32, i16, i16, i8, i8, [6 x i8] }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.Notifier = type { ptr, %struct.anon.10 }
-%struct.anon.10 = type { ptr, ptr }
-%struct.VFIOQuirk = type { %struct.anon.11, ptr, %struct.anon.12, i32, ptr, ptr }
-%struct.anon.11 = type { ptr, ptr }
-%struct.anon.12 = type { ptr }
-%struct.vfio_region_info = type { i32, i32, i32, i32, i64, i64 }
-%struct.VFIOVGA = type { i64, i32, [3 x %struct.VFIOVGARegion] }
-%struct.VFIOVGARegion = type { %struct.MemoryRegion, i64, i32, %struct.anon.13 }
-%struct.anon.13 = type { ptr }
-%struct.VFIOConfigWindowQuirk = type { ptr, i32, i32, i32, i8, i8, ptr, ptr, i32, [0 x %struct.VFIOConfigWindowMatch] }
-%struct.VFIOConfigWindowMatch = type { i32, i32 }
-%struct.VFIOConfigMirrorQuirk = type { ptr, i32, i8, ptr, [0 x i8] }
-%struct.VFIONvidiaBAR5Quirk = type { i32, i32, ptr, ptr, i8, %struct.VFIOConfigWindowQuirk }
 %struct.vfio_device_ioeventfd = type { i32, i32, i64, i64, i32 }
-%struct.anon.16 = type { ptr, ptr }
-%struct.VFIOIOEventFD = type { %struct.anon.16, ptr, i64, i32, i64, %struct.EventNotifier, ptr, i64, i8, i8 }
-%struct.VFIONvidia3d0Quirk = type { ptr, i32, i32 }
-%struct.VFIOrtl8168Quirk = type { ptr, i32, i32, i8 }
+%struct.VFIOConfigWindowMatch = type { i32, i32 }
 
 @.str = private unnamed_addr constant [29 x i8] c"../qemu/hw/vfio/pci-quirks.c\00", align 1
 @__func__.vfio_pci_igd_opregion_init = private unnamed_addr constant [27 x i8] c"vfio_pci_igd_opregion_init\00", align 1
@@ -218,19 +175,19 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local zeroext i1 @vfio_opt_rom_in_denylist(ptr nocapture noundef readonly %vdev) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vendor_id.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 22
+  %vendor_id.i = getelementptr inbounds i8, ptr %vdev, i64 3496
   %0 = load i32, ptr %vendor_id.i, align 8
   %cmp1.i = icmp eq i32 %0, 5348
   br i1 %cmp1.i, label %entry.split.us, label %return
 
 entry.split.us:                                   ; preds = %entry
-  %device_id.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 23
+  %device_id.i = getelementptr inbounds i8, ptr %vdev, i64 3500
   %1 = load i32, ptr %device_id.i, align 4
   %cmp3.i.us = icmp eq i32 %1, 5774
   br i1 %cmp3.i.us, label %if.then, label %return
 
 if.then:                                          ; preds = %entry.split.us
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %vdev, i64 2680
   %2 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -256,7 +213,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2, i32 noundef 5348, i32 noundef 5774) #10
   br label %trace_vfio_quirk_rom_in_denylist.exit
@@ -278,13 +235,13 @@ return:                                           ; preds = %entry.split.us, %en
 define dso_local noalias ptr @vfio_quirk_alloc(i32 noundef %nr_mem) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #11
-  %ioeventfds = getelementptr inbounds %struct.VFIOQuirk, ptr %call, i64 0, i32 2
+  %ioeventfds = getelementptr inbounds i8, ptr %call, i64 24
   store ptr null, ptr %ioeventfds, align 8
   %conv = sext i32 %nr_mem to i64
   %call1 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 272) #11
-  %mem = getelementptr inbounds %struct.VFIOQuirk, ptr %call, i64 0, i32 4
+  %mem = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call1, ptr %mem, align 8
-  %nr_mem2 = getelementptr inbounds %struct.VFIOQuirk, ptr %call, i64 0, i32 3
+  %nr_mem2 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %nr_mem, ptr %nr_mem2, align 8
   ret ptr %call
 }
@@ -296,15 +253,15 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 define dso_local i32 @vfio_pci_igd_opregion_init(ptr nocapture noundef %vdev, ptr nocapture noundef readonly %info, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %size = getelementptr inbounds %struct.vfio_region_info, ptr %info, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load i64, ptr %size, align 8
   %call = tail call noalias ptr @g_malloc0(i64 noundef %0) #12
-  %igd_opregion = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 16
+  %igd_opregion = getelementptr inbounds i8, ptr %vdev, i64 3424
   store ptr %call, ptr %igd_opregion, align 16
-  %fd = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 8
+  %fd = getelementptr inbounds i8, ptr %vdev, i64 2696
   %1 = load i32, ptr %fd, align 8
   %2 = load i64, ptr %size, align 8
-  %offset = getelementptr inbounds %struct.vfio_region_info, ptr %info, i64 0, i32 5
+  %offset = getelementptr inbounds i8, ptr %info, i64 24
   %3 = load i64, ptr %offset, align 8
   %call3 = tail call i64 @pread64(i32 noundef %1, ptr noundef %call, i64 noundef %2, i64 noundef %3) #10
   %sext = shl i64 %call3, 32
@@ -325,7 +282,7 @@ if.end:                                           ; preds = %entry
   %6 = load ptr, ptr %igd_opregion, align 16
   %7 = load i64, ptr %size, align 8
   tail call void @fw_cfg_add_file(ptr noundef %call9, ptr noundef nonnull @.str.2, ptr noundef %6, i64 noundef %7) #10
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %vdev, i64 2680
   %8 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %9 = load i32, ptr @trace_events_enabled_count, align 4
@@ -351,7 +308,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %8) #10
   br label %trace_vfio_pci_igd_opregion_enabled.exit
@@ -362,15 +319,15 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vfio_pci_igd_opregion_enabled.exit:         ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %vdev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %vdev, i64 168
   %16 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %16, i64 252
   store i32 0, ptr %add.ptr, align 1
-  %wmask = getelementptr inbounds %struct.PCIDevice, ptr %vdev, i64 0, i32 5
+  %wmask = getelementptr inbounds i8, ptr %vdev, i64 184
   %17 = load ptr, ptr %wmask, align 8
   %add.ptr14 = getelementptr i8, ptr %17, i64 252
   store i32 -1, ptr %add.ptr14, align 1
-  %emulated_config_bits = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 4
+  %emulated_config_bits = getelementptr inbounds i8, ptr %vdev, i64 2816
   %18 = load ptr, ptr %emulated_config_bits, align 16
   %add.ptr15 = getelementptr i8, ptr %18, i64 252
   store i32 -1, ptr %add.ptr15, align 1
@@ -399,60 +356,60 @@ define dso_local void @vfio_vga_quirk_setup(ptr noundef %vdev) local_unnamed_add
 entry:
   %_now.i.i.i2 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %vendor_id.i.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 22
+  %vendor_id.i.i = getelementptr inbounds i8, ptr %vdev, i64 3496
   %0 = load i32, ptr %vendor_id.i.i, align 8
   %cmp1.i.i = icmp eq i32 %0, 4098
   br i1 %cmp1.i.i, label %lor.lhs.false.i, label %vfio_vga_probe_ati_3c3_quirk.exit
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %ioport.i = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 4, i32 4
+  %ioport.i = getelementptr i8, ptr %vdev, i64 3313
   %1 = load i8, ptr %ioport.i, align 1
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %vfio_vga_probe_ati_3c3_quirk.exit, label %lor.lhs.false1.i
 
 lor.lhs.false1.i:                                 ; preds = %lor.lhs.false.i
-  %size.i = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 4, i32 0, i32 3
+  %size.i = getelementptr i8, ptr %vdev, i64 3264
   %3 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ult i64 %3, 256
   br i1 %cmp.i, label %vfio_vga_probe_ati_3c3_quirk.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false1.i
   %call.i.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #11
-  %ioeventfds.i.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i, i64 0, i32 2
+  %ioeventfds.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr null, ptr %ioeventfds.i.i, align 8
   %call1.i.i = tail call noalias dereferenceable_or_null(272) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 272) #11
-  %mem.i.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i, i64 0, i32 4
+  %mem.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr %call1.i.i, ptr %mem.i.i, align 8
-  %nr_mem2.i.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i, i64 0, i32 3
+  %nr_mem2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i32 1, ptr %nr_mem2.i.i, align 8
   tail call void @memory_region_init_io(ptr noundef %call1.i.i, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_ati_3c3_quirk, ptr noundef nonnull %vdev, ptr noundef nonnull @.str.9, i64 noundef 1) #10
-  %vga.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 15
+  %vga.i = getelementptr inbounds i8, ptr %vdev, i64 3416
   %4 = load ptr, ptr %vga.i, align 8
-  %arrayidx6.i = getelementptr %struct.VFIOVGA, ptr %4, i64 0, i32 2, i64 2
+  %arrayidx6.i = getelementptr i8, ptr %4, i64 624
   tail call void @memory_region_add_subregion(ptr noundef %arrayidx6.i, i64 noundef 3, ptr noundef %call1.i.i) #10
   %5 = load ptr, ptr %vga.i, align 8
-  %quirks.i = getelementptr %struct.VFIOVGA, ptr %5, i64 0, i32 2, i64 2, i32 3
+  %quirks.i = getelementptr i8, ptr %5, i64 912
   %6 = load ptr, ptr %quirks.i, align 16
   store ptr %6, ptr %call.i.i, align 8
   %cmp12.not.i = icmp eq ptr %6, null
   br i1 %cmp12.not.i, label %if.end22.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
-  %le_prev.i = getelementptr inbounds %struct.anon.11, ptr %6, i64 0, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %call.i.i, ptr %le_prev.i, align 8
   %.pre.i = load ptr, ptr %vga.i, align 8
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.then13.i, %if.end.i
   %7 = phi ptr [ %.pre.i, %if.then13.i ], [ %5, %if.end.i ]
-  %quirks26.i = getelementptr %struct.VFIOVGA, ptr %7, i64 0, i32 2, i64 2, i32 3
+  %quirks26.i = getelementptr i8, ptr %7, i64 912
   store ptr %call.i.i, ptr %quirks26.i, align 16
   %8 = load ptr, ptr %vga.i, align 8
-  %quirks31.i = getelementptr %struct.VFIOVGA, ptr %8, i64 0, i32 2, i64 2, i32 3
-  %le_prev34.i = getelementptr inbounds %struct.anon.11, ptr %call.i.i, i64 0, i32 1
+  %quirks31.i = getelementptr i8, ptr %8, i64 912
+  %le_prev34.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %quirks31.i, ptr %le_prev34.i, align 8
-  %name.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name.i = getelementptr inbounds i8, ptr %vdev, i64 2680
   %9 = load ptr, ptr %name.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %10 = load i32, ptr @trace_events_enabled_count, align 4
@@ -478,7 +435,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %15 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i.i, i64 noundef %15, i64 noundef %16, ptr noundef %9) #10
   br label %trace_vfio_quirk_ati_3c3_probe.exit.i
@@ -492,7 +449,7 @@ trace_vfio_quirk_ati_3c3_probe.exit.i:            ; preds = %if.else.i.i.i, %if.
   br label %vfio_vga_probe_ati_3c3_quirk.exit
 
 vfio_vga_probe_ati_3c3_quirk.exit:                ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false1.i, %trace_vfio_quirk_ati_3c3_probe.exit.i
-  %no_geforce_quirks.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 43
+  %no_geforce_quirks.i = getelementptr inbounds i8, ptr %vdev, i64 3550
   %17 = load i8, ptr %no_geforce_quirks.i, align 2
   %18 = and i8 %17, 1
   %tobool.not.i3 = icmp eq i8 %18, 0
@@ -504,56 +461,56 @@ lor.lhs.false.i4:                                 ; preds = %vfio_vga_probe_ati_
   br i1 %cmp1.i.i6, label %lor.lhs.false1.i7, label %vfio_vga_probe_nvidia_3d0_quirk.exit
 
 lor.lhs.false1.i7:                                ; preds = %lor.lhs.false.i4
-  %size.i8 = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 1, i32 0, i32 3
+  %size.i8 = getelementptr i8, ptr %vdev, i64 3000
   %20 = load i64, ptr %size.i8, align 8
   %tobool2.not.i = icmp eq i64 %20, 0
   br i1 %tobool2.not.i, label %vfio_vga_probe_nvidia_3d0_quirk.exit, label %if.end.i9
 
 if.end.i9:                                        ; preds = %lor.lhs.false1.i7
   %call.i.i10 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #11
-  %ioeventfds.i.i11 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i10, i64 0, i32 2
+  %ioeventfds.i.i11 = getelementptr inbounds i8, ptr %call.i.i10, i64 24
   store ptr null, ptr %ioeventfds.i.i11, align 8
   %call1.i.i12 = tail call noalias dereferenceable_or_null(544) ptr @g_malloc0_n(i64 noundef 2, i64 noundef 272) #11
-  %mem.i.i13 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i10, i64 0, i32 4
+  %mem.i.i13 = getelementptr inbounds i8, ptr %call.i.i10, i64 40
   store ptr %call1.i.i12, ptr %mem.i.i13, align 8
-  %nr_mem2.i.i14 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i10, i64 0, i32 3
+  %nr_mem2.i.i14 = getelementptr inbounds i8, ptr %call.i.i10, i64 32
   store i32 2, ptr %nr_mem2.i.i14, align 8
   %call4.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #12
-  %data5.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i10, i64 0, i32 1
+  %data5.i = getelementptr inbounds i8, ptr %call.i.i10, i64 16
   store ptr %call4.i, ptr %data5.i, align 8
   store ptr %vdev, ptr %call4.i, align 8
   tail call void @memory_region_init_io(ptr noundef %call1.i.i12, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_nvidia_3d4_quirk, ptr noundef nonnull %call4.i, ptr noundef nonnull @.str.15, i64 noundef 2) #10
-  %vga.i15 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 15
+  %vga.i15 = getelementptr inbounds i8, ptr %vdev, i64 3416
   %21 = load ptr, ptr %vga.i15, align 8
-  %arrayidx9.i = getelementptr %struct.VFIOVGA, ptr %21, i64 0, i32 2, i64 2
+  %arrayidx9.i = getelementptr i8, ptr %21, i64 624
   tail call void @memory_region_add_subregion(ptr noundef %arrayidx9.i, i64 noundef 20, ptr noundef %call1.i.i12) #10
-  %arrayidx14.i = getelementptr %struct.MemoryRegion, ptr %call1.i.i12, i64 1
+  %arrayidx14.i = getelementptr i8, ptr %call1.i.i12, i64 272
   tail call void @memory_region_init_io(ptr noundef %arrayidx14.i, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_nvidia_3d0_quirk, ptr noundef nonnull %call4.i, ptr noundef nonnull @.str.16, i64 noundef 2) #10
   %22 = load ptr, ptr %vga.i15, align 8
-  %arrayidx17.i = getelementptr %struct.VFIOVGA, ptr %22, i64 0, i32 2, i64 2
+  %arrayidx17.i = getelementptr i8, ptr %22, i64 624
   tail call void @memory_region_add_subregion(ptr noundef %arrayidx17.i, i64 noundef 16, ptr noundef %arrayidx14.i) #10
   %23 = load ptr, ptr %vga.i15, align 8
-  %quirks.i16 = getelementptr %struct.VFIOVGA, ptr %23, i64 0, i32 2, i64 2, i32 3
+  %quirks.i16 = getelementptr i8, ptr %23, i64 912
   %24 = load ptr, ptr %quirks.i16, align 16
   store ptr %24, ptr %call.i.i10, align 8
   %cmp.not.i = icmp eq ptr %24, null
   br i1 %cmp.not.i, label %if.end33.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.end.i9
-  %le_prev.i17 = getelementptr inbounds %struct.anon.11, ptr %24, i64 0, i32 1
+  %le_prev.i17 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %call.i.i10, ptr %le_prev.i17, align 8
   %.pre.i18 = load ptr, ptr %vga.i15, align 8
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then24.i, %if.end.i9
   %25 = phi ptr [ %.pre.i18, %if.then24.i ], [ %23, %if.end.i9 ]
-  %quirks37.i = getelementptr %struct.VFIOVGA, ptr %25, i64 0, i32 2, i64 2, i32 3
+  %quirks37.i = getelementptr i8, ptr %25, i64 912
   store ptr %call.i.i10, ptr %quirks37.i, align 16
   %26 = load ptr, ptr %vga.i15, align 8
-  %quirks42.i = getelementptr %struct.VFIOVGA, ptr %26, i64 0, i32 2, i64 2, i32 3
-  %le_prev45.i = getelementptr inbounds %struct.anon.11, ptr %call.i.i10, i64 0, i32 1
+  %quirks42.i = getelementptr i8, ptr %26, i64 912
+  %le_prev45.i = getelementptr inbounds i8, ptr %call.i.i10, i64 8
   store ptr %quirks42.i, ptr %le_prev45.i, align 8
-  %name.i19 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name.i19 = getelementptr inbounds i8, ptr %vdev, i64 2680
   %27 = load ptr, ptr %name.i19, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i2)
   %28 = load i32, ptr @trace_events_enabled_count, align 4
@@ -579,7 +536,7 @@ if.then8.i.i.i28:                                 ; preds = %if.then.i.i.i26
   %call9.i.i.i29 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i2, ptr noundef null) #10
   %call10.i.i.i30 = tail call i32 @qemu_get_thread_id() #10
   %33 = load i64, ptr %_now.i.i.i2, align 8
-  %tv_usec.i.i.i31 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i2, i64 0, i32 1
+  %tv_usec.i.i.i31 = getelementptr inbounds i8, ptr %_now.i.i.i2, i64 8
   %34 = load i64, ptr %tv_usec.i.i.i31, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i.i30, i64 noundef %33, i64 noundef %34, ptr noundef %27) #10
   br label %trace_vfio_quirk_nvidia_3d0_probe.exit.i
@@ -599,13 +556,14 @@ vfio_vga_probe_nvidia_3d0_quirk.exit:             ; preds = %vfio_vga_probe_ati_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vfio_vga_quirk_exit(ptr nocapture noundef readonly %vdev) local_unnamed_addr #0 {
 entry:
-  %vga = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 15
+  %vga = getelementptr inbounds i8, ptr %vdev, i64 3416
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc17
   %indvars.iv18 = phi i64 [ 0, %entry ], [ %indvars.iv.next19, %for.inc17 ]
   %0 = load ptr, ptr %vga, align 8
-  %quirks = getelementptr %struct.VFIOVGA, ptr %0, i64 0, i32 2, i64 %indvars.iv18, i32 3
+  %region = getelementptr inbounds i8, ptr %0, i64 16
+  %quirks = getelementptr [3 x %struct.VFIOVGARegion], ptr %region, i64 0, i64 %indvars.iv18, i32 3
   %quirk.012 = load ptr, ptr %quirks, align 8
   %tobool.not13 = icmp eq ptr %quirk.012, null
   br i1 %tobool.not13, label %for.inc17, label %for.cond4.preheader
@@ -617,19 +575,20 @@ for.cond2.loopexit:                               ; preds = %for.body7, %for.con
 
 for.cond4.preheader:                              ; preds = %for.body, %for.cond2.loopexit
   %quirk.014 = phi ptr [ %quirk.0, %for.cond2.loopexit ], [ %quirk.012, %for.body ]
-  %nr_mem = getelementptr inbounds %struct.VFIOQuirk, ptr %quirk.014, i64 0, i32 3
+  %nr_mem = getelementptr inbounds i8, ptr %quirk.014, i64 32
   %1 = load i32, ptr %nr_mem, align 8
   %cmp510 = icmp sgt i32 %1, 0
   br i1 %cmp510, label %for.body7.lr.ph, label %for.cond2.loopexit
 
 for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
-  %mem12 = getelementptr inbounds %struct.VFIOQuirk, ptr %quirk.014, i64 0, i32 4
+  %mem12 = getelementptr inbounds i8, ptr %quirk.014, i64 40
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.body7
   %indvars.iv = phi i64 [ 0, %for.body7.lr.ph ], [ %indvars.iv.next, %for.body7 ]
   %2 = load ptr, ptr %vga, align 8
-  %arrayidx11 = getelementptr %struct.VFIOVGA, ptr %2, i64 0, i32 2, i64 %indvars.iv18
+  %region9 = getelementptr inbounds i8, ptr %2, i64 16
+  %arrayidx11 = getelementptr [3 x %struct.VFIOVGARegion], ptr %region9, i64 0, i64 %indvars.iv18
   %3 = load ptr, ptr %mem12, align 8
   %arrayidx14 = getelementptr %struct.MemoryRegion, ptr %3, i64 %indvars.iv
   tail call void @memory_region_del_subregion(ptr noundef %arrayidx11, ptr noundef %arrayidx14) #10
@@ -653,43 +612,44 @@ declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vfio_vga_quirk_finalize(ptr nocapture noundef readonly %vdev) local_unnamed_addr #0 {
 entry:
-  %vga = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 15
+  %vga = getelementptr inbounds i8, ptr %vdev, i64 3416
   %.pre = load ptr, ptr %vga, align 8
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry, %for.inc32
   %0 = phi ptr [ %.pre, %entry ], [ %13, %for.inc32 ]
-  %indvars.iv25 = phi i64 [ 0, %entry ], [ %indvars.iv.next26, %for.inc32 ]
-  %quirks20 = getelementptr %struct.VFIOVGA, ptr %0, i64 0, i32 2, i64 %indvars.iv25, i32 3
-  %1 = load ptr, ptr %quirks20, align 16
-  %cmp2.not21 = icmp eq ptr %1, null
-  br i1 %cmp2.not21, label %for.inc32, label %while.body
+  %indvars.iv26 = phi i64 [ 0, %entry ], [ %indvars.iv.next27, %for.inc32 ]
+  %region20 = getelementptr inbounds i8, ptr %0, i64 16
+  %quirks21 = getelementptr [3 x %struct.VFIOVGARegion], ptr %region20, i64 0, i64 %indvars.iv26, i32 3
+  %1 = load ptr, ptr %quirks21, align 16
+  %cmp2.not22 = icmp eq ptr %1, null
+  br i1 %cmp2.not22, label %for.inc32, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %for.end
   %2 = phi ptr [ %12, %for.end ], [ %1, %while.cond.preheader ]
   %3 = load ptr, ptr %2, align 8
   %cmp10.not = icmp eq ptr %3, null
-  %le_prev20.phi.trans.insert = getelementptr inbounds %struct.anon.11, ptr %2, i64 0, i32 1
-  %.pre29 = load ptr, ptr %le_prev20.phi.trans.insert, align 8
+  %le_prev20.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
+  %.pre30 = load ptr, ptr %le_prev20.phi.trans.insert, align 8
   br i1 %cmp10.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %le_prev16 = getelementptr inbounds %struct.anon.11, ptr %3, i64 0, i32 1
-  store ptr %.pre29, ptr %le_prev16, align 8
-  %.pre28 = load ptr, ptr %2, align 8
+  %le_prev16 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %.pre30, ptr %le_prev16, align 8
+  %.pre29 = load ptr, ptr %2, align 8
   br label %if.end
 
 if.end:                                           ; preds = %while.body, %if.then
-  %4 = phi ptr [ %.pre28, %if.then ], [ null, %while.body ]
-  store ptr %4, ptr %.pre29, align 8
-  %nr_mem = getelementptr inbounds %struct.VFIOQuirk, ptr %2, i64 0, i32 3
+  %4 = phi ptr [ %.pre29, %if.then ], [ null, %while.body ]
+  store ptr %4, ptr %.pre30, align 8
+  %nr_mem = getelementptr inbounds i8, ptr %2, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %5 = load i32, ptr %nr_mem, align 8
   %cmp2618 = icmp sgt i32 %5, 0
   br i1 %cmp2618, label %for.body28.lr.ph, label %for.end
 
 for.body28.lr.ph:                                 ; preds = %if.end
-  %mem = getelementptr inbounds %struct.VFIOQuirk, ptr %2, i64 0, i32 4
+  %mem = getelementptr inbounds i8, ptr %2, i64 40
   br label %for.body28
 
 for.body28:                                       ; preds = %for.body28.lr.ph, %for.body28
@@ -704,23 +664,24 @@ for.body28:                                       ; preds = %for.body28.lr.ph, %
   br i1 %cmp26, label %for.body28, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body28, %if.end
-  %mem31 = getelementptr inbounds %struct.VFIOQuirk, ptr %2, i64 0, i32 4
+  %mem31 = getelementptr inbounds i8, ptr %2, i64 40
   %9 = load ptr, ptr %mem31, align 8
   tail call void @g_free(ptr noundef %9) #10
-  %data = getelementptr inbounds %struct.VFIOQuirk, ptr %2, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load ptr, ptr %data, align 8
   tail call void @g_free(ptr noundef %10) #10
   tail call void @g_free(ptr noundef nonnull %2) #10
   %11 = load ptr, ptr %vga, align 8
-  %quirks = getelementptr %struct.VFIOVGA, ptr %11, i64 0, i32 2, i64 %indvars.iv25, i32 3
+  %region = getelementptr inbounds i8, ptr %11, i64 16
+  %quirks = getelementptr [3 x %struct.VFIOVGARegion], ptr %region, i64 0, i64 %indvars.iv26, i32 3
   %12 = load ptr, ptr %quirks, align 16
   %cmp2.not = icmp eq ptr %12, null
   br i1 %cmp2.not, label %for.inc32, label %while.body, !llvm.loop !10
 
 for.inc32:                                        ; preds = %for.end, %while.cond.preheader
   %13 = phi ptr [ %0, %while.cond.preheader ], [ %11, %for.end ]
-  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next26, 3
+  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next27, 3
   br i1 %exitcond.not, label %for.end34, label %while.cond.preheader, !llvm.loop !11
 
 for.end34:                                        ; preds = %for.inc32
@@ -737,13 +698,13 @@ entry:
   %_now.i.i.i41 = alloca %struct.timeval, align 8
   %_now.i.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %vendor_id.i.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 22
+  %vendor_id.i.i = getelementptr inbounds i8, ptr %vdev, i64 3496
   %0 = load i32, ptr %vendor_id.i.i, align 8
   %cmp1.i.i = icmp eq i32 %0, 4098
   br i1 %cmp1.i.i, label %lor.lhs.false.i, label %vfio_probe_ati_bar2_quirk.exit
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %vga.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 15
+  %vga.i = getelementptr inbounds i8, ptr %vdev, i64 3416
   %1 = load ptr, ptr %vga.i, align 8
   %tobool.i = icmp eq ptr %1, null
   %cmp.i = icmp ne i32 %nr, 4
@@ -752,39 +713,39 @@ lor.lhs.false.i:                                  ; preds = %entry
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %call.i.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #11
-  %ioeventfds.i.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i, i64 0, i32 2
+  %ioeventfds.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr null, ptr %ioeventfds.i.i, align 8
   %call1.i.i = tail call noalias dereferenceable_or_null(544) ptr @g_malloc0_n(i64 noundef 2, i64 noundef 272) #11
-  %mem.i.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i, i64 0, i32 4
+  %mem.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr %call1.i.i, ptr %mem.i.i, align 8
-  %nr_mem2.i.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i, i64 0, i32 3
+  %nr_mem2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i32 2, ptr %nr_mem2.i.i, align 8
   %call3.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #12
-  %data.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %call3.i, ptr %data.i, align 8
   store ptr %vdev, ptr %call3.i, align 8
-  %address_offset.i = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %call3.i, i64 0, i32 2
+  %address_offset.i = getelementptr inbounds i8, ptr %call3.i, i64 12
   store i32 0, ptr %address_offset.i, align 4
-  %data_offset.i = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %call3.i, i64 0, i32 3
+  %data_offset.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i32 4, ptr %data_offset.i, align 8
-  %nr_matches.i = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %call3.i, i64 0, i32 8
+  %nr_matches.i = getelementptr inbounds i8, ptr %call3.i, i64 40
   store i32 1, ptr %nr_matches.i, align 8
-  %matches.i = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %call3.i, i64 0, i32 9
+  %matches.i = getelementptr inbounds i8, ptr %call3.i, i64 44
   store i32 16384, ptr %matches.i, align 4
-  %config_size.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 3
+  %config_size.i = getelementptr inbounds i8, ptr %vdev, i64 2808
   %2 = load i32, ptr %config_size.i, align 8
   %sub.i = add i32 %2, -1
-  %mask.i = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %call3.i, i64 1
+  %mask.i = getelementptr inbounds i8, ptr %call3.i, i64 48
   store i32 %sub.i, ptr %mask.i, align 4
-  %bar.i = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %call3.i, i64 0, i32 5
+  %bar.i = getelementptr inbounds i8, ptr %call3.i, i64 21
   store i8 4, ptr %bar.i, align 1
-  %addr_mem.i = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %call3.i, i64 0, i32 6
+  %addr_mem.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store ptr %call1.i.i, ptr %addr_mem.i, align 8
-  %arrayidx9.i = getelementptr %struct.MemoryRegion, ptr %call1.i.i, i64 1
-  %data_mem.i = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %call3.i, i64 0, i32 7
+  %arrayidx9.i = getelementptr i8, ptr %call1.i.i, i64 272
+  %data_mem.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store ptr %arrayidx9.i, ptr %data_mem.i, align 8
   tail call void @memory_region_init_io(ptr noundef %call1.i.i, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_generic_window_address_quirk, ptr noundef nonnull %call3.i, ptr noundef nonnull @.str.30, i64 noundef 4) #10
-  %mem12.i = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 4, i32 0, i32 2
+  %mem12.i = getelementptr i8, ptr %vdev, i64 3256
   %3 = load ptr, ptr %mem12.i, align 8
   %4 = load i32, ptr %address_offset.i, align 4
   %conv14.i = zext i32 %4 to i64
@@ -797,22 +758,22 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %conv23.i = zext i32 %8 to i64
   %9 = load ptr, ptr %data_mem.i, align 8
   tail call void @memory_region_add_subregion_overlap(ptr noundef %7, i64 noundef %conv23.i, ptr noundef %9, i32 noundef 1) #10
-  %quirks.i = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 4, i32 6
+  %quirks.i = getelementptr i8, ptr %vdev, i64 3320
   %10 = load ptr, ptr %quirks.i, align 8
   store ptr %10, ptr %call.i.i, align 8
   %cmp28.not.i = icmp eq ptr %10, null
   br i1 %cmp28.not.i, label %if.end39.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %if.end.i
-  %le_prev.i = getelementptr inbounds %struct.anon.11, ptr %10, i64 0, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %call.i.i, ptr %le_prev.i, align 8
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i, %if.end.i
   store ptr %call.i.i, ptr %quirks.i, align 8
-  %le_prev51.i = getelementptr inbounds %struct.anon.11, ptr %call.i.i, i64 0, i32 1
+  %le_prev51.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %quirks.i, ptr %le_prev51.i, align 8
-  %name.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name.i = getelementptr inbounds i8, ptr %vdev, i64 2680
   %11 = load ptr, ptr %name.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %12 = load i32, ptr @trace_events_enabled_count, align 4
@@ -838,7 +799,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %17 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18, ptr noundef %11) #10
   br label %vfio_probe_ati_bar4_quirk.exit
@@ -859,7 +820,7 @@ lor.lhs.false.i12:                                ; preds = %lor.lhs.false.i
   br i1 %or.cond.i16, label %vfio_probe_ati_bar2_quirk.exit, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i12
-  %mem64.i = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 2, i32 5
+  %mem64.i = getelementptr i8, ptr %vdev, i64 3138
   %20 = load i8, ptr %mem64.i, align 2
   %21 = and i8 %20, 1
   %tobool3.not.i = icmp eq i8 %21, 0
@@ -867,46 +828,46 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i12
 
 if.end.i17:                                       ; preds = %lor.lhs.false2.i
   %call.i.i18 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #11
-  %ioeventfds.i.i19 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i18, i64 0, i32 2
+  %ioeventfds.i.i19 = getelementptr inbounds i8, ptr %call.i.i18, i64 24
   store ptr null, ptr %ioeventfds.i.i19, align 8
   %call1.i.i20 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 272) #11
-  %mem.i.i21 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i18, i64 0, i32 4
+  %mem.i.i21 = getelementptr inbounds i8, ptr %call.i.i18, i64 40
   store ptr %call1.i.i20, ptr %mem.i.i21, align 8
-  %nr_mem2.i.i22 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i18, i64 0, i32 3
+  %nr_mem2.i.i22 = getelementptr inbounds i8, ptr %call.i.i18, i64 32
   store i32 1, ptr %nr_mem2.i.i22, align 8
   %call5.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #12
-  %data.i23 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i18, i64 0, i32 1
+  %data.i23 = getelementptr inbounds i8, ptr %call.i.i18, i64 16
   store ptr %call5.i, ptr %data.i23, align 8
-  %mem6.i = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %call5.i, i64 0, i32 3
+  %mem6.i = getelementptr inbounds i8, ptr %call5.i, i64 16
   store ptr %call1.i.i20, ptr %mem6.i, align 8
   store ptr %vdev, ptr %call5.i, align 8
-  %offset.i = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %call5.i, i64 0, i32 1
+  %offset.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   store i32 16384, ptr %offset.i, align 8
-  %bar.i24 = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %call5.i, i64 0, i32 2
+  %bar.i24 = getelementptr inbounds i8, ptr %call5.i, i64 12
   store i8 2, ptr %bar.i24, align 4
   tail call void @memory_region_init_io(ptr noundef %call1.i.i20, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_generic_mirror_quirk, ptr noundef nonnull %call5.i, ptr noundef nonnull @.str.40, i64 noundef 256) #10
-  %mem11.i = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 2, i32 0, i32 2
+  %mem11.i = getelementptr i8, ptr %vdev, i64 3080
   %22 = load ptr, ptr %mem11.i, align 8
   %23 = load i32, ptr %offset.i, align 8
   %conv13.i = zext i32 %23 to i64
   %24 = load ptr, ptr %mem6.i, align 8
   tail call void @memory_region_add_subregion_overlap(ptr noundef %22, i64 noundef %conv13.i, ptr noundef %24, i32 noundef 1) #10
-  %quirks.i25 = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 2, i32 6
+  %quirks.i25 = getelementptr i8, ptr %vdev, i64 3144
   %25 = load ptr, ptr %quirks.i25, align 8
   store ptr %25, ptr %call.i.i18, align 8
   %cmp18.not.i = icmp eq ptr %25, null
   br i1 %cmp18.not.i, label %if.end29.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end.i17
-  %le_prev.i26 = getelementptr inbounds %struct.anon.11, ptr %25, i64 0, i32 1
+  %le_prev.i26 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %call.i.i18, ptr %le_prev.i26, align 8
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then20.i, %if.end.i17
   store ptr %call.i.i18, ptr %quirks.i25, align 8
-  %le_prev41.i = getelementptr inbounds %struct.anon.11, ptr %call.i.i18, i64 0, i32 1
+  %le_prev41.i = getelementptr inbounds i8, ptr %call.i.i18, i64 8
   store ptr %quirks.i25, ptr %le_prev41.i, align 8
-  %name.i27 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name.i27 = getelementptr inbounds i8, ptr %vdev, i64 2680
   %26 = load ptr, ptr %name.i27, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i9)
   %27 = load i32, ptr @trace_events_enabled_count, align 4
@@ -932,7 +893,7 @@ if.then8.i.i.i36:                                 ; preds = %if.then.i.i.i34
   %call9.i.i.i37 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i9, ptr noundef null) #10
   %call10.i.i.i38 = tail call i32 @qemu_get_thread_id() #10
   %32 = load i64, ptr %_now.i.i.i9, align 8
-  %tv_usec.i.i.i39 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i9, i64 0, i32 1
+  %tv_usec.i.i.i39 = getelementptr inbounds i8, ptr %_now.i.i.i9, i64 8
   %33 = load i64, ptr %tv_usec.i.i.i39, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i38, i64 noundef %32, i64 noundef %33, ptr noundef %26) #10
   br label %trace_vfio_quirk_ati_bar2_probe.exit.i
@@ -951,7 +912,7 @@ vfio_probe_ati_bar2_quirk.exit.sink.split:        ; preds = %trace_vfio_quirk_at
 
 vfio_probe_ati_bar2_quirk.exit:                   ; preds = %vfio_probe_ati_bar2_quirk.exit.sink.split, %entry, %lor.lhs.false.i12, %lor.lhs.false2.i
   %.pr153.pre155.pre157 = phi i32 [ %0, %entry ], [ 4098, %lor.lhs.false.i12 ], [ 4098, %lor.lhs.false2.i ], [ %.pr.pre, %vfio_probe_ati_bar2_quirk.exit.sink.split ]
-  %no_geforce_quirks.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 43
+  %no_geforce_quirks.i = getelementptr inbounds i8, ptr %vdev, i64 3550
   %34 = load i8, ptr %no_geforce_quirks.i, align 2
   %35 = and i8 %34, 1
   %tobool.not.i = icmp eq i8 %35, 0
@@ -960,7 +921,7 @@ vfio_probe_ati_bar2_quirk.exit:                   ; preds = %vfio_probe_ati_bar2
   br i1 %or.cond, label %lor.lhs.false1.i, label %vfio_probe_nvidia_bar5_quirk.exit
 
 lor.lhs.false1.i:                                 ; preds = %vfio_probe_ati_bar2_quirk.exit
-  %vga.i45 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 15
+  %vga.i45 = getelementptr inbounds i8, ptr %vdev, i64 3416
   %36 = load ptr, ptr %vga.i45, align 8
   %tobool2.i = icmp eq ptr %36, null
   %cmp.i46 = icmp ne i32 %nr, 5
@@ -968,7 +929,7 @@ lor.lhs.false1.i:                                 ; preds = %vfio_probe_ati_bar2
   br i1 %or.cond.i47, label %vfio_probe_nvidia_bar5_quirk.exit, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false1.i
-  %ioport.i = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 5, i32 4
+  %ioport.i = getelementptr i8, ptr %vdev, i64 3401
   %37 = load i8, ptr %ioport.i, align 1
   %38 = and i8 %37, 1
   %tobool5.not.i = icmp eq i8 %38, 0
@@ -976,42 +937,42 @@ lor.lhs.false4.i:                                 ; preds = %lor.lhs.false1.i
 
 if.end.i48:                                       ; preds = %lor.lhs.false4.i
   %call.i.i49 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #11
-  %ioeventfds.i.i50 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i49, i64 0, i32 2
+  %ioeventfds.i.i50 = getelementptr inbounds i8, ptr %call.i.i49, i64 24
   store ptr null, ptr %ioeventfds.i.i50, align 8
   %call1.i.i51 = tail call noalias dereferenceable_or_null(1088) ptr @g_malloc0_n(i64 noundef 4, i64 noundef 272) #11
-  %mem.i.i52 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i49, i64 0, i32 4
+  %mem.i.i52 = getelementptr inbounds i8, ptr %call.i.i49, i64 40
   store ptr %call1.i.i51, ptr %mem.i.i52, align 8
-  %nr_mem2.i.i53 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i49, i64 0, i32 3
+  %nr_mem2.i.i53 = getelementptr inbounds i8, ptr %call.i.i49, i64 32
   store i32 4, ptr %nr_mem2.i.i53, align 8
   %call7.i = tail call noalias dereferenceable_or_null(96) ptr @g_malloc0(i64 noundef 96) #12
-  %data.i54 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i49, i64 0, i32 1
+  %data.i54 = getelementptr inbounds i8, ptr %call.i.i49, i64 16
   store ptr %call7.i, ptr %data.i54, align 8
-  %window8.i = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %call7.i, i64 0, i32 5
+  %window8.i = getelementptr inbounds i8, ptr %call7.i, i64 32
   store ptr %vdev, ptr %window8.i, align 8
-  %address_offset.i55 = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %call7.i, i64 0, i32 5, i32 2
+  %address_offset.i55 = getelementptr inbounds i8, ptr %call7.i, i64 44
   store i32 8, ptr %address_offset.i55, align 4
-  %data_offset.i56 = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %call7.i, i64 0, i32 5, i32 3
+  %data_offset.i56 = getelementptr inbounds i8, ptr %call7.i, i64 48
   store i32 12, ptr %data_offset.i56, align 8
-  %nr_matches.i57 = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %call7.i, i64 0, i32 5, i32 8
+  %nr_matches.i57 = getelementptr inbounds i8, ptr %call7.i, i64 72
   store <4 x i32> <i32 2, i32 6144, i32 255, i32 557056>, ptr %nr_matches.i57, align 8
-  %config_size.i60 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 3
+  %config_size.i60 = getelementptr inbounds i8, ptr %vdev, i64 2808
   %39 = load i32, ptr %config_size.i60, align 8
   %sub.i61 = add i32 %39, -1
-  %mask18.i = getelementptr %struct.VFIONvidiaBAR5Quirk, ptr %call7.i, i64 1, i32 2
+  %mask18.i = getelementptr i8, ptr %call7.i, i64 88
   store i32 %sub.i61, ptr %mask18.i, align 4
-  %bar.i62 = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %call7.i, i64 0, i32 5, i32 5
+  %bar.i62 = getelementptr inbounds i8, ptr %call7.i, i64 53
   store i8 5, ptr %bar.i62, align 1
-  %addr_mem.i63 = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %call7.i, i64 0, i32 2
+  %addr_mem.i63 = getelementptr inbounds i8, ptr %call7.i, i64 8
   store ptr %call1.i.i51, ptr %addr_mem.i63, align 8
-  %addr_mem20.i = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %call7.i, i64 0, i32 5, i32 6
+  %addr_mem20.i = getelementptr inbounds i8, ptr %call7.i, i64 56
   store ptr %call1.i.i51, ptr %addr_mem20.i, align 8
-  %arrayidx22.i = getelementptr %struct.MemoryRegion, ptr %call1.i.i51, i64 1
-  %data_mem.i64 = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %call7.i, i64 0, i32 3
+  %arrayidx22.i = getelementptr i8, ptr %call1.i.i51, i64 272
+  %data_mem.i64 = getelementptr inbounds i8, ptr %call7.i, i64 16
   store ptr %arrayidx22.i, ptr %data_mem.i64, align 8
-  %data_mem23.i = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %call7.i, i64 0, i32 5, i32 7
+  %data_mem23.i = getelementptr inbounds i8, ptr %call7.i, i64 64
   store ptr %arrayidx22.i, ptr %data_mem23.i, align 8
   tail call void @memory_region_init_io(ptr noundef %call1.i.i51, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_generic_window_address_quirk, ptr noundef nonnull %window8.i, ptr noundef nonnull @.str.47, i64 noundef 4) #10
-  %mem27.i = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 5, i32 0, i32 2
+  %mem27.i = getelementptr i8, ptr %vdev, i64 3344
   %40 = load ptr, ptr %mem27.i, align 8
   %41 = load i32, ptr %address_offset.i55, align 4
   %conv29.i = zext i32 %41 to i64
@@ -1028,30 +989,30 @@ if.end.i48:                                       ; preds = %lor.lhs.false4.i
   tail call void @memory_region_add_subregion_overlap(ptr noundef %45, i64 noundef %conv39.i, ptr noundef %47, i32 noundef 1) #10
   %48 = load ptr, ptr %data_mem23.i, align 8
   tail call void @memory_region_set_enabled(ptr noundef %48, i1 noundef zeroext false) #10
-  %arrayidx43.i = getelementptr %struct.MemoryRegion, ptr %call1.i.i51, i64 2
+  %arrayidx43.i = getelementptr i8, ptr %call1.i.i51, i64 544
   tail call void @memory_region_init_io(ptr noundef %arrayidx43.i, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_nvidia_bar5_quirk_master, ptr noundef %call7.i, ptr noundef nonnull @.str.49, i64 noundef 4) #10
   %49 = load ptr, ptr %mem27.i, align 8
   tail call void @memory_region_add_subregion_overlap(ptr noundef %49, i64 noundef 0, ptr noundef %arrayidx43.i, i32 noundef 1) #10
-  %arrayidx52.i = getelementptr %struct.MemoryRegion, ptr %call1.i.i51, i64 3
+  %arrayidx52.i = getelementptr i8, ptr %call1.i.i51, i64 816
   tail call void @memory_region_init_io(ptr noundef %arrayidx52.i, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_nvidia_bar5_quirk_enable, ptr noundef %call7.i, ptr noundef nonnull @.str.50, i64 noundef 4) #10
   %50 = load ptr, ptr %mem27.i, align 8
   tail call void @memory_region_add_subregion_overlap(ptr noundef %50, i64 noundef 4, ptr noundef %arrayidx52.i, i32 noundef 1) #10
-  %quirks.i65 = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 5, i32 6
+  %quirks.i65 = getelementptr i8, ptr %vdev, i64 3408
   %51 = load ptr, ptr %quirks.i65, align 8
   store ptr %51, ptr %call.i.i49, align 8
   %cmp63.not.i = icmp eq ptr %51, null
   br i1 %cmp63.not.i, label %if.end74.i, label %if.then65.i
 
 if.then65.i:                                      ; preds = %if.end.i48
-  %le_prev.i66 = getelementptr inbounds %struct.anon.11, ptr %51, i64 0, i32 1
+  %le_prev.i66 = getelementptr inbounds i8, ptr %51, i64 8
   store ptr %call.i.i49, ptr %le_prev.i66, align 8
   br label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.then65.i, %if.end.i48
   store ptr %call.i.i49, ptr %quirks.i65, align 8
-  %le_prev86.i = getelementptr inbounds %struct.anon.11, ptr %call.i.i49, i64 0, i32 1
+  %le_prev86.i = getelementptr inbounds i8, ptr %call.i.i49, i64 8
   store ptr %quirks.i65, ptr %le_prev86.i, align 8
-  %name.i67 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name.i67 = getelementptr inbounds i8, ptr %vdev, i64 2680
   %52 = load ptr, ptr %name.i67, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i41)
   %53 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1077,7 +1038,7 @@ if.then8.i.i.i76:                                 ; preds = %if.then.i.i.i74
   %call9.i.i.i77 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i41, ptr noundef null) #10
   %call10.i.i.i78 = tail call i32 @qemu_get_thread_id() #10
   %58 = load i64, ptr %_now.i.i.i41, align 8
-  %tv_usec.i.i.i79 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i41, i64 0, i32 1
+  %tv_usec.i.i.i79 = getelementptr inbounds i8, ptr %_now.i.i.i41, i64 8
   %59 = load i64, ptr %tv_usec.i.i.i79, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i.i78, i64 noundef %58, i64 noundef %59, ptr noundef %52) #10
   br label %trace_vfio_quirk_nvidia_bar5_probe.exit.i
@@ -1113,79 +1074,79 @@ lor.lhs.false1.i87:                               ; preds = %vfio_probe_nvidia_b
 
 if.end.i89:                                       ; preds = %lor.lhs.false1.i87
   %call.i.i90 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #11
-  %ioeventfds.i.i91 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i90, i64 0, i32 2
+  %ioeventfds.i.i91 = getelementptr inbounds i8, ptr %call.i.i90, i64 24
   store ptr null, ptr %ioeventfds.i.i91, align 8
   %call1.i.i92 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 272) #11
-  %mem.i.i93 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i90, i64 0, i32 4
+  %mem.i.i93 = getelementptr inbounds i8, ptr %call.i.i90, i64 40
   store ptr %call1.i.i92, ptr %mem.i.i93, align 8
-  %nr_mem2.i.i94 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i90, i64 0, i32 3
+  %nr_mem2.i.i94 = getelementptr inbounds i8, ptr %call.i.i90, i64 32
   store i32 1, ptr %nr_mem2.i.i94, align 8
-  %reset.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i90, i64 0, i32 5
+  %reset.i = getelementptr inbounds i8, ptr %call.i.i90, i64 48
   store ptr @vfio_nvidia_bar0_quirk_reset, ptr %reset.i, align 8
   %call5.i95 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #12
-  %data.i96 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i90, i64 0, i32 1
+  %data.i96 = getelementptr inbounds i8, ptr %call.i.i90, i64 16
   store ptr %call5.i95, ptr %data.i96, align 8
-  %mem6.i97 = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %call5.i95, i64 0, i32 3
+  %mem6.i97 = getelementptr inbounds i8, ptr %call5.i95, i64 16
   store ptr %call1.i.i92, ptr %mem6.i97, align 8
   store ptr %vdev, ptr %call5.i95, align 8
-  %offset.i98 = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %call5.i95, i64 0, i32 1
+  %offset.i98 = getelementptr inbounds i8, ptr %call5.i95, i64 8
   store i32 557056, ptr %offset.i98, align 8
-  %bar.i99 = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %call5.i95, i64 0, i32 2
+  %bar.i99 = getelementptr inbounds i8, ptr %call5.i95, i64 12
   store i8 0, ptr %bar.i99, align 4
-  %data8.i = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %call5.i95, i64 0, i32 4
+  %data8.i = getelementptr inbounds i8, ptr %call5.i95, i64 24
   store ptr %call.i.i90, ptr %data8.i, align 8
-  %config_size.i100 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 3
+  %config_size.i100 = getelementptr inbounds i8, ptr %vdev, i64 2808
   %64 = load i32, ptr %config_size.i100, align 8
   %conv11.i = zext i32 %64 to i64
   tail call void @memory_region_init_io(ptr noundef %call1.i.i92, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_nvidia_mirror_quirk, ptr noundef nonnull %call5.i95, ptr noundef nonnull @.str.57, i64 noundef %conv11.i) #10
-  %mem12.i101 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 0, i32 0, i32 2
+  %mem12.i101 = getelementptr inbounds i8, ptr %vdev, i64 2904
   %65 = load ptr, ptr %mem12.i101, align 8
   %66 = load i32, ptr %offset.i98, align 8
   %conv14.i102 = zext i32 %66 to i64
   %67 = load ptr, ptr %mem6.i97, align 8
   tail call void @memory_region_add_subregion_overlap(ptr noundef %65, i64 noundef %conv14.i102, ptr noundef %67, i32 noundef 1) #10
-  %quirks.i103 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 0, i32 6
+  %quirks.i103 = getelementptr inbounds i8, ptr %vdev, i64 2968
   %68 = load ptr, ptr %quirks.i103, align 8
   store ptr %68, ptr %call.i.i90, align 8
   %cmp19.not.i = icmp eq ptr %68, null
   br i1 %cmp19.not.i, label %if.end30.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end.i89
-  %le_prev.i104 = getelementptr inbounds %struct.anon.11, ptr %68, i64 0, i32 1
+  %le_prev.i104 = getelementptr inbounds i8, ptr %68, i64 8
   store ptr %call.i.i90, ptr %le_prev.i104, align 8
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.then21.i, %if.end.i89
   store ptr %call.i.i90, ptr %quirks.i103, align 8
-  %le_prev42.i = getelementptr inbounds %struct.anon.11, ptr %call.i.i90, i64 0, i32 1
+  %le_prev42.i = getelementptr inbounds i8, ptr %call.i.i90, i64 8
   store ptr %quirks.i103, ptr %le_prev42.i, align 8
-  %vga.i105 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 15
+  %vga.i105 = getelementptr inbounds i8, ptr %vdev, i64 3416
   %69 = load ptr, ptr %vga.i105, align 8
   %tobool43.not.i = icmp eq ptr %69, null
   br i1 %tobool43.not.i, label %if.end100.i, label %if.then44.i
 
 if.then44.i:                                      ; preds = %if.end30.i
   %call.i65.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #11
-  %ioeventfds.i66.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i65.i, i64 0, i32 2
+  %ioeventfds.i66.i = getelementptr inbounds i8, ptr %call.i65.i, i64 24
   store ptr null, ptr %ioeventfds.i66.i, align 8
   %call1.i67.i = tail call noalias dereferenceable_or_null(272) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 272) #11
-  %mem.i68.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i65.i, i64 0, i32 4
+  %mem.i68.i = getelementptr inbounds i8, ptr %call.i65.i, i64 40
   store ptr %call1.i67.i, ptr %mem.i68.i, align 8
-  %nr_mem2.i69.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i65.i, i64 0, i32 3
+  %nr_mem2.i69.i = getelementptr inbounds i8, ptr %call.i65.i, i64 32
   store i32 1, ptr %nr_mem2.i69.i, align 8
-  %reset46.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i65.i, i64 0, i32 5
+  %reset46.i = getelementptr inbounds i8, ptr %call.i65.i, i64 48
   store ptr @vfio_nvidia_bar0_quirk_reset, ptr %reset46.i, align 8
   %call47.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #12
-  %data48.i = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i65.i, i64 0, i32 1
+  %data48.i = getelementptr inbounds i8, ptr %call.i65.i, i64 16
   store ptr %call47.i, ptr %data48.i, align 8
-  %mem50.i = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %call47.i, i64 0, i32 3
+  %mem50.i = getelementptr inbounds i8, ptr %call47.i, i64 16
   store ptr %call1.i67.i, ptr %mem50.i, align 8
   store ptr %vdev, ptr %call47.i, align 8
-  %offset52.i = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %call47.i, i64 0, i32 1
+  %offset52.i = getelementptr inbounds i8, ptr %call47.i, i64 8
   store i32 6144, ptr %offset52.i, align 8
-  %bar54.i = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %call47.i, i64 0, i32 2
+  %bar54.i = getelementptr inbounds i8, ptr %call47.i, i64 12
   store i8 0, ptr %bar54.i, align 4
-  %data55.i = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %call47.i, i64 0, i32 4
+  %data55.i = getelementptr inbounds i8, ptr %call47.i, i64 24
   store ptr %call.i65.i, ptr %data55.i, align 8
   tail call void @memory_region_init_io(ptr noundef %call1.i67.i, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_nvidia_mirror_quirk, ptr noundef nonnull %call47.i, ptr noundef nonnull @.str.58, i64 noundef 256) #10
   %70 = load ptr, ptr %mem12.i101, align 8
@@ -1199,18 +1160,18 @@ if.then44.i:                                      ; preds = %if.end30.i
   br i1 %cmp74.not.i, label %if.end86.i, label %if.then76.i
 
 if.then76.i:                                      ; preds = %if.then44.i
-  %le_prev85.i = getelementptr inbounds %struct.anon.11, ptr %73, i64 0, i32 1
+  %le_prev85.i = getelementptr inbounds i8, ptr %73, i64 8
   store ptr %call.i65.i, ptr %le_prev85.i, align 8
   br label %if.end86.i
 
 if.end86.i:                                       ; preds = %if.then76.i, %if.then44.i
   store ptr %call.i65.i, ptr %quirks.i103, align 8
-  %le_prev98.i = getelementptr inbounds %struct.anon.11, ptr %call.i65.i, i64 0, i32 1
+  %le_prev98.i = getelementptr inbounds i8, ptr %call.i65.i, i64 8
   store ptr %quirks.i103, ptr %le_prev98.i, align 8
   br label %if.end100.i
 
 if.end100.i:                                      ; preds = %if.end86.i, %if.end30.i
-  %name.i106 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name.i106 = getelementptr inbounds i8, ptr %vdev, i64 2680
   %74 = load ptr, ptr %name.i106, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i81)
   %75 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1236,7 +1197,7 @@ if.then8.i.i.i115:                                ; preds = %if.then.i.i.i113
   %call9.i.i.i116 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i81, ptr noundef null) #10
   %call10.i.i.i117 = tail call i32 @qemu_get_thread_id() #10
   %80 = load i64, ptr %_now.i.i.i81, align 8
-  %tv_usec.i.i.i118 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i81, i64 0, i32 1
+  %tv_usec.i.i.i118 = getelementptr inbounds i8, ptr %_now.i.i.i81, i64 8
   %81 = load i64, ptr %tv_usec.i.i.i118, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i117, i64 noundef %80, i64 noundef %81, ptr noundef %74) #10
   br label %trace_vfio_quirk_nvidia_bar0_probe.exit.i
@@ -1256,7 +1217,7 @@ vfio_probe_nvidia_bar0_quirk.exit:                ; preds = %vfio_probe_nvidia_b
   br i1 %cmp1.i.i122, label %vfio_pci_is.exit.i, label %vfio_probe_rtl8168_bar2_quirk.exit
 
 vfio_pci_is.exit.i:                               ; preds = %vfio_probe_nvidia_bar0_quirk.exit
-  %device_id.i.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 23
+  %device_id.i.i = getelementptr inbounds i8, ptr %vdev, i64 3500
   %83 = load i32, ptr %device_id.i.i, align 4
   %cmp3.i.i = icmp eq i32 %83, 33128
   %cmp.i123 = icmp eq i32 %nr, 2
@@ -1265,41 +1226,41 @@ vfio_pci_is.exit.i:                               ; preds = %vfio_probe_nvidia_b
 
 if.end.i125:                                      ; preds = %vfio_pci_is.exit.i
   %call.i.i126 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #11
-  %ioeventfds.i.i127 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i126, i64 0, i32 2
+  %ioeventfds.i.i127 = getelementptr inbounds i8, ptr %call.i.i126, i64 24
   store ptr null, ptr %ioeventfds.i.i127, align 8
   %call1.i.i128 = tail call noalias dereferenceable_or_null(544) ptr @g_malloc0_n(i64 noundef 2, i64 noundef 272) #11
-  %mem.i.i129 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i126, i64 0, i32 4
+  %mem.i.i129 = getelementptr inbounds i8, ptr %call.i.i126, i64 40
   store ptr %call1.i.i128, ptr %mem.i.i129, align 8
-  %nr_mem2.i.i130 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i126, i64 0, i32 3
+  %nr_mem2.i.i130 = getelementptr inbounds i8, ptr %call.i.i126, i64 32
   store i32 2, ptr %nr_mem2.i.i130, align 8
   %call2.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #12
-  %data.i131 = getelementptr inbounds %struct.VFIOQuirk, ptr %call.i.i126, i64 0, i32 1
+  %data.i131 = getelementptr inbounds i8, ptr %call.i.i126, i64 16
   store ptr %call2.i, ptr %data.i131, align 8
   store ptr %vdev, ptr %call2.i, align 8
   tail call void @memory_region_init_io(ptr noundef %call1.i.i128, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_rtl_address_quirk, ptr noundef nonnull %call2.i, ptr noundef nonnull @.str.68, i64 noundef 4) #10
-  %mem5.i = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 2, i32 0, i32 2
+  %mem5.i = getelementptr i8, ptr %vdev, i64 3080
   %84 = load ptr, ptr %mem5.i, align 8
   tail call void @memory_region_add_subregion_overlap(ptr noundef %84, i64 noundef 116, ptr noundef %call1.i.i128, i32 noundef 1) #10
-  %arrayidx9.i132 = getelementptr %struct.MemoryRegion, ptr %call1.i.i128, i64 1
+  %arrayidx9.i132 = getelementptr i8, ptr %call1.i.i128, i64 272
   tail call void @memory_region_init_io(ptr noundef %arrayidx9.i132, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_rtl_data_quirk, ptr noundef nonnull %call2.i, ptr noundef nonnull @.str.69, i64 noundef 4) #10
   %85 = load ptr, ptr %mem5.i, align 8
   tail call void @memory_region_add_subregion_overlap(ptr noundef %85, i64 noundef 112, ptr noundef %arrayidx9.i132, i32 noundef 1) #10
-  %quirks.i133 = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 2, i32 6
+  %quirks.i133 = getelementptr i8, ptr %vdev, i64 3144
   %86 = load ptr, ptr %quirks.i133, align 8
   store ptr %86, ptr %call.i.i126, align 8
   %cmp20.not.i = icmp eq ptr %86, null
   br i1 %cmp20.not.i, label %if.end30.i136, label %if.then21.i134
 
 if.then21.i134:                                   ; preds = %if.end.i125
-  %le_prev.i135 = getelementptr inbounds %struct.anon.11, ptr %86, i64 0, i32 1
+  %le_prev.i135 = getelementptr inbounds i8, ptr %86, i64 8
   store ptr %call.i.i126, ptr %le_prev.i135, align 8
   br label %if.end30.i136
 
 if.end30.i136:                                    ; preds = %if.then21.i134, %if.end.i125
   store ptr %call.i.i126, ptr %quirks.i133, align 8
-  %le_prev42.i137 = getelementptr inbounds %struct.anon.11, ptr %call.i.i126, i64 0, i32 1
+  %le_prev42.i137 = getelementptr inbounds i8, ptr %call.i.i126, i64 8
   store ptr %quirks.i133, ptr %le_prev42.i137, align 8
-  %name.i138 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name.i138 = getelementptr inbounds i8, ptr %vdev, i64 2680
   %87 = load ptr, ptr %name.i138, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i120)
   %88 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1325,7 +1286,7 @@ if.then8.i.i.i147:                                ; preds = %if.then.i.i.i145
   %call9.i.i.i148 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i120, ptr noundef null) #10
   %call10.i.i.i149 = tail call i32 @qemu_get_thread_id() #10
   %93 = load i64, ptr %_now.i.i.i120, align 8
-  %tv_usec.i.i.i150 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i120, i64 0, i32 1
+  %tv_usec.i.i.i150 = getelementptr inbounds i8, ptr %_now.i.i.i120, i64 8
   %94 = load i64, ptr %tv_usec.i.i.i150, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i.i149, i64 noundef %93, i64 noundef %94, ptr noundef %87) #10
   br label %trace_vfio_quirk_rtl8168_probe.exit.i
@@ -1345,14 +1306,16 @@ vfio_probe_rtl8168_bar2_quirk.exit:               ; preds = %lor.lhs.false1.i87,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vfio_bar_quirk_exit(ptr nocapture noundef readonly %vdev, i32 noundef %nr) local_unnamed_addr #0 {
 entry:
+  %bars = getelementptr inbounds i8, ptr %vdev, i64 2888
   %idxprom = sext i32 %nr to i64
-  %quirks = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 %idxprom, i32 6
+  %arrayidx = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom
+  %quirks = getelementptr inbounds i8, ptr %arrayidx, i64 80
   %quirk.013 = load ptr, ptr %quirks, align 8
   %tobool.not14 = icmp eq ptr %quirk.013, null
   br i1 %tobool.not14, label %for.end11, label %while.cond.preheader.lr.ph
 
 while.cond.preheader.lr.ph:                       ; preds = %entry
-  %mem = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 %idxprom, i32 0, i32 2
+  %mem = getelementptr inbounds i8, ptr %arrayidx, i64 16
   br label %while.cond.preheader
 
 for.cond.loopexit:                                ; preds = %for.body6, %for.cond4.preheader
@@ -1362,19 +1325,19 @@ for.cond.loopexit:                                ; preds = %for.body6, %for.con
 
 while.cond.preheader:                             ; preds = %while.cond.preheader.lr.ph, %for.cond.loopexit
   %quirk.015 = phi ptr [ %quirk.013, %while.cond.preheader.lr.ph ], [ %quirk.0, %for.cond.loopexit ]
-  %ioeventfds = getelementptr inbounds %struct.VFIOQuirk, ptr %quirk.015, i64 0, i32 2
+  %ioeventfds = getelementptr inbounds i8, ptr %quirk.015, i64 24
   %0 = load ptr, ptr %ioeventfds, align 8
   %cmp.not10 = icmp eq ptr %0, null
   br i1 %cmp.not10, label %for.cond4.preheader, label %while.body
 
 for.cond4.preheader:                              ; preds = %while.body, %while.cond.preheader
-  %nr_mem = getelementptr inbounds %struct.VFIOQuirk, ptr %quirk.015, i64 0, i32 3
+  %nr_mem = getelementptr inbounds i8, ptr %quirk.015, i64 32
   %1 = load i32, ptr %nr_mem, align 8
   %cmp511 = icmp sgt i32 %1, 0
   br i1 %cmp511, label %for.body6.lr.ph, label %for.cond.loopexit
 
 for.body6.lr.ph:                                  ; preds = %for.cond4.preheader
-  %mem7 = getelementptr inbounds %struct.VFIOQuirk, ptr %quirk.015, i64 0, i32 4
+  %mem7 = getelementptr inbounds i8, ptr %quirk.015, i64 40
   br label %for.body6
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
@@ -1407,12 +1370,12 @@ entry:
   %vfio_ioeventfd = alloca %struct.vfio_device_ioeventfd, align 8
   %0 = load ptr, ptr %ioeventfd, align 8
   %cmp.not = icmp eq ptr %0, null
-  %le_prev9.phi.trans.insert = getelementptr inbounds %struct.anon.16, ptr %ioeventfd, i64 0, i32 1
+  %le_prev9.phi.trans.insert = getelementptr inbounds i8, ptr %ioeventfd, i64 8
   %.pre28 = load ptr, ptr %le_prev9.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %le_prev5 = getelementptr inbounds %struct.anon.16, ptr %0, i64 0, i32 1
+  %le_prev5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.pre28, ptr %le_prev5, align 8
   %.pre = load ptr, ptr %ioeventfd, align 8
   br label %if.end
@@ -1420,18 +1383,18 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry, %if.then
   %1 = phi ptr [ %.pre, %if.then ], [ null, %entry ]
   store ptr %1, ptr %.pre28, align 8
-  %mr = getelementptr inbounds %struct.VFIOIOEventFD, ptr %ioeventfd, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %ioeventfd, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ioeventfd, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %mr, align 8
-  %addr = getelementptr inbounds %struct.VFIOIOEventFD, ptr %ioeventfd, i64 0, i32 2
+  %addr = getelementptr inbounds i8, ptr %ioeventfd, i64 24
   %3 = load i64, ptr %addr, align 8
-  %size = getelementptr inbounds %struct.VFIOIOEventFD, ptr %ioeventfd, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %ioeventfd, i64 32
   %4 = load i32, ptr %size, align 8
-  %data = getelementptr inbounds %struct.VFIOIOEventFD, ptr %ioeventfd, i64 0, i32 4
+  %data = getelementptr inbounds i8, ptr %ioeventfd, i64 40
   %5 = load i64, ptr %data, align 8
-  %e = getelementptr inbounds %struct.VFIOIOEventFD, ptr %ioeventfd, i64 0, i32 5
+  %e = getelementptr inbounds i8, ptr %ioeventfd, i64 48
   tail call void @memory_region_del_eventfd(ptr noundef %2, i64 noundef %3, i32 noundef %4, i1 noundef zeroext true, i64 noundef %5, ptr noundef nonnull %e) #10
-  %vfio = getelementptr inbounds %struct.VFIOIOEventFD, ptr %ioeventfd, i64 0, i32 9
+  %vfio = getelementptr inbounds i8, ptr %ioeventfd, i64 81
   %6 = load i8, ptr %vfio, align 1
   %7 = and i8 %6, 1
   %tobool.not = icmp eq i8 %7, 0
@@ -1440,23 +1403,23 @@ if.end:                                           ; preds = %entry, %if.then
 if.then14:                                        ; preds = %if.end
   store i32 32, ptr %vfio_ioeventfd, align 8
   %8 = load i32, ptr %size, align 8
-  %flags = getelementptr inbounds %struct.vfio_device_ioeventfd, ptr %vfio_ioeventfd, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %vfio_ioeventfd, i64 4
   store i32 %8, ptr %flags, align 4
   %9 = load i64, ptr %data, align 8
-  %data17 = getelementptr inbounds %struct.vfio_device_ioeventfd, ptr %vfio_ioeventfd, i64 0, i32 3
+  %data17 = getelementptr inbounds i8, ptr %vfio_ioeventfd, i64 16
   store i64 %9, ptr %data17, align 8
-  %region = getelementptr inbounds %struct.VFIOIOEventFD, ptr %ioeventfd, i64 0, i32 6
+  %region = getelementptr inbounds i8, ptr %ioeventfd, i64 64
   %10 = load ptr, ptr %region, align 8
-  %fd_offset = getelementptr inbounds %struct.VFIORegion, ptr %10, i64 0, i32 1
+  %fd_offset = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i64, ptr %fd_offset, align 8
-  %region_addr = getelementptr inbounds %struct.VFIOIOEventFD, ptr %ioeventfd, i64 0, i32 7
+  %region_addr = getelementptr inbounds i8, ptr %ioeventfd, i64 72
   %12 = load i64, ptr %region_addr, align 8
   %add = add i64 %12, %11
-  %offset = getelementptr inbounds %struct.vfio_device_ioeventfd, ptr %vfio_ioeventfd, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %vfio_ioeventfd, i64 8
   store i64 %add, ptr %offset, align 8
-  %fd = getelementptr inbounds %struct.vfio_device_ioeventfd, ptr %vfio_ioeventfd, i64 0, i32 4
+  %fd = getelementptr inbounds i8, ptr %vfio_ioeventfd, i64 24
   store i32 -1, ptr %fd, align 8
-  %fd18 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 8
+  %fd18 = getelementptr inbounds i8, ptr %vdev, i64 2696
   %13 = load i32, ptr %fd18, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %13, i64 noundef 15220, ptr noundef nonnull %vfio_ioeventfd) #10
   %tobool19.not = icmp eq i32 %call, 0
@@ -1507,7 +1470,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = call i32 @qemu_get_thread_id() #10
   %27 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %28 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, i32 noundef %call10.i.i, i64 noundef %27, i64 noundef %28, ptr noundef %call32, i64 noundef %19, i32 noundef %20, i64 noundef %21) #10
   br label %trace_vfio_ioeventfd_exit.exit
@@ -1525,8 +1488,9 @@ trace_vfio_ioeventfd_exit.exit:                   ; preds = %if.end29, %land.lhs
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vfio_bar_quirk_finalize(ptr nocapture noundef readonly %vdev, i32 noundef %nr) local_unnamed_addr #0 {
 entry:
+  %bars = getelementptr inbounds i8, ptr %vdev, i64 2888
   %idxprom = sext i32 %nr to i64
-  %quirks = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 %idxprom, i32 6
+  %quirks = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom, i32 6
   %0 = load ptr, ptr %quirks, align 8
   %cmp.not17 = icmp eq ptr %0, null
   br i1 %cmp.not17, label %while.end, label %while.body
@@ -1535,12 +1499,12 @@ while.body:                                       ; preds = %entry, %for.end
   %1 = phi ptr [ %10, %for.end ], [ %0, %entry ]
   %2 = load ptr, ptr %1, align 8
   %cmp3.not = icmp eq ptr %2, null
-  %le_prev12.phi.trans.insert = getelementptr inbounds %struct.anon.11, ptr %1, i64 0, i32 1
+  %le_prev12.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre19 = load ptr, ptr %le_prev12.phi.trans.insert, align 8
   br i1 %cmp3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %le_prev8 = getelementptr inbounds %struct.anon.11, ptr %2, i64 0, i32 1
+  %le_prev8 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %.pre19, ptr %le_prev8, align 8
   %.pre = load ptr, ptr %1, align 8
   br label %if.end
@@ -1548,14 +1512,14 @@ if.then:                                          ; preds = %while.body
 if.end:                                           ; preds = %while.body, %if.then
   %3 = phi ptr [ %.pre, %if.then ], [ null, %while.body ]
   store ptr %3, ptr %.pre19, align 8
-  %nr_mem = getelementptr inbounds %struct.VFIOQuirk, ptr %1, i64 0, i32 3
+  %nr_mem = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %4 = load i32, ptr %nr_mem, align 8
   %cmp1715 = icmp sgt i32 %4, 0
   br i1 %cmp1715, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %mem = getelementptr inbounds %struct.VFIOQuirk, ptr %1, i64 0, i32 4
+  %mem = getelementptr inbounds i8, ptr %1, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1570,10 +1534,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp17, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %if.end
-  %mem20 = getelementptr inbounds %struct.VFIOQuirk, ptr %1, i64 0, i32 4
+  %mem20 = getelementptr inbounds i8, ptr %1, i64 40
   %8 = load ptr, ptr %mem20, align 8
   tail call void @g_free(ptr noundef %8) #10
-  %data = getelementptr inbounds %struct.VFIOQuirk, ptr %1, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load ptr, ptr %data, align 8
   tail call void @g_free(ptr noundef %9) #10
   tail call void @g_free(ptr noundef nonnull %1) #10
@@ -1588,18 +1552,19 @@ while.end:                                        ; preds = %for.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vfio_quirk_reset(ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
+  %bars = getelementptr inbounds i8, ptr %vdev, i64 2888
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc5
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc5 ]
-  %quirks = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 %indvars.iv, i32 6
+  %quirks = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %indvars.iv, i32 6
   %quirk.08 = load ptr, ptr %quirks, align 8
   %tobool.not9 = icmp eq ptr %quirk.08, null
   br i1 %tobool.not9, label %for.inc5, label %for.body2
 
 for.body2:                                        ; preds = %for.body, %for.inc
   %quirk.010 = phi ptr [ %quirk.0, %for.inc ], [ %quirk.08, %for.body ]
-  %reset = getelementptr inbounds %struct.VFIOQuirk, ptr %quirk.010, i64 0, i32 5
+  %reset = getelementptr inbounds i8, ptr %quirk.010, i64 48
   %0 = load ptr, ptr %reset, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %for.inc, label %if.then
@@ -1626,13 +1591,13 @@ for.end6:                                         ; preds = %for.inc5
 define dso_local void @vfio_setup_resetfn_quirk(ptr nocapture noundef %vdev) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vendor_id = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 22
+  %vendor_id = getelementptr inbounds i8, ptr %vdev, i64 3496
   %0 = load i32, ptr %vendor_id, align 8
   %cond = icmp eq i32 %0, 4098
   br i1 %cond, label %sw.bb, label %sw.epilog2
 
 sw.bb:                                            ; preds = %entry
-  %device_id = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 23
+  %device_id = getelementptr inbounds i8, ptr %vdev, i64 3500
   %1 = load i32, ptr %device_id, align 4
   switch i32 %1, label %sw.epilog2 [
     i32 26185, label %sw.bb1
@@ -1656,9 +1621,9 @@ sw.bb:                                            ; preds = %entry
   ]
 
 sw.bb1:                                           ; preds = %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb
-  %resetfn = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 21
+  %resetfn = getelementptr inbounds i8, ptr %vdev, i64 3488
   store ptr @vfio_radeon_reset, ptr %resetfn, align 16
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %vdev, i64 2680
   %2 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1684,7 +1649,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #10
   br label %trace_vfio_quirk_ati_bonaire_reset.exit
@@ -1708,14 +1673,14 @@ entry:
   %_now.i.i40 = alloca %struct.timeval, align 8
   %_now.i.i21 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %reset_works = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 10
+  %reset_works = getelementptr inbounds i8, ptr %vdev, i64 2704
   %0 = load i8, ptr %reset_works, align 16
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %vdev, i64 2680
   %2 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1741,7 +1706,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2) #10
   br label %trace_vfio_quirk_ati_bonaire_reset_skipped.exit
@@ -1756,7 +1721,7 @@ trace_vfio_quirk_ati_bonaire_reset_skipped.exit:  ; preds = %if.then, %land.lhs.
 
 if.end:                                           ; preds = %entry
   tail call void @vfio_pci_write_config(ptr noundef nonnull %vdev, i32 noundef 4, i32 noundef 2, i32 noundef 2) #10
-  %arrayidx.i = getelementptr %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 14, i64 5
+  %arrayidx.i = getelementptr i8, ptr %vdev, i64 3328
   tail call void @vfio_region_write(ptr noundef %arrayidx.i, i64 noundef 512, i64 noundef 2147483652, i32 noundef 4) #10
   %call.i = tail call i64 @vfio_region_read(ptr noundef %arrayidx.i, i64 noundef 516, i32 noundef 4) #10
   tail call void @vfio_region_write(ptr noundef %arrayidx.i, i64 noundef 512, i64 noundef 2147484528, i32 noundef 4) #10
@@ -1769,7 +1734,7 @@ if.end:                                           ; preds = %entry
   br i1 %10, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %name5 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name5 = getelementptr inbounds i8, ptr %vdev, i64 2680
   %11 = load ptr, ptr %name5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i21)
   %12 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1795,7 +1760,7 @@ if.then8.i.i30:                                   ; preds = %if.then.i.i28
   %call9.i.i31 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i21, ptr noundef null) #10
   %call10.i.i32 = tail call i32 @qemu_get_thread_id() #10
   %17 = load i64, ptr %_now.i.i21, align 8
-  %tv_usec.i.i33 = getelementptr inbounds %struct.timeval, ptr %_now.i.i21, i64 0, i32 1
+  %tv_usec.i.i33 = getelementptr inbounds i8, ptr %_now.i.i21, i64 8
   %18 = load i64, ptr %tv_usec.i.i33, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i32, i64 noundef %17, i64 noundef %18, ptr noundef %11) #10
   br label %trace_vfio_quirk_ati_bonaire_reset_no_smc.exit
@@ -1847,7 +1812,7 @@ if.end11:                                         ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %if.end11
-  %name14 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name14 = getelementptr inbounds i8, ptr %vdev, i64 2680
   %23 = load ptr, ptr %name14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i40)
   %24 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1873,7 +1838,7 @@ if.then8.i.i49:                                   ; preds = %if.then.i.i47
   %call9.i.i50 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i40, ptr noundef null) #10
   %call10.i.i51 = tail call i32 @qemu_get_thread_id() #10
   %29 = load i64, ptr %_now.i.i40, align 8
-  %tv_usec.i.i52 = getelementptr inbounds %struct.timeval, ptr %_now.i.i40, i64 0, i32 1
+  %tv_usec.i.i52 = getelementptr inbounds i8, ptr %_now.i.i40, i64 8
   %30 = load i64, ptr %tv_usec.i.i52, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %call10.i.i51, i64 noundef %29, i64 noundef %30, ptr noundef %23) #10
   br label %trace_vfio_quirk_ati_bonaire_reset_timeout.exit
@@ -1897,7 +1862,7 @@ reset_smc:                                        ; preds = %for.body, %trace_vf
   %or34 = and i64 %call32, 4294967294
   %conv38 = or disjoint i64 %or34, 1
   tail call void @vfio_region_write(ptr noundef %arrayidx.i, i64 noundef 516, i64 noundef %conv38, i32 noundef 4) #10
-  %name40 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name40 = getelementptr inbounds i8, ptr %vdev, i64 2680
   %31 = load ptr, ptr %name40, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i54)
   %32 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1923,7 +1888,7 @@ if.then8.i.i63:                                   ; preds = %if.then.i.i61
   %call9.i.i64 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i54, ptr noundef null) #10
   %call10.i.i65 = tail call i32 @qemu_get_thread_id() #10
   %37 = load i64, ptr %_now.i.i54, align 8
-  %tv_usec.i.i66 = getelementptr inbounds %struct.timeval, ptr %_now.i.i54, i64 0, i32 1
+  %tv_usec.i.i66 = getelementptr inbounds i8, ptr %_now.i.i54, i64 8
   %38 = load i64, ptr %tv_usec.i.i66, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i65, i64 noundef %37, i64 noundef %38, ptr noundef %31) #10
   br label %trace_vfio_quirk_ati_bonaire_reset_done.exit
@@ -1985,13 +1950,13 @@ entry:
   %membar_phys.i = alloca [16 x i8], align 16
   %tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp.i)
-  %nv_gpudirect_clique.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 34
+  %nv_gpudirect_clique.i = getelementptr inbounds i8, ptr %vdev, i64 3541
   %0 = load i8, ptr %nv_gpudirect_clique.i, align 1
   %cmp.i = icmp eq i8 %0, -1
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %vendor_id.i.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 22
+  %vendor_id.i.i = getelementptr inbounds i8, ptr %vdev, i64 3496
   %1 = load i32, ptr %vendor_id.i.i, align 8
   %cmp1.i.i = icmp eq i32 %1, 4318
   br i1 %cmp1.i.i, label %if.end4.i, label %if.then3.i
@@ -2001,7 +1966,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %vfio_add_nv_gpudirect_cap.exit.thread
 
 if.end4.i:                                        ; preds = %if.end.i
-  %config.i = getelementptr inbounds %struct.PCIDevice, ptr %vdev, i64 0, i32 3
+  %config.i = getelementptr inbounds i8, ptr %vdev, i64 168
   %2 = load ptr, ptr %config.i, align 8
   %add.ptr5.i = getelementptr i8, ptr %2, i64 11
   %add.ptr5.val.i = load i8, ptr %add.ptr5.i, align 1
@@ -2013,9 +1978,9 @@ if.then10.i:                                      ; preds = %if.end4.i
   br label %vfio_add_nv_gpudirect_cap.exit.thread
 
 if.end11.i:                                       ; preds = %if.end4.i
-  %fd.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 8
+  %fd.i = getelementptr inbounds i8, ptr %vdev, i64 2696
   %3 = load i32, ptr %fd.i, align 8
-  %config_offset.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 5
+  %config_offset.i = getelementptr inbounds i8, ptr %vdev, i64 2824
   %4 = load i64, ptr %config_offset.i, align 8
   %add.i = add i64 %4, 52
   %call12.i = call i64 @pread64(i32 noundef %3, ptr noundef nonnull %tmp.i, i64 noundef 1, i64 noundef %add.i) #10
@@ -2090,7 +2055,7 @@ if.then44.i:                                      ; preds = %if.end39.i
   br label %vfio_add_nv_gpudirect_cap.exit.thread
 
 if.end45.i:                                       ; preds = %if.end39.i
-  %emulated_config_bits.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 4
+  %emulated_config_bits.i = getelementptr inbounds i8, ptr %vdev, i64 2816
   %16 = load ptr, ptr %emulated_config_bits.i, align 16
   %idx.ext.i = zext nneg i32 %pos.0.i to i64
   %add.ptr46.i = getelementptr i8, ptr %16, i64 %idx.ext.i
@@ -2137,13 +2102,13 @@ vfio_add_nv_gpudirect_cap.exit.thread:            ; preds = %if.then10.i, %if.th
 if.end:                                           ; preds = %if.end45.i, %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %membar_phys.i)
-  %vendor_id.i.i6 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 22
+  %vendor_id.i.i6 = getelementptr inbounds i8, ptr %vdev, i64 3496
   %24 = load i32, ptr %vendor_id.i.i6, align 8
   %cmp1.i.i7 = icmp eq i32 %24, 32902
   br i1 %cmp1.i.i7, label %vfio_pci_is.exit.i, label %vfio_add_vmd_shadow_cap.exit
 
 vfio_pci_is.exit.i:                               ; preds = %if.end
-  %device_id.i.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 23
+  %device_id.i.i = getelementptr inbounds i8, ptr %vdev, i64 3500
   %25 = load i32, ptr %device_id.i.i, align 4
   switch i32 %25, label %vfio_add_vmd_shadow_cap.exit [
     i32 8221, label %if.end.i9
@@ -2153,9 +2118,9 @@ vfio_pci_is.exit.i:                               ; preds = %if.end
   ]
 
 if.end.i9:                                        ; preds = %vfio_pci_is.exit.i, %vfio_pci_is.exit.i, %vfio_pci_is.exit.i, %vfio_pci_is.exit.i
-  %fd.i10 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 8
+  %fd.i10 = getelementptr inbounds i8, ptr %vdev, i64 2696
   %26 = load i32, ptr %fd.i10, align 8
-  %config_offset.i11 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 5
+  %config_offset.i11 = getelementptr inbounds i8, ptr %vdev, i64 2824
   %27 = load i64, ptr %config_offset.i11, align 8
   %add.i12 = add i64 %27, 24
   %call6.i = call i64 @pread64(i32 noundef %26, ptr noundef nonnull %membar_phys.i, i64 noundef 16, i64 noundef %add.i12) #10
@@ -2164,7 +2129,7 @@ if.end.i9:                                        ; preds = %vfio_pci_is.exit.i,
   br i1 %cmp.not.i, label %if.end10.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i9
-  %name.i = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 6
+  %name.i = getelementptr inbounds i8, ptr %vdev, i64 2680
   %28 = load ptr, ptr %name.i, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.97, ptr noundef %28, i32 noundef %conv.i) #10
   br label %vfio_add_vmd_shadow_cap.exit
@@ -2179,11 +2144,11 @@ if.then15.i:                                      ; preds = %if.end10.i
   br label %vfio_add_vmd_shadow_cap.exit
 
 if.end16.i:                                       ; preds = %if.end10.i
-  %emulated_config_bits.i14 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 4
+  %emulated_config_bits.i14 = getelementptr inbounds i8, ptr %vdev, i64 2816
   %29 = load ptr, ptr %emulated_config_bits.i14, align 16
   %add.ptr.i = getelementptr i8, ptr %29, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i, i8 -1, i64 24, i1 false)
-  %config.i15 = getelementptr inbounds %struct.PCIDevice, ptr %vdev, i64 0, i32 3
+  %config.i15 = getelementptr inbounds i8, ptr %vdev, i64 168
   %30 = load ptr, ptr %config.i15, align 8
   %add.ptr20.i = getelementptr i8, ptr %30, i64 234
   store i8 24, ptr %add.ptr20.i, align 1
@@ -2228,7 +2193,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i32 @vfio_pci_read_config(ptr noundef %opaque, i32 noundef 33, i32 noundef %size) #10
   %conv = zext i32 %call to i64
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %opaque, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %opaque, i64 2680
   %0 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2254,7 +2219,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %0, i64 noundef %conv) #10
   br label %trace_vfio_quirk_ati_3c3_read.exit
@@ -2290,11 +2255,11 @@ declare i32 @vfio_pci_read_config(ptr noundef, i32 noundef, i32 noundef) local_u
 define internal i64 @vfio_nvidia_3d4_quirk_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %state = getelementptr inbounds %struct.VFIONvidia3d0Quirk, ptr %opaque, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %opaque, i64 8
   store i32 0, ptr %state, align 8
-  %vga = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 15
+  %vga = getelementptr inbounds i8, ptr %0, i64 3416
   %1 = load ptr, ptr %vga, align 8
-  %arrayidx = getelementptr %struct.VFIOVGA, ptr %1, i64 0, i32 2, i64 2
+  %arrayidx = getelementptr i8, ptr %1, i64 624
   %add = add i64 %addr, 20
   %call = tail call i64 @vfio_vga_read(ptr noundef %arrayidx, i64 noundef %add, i32 noundef %size) #10
   ret i64 %call
@@ -2307,7 +2272,7 @@ entry:
   %_now.i.i15 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %state = getelementptr inbounds %struct.VFIONvidia3d0Quirk, ptr %opaque, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load i32, ptr %state, align 8
   store i32 0, ptr %state, align 8
   switch i64 %data, label %sw.epilog [
@@ -2322,7 +2287,7 @@ sw.bb:                                            ; preds = %entry
 
 if.then:                                          ; preds = %sw.bb
   store i32 1, ptr %state, align 8
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 2680
   %2 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2348,7 +2313,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2, ptr noundef nonnull @.str.20) #10
   br label %trace_vfio_quirk_nvidia_3d0_state.exit
@@ -2367,7 +2332,7 @@ sw.bb5:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %sw.bb5
   store i32 3, ptr %state, align 8
-  %name10 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name10 = getelementptr inbounds i8, ptr %0, i64 2680
   %10 = load ptr, ptr %name10, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i15)
   %11 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2393,7 +2358,7 @@ if.then8.i.i24:                                   ; preds = %if.then.i.i22
   %call9.i.i25 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15, ptr noundef null) #10
   %call10.i.i26 = tail call i32 @qemu_get_thread_id() #10
   %16 = load i64, ptr %_now.i.i15, align 8
-  %tv_usec.i.i27 = getelementptr inbounds %struct.timeval, ptr %_now.i.i15, i64 0, i32 1
+  %tv_usec.i.i27 = getelementptr inbounds i8, ptr %_now.i.i15, i64 8
   %17 = load i64, ptr %tv_usec.i.i27, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i26, i64 noundef %16, i64 noundef %17, ptr noundef %10, ptr noundef nonnull @.str.22) #10
   br label %trace_vfio_quirk_nvidia_3d0_state.exit29
@@ -2412,7 +2377,7 @@ sw.bb15:                                          ; preds = %entry
 
 if.then17:                                        ; preds = %sw.bb15
   store i32 4, ptr %state, align 8
-  %name20 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name20 = getelementptr inbounds i8, ptr %0, i64 2680
   %18 = load ptr, ptr %name20, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i30)
   %19 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2438,7 +2403,7 @@ if.then8.i.i39:                                   ; preds = %if.then.i.i37
   %call9.i.i40 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i30, ptr noundef null) #10
   %call10.i.i41 = tail call i32 @qemu_get_thread_id() #10
   %24 = load i64, ptr %_now.i.i30, align 8
-  %tv_usec.i.i42 = getelementptr inbounds %struct.timeval, ptr %_now.i.i30, i64 0, i32 1
+  %tv_usec.i.i42 = getelementptr inbounds i8, ptr %_now.i.i30, i64 8
   %25 = load i64, ptr %tv_usec.i.i42, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i41, i64 noundef %24, i64 noundef %25, ptr noundef %18, ptr noundef nonnull @.str.23) #10
   br label %trace_vfio_quirk_nvidia_3d0_state.exit44
@@ -2452,9 +2417,9 @@ trace_vfio_quirk_nvidia_3d0_state.exit44:         ; preds = %if.then17, %land.lh
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb15, %trace_vfio_quirk_nvidia_3d0_state.exit44, %sw.bb5, %trace_vfio_quirk_nvidia_3d0_state.exit29, %sw.bb, %trace_vfio_quirk_nvidia_3d0_state.exit, %entry
-  %vga = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 15
+  %vga = getelementptr inbounds i8, ptr %0, i64 3416
   %26 = load ptr, ptr %vga, align 8
-  %arrayidx25 = getelementptr %struct.VFIOVGA, ptr %26, i64 0, i32 2, i64 2
+  %arrayidx25 = getelementptr i8, ptr %26, i64 624
   %add = add i64 %addr, 20
   tail call void @vfio_vga_write(ptr noundef %arrayidx25, i64 noundef %add, i64 noundef %data, i32 noundef %size) #10
   ret void
@@ -2469,11 +2434,11 @@ define internal i64 @vfio_nvidia_3d0_quirk_read(ptr nocapture noundef %opaque, i
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %state = getelementptr inbounds %struct.VFIONvidia3d0Quirk, ptr %opaque, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load i32, ptr %state, align 8
-  %vga = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 15
+  %vga = getelementptr inbounds i8, ptr %0, i64 3416
   %2 = load ptr, ptr %vga, align 8
-  %arrayidx = getelementptr %struct.VFIOVGA, ptr %2, i64 0, i32 2, i64 2
+  %arrayidx = getelementptr i8, ptr %2, i64 624
   %add = add i64 %addr, 16
   %call = tail call i64 @vfio_vga_read(ptr noundef %arrayidx, i64 noundef %add, i32 noundef %size) #10
   store i32 0, ptr %state, align 8
@@ -2481,7 +2446,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %offset = getelementptr inbounds %struct.VFIONvidia3d0Quirk, ptr %opaque, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %opaque, i64 12
   %3 = load i32, ptr %offset, align 4
   %and = and i32 %3, -256
   %cmp3 = icmp eq i32 %and, 6144
@@ -2491,7 +2456,7 @@ if.then:                                          ; preds = %land.lhs.true
   %conv7 = and i32 %3, 255
   %call8 = tail call i32 @vfio_pci_read_config(ptr noundef nonnull %0, i32 noundef %conv7, i32 noundef %size) #10
   %conv9 = zext i32 %call8 to i64
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 2680
   %4 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2517,7 +2482,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4, i32 noundef %conv7, i32 noundef %size, i64 noundef %conv9) #10
   br label %trace_vfio_quirk_nvidia_3d0_read.exit
@@ -2541,7 +2506,7 @@ entry:
   %_now.i.i18 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %state = getelementptr inbounds %struct.VFIONvidia3d0Quirk, ptr %opaque, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load i32, ptr %state, align 8
   store i32 0, ptr %state, align 8
   switch i32 %1, label %if.end21 [
@@ -2551,10 +2516,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = trunc i64 %data to i32
-  %offset = getelementptr inbounds %struct.VFIONvidia3d0Quirk, ptr %opaque, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %opaque, i64 12
   store i32 %conv, ptr %offset, align 4
   store i32 2, ptr %state, align 8
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 2680
   %2 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2580,7 +2545,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2, ptr noundef nonnull @.str.21) #10
   br label %trace_vfio_quirk_nvidia_3d0_state.exit
@@ -2594,7 +2559,7 @@ trace_vfio_quirk_nvidia_3d0_state.exit:           ; preds = %if.then, %land.lhs.
   br label %if.end21
 
 if.then7:                                         ; preds = %entry
-  %offset8 = getelementptr inbounds %struct.VFIONvidia3d0Quirk, ptr %opaque, i64 0, i32 2
+  %offset8 = getelementptr inbounds i8, ptr %opaque, i64 12
   %10 = load i32, ptr %offset8, align 4
   %and = and i32 %10, -256
   %cmp9 = icmp eq i32 %and, 6144
@@ -2604,7 +2569,7 @@ if.then11:                                        ; preds = %if.then7
   %conv16 = and i32 %10, 255
   %conv17 = trunc i64 %data to i32
   tail call void @vfio_pci_write_config(ptr noundef %0, i32 noundef %conv16, i32 noundef %conv17, i32 noundef %size) #10
-  %name19 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name19 = getelementptr inbounds i8, ptr %0, i64 2680
   %11 = load ptr, ptr %name19, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i18)
   %12 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2630,7 +2595,7 @@ if.then8.i.i27:                                   ; preds = %if.then.i.i25
   %call9.i.i28 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18, ptr noundef null) #10
   %call10.i.i29 = tail call i32 @qemu_get_thread_id() #10
   %17 = load i64, ptr %_now.i.i18, align 8
-  %tv_usec.i.i30 = getelementptr inbounds %struct.timeval, ptr %_now.i.i18, i64 0, i32 1
+  %tv_usec.i.i30 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
   %18 = load i64, ptr %tv_usec.i.i30, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i29, i64 noundef %17, i64 noundef %18, ptr noundef %11, i32 noundef %conv16, i64 noundef %data, i32 noundef %size) #10
   br label %trace_vfio_quirk_nvidia_3d0_write.exit
@@ -2644,9 +2609,9 @@ trace_vfio_quirk_nvidia_3d0_write.exit:           ; preds = %if.then11, %land.lh
   br label %return
 
 if.end21:                                         ; preds = %entry, %if.then7, %trace_vfio_quirk_nvidia_3d0_state.exit
-  %vga = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 15
+  %vga = getelementptr inbounds i8, ptr %0, i64 3416
   %19 = load ptr, ptr %vga, align 8
-  %arrayidx22 = getelementptr %struct.VFIOVGA, ptr %19, i64 0, i32 2, i64 2
+  %arrayidx22 = getelementptr i8, ptr %19, i64 624
   %add = add i64 %addr, 16
   tail call void @vfio_vga_write(ptr noundef %arrayidx22, i64 noundef %add, i64 noundef %data, i32 noundef %size) #10
   br label %return
@@ -2663,11 +2628,12 @@ declare void @memory_region_add_subregion_overlap(ptr noundef, i64 noundef, ptr 
 define internal i64 @vfio_generic_window_quirk_address_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %bar = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 5
+  %bars = getelementptr inbounds i8, ptr %0, i64 2888
+  %bar = getelementptr inbounds i8, ptr %opaque, i64 21
   %1 = load i8, ptr %bar, align 1
   %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 %idxprom
-  %address_offset = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 2
+  %arrayidx = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom
+  %address_offset = getelementptr inbounds i8, ptr %opaque, i64 12
   %2 = load i32, ptr %address_offset, align 4
   %conv = zext i32 %2 to i64
   %add = add i64 %conv, %addr
@@ -2680,32 +2646,37 @@ define internal void @vfio_generic_window_quirk_address_write(ptr nocapture noun
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %window_enabled = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 4
+  %window_enabled = getelementptr inbounds i8, ptr %opaque, i64 20
   store i8 0, ptr %window_enabled, align 4
-  %bar = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 5
+  %bars = getelementptr inbounds i8, ptr %0, i64 2888
+  %bar = getelementptr inbounds i8, ptr %opaque, i64 21
   %1 = load i8, ptr %bar, align 1
   %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 %idxprom
-  %address_offset = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 2
+  %arrayidx = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom
+  %address_offset = getelementptr inbounds i8, ptr %opaque, i64 12
   %2 = load i32, ptr %address_offset, align 4
   %conv = zext i32 %2 to i64
   %add = add i64 %conv, %addr
   tail call void @vfio_region_write(ptr noundef %arrayidx, i64 noundef %add, i64 noundef %data, i32 noundef %size) #10
-  %nr_matches = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 8
+  %nr_matches = getelementptr inbounds i8, ptr %opaque, i64 40
   %3 = load i32, ptr %nr_matches, align 8
   %cmp19.not = icmp eq i32 %3, 0
-  br i1 %cmp19.not, label %for.end, label %for.body
+  br i1 %cmp19.not, label %for.end, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %entry
+  %matches = getelementptr inbounds i8, ptr %opaque, i64 44
+  br label %for.body
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i32 %i.020, 1
   %exitcond.not = icmp eq i32 %inc, %3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
-for.body:                                         ; preds = %entry, %for.cond
-  %i.020 = phi i32 [ %inc, %for.cond ], [ 0, %entry ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %i.020 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   %idxprom3 = sext i32 %i.020 to i64
-  %arrayidx4 = getelementptr %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 9, i64 %idxprom3
-  %mask = getelementptr %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 9, i64 %idxprom3, i32 1
+  %arrayidx4 = getelementptr [0 x %struct.VFIOConfigWindowMatch], ptr %matches, i64 0, i64 %idxprom3
+  %mask = getelementptr inbounds i8, ptr %arrayidx4, i64 4
   %4 = load i32, ptr %mask, align 4
   %not = xor i32 %4, -1
   %conv5 = zext i32 %not to i64
@@ -2719,11 +2690,11 @@ if.then:                                          ; preds = %for.body
   store i8 1, ptr %window_enabled, align 4
   %6 = trunc i64 %data to i32
   %conv19 = and i32 %4, %6
-  %address_val = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 1
+  %address_val = getelementptr inbounds i8, ptr %opaque, i64 8
   store i32 %conv19, ptr %address_val, align 8
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 2680
   %7 = load ptr, ptr %name, align 8
-  %addr_mem = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 6
+  %addr_mem = getelementptr inbounds i8, ptr %opaque, i64 24
   %8 = load ptr, ptr %addr_mem, align 8
   %call = tail call ptr @memory_region_name(ptr noundef %8) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2750,7 +2721,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %7, ptr noundef %call, i64 noundef %data) #10
   br label %trace_vfio_quirk_generic_window_address_write.exit
@@ -2778,29 +2749,30 @@ define internal i64 @vfio_generic_window_quirk_data_read(ptr nocapture noundef r
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %bar = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 5
+  %bars = getelementptr inbounds i8, ptr %0, i64 2888
+  %bar = getelementptr inbounds i8, ptr %opaque, i64 21
   %1 = load i8, ptr %bar, align 1
   %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 %idxprom
-  %data_offset = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 3
+  %arrayidx = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom
+  %data_offset = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load i32, ptr %data_offset, align 8
   %conv = zext i32 %2 to i64
   %add = add i64 %conv, %addr
   %call = tail call i64 @vfio_region_read(ptr noundef %arrayidx, i64 noundef %add, i32 noundef %size) #10
-  %window_enabled = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 4
+  %window_enabled = getelementptr inbounds i8, ptr %opaque, i64 20
   %3 = load i8, ptr %window_enabled, align 4
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %address_val = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 1
+  %address_val = getelementptr inbounds i8, ptr %opaque, i64 8
   %5 = load i32, ptr %address_val, align 8
   %call2 = tail call i32 @vfio_pci_read_config(ptr noundef %0, i32 noundef %5, i32 noundef %size) #10
   %conv3 = zext i32 %call2 to i64
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 2680
   %6 = load ptr, ptr %name, align 8
-  %data_mem = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 7
+  %data_mem = getelementptr inbounds i8, ptr %opaque, i64 32
   %7 = load ptr, ptr %data_mem, align 8
   %call4 = tail call ptr @memory_region_name(ptr noundef %7) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2827,7 +2799,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %6, ptr noundef %call4, i64 noundef %conv3) #10
   br label %trace_vfio_quirk_generic_window_data_read.exit
@@ -2850,20 +2822,20 @@ define internal void @vfio_generic_window_quirk_data_write(ptr nocapture noundef
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %window_enabled = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 4
+  %window_enabled = getelementptr inbounds i8, ptr %opaque, i64 20
   %1 = load i8, ptr %window_enabled, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %address_val = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 1
+  %address_val = getelementptr inbounds i8, ptr %opaque, i64 8
   %3 = load i32, ptr %address_val, align 8
   %conv = trunc i64 %data to i32
   tail call void @vfio_pci_write_config(ptr noundef %0, i32 noundef %3, i32 noundef %conv, i32 noundef %size) #10
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 2680
   %4 = load ptr, ptr %name, align 8
-  %data_mem = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 7
+  %data_mem = getelementptr inbounds i8, ptr %opaque, i64 32
   %5 = load ptr, ptr %data_mem, align 8
   %call = tail call ptr @memory_region_name(ptr noundef %5) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2890,7 +2862,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %4, ptr noundef %call, i64 noundef %data) #10
   br label %trace_vfio_quirk_generic_window_data_write.exit
@@ -2904,11 +2876,12 @@ trace_vfio_quirk_generic_window_data_write.exit:  ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %bar = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 5
+  %bars = getelementptr inbounds i8, ptr %0, i64 2888
+  %bar = getelementptr inbounds i8, ptr %opaque, i64 21
   %13 = load i8, ptr %bar, align 1
   %idxprom = zext i8 %13 to i64
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 %idxprom
-  %data_offset = getelementptr inbounds %struct.VFIOConfigWindowQuirk, ptr %opaque, i64 0, i32 3
+  %arrayidx = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom
+  %data_offset = getelementptr inbounds i8, ptr %opaque, i64 16
   %14 = load i32, ptr %data_offset, align 8
   %conv2 = zext i32 %14 to i64
   %add = add i64 %conv2, %addr
@@ -2924,11 +2897,12 @@ define internal i64 @vfio_generic_quirk_mirror_read(ptr nocapture noundef readon
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %bar = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 0, i32 2
+  %bars = getelementptr inbounds i8, ptr %0, i64 2888
+  %bar = getelementptr inbounds i8, ptr %opaque, i64 12
   %1 = load i8, ptr %bar, align 4
   %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 %idxprom
-  %offset = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 0, i32 1
+  %arrayidx = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom
+  %offset = getelementptr inbounds i8, ptr %opaque, i64 8
   %2 = load i32, ptr %offset, align 8
   %conv = zext i32 %2 to i64
   %add = add i64 %conv, %addr
@@ -2936,9 +2910,9 @@ entry:
   %conv2 = trunc i64 %addr to i32
   %call3 = tail call i32 @vfio_pci_read_config(ptr noundef %0, i32 noundef %conv2, i32 noundef %size) #10
   %conv4 = zext i32 %call3 to i64
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 2680
   %3 = load ptr, ptr %name, align 8
-  %mem = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 0, i32 3
+  %mem = getelementptr inbounds i8, ptr %opaque, i64 16
   %4 = load ptr, ptr %mem, align 8
   %call5 = tail call ptr @memory_region_name(ptr noundef %4) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2965,7 +2939,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %3, ptr noundef %call5, i64 noundef %addr, i64 noundef %conv4) #10
   br label %trace_vfio_quirk_generic_mirror_read.exit
@@ -2987,9 +2961,9 @@ entry:
   %conv = trunc i64 %addr to i32
   %conv2 = trunc i64 %data to i32
   tail call void @vfio_pci_write_config(ptr noundef %0, i32 noundef %conv, i32 noundef %conv2, i32 noundef %size) #10
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 2680
   %1 = load ptr, ptr %name, align 8
-  %mem = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 0, i32 3
+  %mem = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load ptr, ptr %mem, align 8
   %call = tail call ptr @memory_region_name(ptr noundef %2) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3016,7 +2990,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %1, ptr noundef %call, i64 noundef %addr, i64 noundef %data) #10
   br label %trace_vfio_quirk_generic_mirror_write.exit
@@ -3035,9 +3009,9 @@ declare void @memory_region_set_enabled(ptr noundef, i1 noundef zeroext) local_u
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @vfio_nvidia_bar5_quirk_master_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
-  %window = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %opaque, i64 0, i32 5
+  %window = getelementptr inbounds i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %window, align 8
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 5
+  %arrayidx = getelementptr i8, ptr %0, i64 3328
   %call = tail call i64 @vfio_region_read(ptr noundef %arrayidx, i64 noundef %addr, i32 noundef %size) #10
   ret i64 %call
 }
@@ -3045,9 +3019,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vfio_nvidia_bar5_quirk_master_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
-  %window = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %opaque, i64 0, i32 5
+  %window = getelementptr inbounds i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %window, align 8
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 5
+  %arrayidx = getelementptr i8, ptr %0, i64 3328
   tail call void @vfio_region_write(ptr noundef %arrayidx, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #10
   %conv = trunc i64 %data to i32
   store i32 %conv, ptr %opaque, align 8
@@ -3060,11 +3034,11 @@ define internal fastcc void @vfio_nvidia_bar5_enable(ptr nocapture noundef %bar5
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load i32, ptr %bar5, align 8
-  %enable = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %bar5, i64 0, i32 1
+  %enable = getelementptr inbounds i8, ptr %bar5, i64 4
   %1 = load i32, ptr %enable, align 4
   %and = and i32 %0, 1
   %and2 = and i32 %and, %1
-  %enabled = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %bar5, i64 0, i32 4
+  %enabled = getelementptr inbounds i8, ptr %bar5, i64 24
   %2 = load i8, ptr %enabled, align 8
   %3 = and i8 %2, 1
   %conv = zext nneg i8 %3 to i32
@@ -3073,11 +3047,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %tobool.not = icmp eq i8 %3, 0
-  %window = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %bar5, i64 0, i32 5
+  %window = getelementptr inbounds i8, ptr %bar5, i64 32
   %4 = load ptr, ptr %window, align 8
   %frombool = xor i8 %3, 1
   store i8 %frombool, ptr %enabled, align 8
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %4, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %4, i64 2680
   %5 = load ptr, ptr %name, align 8
   %cond = select i1 %tobool.not, ptr @.str.51, ptr @.str.52
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3104,7 +3078,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %5, ptr noundef nonnull %cond) #10
   br label %trace_vfio_quirk_nvidia_bar5_state.exit
@@ -3115,13 +3089,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vfio_quirk_nvidia_bar5_state.exit:          ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %addr_mem = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %bar5, i64 0, i32 2
+  %addr_mem = getelementptr inbounds i8, ptr %bar5, i64 8
   %13 = load ptr, ptr %addr_mem, align 8
   %14 = load i8, ptr %enabled, align 8
   %15 = and i8 %14, 1
   %tobool11 = icmp ne i8 %15, 0
   tail call void @memory_region_set_enabled(ptr noundef %13, i1 noundef zeroext %tobool11) #10
-  %data_mem = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %bar5, i64 0, i32 3
+  %data_mem = getelementptr inbounds i8, ptr %bar5, i64 16
   %16 = load ptr, ptr %data_mem, align 8
   %17 = load i8, ptr %enabled, align 8
   %18 = and i8 %17, 1
@@ -3136,9 +3110,9 @@ return:                                           ; preds = %entry, %trace_vfio_
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @vfio_nvidia_bar5_quirk_enable_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
-  %window = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %opaque, i64 0, i32 5
+  %window = getelementptr inbounds i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %window, align 8
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 5
+  %arrayidx = getelementptr i8, ptr %0, i64 3328
   %add = add i64 %addr, 4
   %call = tail call i64 @vfio_region_read(ptr noundef %arrayidx, i64 noundef %add, i32 noundef %size) #10
   ret i64 %call
@@ -3147,13 +3121,13 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vfio_nvidia_bar5_quirk_enable_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
-  %window = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %opaque, i64 0, i32 5
+  %window = getelementptr inbounds i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %window, align 8
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 5
+  %arrayidx = getelementptr i8, ptr %0, i64 3328
   %add = add i64 %addr, 4
   tail call void @vfio_region_write(ptr noundef %arrayidx, i64 noundef %add, i64 noundef %data, i32 noundef %size) #10
   %conv = trunc i64 %data to i32
-  %enable = getelementptr inbounds %struct.VFIONvidiaBAR5Quirk, ptr %opaque, i64 0, i32 1
+  %enable = getelementptr inbounds i8, ptr %opaque, i64 4
   store i32 %conv, ptr %enable, align 4
   tail call fastcc void @vfio_nvidia_bar5_enable(ptr noundef %opaque)
   ret void
@@ -3162,9 +3136,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vfio_nvidia_bar0_quirk_reset(ptr nocapture noundef readonly %vdev, ptr nocapture noundef readonly %quirk) #0 {
 entry:
-  %data = getelementptr inbounds %struct.VFIOQuirk, ptr %quirk, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %quirk, i64 16
   %0 = load ptr, ptr %data, align 8
-  %addr = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %0, i64 1, i32 1
+  %addr = getelementptr inbounds i8, ptr %0, i64 32
   %1 = getelementptr i8, ptr %quirk, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %addr, i8 0, i64 28, i1 false)
   %quirk.val = load ptr, ptr %1, align 8
@@ -3174,7 +3148,7 @@ entry:
 land.rhs.i:                                       ; preds = %entry, %for.inc.i
   %ioeventfd.02.i = phi ptr [ %2, %for.inc.i ], [ %quirk.val, %entry ]
   %2 = load ptr, ptr %ioeventfd.02.i, align 8
-  %dynamic.i = getelementptr inbounds %struct.VFIOIOEventFD, ptr %ioeventfd.02.i, i64 0, i32 8
+  %dynamic.i = getelementptr inbounds i8, ptr %ioeventfd.02.i, i64 80
   %3 = load i8, ptr %dynamic.i, align 8
   %4 = and i8 %3, 1
   %tobool1.not.i = icmp eq i8 %4, 0
@@ -3197,9 +3171,9 @@ define internal void @vfio_nvidia_quirk_mirror_write(ptr nocapture noundef %opaq
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %data3 = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 0, i32 4
+  %data3 = getelementptr inbounds i8, ptr %opaque, i64 24
   tail call void @vfio_generic_quirk_mirror_write(ptr noundef nonnull %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size)
-  %cap_present = getelementptr inbounds %struct.PCIDevice, ptr %0, i64 0, i32 20
+  %cap_present = getelementptr inbounds i8, ptr %0, i64 1260
   %1 = load i32, ptr %cap_present, align 4
   %and = and i32 %1, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -3207,7 +3181,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %conv = zext i32 %size to i64
-  %msi_cap = getelementptr inbounds %struct.PCIDevice, ptr %0, i64 0, i32 35
+  %msi_cap = getelementptr inbounds i8, ptr %0, i64 2160
   %2 = load i8, ptr %msi_cap, align 16
   %conv4 = zext i8 %2 to i64
   %cmp.not.i = icmp ule i64 %conv4, %addr
@@ -3218,16 +3192,17 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %bar = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 0, i32 2
+  %bars = getelementptr inbounds i8, ptr %0, i64 2888
+  %bar = getelementptr inbounds i8, ptr %opaque, i64 12
   %4 = load i8, ptr %bar, align 4
   %idxprom = zext i8 %4 to i64
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 %idxprom
-  %offset = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 0, i32 1
+  %arrayidx = getelementptr [6 x %struct.VFIOBAR], ptr %bars, i64 0, i64 %idxprom
+  %offset = getelementptr inbounds i8, ptr %opaque, i64 8
   %5 = load i32, ptr %offset, align 8
   %conv6 = zext i32 %5 to i64
   %add = add i64 %conv6, %addr
   tail call void @vfio_region_write(ptr noundef %arrayidx, i64 noundef %add, i64 noundef %data, i32 noundef %size) #10
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 2680
   %6 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3253,7 +3228,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %12 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef %6) #10
   br label %trace_vfio_quirk_nvidia_bar0_msi_ack.exit
@@ -3267,7 +3242,7 @@ trace_vfio_quirk_nvidia_bar0_msi_ack.exit:        ; preds = %if.then, %land.lhs.
   br label %if.end
 
 if.end:                                           ; preds = %trace_vfio_quirk_nvidia_bar0_msi_ack.exit, %land.lhs.true, %entry
-  %no_kvm_ioeventfd = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 44
+  %no_kvm_ioeventfd = getelementptr inbounds i8, ptr %0, i64 3551
   %14 = load i8, ptr %no_kvm_ioeventfd, align 1
   %15 = and i8 %14, 1
   %tobool7.not53 = icmp eq i8 %15, 0
@@ -3276,34 +3251,34 @@ if.end:                                           ; preds = %trace_vfio_quirk_nv
   br i1 %or.cond, label %land.lhs.true10, label %if.end74
 
 land.lhs.true10:                                  ; preds = %if.end
-  %added = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 2, i32 1
+  %added = getelementptr inbounds i8, ptr %opaque, i64 56
   %16 = load i32, ptr %added, align 8
   %cmp11 = icmp slt i32 %16, 11
   br i1 %cmp11, label %if.then13, label %if.end74
 
 if.then13:                                        ; preds = %land.lhs.true10
-  %addr14 = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 1, i32 1
+  %addr14 = getelementptr inbounds i8, ptr %opaque, i64 32
   %17 = load i64, ptr %addr14, align 8
   %cmp15.not = icmp eq i64 %17, %addr
   br i1 %cmp15.not, label %lor.lhs.false, label %if.then24
 
 lor.lhs.false:                                    ; preds = %if.then13
-  %data17 = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 1, i32 3
+  %data17 = getelementptr inbounds i8, ptr %opaque, i64 40
   %18 = load i64, ptr %data17, align 8
   %cmp18.not = icmp eq i64 %18, %data
   br i1 %cmp18.not, label %lor.lhs.false20, label %if.then24
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false
-  %size21 = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 2
+  %size21 = getelementptr inbounds i8, ptr %opaque, i64 48
   %19 = load i32, ptr %size21, align 8
   %cmp22.not = icmp eq i32 %19, %size
   br i1 %cmp22.not, label %if.else, label %if.then24
 
 if.then24:                                        ; preds = %lor.lhs.false20, %lor.lhs.false, %if.then13
   store i64 %addr, ptr %addr14, align 8
-  %data26 = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 1, i32 3
+  %data26 = getelementptr inbounds i8, ptr %opaque, i64 40
   store i64 %data, ptr %data26, align 8
-  %size27 = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 2
+  %size27 = getelementptr inbounds i8, ptr %opaque, i64 48
   store i32 %size, ptr %size27, align 8
   %hits = getelementptr inbounds i8, ptr %opaque, i64 52
   store i32 1, ptr %hits, align 4
@@ -3322,13 +3297,14 @@ if.then31:                                        ; preds = %if.else
   br i1 %cmp33.not, label %if.else66, label %if.then35
 
 if.then35:                                        ; preds = %if.then31
-  %mem = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 0, i32 3
+  %mem = getelementptr inbounds i8, ptr %opaque, i64 16
   %21 = load ptr, ptr %mem, align 8
-  %bar37 = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 0, i32 2
+  %bars36 = getelementptr inbounds i8, ptr %0, i64 2888
+  %bar37 = getelementptr inbounds i8, ptr %opaque, i64 12
   %22 = load i8, ptr %bar37, align 4
   %idxprom38 = zext i8 %22 to i64
-  %arrayidx39 = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 %idxprom38
-  %offset41 = getelementptr inbounds %struct.VFIOConfigMirrorQuirk, ptr %opaque, i64 0, i32 1
+  %arrayidx39 = getelementptr [6 x %struct.VFIOBAR], ptr %bars36, i64 0, i64 %idxprom38
+  %offset41 = getelementptr inbounds i8, ptr %opaque, i64 8
   %23 = load i32, ptr %offset41, align 8
   %conv42 = zext i32 %23 to i64
   %add43 = add i64 %conv42, %addr
@@ -3338,20 +3314,20 @@ if.then35:                                        ; preds = %if.then31
 
 if.then46:                                        ; preds = %if.then35
   %24 = load ptr, ptr %data3, align 8
-  %ioeventfds = getelementptr inbounds %struct.VFIOQuirk, ptr %24, i64 0, i32 2
+  %ioeventfds = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %ioeventfds, align 8
   store ptr %25, ptr %call44, align 8
   %cmp48.not = icmp eq ptr %25, null
   br i1 %cmp48.not, label %if.end56, label %if.then50
 
 if.then50:                                        ; preds = %if.then46
-  %le_prev = getelementptr inbounds %struct.anon.16, ptr %25, i64 0, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %call44, ptr %le_prev, align 8
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then50, %if.then46
   store ptr %call44, ptr %ioeventfds, align 8
-  %le_prev62 = getelementptr inbounds %struct.anon.16, ptr %call44, i64 0, i32 1
+  %le_prev62 = getelementptr inbounds i8, ptr %call44, i64 8
   store ptr %ioeventfds, ptr %le_prev62, align 8
   %26 = load i32, ptr %added, align 8
   %inc64 = add i32 %26, 1
@@ -3360,7 +3336,7 @@ if.end56:                                         ; preds = %if.then50, %if.then
 
 if.else66:                                        ; preds = %if.then31
   store i32 11, ptr %added, align 8
-  %name70 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name70 = getelementptr inbounds i8, ptr %0, i64 2680
   %27 = load ptr, ptr %name70, align 8
   tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.59, ptr noundef %27, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #10
   br label %if.end74
@@ -3374,7 +3350,7 @@ define internal fastcc ptr @vfio_ioeventfd_init(ptr nocapture noundef readonly %
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vfio_ioeventfd = alloca %struct.vfio_device_ioeventfd, align 8
-  %no_kvm_ioeventfd = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 44
+  %no_kvm_ioeventfd = getelementptr inbounds i8, ptr %vdev, i64 3551
   %0 = load i8, ptr %no_kvm_ioeventfd, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -3382,7 +3358,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(88) ptr @g_malloc0(i64 noundef 88) #12
-  %e = getelementptr inbounds %struct.VFIOIOEventFD, ptr %call, i64 0, i32 5
+  %e = getelementptr inbounds i8, ptr %call, i64 48
   %call1 = tail call i32 @event_notifier_init(ptr noundef nonnull %e, i32 noundef 0) #10
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
@@ -3392,57 +3368,57 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %mr5 = getelementptr inbounds %struct.VFIOIOEventFD, ptr %call, i64 0, i32 1
+  %mr5 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %mr, ptr %mr5, align 8
-  %addr6 = getelementptr inbounds %struct.VFIOIOEventFD, ptr %call, i64 0, i32 2
+  %addr6 = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %addr, ptr %addr6, align 8
-  %size7 = getelementptr inbounds %struct.VFIOIOEventFD, ptr %call, i64 0, i32 3
+  %size7 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %size, ptr %size7, align 8
-  %data8 = getelementptr inbounds %struct.VFIOIOEventFD, ptr %call, i64 0, i32 4
+  %data8 = getelementptr inbounds i8, ptr %call, i64 40
   store i64 %data, ptr %data8, align 8
-  %dynamic10 = getelementptr inbounds %struct.VFIOIOEventFD, ptr %call, i64 0, i32 8
+  %dynamic10 = getelementptr inbounds i8, ptr %call, i64 80
   store i8 1, ptr %dynamic10, align 8
-  %region12 = getelementptr inbounds %struct.VFIOIOEventFD, ptr %call, i64 0, i32 6
+  %region12 = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %region, ptr %region12, align 8
-  %region_addr13 = getelementptr inbounds %struct.VFIOIOEventFD, ptr %call, i64 0, i32 7
+  %region_addr13 = getelementptr inbounds i8, ptr %call, i64 72
   store i64 %region_addr, ptr %region_addr13, align 8
-  %no_vfio_ioeventfd = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 45
+  %no_vfio_ioeventfd = getelementptr inbounds i8, ptr %vdev, i64 3552
   %2 = load i8, ptr %no_vfio_ioeventfd, align 16
   %3 = and i8 %2, 1
   %tobool14.not = icmp eq i8 %3, 0
   br i1 %tobool14.not, label %if.then15, label %if.end4.if.end27_crit_edge
 
 if.end4.if.end27_crit_edge:                       ; preds = %if.end4
-  %vfio28.phi.trans.insert = getelementptr inbounds %struct.VFIOIOEventFD, ptr %call, i64 0, i32 9
+  %vfio28.phi.trans.insert = getelementptr inbounds i8, ptr %call, i64 81
   %.pre = load i8, ptr %vfio28.phi.trans.insert, align 1
   br label %if.end27
 
 if.then15:                                        ; preds = %if.end4
   store i32 32, ptr %vfio_ioeventfd, align 8
-  %flags = getelementptr inbounds %struct.vfio_device_ioeventfd, ptr %vfio_ioeventfd, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %vfio_ioeventfd, i64 4
   store i32 %size, ptr %flags, align 4
-  %data18 = getelementptr inbounds %struct.vfio_device_ioeventfd, ptr %vfio_ioeventfd, i64 0, i32 3
+  %data18 = getelementptr inbounds i8, ptr %vfio_ioeventfd, i64 16
   store i64 %data, ptr %data18, align 8
-  %fd_offset = getelementptr inbounds %struct.VFIORegion, ptr %region, i64 0, i32 1
+  %fd_offset = getelementptr inbounds i8, ptr %region, i64 8
   %4 = load i64, ptr %fd_offset, align 8
   %add = add i64 %4, %region_addr
-  %offset = getelementptr inbounds %struct.vfio_device_ioeventfd, ptr %vfio_ioeventfd, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %vfio_ioeventfd, i64 8
   store i64 %add, ptr %offset, align 8
   %call22 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %e) #10
-  %fd = getelementptr inbounds %struct.vfio_device_ioeventfd, ptr %vfio_ioeventfd, i64 0, i32 4
+  %fd = getelementptr inbounds i8, ptr %vfio_ioeventfd, i64 24
   store i32 %call22, ptr %fd, align 8
-  %fd23 = getelementptr inbounds %struct.VFIOPCIDevice, ptr %vdev, i64 0, i32 1, i32 8
+  %fd23 = getelementptr inbounds i8, ptr %vdev, i64 2696
   %5 = load i32, ptr %fd23, align 8
   %call24 = call i32 (i32, i64, ...) @ioctl(i32 noundef %5, i64 noundef 15220, ptr noundef nonnull %vfio_ioeventfd) #10
   %tobool25.not = icmp eq i32 %call24, 0
-  %vfio = getelementptr inbounds %struct.VFIOIOEventFD, ptr %call, i64 0, i32 9
+  %vfio = getelementptr inbounds i8, ptr %call, i64 81
   %frombool26 = zext i1 %tobool25.not to i8
   store i8 %frombool26, ptr %vfio, align 1
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end4.if.end27_crit_edge, %if.then15
   %6 = phi i8 [ %.pre, %if.end4.if.end27_crit_edge ], [ %frombool26, %if.then15 ]
-  %vfio28 = getelementptr inbounds %struct.VFIOIOEventFD, ptr %call, i64 0, i32 9
+  %vfio28 = getelementptr inbounds i8, ptr %call, i64 81
   %7 = and i8 %6, 1
   %tobool29.not = icmp eq i8 %7, 0
   br i1 %tobool29.not, label %if.then30, label %if.end33
@@ -3485,7 +3461,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = call i32 @qemu_get_thread_id() #10
   %19 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext nneg i8 %13 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20, ptr noundef %call39, i64 noundef %addr, i32 noundef %size, i64 noundef %data, i32 noundef %conv12.i.i) #10
@@ -3520,25 +3496,25 @@ declare void @qemu_set_fd_handler(i32 noundef, ptr noundef, ptr noundef, ptr nou
 define internal void @vfio_ioeventfd_handler(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %e = getelementptr inbounds %struct.VFIOIOEventFD, ptr %opaque, i64 0, i32 5
+  %e = getelementptr inbounds i8, ptr %opaque, i64 48
   %call = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %e) #10
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %region = getelementptr inbounds %struct.VFIOIOEventFD, ptr %opaque, i64 0, i32 6
+  %region = getelementptr inbounds i8, ptr %opaque, i64 64
   %0 = load ptr, ptr %region, align 8
-  %region_addr = getelementptr inbounds %struct.VFIOIOEventFD, ptr %opaque, i64 0, i32 7
+  %region_addr = getelementptr inbounds i8, ptr %opaque, i64 72
   %1 = load i64, ptr %region_addr, align 8
-  %data = getelementptr inbounds %struct.VFIOIOEventFD, ptr %opaque, i64 0, i32 4
+  %data = getelementptr inbounds i8, ptr %opaque, i64 40
   %2 = load i64, ptr %data, align 8
-  %size = getelementptr inbounds %struct.VFIOIOEventFD, ptr %opaque, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %opaque, i64 32
   %3 = load i32, ptr %size, align 8
   tail call void @vfio_region_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #10
-  %mr = getelementptr inbounds %struct.VFIOIOEventFD, ptr %opaque, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %opaque, i64 16
   %4 = load ptr, ptr %mr, align 8
   %call1 = tail call ptr @memory_region_name(ptr noundef %4) #10
-  %addr = getelementptr inbounds %struct.VFIOIOEventFD, ptr %opaque, i64 0, i32 2
+  %addr = getelementptr inbounds i8, ptr %opaque, i64 24
   %5 = load i64, ptr %addr, align 8
   %6 = load i32, ptr %size, align 8
   %7 = load i64, ptr %data, align 8
@@ -3566,7 +3542,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %call1, i64 noundef %5, i32 noundef %6, i64 noundef %7) #10
   br label %trace_vfio_ioeventfd_handler.exit
@@ -3592,21 +3568,21 @@ define internal i64 @vfio_rtl8168_quirk_address_read(ptr nocapture noundef reado
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 2
+  %arrayidx = getelementptr i8, ptr %0, i64 3064
   %add = add i64 %addr, 116
   %call = tail call i64 @vfio_region_read(ptr noundef %arrayidx, i64 noundef %add, i32 noundef %size) #10
-  %enabled = getelementptr inbounds %struct.VFIOrtl8168Quirk, ptr %opaque, i64 0, i32 3
+  %enabled = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load i8, ptr %enabled, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %addr2 = getelementptr inbounds %struct.VFIOrtl8168Quirk, ptr %opaque, i64 0, i32 1
+  %addr2 = getelementptr inbounds i8, ptr %opaque, i64 8
   %3 = load i32, ptr %addr2, align 8
   %xor = xor i32 %3, -2147483648
   %conv = zext i32 %xor to i64
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 2680
   %4 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3632,7 +3608,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4, i64 noundef %conv) #10
   br label %trace_vfio_quirk_rtl8168_fake_latch.exit
@@ -3655,7 +3631,7 @@ define internal void @vfio_rtl8168_quirk_address_write(ptr nocapture noundef %op
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %enabled = getelementptr inbounds %struct.VFIOrtl8168Quirk, ptr %opaque, i64 0, i32 3
+  %enabled = getelementptr inbounds i8, ptr %opaque, i64 16
   store i8 0, ptr %enabled, align 8
   %and = and i64 %data, 2147418112
   %cmp = icmp eq i64 %and, 65536
@@ -3664,14 +3640,14 @@ entry:
 if.then:                                          ; preds = %entry
   store i8 1, ptr %enabled, align 8
   %conv = trunc i64 %data to i32
-  %addr3 = getelementptr inbounds %struct.VFIOrtl8168Quirk, ptr %opaque, i64 0, i32 1
+  %addr3 = getelementptr inbounds i8, ptr %opaque, i64 8
   store i32 %conv, ptr %addr3, align 8
   %and4 = and i64 %data, 2147483648
   %tobool.not = icmp eq i64 %and4, 0
   br i1 %tobool.not, label %if.end43, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %cap_present = getelementptr inbounds %struct.PCIDevice, ptr %0, i64 0, i32 20
+  %cap_present = getelementptr inbounds i8, ptr %0, i64 1260
   %1 = load i32, ptr %cap_present, align 4
   %and6 = and i32 %1, 2
   %tobool7.not = icmp eq i32 %and6, 0
@@ -3679,10 +3655,10 @@ if.then5:                                         ; preds = %if.then
 
 if.then8:                                         ; preds = %if.then5
   %and9 = and i64 %data, 4095
-  %data10 = getelementptr inbounds %struct.VFIOrtl8168Quirk, ptr %opaque, i64 0, i32 2
+  %data10 = getelementptr inbounds i8, ptr %opaque, i64 12
   %2 = load i32, ptr %data10, align 4
   %conv11 = zext i32 %2 to i64
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 2680
   %3 = load ptr, ptr %name, align 8
   %conv12 = trunc i64 %and9 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3709,7 +3685,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %3, i32 noundef %conv12, i64 noundef %conv11) #10
   br label %trace_vfio_quirk_rtl8168_msix_write.exit
@@ -3720,13 +3696,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vfio_quirk_rtl8168_msix_write.exit:         ; preds = %if.then8, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %msix_table_mmio = getelementptr inbounds %struct.PCIDevice, ptr %0, i64 0, i32 30
+  %msix_table_mmio = getelementptr inbounds i8, ptr %0, i64 1600
   %11 = tail call i32 @llvm.cttz.i32(i32 %size, i1 false), !range !23
   %call41 = tail call i32 @memory_region_dispatch_write(ptr noundef nonnull %msix_table_mmio, i64 noundef %and9, i64 noundef %conv11, i32 noundef %11, i32 1) #10
   br label %return
 
 if.end43:                                         ; preds = %if.then, %entry
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 2
+  %arrayidx = getelementptr i8, ptr %0, i64 3064
   %add = add i64 %addr, 116
   tail call void @vfio_region_write(ptr noundef %arrayidx, i64 noundef %add, i64 noundef %data, i32 noundef %size) #10
   br label %return
@@ -3746,32 +3722,32 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %data = alloca i64, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 2
+  %arrayidx = getelementptr i8, ptr %0, i64 3064
   %add = add i64 %addr, 112
   %call = tail call i64 @vfio_region_read(ptr noundef %arrayidx, i64 noundef %add, i32 noundef %size) #10
   store i64 %call, ptr %data, align 8
-  %enabled = getelementptr inbounds %struct.VFIOrtl8168Quirk, ptr %opaque, i64 0, i32 3
+  %enabled = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load i8, ptr %enabled, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %cap_present = getelementptr inbounds %struct.PCIDevice, ptr %0, i64 0, i32 20
+  %cap_present = getelementptr inbounds i8, ptr %0, i64 1260
   %3 = load i32, ptr %cap_present, align 4
   %and = and i32 %3, 2
   %tobool2.not = icmp eq i32 %and, 0
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %addr3 = getelementptr inbounds %struct.VFIOrtl8168Quirk, ptr %opaque, i64 0, i32 1
+  %addr3 = getelementptr inbounds i8, ptr %opaque, i64 8
   %4 = load i32, ptr %addr3, align 8
   %and4 = and i32 %4, 4095
   %conv = zext nneg i32 %and4 to i64
-  %msix_table_mmio = getelementptr inbounds %struct.PCIDevice, ptr %0, i64 0, i32 30
+  %msix_table_mmio = getelementptr inbounds i8, ptr %0, i64 1600
   %5 = tail call i32 @llvm.cttz.i32(i32 %size, i1 false), !range !23
   %call34 = call i32 @memory_region_dispatch_read(ptr noundef nonnull %msix_table_mmio, i64 noundef %conv, ptr noundef nonnull %data, i32 noundef %5, i32 1) #10
-  %name = getelementptr inbounds %struct.VFIOPCIDevice, ptr %0, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 2680
   %6 = load ptr, ptr %name, align 8
   %7 = load i64, ptr %data, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3798,7 +3774,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = call i32 @qemu_get_thread_id() #10
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %6, i32 noundef %and4, i64 noundef %7) #10
   br label %trace_vfio_quirk_rtl8168_msix_read.exit
@@ -3822,9 +3798,9 @@ define internal void @vfio_rtl8168_quirk_data_write(ptr nocapture noundef %opaqu
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %conv = trunc i64 %data to i32
-  %data2 = getelementptr inbounds %struct.VFIOrtl8168Quirk, ptr %opaque, i64 0, i32 2
+  %data2 = getelementptr inbounds i8, ptr %opaque, i64 12
   store i32 %conv, ptr %data2, align 4
-  %arrayidx = getelementptr %struct.VFIOPCIDevice, ptr %0, i64 0, i32 14, i64 2
+  %arrayidx = getelementptr i8, ptr %0, i64 3064
   %add = add i64 %addr, 112
   tail call void @vfio_region_write(ptr noundef %arrayidx, i64 noundef %add, i64 noundef %data, i32 noundef %size) #10
   ret void

@@ -10,8 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %"class.std::allocator" = type { i8 }
-%"class.std::basic_string_view" = type { i64, ptr }
-%"struct.pbrt::FileLoc" = type { %"class.std::basic_string_view", i32, i32 }
 %struct._Guard = type { ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -104,7 +102,7 @@ define dso_local void @_ZNK4pbrt7FileLoc8ToStringB5cxx11Ev(ptr noalias sret(%"cl
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1
-  %_M_str.i = getelementptr inbounds %"class.std::basic_string_view", ptr %this, i64 0, i32 1
+  %_M_str.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_str.i, align 8
   %1 = load i64, ptr %this, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #16
@@ -112,8 +110,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %line = getelementptr inbounds %"struct.pbrt::FileLoc", ptr %this, i64 0, i32 1
-  %column = getelementptr inbounds %"struct.pbrt::FileLoc", ptr %this, i64 0, i32 2
+  %line = getelementptr inbounds i8, ptr %this, i64 16
+  %column = getelementptr inbounds i8, ptr %this, i64 20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKiS9_EEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %line, ptr noundef nonnull align 4 dereferenceable(4) %column)
           to label %invoke.cont6 unwind label %lpad.i

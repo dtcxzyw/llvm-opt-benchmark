@@ -2236,8 +2236,8 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   br i1 %tobool.not243, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %sdslen.exit
-  %overflow_arg_area_p94 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %6 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %overflow_arg_area_p94 = getelementptr inbounds i8, ptr %ap, i64 8
+  %6 = getelementptr inbounds i8, ptr %ap, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog116

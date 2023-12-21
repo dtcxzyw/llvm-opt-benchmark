@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-ct_policy.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ct_policy_eval_ctx_st = type { ptr, ptr, ptr, i64, ptr, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/ct/ct_policy.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -15,14 +13,14 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %libctx1 = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %call, i64 0, i32 4
+  %libctx1 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %libctx, ptr %libctx1, align 8
   %cmp2.not = icmp eq ptr %propq, null
   br i1 %cmp2.not, label %if.end10, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 39) #5
-  %propq5 = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %call, i64 0, i32 5
+  %propq5 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call4, ptr %propq5, align 8
   %cmp7 = icmp eq ptr %call4, null
   br i1 %cmp7, label %if.then8, label %if.end10
@@ -35,7 +33,7 @@ if.end10:                                         ; preds = %if.then3, %if.end
   %call11 = tail call i64 @ossl_time_now() #5
   %retval.sroa.0.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %call11, i64 300000000000)
   %div = udiv i64 %retval.sroa.0.0.i, 1000000
-  %epoch_time_in_ms = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %call, i64 0, i32 3
+  %epoch_time_in_ms = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %div, ptr %epoch_time_in_ms, align 8
   br label %return
 
@@ -60,12 +58,12 @@ entry:
   br i1 %cmp.i, label %CT_POLICY_EVAL_CTX_new_ex.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %libctx1.i = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %call.i, i64 0, i32 4
+  %libctx1.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr null, ptr %libctx1.i, align 8
   %call11.i = tail call i64 @ossl_time_now() #5
   %retval.sroa.0.0.i.i = tail call i64 @llvm.uadd.sat.i64(i64 %call11.i, i64 300000000000)
   %div.i = udiv i64 %retval.sroa.0.0.i.i, 1000000
-  %epoch_time_in_ms.i = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %call.i, i64 0, i32 3
+  %epoch_time_in_ms.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %div.i, ptr %epoch_time_in_ms.i, align 8
   br label %CT_POLICY_EVAL_CTX_new_ex.exit
 
@@ -82,10 +80,10 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ctx, align 8
   tail call void @X509_free(ptr noundef %0) #5
-  %issuer = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %ctx, i64 0, i32 1
+  %issuer = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %issuer, align 8
   tail call void @X509_free(ptr noundef %1) #5
-  %propq = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %ctx, i64 0, i32 5
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 64) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %ctx, ptr noundef nonnull @.str, i32 noundef 65) #5
@@ -123,7 +121,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %issuer1 = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %ctx, i64 0, i32 1
+  %issuer1 = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %issuer, ptr %issuer1, align 8
   br label %return
 
@@ -135,7 +133,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @CT_POLICY_EVAL_CTX_set_shared_CTLOG_STORE(ptr nocapture noundef writeonly %ctx, ptr noundef %log_store) local_unnamed_addr #2 {
 entry:
-  %log_store1 = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %ctx, i64 0, i32 2
+  %log_store1 = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %log_store, ptr %log_store1, align 8
   ret void
 }
@@ -143,7 +141,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @CT_POLICY_EVAL_CTX_set_time(ptr nocapture noundef writeonly %ctx, i64 noundef %time_in_ms) local_unnamed_addr #2 {
 entry:
-  %epoch_time_in_ms = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %ctx, i64 0, i32 3
+  %epoch_time_in_ms = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %time_in_ms, ptr %epoch_time_in_ms, align 8
   ret void
 }
@@ -158,7 +156,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CT_POLICY_EVAL_CTX_get0_issuer(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %issuer = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %ctx, i64 0, i32 1
+  %issuer = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %issuer, align 8
   ret ptr %0
 }
@@ -166,7 +164,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CT_POLICY_EVAL_CTX_get0_log_store(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %log_store = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %ctx, i64 0, i32 2
+  %log_store = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %log_store, align 8
   ret ptr %0
 }
@@ -174,7 +172,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @CT_POLICY_EVAL_CTX_get_time(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %epoch_time_in_ms = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %ctx, i64 0, i32 3
+  %epoch_time_in_ms = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load i64, ptr %epoch_time_in_ms, align 8
   ret i64 %0
 }

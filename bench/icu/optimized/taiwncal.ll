@@ -3,11 +3,10 @@ source_filename = "bench/icu/original/taiwncal.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::Calendar" = type <{ %"class.icu_75::UObject", i8, i8, i8, i8, [24 x i32], [24 x i8], [24 x i32], i32, double, i8, [7 x i8], ptr, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [157 x i8], [157 x i8], [6 x i8] }>
-%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::TaiwanCalendar" = type { %"class.icu_75::GregorianCalendar.base", [2 x i8] }
 %"class.icu_75::GregorianCalendar.base" = type <{ %"class.icu_75::Calendar.base", [6 x i8], double, i32, [4 x i8], double, i32, i8, i8 }>
 %"class.icu_75::Calendar.base" = type <{ %"class.icu_75::UObject", i8, i8, i8, i8, [24 x i32], [24 x i8], [24 x i32], i32, double, i8, [7 x i8], ptr, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [157 x i8], [157 x i8] }>
+%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 
 @_ZZN6icu_7514TaiwanCalendar16getStaticClassIDEvE7classID = internal global i8 0, align 1
@@ -151,48 +150,48 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 19
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %cond.true.i, label %if.end15
 
 cond.true.i:                                      ; preds = %if.then
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %arrayidx3.i, align 8
   br label %if.end15
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %arrayidx.i2 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 0
-  %2 = load i32, ptr %arrayidx.i2, align 4
+  %fStamp.i2 = getelementptr inbounds i8, ptr %this, i64 132
+  %2 = load i32, ptr %fStamp.i2, align 4
   %cmp.i3 = icmp sgt i32 %2, 0
   br i1 %cmp.i3, label %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit7, label %if.then7
 
 _ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit7: ; preds = %if.else
-  %arrayidx3.i6 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
-  %3 = load i32, ptr %arrayidx3.i6, align 4
+  %fFields.i6 = getelementptr inbounds i8, ptr %this, i64 12
+  %3 = load i32, ptr %fFields.i6, align 4
   switch i32 %3, label %if.end15 [
     i32 1, label %if.then7
     i32 0, label %if.then11
   ]
 
 if.then7:                                         ; preds = %if.else, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit7
-  %arrayidx.i8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
-  %4 = load i32, ptr %arrayidx.i8, align 8
-  %arrayidx3.i12 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  %5 = load i32, ptr %arrayidx3.i12, align 8
-  %cmp.i9.inv = icmp slt i32 %4, 1
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %this, i64 136
+  %4 = load i32, ptr %arrayidx.i9, align 8
+  %arrayidx3.i14 = getelementptr inbounds i8, ptr %this, i64 16
+  %5 = load i32, ptr %arrayidx3.i14, align 8
+  %cmp.i10.inv = icmp slt i32 %4, 1
   %6 = add nsw i32 %5, 1911
-  %add = select i1 %cmp.i9.inv, i32 1912, i32 %6
+  %add = select i1 %cmp.i10.inv, i32 1912, i32 %6
   br label %if.end15
 
 if.then11:                                        ; preds = %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit7
-  %arrayidx.i14 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
-  %7 = load i32, ptr %arrayidx.i14, align 8
-  %arrayidx3.i18 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  %8 = load i32, ptr %arrayidx3.i18, align 8
-  %cmp.i15.inv = icmp slt i32 %7, 1
+  %arrayidx.i17 = getelementptr inbounds i8, ptr %this, i64 136
+  %7 = load i32, ptr %arrayidx.i17, align 8
+  %arrayidx3.i22 = getelementptr inbounds i8, ptr %this, i64 16
+  %8 = load i32, ptr %arrayidx3.i22, align 8
+  %cmp.i18.inv = icmp slt i32 %7, 1
   %9 = sub i32 1912, %8
-  %add13 = select i1 %cmp.i15.inv, i32 1911, i32 %9
+  %add13 = select i1 %cmp.i18.inv, i32 1911, i32 %9
   br label %if.end15
 
 if.end15:                                         ; preds = %cond.true.i, %if.then, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit7, %if.then7, %if.then11
@@ -206,25 +205,25 @@ declare noundef i32 @_ZNK6icu_758Calendar10newerFieldE19UCalendarDateFieldsS1_(p
 define void @_ZN6icu_7514TaiwanCalendar19handleComputeFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %julianDay, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7517GregorianCalendar19handleComputeFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %julianDay, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %arrayidx.i, align 8
   %cmp = icmp sgt i32 %0, 1911
   %sub = add nsw i32 %0, -1911
   %sub2 = sub nsw i32 1912, %0
   %.sink = zext i1 %cmp to i32
   %sub2.sink = select i1 %cmp, i32 %sub, i32 %sub2
-  %1 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
-  store i32 %.sink, ptr %1, align 4
-  %2 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 0
-  store i32 1, ptr %2, align 4
-  %3 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 0
-  store i8 1, ptr %3, align 4
-  %4 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  store i32 %sub2.sink, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
-  store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 1
-  store i8 1, ptr %6, align 1
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 %.sink, ptr %fFields.i, align 4
+  %1 = getelementptr inbounds i8, ptr %this, i64 132
+  store i32 1, ptr %1, align 4
+  %2 = getelementptr inbounds i8, ptr %this, i64 108
+  store i8 1, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %sub2.sink, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %this, i64 136
+  store i32 1, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %this, i64 109
+  store i8 1, ptr %5, align 1
   ret void
 }
 

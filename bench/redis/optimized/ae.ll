@@ -3,10 +3,7 @@ source_filename = "bench/redis/original/ae.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.aeEventLoop = type { i32, i32, i64, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32 }
-%struct.aeApiState = type { i32, ptr }
 %struct.aeFileEvent = type { i32, ptr, ptr, ptr }
-%struct.aeTimeEvent = type { i64, i64, ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.epoll_event = type <{ i32, %union.epoll_data }>
 %union.epoll_data = type { ptr }
 %struct.aeFiredEvent = type { i32, i32 }
@@ -29,11 +26,11 @@ if.end:                                           ; preds = %entry
   %conv = sext i32 %setsize to i64
   %mul = shl nsw i64 %conv, 5
   %call2 = tail call noalias ptr @zmalloc(i64 noundef %mul) #17
-  %events = getelementptr inbounds %struct.aeEventLoop, ptr %call1, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %call2, ptr %events, align 8
   %mul4 = shl nsw i64 %conv, 3
   %call5 = tail call noalias ptr @zmalloc(i64 noundef %mul4) #17
-  %fired = getelementptr inbounds %struct.aeEventLoop, ptr %call1, i64 0, i32 4
+  %fired = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %call5, ptr %fired, align 8
   %cmp7 = icmp eq ptr %call2, null
   %cmp10 = icmp eq ptr %call5, null
@@ -41,16 +38,16 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then23, label %if.end13
 
 if.end13:                                         ; preds = %if.end
-  %setsize14 = getelementptr inbounds %struct.aeEventLoop, ptr %call1, i64 0, i32 1
+  %setsize14 = getelementptr inbounds i8, ptr %call1, i64 4
   store i32 %setsize, ptr %setsize14, align 4
-  %timeEventHead = getelementptr inbounds %struct.aeEventLoop, ptr %call1, i64 0, i32 5
+  %timeEventHead = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr null, ptr %timeEventHead, align 8
-  %timeEventNextId = getelementptr inbounds %struct.aeEventLoop, ptr %call1, i64 0, i32 2
+  %timeEventNextId = getelementptr inbounds i8, ptr %call1, i64 8
   store i64 0, ptr %timeEventNextId, align 8
-  %stop = getelementptr inbounds %struct.aeEventLoop, ptr %call1, i64 0, i32 6
+  %stop = getelementptr inbounds i8, ptr %call1, i64 40
   store i32 0, ptr %stop, align 8
   store i32 -1, ptr %call1, align 8
-  %beforesleep = getelementptr inbounds %struct.aeEventLoop, ptr %call1, i64 0, i32 8
+  %beforesleep = getelementptr inbounds i8, ptr %call1, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %beforesleep, i8 0, i64 20, i1 false)
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #17
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -59,7 +56,7 @@ if.end13:                                         ; preds = %if.end
 if.end.i:                                         ; preds = %if.end13
   %mul.i = mul nsw i64 %conv, 12
   %call1.i = tail call noalias ptr @zmalloc(i64 noundef %mul.i) #17
-  %events.i = getelementptr inbounds %struct.aeApiState, ptr %call.i, i64 0, i32 1
+  %events.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call1.i, ptr %events.i, align 8
   %tobool3.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool3.not.i, label %if.then23.sink.split, label %if.end5.i
@@ -77,7 +74,7 @@ if.then9.i:                                       ; preds = %if.end5.i
 
 aeApiCreate.exit:                                 ; preds = %if.end5.i
   %call13.i = tail call i32 @anetCloexec(i32 noundef %call6.i) #16
-  %apidata.i = getelementptr inbounds %struct.aeEventLoop, ptr %call1, i64 0, i32 7
+  %apidata.i = getelementptr inbounds i8, ptr %call1, i64 48
   store ptr %call.i, ptr %apidata.i, align 8
   %cmp2026 = icmp sgt i32 %setsize, 0
   br i1 %cmp2026, label %for.body.preheader, label %return
@@ -119,7 +116,7 @@ declare void @zfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @aeGetSetSize(ptr nocapture noundef readonly %eventLoop) local_unnamed_addr #3 {
 entry:
-  %setsize = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 1
+  %setsize = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize, align 4
   ret i32 %0
 }
@@ -128,7 +125,7 @@ entry:
 define dso_local void @aeSetDontWait(ptr nocapture noundef %eventLoop, i32 noundef %noWait) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq i32 %noWait, 0
-  %flags1 = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 10
+  %flags1 = getelementptr inbounds i8, ptr %eventLoop, i64 72
   %0 = load i32, ptr %flags1, align 8
   %and = and i32 %0, -5
   %masksel = select i1 %tobool.not, i32 0, i32 4
@@ -140,7 +137,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @aeResizeSetSize(ptr nocapture noundef %eventLoop, i32 noundef %setsize) local_unnamed_addr #0 {
 entry:
-  %setsize1 = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 1
+  %setsize1 = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize1, align 4
   %cmp = icmp eq i32 %0, %setsize
   br i1 %cmp, label %return, label %if.end
@@ -153,18 +150,18 @@ if.end:                                           ; preds = %entry
 if.end4:                                          ; preds = %if.end
   %2 = getelementptr i8, ptr %eventLoop, i64 48
   %eventLoop.val = load ptr, ptr %2, align 8
-  %events.i = getelementptr inbounds %struct.aeApiState, ptr %eventLoop.val, i64 0, i32 1
+  %events.i = getelementptr inbounds i8, ptr %eventLoop.val, i64 8
   %3 = load ptr, ptr %events.i, align 8
   %conv.i = sext i32 %setsize to i64
   %mul.i = mul nsw i64 %conv.i, 12
   %call.i = tail call ptr @zrealloc(ptr noundef %3, i64 noundef %mul.i) #18
   store ptr %call.i, ptr %events.i, align 8
-  %events = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %eventLoop, i64 16
   %4 = load ptr, ptr %events, align 8
   %mul = shl nsw i64 %conv.i, 5
   %call8 = tail call ptr @zrealloc(ptr noundef %4, i64 noundef %mul) #18
   store ptr %call8, ptr %events, align 8
-  %fired = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 4
+  %fired = getelementptr inbounds i8, ptr %eventLoop, i64 24
   %5 = load ptr, ptr %fired, align 8
   %mul11 = shl nsw i64 %conv.i, 3
   %call12 = tail call ptr @zrealloc(ptr noundef %5, i64 noundef %mul11) #18
@@ -205,24 +202,24 @@ entry:
   %eventLoop.val = load ptr, ptr %0, align 8
   %1 = load i32, ptr %eventLoop.val, align 8
   %call.i = tail call i32 @close(i32 noundef %1) #16
-  %events.i = getelementptr inbounds %struct.aeApiState, ptr %eventLoop.val, i64 0, i32 1
+  %events.i = getelementptr inbounds i8, ptr %eventLoop.val, i64 8
   %2 = load ptr, ptr %events.i, align 8
   tail call void @zfree(ptr noundef %2) #16
   tail call void @zfree(ptr noundef nonnull %eventLoop.val) #16
-  %events = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %eventLoop, i64 16
   %3 = load ptr, ptr %events, align 8
   tail call void @zfree(ptr noundef %3) #16
-  %fired = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 4
+  %fired = getelementptr inbounds i8, ptr %eventLoop, i64 24
   %4 = load ptr, ptr %fired, align 8
   tail call void @zfree(ptr noundef %4) #16
-  %timeEventHead = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 5
+  %timeEventHead = getelementptr inbounds i8, ptr %eventLoop, i64 32
   %5 = load ptr, ptr %timeEventHead, align 8
   %tobool.not7 = icmp eq ptr %5, null
   br i1 %tobool.not7, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
   %te.08 = phi ptr [ %6, %while.body ], [ %5, %entry ]
-  %next = getelementptr inbounds %struct.aeTimeEvent, ptr %te.08, i64 0, i32 6
+  %next = getelementptr inbounds i8, ptr %te.08, i64 48
   %6 = load ptr, ptr %next, align 8
   tail call void @zfree(ptr noundef nonnull %te.08) #16
   %tobool.not = icmp eq ptr %6, null
@@ -236,7 +233,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @aeStop(ptr nocapture noundef writeonly %eventLoop) local_unnamed_addr #6 {
 entry:
-  %stop = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 6
+  %stop = getelementptr inbounds i8, ptr %eventLoop, i64 40
   store i32 1, ptr %stop, align 8
   ret void
 }
@@ -245,7 +242,7 @@ entry:
 define dso_local i32 @aeCreateFileEvent(ptr nocapture noundef %eventLoop, i32 noundef %fd, i32 noundef %mask, ptr noundef %proc, ptr noundef %clientData) local_unnamed_addr #0 {
 entry:
   %ee.i = alloca %struct.epoll_event, align 4
-  %setsize = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 1
+  %setsize = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize, align 4
   %cmp.not = icmp sgt i32 %0, %fd
   br i1 %cmp.not, label %if.end, label %if.then
@@ -256,16 +253,16 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %events = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %eventLoop, i64 16
   %1 = load ptr, ptr %events, align 8
   %idxprom = sext i32 %fd to i64
+  %arrayidx = getelementptr inbounds %struct.aeFileEvent, ptr %1, i64 %idxprom
   %2 = getelementptr i8, ptr %eventLoop, i64 48
   %eventLoop.val16 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ee.i)
   %3 = getelementptr inbounds i8, ptr %ee.i, i64 8
   store i32 0, ptr %3, align 4
-  %arrayidx.i = getelementptr inbounds %struct.aeFileEvent, ptr %1, i64 %idxprom
-  %4 = load i32, ptr %arrayidx.i, align 8
+  %4 = load i32, ptr %arrayidx, align 8
   %or.i = or i32 %4, %mask
   %and.i = and i32 %or.i, 1
   %and9.i = shl i32 %or.i, 1
@@ -274,7 +271,7 @@ if.end:                                           ; preds = %entry
   store i32 %spec.select.i, ptr %ee.i, align 4
   %cmp.i = icmp eq i32 %4, 0
   %cond.i = select i1 %cmp.i, i32 1, i32 3
-  %data.i = getelementptr inbounds %struct.epoll_event, ptr %ee.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %ee.i, i64 4
   store i32 %fd, ptr %data.i, align 4
   %6 = load i32, ptr %eventLoop.val16, align 8
   %call.i = call i32 @epoll_ctl(i32 noundef %6, i32 noundef %cond.i, i32 noundef %fd, ptr noundef nonnull %ee.i) #16
@@ -283,15 +280,15 @@ if.end:                                           ; preds = %entry
   br i1 %cmp15.i, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %7 = load i32, ptr %arrayidx.i, align 8
+  %7 = load i32, ptr %arrayidx, align 8
   %or = or i32 %7, %mask
-  store i32 %or, ptr %arrayidx.i, align 8
+  store i32 %or, ptr %arrayidx, align 8
   %and = and i32 %mask, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %rfileProc = getelementptr inbounds %struct.aeFileEvent, ptr %1, i64 %idxprom, i32 1
+  %rfileProc = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %proc, ptr %rfileProc, align 8
   br label %if.end7
 
@@ -301,12 +298,12 @@ if.end7:                                          ; preds = %if.then6, %if.end4
   br i1 %tobool9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end7
-  %wfileProc = getelementptr inbounds %struct.aeFileEvent, ptr %1, i64 %idxprom, i32 2
+  %wfileProc = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr %proc, ptr %wfileProc, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end7
-  %clientData12 = getelementptr inbounds %struct.aeFileEvent, ptr %1, i64 %idxprom, i32 3
+  %clientData12 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store ptr %clientData, ptr %clientData12, align 8
   %8 = load i32, ptr %eventLoop, align 8
   %cmp13 = icmp slt i32 %8, %fd
@@ -328,13 +325,13 @@ declare ptr @__errno_location() local_unnamed_addr #7
 define dso_local void @aeDeleteFileEvent(ptr nocapture noundef %eventLoop, i32 noundef %fd, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
   %ee.i = alloca %struct.epoll_event, align 4
-  %setsize = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 1
+  %setsize = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize, align 4
   %cmp.not = icmp sgt i32 %0, %fd
   br i1 %cmp.not, label %if.end, label %if.end24
 
 if.end:                                           ; preds = %entry
-  %events = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %eventLoop, i64 16
   %1 = load ptr, ptr %events, align 8
   %idxprom = sext i32 %fd to i64
   %arrayidx = getelementptr inbounds %struct.aeFileEvent, ptr %1, i64 %idxprom
@@ -421,13 +418,13 @@ if.end24:                                         ; preds = %if.end, %entry, %fo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @aeGetFileClientData(ptr nocapture noundef readonly %eventLoop, i32 noundef %fd) local_unnamed_addr #8 {
 entry:
-  %setsize = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 1
+  %setsize = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize, align 4
   %cmp.not = icmp sgt i32 %0, %fd
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %events = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %eventLoop, i64 16
   %1 = load ptr, ptr %events, align 8
   %idxprom = sext i32 %fd to i64
   %arrayidx = getelementptr inbounds %struct.aeFileEvent, ptr %1, i64 %idxprom
@@ -436,7 +433,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %clientData = getelementptr inbounds %struct.aeFileEvent, ptr %1, i64 %idxprom, i32 3
+  %clientData = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %3 = load ptr, ptr %clientData, align 8
   br label %return
 
@@ -448,13 +445,13 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @aeGetFileEvents(ptr nocapture noundef readonly %eventLoop, i32 noundef %fd) local_unnamed_addr #8 {
 entry:
-  %setsize = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 1
+  %setsize = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize, align 4
   %cmp.not = icmp sgt i32 %0, %fd
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %events = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %eventLoop, i64 16
   %1 = load ptr, ptr %events, align 8
   %idxprom = sext i32 %fd to i64
   %arrayidx = getelementptr inbounds %struct.aeFileEvent, ptr %1, i64 %idxprom
@@ -469,7 +466,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @aeCreateTimeEvent(ptr nocapture noundef %eventLoop, i64 noundef %milliseconds, ptr noundef %proc, ptr noundef %clientData, ptr noundef %finalizerProc) local_unnamed_addr #0 {
 entry:
-  %timeEventNextId = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 2
+  %timeEventNextId = getelementptr inbounds i8, ptr %eventLoop, i64 8
   %0 = load i64, ptr %timeEventNextId, align 8
   %inc = add nsw i64 %0, 1
   store i64 %inc, ptr %timeEventNextId, align 8
@@ -483,27 +480,27 @@ if.end:                                           ; preds = %entry
   %call2 = tail call i64 %1() #16
   %mul = mul nsw i64 %milliseconds, 1000
   %add = add i64 %call2, %mul
-  %when = getelementptr inbounds %struct.aeTimeEvent, ptr %call, i64 0, i32 1
+  %when = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %add, ptr %when, align 8
-  %timeProc = getelementptr inbounds %struct.aeTimeEvent, ptr %call, i64 0, i32 2
+  %timeProc = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %proc, ptr %timeProc, align 8
-  %finalizerProc3 = getelementptr inbounds %struct.aeTimeEvent, ptr %call, i64 0, i32 3
+  %finalizerProc3 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %finalizerProc, ptr %finalizerProc3, align 8
-  %clientData4 = getelementptr inbounds %struct.aeTimeEvent, ptr %call, i64 0, i32 4
+  %clientData4 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %clientData, ptr %clientData4, align 8
-  %prev = getelementptr inbounds %struct.aeTimeEvent, ptr %call, i64 0, i32 5
+  %prev = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %prev, align 8
-  %timeEventHead = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 5
+  %timeEventHead = getelementptr inbounds i8, ptr %eventLoop, i64 32
   %2 = load ptr, ptr %timeEventHead, align 8
-  %next = getelementptr inbounds %struct.aeTimeEvent, ptr %call, i64 0, i32 6
+  %next = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %2, ptr %next, align 8
-  %refcount = getelementptr inbounds %struct.aeTimeEvent, ptr %call, i64 0, i32 7
+  %refcount = getelementptr inbounds i8, ptr %call, i64 56
   store i32 0, ptr %refcount, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %prev8 = getelementptr inbounds %struct.aeTimeEvent, ptr %2, i64 0, i32 5
+  %prev8 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %call, ptr %prev8, align 8
   br label %if.end9
 
@@ -519,7 +516,7 @@ return:                                           ; preds = %entry, %if.end9
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @aeDeleteTimeEvent(ptr nocapture noundef readonly %eventLoop, i64 noundef %id) local_unnamed_addr #9 {
 entry:
-  %timeEventHead = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 5
+  %timeEventHead = getelementptr inbounds i8, ptr %eventLoop, i64 32
   %te.05 = load ptr, ptr %timeEventHead, align 8
   %tobool.not6 = icmp eq ptr %te.05, null
   br i1 %tobool.not6, label %return, label %while.body
@@ -535,7 +532,7 @@ if.then:                                          ; preds = %while.body
   br label %return
 
 if.end:                                           ; preds = %while.body
-  %next = getelementptr inbounds %struct.aeTimeEvent, ptr %te.07, i64 0, i32 6
+  %next = getelementptr inbounds i8, ptr %te.07, i64 48
   %te.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %te.0, null
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !10
@@ -564,7 +561,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond103, label %if.then8, label %if.end105
 
 if.then8:                                         ; preds = %if.end
-  %beforesleep = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 8
+  %beforesleep = getelementptr inbounds i8, ptr %eventLoop, i64 56
   %3 = load ptr, ptr %beforesleep, align 8
   %cmp9.not = icmp eq ptr %3, null
   %and11 = and i32 %flags, 8
@@ -582,7 +579,7 @@ if.end15:                                         ; preds = %if.then13, %if.then
   br i1 %tobool17.not, label %lor.lhs.false18, label %cond.true.i
 
 lor.lhs.false18:                                  ; preds = %if.end15
-  %flags19 = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 10
+  %flags19 = getelementptr inbounds i8, ptr %eventLoop, i64 72
   %4 = load i32, ptr %flags19, align 8
   %and20 = and i32 %4, 4
   %tobool21.not = icmp eq i32 %and20, 0
@@ -604,9 +601,9 @@ while.body.i:                                     ; preds = %if.then25, %if.end6
   br i1 %tobool1.not.i, label %land.lhs.true.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %while.body.i
-  %when.i = getelementptr inbounds %struct.aeTimeEvent, ptr %te.01.i, i64 0, i32 1
+  %when.i = getelementptr inbounds i8, ptr %te.01.i, i64 8
   %6 = load i64, ptr %when.i, align 8
-  %when2.i = getelementptr inbounds %struct.aeTimeEvent, ptr %earliest.02.i, i64 0, i32 1
+  %when2.i = getelementptr inbounds i8, ptr %earliest.02.i, i64 8
   %7 = load i64, ptr %when2.i, align 8
   %cmp3.i = icmp ult i64 %6, %7
   br i1 %cmp3.i, label %land.lhs.true.i, label %if.end6.i
@@ -619,7 +616,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i, %w
 
 if.end6.i:                                        ; preds = %land.lhs.true.i, %lor.lhs.false.i
   %earliest.1.i = phi ptr [ %earliest.02.i, %lor.lhs.false.i ], [ %spec.select.i, %land.lhs.true.i ]
-  %next.i = getelementptr inbounds %struct.aeTimeEvent, ptr %te.01.i, i64 0, i32 6
+  %next.i = getelementptr inbounds i8, ptr %te.01.i, i64 48
   %9 = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %usUntilEarliestTimer.exit, label %while.body.i, !llvm.loop !11
@@ -627,7 +624,7 @@ if.end6.i:                                        ; preds = %land.lhs.true.i, %l
 usUntilEarliestTimer.exit:                        ; preds = %if.end6.i
   %10 = load ptr, ptr @getMonotonicUs, align 8
   %call.i = tail call i64 %10() #16
-  %when7.i = getelementptr inbounds %struct.aeTimeEvent, ptr %earliest.1.i, i64 0, i32 1
+  %when7.i = getelementptr inbounds i8, ptr %earliest.1.i, i64 8
   %11 = load i64, ptr %when7.i, align 8
   %spec.select11.i = tail call i64 @llvm.usub.sat.i64(i64 %11, i64 %call.i)
   %cmp26 = icmp sgt i64 %spec.select11.i, -1
@@ -651,19 +648,19 @@ cond.true.i:                                      ; preds = %if.end15, %lor.lhs.
 
 cond.end.i:                                       ; preds = %if.then25, %if.else, %usUntilEarliestTimer.exit, %cond.true.i
   %cond.i = phi i32 [ %17, %cond.true.i ], [ -1, %usUntilEarliestTimer.exit ], [ -1, %if.else ], [ -1, %if.then25 ]
-  %.pn.in = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 7
+  %.pn.in = getelementptr inbounds i8, ptr %eventLoop, i64 48
   %.pn = load ptr, ptr %.pn.in, align 8
   %18 = load i32, ptr %.pn, align 8
-  %events.i87 = getelementptr inbounds %struct.aeApiState, ptr %.pn, i64 0, i32 1
+  %events.i87 = getelementptr inbounds i8, ptr %.pn, i64 8
   %19 = load ptr, ptr %events.i87, align 8
-  %.in = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 1
+  %.in = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %20 = load i32, ptr %.in, align 4
   %call.i69 = tail call i32 @epoll_wait(i32 noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %cond.i) #16
   %cmp.i70 = icmp sgt i32 %call.i69, 0
   br i1 %cmp.i70, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %cond.end.i
-  %fired.i = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 4
+  %fired.i = getelementptr inbounds i8, ptr %eventLoop, i64 24
   %wide.trip.count.i = zext nneg i32 %call.i69 to i64
   br label %for.body.i
 
@@ -679,7 +676,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
   %24 = and i32 %22, 24
   %25 = icmp eq i32 %24, 0
   %mask.3.i = select i1 %25, i32 %mask.1.i, i32 3
-  %data.i = getelementptr inbounds %struct.epoll_event, ptr %21, i64 %indvars.iv.i, i32 1
+  %data.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %26 = load i32, ptr %data.i, align 1
   %27 = load ptr, ptr %fired.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.aeFiredEvent, ptr %27, i64 %indvars.iv.i
@@ -710,7 +707,7 @@ if.then37.i:                                      ; preds = %land.lhs.true.i71
 aeApiPoll.exit:                                   ; preds = %for.body.i, %if.else.i, %land.lhs.true.i71
   %numevents.0.i = phi i32 [ 0, %land.lhs.true.i71 ], [ 0, %if.else.i ], [ %call.i69, %for.body.i ]
   %tobool35.not = icmp ne i32 %and1, 0
-  %aftersleep = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 9
+  %aftersleep = getelementptr inbounds i8, ptr %eventLoop, i64 64
   %30 = load ptr, ptr %aftersleep, align 8
   %cmp38.not = icmp eq ptr %30, null
   %and40 = and i32 %flags, 16
@@ -728,8 +725,8 @@ if.end44:                                         ; preds = %if.then42, %aeApiPo
   br i1 %cmp45116, label %for.body.lr.ph, label %if.end105
 
 for.body.lr.ph:                                   ; preds = %if.end44
-  %fired = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 4
-  %events = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 3
+  %fired = getelementptr inbounds i8, ptr %eventLoop, i64 24
+  %events = getelementptr inbounds i8, ptr %eventLoop, i64 16
   %31 = zext nneg i32 %numevents.0.i to i64
   br label %for.body
 
@@ -741,7 +738,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %34 = load ptr, ptr %events, align 8
   %idxprom47 = sext i32 %33 to i64
   %arrayidx48 = getelementptr inbounds %struct.aeFileEvent, ptr %34, i64 %idxprom47
-  %mask52 = getelementptr inbounds %struct.aeFiredEvent, ptr %32, i64 %indvars.iv, i32 1
+  %mask52 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %35 = load i32, ptr %mask52, align 4
   %36 = load i32, ptr %arrayidx48, align 8
   %and55 = and i32 %36, 4
@@ -758,12 +755,17 @@ if.end66:                                         ; preds = %land.lhs.true57, %f
   %and68 = and i32 %35, 2
   %and69 = and i32 %and68, %36
   %tobool70.not = icmp eq i32 %and69, 0
-  br i1 %tobool70.not, label %if.end81, label %if.then76
+  br i1 %tobool70.not, label %if.end81, label %if.end66.if.then76_crit_edge
+
+if.end66.if.then76_crit_edge:                     ; preds = %if.end66
+  %wfileProc77.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx48, i64 16
+  %.pre = load ptr, ptr %wfileProc77.phi.trans.insert, align 8
+  br label %if.then76
 
 if.end66.thread:                                  ; preds = %land.lhs.true57
-  %rfileProc = getelementptr inbounds %struct.aeFileEvent, ptr %34, i64 %idxprom47, i32 1
+  %rfileProc = getelementptr inbounds i8, ptr %arrayidx48, i64 8
   %37 = load ptr, ptr %rfileProc, align 8
-  %clientData = getelementptr inbounds %struct.aeFileEvent, ptr %34, i64 %idxprom47, i32 3
+  %clientData = getelementptr inbounds i8, ptr %arrayidx48, i64 24
   %38 = load ptr, ptr %clientData, align 8
   tail call void %37(ptr noundef nonnull %eventLoop, i32 noundef %33, ptr noundef %38, i32 noundef %35) #16
   %39 = load ptr, ptr %events, align 8
@@ -775,20 +777,19 @@ if.end66.thread:                                  ; preds = %land.lhs.true57
   br i1 %tobool70.not93, label %if.end102, label %lor.lhs.false73
 
 lor.lhs.false73:                                  ; preds = %if.end66.thread
-  %wfileProc = getelementptr inbounds %struct.aeFileEvent, ptr %39, i64 %idxprom47, i32 2
+  %wfileProc = getelementptr inbounds i8, ptr %arrayidx65, i64 16
   %41 = load ptr, ptr %wfileProc, align 8
-  %rfileProc74 = getelementptr inbounds %struct.aeFileEvent, ptr %39, i64 %idxprom47, i32 1
+  %rfileProc74 = getelementptr inbounds i8, ptr %arrayidx65, i64 8
   %42 = load ptr, ptr %rfileProc74, align 8
   %cmp75.not = icmp eq ptr %41, %42
   br i1 %cmp75.not, label %if.end102, label %if.then76
 
-if.then76:                                        ; preds = %if.end66, %lor.lhs.false73
-  %fe.09499 = phi ptr [ %arrayidx65, %lor.lhs.false73 ], [ %arrayidx48, %if.end66 ]
-  %wfileProc77 = getelementptr inbounds %struct.aeFileEvent, ptr %fe.09499, i64 0, i32 2
-  %43 = load ptr, ptr %wfileProc77, align 8
-  %clientData78 = getelementptr inbounds %struct.aeFileEvent, ptr %fe.09499, i64 0, i32 3
-  %44 = load ptr, ptr %clientData78, align 8
-  tail call void %43(ptr noundef nonnull %eventLoop, i32 noundef %33, ptr noundef %44, i32 noundef %35) #16
+if.then76:                                        ; preds = %if.end66.if.then76_crit_edge, %lor.lhs.false73
+  %43 = phi ptr [ %41, %lor.lhs.false73 ], [ %.pre, %if.end66.if.then76_crit_edge ]
+  %44 = phi ptr [ %39, %lor.lhs.false73 ], [ %34, %if.end66.if.then76_crit_edge ]
+  %clientData78 = getelementptr inbounds %struct.aeFileEvent, ptr %44, i64 %idxprom47, i32 3
+  %45 = load ptr, ptr %clientData78, align 8
+  tail call void %43(ptr noundef nonnull %eventLoop, i32 noundef %33, ptr noundef %45, i32 noundef %35) #16
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then76, %if.end66
@@ -796,11 +797,11 @@ if.end81:                                         ; preds = %if.then76, %if.end6
   br i1 %tobool56.not, label %if.end102, label %if.then83
 
 if.then83:                                        ; preds = %if.end81
-  %45 = load ptr, ptr %events, align 8
-  %arrayidx86 = getelementptr inbounds %struct.aeFileEvent, ptr %45, i64 %idxprom47
-  %46 = load i32, ptr %arrayidx86, align 8
+  %46 = load ptr, ptr %events, align 8
+  %arrayidx86 = getelementptr inbounds %struct.aeFileEvent, ptr %46, i64 %idxprom47
+  %47 = load i32, ptr %arrayidx86, align 8
   %and88 = and i32 %35, 1
-  %and89 = and i32 %and88, %46
+  %and89 = and i32 %and88, %47
   %tobool90.not = icmp eq i32 %and89, 0
   br i1 %tobool90.not, label %if.end102, label %land.lhs.true91
 
@@ -808,23 +809,23 @@ land.lhs.true91:                                  ; preds = %if.then83
   br i1 %tobool92.not, label %land.lhs.true91.if.then97_crit_edge, label %lor.lhs.false93
 
 land.lhs.true91.if.then97_crit_edge:              ; preds = %land.lhs.true91
-  %rfileProc98.phi.trans.insert = getelementptr inbounds %struct.aeFileEvent, ptr %45, i64 %idxprom47, i32 1
-  %.pre = load ptr, ptr %rfileProc98.phi.trans.insert, align 8
+  %rfileProc98.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx86, i64 8
+  %.pre134 = load ptr, ptr %rfileProc98.phi.trans.insert, align 8
   br label %if.then97
 
 lor.lhs.false93:                                  ; preds = %land.lhs.true91
-  %wfileProc94 = getelementptr inbounds %struct.aeFileEvent, ptr %45, i64 %idxprom47, i32 2
-  %47 = load ptr, ptr %wfileProc94, align 8
-  %rfileProc95 = getelementptr inbounds %struct.aeFileEvent, ptr %45, i64 %idxprom47, i32 1
-  %48 = load ptr, ptr %rfileProc95, align 8
-  %cmp96.not = icmp eq ptr %47, %48
+  %wfileProc94 = getelementptr inbounds i8, ptr %arrayidx86, i64 16
+  %48 = load ptr, ptr %wfileProc94, align 8
+  %rfileProc95 = getelementptr inbounds i8, ptr %arrayidx86, i64 8
+  %49 = load ptr, ptr %rfileProc95, align 8
+  %cmp96.not = icmp eq ptr %48, %49
   br i1 %cmp96.not, label %if.end102, label %if.then97
 
 if.then97:                                        ; preds = %land.lhs.true91.if.then97_crit_edge, %lor.lhs.false93
-  %49 = phi ptr [ %.pre, %land.lhs.true91.if.then97_crit_edge ], [ %48, %lor.lhs.false93 ]
-  %clientData99 = getelementptr inbounds %struct.aeFileEvent, ptr %45, i64 %idxprom47, i32 3
-  %50 = load ptr, ptr %clientData99, align 8
-  tail call void %49(ptr noundef nonnull %eventLoop, i32 noundef %33, ptr noundef %50, i32 noundef %35) #16
+  %50 = phi ptr [ %.pre134, %land.lhs.true91.if.then97_crit_edge ], [ %49, %lor.lhs.false93 ]
+  %clientData99 = getelementptr inbounds i8, ptr %arrayidx86, i64 24
+  %51 = load ptr, ptr %clientData99, align 8
+  tail call void %50(ptr noundef nonnull %eventLoop, i32 noundef %33, ptr noundef %51, i32 noundef %35) #16
   br label %if.end102
 
 if.end102:                                        ; preds = %lor.lhs.false73, %if.end66.thread, %if.then83, %lor.lhs.false93, %if.then97, %if.end81
@@ -841,114 +842,114 @@ if.end105:                                        ; preds = %if.end105.loopexit,
   br i1 %tobool.not.not, label %return, label %if.then108
 
 if.then108:                                       ; preds = %if.end105
-  %timeEventHead.i = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 5
-  %51 = load ptr, ptr %timeEventHead.i, align 8
-  %timeEventNextId.i = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 2
-  %52 = load i64, ptr %timeEventNextId.i, align 8
-  %53 = load ptr, ptr @getMonotonicUs, align 8
-  %call.i72 = tail call i64 %53() #16
-  %tobool.not424550.i = icmp eq ptr %51, null
+  %timeEventHead.i = getelementptr inbounds i8, ptr %eventLoop, i64 32
+  %52 = load ptr, ptr %timeEventHead.i, align 8
+  %timeEventNextId.i = getelementptr inbounds i8, ptr %eventLoop, i64 8
+  %53 = load i64, ptr %timeEventNextId.i, align 8
+  %54 = load ptr, ptr @getMonotonicUs, align 8
+  %call.i72 = tail call i64 %54() #16
+  %tobool.not424550.i = icmp eq ptr %52, null
   br i1 %tobool.not424550.i, label %processTimeEvents.exit, label %while.body.lr.ph.lr.ph.i
 
 while.body.lr.ph.lr.ph.i:                         ; preds = %if.then108, %if.end47.i
   %processed.0.ph.ph53.i = phi i32 [ %processed.1.i, %if.end47.i ], [ 0, %if.then108 ]
-  %te.0.ph.ph52.i = phi ptr [ %70, %if.end47.i ], [ %51, %if.then108 ]
+  %te.0.ph.ph52.i = phi ptr [ %71, %if.end47.i ], [ %52, %if.then108 ]
   %now.0.ph.ph51.i = phi i64 [ %now.2.i, %if.end47.i ], [ %call.i72, %if.then108 ]
   br label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end24.i, %while.body.lr.ph.lr.ph.i
-  %te.0.ph47.i = phi ptr [ %te.0.ph.ph52.i, %while.body.lr.ph.lr.ph.i ], [ %55, %if.end24.i ]
+  %te.0.ph47.i = phi ptr [ %te.0.ph.ph52.i, %while.body.lr.ph.lr.ph.i ], [ %56, %if.end24.i ]
   %now.0.ph46.i = phi i64 [ %now.0.ph.ph51.i, %while.body.lr.ph.lr.ph.i ], [ %now.1.i, %if.end24.i ]
   br label %while.body.i73
 
 while.body.i73:                                   ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
   %te.043.i = phi ptr [ %te.0.ph47.i, %while.body.lr.ph.i ], [ %te.0.be.i, %while.cond.backedge.i ]
-  %54 = load i64, ptr %te.043.i, align 8
-  %cmp.i74 = icmp eq i64 %54, -1
+  %55 = load i64, ptr %te.043.i, align 8
+  %cmp.i74 = icmp eq i64 %55, -1
   br i1 %cmp.i74, label %if.then.i, label %if.end25.i
 
 if.then.i:                                        ; preds = %while.body.i73
-  %next2.i = getelementptr inbounds %struct.aeTimeEvent, ptr %te.043.i, i64 0, i32 6
-  %55 = load ptr, ptr %next2.i, align 8
-  %refcount.i = getelementptr inbounds %struct.aeTimeEvent, ptr %te.043.i, i64 0, i32 7
-  %56 = load i32, ptr %refcount.i, align 8
-  %tobool3.not.i = icmp eq i32 %56, 0
+  %next2.i = getelementptr inbounds i8, ptr %te.043.i, i64 48
+  %56 = load ptr, ptr %next2.i, align 8
+  %refcount.i = getelementptr inbounds i8, ptr %te.043.i, i64 56
+  %57 = load i32, ptr %refcount.i, align 8
+  %tobool3.not.i = icmp eq i32 %57, 0
   br i1 %tobool3.not.i, label %if.end.i, label %while.cond.backedge.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %next2.i.le = getelementptr inbounds %struct.aeTimeEvent, ptr %te.043.i, i64 0, i32 6
-  %prev.i = getelementptr inbounds %struct.aeTimeEvent, ptr %te.043.i, i64 0, i32 5
-  %57 = load ptr, ptr %prev.i, align 8
-  %tobool5.not.i = icmp eq ptr %57, null
-  %next9.i = getelementptr inbounds %struct.aeTimeEvent, ptr %57, i64 0, i32 6
+  %next2.i.le = getelementptr inbounds i8, ptr %te.043.i, i64 48
+  %prev.i = getelementptr inbounds i8, ptr %te.043.i, i64 40
+  %58 = load ptr, ptr %prev.i, align 8
+  %tobool5.not.i = icmp eq ptr %58, null
+  %next9.i = getelementptr inbounds i8, ptr %58, i64 48
   %timeEventHead.sink.i = select i1 %tobool5.not.i, ptr %timeEventHead.i, ptr %next9.i
-  store ptr %55, ptr %timeEventHead.sink.i, align 8
-  %58 = load ptr, ptr %next2.i.le, align 8
-  %tobool14.not.i = icmp eq ptr %58, null
+  store ptr %56, ptr %timeEventHead.sink.i, align 8
+  %59 = load ptr, ptr %next2.i.le, align 8
+  %tobool14.not.i = icmp eq ptr %59, null
   br i1 %tobool14.not.i, label %if.end19.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end.i
-  %59 = load ptr, ptr %prev.i, align 8
-  %prev18.i = getelementptr inbounds %struct.aeTimeEvent, ptr %58, i64 0, i32 5
-  store ptr %59, ptr %prev18.i, align 8
+  %60 = load ptr, ptr %prev.i, align 8
+  %prev18.i = getelementptr inbounds i8, ptr %59, i64 40
+  store ptr %60, ptr %prev18.i, align 8
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then15.i, %if.end.i
-  %finalizerProc.i = getelementptr inbounds %struct.aeTimeEvent, ptr %te.043.i, i64 0, i32 3
-  %60 = load ptr, ptr %finalizerProc.i, align 8
-  %tobool20.not.i = icmp eq ptr %60, null
+  %finalizerProc.i = getelementptr inbounds i8, ptr %te.043.i, i64 24
+  %61 = load ptr, ptr %finalizerProc.i, align 8
+  %tobool20.not.i = icmp eq ptr %61, null
   br i1 %tobool20.not.i, label %if.end24.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %clientData.i = getelementptr inbounds %struct.aeTimeEvent, ptr %te.043.i, i64 0, i32 4
-  %61 = load ptr, ptr %clientData.i, align 8
-  tail call void %60(ptr noundef nonnull %eventLoop, ptr noundef %61) #16
-  %62 = load ptr, ptr @getMonotonicUs, align 8
-  %call23.i = tail call i64 %62() #16
+  %clientData.i = getelementptr inbounds i8, ptr %te.043.i, i64 32
+  %62 = load ptr, ptr %clientData.i, align 8
+  tail call void %61(ptr noundef nonnull %eventLoop, ptr noundef %62) #16
+  %63 = load ptr, ptr @getMonotonicUs, align 8
+  %call23.i = tail call i64 %63() #16
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.then21.i, %if.end19.i
   %now.1.i = phi i64 [ %call23.i, %if.then21.i ], [ %now.0.ph46.i, %if.end19.i ]
   tail call void @zfree(ptr noundef nonnull %te.043.i) #16
-  %tobool.not42.i = icmp eq ptr %55, null
+  %tobool.not42.i = icmp eq ptr %56, null
   br i1 %tobool.not42.i, label %processTimeEvents.exit, label %while.body.lr.ph.i, !llvm.loop !14
 
 if.end25.i:                                       ; preds = %while.body.i73
-  %cmp27.not.i = icmp slt i64 %54, %52
+  %cmp27.not.i = icmp slt i64 %55, %53
   br i1 %cmp27.not.i, label %if.end30.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.end25.i
-  %next29.i = getelementptr inbounds %struct.aeTimeEvent, ptr %te.043.i, i64 0, i32 6
-  %63 = load ptr, ptr %next29.i, align 8
+  %next29.i = getelementptr inbounds i8, ptr %te.043.i, i64 48
+  %64 = load ptr, ptr %next29.i, align 8
   br label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.then28.i, %if.then.i
-  %te.0.be.i = phi ptr [ %63, %if.then28.i ], [ %55, %if.then.i ]
+  %te.0.be.i = phi ptr [ %64, %if.then28.i ], [ %56, %if.then.i ]
   %tobool.not.i75 = icmp eq ptr %te.0.be.i, null
   br i1 %tobool.not.i75, label %processTimeEvents.exit, label %while.body.i73, !llvm.loop !14
 
 if.end30.i:                                       ; preds = %if.end25.i
-  %when.i77 = getelementptr inbounds %struct.aeTimeEvent, ptr %te.043.i, i64 0, i32 1
-  %64 = load i64, ptr %when.i77, align 8
-  %cmp31.not.i = icmp ugt i64 %64, %now.0.ph46.i
+  %when.i77 = getelementptr inbounds i8, ptr %te.043.i, i64 8
+  %65 = load i64, ptr %when.i77, align 8
+  %cmp31.not.i = icmp ugt i64 %65, %now.0.ph46.i
   br i1 %cmp31.not.i, label %if.end47.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %if.end30.i
-  %refcount35.i = getelementptr inbounds %struct.aeTimeEvent, ptr %te.043.i, i64 0, i32 7
-  %65 = load i32, ptr %refcount35.i, align 8
-  %inc.i = add nsw i32 %65, 1
+  %refcount35.i = getelementptr inbounds i8, ptr %te.043.i, i64 56
+  %66 = load i32, ptr %refcount35.i, align 8
+  %inc.i = add nsw i32 %66, 1
   store i32 %inc.i, ptr %refcount35.i, align 8
-  %timeProc.i = getelementptr inbounds %struct.aeTimeEvent, ptr %te.043.i, i64 0, i32 2
-  %66 = load ptr, ptr %timeProc.i, align 8
-  %clientData36.i = getelementptr inbounds %struct.aeTimeEvent, ptr %te.043.i, i64 0, i32 4
-  %67 = load ptr, ptr %clientData36.i, align 8
-  %call37.i = tail call i32 %66(ptr noundef nonnull %eventLoop, i64 noundef %54, ptr noundef %67) #16
-  %68 = load i32, ptr %refcount35.i, align 8
-  %dec.i = add nsw i32 %68, -1
+  %timeProc.i = getelementptr inbounds i8, ptr %te.043.i, i64 16
+  %67 = load ptr, ptr %timeProc.i, align 8
+  %clientData36.i = getelementptr inbounds i8, ptr %te.043.i, i64 32
+  %68 = load ptr, ptr %clientData36.i, align 8
+  %call37.i = tail call i32 %67(ptr noundef nonnull %eventLoop, i64 noundef %55, ptr noundef %68) #16
+  %69 = load i32, ptr %refcount35.i, align 8
+  %dec.i = add nsw i32 %69, -1
   store i32 %dec.i, ptr %refcount35.i, align 8
   %inc39.i = add nsw i32 %processed.0.ph.ph53.i, 1
-  %69 = load ptr, ptr @getMonotonicUs, align 8
-  %call40.i = tail call i64 %69() #16
+  %70 = load ptr, ptr @getMonotonicUs, align 8
+  %call40.i = tail call i64 %70() #16
   %cmp41.not.i = icmp eq i32 %call37.i, -1
   br i1 %cmp41.not.i, label %if.else44.i, label %if.then42.i
 
@@ -966,9 +967,9 @@ if.else44.i:                                      ; preds = %if.then32.i
 if.end47.i:                                       ; preds = %if.else44.i, %if.then42.i, %if.end30.i
   %now.2.i = phi i64 [ %call40.i, %if.then42.i ], [ %call40.i, %if.else44.i ], [ %now.0.ph46.i, %if.end30.i ]
   %processed.1.i = phi i32 [ %inc39.i, %if.then42.i ], [ %inc39.i, %if.else44.i ], [ %processed.0.ph.ph53.i, %if.end30.i ]
-  %next48.i = getelementptr inbounds %struct.aeTimeEvent, ptr %te.043.i, i64 0, i32 6
-  %70 = load ptr, ptr %next48.i, align 8
-  %tobool.not4245.i = icmp eq ptr %70, null
+  %next48.i = getelementptr inbounds i8, ptr %te.043.i, i64 48
+  %71 = load ptr, ptr %next48.i, align 8
+  %tobool.not4245.i = icmp eq ptr %71, null
   br i1 %tobool.not4245.i, label %processTimeEvents.exit, label %while.body.lr.ph.lr.ph.i, !llvm.loop !14
 
 processTimeEvents.exit:                           ; preds = %if.end47.i, %if.end24.i, %while.cond.backedge.i, %if.then108
@@ -992,7 +993,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %events = getelementptr inbounds %struct.pollfd, ptr %pfd, i64 0, i32 1
+  %events = getelementptr inbounds i8, ptr %pfd, i64 4
   store i16 1, ptr %events, align 4
   br label %if.end
 
@@ -1003,7 +1004,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool5.not, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %events7 = getelementptr inbounds %struct.pollfd, ptr %pfd, i64 0, i32 1
+  %events7 = getelementptr inbounds i8, ptr %pfd, i64 4
   store i16 %0, ptr %events7, align 4
   br label %if.end11
 
@@ -1014,7 +1015,7 @@ if.end11:                                         ; preds = %if.then6, %if.end
   br i1 %cmp, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.end11
-  %revents = getelementptr inbounds %struct.pollfd, ptr %pfd, i64 0, i32 2
+  %revents = getelementptr inbounds i8, ptr %pfd, i64 6
   %1 = load i16, ptr %revents, align 2
   %2 = and i16 %1, 1
   %spec.select = zext nneg i16 %2 to i32
@@ -1037,7 +1038,7 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @aeMain(ptr noundef %eventLoop) local_unnamed_addr #0 {
 entry:
-  %stop = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 6
+  %stop = getelementptr inbounds i8, ptr %eventLoop, i64 40
   store i32 0, ptr %stop, align 8
   br label %while.body
 
@@ -1060,7 +1061,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @aeSetBeforeSleepProc(ptr nocapture noundef writeonly %eventLoop, ptr noundef %beforesleep) local_unnamed_addr #6 {
 entry:
-  %beforesleep1 = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 8
+  %beforesleep1 = getelementptr inbounds i8, ptr %eventLoop, i64 56
   store ptr %beforesleep, ptr %beforesleep1, align 8
   ret void
 }
@@ -1068,7 +1069,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @aeSetAfterSleepProc(ptr nocapture noundef writeonly %eventLoop, ptr noundef %aftersleep) local_unnamed_addr #6 {
 entry:
-  %aftersleep1 = getelementptr inbounds %struct.aeEventLoop, ptr %eventLoop, i64 0, i32 9
+  %aftersleep1 = getelementptr inbounds i8, ptr %eventLoop, i64 64
   store ptr %aftersleep, ptr %aftersleep1, align 8
   ret void
 }

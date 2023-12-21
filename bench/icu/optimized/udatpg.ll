@@ -74,7 +74,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %dtpg, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(4796) %dtpg) #4
   br label %delete.end
@@ -393,7 +393,7 @@ invoke.cont6:                                     ; preds = %if.end3
   %1 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #4, !srcloc !4
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %conflictingPatternString, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %conflictingPatternString, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %conflictingPatternString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call9 = invoke noundef i32 @_ZN6icu_7524DateTimePatternGenerator10addPatternERKNS_13UnicodeStringEaRS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4796) %dtpg, ptr noundef nonnull align 8 dereferenceable(64) %patternString, i8 noundef signext %override, ptr noundef nonnull align 8 dereferenceable(64) %conflictingPatternString, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
           to label %invoke.cont8 unwind label %lpad7
@@ -503,19 +503,19 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %call, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   store i32 %cond.i, ptr %pLength, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %3 to i32
   %and.i = and i32 %conv1.i, 17
@@ -532,7 +532,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %call, i64 24
   %4 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -592,19 +592,19 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %call, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   store i32 %cond.i, ptr %pLength, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %3 to i32
   %and.i = and i32 %conv1.i, 17
@@ -621,7 +621,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %call, i64 24
   %4 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -659,12 +659,12 @@ if.then3:                                         ; preds = %cond.false, %cond.t
 
 if.then6:                                         ; preds = %cond.true
   call void @_ZNK6icu_7524DateTimePatternGenerator19getFieldDisplayNameE21UDateTimePatternField23UDateTimePGDisplayWidth(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %result, ptr noundef nonnull align 8 dereferenceable(4796) %dtpg, i32 noundef %field, i32 noundef %width)
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %result, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %result, i64 8
   %1 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %result, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %result, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   br label %cleanup
@@ -751,19 +751,19 @@ if.end2.i:
   br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end2.i
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call3.i, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   %0 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i.i = sext i16 %1 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call3.i, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %call3.i, i64 12
   %2 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %2, i32 %shr.i.i.i
   store i32 %cond.i.i, ptr %pLength, align 4
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then5.i, %if.end2.i
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call3.i, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   %3 = load i16, ptr %fUnion.i.i, align 8
   %conv1.i.i = zext i16 %3 to i32
   %and.i.i = and i32 %conv1.i.i, 17
@@ -780,7 +780,7 @@ if.then7.i.i:                                     ; preds = %if.else.i.i
   br label %udatpg_getDateTimeFormatForStyle_75.exit
 
 if.else9.i.i:                                     ; preds = %if.else.i.i
-  %fArray.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call3.i, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   %4 = load ptr, ptr %fArray.i.i, align 8
   br label %udatpg_getDateTimeFormatForStyle_75.exit
 
@@ -810,19 +810,19 @@ if.end2:                                          ; preds = %entry
   br i1 %cmp4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end2
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call3, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %call3, i64 8
   %1 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call3, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %call3, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   store i32 %cond.i, ptr %pLength, align 4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end2
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call3, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %call3, i64 8
   %4 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %4 to i32
   %and.i = and i32 %conv1.i, 17
@@ -839,7 +839,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %return
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call3, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %call3, i64 24
   %5 = load ptr, ptr %fArray.i, align 8
   br label %return
 
@@ -956,19 +956,19 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %call, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   store i32 %cond.i, ptr %pLength, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %3 to i32
   %and.i = and i32 %conv1.i, 17
@@ -985,7 +985,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %call, i64 24
   %4 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -1159,12 +1159,12 @@ invoke.cont2:                                     ; preds = %invoke.cont
   br i1 %cmp3.not, label %if.end, label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %call, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   store i32 %cond.i, ptr %pLength, align 4
@@ -1184,7 +1184,7 @@ lpad1:                                            ; preds = %invoke.cont
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont4, %invoke.cont2
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %call, i64 8
   %7 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %7 to i32
   %and.i = and i32 %conv1.i, 17
@@ -1201,7 +1201,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %call, i64 24
   %8 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 

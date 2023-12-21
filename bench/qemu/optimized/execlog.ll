@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct._GRWLock = type { ptr, [2 x i32] }
-%struct.qemu_info_t = type { ptr, %struct.anon, i8, %union.anon }
-%struct.anon = type { i32, i32 }
-%union.anon = type { %struct.anon.0 }
-%struct.anon.0 = type { i32, i32 }
-%struct._GPtrArray = type { ptr, i32 }
-%struct._GArray = type { ptr, i32 }
-%struct._GString = type { ptr, i64, i64 }
 
 @qemu_plugin_version = local_unnamed_addr global i32 1, align 4
 @last_exec = internal unnamed_addr global ptr null, align 8
@@ -37,14 +30,14 @@ target triple = "x86_64-unknown-linux-gnu"
 define i32 @qemu_plugin_install(i64 noundef %id, ptr nocapture noundef readonly %info, i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %v.i = alloca i64, align 8
-  %system_emulation = getelementptr inbounds %struct.qemu_info_t, ptr %info, i64 0, i32 2
+  %system_emulation = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load i8, ptr %system_emulation, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %max_vcpus = getelementptr inbounds %struct.qemu_info_t, ptr %info, i64 0, i32 3, i32 0, i32 1
+  %max_vcpus = getelementptr inbounds i8, ptr %info, i64 24
   %2 = load i32, ptr %max_vcpus, align 4
   %call = tail call ptr @g_ptr_array_sized_new(i32 noundef %2) #5
   br label %if.end
@@ -74,7 +67,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp5, label %if.then6, label %if.else8
 
 if.then6:                                         ; preds = %for.body
-  %arrayidx7 = getelementptr inbounds ptr, ptr %call2, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %call2, i64 8
   %5 = load ptr, ptr %arrayidx7, align 8
   %6 = load ptr, ptr @imatches, align 8
   %tobool.not.i = icmp eq ptr %6, null
@@ -97,7 +90,7 @@ if.else8:                                         ; preds = %for.body
   br i1 %cmp11, label %if.then12, label %glib_auto_cleanup_GStrv.exit
 
 if.then12:                                        ; preds = %if.else8
-  %arrayidx13 = getelementptr inbounds ptr, ptr %call2, i64 1
+  %arrayidx13 = getelementptr inbounds i8, ptr %call2, i64 8
   %9 = load ptr, ptr %arrayidx13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i)
   %call.i6 = call i64 @g_ascii_strtoull(ptr noundef %9, ptr noundef null, i32 noundef 16) #5
@@ -182,7 +175,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %or.cond, label %for.cond7.preheader, label %if.end14
 
 for.cond7.preheader:                              ; preds = %for.body
-  %len22 = getelementptr inbounds %struct._GPtrArray, ptr %4, i64 0, i32 1
+  %len22 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %len22, align 8
   %cmp823.not = icmp eq i32 %5, 0
   br i1 %cmp823.not, label %if.end14, label %for.body10
@@ -198,7 +191,7 @@ for.body10:                                       ; preds = %for.cond7.preheader
   %spec.select = select i1 %tobool12.not, i8 %skip.034, i8 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load ptr, ptr @imatches, align 8
-  %len = getelementptr inbounds %struct._GPtrArray, ptr %9, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i32, ptr %len, align 8
   %11 = zext i32 %10 to i64
   %cmp8 = icmp ult i64 %indvars.iv.next, %11
@@ -217,7 +210,7 @@ if.end14:                                         ; preds = %for.body10, %for.co
   br i1 %or.cond1, label %for.cond20.preheader, label %if.end35
 
 for.cond20.preheader:                             ; preds = %if.end14
-  %len21 = getelementptr inbounds %struct._GArray, ptr %14, i64 0, i32 1
+  %len21 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i32, ptr %len21, align 8
   %cmp2227.not = icmp eq i32 %15, 0
   br i1 %cmp2227.not, label %if.end35, label %for.body26.lr.ph
@@ -280,7 +273,7 @@ declare void @qemu_plugin_register_atexit_cb(i64 noundef, ptr noundef, ptr nound
 define internal void @plugin_exit(i64 %id, ptr nocapture readnone %p) #0 {
 entry:
   %0 = load ptr, ptr @last_exec, align 8
-  %len4 = getelementptr inbounds %struct._GPtrArray, ptr %0, i64 0, i32 1
+  %len4 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len4, align 8
   %cmp5.not = icmp eq i32 %1, 0
   br i1 %cmp5.not, label %for.end, label %for.body
@@ -304,7 +297,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %6 = phi ptr [ %2, %for.body ], [ %.pre, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %len = getelementptr inbounds %struct._GPtrArray, ptr %6, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %len, align 8
   %8 = zext i32 %7 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %8
@@ -347,7 +340,7 @@ define internal void @vcpu_mem(i32 noundef %cpu_index, i32 noundef %info, i64 no
 entry:
   tail call void @g_rw_lock_reader_lock(ptr noundef nonnull @expand_array_lock) #5
   %0 = load ptr, ptr @last_exec, align 8
-  %len = getelementptr inbounds %struct._GPtrArray, ptr %0, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len, align 8
   %cmp = icmp ugt i32 %1, %cpu_index
   br i1 %cmp, label %do.end, label %if.else
@@ -390,7 +383,7 @@ define internal void @vcpu_insn_exec(i32 noundef %cpu_index, ptr noundef %udata)
 entry:
   tail call void @g_rw_lock_reader_lock(ptr noundef nonnull @expand_array_lock) #5
   %0 = load ptr, ptr @last_exec, align 8
-  %len = getelementptr inbounds %struct._GPtrArray, ptr %0, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len, align 8
   %cmp.not = icmp ugt i32 %1, %cpu_index
   br i1 %cmp.not, label %if.end, label %if.then
@@ -399,7 +392,7 @@ if.then:                                          ; preds = %entry
   tail call void @g_rw_lock_reader_unlock(ptr noundef nonnull @expand_array_lock) #5
   tail call void @g_rw_lock_writer_lock(ptr noundef nonnull @expand_array_lock) #5
   %2 = load ptr, ptr @last_exec, align 8
-  %len1.i = getelementptr inbounds %struct._GPtrArray, ptr %2, i64 0, i32 1
+  %len1.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %len1.i, align 8
   %cmp.not2.i = icmp ugt i32 %3, %cpu_index
   br i1 %cmp.not2.i, label %expand_last_exec.exit, label %while.body.i
@@ -409,7 +402,7 @@ while.body.i:                                     ; preds = %if.then, %while.bod
   %4 = load ptr, ptr @last_exec, align 8
   tail call void @g_ptr_array_add(ptr noundef %4, ptr noundef %call.i) #5
   %5 = load ptr, ptr @last_exec, align 8
-  %len.i = getelementptr inbounds %struct._GPtrArray, ptr %5, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %len.i, align 8
   %cmp.not.i = icmp ugt i32 %6, %cpu_index
   br i1 %cmp.not.i, label %expand_last_exec.exit, label %while.body.i, !llvm.loop !10
@@ -427,7 +420,7 @@ if.end:                                           ; preds = %expand_last_exec.ex
   %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
   tail call void @g_rw_lock_reader_unlock(ptr noundef nonnull @expand_array_lock) #5
-  %len1 = getelementptr inbounds %struct._GString, ptr %9, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %len1, align 8
   %tobool.not = icmp eq i64 %10, 0
   br i1 %tobool.not, label %if.end3, label %if.then2

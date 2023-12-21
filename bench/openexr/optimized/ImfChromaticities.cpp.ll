@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imath_3_2::Vec2" = type { float, float }
-%"struct.Imf_3_2::Chromaticities" = type { %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2" }
 %"class.Imath_3_2::Matrix44" = type { [4 x [4 x float]] }
 
 $_ZNK9Imath_3_28Matrix44IfE7inverseEv = comdat any
@@ -34,29 +32,29 @@ define void @_ZN7Imf_3_214ChromaticitiesC2ERKN9Imath_3_24Vec2IfEES5_S5_S5_(ptr n
 entry:
   %0 = load float, ptr %red, align 4
   store float %0, ptr %this, align 4
-  %y.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %this, i64 0, i32 1
-  %y3.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %red, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 4
+  %y3.i = getelementptr inbounds i8, ptr %red, i64 4
   %1 = load float, ptr %y3.i, align 4
   store float %1, ptr %y.i, align 4
-  %green3 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 1
+  %green3 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load float, ptr %green, align 4
   store float %2, ptr %green3, align 4
-  %y.i1 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 1, i32 1
-  %y3.i2 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %green, i64 0, i32 1
+  %y.i1 = getelementptr inbounds i8, ptr %this, i64 12
+  %y3.i2 = getelementptr inbounds i8, ptr %green, i64 4
   %3 = load float, ptr %y3.i2, align 4
   store float %3, ptr %y.i1, align 4
-  %blue4 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 2
+  %blue4 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load float, ptr %blue, align 4
   store float %4, ptr %blue4, align 4
-  %y.i3 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 2, i32 1
-  %y3.i4 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %blue, i64 0, i32 1
+  %y.i3 = getelementptr inbounds i8, ptr %this, i64 20
+  %y3.i4 = getelementptr inbounds i8, ptr %blue, i64 4
   %5 = load float, ptr %y3.i4, align 4
   store float %5, ptr %y.i3, align 4
-  %white5 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 3
+  %white5 = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load float, ptr %white, align 4
   store float %6, ptr %white5, align 4
-  %y.i5 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 3, i32 1
-  %y3.i6 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %white, i64 0, i32 1
+  %y.i5 = getelementptr inbounds i8, ptr %this, i64 28
+  %y3.i6 = getelementptr inbounds i8, ptr %white, i64 4
   %7 = load float, ptr %y3.i6, align 4
   store float %7, ptr %y.i5, align 4
   ret void
@@ -68,51 +66,51 @@ entry:
   %0 = load float, ptr %this, align 4
   %1 = load float, ptr %c, align 4
   %cmp.i = fcmp oeq float %0, %1
-  %y.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %this, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load float, ptr %y.i, align 4
-  %y3.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %c, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %c, i64 4
   %3 = load float, ptr %y3.i, align 4
   %cmp4.i = fcmp oeq float %2, %3
   %4 = select i1 %cmp.i, i1 %cmp4.i, i1 false
   br i1 %4, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %green = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 1
-  %green3 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %c, i64 0, i32 1
+  %green = getelementptr inbounds i8, ptr %this, i64 8
+  %green3 = getelementptr inbounds i8, ptr %c, i64 8
   %5 = load float, ptr %green, align 4
   %6 = load float, ptr %green3, align 4
   %cmp.i4 = fcmp oeq float %5, %6
-  %y.i5 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 1, i32 1
+  %y.i5 = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load float, ptr %y.i5, align 4
-  %y3.i6 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %c, i64 0, i32 1, i32 1
+  %y3.i6 = getelementptr inbounds i8, ptr %c, i64 12
   %8 = load float, ptr %y3.i6, align 4
   %cmp4.i7 = fcmp oeq float %7, %8
   %9 = select i1 %cmp.i4, i1 %cmp4.i7, i1 false
   br i1 %9, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %blue = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 2
-  %blue6 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %c, i64 0, i32 2
+  %blue = getelementptr inbounds i8, ptr %this, i64 16
+  %blue6 = getelementptr inbounds i8, ptr %c, i64 16
   %10 = load float, ptr %blue, align 4
   %11 = load float, ptr %blue6, align 4
   %cmp.i8 = fcmp oeq float %10, %11
-  %y.i9 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 2, i32 1
+  %y.i9 = getelementptr inbounds i8, ptr %this, i64 20
   %12 = load float, ptr %y.i9, align 4
-  %y3.i10 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %c, i64 0, i32 2, i32 1
+  %y3.i10 = getelementptr inbounds i8, ptr %c, i64 20
   %13 = load float, ptr %y3.i10, align 4
   %cmp4.i11 = fcmp oeq float %12, %13
   %14 = select i1 %cmp.i8, i1 %cmp4.i11, i1 false
   br i1 %14, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true5
-  %white = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 3
-  %white8 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %c, i64 0, i32 3
+  %white = getelementptr inbounds i8, ptr %this, i64 24
+  %white8 = getelementptr inbounds i8, ptr %c, i64 24
   %15 = load float, ptr %white, align 4
   %16 = load float, ptr %white8, align 4
   %cmp.i12 = fcmp oeq float %15, %16
-  %y.i13 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 3, i32 1
+  %y.i13 = getelementptr inbounds i8, ptr %this, i64 28
   %17 = load float, ptr %y.i13, align 4
-  %y3.i14 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %c, i64 0, i32 3, i32 1
+  %y3.i14 = getelementptr inbounds i8, ptr %c, i64 28
   %18 = load float, ptr %y3.i14, align 4
   %cmp4.i15 = fcmp oeq float %17, %18
   %19 = select i1 %cmp.i12, i1 %cmp4.i15, i1 false
@@ -129,51 +127,51 @@ entry:
   %0 = load float, ptr %this, align 4
   %1 = load float, ptr %c, align 4
   %cmp.i = fcmp une float %0, %1
-  %y.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %this, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load float, ptr %y.i, align 4
-  %y3.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %c, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %c, i64 4
   %3 = load float, ptr %y3.i, align 4
   %cmp4.i = fcmp une float %2, %3
   %4 = select i1 %cmp.i, i1 true, i1 %cmp4.i
   br i1 %4, label %lor.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %green = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 1
-  %green3 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %c, i64 0, i32 1
+  %green = getelementptr inbounds i8, ptr %this, i64 8
+  %green3 = getelementptr inbounds i8, ptr %c, i64 8
   %5 = load float, ptr %green, align 4
   %6 = load float, ptr %green3, align 4
   %cmp.i4 = fcmp une float %5, %6
-  %y.i5 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 1, i32 1
+  %y.i5 = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load float, ptr %y.i5, align 4
-  %y3.i6 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %c, i64 0, i32 1, i32 1
+  %y3.i6 = getelementptr inbounds i8, ptr %c, i64 12
   %8 = load float, ptr %y3.i6, align 4
   %cmp4.i7 = fcmp une float %7, %8
   %9 = select i1 %cmp.i4, i1 true, i1 %cmp4.i7
   br i1 %9, label %lor.end, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %blue = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 2
-  %blue6 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %c, i64 0, i32 2
+  %blue = getelementptr inbounds i8, ptr %this, i64 16
+  %blue6 = getelementptr inbounds i8, ptr %c, i64 16
   %10 = load float, ptr %blue, align 4
   %11 = load float, ptr %blue6, align 4
   %cmp.i8 = fcmp une float %10, %11
-  %y.i9 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 2, i32 1
+  %y.i9 = getelementptr inbounds i8, ptr %this, i64 20
   %12 = load float, ptr %y.i9, align 4
-  %y3.i10 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %c, i64 0, i32 2, i32 1
+  %y3.i10 = getelementptr inbounds i8, ptr %c, i64 20
   %13 = load float, ptr %y3.i10, align 4
   %cmp4.i11 = fcmp une float %12, %13
   %14 = select i1 %cmp.i8, i1 true, i1 %cmp4.i11
   br i1 %14, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false5
-  %white = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 3
-  %white8 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %c, i64 0, i32 3
+  %white = getelementptr inbounds i8, ptr %this, i64 24
+  %white8 = getelementptr inbounds i8, ptr %c, i64 24
   %15 = load float, ptr %white, align 4
   %16 = load float, ptr %white8, align 4
   %cmp.i12 = fcmp une float %15, %16
-  %y.i13 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %this, i64 0, i32 3, i32 1
+  %y.i13 = getelementptr inbounds i8, ptr %this, i64 28
   %17 = load float, ptr %y.i13, align 4
-  %y3.i14 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %c, i64 0, i32 3, i32 1
+  %y3.i14 = getelementptr inbounds i8, ptr %c, i64 28
   %18 = load float, ptr %y3.i14, align 4
   %cmp4.i15 = fcmp une float %17, %18
   %19 = select i1 %cmp.i12, i1 true, i1 %cmp4.i15
@@ -187,8 +185,8 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_28RGBtoXYZERKNS_14ChromaticitiesEf(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Matrix44") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %chroma, float noundef %Y) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
-  %white = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %chroma, i64 0, i32 3
-  %y = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %chroma, i64 0, i32 3, i32 1
+  %white = getelementptr inbounds i8, ptr %chroma, i64 24
+  %y = getelementptr inbounds i8, ptr %chroma, i64 28
   %0 = load float, ptr %y, align 4
   %1 = tail call noundef float @llvm.fabs.f32(float %0)
   %cmp = fcmp ugt float %1, 1.000000e+00
@@ -225,8 +223,8 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
   %6 = insertelement <2 x float> poison, float %0, i64 0
   %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> zeroinitializer
   %8 = fdiv <2 x float> %5, %7
-  %blue = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %chroma, i64 0, i32 2
-  %green = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %chroma, i64 0, i32 1
+  %blue = getelementptr inbounds i8, ptr %chroma, i64 16
+  %green = getelementptr inbounds i8, ptr %chroma, i64 8
   %9 = load <2 x float>, ptr %blue, align 4
   %10 = load <2 x float>, ptr %chroma, align 4
   %11 = extractelement <2 x float> %10, i64 1
@@ -314,14 +312,14 @@ if.end148:                                        ; preds = %land.lhs.true130, %
   %61 = extractelement <2 x float> %45, i64 0
   %div150 = fdiv float %61, %28
   %div151 = fdiv float %50, %28
-  %62 = getelementptr inbounds [4 x float], ptr %agg.result, i64 0, i64 3
+  %62 = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 0, ptr %62, align 4
-  %arrayidx20.i = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 1, i64 2
-  %arrayidx32.i = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 2, i64 2
-  %63 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 1, i64 3
+  %arrayidx20.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %arrayidx32.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %63 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i32 0, ptr %63, align 4
-  %arrayidx35.i = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 2, i64 3
-  %arrayidx47.i = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 3, i64 3
+  %arrayidx35.i = getelementptr inbounds i8, ptr %agg.result, i64 44
+  %arrayidx47.i = getelementptr inbounds i8, ptr %agg.result, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx35.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i, align 4
   %64 = insertelement <2 x float> poison, float %div149, i64 0
@@ -331,9 +329,9 @@ if.end148:                                        ; preds = %land.lhs.true130, %
   %sub163 = fsub float 1.000000e+00, %12
   %sub166 = fsub float %sub163, %11
   %mul167 = fmul float %sub166, %div149
-  %arrayidx169 = getelementptr inbounds float, ptr %agg.result, i64 2
+  %arrayidx169 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store float %mul167, ptr %arrayidx169, align 4
-  %arrayidx.i = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %67 = insertelement <2 x float> poison, float %div150, i64 0
   %68 = shufflevector <2 x float> %67, <2 x float> poison, <2 x i32> zeroinitializer
   %69 = fmul <2 x float> %13, %68
@@ -342,7 +340,7 @@ if.end148:                                        ; preds = %land.lhs.true130, %
   %sub185 = fsub float %sub182, %14
   %mul186 = fmul float %sub185, %div150
   store float %mul186, ptr %arrayidx20.i, align 4
-  %arrayidx.i92 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 2
+  %arrayidx.i92 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %70 = insertelement <2 x float> poison, float %div151, i64 0
   %71 = shufflevector <2 x float> %70, <2 x float> poison, <2 x i32> zeroinitializer
   %72 = fmul <2 x float> %9, %71
@@ -389,28 +387,28 @@ entry:
 define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE7inverseEv(ptr noalias sret(%"class.Imath_3_2::Matrix44") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %this) local_unnamed_addr #7 comdat align 2 {
 entry:
   %s = alloca %"class.Imath_3_2::Matrix44", align 16
-  %arrayidx2 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 3
+  %arrayidx2 = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %arrayidx2, align 4
   %cmp = fcmp une float %0, 0.000000e+00
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %arrayidx4 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 1
-  %arrayidx5 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 1, i64 3
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load float, ptr %arrayidx5, align 4
   %cmp6 = fcmp une float %1, 0.000000e+00
   br i1 %cmp6, label %if.then, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %arrayidx9 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 2
-  %arrayidx10 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 2, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 44
   %2 = load float, ptr %arrayidx10, align 4
   %cmp11 = fcmp une float %2, 0.000000e+00
   br i1 %cmp11, label %if.then, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false7
-  %arrayidx14 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 3
-  %arrayidx15 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 3, i64 3
+  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 60
   %3 = load float, ptr %arrayidx15, align 4
   %cmp16 = fcmp une float %3, 1.000000e+00
   br i1 %cmp16, label %if.then, label %if.end
@@ -420,17 +418,17 @@ if.then:                                          ; preds = %lor.lhs.false12, %l
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false12
-  %arrayidx19 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 1, i64 1
+  %arrayidx19 = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load float, ptr %arrayidx19, align 4
-  %arrayidx22 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 2, i64 2
+  %arrayidx22 = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load float, ptr %arrayidx22, align 4
-  %arrayidx25 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 2, i64 1
+  %arrayidx25 = getelementptr inbounds i8, ptr %this, i64 36
   %6 = load float, ptr %arrayidx25, align 4
-  %arrayidx28 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 1, i64 2
+  %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load float, ptr %arrayidx28, align 4
-  %arrayidx35 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 2
+  %arrayidx35 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load float, ptr %arrayidx35, align 4
-  %arrayidx38 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 1
+  %arrayidx38 = getelementptr inbounds i8, ptr %this, i64 4
   %9 = load float, ptr %arrayidx38, align 4
   %10 = fneg float %4
   %neg57 = fmul float %8, %10
@@ -453,11 +451,11 @@ if.end:                                           ; preds = %lor.lhs.false12
   %26 = insertelement <2 x float> %25, float %8, i64 1
   %27 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %24, <2 x float> %26, <2 x float> %22)
   store <2 x float> %27, ptr %s, align 16
-  %arrayidx8.i = getelementptr inbounds [4 x float], ptr %s, i64 0, i64 2
+  %arrayidx8.i = getelementptr inbounds i8, ptr %s, i64 8
   store float %11, ptr %arrayidx8.i, align 8
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %s, i64 0, i64 3
+  %arrayidx11.i = getelementptr inbounds i8, ptr %s, i64 12
   store float 0.000000e+00, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 1
+  %arrayidx13.i = getelementptr inbounds i8, ptr %s, i64 16
   %28 = insertelement <2 x float> poison, float %13, i64 0
   %29 = insertelement <2 x float> %28, float %12, i64 1
   %30 = fneg <2 x float> %29
@@ -469,20 +467,20 @@ if.end:                                           ; preds = %lor.lhs.false12
   %neg141 = fmul float %9, %35
   %36 = tail call float @llvm.fmuladd.f32(float %14, float %4, float %neg141)
   store <2 x float> %34, ptr %arrayidx13.i, align 16
-  %arrayidx20.i = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 1, i64 2
+  %arrayidx20.i = getelementptr inbounds i8, ptr %s, i64 24
   store float %16, ptr %arrayidx20.i, align 8
-  %arrayidx23.i = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 1, i64 3
+  %arrayidx23.i = getelementptr inbounds i8, ptr %s, i64 28
   store float 0.000000e+00, ptr %arrayidx23.i, align 4
-  %arrayidx25.i = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 2
+  %arrayidx25.i = getelementptr inbounds i8, ptr %s, i64 32
   %37 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %38 = insertelement <2 x float> %37, float %15, i64 1
   %39 = fmul <2 x float> %24, %38
   %40 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %29, <2 x float> %18, <2 x float> %39)
   store <2 x float> %40, ptr %arrayidx25.i, align 16
-  %arrayidx32.i = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 2, i64 2
+  %arrayidx32.i = getelementptr inbounds i8, ptr %s, i64 40
   store float %36, ptr %arrayidx32.i, align 8
-  %arrayidx35.i = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 2, i64 3
-  %arrayidx47.i = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 3, i64 3
+  %arrayidx35.i = getelementptr inbounds i8, ptr %s, i64 44
+  %arrayidx47.i = getelementptr inbounds i8, ptr %s, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx35.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i, align 4
   %41 = extractelement <2 x float> %34, i64 0
@@ -543,16 +541,16 @@ if.then192:                                       ; preds = %for.body184
 
 if.else199:                                       ; preds = %for.body184
   store float 1.000000e+00, ptr %agg.result, align 4
-  %arrayidx5.i20 = getelementptr inbounds [4 x float], ptr %agg.result, i64 0, i64 1
-  %arrayidx17.i21 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 1, i64 1
+  %arrayidx5.i20 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %arrayidx17.i21 = getelementptr inbounds i8, ptr %agg.result, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i20, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx17.i21, align 4
-  %arrayidx20.i22 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 1, i64 2
-  %arrayidx32.i23 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 2, i64 2
+  %arrayidx20.i22 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %arrayidx32.i23 = getelementptr inbounds i8, ptr %agg.result, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx20.i22, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx32.i23, align 4
-  %arrayidx35.i24 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 2, i64 3
-  %arrayidx47.i25 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 3, i64 3
+  %arrayidx35.i24 = getelementptr inbounds i8, ptr %agg.result, i64 44
+  %arrayidx47.i25 = getelementptr inbounds i8, ptr %agg.result, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx35.i24, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i25, align 4
   br label %return
@@ -565,27 +563,27 @@ for.inc204:                                       ; preds = %if.then192
 if.end207:                                        ; preds = %for.inc171, %for.inc204
   %48 = load float, ptr %arrayidx14, align 4
   %fneg = fneg float %48
-  %arrayidx216 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 3, i64 1
+  %arrayidx216 = getelementptr inbounds i8, ptr %this, i64 52
   %49 = load float, ptr %arrayidx216, align 4
   %50 = fneg float %49
-  %arrayidx224 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 3, i64 2
+  %arrayidx224 = getelementptr inbounds i8, ptr %this, i64 56
   %51 = load float, ptr %arrayidx224, align 4
   %neg228 = fneg float %51
   %52 = load <4 x float>, ptr %s, align 16
   %53 = extractelement <4 x float> %52, i64 2
   store <4 x float> %52, ptr %agg.result, align 4
-  %arrayidx28.i = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 1
+  %arrayidx28.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %54 = load <4 x float>, ptr %arrayidx13.i, align 16
   %55 = extractelement <4 x float> %54, i64 2
   %neg271 = fmul float %55, %50
   %56 = tail call float @llvm.fmuladd.f32(float %fneg, float %53, float %neg271)
   store <4 x float> %54, ptr %arrayidx28.i, align 4
-  %arrayidx52.i = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 2
+  %arrayidx52.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %57 = load <4 x float>, ptr %arrayidx25.i, align 16
   %58 = extractelement <4 x float> %57, i64 2
   %59 = tail call float @llvm.fmuladd.f32(float %neg228, float %58, float %56)
   store <4 x float> %57, ptr %arrayidx52.i, align 4
-  %arrayidx76.i = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 3
+  %arrayidx76.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %60 = shufflevector <4 x float> %54, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %61 = insertelement <2 x float> poison, float %50, i64 0
   %62 = shufflevector <2 x float> %61, <2 x float> poison, <2 x i32> zeroinitializer
@@ -599,10 +597,10 @@ if.end207:                                        ; preds = %for.inc171, %for.in
   %70 = shufflevector <4 x float> %57, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %71 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %69, <2 x float> %70, <2 x float> %67)
   store <2 x float> %71, ptr %arrayidx76.i, align 4
-  %arrayidx89.i = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 3, i64 2
+  %arrayidx89.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   store float %59, ptr %arrayidx89.i, align 4
   %72 = load float, ptr %arrayidx47.i, align 4
-  %arrayidx95.i = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 3, i64 3
+  %arrayidx95.i = getelementptr inbounds i8, ptr %agg.result, i64 60
   store float %72, ptr %arrayidx95.i, align 4
   br label %return
 
@@ -619,30 +617,30 @@ entry:
   %s = alloca %"class.Imath_3_2::Matrix44", align 16
   %t = alloca %"class.Imath_3_2::Matrix44", align 16
   store float 1.000000e+00, ptr %s, align 16
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %s, i64 0, i64 1
-  %arrayidx17.i = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 1, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %s, i64 4
+  %arrayidx17.i = getelementptr inbounds i8, ptr %s, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx17.i, align 4
-  %arrayidx20.i = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 1, i64 2
-  %arrayidx32.i = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 2, i64 2
+  %arrayidx20.i = getelementptr inbounds i8, ptr %s, i64 24
+  %arrayidx32.i = getelementptr inbounds i8, ptr %s, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx20.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx32.i, align 8
-  %arrayidx35.i = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 2, i64 3
-  %arrayidx47.i = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 3, i64 3
+  %arrayidx35.i = getelementptr inbounds i8, ptr %s, i64 44
+  %arrayidx47.i = getelementptr inbounds i8, ptr %s, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx35.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i, align 4
   %0 = load <4 x float>, ptr %this, align 4
   store <4 x float> %0, ptr %t, align 16
-  %arrayidx25.i = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 1
-  %arrayidx28.i = getelementptr inbounds [4 x [4 x float]], ptr %t, i64 0, i64 1
+  %arrayidx25.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx28.i = getelementptr inbounds i8, ptr %t, i64 16
   %1 = load <4 x float>, ptr %arrayidx25.i, align 4
   store <4 x float> %1, ptr %arrayidx28.i, align 16
-  %arrayidx49.i = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 2
-  %arrayidx52.i = getelementptr inbounds [4 x [4 x float]], ptr %t, i64 0, i64 2
+  %arrayidx49.i = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx52.i = getelementptr inbounds i8, ptr %t, i64 32
   %2 = load <4 x float>, ptr %arrayidx49.i, align 4
   store <4 x float> %2, ptr %arrayidx52.i, align 16
-  %arrayidx73.i = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 3
-  %arrayidx76.i = getelementptr inbounds [4 x [4 x float]], ptr %t, i64 0, i64 3
+  %arrayidx73.i = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx76.i = getelementptr inbounds i8, ptr %t, i64 48
   %3 = load <4 x float>, ptr %arrayidx73.i, align 4
   store <4 x float> %3, ptr %arrayidx76.i, align 16
   br label %for.body7.preheader
@@ -687,16 +685,16 @@ for.end:                                          ; preds = %for.body7
 
 if.then21:                                        ; preds = %for.end
   store float 1.000000e+00, ptr %agg.result, align 4
-  %arrayidx5.i89 = getelementptr inbounds [4 x float], ptr %agg.result, i64 0, i64 1
-  %arrayidx17.i90 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 1, i64 1
+  %arrayidx5.i89 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %arrayidx17.i90 = getelementptr inbounds i8, ptr %agg.result, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i89, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx17.i90, align 4
-  %arrayidx20.i91 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 1, i64 2
-  %arrayidx32.i92 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 2, i64 2
+  %arrayidx20.i91 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %arrayidx32.i92 = getelementptr inbounds i8, ptr %agg.result, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx20.i91, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx32.i92, align 4
-  %arrayidx35.i93 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 2, i64 3
-  %arrayidx47.i94 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 3, i64 3
+  %arrayidx35.i93 = getelementptr inbounds i8, ptr %agg.result, i64 44
+  %arrayidx47.i94 = getelementptr inbounds i8, ptr %agg.result, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx35.i93, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i94, align 4
   br label %return
@@ -772,16 +770,16 @@ for.body122:                                      ; preds = %for.cond.loopexit, 
 
 if.then130:                                       ; preds = %for.body122
   store float 1.000000e+00, ptr %agg.result, align 4
-  %arrayidx5.i95 = getelementptr inbounds [4 x float], ptr %agg.result, i64 0, i64 1
-  %arrayidx17.i96 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 1, i64 1
+  %arrayidx5.i95 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %arrayidx17.i96 = getelementptr inbounds i8, ptr %agg.result, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i95, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx17.i96, align 4
-  %arrayidx20.i97 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 1, i64 2
-  %arrayidx32.i98 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 2, i64 2
+  %arrayidx20.i97 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %arrayidx32.i98 = getelementptr inbounds i8, ptr %agg.result, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx20.i97, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx32.i98, align 4
-  %arrayidx35.i99 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 2, i64 3
-  %arrayidx47.i100 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 3, i64 3
+  %arrayidx35.i99 = getelementptr inbounds i8, ptr %agg.result, i64 44
+  %arrayidx47.i100 = getelementptr inbounds i8, ptr %agg.result, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx35.i99, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i100, align 4
   br label %return
@@ -841,16 +839,16 @@ for.inc189:                                       ; preds = %for.inc186
 for.end190:                                       ; preds = %for.cond150.preheader, %for.inc189
   %32 = load <4 x float>, ptr %s, align 16
   store <4 x float> %32, ptr %agg.result, align 4
-  %arrayidx25.i107 = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 1
-  %arrayidx28.i108 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 1
+  %arrayidx25.i107 = getelementptr inbounds i8, ptr %s, i64 16
+  %arrayidx28.i108 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %33 = load <4 x float>, ptr %arrayidx25.i107, align 16
   store <4 x float> %33, ptr %arrayidx28.i108, align 4
-  %arrayidx49.i115 = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 2
-  %arrayidx52.i116 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 2
+  %arrayidx49.i115 = getelementptr inbounds i8, ptr %s, i64 32
+  %arrayidx52.i116 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %34 = load <4 x float>, ptr %arrayidx49.i115, align 16
   store <4 x float> %34, ptr %arrayidx52.i116, align 4
-  %arrayidx73.i123 = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 3
-  %arrayidx76.i124 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 3
+  %arrayidx73.i123 = getelementptr inbounds i8, ptr %s, i64 48
+  %arrayidx76.i124 = getelementptr inbounds i8, ptr %agg.result, i64 48
   %35 = load <4 x float>, ptr %arrayidx73.i123, align 16
   store <4 x float> %35, ptr %arrayidx76.i124, align 4
   br label %return

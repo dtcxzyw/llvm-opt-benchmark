@@ -4,39 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_record_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.quic_tls_args_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.quic_tls_st = type { %struct.quic_tls_args_st, ptr, i64, ptr, i64, ptr, i8 }
-%struct.quic_conn_st = type { %struct.ssl_st, ptr, ptr, ptr, ptr, ptr, ptr, %union.bio_addr_st, %struct.quic_thread_assist_st, ptr, ptr, i64, i16, i32, i32, i64, i32, i64, i32 }
-%struct.ssl_st = type { i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%union.bio_addr_st = type { %struct.sockaddr_in6, [84 x i8] }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon }
-%union.anon = type { [4 x i32] }
-%struct.quic_thread_assist_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
-%struct.ssl_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, %struct.OSSL_TIME, ptr, ptr, ptr, %struct.anon.3, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, ptr, ptr, i32, ptr, ptr, i32, i64, [32 x i8], ptr, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, i64, i64, ptr, ptr, ptr, %struct.anon.4, ptr, ptr, ptr, ptr, %struct.srp_ctx_st, %struct.dane_ctx_st, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, i32, ptr, ptr, ptr, [14 x i32], [24 x ptr], [14 x ptr], [14 x i64], i64, ptr, ptr, ptr, i64, i64, ptr, i64, i64, i32, i32, i32, i32, ptr, i64, ptr, i64 }
-%struct.OSSL_TIME = type { i64 }
-%struct.anon.3 = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.anon.4 = type { ptr, ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, i32, i8, i64, ptr, i64, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, [32 x i8] }
-%struct.srp_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64 }
-%struct.dane_ctx_st = type { ptr, ptr, i8, i64 }
-%struct.ssl_connection_st = type { %struct.ssl_st, i32, ptr, ptr, ptr, i32, ptr, i32, i32, i32, i32, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.ossl_statem_st, i32, ptr, ptr, i64, i64, i64, %struct.anon, ptr, ptr, ptr, i32, ptr, %struct.ssl_dane_st, ptr, ptr, ptr, ptr, i32, [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], ptr, [64 x i8], i64, i32, i64, [32 x i8], ptr, ptr, ptr, i64, ptr, [32 x i8], i64, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i64, i32, i32, i32, i64, i32, i32, i64, i64, i64, %struct.anon.1, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, i32, ptr, %struct.srp_ctx_st, ptr, %struct.record_layer_st, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i64 }
-%struct.ossl_statem_st = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i8 }
-%struct.anon = type { i64, [32 x i8], [32 x i8], ptr, ptr, i32, i32, i32, i32, [2 x i8], i32, i32, i32, i32, %struct.anon.0, [64 x i8], i64, [64 x i8], i64, i32, i32, ptr, i64, ptr, i64, i32, i8, i8, i16, ptr }
-%struct.anon.0 = type { [128 x i8], i64, [128 x i8], i64, i64, i32, ptr, ptr, i32, ptr, i64, ptr, i64, ptr, ptr, ptr, i32, i64, ptr, i32, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32 }
-%struct.ssl_dane_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i64 }
-%struct.anon.1 = type { [29 x i8], ptr, ptr, ptr, i32, ptr, i16, i32, %struct.anon.2, i32, i32, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, i32, i32, i32, ptr, i64, i32, i8, i32, [4 x i32], i32, i8, i8, i8, i8 }
-%struct.anon.2 = type { ptr, ptr, ptr, i64 }
-%struct.record_layer_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i64, [4 x i8], i64, i64, i8, i64, ptr, i32, ptr, ptr, ptr, i64, i64, i64, [32 x %struct.tls_record_st] }
-%struct.tls_record_st = type { ptr, i32, i8, ptr, ptr, i64, i64, i16, [8 x i8] }
-%struct.cert_st = type { ptr, ptr, ptr, i32, i32, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, %struct.custom_ext_methods, ptr, i32, ptr, ptr, %struct.CRYPTO_REF_COUNT }
-%struct.custom_ext_methods = type { ptr, i64 }
-%struct.ssl_session_st = type { i32, i64, [64 x i8], [512 x i8], i64, [32 x i8], i64, [32 x i8], ptr, ptr, i32, ptr, ptr, ptr, i64, %struct.CRYPTO_REF_COUNT, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME, i32, ptr, i64, i32, %struct.crypto_ex_data_st, ptr, ptr, %struct.anon.5, ptr, ptr, i64, i32, ptr }
-%struct.anon.5 = type { ptr, ptr, i64, i64, i32, i32, ptr, i64, i8 }
-%struct.ossl_record_layer_st = type { ptr, i32, ptr, i64, %struct.ossl_record_template_st, i32, i64, i64, ptr, ptr }
-%struct.ossl_record_template_st = type { i8, i32, ptr, i64 }
-%struct.ossl_dispatch_st = type { i32, ptr }
 
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/ssl/quic/quic_tls.c\00", align 1
 @__func__.ossl_quic_tls_new = private unnamed_addr constant [18 x i8] c"ossl_quic_tls_new\00", align 1
@@ -64,19 +31,19 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_quic_tls_new(ptr nocapture noundef readonly %args) local_unnamed_addr #0 {
 entry:
-  %crypto_send_cb = getelementptr inbounds %struct.quic_tls_args_st, ptr %args, i64 0, i32 1
+  %crypto_send_cb = getelementptr inbounds i8, ptr %args, i64 8
   %0 = load ptr, ptr %crypto_send_cb, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %crypto_recv_rcd_cb = getelementptr inbounds %struct.quic_tls_args_st, ptr %args, i64 0, i32 3
+  %crypto_recv_rcd_cb = getelementptr inbounds i8, ptr %args, i64 24
   %1 = load ptr, ptr %crypto_recv_rcd_cb, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %crypto_release_rcd_cb = getelementptr inbounds %struct.quic_tls_args_st, ptr %args, i64 0, i32 5
+  %crypto_release_rcd_cb = getelementptr inbounds i8, ptr %args, i64 40
   %2 = load ptr, ptr %crypto_release_rcd_cb, align 8
   %cmp3 = icmp eq ptr %2, null
   br i1 %cmp3, label %if.then, label %if.end
@@ -94,7 +61,7 @@ if.end:                                           ; preds = %lor.lhs.false2
 
 if.end6:                                          ; preds = %if.end
   %call7 = tail call ptr @OSSL_ERR_STATE_new() #9
-  %error_state = getelementptr inbounds %struct.quic_tls_st, ptr %call, i64 0, i32 3
+  %error_state = getelementptr inbounds i8, ptr %call, i64 144
   store ptr %call7, ptr %error_state, align 8
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.then9, label %if.end10
@@ -134,7 +101,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %error_state = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 3
+  %error_state = getelementptr inbounds i8, ptr %qtls, i64 144
   %0 = load ptr, ptr %error_state, align 8
   tail call void @OSSL_ERR_STATE_free(ptr noundef %0) #9
   tail call void @CRYPTO_free(ptr noundef nonnull %qtls, ptr noundef nonnull @.str, i32 noundef 660) #9
@@ -151,7 +118,7 @@ define i32 @ossl_quic_tls_tick(ptr noundef %qtls) local_unnamed_addr #0 {
 entry:
   %alpn = alloca ptr, align 8
   %alpnlen = alloca i32, align 4
-  %inerror = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 6
+  %inerror = getelementptr inbounds i8, ptr %qtls, i64 168
   %bf.load = load i8, ptr %inerror, align 8
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
@@ -177,7 +144,7 @@ cond.false:                                       ; preds = %if.then5
   ]
 
 cond.true17:                                      ; preds = %cond.false
-  %tls = getelementptr inbounds %struct.quic_conn_st, ptr %1, i64 0, i32 1
+  %tls = getelementptr inbounds i8, ptr %1, i64 64
   %3 = load ptr, ptr %tls, align 8
   br label %cond.end23
 
@@ -186,15 +153,15 @@ cond.end23.fold.split:                            ; preds = %cond.false
 
 cond.end23:                                       ; preds = %cond.false, %cond.end23.fold.split, %cond.true17, %if.then5
   %cond24 = phi ptr [ null, %if.then5 ], [ %3, %cond.true17 ], [ %1, %cond.false ], [ null, %cond.end23.fold.split ]
-  %is_server = getelementptr inbounds %struct.quic_tls_args_st, ptr %qtls, i64 0, i32 15
+  %is_server = getelementptr inbounds i8, ptr %qtls, i64 120
   %4 = load i32, ptr %is_server, align 8
   %tobool26.not = icmp eq i32 %4, 0
   br i1 %tobool26.not, label %if.else, label %if.then27
 
 if.then27:                                        ; preds = %cond.end23
-  %ctx = getelementptr inbounds %struct.ssl_st, ptr %cond24, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %cond24, i64 8
   %5 = load ptr, ptr %ctx, align 8
-  %alpn_select_cb = getelementptr inbounds %struct.ssl_ctx_st, ptr %5, i64 0, i32 61, i32 16
+  %alpn_select_cb = getelementptr inbounds i8, ptr %5, i64 672
   %6 = load ptr, ptr %alpn_select_cb, align 8
   %cmp28 = icmp eq ptr %6, null
   br i1 %cmp28, label %if.then29, label %if.end40
@@ -203,12 +170,12 @@ if.then29:                                        ; preds = %if.then27
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 746, ptr noundef nonnull @__func__.ossl_quic_tls_tick) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 393, ptr noundef nonnull @.str.4, i64 noundef 1, i64 noundef 1, ptr noundef nonnull @.str.1) #9
-  %error_state.i = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 3
+  %error_state.i = getelementptr inbounds i8, ptr %qtls, i64 144
   %7 = load ptr, ptr %error_state.i, align 8
   tail call void @OSSL_ERR_STATE_save_to_mark(ptr noundef %7) #9
-  %error_code1.i = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 4
+  %error_code1.i = getelementptr inbounds i8, ptr %qtls, i64 152
   store i64 1, ptr %error_code1.i, align 8
-  %error_msg2.i = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 5
+  %error_msg2.i = getelementptr inbounds i8, ptr %qtls, i64 160
   store ptr @.str.1, ptr %error_msg2.i, align 8
   %bf.load.i = load i8, ptr %inerror, align 8
   %bf.set.i = or i8 %bf.load.i, 2
@@ -217,13 +184,13 @@ if.then29:                                        ; preds = %if.then27
   br label %return
 
 if.else:                                          ; preds = %cond.end23
-  %alpn33 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond24, i64 0, i32 80, i32 24
+  %alpn33 = getelementptr inbounds i8, ptr %cond24, i64 2640
   %8 = load ptr, ptr %alpn33, align 8
   %cmp34 = icmp eq ptr %8, null
   br i1 %cmp34, label %if.then37, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
-  %alpn_len = getelementptr inbounds %struct.ssl_connection_st, ptr %cond24, i64 0, i32 80, i32 25
+  %alpn_len = getelementptr inbounds i8, ptr %cond24, i64 2648
   %9 = load i64, ptr %alpn_len, align 8
   %cmp36 = icmp eq i64 %9, 0
   br i1 %cmp36, label %if.then37, label %if.end40
@@ -232,12 +199,12 @@ if.then37:                                        ; preds = %lor.lhs.false, %if.
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 750, ptr noundef nonnull @__func__.ossl_quic_tls_tick) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 393, ptr noundef nonnull @.str.4, i64 noundef 376, i64 noundef 376, ptr noundef nonnull @.str.2) #9
-  %error_state.i43 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 3
+  %error_state.i43 = getelementptr inbounds i8, ptr %qtls, i64 144
   %10 = load ptr, ptr %error_state.i43, align 8
   tail call void @OSSL_ERR_STATE_save_to_mark(ptr noundef %10) #9
-  %error_code1.i44 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 4
+  %error_code1.i44 = getelementptr inbounds i8, ptr %qtls, i64 152
   store i64 376, ptr %error_code1.i44, align 8
-  %error_msg2.i45 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 5
+  %error_msg2.i45 = getelementptr inbounds i8, ptr %qtls, i64 160
   store ptr @.str.2, ptr %error_msg2.i45, align 8
   %bf.load.i47 = load i8, ptr %inerror, align 8
   %bf.set.i48 = or i8 %bf.load.i47, 2
@@ -254,12 +221,12 @@ if.then45:                                        ; preds = %if.end40
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 753, ptr noundef nonnull @__func__.ossl_quic_tls_tick) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 393, ptr noundef nonnull @.str.4, i64 noundef 1, i64 noundef 1, ptr noundef nonnull @.str.1) #9
-  %error_state.i50 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 3
+  %error_state.i50 = getelementptr inbounds i8, ptr %qtls, i64 144
   %11 = load ptr, ptr %error_state.i50, align 8
   tail call void @OSSL_ERR_STATE_save_to_mark(ptr noundef %11) #9
-  %error_code1.i51 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 4
+  %error_code1.i51 = getelementptr inbounds i8, ptr %qtls, i64 152
   store i64 1, ptr %error_code1.i51, align 8
-  %error_msg2.i52 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 5
+  %error_msg2.i52 = getelementptr inbounds i8, ptr %qtls, i64 160
   store ptr @.str.1, ptr %error_msg2.i52, align 8
   %bf.load.i54 = load i8, ptr %inerror, align 8
   %bf.set.i55 = or i8 %bf.load.i54, 2
@@ -271,9 +238,9 @@ if.end47:                                         ; preds = %if.end40
   %12 = load ptr, ptr %qtls, align 8
   %call50 = tail call i64 @SSL_clear_options(ptr noundef %12, i64 noundef 1048576) #9
   tail call void @ossl_ssl_set_custom_record_layer(ptr noundef nonnull %cond24, ptr noundef nonnull @quic_tls_record_method, ptr noundef nonnull %qtls) #9
-  %cert = getelementptr inbounds %struct.ssl_connection_st, ptr %cond24, i64 0, i32 44
+  %cert = getelementptr inbounds i8, ptr %cond24, i64 2048
   %13 = load ptr, ptr %cert, align 8
-  %custext = getelementptr inbounds %struct.cert_st, ptr %13, i64 0, i32 17
+  %custext = getelementptr inbounds i8, ptr %13, i64 128
   %14 = load i32, ptr %is_server, align 8
   %tobool53.not = icmp ne i32 %14, 0
   %cond54 = zext i1 %tobool53.not to i32
@@ -285,12 +252,12 @@ if.then57:                                        ; preds = %if.end47
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 768, ptr noundef nonnull @__func__.ossl_quic_tls_tick) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 393, ptr noundef nonnull @.str.4, i64 noundef 1, i64 noundef 1, ptr noundef nonnull @.str.1) #9
-  %error_state.i57 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 3
+  %error_state.i57 = getelementptr inbounds i8, ptr %qtls, i64 144
   %15 = load ptr, ptr %error_state.i57, align 8
   tail call void @OSSL_ERR_STATE_save_to_mark(ptr noundef %15) #9
-  %error_code1.i58 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 4
+  %error_code1.i58 = getelementptr inbounds i8, ptr %qtls, i64 152
   store i64 1, ptr %error_code1.i58, align 8
-  %error_msg2.i59 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 5
+  %error_msg2.i59 = getelementptr inbounds i8, ptr %qtls, i64 160
   store ptr @.str.1, ptr %error_msg2.i59, align 8
   %bf.load.i61 = load i8, ptr %inerror, align 8
   %bf.set.i62 = or i8 %bf.load.i61, 2
@@ -392,12 +359,12 @@ if.then120:                                       ; preds = %if.then112
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 820, ptr noundef nonnull @__func__.ossl_quic_tls_tick) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 393, ptr noundef nonnull @.str.4, i64 noundef 376, i64 noundef 376, ptr noundef nonnull @.str.3) #9
-  %error_state.i64 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 3
+  %error_state.i64 = getelementptr inbounds i8, ptr %qtls, i64 144
   %26 = load ptr, ptr %error_state.i64, align 8
   call void @OSSL_ERR_STATE_save_to_mark(ptr noundef %26) #9
-  %error_code1.i65 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 4
+  %error_code1.i65 = getelementptr inbounds i8, ptr %qtls, i64 152
   store i64 376, ptr %error_code1.i65, align 8
-  %error_msg2.i66 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 5
+  %error_msg2.i66 = getelementptr inbounds i8, ptr %qtls, i64 160
   store ptr @.str.3, ptr %error_msg2.i66, align 8
   %bf.load.i68 = load i8, ptr %inerror, align 8
   %bf.set.i69 = or i8 %bf.load.i68, 2
@@ -410,9 +377,9 @@ if.end122:                                        ; preds = %if.then112
   %bf.set126 = or i8 %bf.load124, 4
   store i8 %bf.set126, ptr %inerror, align 8
   %call127 = call i32 @ERR_pop_to_mark() #9
-  %handshake_complete_cb = getelementptr inbounds %struct.quic_tls_args_st, ptr %qtls, i64 0, i32 11
+  %handshake_complete_cb = getelementptr inbounds i8, ptr %qtls, i64 88
   %27 = load ptr, ptr %handshake_complete_cb, align 8
-  %handshake_complete_cb_arg = getelementptr inbounds %struct.quic_tls_args_st, ptr %qtls, i64 0, i32 12
+  %handshake_complete_cb_arg = getelementptr inbounds i8, ptr %qtls, i64 96
   %28 = load ptr, ptr %handshake_complete_cb_arg, align 8
   %call130 = call i32 %27(ptr noundef %28) #9
   br label %return
@@ -434,14 +401,14 @@ entry:
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %src_line, ptr noundef nonnull @__func__.ossl_quic_tls_tick) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 393, ptr noundef nonnull @.str.4, i64 noundef %error_code, i64 noundef %error_code, ptr noundef %error_msg) #9
-  %error_state = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 3
+  %error_state = getelementptr inbounds i8, ptr %qtls, i64 144
   %0 = load ptr, ptr %error_state, align 8
   tail call void @OSSL_ERR_STATE_save_to_mark(ptr noundef %0) #9
-  %error_code1 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 4
+  %error_code1 = getelementptr inbounds i8, ptr %qtls, i64 152
   store i64 %error_code, ptr %error_code1, align 8
-  %error_msg2 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 5
+  %error_msg2 = getelementptr inbounds i8, ptr %qtls, i64 160
   store ptr %error_msg, ptr %error_msg2, align 8
-  %inerror = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 6
+  %inerror = getelementptr inbounds i8, ptr %qtls, i64 168
   %bf.load = load i8, ptr %inerror, align 8
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %inerror, align 8
@@ -460,10 +427,10 @@ declare i32 @ossl_tls_add_custom_ext_intern(ptr noundef, ptr noundef, i32 nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal i32 @add_transport_params_cb(ptr nocapture readnone %s, i32 %ext_type, i32 %context, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef readonly %add_arg) #3 {
 entry:
-  %local_transport_params = getelementptr inbounds %struct.quic_tls_st, ptr %add_arg, i64 0, i32 1
+  %local_transport_params = getelementptr inbounds i8, ptr %add_arg, i64 128
   %0 = load ptr, ptr %local_transport_params, align 8
   store ptr %0, ptr %out, align 8
-  %local_transport_params_len = getelementptr inbounds %struct.quic_tls_st, ptr %add_arg, i64 0, i32 2
+  %local_transport_params_len = getelementptr inbounds i8, ptr %add_arg, i64 136
   %1 = load i64, ptr %local_transport_params_len, align 8
   store i64 %1, ptr %outlen, align 8
   ret i32 1
@@ -478,9 +445,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_transport_params_cb(ptr nocapture readnone %s, i32 %ext_type, i32 %context, ptr noundef %in, i64 noundef %inlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef readonly %parse_arg) #0 {
 entry:
-  %got_transport_params_cb = getelementptr inbounds %struct.quic_tls_args_st, ptr %parse_arg, i64 0, i32 9
+  %got_transport_params_cb = getelementptr inbounds i8, ptr %parse_arg, i64 72
   %0 = load ptr, ptr %got_transport_params_cb, align 8
-  %got_transport_params_cb_arg = getelementptr inbounds %struct.quic_tls_args_st, ptr %parse_arg, i64 0, i32 10
+  %got_transport_params_cb_arg = getelementptr inbounds i8, ptr %parse_arg, i64 80
   %1 = load ptr, ptr %got_transport_params_cb_arg, align 8
   %call = tail call i32 %0(ptr noundef %in, i64 noundef %inlen, ptr noundef %1) #9
   ret i32 %call
@@ -511,9 +478,9 @@ declare void @SSL_get0_alpn_selected(ptr noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ossl_quic_tls_set_transport_params(ptr nocapture noundef writeonly %qtls, ptr noundef %transport_params, i64 noundef %transport_params_len) local_unnamed_addr #5 {
 entry:
-  %local_transport_params = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 1
+  %local_transport_params = getelementptr inbounds i8, ptr %qtls, i64 128
   store ptr %transport_params, ptr %local_transport_params, align 8
-  %local_transport_params_len = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 2
+  %local_transport_params_len = getelementptr inbounds i8, ptr %qtls, i64 136
   store i64 %transport_params_len, ptr %local_transport_params_len, align 8
   ret i32 1
 }
@@ -521,20 +488,20 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @ossl_quic_tls_get_error(ptr nocapture noundef readonly %qtls, ptr nocapture noundef writeonly %error_code, ptr nocapture noundef writeonly %error_msg, ptr nocapture noundef writeonly %error_state) local_unnamed_addr #3 {
 entry:
-  %inerror = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 6
+  %inerror = getelementptr inbounds i8, ptr %qtls, i64 168
   %bf.load = load i8, ptr %inerror, align 8
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %error_code1 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 4
+  %error_code1 = getelementptr inbounds i8, ptr %qtls, i64 152
   %1 = load i64, ptr %error_code1, align 8
   store i64 %1, ptr %error_code, align 8
-  %error_msg2 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 5
+  %error_msg2 = getelementptr inbounds i8, ptr %qtls, i64 160
   %2 = load ptr, ptr %error_msg2, align 8
   store ptr %2, ptr %error_msg, align 8
-  %error_state3 = getelementptr inbounds %struct.quic_tls_st, ptr %qtls, i64 0, i32 3
+  %error_state3 = getelementptr inbounds i8, ptr %qtls, i64 144
   %3 = load ptr, ptr %error_state3, align 8
   store ptr %3, ptr %error_state, align 8
   %bf.load5.pre = load i8, ptr %inerror, align 8
@@ -557,13 +524,13 @@ entry:
   br i1 %switch, label %cond.end18, label %cond.true12
 
 cond.true12:                                      ; preds = %entry
-  %tls = getelementptr inbounds %struct.quic_conn_st, ptr %0, i64 0, i32 1
+  %tls = getelementptr inbounds i8, ptr %0, i64 64
   %2 = load ptr, ptr %tls, align 8
   br label %cond.end18
 
 cond.end18:                                       ; preds = %entry, %cond.true12
   %cond19 = phi ptr [ %2, %cond.true12 ], [ %0, %entry ]
-  %message_type = getelementptr inbounds %struct.ssl_connection_st, ptr %cond19, i64 0, i32 20, i32 14, i32 5
+  %message_type = getelementptr inbounds i8, ptr %cond19, i64 688
   %3 = load i32, ptr %message_type, align 8
   %cmp20 = icmp eq i32 %3, 13
   %conv = zext i1 %cmp20 to i32
@@ -575,7 +542,7 @@ define i32 @ossl_quic_tls_has_bad_max_early_data(ptr nocapture noundef readonly 
 entry:
   %0 = load ptr, ptr %qtls, align 8
   %call = tail call ptr @SSL_get_session(ptr noundef %0) #9
-  %max_early_data1 = getelementptr inbounds %struct.ssl_session_st, ptr %call, i64 0, i32 26, i32 5
+  %max_early_data1 = getelementptr inbounds i8, ptr %call, i64 860
   %1 = load i32, ptr %max_early_data1, align 4
   %2 = add i32 %1, -1
   %3 = icmp ult i32 %2, -2
@@ -602,7 +569,7 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %entry
   store ptr %rlarg, ptr %call, align 8
-  %level8 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 1
+  %level8 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %level, ptr %level8, align 8
   %cmp.not.i = icmp eq ptr %transport, null
   br i1 %cmp.not.i, label %if.end25, label %land.lhs.true.i
@@ -613,31 +580,31 @@ land.lhs.true.i:                                  ; preds = %if.end6
   br i1 %tobool.not.i, label %if.then13, label %if.end25
 
 if.then13:                                        ; preds = %land.lhs.true.i
-  %alert14 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 5
+  %alert14 = getelementptr inbounds i8, ptr %call, i64 56
   store i32 80, ptr %alert14, align 8
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 118, ptr noundef nonnull @__func__.quic_new_record_layer) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   %0 = load ptr, ptr %call, align 8
-  %inerror19 = getelementptr inbounds %struct.quic_tls_st, ptr %0, i64 0, i32 6
+  %inerror19 = getelementptr inbounds i8, ptr %0, i64 168
   %bf.load20 = load i8, ptr %inerror19, align 8
   %bf.set22 = or i8 %bf.load20, 2
   store i8 %bf.set22, ptr %inerror19, align 8
   br label %quic_free.exit
 
 if.end25:                                         ; preds = %land.lhs.true.i, %if.end6
-  %dummybio.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 2
+  %dummybio.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %dummybio.i, align 8
   %call1.i = tail call i32 @BIO_free(ptr noundef %1) #9
   store ptr %transport, ptr %dummybio.i, align 8
-  %cbarg26 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 9
+  %cbarg26 = getelementptr inbounds i8, ptr %call, i64 88
   store ptr %cbarg, ptr %cbarg26, align 8
   store ptr %call, ptr %retrl, align 8
   %cmp27.not = icmp eq ptr %fns, null
   br i1 %cmp27.not, label %if.end32, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end25
-  %msg_callback = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 8
+  %msg_callback = getelementptr inbounds i8, ptr %call, i64 80
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
@@ -655,7 +622,7 @@ sw.bb:                                            ; preds = %for.cond
   br label %for.inc
 
 for.inc:                                          ; preds = %for.cond, %sw.bb
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fns.addr.0, i64 16
   br label %for.cond, !llvm.loop !5
 
 if.end32:                                         ; preds = %for.cond, %if.end25
@@ -673,13 +640,13 @@ sw.bb36:                                          ; preds = %if.end32
   br label %sw.epilog52
 
 if.then40:                                        ; preds = %if.end32
-  %alert41 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 5
+  %alert41 = getelementptr inbounds i8, ptr %call, i64 56
   store i32 80, ptr %alert41, align 8
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.quic_new_record_layer) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   %4 = load ptr, ptr %call, align 8
-  %inerror46 = getelementptr inbounds %struct.quic_tls_st, ptr %4, i64 0, i32 6
+  %inerror46 = getelementptr inbounds i8, ptr %4, i64 168
   %bf.load47 = load i8, ptr %inerror46, align 8
   %bf.set49 = or i8 %bf.load47, 2
   store i8 %bf.set49, ptr %inerror46, align 8
@@ -704,13 +671,13 @@ if.else63:                                        ; preds = %if.else59
   br i1 %tobool65.not, label %if.then70, label %if.end84
 
 if.then70:                                        ; preds = %if.else63
-  %alert71 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 5
+  %alert71 = getelementptr inbounds i8, ptr %call, i64 56
   store i32 80, ptr %alert71, align 8
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 171, ptr noundef nonnull @__func__.quic_new_record_layer) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 249, ptr noundef null) #9
   %5 = load ptr, ptr %call, align 8
-  %inerror76 = getelementptr inbounds %struct.quic_tls_st, ptr %5, i64 0, i32 6
+  %inerror76 = getelementptr inbounds i8, ptr %5, i64 168
   %bf.load77 = load i8, ptr %inerror76, align 8
   %bf.set79 = or i8 %bf.load77, 2
   store i8 %bf.set79, ptr %inerror76, align 8
@@ -723,13 +690,13 @@ if.end84:                                         ; preds = %if.else63, %if.else
   br i1 %tobool86.not, label %if.then90, label %if.end102
 
 if.then90:                                        ; preds = %if.end84
-  %alert91 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 5
+  %alert91 = getelementptr inbounds i8, ptr %call, i64 56
   store i32 80, ptr %alert91, align 8
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 178, ptr noundef nonnull @__func__.quic_new_record_layer) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   %6 = load ptr, ptr %call, align 8
-  %inerror96 = getelementptr inbounds %struct.quic_tls_st, ptr %6, i64 0, i32 6
+  %inerror96 = getelementptr inbounds i8, ptr %6, i64 168
   %bf.load97 = load i8, ptr %inerror96, align 8
   %bf.set99 = or i8 %bf.load97, 2
   store i8 %bf.set99, ptr %inerror96, align 8
@@ -737,22 +704,22 @@ if.then90:                                        ; preds = %if.end84
 
 if.end102:                                        ; preds = %if.end84
   %7 = load ptr, ptr %call, align 8
-  %yield_secret_cb = getelementptr inbounds %struct.quic_tls_args_st, ptr %7, i64 0, i32 7
+  %yield_secret_cb = getelementptr inbounds i8, ptr %7, i64 56
   %8 = load ptr, ptr %yield_secret_cb, align 8
-  %yield_secret_cb_arg = getelementptr inbounds %struct.quic_tls_args_st, ptr %7, i64 0, i32 8
+  %yield_secret_cb_arg = getelementptr inbounds i8, ptr %7, i64 64
   %9 = load ptr, ptr %yield_secret_cb_arg, align 8
   %call106 = tail call i32 %8(i32 noundef %enc_level.0, i32 noundef %., i32 noundef %suite_id.0, ptr noundef %kdfdigest, ptr noundef %secret, i64 noundef %secretlen, ptr noundef %9) #9
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %if.then111, label %return
 
 if.then111:                                       ; preds = %if.end102
-  %alert112 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 5
+  %alert112 = getelementptr inbounds i8, ptr %call, i64 56
   store i32 80, ptr %alert112, align 8
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 185, ptr noundef nonnull @__func__.quic_new_record_layer) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   %10 = load ptr, ptr %call, align 8
-  %inerror117 = getelementptr inbounds %struct.quic_tls_st, ptr %10, i64 0, i32 6
+  %inerror117 = getelementptr inbounds i8, ptr %10, i64 168
   %bf.load118 = load i8, ptr %inerror117, align 8
   %bf.set120 = or i8 %bf.load118, 2
   store i8 %bf.set120, ptr %inerror117, align 8
@@ -761,7 +728,7 @@ if.then111:                                       ; preds = %if.end102
 
 quic_free.exit:                                   ; preds = %if.then90, %if.then70, %if.then40, %if.then13, %if.then111
   store ptr null, ptr %retrl, align 8
-  %dummybio.i45 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 2
+  %dummybio.i45 = getelementptr inbounds i8, ptr %call, i64 16
   %11 = load ptr, ptr %dummybio.i45, align 8
   %call.i46 = tail call i32 @BIO_free(ptr noundef %11) #9
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 203) #9
@@ -779,7 +746,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dummybio = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
+  %dummybio = getelementptr inbounds i8, ptr %rl, i64 16
   %0 = load ptr, ptr %dummybio, align 8
   %call = tail call i32 @BIO_free(ptr noundef %0) #9
   tail call void @CRYPTO_free(ptr noundef nonnull %rl, ptr noundef nonnull @.str, i32 noundef 203) #9
@@ -808,13 +775,13 @@ entry:
   br i1 %cmp.not, label %do.end.critedge, label %if.then
 
 if.then:                                          ; preds = %entry
-  %alert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert = getelementptr inbounds i8, ptr %rl, i64 56
   store i32 80, ptr %alert, align 8
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 552, ptr noundef nonnull @__func__.quic_app_data_pending) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #9
   %0 = load ptr, ptr %rl, align 8
-  %inerror = getelementptr inbounds %struct.quic_tls_st, ptr %0, i64 0, i32 6
+  %inerror = getelementptr inbounds i8, ptr %0, i64 168
   %bf.load = load i8, ptr %inerror, align 8
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %inerror, align 8
@@ -849,13 +816,13 @@ do.body:                                          ; preds = %entry
   br i1 %cmp5.not, label %do.end.critedge, label %if.then7
 
 if.then7:                                         ; preds = %do.body
-  %alert8 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert8 = getelementptr inbounds i8, ptr %rl, i64 56
   store i32 80, ptr %alert8, align 8
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 250, ptr noundef nonnull @__func__.quic_write_records) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   %0 = load ptr, ptr %rl, align 8
-  %inerror = getelementptr inbounds %struct.quic_tls_st, ptr %0, i64 0, i32 6
+  %inerror = getelementptr inbounds i8, ptr %0, i64 168
   %bf.load = load i8, ptr %inerror, align 8
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %inerror, align 8
@@ -868,16 +835,16 @@ do.end.critedge:                                  ; preds = %do.body
   br label %return
 
 if.end13:                                         ; preds = %entry
-  %dummybio = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
+  %dummybio = getelementptr inbounds i8, ptr %rl, i64 16
   %1 = load ptr, ptr %dummybio, align 8
   tail call void @BIO_clear_flags(ptr noundef %1, i32 noundef 15) #9
-  %msg_callback = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 8
+  %msg_callback = getelementptr inbounds i8, ptr %rl, i64 80
   %2 = load ptr, ptr %msg_callback, align 8
   %cmp14.not = icmp eq ptr %2, null
   br i1 %cmp14.not, label %if.end44, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
-  %level = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 1
+  %level = getelementptr inbounds i8, ptr %rl, i64 8
   %3 = load i32, ptr %level, align 8
   %cmp17 = icmp eq i32 %3, 0
   br i1 %cmp17, label %cond.true, label %cond.end
@@ -889,25 +856,25 @@ cond.true:                                        ; preds = %if.then16
 cond.end:                                         ; preds = %if.then16, %cond.true
   %cond = phi i8 [ %4, %cond.true ], [ 23, %if.then16 ]
   store i8 %cond, ptr %dummyrec, align 1
-  %version = getelementptr inbounds %struct.ossl_record_template_st, ptr %template, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %template, i64 4
   %5 = load i32, ptr %version, align 4
   %shr = lshr i32 %5, 8
   %conv21 = trunc i32 %shr to i8
-  %arrayidx22 = getelementptr inbounds [5 x i8], ptr %dummyrec, i64 0, i64 1
+  %arrayidx22 = getelementptr inbounds i8, ptr %dummyrec, i64 1
   store i8 %conv21, ptr %arrayidx22, align 1
   %conv25 = trunc i32 %5 to i8
-  %arrayidx26 = getelementptr inbounds [5 x i8], ptr %dummyrec, i64 0, i64 2
+  %arrayidx26 = getelementptr inbounds i8, ptr %dummyrec, i64 2
   store i8 %conv25, ptr %arrayidx26, align 1
-  %buflen = getelementptr inbounds %struct.ossl_record_template_st, ptr %template, i64 0, i32 3
+  %buflen = getelementptr inbounds i8, ptr %template, i64 16
   %6 = load i64, ptr %buflen, align 8
   %shr27 = lshr i64 %6, 8
   %conv29 = trunc i64 %shr27 to i8
-  %arrayidx30 = getelementptr inbounds [5 x i8], ptr %dummyrec, i64 0, i64 3
+  %arrayidx30 = getelementptr inbounds i8, ptr %dummyrec, i64 3
   store i8 %conv29, ptr %arrayidx30, align 1
   %conv33 = trunc i64 %6 to i8
-  %arrayidx34 = getelementptr inbounds [5 x i8], ptr %dummyrec, i64 0, i64 4
+  %arrayidx34 = getelementptr inbounds i8, ptr %dummyrec, i64 4
   store i8 %conv33, ptr %arrayidx34, align 1
-  %cbarg = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 9
+  %cbarg = getelementptr inbounds i8, ptr %rl, i64 88
   %7 = load ptr, ptr %cbarg, align 8
   call void %2(i32 noundef 1, i32 noundef 772, i32 noundef 256, ptr noundef nonnull %dummyrec, i64 noundef 5, ptr noundef %7) #9
   %8 = load i32, ptr %level, align 8
@@ -928,46 +895,46 @@ if.end44:                                         ; preds = %cond.end, %if.then3
   ]
 
 sw.bb:                                            ; preds = %if.end44
-  %buflen47 = getelementptr inbounds %struct.ossl_record_template_st, ptr %template, i64 0, i32 3
+  %buflen47 = getelementptr inbounds i8, ptr %template, i64 16
   %12 = load i64, ptr %buflen47, align 8
   %cmp48.not = icmp eq i64 %12, 2
   br i1 %cmp48.not, label %if.end67, label %if.then54
 
 if.then54:                                        ; preds = %sw.bb
-  %alert55 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert55 = getelementptr inbounds i8, ptr %rl, i64 56
   store i32 80, ptr %alert55, align 8
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 294, ptr noundef nonnull @__func__.quic_write_records) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 384, ptr noundef null) #9
   %13 = load ptr, ptr %rl, align 8
-  %inerror61 = getelementptr inbounds %struct.quic_tls_st, ptr %13, i64 0, i32 6
+  %inerror61 = getelementptr inbounds i8, ptr %13, i64 168
   %bf.load62 = load i8, ptr %inerror61, align 8
   %bf.set64 = or i8 %bf.load62, 2
   store i8 %bf.set64, ptr %inerror61, align 8
   br label %return
 
 if.end67:                                         ; preds = %sw.bb
-  %buf = getelementptr inbounds %struct.ossl_record_template_st, ptr %template, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %template, i64 8
   %14 = load ptr, ptr %buf, align 8
   %arrayidx68 = getelementptr inbounds i8, ptr %14, i64 1
   %15 = load i8, ptr %arrayidx68, align 1
   %16 = load ptr, ptr %rl, align 8
-  %alert_cb = getelementptr inbounds %struct.quic_tls_args_st, ptr %16, i64 0, i32 13
+  %alert_cb = getelementptr inbounds i8, ptr %16, i64 104
   %17 = load ptr, ptr %alert_cb, align 8
-  %alert_cb_arg = getelementptr inbounds %struct.quic_tls_args_st, ptr %16, i64 0, i32 14
+  %alert_cb_arg = getelementptr inbounds i8, ptr %16, i64 112
   %18 = load ptr, ptr %alert_cb_arg, align 8
   %call = call i32 %17(ptr noundef %18, i8 noundef zeroext %15) #9
   %tobool72.not = icmp eq i32 %call, 0
   br i1 %tobool72.not, label %if.then77, label %return
 
 if.then77:                                        ; preds = %if.end67
-  %alert78 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert78 = getelementptr inbounds i8, ptr %rl, i64 56
   store i32 80, ptr %alert78, align 8
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 304, ptr noundef nonnull @__func__.quic_write_records) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   %19 = load ptr, ptr %rl, align 8
-  %inerror84 = getelementptr inbounds %struct.quic_tls_st, ptr %19, i64 0, i32 6
+  %inerror84 = getelementptr inbounds i8, ptr %19, i64 168
   %bf.load85 = load i8, ptr %inerror84, align 8
   %bf.set87 = or i8 %bf.load85, 2
   store i8 %bf.set87, ptr %inerror84, align 8
@@ -975,30 +942,30 @@ if.then77:                                        ; preds = %if.end67
 
 sw.bb91:                                          ; preds = %if.end44
   %20 = load ptr, ptr %rl, align 8
-  %crypto_send_cb = getelementptr inbounds %struct.quic_tls_args_st, ptr %20, i64 0, i32 1
+  %crypto_send_cb = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %crypto_send_cb, align 8
-  %buf94 = getelementptr inbounds %struct.ossl_record_template_st, ptr %template, i64 0, i32 2
+  %buf94 = getelementptr inbounds i8, ptr %template, i64 8
   %22 = load ptr, ptr %buf94, align 8
-  %written = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
+  %written = getelementptr inbounds i8, ptr %rl, i64 24
   %23 = load i64, ptr %written, align 8
   %add.ptr = getelementptr inbounds i8, ptr %22, i64 %23
-  %buflen95 = getelementptr inbounds %struct.ossl_record_template_st, ptr %template, i64 0, i32 3
+  %buflen95 = getelementptr inbounds i8, ptr %template, i64 16
   %24 = load i64, ptr %buflen95, align 8
   %sub = sub i64 %24, %23
-  %crypto_send_cb_arg = getelementptr inbounds %struct.quic_tls_args_st, ptr %20, i64 0, i32 2
+  %crypto_send_cb_arg = getelementptr inbounds i8, ptr %20, i64 16
   %25 = load ptr, ptr %crypto_send_cb_arg, align 8
   %call99 = call i32 %21(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %consumed, ptr noundef %25) #9
   %tobool100.not = icmp eq i32 %call99, 0
   br i1 %tobool100.not, label %if.then105, label %if.end118
 
 if.then105:                                       ; preds = %sw.bb91
-  %alert106 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert106 = getelementptr inbounds i8, ptr %rl, i64 56
   store i32 80, ptr %alert106, align 8
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 318, ptr noundef nonnull @__func__.quic_write_records) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   %26 = load ptr, ptr %rl, align 8
-  %inerror112 = getelementptr inbounds %struct.quic_tls_st, ptr %26, i64 0, i32 6
+  %inerror112 = getelementptr inbounds i8, ptr %26, i64 168
   %bf.load113 = load i8, ptr %inerror112, align 8
   %bf.set115 = or i8 %bf.load113, 2
   store i8 %bf.set115, ptr %inerror112, align 8
@@ -1017,13 +984,13 @@ if.then123:                                       ; preds = %if.end118
   br i1 %cmp127, label %if.end154, label %if.then141
 
 if.then141:                                       ; preds = %if.then123
-  %alert142 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert142 = getelementptr inbounds i8, ptr %rl, i64 56
   store i32 80, ptr %alert142, align 8
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 327, ptr noundef nonnull @__func__.quic_write_records) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   %30 = load ptr, ptr %rl, align 8
-  %inerror148 = getelementptr inbounds %struct.quic_tls_st, ptr %30, i64 0, i32 6
+  %inerror148 = getelementptr inbounds i8, ptr %30, i64 168
   %bf.load149 = load i8, ptr %inerror148, align 8
   %bf.set151 = or i8 %bf.load149, 2
   store i8 %bf.set151, ptr %inerror148, align 8
@@ -1031,7 +998,7 @@ if.then141:                                       ; preds = %if.then123
 
 if.end154:                                        ; preds = %if.then123
   store i64 %add, ptr %written, align 8
-  %template157 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 4
+  %template157 = getelementptr inbounds i8, ptr %rl, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %template157, ptr noundef nonnull align 8 dereferenceable(24) %template, i64 24, i1 false)
   %31 = load ptr, ptr %dummybio, align 8
   call void @BIO_set_flags(ptr noundef %31, i32 noundef 10) #9
@@ -1042,13 +1009,13 @@ if.end159:                                        ; preds = %if.end118
   br label %return
 
 if.then164:                                       ; preds = %if.end44
-  %alert165 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert165 = getelementptr inbounds i8, ptr %rl, i64 56
   store i32 80, ptr %alert165, align 8
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 348, ptr noundef nonnull @__func__.quic_write_records) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   %32 = load ptr, ptr %rl, align 8
-  %inerror171 = getelementptr inbounds %struct.quic_tls_st, ptr %32, i64 0, i32 6
+  %inerror171 = getelementptr inbounds i8, ptr %32, i64 168
   %bf.load172 = load i8, ptr %inerror171, align 8
   %bf.set174 = or i8 %bf.load172, 2
   store i8 %bf.set174, ptr %inerror171, align 8
@@ -1062,7 +1029,7 @@ return:                                           ; preds = %if.end159, %if.end6
 ; Function Attrs: nounwind uwtable
 define internal i32 @quic_retry_write_records(ptr noundef %rl) #0 {
 entry:
-  %template = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 4
+  %template = getelementptr inbounds i8, ptr %rl, i64 32
   %call = tail call i32 @quic_write_records(ptr noundef %rl, ptr noundef nonnull %template, i64 noundef 1), !range !7
   ret i32 %call
 }
@@ -1071,38 +1038,38 @@ entry:
 define internal i32 @quic_read_record(ptr noundef %rl, ptr nocapture noundef writeonly %rechandle, ptr nocapture noundef writeonly %rversion, ptr noundef %type, ptr noundef %data, ptr noundef %datalen, ptr nocapture readnone %epoch, ptr nocapture readnone %seq_num) #0 {
 entry:
   %dummyrec = alloca [5 x i8], align 1
-  %recread = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 6
+  %recread = getelementptr inbounds i8, ptr %rl, i64 64
   %0 = load i64, ptr %recread, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %recunreleased = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 7
+  %recunreleased = getelementptr inbounds i8, ptr %rl, i64 72
   %1 = load i64, ptr %recunreleased, align 8
   %cmp1.not = icmp eq i64 %1, 0
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %dummybio = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
+  %dummybio = getelementptr inbounds i8, ptr %rl, i64 16
   %2 = load ptr, ptr %dummybio, align 8
   tail call void @BIO_clear_flags(ptr noundef %2, i32 noundef 15) #9
   %3 = load ptr, ptr %rl, align 8
-  %crypto_recv_rcd_cb = getelementptr inbounds %struct.quic_tls_args_st, ptr %3, i64 0, i32 3
+  %crypto_recv_rcd_cb = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %crypto_recv_rcd_cb, align 8
-  %crypto_recv_rcd_cb_arg = getelementptr inbounds %struct.quic_tls_args_st, ptr %3, i64 0, i32 4
+  %crypto_recv_rcd_cb_arg = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %crypto_recv_rcd_cb_arg, align 8
   %call = tail call i32 %4(ptr noundef %data, ptr noundef %datalen, ptr noundef %5) #9
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then6, label %if.end12
 
 if.then6:                                         ; preds = %if.end
-  %alert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert = getelementptr inbounds i8, ptr %rl, i64 56
   store i32 80, ptr %alert, align 8
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 372, ptr noundef nonnull @__func__.quic_read_record) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   %6 = load ptr, ptr %rl, align 8
-  %inerror = getelementptr inbounds %struct.quic_tls_st, ptr %6, i64 0, i32 6
+  %inerror = getelementptr inbounds i8, ptr %6, i64 168
   %bf.load = load i8, ptr %inerror, align 8
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %inerror, align 8
@@ -1125,30 +1092,30 @@ if.end16:                                         ; preds = %if.end12
   %9 = load i64, ptr %datalen, align 8
   store i64 %9, ptr %recunreleased, align 8
   store i64 %9, ptr %recread, align 8
-  %msg_callback = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 8
+  %msg_callback = getelementptr inbounds i8, ptr %rl, i64 80
   %10 = load ptr, ptr %msg_callback, align 8
   %cmp19.not = icmp eq ptr %10, null
   br i1 %cmp19.not, label %return, label %if.then20
 
 if.then20:                                        ; preds = %if.end16
-  %level = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 1
+  %level = getelementptr inbounds i8, ptr %rl, i64 8
   %11 = load i32, ptr %level, align 8
   %cmp21 = icmp eq i32 %11, 0
   %conv = select i1 %cmp21, i8 22, i8 23
   store i8 %conv, ptr %dummyrec, align 1
-  %arrayidx22 = getelementptr inbounds [5 x i8], ptr %dummyrec, i64 0, i64 1
+  %arrayidx22 = getelementptr inbounds i8, ptr %dummyrec, i64 1
   store i8 3, ptr %arrayidx22, align 1
-  %arrayidx23 = getelementptr inbounds [5 x i8], ptr %dummyrec, i64 0, i64 2
+  %arrayidx23 = getelementptr inbounds i8, ptr %dummyrec, i64 2
   store i8 3, ptr %arrayidx23, align 1
   %12 = load i64, ptr %datalen, align 8
   %shr = lshr i64 %12, 8
   %conv24 = trunc i64 %shr to i8
-  %arrayidx25 = getelementptr inbounds [5 x i8], ptr %dummyrec, i64 0, i64 3
+  %arrayidx25 = getelementptr inbounds i8, ptr %dummyrec, i64 3
   store i8 %conv24, ptr %arrayidx25, align 1
   %conv27 = trunc i64 %12 to i8
-  %arrayidx28 = getelementptr inbounds [5 x i8], ptr %dummyrec, i64 0, i64 4
+  %arrayidx28 = getelementptr inbounds i8, ptr %dummyrec, i64 4
   store i8 %conv27, ptr %arrayidx28, align 1
-  %cbarg = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 9
+  %cbarg = getelementptr inbounds i8, ptr %rl, i64 88
   %13 = load ptr, ptr %cbarg, align 8
   call void %10(i32 noundef 0, i32 noundef 772, i32 noundef 256, ptr noundef nonnull %dummyrec, i64 noundef 5, ptr noundef %13) #9
   %14 = load ptr, ptr %msg_callback, align 8
@@ -1164,13 +1131,13 @@ return:                                           ; preds = %if.end16, %if.then2
 ; Function Attrs: nounwind uwtable
 define internal i32 @quic_release_record(ptr noundef %rl, ptr noundef readnone %rechandle, i64 noundef %length) #0 {
 entry:
-  %recread = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 6
+  %recread = getelementptr inbounds i8, ptr %rl, i64 64
   %0 = load i64, ptr %recread, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.then41, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %recunreleased = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 7
+  %recunreleased = getelementptr inbounds i8, ptr %rl, i64 72
   %1 = load i64, ptr %recunreleased, align 8
   %cmp6.not = icmp ugt i64 %1, %0
   %cmp17 = icmp ne ptr %rl, %rechandle
@@ -1180,13 +1147,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond21, label %if.then41, label %if.end46
 
 if.then41:                                        ; preds = %lor.lhs.false, %entry
-  %alert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert = getelementptr inbounds i8, ptr %rl, i64 56
   store i32 80, ptr %alert, align 8
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 422, ptr noundef nonnull @__func__.quic_release_record) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   %2 = load ptr, ptr %rl, align 8
-  %inerror = getelementptr inbounds %struct.quic_tls_st, ptr %2, i64 0, i32 6
+  %inerror = getelementptr inbounds i8, ptr %2, i64 168
   %bf.load = load i8, ptr %inerror, align 8
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %inerror, align 8
@@ -1200,22 +1167,22 @@ if.end46:                                         ; preds = %lor.lhs.false
 
 if.end52:                                         ; preds = %if.end46
   %3 = load ptr, ptr %rl, align 8
-  %crypto_release_rcd_cb = getelementptr inbounds %struct.quic_tls_args_st, ptr %3, i64 0, i32 5
+  %crypto_release_rcd_cb = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %crypto_release_rcd_cb, align 8
-  %crypto_release_rcd_cb_arg = getelementptr inbounds %struct.quic_tls_args_st, ptr %3, i64 0, i32 6
+  %crypto_release_rcd_cb_arg = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load ptr, ptr %crypto_release_rcd_cb_arg, align 8
   %call = tail call i32 %4(i64 noundef %0, ptr noundef %5) #9
   %tobool57.not = icmp eq i32 %call, 0
   br i1 %tobool57.not, label %if.then62, label %if.end75
 
 if.then62:                                        ; preds = %if.end52
-  %alert63 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert63 = getelementptr inbounds i8, ptr %rl, i64 56
   store i32 80, ptr %alert63, align 8
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 433, ptr noundef nonnull @__func__.quic_release_record) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   %6 = load ptr, ptr %rl, align 8
-  %inerror69 = getelementptr inbounds %struct.quic_tls_st, ptr %6, i64 0, i32 6
+  %inerror69 = getelementptr inbounds i8, ptr %6, i64 168
   %bf.load70 = load i8, ptr %inerror69, align 8
   %bf.set72 = or i8 %bf.load70, 2
   store i8 %bf.set72, ptr %inerror69, align 8
@@ -1233,7 +1200,7 @@ return:                                           ; preds = %if.end46, %if.then4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @quic_get_alert_code(ptr nocapture noundef readonly %rl) #7 {
 entry:
-  %alert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert = getelementptr inbounds i8, ptr %rl, i64 56
   %0 = load i32, ptr %alert, align 8
   ret i32 %0
 }
@@ -1250,7 +1217,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %dummybio = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
+  %dummybio = getelementptr inbounds i8, ptr %rl, i64 16
   %0 = load ptr, ptr %dummybio, align 8
   %call1 = tail call i32 @BIO_free(ptr noundef %0) #9
   store ptr %bio, ptr %dummybio, align 8
@@ -1272,13 +1239,13 @@ do.body:                                          ; preds = %entry
   br i1 %cmp5.not, label %do.end.critedge, label %if.then7
 
 if.then7:                                         ; preds = %do.body
-  %alert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert = getelementptr inbounds i8, ptr %rl, i64 56
   store i32 80, ptr %alert, align 8
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 450, ptr noundef nonnull @__func__.quic_set_protocol_version) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #9
   %0 = load ptr, ptr %rl, align 8
-  %inerror = getelementptr inbounds %struct.quic_tls_st, ptr %0, i64 0, i32 6
+  %inerror = getelementptr inbounds i8, ptr %0, i64 168
   %bf.load = load i8, ptr %inerror, align 8
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %inerror, align 8
@@ -1317,7 +1284,7 @@ entry:
 define internal void @quic_get_state(ptr nocapture noundef readonly %rl, ptr noundef writeonly %shortstr, ptr noundef writeonly %longstr) #8 {
 entry:
   %0 = load ptr, ptr %rl, align 8
-  %inerror = getelementptr inbounds %struct.quic_tls_st, ptr %0, i64 0, i32 6
+  %inerror = getelementptr inbounds i8, ptr %0, i64 168
   %bf.load = load i8, ptr %inerror, align 8
   %1 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %1, 0
@@ -1380,13 +1347,13 @@ entry:
   br i1 %cmp.not, label %do.end.critedge, label %if.then
 
 if.then:                                          ; preds = %entry
-  %alert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert = getelementptr inbounds i8, ptr %rl, i64 56
   store i32 80, ptr %alert, align 8
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 558, ptr noundef nonnull @__func__.quic_get_max_record_overhead) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #9
   %0 = load ptr, ptr %rl, align 8
-  %inerror = getelementptr inbounds %struct.quic_tls_st, ptr %0, i64 0, i32 6
+  %inerror = getelementptr inbounds i8, ptr %0, i64 168
   %bf.load = load i8, ptr %inerror, align 8
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %inerror, align 8
@@ -1409,13 +1376,13 @@ entry:
   br i1 %cmp.not, label %do.end.critedge, label %if.then
 
 if.then:                                          ; preds = %entry
-  %alert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %alert = getelementptr inbounds i8, ptr %rl, i64 56
   store i32 80, ptr %alert, align 8
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 564, ptr noundef nonnull @__func__.quic_increment_sequence_ctr) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #9
   %0 = load ptr, ptr %rl, align 8
-  %inerror = getelementptr inbounds %struct.quic_tls_st, ptr %0, i64 0, i32 6
+  %inerror = getelementptr inbounds i8, ptr %0, i64 168
   %bf.load = load i8, ptr %inerror, align 8
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %inerror, align 8

@@ -349,9 +349,9 @@ entry:
   %seeder.i.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
   %gen = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i)
-  %impl_.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen, i64 0, i32 2
+  %impl_.i.i.i = getelementptr inbounds i8, ptr %gen, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i)
-  %next_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen, i64 0, i32 1
+  %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %gen, i64 264
   store i64 32, ptr %next_.i.i.i.i.i, align 8, !alias.scope !5
   %0 = ptrtoint ptr %gen to i64
   %and.i.i.i.i.i.i = and i64 %0, 8
@@ -363,11 +363,11 @@ entry:
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i)
   %call5.i.i.i.i2.i = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #18
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i, i64 5
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %call5.i.i.i.i2.i, ptr noundef nonnull align 4 dereferenceable(20) @constinit, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dist.i.i.i)
   store i64 0, ptr %dist.i.i.i, align 8
-  %range_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 8
   store i64 4, ptr %range_.i.i.i.i.i.i, align 8
   %call3.i.i.i.i.i2 = invoke noundef i64 @_ZN4absl24uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_m(ptr noundef nonnull align 8 dereferenceable(16) %dist.i.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen, i64 noundef 4)
           to label %invoke.cont4 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit25.loopexit.split-lp
@@ -376,7 +376,7 @@ invoke.cont4:                                     ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %dist.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i3)
   store i32 1, ptr %dist.i.i.i3, align 8
-  %range_.i.i.i.i.i.i4 = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %dist.i.i.i3, i64 0, i32 1
+  %range_.i.i.i.i.i.i4 = getelementptr inbounds i8, ptr %dist.i.i.i3, i64 4
   store i32 5, ptr %range_.i.i.i.i.i.i4, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %dist.i.i.i3, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i, 32
@@ -388,7 +388,7 @@ invoke.cont9:                                     ; preds = %invoke.cont4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i3)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %dist.i.i.i6)
   store i8 0, ptr %dist.i.i.i6, align 2
-  %range_.i.i.i.i.i.i7 = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned char>::param_type", ptr %dist.i.i.i6, i64 0, i32 1
+  %range_.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %dist.i.i.i6, i64 1
   store i8 -1, ptr %range_.i.i.i.i.i.i7, align 1
   %retval.sroa.0.0.copyload.i.i.i.i.i8 = load i16, ptr %dist.i.i.i6, align 2
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i10 = lshr i16 %retval.sroa.0.0.copyload.i.i.i.i.i8, 8
@@ -413,7 +413,7 @@ invoke.cont15:                                    ; preds = %invoke.cont12
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont15
-  %has_crypto_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen, i64 0, i32 2, i32 1
+  %has_crypto_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen, i64 280
   store i64 2, ptr %next_.i.i.i.i.i, align 8
   %2 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
@@ -485,7 +485,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %mul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %sub.ptr.div.i, i64 %sub.ptr.div.i)
   %mul.ov = extractvalue { i64, i1 } %mul, 1
-  %__i41.sroa.0.052 = getelementptr inbounds i32, ptr %__first.coerce, i64 1
+  %__i41.sroa.0.052 = getelementptr inbounds i8, ptr %__first.coerce, i64 4
   br i1 %mul.ov, label %for.cond.preheader, label %if.then5
 
 for.cond.preheader:                               ; preds = %if.end
@@ -496,9 +496,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %0 = ptrtoint ptr %__g to i64
   %and.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %__g, i64 %and.i.i.i.i
-  %next_.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %__g, i64 0, i32 1
-  %impl_.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %__g, i64 0, i32 2
-  %has_crypto_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %__g, i64 0, i32 2, i32 1
+  %next_.i.i.i = getelementptr inbounds i8, ptr %__g, i64 264
+  %impl_.i.i.i = getelementptr inbounds i8, ptr %__g, i64 272
+  %has_crypto_.i.i.i.i = getelementptr inbounds i8, ptr %__g, i64 280
   br label %for.body
 
 if.then5:                                         ; preds = %if.end
@@ -507,7 +507,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %cmp8, label %_ZNSt24uniform_int_distributionImEclIN4absl15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_.exit, label %if.end18
 
 _ZNSt24uniform_int_distributionImEclIN4absl15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_.exit: ; preds = %if.then5
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %__first.coerce, i64 2
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.coerce, i64 8
   %call3.i.i = tail call noundef i64 @_ZNSt24uniform_int_distributionImE5_S_ndIoN4absl15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEmEET1_RT0_S9_(ptr noundef nonnull align 8 dereferenceable(288) %__g, i64 noundef 2)
   %add.ptr.i6 = getelementptr inbounds i32, ptr %__first.coerce, i64 %call3.i.i
   %2 = load i32, ptr %__i41.sroa.0.052, align 4
@@ -525,9 +525,9 @@ while.body.lr.ph:                                 ; preds = %if.end18
   %4 = ptrtoint ptr %__g to i64
   %and.i.i.i.i.i.i = and i64 %4, 8
   %cond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__g, i64 %and.i.i.i.i.i.i
-  %next_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %__g, i64 0, i32 1
-  %impl_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %__g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %__g, i64 0, i32 2, i32 1
+  %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %__g, i64 264
+  %impl_.i.i.i.i.i = getelementptr inbounds i8, ptr %__g, i64 272
+  %has_crypto_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZSt22__gen_two_uniform_intsImRN4absl15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEESt4pairIT_S9_ES9_S9_OT0_.exit
@@ -578,13 +578,13 @@ _ZSt22__gen_two_uniform_intsImRN4absl15random_internal17NonsecureURBGBaseINS1_13
   %__ret.0.i.i.i = phi i64 [ %call3.i.i.i, %if.then.i.i.i ], [ %10, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit.i.i.i ]
   %div.i = udiv i64 %__ret.0.i.i.i, %add21
   %rem.i = urem i64 %__ret.0.i.i.i, %add21
-  %incdec.ptr.i13 = getelementptr inbounds i32, ptr %__i.sroa.0.151, i64 1
+  %incdec.ptr.i13 = getelementptr inbounds i8, ptr %__i.sroa.0.151, i64 4
   %add.ptr.i14 = getelementptr inbounds i32, ptr %__first.coerce, i64 %div.i
   %11 = load i32, ptr %__i.sroa.0.151, align 4
   %12 = load i32, ptr %add.ptr.i14, align 4
   store i32 %12, ptr %__i.sroa.0.151, align 4
   store i32 %11, ptr %add.ptr.i14, align 4
-  %incdec.ptr.i15 = getelementptr inbounds i32, ptr %__i.sroa.0.151, i64 2
+  %incdec.ptr.i15 = getelementptr inbounds i8, ptr %__i.sroa.0.151, i64 8
   %add.ptr.i16 = getelementptr inbounds i32, ptr %__first.coerce, i64 %rem.i
   %13 = load i32, ptr %incdec.ptr.i13, align 4
   %14 = load i32, ptr %add.ptr.i16, align 4
@@ -642,7 +642,7 @@ _ZNSt24uniform_int_distributionImEclIN4absl15random_internal17NonsecureURBGBaseI
   %22 = load i32, ptr %add.ptr.i27, align 4
   store i32 %22, ptr %__i41.sroa.0.054, align 4
   store i32 %21, ptr %add.ptr.i27, align 4
-  %__i41.sroa.0.0 = getelementptr inbounds i32, ptr %__i41.sroa.0.054, i64 1
+  %__i41.sroa.0.0 = getelementptr inbounds i8, ptr %__i41.sroa.0.054, i64 4
   %cmp.i19.not = icmp eq ptr %__i41.sroa.0.0, %__last.coerce
   br i1 %cmp.i19.not, label %for.end, label %for.body, !llvm.loop !10
 
@@ -713,14 +713,14 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %0 = ptrtoint ptr %gen_1 to i64
   %and.i.i.i.i.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_1, i64 %and.i.i.i.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_1, i64 0, i32 1
+  %next_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_1, i64 264
   %.pre.i.i.i.i.i = load i64, ptr %next_.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp ugt i64 %.pre.i.i.i.i.i, 31
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont2
-  %has_crypto_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_1, i64 0, i32 2, i32 1
-  %impl_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_1, i64 0, i32 2
+  %has_crypto_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_1, i64 280
+  %impl_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_1, i64 272
   store i64 2, ptr %next_.i.i.i.i.i.i.i.i.i, align 8
   %1 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i, align 8
   %2 = and i8 %1, 1
@@ -749,14 +749,14 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %6 = ptrtoint ptr %gen_2 to i64
   %and.i.i.i.i.i.i.i.i.i.i24 = and i64 %6, 8
   %cond.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %gen_2, i64 %and.i.i.i.i.i.i.i.i.i.i24
-  %next_.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_2, i64 0, i32 1
+  %next_.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %gen_2, i64 264
   %.pre.i.i.i.i.i29 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i26, align 8
   %cmp.i.i.i.i.i.i.i.i.i34 = icmp ugt i64 %.pre.i.i.i.i.i29, 31
   br i1 %cmp.i.i.i.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i.i.i.i49, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35
 
 if.then.i.i.i.i.i.i.i.i.i49:                      ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i
-  %has_crypto_.i.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_2, i64 0, i32 2, i32 1
-  %impl_.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_2, i64 0, i32 2
+  %has_crypto_.i.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %gen_2, i64 280
+  %impl_.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %gen_2, i64 272
   store i64 2, ptr %next_.i.i.i.i.i.i.i.i.i26, align 8
   %7 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i28, align 8
   %8 = and i8 %7, 1
@@ -838,7 +838,7 @@ if.else:                                          ; preds = %invoke.cont8
           to label %invoke.cont13 unwind label %lpad9
 
 invoke.cont13:                                    ; preds = %if.else
-  %message_.i.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
+  %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %21 = load ptr, ptr %message_.i.i, align 8
   %cmp.i.i.not.i.i = icmp eq ptr %21, null
   br i1 %cmp.i.i.not.i.i, label %invoke.cont16, label %cond.true.i.i
@@ -864,7 +864,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont20
   %vtable.i.i.i = load ptr, ptr %22, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %23 = load ptr, ptr %vfn.i.i.i, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(128) %22) #17
   br label %_ZN7testing7MessageD2Ev.exit
@@ -892,7 +892,7 @@ ehcleanup:                                        ; preds = %lpad19, %lpad15
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i59: ; preds = %ehcleanup
   %vtable.i.i.i60 = load ptr, ptr %26, align 8
-  %vfn.i.i.i61 = getelementptr inbounds ptr, ptr %vtable.i.i.i60, i64 1
+  %vfn.i.i.i61 = getelementptr inbounds i8, ptr %vtable.i.i.i60, i64 8
   %27 = load ptr, ptr %vfn.i.i.i61, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(128) %26) #17
   br label %_ZN7testing7MessageD2Ev.exit62
@@ -902,7 +902,7 @@ _ZN7testing7MessageD2Ev.exit62:                   ; preds = %ehcleanup, %_ZNKSt1
   br label %ehcleanup21
 
 if.end:                                           ; preds = %invoke.cont8, %_ZN7testing7MessageD2Ev.exit
-  %message_.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
+  %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %28 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i63 = icmp eq ptr %28, null
   br i1 %cmp.not.i.i63, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -916,7 +916,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i)
   store i32 0, ptr %dist.i.i.i, align 8
-  %range_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned int>::param_type", ptr %dist.i.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 4
   store i32 -1, ptr %range_.i.i.i.i.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %dist.i.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i, 32
@@ -931,7 +931,7 @@ invoke.cont24:                                    ; preds = %_ZN7testing15Assert
   store i32 %add.i.i.i.i.i, ptr %ref.tmp23, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i65)
   store i32 0, ptr %dist.i.i.i65, align 8
-  %range_.i.i.i.i.i.i66 = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned int>::param_type", ptr %dist.i.i.i65, i64 0, i32 1
+  %range_.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %dist.i.i.i65, i64 4
   store i32 -1, ptr %range_.i.i.i.i.i.i66, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i67 = load i64, ptr %dist.i.i.i65, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i69 = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i67, 32
@@ -977,7 +977,7 @@ if.else34:                                        ; preds = %invoke.cont29
           to label %invoke.cont36 unwind label %lpad30
 
 invoke.cont36:                                    ; preds = %if.else34
-  %message_.i.i80 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar22, i64 0, i32 1
+  %message_.i.i80 = getelementptr inbounds i8, ptr %gtest_ar22, i64 8
   %33 = load ptr, ptr %message_.i.i80, align 8
   %cmp.i.i.not.i.i81 = icmp eq ptr %33, null
   br i1 %cmp.i.i.not.i.i81, label %invoke.cont39, label %cond.true.i.i82
@@ -1003,7 +1003,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i87: ; preds = %invoke.cont43
   %vtable.i.i.i88 = load ptr, ptr %34, align 8
-  %vfn.i.i.i89 = getelementptr inbounds ptr, ptr %vtable.i.i.i88, i64 1
+  %vfn.i.i.i89 = getelementptr inbounds i8, ptr %vtable.i.i.i88, i64 8
   %35 = load ptr, ptr %vfn.i.i.i89, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(128) %34) #17
   br label %_ZN7testing7MessageD2Ev.exit90
@@ -1031,7 +1031,7 @@ ehcleanup45:                                      ; preds = %lpad42, %lpad38
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i92: ; preds = %ehcleanup45
   %vtable.i.i.i93 = load ptr, ptr %38, align 8
-  %vfn.i.i.i94 = getelementptr inbounds ptr, ptr %vtable.i.i.i93, i64 1
+  %vfn.i.i.i94 = getelementptr inbounds i8, ptr %vtable.i.i.i93, i64 8
   %39 = load ptr, ptr %vfn.i.i.i94, align 8
   call void %39(ptr noundef nonnull align 8 dereferenceable(128) %38) #17
   br label %_ZN7testing7MessageD2Ev.exit95
@@ -1041,7 +1041,7 @@ _ZN7testing7MessageD2Ev.exit95:                   ; preds = %ehcleanup45, %_ZNKS
   br label %ehcleanup47
 
 if.end46:                                         ; preds = %invoke.cont29, %_ZN7testing7MessageD2Ev.exit90
-  %message_.i96 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar22, i64 0, i32 1
+  %message_.i96 = getelementptr inbounds i8, ptr %gtest_ar22, i64 8
   %40 = load ptr, ptr %message_.i96, align 8
   %cmp.not.i.i97 = icmp eq ptr %40, null
   br i1 %cmp.not.i.i97, label %_ZN7testing15AssertionResultD2Ev.exit99, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i98
@@ -1073,9 +1073,9 @@ _ZNKSt14default_deleteISt8seed_seqEclEPS0_.exit.i.i: ; preds = %if.then.i.i.i.i.
 _ZN4absl15random_internal13SaltedSeedSeqISt8seed_seqED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit99, %_ZNKSt14default_deleteISt8seed_seqEclEPS0_.exit.i.i
   store ptr null, ptr %my_seed, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i)
-  %impl_.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen, i64 0, i32 2
+  %impl_.i.i.i = getelementptr inbounds i8, ptr %gen, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i)
-  %next_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen, i64 0, i32 1
+  %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %gen, i64 264
   store i64 32, ptr %next_.i.i.i.i.i, align 8, !alias.scope !21
   %43 = ptrtoint ptr %gen to i64
   %and.i.i.i.i.i.i = and i64 %43, 8
@@ -1098,14 +1098,14 @@ invoke.cont54:                                    ; preds = %invoke.cont52
   %45 = ptrtoint ptr %gen_150 to i64
   %and.i.i.i.i.i.i.i.i.i.i105 = and i64 %45, 8
   %cond.i.i.i.i.i.i.i.i.i.i106 = getelementptr inbounds i8, ptr %gen_150, i64 %and.i.i.i.i.i.i.i.i.i.i105
-  %next_.i.i.i.i.i.i.i.i.i107 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_150, i64 0, i32 1
+  %next_.i.i.i.i.i.i.i.i.i107 = getelementptr inbounds i8, ptr %gen_150, i64 264
   %.pre.i.i.i.i.i110 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i107, align 8
   %cmp.i.i.i.i.i.i.i.i.i115 = icmp ugt i64 %.pre.i.i.i.i.i110, 31
   br i1 %cmp.i.i.i.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i.i.i.i130, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i116
 
 if.then.i.i.i.i.i.i.i.i.i130:                     ; preds = %invoke.cont54
-  %has_crypto_.i.i.i.i.i.i.i.i.i.i109 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_150, i64 0, i32 2, i32 1
-  %impl_.i.i.i.i.i.i.i.i.i108 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_150, i64 0, i32 2
+  %has_crypto_.i.i.i.i.i.i.i.i.i.i109 = getelementptr inbounds i8, ptr %gen_150, i64 280
+  %impl_.i.i.i.i.i.i.i.i.i108 = getelementptr inbounds i8, ptr %gen_150, i64 272
   store i64 2, ptr %next_.i.i.i.i.i.i.i.i.i107, align 8
   %46 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i109, align 8
   %47 = and i8 %46, 1
@@ -1134,14 +1134,14 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %51 = ptrtoint ptr %gen_253 to i64
   %and.i.i.i.i.i.i.i.i.i.i137 = and i64 %51, 8
   %cond.i.i.i.i.i.i.i.i.i.i138 = getelementptr inbounds i8, ptr %gen_253, i64 %and.i.i.i.i.i.i.i.i.i.i137
-  %next_.i.i.i.i.i.i.i.i.i139 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_253, i64 0, i32 1
+  %next_.i.i.i.i.i.i.i.i.i139 = getelementptr inbounds i8, ptr %gen_253, i64 264
   %.pre.i.i.i.i.i142 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i139, align 8
   %cmp.i.i.i.i.i.i.i.i.i147 = icmp ugt i64 %.pre.i.i.i.i.i142, 31
   br i1 %cmp.i.i.i.i.i.i.i.i.i147, label %if.then.i.i.i.i.i.i.i.i.i162, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i148
 
 if.then.i.i.i.i.i.i.i.i.i162:                     ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i116
-  %has_crypto_.i.i.i.i.i.i.i.i.i.i141 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_253, i64 0, i32 2, i32 1
-  %impl_.i.i.i.i.i.i.i.i.i140 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_253, i64 0, i32 2
+  %has_crypto_.i.i.i.i.i.i.i.i.i.i141 = getelementptr inbounds i8, ptr %gen_253, i64 280
+  %impl_.i.i.i.i.i.i.i.i.i140 = getelementptr inbounds i8, ptr %gen_253, i64 272
   store i64 2, ptr %next_.i.i.i.i.i.i.i.i.i139, align 8
   %52 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i141, align 8
   %53 = and i8 %52, 1
@@ -1233,7 +1233,7 @@ if.else69:                                        ; preds = %invoke.cont64
           to label %invoke.cont71 unwind label %lpad65
 
 invoke.cont71:                                    ; preds = %if.else69
-  %message_.i.i176 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar55, i64 0, i32 1
+  %message_.i.i176 = getelementptr inbounds i8, ptr %gtest_ar55, i64 8
   %66 = load ptr, ptr %message_.i.i176, align 8
   %cmp.i.i.not.i.i177 = icmp eq ptr %66, null
   br i1 %cmp.i.i.not.i.i177, label %invoke.cont74, label %cond.true.i.i178
@@ -1259,7 +1259,7 @@ invoke.cont78:                                    ; preds = %invoke.cont76
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i183: ; preds = %invoke.cont78
   %vtable.i.i.i184 = load ptr, ptr %67, align 8
-  %vfn.i.i.i185 = getelementptr inbounds ptr, ptr %vtable.i.i.i184, i64 1
+  %vfn.i.i.i185 = getelementptr inbounds i8, ptr %vtable.i.i.i184, i64 8
   %68 = load ptr, ptr %vfn.i.i.i185, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(128) %67) #17
   br label %_ZN7testing7MessageD2Ev.exit186
@@ -1287,7 +1287,7 @@ ehcleanup80:                                      ; preds = %lpad77, %lpad73
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i188: ; preds = %ehcleanup80
   %vtable.i.i.i189 = load ptr, ptr %71, align 8
-  %vfn.i.i.i190 = getelementptr inbounds ptr, ptr %vtable.i.i.i189, i64 1
+  %vfn.i.i.i190 = getelementptr inbounds i8, ptr %vtable.i.i.i189, i64 8
   %72 = load ptr, ptr %vfn.i.i.i190, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(128) %71) #17
   br label %_ZN7testing7MessageD2Ev.exit191
@@ -1297,7 +1297,7 @@ _ZN7testing7MessageD2Ev.exit191:                  ; preds = %ehcleanup80, %_ZNKS
   br label %ehcleanup82
 
 if.end81:                                         ; preds = %invoke.cont64, %_ZN7testing7MessageD2Ev.exit186
-  %message_.i192 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar55, i64 0, i32 1
+  %message_.i192 = getelementptr inbounds i8, ptr %gtest_ar55, i64 8
   %73 = load ptr, ptr %message_.i192, align 8
   %cmp.not.i.i193 = icmp eq ptr %73, null
   br i1 %cmp.not.i.i193, label %_ZN7testing15AssertionResultD2Ev.exit195, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i194
@@ -1311,7 +1311,7 @@ _ZN7testing15AssertionResultD2Ev.exit195:         ; preds = %if.end81, %_ZNKSt14
   store ptr null, ptr %message_.i192, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i196)
   store i32 0, ptr %dist.i.i.i196, align 8
-  %range_.i.i.i.i.i.i197 = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned int>::param_type", ptr %dist.i.i.i196, i64 0, i32 1
+  %range_.i.i.i.i.i.i197 = getelementptr inbounds i8, ptr %dist.i.i.i196, i64 4
   store i32 -1, ptr %range_.i.i.i.i.i.i197, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i198 = load i64, ptr %dist.i.i.i196, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i200 = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i198, 32
@@ -1326,7 +1326,7 @@ invoke.cont85:                                    ; preds = %_ZN7testing15Assert
   store i32 %add.i.i.i.i.i202, ptr %ref.tmp84, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i205)
   store i32 0, ptr %dist.i.i.i205, align 8
-  %range_.i.i.i.i.i.i206 = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned int>::param_type", ptr %dist.i.i.i205, i64 0, i32 1
+  %range_.i.i.i.i.i.i206 = getelementptr inbounds i8, ptr %dist.i.i.i205, i64 4
   store i32 -1, ptr %range_.i.i.i.i.i.i206, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i207 = load i64, ptr %dist.i.i.i205, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i209 = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i207, 32
@@ -1372,7 +1372,7 @@ if.else95:                                        ; preds = %invoke.cont90
           to label %invoke.cont97 unwind label %lpad91
 
 invoke.cont97:                                    ; preds = %if.else95
-  %message_.i.i221 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar83, i64 0, i32 1
+  %message_.i.i221 = getelementptr inbounds i8, ptr %gtest_ar83, i64 8
   %78 = load ptr, ptr %message_.i.i221, align 8
   %cmp.i.i.not.i.i222 = icmp eq ptr %78, null
   br i1 %cmp.i.i.not.i.i222, label %invoke.cont100, label %cond.true.i.i223
@@ -1398,7 +1398,7 @@ invoke.cont104:                                   ; preds = %invoke.cont102
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i228: ; preds = %invoke.cont104
   %vtable.i.i.i229 = load ptr, ptr %79, align 8
-  %vfn.i.i.i230 = getelementptr inbounds ptr, ptr %vtable.i.i.i229, i64 1
+  %vfn.i.i.i230 = getelementptr inbounds i8, ptr %vtable.i.i.i229, i64 8
   %80 = load ptr, ptr %vfn.i.i.i230, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(128) %79) #17
   br label %_ZN7testing7MessageD2Ev.exit231
@@ -1426,7 +1426,7 @@ ehcleanup106:                                     ; preds = %lpad103, %lpad99
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i233: ; preds = %ehcleanup106
   %vtable.i.i.i234 = load ptr, ptr %83, align 8
-  %vfn.i.i.i235 = getelementptr inbounds ptr, ptr %vtable.i.i.i234, i64 1
+  %vfn.i.i.i235 = getelementptr inbounds i8, ptr %vtable.i.i.i234, i64 8
   %84 = load ptr, ptr %vfn.i.i.i235, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(128) %83) #17
   br label %_ZN7testing7MessageD2Ev.exit236
@@ -1436,7 +1436,7 @@ _ZN7testing7MessageD2Ev.exit236:                  ; preds = %ehcleanup106, %_ZNK
   br label %ehcleanup108
 
 if.end107:                                        ; preds = %invoke.cont90, %_ZN7testing7MessageD2Ev.exit231
-  %message_.i237 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar83, i64 0, i32 1
+  %message_.i237 = getelementptr inbounds i8, ptr %gtest_ar83, i64 8
   %85 = load ptr, ptr %message_.i237, align 8
   %cmp.not.i.i238 = icmp eq ptr %85, null
   br i1 %cmp.not.i.i238, label %_ZN7testing15AssertionResultD2Ev.exit240, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i239
@@ -1481,14 +1481,14 @@ invoke.cont117:                                   ; preds = %invoke.cont115
   %88 = ptrtoint ptr %gen_1113 to i64
   %and.i.i.i.i.i.i.i.i.i.i250 = and i64 %88, 8
   %cond.i.i.i.i.i.i.i.i.i.i251 = getelementptr inbounds i8, ptr %gen_1113, i64 %and.i.i.i.i.i.i.i.i.i.i250
-  %next_.i.i.i.i.i.i.i.i.i252 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_1113, i64 0, i32 1
+  %next_.i.i.i.i.i.i.i.i.i252 = getelementptr inbounds i8, ptr %gen_1113, i64 264
   %.pre.i.i.i.i.i255 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i252, align 8
   %cmp.i.i.i.i.i.i.i.i.i260 = icmp ugt i64 %.pre.i.i.i.i.i255, 31
   br i1 %cmp.i.i.i.i.i.i.i.i.i260, label %if.then.i.i.i.i.i.i.i.i.i275, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i261
 
 if.then.i.i.i.i.i.i.i.i.i275:                     ; preds = %invoke.cont117
-  %has_crypto_.i.i.i.i.i.i.i.i.i.i254 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_1113, i64 0, i32 2, i32 1
-  %impl_.i.i.i.i.i.i.i.i.i253 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_1113, i64 0, i32 2
+  %has_crypto_.i.i.i.i.i.i.i.i.i.i254 = getelementptr inbounds i8, ptr %gen_1113, i64 280
+  %impl_.i.i.i.i.i.i.i.i.i253 = getelementptr inbounds i8, ptr %gen_1113, i64 272
   store i64 2, ptr %next_.i.i.i.i.i.i.i.i.i252, align 8
   %89 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i254, align 8
   %90 = and i8 %89, 1
@@ -1517,14 +1517,14 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %94 = ptrtoint ptr %gen_2116 to i64
   %and.i.i.i.i.i.i.i.i.i.i282 = and i64 %94, 8
   %cond.i.i.i.i.i.i.i.i.i.i283 = getelementptr inbounds i8, ptr %gen_2116, i64 %and.i.i.i.i.i.i.i.i.i.i282
-  %next_.i.i.i.i.i.i.i.i.i284 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_2116, i64 0, i32 1
+  %next_.i.i.i.i.i.i.i.i.i284 = getelementptr inbounds i8, ptr %gen_2116, i64 264
   %.pre.i.i.i.i.i287 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i284, align 8
   %cmp.i.i.i.i.i.i.i.i.i292 = icmp ugt i64 %.pre.i.i.i.i.i287, 31
   br i1 %cmp.i.i.i.i.i.i.i.i.i292, label %if.then.i.i.i.i.i.i.i.i.i307, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i293
 
 if.then.i.i.i.i.i.i.i.i.i307:                     ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i261
-  %has_crypto_.i.i.i.i.i.i.i.i.i.i286 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_2116, i64 0, i32 2, i32 1
-  %impl_.i.i.i.i.i.i.i.i.i285 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen_2116, i64 0, i32 2
+  %has_crypto_.i.i.i.i.i.i.i.i.i.i286 = getelementptr inbounds i8, ptr %gen_2116, i64 280
+  %impl_.i.i.i.i.i.i.i.i.i285 = getelementptr inbounds i8, ptr %gen_2116, i64 272
   store i64 2, ptr %next_.i.i.i.i.i.i.i.i.i284, align 8
   %95 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i286, align 8
   %96 = and i8 %95, 1
@@ -1616,7 +1616,7 @@ if.else132:                                       ; preds = %invoke.cont127
           to label %invoke.cont134 unwind label %lpad128
 
 invoke.cont134:                                   ; preds = %if.else132
-  %message_.i.i321 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar118, i64 0, i32 1
+  %message_.i.i321 = getelementptr inbounds i8, ptr %gtest_ar118, i64 8
   %109 = load ptr, ptr %message_.i.i321, align 8
   %cmp.i.i.not.i.i322 = icmp eq ptr %109, null
   br i1 %cmp.i.i.not.i.i322, label %invoke.cont137, label %cond.true.i.i323
@@ -1642,7 +1642,7 @@ invoke.cont141:                                   ; preds = %invoke.cont139
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i328: ; preds = %invoke.cont141
   %vtable.i.i.i329 = load ptr, ptr %110, align 8
-  %vfn.i.i.i330 = getelementptr inbounds ptr, ptr %vtable.i.i.i329, i64 1
+  %vfn.i.i.i330 = getelementptr inbounds i8, ptr %vtable.i.i.i329, i64 8
   %111 = load ptr, ptr %vfn.i.i.i330, align 8
   call void %111(ptr noundef nonnull align 8 dereferenceable(128) %110) #17
   br label %_ZN7testing7MessageD2Ev.exit331
@@ -1670,7 +1670,7 @@ ehcleanup143:                                     ; preds = %lpad140, %lpad136
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i333: ; preds = %ehcleanup143
   %vtable.i.i.i334 = load ptr, ptr %114, align 8
-  %vfn.i.i.i335 = getelementptr inbounds ptr, ptr %vtable.i.i.i334, i64 1
+  %vfn.i.i.i335 = getelementptr inbounds i8, ptr %vtable.i.i.i334, i64 8
   %115 = load ptr, ptr %vfn.i.i.i335, align 8
   call void %115(ptr noundef nonnull align 8 dereferenceable(128) %114) #17
   br label %_ZN7testing7MessageD2Ev.exit336
@@ -1680,7 +1680,7 @@ _ZN7testing7MessageD2Ev.exit336:                  ; preds = %ehcleanup143, %_ZNK
   br label %ehcleanup145
 
 if.end144:                                        ; preds = %invoke.cont127, %_ZN7testing7MessageD2Ev.exit331
-  %message_.i337 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar118, i64 0, i32 1
+  %message_.i337 = getelementptr inbounds i8, ptr %gtest_ar118, i64 8
   %116 = load ptr, ptr %message_.i337, align 8
   %cmp.not.i.i338 = icmp eq ptr %116, null
   br i1 %cmp.not.i.i338, label %_ZN7testing15AssertionResultD2Ev.exit340, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i339
@@ -1694,7 +1694,7 @@ _ZN7testing15AssertionResultD2Ev.exit340:         ; preds = %if.end144, %_ZNKSt1
   store ptr null, ptr %message_.i337, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i341)
   store i32 0, ptr %dist.i.i.i341, align 8
-  %range_.i.i.i.i.i.i342 = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned int>::param_type", ptr %dist.i.i.i341, i64 0, i32 1
+  %range_.i.i.i.i.i.i342 = getelementptr inbounds i8, ptr %dist.i.i.i341, i64 4
   store i32 -1, ptr %range_.i.i.i.i.i.i342, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i343 = load i64, ptr %dist.i.i.i341, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i345 = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i343, 32
@@ -1709,7 +1709,7 @@ invoke.cont148:                                   ; preds = %_ZN7testing15Assert
   store i32 %add.i.i.i.i.i347, ptr %ref.tmp147, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i350)
   store i32 0, ptr %dist.i.i.i350, align 8
-  %range_.i.i.i.i.i.i351 = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned int>::param_type", ptr %dist.i.i.i350, i64 0, i32 1
+  %range_.i.i.i.i.i.i351 = getelementptr inbounds i8, ptr %dist.i.i.i350, i64 4
   store i32 -1, ptr %range_.i.i.i.i.i.i351, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i352 = load i64, ptr %dist.i.i.i350, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i354 = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i352, 32
@@ -1754,7 +1754,7 @@ if.else158:                                       ; preds = %invoke.cont153
           to label %invoke.cont160 unwind label %lpad154
 
 invoke.cont160:                                   ; preds = %if.else158
-  %message_.i.i366 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar146, i64 0, i32 1
+  %message_.i.i366 = getelementptr inbounds i8, ptr %gtest_ar146, i64 8
   %120 = load ptr, ptr %message_.i.i366, align 8
   %cmp.i.i.not.i.i367 = icmp eq ptr %120, null
   br i1 %cmp.i.i.not.i.i367, label %invoke.cont163, label %cond.true.i.i368
@@ -1780,7 +1780,7 @@ invoke.cont167:                                   ; preds = %invoke.cont165
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i373: ; preds = %invoke.cont167
   %vtable.i.i.i374 = load ptr, ptr %121, align 8
-  %vfn.i.i.i375 = getelementptr inbounds ptr, ptr %vtable.i.i.i374, i64 1
+  %vfn.i.i.i375 = getelementptr inbounds i8, ptr %vtable.i.i.i374, i64 8
   %122 = load ptr, ptr %vfn.i.i.i375, align 8
   call void %122(ptr noundef nonnull align 8 dereferenceable(128) %121) #17
   br label %_ZN7testing7MessageD2Ev.exit376
@@ -1808,7 +1808,7 @@ ehcleanup169:                                     ; preds = %lpad166, %lpad162
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i378: ; preds = %ehcleanup169
   %vtable.i.i.i379 = load ptr, ptr %125, align 8
-  %vfn.i.i.i380 = getelementptr inbounds ptr, ptr %vtable.i.i.i379, i64 1
+  %vfn.i.i.i380 = getelementptr inbounds i8, ptr %vtable.i.i.i379, i64 8
   %126 = load ptr, ptr %vfn.i.i.i380, align 8
   call void %126(ptr noundef nonnull align 8 dereferenceable(128) %125) #17
   br label %_ZN7testing7MessageD2Ev.exit381
@@ -1818,7 +1818,7 @@ _ZN7testing7MessageD2Ev.exit381:                  ; preds = %ehcleanup169, %_ZNK
   br label %ehcleanup171
 
 if.end170:                                        ; preds = %invoke.cont153, %_ZN7testing7MessageD2Ev.exit376
-  %message_.i382 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar146, i64 0, i32 1
+  %message_.i382 = getelementptr inbounds i8, ptr %gtest_ar146, i64 8
   %127 = load ptr, ptr %message_.i382, align 8
   %cmp.not.i.i383 = icmp eq ptr %127, null
   br i1 %cmp.not.i.i383, label %_ZN7testing15AssertionResultD2Ev.exit385, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i384
@@ -1875,7 +1875,7 @@ declare void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %message_ = getelementptr inbounds %"class.testing::AssertionResult", ptr %this, i64 0, i32 1
+  %message_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %message_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
@@ -1926,9 +1926,9 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %0 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 %and.i.i.i.i.i.i
-  %next_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 1
-  %impl_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2, i32 1
+  %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 264
+  %impl_.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 272
+  %has_crypto_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 280
   %.pre = load i64, ptr %next_.i.i.i.i.i, align 8
   br label %for.body.i
 
@@ -1972,7 +1972,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i
-  %add.ptr.i = getelementptr inbounds i32, ptr %seed_material, i64 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %seed_material, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18, !noalias !39
   invoke void @_ZNSt8seed_seqC2IPjEET_S2_(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i, ptr noundef nonnull %seed_material, ptr noundef nonnull %add.ptr.i)
@@ -2008,7 +2008,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
   unreachable
 
 if.end.i:                                         ; preds = %invoke.cont
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp3.i.not = icmp eq ptr %__end, %__begin
   br i1 %cmp3.i.not, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
 
@@ -2018,7 +2018,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %if.end.i
           to label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i unwind label %lpad.loopexit.split-lp
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i8, ptr %this, align 8
   store ptr %call5.i.i.i.i8, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds i32, ptr %call5.i.i.i.i8, i64 %sub.ptr.sub.i.i
@@ -2031,7 +2031,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %if.end.i, %_ZNSt12_
   br i1 %cmp.not17, label %for.end, label %invoke.cont5.lr.ph
 
 invoke.cont5.lr.ph:                               ; preds = %_ZNSt6vectorIjSaIjEE7reserveEm.exit
-  %_M_finish.i.i9 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 8
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont5.lr.ph, %for.inc
@@ -2046,7 +2046,7 @@ invoke.cont5:                                     ; preds = %invoke.cont5.lr.ph,
 if.then.i.i11:                                    ; preds = %invoke.cont5
   store i32 %conv, ptr %2, align 4
   %5 = load ptr, ptr %_M_finish.i.i9, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %5, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 4
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i9, align 8
   br label %for.inc
 
@@ -2086,7 +2086,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit20.i.i.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -2419,7 +2419,7 @@ if.end:                                           ; preds = %while.body
   %8 = ptrtoint ptr %this to i64
   %and.i = and i64 %8, 8
   %cond.i = getelementptr inbounds i8, ptr %this, i64 %and.i
-  %has_crypto_.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %this, i64 0, i32 2, i32 1
+  %has_crypto_.i = getelementptr inbounds i8, ptr %this, i64 280
   %9 = load i8, ptr %has_crypto_.i, align 8
   %10 = and i8 %9, 1
   %tobool.not.i = icmp eq i8 %10, 0
@@ -2434,7 +2434,7 @@ if.else.i:                                        ; preds = %if.end
   br label %_ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit
 
 _ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %if.then.i18, %if.else.i
-  %next_ = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %this, i64 0, i32 1
+  %next_ = getelementptr inbounds i8, ptr %this, i64 264
   store i64 32, ptr %next_, align 8
   ret void
 }
@@ -2463,15 +2463,15 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
   %1 = load i64, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   store i64 2, ptr %next_.i.i.i.i, align 8
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   %2 = load i8, ptr %has_crypto_.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %3, 0
@@ -2518,8 +2518,8 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp1136, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %if.then6
-  %impl_.i.i.i.i22 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i23 = getelementptr inbounds i8, ptr %g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit27
@@ -2575,15 +2575,15 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
   %1 = load i64, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   store i64 2, ptr %next_.i.i.i.i, align 8
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   %2 = load i8, ptr %has_crypto_.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %3, 0
@@ -2629,8 +2629,8 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp1034, label %while.body.lr.ph, label %if.end13
 
 while.body.lr.ph:                                 ; preds = %if.then6
-  %impl_.i.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i24 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i23 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i24 = getelementptr inbounds i8, ptr %g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28
@@ -2683,15 +2683,15 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
   %1 = load i64, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   store i64 2, ptr %next_.i.i.i.i, align 8
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   %2 = load i8, ptr %has_crypto_.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %3, 0
@@ -2739,8 +2739,8 @@ if.then15:                                        ; preds = %if.end
   br i1 %cmp2536, label %while.body.lr.ph, label %if.end28
 
 while.body.lr.ph:                                 ; preds = %if.then15
-  %impl_.i.i.i.i24 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i25 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i24 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i25 = getelementptr inbounds i8, ptr %g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit29
@@ -2801,9 +2801,9 @@ entry:
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 280
   %.pre.i.i = load i64, ptr %next_.i.i.i.i.i.i, align 8
   %3 = tail call i1 @llvm.is.fpclass.f32(float %sub.i.i.i.fr, i32 384)
   br i1 %3, label %while.body.i.i, label %while.body.i.i.us
@@ -2950,7 +2950,7 @@ _ZN4absl28log_uniform_int_distributionImEC2Emmm.exit: ; preds = %if.then.i.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp48.i.i.i)
   store i32 0, ptr %ref.tmp.i.i.i, align 8
-  %range_.i.i.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 4
   store i32 %storemerge.i.i, ptr %range_.i.i.i.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %ref.tmp.i.i.i, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i.i to i32
@@ -2998,7 +2998,7 @@ if.end33.i.i.i:                                   ; preds = %cond.false29.i.i.i,
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %base_e.0.i.i.i, i64 %sub.i.i)
   %cond47.i.i.i = call i64 @llvm.umin.i64(i64 %top_e.0.i.i.i, i64 %sub.i.i)
   store i64 %spec.select.i.i.i, ptr %ref.tmp48.i.i.i, align 8
-  %range_.i.i23.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned long>::param_type", ptr %ref.tmp48.i.i.i, i64 0, i32 1
+  %range_.i.i23.i.i.i = getelementptr inbounds i8, ptr %ref.tmp48.i.i.i, i64 8
   %sub.i.i.i.i.i = sub i64 %cond47.i.i.i, %spec.select.i.i.i
   store i64 %sub.i.i.i.i.i, ptr %range_.i.i23.i.i.i, align 8
   %call3.i.i25.i.i.i = call noundef i64 @_ZN4absl24uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_m(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48.i.i.i, ptr noundef nonnull align 8 dereferenceable(288) %urbg, i64 noundef %sub.i.i.i.i.i)
@@ -3031,15 +3031,15 @@ entry:
   %0 = ptrtoint ptr %__g to i64
   %and.i.i.i = and i64 %0, 8
   %cond.i.i.i = getelementptr inbounds i8, ptr %__g, i64 %and.i.i.i
-  %next_.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %__g, i64 0, i32 1
+  %next_.i.i = getelementptr inbounds i8, ptr %__g, i64 264
   %1 = load i64, ptr %next_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit
 
 if.then.i.i:                                      ; preds = %entry
   store i64 2, ptr %next_.i.i, align 8
-  %impl_.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %__g, i64 0, i32 2
-  %has_crypto_.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %__g, i64 0, i32 2, i32 1
+  %impl_.i.i = getelementptr inbounds i8, ptr %__g, i64 272
+  %has_crypto_.i.i.i = getelementptr inbounds i8, ptr %__g, i64 280
   %2 = load i8, ptr %has_crypto_.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i = icmp eq i8 %3, 0
@@ -3076,8 +3076,8 @@ if.then:                                          ; preds = %_ZN4absl15random_in
   br i1 %cmp328, label %while.body.lr.ph, label %if.end
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %impl_.i.i22 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %__g, i64 0, i32 2
-  %has_crypto_.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %__g, i64 0, i32 2, i32 1
+  %impl_.i.i22 = getelementptr inbounds i8, ptr %__g, i64 272
+  %has_crypto_.i.i.i23 = getelementptr inbounds i8, ptr %__g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit27
@@ -3128,12 +3128,12 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal17NonsecureURBGBase
 entry:
   %salted_seq = alloca %"class.absl::random_internal::SaltedSeedSeq.47", align 8
   call void @_ZN4absl15random_internal17MakeSaltedSeedSeqIRNS0_13SaltedSeedSeqISt8seed_seqEEvEENS2_INSt5decayIT_E4typeEEEOS7_(ptr nonnull sret(%"class.absl::random_internal::SaltedSeedSeq.47") align 8 %salted_seq, ptr noundef nonnull align 8 dereferenceable(8) %seq)
-  %impl_.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %agg.result, i64 0, i32 2
+  %impl_.i = getelementptr inbounds i8, ptr %agg.result, i64 272
   invoke void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %next_.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %agg.result, i64 0, i32 1
+  %next_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 264
   store i64 32, ptr %next_.i.i.i, align 8
   %0 = ptrtoint ptr %agg.result to i64
   %and.i.i.i.i = and i64 %0, 8
@@ -3189,7 +3189,7 @@ invoke.cont:
   store i64 0, ptr %data, align 8
   %0 = load ptr, ptr %seq, align 8
   %1 = load ptr, ptr %0, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %1 to i64
@@ -3205,14 +3205,14 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %invoke.cont, %call.
           to label %call.i.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.i.i.i.i.i.i.i.noexc:                   ; preds = %for.body.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.05.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.05.i.i.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i.i.i = add nsw i64 %__n.06.i.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %__n.06.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %invoke.cont2.loopexit, !llvm.loop !50
 
 invoke.cont2.loopexit:                            ; preds = %call.i.i.i.i.i.i.i.i.i.i.noexc
   %.pre = load i64, ptr %data, align 8
-  %data_.i.i.i.phi.trans.insert = getelementptr inbounds %"class.absl::inlined_vector_internal::Storage", ptr %data, i64 0, i32 1
+  %data_.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %data, i64 8
   %.pre14 = load ptr, ptr %data_.i.i.i.phi.trans.insert, align 8
   br label %invoke.cont2
 
@@ -3221,7 +3221,7 @@ invoke.cont2:                                     ; preds = %invoke.cont2.loopex
   %4 = phi i64 [ %.pre, %invoke.cont2.loopexit ], [ 0, %invoke.cont ]
   %and.i.i.i = and i64 %4, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
-  %data_.i.i.i = getelementptr inbounds %"class.absl::inlined_vector_internal::Storage", ptr %data, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %data, i64 8
   %cond.i.i = select i1 %tobool.i.not.i.i, ptr %data_.i.i.i, ptr %3
   %shr.i.i.i = lshr i64 %4, 1
   %add.ptr.i = getelementptr inbounds i32, ptr %cond.i.i, i64 %shr.i.i.i
@@ -3288,7 +3288,7 @@ lpad.body:                                        ; preds = %lpad.loopexit, %lpa
   br i1 %tobool.i.not.i.i.i8, label %_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit11, label %if.then.i.i.i9
 
 if.then.i.i.i9:                                   ; preds = %lpad.body
-  %data_.i.i.i.i10 = getelementptr inbounds %"class.absl::inlined_vector_internal::Storage", ptr %data, i64 0, i32 1
+  %data_.i.i.i.i10 = getelementptr inbounds i8, ptr %data, i64 8
   %10 = load ptr, ptr %data_.i.i.i.i10, align 8
   call void @_ZdlPv(ptr noundef %10) #19
   br label %_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit11
@@ -3337,9 +3337,9 @@ entry:
   %0 = load i64, ptr %this, align 8
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  %data_.i1.i = getelementptr inbounds %"class.absl::inlined_vector_internal::Storage", ptr %this, i64 0, i32 1
+  %data_.i1.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %data_.i1.i, align 8
-  %allocated_capacity.i.i = getelementptr inbounds %"class.absl::inlined_vector_internal::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !58
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
   %.sink.i = select i1 %tobool.i.not.i, i64 8, i64 %2
@@ -3387,7 +3387,7 @@ for.inc.i.i:                                      ; preds = %_ZN4absl23inlined_v
   %add.ptr.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i5.i, i64 %i.07.i.i
   %7 = load i32, ptr %move_values.sroa.0.0.i, align 4
   store i32 %7, ptr %add.ptr.i.i, align 4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i32, ptr %move_values.sroa.0.0.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0.i, i64 4
   %inc.i.i = add nuw nsw i64 %i.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %.sink.i
   br i1 %exitcond.not.i.i, label %invoke.cont21.i, label %for.inc.i.i, !llvm.loop !59
@@ -3435,7 +3435,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
   unreachable
 
 if.end.i:                                         ; preds = %invoke.cont
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp3.i.not = icmp eq ptr %__end, %__begin
   br i1 %cmp3.i.not, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
 
@@ -3444,7 +3444,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %if.end.i
           to label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i unwind label %lpad.loopexit.split-lp
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i9, ptr %this, align 8
   store ptr %call5.i.i.i.i9, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds i32, ptr %call5.i.i.i.i9, i64 %sub.ptr.div.i.i
@@ -3457,7 +3457,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %if.end.i, %_ZNSt12_
   br i1 %cmp.not18, label %for.end, label %invoke.cont5.lr.ph
 
 invoke.cont5.lr.ph:                               ; preds = %_ZNSt6vectorIjSaIjEE7reserveEm.exit
-  %_M_finish.i.i10 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i10 = getelementptr inbounds i8, ptr %this, i64 8
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont5.lr.ph, %for.inc
@@ -3471,7 +3471,7 @@ invoke.cont5:                                     ; preds = %invoke.cont5.lr.ph,
 if.then.i.i12:                                    ; preds = %invoke.cont5
   store i32 %3, ptr %2, align 4
   %5 = load ptr, ptr %_M_finish.i.i10, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %5, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 4
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i10, align 8
   br label %for.inc
 
@@ -3511,7 +3511,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit20.i.i.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -3528,7 +3528,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 
 for.inc:                                          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %if.then.i.i12
   %7 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i12 ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %__iter.019, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__iter.019, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %__end
   br i1 %cmp.not, label %for.end, label %invoke.cont5, !llvm.loop !60
 
@@ -3570,7 +3570,7 @@ entry:
   %buffer = alloca [60 x i32], align 16
   %0 = load ptr, ptr %seq, align 8
   %1 = load ptr, ptr %0, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %1, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %3 = load ptr, ptr %1, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -3582,11 +3582,11 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %2, %3
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i.i.i
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
   %4 = sub nsw i64 236, %add.ptr.idx
   %5 = and i64 %4, -4
   %6 = add nsw i64 %5, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %6, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr.ptr, i8 0, i64 %6, i1 false)
   %cmp.not.i = icmp eq i64 %add.ptr.idx, 0
   br i1 %cmp.not.i, label %while.body.preheader, label %_ZN4absl15random_internal13SaltedSeedSeqINS1_ISt8seed_seqEEE13generate_implIPjEEvNS4_22ContiguousAndUint32TagET_S8_m.exit.i
 
@@ -3594,7 +3594,7 @@ _ZN4absl15random_internal13SaltedSeedSeqINS1_ISt8seed_seqEEE13generate_implIPjEE
   %sub.ptr.div.i.i.i = lshr exact i64 %add.ptr.idx, 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %salt.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %salt.i.i.i.i)
-  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr)
+  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr.ptr)
   %call2.i.i.i.i = call i64 @_ZN4absl15random_internal15GetSaltMaterialEv()
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %call2.i.i.i.i to i32
   %7 = and i64 %call2.i.i.i.i, 4294967296
@@ -3656,7 +3656,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp8, label %while.body, label %if.end, !llvm.loop !61
 
 if.else:                                          ; preds = %entry
-  %add.ptr25 = getelementptr inbounds i32, ptr %buffer, i64 60
+  %add.ptr25 = getelementptr inbounds i8, ptr %buffer, i64 240
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %salt.i.i16)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %salt.i.i.i.i15)
   call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr25)
@@ -3682,7 +3682,7 @@ if.end:                                           ; preds = %while.body, %if.els
   %19 = ptrtoint ptr %this to i64
   %and.i = and i64 %19, 8
   %cond.i = getelementptr inbounds i8, ptr %this, i64 %and.i
-  %has_crypto_.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %this, i64 0, i32 2, i32 1
+  %has_crypto_.i = getelementptr inbounds i8, ptr %this, i64 280
   %20 = load i8, ptr %has_crypto_.i, align 8
   %21 = and i8 %20, 1
   %tobool.not.i = icmp eq i8 %21, 0
@@ -3697,7 +3697,7 @@ if.else.i:                                        ; preds = %if.end
   br label %_ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit
 
 _ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %if.then.i, %if.else.i
-  %next_ = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %this, i64 0, i32 1
+  %next_ = getelementptr inbounds i8, ptr %this, i64 264
   store i64 32, ptr %next_, align 8
   ret void
 }
@@ -3722,7 +3722,7 @@ for.body.i.i.i.preheader:                         ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr align 4 %__begin, i8 -117, i64 %3, i1 false)
   %sub.ptr.sub = sub i64 %__end101, %__begin102
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_finish.i, align 8
   %5 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
@@ -3990,15 +3990,15 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
   %1 = load i64, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   store i64 2, ptr %next_.i.i.i.i, align 8
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   %2 = load i8, ptr %has_crypto_.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %3, 0
@@ -4044,8 +4044,8 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp1034, label %while.body.lr.ph, label %if.end13
 
 while.body.lr.ph:                                 ; preds = %if.then6
-  %impl_.i.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i24 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i23 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i24 = getelementptr inbounds i8, ptr %g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28
@@ -4181,12 +4181,12 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal17NonsecureURBGBase
 entry:
   %salted_seq = alloca %"class.absl::random_internal::SaltedSeedSeq", align 8
   call void @_ZN4absl15random_internal17MakeSaltedSeedSeqIRSt8seed_seqvEENS0_13SaltedSeedSeqINSt5decayIT_E4typeEEEOS6_(ptr nonnull sret(%"class.absl::random_internal::SaltedSeedSeq") align 8 %salted_seq, ptr noundef nonnull align 8 dereferenceable(24) %seq)
-  %impl_.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %agg.result, i64 0, i32 2
+  %impl_.i = getelementptr inbounds i8, ptr %agg.result, i64 272
   invoke void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %next_.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %agg.result, i64 0, i32 1
+  %next_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 264
   store i64 32, ptr %next_.i.i.i, align 8
   %0 = ptrtoint ptr %agg.result to i64
   %and.i.i.i.i = and i64 %0, 8
@@ -4232,7 +4232,7 @@ invoke.cont:
   %data = alloca %"class.absl::InlinedVector", align 8
   store i64 0, ptr %data, align 8
   %0 = load ptr, ptr %seq, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %seq, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %seq, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
@@ -4248,21 +4248,21 @@ for.body.i.i.i.i.i.i:                             ; preds = %invoke.cont, %call.
           to label %call.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %for.body.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.05.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.05.i.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i.i = add nsw i64 %__n.06.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.06.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont2.loopexit, !llvm.loop !50
 
 invoke.cont2.loopexit:                            ; preds = %call.i.i.i.i.i.i.i.i.i.noexc
   %.pre = load i64, ptr %data, align 8
-  %data_.i.i.i.phi.trans.insert = getelementptr inbounds %"class.absl::inlined_vector_internal::Storage", ptr %data, i64 0, i32 1
+  %data_.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %data, i64 8
   %.pre14 = load ptr, ptr %data_.i.i.i.phi.trans.insert, align 8
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %invoke.cont2.loopexit, %invoke.cont
   %2 = phi ptr [ %.pre14, %invoke.cont2.loopexit ], [ undef, %invoke.cont ]
   %3 = phi i64 [ %.pre, %invoke.cont2.loopexit ], [ 0, %invoke.cont ]
-  %data_.i.i.i = getelementptr inbounds %"class.absl::inlined_vector_internal::Storage", ptr %data, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %data, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
   %call.i.i6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %call.i.i.noexc unwind label %lpad.loopexit.split-lp
@@ -4315,7 +4315,7 @@ lpad.body:                                        ; preds = %lpad.loopexit, %lpa
   br i1 %tobool.i.not.i.i.i8, label %_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit11, label %if.then.i.i.i9
 
 if.then.i.i.i9:                                   ; preds = %lpad.body
-  %data_.i.i.i.i10 = getelementptr inbounds %"class.absl::inlined_vector_internal::Storage", ptr %data, i64 0, i32 1
+  %data_.i.i.i.i10 = getelementptr inbounds i8, ptr %data, i64 8
   %8 = load ptr, ptr %data_.i.i.i.i10, align 8
   call void @_ZdlPv(ptr noundef %8) #19
   br label %_ZN4absl13InlinedVectorIjLm8ESaIjEED2Ev.exit11
@@ -4331,7 +4331,7 @@ entry:
   %salt.i.i = alloca i32, align 4
   %buffer = alloca [60 x i32], align 16
   %0 = load ptr, ptr %seq, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %2 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -4343,18 +4343,18 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %1, %2
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i.i
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
   %3 = sub nsw i64 236, %add.ptr.idx
   %4 = and i64 %3, -4
   %5 = add nsw i64 %4, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %5, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr.ptr, i8 0, i64 %5, i1 false)
   %cmp.not.i = icmp eq i64 %add.ptr.idx, 0
   br i1 %cmp.not.i, label %while.body.preheader, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %sub.ptr.div.i.i.i18 = lshr exact i64 %add.ptr.idx, 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %salt.i.i)
-  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr)
+  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr.ptr)
   %call2.i.i = call i64 @_ZN4absl15random_internal15GetSaltMaterialEv()
   %ref.tmp.sroa.0.0.extract.trunc.i.i = trunc i64 %call2.i.i to i32
   %6 = and i64 %call2.i.i, 4294967296
@@ -4408,7 +4408,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp8, label %while.body, label %if.end, !llvm.loop !101
 
 if.else:                                          ; preds = %entry
-  %add.ptr25 = getelementptr inbounds i32, ptr %buffer, i64 60
+  %add.ptr25 = getelementptr inbounds i8, ptr %buffer, i64 240
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %salt.i.i19)
   call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr25)
   %call2.i.i23 = call i64 @_ZN4absl15random_internal15GetSaltMaterialEv()
@@ -4425,7 +4425,7 @@ if.end:                                           ; preds = %while.body, %if.els
   %16 = ptrtoint ptr %this to i64
   %and.i = and i64 %16, 8
   %cond.i = getelementptr inbounds i8, ptr %this, i64 %and.i
-  %has_crypto_.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %this, i64 0, i32 2, i32 1
+  %has_crypto_.i = getelementptr inbounds i8, ptr %this, i64 280
   %17 = load i8, ptr %has_crypto_.i, align 8
   %18 = and i8 %17, 1
   %tobool.not.i = icmp eq i8 %18, 0
@@ -4440,7 +4440,7 @@ if.else.i:                                        ; preds = %if.end
   br label %_ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit
 
 _ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %if.then.i27, %if.else.i
-  %next_ = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %this, i64 0, i32 1
+  %next_ = getelementptr inbounds i8, ptr %this, i64 264
   store i64 32, ptr %next_, align 8
   ret void
 }
@@ -4482,7 +4482,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
-  %line.i.i = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i, i64 0, i32 1
+  %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 26, ptr %line.i.i, align 8
   %call.i = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i unwind label %lpad4.i
@@ -4565,7 +4565,7 @@ invoke.cont.i10:                                  ; preds = %.noexc.i8
           to label %invoke.cont3.i13 unwind label %lpad2.i11
 
 invoke.cont3.i13:                                 ; preds = %invoke.cont.i10
-  %line.i.i14 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i1, i64 0, i32 1
+  %line.i.i14 = getelementptr inbounds i8, ptr %agg.tmp.i1, i64 32
   store i32 58, ptr %line.i.i14, align 8
   %call.i15 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i17 unwind label %lpad4.i16

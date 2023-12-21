@@ -3,10 +3,6 @@ source_filename = "bench/abseil-cpp/original/ostringstream.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::strings_internal::OStringStream::Streambuf" = type { %"class.std::basic_streambuf", ptr }
-%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%"class.std::locale" = type { ptr }
-
 $_ZN4absl16strings_internal13OStringStream9StreambufD2Ev = comdat any
 
 $_ZN4absl16strings_internal13OStringStream9StreambufD0Ev = comdat any
@@ -24,7 +20,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %str_ = getelementptr inbounds %"class.absl::strings_internal::OStringStream::Streambuf", ptr %this, i64 0, i32 1
+  %str_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %str_, align 8
   %conv = trunc i32 %c to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %conv)
@@ -39,7 +35,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN4absl16strings_internal13OStringStream9Streambuf6xsputnEPKcl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef %s, i64 noundef returned %n) unnamed_addr #0 align 2 {
 entry:
-  %str_ = getelementptr inbounds %"class.absl::strings_internal::OStringStream::Streambuf", ptr %this, i64 0, i32 1
+  %str_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %str_, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %s, i64 noundef %n)
   ret i64 %n

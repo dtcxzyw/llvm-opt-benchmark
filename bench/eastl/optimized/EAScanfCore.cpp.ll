@@ -3,16 +3,12 @@ source_filename = "bench/eastl/original/EAScanfCore.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.EA::StdC::ScanfLocal::SscanfContext8" = type <{ ptr, i32, [4 x i8] }>
-%"struct.EA::StdC::ScanfLocal::SscanfContext16" = type <{ ptr, i32, [4 x i8] }>
-%"struct.EA::StdC::ScanfLocal::SscanfContext32" = type <{ ptr, i32, [4 x i8] }>
-%"struct.EA::StdC::ScanfLocal::DoubleValue" = type { [25 x i8], i16, i16 }
+%"class.EA::StdC::ScanfLocal::VscanfUtil" = type { i8 }
 %"struct.EA::StdC::ScanfLocal::FormatData" = type { i32, i32, i32, i8, i8, %"struct.EA::StdC::ScanfLocal::CharBitmap", i32 }
 %"struct.EA::StdC::ScanfLocal::CharBitmap" = type { [8 x i32] }
-%"class.EA::StdC::ScanfLocal::VscanfUtil" = type { i8 }
-%struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %"class.EA::StdC::ScanfLocal::VscanfUtil.0" = type { i8 }
 %"class.EA::StdC::ScanfLocal::VscanfUtil.1" = type { i8 }
+%"struct.EA::StdC::ScanfLocal::DoubleValue" = type { [25 x i8], i16, i16 }
 
 $_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EcE10VscanfCoreES6_SD_S4_PKcP13__va_list_tag = comdat any
 
@@ -146,12 +142,12 @@ if.then:                                          ; preds = %sw.bb1
   br label %return
 
 if.else:                                          ; preds = %sw.bb1
-  %mbEndFound = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext8", ptr %pContext, i64 0, i32 1
+  %mbEndFound = getelementptr inbounds i8, ptr %pContext, i64 8
   store i32 1, ptr %mbEndFound, align 8
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %mbEndFound4 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext8", ptr %pContext, i64 0, i32 1
+  %mbEndFound4 = getelementptr inbounds i8, ptr %pContext, i64 8
   %4 = load i32, ptr %mbEndFound4, align 8
   %tobool5.not = icmp eq i32 %4, 0
   br i1 %tobool5.not, label %if.then6, label %if.else9
@@ -167,7 +163,7 @@ if.else9:                                         ; preds = %sw.bb3
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %mbEndFound12 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext8", ptr %pContext, i64 0, i32 1
+  %mbEndFound12 = getelementptr inbounds i8, ptr %pContext, i64 8
   %6 = load i32, ptr %mbEndFound12, align 8
   br label %return
 
@@ -192,26 +188,26 @@ sw.bb1:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %sw.bb1
-  %incdec.ptr = getelementptr inbounds i16, ptr %1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 2
   store ptr %incdec.ptr, ptr %pContext, align 8
   %3 = load i16, ptr %1, align 2
   %conv = zext i16 %3 to i32
   br label %return
 
 if.else:                                          ; preds = %sw.bb1
-  %mbEndFound = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext16", ptr %pContext, i64 0, i32 1
+  %mbEndFound = getelementptr inbounds i8, ptr %pContext, i64 8
   store i32 1, ptr %mbEndFound, align 8
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %mbEndFound4 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext16", ptr %pContext, i64 0, i32 1
+  %mbEndFound4 = getelementptr inbounds i8, ptr %pContext, i64 8
   %4 = load i32, ptr %mbEndFound4, align 8
   %tobool5.not = icmp eq i32 %4, 0
   br i1 %tobool5.not, label %if.then6, label %if.else9
 
 if.then6:                                         ; preds = %sw.bb3
   %5 = load ptr, ptr %pContext, align 8
-  %incdec.ptr8 = getelementptr inbounds i16, ptr %5, i64 -1
+  %incdec.ptr8 = getelementptr inbounds i8, ptr %5, i64 -2
   store ptr %incdec.ptr8, ptr %pContext, align 8
   br label %return
 
@@ -220,7 +216,7 @@ if.else9:                                         ; preds = %sw.bb3
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %mbEndFound12 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext16", ptr %pContext, i64 0, i32 1
+  %mbEndFound12 = getelementptr inbounds i8, ptr %pContext, i64 8
   %6 = load i32, ptr %mbEndFound12, align 8
   br label %return
 
@@ -245,25 +241,25 @@ sw.bb1:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %sw.bb1
-  %incdec.ptr = getelementptr inbounds i32, ptr %1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 4
   store ptr %incdec.ptr, ptr %pContext, align 8
   %3 = load i32, ptr %1, align 4
   br label %return
 
 if.else:                                          ; preds = %sw.bb1
-  %mbEndFound = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext32", ptr %pContext, i64 0, i32 1
+  %mbEndFound = getelementptr inbounds i8, ptr %pContext, i64 8
   store i32 1, ptr %mbEndFound, align 8
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %mbEndFound4 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext32", ptr %pContext, i64 0, i32 1
+  %mbEndFound4 = getelementptr inbounds i8, ptr %pContext, i64 8
   %4 = load i32, ptr %mbEndFound4, align 8
   %tobool5.not = icmp eq i32 %4, 0
   br i1 %tobool5.not, label %if.then6, label %if.else9
 
 if.then6:                                         ; preds = %sw.bb3
   %5 = load ptr, ptr %pContext, align 8
-  %incdec.ptr8 = getelementptr inbounds i32, ptr %5, i64 -1
+  %incdec.ptr8 = getelementptr inbounds i8, ptr %5, i64 -4
   store ptr %incdec.ptr8, ptr %pContext, align 8
   br label %return
 
@@ -272,7 +268,7 @@ if.else9:                                         ; preds = %sw.bb3
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %mbEndFound12 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::SscanfContext32", ptr %pContext, i64 0, i32 1
+  %mbEndFound12 = getelementptr inbounds i8, ptr %pContext, i64 8
   %6 = load i32, ptr %mbEndFound12, align 8
   br label %return
 
@@ -285,11 +281,11 @@ return:                                           ; preds = %entry, %if.else9, %
 define dso_local noundef double @_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(30) %this) local_unnamed_addr #5 align 2 {
 entry:
   %buffer = alloca [36 x i8], align 16
-  %mExponent = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::DoubleValue", ptr %this, i64 0, i32 2
+  %mExponent = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i16, ptr %mExponent, align 2
   %1 = add i16 %0, 6
   %or.cond = icmp ult i16 %1, 18
-  %mSigLen = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::DoubleValue", ptr %this, i64 0, i32 1
+  %mSigLen = getelementptr inbounds i8, ptr %this, i64 26
   %2 = load i16, ptr %mSigLen, align 2
   %cmp625 = icmp sgt i16 %2, 0
   br i1 %or.cond, label %for.cond.preheader, label %for.cond15.preheader
@@ -408,7 +404,7 @@ entry:
   br i1 %tobool.not35, label %return, label %land.lhs.true.lr.ph
 
 land.lhs.true.lr.ph:                              ; preds = %entry
-  %mCharBitmap = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5
+  %mCharBitmap = getelementptr inbounds i8, ptr %fd, i64 16
   %cmp22 = icmp eq i32 %stringTypeSize, 2
   %idx.ext = sext i32 %stringTypeSize to i64
   switch i32 %stringTypeSize, label %land.lhs.true [
@@ -605,7 +601,7 @@ entry:
   br i1 %tobool.not10, label %while.end, label %land.lhs.true.lr.ph
 
 land.lhs.true.lr.ph:                              ; preds = %entry
-  %mCharBitmap = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5
+  %mCharBitmap = getelementptr inbounds i8, ptr %fd, i64 16
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph, %sw.epilog
@@ -702,7 +698,7 @@ entry:
   br i1 %tobool.not10, label %while.end, label %land.lhs.true.lr.ph
 
 land.lhs.true.lr.ph:                              ; preds = %entry
-  %mCharBitmap = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5
+  %mCharBitmap = getelementptr inbounds i8, ptr %fd, i64 16
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph, %sw.epilog
@@ -806,10 +802,10 @@ entry:
   %bIntegerOverflow = alloca i32, align 4
   store ptr null, ptr %pArgumentCurrent, align 8
   store i32 2147483647, ptr %fd, align 4
-  %mModifier.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 1
-  %mCharBitmap.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5
+  %mModifier.i = getelementptr inbounds i8, ptr %fd, i64 4
+  %mCharBitmap.i = getelementptr inbounds i8, ptr %fd, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %mCharBitmap.i, i8 0, i64 32, i1 false)
-  %mDecimalPoint.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 6
+  %mDecimalPoint.i = getelementptr inbounds i8, ptr %fd, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %mModifier.i, i8 0, i64 10, i1 false)
   store i32 46, ptr %mDecimalPoint.i, align 4
   store i32 0, ptr %c, align 4
@@ -819,11 +815,11 @@ entry:
   br i1 %tobool.not218229246, label %land.lhs.true305, label %while.body.lr.ph.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %entry
-  %mnType = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 2
-  %mbSkipAssignment = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 4
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %arguments, i64 0, i32 2
-  %1 = getelementptr inbounds %struct.__va_list_tag, ptr %arguments, i64 0, i32 3
-  %mbWidthSpecified = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 3
+  %mnType = getelementptr inbounds i8, ptr %fd, i64 8
+  %mbSkipAssignment = getelementptr inbounds i8, ptr %fd, i64 13
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %arguments, i64 8
+  %1 = getelementptr inbounds i8, ptr %arguments, i64 16
+  %mbWidthSpecified = getelementptr inbounds i8, ptr %fd, i64 12
   br label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %sw.epilog302
@@ -1659,10 +1655,10 @@ entry:
   %bIntegerOverflow = alloca i32, align 4
   store ptr null, ptr %pArgumentCurrent, align 8
   store i32 2147483647, ptr %fd, align 4
-  %mModifier.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 1
-  %mCharBitmap.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5
+  %mModifier.i = getelementptr inbounds i8, ptr %fd, i64 4
+  %mCharBitmap.i = getelementptr inbounds i8, ptr %fd, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %mCharBitmap.i, i8 0, i64 32, i1 false)
-  %mDecimalPoint.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 6
+  %mDecimalPoint.i = getelementptr inbounds i8, ptr %fd, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %mModifier.i, i8 0, i64 10, i1 false)
   store i32 46, ptr %mDecimalPoint.i, align 4
   store i32 0, ptr %c, align 4
@@ -1672,11 +1668,11 @@ entry:
   br i1 %tobool.not252271300, label %land.lhs.true305, label %while.body.lr.ph.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %entry
-  %mnType = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 2
-  %mbSkipAssignment = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 4
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %arguments, i64 0, i32 2
-  %1 = getelementptr inbounds %struct.__va_list_tag, ptr %arguments, i64 0, i32 3
-  %mbWidthSpecified = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 3
+  %mnType = getelementptr inbounds i8, ptr %fd, i64 8
+  %mbSkipAssignment = getelementptr inbounds i8, ptr %fd, i64 13
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %arguments, i64 8
+  %1 = getelementptr inbounds i8, ptr %arguments, i64 16
+  %mbWidthSpecified = getelementptr inbounds i8, ptr %fd, i64 12
   br label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %sw.epilog302
@@ -1712,7 +1708,7 @@ _ZN2EA4StdC7IsspaceEDs.exit:                      ; preds = %while.body
 
 do.body:                                          ; preds = %_ZN2EA4StdC7IsspaceEDs.exit, %_ZN2EA4StdC7IsspaceEDs.exit137
   %pFormatCurrent.1 = phi ptr [ %incdec.ptr, %_ZN2EA4StdC7IsspaceEDs.exit137 ], [ %pFormatCurrent.0253, %_ZN2EA4StdC7IsspaceEDs.exit ]
-  %incdec.ptr = getelementptr inbounds i16, ptr %pFormatCurrent.1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 2
   %7 = load i16, ptr %incdec.ptr, align 2
   %cmp.i131 = icmp ult i16 %7, 256
   br i1 %cmp.i131, label %_ZN2EA4StdC7IsspaceEDs.exit137, label %while.cond6.preheader
@@ -1777,7 +1773,7 @@ if.then13:                                        ; preds = %while.body, %if.end
 
 if.end19:                                         ; preds = %if.then13
   %inc20 = add nsw i32 %nReadCountSum.0.ph173272, 1
-  %incdec.ptr21 = getelementptr inbounds i16, ptr %pFormatCurrent.0253, i64 1
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %pFormatCurrent.0253, i64 2
   br label %while.cond.outer172.backedge
 
 if.end22:                                         ; preds = %if.end
@@ -2554,10 +2550,10 @@ entry:
   %bIntegerOverflow = alloca i32, align 4
   store ptr null, ptr %pArgumentCurrent, align 8
   store i32 2147483647, ptr %fd, align 4
-  %mModifier.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 1
-  %mCharBitmap.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5
+  %mModifier.i = getelementptr inbounds i8, ptr %fd, i64 4
+  %mCharBitmap.i = getelementptr inbounds i8, ptr %fd, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %mCharBitmap.i, i8 0, i64 32, i1 false)
-  %mDecimalPoint.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 6
+  %mDecimalPoint.i = getelementptr inbounds i8, ptr %fd, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %mModifier.i, i8 0, i64 10, i1 false)
   store i32 46, ptr %mDecimalPoint.i, align 4
   store i32 0, ptr %c, align 4
@@ -2567,11 +2563,11 @@ entry:
   br i1 %tobool.not252271299, label %land.lhs.true300, label %while.body.lr.ph.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %entry
-  %mnType = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 2
-  %mbSkipAssignment = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 4
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %arguments, i64 0, i32 2
-  %1 = getelementptr inbounds %struct.__va_list_tag, ptr %arguments, i64 0, i32 3
-  %mbWidthSpecified = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 3
+  %mnType = getelementptr inbounds i8, ptr %fd, i64 8
+  %mbSkipAssignment = getelementptr inbounds i8, ptr %fd, i64 13
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %arguments, i64 8
+  %1 = getelementptr inbounds i8, ptr %arguments, i64 16
+  %mbWidthSpecified = getelementptr inbounds i8, ptr %fd, i64 12
   br label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %sw.epilog297
@@ -2607,7 +2603,7 @@ _ZN2EA4StdC7IsspaceEDi.exit:                      ; preds = %while.body
 
 do.body:                                          ; preds = %_ZN2EA4StdC7IsspaceEDi.exit, %_ZN2EA4StdC7IsspaceEDi.exit137
   %pFormatCurrent.1 = phi ptr [ %incdec.ptr, %_ZN2EA4StdC7IsspaceEDi.exit137 ], [ %pFormatCurrent.0253, %_ZN2EA4StdC7IsspaceEDi.exit ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %pFormatCurrent.1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 4
   %7 = load i32, ptr %incdec.ptr, align 4
   %cmp.i131 = icmp ult i32 %7, 256
   br i1 %cmp.i131, label %_ZN2EA4StdC7IsspaceEDi.exit137, label %while.cond6.preheader
@@ -2668,7 +2664,7 @@ if.then12:                                        ; preds = %while.body, %if.end
 
 if.end17:                                         ; preds = %if.then12
   %inc18 = add nsw i32 %nReadCountSum.0.ph173272, 1
-  %incdec.ptr19 = getelementptr inbounds i32, ptr %pFormatCurrent.0253, i64 1
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %pFormatCurrent.0253, i64 4
   br label %while.cond.outer172.backedge
 
 if.end20:                                         ; preds = %if.end
@@ -3425,10 +3421,10 @@ define linkonce_odr dso_local noundef ptr @_ZN2EA4StdC10ScanfLocal10VscanfUtilIP
 entry:
   %fd = alloca %"struct.EA::StdC::ScanfLocal::FormatData", align 4
   store i32 2147483647, ptr %fd, align 4
-  %mModifier.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 1
-  %mCharBitmap.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5
+  %mModifier.i = getelementptr inbounds i8, ptr %fd, i64 4
+  %mCharBitmap.i = getelementptr inbounds i8, ptr %fd, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %mCharBitmap.i, i8 0, i64 32, i1 false)
-  %mDecimalPoint.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 6
+  %mDecimalPoint.i = getelementptr inbounds i8, ptr %fd, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %mModifier.i, i8 0, i64 10, i1 false)
   store i32 46, ptr %mDecimalPoint.i, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %pFormat, i64 1
@@ -3437,7 +3433,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %mnType = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 2
+  %mnType = getelementptr inbounds i8, ptr %fd, i64 8
   store i32 37, ptr %mnType, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %pFormatData, ptr noundef nonnull align 4 dereferenceable(52) %fd, i64 52, i1 false)
   %incdec.ptr2 = getelementptr inbounds i8, ptr %pFormat, i64 2
@@ -3452,7 +3448,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %mbWidthSpecified = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 3
+  %mbWidthSpecified = getelementptr inbounds i8, ptr %fd, i64 12
   store i8 1, ptr %mbWidthSpecified, align 4
   br label %do.body
 
@@ -3478,7 +3474,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp11, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.else
-  %mbSkipAssignment = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 4
+  %mbSkipAssignment = getelementptr inbounds i8, ptr %fd, i64 13
   store i8 1, ptr %mbSkipAssignment, align 1
   %incdec.ptr13 = getelementptr inbounds i8, ptr %pFormat, i64 2
   %6 = load i8, ptr %incdec.ptr13, align 1
@@ -3564,7 +3560,7 @@ land.lhs.true88:                                  ; preds = %land.lhs.true
   br i1 %cmp91, label %if.then104, label %if.else95
 
 if.else95:                                        ; preds = %land.lhs.true, %sw.bb42, %land.lhs.true73, %land.lhs.true62, %land.lhs.true88
-  %mnType96 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 2
+  %mnType96 = getelementptr inbounds i8, ptr %fd, i64 8
   store i32 0, ptr %mnType96, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %pFormatData, ptr noundef nonnull align 4 dereferenceable(52) %fd, i64 52, i1 false)
   br label %return
@@ -3582,7 +3578,7 @@ if.end106:                                        ; preds = %if.end15, %if.then1
   %pFormatCurrent.3 = phi ptr [ %incdec.ptr105, %if.then104 ], [ %pFormatCurrent.1, %if.end15 ]
   %c.3 = phi i8 [ %14, %if.then104 ], [ %c.1, %if.end15 ]
   %conv107 = sext i8 %c.3 to i32
-  %mnType108 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 2
+  %mnType108 = getelementptr inbounds i8, ptr %fd, i64 8
   store i32 %conv107, ptr %mnType108, align 4
   switch i32 %conv107, label %sw.default273 [
     i32 98, label %sw.bb110
@@ -3661,9 +3657,9 @@ if.end150:                                        ; preds = %if.then124, %if.the
 
 if.then156:                                       ; preds = %if.end150
   store i32 -15873, ptr %mCharBitmap.i, align 4
-  %arrayidx160 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5, i32 0, i64 1
+  %arrayidx160 = getelementptr inbounds i8, ptr %fd, i64 20
   store i32 -2, ptr %arrayidx160, align 4
-  %arrayidx163 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5, i32 0, i64 2
+  %arrayidx163 = getelementptr inbounds i8, ptr %fd, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %arrayidx163, i8 -1, i64 24, i1 false)
   br label %sw.epilog275
 
@@ -3733,7 +3729,7 @@ if.end230:                                        ; preds = %if.then228, %if.end
   br i1 %cmp232, label %if.then233, label %while.cond
 
 if.then233:                                       ; preds = %if.end230
-  %arrayidx.i66 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5, i32 0, i64 2
+  %arrayidx.i66 = getelementptr inbounds i8, ptr %fd, i64 24
   store i32 536870912, ptr %arrayidx.i66, align 4
   br label %while.cond.sink.split
 
@@ -4070,9 +4066,9 @@ define linkonce_odr dso_local noundef double @_ZN2EA4StdC10ScanfLocal10VscanfUti
 entry:
   %buffer.i = alloca [36 x i8], align 16
   %doubleValue = alloca %"struct.EA::StdC::ScanfLocal::DoubleValue", align 2
-  %mSigLen.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::DoubleValue", ptr %doubleValue, i64 0, i32 1
+  %mSigLen.i = getelementptr inbounds i8, ptr %doubleValue, i64 26
   store i16 0, ptr %mSigLen.i, align 2
-  %mExponent.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::DoubleValue", ptr %doubleValue, i64 0, i32 2
+  %mExponent.i = getelementptr inbounds i8, ptr %doubleValue, i64 28
   store i16 0, ptr %mExponent.i, align 2
   store i8 0, ptr %doubleValue, align 2
   store i32 0, ptr %nReadCount, align 4
@@ -4750,22 +4746,22 @@ define linkonce_odr dso_local noundef ptr @_ZN2EA4StdC10ScanfLocal10VscanfUtilIP
 entry:
   %fd = alloca %"struct.EA::StdC::ScanfLocal::FormatData", align 4
   store i32 2147483647, ptr %fd, align 4
-  %mModifier.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 1
-  %mCharBitmap.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5
+  %mModifier.i = getelementptr inbounds i8, ptr %fd, i64 4
+  %mCharBitmap.i = getelementptr inbounds i8, ptr %fd, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %mCharBitmap.i, i8 0, i64 32, i1 false)
-  %mDecimalPoint.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 6
+  %mDecimalPoint.i = getelementptr inbounds i8, ptr %fd, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %mModifier.i, i8 0, i64 10, i1 false)
   store i32 46, ptr %mDecimalPoint.i, align 4
-  %incdec.ptr = getelementptr inbounds i16, ptr %pFormat, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %pFormat, i64 2
   %0 = load i16, ptr %incdec.ptr, align 2
   %cmp = icmp eq i16 %0, 37
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %mnType = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 2
+  %mnType = getelementptr inbounds i8, ptr %fd, i64 8
   store i32 37, ptr %mnType, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %pFormatData, ptr noundef nonnull align 4 dereferenceable(52) %fd, i64 52, i1 false)
-  %incdec.ptr2 = getelementptr inbounds i16, ptr %pFormat, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %pFormat, i64 4
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4775,7 +4771,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %mbWidthSpecified = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 3
+  %mbWidthSpecified = getelementptr inbounds i8, ptr %fd, i64 12
   store i8 1, ptr %mbWidthSpecified, align 4
   br label %do.body
 
@@ -4787,7 +4783,7 @@ do.body:                                          ; preds = %do.body, %if.then3
   %conv5 = zext i16 %c.0 to i32
   %sub = add nsw i32 %conv5, -48
   %add = add nsw i32 %sub, %mul
-  %incdec.ptr7 = getelementptr inbounds i16, ptr %pFormatCurrent.0, i64 1
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %pFormatCurrent.0, i64 2
   %2 = load i16, ptr %incdec.ptr7, align 2
   %conv.i63 = zext i16 %2 to i32
   %3 = add nsw i32 %conv.i63, -58
@@ -4799,9 +4795,9 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp11, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.else
-  %mbSkipAssignment = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 4
+  %mbSkipAssignment = getelementptr inbounds i8, ptr %fd, i64 13
   store i8 1, ptr %mbSkipAssignment, align 1
-  %incdec.ptr13 = getelementptr inbounds i16, ptr %pFormat, i64 2
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %pFormat, i64 4
   %4 = load i16, ptr %incdec.ptr13, align 2
   br label %if.end15
 
@@ -4823,7 +4819,7 @@ if.end15:                                         ; preds = %if.end15.loopexit, 
   ]
 
 sw.bb:                                            ; preds = %if.end15
-  %arrayidx = getelementptr inbounds i16, ptr %pFormatCurrent.1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 2
   %5 = load i16, ptr %arrayidx, align 2
   %cmp18 = icmp eq i16 %5, 104
   %. = select i1 %cmp18, i32 1, i32 2
@@ -4831,7 +4827,7 @@ sw.bb:                                            ; preds = %if.end15
   br label %if.then104
 
 sw.bb24:                                          ; preds = %if.end15
-  %arrayidx25 = getelementptr inbounds i16, ptr %pFormatCurrent.1, i64 1
+  %arrayidx25 = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 2
   %6 = load i16, ptr %arrayidx25, align 2
   %cmp27 = icmp eq i16 %6, 108
   %.95 = select i1 %cmp27, i32 5, i32 4
@@ -4848,7 +4844,7 @@ sw.bb40:                                          ; preds = %if.end15
   br label %if.then104
 
 sw.bb42:                                          ; preds = %if.end15
-  %arrayidx43 = getelementptr inbounds i16, ptr %pFormatCurrent.1, i64 1
+  %arrayidx43 = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 2
   %7 = load i16, ptr %arrayidx43, align 2
   switch i16 %7, label %if.else95 [
     i16 56, label %if.then104
@@ -4858,7 +4854,7 @@ sw.bb42:                                          ; preds = %if.end15
   ]
 
 land.lhs.true:                                    ; preds = %sw.bb42
-  %arrayidx53 = getelementptr inbounds i16, ptr %pFormatCurrent.1, i64 2
+  %arrayidx53 = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 4
   %8 = load i16, ptr %arrayidx53, align 2
   switch i16 %8, label %if.else95 [
     i16 54, label %if.then104
@@ -4866,25 +4862,25 @@ land.lhs.true:                                    ; preds = %sw.bb42
   ]
 
 land.lhs.true62:                                  ; preds = %sw.bb42
-  %arrayidx63 = getelementptr inbounds i16, ptr %pFormatCurrent.1, i64 2
+  %arrayidx63 = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 4
   %9 = load i16, ptr %arrayidx63, align 2
   %cmp65 = icmp eq i16 %9, 50
   br i1 %cmp65, label %if.then104, label %if.else95
 
 land.lhs.true73:                                  ; preds = %sw.bb42
-  %arrayidx74 = getelementptr inbounds i16, ptr %pFormatCurrent.1, i64 2
+  %arrayidx74 = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 4
   %10 = load i16, ptr %arrayidx74, align 2
   %cmp76 = icmp eq i16 %10, 52
   br i1 %cmp76, label %if.then104, label %if.else95
 
 land.lhs.true88:                                  ; preds = %land.lhs.true
-  %arrayidx89 = getelementptr inbounds i16, ptr %pFormatCurrent.1, i64 3
+  %arrayidx89 = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 6
   %11 = load i16, ptr %arrayidx89, align 2
   %cmp91 = icmp eq i16 %11, 56
   br i1 %cmp91, label %if.then104, label %if.else95
 
 if.else95:                                        ; preds = %land.lhs.true, %sw.bb42, %land.lhs.true73, %land.lhs.true62, %land.lhs.true88
-  %mnType96 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 2
+  %mnType96 = getelementptr inbounds i8, ptr %fd, i64 8
   store i32 0, ptr %mnType96, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %pFormatData, ptr noundef nonnull align 4 dereferenceable(52) %fd, i64 52, i1 false)
   br label %return
@@ -4893,7 +4889,7 @@ if.then104:                                       ; preds = %land.lhs.true88, %l
   %.sink = phi i32 [ 10, %sw.bb40 ], [ 8, %sw.bb38 ], [ 7, %sw.bb36 ], [ %., %sw.bb ], [ %.95, %sw.bb24 ], [ 6, %if.end15 ], [ 12, %sw.bb42 ], [ 13, %land.lhs.true ], [ 14, %land.lhs.true62 ], [ 15, %land.lhs.true73 ], [ 16, %land.lhs.true88 ]
   %pFormatCurrent.2.ph = phi ptr [ %pFormatCurrent.1, %sw.bb40 ], [ %pFormatCurrent.1, %sw.bb38 ], [ %pFormatCurrent.1, %sw.bb36 ], [ %arrayidx.pFormatCurrent.1, %sw.bb ], [ %arrayidx25.pFormatCurrent.1, %sw.bb24 ], [ %pFormatCurrent.1, %if.end15 ], [ %arrayidx43, %sw.bb42 ], [ %arrayidx53, %land.lhs.true ], [ %arrayidx63, %land.lhs.true62 ], [ %arrayidx74, %land.lhs.true73 ], [ %arrayidx89, %land.lhs.true88 ]
   store i32 %.sink, ptr %mModifier.i, align 4
-  %incdec.ptr105 = getelementptr inbounds i16, ptr %pFormatCurrent.2.ph, i64 1
+  %incdec.ptr105 = getelementptr inbounds i8, ptr %pFormatCurrent.2.ph, i64 2
   %12 = load i16, ptr %incdec.ptr105, align 2
   br label %if.end106
 
@@ -4902,7 +4898,7 @@ if.end106:                                        ; preds = %if.end15, %if.then1
   %pFormatCurrent.3 = phi ptr [ %incdec.ptr105, %if.then104 ], [ %pFormatCurrent.1, %if.end15 ]
   %c.3 = phi i16 [ %12, %if.then104 ], [ %c.1, %if.end15 ]
   %conv107 = zext i16 %c.3 to i32
-  %mnType108 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 2
+  %mnType108 = getelementptr inbounds i8, ptr %fd, i64 8
   store i32 %conv107, ptr %mnType108, align 4
   switch i16 %c.3, label %sw.default273 [
     i16 98, label %sw.bb110
@@ -4981,9 +4977,9 @@ if.end150:                                        ; preds = %if.then124, %if.the
 
 if.then156:                                       ; preds = %if.end150
   store i32 -15873, ptr %mCharBitmap.i, align 4
-  %arrayidx160 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5, i32 0, i64 1
+  %arrayidx160 = getelementptr inbounds i8, ptr %fd, i64 20
   store i32 -2, ptr %arrayidx160, align 4
-  %arrayidx163 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5, i32 0, i64 2
+  %arrayidx163 = getelementptr inbounds i8, ptr %fd, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %arrayidx163, i8 -1, i64 24, i1 false)
   br label %sw.epilog275
 
@@ -5036,13 +5032,13 @@ if.then219:                                       ; preds = %if.else213
   br label %if.end224
 
 if.end224:                                        ; preds = %if.then206, %if.then219, %if.else213, %if.then211, %if.then201
-  %incdec.ptr225 = getelementptr inbounds i16, ptr %pFormatCurrent.3, i64 1
+  %incdec.ptr225 = getelementptr inbounds i8, ptr %pFormatCurrent.3, i64 2
   %18 = load i16, ptr %incdec.ptr225, align 2
   %cmp227.not = icmp eq i16 %18, 94
   br i1 %cmp227.not, label %if.then228, label %if.end230
 
 if.then228:                                       ; preds = %if.end224
-  %incdec.ptr229 = getelementptr inbounds i16, ptr %pFormatCurrent.3, i64 2
+  %incdec.ptr229 = getelementptr inbounds i8, ptr %pFormatCurrent.3, i64 4
   %19 = load i16, ptr %incdec.ptr229, align 2
   br label %if.end230
 
@@ -5053,13 +5049,13 @@ if.end230:                                        ; preds = %if.then228, %if.end
   br i1 %cmp232, label %if.then233, label %while.cond
 
 if.then233:                                       ; preds = %if.end230
-  %arrayidx.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5, i32 0, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %fd, i64 24
   store i32 536870912, ptr %arrayidx.i, align 4
   br label %while.cond.sink.split
 
 while.cond.sink.split:                            ; preds = %if.end260, %if.then233
   %pFormatCurrent.7.sink = phi ptr [ %pFormatCurrent.7, %if.end260 ], [ %pFormatCurrent.4, %if.then233 ]
-  %incdec.ptr261 = getelementptr inbounds i16, ptr %pFormatCurrent.7.sink, i64 1
+  %incdec.ptr261 = getelementptr inbounds i8, ptr %pFormatCurrent.7.sink, i64 2
   %20 = load i16, ptr %incdec.ptr261, align 2
   br label %while.cond
 
@@ -5088,13 +5084,13 @@ if.then.i:                                        ; preds = %while.body
   br label %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit
 
 _ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit:  ; preds = %while.body, %if.then.i
-  %arrayidx241 = getelementptr inbounds i16, ptr %pFormatCurrent.6, i64 1
+  %arrayidx241 = getelementptr inbounds i8, ptr %pFormatCurrent.6, i64 2
   %24 = load i16, ptr %arrayidx241, align 2
   %cmp243 = icmp eq i16 %24, 45
   br i1 %cmp243, label %land.lhs.true244, label %if.end260
 
 land.lhs.true244:                                 ; preds = %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDs.exit
-  %arrayidx245 = getelementptr inbounds i16, ptr %pFormatCurrent.6, i64 2
+  %arrayidx245 = getelementptr inbounds i8, ptr %pFormatCurrent.6, i64 4
   %25 = load i16, ptr %arrayidx245, align 2
   switch i16 %25, label %while.cond252.preheader [
     i16 0, label %if.end260
@@ -5159,7 +5155,7 @@ sw.default273:                                    ; preds = %if.end106
 sw.epilog275:                                     ; preds = %for.body.i, %sw.bb180, %sw.bb180, %if.end106, %if.else269, %if.then264, %if.then183, %if.then191, %if.then156, %if.end150, %sw.bb110, %if.then113, %sw.default273, %sw.bb195
   %pFormatCurrent.8 = phi ptr [ %pFormatCurrent.3, %sw.default273 ], [ %pFormatCurrent.3, %if.end106 ], [ %pFormatCurrent.6, %if.then264 ], [ %pFormatCurrent.6, %if.else269 ], [ %pFormatCurrent.3, %sw.bb195 ], [ %pFormatCurrent.3, %if.then183 ], [ %pFormatCurrent.3, %if.then191 ], [ %pFormatCurrent.3, %if.then156 ], [ %pFormatCurrent.3, %if.end150 ], [ %pFormatCurrent.3, %if.then113 ], [ %pFormatCurrent.3, %sw.bb110 ], [ %pFormatCurrent.3, %sw.bb180 ], [ %pFormatCurrent.3, %sw.bb180 ], [ %pFormatCurrent.6, %for.body.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %pFormatData, ptr noundef nonnull align 4 dereferenceable(52) %fd, i64 52, i1 false)
-  %incdec.ptr276 = getelementptr inbounds i16, ptr %pFormatCurrent.8, i64 1
+  %incdec.ptr276 = getelementptr inbounds i8, ptr %pFormatCurrent.8, i64 2
   br label %return
 
 return:                                           ; preds = %sw.epilog275, %if.else95, %if.then
@@ -5420,9 +5416,9 @@ define linkonce_odr dso_local noundef double @_ZN2EA4StdC10ScanfLocal10VscanfUti
 entry:
   %buffer.i = alloca [36 x i8], align 16
   %doubleValue = alloca %"struct.EA::StdC::ScanfLocal::DoubleValue", align 2
-  %mSigLen.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::DoubleValue", ptr %doubleValue, i64 0, i32 1
+  %mSigLen.i = getelementptr inbounds i8, ptr %doubleValue, i64 26
   store i16 0, ptr %mSigLen.i, align 2
-  %mExponent.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::DoubleValue", ptr %doubleValue, i64 0, i32 2
+  %mExponent.i = getelementptr inbounds i8, ptr %doubleValue, i64 28
   store i16 0, ptr %mExponent.i, align 2
   store i8 0, ptr %doubleValue, align 2
   store i32 0, ptr %nReadCount, align 4
@@ -6120,22 +6116,22 @@ define linkonce_odr dso_local noundef ptr @_ZN2EA4StdC10ScanfLocal10VscanfUtilIP
 entry:
   %fd = alloca %"struct.EA::StdC::ScanfLocal::FormatData", align 4
   store i32 2147483647, ptr %fd, align 4
-  %mModifier.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 1
-  %mCharBitmap.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5
+  %mModifier.i = getelementptr inbounds i8, ptr %fd, i64 4
+  %mCharBitmap.i = getelementptr inbounds i8, ptr %fd, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %mCharBitmap.i, i8 0, i64 32, i1 false)
-  %mDecimalPoint.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 6
+  %mDecimalPoint.i = getelementptr inbounds i8, ptr %fd, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %mModifier.i, i8 0, i64 10, i1 false)
   store i32 46, ptr %mDecimalPoint.i, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %pFormat, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %pFormat, i64 4
   %0 = load i32, ptr %incdec.ptr, align 4
   %cmp = icmp eq i32 %0, 37
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %mnType = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 2
+  %mnType = getelementptr inbounds i8, ptr %fd, i64 8
   store i32 37, ptr %mnType, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %pFormatData, ptr noundef nonnull align 4 dereferenceable(52) %fd, i64 52, i1 false)
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %pFormat, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %pFormat, i64 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -6144,7 +6140,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %mbWidthSpecified = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 3
+  %mbWidthSpecified = getelementptr inbounds i8, ptr %fd, i64 12
   store i8 1, ptr %mbWidthSpecified, align 4
   br label %do.body
 
@@ -6155,7 +6151,7 @@ do.body:                                          ; preds = %do.body, %if.then3
   %mul = mul nsw i32 %add92, 10
   %sub = add nsw i32 %c.0, -48
   %add = add i32 %sub, %mul
-  %incdec.ptr6 = getelementptr inbounds i32, ptr %pFormatCurrent.0, i64 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %pFormatCurrent.0, i64 4
   %2 = load i32, ptr %incdec.ptr6, align 4
   %3 = add i32 %2, -58
   %cmp.i67 = icmp ult i32 %3, -10
@@ -6166,9 +6162,9 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp9, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %if.else
-  %mbSkipAssignment = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 4
+  %mbSkipAssignment = getelementptr inbounds i8, ptr %fd, i64 13
   store i8 1, ptr %mbSkipAssignment, align 1
-  %incdec.ptr11 = getelementptr inbounds i32, ptr %pFormat, i64 2
+  %incdec.ptr11 = getelementptr inbounds i8, ptr %pFormat, i64 8
   %4 = load i32, ptr %incdec.ptr11, align 4
   br label %if.end13
 
@@ -6190,7 +6186,7 @@ if.end13:                                         ; preds = %if.end13.loopexit, 
   ]
 
 sw.bb:                                            ; preds = %if.end13
-  %arrayidx = getelementptr inbounds i32, ptr %pFormatCurrent.1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 4
   %5 = load i32, ptr %arrayidx, align 4
   %cmp14 = icmp eq i32 %5, 104
   %. = select i1 %cmp14, i32 1, i32 2
@@ -6198,7 +6194,7 @@ sw.bb:                                            ; preds = %if.end13
   br label %if.then89
 
 sw.bb20:                                          ; preds = %if.end13
-  %arrayidx21 = getelementptr inbounds i32, ptr %pFormatCurrent.1, i64 1
+  %arrayidx21 = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 4
   %6 = load i32, ptr %arrayidx21, align 4
   %cmp22 = icmp eq i32 %6, 108
   %.98 = select i1 %cmp22, i32 5, i32 4
@@ -6215,7 +6211,7 @@ sw.bb35:                                          ; preds = %if.end13
   br label %if.then89
 
 sw.bb37:                                          ; preds = %if.end13
-  %arrayidx38 = getelementptr inbounds i32, ptr %pFormatCurrent.1, i64 1
+  %arrayidx38 = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 4
   %7 = load i32, ptr %arrayidx38, align 4
   switch i32 %7, label %if.else80 [
     i32 56, label %if.then89
@@ -6225,7 +6221,7 @@ sw.bb37:                                          ; preds = %if.end13
   ]
 
 land.lhs.true:                                    ; preds = %sw.bb37
-  %arrayidx46 = getelementptr inbounds i32, ptr %pFormatCurrent.1, i64 2
+  %arrayidx46 = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 8
   %8 = load i32, ptr %arrayidx46, align 4
   switch i32 %8, label %if.else80 [
     i32 54, label %if.then89
@@ -6233,25 +6229,25 @@ land.lhs.true:                                    ; preds = %sw.bb37
   ]
 
 land.lhs.true53:                                  ; preds = %sw.bb37
-  %arrayidx54 = getelementptr inbounds i32, ptr %pFormatCurrent.1, i64 2
+  %arrayidx54 = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 8
   %9 = load i32, ptr %arrayidx54, align 4
   %cmp55 = icmp eq i32 %9, 50
   br i1 %cmp55, label %if.then89, label %if.else80
 
 land.lhs.true62:                                  ; preds = %sw.bb37
-  %arrayidx63 = getelementptr inbounds i32, ptr %pFormatCurrent.1, i64 2
+  %arrayidx63 = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 8
   %10 = load i32, ptr %arrayidx63, align 4
   %cmp64 = icmp eq i32 %10, 52
   br i1 %cmp64, label %if.then89, label %if.else80
 
 land.lhs.true74:                                  ; preds = %land.lhs.true
-  %arrayidx75 = getelementptr inbounds i32, ptr %pFormatCurrent.1, i64 3
+  %arrayidx75 = getelementptr inbounds i8, ptr %pFormatCurrent.1, i64 12
   %11 = load i32, ptr %arrayidx75, align 4
   %cmp76 = icmp eq i32 %11, 56
   br i1 %cmp76, label %if.then89, label %if.else80
 
 if.else80:                                        ; preds = %land.lhs.true, %sw.bb37, %land.lhs.true62, %land.lhs.true53, %land.lhs.true74
-  %mnType81 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 2
+  %mnType81 = getelementptr inbounds i8, ptr %fd, i64 8
   store i32 0, ptr %mnType81, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %pFormatData, ptr noundef nonnull align 4 dereferenceable(52) %fd, i64 52, i1 false)
   br label %return
@@ -6260,7 +6256,7 @@ if.then89:                                        ; preds = %land.lhs.true74, %l
   %.sink = phi i32 [ 10, %sw.bb35 ], [ 8, %sw.bb33 ], [ 7, %sw.bb31 ], [ %., %sw.bb ], [ %.98, %sw.bb20 ], [ 6, %if.end13 ], [ 12, %sw.bb37 ], [ 13, %land.lhs.true ], [ 14, %land.lhs.true53 ], [ 15, %land.lhs.true62 ], [ 16, %land.lhs.true74 ]
   %pFormatCurrent.2.ph = phi ptr [ %pFormatCurrent.1, %sw.bb35 ], [ %pFormatCurrent.1, %sw.bb33 ], [ %pFormatCurrent.1, %sw.bb31 ], [ %arrayidx.pFormatCurrent.1, %sw.bb ], [ %arrayidx21.pFormatCurrent.1, %sw.bb20 ], [ %pFormatCurrent.1, %if.end13 ], [ %arrayidx38, %sw.bb37 ], [ %arrayidx46, %land.lhs.true ], [ %arrayidx54, %land.lhs.true53 ], [ %arrayidx63, %land.lhs.true62 ], [ %arrayidx75, %land.lhs.true74 ]
   store i32 %.sink, ptr %mModifier.i, align 4
-  %incdec.ptr90 = getelementptr inbounds i32, ptr %pFormatCurrent.2.ph, i64 1
+  %incdec.ptr90 = getelementptr inbounds i8, ptr %pFormatCurrent.2.ph, i64 4
   %12 = load i32, ptr %incdec.ptr90, align 4
   br label %if.end91
 
@@ -6268,7 +6264,7 @@ if.end91:                                         ; preds = %if.end13, %if.then8
   %13 = phi i32 [ %.sink, %if.then89 ], [ 0, %if.end13 ]
   %pFormatCurrent.3 = phi ptr [ %incdec.ptr90, %if.then89 ], [ %pFormatCurrent.1, %if.end13 ]
   %c.3 = phi i32 [ %12, %if.then89 ], [ %c.1, %if.end13 ]
-  %mnType92 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 2
+  %mnType92 = getelementptr inbounds i8, ptr %fd, i64 8
   store i32 %c.3, ptr %mnType92, align 4
   switch i32 %c.3, label %sw.default245 [
     i32 98, label %sw.bb93
@@ -6347,9 +6343,9 @@ if.end131:                                        ; preds = %if.then107, %if.the
 
 if.then135:                                       ; preds = %if.end131
   store i32 -15873, ptr %mCharBitmap.i, align 4
-  %arrayidx139 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5, i32 0, i64 1
+  %arrayidx139 = getelementptr inbounds i8, ptr %fd, i64 20
   store i32 -2, ptr %arrayidx139, align 4
-  %arrayidx142 = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5, i32 0, i64 2
+  %arrayidx142 = getelementptr inbounds i8, ptr %fd, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %arrayidx142, i8 -1, i64 24, i1 false)
   br label %sw.epilog247
 
@@ -6402,13 +6398,13 @@ if.then198:                                       ; preds = %if.else192
   br label %if.end203
 
 if.end203:                                        ; preds = %if.then185, %if.then198, %if.else192, %if.then190, %if.then180
-  %incdec.ptr204 = getelementptr inbounds i32, ptr %pFormatCurrent.3, i64 1
+  %incdec.ptr204 = getelementptr inbounds i8, ptr %pFormatCurrent.3, i64 4
   %18 = load i32, ptr %incdec.ptr204, align 4
   %cmp205.not = icmp eq i32 %18, 94
   br i1 %cmp205.not, label %if.then206, label %if.end208
 
 if.then206:                                       ; preds = %if.end203
-  %incdec.ptr207 = getelementptr inbounds i32, ptr %pFormatCurrent.3, i64 2
+  %incdec.ptr207 = getelementptr inbounds i8, ptr %pFormatCurrent.3, i64 8
   %19 = load i32, ptr %incdec.ptr207, align 4
   br label %if.end208
 
@@ -6419,13 +6415,13 @@ if.end208:                                        ; preds = %if.then206, %if.end
   br i1 %cmp209, label %if.then210, label %while.cond
 
 if.then210:                                       ; preds = %if.end208
-  %arrayidx.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::FormatData", ptr %fd, i64 0, i32 5, i32 0, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %fd, i64 24
   store i32 536870912, ptr %arrayidx.i, align 4
   br label %while.cond.sink.split
 
 while.cond.sink.split:                            ; preds = %if.end232, %if.then210
   %pFormatCurrent.7.sink = phi ptr [ %pFormatCurrent.7, %if.end232 ], [ %pFormatCurrent.4, %if.then210 ]
-  %incdec.ptr233 = getelementptr inbounds i32, ptr %pFormatCurrent.7.sink, i64 1
+  %incdec.ptr233 = getelementptr inbounds i8, ptr %pFormatCurrent.7.sink, i64 4
   %20 = load i32, ptr %incdec.ptr233, align 4
   br label %while.cond
 
@@ -6453,13 +6449,13 @@ if.then.i:                                        ; preds = %while.body
   br label %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit
 
 _ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit:  ; preds = %while.body, %if.then.i
-  %arrayidx217 = getelementptr inbounds i32, ptr %pFormatCurrent.6, i64 1
+  %arrayidx217 = getelementptr inbounds i8, ptr %pFormatCurrent.6, i64 4
   %22 = load i32, ptr %arrayidx217, align 4
   %cmp218 = icmp eq i32 %22, 45
   br i1 %cmp218, label %land.lhs.true219, label %if.end232
 
 land.lhs.true219:                                 ; preds = %_ZN2EA4StdC10ScanfLocal10CharBitmap3SetEDi.exit
-  %arrayidx220 = getelementptr inbounds i32, ptr %pFormatCurrent.6, i64 2
+  %arrayidx220 = getelementptr inbounds i8, ptr %pFormatCurrent.6, i64 8
   %23 = load i32, ptr %arrayidx220, align 4
   switch i32 %23, label %while.cond226.preheader [
     i32 0, label %if.end232
@@ -6523,7 +6519,7 @@ sw.default245:                                    ; preds = %if.end91
 sw.epilog247:                                     ; preds = %for.body.i, %sw.bb159, %sw.bb159, %if.end91, %if.else241, %if.then236, %if.then162, %if.then170, %if.then135, %if.end131, %sw.bb93, %if.then96, %sw.default245, %sw.bb174
   %pFormatCurrent.8 = phi ptr [ %pFormatCurrent.3, %sw.default245 ], [ %pFormatCurrent.3, %if.end91 ], [ %pFormatCurrent.6, %if.then236 ], [ %pFormatCurrent.6, %if.else241 ], [ %pFormatCurrent.3, %sw.bb174 ], [ %pFormatCurrent.3, %if.then162 ], [ %pFormatCurrent.3, %if.then170 ], [ %pFormatCurrent.3, %if.then135 ], [ %pFormatCurrent.3, %if.end131 ], [ %pFormatCurrent.3, %if.then96 ], [ %pFormatCurrent.3, %sw.bb93 ], [ %pFormatCurrent.3, %sw.bb159 ], [ %pFormatCurrent.3, %sw.bb159 ], [ %pFormatCurrent.6, %for.body.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %pFormatData, ptr noundef nonnull align 4 dereferenceable(52) %fd, i64 52, i1 false)
-  %incdec.ptr248 = getelementptr inbounds i32, ptr %pFormatCurrent.8, i64 1
+  %incdec.ptr248 = getelementptr inbounds i8, ptr %pFormatCurrent.8, i64 4
   br label %return
 
 return:                                           ; preds = %sw.epilog247, %if.else80, %if.then
@@ -6781,9 +6777,9 @@ define linkonce_odr dso_local noundef double @_ZN2EA4StdC10ScanfLocal10VscanfUti
 entry:
   %buffer.i = alloca [36 x i8], align 16
   %doubleValue = alloca %"struct.EA::StdC::ScanfLocal::DoubleValue", align 2
-  %mSigLen.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::DoubleValue", ptr %doubleValue, i64 0, i32 1
+  %mSigLen.i = getelementptr inbounds i8, ptr %doubleValue, i64 26
   store i16 0, ptr %mSigLen.i, align 2
-  %mExponent.i = getelementptr inbounds %"struct.EA::StdC::ScanfLocal::DoubleValue", ptr %doubleValue, i64 0, i32 2
+  %mExponent.i = getelementptr inbounds i8, ptr %doubleValue, i64 28
   store i16 0, ptr %mExponent.i, align 2
   store i8 0, ptr %doubleValue, align 2
   store i32 0, ptr %nReadCount, align 4

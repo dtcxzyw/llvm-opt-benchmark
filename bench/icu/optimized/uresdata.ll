@@ -5,22 +5,17 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.anon = type { i32, i16, i16 }
 %struct.anon.0 = type { i32, i32 }
-%struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
-%struct.ResourceData = type { ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i32, i8, i8, i8, i8 }
-%"class.icu_75::ResourceDataValue" = type <{ %"class.icu_75::ResourceValue", ptr, ptr, i32, %"class.icu_75::ResourceTracer", [3 x i8] }>
-%"class.icu_75::ResourceValue" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::ResourceTracer" = type { i8 }
 %"class.icu_75::ResourceArray" = type <{ ptr, ptr, i32, %"class.icu_75::ResourceTracer", [3 x i8] }>
+%"class.icu_75::ResourceTracer" = type { i8 }
 %"class.icu_75::ResourceTable" = type <{ ptr, ptr, ptr, ptr, i32, %"class.icu_75::ResourceTracer", [3 x i8] }>
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.2, [32 x i8] }
 %struct.anon.2 = type { i16, i32, i32, ptr }
 %struct.Row = type { i32, i32 }
 %struct.TempTable = type { ptr, ptr, ptr, ptr, i32, i8 }
-%struct.UDataSwapper = type { i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"res\00", align 1
 @_ZL12gPublicTypes = internal unnamed_addr constant [16 x i8] c"\00\01\02\03\02\02\00\07\08\08\FF\FF\FF\FF\0E\FF", align 16
@@ -60,7 +55,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %formatVersion.i = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 7
+  %formatVersion.i = getelementptr inbounds i8, ptr %pInfo, i64 12
   %1 = load i32, ptr %formatVersion.i, align 2
   store i32 %1, ptr %formatVersion, align 4
   %2 = load i16, ptr %pInfo, align 2
@@ -69,43 +64,43 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i4, label %land.lhs.true.i, label %if.then3
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %isBigEndian.i = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 2
+  %isBigEndian.i = getelementptr inbounds i8, ptr %pInfo, i64 4
   %4 = load i8, ptr %isBigEndian.i, align 2
   %cmp3.i = icmp eq i8 %4, 0
   br i1 %cmp3.i, label %land.lhs.true4.i, label %if.then3
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
-  %charsetFamily.i = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 3
+  %charsetFamily.i = getelementptr inbounds i8, ptr %pInfo, i64 5
   %5 = load i8, ptr %charsetFamily.i, align 1
   %cmp6.i = icmp eq i8 %5, 0
   br i1 %cmp6.i, label %land.lhs.true7.i, label %if.then3
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true4.i
-  %sizeofUChar.i = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 4
+  %sizeofUChar.i = getelementptr inbounds i8, ptr %pInfo, i64 6
   %6 = load i8, ptr %sizeofUChar.i, align 2
   %cmp9.i = icmp eq i8 %6, 2
   br i1 %cmp9.i, label %land.lhs.true10.i, label %if.then3
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true7.i
-  %dataFormat.i = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6
+  %dataFormat.i = getelementptr inbounds i8, ptr %pInfo, i64 8
   %7 = load i8, ptr %dataFormat.i, align 2
   %cmp12.i = icmp eq i8 %7, 82
   br i1 %cmp12.i, label %land.lhs.true13.i, label %if.then3
 
 land.lhs.true13.i:                                ; preds = %land.lhs.true10.i
-  %arrayidx15.i = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %pInfo, i64 9
   %8 = load i8, ptr %arrayidx15.i, align 1
   %cmp17.i = icmp eq i8 %8, 101
   br i1 %cmp17.i, label %land.lhs.true18.i, label %if.then3
 
 land.lhs.true18.i:                                ; preds = %land.lhs.true13.i
-  %arrayidx20.i = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 2
+  %arrayidx20.i = getelementptr inbounds i8, ptr %pInfo, i64 10
   %9 = load i8, ptr %arrayidx20.i, align 2
   %cmp22.i = icmp eq i8 %9, 115
   br i1 %cmp22.i, label %land.lhs.true23.i, label %if.then3
 
 land.lhs.true23.i:                                ; preds = %land.lhs.true18.i
-  %arrayidx25.i = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 3
+  %arrayidx25.i = getelementptr inbounds i8, ptr %pInfo, i64 11
   %10 = load i8, ptr %arrayidx25.i, align 1
   %cmp27.i = icmp ne i8 %10, 66
   %11 = add i8 %3, -4
@@ -131,7 +126,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef signext i8 @_ZL12isAcceptablePvPKcS1_PK9UDataInfo(ptr nocapture noundef writeonly %context, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %pInfo) #2 {
 entry:
-  %formatVersion = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 7
+  %formatVersion = getelementptr inbounds i8, ptr %pInfo, i64 12
   %2 = load i32, ptr %formatVersion, align 2
   store i32 %2, ptr %context, align 1
   %3 = load i16, ptr %pInfo, align 2
@@ -139,43 +134,43 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end37
 
 land.lhs.true:                                    ; preds = %entry
-  %isBigEndian = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 2
+  %isBigEndian = getelementptr inbounds i8, ptr %pInfo, i64 4
   %4 = load i8, ptr %isBigEndian, align 2
   %cmp3 = icmp eq i8 %4, 0
   br i1 %cmp3, label %land.lhs.true4, label %land.end37
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %charsetFamily = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 3
+  %charsetFamily = getelementptr inbounds i8, ptr %pInfo, i64 5
   %5 = load i8, ptr %charsetFamily, align 1
   %cmp6 = icmp eq i8 %5, 0
   br i1 %cmp6, label %land.lhs.true7, label %land.end37
 
 land.lhs.true7:                                   ; preds = %land.lhs.true4
-  %sizeofUChar = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 4
+  %sizeofUChar = getelementptr inbounds i8, ptr %pInfo, i64 6
   %6 = load i8, ptr %sizeofUChar, align 2
   %cmp9 = icmp eq i8 %6, 2
   br i1 %cmp9, label %land.lhs.true10, label %land.end37
 
 land.lhs.true10:                                  ; preds = %land.lhs.true7
-  %dataFormat = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6
+  %dataFormat = getelementptr inbounds i8, ptr %pInfo, i64 8
   %7 = load i8, ptr %dataFormat, align 2
   %cmp12 = icmp eq i8 %7, 82
   br i1 %cmp12, label %land.lhs.true13, label %land.end37
 
 land.lhs.true13:                                  ; preds = %land.lhs.true10
-  %arrayidx15 = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %pInfo, i64 9
   %8 = load i8, ptr %arrayidx15, align 1
   %cmp17 = icmp eq i8 %8, 101
   br i1 %cmp17, label %land.lhs.true18, label %land.end37
 
 land.lhs.true18:                                  ; preds = %land.lhs.true13
-  %arrayidx20 = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 2
+  %arrayidx20 = getelementptr inbounds i8, ptr %pInfo, i64 10
   %9 = load i8, ptr %arrayidx20, align 2
   %cmp22 = icmp eq i8 %9, 115
   br i1 %cmp22, label %land.lhs.true23, label %land.end37
 
 land.lhs.true23:                                  ; preds = %land.lhs.true18
-  %arrayidx25 = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 3
+  %arrayidx25 = getelementptr inbounds i8, ptr %pInfo, i64 11
   %10 = load i8, ptr %arrayidx25, align 1
   %cmp27 = icmp eq i8 %10, 66
   br i1 %cmp27, label %land.rhs, label %land.end37
@@ -198,12 +193,12 @@ land.end37:                                       ; preds = %land.rhs, %land.rhs
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL8res_initP12ResourceDataPhPKviP10UErrorCode(ptr nocapture noundef %pResData, ptr nocapture noundef readonly %formatVersion, ptr noundef %inBytes, i32 noundef %length, ptr nocapture noundef writeonly %errorCode) unnamed_addr #0 {
 entry:
-  %pRoot = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %pRoot = getelementptr inbounds i8, ptr %pResData, i64 8
   store ptr %inBytes, ptr %pRoot, align 8
   %0 = load i32, ptr %inBytes, align 4
-  %rootRes = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 4
+  %rootRes = getelementptr inbounds i8, ptr %pResData, i64 32
   store i32 %0, ptr %rootRes, align 8
-  %p16BitUnits = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 2
+  %p16BitUnits = getelementptr inbounds i8, ptr %pResData, i64 16
   store ptr @_ZL8gEmpty16, ptr %p16BitUnits, align 8
   %cmp = icmp sgt i32 %length, -1
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -268,12 +263,12 @@ land.lhs.true17:                                  ; preds = %if.end13
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %land.lhs.true17
-  %localKeyLimit = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 5
+  %localKeyLimit = getelementptr inbounds i8, ptr %pResData, i64 36
   store i32 65536, ptr %localKeyLimit, align 4
   br label %if.end86
 
 if.else:                                          ; preds = %land.lhs.true17, %if.end13
-  %add.ptr = getelementptr inbounds i32, ptr %inBytes, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %inBytes, i64 4
   %10 = load i32, ptr %add.ptr, align 4
   %and = and i32 %10, 255
   %cmp24 = icmp ult i32 %and, 5
@@ -300,7 +295,7 @@ land.lhs.true28:                                  ; preds = %if.end26
   br i1 %cmp29, label %if.then34, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %land.lhs.true28
-  %arrayidx31 = getelementptr inbounds i32, ptr %inBytes, i64 4
+  %arrayidx31 = getelementptr inbounds i8, ptr %inBytes, i64 16
   %12 = load i32, ptr %arrayidx31, align 4
   %shl32 = shl i32 %12, 2
   %cmp33 = icmp sgt i32 %shl32, %length
@@ -318,7 +313,7 @@ if.then.i68:                                      ; preds = %if.then34
   br label %if.end92
 
 if.end35:                                         ; preds = %lor.lhs.false30, %if.end26
-  %arrayidx36 = getelementptr inbounds i32, ptr %inBytes, i64 2
+  %arrayidx36 = getelementptr inbounds i8, ptr %inBytes, i64 8
   %14 = load i32, ptr %arrayidx36, align 4
   %add37 = add nuw nsw i32 %and, 1
   %cmp38 = icmp sgt i32 %14, %add37
@@ -326,7 +321,7 @@ if.end35:                                         ; preds = %lor.lhs.false30, %i
 
 if.then39:                                        ; preds = %if.end35
   %shl41 = shl i32 %14, 2
-  %localKeyLimit42 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 5
+  %localKeyLimit42 = getelementptr inbounds i8, ptr %pResData, i64 36
   store i32 %shl41, ptr %localKeyLimit42, align 4
   %.pre = load i8, ptr %formatVersion, align 1
   br label %if.end43
@@ -339,7 +334,7 @@ if.end43:                                         ; preds = %if.then39, %if.end3
 if.then47:                                        ; preds = %if.end43
   %16 = load i32, ptr %add.ptr, align 4
   %shr49 = lshr i32 %16, 8
-  %poolStringIndexLimit = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 7
+  %poolStringIndexLimit = getelementptr inbounds i8, ptr %pResData, i64 48
   store i32 %shr49, ptr %poolStringIndexLimit, align 8
   br label %if.end50
 
@@ -348,34 +343,34 @@ if.end50:                                         ; preds = %if.then47, %if.end4
   br i1 %cmp51.not, label %if.end66.thread, label %if.end66
 
 if.end66:                                         ; preds = %if.end50
-  %arrayidx53 = getelementptr inbounds i32, ptr %inBytes, i64 6
+  %arrayidx53 = getelementptr inbounds i8, ptr %inBytes, i64 24
   %17 = load i32, ptr %arrayidx53, align 4
   %18 = trunc i32 %17 to i8
   %conv55 = and i8 %18, 1
-  %noFallback = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 9
+  %noFallback = getelementptr inbounds i8, ptr %pResData, i64 56
   store i8 %conv55, ptr %noFallback, align 8
   %19 = lshr i8 %18, 1
   %conv58 = and i8 %19, 1
-  %isPoolBundle = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 10
+  %isPoolBundle = getelementptr inbounds i8, ptr %pResData, i64 57
   store i8 %conv58, ptr %isPoolBundle, align 1
   %20 = lshr i8 %18, 2
   %conv61 = and i8 %20, 1
-  %usesPoolBundle = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 11
+  %usesPoolBundle = getelementptr inbounds i8, ptr %pResData, i64 58
   store i8 %conv61, ptr %usesPoolBundle, align 2
   %and62 = shl i32 %17, 12
   %shl63 = and i32 %and62, 251658240
-  %poolStringIndexLimit64 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 7
+  %poolStringIndexLimit64 = getelementptr inbounds i8, ptr %pResData, i64 48
   %21 = load i32, ptr %poolStringIndexLimit64, align 8
   %or = or i32 %21, %shl63
   store i32 %or, ptr %poolStringIndexLimit64, align 8
   %shr65 = lshr i32 %17, 16
-  %poolStringIndex16Limit = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 8
+  %poolStringIndex16Limit = getelementptr inbounds i8, ptr %pResData, i64 52
   store i32 %shr65, ptr %poolStringIndex16Limit, align 4
   %tobool.not = icmp eq i8 %conv58, 0
   br i1 %tobool.not, label %lor.lhs.false68, label %land.lhs.true71
 
 if.end66.thread:                                  ; preds = %if.end50
-  %isPoolBundle6773 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 10
+  %isPoolBundle6773 = getelementptr inbounds i8, ptr %pResData, i64 57
   %22 = load i8, ptr %isPoolBundle6773, align 1
   %tobool.not74 = icmp eq i8 %22, 0
   br i1 %tobool.not74, label %lor.lhs.false68.thread, label %if.then73
@@ -387,7 +382,7 @@ lor.lhs.false68:                                  ; preds = %if.end66
   br i1 %or.cond2, label %if.then73, label %if.end74
 
 lor.lhs.false68.thread:                           ; preds = %if.end66.thread
-  %usesPoolBundle6977 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 11
+  %usesPoolBundle6977 = getelementptr inbounds i8, ptr %pResData, i64 58
   %23 = load i8, ptr %usesPoolBundle6977, align 2
   %tobool7078.not = icmp eq i8 %23, 0
   br i1 %tobool7078.not, label %if.end86, label %if.then73
@@ -412,7 +407,7 @@ if.end74:                                         ; preds = %lor.lhs.false68
   br i1 %cmp75, label %land.lhs.true76, label %if.end86
 
 land.lhs.true76:                                  ; preds = %land.lhs.true71, %if.end74
-  %arrayidx77 = getelementptr inbounds i32, ptr %inBytes, i64 7
+  %arrayidx77 = getelementptr inbounds i8, ptr %inBytes, i64 28
   %25 = load i32, ptr %arrayidx77, align 4
   %26 = load i32, ptr %arrayidx36, align 4
   %cmp79 = icmp sgt i32 %25, %26
@@ -425,7 +420,7 @@ if.then80:                                        ; preds = %land.lhs.true76
   br label %if.end86
 
 if.end86:                                         ; preds = %lor.lhs.false68.thread, %if.end74, %land.lhs.true76, %if.then80, %if.then21
-  %useNativeStrcmp = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 12
+  %useNativeStrcmp = getelementptr inbounds i8, ptr %pResData, i64 59
   store i8 1, ptr %useNativeStrcmp, align 1
   br label %if.end92
 
@@ -495,14 +490,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %and = and i32 %res, 268435455
-  %poolStringIndexLimit = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 7
+  %poolStringIndexLimit = getelementptr inbounds i8, ptr %pResData, i64 48
   %0 = load i32, ptr %poolStringIndexLimit, align 8
   %cmp1 = icmp slt i32 %and, %0
-  %p16BitUnits = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 2
-  %poolBundleStrings = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 6
   %sub = select i1 %cmp1, i32 0, i32 %0
   %sub.sink = sub i32 %and, %sub
-  %.sink.in = select i1 %cmp1, ptr %poolBundleStrings, ptr %p16BitUnits
+  %.sink.in.v = select i1 %cmp1, i64 40, i64 16
+  %.sink.in = getelementptr inbounds i8, ptr %pResData, i64 %.sink.in.v
   %.sink = load ptr, ptr %.sink.in, align 8
   %idx.ext4 = zext i32 %sub.sink to i64
   %add.ptr5 = getelementptr inbounds i16, ptr %.sink, i64 %idx.ext4
@@ -522,7 +516,7 @@ if.else9:                                         ; preds = %if.then
 
 if.then11:                                        ; preds = %if.else9
   %and12 = and i32 %conv, 1023
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr5, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr5, i64 2
   br label %if.end39
 
 if.else13:                                        ; preds = %if.else9
@@ -532,23 +526,23 @@ if.else13:                                        ; preds = %if.else9
 if.then15:                                        ; preds = %if.else13
   %sub16 = shl nuw i32 %conv, 16
   %shl = add nsw i32 %sub16, 537985024
-  %arrayidx = getelementptr inbounds i16, ptr %add.ptr5, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %add.ptr5, i64 2
   %2 = load i16, ptr %arrayidx, align 2
   %conv17 = zext i16 %2 to i32
   %or = or disjoint i32 %shl, %conv17
-  %add.ptr18 = getelementptr inbounds i16, ptr %add.ptr5, i64 2
+  %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr5, i64 4
   br label %if.end39
 
 if.else19:                                        ; preds = %if.else13
-  %arrayidx20 = getelementptr inbounds i16, ptr %add.ptr5, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %add.ptr5, i64 2
   %3 = load i16, ptr %arrayidx20, align 2
   %conv21 = zext i16 %3 to i32
   %shl22 = shl nuw i32 %conv21, 16
-  %arrayidx23 = getelementptr inbounds i16, ptr %add.ptr5, i64 2
+  %arrayidx23 = getelementptr inbounds i8, ptr %add.ptr5, i64 4
   %4 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %4 to i32
   %or25 = or disjoint i32 %shl22, %conv24
-  %add.ptr26 = getelementptr inbounds i16, ptr %add.ptr5, i64 3
+  %add.ptr26 = getelementptr inbounds i8, ptr %add.ptr5, i64 6
   br label %if.end39
 
 if.else30:                                        ; preds = %entry
@@ -560,7 +554,7 @@ if.then32:                                        ; preds = %if.else30
   br i1 %cmp33, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then32
-  %pRoot = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %pRoot = getelementptr inbounds i8, ptr %pResData, i64 8
   %5 = load ptr, ptr %pRoot, align 8
   %idx.ext34 = zext nneg i32 %res to i64
   %add.ptr35 = getelementptr inbounds i32, ptr %5, i64 %idx.ext34
@@ -568,7 +562,7 @@ cond.false:                                       ; preds = %if.then32
 
 cond.end:                                         ; preds = %if.then32, %cond.false
   %cond = phi ptr [ %add.ptr35, %cond.false ], [ @_ZL12gEmptyString, %if.then32 ]
-  %incdec.ptr36 = getelementptr inbounds i32, ptr %cond, i64 1
+  %incdec.ptr36 = getelementptr inbounds i8, ptr %cond, i64 4
   %6 = load i32, ptr %cond, align 4
   br label %if.end39
 
@@ -601,7 +595,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then
-  %pRoot = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %pRoot = getelementptr inbounds i8, ptr %pResData, i64 8
   %0 = load ptr, ptr %pRoot, align 8
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i32, ptr %0, i64 %idx.ext
@@ -609,7 +603,7 @@ cond.false:                                       ; preds = %if.then
 
 cond.end:                                         ; preds = %if.then, %cond.false
   %cond = phi ptr [ %add.ptr, %cond.false ], [ @_ZL12gEmptyString, %if.then ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %cond, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cond, i64 4
   %1 = load i32, ptr %cond, align 4
   br label %if.end
 
@@ -640,7 +634,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then
-  %pRoot = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %pRoot = getelementptr inbounds i8, ptr %pResData, i64 8
   %0 = load ptr, ptr %pRoot, align 8
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i32, ptr %0, i64 %idx.ext
@@ -648,7 +642,7 @@ cond.false:                                       ; preds = %if.then
 
 cond.end:                                         ; preds = %if.then, %cond.false
   %cond = phi ptr [ %add.ptr, %cond.false ], [ @_ZL8gEmpty32, %if.then ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %cond, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cond, i64 4
   %1 = load i32, ptr %cond, align 4
   br label %if.end
 
@@ -679,7 +673,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then
-  %pRoot = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %pRoot = getelementptr inbounds i8, ptr %pResData, i64 8
   %0 = load ptr, ptr %pRoot, align 8
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i32, ptr %0, i64 %idx.ext
@@ -687,7 +681,7 @@ cond.false:                                       ; preds = %if.then
 
 cond.end:                                         ; preds = %if.then, %cond.false
   %cond = phi ptr [ %add.ptr, %cond.false ], [ @_ZL8gEmpty32, %if.then ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %cond, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cond, i64 4
   %1 = load i32, ptr %cond, align 4
   br label %if.end
 
@@ -729,7 +723,7 @@ sw.bb1:                                           ; preds = %entry, %entry
   br i1 %cmp, label %return, label %cond.false
 
 cond.false:                                       ; preds = %sw.bb1
-  %pRoot = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %pRoot = getelementptr inbounds i8, ptr %pResData, i64 8
   %0 = load ptr, ptr %pRoot, align 8
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i32, ptr %0, i64 %idx.ext
@@ -741,7 +735,7 @@ sw.bb2:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %cond.false5
 
 cond.false5:                                      ; preds = %sw.bb2
-  %pRoot6 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %pRoot6 = getelementptr inbounds i8, ptr %pResData, i64 8
   %2 = load ptr, ptr %pRoot6, align 8
   %idx.ext7 = zext nneg i32 %and to i64
   %add.ptr8 = getelementptr inbounds i32, ptr %2, i64 %idx.ext7
@@ -750,7 +744,7 @@ cond.false5:                                      ; preds = %sw.bb2
   br label %return
 
 sw.bb11:                                          ; preds = %entry, %entry
-  %p16BitUnits = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 2
+  %p16BitUnits = getelementptr inbounds i8, ptr %pResData, i64 16
   %4 = load ptr, ptr %p16BitUnits, align 8
   %idxprom = zext nneg i32 %and to i64
   %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
@@ -790,7 +784,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7517ResourceDataValue7getTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this) unnamed_addr #9 align 2 {
 entry:
-  %res = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %res, align 8
   %shr.i = lshr i32 %0, 28
   %idxprom.i = zext nneg i32 %shr.i to i64
@@ -808,9 +802,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %pResData.i, align 8
-  %res = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %res, align 8
   %shr.mask.i.i = and i32 %2, -268435456
   %cmp.i.i = icmp eq i32 %shr.mask.i.i, 1610612736
@@ -818,14 +812,13 @@ if.end:                                           ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end
   %and.i.i = and i32 %2, 268435455
-  %poolStringIndexLimit.i.i = getelementptr inbounds %struct.ResourceData, ptr %1, i64 0, i32 7
+  %poolStringIndexLimit.i.i = getelementptr inbounds i8, ptr %1, i64 48
   %3 = load i32, ptr %poolStringIndexLimit.i.i, align 8
   %cmp1.i.i = icmp slt i32 %and.i.i, %3
-  %p16BitUnits.i.i = getelementptr inbounds %struct.ResourceData, ptr %1, i64 0, i32 2
-  %poolBundleStrings.i.i = getelementptr inbounds %struct.ResourceData, ptr %1, i64 0, i32 6
   %sub.i.i = select i1 %cmp1.i.i, i32 0, i32 %3
   %sub.sink.i.i = sub i32 %and.i.i, %sub.i.i
-  %.sink.in.i.i = select i1 %cmp1.i.i, ptr %poolBundleStrings.i.i, ptr %p16BitUnits.i.i
+  %.sink.in.i.v.i = select i1 %cmp1.i.i, i64 40, i64 16
+  %.sink.in.i.i = getelementptr inbounds i8, ptr %1, i64 %.sink.in.i.v.i
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8
   %idx.ext4.i.i = zext i32 %sub.sink.i.i to i64
   %add.ptr5.i.i = getelementptr inbounds i16, ptr %.sink.i.i, i64 %idx.ext4.i.i
@@ -845,7 +838,7 @@ if.else9.i.i:                                     ; preds = %if.then.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
   %and12.i.i = and i32 %conv.i.i, 1023
-  %incdec.ptr.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 2
   br label %_ZN6icu_7513res_getStringERKNS_14ResourceTracerEPK12ResourceDatajPi.exit.thread
 
 if.else13.i.i:                                    ; preds = %if.else9.i.i
@@ -855,23 +848,23 @@ if.else13.i.i:                                    ; preds = %if.else9.i.i
 if.then15.i.i:                                    ; preds = %if.else13.i.i
   %sub16.i.i = shl nuw i32 %conv.i.i, 16
   %shl.i.i = add nsw i32 %sub16.i.i, 537985024
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 2
   %5 = load i16, ptr %arrayidx.i.i, align 2
   %conv17.i.i = zext i16 %5 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv17.i.i
-  %add.ptr18.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 2
+  %add.ptr18.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 4
   br label %_ZN6icu_7513res_getStringERKNS_14ResourceTracerEPK12ResourceDatajPi.exit.thread
 
 if.else19.i.i:                                    ; preds = %if.else13.i.i
-  %arrayidx20.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 1
+  %arrayidx20.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 2
   %6 = load i16, ptr %arrayidx20.i.i, align 2
   %conv21.i.i = zext i16 %6 to i32
   %shl22.i.i = shl nuw i32 %conv21.i.i, 16
-  %arrayidx23.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 2
+  %arrayidx23.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 4
   %7 = load i16, ptr %arrayidx23.i.i, align 2
   %conv24.i.i = zext i16 %7 to i32
   %or25.i.i = or disjoint i32 %shl22.i.i, %conv24.i.i
-  %add.ptr26.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 3
+  %add.ptr26.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 6
   br label %_ZN6icu_7513res_getStringERKNS_14ResourceTracerEPK12ResourceDatajPi.exit.thread
 
 if.else30.i.i:                                    ; preds = %if.end
@@ -883,7 +876,7 @@ if.then32.i.i:                                    ; preds = %if.else30.i.i
   br i1 %cmp33.i.i, label %cond.end.i.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then32.i.i
-  %pRoot.i.i = getelementptr inbounds %struct.ResourceData, ptr %1, i64 0, i32 1
+  %pRoot.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %pRoot.i.i, align 8
   %idx.ext34.i.i = zext nneg i32 %2 to i64
   %add.ptr35.i.i = getelementptr inbounds i32, ptr %8, i64 %idx.ext34.i.i
@@ -891,7 +884,7 @@ cond.false.i.i:                                   ; preds = %if.then32.i.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %if.then32.i.i
   %cond.i.i = phi ptr [ %add.ptr35.i.i, %cond.false.i.i ], [ @_ZL12gEmptyString, %if.then32.i.i ]
-  %incdec.ptr36.i.i = getelementptr inbounds i32, ptr %cond.i.i, i64 1
+  %incdec.ptr36.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 4
   %9 = load i32, ptr %cond.i.i, align 4
   br label %_ZN6icu_7513res_getStringERKNS_14ResourceTracerEPK12ResourceDatajPi.exit.thread
 
@@ -919,9 +912,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %pResData.i, align 8
-  %res = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %res, align 8
   %and.i = and i32 %2, 268435455
   %shr.mask.i = and i32 %2, -268435456
@@ -933,7 +926,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp1.i, label %res_getAlias_75.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
-  %pRoot.i = getelementptr inbounds %struct.ResourceData, ptr %1, i64 0, i32 1
+  %pRoot.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %pRoot.i, align 8
   %idx.ext.i = zext nneg i32 %and.i to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %3, i64 %idx.ext.i
@@ -941,7 +934,7 @@ cond.false.i:                                     ; preds = %if.then.i
 
 res_getAlias_75.exit:                             ; preds = %if.then.i, %cond.false.i
   %cond.i = phi ptr [ %add.ptr.i, %cond.false.i ], [ @_ZL12gEmptyString, %if.then.i ]
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %cond.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cond.i, i64 4
   %4 = load i32, ptr %cond.i, align 4
   store i32 %4, ptr %length, align 4
   br label %return
@@ -964,7 +957,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %res = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %res, align 8
   %shr.mask = and i32 %1, -268435456
   %cmp.not = icmp eq i32 %shr.mask, 1879048192
@@ -994,7 +987,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %res = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %res, align 8
   %shr.mask = and i32 %1, -268435456
   %cmp.not = icmp eq i32 %shr.mask, 1879048192
@@ -1023,9 +1016,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %pResData.i, align 8
-  %res = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %res, align 8
   %and.i.i = and i32 %2, 268435455
   %shr.mask.i.i = and i32 %2, -268435456
@@ -1037,7 +1030,7 @@ if.then.i.i:                                      ; preds = %if.end
   br i1 %cmp1.i.i, label %_ZN6icu_7516res_getIntVectorERKNS_14ResourceTracerEPK12ResourceDatajPi.exit, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then.i.i
-  %pRoot.i.i = getelementptr inbounds %struct.ResourceData, ptr %1, i64 0, i32 1
+  %pRoot.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %pRoot.i.i, align 8
   %idx.ext.i.i = zext nneg i32 %and.i.i to i64
   %add.ptr.i.i = getelementptr inbounds i32, ptr %3, i64 %idx.ext.i.i
@@ -1045,7 +1038,7 @@ cond.false.i.i:                                   ; preds = %if.then.i.i
 
 _ZN6icu_7516res_getIntVectorERKNS_14ResourceTracerEPK12ResourceDatajPi.exit: ; preds = %if.then.i.i, %cond.false.i.i
   %cond.i.i = phi ptr [ %add.ptr.i.i, %cond.false.i.i ], [ @_ZL8gEmpty32, %if.then.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %cond.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 4
   %4 = load i32, ptr %cond.i.i, align 4
   store i32 %4, ptr %length, align 4
   br label %return
@@ -1068,9 +1061,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %pResData.i, align 8
-  %res = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %res, align 8
   %and.i.i = and i32 %2, 268435455
   %shr.mask.i.i = and i32 %2, -268435456
@@ -1082,7 +1075,7 @@ if.then.i.i:                                      ; preds = %if.end
   br i1 %cmp1.i.i, label %_ZN6icu_7513res_getBinaryERKNS_14ResourceTracerEPK12ResourceDatajPi.exit, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then.i.i
-  %pRoot.i.i = getelementptr inbounds %struct.ResourceData, ptr %1, i64 0, i32 1
+  %pRoot.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %pRoot.i.i, align 8
   %idx.ext.i.i = zext nneg i32 %and.i.i to i64
   %add.ptr.i.i = getelementptr inbounds i32, ptr %3, i64 %idx.ext.i.i
@@ -1090,7 +1083,7 @@ cond.false.i.i:                                   ; preds = %if.then.i.i
 
 _ZN6icu_7513res_getBinaryERKNS_14ResourceTracerEPK12ResourceDatajPi.exit: ; preds = %if.then.i.i, %cond.false.i.i
   %cond.i.i = phi ptr [ %add.ptr.i.i, %cond.false.i.i ], [ @_ZL8gEmpty32, %if.then.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %cond.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 4
   %4 = load i32, ptr %cond.i.i, align 4
   store i32 %4, ptr %length, align 4
   br label %return
@@ -1117,7 +1110,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %res = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %res, align 8
   %and = and i32 %1, 268435455
   %shr = lshr i32 %1, 28
@@ -1131,24 +1124,24 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp.not, label %sw.epilog, label %if.then3
 
 if.then3:                                         ; preds = %sw.bb
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %pResData.i, align 8
-  %pRoot = getelementptr inbounds %struct.ResourceData, ptr %2, i64 0, i32 1
+  %pRoot = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %pRoot, align 8
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i32, ptr %3, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i32, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %4 = load i32, ptr %add.ptr, align 4
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end
-  %pResData.i6 = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i6 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %pResData.i6, align 8
-  %p16BitUnits = getelementptr inbounds %struct.ResourceData, ptr %5, i64 0, i32 2
+  %p16BitUnits = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %p16BitUnits, align 8
   %idx.ext8 = zext nneg i32 %and to i64
   %add.ptr9 = getelementptr inbounds i16, ptr %6, i64 %idx.ext8
-  %incdec.ptr10 = getelementptr inbounds i16, ptr %add.ptr9, i64 1
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %add.ptr9, i64 2
   %7 = load i16, ptr %add.ptr9, align 2
   %conv = zext i16 %7 to i32
   br label %sw.epilog
@@ -1163,9 +1156,9 @@ sw.epilog:                                        ; preds = %sw.bb, %if.then3, %
   %items16.0 = phi ptr [ %incdec.ptr10, %sw.bb6 ], [ null, %if.then3 ], [ null, %sw.bb ]
   %length.0 = phi i32 [ %conv, %sw.bb6 ], [ %4, %if.then3 ], [ 0, %sw.bb ]
   store ptr %items16.0, ptr %agg.result, align 8
-  %items32.i = getelementptr inbounds %"class.icu_75::ResourceArray", ptr %agg.result, i64 0, i32 1
+  %items32.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %items32.0, ptr %items32.i, align 8
-  %length.i = getelementptr inbounds %"class.icu_75::ResourceArray", ptr %agg.result, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 %length.0, ptr %length.i, align 8
   br label %return
 
@@ -1185,7 +1178,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %res = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %res, align 8
   %and = and i32 %1, 268435455
   %shr = lshr i32 %1, 28
@@ -1200,13 +1193,13 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp.not, label %sw.epilog, label %if.then3
 
 if.then3:                                         ; preds = %sw.bb
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %pResData.i, align 8
-  %pRoot = getelementptr inbounds %struct.ResourceData, ptr %2, i64 0, i32 1
+  %pRoot = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %pRoot, align 8
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i32, ptr %3, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %4 = load i16, ptr %add.ptr, align 2
   %conv = zext i16 %4 to i32
   %idx.ext5 = zext i16 %4 to i64
@@ -1218,13 +1211,13 @@ if.then3:                                         ; preds = %sw.bb
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %if.end
-  %pResData.i16 = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i16 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %pResData.i16, align 8
-  %p16BitUnits = getelementptr inbounds %struct.ResourceData, ptr %5, i64 0, i32 2
+  %p16BitUnits = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %p16BitUnits, align 8
   %idx.ext13 = zext nneg i32 %and to i64
   %add.ptr14 = getelementptr inbounds i16, ptr %6, i64 %idx.ext13
-  %incdec.ptr15 = getelementptr inbounds i16, ptr %add.ptr14, i64 1
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %add.ptr14, i64 2
   %7 = load i16, ptr %add.ptr14, align 2
   %conv16 = zext i16 %7 to i32
   %idx.ext17 = zext i16 %7 to i64
@@ -1236,13 +1229,13 @@ sw.bb19:                                          ; preds = %if.end
   br i1 %cmp20.not, label %sw.epilog, label %if.then21
 
 if.then21:                                        ; preds = %sw.bb19
-  %pResData.i17 = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i17 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %pResData.i17, align 8
-  %pRoot23 = getelementptr inbounds %struct.ResourceData, ptr %8, i64 0, i32 1
+  %pRoot23 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %pRoot23, align 8
   %idx.ext24 = zext nneg i32 %and to i64
   %add.ptr25 = getelementptr inbounds i32, ptr %9, i64 %idx.ext24
-  %incdec.ptr26 = getelementptr inbounds i32, ptr %add.ptr25, i64 1
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %add.ptr25, i64 4
   %10 = load i32, ptr %add.ptr25, align 4
   %idx.ext27 = sext i32 %10 to i64
   %add.ptr28 = getelementptr inbounds i32, ptr %incdec.ptr26, i64 %idx.ext27
@@ -1260,13 +1253,13 @@ sw.epilog:                                        ; preds = %sw.bb19, %if.then21
   %keys16.0 = phi ptr [ null, %if.then21 ], [ null, %sw.bb19 ], [ %incdec.ptr15, %sw.bb11 ], [ %incdec.ptr, %if.then3 ], [ null, %sw.bb ]
   %length.0 = phi i32 [ %10, %if.then21 ], [ 0, %sw.bb19 ], [ %conv16, %sw.bb11 ], [ %conv, %if.then3 ], [ 0, %sw.bb ]
   store ptr %keys16.0, ptr %agg.result, align 8
-  %keys32.i = getelementptr inbounds %"class.icu_75::ResourceTable", ptr %agg.result, i64 0, i32 1
+  %keys32.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %keys32.0, ptr %keys32.i, align 8
-  %items16.i = getelementptr inbounds %"class.icu_75::ResourceTable", ptr %agg.result, i64 0, i32 2
+  %items16.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %items16.0, ptr %items16.i, align 8
-  %items32.i = getelementptr inbounds %"class.icu_75::ResourceTable", ptr %agg.result, i64 0, i32 3
+  %items32.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %items32.0, ptr %items32.i, align 8
-  %length.i = getelementptr inbounds %"class.icu_75::ResourceTable", ptr %agg.result, i64 0, i32 4
+  %length.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i32 %length.0, ptr %length.i, align 8
   br label %return
 
@@ -1277,9 +1270,9 @@ return:                                           ; preds = %sw.epilog, %sw.defa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef signext i8 @_ZNK6icu_7517ResourceDataValue21isNoInheritanceMarkerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this) unnamed_addr #6 align 2 {
 entry:
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pResData.i, align 8
-  %res = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %res, align 8
   %and.i = and i32 %1, 268435455
   %cmp.i = icmp eq i32 %and.i, 0
@@ -1290,7 +1283,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp1.i, label %if.then2.i, label %if.else13.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  %pRoot.i = getelementptr inbounds %struct.ResourceData, ptr %0, i64 0, i32 1
+  %pRoot.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %pRoot.i, align 8
   %idx.ext.i = zext nneg i32 %1 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %2, i64 %idx.ext.i
@@ -1299,19 +1292,19 @@ if.then2.i:                                       ; preds = %if.else.i
   br i1 %cmp3.i, label %land.lhs.true.i, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 land.lhs.true.i:                                  ; preds = %if.then2.i
-  %arrayidx.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %4 = load i16, ptr %arrayidx.i, align 2
   %cmp4.i = icmp eq i16 %4, 8709
   br i1 %cmp4.i, label %land.lhs.true5.i, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
-  %arrayidx6.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 3
+  %arrayidx6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 6
   %5 = load i16, ptr %arrayidx6.i, align 2
   %cmp8.i = icmp eq i16 %5, 8709
   br i1 %cmp8.i, label %land.rhs.i, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 land.rhs.i:                                       ; preds = %land.lhs.true5.i
-  %arrayidx9.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 4
+  %arrayidx9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   br label %return.sink.split.i
 
 if.else13.i:                                      ; preds = %if.else.i
@@ -1320,14 +1313,13 @@ if.else13.i:                                      ; preds = %if.else.i
   br i1 %cmp14.i, label %if.then15.i, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 if.then15.i:                                      ; preds = %if.else13.i
-  %poolStringIndexLimit.i = getelementptr inbounds %struct.ResourceData, ptr %0, i64 0, i32 7
+  %poolStringIndexLimit.i = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load i32, ptr %poolStringIndexLimit.i, align 8
   %cmp17.i = icmp slt i32 %and.i, %6
-  %p16BitUnits.i = getelementptr inbounds %struct.ResourceData, ptr %0, i64 0, i32 2
-  %poolBundleStrings.i = getelementptr inbounds %struct.ResourceData, ptr %0, i64 0, i32 6
   %sub.i = select i1 %cmp17.i, i32 0, i32 %6
   %sub.sink.i = sub i32 %and.i, %sub.i
-  %.sink.in.i = select i1 %cmp17.i, ptr %poolBundleStrings.i, ptr %p16BitUnits.i
+  %.sink.in.i.v = select i1 %cmp17.i, i64 40, i64 16
+  %.sink.in.i = getelementptr inbounds i8, ptr %0, i64 %.sink.in.i.v
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
   %idx.ext23.i = zext i32 %sub.sink.i to i64
   %add.ptr24.i = getelementptr inbounds i16, ptr %.sink.i, i64 %idx.ext23.i
@@ -1338,35 +1330,35 @@ if.then15.i:                                      ; preds = %if.else13.i
   ]
 
 if.then27.i:                                      ; preds = %if.then15.i
-  %arrayidx28.i = getelementptr inbounds i16, ptr %add.ptr24.i, i64 1
+  %arrayidx28.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 2
   %8 = load i16, ptr %arrayidx28.i, align 2
   %cmp30.i = icmp eq i16 %8, 8709
   br i1 %cmp30.i, label %land.lhs.true31.i, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 land.lhs.true31.i:                                ; preds = %if.then27.i
-  %arrayidx32.i = getelementptr inbounds i16, ptr %add.ptr24.i, i64 2
+  %arrayidx32.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 4
   %9 = load i16, ptr %arrayidx32.i, align 2
   %cmp34.i = icmp eq i16 %9, 8709
   br i1 %cmp34.i, label %land.rhs35.i, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 land.rhs35.i:                                     ; preds = %land.lhs.true31.i
-  %arrayidx36.i = getelementptr inbounds i16, ptr %add.ptr24.i, i64 3
+  %arrayidx36.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 6
   br label %return.sink.split.i
 
 if.then43.i:                                      ; preds = %if.then15.i
-  %arrayidx44.i = getelementptr inbounds i16, ptr %add.ptr24.i, i64 1
+  %arrayidx44.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 2
   %10 = load i16, ptr %arrayidx44.i, align 2
   %cmp46.i = icmp eq i16 %10, 8709
   br i1 %cmp46.i, label %land.lhs.true47.i, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 land.lhs.true47.i:                                ; preds = %if.then43.i
-  %arrayidx48.i = getelementptr inbounds i16, ptr %add.ptr24.i, i64 2
+  %arrayidx48.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 4
   %11 = load i16, ptr %arrayidx48.i, align 2
   %cmp50.i = icmp eq i16 %11, 8709
   br i1 %cmp50.i, label %land.rhs51.i, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 land.rhs51.i:                                     ; preds = %land.lhs.true47.i
-  %arrayidx52.i = getelementptr inbounds i16, ptr %add.ptr24.i, i64 3
+  %arrayidx52.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 6
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %land.rhs51.i, %land.rhs35.i, %land.rhs.i
@@ -1386,10 +1378,10 @@ _ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit: ; preds = %entr
 define noundef i32 @_ZNK6icu_7517ResourceDataValue14getStringArrayEPNS_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.icu_75::ResourceArray", align 8
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pResData.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.icu_75::ResourceArray") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %call2 = call fastcc noundef i32 @_ZN12_GLOBAL__N_114getStringArrayEPK12ResourceDataRKN6icu_7513ResourceArrayEPNS3_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(21) %ref.tmp, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -1417,7 +1409,7 @@ cond.false:                                       ; preds = %if.end
   br i1 %cmp2, label %return.sink.split, label %if.end4
 
 if.end4:                                          ; preds = %cond.false, %cond.true
-  %length.i = getelementptr inbounds %"class.icu_75::ResourceArray", ptr %array, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %array, i64 16
   %1 = load i32, ptr %length.i, align 8
   %cmp6 = icmp eq i32 %1, 0
   br i1 %cmp6, label %return, label %if.end8
@@ -1431,12 +1423,10 @@ for.cond.preheader:                               ; preds = %if.end8
   br i1 %cmp1228, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %poolStringIndex16Limit.i.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 8
-  %poolStringIndexLimit.i.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 7
-  %items32.i = getelementptr inbounds %"class.icu_75::ResourceArray", ptr %array, i64 0, i32 1
-  %pRoot.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
-  %p16BitUnits.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 2
-  %poolBundleStrings.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 6
+  %poolStringIndex16Limit.i.i = getelementptr inbounds i8, ptr %pResData, i64 52
+  %poolStringIndexLimit.i.i = getelementptr inbounds i8, ptr %pResData, i64 48
+  %items32.i = getelementptr inbounds i8, ptr %array, i64 8
+  %pRoot.i = getelementptr inbounds i8, ptr %pResData, i64 8
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %for.body
 
@@ -1483,7 +1473,8 @@ if.then.i19:                                      ; preds = %_ZNK6icu_7513Resour
   %cmp1.i = icmp slt i32 %and.i, %8
   %sub.i = select i1 %cmp1.i, i32 0, i32 %8
   %sub.sink.i = sub i32 %and.i, %sub.i
-  %.sink.in.i = select i1 %cmp1.i, ptr %poolBundleStrings.i, ptr %p16BitUnits.i
+  %.sink.in.i.v = select i1 %cmp1.i, i64 40, i64 16
+  %.sink.in.i = getelementptr inbounds i8, ptr %pResData, i64 %.sink.in.i.v
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
   %idx.ext4.i = zext i32 %sub.sink.i to i64
   %add.ptr5.i = getelementptr inbounds i16, ptr %.sink.i, i64 %idx.ext4.i
@@ -1503,7 +1494,7 @@ if.else9.i:                                       ; preds = %if.then.i19
 
 if.then11.i:                                      ; preds = %if.else9.i
   %and12.i = and i32 %conv.i21, 1023
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %add.ptr5.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 2
   br label %if.end17
 
 if.else13.i:                                      ; preds = %if.else9.i
@@ -1513,23 +1504,23 @@ if.else13.i:                                      ; preds = %if.else9.i
 if.then15.i:                                      ; preds = %if.else13.i
   %sub16.i = shl nuw i32 %conv.i21, 16
   %shl.i = add nsw i32 %sub16.i, 537985024
-  %arrayidx.i22 = getelementptr inbounds i16, ptr %add.ptr5.i, i64 1
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %add.ptr5.i, i64 2
   %10 = load i16, ptr %arrayidx.i22, align 2
   %conv17.i = zext i16 %10 to i32
   %or.i = or disjoint i32 %shl.i, %conv17.i
-  %add.ptr18.i = getelementptr inbounds i16, ptr %add.ptr5.i, i64 2
+  %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 4
   br label %if.end17
 
 if.else19.i:                                      ; preds = %if.else13.i
-  %arrayidx20.i = getelementptr inbounds i16, ptr %add.ptr5.i, i64 1
+  %arrayidx20.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 2
   %11 = load i16, ptr %arrayidx20.i, align 2
   %conv21.i = zext i16 %11 to i32
   %shl22.i = shl nuw i32 %conv21.i, 16
-  %arrayidx23.i = getelementptr inbounds i16, ptr %add.ptr5.i, i64 2
+  %arrayidx23.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 4
   %12 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %12 to i32
   %or25.i = or disjoint i32 %shl22.i, %conv24.i
-  %add.ptr26.i = getelementptr inbounds i16, ptr %add.ptr5.i, i64 3
+  %add.ptr26.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 6
   br label %if.end17
 
 if.else30.i:                                      ; preds = %_ZNK6icu_7513ResourceArray19internalGetResourceEPK12ResourceDatai.exit
@@ -1548,7 +1539,7 @@ cond.false.i:                                     ; preds = %if.then32.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.then32.i
   %cond.i = phi ptr [ %add.ptr35.i, %cond.false.i ], [ @_ZL12gEmptyString, %if.then32.i ]
-  %incdec.ptr36.i = getelementptr inbounds i32, ptr %cond.i, i64 1
+  %incdec.ptr36.i = getelementptr inbounds i8, ptr %cond.i, i64 4
   %14 = load i32, ptr %cond.i, align 4
   br label %if.end17
 
@@ -1590,17 +1581,17 @@ define noundef i32 @_ZNK6icu_7517ResourceDataValue29getStringArrayOrStringAsArra
 entry:
   %ref.tmp = alloca %"class.icu_75::ResourceArray", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %res = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %res, align 8
   %1 = and i32 %0, -2
   %switch = icmp eq i32 %1, 8
   br i1 %switch, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %pResData.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %3 = load ptr, ptr %vfn, align 8
   call void %3(ptr nonnull sret(%"class.icu_75::ResourceArray") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %call4 = call fastcc noundef i32 @_ZN12_GLOBAL__N_114getStringArrayEPK12ResourceDataRKN6icu_7513ResourceArrayEPNS3_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(21) %ref.tmp, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -1636,7 +1627,7 @@ if.then14:                                        ; preds = %cond.true, %if.end1
   br label %return
 
 if.end15:                                         ; preds = %if.end12
-  %pResData.i12 = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i12 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %pResData.i12, align 8
   %shr.mask.i.i = and i32 %0, -268435456
   %cmp.i.i = icmp eq i32 %shr.mask.i.i, 1610612736
@@ -1644,14 +1635,13 @@ if.end15:                                         ; preds = %if.end12
 
 if.then.i.i:                                      ; preds = %if.end15
   %and.i.i = and i32 %0, 268435455
-  %poolStringIndexLimit.i.i = getelementptr inbounds %struct.ResourceData, ptr %5, i64 0, i32 7
+  %poolStringIndexLimit.i.i = getelementptr inbounds i8, ptr %5, i64 48
   %6 = load i32, ptr %poolStringIndexLimit.i.i, align 8
   %cmp1.i.i = icmp slt i32 %and.i.i, %6
-  %p16BitUnits.i.i = getelementptr inbounds %struct.ResourceData, ptr %5, i64 0, i32 2
-  %poolBundleStrings.i.i = getelementptr inbounds %struct.ResourceData, ptr %5, i64 0, i32 6
   %sub.i.i = select i1 %cmp1.i.i, i32 0, i32 %6
   %sub.sink.i.i = sub i32 %and.i.i, %sub.i.i
-  %.sink.in.i.i = select i1 %cmp1.i.i, ptr %poolBundleStrings.i.i, ptr %p16BitUnits.i.i
+  %.sink.in.i.v.i = select i1 %cmp1.i.i, i64 40, i64 16
+  %.sink.in.i.i = getelementptr inbounds i8, ptr %5, i64 %.sink.in.i.v.i
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8
   %idx.ext4.i.i = zext i32 %sub.sink.i.i to i64
   %add.ptr5.i.i = getelementptr inbounds i16, ptr %.sink.i.i, i64 %idx.ext4.i.i
@@ -1671,7 +1661,7 @@ if.else9.i.i:                                     ; preds = %if.then.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
   %and12.i.i = and i32 %conv.i.i, 1023
-  %incdec.ptr.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 2
   br label %if.then20
 
 if.else13.i.i:                                    ; preds = %if.else9.i.i
@@ -1681,23 +1671,23 @@ if.else13.i.i:                                    ; preds = %if.else9.i.i
 if.then15.i.i:                                    ; preds = %if.else13.i.i
   %sub16.i.i = shl nuw i32 %conv.i.i, 16
   %shl.i.i = add nsw i32 %sub16.i.i, 537985024
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 2
   %8 = load i16, ptr %arrayidx.i.i, align 2
   %conv17.i.i = zext i16 %8 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv17.i.i
-  %add.ptr18.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 2
+  %add.ptr18.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 4
   br label %if.then20
 
 if.else19.i.i:                                    ; preds = %if.else13.i.i
-  %arrayidx20.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 1
+  %arrayidx20.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 2
   %9 = load i16, ptr %arrayidx20.i.i, align 2
   %conv21.i.i = zext i16 %9 to i32
   %shl22.i.i = shl nuw i32 %conv21.i.i, 16
-  %arrayidx23.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 2
+  %arrayidx23.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 4
   %10 = load i16, ptr %arrayidx23.i.i, align 2
   %conv24.i.i = zext i16 %10 to i32
   %or25.i.i = or disjoint i32 %shl22.i.i, %conv24.i.i
-  %add.ptr26.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 3
+  %add.ptr26.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 6
   br label %if.then20
 
 if.else30.i.i:                                    ; preds = %if.end15
@@ -1709,7 +1699,7 @@ if.then32.i.i:                                    ; preds = %if.else30.i.i
   br i1 %cmp33.i.i, label %cond.end.i.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then32.i.i
-  %pRoot.i.i = getelementptr inbounds %struct.ResourceData, ptr %5, i64 0, i32 1
+  %pRoot.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load ptr, ptr %pRoot.i.i, align 8
   %idx.ext34.i.i = zext nneg i32 %0 to i64
   %add.ptr35.i.i = getelementptr inbounds i32, ptr %11, i64 %idx.ext34.i.i
@@ -1717,7 +1707,7 @@ cond.false.i.i:                                   ; preds = %if.then32.i.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %if.then32.i.i
   %cond.i.i = phi ptr [ %add.ptr35.i.i, %cond.false.i.i ], [ @_ZL12gEmptyString, %if.then32.i.i ]
-  %incdec.ptr36.i.i = getelementptr inbounds i32, ptr %cond.i.i, i64 1
+  %incdec.ptr36.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 4
   %12 = load i32, ptr %cond.i.i, align 4
   br label %if.then20
 
@@ -1760,7 +1750,7 @@ entry:
   %array = alloca %"class.icu_75::ResourceArray", align 8
   %agg.tmp32 = alloca %"class.icu_75::ConstChar16Ptr", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.result, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1772,9 +1762,9 @@ lpad:                                             ; preds = %if.then8.i, %if.the
   br label %ehcleanup
 
 if.end:                                           ; preds = %entry
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 1
+  %pResData.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %pResData.i, align 8
-  %res = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %this, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %res, align 8
   %shr.mask.i.i = and i32 %3, -268435456
   %cmp.i.i = icmp eq i32 %shr.mask.i.i, 1610612736
@@ -1782,14 +1772,13 @@ if.end:                                           ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end
   %and.i.i = and i32 %3, 268435455
-  %poolStringIndexLimit.i.i = getelementptr inbounds %struct.ResourceData, ptr %2, i64 0, i32 7
+  %poolStringIndexLimit.i.i = getelementptr inbounds i8, ptr %2, i64 48
   %4 = load i32, ptr %poolStringIndexLimit.i.i, align 8
   %cmp1.i.i = icmp slt i32 %and.i.i, %4
-  %p16BitUnits.i.i = getelementptr inbounds %struct.ResourceData, ptr %2, i64 0, i32 2
-  %poolBundleStrings.i.i = getelementptr inbounds %struct.ResourceData, ptr %2, i64 0, i32 6
   %sub.i.i = select i1 %cmp1.i.i, i32 0, i32 %4
   %sub.sink.i.i = sub i32 %and.i.i, %sub.i.i
-  %.sink.in.i.i = select i1 %cmp1.i.i, ptr %poolBundleStrings.i.i, ptr %p16BitUnits.i.i
+  %.sink.in.i.v.i = select i1 %cmp1.i.i, i64 40, i64 16
+  %.sink.in.i.i = getelementptr inbounds i8, ptr %2, i64 %.sink.in.i.v.i
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8
   %idx.ext4.i.i = zext i32 %sub.sink.i.i to i64
   %add.ptr5.i.i = getelementptr inbounds i16, ptr %.sink.i.i, i64 %idx.ext4.i.i
@@ -1809,7 +1798,7 @@ if.else9.i.i:                                     ; preds = %if.then.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
   %and12.i.i = and i32 %conv.i.i, 1023
-  %incdec.ptr.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 2
   br label %if.then6
 
 if.else13.i.i:                                    ; preds = %if.else9.i.i
@@ -1819,23 +1808,23 @@ if.else13.i.i:                                    ; preds = %if.else9.i.i
 if.then15.i.i:                                    ; preds = %if.else13.i.i
   %sub16.i.i = shl nuw i32 %conv.i.i, 16
   %shl.i.i = add nsw i32 %sub16.i.i, 537985024
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 2
   %6 = load i16, ptr %arrayidx.i.i, align 2
   %conv17.i.i = zext i16 %6 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv17.i.i
-  %add.ptr18.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 2
+  %add.ptr18.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 4
   br label %if.then6
 
 if.else19.i.i:                                    ; preds = %if.else13.i.i
-  %arrayidx20.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 1
+  %arrayidx20.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 2
   %7 = load i16, ptr %arrayidx20.i.i, align 2
   %conv21.i.i = zext i16 %7 to i32
   %shl22.i.i = shl nuw i32 %conv21.i.i, 16
-  %arrayidx23.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 2
+  %arrayidx23.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 4
   %8 = load i16, ptr %arrayidx23.i.i, align 2
   %conv24.i.i = zext i16 %8 to i32
   %or25.i.i = or disjoint i32 %shl22.i.i, %conv24.i.i
-  %add.ptr26.i.i = getelementptr inbounds i16, ptr %add.ptr5.i.i, i64 3
+  %add.ptr26.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 6
   br label %if.then6
 
 if.else30.i.i:                                    ; preds = %if.end
@@ -1847,7 +1836,7 @@ if.then32.i.i:                                    ; preds = %if.else30.i.i
   br i1 %cmp33.i.i, label %cond.end.i.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then32.i.i
-  %pRoot.i.i = getelementptr inbounds %struct.ResourceData, ptr %2, i64 0, i32 1
+  %pRoot.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load ptr, ptr %pRoot.i.i, align 8
   %idx.ext34.i.i = zext nneg i32 %3 to i64
   %add.ptr35.i.i = getelementptr inbounds i32, ptr %9, i64 %idx.ext34.i.i
@@ -1855,7 +1844,7 @@ cond.false.i.i:                                   ; preds = %if.then32.i.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %if.then32.i.i
   %cond.i.i = phi ptr [ %add.ptr35.i.i, %cond.false.i.i ], [ @_ZL12gEmptyString, %if.then32.i.i ]
-  %incdec.ptr36.i.i = getelementptr inbounds i32, ptr %cond.i.i, i64 1
+  %incdec.ptr36.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 4
   %10 = load i32, ptr %cond.i.i, align 4
   br label %if.then6
 
@@ -1880,7 +1869,7 @@ lpad8:                                            ; preds = %if.then6
 
 if.end11:                                         ; preds = %if.else30.i.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %14 = load ptr, ptr %vfn, align 8
   invoke void %14(ptr nonnull sret(%"class.icu_75::ResourceArray") align 8 %array, ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont12 unwind label %lpad
@@ -1891,7 +1880,7 @@ invoke.cont12:                                    ; preds = %if.end11
   br i1 %cmp.i9, label %if.end17, label %nrvo.skipdtor
 
 if.end17:                                         ; preds = %invoke.cont12
-  %length.i = getelementptr inbounds %"class.icu_75::ResourceArray", ptr %array, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %array, i64 16
   %16 = load i32, ptr %length.i, align 8
   %cmp20 = icmp sgt i32 %16, 0
   br i1 %cmp20, label %if.then21, label %if.end38
@@ -1905,14 +1894,14 @@ if.then21:                                        ; preds = %if.end17
 if.then.i:                                        ; preds = %if.then21
   %19 = load i16, ptr %18, align 2
   %conv.i13 = zext i16 %19 to i32
-  %poolStringIndex16Limit.i.i = getelementptr inbounds %struct.ResourceData, ptr %17, i64 0, i32 8
+  %poolStringIndex16Limit.i.i = getelementptr inbounds i8, ptr %17, i64 52
   %20 = load i32, ptr %poolStringIndex16Limit.i.i, align 4
   %cmp.i.i14 = icmp sgt i32 %20, %conv.i13
   br i1 %cmp.i.i14, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i
   %sub.i.i15 = sub i32 %conv.i13, %20
-  %poolStringIndexLimit.i.i16 = getelementptr inbounds %struct.ResourceData, ptr %17, i64 0, i32 7
+  %poolStringIndexLimit.i.i16 = getelementptr inbounds i8, ptr %17, i64 48
   %21 = load i32, ptr %poolStringIndexLimit.i.i16, align 8
   %add.i.i = add nsw i32 %sub.i.i15, %21
   br label %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i
@@ -1923,7 +1912,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit.i:  ; preds = %if.else.i.i, %if.th
   br label %invoke.cont26
 
 if.else.i:                                        ; preds = %if.then21
-  %items32.i = getelementptr inbounds %"class.icu_75::ResourceArray", ptr %array, i64 0, i32 1
+  %items32.i = getelementptr inbounds i8, ptr %array, i64 8
   %22 = load ptr, ptr %items32.i, align 8
   %23 = load i32, ptr %22, align 4
   br label %invoke.cont26
@@ -1936,14 +1925,13 @@ invoke.cont26:                                    ; preds = %if.else.i, %_ZL18ma
 
 if.then.i19:                                      ; preds = %invoke.cont26
   %and.i = and i32 %retval.0.i, 268435455
-  %poolStringIndexLimit.i = getelementptr inbounds %struct.ResourceData, ptr %17, i64 0, i32 7
+  %poolStringIndexLimit.i = getelementptr inbounds i8, ptr %17, i64 48
   %24 = load i32, ptr %poolStringIndexLimit.i, align 8
   %cmp1.i = icmp slt i32 %and.i, %24
-  %p16BitUnits.i = getelementptr inbounds %struct.ResourceData, ptr %17, i64 0, i32 2
-  %poolBundleStrings.i = getelementptr inbounds %struct.ResourceData, ptr %17, i64 0, i32 6
   %sub.i = select i1 %cmp1.i, i32 0, i32 %24
   %sub.sink.i = sub i32 %and.i, %sub.i
-  %.sink.in.i = select i1 %cmp1.i, ptr %poolBundleStrings.i, ptr %p16BitUnits.i
+  %.sink.in.i.v = select i1 %cmp1.i, i64 40, i64 16
+  %.sink.in.i = getelementptr inbounds i8, ptr %17, i64 %.sink.in.i.v
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
   %idx.ext4.i = zext i32 %sub.sink.i to i64
   %add.ptr5.i = getelementptr inbounds i16, ptr %.sink.i, i64 %idx.ext4.i
@@ -1963,7 +1951,7 @@ if.else9.i:                                       ; preds = %if.then.i19
 
 if.then11.i:                                      ; preds = %if.else9.i
   %and12.i = and i32 %conv.i21, 1023
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %add.ptr5.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 2
   br label %if.then31
 
 if.else13.i:                                      ; preds = %if.else9.i
@@ -1973,23 +1961,23 @@ if.else13.i:                                      ; preds = %if.else9.i
 if.then15.i:                                      ; preds = %if.else13.i
   %sub16.i = shl nuw i32 %conv.i21, 16
   %shl.i = add nsw i32 %sub16.i, 537985024
-  %arrayidx.i = getelementptr inbounds i16, ptr %add.ptr5.i, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 2
   %26 = load i16, ptr %arrayidx.i, align 2
   %conv17.i = zext i16 %26 to i32
   %or.i = or disjoint i32 %shl.i, %conv17.i
-  %add.ptr18.i = getelementptr inbounds i16, ptr %add.ptr5.i, i64 2
+  %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 4
   br label %if.then31
 
 if.else19.i:                                      ; preds = %if.else13.i
-  %arrayidx20.i = getelementptr inbounds i16, ptr %add.ptr5.i, i64 1
+  %arrayidx20.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 2
   %27 = load i16, ptr %arrayidx20.i, align 2
   %conv21.i = zext i16 %27 to i32
   %shl22.i = shl nuw i32 %conv21.i, 16
-  %arrayidx23.i = getelementptr inbounds i16, ptr %add.ptr5.i, i64 2
+  %arrayidx23.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 4
   %28 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %28 to i32
   %or25.i = or disjoint i32 %shl22.i, %conv24.i
-  %add.ptr26.i = getelementptr inbounds i16, ptr %add.ptr5.i, i64 3
+  %add.ptr26.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 6
   br label %if.then31
 
 if.else30.i:                                      ; preds = %invoke.cont26
@@ -2001,7 +1989,7 @@ if.then32.i:                                      ; preds = %if.else30.i
   br i1 %cmp33.i, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then32.i
-  %pRoot.i = getelementptr inbounds %struct.ResourceData, ptr %17, i64 0, i32 1
+  %pRoot.i = getelementptr inbounds i8, ptr %17, i64 8
   %29 = load ptr, ptr %pRoot.i, align 8
   %idx.ext34.i = zext nneg i32 %retval.0.i to i64
   %add.ptr35.i = getelementptr inbounds i32, ptr %29, i64 %idx.ext34.i
@@ -2009,7 +1997,7 @@ cond.false.i:                                     ; preds = %if.then32.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.then32.i
   %cond.i = phi ptr [ %add.ptr35.i, %cond.false.i ], [ @_ZL12gEmptyString, %if.then32.i ]
-  %incdec.ptr36.i = getelementptr inbounds i32, ptr %cond.i, i64 1
+  %incdec.ptr36.i = getelementptr inbounds i8, ptr %cond.i, i64 4
   %30 = load i32, ptr %cond.i, align 4
   br label %if.then31
 
@@ -2057,14 +2045,14 @@ if.then:                                          ; preds = %entry
   %arrayidx = getelementptr inbounds i16, ptr %0, i64 %idxprom
   %1 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %1 to i32
-  %poolStringIndex16Limit.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 8
+  %poolStringIndex16Limit.i = getelementptr inbounds i8, ptr %pResData, i64 52
   %2 = load i32, ptr %poolStringIndex16Limit.i, align 4
   %cmp.i = icmp sgt i32 %2, %conv
   br i1 %cmp.i, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
   %sub.i = sub i32 %conv, %2
-  %poolStringIndexLimit.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 7
+  %poolStringIndexLimit.i = getelementptr inbounds i8, ptr %pResData, i64 48
   %3 = load i32, ptr %poolStringIndexLimit.i, align 8
   %add.i = add nsw i32 %sub.i, %3
   br label %_ZL18makeResourceFrom16PK12ResourceDatai.exit
@@ -2075,7 +2063,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit:    ; preds = %if.then, %if.else.i
   br label %return
 
 if.else:                                          ; preds = %entry
-  %items32 = getelementptr inbounds %"class.icu_75::ResourceArray", ptr %this, i64 0, i32 1
+  %items32 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %items32, align 8
   %idxprom3 = sext i32 %i to i64
   %arrayidx4 = getelementptr inbounds i32, ptr %4, i64 %idxprom3
@@ -2115,23 +2103,23 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %sw.bb
-  %pRoot = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %pRoot = getelementptr inbounds i8, ptr %pResData, i64 8
   %1 = load ptr, ptr %pRoot, align 8
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i32, ptr %1, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %2 = load i16, ptr %add.ptr, align 2
   %conv = zext i16 %2 to i32
   %cmp18.i.not = icmp eq i16 %2, 0
   br i1 %cmp18.i.not, label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then3
-  %localKeyLimit.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 5
+  %localKeyLimit.i = getelementptr inbounds i8, ptr %pResData, i64 36
   %3 = load i32, ptr %localKeyLimit.i, align 4
-  %poolBundleKeys.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 3
+  %poolBundleKeys.i = getelementptr inbounds i8, ptr %pResData, i64 24
   %idx.ext11.i = sext i32 %3 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext11.i
-  %useNativeStrcmp.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 12
+  %useNativeStrcmp.i = getelementptr inbounds i8, ptr %pResData, i64 59
   %4 = load i8, ptr %useNativeStrcmp.i, align 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %while.body.us.i, label %while.body.i
@@ -2247,24 +2235,24 @@ if.then5:                                         ; preds = %_ZL18_res_findTable
   br label %return
 
 sw.bb13:                                          ; preds = %if.end
-  %p16BitUnits = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 2
+  %p16BitUnits = getelementptr inbounds i8, ptr %pResData, i64 16
   %10 = load ptr, ptr %p16BitUnits, align 8
   %idx.ext15 = zext nneg i32 %and to i64
   %add.ptr16 = getelementptr inbounds i16, ptr %10, i64 %idx.ext15
-  %incdec.ptr17 = getelementptr inbounds i16, ptr %add.ptr16, i64 1
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %add.ptr16, i64 2
   %11 = load i16, ptr %add.ptr16, align 2
   %conv18 = zext i16 %11 to i32
   %cmp18.i38.not = icmp eq i16 %11, 0
   br i1 %cmp18.i38.not, label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit105.thread, label %while.body.lr.ph.i40
 
 while.body.lr.ph.i40:                             ; preds = %sw.bb13
-  %localKeyLimit.i41 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 5
+  %localKeyLimit.i41 = getelementptr inbounds i8, ptr %pResData, i64 36
   %12 = load i32, ptr %localKeyLimit.i41, align 4
-  %poolBundleKeys.i42 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 3
+  %poolBundleKeys.i42 = getelementptr inbounds i8, ptr %pResData, i64 24
   %idx.ext11.i43 = sext i32 %12 to i64
   %idx.neg.i44 = sub nsw i64 0, %idx.ext11.i43
-  %pRoot.i45 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
-  %useNativeStrcmp.i46 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 12
+  %pRoot.i45 = getelementptr inbounds i8, ptr %pResData, i64 8
+  %useNativeStrcmp.i46 = getelementptr inbounds i8, ptr %pResData, i64 59
   %13 = load i8, ptr %useNativeStrcmp.i46, align 1
   %tobool.not.i47 = icmp eq i8 %13, 0
   br i1 %tobool.not.i47, label %while.body.us.i78, label %while.body.i48
@@ -2375,14 +2363,14 @@ if.then21:                                        ; preds = %_ZL18_res_findTable
   %arrayidx23 = getelementptr inbounds i16, ptr %incdec.ptr17, i64 %idxprom22
   %20 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %20 to i32
-  %poolStringIndex16Limit.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 8
+  %poolStringIndex16Limit.i = getelementptr inbounds i8, ptr %pResData, i64 52
   %21 = load i32, ptr %poolStringIndex16Limit.i, align 4
   %cmp.i106 = icmp sgt i32 %21, %conv24
   br i1 %cmp.i106, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then21
   %sub.i = sub i32 %conv24, %21
-  %poolStringIndexLimit.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 7
+  %poolStringIndexLimit.i = getelementptr inbounds i8, ptr %pResData, i64 48
   %22 = load i32, ptr %poolStringIndexLimit.i, align 8
   %add.i107 = add nsw i32 %sub.i, %22
   br label %_ZL18makeResourceFrom16PK12ResourceDatai.exit
@@ -2397,18 +2385,18 @@ sw.bb27:                                          ; preds = %if.end
   br i1 %cmp28.not, label %return, label %if.then29
 
 if.then29:                                        ; preds = %sw.bb27
-  %pRoot31 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %pRoot31 = getelementptr inbounds i8, ptr %pResData, i64 8
   %23 = load ptr, ptr %pRoot31, align 8
   %idx.ext32 = zext nneg i32 %and to i64
   %add.ptr33 = getelementptr inbounds i32, ptr %23, i64 %idx.ext32
-  %incdec.ptr34 = getelementptr inbounds i32, ptr %add.ptr33, i64 1
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %add.ptr33, i64 4
   %24 = load i32, ptr %add.ptr33, align 4
   %cmp16.i = icmp sgt i32 %24, 0
   br i1 %cmp16.i, label %while.body.lr.ph.i109, label %_ZL20_res_findTable32ItemPK12ResourceDataPKiiPKcPS5_.exit.thread
 
 while.body.lr.ph.i109:                            ; preds = %if.then29
-  %poolBundleKeys.i110 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 3
-  %useNativeStrcmp.i112 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 12
+  %poolBundleKeys.i110 = getelementptr inbounds i8, ptr %pResData, i64 24
+  %useNativeStrcmp.i112 = getelementptr inbounds i8, ptr %pResData, i64 59
   %25 = load i8, ptr %useNativeStrcmp.i112, align 1
   %tobool.not.i113 = icmp eq i8 %25, 0
   br i1 %tobool.not.i113, label %while.body.us.i128, label %while.body.i114
@@ -2521,11 +2509,11 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %sw.bb
-  %pRoot = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %pRoot = getelementptr inbounds i8, ptr %pResData, i64 8
   %0 = load ptr, ptr %pRoot, align 8
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i32, ptr %0, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %1 = load i16, ptr %add.ptr, align 2
   %conv = zext i16 %1 to i32
   %cmp3 = icmp ugt i32 %conv, %indexR
@@ -2546,7 +2534,7 @@ if.then11:                                        ; preds = %if.then4
   %arrayidx = getelementptr inbounds i16, ptr %incdec.ptr, i64 %.pre
   %2 = load i16, ptr %arrayidx, align 2
   %conv12 = zext i16 %2 to i32
-  %localKeyLimit = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 5
+  %localKeyLimit = getelementptr inbounds i8, ptr %pResData, i64 36
   %3 = load i32, ptr %localKeyLimit, align 4
   %cmp13 = icmp sgt i32 %3, %conv12
   br i1 %cmp13, label %cond.true, label %cond.false
@@ -2557,7 +2545,7 @@ cond.true:                                        ; preds = %if.then11
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then11
-  %poolBundleKeys = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 3
+  %poolBundleKeys = getelementptr inbounds i8, ptr %pResData, i64 24
   %4 = load ptr, ptr %poolBundleKeys, align 8
   %idx.ext23 = zext i16 %2 to i64
   %add.ptr24 = getelementptr inbounds i8, ptr %4, i64 %idx.ext23
@@ -2577,11 +2565,11 @@ if.end28:                                         ; preds = %if.then4, %cond.end
   br label %return
 
 sw.bb33:                                          ; preds = %if.end
-  %p16BitUnits = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 2
+  %p16BitUnits = getelementptr inbounds i8, ptr %pResData, i64 16
   %6 = load ptr, ptr %p16BitUnits, align 8
   %idx.ext35 = zext nneg i32 %and to i64
   %add.ptr36 = getelementptr inbounds i16, ptr %6, i64 %idx.ext35
-  %incdec.ptr37 = getelementptr inbounds i16, ptr %add.ptr36, i64 1
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %add.ptr36, i64 2
   %7 = load i16, ptr %add.ptr36, align 2
   %conv38 = zext i16 %7 to i32
   %cmp39 = icmp ugt i32 %conv38, %indexR
@@ -2596,20 +2584,20 @@ if.then42:                                        ; preds = %if.then40
   %arrayidx44 = getelementptr inbounds i16, ptr %incdec.ptr37, i64 %idxprom43
   %8 = load i16, ptr %arrayidx44, align 2
   %conv45 = zext i16 %8 to i32
-  %localKeyLimit46 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 5
+  %localKeyLimit46 = getelementptr inbounds i8, ptr %pResData, i64 36
   %9 = load i32, ptr %localKeyLimit46, align 4
   %cmp47 = icmp sgt i32 %9, %conv45
   %idx.ext53 = zext i16 %8 to i64
   br i1 %cmp47, label %cond.true48, label %cond.false55
 
 cond.true48:                                      ; preds = %if.then42
-  %pRoot49 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %pRoot49 = getelementptr inbounds i8, ptr %pResData, i64 8
   %10 = load ptr, ptr %pRoot49, align 8
   %add.ptr54 = getelementptr inbounds i8, ptr %10, i64 %idx.ext53
   br label %cond.end66
 
 cond.false55:                                     ; preds = %if.then42
-  %poolBundleKeys56 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 3
+  %poolBundleKeys56 = getelementptr inbounds i8, ptr %pResData, i64 24
   %11 = load ptr, ptr %poolBundleKeys56, align 8
   %add.ptr61 = getelementptr inbounds i8, ptr %11, i64 %idx.ext53
   %idx.ext63 = sext i32 %9 to i64
@@ -2628,14 +2616,14 @@ if.end68:                                         ; preds = %cond.end66, %if.the
   %arrayidx70 = getelementptr inbounds i16, ptr %incdec.ptr37, i64 %idxprom69
   %12 = load i16, ptr %arrayidx70, align 2
   %conv71 = zext i16 %12 to i32
-  %poolStringIndex16Limit.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 8
+  %poolStringIndex16Limit.i = getelementptr inbounds i8, ptr %pResData, i64 52
   %13 = load i32, ptr %poolStringIndex16Limit.i, align 4
   %cmp.i = icmp sgt i32 %13, %conv71
   br i1 %cmp.i, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end68
   %sub.i = sub i32 %conv71, %13
-  %poolStringIndexLimit.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 7
+  %poolStringIndexLimit.i = getelementptr inbounds i8, ptr %pResData, i64 48
   %14 = load i32, ptr %poolStringIndexLimit.i, align 8
   %add.i = add nsw i32 %sub.i, %14
   br label %_ZL18makeResourceFrom16PK12ResourceDatai.exit
@@ -2650,11 +2638,11 @@ sw.bb73:                                          ; preds = %if.end
   br i1 %cmp74.not, label %return, label %if.then75
 
 if.then75:                                        ; preds = %sw.bb73
-  %pRoot77 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %pRoot77 = getelementptr inbounds i8, ptr %pResData, i64 8
   %15 = load ptr, ptr %pRoot77, align 8
   %idx.ext78 = zext nneg i32 %and to i64
   %add.ptr79 = getelementptr inbounds i32, ptr %15, i64 %idx.ext78
-  %incdec.ptr80 = getelementptr inbounds i32, ptr %add.ptr79, i64 1
+  %incdec.ptr80 = getelementptr inbounds i8, ptr %add.ptr79, i64 4
   %16 = load i32, ptr %add.ptr79, align 4
   %cmp81 = icmp sgt i32 %16, %indexR
   br i1 %cmp81, label %if.then82, label %return
@@ -2671,7 +2659,7 @@ if.then84:                                        ; preds = %if.then82
   br i1 %cmp87, label %cond.end101, label %cond.false94
 
 cond.false94:                                     ; preds = %if.then84
-  %poolBundleKeys95 = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 3
+  %poolBundleKeys95 = getelementptr inbounds i8, ptr %pResData, i64 24
   %18 = load ptr, ptr %poolBundleKeys95, align 8
   %and98 = and i32 %17, 2147483647
   br label %cond.end101
@@ -2702,7 +2690,7 @@ entry:
   %realKey = alloca ptr, align 8
   %idx = alloca i32, align 4
   store ptr %key, ptr %realKey, align 8
-  %rootRes = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 4
+  %rootRes = getelementptr inbounds i8, ptr %pResData, i64 32
   %0 = load i32, ptr %rootRes, align 8
   %call = call i32 @res_getTableItemByKey_75(ptr noundef %pResData, i32 noundef %0, ptr noundef nonnull %idx, ptr noundef nonnull %realKey)
   ret i32 %call
@@ -2712,7 +2700,7 @@ entry:
 define noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %key, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp sgt i32 %i, -1
-  %length = getelementptr inbounds %"class.icu_75::ResourceTable", ptr %this, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %length, align 8
   %cmp2 = icmp sgt i32 %0, %i
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
@@ -2728,22 +2716,22 @@ if.then4:                                         ; preds = %if.then
   %arrayidx = getelementptr inbounds i16, ptr %1, i64 %idxprom
   %2 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %2 to i32
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 1
+  %pResData.i = getelementptr inbounds i8, ptr %value, i64 8
   %3 = load ptr, ptr %pResData.i, align 8
-  %localKeyLimit = getelementptr inbounds %struct.ResourceData, ptr %3, i64 0, i32 5
+  %localKeyLimit = getelementptr inbounds i8, ptr %3, i64 36
   %4 = load i32, ptr %localKeyLimit, align 4
   %cmp6 = icmp sgt i32 %4, %conv
   %idx.ext = zext i16 %2 to i64
   br i1 %cmp6, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then4
-  %pRoot = getelementptr inbounds %struct.ResourceData, ptr %3, i64 0, i32 1
+  %pRoot = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %pRoot, align 8
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %idx.ext
   br label %if.end
 
 cond.false:                                       ; preds = %if.then4
-  %poolBundleKeys = getelementptr inbounds %struct.ResourceData, ptr %3, i64 0, i32 3
+  %poolBundleKeys = getelementptr inbounds i8, ptr %3, i64 24
   %6 = load ptr, ptr %poolBundleKeys, align 8
   %add.ptr18 = getelementptr inbounds i8, ptr %6, i64 %idx.ext
   %idx.ext21 = sext i32 %4 to i64
@@ -2752,25 +2740,25 @@ cond.false:                                       ; preds = %if.then4
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %keys32 = getelementptr inbounds %"class.icu_75::ResourceTable", ptr %this, i64 0, i32 1
+  %keys32 = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %keys32, align 8
   %idxprom23 = zext nneg i32 %i to i64
   %arrayidx24 = getelementptr inbounds i32, ptr %7, i64 %idxprom23
   %8 = load i32, ptr %arrayidx24, align 4
   %cmp25 = icmp sgt i32 %8, -1
-  %pResData.i22 = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 1
+  %pResData.i22 = getelementptr inbounds i8, ptr %value, i64 8
   %9 = load ptr, ptr %pResData.i22, align 8
   br i1 %cmp25, label %cond.true26, label %cond.false34
 
 cond.true26:                                      ; preds = %if.else
-  %pRoot28 = getelementptr inbounds %struct.ResourceData, ptr %9, i64 0, i32 1
+  %pRoot28 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %pRoot28, align 8
   %idx.ext32 = zext nneg i32 %8 to i64
   %add.ptr33 = getelementptr inbounds i8, ptr %10, i64 %idx.ext32
   br label %if.end
 
 cond.false34:                                     ; preds = %if.else
-  %poolBundleKeys36 = getelementptr inbounds %struct.ResourceData, ptr %9, i64 0, i32 3
+  %poolBundleKeys36 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %poolBundleKeys36, align 8
   %and = and i32 %8, 2147483647
   %idx.ext40 = zext nneg i32 %and to i64
@@ -2780,26 +2768,26 @@ cond.false34:                                     ; preds = %if.else
 if.end:                                           ; preds = %cond.true26, %cond.false34, %cond.true, %cond.false
   %storemerge = phi ptr [ %add.ptr, %cond.true ], [ %add.ptr22, %cond.false ], [ %add.ptr33, %cond.true26 ], [ %add.ptr41, %cond.false34 ]
   store ptr %storemerge, ptr %key, align 8
-  %items16 = getelementptr inbounds %"class.icu_75::ResourceTable", ptr %this, i64 0, i32 2
+  %items16 = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load ptr, ptr %items16, align 8
   %cmp44.not = icmp eq ptr %12, null
   %idxprom53 = zext nneg i32 %i to i64
   br i1 %cmp44.not, label %if.else52, label %if.then45
 
 if.then45:                                        ; preds = %if.end
-  %pResData.i24 = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 1
+  %pResData.i24 = getelementptr inbounds i8, ptr %value, i64 8
   %13 = load ptr, ptr %pResData.i24, align 8
   %arrayidx49 = getelementptr inbounds i16, ptr %12, i64 %idxprom53
   %14 = load i16, ptr %arrayidx49, align 2
   %conv50 = zext i16 %14 to i32
-  %poolStringIndex16Limit.i = getelementptr inbounds %struct.ResourceData, ptr %13, i64 0, i32 8
+  %poolStringIndex16Limit.i = getelementptr inbounds i8, ptr %13, i64 52
   %15 = load i32, ptr %poolStringIndex16Limit.i, align 4
   %cmp.i = icmp sgt i32 %15, %conv50
   br i1 %cmp.i, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then45
   %sub.i = sub i32 %conv50, %15
-  %poolStringIndexLimit.i = getelementptr inbounds %struct.ResourceData, ptr %13, i64 0, i32 7
+  %poolStringIndexLimit.i = getelementptr inbounds i8, ptr %13, i64 48
   %16 = load i32, ptr %poolStringIndexLimit.i, align 8
   %add.i = add nsw i32 %sub.i, %16
   br label %_ZL18makeResourceFrom16PK12ResourceDatai.exit
@@ -2810,7 +2798,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit:    ; preds = %if.then45, %if.else
   br label %if.end55
 
 if.else52:                                        ; preds = %if.end
-  %items32 = getelementptr inbounds %"class.icu_75::ResourceTable", ptr %this, i64 0, i32 3
+  %items32 = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %items32, align 8
   %arrayidx54 = getelementptr inbounds i32, ptr %17, i64 %idxprom53
   %18 = load i32, ptr %arrayidx54, align 4
@@ -2818,7 +2806,7 @@ if.else52:                                        ; preds = %if.end
 
 if.end55:                                         ; preds = %if.else52, %_ZL18makeResourceFrom16PK12ResourceDatai.exit
   %res.0 = phi i32 [ %or.i, %_ZL18makeResourceFrom16PK12ResourceDatai.exit ], [ %18, %if.else52 ]
-  %res.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 3
+  %res.i = getelementptr inbounds i8, ptr %value, i64 24
   store i32 %res.0, ptr %res.i, align 8
   br label %return
 
@@ -2835,21 +2823,21 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %length = getelementptr inbounds %"class.icu_75::ResourceTable", ptr %this, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %length, align 8
   %cmp18.i = icmp sgt i32 %1, 0
   br i1 %cmp18.i, label %while.body.lr.ph.i, label %return
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 1
+  %pResData.i = getelementptr inbounds i8, ptr %value, i64 8
   %2 = load ptr, ptr %pResData.i, align 8
-  %localKeyLimit.i = getelementptr inbounds %struct.ResourceData, ptr %2, i64 0, i32 5
+  %localKeyLimit.i = getelementptr inbounds i8, ptr %2, i64 36
   %3 = load i32, ptr %localKeyLimit.i, align 4
-  %poolBundleKeys.i = getelementptr inbounds %struct.ResourceData, ptr %2, i64 0, i32 3
+  %poolBundleKeys.i = getelementptr inbounds i8, ptr %2, i64 24
   %idx.ext11.i = sext i32 %3 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext11.i
-  %pRoot.i = getelementptr inbounds %struct.ResourceData, ptr %2, i64 0, i32 1
-  %useNativeStrcmp.i = getelementptr inbounds %struct.ResourceData, ptr %2, i64 0, i32 12
+  %pRoot.i = getelementptr inbounds i8, ptr %2, i64 8
+  %useNativeStrcmp.i = getelementptr inbounds i8, ptr %2, i64 59
   %4 = load i8, ptr %useNativeStrcmp.i, align 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %while.body.us.i, label %while.body.i
@@ -2943,19 +2931,19 @@ if.end22.i:                                       ; preds = %if.then18.i, %cond.
   br i1 %cmp.i, label %while.body.i, label %return, !llvm.loop !7
 
 if.else:                                          ; preds = %entry
-  %keys32 = getelementptr inbounds %"class.icu_75::ResourceTable", ptr %this, i64 0, i32 1
+  %keys32 = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %keys32, align 8
-  %length5 = getelementptr inbounds %"class.icu_75::ResourceTable", ptr %this, i64 0, i32 4
+  %length5 = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load i32, ptr %length5, align 8
   %cmp16.i = icmp sgt i32 %12, 0
   br i1 %cmp16.i, label %while.body.lr.ph.i10, label %return
 
 while.body.lr.ph.i10:                             ; preds = %if.else
-  %pResData.i8 = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 1
+  %pResData.i8 = getelementptr inbounds i8, ptr %value, i64 8
   %13 = load ptr, ptr %pResData.i8, align 8
-  %poolBundleKeys.i11 = getelementptr inbounds %struct.ResourceData, ptr %13, i64 0, i32 3
-  %pRoot.i12 = getelementptr inbounds %struct.ResourceData, ptr %13, i64 0, i32 1
-  %useNativeStrcmp.i13 = getelementptr inbounds %struct.ResourceData, ptr %13, i64 0, i32 12
+  %poolBundleKeys.i11 = getelementptr inbounds i8, ptr %13, i64 24
+  %pRoot.i12 = getelementptr inbounds i8, ptr %13, i64 8
+  %useNativeStrcmp.i13 = getelementptr inbounds i8, ptr %13, i64 59
   %14 = load i8, ptr %useNativeStrcmp.i13, align 1
   %tobool.not.i14 = icmp eq i8 %14, 0
   br i1 %tobool.not.i14, label %while.body.us.i29, label %while.body.i15
@@ -3031,7 +3019,7 @@ if.end:                                           ; preds = %if.else16.i, %if.el
   br i1 %cmp7, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.end
-  %items16 = getelementptr inbounds %"class.icu_75::ResourceTable", ptr %this, i64 0, i32 2
+  %items16 = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %items16, align 8
   %cmp9.not = icmp eq ptr %18, null
   br i1 %cmp9.not, label %if.else14, label %if.then10
@@ -3041,14 +3029,14 @@ if.then10:                                        ; preds = %if.then8
   %arrayidx = getelementptr inbounds i16, ptr %18, i64 %idxprom
   %19 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %19 to i32
-  %poolStringIndex16Limit.i = getelementptr inbounds %struct.ResourceData, ptr %17, i64 0, i32 8
+  %poolStringIndex16Limit.i = getelementptr inbounds i8, ptr %17, i64 52
   %20 = load i32, ptr %poolStringIndex16Limit.i, align 4
   %cmp.i44 = icmp sgt i32 %20, %conv
   br i1 %cmp.i44, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then10
   %sub.i = sub i32 %conv, %20
-  %poolStringIndexLimit.i = getelementptr inbounds %struct.ResourceData, ptr %17, i64 0, i32 7
+  %poolStringIndexLimit.i = getelementptr inbounds i8, ptr %17, i64 48
   %21 = load i32, ptr %poolStringIndexLimit.i, align 8
   %add.i45 = add nsw i32 %sub.i, %21
   br label %_ZL18makeResourceFrom16PK12ResourceDatai.exit
@@ -3059,7 +3047,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit:    ; preds = %if.then10, %if.else
   br label %if.end17
 
 if.else14:                                        ; preds = %if.then8
-  %items32 = getelementptr inbounds %"class.icu_75::ResourceTable", ptr %this, i64 0, i32 3
+  %items32 = getelementptr inbounds i8, ptr %this, i64 24
   %22 = load ptr, ptr %items32, align 8
   %idxprom15 = zext nneg i32 %i.0 to i64
   %arrayidx16 = getelementptr inbounds i32, ptr %22, i64 %idxprom15
@@ -3068,7 +3056,7 @@ if.else14:                                        ; preds = %if.then8
 
 if.end17:                                         ; preds = %if.else14, %_ZL18makeResourceFrom16PK12ResourceDatai.exit
   %res.0 = phi i32 [ %or.i, %_ZL18makeResourceFrom16PK12ResourceDatai.exit ], [ %23, %if.else14 ]
-  %res.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 3
+  %res.i = getelementptr inbounds i8, ptr %value, i64 24
   store i32 %res.0, ptr %res.i, align 8
   br label %return
 
@@ -3096,7 +3084,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %sw.bb
-  %pRoot = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %pRoot = getelementptr inbounds i8, ptr %pResData, i64 8
   %0 = load ptr, ptr %pRoot, align 8
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i32, ptr %0, i64 %idx.ext
@@ -3112,7 +3100,7 @@ if.then4:                                         ; preds = %if.then2
   br label %return
 
 sw.bb7:                                           ; preds = %if.end
-  %p16BitUnits = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 2
+  %p16BitUnits = getelementptr inbounds i8, ptr %pResData, i64 16
   %3 = load ptr, ptr %p16BitUnits, align 8
   %idx.ext9 = zext nneg i32 %and to i64
   %add.ptr10 = getelementptr inbounds i16, ptr %3, i64 %idx.ext9
@@ -3127,14 +3115,14 @@ if.then12:                                        ; preds = %sw.bb7
   %arrayidx15 = getelementptr inbounds i16, ptr %add.ptr10, i64 %idxprom14
   %5 = load i16, ptr %arrayidx15, align 2
   %conv16 = zext i16 %5 to i32
-  %poolStringIndex16Limit.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 8
+  %poolStringIndex16Limit.i = getelementptr inbounds i8, ptr %pResData, i64 52
   %6 = load i32, ptr %poolStringIndex16Limit.i, align 4
   %cmp.i = icmp sgt i32 %6, %conv16
   br i1 %cmp.i, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then12
   %sub.i = sub i32 %conv16, %6
-  %poolStringIndexLimit.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 7
+  %poolStringIndexLimit.i = getelementptr inbounds i8, ptr %pResData, i64 48
   %7 = load i32, ptr %poolStringIndexLimit.i, align 8
   %add.i = add nsw i32 %sub.i, %7
   br label %_ZL18makeResourceFrom16PK12ResourceDatai.exit
@@ -3153,14 +3141,14 @@ return:                                           ; preds = %if.then2, %sw.bb, %
 define noundef signext i8 @_ZNK6icu_7513ResourceArray8getValueEiRNS_13ResourceValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %this, i32 noundef %i, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp sgt i32 %i, -1
-  %length = getelementptr inbounds %"class.icu_75::ResourceArray", ptr %this, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %length, align 8
   %cmp2 = icmp sgt i32 %0, %i
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 1
+  %pResData.i = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load ptr, ptr %pResData.i, align 8
   %2 = load ptr, ptr %this, align 8
   %cmp.not.i = icmp eq ptr %2, null
@@ -3171,14 +3159,14 @@ if.then.i:                                        ; preds = %if.then
   %arrayidx.i = getelementptr inbounds i16, ptr %2, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
   %conv.i = zext i16 %3 to i32
-  %poolStringIndex16Limit.i.i = getelementptr inbounds %struct.ResourceData, ptr %1, i64 0, i32 8
+  %poolStringIndex16Limit.i.i = getelementptr inbounds i8, ptr %1, i64 52
   %4 = load i32, ptr %poolStringIndex16Limit.i.i, align 4
   %cmp.i.i = icmp sgt i32 %4, %conv.i
   br i1 %cmp.i.i, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i
   %sub.i.i = sub i32 %conv.i, %4
-  %poolStringIndexLimit.i.i = getelementptr inbounds %struct.ResourceData, ptr %1, i64 0, i32 7
+  %poolStringIndexLimit.i.i = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i32, ptr %poolStringIndexLimit.i.i, align 8
   %add.i.i = add nsw i32 %sub.i.i, %5
   br label %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i
@@ -3189,7 +3177,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit.i:  ; preds = %if.else.i.i, %if.th
   br label %_ZNK6icu_7513ResourceArray19internalGetResourceEPK12ResourceDatai.exit
 
 if.else.i:                                        ; preds = %if.then
-  %items32.i = getelementptr inbounds %"class.icu_75::ResourceArray", ptr %this, i64 0, i32 1
+  %items32.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %items32.i, align 8
   %idxprom3.i = zext nneg i32 %i to i64
   %arrayidx4.i = getelementptr inbounds i32, ptr %6, i64 %idxprom3.i
@@ -3198,7 +3186,7 @@ if.else.i:                                        ; preds = %if.then
 
 _ZNK6icu_7513ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds = %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i, %if.else.i
   %retval.0.i = phi i32 [ %or.i.i, %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i ], [ %7, %if.else.i ]
-  %res.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 3
+  %res.i = getelementptr inbounds i8, ptr %value, i64 24
   store i32 %retval.0.i, ptr %res.i, align 8
   br label %return
 
@@ -3231,10 +3219,10 @@ switch.early.test:                                ; preds = %if.end
   ]
 
 while.cond.preheader:                             ; preds = %switch.early.test, %switch.early.test, %if.end
-  %p16BitUnits.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 2
-  %poolStringIndex16Limit.i.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 8
-  %poolStringIndexLimit.i.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 7
-  %pRoot.i = getelementptr inbounds %struct.ResourceData, ptr %pResData, i64 0, i32 1
+  %p16BitUnits.i = getelementptr inbounds i8, ptr %pResData, i64 16
+  %poolStringIndex16Limit.i.i = getelementptr inbounds i8, ptr %pResData, i64 52
+  %poolStringIndexLimit.i.i = getelementptr inbounds i8, ptr %pResData, i64 48
+  %pRoot.i = getelementptr inbounds i8, ptr %pResData, i64 8
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.cond.preheader, %if.end54
@@ -3464,7 +3452,7 @@ if.then36:                                        ; preds = %if.end, %land.lhs.t
   br label %return
 
 if.end55:                                         ; preds = %lor.lhs.false26, %land.lhs.true21
-  %majorFormatVersion = getelementptr inbounds %struct.TempTable, ptr %tempTable, i64 0, i32 5
+  %majorFormatVersion = getelementptr inbounds i8, ptr %tempTable, i64 36
   store i8 %5, ptr %majorFormatVersion, align 4
   %cmp58 = icmp slt i32 %length, 0
   br i1 %cmp58, label %if.end64, label %if.else
@@ -3484,11 +3472,11 @@ if.end64:                                         ; preds = %if.end55, %if.else
   %bundleLength.0 = phi i32 [ %div123124, %if.else ], [ -1, %if.end55 ]
   %idx.ext = sext i32 %call to i64
   %add.ptr65 = getelementptr inbounds i8, ptr %inData, i64 %idx.ext
-  %readUInt32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 5
+  %readUInt32 = getelementptr inbounds i8, ptr %ds, i64 16
   %13 = load ptr, ptr %readUInt32, align 8
   %14 = load i32, ptr %add.ptr65, align 4
   %call66 = tail call noundef i32 %13(i32 noundef %14)
-  %add.ptr67 = getelementptr inbounds i32, ptr %add.ptr65, i64 1
+  %add.ptr67 = getelementptr inbounds i8, ptr %add.ptr65, i64 4
   %15 = load i32, ptr %add.ptr67, align 4
   %call69 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %15)
   %and = and i32 %call69, 255
@@ -3502,24 +3490,24 @@ if.then71:                                        ; preds = %if.end64
 
 if.end72:                                         ; preds = %if.end64
   %add = add nuw nsw i32 %and, 1
-  %arrayidx73 = getelementptr inbounds i32, ptr %add.ptr65, i64 2
+  %arrayidx73 = getelementptr inbounds i8, ptr %add.ptr65, i64 8
   %16 = load i32, ptr %arrayidx73, align 4
   %call74 = tail call i32 @udata_readInt32_75(ptr noundef nonnull %ds, i32 noundef %16)
   %cmp75 = icmp ugt i32 %and, 6
   br i1 %cmp75, label %if.then76, label %if.end80
 
 if.then76:                                        ; preds = %if.end72
-  %arrayidx77 = getelementptr inbounds i32, ptr %add.ptr65, i64 7
+  %arrayidx77 = getelementptr inbounds i8, ptr %add.ptr65, i64 28
   %17 = load i32, ptr %arrayidx77, align 4
   %call78 = tail call i32 @udata_readInt32_75(ptr noundef nonnull %ds, i32 noundef %17)
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end72, %if.then76
   %resBottom.0 = phi i32 [ %call78, %if.then76 ], [ %call74, %if.end72 ]
-  %arrayidx81 = getelementptr inbounds i32, ptr %add.ptr65, i64 4
+  %arrayidx81 = getelementptr inbounds i8, ptr %add.ptr65, i64 16
   %18 = load i32, ptr %arrayidx81, align 4
   %call82 = tail call i32 @udata_readInt32_75(ptr noundef nonnull %ds, i32 noundef %18)
-  %arrayidx83 = getelementptr inbounds i32, ptr %add.ptr65, i64 5
+  %arrayidx83 = getelementptr inbounds i8, ptr %add.ptr65, i64 20
   %19 = load i32, ptr %arrayidx83, align 4
   %call84 = tail call i32 @udata_readInt32_75(ptr noundef nonnull %ds, i32 noundef %19)
   %cmp85 = icmp sgt i32 %bundleLength.0, -1
@@ -3536,7 +3524,7 @@ if.end89:                                         ; preds = %if.end80
   %cmp91 = icmp sgt i32 %call74, %add
   %shl = shl i32 %call74, 2
   %spec.select = select i1 %cmp91, i32 %shl, i32 0
-  %20 = getelementptr inbounds %struct.TempTable, ptr %tempTable, i64 0, i32 4
+  %20 = getelementptr inbounds i8, ptr %tempTable, i64 32
   store i32 %spec.select, ptr %20, align 8
   %cmp96 = icmp sgt i32 %length, -1
   br i1 %cmp96, label %if.then97, label %if.end200
@@ -3551,7 +3539,7 @@ if.then97:                                        ; preds = %if.end89
   br i1 %cmp103, label %if.then104, label %if.else105
 
 if.then104:                                       ; preds = %if.then97
-  %resFlags = getelementptr inbounds %struct.TempTable, ptr %tempTable, i64 0, i32 3
+  %resFlags = getelementptr inbounds i8, ptr %tempTable, i64 24
   store ptr %stackResFlags, ptr %resFlags, align 8
   %.pre125 = zext nneg i32 %and102 to i64
   br label %if.end113
@@ -3559,7 +3547,7 @@ if.then104:                                       ; preds = %if.then97
 if.else105:                                       ; preds = %if.then97
   %conv106 = zext nneg i32 %and102 to i64
   %call107 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv106) #20
-  %resFlags108 = getelementptr inbounds %struct.TempTable, ptr %tempTable, i64 0, i32 3
+  %resFlags108 = getelementptr inbounds i8, ptr %tempTable, i64 24
   store ptr %call107, ptr %resFlags108, align 8
   %cmp110 = icmp eq ptr %call107, null
   br i1 %cmp110, label %if.then111, label %if.end113
@@ -3572,7 +3560,7 @@ if.then111:                                       ; preds = %if.else105
 if.end113:                                        ; preds = %if.else105, %if.then104
   %conv115.pre-phi = phi i64 [ %conv106, %if.else105 ], [ %.pre125, %if.then104 ]
   %21 = phi ptr [ %call107, %if.else105 ], [ %stackResFlags, %if.then104 ]
-  %resFlags114 = getelementptr inbounds %struct.TempTable, ptr %tempTable, i64 0, i32 3
+  %resFlags114 = getelementptr inbounds i8, ptr %tempTable, i64 24
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %21, i8 0, i64 %conv115.pre-phi, i1 false)
   %cmp116.not = icmp eq ptr %inData, %outData
   br i1 %cmp116.not, label %if.end119, label %do.body
@@ -3603,7 +3591,7 @@ if.end132:                                        ; preds = %if.end119
   br i1 %cmp133, label %if.then134, label %if.end148
 
 if.then134:                                       ; preds = %if.end132
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
   %23 = load ptr, ptr %swapArray16, align 8
   %idx.ext135 = sext i32 %call74 to i64
   %add.ptr136 = getelementptr inbounds i32, ptr %add.ptr65, i64 %idx.ext135
@@ -3628,7 +3616,7 @@ if.end148:                                        ; preds = %if.then134, %if.end
   br i1 %or.cond, label %if.then154, label %if.else159
 
 if.then154:                                       ; preds = %if.end148
-  %rows156 = getelementptr inbounds %struct.TempTable, ptr %tempTable, i64 0, i32 1
+  %rows156 = getelementptr inbounds i8, ptr %tempTable, i64 8
   store ptr %rows, ptr %rows156, align 8
   br label %if.end181
 
@@ -3639,7 +3627,7 @@ if.else159:                                       ; preds = %if.end148
   %conv163 = sext i32 %mul162 to i64
   %add164 = add nsw i64 %mul161, %conv163
   %call165 = call noalias ptr @uprv_malloc_75(i64 noundef %add164) #20
-  %rows166 = getelementptr inbounds %struct.TempTable, ptr %tempTable, i64 0, i32 1
+  %rows166 = getelementptr inbounds i8, ptr %tempTable, i64 8
   store ptr %call165, ptr %rows166, align 8
   %cmp168 = icmp eq ptr %call165, null
   br i1 %cmp168, label %if.then169, label %if.end176
@@ -3660,7 +3648,7 @@ if.end176:                                        ; preds = %if.else159
 
 if.end181:                                        ; preds = %if.end176, %if.then154
   %add.ptr179.sink = phi ptr [ %add.ptr179, %if.end176 ], [ %resort, %if.then154 ]
-  %resort180 = getelementptr inbounds %struct.TempTable, ptr %tempTable, i64 0, i32 2
+  %resort180 = getelementptr inbounds i8, ptr %tempTable, i64 16
   store ptr %add.ptr179.sink, ptr %resort180, align 8
   call fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9TempTableP10UErrorCode(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr65, ptr noundef %add.ptr99, i32 noundef %call66, ptr noundef null, ptr noundef nonnull %tempTable, ptr noundef nonnull %pErrorCode)
   %25 = load i32, ptr %pErrorCode, align 4
@@ -3672,7 +3660,7 @@ if.then184:                                       ; preds = %if.end181
   br label %if.end185
 
 if.end185:                                        ; preds = %if.then184, %if.end181
-  %rows186 = getelementptr inbounds %struct.TempTable, ptr %tempTable, i64 0, i32 1
+  %rows186 = getelementptr inbounds i8, ptr %tempTable, i64 8
   %26 = load ptr, ptr %rows186, align 8
   %cmp188.not = icmp eq ptr %26, %rows
   br i1 %cmp188.not, label %if.end191, label %if.then189
@@ -3691,7 +3679,7 @@ if.then195:                                       ; preds = %if.end191
   br label %if.end197
 
 if.end197:                                        ; preds = %if.then195, %if.end191
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %28 = load ptr, ptr %swapArray32, align 8
   %mul198 = shl nuw nsw i32 %add, 2
   %call199 = call noundef i32 %28(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr65, i32 noundef %mul198, ptr noundef %add.ptr99, ptr noundef nonnull %pErrorCode)
@@ -3740,7 +3728,7 @@ sw.epilog:                                        ; preds = %entry
   br i1 %cmp, label %sw.epilog276, label %if.end
 
 if.end:                                           ; preds = %sw.epilog
-  %resFlags = getelementptr inbounds %struct.TempTable, ptr %pTempTable, i64 0, i32 3
+  %resFlags = getelementptr inbounds i8, ptr %pTempTable, i64 24
   %0 = load ptr, ptr %resFlags, align 8
   %shr1 = lshr i32 %and, 5
   %idxprom = zext nneg i32 %shr1 to i64
@@ -3771,21 +3759,21 @@ if.else:                                          ; preds = %if.end
 sw.bb16:                                          ; preds = %if.else, %if.else
   %2 = load i32, ptr %add.ptr, align 4
   %call = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %2)
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %3 = load ptr, ptr %swapArray32, align 8
   %call17 = tail call noundef i32 %3(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef %pErrorCode)
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
   %4 = load ptr, ptr %swapArray16, align 8
-  %add.ptr18 = getelementptr inbounds i32, ptr %add.ptr, i64 1
+  %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %mul = shl nsw i32 %call, 1
-  %add.ptr19 = getelementptr inbounds i32, ptr %add.ptr13, i64 1
+  %add.ptr19 = getelementptr inbounds i8, ptr %add.ptr13, i64 4
   %call20 = tail call noundef i32 %4(ptr noundef %ds, ptr noundef nonnull %add.ptr18, i32 noundef %mul, ptr noundef nonnull %add.ptr19, ptr noundef %pErrorCode)
   br label %sw.epilog276
 
 sw.bb21:                                          ; preds = %if.else
   %5 = load i32, ptr %add.ptr, align 4
   %call22 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %5)
-  %swapArray3223 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray3223 = getelementptr inbounds i8, ptr %ds, i64 56
   %6 = load ptr, ptr %swapArray3223, align 8
   %call24 = tail call noundef i32 %6(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef %pErrorCode)
   %cmp25.not = icmp eq ptr %key, null
@@ -3796,7 +3784,7 @@ land.lhs.true:                                    ; preds = %sw.bb21
   br i1 %cmp26.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %land.lhs.true
-  %compareInvChars = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 6
+  %compareInvChars = getelementptr inbounds i8, ptr %ds, i64 24
   %7 = load ptr, ptr %compareInvChars, align 8
   %call27 = tail call noundef i32 %7(ptr noundef nonnull %ds, ptr noundef nonnull %key, i32 noundef -1, ptr noundef nonnull @_ZL16gCollationBinKey, i32 noundef 14)
   %cmp28 = icmp eq i32 %call27, 0
@@ -3804,7 +3792,7 @@ cond.true:                                        ; preds = %land.lhs.true
   br label %cond.end
 
 cond.false:                                       ; preds = %land.lhs.true
-  %add.ptr29 = getelementptr inbounds i32, ptr %add.ptr, i64 1
+  %add.ptr29 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %call30 = tail call signext i8 @ucol_looksLikeCollationBinary_75(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr29, i32 noundef %call22)
   %conv31 = sext i8 %call30 to i32
   br label %cond.end
@@ -3815,21 +3803,21 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %tobool32.not, label %sw.epilog276, label %if.then33
 
 if.then33:                                        ; preds = %cond.end
-  %add.ptr34 = getelementptr inbounds i32, ptr %add.ptr, i64 1
-  %add.ptr35 = getelementptr inbounds i32, ptr %add.ptr13, i64 1
+  %add.ptr34 = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %add.ptr35 = getelementptr inbounds i8, ptr %add.ptr13, i64 4
   %call36 = tail call i32 @ucol_swap_75(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr34, i32 noundef %call22, ptr noundef nonnull %add.ptr35, ptr noundef %pErrorCode)
   br label %sw.epilog276
 
 if.then41:                                        ; preds = %if.else
-  %readUInt16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 4
+  %readUInt16 = getelementptr inbounds i8, ptr %ds, i64 8
   %8 = load ptr, ptr %readUInt16, align 8
   %9 = load i16, ptr %add.ptr, align 2
   %call42 = tail call noundef zeroext i16 %8(i16 noundef zeroext %9)
   %conv43 = zext i16 %call42 to i32
-  %swapArray1644 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray1644 = getelementptr inbounds i8, ptr %ds, i64 48
   %10 = load ptr, ptr %swapArray1644, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %add.ptr, i64 1
-  %incdec.ptr45 = getelementptr inbounds i16, ptr %add.ptr13, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %add.ptr13, i64 2
   %call46 = tail call noundef i32 %10(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 2, ptr noundef nonnull %add.ptr13, ptr noundef %pErrorCode)
   %add47 = add nuw nsw i32 %conv43, 2
   %div238 = lshr i32 %add47, 1
@@ -3838,10 +3826,10 @@ if.then41:                                        ; preds = %if.else
 if.else49:                                        ; preds = %if.else
   %11 = load i32, ptr %add.ptr, align 4
   %call50 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %11)
-  %swapArray3251 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray3251 = getelementptr inbounds i8, ptr %ds, i64 56
   %12 = load ptr, ptr %swapArray3251, align 8
-  %incdec.ptr52 = getelementptr inbounds i32, ptr %add.ptr, i64 1
-  %incdec.ptr53 = getelementptr inbounds i32, ptr %add.ptr13, i64 1
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %add.ptr13, i64 4
   %call54 = tail call noundef i32 %12(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef %pErrorCode)
   %add55 = add nsw i32 %call50, 1
   br label %if.end57
@@ -3866,9 +3854,9 @@ if.end60:                                         ; preds = %if.end57
 
 for.body.lr.ph:                                   ; preds = %if.end60
   %cmp66.not = icmp eq ptr %pKey16.0, null
-  %readUInt1668 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 4
-  %localKeyLimit = getelementptr inbounds %struct.TempTable, ptr %pTempTable, i64 0, i32 4
-  %readUInt32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 5
+  %readUInt1668 = getelementptr inbounds i8, ptr %ds, i64 8
+  %localKeyLimit = getelementptr inbounds i8, ptr %pTempTable, i64 32
+  %readUInt32 = getelementptr inbounds i8, ptr %ds, i64 16
   %wide.trip.count = zext nneg i32 %count.0 to i64
   br label %for.body
 
@@ -3925,15 +3913,15 @@ for.inc:                                          ; preds = %if.end88
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %if.end60
-  %majorFormatVersion = getelementptr inbounds %struct.TempTable, ptr %pTempTable, i64 0, i32 5
+  %majorFormatVersion = getelementptr inbounds i8, ptr %pTempTable, i64 36
   %21 = load i8, ptr %majorFormatVersion, align 4
   %cmp97 = icmp ugt i8 %21, 1
   br i1 %cmp97, label %if.then101, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end
-  %inCharset = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 1
+  %inCharset = getelementptr inbounds i8, ptr %ds, i64 1
   %22 = load i8, ptr %inCharset, align 1
-  %outCharset = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 3
+  %outCharset = getelementptr inbounds i8, ptr %ds, i64 3
   %23 = load i8, ptr %outCharset, align 1
   %cmp100 = icmp eq i8 %22, %23
   br i1 %cmp100, label %if.then101, label %if.end116
@@ -3943,18 +3931,18 @@ if.then101:                                       ; preds = %lor.lhs.false, %for
   br i1 %cmp102.not, label %if.else110, label %if.then103
 
 if.then103:                                       ; preds = %if.then101
-  %swapArray16104 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16104 = getelementptr inbounds i8, ptr %ds, i64 48
   %24 = load ptr, ptr %swapArray16104, align 8
   %mul105 = shl nsw i32 %count.0, 1
   %call106 = tail call noundef i32 %24(ptr noundef nonnull %ds, ptr noundef nonnull %pKey16.0, i32 noundef %mul105, ptr noundef %qKey16.0, ptr noundef %pErrorCode)
-  %swapArray32107 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32107 = getelementptr inbounds i8, ptr %ds, i64 56
   %25 = load ptr, ptr %swapArray32107, align 8
   %mul108 = shl nsw i32 %count.0, 2
   %call109 = tail call noundef i32 %25(ptr noundef nonnull %ds, ptr noundef %add.ptr62, i32 noundef %mul108, ptr noundef %add.ptr64, ptr noundef %pErrorCode)
   br label %sw.epilog276
 
 if.else110:                                       ; preds = %if.then101
-  %swapArray32111 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32111 = getelementptr inbounds i8, ptr %ds, i64 56
   %26 = load ptr, ptr %swapArray32111, align 8
   %mul113 = shl nsw i32 %count.0, 3
   %call114 = tail call noundef i32 %26(ptr noundef nonnull %ds, ptr noundef %pKey32.0, i32 noundef %mul113, ptr noundef %qKey32.0, ptr noundef %pErrorCode)
@@ -3968,8 +3956,8 @@ for.cond119.preheader:                            ; preds = %if.end116
   br i1 %cmp65246, label %for.body121.lr.ph, label %if.end153
 
 for.body121.lr.ph:                                ; preds = %for.cond119.preheader
-  %readUInt16122 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 4
-  %rows = getelementptr inbounds %struct.TempTable, ptr %pTempTable, i64 0, i32 1
+  %readUInt16122 = getelementptr inbounds i8, ptr %ds, i64 8
+  %rows = getelementptr inbounds i8, ptr %pTempTable, i64 8
   %wide.trip.count269 = zext nneg i32 %count.0 to i64
   br label %for.body121
 
@@ -3977,7 +3965,7 @@ for.cond136.preheader:                            ; preds = %if.end116
   br i1 %cmp65246, label %for.body138.lr.ph, label %if.end153
 
 for.body138.lr.ph:                                ; preds = %for.cond136.preheader
-  %rows142 = getelementptr inbounds %struct.TempTable, ptr %pTempTable, i64 0, i32 1
+  %rows142 = getelementptr inbounds i8, ptr %pTempTable, i64 8
   %wide.trip.count274 = zext nneg i32 %count.0 to i64
   br label %for.body138
 
@@ -4016,7 +4004,7 @@ for.body138:                                      ; preds = %for.body138.lr.ph, 
   br i1 %exitcond275.not, label %if.end153, label %for.body138, !llvm.loop !12
 
 if.end153:                                        ; preds = %for.body121, %for.body138, %for.cond119.preheader, %for.cond136.preheader
-  %rows154 = getelementptr inbounds %struct.TempTable, ptr %pTempTable, i64 0, i32 1
+  %rows154 = getelementptr inbounds i8, ptr %pTempTable, i64 8
   %36 = load ptr, ptr %rows154, align 8
   %37 = load ptr, ptr %pTempTable, align 8
   tail call void @uprv_sortArray_75(ptr noundef %36, i32 noundef %count.0, i32 noundef 8, ptr noundef nonnull @_ZL16ures_compareRowsPKvS0_S0_, ptr noundef %37, i8 noundef signext 0, ptr noundef %pErrorCode)
@@ -4036,7 +4024,7 @@ if.then160:                                       ; preds = %if.end158
   br i1 %cmp161.not, label %if.else163, label %if.end164
 
 if.else163:                                       ; preds = %if.then160
-  %resort = getelementptr inbounds %struct.TempTable, ptr %pTempTable, i64 0, i32 2
+  %resort = getelementptr inbounds i8, ptr %pTempTable, i64 16
   %39 = load ptr, ptr %resort, align 8
   br label %if.end164
 
@@ -4045,7 +4033,7 @@ if.end164:                                        ; preds = %if.then160, %if.els
   br i1 %cmp65246, label %for.body167.lr.ph, label %for.end180
 
 for.body167.lr.ph:                                ; preds = %if.end164
-  %swapArray16172 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16172 = getelementptr inbounds i8, ptr %ds, i64 48
   %wide.trip.count279 = zext nneg i32 %count.0 to i64
   br label %for.body167
 
@@ -4078,7 +4066,7 @@ if.else186:                                       ; preds = %if.end158
   br i1 %cmp187.not, label %if.else189, label %if.end191
 
 if.else189:                                       ; preds = %if.else186
-  %resort190 = getelementptr inbounds %struct.TempTable, ptr %pTempTable, i64 0, i32 2
+  %resort190 = getelementptr inbounds i8, ptr %pTempTable, i64 16
   %43 = load ptr, ptr %resort190, align 8
   br label %if.end191
 
@@ -4087,7 +4075,7 @@ if.end191:                                        ; preds = %if.else186, %if.els
   br i1 %cmp65246, label %for.body194.lr.ph, label %for.end207
 
 for.body194.lr.ph:                                ; preds = %if.end191
-  %swapArray32199 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32199 = getelementptr inbounds i8, ptr %ds, i64 56
   %wide.trip.count284 = zext nneg i32 %count.0 to i64
   br label %for.body194
 
@@ -4120,7 +4108,7 @@ if.end215:                                        ; preds = %for.end207, %do.bod
   br i1 %cmp216.not, label %if.else218, label %if.end220
 
 if.else218:                                       ; preds = %if.end215
-  %resort219 = getelementptr inbounds %struct.TempTable, ptr %pTempTable, i64 0, i32 2
+  %resort219 = getelementptr inbounds i8, ptr %pTempTable, i64 16
   %47 = load ptr, ptr %resort219, align 8
   br label %if.end220
 
@@ -4129,7 +4117,7 @@ if.end220:                                        ; preds = %if.end215, %if.else
   br i1 %cmp65246, label %for.body223.lr.ph, label %for.end236
 
 for.body223.lr.ph:                                ; preds = %if.end220
-  %swapArray32228 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32228 = getelementptr inbounds i8, ptr %ds, i64 56
   %wide.trip.count289 = zext nneg i32 %count.0 to i64
   br label %for.body223
 
@@ -4160,16 +4148,16 @@ do.body239:                                       ; preds = %for.end236
 sw.bb244:                                         ; preds = %if.else
   %51 = load i32, ptr %add.ptr, align 4
   %call247 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %51)
-  %swapArray32248 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32248 = getelementptr inbounds i8, ptr %ds, i64 56
   %52 = load ptr, ptr %swapArray32248, align 8
-  %incdec.ptr249 = getelementptr inbounds i32, ptr %add.ptr, i64 1
-  %incdec.ptr250 = getelementptr inbounds i32, ptr %add.ptr13, i64 1
+  %incdec.ptr249 = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %incdec.ptr250 = getelementptr inbounds i8, ptr %add.ptr13, i64 4
   %call251 = tail call noundef i32 %52(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef %pErrorCode)
   %cmp253258 = icmp sgt i32 %call247, 0
   br i1 %cmp253258, label %for.body254.lr.ph, label %for.end265
 
 for.body254.lr.ph:                                ; preds = %sw.bb244
-  %readUInt32255 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 5
+  %readUInt32255 = getelementptr inbounds i8, ptr %ds, i64 16
   %wide.trip.count294 = zext nneg i32 %call247 to i64
   br label %for.body254
 
@@ -4203,7 +4191,7 @@ for.end265:                                       ; preds = %for.inc263, %sw.bb2
 sw.bb269:                                         ; preds = %if.else
   %58 = load i32, ptr %add.ptr, align 4
   %call270 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %58)
-  %swapArray32271 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32271 = getelementptr inbounds i8, ptr %ds, i64 56
   %59 = load ptr, ptr %swapArray32271, align 8
   %add272 = shl i32 %call270, 2
   %mul273 = add i32 %add272, 4

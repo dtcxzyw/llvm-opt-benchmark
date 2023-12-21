@@ -36,7 +36,7 @@ if.then.i:                                        ; preds = %if.end.thread, %if.
   %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #4
   %0 = load i64, ptr %ts.i, align 8
   %mul.i = mul i64 %0, 1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %1 = load i64, ptr %tv_nsec.i, align 8
   %add.i = add i64 %mul.i, %1
   br label %get_clock.exit
@@ -46,7 +46,7 @@ if.else.i:                                        ; preds = %if.end
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #4
   %2 = load i64, ptr %tv.i.i, align 8
   %mul.i.i = mul i64 %2, 1000000000
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i = mul i64 %3, 1000
   %add.i.i = add i64 %mul1.i.i, %mul.i.i

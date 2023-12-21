@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.POLICY_MAPPING_st = type { ptr, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
 
 @ossl_v3_policy_mappings = local_unnamed_addr constant %struct.v3_ext_method { i32 747, i32 0, ptr @POLICY_MAPPINGS_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2v_POLICY_MAPPINGS, ptr @v2i_POLICY_MAPPINGS, ptr null, ptr null, ptr null }, align 8
 @POLICY_MAPPING_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @POLICY_MAPPING_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
@@ -44,7 +42,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call3 = call ptr @OPENSSL_sk_value(ptr noundef %a, i32 noundef %i.07) #3
   %0 = load ptr, ptr %call3, align 8
   %call4 = call i32 @i2t_ASN1_OBJECT(ptr noundef nonnull %obj_tmp1, i32 noundef 80, ptr noundef %0) #3
-  %subjectDomainPolicy = getelementptr inbounds %struct.POLICY_MAPPING_st, ptr %call3, i64 0, i32 1
+  %subjectDomainPolicy = getelementptr inbounds i8, ptr %call3, i64 8
   %1 = load ptr, ptr %subjectDomainPolicy, align 8
   %call6 = call i32 @i2t_ASN1_OBJECT(ptr noundef nonnull %obj_tmp2, i32 noundef 80, ptr noundef %1) #3
   %call9 = call i32 @X509V3_add_value(ptr noundef nonnull %obj_tmp1, ptr noundef nonnull %obj_tmp2, ptr noundef nonnull %ext_list.addr) #3
@@ -83,13 +81,13 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %if.end24
   %i.026 = phi i32 [ %inc, %if.end24 ], [ 0, %for.cond.preheader ]
   %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef %nval, i32 noundef %i.026) #3
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call6, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call6, i64 8
   %1 = load ptr, ptr %name, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %if.then8, label %if.end10
@@ -97,7 +95,7 @@ lor.lhs.false:                                    ; preds = %for.body
 if.then8:                                         ; preds = %lor.lhs.false, %for.body
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef 83, ptr noundef nonnull @__func__.v2i_POLICY_MAPPINGS) #3
-  %name9 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 1
+  %name9 = getelementptr inbounds i8, ptr %call6, i64 8
   %2 = load ptr, ptr %name9, align 8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 110, ptr noundef nonnull @.str.5, ptr noundef %2) #3
   br label %err
@@ -112,7 +110,7 @@ if.end10:                                         ; preds = %lor.lhs.false
   br i1 %or.cond, label %if.end20, label %if.then18
 
 if.then18:                                        ; preds = %if.end10
-  %name.le = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 1
+  %name.le = getelementptr inbounds i8, ptr %call6, i64 8
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef 90, ptr noundef nonnull @__func__.v2i_POLICY_MAPPINGS) #3
   %4 = load ptr, ptr %name.le, align 8
@@ -132,7 +130,7 @@ if.then23:                                        ; preds = %if.end20
 
 if.end24:                                         ; preds = %if.end20
   store ptr %call12, ptr %call1.i, align 8
-  %subjectDomainPolicy = getelementptr inbounds %struct.POLICY_MAPPING_st, ptr %call1.i, i64 0, i32 1
+  %subjectDomainPolicy = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call14, ptr %subjectDomainPolicy, align 8
   %call27 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call3, ptr noundef nonnull %call1.i) #3
   %inc = add nuw nsw i32 %i.026, 1

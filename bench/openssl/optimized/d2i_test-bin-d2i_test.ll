@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.error_enum = type { ptr, i32 }
-%struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 
 @test_get_options.options = internal constant [9 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -99,41 +98,41 @@ if.end12:                                         ; preds = %lor.lhs.false7
 if.then14:                                        ; preds = %if.end12
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.19, i32 noundef 143, ptr noundef nonnull @.str.24, ptr noundef %call1) #5
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.25) #5
-  %call1511 = tail call ptr @ASN1_ITEM_get(i64 noundef 0) #5
-  %cmp1612 = icmp eq ptr %call1511, null
-  br i1 %cmp1612, label %return, label %if.end18
+  %call1510 = tail call ptr @ASN1_ITEM_get(i64 noundef 0) #5
+  %cmp1611 = icmp eq ptr %call1510, null
+  br i1 %cmp1611, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.then14, %if.end18
-  %call1514 = phi ptr [ %call15, %if.end18 ], [ %call1511, %if.then14 ]
-  %i.013 = phi i64 [ %inc, %if.end18 ], [ 0, %if.then14 ]
-  %sname = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %call1514, i64 0, i32 6
+  %call1513 = phi ptr [ %call15, %if.end18 ], [ %call1510, %if.then14 ]
+  %i.012 = phi i64 [ %inc, %if.end18 ], [ 0, %if.then14 ]
+  %sname = getelementptr inbounds i8, ptr %call1513, i64 48
   %0 = load ptr, ptr %sname, align 8
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.26, ptr noundef %0) #5
-  %inc = add i64 %i.013, 1
+  %inc = add i64 %i.012, 1
   %call15 = tail call ptr @ASN1_ITEM_get(i64 noundef %inc) #5
   %cmp16 = icmp eq ptr %call15, null
   br i1 %cmp16, label %return, label %if.end18
 
-for.body:                                         ; preds = %if.end12, %for.inc27
-  %i.110 = phi i64 [ %inc28, %for.inc27 ], [ 0, %if.end12 ]
-  %arrayidx = getelementptr inbounds [5 x %struct.error_enum], ptr @setup_tests.expected_errors, i64 0, i64 %i.110
+for.cond20:                                       ; preds = %for.body
+  %inc28 = add nuw nsw i64 %i.19, 1
+  %exitcond.not = icmp eq i64 %inc28, 5
+  br i1 %exitcond.not, label %for.end29thread-pre-split, label %for.body, !llvm.loop !5
+
+for.body:                                         ; preds = %if.end12, %for.cond20
+  %i.19 = phi i64 [ %inc28, %for.cond20 ], [ 0, %if.end12 ]
+  %arrayidx = getelementptr inbounds [5 x %struct.error_enum], ptr @setup_tests.expected_errors, i64 0, i64 %i.19
   %1 = load ptr, ptr %arrayidx, align 16
   %call22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %call4) #6
   %cmp23 = icmp eq i32 %call22, 0
-  br i1 %cmp23, label %if.then24, label %for.inc27
+  br i1 %cmp23, label %if.then24, label %for.cond20
 
 if.then24:                                        ; preds = %for.body
-  %code = getelementptr inbounds [5 x %struct.error_enum], ptr @setup_tests.expected_errors, i64 0, i64 %i.110, i32 1
+  %code = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i32, ptr %code, align 8
   store i32 %2, ptr @expected_error, align 4
   br label %for.end29
 
-for.inc27:                                        ; preds = %for.body
-  %inc28 = add nuw nsw i64 %i.110, 1
-  %exitcond.not = icmp eq i64 %inc28, 5
-  br i1 %exitcond.not, label %for.end29thread-pre-split, label %for.body, !llvm.loop !5
-
-for.end29thread-pre-split:                        ; preds = %for.inc27
+for.end29thread-pre-split:                        ; preds = %for.cond20
   %.pr = load i32, ptr @expected_error, align 4
   br label %for.end29
 

@@ -10,23 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon.2, %struct.anon.3 }
 %struct.anon.2 = type { i32, i32, i8, ptr }
 %struct.anon.3 = type { i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.IMXUSBPHYState = type { %struct.SysBusDevice, %struct.MemoryRegion, [33 x i32] }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
 
 @imx_usbphy_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 1232, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @imx_usbphy_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [11 x i8] c"imx.usbphy\00", align 1
@@ -76,13 +59,13 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @imx_usbphy_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #2
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @imx_usbphy_reset, ptr %reset, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_imx_usbphy, ptr %vmsd, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @imx_usbphy_realize, ptr %realize, align 8
   ret void
 }
@@ -91,23 +74,23 @@ entry:
 define internal void @imx_usbphy_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 42, ptr noundef nonnull @__func__.IMX_USBPHY) #2
-  %arrayidx = getelementptr %struct.IMXUSBPHYState, ptr %call.i, i64 0, i32 2, i64 16
+  %arrayidx = getelementptr i8, ptr %call.i, i64 1152
   store i32 0, ptr %arrayidx, align 16
-  %arrayidx2 = getelementptr %struct.IMXUSBPHYState, ptr %call.i, i64 0, i32 2, i64 20
+  %arrayidx2 = getelementptr i8, ptr %call.i, i64 1168
   store i32 2132279296, ptr %arrayidx2, align 16
-  %arrayidx4 = getelementptr %struct.IMXUSBPHYState, ptr %call.i, i64 0, i32 2, i64 24
+  %arrayidx4 = getelementptr i8, ptr %call.i, i64 1184
   store i32 0, ptr %arrayidx4, align 16
-  %arrayidx6 = getelementptr %struct.IMXUSBPHYState, ptr %call.i, i64 0, i32 2, i64 28
+  %arrayidx6 = getelementptr i8, ptr %call.i, i64 1200
   store i32 4096, ptr %arrayidx6, align 16
-  %arrayidx8 = getelementptr %struct.IMXUSBPHYState, ptr %call.i, i64 0, i32 2, i64 32
+  %arrayidx8 = getelementptr i8, ptr %call.i, i64 1216
   store i32 67239936, ptr %arrayidx8, align 16
-  %usbphy.i = getelementptr inbounds %struct.IMXUSBPHYState, ptr %call.i, i64 0, i32 2
+  %usbphy.i = getelementptr inbounds i8, ptr %call.i, i64 1088
   store i32 1973248, ptr %usbphy.i, align 16
-  %arrayidx2.i = getelementptr %struct.IMXUSBPHYState, ptr %call.i, i64 0, i32 2, i64 4
+  %arrayidx2.i = getelementptr i8, ptr %call.i, i64 1104
   store i32 268830215, ptr %arrayidx2.i, align 16
-  %arrayidx4.i = getelementptr %struct.IMXUSBPHYState, ptr %call.i, i64 0, i32 2, i64 8
+  %arrayidx4.i = getelementptr i8, ptr %call.i, i64 1120
   store i32 0, ptr %arrayidx4.i, align 16
-  %arrayidx6.i = getelementptr %struct.IMXUSBPHYState, ptr %call.i, i64 0, i32 2, i64 12
+  %arrayidx6.i = getelementptr i8, ptr %call.i, i64 1136
   store i32 -1071644672, ptr %arrayidx6.i, align 16
   ret void
 }
@@ -116,7 +99,7 @@ entry:
 define internal void @imx_usbphy_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 42, ptr noundef nonnull @__func__.IMX_USBPHY) #2
-  %iomem = getelementptr inbounds %struct.IMXUSBPHYState, ptr %call.i, i64 0, i32 1
+  %iomem = getelementptr inbounds i8, ptr %call.i, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %iomem, ptr noundef %call.i, ptr noundef nonnull @imx_usbphy_ops, ptr noundef %call.i, ptr noundef nonnull @.str.7, i64 noundef 4096) #2
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #2
   tail call void @sysbus_init_mmio(ptr noundef %call.i5, ptr noundef nonnull %iomem) #2
@@ -158,23 +141,26 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry, %entry, %entry, %entry, %entry
+  %usbphy = getelementptr inbounds i8, ptr %opaque, i64 1088
   %sub = add nuw nsw i64 %shr, 4294967295
   %idxprom = and i64 %sub, 4294967295
-  %arrayidx = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [33 x i32], ptr %usbphy, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry
+  %usbphy2 = getelementptr inbounds i8, ptr %opaque, i64 1088
   %sub3 = add nuw nsw i64 %shr, 4294967294
   %idxprom4 = and i64 %sub3, 4294967295
-  %arrayidx5 = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 %idxprom4
+  %arrayidx5 = getelementptr [33 x i32], ptr %usbphy2, i64 0, i64 %idxprom4
   %1 = load i32, ptr %arrayidx5, align 4
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry
+  %usbphy7 = getelementptr inbounds i8, ptr %opaque, i64 1088
   %sub8 = add nuw nsw i64 %shr, 4294967293
   %idxprom9 = and i64 %sub8, 4294967295
-  %arrayidx10 = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 %idxprom9
+  %arrayidx10 = getelementptr [33 x i32], ptr %usbphy7, i64 0, i64 %idxprom9
   %2 = load i32, ptr %arrayidx10, align 4
   br label %sw.epilog
 
@@ -183,8 +169,9 @@ sw.default:                                       ; preds = %entry
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %sw.default
+  %usbphy12 = getelementptr inbounds i8, ptr %opaque, i64 1088
   %idxprom13 = and i64 %shr, 4294967295
-  %arrayidx14 = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 %idxprom13
+  %arrayidx14 = getelementptr [33 x i32], ptr %usbphy12, i64 0, i64 %idxprom13
   %3 = load i32, ptr %arrayidx14, align 4
   br label %sw.epilog
 
@@ -239,31 +226,32 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %conv1 = trunc i64 %value to i32
-  %arrayidx = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 12
+  %arrayidx = getelementptr i8, ptr %opaque, i64 1136
   store i32 %conv1, ptr %arrayidx, align 4
   %and = and i64 %value, 2147483648
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %sw.epilog, label %if.then
 
 if.then:                                          ; preds = %sw.bb
-  %usbphy.i = getelementptr inbounds %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2
+  %usbphy.i = getelementptr inbounds i8, ptr %opaque, i64 1088
   store i32 1973248, ptr %usbphy.i, align 16
-  %arrayidx2.i = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 4
+  %arrayidx2.i = getelementptr i8, ptr %opaque, i64 1104
   store i32 268830215, ptr %arrayidx2.i, align 16
-  %arrayidx4.i = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 8
+  %arrayidx4.i = getelementptr i8, ptr %opaque, i64 1120
   store i32 0, ptr %arrayidx4.i, align 16
   store i32 -1071644672, ptr %arrayidx, align 16
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry
   %conv3 = trunc i64 %value to i32
+  %usbphy4 = getelementptr inbounds i8, ptr %opaque, i64 1088
   %idxprom5 = and i64 %shr, 4294967295
-  %arrayidx6 = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 %idxprom5
+  %arrayidx6 = getelementptr [33 x i32], ptr %usbphy4, i64 0, i64 %idxprom5
   store i32 %conv3, ptr %arrayidx6, align 4
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %arrayidx10 = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 12
+  %arrayidx10 = getelementptr i8, ptr %opaque, i64 1136
   %0 = load i32, ptr %arrayidx10, align 4
   %1 = trunc i64 %value to i32
   %conv12 = or i32 %0, %1
@@ -273,19 +261,20 @@ sw.bb7:                                           ; preds = %entry
   br i1 %tobool14.not, label %sw.epilog, label %if.then15
 
 if.then15:                                        ; preds = %sw.bb7
-  %usbphy.i30 = getelementptr inbounds %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2
+  %usbphy.i30 = getelementptr inbounds i8, ptr %opaque, i64 1088
   store i32 1973248, ptr %usbphy.i30, align 16
-  %arrayidx2.i31 = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 4
+  %arrayidx2.i31 = getelementptr i8, ptr %opaque, i64 1104
   store i32 268830215, ptr %arrayidx2.i31, align 16
-  %arrayidx4.i32 = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 8
+  %arrayidx4.i32 = getelementptr i8, ptr %opaque, i64 1120
   store i32 0, ptr %arrayidx4.i32, align 16
   store i32 -1071644672, ptr %arrayidx10, align 16
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %entry, %entry, %entry, %entry, %entry
+  %usbphy18 = getelementptr inbounds i8, ptr %opaque, i64 1088
   %sub19 = add nuw nsw i64 %shr, 4294967295
   %idxprom20 = and i64 %sub19, 4294967295
-  %arrayidx21 = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 %idxprom20
+  %arrayidx21 = getelementptr [33 x i32], ptr %usbphy18, i64 0, i64 %idxprom20
   %2 = load i32, ptr %arrayidx21, align 4
   %3 = trunc i64 %value to i32
   %conv24 = or i32 %2, %3
@@ -293,9 +282,10 @@ sw.bb17:                                          ; preds = %entry, %entry, %ent
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry
+  %usbphy26 = getelementptr inbounds i8, ptr %opaque, i64 1088
   %sub27 = add nuw nsw i64 %shr, 4294967294
   %idxprom28 = and i64 %sub27, 4294967295
-  %arrayidx29 = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 %idxprom28
+  %arrayidx29 = getelementptr [33 x i32], ptr %usbphy26, i64 0, i64 %idxprom28
   %4 = load i32, ptr %arrayidx29, align 4
   %5 = trunc i64 %value to i32
   %6 = xor i32 %5, -1
@@ -304,7 +294,7 @@ sw.bb25:                                          ; preds = %entry, %entry, %ent
   br label %sw.epilog
 
 sw.bb33:                                          ; preds = %entry
-  %arrayidx37 = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 12
+  %arrayidx37 = getelementptr i8, ptr %opaque, i64 1136
   %7 = load i32, ptr %arrayidx37, align 4
   %8 = trunc i64 %value to i32
   %conv39 = xor i32 %7, %8
@@ -316,19 +306,20 @@ sw.bb33:                                          ; preds = %entry
   br i1 %or.cond, label %sw.epilog, label %if.then49
 
 if.then49:                                        ; preds = %sw.bb33
-  %usbphy.i34 = getelementptr inbounds %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2
+  %usbphy.i34 = getelementptr inbounds i8, ptr %opaque, i64 1088
   store i32 1973248, ptr %usbphy.i34, align 16
-  %arrayidx2.i35 = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 4
+  %arrayidx2.i35 = getelementptr i8, ptr %opaque, i64 1104
   store i32 268830215, ptr %arrayidx2.i35, align 16
-  %arrayidx4.i36 = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 8
+  %arrayidx4.i36 = getelementptr i8, ptr %opaque, i64 1120
   store i32 0, ptr %arrayidx4.i36, align 16
   store i32 -1071644672, ptr %arrayidx37, align 16
   br label %sw.epilog
 
 sw.bb51:                                          ; preds = %entry, %entry, %entry, %entry, %entry
+  %usbphy52 = getelementptr inbounds i8, ptr %opaque, i64 1088
   %sub53 = add nuw nsw i64 %shr, 4294967293
   %idxprom54 = and i64 %sub53, 4294967295
-  %arrayidx55 = getelementptr %struct.IMXUSBPHYState, ptr %opaque, i64 0, i32 2, i64 %idxprom54
+  %arrayidx55 = getelementptr [33 x i32], ptr %usbphy52, i64 0, i64 %idxprom54
   %9 = load i32, ptr %arrayidx55, align 4
   %10 = trunc i64 %value to i32
   %conv58 = xor i32 %9, %10

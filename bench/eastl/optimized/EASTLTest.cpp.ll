@@ -3,8 +3,6 @@ source_filename = "bench/eastl/original/EASTLTest.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.MallocAllocator = type { i32, i32, i64 }
-
 @_ZN10TestObject8sTOCountE = dso_local local_unnamed_addr global i64 0, align 8
 @_ZN10TestObject12sTOCtorCountE = dso_local local_unnamed_addr global i64 0, align 8
 @_ZN10TestObject12sTODtorCountE = dso_local local_unnamed_addr global i64 0, align 8
@@ -55,11 +53,11 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @_ZN15MallocAllocator10deallocateEPvm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef %p, i64 noundef %n) local_unnamed_addr #1 align 2 {
 entry:
-  %mFreeCount = getelementptr inbounds %class.MallocAllocator, ptr %this, i64 0, i32 1
+  %mFreeCount = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %mFreeCount, align 4
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %mFreeCount, align 4
-  %mAllocVolume = getelementptr inbounds %class.MallocAllocator, ptr %this, i64 0, i32 2
+  %mAllocVolume = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %mAllocVolume, align 8
   %sub = sub i64 %1, %n
   store i64 %sub, ptr %mAllocVolume, align 8
@@ -82,7 +80,7 @@ entry:
   %1 = load i32, ptr %this, align 8
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %this, align 8
-  %mAllocVolume = getelementptr inbounds %class.MallocAllocator, ptr %this, i64 0, i32 2
+  %mAllocVolume = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mAllocVolume, align 8
   %add = add i64 %2, %n
   store i64 %add, ptr %mAllocVolume, align 8
@@ -106,7 +104,7 @@ entry:
   %3 = load i32, ptr %this, align 8
   %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %this, align 8
-  %mAllocVolume = getelementptr inbounds %class.MallocAllocator, ptr %this, i64 0, i32 2
+  %mAllocVolume = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mAllocVolume, align 8
   %add = add i64 %4, %n
   store i64 %add, ptr %mAllocVolume, align 8

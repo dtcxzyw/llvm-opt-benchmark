@@ -3,9 +3,6 @@ source_filename = "bench/cpython/original/utf8_tokenizer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.tok_state = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, [100 x i32], i32, i32, ptr, ptr, i32, i32, i32, i32, i32, [200 x i8], [200 x i32], [200 x i32], ptr, [100 x i32], i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, [150 x %struct._tokenizer_mode], i32, i32, i32, i32 }
-%struct._tokenizer_mode = type { i32, i32, i32, i8, i32, i32, ptr, ptr, i32, i64, i64, i64, i64, ptr, i32 }
-
 @.str = private unnamed_addr constant [6 x i8] c"utf-8\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -17,7 +14,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @_PyTokenizer_translate_newlines(ptr noundef %str, i32 noundef %exec_input, i32 noundef %preserve_crlf, ptr noundef nonnull %call) #5
-  %input = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 38
+  %input = getelementptr inbounds i8, ptr %call, i64 2824
   store ptr %call1, ptr %input, align 8
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then3, label %if.end4
@@ -27,14 +24,14 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %decoding_state = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 27
+  %decoding_state = getelementptr inbounds i8, ptr %call, i64 2744
   store i32 2, ptr %decoding_state, align 8
-  %enc = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 36
+  %enc = getelementptr inbounds i8, ptr %call, i64 2808
   store ptr null, ptr %enc, align 8
-  %str5 = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 37
+  %str5 = getelementptr inbounds i8, ptr %call, i64 2816
   store ptr %call1, ptr %str5, align 8
   %call6 = tail call ptr @_PyTokenizer_new_string(ptr noundef nonnull @.str, i64 noundef 5, ptr noundef nonnull %call) #5
-  %encoding = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 29
+  %encoding = getelementptr inbounds i8, ptr %call, i64 2752
   store ptr %call6, ptr %encoding, align 8
   %tobool.not = icmp eq ptr %call6, null
   br i1 %tobool.not, label %if.then8, label %if.end9
@@ -44,14 +41,14 @@ if.then8:                                         ; preds = %if.end4
   br label %return
 
 if.end9:                                          ; preds = %if.end4
-  %inp = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 2
+  %inp = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call1, ptr %inp, align 8
-  %cur = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %cur, align 8
   store ptr %call1, ptr %call, align 8
-  %end = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 6
+  %end = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call1, ptr %end, align 8
-  %underflow = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 41
+  %underflow = getelementptr inbounds i8, ptr %call, i64 2840
   store ptr @tok_underflow_string, ptr %underflow, align 8
   br label %return
 
@@ -71,7 +68,7 @@ declare ptr @_PyTokenizer_new_string(ptr noundef, i64 noundef, ptr noundef) loca
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal i32 @tok_underflow_string(ptr nocapture noundef %tok) #2 {
 entry:
-  %inp = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
+  %inp = getelementptr inbounds i8, ptr %tok, i64 16
   %0 = load ptr, ptr %inp, align 8
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 10) #6
   %cmp.not = icmp eq ptr %call, null
@@ -88,16 +85,16 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
-  %done = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 11, ptr %done, align 8
   br label %return
 
 if.end6:                                          ; preds = %if.else, %if.then
   %end.0 = phi ptr [ %incdec.ptr, %if.then ], [ %strchr, %if.else ]
-  %start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 7
+  %start = getelementptr inbounds i8, ptr %tok, i64 56
   %1 = load ptr, ptr %start, align 8
   %cmp7 = icmp eq ptr %1, null
-  %cur = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %tok, i64 8
   %2 = load ptr, ptr %cur, align 8
   br i1 %cmp7, label %if.then8, label %if.end9
 
@@ -106,13 +103,13 @@ if.then8:                                         ; preds = %if.end6
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end6, %if.then8
-  %line_start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
+  %line_start = getelementptr inbounds i8, ptr %tok, i64 2768
   store ptr %2, ptr %line_start, align 8
-  %lineno = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 17
+  %lineno = getelementptr inbounds i8, ptr %tok, i64 512
   %3 = load i32, ptr %lineno, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %lineno, align 8
-  %col_offset = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset = getelementptr inbounds i8, ptr %tok, i64 524
   store i32 0, ptr %col_offset, align 4
   store ptr %end.0, ptr %inp, align 8
   br label %return

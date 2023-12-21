@@ -109,7 +109,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp44.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data_len4 = getelementptr inbounds %struct.bio_msg_st, ptr %msg, i64 0, i32 1
+  %data_len4 = getelementptr inbounds i8, ptr %msg, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -150,14 +150,14 @@ for.cond19.preheader:                             ; preds = %if.end15
   br i1 %cmp2049.not, label %for.end60, label %for.body21.lr.ph
 
 for.body21.lr.ph:                                 ; preds = %for.cond19.preheader
-  %remaining.i = getelementptr inbounds %struct.PACKET, ptr %pkt, i64 0, i32 1
+  %remaining.i = getelementptr inbounds i8, ptr %pkt, i64 8
   br label %for.body21
 
 for.body21:                                       ; preds = %for.body21.lr.ph, %for.inc58
   %thismsg.052 = phi ptr [ %msg, %for.body21.lr.ph ], [ %incdec.ptr, %for.inc58 ]
   %msg_cnt.051 = phi i64 [ %2, %for.body21.lr.ph ], [ %msg_cnt.1, %for.inc58 ]
   %i.150 = phi i64 [ 0, %for.body21.lr.ph ], [ %inc59, %for.inc58 ]
-  %data_len22 = getelementptr inbounds %struct.bio_msg_st, ptr %thismsg.052, i64 0, i32 1
+  %data_len22 = getelementptr inbounds i8, ptr %thismsg.052, i64 8
   %3 = load i64, ptr %data_len22, align 8
   %cmp.i = icmp slt i64 %3, 0
   br i1 %cmp.i, label %return, label %if.end26
@@ -187,7 +187,7 @@ for.cond34:                                       ; preds = %for.body36
 for.body36:                                       ; preds = %for.cond34.preheader, %for.cond34
   %j.048 = phi i64 [ %dec, %for.cond34 ], [ %msg_cnt.051, %for.cond34.preheader ]
   %arrayidx37 = getelementptr inbounds %struct.bio_msg_st, ptr %msg, i64 %j.048
-  %arrayidx38 = getelementptr %struct.bio_msg_st, ptr %arrayidx37, i64 -1
+  %arrayidx38 = getelementptr i8, ptr %arrayidx37, i64 -40
   %call39 = call i32 @bio_msg_copy(ptr noundef nonnull %arrayidx37, ptr noundef %arrayidx38) #3
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %return, label %for.cond34
@@ -197,8 +197,8 @@ for.end44:                                        ; preds = %for.cond34, %for.co
   %sub46 = sub i64 %5, %pkt.val
   store i64 %sub46, ptr %data_len22, align 8
   %6 = getelementptr %struct.bio_msg_st, ptr %msg, i64 %i.150
-  %arrayidx47 = getelementptr %struct.bio_msg_st, ptr %6, i64 1
-  %data_len48 = getelementptr %struct.bio_msg_st, ptr %6, i64 1, i32 1
+  %arrayidx47 = getelementptr i8, ptr %6, i64 40
+  %data_len48 = getelementptr i8, ptr %6, i64 48
   store i64 %pkt.val, ptr %data_len48, align 8
   %7 = load ptr, ptr %arrayidx47, align 8
   %8 = load i64, ptr %data_len22, align 8
@@ -210,7 +210,7 @@ for.end44:                                        ; preds = %for.cond34, %for.co
 for.inc58:                                        ; preds = %if.end30, %for.end44
   %msg_cnt.1 = phi i64 [ %inc56, %for.end44 ], [ %msg_cnt.051, %if.end30 ]
   %inc59 = add nuw i64 %i.150, 1
-  %incdec.ptr = getelementptr inbounds %struct.bio_msg_st, ptr %thismsg.052, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %thismsg.052, i64 40
   %cmp20 = icmp ult i64 %inc59, %msg_cnt.1
   br i1 %cmp20, label %for.body21, label %for.end60, !llvm.loop !8
 

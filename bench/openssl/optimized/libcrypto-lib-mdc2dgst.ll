@@ -3,7 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-mdc2dgst.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.mdc2_ctx_st = type { i32, [8 x i8], [8 x i8], [8 x i8], i32 }
 %struct.DES_ks = type { [16 x %union.anon] }
 %union.anon = type { [2 x i32] }
 
@@ -11,11 +10,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define i32 @MDC2_Init(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %c, align 4
-  %pad_type = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 4
+  %pad_type = getelementptr inbounds i8, ptr %c, i64 28
   store i32 1, ptr %pad_type, align 4
-  %h = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 2
+  %h = getelementptr inbounds i8, ptr %c, i64 12
   store i64 5931894172722287186, ptr %h, align 4
-  %hh = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 3
+  %hh = getelementptr inbounds i8, ptr %c, i64 20
   store i64 2676586395008836901, ptr %hh, align 4
   ret i32 1
 }
@@ -27,17 +26,18 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define i32 @MDC2_Update(ptr noundef %c, ptr nocapture noundef readonly %in, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %c, align 4
-  %conv = zext i32 %0 to i64
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %entry
+  %conv = zext i32 %0 to i64
   %sub = sub nsw i64 8, %conv
   %cmp2 = icmp ugt i64 %sub, %len
+  %data = getelementptr inbounds i8, ptr %c, i64 4
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %data, i64 0, i64 %conv
   br i1 %cmp2, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 1, i64 %conv
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr align 1 %in, i64 %len, i1 false)
   %conv5 = trunc i64 %len to i32
   %1 = load i32, ptr %c, align 4
@@ -45,13 +45,11 @@ if.then4:                                         ; preds = %if.then
   br label %return.sink.split
 
 if.else:                                          ; preds = %if.then
-  %data8 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 1
-  %arrayidx9 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 1, i64 %conv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx9, ptr align 1 %in, i64 %sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr align 1 %in, i64 %sub, i1 false)
   %sub10 = sub i64 %len, %sub
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %sub
   store i32 0, ptr %c, align 4
-  tail call fastcc void @mdc2_body(ptr noundef nonnull %c, ptr noundef nonnull %data8, i64 noundef 8)
+  tail call fastcc void @mdc2_body(ptr noundef nonnull %c, ptr noundef nonnull %data, i64 noundef 8)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %entry
@@ -71,7 +69,7 @@ if.end18:                                         ; preds = %if.then17, %if.end1
   br i1 %cmp20.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.end18
-  %data23 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 1
+  %data23 = getelementptr inbounds i8, ptr %c, i64 4
   %arrayidx25 = getelementptr inbounds i8, ptr %in.addr.0, i64 %and
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data23, ptr align 1 %arrayidx25, i64 %sub19, i1 false)
   %conv26 = trunc i64 %sub19 to i32
@@ -99,24 +97,24 @@ entry:
   br i1 %cmp57.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx26 = getelementptr inbounds [2 x i32], ptr %dd, i64 0, i64 1
-  %arrayidx27 = getelementptr inbounds [2 x i32], ptr %d, i64 0, i64 1
-  %h = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 2
-  %hh = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 3
-  %incdec.ptr57 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 2, i64 1
-  %incdec.ptr60 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 2, i64 2
-  %incdec.ptr64 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 2, i64 3
-  %incdec.ptr68 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 2, i64 4
-  %incdec.ptr71 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 2, i64 5
-  %incdec.ptr75 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 2, i64 6
-  %incdec.ptr79 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 2, i64 7
-  %incdec.ptr88 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 3, i64 1
-  %incdec.ptr92 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 3, i64 2
-  %incdec.ptr96 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 3, i64 3
-  %incdec.ptr100 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 3, i64 4
-  %incdec.ptr103 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 3, i64 5
-  %incdec.ptr107 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 3, i64 6
-  %incdec.ptr111 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 3, i64 7
+  %arrayidx26 = getelementptr inbounds i8, ptr %dd, i64 4
+  %arrayidx27 = getelementptr inbounds i8, ptr %d, i64 4
+  %h = getelementptr inbounds i8, ptr %c, i64 12
+  %hh = getelementptr inbounds i8, ptr %c, i64 20
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %c, i64 13
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %c, i64 14
+  %incdec.ptr64 = getelementptr inbounds i8, ptr %c, i64 15
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %c, i64 16
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %c, i64 17
+  %incdec.ptr75 = getelementptr inbounds i8, ptr %c, i64 18
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %c, i64 19
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %c, i64 21
+  %incdec.ptr92 = getelementptr inbounds i8, ptr %c, i64 22
+  %incdec.ptr96 = getelementptr inbounds i8, ptr %c, i64 23
+  %incdec.ptr100 = getelementptr inbounds i8, ptr %c, i64 24
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %c, i64 25
+  %incdec.ptr107 = getelementptr inbounds i8, ptr %c, i64 26
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %c, i64 27
   %.pre = load i8, ptr %h, align 4
   %.pre60 = load i8, ptr %hh, align 4
   br label %for.body
@@ -232,7 +230,7 @@ for.end:                                          ; preds = %for.body, %entry
 define i32 @MDC2_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %c, align 4
-  %pad_type = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 4
+  %pad_type = getelementptr inbounds i8, ptr %c, i64 28
   %1 = load i32, ptr %pad_type, align 4
   %cmp = icmp ne i32 %0, 0
   %cmp1 = icmp eq i32 %1, 2
@@ -243,17 +241,18 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
+  %data = getelementptr inbounds i8, ptr %c, i64 4
   %inc = add i32 %0, 1
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %data, i64 0, i64 %idxprom
   store i8 -128, ptr %arrayidx, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
   %i.0 = phi i32 [ %inc, %if.then3 ], [ %0, %if.then ]
-  %data4 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 1
+  %data4 = getelementptr inbounds i8, ptr %c, i64 4
   %idxprom5 = zext i32 %i.0 to i64
-  %arrayidx6 = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 1, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds [8 x i8], ptr %data4, i64 0, i64 %idxprom5
   %sub = sub i32 8, %i.0
   %conv = zext i32 %sub to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx6, i8 0, i64 %conv, i1 false)
@@ -261,11 +260,11 @@ if.end:                                           ; preds = %if.then3, %if.then
   br label %if.end8
 
 if.end8:                                          ; preds = %entry, %if.end
-  %h = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 2
+  %h = getelementptr inbounds i8, ptr %c, i64 12
   %2 = load i64, ptr %h, align 4
   store i64 %2, ptr %md, align 1
   %arrayidx10 = getelementptr inbounds i8, ptr %md, i64 8
-  %hh = getelementptr inbounds %struct.mdc2_ctx_st, ptr %c, i64 0, i32 3
+  %hh = getelementptr inbounds i8, ptr %c, i64 20
   %3 = load i64, ptr %hh, align 4
   store i64 %3, ptr %arrayidx10, align 1
   ret i32 1

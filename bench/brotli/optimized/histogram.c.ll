@@ -3,7 +3,6 @@ source_filename = "bench/brotli/original/histogram.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BlockSplit = type { i64, i64, ptr, ptr, i64, i64 }
 %struct.Command = type { i32, i32, i32, i16, i16 }
 %struct.HistogramCommand = type { [704 x i32], i64, double }
 %struct.HistogramLiteral = type { [256 x i32], i64, double }
@@ -14,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @BrotliBuildHistogramsWithContext(ptr nocapture noundef readonly %cmds, i64 noundef %num_commands, ptr nocapture noundef readonly %literal_split, ptr nocapture noundef readonly %insert_and_copy_split, ptr nocapture noundef readonly %dist_split, ptr nocapture noundef readonly %ringbuffer, i64 noundef %start_pos, i64 noundef %mask, i8 noundef zeroext %prev_byte, i8 noundef zeroext %prev_byte2, ptr noundef readonly %context_modes, ptr nocapture noundef %literal_histograms, ptr nocapture noundef %insert_and_copy_histograms, ptr nocapture noundef %copy_dist_histograms) local_unnamed_addr #0 {
 entry:
-  %lengths.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 3
+  %lengths.i = getelementptr inbounds i8, ptr %literal_split, i64 24
   %0 = load ptr, ptr %lengths.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %InitBlockSplitIterator.exit, label %cond.true.i
@@ -26,7 +25,7 @@ cond.true.i:                                      ; preds = %entry
 
 InitBlockSplitIterator.exit:                      ; preds = %entry, %cond.true.i
   %cond.i = phi i64 [ %2, %cond.true.i ], [ 0, %entry ]
-  %lengths.i39 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 3
+  %lengths.i39 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 24
   %3 = load ptr, ptr %lengths.i39, align 8
   %tobool.not.i40 = icmp eq ptr %3, null
   br i1 %tobool.not.i40, label %InitBlockSplitIterator.exit44, label %cond.true.i41
@@ -38,7 +37,7 @@ cond.true.i41:                                    ; preds = %InitBlockSplitItera
 
 InitBlockSplitIterator.exit44:                    ; preds = %InitBlockSplitIterator.exit, %cond.true.i41
   %cond.i42 = phi i64 [ %5, %cond.true.i41 ], [ 0, %InitBlockSplitIterator.exit ]
-  %lengths.i46 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 3
+  %lengths.i46 = getelementptr inbounds i8, ptr %dist_split, i64 24
   %6 = load ptr, ptr %lengths.i46, align 8
   %tobool.not.i47 = icmp eq ptr %6, null
   br i1 %tobool.not.i47, label %InitBlockSplitIterator.exit51, label %cond.true.i48
@@ -54,10 +53,10 @@ InitBlockSplitIterator.exit51:                    ; preds = %InitBlockSplitItera
   br i1 %cmp105.not, label %for.end52, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %InitBlockSplitIterator.exit51
-  %types.i = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 2
-  %types.i65 = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 2
+  %types.i = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 16
+  %types.i65 = getelementptr inbounds i8, ptr %literal_split, i64 16
   %tobool.not = icmp eq ptr %context_modes, null
-  %types.i79 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 2
+  %types.i79 = getelementptr inbounds i8, ptr %dist_split, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc50
@@ -96,14 +95,14 @@ BlockSplitIteratorNext.exit:                      ; preds = %for.body, %if.then.
   %13 = phi i64 [ %conv5.i, %if.then.i ], [ %insert_and_copy_it.sroa.7.0108, %for.body ]
   %dec.i = add i64 %13, -1
   %arrayidx1 = getelementptr inbounds %struct.HistogramCommand, ptr %insert_and_copy_histograms, i64 %insert_and_copy_it.sroa.5.1
-  %cmd_prefix_ = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i.0116, i32 3
+  %cmd_prefix_ = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %14 = load i16, ptr %cmd_prefix_, align 4
   %conv = zext i16 %14 to i64
   %arrayidx.i = getelementptr inbounds [704 x i32], ptr %arrayidx1, i64 0, i64 %conv
   %15 = load i32, ptr %arrayidx.i, align 4
   %inc.i = add i32 %15, 1
   store i32 %inc.i, ptr %arrayidx.i, align 4
-  %total_count_.i = getelementptr inbounds %struct.HistogramCommand, ptr %insert_and_copy_histograms, i64 %insert_and_copy_it.sroa.5.1, i32 1
+  %total_count_.i = getelementptr inbounds i8, ptr %arrayidx1, i64 2816
   %16 = load i64, ptr %total_count_.i, align 8
   %inc1.i = add i64 %16, 1
   store i64 %inc1.i, ptr %total_count_.i, align 8
@@ -151,7 +150,7 @@ BlockSplitIteratorNext.exit72.us:                 ; preds = %if.then.i62.us, %fo
   %24 = load i32, ptr %arrayidx.i55.us, align 4
   %inc.i56.us = add i32 %24, 1
   store i32 %inc.i56.us, ptr %arrayidx.i55.us, align 4
-  %total_count_.i57.us = getelementptr inbounds %struct.HistogramLiteral, ptr %literal_histograms, i64 %literal_it.sroa.5.2.us, i32 1
+  %total_count_.i57.us = getelementptr inbounds i8, ptr %arrayidx18.us, i64 1024
   %25 = load i64, ptr %total_count_.i57.us, align 8
   %inc1.i58.us = add i64 %25, 1
   store i64 %inc1.i58.us, ptr %total_count_.i57.us, align 8
@@ -162,7 +161,7 @@ BlockSplitIteratorNext.exit72.us:                 ; preds = %if.then.i62.us, %fo
   br i1 %cmp4.not.us, label %for.end, label %for.body6.us, !llvm.loop !4
 
 for.body6:                                        ; preds = %for.body6.lr.ph, %BlockSplitIteratorNext.exit72
-  %prev_byte.addr.194 = phi i8 [ %38, %BlockSplitIteratorNext.exit72 ], [ %prev_byte.addr.0118, %for.body6.lr.ph ]
+  %prev_byte.addr.194 = phi i8 [ %39, %BlockSplitIteratorNext.exit72 ], [ %prev_byte.addr.0118, %for.body6.lr.ph ]
   %j.093 = phi i64 [ %dec, %BlockSplitIteratorNext.exit72 ], [ %conv2, %for.body6.lr.ph ]
   %prev_byte2.addr.192 = phi i8 [ %prev_byte.addr.194, %BlockSplitIteratorNext.exit72 ], [ %prev_byte2.addr.0117, %for.body6.lr.ph ]
   %pos.191 = phi i64 [ %inc, %BlockSplitIteratorNext.exit72 ], [ %pos.0115, %for.body6.lr.ph ]
@@ -204,21 +203,21 @@ BlockSplitIteratorNext.exit72:                    ; preds = %for.body6, %if.then
   %34 = load i8, ptr %arrayidx15, align 1
   %or37 = or i8 %34, %33
   %conv17 = zext i8 %or37 to i64
-  %add = add nuw nsw i64 %shl10, %conv17
-  %arrayidx18 = getelementptr inbounds %struct.HistogramLiteral, ptr %literal_histograms, i64 %add
+  %35 = getelementptr %struct.HistogramLiteral, ptr %literal_histograms, i64 %shl10
+  %arrayidx18 = getelementptr %struct.HistogramLiteral, ptr %35, i64 %conv17
   %and = and i64 %pos.191, %mask
   %arrayidx19 = getelementptr inbounds i8, ptr %ringbuffer, i64 %and
-  %35 = load i8, ptr %arrayidx19, align 1
-  %conv20 = zext i8 %35 to i64
+  %36 = load i8, ptr %arrayidx19, align 1
+  %conv20 = zext i8 %36 to i64
   %arrayidx.i55 = getelementptr inbounds [256 x i32], ptr %arrayidx18, i64 0, i64 %conv20
-  %36 = load i32, ptr %arrayidx.i55, align 4
-  %inc.i56 = add i32 %36, 1
+  %37 = load i32, ptr %arrayidx.i55, align 4
+  %inc.i56 = add i32 %37, 1
   store i32 %inc.i56, ptr %arrayidx.i55, align 4
-  %total_count_.i57 = getelementptr inbounds %struct.HistogramLiteral, ptr %literal_histograms, i64 %add, i32 1
-  %37 = load i64, ptr %total_count_.i57, align 8
-  %inc1.i58 = add i64 %37, 1
+  %total_count_.i57 = getelementptr inbounds i8, ptr %arrayidx18, i64 1024
+  %38 = load i64, ptr %total_count_.i57, align 8
+  %inc1.i58 = add i64 %38, 1
   store i64 %inc1.i58, ptr %total_count_.i57, align 8
-  %38 = load i8, ptr %arrayidx19, align 1
+  %39 = load i8, ptr %arrayidx19, align 1
   %inc = add i64 %pos.191, 1
   %dec = add nsw i64 %j.093, -1
   %cmp4.not = icmp eq i64 %dec, 0
@@ -230,10 +229,10 @@ for.end:                                          ; preds = %BlockSplitIteratorN
   %literal_it.sroa.2.1.lcssa = phi i64 [ %literal_it.sroa.2.0114, %BlockSplitIteratorNext.exit ], [ %literal_it.sroa.2.2.us, %BlockSplitIteratorNext.exit72.us ], [ %literal_it.sroa.2.2, %BlockSplitIteratorNext.exit72 ]
   %pos.1.lcssa = phi i64 [ %pos.0115, %BlockSplitIteratorNext.exit ], [ %inc.us, %BlockSplitIteratorNext.exit72.us ], [ %inc, %BlockSplitIteratorNext.exit72 ]
   %prev_byte2.addr.1.lcssa = phi i8 [ %prev_byte2.addr.0117, %BlockSplitIteratorNext.exit ], [ %prev_byte.addr.194.us, %BlockSplitIteratorNext.exit72.us ], [ %prev_byte.addr.194, %BlockSplitIteratorNext.exit72 ]
-  %prev_byte.addr.1.lcssa = phi i8 [ %prev_byte.addr.0118, %BlockSplitIteratorNext.exit ], [ %26, %BlockSplitIteratorNext.exit72.us ], [ %38, %BlockSplitIteratorNext.exit72 ]
-  %copy_len_.i61 = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i.0116, i32 1
-  %39 = load i32, ptr %copy_len_.i61, align 4
-  %and.i62 = and i32 %39, 33554431
+  %prev_byte.addr.1.lcssa = phi i8 [ %prev_byte.addr.0118, %BlockSplitIteratorNext.exit ], [ %26, %BlockSplitIteratorNext.exit72.us ], [ %39, %BlockSplitIteratorNext.exit72 ]
+  %copy_len_.i61 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %40 = load i32, ptr %copy_len_.i61, align 4
+  %and.i62 = and i32 %40, 33554431
   %conv23 = zext nneg i32 %and.i62 to i64
   %add24 = add i64 %pos.1.lcssa, %conv23
   %tobool26.not = icmp eq i32 %and.i62, 0
@@ -243,13 +242,13 @@ if.then27:                                        ; preds = %for.end
   %sub = add i64 %add24, -2
   %and28 = and i64 %sub, %mask
   %arrayidx29 = getelementptr inbounds i8, ptr %ringbuffer, i64 %and28
-  %40 = load i8, ptr %arrayidx29, align 1
+  %41 = load i8, ptr %arrayidx29, align 1
   %sub30 = add i64 %add24, -1
   %and31 = and i64 %sub30, %mask
   %arrayidx32 = getelementptr inbounds i8, ptr %ringbuffer, i64 %and31
-  %41 = load i8, ptr %arrayidx32, align 1
-  %42 = load i16, ptr %cmd_prefix_, align 4
-  %cmp35 = icmp ugt i16 %42, 127
+  %42 = load i8, ptr %arrayidx32, align 1
+  %43 = load i16, ptr %cmd_prefix_, align 4
+  %cmp35 = icmp ugt i16 %43, 127
   br i1 %cmp35, label %if.then37, label %for.inc50
 
 if.then37:                                        ; preds = %if.then27
@@ -258,23 +257,23 @@ if.then37:                                        ; preds = %if.then27
 
 if.then.i76:                                      ; preds = %if.then37
   %inc.i78 = add i64 %dist_it.sroa.2.0111, 1
-  %43 = load ptr, ptr %types.i79, align 8
-  %arrayidx.i80 = getelementptr inbounds i8, ptr %43, i64 %inc.i78
-  %44 = load i8, ptr %arrayidx.i80, align 1
-  %conv.i81 = zext i8 %44 to i64
-  %45 = load ptr, ptr %lengths.i46, align 8
-  %arrayidx4.i84 = getelementptr inbounds i32, ptr %45, i64 %inc.i78
-  %46 = load i32, ptr %arrayidx4.i84, align 4
-  %conv5.i85 = zext i32 %46 to i64
+  %44 = load ptr, ptr %types.i79, align 8
+  %arrayidx.i80 = getelementptr inbounds i8, ptr %44, i64 %inc.i78
+  %45 = load i8, ptr %arrayidx.i80, align 1
+  %conv.i81 = zext i8 %45 to i64
+  %46 = load ptr, ptr %lengths.i46, align 8
+  %arrayidx4.i84 = getelementptr inbounds i32, ptr %46, i64 %inc.i78
+  %47 = load i32, ptr %arrayidx4.i84, align 4
+  %conv5.i85 = zext i32 %47 to i64
   br label %BlockSplitIteratorNext.exit86
 
 BlockSplitIteratorNext.exit86:                    ; preds = %if.then37, %if.then.i76
   %dist_it.sroa.2.1 = phi i64 [ %inc.i78, %if.then.i76 ], [ %dist_it.sroa.2.0111, %if.then37 ]
   %dist_it.sroa.5.1 = phi i64 [ %conv.i81, %if.then.i76 ], [ %dist_it.sroa.5.0113, %if.then37 ]
-  %47 = phi i64 [ %conv5.i85, %if.then.i76 ], [ %dist_it.sroa.7.0112, %if.then37 ]
-  %dec.i75 = add i64 %47, -1
+  %48 = phi i64 [ %conv5.i85, %if.then.i76 ], [ %dist_it.sroa.7.0112, %if.then37 ]
+  %dec.i75 = add i64 %48, -1
   %shl40 = shl nuw nsw i64 %dist_it.sroa.5.1, 2
-  %conv.i = zext i16 %42 to i32
+  %conv.i = zext i16 %43 to i32
   %shr.i = lshr i32 %conv.i, 6
   %and.i64 = and i32 %conv.i, 7
   %cmp4.i = icmp eq i32 %shr.i, 2
@@ -284,21 +283,21 @@ BlockSplitIteratorNext.exit86:                    ; preds = %if.then37, %if.then
   %or.cond2 = or i1 %cmp10.i, %or.cond1
   %cmp12.i = icmp ult i32 %and.i64, 3
   %or.cond3 = and i1 %cmp12.i, %or.cond2
-  %48 = zext nneg i32 %and.i64 to i64
-  %conv42 = select i1 %or.cond3, i64 %48, i64 3
-  %49 = getelementptr %struct.HistogramDistance, ptr %copy_dist_histograms, i64 %shl40
-  %arrayidx44 = getelementptr %struct.HistogramDistance, ptr %49, i64 %conv42
-  %dist_prefix_ = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i.0116, i32 4
-  %50 = load i16, ptr %dist_prefix_, align 2
-  %51 = and i16 %50, 1023
-  %conv47 = zext nneg i16 %51 to i64
+  %49 = zext nneg i32 %and.i64 to i64
+  %conv42 = select i1 %or.cond3, i64 %49, i64 3
+  %50 = getelementptr %struct.HistogramDistance, ptr %copy_dist_histograms, i64 %shl40
+  %arrayidx44 = getelementptr %struct.HistogramDistance, ptr %50, i64 %conv42
+  %dist_prefix_ = getelementptr inbounds i8, ptr %arrayidx, i64 14
+  %51 = load i16, ptr %dist_prefix_, align 2
+  %52 = and i16 %51, 1023
+  %conv47 = zext nneg i16 %52 to i64
   %arrayidx.i67 = getelementptr inbounds [544 x i32], ptr %arrayidx44, i64 0, i64 %conv47
-  %52 = load i32, ptr %arrayidx.i67, align 4
-  %inc.i68 = add i32 %52, 1
+  %53 = load i32, ptr %arrayidx.i67, align 4
+  %inc.i68 = add i32 %53, 1
   store i32 %inc.i68, ptr %arrayidx.i67, align 4
-  %total_count_.i69 = getelementptr %struct.HistogramDistance, ptr %49, i64 %conv42, i32 1
-  %53 = load i64, ptr %total_count_.i69, align 8
-  %inc1.i70 = add i64 %53, 1
+  %total_count_.i69 = getelementptr inbounds i8, ptr %arrayidx44, i64 2176
+  %54 = load i64, ptr %total_count_.i69, align 8
+  %inc1.i70 = add i64 %54, 1
   store i64 %inc1.i70, ptr %total_count_.i69, align 8
   br label %for.inc50
 
@@ -306,8 +305,8 @@ for.inc50:                                        ; preds = %for.end, %BlockSpli
   %dist_it.sroa.2.2 = phi i64 [ %dist_it.sroa.2.0111, %for.end ], [ %dist_it.sroa.2.1, %BlockSplitIteratorNext.exit86 ], [ %dist_it.sroa.2.0111, %if.then27 ]
   %dist_it.sroa.7.1 = phi i64 [ %dist_it.sroa.7.0112, %for.end ], [ %dec.i75, %BlockSplitIteratorNext.exit86 ], [ %dist_it.sroa.7.0112, %if.then27 ]
   %dist_it.sroa.5.2 = phi i64 [ %dist_it.sroa.5.0113, %for.end ], [ %dist_it.sroa.5.1, %BlockSplitIteratorNext.exit86 ], [ %dist_it.sroa.5.0113, %if.then27 ]
-  %prev_byte2.addr.2 = phi i8 [ %prev_byte2.addr.1.lcssa, %for.end ], [ %40, %BlockSplitIteratorNext.exit86 ], [ %40, %if.then27 ]
-  %prev_byte.addr.2 = phi i8 [ %prev_byte.addr.1.lcssa, %for.end ], [ %41, %BlockSplitIteratorNext.exit86 ], [ %41, %if.then27 ]
+  %prev_byte2.addr.2 = phi i8 [ %prev_byte2.addr.1.lcssa, %for.end ], [ %41, %BlockSplitIteratorNext.exit86 ], [ %41, %if.then27 ]
+  %prev_byte.addr.2 = phi i8 [ %prev_byte.addr.1.lcssa, %for.end ], [ %42, %BlockSplitIteratorNext.exit86 ], [ %42, %if.then27 ]
   %inc51 = add nuw i64 %i.0116, 1
   %exitcond.not = icmp eq i64 %inc51, %num_commands
   br i1 %exitcond.not, label %for.end52, label %for.body, !llvm.loop !6

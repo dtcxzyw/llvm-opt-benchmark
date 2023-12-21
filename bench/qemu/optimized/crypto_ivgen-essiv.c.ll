@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QCryptoIVGenDriver = type { ptr, ptr, ptr }
-%struct.QCryptoIVGen = type { ptr, ptr, i32, i32, i32 }
 
 @qcrypto_ivgen_essiv = dso_local local_unnamed_addr global %struct.QCryptoIVGenDriver { ptr @qcrypto_ivgen_essiv_init, ptr @qcrypto_ivgen_essiv_calculate, ptr @qcrypto_ivgen_essiv_cleanup }, align 8
 
@@ -14,10 +13,10 @@ entry:
   %salt = alloca ptr, align 8
   %nhash = alloca i64, align 8
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 8) #6
-  %cipher = getelementptr inbounds %struct.QCryptoIVGen, ptr %ivgen, i64 0, i32 3
+  %cipher = getelementptr inbounds i8, ptr %ivgen, i64 20
   %0 = load i32, ptr %cipher, align 4
   %call1 = tail call i64 @qcrypto_cipher_get_key_len(i32 noundef %0) #7
-  %hash = getelementptr inbounds %struct.QCryptoIVGen, ptr %ivgen, i64 0, i32 4
+  %hash = getelementptr inbounds i8, ptr %ivgen, i64 24
   %1 = load i32, ptr %hash, align 8
   %call2 = tail call i64 @qcrypto_hash_digest_len(i32 noundef %1) #7
   store i64 %call2, ptr %nhash, align 8
@@ -54,7 +53,7 @@ if.then17:                                        ; preds = %if.end
 if.end18:                                         ; preds = %if.end
   %8 = load ptr, ptr %salt, align 8
   call void @g_free(ptr noundef %8) #7
-  %private = getelementptr inbounds %struct.QCryptoIVGen, ptr %ivgen, i64 0, i32 1
+  %private = getelementptr inbounds i8, ptr %ivgen, i64 8
   store ptr %call, ptr %private, align 8
   br label %return
 
@@ -67,9 +66,9 @@ return:                                           ; preds = %if.end18, %if.then1
 define internal i32 @qcrypto_ivgen_essiv_calculate(ptr nocapture noundef readonly %ivgen, i64 noundef %sector, ptr nocapture noundef writeonly %iv, i64 noundef %niv, ptr noundef %errp) #0 {
 entry:
   %sector.addr = alloca i64, align 8
-  %private = getelementptr inbounds %struct.QCryptoIVGen, ptr %ivgen, i64 0, i32 1
+  %private = getelementptr inbounds i8, ptr %ivgen, i64 8
   %0 = load ptr, ptr %private, align 8
-  %cipher = getelementptr inbounds %struct.QCryptoIVGen, ptr %ivgen, i64 0, i32 3
+  %cipher = getelementptr inbounds i8, ptr %ivgen, i64 20
   %1 = load i32, ptr %cipher, align 4
   %call = tail call i64 @qcrypto_cipher_get_block_len(i32 noundef %1) #7
   %call1 = tail call noalias ptr @g_malloc_n(i64 noundef %call, i64 noundef 1) #6
@@ -112,7 +111,7 @@ return:                                           ; preds = %if.end8, %if.then13
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qcrypto_ivgen_essiv_cleanup(ptr nocapture noundef readonly %ivgen) #0 {
 entry:
-  %private = getelementptr inbounds %struct.QCryptoIVGen, ptr %ivgen, i64 0, i32 1
+  %private = getelementptr inbounds i8, ptr %ivgen, i64 8
   %0 = load ptr, ptr %private, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @qcrypto_cipher_free(ptr noundef %1) #7

@@ -5,37 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
 %struct.JobDriver = type { i64, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon.0, %union.anon.1, %union.anon.2, i32, [16 x %struct.anon.3], ptr, %struct.anon.4, ptr, ptr, %struct.anon.5, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.6, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.7, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.7 = type { ptr }
-%struct.CoQueue = type { %struct.anon.8 }
-%struct.anon.8 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.9, %struct.anon.9, i32, i32, ptr }
-%struct.anon.9 = type { ptr }
-%struct.BlockDriver = type { ptr, i32, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.10, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.anon.10 = type { ptr, ptr }
-%struct.BlockdevAmendJob = type { %struct.Job, ptr, ptr, i8 }
-%struct.Job = type { ptr, ptr, ptr, i8, i8, ptr, ptr, %struct.ProgressMeter, ptr, i32, i32, %struct.QEMUTimer, i32, i8, i8, i8, i8, i8, i8, i32, ptr, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.anon.12, ptr, %struct.anon.13 }
-%struct.ProgressMeter = type { i64, i64, %struct.QemuMutex }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.NotifierList = type { %struct.anon.11 }
-%struct.anon.11 = type { ptr }
-%struct.anon.12 = type { ptr, ptr }
-%struct.anon.13 = type { ptr, ptr }
 
 @BlockdevDriver_lookup = external constant %struct.QEnumLookup, align 8
 @.str = private unnamed_addr constant [22 x i8] c"../qemu/block/amend.c\00", align 1
@@ -86,7 +55,7 @@ if.then11:                                        ; preds = %land.lhs.true
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end12:                                         ; preds = %land.lhs.true, %if.end7
-  %drv13 = getelementptr inbounds %struct.BlockDriverState, ptr %call4, i64 0, i32 6
+  %drv13 = getelementptr inbounds i8, ptr %call4, i64 16
   %1 = load ptr, ptr %drv13, align 8
   %cmp.not = icmp eq ptr %1, %call2
   br i1 %cmp.not, label %if.end15, label %if.then14
@@ -96,7 +65,7 @@ if.then14:                                        ; preds = %if.end12
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end15:                                         ; preds = %if.end12
-  %bdrv_co_amend = getelementptr inbounds %struct.BlockDriver, ptr %call2, i64 0, i32 63
+  %bdrv_co_amend = getelementptr inbounds i8, ptr %call2, i64 472
   %2 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_amend, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 496, ptr null)
   %3 = load ptr, ptr %2, align 8
   %tobool16.not = icmp eq ptr %3, null
@@ -114,19 +83,19 @@ if.end18:                                         ; preds = %if.end15
 
 if.end23:                                         ; preds = %if.end18
   tail call void @bdrv_ref(ptr noundef nonnull %call4) #3
-  %bs24 = getelementptr inbounds %struct.BlockdevAmendJob, ptr %call20, i64 0, i32 2
+  %bs24 = getelementptr inbounds i8, ptr %call20, i64 288
   store ptr %call4, ptr %bs24, align 8
   %call25 = tail call ptr @qapi_clone(ptr noundef nonnull %options, ptr noundef nonnull @visit_type_BlockdevAmendOptions) #3
-  %opts = getelementptr inbounds %struct.BlockdevAmendJob, ptr %call20, i64 0, i32 1
+  %opts = getelementptr inbounds i8, ptr %call20, i64 280
   store ptr %call25, ptr %opts, align 8
   %narrow = and i1 %has_force, %force
-  %force29 = getelementptr inbounds %struct.BlockdevAmendJob, ptr %call20, i64 0, i32 3
+  %force29 = getelementptr inbounds i8, ptr %call20, i64 296
   %frombool30 = zext i1 %narrow to i8
   store i8 %frombool30, ptr %force29, align 8
   %call20.val = load ptr, ptr %bs24, align 8
-  %drv.i = getelementptr inbounds %struct.BlockDriverState, ptr %call20.val, i64 0, i32 6
+  %drv.i = getelementptr inbounds i8, ptr %call20.val, i64 16
   %4 = load ptr, ptr %drv.i, align 8
-  %bdrv_amend_pre_run.i = getelementptr inbounds %struct.BlockDriver, ptr %4, i64 0, i32 13
+  %bdrv_amend_pre_run.i = getelementptr inbounds i8, ptr %4, i64 64
   %5 = load ptr, ptr %bdrv_amend_pre_run.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %if.end34, label %blockdev_amend_pre_run.exit
@@ -187,16 +156,16 @@ define internal i32 @blockdev_amend_run(ptr noundef %job, ptr noundef %errp) #0 
 glib_autoptr_cleanup_GraphLockable.exit:
   tail call void @bdrv_graph_co_rdlock() #3
   tail call void @job_progress_set_remaining(ptr noundef %job, i64 noundef 1) #3
-  %bs = getelementptr inbounds %struct.BlockdevAmendJob, ptr %job, i64 0, i32 2
+  %bs = getelementptr inbounds i8, ptr %job, i64 288
   %0 = load ptr, ptr %bs, align 8
-  %drv = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 6
+  %drv = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %drv, align 8
-  %bdrv_co_amend = getelementptr inbounds %struct.BlockDriver, ptr %1, i64 0, i32 63
+  %bdrv_co_amend = getelementptr inbounds i8, ptr %1, i64 472
   %2 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_amend, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 496, ptr null)
   %3 = load ptr, ptr %2, align 8
-  %opts = getelementptr inbounds %struct.BlockdevAmendJob, ptr %job, i64 0, i32 1
+  %opts = getelementptr inbounds i8, ptr %job, i64 280
   %4 = load ptr, ptr %opts, align 8
-  %force = getelementptr inbounds %struct.BlockdevAmendJob, ptr %job, i64 0, i32 3
+  %force = getelementptr inbounds i8, ptr %job, i64 296
   %5 = load i8, ptr %force, align 8
   %6 = and i8 %5, 1
   %tobool = icmp ne i8 %6, 0
@@ -212,11 +181,11 @@ glib_autoptr_cleanup_GraphLockable.exit:
 define internal void @blockdev_amend_free(ptr nocapture noundef readonly %job) #0 {
 entry:
   tail call void @bdrv_graph_rdlock_main_loop() #3
-  %bs = getelementptr inbounds %struct.BlockdevAmendJob, ptr %job, i64 0, i32 2
+  %bs = getelementptr inbounds i8, ptr %job, i64 288
   %0 = load ptr, ptr %bs, align 8
-  %drv = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 6
+  %drv = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %drv, align 8
-  %bdrv_amend_clean = getelementptr inbounds %struct.BlockDriver, ptr %1, i64 0, i32 14
+  %bdrv_amend_clean = getelementptr inbounds i8, ptr %1, i64 72
   %2 = load ptr, ptr %bdrv_amend_clean, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end, label %if.then

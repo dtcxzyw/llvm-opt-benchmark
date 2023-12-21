@@ -19,10 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.Imf_3_2::Channel" = type <{ i32, i32, i32, i8, [3 x i8] }>
 %"class.Imf_3_2::TiledOutputFile" = type <{ %"class.Imf_3_2::GenericOutputFile", ptr, ptr, i8, [7 x i8] }>
 %"class.Imf_3_2::GenericOutputFile" = type { ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [264 x i8] }
-%"struct.std::_Rb_tree_node.31" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.32" }
-%"struct.__gnu_cxx::__aligned_membuf.32" = type { [40 x i8] }
 %"class.Imf_3_2::FrameBuffer" = type { %"class.std::map.17" }
 %"class.std::map.17" = type { %"class.std::_Rb_tree.18" }
 %"class.std::_Rb_tree.18" = type { %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Slice>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Slice>>, std::less<Imf_3_2::Name>>::_Rb_tree_impl" }
@@ -45,10 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.Imf_3_2::TiledInputFile" = type { %"class.Imf_3_2::GenericInputFile", ptr }
 %"class.Imf_3_2::GenericInputFile" = type { ptr }
 %"class.std::allocator.8" = type { i8 }
-%"struct.std::_Rb_tree_node.39" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.40" }
-%"struct.__gnu_cxx::__aligned_membuf.40" = type { [272 x i8] }
 %"class.Imf_3_2::InputFile" = type { %"class.Imf_3_2::GenericInputFile", ptr }
-%"class.Imf_3_2::ImageLevel" = type { ptr, ptr, i32, i32, %"class.Imath_3_2::Box" }
 %struct._Guard = type { ptr }
 
 $_ZN7Imf_3_211FrameBufferD2Ev = comdat any
@@ -134,7 +127,7 @@ invoke.cont7:                                     ; preds = %for.cond
   br i1 %cmp.i.i.i.not, label %for.end, label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %i.sroa.0.0, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 32
   %call11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.5) #10
   %tobool.not = icmp eq i32 %call11, 0
   br i1 %tobool.not, label %for.inc, label %invoke.cont12
@@ -150,7 +143,7 @@ invoke.cont17:                                    ; preds = %invoke.cont12
   br i1 %tobool20.not, label %for.inc, label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %invoke.cont17
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %i.sroa.0.0, i64 0, i32 1, i32 0, i64 256
+  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 288
   %0 = load ptr, ptr %second.i, align 8
   invoke void @_ZN7Imf_3_26Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(49) %newHdr, ptr noundef nonnull %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %for.inc unwind label %lpad.loopexit.split-lp50.loopexit
@@ -191,7 +184,7 @@ invoke.cont32:                                    ; preds = %if.then30
           to label %invoke.cont34 unwind label %lpad.loopexit.split-lp50.loopexit.split-lp
 
 invoke.cont34:                                    ; preds = %invoke.cont32
-  %ySize = getelementptr inbounds %"class.Imf_3_2::TileDescription", ptr %call35, i64 0, i32 1
+  %ySize = getelementptr inbounds i8, ptr %call35, i64 4
   %2 = load i32, ptr %ySize, align 4
   %call37 = invoke noundef i32 @_ZNK7Imf_3_25Image9levelModeEv(ptr noundef nonnull align 8 dereferenceable(104) %img)
           to label %invoke.cont36 unwind label %lpad.loopexit.split-lp50.loopexit.split-lp
@@ -221,11 +214,11 @@ invoke.cont45.invoke:                             ; preds = %invoke.cont38, %inv
   %.sink = phi i32 [ %2, %invoke.cont38 ], [ 64, %invoke.cont45 ]
   %call37.sink = phi i32 [ %call37, %invoke.cont38 ], [ %call44, %invoke.cont45 ]
   %call39.sink = phi i32 [ %call39, %invoke.cont38 ], [ %call46, %invoke.cont45 ]
-  %ySize.i = getelementptr inbounds %"class.Imf_3_2::TileDescription", ptr %ref.tmp31.sink60, i64 0, i32 1
+  %ySize.i = getelementptr inbounds i8, ptr %ref.tmp31.sink60, i64 4
   store i32 %.sink, ptr %ySize.i, align 4
-  %mode.i = getelementptr inbounds %"class.Imf_3_2::TileDescription", ptr %ref.tmp31.sink60, i64 0, i32 2
+  %mode.i = getelementptr inbounds i8, ptr %ref.tmp31.sink60, i64 8
   store i32 %call37.sink, ptr %mode.i, align 4
-  %roundingMode.i = getelementptr inbounds %"class.Imf_3_2::TileDescription", ptr %ref.tmp31.sink60, i64 0, i32 3
+  %roundingMode.i = getelementptr inbounds i8, ptr %ref.tmp31.sink60, i64 12
   store i32 %call39.sink, ptr %roundingMode.i, align 4
   invoke void @_ZN7Imf_3_26Header18setTileDescriptionERKNS_15TileDescriptionE(ptr noundef nonnull align 8 dereferenceable(49) %newHdr, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp31.sink60)
           to label %if.end49 unwind label %lpad.loopexit.split-lp50.loopexit.split-lp
@@ -241,20 +234,20 @@ invoke.cont51:                                    ; preds = %if.end49
 invoke.cont52:                                    ; preds = %invoke.cont51
   %3 = load i32, ptr %ref.tmp50, align 4
   store i32 %3, ptr %call53, align 4
-  %y.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %ref.tmp50, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %ref.tmp50, i64 4
   %4 = load i32, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call53, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %call53, i64 4
   store i32 %4, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call53, i64 0, i32 1
-  %max3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %ref.tmp50, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %call53, i64 8
+  %max3.i = getelementptr inbounds i8, ptr %ref.tmp50, i64 8
   %5 = load i32, ptr %max3.i, align 4
   store i32 %5, ptr %max.i, align 4
-  %y.i2.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %ref.tmp50, i64 0, i32 1, i32 1
+  %y.i2.i = getelementptr inbounds i8, ptr %ref.tmp50, i64 12
   %6 = load i32, ptr %y.i2.i, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call53, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call53, i64 12
   store i32 %6, ptr %y3.i3.i, align 4
   %vtable = load ptr, ptr %img, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %7 = load ptr, ptr %vfn, align 8
   %call56 = invoke noundef nonnull align 8 dereferenceable(88) ptr %7(ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef 0, i32 noundef 0)
           to label %invoke.cont55 unwind label %lpad.loopexit.split-lp50.loopexit.split-lp
@@ -264,7 +257,7 @@ invoke.cont55:                                    ; preds = %invoke.cont52
           to label %for.cond62.preheader unwind label %lpad.loopexit.split-lp50.loopexit.split-lp
 
 for.cond62.preheader:                             ; preds = %invoke.cont55
-  %8 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp75, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp75, i64 8
   br label %for.cond62
 
 for.cond62:                                       ; preds = %for.cond62.preheader, %for.inc81
@@ -281,13 +274,13 @@ for.body70:                                       ; preds = %invoke.cont68
           to label %invoke.cont71 unwind label %lpad.loopexit49
 
 invoke.cont71:                                    ; preds = %for.body70
-  %second.i32 = getelementptr inbounds %"struct.std::_Rb_tree_node.31", ptr %i57.sroa.0.0, i64 0, i32 1, i32 0, i64 32
+  %second.i32 = getelementptr inbounds i8, ptr %i57.sroa.0.0, i64 64
   %9 = load ptr, ptr %second.i32, align 8
   %call79 = invoke { i64, i64 } @_ZNK7Imf_3_212ImageChannel7channelEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
           to label %invoke.cont78 unwind label %lpad.loopexit49
 
 invoke.cont78:                                    ; preds = %invoke.cont71
-  %_M_storage.i.i.i31 = getelementptr inbounds %"struct.std::_Rb_tree_node.31", ptr %i57.sroa.0.0, i64 0, i32 1
+  %_M_storage.i.i.i31 = getelementptr inbounds i8, ptr %i57.sroa.0.0, i64 32
   %10 = extractvalue { i64, i64 } %call79, 0
   store i64 %10, ptr %ref.tmp75, align 8
   %11 = extractvalue { i64, i64 } %call79, 1
@@ -431,7 +424,7 @@ invoke.cont7:                                     ; preds = %for.cond
   br i1 %cmp.i.i.i.not, label %for.end, label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %i.sroa.0.0, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 32
   %call11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.5) #10
   %tobool.not = icmp eq i32 %call11, 0
   br i1 %tobool.not, label %for.inc, label %invoke.cont12
@@ -447,7 +440,7 @@ invoke.cont17:                                    ; preds = %invoke.cont12
   br i1 %tobool20.not, label %for.inc, label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %invoke.cont17
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %i.sroa.0.0, i64 0, i32 1, i32 0, i64 256
+  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 288
   %0 = load ptr, ptr %second.i, align 8
   invoke void @_ZN7Imf_3_26Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(49) %newHdr, ptr noundef nonnull %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %for.inc unwind label %lpad.loopexit28
@@ -477,20 +470,20 @@ invoke.cont29:                                    ; preds = %for.end
 invoke.cont30:                                    ; preds = %invoke.cont29
   %1 = load i32, ptr %ref.tmp28, align 4
   store i32 %1, ptr %call31, align 4
-  %y.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %ref.tmp28, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %ref.tmp28, i64 4
   %2 = load i32, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call31, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %call31, i64 4
   store i32 %2, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call31, i64 0, i32 1
-  %max3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %ref.tmp28, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %call31, i64 8
+  %max3.i = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
   %3 = load i32, ptr %max3.i, align 4
   store i32 %3, ptr %max.i, align 4
-  %y.i2.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %ref.tmp28, i64 0, i32 1, i32 1
+  %y.i2.i = getelementptr inbounds i8, ptr %ref.tmp28, i64 12
   %4 = load i32, ptr %y.i2.i, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call31, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call31, i64 12
   store i32 %4, ptr %y3.i3.i, align 4
   %vtable = load ptr, ptr %img, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %5 = load ptr, ptr %vfn, align 8
   %call34 = invoke noundef nonnull align 8 dereferenceable(88) ptr %5(ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef 0)
           to label %invoke.cont33 unwind label %lpad.loopexit.split-lp29
@@ -510,7 +503,7 @@ invoke.cont33:                                    ; preds = %invoke.cont30
           to label %for.cond41.preheader unwind label %lpad36.loopexit.split-lp
 
 for.cond41.preheader:                             ; preds = %invoke.cont33
-  %7 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp54, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
   br label %for.cond41
 
 for.cond41:                                       ; preds = %for.cond41.preheader, %for.inc69
@@ -527,8 +520,8 @@ for.body49:                                       ; preds = %invoke.cont47
           to label %invoke.cont50 unwind label %lpad36.loopexit
 
 invoke.cont50:                                    ; preds = %for.body49
-  %_M_storage.i.i.i12 = getelementptr inbounds %"struct.std::_Rb_tree_node.31", ptr %i35.sroa.0.0, i64 0, i32 1
-  %second.i13 = getelementptr inbounds %"struct.std::_Rb_tree_node.31", ptr %i35.sroa.0.0, i64 0, i32 1, i32 0, i64 32
+  %_M_storage.i.i.i12 = getelementptr inbounds i8, ptr %i35.sroa.0.0, i64 32
+  %second.i13 = getelementptr inbounds i8, ptr %i35.sroa.0.0, i64 64
   %8 = load ptr, ptr %second.i13, align 8
   %call58 = invoke { i64, i64 } @_ZNK7Imf_3_212ImageChannel7channelEv(ptr noundef nonnull align 8 dereferenceable(48) %8)
           to label %invoke.cont57 unwind label %lpad36.loopexit
@@ -544,7 +537,7 @@ invoke.cont57:                                    ; preds = %invoke.cont50
 invoke.cont59:                                    ; preds = %invoke.cont57
   %11 = load ptr, ptr %second.i13, align 8
   %vtable65 = load ptr, ptr %11, align 8
-  %vfn66 = getelementptr inbounds ptr, ptr %vtable65, i64 4
+  %vfn66 = getelementptr inbounds i8, ptr %vtable65, i64 32
   %12 = load ptr, ptr %vfn66, align 8
   invoke void %12(ptr nonnull sret(%"struct.Imf_3_2::Slice") align 8 %ref.tmp62, ptr noundef nonnull align 8 dereferenceable(48) %11)
           to label %invoke.cont67 unwind label %lpad36.loopexit
@@ -585,13 +578,13 @@ invoke.cont78:                                    ; preds = %invoke.cont76
           to label %invoke.cont79 unwind label %lpad77
 
 invoke.cont79:                                    ; preds = %invoke.cont78
-  %y = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call80, i64 0, i32 1, i32 1
+  %y = getelementptr inbounds i8, ptr %call80, i64 12
   %13 = load i32, ptr %y, align 4
   %call82 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %newHdr)
           to label %invoke.cont81 unwind label %lpad77
 
 invoke.cont81:                                    ; preds = %invoke.cont79
-  %y83 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call82, i64 0, i32 1
+  %y83 = getelementptr inbounds i8, ptr %call82, i64 4
   %14 = load i32, ptr %y83, align 4
   %sub = add i32 %13, 1
   %add = sub i32 %sub, %14
@@ -649,17 +642,17 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont1:                                     ; preds = %invoke.cont
   %0 = load i32, ptr %call, align 4
   store i32 %0, ptr %call2, align 4
-  %y.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %call, i64 4
   %1 = load i32, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call2, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %call2, i64 4
   store i32 %1, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call2, i64 0, i32 1
-  %max3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %max3.i = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load i32, ptr %max3.i, align 4
   store i32 %2, ptr %max.i, align 4
-  %y.i2.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call, i64 0, i32 1, i32 1
+  %y.i2.i = getelementptr inbounds i8, ptr %call, i64 12
   %3 = load i32, ptr %y.i2.i, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call2, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call2, i64 12
   store i32 %3, ptr %y3.i3.i, align 4
   %call.i2 = invoke noundef i32 @_ZNK7Imf_3_25Image9levelModeEv(ptr noundef nonnull align 8 dereferenceable(104) %img)
           to label %call.i.noexc unwind label %lpad
@@ -923,7 +916,7 @@ invoke.cont13:                                    ; preds = %for.cond
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont13
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %i.sroa.0.0, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #11
   %call.i20 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
           to label %call.i.noexc unwind label %lpad19
@@ -945,7 +938,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %i.sroa.0.0, i64 0, i32 1, i32 0, i64 256
+  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 288
   invoke void @_ZN7Imf_3_25Image13insertChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7ChannelE(ptr noundef nonnull align 8 dereferenceable(104) %img, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(13) %second.i)
           to label %invoke.cont24 unwind label %lpad21
 
@@ -1018,7 +1011,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
           to label %invoke.cont33 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont33:                                    ; preds = %invoke.cont31
-  %mode = getelementptr inbounds %"class.Imf_3_2::TileDescription", ptr %call34, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %call34, i64 8
   %3 = load i32, ptr %mode, align 4
   %call36 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_214TiledInputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %in)
           to label %invoke.cont35 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1028,10 +1021,10 @@ invoke.cont35:                                    ; preds = %invoke.cont33
           to label %invoke.cont37 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont37:                                    ; preds = %invoke.cont35
-  %roundingMode = getelementptr inbounds %"class.Imf_3_2::TileDescription", ptr %call38, i64 0, i32 3
+  %roundingMode = getelementptr inbounds i8, ptr %call38, i64 12
   %4 = load i32, ptr %roundingMode, align 4
   %vtable = load ptr, ptr %img, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(104) %img, ptr noundef nonnull align 4 dereferenceable(16) %call30, i32 noundef %3, i32 noundef %4)
           to label %invoke.cont39 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1120,8 +1113,8 @@ invoke.cont85:                                    ; preds = %invoke.cont79
   br i1 %cmp.i.i.i22.not, label %for.end96, label %invoke.cont88
 
 invoke.cont88:                                    ; preds = %invoke.cont85
-  %_M_storage.i.i.i23 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %i70.sroa.0.0, i64 0, i32 1
-  %second.i24 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %i70.sroa.0.0, i64 0, i32 1, i32 0, i64 256
+  %_M_storage.i.i.i23 = getelementptr inbounds i8, ptr %i70.sroa.0.0, i64 32
+  %second.i24 = getelementptr inbounds i8, ptr %i70.sroa.0.0, i64 288
   %6 = load ptr, ptr %second.i24, align 8
   invoke void @_ZN7Imf_3_26Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull %_M_storage.i.i.i23, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %for.inc93 unwind label %lpad.loopexit
@@ -1176,7 +1169,7 @@ invoke.cont13:                                    ; preds = %for.cond
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont13
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %i.sroa.0.0, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #11
   %call.i10 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
           to label %call.i.noexc unwind label %lpad19
@@ -1198,7 +1191,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %i.sroa.0.0, i64 0, i32 1, i32 0, i64 256
+  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 288
   invoke void @_ZN7Imf_3_25Image13insertChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7ChannelE(ptr noundef nonnull align 8 dereferenceable(104) %img, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(13) %second.i)
           to label %invoke.cont24 unwind label %lpad21
 
@@ -1244,14 +1237,14 @@ invoke.cont27:                                    ; preds = %for.end
 
 invoke.cont29:                                    ; preds = %invoke.cont27
   %vtable = load ptr, ptr %img, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(104) %img, ptr noundef nonnull align 4 dereferenceable(16) %call30, i32 noundef 0, i32 noundef 0)
           to label %invoke.cont31 unwind label %lpad.loopexit.split-lp
 
 invoke.cont31:                                    ; preds = %invoke.cont29
   %vtable32 = load ptr, ptr %img, align 8
-  %vfn33 = getelementptr inbounds ptr, ptr %vtable32, i64 3
+  %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 24
   %4 = load ptr, ptr %vfn33, align 8
   %call35 = invoke noundef nonnull align 8 dereferenceable(88) ptr %4(ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef 0)
           to label %invoke.cont34 unwind label %lpad.loopexit.split-lp
@@ -1280,16 +1273,16 @@ invoke.cont52:                                    ; preds = %for.cond44
   br i1 %cmp.i.i.i12.not, label %for.end67, label %for.body54
 
 for.body54:                                       ; preds = %invoke.cont52
-  %second.i14 = getelementptr inbounds %"struct.std::_Rb_tree_node.31", ptr %i36.sroa.0.0, i64 0, i32 1, i32 0, i64 32
+  %second.i14 = getelementptr inbounds i8, ptr %i36.sroa.0.0, i64 64
   %6 = load ptr, ptr %second.i14, align 8
   %vtable60 = load ptr, ptr %6, align 8
-  %vfn61 = getelementptr inbounds ptr, ptr %vtable60, i64 4
+  %vfn61 = getelementptr inbounds i8, ptr %vtable60, i64 32
   %7 = load ptr, ptr %vfn61, align 8
   invoke void %7(ptr nonnull sret(%"struct.Imf_3_2::Slice") align 8 %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %invoke.cont62 unwind label %lpad38.loopexit.split-lp.loopexit
 
 invoke.cont62:                                    ; preds = %for.body54
-  %_M_storage.i.i.i13 = getelementptr inbounds %"struct.std::_Rb_tree_node.31", ptr %i36.sroa.0.0, i64 0, i32 1
+  %_M_storage.i.i.i13 = getelementptr inbounds i8, ptr %i36.sroa.0.0, i64 32
   invoke void @_ZN7Imf_3_211FrameBuffer6insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %fb, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i13, ptr noundef nonnull align 8 dereferenceable(50) %ref.tmp57)
           to label %for.inc64 unwind label %lpad38.loopexit.split-lp.loopexit
 
@@ -1322,9 +1315,9 @@ for.end67:                                        ; preds = %invoke.cont52
           to label %invoke.cont68 unwind label %lpad38.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont68:                                    ; preds = %for.end67
-  %y = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %call35, i64 0, i32 4, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %call35, i64 28
   %8 = load i32, ptr %y, align 4
-  %y73 = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %call35, i64 0, i32 4, i32 1, i32 1
+  %y73 = getelementptr inbounds i8, ptr %call35, i64 36
   %9 = load i32, ptr %y73, align 4
   invoke void @_ZN7Imf_3_29InputFile10readPixelsEii(ptr noundef nonnull align 8 dereferenceable(16) %in, i32 noundef %8, i32 noundef %9)
           to label %invoke.cont74 unwind label %lpad38.loopexit.split-lp.loopexit.split-lp
@@ -1351,13 +1344,13 @@ invoke.cont90:                                    ; preds = %invoke.cont84
   br i1 %cmp.i.i.i17.not, label %for.end104, label %invoke.cont93
 
 invoke.cont93:                                    ; preds = %invoke.cont90
-  %_M_storage.i.i.i18 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %i75.sroa.0.0, i64 0, i32 1
+  %_M_storage.i.i.i18 = getelementptr inbounds i8, ptr %i75.sroa.0.0, i64 32
   %call95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i18, ptr noundef nonnull dereferenceable(6) @.str.6) #10
   %tobool.not = icmp eq i32 %call95, 0
   br i1 %tobool.not, label %for.inc101, label %invoke.cont96
 
 invoke.cont96:                                    ; preds = %invoke.cont93
-  %second.i20 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %i75.sroa.0.0, i64 0, i32 1, i32 0, i64 256
+  %second.i20 = getelementptr inbounds i8, ptr %i75.sroa.0.0, i64 288
   %10 = load ptr, ptr %second.i20, align 8
   invoke void @_ZN7Imf_3_26Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull %_M_storage.i.i.i18, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %for.inc101 unwind label %lpad38.loopexit
@@ -1481,17 +1474,17 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont1:                                     ; preds = %invoke.cont
   %0 = load i32, ptr %call, align 4
   store i32 %0, ptr %call2, align 4
-  %y.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %call, i64 4
   %1 = load i32, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call2, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %call2, i64 4
   store i32 %1, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call2, i64 0, i32 1
-  %max3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %max3.i = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load i32, ptr %max3.i, align 4
   store i32 %2, ptr %max.i, align 4
-  %y.i2.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call, i64 0, i32 1, i32 1
+  %y.i2.i = getelementptr inbounds i8, ptr %call, i64 12
   %3 = load i32, ptr %y.i2.i, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call2, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call2, i64 12
   store i32 %3, ptr %y3.i3.i, align 4
   invoke void @_ZN7Imf_3_221saveFlatScanLineImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderERKNS_9FlatImageENS_16DataWindowSourceE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef 0)
           to label %invoke.cont4 unwind label %lpad
@@ -1578,7 +1571,7 @@ entry:
   %fb = alloca %"class.Imf_3_2::FrameBuffer", align 8
   %ref.tmp10 = alloca %"struct.Imf_3_2::Slice", align 8
   %vtable = load ptr, ptr %img, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(88) ptr %0(ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef %x, i32 noundef %y)
   %1 = getelementptr inbounds i8, ptr %fb, i64 8
@@ -1604,16 +1597,16 @@ invoke.cont7:                                     ; preds = %for.cond
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont7
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node.31", ptr %i.sroa.0.0, i64 0, i32 1, i32 0, i64 32
+  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 64
   %2 = load ptr, ptr %second.i, align 8
   %vtable12 = load ptr, ptr %2, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 4
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 32
   %3 = load ptr, ptr %vfn13, align 8
   invoke void %3(ptr nonnull sret(%"struct.Imf_3_2::Slice") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(48) %2)
           to label %invoke.cont14 unwind label %lpad.loopexit
 
 invoke.cont14:                                    ; preds = %for.body
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.31", ptr %i.sroa.0.0, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 32
   invoke void @_ZN7Imf_3_211FrameBuffer6insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %fb, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(50) %ref.tmp10)
           to label %for.inc unwind label %lpad.loopexit
 
@@ -1696,17 +1689,17 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont1:                                     ; preds = %invoke.cont
   %0 = load i32, ptr %call, align 4
   store i32 %0, ptr %call2, align 4
-  %y.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %call, i64 4
   %1 = load i32, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call2, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %call2, i64 4
   store i32 %1, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call2, i64 0, i32 1
-  %max3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %max3.i = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load i32, ptr %max3.i, align 4
   store i32 %2, ptr %max.i, align 4
-  %y.i2.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call, i64 0, i32 1, i32 1
+  %y.i2.i = getelementptr inbounds i8, ptr %call, i64 12
   %3 = load i32, ptr %y.i2.i, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call2, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call2, i64 12
   store i32 %3, ptr %y3.i3.i, align 4
   invoke void @_ZN7Imf_3_218saveFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderERKNS_9FlatImageENS_16DataWindowSourceE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef 0)
           to label %invoke.cont4 unwind label %lpad
@@ -1732,7 +1725,7 @@ entry:
   %fb = alloca %"class.Imf_3_2::FrameBuffer", align 8
   %ref.tmp14 = alloca %"struct.Imf_3_2::Slice", align 8
   %vtable = load ptr, ptr %img, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(88) ptr %0(ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef %x, i32 noundef %y)
   %1 = getelementptr inbounds i8, ptr %fb, i64 8
@@ -1758,16 +1751,16 @@ invoke.cont11:                                    ; preds = %for.cond
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node.31", ptr %i.sroa.0.0, i64 0, i32 1, i32 0, i64 32
+  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 64
   %2 = load ptr, ptr %second.i, align 8
   %vtable16 = load ptr, ptr %2, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 4
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 32
   %3 = load ptr, ptr %vfn17, align 8
   invoke void %3(ptr nonnull sret(%"struct.Imf_3_2::Slice") align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(48) %2)
           to label %invoke.cont18 unwind label %lpad.loopexit
 
 invoke.cont18:                                    ; preds = %for.body
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.31", ptr %i.sroa.0.0, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 32
   invoke void @_ZN7Imf_3_211FrameBuffer6insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %fb, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(50) %ref.tmp14)
           to label %for.inc unwind label %lpad.loopexit
 
@@ -1876,10 +1869,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #14
   %cmp.not = icmp eq ptr %1, null

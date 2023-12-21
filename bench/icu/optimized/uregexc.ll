@@ -27,7 +27,7 @@ if.then1:                                         ; preds = %if.end
 
 if.end2:                                          ; preds = %if.end
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %patString, ptr noundef nonnull %pattern)
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %patString, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %patString, i64 8
   %1 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %1 to i32
   %and.i = and i32 %conv1.i, 17
@@ -44,7 +44,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %invoke.cont4
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %patString, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %patString, i64 24
   %2 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont4
 
@@ -53,7 +53,7 @@ invoke.cont4:                                     ; preds = %if.else9.i, %if.the
   %cmp.i.i = icmp slt i16 %1, 0
   %3 = ashr i16 %1, 5
   %shr.i.i = sext i16 %3 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %patString, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %patString, i64 12
   %4 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
   %call7 = invoke ptr @uregex_open_75(ptr noundef %retval.0.i, i32 noundef %cond.i, i32 noundef %flags, ptr noundef %pe, ptr noundef nonnull %status)

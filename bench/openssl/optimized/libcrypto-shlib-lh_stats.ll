@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-lh_stats.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.lhash_st = type { ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i32 }
-%struct.lhash_node_st = type { ptr, ptr, i64 }
-
 @.str = private unnamed_addr constant [29 x i8] c"num_items             = %lu\0A\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"num_nodes             = %u\0A\00", align 1
 @.str.2 = private unnamed_addr constant [28 x i8] c"num_alloc_nodes       = %u\0A\00", align 1
@@ -54,13 +51,13 @@ declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define void @OPENSSL_LH_stats_bio(ptr nocapture noundef readonly %lh, ptr noundef %out) local_unnamed_addr #0 {
 entry:
-  %num_items = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 9
+  %num_items = getelementptr inbounds i8, ptr %lh, i64 56
   %0 = load i64, ptr %num_items, align 8
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str, i64 noundef %0) #2
-  %num_nodes = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 3
+  %num_nodes = getelementptr inbounds i8, ptr %lh, i64 24
   %1 = load i32, ptr %num_nodes, align 8
   %call1 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.1, i32 noundef %1) #2
-  %num_alloc_nodes = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 4
+  %num_alloc_nodes = getelementptr inbounds i8, ptr %lh, i64 28
   %2 = load i32, ptr %num_alloc_nodes, align 4
   %call2 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.2, i32 noundef %2) #2
   %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.3) #2
@@ -91,7 +88,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 106, i64 noundef 0, ptr noundef %fp) #2
-  %num_nodes.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 3
+  %num_nodes.i = getelementptr inbounds i8, ptr %lh, i64 24
   %0 = load i32, ptr %num_nodes.i, align 8
   %cmp11.not.i = icmp eq i32 %0, 0
   br i1 %cmp11.not.i, label %OPENSSL_LH_node_stats_bio.exit, label %for.body.i
@@ -108,7 +105,7 @@ for.body3.i:                                      ; preds = %for.body.i, %for.bo
   %n.010.i = phi ptr [ %n.0.i, %for.body3.i ], [ %n.07.i, %for.body.i ]
   %num.09.i = phi i32 [ %inc.i, %for.body3.i ], [ 0, %for.body.i ]
   %inc.i = add i32 %num.09.i, 1
-  %next.i = getelementptr inbounds %struct.lhash_node_st, ptr %n.010.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %n.010.i, i64 8
   %n.0.i = load ptr, ptr %next.i, align 8
   %cmp2.not.i = icmp eq ptr %n.0.i, null
   br i1 %cmp2.not.i, label %for.end.i, label %for.body3.i, !llvm.loop !4
@@ -134,7 +131,7 @@ return:                                           ; preds = %entry, %OPENSSL_LH_
 ; Function Attrs: nounwind uwtable
 define void @OPENSSL_LH_node_stats_bio(ptr nocapture noundef readonly %lh, ptr noundef %out) local_unnamed_addr #0 {
 entry:
-  %num_nodes = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 3
+  %num_nodes = getelementptr inbounds i8, ptr %lh, i64 24
   %0 = load i32, ptr %num_nodes, align 8
   %cmp11.not = icmp eq i32 %0, 0
   br i1 %cmp11.not, label %for.end6, label %for.body
@@ -151,7 +148,7 @@ for.body3:                                        ; preds = %for.body, %for.body
   %n.010 = phi ptr [ %n.0, %for.body3 ], [ %n.07, %for.body ]
   %num.09 = phi i32 [ %inc, %for.body3 ], [ 0, %for.body ]
   %inc = add i32 %num.09, 1
-  %next = getelementptr inbounds %struct.lhash_node_st, ptr %n.010, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %n.010, i64 8
   %n.0 = load ptr, ptr %next, align 8
   %cmp2.not = icmp eq ptr %n.0, null
   br i1 %cmp2.not, label %for.end, label %for.body3, !llvm.loop !4
@@ -191,7 +188,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define void @OPENSSL_LH_node_usage_stats_bio(ptr nocapture noundef readonly %lh, ptr noundef %out) local_unnamed_addr #0 {
 entry:
-  %num_nodes = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 3
+  %num_nodes = getelementptr inbounds i8, ptr %lh, i64 24
   %0 = load i32, ptr %num_nodes, align 8
   %cmp27.not = icmp eq i32 %0, 0
   br i1 %cmp27.not, label %for.end8, label %for.body.lr.ph
@@ -214,7 +211,7 @@ for.body3:                                        ; preds = %for.body, %for.body
   %n.026 = phi ptr [ %n.0, %for.body3 ], [ %n.023, %for.body ]
   %num.025 = phi i64 [ %inc, %for.body3 ], [ 0, %for.body ]
   %inc = add i64 %num.025, 1
-  %next = getelementptr inbounds %struct.lhash_node_st, ptr %n.026, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %n.026, i64 8
   %n.0 = load ptr, ptr %next, align 8
   %cmp2.not = icmp eq ptr %n.0, null
   br i1 %cmp2.not, label %for.end, label %for.body3, !llvm.loop !7

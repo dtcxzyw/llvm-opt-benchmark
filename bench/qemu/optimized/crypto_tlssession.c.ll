@@ -3,15 +3,7 @@ source_filename = "bench/qemu/original/crypto_tlssession.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QCryptoTLSSession = type { ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.QCryptoTLSCreds = type { %struct.Object, ptr, i32, ptr, i8, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QCryptoTLSCredsAnon = type { %struct.QCryptoTLSCreds, %union.anon }
-%union.anon = type { ptr }
-%struct.QCryptoTLSCredsPSK = type { %struct.QCryptoTLSCreds, ptr, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.QCryptoTLSCredsX509 = type { %struct.QCryptoTLSCreds, ptr, i8, ptr }
 %struct.gnutls_datum_t = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"<none>\00", align 1
@@ -84,16 +76,16 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %handle = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %session, i64 8
   %0 = load ptr, ptr %handle, align 8
   tail call void @gnutls_deinit(ptr noundef %0) #9
-  %hostname = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 2
+  %hostname = getelementptr inbounds i8, ptr %session, i64 16
   %1 = load ptr, ptr %hostname, align 8
   tail call void @g_free(ptr noundef %1) #9
-  %peername = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 8
+  %peername = getelementptr inbounds i8, ptr %session, i64 64
   %2 = load ptr, ptr %peername, align 8
   tail call void @g_free(ptr noundef %2) #9
-  %authzid = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 3
+  %authzid = getelementptr inbounds i8, ptr %session, i64 24
   %3 = load ptr, ptr %authzid, align 8
   tail call void @g_free(ptr noundef %3) #9
   %4 = load ptr, ptr %session, align 8
@@ -144,7 +136,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call, ptr noundef %creds, ptr noundef nonnull %cond, ptr noundef nonnull %cond5, i32 noundef %endpoint) #9
   br label %trace_qcrypto_tls_session_new.exit
@@ -159,7 +151,7 @@ trace_qcrypto_tls_session_new.exit:               ; preds = %entry, %land.lhs.tr
 
 if.then:                                          ; preds = %trace_qcrypto_tls_session_new.exit
   %call7 = tail call noalias ptr @g_strdup(ptr noundef nonnull %hostname) #9
-  %hostname8 = getelementptr inbounds %struct.QCryptoTLSSession, ptr %call, i64 0, i32 2
+  %hostname8 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call7, ptr %hostname8, align 8
   br label %if.end
 
@@ -168,14 +160,14 @@ if.end:                                           ; preds = %if.then, %trace_qcr
 
 if.then10:                                        ; preds = %if.end
   %call11 = tail call noalias ptr @g_strdup(ptr noundef nonnull %authzid) #9
-  %authzid12 = getelementptr inbounds %struct.QCryptoTLSSession, ptr %call, i64 0, i32 3
+  %authzid12 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call11, ptr %authzid12, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %if.end
   store ptr %creds, ptr %call, align 8
   %call15 = tail call ptr @object_ref(ptr noundef %creds) #9
-  %endpoint16 = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %creds, i64 0, i32 2
+  %endpoint16 = getelementptr inbounds i8, ptr %creds, i64 48
   %7 = load i32, ptr %endpoint16, align 8
   %cmp.not = icmp eq i32 %7, %endpoint
   br i1 %cmp.not, label %if.end18, label %if.then17
@@ -186,7 +178,7 @@ if.then17:                                        ; preds = %if.end13
 
 if.end18:                                         ; preds = %if.end13
   %cmp19 = icmp eq i32 %endpoint, 1
-  %handle = getelementptr inbounds %struct.QCryptoTLSSession, ptr %call, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %call, i64 8
   %. = select i1 %cmp19, i32 1, i32 2
   %call23 = tail call i32 @gnutls_init(ptr noundef nonnull %handle, i32 noundef %.) #9
   %cmp25 = icmp slt i32 %call23, 0
@@ -204,7 +196,7 @@ if.end28:                                         ; preds = %if.end18
 
 if.then31:                                        ; preds = %if.end28
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %creds, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.27, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_ANON) #9
-  %priority = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %creds, i64 0, i32 5
+  %priority = getelementptr inbounds i8, ptr %creds, i64 72
   %8 = load ptr, ptr %priority, align 8
   %cmp33.not = icmp eq ptr %8, null
   br i1 %cmp33.not, label %if.else37, label %if.then34
@@ -219,7 +211,7 @@ if.else37:                                        ; preds = %if.then31
 
 if.end39:                                         ; preds = %if.else37, %if.then34
   %prio.0 = phi ptr [ %call36, %if.then34 ], [ %call38, %if.else37 ]
-  %handle40 = getelementptr inbounds %struct.QCryptoTLSSession, ptr %call, i64 0, i32 1
+  %handle40 = getelementptr inbounds i8, ptr %call, i64 8
   %9 = load ptr, ptr %handle40, align 8
   %call41 = tail call i32 @gnutls_priority_set_direct(ptr noundef %9, ptr noundef %prio.0, ptr noundef null) #9
   %cmp42 = icmp slt i32 %call41, 0
@@ -234,7 +226,7 @@ if.then43:                                        ; preds = %if.end39
 if.end45:                                         ; preds = %if.end39
   tail call void @g_free(ptr noundef %prio.0) #9
   %10 = load ptr, ptr %handle40, align 8
-  %data = getelementptr inbounds %struct.QCryptoTLSCredsAnon, ptr %call.i, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call.i, i64 80
   %11 = load ptr, ptr %data, align 8
   %call50 = tail call i32 @gnutls_credentials_set(ptr noundef %10, i32 noundef 2, ptr noundef %11) #9
   %cmp56 = icmp slt i32 %call50, 0
@@ -252,7 +244,7 @@ if.else60:                                        ; preds = %if.end28
 
 if.then63:                                        ; preds = %if.else60
   %call.i79 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %creds, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.28, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_PSK) #9
-  %priority66 = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %creds, i64 0, i32 5
+  %priority66 = getelementptr inbounds i8, ptr %creds, i64 72
   %12 = load ptr, ptr %priority66, align 8
   %cmp67.not = icmp eq ptr %12, null
   br i1 %cmp67.not, label %if.else71, label %if.then68
@@ -267,7 +259,7 @@ if.else71:                                        ; preds = %if.then63
 
 if.end73:                                         ; preds = %if.else71, %if.then68
   %prio65.0 = phi ptr [ %call70, %if.then68 ], [ %call72, %if.else71 ]
-  %handle74 = getelementptr inbounds %struct.QCryptoTLSSession, ptr %call, i64 0, i32 1
+  %handle74 = getelementptr inbounds i8, ptr %call, i64 8
   %13 = load ptr, ptr %handle74, align 8
   %call75 = tail call i32 @gnutls_priority_set_direct(ptr noundef %13, ptr noundef %prio65.0, ptr noundef null) #9
   %cmp76 = icmp slt i32 %call75, 0
@@ -282,7 +274,7 @@ if.then77:                                        ; preds = %if.end73
 if.end79:                                         ; preds = %if.end73
   tail call void @g_free(ptr noundef %prio65.0) #9
   %14 = load ptr, ptr %handle74, align 8
-  %data84 = getelementptr inbounds %struct.QCryptoTLSCredsPSK, ptr %call.i79, i64 0, i32 2
+  %data84 = getelementptr inbounds i8, ptr %call.i79, i64 88
   %15 = load ptr, ptr %data84, align 8
   %call85 = tail call i32 @gnutls_credentials_set(ptr noundef %14, i32 noundef 4, ptr noundef %15) #9
   %cmp91 = icmp slt i32 %call85, 0
@@ -300,11 +292,11 @@ if.else95:                                        ; preds = %if.else60
 
 if.then98:                                        ; preds = %if.else95
   %call.i80 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %creds, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.29, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_X509) #9
-  %priority101 = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %creds, i64 0, i32 5
+  %priority101 = getelementptr inbounds i8, ptr %creds, i64 72
   %16 = load ptr, ptr %priority101, align 8
   %tobool102.not = icmp eq ptr %16, null
   %spec.store.select = select i1 %tobool102.not, ptr @.str.14, ptr %16
-  %handle105 = getelementptr inbounds %struct.QCryptoTLSSession, ptr %call, i64 0, i32 1
+  %handle105 = getelementptr inbounds i8, ptr %call, i64 8
   %17 = load ptr, ptr %handle105, align 8
   %call106 = tail call i32 @gnutls_priority_set_direct(ptr noundef %17, ptr noundef nonnull %spec.store.select, ptr noundef null) #9
   %cmp107 = icmp slt i32 %call106, 0
@@ -317,7 +309,7 @@ if.then108:                                       ; preds = %if.then98
 
 if.end110:                                        ; preds = %if.then98
   %18 = load ptr, ptr %handle105, align 8
-  %data112 = getelementptr inbounds %struct.QCryptoTLSCredsX509, ptr %call.i80, i64 0, i32 1
+  %data112 = getelementptr inbounds i8, ptr %call.i80, i64 80
   %19 = load ptr, ptr %data112, align 8
   %call113 = tail call i32 @gnutls_credentials_set(ptr noundef %18, i32 noundef 1, ptr noundef %19) #9
   %cmp114 = icmp slt i32 %call113, 0
@@ -344,7 +336,7 @@ if.else123:                                       ; preds = %if.else95
   br label %qcrypto_tls_session_free.exit
 
 if.end127:                                        ; preds = %if.end79, %if.end117, %if.then120, %if.end45
-  %handle128 = getelementptr inbounds %struct.QCryptoTLSSession, ptr %call, i64 0, i32 1
+  %handle128 = getelementptr inbounds i8, ptr %call, i64 8
   %22 = load ptr, ptr %handle128, align 8
   tail call void @gnutls_transport_set_ptr(ptr noundef %22, ptr noundef nonnull %call) #9
   %23 = load ptr, ptr %handle128, align 8
@@ -354,16 +346,16 @@ if.end127:                                        ; preds = %if.end79, %if.end11
   br label %return
 
 qcrypto_tls_session_free.exit:                    ; preds = %if.else123, %if.then115, %if.then108, %if.then92, %if.then77, %if.then57, %if.then43, %if.then26, %if.then17
-  %handle.i = getelementptr inbounds %struct.QCryptoTLSSession, ptr %call, i64 0, i32 1
+  %handle.i = getelementptr inbounds i8, ptr %call, i64 8
   %25 = load ptr, ptr %handle.i, align 8
   tail call void @gnutls_deinit(ptr noundef %25) #9
-  %hostname.i = getelementptr inbounds %struct.QCryptoTLSSession, ptr %call, i64 0, i32 2
+  %hostname.i = getelementptr inbounds i8, ptr %call, i64 16
   %26 = load ptr, ptr %hostname.i, align 8
   tail call void @g_free(ptr noundef %26) #9
-  %peername.i = getelementptr inbounds %struct.QCryptoTLSSession, ptr %call, i64 0, i32 8
+  %peername.i = getelementptr inbounds i8, ptr %call, i64 64
   %27 = load ptr, ptr %peername.i, align 8
   tail call void @g_free(ptr noundef %27) #9
-  %authzid.i = getelementptr inbounds %struct.QCryptoTLSSession, ptr %call, i64 0, i32 3
+  %authzid.i = getelementptr inbounds i8, ptr %call, i64 24
   %28 = load ptr, ptr %authzid.i, align 8
   tail call void @g_free(ptr noundef %28) #9
   %29 = load ptr, ptr %call, align 8
@@ -409,7 +401,7 @@ declare void @gnutls_transport_set_push_function(ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @qcrypto_tls_session_push(ptr nocapture noundef readonly %opaque, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
-  %writeFunc = getelementptr inbounds %struct.QCryptoTLSSession, ptr %opaque, i64 0, i32 5
+  %writeFunc = getelementptr inbounds i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %writeFunc, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -420,7 +412,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %opaque2 = getelementptr inbounds %struct.QCryptoTLSSession, ptr %opaque, i64 0, i32 7
+  %opaque2 = getelementptr inbounds i8, ptr %opaque, i64 56
   %1 = load ptr, ptr %opaque2, align 8
   %call3 = tail call i64 %0(ptr noundef %buf, i64 noundef %len, ptr noundef %1) #9
   br label %return
@@ -435,7 +427,7 @@ declare void @gnutls_transport_set_pull_function(ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @qcrypto_tls_session_pull(ptr nocapture noundef readonly %opaque, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
-  %readFunc = getelementptr inbounds %struct.QCryptoTLSSession, ptr %opaque, i64 0, i32 6
+  %readFunc = getelementptr inbounds i8, ptr %opaque, i64 48
   %0 = load ptr, ptr %readFunc, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -446,7 +438,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %opaque2 = getelementptr inbounds %struct.QCryptoTLSSession, ptr %opaque, i64 0, i32 7
+  %opaque2 = getelementptr inbounds i8, ptr %opaque, i64 56
   %1 = load ptr, ptr %opaque2, align 8
   %call3 = tail call i64 %0(ptr noundef %buf, i64 noundef %len, ptr noundef %1) #9
   br label %return
@@ -499,7 +491,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %session, ptr noundef nonnull @.str.17) #9
   br label %trace_qcrypto_tls_session_check_creds.exit
@@ -543,7 +535,7 @@ if.then8.i.i22:                                   ; preds = %if.then.i.i20
   %call9.i.i23 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i13, ptr noundef null) #9
   %call10.i.i24 = tail call i32 @qemu_get_thread_id() #9
   %14 = load i64, ptr %_now.i.i13, align 8
-  %tv_usec.i.i25 = getelementptr inbounds %struct.timeval, ptr %_now.i.i13, i64 0, i32 1
+  %tv_usec.i.i25 = getelementptr inbounds i8, ptr %_now.i.i13, i64 8
   %15 = load i64, ptr %tv_usec.i.i25, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i24, i64 noundef %14, i64 noundef %15, ptr noundef nonnull %session, ptr noundef nonnull @.str.17) #9
   br label %trace_qcrypto_tls_session_check_creds.exit27
@@ -564,7 +556,7 @@ if.else5:                                         ; preds = %if.else
 
 if.then9:                                         ; preds = %if.else5
   %17 = load ptr, ptr %session, align 8
-  %verifyPeer = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %17, i64 0, i32 4
+  %verifyPeer = getelementptr inbounds i8, ptr %17, i64 64
   %18 = load i8, ptr %verifyPeer, align 8
   %19 = and i8 %18, 1
   %tobool11.not = icmp eq i8 %19, 0
@@ -589,7 +581,7 @@ if.then.i:                                        ; preds = %if.then12
   br label %qcrypto_tls_session_check_certificate.exit.thread
 
 if.end.i:                                         ; preds = %if.then12
-  %handle.i = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 1
+  %handle.i = getelementptr inbounds i8, ptr %session, i64 8
   %21 = load ptr, ptr %handle.i, align 8
   %call2.i = call i32 @gnutls_certificate_verify_peers2(ptr noundef %21, ptr noundef nonnull %status.i) #9
   %cmp3.i = icmp slt i32 %call2.i, 0
@@ -633,9 +625,9 @@ for.cond.preheader.i:                             ; preds = %if.end23.i
   br i1 %cmp2975.not.i, label %.loopexit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %peername.i = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 8
-  %authzid.i = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 3
-  %hostname.i = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 2
+  %peername.i = getelementptr inbounds i8, ptr %session, i64 64
+  %authzid.i = getelementptr inbounds i8, ptr %session, i64 24
+  %hostname.i = getelementptr inbounds i8, ptr %session, i64 16
   br label %for.body.i
 
 if.then27.i:                                      ; preds = %if.end23.i
@@ -770,7 +762,7 @@ if.then85.i:                                      ; preds = %if.then81.i
 
 if.else.i:                                        ; preds = %if.end79.i
   %48 = load ptr, ptr %session, align 8
-  %endpoint.i = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %48, i64 0, i32 2
+  %endpoint.i = getelementptr inbounds i8, ptr %48, i64 48
   %49 = load i32, ptr %endpoint.i, align 8
   %cmp88.i = icmp eq i32 %49, 0
   br i1 %cmp88.i, label %if.then89.i, label %if.end92.i
@@ -836,7 +828,7 @@ if.then8.i.i37:                                   ; preds = %if.then.i.i35
   %call9.i.i38 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i28, ptr noundef null) #9
   %call10.i.i39 = call i32 @qemu_get_thread_id() #9
   %61 = load i64, ptr %_now.i.i28, align 8
-  %tv_usec.i.i40 = getelementptr inbounds %struct.timeval, ptr %_now.i.i28, i64 0, i32 1
+  %tv_usec.i.i40 = getelementptr inbounds i8, ptr %_now.i.i28, i64 8
   %62 = load i64, ptr %tv_usec.i.i40, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i39, i64 noundef %61, i64 noundef %62, ptr noundef nonnull %session, ptr noundef nonnull %55) #9
   br label %trace_qcrypto_tls_session_check_creds.exit42
@@ -874,7 +866,7 @@ if.then8.i.i52:                                   ; preds = %if.then.i.i50
   %call9.i.i53 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i43, ptr noundef null) #9
   %call10.i.i54 = tail call i32 @qemu_get_thread_id() #9
   %68 = load i64, ptr %_now.i.i43, align 8
-  %tv_usec.i.i55 = getelementptr inbounds %struct.timeval, ptr %_now.i.i43, i64 0, i32 1
+  %tv_usec.i.i55 = getelementptr inbounds i8, ptr %_now.i.i43, i64 8
   %69 = load i64, ptr %tv_usec.i.i55, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i54, i64 noundef %68, i64 noundef %69, ptr noundef nonnull %session, ptr noundef nonnull @.str.20) #9
   br label %trace_qcrypto_tls_session_check_creds.exit57
@@ -912,7 +904,7 @@ if.then8.i.i67:                                   ; preds = %if.then.i.i65
   %call9.i.i68 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i58, ptr noundef null) #9
   %call10.i.i69 = tail call i32 @qemu_get_thread_id() #9
   %75 = load i64, ptr %_now.i.i58, align 8
-  %tv_usec.i.i70 = getelementptr inbounds %struct.timeval, ptr %_now.i.i58, i64 0, i32 1
+  %tv_usec.i.i70 = getelementptr inbounds i8, ptr %_now.i.i58, i64 8
   %76 = load i64, ptr %tv_usec.i.i70, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i69, i64 noundef %75, i64 noundef %76, ptr noundef nonnull %session, ptr noundef nonnull @.str.21) #9
   br label %trace_qcrypto_tls_session_check_creds.exit72
@@ -936,11 +928,11 @@ return:                                           ; preds = %trace_qcrypto_tls_s
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @qcrypto_tls_session_set_callbacks(ptr nocapture noundef writeonly %session, ptr noundef %writeFunc, ptr noundef %readFunc, ptr noundef %opaque) local_unnamed_addr #4 {
 entry:
-  %writeFunc1 = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 5
+  %writeFunc1 = getelementptr inbounds i8, ptr %session, i64 40
   store ptr %writeFunc, ptr %writeFunc1, align 8
-  %readFunc2 = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 6
+  %readFunc2 = getelementptr inbounds i8, ptr %session, i64 48
   store ptr %readFunc, ptr %readFunc2, align 8
-  %opaque3 = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 7
+  %opaque3 = getelementptr inbounds i8, ptr %session, i64 56
   store ptr %opaque, ptr %opaque3, align 8
   ret void
 }
@@ -948,7 +940,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qcrypto_tls_session_write(ptr nocapture noundef readonly %session, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %handle = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %session, i64 8
   %0 = load ptr, ptr %handle, align 8
   %call = tail call i64 @gnutls_record_send(ptr noundef %0, ptr noundef %buf, i64 noundef %len) #9
   %cmp = icmp slt i64 %call, 0
@@ -976,7 +968,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qcrypto_tls_session_read(ptr nocapture noundef readonly %session, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %handle = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %session, i64 8
   %0 = load ptr, ptr %handle, align 8
   %call = tail call i64 @gnutls_record_recv(ptr noundef %0, ptr noundef %buf, i64 noundef %len) #9
   %cmp = icmp slt i64 %call, 0
@@ -1014,7 +1006,7 @@ declare i64 @gnutls_record_recv(ptr noundef, ptr noundef, i64 noundef) local_unn
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qcrypto_tls_session_check_pending(ptr nocapture noundef readonly %session) local_unnamed_addr #0 {
 entry:
-  %handle = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %session, i64 8
   %0 = load ptr, ptr %handle, align 8
   %call = tail call i64 @gnutls_record_check_pending(ptr noundef %0) #9
   ret i64 %call
@@ -1025,7 +1017,7 @@ declare i64 @gnutls_record_check_pending(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcrypto_tls_session_handshake(ptr nocapture noundef %session, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %handle = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %session, i64 8
   %0 = load ptr, ptr %handle, align 8
   %call = tail call i32 @gnutls_handshake(ptr noundef %0) #9
   switch i32 %call, label %if.else4 [
@@ -1035,7 +1027,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %handshakeComplete = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 4
+  %handshakeComplete = getelementptr inbounds i8, ptr %session, i64 32
   store i8 1, ptr %handshakeComplete, align 8
   br label %if.end6
 
@@ -1054,14 +1046,14 @@ declare i32 @gnutls_handshake(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcrypto_tls_session_get_handshake_status(ptr nocapture noundef readonly %session) local_unnamed_addr #0 {
 entry:
-  %handshakeComplete = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 4
+  %handshakeComplete = getelementptr inbounds i8, ptr %session, i64 32
   %0 = load i8, ptr %handshakeComplete, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
-  %handle = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %session, i64 8
   %2 = load ptr, ptr %handle, align 8
   %call = tail call i32 @gnutls_record_get_direction(ptr noundef %2) #9
   %cmp = icmp eq i32 %call, 0
@@ -1078,7 +1070,7 @@ declare i32 @gnutls_record_get_direction(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcrypto_tls_session_get_key_size(ptr nocapture noundef readonly %session, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %handle = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %session, i64 8
   %0 = load ptr, ptr %handle, align 8
   %call = tail call i32 @gnutls_cipher_get(ptr noundef %0) #9
   %call1 = tail call i64 @gnutls_cipher_get_key_size(i32 noundef %call) #11
@@ -1103,7 +1095,7 @@ declare i64 @gnutls_cipher_get_key_size(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias ptr @qcrypto_tls_session_get_peer_name(ptr nocapture noundef readonly %session) local_unnamed_addr #0 {
 entry:
-  %peername = getelementptr inbounds %struct.QCryptoTLSSession, ptr %session, i64 0, i32 8
+  %peername = getelementptr inbounds i8, ptr %session, i64 64
   %0 = load ptr, ptr %peername, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then

@@ -3,29 +3,8 @@ source_filename = "bench/luajit/original/lj_clib_dyn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CLibrary = type { ptr, ptr }
-%struct.lua_State = type { %struct.GCRef, i8, i8, i8, i8, %struct.MRef, %struct.GCRef, ptr, ptr, %struct.MRef, %struct.MRef, %struct.GCRef, %struct.GCRef, ptr, i32 }
-%struct.MRef = type { i64 }
-%struct.GCRef = type { i64 }
-%struct.global_State = type { ptr, ptr, %struct.GCState, %struct.GCstr, i8, i8, i8, i8, %struct.StrInternState, i32, %struct.GCRef, %struct.SBuf, %union.TValue, %union.TValue, %struct.Node, %union.TValue, %struct.GCupval, i32, i32, ptr, ptr, ptr, i32, i32, %struct.GCRef, %struct.MRef, %struct.MRef, %struct.PRNGState, [38 x %struct.GCRef] }
-%struct.GCState = type { i64, i64, i8, i8, i8, i8, i32, %struct.GCRef, %struct.MRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, i64, i64, i32, i32, %struct.MRef }
-%struct.GCstr = type { %struct.GCRef, i8, i8, i8, i8, i32, i32, i32 }
-%struct.StrInternState = type { ptr, i32, i32, i32, i8, i8, i8, i8, i64 }
-%struct.SBuf = type { ptr, ptr, ptr, %struct.MRef }
-%struct.Node = type { %union.TValue, %union.TValue, %struct.MRef }
-%union.TValue = type { i64 }
-%struct.GCupval = type { %struct.GCRef, i8, i8, i8, i8, %union.anon, %struct.MRef, i32 }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { %struct.GCRef, %struct.GCRef }
-%struct.PRNGState = type { [4 x i64] }
-%struct.CTState = type { ptr, i32, i32, ptr, ptr, ptr, ptr, %struct.CCallback, [128 x i16] }
-%struct.CCallback = type { [8 x %union.FPRCBArg], [8 x i64], ptr, ptr, ptr, i32, i32, i32 }
-%union.FPRCBArg = type { double }
 %struct.CType = type { i32, i32, i16, i16, %struct.GCRef }
-%struct.GCcdata = type { %struct.GCRef, i8, i8, i16 }
-%struct.GChead = type { %struct.GCRef, i8, i8, i8, i8, %struct.GCRef, %struct.GCRef, %struct.GCRef }
-%struct.GCtab = type { %struct.GCRef, i8, i8, i8, i8, %struct.MRef, %struct.GCRef, %struct.GCRef, %struct.MRef, i32, i32, %struct.MRef }
-%struct.GCudata = type { %struct.GCRef, i8, i8, i8, i8, %struct.GCRef, i32, %struct.GCRef, i32 }
+%struct.GCRef = type { i64 }
 
 @.str.1 = private unnamed_addr constant [14 x i8] c"dlopen failed\00", align 1
 @.str.2 = private unnamed_addr constant [6 x i8] c"%s.so\00", align 1
@@ -39,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden ptr @lj_clib_index(ptr noundef %L, ptr nocapture noundef readonly %cl, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %ct = alloca ptr, align 8
-  %cache = getelementptr inbounds %struct.CLibrary, ptr %cl, i64 0, i32 1
+  %cache = getelementptr inbounds i8, ptr %cl, i64 8
   %0 = load ptr, ptr %cache, align 8
   %call = tail call ptr @lj_tab_setstr(ptr noundef %L, ptr noundef %0, ptr noundef %name) #9
   %1 = load i64, ptr %call, align 8
@@ -47,20 +26,20 @@ entry:
   br i1 %cmp, label %if.then, label %if.end41
 
 if.then:                                          ; preds = %entry
-  %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref.i = getelementptr inbounds i8, ptr %L, i64 16
   %2 = load i64, ptr %glref.i, align 8
   %3 = inttoptr i64 %2 to ptr
-  %ctype_state.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 26
+  %ctype_state.i = getelementptr inbounds i8, ptr %3, i64 384
   %4 = load i64, ptr %ctype_state.i, align 8
   %5 = inttoptr i64 %4 to ptr
-  %L2.i = getelementptr inbounds %struct.CTState, ptr %5, i64 0, i32 3
+  %L2.i = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %L, ptr %L2.i, align 8
   %call3 = call i32 @lj_ctype_getname(ptr noundef %5, ptr noundef nonnull %ct, ptr noundef %name, i32 noundef 6208) #9
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then
-  %add.ptr = getelementptr inbounds %struct.GCstr, ptr %name, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %name, i64 24
   call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %L, i32 noundef 3612, ptr noundef nonnull %add.ptr) #10
   unreachable
 
@@ -79,7 +58,7 @@ if.then8:                                         ; preds = %if.end
   %9 = load i32, ptr %arrayidx.i, align 8
   %and = and i32 %9, 8388608
   %tobool11.not = icmp ne i32 %and, 0
-  %size17.phi.trans.insert = getelementptr inbounds %struct.CType, ptr %6, i64 0, i32 1
+  %size17.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 4
   %.pre = load i32, ptr %size17.phi.trans.insert, align 4
   %cmp12 = icmp slt i32 %.pre, 0
   %or.cond = select i1 %tobool11.not, i1 %cmp12, i1 false
@@ -111,14 +90,14 @@ if.then.i:                                        ; preds = %if.else19
   br i1 %cmp.i, label %if.then3.i, label %clib_extsym.exit
 
 if.then3.i:                                       ; preds = %if.then.i
-  %name4.i = getelementptr inbounds %struct.CType, ptr %11, i64 %idxprom.i.i, i32 4
+  %name4.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %13 = load i64, ptr %name4.i, align 8
   %14 = inttoptr i64 %13 to ptr
   br label %clib_extsym.exit
 
 clib_extsym.exit:                                 ; preds = %if.else19, %if.then.i, %if.then3.i
   %.pn.i = phi ptr [ %14, %if.then3.i ], [ %name, %if.then.i ], [ %name, %if.else19 ]
-  %retval.0.i = getelementptr inbounds %struct.GCstr, ptr %.pn.i, i64 1
+  %retval.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %cl.val = load ptr, ptr %cl, align 8
   %call.i = call ptr @dlsym(ptr noundef %cl.val, ptr noundef nonnull %retval.0.i) #9
   %tobool22.not = icmp eq ptr %call.i, null
@@ -131,18 +110,18 @@ if.then23:                                        ; preds = %clib_extsym.exit
 if.end24:                                         ; preds = %clib_extsym.exit
   %15 = load ptr, ptr %L2.i, align 8
   %call.i44 = call ptr @lj_mem_newgco(ptr noundef %15, i64 noundef 24) #9
-  %gct.i = getelementptr inbounds %struct.GCcdata, ptr %call.i44, i64 0, i32 2
+  %gct.i = getelementptr inbounds i8, ptr %call.i44, i64 9
   store i8 10, ptr %gct.i, align 1
   %conv2.i = trunc i32 %call3 to i16
-  %ctypeid.i = getelementptr inbounds %struct.GCcdata, ptr %call.i44, i64 0, i32 3
+  %ctypeid.i = getelementptr inbounds i8, ptr %call.i44, i64 10
   store i16 %conv2.i, ptr %ctypeid.i, align 2
-  %add.ptr26 = getelementptr inbounds %struct.GCcdata, ptr %call.i44, i64 1
+  %add.ptr26 = getelementptr inbounds i8, ptr %call.i44, i64 16
   store ptr %call.i, ptr %add.ptr26, align 8
   %16 = ptrtoint ptr %call.i44 to i64
   %or.i = or i64 %16, -1548112371908608
   store i64 %or.i, ptr %call, align 8
   %17 = load ptr, ptr %cache, align 8
-  %marked = getelementptr inbounds %struct.GChead, ptr %17, i64 0, i32 1
+  %marked = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i8, ptr %marked, align 8
   %19 = and i8 %18, 4
   %tobool30.not = icmp eq i8 %19, 0
@@ -153,9 +132,9 @@ if.then37:                                        ; preds = %if.end24
   %21 = inttoptr i64 %20 to ptr
   %and.i48 = and i8 %18, -5
   store i8 %and.i48, ptr %marked, align 8
-  %grayagain.i = getelementptr inbounds %struct.global_State, ptr %21, i64 0, i32 2, i32 10
+  %grayagain.i = getelementptr inbounds i8, ptr %21, i64 64
   %22 = load i64, ptr %grayagain.i, align 8
-  %gclist.i = getelementptr inbounds %struct.GCtab, ptr %17, i64 0, i32 6
+  %gclist.i = getelementptr inbounds i8, ptr %17, i64 24
   store i64 %22, ptr %gclist.i, align 8
   %23 = ptrtoint ptr %17 to i64
   store i64 %23, ptr %grayagain.i, align 8
@@ -184,7 +163,7 @@ entry:
 define hidden void @lj_clib_load(ptr noundef %L, ptr noundef %mt, ptr noundef %name, i32 noundef %global) local_unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [256 x i8], align 16
-  %add.ptr = getelementptr inbounds %struct.GCstr, ptr %name, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %name, i64 24
   %call.i.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 47) #12
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %clib_extname.exit.i
@@ -196,9 +175,9 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   %call4.i.i = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %L, ptr noundef nonnull @.str.2, ptr noundef nonnull %add.ptr) #9
-  %top.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top.i.i = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %union.TValue, ptr %0, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   store ptr %incdec.ptr.i.i, ptr %top.i.i, align 8
   br label %if.end.i.i
 
@@ -222,9 +201,9 @@ land.lhs.true12.i.i:                              ; preds = %land.lhs.true.i.i
 
 if.then18.i.i:                                    ; preds = %land.lhs.true12.i.i, %land.lhs.true.i.i, %if.end.i.i
   %call19.i.i = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %L, ptr noundef nonnull @.str.4, ptr noundef nonnull %name.addr.0.i.i) #9
-  %top20.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top20.i.i = getelementptr inbounds i8, ptr %L, i64 40
   %4 = load ptr, ptr %top20.i.i, align 8
-  %incdec.ptr21.i.i = getelementptr inbounds %union.TValue, ptr %4, i64 -1
+  %incdec.ptr21.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   store ptr %incdec.ptr21.i.i, ptr %top20.i.i, align 8
   br label %clib_extname.exit.i
 
@@ -256,7 +235,7 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true6.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call3.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %call10.i = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %call3.i, i64 noundef %sub.ptr.sub.i) #9
-  %add.ptr.i = getelementptr inbounds %struct.GCstr, ptr %call10.i, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %call10.i, i64 24
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i.i)
   %call.i15.i = tail call noalias ptr @fopen64(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @.str.5)
   %tobool.not.i16.i = icmp eq ptr %call.i15.i, null
@@ -370,7 +349,7 @@ if.then13.i:                                      ; preds = %for.cond.i20.i.i, %
   %sub.ptr.rhs.cast.i24.i.i = ptrtoint ptr %incdec.ptr.i17.lcssa.sink43.i.i to i64
   %sub.ptr.sub.i25.i.i = sub i64 %sub.ptr.lhs.cast.i23.i.i, %sub.ptr.rhs.cast.i24.i.i
   %call16.i26.i.i = call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %incdec.ptr.i17.lcssa.sink43.i.i, i64 noundef %sub.ptr.sub.i25.i.i) #9
-  %add.ptr.i27.i.i = getelementptr inbounds %struct.GCstr, ptr %call16.i26.i.i, i64 1
+  %add.ptr.i27.i.i = getelementptr inbounds i8, ptr %call16.i26.i.i, i64 24
   %call19.i21.i = call i32 @fclose(ptr noundef nonnull %call.i15.i)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buf.i.i)
   %call17.i = call ptr @dlopen(ptr noundef nonnull %add.ptr.i27.i.i, i32 noundef %or.i) #9
@@ -392,17 +371,17 @@ clib_loadlib.exit:                                ; preds = %clib_extname.exit.i
   %retval.0.i = phi ptr [ %call17.i, %if.then13.i ], [ %call1.i, %clib_extname.exit.i ]
   %call.i = call ptr @lj_tab_new(ptr noundef %L, i32 noundef 0, i32 noundef 0) #9
   %call1.i2 = call ptr @lj_udata_new(ptr noundef %L, i32 noundef 16, ptr noundef %call.i) #9
-  %add.ptr.i3 = getelementptr inbounds %struct.GCudata, ptr %call1.i2, i64 1
-  %cache.i = getelementptr inbounds %struct.GCudata, ptr %call1.i2, i64 1, i32 1
+  %add.ptr.i3 = getelementptr inbounds i8, ptr %call1.i2, i64 48
+  %cache.i = getelementptr inbounds i8, ptr %call1.i2, i64 56
   store ptr %call.i, ptr %cache.i, align 8
-  %udtype.i = getelementptr inbounds %struct.GCudata, ptr %call1.i2, i64 0, i32 3
+  %udtype.i = getelementptr inbounds i8, ptr %call1.i2, i64 10
   store i8 2, ptr %udtype.i, align 2
   %10 = ptrtoint ptr %mt to i64
-  %metatable.i = getelementptr inbounds %struct.GCudata, ptr %call1.i2, i64 0, i32 7
+  %metatable.i = getelementptr inbounds i8, ptr %call1.i2, i64 32
   store i64 %10, ptr %metatable.i, align 8
-  %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top.i = getelementptr inbounds i8, ptr %L, i64 40
   %11 = load ptr, ptr %top.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %union.TValue, ptr %11, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %incdec.ptr.i, ptr %top.i, align 8
   %12 = ptrtoint ptr %call1.i2 to i64
   %or.i.i.i = or i64 %12, -1829587348619264
@@ -432,17 +411,17 @@ define hidden void @lj_clib_default(ptr noundef %L, ptr noundef %mt) local_unnam
 entry:
   %call.i = tail call ptr @lj_tab_new(ptr noundef %L, i32 noundef 0, i32 noundef 0) #9
   %call1.i = tail call ptr @lj_udata_new(ptr noundef %L, i32 noundef 16, ptr noundef %call.i) #9
-  %add.ptr.i = getelementptr inbounds %struct.GCudata, ptr %call1.i, i64 1
-  %cache.i = getelementptr inbounds %struct.GCudata, ptr %call1.i, i64 1, i32 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %call1.i, i64 48
+  %cache.i = getelementptr inbounds i8, ptr %call1.i, i64 56
   store ptr %call.i, ptr %cache.i, align 8
-  %udtype.i = getelementptr inbounds %struct.GCudata, ptr %call1.i, i64 0, i32 3
+  %udtype.i = getelementptr inbounds i8, ptr %call1.i, i64 10
   store i8 2, ptr %udtype.i, align 2
   %0 = ptrtoint ptr %mt to i64
-  %metatable.i = getelementptr inbounds %struct.GCudata, ptr %call1.i, i64 0, i32 7
+  %metatable.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   store i64 %0, ptr %metatable.i, align 8
-  %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top.i = getelementptr inbounds i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %union.TValue, ptr %1, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %incdec.ptr.i, ptr %top.i, align 8
   %2 = ptrtoint ptr %call1.i to i64
   %or.i.i.i = or i64 %2, -1829587348619264

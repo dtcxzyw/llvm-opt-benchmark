@@ -4,24 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"class.facebook::yoga::Node" = type { i8, ptr, ptr, ptr, ptr, ptr, %"class.facebook::yoga::Style", %"struct.facebook::yoga::LayoutResults", i64, ptr, %"class.std::vector", ptr, %"struct.std::array.5" }
-%"class.facebook::yoga::Style" = type { i8, [3 x i8], %"struct.facebook::yoga::FloatOptional", %"struct.facebook::yoga::FloatOptional", %"struct.facebook::yoga::FloatOptional", %"class.facebook::yoga::CompactValue", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array.0", %"struct.std::array.1", %"struct.std::array.1", %"struct.std::array.1", %"struct.facebook::yoga::FloatOptional" }
-%"class.facebook::yoga::CompactValue" = type { i32 }
-%"struct.std::array" = type { [9 x %"class.facebook::yoga::CompactValue"] }
-%"struct.std::array.0" = type { [3 x %"class.facebook::yoga::CompactValue"] }
-%"struct.std::array.1" = type { [2 x %"class.facebook::yoga::CompactValue"] }
-%"struct.facebook::yoga::FloatOptional" = type { float }
-%"struct.facebook::yoga::LayoutResults" = type { i32, %"struct.facebook::yoga::FloatOptional", i32, i8, i32, %"struct.std::array.2", %"struct.facebook::yoga::CachedMeasurement", i8, %"struct.std::array.3", %"struct.std::array.3", %"struct.std::array.4", %"struct.std::array.4", %"struct.std::array.4", %"struct.std::array.4" }
-%"struct.std::array.2" = type { [8 x %"struct.facebook::yoga::CachedMeasurement"] }
-%"struct.facebook::yoga::CachedMeasurement" = type { float, float, i32, i32, float, float }
-%"struct.std::array.3" = type { [2 x float] }
-%"struct.std::array.4" = type { [4 x float] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array.5" = type { [2 x %struct.YGValue] }
-%struct.YGValue = type { float, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -79,7 +61,7 @@ entry:
   br i1 %cmp, label %if.then.i, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %config_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 11
+  %config_.i = getelementptr inbounds i8, ptr %node, i64 616
   %0 = load ptr, ptr %config_.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i

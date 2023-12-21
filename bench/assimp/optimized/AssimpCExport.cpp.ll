@@ -4,17 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.Assimp::Exporter" = type { ptr }
-%struct.aiExportFormatDesc = type { ptr, ptr, ptr }
-%struct.aiScene = type { i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, %struct.aiString, i32, ptr, ptr }
-%struct.aiString = type { i32, [1024 x i8] }
-%"struct.Assimp::ScenePrivateData" = type <{ ptr, i32, i8, [3 x i8] }>
-%"class.Assimp::IOSystem" = type { ptr, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.Assimp::CIOSystemWrapper" = type { %"class.Assimp::IOSystem", ptr }
-%struct.aiExportDataBlob = type { i64, ptr, %struct.aiString, ptr }
 
 $_ZN16aiExportDataBlobD2Ev = comdat any
 
@@ -71,7 +60,7 @@ if.end:                                           ; preds = %invoke.cont
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %if.end
-  %description = getelementptr inbounds %struct.aiExportFormatDesc, ptr %call, i64 0, i32 1
+  %description = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %description, align 8
   %call3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %add = add i64 %call3, 1
@@ -80,11 +69,11 @@ invoke.cont1:                                     ; preds = %if.end
 
 invoke.cont4:                                     ; preds = %invoke.cont1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %call5, i8 0, i64 %add, i1 false)
-  %description6 = getelementptr inbounds %struct.aiExportFormatDesc, ptr %call2, i64 0, i32 1
+  %description6 = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %call5, ptr %description6, align 8
   %call10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5, ptr align 1 %1, i64 %call10, i1 false)
-  %fileExtension = getelementptr inbounds %struct.aiExportFormatDesc, ptr %call, i64 0, i32 2
+  %fileExtension = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %fileExtension, align 8
   %call11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #12
   %add12 = add i64 %call11, 1
@@ -93,7 +82,7 @@ invoke.cont4:                                     ; preds = %invoke.cont1
 
 invoke.cont13:                                    ; preds = %invoke.cont4
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %call14, i8 0, i64 %add12, i1 false)
-  %fileExtension15 = getelementptr inbounds %struct.aiExportFormatDesc, ptr %call2, i64 0, i32 2
+  %fileExtension15 = getelementptr inbounds i8, ptr %call2, i64 16
   store ptr %call14, ptr %fileExtension15, align 8
   %call19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call14, ptr align 1 %2, i64 %call19, i1 false)
@@ -140,7 +129,7 @@ entry:
   br i1 %cmp, label %delete.end9, label %if.end
 
 if.end:                                           ; preds = %entry
-  %description = getelementptr inbounds %struct.aiExportFormatDesc, ptr %desc, i64 0, i32 1
+  %description = getelementptr inbounds i8, ptr %desc, i64 8
   %0 = load ptr, ptr %description, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -150,7 +139,7 @@ delete.notnull:                                   ; preds = %if.end
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end
-  %fileExtension = getelementptr inbounds %struct.aiExportFormatDesc, ptr %desc, i64 0, i32 2
+  %fileExtension = getelementptr inbounds i8, ptr %desc, i64 16
   %1 = load ptr, ptr %fileExtension, align 8
   %isnull1 = icmp eq ptr %1, null
   br i1 %isnull1, label %delete.end3, label %delete.notnull2
@@ -193,9 +182,9 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @_ZN6Assimp13SceneCombiner9CopySceneEPP7aiScenePKS1_b(ptr noundef nonnull %pOut, ptr noundef nonnull %pIn, i1 noundef zeroext true)
   %0 = load ptr, ptr %pOut, align 8, !nonnull !4, !noundef !4
-  %mPrivate.i = getelementptr inbounds %struct.aiScene, ptr %0, i64 0, i32 18
+  %mPrivate.i = getelementptr inbounds i8, ptr %0, i64 1160
   %1 = load ptr, ptr %mPrivate.i, align 8
-  %mIsCopy = getelementptr inbounds %"struct.Assimp::ScenePrivateData", ptr %1, i64 0, i32 2
+  %mIsCopy = getelementptr inbounds i8, ptr %1, i64 12
   store i8 1, ptr %mIsCopy, align 4
   br label %return
 
@@ -257,10 +246,10 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %m_pathStack.i.i = getelementptr inbounds %"class.Assimp::IOSystem", ptr %call, i64 0, i32 1
+  %m_pathStack.i.i = getelementptr inbounds i8, ptr %call, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp16CIOSystemWrapperE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %mFileSystem.i = getelementptr inbounds %"class.Assimp::CIOSystemWrapper", ptr %call, i64 0, i32 1
+  %mFileSystem.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %pIO, ptr %mFileSystem.i, align 8
   invoke void @_ZN6Assimp8Exporter12SetIOHandlerEPNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(8) %exp, ptr noundef nonnull %call)
           to label %if.end unwind label %lpad
@@ -336,7 +325,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16aiExportDataBlobD2Ev(ptr noundef nonnull align 8 dereferenceable(1056) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %data = getelementptr inbounds %struct.aiExportDataBlob, ptr %this, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -346,7 +335,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %next = getelementptr inbounds %struct.aiExportDataBlob, ptr %this, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %this, i64 1048
   %1 = load ptr, ptr %next, align 8
   %isnull2 = icmp eq ptr %1, null
   br i1 %isnull2, label %common.ret2, label %delete.notnull3

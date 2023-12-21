@@ -4,10 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imf_3_2::TypedAttribute" = type { %"class.Imf_3_2::Attribute", %"class.Imf_3_2::PreviewImage" }
-%"class.Imf_3_2::Attribute" = type { ptr }
-%"class.Imf_3_2::PreviewImage" = type { i32, i32, ptr }
 %"struct.Imf_3_2::PreviewRgba" = type { i8, i8, i8, i8 }
+%"class.Imf_3_2::PreviewImage" = type { i32, i32, ptr }
 
 $_ZN7Imf_3_214TypedAttributeINS_12PreviewImageEEC5ERKS1_ = comdat any
 
@@ -74,7 +72,7 @@ define weak_odr void @_ZN7Imf_3_214TypedAttributeINS_12PreviewImageEEC2ERKS1_(pt
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_12PreviewImageEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN7Imf_3_212PreviewImageC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %_value, ptr noundef nonnull align 8 dereferenceable(16) %value)
           to label %invoke.cont unwind label %lpad
 
@@ -101,7 +99,7 @@ declare void @_ZN7Imf_3_29AttributeD2Ev(ptr noundef nonnull align 8 dereferencea
 define weak_odr void @_ZN7Imf_3_214TypedAttributeINS_12PreviewImageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat($_ZN7Imf_3_214TypedAttributeINS_12PreviewImageEED5Ev) align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_12PreviewImageEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN7Imf_3_212PreviewImageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_value) #12
   tail call void @_ZN7Imf_3_29AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
   ret void
@@ -124,14 +122,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN7Imf_3_214TypedAttributeINS_12PreviewImageEE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %_value
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7Imf_3_214TypedAttributeINS_12PreviewImageEE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %_value
 }
 
@@ -157,7 +155,7 @@ entry:
 
 .noexc:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_12PreviewImageEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_value.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %call, i64 0, i32 1
+  %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   invoke void @_ZN7Imf_3_212PreviewImageC1EjjPKNS_11PreviewRgbaE(ptr noundef nonnull align 8 dereferenceable(16) %_value.i, i32 noundef 0, i32 noundef 0, ptr noundef null)
           to label %invoke.cont unwind label %lpad.i
 
@@ -197,7 +195,7 @@ entry:
 
 .noexc:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_12PreviewImageEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_value.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %call, i64 0, i32 1
+  %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   invoke void @_ZN7Imf_3_212PreviewImageC1EjjPKNS_11PreviewRgbaE(ptr noundef nonnull align 8 dereferenceable(16) %_value.i, i32 noundef 0, i32 noundef 0, ptr noundef null)
           to label %invoke.cont unwind label %lpad.i
 
@@ -209,7 +207,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(8) %this)
   ret ptr %call
@@ -248,8 +246,8 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214TypedAttributeINS_12PreviewImageEE4castERKNS_9AttributeE.exit: ; preds = %entry
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %0, i64 0, i32 1
-  %_value2 = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %0, i64 8
+  %_value2 = getelementptr inbounds i8, ptr %this, i64 8
   %call3 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7Imf_3_212PreviewImageaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %_value2, ptr noundef nonnull align 8 dereferenceable(16) %_value)
   ret void
 }
@@ -409,54 +407,54 @@ entry:
   %v.addr.i = alloca i8, align 1
   %b.i14 = alloca [4 x i8], align 1
   %b.i = alloca [4 x i8], align 1
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %_value, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   %conv.i = trunc i32 %0 to i8
   store i8 %conv.i, ptr %b.i, align 1
   %shr.i = lshr i32 %0, 8
   %conv1.i = trunc i32 %shr.i to i8
-  %arrayidx2.i = getelementptr inbounds [4 x i8], ptr %b.i, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %b.i, i64 1
   store i8 %conv1.i, ptr %arrayidx2.i, align 1
   %shr3.i = lshr i32 %0, 16
   %conv4.i = trunc i32 %shr3.i to i8
-  %arrayidx5.i = getelementptr inbounds [4 x i8], ptr %b.i, i64 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %b.i, i64 2
   store i8 %conv4.i, ptr %arrayidx5.i, align 1
   %shr6.i = lshr i32 %0, 24
   %conv7.i = trunc i32 %shr6.i to i8
-  %arrayidx8.i = getelementptr inbounds [4 x i8], ptr %b.i, i64 0, i64 3
+  %arrayidx8.i = getelementptr inbounds i8, ptr %b.i, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
-  %_height.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 1
+  %_height.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %_height.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i14)
   %conv.i15 = trunc i32 %2 to i8
   store i8 %conv.i15, ptr %b.i14, align 1
   %shr.i16 = lshr i32 %2, 8
   %conv1.i17 = trunc i32 %shr.i16 to i8
-  %arrayidx2.i18 = getelementptr inbounds [4 x i8], ptr %b.i14, i64 0, i64 1
+  %arrayidx2.i18 = getelementptr inbounds i8, ptr %b.i14, i64 1
   store i8 %conv1.i17, ptr %arrayidx2.i18, align 1
   %shr3.i19 = lshr i32 %2, 16
   %conv4.i20 = trunc i32 %shr3.i19 to i8
-  %arrayidx5.i21 = getelementptr inbounds [4 x i8], ptr %b.i14, i64 0, i64 2
+  %arrayidx5.i21 = getelementptr inbounds i8, ptr %b.i14, i64 2
   store i8 %conv4.i20, ptr %arrayidx5.i21, align 1
   %shr6.i22 = lshr i32 %2, 24
   %conv7.i23 = trunc i32 %shr6.i22 to i8
-  %arrayidx8.i24 = getelementptr inbounds [4 x i8], ptr %b.i14, i64 0, i64 3
+  %arrayidx8.i24 = getelementptr inbounds i8, ptr %b.i14, i64 3
   store i8 %conv7.i23, ptr %arrayidx8.i24, align 1
   %vtable.i.i.i25 = load ptr, ptr %os, align 8
-  %vfn.i.i.i26 = getelementptr inbounds ptr, ptr %vtable.i.i.i25, i64 2
+  %vfn.i.i.i26 = getelementptr inbounds i8, ptr %vtable.i.i.i25, i64 16
   %3 = load ptr, ptr %vfn.i.i.i26, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i14, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i14)
   %4 = load i32, ptr %_value, align 8
   %5 = load i32, ptr %_height.i, align 4
   %mul = mul i32 %5, %4
-  %_pixels.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 2
+  %_pixels.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %_pixels.i, align 8
   %cmp39 = icmp sgt i32 %mul, 0
   br i1 %cmp39, label %for.body.preheader, label %for.end
@@ -472,34 +470,34 @@ for.body:                                         ; preds = %for.body.preheader,
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %v.addr.i)
   store i8 %7, ptr %v.addr.i, align 1
   %vtable.i.i.i28 = load ptr, ptr %os, align 8
-  %vfn.i.i.i29 = getelementptr inbounds ptr, ptr %vtable.i.i.i28, i64 2
+  %vfn.i.i.i29 = getelementptr inbounds i8, ptr %vtable.i.i.i28, i64 16
   %8 = load ptr, ptr %vfn.i.i.i29, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %v.addr.i, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %v.addr.i)
-  %g = getelementptr inbounds %"struct.Imf_3_2::PreviewRgba", ptr %6, i64 %indvars.iv, i32 1
+  %g = getelementptr inbounds i8, ptr %arrayidx, i64 1
   %9 = load i8, ptr %g, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %v.addr.i30)
   store i8 %9, ptr %v.addr.i30, align 1
   %vtable.i.i.i31 = load ptr, ptr %os, align 8
-  %vfn.i.i.i32 = getelementptr inbounds ptr, ptr %vtable.i.i.i31, i64 2
+  %vfn.i.i.i32 = getelementptr inbounds i8, ptr %vtable.i.i.i31, i64 16
   %10 = load ptr, ptr %vfn.i.i.i32, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %v.addr.i30, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %v.addr.i30)
-  %b = getelementptr inbounds %"struct.Imf_3_2::PreviewRgba", ptr %6, i64 %indvars.iv, i32 2
+  %b = getelementptr inbounds i8, ptr %arrayidx, i64 2
   %11 = load i8, ptr %b, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %v.addr.i33)
   store i8 %11, ptr %v.addr.i33, align 1
   %vtable.i.i.i34 = load ptr, ptr %os, align 8
-  %vfn.i.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i.i34, i64 2
+  %vfn.i.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i.i34, i64 16
   %12 = load ptr, ptr %vfn.i.i.i35, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %v.addr.i33, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %v.addr.i33)
-  %a = getelementptr inbounds %"struct.Imf_3_2::PreviewRgba", ptr %6, i64 %indvars.iv, i32 3
+  %a = getelementptr inbounds i8, ptr %arrayidx, i64 3
   %13 = load i8, ptr %a, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %v.addr.i36)
   store i8 %13, ptr %v.addr.i36, align 1
   %vtable.i.i.i37 = load ptr, ptr %os, align 8
-  %vfn.i.i.i38 = getelementptr inbounds ptr, ptr %vtable.i.i.i37, i64 2
+  %vfn.i.i.i38 = getelementptr inbounds i8, ptr %vtable.i.i.i37, i64 16
   %14 = load ptr, ptr %vfn.i.i.i38, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %v.addr.i36, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %v.addr.i36)
@@ -519,14 +517,14 @@ entry:
   %p = alloca %"class.Imf_3_2::PreviewImage", align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   %vtable.i.i.i = load ptr, ptr %is, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i, i32 noundef 4)
   %1 = load i32, ptr %b.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i16)
   %vtable.i.i.i17 = load ptr, ptr %is, align 8
-  %vfn.i.i.i18 = getelementptr inbounds ptr, ptr %vtable.i.i.i17, i64 3
+  %vfn.i.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i.i17, i64 24
   %2 = load ptr, ptr %vfn.i.i.i18, align 8
   %call.i.i.i19 = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i16, i32 noundef 4)
   %3 = load i32, ptr %b.i16, align 4
@@ -579,10 +577,10 @@ lpad9:                                            ; preds = %if.then7
 if.end11:                                         ; preds = %if.end
   call void @_ZN7Imf_3_212PreviewImageC1EjjPKNS_11PreviewRgbaE(ptr noundef nonnull align 8 dereferenceable(16) %p, i32 noundef %1, i32 noundef %3, ptr noundef null)
   %6 = load i32, ptr %p, align 8
-  %_height.i = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %p, i64 0, i32 1
+  %_height.i = getelementptr inbounds i8, ptr %p, i64 4
   %7 = load i32, ptr %_height.i, align 4
   %mul16 = mul i32 %7, %6
-  %_pixels.i = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %p, i64 0, i32 2
+  %_pixels.i = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %_pixels.i, align 8
   %cmp1939 = icmp sgt i32 %mul16, 0
   br i1 %cmp1939, label %for.body.preheader, label %for.end
@@ -595,31 +593,31 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds %"struct.Imf_3_2::PreviewRgba", ptr %8, i64 %indvars.iv
   %vtable.i.i.i20 = load ptr, ptr %is, align 8
-  %vfn.i.i.i21 = getelementptr inbounds ptr, ptr %vtable.i.i.i20, i64 3
+  %vfn.i.i.i21 = getelementptr inbounds i8, ptr %vtable.i.i.i20, i64 24
   %9 = load ptr, ptr %vfn.i.i.i21, align 8
   %call.i.i.i2223 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %arrayidx, i32 noundef 1)
           to label %invoke.cont20 unwind label %lpad12.loopexit
 
 invoke.cont20:                                    ; preds = %for.body
-  %g = getelementptr inbounds %"struct.Imf_3_2::PreviewRgba", ptr %8, i64 %indvars.iv, i32 1
+  %g = getelementptr inbounds i8, ptr %arrayidx, i64 1
   %vtable.i.i.i24 = load ptr, ptr %is, align 8
-  %vfn.i.i.i25 = getelementptr inbounds ptr, ptr %vtable.i.i.i24, i64 3
+  %vfn.i.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i.i24, i64 24
   %10 = load ptr, ptr %vfn.i.i.i25, align 8
   %call.i.i.i2627 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %g, i32 noundef 1)
           to label %invoke.cont23 unwind label %lpad12.loopexit
 
 invoke.cont23:                                    ; preds = %invoke.cont20
-  %b = getelementptr inbounds %"struct.Imf_3_2::PreviewRgba", ptr %8, i64 %indvars.iv, i32 2
+  %b = getelementptr inbounds i8, ptr %arrayidx, i64 2
   %vtable.i.i.i29 = load ptr, ptr %is, align 8
-  %vfn.i.i.i30 = getelementptr inbounds ptr, ptr %vtable.i.i.i29, i64 3
+  %vfn.i.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i.i29, i64 24
   %11 = load ptr, ptr %vfn.i.i.i30, align 8
   %call.i.i.i3132 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b, i32 noundef 1)
           to label %invoke.cont26 unwind label %lpad12.loopexit
 
 invoke.cont26:                                    ; preds = %invoke.cont23
-  %a = getelementptr inbounds %"struct.Imf_3_2::PreviewRgba", ptr %8, i64 %indvars.iv, i32 3
+  %a = getelementptr inbounds i8, ptr %arrayidx, i64 3
   %vtable.i.i.i34 = load ptr, ptr %is, align 8
-  %vfn.i.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i.i34, i64 3
+  %vfn.i.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i.i34, i64 24
   %12 = load ptr, ptr %vfn.i.i.i35, align 8
   %call.i.i.i3637 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %a, i32 noundef 1)
           to label %for.inc unwind label %lpad12.loopexit
@@ -645,7 +643,7 @@ lpad12:                                           ; preds = %lpad12.loopexit.spl
   br label %eh.resume
 
 for.end:                                          ; preds = %for.inc, %if.end11
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   %call31 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7Imf_3_212PreviewImageaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %_value, ptr noundef nonnull align 8 dereferenceable(16) %p)
           to label %invoke.cont30 unwind label %lpad12.loopexit.split-lp
 

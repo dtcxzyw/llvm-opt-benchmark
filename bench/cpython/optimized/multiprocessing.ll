@@ -10,8 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct.PyModuleDef_Slot = type { i32, ptr }
 %struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct.PyVarObject = type { %struct._object, i64 }
 
 @PyExc_OSError = external local_unnamed_addr global ptr, align 8
 @PyExc_RuntimeError = external local_unnamed_addr global ptr, align 8
@@ -163,7 +161,7 @@ if.end4:                                          ; preds = %Py_DECREF.exit128
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %tp_dict = getelementptr inbounds %struct._typeobject, ptr %call, i64 0, i32 31
+  %tp_dict = getelementptr inbounds i8, ptr %call, i64 264
   %2 = load ptr, ptr %tp_dict, align 8
   %call9 = tail call i32 @PyDict_SetItemString(ptr noundef %2, ptr noundef nonnull @.str.6, ptr noundef nonnull %call5) #3
   %cmp10 = icmp slt i32 %call9, 0

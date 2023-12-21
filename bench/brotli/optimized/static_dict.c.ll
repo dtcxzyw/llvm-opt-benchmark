@@ -3,37 +3,32 @@ source_filename = "bench/brotli/original/static_dict.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BrotliEncoderDictionary = type { ptr, i32, i32, i64, ptr, ptr, ptr, ptr, %struct.BrotliTrie, i32, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr }
-%struct.BrotliTrie = type { ptr, i64, i64, %struct.BrotliTrieNode }
-%struct.BrotliTrieNode = type { i8, i8, i8, i32, i32 }
-%struct.ContextualEncoderDictionary = type { i32, i8, [64 x i8], [64 x ptr], i64, %struct.BrotliEncoderDictionary, ptr }
 %struct.DictWord = type { i8, i8, i16 }
-%struct.BrotliDictionary = type { [32 x i8], [32 x i32], i64, ptr }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden i32 @BrotliFindAllStaticDictionaryMatches(ptr noundef readonly %dictionary, ptr noundef %data, i64 noundef %min_length, i64 noundef %max_length, ptr noundef %matches) local_unnamed_addr #0 {
 entry:
   %matches2 = alloca [38 x i32], align 16
   %call = tail call fastcc i32 @BrotliFindAllStaticDictionaryMatchesFor(ptr noundef %dictionary, ptr noundef %data, i64 noundef %min_length, i64 noundef %max_length, ptr noundef %matches)
-  %parent = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %dictionary, i64 0, i32 10
+  %parent = getelementptr inbounds i8, ptr %dictionary, i64 104
   %0 = load ptr, ptr %parent, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end38, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %num_dictionaries = getelementptr inbounds %struct.ContextualEncoderDictionary, ptr %0, i64 0, i32 1
+  %num_dictionaries = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i8, ptr %num_dictionaries, align 4
   %cmp = icmp ugt i8 %1, 1
   br i1 %cmp, label %if.then, label %if.end38
 
 if.then:                                          ; preds = %land.lhs.true
-  %dict = getelementptr inbounds %struct.ContextualEncoderDictionary, ptr %0, i64 0, i32 3
+  %dict = getelementptr inbounds i8, ptr %0, i64 72
   %2 = load ptr, ptr %dict, align 8
   %cmp4 = icmp eq ptr %2, %dictionary
   br i1 %cmp4, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  %arrayidx9 = getelementptr inbounds %struct.ContextualEncoderDictionary, ptr %0, i64 0, i32 3, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %arrayidx9, align 8
   br label %if.end
 
@@ -51,7 +46,7 @@ for.body:                                         ; preds = %if.end, %for.body
 
 for.end:                                          ; preds = %for.body
   %call13 = call fastcc i32 @BrotliFindAllStaticDictionaryMatchesFor(ptr noundef %dictionary2.0, ptr noundef %data, i64 noundef %min_length, i64 noundef %max_length, ptr noundef nonnull %matches2)
-  %num_transforms = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %dictionary, i64 0, i32 1
+  %num_transforms = getelementptr inbounds i8, ptr %dictionary, i64 8
   br label %for.body17
 
 for.body17:                                       ; preds = %for.end, %for.inc35
@@ -97,7 +92,7 @@ if.end38:                                         ; preds = %if.end38.loopexit, 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i32 @BrotliFindAllStaticDictionaryMatchesFor(ptr nocapture noundef readonly %dictionary, ptr noundef readonly %data, i64 noundef %min_length, i64 noundef %max_length, ptr noundef %matches) unnamed_addr #0 {
 entry:
-  %buckets = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %dictionary, i64 0, i32 6
+  %buckets = getelementptr inbounds i8, ptr %dictionary, i64 40
   %0 = load ptr, ptr %buckets, align 8
   %t.i.0.copyload = load i32, ptr %data, align 1
   %mul.i2556 = mul i32 %t.i.0.copyload, 506832829
@@ -107,14 +102,14 @@ entry:
   %1 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %1 to i64
   %tobool.not = icmp eq i16 %1, 0
-  %dict_words = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %dictionary, i64 0, i32 7
+  %dict_words = getelementptr inbounds i8, ptr %dictionary, i64 48
   %arrayidx42.i2951 = getelementptr inbounds i8, ptr %data, i64 1
-  %invariant.gep = getelementptr i32, ptr %matches, i64 3
-  %invariant.gep1563 = getelementptr i32, ptr %matches, i64 4
-  %invariant.gep1567 = getelementptr i32, ptr %matches, i64 5
-  %invariant.gep1583 = getelementptr i32, ptr %matches, i64 2
-  %invariant.gep1587 = getelementptr i32, ptr %matches, i64 1
-  %cutoffTransforms = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %dictionary, i64 0, i32 3
+  %invariant.gep = getelementptr i8, ptr %matches, i64 12
+  %invariant.gep1563 = getelementptr i8, ptr %matches, i64 16
+  %invariant.gep1567 = getelementptr i8, ptr %matches, i64 20
+  %invariant.gep1583 = getelementptr i8, ptr %matches, i64 8
+  %invariant.gep1587 = getelementptr i8, ptr %matches, i64 4
+  %cutoffTransforms = getelementptr inbounds i8, ptr %dictionary, i64 16
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %entry
@@ -151,11 +146,12 @@ if.then:                                          ; preds = %while.body
   %5 = load i8, ptr %arrayidx7.le, align 1
   %sh_prom.le = zext nneg i8 %5 to i64
   %shl.le = shl nuw i64 1, %sh_prom.le
-  %arrayidx.i2560 = getelementptr inbounds %struct.BrotliDictionary, ptr %4, i64 0, i32 1, i64 %conv6
+  %offsets_by_length.i = getelementptr inbounds i8, ptr %4, i64 32
+  %arrayidx.i2560 = getelementptr inbounds [32 x i32], ptr %offsets_by_length.i, i64 0, i64 %conv6
   %6 = load i32, ptr %arrayidx.i2560, align 4
   %conv.i2561 = zext i32 %6 to i64
   %mul.i2562 = mul nuw nsw i64 %conv9, %conv6
-  %data1.i = getelementptr inbounds %struct.BrotliDictionary, ptr %4, i64 0, i32 3
+  %data1.i = getelementptr inbounds i8, ptr %4, i64 168
   %7 = load ptr, ptr %data1.i, align 8
   %8 = getelementptr i8, ptr %7, i64 %mul.i2562
   %arrayidx2.i = getelementptr i8, ptr %8, i64 %conv.i2561
@@ -382,7 +378,7 @@ if.then93:                                        ; preds = %if.end87
   %add.i2493 = or disjoint i64 %shl.i2492, %conv6
   %conv.i2494 = trunc i64 %add.i2493 to i32
   %23 = getelementptr i32, ptr %matches, i64 %conv6
-  %arrayidx.i2495 = getelementptr i32, ptr %23, i64 1
+  %arrayidx.i2495 = getelementptr i8, ptr %23, i64 4
   %24 = load i32, ptr %arrayidx.i2495, align 4
   %cond.i3496 = tail call i32 @llvm.umin.i32(i32 %24, i32 %conv.i2494)
   store i32 %cond.i3496, ptr %arrayidx.i2495, align 4
@@ -411,7 +407,7 @@ if.then100:                                       ; preds = %if.then93
 
 if.then105:                                       ; preds = %if.then100
   %mul1061401 = shl i64 28, %sh_prom.le
-  %arrayidx.i2484 = getelementptr i32, ptr %23, i64 3
+  %arrayidx.i2484 = getelementptr i8, ptr %23, i64 12
   br label %while.cond.outer.backedge.sink.split
 
 if.then113:                                       ; preds = %if.then100
@@ -422,7 +418,7 @@ if.then113:                                       ; preds = %if.then100
 
 if.then118:                                       ; preds = %if.then113
   %mul1191400 = shl i64 46, %sh_prom.le
-  %arrayidx.i2473 = getelementptr i32, ptr %23, i64 4
+  %arrayidx.i2473 = getelementptr i8, ptr %23, i64 16
   br label %while.cond.outer.backedge.sink.split
 
 if.then128:                                       ; preds = %if.then100
@@ -433,7 +429,7 @@ if.then128:                                       ; preds = %if.then100
 
 if.then133:                                       ; preds = %if.then128
   %mul1341399 = shl i64 60, %sh_prom.le
-  %arrayidx.i2462 = getelementptr i32, ptr %23, i64 4
+  %arrayidx.i2462 = getelementptr i8, ptr %23, i64 16
   br label %while.cond.outer.backedge.sink.split
 
 if.then143:                                       ; preds = %if.then100
@@ -450,7 +446,7 @@ land.lhs.true148:                                 ; preds = %if.then143
 
 if.then153:                                       ; preds = %land.lhs.true148
   %mul1541398 = shl i64 10, %sh_prom.le
-  %arrayidx.i2451 = getelementptr i32, ptr %23, i64 5
+  %arrayidx.i2451 = getelementptr i8, ptr %23, i64 20
   br label %while.cond.outer.backedge.sink.split
 
 if.then167:                                       ; preds = %if.then93
@@ -467,7 +463,7 @@ land.lhs.true172:                                 ; preds = %if.then167
 
 if.then177:                                       ; preds = %land.lhs.true172
   %mul1781397 = shl i64 38, %sh_prom.le
-  %arrayidx.i2440 = getelementptr i32, ptr %23, i64 4
+  %arrayidx.i2440 = getelementptr i8, ptr %23, i64 16
   br label %while.cond.outer.backedge.sink.split
 
 if.then187:                                       ; preds = %if.then93
@@ -486,7 +482,7 @@ if.then192:                                       ; preds = %if.then187
 
 if.then197:                                       ; preds = %if.then192
   %mul198 = shl i64 16, %sh_prom.le
-  %arrayidx.i2429 = getelementptr i32, ptr %23, i64 4
+  %arrayidx.i2429 = getelementptr i8, ptr %23, i64 16
   br label %while.cond.outer.backedge.sink.split
 
 if.then207:                                       ; preds = %if.then187
@@ -497,7 +493,7 @@ if.then207:                                       ; preds = %if.then187
 
 if.then212:                                       ; preds = %if.then207
   %mul2131396 = shl i64 47, %sh_prom.le
-  %arrayidx.i2418 = getelementptr i32, ptr %23, i64 4
+  %arrayidx.i2418 = getelementptr i8, ptr %23, i64 16
   br label %while.cond.outer.backedge.sink.split
 
 if.then224:                                       ; preds = %if.then93
@@ -522,7 +518,7 @@ land.lhs.true234:                                 ; preds = %if.then229
 
 if.then239:                                       ; preds = %land.lhs.true234
   %mul2401395 = shl i64 25, %sh_prom.le
-  %arrayidx.i2407 = getelementptr i32, ptr %23, i64 5
+  %arrayidx.i2407 = getelementptr i8, ptr %23, i64 20
   br label %while.cond.outer.backedge.sink.split
 
 if.then249:                                       ; preds = %if.then224
@@ -564,7 +560,7 @@ if.then281:                                       ; preds = %if.then276
 
 if.then286:                                       ; preds = %if.then281
   %mul287 = shl i64 8, %sh_prom.le
-  %arrayidx.i2385 = getelementptr i32, ptr %23, i64 4
+  %arrayidx.i2385 = getelementptr i8, ptr %23, i64 16
   br label %while.cond.outer.backedge.sink.split
 
 if.then296:                                       ; preds = %if.then276
@@ -575,7 +571,7 @@ if.then296:                                       ; preds = %if.then276
 
 if.then301:                                       ; preds = %if.then296
   %mul3021393 = shl i64 45, %sh_prom.le
-  %arrayidx.i2374 = getelementptr i32, ptr %23, i64 4
+  %arrayidx.i2374 = getelementptr i8, ptr %23, i64 16
   br label %while.cond.outer.backedge.sink.split
 
 if.then313:                                       ; preds = %if.then93
@@ -598,7 +594,7 @@ land.lhs.true323:                                 ; preds = %land.lhs.true318
 
 if.then328:                                       ; preds = %land.lhs.true323
   %mul3291392 = shl i64 80, %sh_prom.le
-  %arrayidx.i2363 = getelementptr i32, ptr %23, i64 5
+  %arrayidx.i2363 = getelementptr i8, ptr %23, i64 20
   br label %while.cond.outer.backedge.sink.split
 
 if.then338:                                       ; preds = %if.then93
@@ -625,7 +621,7 @@ if.then348:                                       ; preds = %if.then343
 
 if.then353:                                       ; preds = %if.then348
   %mul3541391 = shl i64 5, %sh_prom.le
-  %arrayidx.i2352 = getelementptr i32, ptr %23, i64 5
+  %arrayidx.i2352 = getelementptr i8, ptr %23, i64 20
   br label %while.cond.outer.backedge.sink.split
 
 if.then363:                                       ; preds = %if.then343
@@ -653,7 +649,7 @@ if.then385:                                       ; preds = %if.then338
 
 if.then390:                                       ; preds = %if.then385
   %mul3911389 = shl i64 17, %sh_prom.le
-  %arrayidx.i2330 = getelementptr i32, ptr %23, i64 4
+  %arrayidx.i2330 = getelementptr i8, ptr %23, i64 16
   br label %while.cond.outer.backedge.sink.split
 
 if.then402:                                       ; preds = %if.then93
@@ -692,7 +688,7 @@ if.then440:                                       ; preds = %if.end87
   %add.i2306 = or disjoint i64 %shl.i2305, %conv6
   %conv.i2307 = trunc i64 %add.i2306 to i32
   %58 = getelementptr i32, ptr %matches, i64 %conv6
-  %arrayidx.i2308 = getelementptr i32, ptr %58, i64 1
+  %arrayidx.i2308 = getelementptr i8, ptr %58, i64 4
   %59 = load i32, ptr %arrayidx.i2308, align 4
   %cond.i3615 = tail call i32 @llvm.umin.i32(i32 %59, i32 %conv.i2307)
   store i32 %cond.i3615, ptr %arrayidx.i2308, align 4
@@ -703,7 +699,7 @@ if.then440:                                       ; preds = %if.end87
 
 if.then448:                                       ; preds = %if.then440
   %mul4491387 = shl i64 21, %sh_prom.le
-  %arrayidx.i2297 = getelementptr i32, ptr %58, i64 2
+  %arrayidx.i2297 = getelementptr i8, ptr %58, i64 8
   br label %while.cond.outer.backedge.sink.split
 
 if.then458:                                       ; preds = %if.end87
@@ -713,7 +709,7 @@ if.then458:                                       ; preds = %if.end87
   %add.i2284 = or disjoint i64 %shl.i2283, %conv6
   %conv.i2285 = trunc i64 %add.i2284 to i32
   %61 = getelementptr i32, ptr %matches, i64 %conv6
-  %arrayidx.i2286 = getelementptr i32, ptr %61, i64 1
+  %arrayidx.i2286 = getelementptr i8, ptr %61, i64 4
   %62 = load i32, ptr %arrayidx.i2286, align 4
   %cond.i3629 = tail call i32 @llvm.umin.i32(i32 %62, i32 %conv.i2285)
   store i32 %cond.i3629, ptr %arrayidx.i2286, align 4
@@ -728,7 +724,7 @@ if.then466:                                       ; preds = %if.then458
   %shl.i2272 = shl i64 %add468, 5
   %add.i2273 = or disjoint i64 %shl.i2272, %conv6
   %conv.i2274 = trunc i64 %add.i2273 to i32
-  %arrayidx.i2275 = getelementptr i32, ptr %61, i64 2
+  %arrayidx.i2275 = getelementptr i8, ptr %61, i64 8
   %64 = load i32, ptr %arrayidx.i2275, align 4
   %cond.i3636 = tail call i32 @llvm.umin.i32(i32 %64, i32 %conv.i2274)
   store i32 %cond.i3636, ptr %arrayidx.i2275, align 4
@@ -776,7 +772,7 @@ land.lhs.true504:                                 ; preds = %if.then499
 
 if.then509:                                       ; preds = %land.lhs.true504
   %mul5101384 = shl i64 75, %sh_prom.le
-  %arrayidx.i2253 = getelementptr i32, ptr %61, i64 7
+  %arrayidx.i2253 = getelementptr i8, ptr %61, i64 28
   br label %while.cond.outer.backedge.sink.split
 
 if.then523:                                       ; preds = %if.end87
@@ -786,7 +782,7 @@ if.then523:                                       ; preds = %if.end87
   %add.i2240 = or disjoint i64 %shl.i2239, %conv6
   %conv.i2241 = trunc i64 %add.i2240 to i32
   %71 = getelementptr i32, ptr %matches, i64 %conv6
-  %arrayidx.i2242 = getelementptr i32, ptr %71, i64 1
+  %arrayidx.i2242 = getelementptr i8, ptr %71, i64 4
   %72 = load i32, ptr %arrayidx.i2242, align 4
   %cond.i3657 = tail call i32 @llvm.umin.i32(i32 %72, i32 %conv.i2241)
   store i32 %cond.i3657, ptr %arrayidx.i2242, align 4
@@ -797,7 +793,7 @@ if.then523:                                       ; preds = %if.end87
 
 if.then531:                                       ; preds = %if.then523
   %mul5321381 = shl i64 14, %sh_prom.le
-  %arrayidx.i2231 = getelementptr i32, ptr %71, i64 2
+  %arrayidx.i2231 = getelementptr i8, ptr %71, i64 8
   br label %while.cond.outer.backedge.sink.split
 
 if.then541:                                       ; preds = %if.end87
@@ -807,7 +803,7 @@ if.then541:                                       ; preds = %if.end87
   %add.i2218 = or disjoint i64 %shl.i2217, %conv6
   %conv.i2219 = trunc i64 %add.i2218 to i32
   %74 = getelementptr i32, ptr %matches, i64 %conv6
-  %arrayidx.i2220 = getelementptr i32, ptr %74, i64 1
+  %arrayidx.i2220 = getelementptr i8, ptr %74, i64 4
   %75 = load i32, ptr %arrayidx.i2220, align 4
   %cond.i3671 = tail call i32 @llvm.umin.i32(i32 %75, i32 %conv.i2219)
   store i32 %cond.i3671, ptr %arrayidx.i2220, align 4
@@ -818,7 +814,7 @@ if.then541:                                       ; preds = %if.end87
 
 if.then549:                                       ; preds = %if.then541
   %mul5501379 = shl i64 50, %sh_prom.le
-  %arrayidx.i2209 = getelementptr i32, ptr %74, i64 2
+  %arrayidx.i2209 = getelementptr i8, ptr %74, i64 8
   br label %while.cond.outer.backedge.sink.split
 
 if.then559:                                       ; preds = %if.end87
@@ -1060,11 +1056,12 @@ if.else853:                                       ; preds = %while.body
   br i1 %cmp.i2883, label %IsMatch.exit2968, label %if.else.i2884
 
 if.else.i2884:                                    ; preds = %if.else853
-  %arrayidx.i2887 = getelementptr inbounds %struct.BrotliDictionary, ptr %4, i64 0, i32 1, i64 %conv6
+  %offsets_by_length.i2885 = getelementptr inbounds i8, ptr %4, i64 32
+  %arrayidx.i2887 = getelementptr inbounds [32 x i32], ptr %offsets_by_length.i2885, i64 0, i64 %conv6
   %101 = load i32, ptr %arrayidx.i2887, align 4
   %conv3.i2888 = zext i32 %101 to i64
   %mul.i2892 = mul nuw nsw i64 %conv9, %conv6
-  %data7.i2894 = getelementptr inbounds %struct.BrotliDictionary, ptr %4, i64 0, i32 3
+  %data7.i2894 = getelementptr inbounds i8, ptr %4, i64 168
   %102 = load ptr, ptr %data7.i2894, align 8
   %103 = getelementptr i8, ptr %102, i64 %mul.i2892
   %arrayidx8.i2895 = getelementptr i8, ptr %103, i64 %conv3.i2888
@@ -1253,7 +1250,7 @@ if.then895:                                       ; preds = %if.end877
 if.then906:                                       ; preds = %if.then895
   %conv909 = select i1 %cmp856.not17811795, i64 69, i64 97
   %mul9101358 = shl i64 %conv909, %sh_prom14801796
-  %arrayidx.i1989 = getelementptr i32, ptr %arrayidx.i2022, i64 2
+  %arrayidx.i1989 = getelementptr i8, ptr %arrayidx.i2022, i64 8
   br label %while.cond.outer.backedge.sink.split
 
 if.then919:                                       ; preds = %if.end877
@@ -1275,7 +1272,7 @@ if.then919:                                       ; preds = %if.end877
 if.then930:                                       ; preds = %if.then919
   %conv933 = select i1 %cmp856.not17811795, i64 88, i64 114
   %mul9341356 = shl i64 %conv933, %sh_prom14801796
-  %arrayidx.i1967 = getelementptr i32, ptr %arrayidx.i2022, i64 2
+  %arrayidx.i1967 = getelementptr i8, ptr %arrayidx.i2022, i64 8
   br label %while.cond.outer.backedge.sink.split
 
 if.then943:                                       ; preds = %if.end877
@@ -1297,7 +1294,7 @@ if.then943:                                       ; preds = %if.end877
 if.then954:                                       ; preds = %if.then943
   %conv957 = select i1 %cmp856.not17811795, i64 58, i64 107
   %mul9581354 = shl i64 %conv957, %sh_prom14801796
-  %arrayidx.i1945 = getelementptr i32, ptr %arrayidx.i2022, i64 2
+  %arrayidx.i1945 = getelementptr i8, ptr %arrayidx.i2022, i64 8
   br label %while.cond.outer.backedge.sink.split
 
 if.then967:                                       ; preds = %if.end877
@@ -1323,13 +1320,13 @@ if.then991:                                       ; preds = %if.end877
 if.then996:                                       ; preds = %if.then991
   %conv999 = select i1 %cmp856.not17811795, i64 104, i64 105
   %mul10001350 = shl i64 %conv999, %sh_prom14801796
-  %arrayidx.i1912 = getelementptr i32, ptr %arrayidx.i2022, i64 2
+  %arrayidx.i1912 = getelementptr i8, ptr %arrayidx.i2022, i64 8
   br label %while.cond.outer.backedge.sink.split
 
 if.then1008:                                      ; preds = %if.then991
   %conv1011 = select i1 %cmp856.not17811795, i64 108, i64 116
   %mul10121349 = shl i64 %conv1011, %sh_prom14801796
-  %arrayidx.i1901 = getelementptr i32, ptr %arrayidx.i2022, i64 2
+  %arrayidx.i1901 = getelementptr i8, ptr %arrayidx.i2022, i64 8
   br label %while.cond.outer.backedge.sink.split
 
 while.end:                                        ; preds = %while.cond
@@ -1369,7 +1366,8 @@ while.body1062.lr.ph:                             ; preds = %while.body1062.lr.p
   %has_found_match.5.ph1674 = phi i32 [ %has_found_match.0.ph, %while.body1062.lr.ph.lr.ph ], [ %has_found_match.5.ph.be, %while.cond1058.outer.backedge ]
   %129 = load ptr, ptr %dict_words, align 8
   %130 = load ptr, ptr %dictionary, align 8
-  %data7.i2704 = getelementptr inbounds %struct.BrotliDictionary, ptr %130, i64 0, i32 3
+  %offsets_by_length.i2695 = getelementptr inbounds i8, ptr %130, i64 32
+  %data7.i2704 = getelementptr inbounds i8, ptr %130, i64 168
   br label %while.body1062
 
 while.body1062:                                   ; preds = %while.body1062.lr.ph, %while.cond1058.backedge
@@ -1393,7 +1391,7 @@ if.then1096:                                      ; preds = %while.body1062
   br i1 %cmp.i2788, label %while.cond1058.backedge, label %if.else.i2789
 
 if.else.i2789:                                    ; preds = %if.then1096
-  %arrayidx.i2792 = getelementptr inbounds %struct.BrotliDictionary, ptr %130, i64 0, i32 1, i64 %conv1071
+  %arrayidx.i2792 = getelementptr inbounds [32 x i32], ptr %offsets_by_length.i2695, i64 0, i64 %conv1071
   %132 = load i32, ptr %arrayidx.i2792, align 4
   %conv3.i2793 = zext i32 %132 to i64
   %mul.i2797 = mul nuw nsw i64 %conv1081, %conv1071
@@ -1600,7 +1598,7 @@ if.then1212:                                      ; preds = %if.else1210
   br i1 %cmp.i2693, label %while.cond1058.backedge, label %if.else.i2694
 
 if.else.i2694:                                    ; preds = %if.then1212
-  %arrayidx.i2697 = getelementptr inbounds %struct.BrotliDictionary, ptr %130, i64 0, i32 1, i64 %conv1071
+  %arrayidx.i2697 = getelementptr inbounds [32 x i32], ptr %offsets_by_length.i2695, i64 0, i64 %conv1071
   %147 = load i32, ptr %arrayidx.i2697, align 4
   %conv3.i2698 = zext i32 %147 to i64
   %mul.i2702 = mul nuw nsw i64 %conv1081, %conv1071
@@ -1896,11 +1894,12 @@ while.body1390:                                   ; preds = %while.body1390.lr.p
   br i1 %or.cond1423, label %if.end1466, label %if.else.i2599
 
 if.else.i2599:                                    ; preds = %while.body1390
-  %arrayidx.i2602 = getelementptr inbounds %struct.BrotliDictionary, ptr %175, i64 0, i32 1, i64 %conv1399
+  %offsets_by_length.i2600 = getelementptr inbounds i8, ptr %175, i64 32
+  %arrayidx.i2602 = getelementptr inbounds [32 x i32], ptr %offsets_by_length.i2600, i64 0, i64 %conv1399
   %177 = load i32, ptr %arrayidx.i2602, align 4
   %conv3.i2603 = zext i32 %177 to i64
   %mul.i2607 = mul nuw nsw i64 %conv1409, %conv1399
-  %data7.i2609 = getelementptr inbounds %struct.BrotliDictionary, ptr %175, i64 0, i32 3
+  %data7.i2609 = getelementptr inbounds i8, ptr %175, i64 168
   %178 = load ptr, ptr %data7.i2609, align 8
   %179 = getelementptr i8, ptr %178, i64 %mul.i2607
   %arrayidx8.i2610 = getelementptr i8, ptr %179, i64 %conv3.i2603
@@ -1997,8 +1996,8 @@ if.then1449:                                      ; preds = %land.lhs.true1443
 
 if.end1466.sink.split:                            ; preds = %if.then1430, %if.then1449
   %cond1459.sink = phi i64 [ %cond1459, %if.then1449 ], [ 102, %if.then1430 ]
-  %185 = phi i64 [ 3, %if.then1449 ], [ 2, %if.then1430 ]
-  %186 = getelementptr i32, ptr %matches, i64 %185
+  %185 = phi i64 [ 12, %if.then1449 ], [ 8, %if.then1430 ]
+  %186 = getelementptr i8, ptr %matches, i64 %185
   %mul14611329 = shl i64 %cond1459.sink, %sh_prom1405
   %add1462 = add i64 %mul14611329, %conv1409
   %shl.i1689 = shl i64 %add1462, 5
@@ -2114,11 +2113,12 @@ while.body1538:                                   ; preds = %while.body1538.lr.p
   br i1 %or.cond1424, label %if.end1658, label %if.else.i
 
 if.else.i:                                        ; preds = %while.body1538
-  %arrayidx.i2584 = getelementptr inbounds %struct.BrotliDictionary, ptr %201, i64 0, i32 1, i64 %conv1547
+  %offsets_by_length.i2583 = getelementptr inbounds i8, ptr %201, i64 32
+  %arrayidx.i2584 = getelementptr inbounds [32 x i32], ptr %offsets_by_length.i2583, i64 0, i64 %conv1547
   %203 = load i32, ptr %arrayidx.i2584, align 4
   %conv3.i = zext i32 %203 to i64
   %mul.i2585 = mul nuw nsw i64 %conv1557, %conv1547
-  %data7.i = getelementptr inbounds %struct.BrotliDictionary, ptr %201, i64 0, i32 3
+  %data7.i = getelementptr inbounds i8, ptr %201, i64 168
   %204 = load ptr, ptr %data7.i, align 8
   %205 = getelementptr i8, ptr %204, i64 %mul.i2585
   %arrayidx8.i = getelementptr i8, ptr %205, i64 %conv3.i
@@ -2246,7 +2246,7 @@ if.then1623:                                      ; preds = %land.lhs.true1618
   %add.i1668 = or disjoint i64 %shl.i1667, %conv1547
   %conv.i1669 = trunc i64 %add.i1668 to i32
   %216 = getelementptr i32, ptr %matches, i64 %conv1547
-  %arrayidx.i1670 = getelementptr i32, ptr %216, i64 9
+  %arrayidx.i1670 = getelementptr i8, ptr %216, i64 36
   %217 = load i32, ptr %arrayidx.i1670, align 4
   %cond.i4021 = tail call i32 @llvm.umin.i32(i32 %217, i32 %conv.i1669)
   store i32 %cond.i4021, ptr %arrayidx.i1670, align 4
@@ -2284,7 +2284,7 @@ if.then1650:                                      ; preds = %land.lhs.true1645
   %shl.i = shl i64 %add1652, 5
   %add.i = or disjoint i64 %shl.i, %conv1547
   %conv.i = trunc i64 %add.i to i32
-  %arrayidx.i = getelementptr i32, ptr %216, i64 13
+  %arrayidx.i = getelementptr i8, ptr %216, i64 52
   %222 = load i32, ptr %arrayidx.i, align 4
   %cond.i4028 = tail call i32 @llvm.umin.i32(i32 %222, i32 %conv.i)
   store i32 %cond.i4028, ptr %arrayidx.i, align 4

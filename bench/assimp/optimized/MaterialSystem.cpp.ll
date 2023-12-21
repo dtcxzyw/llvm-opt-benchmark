@@ -3,9 +3,6 @@ source_filename = "bench/assimp/original/MaterialSystem.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.aiMaterial = type { ptr, i32, i32 }
-%struct.aiString = type { i32, [1024 x i8] }
-%struct.aiMaterialProperty = type { %struct.aiString, i32, i32, i32, i32, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -18,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%class.aiColor4t = type { float, float, float, float }
+%struct.aiString = type { i32, [1024 x i8] }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -136,7 +133,7 @@ $_ZTV17DeadlyImportError = comdat any
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @aiGetMaterialProperty(ptr nocapture noundef readonly %pMat, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index, ptr nocapture noundef writeonly %pPropOut) local_unnamed_addr #0 {
 entry:
-  %mNumProperties = getelementptr inbounds %struct.aiMaterial, ptr %pMat, i64 0, i32 1
+  %mNumProperties = getelementptr inbounds i8, ptr %pMat, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
   %cmp12.not = icmp eq i32 %0, 0
   br i1 %cmp12.not, label %return, label %for.body.lr.ph
@@ -159,7 +156,7 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   br i1 %tobool.not.us.us, label %for.inc.us.us, label %land.lhs.true.us.us
 
 land.lhs.true.us.us:                              ; preds = %for.body.us.us
-  %data.us.us = getelementptr inbounds %struct.aiString, ptr %2, i64 0, i32 1
+  %data.us.us = getelementptr inbounds i8, ptr %2, i64 4
   %call.us.us = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.us.us, ptr noundef nonnull dereferenceable(1) %pKey) #17
   %cmp1.us.us = icmp eq i32 %call.us.us, 0
   br i1 %cmp1.us.us, label %return, label %for.inc.us.us
@@ -177,13 +174,13 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   br i1 %tobool.not.us, label %for.inc.us, label %land.lhs.true.us
 
 land.lhs.true.us:                                 ; preds = %for.body.us
-  %data.us = getelementptr inbounds %struct.aiString, ptr %3, i64 0, i32 1
+  %data.us = getelementptr inbounds i8, ptr %3, i64 4
   %call.us = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.us, ptr noundef nonnull dereferenceable(1) %pKey) #17
   %cmp1.us = icmp eq i32 %call.us, 0
   br i1 %cmp1.us, label %land.lhs.true2.us, label %for.inc.us
 
 land.lhs.true2.us:                                ; preds = %land.lhs.true.us
-  %mIndex.us = getelementptr inbounds %struct.aiMaterialProperty, ptr %3, i64 0, i32 2
+  %mIndex.us = getelementptr inbounds i8, ptr %3, i64 1032
   %4 = load i32, ptr %mIndex.us, align 8
   %cmp8.us = icmp eq i32 %4, %index
   br i1 %cmp8.us, label %return, label %for.inc.us
@@ -204,13 +201,13 @@ for.body.us24:                                    ; preds = %for.body.lr.ph.spli
   br i1 %tobool.not.us28, label %for.inc.us35, label %land.lhs.true.us29
 
 land.lhs.true.us29:                               ; preds = %for.body.us24
-  %data.us30 = getelementptr inbounds %struct.aiString, ptr %5, i64 0, i32 1
+  %data.us30 = getelementptr inbounds i8, ptr %5, i64 4
   %call.us31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.us30, ptr noundef nonnull dereferenceable(1) %pKey) #17
   %cmp1.us32 = icmp eq i32 %call.us31, 0
   br i1 %cmp1.us32, label %land.lhs.true2.us33, label %for.inc.us35
 
 land.lhs.true2.us33:                              ; preds = %land.lhs.true.us29
-  %mSemantic.us = getelementptr inbounds %struct.aiMaterialProperty, ptr %5, i64 0, i32 1
+  %mSemantic.us = getelementptr inbounds i8, ptr %5, i64 1028
   %6 = load i32, ptr %mSemantic.us, align 4
   %cmp4.us = icmp eq i32 %6, %type
   br i1 %cmp4.us, label %return, label %for.inc.us35
@@ -228,19 +225,19 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %data = getelementptr inbounds %struct.aiString, ptr %7, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %7, i64 4
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data, ptr noundef nonnull dereferenceable(1) %pKey) #17
   %cmp1 = icmp eq i32 %call, 0
   br i1 %cmp1, label %land.lhs.true2, label %for.inc
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %mSemantic = getelementptr inbounds %struct.aiMaterialProperty, ptr %7, i64 0, i32 1
+  %mSemantic = getelementptr inbounds i8, ptr %7, i64 1028
   %8 = load i32, ptr %mSemantic, align 4
   %cmp4 = icmp eq i32 %8, %type
   br i1 %cmp4, label %land.lhs.true5, label %for.inc
 
 land.lhs.true5:                                   ; preds = %land.lhs.true2
-  %mIndex = getelementptr inbounds %struct.aiMaterialProperty, ptr %7, i64 0, i32 2
+  %mIndex = getelementptr inbounds i8, ptr %7, i64 1032
   %9 = load i32, ptr %mIndex, align 8
   %cmp8 = icmp eq i32 %9, %index
   br i1 %cmp8, label %return, label %for.inc
@@ -272,7 +269,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mType = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 4
+  %mType = getelementptr inbounds i8, ptr %0, i64 1040
   %1 = load i32, ptr %mType, align 8
   switch i32 %1, label %if.else70 [
     i32 1, label %if.then4
@@ -282,7 +279,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then4:                                         ; preds = %if.end, %if.end
-  %mDataLength = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 3
+  %mDataLength = getelementptr inbounds i8, ptr %0, i64 1036
   %2 = load i32, ptr %mDataLength, align 4
   %3 = lshr i32 %2, 2
   %tobool.not = icmp eq ptr %pMax, null
@@ -299,7 +296,7 @@ if.end8:                                          ; preds = %if.then6, %if.then4
   br i1 %cmp964.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end8
-  %mData = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 5
+  %mData = getelementptr inbounds i8, ptr %0, i64 1048
   %wide.trip.count79 = zext nneg i32 %iWrite.0 to i64
   br label %for.body
 
@@ -322,7 +319,7 @@ if.then13:                                        ; preds = %for.end
   br label %return
 
 if.then17:                                        ; preds = %if.end
-  %mDataLength18 = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 3
+  %mDataLength18 = getelementptr inbounds i8, ptr %0, i64 1036
   %7 = load i32, ptr %mDataLength18, align 4
   %8 = lshr i32 %7, 3
   %tobool22.not = icmp eq ptr %pMax, null
@@ -339,7 +336,7 @@ if.end25:                                         ; preds = %if.then23, %if.then
   br i1 %cmp2862.not, label %for.end38, label %for.body29.lr.ph
 
 for.body29.lr.ph:                                 ; preds = %if.end25
-  %mData30 = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 5
+  %mData30 = getelementptr inbounds i8, ptr %0, i64 1048
   %wide.trip.count74 = zext nneg i32 %iWrite.1 to i64
   br label %for.body29
 
@@ -363,7 +360,7 @@ if.then40:                                        ; preds = %for.end38
   br label %return
 
 if.then45:                                        ; preds = %if.end
-  %mDataLength46 = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 3
+  %mDataLength46 = getelementptr inbounds i8, ptr %0, i64 1036
   %12 = load i32, ptr %mDataLength46, align 4
   %13 = lshr i32 %12, 2
   %tobool50.not = icmp eq ptr %pMax, null
@@ -380,7 +377,7 @@ if.end53:                                         ; preds = %if.then51, %if.then
   br i1 %cmp5660.not, label %for.end66, label %for.body57.lr.ph
 
 for.body57.lr.ph:                                 ; preds = %if.end53
-  %mData58 = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 5
+  %mData58 = getelementptr inbounds i8, ptr %0, i64 1048
   %wide.trip.count = zext nneg i32 %iWrite.2 to i64
   br label %for.body57
 
@@ -413,7 +410,7 @@ if.then72:                                        ; preds = %if.else70
 
 if.end73:                                         ; preds = %if.then72, %if.else70
   %iWrite.3 = phi i32 [ 0, %if.else70 ], [ %17, %if.then72 ]
-  %mData74 = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 5
+  %mData74 = getelementptr inbounds i8, ptr %0, i64 1048
   %18 = load ptr, ptr %mData74, align 8
   %add.ptr = getelementptr inbounds i8, ptr %18, i64 4
   %call7966 = tail call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %add.ptr, ptr noundef nonnull align 4 dereferenceable(4) %pOut, i1 noundef zeroext true)
@@ -748,7 +745,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mType = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 4
+  %mType = getelementptr inbounds i8, ptr %0, i64 1040
   %1 = load i32, ptr %mType, align 8
   switch i32 %1, label %if.else51 [
     i32 4, label %if.then3
@@ -757,7 +754,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then3:                                         ; preds = %if.end, %if.end
-  %mDataLength = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 3
+  %mDataLength = getelementptr inbounds i8, ptr %0, i64 1036
   %2 = load i32, ptr %mDataLength, align 4
   %3 = lshr i32 %2, 2
   %cmp.i = icmp ult i32 %2, 4
@@ -780,12 +777,12 @@ for.cond.preheader:                               ; preds = %if.end10
   br i1 %cmp1561.not, label %if.end19, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mData16 = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 5
+  %mData16 = getelementptr inbounds i8, ptr %0, i64 1048
   %wide.trip.count67 = zext nneg i32 %iWrite.0 to i64
   br label %for.body
 
 if.then13:                                        ; preds = %if.end10
-  %mData = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 5
+  %mData = getelementptr inbounds i8, ptr %0, i64 1048
   %5 = load ptr, ptr %mData, align 8
   %6 = load i8, ptr %5, align 1
   %conv14 = sext i8 %6 to i32
@@ -811,7 +808,7 @@ if.then21:                                        ; preds = %if.end19
   br label %return
 
 if.then26:                                        ; preds = %if.end
-  %mDataLength27 = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 3
+  %mDataLength27 = getelementptr inbounds i8, ptr %0, i64 1036
   %9 = load i32, ptr %mDataLength27, align 4
   %10 = lshr i32 %9, 2
   %tobool31.not = icmp eq ptr %pMax, null
@@ -828,7 +825,7 @@ if.end34:                                         ; preds = %if.then32, %if.then
   br i1 %cmp3759.not, label %for.end47, label %for.body38.lr.ph
 
 for.body38.lr.ph:                                 ; preds = %if.end34
-  %mData39 = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 5
+  %mData39 = getelementptr inbounds i8, ptr %0, i64 1048
   %wide.trip.count = zext nneg i32 %iWrite.1 to i64
   br label %for.body38
 
@@ -861,7 +858,7 @@ if.then53:                                        ; preds = %if.else51
 
 if.end54:                                         ; preds = %if.then53, %if.else51
   %iWrite.2 = phi i32 [ 0, %if.else51 ], [ %14, %if.then53 ]
-  %mData55 = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 5
+  %mData55 = getelementptr inbounds i8, ptr %0, i64 1048
   %15 = load ptr, ptr %mData55, align 8
   %add.ptr = getelementptr inbounds i8, ptr %15, i64 4
   %sub = add i32 %iWrite.2, -1
@@ -1021,7 +1018,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %a = getelementptr inbounds %class.aiColor4t, ptr %pOut, i64 0, i32 3
+  %a = getelementptr inbounds i8, ptr %pOut, i64 12
   store float 1.000000e+00, ptr %a, align 4
   br label %if.end
 
@@ -1050,17 +1047,17 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mType = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 4
+  %mType = getelementptr inbounds i8, ptr %0, i64 1040
   %1 = load i32, ptr %mType, align 8
   %cmp = icmp eq i32 %1, 3
   br i1 %cmp, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.end
-  %mData = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 5
+  %mData = getelementptr inbounds i8, ptr %0, i64 1048
   %2 = load ptr, ptr %mData, align 8
   %3 = load i32, ptr %2, align 4
   store i32 %3, ptr %pOut, align 4
-  %data = getelementptr inbounds %struct.aiString, ptr %pOut, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %pOut, i64 4
   %4 = load ptr, ptr %mData, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 4
   %add = add i32 %3, 1
@@ -1129,7 +1126,7 @@ lpad6:                                            ; preds = %invoke.cont
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @aiGetMaterialTextureCount(ptr nocapture noundef readonly %pMat, i32 noundef %type) local_unnamed_addr #5 {
 entry:
-  %mNumProperties = getelementptr inbounds %struct.aiMaterial, ptr %pMat, i64 0, i32 1
+  %mNumProperties = getelementptr inbounds i8, ptr %pMat, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
   %cmp10.not = icmp eq i32 %0, 0
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
@@ -1148,19 +1145,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %data = getelementptr inbounds %struct.aiString, ptr %2, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %2, i64 4
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data, ptr noundef nonnull dereferenceable(10) @.str.4) #17
   %cmp1 = icmp eq i32 %call, 0
   br i1 %cmp1, label %land.lhs.true2, label %for.inc
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %mSemantic = getelementptr inbounds %struct.aiMaterialProperty, ptr %2, i64 0, i32 1
+  %mSemantic = getelementptr inbounds i8, ptr %2, i64 1028
   %3 = load i32, ptr %mSemantic, align 4
   %cmp3 = icmp eq i32 %3, %type
   br i1 %cmp3, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true2
-  %mIndex = getelementptr inbounds %struct.aiMaterialProperty, ptr %2, i64 0, i32 2
+  %mIndex = getelementptr inbounds i8, ptr %2, i64 1032
   %4 = load i32, ptr %mIndex, align 8
   %add = add i32 %4, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %max.011, i32 %add)
@@ -1192,7 +1189,7 @@ entry:
   br i1 %tobool.not.i, label %aiGetMaterialString.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %mType.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 4
+  %mType.i = getelementptr inbounds i8, ptr %0, i64 1040
   %1 = load i32, ptr %mType.i, align 8
   %cmp.i = icmp eq i32 %1, 3
   br i1 %cmp.i, label %if.end, label %if.else.i
@@ -1208,11 +1205,11 @@ aiGetMaterialString.exit.thread:                  ; preds = %if.else.i, %entry
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %mData.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 5
+  %mData.i = getelementptr inbounds i8, ptr %0, i64 1048
   %2 = load ptr, ptr %mData.i, align 8
   %3 = load i32, ptr %2, align 4
   store i32 %3, ptr %path, align 4
-  %data.i = getelementptr inbounds %struct.aiString, ptr %path, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %path, i64 4
   %4 = load ptr, ptr %mData.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 4
   %add.i = add i32 %3, 1
@@ -1262,7 +1259,7 @@ if.end16:                                         ; preds = %if.then14, %if.end1
 
 if.then18:                                        ; preds = %if.end16
   %call.i34 = tail call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.9, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %mapmode, ptr noundef null), !range !6
-  %arrayidx20 = getelementptr inbounds i32, ptr %mapmode, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %mapmode, i64 4
   %call.i35 = tail call i32 @aiGetMaterialIntegerArray(ptr noundef %mat, ptr noundef nonnull @.str.10, i32 noundef %type, i32 noundef %index, ptr noundef nonnull %arrayidx20, ptr noundef null), !range !6
   br label %if.end22
 
@@ -1283,9 +1280,9 @@ return:                                           ; preds = %aiGetMaterialString
 define void @_ZN10aiMaterialC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %mNumProperties = getelementptr inbounds %struct.aiMaterial, ptr %this, i64 0, i32 1
+  %mNumProperties = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %mNumProperties, align 8
-  %mNumAllocated = getelementptr inbounds %struct.aiMaterial, ptr %this, i64 0, i32 2
+  %mNumAllocated = getelementptr inbounds i8, ptr %this, i64 12
   store i32 5, ptr %mNumAllocated, align 4
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znam(i64 noundef 40) #20
   store ptr %call, ptr %this, align 8
@@ -1298,7 +1295,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10aiMaterialD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mNumProperties.i = getelementptr inbounds %struct.aiMaterial, ptr %this, i64 0, i32 1
+  %mNumProperties.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %mNumProperties.i, align 8
   %cmp3.not.i = icmp eq i32 %0, 0
   br i1 %cmp3.not.i, label %_ZN10aiMaterial5ClearEv.exit, label %for.body.i
@@ -1313,7 +1310,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %isnull.i, label %for.inc.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %for.body.i
-  %mData.i.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %3, i64 0, i32 5
+  %mData.i.i = getelementptr inbounds i8, ptr %3, i64 1048
   %4 = load ptr, ptr %mData.i.i, align 8
   %isnull.i.i = icmp eq ptr %4, null
   br i1 %isnull.i.i, label %_ZN18aiMaterialPropertyD2Ev.exit.i, label %delete.notnull.i.i
@@ -1351,7 +1348,7 @@ delete.end:                                       ; preds = %delete.notnull, %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10aiMaterial5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %mNumProperties = getelementptr inbounds %struct.aiMaterial, ptr %this, i64 0, i32 1
+  %mNumProperties = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
   %cmp3.not = icmp eq i32 %0, 0
   br i1 %cmp3.not, label %for.end, label %for.body
@@ -1366,7 +1363,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %isnull, label %for.inc, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %mData.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %3, i64 0, i32 5
+  %mData.i = getelementptr inbounds i8, ptr %3, i64 1048
   %4 = load ptr, ptr %mData.i, align 8
   %isnull.i = icmp eq ptr %4, null
   br i1 %isnull.i, label %_ZN18aiMaterialPropertyD2Ev.exit, label %delete.notnull.i
@@ -1404,11 +1401,11 @@ define void @_ZNK10aiMaterial7GetNameEv(ptr noalias nocapture writeonly sret(%st
 entry:
   %pKey.addr.i.i = alloca ptr, align 8
   store i32 0, ptr %agg.result, align 4
-  %data.i = getelementptr inbounds %struct.aiString, ptr %agg.result, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i8 0, ptr %data.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pKey.addr.i.i)
   store ptr @.str.12, ptr %pKey.addr.i.i, align 8
-  %mNumProperties.i = getelementptr inbounds %struct.aiMaterial, ptr %this, i64 0, i32 1
+  %mNumProperties.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %mNumProperties.i, align 8
   %cmp12.not.i = icmp eq i32 %0, 0
   br i1 %cmp12.not.i, label %_ZNK10aiMaterial3GetEPKcjjR8aiString.exit, label %for.body.lr.ph.i
@@ -1426,19 +1423,19 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %data.i1 = getelementptr inbounds %struct.aiString, ptr %2, i64 0, i32 1
+  %data.i1 = getelementptr inbounds i8, ptr %2, i64 4
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i1, ptr noundef nonnull dereferenceable(10) @.str.12) #17
   %cmp1.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.i, label %land.lhs.true2.i, label %for.inc.i
 
 land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
-  %mSemantic.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %2, i64 0, i32 1
+  %mSemantic.i = getelementptr inbounds i8, ptr %2, i64 1028
   %3 = load i32, ptr %mSemantic.i, align 4
   %cmp4.i = icmp eq i32 %3, 0
   br i1 %cmp4.i, label %land.lhs.true5.i, label %for.inc.i
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true2.i
-  %mIndex.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %2, i64 0, i32 2
+  %mIndex.i = getelementptr inbounds i8, ptr %2, i64 1032
   %4 = load i32, ptr %mIndex.i, align 8
   %cmp8.i = icmp eq i32 %4, 0
   br i1 %cmp8.i, label %if.end.i.i, label %for.inc.i
@@ -1449,13 +1446,13 @@ for.inc.i:                                        ; preds = %land.lhs.true5.i, %
   br i1 %exitcond.not.i, label %_ZNK10aiMaterial3GetEPKcjjR8aiString.exit, label %for.body.i, !llvm.loop !4
 
 if.end.i.i:                                       ; preds = %land.lhs.true5.i
-  %mType.i.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %2, i64 0, i32 4
+  %mType.i.i = getelementptr inbounds i8, ptr %2, i64 1040
   %5 = load i32, ptr %mType.i.i, align 8
   %cmp.i.i = icmp eq i32 %5, 3
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.else.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %mData.i.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %2, i64 0, i32 5
+  %mData.i.i = getelementptr inbounds i8, ptr %2, i64 1048
   %6 = load ptr, ptr %mData.i.i, align 8
   %7 = load i32, ptr %6, align 4
   store i32 %7, ptr %agg.result, align 4
@@ -1481,7 +1478,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN10aiMaterial14RemovePropertyEPKcjj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index) local_unnamed_addr #7 align 2 {
 entry:
-  %mNumProperties = getelementptr inbounds %struct.aiMaterial, ptr %this, i64 0, i32 1
+  %mNumProperties = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
   %cmp14.not = icmp eq i32 %0, 0
   br i1 %cmp14.not, label %return, label %for.body.lr.ph
@@ -1499,26 +1496,26 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %for.inc21, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %data = getelementptr inbounds %struct.aiString, ptr %2, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %2, i64 4
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data, ptr noundef nonnull dereferenceable(1) %pKey) #17
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %land.lhs.true3, label %for.inc21
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %mSemantic = getelementptr inbounds %struct.aiMaterialProperty, ptr %2, i64 0, i32 1
+  %mSemantic = getelementptr inbounds i8, ptr %2, i64 1028
   %3 = load i32, ptr %mSemantic, align 4
   %cmp4 = icmp eq i32 %3, %type
   br i1 %cmp4, label %land.lhs.true5, label %for.inc21
 
 land.lhs.true5:                                   ; preds = %land.lhs.true3
-  %mIndex = getelementptr inbounds %struct.aiMaterialProperty, ptr %2, i64 0, i32 2
+  %mIndex = getelementptr inbounds i8, ptr %2, i64 1032
   %4 = load i32, ptr %mIndex, align 8
   %cmp6 = icmp eq i32 %4, %index
   br i1 %cmp6, label %delete.notnull, label %for.inc21
 
 delete.notnull:                                   ; preds = %land.lhs.true5
   %5 = trunc i64 %indvars.iv to i32
-  %mData.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %2, i64 0, i32 5
+  %mData.i = getelementptr inbounds i8, ptr %2, i64 1048
   %6 = load ptr, ptr %mData.i, align 8
   %isnull.i = icmp eq ptr %6, null
   br i1 %isnull.i, label %_ZN18aiMaterialPropertyD2Ev.exit, label %delete.notnull.i
@@ -1566,7 +1563,7 @@ entry:
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %mNumProperties = getelementptr inbounds %struct.aiMaterial, ptr %this, i64 0, i32 1
+  %mNumProperties = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
   %cmp222.not = icmp eq i32 %0, 0
   br i1 %cmp222.not, label %for.end, label %for.body
@@ -1582,25 +1579,25 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %data = getelementptr inbounds %struct.aiString, ptr %3, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %3, i64 4
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data, ptr noundef nonnull dereferenceable(1) %pKey) #17
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %land.lhs.true4, label %for.inc
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %mSemantic = getelementptr inbounds %struct.aiMaterialProperty, ptr %3, i64 0, i32 1
+  %mSemantic = getelementptr inbounds i8, ptr %3, i64 1028
   %4 = load i32, ptr %mSemantic, align 4
   %cmp5 = icmp eq i32 %4, %type
   br i1 %cmp5, label %land.lhs.true6, label %for.inc
 
 land.lhs.true6:                                   ; preds = %land.lhs.true4
-  %mIndex = getelementptr inbounds %struct.aiMaterialProperty, ptr %3, i64 0, i32 2
+  %mIndex = getelementptr inbounds i8, ptr %3, i64 1032
   %5 = load i32, ptr %mIndex, align 8
   %cmp7 = icmp eq i32 %5, %index
   br i1 %cmp7, label %delete.notnull, label %for.inc
 
 delete.notnull:                                   ; preds = %land.lhs.true6
-  %mData.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %3, i64 0, i32 5
+  %mData.i = getelementptr inbounds i8, ptr %3, i64 1048
   %6 = load ptr, ptr %mData.i, align 8
   %isnull.i = icmp eq ptr %6, null
   br i1 %isnull.i, label %_ZN18aiMaterialPropertyD2Ev.exit, label %delete.notnull.i
@@ -1628,13 +1625,13 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %iOutIndex.0.lcssa = phi i32 [ -1, %for.cond.preheader ], [ %iOutIndex.1, %for.inc ]
   %call13 = tail call noalias noundef nonnull dereferenceable(1056) ptr @_Znwm(i64 noundef 1056) #20
   store i32 0, ptr %call13, align 4
-  %data.i.i = getelementptr inbounds %struct.aiString, ptr %call13, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %call13, i64 4
   store i8 0, ptr %data.i.i, align 4
-  %mSemantic.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %call13, i64 0, i32 1
-  %mIndex.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %call13, i64 0, i32 2
-  %mDataLength.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %call13, i64 0, i32 3
-  %mType.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %call13, i64 0, i32 4
-  %mData.i21 = getelementptr inbounds %struct.aiMaterialProperty, ptr %call13, i64 0, i32 5
+  %mSemantic.i = getelementptr inbounds i8, ptr %call13, i64 1028
+  %mIndex.i = getelementptr inbounds i8, ptr %call13, i64 1032
+  %mDataLength.i = getelementptr inbounds i8, ptr %call13, i64 1036
+  %mType.i = getelementptr inbounds i8, ptr %call13, i64 1040
+  %mData.i21 = getelementptr inbounds i8, ptr %call13, i64 1048
   store ptr null, ptr %mData.i21, align 8
   store ptr %call13, ptr %pcNew, align 8
   store i32 %pType, ptr %mType.i, align 8
@@ -1668,7 +1665,7 @@ lpad:                                             ; preds = %catch, %for.end
   br label %ehcleanup
 
 if.end40:                                         ; preds = %invoke.cont
-  %mNumAllocated = getelementptr inbounds %struct.aiMaterial, ptr %this, i64 0, i32 2
+  %mNumAllocated = getelementptr inbounds i8, ptr %this, i64 12
   %12 = load i32, ptr %mNumAllocated, align 4
   %cmp42 = icmp eq i32 %.pre2931, %12
   br i1 %cmp42, label %if.then43, label %if.end40.if.end60_crit_edge
@@ -1729,7 +1726,7 @@ if.end60:                                         ; preds = %if.end40.if.end60_c
   br label %return
 
 delete.notnull.i.i:                               ; preds = %catch
-  %mData.i.i.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %call13, i64 0, i32 5
+  %mData.i.i.i = getelementptr inbounds i8, ptr %call13, i64 1048
   %22 = load ptr, ptr %mData.i.i.i, align 8
   %isnull.i.i.i = icmp eq ptr %22, null
   br i1 %isnull.i.i.i, label %_ZNKSt14default_deleteI18aiMaterialPropertyEclEPS0_.exit.i, label %delete.notnull.i.i.i
@@ -1774,7 +1771,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  %mData.i.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %0, i64 0, i32 5
+  %mData.i.i = getelementptr inbounds i8, ptr %0, i64 1048
   %1 = load ptr, ptr %mData.i.i, align 8
   %isnull.i.i = icmp eq ptr %1, null
   br i1 %isnull.i.i, label %_ZNKSt14default_deleteI18aiMaterialPropertyEclEPS0_.exit, label %delete.notnull.i.i
@@ -1804,7 +1801,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6Assimp19ComputeMaterialHashEPK10aiMaterialb(ptr nocapture noundef readonly %mat, i1 noundef zeroext %includeMatName) local_unnamed_addr #7 {
 entry:
-  %mNumProperties = getelementptr inbounds %struct.aiMaterial, ptr %mat, i64 0, i32 1
+  %mNumProperties = getelementptr inbounds i8, ptr %mat, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
   %cmp41.not = icmp eq i32 %0, 0
   br i1 %cmp41.not, label %for.end, label %for.body
@@ -1823,21 +1820,21 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %includeMatName, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %data = getelementptr inbounds %struct.aiString, ptr %3, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i8, ptr %data, align 4
   %cmp3.not = icmp eq i8 %4, 63
   br i1 %cmp3.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true
-  %data5 = getelementptr inbounds %struct.aiString, ptr %3, i64 0, i32 1
+  %data5 = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i32, ptr %3, align 8
   %call = tail call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef nonnull %data5, i32 noundef %5, i32 noundef %hash.043)
-  %mData = getelementptr inbounds %struct.aiMaterialProperty, ptr %3, i64 0, i32 5
+  %mData = getelementptr inbounds i8, ptr %3, i64 1048
   %6 = load ptr, ptr %mData, align 8
-  %mDataLength = getelementptr inbounds %struct.aiMaterialProperty, ptr %3, i64 0, i32 3
+  %mDataLength = getelementptr inbounds i8, ptr %3, i64 1036
   %7 = load i32, ptr %mDataLength, align 4
   %call7 = tail call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef %6, i32 noundef %7, i32 noundef %call)
-  %mSemantic = getelementptr inbounds %struct.aiMaterialProperty, ptr %3, i64 0, i32 1
+  %mSemantic = getelementptr inbounds i8, ptr %3, i64 1028
   %8 = load i16, ptr %mSemantic, align 1
   %9 = zext i16 %8 to i32
   %add8.i = add i32 %call7, %9
@@ -1862,7 +1859,7 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
   %xor65.i = xor i32 %shl64.i, %add63.i
   %shr66.i = lshr i32 %xor65.i, 6
   %add67.i = add i32 %shr66.i, %xor65.i
-  %mIndex = getelementptr inbounds %struct.aiMaterialProperty, ptr %3, i64 0, i32 2
+  %mIndex = getelementptr inbounds i8, ptr %3, i64 1032
   %14 = load i16, ptr %mIndex, align 1
   %15 = zext i16 %14 to i32
   %add8.i19 = add i32 %add67.i, %15
@@ -2018,15 +2015,15 @@ return:                                           ; preds = %entry, %sw.epilog
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10aiMaterial16CopyPropertyListEPS_PKS_(ptr nocapture noundef %pcDest, ptr nocapture noundef readonly %pcSrc) local_unnamed_addr #2 align 2 {
 entry:
-  %mNumProperties = getelementptr inbounds %struct.aiMaterial, ptr %pcDest, i64 0, i32 1
+  %mNumProperties = getelementptr inbounds i8, ptr %pcDest, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
-  %mNumAllocated = getelementptr inbounds %struct.aiMaterial, ptr %pcSrc, i64 0, i32 2
+  %mNumAllocated = getelementptr inbounds i8, ptr %pcSrc, i64 12
   %1 = load i32, ptr %mNumAllocated, align 4
-  %mNumAllocated1 = getelementptr inbounds %struct.aiMaterial, ptr %pcDest, i64 0, i32 2
+  %mNumAllocated1 = getelementptr inbounds i8, ptr %pcDest, i64 12
   %2 = load i32, ptr %mNumAllocated1, align 4
   %add = add i32 %2, %1
   store i32 %add, ptr %mNumAllocated1, align 4
-  %mNumProperties2 = getelementptr inbounds %struct.aiMaterial, ptr %pcSrc, i64 0, i32 1
+  %mNumProperties2 = getelementptr inbounds i8, ptr %pcSrc, i64 8
   %3 = load i32, ptr %mNumProperties2, align 8
   %add4 = add i32 %3, %0
   store i32 %add4, ptr %mNumProperties, align 8
@@ -2082,9 +2079,9 @@ for.body18:                                       ; preds = %for.body18.lr.ph, %
   br i1 %cmp2361.not, label %for.end55, label %for.body24.lr.ph
 
 for.body24.lr.ph:                                 ; preds = %for.body18
-  %data3.i = getelementptr inbounds %struct.aiString, ptr %10, i64 0, i32 1
-  %mSemantic33 = getelementptr inbounds %struct.aiMaterialProperty, ptr %10, i64 0, i32 1
-  %mIndex36 = getelementptr inbounds %struct.aiMaterialProperty, ptr %10, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %10, i64 4
+  %mSemantic33 = getelementptr inbounds i8, ptr %10, i64 1028
+  %mIndex36 = getelementptr inbounds i8, ptr %10, i64 1032
   br label %for.body24
 
 for.body24:                                       ; preds = %for.body24.lr.ph, %for.inc53
@@ -2103,28 +2100,28 @@ land.lhs.true29:                                  ; preds = %for.body24
   br i1 %cmp.i, label %_ZNK8aiStringeqERKS_.exit, label %for.inc53
 
 _ZNK8aiStringeqERKS_.exit:                        ; preds = %land.lhs.true29
-  %data.i = getelementptr inbounds %struct.aiString, ptr %12, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %12, i64 4
   %conv.i = zext i32 %13 to i64
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %data.i, ptr nonnull %data3.i, i64 %conv.i)
   %cmp6.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp6.i, label %land.lhs.true32, label %for.inc53
 
 land.lhs.true32:                                  ; preds = %_ZNK8aiStringeqERKS_.exit
-  %mSemantic = getelementptr inbounds %struct.aiMaterialProperty, ptr %12, i64 0, i32 1
+  %mSemantic = getelementptr inbounds i8, ptr %12, i64 1028
   %15 = load i32, ptr %mSemantic, align 4
   %16 = load i32, ptr %mSemantic33, align 4
   %cmp34 = icmp eq i32 %15, %16
   br i1 %cmp34, label %land.lhs.true35, label %for.inc53
 
 land.lhs.true35:                                  ; preds = %land.lhs.true32
-  %mIndex = getelementptr inbounds %struct.aiMaterialProperty, ptr %12, i64 0, i32 2
+  %mIndex = getelementptr inbounds i8, ptr %12, i64 1032
   %17 = load i32, ptr %mIndex, align 8
   %18 = load i32, ptr %mIndex36, align 8
   %cmp37 = icmp eq i32 %17, %18
   br i1 %cmp37, label %delete.notnull40, label %for.inc53
 
 delete.notnull40:                                 ; preds = %land.lhs.true35
-  %mData.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %12, i64 0, i32 5
+  %mData.i = getelementptr inbounds i8, ptr %12, i64 1048
   %19 = load ptr, ptr %mData.i, align 8
   %isnull.i = icmp eq ptr %19, null
   br i1 %isnull.i, label %_ZN18aiMaterialPropertyD2Ev.exit, label %delete.notnull.i
@@ -2138,7 +2135,7 @@ _ZN18aiMaterialPropertyD2Ev.exit:                 ; preds = %delete.notnull40, %
   %20 = load ptr, ptr %pcDest, align 8
   %arrayidx44 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv67
   %21 = getelementptr ptr, ptr %20, i64 %indvars.iv67
-  %arrayidx48 = getelementptr ptr, ptr %21, i64 1
+  %arrayidx48 = getelementptr i8, ptr %21, i64 8
   %22 = trunc i64 %indvars.iv67 to i32
   %sub = sub i32 %i14.162, %22
   %conv49 = zext i32 %sub to i64
@@ -2164,14 +2161,14 @@ for.end55:                                        ; preds = %for.end55.loopexit,
   %i14.1.lcssa = phi i32 [ %i14.2, %for.end55.loopexit ], [ %i14.065, %for.body18 ]
   %call56 = tail call noalias noundef nonnull dereferenceable(1056) ptr @_Znwm(i64 noundef 1056) #20
   store i32 0, ptr %call56, align 4
-  %data.i.i = getelementptr inbounds %struct.aiString, ptr %call56, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %call56, i64 4
   store i8 0, ptr %data.i.i, align 4
-  %mSemantic.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %call56, i64 0, i32 1
-  %mIndex.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %call56, i64 0, i32 2
-  %mDataLength.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %call56, i64 0, i32 3
-  %mType.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %call56, i64 0, i32 4
+  %mSemantic.i = getelementptr inbounds i8, ptr %call56, i64 1028
+  %mIndex.i = getelementptr inbounds i8, ptr %call56, i64 1032
+  %mDataLength.i = getelementptr inbounds i8, ptr %call56, i64 1036
+  %mType.i = getelementptr inbounds i8, ptr %call56, i64 1040
   store <4 x i32> <i32 0, i32 0, i32 0, i32 1>, ptr %mSemantic.i, align 4
-  %mData.i57 = getelementptr inbounds %struct.aiMaterialProperty, ptr %call56, i64 0, i32 5
+  %mData.i57 = getelementptr inbounds i8, ptr %call56, i64 1048
   store ptr null, ptr %mData.i57, align 8
   %24 = load ptr, ptr %pcDest, align 8
   %arrayidx59 = getelementptr inbounds ptr, ptr %24, i64 %idxprom58.pre-phi
@@ -2183,31 +2180,31 @@ if.end.i:                                         ; preds = %for.end55
   %25 = load i32, ptr %10, align 4
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %25, i32 1023)
   store i32 %spec.select.i, ptr %call56, align 4
-  %data8.i = getelementptr inbounds %struct.aiString, ptr %10, i64 0, i32 1
+  %data8.i = getelementptr inbounds i8, ptr %10, i64 4
   %conv11.i = zext nneg i32 %spec.select.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i, ptr nonnull align 4 %data8.i, i64 %conv11.i, i1 false)
-  %arrayidx.i = getelementptr inbounds %struct.aiString, ptr %call56, i64 0, i32 1, i64 %conv11.i
+  %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %conv11.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
 _ZN8aiStringaSERKS_.exit:                         ; preds = %for.end55, %if.end.i
-  %mDataLength = getelementptr inbounds %struct.aiMaterialProperty, ptr %10, i64 0, i32 3
+  %mDataLength = getelementptr inbounds i8, ptr %10, i64 1036
   %26 = load i32, ptr %mDataLength, align 4
   store i32 %26, ptr %mDataLength.i, align 4
-  %mType = getelementptr inbounds %struct.aiMaterialProperty, ptr %10, i64 0, i32 4
+  %mType = getelementptr inbounds i8, ptr %10, i64 1040
   %27 = load i32, ptr %mType, align 8
   store i32 %27, ptr %mType.i, align 8
-  %mSemantic65 = getelementptr inbounds %struct.aiMaterialProperty, ptr %10, i64 0, i32 1
+  %mSemantic65 = getelementptr inbounds i8, ptr %10, i64 1028
   %28 = load i32, ptr %mSemantic65, align 4
   store i32 %28, ptr %mSemantic.i, align 4
-  %mIndex67 = getelementptr inbounds %struct.aiMaterialProperty, ptr %10, i64 0, i32 2
+  %mIndex67 = getelementptr inbounds i8, ptr %10, i64 1032
   %29 = load i32, ptr %mIndex67, align 8
   store i32 %29, ptr %mIndex.i, align 8
   %30 = load i32, ptr %mDataLength, align 4
   %conv70 = zext i32 %30 to i64
   %call71 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv70) #20
   store ptr %call71, ptr %mData.i57, align 8
-  %mData73 = getelementptr inbounds %struct.aiMaterialProperty, ptr %10, i64 0, i32 5
+  %mData73 = getelementptr inbounds i8, ptr %10, i64 1048
   %31 = load ptr, ptr %mData73, align 8
   %conv75 = zext i32 %26 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call71, ptr align 1 %31, i64 %conv75, i1 false)

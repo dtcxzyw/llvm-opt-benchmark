@@ -3,12 +3,6 @@ source_filename = "bench/qemu/original/nbd_client-connection.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.NBDClientConnection = type { ptr, ptr, ptr, %struct.NBDExportInfo, i8, i8, %struct.QemuMutex, %struct.NBDExportInfo, ptr, ptr, ptr, i8, i8, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.NBDExportInfo = type { i8, ptr, ptr, i32, i8, i64, i16, i32, i32, i32, i32, ptr, i32, ptr }
 %struct.QemuThread = type { i64 }
 %struct.timeval = type { i64, i64 }
 
@@ -47,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @nbd_client_connection_enable_retry(ptr nocapture noundef writeonly %conn) local_unnamed_addr #0 {
 entry:
-  %do_retry = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 5
+  %do_retry = getelementptr inbounds i8, ptr %conn, i64 113
   store i8 1, ptr %do_retry, align 1
   ret void
 }
@@ -87,7 +81,7 @@ entry:
   store i8 %frombool, ptr %.compoundliteral.sroa.102.0..sroa_idx, align 8
   %.compoundliteral.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 113
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(183) %.compoundliteral.sroa.11.0..sroa_idx, i8 0, i64 183, i1 false)
-  %mutex = getelementptr inbounds %struct.NBDClientConnection, ptr %call, i64 0, i32 6
+  %mutex = getelementptr inbounds i8, ptr %call, i64 120
   tail call void @qemu_mutex_init(ptr noundef nonnull %mutex) #10
   ret ptr %call
 }
@@ -118,19 +112,19 @@ entry:
   br i1 %tobool.not, label %if.end18, label %for.body.us
 
 for.body.us:                                      ; preds = %entry
-  %mutex = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 6
+  %mutex = getelementptr inbounds i8, ptr %conn, i64 120
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 122) #10
-  %detached = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 12
-  %sioc = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 8
+  %detached = getelementptr inbounds i8, ptr %conn, i64 281
+  %sioc = getelementptr inbounds i8, ptr %conn, i64 256
   %2 = load i8, ptr %detached, align 1
   %3 = and i8 %2, 1
   %tobool2.not.us = icmp eq i8 %3, 0
   br i1 %tobool2.not.us, label %if.end4.us, label %if.else
 
 if.end4.us:                                       ; preds = %for.body.us
-  %running = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 11
+  %running = getelementptr inbounds i8, ptr %conn, i64 280
   %4 = load i8, ptr %running, align 8
   %5 = and i8 %4, 1
   %tobool5.not.us.not = icmp eq i8 %5, 0
@@ -174,7 +168,7 @@ declare i32 @qio_channel_shutdown(ptr noundef, i32 noundef, ptr noundef) local_u
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @nbd_client_connection_do_free(ptr noundef %conn) unnamed_addr #1 {
 entry:
-  %sioc = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 8
+  %sioc = getelementptr inbounds i8, ptr %conn, i64 256
   %0 = load ptr, ptr %sioc, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -187,21 +181,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %err = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 10
+  %err = getelementptr inbounds i8, ptr %conn, i64 272
   %2 = load ptr, ptr %err, align 8
   tail call void @error_free(ptr noundef %2) #10
   %3 = load ptr, ptr %conn, align 8
   tail call void @qapi_free_SocketAddress(ptr noundef %3) #10
-  %tlshostname = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 2
+  %tlshostname = getelementptr inbounds i8, ptr %conn, i64 16
   %4 = load ptr, ptr %tlshostname, align 8
   tail call void @g_free(ptr noundef %4) #10
-  %tlscreds = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 1
+  %tlscreds = getelementptr inbounds i8, ptr %conn, i64 8
   %5 = load ptr, ptr %tlscreds, align 8
   tail call void @object_unref(ptr noundef %5) #10
-  %x_dirty_bitmap = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 3, i32 1
+  %x_dirty_bitmap = getelementptr inbounds i8, ptr %conn, i64 32
   %6 = load ptr, ptr %x_dirty_bitmap, align 8
   tail call void @g_free(ptr noundef %6) #10
-  %name = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 3, i32 2
+  %name = getelementptr inbounds i8, ptr %conn, i64 40
   %7 = load ptr, ptr %name, align 8
   tail call void @g_free(ptr noundef %7) #10
   tail call void @g_free(ptr noundef nonnull %conn) #10
@@ -212,7 +206,7 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local ptr @nbd_co_establish_connection(ptr noundef %conn, ptr noundef writeonly %info, i1 noundef zeroext %blocking, ptr noundef %errp) #1 {
 entry:
   %thread = alloca %struct.QemuThread, align 8
-  %do_negotiation = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 4
+  %do_negotiation = getelementptr inbounds i8, ptr %conn, i64 112
   %0 = load i8, ptr %do_negotiation, align 8
   %1 = and i8 %0, 1
   %tobool.not43 = icmp eq i8 %1, 0
@@ -225,13 +219,13 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end3:                                          ; preds = %entry
-  %mutex = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 6
+  %mutex = getelementptr inbounds i8, ptr %conn, i64 120
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void %3(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 122) #10
-  %wait_co = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 13
-  %running = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 11
-  %sioc = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 8
+  %wait_co = getelementptr inbounds i8, ptr %conn, i64 288
+  %running = getelementptr inbounds i8, ptr %conn, i64 280
+  %sioc = getelementptr inbounds i8, ptr %conn, i64 256
   %4 = load ptr, ptr %wait_co, align 8
   %tobool5.not.us.us = icmp eq ptr %4, null
   br i1 %blocking, label %for.body.us.us, label %for.body
@@ -266,7 +260,7 @@ if.end34.us.us:                                   ; preds = %if.end32.us.us, %if
   %10 = load i8, ptr %running, align 8
   %11 = and i8 %10, 1
   %tobool57.not = icmp eq i8 %11, 0
-  %err67 = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 10
+  %err67 = getelementptr inbounds i8, ptr %conn, i64 272
   %12 = load ptr, ptr %err67, align 8
   %tobool68.not = icmp eq ptr %12, null
   br i1 %tobool57.not, label %if.else66, label %if.then58
@@ -297,9 +291,9 @@ if.then12:                                        ; preds = %if.then10, %if.then
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %if.then12
-  %updated_info = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 7
+  %updated_info = getelementptr inbounds i8, ptr %conn, i64 168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %info, ptr noundef nonnull align 8 dereferenceable(88) %updated_info, i64 88, i1 false)
-  %ioc = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 9
+  %ioc = getelementptr inbounds i8, ptr %conn, i64 264
   %19 = load ptr, ptr %ioc, align 8
   %tobool16.not = icmp eq ptr %19, null
   %.pre77 = load ptr, ptr %sioc, align 8
@@ -313,7 +307,7 @@ if.then17:                                        ; preds = %if.then15
   br label %return
 
 if.end23:                                         ; preds = %if.then12
-  %ioc24.phi.trans.insert = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 9
+  %ioc24.phi.trans.insert = getelementptr inbounds i8, ptr %conn, i64 264
   %.pre = load ptr, ptr %ioc24.phi.trans.insert, align 8
   %21 = icmp eq ptr %.pre, null
   br i1 %21, label %if.end28, label %if.else27
@@ -334,7 +328,7 @@ if.end32:                                         ; preds = %if.then10
   br label %if.then36
 
 if.then36:                                        ; preds = %if.end8, %if.end32
-  %err = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 10
+  %err = getelementptr inbounds i8, ptr %conn, i64 272
   %23 = load ptr, ptr %err, align 8
   %tobool37.not = icmp eq ptr %23, null
   br i1 %tobool37.not, label %if.else41, label %if.then38
@@ -385,9 +379,9 @@ if.end81:                                         ; preds = %if.end75
   br i1 %tobool83.not, label %if.end94, label %if.then84
 
 if.then84:                                        ; preds = %if.end81
-  %updated_info85 = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 7
+  %updated_info85 = getelementptr inbounds i8, ptr %conn, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %info, ptr noundef nonnull align 8 dereferenceable(88) %updated_info85, i64 88, i1 false)
-  %ioc86 = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 9
+  %ioc86 = getelementptr inbounds i8, ptr %conn, i64 264
   %28 = load ptr, ptr %ioc86, align 8
   %tobool87.not = icmp eq ptr %28, null
   %.pre78 = load ptr, ptr %sioc, align 8
@@ -401,7 +395,7 @@ if.then88:                                        ; preds = %if.then84
   br label %return
 
 if.end94:                                         ; preds = %if.end81
-  %ioc95.phi.trans.insert = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 9
+  %ioc95.phi.trans.insert = getelementptr inbounds i8, ptr %conn, i64 264
   %.pre74 = load ptr, ptr %ioc95.phi.trans.insert, align 8
   %30 = icmp eq ptr %.pre74, null
   br i1 %30, label %if.end99, label %if.else98
@@ -433,26 +427,26 @@ entry:
   %local_err = alloca ptr, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %mutex = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 6
+  %mutex = getelementptr inbounds i8, ptr %opaque, i64 120
   tail call void %1(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.2, i32 noundef 179) #10
-  %detached = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 12
+  %detached = getelementptr inbounds i8, ptr %opaque, i64 281
   %2 = load i8, ptr %detached, align 1
   %3 = and i8 %2, 1
   %tobool.not38 = icmp eq i8 %3, 0
   br i1 %tobool.not38, label %while.body2.lr.ph, label %while.end47
 
 while.body2.lr.ph:                                ; preds = %entry
-  %sioc = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 8
-  %updated_info = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 7
-  %initial_info = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 3
-  %do_negotiation = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 4
-  %tlscreds = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 1
-  %tlshostname = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 2
-  %ioc = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 9
-  %x_dirty_bitmap = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 7, i32 1
-  %err = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 10
-  %do_retry = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 5
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %sioc = getelementptr inbounds i8, ptr %opaque, i64 256
+  %updated_info = getelementptr inbounds i8, ptr %opaque, i64 168
+  %initial_info = getelementptr inbounds i8, ptr %opaque, i64 24
+  %do_negotiation = getelementptr inbounds i8, ptr %opaque, i64 112
+  %tlscreds = getelementptr inbounds i8, ptr %opaque, i64 8
+  %tlshostname = getelementptr inbounds i8, ptr %opaque, i64 16
+  %ioc = getelementptr inbounds i8, ptr %opaque, i64 264
+  %x_dirty_bitmap = getelementptr inbounds i8, ptr %opaque, i64 176
+  %err = getelementptr inbounds i8, ptr %opaque, i64 272
+  %do_retry = getelementptr inbounds i8, ptr %opaque, i64 113
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %while.body2
 
 while.body2:                                      ; preds = %while.body2.lr.ph, %trace_nbd_connect_thread_sleep.exit
@@ -597,7 +591,7 @@ trace_nbd_connect_thread_sleep.exit:              ; preds = %if.then29, %land.lh
   br i1 %tobool.not, label %while.body2, label %while.end47, !llvm.loop !5
 
 while.end47:                                      ; preds = %trace_nbd_connect_thread_sleep.exit, %if.then23.critedge, %land.lhs.true, %nbd_connect.exit, %entry
-  %running = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 11
+  %running = getelementptr inbounds i8, ptr %opaque, i64 280
   %37 = load i8, ptr %running, align 8
   %38 = and i8 %37, 1
   %tobool48.not = icmp eq i8 %38, 0
@@ -609,7 +603,7 @@ if.else50:                                        ; preds = %while.end47
 
 if.end51:                                         ; preds = %while.end47
   store i8 0, ptr %running, align 8
-  %wait_co = getelementptr inbounds %struct.NBDClientConnection, ptr %opaque, i64 0, i32 13
+  %wait_co = getelementptr inbounds i8, ptr %opaque, i64 288
   %39 = load ptr, ptr %wait_co, align 8
   %tobool53.not = icmp eq ptr %39, null
   br i1 %tobool53.not, label %if.end57, label %if.then54
@@ -647,11 +641,11 @@ declare void @qemu_coroutine_yield() #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @nbd_co_establish_connection_cancel(ptr noundef %conn) local_unnamed_addr #1 {
 qemu_lockable_auto_unlock.exit.us:
-  %mutex = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 6
+  %mutex = getelementptr inbounds i8, ptr %conn, i64 120
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 122) #10
-  %wait_co1 = getelementptr inbounds %struct.NBDClientConnection, ptr %conn, i64 0, i32 13
+  %wait_co1 = getelementptr inbounds i8, ptr %conn, i64 288
   %2 = load ptr, ptr %wait_co1, align 8
   store ptr null, ptr %wait_co1, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 132) #10

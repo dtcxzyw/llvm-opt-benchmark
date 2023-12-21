@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.ec_gen_ctx = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, i32, ptr, ptr, i64 }
 
 @ossl_ec_keymgmt_functions = local_unnamed_addr constant [23 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @ec_newdata }, %struct.ossl_dispatch_st { i32 2, ptr @ec_gen_init }, %struct.ossl_dispatch_st { i32 3, ptr @ec_gen_set_template }, %struct.ossl_dispatch_st { i32 4, ptr @ec_gen_set_params }, %struct.ossl_dispatch_st { i32 5, ptr @ec_gen_settable_params }, %struct.ossl_dispatch_st { i32 6, ptr @ec_gen }, %struct.ossl_dispatch_st { i32 7, ptr @ec_gen_cleanup }, %struct.ossl_dispatch_st { i32 8, ptr @ec_load }, %struct.ossl_dispatch_st { i32 10, ptr @ec_freedata }, %struct.ossl_dispatch_st { i32 11, ptr @ec_get_params }, %struct.ossl_dispatch_st { i32 12, ptr @ec_gettable_params }, %struct.ossl_dispatch_st { i32 13, ptr @ec_set_params }, %struct.ossl_dispatch_st { i32 14, ptr @ec_settable_params }, %struct.ossl_dispatch_st { i32 21, ptr @ec_has }, %struct.ossl_dispatch_st { i32 23, ptr @ec_match }, %struct.ossl_dispatch_st { i32 22, ptr @ec_validate }, %struct.ossl_dispatch_st { i32 40, ptr @ec_import }, %struct.ossl_dispatch_st { i32 41, ptr @ec_import_types }, %struct.ossl_dispatch_st { i32 42, ptr @ec_export }, %struct.ossl_dispatch_st { i32 43, ptr @ec_export_types }, %struct.ossl_dispatch_st { i32 20, ptr @ec_query_operation_name }, %struct.ossl_dispatch_st { i32 44, ptr @ec_dup }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @ossl_sm2_keymgmt_functions = local_unnamed_addr constant [23 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @sm2_newdata }, %struct.ossl_dispatch_st { i32 2, ptr @sm2_gen_init }, %struct.ossl_dispatch_st { i32 3, ptr @ec_gen_set_template }, %struct.ossl_dispatch_st { i32 4, ptr @ec_gen_set_params }, %struct.ossl_dispatch_st { i32 5, ptr @ec_gen_settable_params }, %struct.ossl_dispatch_st { i32 6, ptr @sm2_gen }, %struct.ossl_dispatch_st { i32 7, ptr @ec_gen_cleanup }, %struct.ossl_dispatch_st { i32 8, ptr @sm2_load }, %struct.ossl_dispatch_st { i32 10, ptr @ec_freedata }, %struct.ossl_dispatch_st { i32 11, ptr @sm2_get_params }, %struct.ossl_dispatch_st { i32 12, ptr @sm2_gettable_params }, %struct.ossl_dispatch_st { i32 13, ptr @ec_set_params }, %struct.ossl_dispatch_st { i32 14, ptr @sm2_settable_params }, %struct.ossl_dispatch_st { i32 21, ptr @ec_has }, %struct.ossl_dispatch_st { i32 23, ptr @ec_match }, %struct.ossl_dispatch_st { i32 22, ptr @sm2_validate }, %struct.ossl_dispatch_st { i32 40, ptr @sm2_import }, %struct.ossl_dispatch_st { i32 41, ptr @ec_import_types }, %struct.ossl_dispatch_st { i32 42, ptr @ec_export }, %struct.ossl_dispatch_st { i32 43, ptr @ec_export_types }, %struct.ossl_dispatch_st { i32 20, ptr @sm2_query_operation_name }, %struct.ossl_dispatch_st { i32 44, ptr @ec_dup }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -109,9 +108,9 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   store ptr %call, ptr %call2, align 8
-  %selection6 = getelementptr inbounds %struct.ec_gen_ctx, ptr %call2, i64 0, i32 15
+  %selection6 = getelementptr inbounds i8, ptr %call2, i64 120
   store i32 %selection, ptr %selection6, align 8
-  %ecdh_mode = getelementptr inbounds %struct.ec_gen_ctx, ptr %call2, i64 0, i32 16
+  %ecdh_mode = getelementptr inbounds i8, ptr %call2, i64 124
   store i32 0, ptr %ecdh_mode, align 4
   %call7 = tail call i32 @ec_gen_set_params(ptr noundef nonnull %call2, ptr noundef %params), !range !4
   %tobool8.not = icmp eq i32 %call7, 0
@@ -154,7 +153,7 @@ if.then.i:                                        ; preds = %if.end6
   br label %return
 
 if.end.i:                                         ; preds = %if.end6
-  %gen_group.i = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 17
+  %gen_group.i = getelementptr inbounds i8, ptr %genctx, i64 128
   %0 = load ptr, ptr %gen_group.i, align 8
   tail call void @EC_GROUP_free(ptr noundef %0) #4
   store ptr %call.i, ptr %gen_group.i, align 8
@@ -173,7 +172,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %ecdh_mode = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 16
+  %ecdh_mode = getelementptr inbounds i8, ptr %genctx, i64 124
   %call1 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %call, ptr noundef nonnull %ecdh_mode) #4
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %if.end
@@ -184,16 +183,16 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp3.not, label %if.end14, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call2, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp5.not = icmp eq i32 %0, 4
   br i1 %cmp5.not, label %if.end7, label %err
 
 if.end7:                                          ; preds = %if.then4
-  %group_name = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 1
+  %group_name = getelementptr inbounds i8, ptr %genctx, i64 8
   %1 = load ptr, ptr %group_name, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 1110) #4
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call2, i64 16
   %2 = load ptr, ptr %data, align 8
   %call8 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 1110) #4
   store ptr %call8, ptr %group_name, align 8
@@ -206,16 +205,16 @@ if.end14:                                         ; preds = %if.end7, %if.end
   br i1 %cmp16.not, label %if.end29, label %if.then17
 
 if.then17:                                        ; preds = %if.end14
-  %data_type18 = getelementptr inbounds %struct.ossl_param_st, ptr %call15, i64 0, i32 1
+  %data_type18 = getelementptr inbounds i8, ptr %call15, i64 8
   %3 = load i32, ptr %data_type18, align 8
   %cmp19.not = icmp eq i32 %3, 4
   br i1 %cmp19.not, label %if.end21, label %err
 
 if.end21:                                         ; preds = %if.then17
-  %field_type = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 5
+  %field_type = getelementptr inbounds i8, ptr %genctx, i64 40
   %4 = load ptr, ptr %field_type, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 1111) #4
-  %data22 = getelementptr inbounds %struct.ossl_param_st, ptr %call15, i64 0, i32 2
+  %data22 = getelementptr inbounds i8, ptr %call15, i64 16
   %5 = load ptr, ptr %data22, align 8
   %call23 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 1111) #4
   store ptr %call23, ptr %field_type, align 8
@@ -228,16 +227,16 @@ if.end29:                                         ; preds = %if.end21, %if.end14
   br i1 %cmp31.not, label %if.end44, label %if.then32
 
 if.then32:                                        ; preds = %if.end29
-  %data_type33 = getelementptr inbounds %struct.ossl_param_st, ptr %call30, i64 0, i32 1
+  %data_type33 = getelementptr inbounds i8, ptr %call30, i64 8
   %6 = load i32, ptr %data_type33, align 8
   %cmp34.not = icmp eq i32 %6, 4
   br i1 %cmp34.not, label %if.end36, label %err
 
 if.end36:                                         ; preds = %if.then32
-  %encoding = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 2
+  %encoding = getelementptr inbounds i8, ptr %genctx, i64 16
   %7 = load ptr, ptr %encoding, align 8
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 1112) #4
-  %data37 = getelementptr inbounds %struct.ossl_param_st, ptr %call30, i64 0, i32 2
+  %data37 = getelementptr inbounds i8, ptr %call30, i64 16
   %8 = load ptr, ptr %data37, align 8
   %call38 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 1112) #4
   store ptr %call38, ptr %encoding, align 8
@@ -250,16 +249,16 @@ if.end44:                                         ; preds = %if.end36, %if.end29
   br i1 %cmp46.not, label %if.end59, label %if.then47
 
 if.then47:                                        ; preds = %if.end44
-  %data_type48 = getelementptr inbounds %struct.ossl_param_st, ptr %call45, i64 0, i32 1
+  %data_type48 = getelementptr inbounds i8, ptr %call45, i64 8
   %9 = load i32, ptr %data_type48, align 8
   %cmp49.not = icmp eq i32 %9, 4
   br i1 %cmp49.not, label %if.end51, label %err
 
 if.end51:                                         ; preds = %if.then47
-  %pt_format = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 3
+  %pt_format = getelementptr inbounds i8, ptr %genctx, i64 24
   %10 = load ptr, ptr %pt_format, align 8
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 1113) #4
-  %data52 = getelementptr inbounds %struct.ossl_param_st, ptr %call45, i64 0, i32 2
+  %data52 = getelementptr inbounds i8, ptr %call45, i64 16
   %11 = load ptr, ptr %data52, align 8
   %call53 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 1113) #4
   store ptr %call53, ptr %pt_format, align 8
@@ -272,16 +271,16 @@ if.end59:                                         ; preds = %if.end51, %if.end44
   br i1 %cmp61.not, label %if.end74, label %if.then62
 
 if.then62:                                        ; preds = %if.end59
-  %data_type63 = getelementptr inbounds %struct.ossl_param_st, ptr %call60, i64 0, i32 1
+  %data_type63 = getelementptr inbounds i8, ptr %call60, i64 8
   %12 = load i32, ptr %data_type63, align 8
   %cmp64.not = icmp eq i32 %12, 4
   br i1 %cmp64.not, label %if.end66, label %err
 
 if.end66:                                         ; preds = %if.then62
-  %group_check = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 4
+  %group_check = getelementptr inbounds i8, ptr %genctx, i64 32
   %13 = load ptr, ptr %group_check, align 8
   tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str, i32 noundef 1114) #4
-  %data67 = getelementptr inbounds %struct.ossl_param_st, ptr %call60, i64 0, i32 2
+  %data67 = getelementptr inbounds i8, ptr %call60, i64 16
   %14 = load ptr, ptr %data67, align 8
   %call68 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 1114) #4
   store ptr %call68, ptr %group_check, align 8
@@ -294,7 +293,7 @@ if.end74:                                         ; preds = %if.end66, %if.end59
   br i1 %cmp76.not, label %if.end91, label %if.then77
 
 if.then77:                                        ; preds = %if.end74
-  %p78 = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 6
+  %p78 = getelementptr inbounds i8, ptr %genctx, i64 48
   %15 = load ptr, ptr %p78, align 8
   %cmp79 = icmp eq ptr %15, null
   br i1 %cmp79, label %if.end83, label %lor.lhs.false
@@ -316,7 +315,7 @@ if.end91:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp93.not, label %if.end108, label %if.then94
 
 if.then94:                                        ; preds = %if.end91
-  %a = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 7
+  %a = getelementptr inbounds i8, ptr %genctx, i64 56
   %16 = load ptr, ptr %a, align 8
   %cmp95 = icmp eq ptr %16, null
   br i1 %cmp95, label %if.end99, label %lor.lhs.false102
@@ -338,7 +337,7 @@ if.end108:                                        ; preds = %lor.lhs.false102, %
   br i1 %cmp110.not, label %if.end125, label %if.then111
 
 if.then111:                                       ; preds = %if.end108
-  %b = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 8
+  %b = getelementptr inbounds i8, ptr %genctx, i64 64
   %17 = load ptr, ptr %b, align 8
   %cmp112 = icmp eq ptr %17, null
   br i1 %cmp112, label %if.end116, label %lor.lhs.false119
@@ -360,7 +359,7 @@ if.end125:                                        ; preds = %lor.lhs.false119, %
   br i1 %cmp127.not, label %if.end142, label %if.then128
 
 if.then128:                                       ; preds = %if.end125
-  %order = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 9
+  %order = getelementptr inbounds i8, ptr %genctx, i64 72
   %18 = load ptr, ptr %order, align 8
   %cmp129 = icmp eq ptr %18, null
   br i1 %cmp129, label %if.end133, label %lor.lhs.false136
@@ -382,7 +381,7 @@ if.end142:                                        ; preds = %lor.lhs.false136, %
   br i1 %cmp144.not, label %if.end159, label %if.then145
 
 if.then145:                                       ; preds = %if.end142
-  %cofactor = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 10
+  %cofactor = getelementptr inbounds i8, ptr %genctx, i64 80
   %19 = load ptr, ptr %cofactor, align 8
   %cmp146 = icmp eq ptr %19, null
   br i1 %cmp146, label %if.end150, label %lor.lhs.false153
@@ -404,20 +403,20 @@ if.end159:                                        ; preds = %lor.lhs.false153, %
   br i1 %cmp161.not, label %if.end175, label %if.then162
 
 if.then162:                                       ; preds = %if.end159
-  %data_type163 = getelementptr inbounds %struct.ossl_param_st, ptr %call160, i64 0, i32 1
+  %data_type163 = getelementptr inbounds i8, ptr %call160, i64 8
   %20 = load i32, ptr %data_type163, align 8
   %cmp164.not = icmp eq i32 %20, 5
   br i1 %cmp164.not, label %if.end166, label %err
 
 if.end166:                                        ; preds = %if.then162
-  %seed = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 12
+  %seed = getelementptr inbounds i8, ptr %genctx, i64 96
   %21 = load ptr, ptr %seed, align 8
   tail call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 1122) #4
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call160, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call160, i64 24
   %22 = load i64, ptr %data_size, align 8
-  %seed_len = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 14
+  %seed_len = getelementptr inbounds i8, ptr %genctx, i64 112
   store i64 %22, ptr %seed_len, align 8
-  %data167 = getelementptr inbounds %struct.ossl_param_st, ptr %call160, i64 0, i32 2
+  %data167 = getelementptr inbounds i8, ptr %call160, i64 16
   %23 = load ptr, ptr %data167, align 8
   %call169 = tail call noalias ptr @CRYPTO_memdup(ptr noundef %23, i64 noundef %22, ptr noundef nonnull @.str, i32 noundef 1122) #4
   store ptr %call169, ptr %seed, align 8
@@ -430,20 +429,20 @@ if.end175:                                        ; preds = %if.end166, %if.end1
   br i1 %cmp177.not, label %if.end192, label %if.then178
 
 if.then178:                                       ; preds = %if.end175
-  %data_type179 = getelementptr inbounds %struct.ossl_param_st, ptr %call176, i64 0, i32 1
+  %data_type179 = getelementptr inbounds i8, ptr %call176, i64 8
   %24 = load i32, ptr %data_type179, align 8
   %cmp180.not = icmp eq i32 %24, 5
   br i1 %cmp180.not, label %if.end182, label %err
 
 if.end182:                                        ; preds = %if.then178
-  %gen = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 11
+  %gen = getelementptr inbounds i8, ptr %genctx, i64 88
   %25 = load ptr, ptr %gen, align 8
   tail call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 1124) #4
-  %data_size183 = getelementptr inbounds %struct.ossl_param_st, ptr %call176, i64 0, i32 3
+  %data_size183 = getelementptr inbounds i8, ptr %call176, i64 24
   %26 = load i64, ptr %data_size183, align 8
-  %gen_len = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 13
+  %gen_len = getelementptr inbounds i8, ptr %genctx, i64 104
   store i64 %26, ptr %gen_len, align 8
-  %data184 = getelementptr inbounds %struct.ossl_param_st, ptr %call176, i64 0, i32 2
+  %data184 = getelementptr inbounds i8, ptr %call176, i64 16
   %27 = load ptr, ptr %data184, align 8
   %call186 = tail call noalias ptr @CRYPTO_memdup(ptr noundef %27, i64 noundef %26, ptr noundef nonnull @.str, i32 noundef 1124) #4
   store ptr %call186, ptr %gen, align 8
@@ -456,20 +455,20 @@ if.end192:                                        ; preds = %if.end182, %if.end1
   br i1 %cmp194.not, label %if.end209, label %if.then195
 
 if.then195:                                       ; preds = %if.end192
-  %data_type196 = getelementptr inbounds %struct.ossl_param_st, ptr %call193, i64 0, i32 1
+  %data_type196 = getelementptr inbounds i8, ptr %call193, i64 8
   %28 = load i32, ptr %data_type196, align 8
   %cmp197.not = icmp eq i32 %28, 5
   br i1 %cmp197.not, label %if.end199, label %err
 
 if.end199:                                        ; preds = %if.then195
-  %dhkem_ikm = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 18
+  %dhkem_ikm = getelementptr inbounds i8, ptr %genctx, i64 136
   %29 = load ptr, ptr %dhkem_ikm, align 8
   tail call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str, i32 noundef 1127) #4
-  %data_size200 = getelementptr inbounds %struct.ossl_param_st, ptr %call193, i64 0, i32 3
+  %data_size200 = getelementptr inbounds i8, ptr %call193, i64 24
   %30 = load i64, ptr %data_size200, align 8
-  %dhkem_ikmlen = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 19
+  %dhkem_ikmlen = getelementptr inbounds i8, ptr %genctx, i64 144
   store i64 %30, ptr %dhkem_ikmlen, align 8
-  %data201 = getelementptr inbounds %struct.ossl_param_st, ptr %call193, i64 0, i32 2
+  %data201 = getelementptr inbounds i8, ptr %call193, i64 16
   %31 = load ptr, ptr %data201, align 8
   %call203 = tail call noalias ptr @CRYPTO_memdup(ptr noundef %31, i64 noundef %30, ptr noundef nonnull @.str, i32 noundef 1127) #4
   store ptr %call203, ptr %dhkem_ikm, align 8
@@ -507,7 +506,7 @@ lor.lhs.false1:                                   ; preds = %entry
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false1
-  %gen_group = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 17
+  %gen_group = getelementptr inbounds i8, ptr %genctx, i64 128
   %1 = load ptr, ptr %gen_group, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %if.then5, label %if.else
@@ -518,7 +517,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %tobool7.not, label %err, label %if.end28
 
 if.else:                                          ; preds = %if.end
-  %encoding = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 2
+  %encoding = getelementptr inbounds i8, ptr %genctx, i64 16
   %2 = load ptr, ptr %encoding, align 8
   %cmp10.not = icmp eq ptr %2, null
   br i1 %cmp10.not, label %if.end18, label %if.then11
@@ -534,7 +533,7 @@ if.end16:                                         ; preds = %if.then11
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end16, %if.else
-  %pt_format = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 3
+  %pt_format = getelementptr inbounds i8, ptr %genctx, i64 24
   %4 = load ptr, ptr %pt_format, align 8
   %cmp19.not = icmp eq ptr %4, null
   br i1 %cmp19.not, label %if.end28, label %if.then20
@@ -568,20 +567,20 @@ if.end.i:                                         ; preds = %if.end28
 
 ec_gen_assign_group.exit:                         ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i32 [ 0, %if.then.i ], [ %conv.i, %if.end.i ]
-  %selection = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 15
+  %selection = getelementptr inbounds i8, ptr %genctx, i64 120
   %7 = load i32, ptr %selection, align 8
   %and = and i32 %7, 3
   %cmp31.not = icmp eq i32 %and, 0
   br i1 %cmp31.not, label %if.end49, label %if.then32
 
 if.then32:                                        ; preds = %ec_gen_assign_group.exit
-  %dhkem_ikm = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 18
+  %dhkem_ikm = getelementptr inbounds i8, ptr %genctx, i64 136
   %8 = load ptr, ptr %dhkem_ikm, align 8
   %cmp33.not = icmp eq ptr %8, null
   br i1 %cmp33.not, label %if.else41, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then32
-  %dhkem_ikmlen = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 19
+  %dhkem_ikmlen = getelementptr inbounds i8, ptr %genctx, i64 144
   %9 = load i64, ptr %dhkem_ikmlen, align 8
   %cmp34.not = icmp eq i64 %9, 0
   br i1 %cmp34.not, label %if.else41, label %if.then35
@@ -608,7 +607,7 @@ land.rhs43:                                       ; preds = %if.else41
 
 if.end49:                                         ; preds = %if.else41, %land.rhs43, %if.then35, %land.rhs, %ec_gen_assign_group.exit
   %ret.0 = phi i32 [ %retval.0.i, %ec_gen_assign_group.exit ], [ 0, %if.then35 ], [ %10, %land.rhs ], [ 0, %if.else41 ], [ %11, %land.rhs43 ]
-  %ecdh_mode = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 16
+  %ecdh_mode = getelementptr inbounds i8, ptr %genctx, i64 124
   %12 = load i32, ptr %ecdh_mode, align 4
   %cmp50.not = icmp eq i32 %12, -1
   br i1 %cmp50.not, label %if.end59, label %if.then51
@@ -625,7 +624,7 @@ land.rhs53:                                       ; preds = %if.then51
 
 if.end59:                                         ; preds = %land.rhs53, %if.end49
   %ret.1 = phi i32 [ %ret.0, %if.end49 ], [ %13, %land.rhs53 ]
-  %group_check = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 4
+  %group_check = getelementptr inbounds i8, ptr %genctx, i64 32
   %14 = load ptr, ptr %group_check, align 8
   %cmp60.not = icmp eq ptr %14, null
   br i1 %cmp60.not, label %if.end69, label %if.then61
@@ -661,45 +660,45 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dhkem_ikm = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 18
+  %dhkem_ikm = getelementptr inbounds i8, ptr %genctx, i64 136
   %0 = load ptr, ptr %dhkem_ikm, align 8
-  %dhkem_ikmlen = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 19
+  %dhkem_ikmlen = getelementptr inbounds i8, ptr %genctx, i64 144
   %1 = load i64, ptr %dhkem_ikmlen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 1365) #4
-  %gen_group = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 17
+  %gen_group = getelementptr inbounds i8, ptr %genctx, i64 128
   %2 = load ptr, ptr %gen_group, align 8
   tail call void @EC_GROUP_free(ptr noundef %2) #4
-  %p = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 6
+  %p = getelementptr inbounds i8, ptr %genctx, i64 48
   %3 = load ptr, ptr %p, align 8
   tail call void @BN_free(ptr noundef %3) #4
-  %a = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 7
+  %a = getelementptr inbounds i8, ptr %genctx, i64 56
   %4 = load ptr, ptr %a, align 8
   tail call void @BN_free(ptr noundef %4) #4
-  %b = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 8
+  %b = getelementptr inbounds i8, ptr %genctx, i64 64
   %5 = load ptr, ptr %b, align 8
   tail call void @BN_free(ptr noundef %5) #4
-  %order = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 9
+  %order = getelementptr inbounds i8, ptr %genctx, i64 72
   %6 = load ptr, ptr %order, align 8
   tail call void @BN_free(ptr noundef %6) #4
-  %cofactor = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 10
+  %cofactor = getelementptr inbounds i8, ptr %genctx, i64 80
   %7 = load ptr, ptr %cofactor, align 8
   tail call void @BN_free(ptr noundef %7) #4
-  %group_name = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 1
+  %group_name = getelementptr inbounds i8, ptr %genctx, i64 8
   %8 = load ptr, ptr %group_name, align 8
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 1372) #4
-  %field_type = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 5
+  %field_type = getelementptr inbounds i8, ptr %genctx, i64 40
   %9 = load ptr, ptr %field_type, align 8
   tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 1373) #4
-  %pt_format = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 3
+  %pt_format = getelementptr inbounds i8, ptr %genctx, i64 24
   %10 = load ptr, ptr %pt_format, align 8
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 1374) #4
-  %encoding = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 2
+  %encoding = getelementptr inbounds i8, ptr %genctx, i64 16
   %11 = load ptr, ptr %encoding, align 8
   tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 1375) #4
-  %seed = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 12
+  %seed = getelementptr inbounds i8, ptr %genctx, i64 96
   %12 = load ptr, ptr %seed, align 8
   tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 1376) #4
-  %gen = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 11
+  %gen = getelementptr inbounds i8, ptr %genctx, i64 88
   %13 = load ptr, ptr %gen, align 8
   tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str, i32 noundef 1377) #4
   tail call void @CRYPTO_free(ptr noundef nonnull %genctx, ptr noundef nonnull @.str, i32 noundef 1378) #4
@@ -786,15 +785,15 @@ if.then9:                                         ; preds = %if.end6
   br i1 %cmp12, label %if.then17, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then9
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call7, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call7, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp13.not = icmp eq i32 %0, 5
   br i1 %cmp13.not, label %lor.lhs.false14, label %if.then17
 
 lor.lhs.false14:                                  ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call7, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call7, i64 16
   %1 = load ptr, ptr %data, align 8
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call7, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call7, i64 24
   %2 = load i64, ptr %data_size, align 8
   %call15 = tail call i32 @EC_KEY_oct2key(ptr noundef nonnull %key, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %call11) #4
   %tobool16.not = icmp eq i32 %call15, 0
@@ -1288,9 +1287,9 @@ if.end.i:                                         ; preds = %entry
 
 if.then4.i:                                       ; preds = %if.end.i
   store ptr %call.i, ptr %call2.i, align 8
-  %selection6.i = getelementptr inbounds %struct.ec_gen_ctx, ptr %call2.i, i64 0, i32 15
+  %selection6.i = getelementptr inbounds i8, ptr %call2.i, i64 120
   store i32 %selection, ptr %selection6.i, align 8
-  %ecdh_mode.i = getelementptr inbounds %struct.ec_gen_ctx, ptr %call2.i, i64 0, i32 16
+  %ecdh_mode.i = getelementptr inbounds i8, ptr %call2.i, i64 124
   store i32 0, ptr %ecdh_mode.i, align 4
   %call7.i = tail call i32 @ec_gen_set_params(ptr noundef nonnull %call2.i, ptr noundef %params), !range !4
   %tobool8.not.i = icmp eq i32 %call7.i, 0
@@ -1301,7 +1300,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   br label %return
 
 if.then:                                          ; preds = %if.then4.i
-  %group_name = getelementptr inbounds %struct.ec_gen_ctx, ptr %call2.i, i64 0, i32 1
+  %group_name = getelementptr inbounds i8, ptr %call2.i, i64 8
   %0 = load ptr, ptr %group_name, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %return
@@ -1334,7 +1333,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %gen_group = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 17
+  %gen_group = getelementptr inbounds i8, ptr %genctx, i64 128
   %1 = load ptr, ptr %gen_group, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %if.then3, label %if.else
@@ -1345,7 +1344,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool.not, label %err, label %if.end25
 
 if.else:                                          ; preds = %if.end
-  %encoding = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 2
+  %encoding = getelementptr inbounds i8, ptr %genctx, i64 16
   %2 = load ptr, ptr %encoding, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %if.end15, label %if.then8
@@ -1361,7 +1360,7 @@ if.end13:                                         ; preds = %if.then8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end13, %if.else
-  %pt_format = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 3
+  %pt_format = getelementptr inbounds i8, ptr %genctx, i64 24
   %4 = load ptr, ptr %pt_format, align 8
   %cmp16.not = icmp eq ptr %4, null
   br i1 %cmp16.not, label %if.end25, label %if.then17
@@ -1384,7 +1383,7 @@ if.end25:                                         ; preds = %if.end15, %if.end22
 ec_gen_assign_group.exit:                         ; preds = %if.end25
   %call.i = tail call i32 @EC_KEY_set_group(ptr noundef nonnull %call, ptr noundef nonnull %6) #4
   %cmp1.i = icmp sgt i32 %call.i, 0
-  %selection = getelementptr inbounds %struct.ec_gen_ctx, ptr %genctx, i64 0, i32 15
+  %selection = getelementptr inbounds i8, ptr %genctx, i64 120
   %7 = load i32, ptr %selection, align 8
   %and = and i32 %7, 3
   %cmp28.not = icmp eq i32 %and, 0
@@ -1622,7 +1621,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %encoding = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 2
+  %encoding = getelementptr inbounds i8, ptr %gctx, i64 16
   %0 = load ptr, ptr %encoding, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end5, label %land.lhs.true
@@ -1633,7 +1632,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool.not, label %err, label %if.end5
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
-  %pt_format = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 3
+  %pt_format = getelementptr inbounds i8, ptr %gctx, i64 24
   %1 = load ptr, ptr %pt_format, align 8
   %cmp6.not = icmp eq ptr %1, null
   br i1 %cmp6.not, label %if.end12, label %land.lhs.true7
@@ -1644,7 +1643,7 @@ land.lhs.true7:                                   ; preds = %if.end5
   br i1 %tobool10.not, label %err, label %if.end12
 
 if.end12:                                         ; preds = %land.lhs.true7, %if.end5
-  %group_name = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 1
+  %group_name = getelementptr inbounds i8, ptr %gctx, i64 8
   %2 = load ptr, ptr %group_name, align 8
   %cmp13.not = icmp eq ptr %2, null
   br i1 %cmp13.not, label %if.else, label %if.then14
@@ -1655,7 +1654,7 @@ if.then14:                                        ; preds = %if.end12
   br i1 %tobool17.not, label %err, label %build
 
 if.else:                                          ; preds = %if.end12
-  %field_type = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 5
+  %field_type = getelementptr inbounds i8, ptr %gctx, i64 40
   %3 = load ptr, ptr %field_type, align 8
   %cmp20.not = icmp eq ptr %3, null
   br i1 %cmp20.not, label %err, label %if.then21
@@ -1666,25 +1665,25 @@ if.then21:                                        ; preds = %if.else
   br i1 %tobool24.not, label %err, label %if.end29
 
 if.end29:                                         ; preds = %if.then21
-  %p = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 6
+  %p = getelementptr inbounds i8, ptr %gctx, i64 48
   %4 = load ptr, ptr %p, align 8
   %cmp30 = icmp eq ptr %4, null
   br i1 %cmp30, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end29
-  %a = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 7
+  %a = getelementptr inbounds i8, ptr %gctx, i64 56
   %5 = load ptr, ptr %a, align 8
   %cmp31 = icmp eq ptr %5, null
   br i1 %cmp31, label %err, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %lor.lhs.false
-  %b = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 8
+  %b = getelementptr inbounds i8, ptr %gctx, i64 64
   %6 = load ptr, ptr %b, align 8
   %cmp33 = icmp eq ptr %6, null
   br i1 %cmp33, label %err, label %lor.lhs.false34
 
 lor.lhs.false34:                                  ; preds = %lor.lhs.false32
-  %order = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 9
+  %order = getelementptr inbounds i8, ptr %gctx, i64 72
   %7 = load ptr, ptr %order, align 8
   %cmp35 = icmp eq ptr %7, null
   br i1 %cmp35, label %err, label %lor.lhs.false36
@@ -1713,7 +1712,7 @@ lor.lhs.false48:                                  ; preds = %lor.lhs.false44
   br i1 %tobool51.not, label %err, label %if.end53
 
 if.end53:                                         ; preds = %lor.lhs.false48
-  %cofactor = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 10
+  %cofactor = getelementptr inbounds i8, ptr %gctx, i64 80
   %11 = load ptr, ptr %cofactor, align 8
   %cmp54.not = icmp eq ptr %11, null
   br i1 %cmp54.not, label %if.end60, label %land.lhs.true55
@@ -1724,26 +1723,26 @@ land.lhs.true55:                                  ; preds = %if.end53
   br i1 %tobool58.not, label %err, label %if.end60
 
 if.end60:                                         ; preds = %land.lhs.true55, %if.end53
-  %seed = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 12
+  %seed = getelementptr inbounds i8, ptr %gctx, i64 96
   %12 = load ptr, ptr %seed, align 8
   %cmp61.not = icmp eq ptr %12, null
   br i1 %cmp61.not, label %if.end67, label %land.lhs.true62
 
 land.lhs.true62:                                  ; preds = %if.end60
-  %seed_len = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 14
+  %seed_len = getelementptr inbounds i8, ptr %gctx, i64 112
   %13 = load i64, ptr %seed_len, align 8
   %call64 = tail call i32 @OSSL_PARAM_BLD_push_octet_string(ptr noundef nonnull %call, ptr noundef nonnull @.str.12, ptr noundef nonnull %12, i64 noundef %13) #4
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %err, label %if.end67
 
 if.end67:                                         ; preds = %land.lhs.true62, %if.end60
-  %gen = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 11
+  %gen = getelementptr inbounds i8, ptr %gctx, i64 88
   %14 = load ptr, ptr %gen, align 8
   %cmp68 = icmp eq ptr %14, null
   br i1 %cmp68, label %err, label %lor.lhs.false69
 
 lor.lhs.false69:                                  ; preds = %if.end67
-  %gen_len = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 13
+  %gen_len = getelementptr inbounds i8, ptr %gctx, i64 104
   %15 = load i64, ptr %gen_len, align 8
   %call71 = tail call i32 @OSSL_PARAM_BLD_push_octet_string(ptr noundef nonnull %call, ptr noundef nonnull @.str.13, ptr noundef nonnull %14, i64 noundef %15) #4
   %tobool72.not = icmp eq i32 %call71, 0
@@ -1761,7 +1760,7 @@ if.end78:                                         ; preds = %build
   br i1 %cmp80, label %err, label %if.end82
 
 if.end82:                                         ; preds = %if.end78
-  %gen_group = getelementptr inbounds %struct.ec_gen_ctx, ptr %gctx, i64 0, i32 17
+  %gen_group = getelementptr inbounds i8, ptr %gctx, i64 128
   %17 = load ptr, ptr %gen_group, align 8
   tail call void @EC_GROUP_free(ptr noundef %17) #4
   store ptr %call79, ptr %gen_group, align 8
@@ -1974,12 +1973,12 @@ if.then95:                                        ; preds = %if.then92
   br label %err
 
 if.end96:                                         ; preds = %if.then92
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call90, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call90, i64 16
   %0 = load ptr, ptr %data, align 8
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call90, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call90, i64 24
   %1 = load i64, ptr %data_size, align 8
   %call97 = tail call i64 @EC_POINT_point2oct(ptr noundef nonnull %call, ptr noundef nonnull %call93, i32 noundef 4, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %call3) #4
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %call90, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %call90, i64 32
   store i64 %call97, ptr %return_size, align 8
   %cmp99 = icmp eq i64 %call97, 0
   br i1 %cmp99, label %err, label %if.end102

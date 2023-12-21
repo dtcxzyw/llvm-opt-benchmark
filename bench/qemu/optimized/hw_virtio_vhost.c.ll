@@ -11,54 +11,15 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.7 = type { %struct.QTailQLink }
 %struct.QemuEvent = type { i32, i8 }
 %struct.VhostOps = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.vhost_dev = type { ptr, %struct.MemoryListener, %struct.MemoryListener, ptr, i32, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i8, i8, i64, ptr, ptr, ptr, ptr, %struct.anon.1, %struct.anon.2, %struct.IOMMUNotifier, ptr }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.anon.1 = type { ptr, ptr }
-%struct.anon.2 = type { ptr }
-%struct.IOMMUNotifier = type { ptr, i32, i64, i64, i32, %struct.anon.3 }
-%struct.anon.3 = type { ptr, ptr }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.4, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.VirtioDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.vhost_iommu = type { ptr, ptr, i64, %struct.IOMMUNotifier, %struct.anon.5 }
-%struct.anon.5 = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.IOMMUTLBEntry = type { ptr, i64, i64, i64, i32 }
-%struct.rcu_reader_data = type { i64, i8, i32, %struct.anon.8, %struct.NotifierList }
-%struct.anon.8 = type { ptr, ptr }
-%struct.NotifierList = type { %struct.anon.9 }
-%struct.anon.9 = type { ptr }
-%struct.vhost_memory = type { i32, i32, [0 x %struct.vhost_memory_region] }
 %struct.vhost_memory_region = type { i64, i64, i64, i64 }
 %struct.vhost_vring_state = type { i32, i32 }
 %struct.vhost_vring_file = type { i32, i32 }
-%struct.vhost_virtqueue = type { i32, i32, ptr, ptr, ptr, i32, i64, i32, i64, i32, i64, i32, %struct.EventNotifier, %struct.EventNotifier, %struct.EventNotifier, ptr }
-%struct.VirtioBusClass = type { %struct.BusClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr }
-%struct.BusClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
 %struct.vhost_vring_addr = type { i32, i32, i64, i64, i64, i64 }
+%struct.vhost_virtqueue = type { i32, i32, ptr, ptr, ptr, i32, i64, i32, i64, i32, i64, i32, %struct.EventNotifier, %struct.EventNotifier, %struct.EventNotifier, ptr }
+%struct.EventNotifier = type { i32, i32, i8 }
 %struct.MemoryRegionSection = type { i128, ptr, ptr, i64, i64, i8, i8, i8 }
-%struct.vhost_log = type { i64, i32, i32, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.10, %union.anon.11, %union.anon.12, ptr, i32, ptr, ptr, i8 }
-%union.anon.10 = type { %struct.QTailQLink }
-%union.anon.11 = type { %struct.QTailQLink }
-%union.anon.12 = type { %struct.QTailQLink }
-%struct.vhost_inflight = type { i32, ptr, i64, i64, i16 }
-%struct._GError = type { i32, i32, ptr }
 
 @vhost_devices = internal global %struct.anon zeroinitializer, align 8
 @used_shared_memslots = internal unnamed_addr global i32 0, align 4
@@ -235,13 +196,13 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %hdev.010 = phi ptr [ %hdev.0, %for.body ], [ %hdev.07, %entry ]
   %max.09 = phi i32 [ %cond, %for.body ], [ -1, %entry ]
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev.010, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev.010, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
-  %vhost_backend_memslots_limit = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 3
+  %vhost_backend_memslots_limit = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %vhost_backend_memslots_limit, align 8
   %call = tail call i32 %1(ptr noundef nonnull %hdev.010) #18
   %cond = tail call i32 @llvm.umin.i32(i32 %max.09, i32 %call)
-  %entry1 = getelementptr inbounds %struct.vhost_dev, ptr %hdev.010, i64 0, i32 26
+  %entry1 = getelementptr inbounds i8, ptr %hdev.010, i64 552
   %hdev.0 = load ptr, ptr %entry1, align 8
   %tobool.not = icmp eq ptr %hdev.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
@@ -261,13 +222,13 @@ entry:
 for.body:                                         ; preds = %entry, %if.end
   %hdev.014 = phi ptr [ %hdev.0, %if.end ], [ %hdev.011, %entry ]
   %free.013 = phi i32 [ %cond, %if.end ], [ -1, %entry ]
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev.014, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev.014, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
-  %vhost_backend_memslots_limit = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 3
+  %vhost_backend_memslots_limit = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %vhost_backend_memslots_limit, align 8
   %call = tail call i32 %1(ptr noundef nonnull %hdev.014) #18
   %2 = load ptr, ptr %vhost_ops, align 8
-  %vhost_backend_no_private_memslots = getelementptr inbounds %struct.VhostOps, ptr %2, i64 0, i32 4
+  %vhost_backend_no_private_memslots = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %vhost_backend_no_private_memslots, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.else, label %land.lhs.true
@@ -284,7 +245,7 @@ if.end:                                           ; preds = %land.lhs.true, %if.
   %.pn = load i32, ptr %.pn.in, align 4
   %cur_free.0 = sub i32 %call, %.pn
   %cond = tail call i32 @llvm.umin.i32(i32 %free.013, i32 %cur_free.0)
-  %entry7 = getelementptr inbounds %struct.vhost_dev, ptr %hdev.014, i64 0, i32 26
+  %entry7 = getelementptr inbounds i8, ptr %hdev.014, i64 552
   %hdev.0 = load ptr, ptr %entry7, align 8
   %tobool.not = icmp eq ptr %hdev.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !7
@@ -324,40 +285,40 @@ define dso_local void @vhost_toggle_device_iotlb(ptr noundef %vdev) local_unname
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #18
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.45, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #18
-  %vhost_started = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 24
+  %vhost_started = getelementptr inbounds i8, ptr %vdev, i64 442
   %0 = load i8, ptr %vhost_started, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %for.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %get_vhost = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 23
+  %get_vhost = getelementptr inbounds i8, ptr %call1.i, i64 352
   %2 = load ptr, ptr %get_vhost, align 8
   %call1 = tail call ptr %2(ptr noundef nonnull %vdev) #18
-  %iommu_list = getelementptr inbounds %struct.vhost_dev, ptr %call1, i64 0, i32 27
+  %iommu_list = getelementptr inbounds i8, ptr %call1, i64 568
   %iommu.010 = load ptr, ptr %iommu_list, align 8
   %tobool2.not11 = icmp eq ptr %iommu.010, null
   br i1 %tobool2.not11, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %device_iotlb_enabled = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 33
+  %device_iotlb_enabled = getelementptr inbounds i8, ptr %vdev, i64 516
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %iommu.012 = phi ptr [ %iommu.010, %for.body.lr.ph ], [ %iommu.0, %for.body ]
-  %mr = getelementptr inbounds %struct.vhost_iommu, ptr %iommu.012, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %iommu.012, i64 8
   %3 = load ptr, ptr %mr, align 8
-  %n = getelementptr inbounds %struct.vhost_iommu, ptr %iommu.012, i64 0, i32 3
+  %n = getelementptr inbounds i8, ptr %iommu.012, i64 24
   tail call void @memory_region_unregister_iommu_notifier(ptr noundef %3, ptr noundef nonnull %n) #18
   %4 = load i8, ptr %device_iotlb_enabled, align 4
   %5 = and i8 %4, 1
   %tobool3.not = icmp eq i8 %5, 0
   %cond = select i1 %tobool3.not, i32 1, i32 4
-  %notifier_flags = getelementptr inbounds %struct.vhost_iommu, ptr %iommu.012, i64 0, i32 3, i32 1
+  %notifier_flags = getelementptr inbounds i8, ptr %iommu.012, i64 32
   store i32 %cond, ptr %notifier_flags, align 8
   %6 = load ptr, ptr %mr, align 8
   %call7 = tail call i32 @memory_region_register_iommu_notifier(ptr noundef %6, ptr noundef nonnull %n, ptr noundef nonnull @error_fatal) #18
-  %iommu_next = getelementptr inbounds %struct.vhost_iommu, ptr %iommu.012, i64 0, i32 4
+  %iommu_next = getelementptr inbounds i8, ptr %iommu.012, i64 80
   %iommu.0 = load ptr, ptr %iommu_next, align 8
   %tobool2.not = icmp eq ptr %iommu.0, null
   br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !8
@@ -379,7 +340,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %tmp = alloca %struct.IOMMUTLBEntry, align 8
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -419,7 +380,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
   %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %dev, i32 noundef 1) #18
   br label %trace_vhost_iotlb_miss.exit
@@ -431,7 +392,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_vhost_iotlb_miss.exit:                      ; preds = %rcu_read_auto_lock.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %9 = load ptr, ptr %dev, align 8
-  %dma_as = getelementptr inbounds %struct.VirtIODevice, ptr %9, i64 0, i32 29
+  %dma_as = getelementptr inbounds i8, ptr %9, i64 472
   %10 = load ptr, ptr %dma_as, align 8
   %tobool = icmp ne i32 %write, 0
   call void @address_space_get_iotlb_entry(ptr nonnull sret(%struct.IOMMUTLBEntry) align 8 %tmp, ptr noundef %10, i64 noundef %iova, i1 noundef zeroext %tobool, i32 1) #18
@@ -446,33 +407,33 @@ trace_vhost_iotlb_miss.exit:                      ; preds = %rcu_read_auto_lock.
   br i1 %cmp.not, label %if.end39, label %if.then
 
 if.then:                                          ; preds = %trace_vhost_iotlb_miss.exit
-  %mem.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 3
+  %mem.i = getelementptr inbounds i8, ptr %dev, i64 392
   %11 = load ptr, ptr %mem.i, align 8
   %12 = load i32, ptr %11, align 8
-  %cmp13.not.i = icmp eq i32 %12, 0
-  br i1 %cmp13.not.i, label %if.then30, label %for.body.lr.ph.i
+  %cmp14.not.i = icmp eq i32 %12, 0
+  br i1 %cmp14.not.i, label %if.then30, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then
-  %regions.i = getelementptr inbounds %struct.vhost_memory, ptr %11, i64 0, i32 2
+  %regions.i = getelementptr inbounds i8, ptr %11, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %i.014.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %idx.ext.i = sext i32 %i.014.i to i64
+  %i.015.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
+  %idx.ext.i = sext i32 %i.015.i to i64
   %add.ptr.i = getelementptr %struct.vhost_memory_region, ptr %regions.i, i64 %idx.ext.i
   %13 = load i64, ptr %add.ptr.i, align 8
   %cmp2.not.i = icmp ugt i64 %13, %iotlb.sroa.215.0.copyload
   br i1 %cmp2.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %memory_size.i = getelementptr %struct.vhost_memory_region, ptr %regions.i, i64 %idx.ext.i, i32 1
+  %memory_size.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %14 = load i64, ptr %memory_size.i, align 8
   %add.i = add i64 %14, %13
   %cmp4.i = icmp ugt i64 %add.i, %iotlb.sroa.215.0.copyload
   br i1 %cmp4.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %inc.i = add nuw i32 %i.014.i, 1
+  %inc.i = add nuw i32 %i.015.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %12
   br i1 %exitcond.not.i, label %if.then30, label %for.body.i, !llvm.loop !10
 
@@ -501,7 +462,7 @@ if.then8.i.i35:                                   ; preds = %if.then.i.i33
   %call9.i.i36 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i26, ptr noundef null) #18
   %call10.i.i37 = call i32 @qemu_get_thread_id() #18
   %20 = load i64, ptr %_now.i.i26, align 8
-  %tv_usec.i.i38 = getelementptr inbounds %struct.timeval, ptr %_now.i.i26, i64 0, i32 1
+  %tv_usec.i.i38 = getelementptr inbounds i8, ptr %_now.i.i26, i64 8
   %21 = load i64, ptr %tv_usec.i.i38, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i37, i64 noundef %20, i64 noundef %21, ptr noundef nonnull %dev, i32 noundef 3) #18
   br label %trace_vhost_iotlb_miss.exit40
@@ -516,7 +477,7 @@ trace_vhost_iotlb_miss.exit40:                    ; preds = %if.then30, %land.lh
   br label %if.then.i.i71
 
 if.end:                                           ; preds = %land.lhs.true.i
-  %userspace_addr.i = getelementptr %struct.vhost_memory_region, ptr %regions.i, i64 %idx.ext.i, i32 2
+  %userspace_addr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %22 = load i64, ptr %userspace_addr.i, align 8
   %add5.i = sub i64 %iotlb.sroa.215.0.copyload, %13
   %sub.i = add i64 %add5.i, %22
@@ -555,7 +516,7 @@ if.then8.i.i50:                                   ; preds = %if.then.i.i48
   %call9.i.i51 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i41, ptr noundef null) #18
   %call10.i.i52 = call i32 @qemu_get_thread_id() #18
   %28 = load i64, ptr %_now.i.i41, align 8
-  %tv_usec.i.i53 = getelementptr inbounds %struct.timeval, ptr %_now.i.i41, i64 0, i32 1
+  %tv_usec.i.i53 = getelementptr inbounds i8, ptr %_now.i.i41, i64 8
   %29 = load i64, ptr %tv_usec.i.i53, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i52, i64 noundef %28, i64 noundef %29, ptr noundef nonnull %dev, i32 noundef 4) #18
   br label %trace_vhost_iotlb_miss.exit55
@@ -595,7 +556,7 @@ if.then8.i.i65:                                   ; preds = %if.then.i.i63
   %call9.i.i66 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i56, ptr noundef null) #18
   %call10.i.i67 = call i32 @qemu_get_thread_id() #18
   %35 = load i64, ptr %_now.i.i56, align 8
-  %tv_usec.i.i68 = getelementptr inbounds %struct.timeval, ptr %_now.i.i56, i64 0, i32 1
+  %tv_usec.i.i68 = getelementptr inbounds i8, ptr %_now.i.i56, i64 8
   %36 = load i64, ptr %tv_usec.i.i68, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i67, i64 noundef %35, i64 noundef %36, ptr noundef nonnull %dev, i32 noundef 2) #18
   br label %trace_vhost_iotlb_miss.exit70
@@ -611,7 +572,7 @@ trace_vhost_iotlb_miss.exit70:                    ; preds = %if.end39, %land.lhs
 if.then.i.i71:                                    ; preds = %trace_vhost_iotlb_miss.exit40, %trace_vhost_iotlb_miss.exit55, %trace_vhost_iotlb_miss.exit70
   %ret.1 = phi i32 [ -14, %trace_vhost_iotlb_miss.exit40 ], [ %call35, %trace_vhost_iotlb_miss.exit55 ], [ %ret.0, %trace_vhost_iotlb_miss.exit70 ]
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #18
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %37 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %37, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -630,7 +591,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %38 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %39 = and i8 %38, 1
   %tobool.not.i.i.i.i = icmp eq i8 %39, 0
@@ -667,16 +628,16 @@ entry:
   %call.i102 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i101, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #18
   %call.i103 = tail call ptr @object_get_class(ptr noundef %call.i102) #18
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i103, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #18
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vq_index = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 26
+  %vhost_get_vq_index = getelementptr inbounds i8, ptr %0, i64 208
   %1 = load ptr, ptr %vhost_get_vq_index, align 8
   %call5 = tail call i32 %1(ptr noundef %dev, i32 noundef %idx) #18
   store i32 %call5, ptr %file, align 4
-  %fd = getelementptr inbounds %struct.vhost_vring_file, ptr %file, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %file, i64 4
   store i32 0, ptr %fd, align 4
   store i32 %call5, ptr %state, align 4
-  %num = getelementptr inbounds %struct.vhost_vring_state, ptr %state, i64 0, i32 1
+  %num = getelementptr inbounds i8, ptr %state, i64 4
   %call7 = tail call ptr @virtio_get_queue(ptr noundef %vdev, i32 noundef %idx) #18
   %call8 = tail call i64 @virtio_queue_get_desc_addr(ptr noundef %vdev, i32 noundef %idx) #18
   %cmp = icmp eq i64 %call8, 0
@@ -685,10 +646,10 @@ entry:
 if.end:                                           ; preds = %entry
   %call9 = tail call i32 @virtio_queue_get_num(ptr noundef %vdev, i32 noundef %idx) #18
   store i32 %call9, ptr %num, align 4
-  %num11 = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 5
+  %num11 = getelementptr inbounds i8, ptr %vq, i64 32
   store i32 %call9, ptr %num11, align 8
   %2 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_num = getelementptr inbounds %struct.VhostOps, ptr %2, i64 0, i32 14
+  %vhost_set_vring_num = getelementptr inbounds i8, ptr %2, i64 112
   %3 = load ptr, ptr %vhost_set_vring_num, align 8
   %call13 = call i32 %3(ptr noundef nonnull %dev, ptr noundef nonnull %state) #18
   %tobool.not = icmp eq i32 %call13, 0
@@ -704,7 +665,7 @@ if.end17:                                         ; preds = %if.end
   %call18 = call i32 @virtio_queue_get_last_avail_idx(ptr noundef %vdev, i32 noundef %idx) #18
   store i32 %call18, ptr %num, align 4
   %4 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_base = getelementptr inbounds %struct.VhostOps, ptr %4, i64 0, i32 15
+  %vhost_set_vring_base = getelementptr inbounds i8, ptr %4, i64 120
   %5 = load ptr, ptr %vhost_set_vring_base, align 8
   %call21 = call i32 %5(ptr noundef nonnull %dev, ptr noundef nonnull %state) #18
   %tobool22.not = icmp eq i32 %call21, 0
@@ -724,7 +685,7 @@ if.end29:                                         ; preds = %if.end17
   br i1 %tobool.i.i.not.i, label %vhost_needs_vring_endian.exit, label %if.end37
 
 vhost_needs_vring_endian.exit:                    ; preds = %if.end29
-  %device_endian.i = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 27
+  %device_endian.i = getelementptr inbounds i8, ptr %vdev, i64 464
   %7 = load i8, ptr %device_endian.i, align 8
   %cmp.i = icmp eq i8 %7, 2
   br i1 %cmp.i, label %virtio_is_big_endian.exit, label %if.end37
@@ -732,10 +693,10 @@ vhost_needs_vring_endian.exit:                    ; preds = %if.end29
 virtio_is_big_endian.exit:                        ; preds = %vhost_needs_vring_endian.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i)
   store i32 %call5, ptr %s.i, align 4
-  %num.i = getelementptr inbounds %struct.vhost_vring_state, ptr %s.i, i64 0, i32 1
+  %num.i = getelementptr inbounds i8, ptr %s.i, i64 4
   store i32 1, ptr %num.i, align 4
   %8 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_endian.i = getelementptr inbounds %struct.VhostOps, ptr %8, i64 0, i32 13
+  %vhost_set_vring_endian.i = getelementptr inbounds i8, ptr %8, i64 104
   %9 = load ptr, ptr %vhost_set_vring_endian.i, align 8
   %call.i110 = call i32 %9(ptr noundef nonnull %dev, ptr noundef nonnull %s.i) #18
   %cmp.i111 = icmp slt i32 %call.i110, 0
@@ -757,9 +718,9 @@ if.end37:                                         ; preds = %if.end29, %vhost_vi
   %call38 = call i64 @virtio_queue_get_desc_size(ptr noundef nonnull %vdev, i32 noundef %idx) #18
   store i64 %call38, ptr %l, align 8
   %conv = trunc i64 %call38 to i32
-  %desc_size = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 7
+  %desc_size = getelementptr inbounds i8, ptr %vq, i64 48
   store i32 %conv, ptr %desc_size, align 8
-  %desc_phys = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 6
+  %desc_phys = getelementptr inbounds i8, ptr %vq, i64 40
   store i64 %call8, ptr %desc_phys, align 8
   %dev.val = load ptr, ptr %dev, align 8
   %tobool.not.i.i = icmp eq ptr %dev.val, null
@@ -786,7 +747,7 @@ if.else.i116:                                     ; preds = %vhost_dev_has_iommu
 
 vhost_memory_map.exit:                            ; preds = %if.then.i113, %if.else.i116
   %retval.0.i115 = phi ptr [ %11, %if.else.i116 ], [ %call1.i114, %if.then.i113 ]
-  %desc = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 2
+  %desc = getelementptr inbounds i8, ptr %vq, i64 8
   store ptr %retval.0.i115, ptr %desc, align 8
   %tobool41.not = icmp ne ptr %retval.0.i115, null
   %12 = load i64, ptr %l, align 8
@@ -798,10 +759,10 @@ if.end45:                                         ; preds = %vhost_memory_map.ex
   %call46 = call i64 @virtio_queue_get_avail_size(ptr noundef nonnull %vdev, i32 noundef %idx) #18
   store i64 %call46, ptr %l, align 8
   %conv47 = trunc i64 %call46 to i32
-  %avail_size = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 9
+  %avail_size = getelementptr inbounds i8, ptr %vq, i64 64
   store i32 %conv47, ptr %avail_size, align 8
   %call48 = call i64 @virtio_queue_get_avail_addr(ptr noundef nonnull %vdev, i32 noundef %idx) #18
-  %avail_phys = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 8
+  %avail_phys = getelementptr inbounds i8, ptr %vq, i64 56
   store i64 %call48, ptr %avail_phys, align 8
   %dev.val96 = load ptr, ptr %dev, align 8
   %tobool.not.i.i117 = icmp eq ptr %dev.val96, null
@@ -828,7 +789,7 @@ if.else.i127:                                     ; preds = %vhost_dev_has_iommu
 
 vhost_memory_map.exit128:                         ; preds = %if.then.i120, %if.else.i127
   %retval.0.i122 = phi ptr [ %14, %if.else.i127 ], [ %call1.i121, %if.then.i120 ]
-  %avail = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 3
+  %avail = getelementptr inbounds i8, ptr %vq, i64 16
   store ptr %retval.0.i122, ptr %avail, align 8
   %tobool51.not = icmp ne ptr %retval.0.i122, null
   %15 = load i64, ptr %l, align 8
@@ -840,14 +801,14 @@ if.end56:                                         ; preds = %vhost_memory_map.ex
   %call57 = call i64 @virtio_queue_get_used_size(ptr noundef nonnull %vdev, i32 noundef %idx) #18
   store i64 %call57, ptr %l, align 8
   %conv58 = trunc i64 %call57 to i32
-  %used_size = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 11
+  %used_size = getelementptr inbounds i8, ptr %vq, i64 80
   store i32 %conv58, ptr %used_size, align 8
   %call59 = call i64 @virtio_queue_get_used_addr(ptr noundef nonnull %vdev, i32 noundef %idx) #18
-  %used_phys = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 10
+  %used_phys = getelementptr inbounds i8, ptr %vq, i64 72
   store i64 %call59, ptr %used_phys, align 8
   %dev.val97 = load ptr, ptr %dev, align 8
   %call60 = call fastcc ptr @vhost_memory_map(ptr %dev.val97, i64 noundef %call59, ptr noundef nonnull %l, i1 noundef zeroext true)
-  %used = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 4
+  %used = getelementptr inbounds i8, ptr %vq, i64 24
   store ptr %call60, ptr %used, align 8
   %tobool62.not = icmp ne ptr %call60, null
   %16 = load i64, ptr %l, align 8
@@ -856,7 +817,7 @@ if.end56:                                         ; preds = %vhost_memory_map.ex
   br i1 %or.cond95, label %if.end67, label %fail_alloc_used
 
 if.end67:                                         ; preds = %if.end56
-  %log_enabled = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 20
+  %log_enabled = getelementptr inbounds i8, ptr %dev, i64 505
   %17 = load i8, ptr %log_enabled, align 1
   %18 = and i8 %17, 1
   %tobool68 = icmp ne i8 %18, 0
@@ -869,7 +830,7 @@ if.end73:                                         ; preds = %if.end67
   %call75 = call i32 @event_notifier_get_fd(ptr noundef %call74) #18
   store i32 %call75, ptr %fd, align 4
   %19 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_kick = getelementptr inbounds %struct.VhostOps, ptr %19, i64 0, i32 17
+  %vhost_set_vring_kick = getelementptr inbounds i8, ptr %19, i64 136
   %20 = load ptr, ptr %vhost_set_vring_kick, align 8
   %call78 = call i32 %20(ptr noundef nonnull %dev, ptr noundef nonnull %file) #18
   %tobool79.not = icmp eq i32 %call78, 0
@@ -882,9 +843,9 @@ do.body81:                                        ; preds = %if.end73
   br label %fail_alloc
 
 if.end86:                                         ; preds = %if.end73
-  %masked_notifier = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 12
+  %masked_notifier = getelementptr inbounds i8, ptr %vq, i64 84
   %call87 = call i32 @event_notifier_test_and_clear(ptr noundef nonnull %masked_notifier) #18
-  %use_guest_notifier_mask = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 28
+  %use_guest_notifier_mask = getelementptr inbounds i8, ptr %vdev, i64 465
   %21 = load i8, ptr %use_guest_notifier_mask, align 1
   %22 = and i8 %21, 1
   %tobool88.not = icmp eq i8 %22, 0
@@ -895,13 +856,13 @@ if.then89:                                        ; preds = %if.end86
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then89, %if.end86
-  %query_guest_notifiers = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i, i64 0, i32 10
+  %query_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 232
   %23 = load ptr, ptr %query_guest_notifiers, align 8
   %tobool91.not = icmp eq ptr %23, null
   br i1 %tobool91.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end90
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i101, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i101, i64 40
   %24 = load ptr, ptr %parent, align 8
   %call93 = call zeroext i1 %23(ptr noundef %24) #18
   br i1 %call93, label %land.lhs.true95, label %return
@@ -914,7 +875,7 @@ land.lhs.true95:                                  ; preds = %land.lhs.true
 if.then100:                                       ; preds = %land.lhs.true95
   store i32 -1, ptr %fd, align 4
   %25 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_call = getelementptr inbounds %struct.VhostOps, ptr %25, i64 0, i32 18
+  %vhost_set_vring_call = getelementptr inbounds i8, ptr %25, i64 144
   %26 = load ptr, ptr %vhost_set_vring_call, align 8
   %call103 = call i32 %26(ptr noundef nonnull %dev, ptr noundef nonnull %file) #18
   %tobool104.not = icmp eq i32 %call103, 0
@@ -1022,9 +983,9 @@ define internal fastcc i32 @vhost_virtqueue_set_addr(ptr noundef %dev, ptr nound
 entry:
   %addr = alloca %struct.vhost_vring_addr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %addr, i8 0, i64 40, i1 false)
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
-  %vhost_vq_get_addr = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 41
+  %vhost_vq_get_addr = getelementptr inbounds i8, ptr %0, i64 328
   %1 = load ptr, ptr %vhost_vq_get_addr, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -1045,13 +1006,13 @@ do.body:                                          ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %desc = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 2
+  %desc = getelementptr inbounds i8, ptr %vq, i64 8
   %2 = load ptr, ptr %desc, align 8
   %3 = ptrtoint ptr %2 to i64
-  %desc_user_addr = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 2
+  %desc_user_addr = getelementptr inbounds i8, ptr %addr, i64 8
   store i64 %3, ptr %desc_user_addr, align 8
-  %avail = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 3
-  %used_user_addr = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 3
+  %avail = getelementptr inbounds i8, ptr %vq, i64 16
+  %used_user_addr = getelementptr inbounds i8, ptr %addr, i64 16
   %4 = load <2 x ptr>, ptr %avail, align 8
   %5 = ptrtoint <2 x ptr> %4 to <2 x i64>
   %6 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
@@ -1061,14 +1022,14 @@ if.else:                                          ; preds = %entry
 if.end6:                                          ; preds = %if.then.if.end6_crit_edge, %if.else
   %7 = phi ptr [ %.pre, %if.then.if.end6_crit_edge ], [ %0, %if.else ]
   store i32 %idx, ptr %addr, align 8
-  %used_phys = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 10
+  %used_phys = getelementptr inbounds i8, ptr %vq, i64 72
   %8 = load i64, ptr %used_phys, align 8
-  %log_guest_addr = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 5
+  %log_guest_addr = getelementptr inbounds i8, ptr %addr, i64 32
   store i64 %8, ptr %log_guest_addr, align 8
   %cond = zext i1 %enable_log to i32
-  %flags = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %addr, i64 4
   store i32 %cond, ptr %flags, align 4
-  %vhost_set_vring_addr = getelementptr inbounds %struct.VhostOps, ptr %7, i64 0, i32 12
+  %vhost_set_vring_addr = getelementptr inbounds i8, ptr %7, i64 96
   %9 = load ptr, ptr %vhost_set_vring_addr, align 8
   %call9 = call i32 %9(ptr noundef nonnull %dev, ptr noundef nonnull %addr) #18
   %cmp10 = icmp slt i32 %call9, 0
@@ -1096,10 +1057,10 @@ define dso_local void @vhost_virtqueue_mask(ptr noundef %hdev, ptr noundef %vdev
 entry:
   %file = alloca %struct.vhost_vring_file, align 4
   %call = tail call ptr @virtio_get_queue(ptr noundef %vdev, i32 noundef %n) #18
-  %vq_index = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 10
+  %vq_index = getelementptr inbounds i8, ptr %hdev, i64 444
   %0 = load i32, ptr %vq_index, align 4
   %sub = sub i32 %n, %0
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev, i64 528
   %1 = load ptr, ptr %vhost_ops, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1112,7 +1073,7 @@ if.end:                                           ; preds = %entry
   br i1 %mask, label %if.then2, label %if.else8
 
 if.then2:                                         ; preds = %if.end
-  %use_guest_notifier_mask = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 28
+  %use_guest_notifier_mask = getelementptr inbounds i8, ptr %vdev, i64 465
   %2 = load i8, ptr %use_guest_notifier_mask, align 1
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
@@ -1123,7 +1084,7 @@ if.else5:                                         ; preds = %if.then2
   unreachable
 
 if.end6:                                          ; preds = %if.then2
-  %vqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 8
+  %vqs = getelementptr inbounds i8, ptr %hdev, i64 432
   %4 = load ptr, ptr %vqs, align 8
   %idxprom = sext i32 %sub to i64
   %masked_notifier = getelementptr %struct.vhost_virtqueue, ptr %4, i64 %idxprom, i32 12
@@ -1136,15 +1097,15 @@ if.else8:                                         ; preds = %if.end
 if.end12:                                         ; preds = %if.else8, %if.end6
   %call9.sink = phi ptr [ %call9, %if.else8 ], [ %masked_notifier, %if.end6 ]
   %call10 = tail call i32 @event_notifier_get_wfd(ptr noundef %call9.sink) #18
-  %fd11 = getelementptr inbounds %struct.vhost_vring_file, ptr %file, i64 0, i32 1
+  %fd11 = getelementptr inbounds i8, ptr %file, i64 4
   store i32 %call10, ptr %fd11, align 4
   %5 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vq_index = getelementptr inbounds %struct.VhostOps, ptr %5, i64 0, i32 26
+  %vhost_get_vq_index = getelementptr inbounds i8, ptr %5, i64 208
   %6 = load ptr, ptr %vhost_get_vq_index, align 8
   %call14 = tail call i32 %6(ptr noundef nonnull %hdev, i32 noundef %n) #18
   store i32 %call14, ptr %file, align 4
   %7 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_call = getelementptr inbounds %struct.VhostOps, ptr %7, i64 0, i32 18
+  %vhost_set_vring_call = getelementptr inbounds i8, ptr %7, i64 144
   %8 = load ptr, ptr %vhost_set_vring_call, align 8
   %call17 = call i32 %8(ptr noundef nonnull %hdev, ptr noundef nonnull %file) #18
   %cmp = icmp slt i32 %call17, 0
@@ -1192,13 +1153,13 @@ define dso_local void @vhost_virtqueue_stop(ptr noundef %dev, ptr noundef %vdev,
 entry:
   %s.i = alloca %struct.vhost_vring_state, align 4
   %state = alloca %struct.vhost_vring_state, align 4
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vq_index = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 26
+  %vhost_get_vq_index = getelementptr inbounds i8, ptr %0, i64 208
   %1 = load ptr, ptr %vhost_get_vq_index, align 8
   %call = tail call i32 %1(ptr noundef %dev, i32 noundef %idx) #18
   store i32 %call, ptr %state, align 4
-  %num = getelementptr inbounds %struct.vhost_vring_state, ptr %state, i64 0, i32 1
+  %num = getelementptr inbounds i8, ptr %state, i64 4
   store i32 0, ptr %num, align 4
   %call1 = tail call i64 @virtio_queue_get_desc_addr(ptr noundef %vdev, i32 noundef %idx) #18
   %cmp = icmp eq i64 %call1, 0
@@ -1206,7 +1167,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vring_base = getelementptr inbounds %struct.VhostOps, ptr %2, i64 0, i32 16
+  %vhost_get_vring_base = getelementptr inbounds i8, ptr %2, i64 128
   %3 = load ptr, ptr %vhost_get_vring_base, align 8
   %call3 = call i32 %3(ptr noundef nonnull %dev, ptr noundef nonnull %state) #18
   %cmp4 = icmp slt i32 %call3, 0
@@ -1234,7 +1195,7 @@ if.end9:                                          ; preds = %if.else, %do.body
   br i1 %tobool.i.i.not.i, label %vhost_needs_vring_endian.exit, label %if.end14
 
 vhost_needs_vring_endian.exit:                    ; preds = %if.end9
-  %device_endian.i = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 27
+  %device_endian.i = getelementptr inbounds i8, ptr %vdev, i64 464
   %6 = load i8, ptr %device_endian.i, align 8
   %cmp.i = icmp eq i8 %6, 2
   br i1 %cmp.i, label %virtio_is_big_endian.exit, label %if.end14
@@ -1242,10 +1203,10 @@ vhost_needs_vring_endian.exit:                    ; preds = %if.end9
 virtio_is_big_endian.exit:                        ; preds = %vhost_needs_vring_endian.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i)
   store i32 %call, ptr %s.i, align 4
-  %num.i = getelementptr inbounds %struct.vhost_vring_state, ptr %s.i, i64 0, i32 1
+  %num.i = getelementptr inbounds i8, ptr %s.i, i64 4
   store i32 0, ptr %num.i, align 4
   %7 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_endian.i = getelementptr inbounds %struct.VhostOps, ptr %7, i64 0, i32 13
+  %vhost_set_vring_endian.i = getelementptr inbounds i8, ptr %7, i64 104
   %8 = load ptr, ptr %vhost_set_vring_endian.i, align 8
   %call.i = call i32 %8(ptr noundef nonnull %dev, ptr noundef nonnull %s.i) #18
   %cmp.i46 = icmp slt i32 %call.i, 0
@@ -1262,7 +1223,7 @@ vhost_virtqueue_set_vring_endian_legacy.exit:     ; preds = %virtio_is_big_endia
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end9, %vhost_virtqueue_set_vring_endian_legacy.exit, %vhost_needs_vring_endian.exit
-  %used = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 4
+  %used = getelementptr inbounds i8, ptr %vq, i64 24
   %9 = load ptr, ptr %used, align 8
   %call15 = call i64 @virtio_queue_get_used_size(ptr noundef nonnull %vdev, i32 noundef %idx) #18
   %call16 = call i64 @virtio_queue_get_used_size(ptr noundef nonnull %vdev, i32 noundef %idx) #18
@@ -1286,7 +1247,7 @@ if.then.i48:                                      ; preds = %vhost_dev_has_iommu
   br label %vhost_memory_unmap.exit
 
 vhost_memory_unmap.exit:                          ; preds = %vhost_dev_has_iommu.exit.i, %if.then.i48
-  %avail = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 3
+  %avail = getelementptr inbounds i8, ptr %vq, i64 16
   %11 = load ptr, ptr %avail, align 8
   %call17 = call i64 @virtio_queue_get_avail_size(ptr noundef nonnull %vdev, i32 noundef %idx) #18
   %call18 = call i64 @virtio_queue_get_avail_size(ptr noundef nonnull %vdev, i32 noundef %idx) #18
@@ -1310,7 +1271,7 @@ if.then.i53:                                      ; preds = %vhost_dev_has_iommu
   br label %vhost_memory_unmap.exit59
 
 vhost_memory_unmap.exit59:                        ; preds = %vhost_dev_has_iommu.exit.i55, %if.then.i53
-  %desc = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 2
+  %desc = getelementptr inbounds i8, ptr %vq, i64 8
   %13 = load ptr, ptr %desc, align 8
   %call19 = call i64 @virtio_queue_get_desc_size(ptr noundef nonnull %vdev, i32 noundef %idx) #18
   %call20 = call i64 @virtio_queue_get_desc_size(ptr noundef nonnull %vdev, i32 noundef %idx) #18
@@ -1353,7 +1314,7 @@ entry:
   %file.i = alloca %struct.vhost_vring_file, align 4
   %features = alloca i64, align 8
   store ptr null, ptr %hdev, align 8
-  %migration_blocker = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 22
+  %migration_blocker = getelementptr inbounds i8, ptr %hdev, i64 520
   store ptr null, ptr %migration_blocker, align 8
   %switch.tableidx = add i32 %backend_type, -1
   %0 = icmp ult i32 %switch.tableidx, 3
@@ -1368,10 +1329,10 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.vhost_dev_init, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %vhost_ops4.i = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 23
+  %vhost_ops4.i = getelementptr inbounds i8, ptr %hdev, i64 528
   store ptr %switch.load, ptr %vhost_ops4.i, align 8
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 23
-  %vhost_backend_init = getelementptr inbounds %struct.VhostOps, ptr %switch.load, i64 0, i32 1
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev, i64 528
+  %vhost_backend_init = getelementptr inbounds i8, ptr %switch.load, i64 8
   %2 = load ptr, ptr %vhost_backend_init, align 8
   %call1 = tail call i32 %2(ptr noundef nonnull %hdev, ptr noundef %opaque, ptr noundef %errp) #18
   %cmp2 = icmp slt i32 %call1, 0
@@ -1379,7 +1340,7 @@ switch.lookup:                                    ; preds = %entry
 
 if.end4:                                          ; preds = %switch.lookup
   %3 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_owner = getelementptr inbounds %struct.VhostOps, ptr %3, i64 0, i32 24
+  %vhost_set_owner = getelementptr inbounds i8, ptr %3, i64 192
   %4 = load ptr, ptr %vhost_set_owner, align 8
   %call6 = tail call i32 %4(ptr noundef nonnull %hdev) #18
   %cmp7 = icmp slt i32 %call6, 0
@@ -1392,7 +1353,7 @@ if.then8:                                         ; preds = %if.end4
 
 if.end9:                                          ; preds = %if.end4
   %5 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_features = getelementptr inbounds %struct.VhostOps, ptr %5, i64 0, i32 22
+  %vhost_get_features = getelementptr inbounds i8, ptr %5, i64 176
   %6 = load ptr, ptr %vhost_get_features, align 8
   %call11 = call i32 %6(ptr noundef nonnull %hdev, ptr noundef nonnull %features) #18
   %cmp12 = icmp slt i32 %call11, 0
@@ -1405,7 +1366,7 @@ if.then13:                                        ; preds = %if.end9
 
 if.end15:                                         ; preds = %if.end9
   %7 = load ptr, ptr %vhost_ops, align 8
-  %vhost_backend_memslots_limit = getelementptr inbounds %struct.VhostOps, ptr %7, i64 0, i32 3
+  %vhost_backend_memslots_limit = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %vhost_backend_memslots_limit, align 8
   %call17 = call i32 %8(ptr noundef nonnull %hdev) #18
   %cmp18 = icmp ult i32 %call17, 509
@@ -1421,30 +1382,31 @@ if.then20:                                        ; preds = %land.lhs.true
   br label %fail
 
 if.end21:                                         ; preds = %land.lhs.true, %if.end15
-  %nvqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %hdev, i64 440
   %9 = load i32, ptr %nvqs, align 8
   %cmp22148.not = icmp eq i32 %9, 0
   br i1 %cmp22148.not, label %for.end.thread, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end21
-  %vqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 8
-  %vq_index = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 10
-  %fd.i = getelementptr inbounds %struct.vhost_vring_file, ptr %file.i, i64 0, i32 1
+  %vqs = getelementptr inbounds i8, ptr %hdev, i64 432
+  %vq_index = getelementptr inbounds i8, ptr %hdev, i64 444
+  %fd.i = getelementptr inbounds i8, ptr %file.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.0151 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %10 = load ptr, ptr %vqs, align 8
   %idx.ext = sext i32 %i.0151 to i64
+  %add.ptr = getelementptr %struct.vhost_virtqueue, ptr %10, i64 %idx.ext
   %11 = load i32, ptr %vq_index, align 4
   %add = add i32 %11, %i.0151
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %file.i)
   %12 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vq_index.i = getelementptr inbounds %struct.VhostOps, ptr %12, i64 0, i32 26
+  %vhost_get_vq_index.i = getelementptr inbounds i8, ptr %12, i64 208
   %13 = load ptr, ptr %vhost_get_vq_index.i, align 8
   %call.i = call i32 %13(ptr noundef nonnull %hdev, i32 noundef %add) #18
   store i32 %call.i, ptr %file.i, align 4
-  %masked_notifier.i = getelementptr %struct.vhost_virtqueue, ptr %10, i64 %idx.ext, i32 12
+  %masked_notifier.i = getelementptr inbounds i8, ptr %add.ptr, i64 84
   %call1.i = call i32 @event_notifier_init(ptr noundef nonnull %masked_notifier.i, i32 noundef 0) #18
   %cmp.i = icmp slt i32 %call1.i, 0
   br i1 %cmp.i, label %vhost_virtqueue_init.exit.thread116, label %if.end.i
@@ -1457,7 +1419,7 @@ if.end.i:                                         ; preds = %for.body
   %call3.i = call i32 @event_notifier_get_wfd(ptr noundef nonnull %masked_notifier.i) #18
   store i32 %call3.i, ptr %fd.i, align 4
   %14 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_call.i = getelementptr inbounds %struct.VhostOps, ptr %14, i64 0, i32 18
+  %vhost_set_vring_call.i = getelementptr inbounds i8, ptr %14, i64 144
   %15 = load ptr, ptr %vhost_set_vring_call.i, align 8
   %call6.i = call i32 %15(ptr noundef nonnull %hdev, ptr noundef nonnull %file.i) #18
   %tobool.not.i = icmp eq i32 %call6.i, 0
@@ -1470,16 +1432,16 @@ do.body.i:                                        ; preds = %if.end.i
   br label %vhost_virtqueue_init.exit
 
 if.end10.i:                                       ; preds = %if.end.i
-  %dev11.i = getelementptr %struct.vhost_virtqueue, ptr %10, i64 %idx.ext, i32 15
+  %dev11.i = getelementptr inbounds i8, ptr %add.ptr, i64 120
   store ptr %hdev, ptr %dev11.i, align 8
   %16 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_err.i = getelementptr inbounds %struct.VhostOps, ptr %16, i64 0, i32 19
+  %vhost_set_vring_err.i = getelementptr inbounds i8, ptr %16, i64 152
   %17 = load ptr, ptr %vhost_set_vring_err.i, align 8
   %tobool13.not.i = icmp eq ptr %17, null
   br i1 %tobool13.not.i, label %vhost_virtqueue_init.exit.thread, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end10.i
-  %error_notifier.i = getelementptr %struct.vhost_virtqueue, ptr %10, i64 %idx.ext, i32 13
+  %error_notifier.i = getelementptr inbounds i8, ptr %add.ptr, i64 96
   %call15.i = call i32 @event_notifier_init(ptr noundef nonnull %error_notifier.i, i32 noundef 0) #18
   %cmp16.i = icmp slt i32 %call15.i, 0
   br i1 %cmp16.i, label %vhost_virtqueue_init.exit.thread120, label %if.end18.i
@@ -1493,7 +1455,7 @@ if.end18.i:                                       ; preds = %if.then14.i
   %call20.i = call i32 @event_notifier_get_fd(ptr noundef nonnull %error_notifier.i) #18
   store i32 %call20.i, ptr %fd.i, align 4
   %18 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_err23.i = getelementptr inbounds %struct.VhostOps, ptr %18, i64 0, i32 19
+  %vhost_set_vring_err23.i = getelementptr inbounds i8, ptr %18, i64 152
   %19 = load ptr, ptr %vhost_set_vring_err23.i, align 8
   %call24.i = call i32 %19(ptr noundef nonnull %hdev, ptr noundef nonnull %file.i) #18
   %tobool25.not.i = icmp eq i32 %call24.i, 0
@@ -1545,8 +1507,8 @@ for.end.thread:                                   ; preds = %if.end21
   br label %if.end44
 
 for.body33.lr.ph:                                 ; preds = %for.end
-  %vq_index34 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 10
-  %num.i = getelementptr inbounds %struct.vhost_vring_state, ptr %state.i, i64 0, i32 1
+  %vq_index34 = getelementptr inbounds i8, ptr %hdev, i64 444
+  %num.i = getelementptr inbounds i8, ptr %state.i, i64 4
   br label %for.body33
 
 for.body33:                                       ; preds = %for.body33.lr.ph, %for.inc41
@@ -1555,13 +1517,13 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %add35 = add i32 %22, %i.1155
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %state.i)
   %23 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vq_index.i87 = getelementptr inbounds %struct.VhostOps, ptr %23, i64 0, i32 26
+  %vhost_get_vq_index.i87 = getelementptr inbounds i8, ptr %23, i64 208
   %24 = load ptr, ptr %vhost_get_vq_index.i87, align 8
   %call.i88 = call i32 %24(ptr noundef nonnull %hdev, i32 noundef %add35) #18
   store i32 %call.i88, ptr %state.i, align 4
   store i32 %busyloop_timeout, ptr %num.i, align 4
   %25 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_busyloop_timeout.i = getelementptr inbounds %struct.VhostOps, ptr %25, i64 0, i32 20
+  %vhost_set_vring_busyloop_timeout.i = getelementptr inbounds i8, ptr %25, i64 160
   %26 = load ptr, ptr %vhost_set_vring_busyloop_timeout.i, align 8
   %tobool.not.i89 = icmp eq ptr %26, null
   br i1 %tobool.not.i89, label %vhost_virtqueue_set_busyloop_timeout.exit.thread, label %if.end.i90
@@ -1604,49 +1566,49 @@ if.end44:                                         ; preds = %for.inc41, %for.end
   %n_initialized_vqs.0.lcssa184 = phi i32 [ %inc, %for.end ], [ 0, %for.end.thread ], [ %inc, %for.inc41 ]
   %i.2 = phi i32 [ %inc.lcssa.mux, %for.end ], [ 0, %for.end.thread ], [ %inc42, %for.inc41 ]
   %28 = load i64, ptr %features, align 8
-  %features45 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 13
+  %features45 = getelementptr inbounds i8, ptr %hdev, i64 456
   store i64 %28, ptr %features45, align 8
-  %memory_listener = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1
+  %memory_listener = getelementptr inbounds i8, ptr %hdev, i64 8
   store ptr @vhost_begin, ptr %memory_listener, align 8
-  %.compoundliteral.sroa.2.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 1
+  %.compoundliteral.sroa.2.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 16
   store ptr @vhost_commit, ptr %.compoundliteral.sroa.2.0.memory_listener.sroa_idx, align 8
-  %.compoundliteral.sroa.3.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 2
+  %.compoundliteral.sroa.3.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 24
   store ptr @vhost_region_addnop, ptr %.compoundliteral.sroa.3.0.memory_listener.sroa_idx, align 8
-  %.compoundliteral.sroa.4.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 3
+  %.compoundliteral.sroa.4.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 32
   store ptr null, ptr %.compoundliteral.sroa.4.0.memory_listener.sroa_idx, align 8
-  %.compoundliteral.sroa.5.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 4
+  %.compoundliteral.sroa.5.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 40
   store ptr @vhost_region_addnop, ptr %.compoundliteral.sroa.5.0.memory_listener.sroa_idx, align 8
-  %.compoundliteral.sroa.6.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 5
+  %.compoundliteral.sroa.6.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 48
   store ptr @vhost_log_start, ptr %.compoundliteral.sroa.6.0.memory_listener.sroa_idx, align 8
-  %.compoundliteral.sroa.7.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 6
+  %.compoundliteral.sroa.7.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 56
   store ptr @vhost_log_stop, ptr %.compoundliteral.sroa.7.0.memory_listener.sroa_idx, align 8
-  %.compoundliteral.sroa.8.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 7
+  %.compoundliteral.sroa.8.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 64
   store ptr @vhost_log_sync, ptr %.compoundliteral.sroa.8.0.memory_listener.sroa_idx, align 8
-  %.compoundliteral.sroa.9.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 8
-  %.compoundliteral.sroa.11.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 10
+  %.compoundliteral.sroa.9.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 72
+  %.compoundliteral.sroa.11.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral.sroa.9.0.memory_listener.sroa_idx, i8 0, i64 16, i1 false)
   store ptr @vhost_log_global_start, ptr %.compoundliteral.sroa.11.0.memory_listener.sroa_idx, align 8
-  %.compoundliteral.sroa.12.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 11
+  %.compoundliteral.sroa.12.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 96
   store ptr @vhost_log_global_stop, ptr %.compoundliteral.sroa.12.0.memory_listener.sroa_idx, align 8
-  %.compoundliteral.sroa.13.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 12
-  %.compoundliteral.sroa.18.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 17
+  %.compoundliteral.sroa.13.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 104
+  %.compoundliteral.sroa.18.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.compoundliteral.sroa.13.0.memory_listener.sroa_idx, i8 0, i64 40, i1 false)
   store i32 10, ptr %.compoundliteral.sroa.18.0.memory_listener.sroa_idx, align 8
-  %.compoundliteral.sroa.192.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 18
+  %.compoundliteral.sroa.192.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 152
   store ptr @.str.14, ptr %.compoundliteral.sroa.192.0.memory_listener.sroa_idx, align 8
-  %.compoundliteral.sroa.20.0.memory_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1, i32 19
-  %iommu_listener = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 2
+  %.compoundliteral.sroa.20.0.memory_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 160
+  %iommu_listener = getelementptr inbounds i8, ptr %hdev, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.compoundliteral.sroa.20.0.memory_listener.sroa_idx, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iommu_listener, i8 0, i64 16, i1 false)
-  %.compoundliteral46.sroa.2.0.iommu_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 2, i32 2
+  %.compoundliteral46.sroa.2.0.iommu_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 216
   store ptr @vhost_iommu_region_add, ptr %.compoundliteral46.sroa.2.0.iommu_listener.sroa_idx, align 8
-  %.compoundliteral46.sroa.3.0.iommu_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 2, i32 3
+  %.compoundliteral46.sroa.3.0.iommu_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 224
   store ptr @vhost_iommu_region_del, ptr %.compoundliteral46.sroa.3.0.iommu_listener.sroa_idx, align 8
-  %.compoundliteral46.sroa.4.0.iommu_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 2, i32 4
+  %.compoundliteral46.sroa.4.0.iommu_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.compoundliteral46.sroa.4.0.iommu_listener.sroa_idx, i8 0, i64 112, i1 false)
-  %.compoundliteral46.sroa.41.0.iommu_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 2, i32 18
+  %.compoundliteral46.sroa.41.0.iommu_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 344
   store ptr @.str.15, ptr %.compoundliteral46.sroa.41.0.iommu_listener.sroa_idx, align 8
-  %.compoundliteral46.sroa.5.0.iommu_listener.sroa_idx = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 2, i32 19
+  %.compoundliteral46.sroa.5.0.iommu_listener.sroa_idx = getelementptr inbounds i8, ptr %hdev, i64 352
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.compoundliteral46.sroa.5.0.iommu_listener.sroa_idx, i8 0, i64 40, i1 false)
   %29 = load ptr, ptr %migration_blocker, align 8
   %cmp70 = icmp eq ptr %29, null
@@ -1663,7 +1625,7 @@ if.then74:                                        ; preds = %if.then71
 
 if.else76:                                        ; preds = %if.then71
   %30 = load ptr, ptr %vhost_ops, align 8
-  %vhost_requires_shm_log.i = getelementptr inbounds %struct.VhostOps, ptr %30, i64 0, i32 28
+  %vhost_requires_shm_log.i = getelementptr inbounds i8, ptr %30, i64 224
   %31 = load ptr, ptr %vhost_requires_shm_log.i, align 8
   %tobool.not.i95 = icmp eq ptr %31, null
   br i1 %tobool.not.i95, label %if.end84, label %vhost_dev_log_is_shared.exit
@@ -1692,38 +1654,38 @@ if.then87:                                        ; preds = %if.end44, %if.end84
 
 if.end93:                                         ; preds = %if.then87, %if.end84
   %call94 = call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #20
-  %mem = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 3
+  %mem = getelementptr inbounds i8, ptr %hdev, i64 392
   store ptr %call94, ptr %mem, align 8
-  %n_mem_sections = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 4
+  %n_mem_sections = getelementptr inbounds i8, ptr %hdev, i64 400
   store i32 0, ptr %n_mem_sections, align 8
-  %mem_sections = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 5
+  %mem_sections = getelementptr inbounds i8, ptr %hdev, i64 408
   store ptr null, ptr %mem_sections, align 8
-  %log = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 25
+  %log = getelementptr inbounds i8, ptr %hdev, i64 544
   store ptr null, ptr %log, align 8
-  %log_size = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 21
+  %log_size = getelementptr inbounds i8, ptr %hdev, i64 512
   store i64 0, ptr %log_size, align 8
-  %log_enabled = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 20
+  %log_enabled = getelementptr inbounds i8, ptr %hdev, i64 505
   store i8 0, ptr %log_enabled, align 1
-  %started = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 19
+  %started = getelementptr inbounds i8, ptr %hdev, i64 504
   store i8 0, ptr %started, align 8
   call void @memory_listener_register(ptr noundef nonnull %memory_listener, ptr noundef nonnull @address_space_memory) #18
   %32 = load ptr, ptr @vhost_devices, align 8
-  %entry96 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 26
+  %entry96 = getelementptr inbounds i8, ptr %hdev, i64 552
   store ptr %32, ptr %entry96, align 8
   %cmp97.not = icmp eq ptr %32, null
   br i1 %cmp97.not, label %if.end102, label %if.then98
 
 if.then98:                                        ; preds = %if.end93
-  %le_prev = getelementptr inbounds %struct.vhost_dev, ptr %32, i64 0, i32 26, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %32, i64 560
   store ptr %entry96, ptr %le_prev, align 8
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then98, %if.end93
   store ptr %hdev, ptr @vhost_devices, align 8
-  %le_prev104 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 26, i32 1
+  %le_prev104 = getelementptr inbounds i8, ptr %hdev, i64 560
   store ptr @vhost_devices, ptr %le_prev104, align 8
   %33 = load ptr, ptr %vhost_ops, align 8
-  %vhost_backend_no_private_memslots = getelementptr inbounds %struct.VhostOps, ptr %33, i64 0, i32 4
+  %vhost_backend_no_private_memslots = getelementptr inbounds i8, ptr %33, i64 32
   %34 = load ptr, ptr %vhost_backend_no_private_memslots, align 8
   %tobool106.not = icmp eq ptr %34, null
   br i1 %tobool106.not, label %if.else112, label %land.lhs.true107
@@ -1759,8 +1721,8 @@ while.cond.preheader:                             ; preds = %if.then38, %if.then
   br i1 %cmp121158, label %while.body.lr.ph, label %fail
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %vq_index122 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 10
-  %num.i101 = getelementptr inbounds %struct.vhost_vring_state, ptr %state.i97, i64 0, i32 1
+  %vq_index122 = getelementptr inbounds i8, ptr %hdev, i64 444
+  %num.i101 = getelementptr inbounds i8, ptr %state.i97, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %vhost_virtqueue_set_busyloop_timeout.exit111
@@ -1769,13 +1731,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add123 = add i32 %35, %dec159
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %state.i97)
   %36 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vq_index.i99 = getelementptr inbounds %struct.VhostOps, ptr %36, i64 0, i32 26
+  %vhost_get_vq_index.i99 = getelementptr inbounds i8, ptr %36, i64 208
   %37 = load ptr, ptr %vhost_get_vq_index.i99, align 8
   %call.i100 = call i32 %37(ptr noundef nonnull %hdev, i32 noundef %add123) #18
   store i32 %call.i100, ptr %state.i97, align 4
   store i32 0, ptr %num.i101, align 4
   %38 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_busyloop_timeout.i102 = getelementptr inbounds %struct.VhostOps, ptr %38, i64 0, i32 20
+  %vhost_set_vring_busyloop_timeout.i102 = getelementptr inbounds i8, ptr %38, i64 160
   %39 = load ptr, ptr %vhost_set_vring_busyloop_timeout.i102, align 8
   %tobool.not.i103 = icmp eq ptr %39, null
   br i1 %tobool.not.i103, label %vhost_virtqueue_set_busyloop_timeout.exit111, label %if.end.i104
@@ -1800,7 +1762,7 @@ vhost_virtqueue_set_busyloop_timeout.exit111:     ; preds = %while.body, %if.end
 fail:                                             ; preds = %vhost_virtqueue_set_busyloop_timeout.exit111, %if.then117, %while.cond.preheader, %fail_busyloop, %switch.lookup, %if.then25, %if.then20, %if.then13, %if.then8
   %n_initialized_vqs.1 = phi i32 [ 0, %switch.lookup ], [ 0, %if.then8 ], [ 0, %if.then13 ], [ 0, %if.then20 ], [ %i.0151, %if.then25 ], [ %n_initialized_vqs.0.lcssa184, %fail_busyloop ], [ %n_initialized_vqs.0.lcssa182191, %while.cond.preheader ], [ %n_initialized_vqs.0.lcssa184, %if.then117 ], [ %n_initialized_vqs.0.lcssa182191, %vhost_virtqueue_set_busyloop_timeout.exit111 ]
   %r.1 = phi i32 [ %call1, %switch.lookup ], [ %call6, %if.then8 ], [ %call11, %if.then13 ], [ -22, %if.then20 ], [ %retval.0.i119, %if.then25 ], [ %call89, %fail_busyloop ], [ %r.0192, %while.cond.preheader ], [ -22, %if.then117 ], [ %r.0192, %vhost_virtqueue_set_busyloop_timeout.exit111 ]
-  %nvqs126 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 9
+  %nvqs126 = getelementptr inbounds i8, ptr %hdev, i64 440
   store i32 %n_initialized_vqs.1, ptr %nvqs126, align 8
   call void @vhost_dev_cleanup(ptr noundef nonnull %hdev)
   br label %return
@@ -1850,8 +1812,8 @@ entry:
   br i1 %cmp.not, label %for.cond.preheader, label %if.end9
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp4118 = icmp sgt i32 %1, 0
-  br i1 %cmp4118, label %for.body.preheader, label %if.end9
+  %cmp4119 = icmp sgt i32 %1, 0
+  br i1 %cmp4119, label %for.body.preheader, label %if.end9
 
 for.body.preheader:                               ; preds = %for.cond.preheader
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -1866,33 +1828,33 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr %struct.MemoryRegionSection, ptr %0, i64 %indvars.iv
   %arrayidx7 = getelementptr %struct.MemoryRegionSection, ptr %2, i64 %indvars.iv
-  %mr.i = getelementptr %struct.MemoryRegionSection, ptr %0, i64 %indvars.iv, i32 1
+  %mr.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %4 = load ptr, ptr %mr.i, align 16
-  %mr1.i = getelementptr %struct.MemoryRegionSection, ptr %2, i64 %indvars.iv, i32 1
+  %mr1.i = getelementptr inbounds i8, ptr %arrayidx7, i64 16
   %5 = load ptr, ptr %mr1.i, align 16
   %cmp.i = icmp eq ptr %4, %5
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end9
 
 land.lhs.true.i:                                  ; preds = %for.body
-  %fv.i = getelementptr %struct.MemoryRegionSection, ptr %0, i64 %indvars.iv, i32 2
+  %fv.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %6 = load ptr, ptr %fv.i, align 8
-  %fv2.i = getelementptr %struct.MemoryRegionSection, ptr %2, i64 %indvars.iv, i32 2
+  %fv2.i = getelementptr inbounds i8, ptr %arrayidx7, i64 24
   %7 = load ptr, ptr %fv2.i, align 8
   %cmp3.i = icmp eq ptr %6, %7
   br i1 %cmp3.i, label %land.lhs.true4.i, label %if.end9
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
-  %offset_within_region.i = getelementptr %struct.MemoryRegionSection, ptr %0, i64 %indvars.iv, i32 3
+  %offset_within_region.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %8 = load i64, ptr %offset_within_region.i, align 16
-  %offset_within_region5.i = getelementptr %struct.MemoryRegionSection, ptr %2, i64 %indvars.iv, i32 3
+  %offset_within_region5.i = getelementptr inbounds i8, ptr %arrayidx7, i64 32
   %9 = load i64, ptr %offset_within_region5.i, align 16
   %cmp6.i = icmp eq i64 %8, %9
   br i1 %cmp6.i, label %land.lhs.true7.i, label %if.end9
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true4.i
-  %offset_within_address_space.i = getelementptr %struct.MemoryRegionSection, ptr %0, i64 %indvars.iv, i32 4
+  %offset_within_address_space.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %10 = load i64, ptr %offset_within_address_space.i, align 8
-  %offset_within_address_space8.i = getelementptr %struct.MemoryRegionSection, ptr %2, i64 %indvars.iv, i32 4
+  %offset_within_address_space8.i = getelementptr inbounds i8, ptr %arrayidx7, i64 40
   %11 = load i64, ptr %offset_within_address_space8.i, align 8
   %cmp9.i = icmp eq i64 %10, %11
   br i1 %cmp9.i, label %land.lhs.true10.i, label %if.end9
@@ -1904,9 +1866,9 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true7.i
   br i1 %cmp.i.i, label %land.lhs.true13.i, label %if.end9
 
 land.lhs.true13.i:                                ; preds = %land.lhs.true10.i
-  %readonly.i = getelementptr %struct.MemoryRegionSection, ptr %0, i64 %indvars.iv, i32 5
+  %readonly.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %14 = load i8, ptr %readonly.i, align 16
-  %readonly14.i = getelementptr %struct.MemoryRegionSection, ptr %2, i64 %indvars.iv, i32 5
+  %readonly14.i = getelementptr inbounds i8, ptr %arrayidx7, i64 48
   %15 = load i8, ptr %readonly14.i, align 16
   %16 = xor i8 %15, %14
   %17 = and i8 %16, 1
@@ -1914,9 +1876,9 @@ land.lhs.true13.i:                                ; preds = %land.lhs.true10.i
   br i1 %cmp17.i, label %MemoryRegionSection_eq.exit, label %if.end9
 
 MemoryRegionSection_eq.exit:                      ; preds = %land.lhs.true13.i
-  %nonvolatile.i = getelementptr %struct.MemoryRegionSection, ptr %0, i64 %indvars.iv, i32 6
+  %nonvolatile.i = getelementptr inbounds i8, ptr %arrayidx, i64 49
   %18 = load i8, ptr %nonvolatile.i, align 1
-  %nonvolatile21.i = getelementptr %struct.MemoryRegionSection, ptr %2, i64 %indvars.iv, i32 6
+  %nonvolatile21.i = getelementptr inbounds i8, ptr %arrayidx7, i64 49
   %19 = load i8, ptr %nonvolatile21.i, align 1
   %20 = xor i8 %19, %18
   %21 = and i8 %20, 1
@@ -1952,7 +1914,7 @@ if.then9.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
   %call11.i.i = tail call i32 @qemu_get_thread_id() #18
   %29 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %30 = load i64, ptr %tv_usec.i.i, align 8
   %conv13.i.i = zext nneg i8 %23 to i32
   %conv15.i.i = zext i1 %changed.0 to i32
@@ -1982,7 +1944,7 @@ if.end13:                                         ; preds = %trace_vhost_commit.
   store i32 %33, ptr %call15, align 8
   %vhost_ops = getelementptr i8, ptr %listener, i64 520
   %34 = load ptr, ptr %vhost_ops, align 8
-  %vhost_backend_no_private_memslots = getelementptr inbounds %struct.VhostOps, ptr %34, i64 0, i32 4
+  %vhost_backend_no_private_memslots = getelementptr inbounds i8, ptr %34, i64 32
   %35 = load ptr, ptr %vhost_backend_no_private_memslots, align 8
   %tobool19.not = icmp eq ptr %35, null
   br i1 %tobool19.not, label %if.else27, label %land.lhs.true
@@ -2000,17 +1962,17 @@ if.end30:                                         ; preds = %land.lhs.true, %if.
   %37 = load i32, ptr %36, align 8
   store i32 %37, ptr %used_memslots.sink, align 4
   %38 = load i32, ptr %n_mem_sections, align 8
-  %cmp33127 = icmp sgt i32 %38, 0
-  br i1 %cmp33127, label %for.body35, label %for.end46
+  %cmp33128 = icmp sgt i32 %38, 0
+  br i1 %cmp33128, label %for.body35, label %for.end46
 
 for.body35:                                       ; preds = %if.end30, %int128_get64.exit
-  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %int128_get64.exit ], [ 0, %if.end30 ]
+  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %int128_get64.exit ], [ 0, %if.end30 ]
   %39 = load ptr, ptr %mem, align 8
-  %regions = getelementptr inbounds %struct.vhost_memory, ptr %39, i64 0, i32 2
-  %add.ptr37 = getelementptr %struct.vhost_memory_region, ptr %regions, i64 %indvars.iv141
+  %regions = getelementptr inbounds i8, ptr %39, i64 8
+  %add.ptr37 = getelementptr %struct.vhost_memory_region, ptr %regions, i64 %indvars.iv142
   %40 = load ptr, ptr %mem_sections, align 8
-  %add.ptr40 = getelementptr %struct.MemoryRegionSection, ptr %40, i64 %indvars.iv141
-  %offset_within_address_space = getelementptr %struct.MemoryRegionSection, ptr %40, i64 %indvars.iv141, i32 4
+  %add.ptr40 = getelementptr %struct.MemoryRegionSection, ptr %40, i64 %indvars.iv142
+  %offset_within_address_space = getelementptr inbounds i8, ptr %add.ptr40, i64 40
   %41 = load i64, ptr %offset_within_address_space, align 8
   store i64 %41, ptr %add.ptr37, align 8
   %42 = load i128, ptr %add.ptr40, align 16
@@ -2023,23 +1985,23 @@ if.else.i:                                        ; preds = %for.body35
 
 int128_get64.exit:                                ; preds = %for.body35
   %coerce.sroa.0.0.extract.trunc = trunc i128 %42 to i64
-  %memory_size = getelementptr %struct.vhost_memory_region, ptr %regions, i64 %indvars.iv141, i32 1
+  %memory_size = getelementptr inbounds i8, ptr %add.ptr37, i64 8
   store i64 %coerce.sroa.0.0.extract.trunc, ptr %memory_size, align 8
-  %mr = getelementptr %struct.MemoryRegionSection, ptr %40, i64 %indvars.iv141, i32 1
+  %mr = getelementptr inbounds i8, ptr %add.ptr40, i64 16
   %43 = load ptr, ptr %mr, align 16
   %call42 = tail call ptr @memory_region_get_ram_ptr(ptr noundef %43) #18
   %44 = ptrtoint ptr %call42 to i64
-  %offset_within_region = getelementptr %struct.MemoryRegionSection, ptr %40, i64 %indvars.iv141, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %add.ptr40, i64 32
   %45 = load i64, ptr %offset_within_region, align 16
   %add43 = add i64 %45, %44
-  %userspace_addr = getelementptr %struct.vhost_memory_region, ptr %regions, i64 %indvars.iv141, i32 2
+  %userspace_addr = getelementptr inbounds i8, ptr %add.ptr37, i64 16
   store i64 %add43, ptr %userspace_addr, align 8
-  %flags_padding = getelementptr %struct.vhost_memory_region, ptr %regions, i64 %indvars.iv141, i32 3
+  %flags_padding = getelementptr inbounds i8, ptr %add.ptr37, i64 24
   store i64 0, ptr %flags_padding, align 8
-  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %46 = load i32, ptr %n_mem_sections, align 8
   %47 = sext i32 %46 to i64
-  %cmp33 = icmp slt i64 %indvars.iv.next142, %47
+  %cmp33 = icmp slt i64 %indvars.iv.next143, %47
   br i1 %cmp33, label %for.body35, label %for.end46, !llvm.loop !16
 
 for.end46:                                        ; preds = %int128_get64.exit, %if.end30
@@ -2051,8 +2013,8 @@ for.end46:                                        ; preds = %int128_get64.exit, 
 for.cond51.preheader:                             ; preds = %for.end46
   %50 = load ptr, ptr %mem, align 8
   %51 = load i32, ptr %50, align 8
-  %cmp54129.not = icmp eq i32 %51, 0
-  br i1 %cmp54129.not, label %for.end78.thread, label %for.body56.lr.ph
+  %cmp54130.not = icmp eq i32 %51, 0
+  br i1 %cmp54130.not, label %for.end78.thread, label %for.body56.lr.ph
 
 for.body56.lr.ph:                                 ; preds = %for.cond51.preheader
   %nvqs.i = getelementptr i8, ptr %listener, i64 432
@@ -2061,14 +2023,15 @@ for.body56.lr.ph:                                 ; preds = %for.cond51.preheade
 
 for.body56:                                       ; preds = %for.body56.lr.ph, %for.inc76
   %52 = phi ptr [ %50, %for.body56.lr.ph ], [ %71, %for.inc76 ]
-  %i.2130 = phi i32 [ 0, %for.body56.lr.ph ], [ %inc77, %for.inc76 ]
-  %idxprom59 = sext i32 %i.2130 to i64
-  %arrayidx60 = getelementptr %struct.vhost_memory, ptr %52, i64 0, i32 2, i64 %idxprom59
-  %userspace_addr61 = getelementptr %struct.vhost_memory, ptr %52, i64 0, i32 2, i64 %idxprom59, i32 2
+  %i.2131 = phi i32 [ 0, %for.body56.lr.ph ], [ %inc77, %for.inc76 ]
+  %regions58 = getelementptr inbounds i8, ptr %52, i64 8
+  %idxprom59 = sext i32 %i.2131 to i64
+  %arrayidx60 = getelementptr [0 x %struct.vhost_memory_region], ptr %regions58, i64 0, i64 %idxprom59
+  %userspace_addr61 = getelementptr inbounds i8, ptr %arrayidx60, i64 16
   %53 = load i64, ptr %userspace_addr61, align 8
   %54 = inttoptr i64 %53 to ptr
   %55 = load i64, ptr %arrayidx60, align 8
-  %memory_size71 = getelementptr %struct.vhost_memory, ptr %52, i64 0, i32 2, i64 %idxprom59, i32 1
+  %memory_size71 = getelementptr inbounds i8, ptr %arrayidx60, i64 8
   %56 = load i64, ptr %memory_size71, align 8
   %57 = load ptr, ptr %add.ptr, align 8
   %tobool.not.i.i = icmp eq ptr %57, null
@@ -2099,15 +2062,16 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %i.085.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc19.i, %for.inc.i ]
   %idx.ext.i = sext i32 %i.085.i to i64
-  %desc_phys.i = getelementptr %struct.vhost_virtqueue, ptr %60, i64 %idx.ext.i, i32 6
+  %add.ptr.i = getelementptr %struct.vhost_virtqueue, ptr %60, i64 %idx.ext.i
+  %desc_phys.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   %61 = load i64, ptr %desc_phys.i, align 8
   %cmp1.i = icmp eq i64 %61, 0
   br i1 %cmp1.i, label %for.inc.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %for.body.i
-  %desc.i = getelementptr %struct.vhost_virtqueue, ptr %60, i64 %idx.ext.i, i32 2
+  %desc.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %62 = load ptr, ptr %desc.i, align 8
-  %desc_size.i = getelementptr %struct.vhost_virtqueue, ptr %60, i64 %idx.ext.i, i32 7
+  %desc_size.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 48
   %63 = load i32, ptr %desc_size.i, align 8
   %conv.i = zext i32 %63 to i64
   %add.i.i.i = add i64 %61, -1
@@ -2128,11 +2092,11 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp6.not.i.i, label %if.end7.i, label %if.then74
 
 if.end7.i:                                        ; preds = %if.end5.i.i, %if.end3.i
-  %avail.i = getelementptr %struct.vhost_virtqueue, ptr %60, i64 %idx.ext.i, i32 3
+  %avail.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %64 = load ptr, ptr %avail.i, align 8
-  %avail_phys.i = getelementptr %struct.vhost_virtqueue, ptr %60, i64 %idx.ext.i, i32 8
+  %avail_phys.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 56
   %65 = load i64, ptr %avail_phys.i, align 8
-  %avail_size.i = getelementptr %struct.vhost_virtqueue, ptr %60, i64 %idx.ext.i, i32 9
+  %avail_size.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 64
   %66 = load i32, ptr %avail_size.i, align 8
   %conv8.i = zext i32 %66 to i64
   %add.i.i31.i = add i64 %65, -1
@@ -2153,11 +2117,11 @@ if.end5.i40.i:                                    ; preds = %if.end.i38.i
   br i1 %cmp6.not.i43.i, label %if.end12.i, label %if.then74
 
 if.end12.i:                                       ; preds = %if.end5.i40.i, %if.end7.i
-  %used.i = getelementptr %struct.vhost_virtqueue, ptr %60, i64 %idx.ext.i, i32 4
+  %used.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %67 = load ptr, ptr %used.i, align 8
-  %used_phys.i = getelementptr %struct.vhost_virtqueue, ptr %60, i64 %idx.ext.i, i32 10
+  %used_phys.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 72
   %68 = load i64, ptr %used_phys.i, align 8
-  %used_size.i = getelementptr %struct.vhost_virtqueue, ptr %60, i64 %idx.ext.i, i32 11
+  %used_size.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 80
   %69 = load i32, ptr %used_size.i, align 8
   %conv14.i = zext i32 %69 to i64
   %add.i.i47.i = add i64 %68, -1
@@ -2188,12 +2152,12 @@ if.then74:                                        ; preds = %if.end5.i.i, %if.en
   %arrayidx27.i = getelementptr [3 x ptr], ptr @__const.vhost_verify_ring_mappings.part_name, i64 0, i64 %j.2.ph76.i.sink
   %70 = load ptr, ptr %arrayidx27.i, align 8
   tail call void (ptr, ...) @error_report(ptr noundef nonnull %.str.74.sink, ptr noundef %70, i32 noundef %i.085.i) #18
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.65, i32 noundef %i.2130) #18
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.65, i32 noundef %i.2131) #18
   tail call void @abort() #19
   unreachable
 
 for.inc76:                                        ; preds = %for.inc.i, %land.rhs.i.i, %for.cond.preheader.i
-  %inc77 = add nuw i32 %i.2130, 1
+  %inc77 = add nuw i32 %i.2131, 1
   %71 = load ptr, ptr %mem, align 8
   %72 = load i32, ptr %71, align 8
   %cmp54 = icmp ult i32 %inc77, %72
@@ -2207,16 +2171,16 @@ for.end78:                                        ; preds = %for.inc76
   br i1 %tobool79.not, label %if.then80, label %if.end90
 
 for.end78.thread:                                 ; preds = %for.cond51.preheader
-  %log_enabled144 = getelementptr i8, ptr %listener, i64 497
-  %75 = load i8, ptr %log_enabled144, align 1
+  %log_enabled145 = getelementptr i8, ptr %listener, i64 497
+  %75 = load i8, ptr %log_enabled145, align 1
   %76 = and i8 %75, 1
-  %tobool79.not145 = icmp eq i8 %76, 0
-  br i1 %tobool79.not145, label %if.then80, label %vhost_get_log_size.exit.thread
+  %tobool79.not146 = icmp eq i8 %76, 0
+  br i1 %tobool79.not146, label %if.then80, label %vhost_get_log_size.exit.thread
 
 if.then80:                                        ; preds = %for.end78.thread, %for.end78
   %77 = phi ptr [ %50, %for.end78.thread ], [ %71, %for.end78 ]
   %78 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_mem_table = getelementptr inbounds %struct.VhostOps, ptr %78, i64 0, i32 11
+  %vhost_set_mem_table = getelementptr inbounds i8, ptr %78, i64 88
   %79 = load ptr, ptr %vhost_set_mem_table, align 8
   %call83 = tail call i32 %79(ptr noundef %add.ptr, ptr noundef nonnull %77) #18
   %cmp84 = icmp slt i32 %call83, 0
@@ -2234,29 +2198,29 @@ if.end90:                                         ; preds = %for.end78
 
 vhost_get_log_size.exit.thread:                   ; preds = %for.end78.thread, %if.end90
   %80 = phi ptr [ %71, %if.end90 ], [ %50, %for.end78.thread ]
-  %log_size92107 = getelementptr i8, ptr %listener, i64 504
+  %log_size92108 = getelementptr i8, ptr %listener, i64 504
   br label %if.end97
 
 for.body.lr.ph.i78:                               ; preds = %if.end90
-  %regions.i = getelementptr inbounds %struct.vhost_memory, ptr %71, i64 0, i32 2
+  %regions.i = getelementptr inbounds i8, ptr %71, i64 8
   br label %for.body.i79
 
 for.body.i79:                                     ; preds = %for.body.i79, %for.body.lr.ph.i78
   %log_size.011.i = phi i64 [ 0, %for.body.lr.ph.i78 ], [ %cond.i, %for.body.i79 ]
   %i.010.i = phi i32 [ 0, %for.body.lr.ph.i78 ], [ %inc.i, %for.body.i79 ]
   %idx.ext.i80 = sext i32 %i.010.i to i64
-  %add.ptr.i = getelementptr %struct.vhost_memory_region, ptr %regions.i, i64 %idx.ext.i80
-  %81 = load i64, ptr %add.ptr.i, align 8
-  %memory_size.i = getelementptr %struct.vhost_memory_region, ptr %regions.i, i64 %idx.ext.i80, i32 1
+  %add.ptr.i81 = getelementptr %struct.vhost_memory_region, ptr %regions.i, i64 %idx.ext.i80
+  %81 = load i64, ptr %add.ptr.i81, align 8
+  %memory_size.i = getelementptr inbounds i8, ptr %add.ptr.i81, i64 8
   %82 = load i64, ptr %memory_size.i, align 8
   %add.i.i = add i64 %81, -1
-  %sub.i.i81 = add i64 %add.i.i, %82
-  %div8.i = lshr i64 %sub.i.i81, 18
+  %sub.i.i82 = add i64 %add.i.i, %82
+  %div8.i = lshr i64 %sub.i.i82, 18
   %add.i = add nuw nsw i64 %div8.i, 1
   %cond.i = tail call i64 @llvm.umax.i64(i64 %log_size.011.i, i64 %add.i)
   %inc.i = add nuw i32 %i.010.i, 1
-  %exitcond.not.i82 = icmp eq i32 %inc.i, %72
-  br i1 %exitcond.not.i82, label %vhost_get_log_size.exit, label %for.body.i79, !llvm.loop !19
+  %exitcond.not.i83 = icmp eq i32 %inc.i, %72
+  br i1 %exitcond.not.i83, label %vhost_get_log_size.exit, label %for.body.i79, !llvm.loop !19
 
 vhost_get_log_size.exit:                          ; preds = %for.body.i79
   %log_size92 = getelementptr i8, ptr %listener, i64 504
@@ -2267,27 +2231,27 @@ vhost_get_log_size.exit:                          ; preds = %for.body.i79
 if.then95:                                        ; preds = %vhost_get_log_size.exit
   %add96 = add nuw nsw i64 %cond.i, 170
   %84 = load ptr, ptr %vhost_ops, align 8
-  %vhost_requires_shm_log.i.i = getelementptr inbounds %struct.VhostOps, ptr %84, i64 0, i32 28
+  %vhost_requires_shm_log.i.i = getelementptr inbounds i8, ptr %84, i64 224
   %85 = load ptr, ptr %vhost_requires_shm_log.i.i, align 8
-  %tobool.not.i.i83 = icmp eq ptr %85, null
-  br i1 %tobool.not.i.i83, label %vhost_dev_log_is_shared.exit.i, label %land.rhs.i.i84
+  %tobool.not.i.i84 = icmp eq ptr %85, null
+  br i1 %tobool.not.i.i84, label %vhost_dev_log_is_shared.exit.i, label %land.rhs.i.i85
 
-land.rhs.i.i84:                                   ; preds = %if.then95
-  %call.i.i85 = tail call zeroext i1 %85(ptr noundef nonnull %add.ptr) #18
+land.rhs.i.i85:                                   ; preds = %if.then95
+  %call.i.i86 = tail call zeroext i1 %85(ptr noundef nonnull %add.ptr) #18
   br label %vhost_dev_log_is_shared.exit.i
 
-vhost_dev_log_is_shared.exit.i:                   ; preds = %land.rhs.i.i84, %if.then95
-  %86 = phi i1 [ false, %if.then95 ], [ %call.i.i85, %land.rhs.i.i84 ]
+vhost_dev_log_is_shared.exit.i:                   ; preds = %land.rhs.i.i85, %if.then95
+  %86 = phi i1 [ false, %if.then95 ], [ %call.i.i86, %land.rhs.i.i85 ]
   %call1.i = tail call fastcc ptr @vhost_log_get(i64 noundef %add96, i1 noundef zeroext %86)
-  %log2.i = getelementptr inbounds %struct.vhost_log, ptr %call1.i, i64 0, i32 3
+  %log2.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %87 = load ptr, ptr %log2.i, align 8
   %88 = ptrtoint ptr %87 to i64
   %89 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_log_base.i = getelementptr inbounds %struct.VhostOps, ptr %89, i64 0, i32 10
+  %vhost_set_log_base.i = getelementptr inbounds i8, ptr %89, i64 80
   %90 = load ptr, ptr %vhost_set_log_base.i, align 8
   %call3.i = tail call i32 %90(ptr noundef nonnull %add.ptr, i64 noundef %88, ptr noundef %call1.i) #18
-  %cmp.i86 = icmp slt i32 %call3.i, 0
-  br i1 %cmp.i86, label %do.body.i, label %vhost_dev_log_resize.exit
+  %cmp.i87 = icmp slt i32 %call3.i, 0
+  br i1 %cmp.i87, label %do.body.i, label %vhost_dev_log_resize.exit
 
 do.body.i:                                        ; preds = %vhost_dev_log_is_shared.exit.i
   %sub.i = sub i32 0, %call3.i
@@ -2305,10 +2269,10 @@ vhost_dev_log_resize.exit:                        ; preds = %vhost_dev_log_is_sh
 
 if.end97:                                         ; preds = %vhost_get_log_size.exit.thread, %vhost_dev_log_resize.exit, %vhost_get_log_size.exit
   %91 = phi ptr [ %80, %vhost_get_log_size.exit.thread ], [ %.pre, %vhost_dev_log_resize.exit ], [ %71, %vhost_get_log_size.exit ]
-  %log_size92110 = phi ptr [ %log_size92107, %vhost_get_log_size.exit.thread ], [ %log_size92, %vhost_dev_log_resize.exit ], [ %log_size92, %vhost_get_log_size.exit ]
-  %log_size.0.lcssa.i109 = phi i64 [ 0, %vhost_get_log_size.exit.thread ], [ %cond.i, %vhost_dev_log_resize.exit ], [ %cond.i, %vhost_get_log_size.exit ]
+  %log_size92111 = phi ptr [ %log_size92108, %vhost_get_log_size.exit.thread ], [ %log_size92, %vhost_dev_log_resize.exit ], [ %log_size92, %vhost_get_log_size.exit ]
+  %log_size.0.lcssa.i110 = phi i64 [ 0, %vhost_get_log_size.exit.thread ], [ %cond.i, %vhost_dev_log_resize.exit ], [ %cond.i, %vhost_get_log_size.exit ]
   %92 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_mem_table99 = getelementptr inbounds %struct.VhostOps, ptr %92, i64 0, i32 11
+  %vhost_set_mem_table99 = getelementptr inbounds i8, ptr %92, i64 88
   %93 = load ptr, ptr %vhost_set_mem_table99, align 8
   %call101 = tail call i32 %93(ptr noundef %add.ptr, ptr noundef %91) #18
   %cmp102 = icmp slt i32 %call101, 0
@@ -2321,56 +2285,56 @@ do.body105:                                       ; preds = %if.end97
   br label %if.end110
 
 if.end110:                                        ; preds = %do.body105, %if.end97
-  %94 = load i64, ptr %log_size92110, align 8
-  %add112 = add nuw nsw i64 %log_size.0.lcssa.i109, 170
+  %94 = load i64, ptr %log_size92111, align 8
+  %add112 = add nuw nsw i64 %log_size.0.lcssa.i110, 170
   %cmp113 = icmp ugt i64 %94, %add112
   br i1 %cmp113, label %if.then115, label %out
 
 if.then115:                                       ; preds = %if.end110
   %95 = load ptr, ptr %vhost_ops, align 8
-  %vhost_requires_shm_log.i.i88 = getelementptr inbounds %struct.VhostOps, ptr %95, i64 0, i32 28
-  %96 = load ptr, ptr %vhost_requires_shm_log.i.i88, align 8
-  %tobool.not.i.i89 = icmp eq ptr %96, null
-  br i1 %tobool.not.i.i89, label %vhost_dev_log_is_shared.exit.i92, label %land.rhs.i.i90
+  %vhost_requires_shm_log.i.i89 = getelementptr inbounds i8, ptr %95, i64 224
+  %96 = load ptr, ptr %vhost_requires_shm_log.i.i89, align 8
+  %tobool.not.i.i90 = icmp eq ptr %96, null
+  br i1 %tobool.not.i.i90, label %vhost_dev_log_is_shared.exit.i93, label %land.rhs.i.i91
 
-land.rhs.i.i90:                                   ; preds = %if.then115
-  %call.i.i91 = tail call zeroext i1 %96(ptr noundef nonnull %add.ptr) #18
-  br label %vhost_dev_log_is_shared.exit.i92
+land.rhs.i.i91:                                   ; preds = %if.then115
+  %call.i.i92 = tail call zeroext i1 %96(ptr noundef nonnull %add.ptr) #18
+  br label %vhost_dev_log_is_shared.exit.i93
 
-vhost_dev_log_is_shared.exit.i92:                 ; preds = %land.rhs.i.i90, %if.then115
-  %97 = phi i1 [ false, %if.then115 ], [ %call.i.i91, %land.rhs.i.i90 ]
-  %call1.i93 = tail call fastcc ptr @vhost_log_get(i64 noundef %log_size.0.lcssa.i109, i1 noundef zeroext %97)
-  %log2.i94 = getelementptr inbounds %struct.vhost_log, ptr %call1.i93, i64 0, i32 3
-  %98 = load ptr, ptr %log2.i94, align 8
+vhost_dev_log_is_shared.exit.i93:                 ; preds = %land.rhs.i.i91, %if.then115
+  %97 = phi i1 [ false, %if.then115 ], [ %call.i.i92, %land.rhs.i.i91 ]
+  %call1.i94 = tail call fastcc ptr @vhost_log_get(i64 noundef %log_size.0.lcssa.i110, i1 noundef zeroext %97)
+  %log2.i95 = getelementptr inbounds i8, ptr %call1.i94, i64 16
+  %98 = load ptr, ptr %log2.i95, align 8
   %99 = ptrtoint ptr %98 to i64
   %100 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_log_base.i95 = getelementptr inbounds %struct.VhostOps, ptr %100, i64 0, i32 10
-  %101 = load ptr, ptr %vhost_set_log_base.i95, align 8
-  %call3.i96 = tail call i32 %101(ptr noundef nonnull %add.ptr, i64 noundef %99, ptr noundef %call1.i93) #18
-  %cmp.i97 = icmp slt i32 %call3.i96, 0
-  br i1 %cmp.i97, label %do.body.i100, label %vhost_dev_log_resize.exit103
+  %vhost_set_log_base.i96 = getelementptr inbounds i8, ptr %100, i64 80
+  %101 = load ptr, ptr %vhost_set_log_base.i96, align 8
+  %call3.i97 = tail call i32 %101(ptr noundef nonnull %add.ptr, i64 noundef %99, ptr noundef %call1.i94) #18
+  %cmp.i98 = icmp slt i32 %call3.i97, 0
+  br i1 %cmp.i98, label %do.body.i101, label %vhost_dev_log_resize.exit104
 
-do.body.i100:                                     ; preds = %vhost_dev_log_is_shared.exit.i92
-  %sub.i101 = sub i32 0, %call3.i96
-  %call4.i102 = tail call ptr @strerror(i32 noundef %sub.i101) #18
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.33, ptr noundef %call4.i102, i32 noundef %sub.i101) #18
-  br label %vhost_dev_log_resize.exit103
+do.body.i101:                                     ; preds = %vhost_dev_log_is_shared.exit.i93
+  %sub.i102 = sub i32 0, %call3.i97
+  %call4.i103 = tail call ptr @strerror(i32 noundef %sub.i102) #18
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.33, ptr noundef %call4.i103, i32 noundef %sub.i102) #18
+  br label %vhost_dev_log_resize.exit104
 
-vhost_dev_log_resize.exit103:                     ; preds = %vhost_dev_log_is_shared.exit.i92, %do.body.i100
+vhost_dev_log_resize.exit104:                     ; preds = %vhost_dev_log_is_shared.exit.i93, %do.body.i101
   tail call fastcc void @vhost_log_put(ptr noundef nonnull %add.ptr, i1 noundef zeroext true)
-  %log6.i98 = getelementptr i8, ptr %listener, i64 536
-  store ptr %call1.i93, ptr %log6.i98, align 8
-  %log_size.i99 = getelementptr i8, ptr %listener, i64 504
-  store i64 %log_size.0.lcssa.i109, ptr %log_size.i99, align 8
+  %log6.i99 = getelementptr i8, ptr %listener, i64 536
+  store ptr %call1.i94, ptr %log6.i99, align 8
+  %log_size.i100 = getelementptr i8, ptr %listener, i64 504
+  store i64 %log_size.0.lcssa.i110, ptr %log_size.i100, align 8
   br label %out
 
-out:                                              ; preds = %if.end110, %vhost_dev_log_resize.exit103, %if.then80, %do.body, %for.end46, %trace_vhost_commit.exit
-  %tobool117.not132 = icmp eq i32 %1, 0
-  br i1 %tobool117.not132, label %while.end, label %while.body
+out:                                              ; preds = %if.end110, %vhost_dev_log_resize.exit104, %if.then80, %do.body, %for.end46, %trace_vhost_commit.exit
+  %tobool117.not133 = icmp eq i32 %1, 0
+  br i1 %tobool117.not133, label %while.end, label %while.body
 
 while.body:                                       ; preds = %out, %while.body
-  %n_old_sections.0133 = phi i32 [ %dec, %while.body ], [ %1, %out ]
-  %dec = add i32 %n_old_sections.0133, -1
+  %n_old_sections.0134 = phi i32 [ %dec, %while.body ], [ %1, %out ]
+  %dec = add i32 %n_old_sections.0134, -1
   %idxprom118 = sext i32 %dec to i64
   %mr120 = getelementptr %struct.MemoryRegionSection, ptr %0, i64 %idxprom118, i32 1
   %102 = load ptr, ptr %mr120, align 16
@@ -2392,7 +2356,7 @@ entry:
   %_now.i.i10.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %add.ptr = getelementptr i8, ptr %listener, i64 -8
-  %mr1.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr1.i = getelementptr inbounds i8, ptr %section, i64 16
   %0 = load ptr, ptr %mr1.i, align 16
   %1 = getelementptr i8, ptr %0, i64 41
   %.val.i = load i8, ptr %1, align 1
@@ -2401,7 +2365,7 @@ entry:
   br i1 %tobool.i.not.i, label %if.else.i, label %memory_region_is_rom.exit.i
 
 memory_region_is_rom.exit.i:                      ; preds = %entry
-  %readonly.i.i = getelementptr inbounds %struct.MemoryRegion, ptr %0, i64 0, i32 4
+  %readonly.i.i = getelementptr inbounds i8, ptr %0, i64 43
   %3 = load i8, ptr %readonly.i.i, align 1
   %4 = and i8 %3, 1
   %tobool1.i.not.i = icmp eq i8 %4, 0
@@ -2414,7 +2378,7 @@ if.then.i:                                        ; preds = %memory_region_is_ro
   br i1 %tobool.not.i, label %if.end.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %name.i = getelementptr inbounds %struct.MemoryRegion, ptr %0, i64 0, i32 33
+  %name.i = getelementptr inbounds i8, ptr %0, i64 232
   %6 = load ptr, ptr %name.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2440,7 +2404,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #18
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #18
   %12 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i.i, i64 noundef %12, i64 noundef %13, ptr noundef %6, i32 noundef 1) #18
   br label %trace_vhost_reject_section.exit.i
@@ -2462,7 +2426,7 @@ if.end.i:                                         ; preds = %if.then.i
 land.lhs.true9.i:                                 ; preds = %if.end.i
   %vhost_ops.i = getelementptr i8, ptr %listener, i64 520
   %15 = load ptr, ptr %vhost_ops.i, align 8
-  %vhost_backend_no_private_memslots.i = getelementptr inbounds %struct.VhostOps, ptr %15, i64 0, i32 4
+  %vhost_backend_no_private_memslots.i = getelementptr inbounds i8, ptr %15, i64 32
   %16 = load ptr, ptr %vhost_backend_no_private_memslots.i, align 8
   %tobool10.not.i = icmp eq ptr %16, null
   br i1 %tobool10.not.i, label %if.end18.i, label %land.lhs.true11.i
@@ -2472,13 +2436,13 @@ land.lhs.true11.i:                                ; preds = %land.lhs.true9.i
   br i1 %call14.i, label %if.then16.i, label %if.end18.i
 
 if.then16.i:                                      ; preds = %land.lhs.true11.i
-  %name17.i = getelementptr inbounds %struct.MemoryRegion, ptr %0, i64 0, i32 33
+  %name17.i = getelementptr inbounds i8, ptr %0, i64 232
   %17 = load ptr, ptr %name17.i, align 8
   tail call fastcc void @trace_vhost_reject_section(ptr noundef %17, i32 noundef 2)
   br label %return
 
 if.end18.i:                                       ; preds = %land.lhs.true11.i, %land.lhs.true9.i, %if.end.i
-  %name19.i = getelementptr inbounds %struct.MemoryRegion, ptr %0, i64 0, i32 33
+  %name19.i = getelementptr inbounds i8, ptr %0, i64 232
   %18 = load ptr, ptr %name19.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i10.i)
   %19 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2504,7 +2468,7 @@ if.then8.i.i19.i:                                 ; preds = %if.then.i.i17.i
   %call9.i.i20.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10.i, ptr noundef null) #18
   %call10.i.i21.i = tail call i32 @qemu_get_thread_id() #18
   %24 = load i64, ptr %_now.i.i10.i, align 8
-  %tv_usec.i.i22.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i10.i, i64 0, i32 1
+  %tv_usec.i.i22.i = getelementptr inbounds i8, ptr %_now.i.i10.i, i64 8
   %25 = load i64, ptr %tv_usec.i.i22.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i21.i, i64 noundef %24, i64 noundef %25, ptr noundef %18) #18
   br label %if.end
@@ -2514,7 +2478,7 @@ if.else.i.i23.i:                                  ; preds = %if.then.i.i17.i
   br label %if.end
 
 if.else.i:                                        ; preds = %memory_region_is_rom.exit.i, %entry
-  %name20.i = getelementptr inbounds %struct.MemoryRegion, ptr %0, i64 0, i32 33
+  %name20.i = getelementptr inbounds i8, ptr %0, i64 232
   %26 = load ptr, ptr %name20.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i24.i)
   %27 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2540,7 +2504,7 @@ if.then8.i.i33.i:                                 ; preds = %if.then.i.i31.i
   %call9.i.i34.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i24.i, ptr noundef null) #18
   %call10.i.i35.i = tail call i32 @qemu_get_thread_id() #18
   %32 = load i64, ptr %_now.i.i24.i, align 8
-  %tv_usec.i.i36.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i24.i, i64 0, i32 1
+  %tv_usec.i.i36.i = getelementptr inbounds i8, ptr %_now.i.i24.i, i64 8
   %33 = load i64, ptr %tv_usec.i.i36.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i35.i, i64 noundef %32, i64 noundef %33, ptr noundef %26, i32 noundef 3) #18
   br label %trace_vhost_reject_section.exit38.i
@@ -2565,18 +2529,18 @@ if.else.i.i:                                      ; preds = %if.end
   unreachable
 
 int128_get64.exit.i:                              ; preds = %if.end
-  %offset_within_address_space.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space.i = getelementptr inbounds i8, ptr %section, i64 40
   %35 = load i64, ptr %offset_within_address_space.i, align 8
   %36 = load ptr, ptr %mr1.i, align 16
   %call1.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef %36) #18
   %37 = ptrtoint ptr %call1.i to i64
-  %offset_within_region.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region.i = getelementptr inbounds i8, ptr %section, i64 32
   %38 = load i64, ptr %offset_within_region.i, align 16
   %add.i = add i64 %38, %37
   %39 = load ptr, ptr %mr1.i, align 16
-  %ram_block.i = getelementptr inbounds %struct.MemoryRegion, ptr %39, i64 0, i32 11
+  %ram_block.i = getelementptr inbounds i8, ptr %39, i64 56
   %40 = load ptr, ptr %ram_block.i, align 8
-  %name.i4 = getelementptr inbounds %struct.MemoryRegion, ptr %39, i64 0, i32 33
+  %name.i4 = getelementptr inbounds i8, ptr %39, i64 232
   %41 = load ptr, ptr %name.i4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i3)
   %42 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2602,7 +2566,7 @@ if.then8.i.i.i19:                                 ; preds = %if.then.i.i.i17
   %call9.i.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i3, ptr noundef null) #18
   %call10.i.i.i21 = tail call i32 @qemu_get_thread_id() #18
   %47 = load i64, ptr %_now.i.i.i3, align 8
-  %tv_usec.i.i.i22 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i3, i64 0, i32 1
+  %tv_usec.i.i.i22 = getelementptr inbounds i8, ptr %_now.i.i.i3, i64 8
   %48 = load i64, ptr %tv_usec.i.i.i22, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, i32 noundef %call10.i.i.i21, i64 noundef %47, i64 noundef %48, ptr noundef %41, i64 noundef %35, i64 noundef %coerce.sroa.0.0.extract.trunc.i, i64 noundef %add.i) #18
   br label %trace_vhost_region_add_section.exit.i
@@ -2632,7 +2596,7 @@ if.then.i12:                                      ; preds = %trace_vhost_region_
   %add14.i = select i1 %tobool11.not.i, i64 0, i64 %sub13.i
   %mrs_size.1.i = add i64 %add14.i, %add7.i
   %51 = load ptr, ptr %mr1.i, align 16
-  %name17.i13 = getelementptr inbounds %struct.MemoryRegion, ptr %51, i64 0, i32 33
+  %name17.i13 = getelementptr inbounds i8, ptr %51, i64 232
   %52 = load ptr, ptr %name17.i13, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i83.i)
   %53 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2658,7 +2622,7 @@ if.then8.i.i92.i:                                 ; preds = %if.then.i.i90.i
   %call9.i.i93.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i83.i, ptr noundef null) #18
   %call10.i.i94.i = tail call i32 @qemu_get_thread_id() #18
   %58 = load i64, ptr %_now.i.i83.i, align 8
-  %tv_usec.i.i95.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i83.i, i64 0, i32 1
+  %tv_usec.i.i95.i = getelementptr inbounds i8, ptr %_now.i.i83.i, i64 8
   %59 = load i64, ptr %tv_usec.i.i95.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i94.i, i64 noundef %58, i64 noundef %59, ptr noundef %52, i64 noundef %sub8.i, i64 noundef %mrs_size.1.i, i64 noundef %sub6.i) #18
   br label %trace_vhost_region_add_section_aligned.exit.i
@@ -2681,7 +2645,7 @@ if.end18.i10:                                     ; preds = %trace_vhost_region_
   br i1 %tobool19.not.i, label %if.then99.critedge.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end18.i10
-  %unmergeable.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 7
+  %unmergeable.i = getelementptr inbounds i8, ptr %section, i64 50
   %61 = load i8, ptr %unmergeable.i, align 2
   %62 = and i8 %61, 1
   %tobool20.not.i = icmp eq i8 %62, 0
@@ -2693,7 +2657,7 @@ if.then21.i:                                      ; preds = %land.lhs.true.i
   %sub23.i = add i32 %60, -1
   %idx.ext.i = sext i32 %sub23.i to i64
   %add.ptr.i = getelementptr %struct.MemoryRegionSection, ptr %63, i64 %idx.ext.i
-  %offset_within_address_space24.i = getelementptr %struct.MemoryRegionSection, ptr %63, i64 %idx.ext.i, i32 4
+  %offset_within_address_space24.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   %64 = load i64, ptr %offset_within_address_space24.i, align 8
   %65 = load i128, ptr %add.ptr.i, align 16
   %cmp.i97.i = icmp ult i128 %65, 18446744073709551616
@@ -2705,11 +2669,11 @@ if.else.i98.i:                                    ; preds = %if.then21.i
 
 int128_get64.exit99.i:                            ; preds = %if.then21.i
   %coerce26.sroa.0.0.extract.trunc.i = trunc i128 %65 to i64
-  %mr29.i = getelementptr %struct.MemoryRegionSection, ptr %63, i64 %idx.ext.i, i32 1
+  %mr29.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %66 = load ptr, ptr %mr29.i, align 16
   %call30.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef %66) #18
   %67 = ptrtoint ptr %call30.i to i64
-  %offset_within_region31.i = getelementptr %struct.MemoryRegionSection, ptr %63, i64 %idx.ext.i, i32 3
+  %offset_within_region31.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %68 = load i64, ptr %offset_within_region31.i, align 16
   %add32.i = add i64 %68, %67
   %add.i100.i = add i64 %coerce26.sroa.0.0.extract.trunc.i, -1
@@ -2724,10 +2688,10 @@ if.then36.i:                                      ; preds = %int128_get64.exit99
 
 if.then38.i:                                      ; preds = %if.then36.i
   %69 = load ptr, ptr %mr1.i, align 16
-  %name40.i = getelementptr inbounds %struct.MemoryRegion, ptr %69, i64 0, i32 33
+  %name40.i = getelementptr inbounds i8, ptr %69, i64 232
   %70 = load ptr, ptr %name40.i, align 8
   %71 = load ptr, ptr %mr29.i, align 16
-  %name42.i = getelementptr inbounds %struct.MemoryRegion, ptr %71, i64 0, i32 33
+  %name42.i = getelementptr inbounds i8, ptr %71, i64 232
   %72 = load ptr, ptr %name42.i, align 8
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.79, ptr noundef nonnull @__func__.vhost_region_add_section, ptr noundef %70, i64 noundef %mrs_gpa.1.i, ptr noundef %72, i64 noundef %64) #18
   br label %return
@@ -2745,7 +2709,7 @@ land.lhs.true47.i:                                ; preds = %if.end43.i
   br i1 %cmp50.i, label %land.lhs.true51.i, label %if.else.i11
 
 land.lhs.true51.i:                                ; preds = %land.lhs.true47.i
-  %unmergeable52.i = getelementptr %struct.MemoryRegionSection, ptr %63, i64 %idx.ext.i, i32 7
+  %unmergeable52.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 50
   %75 = load i8, ptr %unmergeable52.i, align 2
   %76 = and i8 %75, 1
   %tobool53.not.i = icmp eq i8 %76, 0
@@ -2765,7 +2729,7 @@ if.then54.i:                                      ; preds = %land.lhs.true51.i
   %coerce82.sroa.0.0.insert.ext.i = zext i64 %sub80.i to i128
   store i128 %coerce82.sroa.0.0.insert.ext.i, ptr %add.ptr.i, align 16
   %78 = load ptr, ptr %mr1.i, align 16
-  %name85.i = getelementptr inbounds %struct.MemoryRegion, ptr %78, i64 0, i32 33
+  %name85.i = getelementptr inbounds i8, ptr %78, i64 232
   %79 = load ptr, ptr %name85.i, align 8
   %80 = load i64, ptr %offset_within_address_space24.i, align 8
   tail call fastcc void @trace_vhost_region_add_section_merge(ptr noundef %79, i64 noundef %sub80.i, i64 noundef %80, i64 noundef %sub72.i)
@@ -2863,19 +2827,19 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vhost_iommu_region_add(ptr noundef %listener, ptr nocapture noundef readonly %section) #0 {
 entry:
-  %mr = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %section, i64 16
   %0 = load ptr, ptr %mr, align 16
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i, %entry
   %mr.tr.i = phi ptr [ %0, %entry ], [ %1, %tailrecurse.i ]
-  %alias.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i, i64 0, i32 27
+  %alias.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 160
   %1 = load ptr, ptr %alias.i, align 16
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %memory_region_get_iommu.exit, label %tailrecurse.i
 
 memory_region_get_iommu.exit:                     ; preds = %tailrecurse.i
-  %is_iommu.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i, i64 0, i32 10
+  %is_iommu.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 49
   %2 = load i8, ptr %is_iommu.i, align 1
   %3 = and i8 %2, 1
   %tobool2.not.i = icmp eq i8 %3, 0
@@ -2884,7 +2848,7 @@ memory_region_get_iommu.exit:                     ; preds = %tailrecurse.i
 if.end:                                           ; preds = %memory_region_get_iommu.exit
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, i32 noundef 44, ptr noundef nonnull @__func__.IOMMU_MEMORY_REGION) #18
   %call3 = tail call noalias dereferenceable_or_null(96) ptr @g_malloc0(i64 noundef 96) #20
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   %4 = load i64, ptr %offset_within_region, align 16
   %5 = load i128, ptr %section, align 16
   %coerce6.sroa.0.0.extract.trunc = trunc i128 %5 to i64
@@ -2911,47 +2875,47 @@ int128_get64.exit:                                ; preds = %if.end
   %7 = load i64, ptr %offset_within_region, align 16
   %add.ptr = getelementptr i8, ptr %listener, i64 -200
   %8 = load ptr, ptr %add.ptr, align 8
-  %device_iotlb_enabled = getelementptr inbounds %struct.VirtIODevice, ptr %8, i64 0, i32 33
+  %device_iotlb_enabled = getelementptr inbounds i8, ptr %8, i64 516
   %9 = load i8, ptr %device_iotlb_enabled, align 4
   %10 = and i8 %9, 1
   %tobool.not = icmp eq i8 %10, 0
   %cond = select i1 %tobool.not, i32 1, i32 4
-  %n = getelementptr inbounds %struct.vhost_iommu, ptr %call3, i64 0, i32 3
+  %n = getelementptr inbounds i8, ptr %call3, i64 24
   %retval.sroa.0.0.extract.trunc.i = trunc i128 %a.sroa.0.0.insert.insert.i to i64
   store ptr @vhost_iommu_unmap_notify, ptr %n, align 8
-  %notifier_flags.i = getelementptr inbounds %struct.vhost_iommu, ptr %call3, i64 0, i32 3, i32 1
+  %notifier_flags.i = getelementptr inbounds i8, ptr %call3, i64 32
   store i32 %cond, ptr %notifier_flags.i, align 8
-  %start1.i = getelementptr inbounds %struct.vhost_iommu, ptr %call3, i64 0, i32 3, i32 2
+  %start1.i = getelementptr inbounds i8, ptr %call3, i64 40
   store i64 %7, ptr %start1.i, align 8
-  %end2.i = getelementptr inbounds %struct.vhost_iommu, ptr %call3, i64 0, i32 3, i32 3
+  %end2.i = getelementptr inbounds i8, ptr %call3, i64 48
   store i64 %retval.sroa.0.0.extract.trunc.i, ptr %end2.i, align 8
-  %iommu_idx3.i = getelementptr inbounds %struct.vhost_iommu, ptr %call3, i64 0, i32 3, i32 4
+  %iommu_idx3.i = getelementptr inbounds i8, ptr %call3, i64 56
   store i32 %call42, ptr %iommu_idx3.i, align 8
   %11 = load ptr, ptr %mr, align 16
-  %mr47 = getelementptr inbounds %struct.vhost_iommu, ptr %call3, i64 0, i32 1
+  %mr47 = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %11, ptr %mr47, align 8
-  %offset_within_address_space = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
   %12 = load i64, ptr %offset_within_address_space, align 8
   %sub = sub i64 %12, %7
-  %iommu_offset = getelementptr inbounds %struct.vhost_iommu, ptr %call3, i64 0, i32 2
+  %iommu_offset = getelementptr inbounds i8, ptr %call3, i64 16
   store i64 %sub, ptr %iommu_offset, align 8
   store ptr %add.ptr, ptr %call3, align 8
   %call51 = tail call i32 @memory_region_register_iommu_notifier(ptr noundef %11, ptr noundef nonnull %n, ptr noundef nonnull @error_fatal) #18
   %iommu_list = getelementptr i8, ptr %listener, i64 368
   %13 = load ptr, ptr %iommu_list, align 8
-  %iommu_next = getelementptr inbounds %struct.vhost_iommu, ptr %call3, i64 0, i32 4
+  %iommu_next = getelementptr inbounds i8, ptr %call3, i64 80
   store ptr %13, ptr %iommu_next, align 8
   %cmp52.not = icmp eq ptr %13, null
   br i1 %cmp52.not, label %if.end59, label %if.then53
 
 if.then53:                                        ; preds = %int128_get64.exit
-  %le_prev = getelementptr inbounds %struct.vhost_iommu, ptr %13, i64 0, i32 4, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %13, i64 88
   store ptr %iommu_next, ptr %le_prev, align 8
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then53, %int128_get64.exit
   store ptr %call3, ptr %iommu_list, align 8
-  %le_prev65 = getelementptr inbounds %struct.vhost_iommu, ptr %call3, i64 0, i32 4, i32 1
+  %le_prev65 = getelementptr inbounds i8, ptr %call3, i64 88
   store ptr %iommu_list, ptr %le_prev65, align 8
   br label %do.end
 
@@ -2962,19 +2926,19 @@ do.end:                                           ; preds = %memory_region_get_i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vhost_iommu_region_del(ptr nocapture noundef readonly %listener, ptr nocapture noundef readonly %section) #0 {
 entry:
-  %mr = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %section, i64 16
   %0 = load ptr, ptr %mr, align 16
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i, %entry
   %mr.tr.i = phi ptr [ %0, %entry ], [ %1, %tailrecurse.i ]
-  %alias.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i, i64 0, i32 27
+  %alias.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 160
   %1 = load ptr, ptr %alias.i, align 16
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %memory_region_get_iommu.exit, label %tailrecurse.i
 
 memory_region_get_iommu.exit:                     ; preds = %tailrecurse.i
-  %is_iommu.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i, i64 0, i32 10
+  %is_iommu.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 49
   %2 = load i8, ptr %is_iommu.i, align 1
   %3 = and i8 %2, 1
   %tobool2.not.i = icmp eq i8 %3, 0
@@ -2987,35 +2951,35 @@ if.end:                                           ; preds = %memory_region_get_i
   br i1 %tobool.not20, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %iommu.021 = phi ptr [ %iommu.019, %for.body.lr.ph ], [ %iommu.0, %for.inc ]
-  %mr1 = getelementptr inbounds %struct.vhost_iommu, ptr %iommu.021, i64 0, i32 1
+  %mr1 = getelementptr inbounds i8, ptr %iommu.021, i64 8
   %4 = load ptr, ptr %mr1, align 8
   %cmp3 = icmp eq ptr %4, %0
   br i1 %cmp3, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %start = getelementptr inbounds %struct.vhost_iommu, ptr %iommu.021, i64 0, i32 3, i32 2
+  %start = getelementptr inbounds i8, ptr %iommu.021, i64 40
   %5 = load i64, ptr %start, align 8
   %6 = load i64, ptr %offset_within_region, align 16
   %cmp4 = icmp eq i64 %5, %6
   br i1 %cmp4, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %land.lhs.true
-  %n = getelementptr inbounds %struct.vhost_iommu, ptr %iommu.021, i64 0, i32 3
+  %n = getelementptr inbounds i8, ptr %iommu.021, i64 24
   tail call void @memory_region_unregister_iommu_notifier(ptr noundef %0, ptr noundef nonnull %n) #18
-  %iommu_next = getelementptr inbounds %struct.vhost_iommu, ptr %iommu.021, i64 0, i32 4
+  %iommu_next = getelementptr inbounds i8, ptr %iommu.021, i64 80
   %7 = load ptr, ptr %iommu_next, align 8
   %cmp8.not = icmp eq ptr %7, null
-  %le_prev19.phi.trans.insert = getelementptr inbounds %struct.vhost_iommu, ptr %iommu.021, i64 0, i32 4, i32 1
+  %le_prev19.phi.trans.insert = getelementptr inbounds i8, ptr %iommu.021, i64 88
   %.pre24 = load ptr, ptr %le_prev19.phi.trans.insert, align 8
   br i1 %cmp8.not, label %if.end15, label %if.then9
 
 if.then9:                                         ; preds = %if.then5
-  %le_prev14 = getelementptr inbounds %struct.vhost_iommu, ptr %7, i64 0, i32 4, i32 1
+  %le_prev14 = getelementptr inbounds i8, ptr %7, i64 88
   store ptr %.pre24, ptr %le_prev14, align 8
   %.pre = load ptr, ptr %iommu_next, align 8
   br label %if.end15
@@ -3028,7 +2992,7 @@ if.end15:                                         ; preds = %if.then5, %if.then9
   br label %for.end
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
-  %iommu_next25 = getelementptr inbounds %struct.vhost_iommu, ptr %iommu.021, i64 0, i32 4
+  %iommu_next25 = getelementptr inbounds i8, ptr %iommu.021, i64 80
   %iommu.0 = load ptr, ptr %iommu_next25, align 8
   %tobool.not = icmp eq ptr %iommu.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !21
@@ -3076,7 +3040,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
   %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.93, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %hdev) #18
   br label %trace_vhost_dev_cleanup.exit
@@ -3087,32 +3051,33 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_dev_cleanup.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %nvqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %hdev, i64 440
   %7 = load i32, ptr %nvqs, align 8
   %cmp23.not = icmp eq i32 %7, 0
   br i1 %cmp23.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %trace_vhost_dev_cleanup.exit
-  %vqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 8
+  %vqs = getelementptr inbounds i8, ptr %hdev, i64 432
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %vhost_virtqueue_cleanup.exit
   %i.024 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %vhost_virtqueue_cleanup.exit ]
   %8 = load ptr, ptr %vqs, align 8
   %idx.ext = sext i32 %i.024 to i64
-  %masked_notifier.i = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idx.ext, i32 12
+  %add.ptr = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idx.ext
+  %masked_notifier.i = getelementptr inbounds i8, ptr %add.ptr, i64 84
   tail call void @event_notifier_cleanup(ptr noundef nonnull %masked_notifier.i) #18
-  %dev.i = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idx.ext, i32 15
+  %dev.i = getelementptr inbounds i8, ptr %add.ptr, i64 120
   %9 = load ptr, ptr %dev.i, align 8
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %9, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %9, i64 528
   %10 = load ptr, ptr %vhost_ops.i, align 8
-  %vhost_set_vring_err.i = getelementptr inbounds %struct.VhostOps, ptr %10, i64 0, i32 19
+  %vhost_set_vring_err.i = getelementptr inbounds i8, ptr %10, i64 152
   %11 = load ptr, ptr %vhost_set_vring_err.i, align 8
   %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %vhost_virtqueue_cleanup.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %error_notifier.i = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idx.ext, i32 13
+  %error_notifier.i = getelementptr inbounds i8, ptr %add.ptr, i64 96
   tail call void @event_notifier_set_handler(ptr noundef nonnull %error_notifier.i, ptr noundef null) #18
   tail call void @event_notifier_cleanup(ptr noundef nonnull %error_notifier.i) #18
   br label %vhost_virtqueue_cleanup.exit
@@ -3124,23 +3089,23 @@ vhost_virtqueue_cleanup.exit:                     ; preds = %for.body, %if.then.
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %vhost_virtqueue_cleanup.exit, %trace_vhost_dev_cleanup.exit
-  %mem = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 3
+  %mem = getelementptr inbounds i8, ptr %hdev, i64 392
   %13 = load ptr, ptr %mem, align 8
   %tobool.not = icmp eq ptr %13, null
   br i1 %tobool.not, label %if.end17, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %memory_listener = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 1
+  %memory_listener = getelementptr inbounds i8, ptr %hdev, i64 8
   tail call void @memory_listener_unregister(ptr noundef nonnull %memory_listener) #18
-  %entry1 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 26
+  %entry1 = getelementptr inbounds i8, ptr %hdev, i64 552
   %14 = load ptr, ptr %entry1, align 8
   %cmp2.not = icmp eq ptr %14, null
-  %le_prev12.phi.trans.insert = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 26, i32 1
+  %le_prev12.phi.trans.insert = getelementptr inbounds i8, ptr %hdev, i64 560
   %.pre25 = load ptr, ptr %le_prev12.phi.trans.insert, align 8
   br i1 %cmp2.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %le_prev8 = getelementptr inbounds %struct.vhost_dev, ptr %14, i64 0, i32 26, i32 1
+  %le_prev8 = getelementptr inbounds i8, ptr %14, i64 560
   store ptr %.pre25, ptr %le_prev8, align 8
   %.pre = load ptr, ptr %entry1, align 8
   br label %if.end
@@ -3152,26 +3117,26 @@ if.end:                                           ; preds = %if.then, %if.then3
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end, %for.end
-  %migration_blocker = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 22
+  %migration_blocker = getelementptr inbounds i8, ptr %hdev, i64 520
   tail call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker) #18
   %16 = load ptr, ptr %mem, align 8
   tail call void @g_free(ptr noundef %16) #18
-  %mem_sections = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 5
+  %mem_sections = getelementptr inbounds i8, ptr %hdev, i64 408
   %17 = load ptr, ptr %mem_sections, align 8
   tail call void @g_free(ptr noundef %17) #18
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev, i64 528
   %18 = load ptr, ptr %vhost_ops, align 8
   %tobool19.not = icmp eq ptr %18, null
   br i1 %tobool19.not, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
-  %vhost_backend_cleanup = getelementptr inbounds %struct.VhostOps, ptr %18, i64 0, i32 2
+  %vhost_backend_cleanup = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %vhost_backend_cleanup, align 8
   %call = tail call i32 %19(ptr noundef nonnull %hdev) #18
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %if.end17
-  %log = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 25
+  %log = getelementptr inbounds i8, ptr %hdev, i64 544
   %20 = load ptr, ptr %log, align 8
   %tobool23.not = icmp eq ptr %20, null
   br i1 %tobool23.not, label %if.end25, label %if.else
@@ -3207,13 +3172,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @memory_region_transaction_begin() #18
-  %nvqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %hdev, i64 440
   %0 = load i32, ptr %nvqs, align 8
   %cmp416.not = icmp eq i32 %0, 0
   br i1 %cmp416.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %vq_index = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 10
+  %vq_index = getelementptr inbounds i8, ptr %hdev, i64 444
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -3270,7 +3235,7 @@ for.end.thread:                                   ; preds = %entry
   br label %for.end17
 
 for.body.lr.ph:                                   ; preds = %entry
-  %vq_index = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 10
+  %vq_index = getelementptr inbounds i8, ptr %hdev, i64 444
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -3298,7 +3263,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp18.not, label %for.end17, label %for.body11.lr.ph
 
 for.body11.lr.ph:                                 ; preds = %for.end
-  %vq_index13 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 10
+  %vq_index13 = getelementptr inbounds i8, ptr %hdev, i64 444
   br label %for.body11
 
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.body11
@@ -3319,7 +3284,7 @@ for.end17:                                        ; preds = %for.body11, %for.en
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_dev_disable_notifiers(ptr nocapture noundef readonly %hdev, ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
-  %nvqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %hdev, i64 440
   %0 = load i32, ptr %nvqs, align 8
   tail call fastcc void @vhost_dev_disable_notifiers_nvqs(ptr noundef %hdev, ptr noundef %vdev, i32 noundef %0)
   ret void
@@ -3328,15 +3293,15 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @vhost_virtqueue_pending(ptr nocapture noundef readonly %hdev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
-  %vqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 8
+  %vqs = getelementptr inbounds i8, ptr %hdev, i64 432
   %0 = load ptr, ptr %vqs, align 8
-  %vq_index = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 10
+  %vq_index = getelementptr inbounds i8, ptr %hdev, i64 444
   %1 = load i32, ptr %vq_index, align 4
   %cmp.not = icmp sgt i32 %1, %n
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %nvqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %hdev, i64 440
   %2 = load i32, ptr %nvqs, align 8
   %add = add i32 %2, %1
   %cmp5 = icmp ugt i32 %add, %n
@@ -3364,7 +3329,7 @@ declare ptr @virtio_queue_get_guest_notifier(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @vhost_config_pending(ptr nocapture noundef readonly %hdev) local_unnamed_addr #0 {
 entry:
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -3374,22 +3339,22 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %started = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 19
+  %started = getelementptr inbounds i8, ptr %hdev, i64 504
   %1 = load i8, ptr %started, align 8
   %2 = and i8 %1, 1
   %cmp = icmp eq i8 %2, 0
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %vhost_set_config_call = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 44
+  %vhost_set_config_call = getelementptr inbounds i8, ptr %0, i64 352
   %3 = load ptr, ptr %vhost_set_config_call, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %return, label %if.end7
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %vqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 8
+  %vqs = getelementptr inbounds i8, ptr %hdev, i64 432
   %4 = load ptr, ptr %vqs, align 8
-  %masked_config_notifier = getelementptr inbounds %struct.vhost_virtqueue, ptr %4, i64 0, i32 14
+  %masked_config_notifier = getelementptr inbounds i8, ptr %4, i64 108
   %call = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %masked_config_notifier) #18
   %tobool8 = icmp ne i32 %call, 0
   br label %return
@@ -3402,11 +3367,11 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_config_mask(ptr noundef %hdev, ptr noundef %vdev, i1 noundef zeroext %mask) local_unnamed_addr #0 {
 entry:
-  %vqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 8
+  %vqs = getelementptr inbounds i8, ptr %hdev, i64 432
   %0 = load ptr, ptr %vqs, align 8
-  %masked_config_notifier = getelementptr inbounds %struct.vhost_virtqueue, ptr %0, i64 0, i32 14
-  %config_notifier1 = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 32
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 23
+  %masked_config_notifier = getelementptr inbounds i8, ptr %0, i64 108
+  %config_notifier1 = getelementptr inbounds i8, ptr %vdev, i64 504
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev, i64 528
   %1 = load ptr, ptr %vhost_ops, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -3416,14 +3381,14 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %started = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 19
+  %started = getelementptr inbounds i8, ptr %hdev, i64 504
   %2 = load i8, ptr %started, align 8
   %3 = and i8 %2, 1
   %cmp = icmp eq i8 %3, 0
   br i1 %cmp, label %if.end24, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %vhost_set_config_call = getelementptr inbounds %struct.VhostOps, ptr %1, i64 0, i32 44
+  %vhost_set_config_call = getelementptr inbounds i8, ptr %1, i64 352
   %4 = load ptr, ptr %vhost_set_config_call, align 8
   %cmp5 = icmp eq ptr %4, null
   br i1 %cmp5, label %if.end24, label %if.end8
@@ -3432,7 +3397,7 @@ if.end8:                                          ; preds = %lor.lhs.false
   br i1 %mask, label %if.then10, label %if.end17
 
 if.then10:                                        ; preds = %if.end8
-  %use_guest_notifier_mask = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 28
+  %use_guest_notifier_mask = getelementptr inbounds i8, ptr %vdev, i64 465
   %5 = load i8, ptr %use_guest_notifier_mask, align 1
   %6 = and i8 %5, 1
   %tobool11.not = icmp eq i8 %6, 0
@@ -3446,7 +3411,7 @@ if.end17:                                         ; preds = %if.end8, %if.then10
   %config_notifier1.sink = phi ptr [ %masked_config_notifier, %if.then10 ], [ %config_notifier1, %if.end8 ]
   %call16 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %config_notifier1.sink) #18
   %7 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_config_call19 = getelementptr inbounds %struct.VhostOps, ptr %7, i64 0, i32 44
+  %vhost_set_config_call19 = getelementptr inbounds i8, ptr %7, i64 352
   %8 = load ptr, ptr %vhost_set_config_call19, align 8
   %call20 = tail call i32 %8(ptr noundef nonnull %hdev, i32 noundef %call16) #18
   %cmp21 = icmp slt i32 %call20, 0
@@ -3469,7 +3434,7 @@ entry:
   br i1 %cmp.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %features1 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 13
+  %features1 = getelementptr inbounds i8, ptr %hdev, i64 456
   %1 = load i64, ptr %features1, align 8
   br label %while.body
 
@@ -3484,7 +3449,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %not = xor i64 %shl, -1
   %and2 = select i1 %tobool.not, i64 %not, i64 -1
   %features.addr.1 = and i64 %and2, %features.addr.07
-  %incdec.ptr = getelementptr i32, ptr %bit.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %bit.06, i64 4
   %3 = load i32, ptr %incdec.ptr, align 4
   %cmp.not = icmp eq i32 %3, 255
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !26
@@ -3502,7 +3467,7 @@ entry:
   br i1 %cmp.not4, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %acked_features = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 14
+  %acked_features = getelementptr inbounds i8, ptr %hdev, i64 464
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -3521,7 +3486,7 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
-  %incdec.ptr = getelementptr i32, ptr %bit.05, i64 1
+  %incdec.ptr = getelementptr i8, ptr %bit.05, i64 4
   %3 = load i32, ptr %incdec.ptr, align 4
   %cmp.not = icmp eq i32 %3, 255
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !27
@@ -3533,7 +3498,7 @@ while.end:                                        ; preds = %if.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_dev_get_config(ptr noundef %hdev, ptr noundef %config, i32 noundef %config_len, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -3543,7 +3508,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vhost_get_config = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 34
+  %vhost_get_config = getelementptr inbounds i8, ptr %0, i64 272
   %1 = load ptr, ptr %vhost_get_config, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end6, label %if.then3
@@ -3564,7 +3529,7 @@ return:                                           ; preds = %if.end6, %if.then3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_dev_set_config(ptr noundef %hdev, ptr noundef %data, i32 noundef %offset, i32 noundef %size, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -3574,7 +3539,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vhost_set_config = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 35
+  %vhost_set_config = getelementptr inbounds i8, ptr %0, i64 280
   %1 = load ptr, ptr %vhost_set_config, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %return, label %if.then3
@@ -3591,7 +3556,7 @@ return:                                           ; preds = %if.end, %if.then3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @vhost_dev_set_config_notifier(ptr nocapture noundef writeonly %hdev, ptr noundef %ops) local_unnamed_addr #5 {
 entry:
-  %config_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 29
+  %config_ops = getelementptr inbounds i8, ptr %hdev, i64 632
   store ptr %ops, ptr %config_ops, align 8
   ret void
 }
@@ -3603,13 +3568,13 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %addr = getelementptr inbounds %struct.vhost_inflight, ptr %inflight, i64 0, i32 1
+  %addr = getelementptr inbounds i8, ptr %inflight, i64 8
   %0 = load ptr, ptr %addr, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %size = getelementptr inbounds %struct.vhost_inflight, ptr %inflight, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %inflight, i64 16
   %1 = load i64, ptr %size, align 8
   %2 = load i32, ptr %inflight, align 8
   tail call void @qemu_memfd_free(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2) #18
@@ -3626,16 +3591,16 @@ declare void @qemu_memfd_free(ptr noundef, i64 noundef, i32 noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_dev_save_inflight(ptr nocapture noundef readonly %inflight, ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %addr = getelementptr inbounds %struct.vhost_inflight, ptr %inflight, i64 0, i32 1
+  %addr = getelementptr inbounds i8, ptr %inflight, i64 8
   %0 = load ptr, ptr %addr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %size = getelementptr inbounds %struct.vhost_inflight, ptr %inflight, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %inflight, i64 16
   %1 = load i64, ptr %size, align 8
   tail call void @qemu_put_be64(ptr noundef %f, i64 noundef %1) #18
-  %queue_size = getelementptr inbounds %struct.vhost_inflight, ptr %inflight, i64 0, i32 4
+  %queue_size = getelementptr inbounds i8, ptr %inflight, i64 32
   %2 = load i16, ptr %queue_size, align 8
   %conv = zext i16 %2 to i32
   tail call void @qemu_put_be16(ptr noundef %f, i32 noundef %conv) #18
@@ -3668,7 +3633,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %size1 = getelementptr inbounds %struct.vhost_inflight, ptr %inflight, i64 0, i32 2
+  %size1 = getelementptr inbounds i8, ptr %inflight, i64 16
   %0 = load i64, ptr %size1, align 8
   %cmp.not = icmp eq i64 %0, %call
   br i1 %cmp.not, label %if.end7, label %if.then2
@@ -3690,7 +3655,7 @@ vhost_dev_resize_inflight.exit.thread:            ; preds = %if.then2
   br label %return
 
 land.lhs.true.i.i:                                ; preds = %if.then2
-  %addr.i.i = getelementptr inbounds %struct.vhost_inflight, ptr %inflight, i64 0, i32 1
+  %addr.i.i = getelementptr inbounds i8, ptr %inflight, i64 8
   %2 = load ptr, ptr %addr.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %2, null
   br i1 %tobool1.not.i.i, label %vhost_dev_resize_inflight.exit, label %if.then.i.i
@@ -3702,7 +3667,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br label %vhost_dev_resize_inflight.exit
 
 vhost_dev_resize_inflight.exit:                   ; preds = %land.lhs.true.i.i, %if.then.i.i
-  %offset.i = getelementptr inbounds %struct.vhost_inflight, ptr %inflight, i64 0, i32 3
+  %offset.i = getelementptr inbounds i8, ptr %inflight, i64 24
   store i64 0, ptr %offset.i, align 8
   store ptr %call.i, ptr %addr.i.i, align 8
   %5 = load i32, ptr %fd.i, align 4
@@ -3715,9 +3680,9 @@ vhost_dev_resize_inflight.exit:                   ; preds = %land.lhs.true.i.i, 
 if.end7:                                          ; preds = %vhost_dev_resize_inflight.exit, %if.end
   %call8 = call i32 @qemu_get_be16(ptr noundef %f) #18
   %conv = trunc i32 %call8 to i16
-  %queue_size = getelementptr inbounds %struct.vhost_inflight, ptr %inflight, i64 0, i32 4
+  %queue_size = getelementptr inbounds i8, ptr %inflight, i64 32
   store i16 %conv, ptr %queue_size, align 8
-  %addr = getelementptr inbounds %struct.vhost_inflight, ptr %inflight, i64 0, i32 1
+  %addr = getelementptr inbounds i8, ptr %inflight, i64 8
   %6 = load ptr, ptr %addr, align 8
   %call9 = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %6, i64 noundef %call) #18
   br label %return
@@ -3736,22 +3701,22 @@ declare i64 @qemu_get_buffer(ptr noundef, ptr noundef, i64 noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_dev_prepare_inflight(ptr noundef %hdev, ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_inflight_fd = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 38
+  %vhost_get_inflight_fd = getelementptr inbounds i8, ptr %0, i64 304
   %1 = load ptr, ptr %vhost_get_inflight_fd, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %vhost_set_inflight_fd = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 39
+  %vhost_set_inflight_fd = getelementptr inbounds i8, ptr %0, i64 312
   %2 = load ptr, ptr %vhost_set_inflight_fd, align 8
   %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   store ptr %vdev, ptr %hdev, align 8
-  %log_enabled = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 20
+  %log_enabled = getelementptr inbounds i8, ptr %hdev, i64 505
   %3 = load i8, ptr %log_enabled, align 1
   %4 = and i8 %3, 1
   %tobool = icmp ne i8 %4, 0
@@ -3773,7 +3738,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @vhost_dev_set_features(ptr noundef %dev, i1 noundef zeroext %enable_log) unnamed_addr #0 {
 entry:
-  %acked_features = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 14
+  %acked_features = getelementptr inbounds i8, ptr %dev, i64 464
   %0 = load i64, ptr %acked_features, align 8
   %or = or i64 %0, 67108864
   %spec.select = select i1 %enable_log, i64 %or, i64 %0
@@ -3801,9 +3766,9 @@ vhost_dev_has_iommu.exit:                         ; preds = %if.then.i
 
 3:                                                ; preds = %vhost_dev_has_iommu.exit, %vhost_dev_has_iommu.exit.thread
   %4 = phi i64 [ %and22, %vhost_dev_has_iommu.exit.thread ], [ %spec.select24, %vhost_dev_has_iommu.exit ]
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %5 = load ptr, ptr %vhost_ops, align 8
-  %vhost_force_iommu = getelementptr inbounds %struct.VhostOps, ptr %5, i64 0, i32 43
+  %vhost_force_iommu = getelementptr inbounds i8, ptr %5, i64 344
   %6 = load ptr, ptr %vhost_force_iommu, align 8
   %tobool3.not = icmp eq ptr %6, null
   br i1 %tobool3.not, label %if.end12, label %if.then4
@@ -3818,7 +3783,7 @@ if.then4:                                         ; preds = %3
 if.end12:                                         ; preds = %if.then4, %3
   %7 = phi ptr [ %5, %3 ], [ %.pre, %if.then4 ]
   %features.2 = phi i64 [ %4, %3 ], [ %spec.select20, %if.then4 ]
-  %vhost_set_features = getelementptr inbounds %struct.VhostOps, ptr %7, i64 0, i32 21
+  %vhost_set_features = getelementptr inbounds i8, ptr %7, i64 168
   %8 = load ptr, ptr %vhost_set_features, align 8
   %call14 = tail call i32 %8(ptr noundef nonnull %dev, i64 noundef %features.2) #18
   %cmp15 = icmp slt i32 %call14, 0
@@ -3832,7 +3797,7 @@ do.body:                                          ; preds = %if.end12
 
 if.end20:                                         ; preds = %if.end12
   %9 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_backend_cap = getelementptr inbounds %struct.VhostOps, ptr %9, i64 0, i32 23
+  %vhost_set_backend_cap = getelementptr inbounds i8, ptr %9, i64 184
   %10 = load ptr, ptr %vhost_set_backend_cap, align 8
   %tobool22.not = icmp eq ptr %10, null
   br i1 %tobool22.not, label %out, label %if.then23
@@ -3856,15 +3821,15 @@ out:                                              ; preds = %if.end20, %if.then2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_dev_set_inflight(ptr noundef %dev, ptr noundef %inflight) local_unnamed_addr #0 {
 entry:
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_inflight_fd = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 39
+  %vhost_set_inflight_fd = getelementptr inbounds i8, ptr %0, i64 312
   %1 = load ptr, ptr %vhost_set_inflight_fd, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %addr = getelementptr inbounds %struct.vhost_inflight, ptr %inflight, i64 0, i32 1
+  %addr = getelementptr inbounds i8, ptr %inflight, i64 8
   %2 = load ptr, ptr %addr, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %return, label %if.then
@@ -3888,9 +3853,9 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_dev_get_inflight(ptr noundef %dev, i16 noundef zeroext %queue_size, ptr noundef %inflight) local_unnamed_addr #0 {
 entry:
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_inflight_fd = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 38
+  %vhost_get_inflight_fd = getelementptr inbounds i8, ptr %0, i64 304
   %1 = load ptr, ptr %vhost_get_inflight_fd, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then
@@ -3915,7 +3880,7 @@ return:                                           ; preds = %entry, %if.then, %d
 define dso_local i32 @vhost_dev_start(ptr noundef %hdev, ptr noundef %vdev, i1 noundef zeroext %vrings) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -3925,7 +3890,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %vdev, i64 160
   %1 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3951,7 +3916,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
   %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %vrings to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.99, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %hdev, ptr noundef %1, i32 noundef %conv12.i.i) #18
@@ -3964,12 +3929,12 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_dev_start.exit:                       ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %vhost_started = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 24
+  %vhost_started = getelementptr inbounds i8, ptr %vdev, i64 442
   store i8 1, ptr %vhost_started, align 2
-  %started = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 19
+  %started = getelementptr inbounds i8, ptr %hdev, i64 504
   store i8 1, ptr %started, align 8
   store ptr %vdev, ptr %hdev, align 8
-  %log_enabled = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 20
+  %log_enabled = getelementptr inbounds i8, ptr %hdev, i64 505
   %9 = load i8, ptr %log_enabled, align 1
   %10 = and i8 %9, 1
   %tobool3 = icmp ne i8 %10, 0
@@ -3994,31 +3959,31 @@ vhost_dev_has_iommu.exit:                         ; preds = %if.then.i
   br i1 %tobool.i.i.i.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %vhost_dev_has_iommu.exit
-  %iommu_listener = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 2
-  %dma_as = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 29
+  %iommu_listener = getelementptr inbounds i8, ptr %hdev, i64 200
+  %dma_as = getelementptr inbounds i8, ptr %vdev, i64 472
   %13 = load ptr, ptr %dma_as, align 8
   tail call void @memory_listener_register(ptr noundef nonnull %iommu_listener, ptr noundef %13) #18
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end5, %if.then.i, %if.then7, %vhost_dev_has_iommu.exit
   %14 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_mem_table = getelementptr inbounds %struct.VhostOps, ptr %14, i64 0, i32 11
+  %vhost_set_mem_table = getelementptr inbounds i8, ptr %14, i64 88
   %15 = load ptr, ptr %vhost_set_mem_table, align 8
-  %mem = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 3
+  %mem = getelementptr inbounds i8, ptr %hdev, i64 392
   %16 = load ptr, ptr %mem, align 8
   %call10 = tail call i32 %15(ptr noundef nonnull %hdev, ptr noundef %16) #18
   %cmp11 = icmp slt i32 %call10, 0
   br i1 %cmp11, label %do.body, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end8
-  %nvqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %hdev, i64 440
   %17 = load i32, ptr %nvqs, align 8
   %cmp16146.not = icmp eq i32 %17, 0
   br i1 %cmp16146.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %vqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 8
-  %vq_index = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 10
+  %vqs = getelementptr inbounds i8, ptr %hdev, i64 432
+  %vq_index = getelementptr inbounds i8, ptr %hdev, i64 444
   br label %for.body
 
 do.body:                                          ; preds = %if.end8
@@ -4046,9 +4011,9 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %i.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
-  %vqs21 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 8
+  %vqs21 = getelementptr inbounds i8, ptr %hdev, i64 432
   %21 = load ptr, ptr %vqs21, align 8
-  %masked_config_notifier = getelementptr inbounds %struct.vhost_virtqueue, ptr %21, i64 0, i32 14
+  %masked_config_notifier = getelementptr inbounds i8, ptr %21, i64 108
   %call22 = tail call i32 @event_notifier_init(ptr noundef nonnull %masked_config_notifier, i32 noundef 0) #18
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %do.body25, label %if.end30
@@ -4061,9 +4026,9 @@ do.body25:                                        ; preds = %for.end
 
 if.end30:                                         ; preds = %for.end
   %22 = load ptr, ptr %vqs21, align 8
-  %masked_config_notifier33 = getelementptr inbounds %struct.vhost_virtqueue, ptr %22, i64 0, i32 14
+  %masked_config_notifier33 = getelementptr inbounds i8, ptr %22, i64 108
   %call34 = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %masked_config_notifier33) #18
-  %use_guest_notifier_mask = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 28
+  %use_guest_notifier_mask = getelementptr inbounds i8, ptr %vdev, i64 465
   %23 = load i8, ptr %use_guest_notifier_mask, align 1
   %24 = and i8 %23, 1
   %tobool35.not = icmp eq i8 %24, 0
@@ -4085,7 +4050,7 @@ if.end.i:                                         ; preds = %if.then36
   br i1 %cmp.i, label %if.end37, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %vhost_set_config_call.i = getelementptr inbounds %struct.VhostOps, ptr %25, i64 0, i32 44
+  %vhost_set_config_call.i = getelementptr inbounds i8, ptr %25, i64 352
   %28 = load ptr, ptr %vhost_set_config_call.i, align 8
   %cmp5.i = icmp eq ptr %28, null
   br i1 %cmp5.i, label %if.end37, label %if.else13.i
@@ -4107,7 +4072,7 @@ if.then40:                                        ; preds = %if.end37
   br i1 %cmp9.not.i, label %vhost_get_log_size.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then40
-  %regions.i = getelementptr inbounds %struct.vhost_memory, ptr %31, i64 0, i32 2
+  %regions.i = getelementptr inbounds i8, ptr %31, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -4116,7 +4081,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %idx.ext.i = sext i32 %i.010.i to i64
   %add.ptr.i = getelementptr %struct.vhost_memory_region, ptr %regions.i, i64 %idx.ext.i
   %33 = load i64, ptr %add.ptr.i, align 8
-  %memory_size.i = getelementptr %struct.vhost_memory_region, ptr %regions.i, i64 %idx.ext.i, i32 1
+  %memory_size.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %34 = load i64, ptr %memory_size.i, align 8
   %add.i.i = add i64 %33, -1
   %sub.i.i = add i64 %add.i.i, %34
@@ -4129,10 +4094,10 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 vhost_get_log_size.exit:                          ; preds = %for.body.i, %if.then40
   %log_size.0.lcssa.i = phi i64 [ 0, %if.then40 ], [ %cond.i, %for.body.i ]
-  %log_size = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 21
+  %log_size = getelementptr inbounds i8, ptr %hdev, i64 512
   store i64 %log_size.0.lcssa.i, ptr %log_size, align 8
   %35 = load ptr, ptr %vhost_ops, align 8
-  %vhost_requires_shm_log.i = getelementptr inbounds %struct.VhostOps, ptr %35, i64 0, i32 28
+  %vhost_requires_shm_log.i = getelementptr inbounds i8, ptr %35, i64 224
   %36 = load ptr, ptr %vhost_requires_shm_log.i, align 8
   %tobool.not.i85 = icmp eq ptr %36, null
   br i1 %tobool.not.i85, label %vhost_dev_log_is_shared.exit, label %land.rhs.i86
@@ -4144,13 +4109,13 @@ land.rhs.i86:                                     ; preds = %vhost_get_log_size.
 vhost_dev_log_is_shared.exit:                     ; preds = %vhost_get_log_size.exit, %land.rhs.i86
   %37 = phi i1 [ false, %vhost_get_log_size.exit ], [ %call.i87, %land.rhs.i86 ]
   %call44 = tail call fastcc ptr @vhost_log_get(i64 noundef %log_size.0.lcssa.i, i1 noundef zeroext %37)
-  %log = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 25
+  %log = getelementptr inbounds i8, ptr %hdev, i64 544
   store ptr %call44, ptr %log, align 8
-  %log46 = getelementptr inbounds %struct.vhost_log, ptr %call44, i64 0, i32 3
+  %log46 = getelementptr inbounds i8, ptr %call44, i64 16
   %38 = load ptr, ptr %log46, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_log_base = getelementptr inbounds %struct.VhostOps, ptr %40, i64 0, i32 10
+  %vhost_set_log_base = getelementptr inbounds i8, ptr %40, i64 80
   %41 = load ptr, ptr %vhost_set_log_base, align 8
   %42 = load i64, ptr %log_size, align 8
   %tobool49.not = icmp eq i64 %42, 0
@@ -4170,7 +4135,7 @@ if.end60:                                         ; preds = %vhost_dev_log_is_sh
   br i1 %vrings, label %if.then62, label %if.end67
 
 if.then62:                                        ; preds = %if.end60
-  %vhost_set_vring_enable.i = getelementptr inbounds %struct.VhostOps, ptr %.pre156, i64 0, i32 27
+  %vhost_set_vring_enable.i = getelementptr inbounds i8, ptr %.pre156, i64 216
   %43 = load ptr, ptr %vhost_set_vring_enable.i, align 8
   %tobool.not.i89 = icmp eq ptr %43, null
   br i1 %tobool.not.i89, label %if.end67, label %if.end.i90
@@ -4181,7 +4146,7 @@ if.end.i90:                                       ; preds = %if.then62
   br i1 %cmp.i91, label %land.lhs.true.i, label %vhost_dev_set_vring_enable.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i90
-  %backend_features.i = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 15
+  %backend_features.i = getelementptr inbounds i8, ptr %hdev, i64 472
   %45 = load i64, ptr %backend_features.i, align 8
   %and.i.i = and i64 %45, 1073741824
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
@@ -4198,7 +4163,7 @@ vhost_dev_set_vring_enable.exit.if.end67_crit_edge: ; preds = %vhost_dev_set_vri
 
 if.end67:                                         ; preds = %vhost_dev_set_vring_enable.exit.if.end67_crit_edge, %land.lhs.true.i, %if.then62, %if.end60
   %46 = phi ptr [ %.pre, %vhost_dev_set_vring_enable.exit.if.end67_crit_edge ], [ %.pre156, %land.lhs.true.i ], [ %.pre156, %if.then62 ], [ %.pre156, %if.end60 ]
-  %vhost_dev_start = getelementptr inbounds %struct.VhostOps, ptr %46, i64 0, i32 40
+  %vhost_dev_start = getelementptr inbounds i8, ptr %46, i64 320
   %47 = load ptr, ptr %vhost_dev_start, align 8
   %tobool69.not = icmp eq ptr %47, null
   br i1 %tobool69.not, label %if.end77, label %if.then70
@@ -4226,7 +4191,7 @@ vhost_dev_has_iommu.exit101:                      ; preds = %if.then.i94
 
 land.lhs.true:                                    ; preds = %vhost_dev_has_iommu.exit101
   %50 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_iotlb_callback = getelementptr inbounds %struct.VhostOps, ptr %50, i64 0, i32 32
+  %vhost_set_iotlb_callback = getelementptr inbounds i8, ptr %50, i64 256
   %51 = load ptr, ptr %vhost_set_iotlb_callback, align 8
   %tobool80.not = icmp eq ptr %51, null
   br i1 %tobool80.not, label %if.end.i104, label %if.then81
@@ -4260,10 +4225,10 @@ if.else.i108:                                     ; preds = %if.end95
 
 if.end.i104:                                      ; preds = %land.lhs.true, %if.end95
   %56 = load ptr, ptr %hdev, align 8
-  %config_notifier.i = getelementptr inbounds %struct.VirtIODevice, ptr %56, i64 0, i32 32
+  %config_notifier.i = getelementptr inbounds i8, ptr %56, i64 504
   %call.i105 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %config_notifier.i) #18
   %57 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_config_call.i106 = getelementptr inbounds %struct.VhostOps, ptr %57, i64 0, i32 44
+  %vhost_set_config_call.i106 = getelementptr inbounds i8, ptr %57, i64 352
   %58 = load ptr, ptr %vhost_set_config_call.i106, align 8
   %tobool2.not.i = icmp eq ptr %58, null
   br i1 %tobool2.not.i, label %return, label %if.then3.i
@@ -4275,7 +4240,7 @@ if.then3.i:                                       ; preds = %if.end.i104
 
 if.then8.i:                                       ; preds = %if.then3.i
   %59 = load ptr, ptr %hdev, align 8
-  %config_notifier10.i = getelementptr inbounds %struct.VirtIODevice, ptr %59, i64 0, i32 32
+  %config_notifier10.i = getelementptr inbounds i8, ptr %59, i64 504
   %call11.i = tail call i32 @event_notifier_set(ptr noundef nonnull %config_notifier10.i) #18
   br label %return
 
@@ -4284,7 +4249,7 @@ fail_start:                                       ; preds = %if.then70
 
 if.then97:                                        ; preds = %fail_start
   %60 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_enable.i110 = getelementptr inbounds %struct.VhostOps, ptr %60, i64 0, i32 27
+  %vhost_set_vring_enable.i110 = getelementptr inbounds i8, ptr %60, i64 216
   %61 = load ptr, ptr %vhost_set_vring_enable.i110, align 8
   %tobool.not.i111 = icmp eq ptr %61, null
   br i1 %tobool.not.i111, label %fail_log, label %if.end.i112
@@ -4295,7 +4260,7 @@ if.end.i112:                                      ; preds = %if.then97
   br i1 %cmp.i113, label %land.lhs.true.i117, label %if.end3.i114
 
 land.lhs.true.i117:                               ; preds = %if.end.i112
-  %backend_features.i118 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 15
+  %backend_features.i118 = getelementptr inbounds i8, ptr %hdev, i64 472
   %63 = load i64, ptr %backend_features.i118, align 8
   %and.i.i119 = and i64 %63, 1073741824
   %tobool.i.not.i120 = icmp eq i64 %and.i.i119, 0
@@ -4307,13 +4272,13 @@ if.end3.i114:                                     ; preds = %land.lhs.true.i117,
 
 fail_log:                                         ; preds = %if.end3.i114, %land.lhs.true.i117, %if.then97, %fail_start, %vhost_dev_set_vring_enable.exit, %do.body54
   %r.0 = phi i32 [ %call51, %do.body54 ], [ %call6.i, %vhost_dev_set_vring_enable.exit ], [ %call73, %fail_start ], [ %call73, %if.then97 ], [ %call73, %land.lhs.true.i117 ], [ %call73, %if.end3.i114 ]
-  %log1.i = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 25
+  %log1.i = getelementptr inbounds i8, ptr %hdev, i64 544
   %64 = load ptr, ptr %log1.i, align 8
   %tobool.not.i122 = icmp eq ptr %64, null
   br i1 %tobool.not.i122, label %fail_vq, label %if.end.i123
 
 if.end.i123:                                      ; preds = %fail_log
-  %refcnt.i = getelementptr inbounds %struct.vhost_log, ptr %64, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %64, i64 8
   %65 = load i32, ptr %refcnt.i, align 8
   %dec.i = add i32 %65, -1
   store i32 %dec.i, ptr %refcnt.i, align 8
@@ -4326,7 +4291,7 @@ if.then3.i125:                                    ; preds = %if.end.i123
   br i1 %cmp9.i, label %if.then10.i, label %if.else.i127
 
 if.then10.i:                                      ; preds = %if.then3.i125
-  %log11.i = getelementptr inbounds %struct.vhost_log, ptr %64, i64 0, i32 3
+  %log11.i = getelementptr inbounds i8, ptr %64, i64 16
   %67 = load ptr, ptr %log11.i, align 8
   tail call void @g_free(ptr noundef %67) #18
   br label %if.end17.sink.split.i
@@ -4337,11 +4302,11 @@ if.else.i127:                                     ; preds = %if.then3.i125
   br i1 %cmp12.i, label %if.then13.i, label %if.end17.i128
 
 if.then13.i:                                      ; preds = %if.else.i127
-  %log14.i = getelementptr inbounds %struct.vhost_log, ptr %64, i64 0, i32 3
+  %log14.i = getelementptr inbounds i8, ptr %64, i64 16
   %69 = load ptr, ptr %log14.i, align 8
   %70 = load i64, ptr %64, align 8
   %mul15.i = shl i64 %70, 3
-  %fd.i = getelementptr inbounds %struct.vhost_log, ptr %64, i64 0, i32 2
+  %fd.i = getelementptr inbounds i8, ptr %64, i64 12
   %71 = load i32, ptr %fd.i, align 4
   tail call void @qemu_memfd_free(ptr noundef %69, i64 noundef %mul15.i, i32 noundef %71) #18
   br label %if.end17.sink.split.i
@@ -4357,7 +4322,7 @@ if.end17.i128:                                    ; preds = %if.end17.sink.split
 
 if.end18.i:                                       ; preds = %if.end17.i128, %if.end.i123
   store ptr null, ptr %log1.i, align 8
-  %log_size20.i = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 21
+  %log_size20.i = getelementptr inbounds i8, ptr %hdev, i64 512
   store i64 0, ptr %log_size20.i, align 8
   br label %fail_vq
 
@@ -4369,8 +4334,8 @@ fail_vq:                                          ; preds = %for.body, %if.end18
   br i1 %cmp100151, label %while.body.lr.ph, label %fail_mem
 
 while.body.lr.ph:                                 ; preds = %fail_vq
-  %vqs101 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 8
-  %vq_index104 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 10
+  %vqs101 = getelementptr inbounds i8, ptr %hdev, i64 432
+  %vq_index104 = getelementptr inbounds i8, ptr %hdev, i64 444
   %72 = zext nneg i32 %dec150 to i64
   br label %while.body
 
@@ -4404,7 +4369,7 @@ vhost_dev_has_iommu.exit137:                      ; preds = %if.then.i130
   br i1 %tobool.i.i.i136.not, label %fail_features, label %if.then107
 
 if.then107:                                       ; preds = %vhost_dev_has_iommu.exit137
-  %iommu_listener108 = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 2
+  %iommu_listener108 = getelementptr inbounds i8, ptr %hdev, i64 200
   tail call void @memory_listener_unregister(ptr noundef nonnull %iommu_listener108) #18
   br label %fail_features
 
@@ -4444,7 +4409,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %mul.i = shl nuw nsw i64 %size, 3
   store i32 -1, ptr %fd.i, align 4
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #21
-  %log2.i = getelementptr inbounds %struct.vhost_log, ptr %call.i, i64 0, i32 3
+  %log2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   br i1 %share, label %if.then.i, label %if.else
 
 if.then.i:                                        ; preds = %if.then
@@ -4465,9 +4430,9 @@ vhost_log_alloc.exit.thread11:                    ; preds = %if.then.i
   call void @llvm.memset.p0.i64(ptr align 8 %call1.i, i8 0, i64 %mul.i, i1 false)
   %.pre.i = load i32, ptr %fd.i, align 4
   store i64 %size, ptr %call.i, align 8
-  %refcnt.i12 = getelementptr inbounds %struct.vhost_log, ptr %call.i, i64 0, i32 1
+  %refcnt.i12 = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %refcnt.i12, align 8
-  %fd10.i13 = getelementptr inbounds %struct.vhost_log, ptr %call.i, i64 0, i32 2
+  %fd10.i13 = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 %.pre.i, ptr %fd10.i13, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.i)
@@ -4482,9 +4447,9 @@ if.else:                                          ; preds = %if.then
   %call6.i = tail call noalias ptr @g_malloc0(i64 noundef %mul.i) #20
   store ptr %call6.i, ptr %log2.i, align 8
   store i64 %size, ptr %call.i, align 8
-  %refcnt.i = getelementptr inbounds %struct.vhost_log, ptr %call.i, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %refcnt.i, align 8
-  %fd10.i = getelementptr inbounds %struct.vhost_log, ptr %call.i, i64 0, i32 2
+  %fd10.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 -1, ptr %fd10.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.i)
@@ -4492,7 +4457,7 @@ if.else:                                          ; preds = %if.then
   br label %if.end7
 
 if.else6:                                         ; preds = %lor.lhs.false
-  %refcnt = getelementptr inbounds %struct.vhost_log, ptr %cond, i64 0, i32 1
+  %refcnt = getelementptr inbounds i8, ptr %cond, i64 8
   %4 = load i32, ptr %refcnt, align 8
   %inc = add i32 %4, 1
   store i32 %inc, ptr %refcnt, align 8
@@ -4506,13 +4471,13 @@ if.end7:                                          ; preds = %if.then5, %if.else,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @vhost_log_put(ptr nocapture noundef %dev, i1 noundef zeroext %sync) unnamed_addr #0 {
 entry:
-  %log1 = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 25
+  %log1 = getelementptr inbounds i8, ptr %dev, i64 544
   %0 = load ptr, ptr %log1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcnt = getelementptr inbounds %struct.vhost_log, ptr %0, i64 0, i32 1
+  %refcnt = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %refcnt, align 8
   %dec = add i32 %1, -1
   store i32 %dec, ptr %refcnt, align 8
@@ -4520,7 +4485,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then3, label %if.end18
 
 if.then3:                                         ; preds = %if.end
-  %log_size = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 21
+  %log_size = getelementptr inbounds i8, ptr %dev, i64 512
   %2 = load i64, ptr %log_size, align 8
   %tobool4.not = icmp ne i64 %2, 0
   %brmerge.not = and i1 %tobool4.not, %sync
@@ -4529,13 +4494,13 @@ if.then3:                                         ; preds = %if.end
 if.then6:                                         ; preds = %if.then3
   %mul = shl i64 %2, 18
   %sub = add i64 %mul, -1
-  %n_mem_sections.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 4
+  %n_mem_sections.i = getelementptr inbounds i8, ptr %dev, i64 400
   %3 = load i32, ptr %n_mem_sections.i, align 8
   %cmp5.i = icmp sgt i32 %3, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %if.end8
 
 for.body.lr.ph.i:                                 ; preds = %if.then6
-  %mem_sections.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 5
+  %mem_sections.i = getelementptr inbounds i8, ptr %dev, i64 408
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -4555,7 +4520,7 @@ if.end8:                                          ; preds = %for.body.i, %if.the
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.end8
-  %log11 = getelementptr inbounds %struct.vhost_log, ptr %0, i64 0, i32 3
+  %log11 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %log11, align 8
   tail call void @g_free(ptr noundef %8) #18
   br label %if.end17.sink.split
@@ -4566,11 +4531,11 @@ if.else:                                          ; preds = %if.end8
   br i1 %cmp12, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %if.else
-  %log14 = getelementptr inbounds %struct.vhost_log, ptr %0, i64 0, i32 3
+  %log14 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %log14, align 8
   %11 = load i64, ptr %0, align 8
   %mul15 = shl i64 %11, 3
-  %fd = getelementptr inbounds %struct.vhost_log, ptr %0, i64 0, i32 2
+  %fd = getelementptr inbounds i8, ptr %0, i64 12
   %12 = load i32, ptr %fd, align 4
   tail call void @qemu_memfd_free(ptr noundef %10, i64 noundef %mul15, i32 noundef %12) #18
   br label %if.end17.sink.split
@@ -4586,7 +4551,7 @@ if.end17:                                         ; preds = %if.end17.sink.split
 
 if.end18:                                         ; preds = %if.end17, %if.end
   store ptr null, ptr %log1, align 8
-  %log_size20 = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 21
+  %log_size20 = getelementptr inbounds i8, ptr %dev, i64 512
   store i64 0, ptr %log_size20, align 8
   br label %return
 
@@ -4598,7 +4563,7 @@ return:                                           ; preds = %entry, %if.end18
 define dso_local void @vhost_dev_stop(ptr noundef %hdev, ptr noundef %vdev, i1 noundef zeroext %vrings) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -4608,16 +4573,16 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 8
+  %vqs = getelementptr inbounds i8, ptr %hdev, i64 432
   %1 = load ptr, ptr %vqs, align 8
-  %masked_config_notifier = getelementptr inbounds %struct.vhost_virtqueue, ptr %1, i64 0, i32 14
+  %masked_config_notifier = getelementptr inbounds i8, ptr %1, i64 108
   %call = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %masked_config_notifier) #18
-  %config_notifier = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 32
+  %config_notifier = getelementptr inbounds i8, ptr %vdev, i64 504
   %call1 = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %config_notifier) #18
   %2 = load ptr, ptr %vqs, align 8
-  %masked_config_notifier4 = getelementptr inbounds %struct.vhost_virtqueue, ptr %2, i64 0, i32 14
+  %masked_config_notifier4 = getelementptr inbounds i8, ptr %2, i64 108
   tail call void @event_notifier_cleanup(ptr noundef nonnull %masked_config_notifier4) #18
-  %name = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %vdev, i64 160
   %3 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4643,7 +4608,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
   %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %vrings to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %hdev, ptr noundef %3, i32 noundef %conv12.i.i) #18
@@ -4657,7 +4622,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_vhost_dev_stop.exit:                        ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %11 = load ptr, ptr %vhost_ops, align 8
-  %vhost_dev_start = getelementptr inbounds %struct.VhostOps, ptr %11, i64 0, i32 40
+  %vhost_dev_start = getelementptr inbounds i8, ptr %11, i64 320
   %12 = load ptr, ptr %vhost_dev_start, align 8
   %tobool7.not = icmp eq ptr %12, null
   br i1 %tobool7.not, label %if.end12, label %if.then8
@@ -4671,7 +4636,7 @@ if.end12:                                         ; preds = %if.then8, %trace_vh
 
 if.then14:                                        ; preds = %if.end12
   %13 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_vring_enable.i = getelementptr inbounds %struct.VhostOps, ptr %13, i64 0, i32 27
+  %vhost_set_vring_enable.i = getelementptr inbounds i8, ptr %13, i64 216
   %14 = load ptr, ptr %vhost_set_vring_enable.i, align 8
   %tobool.not.i = icmp eq ptr %14, null
   br i1 %tobool.not.i, label %if.end16, label %if.end.i
@@ -4682,7 +4647,7 @@ if.end.i:                                         ; preds = %if.then14
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end3.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %backend_features.i = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 15
+  %backend_features.i = getelementptr inbounds i8, ptr %hdev, i64 472
   %16 = load i64, ptr %backend_features.i, align 8
   %and.i.i = and i64 %16, 1073741824
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
@@ -4693,13 +4658,13 @@ if.end3.i:                                        ; preds = %land.lhs.true.i, %i
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end3.i, %land.lhs.true.i, %if.then14, %if.end12
-  %nvqs = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %hdev, i64 440
   %17 = load i32, ptr %nvqs, align 8
   %cmp41.not = icmp eq i32 %17, 0
   br i1 %cmp41.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end16
-  %vq_index = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 10
+  %vq_index = getelementptr inbounds i8, ptr %hdev, i64 444
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -4717,7 +4682,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %if.end16
   %21 = load ptr, ptr %vhost_ops, align 8
-  %vhost_reset_status = getelementptr inbounds %struct.VhostOps, ptr %21, i64 0, i32 45
+  %vhost_reset_status = getelementptr inbounds i8, ptr %21, i64 360
   %22 = load ptr, ptr %vhost_reset_status, align 8
   %tobool19.not = icmp eq ptr %22, null
   br i1 %tobool19.not, label %if.end23, label %if.then20
@@ -4744,7 +4709,7 @@ vhost_dev_has_iommu.exit:                         ; preds = %if.then.i
 
 if.then25:                                        ; preds = %vhost_dev_has_iommu.exit
   %25 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_iotlb_callback = getelementptr inbounds %struct.VhostOps, ptr %25, i64 0, i32 32
+  %vhost_set_iotlb_callback = getelementptr inbounds i8, ptr %25, i64 256
   %26 = load ptr, ptr %vhost_set_iotlb_callback, align 8
   %tobool27.not = icmp eq ptr %26, null
   br i1 %tobool27.not, label %if.end31, label %if.then28
@@ -4754,7 +4719,7 @@ if.then28:                                        ; preds = %if.then25
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then28, %if.then25
-  %iommu_listener = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 2
+  %iommu_listener = getelementptr inbounds i8, ptr %hdev, i64 200
   tail call void @memory_listener_unregister(ptr noundef nonnull %iommu_listener) #18
   br label %if.end32
 
@@ -4768,7 +4733,7 @@ if.else.i:                                        ; preds = %if.end32
   unreachable
 
 if.end.i38:                                       ; preds = %if.end32
-  %vhost_set_config_call.i = getelementptr inbounds %struct.VhostOps, ptr %27, i64 0, i32 44
+  %vhost_set_config_call.i = getelementptr inbounds i8, ptr %27, i64 352
   %28 = load ptr, ptr %vhost_set_config_call.i, align 8
   %tobool2.not.i = icmp eq ptr %28, null
   br i1 %tobool2.not.i, label %vhost_stop_config_intr.exit, label %if.then3.i
@@ -4779,9 +4744,9 @@ if.then3.i:                                       ; preds = %if.end.i38
 
 vhost_stop_config_intr.exit:                      ; preds = %if.end.i38, %if.then3.i
   tail call fastcc void @vhost_log_put(ptr noundef nonnull %hdev, i1 noundef zeroext true)
-  %started = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 19
+  %started = getelementptr inbounds i8, ptr %hdev, i64 504
   store i8 0, ptr %started, align 8
-  %vhost_started = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 24
+  %vhost_started = getelementptr inbounds i8, ptr %vdev, i64 442
   store i8 0, ptr %vhost_started, align 2
   store ptr null, ptr %hdev, align 8
   ret void
@@ -4792,9 +4757,9 @@ declare void @event_notifier_cleanup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_net_set_backend(ptr noundef %hdev, ptr noundef %file) local_unnamed_addr #0 {
 entry:
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
-  %vhost_net_set_backend = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 5
+  %vhost_net_set_backend = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %vhost_net_set_backend, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then
@@ -4811,9 +4776,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_reset_device(ptr noundef %hdev) local_unnamed_addr #0 {
 entry:
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %hdev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %hdev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
-  %vhost_reset_device = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 25
+  %vhost_reset_device = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load ptr, ptr %vhost_reset_device, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then
@@ -4830,9 +4795,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @vhost_supports_device_state(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
-  %vhost_supports_device_state = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 46
+  %vhost_supports_device_state = getelementptr inbounds i8, ptr %0, i64 368
   %1 = load ptr, ptr %vhost_supports_device_state, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then
@@ -4849,9 +4814,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_set_device_state_fd(ptr noundef %dev, i32 noundef %direction, i32 noundef %phase, i32 noundef %fd, ptr noundef %reply_fd, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
-  %vhost_set_device_state_fd = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 47
+  %vhost_set_device_state_fd = getelementptr inbounds i8, ptr %0, i64 376
   %1 = load ptr, ptr %vhost_set_device_state_fd, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4872,9 +4837,9 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_check_device_state(ptr noundef %dev, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
-  %vhost_check_device_state = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 48
+  %vhost_check_device_state = getelementptr inbounds i8, ptr %0, i64 384
   %1 = load ptr, ptr %vhost_check_device_state, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4906,14 +4871,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %g_err, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %0, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 2212, ptr noundef nonnull @__func__.vhost_save_backend_state, ptr noundef nonnull @.str.35, ptr noundef %1) #18
   br label %if.end45
 
 if.end:                                           ; preds = %entry
   %2 = load i32, ptr %pipe_fds, align 4
-  %started = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 19
+  %started = getelementptr inbounds i8, ptr %dev, i64 504
   %3 = load i8, ptr %started, align 8
   %4 = and i8 %3, 1
   %tobool2.not = icmp eq i8 %4, 0
@@ -4924,9 +4889,9 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %5 = load ptr, ptr %vhost_ops.i, align 8
-  %vhost_set_device_state_fd.i = getelementptr inbounds %struct.VhostOps, ptr %5, i64 0, i32 47
+  %vhost_set_device_state_fd.i = getelementptr inbounds i8, ptr %5, i64 376
   %6 = load ptr, ptr %vhost_set_device_state_fd.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %vhost_set_device_state_fd.exit.thread, label %vhost_set_device_state_fd.exit
@@ -4936,7 +4901,7 @@ vhost_set_device_state_fd.exit.thread:            ; preds = %if.end4
   br label %if.then6
 
 vhost_set_device_state_fd.exit:                   ; preds = %if.end4
-  %arrayidx1 = getelementptr inbounds [2 x i32], ptr %pipe_fds, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %pipe_fds, i64 4
   %7 = load i32, ptr %arrayidx1, align 4
   %call.i = call i32 %6(ptr noundef nonnull %dev, i32 noundef 0, i32 noundef 0, i32 noundef %7, ptr noundef nonnull %reply_fd, ptr noundef %errp) #18
   %cmp = icmp slt i32 %call.i, 0
@@ -5022,7 +4987,7 @@ if.else34:                                        ; preds = %while.end
 
 if.end35:                                         ; preds = %while.end
   %14 = load ptr, ptr %vhost_ops.i, align 8
-  %vhost_check_device_state.i = getelementptr inbounds %struct.VhostOps, ptr %14, i64 0, i32 48
+  %vhost_check_device_state.i = getelementptr inbounds i8, ptr %14, i64 384
   %15 = load ptr, ptr %vhost_check_device_state.i, align 8
   %tobool.not.i22 = icmp eq ptr %15, null
   br i1 %tobool.not.i22, label %if.end.i26, label %if.then.i23
@@ -5098,15 +5063,15 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %g_err, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %0, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 2303, ptr noundef nonnull @__func__.vhost_load_backend_state, ptr noundef nonnull @.str.35, ptr noundef %1) #18
   br label %if.end70
 
 if.end:                                           ; preds = %entry
-  %arrayidx1 = getelementptr inbounds [2 x i32], ptr %pipe_fds, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %pipe_fds, i64 4
   %2 = load i32, ptr %arrayidx1, align 4
-  %started = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 19
+  %started = getelementptr inbounds i8, ptr %dev, i64 504
   %3 = load i8, ptr %started, align 8
   %4 = and i8 %3, 1
   %tobool2.not = icmp eq i8 %4, 0
@@ -5117,9 +5082,9 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %5 = load ptr, ptr %vhost_ops.i, align 8
-  %vhost_set_device_state_fd.i = getelementptr inbounds %struct.VhostOps, ptr %5, i64 0, i32 47
+  %vhost_set_device_state_fd.i = getelementptr inbounds i8, ptr %5, i64 376
   %6 = load ptr, ptr %vhost_set_device_state_fd.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %vhost_set_device_state_fd.exit.thread, label %vhost_set_device_state_fd.exit
@@ -5316,7 +5281,7 @@ entry:
   %add.ptr = getelementptr i8, ptr %n, i64 -96
   %dev1 = getelementptr i8, ptr %n, i64 24
   %0 = load ptr, ptr %dev1, align 8
-  %vqs = getelementptr inbounds %struct.vhost_dev, ptr %0, i64 0, i32 8
+  %vqs = getelementptr inbounds i8, ptr %0, i64 432
   %1 = load ptr, ptr %vqs, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -5333,7 +5298,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %land.lhs.true
-  %vq_index = getelementptr inbounds %struct.vhost_dev, ptr %0, i64 0, i32 10
+  %vq_index = getelementptr inbounds i8, ptr %0, i64 444
   %3 = load i32, ptr %vq_index, align 4
   %add = add i32 %3, %conv
   %call3 = tail call ptr @strerror(i32 noundef 22) #18
@@ -5381,7 +5346,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #18
   %call10.i = tail call i32 @qemu_get_thread_id() #18
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %name, i32 noundef %d) #18
   br label %_nocheck__trace_vhost_reject_section.exit
@@ -5427,7 +5392,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #18
   %call10.i = tail call i32 @qemu_get_thread_id() #18
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %name, i64 noundef %new_size, i64 noundef %gpa, i64 noundef %owr) #18
   br label %_nocheck__trace_vhost_region_add_section_merge.exit
@@ -5449,21 +5414,21 @@ declare void @memory_region_ref(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @vhost_sync_dirty_bitmap(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %section, i64 noundef %last) unnamed_addr #0 {
 entry:
   %tmp29 = alloca %struct.IOMMUTLBEntry, align 8
-  %log_enabled = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 20
+  %log_enabled = getelementptr inbounds i8, ptr %dev, i64 505
   %0 = load i8, ptr %log_enabled, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %started = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 19
+  %started = getelementptr inbounds i8, ptr %dev, i64 504
   %2 = load i8, ptr %started, align 8
   %3 = and i8 %2, 1
   %tobool1.not = icmp eq i8 %3, 0
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %offset_within_address_space = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
   %4 = load i64, ptr %offset_within_address_space, align 8
   %5 = load i128, ptr %section, align 16
   %cmp.i = icmp ult i128 %5, 18446744073709551616
@@ -5478,20 +5443,20 @@ int128_get64.exit:                                ; preds = %if.end
   %add.i = add i64 %4, -1
   %sub.i = add i64 %add.i, %coerce.sroa.0.0.extract.trunc
   %cond8 = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %last)
-  %mem = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 3
+  %mem = getelementptr inbounds i8, ptr %dev, i64 392
   %6 = load ptr, ptr %mem, align 8
   %7 = load i32, ptr %6, align 8
   %cmp982.not = icmp eq i32 %7, 0
   br i1 %cmp982.not, label %for.cond13.preheader, label %for.body
 
 for.cond13.preheader:                             ; preds = %for.body, %int128_get64.exit
-  %nvqs = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %dev, i64 440
   %8 = load i32, ptr %nvqs, align 8
   %cmp1488.not = icmp eq i32 %8, 0
   br i1 %cmp1488.not, label %return, label %for.body15.lr.ph
 
 for.body15.lr.ph:                                 ; preds = %for.cond13.preheader
-  %vqs = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 8
+  %vqs = getelementptr inbounds i8, ptr %dev, i64 432
   %iotlb.sroa.223.0.tmp29.sroa_idx = getelementptr inbounds i8, ptr %tmp29, i64 16
   %iotlb.sroa.3.0.tmp29.sroa_idx = getelementptr inbounds i8, ptr %tmp29, i64 24
   br label %for.body15
@@ -5499,11 +5464,11 @@ for.body15.lr.ph:                                 ; preds = %for.cond13.preheade
 for.body:                                         ; preds = %int128_get64.exit, %for.body
   %9 = phi ptr [ %12, %for.body ], [ %6, %int128_get64.exit ]
   %i.083 = phi i32 [ %inc, %for.body ], [ 0, %int128_get64.exit ]
-  %regions = getelementptr inbounds %struct.vhost_memory, ptr %9, i64 0, i32 2
+  %regions = getelementptr inbounds i8, ptr %9, i64 8
   %idx.ext = sext i32 %i.083 to i64
   %add.ptr = getelementptr %struct.vhost_memory_region, ptr %regions, i64 %idx.ext
   %10 = load i64, ptr %add.ptr, align 8
-  %memory_size = getelementptr %struct.vhost_memory_region, ptr %regions, i64 %idx.ext, i32 1
+  %memory_size = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %11 = load i64, ptr %memory_size, align 8
   %add.i63 = add i64 %10, -1
   %sub.i64 = add i64 %add.i63, %11
@@ -5519,13 +5484,14 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   %.compoundliteral.sroa.0.089 = phi i32 [ undef, %for.body15.lr.ph ], [ %.compoundliteral.sroa.0.2, %for.inc85 ]
   %14 = load ptr, ptr %vqs, align 8
   %idx.ext16 = sext i32 %i.190 to i64
-  %used_phys = getelementptr %struct.vhost_virtqueue, ptr %14, i64 %idx.ext16, i32 10
+  %add.ptr17 = getelementptr %struct.vhost_virtqueue, ptr %14, i64 %idx.ext16
+  %used_phys = getelementptr inbounds i8, ptr %add.ptr17, i64 72
   %15 = load i64, ptr %used_phys, align 8
   %tobool18.not = icmp eq i64 %15, 0
   br i1 %tobool18.not, label %land.lhs.true, label %if.end21
 
 land.lhs.true:                                    ; preds = %for.body15
-  %used_size = getelementptr %struct.vhost_virtqueue, ptr %14, i64 %idx.ext16, i32 11
+  %used_size = getelementptr inbounds i8, ptr %add.ptr17, i64 80
   %16 = load i32, ptr %used_size, align 8
   %tobool19.not = icmp eq i32 %16, 0
   br i1 %tobool19.not, label %for.inc85, label %if.end21
@@ -5552,7 +5518,7 @@ vhost_dev_has_iommu.exit:                         ; preds = %if.then.i
   br i1 %tobool.i.i.i.not, label %if.else, label %if.then23
 
 if.then23:                                        ; preds = %vhost_dev_has_iommu.exit
-  %used_size27 = getelementptr %struct.vhost_virtqueue, ptr %14, i64 %idx.ext16, i32 11
+  %used_size27 = getelementptr inbounds i8, ptr %add.ptr17, i64 80
   %19 = load i32, ptr %used_size27, align 8
   %tobool28.not84 = icmp eq i32 %19, 0
   br i1 %tobool28.not84, label %for.inc85, label %while.body.preheader
@@ -5566,7 +5532,7 @@ while.body:                                       ; preds = %while.body.preheade
   %used_phys24.086 = phi i64 [ %add78, %if.end65 ], [ %.pre95, %while.body.preheader ]
   %used_size26.085 = phi i64 [ %sub77, %if.end65 ], [ %conv, %while.body.preheader ]
   %call.i65 = call ptr @get_ptr_rcu_reader() #18
-  %depth.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i65, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %call.i65, i64 12
   %20 = load i32, ptr %depth.i, align 4
   %inc.i = add i32 %20, 1
   store i32 %inc.i, ptr %depth.i, align 4
@@ -5583,7 +5549,7 @@ while.end.i:                                      ; preds = %while.body
 
 rcu_read_lock.exit:                               ; preds = %while.body, %while.end.i
   %22 = load ptr, ptr %dev, align 8
-  %dma_as = getelementptr inbounds %struct.VirtIODevice, ptr %22, i64 0, i32 29
+  %dma_as = getelementptr inbounds i8, ptr %22, i64 472
   %23 = load ptr, ptr %dma_as, align 8
   %bf.set = and i32 %.compoundliteral.sroa.0.187, -67108864
   %bf.clear31 = or disjoint i32 %bf.set, 1
@@ -5592,7 +5558,7 @@ rcu_read_lock.exit:                               ; preds = %while.body, %while.
   %iotlb.sroa.223.0.copyload = load i64, ptr %iotlb.sroa.223.0.tmp29.sroa_idx, align 8
   %iotlb.sroa.3.0.copyload = load i64, ptr %iotlb.sroa.3.0.tmp29.sroa_idx, align 8
   %call.i66 = call ptr @get_ptr_rcu_reader() #18
-  %depth.i67 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i66, i64 0, i32 2
+  %depth.i67 = getelementptr inbounds i8, ptr %call.i66, i64 12
   %24 = load i32, ptr %depth.i67, align 4
   %cmp.not.i68 = icmp eq i32 %24, 0
   br i1 %cmp.not.i68, label %if.else.i71, label %if.end.i
@@ -5611,7 +5577,7 @@ while.end.i69:                                    ; preds = %if.end.i
   store atomic i64 0, ptr %call.i66 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
   fence seq_cst
-  %waiting.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i66, i64 0, i32 1
+  %waiting.i = getelementptr inbounds i8, ptr %call.i66, i64 8
   %25 = load atomic i8, ptr %waiting.i monotonic, align 8
   %26 = and i8 %25, 1
   %tobool.not.i70 = icmp eq i8 %26, 0
@@ -5652,7 +5618,7 @@ if.end65:                                         ; preds = %rcu_read_unlock.exi
 
 if.else:                                          ; preds = %if.then.i.if.else_crit_edge, %if.end21, %vhost_dev_has_iommu.exit
   %28 = phi i64 [ %.pre, %if.then.i.if.else_crit_edge ], [ %15, %if.end21 ], [ %.pre95, %vhost_dev_has_iommu.exit ]
-  %used_size81 = getelementptr %struct.vhost_virtqueue, ptr %14, i64 %idx.ext16, i32 11
+  %used_size81 = getelementptr inbounds i8, ptr %add.ptr17, i64 80
   %29 = load i32, ptr %used_size81, align 8
   %conv82 = zext i32 %29 to i64
   %add.i75 = add i64 %28, -1
@@ -5674,9 +5640,9 @@ return:                                           ; preds = %for.inc85, %for.con
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @vhost_dev_sync_region(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %section, i64 noundef %mfirst, i64 noundef %mlast, i64 noundef %rfirst, i64 noundef %rlast) unnamed_addr #0 {
 entry:
-  %log = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 25
+  %log = getelementptr inbounds i8, ptr %dev, i64 544
   %0 = load ptr, ptr %log, align 8
-  %log1 = getelementptr inbounds %struct.vhost_log, ptr %0, i64 0, i32 3
+  %log1 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %log1, align 8
   %cond = tail call i64 @llvm.umax.i64(i64 %mfirst, i64 %rfirst)
   %cond7 = tail call i64 @llvm.umin.i64(i64 %mlast, i64 %rlast)
@@ -5684,13 +5650,13 @@ entry:
   %add.ptr = getelementptr i64, ptr %1, i64 %div23
   %div824 = lshr i64 %cond7, 18
   %add.ptr9 = getelementptr i64, ptr %1, i64 %div824
-  %add.ptr10 = getelementptr i64, ptr %add.ptr9, i64 1
+  %add.ptr10 = getelementptr i8, ptr %add.ptr9, i64 8
   %mul = and i64 %cond, -262144
   %cmp12 = icmp ult i64 %cond7, %cond
   br i1 %cmp12, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %log_size = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 21
+  %log_size = getelementptr inbounds i8, ptr %dev, i64 512
   %2 = load i64, ptr %log_size, align 8
   %cmp14 = icmp ult i64 %div824, %2
   br i1 %cmp14, label %if.end16, label %if.else
@@ -5708,9 +5674,9 @@ for.cond.preheader:                               ; preds = %if.end16
   br i1 %cmp2327, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %offset_within_address_space = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
-  %mr = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
+  %mr = getelementptr inbounds i8, ptr %section, i64 16
   br label %for.body
 
 if.else21:                                        ; preds = %if.end16
@@ -5748,7 +5714,7 @@ while.body31:                                     ; preds = %while.end, %while.b
 
 for.inc:                                          ; preds = %while.body31, %while.end, %for.body
   %addr.1 = add i64 %addr.028, 262144
-  %incdec.ptr = getelementptr i64, ptr %from.030, i64 1
+  %incdec.ptr = getelementptr i8, ptr %from.030, i64 8
   %cmp23 = icmp ult ptr %from.030, %add.ptr9
   br i1 %cmp23, label %for.body, label %for.end, !llvm.loop !41
 
@@ -5795,7 +5761,7 @@ if.end15:                                         ; preds = %if.then11
   br i1 %tobool.not.i, label %check_dev_state, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end15
-  %refcnt.i = getelementptr inbounds %struct.vhost_log, ptr %5, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %refcnt.i, align 8
   %dec.i = add i32 %6, -1
   store i32 %dec.i, ptr %refcnt.i, align 8
@@ -5808,7 +5774,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp9.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %if.then3.i
-  %log11.i = getelementptr inbounds %struct.vhost_log, ptr %5, i64 0, i32 3
+  %log11.i = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load ptr, ptr %log11.i, align 8
   tail call void @g_free(ptr noundef %8) #18
   br label %if.end17.sink.split.i
@@ -5819,11 +5785,11 @@ if.else.i:                                        ; preds = %if.then3.i
   br i1 %cmp12.i, label %if.then13.i, label %if.end17.i
 
 if.then13.i:                                      ; preds = %if.else.i
-  %log14.i = getelementptr inbounds %struct.vhost_log, ptr %5, i64 0, i32 3
+  %log14.i = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load ptr, ptr %log14.i, align 8
   %11 = load i64, ptr %5, align 8
   %mul15.i = shl i64 %11, 3
-  %fd.i = getelementptr inbounds %struct.vhost_log, ptr %5, i64 0, i32 2
+  %fd.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i32, ptr %fd.i, align 4
   tail call void @qemu_memfd_free(ptr noundef %10, i64 noundef %mul15.i, i32 noundef %12) #18
   br label %if.end17.sink.split.i
@@ -5851,7 +5817,7 @@ if.else:                                          ; preds = %if.end9
   br i1 %cmp9.not.i, label %vhost_get_log_size.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.else
-  %regions.i = getelementptr inbounds %struct.vhost_memory, ptr %13, i64 0, i32 2
+  %regions.i = getelementptr inbounds i8, ptr %13, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -5860,7 +5826,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %idx.ext.i = sext i32 %i.010.i to i64
   %add.ptr.i = getelementptr %struct.vhost_memory_region, ptr %regions.i, i64 %idx.ext.i
   %15 = load i64, ptr %add.ptr.i, align 8
-  %memory_size.i = getelementptr %struct.vhost_memory_region, ptr %regions.i, i64 %idx.ext.i, i32 1
+  %memory_size.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %16 = load i64, ptr %memory_size.i, align 8
   %add.i.i = add i64 %15, -1
   %sub.i.i = add i64 %add.i.i, %16
@@ -5875,7 +5841,7 @@ vhost_get_log_size.exit:                          ; preds = %for.body.i, %if.els
   %log_size.0.lcssa.i = phi i64 [ 0, %if.else ], [ %cond.i, %for.body.i ]
   %vhost_ops.i.i = getelementptr i8, ptr %listener, i64 520
   %17 = load ptr, ptr %vhost_ops.i.i, align 8
-  %vhost_requires_shm_log.i.i = getelementptr inbounds %struct.VhostOps, ptr %17, i64 0, i32 28
+  %vhost_requires_shm_log.i.i = getelementptr inbounds i8, ptr %17, i64 224
   %18 = load ptr, ptr %vhost_requires_shm_log.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i, label %vhost_dev_log_is_shared.exit.i, label %land.rhs.i.i
@@ -5887,11 +5853,11 @@ land.rhs.i.i:                                     ; preds = %vhost_get_log_size.
 vhost_dev_log_is_shared.exit.i:                   ; preds = %land.rhs.i.i, %vhost_get_log_size.exit
   %19 = phi i1 [ false, %vhost_get_log_size.exit ], [ %call.i.i, %land.rhs.i.i ]
   %call1.i = tail call fastcc ptr @vhost_log_get(i64 noundef %log_size.0.lcssa.i, i1 noundef zeroext %19)
-  %log2.i = getelementptr inbounds %struct.vhost_log, ptr %call1.i, i64 0, i32 3
+  %log2.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %20 = load ptr, ptr %log2.i, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = load ptr, ptr %vhost_ops.i.i, align 8
-  %vhost_set_log_base.i = getelementptr inbounds %struct.VhostOps, ptr %22, i64 0, i32 10
+  %vhost_set_log_base.i = getelementptr inbounds i8, ptr %22, i64 80
   %23 = load ptr, ptr %vhost_set_log_base.i, align 8
   %call3.i = tail call i32 %23(ptr noundef nonnull %add.ptr, i64 noundef %21, ptr noundef %call1.i) #18
   %cmp.i16 = icmp slt i32 %call3.i, 0
@@ -5941,22 +5907,22 @@ entry:
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nvqs = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %dev, i64 440
   %0 = load i32, ptr %nvqs, align 8
   %cmp132.not = icmp eq i32 %0, 0
   br i1 %cmp132.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
-  %vq_index = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 10
-  %vqs = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 8
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
+  %vq_index = getelementptr inbounds i8, ptr %dev, i64 444
+  %vqs = getelementptr inbounds i8, ptr %dev, i64 432
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %i.033 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %1 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vq_index = getelementptr inbounds %struct.VhostOps, ptr %1, i64 0, i32 26
+  %vhost_get_vq_index = getelementptr inbounds i8, ptr %1, i64 208
   %2 = load ptr, ptr %vhost_get_vq_index, align 8
   %3 = load i32, ptr %vq_index, align 4
   %add = add i32 %3, %i.033
@@ -5979,7 +5945,7 @@ for.cond12.preheader:                             ; preds = %if.end6
   br i1 %cmp1334, label %for.body14.lr.ph, label %for.end31
 
 for.body14.lr.ph:                                 ; preds = %for.cond12.preheader
-  %log_enabled = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 20
+  %log_enabled = getelementptr inbounds i8, ptr %dev, i64 505
   br label %for.body14
 
 for.inc:                                          ; preds = %if.end6, %for.body
@@ -5992,7 +5958,7 @@ for.inc:                                          ; preds = %if.end6, %for.body
 for.body14:                                       ; preds = %for.body14.lr.ph, %for.inc30
   %indvars.iv38 = phi i64 [ %indvars.iv, %for.body14.lr.ph ], [ %indvars.iv.next39, %for.inc30 ]
   %7 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vq_index16 = getelementptr inbounds %struct.VhostOps, ptr %7, i64 0, i32 26
+  %vhost_get_vq_index16 = getelementptr inbounds i8, ptr %7, i64 208
   %8 = load ptr, ptr %vhost_get_vq_index16, align 8
   %9 = load i32, ptr %vq_index, align 4
   %10 = trunc i64 %indvars.iv38 to i32
@@ -6018,7 +5984,7 @@ for.inc30:                                        ; preds = %for.body14, %if.end
   br i1 %cmp13, label %for.body14, label %for.end31, !llvm.loop !43
 
 for.end31:                                        ; preds = %for.inc30, %for.cond12.preheader
-  %log_enabled32 = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 20
+  %log_enabled32 = getelementptr inbounds i8, ptr %dev, i64 505
   %15 = load i8, ptr %log_enabled32, align 1
   %16 = and i8 %15, 1
   %tobool33 = icmp ne i8 %16, 0
@@ -6037,12 +6003,12 @@ define internal void @vhost_iommu_unmap_notify(ptr nocapture noundef readonly %n
 entry:
   %add.ptr = getelementptr i8, ptr %n, i64 -24
   %0 = load ptr, ptr %add.ptr, align 8
-  %iova2 = getelementptr inbounds %struct.IOMMUTLBEntry, ptr %iotlb, i64 0, i32 1
+  %iova2 = getelementptr inbounds i8, ptr %iotlb, i64 8
   %1 = load i64, ptr %iova2, align 8
   %iommu_offset = getelementptr i8, ptr %n, i64 -8
   %2 = load i64, ptr %iommu_offset, align 8
   %add = add i64 %2, %1
-  %addr_mask = getelementptr inbounds %struct.IOMMUTLBEntry, ptr %iotlb, i64 0, i32 3
+  %addr_mask = getelementptr inbounds i8, ptr %iotlb, i64 24
   %3 = load i64, ptr %addr_mask, align 8
   %add3 = add i64 %3, 1
   %call = tail call i32 @vhost_backend_invalidate_device_iotlb(ptr noundef %0, i64 noundef %add, i64 noundef %add3) #18

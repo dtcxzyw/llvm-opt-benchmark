@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ffc_backend.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [6 x i8] c"group\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"p\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c"g\00", align 1
@@ -38,13 +35,13 @@ entry:
   br i1 %cmp.not, label %if.end10, label %if.then
 
 if.then:                                          ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp1.not = icmp eq i32 %0, 4
   br i1 %cmp1.not, label %lor.lhs.false, label %err
 
 lor.lhs.false:                                    ; preds = %if.then
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %data, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %err, label %lor.lhs.false3
@@ -101,7 +98,7 @@ if.then31:                                        ; preds = %if.end28
 
 if.end35:                                         ; preds = %if.then31
   %2 = load i32, ptr %i, align 4
-  %gindex = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 8
+  %gindex = getelementptr inbounds i8, ptr %ffc, i64 56
   store i32 %2, ptr %gindex, align 8
   br label %if.end36
 
@@ -117,7 +114,7 @@ if.then39:                                        ; preds = %if.end36
 
 if.end43:                                         ; preds = %if.then39
   %3 = load i32, ptr %i, align 4
-  %pcounter = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 6
+  %pcounter = getelementptr inbounds i8, ptr %ffc, i64 48
   store i32 %3, ptr %pcounter, align 8
   br label %if.end44
 
@@ -143,7 +140,7 @@ if.then54:                                        ; preds = %if.end51
 
 if.end58:                                         ; preds = %if.then54
   %4 = load i32, ptr %i, align 4
-  %h = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 9
+  %h = getelementptr inbounds i8, ptr %ffc, i64 60
   store i32 %4, ptr %h, align 4
   br label %if.end59
 
@@ -153,15 +150,15 @@ if.end59:                                         ; preds = %if.end58, %if.end51
   br i1 %cmp61.not, label %if.end71, label %if.then62
 
 if.then62:                                        ; preds = %if.end59
-  %data_type63 = getelementptr inbounds %struct.ossl_param_st, ptr %call60, i64 0, i32 1
+  %data_type63 = getelementptr inbounds i8, ptr %call60, i64 8
   %5 = load i32, ptr %data_type63, align 8
   %cmp64.not = icmp eq i32 %5, 5
   br i1 %cmp64.not, label %lor.lhs.false65, label %err
 
 lor.lhs.false65:                                  ; preds = %if.then62
-  %data66 = getelementptr inbounds %struct.ossl_param_st, ptr %call60, i64 0, i32 2
+  %data66 = getelementptr inbounds i8, ptr %call60, i64 16
   %6 = load ptr, ptr %data66, align 8
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call60, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call60, i64 24
   %7 = load i64, ptr %data_size, align 8
   %call67 = call i32 @ossl_ffc_params_set_seed(ptr noundef %ffc, ptr noundef %6, i64 noundef %7) #2
   %tobool68.not = icmp eq i32 %call67, 0
@@ -218,7 +215,7 @@ if.end95:                                         ; preds = %if.end94, %if.end87
   br i1 %cmp97.not, label %if.end113, label %if.then98
 
 if.then98:                                        ; preds = %if.end95
-  %data_type99 = getelementptr inbounds %struct.ossl_param_st, ptr %call96, i64 0, i32 1
+  %data_type99 = getelementptr inbounds i8, ptr %call96, i64 8
   %11 = load i32, ptr %data_type99, align 8
   %cmp100.not = icmp eq i32 %11, 4
   br i1 %cmp100.not, label %if.end102, label %err
@@ -229,19 +226,19 @@ if.end102:                                        ; preds = %if.then98
   br i1 %cmp104.not, label %if.end111, label %if.then105
 
 if.then105:                                       ; preds = %if.end102
-  %data_type106 = getelementptr inbounds %struct.ossl_param_st, ptr %call103, i64 0, i32 1
+  %data_type106 = getelementptr inbounds i8, ptr %call103, i64 8
   %12 = load i32, ptr %data_type106, align 8
   %cmp107.not = icmp eq i32 %12, 4
   br i1 %cmp107.not, label %if.end109, label %err
 
 if.end109:                                        ; preds = %if.then105
-  %data110 = getelementptr inbounds %struct.ossl_param_st, ptr %call103, i64 0, i32 2
+  %data110 = getelementptr inbounds i8, ptr %call103, i64 16
   %13 = load ptr, ptr %data110, align 8
   br label %if.end111
 
 if.end111:                                        ; preds = %if.end109, %if.end102
   %props.0 = phi ptr [ %13, %if.end109 ], [ null, %if.end102 ]
-  %data112 = getelementptr inbounds %struct.ossl_param_st, ptr %call96, i64 0, i32 2
+  %data112 = getelementptr inbounds i8, ptr %call96, i64 16
   %14 = load ptr, ptr %data112, align 8
   call void @ossl_ffc_set_digest(ptr noundef %ffc, ptr noundef %14, ptr noundef %props.0) #2
   br label %if.end113

@@ -136,7 +136,7 @@ CreateGainFilter.exit.thread.i:                   ; preds = %while.end27.i.i, %e
 
 CreateGainFilter.exit.i:                          ; preds = %for.body.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i.i, ptr noundef nonnull align 16 dereferenceable(128) %arrayidx.i.i, i64 128, i1 false)
-  %downsample17.i.i = getelementptr inbounds %struct.ReplayGainFilter, ptr %call.i.i, i64 0, i32 1
+  %downsample17.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i32 %downsample.0.i.i.ph, ptr %downsample17.i.i, align 8
   store ptr %call.i.i, ptr @replaygainfilter, align 8
   %2 = load i64, ptr %call.i.i, align 8
@@ -245,16 +245,16 @@ if.end:                                           ; preds = %for.body.i
   store ptr getelementptr inbounds ([20 x float], ptr @linprebuf, i64 0, i64 10), ptr @linpre, align 8
   store ptr getelementptr inbounds ([20 x float], ptr @rinprebuf, i64 0, i64 10), ptr @rinpre, align 8
   %11 = load ptr, ptr @lstepbuf, align 8
-  %add.ptr = getelementptr inbounds float, ptr %11, i64 10
+  %add.ptr = getelementptr inbounds i8, ptr %11, i64 40
   store ptr %add.ptr, ptr @lstep, align 8
   %12 = load ptr, ptr @rstepbuf, align 8
-  %add.ptr1 = getelementptr inbounds float, ptr %12, i64 10
+  %add.ptr1 = getelementptr inbounds i8, ptr %12, i64 40
   store ptr %add.ptr1, ptr @rstep, align 8
   %13 = load ptr, ptr @loutbuf, align 8
-  %add.ptr2 = getelementptr inbounds float, ptr %13, i64 10
+  %add.ptr2 = getelementptr inbounds i8, ptr %13, i64 40
   store ptr %add.ptr2, ptr @lout, align 8
   %14 = load ptr, ptr @routbuf, align 8
-  %add.ptr3 = getelementptr inbounds float, ptr %14, i64 10
+  %add.ptr3 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %add.ptr3, ptr @rout, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48000) @B, i8 0, i64 48000, i1 false)
   br label %return
@@ -271,7 +271,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define dso_local i32 @AnalyzeSamples(ptr nocapture noundef readonly %left_samples, ptr nocapture noundef readonly %right_samples, i64 noundef %num_samples, i32 noundef %num_channels) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr @replaygainfilter, align 8
-  %downsample1 = getelementptr inbounds %struct.ReplayGainFilter, ptr %0, i64 0, i32 1
+  %downsample1 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %downsample1, align 8
   %conv = zext i32 %1 to i64
   %div = udiv i64 %num_samples, %conv
@@ -337,7 +337,7 @@ if.then28:                                        ; preds = %while.body
 
 if.else:                                          ; preds = %while.body
   %10 = load ptr, ptr @replaygainfilter, align 8
-  %downsample36 = getelementptr inbounds %struct.ReplayGainFilter, ptr %10, i64 0, i32 1
+  %downsample36 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i32, ptr %downsample36, align 8
   %conv37 = zext i32 %11 to i64
   %mul38 = mul nsw i64 %cursamplepos.0, %conv37
@@ -360,8 +360,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then28, %if.end4
   %.pn = load ptr, ptr @lstep, align 8
   %add.ptr44182 = getelementptr inbounds float, ptr %.pn, i64 %7
   %12 = load ptr, ptr @replaygainfilter, align 8
-  %AYule184 = getelementptr inbounds %struct.ReplayGainFilter, ptr %12, i64 0, i32 3
-  %BYule186 = getelementptr inbounds %struct.ReplayGainFilter, ptr %12, i64 0, i32 2
+  %AYule184 = getelementptr inbounds i8, ptr %12, i64 56
+  %BYule186 = getelementptr inbounds i8, ptr %12, i64 12
   %idx.ext.i = zext i32 %downsample.0175 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   br label %for.body.i
@@ -382,7 +382,7 @@ for.body4.i:                                      ; preds = %for.body4.i, %for.b
   %k.017.i = phi i64 [ 1, %for.body.i ], [ %inc.i, %for.body4.i ]
   %y.016.i = phi double [ %conv.i, %for.body.i ], [ %add.i, %for.body4.i ]
   %add.ptr.i = getelementptr inbounds float, ptr %input_tail.018.i, i64 %idx.neg.i
-  %incdec.ptr.i = getelementptr inbounds float, ptr %output_tail.019.i, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %output_tail.019.i, i64 -4
   %15 = load float, ptr %add.ptr.i, align 4
   %arrayidx5.i = getelementptr inbounds float, ptr %BYule186, i64 %k.017.i
   %16 = load float, ptr %arrayidx5.i, align 4
@@ -404,7 +404,7 @@ for.cond1.for.end_crit_edge.i:                    ; preds = %for.body4.i
   store float %conv10.i, ptr %arrayidx11.i, align 4
   %inc13.i = add nuw i64 %i.021.i, 1
   %add.ptr15.i = getelementptr inbounds float, ptr %input_head.022.i, i64 %idx.ext.i
-  %incdec.ptr16.i = getelementptr inbounds float, ptr %output_head.023.i, i64 1
+  %incdec.ptr16.i = getelementptr inbounds i8, ptr %output_head.023.i, i64 4
   %exitcond25.not.i = icmp eq i64 %inc13.i, %cursamples.0180
   br i1 %exitcond25.not.i, label %filter.exit, label %for.body.i, !llvm.loop !11
 
@@ -429,7 +429,7 @@ for.body4.i85:                                    ; preds = %for.body4.i85, %for
   %k.017.i88 = phi i64 [ 1, %for.body.i79 ], [ %inc.i97, %for.body4.i85 ]
   %y.016.i89 = phi double [ %conv.i84, %for.body.i79 ], [ %add.i96, %for.body4.i85 ]
   %add.ptr.i90 = getelementptr inbounds float, ptr %input_tail.018.i87, i64 %idx.neg.i
-  %incdec.ptr.i91 = getelementptr inbounds float, ptr %output_tail.019.i86, i64 -1
+  %incdec.ptr.i91 = getelementptr inbounds i8, ptr %output_tail.019.i86, i64 -4
   %24 = load float, ptr %add.ptr.i90, align 4
   %arrayidx5.i92 = getelementptr inbounds float, ptr %BYule186, i64 %k.017.i88
   %25 = load float, ptr %arrayidx5.i92, align 4
@@ -451,15 +451,15 @@ for.cond1.for.end_crit_edge.i99:                  ; preds = %for.body4.i85
   store float %conv10.i100, ptr %arrayidx11.i101, align 4
   %inc13.i102 = add nuw i64 %i.021.i82, 1
   %add.ptr15.i103 = getelementptr inbounds float, ptr %input_head.022.i81, i64 %idx.ext.i
-  %incdec.ptr16.i104 = getelementptr inbounds float, ptr %output_head.023.i80, i64 1
+  %incdec.ptr16.i104 = getelementptr inbounds i8, ptr %output_head.023.i80, i64 4
   %exitcond25.not.i105 = icmp eq i64 %inc13.i102, %cursamples.0180
   br i1 %exitcond25.not.i105, label %filter.exit106, label %for.body.i79, !llvm.loop !11
 
 filter.exit106:                                   ; preds = %for.cond1.for.end_crit_edge.i99
   %30 = load ptr, ptr @lout, align 8
   %add.ptr52 = getelementptr float, ptr %30, i64 %7
-  %AButter = getelementptr inbounds %struct.ReplayGainFilter, ptr %12, i64 0, i32 5
-  %BButter = getelementptr inbounds %struct.ReplayGainFilter, ptr %12, i64 0, i32 4
+  %AButter = getelementptr inbounds i8, ptr %12, i64 112
+  %BButter = getelementptr inbounds i8, ptr %12, i64 100
   br label %for.body.i109
 
 for.body.i109:                                    ; preds = %for.cond1.for.end_crit_edge.i129, %filter.exit106
@@ -477,8 +477,8 @@ for.body4.i115:                                   ; preds = %for.body4.i115, %fo
   %input_tail.018.i117 = phi ptr [ %input_head.022.i111, %for.body.i109 ], [ %add.ptr.i120, %for.body4.i115 ]
   %k.017.i118 = phi i64 [ 1, %for.body.i109 ], [ %inc.i127, %for.body4.i115 ]
   %y.016.i119 = phi double [ %conv.i114, %for.body.i109 ], [ %add.i126, %for.body4.i115 ]
-  %add.ptr.i120 = getelementptr inbounds float, ptr %input_tail.018.i117, i64 -1
-  %incdec.ptr.i121 = getelementptr inbounds float, ptr %output_tail.019.i116, i64 -1
+  %add.ptr.i120 = getelementptr inbounds i8, ptr %input_tail.018.i117, i64 -4
+  %incdec.ptr.i121 = getelementptr inbounds i8, ptr %output_tail.019.i116, i64 -4
   %33 = load float, ptr %add.ptr.i120, align 4
   %arrayidx5.i122 = getelementptr inbounds float, ptr %BButter, i64 %k.017.i118
   %34 = load float, ptr %arrayidx5.i122, align 4
@@ -499,8 +499,8 @@ for.cond1.for.end_crit_edge.i129:                 ; preds = %for.body4.i115
   %arrayidx11.i131 = getelementptr inbounds float, ptr %add.ptr52, i64 %i.021.i112
   store float %conv10.i130, ptr %arrayidx11.i131, align 4
   %inc13.i132 = add nuw i64 %i.021.i112, 1
-  %add.ptr15.i133 = getelementptr inbounds float, ptr %input_head.022.i111, i64 1
-  %incdec.ptr16.i134 = getelementptr inbounds float, ptr %output_head.023.i110, i64 1
+  %add.ptr15.i133 = getelementptr inbounds i8, ptr %input_head.022.i111, i64 4
+  %incdec.ptr16.i134 = getelementptr inbounds i8, ptr %output_head.023.i110, i64 4
   %exitcond25.not.i135 = icmp eq i64 %inc13.i132, %cursamples.0180
   br i1 %exitcond25.not.i135, label %filter.exit136, label %for.body.i109, !llvm.loop !11
 
@@ -524,8 +524,8 @@ for.body4.i145:                                   ; preds = %for.body4.i145, %fo
   %input_tail.018.i147 = phi ptr [ %input_head.022.i141, %for.body.i139 ], [ %add.ptr.i150, %for.body4.i145 ]
   %k.017.i148 = phi i64 [ 1, %for.body.i139 ], [ %inc.i157, %for.body4.i145 ]
   %y.016.i149 = phi double [ %conv.i144, %for.body.i139 ], [ %add.i156, %for.body4.i145 ]
-  %add.ptr.i150 = getelementptr inbounds float, ptr %input_tail.018.i147, i64 -1
-  %incdec.ptr.i151 = getelementptr inbounds float, ptr %output_tail.019.i146, i64 -1
+  %add.ptr.i150 = getelementptr inbounds i8, ptr %input_tail.018.i147, i64 -4
+  %incdec.ptr.i151 = getelementptr inbounds i8, ptr %output_tail.019.i146, i64 -4
   %42 = load float, ptr %add.ptr.i150, align 4
   %arrayidx5.i152 = getelementptr inbounds float, ptr %BButter, i64 %k.017.i148
   %43 = load float, ptr %arrayidx5.i152, align 4
@@ -546,8 +546,8 @@ for.cond1.for.end_crit_edge.i159:                 ; preds = %for.body4.i145
   %arrayidx11.i161 = getelementptr inbounds float, ptr %add.ptr56, i64 %i.021.i142
   store float %conv10.i160, ptr %arrayidx11.i161, align 4
   %inc13.i162 = add nuw i64 %i.021.i142, 1
-  %add.ptr15.i163 = getelementptr inbounds float, ptr %input_head.022.i141, i64 1
-  %incdec.ptr16.i164 = getelementptr inbounds float, ptr %output_head.023.i140, i64 1
+  %add.ptr15.i163 = getelementptr inbounds i8, ptr %input_head.022.i141, i64 4
+  %incdec.ptr16.i164 = getelementptr inbounds i8, ptr %output_head.023.i140, i64 4
   %exitcond25.not.i165 = icmp eq i64 %inc13.i162, %cursamples.0180
   br i1 %exitcond25.not.i165, label %filter.exit166, label %for.body.i139, !llvm.loop !11
 
@@ -658,7 +658,7 @@ if.then123:                                       ; preds = %while.end
 
 if.else135:                                       ; preds = %while.end
   %73 = load ptr, ptr @replaygainfilter, align 8
-  %downsample136 = getelementptr inbounds %struct.ReplayGainFilter, ptr %73, i64 0, i32 1
+  %downsample136 = getelementptr inbounds i8, ptr %73, i64 8
   %74 = load i32, ptr %downsample136, align 8
   %sub137 = add i64 %div, -10
   %conv138 = zext i32 %74 to i64

@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"class.OpenImageIO_v2_6_0::basic_string_view" = type { ptr, i64 }
 %"struct.dpx::ImageElement" = type { i32, i32, float, i32, float, i8, i8, i8, i8, i16, i16, i32, i32, i32, [32 x i8] }
-%"struct.dpx::GenericHeader" = type { i32, i32, [8 x i8], i32, i32, i32, i32, i32, [100 x i8], [24 x i8], [100 x i8], [200 x i8], [200 x i8], i32, [104 x i8], i16, i16, i32, i32, [8 x %"struct.dpx::ImageElement"], [52 x i8], i32, i32, float, float, i32, i32, [100 x i8], [24 x i8], [32 x i8], [32 x i8], [4 x i16], [2 x i32], float, float, [20 x i8] }
-%"struct.dpx::Header" = type <{ %"struct.dpx::GenericHeader", %"struct.dpx::IndustryHeader", i8, [3 x i8] }>
-%"struct.dpx::IndustryHeader" = type { [2 x i8], [2 x i8], [2 x i8], [6 x i8], [4 x i8], [32 x i8], i32, i32, i32, float, float, [32 x i8], [100 x i8], [56 x i8], i32, i32, i8, i8, i8, i8, float, float, float, float, float, float, float, float, float, float, [76 x i8] }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
@@ -51,16 +48,16 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   %arrayctor.cur.idx.i = phi i64 [ 780, %entry ], [ %arrayctor.cur.add.i, %arrayctor.loop.i ]
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx.i
   store i32 -1, ptr %arrayctor.cur.ptr.i, align 4
-  %lowData.i.i = getelementptr inbounds %"struct.dpx::ImageElement", ptr %arrayctor.cur.ptr.i, i64 0, i32 1
+  %lowData.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 4
   store i32 -1, ptr %lowData.i.i, align 4
-  %lowQuantity.i.i = getelementptr inbounds %"struct.dpx::ImageElement", ptr %arrayctor.cur.ptr.i, i64 0, i32 2
+  %lowQuantity.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 8
   store float 0x41F0000000000000, ptr %lowQuantity.i.i, align 4
-  %highData.i.i = getelementptr inbounds %"struct.dpx::ImageElement", ptr %arrayctor.cur.ptr.i, i64 0, i32 3
+  %highData.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 12
   store i32 -1, ptr %highData.i.i, align 4
-  %highQuantity.i.i = getelementptr inbounds %"struct.dpx::ImageElement", ptr %arrayctor.cur.ptr.i, i64 0, i32 4
+  %highQuantity.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 16
   store float 0x41F0000000000000, ptr %highQuantity.i.i, align 4
-  %descriptor.i.i = getelementptr inbounds %"struct.dpx::ImageElement", ptr %arrayctor.cur.ptr.i, i64 0, i32 5
-  %description.i.i = getelementptr inbounds %"struct.dpx::ImageElement", ptr %arrayctor.cur.ptr.i, i64 0, i32 14
+  %descriptor.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 20
+  %description.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %descriptor.i.i, i8 -1, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %description.i.i, i8 0, i64 32, i1 false)
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 72
@@ -70,43 +67,43 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
 _ZN3dpx13GenericHeaderC2Ev.exit:                  ; preds = %arrayctor.loop.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   store i32 1396985944, ptr %this, align 4
-  %imageOffset.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 1
+  %imageOffset.i.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 -1, ptr %imageOffset.i.i, align 4
-  %version.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 2
+  %version.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %version.i.i, align 4
   store ptr @.str, ptr %agg.tmp.i.i, align 8
-  %m_len.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i.i, i64 0, i32 1
+  %m_len.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   store i64 4, ptr %m_len.i.i.i, align 8
   %call.i.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version.i.i, ptr noundef nonnull %agg.tmp.i.i, i64 noundef 8) #18
-  %fileSize.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 3
+  %fileSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store <4 x i32> <i32 2052, i32 1, i32 1664, i32 384>, ptr %fileSize.i.i, align 4
-  %userSize.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 7
-  %encryptKey.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 13
+  %userSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %encryptKey.i.i = getelementptr inbounds i8, ptr %this, i64 660
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(628) %userSize.i.i, i8 0, i64 628, i1 false)
   store i32 -1, ptr %encryptKey.i.i, align 4
-  %reserved1.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 14
+  %reserved1.i.i = getelementptr inbounds i8, ptr %this, i64 664
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %reserved1.i.i, i8 0, i64 104, i1 false)
-  %imageOrientation.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 15
-  %reserved2.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 20
+  %imageOrientation.i.i = getelementptr inbounds i8, ptr %this, i64 768
+  %reserved2.i.i = getelementptr inbounds i8, ptr %this, i64 1356
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %imageOrientation.i.i, i8 -1, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %reserved2.i.i, i8 0, i64 52, i1 false)
-  %yOffset.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 22
+  %yOffset.i.i = getelementptr inbounds i8, ptr %this, i64 1412
   store i32 -1, ptr %yOffset.i.i, align 4
-  %xOffset.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 21
+  %xOffset.i.i = getelementptr inbounds i8, ptr %this, i64 1408
   store i32 -1, ptr %xOffset.i.i, align 4
-  %xCenter.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 23
+  %xCenter.i.i = getelementptr inbounds i8, ptr %this, i64 1416
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xCenter.i.i, align 4
-  %yOriginalSize.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 26
+  %yOriginalSize.i.i = getelementptr inbounds i8, ptr %this, i64 1428
   store i32 -1, ptr %yOriginalSize.i.i, align 4
-  %xOriginalSize.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 25
+  %xOriginalSize.i.i = getelementptr inbounds i8, ptr %this, i64 1424
   store i32 -1, ptr %xOriginalSize.i.i, align 4
-  %sourceImageFileName.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 27
-  %border.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 31
+  %sourceImageFileName.i.i = getelementptr inbounds i8, ptr %this, i64 1432
+  %border.i.i = getelementptr inbounds i8, ptr %this, i64 1620
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %sourceImageFileName.i.i, i8 0, i64 188, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %border.i.i, i8 -1, i64 16, i1 false)
-  %xScannedSize.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 33
+  %xScannedSize.i.i = getelementptr inbounds i8, ptr %this, i64 1636
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xScannedSize.i.i, align 4
-  %reserved3.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 35
+  %reserved3.i.i = getelementptr inbounds i8, ptr %this, i64 1644
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %reserved3.i.i, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %0 = getelementptr inbounds i8, ptr %this, i64 1664
@@ -135,7 +132,7 @@ _ZN3dpx13GenericHeaderC2Ev.exit:                  ; preds = %arrayctor.loop.i
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %gamma.i.i, align 4
   %reserved5.i.i = getelementptr inbounds i8, ptr %this, i64 1972
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %reserved5.i.i, i8 0, i64 76, i1 false)
-  %datumSwap = getelementptr inbounds %"struct.dpx::Header", ptr %this, i64 0, i32 2
+  %datumSwap = getelementptr inbounds i8, ptr %this, i64 2048
   store i8 1, ptr %datumSwap, align 4
   ret void
 }
@@ -150,16 +147,16 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
   %arrayctor.cur.idx = phi i64 [ 780, %entry ], [ %arrayctor.cur.add, %arrayctor.loop ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
   store i32 -1, ptr %arrayctor.cur.ptr, align 4
-  %lowData.i = getelementptr inbounds %"struct.dpx::ImageElement", ptr %arrayctor.cur.ptr, i64 0, i32 1
+  %lowData.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 4
   store i32 -1, ptr %lowData.i, align 4
-  %lowQuantity.i = getelementptr inbounds %"struct.dpx::ImageElement", ptr %arrayctor.cur.ptr, i64 0, i32 2
+  %lowQuantity.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
   store float 0x41F0000000000000, ptr %lowQuantity.i, align 4
-  %highData.i = getelementptr inbounds %"struct.dpx::ImageElement", ptr %arrayctor.cur.ptr, i64 0, i32 3
+  %highData.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 12
   store i32 -1, ptr %highData.i, align 4
-  %highQuantity.i = getelementptr inbounds %"struct.dpx::ImageElement", ptr %arrayctor.cur.ptr, i64 0, i32 4
+  %highQuantity.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 16
   store float 0x41F0000000000000, ptr %highQuantity.i, align 4
-  %descriptor.i = getelementptr inbounds %"struct.dpx::ImageElement", ptr %arrayctor.cur.ptr, i64 0, i32 5
-  %description.i = getelementptr inbounds %"struct.dpx::ImageElement", ptr %arrayctor.cur.ptr, i64 0, i32 14
+  %descriptor.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 20
+  %description.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %descriptor.i, i8 -1, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %description.i, i8 0, i64 32, i1 false)
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 72
@@ -169,43 +166,43 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
 arrayctor.cont:                                   ; preds = %arrayctor.loop
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   store i32 1396985944, ptr %this, align 4
-  %imageOffset.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 1
+  %imageOffset.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 -1, ptr %imageOffset.i, align 4
-  %version.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 2
+  %version.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %version.i, align 4
   store ptr @.str, ptr %agg.tmp.i, align 8
-  %m_len.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i, i64 0, i32 1
+  %m_len.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 4, ptr %m_len.i.i, align 8
   %call.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version.i, ptr noundef nonnull %agg.tmp.i, i64 noundef 8) #18
-  %fileSize.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 3
+  %fileSize.i = getelementptr inbounds i8, ptr %this, i64 16
   store <4 x i32> <i32 2052, i32 1, i32 1664, i32 384>, ptr %fileSize.i, align 4
-  %userSize.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 7
-  %encryptKey.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 13
+  %userSize.i = getelementptr inbounds i8, ptr %this, i64 32
+  %encryptKey.i = getelementptr inbounds i8, ptr %this, i64 660
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(628) %userSize.i, i8 0, i64 628, i1 false)
   store i32 -1, ptr %encryptKey.i, align 4
-  %reserved1.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 14
+  %reserved1.i = getelementptr inbounds i8, ptr %this, i64 664
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %reserved1.i, i8 0, i64 104, i1 false)
-  %imageOrientation.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 15
-  %reserved2.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 20
+  %imageOrientation.i = getelementptr inbounds i8, ptr %this, i64 768
+  %reserved2.i = getelementptr inbounds i8, ptr %this, i64 1356
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %imageOrientation.i, i8 -1, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %reserved2.i, i8 0, i64 52, i1 false)
-  %yOffset.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 22
+  %yOffset.i = getelementptr inbounds i8, ptr %this, i64 1412
   store i32 -1, ptr %yOffset.i, align 4
-  %xOffset.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 21
+  %xOffset.i = getelementptr inbounds i8, ptr %this, i64 1408
   store i32 -1, ptr %xOffset.i, align 4
-  %xCenter.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 23
+  %xCenter.i = getelementptr inbounds i8, ptr %this, i64 1416
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xCenter.i, align 4
-  %yOriginalSize.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 26
+  %yOriginalSize.i = getelementptr inbounds i8, ptr %this, i64 1428
   store i32 -1, ptr %yOriginalSize.i, align 4
-  %xOriginalSize.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 25
+  %xOriginalSize.i = getelementptr inbounds i8, ptr %this, i64 1424
   store i32 -1, ptr %xOriginalSize.i, align 4
-  %sourceImageFileName.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 27
-  %border.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 31
+  %sourceImageFileName.i = getelementptr inbounds i8, ptr %this, i64 1432
+  %border.i = getelementptr inbounds i8, ptr %this, i64 1620
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %sourceImageFileName.i, i8 0, i64 188, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %border.i, i8 -1, i64 16, i1 false)
-  %xScannedSize.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 33
+  %xScannedSize.i = getelementptr inbounds i8, ptr %this, i64 1636
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xScannedSize.i, align 4
-  %reserved3.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 35
+  %reserved3.i = getelementptr inbounds i8, ptr %this, i64 1644
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %reserved3.i, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   ret void
@@ -214,30 +211,30 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3dpx14IndustryHeaderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) %this) unnamed_addr #5 align 2 {
 entry:
-  %heldCount.i = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 8
+  %heldCount.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %this, i8 0, i64 48, i1 false)
   store i32 -1, ptr %heldCount.i, align 4
-  %sequenceLength.i = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 7
+  %sequenceLength.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 -1, ptr %sequenceLength.i, align 4
-  %framePosition.i = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 6
+  %framePosition.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 -1, ptr %framePosition.i, align 4
-  %frameRate.i = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 9
+  %frameRate.i = getelementptr inbounds i8, ptr %this, i64 60
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %frameRate.i, align 4
-  %frameId.i = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 11
+  %frameId.i = getelementptr inbounds i8, ptr %this, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %frameId.i, i8 0, i64 188, i1 false)
-  %timeCode.i = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 14
-  %videoSignal.i = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 18
+  %timeCode.i = getelementptr inbounds i8, ptr %this, i64 256
+  %videoSignal.i = getelementptr inbounds i8, ptr %this, i64 266
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %timeCode.i, i8 -1, i64 10, i1 false)
   store i8 0, ptr %videoSignal.i, align 2
-  %zero.i = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 19
+  %zero.i = getelementptr inbounds i8, ptr %this, i64 267
   store i8 -1, ptr %zero.i, align 1
-  %horizontalSampleRate.i = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 20
-  %gamma.i = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 24
+  %horizontalSampleRate.i = getelementptr inbounds i8, ptr %this, i64 268
+  %gamma.i = getelementptr inbounds i8, ptr %this, i64 284
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %horizontalSampleRate.i, align 4
-  %whiteLevel.i = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 28
+  %whiteLevel.i = getelementptr inbounds i8, ptr %this, i64 300
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %whiteLevel.i, align 4
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %gamma.i, align 4
-  %reserved5.i = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 30
+  %reserved5.i = getelementptr inbounds i8, ptr %this, i64 308
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %reserved5.i, i8 0, i64 76, i1 false)
   ret void
 }
@@ -247,43 +244,43 @@ define hidden void @_ZN3dpx13GenericHeader5ResetEv(ptr noundef nonnull align 4 d
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   store i32 1396985944, ptr %this, align 4
-  %imageOffset = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 1
+  %imageOffset = getelementptr inbounds i8, ptr %this, i64 4
   store i32 -1, ptr %imageOffset, align 4
-  %version = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 2
+  %version = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %version, align 4
   store ptr @.str, ptr %agg.tmp, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 4, ptr %m_len.i, align 8
   %call = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version, ptr noundef nonnull %agg.tmp, i64 noundef 8) #18
-  %fileSize = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 3
+  %fileSize = getelementptr inbounds i8, ptr %this, i64 16
   store <4 x i32> <i32 2052, i32 1, i32 1664, i32 384>, ptr %fileSize, align 4
-  %userSize = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 7
-  %encryptKey = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 13
+  %userSize = getelementptr inbounds i8, ptr %this, i64 32
+  %encryptKey = getelementptr inbounds i8, ptr %this, i64 660
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(628) %userSize, i8 0, i64 628, i1 false)
   store i32 -1, ptr %encryptKey, align 4
-  %reserved1 = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 14
+  %reserved1 = getelementptr inbounds i8, ptr %this, i64 664
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %reserved1, i8 0, i64 104, i1 false)
-  %imageOrientation = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 15
-  %reserved2 = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 20
+  %imageOrientation = getelementptr inbounds i8, ptr %this, i64 768
+  %reserved2 = getelementptr inbounds i8, ptr %this, i64 1356
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %imageOrientation, i8 -1, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %reserved2, i8 0, i64 52, i1 false)
-  %yOffset = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 22
+  %yOffset = getelementptr inbounds i8, ptr %this, i64 1412
   store i32 -1, ptr %yOffset, align 4
-  %xOffset = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 21
+  %xOffset = getelementptr inbounds i8, ptr %this, i64 1408
   store i32 -1, ptr %xOffset, align 4
-  %xCenter = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 23
+  %xCenter = getelementptr inbounds i8, ptr %this, i64 1416
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xCenter, align 4
-  %yOriginalSize = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 26
+  %yOriginalSize = getelementptr inbounds i8, ptr %this, i64 1428
   store i32 -1, ptr %yOriginalSize, align 4
-  %xOriginalSize = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 25
+  %xOriginalSize = getelementptr inbounds i8, ptr %this, i64 1424
   store i32 -1, ptr %xOriginalSize, align 4
-  %sourceImageFileName = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 27
-  %border = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 31
+  %sourceImageFileName = getelementptr inbounds i8, ptr %this, i64 1432
+  %border = getelementptr inbounds i8, ptr %this, i64 1620
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %sourceImageFileName, i8 0, i64 188, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %border, i8 -1, i64 16, i1 false)
-  %xScannedSize = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 33
+  %xScannedSize = getelementptr inbounds i8, ptr %this, i64 1636
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xScannedSize, align 4
-  %reserved3 = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 35
+  %reserved3 = getelementptr inbounds i8, ptr %this, i64 1644
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %reserved3, i8 0, i64 20, i1 false)
   ret void
 }
@@ -294,30 +291,30 @@ declare noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_s
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3dpx14IndustryHeader5ResetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %heldCount = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 8
+  %heldCount = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %this, i8 0, i64 48, i1 false)
   store i32 -1, ptr %heldCount, align 4
-  %sequenceLength = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 7
+  %sequenceLength = getelementptr inbounds i8, ptr %this, i64 52
   store i32 -1, ptr %sequenceLength, align 4
-  %framePosition = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 6
+  %framePosition = getelementptr inbounds i8, ptr %this, i64 48
   store i32 -1, ptr %framePosition, align 4
-  %frameRate = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 9
+  %frameRate = getelementptr inbounds i8, ptr %this, i64 60
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %frameRate, align 4
-  %frameId = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 11
+  %frameId = getelementptr inbounds i8, ptr %this, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %frameId, i8 0, i64 188, i1 false)
-  %timeCode = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 14
-  %videoSignal = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 18
+  %timeCode = getelementptr inbounds i8, ptr %this, i64 256
+  %videoSignal = getelementptr inbounds i8, ptr %this, i64 266
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %timeCode, i8 -1, i64 10, i1 false)
   store i8 0, ptr %videoSignal, align 2
-  %zero = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 19
+  %zero = getelementptr inbounds i8, ptr %this, i64 267
   store i8 -1, ptr %zero, align 1
-  %horizontalSampleRate = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 20
-  %gamma = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 24
+  %horizontalSampleRate = getelementptr inbounds i8, ptr %this, i64 268
+  %gamma = getelementptr inbounds i8, ptr %this, i64 284
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %horizontalSampleRate, align 4
-  %whiteLevel = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 28
+  %whiteLevel = getelementptr inbounds i8, ptr %this, i64 300
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %whiteLevel, align 4
   store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %gamma, align 4
-  %reserved5 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 30
+  %reserved5 = getelementptr inbounds i8, ptr %this, i64 308
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %reserved5, i8 0, i64 76, i1 false)
   ret void
 }
@@ -326,16 +323,16 @@ entry:
 define hidden void @_ZN3dpx12ImageElementC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(72) %this) unnamed_addr #5 align 2 {
 entry:
   store i32 -1, ptr %this, align 4
-  %lowData = getelementptr inbounds %"struct.dpx::ImageElement", ptr %this, i64 0, i32 1
+  %lowData = getelementptr inbounds i8, ptr %this, i64 4
   store i32 -1, ptr %lowData, align 4
-  %lowQuantity = getelementptr inbounds %"struct.dpx::ImageElement", ptr %this, i64 0, i32 2
+  %lowQuantity = getelementptr inbounds i8, ptr %this, i64 8
   store float 0x41F0000000000000, ptr %lowQuantity, align 4
-  %highData = getelementptr inbounds %"struct.dpx::ImageElement", ptr %this, i64 0, i32 3
+  %highData = getelementptr inbounds i8, ptr %this, i64 12
   store i32 -1, ptr %highData, align 4
-  %highQuantity = getelementptr inbounds %"struct.dpx::ImageElement", ptr %this, i64 0, i32 4
+  %highQuantity = getelementptr inbounds i8, ptr %this, i64 16
   store float 0x41F0000000000000, ptr %highQuantity, align 4
-  %descriptor = getelementptr inbounds %"struct.dpx::ImageElement", ptr %this, i64 0, i32 5
-  %description = getelementptr inbounds %"struct.dpx::ImageElement", ptr %this, i64 0, i32 14
+  %descriptor = getelementptr inbounds i8, ptr %this, i64 20
+  %description = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %descriptor, i8 -1, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %description, i8 0, i64 32, i1 false)
   ret void
@@ -345,11 +342,11 @@ entry:
 define hidden noundef zeroext i1 @_ZN3dpx6Header4ReadEP8InStream(ptr noundef nonnull align 4 dereferenceable(2049) %this, ptr noundef %io) local_unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %io, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %io)
   %vtable2 = load ptr, ptr %io, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 3
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 24
   %1 = load ptr, ptr %vfn3, align 8
   %call = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(16) %io, ptr noundef nonnull %this, i64 noundef 2048)
   %cmp.not = icmp eq i64 %call, 2048
@@ -403,7 +400,7 @@ _ZN3dpx6Header16ValidMagicCookieEj.exit:          ; preds = %for.body.i.i
   br i1 %cmp1.i, label %if.then4, label %return
 
 if.then4:                                         ; preds = %_ZN3dpx6Header16ValidMagicCookieEj.exit
-  %imageOffset = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 1
+  %imageOffset = getelementptr inbounds i8, ptr %this, i64 4
   %add.ptr1.i = getelementptr inbounds i8, ptr %this, i64 7
   br label %for.body.i
 
@@ -422,7 +419,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %cmp.not.i16, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit, label %for.body.i, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit:                 ; preds = %for.body.i
-  %fileSize = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 3
+  %fileSize = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr1.i17 = getelementptr inbounds i8, ptr %this, i64 19
   br label %for.body.i18
 
@@ -441,7 +438,7 @@ for.body.i18:                                     ; preds = %for.body.i18, %_ZN3
   br i1 %cmp.not.i25, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit26, label %for.body.i18, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit26:               ; preds = %for.body.i18
-  %dittoKey = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 4
+  %dittoKey = getelementptr inbounds i8, ptr %this, i64 20
   %add.ptr1.i27 = getelementptr inbounds i8, ptr %this, i64 23
   br label %for.body.i28
 
@@ -460,7 +457,7 @@ for.body.i28:                                     ; preds = %for.body.i28, %_ZN3
   br i1 %cmp.not.i35, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit36, label %for.body.i28, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit36:               ; preds = %for.body.i28
-  %genericSize = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 5
+  %genericSize = getelementptr inbounds i8, ptr %this, i64 24
   %add.ptr1.i37 = getelementptr inbounds i8, ptr %this, i64 27
   br label %for.body.i38
 
@@ -479,7 +476,7 @@ for.body.i38:                                     ; preds = %for.body.i38, %_ZN3
   br i1 %cmp.not.i45, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit46, label %for.body.i38, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit46:               ; preds = %for.body.i38
-  %industrySize = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 6
+  %industrySize = getelementptr inbounds i8, ptr %this, i64 28
   %add.ptr1.i47 = getelementptr inbounds i8, ptr %this, i64 31
   br label %for.body.i48
 
@@ -498,7 +495,7 @@ for.body.i48:                                     ; preds = %for.body.i48, %_ZN3
   br i1 %cmp.not.i55, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit56, label %for.body.i48, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit56:               ; preds = %for.body.i48
-  %userSize = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 7
+  %userSize = getelementptr inbounds i8, ptr %this, i64 32
   %add.ptr1.i57 = getelementptr inbounds i8, ptr %this, i64 35
   br label %for.body.i58
 
@@ -517,7 +514,7 @@ for.body.i58:                                     ; preds = %for.body.i58, %_ZN3
   br i1 %cmp.not.i65, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit66, label %for.body.i58, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit66:               ; preds = %for.body.i58
-  %encryptKey = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 13
+  %encryptKey = getelementptr inbounds i8, ptr %this, i64 660
   %add.ptr1.i67 = getelementptr inbounds i8, ptr %this, i64 663
   br label %for.body.i68
 
@@ -536,11 +533,11 @@ for.body.i68:                                     ; preds = %for.body.i68, %_ZN3
   br i1 %cmp.not.i75, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit76, label %for.body.i68, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit76:               ; preds = %for.body.i68
-  %imageOrientation = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 15
+  %imageOrientation = getelementptr inbounds i8, ptr %this, i64 768
   %18 = load <4 x i8>, ptr %imageOrientation, align 4
   %19 = shufflevector <4 x i8> %18, <4 x i8> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   store <4 x i8> %19, ptr %imageOrientation, align 4
-  %pixelsPerLine = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 17
+  %pixelsPerLine = getelementptr inbounds i8, ptr %this, i64 772
   %add.ptr1.i78 = getelementptr inbounds i8, ptr %this, i64 775
   br label %for.body.i79
 
@@ -559,7 +556,7 @@ for.body.i79:                                     ; preds = %for.body.i79, %_ZN3
   br i1 %cmp.not.i86, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit87, label %for.body.i79, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit87:               ; preds = %for.body.i79
-  %linesPerElement = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 18
+  %linesPerElement = getelementptr inbounds i8, ptr %this, i64 776
   %add.ptr1.i88 = getelementptr inbounds i8, ptr %this, i64 779
   br label %for.body.i89
 
@@ -575,11 +572,15 @@ for.body.i89:                                     ; preds = %for.body.i89, %_ZN3
   %incdec.ptr2.i94 = getelementptr inbounds i8, ptr %pe.010.i91, i64 -1
   %dec.i95 = add nsw i64 %i.011.i90, -1
   %cmp.not.i96 = icmp eq i64 %dec.i95, 0
-  br i1 %cmp.not.i96, label %for.body, label %for.body.i89, !llvm.loop !4
+  br i1 %cmp.not.i96, label %for.cond.preheader, label %for.body.i89, !llvm.loop !4
 
-for.body:                                         ; preds = %for.body.i89, %_ZN3dpx9SwapBytesIjEET_RS1_.exit178
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3dpx9SwapBytesIjEET_RS1_.exit178 ], [ 0, %for.body.i89 ]
-  %arrayidx = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv
+for.cond.preheader:                               ; preds = %for.body.i89
+  %chan = getelementptr inbounds i8, ptr %this, i64 780
+  br label %for.body
+
+for.body:                                         ; preds = %for.cond.preheader, %_ZN3dpx9SwapBytesIjEET_RS1_.exit178
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %_ZN3dpx9SwapBytesIjEET_RS1_.exit178 ]
+  %arrayidx = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan, i64 0, i64 %indvars.iv
   %add.ptr1.i98 = getelementptr inbounds i8, ptr %arrayidx, i64 3
   br label %for.body.i99
 
@@ -598,8 +599,8 @@ for.body.i99:                                     ; preds = %for.body.i99, %for.
   br i1 %cmp.not.i106, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit107, label %for.body.i99, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit107:              ; preds = %for.body.i99
-  %lowData = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv, i32 1
-  %add.ptr1.i108 = getelementptr inbounds i8, ptr %lowData, i64 3
+  %lowData = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %add.ptr1.i108 = getelementptr inbounds i8, ptr %arrayidx, i64 7
   br label %for.body.i109
 
 for.body.i109:                                    ; preds = %for.body.i109, %_ZN3dpx9SwapBytesIjEET_RS1_.exit107
@@ -617,8 +618,8 @@ for.body.i109:                                    ; preds = %for.body.i109, %_ZN
   br i1 %cmp.not.i116, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit117, label %for.body.i109, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit117:              ; preds = %for.body.i109
-  %lowQuantity = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv, i32 2
-  %add.ptr1.i118 = getelementptr inbounds i8, ptr %lowQuantity, i64 3
+  %lowQuantity = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %add.ptr1.i118 = getelementptr inbounds i8, ptr %arrayidx, i64 11
   br label %for.body.i119
 
 for.body.i119:                                    ; preds = %for.body.i119, %_ZN3dpx9SwapBytesIjEET_RS1_.exit117
@@ -636,8 +637,8 @@ for.body.i119:                                    ; preds = %for.body.i119, %_ZN
   br i1 %cmp.not.i126, label %_ZN3dpx9SwapBytesIfEET_RS1_.exit, label %for.body.i119, !llvm.loop !6
 
 _ZN3dpx9SwapBytesIfEET_RS1_.exit:                 ; preds = %for.body.i119
-  %highData = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv, i32 3
-  %add.ptr1.i127 = getelementptr inbounds i8, ptr %highData, i64 3
+  %highData = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %add.ptr1.i127 = getelementptr inbounds i8, ptr %arrayidx, i64 15
   br label %for.body.i128
 
 for.body.i128:                                    ; preds = %for.body.i128, %_ZN3dpx9SwapBytesIfEET_RS1_.exit
@@ -655,8 +656,8 @@ for.body.i128:                                    ; preds = %for.body.i128, %_ZN
   br i1 %cmp.not.i135, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit136, label %for.body.i128, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit136:              ; preds = %for.body.i128
-  %highQuantity = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv, i32 4
-  %add.ptr1.i137 = getelementptr inbounds i8, ptr %highQuantity, i64 3
+  %highQuantity = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %add.ptr1.i137 = getelementptr inbounds i8, ptr %arrayidx, i64 19
   br label %for.body.i138
 
 for.body.i138:                                    ; preds = %for.body.i138, %_ZN3dpx9SwapBytesIjEET_RS1_.exit136
@@ -674,12 +675,12 @@ for.body.i138:                                    ; preds = %for.body.i138, %_ZN
   br i1 %cmp.not.i145, label %_ZN3dpx9SwapBytesIfEET_RS1_.exit146, label %for.body.i138, !llvm.loop !6
 
 _ZN3dpx9SwapBytesIfEET_RS1_.exit146:              ; preds = %for.body.i138
-  %packing = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv, i32 9
+  %packing = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %34 = load <4 x i8>, ptr %packing, align 4
   %35 = shufflevector <4 x i8> %34, <4 x i8> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   store <4 x i8> %35, ptr %packing, align 4
-  %dataOffset = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv, i32 11
-  %add.ptr1.i149 = getelementptr inbounds i8, ptr %dataOffset, i64 3
+  %dataOffset = getelementptr inbounds i8, ptr %arrayidx, i64 28
+  %add.ptr1.i149 = getelementptr inbounds i8, ptr %arrayidx, i64 31
   br label %for.body.i150
 
 for.body.i150:                                    ; preds = %for.body.i150, %_ZN3dpx9SwapBytesIfEET_RS1_.exit146
@@ -697,8 +698,8 @@ for.body.i150:                                    ; preds = %for.body.i150, %_ZN
   br i1 %cmp.not.i157, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit158, label %for.body.i150, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit158:              ; preds = %for.body.i150
-  %endOfLinePadding = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv, i32 12
-  %add.ptr1.i159 = getelementptr inbounds i8, ptr %endOfLinePadding, i64 3
+  %endOfLinePadding = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %add.ptr1.i159 = getelementptr inbounds i8, ptr %arrayidx, i64 35
   br label %for.body.i160
 
 for.body.i160:                                    ; preds = %for.body.i160, %_ZN3dpx9SwapBytesIjEET_RS1_.exit158
@@ -716,8 +717,8 @@ for.body.i160:                                    ; preds = %for.body.i160, %_ZN
   br i1 %cmp.not.i167, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit168, label %for.body.i160, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit168:              ; preds = %for.body.i160
-  %endOfImagePadding = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv, i32 13
-  %add.ptr1.i169 = getelementptr inbounds i8, ptr %endOfImagePadding, i64 3
+  %endOfImagePadding = getelementptr inbounds i8, ptr %arrayidx, i64 36
+  %add.ptr1.i169 = getelementptr inbounds i8, ptr %arrayidx, i64 39
   br label %for.body.i170
 
 for.body.i170:                                    ; preds = %for.body.i170, %_ZN3dpx9SwapBytesIjEET_RS1_.exit168
@@ -740,7 +741,7 @@ _ZN3dpx9SwapBytesIjEET_RS1_.exit178:              ; preds = %for.body.i170
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %_ZN3dpx9SwapBytesIjEET_RS1_.exit178
-  %xOffset = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 21
+  %xOffset = getelementptr inbounds i8, ptr %this, i64 1408
   %add.ptr1.i179 = getelementptr inbounds i8, ptr %this, i64 1411
   br label %for.body.i180
 
@@ -759,7 +760,7 @@ for.body.i180:                                    ; preds = %for.body.i180, %for
   br i1 %cmp.not.i187, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit188, label %for.body.i180, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit188:              ; preds = %for.body.i180
-  %yOffset = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 22
+  %yOffset = getelementptr inbounds i8, ptr %this, i64 1412
   %add.ptr1.i189 = getelementptr inbounds i8, ptr %this, i64 1415
   br label %for.body.i190
 
@@ -778,7 +779,7 @@ for.body.i190:                                    ; preds = %for.body.i190, %_ZN
   br i1 %cmp.not.i197, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit198, label %for.body.i190, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit198:              ; preds = %for.body.i190
-  %xCenter = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 23
+  %xCenter = getelementptr inbounds i8, ptr %this, i64 1416
   %add.ptr1.i199 = getelementptr inbounds i8, ptr %this, i64 1419
   br label %for.body.i200
 
@@ -797,7 +798,7 @@ for.body.i200:                                    ; preds = %for.body.i200, %_ZN
   br i1 %cmp.not.i207, label %_ZN3dpx9SwapBytesIfEET_RS1_.exit208, label %for.body.i200, !llvm.loop !6
 
 _ZN3dpx9SwapBytesIfEET_RS1_.exit208:              ; preds = %for.body.i200
-  %yCenter = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 24
+  %yCenter = getelementptr inbounds i8, ptr %this, i64 1420
   %add.ptr1.i209 = getelementptr inbounds i8, ptr %this, i64 1423
   br label %for.body.i210
 
@@ -816,7 +817,7 @@ for.body.i210:                                    ; preds = %for.body.i210, %_ZN
   br i1 %cmp.not.i217, label %_ZN3dpx9SwapBytesIfEET_RS1_.exit218, label %for.body.i210, !llvm.loop !6
 
 _ZN3dpx9SwapBytesIfEET_RS1_.exit218:              ; preds = %for.body.i210
-  %xOriginalSize = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 25
+  %xOriginalSize = getelementptr inbounds i8, ptr %this, i64 1424
   %add.ptr1.i219 = getelementptr inbounds i8, ptr %this, i64 1427
   br label %for.body.i220
 
@@ -835,7 +836,7 @@ for.body.i220:                                    ; preds = %for.body.i220, %_ZN
   br i1 %cmp.not.i227, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit228, label %for.body.i220, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit228:              ; preds = %for.body.i220
-  %yOriginalSize = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 26
+  %yOriginalSize = getelementptr inbounds i8, ptr %this, i64 1428
   %add.ptr1.i229 = getelementptr inbounds i8, ptr %this, i64 1431
   br label %for.body.i230
 
@@ -854,11 +855,11 @@ for.body.i230:                                    ; preds = %for.body.i230, %_ZN
   br i1 %cmp.not.i237, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit238, label %for.body.i230, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit238:              ; preds = %for.body.i230
-  %border = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 31
+  %border = getelementptr inbounds i8, ptr %this, i64 1620
   %54 = load <8 x i8>, ptr %border, align 4
   %55 = shufflevector <8 x i8> %54, <8 x i8> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
   store <8 x i8> %55, ptr %border, align 4
-  %aspectRatio = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 32
+  %aspectRatio = getelementptr inbounds i8, ptr %this, i64 1628
   %add.ptr1.i243 = getelementptr inbounds i8, ptr %this, i64 1631
   br label %for.body.i244
 
@@ -877,7 +878,7 @@ for.body.i244:                                    ; preds = %for.body.i244, %_ZN
   br i1 %cmp.not.i251, label %_ZN3dpx9SwapBytesIjEET_RS1_.exit252, label %for.body.i244, !llvm.loop !4
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit252:              ; preds = %for.body.i244
-  %arrayidx89 = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 32, i64 1
+  %arrayidx89 = getelementptr inbounds i8, ptr %this, i64 1632
   %add.ptr1.i253 = getelementptr inbounds i8, ptr %this, i64 1635
   br label %for.body.i254
 
@@ -1237,7 +1238,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable.i = load ptr, ptr %io, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(16) %io, ptr noundef nonnull %this, i64 noundef 2048)
   %cmp.i = icmp eq i64 %call.i, 2048
@@ -1255,11 +1256,12 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3dpx6Header15WriteOffsetDataEP9OutStream(ptr noundef nonnull align 4 dereferenceable(2049) %this, ptr noundef %io) local_unnamed_addr #6 align 2 {
 entry:
+  %chan.i.i.i = getelementptr inbounds i8, ptr %this, i64 780
   br label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i.i
 
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i.i: ; preds = %if.end10.i.i, %entry
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %if.end10.i.i ], [ 0, %entry ]
-  %descriptor.i.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv.i.i, i32 5
+  %indvars.iv.i.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i.i, %if.end10.i.i ]
+  %descriptor.i.i.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i.i.i, i64 0, i64 %indvars.iv.i.i, i32 5
   %0 = load i8, ptr %descriptor.i.i.i, align 4
   %cmp8.i.i = icmp eq i8 %0, -1
   br i1 %cmp8.i.i, label %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit.i, label %if.end10.i.i
@@ -1278,10 +1280,10 @@ _ZNK3dpx13GenericHeader17ImageElementCountEv.exit.i: ; preds = %_ZNK3dpx13Generi
 
 _ZN3dpx13GenericHeader25CalculateNumberOfElementsEv.exit: ; preds = %if.end10.i.i, %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit.i
   %2 = phi i16 [ %spec.select.i, %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit.i ], [ 8, %if.end10.i.i ]
-  %numberOfElements.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 16
+  %numberOfElements.i = getelementptr inbounds i8, ptr %this, i64 770
   store i16 %2, ptr %numberOfElements.i, align 2
   %vtable = load ptr, ptr %io, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %io, i64 noundef 4, i32 noundef 0)
   br i1 %call, label %if.end, label %return
@@ -1292,7 +1294,7 @@ if.end:                                           ; preds = %_ZN3dpx13GenericHea
   br i1 %cmp.not.i.i.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %imageOffset = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 1
+  %imageOffset = getelementptr inbounds i8, ptr %this, i64 4
   %add.ptr1.i = getelementptr inbounds i8, ptr %this, i64 7
   br label %for.body.i
 
@@ -1311,9 +1313,9 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %cmp.not.i, label %if.end5, label %for.body.i, !llvm.loop !4
 
 if.end5:                                          ; preds = %for.body.i, %if.end
-  %imageOffset6 = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 1
+  %imageOffset6 = getelementptr inbounds i8, ptr %this, i64 4
   %vtable.i = load ptr, ptr %io, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(16) %io, ptr noundef nonnull %imageOffset6, i64 noundef 4)
   %cmp.i14 = icmp eq i64 %call.i, 4
@@ -1344,7 +1346,7 @@ for.body.i17:                                     ; preds = %for.body.i17, %if.t
 
 if.end14:                                         ; preds = %for.body.i17, %if.end9
   %vtable15 = load ptr, ptr %io, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 4
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 32
   %11 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %io, i64 noundef 16, i32 noundef 0)
   br i1 %call17, label %if.end21, label %return
@@ -1355,7 +1357,7 @@ if.end21:                                         ; preds = %if.end14
   br i1 %cmp.not.i.i26.not, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  %fileSize = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 3
+  %fileSize = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr1.i27 = getelementptr inbounds i8, ptr %this, i64 19
   br label %for.body.i28
 
@@ -1374,9 +1376,9 @@ for.body.i28:                                     ; preds = %for.body.i28, %if.t
   br i1 %cmp.not.i35, label %if.end25, label %for.body.i28, !llvm.loop !4
 
 if.end25:                                         ; preds = %for.body.i28, %if.end21
-  %fileSize26 = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 3
+  %fileSize26 = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i37 = load ptr, ptr %io, align 8
-  %vfn.i38 = getelementptr inbounds ptr, ptr %vtable.i37, i64 3
+  %vfn.i38 = getelementptr inbounds i8, ptr %vtable.i37, i64 24
   %15 = load ptr, ptr %vfn.i38, align 8
   %call.i39 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(16) %io, ptr noundef nonnull %fileSize26, i64 noundef 4)
   %cmp.i40 = icmp eq i64 %call.i39, 4
@@ -1407,7 +1409,7 @@ for.body.i43:                                     ; preds = %for.body.i43, %if.t
 
 if.end34:                                         ; preds = %for.body.i43, %if.end29
   %vtable35 = load ptr, ptr %io, align 8
-  %vfn36 = getelementptr inbounds ptr, ptr %vtable35, i64 4
+  %vfn36 = getelementptr inbounds i8, ptr %vtable35, i64 32
   %19 = load ptr, ptr %vfn36, align 8
   %call37 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %io, i64 noundef 770, i32 noundef 0)
   br i1 %call37, label %if.end41, label %return
@@ -1427,7 +1429,7 @@ if.then43:                                        ; preds = %if.end41
 
 if.end45:                                         ; preds = %if.then43, %if.end41
   %vtable.i53 = load ptr, ptr %io, align 8
-  %vfn.i54 = getelementptr inbounds ptr, ptr %vtable.i53, i64 3
+  %vfn.i54 = getelementptr inbounds i8, ptr %vtable.i53, i64 24
   %23 = load ptr, ptr %vfn.i54, align 8
   %call.i55 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(16) %io, ptr noundef nonnull %numberOfElements.i, i64 noundef 2)
   %cmp.i56 = icmp eq i64 %call.i55, 2
@@ -1451,7 +1453,8 @@ for.body.preheader:                               ; preds = %if.then51, %if.end4
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.preheader ]
-  %descriptor = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv, i32 5
+  %arrayidx = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i.i.i, i64 0, i64 %indvars.iv
+  %descriptor = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %27 = load i8, ptr %descriptor, align 4
   %cmp57 = icmp eq i8 %27, -1
   br i1 %cmp57, label %for.inc, label %if.end59
@@ -1460,7 +1463,7 @@ if.end59:                                         ; preds = %for.body
   %mul = mul nuw nsw i64 %indvars.iv, 72
   %add = add nuw nsw i64 %mul, 808
   %vtable61 = load ptr, ptr %io, align 8
-  %vfn62 = getelementptr inbounds ptr, ptr %vtable61, i64 4
+  %vfn62 = getelementptr inbounds i8, ptr %vtable61, i64 32
   %28 = load ptr, ptr %vfn62, align 8
   %call63 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %io, i64 noundef %add, i32 noundef 0)
   br i1 %call63, label %if.end67, label %return
@@ -1471,8 +1474,8 @@ if.end67:                                         ; preds = %if.end59
   br i1 %cmp.not.i.i59.not, label %if.end74, label %if.then69
 
 if.then69:                                        ; preds = %if.end67
-  %dataOffset = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv, i32 11
-  %add.ptr1.i60 = getelementptr inbounds i8, ptr %dataOffset, i64 3
+  %dataOffset = getelementptr inbounds i8, ptr %arrayidx, i64 28
+  %add.ptr1.i60 = getelementptr inbounds i8, ptr %arrayidx, i64 31
   br label %for.body.i61
 
 for.body.i61:                                     ; preds = %for.body.i61, %if.then69
@@ -1490,9 +1493,9 @@ for.body.i61:                                     ; preds = %for.body.i61, %if.t
   br i1 %cmp.not.i68, label %if.end74, label %for.body.i61, !llvm.loop !4
 
 if.end74:                                         ; preds = %for.body.i61, %if.end67
-  %dataOffset78 = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv, i32 11
+  %dataOffset78 = getelementptr inbounds i8, ptr %arrayidx, i64 28
   %vtable.i70 = load ptr, ptr %io, align 8
-  %vfn.i71 = getelementptr inbounds ptr, ptr %vtable.i70, i64 3
+  %vfn.i71 = getelementptr inbounds i8, ptr %vtable.i70, i64 24
   %32 = load ptr, ptr %vfn.i71, align 8
   %call.i72 = tail call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(16) %io, ptr noundef nonnull %dataOffset78, i64 noundef 4)
   %cmp.i73 = icmp eq i64 %call.i72, 4
@@ -1504,7 +1507,7 @@ if.end81:                                         ; preds = %if.end74
   br i1 %cmp.not.i.i74.not, label %for.inc, label %if.then83
 
 if.then83:                                        ; preds = %if.end81
-  %add.ptr1.i75 = getelementptr inbounds i8, ptr %dataOffset78, i64 3
+  %add.ptr1.i75 = getelementptr inbounds i8, ptr %arrayidx, i64 31
   br label %for.body.i76
 
 for.body.i76:                                     ; preds = %for.body.i76, %if.then83
@@ -1533,12 +1536,13 @@ return:                                           ; preds = %for.inc, %if.end74,
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv(ptr nocapture noundef nonnull align 4 dereferenceable(1664) %this) local_unnamed_addr #8 align 2 {
-entry:
+while.cond.preheader.i:
+  %chan.i.i = getelementptr inbounds i8, ptr %this, i64 780
   br label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i
 
-_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i: ; preds = %entry, %if.end10.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end10.i ], [ 0, %entry ]
-  %descriptor.i.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv.i, i32 5
+_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i: ; preds = %if.end10.i, %while.cond.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %while.cond.preheader.i ], [ %indvars.iv.next.i, %if.end10.i ]
+  %descriptor.i.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i.i, i64 0, i64 %indvars.iv.i, i32 5
   %0 = load i8, ptr %descriptor.i.i, align 4
   %cmp8.i = icmp eq i8 %0, -1
   br i1 %cmp8.i, label %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit, label %if.end10.i
@@ -1557,7 +1561,7 @@ _ZNK3dpx13GenericHeader17ImageElementCountEv.exit: ; preds = %_ZNK3dpx13GenericH
 
 _ZNK3dpx13GenericHeader17ImageElementCountEv.exit.thread: ; preds = %if.end10.i, %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit
   %2 = phi i16 [ %spec.select, %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit ], [ 8, %if.end10.i ]
-  %numberOfElements = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 16
+  %numberOfElements = getelementptr inbounds i8, ptr %this, i64 770
   store i16 %2, ptr %numberOfElements, align 2
   ret void
 }
@@ -1611,43 +1615,43 @@ entry:
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   store i32 1396985944, ptr %this, align 4
-  %imageOffset.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 1
+  %imageOffset.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 -1, ptr %imageOffset.i, align 4
-  %version.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 2
+  %version.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %version.i, align 4
   store ptr @.str, ptr %agg.tmp.i, align 8
-  %m_len.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i, i64 0, i32 1
+  %m_len.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 4, ptr %m_len.i.i, align 8
   %call.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version.i, ptr noundef nonnull %agg.tmp.i, i64 noundef 8) #18
-  %fileSize.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 3
+  %fileSize.i = getelementptr inbounds i8, ptr %this, i64 16
   store <4 x i32> <i32 2052, i32 1, i32 1664, i32 384>, ptr %fileSize.i, align 4
-  %userSize.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 7
-  %encryptKey.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 13
+  %userSize.i = getelementptr inbounds i8, ptr %this, i64 32
+  %encryptKey.i = getelementptr inbounds i8, ptr %this, i64 660
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(628) %userSize.i, i8 0, i64 628, i1 false)
   store i32 -1, ptr %encryptKey.i, align 4
-  %reserved1.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 14
+  %reserved1.i = getelementptr inbounds i8, ptr %this, i64 664
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %reserved1.i, i8 0, i64 104, i1 false)
-  %imageOrientation.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 15
-  %reserved2.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 20
+  %imageOrientation.i = getelementptr inbounds i8, ptr %this, i64 768
+  %reserved2.i = getelementptr inbounds i8, ptr %this, i64 1356
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %imageOrientation.i, i8 -1, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %reserved2.i, i8 0, i64 52, i1 false)
-  %yOffset.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 22
+  %yOffset.i = getelementptr inbounds i8, ptr %this, i64 1412
   store i32 -1, ptr %yOffset.i, align 4
-  %xOffset.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 21
+  %xOffset.i = getelementptr inbounds i8, ptr %this, i64 1408
   store i32 -1, ptr %xOffset.i, align 4
-  %xCenter.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 23
+  %xCenter.i = getelementptr inbounds i8, ptr %this, i64 1416
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xCenter.i, align 4
-  %yOriginalSize.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 26
+  %yOriginalSize.i = getelementptr inbounds i8, ptr %this, i64 1428
   store i32 -1, ptr %yOriginalSize.i, align 4
-  %xOriginalSize.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 25
+  %xOriginalSize.i = getelementptr inbounds i8, ptr %this, i64 1424
   store i32 -1, ptr %xOriginalSize.i, align 4
-  %sourceImageFileName.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 27
-  %border.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 31
+  %sourceImageFileName.i = getelementptr inbounds i8, ptr %this, i64 1432
+  %border.i = getelementptr inbounds i8, ptr %this, i64 1620
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %sourceImageFileName.i, i8 0, i64 188, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %border.i, i8 -1, i64 16, i1 false)
-  %xScannedSize.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 33
+  %xScannedSize.i = getelementptr inbounds i8, ptr %this, i64 1636
   store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xScannedSize.i, align 4
-  %reserved3.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 35
+  %reserved3.i = getelementptr inbounds i8, ptr %this, i64 1644
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %reserved3.i, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 1664
@@ -1682,8 +1686,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1664) %this, i32 noundef %element) local_unnamed_addr #9 align 2 {
 entry:
+  %chan = getelementptr inbounds i8, ptr %this, i64 780
   %idxprom = sext i32 %element to i64
-  %descriptor = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %idxprom, i32 5
+  %descriptor = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan, i64 0, i64 %idxprom, i32 5
   %0 = load i8, ptr %descriptor, align 4
   switch i8 %0, label %sw.epilog [
     i8 -100, label %sw.bb15
@@ -1749,16 +1754,20 @@ sw.epilog:                                        ; preds = %sw.bb15, %sw.bb14, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK3dpx13GenericHeader17ImageElementCountEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1664) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %numberOfElements = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 16
+  %numberOfElements = getelementptr inbounds i8, ptr %this, i64 770
   %0 = load i16, ptr %numberOfElements, align 2
   %conv = zext nneg i16 %0 to i32
   %1 = add i16 %0, -1
   %or.cond = icmp ult i16 %1, 8
-  br i1 %or.cond, label %return, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
+  br i1 %or.cond, label %return, label %while.cond.preheader
 
-_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %entry, %if.end10
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end10 ], [ 0, %entry ]
-  %descriptor.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %indvars.iv, i32 5
+while.cond.preheader:                             ; preds = %entry
+  %chan.i = getelementptr inbounds i8, ptr %this, i64 780
+  br label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
+
+_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %while.cond.preheader, %if.end10
+  %indvars.iv = phi i64 [ 0, %while.cond.preheader ], [ %indvars.iv.next, %if.end10 ]
+  %descriptor.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %indvars.iv, i32 5
   %2 = load i8, ptr %descriptor.i, align 4
   %cmp8 = icmp eq i8 %2, -1
   br i1 %cmp8, label %return.loopexit.split.loop.exit, label %if.end10
@@ -1790,8 +1799,9 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %chan = getelementptr inbounds i8, ptr %this, i64 780
   %idxprom = zext nneg i32 %element to i64
-  %bitDepth = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %idxprom, i32 8
+  %bitDepth = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan, i64 0, i64 %idxprom, i32 8
   %0 = load i8, ptr %bitDepth, align 1
   switch i8 %0, label %sw.default [
     i8 8, label %return
@@ -1826,8 +1836,9 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %chan = getelementptr inbounds i8, ptr %this, i64 780
   %idxprom = zext nneg i32 %element to i64
-  %bitDepth = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %idxprom, i32 8
+  %bitDepth = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan, i64 0, i64 %idxprom, i32 8
   %0 = load i8, ptr %bitDepth, align 1
   switch i8 %0, label %sw.default [
     i8 8, label %return
@@ -1877,63 +1888,63 @@ define hidden void @_ZNK3dpx14IndustryHeader12FilmEdgeCodeEPc(ptr nocapture noun
 entry:
   %0 = load i8, ptr %this, align 4
   store i8 %0, ptr %edge, align 1
-  %arrayidx4 = getelementptr inbounds [2 x i8], ptr %this, i64 0, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 1
   %1 = load i8, ptr %arrayidx4, align 1
   %arrayidx5 = getelementptr inbounds i8, ptr %edge, i64 1
   store i8 %1, ptr %arrayidx5, align 1
-  %filmType = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 1
+  %filmType = getelementptr inbounds i8, ptr %this, i64 2
   %2 = load i8, ptr %filmType, align 2
   %arrayidx7 = getelementptr inbounds i8, ptr %edge, i64 2
   store i8 %2, ptr %arrayidx7, align 1
-  %arrayidx9 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 3
   %3 = load i8, ptr %arrayidx9, align 1
   %arrayidx10 = getelementptr inbounds i8, ptr %edge, i64 3
   store i8 %3, ptr %arrayidx10, align 1
-  %perfsOffset = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 2
+  %perfsOffset = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i8, ptr %perfsOffset, align 4
   %arrayidx12 = getelementptr inbounds i8, ptr %edge, i64 4
   store i8 %4, ptr %arrayidx12, align 1
-  %arrayidx14 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 2, i64 1
+  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 5
   %5 = load i8, ptr %arrayidx14, align 1
   %arrayidx15 = getelementptr inbounds i8, ptr %edge, i64 5
   store i8 %5, ptr %arrayidx15, align 1
-  %prefix = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 3
+  %prefix = getelementptr inbounds i8, ptr %this, i64 6
   %6 = load i8, ptr %prefix, align 2
   %arrayidx17 = getelementptr inbounds i8, ptr %edge, i64 6
   store i8 %6, ptr %arrayidx17, align 1
-  %arrayidx19 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 3, i64 1
+  %arrayidx19 = getelementptr inbounds i8, ptr %this, i64 7
   %7 = load i8, ptr %arrayidx19, align 1
   %arrayidx20 = getelementptr inbounds i8, ptr %edge, i64 7
   store i8 %7, ptr %arrayidx20, align 1
-  %arrayidx22 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 3, i64 2
+  %arrayidx22 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i8, ptr %arrayidx22, align 4
   %arrayidx23 = getelementptr inbounds i8, ptr %edge, i64 8
   store i8 %8, ptr %arrayidx23, align 1
-  %arrayidx25 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 3, i64 3
+  %arrayidx25 = getelementptr inbounds i8, ptr %this, i64 9
   %9 = load i8, ptr %arrayidx25, align 1
   %arrayidx26 = getelementptr inbounds i8, ptr %edge, i64 9
   store i8 %9, ptr %arrayidx26, align 1
-  %arrayidx28 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 3, i64 4
+  %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 10
   %10 = load i8, ptr %arrayidx28, align 2
   %arrayidx29 = getelementptr inbounds i8, ptr %edge, i64 10
   store i8 %10, ptr %arrayidx29, align 1
-  %arrayidx31 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 3, i64 5
+  %arrayidx31 = getelementptr inbounds i8, ptr %this, i64 11
   %11 = load i8, ptr %arrayidx31, align 1
   %arrayidx32 = getelementptr inbounds i8, ptr %edge, i64 11
   store i8 %11, ptr %arrayidx32, align 1
-  %count = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 4
+  %count = getelementptr inbounds i8, ptr %this, i64 12
   %12 = load i8, ptr %count, align 4
   %arrayidx34 = getelementptr inbounds i8, ptr %edge, i64 12
   store i8 %12, ptr %arrayidx34, align 1
-  %arrayidx36 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 4, i64 1
+  %arrayidx36 = getelementptr inbounds i8, ptr %this, i64 13
   %13 = load i8, ptr %arrayidx36, align 1
   %arrayidx37 = getelementptr inbounds i8, ptr %edge, i64 13
   store i8 %13, ptr %arrayidx37, align 1
-  %arrayidx39 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 4, i64 2
+  %arrayidx39 = getelementptr inbounds i8, ptr %this, i64 14
   %14 = load i8, ptr %arrayidx39, align 2
   %arrayidx40 = getelementptr inbounds i8, ptr %edge, i64 14
   store i8 %14, ptr %arrayidx40, align 1
-  %arrayidx42 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 4, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %this, i64 15
   %15 = load i8, ptr %arrayidx42, align 1
   %arrayidx43 = getelementptr inbounds i8, ptr %edge, i64 15
   store i8 %15, ptr %arrayidx43, align 1
@@ -1949,63 +1960,63 @@ entry:
   store i8 %0, ptr %this, align 4
   %arrayidx3 = getelementptr inbounds i8, ptr %edge, i64 1
   %1 = load i8, ptr %arrayidx3, align 1
-  %arrayidx5 = getelementptr inbounds [2 x i8], ptr %this, i64 0, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 1
   store i8 %1, ptr %arrayidx5, align 1
   %arrayidx6 = getelementptr inbounds i8, ptr %edge, i64 2
   %2 = load i8, ptr %arrayidx6, align 1
-  %filmType = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 1
+  %filmType = getelementptr inbounds i8, ptr %this, i64 2
   store i8 %2, ptr %filmType, align 2
   %arrayidx8 = getelementptr inbounds i8, ptr %edge, i64 3
   %3 = load i8, ptr %arrayidx8, align 1
-  %arrayidx10 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 3
   store i8 %3, ptr %arrayidx10, align 1
   %arrayidx11 = getelementptr inbounds i8, ptr %edge, i64 4
   %4 = load i8, ptr %arrayidx11, align 1
-  %perfsOffset = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 2
+  %perfsOffset = getelementptr inbounds i8, ptr %this, i64 4
   store i8 %4, ptr %perfsOffset, align 4
   %arrayidx13 = getelementptr inbounds i8, ptr %edge, i64 5
   %5 = load i8, ptr %arrayidx13, align 1
-  %arrayidx15 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 2, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 5
   store i8 %5, ptr %arrayidx15, align 1
   %arrayidx16 = getelementptr inbounds i8, ptr %edge, i64 6
   %6 = load i8, ptr %arrayidx16, align 1
-  %prefix = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 3
+  %prefix = getelementptr inbounds i8, ptr %this, i64 6
   store i8 %6, ptr %prefix, align 2
   %arrayidx18 = getelementptr inbounds i8, ptr %edge, i64 7
   %7 = load i8, ptr %arrayidx18, align 1
-  %arrayidx20 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 3, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 7
   store i8 %7, ptr %arrayidx20, align 1
   %arrayidx21 = getelementptr inbounds i8, ptr %edge, i64 8
   %8 = load i8, ptr %arrayidx21, align 1
-  %arrayidx23 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 3, i64 2
+  %arrayidx23 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %8, ptr %arrayidx23, align 4
   %arrayidx24 = getelementptr inbounds i8, ptr %edge, i64 9
   %9 = load i8, ptr %arrayidx24, align 1
-  %arrayidx26 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 3, i64 3
+  %arrayidx26 = getelementptr inbounds i8, ptr %this, i64 9
   store i8 %9, ptr %arrayidx26, align 1
   %arrayidx27 = getelementptr inbounds i8, ptr %edge, i64 10
   %10 = load i8, ptr %arrayidx27, align 1
-  %arrayidx29 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 3, i64 4
+  %arrayidx29 = getelementptr inbounds i8, ptr %this, i64 10
   store i8 %10, ptr %arrayidx29, align 2
   %arrayidx30 = getelementptr inbounds i8, ptr %edge, i64 11
   %11 = load i8, ptr %arrayidx30, align 1
-  %arrayidx32 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 3, i64 5
+  %arrayidx32 = getelementptr inbounds i8, ptr %this, i64 11
   store i8 %11, ptr %arrayidx32, align 1
   %arrayidx33 = getelementptr inbounds i8, ptr %edge, i64 12
   %12 = load i8, ptr %arrayidx33, align 1
-  %count = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 4
+  %count = getelementptr inbounds i8, ptr %this, i64 12
   store i8 %12, ptr %count, align 4
   %arrayidx35 = getelementptr inbounds i8, ptr %edge, i64 13
   %13 = load i8, ptr %arrayidx35, align 1
-  %arrayidx37 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 4, i64 1
+  %arrayidx37 = getelementptr inbounds i8, ptr %this, i64 13
   store i8 %13, ptr %arrayidx37, align 1
   %arrayidx38 = getelementptr inbounds i8, ptr %edge, i64 14
   %14 = load i8, ptr %arrayidx38, align 1
-  %arrayidx40 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 4, i64 2
+  %arrayidx40 = getelementptr inbounds i8, ptr %this, i64 14
   store i8 %14, ptr %arrayidx40, align 2
   %arrayidx41 = getelementptr inbounds i8, ptr %edge, i64 15
   %15 = load i8, ptr %arrayidx41, align 1
-  %arrayidx43 = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 4, i64 3
+  %arrayidx43 = getelementptr inbounds i8, ptr %this, i64 15
   store i8 %15, ptr %arrayidx43, align 1
   ret void
 }
@@ -2013,7 +2024,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden void @_ZNK3dpx14IndustryHeader8TimeCodeEPc(ptr nocapture noundef nonnull readonly align 4 dereferenceable(384) %this, ptr nocapture noundef writeonly %str) local_unnamed_addr #11 align 2 {
 entry:
-  %timeCode = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 14
+  %timeCode = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i32, ptr %timeCode, align 4
   %shr = lshr i32 %0, 28
   %conv = trunc i32 %shr to i8
@@ -2076,7 +2087,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden void @_ZNK3dpx14IndustryHeader8UserBitsEPc(ptr nocapture noundef nonnull readonly align 4 dereferenceable(384) %this, ptr nocapture noundef writeonly %str) local_unnamed_addr #11 align 2 {
 entry:
-  %userBits = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 15
+  %userBits = getelementptr inbounds i8, ptr %this, i64 260
   %0 = load i32, ptr %userBits, align 4
   %shr = lshr i32 %0, 28
   %conv = trunc i32 %shr to i8
@@ -2220,7 +2231,7 @@ _ZNK3dpx14IndustryHeader12TCFromStringEPKc.exit:  ; preds = %if.end8.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNK3dpx14IndustryHeader12TCFromStringEPKc.exit
-  %timeCode = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 14
+  %timeCode = getelementptr inbounds i8, ptr %this, i64 256
   store i32 %or.i, ptr %timeCode, align 4
   br label %if.end
 
@@ -2270,7 +2281,7 @@ _ZNK3dpx14IndustryHeader12TCFromStringEPKc.exit:  ; preds = %if.end8.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNK3dpx14IndustryHeader12TCFromStringEPKc.exit
-  %userBits = getelementptr inbounds %"struct.dpx::IndustryHeader", ptr %this, i64 0, i32 15
+  %userBits = getelementptr inbounds i8, ptr %this, i64 260
   store i32 %or.i, ptr %userBits, align 4
   br label %if.end
 
@@ -2288,10 +2299,10 @@ entry:
   store i64 %sec, ptr %t, align 8
   call void @_ZN18OpenImageIO_v2_6_07Sysutil14get_local_timeEPKlP2tm(ptr noundef nonnull %t, ptr noundef nonnull %localtm)
   %call = call i64 @strftime(ptr noundef nonnull %str, i64 noundef 32, ptr noundef nonnull @.str.2, ptr noundef nonnull %localtm) #18
-  %creationTimeDate = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 9
+  %creationTimeDate = getelementptr inbounds i8, ptr %this, i64 136
   store ptr %str, ptr %agg.tmp, align 8
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #18
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %call.i.i.i, ptr %m_len.i, align 8
   %call4 = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %creationTimeDate, ptr noundef nonnull %agg.tmp, i64 noundef 24) #18
   ret void
@@ -2312,10 +2323,10 @@ entry:
   store i64 %sec, ptr %t, align 8
   call void @_ZN18OpenImageIO_v2_6_07Sysutil14get_local_timeEPKlP2tm(ptr noundef nonnull %t, ptr noundef nonnull %localtm)
   %call = call i64 @strftime(ptr noundef nonnull %str, i64 noundef 32, ptr noundef nonnull @.str.2, ptr noundef nonnull %localtm) #18
-  %sourceTimeDate = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 28
+  %sourceTimeDate = getelementptr inbounds i8, ptr %this, i64 1532
   store ptr %str, ptr %agg.tmp, align 8
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #18
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %call.i.i.i, ptr %m_len.i, align 8
   %call4 = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %sourceTimeDate, ptr noundef nonnull %agg.tmp, i64 noundef 24) #18
   ret void
@@ -2324,7 +2335,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK3dpx6Header9DatumSwapEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(2049) %this, i32 noundef %element) local_unnamed_addr #9 align 2 {
 entry:
-  %datumSwap = getelementptr inbounds %"struct.dpx::Header", ptr %this, i64 0, i32 2
+  %datumSwap = getelementptr inbounds i8, ptr %this, i64 2048
   %0 = load i8, ptr %datumSwap, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2333,8 +2344,9 @@ entry:
   br i1 %or.cond, label %return, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
 
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %entry
+  %chan.i = getelementptr inbounds i8, ptr %this, i64 780
   %idxprom.i = zext nneg i32 %element to i64
-  %descriptor.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 19, i64 %idxprom.i, i32 5
+  %descriptor.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 5
   %2 = load i8, ptr %descriptor.i, align 4
   %switch.selectcmp.case1 = icmp eq i8 %2, 50
   %switch.selectcmp.case2 = icmp eq i8 %2, 100
@@ -2350,7 +2362,7 @@ return:                                           ; preds = %entry, %_ZNK3dpx13G
 define hidden void @_ZN3dpx6Header12SetDatumSwapEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(2049) %this, i1 noundef zeroext %swap) local_unnamed_addr #13 align 2 {
 entry:
   %frombool = zext i1 %swap to i8
-  %datumSwap = getelementptr inbounds %"struct.dpx::Header", ptr %this, i64 0, i32 2
+  %datumSwap = getelementptr inbounds i8, ptr %this, i64 2048
   store i8 %frombool, ptr %datumSwap, align 4
   ret void
 }
@@ -2358,13 +2370,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK3dpx6Header6HeightEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(2049) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %imageOrientation.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 15
+  %imageOrientation.i = getelementptr inbounds i8, ptr %this, i64 768
   %0 = load i16, ptr %imageOrientation.i, align 4
   %1 = and i16 %0, -4
   %switch = icmp eq i16 %1, 4
-  %linesPerElement.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 18
+  %linesPerElement.i = getelementptr inbounds i8, ptr %this, i64 776
   %2 = load i32, ptr %linesPerElement.i, align 4
-  %pixelsPerLine.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 17
+  %pixelsPerLine.i = getelementptr inbounds i8, ptr %this, i64 772
   %3 = load i32, ptr %pixelsPerLine.i, align 4
   %h.0 = select i1 %switch, i32 %3, i32 %2
   ret i32 %h.0
@@ -2373,13 +2385,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK3dpx6Header5WidthEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(2049) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %imageOrientation.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 15
+  %imageOrientation.i = getelementptr inbounds i8, ptr %this, i64 768
   %0 = load i16, ptr %imageOrientation.i, align 4
   %1 = and i16 %0, -4
   %switch = icmp eq i16 %1, 4
-  %pixelsPerLine.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 17
+  %pixelsPerLine.i = getelementptr inbounds i8, ptr %this, i64 772
   %2 = load i32, ptr %pixelsPerLine.i, align 4
-  %linesPerElement.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %this, i64 0, i32 18
+  %linesPerElement.i = getelementptr inbounds i8, ptr %this, i64 776
   %3 = load i32, ptr %linesPerElement.i, align 4
   %w.0 = select i1 %switch, i32 %3, i32 %2
   ret i32 %w.0

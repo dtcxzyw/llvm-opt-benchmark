@@ -7,19 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon, i32, ptr, i32, ptr }
 %union.anon = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.GuestLoaderState = type { %struct.DeviceState, i64, ptr, ptr, ptr }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @guest_loader_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 192, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @guest_loader_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [13 x i8] c"guest-loader\00", align 1
@@ -83,12 +70,12 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @guest_loader_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #5
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @guest_loader_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @guest_loader_props) #5
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
@@ -102,10 +89,10 @@ entry:
   %compat.i = alloca [2 x ptr], align 16
   %compat26.i = alloca [2 x ptr], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 32, ptr noundef nonnull @__func__.GUEST_LOADER) #5
-  %kernel = getelementptr inbounds %struct.GuestLoaderState, ptr %call.i, i64 0, i32 2
+  %kernel = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load ptr, ptr %kernel, align 8
   %tobool.not = icmp ne ptr %0, null
-  %initrd4 = getelementptr inbounds %struct.GuestLoaderState, ptr %call.i, i64 0, i32 4
+  %initrd4 = getelementptr inbounds i8, ptr %call.i, i64 184
   %1 = load ptr, ptr %initrd4, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %land.lhs.true, label %land.lhs.true8
@@ -126,7 +113,7 @@ if.then11:                                        ; preds = %land.lhs.true8
 
 if.else12:                                        ; preds = %land.lhs.true, %land.lhs.true8
   %cond2123 = phi ptr [ %1, %land.lhs.true8 ], [ %0, %land.lhs.true ]
-  %addr = getelementptr inbounds %struct.GuestLoaderState, ptr %call.i, i64 0, i32 1
+  %addr = getelementptr inbounds i8, ptr %call.i, i64 160
   %2 = load i64, ptr %addr, align 8
   %tobool13.not = icmp eq i64 %2, 0
   br i1 %tobool13.not, label %if.then14, label %if.else15
@@ -136,7 +123,7 @@ if.then14:                                        ; preds = %if.else12
   br label %return
 
 if.else15:                                        ; preds = %if.else12
-  %args = getelementptr inbounds %struct.GuestLoaderState, ptr %call.i, i64 0, i32 3
+  %args = getelementptr inbounds i8, ptr %call.i, i64 176
   %3 = load ptr, ptr %args, align 8
   %tobool16.not = icmp eq ptr %3, null
   %brmerge = or i1 %tobool.not, %tobool16.not
@@ -150,7 +137,7 @@ if.then20:                                        ; preds = %if.else15
 if.end23:                                         ; preds = %if.else15, %if.then20
   %4 = phi i64 [ %2, %if.else15 ], [ %.pre, %if.then20 ]
   %5 = load ptr, ptr @current_machine, align 8
-  %ram_size = getelementptr inbounds %struct.MachineState, ptr %5, i64 0, i32 19
+  %ram_size = getelementptr inbounds i8, ptr %5, i64 144
   %6 = load i64, ptr %ram_size, align 8
   %call25 = tail call i64 @load_image_targphys_as(ptr noundef nonnull %cond2123, i64 noundef %4, i64 noundef %6, ptr noundef null) #5
   %7 = and i64 %call25, 2147483648
@@ -167,14 +154,14 @@ if.end28:                                         ; preds = %if.end23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %compat26.i)
   %call.i19 = tail call ptr @qdev_get_machine() #5
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i19, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #5
-  %fdt2.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i, i64 0, i32 1
+  %fdt2.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %8 = load ptr, ptr %fdt2.i, align 8
   %9 = load i64, ptr %addr, align 8
   %call3.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.11, i64 noundef %9) #5
   %10 = load i64, ptr %addr, align 8
   %11 = tail call i64 @llvm.bswap.i64(i64 %10)
   store i64 %11, ptr %reg_attr.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i64, ptr %reg_attr.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %reg_attr.i, i64 8
   %conv.i = and i64 %call25, 2147483647
   %12 = tail call i64 @llvm.bswap.i64(i64 %conv.i)
   store i64 %12, ptr %arrayinit.element.i, align 8
@@ -217,7 +204,7 @@ if.then21.i:                                      ; preds = %if.then16.i
   br label %loader_insert_platform_data.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %initrd.i = getelementptr inbounds %struct.GuestLoaderState, ptr %call.i, i64 0, i32 4
+  %initrd.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %15 = load ptr, ptr %initrd.i, align 8
   %tobool24.not.i = icmp eq ptr %15, null
   br i1 %tobool24.not.i, label %loader_insert_platform_data.exit, label %if.then25.i

@@ -5,13 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
 %struct.PyType_Slot = type { i32, ptr }
-%struct.pysqlite_Connection = type { %struct._object, ptr, ptr, i32, ptr, i32, i32, i32, i64, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._object = type { %union.anon, ptr }
-%union.anon = type { i64 }
-%struct.pysqlite_state = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.pysqlite_Statement = type { %struct._object, ptr, i32 }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct.PyVarObject = type { %struct._object, i64 }
 
 @.str = private unnamed_addr constant [26 x i8] c"query string is too large\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"the query contains a null character\00", align 1
@@ -30,14 +23,14 @@ entry:
   %size = alloca i64, align 8
   %stmt = alloca ptr, align 8
   %tail = alloca ptr, align 8
-  %state1 = getelementptr inbounds %struct.pysqlite_Connection, ptr %connection, i64 0, i32 2
+  %state1 = getelementptr inbounds i8, ptr %connection, i64 24
   %0 = load ptr, ptr %state1, align 8
   %call = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %sql, ptr noundef nonnull %size) #3
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %db2 = getelementptr inbounds %struct.pysqlite_Connection, ptr %connection, i64 0, i32 1
+  %db2 = getelementptr inbounds i8, ptr %connection, i64 16
   %1 = load ptr, ptr %db2, align 8
   %call3 = call i32 @sqlite3_limit(ptr noundef %1, i32 noundef 1, i32 noundef -1) #3
   %2 = load i64, ptr %size, align 8
@@ -46,7 +39,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end
-  %DataError = getelementptr inbounds %struct.pysqlite_Connection, ptr %connection, i64 0, i32 22
+  %DataError = getelementptr inbounds i8, ptr %connection, i64 176
   %3 = load ptr, ptr %DataError, align 8
   call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str) #3
   br label %return
@@ -57,7 +50,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.end7
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_Connection, ptr %connection, i64 0, i32 26
+  %ProgrammingError = getelementptr inbounds i8, ptr %connection, i64 208
   %4 = load ptr, ptr %ProgrammingError, align 8
   call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.1) #3
   br label %return
@@ -158,7 +151,7 @@ for.inc.i:                                        ; preds = %while.cond.i, %for.
   br i1 %tobool.not.i, label %if.end26, label %for.body.i, !llvm.loop !7
 
 if.then24:                                        ; preds = %for.body.i, %sw.bb17.i, %sw.bb1.i
-  %ProgrammingError25 = getelementptr inbounds %struct.pysqlite_Connection, ptr %connection, i64 0, i32 26
+  %ProgrammingError25 = getelementptr inbounds i8, ptr %connection, i64 208
   %15 = load ptr, ptr %ProgrammingError25, align 8
   call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.2) #3
   br label %error
@@ -266,7 +259,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false37
 
 if.end44:                                         ; preds = %for.inc.i38, %while.cond24.i29, %while.cond.i47, %if.end26, %if.then30, %lor.lhs.false, %lor.lhs.false37, %lor.rhs
   %is_dml.0 = phi i32 [ 1, %lor.lhs.false37 ], [ 1, %lor.lhs.false ], [ 1, %if.then30 ], [ %24, %lor.rhs ], [ 0, %if.end26 ], [ 0, %while.cond.i47 ], [ 0, %while.cond24.i29 ], [ 0, %for.inc.i38 ]
-  %StatementType = getelementptr inbounds %struct.pysqlite_state, ptr %0, i64 0, i32 20
+  %StatementType = getelementptr inbounds i8, ptr %0, i64 152
   %25 = load ptr, ptr %StatementType, align 8
   %call45 = call ptr @_PyObject_GC_New(ptr noundef %25) #3
   %cmp46 = icmp eq ptr %call45, null
@@ -274,9 +267,9 @@ if.end44:                                         ; preds = %for.inc.i38, %while
 
 if.end49:                                         ; preds = %if.end44
   %26 = load ptr, ptr %stmt, align 8
-  %st = getelementptr inbounds %struct.pysqlite_Statement, ptr %call45, i64 0, i32 1
+  %st = getelementptr inbounds i8, ptr %call45, i64 16
   store ptr %26, ptr %st, align 8
-  %is_dml50 = getelementptr inbounds %struct.pysqlite_Statement, ptr %call45, i64 0, i32 2
+  %is_dml50 = getelementptr inbounds i8, ptr %call45, i64 24
   store i32 %is_dml.0, ptr %is_dml50, align 8
   call void @PyObject_GC_Track(ptr noundef nonnull %call45) #3
   br label %return
@@ -325,7 +318,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #3
-  %StatementType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 20
+  %StatementType = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr %call, ptr %StatementType, align 8
   br label %return
 
@@ -342,7 +335,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #3
-  %st = getelementptr inbounds %struct.pysqlite_Statement, ptr %self, i64 0, i32 1
+  %st = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %st, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -356,7 +349,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %3 = load ptr, ptr %tp_free, align 8
   tail call void %3(ptr noundef nonnull %self) #3
   %4 = load i64, ptr %self.val, align 8

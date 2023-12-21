@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-tb_asnmth.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.engine_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ENGINE_FIND_STR = type { ptr, ptr, ptr, i32 }
 
 @pkey_asn1_meth_table = internal global ptr null, align 8
@@ -30,7 +26,7 @@ declare void @engine_table_unregister(ptr noundef, ptr noundef) local_unnamed_ad
 define i32 @ENGINE_register_pkey_asn1_meths(ptr noundef %e) local_unnamed_addr #0 {
 entry:
   %nids = alloca ptr, align 8
-  %pkey_asn1_meths = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 10
+  %pkey_asn1_meths = getelementptr inbounds i8, ptr %e, i64 80
   %0 = load ptr, ptr %pkey_asn1_meths, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -70,7 +66,7 @@ entry:
 for.body:                                         ; preds = %entry, %ENGINE_register_pkey_asn1_meths.exit
   %e.04 = phi ptr [ %call2, %ENGINE_register_pkey_asn1_meths.exit ], [ %call, %entry ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nids.i)
-  %pkey_asn1_meths.i = getelementptr inbounds %struct.engine_st, ptr %e.04, i64 0, i32 10
+  %pkey_asn1_meths.i = getelementptr inbounds i8, ptr %e.04, i64 80
   %0 = load ptr, ptr %pkey_asn1_meths.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %ENGINE_register_pkey_asn1_meths.exit, label %if.then.i
@@ -103,7 +99,7 @@ declare ptr @ENGINE_get_next(ptr noundef) local_unnamed_addr #1
 define i32 @ENGINE_set_default_pkey_asn1_meths(ptr noundef %e) local_unnamed_addr #0 {
 entry:
   %nids = alloca ptr, align 8
-  %pkey_asn1_meths = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 10
+  %pkey_asn1_meths = getelementptr inbounds i8, ptr %e, i64 80
   %0 = load ptr, ptr %pkey_asn1_meths, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -136,7 +132,7 @@ declare ptr @ossl_engine_table_select(ptr noundef, i32 noundef, ptr noundef, i32
 define ptr @ENGINE_get_pkey_asn1_meth(ptr noundef %e, i32 noundef %nid) local_unnamed_addr #0 {
 entry:
   %ret = alloca ptr, align 8
-  %pkey_asn1_meths.i = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 10
+  %pkey_asn1_meths.i = getelementptr inbounds i8, ptr %e, i64 80
   %0 = load ptr, ptr %pkey_asn1_meths.i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -164,7 +160,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ENGINE_get_pkey_asn1_meths(ptr nocapture noundef readonly %e) local_unnamed_addr #2 {
 entry:
-  %pkey_asn1_meths = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 10
+  %pkey_asn1_meths = getelementptr inbounds i8, ptr %e, i64 80
   %0 = load ptr, ptr %pkey_asn1_meths, align 8
   ret ptr %0
 }
@@ -178,7 +174,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ENGINE_set_pkey_asn1_meths(ptr nocapture noundef writeonly %e, ptr noundef %f) local_unnamed_addr #3 {
 entry:
-  %pkey_asn1_meths = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 10
+  %pkey_asn1_meths = getelementptr inbounds i8, ptr %e, i64 80
   store ptr %f, ptr %pkey_asn1_meths, align 8
   ret i32 1
 }
@@ -188,7 +184,7 @@ define void @engine_pkey_asn1_meths_free(ptr noundef %e) local_unnamed_addr #0 {
 entry:
   %pkm = alloca ptr, align 8
   %pknids = alloca ptr, align 8
-  %pkey_asn1_meths = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 10
+  %pkey_asn1_meths = getelementptr inbounds i8, ptr %e, i64 80
   %0 = load ptr, ptr %pkey_asn1_meths, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end6, label %if.then
@@ -233,7 +229,7 @@ define ptr @ENGINE_get_pkey_asn1_meth_str(ptr noundef %e, ptr noundef %str, i32 
 entry:
   %nids = alloca ptr, align 8
   %ameth = alloca ptr, align 8
-  %pkey_asn1_meths = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 10
+  %pkey_asn1_meths = getelementptr inbounds i8, ptr %e, i64 80
   %0 = load ptr, ptr %pkey_asn1_meths, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -270,7 +266,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp9.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %pem_str = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %4, i64 0, i32 3
+  %pem_str = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %pem_str, align 8
   %call11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
   %conv12 = trunc i64 %call11 to i32
@@ -305,11 +301,11 @@ declare i32 @OPENSSL_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_un
 define ptr @ENGINE_pkey_asn1_find_str(ptr nocapture noundef writeonly %pe, ptr noundef %str, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %fstr = alloca %struct.ENGINE_FIND_STR, align 8
-  %ameth = getelementptr inbounds %struct.ENGINE_FIND_STR, ptr %fstr, i64 0, i32 1
-  %str1 = getelementptr inbounds %struct.ENGINE_FIND_STR, ptr %fstr, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %fstr, i64 8
+  %str1 = getelementptr inbounds i8, ptr %fstr, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fstr, i8 0, i64 16, i1 false)
   store ptr %str, ptr %str1, align 8
-  %len2 = getelementptr inbounds %struct.ENGINE_FIND_STR, ptr %fstr, i64 0, i32 3
+  %len2 = getelementptr inbounds i8, ptr %fstr, i64 24
   store i32 %len, ptr %len2, align 8
   %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @engine_lock_init, ptr noundef nonnull @do_engine_lock_init_ossl_) #7
   %tobool = icmp ne i32 %call, 0
@@ -338,7 +334,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp.not, label %if.end16, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %struct_ref = getelementptr inbounds %struct.engine_st, ptr %3, i64 0, i32 20
+  %struct_ref = getelementptr inbounds i8, ptr %3, i64 156
   %4 = atomicrmw add ptr %struct_ref, i32 1 monotonic, align 4
   br label %if.end16
 
@@ -366,7 +362,7 @@ declare void @engine_table_doall(ptr noundef, ptr noundef, ptr noundef) local_un
 define internal void @look_str_cb(i32 noundef %nid, ptr noundef %sk, ptr nocapture readnone %def, ptr nocapture noundef %arg) #0 {
 entry:
   %ameth2 = alloca ptr, align 8
-  %ameth = getelementptr inbounds %struct.ENGINE_FIND_STR, ptr %arg, i64 0, i32 1
+  %ameth = getelementptr inbounds i8, ptr %arg, i64 8
   %0 = load ptr, ptr %ameth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %for.cond.preheader, label %for.end
@@ -377,14 +373,14 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %len = getelementptr inbounds %struct.ENGINE_FIND_STR, ptr %arg, i64 0, i32 3
-  %str = getelementptr inbounds %struct.ENGINE_FIND_STR, ptr %arg, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %arg, i64 24
+  %str = getelementptr inbounds i8, ptr %arg, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.015 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call.i12 = call ptr @OPENSSL_sk_value(ptr noundef %sk, i32 noundef %i.015) #7
-  %pkey_asn1_meths = getelementptr inbounds %struct.engine_st, ptr %call.i12, i64 0, i32 10
+  %pkey_asn1_meths = getelementptr inbounds i8, ptr %call.i12, i64 80
   %1 = load ptr, ptr %pkey_asn1_meths, align 8
   %call3 = call i32 %1(ptr noundef %call.i12, ptr noundef nonnull %ameth2, ptr noundef null, i32 noundef %nid) #7
   %2 = load ptr, ptr %ameth2, align 8
@@ -392,7 +388,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp4.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %pem_str = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %2, i64 0, i32 3
+  %pem_str = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %pem_str, align 8
   %call5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
   %conv = trunc i64 %call5 to i32

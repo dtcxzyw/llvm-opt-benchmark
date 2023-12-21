@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.XattrOperations = type { ptr, ptr, ptr, ptr, ptr }
-%struct.FsContext = type { i32, ptr, i32, ptr, %struct.ExtendedOps, ptr, ptr, i32, i32 }
-%struct.ExtendedOps = type { ptr }
 
 @mapped_user_xattr = external global %struct.XattrOperations, align 8
 @mapped_pacl_xattr = external global %struct.XattrOperations, align 8
@@ -20,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @v9fs_get_xattr(ptr noundef %ctx, ptr noundef %path, ptr noundef %name, ptr noundef %value, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %xops1 = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 3
+  %xops1 = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %xops1, align 8
   br label %for.cond.i
 
@@ -31,7 +29,7 @@ for.cond.i:                                       ; preds = %for.body.i, %entry
   br i1 %cmp.not.i, label %if.end, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %h.addr.0.i = getelementptr ptr, ptr %xops.0.in.i, i64 1
+  %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %1 = load ptr, ptr %xops.0.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %call3.i = tail call i32 @strncmp(ptr noundef %name, ptr noundef %1, i64 noundef %call.i) #9
@@ -39,7 +37,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %tobool.not.i, label %if.then, label %for.cond.i, !llvm.loop !5
 
 if.then:                                          ; preds = %for.body.i
-  %getxattr = getelementptr inbounds %struct.XattrOperations, ptr %xops.0.i, i64 0, i32 1
+  %getxattr = getelementptr inbounds i8, ptr %xops.0.i, i64 8
   %2 = load ptr, ptr %getxattr, align 8
   %call2 = tail call i64 %2(ptr noundef %ctx, ptr noundef %path, ptr noundef %name, ptr noundef %value, i64 noundef %size) #10
   br label %return
@@ -130,7 +128,7 @@ while.cond.preheader:                             ; preds = %if.end6
   br i1 %cmp1250.not, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %xops13 = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 3
+  %xops13 = getelementptr inbounds i8, ptr %ctx, i64 24
   br label %while.body
 
 if.then10:                                        ; preds = %if.end6
@@ -153,7 +151,7 @@ for.cond.i:                                       ; preds = %for.body.i, %while.
   br i1 %cmp.not.i, label %next_entry, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %h.addr.0.i = getelementptr ptr, ptr %xops.0.in.i, i64 1
+  %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %3 = load ptr, ptr %xops.0.i, align 8
   %call.i46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
   %call3.i = tail call i32 @strncmp(ptr noundef %orig_value.051, ptr noundef %3, i64 noundef %call.i46) #9
@@ -162,7 +160,7 @@ for.body.i:                                       ; preds = %for.cond.i
 
 if.end16:                                         ; preds = %for.body.i
   %tobool17.not = icmp eq ptr %value.addr.055, null
-  %listxattr = getelementptr inbounds %struct.XattrOperations, ptr %xops.0.i, i64 0, i32 2
+  %listxattr = getelementptr inbounds i8, ptr %xops.0.i, i64 16
   %4 = load ptr, ptr %listxattr, align 8
   br i1 %tobool17.not, label %if.then18, label %if.else
 
@@ -230,7 +228,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @v9fs_set_xattr(ptr noundef %ctx, ptr noundef %path, ptr noundef %name, ptr noundef %value, i64 noundef %size, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %xops1 = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 3
+  %xops1 = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %xops1, align 8
   br label %for.cond.i
 
@@ -241,7 +239,7 @@ for.cond.i:                                       ; preds = %for.body.i, %entry
   br i1 %cmp.not.i, label %if.end, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %h.addr.0.i = getelementptr ptr, ptr %xops.0.in.i, i64 1
+  %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %1 = load ptr, ptr %xops.0.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %call3.i = tail call i32 @strncmp(ptr noundef %name, ptr noundef %1, i64 noundef %call.i) #9
@@ -249,7 +247,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %tobool.not.i, label %if.then, label %for.cond.i, !llvm.loop !5
 
 if.then:                                          ; preds = %for.body.i
-  %setxattr = getelementptr inbounds %struct.XattrOperations, ptr %xops.0.i, i64 0, i32 3
+  %setxattr = getelementptr inbounds i8, ptr %xops.0.i, i64 24
   %2 = load ptr, ptr %setxattr, align 8
   %call2 = tail call i32 %2(ptr noundef %ctx, ptr noundef %path, ptr noundef %name, ptr noundef %value, i64 noundef %size, i32 noundef %flags) #10
   br label %return
@@ -267,7 +265,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @v9fs_remove_xattr(ptr noundef %ctx, ptr noundef %path, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %xops1 = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 3
+  %xops1 = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %xops1, align 8
   br label %for.cond.i
 
@@ -278,7 +276,7 @@ for.cond.i:                                       ; preds = %for.body.i, %entry
   br i1 %cmp.not.i, label %if.end, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %h.addr.0.i = getelementptr ptr, ptr %xops.0.in.i, i64 1
+  %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %1 = load ptr, ptr %xops.0.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %call3.i = tail call i32 @strncmp(ptr noundef %name, ptr noundef %1, i64 noundef %call.i) #9
@@ -286,7 +284,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %tobool.not.i, label %if.then, label %for.cond.i, !llvm.loop !5
 
 if.then:                                          ; preds = %for.body.i
-  %removexattr = getelementptr inbounds %struct.XattrOperations, ptr %xops.0.i, i64 0, i32 4
+  %removexattr = getelementptr inbounds i8, ptr %xops.0.i, i64 32
   %2 = load ptr, ptr %removexattr, align 8
   %call2 = tail call i32 %2(ptr noundef %ctx, ptr noundef %path, ptr noundef %name) #10
   br label %return

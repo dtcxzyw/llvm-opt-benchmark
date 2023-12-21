@@ -1543,7 +1543,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %base.addr.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %negative.i)
   store i64 %text.coerce0, ptr %text.i, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %text.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %text.i, i64 8
   store ptr %text.coerce1, ptr %0, align 8
   store i32 %base, ptr %base.addr.i, align 4
   store i32 0, ptr %value, align 4
@@ -1650,7 +1650,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %base.addr.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %negative.i)
   store i64 %text.coerce0, ptr %text.i, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %text.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %text.i, i64 8
   store ptr %text.coerce1, ptr %0, align 8
   store i32 %base, ptr %base.addr.i, align 4
   store i64 0, ptr %value, align 8
@@ -1758,7 +1758,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %base.addr.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %negative.i)
   store i64 %text.coerce0, ptr %text.i, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %text.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %text.i, i64 8
   store ptr %text.coerce1, ptr %0, align 8
   store i32 %base, ptr %base.addr.i, align 4
   store i128 0, ptr %value, align 16
@@ -1938,7 +1938,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %base.addr.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %negative.i)
   store i64 %text.coerce0, ptr %text.i, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %text.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %text.i, i64 8
   store ptr %text.coerce1, ptr %0, align 8
   store i32 %base, ptr %base.addr.i, align 4
   store i32 0, ptr %value, align 4
@@ -2013,7 +2013,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %base.addr.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %negative.i)
   store i64 %text.coerce0, ptr %text.i, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %text.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %text.i, i64 8
   store ptr %text.coerce1, ptr %0, align 8
   store i32 %base, ptr %base.addr.i, align 4
   store i64 0, ptr %value, align 8
@@ -2088,7 +2088,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %base.addr.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %negative.i)
   store i64 %text.coerce0, ptr %text.i, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %text.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %text.i, i64 8
   store ptr %text.coerce1, ptr %0, align 8
   store i32 %base, ptr %base.addr.i, align 4
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %value, i64 8
@@ -2618,7 +2618,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb(ptr nocapture noundef %text, ptr nocapture noundef %base_ptr, ptr nocapture noundef writeonly %negative_ptr) unnamed_addr #12 {
 entry:
-  %_M_str.i = getelementptr inbounds %"class.std::basic_string_view", ptr %text, i64 0, i32 1
+  %_M_str.i = getelementptr inbounds i8, ptr %text, i64 8
   %0 = load ptr, ptr %_M_str.i, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end

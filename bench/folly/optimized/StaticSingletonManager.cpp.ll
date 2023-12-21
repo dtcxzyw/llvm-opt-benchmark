@@ -6,13 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::Indestructible" = type { %"struct.folly::Indestructible<folly::detail::(anonymous namespace)::StaticSingletonManagerWithRttiImpl>::Storage" }
 %"struct.folly::Indestructible<folly::detail::(anonymous namespace)::StaticSingletonManagerWithRttiImpl>::Storage" = type { %"union.std::aligned_storage<96, 8>::type" }
 %"union.std::aligned_storage<96, 8>::type" = type { [96 x i8] }
-%"struct.folly::detail::StaticSingletonManagerWithRtti::Arg" = type { %"struct.std::atomic", ptr, ptr, ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { ptr }
-%"class.std::type_info" = type { ptr, ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [56 x i8] }
 %"class.folly::reentrant_allocator" = type { %"class.folly::detail::reentrant_allocator_base" }
 %"class.folly::detail::reentrant_allocator_base" = type { ptr }
 %"class.folly::reentrant_allocator.0" = type { %"class.folly::detail::reentrant_allocator_base" }
@@ -52,7 +45,7 @@ init:                                             ; preds = %init.check
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
-  %key = getelementptr inbounds %"struct.folly::detail::StaticSingletonManagerWithRtti::Arg", ptr %arg, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %arg, i64 8
   %2 = load ptr, ptr %key, align 8, !tbaa !8
   %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 56)) #10
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
@@ -68,16 +61,16 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %init.end
   br i1 %cmp.not1.i.i.i.i.i, label %if.then.i.i, label %while.body.lr.ph.i.i.i.i.i
 
 while.body.lr.ph.i.i.i.i.i:                       ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
-  %__name2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::type_info", ptr %2, i64 0, i32 1
+  %__name2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %__name2.i.i.i.i.i.i.i.i, align 8, !tbaa !20
   br label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i
   %__x.addr.03.i.i.i.i.i = phi ptr [ %3, %while.body.lr.ph.i.i.i.i.i ], [ %__x.addr.1.i.i.i.i.i, %if.end.i.i.i.i.i ]
   %__y.addr.02.i.i.i.i.i = phi ptr [ getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16), %while.body.lr.ph.i.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i, %if.end.i.i.i.i.i ]
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.03.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i.i.i, i64 32
   %5 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i, align 8, !tbaa !22
-  %__name.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::type_info", ptr %5, i64 0, i32 1
+  %__name.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %__name.i.i.i.i.i.i.i.i, align 8, !tbaa !20
   %7 = load i8, ptr %6, align 1, !tbaa !24
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 42
@@ -113,11 +106,11 @@ _ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWith
   br i1 %cmp.i.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %_ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryESt4lessIS0_ENS1_19reentrant_allocatorISt4pairIKS0_S5_EEEE11lower_boundERSA_.exit.i.i
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %10 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !tbaa !22
   %11 = load i8, ptr %4, align 1, !tbaa !24
   %cmp.not.i.i.i20.i.i = icmp eq i8 %11, 42
-  %__name2.i.i.i.i.i = getelementptr inbounds %"class.std::type_info", ptr %10, i64 0, i32 1
+  %__name2.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %__name2.i.i.i.i.i, align 8, !tbaa !20
   br i1 %cmp.not.i.i.i20.i.i, label %lor.lhs.false.i.i.i.i.i, label %if.then.i.i.i.i.i
 
@@ -139,10 +132,10 @@ if.then.i.i:                                      ; preds = %_ZNKSt4lessISt10typ
   %cmp.i5.i.i = phi i1 [ false, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i ], [ false, %if.then.i.i.i.i.i ], [ true, %_ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryESt4lessIS0_ENS1_19reentrant_allocatorISt4pairIKS0_S5_EEEE11lower_boundERSA_.exit.i.i ], [ true, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i ]
   %__y.addr.0.lcssa.i.i.i3.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i ], [ %__y.addr.1.i.i.i.i.i, %if.then.i.i.i.i.i ], [ getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16), %_ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryESt4lessIS0_ENS1_19reentrant_allocatorISt4pairIKS0_S5_EEEE11lower_boundERSA_.exit.i.i ], [ getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 16), %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i ]
   %call.i.i.i.i.i.i22.i.i = tail call noundef ptr @_ZN5folly6detail24reentrant_allocator_base8allocateEmm(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 noundef 88, i64 noundef 8) #10
-  %_M_storage.i.i.i.i.i23.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i.i.i.i.i22.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i23.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i22.i.i, i64 32
   %14 = ptrtoint ptr %2 to i64
   store i64 %14, ptr %_M_storage.i.i.i.i.i23.i.i, align 8, !tbaa !25
-  %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i.i.i.i.i22.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i22.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i.i.i.i.i.i, i8 0, i64 48, i1 false)
   br i1 %cmp.i5.i.i, label %if.then.i.i.i3.i, label %if.else12.i.i.i.i
 
@@ -153,13 +146,13 @@ if.then.i.i.i3.i:                                 ; preds = %if.then.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.then.i.i.i3.i
   %16 = load ptr, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 40), align 8, !tbaa !25
-  %_M_storage.i.i.i.i21.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %16, i64 0, i32 1
+  %_M_storage.i.i.i.i21.i.i.i = getelementptr inbounds i8, ptr %16, i64 32
   %17 = load ptr, ptr %_M_storage.i.i.i.i21.i.i.i, align 8, !tbaa !22
-  %__name.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::type_info", ptr %17, i64 0, i32 1
+  %__name.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %__name.i.i.i.i.i.i.i, align 8, !tbaa !20
   %19 = load i8, ptr %18, align 1, !tbaa !24
   %cmp.not.i.i.i.i.i.i.i = icmp eq i8 %19, 42
-  %__name2.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::type_info", ptr %2, i64 0, i32 1
+  %__name2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %20 = load ptr, ptr %__name2.i.i.i.i.i.i.i, align 8, !tbaa !20
   br i1 %cmp.not.i.i.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
@@ -178,13 +171,13 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i: ; preds = %lor.lhs.false.i.
   br i1 %cmp11.i.i.i.i.i.i.i, label %if.then.i.i.i, label %invoke.cont7.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.then.i.i
-  %_M_storage.i.i.i96.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.0.lcssa.i.i.i3.i.i, i64 0, i32 1
+  %_M_storage.i.i.i96.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i3.i.i, i64 32
   %22 = load ptr, ptr %_M_storage.i.i.i96.i.i.i.i, align 8, !tbaa !22
-  %__name.i.i.i97.i.i.i.i = getelementptr inbounds %"class.std::type_info", ptr %2, i64 0, i32 1
+  %__name.i.i.i97.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load ptr, ptr %__name.i.i.i97.i.i.i.i, align 8, !tbaa !20
   %24 = load i8, ptr %23, align 1, !tbaa !24
   %cmp.not.i.i.i98.i.i.i.i = icmp ne i8 %24, 42
-  %__name2.i.i.i99.i.i.i.i = getelementptr inbounds %"class.std::type_info", ptr %22, i64 0, i32 1
+  %__name2.i.i.i99.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load ptr, ptr %__name2.i.i.i99.i.i.i.i, align 8, !tbaa !20
   br i1 %cmp.not.i.i.i98.i.i.i.i, label %if.then.i.i.i100.i.i.i.i, label %lor.lhs.false.i.i.i104.i.i.i.i
 
@@ -209,9 +202,9 @@ if.then19.i.i.i.i:                                ; preds = %_ZNKSt4lessISt10typ
 
 if.else26.i.i.i.i:                                ; preds = %if.then19.i.i.i.i
   %call.i.i.i33.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.addr.0.lcssa.i.i.i3.i.i) #12
-  %_M_storage.i.i.i110.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i.i33.i.i, i64 0, i32 1
+  %_M_storage.i.i.i110.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i33.i.i, i64 32
   %28 = load ptr, ptr %_M_storage.i.i.i110.i.i.i.i, align 8, !tbaa !22
-  %__name.i.i.i111.i.i.i.i = getelementptr inbounds %"class.std::type_info", ptr %28, i64 0, i32 1
+  %__name.i.i.i111.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %__name.i.i.i111.i.i.i.i, align 8, !tbaa !20
   %30 = load i8, ptr %29, align 1, !tbaa !24
   %cmp.not.i.i.i112.i.i.i.i = icmp ne i8 %30, 42
@@ -255,9 +248,9 @@ if.then53.i.i.i.i:                                ; preds = %_ZNKSt4lessISt10typ
 
 if.else60.i.i.i.i:                                ; preds = %if.then53.i.i.i.i
   %call.i139.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.addr.0.lcssa.i.i.i3.i.i) #12
-  %_M_storage.i.i.i140.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i139.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i140.i.i.i.i = getelementptr inbounds i8, ptr %call.i139.i.i.i.i, i64 32
   %33 = load ptr, ptr %_M_storage.i.i.i140.i.i.i.i, align 8, !tbaa !22
-  %__name2.i.i.i143.i.i.i.i = getelementptr inbounds %"class.std::type_info", ptr %33, i64 0, i32 1
+  %__name2.i.i.i143.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load ptr, ptr %__name2.i.i.i143.i.i.i.i, align 8, !tbaa !20
   br i1 %cmp.not.i.i.i98.i.i.i.i, label %if.then.i.i.i144.i.i.i.i, label %lor.lhs.false.i.i.i148.i.i.i.i
 
@@ -287,7 +280,7 @@ invoke.cont7.i.i.i:                               ; preds = %_ZNKSt4lessISt10typ
   br i1 %cmp.not12.i, label %if.then.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %invoke.cont7.i.i.i
-  %__name.i.i.i.i = getelementptr inbounds %"class.std::type_info", ptr %2, i64 0, i32 1
+  %__name.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %37 = load ptr, ptr %__name.i.i.i.i, align 8, !tbaa !20
   %38 = load i8, ptr %37, align 1, !tbaa !24
   %cmp.not.i.i.i.i = icmp eq i8 %38, 42
@@ -295,9 +288,9 @@ while.body.lr.ph.i:                               ; preds = %invoke.cont7.i.i.i
 
 while.body.us.i:                                  ; preds = %while.body.lr.ph.i, %cond.end.us.i
   %__x.013.us.i = phi ptr [ %__x.0.us.i, %cond.end.us.i ], [ %__x.011.i, %while.body.lr.ph.i ]
-  %_M_storage.i.i.us.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.013.us.i, i64 0, i32 1
+  %_M_storage.i.i.us.i = getelementptr inbounds i8, ptr %__x.013.us.i, i64 32
   %39 = load ptr, ptr %_M_storage.i.i.us.i, align 8, !tbaa !22
-  %__name2.i.i.i.us.i = getelementptr inbounds %"class.std::type_info", ptr %39, i64 0, i32 1
+  %__name2.i.i.i.us.i = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load ptr, ptr %__name2.i.i.i.us.i, align 8, !tbaa !20
   %41 = load i8, ptr %40, align 1, !tbaa !24
   %cmp5.not.i.i.i.us.i = icmp eq i8 %41, 42
@@ -325,9 +318,9 @@ cond.end.us.i:                                    ; preds = %cond.true.us.i, %_Z
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
   %__x.013.i = phi ptr [ %__x.0.i, %while.body.i ], [ %__x.011.i, %while.body.lr.ph.i ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.013.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.013.i, i64 32
   %43 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !22
-  %__name2.i.i.i.i = getelementptr inbounds %"class.std::type_info", ptr %43, i64 0, i32 1
+  %__name2.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 8
   %44 = load ptr, ptr %__name2.i.i.i.i, align 8, !tbaa !20
   %call.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %44) #10
   %cmp8.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
@@ -350,7 +343,7 @@ if.then.i:                                        ; preds = %while.end.i, %invok
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa20.i) #12
-  %__name2.i.i.i31.i.phi.trans.insert = getelementptr inbounds %"class.std::type_info", ptr %2, i64 0, i32 1
+  %__name2.i.i.i31.i.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.pre = load ptr, ptr %__name2.i.i.i31.i.phi.trans.insert, align 8, !tbaa !20
   br label %if.end12.i
 
@@ -358,9 +351,9 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   %46 = phi ptr [ %.pre, %if.else.i ], [ %37, %while.end.i ]
   %__y.0.lcssa19.i = phi ptr [ %__y.0.lcssa20.i, %if.else.i ], [ %__y.0.lcssa.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__y.0.lcssa.i, %while.end.i ]
-  %_M_storage.i.i.i.i12 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0.i, i64 0, i32 1
+  %_M_storage.i.i.i.i12 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 32
   %47 = load ptr, ptr %_M_storage.i.i.i.i12, align 8, !tbaa !22
-  %__name.i.i.i29.i = getelementptr inbounds %"class.std::type_info", ptr %47, i64 0, i32 1
+  %__name.i.i.i29.i = getelementptr inbounds i8, ptr %47, i64 8
   %48 = load ptr, ptr %__name.i.i.i29.i, align 8, !tbaa !20
   %49 = load i8, ptr %48, align 1, !tbaa !24
   %cmp.not.i.i.i30.i = icmp eq i8 %49, 42
@@ -391,13 +384,13 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeISt10
   br i1 %cmp2.i.i.i.i.i, label %cleanup.i.i.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.12.2.i8.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.12.2.i8.i.i.i, i64 32
   %51 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i, align 8, !tbaa !22
-  %__name.i.i.i.i.i.i25.i.i = getelementptr inbounds %"class.std::type_info", ptr %2, i64 0, i32 1
+  %__name.i.i.i.i.i.i25.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %52 = load ptr, ptr %__name.i.i.i.i.i.i25.i.i, align 8, !tbaa !20
   %53 = load i8, ptr %52, align 1, !tbaa !24
   %cmp.not.i.i.i.i.i.i26.i.i = icmp eq i8 %53, 42
-  %__name2.i.i.i.i.i.i27.i.i = getelementptr inbounds %"class.std::type_info", ptr %51, i64 0, i32 1
+  %__name2.i.i.i.i.i.i27.i.i = getelementptr inbounds i8, ptr %51, i64 8
   %54 = load ptr, ptr %__name2.i.i.i.i.i.i27.i.i, align 8, !tbaa !20
   br i1 %cmp.not.i.i.i.i.i.i26.i.i, label %lor.lhs.false.i.i.i.i.i.i30.i.i, label %if.then.i.i.i.i.i.i28.i.i
 
@@ -431,13 +424,13 @@ if.then.i27.i.i.i:                                ; preds = %_ZNSt8_Rb_treeISt10
 
 _ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5entryERKSt9type_info.exit: ; preds = %if.then.i27.i.i.i, %cleanup.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i, %if.then.i.i.i.i.i
   %__i.sroa.0.0.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i ], [ %__y.addr.1.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call.i.i.i.i.i.i22.i.i, %cleanup.i.i.i ], [ %retval.sroa.0.0.ph.i.i.i, %if.then.i27.i.i.i ]
-  %second.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i.i, i64 40
   %call1.i.i.i.i5.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 0, i32 0, i32 0, i32 0, i64 56)) #10
-  %make = getelementptr inbounds %"struct.folly::detail::StaticSingletonManagerWithRtti::Arg", ptr %arg, i64 0, i32 2
+  %make = getelementptr inbounds i8, ptr %arg, i64 16
   %58 = load ptr, ptr %make, align 8, !tbaa !33
-  %debug = getelementptr inbounds %"struct.folly::detail::StaticSingletonManagerWithRtti::Arg", ptr %arg, i64 0, i32 3
+  %debug = getelementptr inbounds i8, ptr %arg, i64 24
   %59 = load ptr, ptr %debug, align 8, !tbaa !34
-  %mutex.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i.i, i64 0, i32 1, i32 0, i64 16
+  %mutex.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i.i, i64 48
   %call1.i.i.i.i.i8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #10
   %tobool.not.i.i.i.i9 = icmp eq i32 %call1.i.i.i.i.i8, 0
   br i1 %tobool.not.i.i.i.i9, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i11, label %if.then.i.i.i.i10
@@ -488,7 +481,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i) #10
   store i64 16, ptr %ref.tmp2.i.i, align 8, !tbaa !39
-  %large_size_lg_.i.i.i = getelementptr inbounds %"class.folly::reentrant_allocator_options", ptr %ref.tmp2.i.i, i64 0, i32 1
+  %large_size_lg_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i, i64 8
   store i64 12, ptr %large_size_lg_.i.i.i, align 8, !tbaa !41
   call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKNS_27reentrant_allocator_optionsE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i) #10

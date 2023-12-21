@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.NetClientStateList = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.NetClientState = type { ptr, i32, %union.anon, ptr, ptr, ptr, ptr, [256 x i8], i8, ptr, i32, i8, i32, i32, i8, i8, i8, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.AnnounceParameters = type { i64, i64, i64, i64, i8, ptr, ptr }
 
 @net_clients = external local_unnamed_addr global %union.NetClientStateList, align 8
 @.str = private unnamed_addr constant [4 x i8] c" \\ \00", align 1
@@ -35,7 +31,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %nc.017 = phi ptr [ %nc.0, %for.inc ], [ %nc.015, %entry ]
-  %peer1 = getelementptr inbounds %struct.NetClientState, ptr %nc.017, i64 0, i32 3
+  %peer1 = getelementptr inbounds i8, ptr %nc.017, i64 32
   %0 = load ptr, ptr %peer1, align 8
   %1 = load ptr, ptr %nc.017, align 8
   %2 = load i32, ptr %1, align 8
@@ -61,7 +57,7 @@ if.then9:                                         ; preds = %if.end6
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end6, %if.then9, %for.body
-  %next = getelementptr inbounds %struct.NetClientState, ptr %nc.017, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %nc.017, i64 16
   %nc.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %nc.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
@@ -106,17 +102,17 @@ entry:
   %call1 = tail call ptr @qdict_get_try_str(ptr noundef %qdict, ptr noundef nonnull @.str.4) #4
   %call2 = tail call ptr @migrate_announce_params() #4
   %call3 = tail call ptr @qapi_clone(ptr noundef %call2, ptr noundef nonnull @visit_type_AnnounceParameters) #4
-  %interfaces = getelementptr inbounds %struct.AnnounceParameters, ptr %call3, i64 0, i32 5
+  %interfaces = getelementptr inbounds i8, ptr %call3, i64 40
   %0 = load ptr, ptr %interfaces, align 8
   tail call void @qapi_free_strList(ptr noundef %0) #4
   %call4 = tail call ptr @hmp_split_at_comma(ptr noundef %call) #4
   store ptr %call4, ptr %interfaces, align 8
   %cmp = icmp ne ptr %call4, null
-  %has_interfaces = getelementptr inbounds %struct.AnnounceParameters, ptr %call3, i64 0, i32 4
+  %has_interfaces = getelementptr inbounds i8, ptr %call3, i64 32
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %has_interfaces, align 8
   %call7 = tail call noalias ptr @g_strdup(ptr noundef %call1) #4
-  %id8 = getelementptr inbounds %struct.AnnounceParameters, ptr %call3, i64 0, i32 6
+  %id8 = getelementptr inbounds i8, ptr %call3, i64 48
   store ptr %call7, ptr %id8, align 8
   tail call void @qmp_announce_self(ptr noundef %call3, ptr noundef null) #4
   tail call void @qapi_free_AnnounceParameters(ptr noundef %call3) #4
@@ -274,7 +270,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr [1024 x ptr], ptr %ncs, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %name = getelementptr inbounds %struct.NetClientState, ptr %0, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %name, align 8
   call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %1) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -316,14 +312,14 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr [1024 x ptr], ptr %ncs, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %is_netdev = getelementptr inbounds %struct.NetClientState, ptr %0, i64 0, i32 14
+  %is_netdev = getelementptr inbounds i8, ptr %0, i64 352
   %1 = load i8, ptr %is_netdev, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %for.body
-  %name = getelementptr inbounds %struct.NetClientState, ptr %0, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %name, align 8
   call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %3) #4
   br label %for.inc

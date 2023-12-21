@@ -1233,29 +1233,29 @@ if.end12.us.us:                                   ; preds = %if.end12.lr.ph.spli
 
 if.else56.us.us:                                  ; preds = %if.end12.us.us
   store i32 37, ptr %write.057.us.us, align 4
-  %arrayidx58.us.us = getelementptr inbounds i32, ptr %write.057.us.us, i64 1
+  %arrayidx58.us.us = getelementptr inbounds i8, ptr %write.057.us.us, i64 4
   store i32 48, ptr %arrayidx58.us.us, align 4
-  %arrayidx59.us.us = getelementptr inbounds i32, ptr %write.057.us.us, i64 2
+  %arrayidx59.us.us = getelementptr inbounds i8, ptr %write.057.us.us, i64 8
   store i32 68, ptr %arrayidx59.us.us, align 4
-  %add.ptr60.us.us = getelementptr inbounds i32, ptr %write.057.us.us, i64 3
+  %add.ptr60.us.us = getelementptr inbounds i8, ptr %write.057.us.us, i64 12
   br label %sw.epilog.us.us
 
 sw.bb27.us.us:                                    ; preds = %if.end12.us.us
   store i32 37, ptr %write.057.us.us, align 4
-  %arrayidx42.us.us = getelementptr inbounds i32, ptr %write.057.us.us, i64 1
+  %arrayidx42.us.us = getelementptr inbounds i8, ptr %write.057.us.us, i64 4
   store i32 48, ptr %arrayidx42.us.us, align 4
-  %arrayidx43.us.us = getelementptr inbounds i32, ptr %write.057.us.us, i64 2
+  %arrayidx43.us.us = getelementptr inbounds i8, ptr %write.057.us.us, i64 8
   store i32 65, ptr %arrayidx43.us.us, align 4
-  %add.ptr44.us.us = getelementptr inbounds i32, ptr %write.057.us.us, i64 3
+  %add.ptr44.us.us = getelementptr inbounds i8, ptr %write.057.us.us, i64 12
   br label %sw.epilog.us.us
 
 sw.bb23.us.us:                                    ; preds = %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us, %if.end12.us.us
   store i32 %0, ptr %write.057.us.us, align 4
-  %incdec.ptr26.us.us = getelementptr inbounds i32, ptr %write.057.us.us, i64 1
+  %incdec.ptr26.us.us = getelementptr inbounds i8, ptr %write.057.us.us, i64 4
   br label %sw.epilog.us.us
 
 sw.bb15.us.us:                                    ; preds = %if.end12.us.us
-  %arrayidx20.us.us = getelementptr inbounds i32, ptr %write.057.us.us, i64 1
+  %arrayidx20.us.us = getelementptr inbounds i8, ptr %write.057.us.us, i64 4
   br i1 %tobool.not, label %if.else18.us.us, label %if.then16.us.us
 
 if.then16.us.us:                                  ; preds = %sw.bb15.us.us
@@ -1265,9 +1265,9 @@ if.then16.us.us:                                  ; preds = %sw.bb15.us.us
 if.else18.us.us:                                  ; preds = %sw.bb15.us.us
   store i32 37, ptr %write.057.us.us, align 4
   store i32 50, ptr %arrayidx20.us.us, align 4
-  %arrayidx21.us.us = getelementptr inbounds i32, ptr %write.057.us.us, i64 2
+  %arrayidx21.us.us = getelementptr inbounds i8, ptr %write.057.us.us, i64 8
   store i32 48, ptr %arrayidx21.us.us, align 4
-  %add.ptr.us.us = getelementptr inbounds i32, ptr %write.057.us.us, i64 3
+  %add.ptr.us.us = getelementptr inbounds i8, ptr %write.057.us.us, i64 12
   br label %sw.epilog.us.us
 
 sw.default.us.us:                                 ; preds = %if.end12.us.us
@@ -1275,18 +1275,18 @@ sw.default.us.us:                                 ; preds = %if.end12.us.us
   %conv64.us.us = lshr i32 %0, 4
   %shr.us.us = and i32 %conv64.us.us, 15
   %call.us.us = tail call i32 @uriHexToLetterW(i32 noundef %shr.us.us) #2
-  %arrayidx65.us.us = getelementptr inbounds i32, ptr %write.057.us.us, i64 1
+  %arrayidx65.us.us = getelementptr inbounds i8, ptr %write.057.us.us, i64 4
   store i32 %call.us.us, ptr %arrayidx65.us.us, align 4
   %and.us.us = and i32 %0, 15
   %call67.us.us = tail call i32 @uriHexToLetterW(i32 noundef %and.us.us) #2
-  %arrayidx68.us.us = getelementptr inbounds i32, ptr %write.057.us.us, i64 2
+  %arrayidx68.us.us = getelementptr inbounds i8, ptr %write.057.us.us, i64 8
   store i32 %call67.us.us, ptr %arrayidx68.us.us, align 4
-  %add.ptr69.us.us = getelementptr inbounds i32, ptr %write.057.us.us, i64 3
+  %add.ptr69.us.us = getelementptr inbounds i8, ptr %write.057.us.us, i64 12
   br label %sw.epilog.us.us
 
 sw.epilog.us.us:                                  ; preds = %sw.default.us.us, %if.else18.us.us, %if.then16.us.us, %sw.bb23.us.us, %sw.bb27.us.us, %if.else56.us.us
   %write.4.us.us = phi ptr [ %add.ptr69.us.us, %sw.default.us.us ], [ %incdec.ptr26.us.us, %sw.bb23.us.us ], [ %arrayidx20.us.us, %if.then16.us.us ], [ %add.ptr.us.us, %if.else18.us.us ], [ %add.ptr44.us.us, %sw.bb27.us.us ], [ %add.ptr60.us.us, %if.else56.us.us ]
-  %incdec.ptr70.us.us = getelementptr inbounds i32, ptr %read.056.us.us, i64 1
+  %incdec.ptr70.us.us = getelementptr inbounds i8, ptr %read.056.us.us, i64 4
   br label %if.end12.us.us
 
 if.end12.us:                                      ; preds = %if.end12.lr.ph.split.us, %sw.epilog.us
@@ -1368,29 +1368,29 @@ if.end12.us:                                      ; preds = %if.end12.lr.ph.spli
 
 if.else56.us:                                     ; preds = %if.end12.us
   store i32 37, ptr %write.057.us, align 4
-  %arrayidx58.us = getelementptr inbounds i32, ptr %write.057.us, i64 1
+  %arrayidx58.us = getelementptr inbounds i8, ptr %write.057.us, i64 4
   store i32 48, ptr %arrayidx58.us, align 4
-  %arrayidx59.us = getelementptr inbounds i32, ptr %write.057.us, i64 2
+  %arrayidx59.us = getelementptr inbounds i8, ptr %write.057.us, i64 8
   store i32 68, ptr %arrayidx59.us, align 4
-  %add.ptr60.us = getelementptr inbounds i32, ptr %write.057.us, i64 3
+  %add.ptr60.us = getelementptr inbounds i8, ptr %write.057.us, i64 12
   br label %sw.epilog.us
 
 sw.bb27.us:                                       ; preds = %if.end12.us
   store i32 37, ptr %write.057.us, align 4
-  %arrayidx42.us = getelementptr inbounds i32, ptr %write.057.us, i64 1
+  %arrayidx42.us = getelementptr inbounds i8, ptr %write.057.us, i64 4
   store i32 48, ptr %arrayidx42.us, align 4
-  %arrayidx43.us = getelementptr inbounds i32, ptr %write.057.us, i64 2
+  %arrayidx43.us = getelementptr inbounds i8, ptr %write.057.us, i64 8
   store i32 65, ptr %arrayidx43.us, align 4
-  %add.ptr44.us = getelementptr inbounds i32, ptr %write.057.us, i64 3
+  %add.ptr44.us = getelementptr inbounds i8, ptr %write.057.us, i64 12
   br label %sw.epilog.us
 
 sw.bb23.us:                                       ; preds = %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us, %if.end12.us
   store i32 %1, ptr %write.057.us, align 4
-  %incdec.ptr26.us = getelementptr inbounds i32, ptr %write.057.us, i64 1
+  %incdec.ptr26.us = getelementptr inbounds i8, ptr %write.057.us, i64 4
   br label %sw.epilog.us
 
 sw.bb15.us:                                       ; preds = %if.end12.us
-  %arrayidx20.us = getelementptr inbounds i32, ptr %write.057.us, i64 1
+  %arrayidx20.us = getelementptr inbounds i8, ptr %write.057.us, i64 4
   br i1 %tobool.not, label %if.else18.us, label %if.then16.us
 
 if.then16.us:                                     ; preds = %sw.bb15.us
@@ -1400,9 +1400,9 @@ if.then16.us:                                     ; preds = %sw.bb15.us
 if.else18.us:                                     ; preds = %sw.bb15.us
   store i32 37, ptr %write.057.us, align 4
   store i32 50, ptr %arrayidx20.us, align 4
-  %arrayidx21.us = getelementptr inbounds i32, ptr %write.057.us, i64 2
+  %arrayidx21.us = getelementptr inbounds i8, ptr %write.057.us, i64 8
   store i32 48, ptr %arrayidx21.us, align 4
-  %add.ptr.us = getelementptr inbounds i32, ptr %write.057.us, i64 3
+  %add.ptr.us = getelementptr inbounds i8, ptr %write.057.us, i64 12
   br label %sw.epilog.us
 
 sw.default.us:                                    ; preds = %if.end12.us
@@ -1410,18 +1410,18 @@ sw.default.us:                                    ; preds = %if.end12.us
   %conv64.us = lshr i32 %1, 4
   %shr.us = and i32 %conv64.us, 15
   %call.us = tail call i32 @uriHexToLetterW(i32 noundef %shr.us) #2
-  %arrayidx65.us = getelementptr inbounds i32, ptr %write.057.us, i64 1
+  %arrayidx65.us = getelementptr inbounds i8, ptr %write.057.us, i64 4
   store i32 %call.us, ptr %arrayidx65.us, align 4
   %and.us = and i32 %1, 15
   %call67.us = tail call i32 @uriHexToLetterW(i32 noundef %and.us) #2
-  %arrayidx68.us = getelementptr inbounds i32, ptr %write.057.us, i64 2
+  %arrayidx68.us = getelementptr inbounds i8, ptr %write.057.us, i64 8
   store i32 %call67.us, ptr %arrayidx68.us, align 4
-  %add.ptr69.us = getelementptr inbounds i32, ptr %write.057.us, i64 3
+  %add.ptr69.us = getelementptr inbounds i8, ptr %write.057.us, i64 12
   br label %sw.epilog.us
 
 sw.epilog.us:                                     ; preds = %sw.default.us, %if.else18.us, %if.then16.us, %sw.bb23.us, %sw.bb27.us, %if.else56.us
   %write.4.us = phi ptr [ %add.ptr69.us, %sw.default.us ], [ %incdec.ptr26.us, %sw.bb23.us ], [ %arrayidx20.us, %if.then16.us ], [ %add.ptr.us, %if.else18.us ], [ %add.ptr44.us, %sw.bb27.us ], [ %add.ptr60.us, %if.else56.us ]
-  %incdec.ptr70.us = getelementptr inbounds i32, ptr %read.056.us, i64 1
+  %incdec.ptr70.us = getelementptr inbounds i8, ptr %read.056.us, i64 4
   %cmp9.not.us = icmp ult ptr %incdec.ptr70.us, %inAfterLast
   br i1 %cmp9.not.us, label %if.end12.us, label %return.sink.split
 
@@ -1511,11 +1511,11 @@ if.end12.us98.us:                                 ; preds = %if.end12.lr.ph.spli
 
 sw.bb46.us102.us:                                 ; preds = %if.end12.us98.us
   store <4 x i32> <i32 37, i32 48, i32 68, i32 37>, ptr %write.057.us100.us, align 4
-  %arrayidx53.us106.us = getelementptr inbounds i32, ptr %write.057.us100.us, i64 4
+  %arrayidx53.us106.us = getelementptr inbounds i8, ptr %write.057.us100.us, i64 16
   store i32 48, ptr %arrayidx53.us106.us, align 4
-  %arrayidx54.us107.us = getelementptr inbounds i32, ptr %write.057.us100.us, i64 5
+  %arrayidx54.us107.us = getelementptr inbounds i8, ptr %write.057.us100.us, i64 20
   store i32 65, ptr %arrayidx54.us107.us, align 4
-  %add.ptr55.us108.us = getelementptr inbounds i32, ptr %write.057.us100.us, i64 6
+  %add.ptr55.us108.us = getelementptr inbounds i8, ptr %write.057.us100.us, i64 24
   br label %sw.epilog.us134.us
 
 sw.bb27.us109.us:                                 ; preds = %if.end12.us98.us
@@ -1524,25 +1524,25 @@ sw.bb27.us109.us:                                 ; preds = %if.end12.us98.us
 
 if.then31.us111.us:                               ; preds = %sw.bb27.us109.us
   store <4 x i32> <i32 37, i32 48, i32 68, i32 37>, ptr %write.057.us100.us, align 4
-  %arrayidx36.us115.us = getelementptr inbounds i32, ptr %write.057.us100.us, i64 4
+  %arrayidx36.us115.us = getelementptr inbounds i8, ptr %write.057.us100.us, i64 16
   store i32 48, ptr %arrayidx36.us115.us, align 4
-  %arrayidx37.us116.us = getelementptr inbounds i32, ptr %write.057.us100.us, i64 5
+  %arrayidx37.us116.us = getelementptr inbounds i8, ptr %write.057.us100.us, i64 20
   store i32 65, ptr %arrayidx37.us116.us, align 4
-  %add.ptr38.us117.us = getelementptr inbounds i32, ptr %write.057.us100.us, i64 6
+  %add.ptr38.us117.us = getelementptr inbounds i8, ptr %write.057.us100.us, i64 24
   br label %sw.epilog.us134.us
 
 sw.bb23.us118.us:                                 ; preds = %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us, %if.end12.us98.us
   store i32 %2, ptr %write.057.us100.us, align 4
-  %incdec.ptr26.us119.us = getelementptr inbounds i32, ptr %write.057.us100.us, i64 1
+  %incdec.ptr26.us119.us = getelementptr inbounds i8, ptr %write.057.us100.us, i64 4
   br label %sw.epilog.us134.us
 
 sw.bb15.us120.us:                                 ; preds = %if.end12.us98.us
   store i32 37, ptr %write.057.us100.us, align 4
-  %arrayidx20.us122.us = getelementptr inbounds i32, ptr %write.057.us100.us, i64 1
+  %arrayidx20.us122.us = getelementptr inbounds i8, ptr %write.057.us100.us, i64 4
   store i32 50, ptr %arrayidx20.us122.us, align 4
-  %arrayidx21.us123.us = getelementptr inbounds i32, ptr %write.057.us100.us, i64 2
+  %arrayidx21.us123.us = getelementptr inbounds i8, ptr %write.057.us100.us, i64 8
   store i32 48, ptr %arrayidx21.us123.us, align 4
-  %add.ptr.us124.us = getelementptr inbounds i32, ptr %write.057.us100.us, i64 3
+  %add.ptr.us124.us = getelementptr inbounds i8, ptr %write.057.us100.us, i64 12
   br label %sw.epilog.us134.us
 
 sw.default.us125.us:                              ; preds = %if.end12.us98.us
@@ -1550,19 +1550,19 @@ sw.default.us125.us:                              ; preds = %if.end12.us98.us
   %conv64.us126.us = lshr i32 %2, 4
   %shr.us127.us = and i32 %conv64.us126.us, 15
   %call.us128.us = tail call i32 @uriHexToLetterW(i32 noundef %shr.us127.us) #2
-  %arrayidx65.us129.us = getelementptr inbounds i32, ptr %write.057.us100.us, i64 1
+  %arrayidx65.us129.us = getelementptr inbounds i8, ptr %write.057.us100.us, i64 4
   store i32 %call.us128.us, ptr %arrayidx65.us129.us, align 4
   %and.us130.us = and i32 %2, 15
   %call67.us131.us = tail call i32 @uriHexToLetterW(i32 noundef %and.us130.us) #2
-  %arrayidx68.us132.us = getelementptr inbounds i32, ptr %write.057.us100.us, i64 2
+  %arrayidx68.us132.us = getelementptr inbounds i8, ptr %write.057.us100.us, i64 8
   store i32 %call67.us131.us, ptr %arrayidx68.us132.us, align 4
-  %add.ptr69.us133.us = getelementptr inbounds i32, ptr %write.057.us100.us, i64 3
+  %add.ptr69.us133.us = getelementptr inbounds i8, ptr %write.057.us100.us, i64 12
   br label %sw.epilog.us134.us
 
 sw.epilog.us134.us:                               ; preds = %sw.default.us125.us, %sw.bb15.us120.us, %sw.bb23.us118.us, %if.then31.us111.us, %sw.bb27.us109.us, %sw.bb46.us102.us
   %write.4.us135.us = phi ptr [ %add.ptr69.us133.us, %sw.default.us125.us ], [ %incdec.ptr26.us119.us, %sw.bb23.us118.us ], [ %add.ptr.us124.us, %sw.bb15.us120.us ], [ %write.057.us100.us, %sw.bb27.us109.us ], [ %add.ptr38.us117.us, %if.then31.us111.us ], [ %add.ptr55.us108.us, %sw.bb46.us102.us ]
   %prevWasCr.1.us136.us = phi i32 [ 0, %sw.default.us125.us ], [ 0, %sw.bb23.us118.us ], [ 0, %sw.bb15.us120.us ], [ 0, %sw.bb27.us109.us ], [ 0, %if.then31.us111.us ], [ 1, %sw.bb46.us102.us ]
-  %incdec.ptr70.us137.us = getelementptr inbounds i32, ptr %read.056.us101.us, i64 1
+  %incdec.ptr70.us137.us = getelementptr inbounds i8, ptr %read.056.us101.us, i64 4
   br label %if.end12.us98.us
 
 if.end12.us98:                                    ; preds = %if.end12.lr.ph.split.split.split.us, %sw.epilog.us134
@@ -1645,11 +1645,11 @@ if.end12.us98:                                    ; preds = %if.end12.lr.ph.spli
 
 sw.bb46.us102:                                    ; preds = %if.end12.us98
   store <4 x i32> <i32 37, i32 48, i32 68, i32 37>, ptr %write.057.us100, align 4
-  %arrayidx53.us106 = getelementptr inbounds i32, ptr %write.057.us100, i64 4
+  %arrayidx53.us106 = getelementptr inbounds i8, ptr %write.057.us100, i64 16
   store i32 48, ptr %arrayidx53.us106, align 4
-  %arrayidx54.us107 = getelementptr inbounds i32, ptr %write.057.us100, i64 5
+  %arrayidx54.us107 = getelementptr inbounds i8, ptr %write.057.us100, i64 20
   store i32 65, ptr %arrayidx54.us107, align 4
-  %add.ptr55.us108 = getelementptr inbounds i32, ptr %write.057.us100, i64 6
+  %add.ptr55.us108 = getelementptr inbounds i8, ptr %write.057.us100, i64 24
   br label %sw.epilog.us134
 
 sw.bb27.us109:                                    ; preds = %if.end12.us98
@@ -1658,25 +1658,25 @@ sw.bb27.us109:                                    ; preds = %if.end12.us98
 
 if.then31.us111:                                  ; preds = %sw.bb27.us109
   store <4 x i32> <i32 37, i32 48, i32 68, i32 37>, ptr %write.057.us100, align 4
-  %arrayidx36.us115 = getelementptr inbounds i32, ptr %write.057.us100, i64 4
+  %arrayidx36.us115 = getelementptr inbounds i8, ptr %write.057.us100, i64 16
   store i32 48, ptr %arrayidx36.us115, align 4
-  %arrayidx37.us116 = getelementptr inbounds i32, ptr %write.057.us100, i64 5
+  %arrayidx37.us116 = getelementptr inbounds i8, ptr %write.057.us100, i64 20
   store i32 65, ptr %arrayidx37.us116, align 4
-  %add.ptr38.us117 = getelementptr inbounds i32, ptr %write.057.us100, i64 6
+  %add.ptr38.us117 = getelementptr inbounds i8, ptr %write.057.us100, i64 24
   br label %sw.epilog.us134
 
 sw.bb23.us118:                                    ; preds = %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98, %if.end12.us98
   store i32 %3, ptr %write.057.us100, align 4
-  %incdec.ptr26.us119 = getelementptr inbounds i32, ptr %write.057.us100, i64 1
+  %incdec.ptr26.us119 = getelementptr inbounds i8, ptr %write.057.us100, i64 4
   br label %sw.epilog.us134
 
 sw.bb15.us120:                                    ; preds = %if.end12.us98
   store i32 37, ptr %write.057.us100, align 4
-  %arrayidx20.us122 = getelementptr inbounds i32, ptr %write.057.us100, i64 1
+  %arrayidx20.us122 = getelementptr inbounds i8, ptr %write.057.us100, i64 4
   store i32 50, ptr %arrayidx20.us122, align 4
-  %arrayidx21.us123 = getelementptr inbounds i32, ptr %write.057.us100, i64 2
+  %arrayidx21.us123 = getelementptr inbounds i8, ptr %write.057.us100, i64 8
   store i32 48, ptr %arrayidx21.us123, align 4
-  %add.ptr.us124 = getelementptr inbounds i32, ptr %write.057.us100, i64 3
+  %add.ptr.us124 = getelementptr inbounds i8, ptr %write.057.us100, i64 12
   br label %sw.epilog.us134
 
 sw.default.us125:                                 ; preds = %if.end12.us98
@@ -1684,19 +1684,19 @@ sw.default.us125:                                 ; preds = %if.end12.us98
   %conv64.us126 = lshr i32 %3, 4
   %shr.us127 = and i32 %conv64.us126, 15
   %call.us128 = tail call i32 @uriHexToLetterW(i32 noundef %shr.us127) #2
-  %arrayidx65.us129 = getelementptr inbounds i32, ptr %write.057.us100, i64 1
+  %arrayidx65.us129 = getelementptr inbounds i8, ptr %write.057.us100, i64 4
   store i32 %call.us128, ptr %arrayidx65.us129, align 4
   %and.us130 = and i32 %3, 15
   %call67.us131 = tail call i32 @uriHexToLetterW(i32 noundef %and.us130) #2
-  %arrayidx68.us132 = getelementptr inbounds i32, ptr %write.057.us100, i64 2
+  %arrayidx68.us132 = getelementptr inbounds i8, ptr %write.057.us100, i64 8
   store i32 %call67.us131, ptr %arrayidx68.us132, align 4
-  %add.ptr69.us133 = getelementptr inbounds i32, ptr %write.057.us100, i64 3
+  %add.ptr69.us133 = getelementptr inbounds i8, ptr %write.057.us100, i64 12
   br label %sw.epilog.us134
 
 sw.epilog.us134:                                  ; preds = %sw.default.us125, %sw.bb15.us120, %sw.bb23.us118, %if.then31.us111, %sw.bb27.us109, %sw.bb46.us102
   %write.4.us135 = phi ptr [ %add.ptr69.us133, %sw.default.us125 ], [ %incdec.ptr26.us119, %sw.bb23.us118 ], [ %add.ptr.us124, %sw.bb15.us120 ], [ %write.057.us100, %sw.bb27.us109 ], [ %add.ptr38.us117, %if.then31.us111 ], [ %add.ptr55.us108, %sw.bb46.us102 ]
   %prevWasCr.1.us136 = phi i32 [ 0, %sw.default.us125 ], [ 0, %sw.bb23.us118 ], [ 0, %sw.bb15.us120 ], [ 0, %sw.bb27.us109 ], [ 0, %if.then31.us111 ], [ 1, %sw.bb46.us102 ]
-  %incdec.ptr70.us137 = getelementptr inbounds i32, ptr %read.056.us101, i64 1
+  %incdec.ptr70.us137 = getelementptr inbounds i8, ptr %read.056.us101, i64 4
   %cmp9.not.us138 = icmp ult ptr %incdec.ptr70.us137, %inAfterLast
   br i1 %cmp9.not.us138, label %if.end12.us98, label %return.sink.split
 
@@ -1783,11 +1783,11 @@ if.end12.us144:                                   ; preds = %if.end12.lr.ph.spli
 
 sw.bb46.us148:                                    ; preds = %if.end12.us144
   store <4 x i32> <i32 37, i32 48, i32 68, i32 37>, ptr %write.057.us146, align 4
-  %arrayidx53.us152 = getelementptr inbounds i32, ptr %write.057.us146, i64 4
+  %arrayidx53.us152 = getelementptr inbounds i8, ptr %write.057.us146, i64 16
   store i32 48, ptr %arrayidx53.us152, align 4
-  %arrayidx54.us153 = getelementptr inbounds i32, ptr %write.057.us146, i64 5
+  %arrayidx54.us153 = getelementptr inbounds i8, ptr %write.057.us146, i64 20
   store i32 65, ptr %arrayidx54.us153, align 4
-  %add.ptr55.us154 = getelementptr inbounds i32, ptr %write.057.us146, i64 6
+  %add.ptr55.us154 = getelementptr inbounds i8, ptr %write.057.us146, i64 24
   br label %sw.epilog.us177
 
 sw.bb27.us155:                                    ; preds = %if.end12.us144
@@ -1796,21 +1796,21 @@ sw.bb27.us155:                                    ; preds = %if.end12.us144
 
 if.then31.us157:                                  ; preds = %sw.bb27.us155
   store <4 x i32> <i32 37, i32 48, i32 68, i32 37>, ptr %write.057.us146, align 4
-  %arrayidx36.us161 = getelementptr inbounds i32, ptr %write.057.us146, i64 4
+  %arrayidx36.us161 = getelementptr inbounds i8, ptr %write.057.us146, i64 16
   store i32 48, ptr %arrayidx36.us161, align 4
-  %arrayidx37.us162 = getelementptr inbounds i32, ptr %write.057.us146, i64 5
+  %arrayidx37.us162 = getelementptr inbounds i8, ptr %write.057.us146, i64 20
   store i32 65, ptr %arrayidx37.us162, align 4
-  %add.ptr38.us163 = getelementptr inbounds i32, ptr %write.057.us146, i64 6
+  %add.ptr38.us163 = getelementptr inbounds i8, ptr %write.057.us146, i64 24
   br label %sw.epilog.us177
 
 sw.bb23.us164:                                    ; preds = %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144, %if.end12.us144
   store i32 %4, ptr %write.057.us146, align 4
-  %incdec.ptr26.us165 = getelementptr inbounds i32, ptr %write.057.us146, i64 1
+  %incdec.ptr26.us165 = getelementptr inbounds i8, ptr %write.057.us146, i64 4
   br label %sw.epilog.us177
 
 sw.bb15.us166:                                    ; preds = %if.end12.us144
   store i32 43, ptr %write.057.us146, align 4
-  %incdec.ptr.us167 = getelementptr inbounds i32, ptr %write.057.us146, i64 1
+  %incdec.ptr.us167 = getelementptr inbounds i8, ptr %write.057.us146, i64 4
   br label %sw.epilog.us177
 
 sw.default.us168:                                 ; preds = %if.end12.us144
@@ -1818,19 +1818,19 @@ sw.default.us168:                                 ; preds = %if.end12.us144
   %conv64.us169 = lshr i32 %4, 4
   %shr.us170 = and i32 %conv64.us169, 15
   %call.us171 = tail call i32 @uriHexToLetterW(i32 noundef %shr.us170) #2
-  %arrayidx65.us172 = getelementptr inbounds i32, ptr %write.057.us146, i64 1
+  %arrayidx65.us172 = getelementptr inbounds i8, ptr %write.057.us146, i64 4
   store i32 %call.us171, ptr %arrayidx65.us172, align 4
   %and.us173 = and i32 %4, 15
   %call67.us174 = tail call i32 @uriHexToLetterW(i32 noundef %and.us173) #2
-  %arrayidx68.us175 = getelementptr inbounds i32, ptr %write.057.us146, i64 2
+  %arrayidx68.us175 = getelementptr inbounds i8, ptr %write.057.us146, i64 8
   store i32 %call67.us174, ptr %arrayidx68.us175, align 4
-  %add.ptr69.us176 = getelementptr inbounds i32, ptr %write.057.us146, i64 3
+  %add.ptr69.us176 = getelementptr inbounds i8, ptr %write.057.us146, i64 12
   br label %sw.epilog.us177
 
 sw.epilog.us177:                                  ; preds = %sw.default.us168, %sw.bb15.us166, %sw.bb23.us164, %if.then31.us157, %sw.bb27.us155, %sw.bb46.us148
   %write.4.us178 = phi ptr [ %add.ptr69.us176, %sw.default.us168 ], [ %incdec.ptr26.us165, %sw.bb23.us164 ], [ %incdec.ptr.us167, %sw.bb15.us166 ], [ %write.057.us146, %sw.bb27.us155 ], [ %add.ptr38.us163, %if.then31.us157 ], [ %add.ptr55.us154, %sw.bb46.us148 ]
   %prevWasCr.1.us179 = phi i32 [ 0, %sw.default.us168 ], [ 0, %sw.bb23.us164 ], [ 0, %sw.bb15.us166 ], [ 0, %sw.bb27.us155 ], [ 0, %if.then31.us157 ], [ 1, %sw.bb46.us148 ]
-  %incdec.ptr70.us180 = getelementptr inbounds i32, ptr %read.056.us147, i64 1
+  %incdec.ptr70.us180 = getelementptr inbounds i8, ptr %read.056.us147, i64 4
   br label %if.end12.us144
 
 if.end12:                                         ; preds = %if.end12.lr.ph.split.split.split, %sw.epilog
@@ -1913,12 +1913,12 @@ if.end12:                                         ; preds = %if.end12.lr.ph.spli
 
 sw.bb15:                                          ; preds = %if.end12
   store i32 43, ptr %write.057, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %write.057, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %write.057, i64 4
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12
   store i32 %5, ptr %write.057, align 4
-  %incdec.ptr26 = getelementptr inbounds i32, ptr %write.057, i64 1
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %write.057, i64 4
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end12
@@ -1927,20 +1927,20 @@ sw.bb27:                                          ; preds = %if.end12
 
 if.then31:                                        ; preds = %sw.bb27
   store <4 x i32> <i32 37, i32 48, i32 68, i32 37>, ptr %write.057, align 4
-  %arrayidx36 = getelementptr inbounds i32, ptr %write.057, i64 4
+  %arrayidx36 = getelementptr inbounds i8, ptr %write.057, i64 16
   store i32 48, ptr %arrayidx36, align 4
-  %arrayidx37 = getelementptr inbounds i32, ptr %write.057, i64 5
+  %arrayidx37 = getelementptr inbounds i8, ptr %write.057, i64 20
   store i32 65, ptr %arrayidx37, align 4
-  %add.ptr38 = getelementptr inbounds i32, ptr %write.057, i64 6
+  %add.ptr38 = getelementptr inbounds i8, ptr %write.057, i64 24
   br label %sw.epilog
 
 sw.bb46:                                          ; preds = %if.end12
   store <4 x i32> <i32 37, i32 48, i32 68, i32 37>, ptr %write.057, align 4
-  %arrayidx53 = getelementptr inbounds i32, ptr %write.057, i64 4
+  %arrayidx53 = getelementptr inbounds i8, ptr %write.057, i64 16
   store i32 48, ptr %arrayidx53, align 4
-  %arrayidx54 = getelementptr inbounds i32, ptr %write.057, i64 5
+  %arrayidx54 = getelementptr inbounds i8, ptr %write.057, i64 20
   store i32 65, ptr %arrayidx54, align 4
-  %add.ptr55 = getelementptr inbounds i32, ptr %write.057, i64 6
+  %add.ptr55 = getelementptr inbounds i8, ptr %write.057, i64 24
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end12
@@ -1948,19 +1948,19 @@ sw.default:                                       ; preds = %if.end12
   %conv64 = lshr i32 %5, 4
   %shr = and i32 %conv64, 15
   %call = tail call i32 @uriHexToLetterW(i32 noundef %shr) #2
-  %arrayidx65 = getelementptr inbounds i32, ptr %write.057, i64 1
+  %arrayidx65 = getelementptr inbounds i8, ptr %write.057, i64 4
   store i32 %call, ptr %arrayidx65, align 4
   %and = and i32 %5, 15
   %call67 = tail call i32 @uriHexToLetterW(i32 noundef %and) #2
-  %arrayidx68 = getelementptr inbounds i32, ptr %write.057, i64 2
+  %arrayidx68 = getelementptr inbounds i8, ptr %write.057, i64 8
   store i32 %call67, ptr %arrayidx68, align 4
-  %add.ptr69 = getelementptr inbounds i32, ptr %write.057, i64 3
+  %add.ptr69 = getelementptr inbounds i8, ptr %write.057, i64 12
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb46, %if.then31, %sw.bb27, %sw.bb15, %sw.default, %sw.bb23
   %write.4 = phi ptr [ %add.ptr69, %sw.default ], [ %incdec.ptr26, %sw.bb23 ], [ %incdec.ptr, %sw.bb15 ], [ %write.057, %sw.bb27 ], [ %add.ptr38, %if.then31 ], [ %add.ptr55, %sw.bb46 ]
   %prevWasCr.1 = phi i32 [ 0, %sw.default ], [ 0, %sw.bb23 ], [ 0, %sw.bb15 ], [ 0, %sw.bb27 ], [ 0, %if.then31 ], [ 1, %sw.bb46 ]
-  %incdec.ptr70 = getelementptr inbounds i32, ptr %read.056, i64 1
+  %incdec.ptr70 = getelementptr inbounds i8, ptr %read.056, i64 4
   %cmp9.not = icmp ult ptr %incdec.ptr70, %inAfterLast
   br i1 %cmp9.not, label %if.end12, label %return.sink.split
 
@@ -2013,7 +2013,7 @@ if.then2:                                         ; preds = %sw.bb
   br label %return
 
 sw.bb5:                                           ; preds = %for.cond
-  %arrayidx6 = getelementptr inbounds i32, ptr %read.0, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %read.0, i64 4
   %1 = load i32, ptr %arrayidx6, align 4
   switch i32 %1, label %sw.default67 [
     i32 48, label %sw.bb7
@@ -2041,7 +2041,7 @@ sw.bb5:                                           ; preds = %for.cond
   ]
 
 sw.bb7:                                           ; preds = %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5
-  %arrayidx8 = getelementptr inbounds i32, ptr %read.0, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %read.0, i64 8
   %2 = load i32, ptr %arrayidx8, align 4
   switch i32 %2, label %sw.default55 [
     i32 48, label %sw.bb9
@@ -2094,7 +2094,7 @@ sw.bb15:                                          ; preds = %sw.bb14
 
 if.then16:                                        ; preds = %sw.bb15
   store i32 10, ptr %write.0, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %write.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %write.0, i64 4
   br label %sw.epilog53
 
 sw.bb19:                                          ; preds = %sw.bb14
@@ -2103,9 +2103,9 @@ sw.bb19:                                          ; preds = %sw.bb14
 
 if.then21:                                        ; preds = %sw.bb19
   store i32 13, ptr %write.0, align 4
-  %arrayidx23 = getelementptr inbounds i32, ptr %write.0, i64 1
+  %arrayidx23 = getelementptr inbounds i8, ptr %write.0, i64 4
   store i32 10, ptr %arrayidx23, align 4
-  %add.ptr = getelementptr inbounds i32, ptr %write.0, i64 2
+  %add.ptr = getelementptr inbounds i8, ptr %write.0, i64 8
   br label %sw.epilog53
 
 sw.bb25:                                          ; preds = %sw.bb14
@@ -2114,16 +2114,16 @@ sw.bb25:                                          ; preds = %sw.bb14
 
 if.then27:                                        ; preds = %sw.bb25
   store i32 13, ptr %write.0, align 4
-  %incdec.ptr29 = getelementptr inbounds i32, ptr %write.0, i64 1
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %write.0, i64 4
   br label %sw.epilog53
 
 sw.default:                                       ; preds = %sw.bb14
   store i32 10, ptr %write.0, align 4
-  %incdec.ptr33 = getelementptr inbounds i32, ptr %write.0, i64 1
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %write.0, i64 4
   br label %sw.epilog53
 
 sw.bb34:                                          ; preds = %sw.bb9
-  %incdec.ptr48 = getelementptr inbounds i32, ptr %write.0, i64 1
+  %incdec.ptr48 = getelementptr inbounds i8, ptr %write.0, i64 4
   switch i32 %breakConversion, label %sw.default46 [
     i32 0, label %sw.bb35
     i32 1, label %sw.bb38
@@ -2137,7 +2137,7 @@ sw.bb35:                                          ; preds = %sw.bb34
 sw.bb38:                                          ; preds = %sw.bb34
   store i32 13, ptr %write.0, align 4
   store i32 10, ptr %incdec.ptr48, align 4
-  %add.ptr41 = getelementptr inbounds i32, ptr %write.0, i64 2
+  %add.ptr41 = getelementptr inbounds i8, ptr %write.0, i64 8
   br label %sw.epilog53
 
 sw.bb42:                                          ; preds = %sw.bb34
@@ -2150,13 +2150,13 @@ sw.default46:                                     ; preds = %sw.bb34
 
 sw.default50:                                     ; preds = %sw.bb9
   store i32 %add, ptr %write.0, align 4
-  %incdec.ptr52 = getelementptr inbounds i32, ptr %write.0, i64 1
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %write.0, i64 4
   br label %sw.epilog53
 
 sw.epilog53:                                      ; preds = %sw.bb35, %sw.bb38, %sw.bb42, %sw.default46, %sw.default, %if.then16, %sw.bb15, %if.then21, %sw.bb19, %if.then27, %sw.bb25, %sw.default50
   %prevWasCr.1 = phi i32 [ 0, %sw.default50 ], [ 0, %sw.bb25 ], [ 0, %if.then27 ], [ 0, %sw.bb19 ], [ 0, %if.then21 ], [ 0, %sw.bb15 ], [ 0, %if.then16 ], [ 0, %sw.default ], [ 1, %sw.default46 ], [ 1, %sw.bb42 ], [ 1, %sw.bb38 ], [ 1, %sw.bb35 ]
   %write.3 = phi ptr [ %incdec.ptr52, %sw.default50 ], [ %write.0, %sw.bb25 ], [ %incdec.ptr29, %if.then27 ], [ %write.0, %sw.bb19 ], [ %add.ptr, %if.then21 ], [ %write.0, %sw.bb15 ], [ %incdec.ptr, %if.then16 ], [ %incdec.ptr33, %sw.default ], [ %incdec.ptr48, %sw.default46 ], [ %incdec.ptr48, %sw.bb42 ], [ %add.ptr41, %sw.bb38 ], [ %incdec.ptr48, %sw.bb35 ]
-  %add.ptr54 = getelementptr inbounds i32, ptr %read.0, i64 3
+  %add.ptr54 = getelementptr inbounds i8, ptr %read.0, i64 12
   br label %for.cond.backedge
 
 sw.default55:                                     ; preds = %sw.bb7
@@ -2166,12 +2166,12 @@ sw.default55:                                     ; preds = %sw.bb7
 if.then58:                                        ; preds = %sw.default55
   store i32 37, ptr %write.0, align 4
   %4 = load i32, ptr %arrayidx6, align 4
-  %arrayidx62 = getelementptr inbounds i32, ptr %write.0, i64 1
+  %arrayidx62 = getelementptr inbounds i8, ptr %write.0, i64 4
   store i32 %4, ptr %arrayidx62, align 4
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then58, %sw.default55
-  %add.ptr65 = getelementptr inbounds i32, ptr %write.0, i64 2
+  %add.ptr65 = getelementptr inbounds i8, ptr %write.0, i64 8
   br label %for.cond.backedge
 
 sw.default67:                                     ; preds = %sw.bb5
@@ -2183,7 +2183,7 @@ if.then70:                                        ; preds = %sw.default67
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then70, %sw.default67
-  %incdec.ptr75 = getelementptr inbounds i32, ptr %write.0, i64 1
+  %incdec.ptr75 = getelementptr inbounds i8, ptr %write.0, i64 4
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.end73, %if.end63, %sw.epilog53, %if.end96, %if.end87
@@ -2205,8 +2205,8 @@ if.end87.sink.split:                              ; preds = %if.else, %sw.bb77
   br label %if.end87
 
 if.end87:                                         ; preds = %if.end87.sink.split, %if.else
-  %incdec.ptr88 = getelementptr inbounds i32, ptr %read.0, i64 1
-  %incdec.ptr89 = getelementptr inbounds i32, ptr %write.0, i64 1
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %read.0, i64 4
+  %incdec.ptr89 = getelementptr inbounds i8, ptr %write.0, i64 4
   br label %for.cond.backedge
 
 sw.default90:                                     ; preds = %for.cond
@@ -2218,8 +2218,8 @@ if.then93:                                        ; preds = %sw.default90
   br label %if.end96
 
 if.end96:                                         ; preds = %if.then93, %sw.default90
-  %incdec.ptr97 = getelementptr inbounds i32, ptr %read.0, i64 1
-  %incdec.ptr98 = getelementptr inbounds i32, ptr %write.0, i64 1
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %read.0, i64 4
+  %incdec.ptr98 = getelementptr inbounds i8, ptr %write.0, i64 4
   br label %for.cond.backedge
 
 return:                                           ; preds = %sw.bb, %if.then2, %entry

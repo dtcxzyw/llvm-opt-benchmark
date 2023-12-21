@@ -3,27 +3,25 @@ source_filename = "bench/memcached/original/memcached_debug-bipbuffer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bipbuf_t = type { i64, i32, i32, i32, i32, [0 x i8] }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @bipbuf_unused(ptr nocapture noundef readonly %me) local_unnamed_addr #0 {
 entry:
-  %b_inuse = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 4
+  %b_inuse = getelementptr inbounds i8, ptr %me, i64 20
   %0 = load i32, ptr %b_inuse, align 4
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %a_start = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 1
+  %a_start = getelementptr inbounds i8, ptr %me, i64 8
   %1 = load i32, ptr %a_start, align 8
-  %b_end = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 3
+  %b_end = getelementptr inbounds i8, ptr %me, i64 16
   %2 = load i32, ptr %b_end, align 8
   %sub = sub i32 %1, %2
   br label %return
 
 if.else:                                          ; preds = %entry
   %3 = load i64, ptr %me, align 8
-  %a_end = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 2
+  %a_end = getelementptr inbounds i8, ptr %me, i64 12
   %4 = load i32, ptr %a_end, align 4
   %5 = trunc i64 %3 to i32
   %conv2 = sub i32 %5, %4
@@ -45,12 +43,12 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @bipbuf_used(ptr nocapture noundef readonly %me) local_unnamed_addr #0 {
 entry:
-  %a_end = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 2
+  %a_end = getelementptr inbounds i8, ptr %me, i64 12
   %0 = load i32, ptr %a_end, align 4
-  %a_start = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 1
+  %a_start = getelementptr inbounds i8, ptr %me, i64 8
   %1 = load i32, ptr %a_start, align 8
   %sub = sub i32 %0, %1
-  %b_end = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 3
+  %b_end = getelementptr inbounds i8, ptr %me, i64 16
   %2 = load i32, ptr %b_end, align 8
   %add = add i32 %sub, %2
   ret i32 %add
@@ -59,7 +57,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @bipbuf_init(ptr nocapture noundef writeonly %me, i32 noundef %size) local_unnamed_addr #1 {
 entry:
-  %a_start = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 1
+  %a_start = getelementptr inbounds i8, ptr %me, i64 8
   %conv = zext i32 %size to i64
   store i64 %conv, ptr %me, align 8
   store <4 x i32> zeroinitializer, ptr %a_start, align 8
@@ -76,7 +74,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %a_start.i = getelementptr inbounds %struct.bipbuf_t, ptr %call1, i64 0, i32 1
+  %a_start.i = getelementptr inbounds i8, ptr %call1, i64 8
   store i64 %conv.i, ptr %call1, align 8
   store <4 x i32> zeroinitializer, ptr %a_start.i, align 8
   br label %return
@@ -101,9 +99,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @bipbuf_is_empty(ptr nocapture noundef readonly %me) local_unnamed_addr #0 {
 entry:
-  %a_start = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 1
+  %a_start = getelementptr inbounds i8, ptr %me, i64 8
   %0 = load i32, ptr %a_start, align 8
-  %a_end = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 2
+  %a_end = getelementptr inbounds i8, ptr %me, i64 12
   %1 = load i32, ptr %a_end, align 4
   %cmp = icmp eq i32 %0, %1
   %conv = zext i1 %cmp to i32
@@ -113,15 +111,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @bipbuf_request(ptr noundef readonly %me, i32 noundef %size) local_unnamed_addr #0 {
 entry:
-  %b_inuse.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 4
+  %b_inuse.i = getelementptr inbounds i8, ptr %me, i64 20
   %0 = load i32, ptr %b_inuse.i, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %bipbuf_unused.exit, label %bipbuf_unused.exit.thread
 
 bipbuf_unused.exit:                               ; preds = %entry
-  %a_start.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 1
+  %a_start.i = getelementptr inbounds i8, ptr %me, i64 8
   %1 = load i32, ptr %a_start.i, align 8
-  %b_end.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 3
+  %b_end.i = getelementptr inbounds i8, ptr %me, i64 16
   %2 = load i32, ptr %b_end.i, align 8
   %sub.i = sub i32 %1, %2
   %cmp = icmp slt i32 %sub.i, %size
@@ -129,7 +127,7 @@ bipbuf_unused.exit:                               ; preds = %entry
 
 bipbuf_unused.exit.thread:                        ; preds = %entry
   %3 = load i64, ptr %me, align 8
-  %a_end.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 2
+  %a_end.i = getelementptr inbounds i8, ptr %me, i64 12
   %4 = load i32, ptr %a_end.i, align 4
   %5 = trunc i64 %3 to i32
   %conv2.i = sub i32 %5, %4
@@ -137,13 +135,13 @@ bipbuf_unused.exit.thread:                        ; preds = %entry
   br i1 %cmp7, label %return, label %if.else
 
 if.then2:                                         ; preds = %bipbuf_unused.exit
-  %data = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %me, i64 24
   %idx.ext = zext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   br label %return
 
 if.else:                                          ; preds = %bipbuf_unused.exit.thread
-  %data3 = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 5
+  %data3 = getelementptr inbounds i8, ptr %me, i64 24
   %idx.ext5 = zext i32 %4 to i64
   %add.ptr6 = getelementptr inbounds i8, ptr %data3, i64 %idx.ext5
   br label %return
@@ -156,15 +154,15 @@ return:                                           ; preds = %bipbuf_unused.exit.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local i32 @bipbuf_push(ptr nocapture noundef %me, i32 noundef %size) local_unnamed_addr #6 {
 entry:
-  %b_inuse.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 4
+  %b_inuse.i = getelementptr inbounds i8, ptr %me, i64 20
   %0 = load i32, ptr %b_inuse.i, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %bipbuf_unused.exit, label %bipbuf_unused.exit.thread
 
 bipbuf_unused.exit:                               ; preds = %entry
-  %a_start.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 1
+  %a_start.i = getelementptr inbounds i8, ptr %me, i64 8
   %1 = load i32, ptr %a_start.i, align 8
-  %b_end.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 3
+  %b_end.i = getelementptr inbounds i8, ptr %me, i64 16
   %2 = load i32, ptr %b_end.i, align 8
   %sub.i = sub i32 %1, %2
   %cmp = icmp slt i32 %sub.i, %size
@@ -172,7 +170,7 @@ bipbuf_unused.exit:                               ; preds = %entry
 
 bipbuf_unused.exit.thread:                        ; preds = %entry
   %3 = load i64, ptr %me, align 8
-  %a_end.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 2
+  %a_end.i = getelementptr inbounds i8, ptr %me, i64 12
   %4 = load i32, ptr %a_end.i, align 4
   %5 = trunc i64 %3 to i32
   %conv2.i = sub i32 %5, %4
@@ -183,16 +181,16 @@ if.then2:                                         ; preds = %bipbuf_unused.exit
   %add = add i32 %2, %size
   store i32 %add, ptr %b_end.i, align 8
   %.pre = load i64, ptr %me, align 8
-  %a_end.i8.phi.trans.insert = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 2
+  %a_end.i8.phi.trans.insert = getelementptr inbounds i8, ptr %me, i64 12
   %.pre18 = load i32, ptr %a_end.i8.phi.trans.insert, align 4
   br label %if.end4
 
 if.else:                                          ; preds = %bipbuf_unused.exit.thread
   %add3 = add i32 %4, %size
   store i32 %add3, ptr %a_end.i, align 4
-  %a_start.i10.phi.trans.insert = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 1
+  %a_start.i10.phi.trans.insert = getelementptr inbounds i8, ptr %me, i64 8
   %.pre19 = load i32, ptr %a_start.i10.phi.trans.insert, align 8
-  %b_end.i11.phi.trans.insert = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 3
+  %b_end.i11.phi.trans.insert = getelementptr inbounds i8, ptr %me, i64 16
   %.pre20 = load i32, ptr %b_end.i11.phi.trans.insert, align 8
   br label %if.end4
 
@@ -220,15 +218,15 @@ return:                                           ; preds = %if.then.i14, %if.en
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local i32 @bipbuf_offer(ptr nocapture noundef %me, ptr nocapture noundef readonly %data, i32 noundef %size) local_unnamed_addr #7 {
 entry:
-  %b_inuse.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 4
+  %b_inuse.i = getelementptr inbounds i8, ptr %me, i64 20
   %0 = load i32, ptr %b_inuse.i, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %bipbuf_unused.exit, label %bipbuf_unused.exit.thread
 
 bipbuf_unused.exit:                               ; preds = %entry
-  %a_start.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 1
+  %a_start.i = getelementptr inbounds i8, ptr %me, i64 8
   %1 = load i32, ptr %a_start.i, align 8
-  %b_end.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 3
+  %b_end.i = getelementptr inbounds i8, ptr %me, i64 16
   %2 = load i32, ptr %b_end.i, align 8
   %sub.i = sub i32 %1, %2
   %cmp = icmp slt i32 %sub.i, %size
@@ -236,7 +234,7 @@ bipbuf_unused.exit:                               ; preds = %entry
 
 bipbuf_unused.exit.thread:                        ; preds = %entry
   %3 = load i64, ptr %me, align 8
-  %a_end.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 2
+  %a_end.i = getelementptr inbounds i8, ptr %me, i64 12
   %4 = load i32, ptr %a_end.i, align 4
   %5 = trunc i64 %3 to i32
   %conv2.i = sub i32 %5, %4
@@ -244,7 +242,7 @@ bipbuf_unused.exit.thread:                        ; preds = %entry
   br i1 %cmp24, label %return, label %if.else
 
 if.then2:                                         ; preds = %bipbuf_unused.exit
-  %data3 = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 5
+  %data3 = getelementptr inbounds i8, ptr %me, i64 24
   %idx.ext = zext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data3, i64 %idx.ext
   %conv = sext i32 %size to i64
@@ -252,12 +250,12 @@ if.then2:                                         ; preds = %bipbuf_unused.exit
   %6 = load i32, ptr %b_end.i, align 8
   %add = add i32 %6, %size
   store i32 %add, ptr %b_end.i, align 8
-  %a_end.i15.phi.trans.insert = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 2
+  %a_end.i15.phi.trans.insert = getelementptr inbounds i8, ptr %me, i64 12
   %.pre = load i32, ptr %a_end.i15.phi.trans.insert, align 4
   br label %if.end12
 
 if.else:                                          ; preds = %bipbuf_unused.exit.thread
-  %data5 = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 5
+  %data5 = getelementptr inbounds i8, ptr %me, i64 24
   %idx.ext7 = zext i32 %4 to i64
   %add.ptr8 = getelementptr inbounds i8, ptr %data5, i64 %idx.ext7
   %conv9 = sext i32 %size to i64
@@ -265,7 +263,7 @@ if.else:                                          ; preds = %bipbuf_unused.exit.
   %7 = load i32, ptr %a_end.i, align 4
   %add11 = add i32 %7, %size
   store i32 %add11, ptr %a_end.i, align 4
-  %b_end.i18.phi.trans.insert = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 3
+  %b_end.i18.phi.trans.insert = getelementptr inbounds i8, ptr %me, i64 16
   %.pre25 = load i32, ptr %b_end.i18.phi.trans.insert, align 8
   br label %if.end12
 
@@ -275,7 +273,7 @@ if.end12:                                         ; preds = %if.else, %if.then2
   %10 = load i64, ptr %me, align 8
   %conv.i = zext i32 %9 to i64
   %sub.i16 = sub i64 %10, %conv.i
-  %a_start.i17 = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 1
+  %a_start.i17 = getelementptr inbounds i8, ptr %me, i64 8
   %11 = load i32, ptr %a_start.i17, align 8
   %sub1.i = sub i32 %11, %8
   %conv2.i19 = zext i32 %sub1.i to i64
@@ -298,7 +296,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local ptr @bipbuf_peek(ptr noundef readonly %me, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %me, align 8
-  %a_start = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 1
+  %a_start = getelementptr inbounds i8, ptr %me, i64 8
   %1 = load i32, ptr %a_start, align 8
   %add = add i32 %1, %size
   %conv = zext i32 %add to i64
@@ -306,13 +304,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %a_end.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 2
+  %a_end.i = getelementptr inbounds i8, ptr %me, i64 12
   %2 = load i32, ptr %a_end.i, align 4
   %cmp.i.not = icmp eq i32 %1, %2
   br i1 %cmp.i.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %me, i64 24
   %idx.ext = zext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   br label %return
@@ -325,9 +323,9 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local ptr @bipbuf_peek_all(ptr noundef readonly %me, ptr nocapture noundef writeonly %size) local_unnamed_addr #6 {
 entry:
-  %a_start.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 1
+  %a_start.i = getelementptr inbounds i8, ptr %me, i64 8
   %0 = load i32, ptr %a_start.i, align 8
-  %a_end.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 2
+  %a_end.i = getelementptr inbounds i8, ptr %me, i64 12
   %1 = load i32, ptr %a_end.i, align 4
   %cmp.i.not = icmp eq i32 %0, %1
   br i1 %cmp.i.not, label %return, label %if.end
@@ -335,7 +333,7 @@ entry:
 if.end:                                           ; preds = %entry
   %sub = sub i32 %1, %0
   store i32 %sub, ptr %size, align 4
-  %data = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %me, i64 24
   %2 = load i32, ptr %a_start.i, align 8
   %idx.ext = zext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
@@ -349,9 +347,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @bipbuf_poll(ptr noundef %me, i32 noundef %size) local_unnamed_addr #9 {
 entry:
-  %a_start.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 1
+  %a_start.i = getelementptr inbounds i8, ptr %me, i64 8
   %0 = load i32, ptr %a_start.i, align 8
-  %a_end.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 2
+  %a_end.i = getelementptr inbounds i8, ptr %me, i64 12
   %1 = load i32, ptr %a_end.i, align 4
   %cmp.i.not = icmp eq i32 %0, %1
   br i1 %cmp.i.not, label %return, label %if.end
@@ -364,7 +362,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %me, i64 24
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   store i32 %add, ptr %a_start.i, align 8
@@ -372,14 +370,14 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp9, label %if.then11, label %if.end22
 
 if.then11:                                        ; preds = %if.end4
-  %b_inuse = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 4
+  %b_inuse = getelementptr inbounds i8, ptr %me, i64 20
   %3 = load i32, ptr %b_inuse, align 4
   %cmp12 = icmp eq i32 %3, 1
   br i1 %cmp12, label %if.then14, label %if.end22.sink.split
 
 if.then14:                                        ; preds = %if.then11
   store i32 0, ptr %a_start.i, align 8
-  %b_end = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 3
+  %b_end = getelementptr inbounds i8, ptr %me, i64 16
   %4 = load i32, ptr %b_end, align 8
   store i32 %4, ptr %a_end.i, align 4
   br label %if.end22.sink.split
@@ -397,7 +395,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
   %6 = phi i32 [ %1, %if.end4 ], [ %.ph, %if.end22.sink.split ]
   %conv.i19 = zext i32 %6 to i64
   %sub.i = sub i64 %2, %conv.i19
-  %b_end.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 3
+  %b_end.i = getelementptr inbounds i8, ptr %me, i64 16
   %7 = load i32, ptr %b_end.i, align 8
   %sub1.i = sub i32 %5, %7
   %conv2.i = zext i32 %sub1.i to i64
@@ -405,7 +403,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
   br i1 %cmp.i21, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.end22
-  %b_inuse.i = getelementptr inbounds %struct.bipbuf_t, ptr %me, i64 0, i32 4
+  %b_inuse.i = getelementptr inbounds i8, ptr %me, i64 20
   store i32 1, ptr %b_inuse.i, align 4
   br label %return
 

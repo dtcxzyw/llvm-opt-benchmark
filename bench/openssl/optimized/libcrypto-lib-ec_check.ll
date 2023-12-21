@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-ec_check.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ec_group_st = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, ptr, [6 x i32], ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, %union.anon, ptr, ptr }
-%union.anon = type { ptr }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/ec/ec_check.c\00", align 1
 @__func__.EC_GROUP_check_named_curve = private unnamed_addr constant [27 x i8] c"EC_GROUP_check_named_curve\00", align 1
 @__func__.EC_GROUP_check = private unnamed_addr constant [15 x i8] c"EC_GROUP_check\00", align 1
@@ -116,7 +113,7 @@ if.end11:                                         ; preds = %if.then7, %if.end5
   br i1 %tobool.not, label %err.sink.split, label %if.end14
 
 if.end14:                                         ; preds = %if.end11
-  %generator = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 1
+  %generator = getelementptr inbounds i8, ptr %group, i64 8
   %2 = load ptr, ptr %generator, align 8
   %cmp15 = icmp eq ptr %2, null
   br i1 %cmp15, label %err.sink.split, label %if.end17

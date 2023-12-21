@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.CompatPolicy = type { i8, i32, i8, i32, i8, i32, i8, i32 }
 
 @CompatPolicyInput_lookup = external constant %struct.QEnumLookup, align 8
 @CompatPolicyOutput_lookup = external constant %struct.QEnumLookup, align 8
@@ -54,7 +53,7 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %deprecated_input = getelementptr inbounds %struct.CompatPolicy, ptr %obj, i64 0, i32 1
+  %deprecated_input = getelementptr inbounds i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %deprecated_input, align 4
   store i32 %0, ptr %value.i, align 4
@@ -65,12 +64,12 @@ if.then:                                          ; preds = %entry
   br i1 %call.i, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_deprecated_output = getelementptr inbounds %struct.CompatPolicy, ptr %obj, i64 0, i32 2
+  %has_deprecated_output = getelementptr inbounds i8, ptr %obj, i64 8
   %call4 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %has_deprecated_output) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %deprecated_output = getelementptr inbounds %struct.CompatPolicy, ptr %obj, i64 0, i32 3
+  %deprecated_output = getelementptr inbounds i8, ptr %obj, i64 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i18)
   %2 = load i32, ptr %deprecated_output, align 4
   store i32 %2, ptr %value.i18, align 4
@@ -81,12 +80,12 @@ if.then5:                                         ; preds = %if.end3
   br i1 %call.i19, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_unstable_input = getelementptr inbounds %struct.CompatPolicy, ptr %obj, i64 0, i32 4
+  %has_unstable_input = getelementptr inbounds i8, ptr %obj, i64 16
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_unstable_input) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %unstable_input = getelementptr inbounds %struct.CompatPolicy, ptr %obj, i64 0, i32 5
+  %unstable_input = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i20)
   %4 = load i32, ptr %unstable_input, align 4
   store i32 %4, ptr %value.i20, align 4
@@ -97,12 +96,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %call.i21, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_unstable_output = getelementptr inbounds %struct.CompatPolicy, ptr %obj, i64 0, i32 6
+  %has_unstable_output = getelementptr inbounds i8, ptr %obj, i64 24
   %call16 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_unstable_output) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %unstable_output = getelementptr inbounds %struct.CompatPolicy, ptr %obj, i64 0, i32 7
+  %unstable_output = getelementptr inbounds i8, ptr %obj, i64 28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i22)
   %6 = load i32, ptr %unstable_output, align 4
   store i32 %6, ptr %value.i22, align 4

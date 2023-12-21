@@ -19,50 +19,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::allocator" = type { i8 }
-%"class.grpc_core::chttp2::FlowControlAction" = type { i8, i8, i8, i8, i8, i32, i32, i32 }
 %"struct.grpc_core::BasicMemoryQuota::PressureInfo" = type { double, double, i64 }
 %"class.grpc_core::PidController::Args" = type { double, double, double, double, double, double, double }
-%"class.grpc_core::chttp2::TransportFlowControl" = type { ptr, i64, i8, %"class.grpc_core::BdpEstimator", %"class.grpc_core::PidController", %"class.grpc_core::Timestamp", i64, i64, i64, i64, i64, i32, i32 }
-%"class.grpc_core::BdpEstimator" = type { i64, i64, %struct.gpr_timespec, %"class.grpc_core::Duration", i32, i32, double, %"class.std::basic_string_view" }
-%struct.gpr_timespec = type { i64, i32, i32 }
-%"class.grpc_core::Duration" = type { i64 }
-%"class.grpc_core::PidController" = type { double, double, double, double, %"class.grpc_core::PidController::Args" }
-%"class.grpc_core::Timestamp" = type { i64 }
-%"class.grpc_core::GrpcMemoryAllocatorImpl" = type { %"class.grpc_event_engine::experimental::internal::MemoryAllocatorImpl", %"class.std::shared_ptr.5", %"struct.std::atomic.8", %"struct.std::atomic.8", %"struct.std::atomic.8", %"class.grpc_core::PeriodicUpdate", %"class.absl::lts_20230802::Mutex", i8, [3 x %"class.std::unique_ptr"] }
-%"class.grpc_event_engine::experimental::internal::MemoryAllocatorImpl" = type { ptr, %"class.std::enable_shared_from_this" }
-%"class.std::enable_shared_from_this" = type { %"class.std::weak_ptr" }
-%"class.std::weak_ptr" = type { %"class.std::__weak_ptr" }
-%"class.std::__weak_ptr" = type { ptr, %"class.std::__weak_count" }
-%"class.std::__weak_count" = type { ptr }
-%"class.std::shared_ptr.5" = type { %"class.std::__shared_ptr.6" }
-%"class.std::__shared_ptr.6" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"struct.std::atomic.8" = type { %"struct.std::__atomic_base.9" }
-%"struct.std::__atomic_base.9" = type { i64 }
-%"class.grpc_core::PeriodicUpdate" = type { %"struct.std::atomic.10", %"class.grpc_core::Duration", %"class.grpc_core::Timestamp", i64 }
-%"struct.std::atomic.10" = type { %"struct.std::__atomic_base.11" }
-%"struct.std::__atomic_base.11" = type { i64 }
-%"class.absl::lts_20230802::Mutex" = type { %"struct.std::atomic.10" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.13" }
-%"struct.std::_Head_base.13" = type { ptr }
-%"class.grpc_core::chttp2::StreamFlowControl" = type { ptr, i64, i64, i64, %"class.std::optional" }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<long>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<long>::_Storage" = type { i64 }
 %"class.absl::lts_20230802::Status" = type { i64 }
 %class.anon = type { ptr, i64 }
 %"class.absl::lts_20230802::str_format_internal::FormatArgImpl" = type { %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data" = type { ptr }
-%"struct.grpc_core::chttp2::TransportFlowControl::Stats" = type { i64, i64, i64, i32, i32, i32, i64, i64, i64, i64, i64, double }
+%"class.grpc_core::chttp2::FlowControlAction" = type { i8, i8, i8, i8, i8, i32, i32, i32 }
 %"class.grpc_core::chttp2::TransportFlowControl::IncomingUpdateContext" = type { ptr }
-%"class.grpc_core::chttp2::StreamFlowControl::IncomingUpdateContext" = type { %"class.grpc_core::chttp2::TransportFlowControl::IncomingUpdateContext", ptr }
-%"struct.grpc_core::chttp2::StreamFlowControl::Stats" = type { i64, i64, i64, %"class.std::optional" }
 %struct._Guard = type { ptr }
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
@@ -207,14 +171,14 @@ entry:
   %ref.tmp51 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp62 = alloca %"class.std::allocator", align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %segments, i8 0, i64 24, i1 false)
-  %send_transport_update_ = getelementptr inbounds %"class.grpc_core::chttp2::FlowControlAction", ptr %this, i64 0, i32 1
+  %send_transport_update_ = getelementptr inbounds i8, ptr %this, i64 1
   %0 = load i8, ptr %send_transport_update_, align 1
   %cmp.not = icmp eq i8 %0, 0
   br i1 %cmp.not, label %if.end, label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   store i64 2, ptr %ref.tmp2, align 8
-  %1 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp2, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr @.str.7, ptr %1, align 8
   switch i8 %0, label %do.body.i50.invoke [
     i8 2, label %sw.bb2.i
@@ -228,15 +192,15 @@ invoke.cont6:                                     ; preds = %invoke.cont, %sw.bb
   %retval.0.i = phi ptr [ @.str.4, %sw.bb2.i ], [ @.str.3, %invoke.cont ]
   %call.i.i.i.i2 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #27
   store i64 %call.i.i.i.i2, ptr %ref.tmp3, align 8
-  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp3, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %retval.0.i, ptr %2, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont6
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %segments, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %segments, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %segments, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %segments, i64 16
   %4 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -244,7 +208,7 @@ invoke.cont7:                                     ; preds = %invoke.cont6
 if.then.i.i:                                      ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
   %5 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont9
 
@@ -274,7 +238,7 @@ if.end:                                           ; preds = %invoke.cont9, %entr
 
 invoke.cont14:                                    ; preds = %if.end
   store i64 2, ptr %ref.tmp13, align 8
-  %9 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp13, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   store ptr @.str.8, ptr %9, align 8
   switch i8 %8, label %do.body.i50.invoke [
     i8 2, label %sw.bb2.i5
@@ -288,15 +252,15 @@ invoke.cont19:                                    ; preds = %invoke.cont14, %sw.
   %retval.0.i6 = phi ptr [ @.str.4, %sw.bb2.i5 ], [ @.str.3, %invoke.cont14 ]
   %call.i.i.i.i11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i6) #27
   store i64 %call.i.i.i.i11, ptr %ref.tmp15, align 8
-  %10 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp15, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store ptr %retval.0.i6, ptr %10, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp15)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont19
-  %_M_finish.i.i12 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %segments, i64 0, i32 1
+  %_M_finish.i.i12 = getelementptr inbounds i8, ptr %segments, i64 8
   %11 = load ptr, ptr %_M_finish.i.i12, align 8
-  %_M_end_of_storage.i.i13 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %segments, i64 0, i32 2
+  %_M_end_of_storage.i.i13 = getelementptr inbounds i8, ptr %segments, i64 16
   %12 = load ptr, ptr %_M_end_of_storage.i.i13, align 8
   %cmp.not.i.i14 = icmp eq ptr %11, %12
   br i1 %cmp.not.i.i14, label %if.else.i.i17, label %if.then.i.i15
@@ -304,7 +268,7 @@ invoke.cont20:                                    ; preds = %invoke.cont19
 if.then.i.i15:                                    ; preds = %invoke.cont20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #27
   %13 = load ptr, ptr %_M_finish.i.i12, align 8
-  %incdec.ptr.i.i16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %13, i64 1
+  %incdec.ptr.i.i16 = getelementptr inbounds i8, ptr %13, i64 32
   store ptr %incdec.ptr.i.i16, ptr %_M_finish.i.i12, align 8
   br label %invoke.cont22
 
@@ -323,18 +287,18 @@ lpad21:                                           ; preds = %if.else.i.i17
   br label %ehcleanup
 
 if.end23:                                         ; preds = %invoke.cont22, %if.end
-  %send_initial_window_update_ = getelementptr inbounds %"class.grpc_core::chttp2::FlowControlAction", ptr %this, i64 0, i32 2
+  %send_initial_window_update_ = getelementptr inbounds i8, ptr %this, i64 2
   %15 = load i8, ptr %send_initial_window_update_, align 2
   %cmp24.not = icmp eq i8 %15, 0
   br i1 %cmp24.not, label %if.end41, label %invoke.cont28
 
 invoke.cont28:                                    ; preds = %if.end23
   store i64 3, ptr %ref.tmp27, align 8
-  %16 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp27, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
   store ptr @.str.9, ptr %16, align 8
-  %initial_window_size_ = getelementptr inbounds %"class.grpc_core::chttp2::FlowControlAction", ptr %this, i64 0, i32 5
+  %initial_window_size_ = getelementptr inbounds i8, ptr %this, i64 8
   %17 = load i32, ptr %initial_window_size_, align 4
-  %digits_.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp29, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 16
   %call.i21 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %17, ptr noundef nonnull %digits_.i)
           to label %invoke.cont32 unwind label %lpad
 
@@ -343,10 +307,10 @@ invoke.cont32:                                    ; preds = %invoke.cont28
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp29, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp29, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
   store i64 1, ptr %ref.tmp31, align 8
-  %18 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp31, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
   store ptr @.str.10, ptr %18, align 8
   %19 = load i8, ptr %send_initial_window_update_, align 2
   %20 = icmp ult i8 %19, 3
@@ -358,15 +322,15 @@ switch.lookup:                                    ; preds = %invoke.cont32
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call.i.i.i.i29 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #27
   store i64 %call.i.i.i.i29, ptr %ref.tmp33, align 8
-  %22 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp33, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
   store ptr %switch.load, ptr %22, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp33)
           to label %invoke.cont38 unwind label %lpad
 
 invoke.cont38:                                    ; preds = %switch.lookup
-  %_M_finish.i.i30 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %segments, i64 0, i32 1
+  %_M_finish.i.i30 = getelementptr inbounds i8, ptr %segments, i64 8
   %23 = load ptr, ptr %_M_finish.i.i30, align 8
-  %_M_end_of_storage.i.i31 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %segments, i64 0, i32 2
+  %_M_end_of_storage.i.i31 = getelementptr inbounds i8, ptr %segments, i64 16
   %24 = load ptr, ptr %_M_end_of_storage.i.i31, align 8
   %cmp.not.i.i32 = icmp eq ptr %23, %24
   br i1 %cmp.not.i.i32, label %if.else.i.i35, label %if.then.i.i33
@@ -374,7 +338,7 @@ invoke.cont38:                                    ; preds = %switch.lookup
 if.then.i.i33:                                    ; preds = %invoke.cont38
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #27
   %25 = load ptr, ptr %_M_finish.i.i30, align 8
-  %incdec.ptr.i.i34 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %25, i64 1
+  %incdec.ptr.i.i34 = getelementptr inbounds i8, ptr %25, i64 32
   store ptr %incdec.ptr.i.i34, ptr %_M_finish.i.i30, align 8
   br label %invoke.cont40
 
@@ -393,18 +357,18 @@ lpad39:                                           ; preds = %if.else.i.i35
   br label %ehcleanup
 
 if.end41:                                         ; preds = %invoke.cont40, %if.end23
-  %send_max_frame_size_update_ = getelementptr inbounds %"class.grpc_core::chttp2::FlowControlAction", ptr %this, i64 0, i32 3
+  %send_max_frame_size_update_ = getelementptr inbounds i8, ptr %this, i64 3
   %27 = load i8, ptr %send_max_frame_size_update_, align 1
   %cmp42.not = icmp eq i8 %27, 0
   br i1 %cmp42.not, label %if.end59, label %invoke.cont46
 
 invoke.cont46:                                    ; preds = %if.end41
   store i64 3, ptr %ref.tmp45, align 8
-  %28 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp45, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %ref.tmp45, i64 8
   store ptr @.str.11, ptr %28, align 8
-  %max_frame_size_ = getelementptr inbounds %"class.grpc_core::chttp2::FlowControlAction", ptr %this, i64 0, i32 6
+  %max_frame_size_ = getelementptr inbounds i8, ptr %this, i64 12
   %29 = load i32, ptr %max_frame_size_, align 4
-  %digits_.i39 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp47, i64 0, i32 1
+  %digits_.i39 = getelementptr inbounds i8, ptr %ref.tmp47, i64 16
   %call.i44 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %29, ptr noundef nonnull %digits_.i39)
           to label %invoke.cont50 unwind label %lpad
 
@@ -413,10 +377,10 @@ invoke.cont50:                                    ; preds = %invoke.cont46
   %sub.ptr.rhs.cast.i41 = ptrtoint ptr %digits_.i39 to i64
   %sub.ptr.sub.i42 = sub i64 %sub.ptr.lhs.cast.i40, %sub.ptr.rhs.cast.i41
   store i64 %sub.ptr.sub.i42, ptr %ref.tmp47, align 8
-  %_M_str.i.i43 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp47, i64 0, i32 1
+  %_M_str.i.i43 = getelementptr inbounds i8, ptr %ref.tmp47, i64 8
   store ptr %digits_.i39, ptr %_M_str.i.i43, align 8
   store i64 1, ptr %ref.tmp49, align 8
-  %30 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp49, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
   store ptr @.str.10, ptr %30, align 8
   %31 = load i8, ptr %send_max_frame_size_update_, align 1
   %32 = icmp ult i8 %31, 3
@@ -435,15 +399,15 @@ switch.lookup67:                                  ; preds = %invoke.cont50
   %switch.load69 = load ptr, ptr %switch.gep68, align 8
   %call.i.i.i.i53 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load69) #27
   store i64 %call.i.i.i.i53, ptr %ref.tmp51, align 8
-  %34 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp51, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
   store ptr %switch.load69, ptr %34, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp51)
           to label %invoke.cont56 unwind label %lpad
 
 invoke.cont56:                                    ; preds = %switch.lookup67
-  %_M_finish.i.i54 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %segments, i64 0, i32 1
+  %_M_finish.i.i54 = getelementptr inbounds i8, ptr %segments, i64 8
   %35 = load ptr, ptr %_M_finish.i.i54, align 8
-  %_M_end_of_storage.i.i55 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %segments, i64 0, i32 2
+  %_M_end_of_storage.i.i55 = getelementptr inbounds i8, ptr %segments, i64 16
   %36 = load ptr, ptr %_M_end_of_storage.i.i55, align 8
   %cmp.not.i.i56 = icmp eq ptr %35, %36
   br i1 %cmp.not.i.i56, label %if.else.i.i59, label %if.then.i.i57
@@ -451,7 +415,7 @@ invoke.cont56:                                    ; preds = %switch.lookup67
 if.then.i.i57:                                    ; preds = %invoke.cont56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #27
   %37 = load ptr, ptr %_M_finish.i.i54, align 8
-  %incdec.ptr.i.i58 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %37, i64 1
+  %incdec.ptr.i.i58 = getelementptr inbounds i8, ptr %37, i64 32
   store ptr %incdec.ptr.i.i58, ptr %_M_finish.i.i54, align 8
   br label %invoke.cont58
 
@@ -471,7 +435,7 @@ lpad57:                                           ; preds = %if.else.i.i59
 
 if.end59:                                         ; preds = %invoke.cont58, %if.end41
   %39 = load ptr, ptr %segments, align 8
-  %_M_finish.i.i62 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %segments, i64 0, i32 1
+  %_M_finish.i.i62 = getelementptr inbounds i8, ptr %segments, i64 8
   %40 = load ptr, ptr %_M_finish.i.i62, align 8
   %cmp.i.i = icmp eq ptr %39, %40
   br i1 %cmp.i.i, label %if.then61, label %if.end65
@@ -522,7 +486,7 @@ cleanup:                                          ; preds = %if.end65, %invoke.c
 for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %43, %cleanup ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #27
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %44
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !4
 
@@ -567,7 +531,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -575,7 +539,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #27
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !4
 
@@ -624,16 +588,16 @@ entry:
   %ref.tmp = alloca %"class.grpc_core::PidController::Args", align 16
   %frombool = zext i1 %enable_bdp_probe to i8
   store ptr %memory_owner, ptr %this, align 8
-  %announced_stream_total_over_incoming_window_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 1
+  %announced_stream_total_over_incoming_window_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %announced_stream_total_over_incoming_window_, align 8
-  %enable_bdp_probe_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 2
+  %enable_bdp_probe_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %frombool, ptr %enable_bdp_probe_, align 8
-  %bdp_estimator_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 3
+  %bdp_estimator_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN9grpc_core12BdpEstimatorC1ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %bdp_estimator_, i64 %name.coerce0, ptr %name.coerce1)
-  %min_control_value_.i = getelementptr inbounds %"class.grpc_core::PidController::Args", ptr %ref.tmp, i64 0, i32 4
-  %integral_range_.i = getelementptr inbounds %"class.grpc_core::PidController::Args", ptr %ref.tmp, i64 0, i32 6
+  %min_control_value_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %integral_range_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store <2 x double> <double 4.000000e+00, double 8.000000e+00>, ptr %ref.tmp, align 16
-  %gain_d_.i = getelementptr inbounds %"class.grpc_core::PidController::Args", ptr %ref.tmp, i64 0, i32 2
+  %gain_d_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store double 0.000000e+00, ptr %gain_d_.i, align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %0 = load ptr, ptr %this, align 8
@@ -642,16 +606,16 @@ entry:
   br i1 %cmp.i.not.i, label %cond.end.i, label %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i
 
 _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i: ; preds = %entry
-  %memory_quota_.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %1, i64 0, i32 1
+  %memory_quota_.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %memory_quota_.i.i.i, align 8, !noalias !6
   call void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr nonnull sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(1488) %2)
-  %pressure_control_value.i = getelementptr inbounds %"struct.grpc_core::BasicMemoryQuota::PressureInfo", ptr %ref.tmp.i, i64 0, i32 1
+  %pressure_control_value.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %3 = load double, ptr %pressure_control_value.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i, %entry
   %cond.i = phi double [ %3, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i ], [ 0.000000e+00, %entry ]
-  %estimate_.i.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 3, i32 1
+  %estimate_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i64, ptr %estimate_.i.i, align 8
   %conv.i = sitofp i64 %4 to double
   %call4.i = call double @log2(double noundef %conv.i) #27
@@ -684,8 +648,8 @@ if.then3.i.i:                                     ; preds = %if.else.i.i
 invoke.cont7:                                     ; preds = %if.then3.i.i, %if.else.i.i, %if.then.i2.i
   %target.addr.0.i.i = phi double [ %add.i.i, %if.then.i2.i ], [ %mul8.i.i, %if.then3.i.i ], [ %add.i, %if.else.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %pid_controller_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 4
-  %initial_control_value_.i = getelementptr inbounds %"class.grpc_core::PidController::Args", ptr %ref.tmp, i64 0, i32 3
+  %pid_controller_ = getelementptr inbounds i8, ptr %this, i64 96
+  %initial_control_value_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store double %target.addr.0.i.i, ptr %initial_control_value_.i, align 8
   store <2 x double> <double -1.000000e+00, double 2.500000e+01>, ptr %min_control_value_.i, align 16
   store double 1.000000e+01, ptr %integral_range_.i, align 16
@@ -702,21 +666,21 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i: ; preds = %5, %inv
   %vtable.i = load ptr, ptr %7, align 8
   %8 = load ptr, ptr %vtable.i, align 8
   %call.i5 = call i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %last_pid_update_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 5
+  %last_pid_update_ = getelementptr inbounds i8, ptr %this, i64 184
   store i64 %call.i5, ptr %last_pid_update_, align 8
-  %remote_window_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 6
+  %remote_window_ = getelementptr inbounds i8, ptr %this, i64 192
   store i64 65535, ptr %remote_window_, align 8
-  %target_initial_window_size_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 7
+  %target_initial_window_size_ = getelementptr inbounds i8, ptr %this, i64 200
   store i64 65535, ptr %target_initial_window_size_, align 8
-  %target_frame_size_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 8
+  %target_frame_size_ = getelementptr inbounds i8, ptr %this, i64 208
   store i64 16384, ptr %target_frame_size_, align 8
-  %target_preferred_rx_crypto_frame_size_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 9
+  %target_preferred_rx_crypto_frame_size_ = getelementptr inbounds i8, ptr %this, i64 216
   store i64 2147483647, ptr %target_preferred_rx_crypto_frame_size_, align 8
-  %announced_window_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 10
+  %announced_window_ = getelementptr inbounds i8, ptr %this, i64 224
   store i64 65535, ptr %announced_window_, align 8
-  %acked_init_window_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 11
+  %acked_init_window_ = getelementptr inbounds i8, ptr %this, i64 232
   store i32 65535, ptr %acked_init_window_, align 8
-  %sent_init_window_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 12
+  %sent_init_window_ = getelementptr inbounds i8, ptr %this, i64 236
   store i32 65535, ptr %sent_init_window_, align 4
   ret void
 }
@@ -739,16 +703,16 @@ entry:
   br i1 %cmp.i.not, label %cond.end, label %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit
 
 _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit: ; preds = %entry
-  %memory_quota_.i.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %1, i64 0, i32 1
+  %memory_quota_.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %memory_quota_.i.i, align 8, !noalias !11
   call void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr nonnull sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1488) %2)
-  %pressure_control_value = getelementptr inbounds %"struct.grpc_core::BasicMemoryQuota::PressureInfo", ptr %ref.tmp, i64 0, i32 1
+  %pressure_control_value = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %3 = load double, ptr %pressure_control_value, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit
   %cond = phi double [ %3, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit ], [ 0.000000e+00, %entry ]
-  %estimate_.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 3, i32 1
+  %estimate_.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i64, ptr %estimate_.i, align 8
   %conv = sitofp i64 %4 to double
   %call4 = call double @log2(double noundef %conv) #27
@@ -788,15 +752,15 @@ declare void @_ZN9grpc_core13PidControllerC1ERKNS0_4ArgsE(ptr noundef nonnull al
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK9grpc_core6chttp220TransportFlowControl19DesiredAnnounceSizeEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, i1 noundef zeroext %writing_anyway) local_unnamed_addr #9 align 2 {
 entry:
-  %announced_stream_total_over_incoming_window_.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 1
+  %announced_stream_total_over_incoming_window_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %announced_stream_total_over_incoming_window_.i, align 8
-  %target_initial_window_size_.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 7
+  %target_initial_window_size_.i = getelementptr inbounds i8, ptr %this, i64 200
   %1 = load i64, ptr %target_initial_window_size_.i, align 8
   %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %1, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %0
   %.sroa.speculated5.i = tail call i64 @llvm.smin.i64(i64 %add.i, i64 2147483647)
   %conv5.i = and i64 %.sroa.speculated5.i, 4294967295
-  %announced_window_3.phi.trans.insert = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 10
+  %announced_window_3.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 224
   %.pre = load i64, ptr %announced_window_3.phi.trans.insert, align 8
   %writing_anyway.not = xor i1 %writing_anyway, true
   %div3 = lshr i64 %conv5.i, 1
@@ -821,9 +785,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK9grpc_core6chttp220TransportFlowControl13target_windowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %announced_stream_total_over_incoming_window_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 1
+  %announced_stream_total_over_incoming_window_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %announced_stream_total_over_incoming_window_, align 8
-  %target_initial_window_size_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 7
+  %target_initial_window_size_ = getelementptr inbounds i8, ptr %this, i64 200
   %1 = load i64, ptr %target_initial_window_size_, align 8
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %1, i64 1)
   %add = add nsw i64 %.sroa.speculated, %0
@@ -836,7 +800,7 @@ entry:
 define void @_ZN9grpc_core6chttp220TransportFlowControl10SentUpdateEj(ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, i32 noundef %announce) local_unnamed_addr #10 align 2 {
 entry:
   %conv = zext i32 %announce to i64
-  %announced_window_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 10
+  %announced_window_ = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load i64, ptr %announced_window_, align 8
   %add = add nsw i64 %0, %conv
   store i64 %add, ptr %announced_window_, align 8
@@ -847,8 +811,8 @@ entry:
 define void @_ZN9grpc_core6chttp217StreamFlowControlC2EPNS0_20TransportFlowControlE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %tfc) unnamed_addr #11 align 2 {
 entry:
   store ptr %tfc, ptr %this, align 8
-  %min_progress_size_ = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 1
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %min_progress_size_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %min_progress_size_, i8 0, i64 24, i1 false)
   ret void
@@ -859,7 +823,7 @@ define void @_ZN9grpc_core6chttp217StreamFlowControl21IncomingUpdateContext8Recv
 entry:
   %ref.tmp = alloca %class.anon, align 8
   store ptr %this, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds %class.anon, ptr %ref.tmp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %incoming_frame_size, ptr %0, align 8
   call void @_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext8RecvDataElN4absl12lts_2023080211FunctionRefIFNS4_6StatusEvEEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %incoming_frame_size, ptr nonnull %ref.tmp, ptr nonnull @"_ZN4absl12lts_2023080219functional_internal12InvokeObjectIZN9grpc_core6chttp217StreamFlowControl21IncomingUpdateContext8RecvDataElE3$_0NS0_6StatusEJEEET0_NS1_7VoidPtrEDpNS1_8ForwardTIT1_E4typeE")
   ret void
@@ -872,7 +836,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %error = alloca %"class.absl::lts_20230802::Status", align 8
   %0 = load ptr, ptr %this, align 8
-  %announced_window_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %0, i64 0, i32 10
+  %announced_window_ = getelementptr inbounds i8, ptr %0, i64 224
   %1 = load i64, ptr %announced_window_, align 8
   %cmp = icmp slt i64 %1, %incoming_frame_size
   br i1 %cmp, label %if.then, label %invoke.cont6
@@ -882,11 +846,11 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %3 = inttoptr i64 %incoming_frame_size to ptr
   store ptr %3, ptr %ref.tmp.i, align 8, !noalias !16
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !16
-  %arrayinit.element.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store ptr %2, ptr %arrayinit.element.i, align 8, !noalias !16
-  %dispatcher_.i.i2.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1, i32 1
+  %dispatcher_.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i, align 8, !noalias !16
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.14, i64 47, ptr nonnull %ref.tmp.i, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -914,7 +878,7 @@ invoke.cont6:                                     ; preds = %entry
 
 if.end9:                                          ; preds = %invoke.cont6
   %8 = load ptr, ptr %this, align 8
-  %announced_window_11 = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %8, i64 0, i32 10
+  %announced_window_11 = getelementptr inbounds i8, ptr %8, i64 224
   %9 = load i64, ptr %announced_window_11, align 8
   %sub = sub nsw i64 %9, %incoming_frame_size
   store i64 %sub, ptr %announced_window_11, align 8
@@ -936,9 +900,9 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN9grpc_core6chttp220TransportFlowControl12UpdateActionENS0_17FlowControlActionE(ptr noalias nocapture writeonly sret(%"class.grpc_core::chttp2::FlowControlAction") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, ptr nocapture noundef byval(%"class.grpc_core::chttp2::FlowControlAction") align 8 %action) local_unnamed_addr #12 align 2 {
 entry:
-  %announced_stream_total_over_incoming_window_.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 1
+  %announced_stream_total_over_incoming_window_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %announced_stream_total_over_incoming_window_.i, align 8
-  %target_initial_window_size_.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 7
+  %target_initial_window_size_.i = getelementptr inbounds i8, ptr %this, i64 200
   %1 = load i64, ptr %target_initial_window_size_.i, align 8
   %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %1, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %0
@@ -946,13 +910,13 @@ entry:
   %conv5.i = and i64 %.sroa.speculated5.i, 4294967295
   %add = add nuw nsw i64 %conv5.i, 1
   %div1 = lshr i64 %add, 1
-  %announced_window_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 10
+  %announced_window_ = getelementptr inbounds i8, ptr %this, i64 224
   %2 = load i64, ptr %announced_window_, align 8
   %cmp = icmp slt i64 %2, %div1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %send_transport_update_.i = getelementptr inbounds %"class.grpc_core::chttp2::FlowControlAction", ptr %action, i64 0, i32 1
+  %send_transport_update_.i = getelementptr inbounds i8, ptr %action, i64 1
   store i8 1, ptr %send_transport_update_.i, align 1
   br label %if.end
 
@@ -979,9 +943,9 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %entry, %0
   %vtable.i = load ptr, ptr %2, align 8
   %3 = load ptr, ptr %vtable.i, align 8
   %call.i = tail call i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %last_control_value_.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 4, i32 2
+  %last_control_value_.i = getelementptr inbounds i8, ptr %this, i64 112
   %4 = load double, ptr %last_control_value_.i, align 8
-  %last_pid_update_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 5
+  %last_pid_update_ = getelementptr inbounds i8, ptr %this, i64 184
   %agg.tmp3.sroa.0.0.copyload = load i64, ptr %last_pid_update_, align 8
   %sub.i = sub i64 0, %agg.tmp3.sroa.0.0.copyload
   %cmp.i.i = icmp eq i64 %call.i, 9223372036854775807
@@ -1017,7 +981,7 @@ if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit, %if.end.i.i, %if.then.i.i.i, %if.else.i.i.i, %if.end7.i.i.i
   %retval.0.i.i = phi double [ 0x43E0000000000000, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ 0xC3E0000000000000, %if.end.i.i ], [ %5, %if.end7.i.i.i ], [ 0x43E0000000000000, %if.then.i.i.i ], [ 0xC3E0000000000000, %if.else.i.i.i ]
   %sub = fsub double %value, %4
-  %pid_controller_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 4
+  %pid_controller_ = getelementptr inbounds i8, ptr %this, i64 96
   %div.i = fdiv double %retval.0.i.i, 1.000000e+03
   store i64 %call.i, ptr %last_pid_update_, align 8
   %cmp = fcmp ogt double %div.i, 1.000000e-01
@@ -1032,7 +996,7 @@ declare noundef double @_ZN9grpc_core13PidController6UpdateEdd(ptr noundef nonnu
 define noundef double @_ZNK9grpc_core6chttp220TransportFlowControl50TargetInitialWindowSizeBasedOnMemoryPressureAndBdpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.grpc_core::BasicMemoryQuota::PressureInfo", align 8
-  %estimate_.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 3, i32 1
+  %estimate_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %estimate_.i, align 8
   %conv = sitofp i64 %0 to double
   %mul = fmul double %conv, 2.000000e+00
@@ -1047,10 +1011,10 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread: ; preds = %entry
   br label %return
 
 _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit: ; preds = %entry
-  %memory_quota_.i.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %2, i64 0, i32 1
+  %memory_quota_.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %memory_quota_.i.i, align 8, !noalias !22
   call void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr nonnull sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1488) %3)
-  %pressure_control_value.phi.trans.insert = getelementptr inbounds %"struct.grpc_core::BasicMemoryQuota::PressureInfo", ptr %ref.tmp, i64 0, i32 1
+  %pressure_control_value.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %.pre = load double, ptr %pressure_control_value.phi.trans.insert, align 8
   %cmp.i = fcmp ogt double %mul, 0x4150000000000000
   %.sroa.speculated = select i1 %cmp.i, double %mul, double 0x4150000000000000
@@ -1091,9 +1055,9 @@ define void @_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_ch
 entry:
   %idxprom = zext i32 %id to i64
   %arrayidx = getelementptr inbounds [8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 %idxprom
-  %min_value = getelementptr inbounds [8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 %idxprom, i32 2
+  %min_value = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %0 = load i32, ptr %min_value, align 4
-  %max_value = getelementptr inbounds [8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 %idxprom, i32 3
+  %max_value = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load i32, ptr %max_value, align 16
   %cmp.i = icmp ugt i32 %0, %new_desired_value
   %max.val.i = tail call i32 @llvm.umin.i32(i32 %1, i32 %new_desired_value)
@@ -1104,7 +1068,7 @@ entry:
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %4 = and i8 %3, 1
   %tobool.i.i.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then5
@@ -1152,17 +1116,17 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN9grpc_core6chttp220TransportFlowControl21SetAckedInitialWindowEj(ptr noalias nocapture writeonly sret(%"class.grpc_core::chttp2::FlowControlAction") align 4 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, i32 noundef %value) local_unnamed_addr #12 align 2 {
 entry:
-  %acked_init_window_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 11
+  %acked_init_window_ = getelementptr inbounds i8, ptr %this, i64 232
   store i32 %value, ptr %acked_init_window_, align 8
-  %initial_window_size_.i = getelementptr inbounds %"class.grpc_core::chttp2::FlowControlAction", ptr %agg.result, i64 0, i32 5
+  %initial_window_size_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %initial_window_size_.i, align 4
-  %max_frame_size_.i = getelementptr inbounds %"class.grpc_core::chttp2::FlowControlAction", ptr %agg.result, i64 0, i32 6
+  %max_frame_size_.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 0, ptr %max_frame_size_.i, align 4
-  %preferred_rx_crypto_frame_size_.i = getelementptr inbounds %"class.grpc_core::chttp2::FlowControlAction", ptr %agg.result, i64 0, i32 7
+  %preferred_rx_crypto_frame_size_.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 0, ptr %preferred_rx_crypto_frame_size_.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %agg.result, i8 0, i64 5, i1 false)
   %conv = zext i32 %value to i64
-  %target_initial_window_size_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 7
+  %target_initial_window_size_ = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i64, ptr %target_initial_window_size_, align 8
   %cmp.not = icmp eq i64 %0, %conv
   br i1 %cmp.not, label %if.end10, label %if.then
@@ -1173,7 +1137,7 @@ if.then:                                          ; preds = %entry
   %or.cond = or i1 %cmp4, %cmp6
   %urgency.0 = select i1 %or.cond, i8 1, i8 2
   %conv9 = trunc i64 %0 to i32
-  %send_initial_window_update_.i = getelementptr inbounds %"class.grpc_core::chttp2::FlowControlAction", ptr %agg.result, i64 0, i32 2
+  %send_initial_window_update_.i = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 %urgency.0, ptr %send_initial_window_update_.i, align 2
   store i32 %conv9, ptr %initial_window_size_.i, align 4
   br label %if.end10
@@ -1187,7 +1151,7 @@ define void @_ZN9grpc_core6chttp220TransportFlowControl14PeriodicUpdateEv(ptr no
 entry:
   %ref.tmp.i4 = alloca %"struct.grpc_core::BasicMemoryQuota::PressureInfo", align 8
   %ref.tmp.i = alloca %"struct.grpc_core::BasicMemoryQuota::PressureInfo", align 8
-  %enable_bdp_probe_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 2
+  %enable_bdp_probe_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %enable_bdp_probe_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1199,7 +1163,7 @@ if.then:                                          ; preds = %entry
 
 cond.true:                                        ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %estimate_.i.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 3, i32 1
+  %estimate_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i64, ptr %estimate_.i.i, align 8
   %conv.i = sitofp i64 %2 to double
   %mul.i = fmul double %conv.i, 2.000000e+00
@@ -1214,10 +1178,10 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread.i: ; preds = %cond.tr
   br label %_ZNK9grpc_core6chttp220TransportFlowControl50TargetInitialWindowSizeBasedOnMemoryPressureAndBdpEv.exit
 
 _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i: ; preds = %cond.true
-  %memory_quota_.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %4, i64 0, i32 1
+  %memory_quota_.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %memory_quota_.i.i.i, align 8, !noalias !29
   call void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr nonnull sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(1488) %5)
-  %pressure_control_value.phi.trans.insert.i = getelementptr inbounds %"struct.grpc_core::BasicMemoryQuota::PressureInfo", ptr %ref.tmp.i, i64 0, i32 1
+  %pressure_control_value.phi.trans.insert.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %.pre.i = load double, ptr %pressure_control_value.phi.trans.insert.i, align 8
   %cmp.i.i = fcmp ogt double %mul.i, 0x4150000000000000
   %.sroa.speculated.i = select i1 %cmp.i.i, double %mul.i, double 0x4150000000000000
@@ -1261,16 +1225,16 @@ cond.false:                                       ; preds = %if.then
   br i1 %cmp.i.not.i, label %cond.end.i, label %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i5
 
 _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i5: ; preds = %cond.false
-  %memory_quota_.i.i.i6 = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %7, i64 0, i32 1
+  %memory_quota_.i.i.i6 = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %memory_quota_.i.i.i6, align 8, !noalias !32
   call void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr nonnull sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 %ref.tmp.i4, ptr noundef nonnull align 8 dereferenceable(1488) %8)
-  %pressure_control_value.i = getelementptr inbounds %"struct.grpc_core::BasicMemoryQuota::PressureInfo", ptr %ref.tmp.i4, i64 0, i32 1
+  %pressure_control_value.i = getelementptr inbounds i8, ptr %ref.tmp.i4, i64 8
   %9 = load double, ptr %pressure_control_value.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i5, %cond.false
   %cond.i = phi double [ %9, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i5 ], [ 0.000000e+00, %cond.false ]
-  %estimate_.i.i7 = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 3, i32 1
+  %estimate_.i.i7 = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load i64, ptr %estimate_.i.i7, align 8
   %conv.i8 = sitofp i64 %10 to double
   %call4.i = call double @log2(double noundef %conv.i8) #27
@@ -1315,9 +1279,9 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %11, %_ZN9grpc_core6
   %vtable.i.i = load ptr, ptr %13, align 8
   %14 = load ptr, ptr %vtable.i.i, align 8
   %call.i.i = call i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
-  %last_control_value_.i.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 4, i32 2
+  %last_control_value_.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %15 = load double, ptr %last_control_value_.i.i, align 8
-  %last_pid_update_.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 5
+  %last_pid_update_.i = getelementptr inbounds i8, ptr %this, i64 184
   %agg.tmp3.sroa.0.0.copyload.i = load i64, ptr %last_pid_update_.i, align 8
   %sub.i.i13 = sub i64 0, %agg.tmp3.sroa.0.0.copyload.i
   %cmp.i.i.i14 = icmp eq i64 %call.i.i, 9223372036854775807
@@ -1353,7 +1317,7 @@ if.end7.i.i.i.i:                                  ; preds = %if.else.i.i.i.i, %i
 _ZN9grpc_core6chttp220TransportFlowControl12SmoothLogBdpEd.exit: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i, %if.end.i.i.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %if.end7.i.i.i.i
   %retval.0.i.i.i = phi double [ 0x43E0000000000000, %_ZN9grpc_core9Timestamp3NowEv.exit.i ], [ 0xC3E0000000000000, %if.end.i.i.i ], [ %16, %if.end7.i.i.i.i ], [ 0x43E0000000000000, %if.then.i.i.i.i ], [ 0xC3E0000000000000, %if.else.i.i.i.i ]
   %sub.i = fsub double %target.addr.0.i.i, %15
-  %pid_controller_.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 4
+  %pid_controller_.i = getelementptr inbounds i8, ptr %this, i64 96
   %div.i.i15 = fdiv double %retval.0.i.i.i, 1.000000e+03
   store i64 %call.i.i, ptr %last_pid_update_.i, align 8
   %cmp.i16 = fcmp ogt double %div.i.i15, 1.000000e-01
@@ -1388,11 +1352,11 @@ cond.end:                                         ; preds = %_ZN9grpc_core6chttp
   br i1 %cmp9.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %cond.end
-  %target_initial_window_size_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 7
+  %target_initial_window_size_ = getelementptr inbounds i8, ptr %this, i64 200
   %18 = load i64, ptr %target_initial_window_size_, align 8
   %conv11 = sitofp i64 %18 to double
   %vtable = load ptr, ptr %17, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %19 = load ptr, ptr %vfn, align 8
   %call12 = call noundef double %19(ptr noundef nonnull align 8 dereferenceable(8) %17, double noundef %conv11)
   %conv13 = fptoui double %call12 to i32
@@ -1400,7 +1364,7 @@ if.then10:                                        ; preds = %cond.end
 
 if.end14:                                         ; preds = %if.then10, %cond.end
   %target.0 = phi i32 [ %conv13, %if.then10 ], [ %spec.store.select, %cond.end ]
-  %target_initial_window_size_15 = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 7
+  %target_initial_window_size_15 = getelementptr inbounds i8, ptr %this, i64 200
   %20 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 3, i32 2), align 4
   %21 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 3, i32 3), align 16
   %cmp.i.i20 = icmp ugt i32 %20, %target.0
@@ -1412,7 +1376,7 @@ if.end14:                                         ; preds = %if.then10, %cond.en
   br i1 %cmp.not.i, label %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end14
-  %23 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2) monotonic, align 8
+  %23 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %24 = and i8 %23, 1
   %tobool.i.i.i.not.i = icmp eq i8 %24, 0
   br i1 %tobool.i.i.i.not.i, label %if.end.i, label %if.then5.i22
@@ -1435,7 +1399,7 @@ if.end.i:                                         ; preds = %if.then5.i22, %if.t
 _ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit: ; preds = %if.end14, %if.end.i
   %action.sroa.2.0 = phi i8 [ 0, %if.end14 ], [ %spec.store.select.i, %if.end.i ]
   %action.sroa.571.0 = phi i32 [ 0, %if.end14 ], [ %retval.0.i.i, %if.end.i ]
-  %target_frame_size_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 8
+  %target_frame_size_ = getelementptr inbounds i8, ptr %this, i64 208
   %27 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 4, i32 2), align 4
   %28 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 4, i32 3), align 16
   %cmp.i.i25 = icmp ugt i32 %27, %target.0
@@ -1447,7 +1411,7 @@ _ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_
   br i1 %cmp.not.i29, label %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit
-  %30 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2) monotonic, align 8
+  %30 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %31 = and i8 %30, 1
   %tobool.i.i.i.not.i31 = icmp eq i8 %31, 0
   br i1 %tobool.i.i.i.not.i31, label %if.end.i34, label %if.then5.i32
@@ -1474,7 +1438,7 @@ _ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_
   br i1 %call.i41, label %if.then18, label %if.end24
 
 if.then18:                                        ; preds = %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40
-  %target_preferred_rx_crypto_frame_size_ = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 9
+  %target_preferred_rx_crypto_frame_size_ = getelementptr inbounds i8, ptr %this, i64 216
   %34 = load i64, ptr %target_frame_size_, align 8
   %.tr = trunc i64 %34 to i32
   %conv20 = shl i32 %.tr, 1
@@ -1491,7 +1455,7 @@ if.then18:                                        ; preds = %_ZN9grpc_core6chttp
   br i1 %cmp.not.i49, label %if.end24, label %if.then.i50
 
 if.then.i50:                                      ; preds = %if.then18
-  %38 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2) monotonic, align 8
+  %38 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %39 = and i8 %38, 1
   %tobool.i.i.i.not.i51 = icmp eq i8 %39, 0
   br i1 %tobool.i.i.i.not.i51, label %if.end.i54, label %if.then5.i52
@@ -1518,9 +1482,9 @@ if.end24:                                         ; preds = %if.end.i54, %if.the
   %action.sroa.9.1 = phi i32 [ 0, %entry ], [ 0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ 0, %if.then18 ], [ %retval.0.i.i47, %if.end.i54 ]
   %action.sroa.7.1 = phi i32 [ 0, %entry ], [ %action.sroa.7.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ %action.sroa.7.0, %if.then18 ], [ %action.sroa.7.0, %if.end.i54 ]
   %action.sroa.571.1 = phi i32 [ 0, %entry ], [ %action.sroa.571.0, %_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_idPljPNS0_17FlowControlActionEMS4_FRS4_NS4_7UrgencyEjE.exit40 ], [ %action.sroa.571.0, %if.then18 ], [ %action.sroa.571.0, %if.end.i54 ]
-  %announced_stream_total_over_incoming_window_.i.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 1
+  %announced_stream_total_over_incoming_window_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %42 = load i64, ptr %announced_stream_total_over_incoming_window_.i.i, align 8, !noalias !37
-  %target_initial_window_size_.i.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 7
+  %target_initial_window_size_.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %43 = load i64, ptr %target_initial_window_size_.i.i, align 8, !noalias !37
   %.sroa.speculated.i.i62 = call i64 @llvm.smax.i64(i64 %43, i64 1)
   %add.i.i63 = add nsw i64 %.sroa.speculated.i.i62, %42
@@ -1528,7 +1492,7 @@ if.end24:                                         ; preds = %if.end.i54, %if.the
   %conv5.i.i = and i64 %.sroa.speculated5.i.i, 4294967295
   %add.i64 = add nuw nsw i64 %conv5.i.i, 1
   %div1.i = lshr i64 %add.i64, 1
-  %announced_window_.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %this, i64 0, i32 10
+  %announced_window_.i = getelementptr inbounds i8, ptr %this, i64 224
   %44 = load i64, ptr %announced_window_.i, align 8, !noalias !37
   %cmp.i65 = icmp slt i64 %44, %div1.i
   %spec.select = zext i1 %cmp.i65 to i8
@@ -1559,43 +1523,43 @@ entry:
   %ref.tmp4 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp5 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   store i64 15, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.16, ptr %0, align 8
   %1 = load i64, ptr %this, align 8
-  %digits_.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp2, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   %call.i = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %1, ptr noundef nonnull %digits_.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp2, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp2, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
   store i64 20, ptr %ref.tmp3, align 8
-  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp3, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr @.str.17, ptr %2, align 8
-  %target_frame_size = getelementptr inbounds %"struct.grpc_core::chttp2::TransportFlowControl::Stats", ptr %this, i64 0, i32 1
+  %target_frame_size = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %target_frame_size, align 8
-  %digits_.i2 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4, i64 0, i32 1
+  %digits_.i2 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   %call.i3 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %3, ptr noundef nonnull %digits_.i2)
   %sub.ptr.lhs.cast.i4 = ptrtoint ptr %call.i3 to i64
   %sub.ptr.rhs.cast.i5 = ptrtoint ptr %digits_.i2 to i64
   %sub.ptr.sub.i6 = sub i64 %sub.ptr.lhs.cast.i4, %sub.ptr.rhs.cast.i5
   store i64 %sub.ptr.sub.i6, ptr %ref.tmp4, align 8
-  %_M_str.i.i7 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4, i64 0, i32 1
+  %_M_str.i.i7 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr %digits_.i2, ptr %_M_str.i.i7, align 8
   store i64 40, ptr %ref.tmp5, align 8
-  %4 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp5, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr @.str.18, ptr %4, align 8
-  %target_preferred_rx_crypto_frame_size = getelementptr inbounds %"struct.grpc_core::chttp2::TransportFlowControl::Stats", ptr %this, i64 0, i32 2
-  %acked_init_window = getelementptr inbounds %"struct.grpc_core::chttp2::TransportFlowControl::Stats", ptr %this, i64 0, i32 3
-  %queued_init_window = getelementptr inbounds %"struct.grpc_core::chttp2::TransportFlowControl::Stats", ptr %this, i64 0, i32 4
-  %sent_init_window = getelementptr inbounds %"struct.grpc_core::chttp2::TransportFlowControl::Stats", ptr %this, i64 0, i32 5
-  %remote_window = getelementptr inbounds %"struct.grpc_core::chttp2::TransportFlowControl::Stats", ptr %this, i64 0, i32 6
-  %announced_window = getelementptr inbounds %"struct.grpc_core::chttp2::TransportFlowControl::Stats", ptr %this, i64 0, i32 7
-  %announced_stream_total_over_incoming_window = getelementptr inbounds %"struct.grpc_core::chttp2::TransportFlowControl::Stats", ptr %this, i64 0, i32 8
-  %bdp_accumulator = getelementptr inbounds %"struct.grpc_core::chttp2::TransportFlowControl::Stats", ptr %this, i64 0, i32 9
-  %bdp_estimate = getelementptr inbounds %"struct.grpc_core::chttp2::TransportFlowControl::Stats", ptr %this, i64 0, i32 10
-  %bdp_bw_est = getelementptr inbounds %"struct.grpc_core::chttp2::TransportFlowControl::Stats", ptr %this, i64 0, i32 11
+  %target_preferred_rx_crypto_frame_size = getelementptr inbounds i8, ptr %this, i64 16
+  %acked_init_window = getelementptr inbounds i8, ptr %this, i64 24
+  %queued_init_window = getelementptr inbounds i8, ptr %this, i64 28
+  %sent_init_window = getelementptr inbounds i8, ptr %this, i64 32
+  %remote_window = getelementptr inbounds i8, ptr %this, i64 40
+  %announced_window = getelementptr inbounds i8, ptr %this, i64 48
+  %announced_stream_total_over_incoming_window = getelementptr inbounds i8, ptr %this, i64 56
+  %bdp_accumulator = getelementptr inbounds i8, ptr %this, i64 64
+  %bdp_estimate = getelementptr inbounds i8, ptr %this, i64 72
+  %bdp_bw_est = getelementptr inbounds i8, ptr %this, i64 80
   call void @_ZN4absl12lts_202308026StrCatIJlA21_cjA22_cjA20_cjA17_clS4_lA47_clA19_clA16_clA14_cdEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESI_SI_SI_SI_DpRKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(8) %target_preferred_rx_crypto_frame_size, ptr noundef nonnull align 1 dereferenceable(21) @.str.19, ptr noundef nonnull align 4 dereferenceable(4) %acked_init_window, ptr noundef nonnull align 1 dereferenceable(22) @.str.20, ptr noundef nonnull align 4 dereferenceable(4) %queued_init_window, ptr noundef nonnull align 1 dereferenceable(20) @.str.21, ptr noundef nonnull align 4 dereferenceable(4) %sent_init_window, ptr noundef nonnull align 1 dereferenceable(17) @.str.22, ptr noundef nonnull align 8 dereferenceable(8) %remote_window, ptr noundef nonnull align 1 dereferenceable(20) @.str.23, ptr noundef nonnull align 8 dereferenceable(8) %announced_window, ptr noundef nonnull align 1 dereferenceable(47) @.str.24, ptr noundef nonnull align 8 dereferenceable(8) %announced_stream_total_over_incoming_window, ptr noundef nonnull align 1 dereferenceable(19) @.str.25, ptr noundef nonnull align 8 dereferenceable(8) %bdp_accumulator, ptr noundef nonnull align 1 dereferenceable(16) @.str.26, ptr noundef nonnull align 8 dereferenceable(8) %bdp_estimate, ptr noundef nonnull align 1 dereferenceable(14) @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %bdp_bw_est)
   ret void
 }
@@ -1618,207 +1582,207 @@ entry:
   %retval.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 8
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.piece_.sroa_idx.i, align 8
   store i64 %retval.sroa.0.0.copyload.i, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %retval.sroa.2.0.copyload.i, ptr %0, align 8
-  %arrayinit.element = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %retval.sroa.0.0.copyload.i1 = load i64, ptr %b, align 8
   %retval.sroa.2.0.piece_.sroa_idx.i2 = getelementptr inbounds i8, ptr %b, i64 8
   %retval.sroa.2.0.copyload.i3 = load ptr, ptr %retval.sroa.2.0.piece_.sroa_idx.i2, align 8
   store i64 %retval.sroa.0.0.copyload.i1, ptr %arrayinit.element, align 8
-  %1 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 1, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr %retval.sroa.2.0.copyload.i3, ptr %1, align 8
-  %arrayinit.element38 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 2
+  %arrayinit.element38 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %retval.sroa.0.0.copyload.i6 = load i64, ptr %c, align 8
   %retval.sroa.2.0.piece_.sroa_idx.i7 = getelementptr inbounds i8, ptr %c, i64 8
   %retval.sroa.2.0.copyload.i8 = load ptr, ptr %retval.sroa.2.0.piece_.sroa_idx.i7, align 8
   store i64 %retval.sroa.0.0.copyload.i6, ptr %arrayinit.element38, align 8
-  %2 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 2, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %retval.sroa.2.0.copyload.i8, ptr %2, align 8
-  %arrayinit.element40 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 3
+  %arrayinit.element40 = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   %retval.sroa.0.0.copyload.i11 = load i64, ptr %d, align 8
   %retval.sroa.2.0.piece_.sroa_idx.i12 = getelementptr inbounds i8, ptr %d, i64 8
   %retval.sroa.2.0.copyload.i13 = load ptr, ptr %retval.sroa.2.0.piece_.sroa_idx.i12, align 8
   store i64 %retval.sroa.0.0.copyload.i11, ptr %arrayinit.element40, align 8
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 3, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   store ptr %retval.sroa.2.0.copyload.i13, ptr %3, align 8
-  %arrayinit.element42 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 4
+  %arrayinit.element42 = getelementptr inbounds i8, ptr %ref.tmp, i64 64
   %retval.sroa.0.0.copyload.i16 = load i64, ptr %e, align 8
   %retval.sroa.2.0.piece_.sroa_idx.i17 = getelementptr inbounds i8, ptr %e, i64 8
   %retval.sroa.2.0.copyload.i18 = load ptr, ptr %retval.sroa.2.0.piece_.sroa_idx.i17, align 8
   store i64 %retval.sroa.0.0.copyload.i16, ptr %arrayinit.element42, align 8
-  %4 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 4, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   store ptr %retval.sroa.2.0.copyload.i18, ptr %4, align 8
-  %arrayinit.element44 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 5
+  %arrayinit.element44 = getelementptr inbounds i8, ptr %ref.tmp, i64 80
   %5 = load i64, ptr %args, align 8
-  %digits_.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp45, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp45, i64 16
   %call.i = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %5, ptr noundef nonnull %digits_.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp45, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp45, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp45, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
   store i64 %sub.ptr.sub.i, ptr %arrayinit.element44, align 8
-  %6 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 5, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 88
   store ptr %digits_.i, ptr %6, align 8
-  %arrayinit.element47 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 6
+  %arrayinit.element47 = getelementptr inbounds i8, ptr %ref.tmp, i64 96
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %args1) #27
   store i64 %call.i.i.i.i, ptr %arrayinit.element47, align 8
-  %7 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 6, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 104
   store ptr %args1, ptr %7, align 8
-  %arrayinit.element50 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 7
+  %arrayinit.element50 = getelementptr inbounds i8, ptr %ref.tmp, i64 112
   %8 = load i32, ptr %args3, align 4
-  %digits_.i31 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp51, i64 0, i32 1
+  %digits_.i31 = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
   %call.i32 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %8, ptr noundef nonnull %digits_.i31)
   %sub.ptr.lhs.cast.i33 = ptrtoint ptr %call.i32 to i64
   %sub.ptr.rhs.cast.i34 = ptrtoint ptr %digits_.i31 to i64
   %sub.ptr.sub.i35 = sub i64 %sub.ptr.lhs.cast.i33, %sub.ptr.rhs.cast.i34
   store i64 %sub.ptr.sub.i35, ptr %ref.tmp51, align 8
-  %_M_str.i.i36 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp51, i64 0, i32 1
+  %_M_str.i.i36 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
   store ptr %digits_.i31, ptr %_M_str.i.i36, align 8
   store i64 %sub.ptr.sub.i35, ptr %arrayinit.element50, align 8
-  %9 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 7, i32 1
+  %9 = getelementptr inbounds i8, ptr %ref.tmp, i64 120
   store ptr %digits_.i31, ptr %9, align 8
-  %arrayinit.element53 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 8
+  %arrayinit.element53 = getelementptr inbounds i8, ptr %ref.tmp, i64 128
   %call.i.i.i.i42 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %args5) #27
   store i64 %call.i.i.i.i42, ptr %arrayinit.element53, align 8
-  %10 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 8, i32 1
+  %10 = getelementptr inbounds i8, ptr %ref.tmp, i64 136
   store ptr %args5, ptr %10, align 8
-  %arrayinit.element57 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 9
+  %arrayinit.element57 = getelementptr inbounds i8, ptr %ref.tmp, i64 144
   %11 = load i32, ptr %args7, align 4
-  %digits_.i48 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp58, i64 0, i32 1
+  %digits_.i48 = getelementptr inbounds i8, ptr %ref.tmp58, i64 16
   %call.i49 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %11, ptr noundef nonnull %digits_.i48)
   %sub.ptr.lhs.cast.i50 = ptrtoint ptr %call.i49 to i64
   %sub.ptr.rhs.cast.i51 = ptrtoint ptr %digits_.i48 to i64
   %sub.ptr.sub.i52 = sub i64 %sub.ptr.lhs.cast.i50, %sub.ptr.rhs.cast.i51
   store i64 %sub.ptr.sub.i52, ptr %ref.tmp58, align 8
-  %_M_str.i.i53 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp58, i64 0, i32 1
+  %_M_str.i.i53 = getelementptr inbounds i8, ptr %ref.tmp58, i64 8
   store ptr %digits_.i48, ptr %_M_str.i.i53, align 8
   store i64 %sub.ptr.sub.i52, ptr %arrayinit.element57, align 8
-  %12 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 9, i32 1
+  %12 = getelementptr inbounds i8, ptr %ref.tmp, i64 152
   store ptr %digits_.i48, ptr %12, align 8
-  %arrayinit.element60 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 10
+  %arrayinit.element60 = getelementptr inbounds i8, ptr %ref.tmp, i64 160
   %call.i.i.i.i59 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %args9) #27
   store i64 %call.i.i.i.i59, ptr %arrayinit.element60, align 8
-  %13 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 10, i32 1
+  %13 = getelementptr inbounds i8, ptr %ref.tmp, i64 168
   store ptr %args9, ptr %13, align 8
-  %arrayinit.element64 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 11
+  %arrayinit.element64 = getelementptr inbounds i8, ptr %ref.tmp, i64 176
   %14 = load i32, ptr %args11, align 4
-  %digits_.i65 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp65, i64 0, i32 1
+  %digits_.i65 = getelementptr inbounds i8, ptr %ref.tmp65, i64 16
   %call.i66 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %14, ptr noundef nonnull %digits_.i65)
   %sub.ptr.lhs.cast.i67 = ptrtoint ptr %call.i66 to i64
   %sub.ptr.rhs.cast.i68 = ptrtoint ptr %digits_.i65 to i64
   %sub.ptr.sub.i69 = sub i64 %sub.ptr.lhs.cast.i67, %sub.ptr.rhs.cast.i68
   store i64 %sub.ptr.sub.i69, ptr %ref.tmp65, align 8
-  %_M_str.i.i70 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp65, i64 0, i32 1
+  %_M_str.i.i70 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
   store ptr %digits_.i65, ptr %_M_str.i.i70, align 8
   store i64 %sub.ptr.sub.i69, ptr %arrayinit.element64, align 8
-  %15 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 11, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp, i64 184
   store ptr %digits_.i65, ptr %15, align 8
-  %arrayinit.element67 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 12
+  %arrayinit.element67 = getelementptr inbounds i8, ptr %ref.tmp, i64 192
   %call.i.i.i.i76 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %args13) #27
   store i64 %call.i.i.i.i76, ptr %arrayinit.element67, align 8
-  %16 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 12, i32 1
+  %16 = getelementptr inbounds i8, ptr %ref.tmp, i64 200
   store ptr %args13, ptr %16, align 8
-  %arrayinit.element71 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 13
+  %arrayinit.element71 = getelementptr inbounds i8, ptr %ref.tmp, i64 208
   %17 = load i64, ptr %args15, align 8
-  %digits_.i82 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp72, i64 0, i32 1
+  %digits_.i82 = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
   %call.i83 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %17, ptr noundef nonnull %digits_.i82)
   %sub.ptr.lhs.cast.i84 = ptrtoint ptr %call.i83 to i64
   %sub.ptr.rhs.cast.i85 = ptrtoint ptr %digits_.i82 to i64
   %sub.ptr.sub.i86 = sub i64 %sub.ptr.lhs.cast.i84, %sub.ptr.rhs.cast.i85
   store i64 %sub.ptr.sub.i86, ptr %ref.tmp72, align 8
-  %_M_str.i.i87 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp72, i64 0, i32 1
+  %_M_str.i.i87 = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
   store ptr %digits_.i82, ptr %_M_str.i.i87, align 8
   store i64 %sub.ptr.sub.i86, ptr %arrayinit.element71, align 8
-  %18 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 13, i32 1
+  %18 = getelementptr inbounds i8, ptr %ref.tmp, i64 216
   store ptr %digits_.i82, ptr %18, align 8
-  %arrayinit.element74 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 14
+  %arrayinit.element74 = getelementptr inbounds i8, ptr %ref.tmp, i64 224
   %call.i.i.i.i93 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %args17) #27
   store i64 %call.i.i.i.i93, ptr %arrayinit.element74, align 8
-  %19 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 14, i32 1
+  %19 = getelementptr inbounds i8, ptr %ref.tmp, i64 232
   store ptr %args17, ptr %19, align 8
-  %arrayinit.element78 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 15
+  %arrayinit.element78 = getelementptr inbounds i8, ptr %ref.tmp, i64 240
   %20 = load i64, ptr %args19, align 8
-  %digits_.i99 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp79, i64 0, i32 1
+  %digits_.i99 = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
   %call.i100 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %20, ptr noundef nonnull %digits_.i99)
   %sub.ptr.lhs.cast.i101 = ptrtoint ptr %call.i100 to i64
   %sub.ptr.rhs.cast.i102 = ptrtoint ptr %digits_.i99 to i64
   %sub.ptr.sub.i103 = sub i64 %sub.ptr.lhs.cast.i101, %sub.ptr.rhs.cast.i102
   store i64 %sub.ptr.sub.i103, ptr %ref.tmp79, align 8
-  %_M_str.i.i104 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp79, i64 0, i32 1
+  %_M_str.i.i104 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
   store ptr %digits_.i99, ptr %_M_str.i.i104, align 8
   store i64 %sub.ptr.sub.i103, ptr %arrayinit.element78, align 8
-  %21 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 15, i32 1
+  %21 = getelementptr inbounds i8, ptr %ref.tmp, i64 248
   store ptr %digits_.i99, ptr %21, align 8
-  %arrayinit.element81 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 16
+  %arrayinit.element81 = getelementptr inbounds i8, ptr %ref.tmp, i64 256
   %call.i.i.i.i110 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %args21) #27
   store i64 %call.i.i.i.i110, ptr %arrayinit.element81, align 8
-  %22 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 16, i32 1
+  %22 = getelementptr inbounds i8, ptr %ref.tmp, i64 264
   store ptr %args21, ptr %22, align 8
-  %arrayinit.element85 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 17
+  %arrayinit.element85 = getelementptr inbounds i8, ptr %ref.tmp, i64 272
   %23 = load i64, ptr %args23, align 8
-  %digits_.i116 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp86, i64 0, i32 1
+  %digits_.i116 = getelementptr inbounds i8, ptr %ref.tmp86, i64 16
   %call.i117 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %23, ptr noundef nonnull %digits_.i116)
   %sub.ptr.lhs.cast.i118 = ptrtoint ptr %call.i117 to i64
   %sub.ptr.rhs.cast.i119 = ptrtoint ptr %digits_.i116 to i64
   %sub.ptr.sub.i120 = sub i64 %sub.ptr.lhs.cast.i118, %sub.ptr.rhs.cast.i119
   store i64 %sub.ptr.sub.i120, ptr %ref.tmp86, align 8
-  %_M_str.i.i121 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp86, i64 0, i32 1
+  %_M_str.i.i121 = getelementptr inbounds i8, ptr %ref.tmp86, i64 8
   store ptr %digits_.i116, ptr %_M_str.i.i121, align 8
   store i64 %sub.ptr.sub.i120, ptr %arrayinit.element85, align 8
-  %24 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 17, i32 1
+  %24 = getelementptr inbounds i8, ptr %ref.tmp, i64 280
   store ptr %digits_.i116, ptr %24, align 8
-  %arrayinit.element88 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 18
+  %arrayinit.element88 = getelementptr inbounds i8, ptr %ref.tmp, i64 288
   %call.i.i.i.i127 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %args25) #27
   store i64 %call.i.i.i.i127, ptr %arrayinit.element88, align 8
-  %25 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 18, i32 1
+  %25 = getelementptr inbounds i8, ptr %ref.tmp, i64 296
   store ptr %args25, ptr %25, align 8
-  %arrayinit.element92 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 19
+  %arrayinit.element92 = getelementptr inbounds i8, ptr %ref.tmp, i64 304
   %26 = load i64, ptr %args27, align 8
-  %digits_.i133 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp93, i64 0, i32 1
+  %digits_.i133 = getelementptr inbounds i8, ptr %ref.tmp93, i64 16
   %call.i134 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %26, ptr noundef nonnull %digits_.i133)
   %sub.ptr.lhs.cast.i135 = ptrtoint ptr %call.i134 to i64
   %sub.ptr.rhs.cast.i136 = ptrtoint ptr %digits_.i133 to i64
   %sub.ptr.sub.i137 = sub i64 %sub.ptr.lhs.cast.i135, %sub.ptr.rhs.cast.i136
   store i64 %sub.ptr.sub.i137, ptr %ref.tmp93, align 8
-  %_M_str.i.i138 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp93, i64 0, i32 1
+  %_M_str.i.i138 = getelementptr inbounds i8, ptr %ref.tmp93, i64 8
   store ptr %digits_.i133, ptr %_M_str.i.i138, align 8
   store i64 %sub.ptr.sub.i137, ptr %arrayinit.element92, align 8
-  %27 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 19, i32 1
+  %27 = getelementptr inbounds i8, ptr %ref.tmp, i64 312
   store ptr %digits_.i133, ptr %27, align 8
-  %arrayinit.element95 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 20
+  %arrayinit.element95 = getelementptr inbounds i8, ptr %ref.tmp, i64 320
   %call.i.i.i.i144 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %args29) #27
   store i64 %call.i.i.i.i144, ptr %arrayinit.element95, align 8
-  %28 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 20, i32 1
+  %28 = getelementptr inbounds i8, ptr %ref.tmp, i64 328
   store ptr %args29, ptr %28, align 8
-  %arrayinit.element99 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 21
+  %arrayinit.element99 = getelementptr inbounds i8, ptr %ref.tmp, i64 336
   %29 = load i64, ptr %args31, align 8
-  %digits_.i150 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp100, i64 0, i32 1
+  %digits_.i150 = getelementptr inbounds i8, ptr %ref.tmp100, i64 16
   %call.i151 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %29, ptr noundef nonnull %digits_.i150)
   %sub.ptr.lhs.cast.i152 = ptrtoint ptr %call.i151 to i64
   %sub.ptr.rhs.cast.i153 = ptrtoint ptr %digits_.i150 to i64
   %sub.ptr.sub.i154 = sub i64 %sub.ptr.lhs.cast.i152, %sub.ptr.rhs.cast.i153
   store i64 %sub.ptr.sub.i154, ptr %ref.tmp100, align 8
-  %_M_str.i.i155 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp100, i64 0, i32 1
+  %_M_str.i.i155 = getelementptr inbounds i8, ptr %ref.tmp100, i64 8
   store ptr %digits_.i150, ptr %_M_str.i.i155, align 8
   store i64 %sub.ptr.sub.i154, ptr %arrayinit.element99, align 8
-  %30 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 21, i32 1
+  %30 = getelementptr inbounds i8, ptr %ref.tmp, i64 344
   store ptr %digits_.i150, ptr %30, align 8
-  %arrayinit.element102 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 22
+  %arrayinit.element102 = getelementptr inbounds i8, ptr %ref.tmp, i64 352
   %call.i.i.i.i161 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %args33) #27
   store i64 %call.i.i.i.i161, ptr %arrayinit.element102, align 8
-  %31 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 22, i32 1
+  %31 = getelementptr inbounds i8, ptr %ref.tmp, i64 360
   store ptr %args33, ptr %31, align 8
-  %arrayinit.element106 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 23
+  %arrayinit.element106 = getelementptr inbounds i8, ptr %ref.tmp, i64 368
   %32 = load double, ptr %args35, align 8
-  %digits_.i167 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp107, i64 0, i32 1
+  %digits_.i167 = getelementptr inbounds i8, ptr %ref.tmp107, i64 16
   %call.i168 = call noundef i64 @_ZN4absl12lts_2023080216numbers_internal17SixDigitsToBufferEdPc(double noundef %32, ptr noundef nonnull %digits_.i167)
   store i64 %call.i168, ptr %ref.tmp107, align 8
-  %_M_str.i.i169 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp107, i64 0, i32 1
+  %_M_str.i.i169 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
   store ptr %digits_.i167, ptr %_M_str.i.i169, align 8
   store i64 %call.i168, ptr %arrayinit.element106, align 8
-  %33 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 23, i32 1
+  %33 = getelementptr inbounds i8, ptr %ref.tmp, i64 376
   store ptr %digits_.i167, ptr %33, align 8
   call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp, i64 24)
   ret void
@@ -1830,8 +1794,8 @@ entry:
   %tfc_upd = alloca %"class.grpc_core::chttp2::TransportFlowControl::IncomingUpdateContext", align 8
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %tfc_upd, align 8
-  %pending_size_ = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 4
-  %_M_engaged.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %pending_size_ = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i8, ptr %_M_engaged.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i.i = icmp eq i8 %2, 0
@@ -1842,7 +1806,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt8optionalIlEaSESt9nullopt_t.exit
 
 _ZNSt8optionalIlEaSESt9nullopt_t.exit:            ; preds = %entry, %if.then.i.i.i
-  %announced_window_delta_ = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 3
+  %announced_window_delta_ = getelementptr inbounds i8, ptr %this, i64 24
   %conv = zext i32 %announce to i64
   %cmp.i = icmp eq i32 %announce, 0
   br i1 %cmp.i, label %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit, label %if.end.i
@@ -1853,7 +1817,7 @@ if.end.i:                                         ; preds = %_ZNSt8optionalIlEaS
   br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %announced_stream_total_over_incoming_window_.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %0, i64 0, i32 1
+  %announced_stream_total_over_incoming_window_.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %announced_stream_total_over_incoming_window_.i, align 8
   %sub.i = sub nsw i64 %4, %3
   store i64 %sub.i, ptr %announced_stream_total_over_incoming_window_.i, align 8
@@ -1868,14 +1832,14 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br i1 %cmp5.i, label %if.then6.i, label %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %announced_stream_total_over_incoming_window_8.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %0, i64 0, i32 1
+  %announced_stream_total_over_incoming_window_8.i = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %announced_stream_total_over_incoming_window_8.i, align 8
   %add9.i = add nsw i64 %6, %add.i
   store i64 %add9.i, ptr %announced_stream_total_over_incoming_window_8.i, align 8
   br label %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit
 
 _ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit: ; preds = %_ZNSt8optionalIlEaSESt9nullopt_t.exit, %if.end4.i, %if.then6.i
-  %min_progress_size_.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 1
+  %min_progress_size_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i64, ptr %min_progress_size_.i.i, align 8
   %cmp.i.i = icmp eq i64 %7, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else10.i.i
@@ -1926,25 +1890,25 @@ _ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContextD2Ev.exit: ; pr
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #14 align 2 {
 entry:
-  %min_progress_size_.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 1
+  %min_progress_size_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %min_progress_size_.i, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.else10.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_engaged.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i8, ptr %_M_engaged.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.not.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i, label %if.then.if.else_crit_edge.i, label %land.lhs.true.i
 
 if.then.if.else_crit_edge.i:                      ; preds = %if.then.i
-  %announced_window_delta_9.phi.trans.insert.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 3
+  %announced_window_delta_9.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %return.sink.split.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %pending_size_.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 4
-  %announced_window_delta_.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 3
+  %pending_size_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %announced_window_delta_.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %announced_window_delta_.i, align 8
   %4 = load i64, ptr %pending_size_.i, align 8
   %sub.i = sub nsw i64 0, %4
@@ -1959,7 +1923,7 @@ if.else10.i:                                      ; preds = %entry
 return.sink.split.i:                              ; preds = %if.else10.i, %if.then.if.else_crit_edge.i
   %announced_window_delta_9.phi.trans.insert.sink.i = phi ptr [ %announced_window_delta_9.phi.trans.insert.i, %if.then.if.else_crit_edge.i ], [ %__b.__a.i.i, %if.else10.i ]
   %.pre.i = load i64, ptr %announced_window_delta_9.phi.trans.insert.sink.i, align 8
-  %announced_window_delta_.phi.trans.insert = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 3
+  %announced_window_delta_.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load i64, ptr %announced_window_delta_.phi.trans.insert, align 8
   br label %"_ZZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEvENK3$_0clEv.exit"
 
@@ -2004,25 +1968,25 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN9grpc_core6chttp217StreamFlowControl12UpdateActionENS0_17FlowControlActionE(ptr noalias nocapture writeonly sret(%"class.grpc_core::chttp2::FlowControlAction") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef byval(%"class.grpc_core::chttp2::FlowControlAction") align 8 %action) local_unnamed_addr #15 align 2 {
 entry:
-  %min_progress_size_.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 1
+  %min_progress_size_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %min_progress_size_.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else10.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i8, ptr %_M_engaged.i.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i, label %if.then.if.else_crit_edge.i.i, label %land.lhs.true.i.i
 
 if.then.if.else_crit_edge.i.i:                    ; preds = %if.then.i.i
-  %announced_window_delta_9.phi.trans.insert.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 3
+  %announced_window_delta_9.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %return.sink.split.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then.i.i
-  %pending_size_.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 4
-  %announced_window_delta_.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 3
+  %pending_size_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %announced_window_delta_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %announced_window_delta_.i.i, align 8
   %4 = load i64, ptr %pending_size_.i.i, align 8
   %sub.i.i = sub nsw i64 0, %4
@@ -2037,7 +2001,7 @@ if.else10.i.i:                                    ; preds = %entry
 return.sink.split.i.i:                            ; preds = %if.else10.i.i, %if.then.if.else_crit_edge.i.i
   %announced_window_delta_9.phi.trans.insert.sink.i.i = phi ptr [ %announced_window_delta_9.phi.trans.insert.i.i, %if.then.if.else_crit_edge.i.i ], [ %__b.__a.i.i.i, %if.else10.i.i ]
   %.pre.i.i = load i64, ptr %announced_window_delta_9.phi.trans.insert.sink.i.i, align 8
-  %announced_window_delta_.phi.trans.insert.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %this, i64 0, i32 3
+  %announced_window_delta_.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 24
   %.pre.i = load i64, ptr %announced_window_delta_.phi.trans.insert.i, align 8
   br label %_ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv.exit
 
@@ -2051,7 +2015,7 @@ _ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv.exit: ; preds = 
 if.then:                                          ; preds = %_ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv.exit
   %max.val.i.i = tail call i64 @llvm.smin.i64(i64 %sub.i, i64 2147483647)
   %6 = load ptr, ptr %this, align 8
-  %target_initial_window_size_.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %6, i64 0, i32 7
+  %target_initial_window_size_.i = getelementptr inbounds i8, ptr %6, i64 200
   %7 = load i64, ptr %target_initial_window_size_.i, align 8
   %8 = lshr i64 %7, 1
   %div = and i64 %8, 2147483647
@@ -2062,7 +2026,7 @@ if.then:                                          ; preds = %_ZNK9grpc_core6chtt
   br i1 %cmp8, label %if.then9, label %if.end17
 
 if.then9:                                         ; preds = %if.then
-  %sent_init_window_.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %6, i64 0, i32 12
+  %sent_init_window_.i = getelementptr inbounds i8, ptr %6, i64 236
   %9 = load i32, ptr %sent_init_window_.i, align 4
   %10 = lshr i32 %9, 1
   %div132 = zext nneg i32 %10 to i64
@@ -2092,11 +2056,11 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %sfc_ = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl::IncomingUpdateContext", ptr %this, i64 0, i32 1
+  %sfc_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %sfc_, align 8
-  %pending_size_ = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %0, i64 0, i32 4
+  %pending_size_ = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %pending_size, ptr %pending_size_, align 8
-  %ref.tmp.sroa.2.0.pending_size_.sroa_idx = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %0, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.pending_size_.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i8 1, ptr %ref.tmp.sroa.2.0.pending_size_.sroa_idx, align 8
   ret void
 }
@@ -2110,80 +2074,80 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp4 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %0 = load i64, ptr %this, align 8
-  %digits_.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp2, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   %call.i = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %0, ptr noundef nonnull %digits_.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp2, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp2, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
-  %remote_window_delta = getelementptr inbounds %"struct.grpc_core::chttp2::StreamFlowControl::Stats", ptr %this, i64 0, i32 1
+  %remote_window_delta = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %remote_window_delta, align 8
-  %digits_.i2 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4, i64 0, i32 1
+  %digits_.i2 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   %call.i3 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %1, ptr noundef nonnull %digits_.i2)
   %sub.ptr.lhs.cast.i4 = ptrtoint ptr %call.i3 to i64
   %sub.ptr.rhs.cast.i5 = ptrtoint ptr %digits_.i2 to i64
   %sub.ptr.sub.i6 = sub i64 %sub.ptr.lhs.cast.i4, %sub.ptr.rhs.cast.i5
   store i64 %sub.ptr.sub.i6, ptr %ref.tmp4, align 8
-  %_M_str.i.i7 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4, i64 0, i32 1
+  %_M_str.i.i7 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr %digits_.i2, ptr %_M_str.i.i7, align 8
-  %pending_size = getelementptr inbounds %"struct.grpc_core::chttp2::StreamFlowControl::Stats", ptr %this, i64 0, i32 3
-  %_M_engaged.i.i = getelementptr inbounds %"struct.grpc_core::chttp2::StreamFlowControl::Stats", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %pending_size = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i8, ptr %_M_engaged.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.i.i.not = icmp eq i8 %3, 0
   %4 = load i64, ptr %pending_size, align 8
   %spec.select = select i1 %tobool.i.i.not, i64 -1, i64 %4
-  %announced_window_delta = getelementptr inbounds %"struct.grpc_core::chttp2::StreamFlowControl::Stats", ptr %this, i64 0, i32 2
+  %announced_window_delta = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp14.i)
   store i64 19, ptr %ref.tmp.i, align 8, !noalias !40
-  %5 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.30, ptr %5, align 8, !noalias !40
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %ref.tmp2, align 8, !noalias !40
   %retval.sroa.2.0.copyload.i3.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !40
   store i64 %retval.sroa.0.0.copyload.i1.i, ptr %arrayinit.element.i, align 8, !noalias !40
-  %6 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr %retval.sroa.2.0.copyload.i3.i, ptr %6, align 8, !noalias !40
-  %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 22, ptr %arrayinit.element4.i, align 8, !noalias !40
-  %7 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr @.str.31, ptr %7, align 8, !noalias !40
-  %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 %sub.ptr.sub.i6, ptr %arrayinit.element6.i, align 8, !noalias !40
-  %8 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr %digits_.i2, ptr %8, align 8, !noalias !40
-  %arrayinit.element8.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 25, ptr %arrayinit.element8.i, align 8, !noalias !40
-  %9 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %9 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr @.str.32, ptr %9, align 8, !noalias !40
-  %arrayinit.element10.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5
+  %arrayinit.element10.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
   %10 = load i64, ptr %announced_window_delta, align 8, !noalias !40
-  %digits_.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp11.i, i64 0, i32 1
+  %digits_.i.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 16
   %call.i.i = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %10, ptr noundef nonnull %digits_.i.i), !noalias !40
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %digits_.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   store i64 %sub.ptr.sub.i.i, ptr %ref.tmp11.i, align 8, !noalias !40
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp11.i, i64 0, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   store ptr %digits_.i.i, ptr %_M_str.i.i.i, align 8, !noalias !40
   store i64 %sub.ptr.sub.i.i, ptr %arrayinit.element10.i, align 8, !noalias !40
-  %11 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5, i32 1
+  %11 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
   store ptr %digits_.i.i, ptr %11, align 8, !noalias !40
-  %arrayinit.element13.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 6
-  %digits_.i26.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp14.i, i64 0, i32 1
+  %arrayinit.element13.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 96
+  %digits_.i26.i = getelementptr inbounds i8, ptr %ref.tmp14.i, i64 16
   %call.i27.i = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferElPc(i64 noundef %spec.select, ptr noundef nonnull %digits_.i26.i), !noalias !40
   %sub.ptr.lhs.cast.i28.i = ptrtoint ptr %call.i27.i to i64
   %sub.ptr.rhs.cast.i29.i = ptrtoint ptr %digits_.i26.i to i64
   %sub.ptr.sub.i30.i = sub i64 %sub.ptr.lhs.cast.i28.i, %sub.ptr.rhs.cast.i29.i
   store i64 %sub.ptr.sub.i30.i, ptr %ref.tmp14.i, align 8, !noalias !40
-  %_M_str.i.i31.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp14.i, i64 0, i32 1
+  %_M_str.i.i31.i = getelementptr inbounds i8, ptr %ref.tmp14.i, i64 8
   store ptr %digits_.i26.i, ptr %_M_str.i.i31.i, align 8, !noalias !40
   store i64 %sub.ptr.sub.i30.i, ptr %arrayinit.element13.i, align 8, !noalias !40
-  %12 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 6, i32 1
+  %12 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 104
   store ptr %digits_.i26.i, ptr %12, align 8, !noalias !40
   call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp.i, i64 7)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp.i)
@@ -2332,7 +2296,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #19
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -2376,14 +2340,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #27
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #27
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !43
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
@@ -2392,8 +2356,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #27
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #27
-  %incdec.ptr.i.i.i15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
+  %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
   br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !43
 
@@ -2407,7 +2371,7 @@ if.then.i20:                                      ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, %if.then.i20
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %cond.i
@@ -2433,7 +2397,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %start.coerce) #27
-  %incdec.ptr.i27 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %start.coerce, i64 1
+  %incdec.ptr.i27 = getelementptr inbounds i8, ptr %start.coerce, i64 32
   %cmp.i14.not28 = icmp eq ptr %incdec.ptr.i27, %end.coerce
   br i1 %cmp.i14.not28, label %for.end, label %for.body
 
@@ -2443,7 +2407,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %add = add i64 %result_size.029, %s.coerce0
   %call8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i30) #27
   %add9 = add i64 %add, %call8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %incdec.ptr.i30, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i30, i64 32
   %cmp.i14.not = icmp eq ptr %incdec.ptr.i, %end.coerce
   br i1 %cmp.i14.not, label %for.end, label %for.body, !llvm.loop !44
 
@@ -2478,7 +2442,7 @@ for.body21:                                       ; preds = %for.body21.preheade
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr25, ptr align 1 %call27, i64 %call28, i1 false)
   %call29 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i1534) #27
   %add.ptr30 = getelementptr inbounds i8, ptr %add.ptr25, i64 %call29
-  %incdec.ptr.i15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %incdec.ptr.i1534, i64 1
+  %incdec.ptr.i15 = getelementptr inbounds i8, ptr %incdec.ptr.i1534, i64 32
   %cmp.i16.not = icmp eq ptr %incdec.ptr.i15, %end.coerce
   br i1 %cmp.i16.not, label %nrvo.skipdtor, label %for.body21, !llvm.loop !45
 
@@ -2521,16 +2485,16 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i), !noalias !58
   %0 = load ptr, ptr %ptr.coerce, align 8, !noalias !59
-  %sfc_.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl::IncomingUpdateContext", ptr %0, i64 0, i32 1
+  %sfc_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %sfc_.i.i.i.i, align 8, !noalias !59
-  %announced_window_delta_.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %1, i64 0, i32 3
+  %announced_window_delta_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i64, ptr %announced_window_delta_.i.i.i.i, align 8, !noalias !59
   %3 = load ptr, ptr %1, align 8, !noalias !59
-  %acked_init_window_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %3, i64 0, i32 11
+  %acked_init_window_.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 232
   %4 = load i32, ptr %acked_init_window_.i.i.i.i.i, align 8, !noalias !59
   %conv.i.i.i.i = zext i32 %4 to i64
   %add.i.i.i.i = add nsw i64 %2, %conv.i.i.i.i
-  %5 = getelementptr inbounds %class.anon, ptr %ptr.coerce, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ptr.coerce, i64 8
   %6 = load i64, ptr %5, align 8, !noalias !59
   %cmp.i.i.i.i = icmp sgt i64 %6, %add.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
@@ -2539,12 +2503,12 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %7 = inttoptr i64 %6 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !59
   store ptr %7, ptr %ref.tmp.i.i.i.i.i, align 8, !noalias !60
-  %dispatcher_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i.i.i.i, i64 0, i32 1
+  %dispatcher_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i.i.i.i, align 8, !noalias !60
-  %arrayinit.element.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 16
   %8 = inttoptr i64 %add.i.i.i.i to ptr
   store ptr %8, ptr %arrayinit.element.i.i.i.i.i, align 8, !noalias !60
-  %dispatcher_.i.i2.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i.i.i.i, i64 1, i32 1
+  %dispatcher_.i.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i.i.i.i.i, align 8, !noalias !60
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i.i, ptr nonnull @.str.14, i64 47, ptr nonnull %ref.tmp.i.i.i.i.i, i64 2), !noalias !59
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !59
@@ -2574,7 +2538,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   %12 = load ptr, ptr %0, align 8, !noalias !59
-  %announced_stream_total_over_incoming_window_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %12, i64 0, i32 1
+  %announced_stream_total_over_incoming_window_.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %announced_stream_total_over_incoming_window_.i.i.i.i.i, align 8, !noalias !59
   %sub.i.i.i.i.i = sub nsw i64 %13, %2
   store i64 %sub.i.i.i.i.i, ptr %announced_stream_total_over_incoming_window_.i.i.i.i.i, align 8, !noalias !59
@@ -2590,7 +2554,7 @@ if.end4.i.i.i.i.i:                                ; preds = %if.then3.i.i.i.i.i,
 
 if.then6.i.i.i.i.i:                               ; preds = %if.end4.i.i.i.i.i
   %15 = load ptr, ptr %0, align 8, !noalias !59
-  %announced_stream_total_over_incoming_window_8.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %15, i64 0, i32 1
+  %announced_stream_total_over_incoming_window_8.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i64, ptr %announced_stream_total_over_incoming_window_8.i.i.i.i.i, align 8, !noalias !59
   %add9.i.i.i.i.i = add nsw i64 %16, %add.i.i.i.i.i
   store i64 %add9.i.i.i.i.i, ptr %announced_stream_total_over_incoming_window_8.i.i.i.i.i, align 8, !noalias !59
@@ -2598,7 +2562,7 @@ if.then6.i.i.i.i.i:                               ; preds = %if.end4.i.i.i.i.i
 
 _ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit.i.i.i.i: ; preds = %if.then6.i.i.i.i.i, %if.end4.i.i.i.i.i, %if.end.i.i.i.i
   %17 = load ptr, ptr %sfc_.i.i.i.i, align 8, !noalias !59
-  %min_progress_size_.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %17, i64 0, i32 1
+  %min_progress_size_.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i64, ptr %5, align 8, !noalias !59
   %19 = load i64, ptr %min_progress_size_.i.i.i.i, align 8, !noalias !59
   %20 = tail call i64 @llvm.smin.i64(i64 %18, i64 %19)

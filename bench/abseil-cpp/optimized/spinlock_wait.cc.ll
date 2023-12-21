@@ -72,7 +72,8 @@ for.cond.outer:                                   ; preds = %for.cond1.if.then_c
 
 if.else:                                          ; preds = %land.rhs
   %idxprom5 = and i64 %indvars.iv, 4294967295
-  %to = getelementptr inbounds %"struct.absl::base_internal::SpinLockWaitTransition", ptr %trans, i64 %idxprom5, i32 1
+  %arrayidx6 = getelementptr inbounds %"struct.absl::base_internal::SpinLockWaitTransition", ptr %trans, i64 %idxprom5
+  %to = getelementptr inbounds i8, ptr %arrayidx6, i64 4
   %4 = load i32, ptr %to, align 4
   %cmp7 = icmp eq i32 %4, %2
   br i1 %cmp7, label %if.then12, label %monotonic_fail9.i
@@ -86,7 +87,7 @@ for.cond.backedge:                                ; preds = %monotonic_fail9.i, 
   br label %for.cond, !llvm.loop !5
 
 if.then12:                                        ; preds = %monotonic_fail9.i, %if.else
-  %done = getelementptr inbounds %"struct.absl::base_internal::SpinLockWaitTransition", ptr %trans, i64 %idxprom5, i32 2
+  %done = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   %7 = load i8, ptr %done, align 4
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0

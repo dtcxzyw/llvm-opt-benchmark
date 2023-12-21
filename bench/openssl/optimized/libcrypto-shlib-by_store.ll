@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.x509_lookup_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.x509_object_st = type { i32, %union.anon }
-%union.anon = type { ptr }
 
 @x509_store_lookup = internal global %struct.x509_lookup_method_st { ptr @.str, ptr null, ptr @by_store_free, ptr null, ptr null, ptr @by_store_ctrl, ptr @by_store_subject, ptr null, ptr null, ptr null, ptr @by_store_subject_ex, ptr @by_store_ctrl_ex }, align 8
 @.str = private unnamed_addr constant [27 x i8] c"Load certs from STORE URIs\00", align 1
@@ -80,7 +78,7 @@ if.then5:                                         ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.then5
-  %data = getelementptr inbounds %struct.x509_object_st, ptr %call4, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call4, i64 8
   %0 = load ptr, ptr %data, align 8
   %call6 = tail call i32 @X509_OBJECT_set1_X509(ptr noundef %ret, ptr noundef %0) #3
   %tobool7.not = icmp eq i32 %call6, 0
@@ -92,7 +90,7 @@ if.then8:                                         ; preds = %sw.bb
   br label %if.end19
 
 sw.bb11:                                          ; preds = %if.then5
-  %data12 = getelementptr inbounds %struct.x509_object_st, ptr %call4, i64 0, i32 1
+  %data12 = getelementptr inbounds i8, ptr %call4, i64 8
   %2 = load ptr, ptr %data12, align 8
   %call13 = tail call i32 @X509_OBJECT_set1_X509_CRL(ptr noundef %ret, ptr noundef %2) #3
   %tobool14.not = icmp eq i32 %call13, 0

@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-bn_recp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bn_recp_ctx_st = type { %struct.bignum_st, %struct.bignum_st, i32, i32, i32 }
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/bn/bn_recp.c\00", align 1
 @__func__.BN_div_recp = private unnamed_addr constant [12 x i8] c"BN_div_recp\00", align 1
 
@@ -14,7 +11,7 @@ define void @BN_RECP_CTX_init(ptr noundef %recp) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %recp, i8 0, i64 64, i1 false)
   tail call void @bn_init(ptr noundef %recp) #4
-  %Nr = getelementptr inbounds %struct.bn_recp_ctx_st, ptr %recp, i64 0, i32 1
+  %Nr = getelementptr inbounds i8, ptr %recp, i64 24
   tail call void @bn_init(ptr noundef nonnull %Nr) #4
   ret void
 }
@@ -33,9 +30,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @bn_init(ptr noundef nonnull %call) #4
-  %Nr = getelementptr inbounds %struct.bn_recp_ctx_st, ptr %call, i64 0, i32 1
+  %Nr = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @bn_init(ptr noundef nonnull %Nr) #4
-  %flags = getelementptr inbounds %struct.bn_recp_ctx_st, ptr %call, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %call, i64 56
   store i32 1, ptr %flags, align 8
   br label %return
 
@@ -53,9 +50,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @BN_free(ptr noundef nonnull %recp) #4
-  %Nr = getelementptr inbounds %struct.bn_recp_ctx_st, ptr %recp, i64 0, i32 1
+  %Nr = getelementptr inbounds i8, ptr %recp, i64 24
   tail call void @BN_free(ptr noundef nonnull %Nr) #4
-  %flags = getelementptr inbounds %struct.bn_recp_ctx_st, ptr %recp, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %recp, i64 56
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -86,12 +83,12 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %Nr = getelementptr inbounds %struct.bn_recp_ctx_st, ptr %recp, i64 0, i32 1
+  %Nr = getelementptr inbounds i8, ptr %recp, i64 24
   tail call void @BN_zero_ex(ptr noundef nonnull %Nr) #4
   %call3 = tail call i32 @BN_num_bits(ptr noundef %d) #4
-  %num_bits = getelementptr inbounds %struct.bn_recp_ctx_st, ptr %recp, i64 0, i32 2
+  %num_bits = getelementptr inbounds i8, ptr %recp, i64 48
   store i32 %call3, ptr %num_bits, align 8
-  %shift = getelementptr inbounds %struct.bn_recp_ctx_st, ptr %recp, i64 0, i32 3
+  %shift = getelementptr inbounds i8, ptr %recp, i64 52
   store i32 0, ptr %shift, align 4
   br label %return
 
@@ -195,17 +192,17 @@ if.then12:                                        ; preds = %if.end
 
 if.end16:                                         ; preds = %if.end
   %call17 = tail call i32 @BN_num_bits(ptr noundef %m) #4
-  %num_bits = getelementptr inbounds %struct.bn_recp_ctx_st, ptr %recp, i64 0, i32 2
+  %num_bits = getelementptr inbounds i8, ptr %recp, i64 48
   %0 = load i32, ptr %num_bits, align 8
   %shl = shl i32 %0, 1
   %spec.select = tail call i32 @llvm.smax.i32(i32 %shl, i32 %call17)
-  %shift = getelementptr inbounds %struct.bn_recp_ctx_st, ptr %recp, i64 0, i32 3
+  %shift = getelementptr inbounds i8, ptr %recp, i64 52
   %1 = load i32, ptr %shift, align 4
   %cmp21.not = icmp eq i32 %spec.select, %1
   br i1 %cmp21.not, label %if.end26, label %if.then22
 
 if.then22:                                        ; preds = %if.end16
-  %Nr = getelementptr inbounds %struct.bn_recp_ctx_st, ptr %recp, i64 0, i32 1
+  %Nr = getelementptr inbounds i8, ptr %recp, i64 24
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call.i = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
   %cmp.i = icmp eq ptr %call.i, null
@@ -240,7 +237,7 @@ if.end30:                                         ; preds = %if.end26
   br i1 %tobool33.not, label %err, label %if.end35
 
 if.end35:                                         ; preds = %if.end30
-  %Nr36 = getelementptr inbounds %struct.bn_recp_ctx_st, ptr %recp, i64 0, i32 1
+  %Nr36 = getelementptr inbounds i8, ptr %recp, i64 24
   %call37 = tail call i32 @BN_mul(ptr noundef nonnull %call8, ptr noundef %call7, ptr noundef nonnull %Nr36, ptr noundef %ctx) #4
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %err, label %if.end40
@@ -253,7 +250,7 @@ if.end40:                                         ; preds = %if.end35
   br i1 %tobool43.not, label %err, label %if.end45
 
 if.end45:                                         ; preds = %if.end40
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %cond, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %cond, i64 16
   store i32 0, ptr %neg, align 8
   %call47 = tail call i32 @BN_mul(ptr noundef nonnull %call8, ptr noundef nonnull %recp, ptr noundef %cond, ptr noundef %ctx) #4
   %tobool48.not = icmp eq i32 %call47, 0
@@ -265,7 +262,7 @@ if.end50:                                         ; preds = %if.end45
   br i1 %tobool52.not, label %err, label %if.end54
 
 if.end54:                                         ; preds = %if.end50
-  %neg55 = getelementptr inbounds %struct.bignum_st, ptr %cond6, i64 0, i32 3
+  %neg55 = getelementptr inbounds i8, ptr %cond6, i64 16
   store i32 0, ptr %neg55, align 8
   br label %while.cond
 
@@ -302,16 +299,16 @@ while.end:                                        ; preds = %while.cond
   br i1 %tobool72.not, label %cond.false74, label %cond.end76
 
 cond.false74:                                     ; preds = %while.end
-  %neg75 = getelementptr inbounds %struct.bignum_st, ptr %m, i64 0, i32 3
+  %neg75 = getelementptr inbounds i8, ptr %m, i64 16
   %5 = load i32, ptr %neg75, align 8
   br label %cond.end76
 
 cond.end76:                                       ; preds = %while.end, %cond.false74
   %cond77 = phi i32 [ %5, %cond.false74 ], [ 0, %while.end ]
   store i32 %cond77, ptr %neg55, align 8
-  %neg79 = getelementptr inbounds %struct.bignum_st, ptr %m, i64 0, i32 3
+  %neg79 = getelementptr inbounds i8, ptr %m, i64 16
   %6 = load i32, ptr %neg79, align 8
-  %neg81 = getelementptr inbounds %struct.bignum_st, ptr %recp, i64 0, i32 3
+  %neg81 = getelementptr inbounds i8, ptr %recp, i64 16
   %7 = load i32, ptr %neg81, align 8
   %xor = xor i32 %7, %6
   store i32 %xor, ptr %neg, align 8

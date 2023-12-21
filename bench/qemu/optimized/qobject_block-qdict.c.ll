@@ -3,11 +3,6 @@ source_filename = "bench/qemu/original/qobject_block-qdict.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QObjectBase_ = type { i32, i64 }
-%struct.QDictEntry = type { ptr, ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.QDictRenames = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [3 x i8] c"%u\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"snprintf_ret < 32\00", align 1
 @.str.2 = private unnamed_addr constant [30 x i8] c"../qemu/qobject/block-qdict.c\00", align 1
@@ -56,7 +51,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.end7, label %qobject_ref_impl.exit
 
 qobject_ref_impl.exit:                            ; preds = %if.end
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call1, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call1, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %0, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -188,7 +183,7 @@ if.then29:                                        ; preds = %if.else27
   br i1 %tobool.not.i, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then29
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call3, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call3, i64 8
   %4 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %4, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -254,13 +249,13 @@ while.body:                                       ; preds = %if.end.thread, %if.
 if.then6:                                         ; preds = %while.body
   %3 = load ptr, ptr %dst, align 8
   %4 = load ptr, ptr %p, align 8
-  %value = getelementptr inbounds %struct.QDictEntry, ptr %entry1.013, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %entry1.013, i64 8
   %5 = load ptr, ptr %value, align 8
   %tobool9.not = icmp eq ptr %5, null
   br i1 %tobool9.not, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then6
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %5, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %6, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -385,7 +380,7 @@ if.else35:                                        ; preds = %if.end23
   br i1 %tobool16.not, label %qobject_ref_impl.exit, label %if.then.i17
 
 if.then.i17:                                      ; preds = %if.end13.qdict_count_prefixed_entries.exit_crit_edge, %if.else35
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call5, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call5, i64 8
   %5 = load i64, ptr %refcnt.i, align 8
   %inc.i18 = add i64 %5, 1
   store i64 %inc.i18, ptr %refcnt.i, align 8
@@ -429,7 +424,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end55
   %ent.0238 = phi ptr [ %call56, %if.end55 ], [ %call1, %entry ]
-  %value = getelementptr inbounds %struct.QDictEntry, ptr %ent.0238, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %ent.0238, i64 8
   %0 = load ptr, ptr %value, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end, label %land.lhs.true.i
@@ -573,7 +568,7 @@ if.end29:                                         ; preds = %qobject_type.exit.i
   br i1 %tobool32.not, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end29
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %8, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %9, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -589,7 +584,7 @@ if.else:                                          ; preds = %if.end21
   br i1 %tobool45.not, label %qobject_ref_impl.exit103, label %if.then.i100
 
 if.then.i100:                                     ; preds = %if.else
-  %refcnt.i101 = getelementptr inbounds %struct.QObjectBase_, ptr %10, i64 0, i32 1
+  %refcnt.i101 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i64, ptr %refcnt.i101, align 8
   %inc.i102 = add i64 %11, 1
   store i64 %inc.i102, ptr %refcnt.i101, align 8
@@ -613,7 +608,7 @@ for.end:                                          ; preds = %if.end55, %entry
 
 for.body61:                                       ; preds = %for.end, %for.inc90
   %ent.1240 = phi ptr [ %call91, %for.inc90 ], [ %call58, %for.end ]
-  %value62 = getelementptr inbounds %struct.QDictEntry, ptr %ent.1240, i64 0, i32 1
+  %value62 = getelementptr inbounds i8, ptr %ent.1240, i64 8
   %12 = load ptr, ptr %value62, align 8
   %tobool.not.i104 = icmp eq ptr %12, null
   br i1 %tobool.not.i104, label %if.else74.thread, label %land.lhs.true.i105
@@ -664,7 +659,7 @@ if.else74:                                        ; preds = %land.lhs.true65
 if.then.i114:                                     ; preds = %if.else74.thread276, %if.else74
   %18 = phi ptr [ %15, %if.else74.thread276 ], [ %17, %if.else74 ]
   %.pr279 = phi ptr [ %12, %if.else74.thread276 ], [ %.pr.pre, %if.else74 ]
-  %refcnt.i115 = getelementptr inbounds %struct.QObjectBase_, ptr %.pr279, i64 0, i32 1
+  %refcnt.i115 = getelementptr inbounds i8, ptr %.pr279, i64 8
   %19 = load i64, ptr %refcnt.i115, align 8
   %inc.i116 = add i64 %19, 1
   store i64 %inc.i116, ptr %refcnt.i115, align 8
@@ -686,7 +681,7 @@ for.end92:                                        ; preds = %for.inc90, %for.end
   br i1 %tobool94.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.end92
-  %refcnt.i118 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i118 = getelementptr inbounds i8, ptr %call, i64 8
   %22 = load i64, ptr %refcnt.i118, align 8
   %tobool1.not.i119 = icmp eq i64 %22, 0
   br i1 %tobool1.not.i119, label %if.else.i122, label %land.lhs.true.i120
@@ -789,7 +784,7 @@ for.body123.us:                                   ; preds = %for.body123.lr.ph, 
   br i1 %tobool127.not.us, label %if.then128, label %if.end129.us
 
 if.end129.us:                                     ; preds = %for.body123.us
-  %refcnt.i141.us = getelementptr inbounds %struct.QObjectBase_, ptr %call126.us, i64 0, i32 1
+  %refcnt.i141.us = getelementptr inbounds i8, ptr %call126.us, i64 8
   %25 = load i64, ptr %refcnt.i141.us, align 8
   %inc.i142.us = add i64 %25, 1
   store i64 %inc.i142.us, ptr %refcnt.i141.us, align 8
@@ -825,7 +820,7 @@ if.else.i.i133:                                   ; preds = %if.end129
 qobject_type.exit.i134:                           ; preds = %if.end129
   %cmp.i135 = icmp eq i32 %obj.val.i131, 5
   %spec.select246 = select i1 %cmp.i135, ptr %call109.fr, ptr null
-  %refcnt.i141 = getelementptr inbounds %struct.QObjectBase_, ptr %call126, i64 0, i32 1
+  %refcnt.i141 = getelementptr inbounds i8, ptr %call126, i64 8
   %27 = load i64, ptr %refcnt.i141, align 8
   %inc.i142 = add i64 %27, 1
   store i64 %inc.i142, ptr %refcnt.i141, align 8
@@ -840,7 +835,7 @@ for.end144:                                       ; preds = %qobject_type.exit.i
   br i1 %tobool146.not, label %return, label %lor.lhs.false.i144
 
 lor.lhs.false.i144:                               ; preds = %for.end144
-  %refcnt.i145 = getelementptr inbounds %struct.QObjectBase_, ptr %call57, i64 0, i32 1
+  %refcnt.i145 = getelementptr inbounds i8, ptr %call57, i64 8
   %28 = load i64, ptr %refcnt.i145, align 8
   %tobool1.not.i146 = icmp eq i64 %28, 0
   br i1 %tobool1.not.i146, label %if.else.i151, label %land.lhs.true.i147
@@ -872,7 +867,7 @@ error:                                            ; preds = %if.then68, %qdict_i
   br i1 %tobool168.not, label %qobject_unref_impl.exit161, label %lor.lhs.false.i153
 
 lor.lhs.false.i153:                               ; preds = %error
-  %refcnt.i154 = getelementptr inbounds %struct.QObjectBase_, ptr %call57, i64 0, i32 1
+  %refcnt.i154 = getelementptr inbounds i8, ptr %call57, i64 8
   %29 = load i64, ptr %refcnt.i154, align 8
   %tobool1.not.i155 = icmp eq i64 %29, 0
   br i1 %tobool1.not.i155, label %if.else.i160, label %land.lhs.true.i156
@@ -898,7 +893,7 @@ qobject_unref_impl.exit161:                       ; preds = %error.thread, %erro
   br i1 %tobool178.not, label %qobject_unref_impl.exit170, label %lor.lhs.false.i162
 
 lor.lhs.false.i162:                               ; preds = %qobject_unref_impl.exit161
-  %refcnt.i163 = getelementptr inbounds %struct.QObjectBase_, ptr %two_level.0221, i64 0, i32 1
+  %refcnt.i163 = getelementptr inbounds i8, ptr %two_level.0221, i64 8
   %30 = load i64, ptr %refcnt.i163, align 8
   %tobool1.not.i164 = icmp eq i64 %30, 0
   br i1 %tobool1.not.i164, label %if.else.i169, label %land.lhs.true.i165
@@ -922,7 +917,7 @@ qobject_unref_impl.exit170:                       ; preds = %qobject_unref_impl.
   br i1 %tobool188.not, label %return, label %lor.lhs.false.i171
 
 lor.lhs.false.i171:                               ; preds = %qobject_unref_impl.exit170
-  %refcnt.i172 = getelementptr inbounds %struct.QObjectBase_, ptr %dst.1220, i64 0, i32 1
+  %refcnt.i172 = getelementptr inbounds i8, ptr %dst.1220, i64 8
   %31 = load i64, ptr %refcnt.i172, align 8
   %tobool1.not.i173 = icmp eq i64 %31, 0
   br i1 %tobool1.not.i173, label %if.else.i178, label %land.lhs.true.i174
@@ -1084,13 +1079,13 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %entry1.012.us = phi ptr [ %call2.us, %qobject_ref_impl.exit.us ], [ %call, %while.body.lr.ph ]
   %call2.us = tail call ptr @qdict_next(ptr noundef %src, ptr noundef nonnull %entry1.012.us) #7
   %0 = load ptr, ptr %entry1.012.us, align 8
-  %value.us = getelementptr inbounds %struct.QDictEntry, ptr %entry1.012.us, i64 0, i32 1
+  %value.us = getelementptr inbounds i8, ptr %entry1.012.us, i64 8
   %1 = load ptr, ptr %value.us, align 8
   %tobool7.not.us = icmp eq ptr %1, null
   br i1 %tobool7.not.us, label %qobject_ref_impl.exit.us, label %if.then.i.us
 
 if.then.i.us:                                     ; preds = %while.body.us
-  %refcnt.i.us = getelementptr inbounds %struct.QObjectBase_, ptr %1, i64 0, i32 1
+  %refcnt.i.us = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %refcnt.i.us, align 8
   %inc.i.us = add i64 %2, 1
   store i64 %inc.i.us, ptr %refcnt.i.us, align 8
@@ -1113,13 +1108,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %5 = load ptr, ptr %entry1.012, align 8
-  %value = getelementptr inbounds %struct.QDictEntry, ptr %entry1.012, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %entry1.012, i64 8
   %6 = load ptr, ptr %value, align 8
   %tobool7.not = icmp eq ptr %6, null
   br i1 %tobool7.not, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %6, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -1154,7 +1149,7 @@ while.body:                                       ; preds = %entry, %if.end15
   br i1 %tobool2.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %to = getelementptr inbounds %struct.QDictRenames, ptr %renames.addr.019, i64 0, i32 1
+  %to = getelementptr inbounds i8, ptr %renames.addr.019, i64 8
   %2 = load ptr, ptr %to, align 8
   %call3 = tail call i32 @qdict_haskey(ptr noundef %qdict, ptr noundef %2) #7
   %tobool4.not = icmp eq i32 %call3, 0
@@ -1174,7 +1169,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool11.not, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call9, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call9, i64 8
   %7 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -1187,7 +1182,7 @@ qobject_ref_impl.exit:                            ; preds = %if.end, %if.then.i
   br label %if.end15
 
 if.end15:                                         ; preds = %qobject_ref_impl.exit, %while.body
-  %incdec.ptr = getelementptr %struct.QDictRenames, ptr %renames.addr.019, i64 1
+  %incdec.ptr = getelementptr i8, ptr %renames.addr.019, i64 16
   %9 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !19
@@ -1211,7 +1206,7 @@ for.end.thread.i:                                 ; preds = %entry
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %tmp.031.i = phi ptr [ %tmp.2.i, %for.inc.i ], [ null, %entry ]
   %ent.030.i = phi ptr [ %call13.i, %for.inc.i ], [ %call.i, %entry ]
-  %value.i = getelementptr inbounds %struct.QDictEntry, ptr %ent.030.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %ent.030.i, i64 8
   %0 = load ptr, ptr %value.i, align 8
   %.val.i = load i32, ptr %0, align 8
   %1 = add i32 %.val.i, -1
@@ -1275,7 +1270,7 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %tobool14.not.i, label %qdict_crumple_for_keyval_qiv.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %for.end.i
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %tmp.2.i, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %tmp.2.i, i64 8
   %3 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i.i, label %if.else.i26.i, label %land.lhs.true.i24.i
@@ -1301,7 +1296,7 @@ qdict_crumple_for_keyval_qiv.exit:                ; preds = %for.end.thread.i, %
 
 lor.lhs.false.i:                                  ; preds = %qdict_crumple_for_keyval_qiv.exit
   %call1 = tail call ptr @qobject_input_visitor_new_keyval(ptr noundef nonnull %call1636.i) #7
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call1636.i, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call1636.i, i64 8
   %4 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %4, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -1396,7 +1391,7 @@ if.else17:                                        ; preds = %for.body
   br label %qobject_ref_impl.exit
 
 if.then.i:                                        ; preds = %land.lhs.true13, %if.else11
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %entry1.0.val, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %entry1.0.val, i64 8
   %2 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %refcnt.i, align 8

@@ -717,7 +717,7 @@ if.end86.i.i:                                     ; preds = %if.end76.i.i
   %13 = load i32, ptr %arrayidx90.i.i, align 4
   %inc91.i.i = add i32 %13, 1
   store i32 %inc91.i.i, ptr %arrayidx90.i.i, align 4
-  %arrayidx92.i.i = getelementptr inbounds i32, ptr %rankStats, i64 1
+  %arrayidx92.i.i = getelementptr inbounds i8, ptr %rankStats, i64 4
   %14 = load i32, ptr %arrayidx92.i.i, align 4
   %cmp93.i.i = icmp ugt i32 %14, 1
   %and96.i.i = and i32 %14, 1
@@ -865,7 +865,7 @@ if.end86.i:                                       ; preds = %if.end76.i
   %13 = load i32, ptr %arrayidx90.i, align 4
   %inc91.i = add i32 %13, 1
   store i32 %inc91.i, ptr %arrayidx90.i, align 4
-  %arrayidx92.i = getelementptr inbounds i32, ptr %rankStats, i64 1
+  %arrayidx92.i = getelementptr inbounds i8, ptr %rankStats, i64 4
   %14 = load i32, ptr %arrayidx92.i, align 4
   %cmp93.i = icmp ugt i32 %14, 1
   %and96.i = and i32 %14, 1

@@ -3,12 +3,6 @@ source_filename = "bench/qemu/original/qom_qom-hmp-cmds.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ObjectPropertyInfoList = type { ptr, ptr }
-%struct.ObjectPropertyInfo = type { ptr, ptr, ptr, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
-%struct._GArray = type { ptr, i32 }
-%struct._GSList = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [5 x i8] c"path\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"/\0A\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"%s (%s)\0A\00", align 1
@@ -57,10 +51,10 @@ while.cond.preheader:                             ; preds = %if.end
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %list.09 = phi ptr [ %4, %while.body ], [ %call2, %while.cond.preheader ]
-  %value6 = getelementptr inbounds %struct.ObjectPropertyInfoList, ptr %list.09, i64 0, i32 1
+  %value6 = getelementptr inbounds i8, ptr %list.09, i64 8
   %1 = load ptr, ptr %value6, align 8
   %2 = load ptr, ptr %1, align 8
-  %type = getelementptr inbounds %struct.ObjectPropertyInfo, ptr %1, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %type, align 8
   %call7 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.2, ptr noundef %2, ptr noundef %3) #4
   %4 = load ptr, ptr %list.09, align 8
@@ -169,7 +163,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %2, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -261,7 +255,7 @@ if.end:                                           ; preds = %entry, %if.else
   %call4 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.19, i32 noundef %indent, ptr noundef nonnull @.str.18, ptr noundef %name.0, ptr noundef %call3) #4
   %call5 = tail call i32 @object_child_foreach(ptr noundef %obj, ptr noundef nonnull @insert_qom_composition_child, ptr noundef %call) #4
   tail call void @g_array_sort(ptr noundef %call, ptr noundef nonnull @qom_composition_compare) #4
-  %len = getelementptr inbounds %struct._GArray, ptr %call, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp612.not = icmp eq i32 %0, 0
   br i1 %cmp612.not, label %for.end, label %for.body.lr.ph
@@ -342,7 +336,7 @@ if.then5:                                         ; preds = %while.body
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %while.body
-  %next = getelementptr inbounds %struct._GSList, ptr %elt.07, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %elt.07, i64 8
   %1 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
@@ -387,9 +381,9 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %if.end, %if.end5
   %list.07 = phi ptr [ %3, %if.end5 ], [ %call1, %if.end ]
-  %value = getelementptr inbounds %struct.ObjectPropertyInfoList, ptr %list.07, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %list.07, i64 8
   %0 = load ptr, ptr %value, align 8
-  %type = getelementptr inbounds %struct.ObjectPropertyInfo, ptr %0, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %type, align 8
   %call2 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15, i64 noundef 5) #6
   %tobool3.not = icmp eq i32 %call2, 0

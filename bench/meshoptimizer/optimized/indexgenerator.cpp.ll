@@ -45,7 +45,7 @@ _ZN7meshoptL11hashBucketsEm.exit:                 ; preds = %while.cond.i
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %_ZN7meshoptL11hashBucketsEm.exit
-  %count.i = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i19, ptr %allocator, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %call.i19, i8 -1, i64 %mul.i18, i1 false)
@@ -298,7 +298,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %count = getelementptr inbounds %class.meshopt_Allocator, ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load i64, ptr %count, align 8
   br label %for.cond
 
@@ -352,7 +352,7 @@ _ZN7meshoptL11hashBucketsEm.exit:                 ; preds = %while.cond.i
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %_ZN7meshoptL11hashBucketsEm.exit
-  %count.i = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i21, ptr %allocator, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %call.i21, i8 -1, i64 %mul.i20, i1 false)
@@ -466,15 +466,15 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.body.i:                                       ; preds = %_ZN7meshoptL11hashUpdate4EjPKhm.exit.i, %for.body.lr.ph.i
   %h.08.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %h.addr.0.lcssa.i.i, %_ZN7meshoptL11hashUpdate4EjPKhm.exit.i ]
   %i.07.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %_ZN7meshoptL11hashUpdate4EjPKhm.exit.i ]
-  %size.i = getelementptr inbounds %struct.meshopt_Stream, ptr %hash.0.val, i64 %i.07.i, i32 1
+  %arrayidx.i = getelementptr inbounds %struct.meshopt_Stream, ptr %hash.0.val, i64 %i.07.i
+  %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i64, ptr %size.i, align 8
   %cmp9.i.i = icmp ugt i64 %0, 3
   br i1 %cmp9.i.i, label %while.body.i.preheader.i, label %_ZN7meshoptL11hashUpdate4EjPKhm.exit.i
 
 while.body.i.preheader.i:                         ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds %struct.meshopt_Stream, ptr %hash.0.val, i64 %i.07.i
   %1 = load ptr, ptr %arrayidx.i, align 8
-  %stride.i = getelementptr inbounds %struct.meshopt_Stream, ptr %hash.0.val, i64 %i.07.i, i32 2
+  %stride.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %2 = load i64, ptr %stride.i, align 8
   %mul.i = mul i64 %2, %conv.i
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %mul.i
@@ -505,8 +505,8 @@ _ZN7meshoptL11hashUpdate4EjPKhm.exit.i:           ; preds = %while.body.i.i, %fo
 _ZNK7meshopt18VertexStreamHasher4hashEj.exit:     ; preds = %_ZN7meshoptL11hashUpdate4EjPKhm.exit.i
   %4 = zext i32 %h.addr.0.lcssa.i.i to i64
   %bucket.018 = and i64 %sub, %4
-  %stride.i162 = getelementptr inbounds %struct.meshopt_Stream, ptr %hash.0.val, i64 0, i32 2
-  %size.i197 = getelementptr inbounds %struct.meshopt_Stream, ptr %hash.0.val, i64 0, i32 1
+  %stride.i162 = getelementptr inbounds i8, ptr %hash.0.val, i64 16
+  %size.i197 = getelementptr inbounds i8, ptr %hash.0.val, i64 8
   br i1 %cmp6.not.i, label %return.split.loop.exit, label %for.body
 
 for.body:                                         ; preds = %_ZNK7meshopt18VertexStreamHasher4hashEj.exit, %if.end4
@@ -539,13 +539,13 @@ for.cond.i:                                       ; preds = %for.body.lr.ph.i12,
 for.body.i14:                                     ; preds = %for.cond.i
   %arrayidx.i15 = getelementptr inbounds %struct.meshopt_Stream, ptr %hash.0.val, i64 %inc.i20
   %9 = load ptr, ptr %arrayidx.i15, align 8
-  %stride.i16 = getelementptr inbounds %struct.meshopt_Stream, ptr %hash.0.val, i64 %inc.i20, i32 2
+  %stride.i16 = getelementptr inbounds i8, ptr %arrayidx.i15, i64 16
   %10 = load i64, ptr %stride.i16, align 8
   %mul.i17 = mul i64 %10, %conv.i13
   %add.ptr.i18 = getelementptr inbounds i8, ptr %9, i64 %mul.i17
   %mul5.i = mul i64 %10, %conv.i
   %add.ptr6.i = getelementptr inbounds i8, ptr %9, i64 %mul5.i
-  %size.i19 = getelementptr inbounds %struct.meshopt_Stream, ptr %hash.0.val, i64 %inc.i20, i32 1
+  %size.i19 = getelementptr inbounds i8, ptr %arrayidx.i15, i64 8
   %11 = load i64, ptr %size.i19, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %add.ptr.i18, ptr %add.ptr6.i, i64 %11)
   %cmp7.not.i = icmp eq i32 %bcmp.i, 0
@@ -591,7 +591,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %count.i = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i30, ptr %allocator, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i30, ptr align 1 %destination, i64 %mul, i1 false)
@@ -819,7 +819,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %count.i = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i14, ptr %allocator, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %call.i14, i8 -1, i64 %mul.i, i1 false)
@@ -843,7 +843,7 @@ _ZN7meshoptL11hashBucketsEm.exit:                 ; preds = %while.cond.i
 
 invoke.cont6:                                     ; preds = %_ZN7meshoptL11hashBucketsEm.exit
   store i64 2, ptr %count.i, align 8
-  %arrayidx.i22 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 1
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %allocator, i64 8
   store ptr %call.i23, ptr %arrayidx.i22, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %call.i23, i8 -1, i64 %mul.i18, i1 false)
   %cmp44.not = icmp eq i64 %index_count, 0
@@ -1061,7 +1061,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %count.i = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i17, ptr %allocator, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %call.i17, i8 -1, i64 %mul.i, i1 false)
@@ -1085,7 +1085,7 @@ _ZN7meshoptL11hashBucketsEm.exit:                 ; preds = %while.cond.i
 
 invoke.cont5:                                     ; preds = %_ZN7meshoptL11hashBucketsEm.exit
   store i64 2, ptr %count.i, align 8
-  %arrayidx.i25 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 1
+  %arrayidx.i25 = getelementptr inbounds i8, ptr %allocator, i64 8
   store ptr %call.i26, ptr %arrayidx.i25, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %call.i26, i8 -1, i64 %mul.i21, i1 false)
   %cmp1033.not = icmp eq i64 %index_count, 0
@@ -1171,7 +1171,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %count.i = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i43, ptr %allocator, align 8
   invoke fastcc void @_ZN7meshoptL18buildPositionRemapEPjPKfmmR17meshopt_Allocator(ptr noundef %call.i43, ptr noundef %vertex_positions, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, ptr noundef nonnull align 8 dereferenceable(200) %allocator)
@@ -1505,7 +1505,7 @@ _ZN7meshoptL11hashBucketsEm.exit:                 ; preds = %while.cond.i
   %mul.i12 = shl i64 %buckets.0.i, 2
   %cond.i = select i1 %cmp.i11, i64 -1, i64 %mul.i12
   %call.i = tail call noundef ptr %0(i64 noundef %cond.i)
-  %count.i = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   %1 = load i64, ptr %count.i, align 8
   %inc.i = add i64 %1, 1
   store i64 %inc.i, ptr %count.i, align 8
@@ -1620,7 +1620,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %count.i = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i38, ptr %allocator, align 8
   invoke fastcc void @_ZN7meshoptL18buildPositionRemapEPjPKfmmR17meshopt_Allocator(ptr noundef %call.i38, ptr noundef %vertex_positions, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, ptr noundef nonnull align 8 dereferenceable(200) %allocator)

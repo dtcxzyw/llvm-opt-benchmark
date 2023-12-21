@@ -20,7 +20,7 @@ do.body:                                          ; preds = %do.body, %if.then
   %i.0 = phi i8 [ %conv, %if.then ], [ %dec, %do.body ]
   %0 = load i64, ptr %ptr.0, align 8
   %tobool2.not = icmp ne i64 %0, 0
-  %incdec.ptr = getelementptr i64, ptr %ptr.0, i64 1
+  %incdec.ptr = getelementptr i8, ptr %ptr.0, i64 8
   %dec = add nsw i8 %i.0, -1
   %tobool5.not = icmp eq i8 %dec, 0
   %or.cond = select i1 %tobool2.not, i1 true, i1 %tobool5.not
@@ -93,8 +93,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %ptr.238 = phi ptr [ %add.ptr25, %for.body ], [ %zPtr, %for.body.preheader ]
   %6 = load i64, ptr %aPtr.addr.040, align 8
   store i64 %6, ptr %ptr.238, align 8
-  %add.ptr24 = getelementptr i64, ptr %aPtr.addr.040, i64 1
-  %add.ptr25 = getelementptr i64, ptr %ptr.238, i64 1
+  %add.ptr24 = getelementptr i8, ptr %aPtr.addr.040, i64 8
+  %add.ptr25 = getelementptr i8, ptr %ptr.238, i64 8
   %dec26 = add i8 %i.139, -1
   %tobool23.not = icmp eq i8 %dec26, 0
   br i1 %tobool23.not, label %if.end27, label %for.body

@@ -3,13 +3,12 @@ source_filename = "bench/yalantinglibs/original/timestamp.struct_pb.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.struct_pb::UnknownFields::Field" = type { ptr, i64 }
-%"struct.google::protobuf::Timestamp" = type { i64, i32 }
 %"struct.struct_pb::UnknownFields" = type { %"class.std::vector" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl" }
 %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl" = type { %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN9struct_pb8internal19deserialize_unknownEPKcRmmjRNS_13UnknownFieldsE = comdat any
 
@@ -19,7 +18,7 @@ $_ZN9struct_pb8internal19deserialize_unknownEPKcRmmjRNS_13UnknownFieldsE = comda
 define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf9TimestampEEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i5.i = icmp eq ptr %0, %1
   br i1 %cmp.i5.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
@@ -27,10 +26,10 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %total.07.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
   %__begin2.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %0, %entry ]
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 8
   %2 = load i64, ptr %len.i, align 8
   %add.i = add i64 %2, %total.07.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
 
@@ -55,7 +54,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit17: ; preds = %do.body.i13
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit17, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
   %total.0 = phi i64 [ %add3, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit17 ], [ %total.0.lcssa.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit ]
-  %nanos = getelementptr inbounds %"struct.google::protobuf::Timestamp", ptr %t, i64 0, i32 1
+  %nanos = getelementptr inbounds i8, ptr %t, i64 8
   %4 = load i32, ptr %nanos, align 8
   %cmp4.not = icmp eq i32 %4, 0
   br i1 %cmp4.not, label %if.end10, label %if.then5
@@ -118,7 +117,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit37: ; preds = %while.body.i3
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit37, %entry
   %pos.1 = phi i64 [ 0, %entry ], [ %inc2.i29, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit37 ]
-  %nanos = getelementptr inbounds %"struct.google::protobuf::Timestamp", ptr %t, i64 0, i32 1
+  %nanos = getelementptr inbounds i8, ptr %t, i64 8
   %3 = load i32, ptr %nanos, align 8
   %cmp2.not = icmp eq i32 %3, 0
   br i1 %cmp2.not, label %if.end5, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit21
@@ -157,7 +156,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %
 if.end5:                                          ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, %if.end
   %pos.3 = phi i64 [ %pos.1, %if.end ], [ %inc2.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
   %6 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %7 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i7.i = icmp eq ptr %6, %7
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
@@ -167,12 +166,12 @@ for.body.i:                                       ; preds = %if.end5, %for.body.
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %6, %if.end5 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.4
   %8 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 8
   %9 = load i64, ptr %len.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %8, i64 %9, i1 false)
   %10 = load i64, ptr %len.i, align 8
   %add.i = add i64 %10, %pos.4
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %7
   br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
@@ -188,7 +187,7 @@ entry:
   br i1 %cmp302.not, label %return, label %land.lhs.true.i306.lr.ph
 
 land.lhs.true.i306.lr.ph:                         ; preds = %entry
-  %nanos = getelementptr inbounds %"struct.google::protobuf::Timestamp", ptr %t, i64 0, i32 1
+  %nanos = getelementptr inbounds i8, ptr %t, i64 8
   br label %land.lhs.true.i306
 
 land.lhs.true.i306:                               ; preds = %land.lhs.true.i306.lr.ph, %sw.epilog
@@ -832,9 +831,9 @@ if.end3:                                          ; preds = %if.end3.sink.split,
   %14 = phi i64 [ %inc83.i, %if.end82.i ], [ %inc74.i, %if.end73.i ], [ %inc65.i, %if.end64.i ], [ %inc56.i, %if.end55.i ], [ %inc47.i, %if.end46.i ], [ %inc38.i, %if.end37.i ], [ %inc29.i, %if.end28.i ], [ %inc20.i, %if.end19.i ], [ %inc13.i, %if.end12.i ], [ %inc6.i, %if.then5.i ], [ %inc105.i.sink, %if.end3.sink.split ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i176 = sub i64 %14, %sub
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %15 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 16
   %16 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %15, %16
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -844,7 +843,7 @@ if.then.i.i.i:                                    ; preds = %if.end3
   %ref.tmp.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 8
   store i64 %sub.i176, ptr %ref.tmp.sroa.3.0..sroa_idx.i, align 8
   %17 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %17, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %return
 
@@ -890,7 +889,7 @@ if.then.i.i.i12.i.i.i.i:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i: ; preds = %if.then.i.i.i12.i.i.i.i, %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %add.ptr.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 16
   %tobool.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %if.then.i21.i.i.i.i
 
@@ -914,9 +913,9 @@ if.end7:                                          ; preds = %sw.bb4
   store i64 %add, ptr %pos, align 8
   %add.ptr.i177 = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i178 = sub i64 %add, %sub
-  %_M_finish.i.i.i179 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i.i179 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %19 = load ptr, ptr %_M_finish.i.i.i179, align 8
-  %_M_end_of_storage.i.i.i180 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 2
+  %_M_end_of_storage.i.i.i180 = getelementptr inbounds i8, ptr %unknown_fields, i64 16
   %20 = load ptr, ptr %_M_end_of_storage.i.i.i180, align 8
   %cmp.not.i.i.i181 = icmp eq ptr %19, %20
   br i1 %cmp.not.i.i.i181, label %if.else.i.i.i185, label %if.then.i.i.i182
@@ -926,7 +925,7 @@ if.then.i.i.i182:                                 ; preds = %if.end7
   %ref.tmp.sroa.3.0..sroa_idx.i183 = getelementptr inbounds i8, ptr %19, i64 8
   store i64 %sub.i178, ptr %ref.tmp.sroa.3.0..sroa_idx.i183, align 8
   %21 = load ptr, ptr %_M_finish.i.i.i179, align 8
-  %incdec.ptr.i.i.i184 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %21, i64 1
+  %incdec.ptr.i.i.i184 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %incdec.ptr.i.i.i184, ptr %_M_finish.i.i.i179, align 8
   br label %return
 
@@ -972,7 +971,7 @@ if.then.i.i.i12.i.i.i.i213:                       ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i207
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i207: ; preds = %if.then.i.i.i12.i.i.i.i213, %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i202
-  %incdec.ptr.i.i.i.i208 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %add.ptr.i.i.i.i204, i64 1
+  %incdec.ptr.i.i.i.i208 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i204, i64 16
   %tobool.not.i.i.i.i.i209 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i.i.i209, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i211, label %if.then.i21.i.i.i.i210
 
@@ -1170,9 +1169,9 @@ if.end19:                                         ; preds = %if.end15
   store i64 %add16, ptr %pos, align 8
   %add.ptr.i216 = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i217 = sub i64 %add16, %sub
-  %_M_finish.i.i.i218 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i.i218 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %40 = load ptr, ptr %_M_finish.i.i.i218, align 8
-  %_M_end_of_storage.i.i.i219 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 2
+  %_M_end_of_storage.i.i.i219 = getelementptr inbounds i8, ptr %unknown_fields, i64 16
   %41 = load ptr, ptr %_M_end_of_storage.i.i.i219, align 8
   %cmp.not.i.i.i220 = icmp eq ptr %40, %41
   br i1 %cmp.not.i.i.i220, label %if.else.i.i.i224, label %if.then.i.i.i221
@@ -1182,7 +1181,7 @@ if.then.i.i.i221:                                 ; preds = %if.end19
   %ref.tmp.sroa.3.0..sroa_idx.i222 = getelementptr inbounds i8, ptr %40, i64 8
   store i64 %sub.i217, ptr %ref.tmp.sroa.3.0..sroa_idx.i222, align 8
   %42 = load ptr, ptr %_M_finish.i.i.i218, align 8
-  %incdec.ptr.i.i.i223 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %42, i64 1
+  %incdec.ptr.i.i.i223 = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %incdec.ptr.i.i.i223, ptr %_M_finish.i.i.i218, align 8
   br label %return
 
@@ -1228,7 +1227,7 @@ if.then.i.i.i12.i.i.i.i252:                       ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i246
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i246: ; preds = %if.then.i.i.i12.i.i.i.i252, %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i241
-  %incdec.ptr.i.i.i.i247 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %add.ptr.i.i.i.i243, i64 1
+  %incdec.ptr.i.i.i.i247 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i243, i64 16
   %tobool.not.i.i.i.i.i248 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i.i.i248, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i250, label %if.then.i21.i.i.i.i249
 
@@ -1252,9 +1251,9 @@ if.end25:                                         ; preds = %sw.bb21
   store i64 %add22, ptr %pos, align 8
   %add.ptr.i255 = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i256 = sub i64 %add22, %sub
-  %_M_finish.i.i.i257 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i.i257 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %44 = load ptr, ptr %_M_finish.i.i.i257, align 8
-  %_M_end_of_storage.i.i.i258 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 2
+  %_M_end_of_storage.i.i.i258 = getelementptr inbounds i8, ptr %unknown_fields, i64 16
   %45 = load ptr, ptr %_M_end_of_storage.i.i.i258, align 8
   %cmp.not.i.i.i259 = icmp eq ptr %44, %45
   br i1 %cmp.not.i.i.i259, label %if.else.i.i.i263, label %if.then.i.i.i260
@@ -1264,7 +1263,7 @@ if.then.i.i.i260:                                 ; preds = %if.end25
   %ref.tmp.sroa.3.0..sroa_idx.i261 = getelementptr inbounds i8, ptr %44, i64 8
   store i64 %sub.i256, ptr %ref.tmp.sroa.3.0..sroa_idx.i261, align 8
   %46 = load ptr, ptr %_M_finish.i.i.i257, align 8
-  %incdec.ptr.i.i.i262 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %46, i64 1
+  %incdec.ptr.i.i.i262 = getelementptr inbounds i8, ptr %46, i64 16
   store ptr %incdec.ptr.i.i.i262, ptr %_M_finish.i.i.i257, align 8
   br label %return
 
@@ -1310,7 +1309,7 @@ if.then.i.i.i12.i.i.i.i291:                       ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i285
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i285: ; preds = %if.then.i.i.i12.i.i.i.i291, %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i280
-  %incdec.ptr.i.i.i.i286 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %add.ptr.i.i.i.i282, i64 1
+  %incdec.ptr.i.i.i.i286 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i282, i64 16
   %tobool.not.i.i.i.i.i287 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i.i.i287, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i289, label %if.then.i21.i.i.i.i288
 

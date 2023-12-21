@@ -5,14 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.Imath_3_2::Vec3" = type { float, float, float }
-%"class.Imf_3_2::RgbaOutputFile::ToYca" = type { %"class.std::mutex", ptr, i8, i8, i8, i32, i32, i32, i32, i32, i32, %"class.Imath_3_2::Vec3", ptr, [27 x ptr], ptr, ptr, i64, i64, i32, i32 }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.Imath_3_2::Vec2" = type { i32, i32 }
-%"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2" }
 %"struct.Imf_3_2::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
 %"class.Imath_3_2::half" = type { i16 }
 %"struct.Imf_3_2::Chromaticities" = type { %"class.Imath_3_2::Vec2.8", %"class.Imath_3_2::Vec2.8", %"class.Imath_3_2::Vec2.8", %"class.Imath_3_2::Vec2.8" }
@@ -43,18 +35,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::map" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Attribute *>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Attribute *>>, std::less<Imf_3_2::Name>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Attribute *>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Attribute *>>, std::less<Imf_3_2::Name>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.Imf_3_2::RgbaOutputFile" = type { ptr, ptr, ptr }
 %"class.Imf_3_2::ChannelList" = type { %"class.std::map.9" }
 %"class.std::map.9" = type { %"class.std::_Rb_tree.10" }
 %"class.std::_Rb_tree.10" = type { %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Channel>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Channel>>, std::less<Imf_3_2::Name>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Channel>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Channel>>, std::less<Imf_3_2::Name>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
 %"struct.Imf_3_2::Channel" = type <{ i32, i32, i32, i8, [3 x i8] }>
 %"class.std::allocator.5" = type { i8 }
-%"class.Imf_3_2::RgbaInputFile::FromYca" = type { %"class.std::mutex", ptr, i8, i32, i32, i32, i32, i32, i32, i32, %"class.Imath_3_2::Vec3", ptr, [29 x ptr], [3 x ptr], ptr, ptr, i64, i64 }
-%"class.Imf_3_2::RgbaInputFile" = type { ptr, ptr, ptr, ptr, %"class.std::__cxx11::basic_string" }
 %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Channel>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Channel>>, std::less<Imf_3_2::Name>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
-%"struct.std::_Rb_tree_node.14" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.15" }
-%"struct.__gnu_cxx::__aligned_membuf.15" = type { [272 x i8] }
 %struct._Guard = type { ptr }
 
 $_ZN7Imf_3_211FrameBufferD2Ev = comdat any
@@ -133,61 +120,61 @@ define hidden void @_ZN7Imf_3_214RgbaOutputFile5ToYcaC2ERNS_10OutputFileENS_12Rg
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Vec3", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %outputFile, ptr %_outputFile, align 8
-  %_yw = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 11
-  %_writeY = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 2
+  %_yw = getelementptr inbounds i8, ptr %this, i64 76
+  %_writeY = getelementptr inbounds i8, ptr %this, i64 48
   %0 = trunc i32 %rgbaChannels to i8
   %1 = lshr i8 %0, 4
   %frombool = and i8 %1, 1
   store i8 %frombool, ptr %_writeY, align 8
-  %_writeC = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 3
+  %_writeC = getelementptr inbounds i8, ptr %this, i64 49
   %2 = lshr i8 %0, 5
   %frombool5 = and i8 %2, 1
   store i8 %frombool5, ptr %_writeC, align 1
-  %_writeA = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 4
+  %_writeA = getelementptr inbounds i8, ptr %this, i64 50
   %3 = lshr i8 %0, 3
   %frombool9 = and i8 %3, 1
   store i8 %frombool9, ptr %_writeA, align 2
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %outputFile)
   %call11 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
   %4 = load i32, ptr %call11, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call11, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %call11, i64 4
   %5 = load i32, ptr %y3.i.i, align 4
-  %max3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call11, i64 0, i32 1
+  %max3.i = getelementptr inbounds i8, ptr %call11, i64 8
   %6 = load i32, ptr %max3.i, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call11, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call11, i64 12
   %7 = load i32, ptr %y3.i3.i, align 4
-  %_xMin = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 5
+  %_xMin = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %4, ptr %_xMin, align 4
   %reass.sub = sub i32 %6, %4
   %add = add i32 %reass.sub, 1
-  %_width = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 6
+  %_width = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add, ptr %_width, align 8
   %reass.sub12 = sub i32 %7, %5
   %add19 = add i32 %reass.sub12, 1
-  %_height = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 7
+  %_height = getelementptr inbounds i8, ptr %this, i64 60
   store i32 %add19, ptr %_height, align 4
-  %_linesConverted = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 8
+  %_linesConverted = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %_linesConverted, align 8
   %8 = load ptr, ptr %_outputFile, align 8
   %call21 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
   %call22 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(49) %call21)
   %9 = load i32, ptr %call22, align 4
-  %_lineOrder = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 9
+  %_lineOrder = getelementptr inbounds i8, ptr %this, i64 68
   store i32 %9, ptr %_lineOrder, align 4
   %cmp = icmp eq i32 %9, 0
   %spec.select = select i1 %cmp, i32 %5, i32 %7
-  %10 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 10
+  %10 = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %spec.select, ptr %10, align 8
   %11 = load ptr, ptr %_outputFile, align 8
   %call30 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
   call fastcc void @_ZN7Imf_3_212_GLOBAL__N_112ywFromHeaderERKNS_6HeaderE(ptr noalias nonnull align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %call30)
   %12 = load <2 x float>, ptr %ref.tmp, align 8
   store <2 x float> %12, ptr %_yw, align 4
-  %z.i = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %ref.tmp, i64 0, i32 2
+  %z.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %13 = load float, ptr %z.i, align 8
-  %z4.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 11, i32 2
+  %z4.i = getelementptr inbounds i8, ptr %this, i64 84
   store float %13, ptr %z4.i, align 4
   %14 = load i32, ptr %_width, align 8
   %conv = sext i32 %14 to i64
@@ -232,15 +219,16 @@ _ZN7Imf_3_212_GLOBAL__N_112cachePaddingEl.exit:   ; preds = %if.then.i, %if.end.
   %16 = mul i64 %add37, 216
   %17 = select i1 %15, i64 -1, i64 %16
   %call39 = call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #23
-  %_bufBase = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 12
+  %_bufBase = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %call39, ptr %_bufBase, align 8
+  %_buf = getelementptr inbounds i8, ptr %this, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %_ZN7Imf_3_212_GLOBAL__N_112cachePaddingEl.exit, %for.body
   %indvars.iv = phi i64 [ 0, %_ZN7Imf_3_212_GLOBAL__N_112cachePaddingEl.exit ], [ %indvars.iv.next, %for.body ]
   %mul46 = mul nsw i64 %add37, %indvars.iv
   %add.ptr = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %call39, i64 %mul46
-  %arrayidx = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [27 x ptr], ptr %_buf, i64 0, i64 %indvars.iv
   store ptr %add.ptr, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 27
@@ -253,13 +241,13 @@ for.end:                                          ; preds = %for.body
   %19 = shl nsw i64 %conv50, 3
   %20 = select i1 %18, i64 -1, i64 %19
   %call51 = call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23
-  %_tmpBuf = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 14
+  %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 312
   store ptr %call51, ptr %_tmpBuf, align 8
-  %_fbBase = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 15
-  %_roundY = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 18
+  %_fbBase = getelementptr inbounds i8, ptr %this, i64 320
+  %_roundY = getelementptr inbounds i8, ptr %this, i64 344
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_fbBase, i8 0, i64 24, i1 false)
   store i32 7, ptr %_roundY, align 8
-  %_roundC = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 19
+  %_roundC = getelementptr inbounds i8, ptr %this, i64 348
   store i32 5, ptr %_roundC, align 4
   ret void
 }
@@ -290,8 +278,8 @@ if.then:                                          ; preds = %entry
   %call4 = call noundef nonnull align 4 dereferenceable(32) ptr @_ZN7Imf_3_214chromaticitiesERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(49) %header)
   %0 = load <4 x float>, ptr %call4, align 4
   store <4 x float> %0, ptr %cr, align 16
-  %blue.i = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %cr, i64 0, i32 2
-  %blue5.i = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %call4, i64 0, i32 2
+  %blue.i = getelementptr inbounds i8, ptr %cr, i64 16
+  %blue5.i = getelementptr inbounds i8, ptr %call4, i64 16
   %1 = load <4 x float>, ptr %blue5.i, align 4
   store <4 x float> %1, ptr %blue.i, align 16
   br label %if.end
@@ -312,7 +300,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Imf_3_214RgbaOutputFile5ToYcaD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) unnamed_addr #6 align 2 {
 entry:
-  %_bufBase = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 12
+  %_bufBase = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %_bufBase, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -322,7 +310,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %_tmpBuf = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 14
+  %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 312
   %1 = load ptr, ptr %_tmpBuf, align 8
   %isnull2 = icmp eq ptr %1, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
@@ -338,9 +326,9 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN7Imf_3_214RgbaOutputFile5ToYca13setYCRoundingEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(352) %this, i32 noundef %roundY, i32 noundef %roundC) local_unnamed_addr #7 align 2 {
 entry:
-  %_roundY = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 18
+  %_roundY = getelementptr inbounds i8, ptr %this, i64 344
   store i32 %roundY, ptr %_roundY, align 8
-  %_roundC = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 19
+  %_roundC = getelementptr inbounds i8, ptr %this, i64 348
   store i32 %roundC, ptr %_roundC, align 4
   ret void
 }
@@ -353,7 +341,7 @@ entry:
   %ref.tmp6 = alloca %"struct.Imf_3_2::Slice", align 8
   %ref.tmp14 = alloca %"struct.Imf_3_2::Slice", align 8
   %ref.tmp25 = alloca %"struct.Imf_3_2::Slice", align 8
-  %_fbBase = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 15
+  %_fbBase = getelementptr inbounds i8, ptr %this, i64 320
   %0 = load ptr, ptr %_fbBase, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end35
@@ -369,16 +357,16 @@ if.then:                                          ; preds = %entry
   store ptr %1, ptr %_M_right.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %_writeY = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 2
+  %_writeY = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i8, ptr %_writeY, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %_tmpBuf = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 14
+  %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 312
   %4 = load ptr, ptr %_tmpBuf, align 8
-  %_xMin = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 5
+  %_xMin = getelementptr inbounds i8, ptr %this, i64 52
   %5 = load i32, ptr %_xMin, align 4
   %sub = sub nsw i32 0, %5
   %idxprom = sext i32 %sub to i64
@@ -397,16 +385,16 @@ lpad:                                             ; preds = %if.end33, %invoke.c
   resume { ptr, i32 } %6
 
 if.end:                                           ; preds = %invoke.cont, %if.then
-  %_writeC = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 3
+  %_writeC = getelementptr inbounds i8, ptr %this, i64 49
   %7 = load i8, ptr %_writeC, align 1
   %8 = and i8 %7, 1
   %tobool4.not = icmp eq i8 %8, 0
   br i1 %tobool4.not, label %if.end22, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %_tmpBuf7 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 14
+  %_tmpBuf7 = getelementptr inbounds i8, ptr %this, i64 312
   %9 = load ptr, ptr %_tmpBuf7, align 8
-  %_xMin8 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 5
+  %_xMin8 = getelementptr inbounds i8, ptr %this, i64 52
   %10 = load i32, ptr %_xMin8, align 4
   %sub9 = sub nsw i32 0, %10
   %idxprom10 = sext i32 %sub9 to i64
@@ -432,16 +420,16 @@ invoke.cont20:                                    ; preds = %invoke.cont13
           to label %if.end22 unwind label %lpad
 
 if.end22:                                         ; preds = %invoke.cont20, %if.end
-  %_writeA = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 4
+  %_writeA = getelementptr inbounds i8, ptr %this, i64 50
   %13 = load i8, ptr %_writeA, align 2
   %14 = and i8 %13, 1
   %tobool23.not = icmp eq i8 %14, 0
   br i1 %tobool23.not, label %if.end33, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %_tmpBuf26 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 14
+  %_tmpBuf26 = getelementptr inbounds i8, ptr %this, i64 312
   %15 = load ptr, ptr %_tmpBuf26, align 8
-  %_xMin27 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 5
+  %_xMin27 = getelementptr inbounds i8, ptr %this, i64 52
   %16 = load i32, ptr %_xMin27, align 4
   %sub28 = sub nsw i32 0, %16
   %idxprom29 = sext i32 %sub28 to i64
@@ -454,7 +442,7 @@ invoke.cont31:                                    ; preds = %if.then24
           to label %if.end33 unwind label %lpad
 
 if.end33:                                         ; preds = %invoke.cont31, %if.end22
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load ptr, ptr %_outputFile, align 8
   invoke void @_ZN7Imf_3_210OutputFile14setFrameBufferERKNS_11FrameBufferE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(48) %fb)
           to label %invoke.cont34 unwind label %lpad
@@ -473,9 +461,9 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont34
 
 if.end35:                                         ; preds = %invoke.cont34, %entry
   store ptr %base, ptr %_fbBase, align 8
-  %_fbXStride = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 16
+  %_fbXStride = getelementptr inbounds i8, ptr %this, i64 328
   store i64 %xStride, ptr %_fbXStride, align 8
-  %_fbYStride = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 17
+  %_fbYStride = getelementptr inbounds i8, ptr %this, i64 336
   store i64 %yStride, ptr %_fbYStride, align 8
   ret void
 }
@@ -509,7 +497,7 @@ _ZNSt3mapIN7Imf_3_24NameENS0_5SliceESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev.exit: 
 define hidden void @_ZN7Imf_3_214RgbaOutputFile5ToYca11writePixelsEi(ptr noundef nonnull align 8 dereferenceable(352) %this, i32 noundef %numScanLines) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %_fbBase = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 15
+  %_fbBase = getelementptr inbounds i8, ptr %this, i64 320
   %0 = load ptr, ptr %_fbBase, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.body, label %if.end
@@ -522,7 +510,7 @@ do.body:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %do.body
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_outputFile, align 8
   %call3 = invoke noundef ptr @_ZNK7Imf_3_210OutputFile8fileNameEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %invoke.cont2 unwind label %lpad
@@ -562,14 +550,14 @@ ehcleanup:                                        ; preds = %lpad8, %lpad
 
 if.end:                                           ; preds = %entry
   %4 = ptrtoint ptr %0 to i64
-  %_writeY = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 2
+  %_writeY = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load i8, ptr %_writeY, align 8
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %if.else37, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %_writeC = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 3
+  %_writeC = getelementptr inbounds i8, ptr %this, i64 49
   %7 = load i8, ptr %_writeC, align 1
   %8 = and i8 %7, 1
   %tobool11.not = icmp eq i8 %8, 0
@@ -580,17 +568,17 @@ for.cond.preheader:                               ; preds = %land.lhs.true
   br i1 %cmp13100, label %for.cond14.preheader.lr.ph, label %if.end133
 
 for.cond14.preheader.lr.ph:                       ; preds = %for.cond.preheader
-  %_width = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 6
-  %_fbYStride = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 17
-  %_currentScanLine = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 10
-  %_fbXStride = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 16
-  %_xMin = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 5
-  %_tmpBuf = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 14
-  %_yw = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 11
-  %_writeA = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 4
-  %_outputFile26 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 1
-  %_linesConverted = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 8
-  %_lineOrder = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 9
+  %_width = getelementptr inbounds i8, ptr %this, i64 56
+  %_fbYStride = getelementptr inbounds i8, ptr %this, i64 336
+  %_currentScanLine = getelementptr inbounds i8, ptr %this, i64 72
+  %_fbXStride = getelementptr inbounds i8, ptr %this, i64 328
+  %_xMin = getelementptr inbounds i8, ptr %this, i64 52
+  %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 312
+  %_yw = getelementptr inbounds i8, ptr %this, i64 76
+  %_writeA = getelementptr inbounds i8, ptr %this, i64 50
+  %_outputFile26 = getelementptr inbounds i8, ptr %this, i64 40
+  %_linesConverted = getelementptr inbounds i8, ptr %this, i64 64
+  %_lineOrder = getelementptr inbounds i8, ptr %this, i64 68
   br label %for.cond14.preheader
 
 for.cond14.preheader:                             ; preds = %for.cond14.preheader.lr.ph, %for.end
@@ -652,27 +640,27 @@ if.else37:                                        ; preds = %land.lhs.true, %if.
   br i1 %cmp40111, label %for.body41.lr.ph, label %if.end133
 
 for.body41.lr.ph:                                 ; preds = %if.else37
-  %_width46 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 6
-  %_fbYStride49 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 17
-  %_currentScanLine50 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 10
-  %_fbXStride53 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 16
-  %_xMin54 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 5
-  %_tmpBuf61 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 14
-  %_yw68 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 11
-  %_writeA70 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 4
-  %_buf.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13
-  %scevgep5.i = getelementptr inbounds i8, ptr %this, i64 104
-  %arrayidx8.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13, i64 26
-  %_linesConverted79 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 8
-  %arrayidx3.i16 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13, i64 25
-  %arrayidx.i19 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13, i64 13
-  %_writeC.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 3
-  %_roundY.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 18
-  %_roundC.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 19
-  %_outputFile.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 1
-  %_height = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 7
-  %arrayidx3.i33 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13, i64 24
-  %_lineOrder121 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 9
+  %_width46 = getelementptr inbounds i8, ptr %this, i64 56
+  %_fbYStride49 = getelementptr inbounds i8, ptr %this, i64 336
+  %_currentScanLine50 = getelementptr inbounds i8, ptr %this, i64 72
+  %_fbXStride53 = getelementptr inbounds i8, ptr %this, i64 328
+  %_xMin54 = getelementptr inbounds i8, ptr %this, i64 52
+  %_tmpBuf61 = getelementptr inbounds i8, ptr %this, i64 312
+  %_yw68 = getelementptr inbounds i8, ptr %this, i64 76
+  %_writeA70 = getelementptr inbounds i8, ptr %this, i64 50
+  %_buf.i = getelementptr inbounds i8, ptr %this, i64 96
+  %scevgep.i = getelementptr inbounds i8, ptr %this, i64 104
+  %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 304
+  %_linesConverted79 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx3.i16 = getelementptr inbounds i8, ptr %this, i64 296
+  %arrayidx.i19 = getelementptr inbounds i8, ptr %this, i64 200
+  %_writeC.i = getelementptr inbounds i8, ptr %this, i64 49
+  %_roundY.i = getelementptr inbounds i8, ptr %this, i64 344
+  %_roundC.i = getelementptr inbounds i8, ptr %this, i64 348
+  %_outputFile.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_height = getelementptr inbounds i8, ptr %this, i64 60
+  %arrayidx3.i33 = getelementptr inbounds i8, ptr %this, i64 288
+  %_lineOrder121 = getelementptr inbounds i8, ptr %this, i64 68
   br label %for.body41
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %if.end120
@@ -701,7 +689,7 @@ for.body48:                                       ; preds = %for.body41, %for.bo
   %35 = inttoptr i64 %add60 to ptr
   %36 = load ptr, ptr %_tmpBuf61, align 8
   %37 = getelementptr %"struct.Imf_3_2::Rgba", ptr %36, i64 %indvars.iv117
-  %arrayidx64 = getelementptr %"struct.Imf_3_2::Rgba", ptr %37, i64 13
+  %arrayidx64 = getelementptr i8, ptr %37, i64 104
   %38 = load i64, ptr %35, align 2
   store i64 %38, ptr %arrayidx64, align 2
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
@@ -716,14 +704,14 @@ for.end67:                                        ; preds = %for.body48, %for.bo
   %42 = and i8 %41, 1
   %tobool71 = icmp ne i8 %42, 0
   %43 = load ptr, ptr %_tmpBuf61, align 8
-  %add.ptr73 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %43, i64 13
+  %add.ptr73 = getelementptr inbounds i8, ptr %43, i64 104
   tail call void @_ZN7Imf_3_27RgbaYca9RGBAtoYCAERKN9Imath_3_24Vec3IfEEibPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %_yw68, i32 noundef %.lcssa, i1 noundef zeroext %tobool71, ptr noundef nonnull %add.ptr73, ptr noundef nonnull %add.ptr73)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.end67
   %indvars.iv.i = phi i64 [ 0, %for.end67 ], [ %indvars.iv.next.i, %for.body.i ]
   %44 = load ptr, ptr %_tmpBuf61, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %44, i64 13
+  %arrayidx.i = getelementptr inbounds i8, ptr %44, i64 104
   %arrayidx3.i = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %44, i64 %indvars.iv.i
   %45 = load i64, ptr %arrayidx.i, align 2
   store i64 %45, ptr %arrayidx3.i, align 2
@@ -731,7 +719,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
   %47 = load i32, ptr %_width46, align 8
   %48 = sext i32 %47 to i64
   %49 = getelementptr %"struct.Imf_3_2::Rgba", ptr %46, i64 %48
-  %arrayidx6.i = getelementptr %"struct.Imf_3_2::Rgba", ptr %49, i64 11
+  %arrayidx6.i = getelementptr i8, ptr %49, i64 88
   %50 = trunc i64 %indvars.iv.i to i32
   %51 = add i32 %50, 13
   %add10.i = add i32 %51, %47
@@ -745,7 +733,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
 
 _ZN7Imf_3_214RgbaOutputFile5ToYca9padTmpBufEv.exit: ; preds = %for.body.i
   %53 = load ptr, ptr %_buf.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep5.i, i64 208, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep.i, i64 208, i1 false)
   store ptr %53, ptr %arrayidx8.i, align 8
   %54 = load i32, ptr %_width46, align 8
   %55 = load ptr, ptr %_tmpBuf61, align 8
@@ -757,7 +745,7 @@ _ZN7Imf_3_214RgbaOutputFile5ToYca9padTmpBufEv.exit: ; preds = %for.body.i
 for.body85:                                       ; preds = %_ZN7Imf_3_214RgbaOutputFile5ToYca9padTmpBufEv.exit, %for.body85
   %j82.0105 = phi i32 [ %inc87, %for.body85 ], [ 0, %_ZN7Imf_3_214RgbaOutputFile5ToYca9padTmpBufEv.exit ]
   %57 = load ptr, ptr %_buf.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep5.i, i64 208, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep.i, i64 208, i1 false)
   store ptr %57, ptr %arrayidx8.i, align 8
   %58 = load ptr, ptr %arrayidx3.i16, align 8
   %59 = load i32, ptr %_width46, align 8
@@ -838,7 +826,7 @@ for.cond100.preheader:                            ; preds = %if.end95
 for.body103:                                      ; preds = %for.cond100.preheader, %for.body103
   %j99.0108 = phi i32 [ %inc105, %for.body103 ], [ 0, %for.cond100.preheader ]
   %78 = load ptr, ptr %_buf.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep5.i, i64 208, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep.i, i64 208, i1 false)
   store ptr %78, ptr %arrayidx8.i, align 8
   %79 = load ptr, ptr %arrayidx3.i16, align 8
   %80 = load i32, ptr %_width46, align 8
@@ -853,7 +841,7 @@ for.body103:                                      ; preds = %for.cond100.prehead
 
 for.end106:                                       ; preds = %for.body103, %for.cond100.preheader
   %82 = load ptr, ptr %_buf.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep5.i, i64 208, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep.i, i64 208, i1 false)
   store ptr %82, ptr %arrayidx8.i, align 8
   %83 = load ptr, ptr %arrayidx3.i33, align 8
   %84 = load i32, ptr %_width46, align 8
@@ -912,7 +900,7 @@ _ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit62: 
 for.body114:                                      ; preds = %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit62, %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit95
   %j109.0110 = phi i32 [ %inc118, %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit95 ], [ 1, %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit62 ]
   %102 = load ptr, ptr %_buf.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep5.i, i64 208, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep.i, i64 208, i1 false)
   store ptr %102, ptr %arrayidx8.i, align 8
   %103 = load ptr, ptr %arrayidx3.i16, align 8
   %104 = load i32, ptr %_width46, align 8
@@ -1020,14 +1008,14 @@ declare void @_ZN7Imf_3_210OutputFile11writePixelsEi(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN7Imf_3_214RgbaOutputFile5ToYca9padTmpBufEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %_tmpBuf = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 14
-  %_width = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 6
+  %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 312
+  %_width = getelementptr inbounds i8, ptr %this, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %0 = load ptr, ptr %_tmpBuf, align 8
-  %arrayidx = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %0, i64 13
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 104
   %arrayidx3 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx, align 2
   store i64 %1, ptr %arrayidx3, align 2
@@ -1035,7 +1023,7 @@ for.body:                                         ; preds = %entry, %for.body
   %3 = load i32, ptr %_width, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 %4
-  %arrayidx6 = getelementptr %"struct.Imf_3_2::Rgba", ptr %5, i64 11
+  %arrayidx6 = getelementptr i8, ptr %5, i64 88
   %6 = trunc i64 %indvars.iv to i32
   %7 = add i32 %6, 13
   %add10 = add i32 %7, %3
@@ -1054,11 +1042,11 @@ for.end:                                          ; preds = %for.body
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN7Imf_3_214RgbaOutputFile5ToYca13rotateBuffersEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %_buf = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13
+  %_buf = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %_buf, align 8
-  %scevgep5 = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf, ptr noundef nonnull align 8 dereferenceable(208) %scevgep5, i64 208, i1 false)
-  %arrayidx8 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13, i64 26
+  %scevgep = getelementptr inbounds i8, ptr %this, i64 104
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf, ptr noundef nonnull align 8 dereferenceable(208) %scevgep, i64 208, i1 false)
+  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 304
   store ptr %0, ptr %arrayidx8, align 8
   ret void
 }
@@ -1068,15 +1056,15 @@ declare void @_ZN7Imf_3_27RgbaYca19decimateChromaHorizEiPKNS_4RgbaEPS1_(i32 noun
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN7Imf_3_214RgbaOutputFile5ToYca19duplicateLastBufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %_buf.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13
+  %_buf.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %_buf.i, align 8
-  %scevgep5.i = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep5.i, i64 208, i1 false)
-  %arrayidx8.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13, i64 26
+  %scevgep.i = getelementptr inbounds i8, ptr %this, i64 104
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep.i, i64 208, i1 false)
+  %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 304
   store ptr %0, ptr %arrayidx8.i, align 8
-  %arrayidx3 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13, i64 25
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 296
   %1 = load ptr, ptr %arrayidx3, align 8
-  %_width = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 6
+  %_width = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i32, ptr %_width, align 8
   %conv = sext i32 %2 to i64
   %mul = shl nsw i64 %conv, 3
@@ -1087,18 +1075,18 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv(ptr noundef nonnull align 8 dereferenceable(352) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_linesConverted = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 8
+  %_linesConverted = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %_linesConverted, align 8
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_tmpBuf = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 14
+  %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 312
   %1 = load ptr, ptr %_tmpBuf, align 8
-  %arrayidx = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13, i64 13
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 200
   %2 = load ptr, ptr %arrayidx, align 8
-  %_width = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 6
+  %_width = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i32, ptr %_width, align 8
   %conv = sext i32 %3 to i64
   %mul = shl nsw i64 %conv, 3
@@ -1106,42 +1094,42 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %_width2 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 6
+  %_width2 = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i32, ptr %_width2, align 8
-  %_buf3 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13
-  %_tmpBuf4 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 14
+  %_buf3 = getelementptr inbounds i8, ptr %this, i64 96
+  %_tmpBuf4 = getelementptr inbounds i8, ptr %this, i64 312
   %5 = load ptr, ptr %_tmpBuf4, align 8
   tail call void @_ZN7Imf_3_27RgbaYca18decimateChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %4, ptr noundef nonnull %_buf3, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %_writeY = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 2
+  %_writeY = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load i8, ptr %_writeY, align 8
   %7 = and i8 %6, 1
   %tobool5.not = icmp eq i8 %7, 0
   br i1 %tobool5.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %_writeC = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 3
+  %_writeC = getelementptr inbounds i8, ptr %this, i64 49
   %8 = load i8, ptr %_writeC, align 1
   %9 = and i8 %8, 1
   %tobool6.not = icmp eq i8 %9, 0
   br i1 %tobool6.not, label %if.end11, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true
-  %_width8 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 6
+  %_width8 = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load i32, ptr %_width8, align 8
-  %_roundY = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 18
+  %_roundY = getelementptr inbounds i8, ptr %this, i64 344
   %11 = load i32, ptr %_roundY, align 8
-  %_roundC = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 19
+  %_roundC = getelementptr inbounds i8, ptr %this, i64 348
   %12 = load i32, ptr %_roundC, align 4
-  %_tmpBuf9 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 14
+  %_tmpBuf9 = getelementptr inbounds i8, ptr %this, i64 312
   %13 = load ptr, ptr %_tmpBuf9, align 8
   tail call void @_ZN7Imf_3_27RgbaYca8roundYCAEijjPKNS_4RgbaEPS1_(i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %13)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then7, %land.lhs.true, %if.end
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 40
   %14 = load ptr, ptr %_outputFile, align 8
   tail call void @_ZN7Imf_3_210OutputFile11writePixelsEi(ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 1)
   ret void
@@ -1150,15 +1138,15 @@ if.end11:                                         ; preds = %if.then7, %land.lhs
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN7Imf_3_214RgbaOutputFile5ToYca27duplicateSecondToLastBufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %_buf.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13
+  %_buf.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %_buf.i, align 8
-  %scevgep5.i = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep5.i, i64 208, i1 false)
-  %arrayidx8.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13, i64 26
+  %scevgep.i = getelementptr inbounds i8, ptr %this, i64 104
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep.i, i64 208, i1 false)
+  %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 304
   store ptr %0, ptr %arrayidx8.i, align 8
-  %arrayidx3 = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 13, i64 24
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 288
   %1 = load ptr, ptr %arrayidx3, align 8
-  %_width = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 6
+  %_width = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i32, ptr %_width, align 8
   %conv = sext i32 %2 to i64
   %mul = shl nsw i64 %conv, 3
@@ -1169,7 +1157,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK7Imf_3_214RgbaOutputFile5ToYca15currentScanLineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #12 align 2 {
 entry:
-  %_currentScanLine = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %this, i64 0, i32 10
+  %_currentScanLine = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %_currentScanLine, align 8
   ret i32 %0
 }
@@ -1183,8 +1171,8 @@ define void @_ZN7Imf_3_214RgbaOutputFileC2EPKcRKNS_6HeaderENS_12RgbaChannelsEi(p
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
-  %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 2
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
+  %_toYca = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_outputFile, i8 0, i64 16, i1 false)
   call void @_ZN7Imf_3_26HeaderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %hd, ptr noundef nonnull align 8 dereferenceable(49) %header)
   invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114insertChannelsERNS_6HeaderENS_12RgbaChannelsE(ptr noundef nonnull align 8 dereferenceable(49) %hd, i32 noundef %rgbaChannels)
@@ -1400,8 +1388,8 @@ define void @_ZN7Imf_3_214RgbaOutputFileC2ERNS_7OStreamERKNS_6HeaderENS_12RgbaCh
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
-  %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 2
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
+  %_toYca = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_outputFile, i8 0, i64 16, i1 false)
   call void @_ZN7Imf_3_26HeaderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %hd, ptr noundef nonnull align 8 dereferenceable(49) %header)
   invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114insertChannelsERNS_6HeaderENS_12RgbaChannelsE(ptr noundef nonnull align 8 dereferenceable(49) %hd, i32 noundef %rgbaChannels)
@@ -1467,9 +1455,9 @@ define void @_ZN7Imf_3_214RgbaOutputFileC2EPKcRKN9Imath_3_23BoxINS3_4Vec2IiEEEES
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
-  %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 2
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %dataWindow, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
+  %_toYca = getelementptr inbounds i8, ptr %this, i64 16
+  %max.i = getelementptr inbounds i8, ptr %dataWindow, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_outputFile, i8 0, i64 16, i1 false)
   %0 = load <2 x i32>, ptr %max.i, align 4
   %1 = load <2 x i32>, ptr %dataWindow, align 4
@@ -1542,8 +1530,8 @@ define void @_ZN7Imf_3_214RgbaOutputFileC2EPKciiNS_12RgbaChannelsEfN9Imath_3_24V
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
-  %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 2
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
+  %_toYca = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_outputFile, i8 0, i64 16, i1 false)
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hd, i32 noundef %width, i32 noundef %height, float noundef %pixelAspectRatio, ptr noundef nonnull align 4 dereferenceable(8) %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression)
   invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114insertChannelsERNS_6HeaderENS_12RgbaChannelsE(ptr noundef nonnull align 8 dereferenceable(49) %hd, i32 noundef %rgbaChannels)
@@ -1608,13 +1596,13 @@ declare void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11
 define void @_ZN7Imf_3_214RgbaOutputFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 2
+  %_toYca = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_toYca, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %_bufBase.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %0, i64 0, i32 12
+  %_bufBase.i = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %_bufBase.i, align 8
   %isnull.i = icmp eq ptr %1, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
@@ -1624,7 +1612,7 @@ delete.notnull.i:                                 ; preds = %delete.notnull
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %delete.notnull
-  %_tmpBuf.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %0, i64 0, i32 14
+  %_tmpBuf.i = getelementptr inbounds i8, ptr %0, i64 312
   %2 = load ptr, ptr %_tmpBuf.i, align 8
   %isnull2.i = icmp eq ptr %2, null
   br i1 %isnull2.i, label %_ZN7Imf_3_214RgbaOutputFile5ToYcaD2Ev.exit, label %delete.notnull3.i
@@ -1638,14 +1626,14 @@ _ZN7Imf_3_214RgbaOutputFile5ToYcaD2Ev.exit:       ; preds = %delete.end.i, %dele
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN7Imf_3_214RgbaOutputFile5ToYcaD2Ev.exit, %entry
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_outputFile, align 8
   %isnull2 = icmp eq ptr %3, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   br label %delete.end4
@@ -1670,7 +1658,7 @@ entry:
   %ref.tmp8 = alloca %"struct.Imf_3_2::Slice", align 8
   %ref.tmp12 = alloca %"struct.Imf_3_2::Slice", align 8
   %ref.tmp16 = alloca %"struct.Imf_3_2::Slice", align 8
-  %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 2
+  %_toYca = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_toYca, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -1720,7 +1708,7 @@ invoke.cont6:                                     ; preds = %if.else
           to label %invoke.cont7 unwind label %lpad5
 
 invoke.cont7:                                     ; preds = %invoke.cont6
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %base, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %base, i64 2
   invoke void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %ref.tmp8, i32 noundef 1, ptr noundef nonnull %g, i64 noundef %mul, i64 noundef %mul4, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont10 unwind label %lpad5
 
@@ -1729,7 +1717,7 @@ invoke.cont10:                                    ; preds = %invoke.cont7
           to label %invoke.cont11 unwind label %lpad5
 
 invoke.cont11:                                    ; preds = %invoke.cont10
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %base, i64 0, i32 2
+  %b = getelementptr inbounds i8, ptr %base, i64 4
   invoke void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %ref.tmp12, i32 noundef 1, ptr noundef nonnull %b, i64 noundef %mul, i64 noundef %mul4, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont14 unwind label %lpad5
 
@@ -1738,7 +1726,7 @@ invoke.cont14:                                    ; preds = %invoke.cont11
           to label %invoke.cont15 unwind label %lpad5
 
 invoke.cont15:                                    ; preds = %invoke.cont14
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %base, i64 0, i32 3
+  %a = getelementptr inbounds i8, ptr %base, i64 6
   invoke void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %ref.tmp16, i32 noundef 1, ptr noundef nonnull %a, i64 noundef %mul, i64 noundef %mul4, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont18 unwind label %lpad5
 
@@ -1747,7 +1735,7 @@ invoke.cont18:                                    ; preds = %invoke.cont15
           to label %invoke.cont19 unwind label %lpad5
 
 invoke.cont19:                                    ; preds = %invoke.cont18
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_outputFile, align 8
   invoke void @_ZN7Imf_3_210OutputFile14setFrameBufferERKNS_11FrameBufferE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(48) %fb)
           to label %invoke.cont20 unwind label %lpad5
@@ -1781,7 +1769,7 @@ eh.resume:                                        ; preds = %lpad5, %lpad
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_214RgbaOutputFile11writePixelsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %numScanLines) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 2
+  %_toYca = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_toYca, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -1811,7 +1799,7 @@ lpad:                                             ; preds = %_ZNSt10lock_guardIS
   resume { ptr, i32 } %2
 
 if.else:                                          ; preds = %entry
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_outputFile, align 8
   tail call void @_ZN7Imf_3_210OutputFile11writePixelsEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %numScanLines)
   br label %if.end
@@ -1823,7 +1811,7 @@ if.end:                                           ; preds = %if.else, %invoke.co
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_214RgbaOutputFile15currentScanLineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 2
+  %_toYca = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_toYca, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -1839,13 +1827,13 @@ if.then.i.i:                                      ; preds = %if.then
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.then
   %1 = load ptr, ptr %_toYca, align 8
-  %_currentScanLine.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %1, i64 0, i32 10
+  %_currentScanLine.i = getelementptr inbounds i8, ptr %1, i64 72
   %2 = load i32, ptr %_currentScanLine.i, align 8
   %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #25
   br label %return
 
 if.else:                                          ; preds = %entry
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_outputFile, align 8
   %call4 = tail call noundef i32 @_ZNK7Imf_3_210OutputFile15currentScanLineEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %return
@@ -1860,7 +1848,7 @@ declare noundef i32 @_ZNK7Imf_3_210OutputFile15currentScanLineEv(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_214RgbaOutputFile6headerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret ptr %call
@@ -1869,7 +1857,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_214RgbaOutputFile11frameBufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_210OutputFile11frameBufferEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret ptr %call
@@ -1880,7 +1868,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_210OutputFil
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_214RgbaOutputFile13displayWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header13displayWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -1892,7 +1880,7 @@ declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header13di
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_214RgbaOutputFile10dataWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -1902,7 +1890,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZNK7Imf_3_214RgbaOutputFile16pixelAspectRatioEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header16pixelAspectRatioEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -1915,7 +1903,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header16pix
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Imf_3_214RgbaOutputFile18screenWindowCenterEv(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2.8") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7Imf_3_26Header18screenWindowCenterEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -1929,7 +1917,7 @@ declare noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7Imf_3_26Header18scr
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZNK7Imf_3_214RgbaOutputFile17screenWindowWidthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header17screenWindowWidthEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -1942,7 +1930,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header17scr
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_214RgbaOutputFile9lineOrderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -1953,7 +1941,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_214RgbaOutputFile11compressionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -1968,7 +1956,7 @@ define noundef i32 @_ZNK7Imf_3_214RgbaOutputFile8channelsEv(ptr nocapture nounde
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator.5", align 1
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %call2 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -2224,7 +2212,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_214RgbaOutputFile18updatePreviewImageEPKNS_11PreviewRgbaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %newPixels) local_unnamed_addr #3 align 2 {
 entry:
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
   tail call void @_ZN7Imf_3_210OutputFile18updatePreviewImageEPKNS_11PreviewRgbaE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %newPixels)
   ret void
@@ -2235,7 +2223,7 @@ declare void @_ZN7Imf_3_210OutputFile18updatePreviewImageEPKNS_11PreviewRgbaE(pt
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_214RgbaOutputFile13setYCRoundingEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %roundY, i32 noundef %roundC) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 2
+  %_toYca = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_toYca, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2251,9 +2239,9 @@ if.then.i.i:                                      ; preds = %if.then
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.then
   %1 = load ptr, ptr %_toYca, align 8
-  %_roundY.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %1, i64 0, i32 18
+  %_roundY.i = getelementptr inbounds i8, ptr %1, i64 344
   store i32 %roundY, ptr %_roundY.i, align 8
-  %_roundC.i = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile::ToYca", ptr %1, i64 0, i32 19
+  %_roundC.i = getelementptr inbounds i8, ptr %1, i64 348
   store i32 %roundC, ptr %_roundC.i, align 4
   %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #25
   br label %if.end
@@ -2265,7 +2253,7 @@ if.end:                                           ; preds = %_ZNSt10lock_guardIS
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_214RgbaOutputFile13breakScanLineEiiic(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %y, i32 noundef %offset, i32 noundef %length, i8 noundef signext %c) local_unnamed_addr #3 align 2 {
 entry:
-  %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this, i64 0, i32 1
+  %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
   tail call void @_ZN7Imf_3_210OutputFile13breakScanLineEiiic(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %y, i32 noundef %offset, i32 noundef %length, i8 noundef signext %c)
   ret void
@@ -2278,10 +2266,10 @@ define hidden void @_ZN7Imf_3_213RgbaInputFile7FromYcaC2ERNS_9InputPartENS_12Rgb
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Vec3", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 1
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %inputFile, ptr %_inputPart, align 8
-  %_yw = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 10
-  %_readC = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 2
+  %_yw = getelementptr inbounds i8, ptr %this, i64 80
+  %_readC = getelementptr inbounds i8, ptr %this, i64 48
   %0 = trunc i32 %rgbaChannels to i8
   %1 = lshr i8 %0, 5
   %frombool = and i8 %1, 1
@@ -2289,43 +2277,43 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %inputFile)
   %call3 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
   %2 = load i32, ptr %call3, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call3, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %call3, i64 4
   %3 = load i32, ptr %y3.i.i, align 4
-  %max3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call3, i64 0, i32 1
+  %max3.i = getelementptr inbounds i8, ptr %call3, i64 8
   %4 = load i32, ptr %max3.i, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call3, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call3, i64 12
   %5 = load i32, ptr %y3.i3.i, align 4
-  %_xMin = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 3
+  %_xMin = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %2, ptr %_xMin, align 4
-  %_yMin = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 4
+  %_yMin = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %3, ptr %_yMin, align 8
-  %_yMax = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 5
+  %_yMax = getelementptr inbounds i8, ptr %this, i64 60
   store i32 %5, ptr %_yMax, align 4
   %reass.sub = sub i32 %4, %2
   %add = add i32 %reass.sub, 1
-  %_width = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 6
+  %_width = getelementptr inbounds i8, ptr %this, i64 64
   store i32 %add, ptr %_width, align 8
   %reass.sub16 = sub i32 %5, %3
   %add15 = add i32 %reass.sub16, 1
-  %_height = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 7
+  %_height = getelementptr inbounds i8, ptr %this, i64 68
   store i32 %add15, ptr %_height, align 4
   %sub19 = add nsw i32 %3, -29
-  %_currentScanLine = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 8
+  %_currentScanLine = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %sub19, ptr %_currentScanLine, align 8
   %6 = load ptr, ptr %_inputPart, align 8
   %call21 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %call22 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(49) %call21)
   %7 = load i32, ptr %call22, align 4
-  %_lineOrder = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 9
+  %_lineOrder = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %7, ptr %_lineOrder, align 4
   %8 = load ptr, ptr %_inputPart, align 8
   %call24 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
   call fastcc void @_ZN7Imf_3_212_GLOBAL__N_112ywFromHeaderERKNS_6HeaderE(ptr noalias nonnull align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %call24)
   %9 = load <2 x float>, ptr %ref.tmp, align 8
   store <2 x float> %9, ptr %_yw, align 8
-  %z.i = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %ref.tmp, i64 0, i32 2
+  %z.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %10 = load float, ptr %z.i, align 8
-  %z4.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 10, i32 2
+  %z4.i = getelementptr inbounds i8, ptr %this, i64 88
   store float %10, ptr %z4.i, align 8
   %11 = load i32, ptr %_width, align 8
   %conv = sext i32 %11 to i64
@@ -2370,26 +2358,31 @@ _ZN7Imf_3_212_GLOBAL__N_112cachePaddingEl.exit:   ; preds = %if.then.i, %if.end.
   %13 = shl i64 %add31, 8
   %14 = select i1 %.not, i64 %13, i64 -1
   %call33 = call noalias noundef nonnull ptr @_Znam(i64 noundef %14) #23
-  %_bufBase = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 11
+  %_bufBase = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %call33, ptr %_bufBase, align 8
+  %_buf1 = getelementptr inbounds i8, ptr %this, i64 104
   br label %for.body
+
+for.cond41.preheader:                             ; preds = %for.body
+  %_buf2 = getelementptr inbounds i8, ptr %this, i64 336
+  br label %for.body43
 
 for.body:                                         ; preds = %_ZN7Imf_3_212_GLOBAL__N_112cachePaddingEl.exit, %for.body
   %indvars.iv = phi i64 [ 0, %_ZN7Imf_3_212_GLOBAL__N_112cachePaddingEl.exit ], [ %indvars.iv.next, %for.body ]
   %mul39 = mul nsw i64 %add31, %indvars.iv
   %add.ptr = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %call33, i64 %mul39
-  %arrayidx = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 12, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [29 x ptr], ptr %_buf1, i64 0, i64 %indvars.iv
   store ptr %add.ptr, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 29
-  br i1 %exitcond.not, label %for.body43, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %for.cond41.preheader, label %for.body, !llvm.loop !16
 
-for.body43:                                       ; preds = %for.body, %for.body43
-  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body43 ], [ 0, %for.body ]
+for.body43:                                       ; preds = %for.cond41.preheader, %for.body43
+  %indvars.iv20 = phi i64 [ 0, %for.cond41.preheader ], [ %indvars.iv.next21, %for.body43 ]
   %15 = add nuw nsw i64 %indvars.iv20, 29
   %mul51 = mul nsw i64 %add31, %15
   %add.ptr52 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %call33, i64 %mul51
-  %arrayidx54 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 13, i64 %indvars.iv20
+  %arrayidx54 = getelementptr inbounds [3 x ptr], ptr %_buf2, i64 0, i64 %indvars.iv20
   store ptr %add.ptr52, ptr %arrayidx54, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, 3
@@ -2402,9 +2395,9 @@ for.end57:                                        ; preds = %for.body43
   %17 = shl nsw i64 %conv61, 3
   %18 = select i1 %16, i64 -1, i64 %17
   %call62 = call noalias noundef nonnull ptr @_Znam(i64 noundef %18) #23
-  %_tmpBuf = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 14
+  %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 360
   store ptr %call62, ptr %_tmpBuf, align 8
-  %_fbBase = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 15
+  %_fbBase = getelementptr inbounds i8, ptr %this, i64 368
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_fbBase, i8 0, i64 24, i1 false)
   ret void
 }
@@ -2414,7 +2407,7 @@ declare noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Imf_3_213RgbaInputFile7FromYcaD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this) unnamed_addr #6 align 2 {
 entry:
-  %_bufBase = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 11
+  %_bufBase = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %_bufBase, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -2424,7 +2417,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %_tmpBuf = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 14
+  %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %_tmpBuf, align 8
   %isnull2 = icmp eq ptr %1, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
@@ -2449,7 +2442,7 @@ entry:
   %ref.tmp20 = alloca %"struct.Imf_3_2::Slice", align 8
   %ref.tmp29 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp31 = alloca %"struct.Imf_3_2::Slice", align 8
-  %_fbBase = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 15
+  %_fbBase = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load ptr, ptr %_fbBase, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end41
@@ -2479,9 +2472,9 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %_tmpBuf = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 14
+  %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 360
   %3 = load ptr, ptr %_tmpBuf, align 8
-  %_xMin = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 3
+  %_xMin = getelementptr inbounds i8, ptr %this, i64 52
   %4 = load i32, ptr %_xMin, align 4
   %sub = sub nsw i32 13, %4
   %idxprom = sext i32 %sub to i64
@@ -2495,7 +2488,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %invoke.cont4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
-  %_readC = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 2
+  %_readC = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load i8, ptr %_readC, align 8
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
@@ -2612,7 +2605,7 @@ invoke.cont38:                                    ; preds = %invoke.cont30
 
 invoke.cont39:                                    ; preds = %invoke.cont38
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #25
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 1
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 40
   %20 = load ptr, ptr %_inputPart, align 8
   invoke void @_ZN7Imf_3_29InputPart14setFrameBufferERKNS_11FrameBufferE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(48) %fb)
           to label %invoke.cont40 unwind label %lpad
@@ -2642,9 +2635,9 @@ ehcleanup:                                        ; preds = %lpad.i, %lpad.i12, 
 
 if.end41:                                         ; preds = %invoke.cont40, %entry
   store ptr %base, ptr %_fbBase, align 8
-  %_fbXStride = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 16
+  %_fbXStride = getelementptr inbounds i8, ptr %this, i64 376
   store i64 %xStride, ptr %_fbXStride, align 8
-  %_fbYStride = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 17
+  %_fbYStride = getelementptr inbounds i8, ptr %this, i64 384
   store i64 %yStride, ptr %_fbYStride, align 8
   ret void
 }
@@ -2658,7 +2651,7 @@ define hidden void @_ZN7Imf_3_213RgbaInputFile7FromYca10readPixelsEii(ptr nounde
 entry:
   %.sroa.speculated12 = tail call i32 @llvm.smin.i32(i32 %scanLine2, i32 %scanLine1)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %scanLine1, i32 %scanLine2)
-  %_lineOrder = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 9
+  %_lineOrder = getelementptr inbounds i8, ptr %this, i64 76
   %0 = load i32, ptr %_lineOrder, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %for.body, label %for.body7
@@ -2687,7 +2680,7 @@ entry:
   %tmp.i33 = alloca [3 x ptr], align 16
   %tmp.i = alloca [29 x ptr], align 16
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %_fbBase = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 15
+  %_fbBase = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load ptr, ptr %_fbBase, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.body, label %if.end
@@ -2700,7 +2693,7 @@ do.body:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %do.body
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 1
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_inputPart, align 8
   %call3 = invoke noundef ptr @_ZNK7Imf_3_29InputPart8fileNameEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont2 unwind label %lpad
@@ -2739,7 +2732,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad
   resume { ptr, i32 } %.pn
 
 if.end:                                           ; preds = %entry
-  %_currentScanLine = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 8
+  %_currentScanLine = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i32, ptr %_currentScanLine, align 8
   %sub = sub i32 %scanLine, %4
   %5 = tail call i32 @llvm.abs.i32(i32 %sub, i1 true)
@@ -2763,8 +2756,8 @@ cond.false5.i.i.i:                                ; preds = %if.then11
 _ZN9Imath_3_24modpEii.exit.i:                     ; preds = %cond.false5.i.i.i, %cond.true.i.i.i
   %cond21.i.i.i = phi i32 [ %div.i.i.i, %cond.true.i.i.i ], [ %div10.i.i.neg.i, %cond.false5.i.i.i ]
   %mul.i.neg.i = mul nsw i32 %cond21.i.i.i, -29
-  %scevgep.i = getelementptr inbounds i8, ptr %this, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(232) %tmp.i, ptr noundef nonnull align 8 dereferenceable(232) %scevgep.i, i64 232, i1 false)
+  %_buf1.i = getelementptr inbounds i8, ptr %this, i64 104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(232) %tmp.i, ptr noundef nonnull align 8 dereferenceable(232) %_buf1.i, i64 232, i1 false)
   %sub.i.i = add i32 %mul.i.neg.i, %sub
   br label %for.body7.i
 
@@ -2776,7 +2769,7 @@ for.body7.i:                                      ; preds = %for.body7.i, %_ZN9I
   %idxprom8.i = sext i32 %rem.i to i64
   %arrayidx9.i = getelementptr inbounds [29 x ptr], ptr %tmp.i, i64 0, i64 %idxprom8.i
   %8 = load ptr, ptr %arrayidx9.i, align 8
-  %arrayidx12.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 12, i64 %indvars.iv.i
+  %arrayidx12.i = getelementptr inbounds [29 x ptr], ptr %_buf1.i, i64 0, i64 %indvars.iv.i
   store ptr %8, ptr %arrayidx12.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 29
@@ -2789,10 +2782,10 @@ if.end12:                                         ; preds = %for.body7.i
 
 if.then14:                                        ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i33)
-  br i1 %cmp.i.i.i, label %cond.true.i.i.i51, label %cond.false5.i.i.i35
+  br i1 %cmp.i.i.i, label %cond.true.i.i.i50, label %cond.false5.i.i.i35
 
-cond.true.i.i.i51:                                ; preds = %if.then14
-  %div.i.i.i52 = udiv i32 %sub, 3
+cond.true.i.i.i50:                                ; preds = %if.then14
+  %div.i.i.i51 = udiv i32 %sub, 3
   br label %_ZN9Imath_3_24modpEii.exit.i38
 
 cond.false5.i.i.i35:                              ; preds = %if.then14
@@ -2800,29 +2793,29 @@ cond.false5.i.i.i35:                              ; preds = %if.then14
   %div10.i.i.neg.i37 = sdiv i32 %sub9.i.i.i36, -3
   br label %_ZN9Imath_3_24modpEii.exit.i38
 
-_ZN9Imath_3_24modpEii.exit.i38:                   ; preds = %cond.false5.i.i.i35, %cond.true.i.i.i51
-  %cond21.i.i.i39 = phi i32 [ %div.i.i.i52, %cond.true.i.i.i51 ], [ %div10.i.i.neg.i37, %cond.false5.i.i.i35 ]
+_ZN9Imath_3_24modpEii.exit.i38:                   ; preds = %cond.false5.i.i.i35, %cond.true.i.i.i50
+  %cond21.i.i.i39 = phi i32 [ %div.i.i.i51, %cond.true.i.i.i50 ], [ %div10.i.i.neg.i37, %cond.false5.i.i.i35 ]
   %mul.i.neg.i40 = mul nsw i32 %cond21.i.i.i39, -3
-  %scevgep.i41 = getelementptr inbounds i8, ptr %this, i64 336
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %tmp.i33, ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i41, i64 24, i1 false)
-  %sub.i.i42 = add i32 %mul.i.neg.i40, %sub
-  br label %for.body7.i43
+  %_buf2.i = getelementptr inbounds i8, ptr %this, i64 336
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %tmp.i33, ptr noundef nonnull align 8 dereferenceable(24) %_buf2.i, i64 24, i1 false)
+  %sub.i.i41 = add i32 %mul.i.neg.i40, %sub
+  br label %for.body7.i42
 
-for.body7.i43:                                    ; preds = %for.body7.i43, %_ZN9Imath_3_24modpEii.exit.i38
-  %indvars.iv.i44 = phi i64 [ 0, %_ZN9Imath_3_24modpEii.exit.i38 ], [ %indvars.iv.next.i49, %for.body7.i43 ]
-  %9 = trunc i64 %indvars.iv.i44 to i32
-  %10 = add i32 %sub.i.i42, %9
-  %rem.i45 = srem i32 %10, 3
-  %idxprom8.i46 = sext i32 %rem.i45 to i64
-  %arrayidx9.i47 = getelementptr inbounds [3 x ptr], ptr %tmp.i33, i64 0, i64 %idxprom8.i46
-  %11 = load ptr, ptr %arrayidx9.i47, align 8
-  %arrayidx12.i48 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 13, i64 %indvars.iv.i44
-  store ptr %11, ptr %arrayidx12.i48, align 8
-  %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i44, 1
-  %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, 3
-  br i1 %exitcond.not.i50, label %_ZN7Imf_3_213RgbaInputFile7FromYca10rotateBuf2Ei.exit, label %for.body7.i43, !llvm.loop !21
+for.body7.i42:                                    ; preds = %for.body7.i42, %_ZN9Imath_3_24modpEii.exit.i38
+  %indvars.iv.i43 = phi i64 [ 0, %_ZN9Imath_3_24modpEii.exit.i38 ], [ %indvars.iv.next.i48, %for.body7.i42 ]
+  %9 = trunc i64 %indvars.iv.i43 to i32
+  %10 = add i32 %sub.i.i41, %9
+  %rem.i44 = srem i32 %10, 3
+  %idxprom8.i45 = sext i32 %rem.i44 to i64
+  %arrayidx9.i46 = getelementptr inbounds [3 x ptr], ptr %tmp.i33, i64 0, i64 %idxprom8.i45
+  %11 = load ptr, ptr %arrayidx9.i46, align 8
+  %arrayidx12.i47 = getelementptr inbounds [3 x ptr], ptr %_buf2.i, i64 0, i64 %indvars.iv.i43
+  store ptr %11, ptr %arrayidx12.i47, align 8
+  %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i43, 1
+  %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 3
+  br i1 %exitcond.not.i49, label %_ZN7Imf_3_213RgbaInputFile7FromYca10rotateBuf2Ei.exit, label %for.body7.i42, !llvm.loop !21
 
-_ZN7Imf_3_213RgbaInputFile7FromYca10rotateBuf2Ei.exit: ; preds = %for.body7.i43
+_ZN7Imf_3_213RgbaInputFile7FromYca10rotateBuf2Ei.exit: ; preds = %for.body7.i42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i33)
   br label %if.end15
 
@@ -2833,34 +2826,35 @@ if.end15:                                         ; preds = %if.end, %_ZN7Imf_3_
 if.then17:                                        ; preds = %if.end15
   %sub18 = sub i32 0, %sub
   %sub22 = add nsw i32 %scanLine, -14
+  %_buf1 = getelementptr inbounds i8, ptr %this, i64 104
   %12 = tail call i32 @llvm.umin.i32(i32 %sub18, i32 29)
-  %umin95 = zext nneg i32 %12 to i64
+  %umin94 = zext nneg i32 %12 to i64
   br label %for.body
 
 for.body:                                         ; preds = %if.then17, %for.body
-  %indvars.iv96 = phi i64 [ %umin95, %if.then17 ], [ %indvars.iv.next97, %for.body ]
-  %indvars.iv.next97 = add nsw i64 %indvars.iv96, -1
-  %idxprom = and i64 %indvars.iv.next97, 4294967295
-  %arrayidx = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 12, i64 %idxprom
+  %indvars.iv95 = phi i64 [ %umin94, %if.then17 ], [ %indvars.iv.next96, %for.body ]
+  %indvars.iv.next96 = add nsw i64 %indvars.iv95, -1
+  %idxprom = and i64 %indvars.iv.next96, 4294967295
+  %arrayidx = getelementptr inbounds [29 x ptr], ptr %_buf1, i64 0, i64 %idxprom
   %13 = load ptr, ptr %arrayidx, align 8
-  %14 = trunc i64 %indvars.iv.next97 to i32
+  %14 = trunc i64 %indvars.iv.next96 to i32
   %15 = add i32 %sub22, %14
   tail call void @_ZN7Imf_3_213RgbaInputFile7FromYca15readYCAScanLineEiPNS_4RgbaE(ptr noundef nonnull align 8 dereferenceable(392) %this, i32 noundef %15, ptr noundef %13)
-  %cmp24 = icmp ugt i64 %indvars.iv96, 1
+  %cmp24 = icmp ugt i64 %indvars.iv95, 1
   br i1 %cmp24, label %for.body, label %for.body33.lr.ph, !llvm.loop !22
 
 for.body33.lr.ph:                                 ; preds = %for.body
-  %.sroa.speculated64 = tail call i32 @llvm.smin.i32(i32 %sub18, i32 3)
-  %_yw = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 10
-  %_width = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 6
-  %_buf143 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 12
-  %smax = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated64, i32 1)
+  %.sroa.speculated63 = tail call i32 @llvm.smin.i32(i32 %sub18, i32 3)
+  %_yw = getelementptr inbounds i8, ptr %this, i64 80
+  %_width = getelementptr inbounds i8, ptr %this, i64 64
+  %_buf2 = getelementptr inbounds i8, ptr %this, i64 336
+  %smax = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated63, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %for.body33
 
 for.body33:                                       ; preds = %for.body33.lr.ph, %for.inc57
-  %indvars.iv99 = phi i64 [ 0, %for.body33.lr.ph ], [ %indvars.iv.next100, %for.inc57 ]
-  %16 = trunc i64 %indvars.iv99 to i32
+  %indvars.iv98 = phi i64 [ 0, %for.body33.lr.ph ], [ %indvars.iv.next99, %for.inc57 ]
+  %16 = trunc i64 %indvars.iv98 to i32
   %17 = add i32 %16, %scanLine
   %and = and i32 %17, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -2868,17 +2862,17 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   br i1 %tobool.not, label %if.else, label %if.then35
 
 if.then35:                                        ; preds = %for.body33
-  %19 = add nuw nsw i64 %indvars.iv99, 13
-  %arrayidx39 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 12, i64 %19
+  %19 = add nuw nsw i64 %indvars.iv98, 13
+  %arrayidx39 = getelementptr inbounds [29 x ptr], ptr %_buf1, i64 0, i64 %19
   %20 = load ptr, ptr %arrayidx39, align 8
-  %arrayidx41 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 13, i64 %indvars.iv99
+  %arrayidx41 = getelementptr inbounds [3 x ptr], ptr %_buf2, i64 0, i64 %indvars.iv98
   %21 = load ptr, ptr %arrayidx41, align 8
   tail call void @_ZN7Imf_3_27RgbaYca9YCAtoRGBAERKN9Imath_3_24Vec3IfEEiPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %_yw, i32 noundef %18, ptr noundef %20, ptr noundef %21)
   br label %for.inc57
 
 if.else:                                          ; preds = %for.body33
-  %add.ptr44 = getelementptr inbounds ptr, ptr %_buf143, i64 %indvars.iv99
-  %arrayidx47 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 13, i64 %indvars.iv99
+  %add.ptr44 = getelementptr inbounds ptr, ptr %_buf1, i64 %indvars.iv98
+  %arrayidx47 = getelementptr inbounds [3 x ptr], ptr %_buf2, i64 0, i64 %indvars.iv98
   %22 = load ptr, ptr %arrayidx47, align 8
   tail call void @_ZN7Imf_3_27RgbaYca21reconstructChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %18, ptr noundef nonnull %add.ptr44, ptr noundef %22)
   %23 = load i32, ptr %_width, align 8
@@ -2887,47 +2881,49 @@ if.else:                                          ; preds = %for.body33
   br label %for.inc57
 
 for.inc57:                                        ; preds = %if.then35, %if.else
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count
   br i1 %exitcond.not, label %if.end120, label %for.body33, !llvm.loop !23
 
 if.else59:                                        ; preds = %if.end15
-  %cmp6879.not = icmp eq i32 %4, %scanLine
-  br i1 %cmp6879.not, label %if.end120, label %for.body69.preheader
+  %cmp6878.not = icmp eq i32 %4, %scanLine
+  br i1 %cmp6878.not, label %if.end120, label %for.body69.lr.ph
 
-for.body69.preheader:                             ; preds = %if.else59
+for.body69.lr.ph:                                 ; preds = %if.else59
+  %_buf171 = getelementptr inbounds i8, ptr %this, i64 104
   %25 = tail call i32 @llvm.umin.i32(i32 %sub, i32 29)
   %umin = zext nneg i32 %25 to i64
   br label %for.body69
 
-for.body69:                                       ; preds = %for.body69.preheader, %for.body69
-  %indvars.iv = phi i64 [ %umin, %for.body69.preheader ], [ %indvars.iv.next, %for.body69 ]
+for.body69:                                       ; preds = %for.body69.lr.ph, %for.body69
+  %indvars.iv = phi i64 [ %umin, %for.body69.lr.ph ], [ %indvars.iv.next, %for.body69 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %26 = trunc i64 %indvars.iv to i32
   %27 = sub i32 %scanLine, %26
   %sub70 = add i32 %27, 15
   %28 = sub nsw i64 29, %indvars.iv
-  %arrayidx74 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 12, i64 %28
+  %arrayidx74 = getelementptr inbounds [29 x ptr], ptr %_buf171, i64 0, i64 %28
   %29 = load ptr, ptr %arrayidx74, align 8
   tail call void @_ZN7Imf_3_213RgbaInputFile7FromYca15readYCAScanLineEiPNS_4RgbaE(ptr noundef nonnull align 8 dereferenceable(392) %this, i32 noundef %sub70, ptr noundef %29)
   %cmp68 = icmp ugt i64 %indvars.iv, 1
   br i1 %cmp68, label %for.body69, label %for.end77, !llvm.loop !24
 
 for.end77:                                        ; preds = %for.body69
-  br i1 %cmp6879.not, label %if.end120, label %for.body85.lr.ph
+  br i1 %cmp6878.not, label %if.end120, label %for.body85.lr.ph
 
 for.body85.lr.ph:                                 ; preds = %for.end77
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %sub, i32 3)
   %sub83 = sub nsw i32 2, %.sroa.speculated
-  %_yw90 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 10
-  %_width91 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 6
-  %_buf1101 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 12
+  %_yw90 = getelementptr inbounds i8, ptr %this, i64 80
+  %_width91 = getelementptr inbounds i8, ptr %this, i64 64
+  %_buf192 = getelementptr inbounds i8, ptr %this, i64 104
+  %_buf296 = getelementptr inbounds i8, ptr %this, i64 336
   %30 = sext i32 %sub83 to i64
   br label %for.body85
 
 for.body85:                                       ; preds = %for.body85.lr.ph, %for.inc117
-  %indvars.iv90 = phi i64 [ 2, %for.body85.lr.ph ], [ %indvars.iv.next91, %for.inc117 ]
-  %31 = trunc i64 %indvars.iv90 to i32
+  %indvars.iv89 = phi i64 [ 2, %for.body85.lr.ph ], [ %indvars.iv.next90, %for.inc117 ]
+  %31 = trunc i64 %indvars.iv89 to i32
   %32 = add i32 %31, %scanLine
   %and87 = and i32 %32, 1
   %tobool88.not = icmp eq i32 %and87, 0
@@ -2935,17 +2931,17 @@ for.body85:                                       ; preds = %for.body85.lr.ph, %
   br i1 %tobool88.not, label %if.else99, label %if.then89
 
 if.then89:                                        ; preds = %for.body85
-  %34 = add nsw i64 %indvars.iv90, 13
-  %arrayidx95 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 12, i64 %34
+  %34 = add nsw i64 %indvars.iv89, 13
+  %arrayidx95 = getelementptr inbounds [29 x ptr], ptr %_buf192, i64 0, i64 %34
   %35 = load ptr, ptr %arrayidx95, align 8
-  %arrayidx98 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 13, i64 %indvars.iv90
+  %arrayidx98 = getelementptr inbounds [3 x ptr], ptr %_buf296, i64 0, i64 %indvars.iv89
   %36 = load ptr, ptr %arrayidx98, align 8
   tail call void @_ZN7Imf_3_27RgbaYca9YCAtoRGBAERKN9Imath_3_24Vec3IfEEiPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %_yw90, i32 noundef %33, ptr noundef %35, ptr noundef %36)
   br label %for.inc117
 
 if.else99:                                        ; preds = %for.body85
-  %add.ptr104 = getelementptr inbounds ptr, ptr %_buf1101, i64 %indvars.iv90
-  %arrayidx107 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 13, i64 %indvars.iv90
+  %add.ptr104 = getelementptr inbounds ptr, ptr %_buf192, i64 %indvars.iv89
+  %arrayidx107 = getelementptr inbounds [3 x ptr], ptr %_buf296, i64 0, i64 %indvars.iv89
   %37 = load ptr, ptr %arrayidx107, align 8
   tail call void @_ZN7Imf_3_27RgbaYca21reconstructChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %33, ptr noundef nonnull %add.ptr104, ptr noundef %37)
   %38 = load i32, ptr %_width91, align 8
@@ -2954,38 +2950,38 @@ if.else99:                                        ; preds = %for.body85
   br label %for.inc117
 
 for.inc117:                                       ; preds = %if.then89, %if.else99
-  %indvars.iv.next91 = add nsw i64 %indvars.iv90, -1
-  %cmp84 = icmp sgt i64 %indvars.iv.next91, %30
+  %indvars.iv.next90 = add nsw i64 %indvars.iv89, -1
+  %cmp84 = icmp sgt i64 %indvars.iv.next90, %30
   br i1 %cmp84, label %for.body85, label %if.end120, !llvm.loop !25
 
 if.end120:                                        ; preds = %for.inc117, %for.inc57, %if.else59, %for.end77
-  %_yw121 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 10
-  %_width122 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 6
+  %_yw121 = getelementptr inbounds i8, ptr %this, i64 80
+  %_width122 = getelementptr inbounds i8, ptr %this, i64 64
   %40 = load i32, ptr %_width122, align 8
-  %_buf2123 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 13
-  %_tmpBuf = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 14
+  %_buf2123 = getelementptr inbounds i8, ptr %this, i64 336
+  %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 360
   %41 = load ptr, ptr %_tmpBuf, align 8
   tail call void @_ZN7Imf_3_27RgbaYca13fixSaturationERKN9Imath_3_24Vec3IfEEiPKPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %_yw121, i32 noundef %40, ptr noundef nonnull %_buf2123, ptr noundef %41)
   %42 = load ptr, ptr %_fbBase, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = load i32, ptr %_width122, align 8
-  %cmp12986 = icmp sgt i32 %44, 0
-  br i1 %cmp12986, label %for.body130.lr.ph, label %for.end142
+  %cmp12985 = icmp sgt i32 %44, 0
+  br i1 %cmp12985, label %for.body130.lr.ph, label %for.end142
 
 for.body130.lr.ph:                                ; preds = %if.end120
-  %_fbYStride = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 17
+  %_fbYStride = getelementptr inbounds i8, ptr %this, i64 384
   %conv = sext i32 %scanLine to i64
-  %_fbXStride = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 16
-  %_xMin = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 3
+  %_fbXStride = getelementptr inbounds i8, ptr %this, i64 376
+  %_xMin = getelementptr inbounds i8, ptr %this, i64 52
   br label %for.body130
 
 for.body130:                                      ; preds = %for.body130.lr.ph, %for.body130
-  %indvars.iv104 = phi i64 [ 0, %for.body130.lr.ph ], [ %indvars.iv.next105, %for.body130 ]
+  %indvars.iv103 = phi i64 [ 0, %for.body130.lr.ph ], [ %indvars.iv.next104, %for.body130 ]
   %45 = load i64, ptr %_fbYStride, align 8
   %mul = mul i64 %45, %conv
   %46 = load i64, ptr %_fbXStride, align 8
   %47 = load i32, ptr %_xMin, align 4
-  %48 = trunc i64 %indvars.iv104 to i32
+  %48 = trunc i64 %indvars.iv103 to i32
   %add131 = add nsw i32 %47, %48
   %conv132 = sext i32 %add131 to i64
   %mul133 = mul i64 %46, %conv132
@@ -2994,13 +2990,13 @@ for.body130:                                      ; preds = %for.body130.lr.ph, 
   %add136 = add i64 %mul135, %43
   %49 = inttoptr i64 %add136 to ptr
   %50 = load ptr, ptr %_tmpBuf, align 8
-  %arrayidx139 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %50, i64 %indvars.iv104
+  %arrayidx139 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %50, i64 %indvars.iv103
   %51 = load i64, ptr %arrayidx139, align 2
   store i64 %51, ptr %49, align 2
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %52 = load i32, ptr %_width122, align 8
   %53 = sext i32 %52 to i64
-  %cmp129 = icmp slt i64 %indvars.iv.next105, %53
+  %cmp129 = icmp slt i64 %indvars.iv.next104, %53
   br i1 %cmp129, label %for.body130, label %for.end142, !llvm.loop !26
 
 for.end142:                                       ; preds = %for.body130, %if.end120
@@ -3035,8 +3031,8 @@ cond.false5.i.i:                                  ; preds = %entry
 _ZN9Imath_3_24modpEii.exit:                       ; preds = %cond.true.i.i, %cond.false5.i.i
   %cond21.i.i = phi i32 [ %div.i.i, %cond.true.i.i ], [ %div10.i.i.neg, %cond.false5.i.i ]
   %mul.i.neg = mul nsw i32 %cond21.i.i, -29
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(232) %tmp, ptr noundef nonnull align 8 dereferenceable(232) %scevgep, i64 232, i1 false)
+  %_buf1 = getelementptr inbounds i8, ptr %this, i64 104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(232) %tmp, ptr noundef nonnull align 8 dereferenceable(232) %_buf1, i64 232, i1 false)
   %sub.i = add i32 %mul.i.neg, %d
   br label %for.body7
 
@@ -3048,7 +3044,7 @@ for.body7:                                        ; preds = %_ZN9Imath_3_24modpE
   %idxprom8 = sext i32 %rem to i64
   %arrayidx9 = getelementptr inbounds [29 x ptr], ptr %tmp, i64 0, i64 %idxprom8
   %2 = load ptr, ptr %arrayidx9, align 8
-  %arrayidx12 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 12, i64 %indvars.iv
+  %arrayidx12 = getelementptr inbounds [29 x ptr], ptr %_buf1, i64 0, i64 %indvars.iv
   store ptr %2, ptr %arrayidx12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 29
@@ -3077,8 +3073,8 @@ cond.false5.i.i:                                  ; preds = %entry
 _ZN9Imath_3_24modpEii.exit:                       ; preds = %cond.true.i.i, %cond.false5.i.i
   %cond21.i.i = phi i32 [ %div.i.i, %cond.true.i.i ], [ %div10.i.i.neg, %cond.false5.i.i ]
   %mul.i.neg = mul nsw i32 %cond21.i.i, -3
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 336
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %tmp, ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i64 24, i1 false)
+  %_buf2 = getelementptr inbounds i8, ptr %this, i64 336
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %tmp, ptr noundef nonnull align 8 dereferenceable(24) %_buf2, i64 24, i1 false)
   %sub.i = add i32 %mul.i.neg, %d
   br label %for.body7
 
@@ -3090,7 +3086,7 @@ for.body7:                                        ; preds = %_ZN9Imath_3_24modpE
   %idxprom8 = sext i32 %rem to i64
   %arrayidx9 = getelementptr inbounds [3 x ptr], ptr %tmp, i64 0, i64 %idxprom8
   %2 = load ptr, ptr %arrayidx9, align 8
-  %arrayidx12 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 13, i64 %indvars.iv
+  %arrayidx12 = getelementptr inbounds [3 x ptr], ptr %_buf2, i64 0, i64 %indvars.iv
   store ptr %2, ptr %arrayidx12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3103,32 +3099,32 @@ for.end15:                                        ; preds = %for.body7
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7Imf_3_213RgbaInputFile7FromYca15readYCAScanLineEiPNS_4RgbaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this, i32 noundef %y, ptr noundef %buf) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_yMin = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 4
+  %_yMin = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %_yMin, align 8
   %cmp = icmp sgt i32 %0, %y
-  %_yMax = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 5
+  %_yMax = getelementptr inbounds i8, ptr %this, i64 60
   %1 = load i32, ptr %_yMax, align 4
   %cmp3 = icmp slt i32 %1, %y
   %sub = add nsw i32 %1, -1
   %spec.select = select i1 %cmp3, i32 %sub, i32 %y
   %y.addr.0 = select i1 %cmp, i32 %0, i32 %spec.select
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 1
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_inputPart, align 8
   tail call void @_ZN7Imf_3_29InputPart10readPixelsEi(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %y.addr.0)
-  %_readC = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 2
+  %_readC = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i8, ptr %_readC, align 8
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %for.cond.preheader, label %if.end14
 
 for.cond.preheader:                               ; preds = %entry
-  %_width = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 6
+  %_width = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load i32, ptr %_width, align 8
   %cmp89 = icmp sgt i32 %5, 0
   br i1 %cmp89, label %for.body.lr.ph, label %if.end14
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %_tmpBuf = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 14
+  %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 360
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3149,13 +3145,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end14:                                         ; preds = %for.body, %for.cond.preheader, %entry
   %and = and i32 %y.addr.0, 1
   %tobool15.not = icmp eq i32 %and, 0
-  %_tmpBuf.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 14
+  %_tmpBuf.i = getelementptr inbounds i8, ptr %this, i64 360
   br i1 %tobool15.not, label %if.else19, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
   %11 = load ptr, ptr %_tmpBuf.i, align 8
-  %add.ptr = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %11, i64 13
-  %_width18 = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 6
+  %add.ptr = getelementptr inbounds i8, ptr %11, i64 104
+  %_width18 = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load i32, ptr %_width18, align 8
   %conv = sext i32 %12 to i64
   %mul = shl nsw i64 %conv, 3
@@ -3163,13 +3159,13 @@ if.then16:                                        ; preds = %if.end14
   br label %if.end22
 
 if.else19:                                        ; preds = %if.end14
-  %_width.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 6
+  %_width.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.else19
   %indvars.iv.i = phi i64 [ 0, %if.else19 ], [ %indvars.iv.next.i, %for.body.i ]
   %13 = load ptr, ptr %_tmpBuf.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %13, i64 13
+  %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 104
   %arrayidx3.i = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %13, i64 %indvars.iv.i
   %14 = load i64, ptr %arrayidx.i, align 2
   store i64 %14, ptr %arrayidx3.i, align 2
@@ -3177,7 +3173,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.els
   %16 = load i32, ptr %_width.i, align 8
   %17 = sext i32 %16 to i64
   %18 = getelementptr %"struct.Imf_3_2::Rgba", ptr %15, i64 %17
-  %arrayidx6.i = getelementptr %"struct.Imf_3_2::Rgba", ptr %18, i64 11
+  %arrayidx6.i = getelementptr i8, ptr %18, i64 88
   %19 = trunc i64 %indvars.iv.i to i32
   %20 = add i32 %19, 13
   %add10.i = add i32 %20, %16
@@ -3210,14 +3206,14 @@ declare void @_ZN7Imf_3_29InputPart10readPixelsEi(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN7Imf_3_213RgbaInputFile7FromYca9padTmpBufEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %_tmpBuf = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 14
-  %_width = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 6
+  %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 360
+  %_width = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %0 = load ptr, ptr %_tmpBuf, align 8
-  %arrayidx = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %0, i64 13
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 104
   %arrayidx3 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx, align 2
   store i64 %1, ptr %arrayidx3, align 2
@@ -3225,7 +3221,7 @@ for.body:                                         ; preds = %entry, %for.body
   %3 = load i32, ptr %_width, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr %"struct.Imf_3_2::Rgba", ptr %2, i64 %4
-  %arrayidx6 = getelementptr %"struct.Imf_3_2::Rgba", ptr %5, i64 11
+  %arrayidx6 = getelementptr i8, ptr %5, i64 88
   %6 = trunc i64 %indvars.iv to i32
   %7 = add i32 %6, 13
   %add10 = add i32 %7, %3
@@ -3255,16 +3251,16 @@ define void @_ZN7Imf_3_213RgbaInputFileC2EiPKci(ptr noundef nonnull align 8 dere
 entry:
   %ref.tmp = alloca %"class.std::allocator.5", align 1
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_multiPartFile = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 1
+  %_multiPartFile = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   invoke void @_ZN7Imf_3_218MultiPartInputFileC1EPKcib(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef %name, i32 noundef %numThreads, i1 noundef zeroext true)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %_multiPartFile, align 8
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
-  %_fromYca = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 3
-  %_channelNamePrefix = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 4
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
+  %_fromYca = getelementptr inbounds i8, ptr %this, i64 24
+  %_channelNamePrefix = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_inputPart, i8 0, i64 16, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #25
   %call.i5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
@@ -3376,7 +3372,7 @@ if.end23:                                         ; preds = %delete.notnull, %ca
 
 delete.notnull26:                                 ; preds = %if.end23
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %11 = load ptr, ptr %vfn, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %10) #25
   br label %delete.end27
@@ -3425,16 +3421,16 @@ define void @_ZN7Imf_3_213RgbaInputFileC2EiRNS_7IStreamEi(ptr noundef nonnull al
 entry:
   %ref.tmp = alloca %"class.std::allocator.5", align 1
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_multiPartFile = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 1
+  %_multiPartFile = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   invoke void @_ZN7Imf_3_218MultiPartInputFileC1ERNS_7IStreamEib(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %numThreads, i1 noundef zeroext true)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %_multiPartFile, align 8
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
-  %_fromYca = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 3
-  %_channelNamePrefix = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 4
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
+  %_fromYca = getelementptr inbounds i8, ptr %this, i64 24
+  %_channelNamePrefix = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_inputPart, i8 0, i64 16, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #25
   %call.i5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
@@ -3546,7 +3542,7 @@ if.end23:                                         ; preds = %delete.notnull, %ca
 
 delete.notnull26:                                 ; preds = %if.end23
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %11 = load ptr, ptr %vfn, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %10) #25
   br label %delete.end27
@@ -3595,16 +3591,16 @@ define void @_ZN7Imf_3_213RgbaInputFileC2EiPKcRKNSt7__cxx1112basic_stringIcSt11c
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_multiPartFile = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 1
+  %_multiPartFile = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   invoke void @_ZN7Imf_3_218MultiPartInputFileC1EPKcib(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef %name, i32 noundef %numThreads, i1 noundef zeroext true)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %_multiPartFile, align 8
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
-  %_fromYca = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 3
-  %_channelNamePrefix = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 4
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
+  %_fromYca = getelementptr inbounds i8, ptr %this, i64 24
+  %_channelNamePrefix = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_inputPart, i8 0, i64 16, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix) #25
   %call4 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
@@ -3698,7 +3694,7 @@ if.end27:                                         ; preds = %delete.notnull, %ca
 
 delete.notnull30:                                 ; preds = %if.end27
   %vtable = load ptr, ptr %9, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %10 = load ptr, ptr %vfn, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
   br label %delete.end31
@@ -3747,16 +3743,16 @@ define void @_ZN7Imf_3_213RgbaInputFileC2EiRNS_7IStreamERKNSt7__cxx1112basic_str
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_multiPartFile = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 1
+  %_multiPartFile = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   invoke void @_ZN7Imf_3_218MultiPartInputFileC1ERNS_7IStreamEib(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %numThreads, i1 noundef zeroext true)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %_multiPartFile, align 8
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
-  %_fromYca = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 3
-  %_channelNamePrefix = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 4
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
+  %_fromYca = getelementptr inbounds i8, ptr %this, i64 24
+  %_channelNamePrefix = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_inputPart, i8 0, i64 16, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix) #25
   %call4 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
@@ -3850,7 +3846,7 @@ if.end27:                                         ; preds = %delete.notnull, %ca
 
 delete.notnull30:                                 ; preds = %if.end27
   %vtable = load ptr, ptr %9, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %10 = load ptr, ptr %vfn, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
   br label %delete.end31
@@ -3894,11 +3890,11 @@ declare void @_ZN7Imf_3_29InputPartC1ERNS_18MultiPartInputFileEi(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_213RgbaInputFile8channelsEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call2 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
-  %_channelNamePrefix = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 4
+  %_channelNamePrefix = getelementptr inbounds i8, ptr %this, i64 32
   %call3 = tail call fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix), !range !15
   ret i32 %call3
 }
@@ -4044,7 +4040,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define void @_ZN7Imf_3_213RgbaInputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -4054,26 +4050,26 @@ delete.notnull:                                   ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
-  %_multiPartFile = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 1
+  %_multiPartFile = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_multiPartFile, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end9, label %delete.notnull7
 
 delete.notnull7:                                  ; preds = %if.end
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %1) #25
   br label %if.end9
 
 if.end9:                                          ; preds = %delete.notnull7, %if.end
-  %_fromYca = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 3
+  %_fromYca = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_fromYca, align 8
   %isnull10 = icmp eq ptr %3, null
   br i1 %isnull10, label %delete.end12, label %delete.notnull11
 
 delete.notnull11:                                 ; preds = %if.end9
-  %_bufBase.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %3, i64 0, i32 11
+  %_bufBase.i = getelementptr inbounds i8, ptr %3, i64 96
   %4 = load ptr, ptr %_bufBase.i, align 8
   %isnull.i = icmp eq ptr %4, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
@@ -4083,7 +4079,7 @@ delete.notnull.i:                                 ; preds = %delete.notnull11
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %delete.notnull11
-  %_tmpBuf.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %3, i64 0, i32 14
+  %_tmpBuf.i = getelementptr inbounds i8, ptr %3, i64 360
   %5 = load ptr, ptr %_tmpBuf.i, align 8
   %isnull2.i = icmp eq ptr %5, null
   br i1 %isnull2.i, label %_ZN7Imf_3_213RgbaInputFile7FromYcaD2Ev.exit, label %delete.notnull3.i
@@ -4097,7 +4093,7 @@ _ZN7Imf_3_213RgbaInputFile7FromYcaD2Ev.exit:      ; preds = %delete.end.i, %dele
   br label %delete.end12
 
 delete.end12:                                     ; preds = %_ZN7Imf_3_213RgbaInputFile7FromYcaD2Ev.exit, %if.end9
-  %_channelNamePrefix = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 4
+  %_channelNamePrefix = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix) #25
   ret void
 }
@@ -4124,7 +4120,7 @@ entry:
   %ref.tmp36 = alloca %"struct.Imf_3_2::Slice", align 8
   %ref.tmp41 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp44 = alloca %"struct.Imf_3_2::Slice", align 8
-  %_fromYca = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 3
+  %_fromYca = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_fromYca, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -4140,7 +4136,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.then
   %1 = load ptr, ptr %_fromYca, align 8
-  %_channelNamePrefix = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 4
+  %_channelNamePrefix = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZN7Imf_3_213RgbaInputFile7FromYca14setFrameBufferEPNS_4RgbaEmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(392) %1, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix)
           to label %invoke.cont unwind label %lpad
 
@@ -4167,7 +4163,7 @@ if.else:                                          ; preds = %entry
   store ptr %3, ptr %_M_right.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %_inputPart.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %_inputPart.i, align 8
   %call.i21 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %call.i.noexc unwind label %lpad5
@@ -4177,7 +4173,7 @@ call.i.noexc:                                     ; preds = %if.else
           to label %call2.i.noexc unwind label %lpad5
 
 call2.i.noexc:                                    ; preds = %call.i.noexc
-  %_channelNamePrefix.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 4
+  %_channelNamePrefix.i = getelementptr inbounds i8, ptr %this, i64 32
   %call3.i23 = invoke fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i22, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix.i)
           to label %invoke.cont6 unwind label %lpad5
 
@@ -4257,7 +4253,7 @@ lpad.i31:                                         ; preds = %.noexc32
   br label %ehcleanup
 
 invoke.cont27:                                    ; preds = %.noexc32
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %base, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %base, i64 2
   invoke void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %ref.tmp28, i32 noundef 1, ptr noundef nonnull %g, i64 noundef %mul, i64 noundef %mul4, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont31 unwind label %lpad30
 
@@ -4281,7 +4277,7 @@ lpad.i37:                                         ; preds = %.noexc38
   br label %ehcleanup
 
 invoke.cont35:                                    ; preds = %.noexc38
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %base, i64 0, i32 2
+  %b = getelementptr inbounds i8, ptr %base, i64 4
   invoke void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %ref.tmp36, i32 noundef 1, ptr noundef nonnull %b, i64 noundef %mul, i64 noundef %mul4, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont39 unwind label %lpad38
 
@@ -4324,7 +4320,7 @@ lpad.i43:                                         ; preds = %.noexc44
   br label %ehcleanup
 
 invoke.cont43:                                    ; preds = %.noexc44
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %base, i64 0, i32 3
+  %a = getelementptr inbounds i8, ptr %base, i64 6
   invoke void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %ref.tmp44, i32 noundef 1, ptr noundef nonnull %a, i64 noundef %mul, i64 noundef %mul4, i32 noundef 1, i32 noundef 1, double noundef 1.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont47 unwind label %lpad46
 
@@ -4374,13 +4370,13 @@ define void @_ZN7Imf_3_213RgbaInputFile12setLayerNameERKNSt7__cxx1112basic_strin
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %fb = alloca %"class.Imf_3_2::FrameBuffer", align 8
-  %_fromYca = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 3
+  %_fromYca = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_fromYca, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %_bufBase.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %0, i64 0, i32 11
+  %_bufBase.i = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %_bufBase.i, align 8
   %isnull.i = icmp eq ptr %1, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
@@ -4390,7 +4386,7 @@ delete.notnull.i:                                 ; preds = %delete.notnull
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %delete.notnull
-  %_tmpBuf.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %0, i64 0, i32 14
+  %_tmpBuf.i = getelementptr inbounds i8, ptr %0, i64 360
   %2 = load ptr, ptr %_tmpBuf.i, align 8
   %isnull2.i = icmp eq ptr %2, null
   br i1 %isnull2.i, label %_ZN7Imf_3_213RgbaInputFile7FromYcaD2Ev.exit, label %delete.notnull3.i
@@ -4405,11 +4401,11 @@ _ZN7Imf_3_213RgbaInputFile7FromYcaD2Ev.exit:      ; preds = %delete.end.i, %dele
 
 delete.end:                                       ; preds = %_ZN7Imf_3_213RgbaInputFile7FromYcaD2Ev.exit, %entry
   store ptr null, ptr %_fromYca, align 8
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   call fastcc void @_ZN7Imf_3_212_GLOBAL__N_119prefixFromLayerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %layerName, ptr noundef nonnull align 8 dereferenceable(49) %call)
-  %_channelNamePrefix = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 4
+  %_channelNamePrefix = getelementptr inbounds i8, ptr %this, i64 32
   %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
   %4 = load ptr, ptr %_inputPart, align 8
@@ -4481,13 +4477,13 @@ define void @_ZN7Imf_3_213RgbaInputFile15setPartAndLayerEiRKNSt7__cxx1112basic_s
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %fb = alloca %"class.Imf_3_2::FrameBuffer", align 8
-  %_fromYca = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 3
+  %_fromYca = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_fromYca, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %_bufBase.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %0, i64 0, i32 11
+  %_bufBase.i = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %_bufBase.i, align 8
   %isnull.i = icmp eq ptr %1, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
@@ -4497,7 +4493,7 @@ delete.notnull.i:                                 ; preds = %delete.notnull
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %delete.notnull
-  %_tmpBuf.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %0, i64 0, i32 14
+  %_tmpBuf.i = getelementptr inbounds i8, ptr %0, i64 360
   %2 = load ptr, ptr %_tmpBuf.i, align 8
   %isnull2.i = icmp eq ptr %2, null
   br i1 %isnull2.i, label %_ZN7Imf_3_213RgbaInputFile7FromYcaD2Ev.exit, label %delete.notnull3.i
@@ -4512,7 +4508,7 @@ _ZN7Imf_3_213RgbaInputFile7FromYcaD2Ev.exit:      ; preds = %delete.end.i, %dele
 
 delete.end:                                       ; preds = %_ZN7Imf_3_213RgbaInputFile7FromYcaD2Ev.exit, %entry
   store ptr null, ptr %_fromYca, align 8
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %_inputPart, align 8
   %isnull3 = icmp eq ptr %3, null
   br i1 %isnull3, label %delete.end5, label %delete.notnull4
@@ -4524,7 +4520,7 @@ delete.notnull4:                                  ; preds = %delete.end
 delete.end5:                                      ; preds = %delete.notnull4, %delete.end
   store ptr null, ptr %_inputPart, align 8
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %_multiPartFile = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 1
+  %_multiPartFile = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_multiPartFile, align 8
   invoke void @_ZN7Imf_3_29InputPartC1ERNS_18MultiPartInputFileEi(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %part)
           to label %invoke.cont unwind label %lpad
@@ -4533,7 +4529,7 @@ invoke.cont:                                      ; preds = %delete.end5
   store ptr %call, ptr %_inputPart, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %call)
   call fastcc void @_ZN7Imf_3_212_GLOBAL__N_119prefixFromLayerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %layerName, ptr noundef nonnull align 8 dereferenceable(49) %call9)
-  %_channelNamePrefix = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 4
+  %_channelNamePrefix = getelementptr inbounds i8, ptr %this, i64 32
   %call10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
   %5 = load ptr, ptr %_inputPart, align 8
@@ -4659,7 +4655,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 define void @_ZN7Imf_3_213RgbaInputFile10readPixelsEii(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %scanLine1, i32 noundef %scanLine2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %_fromYca = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 3
+  %_fromYca = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_fromYca, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -4677,7 +4673,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.then
   %1 = load ptr, ptr %_fromYca, align 8
   %.sroa.speculated12.i = tail call i32 @llvm.smin.i32(i32 %scanLine2, i32 %scanLine1)
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %scanLine1, i32 %scanLine2)
-  %_lineOrder.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %1, i64 0, i32 9
+  %_lineOrder.i = getelementptr inbounds i8, ptr %1, i64 76
   %2 = load i32, ptr %_lineOrder.i, align 4
   %cmp.i = icmp eq i32 %2, 0
   br i1 %cmp.i, label %for.body.i, label %for.body7.i
@@ -4722,13 +4718,13 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br label %common.resume
 
 if.else:                                          ; preds = %entry
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %_inputPart, align 8
   tail call void @_ZN7Imf_3_29InputPart10readPixelsEii(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %scanLine1, i32 noundef %scanLine2)
   %4 = load ptr, ptr %_inputPart, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %call2.i = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %call.i)
-  %_channelNamePrefix.i = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 4
+  %_channelNamePrefix.i = getelementptr inbounds i8, ptr %this, i64 32
   %call3.i = tail call fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_112rgbaChannelsERKNS_11ChannelListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %_channelNamePrefix.i), !range !15
   %and = and i32 %call3.i, 16
   %tobool4.not = icmp eq i32 %and, 0
@@ -4761,18 +4757,18 @@ invoke.cont9:                                     ; preds = %_ZStplIcSt11char_tr
   %call12 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %call13 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %call12)
   %8 = load i32, ptr %call13, align 4
-  %max3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call13, i64 0, i32 1
+  %max3.i = getelementptr inbounds i8, ptr %call13, i64 8
   %9 = load i32, ptr %max3.i, align 4
-  %base14 = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %call10, i64 0, i32 2
+  %base14 = getelementptr inbounds i8, ptr %call10, i64 8
   %10 = load ptr, ptr %base14, align 8
   %11 = ptrtoint ptr %10 to i64
   %cmp.not25 = icmp sgt i32 %scanLine1, %scanLine2
   br i1 %cmp.not25, label %if.end27, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont9
-  %yStride = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %call10, i64 0, i32 4
+  %yStride = getelementptr inbounds i8, ptr %call10, i64 24
   %cmp18.not23 = icmp sgt i32 %8, %9
-  %xStride = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %call10, i64 0, i32 3
+  %xStride = getelementptr inbounds i8, ptr %call10, i64 16
   br i1 %cmp18.not23, label %if.end27, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
@@ -4795,10 +4791,10 @@ for.body19:                                       ; preds = %for.body, %for.body
   %mul21 = mul i64 %17, %indvars.iv
   %add22 = add i64 %add, %mul21
   %18 = inttoptr i64 %add22 to ptr
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %18, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %18, i64 2
   %19 = load i16, ptr %18, align 2
   store i16 %19, ptr %g, align 2
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %18, i64 0, i32 2
+  %b = getelementptr inbounds i8, ptr %18, i64 4
   store i16 %19, ptr %b, align 2
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -4837,7 +4833,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK7Imf_3_213RgbaInputFile10isCompleteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_multiPartFile = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 1
+  %_multiPartFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_multiPartFile, align 8
   %call4 = tail call noundef i32 @_ZNK7Imf_3_218MultiPartInputFile5partsEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %cmp5 = icmp slt i32 %call4, 1
@@ -4868,7 +4864,7 @@ declare noundef zeroext i1 @_ZNK7Imf_3_218MultiPartInputFile12partCompleteEi(ptr
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_213RgbaInputFile6headerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret ptr %call
@@ -4877,7 +4873,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_213RgbaInputFile5partsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_multiPartFile = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 1
+  %_multiPartFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_multiPartFile, align 8
   %call = tail call noundef i32 @_ZNK7Imf_3_218MultiPartInputFile5partsEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret i32 %call
@@ -4886,7 +4882,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK7Imf_3_213RgbaInputFile8fileNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef ptr @_ZNK7Imf_3_29InputPart8fileNameEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret ptr %call
@@ -4895,7 +4891,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_213RgbaInputFile11frameBufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_29InputPart11frameBufferEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret ptr %call
@@ -4904,7 +4900,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_213RgbaInputFile13displayWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header13displayWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -4914,7 +4910,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_213RgbaInputFile10dataWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -4924,7 +4920,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZNK7Imf_3_213RgbaInputFile16pixelAspectRatioEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header16pixelAspectRatioEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -4935,7 +4931,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Imf_3_213RgbaInputFile18screenWindowCenterEv(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2.8") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7Imf_3_26Header18screenWindowCenterEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -4947,7 +4943,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZNK7Imf_3_213RgbaInputFile17screenWindowWidthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header17screenWindowWidthEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -4958,7 +4954,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_213RgbaInputFile9lineOrderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -4969,7 +4965,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_213RgbaInputFile11compressionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
@@ -4980,7 +4976,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_213RgbaInputFile7versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this, i64 0, i32 2
+  %_inputPart = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef i32 @_ZNK7Imf_3_29InputPart7versionEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i32 %call
@@ -5007,10 +5003,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #24
   %cmp.not = icmp eq ptr %1, null
@@ -5056,19 +5052,19 @@ if.then:                                          ; preds = %entry
   %_M_parent.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i, align 8
   store ptr %0, ptr %__roan, align 8
-  %_M_nodes.i = getelementptr inbounds %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Channel>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Channel>>, std::less<Imf_3_2::Name>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 1
+  %_M_nodes.i = getelementptr inbounds i8, ptr %__roan, i64 8
   %_M_right.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i.i, align 8
   store ptr %1, ptr %_M_nodes.i, align 8
-  %_M_t.i = getelementptr inbounds %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Channel>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Channel>>, std::less<Imf_3_2::Name>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 2
+  %_M_t.i = getelementptr inbounds i8, ptr %__roan, i64 16
   store ptr %this, ptr %_M_t.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end12.sink.split.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %_M_parent.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %_M_parent.i, align 8
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %_M_left.i, align 8
   %tobool6.not.i = icmp eq ptr %2, null
   br i1 %tobool6.not.i, label %_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_nodeC2ERSB_.exit, label %if.end12.sink.split.i
@@ -5097,7 +5093,7 @@ if.then6:                                         ; preds = %_ZNSt8_Rb_treeIN7Im
 
 while.cond.i.i.i:                                 ; preds = %if.then6, %while.cond.i.i.i
   %__x.addr.0.i.i.i = phi ptr [ %4, %while.cond.i.i.i ], [ %call3.i9, %if.then6 ]
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i, i64 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i.i, i64 16
   %4 = load ptr, ptr %_M_left.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i, label %while.cond.i.i.i, !llvm.loop !33
@@ -5108,7 +5104,7 @@ _ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4le
 
 while.cond.i.i4.i:                                ; preds = %while.cond.i.i4.i, %_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i
   %__x.addr.0.i.i5.i = phi ptr [ %call3.i9, %_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i ], [ %5, %while.cond.i.i4.i ]
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i5.i, i64 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i5.i, i64 24
   %5 = load ptr, ptr %_M_right.i.i.i, align 8
   %cmp.not.i.i6.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i6.i, label %invoke.cont, label %while.cond.i.i4.i, !llvm.loop !34
@@ -5149,7 +5145,7 @@ if.end9:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_t = getelementptr inbounds %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Channel>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Channel>>, std::less<Imf_3_2::Name>>::_Reuse_or_alloc_node", ptr %this, i64 0, i32 2
+  %_M_t = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_t, align 8
   %1 = load ptr, ptr %this, align 8
   invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
@@ -5169,20 +5165,20 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE7_M_copyILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(24) %__node_gen) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_nodes.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Channel>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Channel>>, std::less<Imf_3_2::Name>>::_Reuse_or_alloc_node", ptr %__node_gen, i64 0, i32 1
+  %_M_nodes.i.i.i = getelementptr inbounds i8, ptr %__node_gen, i64 8
   %0 = load ptr, ptr %_M_nodes.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %_M_parent.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_parent.i.i.i, align 8
   store ptr %1, ptr %_M_nodes.i.i.i, align 8
   %tobool7.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool7.not.i.i.i, label %if.else37.i.i.i, label %if.then8.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %_M_right.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, %0
   br i1 %cmp.i.i.i, label %if.then10.i.i.i, label %if.else.i.i.i
@@ -5190,7 +5186,7 @@ if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
 if.then10.i.i.i:                                  ; preds = %if.then8.i.i.i
   store ptr null, ptr %_M_right.i.i.i, align 8
   %3 = load ptr, ptr %_M_nodes.i.i.i, align 8
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %3, i64 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %_M_left.i.i.i, align 8
   %tobool14.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool14.not.i.i.i, label %_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE13_M_clone_nodeILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_RT0_.exit, label %while.cond.i.i.i
@@ -5198,13 +5194,13 @@ if.then10.i.i.i:                                  ; preds = %if.then8.i.i.i
 while.cond.i.i.i:                                 ; preds = %if.then10.i.i.i, %while.cond.i.i.i
   %storemerge.i.i.i = phi ptr [ %5, %while.cond.i.i.i ], [ %4, %if.then10.i.i.i ]
   store ptr %storemerge.i.i.i, ptr %_M_nodes.i.i.i, align 8
-  %_M_right20.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i, i64 0, i32 3
+  %_M_right20.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 24
   %5 = load ptr, ptr %_M_right20.i.i.i, align 8
   %tobool21.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool21.not.i.i.i, label %while.end.i.i.i, label %while.cond.i.i.i, !llvm.loop !35
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
-  %_M_left26.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i, i64 0, i32 2
+  %_M_left26.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 16
   %6 = load ptr, ptr %_M_left26.i.i.i, align 8
   %tobool27.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool27.not.i.i.i, label %_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE13_M_clone_nodeILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_RT0_.exit, label %if.then28.i.i.i
@@ -5214,7 +5210,7 @@ if.then28.i.i.i:                                  ; preds = %while.end.i.i.i
   br label %_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE13_M_clone_nodeILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_RT0_.exit
 
 if.else.i.i.i:                                    ; preds = %if.then8.i.i.i
-  %_M_left35.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left35.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %_M_left35.i.i.i, align 8
   br label %_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE13_M_clone_nodeILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_RT0_.exit
 
@@ -5228,16 +5224,16 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE13_M_clone_nodeILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_RT0_.exit: ; preds = %if.then10.i.i.i, %while.end.i.i.i, %if.then28.i.i.i, %if.else.i.i.i, %if.else37.i.i.i, %if.end.i.i
   %call5.i.i.i.i.sink.i.i = phi ptr [ %call5.i.i.i.i.i.i, %if.end.i.i ], [ %0, %if.then28.i.i.i ], [ %0, %while.end.i.i.i ], [ %0, %if.else37.i.i.i ], [ %0, %if.else.i.i.i ], [ %0, %if.then10.i.i.i ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.14", ptr %__x, i64 0, i32 1
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.14", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x, i64 32
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(272) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(272) %_M_storage.i.i, i64 272, i1 false)
   %7 = load i32, ptr %__x, align 8
   store i32 %7, ptr %call5.i.i.i.i.sink.i.i, align 8
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i, i8 0, i64 16, i1 false)
-  %_M_parent = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 1
+  %_M_parent = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 8
   store ptr %__p, ptr %_M_parent, align 8
-  %_M_right = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 3
+  %_M_right = getelementptr inbounds i8, ptr %__x, i64 24
   %8 = load ptr, ptr %_M_right, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -5247,7 +5243,7 @@ if.then:                                          ; preds = %_ZNSt8_Rb_treeIN7Im
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
-  %_M_right4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 3
+  %_M_right4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 24
   store ptr %call3, ptr %_M_right4, align 8
   br label %if.end
 
@@ -5273,7 +5269,7 @@ invoke.cont19:                                    ; preds = %lpad
           to label %unreachable unwind label %lpad18
 
 if.end:                                           ; preds = %invoke.cont, %_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE13_M_clone_nodeILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_RT0_.exit
-  %__x.addr.0.in58 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 2
+  %__x.addr.0.in58 = getelementptr inbounds i8, ptr %__x, i64 16
   %__x.addr.059 = load ptr, ptr %__x.addr.0.in58, align 8
   %cmp.not60 = icmp eq ptr %__x.addr.059, null
   br i1 %cmp.not60, label %try.cont, label %while.body
@@ -5286,14 +5282,14 @@ while.body:                                       ; preds = %if.end, %if.end16
   br i1 %tobool.not.i.i.i25, label %if.end.i.i50, label %if.end.i.i.i26
 
 if.end.i.i.i26:                                   ; preds = %while.body
-  %_M_parent.i.i.i27 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %11, i64 0, i32 1
+  %_M_parent.i.i.i27 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %_M_parent.i.i.i27, align 8
   store ptr %12, ptr %_M_nodes.i.i.i, align 8
   %tobool7.not.i.i.i28 = icmp eq ptr %12, null
   br i1 %tobool7.not.i.i.i28, label %if.else37.i.i.i49, label %if.then8.i.i.i29
 
 if.then8.i.i.i29:                                 ; preds = %if.end.i.i.i26
-  %_M_right.i.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %12, i64 0, i32 3
+  %_M_right.i.i.i30 = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %_M_right.i.i.i30, align 8
   %cmp.i.i.i31 = icmp eq ptr %13, %11
   br i1 %cmp.i.i.i31, label %if.then10.i.i.i38, label %if.else.i.i.i32
@@ -5301,7 +5297,7 @@ if.then8.i.i.i29:                                 ; preds = %if.end.i.i.i26
 if.then10.i.i.i38:                                ; preds = %if.then8.i.i.i29
   store ptr null, ptr %_M_right.i.i.i30, align 8
   %14 = load ptr, ptr %_M_nodes.i.i.i, align 8
-  %_M_left.i.i.i39 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %14, i64 0, i32 2
+  %_M_left.i.i.i39 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %_M_left.i.i.i39, align 8
   %tobool14.not.i.i.i40 = icmp eq ptr %15, null
   br i1 %tobool14.not.i.i.i40, label %invoke.cont6, label %while.cond.i.i.i41
@@ -5309,13 +5305,13 @@ if.then10.i.i.i38:                                ; preds = %if.then8.i.i.i29
 while.cond.i.i.i41:                               ; preds = %if.then10.i.i.i38, %while.cond.i.i.i41
   %storemerge.i.i.i42 = phi ptr [ %16, %while.cond.i.i.i41 ], [ %15, %if.then10.i.i.i38 ]
   store ptr %storemerge.i.i.i42, ptr %_M_nodes.i.i.i, align 8
-  %_M_right20.i.i.i43 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i42, i64 0, i32 3
+  %_M_right20.i.i.i43 = getelementptr inbounds i8, ptr %storemerge.i.i.i42, i64 24
   %16 = load ptr, ptr %_M_right20.i.i.i43, align 8
   %tobool21.not.i.i.i44 = icmp eq ptr %16, null
   br i1 %tobool21.not.i.i.i44, label %while.end.i.i.i45, label %while.cond.i.i.i41, !llvm.loop !35
 
 while.end.i.i.i45:                                ; preds = %while.cond.i.i.i41
-  %_M_left26.i.i.i46 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i42, i64 0, i32 2
+  %_M_left26.i.i.i46 = getelementptr inbounds i8, ptr %storemerge.i.i.i42, i64 16
   %17 = load ptr, ptr %_M_left26.i.i.i46, align 8
   %tobool27.not.i.i.i47 = icmp eq ptr %17, null
   br i1 %tobool27.not.i.i.i47, label %invoke.cont6, label %if.then28.i.i.i48
@@ -5325,7 +5321,7 @@ if.then28.i.i.i48:                                ; preds = %while.end.i.i.i45
   br label %invoke.cont6
 
 if.else.i.i.i32:                                  ; preds = %if.then8.i.i.i29
-  %_M_left35.i.i.i33 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %12, i64 0, i32 2
+  %_M_left35.i.i.i33 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr null, ptr %_M_left35.i.i.i33, align 8
   br label %invoke.cont6
 
@@ -5339,18 +5335,18 @@ if.end.i.i50:                                     ; preds = %while.body
 
 invoke.cont6:                                     ; preds = %if.else37.i.i.i49, %if.else.i.i.i32, %if.then28.i.i.i48, %while.end.i.i.i45, %if.then10.i.i.i38, %if.end.i.i50
   %call5.i.i.i.i.sink.i.i34 = phi ptr [ %11, %if.then28.i.i.i48 ], [ %11, %while.end.i.i.i45 ], [ %11, %if.else37.i.i.i49 ], [ %11, %if.else.i.i.i32 ], [ %11, %if.then10.i.i.i38 ], [ %call5.i.i.i.i.i.i5152, %if.end.i.i50 ]
-  %_M_storage.i.i35 = getelementptr inbounds %"struct.std::_Rb_tree_node.14", ptr %__x.addr.062, i64 0, i32 1
-  %_M_storage.i.i.i.i.i36 = getelementptr inbounds %"struct.std::_Rb_tree_node.14", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 1
+  %_M_storage.i.i35 = getelementptr inbounds i8, ptr %__x.addr.062, i64 32
+  %_M_storage.i.i.i.i.i36 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(272) %_M_storage.i.i.i.i.i36, ptr noundef nonnull align 4 dereferenceable(272) %_M_storage.i.i35, i64 272, i1 false)
   %18 = load i32, ptr %__x.addr.062, align 8
   store i32 %18, ptr %call5.i.i.i.i.sink.i.i34, align 8
-  %_M_left.i37 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 2
+  %_M_left.i37 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i37, i8 0, i64 16, i1 false)
-  %_M_left = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__p.addr.061, i64 0, i32 2
+  %_M_left = getelementptr inbounds i8, ptr %__p.addr.061, i64 16
   store ptr %call5.i.i.i.i.sink.i.i34, ptr %_M_left, align 8
-  %_M_parent8 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 1
+  %_M_parent8 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 8
   store ptr %__p.addr.061, ptr %_M_parent8, align 8
-  %_M_right9 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.062, i64 0, i32 3
+  %_M_right9 = getelementptr inbounds i8, ptr %__x.addr.062, i64 24
   %19 = load ptr, ptr %_M_right9, align 8
   %tobool10.not = icmp eq ptr %19, null
   br i1 %tobool10.not, label %if.end16, label %if.then11
@@ -5360,12 +5356,12 @@ if.then11:                                        ; preds = %invoke.cont6
           to label %invoke.cont13 unwind label %lpad.loopexit
 
 invoke.cont13:                                    ; preds = %if.then11
-  %_M_right15 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 3
+  %_M_right15 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 24
   store ptr %call14, ptr %_M_right15, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %invoke.cont13, %invoke.cont6
-  %__x.addr.0.in = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.062, i64 0, i32 2
+  %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.062, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8
   %cmp.not = icmp eq ptr %__x.addr.0, null
   br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !36
@@ -5401,10 +5397,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #24
   %cmp.not = icmp eq ptr %1, null

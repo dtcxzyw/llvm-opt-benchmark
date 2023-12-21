@@ -14,43 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.9 = type { ptr }
 %struct.RunStateTransition = type { i32, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.StatusInfo = type { i8, i8, i32 }
-%struct.VMChangeStateEntry = type { ptr, ptr, ptr, %union.anon, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.MachineClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i8, i8, i8, i32, i8, i8, i32, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, %struct.SMPCompatProps, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SMPCompatProps = type { i8, i8, i8, i8, i8, i8 }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.anon = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.4 }
-%struct.anon.4 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.5 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.5 = type { %struct.anon.6 }
-%struct.anon.6 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.GuestPanicInformation = type { i32, %union.anon.8 }
-%union.anon.8 = type { %struct.GuestPanicInformationHyperV }
-%struct.GuestPanicInformationHyperV = type { i64, i64, i64, i64, i64 }
 
 @current_run_state = internal unnamed_addr global i32 6, align 4
 @.str = private unnamed_addr constant [27 x i8] c"new_state < RUN_STATE__MAX\00", align 1
@@ -167,7 +130,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0, ptr noundef %call, i32 noundef %new_state, ptr noundef %call1) #13
   br label %trace_runstate_set.exit
@@ -247,14 +210,14 @@ entry:
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #14
   %call1 = tail call ptr @current_accel() #13
   %call2 = tail call zeroext i1 @object_property_get_bool(ptr noundef %call1, ptr noundef nonnull @.str.3, ptr noundef null) #13
-  %singlestep = getelementptr inbounds %struct.StatusInfo, ptr %call, i64 0, i32 1
+  %singlestep = getelementptr inbounds i8, ptr %call, i64 1
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr %singlestep, align 1
   %0 = load i32, ptr @current_run_state, align 4
   %cmp.i.i = icmp eq i32 %0, 9
   %frombool4 = zext i1 %cmp.i.i to i8
   store i8 %frombool4, ptr %call, align 4
-  %status = getelementptr inbounds %struct.StatusInfo, ptr %call, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %0, ptr %status, align 4
   ret ptr %call
 }
@@ -308,11 +271,11 @@ define dso_local ptr @qemu_add_vm_change_state_handler_prio(ptr noundef %cb, ptr
 entry:
   %call.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #14
   store ptr %cb, ptr %call.i, align 8
-  %prepare_cb2.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i, i64 0, i32 1
+  %prepare_cb2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %prepare_cb2.i, align 8
-  %opaque3.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i, i64 0, i32 2
+  %opaque3.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %opaque, ptr %opaque3.i, align 8
-  %priority4.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i, i64 0, i32 4
+  %priority4.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i32 %priority, ptr %priority4.i, align 8
   %other.022.i = load ptr, ptr @vm_change_state_head, align 8
   %tobool.not23.i = icmp eq ptr %other.022.i, null
@@ -320,16 +283,16 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %other.024.i = phi ptr [ %other.0.i, %for.inc.i ], [ %other.022.i, %entry ]
-  %priority5.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %other.024.i, i64 0, i32 4
+  %priority5.i = getelementptr inbounds i8, ptr %other.024.i, i64 40
   %0 = load i32, ptr %priority5.i, align 8
   %cmp.i = icmp sgt i32 %0, %priority
   br i1 %cmp.i, label %do.body.i, label %for.inc.i
 
 do.body.i:                                        ; preds = %for.body.i
-  %tql_prev.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %other.024.i, i64 0, i32 3, i32 0, i32 1
+  %tql_prev.i = getelementptr inbounds i8, ptr %other.024.i, i64 32
   %1 = load ptr, ptr %tql_prev.i, align 8
-  %entries6.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i, i64 0, i32 3
-  %tql_prev7.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i, i64 0, i32 3, i32 0, i32 1
+  %entries6.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %tql_prev7.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %1, ptr %tql_prev7.i, align 8
   store ptr %other.024.i, ptr %entries6.i, align 8
   %2 = load ptr, ptr %tql_prev.i, align 8
@@ -338,16 +301,16 @@ do.body.i:                                        ; preds = %for.body.i
   br label %qemu_add_vm_change_state_handler_prio_full.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %entries14.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %other.024.i, i64 0, i32 3
+  %entries14.i = getelementptr inbounds i8, ptr %other.024.i, i64 24
   %other.0.i = load ptr, ptr %entries14.i, align 8
   %tobool.not.i = icmp eq ptr %other.0.i, null
   br i1 %tobool.not.i, label %do.body15.i, label %for.body.i, !llvm.loop !5
 
 do.body15.i:                                      ; preds = %for.inc.i, %entry
-  %entries16.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i, i64 0, i32 3
+  %entries16.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr null, ptr %entries16.i, align 8
   %3 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
-  %tql_prev18.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i, i64 0, i32 3, i32 0, i32 1
+  %tql_prev18.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %3, ptr %tql_prev18.i, align 8
   store ptr %call.i, ptr %3, align 8
   store ptr %entries16.i, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
@@ -362,11 +325,11 @@ define dso_local ptr @qemu_add_vm_change_state_handler_prio_full(ptr noundef %cb
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #14
   store ptr %cb, ptr %call, align 8
-  %prepare_cb2 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call, i64 0, i32 1
+  %prepare_cb2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %prepare_cb, ptr %prepare_cb2, align 8
-  %opaque3 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call, i64 0, i32 2
+  %opaque3 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %opaque, ptr %opaque3, align 8
-  %priority4 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call, i64 0, i32 4
+  %priority4 = getelementptr inbounds i8, ptr %call, i64 40
   store i32 %priority, ptr %priority4, align 8
   %other.022 = load ptr, ptr @vm_change_state_head, align 8
   %tobool.not23 = icmp eq ptr %other.022, null
@@ -374,16 +337,16 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %other.024 = phi ptr [ %other.0, %for.inc ], [ %other.022, %entry ]
-  %priority5 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %other.024, i64 0, i32 4
+  %priority5 = getelementptr inbounds i8, ptr %other.024, i64 40
   %0 = load i32, ptr %priority5, align 8
   %cmp = icmp sgt i32 %0, %priority
   br i1 %cmp, label %do.body, label %for.inc
 
 do.body:                                          ; preds = %for.body
-  %tql_prev = getelementptr inbounds %struct.VMChangeStateEntry, ptr %other.024, i64 0, i32 3, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %other.024, i64 32
   %1 = load ptr, ptr %tql_prev, align 8
-  %entries6 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call, i64 0, i32 3
-  %tql_prev7 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call, i64 0, i32 3, i32 0, i32 1
+  %entries6 = getelementptr inbounds i8, ptr %call, i64 24
+  %tql_prev7 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %1, ptr %tql_prev7, align 8
   store ptr %other.024, ptr %entries6, align 8
   %2 = load ptr, ptr %tql_prev, align 8
@@ -392,16 +355,16 @@ do.body:                                          ; preds = %for.body
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %entries14 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %other.024, i64 0, i32 3
+  %entries14 = getelementptr inbounds i8, ptr %other.024, i64 24
   %other.0 = load ptr, ptr %entries14, align 8
   %tobool.not = icmp eq ptr %other.0, null
   br i1 %tobool.not, label %do.body15, label %for.body, !llvm.loop !5
 
 do.body15:                                        ; preds = %for.inc, %entry
-  %entries16 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call, i64 0, i32 3
+  %entries16 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr null, ptr %entries16, align 8
   %3 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
-  %tql_prev18 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call, i64 0, i32 3, i32 0, i32 1
+  %tql_prev18 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %3, ptr %tql_prev18, align 8
   store ptr %call, ptr %3, align 8
   store ptr %entries16, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
@@ -416,11 +379,11 @@ define dso_local ptr @qemu_add_vm_change_state_handler(ptr noundef %cb, ptr noun
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #14
   store ptr %cb, ptr %call.i.i, align 8
-  %prepare_cb2.i.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i.i, i64 0, i32 1
+  %prepare_cb2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %prepare_cb2.i.i, align 8
-  %opaque3.i.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i.i, i64 0, i32 2
+  %opaque3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %opaque, ptr %opaque3.i.i, align 8
-  %priority4.i.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i.i, i64 0, i32 4
+  %priority4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store i32 0, ptr %priority4.i.i, align 8
   %other.022.i.i = load ptr, ptr @vm_change_state_head, align 8
   %tobool.not23.i.i = icmp eq ptr %other.022.i.i, null
@@ -428,16 +391,16 @@ entry:
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   %other.024.i.i = phi ptr [ %other.0.i.i, %for.inc.i.i ], [ %other.022.i.i, %entry ]
-  %priority5.i.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %other.024.i.i, i64 0, i32 4
+  %priority5.i.i = getelementptr inbounds i8, ptr %other.024.i.i, i64 40
   %0 = load i32, ptr %priority5.i.i, align 8
   %cmp.i.i = icmp sgt i32 %0, 0
   br i1 %cmp.i.i, label %do.body.i.i, label %for.inc.i.i
 
 do.body.i.i:                                      ; preds = %for.body.i.i
-  %tql_prev.i.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %other.024.i.i, i64 0, i32 3, i32 0, i32 1
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %other.024.i.i, i64 32
   %1 = load ptr, ptr %tql_prev.i.i, align 8
-  %entries6.i.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i.i, i64 0, i32 3
-  %tql_prev7.i.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i.i, i64 0, i32 3, i32 0, i32 1
+  %entries6.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %tql_prev7.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store ptr %1, ptr %tql_prev7.i.i, align 8
   store ptr %other.024.i.i, ptr %entries6.i.i, align 8
   %2 = load ptr, ptr %tql_prev.i.i, align 8
@@ -446,16 +409,16 @@ do.body.i.i:                                      ; preds = %for.body.i.i
   br label %qemu_add_vm_change_state_handler_prio.exit
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %entries14.i.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %other.024.i.i, i64 0, i32 3
+  %entries14.i.i = getelementptr inbounds i8, ptr %other.024.i.i, i64 24
   %other.0.i.i = load ptr, ptr %entries14.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %other.0.i.i, null
   br i1 %tobool.not.i.i, label %do.body15.i.i, label %for.body.i.i, !llvm.loop !5
 
 do.body15.i.i:                                    ; preds = %for.inc.i.i, %entry
-  %entries16.i.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i.i, i64 0, i32 3
+  %entries16.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr null, ptr %entries16.i.i, align 8
   %3 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
-  %tql_prev18.i.i = getelementptr inbounds %struct.VMChangeStateEntry, ptr %call.i.i, i64 0, i32 3, i32 0, i32 1
+  %tql_prev18.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store ptr %3, ptr %tql_prev18.i.i, align 8
   store ptr %call.i.i, ptr %3, align 8
   store ptr %entries16.i.i, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
@@ -468,15 +431,15 @@ qemu_add_vm_change_state_handler_prio.exit:       ; preds = %do.body.i.i, %do.bo
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_del_vm_change_state_handler(ptr noundef %e) local_unnamed_addr #1 {
 entry:
-  %entries = getelementptr inbounds %struct.VMChangeStateEntry, ptr %e, i64 0, i32 3
+  %entries = getelementptr inbounds i8, ptr %e, i64 24
   %0 = load ptr, ptr %entries, align 8
   %cmp.not = icmp eq ptr %0, null
-  %tql_prev6 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %e, i64 0, i32 3, i32 0, i32 1
+  %tql_prev6 = getelementptr inbounds i8, ptr %e, i64 32
   %1 = load ptr, ptr %tql_prev6, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tql_prev4 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %0, i64 0, i32 3, i32 0, i32 1
+  %tql_prev4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %tql_prev4, align 8
   %.pre = load ptr, ptr %entries, align 8
   br label %if.end
@@ -525,7 +488,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv, i32 noundef %state, ptr noundef %call) #13
   br label %trace_vm_state_notify.exit
@@ -545,15 +508,15 @@ if.then:                                          ; preds = %trace_vm_state_noti
 
 land.rhs:                                         ; preds = %if.then, %for.inc
   %e.038 = phi ptr [ %8, %for.inc ], [ %7, %if.then ]
-  %entries = getelementptr inbounds %struct.VMChangeStateEntry, ptr %e.038, i64 0, i32 3
+  %entries = getelementptr inbounds i8, ptr %e.038, i64 24
   %8 = load ptr, ptr %entries, align 8
-  %prepare_cb = getelementptr inbounds %struct.VMChangeStateEntry, ptr %e.038, i64 0, i32 1
+  %prepare_cb = getelementptr inbounds i8, ptr %e.038, i64 8
   %9 = load ptr, ptr %prepare_cb, align 8
   %tobool3.not = icmp eq ptr %9, null
   br i1 %tobool3.not, label %for.inc, label %if.then4
 
 if.then4:                                         ; preds = %land.rhs
-  %opaque = getelementptr inbounds %struct.VMChangeStateEntry, ptr %e.038, i64 0, i32 2
+  %opaque = getelementptr inbounds i8, ptr %e.038, i64 16
   %10 = load ptr, ptr %opaque, align 8
   tail call void %9(ptr noundef %10, i1 noundef zeroext true, i32 noundef %state) #13
   br label %for.inc
@@ -569,10 +532,10 @@ for.end:                                          ; preds = %for.inc
 
 land.rhs9:                                        ; preds = %for.end, %land.rhs9
   %e.140 = phi ptr [ %11, %land.rhs9 ], [ %.pre44, %for.end ]
-  %entries10 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %e.140, i64 0, i32 3
+  %entries10 = getelementptr inbounds i8, ptr %e.140, i64 24
   %11 = load ptr, ptr %entries10, align 8
   %12 = load ptr, ptr %e.140, align 8
-  %opaque13 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %e.140, i64 0, i32 2
+  %opaque13 = getelementptr inbounds i8, ptr %e.140, i64 16
   %13 = load ptr, ptr %opaque13, align 8
   tail call void %12(ptr noundef %13, i1 noundef zeroext true, i32 noundef %state) #13
   %tobool8.not = icmp eq ptr %11, null
@@ -580,7 +543,7 @@ land.rhs9:                                        ; preds = %for.end, %land.rhs9
 
 if.else:                                          ; preds = %trace_vm_state_notify.exit
   %14 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %14, i64 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %tql_prev, align 8
   %16 = load ptr, ptr %15, align 8
   %tobool18.not33 = icmp eq ptr %16, null
@@ -588,18 +551,18 @@ if.else:                                          ; preds = %trace_vm_state_noti
 
 land.rhs19:                                       ; preds = %if.else, %for.inc33
   %e.234 = phi ptr [ %19, %for.inc33 ], [ %16, %if.else ]
-  %tql_prev21 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %e.234, i64 0, i32 3, i32 0, i32 1
+  %tql_prev21 = getelementptr inbounds i8, ptr %e.234, i64 32
   %17 = load ptr, ptr %tql_prev21, align 8
-  %tql_prev22 = getelementptr inbounds %struct.QTailQLink, ptr %17, i64 0, i32 1
+  %tql_prev22 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %tql_prev22, align 8
   %19 = load ptr, ptr %18, align 8
-  %prepare_cb26 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %e.234, i64 0, i32 1
+  %prepare_cb26 = getelementptr inbounds i8, ptr %e.234, i64 8
   %20 = load ptr, ptr %prepare_cb26, align 8
   %tobool27.not = icmp eq ptr %20, null
   br i1 %tobool27.not, label %for.inc33, label %if.then28
 
 if.then28:                                        ; preds = %land.rhs19
-  %opaque30 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %e.234, i64 0, i32 2
+  %opaque30 = getelementptr inbounds i8, ptr %e.234, i64 16
   %21 = load ptr, ptr %opaque30, align 8
   tail call void %20(ptr noundef %21, i1 noundef zeroext false, i32 noundef %state) #13
   br label %for.inc33
@@ -610,7 +573,7 @@ for.inc33:                                        ; preds = %land.rhs19, %if.the
 
 for.end34:                                        ; preds = %for.inc33
   %.pre = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @vm_change_state_head, i64 0, i32 0, i32 1), align 8
-  %tql_prev35.phi.trans.insert = getelementptr inbounds %struct.QTailQLink, ptr %.pre, i64 0, i32 1
+  %tql_prev35.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
   %.pre42 = load ptr, ptr %tql_prev35.phi.trans.insert, align 8
   %.pre43 = load ptr, ptr %.pre42, align 8
   %tobool38.not35 = icmp eq ptr %.pre43, null
@@ -618,13 +581,13 @@ for.end34:                                        ; preds = %for.inc33
 
 land.rhs39:                                       ; preds = %for.end34, %land.rhs39
   %e.336 = phi ptr [ %24, %land.rhs39 ], [ %.pre43, %for.end34 ]
-  %tql_prev41 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %e.336, i64 0, i32 3, i32 0, i32 1
+  %tql_prev41 = getelementptr inbounds i8, ptr %e.336, i64 32
   %22 = load ptr, ptr %tql_prev41, align 8
-  %tql_prev42 = getelementptr inbounds %struct.QTailQLink, ptr %22, i64 0, i32 1
+  %tql_prev42 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %tql_prev42, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %e.336, align 8
-  %opaque47 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %e.336, i64 0, i32 2
+  %opaque47 = getelementptr inbounds i8, ptr %e.336, i64 16
   %26 = load ptr, ptr %opaque47, align 8
   tail call void %25(ptr noundef %26, i1 noundef zeroext false, i32 noundef %state) #13
   %tobool38.not = icmp eq ptr %24, null
@@ -667,7 +630,7 @@ cond.end:                                         ; preds = %entry
   br i1 %tobool1.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cond.end
-  %reset = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call1.i, i64 144
   %1 = load ptr, ptr %reset, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.else, label %if.then
@@ -725,7 +688,7 @@ do.end:                                           ; preds = %entry, %if.then
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %do.end
-  %crash_occurred = getelementptr inbounds %struct.CPUState, ptr %2, i64 0, i32 15
+  %crash_occurred = getelementptr inbounds i8, ptr %2, i64 206
   store i8 1, ptr %crash_occurred, align 2
   br label %if.end4
 
@@ -778,15 +741,15 @@ do.body27:                                        ; preds = %if.then23
   br i1 %cmp.i20.not, label %if.end64, label %if.then35
 
 if.then35:                                        ; preds = %do.body27
-  %u = getelementptr inbounds %struct.GuestPanicInformation, ptr %info, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %info, i64 8
   %7 = load i64, ptr %u, align 8
-  %arg2 = getelementptr inbounds %struct.GuestPanicInformation, ptr %info, i64 0, i32 1, i32 0, i32 1
+  %arg2 = getelementptr inbounds i8, ptr %info, i64 16
   %8 = load i64, ptr %arg2, align 8
-  %arg3 = getelementptr inbounds %struct.GuestPanicInformation, ptr %info, i64 0, i32 1, i32 0, i32 2
+  %arg3 = getelementptr inbounds i8, ptr %info, i64 24
   %9 = load i64, ptr %arg3, align 8
-  %arg4 = getelementptr inbounds %struct.GuestPanicInformation, ptr %info, i64 0, i32 1, i32 0, i32 3
+  %arg4 = getelementptr inbounds i8, ptr %info, i64 32
   %10 = load i64, ptr %arg4, align 8
-  %arg5 = getelementptr inbounds %struct.GuestPanicInformation, ptr %info, i64 0, i32 1, i32 0, i32 4
+  %arg5 = getelementptr inbounds i8, ptr %info, i64 40
   %11 = load i64, ptr %arg5, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, i64 noundef %11) #13
   br label %if.end64
@@ -798,14 +761,14 @@ do.body47:                                        ; preds = %if.then23
   br i1 %cmp.i22.not, label %if.end64, label %if.then55
 
 if.then55:                                        ; preds = %do.body47
-  %u56 = getelementptr inbounds %struct.GuestPanicInformation, ptr %info, i64 0, i32 1
+  %u56 = getelementptr inbounds i8, ptr %info, i64 8
   %13 = load i32, ptr %u56, align 8
-  %reason = getelementptr inbounds %struct.GuestPanicInformation, ptr %info, i64 0, i32 1, i32 0, i32 3
+  %reason = getelementptr inbounds i8, ptr %info, i64 32
   %14 = load i32, ptr %reason, align 8
   %call58 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @S390CrashReason_lookup, i32 noundef %14) #13
-  %psw_mask = getelementptr inbounds %struct.GuestPanicInformation, ptr %info, i64 0, i32 1, i32 0, i32 1
+  %psw_mask = getelementptr inbounds i8, ptr %info, i64 16
   %15 = load i64, ptr %psw_mask, align 8
-  %psw_addr = getelementptr inbounds %struct.GuestPanicInformation, ptr %info, i64 0, i32 1, i32 0, i32 2
+  %psw_addr = getelementptr inbounds i8, ptr %info, i64 24
   %16 = load i64, ptr %psw_addr, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %13, ptr noundef %call58, i64 noundef %15, i64 noundef %16) #13
   br label %if.end64
@@ -855,7 +818,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %reason) #13
   br label %trace_qemu_system_shutdown_request.exit
@@ -977,7 +940,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %reason) #13
   br label %trace_system_wakeup_request.exit
@@ -1108,7 +1071,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #13
   br label %trace_qemu_system_powerdown_request.exit
@@ -1283,7 +1246,7 @@ cond.end.i.i:                                     ; preds = %if.then34.i
   br i1 %tobool1.not.i.i, label %qemu_system_wakeup.exit.i, label %land.lhs.true.i17.i
 
 land.lhs.true.i17.i:                              ; preds = %cond.end.i.i
-  %wakeup.i.i = getelementptr inbounds %struct.MachineClass, ptr %call1.i.i.i, i64 0, i32 8
+  %wakeup.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 152
   %12 = load ptr, ptr %wakeup.i.i, align 8
   %tobool2.not.i.i = icmp eq ptr %12, null
   br i1 %tobool2.not.i.i, label %qemu_system_wakeup.exit.i, label %if.then.i18.i
@@ -1371,12 +1334,12 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %0 = phi i32 [ 6, %entry ], [ %2, %for.body.i ]
   %p.04.i = phi ptr [ @runstate_transitions_def, %entry ], [ %incdec.ptr.i, %for.body.i ]
   %idxprom.i = zext i32 %0 to i64
-  %to.i = getelementptr inbounds %struct.RunStateTransition, ptr %p.04.i, i64 0, i32 1
+  %to.i = getelementptr inbounds i8, ptr %p.04.i, i64 4
   %1 = load i32, ptr %to.i, align 4
   %idxprom2.i = zext i32 %1 to i64
   %arrayidx3.i = getelementptr [16 x [16 x i8]], ptr @runstate_valid_transitions, i64 0, i64 %idxprom.i, i64 %idxprom2.i
   store i8 1, ptr %arrayidx3.i, align 1
-  %incdec.ptr.i = getelementptr %struct.RunStateTransition, ptr %p.04.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %p.04.i, i64 8
   %2 = load i32, ptr %incdec.ptr.i, align 4
   %cmp.not.i = icmp eq i32 %2, 16
   br i1 %cmp.not.i, label %runstate_init.exit, label %for.body.i, !llvm.loop !12

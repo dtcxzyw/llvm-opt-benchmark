@@ -5,37 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.AIOCBInfo = type { ptr, i64 }
 %struct.timeval = type { i64, i64 }
-%struct.ThreadPoolElement = type { %struct.BlockAIOCB, ptr, ptr, ptr, i32, i32, %union.anon.1, %struct.anon.2 }
-%struct.BlockAIOCB = type { ptr, ptr, ptr, ptr, i32 }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.ThreadPool = type { ptr, ptr, %struct.QemuMutex, %struct.QemuCond, %struct.QemuCond, ptr, %struct.anon.0, %union.anon, i32, i32, i32, i32, i32, i32 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%struct.anon.0 = type { ptr }
-%union.anon = type { %struct.QTailQLink }
 %struct.ThreadPoolCo = type { ptr, i32 }
-%struct.AioContext = type { %struct._GSource, %struct.QemuRecMutex, ptr, %struct.AioHandlerList, %struct.AioHandlerList, i32, %struct.QemuLockCnt, %struct.BHList, %struct.anon.3, i8, %struct.EventNotifier, %struct.anon.4, ptr, i32, i32, ptr, ptr, %struct.io_uring, %struct.AioHandlerSList, %struct.QEMUTimerListGroup, i32, i64, i64, i64, i64, i64, %struct.AioHandlerList, i8, i32, ptr }
-%struct._GSource = type { ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.QemuRecMutex = type { %struct.QemuMutex }
-%struct.QemuLockCnt = type { i32 }
-%struct.BHList = type { ptr }
-%struct.anon.3 = type { ptr, ptr }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.anon.4 = type { ptr }
-%struct.io_uring = type { %struct.io_uring_sq, %struct.io_uring_cq, i32, i32, i32, [3 x i32] }
-%struct.io_uring_sq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, [4 x i32] }
-%struct.io_uring_cq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, [4 x i32] }
-%struct.AioHandlerSList = type { ptr }
-%struct.QEMUTimerListGroup = type { [4 x ptr] }
-%struct.AioHandlerList = type { ptr }
 %struct.QemuThread = type { i64 }
 
 @.str = private unnamed_addr constant [44 x i8] c"pool->ctx == qemu_get_current_aio_context()\00", align 1
@@ -87,29 +57,29 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call4 = tail call ptr @qemu_aio_get(ptr noundef nonnull @thread_pool_aiocb_info, ptr noundef null, ptr noundef %cb, ptr noundef %opaque) #8
-  %func5 = getelementptr inbounds %struct.ThreadPoolElement, ptr %call4, i64 0, i32 2
+  %func5 = getelementptr inbounds i8, ptr %call4, i64 48
   store ptr %func, ptr %func5, align 8
-  %arg6 = getelementptr inbounds %struct.ThreadPoolElement, ptr %call4, i64 0, i32 3
+  %arg6 = getelementptr inbounds i8, ptr %call4, i64 56
   store ptr %arg, ptr %arg6, align 8
-  %state = getelementptr inbounds %struct.ThreadPoolElement, ptr %call4, i64 0, i32 4
+  %state = getelementptr inbounds i8, ptr %call4, i64 64
   store i32 0, ptr %state, align 8
-  %pool7 = getelementptr inbounds %struct.ThreadPoolElement, ptr %call4, i64 0, i32 1
+  %pool7 = getelementptr inbounds i8, ptr %call4, i64 40
   store ptr %call1, ptr %pool7, align 8
-  %head = getelementptr inbounds %struct.ThreadPool, ptr %call1, i64 0, i32 6
+  %head = getelementptr inbounds i8, ptr %call1, i64 184
   %1 = load ptr, ptr %head, align 8
-  %all = getelementptr inbounds %struct.ThreadPoolElement, ptr %call4, i64 0, i32 7
+  %all = getelementptr inbounds i8, ptr %call4, i64 88
   store ptr %1, ptr %all, align 8
   %cmp8.not = icmp eq ptr %1, null
   br i1 %cmp8.not, label %if.end15, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %le_prev = getelementptr inbounds %struct.ThreadPoolElement, ptr %1, i64 0, i32 7, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %1, i64 96
   store ptr %all, ptr %le_prev, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then9, %if.end
   store ptr %call4, ptr %head, align 8
-  %le_prev21 = getelementptr inbounds %struct.ThreadPoolElement, ptr %call4, i64 0, i32 7, i32 1
+  %le_prev21 = getelementptr inbounds i8, ptr %call4, i64 96
   store ptr %head, ptr %le_prev21, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -135,7 +105,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %call1, ptr noundef nonnull %call4, ptr noundef %arg) #8
   br label %trace_thread_pool_submit.exit
@@ -148,17 +118,17 @@ trace_thread_pool_submit.exit:                    ; preds = %if.end15, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %10 = inttoptr i64 %9 to ptr
-  %lock = getelementptr inbounds %struct.ThreadPool, ptr %call1, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %call1, i64 16
   tail call void %10(ptr noundef nonnull %lock, ptr noundef nonnull @.str.1, i32 noundef 261) #8
-  %idle_threads = getelementptr inbounds %struct.ThreadPool, ptr %call1, i64 0, i32 9
+  %idle_threads = getelementptr inbounds i8, ptr %call1, i64 212
   %11 = load i32, ptr %idle_threads, align 4
   %cmp24 = icmp eq i32 %11, 0
   br i1 %cmp24, label %land.lhs.true, label %do.body28
 
 land.lhs.true:                                    ; preds = %trace_thread_pool_submit.exit
-  %cur_threads = getelementptr inbounds %struct.ThreadPool, ptr %call1, i64 0, i32 8
+  %cur_threads = getelementptr inbounds i8, ptr %call1, i64 208
   %12 = load i32, ptr %cur_threads, align 8
-  %max_threads = getelementptr inbounds %struct.ThreadPool, ptr %call1, i64 0, i32 13
+  %max_threads = getelementptr inbounds i8, ptr %call1, i64 228
   %13 = load i32, ptr %max_threads, align 4
   %cmp25 = icmp slt i32 %12, %13
   br i1 %cmp25, label %if.then26, label %do.body28
@@ -166,32 +136,32 @@ land.lhs.true:                                    ; preds = %trace_thread_pool_s
 if.then26:                                        ; preds = %land.lhs.true
   %inc.i = add nsw i32 %12, 1
   store i32 %inc.i, ptr %cur_threads, align 8
-  %new_threads.i = getelementptr inbounds %struct.ThreadPool, ptr %call1, i64 0, i32 10
+  %new_threads.i = getelementptr inbounds i8, ptr %call1, i64 216
   %14 = load i32, ptr %new_threads.i, align 8
   %inc1.i = add i32 %14, 1
   store i32 %inc1.i, ptr %new_threads.i, align 8
-  %pending_threads.i = getelementptr inbounds %struct.ThreadPool, ptr %call1, i64 0, i32 11
+  %pending_threads.i = getelementptr inbounds i8, ptr %call1, i64 220
   %15 = load i32, ptr %pending_threads.i, align 4
   %tobool.not.i = icmp eq i32 %15, 0
   br i1 %tobool.not.i, label %if.then.i, label %do.body28
 
 if.then.i:                                        ; preds = %if.then26
-  %new_thread_bh.i = getelementptr inbounds %struct.ThreadPool, ptr %call1, i64 0, i32 5
+  %new_thread_bh.i = getelementptr inbounds i8, ptr %call1, i64 176
   %16 = load ptr, ptr %new_thread_bh.i, align 8
   tail call void @qemu_bh_schedule(ptr noundef %16) #8
   br label %do.body28
 
 do.body28:                                        ; preds = %if.then.i, %if.then26, %trace_thread_pool_submit.exit, %land.lhs.true
-  %reqs = getelementptr inbounds %struct.ThreadPoolElement, ptr %call4, i64 0, i32 6
+  %reqs = getelementptr inbounds i8, ptr %call4, i64 72
   store ptr null, ptr %reqs, align 8
-  %tql_prev = getelementptr inbounds %struct.ThreadPool, ptr %call1, i64 0, i32 7, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call1, i64 200
   %17 = load ptr, ptr %tql_prev, align 8
-  %tql_prev30 = getelementptr inbounds %struct.ThreadPoolElement, ptr %call4, i64 0, i32 6, i32 0, i32 1
+  %tql_prev30 = getelementptr inbounds i8, ptr %call4, i64 80
   store ptr %17, ptr %tql_prev30, align 8
   store ptr %call4, ptr %17, align 8
   store ptr %reqs, ptr %tql_prev, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.1, i32 noundef 266) #8
-  %request_cond = getelementptr inbounds %struct.ThreadPool, ptr %call1, i64 0, i32 4
+  %request_cond = getelementptr inbounds i8, ptr %call1, i64 120
   tail call void @qemu_cond_signal(ptr noundef nonnull %request_cond) #8
   ret ptr %call4
 }
@@ -215,7 +185,7 @@ entry:
   %tpc = alloca %struct.ThreadPoolCo, align 8
   %call = tail call ptr @qemu_coroutine_self() #8
   store ptr %call, ptr %tpc, align 8
-  %ret = getelementptr inbounds %struct.ThreadPoolCo, ptr %tpc, i64 0, i32 1
+  %ret = getelementptr inbounds i8, ptr %tpc, i64 8
   store i32 -115, ptr %ret, align 8
   %call1 = tail call zeroext i1 @qemu_in_coroutine() #8
   br i1 %call1, label %if.end, label %if.else
@@ -238,7 +208,7 @@ declare zeroext i1 @qemu_in_coroutine() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @thread_pool_co_cb(ptr nocapture noundef %opaque, i32 noundef %ret) #0 {
 entry:
-  %ret1 = getelementptr inbounds %struct.ThreadPoolCo, ptr %opaque, i64 0, i32 1
+  %ret1 = getelementptr inbounds i8, ptr %opaque, i64 8
   store i32 %ret, ptr %ret1, align 8
   %0 = load ptr, ptr %opaque, align 8
   tail call void @aio_co_wake(ptr noundef %0) #8
@@ -259,25 +229,25 @@ define dso_local void @thread_pool_update_params(ptr noundef %pool, ptr nocaptur
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %pool, i64 16
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str.1, i32 noundef 300) #8
-  %thread_pool_min = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 13
+  %thread_pool_min = getelementptr inbounds i8, ptr %ctx, i64 232
   %2 = load i32, ptr %thread_pool_min, align 8
-  %min_threads = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 12
+  %min_threads = getelementptr inbounds i8, ptr %pool, i64 224
   store i32 %2, ptr %min_threads, align 8
-  %thread_pool_max = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 14
+  %thread_pool_max = getelementptr inbounds i8, ptr %ctx, i64 236
   %3 = load i32, ptr %thread_pool_max, align 4
-  %max_threads = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 13
+  %max_threads = getelementptr inbounds i8, ptr %pool, i64 228
   store i32 %3, ptr %max_threads, align 4
-  %cur_threads = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 8
+  %cur_threads = getelementptr inbounds i8, ptr %pool, i64 208
   %4 = load i32, ptr %cur_threads, align 8
   %cmp13 = icmp slt i32 %4, %2
   br i1 %cmp13, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %new_threads.i = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 10
-  %pending_threads.i = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 11
-  %new_thread_bh.i = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 5
+  %new_threads.i = getelementptr inbounds i8, ptr %pool, i64 216
+  %pending_threads.i = getelementptr inbounds i8, ptr %pool, i64 220
+  %new_thread_bh.i = getelementptr inbounds i8, ptr %pool, i64 176
   %5 = load i32, ptr %pending_threads.i, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %for.body, label %for.body.lr.ph.split.us
@@ -329,7 +299,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp617, label %for.body7.lr.ph, label %for.end9
 
 for.body7.lr.ph:                                  ; preds = %for.end
-  %request_cond = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 4
+  %request_cond = getelementptr inbounds i8, ptr %pool, i64 120
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.body7
@@ -363,18 +333,18 @@ thread_pool_init_one.exit:                        ; preds = %entry, %if.then.i
   store ptr %ctx.addr.0.i, ptr %call, align 8
   %call2.i = tail call ptr @aio_bh_new_full(ptr noundef %ctx.addr.0.i, ptr noundef nonnull @thread_pool_completion_bh, ptr noundef nonnull %call, ptr noundef nonnull @.str.9, ptr noundef null) #8
   store ptr %call2.i, ptr %0, align 8
-  %lock.i = getelementptr inbounds %struct.ThreadPool, ptr %call, i64 0, i32 2
+  %lock.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @qemu_mutex_init(ptr noundef nonnull %lock.i) #8
-  %worker_stopped.i = getelementptr inbounds %struct.ThreadPool, ptr %call, i64 0, i32 3
+  %worker_stopped.i = getelementptr inbounds i8, ptr %call, i64 64
   tail call void @qemu_cond_init(ptr noundef nonnull %worker_stopped.i) #8
-  %request_cond.i = getelementptr inbounds %struct.ThreadPool, ptr %call, i64 0, i32 4
+  %request_cond.i = getelementptr inbounds i8, ptr %call, i64 120
   tail call void @qemu_cond_init(ptr noundef nonnull %request_cond.i) #8
   %call3.i = tail call ptr @aio_bh_new_full(ptr noundef %ctx.addr.0.i, ptr noundef nonnull @spawn_thread_bh_fn, ptr noundef nonnull %call, ptr noundef nonnull @.str.10, ptr noundef null) #8
-  %new_thread_bh.i = getelementptr inbounds %struct.ThreadPool, ptr %call, i64 0, i32 5
+  %new_thread_bh.i = getelementptr inbounds i8, ptr %call, i64 176
   store ptr %call3.i, ptr %new_thread_bh.i, align 8
-  %head.i = getelementptr inbounds %struct.ThreadPool, ptr %call, i64 0, i32 6
-  %request_list.i = getelementptr inbounds %struct.ThreadPool, ptr %call, i64 0, i32 7
-  %tql_prev.i = getelementptr inbounds %struct.ThreadPool, ptr %call, i64 0, i32 7, i32 0, i32 1
+  %head.i = getelementptr inbounds i8, ptr %call, i64 184
+  %request_list.i = getelementptr inbounds i8, ptr %call, i64 192
+  %tql_prev.i = getelementptr inbounds i8, ptr %call, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %head.i, i8 0, i64 16, i1 false)
   store ptr %request_list.i, ptr %tql_prev.i, align 8
   tail call void @thread_pool_update_params(ptr noundef nonnull %call, ptr noundef %ctx.addr.0.i)
@@ -391,7 +361,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %head = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 6
+  %head = getelementptr inbounds i8, ptr %pool, i64 184
   %0 = load ptr, ptr %head, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %while.end, label %if.else
@@ -403,28 +373,28 @@ if.else:                                          ; preds = %if.end
 while.end:                                        ; preds = %if.end
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %lock = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %pool, i64 16
   tail call void %2(ptr noundef nonnull %lock, ptr noundef nonnull @.str.1, i32 noundef 360) #8
-  %new_thread_bh = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 5
+  %new_thread_bh = getelementptr inbounds i8, ptr %pool, i64 176
   %3 = load ptr, ptr %new_thread_bh, align 8
   tail call void @qemu_bh_delete(ptr noundef %3) #8
-  %new_threads = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 10
+  %new_threads = getelementptr inbounds i8, ptr %pool, i64 216
   %4 = load i32, ptr %new_threads, align 8
-  %cur_threads = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 8
+  %cur_threads = getelementptr inbounds i8, ptr %pool, i64 208
   %5 = load i32, ptr %cur_threads, align 8
   %sub = sub i32 %5, %4
   store i32 %sub, ptr %cur_threads, align 8
   store i32 0, ptr %new_threads, align 8
-  %max_threads = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 13
+  %max_threads = getelementptr inbounds i8, ptr %pool, i64 228
   store i32 0, ptr %max_threads, align 4
-  %request_cond = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 4
+  %request_cond = getelementptr inbounds i8, ptr %pool, i64 120
   tail call void @qemu_cond_broadcast(ptr noundef nonnull %request_cond) #8
   %6 = load i32, ptr %cur_threads, align 8
   %cmp618 = icmp sgt i32 %6, 0
   br i1 %cmp618, label %while.end13.lr.ph, label %while.end17
 
 while.end13.lr.ph:                                ; preds = %while.end
-  %worker_stopped = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 3
+  %worker_stopped = getelementptr inbounds i8, ptr %pool, i64 64
   br label %while.end13
 
 while.end13:                                      ; preds = %while.end13.lr.ph, %while.end13
@@ -437,11 +407,11 @@ while.end13:                                      ; preds = %while.end13.lr.ph, 
 
 while.end17:                                      ; preds = %while.end13, %while.end
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.1, i32 noundef 374) #8
-  %completion_bh = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 1
+  %completion_bh = getelementptr inbounds i8, ptr %pool, i64 8
   %10 = load ptr, ptr %completion_bh, align 8
   tail call void @qemu_bh_delete(ptr noundef %10) #8
   tail call void @qemu_cond_destroy(ptr noundef nonnull %request_cond) #8
-  %worker_stopped20 = getelementptr inbounds %struct.ThreadPool, ptr %pool, i64 0, i32 3
+  %worker_stopped20 = getelementptr inbounds i8, ptr %pool, i64 64
   tail call void @qemu_cond_destroy(ptr noundef nonnull %worker_stopped20) #8
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %lock) #8
   tail call void @g_free(ptr noundef nonnull %pool) #8
@@ -465,9 +435,9 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 define internal void @thread_pool_cancel(ptr noundef %acb) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %pool1 = getelementptr inbounds %struct.ThreadPoolElement, ptr %acb, i64 0, i32 1
+  %pool1 = getelementptr inbounds i8, ptr %acb, i64 40
   %0 = load ptr, ptr %pool1, align 8
-  %opaque = getelementptr inbounds %struct.BlockAIOCB, ptr %acb, i64 0, i32 3
+  %opaque = getelementptr inbounds i8, ptr %acb, i64 24
   %1 = load ptr, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -493,7 +463,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %acb, ptr noundef %1) #8
   br label %trace_thread_pool_cancel.exit
@@ -504,33 +474,33 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_thread_pool_cancel.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %lock = getelementptr inbounds %struct.ThreadPool, ptr %0, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %10 = inttoptr i64 %9 to ptr
   tail call void %10(ptr noundef nonnull %lock, ptr noundef nonnull @.str.6, i32 noundef 122) #8
-  %state = getelementptr inbounds %struct.ThreadPoolElement, ptr %acb, i64 0, i32 4
+  %state = getelementptr inbounds i8, ptr %acb, i64 64
   %11 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %11, 0
   br i1 %cmp, label %do.body, label %glib_autoptr_cleanup_QemuLockable.exit
 
 do.body:                                          ; preds = %trace_thread_pool_cancel.exit
-  %reqs = getelementptr inbounds %struct.ThreadPoolElement, ptr %acb, i64 0, i32 6
+  %reqs = getelementptr inbounds i8, ptr %acb, i64 72
   %12 = load ptr, ptr %reqs, align 8
   %cmp5.not = icmp eq ptr %12, null
-  %tql_prev12 = getelementptr inbounds %struct.ThreadPoolElement, ptr %acb, i64 0, i32 6, i32 0, i32 1
+  %tql_prev12 = getelementptr inbounds i8, ptr %acb, i64 80
   %13 = load ptr, ptr %tql_prev12, align 8
-  %tql_prev13 = getelementptr inbounds %struct.ThreadPool, ptr %0, i64 0, i32 7, i32 0, i32 1
-  %tql_prev10 = getelementptr inbounds %struct.ThreadPoolElement, ptr %12, i64 0, i32 6, i32 0, i32 1
+  %tql_prev13 = getelementptr inbounds i8, ptr %0, i64 200
+  %tql_prev10 = getelementptr inbounds i8, ptr %12, i64 80
   %tql_prev13.sink = select i1 %cmp5.not, ptr %tql_prev13, ptr %tql_prev10
   store ptr %13, ptr %tql_prev13.sink, align 8
   %14 = load ptr, ptr %reqs, align 8
   store ptr %14, ptr %13, align 8
-  %completion_bh = getelementptr inbounds %struct.ThreadPool, ptr %0, i64 0, i32 1
+  %completion_bh = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reqs, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %completion_bh, align 8
   tail call void @qemu_bh_schedule(ptr noundef %15) #8
   store i32 2, ptr %state, align 8
-  %ret = getelementptr inbounds %struct.ThreadPoolElement, ptr %acb, i64 0, i32 5
+  %ret = getelementptr inbounds i8, ptr %acb, i64 68
   store i32 -125, ptr %ret, align 4
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
@@ -562,29 +532,29 @@ define internal void @thread_pool_completion_bh(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   tail call void @defer_call_begin() #8
-  %head = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 6
+  %head = getelementptr inbounds i8, ptr %opaque, i64 184
   %0 = load ptr, ptr %head, align 8
   %tobool.not2527 = icmp eq ptr %0, null
   br i1 %tobool.not2527, label %for.end, label %land.rhs.lr.ph.lr.ph
 
 land.rhs.lr.ph.lr.ph:                             ; preds = %entry
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %completion_bh = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %completion_bh = getelementptr inbounds i8, ptr %opaque, i64 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.backedge, %land.rhs.lr.ph.lr.ph
   %elem.026 = phi ptr [ %0, %land.rhs.lr.ph.lr.ph ], [ %elem.026.be, %land.rhs.backedge ]
-  %all = getelementptr inbounds %struct.ThreadPoolElement, ptr %elem.026, i64 0, i32 7
+  %all = getelementptr inbounds i8, ptr %elem.026, i64 88
   %1 = load ptr, ptr %all, align 8
-  %state = getelementptr inbounds %struct.ThreadPoolElement, ptr %elem.026, i64 0, i32 4
+  %state = getelementptr inbounds i8, ptr %elem.026, i64 64
   %2 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %2, 2
   br i1 %cmp.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %land.rhs
-  %opaque1 = getelementptr inbounds %struct.BlockAIOCB, ptr %elem.026, i64 0, i32 3
+  %opaque1 = getelementptr inbounds i8, ptr %elem.026, i64 24
   %3 = load ptr, ptr %opaque1, align 8
-  %ret = getelementptr inbounds %struct.ThreadPoolElement, ptr %elem.026, i64 0, i32 5
+  %ret = getelementptr inbounds i8, ptr %elem.026, i64 68
   %4 = load i32, ptr %ret, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -622,12 +592,12 @@ trace_thread_pool_complete.exit:                  ; preds = %if.end, %land.lhs.t
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %12 = load ptr, ptr %all, align 8
   %cmp4.not = icmp eq ptr %12, null
-  %le_prev15.phi.trans.insert = getelementptr inbounds %struct.ThreadPoolElement, ptr %elem.026, i64 0, i32 7, i32 1
+  %le_prev15.phi.trans.insert = getelementptr inbounds i8, ptr %elem.026, i64 96
   %.pre30 = load ptr, ptr %le_prev15.phi.trans.insert, align 8
   br i1 %cmp4.not, label %if.end11, label %if.then5
 
 if.then5:                                         ; preds = %trace_thread_pool_complete.exit
-  %le_prev10 = getelementptr inbounds %struct.ThreadPoolElement, ptr %12, i64 0, i32 7, i32 1
+  %le_prev10 = getelementptr inbounds i8, ptr %12, i64 96
   store ptr %.pre30, ptr %le_prev10, align 8
   %.pre = load ptr, ptr %all, align 8
   br label %if.end11
@@ -635,16 +605,16 @@ if.then5:                                         ; preds = %trace_thread_pool_c
 if.end11:                                         ; preds = %trace_thread_pool_complete.exit, %if.then5
   %13 = phi ptr [ %.pre, %if.then5 ], [ null, %trace_thread_pool_complete.exit ]
   store ptr %13, ptr %.pre30, align 8
-  %cb = getelementptr inbounds %struct.BlockAIOCB, ptr %elem.026, i64 0, i32 2
+  %cb = getelementptr inbounds i8, ptr %elem.026, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %all, i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %cb, align 8
   %tobool21.not = icmp eq ptr %14, null
   br i1 %tobool21.not, label %if.else, label %if.then22
 
 if.then22:                                        ; preds = %if.end11
-  %opaque1.le = getelementptr inbounds %struct.BlockAIOCB, ptr %elem.026, i64 0, i32 3
-  %ret.le = getelementptr inbounds %struct.ThreadPoolElement, ptr %elem.026, i64 0, i32 5
-  %cb.le = getelementptr inbounds %struct.BlockAIOCB, ptr %elem.026, i64 0, i32 2
+  %opaque1.le = getelementptr inbounds i8, ptr %elem.026, i64 24
+  %ret.le = getelementptr inbounds i8, ptr %elem.026, i64 68
+  %cb.le = getelementptr inbounds i8, ptr %elem.026, i64 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   fence acquire
   %15 = load ptr, ptr %completion_bh, align 8
@@ -687,10 +657,10 @@ entry:
   %t.i = alloca %struct.QemuThread, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %opaque, i64 16
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str.1, i32 noundef 153) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.i)
-  %new_threads.i = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 10
+  %new_threads.i = getelementptr inbounds i8, ptr %opaque, i64 216
   %2 = load i32, ptr %new_threads.i, align 8
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %do_spawn_thread.exit, label %if.end.i
@@ -698,7 +668,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %dec.i = add i32 %2, -1
   store i32 %dec.i, ptr %new_threads.i, align 8
-  %pending_threads.i = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 11
+  %pending_threads.i = getelementptr inbounds i8, ptr %opaque, i64 220
   %3 = load i32, ptr %pending_threads.i, align 4
   %inc.i = add i32 %3, 1
   store i32 %inc.i, ptr %pending_threads.i, align 4
@@ -727,14 +697,14 @@ entry:
   %t.i = alloca %struct.QemuThread, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %opaque, i64 16
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str.1, i32 noundef 81) #8
-  %pending_threads = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 11
+  %pending_threads = getelementptr inbounds i8, ptr %opaque, i64 220
   %2 = load i32, ptr %pending_threads, align 4
   %dec = add i32 %2, -1
   store i32 %dec, ptr %pending_threads, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.i)
-  %new_threads.i = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 10
+  %new_threads.i = getelementptr inbounds i8, ptr %opaque, i64 216
   %3 = load i32, ptr %new_threads.i, align 8
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %do_spawn_thread.exit, label %if.end.i
@@ -748,20 +718,20 @@ if.end.i:                                         ; preds = %entry
 
 do_spawn_thread.exit:                             ; preds = %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i)
-  %cur_threads = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 8
-  %max_threads = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 13
+  %cur_threads = getelementptr inbounds i8, ptr %opaque, i64 208
+  %max_threads = getelementptr inbounds i8, ptr %opaque, i64 228
   %4 = load i32, ptr %cur_threads, align 8
   %5 = load i32, ptr %max_threads, align 4
   %cmp.not37 = icmp sgt i32 %4, %5
   br i1 %cmp.not37, label %while.end63, label %while.body2.lr.ph
 
 while.body2.lr.ph:                                ; preds = %do_spawn_thread.exit
-  %request_list = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 7
-  %tql_prev39 = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 7, i32 0, i32 1
-  %completion_bh = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 1
-  %idle_threads = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 9
-  %request_cond = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 4
-  %min_threads = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 12
+  %request_list = getelementptr inbounds i8, ptr %opaque, i64 192
+  %tql_prev39 = getelementptr inbounds i8, ptr %opaque, i64 200
+  %completion_bh = getelementptr inbounds i8, ptr %opaque, i64 8
+  %idle_threads = getelementptr inbounds i8, ptr %opaque, i64 212
+  %request_cond = getelementptr inbounds i8, ptr %opaque, i64 120
+  %min_threads = getelementptr inbounds i8, ptr %opaque, i64 224
   br label %while.body2
 
 while.body2:                                      ; preds = %while.body2.lr.ph, %while.cond1.backedge
@@ -799,26 +769,26 @@ while.cond1.backedge:                             ; preds = %if.then, %land.lhs.
   br i1 %cmp.not, label %while.end63, label %while.body2, !llvm.loop !12
 
 if.end26:                                         ; preds = %while.body2
-  %reqs = getelementptr inbounds %struct.ThreadPoolElement, ptr %6, i64 0, i32 6
+  %reqs = getelementptr inbounds i8, ptr %6, i64 72
   %16 = load ptr, ptr %reqs, align 8
   %cmp29.not = icmp eq ptr %16, null
-  %tql_prev37 = getelementptr inbounds %struct.ThreadPoolElement, ptr %6, i64 0, i32 6, i32 0, i32 1
+  %tql_prev37 = getelementptr inbounds i8, ptr %6, i64 80
   %17 = load ptr, ptr %tql_prev37, align 8
-  %tql_prev35 = getelementptr inbounds %struct.ThreadPoolElement, ptr %16, i64 0, i32 6, i32 0, i32 1
+  %tql_prev35 = getelementptr inbounds i8, ptr %16, i64 80
   %tql_prev39.sink = select i1 %cmp29.not, ptr %tql_prev39, ptr %tql_prev35
   store ptr %17, ptr %tql_prev39.sink, align 8
   %18 = load ptr, ptr %reqs, align 8
   store ptr %18, ptr %17, align 8
-  %state = getelementptr inbounds %struct.ThreadPoolElement, ptr %6, i64 0, i32 4
+  %state = getelementptr inbounds i8, ptr %6, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reqs, i8 0, i64 16, i1 false)
   store i32 1, ptr %state, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.1, i32 noundef 109) #8
-  %func = getelementptr inbounds %struct.ThreadPoolElement, ptr %6, i64 0, i32 2
+  %func = getelementptr inbounds i8, ptr %6, i64 48
   %19 = load ptr, ptr %func, align 8
-  %arg = getelementptr inbounds %struct.ThreadPoolElement, ptr %6, i64 0, i32 3
+  %arg = getelementptr inbounds i8, ptr %6, i64 56
   %20 = load ptr, ptr %arg, align 8
   %call51 = call i32 %19(ptr noundef %20) #8
-  %ret52 = getelementptr inbounds %struct.ThreadPoolElement, ptr %6, i64 0, i32 5
+  %ret52 = getelementptr inbounds i8, ptr %6, i64 68
   store i32 %call51, ptr %ret52, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   fence release
@@ -834,9 +804,9 @@ while.end63:                                      ; preds = %while.cond1.backedg
   %24 = phi i32 [ %4, %do_spawn_thread.exit ], [ %14, %while.cond1.backedge ], [ %12, %land.lhs.true21 ]
   %dec65 = add nsw i32 %24, -1
   store i32 %dec65, ptr %cur_threads, align 8
-  %worker_stopped = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 3
+  %worker_stopped = getelementptr inbounds i8, ptr %opaque, i64 64
   call void @qemu_cond_signal(ptr noundef nonnull %worker_stopped) #8
-  %request_cond66 = getelementptr inbounds %struct.ThreadPool, ptr %opaque, i64 0, i32 4
+  %request_cond66 = getelementptr inbounds i8, ptr %opaque, i64 120
   call void @qemu_cond_signal(ptr noundef nonnull %request_cond66) #8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.1, i32 noundef 130) #8
   ret ptr null

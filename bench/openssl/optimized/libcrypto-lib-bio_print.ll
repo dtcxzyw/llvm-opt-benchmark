@@ -81,9 +81,9 @@ entry:
   %0 = load i8, ptr %format, align 1
   %cmp3 = icmp eq ptr %buffer, null
   %cmp1.i178 = icmp ne ptr %buffer, null
-  %overflow_arg_area_p423 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
-  %1 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
-  %fp_offset_p342 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 1
+  %overflow_arg_area_p423 = getelementptr inbounds i8, ptr %args, i64 8
+  %1 = getelementptr inbounds i8, ptr %args, i64 16
+  %fp_offset_p342 = getelementptr inbounds i8, ptr %args, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %entry, %sw.epilog442
@@ -2513,7 +2513,7 @@ if.end162:                                        ; preds = %do.end157
   br i1 %cmp163, label %if.then165, label %if.end170
 
 if.then165:                                       ; preds = %if.end162
-  %arrayidx168 = getelementptr inbounds [20 x i8], ptr %econvert, i64 0, i64 1
+  %arrayidx168 = getelementptr inbounds i8, ptr %econvert, i64 1
   store i8 48, ptr %arrayidx168, align 1
   br label %if.end170
 

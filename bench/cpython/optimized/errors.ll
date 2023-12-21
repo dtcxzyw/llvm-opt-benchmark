@@ -948,7 +948,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyErr_SetRaisedException(ptr nocapture noundef %tstate, ptr noundef %exc) local_unnamed_addr #0 {
 entry:
-  %current_exception = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception = getelementptr inbounds i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception, align 8
   store ptr %exc, ptr %current_exception, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -981,7 +981,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %current_exception.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception.i = getelementptr inbounds i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception.i, align 8
   store ptr null, ptr %current_exception.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1169,7 +1169,7 @@ if.end.i.i55:                                     ; preds = %if.then.i52
 
 if.end17:                                         ; preds = %if.end.i32, %if.then1.i35, %if.then14, %land.lhs.true10, %if.end8
   %traceback.addr.0 = phi ptr [ %traceback, %land.lhs.true10 ], [ null, %if.end8 ], [ null, %if.then14 ], [ null, %if.then1.i35 ], [ null, %if.end.i32 ]
-  %traceback18 = getelementptr inbounds %struct.PyBaseExceptionObject, ptr %value.addr.0, i64 0, i32 4
+  %traceback18 = getelementptr inbounds i8, ptr %value.addr.0, i64 40
   %24 = load ptr, ptr %traceback18, align 8
   store ptr %traceback.addr.0, ptr %traceback18, align 8
   %cmp.not.i60 = icmp eq ptr %24, null
@@ -1192,7 +1192,7 @@ if.then1.i.i67:                                   ; preds = %if.end.i.i64
   br label %Py_XDECREF.exit68
 
 Py_XDECREF.exit68:                                ; preds = %if.end17, %if.then.i61, %if.end.i.i64, %if.then1.i.i67
-  %current_exception.i69 = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception.i69 = getelementptr inbounds i8, ptr %tstate, i64 104
   %27 = load ptr, ptr %current_exception.i69, align 8
   store ptr %value.addr.0, ptr %current_exception.i69, align 8
   %cmp.not.i.i70 = icmp eq ptr %27, null
@@ -1255,7 +1255,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.then
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds %struct._typeobject, ptr %callable.val.i.i.i, i64 0, i32 5
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
   %5 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %exception_type, i64 %5
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
@@ -1304,7 +1304,7 @@ land.lhs.true:                                    ; preds = %if.end8
 
 if.then13:                                        ; preds = %land.lhs.true
   %12 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %exc.0.val16, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %exc.0.val16, i64 24
   %13 = load ptr, ptr %tp_name, align 8
   %call15 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.21, ptr noundef %exception_type, ptr noundef %13)
   %14 = load i64, ptr %exc.0, align 8
@@ -1371,7 +1371,7 @@ define dso_local void @PyErr_SetRaisedException(ptr noundef %exc) local_unnamed_
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %current_exception.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %current_exception.i, align 8
   store ptr %exc, ptr %current_exception.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
@@ -1400,7 +1400,7 @@ _PyErr_SetRaisedException.exit:                   ; preds = %entry, %if.then.i.i
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @_PyErr_GetTopmostException(ptr nocapture noundef readonly %tstate) local_unnamed_addr #1 {
 entry:
-  %exc_info1 = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 18
+  %exc_info1 = getelementptr inbounds i8, ptr %tstate, i64 112
   %0 = load ptr, ptr %exc_info1, align 8
   br label %while.cond
 
@@ -1413,7 +1413,7 @@ while.cond:                                       ; preds = %land.rhs, %entry
   br i1 %or.cond, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %while.cond
-  %previous_item = getelementptr inbounds %struct._err_stackitem, ptr %exc_info.0, i64 0, i32 1
+  %previous_item = getelementptr inbounds i8, ptr %exc_info.0, i64 8
   %2 = load ptr, ptr %previous_item, align 8
   %cmp4.not = icmp eq ptr %2, null
   br i1 %cmp4.not, label %while.end, label %while.cond, !llvm.loop !5
@@ -1483,7 +1483,7 @@ Py_XINCREF.exit:                                  ; preds = %if.then.i, %if.end.
   br i1 %tobool17.not, label %if.then18, label %if.end29
 
 if.then18:                                        ; preds = %if.end, %Py_XINCREF.exit
-  %current_exception.i.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception.i.i = getelementptr inbounds i8, ptr %tstate, i64 104
   %9 = load ptr, ptr %current_exception.i.i, align 8
   store ptr null, ptr %current_exception.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %9, null
@@ -1518,7 +1518,7 @@ if.then21:                                        ; preds = %_PyErr_Restore.exit
   br i1 %cmp.i67, label %if.then.i71, label %if.end.i68.thread
 
 if.end.i68.thread:                                ; preds = %if.then21
-  %tp_name.i113 = getelementptr inbounds %struct._typeobject, ptr %exception, i64 0, i32 1
+  %tp_name.i113 = getelementptr inbounds i8, ptr %exception, i64 24
   %13 = load ptr, ptr %tp_name.i113, align 8
   br label %if.else.i
 
@@ -1546,7 +1546,7 @@ if.then1.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
 
 if.end.i68:                                       ; preds = %if.then1.i.i.i.i.i, %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.then.i71
   %call1.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.22) #18
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %exception, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %exception, i64 24
   %17 = load ptr, ptr %tp_name.i, align 8
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
@@ -1680,7 +1680,7 @@ if.then1.i.i87:                                   ; preds = %if.end.i.i84
 
 if.end29:                                         ; preds = %if.then1.i.i87, %if.end.i.i84, %if.then.i81, %do.body, %Py_XINCREF.exit
   %value.addr.0 = phi ptr [ %value, %Py_XINCREF.exit ], [ %call19, %do.body ], [ %call19, %if.then.i81 ], [ %call19, %if.end.i.i84 ], [ %call19, %if.then1.i.i87 ]
-  %exc_info1.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 18
+  %exc_info1.i = getelementptr inbounds i8, ptr %tstate, i64 112
   %33 = load ptr, ptr %exc_info1.i, align 8
   br label %while.cond.i
 
@@ -1693,7 +1693,7 @@ while.cond.i:                                     ; preds = %land.rhs.i, %if.end
   br i1 %or.cond.i, label %land.rhs.i, label %_PyErr_GetTopmostException.exit
 
 land.rhs.i:                                       ; preds = %while.cond.i
-  %previous_item.i = getelementptr inbounds %struct._err_stackitem, ptr %exc_info.0.i, i64 0, i32 1
+  %previous_item.i = getelementptr inbounds i8, ptr %exc_info.0.i, i64 8
   %35 = load ptr, ptr %previous_item.i, align 8
   %cmp4.not.i = icmp eq ptr %35, null
   br i1 %cmp4.not.i, label %_PyErr_GetTopmostException.exit, label %while.cond.i, !llvm.loop !5
@@ -1842,7 +1842,7 @@ define hidden ptr @_PyErr_Format(ptr nocapture noundef %tstate, ptr noundef %exc
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %vargs)
-  %current_exception.i.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception.i.i = getelementptr inbounds i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception.i.i, align 8
   store ptr null, ptr %current_exception.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -1896,7 +1896,7 @@ declare i32 @PyObject_IsSubclass(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyErr_Clear(ptr nocapture noundef %tstate) local_unnamed_addr #0 {
 entry:
-  %current_exception.i.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception.i.i = getelementptr inbounds i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception.i.i, align 8
   store ptr null, ptr %current_exception.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -1925,7 +1925,7 @@ _PyErr_Restore.exit:                              ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden ptr @_PyErr_GetRaisedException(ptr nocapture noundef %tstate) local_unnamed_addr #3 {
 entry:
-  %current_exception = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception = getelementptr inbounds i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception, align 8
   store ptr null, ptr %current_exception, align 8
   ret ptr %0
@@ -2066,6 +2066,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call i64 @PyTuple_Size(ptr noundef nonnull %exc) #18
+  %ob_item = getelementptr inbounds i8, ptr %exc, i64 24
   %cmp534 = icmp sgt i64 %call4, 0
   br i1 %cmp534, label %for.body, label %return
 
@@ -2076,7 +2077,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %if.then3, %for.cond
   %i.035 = phi i64 [ %inc, %for.cond ], [ 0, %if.then3 ]
-  %arrayidx = getelementptr %struct.PyTupleObject, ptr %exc, i64 0, i32 1, i64 %i.035
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.035
   %3 = load ptr, ptr %arrayidx, align 8
   %call6 = tail call i32 @PyErr_GivenExceptionMatches(ptr noundef %err, ptr noundef %3)
   %tobool7.not = icmp eq i32 %call6, 0
@@ -2176,11 +2177,11 @@ _PyErr_ExceptionMatches.exit:                     ; preds = %entry, %if.end.i.i
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyErr_NormalizeException(ptr nocapture noundef %tstate, ptr nocapture noundef %exc, ptr nocapture noundef %val, ptr nocapture noundef %tb) local_unnamed_addr #0 {
 entry:
-  %recursion_headroom = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 9
+  %recursion_headroom = getelementptr inbounds i8, ptr %tstate, i64 48
   %0 = load i32, ptr %recursion_headroom, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %recursion_headroom, align 8
-  %current_exception.i.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception.i.i = getelementptr inbounds i8, ptr %tstate, i64 104
   br label %restart
 
 restart:                                          ; preds = %if.end47, %entry
@@ -2382,7 +2383,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.else.i
   store ptr %call.val.i, ptr %exc, align 8
-  %traceback.i = getelementptr inbounds %struct.PyBaseExceptionObject, ptr %24, i64 0, i32 4
+  %traceback.i = getelementptr inbounds i8, ptr %24, i64 40
   %27 = load ptr, ptr %traceback.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %27, null
   br i1 %cmp.not.i.i.i, label %_PyErr_Fetch.exit, label %if.then.i.i.i
@@ -2456,7 +2457,7 @@ return:                                           ; preds = %restart, %if.end34
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_PyErr_Fetch(ptr nocapture noundef %tstate, ptr nocapture noundef writeonly %p_type, ptr nocapture noundef writeonly %p_value, ptr nocapture noundef writeonly %p_traceback) local_unnamed_addr #5 {
 entry:
-  %current_exception.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception.i = getelementptr inbounds i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception.i, align 8
   store ptr null, ptr %current_exception.i, align 8
   store ptr %0, ptr %p_value, align 8
@@ -2481,7 +2482,7 @@ if.end.i.i:                                       ; preds = %if.else
 
 _Py_NewRef.exit:                                  ; preds = %if.else, %if.end.i.i
   store ptr %call.val, ptr %p_type, align 8
-  %traceback = getelementptr inbounds %struct.PyBaseExceptionObject, ptr %0, i64 0, i32 4
+  %traceback = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %traceback, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
@@ -2519,7 +2520,7 @@ define dso_local ptr @PyErr_GetRaisedException() local_unnamed_addr #7 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %current_exception.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %current_exception.i, align 8
   store ptr null, ptr %current_exception.i, align 8
   ret ptr %2
@@ -2530,7 +2531,7 @@ define dso_local void @PyErr_Fetch(ptr nocapture noundef writeonly %p_type, ptr 
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %current_exception.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %current_exception.i.i, align 8
   store ptr null, ptr %current_exception.i.i, align 8
   store ptr %2, ptr %p_value, align 8
@@ -2555,7 +2556,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.else.i
   store ptr %call.val.i, ptr %p_type, align 8
-  %traceback.i = getelementptr inbounds %struct.PyBaseExceptionObject, ptr %2, i64 0, i32 4
+  %traceback.i = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load ptr, ptr %traceback.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_PyErr_Fetch.exit, label %if.then.i.i.i
@@ -2581,7 +2582,7 @@ define dso_local void @PyErr_Clear() local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %current_exception.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %current_exception.i.i.i, align 8
   store ptr null, ptr %current_exception.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
@@ -2610,7 +2611,7 @@ _PyErr_Clear.exit:                                ; preds = %entry, %if.then.i.i
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyErr_GetExcInfo(ptr nocapture noundef readonly %tstate, ptr nocapture noundef writeonly %p_type, ptr nocapture noundef writeonly %p_value, ptr nocapture noundef writeonly %p_traceback) local_unnamed_addr #0 {
 entry:
-  %exc_info1.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 18
+  %exc_info1.i = getelementptr inbounds i8, ptr %tstate, i64 112
   %0 = load ptr, ptr %exc_info1.i, align 8
   br label %while.cond.i
 
@@ -2623,7 +2624,7 @@ while.cond.i:                                     ; preds = %land.rhs.i, %entry
   br i1 %or.cond.i, label %land.rhs.i, label %get_exc_type.exit
 
 land.rhs.i:                                       ; preds = %while.cond.i
-  %previous_item.i = getelementptr inbounds %struct._err_stackitem, ptr %exc_info.0.i, i64 0, i32 1
+  %previous_item.i = getelementptr inbounds i8, ptr %exc_info.0.i, i64 8
   %2 = load ptr, ptr %previous_item.i, align 8
   %cmp4.not.i = icmp eq ptr %2, null
   br i1 %cmp4.not.i, label %if.then.i.i, label %while.cond.i, !llvm.loop !5
@@ -2710,7 +2711,7 @@ _Py_XNewRef.exit25:                               ; preds = %if.then.i.i21, %if.
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden ptr @_PyErr_GetHandledException(ptr nocapture noundef readonly %tstate) local_unnamed_addr #8 {
 entry:
-  %exc_info1.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 18
+  %exc_info1.i = getelementptr inbounds i8, ptr %tstate, i64 112
   %0 = load ptr, ptr %exc_info1.i, align 8
   br label %while.cond.i
 
@@ -2723,7 +2724,7 @@ while.cond.i:                                     ; preds = %land.rhs.i, %entry
   br i1 %or.cond.i, label %land.rhs.i, label %if.end
 
 land.rhs.i:                                       ; preds = %while.cond.i
-  %previous_item.i = getelementptr inbounds %struct._err_stackitem, ptr %exc_info.0.i, i64 0, i32 1
+  %previous_item.i = getelementptr inbounds i8, ptr %exc_info.0.i, i64 8
   %2 = load ptr, ptr %previous_item.i, align 8
   %cmp4.not.i = icmp eq ptr %2, null
   br i1 %cmp4.not.i, label %return, label %while.cond.i, !llvm.loop !5
@@ -2748,7 +2749,7 @@ define dso_local ptr @PyErr_GetHandledException() local_unnamed_addr #9 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %exc_info1.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 18
+  %exc_info1.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %exc_info1.i.i, align 8
   br label %while.cond.i.i
 
@@ -2761,7 +2762,7 @@ while.cond.i.i:                                   ; preds = %land.rhs.i.i, %entr
   br i1 %or.cond.i.i, label %land.rhs.i.i, label %if.end.i
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i
-  %previous_item.i.i = getelementptr inbounds %struct._err_stackitem, ptr %exc_info.0.i.i, i64 0, i32 1
+  %previous_item.i.i = getelementptr inbounds i8, ptr %exc_info.0.i.i, i64 8
   %4 = load ptr, ptr %previous_item.i.i, align 8
   %cmp4.not.i.i = icmp eq ptr %4, null
   br i1 %cmp4.not.i.i, label %_PyErr_GetHandledException.exit, label %while.cond.i.i, !llvm.loop !5
@@ -2784,7 +2785,7 @@ _PyErr_GetHandledException.exit:                  ; preds = %land.rhs.i.i, %if.e
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyErr_SetHandledException(ptr nocapture noundef readonly %tstate, ptr noundef %exc) local_unnamed_addr #0 {
 entry:
-  %exc_info = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 18
+  %exc_info = getelementptr inbounds i8, ptr %tstate, i64 112
   %0 = load ptr, ptr %exc_info, align 8
   %1 = load ptr, ptr %0, align 8
   %cmp.not.i.i = icmp eq ptr %exc, null
@@ -2830,7 +2831,7 @@ define dso_local void @PyErr_SetHandledException(ptr noundef %exc) local_unnamed
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %exc_info.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 18
+  %exc_info.i = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %exc_info.i, align 8
   %3 = load ptr, ptr %2, align 8
   %cmp.not.i.i.i = icmp eq ptr %exc, null
@@ -2885,7 +2886,7 @@ define dso_local void @PyErr_SetExcInfo(ptr noundef %type, ptr noundef %value, p
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %exc_info.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 18
+  %exc_info.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %exc_info.i.i, align 8
   %3 = load ptr, ptr %2, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %value, null
@@ -3227,7 +3228,7 @@ define hidden void @_PyErr_ChainStackItem() local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %exc_info1 = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 18
+  %exc_info1 = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %exc_info1, align 8
   %3 = load ptr, ptr %2, align 8
   %cmp = icmp eq ptr %3, null
@@ -3236,7 +3237,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %current_exception.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load ptr, ptr %current_exception.i, align 8
   store ptr null, ptr %current_exception.i, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -3277,7 +3278,7 @@ declare void @llvm.va_start(ptr) #10
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_PyErr_FormatVFromCause(ptr nocapture noundef %tstate, ptr noundef %exception, ptr noundef %format, ptr noundef %vargs) unnamed_addr #0 {
 _PyErr_Restore.exit.i:
-  %current_exception.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception.i = getelementptr inbounds i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception.i, align 8
   store ptr null, ptr %current_exception.i, align 8
   %call.i = tail call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef %vargs) #18
@@ -3812,7 +3813,7 @@ define dso_local noalias ptr @PyErr_FormatV(ptr noundef %exception, ptr noundef 
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %current_exception.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %current_exception.i.i.i, align 8
   store ptr null, ptr %current_exception.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
@@ -3867,7 +3868,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   call void @llvm.va_start(ptr nonnull %vargs)
-  %current_exception.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %current_exception.i.i.i, align 8
   store ptr null, ptr %current_exception.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
@@ -3922,7 +3923,7 @@ entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %current_exception.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %current_exception.i.i, align 8
   store ptr null, ptr %current_exception.i.i, align 8
   %cmp = icmp eq ptr %2, null
@@ -3958,7 +3959,7 @@ Py_DECREF.exit:                                   ; preds = %if.end6, %if.then1.
 
 if.end10:                                         ; preds = %Py_DECREF.exit
   %5 = load ptr, ptr %0, align 8
-  %current_exception.i.i8 = getelementptr inbounds %struct._ts, ptr %5, i64 0, i32 17
+  %current_exception.i.i8 = getelementptr inbounds i8, ptr %5, i64 104
   %6 = load ptr, ptr %current_exception.i.i8, align 8
   store ptr %2, ptr %current_exception.i.i8, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
@@ -4297,11 +4298,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %func = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr @__func__._PyErr_InitTypes, ptr %func, align 8
-  %err_msg = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i64 0, i32 2
+  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr @.str.18, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i64 0, i32 3
+  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
@@ -4430,7 +4431,7 @@ if.end16.i:                                       ; preds = %if.else.i, %if.end.
   br i1 %cmp18.i, label %if.then19.i, label %if.end24.i
 
 if.then19.i:                                      ; preds = %if.end16.i
-  %current_exception.i.i.i.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception.i.i.i.i = getelementptr inbounds i8, ptr %tstate, i64 104
   %1 = load ptr, ptr %current_exception.i.i.i.i, align 8
   store ptr null, ptr %current_exception.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -4487,7 +4488,7 @@ if.then47.i:                                      ; preds = %if.end43.i
   br i1 %cmp49.i, label %if.then50.i, label %if.end52.i
 
 if.then50.i:                                      ; preds = %if.then47.i
-  %current_exception.i.i.i65.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception.i.i.i65.i = getelementptr inbounds i8, ptr %tstate, i64 104
   %4 = load ptr, ptr %current_exception.i.i.i65.i, align 8
   store ptr null, ptr %current_exception.i.i.i65.i, align 8
   %cmp.not.i.i.i.i66.i = icmp eq ptr %4, null
@@ -4546,7 +4547,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %if.then62.i
 
 if.then62.i:                                      ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i, %if.end56.i
-  %current_exception.i.i.i77.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception.i.i.i77.i = getelementptr inbounds i8, ptr %tstate, i64 104
   %12 = load ptr, ptr %current_exception.i.i.i77.i, align 8
   store ptr null, ptr %current_exception.i.i.i77.i, align 8
   %cmp.not.i.i.i.i78.i = icmp eq ptr %12, null
@@ -4669,7 +4670,7 @@ if.then1.i.i97.i:                                 ; preds = %if.end.i.i94.i
   br label %if.then91.i
 
 if.then91.i:                                      ; preds = %if.then1.i.i97.i, %if.end.i.i94.i, %if.then.i91.i, %if.end84.i
-  %current_exception.i.i.i99.i = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 17
+  %current_exception.i.i.i99.i = getelementptr inbounds i8, ptr %tstate, i64 104
   %24 = load ptr, ptr %current_exception.i.i.i99.i, align 8
   store ptr null, ptr %current_exception.i.i.i99.i, align 8
   %cmp.not.i.i.i.i100.i = icmp eq ptr %24, null
@@ -4810,7 +4811,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %entry
-  %current_exception.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %current_exception.i.i, align 8
   store ptr null, ptr %current_exception.i.i, align 8
   store ptr %2, ptr %exc_value, align 8
@@ -4836,7 +4837,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.else.i
   store ptr %call.val.i, ptr %exc_type, align 8
-  %traceback.i = getelementptr inbounds %struct.PyBaseExceptionObject, ptr %2, i64 0, i32 4
+  %traceback.i = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load ptr, ptr %traceback.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %if.then2, label %if.then.i.i.i
@@ -4958,7 +4959,7 @@ if.then23:                                        ; preds = %if.end21
 
 if.then26:                                        ; preds = %if.then23
   %18 = load ptr, ptr %0, align 8
-  %current_exception.i.i.i.i = getelementptr inbounds %struct._ts, ptr %18, i64 0, i32 17
+  %current_exception.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 104
   %19 = load ptr, ptr %current_exception.i.i.i.i, align 8
   store ptr null, ptr %current_exception.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %19, null
@@ -5285,7 +5286,7 @@ if.end.i.i.i105:                                  ; preds = %if.else.i101
 
 _Py_NewRef.exit.i106:                             ; preds = %if.end.i.i.i105, %if.else.i101
   store ptr %call.val.i102, ptr %exc_type, align 8
-  %traceback.i107 = getelementptr inbounds %struct.PyBaseExceptionObject, ptr %50, i64 0, i32 4
+  %traceback.i107 = getelementptr inbounds i8, ptr %50, i64 40
   %53 = load ptr, ptr %traceback.i107, align 8
   %cmp.not.i.i.i108 = icmp eq ptr %53, null
   br i1 %cmp.not.i.i.i108, label %_PyErr_Fetch.exit116, label %if.then.i.i.i109
@@ -5463,7 +5464,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.then.i
 
 if.then3:                                         ; preds = %if.then
-  %current_exception.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %current_exception.i.i.i, align 8
   store ptr null, ptr %current_exception.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
@@ -5522,7 +5523,7 @@ define internal fastcc void @PyErr_SyntaxLocationObjectEx(ptr noundef %filename,
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %current_exception.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %current_exception.i, align 8
   store ptr null, ptr %current_exception.i, align 8
   %conv = sext i32 %lineno to i64
@@ -6140,7 +6141,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %current_exception.i.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %current_exception.i.i.i.i, align 8
   store ptr null, ptr %current_exception.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %2, null
@@ -6206,7 +6207,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %for.body.lr.ph.i
 
 if.then4:                                         ; preds = %if.end
-  %current_exception.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %current_exception.i.i.i, align 8
   store ptr null, ptr %current_exception.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
@@ -6230,7 +6231,7 @@ if.then1.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %linebuf.i)
-  %arrayidx.i = getelementptr inbounds [1000 x i8], ptr %linebuf.i, i64 0, i64 998
+  %arrayidx.i = getelementptr inbounds i8, ptr %linebuf.i, i64 998
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -6283,7 +6284,7 @@ if.end23.i:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp24.i, label %if.then26.i, label %err_programtext.exit
 
 if.then26.i:                                      ; preds = %if.end23.i
-  %current_exception.i.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 17
+  %current_exception.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
   %6 = load ptr, ptr %current_exception.i.i.i.i, align 8
   store ptr null, ptr %current_exception.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %6, null

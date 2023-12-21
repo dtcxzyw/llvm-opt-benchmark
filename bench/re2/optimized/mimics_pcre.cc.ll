@@ -3,10 +3,6 @@ source_filename = "bench/re2/original/mimics_pcre.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.re2::Regexp" = type { i8, i8, i16, i16, i16, %union.anon, ptr, %union.anon.0 }
-%union.anon = type { ptr }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { i32, ptr }
 %"class.re2::EmptyStringWalker" = type { %"class.re2::Regexp::Walker" }
 %"class.re2::Regexp::Walker" = type { ptr, %"class.std::stack", i8, i32 }
 %"class.std::stack" = type { %"class.std::deque" }
@@ -132,10 +128,10 @@ for.end:                                          ; preds = %for.cond, %entry
   ]
 
 sw.bb:                                            ; preds = %for.end, %for.end, %for.end
-  %nsub_.i = getelementptr inbounds %"class.re2::Regexp", ptr %re, i64 0, i32 4
+  %nsub_.i = getelementptr inbounds i8, ptr %re, i64 6
   %3 = load i16, ptr %nsub_.i, align 2
   %cmp.i = icmp ult i16 %3, 2
-  %4 = getelementptr inbounds %"class.re2::Regexp", ptr %re, i64 0, i32 5
+  %4 = getelementptr inbounds i8, ptr %re, i64 8
   %5 = load ptr, ptr %4, align 8
   %retval.0.i = select i1 %cmp.i, ptr %4, ptr %5
   %6 = load ptr, ptr %retval.0.i, align 8
@@ -143,16 +139,16 @@ sw.bb:                                            ; preds = %for.end, %for.end, 
   br i1 %call5, label %return, label %sw.epilog
 
 sw.bb8:                                           ; preds = %for.end
-  %7 = getelementptr inbounds %"class.re2::Regexp", ptr %re, i64 0, i32 7
+  %7 = getelementptr inbounds i8, ptr %re, i64 24
   %8 = load i32, ptr %7, align 8
   %cmp10 = icmp eq i32 %8, -1
   br i1 %cmp10, label %land.lhs.true, label %sw.epilog
 
 land.lhs.true:                                    ; preds = %sw.bb8
-  %nsub_.i8 = getelementptr inbounds %"class.re2::Regexp", ptr %re, i64 0, i32 4
+  %nsub_.i8 = getelementptr inbounds i8, ptr %re, i64 6
   %9 = load i16, ptr %nsub_.i8, align 2
   %cmp.i9 = icmp ult i16 %9, 2
-  %10 = getelementptr inbounds %"class.re2::Regexp", ptr %re, i64 0, i32 5
+  %10 = getelementptr inbounds i8, ptr %re, i64 8
   %11 = load ptr, ptr %10, align 8
   %retval.0.i10 = select i1 %cmp.i9, ptr %10, ptr %11
   %12 = load ptr, ptr %retval.0.i10, align 8
@@ -160,13 +156,13 @@ land.lhs.true:                                    ; preds = %sw.bb8
   br i1 %call13, label %return, label %sw.epilog
 
 sw.bb16:                                          ; preds = %for.end
-  %13 = getelementptr inbounds %"class.re2::Regexp", ptr %re, i64 0, i32 7
+  %13 = getelementptr inbounds i8, ptr %re, i64 24
   %14 = load i32, ptr %13, align 8
   %cmp18 = icmp eq i32 %14, 11
   br i1 %cmp18, label %return, label %sw.epilog
 
 sw.bb21:                                          ; preds = %for.end, %for.end
-  %parse_flags_.i = getelementptr inbounds %"class.re2::Regexp", ptr %re, i64 0, i32 2
+  %parse_flags_.i = getelementptr inbounds i8, ptr %re, i64 2
   %15 = load i16, ptr %parse_flags_.i, align 2
   %16 = and i16 %15, 8192
   %tobool24.not = icmp eq i16 %16, 0
@@ -185,13 +181,13 @@ define internal fastcc noundef zeroext i1 @_ZN3re2L16CanBeEmptyStringEPNS_6Regex
 entry:
   %w = alloca %"class.re2::EmptyStringWalker", align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 0, inrange i32 0, i64 2), ptr %w, align 8
-  %stack_.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %w, i64 0, i32 1
+  %stack_.i.i = getelementptr inbounds i8, ptr %w, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i8 0, i64 80, i1 false)
   call void @_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i64 noundef 0)
-  %stopped_early_.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %w, i64 0, i32 2
+  %stopped_early_.i.i = getelementptr inbounds i8, ptr %w, i64 88
   store i8 0, ptr %stopped_early_.i.i, align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re217EmptyStringWalkerE, i64 0, inrange i32 0, i64 2), ptr %w, align 8
-  %max_visits_.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %w, i64 0, i32 3
+  %max_visits_.i = getelementptr inbounds i8, ptr %w, i64 92
   store i32 1000000, ptr %max_visits_.i, align 4
   %call.i1 = invoke noundef zeroext i1 @_ZN3re26Regexp6WalkerIbE12WalkInternalEPS0_bb(ptr noundef nonnull align 8 dereferenceable(96) %w, ptr noundef %re, i1 noundef zeroext true, i1 noundef zeroext true)
           to label %invoke.cont unwind label %lpad
@@ -207,11 +203,11 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i.i.i, label %_ZN3re217EmptyStringWalkerD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i
-  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %w, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %w, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %w, i64 80
+  %_M_node5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w, i64 48
   %1 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i.i.i
   br i1 %cmp3.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i.i
 
@@ -219,7 +215,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   %__n.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %1, %if.then.i.i.i.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %3) #15
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i, %2
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i.i, !llvm.loop !6
 
@@ -254,13 +250,13 @@ define noundef zeroext i1 @_ZN3re26Regexp10MimicsPCREEv(ptr noundef nonnull alig
 entry:
   %w = alloca %"class.re2::PCREWalker", align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIbEE, i64 0, inrange i32 0, i64 2), ptr %w, align 8
-  %stack_.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %w, i64 0, i32 1
+  %stack_.i.i = getelementptr inbounds i8, ptr %w, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i8 0, i64 80, i1 false)
   call void @_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %stack_.i.i, i64 noundef 0)
-  %stopped_early_.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %w, i64 0, i32 2
+  %stopped_early_.i.i = getelementptr inbounds i8, ptr %w, i64 88
   store i8 0, ptr %stopped_early_.i.i, align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re210PCREWalkerE, i64 0, inrange i32 0, i64 2), ptr %w, align 8
-  %max_visits_.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %w, i64 0, i32 3
+  %max_visits_.i = getelementptr inbounds i8, ptr %w, i64 92
   store i32 1000000, ptr %max_visits_.i, align 4
   %call.i1 = invoke noundef zeroext i1 @_ZN3re26Regexp6WalkerIbE12WalkInternalEPS0_bb(ptr noundef nonnull align 8 dereferenceable(96) %w, ptr noundef nonnull %this, i1 noundef zeroext true, i1 noundef zeroext true)
           to label %invoke.cont unwind label %lpad
@@ -276,11 +272,11 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i.i.i, label %_ZN3re210PCREWalkerD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i
-  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %w, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %w, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %w, i64 80
+  %_M_node5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w, i64 48
   %1 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i.i.i
   br i1 %cmp3.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i.i
 
@@ -288,7 +284,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   %__n.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %1, %if.then.i.i.i.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %3) #15
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i, %2
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i.i, !llvm.loop !6
 
@@ -328,17 +324,17 @@ entry:
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %stack_.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1
+  %stack_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stack_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3re26Regexp6WalkerIbED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i
-  %_M_node5.i.i6.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_node5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i.i
   br i1 %cmp3.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i
 
@@ -346,7 +342,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %f
   %__n.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %if.then.i.i.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #15
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i, %2
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i, !llvm.loop !6
 
@@ -464,17 +460,17 @@ entry:
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %entry
-  %stack_.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1
+  %stack_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stack_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN3re210PCREWalkerD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i
-  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_node5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i.i.i
   br i1 %cmp3.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i.i
 
@@ -482,7 +478,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   %__n.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %1, %if.then.i.i.i.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #15
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i, %2
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i.i, !llvm.loop !6
 
@@ -524,7 +520,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3re210PCREWalker10ShortVisitEPNS_6Reg
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   store i8 0, ptr %ref.tmp, align 8
-  %str_.i = getelementptr inbounds %class.LogMessage, ptr %ref.tmp, i64 0, i32 1
+  %str_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i)
   %call3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i, ptr noundef nonnull @.str.5)
           to label %invoke.cont2.i unwind label %lpad.i
@@ -574,17 +570,17 @@ entry:
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %stack_.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1
+  %stack_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stack_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3re26Regexp6WalkerIbED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i
-  %_M_node5.i.i6.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_node5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i.i
   br i1 %cmp3.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i
 
@@ -592,7 +588,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %f
   %__n.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %if.then.i.i.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #15
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i, %2
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i, !llvm.loop !6
 
@@ -624,17 +620,17 @@ entry:
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %entry
-  %stack_.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1
+  %stack_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stack_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN3re217EmptyStringWalkerD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i
-  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_node5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i.i.i
   br i1 %cmp3.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i.i
 
@@ -642,7 +638,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   %__n.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %1, %if.then.i.i.i.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #15
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i, %2
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i.i, !llvm.loop !6
 
@@ -672,7 +668,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3re217EmptyStringWalker10ShortVisitEP
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   store i8 0, ptr %ref.tmp, align 8
-  %str_.i = getelementptr inbounds %class.LogMessage, ptr %ref.tmp, i64 0, i32 1
+  %str_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i)
   %call3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i, ptr noundef nonnull @.str.5)
           to label %invoke.cont2.i unwind label %lpad.i
@@ -722,17 +718,17 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %stack_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1
+  %stack_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stack_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_node5.i.i6.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i
   br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i
 
@@ -740,7 +736,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   %__n.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %if.then.i.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #15
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i, i64 8
   %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %2
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i, !llvm.loop !6
 
@@ -790,7 +786,7 @@ entry:
   %add = add nuw nsw i64 %div, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %mul.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
@@ -808,7 +804,7 @@ for.body.i:                                       ; preds = %entry, %invoke.cont
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__cur.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !9
 
@@ -824,7 +820,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #15
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i, !llvm.loop !6
 
@@ -864,24 +860,24 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.re2::WalkState", ptr %12, i64 21
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 504
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %add.ptr27 = getelementptr inbounds ptr, ptr %add.ptr, i64 %div
-  %_M_node.i10 = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
+  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds %"struct.re2::WalkState", ptr %13, i64 21
-  %_M_last.i13 = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 504
+  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %add.ptr36 = getelementptr inbounds %"struct.re2::WalkState", ptr %13, i64 %rem
@@ -933,8 +929,8 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 define linkonce_odr void @_ZN3re26Regexp6WalkerIbE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %_M_start.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, %1
@@ -942,7 +938,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %ref.tmp, align 8
-  %str_.i = getelementptr inbounds %class.LogMessage, ptr %ref.tmp, i64 0, i32 1
+  %str_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i)
   %call3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i, ptr noundef nonnull @.str)
           to label %invoke.cont2.i unwind label %lpad.i
@@ -981,9 +977,9 @@ invoke.cont3:                                     ; preds = %_ZN10LogMessageC2EP
   br i1 %cmp.i.i.i421, label %if.end13, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %invoke.cont3
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 1
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_last.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 2
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %.pre = load ptr, ptr %_M_first3.i.i.i.i, align 8
   br label %while.body
 
@@ -995,30 +991,30 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 _ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit: ; preds = %while.body
   %7 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !10
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %7, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.re2::WalkState", ptr %8, i64 20
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 480
   %9 = load ptr, ptr %incdec.ptr.i.i.i, align 8
-  %nsub_ = getelementptr inbounds %"class.re2::Regexp", ptr %9, i64 0, i32 4
+  %nsub_ = getelementptr inbounds i8, ptr %9, i64 6
   %10 = load i16, ptr %nsub_, align 2
   %cmp = icmp ugt i16 %10, 1
   br i1 %cmp, label %if.then.i.i.i10, label %if.else.i.i
 
 _ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit.thread: ; preds = %while.body
-  %incdec.ptr.i.i.i18 = getelementptr inbounds %"struct.re2::WalkState", ptr %6, i64 -1
+  %incdec.ptr.i.i.i18 = getelementptr inbounds i8, ptr %6, i64 -24
   %11 = load ptr, ptr %incdec.ptr.i.i.i18, align 8
-  %nsub_19 = getelementptr inbounds %"class.re2::Regexp", ptr %11, i64 0, i32 4
+  %nsub_19 = getelementptr inbounds i8, ptr %11, i64 6
   %12 = load i16, ptr %nsub_19, align 2
   %cmp20 = icmp ugt i16 %12, 1
   br i1 %cmp20, label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit14, label %if.end
 
 if.then.i.i.i10:                                  ; preds = %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit
-  %add.ptr.i.i.i.i13 = getelementptr inbounds %"struct.re2::WalkState", ptr %8, i64 21
+  %add.ptr.i.i.i.i13 = getelementptr inbounds i8, ptr %8, i64 504
   br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit14
 
 _ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit14: ; preds = %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit.thread, %if.then.i.i.i10
   %13 = phi ptr [ %add.ptr.i.i.i.i13, %if.then.i.i.i10 ], [ %6, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit.thread ]
-  %child_args = getelementptr %"struct.re2::WalkState", ptr %13, i64 -1, i32 5
+  %child_args = getelementptr inbounds i8, ptr %13, i64 -8
   %14 = load ptr, ptr %child_args, align 8
   %isnull = icmp eq ptr %14, null
   br i1 %isnull, label %if.end, label %delete.notnull
@@ -1042,20 +1038,20 @@ if.end:                                           ; preds = %_ZNSt5stackIN3re29W
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.re2::WalkState", ptr %17, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 -24
   br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit
 
 if.else.i.i:                                      ; preds = %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit, %if.end
   %18 = phi ptr [ %16, %if.end ], [ %5, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit ]
   call void @_ZdlPv(ptr noundef %18) #15
   %19 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %add.ptr.i.i.i16 = getelementptr inbounds ptr, ptr %19, i64 -1
+  %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %19, i64 -8
   store ptr %add.ptr.i.i.i16, ptr %_M_node5.i.i.i.i, align 8
   %20 = load ptr, ptr %add.ptr.i.i.i16, align 8
   store ptr %20, ptr %_M_first3.i.i.i.i, align 8
-  %add.ptr.i.i.i.i17 = getelementptr inbounds %"struct.re2::WalkState", ptr %20, i64 21
+  %add.ptr.i.i.i.i17 = getelementptr inbounds i8, ptr %20, i64 504
   store ptr %add.ptr.i.i.i.i17, ptr %_M_last.i.i.i.i, align 8
-  %add.ptr8.i.i.i = getelementptr inbounds %"struct.re2::WalkState", ptr %20, i64 20
+  %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %20, i64 480
   br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit
 
 _ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -1083,7 +1079,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
-  %str_.i.i = getelementptr inbounds %class.LogMessage, ptr %this, i64 0, i32 1
+  %str_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %call2.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i.i, ptr noundef nonnull @.str.4)
           to label %call2.i.noexc unwind label %terminate.lpad
 
@@ -1102,7 +1098,7 @@ _ZN10LogMessage5FlushEv.exit:                     ; preds = %call2.i.noexc
   br label %if.end
 
 if.end:                                           ; preds = %_ZN10LogMessage5FlushEv.exit, %entry
-  %str_ = getelementptr inbounds %class.LogMessage, ptr %this, i64 0, i32 1
+  %str_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_) #17
   ret void
 
@@ -1154,7 +1150,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %ref.tmp, align 8
-  %str_.i = getelementptr inbounds %class.LogMessage, ptr %ref.tmp, i64 0, i32 1
+  %str_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i)
   %call3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i, ptr noundef nonnull @.str)
           to label %invoke.cont2.i unwind label %lpad.i
@@ -1196,27 +1192,27 @@ lpad:                                             ; preds = %_ZN10LogMessageC2EP
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %stack_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1
+  %stack_ = getelementptr inbounds i8, ptr %this, i64 8
   %frombool.i = zext i1 %top_arg to i8
   store ptr %re, ptr %ref.tmp4, align 8
-  %n.i = getelementptr inbounds %"struct.re2::WalkState", ptr %ref.tmp4, i64 0, i32 1
+  %n.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store i32 -1, ptr %n.i, align 8
-  %parent_arg.i = getelementptr inbounds %"struct.re2::WalkState", ptr %ref.tmp4, i64 0, i32 2
+  %parent_arg.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 12
   store i8 %frombool.i, ptr %parent_arg.i, align 4
-  %child_args.i = getelementptr inbounds %"struct.re2::WalkState", ptr %ref.tmp4, i64 0, i32 5
+  %child_args.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store ptr null, ptr %child_args.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_last.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 2
+  %_M_last.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %_M_last.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.re2::WalkState", ptr %3, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 -24
   %cmp.not.i.i.i = icmp eq ptr %2, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4, i64 24, i1 false)
   %4 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.re2::WalkState", ptr %4, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
 
@@ -1225,14 +1221,14 @@ if.else.i.i.i:                                    ; preds = %if.end
   br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
 
 _ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 1
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
-  %max_visits_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 3
-  %n.i56 = getelementptr inbounds %"struct.re2::WalkState", ptr %ref.tmp79, i64 0, i32 1
-  %parent_arg.i57 = getelementptr inbounds %"struct.re2::WalkState", ptr %ref.tmp79, i64 0, i32 2
-  %child_args.i58 = getelementptr inbounds %"struct.re2::WalkState", ptr %ref.tmp79, i64 0, i32 5
-  %stopped_early_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 2
-  %_M_start.i.i = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %max_visits_ = getelementptr inbounds i8, ptr %this, i64 92
+  %n.i56 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
+  %parent_arg.i57 = getelementptr inbounds i8, ptr %ref.tmp79, i64 12
+  %child_args.i58 = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
+  %stopped_early_ = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
@@ -1243,16 +1239,16 @@ for.cond:                                         ; preds = %for.cond.backedge, 
 
 if.then.i.i.i53:                                  ; preds = %for.cond
   %7 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !12
-  %add.ptr.i.i.i54 = getelementptr inbounds ptr, ptr %7, i64 -1
+  %add.ptr.i.i.i54 = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load ptr, ptr %add.ptr.i.i.i54, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.re2::WalkState", ptr %8, i64 21
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 504
   br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit
 
 _ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit: ; preds = %for.cond, %if.then.i.i.i53
   %9 = phi ptr [ %add.ptr.i.i.i.i, %if.then.i.i.i53 ], [ %5, %for.cond ]
-  %incdec.ptr.i.i.i52 = getelementptr inbounds %"struct.re2::WalkState", ptr %9, i64 -1
+  %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %9, i64 -24
   %10 = load ptr, ptr %incdec.ptr.i.i.i52, align 8
-  %n = getelementptr %"struct.re2::WalkState", ptr %9, i64 -1, i32 1
+  %n = getelementptr inbounds i8, ptr %9, i64 -16
   %11 = load i32, ptr %n, align 8
   %cond = icmp eq i32 %11, -1
   br i1 %cond, label %sw.bb, label %sw.default
@@ -1262,7 +1258,7 @@ sw.bb:                                            ; preds = %_ZNSt5stackIN3re29W
   %dec = add nsw i32 %12, -1
   store i32 %dec, ptr %max_visits_, align 4
   %cmp9 = icmp slt i32 %12, 1
-  %parent_arg = getelementptr %"struct.re2::WalkState", ptr %9, i64 -1, i32 2
+  %parent_arg = getelementptr inbounds i8, ptr %9, i64 -12
   br i1 %cmp9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %sw.bb
@@ -1271,7 +1267,7 @@ if.then10:                                        ; preds = %sw.bb
   %14 = and i8 %13, 1
   %tobool11 = icmp ne i8 %14, 0
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %15 = load ptr, ptr %vfn, align 8
   %call12 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %10, i1 noundef zeroext %tobool11)
   br label %sw.epilog
@@ -1282,10 +1278,10 @@ if.end14:                                         ; preds = %sw.bb
   %17 = and i8 %16, 1
   %tobool16 = icmp ne i8 %17, 0
   %vtable17 = load ptr, ptr %this, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 2
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 16
   %18 = load ptr, ptr %vfn18, align 8
   %call19 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %10, i1 noundef zeroext %tobool16, ptr noundef nonnull %stop)
-  %pre_arg = getelementptr %"struct.re2::WalkState", ptr %9, i64 -1, i32 3
+  %pre_arg = getelementptr inbounds i8, ptr %9, i64 -11
   %frombool20 = zext i1 %call19 to i8
   store i8 %frombool20, ptr %pre_arg, align 1
   %19 = load i8, ptr %stop, align 1
@@ -1295,9 +1291,9 @@ if.end14:                                         ; preds = %sw.bb
 
 if.end26:                                         ; preds = %if.end14
   store i32 0, ptr %n, align 8
-  %child_args = getelementptr %"struct.re2::WalkState", ptr %9, i64 -1, i32 5
+  %child_args = getelementptr inbounds i8, ptr %9, i64 -8
   store ptr null, ptr %child_args, align 8
-  %nsub_ = getelementptr inbounds %"class.re2::Regexp", ptr %10, i64 0, i32 4
+  %nsub_ = getelementptr inbounds i8, ptr %10, i64 6
   %21 = load i16, ptr %nsub_, align 2
   switch i16 %21, label %if.then34 [
     i16 1, label %if.then29
@@ -1305,7 +1301,7 @@ if.end26:                                         ; preds = %if.end14
   ]
 
 if.then29:                                        ; preds = %if.end26
-  %child_arg = getelementptr %"struct.re2::WalkState", ptr %9, i64 -1, i32 4
+  %child_arg = getelementptr inbounds i8, ptr %9, i64 -10
   store ptr %child_arg, ptr %child_args, align 8
   br label %sw.default
 
@@ -1318,14 +1314,14 @@ if.then34:                                        ; preds = %if.end26
 
 sw.default:                                       ; preds = %if.end26, %if.then29, %if.then34, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit
   %.pre = phi i32 [ 0, %if.end26 ], [ 0, %if.then29 ], [ %.pre.pre, %if.then34 ], [ %11, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit ]
-  %nsub_41 = getelementptr inbounds %"class.re2::Regexp", ptr %10, i64 0, i32 4
+  %nsub_41 = getelementptr inbounds i8, ptr %10, i64 6
   %22 = load i16, ptr %nsub_41, align 2
   %cmp43.not = icmp eq i16 %22, 0
   br i1 %cmp43.not, label %if.end87, label %if.then44
 
 if.then44:                                        ; preds = %sw.default
   %cmp.i = icmp eq i16 %22, 1
-  %23 = getelementptr inbounds %"class.re2::Regexp", ptr %10, i64 0, i32 5
+  %23 = getelementptr inbounds i8, ptr %10, i64 8
   %24 = load ptr, ptr %23, align 8
   %retval.0.i = select i1 %cmp.i, ptr %23, ptr %24
   %conv48 = zext i16 %22 to i32
@@ -1349,14 +1345,14 @@ land.lhs.true54:                                  ; preds = %if.then50
   br i1 %cmp60, label %if.then61, label %if.else77
 
 if.then61:                                        ; preds = %land.lhs.true54
-  %child_args62 = getelementptr %"struct.re2::WalkState", ptr %9, i64 -1, i32 5
+  %child_args62 = getelementptr inbounds i8, ptr %9, i64 -8
   %27 = load ptr, ptr %child_args62, align 8
   %arrayidx66 = getelementptr inbounds i8, ptr %27, i64 %idxprom
   %28 = load i8, ptr %arrayidx66, align 1
   %29 = and i8 %28, 1
   %tobool67 = icmp ne i8 %29, 0
   %vtable68 = load ptr, ptr %this, align 8
-  %vfn69 = getelementptr inbounds ptr, ptr %vtable68, i64 4
+  %vfn69 = getelementptr inbounds i8, ptr %vtable68, i64 32
   %30 = load ptr, ptr %vfn69, align 8
   %call70 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(96) %this, i1 noundef zeroext %tobool67)
   %31 = load ptr, ptr %child_args62, align 8
@@ -1377,7 +1373,7 @@ if.else77:                                        ; preds = %land.lhs.true54, %i
   %idxprom81 = sext i32 %.pre to i64
   %arrayidx82 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %idxprom81
   %34 = load ptr, ptr %arrayidx82, align 8
-  %pre_arg83 = getelementptr %"struct.re2::WalkState", ptr %9, i64 -1, i32 3
+  %pre_arg83 = getelementptr inbounds i8, ptr %9, i64 -11
   %35 = load i8, ptr %pre_arg83, align 1
   %36 = and i8 %35, 1
   store ptr %34, ptr %ref.tmp79, align 8
@@ -1386,14 +1382,14 @@ if.else77:                                        ; preds = %land.lhs.true54, %i
   store ptr null, ptr %child_args.i58, align 8
   %37 = load ptr, ptr %_M_finish.i.i.i, align 8
   %38 = load ptr, ptr %_M_last.i.i.i, align 8
-  %add.ptr.i.i.i61 = getelementptr inbounds %"struct.re2::WalkState", ptr %38, i64 -1
+  %add.ptr.i.i.i61 = getelementptr inbounds i8, ptr %38, i64 -24
   %cmp.not.i.i.i62 = icmp eq ptr %37, %add.ptr.i.i.i61
   br i1 %cmp.not.i.i.i62, label %if.else.i.i.i65, label %if.then.i.i.i63
 
 if.then.i.i.i63:                                  ; preds = %if.else77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp79, i64 24, i1 false)
   %39 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i64 = getelementptr inbounds %"struct.re2::WalkState", ptr %39, i64 1
+  %incdec.ptr.i.i.i64 = getelementptr inbounds i8, ptr %39, i64 24
   store ptr %incdec.ptr.i.i.i64, ptr %_M_finish.i.i.i, align 8
   br label %for.cond.backedge
 
@@ -1402,18 +1398,18 @@ if.else.i.i.i65:                                  ; preds = %if.else77
   br label %for.cond.backedge
 
 if.end87:                                         ; preds = %if.then44, %sw.default
-  %parent_arg88 = getelementptr %"struct.re2::WalkState", ptr %9, i64 -1, i32 2
+  %parent_arg88 = getelementptr inbounds i8, ptr %9, i64 -12
   %40 = load i8, ptr %parent_arg88, align 4
   %41 = and i8 %40, 1
   %tobool89 = icmp ne i8 %41, 0
-  %pre_arg90 = getelementptr %"struct.re2::WalkState", ptr %9, i64 -1, i32 3
+  %pre_arg90 = getelementptr inbounds i8, ptr %9, i64 -11
   %42 = load i8, ptr %pre_arg90, align 1
   %43 = and i8 %42, 1
   %tobool91 = icmp ne i8 %43, 0
-  %child_args92 = getelementptr %"struct.re2::WalkState", ptr %9, i64 -1, i32 5
+  %child_args92 = getelementptr inbounds i8, ptr %9, i64 -8
   %44 = load ptr, ptr %child_args92, align 8
   %vtable94 = load ptr, ptr %this, align 8
-  %vfn95 = getelementptr inbounds ptr, ptr %vtable94, i64 3
+  %vfn95 = getelementptr inbounds i8, ptr %vtable94, i64 24
   %45 = load ptr, ptr %vfn95, align 8
   %call96 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, i1 noundef zeroext %tobool89, i1 noundef zeroext %tobool91, ptr noundef %44, i32 noundef %.pre)
   %46 = load i16, ptr %nsub_41, align 2
@@ -1437,19 +1433,19 @@ sw.epilog:                                        ; preds = %if.end14, %if.end87
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.epilog
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.re2::WalkState", ptr %48, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %48, i64 -24
   br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit
 
 if.else.i.i:                                      ; preds = %sw.epilog
   call void @_ZdlPv(ptr noundef %48) #15
   %50 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %add.ptr.i.i.i67 = getelementptr inbounds ptr, ptr %50, i64 -1
+  %add.ptr.i.i.i67 = getelementptr inbounds i8, ptr %50, i64 -8
   store ptr %add.ptr.i.i.i67, ptr %_M_node5.i.i.i.i, align 8
   %51 = load ptr, ptr %add.ptr.i.i.i67, align 8
   store ptr %51, ptr %_M_first3.i.i.i.i, align 8
-  %add.ptr.i.i.i.i68 = getelementptr inbounds %"struct.re2::WalkState", ptr %51, i64 21
+  %add.ptr.i.i.i.i68 = getelementptr inbounds i8, ptr %51, i64 504
   store ptr %add.ptr.i.i.i.i68, ptr %_M_last.i.i.i, align 8
-  %add.ptr8.i.i.i = getelementptr inbounds %"struct.re2::WalkState", ptr %51, i64 20
+  %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %51, i64 480
   br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit
 
 _ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -1466,20 +1462,20 @@ if.end109:                                        ; preds = %_ZNSt5stackIN3re29W
 
 if.then.i.i.i75:                                  ; preds = %if.end109
   %54 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !16
-  %add.ptr.i.i.i77 = getelementptr inbounds ptr, ptr %54, i64 -1
+  %add.ptr.i.i.i77 = getelementptr inbounds i8, ptr %54, i64 -8
   %55 = load ptr, ptr %add.ptr.i.i.i77, align 8
-  %add.ptr.i.i.i.i78 = getelementptr inbounds %"struct.re2::WalkState", ptr %55, i64 21
+  %add.ptr.i.i.i.i78 = getelementptr inbounds i8, ptr %55, i64 504
   br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79
 
 _ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79: ; preds = %if.end109, %if.then.i.i.i75
   %56 = phi ptr [ %add.ptr.i.i.i.i78, %if.then.i.i.i75 ], [ %storemerge.i.i, %if.end109 ]
-  %child_args112 = getelementptr %"struct.re2::WalkState", ptr %56, i64 -1, i32 5
+  %child_args112 = getelementptr inbounds i8, ptr %56, i64 -8
   %57 = load ptr, ptr %child_args112, align 8
   %cmp113.not = icmp eq ptr %57, null
   br i1 %cmp113.not, label %if.else121, label %if.then114
 
 if.then114:                                       ; preds = %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79
-  %n117 = getelementptr %"struct.re2::WalkState", ptr %56, i64 -1, i32 1
+  %n117 = getelementptr inbounds i8, ptr %56, i64 -16
   %58 = load i32, ptr %n117, align 8
   %idxprom118 = sext i32 %58 to i64
   %arrayidx119 = getelementptr inbounds i8, ptr %57, i64 %idxprom118
@@ -1488,13 +1484,13 @@ if.then114:                                       ; preds = %_ZNSt5stackIN3re29W
   br label %if.end125
 
 if.else121:                                       ; preds = %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79
-  %child_arg123 = getelementptr %"struct.re2::WalkState", ptr %56, i64 -1, i32 4
+  %child_arg123 = getelementptr inbounds i8, ptr %56, i64 -10
   %frombool124 = zext i1 %t.0 to i8
   store i8 %frombool124, ptr %child_arg123, align 2
   br label %if.end125
 
 if.end125:                                        ; preds = %if.else121, %if.then114
-  %n126 = getelementptr %"struct.re2::WalkState", ptr %56, i64 -1, i32 1
+  %n126 = getelementptr inbounds i8, ptr %56, i64 -16
   %59 = load i32, ptr %n126, align 8
   %inc127 = add nsw i32 %59, 1
   store i32 %inc127, ptr %n126, align 8
@@ -1511,11 +1507,11 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -1526,14 +1522,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = mul nsw i64 %sub.i.i, 21
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 24
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -1549,7 +1545,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -1567,17 +1563,17 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #18
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %__args, i64 24, i1 false)
   %10 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds ptr, ptr %10, i64 1
+  %add.ptr12 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %11 = load ptr, ptr %add.ptr12, align 8
   store ptr %11, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.re2::WalkState", ptr %11, i64 21
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 504
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %11, ptr %_M_finish.i, align 8
   ret void
@@ -1592,9 +1588,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN3re29WalkStateIbEESaIS2_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -1602,7 +1598,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -1616,7 +1612,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -1669,7 +1665,7 @@ _ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE15_M_allocate_mapEm.exit: ; preds 
   %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i28 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i28, label %_ZSt4copyIPPN3re29WalkStateIbEES4_ET0_T_S6_S5_.exit32, label %if.then.i.i.i.i.i29
 
@@ -1690,19 +1686,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i, 
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN3re29WalkStateIbEES4_ET0_T_S6_S5_.exit32 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i23 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.re2::WalkState", ptr %5, i64 21
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 504
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i34 = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i34 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i34, align 8
-  %add.ptr.i35 = getelementptr inbounds %"struct.re2::WalkState", ptr %6, i64 21
-  %_M_last.i36 = getelementptr inbounds %"struct.std::_Deque_base<re2::WalkState<bool>, std::allocator<re2::WalkState<bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i35 = getelementptr inbounds i8, ptr %6, i64 504
+  %_M_last.i36 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i35, ptr %_M_last.i36, align 8
   ret void
 }

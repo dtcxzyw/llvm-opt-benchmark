@@ -3,18 +3,15 @@ source_filename = "bench/icu/original/ustr_titlecase_brkiter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
-%struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.icu_75::WholeStringBreakIterator" = type { %"class.icu_75::BreakIterator.base", i32, [4 x i8] }
-%"class.icu_75::BreakIterator.base" = type <{ %"class.icu_75::UObject", [157 x i8], [157 x i8], [157 x i8] }>
 %"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
+%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::LocalPointer" = type { %"class.icu_75::LocalPointerBase" }
 %"class.icu_75::LocalPointerBase" = type { ptr }
+%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
+%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
+%struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
-%struct.UCaseMap = type { ptr, [32 x i8], i32, i32 }
 
 @_ZZN6icu_7524WholeStringBreakIterator16getStaticClassIDEvE7classID = internal global i8 0, align 1
 @_ZTVN6icu_7524WholeStringBreakIteratorE = unnamed_addr constant { [25 x ptr] } { [25 x ptr] [ptr null, ptr @_ZTIN6icu_7524WholeStringBreakIteratorE, ptr @_ZN6icu_7524WholeStringBreakIteratorD1Ev, ptr @_ZN6icu_7524WholeStringBreakIteratorD0Ev, ptr @_ZNK6icu_7524WholeStringBreakIterator17getDynamicClassIDEv, ptr @_ZNK6icu_7524WholeStringBreakIteratoreqERKNS_13BreakIteratorE, ptr @_ZNK6icu_7524WholeStringBreakIterator5cloneEv, ptr @_ZNK6icu_7524WholeStringBreakIterator7getTextEv, ptr @_ZNK6icu_7524WholeStringBreakIterator8getUTextEP5UTextR10UErrorCode, ptr @_ZN6icu_7524WholeStringBreakIterator7setTextERKNS_13UnicodeStringE, ptr @_ZN6icu_7524WholeStringBreakIterator7setTextEP5UTextR10UErrorCode, ptr @_ZN6icu_7524WholeStringBreakIterator9adoptTextEPNS_17CharacterIteratorE, ptr @_ZN6icu_7524WholeStringBreakIterator5firstEv, ptr @_ZN6icu_7524WholeStringBreakIterator4lastEv, ptr @_ZN6icu_7524WholeStringBreakIterator8previousEv, ptr @_ZN6icu_7524WholeStringBreakIterator4nextEv, ptr @_ZNK6icu_7524WholeStringBreakIterator7currentEv, ptr @_ZN6icu_7524WholeStringBreakIterator9followingEi, ptr @_ZN6icu_7524WholeStringBreakIterator9precedingEi, ptr @_ZN6icu_7524WholeStringBreakIterator10isBoundaryEi, ptr @_ZN6icu_7524WholeStringBreakIterator4nextEi, ptr @_ZNK6icu_7513BreakIterator13getRuleStatusEv, ptr @_ZN6icu_7513BreakIterator16getRuleStatusVecEPiiR10UErrorCode, ptr @_ZN6icu_7524WholeStringBreakIterator17createBufferCloneEPvRiR10UErrorCode, ptr @_ZN6icu_7524WholeStringBreakIterator16refreshInputTextEP5UTextR10UErrorCode] }, align 8
@@ -98,15 +95,15 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7524WholeStringBreakIterator7setTextERKNS_13UnicodeStringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(484) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text) unnamed_addr #5 align 2 {
 entry:
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %text, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %text, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
-  %length = getelementptr inbounds %"class.icu_75::WholeStringBreakIterator", ptr %this, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %this, i64 480
   store i32 %cond.i, ptr %length, align 8
   ret void
 }
@@ -125,7 +122,7 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   %conv = trunc i64 %call2 to i32
-  %length = getelementptr inbounds %"class.icu_75::WholeStringBreakIterator", ptr %this, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %this, i64 480
   store i32 %conv, ptr %length, align 8
   br label %if.end4
 
@@ -155,7 +152,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN6icu_7524WholeStringBreakIterator4lastEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(484) %this) unnamed_addr #8 align 2 {
 entry:
-  %length = getelementptr inbounds %"class.icu_75::WholeStringBreakIterator", ptr %this, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %this, i64 480
   %0 = load i32, ptr %length, align 8
   ret i32 %0
 }
@@ -169,7 +166,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN6icu_7524WholeStringBreakIterator4nextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(484) %this) unnamed_addr #8 align 2 {
 entry:
-  %length = getelementptr inbounds %"class.icu_75::WholeStringBreakIterator", ptr %this, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %this, i64 480
   %0 = load i32, ptr %length, align 8
   ret i32 %0
 }
@@ -183,7 +180,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN6icu_7524WholeStringBreakIterator9followingEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(484) %this, i32 %0) unnamed_addr #8 align 2 {
 entry:
-  %length = getelementptr inbounds %"class.icu_75::WholeStringBreakIterator", ptr %this, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %this, i64 480
   %1 = load i32, ptr %length, align 8
   ret i32 %1
 }
@@ -203,7 +200,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN6icu_7524WholeStringBreakIterator4nextEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(484) %this, i32 %0) unnamed_addr #8 align 2 {
 entry:
-  %length = getelementptr inbounds %"class.icu_75::WholeStringBreakIterator", ptr %this, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %this, i64 480
   %1 = load i32, ptr %length, align 8
   ret i32 %1
 }
@@ -307,7 +304,7 @@ new.notnull:                                      ; preds = %sw.bb8
 
 new.cont:                                         ; preds = %new.notnull
   store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7524WholeStringBreakIteratorE, i64 0, inrange i32 0, i64 2), ptr %call9, align 8
-  %length.i = getelementptr inbounds %"class.icu_75::WholeStringBreakIterator", ptr %call9, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %call9, i64 480
   store i32 0, ptr %length.i, align 8
   br label %sw.epilog
 
@@ -359,7 +356,7 @@ sw.epilog:                                        ; preds = %new.cont, %if.then1
 
 delete.notnull.i:                                 ; preds = %sw.epilog
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(479) %4) #10
   br label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEE12adoptInsteadEPS1_.exit
@@ -423,7 +420,7 @@ invoke.cont4:                                     ; preds = %if.end
   %1 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #10, !srcloc !4
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(479) %call, ptr noundef nonnull align 8 dereferenceable(64) %s)
           to label %invoke.cont6 unwind label %lpad5
@@ -461,7 +458,7 @@ cleanup:                                          ; preds = %invoke.cont, %invok
 
 delete.notnull.i:                                 ; preds = %cleanup
   %vtable.i = load ptr, ptr %6, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(479) %6) #10
   br label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit
@@ -477,7 +474,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad3, %lpa
 
 delete.notnull.i12:                               ; preds = %ehcleanup
   %vtable.i13 = load ptr, ptr %8, align 8
-  %vfn.i14 = getelementptr inbounds ptr, ptr %vtable.i13, i64 1
+  %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 8
   %9 = load ptr, ptr %vfn.i14, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(479) %8) #10
   br label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit15
@@ -550,7 +547,7 @@ invoke.cont4:                                     ; preds = %if.end
   %2 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2) #10, !srcloc !4
   %vtable = load ptr, ptr %retval.0.i25, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(479) %retval.0.i25, ptr noundef nonnull align 8 dereferenceable(64) %s)
           to label %invoke.cont6 unwind label %lpad5
@@ -583,7 +580,7 @@ cleanup:                                          ; preds = %invoke.cont7
 
 delete.notnull.i:                                 ; preds = %cleanup
   %vtable.i = load ptr, ptr %ownedIter.sroa.0.024, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(479) %ownedIter.sroa.0.024) #10
   br label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit
@@ -599,7 +596,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad3
 
 delete.notnull.i10:                               ; preds = %ehcleanup
   %vtable.i11 = load ptr, ptr %ownedIter.sroa.0.024, align 8
-  %vfn.i12 = getelementptr inbounds ptr, ptr %vtable.i11, i64 1
+  %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 8
   %8 = load ptr, ptr %vfn.i12, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(479) %ownedIter.sroa.0.024) #10
   br label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit13
@@ -628,8 +625,8 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   store ptr null, ptr %ownedIter, align 8
-  %locale = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 1
-  %options = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 3
+  %locale = getelementptr inbounds i8, ptr %csm, i64 8
+  %options = getelementptr inbounds i8, ptr %csm, i64 44
   %2 = load i32, ptr %options, align 4
   %call3 = invoke ptr @ustrcase_getTitleBreakIterator_75(ptr noundef null, ptr noundef nonnull %locale, i32 noundef %2, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(8) %ownedIter, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
           to label %invoke.cont unwind label %lpad
@@ -648,7 +645,7 @@ lpad:                                             ; preds = %if.then1
 
 delete.notnull.i:                                 ; preds = %lpad
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(479) %4) #10
   br label %eh.resume
@@ -659,7 +656,7 @@ cleanup:                                          ; preds = %invoke.cont
 
 delete.notnull.i15:                               ; preds = %cleanup
   %vtable.i16 = load ptr, ptr %.pr, align 8
-  %vfn.i17 = getelementptr inbounds ptr, ptr %vtable.i16, i64 1
+  %vfn.i17 = getelementptr inbounds i8, ptr %vtable.i16, i64 8
   %6 = load ptr, ptr %vfn.i17, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(479) %.pr) #10
   br label %return
@@ -680,15 +677,15 @@ invoke.cont13:                                    ; preds = %if.end10
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #10, !srcloc !4
   %8 = load ptr, ptr %csm, align 8
   %vtable = load ptr, ptr %8, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %9 = load ptr, ptr %vfn, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(479) %8, ptr noundef nonnull align 8 dereferenceable(64) %s)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  %caseLocale = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 2
+  %caseLocale = getelementptr inbounds i8, ptr %csm, i64 40
   %10 = load i32, ptr %caseLocale, align 8
-  %options17 = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 3
+  %options17 = getelementptr inbounds i8, ptr %csm, i64 44
   %11 = load i32, ptr %options17, align 4
   %12 = load ptr, ptr %csm, align 8
   %call20 = invoke i32 @ustrcase_map_75(i32 noundef %10, i32 noundef %11, ptr noundef %12, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull @ustrcase_internalToTitle_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)

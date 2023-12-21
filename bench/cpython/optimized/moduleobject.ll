@@ -869,10 +869,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
 %struct.anon.770 = type { %struct.PyGC_Head, %struct.PyVarObject, [2 x ptr] }
 %struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
-%struct.PyModuleObject = type { %struct._object, ptr, ptr, ptr, ptr, ptr }
-%struct.PyModuleDef = type { %struct.PyModuleDef_Base, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr }
-%struct.PyModuleDef_Base = type { %struct._object, ptr, i64, ptr }
-%struct.PyModuleDef_Slot = type { i32, ptr }
 
 @PyType_Type = external global %struct._typeobject, align 8
 @.str = private unnamed_addr constant [10 x i8] c"moduledef\00", align 1
@@ -951,13 +947,13 @@ PyObject_TypeCheck.exit:                          ; preds = %entry
   br i1 %tobool3.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
-  %md_def = getelementptr inbounds %struct.PyModuleObject, ptr %obj, i64 0, i32 2
+  %md_def = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load ptr, ptr %md_def, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
-  %m_methods = getelementptr inbounds %struct.PyModuleDef, ptr %1, i64 0, i32 4
+  %m_methods = getelementptr inbounds i8, ptr %1, i64 64
   %2 = load ptr, ptr %m_methods, align 8
   %cmp1 = icmp ne ptr %2, null
   %3 = zext i1 %cmp1 to i32
@@ -971,7 +967,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyModuleDef_Init(ptr noundef returned %def) local_unnamed_addr #0 {
 entry:
-  %m_index = getelementptr inbounds %struct.PyModuleDef_Base, ptr %def, i64 0, i32 2
+  %m_index = getelementptr inbounds i8, ptr %def, i64 24
   %0 = load i64, ptr %m_index, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -987,7 +983,7 @@ if.end.i:                                         ; preds = %if.then
   br label %Py_SET_REFCNT.exit
 
 Py_SET_REFCNT.exit:                               ; preds = %if.then, %if.end.i
-  %ob_type.i = getelementptr inbounds %struct._object, ptr %def, i64 0, i32 1
+  %ob_type.i = getelementptr inbounds i8, ptr %def, i64 8
   store ptr @PyModuleDef_Type, ptr %ob_type.i, align 8
   %call = tail call i64 @_PyImport_GetNextModuleIndex() #4
   store i64 %call, ptr %m_index, align 8
@@ -1007,10 +1003,10 @@ entry:
   br i1 %cmp.i8, label %return, label %if.end.i9
 
 if.end.i9:                                        ; preds = %entry
-  %md_def.i = getelementptr inbounds %struct.PyModuleObject, ptr %call.i, i64 0, i32 2
+  %md_def.i = getelementptr inbounds i8, ptr %call.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %md_def.i, i8 0, i64 32, i1 false)
   %call1.i = tail call ptr @PyDict_New() #4
-  %md_dict.i = getelementptr inbounds %struct.PyModuleObject, ptr %call.i, i64 0, i32 1
+  %md_dict.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call1.i, ptr %md_dict.i, align 8
   %cmp3.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp3.not.i, label %if.end5.i, label %if.end
@@ -1097,7 +1093,7 @@ if.end19:                                         ; preds = %if.end15
   br i1 %cmp.i.not, label %do.body, label %return
 
 do.body:                                          ; preds = %if.end19
-  %md_name = getelementptr inbounds %struct.PyModuleObject, ptr %mod, i64 0, i32 5
+  %md_name = getelementptr inbounds i8, ptr %mod, i64 48
   %1 = load ptr, ptr %md_name, align 8
   %2 = load i32, ptr %name, align 8
   %add.i.i = add i32 %2, 1
@@ -1156,7 +1152,7 @@ define dso_local ptr @PyModule_Create2(ptr noundef %module, i32 noundef %module_
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %call1 = tail call i32 @_PyImport_IsInitialized(ptr noundef %2) #4
   %tobool.not = icmp eq i32 %call1, 0
@@ -1183,7 +1179,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyModule_CreateInitialized(ptr noundef %module, i32 noundef %module_api_version) local_unnamed_addr #0 {
 entry:
-  %m_index.i = getelementptr inbounds %struct.PyModuleDef_Base, ptr %module, i64 0, i32 2
+  %m_index.i = getelementptr inbounds i8, ptr %module, i64 24
   %0 = load i64, ptr %m_index.i, align 8
   %cmp.i31 = icmp eq i64 %0, 0
   br i1 %cmp.i31, label %if.then.i, label %if.end
@@ -1199,14 +1195,14 @@ if.end.i.i:                                       ; preds = %if.then.i
   br label %Py_SET_REFCNT.exit.i
 
 Py_SET_REFCNT.exit.i:                             ; preds = %if.end.i.i, %if.then.i
-  %ob_type.i.i = getelementptr inbounds %struct._object, ptr %module, i64 0, i32 1
+  %ob_type.i.i = getelementptr inbounds i8, ptr %module, i64 8
   store ptr @PyModuleDef_Type, ptr %ob_type.i.i, align 8
   %call.i = tail call i64 @_PyImport_GetNextModuleIndex() #4
   store i64 %call.i, ptr %m_index.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %Py_SET_REFCNT.exit.i, %entry
-  %m_name = getelementptr inbounds %struct.PyModuleDef, ptr %module, i64 0, i32 1
+  %m_name = getelementptr inbounds i8, ptr %module, i64 40
   %3 = load ptr, ptr %m_name, align 8
   switch i32 %module_api_version, label %if.then.i33 [
     i32 1013, label %if.end4
@@ -1220,7 +1216,7 @@ if.then.i33:                                      ; preds = %if.end
   br i1 %tobool.not.i, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.then.i33, %if.end, %if.end
-  %m_slots = getelementptr inbounds %struct.PyModuleDef, ptr %module, i64 0, i32 5
+  %m_slots = getelementptr inbounds i8, ptr %module, i64 72
   %5 = load ptr, ptr %m_slots, align 8
   %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %if.end8, label %if.then6
@@ -1258,14 +1254,14 @@ PyModule_New.exit:                                ; preds = %if.end.i37, %if.end
   br i1 %cmp, label %return, label %if.end12
 
 if.end12:                                         ; preds = %PyModule_New.exit
-  %m_size = getelementptr inbounds %struct.PyModuleDef, ptr %module, i64 0, i32 3
+  %m_size = getelementptr inbounds i8, ptr %module, i64 56
   %9 = load i64, ptr %m_size, align 8
   %cmp13 = icmp sgt i64 %9, 0
   br i1 %cmp13, label %if.then14, label %if.end24
 
 if.then14:                                        ; preds = %if.end12
   %call16 = tail call ptr @PyMem_Malloc(i64 noundef %9) #4
-  %md_state = getelementptr inbounds %struct.PyModuleObject, ptr %call1.i, i64 0, i32 3
+  %md_state = getelementptr inbounds i8, ptr %call1.i, i64 32
   store ptr %call16, ptr %md_state, align 8
   %tobool18.not = icmp eq ptr %call16, null
   br i1 %tobool18.not, label %if.then19, label %if.end21
@@ -1293,7 +1289,7 @@ if.end21:                                         ; preds = %if.then14
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end21, %if.end12
-  %m_methods = getelementptr inbounds %struct.PyModuleDef, ptr %module, i64 0, i32 4
+  %m_methods = getelementptr inbounds i8, ptr %module, i64 64
   %13 = load ptr, ptr %m_methods, align 8
   %cmp25.not = icmp eq ptr %13, null
   br i1 %cmp25.not, label %if.end32, label %if.then26
@@ -1341,7 +1337,7 @@ if.then1.i47:                                     ; preds = %if.end.i44
   br label %return
 
 if.end32:                                         ; preds = %PyModule_AddFunctions.exit, %if.end24
-  %m_doc = getelementptr inbounds %struct.PyModuleDef, ptr %module, i64 0, i32 2
+  %m_doc = getelementptr inbounds i8, ptr %module, i64 48
   %18 = load ptr, ptr %m_doc, align 8
   %cmp33.not = icmp eq ptr %18, null
   br i1 %cmp33.not, label %if.end40, label %if.then34
@@ -1402,7 +1398,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end40:                                         ; preds = %if.end.i.i55, %if.end.i54, %PyModule_SetDocString.exit.thread70, %if.end32
-  %md_def = getelementptr inbounds %struct.PyModuleObject, ptr %call1.i, i64 0, i32 2
+  %md_def = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr %module, ptr %md_def, align 8
   br label %return
 
@@ -1499,9 +1495,9 @@ define dso_local ptr @PyModule_FromDefAndSpec2(ptr noundef %def, ptr noundef %sp
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %m_index.i = getelementptr inbounds %struct.PyModuleDef_Base, ptr %def, i64 0, i32 2
+  %m_index.i = getelementptr inbounds i8, ptr %def, i64 24
   %3 = load i64, ptr %m_index.i, align 8
   %cmp.i57 = icmp eq i64 %3, 0
   br i1 %cmp.i57, label %if.then.i, label %PyModuleDef_Init.exit
@@ -1517,7 +1513,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   br label %Py_SET_REFCNT.exit.i
 
 Py_SET_REFCNT.exit.i:                             ; preds = %if.end.i.i, %if.then.i
-  %ob_type.i.i = getelementptr inbounds %struct._object, ptr %def, i64 0, i32 1
+  %ob_type.i.i = getelementptr inbounds i8, ptr %def, i64 8
   store ptr @PyModuleDef_Type, ptr %ob_type.i.i, align 8
   %call.i = tail call i64 @_PyImport_GetNextModuleIndex() #4
   store i64 %call.i, ptr %m_index.i, align 8
@@ -1546,7 +1542,7 @@ if.then.i59:                                      ; preds = %if.end6
   br i1 %tobool.not.i, label %if.end9, label %error
 
 if.end9:                                          ; preds = %if.then.i59, %if.end6, %if.end6
-  %m_size = getelementptr inbounds %struct.PyModuleDef, ptr %def, i64 0, i32 3
+  %m_size = getelementptr inbounds i8, ptr %def, i64 56
   %7 = load i64, ptr %m_size, align 8
   %cmp10 = icmp slt i64 %7, 0
   br i1 %cmp10, label %if.then11, label %if.end13
@@ -1557,7 +1553,7 @@ if.then11:                                        ; preds = %if.end9
   br label %error
 
 if.end13:                                         ; preds = %if.end9
-  %m_slots = getelementptr inbounds %struct.PyModuleDef, ptr %def, i64 0, i32 5
+  %m_slots = getelementptr inbounds i8, ptr %def, i64 72
   %9 = load ptr, ptr %m_slots, align 8
   %tobool14.not85 = icmp eq ptr %9, null
   br i1 %tobool14.not85, label %land.lhs.true42, label %land.rhs
@@ -1586,7 +1582,7 @@ if.then18:                                        ; preds = %sw.bb
   br label %error
 
 if.end20:                                         ; preds = %sw.bb
-  %value = getelementptr inbounds %struct.PyModuleDef_Slot, ptr %cur_slot.090, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %cur_slot.090, i64 8
   %12 = load ptr, ptr %value, align 8
   br label %for.inc
 
@@ -1600,7 +1596,7 @@ if.then24:                                        ; preds = %sw.bb22
   br label %error
 
 if.end26:                                         ; preds = %sw.bb22
-  %value27 = getelementptr inbounds %struct.PyModuleDef_Slot, ptr %cur_slot.090, i64 0, i32 1
+  %value27 = getelementptr inbounds i8, ptr %cur_slot.090, i64 8
   %14 = load ptr, ptr %value27, align 8
   br label %for.inc
 
@@ -1614,7 +1610,7 @@ for.inc:                                          ; preds = %land.rhs, %if.end20
   %has_multiple_interpreters_slot.1 = phi i32 [ 1, %if.end26 ], [ %has_multiple_interpreters_slot.087, %if.end20 ], [ %has_multiple_interpreters_slot.087, %land.rhs ]
   %multiple_interpreters.1 = phi ptr [ %14, %if.end26 ], [ %multiple_interpreters.088, %if.end20 ], [ %multiple_interpreters.088, %land.rhs ]
   %has_execution_slots.1 = phi i32 [ %has_execution_slots.089, %if.end26 ], [ %has_execution_slots.089, %if.end20 ], [ 1, %land.rhs ]
-  %incdec.ptr = getelementptr %struct.PyModuleDef_Slot, ptr %cur_slot.090, i64 1
+  %incdec.ptr = getelementptr i8, ptr %cur_slot.090, i64 16
   %tobool14.not = icmp eq ptr %incdec.ptr, null
   br i1 %tobool14.not, label %for.end, label %land.rhs, !llvm.loop !6
 
@@ -1647,7 +1643,7 @@ land.lhs.true:                                    ; preds = %if.then34
 land.lhs.true42:                                  ; preds = %for.end, %if.end13, %16
   %create.0.lcssa107116 = phi ptr [ %create.0.lcssa, %16 ], [ null, %if.end13 ], [ %create.0.lcssa, %for.end ]
   %has_execution_slots.0.lcssa109114 = phi i32 [ %has_execution_slots.0.lcssa, %16 ], [ 0, %if.end13 ], [ %has_execution_slots.0.lcssa, %for.end ]
-  %own_gil = getelementptr inbounds %struct._ceval_state, ptr %2, i64 0, i32 4
+  %own_gil = getelementptr inbounds i8, ptr %2, i64 80
   %19 = load i32, ptr %own_gil, align 8
   %tobool43.not = icmp eq i32 %19, 0
   %20 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
@@ -1707,9 +1703,9 @@ PyObject_TypeCheck.exit:                          ; preds = %if.end75
   br i1 %tobool3.i.not, label %if.else79, label %if.then78
 
 if.then78:                                        ; preds = %if.end75, %PyObject_TypeCheck.exit
-  %md_state = getelementptr inbounds %struct.PyModuleObject, ptr %m.0, i64 0, i32 3
+  %md_state = getelementptr inbounds i8, ptr %m.0, i64 32
   store ptr null, ptr %md_state, align 8
-  %md_def = getelementptr inbounds %struct.PyModuleObject, ptr %m.0, i64 0, i32 2
+  %md_def = getelementptr inbounds i8, ptr %m.0, i64 24
   store ptr %def, ptr %md_def, align 8
   br label %if.end94
 
@@ -1719,19 +1715,19 @@ if.else79:                                        ; preds = %PyObject_TypeCheck.
   br i1 %cmp81, label %if.then87, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else79
-  %m_traverse = getelementptr inbounds %struct.PyModuleDef, ptr %def, i64 0, i32 6
+  %m_traverse = getelementptr inbounds i8, ptr %def, i64 80
   %25 = load ptr, ptr %m_traverse, align 8
   %tobool82.not = icmp eq ptr %25, null
   br i1 %tobool82.not, label %lor.lhs.false83, label %if.then87
 
 lor.lhs.false83:                                  ; preds = %lor.lhs.false
-  %m_clear = getelementptr inbounds %struct.PyModuleDef, ptr %def, i64 0, i32 7
+  %m_clear = getelementptr inbounds i8, ptr %def, i64 88
   %26 = load ptr, ptr %m_clear, align 8
   %tobool84.not = icmp eq ptr %26, null
   br i1 %tobool84.not, label %lor.lhs.false85, label %if.then87
 
 lor.lhs.false85:                                  ; preds = %lor.lhs.false83
-  %m_free = getelementptr inbounds %struct.PyModuleDef, ptr %def, i64 0, i32 8
+  %m_free = getelementptr inbounds i8, ptr %def, i64 96
   %27 = load ptr, ptr %m_free, align 8
   %tobool86.not = icmp eq ptr %27, null
   br i1 %tobool86.not, label %if.end89, label %if.then87
@@ -1751,7 +1747,7 @@ if.then91:                                        ; preds = %if.end89
   br label %error
 
 if.end94:                                         ; preds = %if.end89, %if.then78
-  %m_methods = getelementptr inbounds %struct.PyModuleDef, ptr %def, i64 0, i32 4
+  %m_methods = getelementptr inbounds i8, ptr %def, i64 64
   %30 = load ptr, ptr %m_methods, align 8
   %cmp95.not = icmp eq ptr %30, null
   br i1 %cmp95.not, label %if.end102, label %if.then96
@@ -1762,7 +1758,7 @@ if.then96:                                        ; preds = %if.end94
   br i1 %cmp99.not, label %if.end102, label %error
 
 if.end102:                                        ; preds = %if.then96, %if.end94
-  %m_doc = getelementptr inbounds %struct.PyModuleDef, ptr %def, i64 0, i32 2
+  %m_doc = getelementptr inbounds i8, ptr %def, i64 48
   %31 = load ptr, ptr %m_doc, align 8
   %cmp103.not = icmp eq ptr %31, null
   br i1 %cmp103.not, label %if.end110, label %if.then104
@@ -1847,7 +1843,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %fdef.015 = phi ptr [ %incdec.ptr, %for.inc ], [ %functions, %entry ]
-  %ml_flags = getelementptr inbounds %struct.PyMethodDef, ptr %fdef.015, i64 0, i32 2
+  %ml_flags = getelementptr inbounds i8, ptr %fdef.015, i64 16
   %1 = load i32, ptr %ml_flags, align 8
   %2 = and i32 %1, 48
   %or.cond = icmp eq i32 %2, 0
@@ -1899,7 +1895,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i, %if.then1.i, %if.end11
-  %incdec.ptr = getelementptr %struct.PyMethodDef, ptr %fdef.015, i64 1
+  %incdec.ptr = getelementptr i8, ptr %fdef.015, i64 32
   %7 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %7, null
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !8
@@ -1964,13 +1960,13 @@ PyModule_GetName.exit:                            ; preds = %if.end.i, %if.end.i
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %PyModule_GetName.exit
-  %m_size = getelementptr inbounds %struct.PyModuleDef, ptr %def, i64 0, i32 3
+  %m_size = getelementptr inbounds i8, ptr %def, i64 56
   %2 = load i64, ptr %m_size, align 8
   %cmp1 = icmp sgt i64 %2, -1
   br i1 %cmp1, label %if.then2, label %if.end15
 
 if.then2:                                         ; preds = %if.end
-  %md_state = getelementptr inbounds %struct.PyModuleObject, ptr %module, i64 0, i32 3
+  %md_state = getelementptr inbounds i8, ptr %module, i64 32
   %3 = load ptr, ptr %md_state, align 8
   %cmp3 = icmp eq ptr %3, null
   br i1 %cmp3, label %if.then4, label %if.end15
@@ -1991,7 +1987,7 @@ if.end11:                                         ; preds = %if.then4
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then2, %if.end11, %if.end
-  %m_slots = getelementptr inbounds %struct.PyModuleDef, ptr %def, i64 0, i32 5
+  %m_slots = getelementptr inbounds i8, ptr %def, i64 72
   %5 = load ptr, ptr %m_slots, align 8
   %cmp16 = icmp eq ptr %5, null
   br i1 %cmp16, label %return, label %land.rhs
@@ -2007,7 +2003,7 @@ land.rhs:                                         ; preds = %if.end15, %for.inc
   ]
 
 sw.bb23:                                          ; preds = %land.rhs
-  %value = getelementptr inbounds %struct.PyModuleDef_Slot, ptr %cur_slot.024, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %cur_slot.024, i64 8
   %7 = load ptr, ptr %value, align 8
   %call24 = tail call i32 %7(ptr noundef %module) #4
   %cmp25.not = icmp eq i32 %call24, 0
@@ -2037,7 +2033,7 @@ sw.default:                                       ; preds = %land.rhs
   br label %return
 
 for.inc:                                          ; preds = %land.rhs, %land.rhs, %if.end32
-  %incdec.ptr = getelementptr %struct.PyModuleDef_Slot, ptr %cur_slot.024, i64 1
+  %incdec.ptr = getelementptr i8, ptr %cur_slot.024, i64 16
   %tobool20.not = icmp eq ptr %incdec.ptr, null
   br i1 %tobool20.not, label %return, label %land.rhs, !llvm.loop !9
 
@@ -2097,7 +2093,7 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
-  %md_dict = getelementptr inbounds %struct.PyModuleObject, ptr %mod, i64 0, i32 1
+  %md_dict = getelementptr inbounds i8, ptr %mod, i64 16
   %1 = load ptr, ptr %md_dict, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %error, label %lor.lhs.false
@@ -2211,7 +2207,7 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
-  %md_dict = getelementptr inbounds %struct.PyModuleObject, ptr %mod, i64 0, i32 1
+  %md_dict = getelementptr inbounds i8, ptr %mod, i64 16
   %1 = load ptr, ptr %md_dict, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %error, label %if.end3
@@ -2348,7 +2344,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyModule_Clear(ptr nocapture noundef readonly %m) local_unnamed_addr #0 {
 entry:
-  %md_dict = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 1
+  %md_dict = getelementptr inbounds i8, ptr %m, i64 16
   %0 = load ptr, ptr %md_dict, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2368,12 +2364,12 @@ entry:
   %key = alloca ptr, align 8
   %value = alloca ptr, align 8
   %call = tail call ptr @_Py_GetConfig() #4
-  %verbose1 = getelementptr inbounds %struct.PyConfig, ptr %call, i64 0, i32 32
+  %verbose1 = getelementptr inbounds i8, ptr %call, i64 208
   %0 = load i32, ptr %verbose1, align 8
   store i64 0, ptr %pos, align 8
-  %call290 = call i32 @PyDict_Next(ptr noundef %d, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %value) #4
-  %tobool.not91 = icmp eq i32 %call290, 0
-  br i1 %tobool.not91, label %while.end, label %while.body.lr.ph
+  %call284 = call i32 @PyDict_Next(ptr noundef %d, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %value) #4
+  %tobool.not85 = icmp eq i32 %call284, 0
+  br i1 %tobool.not85, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %cmp12 = icmp sgt i32 %0, 1
@@ -2395,26 +2391,25 @@ land.lhs.true:                                    ; preds = %while.body
   br i1 %tobool5.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %state.i = getelementptr inbounds %struct.PyASCIIObject, ptr %2, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %2, i64 32
   %bf.load.i = load i32, ptr %state.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 2
   %bf.clear.i = and i32 %bf.lshr.i, 7
   %6 = and i32 %bf.load.i, 32
-  %tobool.not.i19.i = icmp eq i32 %6, 0
+  %tobool.not.i18.i = icmp eq i32 %6, 0
   switch i32 %bf.clear.i, label %if.end7.i [
     i32 1, label %if.then.i
     i32 2, label %if.then3.i
   ]
 
 if.then.i:                                        ; preds = %if.then
-  br i1 %tobool.not.i19.i, label %if.end.i.i, label %if.then.i.i
+  br i1 %tobool.not.i18.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %7 = and i32 %bf.load.i, 64
   %tobool.not.i.i.i = icmp eq i32 %7, 0
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr1.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %add.ptr1.i.i.i, ptr %add.ptr.i.i.i
+  %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
+  %retval.0.i.i.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i.i
   br label %PyUnicode_DATA.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i
@@ -2429,133 +2424,128 @@ PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.the
   br label %PyUnicode_READ_CHAR.exit
 
 if.then3.i:                                       ; preds = %if.then
-  br i1 %tobool.not.i19.i, label %if.end.i15.i, label %if.then.i9.i
+  br i1 %tobool.not.i18.i, label %if.end.i14.i, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %if.then3.i
   %10 = and i32 %bf.load.i, 64
   %tobool.not.i.i10.i = icmp eq i32 %10, 0
-  %add.ptr.i.i11.i = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr1.i.i12.i = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i13.i = select i1 %tobool.not.i.i10.i, ptr %add.ptr1.i.i12.i, ptr %add.ptr.i.i11.i
-  br label %PyUnicode_DATA.exit17.i
+  %retval.0.v.i.i11.i = select i1 %tobool.not.i.i10.i, i64 56, i64 40
+  %retval.0.i.i12.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i11.i
+  br label %PyUnicode_DATA.exit16.i
 
-if.end.i15.i:                                     ; preds = %if.then3.i
+if.end.i14.i:                                     ; preds = %if.then3.i
   %11 = getelementptr i8, ptr %2, i64 56
-  %op.val3.i16.i = load ptr, ptr %11, align 8
-  br label %PyUnicode_DATA.exit17.i
+  %op.val3.i15.i = load ptr, ptr %11, align 8
+  br label %PyUnicode_DATA.exit16.i
 
-PyUnicode_DATA.exit17.i:                          ; preds = %if.end.i15.i, %if.then.i9.i
-  %retval.0.i14.i = phi ptr [ %retval.0.i.i13.i, %if.then.i9.i ], [ %op.val3.i16.i, %if.end.i15.i ]
-  %12 = load i16, ptr %retval.0.i14.i, align 2
+PyUnicode_DATA.exit16.i:                          ; preds = %if.end.i14.i, %if.then.i9.i
+  %retval.0.i13.i = phi ptr [ %retval.0.i.i12.i, %if.then.i9.i ], [ %op.val3.i15.i, %if.end.i14.i ]
+  %12 = load i16, ptr %retval.0.i13.i, align 2
   %conv6.i = zext i16 %12 to i32
   br label %PyUnicode_READ_CHAR.exit
 
 if.end7.i:                                        ; preds = %if.then
-  br i1 %tobool.not.i19.i, label %if.end.i26.i, label %if.then.i20.i
+  br i1 %tobool.not.i18.i, label %if.end.i24.i, label %if.then.i19.i
 
-if.then.i20.i:                                    ; preds = %if.end7.i
+if.then.i19.i:                                    ; preds = %if.end7.i
   %13 = and i32 %bf.load.i, 64
-  %tobool.not.i.i21.i = icmp eq i32 %13, 0
-  %add.ptr.i.i22.i = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr1.i.i23.i = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i24.i = select i1 %tobool.not.i.i21.i, ptr %add.ptr1.i.i23.i, ptr %add.ptr.i.i22.i
-  br label %PyUnicode_DATA.exit28.i
+  %tobool.not.i.i20.i = icmp eq i32 %13, 0
+  %retval.0.v.i.i21.i = select i1 %tobool.not.i.i20.i, i64 56, i64 40
+  %retval.0.i.i22.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i21.i
+  br label %PyUnicode_DATA.exit26.i
 
-if.end.i26.i:                                     ; preds = %if.end7.i
+if.end.i24.i:                                     ; preds = %if.end7.i
   %14 = getelementptr i8, ptr %2, i64 56
-  %op.val3.i27.i = load ptr, ptr %14, align 8
-  br label %PyUnicode_DATA.exit28.i
+  %op.val3.i25.i = load ptr, ptr %14, align 8
+  br label %PyUnicode_DATA.exit26.i
 
-PyUnicode_DATA.exit28.i:                          ; preds = %if.end.i26.i, %if.then.i20.i
-  %retval.0.i25.i = phi ptr [ %retval.0.i.i24.i, %if.then.i20.i ], [ %op.val3.i27.i, %if.end.i26.i ]
-  %15 = load i32, ptr %retval.0.i25.i, align 4
+PyUnicode_DATA.exit26.i:                          ; preds = %if.end.i24.i, %if.then.i19.i
+  %retval.0.i23.i = phi ptr [ %retval.0.i.i22.i, %if.then.i19.i ], [ %op.val3.i25.i, %if.end.i24.i ]
+  %15 = load i32, ptr %retval.0.i23.i, align 4
   br label %PyUnicode_READ_CHAR.exit
 
-PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit.i, %PyUnicode_DATA.exit17.i, %PyUnicode_DATA.exit28.i
-  %retval.0.i = phi i32 [ %conv.i8, %PyUnicode_DATA.exit.i ], [ %conv6.i, %PyUnicode_DATA.exit17.i ], [ %15, %PyUnicode_DATA.exit28.i ]
+PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit.i, %PyUnicode_DATA.exit16.i, %PyUnicode_DATA.exit26.i
+  %retval.0.i = phi i32 [ %conv.i8, %PyUnicode_DATA.exit.i ], [ %conv6.i, %PyUnicode_DATA.exit16.i ], [ %15, %PyUnicode_DATA.exit26.i ]
   %cmp7 = icmp eq i32 %retval.0.i, 95
   br i1 %cmp7, label %land.lhs.true8, label %if.end23
 
 land.lhs.true8:                                   ; preds = %PyUnicode_READ_CHAR.exit
-  switch i32 %bf.clear.i, label %if.end7.i37 [
-    i32 1, label %if.then.i26
+  switch i32 %bf.clear.i, label %if.end7.i35 [
+    i32 1, label %if.then.i25
     i32 2, label %if.then3.i14
   ]
 
-if.then.i26:                                      ; preds = %land.lhs.true8
-  br i1 %tobool.not.i19.i, label %if.end.i.i35, label %if.then.i.i27
+if.then.i25:                                      ; preds = %land.lhs.true8
+  br i1 %tobool.not.i18.i, label %if.end.i.i33, label %if.then.i.i26
 
-if.then.i.i27:                                    ; preds = %if.then.i26
+if.then.i.i26:                                    ; preds = %if.then.i25
   %16 = and i32 %bf.load.i, 64
-  %tobool.not.i.i.i28 = icmp eq i32 %16, 0
-  %add.ptr.i.i.i29 = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr1.i.i.i30 = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i.i31 = select i1 %tobool.not.i.i.i28, ptr %add.ptr1.i.i.i30, ptr %add.ptr.i.i.i29
-  br label %PyUnicode_DATA.exit.i32
+  %tobool.not.i.i.i27 = icmp eq i32 %16, 0
+  %retval.0.v.i.i.i28 = select i1 %tobool.not.i.i.i27, i64 56, i64 40
+  %retval.0.i.i.i29 = getelementptr i8, ptr %2, i64 %retval.0.v.i.i.i28
+  br label %PyUnicode_DATA.exit.i30
 
-if.end.i.i35:                                     ; preds = %if.then.i26
+if.end.i.i33:                                     ; preds = %if.then.i25
   %17 = getelementptr i8, ptr %2, i64 56
-  %op.val3.i.i36 = load ptr, ptr %17, align 8
-  br label %PyUnicode_DATA.exit.i32
+  %op.val3.i.i34 = load ptr, ptr %17, align 8
+  br label %PyUnicode_DATA.exit.i30
 
-PyUnicode_DATA.exit.i32:                          ; preds = %if.end.i.i35, %if.then.i.i27
-  %retval.0.i.i33 = phi ptr [ %retval.0.i.i.i31, %if.then.i.i27 ], [ %op.val3.i.i36, %if.end.i.i35 ]
-  %arrayidx.i = getelementptr i8, ptr %retval.0.i.i33, i64 1
+PyUnicode_DATA.exit.i30:                          ; preds = %if.end.i.i33, %if.then.i.i26
+  %retval.0.i.i31 = phi ptr [ %retval.0.i.i.i29, %if.then.i.i26 ], [ %op.val3.i.i34, %if.end.i.i33 ]
+  %arrayidx.i = getelementptr i8, ptr %retval.0.i.i31, i64 1
   %18 = load i8, ptr %arrayidx.i, align 1
-  %conv.i34 = zext i8 %18 to i32
-  br label %PyUnicode_READ_CHAR.exit47
+  %conv.i32 = zext i8 %18 to i32
+  br label %PyUnicode_READ_CHAR.exit44
 
 if.then3.i14:                                     ; preds = %land.lhs.true8
-  br i1 %tobool.not.i19.i, label %if.end.i15.i24, label %if.then.i9.i15
+  br i1 %tobool.not.i18.i, label %if.end.i14.i23, label %if.then.i9.i15
 
 if.then.i9.i15:                                   ; preds = %if.then3.i14
   %19 = and i32 %bf.load.i, 64
   %tobool.not.i.i10.i16 = icmp eq i32 %19, 0
-  %add.ptr.i.i11.i17 = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr1.i.i12.i18 = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i13.i19 = select i1 %tobool.not.i.i10.i16, ptr %add.ptr1.i.i12.i18, ptr %add.ptr.i.i11.i17
-  br label %PyUnicode_DATA.exit17.i20
+  %retval.0.v.i.i11.i17 = select i1 %tobool.not.i.i10.i16, i64 56, i64 40
+  %retval.0.i.i12.i18 = getelementptr i8, ptr %2, i64 %retval.0.v.i.i11.i17
+  br label %PyUnicode_DATA.exit16.i19
 
-if.end.i15.i24:                                   ; preds = %if.then3.i14
+if.end.i14.i23:                                   ; preds = %if.then3.i14
   %20 = getelementptr i8, ptr %2, i64 56
-  %op.val3.i16.i25 = load ptr, ptr %20, align 8
-  br label %PyUnicode_DATA.exit17.i20
+  %op.val3.i15.i24 = load ptr, ptr %20, align 8
+  br label %PyUnicode_DATA.exit16.i19
 
-PyUnicode_DATA.exit17.i20:                        ; preds = %if.end.i15.i24, %if.then.i9.i15
-  %retval.0.i14.i21 = phi ptr [ %retval.0.i.i13.i19, %if.then.i9.i15 ], [ %op.val3.i16.i25, %if.end.i15.i24 ]
-  %arrayidx5.i = getelementptr i16, ptr %retval.0.i14.i21, i64 1
+PyUnicode_DATA.exit16.i19:                        ; preds = %if.end.i14.i23, %if.then.i9.i15
+  %retval.0.i13.i20 = phi ptr [ %retval.0.i.i12.i18, %if.then.i9.i15 ], [ %op.val3.i15.i24, %if.end.i14.i23 ]
+  %arrayidx5.i = getelementptr i8, ptr %retval.0.i13.i20, i64 2
   %21 = load i16, ptr %arrayidx5.i, align 2
-  %conv6.i22 = zext i16 %21 to i32
-  br label %PyUnicode_READ_CHAR.exit47
+  %conv6.i21 = zext i16 %21 to i32
+  br label %PyUnicode_READ_CHAR.exit44
 
-if.end7.i37:                                      ; preds = %land.lhs.true8
-  br i1 %tobool.not.i19.i, label %if.end.i26.i45, label %if.then.i20.i38
+if.end7.i35:                                      ; preds = %land.lhs.true8
+  br i1 %tobool.not.i18.i, label %if.end.i24.i42, label %if.then.i19.i36
 
-if.then.i20.i38:                                  ; preds = %if.end7.i37
+if.then.i19.i36:                                  ; preds = %if.end7.i35
   %22 = and i32 %bf.load.i, 64
-  %tobool.not.i.i21.i39 = icmp eq i32 %22, 0
-  %add.ptr.i.i22.i40 = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr1.i.i23.i41 = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i24.i42 = select i1 %tobool.not.i.i21.i39, ptr %add.ptr1.i.i23.i41, ptr %add.ptr.i.i22.i40
-  br label %PyUnicode_DATA.exit28.i43
+  %tobool.not.i.i20.i37 = icmp eq i32 %22, 0
+  %retval.0.v.i.i21.i38 = select i1 %tobool.not.i.i20.i37, i64 56, i64 40
+  %retval.0.i.i22.i39 = getelementptr i8, ptr %2, i64 %retval.0.v.i.i21.i38
+  br label %PyUnicode_DATA.exit26.i40
 
-if.end.i26.i45:                                   ; preds = %if.end7.i37
+if.end.i24.i42:                                   ; preds = %if.end7.i35
   %23 = getelementptr i8, ptr %2, i64 56
-  %op.val3.i27.i46 = load ptr, ptr %23, align 8
-  br label %PyUnicode_DATA.exit28.i43
+  %op.val3.i25.i43 = load ptr, ptr %23, align 8
+  br label %PyUnicode_DATA.exit26.i40
 
-PyUnicode_DATA.exit28.i43:                        ; preds = %if.end.i26.i45, %if.then.i20.i38
-  %retval.0.i25.i44 = phi ptr [ %retval.0.i.i24.i42, %if.then.i20.i38 ], [ %op.val3.i27.i46, %if.end.i26.i45 ]
-  %arrayidx9.i = getelementptr i32, ptr %retval.0.i25.i44, i64 1
+PyUnicode_DATA.exit26.i40:                        ; preds = %if.end.i24.i42, %if.then.i19.i36
+  %retval.0.i23.i41 = phi ptr [ %retval.0.i.i22.i39, %if.then.i19.i36 ], [ %op.val3.i25.i43, %if.end.i24.i42 ]
+  %arrayidx9.i = getelementptr i8, ptr %retval.0.i23.i41, i64 4
   %24 = load i32, ptr %arrayidx9.i, align 4
-  br label %PyUnicode_READ_CHAR.exit47
+  br label %PyUnicode_READ_CHAR.exit44
 
-PyUnicode_READ_CHAR.exit47:                       ; preds = %PyUnicode_DATA.exit.i32, %PyUnicode_DATA.exit17.i20, %PyUnicode_DATA.exit28.i43
-  %retval.0.i23 = phi i32 [ %conv.i34, %PyUnicode_DATA.exit.i32 ], [ %conv6.i22, %PyUnicode_DATA.exit17.i20 ], [ %24, %PyUnicode_DATA.exit28.i43 ]
-  %cmp10.not = icmp eq i32 %retval.0.i23, 95
+PyUnicode_READ_CHAR.exit44:                       ; preds = %PyUnicode_DATA.exit.i30, %PyUnicode_DATA.exit16.i19, %PyUnicode_DATA.exit26.i40
+  %retval.0.i22 = phi i32 [ %conv.i32, %PyUnicode_DATA.exit.i30 ], [ %conv6.i21, %PyUnicode_DATA.exit16.i19 ], [ %24, %PyUnicode_DATA.exit26.i40 ]
+  %cmp10.not = icmp eq i32 %retval.0.i22, 95
   br i1 %cmp10.not, label %if.end23, label %if.then11
 
-if.then11:                                        ; preds = %PyUnicode_READ_CHAR.exit47
+if.then11:                                        ; preds = %PyUnicode_READ_CHAR.exit44
   br i1 %cmp12, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %if.then11
@@ -2581,16 +2571,16 @@ if.then20:                                        ; preds = %if.end17
   call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.19) #4
   br label %if.end23
 
-if.end23:                                         ; preds = %PyUnicode_READ_CHAR.exit, %PyUnicode_READ_CHAR.exit47, %if.then20, %if.end17, %land.lhs.true, %while.body
+if.end23:                                         ; preds = %PyUnicode_READ_CHAR.exit, %PyUnicode_READ_CHAR.exit44, %if.then20, %if.end17, %land.lhs.true, %while.body
   %call2 = call i32 @PyDict_Next(ptr noundef %d, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %value) #4
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end23, %entry
   store i64 0, ptr %pos, align 8
-  %call2592 = call i32 @PyDict_Next(ptr noundef %d, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %value) #4
-  %tobool26.not93 = icmp eq i32 %call2592, 0
-  br i1 %tobool26.not93, label %while.end54, label %while.body27.lr.ph
+  %call2586 = call i32 @PyDict_Next(ptr noundef %d, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %value) #4
+  %tobool26.not87 = icmp eq i32 %call2586, 0
+  br i1 %tobool26.not87, label %while.end54, label %while.body27.lr.ph
 
 while.body27.lr.ph:                               ; preds = %while.end
   %cmp39 = icmp sgt i32 %0, 1
@@ -2612,93 +2602,90 @@ land.lhs.true29:                                  ; preds = %while.body27
   br i1 %tobool32.not, label %if.end53, label %if.then33
 
 if.then33:                                        ; preds = %land.lhs.true29
-  %state.i51 = getelementptr inbounds %struct.PyASCIIObject, ptr %27, i64 0, i32 3
-  %bf.load.i52 = load i32, ptr %state.i51, align 8
-  %bf.lshr.i53 = lshr i32 %bf.load.i52, 2
-  %bf.clear.i54 = and i32 %bf.lshr.i53, 7
-  %31 = and i32 %bf.load.i52, 32
-  %tobool.not.i19.i55 = icmp eq i32 %31, 0
-  switch i32 %bf.clear.i54, label %if.end7.i79 [
-    i32 1, label %if.then.i68
-    i32 2, label %if.then3.i56
+  %state.i48 = getelementptr inbounds i8, ptr %27, i64 32
+  %bf.load.i49 = load i32, ptr %state.i48, align 8
+  %bf.lshr.i50 = lshr i32 %bf.load.i49, 2
+  %bf.clear.i51 = and i32 %bf.lshr.i50, 7
+  %31 = and i32 %bf.load.i49, 32
+  %tobool.not.i18.i52 = icmp eq i32 %31, 0
+  switch i32 %bf.clear.i51, label %if.end7.i74 [
+    i32 1, label %if.then.i64
+    i32 2, label %if.then3.i53
   ]
 
-if.then.i68:                                      ; preds = %if.then33
-  br i1 %tobool.not.i19.i55, label %if.end.i.i77, label %if.then.i.i69
+if.then.i64:                                      ; preds = %if.then33
+  br i1 %tobool.not.i18.i52, label %if.end.i.i72, label %if.then.i.i65
 
-if.then.i.i69:                                    ; preds = %if.then.i68
-  %32 = and i32 %bf.load.i52, 64
-  %tobool.not.i.i.i70 = icmp eq i32 %32, 0
-  %add.ptr.i.i.i71 = getelementptr %struct.PyASCIIObject, ptr %27, i64 1
-  %add.ptr1.i.i.i72 = getelementptr %struct.PyCompactUnicodeObject, ptr %27, i64 1
-  %retval.0.i.i.i73 = select i1 %tobool.not.i.i.i70, ptr %add.ptr1.i.i.i72, ptr %add.ptr.i.i.i71
-  br label %PyUnicode_DATA.exit.i74
+if.then.i.i65:                                    ; preds = %if.then.i64
+  %32 = and i32 %bf.load.i49, 64
+  %tobool.not.i.i.i66 = icmp eq i32 %32, 0
+  %retval.0.v.i.i.i67 = select i1 %tobool.not.i.i.i66, i64 56, i64 40
+  %retval.0.i.i.i68 = getelementptr i8, ptr %27, i64 %retval.0.v.i.i.i67
+  br label %PyUnicode_DATA.exit.i69
 
-if.end.i.i77:                                     ; preds = %if.then.i68
+if.end.i.i72:                                     ; preds = %if.then.i64
   %33 = getelementptr i8, ptr %27, i64 56
-  %op.val3.i.i78 = load ptr, ptr %33, align 8
-  br label %PyUnicode_DATA.exit.i74
+  %op.val3.i.i73 = load ptr, ptr %33, align 8
+  br label %PyUnicode_DATA.exit.i69
 
-PyUnicode_DATA.exit.i74:                          ; preds = %if.end.i.i77, %if.then.i.i69
-  %retval.0.i.i75 = phi ptr [ %retval.0.i.i.i73, %if.then.i.i69 ], [ %op.val3.i.i78, %if.end.i.i77 ]
-  %34 = load i8, ptr %retval.0.i.i75, align 1
-  %conv.i76 = zext i8 %34 to i32
-  br label %PyUnicode_READ_CHAR.exit89
+PyUnicode_DATA.exit.i69:                          ; preds = %if.end.i.i72, %if.then.i.i65
+  %retval.0.i.i70 = phi ptr [ %retval.0.i.i.i68, %if.then.i.i65 ], [ %op.val3.i.i73, %if.end.i.i72 ]
+  %34 = load i8, ptr %retval.0.i.i70, align 1
+  %conv.i71 = zext i8 %34 to i32
+  br label %PyUnicode_READ_CHAR.exit83
 
-if.then3.i56:                                     ; preds = %if.then33
-  br i1 %tobool.not.i19.i55, label %if.end.i15.i66, label %if.then.i9.i57
+if.then3.i53:                                     ; preds = %if.then33
+  br i1 %tobool.not.i18.i52, label %if.end.i14.i62, label %if.then.i9.i54
 
-if.then.i9.i57:                                   ; preds = %if.then3.i56
-  %35 = and i32 %bf.load.i52, 64
-  %tobool.not.i.i10.i58 = icmp eq i32 %35, 0
-  %add.ptr.i.i11.i59 = getelementptr %struct.PyASCIIObject, ptr %27, i64 1
-  %add.ptr1.i.i12.i60 = getelementptr %struct.PyCompactUnicodeObject, ptr %27, i64 1
-  %retval.0.i.i13.i61 = select i1 %tobool.not.i.i10.i58, ptr %add.ptr1.i.i12.i60, ptr %add.ptr.i.i11.i59
-  br label %PyUnicode_DATA.exit17.i62
+if.then.i9.i54:                                   ; preds = %if.then3.i53
+  %35 = and i32 %bf.load.i49, 64
+  %tobool.not.i.i10.i55 = icmp eq i32 %35, 0
+  %retval.0.v.i.i11.i56 = select i1 %tobool.not.i.i10.i55, i64 56, i64 40
+  %retval.0.i.i12.i57 = getelementptr i8, ptr %27, i64 %retval.0.v.i.i11.i56
+  br label %PyUnicode_DATA.exit16.i58
 
-if.end.i15.i66:                                   ; preds = %if.then3.i56
+if.end.i14.i62:                                   ; preds = %if.then3.i53
   %36 = getelementptr i8, ptr %27, i64 56
-  %op.val3.i16.i67 = load ptr, ptr %36, align 8
-  br label %PyUnicode_DATA.exit17.i62
+  %op.val3.i15.i63 = load ptr, ptr %36, align 8
+  br label %PyUnicode_DATA.exit16.i58
 
-PyUnicode_DATA.exit17.i62:                        ; preds = %if.end.i15.i66, %if.then.i9.i57
-  %retval.0.i14.i63 = phi ptr [ %retval.0.i.i13.i61, %if.then.i9.i57 ], [ %op.val3.i16.i67, %if.end.i15.i66 ]
-  %37 = load i16, ptr %retval.0.i14.i63, align 2
-  %conv6.i64 = zext i16 %37 to i32
-  br label %PyUnicode_READ_CHAR.exit89
+PyUnicode_DATA.exit16.i58:                        ; preds = %if.end.i14.i62, %if.then.i9.i54
+  %retval.0.i13.i59 = phi ptr [ %retval.0.i.i12.i57, %if.then.i9.i54 ], [ %op.val3.i15.i63, %if.end.i14.i62 ]
+  %37 = load i16, ptr %retval.0.i13.i59, align 2
+  %conv6.i60 = zext i16 %37 to i32
+  br label %PyUnicode_READ_CHAR.exit83
 
-if.end7.i79:                                      ; preds = %if.then33
-  br i1 %tobool.not.i19.i55, label %if.end.i26.i87, label %if.then.i20.i80
+if.end7.i74:                                      ; preds = %if.then33
+  br i1 %tobool.not.i18.i52, label %if.end.i24.i81, label %if.then.i19.i75
 
-if.then.i20.i80:                                  ; preds = %if.end7.i79
-  %38 = and i32 %bf.load.i52, 64
-  %tobool.not.i.i21.i81 = icmp eq i32 %38, 0
-  %add.ptr.i.i22.i82 = getelementptr %struct.PyASCIIObject, ptr %27, i64 1
-  %add.ptr1.i.i23.i83 = getelementptr %struct.PyCompactUnicodeObject, ptr %27, i64 1
-  %retval.0.i.i24.i84 = select i1 %tobool.not.i.i21.i81, ptr %add.ptr1.i.i23.i83, ptr %add.ptr.i.i22.i82
-  br label %PyUnicode_DATA.exit28.i85
+if.then.i19.i75:                                  ; preds = %if.end7.i74
+  %38 = and i32 %bf.load.i49, 64
+  %tobool.not.i.i20.i76 = icmp eq i32 %38, 0
+  %retval.0.v.i.i21.i77 = select i1 %tobool.not.i.i20.i76, i64 56, i64 40
+  %retval.0.i.i22.i78 = getelementptr i8, ptr %27, i64 %retval.0.v.i.i21.i77
+  br label %PyUnicode_DATA.exit26.i79
 
-if.end.i26.i87:                                   ; preds = %if.end7.i79
+if.end.i24.i81:                                   ; preds = %if.end7.i74
   %39 = getelementptr i8, ptr %27, i64 56
-  %op.val3.i27.i88 = load ptr, ptr %39, align 8
-  br label %PyUnicode_DATA.exit28.i85
+  %op.val3.i25.i82 = load ptr, ptr %39, align 8
+  br label %PyUnicode_DATA.exit26.i79
 
-PyUnicode_DATA.exit28.i85:                        ; preds = %if.end.i26.i87, %if.then.i20.i80
-  %retval.0.i25.i86 = phi ptr [ %retval.0.i.i24.i84, %if.then.i20.i80 ], [ %op.val3.i27.i88, %if.end.i26.i87 ]
-  %40 = load i32, ptr %retval.0.i25.i86, align 4
-  br label %PyUnicode_READ_CHAR.exit89
+PyUnicode_DATA.exit26.i79:                        ; preds = %if.end.i24.i81, %if.then.i19.i75
+  %retval.0.i23.i80 = phi ptr [ %retval.0.i.i22.i78, %if.then.i19.i75 ], [ %op.val3.i25.i82, %if.end.i24.i81 ]
+  %40 = load i32, ptr %retval.0.i23.i80, align 4
+  br label %PyUnicode_READ_CHAR.exit83
 
-PyUnicode_READ_CHAR.exit89:                       ; preds = %PyUnicode_DATA.exit.i74, %PyUnicode_DATA.exit17.i62, %PyUnicode_DATA.exit28.i85
-  %retval.0.i65 = phi i32 [ %conv.i76, %PyUnicode_DATA.exit.i74 ], [ %conv6.i64, %PyUnicode_DATA.exit17.i62 ], [ %40, %PyUnicode_DATA.exit28.i85 ]
-  %cmp35.not = icmp eq i32 %retval.0.i65, 95
+PyUnicode_READ_CHAR.exit83:                       ; preds = %PyUnicode_DATA.exit.i69, %PyUnicode_DATA.exit16.i58, %PyUnicode_DATA.exit26.i79
+  %retval.0.i61 = phi i32 [ %conv.i71, %PyUnicode_DATA.exit.i69 ], [ %conv6.i60, %PyUnicode_DATA.exit16.i58 ], [ %40, %PyUnicode_DATA.exit26.i79 ]
+  %cmp35.not = icmp eq i32 %retval.0.i61, 95
   br i1 %cmp35.not, label %lor.lhs.false, label %if.then38
 
-lor.lhs.false:                                    ; preds = %PyUnicode_READ_CHAR.exit89
+lor.lhs.false:                                    ; preds = %PyUnicode_READ_CHAR.exit83
   %call36 = call i32 @_PyUnicode_EqualToASCIIString(ptr noundef nonnull %27, ptr noundef nonnull @.str.20) #4
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %if.then38, label %if.end53
 
-if.then38:                                        ; preds = %lor.lhs.false, %PyUnicode_READ_CHAR.exit89
+if.then38:                                        ; preds = %lor.lhs.false, %PyUnicode_READ_CHAR.exit83
   br i1 %cmp39, label %if.then40, label %if.end47
 
 if.then40:                                        ; preds = %if.then38
@@ -2856,7 +2843,7 @@ if.end9:                                          ; preds = %if.else
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then1, %if.end9
-  %md_dict = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 1
+  %md_dict = getelementptr inbounds i8, ptr %m, i64 16
   %1 = load ptr, ptr %md_dict, align 8
   %call11 = call i32 @PyDict_GetItemRef(ptr noundef %1, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 62), ptr noundef nonnull %getattr) #4
   %cmp12 = icmp slt i32 %call11, 0
@@ -3034,14 +3021,14 @@ entry:
 define internal void @module_dealloc(ptr noundef %m) #0 {
 entry:
   %call = tail call ptr @_Py_GetConfig() #4
-  %verbose1 = getelementptr inbounds %struct.PyConfig, ptr %call, i64 0, i32 32
+  %verbose1 = getelementptr inbounds i8, ptr %call, i64 208
   %0 = load i32, ptr %verbose1, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %m) #4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %md_name = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 5
+  %md_name = getelementptr inbounds i8, ptr %m, i64 48
   %1 = load ptr, ptr %md_name, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -3051,7 +3038,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %md_weaklist = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 4
+  %md_weaklist = getelementptr inbounds i8, ptr %m, i64 40
   %2 = load ptr, ptr %md_weaklist, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end5, label %if.then4
@@ -3061,25 +3048,25 @@ if.then4:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %if.end
-  %md_def = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 2
+  %md_def = getelementptr inbounds i8, ptr %m, i64 24
   %3 = load ptr, ptr %md_def, align 8
   %tobool6.not = icmp eq ptr %3, null
   br i1 %tobool6.not, label %if.end17, label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %if.end5
-  %m_free = getelementptr inbounds %struct.PyModuleDef, ptr %3, i64 0, i32 8
+  %m_free = getelementptr inbounds i8, ptr %3, i64 96
   %4 = load ptr, ptr %m_free, align 8
   %tobool9.not = icmp eq ptr %4, null
   br i1 %tobool9.not, label %if.end17, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %land.lhs.true7
-  %m_size = getelementptr inbounds %struct.PyModuleDef, ptr %3, i64 0, i32 3
+  %m_size = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load i64, ptr %m_size, align 8
   %cmp12 = icmp slt i64 %5, 1
   br i1 %cmp12, label %if.then14, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true10
-  %md_state = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 3
+  %md_state = getelementptr inbounds i8, ptr %m, i64 32
   %6 = load ptr, ptr %md_state, align 8
   %cmp13.not = icmp eq ptr %6, null
   br i1 %cmp13.not, label %if.end17, label %if.then14
@@ -3089,7 +3076,7 @@ if.then14:                                        ; preds = %lor.lhs.false, %lan
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %lor.lhs.false, %land.lhs.true7, %if.end5
-  %md_dict = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 1
+  %md_dict = getelementptr inbounds i8, ptr %m, i64 16
   %7 = load ptr, ptr %md_dict, align 8
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -3111,7 +3098,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.end17, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %md_name18 = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 5
+  %md_name18 = getelementptr inbounds i8, ptr %m, i64 48
   %10 = load ptr, ptr %md_name18, align 8
   %cmp.not.i19 = icmp eq ptr %10, null
   br i1 %cmp.not.i19, label %Py_XDECREF.exit26, label %if.then.i20
@@ -3133,7 +3120,7 @@ if.then1.i.i25:                                   ; preds = %if.end.i.i22
   br label %Py_XDECREF.exit26
 
 Py_XDECREF.exit26:                                ; preds = %Py_XDECREF.exit, %if.then.i20, %if.end.i.i22, %if.then1.i.i25
-  %md_state19 = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 3
+  %md_state19 = getelementptr inbounds i8, ptr %m, i64 32
   %13 = load ptr, ptr %md_state19, align 8
   %cmp20.not = icmp eq ptr %13, null
   br i1 %cmp20.not, label %if.end23, label %if.then21
@@ -3145,7 +3132,7 @@ if.then21:                                        ; preds = %Py_XDECREF.exit26
 if.end23:                                         ; preds = %if.then21, %Py_XDECREF.exit26
   %14 = getelementptr i8, ptr %m, i64 8
   %m.val = load ptr, ptr %14, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %m.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %m.val, i64 320
   %15 = load ptr, ptr %tp_free, align 8
   tail call void %15(ptr noundef nonnull %m) #4
   ret void
@@ -3156,7 +3143,7 @@ define internal ptr @module_repr(ptr noundef %m) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %call1 = tail call ptr @_PyImport_ImportlibModuleRepr(ptr noundef %2, ptr noundef %m) #4
   ret ptr %call1
@@ -3167,25 +3154,25 @@ declare i32 @PyObject_GenericSetAttr(ptr noundef, ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @module_traverse(ptr noundef %m, ptr noundef %visit, ptr noundef %arg) #0 {
 entry:
-  %md_def = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 2
+  %md_def = getelementptr inbounds i8, ptr %m, i64 24
   %0 = load ptr, ptr %md_def, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.body, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %m_traverse = getelementptr inbounds %struct.PyModuleDef, ptr %0, i64 0, i32 6
+  %m_traverse = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %m_traverse, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %do.body, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %m_size = getelementptr inbounds %struct.PyModuleDef, ptr %0, i64 0, i32 3
+  %m_size = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load i64, ptr %m_size, align 8
   %cmp = icmp slt i64 %2, 1
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true3
-  %md_state = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 3
+  %md_state = getelementptr inbounds i8, ptr %m, i64 32
   %3 = load ptr, ptr %md_state, align 8
   %cmp5.not = icmp eq ptr %3, null
   br i1 %cmp5.not, label %do.body, label %if.then
@@ -3196,7 +3183,7 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
   br i1 %tobool8.not, label %do.body, label %return
 
 do.body:                                          ; preds = %entry, %land.lhs.true, %lor.lhs.false, %if.then
-  %md_dict = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 1
+  %md_dict = getelementptr inbounds i8, ptr %m, i64 16
   %4 = load ptr, ptr %md_dict, align 8
   %tobool11.not = icmp eq ptr %4, null
   br i1 %tobool11.not, label %do.end, label %if.then12
@@ -3217,25 +3204,25 @@ return:                                           ; preds = %if.then12, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @module_clear(ptr noundef %m) #0 {
 entry:
-  %md_def = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 2
+  %md_def = getelementptr inbounds i8, ptr %m, i64 24
   %0 = load ptr, ptr %md_def, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.body, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %m_clear = getelementptr inbounds %struct.PyModuleDef, ptr %0, i64 0, i32 7
+  %m_clear = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %m_clear, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %do.body, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %m_size = getelementptr inbounds %struct.PyModuleDef, ptr %0, i64 0, i32 3
+  %m_size = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load i64, ptr %m_size, align 8
   %cmp = icmp slt i64 %2, 1
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true3
-  %md_state = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 3
+  %md_state = getelementptr inbounds i8, ptr %m, i64 32
   %3 = load ptr, ptr %md_state, align 8
   %cmp5.not = icmp eq ptr %3, null
   br i1 %cmp5.not, label %do.body, label %if.then
@@ -3247,7 +3234,7 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
   br i1 %tobool9.not, label %if.end, label %if.then10
 
 if.then10:                                        ; preds = %if.then
-  %md_name = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 5
+  %md_name = getelementptr inbounds i8, ptr %m, i64 48
   %4 = load ptr, ptr %md_name, align 8
   %tobool11.not = icmp eq ptr %4, null
   %cond = select i1 %tobool11.not, ptr @.str.32, ptr @.str.31
@@ -3259,7 +3246,7 @@ if.end:                                           ; preds = %if.then10, %if.then
   br i1 %tobool13.not, label %do.body, label %return
 
 do.body:                                          ; preds = %entry, %land.lhs.true, %lor.lhs.false, %if.end
-  %md_dict = getelementptr inbounds %struct.PyModuleObject, ptr %m, i64 0, i32 1
+  %md_dict = getelementptr inbounds i8, ptr %m, i64 16
   %5 = load ptr, ptr %md_dict, align 8
   %cmp17.not = icmp eq ptr %5, null
   br i1 %cmp17.not, label %return, label %if.then18
@@ -3299,13 +3286,13 @@ cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
   %add18 = add i64 %kwargs.val, %args.val
-  %ob_item23 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item23 = getelementptr inbounds i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
   %2 = add i64 %args.val, -1
   %or.cond1 = icmp ult i64 %2, 2
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
@@ -3336,13 +3323,13 @@ if.end23:                                         ; preds = %if.end
   br i1 %tobool25.not, label %skip_optional_pos, label %if.end27
 
 if.end27:                                         ; preds = %if.end23
-  %arrayidx28 = getelementptr ptr, ptr %cond1631, i64 1
+  %arrayidx28 = getelementptr i8, ptr %cond1631, i64 8
   %7 = load ptr, ptr %arrayidx28, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end23, %if.end27
   %doc.0 = phi ptr [ %7, %if.end27 ], [ @_Py_NoneStruct, %if.end23 ]
-  %md_dict.i = getelementptr inbounds %struct.PyModuleObject, ptr %self, i64 0, i32 1
+  %md_dict.i = getelementptr inbounds i8, ptr %self, i64 16
   %8 = load ptr, ptr %md_dict.i, align 8
   %cmp.i16 = icmp eq ptr %8, null
   br i1 %cmp.i16, label %if.then.i, label %if.end4.i
@@ -3374,10 +3361,10 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %md_def.i = getelementptr inbounds %struct.PyModuleObject, ptr %call.i, i64 0, i32 2
+  %md_def.i = getelementptr inbounds i8, ptr %call.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %md_def.i, i8 0, i64 32, i1 false)
   %call1.i = tail call ptr @PyDict_New() #4
-  %md_dict.i = getelementptr inbounds %struct.PyModuleObject, ptr %call.i, i64 0, i32 1
+  %md_dict.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call1.i, ptr %md_dict.i, align 8
   %cmp3.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then
@@ -3469,7 +3456,7 @@ if.then6:                                         ; preds = %if.then3
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.then6
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds %struct._typeobject, ptr %callable.val.i.i.i, i64 0, i32 5
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
   %8 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call4, i64 %8
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1

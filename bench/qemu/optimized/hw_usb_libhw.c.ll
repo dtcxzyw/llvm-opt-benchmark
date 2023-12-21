@@ -3,16 +3,8 @@ source_filename = "bench/qemu/original/hw_usb_libhw.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QEMUSGList = type { ptr, i32, i32, i64, ptr, ptr }
-%struct.USBPacket = type { i32, i64, ptr, i32, %struct.QEMUIOVector, i64, i8, i8, i32, i32, i32, ptr, %union.anon.1, %union.anon.2 }
-%struct.QEMUIOVector = type { ptr, i32, %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i32, %struct.iovec }
-%struct.iovec = type { ptr, i64 }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.2 = type { %struct.QTailQLink }
 %struct.ScatterGatherEntry = type { i64, i64 }
+%struct.iovec = type { ptr, i64 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @usb_packet_map(ptr noundef %p, ptr nocapture noundef readonly %sgl) local_unnamed_addr #0 {
@@ -20,14 +12,14 @@ entry:
   %xlen.i = alloca i64, align 8
   %0 = load i32, ptr %p, align 8
   %cmp = icmp eq i32 %0, 105
-  %nsg = getelementptr inbounds %struct.QEMUSGList, ptr %sgl, i64 0, i32 1
+  %nsg = getelementptr inbounds i8, ptr %sgl, i64 8
   %1 = load i32, ptr %nsg, align 8
   %cmp135 = icmp sgt i32 %1, 0
   br i1 %cmp135, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %as = getelementptr inbounds %struct.QEMUSGList, ptr %sgl, i64 0, i32 5
-  %iov = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4
+  %as = getelementptr inbounds i8, ptr %sgl, i64 32
+  %iov = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -35,13 +27,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %.compoundliteral.sroa.0.037 = phi i32 [ undef, %for.body.lr.ph ], [ %.compoundliteral.sroa.0.1.lcssa, %for.inc ]
   %3 = load ptr, ptr %sgl, align 8
-  %len6 = getelementptr %struct.ScatterGatherEntry, ptr %3, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr %struct.ScatterGatherEntry, ptr %3, i64 %indvars.iv
+  %len6 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i64, ptr %len6, align 8
   %tobool.not31 = icmp eq i64 %4, 0
   br i1 %tobool.not31, label %for.inc, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %for.body
-  %arrayidx = getelementptr %struct.ScatterGatherEntry, ptr %3, i64 %indvars.iv
   %5 = load i64, ptr %arrayidx, align 8
   br label %while.body
 
@@ -83,7 +75,7 @@ for.inc:                                          ; preds = %for.inc.loopexit, %
 err:                                              ; preds = %while.body
   %10 = load i32, ptr %p, align 8
   %cmp.i = icmp eq i32 %10, 105
-  %niov.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 1
+  %niov.i = getelementptr inbounds i8, ptr %p, i64 40
   %11 = load i32, ptr %niov.i, align 8
   %cmp19.i = icmp sgt i32 %11, 0
   br i1 %cmp19.i, label %for.body.i, label %return
@@ -94,7 +86,7 @@ for.body.i:                                       ; preds = %err, %for.body.i
   %13 = load ptr, ptr %iov, align 8
   %arrayidx.i = getelementptr %struct.iovec, ptr %13, i64 %indvars.iv.i
   %14 = load ptr, ptr %arrayidx.i, align 8
-  %iov_len.i = getelementptr %struct.iovec, ptr %13, i64 %indvars.iv.i, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %15 = load i64, ptr %iov_len.i, align 8
   call void @address_space_unmap(ptr noundef %12, ptr noundef %14, i64 noundef %15, i1 noundef zeroext %cmp.i, i64 noundef %15) #4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -115,14 +107,14 @@ define dso_local void @usb_packet_unmap(ptr nocapture noundef readonly %p, ptr n
 entry:
   %0 = load i32, ptr %p, align 8
   %cmp = icmp eq i32 %0, 105
-  %niov = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 1
+  %niov = getelementptr inbounds i8, ptr %p, i64 40
   %1 = load i32, ptr %niov, align 8
   %cmp19 = icmp sgt i32 %1, 0
   br i1 %cmp19, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %iov = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4
-  %as = getelementptr inbounds %struct.QEMUSGList, ptr %sgl, i64 0, i32 5
+  %iov = getelementptr inbounds i8, ptr %p, i64 32
+  %as = getelementptr inbounds i8, ptr %sgl, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -131,7 +123,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load ptr, ptr %iov, align 8
   %arrayidx = getelementptr %struct.iovec, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
-  %iov_len = getelementptr %struct.iovec, ptr %3, i64 %indvars.iv, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load i64, ptr %iov_len, align 8
   tail call void @address_space_unmap(ptr noundef %2, ptr noundef %4, i64 noundef %5, i1 noundef zeroext %cmp, i64 noundef %5) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

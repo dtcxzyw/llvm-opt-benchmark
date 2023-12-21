@@ -387,369 +387,369 @@ entry:
   %ref.tmp341 = alloca %"class.testing::Message", align 8
   %ref.tmp343 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr inttoptr (i64 10 to ptr), ptr %args, align 16
-  %dispatcher_.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 0, i32 1
+  %dispatcher_.i.i = getelementptr inbounds i8, ptr %args, i64 8
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
-  %arrayinit.element = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 16
   store ptr inttoptr (i64 20 to ptr), ptr %arrayinit.element, align 16
-  %dispatcher_.i.i27 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 1, i32 1
+  %dispatcher_.i.i27 = getelementptr inbounds i8, ptr %args, i64 24
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i27, align 8
-  %arrayinit.element3 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 2
+  %arrayinit.element3 = getelementptr inbounds i8, ptr %args, i64 32
   store ptr inttoptr (i64 30 to ptr), ptr %arrayinit.element3, align 16
-  %dispatcher_.i.i30 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 2, i32 1
+  %dispatcher_.i.i30 = getelementptr inbounds i8, ptr %args, i64 40
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i30, align 8
-  %arrayinit.element5 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 3
+  %arrayinit.element5 = getelementptr inbounds i8, ptr %args, i64 48
   store ptr inttoptr (i64 40 to ptr), ptr %arrayinit.element5, align 16
-  %dispatcher_.i.i33 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 3, i32 1
+  %dispatcher_.i.i33 = getelementptr inbounds i8, ptr %args, i64 56
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i33, align 8
   store i32 52, ptr %kExpect, align 16
-  %fmt = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 0, i32 1
+  %fmt = getelementptr inbounds i8, ptr %kExpect, i64 8
   store ptr @.str.8, ptr %fmt, align 8
-  %ok_phases = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 0, i32 2
+  %ok_phases = getelementptr inbounds i8, ptr %kExpect, i64 16
   store i32 2, ptr %ok_phases, align 16
-  %arg = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 0, i32 3
+  %arg = getelementptr inbounds i8, ptr %kExpect, i64 24
   store ptr %args, ptr %arg, align 8
-  %width = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 0, i32 4
+  %width = getelementptr inbounds i8, ptr %kExpect, i64 32
   store i32 -1, ptr %width, align 16
-  %precision = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 0, i32 5
+  %precision = getelementptr inbounds i8, ptr %kExpect, i64 36
   store i32 -1, ptr %precision, align 4
-  %next_arg = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 0, i32 6
+  %next_arg = getelementptr inbounds i8, ptr %kExpect, i64 40
   store i32 2, ptr %next_arg, align 8
-  %arrayinit.element9 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 1
+  %arrayinit.element9 = getelementptr inbounds i8, ptr %kExpect, i64 48
   store i32 53, ptr %arrayinit.element9, align 16
-  %fmt11 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 1, i32 1
+  %fmt11 = getelementptr inbounds i8, ptr %kExpect, i64 56
   store ptr @.str.9, ptr %fmt11, align 8
-  %ok_phases12 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 1, i32 2
+  %ok_phases12 = getelementptr inbounds i8, ptr %kExpect, i64 64
   store i32 2, ptr %ok_phases12, align 16
-  %arg13 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 1, i32 3
+  %arg13 = getelementptr inbounds i8, ptr %kExpect, i64 72
   store ptr %args, ptr %arg13, align 8
-  %width15 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 1, i32 4
+  %width15 = getelementptr inbounds i8, ptr %kExpect, i64 80
   store i32 4, ptr %width15, align 16
-  %precision16 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 1, i32 5
+  %precision16 = getelementptr inbounds i8, ptr %kExpect, i64 84
   store i32 -1, ptr %precision16, align 4
-  %next_arg17 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 1, i32 6
+  %next_arg17 = getelementptr inbounds i8, ptr %kExpect, i64 88
   store i32 2, ptr %next_arg17, align 8
-  %arrayinit.element18 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 2
+  %arrayinit.element18 = getelementptr inbounds i8, ptr %kExpect, i64 96
   store i32 54, ptr %arrayinit.element18, align 16
-  %fmt20 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 2, i32 1
+  %fmt20 = getelementptr inbounds i8, ptr %kExpect, i64 104
   store ptr @.str.10, ptr %fmt20, align 8
-  %ok_phases21 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 2, i32 2
+  %ok_phases21 = getelementptr inbounds i8, ptr %kExpect, i64 112
   store i32 2, ptr %ok_phases21, align 16
-  %arg22 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 2, i32 3
+  %arg22 = getelementptr inbounds i8, ptr %kExpect, i64 120
   store ptr %args, ptr %arg22, align 8
-  %width24 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 2, i32 4
+  %width24 = getelementptr inbounds i8, ptr %kExpect, i64 128
   store i32 -1, ptr %width24, align 16
-  %precision25 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 2, i32 5
+  %precision25 = getelementptr inbounds i8, ptr %kExpect, i64 132
   store i32 5, ptr %precision25, align 4
-  %next_arg26 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 2, i32 6
+  %next_arg26 = getelementptr inbounds i8, ptr %kExpect, i64 136
   store i32 2, ptr %next_arg26, align 8
-  %arrayinit.element27 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 3
+  %arrayinit.element27 = getelementptr inbounds i8, ptr %kExpect, i64 144
   store i32 55, ptr %arrayinit.element27, align 16
-  %fmt29 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 3, i32 1
+  %fmt29 = getelementptr inbounds i8, ptr %kExpect, i64 152
   store ptr @.str.11, ptr %fmt29, align 8
-  %ok_phases30 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 3, i32 2
+  %ok_phases30 = getelementptr inbounds i8, ptr %kExpect, i64 160
   store i32 2, ptr %ok_phases30, align 16
-  %arg31 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 3, i32 3
+  %arg31 = getelementptr inbounds i8, ptr %kExpect, i64 168
   store ptr %args, ptr %arg31, align 8
-  %width33 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 3, i32 4
+  %width33 = getelementptr inbounds i8, ptr %kExpect, i64 176
   store i32 4, ptr %width33, align 16
-  %precision34 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 3, i32 5
+  %precision34 = getelementptr inbounds i8, ptr %kExpect, i64 180
   store i32 5, ptr %precision34, align 4
-  %next_arg35 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 3, i32 6
+  %next_arg35 = getelementptr inbounds i8, ptr %kExpect, i64 184
   store i32 2, ptr %next_arg35, align 8
-  %arrayinit.element36 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 4
+  %arrayinit.element36 = getelementptr inbounds i8, ptr %kExpect, i64 192
   store i32 56, ptr %arrayinit.element36, align 16
-  %fmt38 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 4, i32 1
+  %fmt38 = getelementptr inbounds i8, ptr %kExpect, i64 200
   store ptr @.str.12, ptr %fmt38, align 8
-  %ok_phases39 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 4, i32 2
+  %ok_phases39 = getelementptr inbounds i8, ptr %kExpect, i64 208
   store i32 2, ptr %ok_phases39, align 16
-  %arg40 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 4, i32 3
+  %arg40 = getelementptr inbounds i8, ptr %kExpect, i64 216
   store ptr %arrayinit.element, ptr %arg40, align 8
-  %width42 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 4, i32 4
+  %width42 = getelementptr inbounds i8, ptr %kExpect, i64 224
   store i32 10, ptr %width42, align 16
-  %precision43 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 4, i32 5
+  %precision43 = getelementptr inbounds i8, ptr %kExpect, i64 228
   store i32 -1, ptr %precision43, align 4
-  %next_arg44 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 4, i32 6
+  %next_arg44 = getelementptr inbounds i8, ptr %kExpect, i64 232
   store i32 3, ptr %next_arg44, align 8
-  %arrayinit.element45 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 5
+  %arrayinit.element45 = getelementptr inbounds i8, ptr %kExpect, i64 240
   store i32 57, ptr %arrayinit.element45, align 16
-  %fmt47 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 5, i32 1
+  %fmt47 = getelementptr inbounds i8, ptr %kExpect, i64 248
   store ptr @.str.13, ptr %fmt47, align 8
-  %ok_phases48 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 5, i32 2
+  %ok_phases48 = getelementptr inbounds i8, ptr %kExpect, i64 256
   store i32 2, ptr %ok_phases48, align 16
-  %arg49 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 5, i32 3
+  %arg49 = getelementptr inbounds i8, ptr %kExpect, i64 264
   store ptr %arrayinit.element, ptr %arg49, align 8
-  %width51 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 5, i32 4
+  %width51 = getelementptr inbounds i8, ptr %kExpect, i64 272
   store i32 -1, ptr %width51, align 16
-  %precision52 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 5, i32 5
+  %precision52 = getelementptr inbounds i8, ptr %kExpect, i64 276
   store i32 10, ptr %precision52, align 4
-  %next_arg53 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 5, i32 6
+  %next_arg53 = getelementptr inbounds i8, ptr %kExpect, i64 280
   store i32 3, ptr %next_arg53, align 8
-  %arrayinit.element54 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 6
+  %arrayinit.element54 = getelementptr inbounds i8, ptr %kExpect, i64 288
   store i32 58, ptr %arrayinit.element54, align 16
-  %fmt56 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 6, i32 1
+  %fmt56 = getelementptr inbounds i8, ptr %kExpect, i64 296
   store ptr @.str.14, ptr %fmt56, align 8
-  %ok_phases57 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 6, i32 2
+  %ok_phases57 = getelementptr inbounds i8, ptr %kExpect, i64 304
   store i32 2, ptr %ok_phases57, align 16
-  %arg58 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 6, i32 3
+  %arg58 = getelementptr inbounds i8, ptr %kExpect, i64 312
   store ptr %arrayinit.element3, ptr %arg58, align 8
-  %width60 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 6, i32 4
+  %width60 = getelementptr inbounds i8, ptr %kExpect, i64 320
   store i32 10, ptr %width60, align 16
-  %precision61 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 6, i32 5
+  %precision61 = getelementptr inbounds i8, ptr %kExpect, i64 324
   store i32 20, ptr %precision61, align 4
-  %next_arg62 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 6, i32 6
+  %next_arg62 = getelementptr inbounds i8, ptr %kExpect, i64 328
   store i32 4, ptr %next_arg62, align 8
-  %arrayinit.element63 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 7
+  %arrayinit.element63 = getelementptr inbounds i8, ptr %kExpect, i64 336
   store i32 59, ptr %arrayinit.element63, align 16
-  %fmt65 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 7, i32 1
+  %fmt65 = getelementptr inbounds i8, ptr %kExpect, i64 344
   store ptr @.str.15, ptr %fmt65, align 8
-  %ok_phases66 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 7, i32 2
+  %ok_phases66 = getelementptr inbounds i8, ptr %kExpect, i64 352
   store i32 2, ptr %ok_phases66, align 16
-  %arg67 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 7, i32 3
+  %arg67 = getelementptr inbounds i8, ptr %kExpect, i64 360
   store ptr %args, ptr %arg67, align 8
-  %width69 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 7, i32 4
+  %width69 = getelementptr inbounds i8, ptr %kExpect, i64 368
   store i32 -1, ptr %width69, align 16
-  %precision70 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 7, i32 5
+  %precision70 = getelementptr inbounds i8, ptr %kExpect, i64 372
   store i32 -1, ptr %precision70, align 4
-  %next_arg71 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 7, i32 6
+  %next_arg71 = getelementptr inbounds i8, ptr %kExpect, i64 376
   store i32 0, ptr %next_arg71, align 8
-  %arrayinit.element72 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 8
+  %arrayinit.element72 = getelementptr inbounds i8, ptr %kExpect, i64 384
   store i32 60, ptr %arrayinit.element72, align 16
-  %fmt74 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 8, i32 1
+  %fmt74 = getelementptr inbounds i8, ptr %kExpect, i64 392
   store ptr @.str.16, ptr %fmt74, align 8
-  %ok_phases75 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 8, i32 2
+  %ok_phases75 = getelementptr inbounds i8, ptr %kExpect, i64 400
   store i32 2, ptr %ok_phases75, align 16
-  %arg76 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 8, i32 3
+  %arg76 = getelementptr inbounds i8, ptr %kExpect, i64 408
   store ptr %arrayinit.element, ptr %arg76, align 8
-  %width78 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 8, i32 4
+  %width78 = getelementptr inbounds i8, ptr %kExpect, i64 416
   store i32 -1, ptr %width78, align 16
-  %precision79 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 8, i32 5
+  %precision79 = getelementptr inbounds i8, ptr %kExpect, i64 420
   store i32 -1, ptr %precision79, align 4
-  %next_arg80 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 8, i32 6
+  %next_arg80 = getelementptr inbounds i8, ptr %kExpect, i64 424
   store i32 0, ptr %next_arg80, align 8
-  %arrayinit.element81 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 9
+  %arrayinit.element81 = getelementptr inbounds i8, ptr %kExpect, i64 432
   store i32 61, ptr %arrayinit.element81, align 16
-  %fmt83 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 9, i32 1
+  %fmt83 = getelementptr inbounds i8, ptr %kExpect, i64 440
   store ptr @.str.17, ptr %fmt83, align 8
-  %ok_phases84 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 9, i32 2
+  %ok_phases84 = getelementptr inbounds i8, ptr %kExpect, i64 448
   store i32 2, ptr %ok_phases84, align 16
-  %arg85 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 9, i32 3
+  %arg85 = getelementptr inbounds i8, ptr %kExpect, i64 456
   store ptr %arrayinit.element3, ptr %arg85, align 8
-  %width87 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 9, i32 4
+  %width87 = getelementptr inbounds i8, ptr %kExpect, i64 464
   store i32 -1, ptr %width87, align 16
-  %precision88 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 9, i32 5
+  %precision88 = getelementptr inbounds i8, ptr %kExpect, i64 468
   store i32 -1, ptr %precision88, align 4
-  %next_arg89 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 9, i32 6
+  %next_arg89 = getelementptr inbounds i8, ptr %kExpect, i64 472
   store i32 0, ptr %next_arg89, align 8
-  %arrayinit.element90 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 10
+  %arrayinit.element90 = getelementptr inbounds i8, ptr %kExpect, i64 480
   store i32 62, ptr %arrayinit.element90, align 16
-  %fmt92 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 10, i32 1
+  %fmt92 = getelementptr inbounds i8, ptr %kExpect, i64 488
   store ptr @.str.18, ptr %fmt92, align 8
-  %ok_phases93 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 10, i32 2
+  %ok_phases93 = getelementptr inbounds i8, ptr %kExpect, i64 496
   store i32 2, ptr %ok_phases93, align 16
-  %arg94 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 10, i32 3
+  %arg94 = getelementptr inbounds i8, ptr %kExpect, i64 504
   store ptr %arrayinit.element5, ptr %arg94, align 8
-  %width96 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 10, i32 4
+  %width96 = getelementptr inbounds i8, ptr %kExpect, i64 512
   store i32 -1, ptr %width96, align 16
-  %precision97 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 10, i32 5
+  %precision97 = getelementptr inbounds i8, ptr %kExpect, i64 516
   store i32 -1, ptr %precision97, align 4
-  %next_arg98 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 10, i32 6
+  %next_arg98 = getelementptr inbounds i8, ptr %kExpect, i64 520
   store i32 0, ptr %next_arg98, align 8
-  %arrayinit.element99 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 11
+  %arrayinit.element99 = getelementptr inbounds i8, ptr %kExpect, i64 528
   store i32 63, ptr %arrayinit.element99, align 16
-  %fmt101 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 11, i32 1
+  %fmt101 = getelementptr inbounds i8, ptr %kExpect, i64 536
   store ptr @.str.19, ptr %fmt101, align 8
-  %ok_phases102 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 11, i32 2
+  %ok_phases102 = getelementptr inbounds i8, ptr %kExpect, i64 544
   store i32 2, ptr %ok_phases102, align 16
-  %arg103 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 11, i32 3
+  %arg103 = getelementptr inbounds i8, ptr %kExpect, i64 552
   store ptr %arrayinit.element, ptr %arg103, align 8
-  %width105 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 11, i32 4
+  %width105 = getelementptr inbounds i8, ptr %kExpect, i64 560
   store i32 10, ptr %width105, align 16
-  %precision106 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 11, i32 5
+  %precision106 = getelementptr inbounds i8, ptr %kExpect, i64 564
   store i32 -1, ptr %precision106, align 4
-  %next_arg107 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 11, i32 6
+  %next_arg107 = getelementptr inbounds i8, ptr %kExpect, i64 568
   store i32 0, ptr %next_arg107, align 8
-  %arrayinit.element108 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 12
+  %arrayinit.element108 = getelementptr inbounds i8, ptr %kExpect, i64 576
   store i32 64, ptr %arrayinit.element108, align 16
-  %fmt110 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 12, i32 1
+  %fmt110 = getelementptr inbounds i8, ptr %kExpect, i64 584
   store ptr @.str.20, ptr %fmt110, align 8
-  %ok_phases111 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 12, i32 2
+  %ok_phases111 = getelementptr inbounds i8, ptr %kExpect, i64 592
   store i32 2, ptr %ok_phases111, align 16
-  %arg112 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 12, i32 3
+  %arg112 = getelementptr inbounds i8, ptr %kExpect, i64 600
   store ptr %arrayinit.element, ptr %arg112, align 8
-  %width114 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 12, i32 4
+  %width114 = getelementptr inbounds i8, ptr %kExpect, i64 608
   store i32 20, ptr %width114, align 16
-  %precision115 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 12, i32 5
+  %precision115 = getelementptr inbounds i8, ptr %kExpect, i64 612
   store i32 -1, ptr %precision115, align 4
-  %next_arg116 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 12, i32 6
+  %next_arg116 = getelementptr inbounds i8, ptr %kExpect, i64 616
   store i32 0, ptr %next_arg116, align 8
-  %arrayinit.element117 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 13
+  %arrayinit.element117 = getelementptr inbounds i8, ptr %kExpect, i64 624
   store i32 65, ptr %arrayinit.element117, align 16
-  %fmt119 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 13, i32 1
+  %fmt119 = getelementptr inbounds i8, ptr %kExpect, i64 632
   store ptr @.str.21, ptr %fmt119, align 8
-  %ok_phases120 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 13, i32 2
+  %ok_phases120 = getelementptr inbounds i8, ptr %kExpect, i64 640
   store i32 2, ptr %ok_phases120, align 16
-  %arg121 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 13, i32 3
+  %arg121 = getelementptr inbounds i8, ptr %kExpect, i64 648
   store ptr %arrayinit.element, ptr %arg121, align 8
-  %width123 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 13, i32 4
+  %width123 = getelementptr inbounds i8, ptr %kExpect, i64 656
   store i32 30, ptr %width123, align 16
-  %precision124 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 13, i32 5
+  %precision124 = getelementptr inbounds i8, ptr %kExpect, i64 660
   store i32 -1, ptr %precision124, align 4
-  %next_arg125 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 13, i32 6
+  %next_arg125 = getelementptr inbounds i8, ptr %kExpect, i64 664
   store i32 0, ptr %next_arg125, align 8
-  %arrayinit.element126 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 14
+  %arrayinit.element126 = getelementptr inbounds i8, ptr %kExpect, i64 672
   store i32 66, ptr %arrayinit.element126, align 16
-  %fmt128 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 14, i32 1
+  %fmt128 = getelementptr inbounds i8, ptr %kExpect, i64 680
   store ptr @.str.22, ptr %fmt128, align 8
-  %ok_phases129 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 14, i32 2
+  %ok_phases129 = getelementptr inbounds i8, ptr %kExpect, i64 688
   store i32 2, ptr %ok_phases129, align 16
-  %arg130 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 14, i32 3
+  %arg130 = getelementptr inbounds i8, ptr %kExpect, i64 696
   store ptr %arrayinit.element, ptr %arg130, align 8
-  %width132 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 14, i32 4
+  %width132 = getelementptr inbounds i8, ptr %kExpect, i64 704
   store i32 -1, ptr %width132, align 16
-  %precision133 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 14, i32 5
+  %precision133 = getelementptr inbounds i8, ptr %kExpect, i64 708
   store i32 10, ptr %precision133, align 4
-  %next_arg134 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 14, i32 6
+  %next_arg134 = getelementptr inbounds i8, ptr %kExpect, i64 712
   store i32 0, ptr %next_arg134, align 8
-  %arrayinit.element135 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 15
+  %arrayinit.element135 = getelementptr inbounds i8, ptr %kExpect, i64 720
   store i32 67, ptr %arrayinit.element135, align 16
-  %fmt137 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 15, i32 1
+  %fmt137 = getelementptr inbounds i8, ptr %kExpect, i64 728
   store ptr @.str.23, ptr %fmt137, align 8
-  %ok_phases138 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 15, i32 2
+  %ok_phases138 = getelementptr inbounds i8, ptr %kExpect, i64 736
   store i32 2, ptr %ok_phases138, align 16
-  %arg139 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 15, i32 3
+  %arg139 = getelementptr inbounds i8, ptr %kExpect, i64 744
   store ptr %arrayinit.element, ptr %arg139, align 8
-  %width141 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 15, i32 4
+  %width141 = getelementptr inbounds i8, ptr %kExpect, i64 752
   store i32 -1, ptr %width141, align 16
-  %precision142 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 15, i32 5
+  %precision142 = getelementptr inbounds i8, ptr %kExpect, i64 756
   store i32 20, ptr %precision142, align 4
-  %next_arg143 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 15, i32 6
+  %next_arg143 = getelementptr inbounds i8, ptr %kExpect, i64 760
   store i32 0, ptr %next_arg143, align 8
-  %arrayinit.element144 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 16
+  %arrayinit.element144 = getelementptr inbounds i8, ptr %kExpect, i64 768
   store i32 68, ptr %arrayinit.element144, align 16
-  %fmt146 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 16, i32 1
+  %fmt146 = getelementptr inbounds i8, ptr %kExpect, i64 776
   store ptr @.str.24, ptr %fmt146, align 8
-  %ok_phases147 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 16, i32 2
+  %ok_phases147 = getelementptr inbounds i8, ptr %kExpect, i64 784
   store i32 2, ptr %ok_phases147, align 16
-  %arg148 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 16, i32 3
+  %arg148 = getelementptr inbounds i8, ptr %kExpect, i64 792
   store ptr %arrayinit.element, ptr %arg148, align 8
-  %width150 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 16, i32 4
+  %width150 = getelementptr inbounds i8, ptr %kExpect, i64 800
   store i32 -1, ptr %width150, align 16
-  %precision151 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 16, i32 5
+  %precision151 = getelementptr inbounds i8, ptr %kExpect, i64 804
   store i32 30, ptr %precision151, align 4
-  %next_arg152 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 16, i32 6
+  %next_arg152 = getelementptr inbounds i8, ptr %kExpect, i64 808
   store i32 0, ptr %next_arg152, align 8
-  %arrayinit.element153 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 17
+  %arrayinit.element153 = getelementptr inbounds i8, ptr %kExpect, i64 816
   store i32 69, ptr %arrayinit.element153, align 16
-  %fmt155 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 17, i32 1
+  %fmt155 = getelementptr inbounds i8, ptr %kExpect, i64 824
   store ptr @.str.25, ptr %fmt155, align 8
-  %ok_phases156 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 17, i32 2
+  %ok_phases156 = getelementptr inbounds i8, ptr %kExpect, i64 832
   store i32 2, ptr %ok_phases156, align 16
-  %arg157 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 17, i32 3
+  %arg157 = getelementptr inbounds i8, ptr %kExpect, i64 840
   store ptr %arrayinit.element, ptr %arg157, align 8
-  %width159 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 17, i32 4
+  %width159 = getelementptr inbounds i8, ptr %kExpect, i64 848
   store i32 30, ptr %width159, align 16
-  %precision160 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 17, i32 5
+  %precision160 = getelementptr inbounds i8, ptr %kExpect, i64 852
   store i32 10, ptr %precision160, align 4
-  %next_arg161 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 17, i32 6
+  %next_arg161 = getelementptr inbounds i8, ptr %kExpect, i64 856
   store i32 0, ptr %next_arg161, align 8
-  %arrayinit.element162 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 18
+  %arrayinit.element162 = getelementptr inbounds i8, ptr %kExpect, i64 864
   store i32 70, ptr %arrayinit.element162, align 16
-  %fmt164 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 18, i32 1
+  %fmt164 = getelementptr inbounds i8, ptr %kExpect, i64 872
   store ptr @.str.26, ptr %fmt164, align 8
-  %ok_phases165 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 18, i32 2
+  %ok_phases165 = getelementptr inbounds i8, ptr %kExpect, i64 880
   store i32 2, ptr %ok_phases165, align 16
-  %arg166 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 18, i32 3
+  %arg166 = getelementptr inbounds i8, ptr %kExpect, i64 888
   store ptr %arrayinit.element, ptr %arg166, align 8
-  %width168 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 18, i32 4
+  %width168 = getelementptr inbounds i8, ptr %kExpect, i64 896
   store i32 20, ptr %width168, align 16
-  %precision169 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 18, i32 5
+  %precision169 = getelementptr inbounds i8, ptr %kExpect, i64 900
   store i32 20, ptr %precision169, align 4
-  %next_arg170 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 18, i32 6
+  %next_arg170 = getelementptr inbounds i8, ptr %kExpect, i64 904
   store i32 0, ptr %next_arg170, align 8
-  %arrayinit.element171 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 19
+  %arrayinit.element171 = getelementptr inbounds i8, ptr %kExpect, i64 912
   store i32 71, ptr %arrayinit.element171, align 16
-  %fmt173 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 19, i32 1
+  %fmt173 = getelementptr inbounds i8, ptr %kExpect, i64 920
   store ptr @.str.27, ptr %fmt173, align 8
-  %ok_phases174 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 19, i32 2
+  %ok_phases174 = getelementptr inbounds i8, ptr %kExpect, i64 928
   store i32 2, ptr %ok_phases174, align 16
-  %arg175 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 19, i32 3
+  %arg175 = getelementptr inbounds i8, ptr %kExpect, i64 936
   store ptr %arrayinit.element, ptr %arg175, align 8
-  %width177 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 19, i32 4
+  %width177 = getelementptr inbounds i8, ptr %kExpect, i64 944
   store i32 10, ptr %width177, align 16
-  %precision178 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 19, i32 5
+  %precision178 = getelementptr inbounds i8, ptr %kExpect, i64 948
   store i32 30, ptr %precision178, align 4
-  %next_arg179 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 19, i32 6
+  %next_arg179 = getelementptr inbounds i8, ptr %kExpect, i64 952
   store i32 0, ptr %next_arg179, align 8
-  %arrayinit.element180 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 20
+  %arrayinit.element180 = getelementptr inbounds i8, ptr %kExpect, i64 960
   store i32 72, ptr %arrayinit.element180, align 16
-  %fmt182 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 20, i32 1
+  %fmt182 = getelementptr inbounds i8, ptr %kExpect, i64 968
   store ptr @.str.25, ptr %fmt182, align 8
-  %ok_phases183 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 20, i32 2
+  %ok_phases183 = getelementptr inbounds i8, ptr %kExpect, i64 976
   store i32 2, ptr %ok_phases183, align 16
-  %arg184 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 20, i32 3
+  %arg184 = getelementptr inbounds i8, ptr %kExpect, i64 984
   store ptr %arrayinit.element, ptr %arg184, align 8
-  %width186 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 20, i32 4
+  %width186 = getelementptr inbounds i8, ptr %kExpect, i64 992
   store i32 30, ptr %width186, align 16
-  %precision187 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 20, i32 5
+  %precision187 = getelementptr inbounds i8, ptr %kExpect, i64 996
   store i32 10, ptr %precision187, align 4
-  %next_arg188 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 20, i32 6
+  %next_arg188 = getelementptr inbounds i8, ptr %kExpect, i64 1000
   store i32 0, ptr %next_arg188, align 8
-  %arrayinit.element189 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 21
+  %arrayinit.element189 = getelementptr inbounds i8, ptr %kExpect, i64 1008
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %arrayinit.element189, i8 0, i64 48, i1 false)
   store i32 73, ptr %arrayinit.element189, align 16
-  %fmt191 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 21, i32 1
+  %fmt191 = getelementptr inbounds i8, ptr %kExpect, i64 1016
   store ptr @.str.28, ptr %fmt191, align 8
-  %arrayinit.element197 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 22
+  %arrayinit.element197 = getelementptr inbounds i8, ptr %kExpect, i64 1056
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %arrayinit.element197, i8 0, i64 48, i1 false)
   store i32 74, ptr %arrayinit.element197, align 16
-  %fmt199 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 22, i32 1
+  %fmt199 = getelementptr inbounds i8, ptr %kExpect, i64 1064
   store ptr @.str.29, ptr %fmt199, align 8
-  %arrayinit.element205 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 23
+  %arrayinit.element205 = getelementptr inbounds i8, ptr %kExpect, i64 1104
   store i32 75, ptr %arrayinit.element205, align 16
-  %fmt207 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 23, i32 1
+  %fmt207 = getelementptr inbounds i8, ptr %kExpect, i64 1112
   store ptr @.str.30, ptr %fmt207, align 8
-  %ok_phases208 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 23, i32 2
+  %ok_phases208 = getelementptr inbounds i8, ptr %kExpect, i64 1120
   store i32 1, ptr %ok_phases208, align 16
-  %arg209 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 23, i32 3
-  %arrayinit.element213 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 24
+  %arg209 = getelementptr inbounds i8, ptr %kExpect, i64 1128
+  %arrayinit.element213 = getelementptr inbounds i8, ptr %kExpect, i64 1152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %arrayinit.element213, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %arg209, i8 0, i64 20, i1 false)
   store i32 76, ptr %arrayinit.element213, align 16
-  %fmt215 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 24, i32 1
+  %fmt215 = getelementptr inbounds i8, ptr %kExpect, i64 1160
   store ptr @.str.31, ptr %fmt215, align 8
-  %arrayinit.element221 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 25
+  %arrayinit.element221 = getelementptr inbounds i8, ptr %kExpect, i64 1200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %arrayinit.element221, i8 0, i64 48, i1 false)
   store i32 77, ptr %arrayinit.element221, align 16
-  %fmt223 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 25, i32 1
+  %fmt223 = getelementptr inbounds i8, ptr %kExpect, i64 1208
   store ptr @.str.32, ptr %fmt223, align 8
-  %arrayinit.element229 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 26
+  %arrayinit.element229 = getelementptr inbounds i8, ptr %kExpect, i64 1248
   store i32 78, ptr %arrayinit.element229, align 16
-  %fmt231 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 26, i32 1
+  %fmt231 = getelementptr inbounds i8, ptr %kExpect, i64 1256
   store ptr @.str.33, ptr %fmt231, align 8
-  %ok_phases232 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 26, i32 2
+  %ok_phases232 = getelementptr inbounds i8, ptr %kExpect, i64 1264
   store i32 1, ptr %ok_phases232, align 16
-  %arg233 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 26, i32 3
-  %arrayinit.element237 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 27
+  %arg233 = getelementptr inbounds i8, ptr %kExpect, i64 1272
+  %arrayinit.element237 = getelementptr inbounds i8, ptr %kExpect, i64 1296
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %arg233, i8 0, i64 20, i1 false)
   store i32 79, ptr %arrayinit.element237, align 16
-  %fmt239 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 27, i32 1
+  %fmt239 = getelementptr inbounds i8, ptr %kExpect, i64 1304
   store ptr @.str.34, ptr %fmt239, align 8
-  %ok_phases240 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 27, i32 2
+  %ok_phases240 = getelementptr inbounds i8, ptr %kExpect, i64 1312
   store i32 1, ptr %ok_phases240, align 16
-  %arg241 = getelementptr inbounds %struct.Expectation, ptr %kExpect, i64 27, i32 3
-  %width.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %props, i64 0, i32 1
-  %precision.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %props, i64 0, i32 2
-  %flags.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %props, i64 0, i32 3
-  %length_mod.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %props, i64 0, i32 4
-  %conv.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %props, i64 0, i32 5
-  %length_mod_.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatConversionSpecImpl", ptr %bound, i64 0, i32 2
-  %message_.i.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
-  %arg_.i = getelementptr inbounds %"class.absl::str_format_internal::BoundConversion", ptr %bound, i64 0, i32 1
-  %message_.i.i52 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar281, i64 0, i32 1
-  %width_.i = getelementptr inbounds %"class.absl::str_format_internal::FormatConversionSpecImpl", ptr %bound, i64 0, i32 3
-  %message_.i.i79 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar306, i64 0, i32 1
-  %precision_.i = getelementptr inbounds %"class.absl::str_format_internal::FormatConversionSpecImpl", ptr %bound, i64 0, i32 4
-  %message_.i.i106 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar330, i64 0, i32 1
+  %arg241 = getelementptr inbounds i8, ptr %kExpect, i64 1320
+  %width.i = getelementptr inbounds i8, ptr %props, i64 4
+  %precision.i = getelementptr inbounds i8, ptr %props, i64 8
+  %flags.i = getelementptr inbounds i8, ptr %props, i64 12
+  %length_mod.i = getelementptr inbounds i8, ptr %props, i64 13
+  %conv.i = getelementptr inbounds i8, ptr %props, i64 14
+  %length_mod_.i.i = getelementptr inbounds i8, ptr %bound, i64 2
+  %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
+  %arg_.i = getelementptr inbounds i8, ptr %bound, i64 16
+  %message_.i.i52 = getelementptr inbounds i8, ptr %gtest_ar281, i64 8
+  %width_.i = getelementptr inbounds i8, ptr %bound, i64 4
+  %message_.i.i79 = getelementptr inbounds i8, ptr %gtest_ar306, i64 8
+  %precision_.i = getelementptr inbounds i8, ptr %bound, i64 8
+  %message_.i.i106 = getelementptr inbounds i8, ptr %gtest_ar330, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %arg241, i8 0, i64 20, i1 false)
   br label %for.body
 
@@ -757,7 +757,7 @@ for.body:                                         ; preds = %entry, %cleanup
   %__begin2.0.ptr127 = phi ptr [ %kExpect, %entry ], [ %__begin2.0.ptr, %cleanup ]
   %__begin2.0.idx126 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %cleanup ]
   call void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_83, ptr noundef nonnull @.str.3, i32 noundef 83, ptr noundef nonnull align 4 dereferenceable(4) %__begin2.0.ptr127)
-  %fmt247 = getelementptr inbounds %struct.Expectation, ptr %__begin2.0.ptr127, i64 0, i32 1
+  %fmt247 = getelementptr inbounds i8, ptr %__begin2.0.ptr127, i64 8
   %0 = load ptr, ptr %fmt247, align 8
   invoke void @_ZN7testing11ScopedTraceC2EPKciS2_(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_84, ptr noundef nonnull @.str.3, i32 noundef 84, ptr noundef %0)
           to label %if.end.i.i unwind label %lpad
@@ -812,7 +812,7 @@ lpad248:                                          ; preds = %if.end.i.i100, %if.
 
 if.end257:                                        ; preds = %invoke.cont253, %if.then255, %invoke.cont252
   %4 = phi i32 [ %.pre, %invoke.cont253 ], [ %inc256, %if.then255 ], [ %.pre128, %invoke.cont252 ]
-  %ok_phases258 = getelementptr inbounds %struct.Expectation, ptr %__begin2.0.ptr127, i64 0, i32 2
+  %ok_phases258 = getelementptr inbounds i8, ptr %__begin2.0.ptr127, i64 16
   %5 = load i32, ptr %ok_phases258, align 4, !noalias !5
   %cmp.i.i36 = icmp eq i32 %5, %4
   br i1 %cmp.i.i36, label %if.then.i.i38, label %if.end.i.i37
@@ -866,7 +866,7 @@ invoke.cont271:                                   ; preds = %invoke.cont269
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont271
   %vtable.i.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(128) %10) #14
   br label %_ZN7testing7MessageD2Ev.exit
@@ -894,7 +894,7 @@ ehcleanup:                                        ; preds = %lpad270, %lpad266
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i41: ; preds = %ehcleanup
   %vtable.i.i.i42 = load ptr, ptr %14, align 8
-  %vfn.i.i.i43 = getelementptr inbounds ptr, ptr %vtable.i.i.i42, i64 1
+  %vfn.i.i.i43 = getelementptr inbounds i8, ptr %vtable.i.i.i42, i64 8
   %15 = load ptr, ptr %vfn.i.i.i43, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(128) %14) #14
   br label %_ZN7testing7MessageD2Ev.exit44
@@ -925,7 +925,7 @@ ehcleanup273:                                     ; preds = %_ZN7testing7Message
   br label %ehcleanup354
 
 if.end277:                                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  %arg278 = getelementptr inbounds %struct.Expectation, ptr %__begin2.0.ptr127, i64 0, i32 3
+  %arg278 = getelementptr inbounds i8, ptr %__begin2.0.ptr127, i64 24
   %18 = load ptr, ptr %arg278, align 8
   %cmp279.not = icmp eq ptr %18, null
   br i1 %cmp279.not, label %if.end305, label %if.then280
@@ -985,7 +985,7 @@ invoke.cont300:                                   ; preds = %invoke.cont298
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i59: ; preds = %invoke.cont300
   %vtable.i.i.i60 = load ptr, ptr %24, align 8
-  %vfn.i.i.i61 = getelementptr inbounds ptr, ptr %vtable.i.i.i60, i64 1
+  %vfn.i.i.i61 = getelementptr inbounds i8, ptr %vtable.i.i.i60, i64 8
   %25 = load ptr, ptr %vfn.i.i.i61, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(128) %24) #14
   br label %_ZN7testing7MessageD2Ev.exit62
@@ -1013,7 +1013,7 @@ ehcleanup302:                                     ; preds = %lpad299, %lpad295
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i64: ; preds = %ehcleanup302
   %vtable.i.i.i65 = load ptr, ptr %28, align 8
-  %vfn.i.i.i66 = getelementptr inbounds ptr, ptr %vtable.i.i.i65, i64 1
+  %vfn.i.i.i66 = getelementptr inbounds i8, ptr %vtable.i.i.i65, i64 8
   %29 = load ptr, ptr %vfn.i.i.i66, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(128) %28) #14
   br label %_ZN7testing7MessageD2Ev.exit67
@@ -1042,7 +1042,7 @@ ehcleanup304:                                     ; preds = %_ZN7testing7Message
   br label %ehcleanup354
 
 if.end305:                                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit71, %if.end277
-  %width307 = getelementptr inbounds %struct.Expectation, ptr %__begin2.0.ptr127, i64 0, i32 4
+  %width307 = getelementptr inbounds i8, ptr %__begin2.0.ptr127, i64 32
   %31 = load i32, ptr %width_.i, align 4
   store i32 %31, ptr %ref.tmp308, align 4
   %32 = load i32, ptr %width307, align 4, !noalias !10
@@ -1098,7 +1098,7 @@ invoke.cont325:                                   ; preds = %invoke.cont323
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i86: ; preds = %invoke.cont325
   %vtable.i.i.i87 = load ptr, ptr %37, align 8
-  %vfn.i.i.i88 = getelementptr inbounds ptr, ptr %vtable.i.i.i87, i64 1
+  %vfn.i.i.i88 = getelementptr inbounds i8, ptr %vtable.i.i.i87, i64 8
   %38 = load ptr, ptr %vfn.i.i.i88, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(128) %37) #14
   br label %_ZN7testing7MessageD2Ev.exit89
@@ -1126,7 +1126,7 @@ ehcleanup327:                                     ; preds = %lpad324, %lpad320
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i91: ; preds = %ehcleanup327
   %vtable.i.i.i92 = load ptr, ptr %41, align 8
-  %vfn.i.i.i93 = getelementptr inbounds ptr, ptr %vtable.i.i.i92, i64 1
+  %vfn.i.i.i93 = getelementptr inbounds i8, ptr %vtable.i.i.i92, i64 8
   %42 = load ptr, ptr %vfn.i.i.i93, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(128) %41) #14
   br label %_ZN7testing7MessageD2Ev.exit94
@@ -1147,7 +1147,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit98:          ; preds = %if.end328, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i97
   store ptr null, ptr %message_.i.i79, align 8
-  %precision331 = getelementptr inbounds %struct.Expectation, ptr %__begin2.0.ptr127, i64 0, i32 5
+  %precision331 = getelementptr inbounds i8, ptr %__begin2.0.ptr127, i64 36
   %44 = load i32, ptr %precision_.i, align 8
   store i32 %44, ptr %ref.tmp332, align 4
   %45 = load i32, ptr %precision331, align 4, !noalias !15
@@ -1208,7 +1208,7 @@ invoke.cont349:                                   ; preds = %invoke.cont347
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i113: ; preds = %invoke.cont349
   %vtable.i.i.i114 = load ptr, ptr %50, align 8
-  %vfn.i.i.i115 = getelementptr inbounds ptr, ptr %vtable.i.i.i114, i64 1
+  %vfn.i.i.i115 = getelementptr inbounds i8, ptr %vtable.i.i.i114, i64 8
   %51 = load ptr, ptr %vfn.i.i.i115, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(128) %50) #14
   br label %_ZN7testing7MessageD2Ev.exit116
@@ -1236,7 +1236,7 @@ ehcleanup351:                                     ; preds = %lpad348, %lpad344
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i118: ; preds = %ehcleanup351
   %vtable.i.i.i119 = load ptr, ptr %54, align 8
-  %vfn.i.i.i120 = getelementptr inbounds ptr, ptr %vtable.i.i.i119, i64 1
+  %vfn.i.i.i120 = getelementptr inbounds i8, ptr %vtable.i.i.i119, i64 8
   %55 = load ptr, ptr %vfn.i.i.i120, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(128) %54) #14
   br label %_ZN7testing7MessageD2Ev.exit121
@@ -1331,7 +1331,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont4
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(128) %2) #14
   br label %_ZN7testing7MessageD2Ev.exit
@@ -1358,7 +1358,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i4: ; preds = %ehcleanup
   %vtable.i.i.i5 = load ptr, ptr %6, align 8
-  %vfn.i.i.i6 = getelementptr inbounds ptr, ptr %vtable.i.i.i5, i64 1
+  %vfn.i.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i.i5, i64 8
   %7 = load ptr, ptr %vfn.i.i.i6, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(128) %6) #14
   br label %_ZN7testing7MessageD2Ev.exit7
@@ -1434,7 +1434,7 @@ declare void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %message_ = getelementptr inbounds %"class.testing::AssertionResult", ptr %this, i64 0, i32 1
+  %message_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %message_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
@@ -1529,7 +1529,7 @@ while.cond.preheader:                             ; preds = %if.end18
   br i1 %cmp25231, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %flags = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %conv, i64 12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end36
@@ -1610,11 +1610,11 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit71: ; preds = %if.end.i
   %c.2 = phi i8 [ %c.1224, %if.then45 ], [ %13, %if.end10.i65 ], [ %13, %if.end7.i62 ], [ %13, %if.end.i56 ]
   %pos.addr.2 = phi ptr [ %end, %if.then45 ], [ %incdec.ptr.i59, %if.end.i56 ], [ %scevgep261, %if.end7.i62 ], [ %scevgep, %if.end10.i65 ]
   %digits.0.lcssa.i70 = phi i32 [ %digits.08.i54, %if.then45 ], [ %digits.011.i57, %if.end.i56 ], [ %digits.011.i57, %if.end7.i62 ], [ %digits.0.i68, %if.end10.i65 ]
-  %flags47 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags47 = getelementptr inbounds i8, ptr %conv, i64 12
   %15 = load i8, ptr %flags47, align 4
   %or1.i72 = or i8 %15, 32
   store i8 %or1.i72, ptr %flags47, align 4
-  %width = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %conv, i64 4
   store i32 %digits.0.lcssa.i70, ptr %width, align 4
   br label %if.end89
 
@@ -1633,7 +1633,7 @@ if.end61:                                         ; preds = %if.then53
 
 if.end72:                                         ; preds = %if.end61
   %incdec.ptr62 = getelementptr inbounds i8, ptr %pos.addr.1233, i64 1
-  %width73 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 1
+  %width73 = getelementptr inbounds i8, ptr %conv, i64 4
   %conv.i74 = zext nneg i8 %17 to i32
   %digits.08.i75 = add nsw i32 %conv.i74, -48
   %cmp9.i76 = icmp eq ptr %incdec.ptr62, %end
@@ -1689,7 +1689,7 @@ if.end89:                                         ; preds = %if.then42, %_ZN4abs
   br i1 %cmp91, label %if.then92, label %if.end147
 
 if.then92:                                        ; preds = %if.end89
-  %flags93 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags93 = getelementptr inbounds i8, ptr %conv, i64 12
   %24 = load i8, ptr %flags93, align 4
   %or1.i93 = or i8 %24, 32
   store i8 %or1.i93, ptr %flags93, align 4
@@ -1704,7 +1704,7 @@ if.end100:                                        ; preds = %if.then92
   br i1 %or.cond, label %if.then107, label %if.else109
 
 if.then107:                                       ; preds = %if.end100
-  %precision = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 2
+  %precision = getelementptr inbounds i8, ptr %conv, i64 8
   %conv.i94 = zext nneg i8 %25 to i32
   %digits.08.i95 = add nsw i32 %conv.i94, -48
   %cmp9.i96 = icmp eq ptr %incdec.ptr101, %end
@@ -1762,7 +1762,7 @@ if.end117:                                        ; preds = %do.body113
 
 if.end128:                                        ; preds = %if.end117
   %incdec.ptr118 = getelementptr inbounds i8, ptr %pos.addr.4, i64 2
-  %precision129 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 2
+  %precision129 = getelementptr inbounds i8, ptr %conv, i64 8
   %conv.i113 = zext nneg i8 %31 to i32
   %digits.08.i114 = add nsw i32 %conv.i113, -48
   %cmp9.i115 = icmp eq ptr %incdec.ptr118, %end
@@ -1811,7 +1811,7 @@ if.end139:                                        ; preds = %_ZN4absl19str_forma
   br label %if.end147
 
 if.else142:                                       ; preds = %if.else109
-  %precision143 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 2
+  %precision143 = getelementptr inbounds i8, ptr %conv, i64 8
   store i32 0, ptr %precision143, align 4
   br label %if.end147
 
@@ -1825,7 +1825,7 @@ if.end147:                                        ; preds = %while.end, %if.end8
   br i1 %cmp152, label %land.rhs, label %if.end157
 
 land.rhs:                                         ; preds = %if.end147
-  %flags153 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags153 = getelementptr inbounds i8, ptr %conv, i64 12
   %38 = load i8, ptr %flags153, align 4
   %cmp154.not = icmp eq i8 %38, 0
   br i1 %cmp154.not, label %if.end157, label %return
@@ -1853,7 +1853,7 @@ if.end171:                                        ; preds = %if.end165
   br i1 %or.cond1, label %if.then178, label %if.else187
 
 if.then178:                                       ; preds = %if.end171
-  %length_mod179 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 4
+  %length_mod179 = getelementptr inbounds i8, ptr %conv, i64 13
   store i8 1, ptr %length_mod179, align 1
   %cmp181 = icmp eq ptr %incdec.ptr172, %end
   br i1 %cmp181, label %return, label %if.end184
@@ -1867,7 +1867,7 @@ if.else187:                                       ; preds = %if.end171
   %cmp189 = icmp eq i8 %41, 108
   %cmp191 = icmp eq i8 %40, 2
   %or.cond2 = and i1 %cmp191, %cmp189
-  %length_mod193 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 4
+  %length_mod193 = getelementptr inbounds i8, ptr %conv, i64 13
   br i1 %or.cond2, label %if.then192, label %if.else201
 
 if.then192:                                       ; preds = %if.else187
@@ -1903,7 +1903,7 @@ if.end216:                                        ; preds = %if.end204
   br i1 %or.cond3, label %if.then222, label %if.end227
 
 if.then222:                                       ; preds = %if.end216
-  %flags223 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags223 = getelementptr inbounds i8, ptr %conv, i64 12
   %45 = load i8, ptr %flags223, align 4
   %or1.i142 = or i8 %45, 32
   store i8 %or1.i142, ptr %flags223, align 4
@@ -1912,7 +1912,7 @@ if.then222:                                       ; preds = %if.end216
 if.end227:                                        ; preds = %if.end216, %if.then222, %if.end157
   %pos.addr.9 = phi ptr [ %pos.addr.7, %if.end157 ], [ %pos.addr.8, %if.then222 ], [ %pos.addr.8, %if.end216 ]
   %tag148.sroa.0.0 = phi i8 [ %retval.sroa.0.0.copyload.i135, %if.end157 ], [ %retval.sroa.0.0.copyload.i140, %if.then222 ], [ %retval.sroa.0.0.copyload.i140, %if.end216 ]
-  %conv229 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 5
+  %conv229 = getelementptr inbounds i8, ptr %conv, i64 14
   store i8 %tag148.sroa.0.0, ptr %conv229, align 2
   br label %return
 
@@ -1939,7 +1939,7 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp6133, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %flags = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %conv, i64 12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -2034,11 +2034,11 @@ if.end35:                                         ; preds = %if.end10.i, %if.end
   %digits.0.lcssa.i118 = phi i32 [ %digits.011.i, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %digits.08.i, %if.then25 ], [ %digits.0.i, %if.end10.i ], [ %digits.011.i, %if.end7.i ]
   %pos.addr.1117 = phi ptr [ %incdec.ptr.i, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %end, %if.then25 ], [ %scevgep148, %if.end10.i ], [ %scevgep, %if.end7.i ]
   %c.1116 = phi i8 [ %7, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %c.0132, %if.then25 ], [ %7, %if.end7.i ], [ %7, %if.end10.i ]
-  %flags36 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags36 = getelementptr inbounds i8, ptr %conv, i64 12
   %10 = load i8, ptr %flags36, align 4
   %or1.i51 = or i8 %10, 32
   store i8 %or1.i51, ptr %flags36, align 4
-  %width = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %conv, i64 4
   store i32 %digits.0.lcssa.i118, ptr %width, align 4
   br label %if.end56
 
@@ -2052,7 +2052,7 @@ if.then42:                                        ; preds = %if.then22
 if.end50:                                         ; preds = %if.then42
   %incdec.ptr51 = getelementptr inbounds i8, ptr %pos.addr.0135, i64 1
   %12 = load i8, ptr %pos.addr.0135, align 1
-  %width53 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 1
+  %width53 = getelementptr inbounds i8, ptr %conv, i64 4
   %13 = load i32, ptr %next_arg, align 4
   %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %next_arg, align 4
@@ -2068,7 +2068,7 @@ if.end56:                                         ; preds = %if.then22, %if.end3
   br i1 %cmp58, label %if.then59, label %if.end94
 
 if.then59:                                        ; preds = %if.end56
-  %flags60 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags60 = getelementptr inbounds i8, ptr %conv, i64 12
   %14 = load i8, ptr %flags60, align 4
   %or1.i53 = or i8 %14, 32
   store i8 %or1.i53, ptr %flags60, align 4
@@ -2083,7 +2083,7 @@ if.end67:                                         ; preds = %if.then59
   br i1 %or.cond, label %if.then74, label %if.else76
 
 if.then74:                                        ; preds = %if.end67
-  %precision = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 2
+  %precision = getelementptr inbounds i8, ptr %conv, i64 8
   %conv.i54 = zext nneg i8 %15 to i32
   %digits.08.i55 = add nsw i32 %conv.i54, -48
   %cmp9.i56 = icmp eq ptr %incdec.ptr68, %end
@@ -2136,7 +2136,7 @@ do.body80:                                        ; preds = %if.else76
 if.end84:                                         ; preds = %do.body80
   %incdec.ptr85 = getelementptr inbounds i8, ptr %pos.addr.2, i64 2
   %21 = load i8, ptr %incdec.ptr68, align 1
-  %precision87 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 2
+  %precision87 = getelementptr inbounds i8, ptr %conv, i64 8
   %22 = load i32, ptr %next_arg, align 4
   %inc88 = add nsw i32 %22, 1
   store i32 %inc88, ptr %next_arg, align 4
@@ -2145,7 +2145,7 @@ if.end84:                                         ; preds = %do.body80
   br label %if.end94
 
 if.else89:                                        ; preds = %if.else76
-  %precision90 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 2
+  %precision90 = getelementptr inbounds i8, ptr %conv, i64 8
   store i32 0, ptr %precision90, align 4
   br label %if.end94
 
@@ -2159,7 +2159,7 @@ if.end94:                                         ; preds = %while.end, %if.end5
   br i1 %cmp99, label %land.rhs, label %if.end104
 
 land.rhs:                                         ; preds = %if.end94
-  %flags100 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags100 = getelementptr inbounds i8, ptr %conv, i64 12
   %23 = load i8, ptr %flags100, align 4
   %cmp101.not = icmp eq i8 %23, 0
   br i1 %cmp101.not, label %if.end104, label %return
@@ -2187,7 +2187,7 @@ if.end118:                                        ; preds = %if.end112
   br i1 %or.cond1, label %if.then125, label %if.else134
 
 if.then125:                                       ; preds = %if.end118
-  %length_mod126 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 4
+  %length_mod126 = getelementptr inbounds i8, ptr %conv, i64 13
   store i8 1, ptr %length_mod126, align 1
   %cmp128 = icmp eq ptr %incdec.ptr119, %end
   br i1 %cmp128, label %return, label %if.end131
@@ -2201,7 +2201,7 @@ if.else134:                                       ; preds = %if.end118
   %cmp136 = icmp eq i8 %26, 108
   %cmp138 = icmp eq i8 %25, 2
   %or.cond2 = and i1 %cmp138, %cmp136
-  %length_mod140 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 4
+  %length_mod140 = getelementptr inbounds i8, ptr %conv, i64 13
   br i1 %or.cond2, label %if.then139, label %if.else148
 
 if.then139:                                       ; preds = %if.else134
@@ -2237,7 +2237,7 @@ if.end163:                                        ; preds = %if.end151
   br i1 %or.cond3, label %if.then169, label %if.end174
 
 if.then169:                                       ; preds = %if.end163
-  %flags170 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 3
+  %flags170 = getelementptr inbounds i8, ptr %conv, i64 12
   %30 = load i8, ptr %flags170, align 4
   %or1.i83 = or i8 %30, 32
   store i8 %or1.i83, ptr %flags170, align 4
@@ -2246,7 +2246,7 @@ if.then169:                                       ; preds = %if.end163
 if.end174:                                        ; preds = %if.end163, %if.then169, %if.end104
   %pos.addr.6 = phi ptr [ %pos.addr.4, %if.end104 ], [ %pos.addr.5, %if.then169 ], [ %pos.addr.5, %if.end163 ]
   %tag95.sroa.0.0 = phi i8 [ %retval.sroa.0.0.copyload.i76, %if.end104 ], [ %retval.sroa.0.0.copyload.i81, %if.then169 ], [ %retval.sroa.0.0.copyload.i81, %if.end163 ]
-  %conv176 = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %conv, i64 0, i32 5
+  %conv176 = getelementptr inbounds i8, ptr %conv, i64 14
   store i8 %tag95.sroa.0.0, ptr %conv176, align 2
   %31 = load i32, ptr %next_arg, align 4
   %inc177 = add nsw i32 %31, 1
@@ -2533,32 +2533,32 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_114FormatBindTest7ExtractEPKcPNS0_17U
   %ref.tmp67 = alloca ptr, align 8
   %ref.tmp71 = alloca %"class.testing::Message", align 8
   %ref.tmp74 = alloca %"class.testing::internal::AssertHelper", align 8
-  %width.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %props, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %props, i64 4
   store i32 -1, ptr %width.i, align 4
-  %precision.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %props, i64 0, i32 2
+  %precision.i = getelementptr inbounds i8, ptr %props, i64 8
   store i32 -1, ptr %precision.i, align 4
-  %flags.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %props, i64 0, i32 3
+  %flags.i = getelementptr inbounds i8, ptr %props, i64 12
   store i8 0, ptr %flags.i, align 4
-  %length_mod.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %props, i64 0, i32 4
+  %length_mod.i = getelementptr inbounds i8, ptr %props, i64 13
   store i8 9, ptr %length_mod.i, align 1
-  %conv.i = getelementptr inbounds %"struct.absl::str_format_internal::UnboundConversion", ptr %props, i64 0, i32 5
+  %conv.i = getelementptr inbounds i8, ptr %props, i64 14
   store i8 19, ptr %conv.i, align 2
   store i8 19, ptr %bound, align 8
-  %length_mod_.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatConversionSpecImpl", ptr %bound, i64 0, i32 2
+  %length_mod_.i.i = getelementptr inbounds i8, ptr %bound, i64 2
   store i8 9, ptr %length_mod_.i.i, align 2
   store i32 0, ptr %next, align 4
   store ptr inttoptr (i64 2147483648 to ptr), ptr %args, align 16
-  %dispatcher_.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 0, i32 1
+  %dispatcher_.i.i = getelementptr inbounds i8, ptr %args, i64 8
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
-  %arrayinit.element = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 16
   store ptr inttoptr (i64 17 to ptr), ptr %arrayinit.element, align 16
-  %dispatcher_.i.i19 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 1, i32 1
+  %dispatcher_.i.i19 = getelementptr inbounds i8, ptr %args, i64 24
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i19, align 8
   %call1.i.i = call noundef ptr @_ZN4absl19str_format_internal17ConsumeConversionILb0EEEPKcS3_S3_PNS0_17UnboundConversionEPi(ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.12, i64 0, i64 2), ptr noundef nonnull %props, ptr noundef nonnull %next)
   %cmp.i = icmp eq ptr %call1.i.i, getelementptr inbounds ([3 x i8], ptr @.str.12, i64 0, i64 2)
   %frombool = zext i1 %cmp.i to i8
   store i8 %frombool, ptr %gtest_ar_, align 8
-  %message_.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar_, i64 0, i32 1
+  %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8
   br i1 %cmp.i, label %cleanup.cont, label %if.else
 
@@ -2588,7 +2588,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont13
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(128) %0) #14
   br label %cleanup
@@ -2627,7 +2627,7 @@ ehcleanup14:                                      ; preds = %ehcleanup, %lpad7
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i21: ; preds = %ehcleanup14
   %vtable.i.i.i22 = load ptr, ptr %6, align 8
-  %vfn.i.i.i23 = getelementptr inbounds ptr, ptr %vtable.i.i.i22, i64 1
+  %vfn.i.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i.i22, i64 8
   %7 = load ptr, ptr %vfn.i.i.i23, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(128) %6) #14
   br label %_ZN7testing7MessageD2Ev.exit24
@@ -2646,7 +2646,7 @@ cleanup.cont:                                     ; preds = %_ZNK4absl19str_form
   %call18 = call noundef zeroext i1 @_ZN4absl19str_format_internal12BindWithPackEPKNS0_17UnboundConversionENS_4SpanIKNS0_13FormatArgImplEEEPNS0_15BoundConversionE(ptr noundef nonnull %props, ptr nonnull %args, i64 2, ptr noundef nonnull %bound)
   %frombool19 = zext i1 %call18 to i8
   store i8 %frombool19, ptr %gtest_ar_16, align 8
-  %message_.i27 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar_16, i64 0, i32 1
+  %message_.i27 = getelementptr inbounds i8, ptr %gtest_ar_16, i64 8
   store ptr null, ptr %message_.i27, align 8
   br i1 %call18, label %cleanup.cont41, label %if.else22
 
@@ -2676,7 +2676,7 @@ invoke.cont34:                                    ; preds = %invoke.cont32
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i30: ; preds = %invoke.cont34
   %vtable.i.i.i31 = load ptr, ptr %8, align 8
-  %vfn.i.i.i32 = getelementptr inbounds ptr, ptr %vtable.i.i.i31, i64 1
+  %vfn.i.i.i32 = getelementptr inbounds i8, ptr %vtable.i.i.i31, i64 8
   %9 = load ptr, ptr %vfn.i.i.i32, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(128) %8) #14
   br label %cleanup39
@@ -2715,7 +2715,7 @@ ehcleanup37:                                      ; preds = %ehcleanup36, %lpad2
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i35: ; preds = %ehcleanup37
   %vtable.i.i.i36 = load ptr, ptr %14, align 8
-  %vfn.i.i.i37 = getelementptr inbounds ptr, ptr %vtable.i.i.i36, i64 1
+  %vfn.i.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i.i36, i64 8
   %15 = load ptr, ptr %vfn.i.i.i37, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(128) %14) #14
   br label %_ZN7testing7MessageD2Ev.exit38
@@ -2731,7 +2731,7 @@ cleanup39:                                        ; preds = %_ZNKSt14default_del
   br i1 %cmp.not.i.i40, label %return, label %return.sink.split
 
 cleanup.cont41:                                   ; preds = %cleanup.cont
-  %width_.i = getelementptr inbounds %"class.absl::str_format_internal::FormatConversionSpecImpl", ptr %bound, i64 0, i32 3
+  %width_.i = getelementptr inbounds i8, ptr %bound, i64 4
   %16 = load i32, ptr %width_.i, align 4
   store i32 %16, ptr %ref.tmp43, align 4
   store i32 2147483647, ptr %ref.tmp45, align 4
@@ -2757,7 +2757,7 @@ if.else49:                                        ; preds = %_ZN7testing8interna
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %if.else49
-  %message_.i.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
+  %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %19 = load ptr, ptr %message_.i.i, align 8
   %cmp.i.i.not.i.i = icmp eq ptr %19, null
   br i1 %cmp.i.i.not.i.i, label %invoke.cont55, label %cond.true.i.i
@@ -2783,7 +2783,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i48: ; preds = %invoke.cont59
   %vtable.i.i.i49 = load ptr, ptr %20, align 8
-  %vfn.i.i.i50 = getelementptr inbounds ptr, ptr %vtable.i.i.i49, i64 1
+  %vfn.i.i.i50 = getelementptr inbounds i8, ptr %vtable.i.i.i49, i64 8
   %21 = load ptr, ptr %vfn.i.i.i50, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(128) %20) #14
   br label %_ZN7testing7MessageD2Ev.exit51
@@ -2816,7 +2816,7 @@ ehcleanup61:                                      ; preds = %lpad58, %lpad54
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i53: ; preds = %ehcleanup61
   %vtable.i.i.i54 = load ptr, ptr %25, align 8
-  %vfn.i.i.i55 = getelementptr inbounds ptr, ptr %vtable.i.i.i54, i64 1
+  %vfn.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i54, i64 8
   %26 = load ptr, ptr %vfn.i.i.i55, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(128) %25) #14
   br label %_ZN7testing7MessageD2Ev.exit56
@@ -2826,7 +2826,7 @@ _ZN7testing7MessageD2Ev.exit56:                   ; preds = %ehcleanup61, %_ZNKS
   br label %eh.resume
 
 if.end62:                                         ; preds = %_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit, %_ZN7testing7MessageD2Ev.exit51
-  %message_.i57 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
+  %message_.i57 = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %27 = load ptr, ptr %message_.i57, align 8
   %cmp.not.i.i58 = icmp eq ptr %27, null
   br i1 %cmp.not.i.i58, label %_ZN7testing15AssertionResultD2Ev.exit60, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i59
@@ -2838,7 +2838,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit60:          ; preds = %if.end62, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i59
   store ptr null, ptr %message_.i57, align 8
-  %arg_.i = getelementptr inbounds %"class.absl::str_format_internal::BoundConversion", ptr %bound, i64 0, i32 1
+  %arg_.i = getelementptr inbounds i8, ptr %bound, i64 16
   %28 = load ptr, ptr %arg_.i, align 8
   store ptr %28, ptr %ref.tmp65, align 8
   store ptr %arrayinit.element, ptr %ref.tmp67, align 8
@@ -2864,7 +2864,7 @@ if.else70:                                        ; preds = %_ZN7testing8interna
           to label %invoke.cont73 unwind label %lpad72
 
 invoke.cont73:                                    ; preds = %if.else70
-  %message_.i.i65 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar64, i64 0, i32 1
+  %message_.i.i65 = getelementptr inbounds i8, ptr %gtest_ar64, i64 8
   %31 = load ptr, ptr %message_.i.i65, align 8
   %cmp.i.i.not.i.i66 = icmp eq ptr %31, null
   br i1 %cmp.i.i.not.i.i66, label %invoke.cont76, label %cond.true.i.i67
@@ -2890,7 +2890,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i72: ; preds = %invoke.cont80
   %vtable.i.i.i73 = load ptr, ptr %32, align 8
-  %vfn.i.i.i74 = getelementptr inbounds ptr, ptr %vtable.i.i.i73, i64 1
+  %vfn.i.i.i74 = getelementptr inbounds i8, ptr %vtable.i.i.i73, i64 8
   %33 = load ptr, ptr %vfn.i.i.i74, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(128) %32) #14
   br label %_ZN7testing7MessageD2Ev.exit75
@@ -2923,7 +2923,7 @@ ehcleanup82:                                      ; preds = %lpad79, %lpad75
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i77: ; preds = %ehcleanup82
   %vtable.i.i.i78 = load ptr, ptr %37, align 8
-  %vfn.i.i.i79 = getelementptr inbounds ptr, ptr %vtable.i.i.i78, i64 1
+  %vfn.i.i.i79 = getelementptr inbounds i8, ptr %vtable.i.i.i78, i64 8
   %38 = load ptr, ptr %vfn.i.i.i79, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(128) %37) #14
   br label %_ZN7testing7MessageD2Ev.exit80
@@ -2933,7 +2933,7 @@ _ZN7testing7MessageD2Ev.exit80:                   ; preds = %ehcleanup82, %_ZNKS
   br label %eh.resume
 
 if.end83:                                         ; preds = %_ZN7testing8internal8EqHelper7CompareIPKN4absl19str_format_internal13FormatArgImplES7_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSH_RKS9_RKSA_.exit, %_ZN7testing7MessageD2Ev.exit75
-  %message_.i81 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar64, i64 0, i32 1
+  %message_.i81 = getelementptr inbounds i8, ptr %gtest_ar64, i64 8
   %39 = load ptr, ptr %message_.i81, align 8
   %cmp.not.i.i82 = icmp eq ptr %39, null
   br i1 %cmp.not.i.i82, label %return, label %return.sink.split
@@ -3014,32 +3014,32 @@ entry:
   %ref.tmp20 = alloca %"class.testing::Message", align 8
   %ref.tmp29 = alloca %"class.testing::internal::AssertHelper", align 8
   store ptr inttoptr (i64 10 to ptr), ptr %args, align 16
-  %dispatcher_.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 0, i32 1
+  %dispatcher_.i.i = getelementptr inbounds i8, ptr %args, i64 8
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
-  %arrayinit.element = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 16
   store ptr inttoptr (i64 20 to ptr), ptr %arrayinit.element, align 16
-  %dispatcher_.i.i14 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 1, i32 1
+  %dispatcher_.i.i14 = getelementptr inbounds i8, ptr %args, i64 24
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i14, align 8
-  %arrayinit.element3 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 2
+  %arrayinit.element3 = getelementptr inbounds i8, ptr %args, i64 32
   store ptr inttoptr (i64 30 to ptr), ptr %arrayinit.element3, align 16
-  %dispatcher_.i.i17 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 2, i32 1
+  %dispatcher_.i.i17 = getelementptr inbounds i8, ptr %args, i64 40
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i17, align 8
-  %arrayinit.element5 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 3
+  %arrayinit.element5 = getelementptr inbounds i8, ptr %args, i64 48
   store ptr inttoptr (i64 40 to ptr), ptr %arrayinit.element5, align 16
-  %dispatcher_.i.i20 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 3, i32 1
+  %dispatcher_.i.i20 = getelementptr inbounds i8, ptr %args, i64 56
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i20, align 8
-  %arrayinit.element7 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 4
+  %arrayinit.element7 = getelementptr inbounds i8, ptr %args, i64 64
   store ptr inttoptr (i64 4294967286 to ptr), ptr %arrayinit.element7, align 16
-  %dispatcher_.i.i23 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 4, i32 1
+  %dispatcher_.i.i23 = getelementptr inbounds i8, ptr %args, i64 72
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %kExpect, ptr noundef nonnull align 16 dereferenceable(288) @__const._ZN4absl19str_format_internal12_GLOBAL__N_130FormatBindTest_FormatPack_Test8TestBodyEv.kExpect, i64 288, i1 false)
-  %message_.i.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
+  %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN7testing15AssertionResultD2Ev.exit
   %__begin2.0.ptr35 = phi ptr [ %kExpect, %entry ], [ %__begin2.0.ptr, %_ZN7testing15AssertionResultD2Ev.exit ]
   %__begin2.0.idx34 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %_ZN7testing15AssertionResultD2Ev.exit ]
-  %fmt10 = getelementptr inbounds %struct.Expectation.22, ptr %__begin2.0.ptr35, i64 0, i32 1
+  %fmt10 = getelementptr inbounds i8, ptr %__begin2.0.ptr35, i64 8
   %0 = load ptr, ptr %fmt10, align 8
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   call void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_145, ptr noundef nonnull @.str.3, i32 noundef 145, ptr noundef nonnull align 4 dereferenceable(4) %__begin2.0.ptr35)
@@ -3052,7 +3052,7 @@ invoke.cont:                                      ; preds = %for.body
           to label %invoke.cont16 unwind label %lpad12
 
 invoke.cont16:                                    ; preds = %invoke.cont
-  %summary = getelementptr inbounds %struct.Expectation.22, ptr %__begin2.0.ptr35, i64 0, i32 2
+  %summary = getelementptr inbounds i8, ptr %__begin2.0.ptr35, i64 16
   %2 = load ptr, ptr %summary, align 8, !noalias !56
   %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %2) #14, !noalias !56
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
@@ -3132,7 +3132,7 @@ invoke.cont34:                                    ; preds = %invoke.cont32
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont34
   %vtable.i.i.i = load ptr, ptr %12, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %13 = load ptr, ptr %vfn.i.i.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(128) %12) #14
   br label %_ZN7testing7MessageD2Ev.exit
@@ -3165,7 +3165,7 @@ ehcleanup:                                        ; preds = %lpad33, %lpad23
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i29: ; preds = %ehcleanup
   %vtable.i.i.i30 = load ptr, ptr %17, align 8
-  %vfn.i.i.i31 = getelementptr inbounds ptr, ptr %vtable.i.i.i30, i64 1
+  %vfn.i.i.i31 = getelementptr inbounds i8, ptr %vtable.i.i.i30, i64 8
   %18 = load ptr, ptr %vfn.i.i.i31, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(128) %17) #14
   br label %_ZN7testing7MessageD2Ev.exit32
@@ -3502,7 +3502,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
-  %line.i.i = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i, i64 0, i32 1
+  %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 35, ptr %line.i.i, align 8
   %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_114FormatBindTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 35)
           to label %invoke.cont6.i unwind label %lpad4.i
@@ -3581,7 +3581,7 @@ invoke.cont.i10:                                  ; preds = %.noexc.i8
           to label %invoke.cont3.i13 unwind label %lpad2.i11
 
 invoke.cont3.i13:                                 ; preds = %invoke.cont.i10
-  %line.i.i14 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i1, i64 0, i32 1
+  %line.i.i14 = getelementptr inbounds i8, ptr %agg.tmp.i1, i64 32
   store i32 105, ptr %line.i.i14, align 8
   %call7.i15 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_114FormatBindTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 105)
           to label %invoke.cont6.i17 unwind label %lpad4.i16
@@ -3654,7 +3654,7 @@ invoke.cont.i32:                                  ; preds = %.noexc.i30
           to label %invoke.cont3.i36 unwind label %lpad2.i33
 
 invoke.cont3.i36:                                 ; preds = %invoke.cont.i32
-  %line.i.i37 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i22, i64 0, i32 1
+  %line.i.i37 = getelementptr inbounds i8, ptr %agg.tmp.i22, i64 32
   store i32 119, ptr %line.i.i37, align 8
   %call7.i38 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_114FormatBindTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 119)
           to label %invoke.cont6.i40 unwind label %lpad4.i39

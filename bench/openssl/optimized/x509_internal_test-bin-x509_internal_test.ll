@@ -113,7 +113,7 @@ for.body:                                         ; preds = %entry, %for.body
   %cmp1 = icmp slt i32 %1, %prev.011
   %spec.select = select i1 %cmp1, i32 0, i32 %good.012
   %inc = add nuw nsw i64 %i.010, 1
-  %incdec.ptr = getelementptr inbounds ptr, ptr %tmp.013, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %tmp.013, i64 8
   %exitcond.not = icmp eq i64 %inc, 55
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
@@ -133,7 +133,7 @@ for.body6:                                        ; preds = %if.then3, %for.body
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %3) #2
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.4, i32 noundef %3, ptr noundef %call) #2
   %inc10 = add nuw nsw i64 %i.114, 1
-  %incdec.ptr11 = getelementptr inbounds ptr, ptr %tmp.115, i64 1
+  %incdec.ptr11 = getelementptr inbounds i8, ptr %tmp.115, i64 8
   %exitcond16.not = icmp eq i64 %inc10, 55
   br i1 %exitcond16.not, label %if.end13, label %for.body6, !llvm.loop !7
 
@@ -148,14 +148,12 @@ define internal i32 @test_a2i_ipaddress(i32 noundef %idx) #0 {
 entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [17 x %struct.IP_TESTDATA], ptr @a2i_ipaddress_tests, i64 0, i64 %idxprom
-  %length = getelementptr inbounds [17 x %struct.IP_TESTDATA], ptr @a2i_ipaddress_tests, i64 0, i64 %idxprom, i32 2
+  %length = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %0 = load i32, ptr %length, align 8
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @a2i_IPADDRESS(ptr noundef %1) #2
-  %2 = lshr i64 73496, %idxprom
-  %3 = and i64 %2, 1
-  %cmp.not = icmp eq i64 %3, 0
-  br i1 %cmp.not, label %if.else, label %if.then
+  %cmp = icmp eq i32 %0, 0
+  br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %call3 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.2, i32 noundef 89, ptr noundef nonnull @.str.5, ptr noundef %call) #2
@@ -180,9 +178,9 @@ lor.lhs.false:                                    ; preds = %if.else
 lor.lhs.false13:                                  ; preds = %lor.lhs.false
   %call14 = tail call ptr @ASN1_STRING_get0_data(ptr noundef %call) #2
   %conv = sext i32 %0 to i64
-  %data = getelementptr inbounds [17 x %struct.IP_TESTDATA], ptr @a2i_ipaddress_tests, i64 0, i64 %idxprom, i32 1
-  %4 = load ptr, ptr %data, align 8
-  %call18 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 97, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef %call14, i64 noundef %conv, ptr noundef %4, i64 noundef %conv) #2
+  %data = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %2 = load ptr, ptr %data, align 8
+  %call18 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 97, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef %call14, i64 noundef %conv, ptr noundef %2, i64 noundef %conv) #2
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.then20, label %if.end22
 

@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_st = type { i32, i32, i32, i32, i64, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.evp_cipher_ctx_st = type { ptr, ptr, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, ptr, i32, i32, i64, ptr, i32, i32, [32 x i8], ptr, ptr }
-%struct.EVP_CHACHA_KEY = type { %union.anon, [4 x i32], [64 x i8], i32 }
-%union.anon = type { double, [24 x i8] }
-%struct.EVP_CHACHA_AEAD_CTX = type { %struct.EVP_CHACHA_KEY, [3 x i32], [16 x i8], [16 x i8], %struct.anon, i32, i32, i32, i32, i64 }
-%struct.anon = type { i64, i64 }
 
 @chacha20 = internal constant %struct.evp_cipher_st { i32 1019, i32 1, i32 32, i32 16, i64 48, i32 1, ptr @chacha_init_key, ptr @chacha_cipher, ptr null, i32 120, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @chacha20_poly1305 = internal global %struct.evp_cipher_st { i32 1018, i32 1, i32 32, i32 12, i64 3148912, i32 1, ptr @chacha20_poly1305_init_key, ptr @chacha20_poly1305_cipher, ptr @chacha20_poly1305_cleanup, i32 0, ptr null, ptr null, ptr @chacha20_poly1305_ctrl, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -32,7 +27,7 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal i32 @chacha_init_key(ptr nocapture noundef readonly %ctx, ptr noundef readonly %user_key, ptr noundef readonly %iv, i32 %enc) #1 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 12
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8
   %tobool.not = icmp eq ptr %user_key, null
   br i1 %tobool.not, label %if.end, label %for.body
@@ -50,21 +45,25 @@ for.body:                                         ; preds = %entry, %for.body
 
 if.end:                                           ; preds = %for.body, %entry
   %tobool19.not = icmp eq ptr %iv, null
-  br i1 %tobool19.not, label %if.end53, label %for.body24
+  br i1 %tobool19.not, label %if.end53, label %for.cond21.preheader
 
-for.body24:                                       ; preds = %if.end, %for.body24
-  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %for.body24 ], [ 0, %if.end ]
+for.cond21.preheader:                             ; preds = %if.end
+  %counter = getelementptr inbounds i8, ptr %0, i64 32
+  br label %for.body24
+
+for.body24:                                       ; preds = %for.cond21.preheader, %for.body24
+  %indvars.iv30 = phi i64 [ 0, %for.cond21.preheader ], [ %indvars.iv.next31, %for.body24 ]
   %add.ptr26 = getelementptr inbounds i8, ptr %iv, i64 %indvars.iv30
   %3 = load i32, ptr %add.ptr26, align 1
   %4 = lshr exact i64 %indvars.iv30, 2
-  %arrayidx49 = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1, i64 %4
+  %arrayidx49 = getelementptr inbounds [4 x i32], ptr %counter, i64 0, i64 %4
   store i32 %3, ptr %arrayidx49, align 4
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 4
   %cmp22 = icmp ult i64 %indvars.iv30, 12
   br i1 %cmp22, label %for.body24, label %if.end53, !llvm.loop !6
 
 if.end53:                                         ; preds = %for.body24, %if.end
-  %partial_len = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 3
+  %partial_len = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %partial_len, align 8
   ret i32 1
 }
@@ -72,9 +71,9 @@ if.end53:                                         ; preds = %for.body24, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @chacha_cipher(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr noundef %inp, i64 noundef %len) #2 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 12
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8
-  %partial_len = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 3
+  %partial_len = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load i32, ptr %partial_len, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end25, label %while.cond.preheader
@@ -83,21 +82,22 @@ while.cond.preheader:                             ; preds = %entry
   %tobool159 = icmp ne i64 %len, 0
   %cmp60 = icmp ult i32 %1, 64
   %2 = and i1 %tobool159, %cmp60
-  br i1 %2, label %while.body.preheader, label %while.end
+  br i1 %2, label %while.body.lr.ph, label %while.end
 
-while.body.preheader:                             ; preds = %while.cond.preheader
+while.body.lr.ph:                                 ; preds = %while.cond.preheader
+  %buf = getelementptr inbounds i8, ptr %0, i64 48
   %3 = zext nneg i32 %1 to i64
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %indvars.iv = phi i64 [ %3, %while.body.preheader ], [ %indvars.iv.next, %while.body ]
-  %out.addr.063 = phi ptr [ %out, %while.body.preheader ], [ %incdec.ptr4, %while.body ]
-  %len.addr.062 = phi i64 [ %len, %while.body.preheader ], [ %dec, %while.body ]
-  %inp.addr.061 = phi ptr [ %inp, %while.body.preheader ], [ %incdec.ptr, %while.body ]
+while.body:                                       ; preds = %while.body.lr.ph, %while.body
+  %indvars.iv = phi i64 [ %3, %while.body.lr.ph ], [ %indvars.iv.next, %while.body ]
+  %out.addr.063 = phi ptr [ %out, %while.body.lr.ph ], [ %incdec.ptr4, %while.body ]
+  %len.addr.062 = phi i64 [ %len, %while.body.lr.ph ], [ %dec, %while.body ]
+  %inp.addr.061 = phi ptr [ %inp, %while.body.lr.ph ], [ %incdec.ptr, %while.body ]
   %incdec.ptr = getelementptr inbounds i8, ptr %inp.addr.061, i64 1
   %4 = load i8, ptr %inp.addr.061, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [64 x i8], ptr %buf, i64 0, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx, align 1
   %xor57 = xor i8 %5, %4
   %incdec.ptr4 = getelementptr inbounds i8, ptr %out.addr.063, i64 1
@@ -127,7 +127,7 @@ if.end:                                           ; preds = %while.end
 
 if.then11:                                        ; preds = %if.end
   store i32 0, ptr %partial_len, align 8
-  %counter = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1
+  %counter = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i32, ptr %counter, align 8
   %inc14 = add i32 %8, 1
   store i32 %inc14, ptr %counter, align 8
@@ -135,7 +135,7 @@ if.then11:                                        ; preds = %if.end
   br i1 %cmp17, label %if.then19, label %if.end25
 
 if.then19:                                        ; preds = %if.then11
-  %arrayidx21 = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1, i64 1
+  %arrayidx21 = getelementptr inbounds i8, ptr %0, i64 36
   %9 = load i32, ptr %arrayidx21, align 4
   %inc22 = add i32 %9, 1
   store i32 %inc22, ptr %arrayidx21, align 4
@@ -148,13 +148,13 @@ if.end25:                                         ; preds = %if.end, %if.then19,
   %10 = trunc i64 %len.addr.1 to i32
   %conv27 = and i32 %10, 63
   %sub = and i64 %len.addr.1, -64
-  %counter29 = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1
+  %counter29 = getelementptr inbounds i8, ptr %0, i64 32
   %cmp32.not68 = icmp eq i64 %sub, 0
   br i1 %cmp32.not68, label %while.end61, label %while.body34.lr.ph
 
 while.body34.lr.ph:                               ; preds = %if.end25
   %11 = load i32, ptr %counter29, align 8
-  %arrayidx58 = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1, i64 1
+  %arrayidx58 = getelementptr inbounds i8, ptr %0, i64 36
   br label %while.body34
 
 while.body34:                                     ; preds = %while.body34.lr.ph, %if.end60
@@ -197,7 +197,7 @@ while.end61:                                      ; preds = %if.end60, %if.end25
   br i1 %tobool62.not, label %return, label %if.then63
 
 if.then63:                                        ; preds = %while.end61
-  %buf64 = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 2
+  %buf64 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %buf64, i8 0, i64 64, i1 false)
   tail call void @ChaCha20_ctr32(ptr noundef nonnull %buf64, ptr noundef nonnull %buf64, i64 noundef 64, ptr noundef nonnull %0, ptr noundef nonnull %counter29) #9
   %wide.trip.count = and i64 %len.addr.1, 63
@@ -207,7 +207,7 @@ for.body:                                         ; preds = %if.then63, %for.bod
   %indvars.iv77 = phi i64 [ 0, %if.then63 ], [ %indvars.iv.next78, %for.body ]
   %arrayidx77 = getelementptr inbounds i8, ptr %inp.addr.2.lcssa, i64 %indvars.iv77
   %13 = load i8, ptr %arrayidx77, align 1
-  %arrayidx81 = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 2, i64 %indvars.iv77
+  %arrayidx81 = getelementptr inbounds [64 x i8], ptr %buf64, i64 0, i64 %indvars.iv77
   %14 = load i8, ptr %arrayidx81, align 1
   %xor8355 = xor i8 %14, %13
   %arrayidx86 = getelementptr inbounds i8, ptr %out.addr.2.lcssa, i64 %indvars.iv77
@@ -233,7 +233,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 define internal i32 @chacha20_poly1305_init_key(ptr nocapture noundef readonly %ctx, ptr noundef readonly %inkey, ptr noundef readonly %iv, i32 %enc) #5 {
 entry:
   %temp = alloca [16 x i8], align 16
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 12
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8
   %tobool = icmp ne ptr %inkey, null
   %tobool1 = icmp ne ptr %iv, null
@@ -241,15 +241,15 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %len = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 4
-  %tls_payload_length = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 9
+  %len = getelementptr inbounds i8, ptr %0, i64 168
+  %tls_payload_length = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %len, i8 0, i64 24, i1 false)
   store i64 -1, ptr %tls_payload_length, align 8
   br i1 %tobool1, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %temp, i8 0, i64 16, i1 false)
-  %nonce_len = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 8
+  %nonce_len = getelementptr inbounds i8, ptr %0, i64 196
   %1 = load i32, ptr %nonce_len, align 4
   %cmp5 = icmp slt i32 %1, 17
   br i1 %cmp5, label %if.then6, label %if.end10
@@ -279,17 +279,17 @@ for.body.i:                                       ; preds = %if.end10, %for.body
   br i1 %cmp.i, label %for.body.i, label %if.end.i, !llvm.loop !4
 
 if.end.i:                                         ; preds = %for.body.i, %if.end10
-  %scevgep = getelementptr i8, ptr %2, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %scevgep, ptr noundef nonnull align 16 dereferenceable(16) %temp, i64 16, i1 false)
-  %partial_len.i = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %2, i64 0, i32 3
+  %counter.i = getelementptr inbounds i8, ptr %2, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %counter.i, ptr noundef nonnull align 16 dereferenceable(16) %temp, i64 16, i1 false)
+  %partial_len.i = getelementptr inbounds i8, ptr %2, i64 112
   store i32 0, ptr %partial_len.i, align 8
-  %arrayidx = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1, i64 1
-  %nonce = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 1
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 36
+  %nonce = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load <2 x i32>, ptr %arrayidx, align 4
   store <2 x i32> %5, ptr %nonce, align 8
-  %arrayidx20 = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1, i64 3
+  %arrayidx20 = getelementptr inbounds i8, ptr %0, i64 44
   %6 = load i32, ptr %arrayidx20, align 4
-  %arrayidx22 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 1, i64 2
+  %arrayidx22 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 %6, ptr %arrayidx22, align 8
   br label %return
 
@@ -310,7 +310,7 @@ for.body.i23:                                     ; preds = %if.else, %for.body.
   br i1 %cmp.i28, label %for.body.i23, label %chacha_init_key.exit31, !llvm.loop !4
 
 chacha_init_key.exit31:                           ; preds = %for.body.i23, %if.else
-  %partial_len.i30 = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %7, i64 0, i32 3
+  %partial_len.i30 = getelementptr inbounds i8, ptr %7, i64 112
   store i32 0, ptr %partial_len.i30, align 8
   br label %return
 
@@ -323,11 +323,11 @@ define internal i32 @chacha20_poly1305_cipher(ptr noundef %ctx, ptr noundef %out
 entry:
   %storage.i = alloca [288 x i8], align 16
   %temp = alloca [16 x i8], align 16
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 12
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8
-  %tls_payload_length = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 9
+  %tls_payload_length = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load i64, ptr %tls_payload_length, align 8
-  %mac_inited = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 6
+  %mac_inited = getelementptr inbounds i8, ptr %0, i64 188
   %2 = load i32, ptr %mac_inited, align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.then, label %if.end28
@@ -348,7 +348,7 @@ if.end.i:                                         ; preds = %if.then2
   %add.ptr2.i = getelementptr inbounds i8, ptr %storage.i, i64 64
   %add.ptr4.i = getelementptr inbounds i8, ptr %storage.i, i64 48
   %cmp5.i = icmp ult i64 %1, 193
-  %counter.i = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1
+  %counter.i = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %counter.i, align 8
   br i1 %cmp5.i, label %if.then6.i, label %if.else30.i
 
@@ -356,15 +356,15 @@ if.then6.i:                                       ; preds = %if.end.i
   %sub8.i = add nuw nsw i64 %1, 127
   %and9.i = and i64 %sub8.i, 448
   call void @ChaCha20_ctr32(ptr noundef nonnull %storage.i, ptr noundef nonnull @zero, i64 noundef %and9.i, ptr noundef nonnull %0, ptr noundef nonnull %counter.i) #9
-  %add.ptr16.i = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 1
+  %add.ptr16.i = getelementptr inbounds i8, ptr %0, i64 208
   call void @Poly1305_Init(ptr noundef nonnull %add.ptr16.i, ptr noundef nonnull %storage.i) #9
-  %partial_len.i = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 3
+  %partial_len.i = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %partial_len.i, align 8
-  %tls_aad.i = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 3
+  %tls_aad.i = getelementptr inbounds i8, ptr %0, i64 148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr4.i, ptr noundef nonnull align 4 dereferenceable(16) %tls_aad.i, i64 16, i1 false)
-  %len19.i = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 4
+  %len19.i = getelementptr inbounds i8, ptr %0, i64 168
   store i64 13, ptr %len19.i, align 8
-  %text.i = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 4, i32 1
+  %text.i = getelementptr inbounds i8, ptr %0, i64 176
   store i64 %1, ptr %text.i, align 8
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %if.end77.i, label %if.then21.i
@@ -394,16 +394,16 @@ if.end26.i:                                       ; preds = %if.else.i, %if.then
 
 if.else30.i:                                      ; preds = %if.end.i
   call void @ChaCha20_ctr32(ptr noundef nonnull %storage.i, ptr noundef nonnull @zero, i64 noundef 64, ptr noundef nonnull %0, ptr noundef nonnull %counter.i) #9
-  %add.ptr40.i = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 1
+  %add.ptr40.i = getelementptr inbounds i8, ptr %0, i64 208
   call void @Poly1305_Init(ptr noundef nonnull %add.ptr40.i, ptr noundef nonnull %storage.i) #9
   store i32 1, ptr %counter.i, align 8
-  %partial_len45.i = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 3
+  %partial_len45.i = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %partial_len45.i, align 8
-  %tls_aad47.i = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 3
+  %tls_aad47.i = getelementptr inbounds i8, ptr %0, i64 148
   call void @Poly1305_Update(ptr noundef nonnull %add.ptr40.i, ptr noundef nonnull %tls_aad47.i, i64 noundef 16) #9
-  %len49.i = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 4
+  %len49.i = getelementptr inbounds i8, ptr %0, i64 168
   store i64 13, ptr %len49.i, align 8
-  %text52.i = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 4, i32 1
+  %text52.i = getelementptr inbounds i8, ptr %0, i64 176
   store i64 %1, ptr %text52.i, align 8
   %call53.i = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %ctx) #9
   %tobool54.not.i = icmp eq i32 %call53.i, 0
@@ -434,14 +434,14 @@ if.end77.i:                                       ; preds = %if.end71.i, %if.end
   %out.addr.0.i = phi ptr [ %add.ptr28.i, %if.end26.i ], [ %out, %if.then6.i ], [ %add.ptr73.i, %if.end71.i ]
   %tohash.0.i = phi ptr [ %add.ptr4.i, %if.end26.i ], [ %add.ptr4.i, %if.then6.i ], [ %add.ptr2.i, %if.end71.i ]
   %ctr.1.i = phi ptr [ %ctr.0.i, %if.end26.i ], [ %add.ptr2.i, %if.then6.i ], [ %add.ptr2.i, %if.end71.i ]
-  %len78.i = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 4
+  %len78.i = getelementptr inbounds i8, ptr %0, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ctr.1.i, ptr noundef nonnull align 8 dereferenceable(16) %len78.i, i64 16, i1 false)
-  %add.ptr80.i = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 1
+  %add.ptr80.i = getelementptr inbounds i8, ptr %0, i64 208
   call void @Poly1305_Update(ptr noundef nonnull %add.ptr80.i, ptr noundef nonnull %tohash.0.i, i64 noundef %tohash_len.0.i) #9
   call void @OPENSSL_cleanse(ptr noundef nonnull %storage.i, i64 noundef %buf_len.0.i) #9
   %call82.i = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %ctx) #9
   %tobool83.not.i = icmp eq i32 %call82.i, 0
-  %tag.i = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 2
+  %tag.i = getelementptr inbounds i8, ptr %0, i64 132
   %cond.i = select i1 %tobool83.not.i, ptr %tohash.0.i, ptr %tag.i
   call void @Poly1305_Final(ptr noundef nonnull %add.ptr80.i, ptr noundef nonnull %cond.i) #9
   store i64 -1, ptr %tls_payload_length, align 8
@@ -475,25 +475,25 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %if.then2, %if.then9
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %counter = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1
+  %counter = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %counter, align 8
-  %buf = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @ChaCha20_ctr32(ptr noundef nonnull %buf, ptr noundef nonnull @zero, i64 noundef 64, ptr noundef nonnull %0, ptr noundef nonnull %counter) #9
-  %add.ptr = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @Poly1305_Init(ptr noundef nonnull %add.ptr, ptr noundef nonnull %buf) #9
   store i32 1, ptr %counter, align 8
-  %partial_len = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 3
+  %partial_len = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %partial_len, align 8
-  %len17 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 4
+  %len17 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %len17, i8 0, i64 16, i1 false)
   store i32 1, ptr %mac_inited, align 4
   br i1 %cmp, label %if.then21, label %if.end28
 
 if.then21:                                        ; preds = %if.end
-  %tls_aad = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 3
+  %tls_aad = getelementptr inbounds i8, ptr %0, i64 148
   tail call void @Poly1305_Update(ptr noundef nonnull %add.ptr, ptr noundef nonnull %tls_aad, i64 noundef 13) #9
   store i64 13, ptr %len17, align 8
-  %aad26 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 5
+  %aad26 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 1, ptr %aad26, align 8
   br label %if.end28
 
@@ -510,32 +510,32 @@ if.then30:                                        ; preds = %if.end28
   br i1 %cmp31, label %if.then32, label %if.else
 
 if.then32:                                        ; preds = %if.then30
-  %add.ptr33 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 1
+  %add.ptr33 = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @Poly1305_Update(ptr noundef nonnull %add.ptr33, ptr noundef nonnull %in, i64 noundef %len) #9
-  %len34 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 4
+  %len34 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load i64, ptr %len34, align 8
   %add = add i64 %4, %len
   store i64 %add, ptr %len34, align 8
-  %aad36 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 5
+  %aad36 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 1, ptr %aad36, align 8
   %conv = trunc i64 %len to i32
   br label %return
 
 if.else:                                          ; preds = %if.then30
-  %aad37 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 5
+  %aad37 = getelementptr inbounds i8, ptr %0, i64 184
   %5 = load i32, ptr %aad37, align 8
   %tobool38.not = icmp eq i32 %5, 0
   br i1 %tobool38.not, label %if.end48, label %if.then39
 
 if.then39:                                        ; preds = %if.else
-  %len40 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 4
+  %len40 = getelementptr inbounds i8, ptr %0, i64 168
   %6 = load i64, ptr %len40, align 8
   %rem42 = and i64 %6, 15
   %tobool43.not = icmp eq i64 %rem42, 0
   br i1 %tobool43.not, label %if.end46, label %if.then44
 
 if.then44:                                        ; preds = %if.then39
-  %add.ptr45 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 1
+  %add.ptr45 = getelementptr inbounds i8, ptr %0, i64 208
   %sub = sub nuw nsw i64 16, %rem42
   tail call void @Poly1305_Update(ptr noundef nonnull %add.ptr45, ptr noundef nonnull @zero, i64 noundef %sub) #9
   br label %if.end46
@@ -558,17 +558,17 @@ if.end59:                                         ; preds = %if.end48, %if.else5
   %plen.0 = phi i64 [ %1, %if.else53 ], [ %len, %if.end48 ]
   %call60 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %ctx) #9
   %tobool61.not = icmp eq i32 %call60, 0
-  %text76 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 4, i32 1
+  %text76 = getelementptr inbounds i8, ptr %0, i64 176
   br i1 %tobool61.not, label %if.else70, label %if.then62
 
 if.then62:                                        ; preds = %if.end59
   %call63 = tail call i32 @chacha_cipher(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %plen.0)
-  %add.ptr64 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 1
+  %add.ptr64 = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @Poly1305_Update(ptr noundef nonnull %add.ptr64, ptr noundef nonnull %out, i64 noundef %plen.0) #9
   br label %if.end80
 
 if.else70:                                        ; preds = %if.end59
-  %add.ptr71 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 1
+  %add.ptr71 = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @Poly1305_Update(ptr noundef nonnull %add.ptr71, ptr noundef nonnull %in, i64 noundef %plen.0) #9
   %call72 = tail call i32 @chacha_cipher(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %plen.0)
   br label %if.end80
@@ -587,20 +587,20 @@ if.then85:                                        ; preds = %if.end80.thread, %i
   %plen.1106 = phi i64 [ %1, %if.end80.thread ], [ %plen.0, %if.end80 ]
   %out.addr.0105 = phi ptr [ %out, %if.end80.thread ], [ %out.addr.0, %if.end80 ]
   %in.addr.0104 = phi ptr [ null, %if.end80.thread ], [ %in.addr.0, %if.end80 ]
-  %aad86 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 5
+  %aad86 = getelementptr inbounds i8, ptr %0, i64 184
   %8 = load i32, ptr %aad86, align 8
   %tobool87.not = icmp eq i32 %8, 0
   br i1 %tobool87.not, label %if.end98, label %if.then88
 
 if.then88:                                        ; preds = %if.then85
-  %len89 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 4
+  %len89 = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load i64, ptr %len89, align 8
   %rem91 = and i64 %9, 15
   %tobool92.not = icmp eq i64 %rem91, 0
   br i1 %tobool92.not, label %if.end96, label %if.then93
 
 if.then93:                                        ; preds = %if.then88
-  %add.ptr94 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 1
+  %add.ptr94 = getelementptr inbounds i8, ptr %0, i64 208
   %sub95 = sub nuw nsw i64 16, %rem91
   tail call void @Poly1305_Update(ptr noundef nonnull %add.ptr94, ptr noundef nonnull @zero, i64 noundef %sub95) #9
   br label %if.end96
@@ -610,25 +610,25 @@ if.end96:                                         ; preds = %if.then93, %if.then
   br label %if.end98
 
 if.end98:                                         ; preds = %if.end96, %if.then85
-  %len99 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 4
-  %text100 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 4, i32 1
+  %len99 = getelementptr inbounds i8, ptr %0, i64 168
+  %text100 = getelementptr inbounds i8, ptr %0, i64 176
   %10 = load i64, ptr %text100, align 8
   %rem101 = and i64 %10, 15
   %tobool102.not = icmp eq i64 %rem101, 0
   br i1 %tobool102.not, label %if.end106, label %if.then103
 
 if.then103:                                       ; preds = %if.end98
-  %add.ptr104 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 1
+  %add.ptr104 = getelementptr inbounds i8, ptr %0, i64 208
   %sub105 = sub nuw nsw i64 16, %rem101
   tail call void @Poly1305_Update(ptr noundef nonnull %add.ptr104, ptr noundef nonnull @zero, i64 noundef %sub105) #9
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then103, %if.end98
-  %add.ptr107 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 1
+  %add.ptr107 = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @Poly1305_Update(ptr noundef nonnull %add.ptr107, ptr noundef nonnull %len99, i64 noundef 16) #9
   %call110 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %ctx) #9
   %tobool111.not = icmp eq i32 %call110, 0
-  %tag = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 2
+  %tag = getelementptr inbounds i8, ptr %0, i64 132
   %cond = select i1 %tobool111.not, ptr %temp, ptr %tag
   call void @Poly1305_Final(ptr noundef nonnull %add.ptr107, ptr noundef nonnull %cond) #9
   store i32 0, ptr %mac_inited, align 4
@@ -660,7 +660,7 @@ if.else134:                                       ; preds = %if.end106
   br i1 %tobool136.not, label %if.then137, label %if.end148
 
 if.then137:                                       ; preds = %if.else134
-  %tag_len = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 7
+  %tag_len = getelementptr inbounds i8, ptr %0, i64 192
   %11 = load i32, ptr %tag_len, align 8
   %conv141 = sext i32 %11 to i64
   %call142 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %temp, ptr noundef nonnull %tag, i64 noundef %conv141) #9
@@ -679,7 +679,7 @@ return:                                           ; preds = %if.then137, %if.els
 ; Function Attrs: nounwind uwtable
 define internal i32 @chacha20_poly1305_cleanup(ptr nocapture noundef readonly %ctx) #2 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 12
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -697,7 +697,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal i32 @chacha20_poly1305_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr) #2 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 12
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8
   switch i32 %type, label %sw.default [
     i32 0, label %sw.bb
@@ -731,13 +731,13 @@ if.then4:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %sw.bb, %if.end
   %actx.085 = phi ptr [ %call1, %if.end ], [ %0, %sw.bb ]
-  %len = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %actx.085, i64 0, i32 4
-  %nonce_len = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %actx.085, i64 0, i32 8
+  %len = getelementptr inbounds i8, ptr %actx.085, i64 168
+  %nonce_len = getelementptr inbounds i8, ptr %actx.085, i64 196
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %len, i8 0, i64 28, i1 false)
   store i32 12, ptr %nonce_len, align 4
-  %tls_payload_length = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %actx.085, i64 0, i32 9
+  %tls_payload_length = getelementptr inbounds i8, ptr %actx.085, i64 200
   store i64 -1, ptr %tls_payload_length, align 8
-  %tls_aad = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %actx.085, i64 0, i32 3
+  %tls_aad = getelementptr inbounds i8, ptr %actx.085, i64 148
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tls_aad, i8 0, i64 16, i1 false)
   br label %return
 
@@ -749,7 +749,7 @@ if.then9:                                         ; preds = %sw.bb8
   %call10 = tail call i64 @Poly1305_ctx_size() #9
   %add11 = add i64 %call10, 208
   %call12 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %0, i64 noundef %add11, ptr noundef nonnull @.str, i32 noundef 525) #9
-  %cipher_data13 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ptr, i64 0, i32 12
+  %cipher_data13 = getelementptr inbounds i8, ptr %ptr, i64 120
   store ptr %call12, ptr %cipher_data13, align 8
   %cmp15 = icmp eq ptr %call12, null
   br i1 %cmp15, label %if.then16, label %return
@@ -761,7 +761,7 @@ if.then16:                                        ; preds = %if.then9
   br label %return
 
 sw.bb19:                                          ; preds = %entry
-  %nonce_len20 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 8
+  %nonce_len20 = getelementptr inbounds i8, ptr %0, i64 196
   %1 = load i32, ptr %nonce_len20, align 4
   store i32 %1, ptr %ptr, align 4
   br label %return
@@ -772,7 +772,7 @@ sw.bb21:                                          ; preds = %entry
   br i1 %or.cond, label %return, label %if.end25
 
 if.end25:                                         ; preds = %sw.bb21
-  %nonce_len26 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 8
+  %nonce_len26 = getelementptr inbounds i8, ptr %0, i64 196
   store i32 %arg, ptr %nonce_len26, align 4
   br label %return
 
@@ -793,9 +793,9 @@ if.end30:                                         ; preds = %sw.bb27
   %conv38 = zext i8 %6 to i32
   %shl39 = shl nuw i32 %conv38, 24
   %or40 = or disjoint i32 %or36, %shl39
-  %arrayidx41 = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1, i64 1
+  %arrayidx41 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %or40, ptr %arrayidx41, align 4
-  %nonce = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 1
+  %nonce = getelementptr inbounds i8, ptr %0, i64 120
   store i32 %or40, ptr %nonce, align 8
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 4
   %7 = load i16, ptr %add.ptr, align 1
@@ -810,9 +810,9 @@ if.end30:                                         ; preds = %sw.bb27
   %conv57 = zext i8 %10 to i32
   %shl58 = shl nuw i32 %conv57, 24
   %or59 = or disjoint i32 %or54, %shl58
-  %arrayidx62 = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1, i64 2
+  %arrayidx62 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %or59, ptr %arrayidx62, align 8
-  %arrayidx64 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 1, i64 1
+  %arrayidx64 = getelementptr inbounds i8, ptr %0, i64 124
   store i32 %or59, ptr %arrayidx64, align 4
   %add.ptr65 = getelementptr inbounds i8, ptr %ptr, i64 8
   %11 = load i16, ptr %add.ptr65, align 1
@@ -827,9 +827,9 @@ if.end30:                                         ; preds = %sw.bb27
   %conv80 = zext i8 %14 to i32
   %shl81 = shl nuw i32 %conv80, 24
   %or82 = or disjoint i32 %or77, %shl81
-  %arrayidx85 = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1, i64 3
+  %arrayidx85 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 %or82, ptr %arrayidx85, align 4
-  %arrayidx87 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 1, i64 2
+  %arrayidx87 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 %or82, ptr %arrayidx87, align 8
   br label %return
 
@@ -843,10 +843,10 @@ if.end95:                                         ; preds = %sw.bb88
   br i1 %cmp96.not, label %return, label %if.then98
 
 if.then98:                                        ; preds = %if.end95
-  %tag = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 2
+  %tag = getelementptr inbounds i8, ptr %0, i64 132
   %conv100 = zext nneg i32 %arg to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %tag, ptr nonnull align 1 %ptr, i64 %conv100, i1 false)
-  %tag_len101 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 7
+  %tag_len101 = getelementptr inbounds i8, ptr %0, i64 192
   store i32 %arg, ptr %tag_len101, align 8
   br label %return
 
@@ -861,7 +861,7 @@ lor.lhs.false109:                                 ; preds = %sw.bb103
   br i1 %tobool111.not, label %return, label %if.end113
 
 if.end113:                                        ; preds = %lor.lhs.false109
-  %tag114 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 2
+  %tag114 = getelementptr inbounds i8, ptr %0, i64 132
   %conv116 = zext nneg i32 %arg to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ptr, ptr nonnull align 4 %tag114, i64 %conv116, i1 false)
   br label %return
@@ -871,7 +871,7 @@ sw.bb117:                                         ; preds = %entry
   br i1 %cmp118.not, label %if.end121, label %return
 
 if.end121:                                        ; preds = %sw.bb117
-  %tls_aad124 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 3
+  %tls_aad124 = getelementptr inbounds i8, ptr %0, i64 148
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %tls_aad124, ptr noundef nonnull align 1 dereferenceable(13) %ptr, i64 13, i1 false)
   %arrayidx126 = getelementptr inbounds i8, ptr %ptr, i64 11
   %17 = load i8, ptr %arrayidx126, align 1
@@ -893,29 +893,29 @@ if.end140:                                        ; preds = %if.then136
   %sub = add nsw i32 %or131, -16
   %shr = lshr i32 %sub, 8
   %conv141 = trunc i32 %shr to i8
-  %arrayidx142 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 3, i64 11
+  %arrayidx142 = getelementptr inbounds i8, ptr %0, i64 159
   store i8 %conv141, ptr %arrayidx142, align 1
   %conv143 = trunc i32 %sub to i8
-  %arrayidx144 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 3, i64 12
+  %arrayidx144 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 %conv143, ptr %arrayidx144, align 1
   br label %if.end145
 
 if.end145:                                        ; preds = %if.end140, %if.end121
   %len122.0 = phi i32 [ %or131, %if.end121 ], [ %sub, %if.end140 ]
   %conv146 = zext nneg i32 %len122.0 to i64
-  %tls_payload_length147 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 9
+  %tls_payload_length147 = getelementptr inbounds i8, ptr %0, i64 200
   store i64 %conv146, ptr %tls_payload_length147, align 8
-  %nonce148 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 1
+  %nonce148 = getelementptr inbounds i8, ptr %0, i64 120
   %19 = load i32, ptr %nonce148, align 8
-  %arrayidx152 = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1, i64 1
+  %arrayidx152 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %19, ptr %arrayidx152, align 4
-  %arrayidx154 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 1, i64 1
-  %arrayidx171 = getelementptr inbounds %struct.EVP_CHACHA_KEY, ptr %0, i64 0, i32 1, i64 2
+  %arrayidx154 = getelementptr inbounds i8, ptr %0, i64 124
+  %arrayidx171 = getelementptr inbounds i8, ptr %0, i64 40
   %20 = load <2 x i32>, ptr %arrayidx154, align 4
   %21 = load <2 x i32>, ptr %tls_aad124, align 1
   %22 = xor <2 x i32> %21, %20
   store <2 x i32> %22, ptr %arrayidx171, align 8
-  %mac_inited196 = getelementptr inbounds %struct.EVP_CHACHA_AEAD_CTX, ptr %0, i64 0, i32 6
+  %mac_inited196 = getelementptr inbounds i8, ptr %0, i64 188
   store i32 0, ptr %mac_inited196, align 4
   br label %return
 

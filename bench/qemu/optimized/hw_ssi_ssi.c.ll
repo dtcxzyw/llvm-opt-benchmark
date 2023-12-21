@@ -10,25 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon.0, i32, ptr, i32, ptr }
 %union.anon.0 = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.BusChild = type { %struct.rcu_head, ptr, i32, %union.anon }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.SSIPeripheral = type { %struct.DeviceState, ptr, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.SSIPeripheralClass = type { %struct.DeviceClass, ptr, ptr, ptr, i32, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.BusClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 
 @error_fatal = external global ptr, align 8
 @.str = private unnamed_addr constant [4 x i8] c"SSI\00", align 1
@@ -65,28 +46,28 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local ptr @ssi_get_cs(ptr noundef %bus, i8 noundef zeroext %cs_index) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %bus, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #3
-  %children = getelementptr inbounds %struct.BusState, ptr %call.i, i64 0, i32 8
+  %children = getelementptr inbounds i8, ptr %call.i, i64 80
   %kid.05 = load ptr, ptr %children, align 8
   %tobool.not6 = icmp eq ptr %kid.05, null
   br i1 %tobool.not6, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %kid.07 = phi ptr [ %kid.0, %for.inc ], [ %kid.05, %entry ]
-  %child = getelementptr inbounds %struct.BusChild, ptr %kid.07, i64 0, i32 1
+  %child = getelementptr inbounds i8, ptr %kid.07, i64 16
   %0 = load ptr, ptr %child, align 8
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 23, ptr noundef nonnull @__func__.SSI_PERIPHERAL) #3
-  %cs_index2 = getelementptr inbounds %struct.SSIPeripheral, ptr %call.i4, i64 0, i32 3
+  %cs_index2 = getelementptr inbounds i8, ptr %call.i4, i64 169
   %1 = load i8, ptr %cs_index2, align 1
   %cmp = icmp eq i8 %1, %cs_index
   br i1 %cmp, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %child.le = getelementptr inbounds %struct.BusChild, ptr %kid.07, i64 0, i32 1
+  %child.le = getelementptr inbounds i8, ptr %kid.07, i64 16
   %2 = load ptr, ptr %child.le, align 8
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %sibling = getelementptr inbounds %struct.BusChild, ptr %kid.07, i64 0, i32 3
+  %sibling = getelementptr inbounds i8, ptr %kid.07, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !5
@@ -129,7 +110,7 @@ declare ptr @qbus_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 define dso_local i32 @ssi_transfer(ptr noundef %bus, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %bus, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #3
-  %children = getelementptr inbounds %struct.BusState, ptr %call.i, i64 0, i32 8
+  %children = getelementptr inbounds i8, ptr %call.i, i64 80
   %kid.06 = load ptr, ptr %children, align 8
   %tobool.not7 = icmp eq ptr %kid.06, null
   br i1 %tobool.not7, label %for.end, label %for.body
@@ -137,16 +118,16 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %kid.09 = phi ptr [ %kid.0, %for.body ], [ %kid.06, %entry ]
   %r.08 = phi i32 [ %or, %for.body ], [ 0, %entry ]
-  %child = getelementptr inbounds %struct.BusChild, ptr %kid.09, i64 0, i32 1
+  %child = getelementptr inbounds i8, ptr %kid.09, i64 16
   %0 = load ptr, ptr %child, align 8
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 23, ptr noundef nonnull @__func__.SSI_PERIPHERAL) #3
-  %spc = getelementptr inbounds %struct.SSIPeripheral, ptr %call.i5, i64 0, i32 1
+  %spc = getelementptr inbounds i8, ptr %call.i5, i64 160
   %1 = load ptr, ptr %spc, align 8
-  %transfer_raw = getelementptr inbounds %struct.SSIPeripheralClass, ptr %1, i64 0, i32 5
+  %transfer_raw = getelementptr inbounds i8, ptr %1, i64 208
   %2 = load ptr, ptr %transfer_raw, align 8
   %call2 = tail call i32 %2(ptr noundef %call.i5, i32 noundef %val) #3
   %or = or i32 %call2, %r.08
-  %sibling = getelementptr inbounds %struct.BusChild, ptr %kid.09, i64 0, i32 3
+  %sibling = getelementptr inbounds i8, ptr %kid.09, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !7
@@ -181,7 +162,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @ssi_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #3
-  %check_address = getelementptr inbounds %struct.BusClass, ptr %call.i, i64 0, i32 5
+  %check_address = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @ssi_bus_check_address, ptr %check_address, align 8
   ret void
 }
@@ -191,32 +172,32 @@ define internal zeroext i1 @ssi_bus_check_address(ptr noundef %b, ptr noundef %d
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 23, ptr noundef nonnull @__func__.SSI_PERIPHERAL) #3
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %b, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 28, ptr noundef nonnull @__func__.SSI_BUS) #3
-  %cs_index = getelementptr inbounds %struct.SSIPeripheral, ptr %call.i, i64 0, i32 3
+  %cs_index = getelementptr inbounds i8, ptr %call.i, i64 169
   %0 = load i8, ptr %cs_index, align 1
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #3
-  %children.i = getelementptr inbounds %struct.BusState, ptr %call.i.i, i64 0, i32 8
+  %children.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   %kid.05.i = load ptr, ptr %children.i, align 8
   %tobool.not6.i = icmp eq ptr %kid.05.i, null
   br i1 %tobool.not6.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %kid.07.i = phi ptr [ %kid.0.i, %for.inc.i ], [ %kid.05.i, %entry ]
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %kid.07.i, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %kid.07.i, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i4.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 23, ptr noundef nonnull @__func__.SSI_PERIPHERAL) #3
-  %cs_index2.i = getelementptr inbounds %struct.SSIPeripheral, ptr %call.i4.i, i64 0, i32 3
+  %cs_index2.i = getelementptr inbounds i8, ptr %call.i4.i, i64 169
   %2 = load i8, ptr %cs_index2.i, align 1
   %cmp.i = icmp eq i8 %2, %0
   br i1 %cmp.i, label %ssi_get_cs.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %sibling.i = getelementptr inbounds %struct.BusChild, ptr %kid.07.i, i64 0, i32 3
+  %sibling.i = getelementptr inbounds i8, ptr %kid.07.i, i64 32
   %kid.0.i = load ptr, ptr %sibling.i, align 8
   %tobool.not.i = icmp eq ptr %kid.0.i, null
   br i1 %tobool.not.i, label %return, label %for.body.i, !llvm.loop !5
 
 ssi_get_cs.exit:                                  ; preds = %for.body.i
-  %child.i.le = getelementptr inbounds %struct.BusChild, ptr %kid.07.i, i64 0, i32 1
+  %child.i.le = getelementptr inbounds i8, ptr %kid.07.i, i64 16
   %3 = load ptr, ptr %child.i.le, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %return, label %if.then
@@ -244,11 +225,11 @@ define internal void @ssi_peripheral_class_init(ptr noundef %klass, ptr nocaptur
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 23, ptr noundef nonnull @__func__.SSI_PERIPHERAL_CLASS) #3
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #3
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i5, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i5, i64 144
   store ptr @ssi_peripheral_realize, ptr %realize, align 8
-  %bus_type = getelementptr inbounds %struct.DeviceClass, ptr %call.i5, i64 0, i32 11
+  %bus_type = getelementptr inbounds i8, ptr %call.i5, i64 168
   store ptr @.str, ptr %bus_type, align 8
-  %transfer_raw = getelementptr inbounds %struct.SSIPeripheralClass, ptr %call.i, i64 0, i32 5
+  %transfer_raw = getelementptr inbounds i8, ptr %call.i, i64 208
   %0 = load ptr, ptr %transfer_raw, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -268,13 +249,13 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 23, ptr noundef nonnull @__func__.SSI_PERIPHERAL) #3
   %call.i7 = tail call ptr @object_get_class(ptr noundef %call.i) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i7, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 23, ptr noundef nonnull @__func__.SSI_PERIPHERAL_GET_CLASS) #3
-  %transfer_raw = getelementptr inbounds %struct.SSIPeripheralClass, ptr %call1.i, i64 0, i32 5
+  %transfer_raw = getelementptr inbounds i8, ptr %call1.i, i64 208
   %0 = load ptr, ptr %transfer_raw, align 8
   %cmp = icmp eq ptr %0, @ssi_transfer_raw_default
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %cs_polarity = getelementptr inbounds %struct.SSIPeripheralClass, ptr %call1.i, i64 0, i32 4
+  %cs_polarity = getelementptr inbounds i8, ptr %call1.i, i64 200
   %1 = load i32, ptr %cs_polarity, align 8
   %cmp2.not = icmp eq i32 %1, 0
   br i1 %cmp2.not, label %if.end, label %if.then
@@ -284,9 +265,9 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %spc = getelementptr inbounds %struct.SSIPeripheral, ptr %call.i, i64 0, i32 1
+  %spc = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr %call1.i, ptr %spc, align 8
-  %realize = getelementptr inbounds %struct.SSIPeripheralClass, ptr %call1.i, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call1.i, i64 176
   %2 = load ptr, ptr %realize, align 8
   tail call void %2(ptr noundef %call.i, ptr noundef %errp) #3
   ret void
@@ -295,13 +276,13 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @ssi_transfer_raw_default(ptr noundef %dev, i32 noundef %val) #0 {
 entry:
-  %spc = getelementptr inbounds %struct.SSIPeripheral, ptr %dev, i64 0, i32 1
+  %spc = getelementptr inbounds i8, ptr %dev, i64 160
   %0 = load ptr, ptr %spc, align 8
-  %cs = getelementptr inbounds %struct.SSIPeripheral, ptr %dev, i64 0, i32 2
+  %cs = getelementptr inbounds i8, ptr %dev, i64 168
   %1 = load i8, ptr %cs, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
-  %cs_polarity4 = getelementptr inbounds %struct.SSIPeripheralClass, ptr %0, i64 0, i32 4
+  %cs_polarity4 = getelementptr inbounds i8, ptr %0, i64 200
   %3 = load i32, ptr %cs_polarity4, align 8
   br i1 %tobool.not, label %land.lhs.true3, label %land.lhs.true
 
@@ -316,7 +297,7 @@ land.lhs.true3:                                   ; preds = %entry
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true3, %land.lhs.true, %land.lhs.true
-  %transfer = getelementptr inbounds %struct.SSIPeripheralClass, ptr %0, i64 0, i32 2
+  %transfer = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load ptr, ptr %transfer, align 8
   %call = tail call i32 %4(ptr noundef nonnull %dev, i32 noundef %val) #3
   br label %return
@@ -341,7 +322,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cs2 = getelementptr inbounds %struct.SSIPeripheral, ptr %call.i, i64 0, i32 2
+  %cs2 = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load i8, ptr %cs2, align 8
   %1 = and i8 %0, 1
   %2 = icmp eq i8 %1, 0
@@ -349,9 +330,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp6.not, label %if.end16, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %spc = getelementptr inbounds %struct.SSIPeripheral, ptr %call.i, i64 0, i32 1
+  %spc = getelementptr inbounds i8, ptr %call.i, i64 160
   %3 = load ptr, ptr %spc, align 8
-  %set_cs = getelementptr inbounds %struct.SSIPeripheralClass, ptr %3, i64 0, i32 3
+  %set_cs = getelementptr inbounds i8, ptr %3, i64 192
   %4 = load ptr, ptr %set_cs, align 8
   %tobool9.not = icmp eq ptr %4, null
   br i1 %tobool9.not, label %if.end16, label %if.then10

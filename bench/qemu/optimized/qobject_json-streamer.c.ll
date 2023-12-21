@@ -3,11 +3,6 @@ source_filename = "bench/qemu/original/qobject_json-streamer.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._GString = type { ptr, i64, i64 }
-%struct.JSONMessageParser = type { ptr, ptr, ptr, %struct.JSONLexer, i32, i32, %struct._GQueue, i64 }
-%struct.JSONLexer = type { i32, i32, ptr, i32, i32 }
-%struct._GQueue = type { ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [32 x i8] c"../qemu/qobject/json-streamer.c\00", align 1
 @__func__.json_message_process_token = private unnamed_addr constant [27 x i8] c"json_message_process_token\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"JSON parse error, stray '%s'\00", align 1
@@ -80,7 +75,7 @@ if.end:                                           ; preds = %sw.bb9
 sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
   %token_size = getelementptr i8, ptr %lexer, i64 56
   %6 = load i64, ptr %token_size, align 8
-  %len = getelementptr inbounds %struct._GString, ptr %input, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %input, i64 8
   %7 = load i64, ptr %len, align 8
   %add = add i64 %6, -67108864
   %8 = add i64 %add, %7
@@ -191,19 +186,19 @@ declare void @g_queue_push_tail(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local void @json_message_parser_init(ptr noundef %parser, ptr noundef %emit, ptr noundef %opaque, ptr noundef %ap) local_unnamed_addr #0 {
 entry:
   store ptr %emit, ptr %parser, align 8
-  %opaque2 = getelementptr inbounds %struct.JSONMessageParser, ptr %parser, i64 0, i32 1
+  %opaque2 = getelementptr inbounds i8, ptr %parser, i64 8
   store ptr %opaque, ptr %opaque2, align 8
-  %ap3 = getelementptr inbounds %struct.JSONMessageParser, ptr %parser, i64 0, i32 2
+  %ap3 = getelementptr inbounds i8, ptr %parser, i64 16
   store ptr %ap, ptr %ap3, align 8
-  %brace_count = getelementptr inbounds %struct.JSONMessageParser, ptr %parser, i64 0, i32 4
+  %brace_count = getelementptr inbounds i8, ptr %parser, i64 48
   store i32 0, ptr %brace_count, align 8
-  %bracket_count = getelementptr inbounds %struct.JSONMessageParser, ptr %parser, i64 0, i32 5
+  %bracket_count = getelementptr inbounds i8, ptr %parser, i64 52
   store i32 0, ptr %bracket_count, align 4
-  %tokens = getelementptr inbounds %struct.JSONMessageParser, ptr %parser, i64 0, i32 6
+  %tokens = getelementptr inbounds i8, ptr %parser, i64 56
   tail call void @g_queue_init(ptr noundef nonnull %tokens) #3
-  %token_size = getelementptr inbounds %struct.JSONMessageParser, ptr %parser, i64 0, i32 7
+  %token_size = getelementptr inbounds i8, ptr %parser, i64 80
   store i64 0, ptr %token_size, align 8
-  %lexer = getelementptr inbounds %struct.JSONMessageParser, ptr %parser, i64 0, i32 3
+  %lexer = getelementptr inbounds i8, ptr %parser, i64 24
   %tobool = icmp ne ptr %ap, null
   tail call void @json_lexer_init(ptr noundef nonnull %lexer, i1 noundef zeroext %tobool) #3
   ret void
@@ -216,7 +211,7 @@ declare void @json_lexer_init(ptr noundef, i1 noundef zeroext) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @json_message_parser_feed(ptr noundef %parser, ptr noundef %buffer, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %lexer = getelementptr inbounds %struct.JSONMessageParser, ptr %parser, i64 0, i32 3
+  %lexer = getelementptr inbounds i8, ptr %parser, i64 24
   tail call void @json_lexer_feed(ptr noundef nonnull %lexer, ptr noundef %buffer, i64 noundef %size) #3
   ret void
 }
@@ -226,9 +221,9 @@ declare void @json_lexer_feed(ptr noundef, ptr noundef, i64 noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @json_message_parser_flush(ptr noundef %parser) local_unnamed_addr #0 {
 entry:
-  %lexer = getelementptr inbounds %struct.JSONMessageParser, ptr %parser, i64 0, i32 3
+  %lexer = getelementptr inbounds i8, ptr %parser, i64 24
   tail call void @json_lexer_flush(ptr noundef nonnull %lexer) #3
-  %tokens = getelementptr inbounds %struct.JSONMessageParser, ptr %parser, i64 0, i32 6
+  %tokens = getelementptr inbounds i8, ptr %parser, i64 56
   %call = tail call i32 @g_queue_is_empty(ptr noundef nonnull %tokens) #3
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -249,9 +244,9 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @json_message_parser_destroy(ptr noundef %parser) local_unnamed_addr #0 {
 entry:
-  %lexer = getelementptr inbounds %struct.JSONMessageParser, ptr %parser, i64 0, i32 3
+  %lexer = getelementptr inbounds i8, ptr %parser, i64 24
   tail call void @json_lexer_destroy(ptr noundef nonnull %lexer) #3
-  %tokens.i = getelementptr inbounds %struct.JSONMessageParser, ptr %parser, i64 0, i32 6
+  %tokens.i = getelementptr inbounds i8, ptr %parser, i64 56
   %call1.i = tail call ptr @g_queue_pop_head(ptr noundef nonnull %tokens.i) #3
   %tobool.not2.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not2.i, label %json_message_free_tokens.exit, label %while.body.i

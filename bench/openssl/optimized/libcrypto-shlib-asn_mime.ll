@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_STREAM_ARG_st = type { ptr, ptr, ptr }
-%struct.evp_md_st = type { i32, i32, i32, i64, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.ASN1_AUX_st = type { ptr, i32, i32, i32, ptr, i32, ptr }
 %struct.mime_param_st = type { ptr, ptr }
 %struct.mime_header_st = type { ptr, ptr, ptr }
 
@@ -406,7 +402,7 @@ for.body:                                         ; preds = %if.then9, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body
-  %arrayidx28 = getelementptr inbounds [33 x i8], ptr %bound, i64 0, i64 32
+  %arrayidx28 = getelementptr inbounds i8, ptr %bound, i64 32
   store i8 0, ptr %arrayidx28, align 16
   %call29 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.8, ptr noundef nonnull %mime_eol.0) #6
   %call30 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.9) #6
@@ -438,7 +434,7 @@ if.end.i:                                         ; preds = %if.then.i, %for.bod
   br i1 %tobool8.not.i, label %if.end20.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %md_ctrl.i = getelementptr inbounds %struct.evp_md_st, ptr %call7.i, i64 0, i32 12
+  %md_ctrl.i = getelementptr inbounds i8, ptr %call7.i, i64 80
   %4 = load ptr, ptr %md_ctrl.i, align 8
   %tobool9.not.i = icmp eq ptr %4, null
   br i1 %tobool9.not.i, label %if.end20.i, label %if.then10.i
@@ -526,7 +522,7 @@ asn1_write_micalg.exit:                           ; preds = %if.end16.i, %for.in
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sarg.i)
   store ptr %val, ptr %val.addr.i, align 8
-  %funcs.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 4
+  %funcs.i = getelementptr inbounds i8, ptr %it, i64 32
   %7 = load ptr, ptr %funcs.i, align 8
   %8 = and i32 %flags, 32832
   %or.cond.i = icmp eq i32 %8, 64
@@ -541,7 +537,7 @@ if.end.i70:                                       ; preds = %asn1_write_micalg.e
   br i1 %tobool3.not.i, label %if.then6.i, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %if.end.i70
-  %asn1_cb.i = getelementptr inbounds %struct.ASN1_AUX_st, ptr %7, i64 0, i32 4
+  %asn1_cb.i = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %asn1_cb.i, align 8
   %tobool5.not.i = icmp eq ptr %9, null
   br i1 %tobool5.not.i, label %if.then6.i, label %if.end7.i
@@ -554,7 +550,7 @@ if.then6.i:                                       ; preds = %lor.lhs.false4.i, %
 
 if.end7.i:                                        ; preds = %lor.lhs.false4.i
   store ptr %bio, ptr %sarg.i, align 8
-  %ndef_bio.i = getelementptr inbounds %struct.ASN1_STREAM_ARG_st, ptr %sarg.i, i64 0, i32 1
+  %ndef_bio.i = getelementptr inbounds i8, ptr %sarg.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ndef_bio.i, i8 0, i64 16, i1 false)
   %call10.i = call i32 %9(i32 noundef 12, ptr noundef nonnull %val.addr.i, ptr noundef nonnull %it, ptr noundef nonnull %sarg.i) #6
   %cmp.i71 = icmp slt i32 %call10.i, 1
@@ -696,7 +692,7 @@ if.then1:                                         ; preds = %if.end
 if.end2:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %htmp.i)
   store ptr @.str.34, ptr %htmp.i, align 8
-  %value.i = getelementptr inbounds %struct.mime_header_st, ptr %htmp.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %htmp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i, i8 0, i64 16, i1 false)
   %call.i.i = call i32 @OPENSSL_sk_find(ptr noundef nonnull %call, ptr noundef nonnull %htmp.i) #6
   %call.i2.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %call.i.i) #6
@@ -705,7 +701,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %cmp4, label %if.then6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end2
-  %value = getelementptr inbounds %struct.mime_header_st, ptr %call.i2.i, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call.i2.i, i64 8
   %0 = load ptr, ptr %value, align 8
   %cmp5 = icmp eq ptr %0, null
   br i1 %cmp5, label %if.then6, label %if.end7
@@ -725,9 +721,9 @@ if.end7:                                          ; preds = %lor.lhs.false
 if.then11:                                        ; preds = %if.end7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %param.i)
   store ptr @.str.36, ptr %param.i, align 8
-  %param_value.i = getelementptr inbounds %struct.mime_param_st, ptr %param.i, i64 0, i32 1
+  %param_value.i = getelementptr inbounds i8, ptr %param.i, i64 8
   store ptr null, ptr %param_value.i, align 8
-  %params.i = getelementptr inbounds %struct.mime_header_st, ptr %call.i2.i, i64 0, i32 2
+  %params.i = getelementptr inbounds i8, ptr %call.i2.i, i64 16
   %1 = load ptr, ptr %params.i, align 8
   %call.i.i35 = call i32 @OPENSSL_sk_find(ptr noundef %1, ptr noundef nonnull %param.i) #6
   %2 = load ptr, ptr %params.i, align 8
@@ -737,7 +733,7 @@ if.then11:                                        ; preds = %if.end7
   br i1 %cmp13, label %if.then16, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %if.then11
-  %param_value = getelementptr inbounds %struct.mime_param_st, ptr %call.i2.i36, i64 0, i32 1
+  %param_value = getelementptr inbounds i8, ptr %call.i2.i36, i64 8
   %3 = load ptr, ptr %param_value, align 8
   %cmp15 = icmp eq ptr %3, null
   br i1 %cmp15, label %if.then16, label %if.end17
@@ -995,7 +991,7 @@ if.end36:                                         ; preds = %if.end28
   br i1 %cmp38, label %if.then42, label %lor.lhs.false39
 
 lor.lhs.false39:                                  ; preds = %if.end36
-  %value40 = getelementptr inbounds %struct.mime_header_st, ptr %call37, i64 0, i32 1
+  %value40 = getelementptr inbounds i8, ptr %call37, i64 8
   %8 = load ptr, ptr %value40, align 8
   %cmp41 = icmp eq ptr %8, null
   br i1 %cmp41, label %if.then42, label %if.end45
@@ -1684,7 +1680,7 @@ for.body118:                                      ; preds = %while.end, %for.inc
   br i1 %cmp120.not, label %for.inc128, label %land.lhs.true122
 
 land.lhs.true122:                                 ; preds = %for.body118
-  %params = getelementptr inbounds %struct.mime_header_st, ptr %call.i242, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %call.i242, i64 16
   %32 = load ptr, ptr %params, align 8
   %cmp123.not = icmp eq ptr %32, null
   br i1 %cmp123.not, label %for.inc128, label %if.then125
@@ -1703,10 +1699,10 @@ if.end.i:                                         ; preds = %if.end96, %if.end34
   %new_hdr.0 = phi ptr [ %call30, %if.end34 ], [ %call92, %if.end96 ]
   %33 = load ptr, ptr %new_hdr.0, align 8
   call void @CRYPTO_free(ptr noundef %33, ptr noundef nonnull @.str, i32 noundef 968) #6
-  %value.i = getelementptr inbounds %struct.mime_header_st, ptr %new_hdr.0, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %new_hdr.0, i64 8
   %34 = load ptr, ptr %value.i, align 8
   call void @CRYPTO_free(ptr noundef %34, ptr noundef nonnull @.str, i32 noundef 969) #6
-  %params.i = getelementptr inbounds %struct.mime_header_st, ptr %new_hdr.0, i64 0, i32 2
+  %params.i = getelementptr inbounds i8, ptr %new_hdr.0, i64 16
   %35 = load ptr, ptr %params.i, align 8
   %tobool.not.i = icmp eq ptr %35, null
   br i1 %tobool.not.i, label %if.end3.i, label %if.then1.i
@@ -1733,7 +1729,7 @@ define internal fastcc ptr @mime_hdr_find(ptr noundef %hdrs) unnamed_addr #0 {
 entry:
   %htmp = alloca %struct.mime_header_st, align 8
   store ptr @.str.34, ptr %htmp, align 8
-  %value = getelementptr inbounds %struct.mime_header_st, ptr %htmp, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %htmp, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value, i8 0, i64 16, i1 false)
   %call.i = call i32 @OPENSSL_sk_find(ptr noundef %hdrs, ptr noundef nonnull %htmp) #6
   %call.i2 = call ptr @OPENSSL_sk_value(ptr noundef %hdrs, i32 noundef %call.i) #6
@@ -1749,10 +1745,10 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %hdr, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 968) #6
-  %value = getelementptr inbounds %struct.mime_header_st, ptr %hdr, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %hdr, i64 8
   %1 = load ptr, ptr %value, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 969) #6
-  %params = getelementptr inbounds %struct.mime_header_st, ptr %hdr, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %hdr, i64 16
   %2 = load ptr, ptr %params, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -1854,7 +1850,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %htmp.i)
   store ptr @.str.34, ptr %htmp.i, align 8
-  %value.i = getelementptr inbounds %struct.mime_header_st, ptr %htmp.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %htmp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i, i8 0, i64 16, i1 false)
   %call.i.i = call i32 @OPENSSL_sk_find(ptr noundef nonnull %call, ptr noundef nonnull %htmp.i) #6
   %call.i2.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %call.i.i) #6
@@ -1863,7 +1859,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then4, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %value = getelementptr inbounds %struct.mime_header_st, ptr %call.i2.i, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call.i2.i, i64 8
   %0 = load ptr, ptr %value, align 8
   %cmp3 = icmp eq ptr %0, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -2032,10 +2028,10 @@ if.end22:                                         ; preds = %for.body15, %for.co
 
 if.end27:                                         ; preds = %if.end22
   store ptr %tmpname.0, ptr %call23, align 8
-  %value29 = getelementptr inbounds %struct.mime_header_st, ptr %call23, i64 0, i32 1
+  %value29 = getelementptr inbounds i8, ptr %call23, i64 8
   store ptr %tmpval.0, ptr %value29, align 8
   %call.i = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @mime_param_cmp) #6
-  %params = getelementptr inbounds %struct.mime_header_st, ptr %call23, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %call23, i64 16
   store ptr %call.i, ptr %params, align 8
   %cmp31 = icmp eq ptr %call.i, null
   br i1 %cmp31, label %err, label %return
@@ -2099,9 +2095,9 @@ if.end13:                                         ; preds = %if.then8, %if.end6
 
 if.end17:                                         ; preds = %if.end13
   store ptr %tmpname.0, ptr %call14, align 8
-  %param_value = getelementptr inbounds %struct.mime_param_st, ptr %call14, i64 0, i32 1
+  %param_value = getelementptr inbounds i8, ptr %call14, i64 8
   store ptr %tmpval.0, ptr %param_value, align 8
-  %params = getelementptr inbounds %struct.mime_header_st, ptr %mhdr, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %mhdr, i64 16
   %3 = load ptr, ptr %params, align 8
   %call.i = tail call i32 @OPENSSL_sk_push(ptr noundef %3, ptr noundef nonnull %call14) #6
   %tobool19.not = icmp eq i32 %call.i, 0
@@ -2166,7 +2162,7 @@ define internal void @mime_param_free(ptr noundef %param) #0 {
 entry:
   %0 = load ptr, ptr %param, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 977) #6
-  %param_value = getelementptr inbounds %struct.mime_param_st, ptr %param, i64 0, i32 1
+  %param_value = getelementptr inbounds i8, ptr %param, i64 8
   %1 = load ptr, ptr %param_value, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 978) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %param, ptr noundef nonnull @.str, i32 noundef 979) #6

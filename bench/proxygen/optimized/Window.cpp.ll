@@ -8,7 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%"class.proxygen::Window" = type { i32, i32 }
 
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/proxygen/proxygen/proxygen/lib/http/Window.cpp\00", align 1
 @.str.1 = private unnamed_addr constant [37 x i8] c"Check failed: setCapacity(capacity) \00", align 1
@@ -42,7 +41,7 @@ define void @_ZN8proxygen6WindowC2Ej(ptr nocapture noundef nonnull align 4 deref
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   store i32 0, ptr %this, align 4
-  %capacity_ = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %capacity_, align 4
   %call = tail call noundef zeroext i1 @_ZN8proxygen6Window11setCapacityEj(ptr noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %capacity)
   br i1 %call, label %cleanup.done, label %cond.false
@@ -111,7 +110,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %capacity_ = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i32, ptr %capacity_, align 4
   %sub = sub nsw i32 %capacity, %3
   %cmp16 = icmp sgt i32 %sub, 0
@@ -187,7 +186,7 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %capacity_ = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %capacity_, align 4
   %1 = load i32, ptr %this, align 4
   %sub = sub nsw i32 %0, %1
@@ -197,7 +196,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8proxygen6Window18getNonNegativeSizeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %capacity_.i = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %capacity_.i, align 4
   %1 = load i32, ptr %this, align 4
   %sub.i = sub nsw i32 %0, %1
@@ -208,7 +207,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8proxygen6Window11getCapacityEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %capacity_ = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %capacity_, align 4
   ret i32 %0
 }
@@ -315,7 +314,7 @@ if.end55:                                         ; preds = %if.end
   br i1 %strict, label %land.lhs.true58, label %if.end101
 
 land.lhs.true58:                                  ; preds = %if.end55
-  %capacity_ = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 4
   %7 = load i32, ptr %capacity_, align 4
   %cmp59 = icmp sgt i32 %add, %7
   br i1 %cmp59, label %if.then60, label %if.end101
@@ -490,7 +489,7 @@ lpad41:                                           ; preds = %invoke.cont42, %con
 
 if.end54:                                         ; preds = %if.end
   %sub = sub i32 %3, %amount
-  %capacity_ = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 4
   %7 = load i32, ptr %capacity_, align 4
   %sub57 = add nsw i32 %7, -2147483647
   %cmp58 = icmp slt i32 %sub, %sub57

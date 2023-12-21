@@ -19,7 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
 %struct.mz_zip_file_s = type { i16, i16, i16, i16, i64, i64, i64, i32, i64, i64, i16, i16, i16, i32, i64, i16, i32, ptr, ptr, ptr, ptr, i16, i16, i8, i16 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -31,17 +30,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::pair.27" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.OpenColorIO_v2_4dev::CIOPOciozArchive" = type { %"class.OpenColorIO_v2_4dev::ConfigIOProxy", %"class.std::__cxx11::basic_string", %"class.std::map.22" }
-%"class.OpenColorIO_v2_4dev::ConfigIOProxy" = type { ptr }
-%"class.std::map.22" = type { %"class.std::_Rb_tree.23" }
-%"class.std::_Rb_tree.23" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [64 x i8] }
 %"class.std::basic_ifstream" = type { %"class.std::basic_istream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
 %"class.std::basic_filebuf" = type { %"class.std::basic_streambuf", %union.pthread_mutex_t, %"class.std::__basic_file", i32, %struct.__mbstate_t, %struct.__mbstate_t, %struct.__mbstate_t, ptr, i64, i8, i8, i8, i8, ptr, ptr, i8, ptr, ptr, i64, ptr, ptr }
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
@@ -148,7 +136,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp3.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FileFormat *, std::allocator<OpenColorIO_v2_4dev::FileFormat *>>::_Vector_impl_data", ptr %possibleFormats, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %possibleFormats, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end139
@@ -158,7 +146,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body
-  %d_name = getelementptr inbounds %struct.dirent, ptr %call240, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %call240, i64 19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull %d_name, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6)
           to label %invoke.cont8 unwind label %lpad7
@@ -821,9 +809,9 @@ invoke.cont20:                                    ; preds = %invoke.cont17
 invoke.cont22:                                    ; preds = %invoke.cont20
   store ptr %write_mem_stream, ptr %memStreamGuard, align 8
   store ptr %archiver, ptr %archiverGuard, align 8
-  %m_isWriter.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MinizipNgHandlerGuard", ptr %archiverGuard, i64 0, i32 1
+  %m_isWriter.i = getelementptr inbounds i8, ptr %archiverGuard, i64 8
   store i8 1, ptr %m_isWriter.i, align 8
-  %m_usingEntry.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MinizipNgHandlerGuard", ptr %archiverGuard, i64 0, i32 2
+  %m_usingEntry.i = getelementptr inbounds i8, ptr %archiverGuard, i64 9
   store i8 1, ptr %m_usingEntry.i, align 1
   %8 = load ptr, ptr %archiver, align 8
   %9 = load ptr, ptr %write_mem_stream, align 8
@@ -877,19 +865,19 @@ invoke.cont39:                                    ; preds = %if.then5.i, %if.end
   %call44 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %configStr) #15
   %conv45 = trunc i64 %call44 to i32
   %call46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %configFullname) #15
-  %filename = getelementptr inbounds %struct.mz_zip_file_s, ptr %file_info, i64 0, i32 17
+  %filename = getelementptr inbounds i8, ptr %file_info, i64 88
   store ptr %call46, ptr %filename, align 8
   %call47 = call i64 @time(ptr noundef null) #15
-  %modified_date = getelementptr inbounds %struct.mz_zip_file_s, ptr %file_info, i64 0, i32 4
+  %modified_date = getelementptr inbounds i8, ptr %file_info, i64 8
   store i64 %call47, ptr %modified_date, align 8
   store i16 813, ptr %file_info, align 8
-  %compression_method = getelementptr inbounds %struct.mz_zip_file_s, ptr %file_info, i64 0, i32 3
+  %compression_method = getelementptr inbounds i8, ptr %file_info, i64 6
   store i16 8, ptr %compression_method, align 2
-  %flag = getelementptr inbounds %struct.mz_zip_file_s, ptr %file_info, i64 0, i32 2
+  %flag = getelementptr inbounds i8, ptr %file_info, i64 4
   store i16 2048, ptr %flag, align 4
   %sext = shl i64 %call44, 32
   %conv48 = ashr exact i64 %sext, 32
-  %uncompressed_size = getelementptr inbounds %struct.mz_zip_file_s, ptr %file_info, i64 0, i32 9
+  %uncompressed_size = getelementptr inbounds i8, ptr %file_info, i64 48
   store i64 %conv48, ptr %uncompressed_size, align 8
   %12 = load ptr, ptr %archiver, align 8
   %call51 = invoke i32 @mz_zip_writer_entry_open(ptr noundef %12, ptr noundef nonnull %file_info)
@@ -1262,7 +1250,7 @@ entry:
   br i1 %cmp.not, label %if.end19, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_isWriter = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MinizipNgHandlerGuard", ptr %this, i64 0, i32 1
+  %m_isWriter = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load <2 x i8>, ptr %m_isWriter, align 8
   %3 = and <2 x i8> %2, <i8 1, i8 1>
   %4 = icmp eq <2 x i8> %3, zeroinitializer
@@ -1388,9 +1376,9 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   store ptr %extracter, ptr %extracterGuard, align 8
-  %m_isWriter.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MinizipNgHandlerGuard", ptr %extracterGuard, i64 0, i32 1
+  %m_isWriter.i = getelementptr inbounds i8, ptr %extracterGuard, i64 8
   store i8 0, ptr %m_isWriter.i, align 8
-  %m_usingEntry.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MinizipNgHandlerGuard", ptr %extracterGuard, i64 0, i32 2
+  %m_usingEntry.i = getelementptr inbounds i8, ptr %extracterGuard, i64 9
   store i8 0, ptr %m_usingEntry.i, align 1
   %0 = load ptr, ptr %extracter, align 8
   %call9 = invoke i32 @mz_zip_reader_open_file(ptr noundef %0, ptr noundef %archivePath)
@@ -1746,7 +1734,7 @@ define hidden void @_ZN19OpenColorIO_v2_4dev19getFileBufferByPathEPvR13mz_zip_fi
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filepath) #15
-  %filename = getelementptr inbounds %struct.mz_zip_file_s, ptr %info, i64 0, i32 17
+  %filename = getelementptr inbounds i8, ptr %info, i64 88
   %0 = load ptr, ptr %filename, align 8
   %call1 = invoke i32 @mz_path_compare_wc(ptr noundef %call, ptr noundef %0, i8 noundef zeroext 1)
           to label %invoke.cont unwind label %lpad
@@ -1805,7 +1793,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %root) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ext) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %filename = getelementptr inbounds %struct.mz_zip_file_s, ptr %info, i64 0, i32 17
+  %filename = getelementptr inbounds i8, ptr %info, i64 88
   %0 = load ptr, ptr %filename, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
@@ -1899,9 +1887,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call = call ptr @mz_zip_reader_create(ptr noundef nonnull %reader)
   store ptr %reader, ptr %extracterGuard, align 8
-  %m_isWriter.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MinizipNgHandlerGuard", ptr %extracterGuard, i64 0, i32 1
+  %m_isWriter.i = getelementptr inbounds i8, ptr %extracterGuard, i64 8
   store i8 0, ptr %m_isWriter.i, align 8
-  %m_usingEntry.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MinizipNgHandlerGuard", ptr %extracterGuard, i64 0, i32 2
+  %m_usingEntry.i = getelementptr inbounds i8, ptr %extracterGuard, i64 9
   store i8 1, ptr %m_usingEntry.i, align 1
   %0 = load ptr, ptr %reader, align 8
   %call2 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %archivePath) #15
@@ -1999,10 +1987,10 @@ invoke.cont23:                                    ; preds = %if.else
   br i1 %cmp25, label %do.body.preheader, label %if.end44
 
 do.body.preheader:                                ; preds = %invoke.cont23
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
-  %_M_finish.i2.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %ref.tmp31, i64 0, i32 1
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %ref.tmp31, i64 0, i32 2
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %invoke.cont40
@@ -2180,9 +2168,9 @@ entry:
   store ptr null, ptr %reader, align 8
   %call = call ptr @mz_zip_reader_create(ptr noundef nonnull %reader)
   store ptr %reader, ptr %extracterGuard, align 8
-  %m_isWriter.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MinizipNgHandlerGuard", ptr %extracterGuard, i64 0, i32 1
+  %m_isWriter.i = getelementptr inbounds i8, ptr %extracterGuard, i64 8
   store i8 0, ptr %m_isWriter.i, align 8
-  %m_usingEntry.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MinizipNgHandlerGuard", ptr %extracterGuard, i64 0, i32 2
+  %m_usingEntry.i = getelementptr inbounds i8, ptr %extracterGuard, i64 9
   store i8 0, ptr %m_usingEntry.i, align 1
   %0 = load ptr, ptr %reader, align 8
   %call1 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %archivePath) #15
@@ -2276,7 +2264,7 @@ invoke.cont18:                                    ; preds = %if.else
   br i1 %cmp20, label %do.body.preheader, label %if.end50
 
 do.body.preheader:                                ; preds = %invoke.cont18
-  %second.i = getelementptr inbounds %"struct.std::pair.27", ptr %ref.tmp26, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 32
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %invoke.cont46
@@ -2290,7 +2278,7 @@ invoke.cont22:                                    ; preds = %do.body
 
 if.then25:                                        ; preds = %invoke.cont22
   %7 = load ptr, ptr %file_info, align 8
-  %filename = getelementptr inbounds %struct.mz_zip_file_s, ptr %7, i64 0, i32 17
+  %filename = getelementptr inbounds i8, ptr %7, i64 88
   %8 = load ptr, ptr %filename, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30)
@@ -2298,7 +2286,7 @@ if.then25:                                        ; preds = %invoke.cont22
 
 invoke.cont32:                                    ; preds = %if.then25
   %9 = load ptr, ptr %file_info, align 8
-  %crc = getelementptr inbounds %struct.mz_zip_file_s, ptr %9, i64 0, i32 7
+  %crc = getelementptr inbounds i8, ptr %9, i64 32
   %10 = load i32, ptr %crc, align 8
   call void @_ZNSt7__cxx119to_stringEj(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp33, i32 noundef %10) #15
   %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #15, !noalias !17
@@ -2560,15 +2548,15 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  %m_archiveAbsPath = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CIOPOciozArchive", ptr %this, i64 0, i32 1
+  %m_archiveAbsPath = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN19OpenColorIO_v2_4dev28getFileStringFromArchiveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PFSt6vectorIhSaIhEEPvR13mz_zip_file_sS5_E(ptr nonnull sret(%"class.std::vector.17") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %m_archiveAbsPath, ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev19getFileBufferByPathEPvR13mz_zip_file_sNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
           to label %_ZNSt6vectorIhSaIhEED2Ev.exit unwind label %lpad7
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %invoke.cont6
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %0 = load <2 x ptr>, ptr %ref.tmp, align 16
   store <2 x ptr> %0, ptr %agg.result, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
   store ptr %1, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
@@ -2660,12 +2648,12 @@ invoke.cont11:                                    ; preds = %if.then5.i, %if.end
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #15
-  %m_archiveAbsPath = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CIOPOciozArchive", ptr %this, i64 0, i32 1
+  %m_archiveAbsPath = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN19OpenColorIO_v2_4dev28getFileStringFromArchiveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PFSt6vectorIhSaIhEEPvR13mz_zip_file_sS5_E(ptr nonnull sret(%"class.std::vector.17") align 8 %configBuffer, ptr noundef nonnull align 8 dereferenceable(32) %configFilename, ptr noundef nonnull align 8 dereferenceable(32) %m_archiveAbsPath, ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev19getFileBufferByPathEPvR13mz_zip_file_sNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont11
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %configBuffer, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %configBuffer, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %configBuffer, align 8
   %cmp.not = icmp eq ptr %2, %3
@@ -2681,7 +2669,7 @@ call.i10.noexc:                                   ; preds = %if.then
           to label %.noexc unwind label %lpad24
 
 .noexc:                                           ; preds = %call.i10.noexc
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp16, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEEEvT_SD_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, ptr %3, ptr %2)
           to label %invoke.cont25 unwind label %lpad.i
@@ -2803,15 +2791,15 @@ invoke.cont5:                                     ; preds = %invoke.cont
 invoke.cont7:                                     ; preds = %invoke.cont5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #15
-  %_M_left.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CIOPOciozArchive", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CIOPOciozArchive", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.not9 = icmp eq ptr %0, %add.ptr.i.i
   br i1 %cmp.i.not9, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont7, %for.inc
   %it.sroa.0.010 = phi ptr [ %call.i, %for.inc ], [ %0, %invoke.cont7 ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.010, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.010, i64 32
   %call14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #15
   %call15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %fpath) #15
   %call18 = invoke i32 @mz_path_compare_wc(ptr noundef %call14, ptr noundef %call15, i8 noundef zeroext 1)
@@ -2822,7 +2810,7 @@ invoke.cont17:                                    ; preds = %for.body
   br i1 %cmp, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %invoke.cont17
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.010, i64 0, i32 1, i32 0, i64 32
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.010, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(32) %second)
           to label %invoke.cont21 unwind label %lpad16
 
@@ -2881,7 +2869,7 @@ eh.resume:                                        ; preds = %ehcleanup25, %lpad
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev16CIOPOciozArchive17setArchiveAbsPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(32) %absPath) local_unnamed_addr #0 align 2 {
 entry:
-  %m_archiveAbsPath = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CIOPOciozArchive", ptr %this, i64 0, i32 1
+  %m_archiveAbsPath = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_archiveAbsPath, ptr noundef nonnull align 8 dereferenceable(32) %absPath)
   ret void
 }
@@ -2894,7 +2882,7 @@ entry:
   %ociozStream = alloca %"class.std::basic_ifstream", align 8
   %os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_archiveAbsPath = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CIOPOciozArchive", ptr %this, i64 0, i32 1
+  %m_archiveAbsPath = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_archiveAbsPath) #15
   call void @_ZN19OpenColorIO_v2_4dev8Platform21CreateInputFileStreamEPKcSt13_Ios_Openmode(ptr nonnull sret(%"class.std::basic_ifstream") align 8 %ociozStream, ptr noundef %call, i32 noundef 12)
   %vtable = load ptr, ptr %ociozStream, align 8
@@ -2971,7 +2959,7 @@ ehcleanup16:                                      ; preds = %ehcleanup, %cleanup
   br label %ehcleanup19
 
 if.end:                                           ; preds = %invoke.cont
-  %m_entries = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CIOPOciozArchive", ptr %this, i64 0, i32 2
+  %m_entries = getelementptr inbounds i8, ptr %this, i64 40
   invoke void @_ZN19OpenColorIO_v2_4dev32getEntriesMappingFromArchiveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapIS5_S5_St4lessIS5_ESaISt4pairIS6_S5_EEE(ptr noundef nonnull align 8 dereferenceable(32) %m_archiveAbsPath, ptr noundef nonnull align 8 dereferenceable(48) %m_entries)
           to label %invoke.cont18 unwind label %lpad
 
@@ -2999,8 +2987,8 @@ declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev16CIOPOciozArchiveD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16CIOPOciozArchiveE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_entries = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CIOPOciozArchive", ptr %this, i64 0, i32 2
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CIOPOciozArchive", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %m_entries = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %m_entries, ptr noundef %0)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -3013,7 +3001,7 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %entry
-  %m_archiveAbsPath = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CIOPOciozArchive", ptr %this, i64 0, i32 1
+  %m_archiveAbsPath = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_archiveAbsPath) #15
   ret void
 }
@@ -3022,8 +3010,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev16CIOPOciozArchiveD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16CIOPOciozArchiveE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_entries.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CIOPOciozArchive", ptr %this, i64 0, i32 2
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CIOPOciozArchive", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %m_entries.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %m_entries.i, ptr noundef %0)
           to label %_ZN19OpenColorIO_v2_4dev16CIOPOciozArchiveD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -3036,7 +3024,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZN19OpenColorIO_v2_4dev16CIOPOciozArchiveD2Ev.exit: ; preds = %entry
-  %m_archiveAbsPath.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CIOPOciozArchive", ptr %this, i64 0, i32 1
+  %m_archiveAbsPath.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_archiveAbsPath.i) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
@@ -3079,13 +3067,13 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #15
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #17
@@ -3113,13 +3101,13 @@ entry:
   br i1 %cmp.not, label %if.end43, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -3224,10 +3212,10 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_emplace_uniqueIJS6_IS5_S5_EEEES6_ISt17_Rb_tree_iteratorIS8_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(64) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #20
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args) #15
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 32
-  %second3.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.27", ptr %__args, i64 0, i32 1
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 64
+  %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i) #15
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3237,7 +3225,7 @@ invoke.cont:
 
 while.body.i:                                     ; preds = %invoke.cont, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
   %__x.025.i = phi ptr [ %__x.0.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %__x.023.i, %invoke.cont ]
-  %_M_storage.i.i.i2 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.025.i, i64 0, i32 1
+  %_M_storage.i.i.i2 = getelementptr inbounds i8, ptr %__x.025.i, i64 32
   %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i2)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i unwind label %terminate.lpad.i.i.i
 
@@ -3250,9 +3238,8 @@ terminate.lpad.i.i.i:                             ; preds = %while.body.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i: ; preds = %while.body.i
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.025.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.025.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.v.i = select i1 %cmp.i.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.025.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !28
@@ -3274,7 +3261,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
   %__y.0.lcssa31.i = phi ptr [ %__y.0.lcssa30.i, %if.else.i ], [ %__x.025.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.025.i, %while.end.i ]
-  %_M_storage.i.i.i.i3 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0.i, i64 0, i32 1
+  %_M_storage.i.i.i.i3 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 32
   %call.i.i4.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i3, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i unwind label %terminate.lpad.i.i5.i
 
@@ -3295,7 +3282,7 @@ if.then:                                          ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp2.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.4.0.i.ph, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph, i64 32
   %call.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i unwind label %terminate.lpad.i.i.i.i
 

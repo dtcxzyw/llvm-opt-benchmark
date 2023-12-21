@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
-%class.escaped = type { ptr, i8, i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -204,7 +203,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool.not6, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %m_trim_nl = getelementptr inbounds %class.escaped, ptr %this, i64 0, i32 1
+  %m_trim_nl = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %m_trim_nl, align 8
   %.fr9 = freeze i8 %2
   %3 = and i8 %.fr9, 1
@@ -247,7 +246,7 @@ while.cond.preheader.i:                           ; preds = %entry
   br i1 %tobool.not6.i, label %for.end14, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %m_trim_nl.i = getelementptr inbounds %class.escaped, ptr %this, i64 0, i32 1
+  %m_trim_nl.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %m_trim_nl.i, align 8
   %.fr9.i = freeze i8 %2
   %3 = and i8 %.fr9.i, 1
@@ -278,7 +277,7 @@ _ZNK7escaped3endEv.exit:                          ; preds = %while.body.i
 
 for.body.lr.ph:                                   ; preds = %while.body.us.i, %_ZNK7escaped3endEv.exit
   %retval.0.i21 = phi ptr [ %spec.select.i, %_ZNK7escaped3endEv.exit ], [ %incdec.ptr.us.i, %while.body.us.i ]
-  %m_indent = getelementptr inbounds %class.escaped, ptr %this, i64 0, i32 2
+  %m_indent = getelementptr inbounds i8, ptr %this, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc13

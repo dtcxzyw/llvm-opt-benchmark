@@ -50,13 +50,13 @@ entry:
   %tmp4 = alloca %struct.PyStatus, align 8
   %tmp16 = alloca %struct.PyStatus, align 8
   call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %config) #5
-  %pathconfig_warnings = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 44
+  %pathconfig_warnings = getelementptr inbounds i8, ptr %config, i64 272
   store i32 0, ptr %pathconfig_warnings, align 8
-  %parse_argv = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 19
+  %parse_argv = getelementptr inbounds i8, ptr %config, i64 104
   store i32 1, ptr %parse_argv, align 8
-  %isolated = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 1
+  %isolated = getelementptr inbounds i8, ptr %config, i64 4
   store i32 0, ptr %isolated, align 4
-  %safe_path = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 41
+  %safe_path = getelementptr inbounds i8, ptr %config, i64 260
   store i32 0, ptr %safe_path, align 4
   %conv = sext i32 %argc to i64
   call void @PyConfig_SetBytesArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %config, i64 noundef %conv, ptr noundef %argv) #5
@@ -67,7 +67,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @PyConfig_Read(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1, ptr noundef nonnull %config) #5
-  %run_filename = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 61
+  %run_filename = getelementptr inbounds i8, ptr %config, i64 416
   %0 = load ptr, ptr %run_filename, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then3, label %do.body
@@ -78,19 +78,19 @@ if.then3:                                         ; preds = %if.end
   br label %error
 
 do.body:                                          ; preds = %if.end
-  %base_prefix = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 55
+  %base_prefix = getelementptr inbounds i8, ptr %config, i64 368
   %1 = load ptr, ptr %base_prefix, align 8
   call void @PyMem_RawFree(ptr noundef %1) #5
   store ptr null, ptr %base_prefix, align 8
-  %prefix = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 54
+  %prefix = getelementptr inbounds i8, ptr %config, i64 360
   %2 = load ptr, ptr %prefix, align 8
   call void @PyMem_RawFree(ptr noundef %2) #5
   store ptr null, ptr %prefix, align 8
-  %base_exec_prefix = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 57
+  %base_exec_prefix = getelementptr inbounds i8, ptr %config, i64 384
   %3 = load ptr, ptr %base_exec_prefix, align 8
   call void @PyMem_RawFree(ptr noundef %3) #5
   store ptr null, ptr %base_exec_prefix, align 8
-  %exec_prefix = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 56
+  %exec_prefix = getelementptr inbounds i8, ptr %config, i64 376
   %4 = load ptr, ptr %exec_prefix, align 8
   call void @PyMem_RawFree(ptr noundef %4) #5
   store ptr null, ptr %exec_prefix, align 8
@@ -112,7 +112,7 @@ error:                                            ; preds = %do.body, %entry, %i
   br i1 %tobool23.not, label %if.end25, label %if.then24
 
 if.then24:                                        ; preds = %error
-  %exitcode = getelementptr inbounds %struct.PyStatus, ptr %status, i64 0, i32 3
+  %exitcode = getelementptr inbounds i8, ptr %status, i64 24
   %5 = load i32, ptr %exitcode, align 8
   br label %return
 

@@ -3,7 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-o_names.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.name_funcs_st = type { ptr, ptr, ptr }
 %struct.obj_name_st = type { i32, i32, ptr, ptr }
 %struct.OBJ_DOALL = type { i32, ptr, ptr }
 %struct.doall_sorted = type { i32, i32, ptr }
@@ -123,7 +122,7 @@ for.body:                                         ; preds = %if.end10, %for.cond
 
 if.end16:                                         ; preds = %for.body
   store ptr @ossl_lh_strcasehash, ptr %call13, align 8
-  %cmp_func18 = getelementptr inbounds %struct.name_funcs_st, ptr %call13, i64 0, i32 1
+  %cmp_func18 = getelementptr inbounds i8, ptr %call13, i64 8
   store ptr @OPENSSL_strcasecmp, ptr %cmp_func18, align 8
   %7 = load ptr, ptr @name_funcs_stack, align 8
   %call.i15 = tail call i32 @OPENSSL_sk_push(ptr noundef %7, ptr noundef nonnull %call13) #7
@@ -152,7 +151,7 @@ if.end28:                                         ; preds = %if.then26, %for.end
   br i1 %cmp29.not, label %if.end32, label %if.then30
 
 if.then30:                                        ; preds = %if.end28
-  %cmp_func31 = getelementptr inbounds %struct.name_funcs_st, ptr %call.i16, i64 0, i32 1
+  %cmp_func31 = getelementptr inbounds i8, ptr %call.i16, i64 8
   store ptr %cmp_func, ptr %cmp_func31, align 8
   br label %if.end32
 
@@ -161,7 +160,7 @@ if.end32:                                         ; preds = %if.then30, %if.end2
   br i1 %cmp33.not, label %out, label %if.then34
 
 if.then34:                                        ; preds = %if.end32
-  %free_func35 = getelementptr inbounds %struct.name_funcs_st, ptr %call.i16, i64 0, i32 2
+  %free_func35 = getelementptr inbounds i8, ptr %call.i16, i64 16
   store ptr %free_func, ptr %free_func35, align 8
   br label %out
 
@@ -217,7 +216,7 @@ if.end2:                                          ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end2
   %and7 = and i32 %type, -32769
-  %name8 = getelementptr inbounds %struct.obj_name_st, ptr %on, i64 0, i32 2
+  %name8 = getelementptr inbounds i8, ptr %on, i64 8
   store ptr %name, ptr %name8, align 8
   store i32 %and7, ptr %on, align 8
   %2 = load ptr, ptr @names_lh, align 8
@@ -233,7 +232,7 @@ if.end13.lr.ph:                                   ; preds = %if.end6
 if.end13:                                         ; preds = %if.end13.lr.ph, %if.end20
   %call.i713 = phi ptr [ %call.i7, %if.end20 ], [ %call.i710, %if.end13.lr.ph ]
   %num.012 = phi i32 [ %inc, %if.end20 ], [ 0, %if.end13.lr.ph ]
-  %alias14 = getelementptr inbounds %struct.obj_name_st, ptr %call.i713, i64 0, i32 1
+  %alias14 = getelementptr inbounds i8, ptr %call.i713, i64 4
   %3 = load i32, ptr %alias14, align 4
   %tobool15 = icmp eq i32 %3, 0
   br i1 %tobool15, label %if.else, label %if.then17
@@ -244,7 +243,7 @@ if.then17:                                        ; preds = %if.end13
 
 if.end20:                                         ; preds = %if.then17
   %inc = add nuw nsw i32 %num.012, 1
-  %data = getelementptr inbounds %struct.obj_name_st, ptr %call.i713, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %call.i713, i64 16
   %4 = load ptr, ptr %data, align 8
   store ptr %4, ptr %name8, align 8
   %5 = load ptr, ptr @names_lh, align 8
@@ -254,7 +253,7 @@ if.end20:                                         ; preds = %if.then17
 
 if.else:                                          ; preds = %if.end13, %if.end13.lr.ph
   %.us-phi = phi ptr [ %call.i710, %if.end13.lr.ph ], [ %call.i713, %if.end13 ]
-  %data22 = getelementptr inbounds %struct.obj_name_st, ptr %.us-phi, i64 0, i32 3
+  %data22 = getelementptr inbounds i8, ptr %.us-phi, i64 16
   %6 = load ptr, ptr %data22, align 8
   br label %for.end
 
@@ -289,12 +288,12 @@ if.end:                                           ; preds = %entry
 if.end4:                                          ; preds = %if.end
   %and1 = and i32 %type, -32769
   %and = and i32 %type, 32768
-  %name5 = getelementptr inbounds %struct.obj_name_st, ptr %call2, i64 0, i32 2
+  %name5 = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %name, ptr %name5, align 8
-  %alias6 = getelementptr inbounds %struct.obj_name_st, ptr %call2, i64 0, i32 1
+  %alias6 = getelementptr inbounds i8, ptr %call2, i64 4
   store i32 %and, ptr %alias6, align 4
   store i32 %and1, ptr %call2, align 8
-  %data8 = getelementptr inbounds %struct.obj_name_st, ptr %call2, i64 0, i32 3
+  %data8 = getelementptr inbounds i8, ptr %call2, i64 16
   store ptr %data, ptr %data8, align 8
   %1 = load ptr, ptr @obj_lock, align 8
   %call9 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #7
@@ -325,12 +324,12 @@ land.lhs.true:                                    ; preds = %if.then15
 if.then20:                                        ; preds = %land.lhs.true
   %5 = load ptr, ptr @name_funcs_stack, align 8
   %call.i19 = tail call ptr @OPENSSL_sk_value(ptr noundef %5, i32 noundef %4) #7
-  %free_func = getelementptr inbounds %struct.name_funcs_st, ptr %call.i19, i64 0, i32 2
+  %free_func = getelementptr inbounds i8, ptr %call.i19, i64 16
   %6 = load ptr, ptr %free_func, align 8
-  %name23 = getelementptr inbounds %struct.obj_name_st, ptr %call.i17, i64 0, i32 2
+  %name23 = getelementptr inbounds i8, ptr %call.i17, i64 8
   %7 = load ptr, ptr %name23, align 8
   %8 = load i32, ptr %call.i17, align 8
-  %data25 = getelementptr inbounds %struct.obj_name_st, ptr %call.i17, i64 0, i32 3
+  %data25 = getelementptr inbounds i8, ptr %call.i17, i64 16
   %9 = load ptr, ptr %data25, align 8
   tail call void %6(ptr noundef %7, i32 noundef %8, ptr noundef %9) #7
   br label %if.end26
@@ -381,7 +380,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %and = and i32 %type, -32769
-  %name5 = getelementptr inbounds %struct.obj_name_st, ptr %on, i64 0, i32 2
+  %name5 = getelementptr inbounds i8, ptr %on, i64 8
   store ptr %name, ptr %name5, align 8
   store i32 %and, ptr %on, align 8
   %2 = load ptr, ptr @names_lh, align 8
@@ -403,12 +402,12 @@ land.lhs.true:                                    ; preds = %if.then8
 if.then13:                                        ; preds = %land.lhs.true
   %5 = load ptr, ptr @name_funcs_stack, align 8
   %call.i11 = call ptr @OPENSSL_sk_value(ptr noundef %5, i32 noundef %4) #7
-  %free_func = getelementptr inbounds %struct.name_funcs_st, ptr %call.i11, i64 0, i32 2
+  %free_func = getelementptr inbounds i8, ptr %call.i11, i64 16
   %6 = load ptr, ptr %free_func, align 8
-  %name16 = getelementptr inbounds %struct.obj_name_st, ptr %call.i9, i64 0, i32 2
+  %name16 = getelementptr inbounds i8, ptr %call.i9, i64 8
   %7 = load ptr, ptr %name16, align 8
   %8 = load i32, ptr %call.i9, align 8
-  %data = getelementptr inbounds %struct.obj_name_st, ptr %call.i9, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %call.i9, i64 16
   %9 = load ptr, ptr %data, align 8
   call void %6(ptr noundef %7, i32 noundef %8, ptr noundef %9) #7
   br label %if.end18
@@ -433,9 +432,9 @@ define void @OBJ_NAME_do_all(i32 noundef %type, ptr noundef %fn, ptr noundef %ar
 entry:
   %d = alloca %struct.OBJ_DOALL, align 8
   store i32 %type, ptr %d, align 8
-  %fn2 = getelementptr inbounds %struct.OBJ_DOALL, ptr %d, i64 0, i32 1
+  %fn2 = getelementptr inbounds i8, ptr %d, i64 8
   store ptr %fn, ptr %fn2, align 8
-  %arg3 = getelementptr inbounds %struct.OBJ_DOALL, ptr %d, i64 0, i32 2
+  %arg3 = getelementptr inbounds i8, ptr %d, i64 16
   store ptr %arg, ptr %arg3, align 8
   %0 = load ptr, ptr @names_lh, align 8
   call void @OPENSSL_LH_doall_arg(ptr noundef %0, ptr noundef nonnull @do_all_fn, ptr noundef nonnull %d) #7
@@ -451,9 +450,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %fn = getelementptr inbounds %struct.OBJ_DOALL, ptr %d, i64 0, i32 1
+  %fn = getelementptr inbounds i8, ptr %d, i64 8
   %2 = load ptr, ptr %fn, align 8
-  %arg = getelementptr inbounds %struct.OBJ_DOALL, ptr %d, i64 0, i32 2
+  %arg = getelementptr inbounds i8, ptr %d, i64 16
   %3 = load ptr, ptr %arg, align 8
   tail call void %2(ptr noundef nonnull %name, ptr noundef %3) #7
   br label %if.end
@@ -472,19 +471,19 @@ entry:
   %call.i = tail call i64 @OPENSSL_LH_num_items(ptr noundef %0) #7
   %mul = shl i64 %call.i, 3
   %call2 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 336) #7
-  %names = getelementptr inbounds %struct.doall_sorted, ptr %d, i64 0, i32 2
+  %names = getelementptr inbounds i8, ptr %d, i64 8
   store ptr %call2, ptr %names, align 8
   %cmp.not = icmp eq ptr %call2, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %n4 = getelementptr inbounds %struct.doall_sorted, ptr %d, i64 0, i32 1
+  %n4 = getelementptr inbounds i8, ptr %d, i64 4
   store i32 0, ptr %n4, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %d.i)
   store i32 %type, ptr %d.i, align 8
-  %fn2.i = getelementptr inbounds %struct.OBJ_DOALL, ptr %d.i, i64 0, i32 1
+  %fn2.i = getelementptr inbounds i8, ptr %d.i, i64 8
   store ptr @do_all_sorted_fn, ptr %fn2.i, align 8
-  %arg3.i = getelementptr inbounds %struct.OBJ_DOALL, ptr %d.i, i64 0, i32 2
+  %arg3.i = getelementptr inbounds i8, ptr %d.i, i64 16
   store ptr %d, ptr %arg3.i, align 8
   %1 = load ptr, ptr @names_lh, align 8
   call void @OPENSSL_LH_doall_arg(ptr noundef %1, ptr noundef nonnull @do_all_fn, ptr noundef nonnull %d.i) #7
@@ -527,9 +526,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %names = getelementptr inbounds %struct.doall_sorted, ptr %d_, i64 0, i32 2
+  %names = getelementptr inbounds i8, ptr %d_, i64 8
   %2 = load ptr, ptr %names, align 8
-  %n = getelementptr inbounds %struct.doall_sorted, ptr %d_, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %d_, i64 4
   %3 = load i32, ptr %n, align 4
   %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %n, align 4
@@ -549,10 +548,10 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal i32 @do_all_sorted_cmp(ptr nocapture noundef readonly %n1_, ptr nocapture noundef readonly %n2_) #4 {
 entry:
   %0 = load ptr, ptr %n1_, align 8
-  %name = getelementptr inbounds %struct.obj_name_st, ptr %0, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %name, align 8
   %2 = load ptr, ptr %n2_, align 8
-  %name1 = getelementptr inbounds %struct.obj_name_st, ptr %2, i64 0, i32 2
+  %name1 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %name1, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #8
   ret i32 %call
@@ -610,7 +609,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %name = getelementptr inbounds %struct.obj_name_st, ptr %onp, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %onp, i64 8
   %1 = load ptr, ptr %name, align 8
   %call = tail call i32 @OBJ_NAME_remove(ptr noundef %1, i32 noundef %.pre), !range !7
   br label %if.end5
@@ -647,13 +646,13 @@ if.then:                                          ; preds = %land.lhs.true
   %2 = load ptr, ptr @name_funcs_stack, align 8
   %call.i7 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %1) #7
   %3 = load ptr, ptr %call.i7, align 8
-  %name = getelementptr inbounds %struct.obj_name_st, ptr %a, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %a, i64 8
   %4 = load ptr, ptr %name, align 8
   %call4 = tail call i64 %3(ptr noundef %4) #7
   br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %name5 = getelementptr inbounds %struct.obj_name_st, ptr %a, i64 0, i32 2
+  %name5 = getelementptr inbounds i8, ptr %a, i64 8
   %5 = load ptr, ptr %name5, align 8
   %call6 = tail call i64 @ossl_lh_strcasehash(ptr noundef %5) #7
   br label %if.end
@@ -689,19 +688,19 @@ land.lhs.true:                                    ; preds = %if.then
 if.then5:                                         ; preds = %land.lhs.true
   %4 = load ptr, ptr @name_funcs_stack, align 8
   %call.i9 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %3) #7
-  %cmp_func = getelementptr inbounds %struct.name_funcs_st, ptr %call.i9, i64 0, i32 1
+  %cmp_func = getelementptr inbounds i8, ptr %call.i9, i64 8
   %5 = load ptr, ptr %cmp_func, align 8
-  %name = getelementptr inbounds %struct.obj_name_st, ptr %a, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %a, i64 8
   %6 = load ptr, ptr %name, align 8
-  %name8 = getelementptr inbounds %struct.obj_name_st, ptr %b, i64 0, i32 2
+  %name8 = getelementptr inbounds i8, ptr %b, i64 8
   %7 = load ptr, ptr %name8, align 8
   %call9 = tail call i32 %5(ptr noundef %6, ptr noundef %7) #7
   br label %if.end13
 
 if.else:                                          ; preds = %land.lhs.true, %if.then
-  %name10 = getelementptr inbounds %struct.obj_name_st, ptr %a, i64 0, i32 2
+  %name10 = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load ptr, ptr %name10, align 8
-  %name11 = getelementptr inbounds %struct.obj_name_st, ptr %b, i64 0, i32 2
+  %name11 = getelementptr inbounds i8, ptr %b, i64 8
   %9 = load ptr, ptr %name11, align 8
   %call12 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %8, ptr noundef %9) #7
   br label %if.end13

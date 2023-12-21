@@ -6,17 +6,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ERR_string_data_st = type { i64, ptr }
 %struct.cbc_cipher_handles = type { i32, ptr }
 %struct.utsname = type { [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8] }
-%struct.st_dynamic_fns = type { ptr, %struct.st_dynamic_MEM_fns }
-%struct.st_dynamic_MEM_fns = type { ptr, ptr, ptr }
 %struct.sockaddr_alg = type { i16, [14 x i8], i32, i32, [64 x i8] }
-%struct.afalg_ctx_st = type { i32, i32, i32, %struct.afalg_aio_st }
-%struct.afalg_aio_st = type { i32, i32, i64, [1 x %struct.io_event], [1 x %struct.iocb] }
-%struct.io_event = type { i64, i64, i64, i64 }
-%struct.iocb = type { i64, i32, i32, i16, i16, i32, i64, i64, i64, i64, i32, i32 }
 %struct.timespec = type { i64, i64 }
+%struct.io_event = type { i64, i64, i64, i64 }
 %struct.msghdr = type { ptr, i32, ptr, i64, ptr, i64, i32 }
 %struct.iovec = type { ptr, i64 }
-%struct.cmsghdr = type { i64, i32, i32, [0 x i8] }
 
 @.str = private unnamed_addr constant [6 x i8] c"afalg\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"../openssl/engines/e_afalg.c\00", align 1
@@ -82,11 +76,11 @@ entry:
   br i1 %cmp, label %skip_cbs, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mem_fns = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns, i64 0, i32 1
+  %mem_fns = getelementptr inbounds i8, ptr %fns, i64 8
   %1 = load ptr, ptr %mem_fns, align 8
-  %realloc_fn = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns, i64 0, i32 1, i32 1
+  %realloc_fn = getelementptr inbounds i8, ptr %fns, i64 16
   %2 = load ptr, ptr %realloc_fn, align 8
-  %free_fn = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns, i64 0, i32 1, i32 2
+  %free_fn = getelementptr inbounds i8, ptr %fns, i64 24
   %3 = load ptr, ptr %free_fn, align 8
   %call3 = tail call i32 @CRYPTO_set_mem_functions(ptr noundef %1, ptr noundef %2, ptr noundef %3) #14
   %call4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 524288, ptr noundef null) #14
@@ -128,7 +122,7 @@ ERR_AFALG_error.exit.i.i:                         ; preds = %if.then.i.i.i, %if.
   br label %afalg_chk_platform.exit.thread.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %release.i.i = getelementptr inbounds %struct.utsname, ptr %ut.i.i, i64 0, i32 2
+  %release.i.i = getelementptr inbounds i8, ptr %ut.i.i, i64 130
   %call1.i.i = call ptr @strtok(ptr noundef nonnull %release.i.i, ptr noundef nonnull @.str.2) #14
   %cmp313.not.i.i = icmp eq ptr %call1.i.i, null
   br i1 %cmp313.not.i.i, label %for.end.i.i, label %for.body.i.i
@@ -148,9 +142,9 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
 
 for.end.loopexit.i.i:                             ; preds = %for.body.i.i
   %.pre.i.i = load i32, ptr %kver.i.i, align 4
-  %arrayidx7.phi.trans.insert.i.i = getelementptr inbounds [3 x i32], ptr %kver.i.i, i64 0, i64 1
+  %arrayidx7.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %kver.i.i, i64 4
   %.pre17.i.i = load i32, ptr %arrayidx7.phi.trans.insert.i.i, align 4
-  %arrayidx9.phi.trans.insert.i.i = getelementptr inbounds [3 x i32], ptr %kver.i.i, i64 0, i64 2
+  %arrayidx9.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %kver.i.i, i64 8
   %.pre18.i.i = load i32, ptr %arrayidx9.phi.trans.insert.i.i, align 4
   br label %for.end.i.i
 
@@ -453,7 +447,7 @@ sw.bb2.i:                                         ; preds = %entry
 
 if.end:                                           ; preds = %sw.bb2.i, %sw.bb1.i, %entry
   %retval.0.i.ph = phi ptr [ @cbc_handle, %entry ], [ getelementptr inbounds ([3 x %struct.cbc_cipher_handles], ptr @cbc_handle, i64 0, i64 1), %sw.bb1.i ], [ getelementptr inbounds ([3 x %struct.cbc_cipher_handles], ptr @cbc_handle, i64 0, i64 2), %sw.bb2.i ]
-  %_hidden = getelementptr inbounds %struct.cbc_cipher_handles, ptr %retval.0.i.ph, i64 0, i32 1
+  %_hidden = getelementptr inbounds i8, ptr %retval.0.i.ph, i64 8
   %0 = load ptr, ptr %_hidden, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %land.lhs.true, label %return
@@ -594,15 +588,15 @@ sw.bb:                                            ; preds = %if.end8, %if.end8, 
 
 if.end13:                                         ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %sa.i)
-  %sfd.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call5, i64 0, i32 1
+  %sfd.i = getelementptr inbounds i8, ptr %call5, i64 4
   store i32 -1, ptr %sfd.i, align 4
-  %bfd.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call5, i64 0, i32 2
+  %bfd.i = getelementptr inbounds i8, ptr %call5, i64 8
   store i32 -1, ptr %bfd.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %sa.i, i8 0, i64 88, i1 false)
   store i16 38, ptr %sa.i, align 4
-  %salg_type.i = getelementptr inbounds %struct.sockaddr_alg, ptr %sa.i, i64 0, i32 1
+  %salg_type.i = getelementptr inbounds i8, ptr %sa.i, i64 2
   %call.i = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %salg_type.i, ptr noundef nonnull @.str.21, i64 noundef 14) #14
-  %salg_name.i = getelementptr inbounds %struct.sockaddr_alg, ptr %sa.i, i64 0, i32 4
+  %salg_name.i = getelementptr inbounds i8, ptr %sa.i, i64 24
   %call2.i = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %salg_name.i, ptr noundef nonnull @.str.20, i64 noundef 64) #14
   %call3.i = call i32 @socket(i32 noundef 38, i32 noundef 5, i32 noundef 0) #14
   store i32 %call3.i, ptr %bfd.i, align 8
@@ -717,7 +711,7 @@ afalg_set_key.exit.thread:                        ; preds = %do.body.i17, %if.th
   br label %err
 
 if.end25:                                         ; preds = %if.end21
-  %aio = getelementptr inbounds %struct.afalg_ctx_st, ptr %call5, i64 0, i32 3
+  %aio = getelementptr inbounds i8, ptr %call5, i64 16
   %call26 = call fastcc i32 @afalg_init_aio(ptr noundef nonnull %aio), !range !8
   %cmp27 = icmp eq i32 %call26, 0
   br i1 %cmp27, label %err, label %if.end29
@@ -791,36 +785,36 @@ if.end12:                                         ; preds = %if.then11, %if.end8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %msg.i, i8 0, i64 56, i1 false)
   %2 = getelementptr inbounds i8, ptr %cbuf.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 48, i1 false)
-  %msg_control.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 4
+  %msg_control.i = getelementptr inbounds i8, ptr %msg.i, i64 32
   store ptr %cbuf.i, ptr %msg_control.i, align 8
-  %msg_controllen.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 5
+  %msg_controllen.i = getelementptr inbounds i8, ptr %msg.i, i64 40
   store i64 64, ptr %msg_controllen.i, align 8
-  %cmsg_level.i.i = getelementptr inbounds %struct.cmsghdr, ptr %cbuf.i, i64 0, i32 1
+  %cmsg_level.i.i = getelementptr inbounds i8, ptr %cbuf.i, i64 8
   store i32 279, ptr %cmsg_level.i.i, align 8
-  %cmsg_type.i.i = getelementptr inbounds %struct.cmsghdr, ptr %cbuf.i, i64 0, i32 2
+  %cmsg_type.i.i = getelementptr inbounds i8, ptr %cbuf.i, i64 12
   store i32 3, ptr %cmsg_type.i.i, align 4
   store i64 20, ptr %cbuf.i, align 16
   store i32 %call14, ptr %2, align 16
   %call.i = call ptr @__cmsg_nxthdr(ptr noundef nonnull %msg.i, ptr noundef nonnull %cbuf.i) #14
-  %cmsg_level.i5.i = getelementptr inbounds %struct.cmsghdr, ptr %call.i, i64 0, i32 1
+  %cmsg_level.i5.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 279, ptr %cmsg_level.i5.i, align 8
-  %cmsg_type.i6.i = getelementptr inbounds %struct.cmsghdr, ptr %call.i, i64 0, i32 2
+  %cmsg_type.i6.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 2, ptr %cmsg_type.i6.i, align 4
   store i64 36, ptr %call.i, align 8
-  %__cmsg_data.i7.i = getelementptr inbounds %struct.cmsghdr, ptr %call.i, i64 0, i32 3
+  %__cmsg_data.i7.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 16, ptr %__cmsg_data.i7.i, align 4
   %iv2.i.i = getelementptr inbounds i8, ptr %call.i, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %iv2.i.i, ptr noundef nonnull align 1 dereferenceable(16) %call13, i64 16, i1 false)
   store ptr %in, ptr %iov.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov.i, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
   store i64 %inl, ptr %iov_len.i, align 8
-  %msg_flags.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 6
+  %msg_flags.i = getelementptr inbounds i8, ptr %msg.i, i64 48
   store i32 32768, ptr %msg_flags.i, align 8
-  %msg_iovlen.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 3
+  %msg_iovlen.i = getelementptr inbounds i8, ptr %msg.i, i64 24
   store i64 1, ptr %msg_iovlen.i, align 8
-  %msg_iov.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 2
+  %msg_iov.i = getelementptr inbounds i8, ptr %msg.i, i64 16
   store ptr %iov.i, ptr %msg_iov.i, align 8
-  %sfd.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 1
+  %sfd.i = getelementptr inbounds i8, ptr %call, i64 4
   %3 = load i32, ptr %sfd.i, align 4
   %call4.i = call i64 @sendmsg(i32 noundef %3, ptr noundef nonnull %msg.i, i32 noundef 0) #14
   %cmp5.i = icmp slt i64 %call4.i, 0
@@ -843,7 +837,7 @@ afalg_start_cipher_sk.exit:                       ; preds = %if.end12
   br i1 %cmp7.not.i.not, label %if.end18, label %return
 
 if.end18:                                         ; preds = %afalg_start_cipher_sk.exit
-  %aio = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3
+  %aio = getelementptr inbounds i8, ptr %call, i64 16
   %5 = load i32, ptr %sfd.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cb.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timeout.i)
@@ -851,7 +845,7 @@ if.end18:                                         ; preds = %afalg_start_cipher_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %strbuf.i)
   store i64 0, ptr %eval.i, align 8
-  %mode.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 1
+  %mode.i = getelementptr inbounds i8, ptr %call, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout.i, i8 0, i64 16, i1 false)
   %6 = load i32, ptr %mode.i, align 4
   %cmp.i = icmp eq i32 %6, 0
@@ -942,24 +936,24 @@ afalg_setup_async_event_notification.exit.i:      ; preds = %if.else.i.i, %if.en
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %afalg_setup_async_event_notification.exit.i, %if.end18
-  %cbt.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 4
+  %cbt.i = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %cbt.i, ptr %cb.i, align 8
-  %13 = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 4, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %call, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 48, i1 false)
-  %aio_fildes.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 4, i64 0, i32 5
+  %aio_fildes.i = getelementptr inbounds i8, ptr %call, i64 84
   store i32 %5, ptr %aio_fildes.i, align 4
   %14 = ptrtoint ptr %out to i64
-  %aio_buf.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 4, i64 0, i32 6
+  %aio_buf.i = getelementptr inbounds i8, ptr %call, i64 88
   store i64 %14, ptr %aio_buf.i, align 8
   store i64 0, ptr %cbt.i, align 8
-  %aio_nbytes.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 4, i64 0, i32 7
+  %aio_nbytes.i = getelementptr inbounds i8, ptr %call, i64 96
   store i64 %inl, ptr %aio_nbytes.i, align 8
-  %aio_flags.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 4, i64 0, i32 10
+  %aio_flags.i = getelementptr inbounds i8, ptr %call, i64 120
   store i32 1, ptr %aio_flags.i, align 8
   %15 = load i32, ptr %aio, align 8
-  %aio_resfd.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 4, i64 0, i32 11
+  %aio_resfd.i = getelementptr inbounds i8, ptr %call, i64 124
   store i32 %15, ptr %aio_resfd.i, align 4
-  %aio_ctx.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 2
+  %aio_ctx.i = getelementptr inbounds i8, ptr %call, i64 24
   %16 = load i64, ptr %aio_ctx.i, align 8
   %call.i15.i = call i64 (i64, ...) @syscall(i64 noundef 209, i64 noundef %16, i64 noundef 1, ptr noundef nonnull %cb.i) #14
   %17 = and i64 %call.i15.i, 2147483648
@@ -967,7 +961,7 @@ if.end3.i:                                        ; preds = %afalg_setup_async_e
   br i1 %cmp5.not.i, label %do.body9.preheader.i, label %do.body.i21
 
 do.body9.preheader.i:                             ; preds = %if.end3.i
-  %res.i = getelementptr inbounds %struct.io_event, ptr %events.i, i64 0, i32 2
+  %res.i = getelementptr inbounds i8, ptr %events.i, i64 16
   br label %do.body9.i.outer
 
 do.body9.i.outer:                                 ; preds = %if.then53.i, %do.body9.preheader.i
@@ -1145,25 +1139,25 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %sfd = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 1
+  %sfd = getelementptr inbounds i8, ptr %call, i64 4
   %1 = load i32, ptr %sfd, align 4
   %call5 = tail call i32 @close(i32 noundef %1) #14
-  %bfd = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 2
+  %bfd = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load i32, ptr %bfd, align 8
   %call6 = tail call i32 @close(i32 noundef %2) #14
-  %mode = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 1
+  %mode = getelementptr inbounds i8, ptr %call, i64 20
   %3 = load i32, ptr %mode, align 4
   %cmp7 = icmp eq i32 %3, 1
   br i1 %cmp7, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %if.end4
-  %aio = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3
+  %aio = getelementptr inbounds i8, ptr %call, i64 16
   %4 = load i32, ptr %aio, align 8
   %call10 = tail call i32 @close(i32 noundef %4) #14
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %if.end4
-  %aio_ctx = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 2
+  %aio_ctx = getelementptr inbounds i8, ptr %call, i64 24
   %5 = load i64, ptr %aio_ctx, align 8
   %call.i = tail call i64 (i64, ...) @syscall(i64 noundef 207, i64 noundef %5) #14
   br label %return
@@ -1188,7 +1182,7 @@ declare i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @afalg_init_aio(ptr noundef %aio) unnamed_addr #1 {
 entry:
-  %aio_ctx = getelementptr inbounds %struct.afalg_aio_st, ptr %aio, i64 0, i32 2
+  %aio_ctx = getelementptr inbounds i8, ptr %aio, i64 8
   store i64 0, ptr %aio_ctx, align 8
   %call.i = tail call i64 (i64, ...) @syscall(i64 noundef 206, i32 noundef 1, ptr noundef nonnull %aio_ctx) #14
   %0 = and i64 %call.i, 2147483648
@@ -1217,10 +1211,10 @@ ERR_AFALG_error.exit:                             ; preds = %do.body, %if.then.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cbt = getelementptr inbounds %struct.afalg_aio_st, ptr %aio, i64 0, i32 4
+  %cbt = getelementptr inbounds i8, ptr %aio, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %cbt, i8 0, i64 64, i1 false)
   store i32 -1, ptr %aio, align 8
-  %mode = getelementptr inbounds %struct.afalg_aio_st, ptr %aio, i64 0, i32 1
+  %mode = getelementptr inbounds i8, ptr %aio, i64 4
   store i32 0, ptr %mode, align 4
   br label %return
 

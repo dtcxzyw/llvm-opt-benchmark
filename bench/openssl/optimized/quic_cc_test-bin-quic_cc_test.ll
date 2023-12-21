@@ -6,9 +6,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ossl_cc_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.net_sim = type { ptr, ptr, i64, i64, i64, ptr, i64, i64 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.net_pkt_st = type { %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME, i32, i32, i64, i64 }
-%struct.OSSL_TIME = type { i64 }
 %struct.ossl_cc_loss_info_st = type { %struct.OSSL_TIME, i64 }
+%struct.OSSL_TIME = type { i64 }
 %struct.ossl_cc_ack_info_st = type { %struct.OSSL_TIME, i64 }
 
 @.str = private unnamed_addr constant [14 x i8] c"test_simulate\00", align 1
@@ -95,18 +94,18 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr @ossl_cc_newreno_method, ptr %sim, align 8
-  %cc2.i = getelementptr inbounds %struct.net_sim, ptr %sim, i64 0, i32 1
+  %cc2.i = getelementptr inbounds i8, ptr %sim, i64 8
   store ptr %call1, ptr %cc2.i, align 8
-  %capacity3.i = getelementptr inbounds %struct.net_sim, ptr %sim, i64 0, i32 2
+  %capacity3.i = getelementptr inbounds i8, ptr %sim, i64 16
   store i64 16000, ptr %capacity3.i, align 8
-  %latency4.i = getelementptr inbounds %struct.net_sim, ptr %sim, i64 0, i32 3
+  %latency4.i = getelementptr inbounds i8, ptr %sim, i64 24
   store i64 100, ptr %latency4.i, align 8
-  %spare_capacity.i = getelementptr inbounds %struct.net_sim, ptr %sim, i64 0, i32 4
+  %spare_capacity.i = getelementptr inbounds i8, ptr %sim, i64 32
   store i64 16000, ptr %spare_capacity.i, align 8
-  %total_acked.i = getelementptr inbounds %struct.net_sim, ptr %sim, i64 0, i32 6
+  %total_acked.i = getelementptr inbounds i8, ptr %sim, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_acked.i, i8 0, i64 16, i1 false)
   %call.i.i = tail call ptr @ossl_pqueue_new(ptr noundef nonnull @net_pkt_cmp) #8
-  %pkts.i = getelementptr inbounds %struct.net_sim, ptr %sim, i64 0, i32 5
+  %pkts.i = getelementptr inbounds i8, ptr %sim, i64 40
   store ptr %call.i.i, ptr %pkts.i, align 8
   %call5.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 122, ptr noundef nonnull @.str.22, ptr noundef %call.i.i) #8
   %tobool.not.i = icmp ne i32 %call5.i, 0
@@ -116,7 +115,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool5.not, label %if.end96, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8, ptr noundef nonnull @.str.5, ptr noundef nonnull %mdpl) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp8, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp10) #8
@@ -132,7 +131,7 @@ if.end7:                                          ; preds = %if.end
 if.end18:                                         ; preds = %if.end7
   call void @OSSL_PARAM_construct_uint64(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp21, ptr noundef nonnull @.str.7, ptr noundef nonnull %diag_cur_bytes_in_flight) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp21, i64 40, i1 false)
-  %incdec.ptr22 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_uint64(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp23, ptr noundef nonnull @.str.8, ptr noundef nonnull %diag_cur_cwnd_size) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp23, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp25) #8
@@ -196,7 +195,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %conv8.i = zext i1 %cmp7.i to i32
   %10 = load i64, ptr @fake_time.0, align 8
   store i64 %10, ptr %call.i, align 8
-  %success9.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i, i64 0, i32 4
+  %success9.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 %conv8.i, ptr %success9.i, align 8
   %11 = load i64, ptr %latency4.i, align 8
   %mul.i = mul i64 %11, 1000000
@@ -217,16 +216,16 @@ if.else.i:                                        ; preds = %if.end6.i
 if.end58.i:                                       ; preds = %if.else.i, %if.then11.i
   %retval.sroa.0.0.i34.sink35.i = phi i64 [ %retval.sroa.0.0.i32.i, %if.then11.i ], [ %retval.sroa.0.0.i34.i, %if.else.i ]
   %retval.sroa.0.0.i34.sink.i = phi i64 [ %retval.sroa.0.0.i.i37, %if.then11.i ], [ %retval.sroa.0.0.i34.i, %if.else.i ]
-  %12 = getelementptr inbounds %struct.net_pkt_st, ptr %call.i, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %retval.sroa.0.0.i.i37, ptr %12, align 8
-  %13 = getelementptr inbounds %struct.net_pkt_st, ptr %call.i, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %retval.sroa.0.0.i34.sink35.i, ptr %13, align 8
-  %14 = getelementptr inbounds %struct.net_pkt_st, ptr %call.i, i64 0, i32 3
+  %14 = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %retval.sroa.0.0.i34.sink.i, ptr %14, align 8
-  %size.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i, i64 0, i32 6
+  %size.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i64 %cond54, ptr %size.i, align 8
   %15 = load ptr, ptr %sim, align 8
-  %on_data_sent.i = getelementptr inbounds %struct.ossl_cc_method_st, ptr %15, i64 0, i32 8
+  %on_data_sent.i = getelementptr inbounds i8, ptr %15, i64 64
   %16 = load ptr, ptr %on_data_sent.i, align 8
   %17 = load ptr, ptr %cc2.i, align 8
   %call59.i = call i32 %16(ptr noundef %17, i64 noundef %cond54) #8
@@ -238,7 +237,7 @@ if.end58.i:                                       ; preds = %if.else.i, %if.then
 
 if.end65.i:                                       ; preds = %if.end58.i
   %18 = load ptr, ptr %pkts.i, align 8
-  %idx.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i, i64 0, i32 7
+  %idx.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %call.i.i39 = call i32 @ossl_pqueue_push(ptr noundef %18, ptr noundef nonnull %call.i, ptr noundef nonnull %idx.i) #8
   %cmp67.i = icmp ne i32 %call.i.i39, 0
   %conv68.i = zext i1 %cmp67.i to i32
@@ -350,7 +349,7 @@ entry:
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp3, ptr noundef nonnull @.str.5, ptr noundef nonnull %mdpl) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp3, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp5) #8
@@ -368,7 +367,7 @@ if.end11:                                         ; preds = %if.end
   call void %2(ptr noundef %call1) #8
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp14, ptr noundef nonnull @.str.5, ptr noundef nonnull %diag_mdpl) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp14, i64 40, i1 false)
-  %incdec.ptr15 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_uint64(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp16, ptr noundef nonnull @.str.7, ptr noundef nonnull %diag_cur_bytes_in_flight) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp16, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp18) #8
@@ -428,7 +427,7 @@ if.end54:                                         ; preds = %if.end47
 if.end60:                                         ; preds = %if.end54
   %9 = load i64, ptr @fake_time.0, align 8
   store i64 %9, ptr %ack_info, align 8
-  %tx_size = getelementptr inbounds %struct.ossl_cc_ack_info_st, ptr %ack_info, i64 0, i32 1
+  %tx_size = getelementptr inbounds i8, ptr %ack_info, i64 8
   store i64 1200, ptr %tx_size, align 8
   %retval.sroa.0.0.i.i = call i64 @llvm.uadd.sat.i64(i64 %9, i64 100000000)
   store i64 %retval.sroa.0.0.i.i, ptr @fake_time.0, align 8
@@ -507,7 +506,7 @@ if.end123:                                        ; preds = %if.end115
 if.end131:                                        ; preds = %if.end123
   %12 = load i64, ptr @fake_time.0, align 8
   store i64 %12, ptr %loss_info, align 8
-  %tx_size133 = getelementptr inbounds %struct.ossl_cc_loss_info_st, ptr %loss_info, i64 0, i32 1
+  %tx_size133 = getelementptr inbounds i8, ptr %loss_info, i64 8
   store i64 1200, ptr %tx_size133, align 8
   %retval.sroa.0.0.i.i56 = call i64 @llvm.uadd.sat.i64(i64 %12, i64 100000000)
   store i64 %retval.sroa.0.0.i.i56, ptr @fake_time.0, align 8
@@ -592,13 +591,13 @@ entry:
   %loss_info.i = alloca %struct.ossl_cc_loss_info_st, align 8
   %ack_info.i = alloca %struct.ossl_cc_ack_info_st, align 8
   %0 = icmp eq i64 %skip_forward, 0
-  %pkts.i = getelementptr inbounds %struct.net_sim, ptr %s, i64 0, i32 5
-  %spare_capacity.i = getelementptr inbounds %struct.net_sim, ptr %s, i64 0, i32 4
-  %cc.i = getelementptr inbounds %struct.net_sim, ptr %s, i64 0, i32 1
-  %tx_size67.i = getelementptr inbounds %struct.ossl_cc_ack_info_st, ptr %ack_info.i, i64 0, i32 1
-  %total_acked.i = getelementptr inbounds %struct.net_sim, ptr %s, i64 0, i32 6
-  %tx_size.i = getelementptr inbounds %struct.ossl_cc_loss_info_st, ptr %loss_info.i, i64 0, i32 1
-  %total_lost.i = getelementptr inbounds %struct.net_sim, ptr %s, i64 0, i32 7
+  %pkts.i = getelementptr inbounds i8, ptr %s, i64 40
+  %spare_capacity.i = getelementptr inbounds i8, ptr %s, i64 32
+  %cc.i = getelementptr inbounds i8, ptr %s, i64 8
+  %tx_size67.i = getelementptr inbounds i8, ptr %ack_info.i, i64 8
+  %total_acked.i = getelementptr inbounds i8, ptr %s, i64 48
+  %tx_size.i = getelementptr inbounds i8, ptr %loss_info.i, i64 8
+  %total_lost.i = getelementptr inbounds i8, ptr %s, i64 56
   br label %while.cond
 
 while.cond:                                       ; preds = %net_sim_process_one.exit, %entry
@@ -614,7 +613,7 @@ if.end.i:                                         ; preds = %while.cond
   br i1 %skip_forward.addr.0, label %if.end5.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %next_time.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i.i, i64 0, i32 3
+  %next_time.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %2 = load i64, ptr %next_time.i, align 8
   %3 = load i64, ptr @fake_time.0, align 8
   %cmp.i.i = icmp ugt i64 %2, %3
@@ -625,26 +624,26 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %land.lhs.true.i, %if.end.i
-  %success.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i.i, i64 0, i32 4
+  %success.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %4 = load i32, ptr %success.i, align 8
   %tobool6.not.i = icmp eq i32 %4, 0
   br i1 %tobool6.not.i, label %if.end23.thread.i, label %land.lhs.true7.i
 
 land.lhs.true7.i:                                 ; preds = %if.end5.i
-  %arrived.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i.i, i64 0, i32 5
+  %arrived.i = getelementptr inbounds i8, ptr %call.i.i, i64 36
   %5 = load i32, ptr %arrived.i, align 4
   %tobool8.not.i = icmp eq i32 %5, 0
   %.pre49.i = load i64, ptr @fake_time.0, align 8
   br i1 %tobool8.not.i, label %land.lhs.true9.i, label %if.end23.i
 
 land.lhs.true9.i:                                 ; preds = %land.lhs.true7.i
-  %arrive_time.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i.i, i64 0, i32 1
+  %arrive_time.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %6 = load i64, ptr %arrive_time.i, align 8
   %cmp5.i38.not.i = icmp ult i64 %.pre49.i, %6
   br i1 %cmp5.i38.not.i, label %if.end23.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %land.lhs.true9.i
-  %size.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i.i, i64 0, i32 6
+  %size.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %7 = load i64, ptr %size.i, align 8
   %8 = load i64, ptr %spare_capacity.i, align 8
   %add.i = add i64 %8, %7
@@ -652,26 +651,26 @@ if.then13.i:                                      ; preds = %land.lhs.true9.i
   store i32 1, ptr %arrived.i, align 4
   %9 = load ptr, ptr %pkts.i, align 8
   %call.i41.i = call ptr @ossl_pqueue_pop(ptr noundef %9) #8
-  %next_time17.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i.i, i64 0, i32 3
-  %determination_time.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i.i, i64 0, i32 2
+  %next_time17.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %determination_time.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %10 = load i64, ptr %determination_time.i, align 8
   store i64 %10, ptr %next_time17.i, align 8
   %11 = load ptr, ptr %pkts.i, align 8
-  %idx.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i.i, i64 0, i32 7
+  %idx.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
   %call.i42.i = call i32 @ossl_pqueue_push(ptr noundef %11, ptr noundef nonnull %call.i.i, ptr noundef nonnull %idx.i) #8
   %tobool20.not.i = icmp ne i32 %call.i42.i, 0
   %..i = zext i1 %tobool20.not.i to i32
   br label %net_sim_process_one.exit
 
 if.end23.i:                                       ; preds = %land.lhs.true9.i, %land.lhs.true7.i
-  %determination_time24.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i.i, i64 0, i32 2
+  %determination_time24.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %12 = load i64, ptr %determination_time24.i, align 8
   %cmp5.i44.i = icmp ult i64 %.pre49.i, %12
   br i1 %cmp5.i44.i, label %net_sim_process_one.exit.thread, label %lor.rhs.i
 
 if.end23.thread.i:                                ; preds = %if.end5.i
   %.pre.i = load i64, ptr @fake_time.0, align 8
-  %determination_time2450.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i.i, i64 0, i32 2
+  %determination_time2450.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %13 = load i64, ptr %determination_time2450.i, align 8
   %cmp5.i4451.i = icmp ult i64 %.pre.i, %13
   br i1 %cmp5.i4451.i, label %net_sim_process_one.exit.thread, label %lor.end.i
@@ -691,7 +690,7 @@ if.end38.i:                                       ; preds = %lor.end.i
   %15 = load i32, ptr %success.i, align 8
   %tobool40.not.i = icmp eq i32 %15, 0
   %16 = load i64, ptr %call.i.i, align 8
-  %size43.i = getelementptr inbounds %struct.net_pkt_st, ptr %call.i.i, i64 0, i32 6
+  %size43.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   br i1 %tobool40.not.i, label %if.then41.i, label %if.else.i
 
 if.then41.i:                                      ; preds = %if.end38.i
@@ -699,7 +698,7 @@ if.then41.i:                                      ; preds = %if.end38.i
   %17 = load i64, ptr %size43.i, align 8
   store i64 %17, ptr %tx_size.i, align 8
   %18 = load ptr, ptr %s, align 8
-  %on_data_lost.i = getelementptr inbounds %struct.ossl_cc_method_st, ptr %18, i64 0, i32 10
+  %on_data_lost.i = getelementptr inbounds i8, ptr %18, i64 80
   %19 = load ptr, ptr %on_data_lost.i, align 8
   %20 = load ptr, ptr %cc.i, align 8
   %call44.i = call i32 %19(ptr noundef %20, ptr noundef nonnull %loss_info.i) #8
@@ -711,7 +710,7 @@ if.then41.i:                                      ; preds = %if.end38.i
 
 if.end50.i:                                       ; preds = %if.then41.i
   %21 = load ptr, ptr %s, align 8
-  %on_data_lost_finished.i = getelementptr inbounds %struct.ossl_cc_method_st, ptr %21, i64 0, i32 11
+  %on_data_lost_finished.i = getelementptr inbounds i8, ptr %21, i64 88
   %22 = load ptr, ptr %on_data_lost_finished.i, align 8
   %23 = load ptr, ptr %cc.i, align 8
   %call53.i = call i32 %22(ptr noundef %23, i32 noundef 0) #8
@@ -736,7 +735,7 @@ if.else.i:                                        ; preds = %if.end38.i
   %27 = load i64, ptr %size43.i, align 8
   store i64 %27, ptr %tx_size67.i, align 8
   %28 = load ptr, ptr %s, align 8
-  %on_data_acked.i = getelementptr inbounds %struct.ossl_cc_method_st, ptr %28, i64 0, i32 9
+  %on_data_acked.i = getelementptr inbounds i8, ptr %28, i64 72
   %29 = load ptr, ptr %on_data_acked.i, align 8
   %30 = load ptr, ptr %cc.i, align 8
   %call70.i = call i32 %29(ptr noundef %30, ptr noundef nonnull %ack_info.i) #8
@@ -787,8 +786,8 @@ declare i32 @test_double_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @net_pkt_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
 entry:
-  %next_time = getelementptr inbounds %struct.net_pkt_st, ptr %a, i64 0, i32 3
-  %next_time1 = getelementptr inbounds %struct.net_pkt_st, ptr %b, i64 0, i32 3
+  %next_time = getelementptr inbounds i8, ptr %a, i64 24
+  %next_time1 = getelementptr inbounds i8, ptr %b, i64 24
   %0 = load i64, ptr %next_time, align 8
   %1 = load i64, ptr %next_time1, align 8
   %cmp.i = icmp ugt i64 %0, %1

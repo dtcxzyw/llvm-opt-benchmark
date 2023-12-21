@@ -7,57 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.OpenColorIO_v2_4dev::MatrixOpData" = type <{ %"class.OpenColorIO_v2_4dev::OpData", %"class.OpenColorIO_v2_4dev::MatrixOpData::MatrixArray", %"class.OpenColorIO_v2_4dev::MatrixOpData::Offsets", i32, i32, i32, [4 x i8] }>
-%"class.OpenColorIO_v2_4dev::OpData" = type { ptr, %"class.std::mutex", %"class.OpenColorIO_v2_4dev::FormatMetadataImpl" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.OpenColorIO_v2_4dev::FormatMetadataImpl" = type { %"class.OpenColorIO_v2_4dev::FormatMetadata", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::vector.3" }
-%"class.OpenColorIO_v2_4dev::FormatMetadata" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.OpenColorIO_v2_4dev::MatrixOpData::MatrixArray" = type { %"class.OpenColorIO_v2_4dev::ArrayT" }
-%"class.OpenColorIO_v2_4dev::ArrayT" = type { %"class.OpenColorIO_v2_4dev::ArrayBase", i64, i64, %"class.std::vector.8" }
-%"class.OpenColorIO_v2_4dev::ArrayBase" = type { ptr }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.OpenColorIO_v2_4dev::MatrixOpData::Offsets" = type { [4 x double] }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<40, 8>::type" }
-%"union.std::aligned_storage<40, 8>::type" = type { [40 x i8] }
-%"class.std::_Sp_counted_ptr_inplace.37" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::ScaleRenderer, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::ScaleRenderer, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.38" }
-%"struct.__gnu_cxx::__aligned_buffer.38" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"union.std::aligned_storage<24, 8>::type" = type { [24 x i8] }
-%"class.std::_Sp_counted_ptr_inplace.45" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.46" }
-%"struct.__gnu_cxx::__aligned_buffer.46" = type { %"union.std::aligned_storage<88, 8>::type" }
-%"union.std::aligned_storage<88, 8>::type" = type { [88 x i8] }
-%"class.std::_Sp_counted_ptr_inplace.53" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.54" }
-%"struct.__gnu_cxx::__aligned_buffer.54" = type { %"union.std::aligned_storage<72, 8>::type" }
-%"union.std::aligned_storage<72, 8>::type" = type { [72 x i8] }
-%"class.std::type_info" = type { ptr, ptr }
-%"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer" = type { %"class.OpenColorIO_v2_4dev::OpCPU", [4 x float], [4 x float] }
-%"class.OpenColorIO_v2_4dev::OpCPU" = type { ptr }
-%"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleRenderer" = type { %"class.OpenColorIO_v2_4dev::OpCPU", [4 x float] }
-%"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer" = type { %"class.OpenColorIO_v2_4dev::OpCPU", [4 x float], [4 x float], [4 x float], [4 x float], [4 x float] }
-%"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer" = type { %"class.OpenColorIO_v2_4dev::OpCPU", [4 x float], [4 x float], [4 x float], [4 x float] }
 
 $_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
@@ -122,7 +71,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN19OpenColorIO_v2_4dev17GetMatrixRendererERSt10shared_ptrIKNS_12MatrixOpDataEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mat) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %mat, align 8
-  %m_direction.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %0, i64 0, i32 5
+  %m_direction.i = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load i32, ptr %m_direction.i, align 8
   %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -149,94 +98,94 @@ lpad:                                             ; preds = %if.then
 if.end:                                           ; preds = %entry
   %call3 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv(ptr noundef nonnull align 8 dereferenceable(260) %0)
   %3 = load ptr, ptr %mat, align 8
-  %m_offsets.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %3, i64 0, i32 2
+  %m_offsets.i = getelementptr inbounds i8, ptr %3, i64 216
   %call.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7Offsets9isNotNullEv(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i)
   br i1 %call3, label %if.then4, label %if.else9
 
 if.then4:                                         ; preds = %if.end
   %mat.val = load ptr, ptr %mat, align 8
-  %m_data.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %mat.val, i64 0, i32 1, i32 0, i32 3
+  %m_data.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %mat.val, i64 192
   br i1 %call.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererEED2Ev.exit: ; preds = %if.then4
   %call5.i.i.i5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17, !noalias !4
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !4
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i, align 8, !noalias !4
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 16
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !4
   %4 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i, align 8, !noalias !4
   %5 = load double, ptr %4, align 8, !noalias !4
   %conv.i.i.i.i.i.i.i.i = fptrunc double %5 to float
-  %m_scale.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %m_scale.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 24
   store float %conv.i.i.i.i.i.i.i.i, ptr %m_scale.i.i.i.i.i.i.i.i, align 8, !noalias !4
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %4, i64 5
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   %6 = load double, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8, !noalias !4
   %conv7.i.i.i.i.i.i.i.i = fptrunc double %6 to float
-  %arrayidx9.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 12
+  %arrayidx9.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 28
   store float %conv7.i.i.i.i.i.i.i.i, ptr %arrayidx9.i.i.i.i.i.i.i.i, align 4, !noalias !4
-  %add.ptr.i8.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %4, i64 10
+  %add.ptr.i8.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 80
   %7 = load double, ptr %add.ptr.i8.i.i.i.i.i.i.i.i, align 8, !noalias !4
   %conv11.i.i.i.i.i.i.i.i = fptrunc double %7 to float
-  %arrayidx13.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %arrayidx13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 32
   store float %conv11.i.i.i.i.i.i.i.i, ptr %arrayidx13.i.i.i.i.i.i.i.i, align 8, !noalias !4
-  %add.ptr.i9.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %4, i64 15
+  %add.ptr.i9.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 120
   %8 = load double, ptr %add.ptr.i9.i.i.i.i.i.i.i.i, align 8, !noalias !4
   %conv15.i.i.i.i.i.i.i.i = fptrunc double %8 to float
-  %arrayidx17.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 20
+  %arrayidx17.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 36
   store float %conv15.i.i.i.i.i.i.i.i, ptr %arrayidx17.i.i.i.i.i.i.i.i, align 4, !noalias !4
-  %m_offsets.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %mat.val, i64 0, i32 2
+  %m_offsets.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %mat.val, i64 216
   %9 = load double, ptr %m_offsets.i.i.i.i.i.i.i.i.i, align 8, !noalias !4
   %conv23.i.i.i.i.i.i.i.i = fptrunc double %9 to float
-  %m_offset.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %m_offset.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 40
   store float %conv23.i.i.i.i.i.i.i.i, ptr %m_offset.i.i.i.i.i.i.i.i, align 8, !noalias !4
-  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %mat.val, i64 0, i32 2, i32 0, i64 1
+  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %mat.val, i64 224
   %10 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 8, !noalias !4
   %conv27.i.i.i.i.i.i.i.i = fptrunc double %10 to float
-  %arrayidx29.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 28
+  %arrayidx29.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 44
   store float %conv27.i.i.i.i.i.i.i.i, ptr %arrayidx29.i.i.i.i.i.i.i.i, align 4, !noalias !4
-  %arrayidx.i10.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %mat.val, i64 0, i32 2, i32 0, i64 2
+  %arrayidx.i10.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %mat.val, i64 232
   %11 = load double, ptr %arrayidx.i10.i.i.i.i.i.i.i.i, align 8, !noalias !4
   %conv32.i.i.i.i.i.i.i.i = fptrunc double %11 to float
-  %arrayidx34.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
+  %arrayidx34.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 48
   store float %conv32.i.i.i.i.i.i.i.i, ptr %arrayidx34.i.i.i.i.i.i.i.i, align 8, !noalias !4
-  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %mat.val, i64 0, i32 2, i32 0, i64 3
+  %arrayidx.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %mat.val, i64 240
   %12 = load double, ptr %arrayidx.i11.i.i.i.i.i.i.i.i, align 8, !noalias !4
   %conv37.i.i.i.i.i.i.i.i = fptrunc double %12 to float
-  %arrayidx39.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 36
+  %arrayidx39.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 52
   store float %conv37.i.i.i.i.i.i.i.i, ptr %arrayidx39.i.i.i.i.i.i.i.i, align 4, !noalias !4
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererEED2Ev.exit: ; preds = %if.then4
   %call5.i.i.i5.i.i.i.i11 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17, !noalias !7
-  %_M_use_count.i.i.i.i.i.i12 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i11, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i12, align 8, !noalias !7
-  %_M_weak_count.i.i.i.i.i.i13 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i11, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i13, align 4, !noalias !7
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i11, align 8, !noalias !7
-  %_M_impl.i.i.i.i.i.i14 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.37", ptr %call5.i.i.i5.i.i.i.i11, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11, i64 16
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i14, align 8, !noalias !7
   %13 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
   %14 = load double, ptr %13, align 8, !noalias !7
   %conv.i.i.i.i.i.i.i.i16 = fptrunc double %14 to float
-  %m_scale.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.37", ptr %call5.i.i.i5.i.i.i.i11, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %m_scale.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11, i64 24
   store float %conv.i.i.i.i.i.i.i.i16, ptr %m_scale.i.i.i.i.i.i.i.i17, align 8, !noalias !7
-  %add.ptr.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds double, ptr %13, i64 5
+  %add.ptr.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load double, ptr %add.ptr.i.i.i.i.i.i.i.i.i18, align 8, !noalias !7
   %conv6.i.i.i.i.i.i.i.i = fptrunc double %15 to float
-  %arrayidx8.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.37", ptr %call5.i.i.i5.i.i.i.i11, i64 0, i32 1, i32 0, i32 0, i32 0, i64 12
+  %arrayidx8.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11, i64 28
   store float %conv6.i.i.i.i.i.i.i.i, ptr %arrayidx8.i.i.i.i.i.i.i.i, align 4, !noalias !7
-  %add.ptr.i4.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %13, i64 10
+  %add.ptr.i4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 80
   %16 = load double, ptr %add.ptr.i4.i.i.i.i.i.i.i.i, align 8, !noalias !7
   %conv10.i.i.i.i.i.i.i.i = fptrunc double %16 to float
-  %arrayidx12.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.37", ptr %call5.i.i.i5.i.i.i.i11, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %arrayidx12.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11, i64 32
   store float %conv10.i.i.i.i.i.i.i.i, ptr %arrayidx12.i.i.i.i.i.i.i.i, align 8, !noalias !7
-  %add.ptr.i5.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %13, i64 15
+  %add.ptr.i5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 120
   %17 = load double, ptr %add.ptr.i5.i.i.i.i.i.i.i.i, align 8, !noalias !7
   %conv14.i.i.i.i.i.i.i.i = fptrunc double %17 to float
-  %arrayidx16.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.37", ptr %call5.i.i.i5.i.i.i.i11, i64 0, i32 1, i32 0, i32 0, i32 0, i64 20
+  %arrayidx16.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11, i64 36
   store float %conv14.i.i.i.i.i.i.i.i, ptr %arrayidx16.i.i.i.i.i.i.i.i, align 4, !noalias !7
   br label %return
 
@@ -245,17 +194,17 @@ if.else9:                                         ; preds = %if.end
 
 if.then12:                                        ; preds = %if.else9
   %call5.i.i.i5.i.i.i.i53 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #17, !noalias !10
-  %_M_use_count.i.i.i.i.i.i54 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i54, align 8, !noalias !10
-  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i55, align 4, !noalias !10
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i53, align 8, !noalias !10
-  %_M_impl.i.i.i.i.i.i56 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 16
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i56, align 8, !noalias !10
   %18 = load ptr, ptr %mat, align 8, !noalias !10
-  %m_array.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %18, i64 0, i32 1
+  %m_array.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 168
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %m_array.i.i.i.i.i.i.i.i.i, align 8, !noalias !10
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 4
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 32
   %19 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %call3.i.i.i1.i6.i.i.i.i = invoke noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i.i.i.i.i.i.i.i.i)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !10
@@ -270,146 +219,146 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRenderer
   %mul.i.i.i.i.i.i.i.i = shl i64 %call3.i.i.i1.i6.i.i.i.i, 1
   %mul4.i.i.i.i.i.i.i.i = mul i64 %call3.i.i.i1.i6.i.i.i.i, 3
   %21 = load ptr, ptr %mat, align 8, !noalias !10
-  %m_data.i.i.i.i.i.i.i.i.i58 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %21, i64 0, i32 1, i32 0, i32 3
+  %m_data.i.i.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %21, i64 192
   %22 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
   %23 = load double, ptr %22, align 8, !noalias !10
   %conv.i.i.i.i.i.i.i.i59 = fptrunc double %23 to float
-  %m_column1.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %m_column1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 24
   store float %conv.i.i.i.i.i.i.i.i59, ptr %m_column1.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %24 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
   %add.ptr.i.i.i.i.i.i.i.i.i60 = getelementptr inbounds double, ptr %24, i64 %call3.i.i.i1.i6.i.i.i.i
   %25 = load double, ptr %add.ptr.i.i.i.i.i.i.i.i.i60, align 8, !noalias !10
   %conv10.i.i.i.i.i.i.i.i61 = fptrunc double %25 to float
-  %arrayidx12.i.i.i.i.i.i.i.i62 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 12
+  %arrayidx12.i.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 28
   store float %conv10.i.i.i.i.i.i.i.i61, ptr %arrayidx12.i.i.i.i.i.i.i.i62, align 4, !noalias !10
   %26 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
   %add.ptr.i33.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %26, i64 %mul.i.i.i.i.i.i.i.i
   %27 = load double, ptr %add.ptr.i33.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv14.i.i.i.i.i.i.i.i63 = fptrunc double %27 to float
-  %arrayidx16.i.i.i.i.i.i.i.i64 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %arrayidx16.i.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 32
   store float %conv14.i.i.i.i.i.i.i.i63, ptr %arrayidx16.i.i.i.i.i.i.i.i64, align 8, !noalias !10
   %28 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
   %add.ptr.i34.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %28, i64 %mul4.i.i.i.i.i.i.i.i
   %29 = load double, ptr %add.ptr.i34.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv18.i.i.i.i.i.i.i.i = fptrunc double %29 to float
-  %arrayidx20.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 20
+  %arrayidx20.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 36
   store float %conv18.i.i.i.i.i.i.i.i, ptr %arrayidx20.i.i.i.i.i.i.i.i, align 4, !noalias !10
   %30 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
-  %add.ptr.i35.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %30, i64 1
+  %add.ptr.i35.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load double, ptr %add.ptr.i35.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv22.i.i.i.i.i.i.i.i = fptrunc double %31 to float
-  %m_column2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %m_column2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 40
   store float %conv22.i.i.i.i.i.i.i.i, ptr %m_column2.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %32 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
   %33 = getelementptr double, ptr %32, i64 %call3.i.i.i1.i6.i.i.i.i
-  %add.ptr.i36.i.i.i.i.i.i.i.i = getelementptr double, ptr %33, i64 1
+  %add.ptr.i36.i.i.i.i.i.i.i.i = getelementptr i8, ptr %33, i64 8
   %34 = load double, ptr %add.ptr.i36.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv25.i.i.i.i.i.i.i.i = fptrunc double %34 to float
-  %arrayidx27.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 28
+  %arrayidx27.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 44
   store float %conv25.i.i.i.i.i.i.i.i, ptr %arrayidx27.i.i.i.i.i.i.i.i, align 4, !noalias !10
   %add28.i.i.i.i.i.i.i.i = or disjoint i64 %mul.i.i.i.i.i.i.i.i, 1
   %35 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
   %add.ptr.i37.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %35, i64 %add28.i.i.i.i.i.i.i.i
   %36 = load double, ptr %add.ptr.i37.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv30.i.i.i.i.i.i.i.i = fptrunc double %36 to float
-  %arrayidx32.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
+  %arrayidx32.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 48
   store float %conv30.i.i.i.i.i.i.i.i, ptr %arrayidx32.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %37 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
   %38 = getelementptr double, ptr %37, i64 %mul4.i.i.i.i.i.i.i.i
-  %add.ptr.i38.i.i.i.i.i.i.i.i = getelementptr double, ptr %38, i64 1
+  %add.ptr.i38.i.i.i.i.i.i.i.i = getelementptr i8, ptr %38, i64 8
   %39 = load double, ptr %add.ptr.i38.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv35.i.i.i.i.i.i.i.i = fptrunc double %39 to float
-  %arrayidx37.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 36
+  %arrayidx37.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 52
   store float %conv35.i.i.i.i.i.i.i.i, ptr %arrayidx37.i.i.i.i.i.i.i.i, align 4, !noalias !10
   %40 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
-  %add.ptr.i39.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %40, i64 2
+  %add.ptr.i39.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 16
   %41 = load double, ptr %add.ptr.i39.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv39.i.i.i.i.i.i.i.i = fptrunc double %41 to float
-  %m_column3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
+  %m_column3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 56
   store float %conv39.i.i.i.i.i.i.i.i, ptr %m_column3.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %42 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
   %43 = getelementptr double, ptr %42, i64 %call3.i.i.i1.i6.i.i.i.i
-  %add.ptr.i40.i.i.i.i.i.i.i.i = getelementptr double, ptr %43, i64 2
+  %add.ptr.i40.i.i.i.i.i.i.i.i = getelementptr i8, ptr %43, i64 16
   %44 = load double, ptr %add.ptr.i40.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv43.i.i.i.i.i.i.i.i = fptrunc double %44 to float
-  %arrayidx45.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 44
+  %arrayidx45.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 60
   store float %conv43.i.i.i.i.i.i.i.i, ptr %arrayidx45.i.i.i.i.i.i.i.i, align 4, !noalias !10
   %45 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
   %46 = getelementptr double, ptr %45, i64 %mul.i.i.i.i.i.i.i.i
-  %add.ptr.i41.i.i.i.i.i.i.i.i = getelementptr double, ptr %46, i64 2
+  %add.ptr.i41.i.i.i.i.i.i.i.i = getelementptr i8, ptr %46, i64 16
   %47 = load double, ptr %add.ptr.i41.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv48.i.i.i.i.i.i.i.i = fptrunc double %47 to float
-  %arrayidx50.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %arrayidx50.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 64
   store float %conv48.i.i.i.i.i.i.i.i, ptr %arrayidx50.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %48 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
   %49 = getelementptr double, ptr %48, i64 %mul4.i.i.i.i.i.i.i.i
-  %add.ptr.i42.i.i.i.i.i.i.i.i = getelementptr double, ptr %49, i64 2
+  %add.ptr.i42.i.i.i.i.i.i.i.i = getelementptr i8, ptr %49, i64 16
   %50 = load double, ptr %add.ptr.i42.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv53.i.i.i.i.i.i.i.i = fptrunc double %50 to float
-  %arrayidx55.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 52
+  %arrayidx55.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 68
   store float %conv53.i.i.i.i.i.i.i.i, ptr %arrayidx55.i.i.i.i.i.i.i.i, align 4, !noalias !10
   %51 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
-  %add.ptr.i43.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %51, i64 3
+  %add.ptr.i43.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 24
   %52 = load double, ptr %add.ptr.i43.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv57.i.i.i.i.i.i.i.i = fptrunc double %52 to float
-  %m_column4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
+  %m_column4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 72
   store float %conv57.i.i.i.i.i.i.i.i, ptr %m_column4.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %53 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
   %54 = getelementptr double, ptr %53, i64 %call3.i.i.i1.i6.i.i.i.i
-  %add.ptr.i44.i.i.i.i.i.i.i.i = getelementptr double, ptr %54, i64 3
+  %add.ptr.i44.i.i.i.i.i.i.i.i = getelementptr i8, ptr %54, i64 24
   %55 = load double, ptr %add.ptr.i44.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv61.i.i.i.i.i.i.i.i = fptrunc double %55 to float
-  %arrayidx63.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 60
+  %arrayidx63.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 76
   store float %conv61.i.i.i.i.i.i.i.i, ptr %arrayidx63.i.i.i.i.i.i.i.i, align 4, !noalias !10
   %56 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
   %57 = getelementptr double, ptr %56, i64 %mul.i.i.i.i.i.i.i.i
-  %add.ptr.i45.i.i.i.i.i.i.i.i = getelementptr double, ptr %57, i64 3
+  %add.ptr.i45.i.i.i.i.i.i.i.i = getelementptr i8, ptr %57, i64 24
   %58 = load double, ptr %add.ptr.i45.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv66.i.i.i.i.i.i.i.i = fptrunc double %58 to float
-  %arrayidx68.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 64
+  %arrayidx68.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 80
   store float %conv66.i.i.i.i.i.i.i.i, ptr %arrayidx68.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %59 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i58, align 8, !noalias !10
   %60 = getelementptr double, ptr %59, i64 %mul4.i.i.i.i.i.i.i.i
-  %add.ptr.i46.i.i.i.i.i.i.i.i = getelementptr double, ptr %60, i64 3
+  %add.ptr.i46.i.i.i.i.i.i.i.i = getelementptr i8, ptr %60, i64 24
   %61 = load double, ptr %add.ptr.i46.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv71.i.i.i.i.i.i.i.i = fptrunc double %61 to float
-  %arrayidx73.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 68
+  %arrayidx73.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 84
   store float %conv71.i.i.i.i.i.i.i.i, ptr %arrayidx73.i.i.i.i.i.i.i.i, align 4, !noalias !10
-  %m_offsets.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %21, i64 0, i32 2
+  %m_offsets.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %21, i64 216
   %62 = load double, ptr %m_offsets.i.i.i.i.i.i.i.i.i65, align 8, !noalias !10
   %conv77.i.i.i.i.i.i.i.i = fptrunc double %62 to float
-  %m_offset.i.i.i.i.i.i.i.i66 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 72
+  %m_offset.i.i.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 88
   store float %conv77.i.i.i.i.i.i.i.i, ptr %m_offset.i.i.i.i.i.i.i.i66, align 8, !noalias !10
-  %arrayidx.i.i.i.i.i.i.i.i.i67 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %21, i64 0, i32 2, i32 0, i64 1
+  %arrayidx.i.i.i.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %21, i64 224
   %63 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i.i67, align 8, !noalias !10
   %conv80.i.i.i.i.i.i.i.i = fptrunc double %63 to float
-  %arrayidx82.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 76
+  %arrayidx82.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 92
   store float %conv80.i.i.i.i.i.i.i.i, ptr %arrayidx82.i.i.i.i.i.i.i.i, align 4, !noalias !10
-  %arrayidx.i47.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %21, i64 0, i32 2, i32 0, i64 2
+  %arrayidx.i47.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 232
   %64 = load double, ptr %arrayidx.i47.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv84.i.i.i.i.i.i.i.i = fptrunc double %64 to float
-  %arrayidx86.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 80
+  %arrayidx86.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 96
   store float %conv84.i.i.i.i.i.i.i.i, ptr %arrayidx86.i.i.i.i.i.i.i.i, align 8, !noalias !10
-  %arrayidx.i48.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %21, i64 0, i32 2, i32 0, i64 3
+  %arrayidx.i48.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 240
   %65 = load double, ptr %arrayidx.i48.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %conv88.i.i.i.i.i.i.i.i = fptrunc double %65 to float
-  %arrayidx90.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %call5.i.i.i5.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 84
+  %arrayidx90.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i53, i64 100
   store float %conv88.i.i.i.i.i.i.i.i, ptr %arrayidx90.i.i.i.i.i.i.i.i, align 4, !noalias !10
   br label %return
 
 if.else14:                                        ; preds = %if.else9
   %call5.i.i.i5.i.i.i.i100 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #17, !noalias !13
-  %_M_use_count.i.i.i.i.i.i101 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i101 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i101, align 8, !noalias !13
-  %_M_weak_count.i.i.i.i.i.i102 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i102 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i102, align 4, !noalias !13
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i100, align 8, !noalias !13
-  %_M_impl.i.i.i.i.i.i103 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i103 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 16
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i103, align 8, !noalias !13
   %66 = load ptr, ptr %mat, align 8, !noalias !13
-  %m_array.i.i.i.i.i.i.i.i.i104 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %66, i64 0, i32 1
+  %m_array.i.i.i.i.i.i.i.i.i104 = getelementptr inbounds i8, ptr %66, i64 168
   %vtable.i.i.i.i.i.i.i.i105 = load ptr, ptr %m_array.i.i.i.i.i.i.i.i.i104, align 8, !noalias !13
-  %vfn.i.i.i.i.i.i.i.i106 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i105, i64 4
+  %vfn.i.i.i.i.i.i.i.i106 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i105, i64 32
   %67 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i106, align 8, !noalias !13
   %call3.i.i.i1.i6.i.i.i.i107 = invoke noundef i64 %67(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i.i.i.i.i.i.i.i.i104)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !13
@@ -424,110 +373,110 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererEED2Ev.exi
   %mul.i.i.i.i.i.i.i.i109 = shl i64 %call3.i.i.i1.i6.i.i.i.i107, 1
   %mul4.i.i.i.i.i.i.i.i110 = mul i64 %call3.i.i.i1.i6.i.i.i.i107, 3
   %69 = load ptr, ptr %mat, align 8, !noalias !13
-  %m_data.i.i.i.i.i.i.i.i.i111 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MatrixOpData", ptr %69, i64 0, i32 1, i32 0, i32 3
+  %m_data.i.i.i.i.i.i.i.i.i111 = getelementptr inbounds i8, ptr %69, i64 192
   %70 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
   %71 = load double, ptr %70, align 8, !noalias !13
   %conv.i.i.i.i.i.i.i.i112 = fptrunc double %71 to float
-  %m_column1.i.i.i.i.i.i.i.i113 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %m_column1.i.i.i.i.i.i.i.i113 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 24
   store float %conv.i.i.i.i.i.i.i.i112, ptr %m_column1.i.i.i.i.i.i.i.i113, align 8, !noalias !13
   %72 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
   %add.ptr.i.i.i.i.i.i.i.i.i114 = getelementptr inbounds double, ptr %72, i64 %call3.i.i.i1.i6.i.i.i.i107
   %73 = load double, ptr %add.ptr.i.i.i.i.i.i.i.i.i114, align 8, !noalias !13
   %conv10.i.i.i.i.i.i.i.i115 = fptrunc double %73 to float
-  %arrayidx12.i.i.i.i.i.i.i.i116 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 12
+  %arrayidx12.i.i.i.i.i.i.i.i116 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 28
   store float %conv10.i.i.i.i.i.i.i.i115, ptr %arrayidx12.i.i.i.i.i.i.i.i116, align 4, !noalias !13
   %74 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
   %add.ptr.i29.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %74, i64 %mul.i.i.i.i.i.i.i.i109
   %75 = load double, ptr %add.ptr.i29.i.i.i.i.i.i.i.i, align 8, !noalias !13
   %conv14.i.i.i.i.i.i.i.i117 = fptrunc double %75 to float
-  %arrayidx16.i.i.i.i.i.i.i.i118 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %arrayidx16.i.i.i.i.i.i.i.i118 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 32
   store float %conv14.i.i.i.i.i.i.i.i117, ptr %arrayidx16.i.i.i.i.i.i.i.i118, align 8, !noalias !13
   %76 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
   %add.ptr.i30.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %76, i64 %mul4.i.i.i.i.i.i.i.i110
   %77 = load double, ptr %add.ptr.i30.i.i.i.i.i.i.i.i, align 8, !noalias !13
   %conv18.i.i.i.i.i.i.i.i119 = fptrunc double %77 to float
-  %arrayidx20.i.i.i.i.i.i.i.i120 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 20
+  %arrayidx20.i.i.i.i.i.i.i.i120 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 36
   store float %conv18.i.i.i.i.i.i.i.i119, ptr %arrayidx20.i.i.i.i.i.i.i.i120, align 4, !noalias !13
   %78 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
-  %add.ptr.i31.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %78, i64 1
+  %add.ptr.i31.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %78, i64 8
   %79 = load double, ptr %add.ptr.i31.i.i.i.i.i.i.i.i, align 8, !noalias !13
   %conv22.i.i.i.i.i.i.i.i121 = fptrunc double %79 to float
-  %m_column2.i.i.i.i.i.i.i.i122 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %m_column2.i.i.i.i.i.i.i.i122 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 40
   store float %conv22.i.i.i.i.i.i.i.i121, ptr %m_column2.i.i.i.i.i.i.i.i122, align 8, !noalias !13
   %80 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
   %81 = getelementptr double, ptr %80, i64 %call3.i.i.i1.i6.i.i.i.i107
-  %add.ptr.i32.i.i.i.i.i.i.i.i = getelementptr double, ptr %81, i64 1
+  %add.ptr.i32.i.i.i.i.i.i.i.i = getelementptr i8, ptr %81, i64 8
   %82 = load double, ptr %add.ptr.i32.i.i.i.i.i.i.i.i, align 8, !noalias !13
   %conv25.i.i.i.i.i.i.i.i123 = fptrunc double %82 to float
-  %arrayidx27.i.i.i.i.i.i.i.i124 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 28
+  %arrayidx27.i.i.i.i.i.i.i.i124 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 44
   store float %conv25.i.i.i.i.i.i.i.i123, ptr %arrayidx27.i.i.i.i.i.i.i.i124, align 4, !noalias !13
   %add28.i.i.i.i.i.i.i.i125 = or disjoint i64 %mul.i.i.i.i.i.i.i.i109, 1
   %83 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
   %add.ptr.i33.i.i.i.i.i.i.i.i126 = getelementptr inbounds double, ptr %83, i64 %add28.i.i.i.i.i.i.i.i125
   %84 = load double, ptr %add.ptr.i33.i.i.i.i.i.i.i.i126, align 8, !noalias !13
   %conv30.i.i.i.i.i.i.i.i127 = fptrunc double %84 to float
-  %arrayidx32.i.i.i.i.i.i.i.i128 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
+  %arrayidx32.i.i.i.i.i.i.i.i128 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 48
   store float %conv30.i.i.i.i.i.i.i.i127, ptr %arrayidx32.i.i.i.i.i.i.i.i128, align 8, !noalias !13
   %85 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
   %86 = getelementptr double, ptr %85, i64 %mul4.i.i.i.i.i.i.i.i110
-  %add.ptr.i34.i.i.i.i.i.i.i.i129 = getelementptr double, ptr %86, i64 1
+  %add.ptr.i34.i.i.i.i.i.i.i.i129 = getelementptr i8, ptr %86, i64 8
   %87 = load double, ptr %add.ptr.i34.i.i.i.i.i.i.i.i129, align 8, !noalias !13
   %conv35.i.i.i.i.i.i.i.i130 = fptrunc double %87 to float
-  %arrayidx37.i.i.i.i.i.i.i.i131 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 36
+  %arrayidx37.i.i.i.i.i.i.i.i131 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 52
   store float %conv35.i.i.i.i.i.i.i.i130, ptr %arrayidx37.i.i.i.i.i.i.i.i131, align 4, !noalias !13
   %88 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
-  %add.ptr.i35.i.i.i.i.i.i.i.i132 = getelementptr inbounds double, ptr %88, i64 2
+  %add.ptr.i35.i.i.i.i.i.i.i.i132 = getelementptr inbounds i8, ptr %88, i64 16
   %89 = load double, ptr %add.ptr.i35.i.i.i.i.i.i.i.i132, align 8, !noalias !13
   %conv39.i.i.i.i.i.i.i.i133 = fptrunc double %89 to float
-  %m_column3.i.i.i.i.i.i.i.i134 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
+  %m_column3.i.i.i.i.i.i.i.i134 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 56
   store float %conv39.i.i.i.i.i.i.i.i133, ptr %m_column3.i.i.i.i.i.i.i.i134, align 8, !noalias !13
   %90 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
   %91 = getelementptr double, ptr %90, i64 %call3.i.i.i1.i6.i.i.i.i107
-  %add.ptr.i36.i.i.i.i.i.i.i.i135 = getelementptr double, ptr %91, i64 2
+  %add.ptr.i36.i.i.i.i.i.i.i.i135 = getelementptr i8, ptr %91, i64 16
   %92 = load double, ptr %add.ptr.i36.i.i.i.i.i.i.i.i135, align 8, !noalias !13
   %conv43.i.i.i.i.i.i.i.i136 = fptrunc double %92 to float
-  %arrayidx45.i.i.i.i.i.i.i.i137 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 44
+  %arrayidx45.i.i.i.i.i.i.i.i137 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 60
   store float %conv43.i.i.i.i.i.i.i.i136, ptr %arrayidx45.i.i.i.i.i.i.i.i137, align 4, !noalias !13
   %93 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
   %94 = getelementptr double, ptr %93, i64 %mul.i.i.i.i.i.i.i.i109
-  %add.ptr.i37.i.i.i.i.i.i.i.i138 = getelementptr double, ptr %94, i64 2
+  %add.ptr.i37.i.i.i.i.i.i.i.i138 = getelementptr i8, ptr %94, i64 16
   %95 = load double, ptr %add.ptr.i37.i.i.i.i.i.i.i.i138, align 8, !noalias !13
   %conv48.i.i.i.i.i.i.i.i139 = fptrunc double %95 to float
-  %arrayidx50.i.i.i.i.i.i.i.i140 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %arrayidx50.i.i.i.i.i.i.i.i140 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 64
   store float %conv48.i.i.i.i.i.i.i.i139, ptr %arrayidx50.i.i.i.i.i.i.i.i140, align 8, !noalias !13
   %96 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
   %97 = getelementptr double, ptr %96, i64 %mul4.i.i.i.i.i.i.i.i110
-  %add.ptr.i38.i.i.i.i.i.i.i.i141 = getelementptr double, ptr %97, i64 2
+  %add.ptr.i38.i.i.i.i.i.i.i.i141 = getelementptr i8, ptr %97, i64 16
   %98 = load double, ptr %add.ptr.i38.i.i.i.i.i.i.i.i141, align 8, !noalias !13
   %conv53.i.i.i.i.i.i.i.i142 = fptrunc double %98 to float
-  %arrayidx55.i.i.i.i.i.i.i.i143 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 52
+  %arrayidx55.i.i.i.i.i.i.i.i143 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 68
   store float %conv53.i.i.i.i.i.i.i.i142, ptr %arrayidx55.i.i.i.i.i.i.i.i143, align 4, !noalias !13
   %99 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
-  %add.ptr.i39.i.i.i.i.i.i.i.i144 = getelementptr inbounds double, ptr %99, i64 3
+  %add.ptr.i39.i.i.i.i.i.i.i.i144 = getelementptr inbounds i8, ptr %99, i64 24
   %100 = load double, ptr %add.ptr.i39.i.i.i.i.i.i.i.i144, align 8, !noalias !13
   %conv57.i.i.i.i.i.i.i.i145 = fptrunc double %100 to float
-  %m_column4.i.i.i.i.i.i.i.i146 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
+  %m_column4.i.i.i.i.i.i.i.i146 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 72
   store float %conv57.i.i.i.i.i.i.i.i145, ptr %m_column4.i.i.i.i.i.i.i.i146, align 8, !noalias !13
   %101 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
   %102 = getelementptr double, ptr %101, i64 %call3.i.i.i1.i6.i.i.i.i107
-  %add.ptr.i40.i.i.i.i.i.i.i.i147 = getelementptr double, ptr %102, i64 3
+  %add.ptr.i40.i.i.i.i.i.i.i.i147 = getelementptr i8, ptr %102, i64 24
   %103 = load double, ptr %add.ptr.i40.i.i.i.i.i.i.i.i147, align 8, !noalias !13
   %conv61.i.i.i.i.i.i.i.i148 = fptrunc double %103 to float
-  %arrayidx63.i.i.i.i.i.i.i.i149 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 60
+  %arrayidx63.i.i.i.i.i.i.i.i149 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 76
   store float %conv61.i.i.i.i.i.i.i.i148, ptr %arrayidx63.i.i.i.i.i.i.i.i149, align 4, !noalias !13
   %104 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
   %105 = getelementptr double, ptr %104, i64 %mul.i.i.i.i.i.i.i.i109
-  %add.ptr.i41.i.i.i.i.i.i.i.i150 = getelementptr double, ptr %105, i64 3
+  %add.ptr.i41.i.i.i.i.i.i.i.i150 = getelementptr i8, ptr %105, i64 24
   %106 = load double, ptr %add.ptr.i41.i.i.i.i.i.i.i.i150, align 8, !noalias !13
   %conv66.i.i.i.i.i.i.i.i151 = fptrunc double %106 to float
-  %arrayidx68.i.i.i.i.i.i.i.i152 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 64
+  %arrayidx68.i.i.i.i.i.i.i.i152 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 80
   store float %conv66.i.i.i.i.i.i.i.i151, ptr %arrayidx68.i.i.i.i.i.i.i.i152, align 8, !noalias !13
   %107 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i.i111, align 8, !noalias !13
   %108 = getelementptr double, ptr %107, i64 %mul4.i.i.i.i.i.i.i.i110
-  %add.ptr.i42.i.i.i.i.i.i.i.i153 = getelementptr double, ptr %108, i64 3
+  %add.ptr.i42.i.i.i.i.i.i.i.i153 = getelementptr i8, ptr %108, i64 24
   %109 = load double, ptr %add.ptr.i42.i.i.i.i.i.i.i.i153, align 8, !noalias !13
   %conv71.i.i.i.i.i.i.i.i154 = fptrunc double %109 to float
-  %arrayidx73.i.i.i.i.i.i.i.i155 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %call5.i.i.i5.i.i.i.i100, i64 0, i32 1, i32 0, i32 0, i32 0, i64 68
+  %arrayidx73.i.i.i.i.i.i.i.i155 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i100, i64 84
   store float %conv71.i.i.i.i.i.i.i.i154, ptr %arrayidx73.i.i.i.i.i.i.i.i155, align 4, !noalias !13
   br label %return
 
@@ -535,7 +484,7 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
   %_M_impl.i.i.i.i.i.i103.sink = phi ptr [ %_M_impl.i.i.i.i.i.i103, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i56, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i14, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererEED2Ev.exit ]
   %call5.i.i.i5.i.i.i.i100.sink = phi ptr [ %call5.i.i.i5.i.i.i.i100, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i53, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i11, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererEED2Ev.exit ]
   store ptr %_M_impl.i.i.i.i.i.i103.sink, ptr %agg.result, align 8
-  %_M_refcount.i.i156 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i156 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i5.i.i.i.i100.sink, ptr %_M_refcount.i.i156, align 8
   ret void
 }
@@ -576,7 +525,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i) #15
@@ -593,12 +542,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_123ScaleWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #7 align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -642,14 +591,14 @@ entry:
   br i1 %cmp10, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_scale = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this, i64 0, i32 1
-  %m_offset = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this, i64 0, i32 2
-  %arrayidx7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this, i64 0, i32 1, i64 1
-  %arrayidx9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this, i64 0, i32 2, i64 1
-  %arrayidx13 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this, i64 0, i32 1, i64 2
-  %arrayidx15 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this, i64 0, i32 2, i64 2
-  %arrayidx19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this, i64 0, i32 1, i64 3
-  %arrayidx21 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleWithOffsetRenderer", ptr %this, i64 0, i32 2, i64 3
+  %m_scale = getelementptr inbounds i8, ptr %this, i64 8
+  %m_offset = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx13 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx19 = getelementptr inbounds i8, ptr %this, i64 20
+  %arrayidx21 = getelementptr inbounds i8, ptr %this, i64 36
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -661,29 +610,29 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = load float, ptr %m_offset, align 8
   %3 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %2)
   store float %3, ptr %out.012, align 4
-  %arrayidx5 = getelementptr inbounds float, ptr %in.011, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.011, i64 4
   %4 = load float, ptr %arrayidx5, align 4
   %5 = load float, ptr %arrayidx7, align 4
   %6 = load float, ptr %arrayidx9, align 4
   %7 = tail call float @llvm.fmuladd.f32(float %4, float %5, float %6)
-  %arrayidx10 = getelementptr inbounds float, ptr %out.012, i64 1
+  %arrayidx10 = getelementptr inbounds i8, ptr %out.012, i64 4
   store float %7, ptr %arrayidx10, align 4
-  %arrayidx11 = getelementptr inbounds float, ptr %in.011, i64 2
+  %arrayidx11 = getelementptr inbounds i8, ptr %in.011, i64 8
   %8 = load float, ptr %arrayidx11, align 4
   %9 = load float, ptr %arrayidx13, align 8
   %10 = load float, ptr %arrayidx15, align 8
   %11 = tail call float @llvm.fmuladd.f32(float %8, float %9, float %10)
-  %arrayidx16 = getelementptr inbounds float, ptr %out.012, i64 2
+  %arrayidx16 = getelementptr inbounds i8, ptr %out.012, i64 8
   store float %11, ptr %arrayidx16, align 4
-  %arrayidx17 = getelementptr inbounds float, ptr %in.011, i64 3
+  %arrayidx17 = getelementptr inbounds i8, ptr %in.011, i64 12
   %12 = load float, ptr %arrayidx17, align 4
   %13 = load float, ptr %arrayidx19, align 4
   %14 = load float, ptr %arrayidx21, align 4
   %15 = tail call float @llvm.fmuladd.f32(float %12, float %13, float %14)
-  %arrayidx22 = getelementptr inbounds float, ptr %out.012, i64 3
+  %arrayidx22 = getelementptr inbounds i8, ptr %out.012, i64 12
   store float %15, ptr %arrayidx22, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.011, i64 4
-  %add.ptr23 = getelementptr inbounds float, ptr %out.012, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.011, i64 16
+  %add.ptr23 = getelementptr inbounds i8, ptr %out.012, i64 16
   %inc = add nuw nsw i64 %idx.013, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
@@ -723,7 +672,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.37", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #15
@@ -740,12 +689,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113ScaleRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #7 align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.37", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -789,10 +738,10 @@ entry:
   br i1 %cmp10, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_scale = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleRenderer", ptr %this, i64 0, i32 1
-  %arrayidx6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleRenderer", ptr %this, i64 0, i32 1, i64 1
-  %arrayidx11 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleRenderer", ptr %this, i64 0, i32 1, i64 2
-  %arrayidx16 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::ScaleRenderer", ptr %this, i64 0, i32 1, i64 3
+  %m_scale = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx11 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx16 = getelementptr inbounds i8, ptr %this, i64 20
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -803,26 +752,26 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load float, ptr %m_scale, align 8
   %mul = fmul float %0, %1
   store float %mul, ptr %out.012, align 4
-  %arrayidx4 = getelementptr inbounds float, ptr %in.011, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %in.011, i64 4
   %2 = load float, ptr %arrayidx4, align 4
   %3 = load float, ptr %arrayidx6, align 4
   %mul7 = fmul float %2, %3
-  %arrayidx8 = getelementptr inbounds float, ptr %out.012, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.012, i64 4
   store float %mul7, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds float, ptr %in.011, i64 2
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.011, i64 8
   %4 = load float, ptr %arrayidx9, align 4
   %5 = load float, ptr %arrayidx11, align 8
   %mul12 = fmul float %4, %5
-  %arrayidx13 = getelementptr inbounds float, ptr %out.012, i64 2
+  %arrayidx13 = getelementptr inbounds i8, ptr %out.012, i64 8
   store float %mul12, ptr %arrayidx13, align 4
-  %arrayidx14 = getelementptr inbounds float, ptr %in.011, i64 3
+  %arrayidx14 = getelementptr inbounds i8, ptr %in.011, i64 12
   %6 = load float, ptr %arrayidx14, align 4
   %7 = load float, ptr %arrayidx16, align 4
   %mul17 = fmul float %6, %7
-  %arrayidx18 = getelementptr inbounds float, ptr %out.012, i64 3
+  %arrayidx18 = getelementptr inbounds i8, ptr %out.012, i64 12
   store float %mul17, ptr %arrayidx18, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.011, i64 4
-  %add.ptr19 = getelementptr inbounds float, ptr %out.012, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.011, i64 16
+  %add.ptr19 = getelementptr inbounds i8, ptr %out.012, i64 16
   %inc = add nuw nsw i64 %idx.013, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
@@ -847,7 +796,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i) #15
@@ -864,12 +813,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(104) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #7 align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.45", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -909,42 +858,42 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124MatrixWithOffsetRenderer5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #13 align 2 {
 entry:
-  %m_column1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 1
-  %arrayidx3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 1, i64 2
+  %m_column1 = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <4 x float>, ptr %arrayidx3, align 8
-  %arrayidx5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load float, ptr %arrayidx5, align 4
   %2 = load <4 x float>, ptr %m_column1, align 8
   %vecinit1.i114 = insertelement <4 x float> %2, float %1, i64 1
   %vecinit3.i11628 = shufflevector <4 x float> %vecinit1.i114, <4 x float> %0, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %m_column2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 2
-  %arrayidx10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 2, i64 2
+  %m_column2 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load <4 x float>, ptr %arrayidx10, align 8
-  %arrayidx12 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 2, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 28
   %4 = load float, ptr %arrayidx12, align 4
   %5 = load <4 x float>, ptr %m_column2, align 8
   %vecinit1.i105 = insertelement <4 x float> %5, float %4, i64 1
   %vecinit3.i10727 = shufflevector <4 x float> %vecinit1.i105, <4 x float> %3, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %m_column3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 3
-  %arrayidx18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 3, i64 2
+  %m_column3 = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx18 = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load <4 x float>, ptr %arrayidx18, align 8
-  %arrayidx20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 3, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 44
   %7 = load float, ptr %arrayidx20, align 4
   %8 = load <4 x float>, ptr %m_column3, align 8
   %vecinit1.i96 = insertelement <4 x float> %8, float %7, i64 1
   %vecinit3.i9826 = shufflevector <4 x float> %vecinit1.i96, <4 x float> %6, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %m_column4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 4
-  %arrayidx26 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 4, i64 2
+  %m_column4 = getelementptr inbounds i8, ptr %this, i64 56
+  %arrayidx26 = getelementptr inbounds i8, ptr %this, i64 64
   %9 = load <4 x float>, ptr %arrayidx26, align 8
-  %arrayidx28 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 4, i64 1
+  %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 60
   %10 = load float, ptr %arrayidx28, align 4
   %11 = load <4 x float>, ptr %m_column4, align 8
   %vecinit1.i87 = insertelement <4 x float> %11, float %10, i64 1
   %vecinit3.i8925 = shufflevector <4 x float> %vecinit1.i87, <4 x float> %9, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %m_offset = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 5
-  %arrayidx34 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 5, i64 2
+  %m_offset = getelementptr inbounds i8, ptr %this, i64 72
+  %arrayidx34 = getelementptr inbounds i8, ptr %this, i64 80
   %12 = load <2 x float>, ptr %arrayidx34, align 8
-  %arrayidx36 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixWithOffsetRenderer", ptr %this, i64 0, i32 5, i64 1
+  %arrayidx36 = getelementptr inbounds i8, ptr %this, i64 76
   %13 = load float, ptr %arrayidx36, align 4
   %14 = load <4 x float>, ptr %m_offset, align 8
   %vecinit1.i78 = insertelement <4 x float> %14, float %13, i64 1
@@ -960,15 +909,15 @@ for.body:                                         ; preds = %entry, %for.body
   %16 = load float, ptr %in.023, align 4
   %vecinit.i71 = insertelement <4 x float> poison, float %16, i64 0
   %vecinit3.i74 = shufflevector <4 x float> %vecinit.i71, <4 x float> poison, <4 x i32> zeroinitializer
-  %arrayidx42 = getelementptr inbounds float, ptr %in.023, i64 1
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 4
   %17 = load float, ptr %arrayidx42, align 4
   %vecinit.i65 = insertelement <4 x float> poison, float %17, i64 0
   %vecinit3.i68 = shufflevector <4 x float> %vecinit.i65, <4 x float> poison, <4 x i32> zeroinitializer
-  %arrayidx44 = getelementptr inbounds float, ptr %in.023, i64 2
+  %arrayidx44 = getelementptr inbounds i8, ptr %in.023, i64 8
   %18 = load float, ptr %arrayidx44, align 4
   %vecinit.i59 = insertelement <4 x float> poison, float %18, i64 0
   %vecinit3.i62 = shufflevector <4 x float> %vecinit.i59, <4 x float> poison, <4 x i32> zeroinitializer
-  %arrayidx46 = getelementptr inbounds float, ptr %in.023, i64 3
+  %arrayidx46 = getelementptr inbounds i8, ptr %in.023, i64 12
   %19 = load float, ptr %arrayidx46, align 4
   %vecinit.i = insertelement <4 x float> poison, float %19, i64 0
   %vecinit3.i = shufflevector <4 x float> %vecinit.i, <4 x float> poison, <4 x i32> zeroinitializer
@@ -981,8 +930,8 @@ for.body:                                         ; preds = %entry, %for.body
   %add.i130 = fadd <4 x float> %add.i136, %add.i133
   %add.i = fadd <4 x float> %vecinit3.i8024, %add.i130
   store <4 x float> %add.i, ptr %out.022, align 1
-  %add.ptr = getelementptr inbounds float, ptr %in.023, i64 4
-  %add.ptr56 = getelementptr inbounds float, ptr %out.022, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 16
+  %add.ptr56 = getelementptr inbounds i8, ptr %out.022, i64 16
   %inc = add nuw nsw i64 %idx.021, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
@@ -1007,7 +956,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(72) %_M_impl.i) #15
@@ -1024,12 +973,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(88) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #7 align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.53", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -1069,34 +1018,34 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixRenderer5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #13 align 2 {
 entry:
-  %m_column1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this, i64 0, i32 1
-  %arrayidx3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this, i64 0, i32 1, i64 2
+  %m_column1 = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <4 x float>, ptr %arrayidx3, align 8
-  %arrayidx5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load float, ptr %arrayidx5, align 4
   %2 = load <4 x float>, ptr %m_column1, align 8
   %vecinit1.i96 = insertelement <4 x float> %2, float %1, i64 1
   %vecinit3.i9826 = shufflevector <4 x float> %vecinit1.i96, <4 x float> %0, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %m_column2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this, i64 0, i32 2
-  %arrayidx10 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this, i64 0, i32 2, i64 2
+  %m_column2 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load <4 x float>, ptr %arrayidx10, align 8
-  %arrayidx12 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this, i64 0, i32 2, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 28
   %4 = load float, ptr %arrayidx12, align 4
   %5 = load <4 x float>, ptr %m_column2, align 8
   %vecinit1.i87 = insertelement <4 x float> %5, float %4, i64 1
   %vecinit3.i8925 = shufflevector <4 x float> %vecinit1.i87, <4 x float> %3, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %m_column3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this, i64 0, i32 3
-  %arrayidx18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this, i64 0, i32 3, i64 2
+  %m_column3 = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx18 = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load <4 x float>, ptr %arrayidx18, align 8
-  %arrayidx20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this, i64 0, i32 3, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 44
   %7 = load float, ptr %arrayidx20, align 4
   %8 = load <4 x float>, ptr %m_column3, align 8
   %vecinit1.i78 = insertelement <4 x float> %8, float %7, i64 1
   %vecinit3.i8024 = shufflevector <4 x float> %vecinit1.i78, <4 x float> %6, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %m_column4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this, i64 0, i32 4
-  %arrayidx26 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this, i64 0, i32 4, i64 2
+  %m_column4 = getelementptr inbounds i8, ptr %this, i64 56
+  %arrayidx26 = getelementptr inbounds i8, ptr %this, i64 64
   %9 = load <2 x float>, ptr %arrayidx26, align 8
-  %arrayidx28 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::MatrixRenderer", ptr %this, i64 0, i32 4, i64 1
+  %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 60
   %10 = load float, ptr %arrayidx28, align 4
   %11 = load <4 x float>, ptr %m_column4, align 8
   %vecinit1.i69 = insertelement <4 x float> %11, float %10, i64 1
@@ -1112,15 +1061,15 @@ for.body:                                         ; preds = %entry, %for.body
   %13 = load float, ptr %in.022, align 4
   %vecinit.i62 = insertelement <4 x float> poison, float %13, i64 0
   %vecinit3.i65 = shufflevector <4 x float> %vecinit.i62, <4 x float> poison, <4 x i32> zeroinitializer
-  %arrayidx34 = getelementptr inbounds float, ptr %in.022, i64 1
+  %arrayidx34 = getelementptr inbounds i8, ptr %in.022, i64 4
   %14 = load float, ptr %arrayidx34, align 4
   %vecinit.i56 = insertelement <4 x float> poison, float %14, i64 0
   %vecinit3.i59 = shufflevector <4 x float> %vecinit.i56, <4 x float> poison, <4 x i32> zeroinitializer
-  %arrayidx36 = getelementptr inbounds float, ptr %in.022, i64 2
+  %arrayidx36 = getelementptr inbounds i8, ptr %in.022, i64 8
   %15 = load float, ptr %arrayidx36, align 4
   %vecinit.i50 = insertelement <4 x float> poison, float %15, i64 0
   %vecinit3.i53 = shufflevector <4 x float> %vecinit.i50, <4 x float> poison, <4 x i32> zeroinitializer
-  %arrayidx38 = getelementptr inbounds float, ptr %in.022, i64 3
+  %arrayidx38 = getelementptr inbounds i8, ptr %in.022, i64 12
   %16 = load float, ptr %arrayidx38, align 4
   %vecinit.i = insertelement <4 x float> poison, float %16, i64 0
   %vecinit3.i = shufflevector <4 x float> %vecinit.i, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1132,8 +1081,8 @@ for.body:                                         ; preds = %entry, %for.body
   %add.i112 = fadd <4 x float> %mul.i101, %mul.i
   %add.i = fadd <4 x float> %add.i115, %add.i112
   store <4 x float> %add.i, ptr %out.021, align 1
-  %add.ptr = getelementptr inbounds float, ptr %in.022, i64 4
-  %add.ptr47 = getelementptr inbounds float, ptr %out.021, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.022, i64 16
+  %add.ptr47 = getelementptr inbounds i8, ptr %out.021, i64 16
   %inc = add nuw nsw i64 %idx.020, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20

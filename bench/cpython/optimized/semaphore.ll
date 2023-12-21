@@ -13,10 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._PyOnceFlag = type { i8 }
 %struct._longobject = type { %struct._object, %struct._PyLongValue }
 %struct._PyLongValue = type { i64, [1 x i32] }
-%struct.SemLockObject = type { %struct._object, ptr, i64, i32, i32, i32, ptr }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct.PyVarObject = type { %struct._object, i64 }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
 %struct.timespec = type { i64, i64 }
 %struct.timeval = type { i64, i64 }
 
@@ -101,7 +97,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #11
-  %handle = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %handle, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -111,10 +107,10 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %name = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %self, i64 48
   %2 = load ptr, ptr %name, align 8
   tail call void @PyMem_Free(ptr noundef %2) #11
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %3 = load ptr, ptr %tp_free, align 8
   tail call void %3(ptr noundef nonnull %self) #11
   %4 = load i64, ptr %self.val, align 8
@@ -154,7 +150,7 @@ entry:
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   %cmp3 = icmp slt i64 %args.val, 6
   %or.cond1 = select i1 %or.cond, i1 %cmp3, i1 false
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end
 
 cond.end:                                         ; preds = %entry
@@ -175,7 +171,7 @@ land.lhs.true14:                                  ; preds = %if.end
   br i1 %tobool16.not, label %if.end18, label %exit
 
 if.end18:                                         ; preds = %land.lhs.true14, %if.end
-  %arrayidx19 = getelementptr ptr, ptr %cond24, i64 1
+  %arrayidx19 = getelementptr i8, ptr %cond24, i64 8
   %2 = load ptr, ptr %arrayidx19, align 8
   %call20 = call i32 @PyLong_AsInt(ptr noundef %2) #11
   %cmp21 = icmp eq i32 %call20, -1
@@ -187,7 +183,7 @@ land.lhs.true22:                                  ; preds = %if.end18
   br i1 %tobool24.not, label %if.end26, label %exit
 
 if.end26:                                         ; preds = %land.lhs.true22, %if.end18
-  %arrayidx27 = getelementptr ptr, ptr %cond24, i64 2
+  %arrayidx27 = getelementptr i8, ptr %cond24, i64 16
   %3 = load ptr, ptr %arrayidx27, align 8
   %call28 = call i32 @PyLong_AsInt(ptr noundef %3) #11
   %cmp29 = icmp eq i32 %call28, -1
@@ -199,7 +195,7 @@ land.lhs.true30:                                  ; preds = %if.end26
   br i1 %tobool32.not, label %if.end34, label %exit
 
 if.end34:                                         ; preds = %land.lhs.true30, %if.end26
-  %arrayidx35 = getelementptr ptr, ptr %cond24, i64 3
+  %arrayidx35 = getelementptr i8, ptr %cond24, i64 24
   %4 = load ptr, ptr %arrayidx35, align 8
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8
@@ -230,7 +226,7 @@ if.then49:                                        ; preds = %if.end46
   br label %exit
 
 if.end50:                                         ; preds = %if.end46
-  %arrayidx51 = getelementptr ptr, ptr %cond24, i64 4
+  %arrayidx51 = getelementptr i8, ptr %cond24, i64 32
   %10 = load ptr, ptr %arrayidx51, align 8
   %call52 = call i32 @PyObject_IsTrue(ptr noundef %10) #11
   %cmp53 = icmp slt i32 %call52, 0
@@ -279,24 +275,24 @@ land.lhs.true15.i:                                ; preds = %if.end9.thread.i
 if.end19.i:                                       ; preds = %land.lhs.true15.i, %if.end9.i
   %name_copy.01731.i = phi ptr [ null, %land.lhs.true15.i ], [ %call3.i, %if.end9.i ]
   %call101929.i = phi ptr [ %call1015.i, %land.lhs.true15.i ], [ %call10.i, %if.end9.i ]
-  %tp_alloc.i.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i.i = getelementptr inbounds i8, ptr %type, i64 304
   %12 = load ptr, ptr %tp_alloc.i.i, align 8
   %call.i.i = call ptr %12(ptr noundef %type, i64 noundef 0) #11
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %failure.i, label %newsemlockobject.exit.i
 
 newsemlockobject.exit.i:                          ; preds = %if.end19.i
-  %handle1.i.i = getelementptr inbounds %struct.SemLockObject, ptr %call.i.i, i64 0, i32 1
+  %handle1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %call101929.i, ptr %handle1.i.i, align 8
-  %kind2.i.i = getelementptr inbounds %struct.SemLockObject, ptr %call.i.i, i64 0, i32 5
+  %kind2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store i32 %call12, ptr %kind2.i.i, align 8
-  %count.i.i = getelementptr inbounds %struct.SemLockObject, ptr %call.i.i, i64 0, i32 3
+  %count.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i32 0, ptr %count.i.i, align 8
-  %last_tid.i.i = getelementptr inbounds %struct.SemLockObject, ptr %call.i.i, i64 0, i32 2
+  %last_tid.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i64 0, ptr %last_tid.i.i, align 8
-  %maxvalue3.i.i = getelementptr inbounds %struct.SemLockObject, ptr %call.i.i, i64 0, i32 4
+  %maxvalue3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 36
   store i32 %call28, ptr %maxvalue3.i.i, align 4
-  %name4.i.i = getelementptr inbounds %struct.SemLockObject, ptr %call.i.i, i64 0, i32 6
+  %name4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
   store ptr %name_copy.01731.i, ptr %name4.i.i, align 8
   br label %exit
 
@@ -407,7 +403,7 @@ if.end21:                                         ; preds = %if.then16
 
 if.end25:                                         ; preds = %if.end21, %if.end14
   %blocking.0 = phi i32 [ %call18, %if.end21 ], [ 1, %if.end14 ]
-  %arrayidx26 = getelementptr ptr, ptr %cond1028, i64 1
+  %arrayidx26 = getelementptr i8, ptr %cond1028, i64 8
   %4 = load ptr, ptr %arrayidx26, align 8
   br label %skip_optional_pos
 
@@ -469,14 +465,14 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @_multiprocessing_SemLock__is_mine(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %count.i = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 3
+  %count.i = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i32, ptr %count.i, align 8
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %land.rhs.i, label %_multiprocessing_SemLock__is_mine_impl.exit
 
 land.rhs.i:                                       ; preds = %entry
   %call.i = tail call i64 @PyThread_get_thread_ident() #11
-  %last_tid.i = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 2
+  %last_tid.i = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i64, ptr %last_tid.i, align 8
   %cmp1.i = icmp eq i64 %call.i, %1
   %2 = zext i1 %cmp1.i to i64
@@ -597,24 +593,24 @@ if.then11.i:                                      ; preds = %if.then8.i
 if.end14.i:                                       ; preds = %if.then8.i, %if.end
   %name_copy.010.i = phi ptr [ %call1.i, %if.then8.i ], [ null, %if.end ]
   %handle.addr.0.i = phi ptr [ %call9.i, %if.then8.i ], [ %0, %if.end ]
-  %tp_alloc.i.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i.i = getelementptr inbounds i8, ptr %type, i64 304
   %5 = load ptr, ptr %tp_alloc.i.i, align 8
   %call.i.i = call ptr %5(ptr noundef %type, i64 noundef 0) #11
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end14.i
-  %handle1.i.i = getelementptr inbounds %struct.SemLockObject, ptr %call.i.i, i64 0, i32 1
+  %handle1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %handle.addr.0.i, ptr %handle1.i.i, align 8
-  %kind2.i.i = getelementptr inbounds %struct.SemLockObject, ptr %call.i.i, i64 0, i32 5
+  %kind2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store i32 %1, ptr %kind2.i.i, align 8
-  %count.i.i = getelementptr inbounds %struct.SemLockObject, ptr %call.i.i, i64 0, i32 3
+  %count.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i32 0, ptr %count.i.i, align 8
-  %last_tid.i.i = getelementptr inbounds %struct.SemLockObject, ptr %call.i.i, i64 0, i32 2
+  %last_tid.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i64 0, ptr %last_tid.i.i, align 8
-  %maxvalue3.i.i = getelementptr inbounds %struct.SemLockObject, ptr %call.i.i, i64 0, i32 4
+  %maxvalue3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 36
   store i32 %2, ptr %maxvalue3.i.i, align 4
-  %name4.i.i = getelementptr inbounds %struct.SemLockObject, ptr %call.i.i, i64 0, i32 6
+  %name4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
   store ptr %name_copy.010.i, ptr %name4.i.i, align 8
   br label %exit
 
@@ -626,7 +622,7 @@ exit:                                             ; preds = %if.end.i.i, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal nonnull ptr @_multiprocessing_SemLock__after_fork(ptr nocapture noundef writeonly %self, ptr nocapture readnone %_unused_ignored) #3 {
 entry:
-  %count.i = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 3
+  %count.i = getelementptr inbounds i8, ptr %self, i64 32
   store i32 0, ptr %count.i, align 8
   ret ptr @_Py_NoneStruct
 }
@@ -641,20 +637,20 @@ entry:
   %deadline = alloca %struct.timespec, align 8
   %now = alloca %struct.timeval, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %deadline, i8 0, i64 16, i1 false)
-  %kind = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 5
+  %kind = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load i32, ptr %kind, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %count = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 3
+  %count = getelementptr inbounds i8, ptr %self, i64 32
   %1 = load i32, ptr %count, align 8
   %cmp1 = icmp sgt i32 %1, 0
   br i1 %cmp1, label %land.lhs.true2, label %if.end
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
   %call = tail call i64 @PyThread_get_thread_ident() #11
-  %last_tid = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 2
+  %last_tid = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %last_tid, align 8
   %cmp3 = icmp eq i64 %call, %2
   br i1 %cmp3, label %if.then, label %if.end
@@ -695,11 +691,11 @@ if.end21:                                         ; preds = %if.end11
   %conv24 = fptosi double %5 to i64
   %6 = load i64, ptr %now, align 8
   %add = add i64 %6, %conv22
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %now, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %now, i64 8
   %7 = load i64, ptr %tv_usec, align 8
   %mul = mul i64 %7, 1000
   %add26 = add i64 %mul, %conv24
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %deadline, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %deadline, i64 8
   %div = sdiv i64 %add26, 1000000000
   %add29 = add i64 %div, %add
   store i64 %add29, ptr %deadline, align 8
@@ -708,7 +704,7 @@ if.end21:                                         ; preds = %if.end11
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end21, %if.end
-  %handle = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %self, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end31
@@ -806,12 +802,12 @@ if.else96:                                        ; preds = %if.then82
   br label %return
 
 if.end98:                                         ; preds = %do.end, %if.end79
-  %count99 = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 3
+  %count99 = getelementptr inbounds i8, ptr %self, i64 32
   %15 = load i32, ptr %count99, align 8
   %inc100 = add i32 %15, 1
   store i32 %inc100, ptr %count99, align 8
   %call101 = call i64 @PyThread_get_thread_ident() #11
-  %last_tid102 = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 2
+  %last_tid102 = getelementptr inbounds i8, ptr %self, i64 24
   store i64 %call101, ptr %last_tid102, align 8
   br label %return
 
@@ -857,20 +853,20 @@ declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #2
 define internal fastcc ptr @_multiprocessing_SemLock_release_impl(ptr nocapture noundef %self) unnamed_addr #0 {
 entry:
   %sval = alloca i32, align 4
-  %kind = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 5
+  %kind = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load i32, ptr %kind, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %count = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 3
+  %count = getelementptr inbounds i8, ptr %self, i64 32
   %1 = load i32, ptr %count, align 8
   %cmp1 = icmp sgt i32 %1, 0
   br i1 %cmp1, label %land.lhs.true, label %if.then3
 
 land.lhs.true:                                    ; preds = %if.then
   %call = tail call i64 @PyThread_get_thread_ident() #11
-  %last_tid = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 2
+  %last_tid = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %last_tid, align 8
   %cmp2 = icmp eq i64 %call, %2
   br i1 %cmp2, label %if.end, label %if.then3
@@ -891,7 +887,7 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %entry
-  %handle = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %self, i64 16
   %5 = load ptr, ptr %handle, align 8
   %call9 = call i32 @sem_getvalue(ptr noundef %5, ptr noundef nonnull %sval) #11
   %cmp10 = icmp slt i32 %call9, 0
@@ -904,7 +900,7 @@ if.then11:                                        ; preds = %if.else
 
 if.else13:                                        ; preds = %if.else
   %7 = load i32, ptr %sval, align 4
-  %maxvalue = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 4
+  %maxvalue = getelementptr inbounds i8, ptr %self, i64 36
   %8 = load i32, ptr %maxvalue, align 4
   %cmp14.not = icmp slt i32 %7, %8
   br i1 %cmp14.not, label %if.end18, label %if.then15
@@ -915,7 +911,7 @@ if.then15:                                        ; preds = %if.else13
   br label %return
 
 if.end18:                                         ; preds = %if.else13, %if.end
-  %handle19 = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 1
+  %handle19 = getelementptr inbounds i8, ptr %self, i64 16
   %10 = load ptr, ptr %handle19, align 8
   %call20 = call i32 @sem_post(ptr noundef %10) #11
   %cmp21 = icmp slt i32 %call20, 0
@@ -927,7 +923,7 @@ if.then22:                                        ; preds = %if.end18
   br label %return
 
 if.end24:                                         ; preds = %if.end18
-  %count25 = getelementptr inbounds %struct.SemLockObject, ptr %self, i64 0, i32 3
+  %count25 = getelementptr inbounds i8, ptr %self, i64 32
   %12 = load i32, ptr %count25, align 8
   %dec26 = add i32 %12, -1
   store i32 %dec26, ptr %count25, align 8

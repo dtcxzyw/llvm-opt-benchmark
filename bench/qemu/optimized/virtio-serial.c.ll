@@ -5,13 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QPCIAddress = type { i32, i16, i16 }
 %struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
-%struct.QVirtioSerialDevice = type { %struct.QOSGraphObject, %struct.QVirtioSerial }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QVirtioSerial = type { ptr }
-%struct.QVirtioSerialPCI = type { %struct.QVirtioPCIDevice, %struct.QVirtioSerial }
-%struct.QVirtioPCIDevice = type { %struct.QOSGraphObject, %struct.QVirtioDevice, ptr, %struct.QPCIBar, ptr, i16, i64, i32, i32, i32, i32, i32, i32, i32 }
-%struct.QVirtioDevice = type { ptr, i16, i64, i8, i8 }
-%struct.QPCIBar = type { i64, i8 }
 
 @.str = private unnamed_addr constant [9 x i8] c"id=vser0\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"virtio-serial-device\00", align 1
@@ -44,7 +37,7 @@ entry:
   %edge_opts = alloca %struct.QOSGraphEdgeOptions, align 8
   store i64 32, ptr %addr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %edge_opts, i8 0, i64 48, i1 false)
-  %extra_device_opts = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %edge_opts, i64 0, i32 2
+  %extra_device_opts = getelementptr inbounds i8, ptr %edge_opts, i64 16
   store ptr @.str, ptr %extra_device_opts, align 8
   tail call void @qos_node_create_driver(ptr noundef nonnull @.str.1, ptr noundef nonnull @virtio_serial_device_create) #6
   call void @qos_node_consumes(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %edge_opts) #6
@@ -69,7 +62,7 @@ declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_add
 define internal noalias ptr @virtio_serial_device_create(ptr noundef %virtio_dev, ptr nocapture readnone %t_alloc, ptr nocapture readnone %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #7
-  %serial = getelementptr inbounds %struct.QVirtioSerialDevice, ptr %call, i64 0, i32 1
+  %serial = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %virtio_dev, ptr %serial, align 8
   store ptr @qvirtio_serial_device_get_driver, ptr %call, align 8
   ret ptr %call
@@ -85,9 +78,9 @@ declare void @add_qpci_address(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal ptr @virtio_serial_pci_create(ptr noundef %pci_bus, ptr nocapture readnone %t_alloc, ptr noundef %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(160) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 160) #7
-  %serial = getelementptr inbounds %struct.QVirtioSerialPCI, ptr %call, i64 0, i32 1
+  %serial = getelementptr inbounds i8, ptr %call, i64 152
   tail call void @virtio_pci_init(ptr noundef %call, ptr noundef %pci_bus, ptr noundef %addr) #6
-  %vdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %call, i64 0, i32 1
+  %vdev = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %vdev, ptr %serial, align 8
   store ptr @qvirtio_serial_pci_get_driver, ptr %call, align 8
   ret ptr %call
@@ -99,7 +92,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @qvirtio_serial_device_get_driver(ptr noundef readonly %object, ptr noundef %interface) #0 {
 entry:
-  %serial = getelementptr inbounds %struct.QVirtioSerialDevice, ptr %object, i64 0, i32 1
+  %serial = getelementptr inbounds i8, ptr %object, i64 40
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.4) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %qvirtio_serial_get_driver.exit, label %if.end.i
@@ -142,11 +135,11 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %pdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %object, i64 0, i32 2
+  %pdev = getelementptr inbounds i8, ptr %object, i64 72
   br label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %serial = getelementptr inbounds %struct.QVirtioSerialPCI, ptr %object, i64 0, i32 1
+  %serial = getelementptr inbounds i8, ptr %object, i64 152
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.4) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i

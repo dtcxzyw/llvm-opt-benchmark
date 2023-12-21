@@ -11,12 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyModuleDef_Slot = type { i32, ptr }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct.PyVarObject = type { %struct._object, i64 }
-%struct._ts = type { ptr, ptr, ptr, %struct.anon, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, %struct._py_trashcan, i64, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem }
-%struct.anon = type { i32 }
-%struct._py_trashcan = type { i32, ptr }
-%struct._err_stackitem = type { ptr, ptr }
-%struct.static_builtin_state = type { ptr, i32, i32, ptr, ptr, ptr }
-%struct._PyWeakReference = type { %struct._object, ptr, ptr, i64, ptr, ptr, ptr }
 
 @weakrefmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @.str.1, i64 0, ptr @weakref_functions, ptr @weakref_slots, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [9 x i8] c"_weakref\00", align 1
@@ -73,7 +67,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
-  %tp_flags.i.i = getelementptr inbounds %struct._typeobject, ptr %object, i64 0, i32 19
+  %tp_flags.i.i = getelementptr inbounds i8, ptr %object, i64 168
   %3 = load i64, ptr %tp_flags.i.i, align 8
   %and.i.i = and i64 %3, 2
   %tobool1.not.i.i = icmp eq i64 %and.i.i, 0
@@ -82,10 +76,10 @@ land.lhs.true.i.i:                                ; preds = %if.end.i
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %5 = load ptr, ptr %4, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %5, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %interp.i.i.i, align 8
   %call3.i.i = tail call ptr @_PyStaticType_GetState(ptr noundef %6, ptr noundef nonnull %object) #3
-  %tp_weaklist.i.i.i = getelementptr inbounds %struct.static_builtin_state, ptr %call3.i.i, i64 0, i32 5
+  %tp_weaklist.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 32
   br label %_weakref_getweakrefcount_impl.exit
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.end.i
@@ -140,7 +134,7 @@ if.then5:                                         ; preds = %if.end
   br label %exit
 
 if.end7:                                          ; preds = %if.end
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %4 = load ptr, ptr %arrayidx9, align 8
   %call.i = tail call i32 @_PyDict_DelItemIf(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull @is_dead_weakref) #3
   %cmp.i6 = icmp slt i32 %call.i, 0
@@ -183,7 +177,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
-  %tp_flags.i.i = getelementptr inbounds %struct._typeobject, ptr %object, i64 0, i32 19
+  %tp_flags.i.i = getelementptr inbounds i8, ptr %object, i64 168
   %3 = load i64, ptr %tp_flags.i.i, align 8
   %and.i.i = and i64 %3, 2
   %tobool1.not.i.i = icmp eq i64 %and.i.i, 0
@@ -192,10 +186,10 @@ land.lhs.true.i.i:                                ; preds = %if.end.i
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %5 = load ptr, ptr %4, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %5, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %interp.i.i.i, align 8
   %call3.i.i = tail call ptr @_PyStaticType_GetState(ptr noundef %6, ptr noundef nonnull %object) #3
-  %tp_weaklist.i.i.i = getelementptr inbounds %struct.static_builtin_state, ptr %call3.i.i, i64 0, i32 5
+  %tp_weaklist.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 32
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.end.i
@@ -235,7 +229,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %for.
   %call5.val.i = load ptr, ptr %8, align 8
   %arrayidx.i.i = getelementptr ptr, ptr %call5.val.i, i64 %i.03.i
   store ptr %current.0.i, ptr %arrayidx.i.i, align 8
-  %wr_next.i = getelementptr inbounds %struct._PyWeakReference, ptr %current.0.i, i64 0, i32 5
+  %wr_next.i = getelementptr inbounds i8, ptr %current.0.i, i64 48
   %inc.i = add nuw nsw i64 %i.03.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %call4.i
   br i1 %exitcond.not.i, label %_weakref_getweakrefs_impl.exit, label %for.body.i, !llvm.loop !5
@@ -263,7 +257,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %cmp2, label %skip_optional, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %arrayidx5 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx5 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx5, align 8
   br label %skip_optional
 

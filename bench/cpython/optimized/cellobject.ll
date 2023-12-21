@@ -10,70 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
 %struct._longobject = type { %struct._object, %struct._PyLongValue }
 %struct._PyLongValue = type { i64, [1 x i32] }
-%struct.PyCellObject = type { %struct._object, ptr }
-%struct._ts = type { ptr, ptr, ptr, %struct.anon.3, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, %struct._py_trashcan, i64, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem }
-%struct.anon.3 = type { i32 }
-%struct._py_trashcan = type { i32, ptr }
-%struct._err_stackitem = type { ptr, ptr }
-%struct._is = type { %struct._ceval_state, ptr, i64, i64, i32, ptr, i32, i32, i64, %struct.pythreads, ptr, ptr, i64, %struct._gc_runtime_state, ptr, ptr, %struct._import_state, %struct._gil_runtime_state, ptr, ptr, ptr, i32, %struct.PyConfig, i64, ptr, ptr, ptr, ptr, [8 x ptr], i8, i64, [255 x ptr], %struct._xi_state, ptr, ptr, ptr, %struct._warnings_runtime_state, %struct.atexit_state, %struct._obmalloc_state, ptr, [8 x ptr], [8 x ptr], i8, %struct._py_object_state, %struct._Py_unicode_state, %struct._Py_float_state, %struct._Py_long_state, %struct._dtoa_state, %struct._py_func_state, ptr, %struct._Py_tuple_state, %struct._Py_list_state, %struct._Py_dict_state, %struct._Py_async_gen_state, %struct._Py_context_state, %struct._Py_exc_state, %struct.ast_state, %struct.types_state, %struct.callable_cache, ptr, ptr, i16, i16, i32, %struct._Py_GlobalMonitors, i8, i8, i64, i64, [8 x [17 x ptr]], [8 x ptr], %struct._Py_interp_cached_objects, %struct._Py_interp_static_objects, %struct._PyThreadStateImpl, i64 }
-%struct._ceval_state = type { i64, [7 x i64], i32, ptr, i32, %struct._pending_calls }
-%struct._pending_calls = type { i32, %struct._PyMutex, i32, [32 x %struct._pending_call], i32, i32 }
-%struct._PyMutex = type { i8 }
-%struct._pending_call = type { ptr, ptr, i32 }
-%struct.pythreads = type { i64, ptr, ptr, i64, i64 }
-%struct._gc_runtime_state = type { ptr, i32, i32, i32, [3 x %struct.gc_generation], ptr, %struct.gc_generation, [3 x %struct.gc_generation_stats], i32, ptr, ptr, i64, i64 }
-%struct.gc_generation = type { %struct.PyGC_Head, i32, i32 }
-%struct.PyGC_Head = type { i64, i64 }
-%struct.gc_generation_stats = type { i64, i64, i64 }
-%struct._import_state = type { ptr, ptr, ptr, i32, i32, i32, ptr, %struct.anon, %struct.anon.0 }
-%struct.anon = type { ptr, i64, i32 }
-%struct.anon.0 = type { i32, i64, i32 }
-%struct._gil_runtime_state = type { i64, ptr, i32, i64, %union.pthread_cond_t, %union.pthread_mutex_t, %union.pthread_cond_t, %union.pthread_mutex_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.PyConfig = type { i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, ptr, i32, %struct.PyWideStringList, %struct.PyWideStringList, %struct.PyWideStringList, %struct.PyWideStringList, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i32, %struct.PyWideStringList, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct.PyWideStringList = type { i64, ptr }
-%struct._xi_state = type { %struct._xidregistry, ptr }
-%struct._xidregistry = type { i32, i32, %struct._PyMutex, ptr }
-%struct._warnings_runtime_state = type { ptr, ptr, ptr, i64 }
-%struct.atexit_state = type { ptr, ptr, ptr, i32, i32 }
-%struct._obmalloc_state = type { %struct._obmalloc_pools, %struct._obmalloc_mgmt, %struct._obmalloc_usage }
-%struct._obmalloc_pools = type { [64 x ptr] }
-%struct._obmalloc_mgmt = type { ptr, i32, ptr, ptr, [65 x ptr], i64, i64, i64, i64 }
-%struct._obmalloc_usage = type { %struct.arena_map_top, i32, i32 }
-%struct.arena_map_top = type { [32768 x ptr] }
-%struct._py_object_state = type { i32 }
-%struct._Py_unicode_state = type { %struct._Py_unicode_fs_codec, ptr, %struct._Py_unicode_ids }
-%struct._Py_unicode_fs_codec = type { ptr, i32, ptr, i32 }
-%struct._Py_unicode_ids = type { i64, ptr }
-%struct._Py_float_state = type { i32, ptr }
-%struct._Py_long_state = type { i32 }
-%struct._dtoa_state = type { [8 x ptr], [8 x ptr], [288 x double], ptr }
-%struct._py_func_state = type { i32, [4096 x ptr] }
-%struct._Py_tuple_state = type { [20 x ptr], [20 x i32] }
-%struct._Py_list_state = type { [80 x ptr], i32 }
-%struct._Py_dict_state = type { i64, i32, [80 x ptr], [80 x ptr], i32, i32, [8 x ptr] }
-%struct._Py_async_gen_state = type { [80 x ptr], i32, [80 x ptr], i32 }
-%struct._Py_context_state = type { ptr, i32 }
-%struct._Py_exc_state = type { ptr, ptr, i32, ptr }
-%struct.ast_state = type { %struct._PyOnceFlag, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._PyOnceFlag = type { i8 }
-%struct.types_state = type { i32, %struct.type_cache, i64, [200 x %struct.static_builtin_state] }
-%struct.type_cache = type { [4096 x %struct.type_cache_entry] }
-%struct.type_cache_entry = type { i32, ptr, ptr }
-%struct.static_builtin_state = type { ptr, i32, i32, ptr, ptr, ptr }
-%struct.callable_cache = type { ptr, ptr, ptr, ptr }
-%struct._Py_GlobalMonitors = type { [15 x i8] }
-%struct._Py_interp_cached_objects = type { ptr, ptr, ptr, ptr, [10 x ptr], ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._Py_interp_static_objects = type { %struct.anon.2 }
-%struct.anon.2 = type { i32, %struct.PyGC_Head, %struct.PyHamtObject, %struct.PyBaseExceptionObject }
-%struct.PyHamtObject = type { %struct._object, ptr, ptr, i64 }
-%struct.PyBaseExceptionObject = type { %struct._object, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct._PyThreadStateImpl = type { %struct._ts }
 
 @PyCell_Type = dso_local global %struct._typeobject { %struct.PyVarObject { %struct._object { %union.anon { i64 4294967295 }, ptr @PyType_Type }, i64 0 }, ptr @.str.1, i64 24, i64 0, ptr @cell_dealloc, i64 0, ptr null, ptr null, ptr null, ptr @cell_repr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @PyObject_GenericGetAttr, ptr null, ptr null, i64 16384, ptr @cell_new_doc, ptr @cell_traverse, ptr @cell_clear, ptr @cell_richcompare, i64 0, ptr null, ptr null, ptr null, ptr null, ptr @cell_getsetlist, ptr null, ptr null, ptr null, ptr null, i64 0, ptr null, ptr null, ptr @cell_new, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, i8 0 }, align 8
 @.str = private unnamed_addr constant [32 x i8] c"../cpython/Objects/cellobject.c\00", align 1
@@ -113,16 +49,16 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %if.end, %if.then.i.i, %if.end.i.i.i
-  %ob_ref = getelementptr inbounds %struct.PyCellObject, ptr %call, i64 0, i32 1
+  %ob_ref = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %obj, ptr %ob_ref, align 8
   %add.ptr.i.i = getelementptr i8, ptr %call, i64 -16
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %3, i64 1096
   %4 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %4, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %_gc_prev.i, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = ptrtoint ptr %add.ptr.i.i to i64
@@ -243,7 +179,7 @@ entry:
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %2, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -252,7 +188,7 @@ entry:
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %ob_ref = getelementptr inbounds %struct.PyCellObject, ptr %op, i64 0, i32 1
+  %ob_ref = getelementptr inbounds i8, ptr %op, i64 16
   %5 = load ptr, ptr %ob_ref, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -281,7 +217,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cell_repr(ptr noundef %op) #0 {
 entry:
-  %ob_ref = getelementptr inbounds %struct.PyCellObject, ptr %op, i64 0, i32 1
+  %ob_ref = getelementptr inbounds i8, ptr %op, i64 16
   %0 = load ptr, ptr %ob_ref, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -293,7 +229,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %1, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %.val, i64 24
   %2 = load ptr, ptr %tp_name, align 8
   %call4 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.3, ptr noundef nonnull %op, ptr noundef %2, ptr noundef nonnull %0) #3
   br label %return
@@ -308,7 +244,7 @@ declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @cell_traverse(ptr nocapture noundef readonly %op, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %ob_ref = getelementptr inbounds %struct.PyCellObject, ptr %op, i64 0, i32 1
+  %ob_ref = getelementptr inbounds i8, ptr %op, i64 16
   %0 = load ptr, ptr %ob_ref, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -329,7 +265,7 @@ return:                                           ; preds = %if.then, %do.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @cell_clear(ptr nocapture noundef %op) #0 {
 entry:
-  %ob_ref = getelementptr inbounds %struct.PyCellObject, ptr %op, i64 0, i32 1
+  %ob_ref = getelementptr inbounds i8, ptr %op, i64 16
   %0 = load ptr, ptr %ob_ref, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -370,9 +306,9 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i25.not, label %if.end, label %do.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %ob_ref = getelementptr inbounds %struct.PyCellObject, ptr %a, i64 0, i32 1
+  %ob_ref = getelementptr inbounds i8, ptr %a, i64 16
   %2 = load ptr, ptr %ob_ref, align 8
-  %ob_ref3 = getelementptr inbounds %struct.PyCellObject, ptr %b, i64 0, i32 1
+  %ob_ref3 = getelementptr inbounds i8, ptr %b, i64 16
   %3 = load ptr, ptr %ob_ref3, align 8
   %cmp = icmp ne ptr %2, null
   %cmp4 = icmp ne ptr %3, null
@@ -476,16 +412,16 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
-  %ob_ref.i = getelementptr inbounds %struct.PyCellObject, ptr %call.i, i64 0, i32 1
+  %ob_ref.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %0, ptr %ob_ref.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call.i, i64 -16
   %2 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %3, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %interp.i.i.i, align 8
-  %generation03.i.i = getelementptr inbounds %struct._is, ptr %4, i64 0, i32 13, i32 5
+  %generation03.i.i = getelementptr inbounds i8, ptr %4, i64 1096
   %5 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %5, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %_gc_prev.i.i, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = ptrtoint ptr %add.ptr.i.i.i to i64
@@ -519,7 +455,7 @@ declare ptr @PyObject_RichCompare(ptr noundef, ptr noundef, i32 noundef) local_u
 ; Function Attrs: nounwind uwtable
 define internal ptr @cell_get_contents(ptr nocapture noundef readonly %op, ptr nocapture readnone %closure) #0 {
 entry:
-  %ob_ref = getelementptr inbounds %struct.PyCellObject, ptr %op, i64 0, i32 1
+  %ob_ref = getelementptr inbounds i8, ptr %op, i64 16
   %0 = load ptr, ptr %ob_ref, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -546,7 +482,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @cell_set_contents(ptr nocapture noundef %op, ptr noundef %obj, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %ob_ref = getelementptr inbounds %struct.PyCellObject, ptr %op, i64 0, i32 1
+  %ob_ref = getelementptr inbounds i8, ptr %op, i64 16
   %0 = load ptr, ptr %ob_ref, align 8
   %cmp.not.i.i = icmp eq ptr %obj, null
   br i1 %cmp.not.i.i, label %_Py_XNewRef.exit, label %if.then.i.i

@@ -6,24 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"class.grpc_core::NoDestruct" = type { [8 x i8] }
 %"class.absl::lts_20230802::Status" = type { i64 }
-%"struct.grpc_core::HpackParseResult::HpackParseResultState" = type { %"class.grpc_core::RefCounted", %"class.grpc_core::HpackParseResult::StatusWrapper", %union.anon, %"class.std::__cxx11::basic_string", %"class.std::optional" }
-%"class.grpc_core::RefCounted" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%"class.grpc_core::PolymorphicRefCount" = type { ptr }
-%"class.grpc_core::RefCount" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.grpc_core::HpackParseResult::StatusWrapper" = type { i8 }
-%union.anon = type { %"struct.grpc_core::HpackParseResult::MetadataLimitExceeded" }
-%"struct.grpc_core::HpackParseResult::MetadataLimitExceeded" = type { i32, i32, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.0 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.0 = type { i64, [8 x i8] }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
-%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<absl::lts_20230802::Status>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<absl::lts_20230802::Status>::_Storage" = type { %"class.absl::lts_20230802::Status" }
 %"class.absl::lts_20230802::str_format_internal::FormatArgImpl" = type { %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data" = type { ptr }
 %"class.std::basic_string_view" = type { i64, ptr }
@@ -36,136 +18,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.grpc_core::CompressionAlgorithmSet" = type { %"class.grpc_core::BitSet.46" }
 %"class.grpc_core::BitSet.46" = type { [1 x i8] }
 %"class.grpc_core::StaticSlice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
-%"class.grpc_core::Table" = type { %"class.grpc_core::BitSet", %"struct.grpc_core::table_detail::Elements" }
-%"class.grpc_core::BitSet" = type { [3 x i16] }
-%"struct.grpc_core::table_detail::Elements" = type { %"struct.grpc_core::table_detail::Elements.3", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::LbCostBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusContext>, grpc_core::metadata_detail::Value<grpc_core::XEnvoyPeerMetadata>, grpc_core::metadata_detail::Value<grpc_core::LbTokenMetadata>, grpc_core::metadata_detail::Value<grpc_core::PeerString>, grpc_core::metadata_detail::Value<grpc_core::GrpcTagsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.3" = type { %"struct.grpc_core::table_detail::Elements.4", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcStatusContext>, grpc_core::metadata_detail::Value<grpc_core::XEnvoyPeerMetadata>, grpc_core::metadata_detail::Value<grpc_core::LbTokenMetadata>, grpc_core::metadata_detail::Value<grpc_core::PeerString>, grpc_core::metadata_detail::Value<grpc_core::GrpcTagsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.4" = type { %"struct.grpc_core::table_detail::Elements.5", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::XEnvoyPeerMetadata>, grpc_core::metadata_detail::Value<grpc_core::LbTokenMetadata>, grpc_core::metadata_detail::Value<grpc_core::PeerString>, grpc_core::metadata_detail::Value<grpc_core::GrpcTagsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.5" = type { %"struct.grpc_core::table_detail::Elements.6", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::LbTokenMetadata>, grpc_core::metadata_detail::Value<grpc_core::PeerString>, grpc_core::metadata_detail::Value<grpc_core::GrpcTagsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.6" = type { %"struct.grpc_core::table_detail::Elements.7", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::PeerString>, grpc_core::metadata_detail::Value<grpc_core::GrpcTagsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.7" = type { %"struct.grpc_core::table_detail::Elements.8", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcTagsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.8" = type { %"struct.grpc_core::table_detail::Elements.9", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.9" = type { %"struct.grpc_core::table_detail::Elements.10", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.10" = type { %"struct.grpc_core::table_detail::Elements.11", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.11" = type { %"struct.grpc_core::table_detail::Elements.12", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.12" = type { %"struct.grpc_core::table_detail::Elements.13", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.13" = type { %"struct.grpc_core::table_detail::Elements.14", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.14" = type { %"struct.grpc_core::table_detail::Elements.15", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.15" = type { %"struct.grpc_core::table_detail::Elements.16", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.16" = type { %"struct.grpc_core::table_detail::Elements.17", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.17" = type { %"struct.grpc_core::table_detail::Elements.18", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.18" = type { %"struct.grpc_core::table_detail::Elements.19", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.19" = type { %"struct.grpc_core::table_detail::Elements.20", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.20" = type { %"struct.grpc_core::table_detail::Elements.21", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.21" = type { %"struct.grpc_core::table_detail::Elements.22", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.22" = type { %"struct.grpc_core::table_detail::Elements.23", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.23" = type { %"struct.grpc_core::table_detail::Elements.24", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.24" = type { %"struct.grpc_core::table_detail::Elements.25", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.25" = type { %"struct.grpc_core::table_detail::Elements.26", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.26" = type { %"struct.grpc_core::table_detail::Elements.27", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.27" = type { %"struct.grpc_core::table_detail::Elements.28", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.28" = type { %"struct.grpc_core::table_detail::Elements.29", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.29" = type { %"struct.grpc_core::table_detail::Elements.30", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.30" = type { %"struct.grpc_core::table_detail::Elements.31", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.31" = type { %"struct.grpc_core::table_detail::Elements.32", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.32" = type { %"struct.grpc_core::table_detail::Elements.33", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.33" = type { %"struct.grpc_core::table_detail::Elements.34", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.34" = type { %"struct.grpc_core::table_detail::Elements.35", %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"struct.grpc_core::table_detail::Elements.35" = type { %"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value" }
-%"struct.grpc_core::metadata_detail::Value" = type { i8 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.37" }
-%"struct.grpc_core::metadata_detail::Value.37" = type { i8 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.38" }
-%"struct.grpc_core::metadata_detail::Value.38" = type { i8 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.39" }
-%"struct.grpc_core::metadata_detail::Value.39" = type { i8 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.40" }
-%"struct.grpc_core::metadata_detail::Value.40" = type { i8 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.41" }
-%"struct.grpc_core::metadata_detail::Value.41" = type { i8 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.42" }
-%"struct.grpc_core::metadata_detail::Value.42" = type { i8 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.43" }
-%"struct.grpc_core::metadata_detail::Value.43" = type { i8 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.44" }
-%"struct.grpc_core::metadata_detail::Value.44" = type { i8 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.45" }
-%"struct.grpc_core::metadata_detail::Value.45" = type { %"class.grpc_core::CompressionAlgorithmSet" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.47" }
-%"struct.grpc_core::metadata_detail::Value.47" = type { %"struct.grpc_core::WaitForReady::ValueType" }
-%"struct.grpc_core::WaitForReady::ValueType" = type { i8, i8 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.48" }
-%"struct.grpc_core::metadata_detail::Value.48" = type { i32 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.49" }
-%"struct.grpc_core::metadata_detail::Value.49" = type { i32 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.50" }
-%"struct.grpc_core::metadata_detail::Value.50" = type { i32 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.51" }
-%"struct.grpc_core::metadata_detail::Value.51" = type { i32 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.52" }
-%"struct.grpc_core::metadata_detail::Value.52" = type { i32 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.53" }
-%"struct.grpc_core::metadata_detail::Value.53" = type { ptr }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.54" }
-%"struct.grpc_core::metadata_detail::Value.54" = type { ptr }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.55" }
-%"struct.grpc_core::metadata_detail::Value.55" = type { %"class.grpc_core::Timestamp" }
-%"class.grpc_core::Timestamp" = type { i64 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.56" }
-%"struct.grpc_core::metadata_detail::Value.56" = type { %"class.grpc_core::Duration" }
-%"class.grpc_core::Duration" = type { i64 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.57" }
-%"struct.grpc_core::metadata_detail::Value.57" = type { %"class.grpc_core::Slice" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.58" }
-%"struct.grpc_core::metadata_detail::Value.58" = type { %"class.grpc_core::Slice" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.59" }
-%"struct.grpc_core::metadata_detail::Value.59" = type { %"class.grpc_core::Slice" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.60" }
-%"struct.grpc_core::metadata_detail::Value.60" = type { %"class.grpc_core::Slice" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.61" }
-%"struct.grpc_core::metadata_detail::Value.61" = type { %"class.grpc_core::Slice" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.62" }
-%"struct.grpc_core::metadata_detail::Value.62" = type { %"class.grpc_core::Slice" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.63" }
-%"struct.grpc_core::metadata_detail::Value.63" = type { %"class.grpc_core::Slice" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.64" }
-%"struct.grpc_core::metadata_detail::Value.64" = type { %"class.grpc_core::Slice" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcTagsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.65" }
-%"struct.grpc_core::metadata_detail::Value.65" = type { %"class.grpc_core::Slice" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::PeerString>, grpc_core::metadata_detail::Value<grpc_core::GrpcTagsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.66" }
-%"struct.grpc_core::metadata_detail::Value.66" = type { %"class.grpc_core::Slice" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::LbTokenMetadata>, grpc_core::metadata_detail::Value<grpc_core::PeerString>, grpc_core::metadata_detail::Value<grpc_core::GrpcTagsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.67" }
-%"struct.grpc_core::metadata_detail::Value.67" = type { %"class.grpc_core::Slice" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::XEnvoyPeerMetadata>, grpc_core::metadata_detail::Value<grpc_core::LbTokenMetadata>, grpc_core::metadata_detail::Value<grpc_core::PeerString>, grpc_core::metadata_detail::Value<grpc_core::GrpcTagsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.68" }
-%"struct.grpc_core::metadata_detail::Value.68" = type { %"class.grpc_core::Slice" }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::GrpcStatusContext>, grpc_core::metadata_detail::Value<grpc_core::XEnvoyPeerMetadata>, grpc_core::metadata_detail::Value<grpc_core::LbTokenMetadata>, grpc_core::metadata_detail::Value<grpc_core::PeerString>, grpc_core::metadata_detail::Value<grpc_core::GrpcTagsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.69" }
-%"struct.grpc_core::metadata_detail::Value.69" = type { %"class.absl::lts_20230802::InlinedVector" }
-%"class.absl::lts_20230802::InlinedVector" = type { %"class.absl::lts_20230802::inlined_vector_internal::Storage" }
-%"class.absl::lts_20230802::inlined_vector_internal::Storage" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple", %"union.absl::lts_20230802::inlined_vector_internal::Storage<std::__cxx11::basic_string<char>, 1, std::allocator<std::__cxx11::basic_string<char>>>::Data" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.73" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.73" = type { i64 }
-%"union.absl::lts_20230802::inlined_vector_internal::Storage<std::__cxx11::basic_string<char>, 1, std::allocator<std::__cxx11::basic_string<char>>>::Data" = type { %"struct.absl::lts_20230802::inlined_vector_internal::Storage<std::__cxx11::basic_string<char>, 1, std::allocator<std::__cxx11::basic_string<char>>>::Allocated", [16 x i8] }
-%"struct.absl::lts_20230802::inlined_vector_internal::Storage<std::__cxx11::basic_string<char>, 1, std::allocator<std::__cxx11::basic_string<char>>>::Allocated" = type { ptr, i64 }
-%"union.grpc_core::table_detail::Elements<grpc_core::metadata_detail::Value<grpc_core::LbCostBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusContext>, grpc_core::metadata_detail::Value<grpc_core::XEnvoyPeerMetadata>, grpc_core::metadata_detail::Value<grpc_core::LbTokenMetadata>, grpc_core::metadata_detail::Value<grpc_core::PeerString>, grpc_core::metadata_detail::Value<grpc_core::GrpcTagsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTraceBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcServerStatsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::EndpointLoadMetricsBinMetadata>, grpc_core::metadata_detail::Value<grpc_core::HostMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcMessageMetadata>, grpc_core::metadata_detail::Value<grpc_core::UserAgentMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpAuthorityMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpPathMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRetryPushbackMsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTimeoutMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcLbClientStatsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcRegisteredMethod>, grpc_core::metadata_detail::Value<grpc_core::GrpcInternalEncodingRequest>, grpc_core::metadata_detail::Value<grpc_core::GrpcEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcPreviousRpcAttemptsMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusMetadata>, grpc_core::metadata_detail::Value<grpc_core::WaitForReady>, grpc_core::metadata_detail::Value<grpc_core::GrpcAcceptEncodingMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcCallWasCancelled>, grpc_core::metadata_detail::Value<grpc_core::GrpcStatusFromWire>, grpc_core::metadata_detail::Value<grpc_core::TeMetadata>, grpc_core::metadata_detail::Value<grpc_core::ContentTypeMetadata>, grpc_core::metadata_detail::Value<grpc_core::HttpSchemeMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTrailersOnly>, grpc_core::metadata_detail::Value<grpc_core::HttpMethodMetadata>, grpc_core::metadata_detail::Value<grpc_core::GrpcTarPit>, grpc_core::metadata_detail::Value<grpc_core::GrpcStreamNetworkState>>::U" = type { %"struct.grpc_core::metadata_detail::Value.74" }
-%"struct.grpc_core::metadata_detail::Value.74" = type { %"class.absl::lts_20230802::InlinedVector.75" }
-%"class.absl::lts_20230802::InlinedVector.75" = type { %"class.absl::lts_20230802::inlined_vector_internal::Storage.76" }
-%"class.absl::lts_20230802::inlined_vector_internal::Storage.76" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple.77", %"union.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::LbCostBinMetadata::ValueType, 1, std::allocator<grpc_core::LbCostBinMetadata::ValueType>>::Data" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple.77" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.78" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.78" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.73" }
-%"union.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::LbCostBinMetadata::ValueType, 1, std::allocator<grpc_core::LbCostBinMetadata::ValueType>>::Data" = type { %"struct.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::LbCostBinMetadata::ValueType, 1, std::allocator<grpc_core::LbCostBinMetadata::ValueType>>::Allocated", [24 x i8] }
-%"struct.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::LbCostBinMetadata::ValueType, 1, std::allocator<grpc_core::LbCostBinMetadata::ValueType>>::Allocated" = type { ptr, i64 }
-%struct.grpc_slice_refcount = type { %"struct.std::atomic.89", ptr }
-%"struct.std::atomic.89" = type { %"struct.std::__atomic_base.90" }
-%"struct.std::__atomic_base.90" = type { i64 }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.0 }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon.0 = type { i64, [8 x i8] }
 %"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
-%"class.grpc_core::MetadataMap" = type { %"class.grpc_core::Table", %"class.grpc_core::metadata_detail::UnknownMap" }
-%"class.grpc_core::metadata_detail::UnknownMap" = type { %"class.grpc_core::ChunkedVector" }
-%"class.grpc_core::ChunkedVector" = type { ptr, ptr, ptr }
-%"struct.grpc_core::ChunkedVector<std::pair<grpc_core::Slice, grpc_core::Slice>, 10>::Chunk" = type { ptr, i64, [10 x %"class.grpc_core::ManualConstructor"] }
 %"class.grpc_core::ManualConstructor" = type { [64 x i8] }
-%"struct.std::pair" = type { %"class.grpc_core::Slice", %"class.grpc_core::Slice" }
 %"class.std::allocator" = type { i8 }
 
 $_ZN4absl12lts_202308026StatusD2Ev = comdat any
@@ -263,14 +120,14 @@ entry:
   br i1 %cmp.i.not, label %invoke.cont, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %_M_engaged.i.i = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load i8, ptr %_M_engaged.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.not = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not, label %invoke.cont, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %materialized_status = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 4
+  %materialized_status = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i64, ptr %materialized_status, align 8
   store i64 %3, ptr %agg.result, align 8
   %and.i.i.i = and i64 %3, 1
@@ -291,8 +148,8 @@ invoke.cont:                                      ; preds = %entry, %land.lhs.tr
 
 if.then10:                                        ; preds = %invoke.cont
   %7 = load ptr, ptr %this, align 8
-  %materialized_status14 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %7, i64 0, i32 4
-  %_M_engaged.i.i2 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %7, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %materialized_status14 = getelementptr inbounds i8, ptr %7, i64 72
+  %_M_engaged.i.i2 = getelementptr inbounds i8, ptr %7, i64 80
   %8 = load i8, ptr %_M_engaged.i.i2, align 8
   %9 = and i8 %8, 1
   %tobool.i.not.i = icmp eq i8 %9, 0
@@ -487,7 +344,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %status = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 1
+  %status = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %status, align 1
   switch i8 %1, label %do.body [
     i8 0, label %sw.bb
@@ -524,10 +381,10 @@ sw.bb7:                                           ; preds = %if.end
   unreachable
 
 sw.bb10:                                          ; preds = %if.end
-  %key = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 3
+  %key = getelementptr inbounds i8, ptr %0, i64 40
   %call13 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #11
   %2 = load ptr, ptr %this, align 8
-  %3 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %2, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i8, ptr %3, align 8
   %call19 = tail call noundef ptr @_ZN9grpc_core30ValidateMetadataResultToStringENS_22ValidateMetadataResultE(i8 noundef zeroext %4)
   br i1 %call13, label %if.then14, label %if.else
@@ -559,17 +416,17 @@ cond.true.i.i:                                    ; preds = %if.else
 _ZN4absl12lts_202308028AlphaNumC2EPKc.exit:       ; preds = %if.else, %cond.true.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %call.i.i.i.i, %cond.true.i.i ], [ 0, %if.else ]
   store i64 %retval.sroa.0.0.i.i, ptr %ref.tmp22, align 8
-  %6 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp22, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   store ptr %call19, ptr %6, align 8
   store i64 2, ptr %ref.tmp26, align 8
-  %7 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp26, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
   store ptr @.str.3, ptr %7, align 8
   %8 = load ptr, ptr %this, align 8
-  %key30 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %8, i64 0, i32 3
+  %key30 = getelementptr inbounds i8, ptr %8, i64 40
   %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %key30) #11
   %9 = extractvalue { i64, ptr } %call.i, 0
   store i64 %9, ptr %ref.tmp27, align 8
-  %10 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp27, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
   %11 = extractvalue { i64, ptr } %call.i, 1
   store ptr %11, ptr %10, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp27)
@@ -605,9 +462,9 @@ ehcleanup:                                        ; preds = %lpad34, %lpad32
   br label %eh.resume
 
 sw.bb36:                                          ; preds = %if.end, %if.end
-  %16 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %summary) #11
-  %prior = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2, i32 0, i32 2
+  %prior = getelementptr inbounds i8, ptr %0, i64 32
   %17 = load ptr, ptr %prior, align 8
   %cmp.not = icmp eq ptr %17, null
   br i1 %cmp.not, label %invoke.cont60, label %if.then39
@@ -616,7 +473,7 @@ if.then39:                                        ; preds = %sw.bb36
   %18 = load i16, ptr %17, align 2
   %and2.i.i.i.i.i.i.i = and i16 %18, 8192
   %cmp.i.i.not.i.i.i.i.i = icmp eq i16 %and2.i.i.i.i.i.i.i, 0
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 72
   br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then39
@@ -631,7 +488,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i
 
 _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i
   %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i = phi ptr [ %19, %if.then.i.i.i.i ], [ %ref.tmp.sroa.0.0.copyload.pr.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
-  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 80
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -642,7 +499,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZN9grpc_core24Simp
   br i1 %cmp.i.i.i1.i.i.i.i.i.i.i.i, label %if.then.i.i.i2.i.i.i.i.i.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 8
   %22 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %22(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
@@ -660,7 +517,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i.i.i.i)
   %add1.i.i.i.i.i.i.i.i.i = add i64 %cond.i.i.i.i.i.i.i.i.i, 37
-  %digits_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i.i.i.i, i64 16
   %call.i.i.i.i.i.i.i.i.i56 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i.i.i.i)
           to label %call.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -669,27 +526,27 @@ call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, ptr %ref.tmp4.i.i.i.i.i.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i.i.i.i, ptr %_M_str.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, align 8
-  %25 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.34, ptr %25, align 8
-  %arrayinit.element.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 16
   store i64 5, ptr %arrayinit.element.i.i.i.i.i.i.i.i.i, align 8
-  %26 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 1, i32 1
+  %26 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 24
   store ptr @.str.37, ptr %26, align 8
-  %arrayinit.element2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i.i.i.i, align 8
-  %27 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 2, i32 1
+  %27 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 40
   store ptr @.str.35, ptr %27, align 8
-  %arrayinit.element4.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i.i.i.i, align 8
-  %28 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 3, i32 1
+  %28 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i.i.i.i, ptr %28, align 8
-  %arrayinit.element6.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i.i.i.i, align 8
-  %29 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 4, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 72
   store ptr @.str.36, ptr %29, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i, i64 5)
           to label %.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -704,7 +561,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %30 = phi i16 [ %18, %if.then39 ], [ %.pre.i.i.i, %.noexc ]
   %and2.i.i.i.i27.i.i.i = and i16 %30, 4096
   %cmp.i.i.not.i.i28.i.i.i = icmp eq i16 %and2.i.i.i.i27.i.i.i, 0
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 104
   br i1 %cmp.i.i.not.i.i28.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS30, label %if.then.i29.i.i.i
 
 if.then.i29.i.i.i:                                ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS
@@ -719,7 +576,7 @@ if.then.i.i.i.i.i.i.i.i56.i.i.i:                  ; preds = %if.then.i29.i.i.i
 
 _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i31.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i56.i.i.i, %if.then.i29.i.i.i
   %ref.tmp.sroa.0.0.copyload.i.i.i.i.i32.i.i.i = phi ptr [ %31, %if.then.i29.i.i.i ], [ %ref.tmp.sroa.0.0.copyload.pr.i.i.i.i.i57.i.i.i, %if.then.i.i.i.i.i.i.i.i56.i.i.i ]
-  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i33.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i33.i.i.i = getelementptr inbounds i8, ptr %17, i64 112
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i34.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i33.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i35.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i32.i.i.i, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i.i.i.i.i35.i.i.i, label %if.then.i.i.i.i.i.i.i51.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -730,7 +587,7 @@ if.then.i.i.i.i.i.i.i51.i.i.i:                    ; preds = %_ZN9grpc_core24Simp
   br i1 %cmp.i.i.i1.i.i.i.i.i52.i.i.i, label %if.then.i.i.i2.i.i.i.i.i53.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i53.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i51.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i54.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i32.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i54.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i32.i.i.i, i64 8
   %34 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i54.i.i.i, align 8
   invoke void %34(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i32.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i55.i.i.i
@@ -748,7 +605,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i38.i.i.i = select i1 %tobool.not.i.i.i.i.i.i36.i.i.i, i64 %conv.i.i.i.i.i.i37.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i34.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i26.i.i.i)
   %add1.i.i.i.i.i.i40.i.i.i = add i64 %cond.i.i.i.i.i.i38.i.i.i, 42
-  %digits_.i.i.i.i.i.i41.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i26.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i41.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i26.i.i.i, i64 16
   %call.i.i.i.i.i.i42.i.i.i57 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i40.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i41.i.i.i)
           to label %call.i.i.i.i.i.i42.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -757,27 +614,27 @@ call.i.i.i.i.i.i42.i.i.i.noexc:                   ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i44.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i41.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i45.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i43.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i44.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i45.i.i.i, ptr %ref.tmp4.i.i.i.i.i26.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i46.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i26.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i46.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i26.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i41.i.i.i, ptr %_M_str.i.i.i.i.i.i.i46.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i25.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, align 8
-  %37 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 0, i32 1
+  %37 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 8
   store ptr @.str.34, ptr %37, align 8
-  %arrayinit.element.i.i.i.i.i.i47.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i47.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 16
   store i64 10, ptr %arrayinit.element.i.i.i.i.i.i47.i.i.i, align 8
-  %38 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 1, i32 1
+  %38 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 24
   store ptr @.str.38, ptr %38, align 8
-  %arrayinit.element2.i.i.i.i.i.i48.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i48.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i48.i.i.i, align 8
-  %39 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 2, i32 1
+  %39 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 40
   store ptr @.str.35, ptr %39, align 8
-  %arrayinit.element4.i.i.i.i.i.i49.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i49.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i45.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i49.i.i.i, align 8
-  %40 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 3, i32 1
+  %40 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i41.i.i.i, ptr %40, align 8
-  %arrayinit.element6.i.i.i.i.i.i50.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i50.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i50.i.i.i, align 8
-  %41 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 4, i32 1
+  %41 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 72
   store ptr @.str.36, ptr %41, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i25.i.i.i, i64 5)
           to label %.noexc58 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -788,13 +645,13 @@ call.i.i.i.i.i.i42.i.i.i.noexc:                   ; preds = %_ZN9grpc_core15meta
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS30
 
 _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS30: ; preds = %.noexc58, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x i16], ptr %17, i64 0, i64 1
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 2
   %42 = load i16, ptr %arrayidx.i.i.i.i.i.i.i, align 2
   %cmp.i.i.i.i.i.i.i = icmp sgt i16 %42, -1
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS31, label %if.then.i61.i.i.i
 
 if.then.i61.i.i.i:                                ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS30
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 10
   %call.val.i.i.i.i = load i8, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   invoke void @_ZN9grpc_core18HttpMethodMetadata6EncodeENS0_9ValueTypeE(ptr nonnull sret(%"class.grpc_core::StaticSlice") align 8 %ref.tmp.i.i.i.i.i.i.i.i, i8 noundef zeroext %call.val.i.i.i.i)
@@ -803,14 +660,14 @@ if.then.i61.i.i.i:                                ; preds = %_ZNK9grpc_core5Tabl
 .noexc59:                                         ; preds = %if.then.i61.i.i.i
   %43 = load ptr, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i62.i.i.i = icmp eq ptr %43, null
-  %data.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.grpc_slice, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %data.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
   %44 = load i64, ptr %data.i.i.i.i.i.i.i.i.i, align 8
   %conv.i.i.i.i.i.i63.i.i.i = and i64 %44, 255
   %cond.i.i.i.i.i.i64.i.i.i = select i1 %tobool.not.i.i.i.i.i.i62.i.i.i, i64 %conv.i.i.i.i.i.i63.i.i.i, i64 %44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i60.i.i.i)
   %add1.i.i.i.i.i.i66.i.i.i = add i64 %cond.i.i.i.i.i.i64.i.i.i, 39
-  %digits_.i.i.i.i.i.i67.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i60.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i67.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i60.i.i.i, i64 16
   %call.i.i.i.i.i.i68.i.i.i60 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i66.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i67.i.i.i)
           to label %call.i.i.i.i.i.i68.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -819,27 +676,27 @@ call.i.i.i.i.i.i68.i.i.i.noexc:                   ; preds = %.noexc59
   %sub.ptr.rhs.cast.i.i.i.i.i.i70.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i67.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i71.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i69.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i70.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i71.i.i.i, ptr %ref.tmp4.i.i.i.i.i60.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i72.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i60.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i72.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i60.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i67.i.i.i, ptr %_M_str.i.i.i.i.i.i.i72.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i59.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, align 8
-  %45 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 8
   store ptr @.str.34, ptr %45, align 8
-  %arrayinit.element.i.i.i.i.i.i73.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i73.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 16
   store i64 7, ptr %arrayinit.element.i.i.i.i.i.i73.i.i.i, align 8
-  %46 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 1, i32 1
+  %46 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 24
   store ptr @.str.39, ptr %46, align 8
-  %arrayinit.element2.i.i.i.i.i.i74.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i74.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i74.i.i.i, align 8
-  %47 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 2, i32 1
+  %47 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 40
   store ptr @.str.35, ptr %47, align 8
-  %arrayinit.element4.i.i.i.i.i.i75.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i75.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i71.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i75.i.i.i, align 8
-  %48 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 3, i32 1
+  %48 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i67.i.i.i, ptr %48, align 8
-  %arrayinit.element6.i.i.i.i.i.i76.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i76.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i76.i.i.i, align 8
-  %49 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 4, i32 1
+  %49 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 72
   store ptr @.str.36, ptr %49, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i59.i.i.i, i64 5)
           to label %.noexc61 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -857,7 +714,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   br i1 %cmp.i.i.not.i.i82.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS32, label %if.then.i83.i.i.i
 
 if.then.i83.i.i.i:                                ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS31
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 28
   %call.val.i84.i.i.i = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %conv.i.i.i.i.i.i85.i.i.i = zext i32 %call.val.i84.i.i.i to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i.i.i.i), !noalias !20
@@ -885,7 +742,7 @@ if.then.i.i.i.i.i.i.i103.i.i.i:                   ; preds = %.noexc63
   br i1 %cmp.i.i.i.i.i.i.i.i104.i.i.i, label %if.then.i.i.i.i.i.i.i.i105.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i105.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i103.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i106.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i86.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i106.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i86.i.i.i, i64 8
   %52 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i106.i.i.i, align 8
   invoke void %52(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i86.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i107.i.i.i
@@ -903,7 +760,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i90.i.i.i = select i1 %tobool.not.i.i.i.i.i.i89.i.i.i, i64 %conv.i1.i.i.i.i.i.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i87.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i79.i.i.i)
   %add1.i.i.i.i.i.i92.i.i.i = add i64 %cond.i.i.i.i.i.i90.i.i.i, 39
-  %digits_.i.i.i.i.i.i93.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i79.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i93.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i79.i.i.i, i64 16
   %call.i.i.i.i.i.i94.i.i.i64 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i92.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i93.i.i.i)
           to label %call.i.i.i.i.i.i94.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -912,27 +769,27 @@ call.i.i.i.i.i.i94.i.i.i.noexc:                   ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i96.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i93.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i97.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i95.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i96.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i97.i.i.i, ptr %ref.tmp4.i.i.i.i.i79.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i98.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i79.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i98.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i79.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i93.i.i.i, ptr %_M_str.i.i.i.i.i.i.i98.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i78.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, align 8
-  %55 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 0, i32 1
+  %55 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 8
   store ptr @.str.34, ptr %55, align 8
-  %arrayinit.element.i.i.i.i.i.i99.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i99.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 16
   store i64 7, ptr %arrayinit.element.i.i.i.i.i.i99.i.i.i, align 8
-  %56 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 1, i32 1
+  %56 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 24
   store ptr @.str.40, ptr %56, align 8
-  %arrayinit.element2.i.i.i.i.i.i100.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i100.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i100.i.i.i, align 8
-  %57 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 2, i32 1
+  %57 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 40
   store ptr @.str.35, ptr %57, align 8
-  %arrayinit.element4.i.i.i.i.i.i101.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i101.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i97.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i101.i.i.i, align 8
-  %58 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 3, i32 1
+  %58 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i93.i.i.i, ptr %58, align 8
-  %arrayinit.element6.i.i.i.i.i.i102.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i102.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i102.i.i.i, align 8
-  %59 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 4, i32 1
+  %59 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 72
   store ptr @.str.36, ptr %59, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i78.i.i.i, i64 5)
           to label %.noexc65 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -950,7 +807,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   br i1 %cmp.i.i.not.i.i113.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS33, label %if.then.i114.i.i.i
 
 if.then.i114.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS32
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 12
   %call.val.i115.i.i.i = load i8, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %call3.i.i.i.i.i.i.i66 = invoke noundef i64 @_ZN9grpc_core16EncodedSizeOfKeyENS_18HttpSchemeMetadataENS0_9ValueTypeE(i8 noundef zeroext %call.val.i115.i.i.i)
           to label %call3.i.i.i.i.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -958,7 +815,7 @@ if.then.i114.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
 call3.i.i.i.i.i.i.i.noexc:                        ; preds = %if.then.i114.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i110.i.i.i)
   %add1.i.i.i.i.i.i117.i.i.i = add i64 %call3.i.i.i.i.i.i.i66, 39
-  %digits_.i.i.i.i.i.i118.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i110.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i118.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i110.i.i.i, i64 16
   %call.i.i.i.i.i.i119.i.i.i67 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i117.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i118.i.i.i)
           to label %call.i.i.i.i.i.i119.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -967,27 +824,27 @@ call.i.i.i.i.i.i119.i.i.i.noexc:                  ; preds = %call3.i.i.i.i.i.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i121.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i118.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i122.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i120.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i121.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i122.i.i.i, ptr %ref.tmp4.i.i.i.i.i110.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i123.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i110.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i123.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i110.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i118.i.i.i, ptr %_M_str.i.i.i.i.i.i.i123.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i109.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, align 8
-  %61 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 0, i32 1
+  %61 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 8
   store ptr @.str.34, ptr %61, align 8
-  %arrayinit.element.i.i.i.i.i.i124.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i124.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 16
   store i64 7, ptr %arrayinit.element.i.i.i.i.i.i124.i.i.i, align 8
-  %62 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 1, i32 1
+  %62 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 24
   store ptr @.str.41, ptr %62, align 8
-  %arrayinit.element2.i.i.i.i.i.i125.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i125.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i125.i.i.i, align 8
-  %63 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 2, i32 1
+  %63 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 40
   store ptr @.str.35, ptr %63, align 8
-  %arrayinit.element4.i.i.i.i.i.i126.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i126.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i122.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i126.i.i.i, align 8
-  %64 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 3, i32 1
+  %64 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i118.i.i.i, ptr %64, align 8
-  %arrayinit.element6.i.i.i.i.i.i127.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i127.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i127.i.i.i, align 8
-  %65 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 4, i32 1
+  %65 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 72
   store ptr @.str.36, ptr %65, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i109.i.i.i, i64 5)
           to label %.noexc68 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -1005,7 +862,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   br i1 %cmp.i.i.not.i.i134.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS34, label %if.then.i135.i.i.i
 
 if.then.i135.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS33
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 13
   %call.val.i136.i.i.i = load i8, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i131.i.i.i)
   invoke void @_ZN9grpc_core19ContentTypeMetadata6EncodeENS0_9ValueTypeE(ptr nonnull sret(%"class.grpc_core::StaticSlice") align 8 %ref.tmp.i.i.i.i.i131.i.i.i, i8 noundef zeroext %call.val.i136.i.i.i)
@@ -1014,14 +871,14 @@ if.then.i135.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
 .noexc69:                                         ; preds = %if.then.i135.i.i.i
   %67 = load ptr, ptr %ref.tmp.i.i.i.i.i131.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i137.i.i.i = icmp eq ptr %67, null
-  %data.i.i.i.i.i.i138.i.i.i = getelementptr inbounds %struct.grpc_slice, ptr %ref.tmp.i.i.i.i.i131.i.i.i, i64 0, i32 1
+  %data.i.i.i.i.i.i138.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i131.i.i.i, i64 8
   %68 = load i64, ptr %data.i.i.i.i.i.i138.i.i.i, align 8
   %conv.i.i.i.i.i.i139.i.i.i = and i64 %68, 255
   %cond.i.i.i.i.i.i140.i.i.i = select i1 %tobool.not.i.i.i.i.i.i137.i.i.i, i64 %conv.i.i.i.i.i.i139.i.i.i, i64 %68
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i131.i.i.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i130.i.i.i)
   %add1.i.i.i.i.i.i142.i.i.i = add i64 %cond.i.i.i.i.i.i140.i.i.i, 44
-  %digits_.i.i.i.i.i.i143.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i130.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i143.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i130.i.i.i, i64 16
   %call.i.i.i.i.i.i144.i.i.i70 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i142.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i143.i.i.i)
           to label %call.i.i.i.i.i.i144.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -1030,27 +887,27 @@ call.i.i.i.i.i.i144.i.i.i.noexc:                  ; preds = %.noexc69
   %sub.ptr.rhs.cast.i.i.i.i.i.i146.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i143.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i147.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i145.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i146.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i147.i.i.i, ptr %ref.tmp4.i.i.i.i.i130.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i148.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i130.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i148.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i130.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i143.i.i.i, ptr %_M_str.i.i.i.i.i.i.i148.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i129.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, align 8
-  %69 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 0, i32 1
+  %69 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 8
   store ptr @.str.34, ptr %69, align 8
-  %arrayinit.element.i.i.i.i.i.i149.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i149.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 16
   store i64 12, ptr %arrayinit.element.i.i.i.i.i.i149.i.i.i, align 8
-  %70 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 1, i32 1
+  %70 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 24
   store ptr @.str.42, ptr %70, align 8
-  %arrayinit.element2.i.i.i.i.i.i150.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i150.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i150.i.i.i, align 8
-  %71 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 2, i32 1
+  %71 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 40
   store ptr @.str.35, ptr %71, align 8
-  %arrayinit.element4.i.i.i.i.i.i151.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i151.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i147.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i151.i.i.i, align 8
-  %72 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 3, i32 1
+  %72 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i143.i.i.i, ptr %72, align 8
-  %arrayinit.element6.i.i.i.i.i.i152.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i152.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i152.i.i.i, align 8
-  %73 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 4, i32 1
+  %73 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 72
   store ptr @.str.36, ptr %73, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i129.i.i.i, i64 5)
           to label %.noexc71 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -1068,12 +925,12 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   br i1 %cmp.i.i.not.i.i158.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS35, label %if.then.i159.i.i.i
 
 if.then.i159.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS34
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 14
   %call.val.i160.i.i.i = load i8, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %call.val.i160.i.i.i, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i155.i.i.i)
   %add1.i.i.i.i.i.i161.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 42, i64 34
-  %digits_.i.i.i.i.i.i162.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i155.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i162.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i155.i.i.i, i64 16
   %call.i.i.i.i.i.i163.i.i.i72 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i161.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i162.i.i.i)
           to label %call.i.i.i.i.i.i163.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -1082,27 +939,27 @@ call.i.i.i.i.i.i163.i.i.i.noexc:                  ; preds = %if.then.i159.i.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i165.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i162.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i166.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i164.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i165.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i166.i.i.i, ptr %ref.tmp4.i.i.i.i.i155.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i167.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i155.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i167.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i155.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i162.i.i.i, ptr %_M_str.i.i.i.i.i.i.i167.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i154.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, align 8
-  %75 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 0, i32 1
+  %75 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 8
   store ptr @.str.34, ptr %75, align 8
-  %arrayinit.element.i.i.i.i.i.i168.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i168.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 16
   store i64 2, ptr %arrayinit.element.i.i.i.i.i.i168.i.i.i, align 8
-  %76 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 1, i32 1
+  %76 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 24
   store ptr @.str.43, ptr %76, align 8
-  %arrayinit.element2.i.i.i.i.i.i169.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i169.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i169.i.i.i, align 8
-  %77 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 2, i32 1
+  %77 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 40
   store ptr @.str.35, ptr %77, align 8
-  %arrayinit.element4.i.i.i.i.i.i170.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i170.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i166.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i170.i.i.i, align 8
-  %78 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 3, i32 1
+  %78 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i162.i.i.i, ptr %78, align 8
-  %arrayinit.element6.i.i.i.i.i.i171.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i171.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i171.i.i.i, align 8
-  %79 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 4, i32 1
+  %79 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 72
   store ptr @.str.36, ptr %79, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i154.i.i.i, i64 5)
           to label %.noexc73 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -1120,7 +977,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   br i1 %cmp.i.i.not.i.i177.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS36, label %if.then.i178.i.i.i
 
 if.then.i178.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS35
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 32
   %call.val.i179.i.i.i = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.val.i179.i.i.i, 3
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i216.i.i.i.invoke, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -1133,7 +990,7 @@ call.i.i.i.i.i.i180.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %call.i.i.i.i.i.i.i181.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i.i.i.i.i180.i.i.i75) #14, !noalias !28
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i174.i.i.i)
   %add1.i.i.i.i.i.i183.i.i.i = add i64 %call.i.i.i.i.i.i.i181.i.i.i, 45
-  %digits_.i.i.i.i.i.i184.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i174.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i184.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i174.i.i.i, i64 16
   %call.i.i1.i.i.i.i.i.i.i76 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i183.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i184.i.i.i)
           to label %call.i.i1.i.i.i.i.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -1142,27 +999,27 @@ call.i.i1.i.i.i.i.i.i.i.noexc:                    ; preds = %call.i.i.i.i.i.i180
   %sub.ptr.rhs.cast.i.i.i.i.i.i186.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i184.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i187.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i185.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i186.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i187.i.i.i, ptr %ref.tmp4.i.i.i.i.i174.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i188.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i174.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i188.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i174.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i184.i.i.i, ptr %_M_str.i.i.i.i.i.i.i188.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i173.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, align 8
-  %81 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 0, i32 1
+  %81 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 8
   store ptr @.str.34, ptr %81, align 8
-  %arrayinit.element.i.i.i.i.i.i189.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i189.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 16
   store i64 13, ptr %arrayinit.element.i.i.i.i.i.i189.i.i.i, align 8
-  %82 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 1, i32 1
+  %82 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 24
   store ptr @.str.44, ptr %82, align 8
-  %arrayinit.element2.i.i.i.i.i.i190.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i190.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i190.i.i.i, align 8
-  %83 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 2, i32 1
+  %83 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 40
   store ptr @.str.35, ptr %83, align 8
-  %arrayinit.element4.i.i.i.i.i.i191.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i191.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i187.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i191.i.i.i, align 8
-  %84 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 3, i32 1
+  %84 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i184.i.i.i, ptr %84, align 8
-  %arrayinit.element6.i.i.i.i.i.i192.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i192.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i192.i.i.i, align 8
-  %85 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 4, i32 1
+  %85 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 72
   store ptr @.str.36, ptr %85, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i173.i.i.i, i64 5)
           to label %.noexc77 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -1180,7 +1037,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   br i1 %cmp.i.i.not.i.i198.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS37, label %if.then.i199.i.i.i
 
 if.then.i199.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS36
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 36
   %call.val.i200.i.i.i = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i.i201.i.i.i = icmp eq i32 %call.val.i200.i.i.i, 3
   br i1 %cmp.not.i.i.i.i.i.i201.i.i.i, label %if.then.i.i.i.i.i.i216.i.i.i.invoke, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -1200,7 +1057,7 @@ call.i.i.i.i.i.i202.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %call.i.i.i.i.i.i.i203.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i.i.i.i.i202.i.i.i79) #14, !noalias !33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i195.i.i.i)
   %add1.i.i.i.i.i.i205.i.i.i = add i64 %call.i.i.i.i.i.i.i203.i.i.i, 62
-  %digits_.i.i.i.i.i.i206.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i195.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i206.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i195.i.i.i, i64 16
   %call.i.i1.i.i.i.i207.i.i.i80 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i205.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i206.i.i.i)
           to label %call.i.i1.i.i.i.i207.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -1209,27 +1066,27 @@ call.i.i1.i.i.i.i207.i.i.i.noexc:                 ; preds = %call.i.i.i.i.i.i202
   %sub.ptr.rhs.cast.i.i.i.i.i.i209.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i206.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i210.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i208.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i209.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i210.i.i.i, ptr %ref.tmp4.i.i.i.i.i195.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i211.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i195.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i211.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i195.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i206.i.i.i, ptr %_M_str.i.i.i.i.i.i.i211.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i194.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, align 8
-  %87 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 0, i32 1
+  %87 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 8
   store ptr @.str.34, ptr %87, align 8
-  %arrayinit.element.i.i.i.i.i.i212.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i212.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 16
   store i64 30, ptr %arrayinit.element.i.i.i.i.i.i212.i.i.i, align 8
-  %88 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 1, i32 1
+  %88 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 24
   store ptr @.str.47, ptr %88, align 8
-  %arrayinit.element2.i.i.i.i.i.i213.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i213.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i213.i.i.i, align 8
-  %89 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 2, i32 1
+  %89 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 40
   store ptr @.str.35, ptr %89, align 8
-  %arrayinit.element4.i.i.i.i.i.i214.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i214.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i210.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i214.i.i.i, align 8
-  %90 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 3, i32 1
+  %90 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i206.i.i.i, ptr %90, align 8
-  %arrayinit.element6.i.i.i.i.i.i215.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i215.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i215.i.i.i, align 8
-  %91 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 4, i32 1
+  %91 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 72
   store ptr @.str.36, ptr %91, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i194.i.i.i, i64 5)
           to label %.noexc81 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -1247,7 +1104,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   br i1 %cmp.i.i.not.i.i223.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS38, label %if.then.i224.i.i.i
 
 if.then.i224.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS37
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 17
   %call.val.i225.i.i.i = load i8, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i220.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i.i.i.i.i.i.i.i.i)
@@ -1258,7 +1115,7 @@ if.then.i224.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
 .noexc82:                                         ; preds = %if.then.i224.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i.i.i.i.i.i.i.i.i)
   %93 = load ptr, ptr %ref.tmp.i.i.i.i.i220.i.i.i, align 8
-  %data.i.i.i.i.i.i226.i.i.i = getelementptr inbounds %struct.grpc_slice, ptr %ref.tmp.i.i.i.i.i220.i.i.i, i64 0, i32 1
+  %data.i.i.i.i.i.i226.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i220.i.i.i, i64 8
   %94 = load i64, ptr %data.i.i.i.i.i.i226.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i227.i.i.i = icmp ugt ptr %93, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i.i.i.i.i227.i.i.i, label %if.then.i.i.i.i.i.i.i243.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -1269,7 +1126,7 @@ if.then.i.i.i.i.i.i.i243.i.i.i:                   ; preds = %.noexc82
   br i1 %cmp.i.i.i.i.i.i.i.i244.i.i.i, label %if.then.i.i.i.i.i.i.i.i245.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i245.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i243.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i246.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %93, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i246.i.i.i = getelementptr inbounds i8, ptr %93, i64 8
   %96 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i246.i.i.i, align 8
   invoke void %96(ptr noundef nonnull %93)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i247.i.i.i
@@ -1288,7 +1145,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i220.i.i.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i219.i.i.i)
   %add1.i.i.i.i.i.i232.i.i.i = add i64 %cond.i.i.i.i.i.i230.i.i.i, 52
-  %digits_.i.i.i.i.i.i233.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i219.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i233.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i219.i.i.i, i64 16
   %call.i.i.i.i.i.i234.i.i.i83 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i232.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i233.i.i.i)
           to label %call.i.i.i.i.i.i234.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -1297,27 +1154,27 @@ call.i.i.i.i.i.i234.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i236.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i233.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i237.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i235.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i236.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i237.i.i.i, ptr %ref.tmp4.i.i.i.i.i219.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i238.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i219.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i238.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i219.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i233.i.i.i, ptr %_M_str.i.i.i.i.i.i.i238.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i218.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, align 8
-  %99 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 0, i32 1
+  %99 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 8
   store ptr @.str.34, ptr %99, align 8
-  %arrayinit.element.i.i.i.i.i.i239.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i239.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 16
   store i64 20, ptr %arrayinit.element.i.i.i.i.i.i239.i.i.i, align 8
-  %100 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 1, i32 1
+  %100 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 24
   store ptr @.str.48, ptr %100, align 8
-  %arrayinit.element2.i.i.i.i.i.i240.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i240.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i240.i.i.i, align 8
-  %101 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 2, i32 1
+  %101 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 40
   store ptr @.str.35, ptr %101, align 8
-  %arrayinit.element4.i.i.i.i.i.i241.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i241.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i237.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i241.i.i.i, align 8
-  %102 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 3, i32 1
+  %102 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i233.i.i.i, ptr %102, align 8
-  %arrayinit.element6.i.i.i.i.i.i242.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i242.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i242.i.i.i, align 8
-  %103 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 4, i32 1
+  %103 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 72
   store ptr @.str.36, ptr %103, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i218.i.i.i, i64 5)
           to label %.noexc84 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -1335,7 +1192,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   br i1 %cmp.i.i.not.i.i255.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS39, label %if.then.i256.i.i.i
 
 if.then.i256.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS38
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 20
   %call.val.i257.i.i.i = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %conv.i.i.i.i.i.i258.i.i.i = sext i32 %call.val.i257.i.i.i to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i252.i.i.i), !noalias !41
@@ -1363,7 +1220,7 @@ if.then.i.i.i.i.i.i.i280.i.i.i:                   ; preds = %.noexc86
   br i1 %cmp.i.i.i.i.i.i.i.i281.i.i.i, label %if.then.i.i.i.i.i.i.i.i282.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i282.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i280.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i283.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i261.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i283.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i261.i.i.i, i64 8
   %106 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i283.i.i.i, align 8
   invoke void %106(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i261.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i284.i.i.i
@@ -1381,7 +1238,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i267.i.i.i = select i1 %tobool.not.i.i.i.i.i.i265.i.i.i, i64 %conv.i1.i.i.i.i.i266.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i263.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i250.i.i.i)
   %add1.i.i.i.i.i.i269.i.i.i = add i64 %cond.i.i.i.i.i.i267.i.i.i, 43
-  %digits_.i.i.i.i.i.i270.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i250.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i270.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i250.i.i.i, i64 16
   %call.i.i.i.i.i.i271.i.i.i87 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i269.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i270.i.i.i)
           to label %call.i.i.i.i.i.i271.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -1390,27 +1247,27 @@ call.i.i.i.i.i.i271.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i273.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i270.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i274.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i272.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i273.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i274.i.i.i, ptr %ref.tmp4.i.i.i.i.i250.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i275.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i250.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i275.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i250.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i270.i.i.i, ptr %_M_str.i.i.i.i.i.i.i275.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i249.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, align 8
-  %109 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 0, i32 1
+  %109 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 8
   store ptr @.str.34, ptr %109, align 8
-  %arrayinit.element.i.i.i.i.i.i276.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i276.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 16
   store i64 11, ptr %arrayinit.element.i.i.i.i.i.i276.i.i.i, align 8
-  %110 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 1, i32 1
+  %110 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 24
   store ptr @.str.49, ptr %110, align 8
-  %arrayinit.element2.i.i.i.i.i.i277.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i277.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i277.i.i.i, align 8
-  %111 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 2, i32 1
+  %111 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 40
   store ptr @.str.35, ptr %111, align 8
-  %arrayinit.element4.i.i.i.i.i.i278.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i278.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i274.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i278.i.i.i, align 8
-  %112 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 3, i32 1
+  %112 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i270.i.i.i, ptr %112, align 8
-  %arrayinit.element6.i.i.i.i.i.i279.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i279.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i279.i.i.i, align 8
-  %113 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 4, i32 1
+  %113 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 72
   store ptr @.str.36, ptr %113, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i249.i.i.i, i64 5)
           to label %.noexc88 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -1426,7 +1283,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   br i1 %cmp.i.i.i.i289.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS40, label %if.then.i290.i.i.i
 
 if.then.i290.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS39
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 56
   %call.val.i291.i.i.i = load i64, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i288.i.i.i)
   invoke void @_ZN9grpc_core19GrpcTimeoutMetadata6EncodeENS_9TimestampE(ptr nonnull sret(%"class.grpc_core::Slice") align 8 %ref.tmp.i.i.i.i.i288.i.i.i, i64 %call.val.i291.i.i.i)
@@ -1434,7 +1291,7 @@ if.then.i290.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
 
 .noexc89:                                         ; preds = %if.then.i290.i.i.i
   %115 = load ptr, ptr %ref.tmp.i.i.i.i.i288.i.i.i, align 8
-  %data.i.i.i.i.i.i292.i.i.i = getelementptr inbounds %struct.grpc_slice, ptr %ref.tmp.i.i.i.i.i288.i.i.i, i64 0, i32 1
+  %data.i.i.i.i.i.i292.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i288.i.i.i, i64 8
   %116 = load i64, ptr %data.i.i.i.i.i.i292.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i293.i.i.i = icmp ugt ptr %115, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i.i.i.i.i293.i.i.i, label %if.then.i.i.i.i.i.i.i309.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -1445,7 +1302,7 @@ if.then.i.i.i.i.i.i.i309.i.i.i:                   ; preds = %.noexc89
   br i1 %cmp.i.i.i.i.i.i.i.i310.i.i.i, label %if.then.i.i.i.i.i.i.i.i311.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i311.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i309.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i312.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %115, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i312.i.i.i = getelementptr inbounds i8, ptr %115, i64 8
   %118 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i312.i.i.i, align 8
   invoke void %118(ptr noundef nonnull %115)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i313.i.i.i
@@ -1464,7 +1321,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i288.i.i.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i287.i.i.i)
   %add1.i.i.i.i.i.i298.i.i.i = add i64 %cond.i.i.i.i.i.i296.i.i.i, 44
-  %digits_.i.i.i.i.i.i299.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i287.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i299.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i287.i.i.i, i64 16
   %call.i.i.i.i.i.i300.i.i.i90 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i298.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i299.i.i.i)
           to label %call.i.i.i.i.i.i300.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -1473,27 +1330,27 @@ call.i.i.i.i.i.i300.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i302.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i299.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i303.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i301.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i302.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i303.i.i.i, ptr %ref.tmp4.i.i.i.i.i287.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i304.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i287.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i304.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i287.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i299.i.i.i, ptr %_M_str.i.i.i.i.i.i.i304.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i286.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, align 8
-  %121 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 0, i32 1
+  %121 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 8
   store ptr @.str.34, ptr %121, align 8
-  %arrayinit.element.i.i.i.i.i.i305.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i305.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 16
   store i64 12, ptr %arrayinit.element.i.i.i.i.i.i305.i.i.i, align 8
-  %122 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 1, i32 1
+  %122 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 24
   store ptr @.str.50, ptr %122, align 8
-  %arrayinit.element2.i.i.i.i.i.i306.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i306.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i306.i.i.i, align 8
-  %123 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 2, i32 1
+  %123 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 40
   store ptr @.str.35, ptr %123, align 8
-  %arrayinit.element4.i.i.i.i.i.i307.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i307.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i303.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i307.i.i.i, align 8
-  %124 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 3, i32 1
+  %124 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i299.i.i.i, ptr %124, align 8
-  %arrayinit.element6.i.i.i.i.i.i308.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i308.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i308.i.i.i, align 8
-  %125 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 4, i32 1
+  %125 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 72
   store ptr @.str.36, ptr %125, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i286.i.i.i, i64 5)
           to label %.noexc91 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -1510,7 +1367,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   br i1 %cmp.i.i.not.i.i321.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS41, label %if.then.i322.i.i.i
 
 if.then.i322.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS40
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 24
   %call.val.i323.i.i.i = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %conv.i.i.i.i.i.i324.i.i.i = zext i32 %call.val.i323.i.i.i to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i318.i.i.i), !noalias !49
@@ -1538,7 +1395,7 @@ if.then.i.i.i.i.i.i.i346.i.i.i:                   ; preds = %.noexc93
   br i1 %cmp.i.i.i.i.i.i.i.i347.i.i.i, label %if.then.i.i.i.i.i.i.i.i348.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i348.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i346.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i349.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i327.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i349.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i327.i.i.i, i64 8
   %128 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i349.i.i.i, align 8
   invoke void %128(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i327.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i350.i.i.i
@@ -1556,7 +1413,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i333.i.i.i = select i1 %tobool.not.i.i.i.i.i.i331.i.i.i, i64 %conv.i1.i.i.i.i.i332.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i329.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i316.i.i.i)
   %add1.i.i.i.i.i.i335.i.i.i = add i64 %cond.i.i.i.i.i.i333.i.i.i, 58
-  %digits_.i.i.i.i.i.i336.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i316.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i336.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i316.i.i.i, i64 16
   %call.i.i.i.i.i.i337.i.i.i94 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i335.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i336.i.i.i)
           to label %call.i.i.i.i.i.i337.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -1565,27 +1422,27 @@ call.i.i.i.i.i.i337.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i339.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i336.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i340.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i338.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i339.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i340.i.i.i, ptr %ref.tmp4.i.i.i.i.i316.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i341.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i316.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i341.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i316.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i336.i.i.i, ptr %_M_str.i.i.i.i.i.i.i341.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i315.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, align 8
-  %131 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 0, i32 1
+  %131 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 8
   store ptr @.str.34, ptr %131, align 8
-  %arrayinit.element.i.i.i.i.i.i342.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i342.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 16
   store i64 26, ptr %arrayinit.element.i.i.i.i.i.i342.i.i.i, align 8
-  %132 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 1, i32 1
+  %132 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 24
   store ptr @.str.51, ptr %132, align 8
-  %arrayinit.element2.i.i.i.i.i.i343.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i343.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i343.i.i.i, align 8
-  %133 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 2, i32 1
+  %133 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 40
   store ptr @.str.35, ptr %133, align 8
-  %arrayinit.element4.i.i.i.i.i.i344.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i344.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i340.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i344.i.i.i, align 8
-  %134 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 3, i32 1
+  %134 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i336.i.i.i, ptr %134, align 8
-  %arrayinit.element6.i.i.i.i.i.i345.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i345.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i345.i.i.i, align 8
-  %135 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 4, i32 1
+  %135 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 72
   store ptr @.str.36, ptr %135, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i315.i.i.i, i64 5)
           to label %.noexc95 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -1602,7 +1459,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   br i1 %cmp.i.i.not.i.i357.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS42, label %if.then.i358.i.i.i
 
 if.then.i358.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS41
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 64
   %call.val.i359.i.i.i = load i64, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i355.i.i.i), !noalias !57
   %call.i.i.i.i.i.i.i360.i.i.i96 = invoke noundef i32 @_Z8gpr_ltoalPc(i64 noundef %call.val.i359.i.i.i, ptr noundef nonnull %buffer.i.i.i.i.i.i.i355.i.i.i)
@@ -1629,7 +1486,7 @@ if.then.i.i.i.i.i.i.i381.i.i.i:                   ; preds = %.noexc97
   br i1 %cmp.i.i.i.i.i.i.i.i382.i.i.i, label %if.then.i.i.i.i.i.i.i.i383.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i383.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i381.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i384.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i362.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i384.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i362.i.i.i, i64 8
   %138 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i384.i.i.i, align 8
   invoke void %138(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i362.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i385.i.i.i
@@ -1647,7 +1504,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i368.i.i.i = select i1 %tobool.not.i.i.i.i.i.i366.i.i.i, i64 %conv.i.i.i.i.i.i367.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i364.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i353.i.i.i)
   %add1.i.i.i.i.i.i370.i.i.i = add i64 %cond.i.i.i.i.i.i368.i.i.i, 54
-  %digits_.i.i.i.i.i.i371.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i353.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i371.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i353.i.i.i, i64 16
   %call.i.i.i.i.i.i372.i.i.i98 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i370.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i371.i.i.i)
           to label %call.i.i.i.i.i.i372.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -1656,27 +1513,27 @@ call.i.i.i.i.i.i372.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i374.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i371.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i375.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i373.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i374.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i375.i.i.i, ptr %ref.tmp4.i.i.i.i.i353.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i376.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i353.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i376.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i353.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i371.i.i.i, ptr %_M_str.i.i.i.i.i.i.i376.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i352.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, align 8
-  %141 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 0, i32 1
+  %141 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 8
   store ptr @.str.34, ptr %141, align 8
-  %arrayinit.element.i.i.i.i.i.i377.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i377.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 16
   store i64 22, ptr %arrayinit.element.i.i.i.i.i.i377.i.i.i, align 8
-  %142 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 1, i32 1
+  %142 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 24
   store ptr @.str.52, ptr %142, align 8
-  %arrayinit.element2.i.i.i.i.i.i378.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i378.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i378.i.i.i, align 8
-  %143 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 2, i32 1
+  %143 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 40
   store ptr @.str.35, ptr %143, align 8
-  %arrayinit.element4.i.i.i.i.i.i379.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i379.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i375.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i379.i.i.i, align 8
-  %144 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 3, i32 1
+  %144 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i371.i.i.i, ptr %144, align 8
-  %arrayinit.element6.i.i.i.i.i.i380.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i380.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i380.i.i.i, align 8
-  %145 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 4, i32 1
+  %145 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 72
   store ptr @.str.36, ptr %145, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i352.i.i.i, i64 5)
           to label %.noexc99 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -1691,7 +1548,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %146 = phi i16 [ %136, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS41 ], [ %.pre750.i.i.i, %.noexc99 ]
   %and2.i.i.i.i389.i.i.i = and i16 %146, 2048
   %cmp.i.i.not.i.i390.i.i.i = icmp eq i16 %and2.i.i.i.i389.i.i.i, 0
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 136
   br i1 %cmp.i.i.not.i.i390.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS43, label %if.then.i391.i.i.i
 
 if.then.i391.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS42
@@ -1706,7 +1563,7 @@ if.then.i.i.i.i.i.i.i.i418.i.i.i:                 ; preds = %if.then.i391.i.i.i
 
 _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i393.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i418.i.i.i, %if.then.i391.i.i.i
   %ref.tmp.sroa.0.0.copyload.i.i.i.i.i394.i.i.i = phi ptr [ %147, %if.then.i391.i.i.i ], [ %ref.tmp.sroa.0.0.copyload.pr.i.i.i.i.i419.i.i.i, %if.then.i.i.i.i.i.i.i.i418.i.i.i ]
-  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i395.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i395.i.i.i = getelementptr inbounds i8, ptr %17, i64 144
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i396.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i395.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i397.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i394.i.i.i, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i.i.i.i.i397.i.i.i, label %if.then.i.i.i.i.i.i.i413.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -1717,7 +1574,7 @@ if.then.i.i.i.i.i.i.i413.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
   br i1 %cmp.i.i.i1.i.i.i.i.i414.i.i.i, label %if.then.i.i.i2.i.i.i.i.i415.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i415.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i413.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i416.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i394.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i416.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i394.i.i.i, i64 8
   %150 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i416.i.i.i, align 8
   invoke void %150(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i394.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i417.i.i.i
@@ -1735,7 +1592,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i400.i.i.i = select i1 %tobool.not.i.i.i.i.i.i398.i.i.i, i64 %conv.i.i.i.i.i.i399.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i396.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i388.i.i.i)
   %add1.i.i.i.i.i.i402.i.i.i = add i64 %cond.i.i.i.i.i.i400.i.i.i, 42
-  %digits_.i.i.i.i.i.i403.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i388.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i403.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i388.i.i.i, i64 16
   %call.i.i.i.i.i.i404.i.i.i100 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i402.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i403.i.i.i)
           to label %call.i.i.i.i.i.i404.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -1744,27 +1601,27 @@ call.i.i.i.i.i.i404.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i406.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i403.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i407.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i405.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i406.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i407.i.i.i, ptr %ref.tmp4.i.i.i.i.i388.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i408.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i388.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i408.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i388.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i403.i.i.i, ptr %_M_str.i.i.i.i.i.i.i408.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i387.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, align 8
-  %153 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 0, i32 1
+  %153 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 8
   store ptr @.str.34, ptr %153, align 8
-  %arrayinit.element.i.i.i.i.i.i409.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i409.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 16
   store i64 10, ptr %arrayinit.element.i.i.i.i.i.i409.i.i.i, align 8
-  %154 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 1, i32 1
+  %154 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 24
   store ptr @.str.53, ptr %154, align 8
-  %arrayinit.element2.i.i.i.i.i.i410.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i410.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i410.i.i.i, align 8
-  %155 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 2, i32 1
+  %155 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 40
   store ptr @.str.35, ptr %155, align 8
-  %arrayinit.element4.i.i.i.i.i.i411.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i411.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i407.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i411.i.i.i, align 8
-  %156 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 3, i32 1
+  %156 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i403.i.i.i, ptr %156, align 8
-  %arrayinit.element6.i.i.i.i.i.i412.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i412.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i412.i.i.i, align 8
-  %157 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 4, i32 1
+  %157 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 72
   store ptr @.str.36, ptr %157, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i387.i.i.i, i64 5)
           to label %.noexc101 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -1779,7 +1636,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %158 = phi i16 [ %146, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS42 ], [ %.pre751.i.i.i, %.noexc101 ]
   %and2.i.i.i.i423.i.i.i = and i16 %158, 1024
   %cmp.i.i.not.i.i424.i.i.i = icmp eq i16 %and2.i.i.i.i423.i.i.i, 0
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 168
   br i1 %cmp.i.i.not.i.i424.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS44, label %if.then.i425.i.i.i
 
 if.then.i425.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS43
@@ -1794,7 +1651,7 @@ if.then.i.i.i.i.i.i.i.i452.i.i.i:                 ; preds = %if.then.i425.i.i.i
 
 _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i427.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i452.i.i.i, %if.then.i425.i.i.i
   %ref.tmp.sroa.0.0.copyload.i.i.i.i.i428.i.i.i = phi ptr [ %159, %if.then.i425.i.i.i ], [ %ref.tmp.sroa.0.0.copyload.pr.i.i.i.i.i453.i.i.i, %if.then.i.i.i.i.i.i.i.i452.i.i.i ]
-  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i429.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i429.i.i.i = getelementptr inbounds i8, ptr %17, i64 176
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i430.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i429.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i431.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i428.i.i.i, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i.i.i.i.i431.i.i.i, label %if.then.i.i.i.i.i.i.i447.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -1805,7 +1662,7 @@ if.then.i.i.i.i.i.i.i447.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
   br i1 %cmp.i.i.i1.i.i.i.i.i448.i.i.i, label %if.then.i.i.i2.i.i.i.i.i449.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i449.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i447.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i450.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i428.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i450.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i428.i.i.i, i64 8
   %162 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i450.i.i.i, align 8
   invoke void %162(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i428.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i451.i.i.i
@@ -1823,7 +1680,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i434.i.i.i = select i1 %tobool.not.i.i.i.i.i.i432.i.i.i, i64 %conv.i.i.i.i.i.i433.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i430.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i422.i.i.i)
   %add1.i.i.i.i.i.i436.i.i.i = add i64 %cond.i.i.i.i.i.i434.i.i.i, 44
-  %digits_.i.i.i.i.i.i437.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i422.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i437.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i422.i.i.i, i64 16
   %call.i.i.i.i.i.i438.i.i.i102 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i436.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i437.i.i.i)
           to label %call.i.i.i.i.i.i438.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -1832,27 +1689,27 @@ call.i.i.i.i.i.i438.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i440.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i437.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i441.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i439.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i440.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i441.i.i.i, ptr %ref.tmp4.i.i.i.i.i422.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i442.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i422.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i442.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i422.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i437.i.i.i, ptr %_M_str.i.i.i.i.i.i.i442.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i421.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, align 8
-  %165 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 0, i32 1
+  %165 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 8
   store ptr @.str.34, ptr %165, align 8
-  %arrayinit.element.i.i.i.i.i.i443.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i443.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 16
   store i64 12, ptr %arrayinit.element.i.i.i.i.i.i443.i.i.i, align 8
-  %166 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 1, i32 1
+  %166 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 24
   store ptr @.str.54, ptr %166, align 8
-  %arrayinit.element2.i.i.i.i.i.i444.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i444.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i444.i.i.i, align 8
-  %167 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 2, i32 1
+  %167 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 40
   store ptr @.str.35, ptr %167, align 8
-  %arrayinit.element4.i.i.i.i.i.i445.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i445.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i441.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i445.i.i.i, align 8
-  %168 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 3, i32 1
+  %168 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i437.i.i.i, ptr %168, align 8
-  %arrayinit.element6.i.i.i.i.i.i446.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i446.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i446.i.i.i, align 8
-  %169 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 4, i32 1
+  %169 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 72
   store ptr @.str.36, ptr %169, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i421.i.i.i, i64 5)
           to label %.noexc103 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -1867,7 +1724,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %170 = phi i16 [ %158, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS43 ], [ %.pre752.i.i.i, %.noexc103 ]
   %and2.i.i.i.i457.i.i.i = and i16 %170, 512
   %cmp.i.i.not.i.i458.i.i.i = icmp eq i16 %and2.i.i.i.i457.i.i.i, 0
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 200
   br i1 %cmp.i.i.not.i.i458.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS45, label %if.then.i459.i.i.i
 
 if.then.i459.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS44
@@ -1882,7 +1739,7 @@ if.then.i.i.i.i.i.i.i.i486.i.i.i:                 ; preds = %if.then.i459.i.i.i
 
 _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i461.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i486.i.i.i, %if.then.i459.i.i.i
   %ref.tmp.sroa.0.0.copyload.i.i.i.i.i462.i.i.i = phi ptr [ %171, %if.then.i459.i.i.i ], [ %ref.tmp.sroa.0.0.copyload.pr.i.i.i.i.i487.i.i.i, %if.then.i.i.i.i.i.i.i.i486.i.i.i ]
-  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i463.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i463.i.i.i = getelementptr inbounds i8, ptr %17, i64 208
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i464.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i463.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i465.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i462.i.i.i, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i.i.i.i.i465.i.i.i, label %if.then.i.i.i.i.i.i.i481.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -1893,7 +1750,7 @@ if.then.i.i.i.i.i.i.i481.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
   br i1 %cmp.i.i.i1.i.i.i.i.i482.i.i.i, label %if.then.i.i.i2.i.i.i.i.i483.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i483.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i481.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i484.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i462.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i484.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i462.i.i.i, i64 8
   %174 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i484.i.i.i, align 8
   invoke void %174(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i462.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i485.i.i.i
@@ -1911,7 +1768,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i468.i.i.i = select i1 %tobool.not.i.i.i.i.i.i466.i.i.i, i64 %conv.i.i.i.i.i.i467.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i464.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i456.i.i.i)
   %add1.i.i.i.i.i.i470.i.i.i = add i64 %cond.i.i.i.i.i.i468.i.i.i, 36
-  %digits_.i.i.i.i.i.i471.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i456.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i471.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i456.i.i.i, i64 16
   %call.i.i.i.i.i.i472.i.i.i104 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i470.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i471.i.i.i)
           to label %call.i.i.i.i.i.i472.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -1920,27 +1777,27 @@ call.i.i.i.i.i.i472.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i474.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i471.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i475.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i473.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i474.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i475.i.i.i, ptr %ref.tmp4.i.i.i.i.i456.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i476.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i456.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i476.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i456.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i471.i.i.i, ptr %_M_str.i.i.i.i.i.i.i476.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i455.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, align 8
-  %177 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 0, i32 1
+  %177 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 8
   store ptr @.str.34, ptr %177, align 8
-  %arrayinit.element.i.i.i.i.i.i477.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i477.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 16
   store i64 4, ptr %arrayinit.element.i.i.i.i.i.i477.i.i.i, align 8
-  %178 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 1, i32 1
+  %178 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 24
   store ptr @.str.55, ptr %178, align 8
-  %arrayinit.element2.i.i.i.i.i.i478.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i478.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i478.i.i.i, align 8
-  %179 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 2, i32 1
+  %179 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 40
   store ptr @.str.35, ptr %179, align 8
-  %arrayinit.element4.i.i.i.i.i.i479.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i479.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i475.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i479.i.i.i, align 8
-  %180 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 3, i32 1
+  %180 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i471.i.i.i, ptr %180, align 8
-  %arrayinit.element6.i.i.i.i.i.i480.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i480.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i480.i.i.i, align 8
-  %181 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 4, i32 1
+  %181 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 72
   store ptr @.str.36, ptr %181, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i455.i.i.i, i64 5)
           to label %.noexc105 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -1955,7 +1812,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %182 = phi i16 [ %170, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS44 ], [ %.pre753.i.i.i, %.noexc105 ]
   %and2.i.i.i.i491.i.i.i = and i16 %182, 256
   %cmp.i.i.not.i.i492.i.i.i = icmp eq i16 %and2.i.i.i.i491.i.i.i, 0
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 232
   br i1 %cmp.i.i.not.i.i492.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS46, label %if.then.i493.i.i.i
 
 if.then.i493.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS45
@@ -1970,7 +1827,7 @@ if.then.i.i.i.i.i.i.i.i520.i.i.i:                 ; preds = %if.then.i493.i.i.i
 
 _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i495.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i520.i.i.i, %if.then.i493.i.i.i
   %ref.tmp.sroa.0.0.copyload.i.i.i.i.i496.i.i.i = phi ptr [ %183, %if.then.i493.i.i.i ], [ %ref.tmp.sroa.0.0.copyload.pr.i.i.i.i.i521.i.i.i, %if.then.i.i.i.i.i.i.i.i520.i.i.i ]
-  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i497.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i497.i.i.i = getelementptr inbounds i8, ptr %17, i64 240
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i498.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i497.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i499.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i496.i.i.i, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i.i.i.i.i499.i.i.i, label %if.then.i.i.i.i.i.i.i515.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -1981,7 +1838,7 @@ if.then.i.i.i.i.i.i.i515.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
   br i1 %cmp.i.i.i1.i.i.i.i.i516.i.i.i, label %if.then.i.i.i2.i.i.i.i.i517.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i517.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i515.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i518.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i496.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i518.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i496.i.i.i, i64 8
   %186 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i518.i.i.i, align 8
   invoke void %186(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i496.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i519.i.i.i
@@ -1999,7 +1856,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i502.i.i.i = select i1 %tobool.not.i.i.i.i.i.i500.i.i.i, i64 %conv.i.i.i.i.i.i501.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i498.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i490.i.i.i)
   %add1.i.i.i.i.i.i504.i.i.i = add i64 %cond.i.i.i.i.i.i502.i.i.i, 57
-  %digits_.i.i.i.i.i.i505.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i490.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i505.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i490.i.i.i, i64 16
   %call.i.i.i.i.i.i506.i.i.i106 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i504.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i505.i.i.i)
           to label %call.i.i.i.i.i.i506.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -2008,27 +1865,27 @@ call.i.i.i.i.i.i506.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i508.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i505.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i509.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i507.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i508.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i509.i.i.i, ptr %ref.tmp4.i.i.i.i.i490.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i510.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i490.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i510.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i490.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i505.i.i.i, ptr %_M_str.i.i.i.i.i.i.i510.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i489.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, align 8
-  %189 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 0, i32 1
+  %189 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 8
   store ptr @.str.34, ptr %189, align 8
-  %arrayinit.element.i.i.i.i.i.i511.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i511.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 16
   store i64 25, ptr %arrayinit.element.i.i.i.i.i.i511.i.i.i, align 8
-  %190 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 1, i32 1
+  %190 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 24
   store ptr @.str.56, ptr %190, align 8
-  %arrayinit.element2.i.i.i.i.i.i512.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i512.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i512.i.i.i, align 8
-  %191 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 2, i32 1
+  %191 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 40
   store ptr @.str.35, ptr %191, align 8
-  %arrayinit.element4.i.i.i.i.i.i513.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i513.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i509.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i513.i.i.i, align 8
-  %192 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 3, i32 1
+  %192 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i505.i.i.i, ptr %192, align 8
-  %arrayinit.element6.i.i.i.i.i.i514.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i514.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i514.i.i.i, align 8
-  %193 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 4, i32 1
+  %193 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 72
   store ptr @.str.36, ptr %193, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i489.i.i.i, i64 5)
           to label %.noexc107 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -2043,7 +1900,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %194 = phi i16 [ %182, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS45 ], [ %.pre754.i.i.i, %.noexc107 ]
   %and2.i.i.i.i525.i.i.i = and i16 %194, 128
   %cmp.i.i.not.i.i526.i.i.i = icmp eq i16 %and2.i.i.i.i525.i.i.i, 0
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 264
   br i1 %cmp.i.i.not.i.i526.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS47, label %if.then.i527.i.i.i
 
 if.then.i527.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS46
@@ -2058,7 +1915,7 @@ if.then.i.i.i.i.i.i.i.i554.i.i.i:                 ; preds = %if.then.i527.i.i.i
 
 _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i529.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i554.i.i.i, %if.then.i527.i.i.i
   %ref.tmp.sroa.0.0.copyload.i.i.i.i.i530.i.i.i = phi ptr [ %195, %if.then.i527.i.i.i ], [ %ref.tmp.sroa.0.0.copyload.pr.i.i.i.i.i555.i.i.i, %if.then.i.i.i.i.i.i.i.i554.i.i.i ]
-  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i531.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i531.i.i.i = getelementptr inbounds i8, ptr %17, i64 272
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i532.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i531.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i533.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i530.i.i.i, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i.i.i.i.i533.i.i.i, label %if.then.i.i.i.i.i.i.i549.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -2069,7 +1926,7 @@ if.then.i.i.i.i.i.i.i549.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
   br i1 %cmp.i.i.i1.i.i.i.i.i550.i.i.i, label %if.then.i.i.i2.i.i.i.i.i551.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i551.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i549.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i552.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i530.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i552.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i530.i.i.i, i64 8
   %198 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i552.i.i.i, align 8
   invoke void %198(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i530.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i553.i.i.i
@@ -2087,7 +1944,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i536.i.i.i = select i1 %tobool.not.i.i.i.i.i.i534.i.i.i, i64 %conv.i.i.i.i.i.i535.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i532.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i524.i.i.i)
   %add1.i.i.i.i.i.i538.i.i.i = add i64 %cond.i.i.i.i.i.i536.i.i.i, 53
-  %digits_.i.i.i.i.i.i539.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i524.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i539.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i524.i.i.i, i64 16
   %call.i.i.i.i.i.i540.i.i.i108 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i538.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i539.i.i.i)
           to label %call.i.i.i.i.i.i540.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -2096,27 +1953,27 @@ call.i.i.i.i.i.i540.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i542.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i539.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i543.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i541.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i542.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i543.i.i.i, ptr %ref.tmp4.i.i.i.i.i524.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i544.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i524.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i544.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i524.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i539.i.i.i, ptr %_M_str.i.i.i.i.i.i.i544.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i523.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, align 8
-  %201 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 0, i32 1
+  %201 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 8
   store ptr @.str.34, ptr %201, align 8
-  %arrayinit.element.i.i.i.i.i.i545.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i545.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 16
   store i64 21, ptr %arrayinit.element.i.i.i.i.i.i545.i.i.i, align 8
-  %202 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 1, i32 1
+  %202 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 24
   store ptr @.str.57, ptr %202, align 8
-  %arrayinit.element2.i.i.i.i.i.i546.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i546.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i546.i.i.i, align 8
-  %203 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 2, i32 1
+  %203 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 40
   store ptr @.str.35, ptr %203, align 8
-  %arrayinit.element4.i.i.i.i.i.i547.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i547.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i543.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i547.i.i.i, align 8
-  %204 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 3, i32 1
+  %204 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i539.i.i.i, ptr %204, align 8
-  %arrayinit.element6.i.i.i.i.i.i548.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i548.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i548.i.i.i, align 8
-  %205 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 4, i32 1
+  %205 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 72
   store ptr @.str.36, ptr %205, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i523.i.i.i, i64 5)
           to label %.noexc109 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -2131,7 +1988,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %206 = phi i16 [ %194, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS46 ], [ %.pre755.i.i.i, %.noexc109 ]
   %and2.i.i.i.i559.i.i.i = and i16 %206, 64
   %cmp.i.i.not.i.i560.i.i.i = icmp eq i16 %and2.i.i.i.i559.i.i.i, 0
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 296
   br i1 %cmp.i.i.not.i.i560.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS48, label %if.then.i561.i.i.i
 
 if.then.i561.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS47
@@ -2146,7 +2003,7 @@ if.then.i.i.i.i.i.i.i.i588.i.i.i:                 ; preds = %if.then.i561.i.i.i
 
 _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i563.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i588.i.i.i, %if.then.i561.i.i.i
   %ref.tmp.sroa.0.0.copyload.i.i.i.i.i564.i.i.i = phi ptr [ %207, %if.then.i561.i.i.i ], [ %ref.tmp.sroa.0.0.copyload.pr.i.i.i.i.i589.i.i.i, %if.then.i.i.i.i.i.i.i.i588.i.i.i ]
-  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i565.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i565.i.i.i = getelementptr inbounds i8, ptr %17, i64 304
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i566.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i565.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i567.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i564.i.i.i, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i.i.i.i.i567.i.i.i, label %if.then.i.i.i.i.i.i.i583.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -2157,7 +2014,7 @@ if.then.i.i.i.i.i.i.i583.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
   br i1 %cmp.i.i.i1.i.i.i.i.i584.i.i.i, label %if.then.i.i.i2.i.i.i.i.i585.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i585.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i583.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i586.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i564.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i586.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i564.i.i.i, i64 8
   %210 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i586.i.i.i, align 8
   invoke void %210(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i564.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i587.i.i.i
@@ -2175,7 +2032,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i570.i.i.i = select i1 %tobool.not.i.i.i.i.i.i568.i.i.i, i64 %conv.i.i.i.i.i.i569.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i566.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i558.i.i.i)
   %add1.i.i.i.i.i.i572.i.i.i = add i64 %cond.i.i.i.i.i.i570.i.i.i, 46
-  %digits_.i.i.i.i.i.i573.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i558.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i573.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i558.i.i.i, i64 16
   %call.i.i.i.i.i.i574.i.i.i110 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i572.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i573.i.i.i)
           to label %call.i.i.i.i.i.i574.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -2184,27 +2041,27 @@ call.i.i.i.i.i.i574.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i576.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i573.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i577.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i575.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i576.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i577.i.i.i, ptr %ref.tmp4.i.i.i.i.i558.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i578.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i558.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i578.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i558.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i573.i.i.i, ptr %_M_str.i.i.i.i.i.i.i578.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i557.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, align 8
-  %213 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 0, i32 1
+  %213 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 8
   store ptr @.str.34, ptr %213, align 8
-  %arrayinit.element.i.i.i.i.i.i579.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i579.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 16
   store i64 14, ptr %arrayinit.element.i.i.i.i.i.i579.i.i.i, align 8
-  %214 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 1, i32 1
+  %214 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 24
   store ptr @.str.58, ptr %214, align 8
-  %arrayinit.element2.i.i.i.i.i.i580.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i580.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i580.i.i.i, align 8
-  %215 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 2, i32 1
+  %215 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 40
   store ptr @.str.35, ptr %215, align 8
-  %arrayinit.element4.i.i.i.i.i.i581.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i581.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i577.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i581.i.i.i, align 8
-  %216 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 3, i32 1
+  %216 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i573.i.i.i, ptr %216, align 8
-  %arrayinit.element6.i.i.i.i.i.i582.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i582.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i582.i.i.i, align 8
-  %217 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 4, i32 1
+  %217 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 72
   store ptr @.str.36, ptr %217, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i557.i.i.i, i64 5)
           to label %.noexc111 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -2219,7 +2076,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %218 = phi i16 [ %206, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS47 ], [ %.pre756.i.i.i, %.noexc111 ]
   %and2.i.i.i.i593.i.i.i = and i16 %218, 32
   %cmp.i.i.not.i.i594.i.i.i = icmp eq i16 %and2.i.i.i.i593.i.i.i, 0
-  %u.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 328
   br i1 %cmp.i.i.not.i.i594.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS49, label %if.then.i595.i.i.i
 
 if.then.i595.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS48
@@ -2234,7 +2091,7 @@ if.then.i.i.i.i.i.i.i.i622.i.i.i:                 ; preds = %if.then.i595.i.i.i
 
 _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i597.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i622.i.i.i, %if.then.i595.i.i.i
   %ref.tmp.sroa.0.0.copyload.i.i.i.i.i598.i.i.i = phi ptr [ %219, %if.then.i595.i.i.i ], [ %ref.tmp.sroa.0.0.copyload.pr.i.i.i.i.i623.i.i.i, %if.then.i.i.i.i.i.i.i.i622.i.i.i ]
-  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i599.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i599.i.i.i = getelementptr inbounds i8, ptr %17, i64 336
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i600.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i599.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i601.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i598.i.i.i, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i.i.i.i.i601.i.i.i, label %if.then.i.i.i.i.i.i.i617.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -2245,7 +2102,7 @@ if.then.i.i.i.i.i.i.i617.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
   br i1 %cmp.i.i.i1.i.i.i.i.i618.i.i.i, label %if.then.i.i.i2.i.i.i.i.i619.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i619.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i617.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i620.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i598.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i620.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i598.i.i.i, i64 8
   %222 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i620.i.i.i, align 8
   invoke void %222(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i598.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i621.i.i.i
@@ -2263,7 +2120,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i604.i.i.i = select i1 %tobool.not.i.i.i.i.i.i602.i.i.i, i64 %conv.i.i.i.i.i.i603.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i600.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i592.i.i.i)
   %add1.i.i.i.i.i.i606.i.i.i = add i64 %cond.i.i.i.i.i.i604.i.i.i, 45
-  %digits_.i.i.i.i.i.i607.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i592.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i607.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i592.i.i.i, i64 16
   %call.i.i.i.i.i.i608.i.i.i112 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i606.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i607.i.i.i)
           to label %call.i.i.i.i.i.i608.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -2272,27 +2129,27 @@ call.i.i.i.i.i.i608.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i610.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i607.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i611.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i609.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i610.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i611.i.i.i, ptr %ref.tmp4.i.i.i.i.i592.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i612.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i592.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i612.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i592.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i607.i.i.i, ptr %_M_str.i.i.i.i.i.i.i612.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i591.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, align 8
-  %225 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 0, i32 1
+  %225 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 8
   store ptr @.str.34, ptr %225, align 8
-  %arrayinit.element.i.i.i.i.i.i613.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i613.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 16
   store i64 13, ptr %arrayinit.element.i.i.i.i.i.i613.i.i.i, align 8
-  %226 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 1, i32 1
+  %226 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 24
   store ptr @.str.59, ptr %226, align 8
-  %arrayinit.element2.i.i.i.i.i.i614.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i614.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i614.i.i.i, align 8
-  %227 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 2, i32 1
+  %227 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 40
   store ptr @.str.35, ptr %227, align 8
-  %arrayinit.element4.i.i.i.i.i.i615.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i615.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i611.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i615.i.i.i, align 8
-  %228 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 3, i32 1
+  %228 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i607.i.i.i, ptr %228, align 8
-  %arrayinit.element6.i.i.i.i.i.i616.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i616.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i616.i.i.i, align 8
-  %229 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 4, i32 1
+  %229 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 72
   store ptr @.str.36, ptr %229, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i591.i.i.i, i64 5)
           to label %.noexc113 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -2310,7 +2167,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
 
 if.then.i630.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS49
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i626.i.i.i)
-  %digits_.i.i.i.i.i.i632.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i626.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i632.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i626.i.i.i, i64 16
   %call.i.i.i.i.i.i633.i.i.i114 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef 51, ptr noundef nonnull %digits_.i.i.i.i.i.i632.i.i.i)
           to label %call.i.i.i.i.i.i633.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -2319,27 +2176,27 @@ call.i.i.i.i.i.i633.i.i.i.noexc:                  ; preds = %if.then.i630.i.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i635.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i632.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i636.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i634.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i635.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i636.i.i.i, ptr %ref.tmp4.i.i.i.i.i626.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i637.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i626.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i637.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i626.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i632.i.i.i, ptr %_M_str.i.i.i.i.i.i.i637.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i625.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, align 8
-  %231 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 0, i32 1
+  %231 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 8
   store ptr @.str.34, ptr %231, align 8
-  %arrayinit.element.i.i.i.i.i.i638.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i638.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 16
   store i64 19, ptr %arrayinit.element.i.i.i.i.i.i638.i.i.i, align 8
-  %232 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 1, i32 1
+  %232 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 24
   store ptr @.str.60, ptr %232, align 8
-  %arrayinit.element2.i.i.i.i.i.i639.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i639.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i639.i.i.i, align 8
-  %233 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 2, i32 1
+  %233 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 40
   store ptr @.str.35, ptr %233, align 8
-  %arrayinit.element4.i.i.i.i.i.i640.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i640.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i636.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i640.i.i.i, align 8
-  %234 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 3, i32 1
+  %234 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i632.i.i.i, ptr %234, align 8
-  %arrayinit.element6.i.i.i.i.i.i641.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i641.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i641.i.i.i, align 8
-  %235 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 4, i32 1
+  %235 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 72
   store ptr @.str.36, ptr %235, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i625.i.i.i, i64 5)
           to label %.noexc115 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -2356,11 +2213,11 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   br i1 %cmp.i.i.not.i.i647.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS52, label %if.then.i648.i.i.i
 
 if.then.i648.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS50
-  %u.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 1
+  %u.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 496
   %237 = load i64, ptr %u.i.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i.i.i = and i64 %237, 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i.i, 0
-  %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 1
+  %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 504
   %238 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8
   %cond.i.i.i.i.i.i.i.i = select i1 %tobool.i.not.i.i.i.i.i.i.i.i, ptr %data_.i.i.i.i.i.i.i.i.i, ptr %238
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %237, 1
@@ -2369,19 +2226,19 @@ if.then.i648.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
   br i1 %cmp.not8.i.i.i.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS52, label %for.body.lr.ph.i.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i648.i.i.i
-  %data.i.i.i.i.i.i649.i.i.i = getelementptr inbounds %struct.grpc_slice, ptr %ref.tmp.i.i.i.i.i645.i.i.i, i64 0, i32 1
-  %digits_.i.i.i.i.i.i650.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i644.i.i.i, i64 0, i32 1
+  %data.i.i.i.i.i.i649.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i645.i.i.i, i64 8
+  %digits_.i.i.i.i.i.i650.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i644.i.i.i, i64 16
   %sub.ptr.rhs.cast.i.i.i.i.i.i651.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i650.i.i.i to i64
-  %_M_str.i.i.i.i.i.i.i652.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i644.i.i.i, i64 0, i32 1
-  %239 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 0, i32 1
-  %arrayinit.element.i.i.i.i.i.i653.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 1
-  %240 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 1, i32 1
-  %arrayinit.element2.i.i.i.i.i.i654.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 2
-  %241 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 2, i32 1
-  %arrayinit.element4.i.i.i.i.i.i655.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 3
-  %242 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 3, i32 1
-  %arrayinit.element6.i.i.i.i.i.i656.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 4
-  %243 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 4, i32 1
+  %_M_str.i.i.i.i.i.i.i652.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i644.i.i.i, i64 8
+  %239 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 8
+  %arrayinit.element.i.i.i.i.i.i653.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 16
+  %240 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 24
+  %arrayinit.element2.i.i.i.i.i.i654.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 32
+  %241 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 40
+  %arrayinit.element4.i.i.i.i.i.i655.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 48
+  %242 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 56
+  %arrayinit.element6.i.i.i.i.i.i656.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 64
+  %243 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i643.i.i.i, i64 72
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %.noexc118, %for.body.lr.ph.i.i.i.i.i.i
@@ -2402,7 +2259,7 @@ if.then.i.i.i.i.i.i.i666.i.i.i:                   ; preds = %.noexc116
   br i1 %cmp.i.i.i.i.i.i.i.i667.i.i.i, label %if.then.i.i.i.i.i.i.i.i668.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_132MetadataSizeLimitExceededEncoder6EncodeINS_17LbCostBinMetadataENS3_9ValueTypeEEEvT_RKT0_.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i668.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i666.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i669.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %244, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i669.i.i.i = getelementptr inbounds i8, ptr %244, i64 8
   %247 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i669.i.i.i, align 8
   invoke void %247(ptr noundef nonnull %244)
           to label %_ZN9grpc_core12_GLOBAL__N_132MetadataSizeLimitExceededEncoder6EncodeINS_17LbCostBinMetadataENS3_9ValueTypeEEEvT_RKT0_.exit.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i670.i.i.i
@@ -2446,7 +2303,7 @@ call.i.i.i.i.i.i663.i.i.i.noexc:                  ; preds = %_ZN9grpc_core12_GLO
 .noexc118:                                        ; preds = %call.i.i.i.i.i.i663.i.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i643.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i644.i.i.i)
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %__begin0.09.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.09.i.i.i.i.i.i, i64 40
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS51, label %for.body.i.i.i.i.i.i
 
@@ -2458,7 +2315,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %250 = phi i16 [ %.pre757.i.i.i, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS51 ], [ %236, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS50 ], [ %236, %if.then.i648.i.i.i ]
   %and2.i.i.i.i674.i.i.i = and i16 %250, 8
   %cmp.i.i.not.i.i675.i.i.i = icmp eq i16 %and2.i.i.i.i674.i.i.i, 0
-  %u.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 392
   br i1 %cmp.i.i.not.i.i675.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS53, label %if.then.i676.i.i.i
 
 if.then.i676.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS52
@@ -2473,7 +2330,7 @@ if.then.i.i.i.i.i.i.i.i703.i.i.i:                 ; preds = %if.then.i676.i.i.i
 
 _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i678.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i703.i.i.i, %if.then.i676.i.i.i
   %ref.tmp.sroa.0.0.copyload.i.i.i.i.i679.i.i.i = phi ptr [ %251, %if.then.i676.i.i.i ], [ %ref.tmp.sroa.0.0.copyload.pr.i.i.i.i.i704.i.i.i, %if.then.i.i.i.i.i.i.i.i703.i.i.i ]
-  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i680.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i680.i.i.i = getelementptr inbounds i8, ptr %17, i64 400
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i681.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i680.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i682.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i679.i.i.i, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i.i.i.i.i682.i.i.i, label %if.then.i.i.i.i.i.i.i698.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -2484,7 +2341,7 @@ if.then.i.i.i.i.i.i.i698.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
   br i1 %cmp.i.i.i1.i.i.i.i.i699.i.i.i, label %if.then.i.i.i2.i.i.i.i.i700.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i700.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i698.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i701.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i679.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i701.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i679.i.i.i, i64 8
   %254 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i701.i.i.i, align 8
   invoke void %254(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i679.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i702.i.i.i
@@ -2502,7 +2359,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i685.i.i.i = select i1 %tobool.not.i.i.i.i.i.i683.i.i.i, i64 %conv.i.i.i.i.i.i684.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i681.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i673.i.i.i)
   %add1.i.i.i.i.i.i687.i.i.i = add i64 %cond.i.i.i.i.i.i685.i.i.i, 40
-  %digits_.i.i.i.i.i.i688.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i673.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i688.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i673.i.i.i, i64 16
   %call.i.i.i.i.i.i689.i.i.i119 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i687.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i688.i.i.i)
           to label %call.i.i.i.i.i.i689.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -2511,27 +2368,27 @@ call.i.i.i.i.i.i689.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i691.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i688.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i692.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i690.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i691.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i692.i.i.i, ptr %ref.tmp4.i.i.i.i.i673.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i693.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i673.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i693.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i673.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i688.i.i.i, ptr %_M_str.i.i.i.i.i.i.i693.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i672.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, align 8
-  %257 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 0, i32 1
+  %257 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 8
   store ptr @.str.34, ptr %257, align 8
-  %arrayinit.element.i.i.i.i.i.i694.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i694.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 16
   store i64 8, ptr %arrayinit.element.i.i.i.i.i.i694.i.i.i, align 8
-  %258 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 1, i32 1
+  %258 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 24
   store ptr @.str.62, ptr %258, align 8
-  %arrayinit.element2.i.i.i.i.i.i695.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i695.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i695.i.i.i, align 8
-  %259 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 2, i32 1
+  %259 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 40
   store ptr @.str.35, ptr %259, align 8
-  %arrayinit.element4.i.i.i.i.i.i696.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i696.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i692.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i696.i.i.i, align 8
-  %260 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 3, i32 1
+  %260 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i688.i.i.i, ptr %260, align 8
-  %arrayinit.element6.i.i.i.i.i.i697.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i697.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i697.i.i.i, align 8
-  %261 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 4, i32 1
+  %261 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 72
   store ptr @.str.36, ptr %261, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i672.i.i.i, i64 5)
           to label %.noexc120 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -2546,7 +2403,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %262 = phi i16 [ %250, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS52 ], [ %.pre758.i.i.i, %.noexc120 ]
   %and2.i.i.i.i708.i.i.i = and i16 %262, 4
   %cmp.i.i.not.i.i709.i.i.i = icmp eq i16 %and2.i.i.i.i708.i.i.i, 0
-  %u.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 1
+  %u.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 424
   br i1 %cmp.i.i.not.i.i709.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS54, label %if.then.i710.i.i.i
 
 if.then.i710.i.i.i:                               ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS53
@@ -2561,7 +2418,7 @@ if.then.i.i.i.i.i.i.i.i737.i.i.i:                 ; preds = %if.then.i710.i.i.i
 
 _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i712.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i737.i.i.i, %if.then.i710.i.i.i
   %ref.tmp.sroa.0.0.copyload.i.i.i.i.i713.i.i.i = phi ptr [ %263, %if.then.i710.i.i.i ], [ %ref.tmp.sroa.0.0.copyload.pr.i.i.i.i.i738.i.i.i, %if.then.i.i.i.i.i.i.i.i737.i.i.i ]
-  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i714.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %17, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i714.i.i.i = getelementptr inbounds i8, ptr %17, i64 432
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i715.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i714.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i716.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i713.i.i.i, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i.i.i.i.i716.i.i.i, label %if.then.i.i.i.i.i.i.i732.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
@@ -2572,7 +2429,7 @@ if.then.i.i.i.i.i.i.i732.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
   br i1 %cmp.i.i.i1.i.i.i.i.i733.i.i.i, label %if.then.i.i.i2.i.i.i.i.i734.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i734.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i732.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i.i735.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i713.i.i.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i.i735.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i713.i.i.i, i64 8
   %266 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i735.i.i.i, align 8
   invoke void %266(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i713.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i736.i.i.i
@@ -2590,7 +2447,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %cond.i.i.i.i.i.i719.i.i.i = select i1 %tobool.not.i.i.i.i.i.i717.i.i.i, i64 %conv.i.i.i.i.i.i718.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i715.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i707.i.i.i)
   %add1.i.i.i.i.i.i721.i.i.i = add i64 %cond.i.i.i.i.i.i719.i.i.i, 53
-  %digits_.i.i.i.i.i.i722.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i.i.i707.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i.i.i722.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i707.i.i.i, i64 16
   %call.i.i.i.i.i.i723.i.i.i121 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i721.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i722.i.i.i)
           to label %call.i.i.i.i.i.i723.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -2599,27 +2456,27 @@ call.i.i.i.i.i.i723.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   %sub.ptr.rhs.cast.i.i.i.i.i.i725.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i722.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i726.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i724.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i725.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i726.i.i.i, ptr %ref.tmp4.i.i.i.i.i707.i.i.i, align 8
-  %_M_str.i.i.i.i.i.i.i727.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i.i.i707.i.i.i, i64 0, i32 1
+  %_M_str.i.i.i.i.i.i.i727.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i.i.i707.i.i.i, i64 8
   store ptr %digits_.i.i.i.i.i.i722.i.i.i, ptr %_M_str.i.i.i.i.i.i.i727.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i.i706.i.i.i)
   store i64 1, ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, align 8
-  %269 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 0, i32 1
+  %269 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 8
   store ptr @.str.34, ptr %269, align 8
-  %arrayinit.element.i.i.i.i.i.i728.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 1
+  %arrayinit.element.i.i.i.i.i.i728.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 16
   store i64 21, ptr %arrayinit.element.i.i.i.i.i.i728.i.i.i, align 8
-  %270 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 1, i32 1
+  %270 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 24
   store ptr @.str.63, ptr %270, align 8
-  %arrayinit.element2.i.i.i.i.i.i729.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 2
+  %arrayinit.element2.i.i.i.i.i.i729.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 32
   store i64 1, ptr %arrayinit.element2.i.i.i.i.i.i729.i.i.i, align 8
-  %271 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 2, i32 1
+  %271 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 40
   store ptr @.str.35, ptr %271, align 8
-  %arrayinit.element4.i.i.i.i.i.i730.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 3
+  %arrayinit.element4.i.i.i.i.i.i730.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 48
   store i64 %sub.ptr.sub.i.i.i.i.i.i726.i.i.i, ptr %arrayinit.element4.i.i.i.i.i.i730.i.i.i, align 8
-  %272 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 3, i32 1
+  %272 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 56
   store ptr %digits_.i.i.i.i.i.i722.i.i.i, ptr %272, align 8
-  %arrayinit.element6.i.i.i.i.i.i731.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 4
+  %arrayinit.element6.i.i.i.i.i.i731.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 64
   store i64 1, ptr %arrayinit.element6.i.i.i.i.i.i731.i.i.i, align 8
-  %273 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 4, i32 1
+  %273 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 72
   store ptr @.str.36, ptr %273, align 8
   invoke void @_ZN4absl12lts_2023080216strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS5_EE(ptr noundef nonnull %summary, ptr nonnull %ref.tmp.i.i.i.i.i.i706.i.i.i, i64 5)
           to label %.noexc122 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -2630,45 +2487,46 @@ call.i.i.i.i.i.i723.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15meta
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS54
 
 _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS54: ; preds = %.noexc122, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS53
-  %first_.i.i.i.i = getelementptr inbounds %"class.grpc_core::MetadataMap", ptr %17, i64 0, i32 1, i32 0, i32 1
+  %first_.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 552
   %274 = load ptr, ptr %first_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %274, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont60, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS54
-  %count.i.i.i.i = getelementptr inbounds %"struct.grpc_core::ChunkedVector<std::pair<grpc_core::Slice, grpc_core::Slice>, 10>::Chunk", ptr %274, i64 0, i32 1
+  %count.i.i.i.i = getelementptr inbounds i8, ptr %274, i64 8
   %275 = load i64, ptr %count.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp eq i64 %275, 0
   br i1 %cmp3.i.i.i.i, label %invoke.cont60, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %land.lhs.true.i.i.i.i
-  %digits_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp4.i.i.i, i64 0, i32 1
+  %digits_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i, i64 16
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %digits_.i.i.i.i to i64
-  %_M_str.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4.i.i.i, i64 0, i32 1
-  %276 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i.i.i, i64 0, i32 1
-  %arrayinit.element.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i, i64 1
-  %277 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i, i64 1, i32 1
-  %arrayinit.element2.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i, i64 2
-  %278 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i, i64 2, i32 1
-  %arrayinit.element4.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i, i64 3
-  %279 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i, i64 3, i32 1
-  %arrayinit.element6.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i, i64 4
-  %280 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i.i.i, i64 4, i32 1
+  %_M_str.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i.i, i64 8
+  %276 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
+  %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 16
+  %277 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 24
+  %arrayinit.element2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 32
+  %278 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 40
+  %arrayinit.element4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 48
+  %279 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 56
+  %arrayinit.element6.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 64
+  %280 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 72
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i, %for.body.lr.ph.i
   %__begin3.sroa.5.037.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %__begin3.sroa.5.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ]
   %__begin3.sroa.0.036.i = phi ptr [ %274, %for.body.lr.ph.i ], [ %__begin3.sroa.0.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ]
-  %arrayidx.i.i = getelementptr inbounds %"struct.grpc_core::ChunkedVector<std::pair<grpc_core::Slice, grpc_core::Slice>, 10>::Chunk", ptr %__begin3.sroa.0.036.i, i64 0, i32 2, i64 %__begin3.sroa.5.037.i
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %arrayidx.i.i, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.036.i, i64 16
+  %arrayidx.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor"], ptr %data.i.i, i64 0, i64 %__begin3.sroa.5.037.i
+  %second.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   %second.val.i = load ptr, ptr %second.i, align 8
-  %281 = getelementptr %"struct.std::pair", ptr %arrayidx.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
+  %281 = getelementptr i8, ptr %arrayidx.i.i, i64 40
   %second.val4.i = load i64, ptr %281, align 8
   %282 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %282, null
-  %bytes.i.i.i.i = getelementptr inbounds %struct.grpc_slice, ptr %arrayidx.i.i, i64 0, i32 1, i32 0, i32 1
+  %bytes.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %283 = load ptr, ptr %bytes.i.i.i.i, align 8
-  %data.i.i.i.i = getelementptr inbounds %struct.grpc_slice, ptr %arrayidx.i.i, i64 0, i32 1
+  %data.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %284 = load i64, ptr %data.i.i.i.i, align 8
   %conv.i.i.i.i = and i64 %284, 255
   %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, i64 %conv.i.i.i.i, i64 %284
@@ -2711,7 +2569,7 @@ call.i.i.i.i55.noexc:                             ; preds = %for.body.i
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %.noexc124
   %__begin3.sroa.0.1.i = phi ptr [ %__begin3.sroa.0.036.i, %.noexc124 ], [ %286, %while.body.i.i ]
   %__begin3.sroa.5.1.i = phi i64 [ %inc.i.i, %.noexc124 ], [ 0, %while.body.i.i ]
-  %count.i.i = getelementptr inbounds %"struct.grpc_core::ChunkedVector<std::pair<grpc_core::Slice, grpc_core::Slice>, 10>::Chunk", ptr %__begin3.sroa.0.1.i, i64 0, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.1.i, i64 8
   %285 = load i64, ptr %count.i.i, align 8
   %cmp4.i.i = icmp eq i64 %__begin3.sroa.5.1.i, %285
   br i1 %cmp4.i.i, label %while.body.i.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i
@@ -2746,10 +2604,10 @@ lpad40.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont60:                                    ; preds = %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i, %sw.bb36, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS54, %land.lhs.true.i.i.i.i
   %287 = load ptr, ptr %this, align 8
-  %status54 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %287, i64 0, i32 1
+  %status54 = getelementptr inbounds i8, ptr %287, i64 16
   %288 = load i8, ptr %status54, align 1
   %289 = load i32, ptr %16, align 8
-  %digits_.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp61, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp61, i64 16
   %call.i134135 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %289, ptr noundef nonnull %digits_.i)
           to label %invoke.cont64 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
@@ -2760,65 +2618,65 @@ invoke.cont64:                                    ; preds = %invoke.cont60
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp61, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp61, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp61, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
-  %limit = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2, i32 0, i32 1
+  %limit = getelementptr inbounds i8, ptr %0, i64 28
   %call66 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %summary) #11
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp15.i)
   store i64 31, ptr %ref.tmp.i, align 8, !noalias !112
-  %290 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %290 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.4, ptr %290, align 8, !noalias !112
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 4, ptr %arrayinit.element.i, align 8, !noalias !112
-  %291 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %291 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr %cond-lvalue, ptr %291, align 8, !noalias !112
-  %arrayinit.element8.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 8, ptr %arrayinit.element8.i, align 8, !noalias !112
-  %292 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %292 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr @.str.7, ptr %292, align 8, !noalias !112
-  %arrayinit.element10.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element10.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   %retval.sroa.0.0.copyload.i11.i = load i64, ptr %ref.tmp61, align 8, !noalias !112
   %retval.sroa.2.0.copyload.i13.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !112
   store i64 %retval.sroa.0.0.copyload.i11.i, ptr %arrayinit.element10.i, align 8, !noalias !112
-  %293 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %293 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr %retval.sroa.2.0.copyload.i13.i, ptr %293, align 8, !noalias !112
-  %arrayinit.element12.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element12.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 5, ptr %arrayinit.element12.i, align 8, !noalias !112
-  %294 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %294 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr @.str.8, ptr %294, align 8, !noalias !112
   %295 = load i32, ptr %limit, align 4, !noalias !112
-  %digits_.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp15.i, i64 0, i32 1
+  %digits_.i.i = getelementptr inbounds i8, ptr %ref.tmp15.i, i64 16
   %call.i.i139141 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %295, ptr noundef nonnull %digits_.i.i)
           to label %_ZN4absl12lts_202308028AlphaNumC2EPKc.exit.i unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
 _ZN4absl12lts_202308028AlphaNumC2EPKc.exit.i:     ; preds = %invoke.cont64
-  %arrayinit.element14.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5
+  %arrayinit.element14.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
   %cond = select i1 %call66, ptr @.str.10, ptr @.str.11
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i139141 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %digits_.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   store i64 %sub.ptr.sub.i.i, ptr %ref.tmp15.i, align 8, !noalias !112
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp15.i, i64 0, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %ref.tmp15.i, i64 8
   store ptr %digits_.i.i, ptr %_M_str.i.i.i, align 8, !noalias !112
   store i64 %sub.ptr.sub.i.i, ptr %arrayinit.element14.i, align 8, !noalias !112
-  %296 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5, i32 1
+  %296 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
   store ptr %digits_.i.i, ptr %296, align 8, !noalias !112
-  %arrayinit.element17.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 6
+  %arrayinit.element17.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 96
   store i64 1, ptr %arrayinit.element17.i, align 8, !noalias !112
-  %297 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 6, i32 1
+  %297 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 104
   store ptr @.str.9, ptr %297, align 8, !noalias !112
   %call.i.i.i.i31.i = select i1 %call66, i64 0, i64 2
-  %arrayinit.element20.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 7
+  %arrayinit.element20.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 112
   store i64 %call.i.i.i.i31.i, ptr %arrayinit.element20.i, align 8, !noalias !112
-  %298 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 7, i32 1
+  %298 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 120
   store ptr %cond, ptr %298, align 8, !noalias !112
-  %arrayinit.element23.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 8
+  %arrayinit.element23.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 128
   %call.i37.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %summary) #11, !noalias !112
   %299 = extractvalue { i64, ptr } %call.i37.i, 0
   %300 = extractvalue { i64, ptr } %call.i37.i, 1
   store i64 %299, ptr %arrayinit.element23.i, align 8, !noalias !112
-  %301 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 8, i32 1
+  %301 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 136
   store ptr %300, ptr %301, align 8, !noalias !112
   invoke void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp47, ptr nonnull %ref.tmp.i, i64 9)
           to label %invoke.cont67 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
@@ -2903,47 +2761,47 @@ ehcleanup75:                                      ; preds = %lpad40.loopexit, %l
   br label %eh.resume
 
 sw.bb76:                                          ; preds = %if.end
-  %313 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2
+  %313 = getelementptr inbounds i8, ptr %0, i64 24
   %314 = load i32, ptr %313, align 4
-  %digits_.i148 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp84, i64 0, i32 1
+  %digits_.i148 = getelementptr inbounds i8, ptr %ref.tmp84, i64 16
   %call.i149 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %314, ptr noundef nonnull %digits_.i148)
   %sub.ptr.lhs.cast.i150 = ptrtoint ptr %call.i149 to i64
   %sub.ptr.rhs.cast.i151 = ptrtoint ptr %digits_.i148 to i64
   %sub.ptr.sub.i152 = sub i64 %sub.ptr.lhs.cast.i150, %sub.ptr.rhs.cast.i151
   store i64 %sub.ptr.sub.i152, ptr %ref.tmp84, align 8
-  %_M_str.i.i153 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp84, i64 0, i32 1
+  %_M_str.i.i153 = getelementptr inbounds i8, ptr %ref.tmp84, i64 8
   store ptr %digits_.i148, ptr %_M_str.i.i153, align 8
-  %limit87 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2, i32 0, i32 1
+  %limit87 = getelementptr inbounds i8, ptr %0, i64 28
   %315 = load i32, ptr %limit87, align 4
-  %digits_.i157 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp86, i64 0, i32 1
+  %digits_.i157 = getelementptr inbounds i8, ptr %ref.tmp86, i64 16
   %call.i158 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %315, ptr noundef nonnull %digits_.i157)
   %sub.ptr.lhs.cast.i159 = ptrtoint ptr %call.i158 to i64
   %sub.ptr.rhs.cast.i160 = ptrtoint ptr %digits_.i157 to i64
   %sub.ptr.sub.i161 = sub i64 %sub.ptr.lhs.cast.i159, %sub.ptr.rhs.cast.i160
   store i64 %sub.ptr.sub.i161, ptr %ref.tmp86, align 8
-  %_M_str.i.i162 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp86, i64 0, i32 1
+  %_M_str.i.i162 = getelementptr inbounds i8, ptr %ref.tmp86, i64 8
   store ptr %digits_.i157, ptr %_M_str.i.i162, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i166)
   store i64 54, ptr %ref.tmp.i166, align 8, !noalias !118
-  %316 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i166, i64 0, i32 1
+  %316 = getelementptr inbounds i8, ptr %ref.tmp.i166, i64 8
   store ptr @.str.12, ptr %316, align 8, !noalias !118
-  %arrayinit.element.i170 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i166, i64 1
+  %arrayinit.element.i170 = getelementptr inbounds i8, ptr %ref.tmp.i166, i64 16
   %retval.sroa.0.0.copyload.i1.i171 = load i64, ptr %ref.tmp84, align 8, !noalias !118
   %retval.sroa.2.0.copyload.i3.i173 = load ptr, ptr %_M_str.i.i153, align 8, !noalias !118
   store i64 %retval.sroa.0.0.copyload.i1.i171, ptr %arrayinit.element.i170, align 8, !noalias !118
-  %317 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i166, i64 1, i32 1
+  %317 = getelementptr inbounds i8, ptr %ref.tmp.i166, i64 24
   store ptr %retval.sroa.2.0.copyload.i3.i173, ptr %317, align 8, !noalias !118
-  %arrayinit.element2.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i166, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %ref.tmp.i166, i64 32
   store i64 5, ptr %arrayinit.element2.i, align 8, !noalias !118
-  %318 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i166, i64 2, i32 1
+  %318 = getelementptr inbounds i8, ptr %ref.tmp.i166, i64 40
   store ptr @.str.8, ptr %318, align 8, !noalias !118
-  %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i166, i64 3
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i166, i64 48
   store i64 %sub.ptr.sub.i161, ptr %arrayinit.element4.i, align 8, !noalias !118
-  %319 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i166, i64 3, i32 1
+  %319 = getelementptr inbounds i8, ptr %ref.tmp.i166, i64 56
   store ptr %digits_.i157, ptr %319, align 8, !noalias !118
-  %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i166, i64 4
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i166, i64 64
   store i64 1, ptr %arrayinit.element6.i, align 8, !noalias !118
-  %320 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i166, i64 4, i32 1
+  %320 = getelementptr inbounds i8, ptr %ref.tmp.i166, i64 72
   store ptr @.str.9, ptr %320, align 8, !noalias !118
   call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp82, ptr nonnull %ref.tmp.i166, i64 5)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i166)
@@ -3018,47 +2876,47 @@ ehcleanup95:                                      ; preds = %lpad.i184, %lpad90
   br label %eh.resume
 
 sw.bb96:                                          ; preds = %if.end
-  %332 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2
+  %332 = getelementptr inbounds i8, ptr %0, i64 24
   %333 = load i32, ptr %332, align 4
-  %digits_.i201 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp104, i64 0, i32 1
+  %digits_.i201 = getelementptr inbounds i8, ptr %ref.tmp104, i64 16
   %call.i202 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %333, ptr noundef nonnull %digits_.i201)
   %sub.ptr.lhs.cast.i203 = ptrtoint ptr %call.i202 to i64
   %sub.ptr.rhs.cast.i204 = ptrtoint ptr %digits_.i201 to i64
   %sub.ptr.sub.i205 = sub i64 %sub.ptr.lhs.cast.i203, %sub.ptr.rhs.cast.i204
   store i64 %sub.ptr.sub.i205, ptr %ref.tmp104, align 8
-  %_M_str.i.i206 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp104, i64 0, i32 1
+  %_M_str.i.i206 = getelementptr inbounds i8, ptr %ref.tmp104, i64 8
   store ptr %digits_.i201, ptr %_M_str.i.i206, align 8
-  %limit108 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2, i32 0, i32 1
+  %limit108 = getelementptr inbounds i8, ptr %0, i64 28
   %334 = load i32, ptr %limit108, align 4
-  %digits_.i210 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp107, i64 0, i32 1
+  %digits_.i210 = getelementptr inbounds i8, ptr %ref.tmp107, i64 16
   %call.i211 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %334, ptr noundef nonnull %digits_.i210)
   %sub.ptr.lhs.cast.i212 = ptrtoint ptr %call.i211 to i64
   %sub.ptr.rhs.cast.i213 = ptrtoint ptr %digits_.i210 to i64
   %sub.ptr.sub.i214 = sub i64 %sub.ptr.lhs.cast.i212, %sub.ptr.rhs.cast.i213
   store i64 %sub.ptr.sub.i214, ptr %ref.tmp107, align 8
-  %_M_str.i.i215 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp107, i64 0, i32 1
+  %_M_str.i.i215 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
   store ptr %digits_.i210, ptr %_M_str.i.i215, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i219)
   store i64 56, ptr %ref.tmp.i219, align 8, !noalias !124
-  %335 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i219, i64 0, i32 1
+  %335 = getelementptr inbounds i8, ptr %ref.tmp.i219, i64 8
   store ptr @.str.13, ptr %335, align 8, !noalias !124
-  %arrayinit.element.i223 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i219, i64 1
+  %arrayinit.element.i223 = getelementptr inbounds i8, ptr %ref.tmp.i219, i64 16
   %retval.sroa.0.0.copyload.i1.i224 = load i64, ptr %ref.tmp104, align 8, !noalias !124
   %retval.sroa.2.0.copyload.i3.i226 = load ptr, ptr %_M_str.i.i206, align 8, !noalias !124
   store i64 %retval.sroa.0.0.copyload.i1.i224, ptr %arrayinit.element.i223, align 8, !noalias !124
-  %336 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i219, i64 1, i32 1
+  %336 = getelementptr inbounds i8, ptr %ref.tmp.i219, i64 24
   store ptr %retval.sroa.2.0.copyload.i3.i226, ptr %336, align 8, !noalias !124
-  %arrayinit.element2.i227 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i219, i64 2
+  %arrayinit.element2.i227 = getelementptr inbounds i8, ptr %ref.tmp.i219, i64 32
   store i64 5, ptr %arrayinit.element2.i227, align 8, !noalias !124
-  %337 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i219, i64 2, i32 1
+  %337 = getelementptr inbounds i8, ptr %ref.tmp.i219, i64 40
   store ptr @.str.8, ptr %337, align 8, !noalias !124
-  %arrayinit.element4.i231 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i219, i64 3
+  %arrayinit.element4.i231 = getelementptr inbounds i8, ptr %ref.tmp.i219, i64 48
   store i64 %sub.ptr.sub.i214, ptr %arrayinit.element4.i231, align 8, !noalias !124
-  %338 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i219, i64 3, i32 1
+  %338 = getelementptr inbounds i8, ptr %ref.tmp.i219, i64 56
   store ptr %digits_.i210, ptr %338, align 8, !noalias !124
-  %arrayinit.element6.i235 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i219, i64 4
+  %arrayinit.element6.i235 = getelementptr inbounds i8, ptr %ref.tmp.i219, i64 64
   store i64 1, ptr %arrayinit.element6.i235, align 8, !noalias !124
-  %339 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i219, i64 4, i32 1
+  %339 = getelementptr inbounds i8, ptr %ref.tmp.i219, i64 72
   store ptr @.str.9, ptr %339, align 8, !noalias !124
   call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp102, ptr nonnull %ref.tmp.i219, i64 5)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i219)
@@ -3133,24 +2991,24 @@ ehcleanup116:                                     ; preds = %lpad.i240, %lpad111
   br label %eh.resume
 
 sw.bb117:                                         ; preds = %if.end
-  %key120 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 3
+  %key120 = getelementptr inbounds i8, ptr %0, i64 40
   %call121 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %key120) #11
   br i1 %call121, label %if.else139, label %if.then122
 
 if.then122:                                       ; preds = %sw.bb117
   store i64 15, ptr %ref.tmp126, align 8
-  %351 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp126, i64 0, i32 1
+  %351 = getelementptr inbounds i8, ptr %ref.tmp126, i64 8
   store ptr @.str.14, ptr %351, align 8
   %352 = load ptr, ptr %this, align 8
-  %key130 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %352, i64 0, i32 3
+  %key130 = getelementptr inbounds i8, ptr %352, i64 40
   %call.i257 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %key130) #11
   %353 = extractvalue { i64, ptr } %call.i257, 0
   store i64 %353, ptr %ref.tmp127, align 8
-  %354 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp127, i64 0, i32 1
+  %354 = getelementptr inbounds i8, ptr %ref.tmp127, i64 8
   %355 = extractvalue { i64, ptr } %call.i257, 1
   store ptr %355, ptr %354, align 8
   store i64 10, ptr %ref.tmp131, align 8
-  %356 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp131, i64 0, i32 1
+  %356 = getelementptr inbounds i8, ptr %ref.tmp131, i64 8
   store ptr @.str.15, ptr %356, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp125, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp126, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp127, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp131)
   %call132 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp125) #11
@@ -3200,24 +3058,24 @@ lpad142:                                          ; preds = %if.else139
   br label %eh.resume
 
 sw.bb145:                                         ; preds = %if.end
-  %key148 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 3
+  %key148 = getelementptr inbounds i8, ptr %0, i64 40
   %call149 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %key148) #11
   br i1 %call149, label %if.else167, label %if.then150
 
 if.then150:                                       ; preds = %sw.bb145
   store i64 15, ptr %ref.tmp154, align 8
-  %362 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp154, i64 0, i32 1
+  %362 = getelementptr inbounds i8, ptr %ref.tmp154, i64 8
   store ptr @.str.14, ptr %362, align 8
   %363 = load ptr, ptr %this, align 8
-  %key158 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %363, i64 0, i32 3
+  %key158 = getelementptr inbounds i8, ptr %363, i64 40
   %call.i266 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %key158) #11
   %364 = extractvalue { i64, ptr } %call.i266, 0
   store i64 %364, ptr %ref.tmp155, align 8
-  %365 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp155, i64 0, i32 1
+  %365 = getelementptr inbounds i8, ptr %ref.tmp155, i64 8
   %366 = extractvalue { i64, ptr } %call.i266, 1
   store ptr %366, ptr %365, align 8
   store i64 35, ptr %ref.tmp159, align 8
-  %367 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp159, i64 0, i32 1
+  %367 = getelementptr inbounds i8, ptr %ref.tmp159, i64 8
   store ptr @.str.17, ptr %367, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp153, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp154, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp155, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp159)
   %call160 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp153) #11
@@ -3253,7 +3111,7 @@ ehcleanup166:                                     ; preds = %lpad163, %lpad161
 
 if.else167:                                       ; preds = %sw.bb145
   store i64 31, ptr %ref.tmp171, align 8
-  %372 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp171, i64 0, i32 1
+  %372 = getelementptr inbounds i8, ptr %ref.tmp171, i64 8
   store ptr @.str.18, ptr %372, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp170, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp171)
   %call172 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170) #11
@@ -3292,21 +3150,21 @@ sw.bb179:                                         ; preds = %if.end
   br label %return
 
 sw.bb181:                                         ; preds = %if.end
-  %value = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2, i32 0, i32 1
-  %377 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %0, i64 28
+  %377 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i275)
   %retval.sroa.0.0.copyload.i.i.i.i = load i32, ptr %value, align 4, !noalias !130
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %retval.sroa.0.0.copyload.i.i.i.i to i64
   %378 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %378, ptr %ref.tmp.i275, align 8, !noalias !130
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i275, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i275, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !130
-  %arrayinit.element.i276 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i275, i64 1
+  %arrayinit.element.i276 = getelementptr inbounds i8, ptr %ref.tmp.i275, i64 16
   %retval.sroa.0.0.copyload.i.i.i1.i = load i8, ptr %377, align 1, !noalias !130
   %retval.sroa.0.0.insert.ext.i.i.i2.i = zext i8 %retval.sroa.0.0.copyload.i.i.i1.i to i64
   %379 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i to ptr
   store ptr %379, ptr %arrayinit.element.i276, align 8, !noalias !130
-  %dispatcher_.i.i3.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i275, i64 1, i32 1
+  %dispatcher_.i.i3.i = getelementptr inbounds i8, ptr %ref.tmp.i275, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIhEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i, align 8, !noalias !130
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp183, ptr nonnull @.str.20, i64 72, ptr nonnull %ref.tmp.i275, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i275)
@@ -3327,48 +3185,48 @@ lpad190:                                          ; preds = %sw.bb181
   br label %eh.resume
 
 sw.bb193:                                         ; preds = %if.end
-  %383 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2
+  %383 = getelementptr inbounds i8, ptr %0, i64 24
   %384 = load i32, ptr %383, align 8
-  %digits_.i280 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp197, i64 0, i32 1
+  %digits_.i280 = getelementptr inbounds i8, ptr %ref.tmp197, i64 16
   %call.i281 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %384, ptr noundef nonnull %digits_.i280)
   %sub.ptr.lhs.cast.i282 = ptrtoint ptr %call.i281 to i64
   %sub.ptr.rhs.cast.i283 = ptrtoint ptr %digits_.i280 to i64
   %sub.ptr.sub.i284 = sub i64 %sub.ptr.lhs.cast.i282, %sub.ptr.rhs.cast.i283
   store i64 %sub.ptr.sub.i284, ptr %ref.tmp197, align 8
-  %_M_str.i.i285 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp197, i64 0, i32 1
+  %_M_str.i.i285 = getelementptr inbounds i8, ptr %ref.tmp197, i64 8
   store ptr %digits_.i280, ptr %_M_str.i.i285, align 8
   %385 = load ptr, ptr %this, align 8
-  %max_size = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %385, i64 0, i32 2, i32 0, i32 1
+  %max_size = getelementptr inbounds i8, ptr %385, i64 28
   %386 = load i32, ptr %max_size, align 4
-  %digits_.i289 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp201, i64 0, i32 1
+  %digits_.i289 = getelementptr inbounds i8, ptr %ref.tmp201, i64 16
   %call.i290 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %386, ptr noundef nonnull %digits_.i289)
   %sub.ptr.lhs.cast.i291 = ptrtoint ptr %call.i290 to i64
   %sub.ptr.rhs.cast.i292 = ptrtoint ptr %digits_.i289 to i64
   %sub.ptr.sub.i293 = sub i64 %sub.ptr.lhs.cast.i291, %sub.ptr.rhs.cast.i292
   store i64 %sub.ptr.sub.i293, ptr %ref.tmp201, align 8
-  %_M_str.i.i294 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp201, i64 0, i32 1
+  %_M_str.i.i294 = getelementptr inbounds i8, ptr %ref.tmp201, i64 8
   store ptr %digits_.i289, ptr %_M_str.i.i294, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i298)
   store i64 28, ptr %ref.tmp.i298, align 8, !noalias !133
-  %387 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i298, i64 0, i32 1
+  %387 = getelementptr inbounds i8, ptr %ref.tmp.i298, i64 8
   store ptr @.str.21, ptr %387, align 8, !noalias !133
-  %arrayinit.element.i302 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 1
+  %arrayinit.element.i302 = getelementptr inbounds i8, ptr %ref.tmp.i298, i64 16
   %retval.sroa.0.0.copyload.i1.i303 = load i64, ptr %ref.tmp197, align 8, !noalias !133
   %retval.sroa.2.0.copyload.i3.i305 = load ptr, ptr %_M_str.i.i285, align 8, !noalias !133
   store i64 %retval.sroa.0.0.copyload.i1.i303, ptr %arrayinit.element.i302, align 8, !noalias !133
-  %388 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 1, i32 1
+  %388 = getelementptr inbounds i8, ptr %ref.tmp.i298, i64 24
   store ptr %retval.sroa.2.0.copyload.i3.i305, ptr %388, align 8, !noalias !133
-  %arrayinit.element2.i306 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 2
+  %arrayinit.element2.i306 = getelementptr inbounds i8, ptr %ref.tmp.i298, i64 32
   store i64 19, ptr %arrayinit.element2.i306, align 8, !noalias !133
-  %389 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 2, i32 1
+  %389 = getelementptr inbounds i8, ptr %ref.tmp.i298, i64 40
   store ptr @.str.22, ptr %389, align 8, !noalias !133
-  %arrayinit.element4.i310 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 3
+  %arrayinit.element4.i310 = getelementptr inbounds i8, ptr %ref.tmp.i298, i64 48
   store i64 %sub.ptr.sub.i293, ptr %arrayinit.element4.i310, align 8, !noalias !133
-  %390 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 3, i32 1
+  %390 = getelementptr inbounds i8, ptr %ref.tmp.i298, i64 56
   store ptr %digits_.i289, ptr %390, align 8, !noalias !133
-  %arrayinit.element6.i314 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 4
+  %arrayinit.element6.i314 = getelementptr inbounds i8, ptr %ref.tmp.i298, i64 64
   store i64 6, ptr %arrayinit.element6.i314, align 8, !noalias !133
-  %391 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 4, i32 1
+  %391 = getelementptr inbounds i8, ptr %ref.tmp.i298, i64 72
   store ptr @.str.23, ptr %391, align 8, !noalias !133
   call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp195, ptr nonnull %ref.tmp.i298, i64 5)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i298)
@@ -3389,48 +3247,48 @@ lpad206:                                          ; preds = %sw.bb193
   br label %eh.resume
 
 sw.bb209:                                         ; preds = %if.end
-  %395 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2
+  %395 = getelementptr inbounds i8, ptr %0, i64 24
   %396 = load i32, ptr %395, align 8
-  %digits_.i321 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp213, i64 0, i32 1
+  %digits_.i321 = getelementptr inbounds i8, ptr %ref.tmp213, i64 16
   %call.i322 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %396, ptr noundef nonnull %digits_.i321)
   %sub.ptr.lhs.cast.i323 = ptrtoint ptr %call.i322 to i64
   %sub.ptr.rhs.cast.i324 = ptrtoint ptr %digits_.i321 to i64
   %sub.ptr.sub.i325 = sub i64 %sub.ptr.lhs.cast.i323, %sub.ptr.rhs.cast.i324
   store i64 %sub.ptr.sub.i325, ptr %ref.tmp213, align 8
-  %_M_str.i.i326 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp213, i64 0, i32 1
+  %_M_str.i.i326 = getelementptr inbounds i8, ptr %ref.tmp213, i64 8
   store ptr %digits_.i321, ptr %_M_str.i.i326, align 8
   %397 = load ptr, ptr %this, align 8
-  %max_size221 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %397, i64 0, i32 2, i32 0, i32 1
+  %max_size221 = getelementptr inbounds i8, ptr %397, i64 28
   %398 = load i32, ptr %max_size221, align 4
-  %digits_.i330 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp218, i64 0, i32 1
+  %digits_.i330 = getelementptr inbounds i8, ptr %ref.tmp218, i64 16
   %call.i331 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %398, ptr noundef nonnull %digits_.i330)
   %sub.ptr.lhs.cast.i332 = ptrtoint ptr %call.i331 to i64
   %sub.ptr.rhs.cast.i333 = ptrtoint ptr %digits_.i330 to i64
   %sub.ptr.sub.i334 = sub i64 %sub.ptr.lhs.cast.i332, %sub.ptr.rhs.cast.i333
   store i64 %sub.ptr.sub.i334, ptr %ref.tmp218, align 8
-  %_M_str.i.i335 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp218, i64 0, i32 1
+  %_M_str.i.i335 = getelementptr inbounds i8, ptr %ref.tmp218, i64 8
   store ptr %digits_.i330, ptr %_M_str.i.i335, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i339)
   store i64 32, ptr %ref.tmp.i339, align 8, !noalias !136
-  %399 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i339, i64 0, i32 1
+  %399 = getelementptr inbounds i8, ptr %ref.tmp.i339, i64 8
   store ptr @.str.24, ptr %399, align 8, !noalias !136
-  %arrayinit.element.i343 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 1
+  %arrayinit.element.i343 = getelementptr inbounds i8, ptr %ref.tmp.i339, i64 16
   %retval.sroa.0.0.copyload.i1.i344 = load i64, ptr %ref.tmp213, align 8, !noalias !136
   %retval.sroa.2.0.copyload.i3.i346 = load ptr, ptr %_M_str.i.i326, align 8, !noalias !136
   store i64 %retval.sroa.0.0.copyload.i1.i344, ptr %arrayinit.element.i343, align 8, !noalias !136
-  %400 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 1, i32 1
+  %400 = getelementptr inbounds i8, ptr %ref.tmp.i339, i64 24
   store ptr %retval.sroa.2.0.copyload.i3.i346, ptr %400, align 8, !noalias !136
-  %arrayinit.element2.i347 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 2
+  %arrayinit.element2.i347 = getelementptr inbounds i8, ptr %ref.tmp.i339, i64 32
   store i64 45, ptr %arrayinit.element2.i347, align 8, !noalias !136
-  %401 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 2, i32 1
+  %401 = getelementptr inbounds i8, ptr %ref.tmp.i339, i64 40
   store ptr @.str.25, ptr %401, align 8, !noalias !136
-  %arrayinit.element4.i351 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 3
+  %arrayinit.element4.i351 = getelementptr inbounds i8, ptr %ref.tmp.i339, i64 48
   store i64 %sub.ptr.sub.i334, ptr %arrayinit.element4.i351, align 8, !noalias !136
-  %402 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 3, i32 1
+  %402 = getelementptr inbounds i8, ptr %ref.tmp.i339, i64 56
   store ptr %digits_.i330, ptr %402, align 8, !noalias !136
-  %arrayinit.element6.i355 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 4
+  %arrayinit.element6.i355 = getelementptr inbounds i8, ptr %ref.tmp.i339, i64 64
   store i64 1, ptr %arrayinit.element6.i355, align 8, !noalias !136
-  %403 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 4, i32 1
+  %403 = getelementptr inbounds i8, ptr %ref.tmp.i339, i64 72
   store ptr @.str.9, ptr %403, align 8, !noalias !136
   call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp211, ptr nonnull %ref.tmp.i339, i64 5)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i339)
@@ -3451,24 +3309,24 @@ lpad224:                                          ; preds = %sw.bb209
   br label %eh.resume
 
 sw.bb227:                                         ; preds = %if.end
-  %key230 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 3
+  %key230 = getelementptr inbounds i8, ptr %0, i64 40
   %call231 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %key230) #11
   br i1 %call231, label %if.else245, label %if.then232
 
 if.then232:                                       ; preds = %sw.bb227
   store i64 25, ptr %ref.tmp235, align 8
-  %407 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp235, i64 0, i32 1
+  %407 = getelementptr inbounds i8, ptr %ref.tmp235, i64 8
   store ptr @.str.26, ptr %407, align 8
   %408 = load ptr, ptr %this, align 8
-  %key239 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %408, i64 0, i32 3
+  %key239 = getelementptr inbounds i8, ptr %408, i64 40
   %call.i362 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %key239) #11
   %409 = extractvalue { i64, ptr } %call.i362, 0
   store i64 %409, ptr %ref.tmp236, align 8
-  %410 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp236, i64 0, i32 1
+  %410 = getelementptr inbounds i8, ptr %ref.tmp236, i64 8
   %411 = extractvalue { i64, ptr } %call.i362, 1
   store ptr %411, ptr %410, align 8
   store i64 10, ptr %ref.tmp240, align 8
-  %412 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp240, i64 0, i32 1
+  %412 = getelementptr inbounds i8, ptr %ref.tmp240, i64 8
   store ptr @.str.15, ptr %412, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp234, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp235, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp236, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp240)
   %call241 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp234) #11
@@ -3489,7 +3347,7 @@ lpad242:                                          ; preds = %if.then232
 
 if.else245:                                       ; preds = %sw.bb227
   store i64 32, ptr %ref.tmp248, align 8
-  %416 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp248, i64 0, i32 1
+  %416 = getelementptr inbounds i8, ptr %ref.tmp248, i64 8
   store ptr @.str.27, ptr %416, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp247, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp248)
   %call249 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp247) #11
@@ -3517,13 +3375,13 @@ sw.bb255:                                         ; preds = %if.end
   br label %return
 
 sw.bb257:                                         ; preds = %if.end
-  %420 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2
+  %420 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i375)
   %retval.sroa.0.0.copyload.i.i.i.i379 = load i32, ptr %420, align 4, !noalias !139
   %retval.sroa.0.0.insert.ext.i.i.i.i380 = zext i32 %retval.sroa.0.0.copyload.i.i.i.i379 to i64
   %421 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i380 to ptr
   store ptr %421, ptr %ref.tmp.i375, align 8, !noalias !139
-  %dispatcher_.i.i.i381 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i375, i64 0, i32 1
+  %dispatcher_.i.i.i381 = getelementptr inbounds i8, ptr %ref.tmp.i375, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i381, align 8, !noalias !139
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp259, ptr nonnull @.str.30, i64 33, ptr nonnull %ref.tmp.i375, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i375)
@@ -3648,7 +3506,7 @@ declare void @_ZN4absl12lts_2023080222ResourceExhaustedErrorESt17basic_string_vi
 define linkonce_odr void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %a) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %a, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %_M_str.i.i, align 8
   %1 = load i64, ptr %a, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11

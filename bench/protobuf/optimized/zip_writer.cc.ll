@@ -6,11 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i8 }
-%"class.google::protobuf::compiler::ZipWriter" = type { ptr, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<google::protobuf::compiler::ZipWriter::FileInfo, std::allocator<google::protobuf::compiler::ZipWriter::FileInfo>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::compiler::ZipWriter::FileInfo, std::allocator<google::protobuf::compiler::ZipWriter::FileInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::compiler::ZipWriter::FileInfo, std::allocator<google::protobuf::compiler::ZipWriter::FileInfo>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::compiler::ZipWriter::FileInfo, std::allocator<google::protobuf::compiler::ZipWriter::FileInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.google::protobuf::compiler::ZipWriter::FileInfo" = type <{ %"class.std::__cxx11::basic_string", i32, i32, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -44,7 +39,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN6google8protobuf8compiler9ZipWriterC2EPNS0_2io20ZeroCopyOutputStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %raw_output) unnamed_addr #3 align 2 {
 entry:
   store ptr %raw_output, ptr %this, align 8
-  %files_ = getelementptr inbounds %"class.google::protobuf::compiler::ZipWriter", ptr %this, i64 0, i32 1
+  %files_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %files_, i8 0, i64 24, i1 false)
   ret void
 }
@@ -52,9 +47,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6google8protobuf8compiler9ZipWriterD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %files_ = getelementptr inbounds %"class.google::protobuf::compiler::ZipWriter", ptr %this, i64 0, i32 1
+  %files_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %files_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.google::protobuf::compiler::ZipWriter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -62,7 +57,7 @@ entry:
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #15
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 48
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !4
 
@@ -105,18 +100,18 @@ invoke.cont:                                      ; preds = %entry
   %call2 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #15
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %conv5 = trunc i64 %call4 to i32
-  %offset = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %info, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %info, i64 32
   store i32 %conv5, ptr %offset, align 8
   %call6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %contents) #15
   %conv7 = trunc i64 %call6 to i32
-  %size = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %info, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %info, i64 36
   store i32 %conv7, ptr %size, align 4
   %call6.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %contents) #15
   %cmp7.not.i = icmp eq i64 %call6.i, 0
@@ -145,11 +140,11 @@ for.end.loopexit.i:                               ; preds = %for.body.i
 
 _ZN6google8protobuf8compilerL12ComputeCRC32ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont3, %for.end.loopexit.i
   %x.0.lcssa.i = phi i32 [ 0, %invoke.cont3 ], [ %4, %for.end.loopexit.i ]
-  %crc32 = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %info, i64 0, i32 3
+  %crc32 = getelementptr inbounds i8, ptr %info, i64 40
   store i32 %x.0.lcssa.i, ptr %crc32, align 8
-  %_M_finish.i = getelementptr inbounds %"class.google::protobuf::compiler::ZipWriter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.google::protobuf::compiler::ZipWriter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -159,15 +154,15 @@ if.then.i:                                        ; preds = %_ZN6google8protobuf
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i
-  %offset.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %5, i64 0, i32 1
+  %offset.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %offset.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %offset, i64 12, i1 false)
   %7 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 48
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %invoke.cont10
 
 if.else.i:                                        ; preds = %_ZN6google8protobuf8compilerL12ComputeCRC32ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %files_ = getelementptr inbounds %"class.google::protobuf::compiler::ZipWriter", ptr %this, i64 0, i32 1
+  %files_ = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZNSt6vectorIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %files_, ptr %5, ptr noundef nonnull align 8 dereferenceable(44) %info)
           to label %invoke.cont10 unwind label %lpad
 
@@ -175,35 +170,35 @@ invoke.cont10:                                    ; preds = %.noexc, %if.else.i
   %8 = load ptr, ptr %this, align 8
   %9 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
   %10 = and i8 %9, 1
-  %cur_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
-  %buffer_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 2
+  %cur_.i = getelementptr inbounds i8, ptr %output, i64 64
+  %buffer_.i.i = getelementptr inbounds i8, ptr %output, i64 16
   store ptr %buffer_.i.i, ptr %output, align 8
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %output, i64 8
   store ptr %buffer_.i.i, ptr %buffer_end_.i.i, align 8
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 3
+  %stream_.i.i = getelementptr inbounds i8, ptr %output, i64 48
   store ptr %8, ptr %stream_.i.i, align 8
-  %had_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 4
+  %had_error_.i.i = getelementptr inbounds i8, ptr %output, i64 56
   store i8 0, ptr %had_error_.i.i, align 8
-  %aliasing_enabled_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 5
+  %aliasing_enabled_.i.i = getelementptr inbounds i8, ptr %output, i64 57
   store i8 0, ptr %aliasing_enabled_.i.i, align 1
-  %is_serialization_deterministic_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 6
+  %is_serialization_deterministic_.i.i = getelementptr inbounds i8, ptr %output, i64 58
   store i8 %10, ptr %is_serialization_deterministic_.i.i, align 2
-  %skip_check_consistency.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 7
+  %skip_check_consistency.i.i = getelementptr inbounds i8, ptr %output, i64 59
   store i8 0, ptr %skip_check_consistency.i.i, align 1
   store ptr %buffer_.i.i, ptr %cur_.i, align 8
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %11 = load ptr, ptr %vfn.i, align 8
   %call2.i78 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %call2.i7.noexc unwind label %lpad
 
 call2.i7.noexc:                                   ; preds = %invoke.cont10
-  %start_count_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 2
+  %start_count_.i = getelementptr inbounds i8, ptr %output, i64 72
   store i64 %call2.i78, ptr %start_count_.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
   %vtable.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i9 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
           to label %call.i.i.noexc unwind label %lpad
@@ -253,7 +248,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12, %if.
   store ptr %add.ptr.i.i, ptr %cur_.i, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i)
   store i8 10, ptr %p.i, align 2
-  %arrayidx3.i = getelementptr inbounds [2 x i8], ptr %p.i, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %p.i, i64 1
   store i8 0, ptr %arrayidx3.i, align 1
   %18 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %18 to i64
@@ -278,7 +273,7 @@ invoke.cont15:                                    ; preds = %if.end.i.i.i, %if.t
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i18)
   store i8 0, ptr %p.i18, align 2
-  %arrayidx3.i19 = getelementptr inbounds [2 x i8], ptr %p.i18, i64 0, i64 1
+  %arrayidx3.i19 = getelementptr inbounds i8, ptr %p.i18, i64 1
   store i8 0, ptr %arrayidx3.i19, align 1
   %20 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i21 = ptrtoint ptr %20 to i64
@@ -303,7 +298,7 @@ invoke.cont16:                                    ; preds = %if.end.i.i.i25, %if
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i18)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i32)
   store i8 0, ptr %p.i32, align 2
-  %arrayidx3.i33 = getelementptr inbounds [2 x i8], ptr %p.i32, i64 0, i64 1
+  %arrayidx3.i33 = getelementptr inbounds i8, ptr %p.i32, i64 1
   store i8 0, ptr %arrayidx3.i33, align 1
   %22 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i35 = ptrtoint ptr %22 to i64
@@ -328,7 +323,7 @@ invoke.cont17:                                    ; preds = %if.end.i.i.i39, %if
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i32)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i46)
   store i8 0, ptr %p.i46, align 2
-  %arrayidx3.i47 = getelementptr inbounds [2 x i8], ptr %p.i46, i64 0, i64 1
+  %arrayidx3.i47 = getelementptr inbounds i8, ptr %p.i46, i64 1
   store i8 0, ptr %arrayidx3.i47, align 1
   %24 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i49 = ptrtoint ptr %24 to i64
@@ -353,7 +348,7 @@ invoke.cont18:                                    ; preds = %if.end.i.i.i53, %if
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i46)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i60)
   store i8 33, ptr %p.i60, align 2
-  %arrayidx3.i61 = getelementptr inbounds [2 x i8], ptr %p.i60, i64 0, i64 1
+  %arrayidx3.i61 = getelementptr inbounds i8, ptr %p.i60, i64 1
   store i8 0, ptr %arrayidx3.i61, align 1
   %26 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i63 = ptrtoint ptr %26 to i64
@@ -423,7 +418,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23, %if.
   store i8 %conv.i, ptr %p.i98, align 2
   %34 = lshr i64 %call2, 8
   %conv2.i = trunc i64 %34 to i8
-  %arrayidx3.i99 = getelementptr inbounds [2 x i8], ptr %p.i98, i64 0, i64 1
+  %arrayidx3.i99 = getelementptr inbounds i8, ptr %p.i98, i64 1
   store i8 %conv2.i, ptr %arrayidx3.i99, align 1
   %35 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i101 = ptrtoint ptr %35 to i64
@@ -448,7 +443,7 @@ invoke.cont26:                                    ; preds = %if.end.i.i.i105, %i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i98)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i112)
   store i8 0, ptr %p.i112, align 2
-  %arrayidx3.i113 = getelementptr inbounds [2 x i8], ptr %p.i112, i64 0, i64 1
+  %arrayidx3.i113 = getelementptr inbounds i8, ptr %p.i112, i64 1
   store i8 0, ptr %arrayidx3.i113, align 1
   %37 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i115 = ptrtoint ptr %37 to i64
@@ -584,8 +579,8 @@ entry:
   %data.i.i = alloca ptr, align 8
   %size.i.i = alloca i32, align 4
   %output = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
-  %files_ = getelementptr inbounds %"class.google::protobuf::compiler::ZipWriter", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.google::protobuf::compiler::ZipWriter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %files_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %files_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -594,39 +589,39 @@ entry:
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %2 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %conv3 = trunc i64 %call2 to i32
   %4 = load ptr, ptr %this, align 8
   %5 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
   %6 = and i8 %5, 1
-  %cur_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
-  %buffer_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 2
+  %cur_.i = getelementptr inbounds i8, ptr %output, i64 64
+  %buffer_.i.i = getelementptr inbounds i8, ptr %output, i64 16
   store ptr %buffer_.i.i, ptr %output, align 8
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %output, i64 8
   store ptr %buffer_.i.i, ptr %buffer_end_.i.i, align 8
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 3
+  %stream_.i.i = getelementptr inbounds i8, ptr %output, i64 48
   store ptr %4, ptr %stream_.i.i, align 8
-  %had_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 4
+  %had_error_.i.i = getelementptr inbounds i8, ptr %output, i64 56
   store i8 0, ptr %had_error_.i.i, align 8
-  %aliasing_enabled_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 5
+  %aliasing_enabled_.i.i = getelementptr inbounds i8, ptr %output, i64 57
   store i8 0, ptr %aliasing_enabled_.i.i, align 1
-  %is_serialization_deterministic_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 6
+  %is_serialization_deterministic_.i.i = getelementptr inbounds i8, ptr %output, i64 58
   store i8 %6, ptr %is_serialization_deterministic_.i.i, align 2
-  %skip_check_consistency.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 7
+  %skip_check_consistency.i.i = getelementptr inbounds i8, ptr %output, i64 59
   store i8 0, ptr %skip_check_consistency.i.i, align 1
   store ptr %buffer_.i.i, ptr %cur_.i, align 8
-  %start_count_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 2
+  %start_count_.i = getelementptr inbounds i8, ptr %output, i64 72
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %7 = load ptr, ptr %vfn.i, align 8
   %call2.i = call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %4)
   store i64 %call2.i, ptr %start_count_.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
   %9 = load i32, ptr %size.i.i, align 4
@@ -661,17 +656,17 @@ _ZN6google8protobuf2io17CodedOutputStreamC2INS1_20ZeroCopyOutputStreamEvEEPT_.ex
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN6google8protobuf2io17CodedOutputStreamC2INS1_20ZeroCopyOutputStreamEvEEPT_.exit
-  %arrayidx3.i = getelementptr inbounds [2 x i8], ptr %p.i, i64 0, i64 1
-  %arrayidx3.i22 = getelementptr inbounds [2 x i8], ptr %p.i21, i64 0, i64 1
-  %arrayidx3.i36 = getelementptr inbounds [2 x i8], ptr %p.i35, i64 0, i64 1
-  %arrayidx3.i50 = getelementptr inbounds [2 x i8], ptr %p.i49, i64 0, i64 1
-  %arrayidx3.i64 = getelementptr inbounds [2 x i8], ptr %p.i63, i64 0, i64 1
-  %arrayidx3.i78 = getelementptr inbounds [2 x i8], ptr %p.i77, i64 0, i64 1
-  %arrayidx3.i116 = getelementptr inbounds [2 x i8], ptr %p.i115, i64 0, i64 1
-  %arrayidx3.i130 = getelementptr inbounds [2 x i8], ptr %p.i129, i64 0, i64 1
-  %arrayidx3.i144 = getelementptr inbounds [2 x i8], ptr %p.i143, i64 0, i64 1
-  %arrayidx3.i158 = getelementptr inbounds [2 x i8], ptr %p.i157, i64 0, i64 1
-  %arrayidx3.i172 = getelementptr inbounds [2 x i8], ptr %p.i171, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %arrayidx3.i22 = getelementptr inbounds i8, ptr %p.i21, i64 1
+  %arrayidx3.i36 = getelementptr inbounds i8, ptr %p.i35, i64 1
+  %arrayidx3.i50 = getelementptr inbounds i8, ptr %p.i49, i64 1
+  %arrayidx3.i64 = getelementptr inbounds i8, ptr %p.i63, i64 1
+  %arrayidx3.i78 = getelementptr inbounds i8, ptr %p.i77, i64 1
+  %arrayidx3.i116 = getelementptr inbounds i8, ptr %p.i115, i64 1
+  %arrayidx3.i130 = getelementptr inbounds i8, ptr %p.i129, i64 1
+  %arrayidx3.i144 = getelementptr inbounds i8, ptr %p.i143, i64 1
+  %arrayidx3.i158 = getelementptr inbounds i8, ptr %p.i157, i64 1
+  %arrayidx3.i172 = getelementptr inbounds i8, ptr %p.i171, i64 1
   %wide.trip.count = and i64 %sub.ptr.div.i, 65535
   br label %for.body
 
@@ -681,11 +676,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr.i = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %12, i64 %indvars.iv
   %call9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #15
   %13 = load ptr, ptr %files_, align 8
-  %crc3214 = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %13, i64 %indvars.iv, i32 3
+  %add.ptr.i10 = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %13, i64 %indvars.iv
+  %crc3214 = getelementptr inbounds i8, ptr %add.ptr.i10, i64 40
   %14 = load i32, ptr %crc3214, align 8
-  %size18 = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %13, i64 %indvars.iv, i32 2
+  %size18 = getelementptr inbounds i8, ptr %add.ptr.i10, i64 36
   %15 = load i32, ptr %size18, align 4
-  %offset22 = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %13, i64 %indvars.iv, i32 1
+  %offset22 = getelementptr inbounds i8, ptr %add.ptr.i10, i64 32
   %16 = load i32, ptr %offset22, align 8
   %17 = load ptr, ptr %cur_.i, align 8
   %18 = load ptr, ptr %output, align 8
@@ -1103,7 +1099,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40, %if.
   store ptr %add.ptr.i.i224, ptr %cur_.i, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i227)
   store i8 0, ptr %p.i227, align 2
-  %arrayidx3.i228 = getelementptr inbounds [2 x i8], ptr %p.i227, i64 0, i64 1
+  %arrayidx3.i228 = getelementptr inbounds i8, ptr %p.i227, i64 1
   store i8 0, ptr %arrayidx3.i228, align 1
   %53 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i230 = ptrtoint ptr %53 to i64
@@ -1128,7 +1124,7 @@ invoke.cont43:                                    ; preds = %if.end.i.i.i234, %i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i227)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i241)
   store i8 0, ptr %p.i241, align 2
-  %arrayidx3.i242 = getelementptr inbounds [2 x i8], ptr %p.i241, i64 0, i64 1
+  %arrayidx3.i242 = getelementptr inbounds i8, ptr %p.i241, i64 1
   store i8 0, ptr %arrayidx3.i242, align 1
   %55 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i244 = ptrtoint ptr %55 to i64
@@ -1156,7 +1152,7 @@ invoke.cont44:                                    ; preds = %if.end.i.i.i248, %i
   store i8 %conv.i256, ptr %p.i255, align 2
   %57 = lshr i64 %sub.ptr.div.i, 8
   %conv2.i257 = trunc i64 %57 to i8
-  %arrayidx3.i258 = getelementptr inbounds [2 x i8], ptr %p.i255, i64 0, i64 1
+  %arrayidx3.i258 = getelementptr inbounds i8, ptr %p.i255, i64 1
   store i8 %conv2.i257, ptr %arrayidx3.i258, align 1
   %58 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i260 = ptrtoint ptr %58 to i64
@@ -1181,7 +1177,7 @@ invoke.cont45:                                    ; preds = %if.end.i.i.i264, %i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i255)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i271)
   store i8 %conv.i256, ptr %p.i271, align 2
-  %arrayidx3.i274 = getelementptr inbounds [2 x i8], ptr %p.i271, i64 0, i64 1
+  %arrayidx3.i274 = getelementptr inbounds i8, ptr %p.i271, i64 1
   store i8 %conv2.i257, ptr %arrayidx3.i274, align 1
   %60 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i276 = ptrtoint ptr %60 to i64
@@ -1232,7 +1228,7 @@ invoke.cont48:                                    ; preds = %invoke.cont47, %if.
   store ptr %add.ptr.i.i300, ptr %cur_.i, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %p.i303)
   store i8 0, ptr %p.i303, align 2
-  %arrayidx3.i304 = getelementptr inbounds [2 x i8], ptr %p.i303, i64 0, i64 1
+  %arrayidx3.i304 = getelementptr inbounds i8, ptr %p.i303, i64 1
   store i8 0, ptr %arrayidx3.i304, align 1
   %64 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i306 = ptrtoint ptr %64 to i64
@@ -1307,7 +1303,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(44) %__args) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::compiler::ZipWriter::FileInfo, std::allocator<google::protobuf::compiler::ZipWriter::FileInfo>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1346,8 +1342,8 @@ _ZNSt12_Vector_baseIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE11_M_a
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE11_M_allocateEm.exit
-  %offset.i.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1
-  %offset3.i.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %__args, i64 0, i32 1
+  %offset.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
+  %offset3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %offset.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %offset3.i.i.i, i64 12, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %for.body.i.i.i
@@ -1356,18 +1352,18 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i17, %invoke.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #15
-  %offset.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %offset3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %offset.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
+  %offset3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %offset.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %offset3.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #15
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 48
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 48
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %for.body.i.i.i, !llvm.loop !12
 
 _ZNSt6vectorIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 48
   %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28, label %for.body.i.i.i19
 
@@ -1375,12 +1371,12 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN6goog
   %__cur.07.i.i.i20 = phi ptr [ %incdec.ptr1.i.i.i25, %for.body.i.i.i19 ], [ %incdec.ptr, %_ZNSt6vectorIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i24, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #15
-  %offset.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %__cur.07.i.i.i20, i64 0, i32 1
-  %offset3.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %__first.addr.06.i.i.i21, i64 0, i32 1
+  %offset.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 32
+  %offset3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %offset.i.i.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(12) %offset3.i.i.i.i.i.i.i23, i64 12, i1 false), !alias.scope !13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #15
-  %incdec.ptr.i.i.i24 = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %__first.addr.06.i.i.i21, i64 1
-  %incdec.ptr1.i.i.i25 = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %__cur.07.i.i.i20, i64 1
+  %incdec.ptr.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 48
+  %incdec.ptr1.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 48
   %cmp.not.i.i.i26 = icmp eq ptr %incdec.ptr.i.i.i24, %0
   br i1 %cmp.not.i.i.i26, label %_ZNSt6vectorIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28, label %for.body.i.i.i19, !llvm.loop !12
 
@@ -1394,7 +1390,7 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorIN6goog
   br label %_ZNSt12_Vector_baseIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE13_M_deallocateEPS4_m.exit
 
 _ZNSt12_Vector_baseIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28, %if.then.i29
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::compiler::ZipWriter::FileInfo, std::allocator<google::protobuf::compiler::ZipWriter::FileInfo>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i27, ptr %_M_finish.i.i, align 8
   %add.ptr26 = getelementptr inbounds %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %cond.i17, i64 %cond.i

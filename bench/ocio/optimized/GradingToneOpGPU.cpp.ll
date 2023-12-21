@@ -18,34 +18,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.OpenColorIO_v2_4dev::GradingToneOpData" = type <{ %"class.OpenColorIO_v2_4dev::OpData", i32, [4 x i8], %"class.std::shared_ptr", i32, [4 x i8] }>
-%"class.OpenColorIO_v2_4dev::OpData" = type { ptr, %"class.std::mutex", %"class.OpenColorIO_v2_4dev::FormatMetadataImpl" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.OpenColorIO_v2_4dev::FormatMetadataImpl" = type { %"class.OpenColorIO_v2_4dev::FormatMetadata", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::vector.3" }
-%"class.OpenColorIO_v2_4dev::FormatMetadata" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl" = type { %"class.OpenColorIO_v2_4dev::DynamicPropertyImpl.base", %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingTone", %"struct.OpenColorIO_v2_4dev::GradingTone", %"struct.OpenColorIO_v2_4dev::GradingTonePreRender" }
-%"class.OpenColorIO_v2_4dev::DynamicPropertyImpl.base" = type <{ %"class.OpenColorIO_v2_4dev::DynamicProperty", i32, i8 }>
-%"class.OpenColorIO_v2_4dev::DynamicProperty" = type { ptr }
-%"class.OpenColorIO_v2_4dev::DynamicPropertyGradingTone" = type { ptr }
-%"struct.OpenColorIO_v2_4dev::GradingTone" = type { %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", double }
-%"struct.OpenColorIO_v2_4dev::GradingRGBMSW" = type { double, double, double, double, double, double }
-%"struct.OpenColorIO_v2_4dev::GradingTonePreRender" = type { double, double, double, double, double, double, double, double, [4 x [6 x float]], [4 x [6 x float]], [4 x [6 x float]], [2 x [4 x [3 x float]]], [2 x [4 x [3 x float]]], [2 x [4 x [2 x float]]], [2 x [4 x [2 x float]]], [2 x [4 x [2 x float]]], [2 x [4 x [2 x float]]], [2 x [4 x float]], [2 x [4 x float]], [2 x [4 x float]], [2 x [2 x float]], float, float, float, float, i8, i32 }
 %"class.std::shared_ptr.14" = type { %"class.std::__shared_ptr.15" }
 %"class.std::__shared_ptr.15" = type { ptr, %"class.std::__shared_count" }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
@@ -53,22 +28,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::function.35" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Bind" = type { i64, %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
-%"struct.std::_Head_base" = type { ptr }
-%"class.std::_Bind.17" = type { i64, %"class.std::tuple.20" }
-%"class.std::tuple.20" = type { %"struct.std::_Tuple_impl.21" }
-%"struct.std::_Tuple_impl.21" = type { %"struct.std::_Head_base.22" }
-%"struct.std::_Head_base.22" = type { ptr }
-%"class.std::_Bind.23" = type { i64, %"class.std::tuple.26" }
-%"class.std::tuple.26" = type { %"struct.std::_Tuple_impl.27" }
-%"struct.std::_Tuple_impl.27" = type { %"struct.std::_Head_base.28" }
-%"struct.std::_Head_base.28" = type { ptr }
-%"class.std::_Bind.29" = type { { i64, i64 }, %"class.std::tuple.32" }
-%"class.std::tuple.32" = type { %"struct.std::_Tuple_impl.33" }
-%"struct.std::_Tuple_impl.33" = type { %"struct.std::_Head_base.34" }
-%"struct.std::_Head_base.34" = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct._Guard = type { ptr }
 
@@ -794,15 +753,15 @@ land.end:                                         ; preds = %entry
 
 if.then:                                          ; preds = %entry, %land.end
   %2 = load ptr, ptr %gtData, align 8
-  %m_value.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingToneOpData", ptr %2, i64 0, i32 3
+  %m_value.i = getelementptr inbounds i8, ptr %2, i64 176
   %3 = load ptr, ptr %m_value.i, align 8, !noalias !4
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingToneOpData", ptr %2, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %2, i64 184
   %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !4
   %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev17GradingToneOpData26getDynamicPropertyInternalEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !4
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -818,12 +777,12 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %if.then.i.i.i
 
 _ZNK19OpenColorIO_v2_4dev17GradingToneOpData26getDynamicPropertyInternalEv.exit: ; preds = %if.then
-  %m_localBypass.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %3, i64 0, i32 3, i32 25
+  %m_localBypass.i = getelementptr inbounds i8, ptr %3, i64 1200
   %8 = load i8, ptr %m_localBypass.i, align 8
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  %m_localBypass.i144 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %3, i64 0, i32 3, i32 25
+  %m_localBypass.i144 = getelementptr inbounds i8, ptr %3, i64 1200
   %9 = load i8, ptr %m_localBypass.i144, align 8
   %10 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %10, 4294967297
@@ -832,10 +791,10 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i22:                                ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   br label %if.end8.sink.split.i.i.i.i
@@ -861,10 +820,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %15 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   %16 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -886,7 +845,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i22
   %vtable2.i.i.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %19 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev.exit
@@ -945,7 +904,7 @@ lpad17:                                           ; preds = %invoke.cont20, %inv
 
 if.end23:                                         ; preds = %invoke.cont22, %land.lhs.true, %if.end8
   %25 = load ptr, ptr %gtData, align 8
-  %m_style.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingToneOpData", ptr %25, i64 0, i32 1
+  %m_style.i = getelementptr inbounds i8, ptr %25, i64 168
   %26 = load i32, ptr %m_style.i, align 8
   %call27 = call noundef i32 @_ZNK19OpenColorIO_v2_4dev17GradingToneOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(196) %25) #15
   %27 = load ptr, ptr %shaderCreator, align 8
@@ -1057,217 +1016,217 @@ invoke.cont64:                                    ; preds = %invoke.cont62
 
 invoke.cont.i:                                    ; preds = %invoke.cont64
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
-  %blacksG.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 1
+  %blacksG.i = getelementptr inbounds i8, ptr %properties, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %blacksG.i, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i)
           to label %invoke.cont4.i unwind label %lpad3.i
 
 invoke.cont4.i:                                   ; preds = %invoke.cont.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #15
-  %blacksB.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 2
+  %blacksB.i = getelementptr inbounds i8, ptr %properties, i64 64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %blacksB.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i)
           to label %invoke.cont7.i unwind label %lpad6.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont4.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i) #15
-  %blacksM.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 3
+  %blacksM.i = getelementptr inbounds i8, ptr %properties, i64 96
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %blacksM.i, ptr noundef nonnull @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8.i)
           to label %invoke.cont10.i unwind label %lpad9.i
 
 invoke.cont10.i:                                  ; preds = %invoke.cont7.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8.i) #15
-  %blacksS.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 4
+  %blacksS.i = getelementptr inbounds i8, ptr %properties, i64 128
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %blacksS.i, ptr noundef nonnull @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11.i)
           to label %invoke.cont13.i unwind label %lpad12.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont10.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11.i) #15
-  %blacksW.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 5
+  %blacksW.i = getelementptr inbounds i8, ptr %properties, i64 160
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %blacksW.i, ptr noundef nonnull @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14.i)
           to label %invoke.cont16.i unwind label %lpad15.i
 
 invoke.cont16.i:                                  ; preds = %invoke.cont13.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14.i) #15
-  %shadowsR.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 6
+  %shadowsR.i = getelementptr inbounds i8, ptr %properties, i64 192
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %shadowsR.i, ptr noundef nonnull @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17.i)
           to label %invoke.cont19.i unwind label %lpad18.i
 
 invoke.cont19.i:                                  ; preds = %invoke.cont16.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17.i) #15
-  %shadowsG.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 7
+  %shadowsG.i = getelementptr inbounds i8, ptr %properties, i64 224
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %shadowsG.i, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20.i)
           to label %invoke.cont22.i unwind label %lpad21.i
 
 invoke.cont22.i:                                  ; preds = %invoke.cont19.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20.i) #15
-  %shadowsB.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 8
+  %shadowsB.i = getelementptr inbounds i8, ptr %properties, i64 256
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %shadowsB.i, ptr noundef nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23.i)
           to label %invoke.cont25.i unwind label %lpad24.i
 
 invoke.cont25.i:                                  ; preds = %invoke.cont22.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23.i) #15
-  %shadowsM.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 9
+  %shadowsM.i = getelementptr inbounds i8, ptr %properties, i64 288
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %shadowsM.i, ptr noundef nonnull @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26.i)
           to label %invoke.cont28.i unwind label %lpad27.i
 
 invoke.cont28.i:                                  ; preds = %invoke.cont25.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26.i) #15
-  %shadowsS.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 10
+  %shadowsS.i = getelementptr inbounds i8, ptr %properties, i64 320
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %shadowsS.i, ptr noundef nonnull @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29.i)
           to label %invoke.cont31.i unwind label %lpad30.i
 
 invoke.cont31.i:                                  ; preds = %invoke.cont28.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29.i) #15
-  %shadowsW.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 11
+  %shadowsW.i = getelementptr inbounds i8, ptr %properties, i64 352
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %shadowsW.i, ptr noundef nonnull @.str.22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32.i)
           to label %invoke.cont34.i unwind label %lpad33.i
 
 invoke.cont34.i:                                  ; preds = %invoke.cont31.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32.i) #15
-  %midtonesR.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 12
+  %midtonesR.i = getelementptr inbounds i8, ptr %properties, i64 384
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %midtonesR.i, ptr noundef nonnull @.str.23, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35.i)
           to label %invoke.cont37.i unwind label %lpad36.i
 
 invoke.cont37.i:                                  ; preds = %invoke.cont34.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35.i) #15
-  %midtonesG.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 13
+  %midtonesG.i = getelementptr inbounds i8, ptr %properties, i64 416
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %midtonesG.i, ptr noundef nonnull @.str.24, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38.i)
           to label %invoke.cont40.i unwind label %lpad39.i
 
 invoke.cont40.i:                                  ; preds = %invoke.cont37.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38.i) #15
-  %midtonesB.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 14
+  %midtonesB.i = getelementptr inbounds i8, ptr %properties, i64 448
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp41.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %midtonesB.i, ptr noundef nonnull @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp41.i)
           to label %invoke.cont43.i unwind label %lpad42.i
 
 invoke.cont43.i:                                  ; preds = %invoke.cont40.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp41.i) #15
-  %midtonesM.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 15
+  %midtonesM.i = getelementptr inbounds i8, ptr %properties, i64 480
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %midtonesM.i, ptr noundef nonnull @.str.26, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44.i)
           to label %invoke.cont46.i unwind label %lpad45.i
 
 invoke.cont46.i:                                  ; preds = %invoke.cont43.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44.i) #15
-  %midtonesS.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 16
+  %midtonesS.i = getelementptr inbounds i8, ptr %properties, i64 512
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp47.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %midtonesS.i, ptr noundef nonnull @.str.27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp47.i)
           to label %invoke.cont49.i unwind label %lpad48.i
 
 invoke.cont49.i:                                  ; preds = %invoke.cont46.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp47.i) #15
-  %midtonesW.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 17
+  %midtonesW.i = getelementptr inbounds i8, ptr %properties, i64 544
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %midtonesW.i, ptr noundef nonnull @.str.28, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50.i)
           to label %invoke.cont52.i unwind label %lpad51.i
 
 invoke.cont52.i:                                  ; preds = %invoke.cont49.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50.i) #15
-  %highlightsR.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 18
+  %highlightsR.i = getelementptr inbounds i8, ptr %properties, i64 576
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %highlightsR.i, ptr noundef nonnull @.str.29, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53.i)
           to label %invoke.cont55.i unwind label %lpad54.i
 
 invoke.cont55.i:                                  ; preds = %invoke.cont52.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53.i) #15
-  %highlightsG.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 19
+  %highlightsG.i = getelementptr inbounds i8, ptr %properties, i64 608
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %highlightsG.i, ptr noundef nonnull @.str.30, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56.i)
           to label %invoke.cont58.i unwind label %lpad57.i
 
 invoke.cont58.i:                                  ; preds = %invoke.cont55.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56.i) #15
-  %highlightsB.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 20
+  %highlightsB.i = getelementptr inbounds i8, ptr %properties, i64 640
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp59.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %highlightsB.i, ptr noundef nonnull @.str.31, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp59.i)
           to label %invoke.cont61.i unwind label %lpad60.i
 
 invoke.cont61.i:                                  ; preds = %invoke.cont58.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp59.i) #15
-  %highlightsM.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 21
+  %highlightsM.i = getelementptr inbounds i8, ptr %properties, i64 672
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %highlightsM.i, ptr noundef nonnull @.str.32, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62.i)
           to label %invoke.cont64.i unwind label %lpad63.i
 
 invoke.cont64.i:                                  ; preds = %invoke.cont61.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62.i) #15
-  %highlightsS.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 22
+  %highlightsS.i = getelementptr inbounds i8, ptr %properties, i64 704
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp65.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %highlightsS.i, ptr noundef nonnull @.str.33, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp65.i)
           to label %invoke.cont67.i unwind label %lpad66.i
 
 invoke.cont67.i:                                  ; preds = %invoke.cont64.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp65.i) #15
-  %highlightsW.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 23
+  %highlightsW.i = getelementptr inbounds i8, ptr %properties, i64 736
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %highlightsW.i, ptr noundef nonnull @.str.34, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68.i)
           to label %invoke.cont70.i unwind label %lpad69.i
 
 invoke.cont70.i:                                  ; preds = %invoke.cont67.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68.i) #15
-  %whitesR.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 24
+  %whitesR.i = getelementptr inbounds i8, ptr %properties, i64 768
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp71.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %whitesR.i, ptr noundef nonnull @.str.35, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp71.i)
           to label %invoke.cont73.i unwind label %lpad72.i
 
 invoke.cont73.i:                                  ; preds = %invoke.cont70.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp71.i) #15
-  %whitesG.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 25
+  %whitesG.i = getelementptr inbounds i8, ptr %properties, i64 800
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp74.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %whitesG.i, ptr noundef nonnull @.str.36, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp74.i)
           to label %invoke.cont76.i unwind label %lpad75.i
 
 invoke.cont76.i:                                  ; preds = %invoke.cont73.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp74.i) #15
-  %whitesB.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 26
+  %whitesB.i = getelementptr inbounds i8, ptr %properties, i64 832
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %whitesB.i, ptr noundef nonnull @.str.37, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77.i)
           to label %invoke.cont79.i unwind label %lpad78.i
 
 invoke.cont79.i:                                  ; preds = %invoke.cont76.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77.i) #15
-  %whitesM.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 27
+  %whitesM.i = getelementptr inbounds i8, ptr %properties, i64 864
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %whitesM.i, ptr noundef nonnull @.str.38, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80.i)
           to label %invoke.cont82.i unwind label %lpad81.i
 
 invoke.cont82.i:                                  ; preds = %invoke.cont79.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80.i) #15
-  %whitesS.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 28
+  %whitesS.i = getelementptr inbounds i8, ptr %properties, i64 896
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp83.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %whitesS.i, ptr noundef nonnull @.str.39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp83.i)
           to label %invoke.cont85.i unwind label %lpad84.i
 
 invoke.cont85.i:                                  ; preds = %invoke.cont82.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp83.i) #15
-  %whitesW.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 29
+  %whitesW.i = getelementptr inbounds i8, ptr %properties, i64 928
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp86.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %whitesW.i, ptr noundef nonnull @.str.40, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp86.i)
           to label %invoke.cont88.i unwind label %lpad87.i
 
 invoke.cont88.i:                                  ; preds = %invoke.cont85.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp86.i) #15
-  %sContrast.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 30
+  %sContrast.i = getelementptr inbounds i8, ptr %properties, i64 960
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp89.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %sContrast.i, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp89.i)
           to label %invoke.cont91.i unwind label %lpad90.i
 
 invoke.cont91.i:                                  ; preds = %invoke.cont88.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp89.i) #15
-  %localBypass.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %properties, i64 0, i32 31
+  %localBypass.i = getelementptr inbounds i8, ptr %properties, i64 992
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp92.i) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %localBypass.i, ptr noundef nonnull @.str.42, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp92.i)
           to label %invoke.cont65 unwind label %lpad93.i
@@ -3884,7 +3843,7 @@ invoke.cont105:                                   ; preds = %invoke.cont103
 invoke.cont108:                                   ; preds = %invoke.cont105
   %call109 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107) #15
   %vtable = load ptr, ptr %159, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %160 = load ptr, ptr %vfn, align 8
   invoke void %160(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef %call109)
           to label %invoke.cont111 unwind label %lpad110
@@ -3892,9 +3851,9 @@ invoke.cont108:                                   ; preds = %invoke.cont105
 invoke.cont111:                                   ; preds = %invoke.cont108
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107) #15
   call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GTPropertiesD2Ev(ptr noundef nonnull align 8 dereferenceable(1024) %properties) #15
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i) #15
-  %m_ossText.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i) #15
   br label %return
 
@@ -3920,9 +3879,9 @@ ehcleanup:                                        ; preds = %lpad.i62, %ehcleanu
 
 ehcleanup112:                                     ; preds = %lpad30, %ehcleanup123.i, %lpad.i, %ehcleanup, %lpad61, %lpad56, %lpad39, %lpad34
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %66, %lpad61 ], [ %65, %lpad56 ], [ %64, %lpad39 ], [ %63, %lpad34 ], [ %62, %lpad30 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup123.i ], [ %28, %lpad.i ]
-  %m_ossLine.i105 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i105 = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i105) #15
-  %m_ossText.i106 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i106 = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i106) #15
   br label %eh.resume
 
@@ -3940,7 +3899,7 @@ declare noundef i32 @_ZNK19OpenColorIO_v2_4dev16GpuShaderCreator11getLanguageEv(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl14getLocalBypassEv(ptr noundef nonnull align 8 dereferenceable(1208) %this) #4 comdat align 2 {
 entry:
-  %m_localBypass = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %this, i64 0, i32 3, i32 25
+  %m_localBypass = getelementptr inbounds i8, ptr %this, i64 1200
   %0 = load i8, ptr %m_localBypass, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -3950,13 +3909,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -3964,10 +3923,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   br label %if.end8.sink.split.i.i.i
@@ -3993,10 +3952,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -4018,7 +3977,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -4125,13 +4084,13 @@ entry:
   %ref.tmp407 = alloca %"class.std::function.35", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   store ptr %gtData.0.val.176.val, ptr %prop, align 8, !alias.scope !7
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %prop, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %prop, i64 8
   store ptr %gtData.0.val.184.val, ptr %_M_refcount.i.i.i, align 8, !alias.scope !7
   %cmp.not.i.i.i.i = icmp eq ptr %gtData.0.val.184.val, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev17GradingToneOpData26getDynamicPropertyInternalEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %gtData.0.val.184.val, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %gtData.0.val.184.val, i64 8
   %0 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %0, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -4156,217 +4115,217 @@ if.then:                                          ; preds = %_ZNK19OpenColorIO_v
 invoke.cont:                                      ; preds = %if.then
   %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %propNames, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
-  %blacksG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 1
+  %blacksG = getelementptr inbounds i8, ptr %propNames, i64 32
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %blacksG)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %call6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %blacksG, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #15
-  %blacksB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 2
+  %blacksB = getelementptr inbounds i8, ptr %propNames, i64 64
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %blacksB)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
   %call10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %blacksB, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #15
-  %blacksM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 3
+  %blacksM = getelementptr inbounds i8, ptr %propNames, i64 96
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %blacksM)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont8
   %call14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %blacksM, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #15
-  %blacksS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 4
+  %blacksS = getelementptr inbounds i8, ptr %propNames, i64 128
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %blacksS)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont12
   %call18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %blacksS, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #15
-  %blacksW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 5
+  %blacksW = getelementptr inbounds i8, ptr %propNames, i64 160
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %blacksW)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont16
   %call22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %blacksW, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19) #15
-  %shadowsR = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 6
+  %shadowsR = getelementptr inbounds i8, ptr %propNames, i64 192
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %shadowsR)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont20
   %call26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %shadowsR, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #15
-  %shadowsG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 7
+  %shadowsG = getelementptr inbounds i8, ptr %propNames, i64 224
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %shadowsG)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %invoke.cont24
   %call30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %shadowsG, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #15
-  %shadowsB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 8
+  %shadowsB = getelementptr inbounds i8, ptr %propNames, i64 256
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %shadowsB)
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %invoke.cont28
   %call34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %shadowsB, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #15
-  %shadowsM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 9
+  %shadowsM = getelementptr inbounds i8, ptr %propNames, i64 288
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %shadowsM)
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %invoke.cont32
   %call38 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %shadowsM, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35) #15
-  %shadowsS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 10
+  %shadowsS = getelementptr inbounds i8, ptr %propNames, i64 320
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %shadowsS)
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %invoke.cont36
   %call42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %shadowsS, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #15
-  %shadowsW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 11
+  %shadowsW = getelementptr inbounds i8, ptr %propNames, i64 352
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %shadowsW)
           to label %invoke.cont44 unwind label %lpad
 
 invoke.cont44:                                    ; preds = %invoke.cont40
   %call46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %shadowsW, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #15
-  %midtonesR = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 12
+  %midtonesR = getelementptr inbounds i8, ptr %propNames, i64 384
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %midtonesR)
           to label %invoke.cont48 unwind label %lpad
 
 invoke.cont48:                                    ; preds = %invoke.cont44
   %call50 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %midtonesR, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #15
-  %midtonesG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 13
+  %midtonesG = getelementptr inbounds i8, ptr %propNames, i64 416
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %midtonesG)
           to label %invoke.cont52 unwind label %lpad
 
 invoke.cont52:                                    ; preds = %invoke.cont48
   %call54 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %midtonesG, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51) #15
-  %midtonesB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 14
+  %midtonesB = getelementptr inbounds i8, ptr %propNames, i64 448
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %midtonesB)
           to label %invoke.cont56 unwind label %lpad
 
 invoke.cont56:                                    ; preds = %invoke.cont52
   %call58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %midtonesB, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55) #15
-  %midtonesM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 15
+  %midtonesM = getelementptr inbounds i8, ptr %propNames, i64 480
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp59, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %midtonesM)
           to label %invoke.cont60 unwind label %lpad
 
 invoke.cont60:                                    ; preds = %invoke.cont56
   %call62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %midtonesM, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59) #15
-  %midtonesS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 16
+  %midtonesS = getelementptr inbounds i8, ptr %propNames, i64 512
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %midtonesS)
           to label %invoke.cont64 unwind label %lpad
 
 invoke.cont64:                                    ; preds = %invoke.cont60
   %call66 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %midtonesS, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63) #15
-  %midtonesW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 17
+  %midtonesW = getelementptr inbounds i8, ptr %propNames, i64 544
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %midtonesW)
           to label %invoke.cont68 unwind label %lpad
 
 invoke.cont68:                                    ; preds = %invoke.cont64
   %call70 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %midtonesW, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #15
-  %highlightsR = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 18
+  %highlightsR = getelementptr inbounds i8, ptr %propNames, i64 576
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp71, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %highlightsR)
           to label %invoke.cont72 unwind label %lpad
 
 invoke.cont72:                                    ; preds = %invoke.cont68
   %call74 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %highlightsR, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71) #15
-  %highlightsG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 19
+  %highlightsG = getelementptr inbounds i8, ptr %propNames, i64 608
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp75, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %highlightsG)
           to label %invoke.cont76 unwind label %lpad
 
 invoke.cont76:                                    ; preds = %invoke.cont72
   %call78 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %highlightsG, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75) #15
-  %highlightsB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 20
+  %highlightsB = getelementptr inbounds i8, ptr %propNames, i64 640
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %highlightsB)
           to label %invoke.cont80 unwind label %lpad
 
 invoke.cont80:                                    ; preds = %invoke.cont76
   %call82 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %highlightsB, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79) #15
-  %highlightsM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 21
+  %highlightsM = getelementptr inbounds i8, ptr %propNames, i64 672
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %highlightsM)
           to label %invoke.cont84 unwind label %lpad
 
 invoke.cont84:                                    ; preds = %invoke.cont80
   %call86 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %highlightsM, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp83) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp83) #15
-  %highlightsS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 22
+  %highlightsS = getelementptr inbounds i8, ptr %propNames, i64 704
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %highlightsS)
           to label %invoke.cont88 unwind label %lpad
 
 invoke.cont88:                                    ; preds = %invoke.cont84
   %call90 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %highlightsS, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87) #15
-  %highlightsW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 23
+  %highlightsW = getelementptr inbounds i8, ptr %propNames, i64 736
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp91, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %highlightsW)
           to label %invoke.cont92 unwind label %lpad
 
 invoke.cont92:                                    ; preds = %invoke.cont88
   %call94 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %highlightsW, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91) #15
-  %whitesR = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 24
+  %whitesR = getelementptr inbounds i8, ptr %propNames, i64 768
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %whitesR)
           to label %invoke.cont96 unwind label %lpad
 
 invoke.cont96:                                    ; preds = %invoke.cont92
   %call98 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %whitesR, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95) #15
-  %whitesG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 25
+  %whitesG = getelementptr inbounds i8, ptr %propNames, i64 800
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp99, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %whitesG)
           to label %invoke.cont100 unwind label %lpad
 
 invoke.cont100:                                   ; preds = %invoke.cont96
   %call102 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %whitesG, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp99) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp99) #15
-  %whitesB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 26
+  %whitesB = getelementptr inbounds i8, ptr %propNames, i64 832
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp103, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %whitesB)
           to label %invoke.cont104 unwind label %lpad
 
 invoke.cont104:                                   ; preds = %invoke.cont100
   %call106 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %whitesB, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp103) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp103) #15
-  %whitesM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 27
+  %whitesM = getelementptr inbounds i8, ptr %propNames, i64 864
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp107, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %whitesM)
           to label %invoke.cont108 unwind label %lpad
 
 invoke.cont108:                                   ; preds = %invoke.cont104
   %call110 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %whitesM, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107) #15
-  %whitesS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 28
+  %whitesS = getelementptr inbounds i8, ptr %propNames, i64 896
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp111, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %whitesS)
           to label %invoke.cont112 unwind label %lpad
 
 invoke.cont112:                                   ; preds = %invoke.cont108
   %call114 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %whitesS, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp111) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp111) #15
-  %whitesW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 29
+  %whitesW = getelementptr inbounds i8, ptr %propNames, i64 928
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %whitesW)
           to label %invoke.cont116 unwind label %lpad
 
 invoke.cont116:                                   ; preds = %invoke.cont112
   %call118 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %whitesW, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #15
-  %sContrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 30
+  %sContrast = getelementptr inbounds i8, ptr %propNames, i64 960
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp119, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %sContrast)
           to label %invoke.cont120 unwind label %lpad
 
 invoke.cont120:                                   ; preds = %invoke.cont116
   %call122 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %sContrast, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp119) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp119) #15
-  %localBypass = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 31
+  %localBypass = getelementptr inbounds i8, ptr %propNames, i64 992
   invoke void @_ZN19OpenColorIO_v2_4dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp123, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18opPrefixB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %localBypass)
           to label %invoke.cont124 unwind label %lpad
 
@@ -4380,15 +4339,15 @@ invoke.cont124:                                   ; preds = %invoke.cont120
 invoke.cont128:                                   ; preds = %invoke.cont124
   %4 = load ptr, ptr %shaderProp, align 8
   store ptr %4, ptr %newProp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.15", ptr %newProp, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %shaderProp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %newProp, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %shaderProp, i64 8
   %5 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %5, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_30DynamicPropertyGradingToneImplEvEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont128
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -4411,21 +4370,21 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_30DynamicPrope
 invoke.cont131:                                   ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_30DynamicPropertyGradingToneImplEvEERKS_IT_E.exit
   %10 = load ptr, ptr %shaderProp, align 8
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %11 = load ptr, ptr %vfn, align 8
   %call134 = invoke noundef nonnull align 8 dereferenceable(248) ptr %11(ptr noundef nonnull align 8 dereferenceable(1208) %10)
           to label %invoke.cont158 unwind label %lpad130
 
 invoke.cont158:                                   ; preds = %invoke.cont131
   %12 = load ptr, ptr %shaderProp, align 8
-  %m_preRenderValues.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %12, i64 0, i32 3
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp159, i64 0, i32 1
+  %m_preRenderValues.i = getelementptr inbounds i8, ptr %12, i64 272
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp159, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp159, i8 0, i64 32, i1 false)
   %call.i.i2.i286 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont160 unwind label %lpad130
 
 invoke.cont160:                                   ; preds = %invoke.cont158
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp159, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp159, i64 24
   store i64 0, ptr %call.i.i2.i286, align 16
   %getBDR.sroa.2.0.call.i.i2.i286.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i286, i64 8
   store ptr %call134, ptr %getBDR.sroa.2.0.call.i.i2.i286.sroa_idx, align 8
@@ -4452,13 +4411,13 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit:                    ; preds = %invoke.cont163, %if.then.i.i
-  %_M_manager.i.i288 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp164, i64 0, i32 1
+  %_M_manager.i.i288 = getelementptr inbounds i8, ptr %ref.tmp164, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp164, i8 0, i64 32, i1 false)
   %call.i.i2.i290 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont165 unwind label %lpad130
 
 invoke.cont165:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit
-  %_M_invoker.i289 = getelementptr inbounds %"class.std::function", ptr %ref.tmp164, i64 0, i32 1
+  %_M_invoker.i289 = getelementptr inbounds i8, ptr %ref.tmp164, i64 24
   store i64 8, ptr %call.i.i2.i290, align 16
   %getBDG.sroa.2.0.call.i.i2.i290.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i290, i64 8
   store ptr %call134, ptr %getBDG.sroa.2.0.call.i.i2.i290.sroa_idx, align 8
@@ -4485,13 +4444,13 @@ terminate.lpad.i.i296:                            ; preds = %if.then.i.i294
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit297:                 ; preds = %invoke.cont168, %if.then.i.i294
-  %_M_manager.i.i298 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp169, i64 0, i32 1
+  %_M_manager.i.i298 = getelementptr inbounds i8, ptr %ref.tmp169, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp169, i8 0, i64 32, i1 false)
   %call.i.i2.i300 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont170 unwind label %lpad130
 
 invoke.cont170:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit297
-  %_M_invoker.i299 = getelementptr inbounds %"class.std::function", ptr %ref.tmp169, i64 0, i32 1
+  %_M_invoker.i299 = getelementptr inbounds i8, ptr %ref.tmp169, i64 24
   store i64 16, ptr %call.i.i2.i300, align 16
   %getBDB.sroa.2.0.call.i.i2.i300.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i300, i64 8
   store ptr %call134, ptr %getBDB.sroa.2.0.call.i.i2.i300.sroa_idx, align 8
@@ -4518,13 +4477,13 @@ terminate.lpad.i.i306:                            ; preds = %if.then.i.i304
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit307:                 ; preds = %invoke.cont173, %if.then.i.i304
-  %_M_manager.i.i308 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp174, i64 0, i32 1
+  %_M_manager.i.i308 = getelementptr inbounds i8, ptr %ref.tmp174, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp174, i8 0, i64 32, i1 false)
   %call.i.i2.i310 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont175 unwind label %lpad130
 
 invoke.cont175:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit307
-  %_M_invoker.i309 = getelementptr inbounds %"class.std::function", ptr %ref.tmp174, i64 0, i32 1
+  %_M_invoker.i309 = getelementptr inbounds i8, ptr %ref.tmp174, i64 24
   store i64 24, ptr %call.i.i2.i310, align 16
   %getBDM.sroa.2.0.call.i.i2.i310.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i310, i64 8
   store ptr %call134, ptr %getBDM.sroa.2.0.call.i.i2.i310.sroa_idx, align 8
@@ -4551,13 +4510,13 @@ terminate.lpad.i.i316:                            ; preds = %if.then.i.i314
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit317:                 ; preds = %invoke.cont178, %if.then.i.i314
-  %_M_manager.i.i318 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp179, i64 0, i32 1
+  %_M_manager.i.i318 = getelementptr inbounds i8, ptr %ref.tmp179, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp179, i8 0, i64 32, i1 false)
   %call.i.i2.i320 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont180 unwind label %lpad130
 
 invoke.cont180:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit317
-  %_M_invoker.i319 = getelementptr inbounds %"class.std::function", ptr %ref.tmp179, i64 0, i32 1
+  %_M_invoker.i319 = getelementptr inbounds i8, ptr %ref.tmp179, i64 24
   store i64 32, ptr %call.i.i2.i320, align 16
   %getBDS.sroa.2.0.call.i.i2.i320.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i320, i64 8
   store ptr %m_preRenderValues.i, ptr %getBDS.sroa.2.0.call.i.i2.i320.sroa_idx, align 8
@@ -4584,13 +4543,13 @@ terminate.lpad.i.i325:                            ; preds = %if.then.i.i323
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit326:                 ; preds = %invoke.cont183, %if.then.i.i323
-  %_M_manager.i.i327 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp184, i64 0, i32 1
+  %_M_manager.i.i327 = getelementptr inbounds i8, ptr %ref.tmp184, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp184, i8 0, i64 32, i1 false)
   %call.i.i2.i329 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont185 unwind label %lpad130
 
 invoke.cont185:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit326
-  %_M_invoker.i328 = getelementptr inbounds %"class.std::function", ptr %ref.tmp184, i64 0, i32 1
+  %_M_invoker.i328 = getelementptr inbounds i8, ptr %ref.tmp184, i64 24
   store i64 40, ptr %call.i.i2.i329, align 16
   %getBDW.sroa.2.0.call.i.i2.i329.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i329, i64 8
   store ptr %m_preRenderValues.i, ptr %getBDW.sroa.2.0.call.i.i2.i329.sroa_idx, align 8
@@ -4617,14 +4576,14 @@ terminate.lpad.i.i335:                            ; preds = %if.then.i.i333
   unreachable
 
 invoke.cont209:                                   ; preds = %invoke.cont188, %if.then.i.i333
-  %m_shadows = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call134, i64 0, i32 1
-  %_M_manager.i.i343 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp210, i64 0, i32 1
+  %m_shadows = getelementptr inbounds i8, ptr %call134, i64 48
+  %_M_manager.i.i343 = getelementptr inbounds i8, ptr %ref.tmp210, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp210, i8 0, i64 32, i1 false)
   %call.i.i2.i345 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont211 unwind label %lpad130
 
 invoke.cont211:                                   ; preds = %invoke.cont209
-  %_M_invoker.i344 = getelementptr inbounds %"class.std::function", ptr %ref.tmp210, i64 0, i32 1
+  %_M_invoker.i344 = getelementptr inbounds i8, ptr %ref.tmp210, i64 24
   store i64 0, ptr %call.i.i2.i345, align 16
   %getSR.sroa.2.0.call.i.i2.i345.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i345, i64 8
   store ptr %m_shadows, ptr %getSR.sroa.2.0.call.i.i2.i345.sroa_idx, align 8
@@ -4651,13 +4610,13 @@ terminate.lpad.i.i351:                            ; preds = %if.then.i.i349
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit352:                 ; preds = %invoke.cont214, %if.then.i.i349
-  %_M_manager.i.i353 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp215, i64 0, i32 1
+  %_M_manager.i.i353 = getelementptr inbounds i8, ptr %ref.tmp215, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp215, i8 0, i64 32, i1 false)
   %call.i.i2.i355 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont216 unwind label %lpad130
 
 invoke.cont216:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit352
-  %_M_invoker.i354 = getelementptr inbounds %"class.std::function", ptr %ref.tmp215, i64 0, i32 1
+  %_M_invoker.i354 = getelementptr inbounds i8, ptr %ref.tmp215, i64 24
   store i64 8, ptr %call.i.i2.i355, align 16
   %getSG.sroa.2.0.call.i.i2.i355.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i355, i64 8
   store ptr %m_shadows, ptr %getSG.sroa.2.0.call.i.i2.i355.sroa_idx, align 8
@@ -4684,13 +4643,13 @@ terminate.lpad.i.i361:                            ; preds = %if.then.i.i359
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit362:                 ; preds = %invoke.cont219, %if.then.i.i359
-  %_M_manager.i.i363 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp220, i64 0, i32 1
+  %_M_manager.i.i363 = getelementptr inbounds i8, ptr %ref.tmp220, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp220, i8 0, i64 32, i1 false)
   %call.i.i2.i365 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont221 unwind label %lpad130
 
 invoke.cont221:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit362
-  %_M_invoker.i364 = getelementptr inbounds %"class.std::function", ptr %ref.tmp220, i64 0, i32 1
+  %_M_invoker.i364 = getelementptr inbounds i8, ptr %ref.tmp220, i64 24
   store i64 16, ptr %call.i.i2.i365, align 16
   %getSB.sroa.2.0.call.i.i2.i365.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i365, i64 8
   store ptr %m_shadows, ptr %getSB.sroa.2.0.call.i.i2.i365.sroa_idx, align 8
@@ -4717,13 +4676,13 @@ terminate.lpad.i.i371:                            ; preds = %if.then.i.i369
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit372:                 ; preds = %invoke.cont224, %if.then.i.i369
-  %_M_manager.i.i373 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp225, i64 0, i32 1
+  %_M_manager.i.i373 = getelementptr inbounds i8, ptr %ref.tmp225, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp225, i8 0, i64 32, i1 false)
   %call.i.i2.i375 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont226 unwind label %lpad130
 
 invoke.cont226:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit372
-  %_M_invoker.i374 = getelementptr inbounds %"class.std::function", ptr %ref.tmp225, i64 0, i32 1
+  %_M_invoker.i374 = getelementptr inbounds i8, ptr %ref.tmp225, i64 24
   store i64 24, ptr %call.i.i2.i375, align 16
   %getSM.sroa.2.0.call.i.i2.i375.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i375, i64 8
   store ptr %m_shadows, ptr %getSM.sroa.2.0.call.i.i2.i375.sroa_idx, align 8
@@ -4750,13 +4709,13 @@ terminate.lpad.i.i381:                            ; preds = %if.then.i.i379
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit382:                 ; preds = %invoke.cont229, %if.then.i.i379
-  %_M_manager.i.i383 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp230, i64 0, i32 1
+  %_M_manager.i.i383 = getelementptr inbounds i8, ptr %ref.tmp230, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp230, i8 0, i64 32, i1 false)
   %call.i.i2.i385 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont231 unwind label %lpad130
 
 invoke.cont231:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit382
-  %_M_invoker.i384 = getelementptr inbounds %"class.std::function", ptr %ref.tmp230, i64 0, i32 1
+  %_M_invoker.i384 = getelementptr inbounds i8, ptr %ref.tmp230, i64 24
   store i64 0, ptr %call.i.i2.i385, align 16
   %getSS.sroa.2.0.call.i.i2.i385.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i385, i64 8
   store ptr %m_preRenderValues.i, ptr %getSS.sroa.2.0.call.i.i2.i385.sroa_idx, align 8
@@ -4783,13 +4742,13 @@ terminate.lpad.i.i391:                            ; preds = %if.then.i.i389
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit392:                 ; preds = %invoke.cont234, %if.then.i.i389
-  %_M_manager.i.i393 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp235, i64 0, i32 1
+  %_M_manager.i.i393 = getelementptr inbounds i8, ptr %ref.tmp235, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235, i8 0, i64 32, i1 false)
   %call.i.i2.i395 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont236 unwind label %lpad130
 
 invoke.cont236:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit392
-  %_M_invoker.i394 = getelementptr inbounds %"class.std::function", ptr %ref.tmp235, i64 0, i32 1
+  %_M_invoker.i394 = getelementptr inbounds i8, ptr %ref.tmp235, i64 24
   store i64 8, ptr %call.i.i2.i395, align 16
   %getSW.sroa.2.0.call.i.i2.i395.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i395, i64 8
   store ptr %m_preRenderValues.i, ptr %getSW.sroa.2.0.call.i.i2.i395.sroa_idx, align 8
@@ -4816,14 +4775,14 @@ terminate.lpad.i.i401:                            ; preds = %if.then.i.i399
   unreachable
 
 invoke.cont262:                                   ; preds = %invoke.cont239, %if.then.i.i399
-  %m_midtones = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call134, i64 0, i32 2
-  %_M_manager.i.i409 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp263, i64 0, i32 1
+  %m_midtones = getelementptr inbounds i8, ptr %call134, i64 96
+  %_M_manager.i.i409 = getelementptr inbounds i8, ptr %ref.tmp263, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp263, i8 0, i64 32, i1 false)
   %call.i.i2.i411 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont264 unwind label %lpad130
 
 invoke.cont264:                                   ; preds = %invoke.cont262
-  %_M_invoker.i410 = getelementptr inbounds %"class.std::function", ptr %ref.tmp263, i64 0, i32 1
+  %_M_invoker.i410 = getelementptr inbounds i8, ptr %ref.tmp263, i64 24
   store i64 0, ptr %call.i.i2.i411, align 16
   %getMR.sroa.2.0.call.i.i2.i411.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i411, i64 8
   store ptr %m_midtones, ptr %getMR.sroa.2.0.call.i.i2.i411.sroa_idx, align 8
@@ -4850,13 +4809,13 @@ terminate.lpad.i.i417:                            ; preds = %if.then.i.i415
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit418:                 ; preds = %invoke.cont267, %if.then.i.i415
-  %_M_manager.i.i419 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp268, i64 0, i32 1
+  %_M_manager.i.i419 = getelementptr inbounds i8, ptr %ref.tmp268, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp268, i8 0, i64 32, i1 false)
   %call.i.i2.i421 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont269 unwind label %lpad130
 
 invoke.cont269:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit418
-  %_M_invoker.i420 = getelementptr inbounds %"class.std::function", ptr %ref.tmp268, i64 0, i32 1
+  %_M_invoker.i420 = getelementptr inbounds i8, ptr %ref.tmp268, i64 24
   store i64 8, ptr %call.i.i2.i421, align 16
   %getMG.sroa.2.0.call.i.i2.i421.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i421, i64 8
   store ptr %m_midtones, ptr %getMG.sroa.2.0.call.i.i2.i421.sroa_idx, align 8
@@ -4883,13 +4842,13 @@ terminate.lpad.i.i427:                            ; preds = %if.then.i.i425
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit428:                 ; preds = %invoke.cont272, %if.then.i.i425
-  %_M_manager.i.i429 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp273, i64 0, i32 1
+  %_M_manager.i.i429 = getelementptr inbounds i8, ptr %ref.tmp273, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp273, i8 0, i64 32, i1 false)
   %call.i.i2.i431 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont274 unwind label %lpad130
 
 invoke.cont274:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit428
-  %_M_invoker.i430 = getelementptr inbounds %"class.std::function", ptr %ref.tmp273, i64 0, i32 1
+  %_M_invoker.i430 = getelementptr inbounds i8, ptr %ref.tmp273, i64 24
   store i64 16, ptr %call.i.i2.i431, align 16
   %getMB.sroa.2.0.call.i.i2.i431.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i431, i64 8
   store ptr %m_midtones, ptr %getMB.sroa.2.0.call.i.i2.i431.sroa_idx, align 8
@@ -4916,13 +4875,13 @@ terminate.lpad.i.i437:                            ; preds = %if.then.i.i435
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit438:                 ; preds = %invoke.cont277, %if.then.i.i435
-  %_M_manager.i.i439 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp278, i64 0, i32 1
+  %_M_manager.i.i439 = getelementptr inbounds i8, ptr %ref.tmp278, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp278, i8 0, i64 32, i1 false)
   %call.i.i2.i441 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont279 unwind label %lpad130
 
 invoke.cont279:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit438
-  %_M_invoker.i440 = getelementptr inbounds %"class.std::function", ptr %ref.tmp278, i64 0, i32 1
+  %_M_invoker.i440 = getelementptr inbounds i8, ptr %ref.tmp278, i64 24
   store i64 24, ptr %call.i.i2.i441, align 16
   %getMM.sroa.2.0.call.i.i2.i441.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i441, i64 8
   store ptr %m_midtones, ptr %getMM.sroa.2.0.call.i.i2.i441.sroa_idx, align 8
@@ -4949,13 +4908,13 @@ terminate.lpad.i.i447:                            ; preds = %if.then.i.i445
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit448:                 ; preds = %invoke.cont282, %if.then.i.i445
-  %_M_manager.i.i449 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp283, i64 0, i32 1
+  %_M_manager.i.i449 = getelementptr inbounds i8, ptr %ref.tmp283, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp283, i8 0, i64 32, i1 false)
   %call.i.i2.i451 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont284 unwind label %lpad130
 
 invoke.cont284:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit448
-  %_M_invoker.i450 = getelementptr inbounds %"class.std::function", ptr %ref.tmp283, i64 0, i32 1
+  %_M_invoker.i450 = getelementptr inbounds i8, ptr %ref.tmp283, i64 24
   store i64 32, ptr %call.i.i2.i451, align 16
   %getMS.sroa.2.0.call.i.i2.i451.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i451, i64 8
   store ptr %m_midtones, ptr %getMS.sroa.2.0.call.i.i2.i451.sroa_idx, align 8
@@ -4982,13 +4941,13 @@ terminate.lpad.i.i457:                            ; preds = %if.then.i.i455
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit458:                 ; preds = %invoke.cont287, %if.then.i.i455
-  %_M_manager.i.i459 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp288, i64 0, i32 1
+  %_M_manager.i.i459 = getelementptr inbounds i8, ptr %ref.tmp288, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp288, i8 0, i64 32, i1 false)
   %call.i.i2.i461 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont289 unwind label %lpad130
 
 invoke.cont289:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit458
-  %_M_invoker.i460 = getelementptr inbounds %"class.std::function", ptr %ref.tmp288, i64 0, i32 1
+  %_M_invoker.i460 = getelementptr inbounds i8, ptr %ref.tmp288, i64 24
   store i64 40, ptr %call.i.i2.i461, align 16
   %getMW.sroa.2.0.call.i.i2.i461.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i461, i64 8
   store ptr %m_midtones, ptr %getMW.sroa.2.0.call.i.i2.i461.sroa_idx, align 8
@@ -5015,14 +4974,14 @@ terminate.lpad.i.i467:                            ; preds = %if.then.i.i465
   unreachable
 
 invoke.cont313:                                   ; preds = %invoke.cont292, %if.then.i.i465
-  %m_highlights = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call134, i64 0, i32 3
-  %_M_manager.i.i475 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp314, i64 0, i32 1
+  %m_highlights = getelementptr inbounds i8, ptr %call134, i64 144
+  %_M_manager.i.i475 = getelementptr inbounds i8, ptr %ref.tmp314, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp314, i8 0, i64 32, i1 false)
   %call.i.i2.i477 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont315 unwind label %lpad130
 
 invoke.cont315:                                   ; preds = %invoke.cont313
-  %_M_invoker.i476 = getelementptr inbounds %"class.std::function", ptr %ref.tmp314, i64 0, i32 1
+  %_M_invoker.i476 = getelementptr inbounds i8, ptr %ref.tmp314, i64 24
   store i64 0, ptr %call.i.i2.i477, align 16
   %getHR.sroa.2.0.call.i.i2.i477.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i477, i64 8
   store ptr %m_highlights, ptr %getHR.sroa.2.0.call.i.i2.i477.sroa_idx, align 8
@@ -5049,13 +5008,13 @@ terminate.lpad.i.i483:                            ; preds = %if.then.i.i481
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit484:                 ; preds = %invoke.cont318, %if.then.i.i481
-  %_M_manager.i.i485 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp319, i64 0, i32 1
+  %_M_manager.i.i485 = getelementptr inbounds i8, ptr %ref.tmp319, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp319, i8 0, i64 32, i1 false)
   %call.i.i2.i487 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont320 unwind label %lpad130
 
 invoke.cont320:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit484
-  %_M_invoker.i486 = getelementptr inbounds %"class.std::function", ptr %ref.tmp319, i64 0, i32 1
+  %_M_invoker.i486 = getelementptr inbounds i8, ptr %ref.tmp319, i64 24
   store i64 8, ptr %call.i.i2.i487, align 16
   %getHG.sroa.2.0.call.i.i2.i487.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i487, i64 8
   store ptr %m_highlights, ptr %getHG.sroa.2.0.call.i.i2.i487.sroa_idx, align 8
@@ -5082,13 +5041,13 @@ terminate.lpad.i.i493:                            ; preds = %if.then.i.i491
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit494:                 ; preds = %invoke.cont323, %if.then.i.i491
-  %_M_manager.i.i495 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp324, i64 0, i32 1
+  %_M_manager.i.i495 = getelementptr inbounds i8, ptr %ref.tmp324, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp324, i8 0, i64 32, i1 false)
   %call.i.i2.i497 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont325 unwind label %lpad130
 
 invoke.cont325:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit494
-  %_M_invoker.i496 = getelementptr inbounds %"class.std::function", ptr %ref.tmp324, i64 0, i32 1
+  %_M_invoker.i496 = getelementptr inbounds i8, ptr %ref.tmp324, i64 24
   store i64 16, ptr %call.i.i2.i497, align 16
   %getHB.sroa.2.0.call.i.i2.i497.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i497, i64 8
   store ptr %m_highlights, ptr %getHB.sroa.2.0.call.i.i2.i497.sroa_idx, align 8
@@ -5115,13 +5074,13 @@ terminate.lpad.i.i503:                            ; preds = %if.then.i.i501
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit504:                 ; preds = %invoke.cont328, %if.then.i.i501
-  %_M_manager.i.i505 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp329, i64 0, i32 1
+  %_M_manager.i.i505 = getelementptr inbounds i8, ptr %ref.tmp329, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp329, i8 0, i64 32, i1 false)
   %call.i.i2.i507 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont330 unwind label %lpad130
 
 invoke.cont330:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit504
-  %_M_invoker.i506 = getelementptr inbounds %"class.std::function", ptr %ref.tmp329, i64 0, i32 1
+  %_M_invoker.i506 = getelementptr inbounds i8, ptr %ref.tmp329, i64 24
   store i64 24, ptr %call.i.i2.i507, align 16
   %getHM.sroa.2.0.call.i.i2.i507.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i507, i64 8
   store ptr %m_highlights, ptr %getHM.sroa.2.0.call.i.i2.i507.sroa_idx, align 8
@@ -5148,13 +5107,13 @@ terminate.lpad.i.i513:                            ; preds = %if.then.i.i511
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit514:                 ; preds = %invoke.cont333, %if.then.i.i511
-  %_M_manager.i.i515 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp334, i64 0, i32 1
+  %_M_manager.i.i515 = getelementptr inbounds i8, ptr %ref.tmp334, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp334, i8 0, i64 32, i1 false)
   %call.i.i2.i517 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont335 unwind label %lpad130
 
 invoke.cont335:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit514
-  %_M_invoker.i516 = getelementptr inbounds %"class.std::function", ptr %ref.tmp334, i64 0, i32 1
+  %_M_invoker.i516 = getelementptr inbounds i8, ptr %ref.tmp334, i64 24
   store i64 16, ptr %call.i.i2.i517, align 16
   %getHS.sroa.2.0.call.i.i2.i517.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i517, i64 8
   store ptr %m_preRenderValues.i, ptr %getHS.sroa.2.0.call.i.i2.i517.sroa_idx, align 8
@@ -5181,13 +5140,13 @@ terminate.lpad.i.i523:                            ; preds = %if.then.i.i521
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit524:                 ; preds = %invoke.cont338, %if.then.i.i521
-  %_M_manager.i.i525 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp339, i64 0, i32 1
+  %_M_manager.i.i525 = getelementptr inbounds i8, ptr %ref.tmp339, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp339, i8 0, i64 32, i1 false)
   %call.i.i2.i527 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont340 unwind label %lpad130
 
 invoke.cont340:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit524
-  %_M_invoker.i526 = getelementptr inbounds %"class.std::function", ptr %ref.tmp339, i64 0, i32 1
+  %_M_invoker.i526 = getelementptr inbounds i8, ptr %ref.tmp339, i64 24
   store i64 24, ptr %call.i.i2.i527, align 16
   %getHW.sroa.2.0.call.i.i2.i527.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i527, i64 8
   store ptr %m_preRenderValues.i, ptr %getHW.sroa.2.0.call.i.i2.i527.sroa_idx, align 8
@@ -5214,14 +5173,14 @@ terminate.lpad.i.i533:                            ; preds = %if.then.i.i531
   unreachable
 
 invoke.cont364:                                   ; preds = %invoke.cont343, %if.then.i.i531
-  %m_whites = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call134, i64 0, i32 4
-  %_M_manager.i.i541 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp365, i64 0, i32 1
+  %m_whites = getelementptr inbounds i8, ptr %call134, i64 192
+  %_M_manager.i.i541 = getelementptr inbounds i8, ptr %ref.tmp365, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp365, i8 0, i64 32, i1 false)
   %call.i.i2.i543 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont366 unwind label %lpad130
 
 invoke.cont366:                                   ; preds = %invoke.cont364
-  %_M_invoker.i542 = getelementptr inbounds %"class.std::function", ptr %ref.tmp365, i64 0, i32 1
+  %_M_invoker.i542 = getelementptr inbounds i8, ptr %ref.tmp365, i64 24
   store i64 0, ptr %call.i.i2.i543, align 16
   %getWDR.sroa.2.0.call.i.i2.i543.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i543, i64 8
   store ptr %m_whites, ptr %getWDR.sroa.2.0.call.i.i2.i543.sroa_idx, align 8
@@ -5248,13 +5207,13 @@ terminate.lpad.i.i549:                            ; preds = %if.then.i.i547
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit550:                 ; preds = %invoke.cont369, %if.then.i.i547
-  %_M_manager.i.i551 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp370, i64 0, i32 1
+  %_M_manager.i.i551 = getelementptr inbounds i8, ptr %ref.tmp370, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp370, i8 0, i64 32, i1 false)
   %call.i.i2.i553 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont371 unwind label %lpad130
 
 invoke.cont371:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit550
-  %_M_invoker.i552 = getelementptr inbounds %"class.std::function", ptr %ref.tmp370, i64 0, i32 1
+  %_M_invoker.i552 = getelementptr inbounds i8, ptr %ref.tmp370, i64 24
   store i64 8, ptr %call.i.i2.i553, align 16
   %getWDG.sroa.2.0.call.i.i2.i553.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i553, i64 8
   store ptr %m_whites, ptr %getWDG.sroa.2.0.call.i.i2.i553.sroa_idx, align 8
@@ -5281,13 +5240,13 @@ terminate.lpad.i.i559:                            ; preds = %if.then.i.i557
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit560:                 ; preds = %invoke.cont374, %if.then.i.i557
-  %_M_manager.i.i561 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp375, i64 0, i32 1
+  %_M_manager.i.i561 = getelementptr inbounds i8, ptr %ref.tmp375, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp375, i8 0, i64 32, i1 false)
   %call.i.i2.i563 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont376 unwind label %lpad130
 
 invoke.cont376:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit560
-  %_M_invoker.i562 = getelementptr inbounds %"class.std::function", ptr %ref.tmp375, i64 0, i32 1
+  %_M_invoker.i562 = getelementptr inbounds i8, ptr %ref.tmp375, i64 24
   store i64 16, ptr %call.i.i2.i563, align 16
   %getWDB.sroa.2.0.call.i.i2.i563.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i563, i64 8
   store ptr %m_whites, ptr %getWDB.sroa.2.0.call.i.i2.i563.sroa_idx, align 8
@@ -5314,13 +5273,13 @@ terminate.lpad.i.i569:                            ; preds = %if.then.i.i567
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit570:                 ; preds = %invoke.cont379, %if.then.i.i567
-  %_M_manager.i.i571 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp380, i64 0, i32 1
+  %_M_manager.i.i571 = getelementptr inbounds i8, ptr %ref.tmp380, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp380, i8 0, i64 32, i1 false)
   %call.i.i2.i573 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont381 unwind label %lpad130
 
 invoke.cont381:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit570
-  %_M_invoker.i572 = getelementptr inbounds %"class.std::function", ptr %ref.tmp380, i64 0, i32 1
+  %_M_invoker.i572 = getelementptr inbounds i8, ptr %ref.tmp380, i64 24
   store i64 24, ptr %call.i.i2.i573, align 16
   %getWDM.sroa.2.0.call.i.i2.i573.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i573, i64 8
   store ptr %m_whites, ptr %getWDM.sroa.2.0.call.i.i2.i573.sroa_idx, align 8
@@ -5347,13 +5306,13 @@ terminate.lpad.i.i579:                            ; preds = %if.then.i.i577
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit580:                 ; preds = %invoke.cont384, %if.then.i.i577
-  %_M_manager.i.i581 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp385, i64 0, i32 1
+  %_M_manager.i.i581 = getelementptr inbounds i8, ptr %ref.tmp385, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp385, i8 0, i64 32, i1 false)
   %call.i.i2.i583 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont386 unwind label %lpad130
 
 invoke.cont386:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit580
-  %_M_invoker.i582 = getelementptr inbounds %"class.std::function", ptr %ref.tmp385, i64 0, i32 1
+  %_M_invoker.i582 = getelementptr inbounds i8, ptr %ref.tmp385, i64 24
   store i64 48, ptr %call.i.i2.i583, align 16
   %getWDS.sroa.2.0.call.i.i2.i583.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i583, i64 8
   store ptr %m_preRenderValues.i, ptr %getWDS.sroa.2.0.call.i.i2.i583.sroa_idx, align 8
@@ -5380,13 +5339,13 @@ terminate.lpad.i.i589:                            ; preds = %if.then.i.i587
   unreachable
 
 _ZNSt8functionIFdvEED2Ev.exit590:                 ; preds = %invoke.cont389, %if.then.i.i587
-  %_M_manager.i.i591 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp390, i64 0, i32 1
+  %_M_manager.i.i591 = getelementptr inbounds i8, ptr %ref.tmp390, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp390, i8 0, i64 32, i1 false)
   %call.i.i2.i593 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont391 unwind label %lpad130
 
 invoke.cont391:                                   ; preds = %_ZNSt8functionIFdvEED2Ev.exit590
-  %_M_invoker.i592 = getelementptr inbounds %"class.std::function", ptr %ref.tmp390, i64 0, i32 1
+  %_M_invoker.i592 = getelementptr inbounds i8, ptr %ref.tmp390, i64 24
   store i64 56, ptr %call.i.i2.i593, align 16
   %getWDW.sroa.2.0.call.i.i2.i593.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i593, i64 8
   store ptr %m_preRenderValues.i, ptr %getWDW.sroa.2.0.call.i.i2.i593.sroa_idx, align 8
@@ -5413,13 +5372,13 @@ terminate.lpad.i.i599:                            ; preds = %if.then.i.i597
   unreachable
 
 invoke.cont397:                                   ; preds = %if.then.i.i597, %invoke.cont394
-  %_M_manager.i.i602 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp398, i64 0, i32 1
+  %_M_manager.i.i602 = getelementptr inbounds i8, ptr %ref.tmp398, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp398, i8 0, i64 32, i1 false)
   %call.i.i2.i604 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
           to label %invoke.cont399 unwind label %lpad130
 
 invoke.cont399:                                   ; preds = %invoke.cont397
-  %_M_invoker.i603 = getelementptr inbounds %"class.std::function", ptr %ref.tmp398, i64 0, i32 1
+  %_M_invoker.i603 = getelementptr inbounds i8, ptr %ref.tmp398, i64 24
   store i64 240, ptr %call.i.i2.i604, align 16
   %getSC.sroa.2.0.call.i.i2.i604.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i604, i64 8
   store ptr %call134, ptr %getSC.sroa.2.0.call.i.i2.i604.sroa_idx, align 8
@@ -5447,13 +5406,13 @@ terminate.lpad.i.i609:                            ; preds = %if.then.i.i607
 
 invoke.cont406:                                   ; preds = %if.then.i.i607, %invoke.cont402
   %106 = load ptr, ptr %shaderProp, align 8
-  %_M_manager.i.i612 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp407, i64 0, i32 1
+  %_M_manager.i.i612 = getelementptr inbounds i8, ptr %ref.tmp407, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp407, i8 0, i64 32, i1 false)
   %call.i.i2.i614 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
           to label %invoke.cont408 unwind label %lpad130
 
 invoke.cont408:                                   ; preds = %invoke.cont406
-  %_M_invoker.i613 = getelementptr inbounds %"class.std::function.35", ptr %ref.tmp407, i64 0, i32 1
+  %_M_invoker.i613 = getelementptr inbounds i8, ptr %ref.tmp407, i64 24
   store i64 ptrtoint (ptr @_ZNK19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl14getLocalBypassEv to i64), ptr %call.i.i2.i614, align 16
   %getLB.sroa.2.0.call.i.i2.i614.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i614, i64 8
   store i64 0, ptr %getLB.sroa.2.0.call.i.i2.i614.sroa_idx, align 8
@@ -5467,7 +5426,7 @@ invoke.cont408:                                   ; preds = %invoke.cont406
   %107 = load ptr, ptr %shaderCreator, align 8
   %call1.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %localBypass) #15
   %vtable.i = load ptr, ptr %107, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %108 = load ptr, ptr %vfn.i, align 8
   %call2.i615 = invoke noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef %call1.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp407)
           to label %call2.i.noexc unwind label %lpad410
@@ -5493,16 +5452,16 @@ invoke.cont.i:                                    ; preds = %.noexc
 invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %call7.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #15
   %vtable8.i = load ptr, ptr %110, align 8
-  %vfn9.i = getelementptr inbounds ptr, ptr %vtable8.i, i64 15
+  %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 120
   %111 = load ptr, ptr %vfn9.i, align 8
   invoke void %111(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef %call7.i)
           to label %invoke.cont11.i unwind label %lpad10.i
 
 invoke.cont11.i:                                  ; preds = %invoke.cont6.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #15
-  %m_ossLine.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %stDecl.i, i64 0, i32 3
+  %m_ossLine.i.i = getelementptr inbounds i8, ptr %stDecl.i, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i.i) #15
-  %m_ossText.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %stDecl.i, i64 0, i32 2
+  %m_ossText.i.i = getelementptr inbounds i8, ptr %stDecl.i, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i.i) #15
   br label %invoke.cont411
 
@@ -5519,9 +5478,9 @@ lpad10.i:                                         ; preds = %invoke.cont6.i
 
 ehcleanup.i:                                      ; preds = %lpad10.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %113, %lpad10.i ], [ %112, %lpad.i ]
-  %m_ossLine.i5.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %stDecl.i, i64 0, i32 3
+  %m_ossLine.i5.i = getelementptr inbounds i8, ptr %stDecl.i, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i5.i) #15
-  %m_ossText.i6.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %stDecl.i, i64 0, i32 2
+  %m_ossText.i6.i = getelementptr inbounds i8, ptr %stDecl.i, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i6.i) #15
   br label %lpad410.body
 
@@ -5549,7 +5508,7 @@ _ZNSt8functionIFbvEED2Ev.exit:                    ; preds = %invoke.cont411, %if
   br i1 %cmp.not.i.i.i622, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEED2Ev.exit, label %if.then.i.i.i623
 
 if.then.i.i.i623:                                 ; preds = %_ZNSt8functionIFbvEED2Ev.exit
-  %_M_use_count.i.i.i.i624 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %117, i64 0, i32 1
+  %_M_use_count.i.i.i.i624 = getelementptr inbounds i8, ptr %117, i64 8
   %118 = load atomic i64, ptr %_M_use_count.i.i.i.i624 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %118, 4294967297
   %119 = trunc i64 %118 to i32
@@ -5557,10 +5516,10 @@ if.then.i.i.i623:                                 ; preds = %_ZNSt8functionIFbvE
 
 if.then.i.i.i.i628:                               ; preds = %if.then.i.i.i623
   store i32 0, ptr %_M_use_count.i.i.i.i624, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %117, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %117, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %117, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %120 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %120(ptr noundef nonnull align 8 dereferenceable(16) %117) #15
   br label %if.end8.sink.split.i.i.i.i
@@ -5586,10 +5545,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %117, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %123 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %123(ptr noundef nonnull align 8 dereferenceable(16) %117) #15
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %117, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %117, i64 12
   %124 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %124, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -5611,7 +5570,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i628
   %vtable2.i.i.i.i.i.i = load ptr, ptr %117, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %127 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %127(ptr noundef nonnull align 8 dereferenceable(16) %117) #15
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEED2Ev.exit
@@ -5622,7 +5581,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEED2Ev.exit: ; preds = 
   br i1 %cmp.not.i.i.i630, label %if.end, label %if.then.i.i.i631
 
 if.then.i.i.i631:                                 ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEED2Ev.exit
-  %_M_use_count.i.i.i.i632 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %128, i64 0, i32 1
+  %_M_use_count.i.i.i.i632 = getelementptr inbounds i8, ptr %128, i64 8
   %129 = load atomic i64, ptr %_M_use_count.i.i.i.i632 acquire, align 8
   %cmp.i.i.i.i633 = icmp eq i64 %129, 4294967297
   %130 = trunc i64 %129 to i32
@@ -5630,10 +5589,10 @@ if.then.i.i.i631:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i656:                               ; preds = %if.then.i.i.i631
   store i32 0, ptr %_M_use_count.i.i.i.i632, align 8
-  %_M_weak_count.i.i.i.i657 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %128, i64 0, i32 2
+  %_M_weak_count.i.i.i.i657 = getelementptr inbounds i8, ptr %128, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i657, align 4
   %vtable.i.i.i.i658 = load ptr, ptr %128, align 8
-  %vfn.i.i.i.i659 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i658, i64 2
+  %vfn.i.i.i.i659 = getelementptr inbounds i8, ptr %vtable.i.i.i.i658, i64 16
   %131 = load ptr, ptr %vfn.i.i.i.i659, align 8
   call void %131(ptr noundef nonnull align 8 dereferenceable(16) %128) #15
   br label %if.end8.sink.split.i.i.i.i651
@@ -5659,10 +5618,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i638: ; preds = %if.el
 
 if.then7.i.i.i.i641:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i638
   %vtable.i.i.i.i.i.i642 = load ptr, ptr %128, align 8
-  %vfn.i.i.i.i.i.i643 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i642, i64 2
+  %vfn.i.i.i.i.i.i643 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i642, i64 16
   %134 = load ptr, ptr %vfn.i.i.i.i.i.i643, align 8
   call void %134(ptr noundef nonnull align 8 dereferenceable(16) %128) #15
-  %_M_weak_count.i.i.i.i.i.i644 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %128, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i644 = getelementptr inbounds i8, ptr %128, i64 12
   %135 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i645 = icmp eq i8 %135, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i645, label %if.else.i.i.i.i.i.i.i654, label %if.then.i.i.i.i.i.i.i646
@@ -5684,7 +5643,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i648: ; preds = %i
 
 if.end8.sink.split.i.i.i.i651:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i648, %if.then.i.i.i.i656
   %vtable2.i.i.i.i.i.i652 = load ptr, ptr %128, align 8
-  %vfn3.i.i.i.i.i.i653 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i652, i64 3
+  %vfn3.i.i.i.i.i.i653 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i652, i64 24
   %138 = load ptr, ptr %vfn3.i.i.i.i.i.i653, align 8
   call void %138(ptr noundef nonnull align 8 dereferenceable(16) %128) #15
   br label %if.end
@@ -6288,252 +6247,252 @@ ehcleanup:                                        ; preds = %if.then.i.i848, %lp
 if.else:                                          ; preds = %_ZNK19OpenColorIO_v2_4dev17GradingToneOpData26getDynamicPropertyInternalEv.exit
   %269 = load ptr, ptr %prop, align 8
   %vtable415 = load ptr, ptr %269, align 8
-  %vfn416 = getelementptr inbounds ptr, ptr %vtable415, i64 3
+  %vfn416 = getelementptr inbounds i8, ptr %vtable415, i64 24
   %270 = load ptr, ptr %vfn416, align 8
   %call418 = invoke noundef nonnull align 8 dereferenceable(248) ptr %270(ptr noundef nonnull align 8 dereferenceable(1208) %269)
           to label %invoke.cont417 unwind label %lpad
 
 invoke.cont417:                                   ; preds = %if.else
-  %m_preRenderValues.i852 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %269, i64 0, i32 3
+  %m_preRenderValues.i852 = getelementptr inbounds i8, ptr %269, i64 272
   %271 = load double, ptr %call418, align 8
   %conv = fptrunc double %271 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %propNames, float noundef %conv)
           to label %invoke.cont425 unwind label %lpad
 
 invoke.cont425:                                   ; preds = %invoke.cont417
-  %blacksG426 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 1
-  %m_green = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %call418, i64 0, i32 1
+  %blacksG426 = getelementptr inbounds i8, ptr %propNames, i64 32
+  %m_green = getelementptr inbounds i8, ptr %call418, i64 8
   %272 = load double, ptr %m_green, align 8
   %conv428 = fptrunc double %272 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %blacksG426, float noundef %conv428)
           to label %invoke.cont429 unwind label %lpad
 
 invoke.cont429:                                   ; preds = %invoke.cont425
-  %blacksB430 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 2
-  %m_blue = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %call418, i64 0, i32 2
+  %blacksB430 = getelementptr inbounds i8, ptr %propNames, i64 64
+  %m_blue = getelementptr inbounds i8, ptr %call418, i64 16
   %273 = load double, ptr %m_blue, align 8
   %conv432 = fptrunc double %273 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %blacksB430, float noundef %conv432)
           to label %invoke.cont433 unwind label %lpad
 
 invoke.cont433:                                   ; preds = %invoke.cont429
-  %blacksM434 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 3
-  %m_master = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %call418, i64 0, i32 3
+  %blacksM434 = getelementptr inbounds i8, ptr %propNames, i64 96
+  %m_master = getelementptr inbounds i8, ptr %call418, i64 24
   %274 = load double, ptr %m_master, align 8
   %conv436 = fptrunc double %274 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %blacksM434, float noundef %conv436)
           to label %invoke.cont437 unwind label %lpad
 
 invoke.cont437:                                   ; preds = %invoke.cont433
-  %blacksS438 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 4
-  %m_blacksStart = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %269, i64 0, i32 3, i32 4
+  %blacksS438 = getelementptr inbounds i8, ptr %propNames, i64 128
+  %m_blacksStart = getelementptr inbounds i8, ptr %269, i64 304
   %275 = load double, ptr %m_blacksStart, align 8
   %conv439 = fptrunc double %275 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %blacksS438, float noundef %conv439)
           to label %invoke.cont440 unwind label %lpad
 
 invoke.cont440:                                   ; preds = %invoke.cont437
-  %blacksW441 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 5
-  %m_blacksWidth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %269, i64 0, i32 3, i32 5
+  %blacksW441 = getelementptr inbounds i8, ptr %propNames, i64 160
+  %m_blacksWidth = getelementptr inbounds i8, ptr %269, i64 312
   %276 = load double, ptr %m_blacksWidth, align 8
   %conv442 = fptrunc double %276 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %blacksW441, float noundef %conv442)
           to label %invoke.cont443 unwind label %lpad
 
 invoke.cont443:                                   ; preds = %invoke.cont440
-  %shadowsR444 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 6
-  %m_shadows445 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 1
+  %shadowsR444 = getelementptr inbounds i8, ptr %propNames, i64 192
+  %m_shadows445 = getelementptr inbounds i8, ptr %call418, i64 48
   %277 = load double, ptr %m_shadows445, align 8
   %conv447 = fptrunc double %277 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %shadowsR444, float noundef %conv447)
           to label %invoke.cont448 unwind label %lpad
 
 invoke.cont448:                                   ; preds = %invoke.cont443
-  %shadowsG449 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 7
-  %m_green451 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 1, i32 1
+  %shadowsG449 = getelementptr inbounds i8, ptr %propNames, i64 224
+  %m_green451 = getelementptr inbounds i8, ptr %call418, i64 56
   %278 = load double, ptr %m_green451, align 8
   %conv452 = fptrunc double %278 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %shadowsG449, float noundef %conv452)
           to label %invoke.cont453 unwind label %lpad
 
 invoke.cont453:                                   ; preds = %invoke.cont448
-  %shadowsB454 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 8
-  %m_blue456 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 1, i32 2
+  %shadowsB454 = getelementptr inbounds i8, ptr %propNames, i64 256
+  %m_blue456 = getelementptr inbounds i8, ptr %call418, i64 64
   %279 = load double, ptr %m_blue456, align 8
   %conv457 = fptrunc double %279 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %shadowsB454, float noundef %conv457)
           to label %invoke.cont458 unwind label %lpad
 
 invoke.cont458:                                   ; preds = %invoke.cont453
-  %shadowsM459 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 9
-  %m_master461 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 1, i32 3
+  %shadowsM459 = getelementptr inbounds i8, ptr %propNames, i64 288
+  %m_master461 = getelementptr inbounds i8, ptr %call418, i64 72
   %280 = load double, ptr %m_master461, align 8
   %conv462 = fptrunc double %280 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %shadowsM459, float noundef %conv462)
           to label %invoke.cont463 unwind label %lpad
 
 invoke.cont463:                                   ; preds = %invoke.cont458
-  %shadowsS464 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 10
+  %shadowsS464 = getelementptr inbounds i8, ptr %propNames, i64 320
   %281 = load double, ptr %m_preRenderValues.i852, align 8
   %conv465 = fptrunc double %281 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %shadowsS464, float noundef %conv465)
           to label %invoke.cont466 unwind label %lpad
 
 invoke.cont466:                                   ; preds = %invoke.cont463
-  %shadowsW467 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 11
-  %m_shadowsWidth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %269, i64 0, i32 3, i32 1
+  %shadowsW467 = getelementptr inbounds i8, ptr %propNames, i64 352
+  %m_shadowsWidth = getelementptr inbounds i8, ptr %269, i64 280
   %282 = load double, ptr %m_shadowsWidth, align 8
   %conv468 = fptrunc double %282 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %shadowsW467, float noundef %conv468)
           to label %invoke.cont469 unwind label %lpad
 
 invoke.cont469:                                   ; preds = %invoke.cont466
-  %midtonesR470 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 12
-  %m_midtones471 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 2
+  %midtonesR470 = getelementptr inbounds i8, ptr %propNames, i64 384
+  %m_midtones471 = getelementptr inbounds i8, ptr %call418, i64 96
   %283 = load double, ptr %m_midtones471, align 8
   %conv473 = fptrunc double %283 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %midtonesR470, float noundef %conv473)
           to label %invoke.cont474 unwind label %lpad
 
 invoke.cont474:                                   ; preds = %invoke.cont469
-  %midtonesG475 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 13
-  %m_green477 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 2, i32 1
+  %midtonesG475 = getelementptr inbounds i8, ptr %propNames, i64 416
+  %m_green477 = getelementptr inbounds i8, ptr %call418, i64 104
   %284 = load double, ptr %m_green477, align 8
   %conv478 = fptrunc double %284 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %midtonesG475, float noundef %conv478)
           to label %invoke.cont479 unwind label %lpad
 
 invoke.cont479:                                   ; preds = %invoke.cont474
-  %midtonesB480 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 14
-  %m_blue482 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 2, i32 2
+  %midtonesB480 = getelementptr inbounds i8, ptr %propNames, i64 448
+  %m_blue482 = getelementptr inbounds i8, ptr %call418, i64 112
   %285 = load double, ptr %m_blue482, align 8
   %conv483 = fptrunc double %285 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %midtonesB480, float noundef %conv483)
           to label %invoke.cont484 unwind label %lpad
 
 invoke.cont484:                                   ; preds = %invoke.cont479
-  %midtonesM485 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 15
-  %m_master487 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 2, i32 3
+  %midtonesM485 = getelementptr inbounds i8, ptr %propNames, i64 480
+  %m_master487 = getelementptr inbounds i8, ptr %call418, i64 120
   %286 = load double, ptr %m_master487, align 8
   %conv488 = fptrunc double %286 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %midtonesM485, float noundef %conv488)
           to label %invoke.cont489 unwind label %lpad
 
 invoke.cont489:                                   ; preds = %invoke.cont484
-  %midtonesS490 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 16
-  %m_start = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 2, i32 4
+  %midtonesS490 = getelementptr inbounds i8, ptr %propNames, i64 512
+  %m_start = getelementptr inbounds i8, ptr %call418, i64 128
   %287 = load double, ptr %m_start, align 8
   %conv492 = fptrunc double %287 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %midtonesS490, float noundef %conv492)
           to label %invoke.cont493 unwind label %lpad
 
 invoke.cont493:                                   ; preds = %invoke.cont489
-  %midtonesW494 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 17
-  %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 2, i32 5
+  %midtonesW494 = getelementptr inbounds i8, ptr %propNames, i64 544
+  %m_width = getelementptr inbounds i8, ptr %call418, i64 136
   %288 = load double, ptr %m_width, align 8
   %conv496 = fptrunc double %288 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %midtonesW494, float noundef %conv496)
           to label %invoke.cont497 unwind label %lpad
 
 invoke.cont497:                                   ; preds = %invoke.cont493
-  %highlightsR498 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 18
-  %m_highlights499 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 3
+  %highlightsR498 = getelementptr inbounds i8, ptr %propNames, i64 576
+  %m_highlights499 = getelementptr inbounds i8, ptr %call418, i64 144
   %289 = load double, ptr %m_highlights499, align 8
   %conv501 = fptrunc double %289 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %highlightsR498, float noundef %conv501)
           to label %invoke.cont502 unwind label %lpad
 
 invoke.cont502:                                   ; preds = %invoke.cont497
-  %highlightsG503 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 19
-  %m_green505 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 3, i32 1
+  %highlightsG503 = getelementptr inbounds i8, ptr %propNames, i64 608
+  %m_green505 = getelementptr inbounds i8, ptr %call418, i64 152
   %290 = load double, ptr %m_green505, align 8
   %conv506 = fptrunc double %290 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %highlightsG503, float noundef %conv506)
           to label %invoke.cont507 unwind label %lpad
 
 invoke.cont507:                                   ; preds = %invoke.cont502
-  %highlightsB508 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 20
-  %m_blue510 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 3, i32 2
+  %highlightsB508 = getelementptr inbounds i8, ptr %propNames, i64 640
+  %m_blue510 = getelementptr inbounds i8, ptr %call418, i64 160
   %291 = load double, ptr %m_blue510, align 8
   %conv511 = fptrunc double %291 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %highlightsB508, float noundef %conv511)
           to label %invoke.cont512 unwind label %lpad
 
 invoke.cont512:                                   ; preds = %invoke.cont507
-  %highlightsM513 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 21
-  %m_master515 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 3, i32 3
+  %highlightsM513 = getelementptr inbounds i8, ptr %propNames, i64 672
+  %m_master515 = getelementptr inbounds i8, ptr %call418, i64 168
   %292 = load double, ptr %m_master515, align 8
   %conv516 = fptrunc double %292 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %highlightsM513, float noundef %conv516)
           to label %invoke.cont517 unwind label %lpad
 
 invoke.cont517:                                   ; preds = %invoke.cont512
-  %highlightsS518 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 22
-  %m_highlightsStart = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %269, i64 0, i32 3, i32 2
+  %highlightsS518 = getelementptr inbounds i8, ptr %propNames, i64 704
+  %m_highlightsStart = getelementptr inbounds i8, ptr %269, i64 288
   %293 = load double, ptr %m_highlightsStart, align 8
   %conv519 = fptrunc double %293 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %highlightsS518, float noundef %conv519)
           to label %invoke.cont520 unwind label %lpad
 
 invoke.cont520:                                   ; preds = %invoke.cont517
-  %highlightsW521 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 23
-  %m_highlightsWidth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %269, i64 0, i32 3, i32 3
+  %highlightsW521 = getelementptr inbounds i8, ptr %propNames, i64 736
+  %m_highlightsWidth = getelementptr inbounds i8, ptr %269, i64 296
   %294 = load double, ptr %m_highlightsWidth, align 8
   %conv522 = fptrunc double %294 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %highlightsW521, float noundef %conv522)
           to label %invoke.cont523 unwind label %lpad
 
 invoke.cont523:                                   ; preds = %invoke.cont520
-  %whitesR524 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 24
-  %m_whites525 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 4
+  %whitesR524 = getelementptr inbounds i8, ptr %propNames, i64 768
+  %m_whites525 = getelementptr inbounds i8, ptr %call418, i64 192
   %295 = load double, ptr %m_whites525, align 8
   %conv527 = fptrunc double %295 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %whitesR524, float noundef %conv527)
           to label %invoke.cont528 unwind label %lpad
 
 invoke.cont528:                                   ; preds = %invoke.cont523
-  %whitesG529 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 25
-  %m_green531 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 4, i32 1
+  %whitesG529 = getelementptr inbounds i8, ptr %propNames, i64 800
+  %m_green531 = getelementptr inbounds i8, ptr %call418, i64 200
   %296 = load double, ptr %m_green531, align 8
   %conv532 = fptrunc double %296 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %whitesG529, float noundef %conv532)
           to label %invoke.cont533 unwind label %lpad
 
 invoke.cont533:                                   ; preds = %invoke.cont528
-  %whitesB534 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 26
-  %m_blue536 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 4, i32 2
+  %whitesB534 = getelementptr inbounds i8, ptr %propNames, i64 832
+  %m_blue536 = getelementptr inbounds i8, ptr %call418, i64 208
   %297 = load double, ptr %m_blue536, align 8
   %conv537 = fptrunc double %297 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %whitesB534, float noundef %conv537)
           to label %invoke.cont538 unwind label %lpad
 
 invoke.cont538:                                   ; preds = %invoke.cont533
-  %whitesM539 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 27
-  %m_master541 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 4, i32 3
+  %whitesM539 = getelementptr inbounds i8, ptr %propNames, i64 864
+  %m_master541 = getelementptr inbounds i8, ptr %call418, i64 216
   %298 = load double, ptr %m_master541, align 8
   %conv542 = fptrunc double %298 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %whitesM539, float noundef %conv542)
           to label %invoke.cont543 unwind label %lpad
 
 invoke.cont543:                                   ; preds = %invoke.cont538
-  %whitesS544 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 28
-  %m_whitesStart = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %269, i64 0, i32 3, i32 6
+  %whitesS544 = getelementptr inbounds i8, ptr %propNames, i64 896
+  %m_whitesStart = getelementptr inbounds i8, ptr %269, i64 320
   %299 = load double, ptr %m_whitesStart, align 8
   %conv545 = fptrunc double %299 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %whitesS544, float noundef %conv545)
           to label %invoke.cont546 unwind label %lpad
 
 invoke.cont546:                                   ; preds = %invoke.cont543
-  %whitesW547 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 29
-  %m_whitesWidth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingToneImpl", ptr %269, i64 0, i32 3, i32 7
+  %whitesW547 = getelementptr inbounds i8, ptr %propNames, i64 928
+  %m_whitesWidth = getelementptr inbounds i8, ptr %269, i64 328
   %300 = load double, ptr %m_whitesWidth, align 8
   %conv548 = fptrunc double %300 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %whitesW547, float noundef %conv548)
           to label %invoke.cont549 unwind label %lpad
 
 invoke.cont549:                                   ; preds = %invoke.cont546
-  %sContrast550 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %propNames, i64 0, i32 30
-  %m_scontrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %call418, i64 0, i32 5
+  %sContrast550 = getelementptr inbounds i8, ptr %propNames, i64 960
+  %m_scontrast = getelementptr inbounds i8, ptr %call418, i64 240
   %301 = load double, ptr %m_scontrast, align 8
   %conv551 = fptrunc double %301 to float
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %sContrast550, float noundef %conv551)
@@ -6545,7 +6504,7 @@ if.end:                                           ; preds = %if.end8.sink.split.
   br i1 %cmp.not.i.i.i854, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev.exit884, label %if.then.i.i.i855
 
 if.then.i.i.i855:                                 ; preds = %if.end
-  %_M_use_count.i.i.i.i856 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %302, i64 0, i32 1
+  %_M_use_count.i.i.i.i856 = getelementptr inbounds i8, ptr %302, i64 8
   %303 = load atomic i64, ptr %_M_use_count.i.i.i.i856 acquire, align 8
   %cmp.i.i.i.i857 = icmp eq i64 %303, 4294967297
   %304 = trunc i64 %303 to i32
@@ -6553,10 +6512,10 @@ if.then.i.i.i855:                                 ; preds = %if.end
 
 if.then.i.i.i.i880:                               ; preds = %if.then.i.i.i855
   store i32 0, ptr %_M_use_count.i.i.i.i856, align 8
-  %_M_weak_count.i.i.i.i881 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %302, i64 0, i32 2
+  %_M_weak_count.i.i.i.i881 = getelementptr inbounds i8, ptr %302, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i881, align 4
   %vtable.i.i.i.i882 = load ptr, ptr %302, align 8
-  %vfn.i.i.i.i883 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i882, i64 2
+  %vfn.i.i.i.i883 = getelementptr inbounds i8, ptr %vtable.i.i.i.i882, i64 16
   %305 = load ptr, ptr %vfn.i.i.i.i883, align 8
   call void %305(ptr noundef nonnull align 8 dereferenceable(16) %302) #15
   br label %if.end8.sink.split.i.i.i.i875
@@ -6582,10 +6541,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i862: ; preds = %if.el
 
 if.then7.i.i.i.i865:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i862
   %vtable.i.i.i.i.i.i866 = load ptr, ptr %302, align 8
-  %vfn.i.i.i.i.i.i867 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i866, i64 2
+  %vfn.i.i.i.i.i.i867 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i866, i64 16
   %308 = load ptr, ptr %vfn.i.i.i.i.i.i867, align 8
   call void %308(ptr noundef nonnull align 8 dereferenceable(16) %302) #15
-  %_M_weak_count.i.i.i.i.i.i868 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %302, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i868 = getelementptr inbounds i8, ptr %302, i64 12
   %309 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i869 = icmp eq i8 %309, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i869, label %if.else.i.i.i.i.i.i.i878, label %if.then.i.i.i.i.i.i.i870
@@ -6607,7 +6566,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i872: ; preds = %i
 
 if.end8.sink.split.i.i.i.i875:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i872, %if.then.i.i.i.i880
   %vtable2.i.i.i.i.i.i876 = load ptr, ptr %302, align 8
-  %vfn3.i.i.i.i.i.i877 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i876, i64 3
+  %vfn3.i.i.i.i.i.i877 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i876, i64 24
   %312 = load ptr, ptr %vfn3.i.i.i.i.i.i877, align 8
   call void %312(ptr noundef nonnull align 8 dereferenceable(16) %302) #15
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev.exit884
@@ -6633,67 +6592,67 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112GTPropertiesD2Ev(ptr noundef nonnull align 8 dereferenceable(1024) %this) unnamed_addr #4 align 2 {
 entry:
-  %localBypass = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 31
+  %localBypass = getelementptr inbounds i8, ptr %this, i64 992
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %localBypass) #15
-  %sContrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 30
+  %sContrast = getelementptr inbounds i8, ptr %this, i64 960
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sContrast) #15
-  %whitesW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 29
+  %whitesW = getelementptr inbounds i8, ptr %this, i64 928
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %whitesW) #15
-  %whitesS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 28
+  %whitesS = getelementptr inbounds i8, ptr %this, i64 896
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %whitesS) #15
-  %whitesM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 27
+  %whitesM = getelementptr inbounds i8, ptr %this, i64 864
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %whitesM) #15
-  %whitesB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 26
+  %whitesB = getelementptr inbounds i8, ptr %this, i64 832
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %whitesB) #15
-  %whitesG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 25
+  %whitesG = getelementptr inbounds i8, ptr %this, i64 800
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %whitesG) #15
-  %whitesR = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 24
+  %whitesR = getelementptr inbounds i8, ptr %this, i64 768
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %whitesR) #15
-  %highlightsW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 23
+  %highlightsW = getelementptr inbounds i8, ptr %this, i64 736
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %highlightsW) #15
-  %highlightsS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 22
+  %highlightsS = getelementptr inbounds i8, ptr %this, i64 704
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %highlightsS) #15
-  %highlightsM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 21
+  %highlightsM = getelementptr inbounds i8, ptr %this, i64 672
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %highlightsM) #15
-  %highlightsB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 20
+  %highlightsB = getelementptr inbounds i8, ptr %this, i64 640
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %highlightsB) #15
-  %highlightsG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 19
+  %highlightsG = getelementptr inbounds i8, ptr %this, i64 608
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %highlightsG) #15
-  %highlightsR = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 18
+  %highlightsR = getelementptr inbounds i8, ptr %this, i64 576
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %highlightsR) #15
-  %midtonesW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 17
+  %midtonesW = getelementptr inbounds i8, ptr %this, i64 544
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %midtonesW) #15
-  %midtonesS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 16
+  %midtonesS = getelementptr inbounds i8, ptr %this, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %midtonesS) #15
-  %midtonesM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 15
+  %midtonesM = getelementptr inbounds i8, ptr %this, i64 480
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %midtonesM) #15
-  %midtonesB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 14
+  %midtonesB = getelementptr inbounds i8, ptr %this, i64 448
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %midtonesB) #15
-  %midtonesG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 13
+  %midtonesG = getelementptr inbounds i8, ptr %this, i64 416
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %midtonesG) #15
-  %midtonesR = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 12
+  %midtonesR = getelementptr inbounds i8, ptr %this, i64 384
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %midtonesR) #15
-  %shadowsW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 11
+  %shadowsW = getelementptr inbounds i8, ptr %this, i64 352
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %shadowsW) #15
-  %shadowsS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 10
+  %shadowsS = getelementptr inbounds i8, ptr %this, i64 320
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %shadowsS) #15
-  %shadowsM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 9
+  %shadowsM = getelementptr inbounds i8, ptr %this, i64 288
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %shadowsM) #15
-  %shadowsB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 8
+  %shadowsB = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %shadowsB) #15
-  %shadowsG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 7
+  %shadowsG = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %shadowsG) #15
-  %shadowsR = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 6
+  %shadowsR = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %shadowsR) #15
-  %blacksW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 5
+  %blacksW = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %blacksW) #15
-  %blacksS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 4
+  %blacksS = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %blacksS) #15
-  %blacksM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 3
+  %blacksM = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %blacksM) #15
-  %blacksB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 2
+  %blacksB = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %blacksB) #15
-  %blacksG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %this, i64 0, i32 1
+  %blacksG = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %blacksG) #15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
   ret void
@@ -6727,7 +6686,7 @@ entry:
   %0 = load ptr, ptr %shaderCreator, align 8
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #15
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %call1, ptr noundef nonnull align 8 dereferenceable(32) %getter)
   br i1 %call2, label %if.then, label %if.end
@@ -6747,16 +6706,16 @@ invoke.cont:                                      ; preds = %if.then
 invoke.cont6:                                     ; preds = %invoke.cont
   %call7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   %vtable8 = load ptr, ptr %3, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 15
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 120
   %4 = load ptr, ptr %vfn9, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %call7)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %stDecl, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %stDecl, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i) #15
-  %m_ossText.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %stDecl, i64 0, i32 2
+  %m_ossText.i = getelementptr inbounds i8, ptr %stDecl, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i) #15
   br label %if.end
 
@@ -6773,9 +6732,9 @@ lpad10:                                           ; preds = %invoke.cont6
 
 ehcleanup:                                        ; preds = %lpad10, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad10 ], [ %5, %lpad ]
-  %m_ossLine.i5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %stDecl, i64 0, i32 3
+  %m_ossLine.i5 = getelementptr inbounds i8, ptr %stDecl, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i5) #15
-  %m_ossText.i6 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %stDecl, i64 0, i32 2
+  %m_ossText.i6 = getelementptr inbounds i8, ptr %stDecl, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i6) #15
   resume { ptr, i32 } %.pn
 
@@ -6786,13 +6745,13 @@ if.end:                                           ; preds = %invoke.cont11, %ent
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.15", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -6800,10 +6759,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   br label %if.end8.sink.split.i.i.i
@@ -6829,10 +6788,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -6854,7 +6813,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -6874,7 +6833,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 define linkonce_odr hidden noundef double @_ZNSt17_Function_handlerIFdvESt5_BindIFMN19OpenColorIO_v2_4dev13GradingRGBMSWEdPKS3_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %__functor) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %__functor, align 8
-  %_M_bound_args.i.i.i.i = getelementptr inbounds %"class.std::_Bind", ptr %0, i64 0, i32 1
+  %_M_bound_args.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_bound_args.i.i.i.i, align 8
   %2 = load i64, ptr %0, align 8
   %memptr.offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %2
@@ -6934,7 +6893,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 define linkonce_odr hidden noundef double @_ZNSt17_Function_handlerIFdvESt5_BindIFMN19OpenColorIO_v2_4dev20GradingTonePreRenderEdPKS3_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %__functor) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %__functor, align 8
-  %_M_bound_args.i.i.i.i = getelementptr inbounds %"class.std::_Bind.17", ptr %0, i64 0, i32 1
+  %_M_bound_args.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_bound_args.i.i.i.i, align 8
   %2 = load i64, ptr %0, align 8
   %memptr.offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %2
@@ -6985,7 +6944,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 define linkonce_odr hidden noundef double @_ZNSt17_Function_handlerIFdvESt5_BindIFMN19OpenColorIO_v2_4dev11GradingToneEdPKS3_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %__functor) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %__functor, align 8
-  %_M_bound_args.i.i.i.i = getelementptr inbounds %"class.std::_Bind.23", ptr %0, i64 0, i32 1
+  %_M_bound_args.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_bound_args.i.i.i.i, align 8
   %2 = load i64, ptr %0, align 8
   %memptr.offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %2
@@ -7038,10 +6997,10 @@ declare void @_ZN19OpenColorIO_v2_4dev13GpuShaderText18declareUniformBoolERKNSt7
 define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbvESt5_BindIFMN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEKFbvEPS3_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %__functor) #3 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8
-  %_M_bound_args.i.i.i.i = getelementptr inbounds %"class.std::_Bind.29", ptr %0, i64 0, i32 1
+  %_M_bound_args.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %_M_bound_args.i.i.i.i, align 8
   %.unpack.i.i.i.i.i.i = load i64, ptr %0, align 8
-  %.elt1.i.i.i.i.i.i = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %.elt1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %.unpack2.i.i.i.i.i.i = load i64, ptr %.elt1.i.i.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 %.unpack2.i.i.i.i.i.i
   %3 = and i64 %.unpack.i.i.i.i.i.i, 1
@@ -10140,11 +10099,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, ptr noundef nonnull @.str.97)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.then
-  %midtonesR = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 12
-  br label %invoke.cont17.invoke
+          to label %invoke.cont17.invoke unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont17.invoke, %invoke.cont28, %invoke.cont27, %invoke.cont25, %if.end22, %if.else16, %if.then11, %if.then4, %if.then
   %0 = landingpad { ptr, i32 }
@@ -10153,31 +10108,20 @@ lpad:                                             ; preds = %invoke.cont17.invok
 
 if.then4:                                         ; preds = %entry
   %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, ptr noundef nonnull @.str.98)
-          to label %invoke.cont5 unwind label %lpad
-
-invoke.cont5:                                     ; preds = %if.then4
-  %midtonesG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 13
-  br label %invoke.cont17.invoke
+          to label %invoke.cont17.invoke unwind label %lpad
 
 if.then11:                                        ; preds = %entry
   %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, ptr noundef nonnull @.str.99)
-          to label %invoke.cont12 unwind label %lpad
-
-invoke.cont12:                                    ; preds = %if.then11
-  %midtonesB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 14
-  br label %invoke.cont17.invoke
+          to label %invoke.cont17.invoke unwind label %lpad
 
 if.else16:                                        ; preds = %entry
   %call18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, ptr noundef nonnull @.str.100)
-          to label %invoke.cont17 unwind label %lpad
+          to label %invoke.cont17.invoke unwind label %lpad
 
-invoke.cont17:                                    ; preds = %if.else16
-  %midtonesM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 15
-  br label %invoke.cont17.invoke
-
-invoke.cont17.invoke:                             ; preds = %invoke.cont, %invoke.cont5, %invoke.cont12, %invoke.cont17
-  %1 = phi ptr [ %midtonesM, %invoke.cont17 ], [ %midtonesB, %invoke.cont12 ], [ %midtonesG, %invoke.cont5 ], [ %midtonesR, %invoke.cont ]
-  %2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %channelValue, ptr noundef nonnull align 8 dereferenceable(32) %1)
+invoke.cont17.invoke:                             ; preds = %if.else16, %if.then11, %if.then4, %if.then
+  %.sink = phi i64 [ 384, %if.then ], [ 416, %if.then4 ], [ 448, %if.then11 ], [ 480, %if.else16 ]
+  %midtonesR = getelementptr inbounds i8, ptr %props, i64 %.sink
+  %1 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %channelValue, ptr noundef nonnull align 8 dereferenceable(32) %midtonesR)
           to label %if.end22 unwind label %lpad
 
 if.end22:                                         ; preds = %invoke.cont17.invoke
@@ -10202,14 +10146,14 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %invoke.cont27
-  %3 = load float, ptr %top, align 4
-  %conv.i = fpext float %3 to double
+  %2 = load float, ptr %top, align 4
+  %conv.i = fpext float %2 to double
   invoke void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %topPoint, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.161, double noundef %conv.i)
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %invoke.cont28
-  %4 = load float, ptr %bottom, align 4
-  %conv.i168 = fpext float %4 to double
+  %3 = load float, ptr %bottom, align 4
+  %conv.i168 = fpext float %3 to double
   invoke void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %bottomPoint, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.161, double noundef %conv.i168)
           to label %invoke.cont31 unwind label %lpad30
 
@@ -10378,7 +10322,7 @@ invoke.cont132:                                   ; preds = %invoke.cont130
           to label %invoke.cont134 unwind label %lpad131
 
 invoke.cont134:                                   ; preds = %invoke.cont132
-  %midtonesW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 17
+  %midtonesW = getelementptr inbounds i8, ptr %props, i64 544
   %call137 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %call135, ptr noundef nonnull align 8 dereferenceable(32) %midtonesW)
           to label %invoke.cont136 unwind label %lpad131
 
@@ -10462,7 +10406,7 @@ invoke.cont190:                                   ; preds = %invoke.cont188
           to label %invoke.cont192 unwind label %lpad189
 
 invoke.cont192:                                   ; preds = %invoke.cont190
-  %midtonesS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 16
+  %midtonesS = getelementptr inbounds i8, ptr %props, i64 512
   %call195 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %call193, ptr noundef nonnull align 8 dereferenceable(32) %midtonesS)
           to label %invoke.cont194 unwind label %lpad189
 
@@ -11077,808 +11021,808 @@ invoke.cont608:                                   ; preds = %invoke.cont606
   ret void
 
 lpad24:                                           ; preds = %invoke.cont23
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #15
   br label %ehcleanup616
 
 lpad30:                                           ; preds = %invoke.cont29
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup615
 
 lpad33:                                           ; preds = %invoke.cont590, %invoke.cont572, %invoke.cont554, %invoke.cont536, %invoke.cont521, %invoke.cont517, %invoke.cont514, %invoke.cont508, %invoke.cont502, %invoke.cont493, %invoke.cont480, %invoke.cont477, %invoke.cont471, %invoke.cont465, %invoke.cont461, %invoke.cont458, %invoke.cont452, %invoke.cont446, %invoke.cont437, %invoke.cont424, %invoke.cont421, %invoke.cont415, %invoke.cont406, %invoke.cont388, %invoke.cont370, %invoke.cont352, %invoke.cont337, %invoke.cont331, %invoke.cont324, %invoke.cont312, %invoke.cont300, %invoke.cont286, %invoke.cont268, %invoke.cont250, %invoke.cont232, %invoke.cont214, %invoke.cont196, %invoke.cont174, %invoke.cont156, %invoke.cont138, %invoke.cont118, %invoke.cont106, %invoke.cont90, %invoke.cont77, %invoke.cont74, %invoke.cont68, %invoke.cont59, %invoke.cont41, %invoke.cont31
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup614
 
 lpad36:                                           ; preds = %invoke.cont34
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad38:                                           ; preds = %invoke.cont39, %invoke.cont37
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad38, %lpad36
-  %.pn = phi { ptr, i32 } [ %9, %lpad38 ], [ %8, %lpad36 ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad38 ], [ %7, %lpad36 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp32) #15
   br label %ehcleanup614
 
 lpad48:                                           ; preds = %invoke.cont44
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup63
 
 lpad50:                                           ; preds = %invoke.cont49
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup62
 
 lpad52:                                           ; preds = %invoke.cont57, %invoke.cont55, %invoke.cont53, %invoke.cont51
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #15
   br label %ehcleanup62
 
 ehcleanup62:                                      ; preds = %lpad52, %lpad50
-  %.pn90 = phi { ptr, i32 } [ %12, %lpad52 ], [ %11, %lpad50 ]
+  %.pn90 = phi { ptr, i32 } [ %11, %lpad52 ], [ %10, %lpad50 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46) #15
   br label %ehcleanup63
 
 ehcleanup63:                                      ; preds = %ehcleanup62, %lpad48
-  %.pn90.pn = phi { ptr, i32 } [ %.pn90, %ehcleanup62 ], [ %10, %lpad48 ]
+  %.pn90.pn = phi { ptr, i32 } [ %.pn90, %ehcleanup62 ], [ %9, %lpad48 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp47) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp43) #15
   br label %ehcleanup614
 
 lpad67:                                           ; preds = %invoke.cont66
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp65) #15
   br label %ehcleanup614
 
 lpad73:                                           ; preds = %invoke.cont72
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp71) #15
   br label %ehcleanup614
 
 lpad81:                                           ; preds = %invoke.cont79
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup93
 
 lpad83:                                           ; preds = %invoke.cont88, %invoke.cont86, %invoke.cont84, %invoke.cont82
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #15
   br label %ehcleanup93
 
 ehcleanup93:                                      ; preds = %lpad83, %lpad81
-  %.pn93 = phi { ptr, i32 } [ %16, %lpad83 ], [ %15, %lpad81 ]
+  %.pn93 = phi { ptr, i32 } [ %15, %lpad83 ], [ %14, %lpad81 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp78) #15
   br label %ehcleanup614
 
 lpad97:                                           ; preds = %invoke.cont95
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup109
 
 lpad99:                                           ; preds = %invoke.cont104, %invoke.cont102, %invoke.cont100, %invoke.cont98
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96) #15
   br label %ehcleanup109
 
 ehcleanup109:                                     ; preds = %lpad99, %lpad97
-  %.pn95 = phi { ptr, i32 } [ %18, %lpad99 ], [ %17, %lpad97 ]
+  %.pn95 = phi { ptr, i32 } [ %17, %lpad99 ], [ %16, %lpad97 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp94) #15
   br label %ehcleanup614
 
 lpad113:                                          ; preds = %invoke.cont111
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup121
 
 lpad115:                                          ; preds = %invoke.cont116, %invoke.cont114
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp112) #15
   br label %ehcleanup121
 
 ehcleanup121:                                     ; preds = %lpad115, %lpad113
-  %.pn97 = phi { ptr, i32 } [ %20, %lpad115 ], [ %19, %lpad113 ]
+  %.pn97 = phi { ptr, i32 } [ %19, %lpad115 ], [ %18, %lpad113 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp110) #15
   br label %ehcleanup614
 
 lpad127:                                          ; preds = %invoke.cont123
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup142
 
 lpad129:                                          ; preds = %invoke.cont128
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup141
 
 lpad131:                                          ; preds = %invoke.cont136, %invoke.cont134, %invoke.cont132, %invoke.cont130
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124) #15
   br label %ehcleanup141
 
 ehcleanup141:                                     ; preds = %lpad131, %lpad129
-  %.pn99 = phi { ptr, i32 } [ %23, %lpad131 ], [ %22, %lpad129 ]
+  %.pn99 = phi { ptr, i32 } [ %22, %lpad131 ], [ %21, %lpad129 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp125) #15
   br label %ehcleanup142
 
 ehcleanup142:                                     ; preds = %ehcleanup141, %lpad127
-  %.pn99.pn = phi { ptr, i32 } [ %.pn99, %ehcleanup141 ], [ %21, %lpad127 ]
+  %.pn99.pn = phi { ptr, i32 } [ %.pn99, %ehcleanup141 ], [ %20, %lpad127 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp126) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp122) #15
   br label %ehcleanup614
 
 lpad149:                                          ; preds = %invoke.cont145
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup160
 
 lpad151:                                          ; preds = %invoke.cont150
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup159
 
 lpad153:                                          ; preds = %invoke.cont154, %invoke.cont152
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146) #15
   br label %ehcleanup159
 
 ehcleanup159:                                     ; preds = %lpad153, %lpad151
-  %.pn102 = phi { ptr, i32 } [ %26, %lpad153 ], [ %25, %lpad151 ]
+  %.pn102 = phi { ptr, i32 } [ %25, %lpad153 ], [ %24, %lpad151 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp147) #15
   br label %ehcleanup160
 
 ehcleanup160:                                     ; preds = %ehcleanup159, %lpad149
-  %.pn102.pn = phi { ptr, i32 } [ %.pn102, %ehcleanup159 ], [ %24, %lpad149 ]
+  %.pn102.pn = phi { ptr, i32 } [ %.pn102, %ehcleanup159 ], [ %23, %lpad149 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp148) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp144) #15
   br label %ehcleanup614
 
 lpad167:                                          ; preds = %invoke.cont163
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup178
 
 lpad169:                                          ; preds = %invoke.cont168
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup177
 
 lpad171:                                          ; preds = %invoke.cont172, %invoke.cont170
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp164) #15
   br label %ehcleanup177
 
 ehcleanup177:                                     ; preds = %lpad171, %lpad169
-  %.pn105 = phi { ptr, i32 } [ %29, %lpad171 ], [ %28, %lpad169 ]
+  %.pn105 = phi { ptr, i32 } [ %28, %lpad171 ], [ %27, %lpad169 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp165) #15
   br label %ehcleanup178
 
 ehcleanup178:                                     ; preds = %ehcleanup177, %lpad167
-  %.pn105.pn = phi { ptr, i32 } [ %.pn105, %ehcleanup177 ], [ %27, %lpad167 ]
+  %.pn105.pn = phi { ptr, i32 } [ %.pn105, %ehcleanup177 ], [ %26, %lpad167 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp166) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp162) #15
   br label %ehcleanup614
 
 lpad185:                                          ; preds = %invoke.cont181
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup200
 
 lpad187:                                          ; preds = %invoke.cont186
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup199
 
 lpad189:                                          ; preds = %invoke.cont194, %invoke.cont192, %invoke.cont190, %invoke.cont188
-  %32 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp182) #15
   br label %ehcleanup199
 
 ehcleanup199:                                     ; preds = %lpad189, %lpad187
-  %.pn108 = phi { ptr, i32 } [ %32, %lpad189 ], [ %31, %lpad187 ]
+  %.pn108 = phi { ptr, i32 } [ %31, %lpad189 ], [ %30, %lpad187 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp183) #15
   br label %ehcleanup200
 
 ehcleanup200:                                     ; preds = %ehcleanup199, %lpad185
-  %.pn108.pn = phi { ptr, i32 } [ %.pn108, %ehcleanup199 ], [ %30, %lpad185 ]
+  %.pn108.pn = phi { ptr, i32 } [ %.pn108, %ehcleanup199 ], [ %29, %lpad185 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp184) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp180) #15
   br label %ehcleanup614
 
 lpad207:                                          ; preds = %invoke.cont203
-  %33 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup218
 
 lpad209:                                          ; preds = %invoke.cont208
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup217
 
 lpad211:                                          ; preds = %invoke.cont212, %invoke.cont210
-  %35 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204) #15
   br label %ehcleanup217
 
 ehcleanup217:                                     ; preds = %lpad211, %lpad209
-  %.pn111 = phi { ptr, i32 } [ %35, %lpad211 ], [ %34, %lpad209 ]
+  %.pn111 = phi { ptr, i32 } [ %34, %lpad211 ], [ %33, %lpad209 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205) #15
   br label %ehcleanup218
 
 ehcleanup218:                                     ; preds = %ehcleanup217, %lpad207
-  %.pn111.pn = phi { ptr, i32 } [ %.pn111, %ehcleanup217 ], [ %33, %lpad207 ]
+  %.pn111.pn = phi { ptr, i32 } [ %.pn111, %ehcleanup217 ], [ %32, %lpad207 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp206) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp202) #15
   br label %ehcleanup614
 
 lpad225:                                          ; preds = %invoke.cont221
-  %36 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup236
 
 lpad227:                                          ; preds = %invoke.cont226
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup235
 
 lpad229:                                          ; preds = %invoke.cont230, %invoke.cont228
-  %38 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp222) #15
   br label %ehcleanup235
 
 ehcleanup235:                                     ; preds = %lpad229, %lpad227
-  %.pn114 = phi { ptr, i32 } [ %38, %lpad229 ], [ %37, %lpad227 ]
+  %.pn114 = phi { ptr, i32 } [ %37, %lpad229 ], [ %36, %lpad227 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp223) #15
   br label %ehcleanup236
 
 ehcleanup236:                                     ; preds = %ehcleanup235, %lpad225
-  %.pn114.pn = phi { ptr, i32 } [ %.pn114, %ehcleanup235 ], [ %36, %lpad225 ]
+  %.pn114.pn = phi { ptr, i32 } [ %.pn114, %ehcleanup235 ], [ %35, %lpad225 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp224) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp220) #15
   br label %ehcleanup614
 
 lpad243:                                          ; preds = %invoke.cont239
-  %39 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup254
 
 lpad245:                                          ; preds = %invoke.cont244
-  %40 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup253
 
 lpad247:                                          ; preds = %invoke.cont248, %invoke.cont246
-  %41 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp240) #15
   br label %ehcleanup253
 
 ehcleanup253:                                     ; preds = %lpad247, %lpad245
-  %.pn117 = phi { ptr, i32 } [ %41, %lpad247 ], [ %40, %lpad245 ]
+  %.pn117 = phi { ptr, i32 } [ %40, %lpad247 ], [ %39, %lpad245 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp241) #15
   br label %ehcleanup254
 
 ehcleanup254:                                     ; preds = %ehcleanup253, %lpad243
-  %.pn117.pn = phi { ptr, i32 } [ %.pn117, %ehcleanup253 ], [ %39, %lpad243 ]
+  %.pn117.pn = phi { ptr, i32 } [ %.pn117, %ehcleanup253 ], [ %38, %lpad243 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp242) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp238) #15
   br label %ehcleanup614
 
 lpad261:                                          ; preds = %invoke.cont257
-  %42 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup272
 
 lpad263:                                          ; preds = %invoke.cont262
-  %43 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup271
 
 lpad265:                                          ; preds = %invoke.cont266, %invoke.cont264
-  %44 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp258) #15
   br label %ehcleanup271
 
 ehcleanup271:                                     ; preds = %lpad265, %lpad263
-  %.pn120 = phi { ptr, i32 } [ %44, %lpad265 ], [ %43, %lpad263 ]
+  %.pn120 = phi { ptr, i32 } [ %43, %lpad265 ], [ %42, %lpad263 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp259) #15
   br label %ehcleanup272
 
 ehcleanup272:                                     ; preds = %ehcleanup271, %lpad261
-  %.pn120.pn = phi { ptr, i32 } [ %.pn120, %ehcleanup271 ], [ %42, %lpad261 ]
+  %.pn120.pn = phi { ptr, i32 } [ %.pn120, %ehcleanup271 ], [ %41, %lpad261 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp260) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp256) #15
   br label %ehcleanup614
 
 lpad279:                                          ; preds = %invoke.cont275
-  %45 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup290
 
 lpad281:                                          ; preds = %invoke.cont280
-  %46 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup289
 
 lpad283:                                          ; preds = %invoke.cont284, %invoke.cont282
-  %47 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp276) #15
   br label %ehcleanup289
 
 ehcleanup289:                                     ; preds = %lpad283, %lpad281
-  %.pn123 = phi { ptr, i32 } [ %47, %lpad283 ], [ %46, %lpad281 ]
+  %.pn123 = phi { ptr, i32 } [ %46, %lpad283 ], [ %45, %lpad281 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp277) #15
   br label %ehcleanup290
 
 ehcleanup290:                                     ; preds = %ehcleanup289, %lpad279
-  %.pn123.pn = phi { ptr, i32 } [ %.pn123, %ehcleanup289 ], [ %45, %lpad279 ]
+  %.pn123.pn = phi { ptr, i32 } [ %.pn123, %ehcleanup289 ], [ %44, %lpad279 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp278) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp274) #15
   br label %ehcleanup614
 
 lpad295:                                          ; preds = %invoke.cont293
-  %48 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup303
 
 lpad297:                                          ; preds = %invoke.cont298, %invoke.cont296
-  %49 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp294) #15
   br label %ehcleanup303
 
 ehcleanup303:                                     ; preds = %lpad297, %lpad295
-  %.pn126 = phi { ptr, i32 } [ %49, %lpad297 ], [ %48, %lpad295 ]
+  %.pn126 = phi { ptr, i32 } [ %48, %lpad297 ], [ %47, %lpad295 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp292) #15
   br label %ehcleanup614
 
 lpad307:                                          ; preds = %invoke.cont305
-  %50 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup315
 
 lpad309:                                          ; preds = %invoke.cont310, %invoke.cont308
-  %51 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp306) #15
   br label %ehcleanup315
 
 ehcleanup315:                                     ; preds = %lpad309, %lpad307
-  %.pn128 = phi { ptr, i32 } [ %51, %lpad309 ], [ %50, %lpad307 ]
+  %.pn128 = phi { ptr, i32 } [ %50, %lpad309 ], [ %49, %lpad307 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp304) #15
   br label %ehcleanup614
 
 lpad319:                                          ; preds = %invoke.cont317
-  %52 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup327
 
 lpad321:                                          ; preds = %invoke.cont322, %invoke.cont320
-  %53 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp318) #15
   br label %ehcleanup327
 
 ehcleanup327:                                     ; preds = %lpad321, %lpad319
-  %.pn130 = phi { ptr, i32 } [ %53, %lpad321 ], [ %52, %lpad319 ]
+  %.pn130 = phi { ptr, i32 } [ %52, %lpad321 ], [ %51, %lpad319 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp316) #15
   br label %ehcleanup614
 
 lpad330:                                          ; preds = %invoke.cont329
-  %54 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp328) #15
   br label %ehcleanup614
 
 lpad336:                                          ; preds = %invoke.cont335
-  %55 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp334) #15
   br label %ehcleanup614
 
 lpad345:                                          ; preds = %invoke.cont341
-  %56 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup356
 
 lpad347:                                          ; preds = %invoke.cont346
-  %57 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup355
 
 lpad349:                                          ; preds = %invoke.cont350, %invoke.cont348
-  %58 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp342) #15
   br label %ehcleanup355
 
 ehcleanup355:                                     ; preds = %lpad349, %lpad347
-  %.pn132 = phi { ptr, i32 } [ %58, %lpad349 ], [ %57, %lpad347 ]
+  %.pn132 = phi { ptr, i32 } [ %57, %lpad349 ], [ %56, %lpad347 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp343) #15
   br label %ehcleanup356
 
 ehcleanup356:                                     ; preds = %ehcleanup355, %lpad345
-  %.pn132.pn = phi { ptr, i32 } [ %.pn132, %ehcleanup355 ], [ %56, %lpad345 ]
+  %.pn132.pn = phi { ptr, i32 } [ %.pn132, %ehcleanup355 ], [ %55, %lpad345 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp344) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp340) #15
   br label %ehcleanup614
 
 lpad363:                                          ; preds = %invoke.cont359
-  %59 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup374
 
 lpad365:                                          ; preds = %invoke.cont364
-  %60 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup373
 
 lpad367:                                          ; preds = %invoke.cont368, %invoke.cont366
-  %61 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp360) #15
   br label %ehcleanup373
 
 ehcleanup373:                                     ; preds = %lpad367, %lpad365
-  %.pn135 = phi { ptr, i32 } [ %61, %lpad367 ], [ %60, %lpad365 ]
+  %.pn135 = phi { ptr, i32 } [ %60, %lpad367 ], [ %59, %lpad365 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp361) #15
   br label %ehcleanup374
 
 ehcleanup374:                                     ; preds = %ehcleanup373, %lpad363
-  %.pn135.pn = phi { ptr, i32 } [ %.pn135, %ehcleanup373 ], [ %59, %lpad363 ]
+  %.pn135.pn = phi { ptr, i32 } [ %.pn135, %ehcleanup373 ], [ %58, %lpad363 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp362) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp358) #15
   br label %ehcleanup614
 
 lpad381:                                          ; preds = %invoke.cont377
-  %62 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup392
 
 lpad383:                                          ; preds = %invoke.cont382
-  %63 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup391
 
 lpad385:                                          ; preds = %invoke.cont386, %invoke.cont384
-  %64 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp378) #15
   br label %ehcleanup391
 
 ehcleanup391:                                     ; preds = %lpad385, %lpad383
-  %.pn138 = phi { ptr, i32 } [ %64, %lpad385 ], [ %63, %lpad383 ]
+  %.pn138 = phi { ptr, i32 } [ %63, %lpad385 ], [ %62, %lpad383 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp379) #15
   br label %ehcleanup392
 
 ehcleanup392:                                     ; preds = %ehcleanup391, %lpad381
-  %.pn138.pn = phi { ptr, i32 } [ %.pn138, %ehcleanup391 ], [ %62, %lpad381 ]
+  %.pn138.pn = phi { ptr, i32 } [ %.pn138, %ehcleanup391 ], [ %61, %lpad381 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp380) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp376) #15
   br label %ehcleanup614
 
 lpad399:                                          ; preds = %invoke.cont395
-  %65 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup410
 
 lpad401:                                          ; preds = %invoke.cont400
-  %66 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup409
 
 lpad403:                                          ; preds = %invoke.cont404, %invoke.cont402
-  %67 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp396) #15
   br label %ehcleanup409
 
 ehcleanup409:                                     ; preds = %lpad403, %lpad401
-  %.pn141 = phi { ptr, i32 } [ %67, %lpad403 ], [ %66, %lpad401 ]
+  %.pn141 = phi { ptr, i32 } [ %66, %lpad403 ], [ %65, %lpad401 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp397) #15
   br label %ehcleanup410
 
 ehcleanup410:                                     ; preds = %ehcleanup409, %lpad399
-  %.pn141.pn = phi { ptr, i32 } [ %.pn141, %ehcleanup409 ], [ %65, %lpad399 ]
+  %.pn141.pn = phi { ptr, i32 } [ %.pn141, %ehcleanup409 ], [ %64, %lpad399 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp398) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp394) #15
   br label %ehcleanup614
 
 lpad414:                                          ; preds = %invoke.cont413
-  %68 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp412) #15
   br label %ehcleanup614
 
 lpad420:                                          ; preds = %invoke.cont419
-  %69 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp418) #15
   br label %ehcleanup614
 
 lpad430:                                          ; preds = %invoke.cont426
-  %70 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup441
 
 lpad432:                                          ; preds = %invoke.cont431
-  %71 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup440
 
 lpad434:                                          ; preds = %invoke.cont435, %invoke.cont433
-  %72 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp427) #15
   br label %ehcleanup440
 
 ehcleanup440:                                     ; preds = %lpad434, %lpad432
-  %.pn144 = phi { ptr, i32 } [ %72, %lpad434 ], [ %71, %lpad432 ]
+  %.pn144 = phi { ptr, i32 } [ %71, %lpad434 ], [ %70, %lpad432 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp428) #15
   br label %ehcleanup441
 
 ehcleanup441:                                     ; preds = %ehcleanup440, %lpad430
-  %.pn144.pn = phi { ptr, i32 } [ %.pn144, %ehcleanup440 ], [ %70, %lpad430 ]
+  %.pn144.pn = phi { ptr, i32 } [ %.pn144, %ehcleanup440 ], [ %69, %lpad430 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp429) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp425) #15
   br label %ehcleanup614
 
 lpad445:                                          ; preds = %invoke.cont444
-  %73 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp443) #15
   br label %ehcleanup614
 
 lpad451:                                          ; preds = %invoke.cont450
-  %74 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp449) #15
   br label %ehcleanup614
 
 lpad457:                                          ; preds = %invoke.cont456
-  %75 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp455) #15
   br label %ehcleanup614
 
 lpad464:                                          ; preds = %invoke.cont463
-  %76 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp462) #15
   br label %ehcleanup614
 
 lpad470:                                          ; preds = %invoke.cont469
-  %77 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp468) #15
   br label %ehcleanup614
 
 lpad476:                                          ; preds = %invoke.cont475
-  %78 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp474) #15
   br label %ehcleanup614
 
 lpad486:                                          ; preds = %invoke.cont482
-  %79 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup497
 
 lpad488:                                          ; preds = %invoke.cont487
-  %80 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup496
 
 lpad490:                                          ; preds = %invoke.cont491, %invoke.cont489
-  %81 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp483) #15
   br label %ehcleanup496
 
 ehcleanup496:                                     ; preds = %lpad490, %lpad488
-  %.pn147 = phi { ptr, i32 } [ %81, %lpad490 ], [ %80, %lpad488 ]
+  %.pn147 = phi { ptr, i32 } [ %80, %lpad490 ], [ %79, %lpad488 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp484) #15
   br label %ehcleanup497
 
 ehcleanup497:                                     ; preds = %ehcleanup496, %lpad486
-  %.pn147.pn = phi { ptr, i32 } [ %.pn147, %ehcleanup496 ], [ %79, %lpad486 ]
+  %.pn147.pn = phi { ptr, i32 } [ %.pn147, %ehcleanup496 ], [ %78, %lpad486 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp485) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp481) #15
   br label %ehcleanup614
 
 lpad501:                                          ; preds = %invoke.cont500
-  %82 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp499) #15
   br label %ehcleanup614
 
 lpad507:                                          ; preds = %invoke.cont506
-  %83 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp505) #15
   br label %ehcleanup614
 
 lpad513:                                          ; preds = %invoke.cont512
-  %84 = landingpad { ptr, i32 }
+  %83 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp511) #15
   br label %ehcleanup614
 
 lpad520:                                          ; preds = %invoke.cont519
-  %85 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp518) #15
   br label %ehcleanup614
 
 lpad529:                                          ; preds = %invoke.cont525
-  %86 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup540
 
 lpad531:                                          ; preds = %invoke.cont530
-  %87 = landingpad { ptr, i32 }
+  %86 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup539
 
 lpad533:                                          ; preds = %invoke.cont534, %invoke.cont532
-  %88 = landingpad { ptr, i32 }
+  %87 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp526) #15
   br label %ehcleanup539
 
 ehcleanup539:                                     ; preds = %lpad533, %lpad531
-  %.pn150 = phi { ptr, i32 } [ %88, %lpad533 ], [ %87, %lpad531 ]
+  %.pn150 = phi { ptr, i32 } [ %87, %lpad533 ], [ %86, %lpad531 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp527) #15
   br label %ehcleanup540
 
 ehcleanup540:                                     ; preds = %ehcleanup539, %lpad529
-  %.pn150.pn = phi { ptr, i32 } [ %.pn150, %ehcleanup539 ], [ %86, %lpad529 ]
+  %.pn150.pn = phi { ptr, i32 } [ %.pn150, %ehcleanup539 ], [ %85, %lpad529 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp528) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp524) #15
   br label %ehcleanup614
 
 lpad547:                                          ; preds = %invoke.cont543
-  %89 = landingpad { ptr, i32 }
+  %88 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup558
 
 lpad549:                                          ; preds = %invoke.cont548
-  %90 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup557
 
 lpad551:                                          ; preds = %invoke.cont552, %invoke.cont550
-  %91 = landingpad { ptr, i32 }
+  %90 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp544) #15
   br label %ehcleanup557
 
 ehcleanup557:                                     ; preds = %lpad551, %lpad549
-  %.pn153 = phi { ptr, i32 } [ %91, %lpad551 ], [ %90, %lpad549 ]
+  %.pn153 = phi { ptr, i32 } [ %90, %lpad551 ], [ %89, %lpad549 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp545) #15
   br label %ehcleanup558
 
 ehcleanup558:                                     ; preds = %ehcleanup557, %lpad547
-  %.pn153.pn = phi { ptr, i32 } [ %.pn153, %ehcleanup557 ], [ %89, %lpad547 ]
+  %.pn153.pn = phi { ptr, i32 } [ %.pn153, %ehcleanup557 ], [ %88, %lpad547 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp546) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp542) #15
   br label %ehcleanup614
 
 lpad565:                                          ; preds = %invoke.cont561
-  %92 = landingpad { ptr, i32 }
+  %91 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup576
 
 lpad567:                                          ; preds = %invoke.cont566
-  %93 = landingpad { ptr, i32 }
+  %92 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup575
 
 lpad569:                                          ; preds = %invoke.cont570, %invoke.cont568
-  %94 = landingpad { ptr, i32 }
+  %93 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp562) #15
   br label %ehcleanup575
 
 ehcleanup575:                                     ; preds = %lpad569, %lpad567
-  %.pn156 = phi { ptr, i32 } [ %94, %lpad569 ], [ %93, %lpad567 ]
+  %.pn156 = phi { ptr, i32 } [ %93, %lpad569 ], [ %92, %lpad567 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp563) #15
   br label %ehcleanup576
 
 ehcleanup576:                                     ; preds = %ehcleanup575, %lpad565
-  %.pn156.pn = phi { ptr, i32 } [ %.pn156, %ehcleanup575 ], [ %92, %lpad565 ]
+  %.pn156.pn = phi { ptr, i32 } [ %.pn156, %ehcleanup575 ], [ %91, %lpad565 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp564) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp560) #15
   br label %ehcleanup614
 
 lpad583:                                          ; preds = %invoke.cont579
-  %95 = landingpad { ptr, i32 }
+  %94 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup594
 
 lpad585:                                          ; preds = %invoke.cont584
-  %96 = landingpad { ptr, i32 }
+  %95 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup593
 
 lpad587:                                          ; preds = %invoke.cont588, %invoke.cont586
-  %97 = landingpad { ptr, i32 }
+  %96 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp580) #15
   br label %ehcleanup593
 
 ehcleanup593:                                     ; preds = %lpad587, %lpad585
-  %.pn159 = phi { ptr, i32 } [ %97, %lpad587 ], [ %96, %lpad585 ]
+  %.pn159 = phi { ptr, i32 } [ %96, %lpad587 ], [ %95, %lpad585 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp581) #15
   br label %ehcleanup594
 
 ehcleanup594:                                     ; preds = %ehcleanup593, %lpad583
-  %.pn159.pn = phi { ptr, i32 } [ %.pn159, %ehcleanup593 ], [ %95, %lpad583 ]
+  %.pn159.pn = phi { ptr, i32 } [ %.pn159, %ehcleanup593 ], [ %94, %lpad583 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp582) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp578) #15
   br label %ehcleanup614
 
 lpad601:                                          ; preds = %invoke.cont597
-  %98 = landingpad { ptr, i32 }
+  %97 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup612
 
 lpad603:                                          ; preds = %invoke.cont602
-  %99 = landingpad { ptr, i32 }
+  %98 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup611
 
 lpad605:                                          ; preds = %invoke.cont606, %invoke.cont604
-  %100 = landingpad { ptr, i32 }
+  %99 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp598) #15
   br label %ehcleanup611
 
 ehcleanup611:                                     ; preds = %lpad605, %lpad603
-  %.pn162 = phi { ptr, i32 } [ %100, %lpad605 ], [ %99, %lpad603 ]
+  %.pn162 = phi { ptr, i32 } [ %99, %lpad605 ], [ %98, %lpad603 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp599) #15
   br label %ehcleanup612
 
 ehcleanup612:                                     ; preds = %ehcleanup611, %lpad601
-  %.pn162.pn = phi { ptr, i32 } [ %.pn162, %ehcleanup611 ], [ %98, %lpad601 ]
+  %.pn162.pn = phi { ptr, i32 } [ %.pn162, %ehcleanup611 ], [ %97, %lpad601 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp600) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp596) #15
   br label %ehcleanup614
 
 ehcleanup614:                                     ; preds = %ehcleanup612, %ehcleanup594, %ehcleanup576, %ehcleanup558, %ehcleanup540, %lpad520, %lpad513, %lpad507, %lpad501, %ehcleanup497, %lpad476, %lpad470, %lpad464, %lpad457, %lpad451, %lpad445, %ehcleanup441, %lpad420, %lpad414, %ehcleanup410, %ehcleanup392, %ehcleanup374, %ehcleanup356, %lpad336, %lpad330, %ehcleanup327, %ehcleanup315, %ehcleanup303, %ehcleanup290, %ehcleanup272, %ehcleanup254, %ehcleanup236, %ehcleanup218, %ehcleanup200, %ehcleanup178, %ehcleanup160, %ehcleanup142, %ehcleanup121, %ehcleanup109, %ehcleanup93, %lpad73, %lpad67, %ehcleanup63, %ehcleanup, %lpad33
-  %.pn162.pn.pn = phi { ptr, i32 } [ %.pn162.pn, %ehcleanup612 ], [ %7, %lpad33 ], [ %.pn159.pn, %ehcleanup594 ], [ %.pn156.pn, %ehcleanup576 ], [ %.pn153.pn, %ehcleanup558 ], [ %.pn150.pn, %ehcleanup540 ], [ %85, %lpad520 ], [ %84, %lpad513 ], [ %83, %lpad507 ], [ %82, %lpad501 ], [ %.pn147.pn, %ehcleanup497 ], [ %78, %lpad476 ], [ %77, %lpad470 ], [ %76, %lpad464 ], [ %75, %lpad457 ], [ %74, %lpad451 ], [ %73, %lpad445 ], [ %.pn144.pn, %ehcleanup441 ], [ %69, %lpad420 ], [ %68, %lpad414 ], [ %.pn141.pn, %ehcleanup410 ], [ %.pn138.pn, %ehcleanup392 ], [ %.pn135.pn, %ehcleanup374 ], [ %.pn132.pn, %ehcleanup356 ], [ %55, %lpad336 ], [ %54, %lpad330 ], [ %.pn130, %ehcleanup327 ], [ %.pn128, %ehcleanup315 ], [ %.pn126, %ehcleanup303 ], [ %.pn123.pn, %ehcleanup290 ], [ %.pn120.pn, %ehcleanup272 ], [ %.pn117.pn, %ehcleanup254 ], [ %.pn114.pn, %ehcleanup236 ], [ %.pn111.pn, %ehcleanup218 ], [ %.pn108.pn, %ehcleanup200 ], [ %.pn105.pn, %ehcleanup178 ], [ %.pn102.pn, %ehcleanup160 ], [ %.pn99.pn, %ehcleanup142 ], [ %.pn97, %ehcleanup121 ], [ %.pn95, %ehcleanup109 ], [ %.pn93, %ehcleanup93 ], [ %14, %lpad73 ], [ %13, %lpad67 ], [ %.pn90.pn, %ehcleanup63 ], [ %.pn, %ehcleanup ]
+  %.pn162.pn.pn = phi { ptr, i32 } [ %.pn162.pn, %ehcleanup612 ], [ %6, %lpad33 ], [ %.pn159.pn, %ehcleanup594 ], [ %.pn156.pn, %ehcleanup576 ], [ %.pn153.pn, %ehcleanup558 ], [ %.pn150.pn, %ehcleanup540 ], [ %84, %lpad520 ], [ %83, %lpad513 ], [ %82, %lpad507 ], [ %81, %lpad501 ], [ %.pn147.pn, %ehcleanup497 ], [ %77, %lpad476 ], [ %76, %lpad470 ], [ %75, %lpad464 ], [ %74, %lpad457 ], [ %73, %lpad451 ], [ %72, %lpad445 ], [ %.pn144.pn, %ehcleanup441 ], [ %68, %lpad420 ], [ %67, %lpad414 ], [ %.pn141.pn, %ehcleanup410 ], [ %.pn138.pn, %ehcleanup392 ], [ %.pn135.pn, %ehcleanup374 ], [ %.pn132.pn, %ehcleanup356 ], [ %54, %lpad336 ], [ %53, %lpad330 ], [ %.pn130, %ehcleanup327 ], [ %.pn128, %ehcleanup315 ], [ %.pn126, %ehcleanup303 ], [ %.pn123.pn, %ehcleanup290 ], [ %.pn120.pn, %ehcleanup272 ], [ %.pn117.pn, %ehcleanup254 ], [ %.pn114.pn, %ehcleanup236 ], [ %.pn111.pn, %ehcleanup218 ], [ %.pn108.pn, %ehcleanup200 ], [ %.pn105.pn, %ehcleanup178 ], [ %.pn102.pn, %ehcleanup160 ], [ %.pn99.pn, %ehcleanup142 ], [ %.pn97, %ehcleanup121 ], [ %.pn95, %ehcleanup109 ], [ %.pn93, %ehcleanup93 ], [ %13, %lpad73 ], [ %12, %lpad67 ], [ %.pn90.pn, %ehcleanup63 ], [ %.pn, %ehcleanup ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bottomPoint) #15
   br label %ehcleanup615
 
 ehcleanup615:                                     ; preds = %ehcleanup614, %lpad30
-  %.pn162.pn.pn.pn = phi { ptr, i32 } [ %.pn162.pn.pn, %ehcleanup614 ], [ %6, %lpad30 ]
+  %.pn162.pn.pn.pn = phi { ptr, i32 } [ %.pn162.pn.pn, %ehcleanup614 ], [ %5, %lpad30 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %topPoint) #15
   br label %ehcleanup616
 
 ehcleanup616:                                     ; preds = %ehcleanup615, %lpad24, %lpad
-  %.pn162.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn162.pn.pn.pn, %ehcleanup615 ], [ %0, %lpad ], [ %5, %lpad24 ]
+  %.pn162.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn162.pn.pn.pn, %ehcleanup615 ], [ %0, %lpad ], [ %4, %lpad24 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %channelValue) #15
   resume { ptr, i32 } %.pn162.pn.pn.pn.pn
 }
@@ -11915,7 +11859,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %0, ptr noundef nonnull %add.ptr)
           to label %invoke.cont unwind label %lpad.i
@@ -12091,16 +12035,14 @@ entry:
   %ref.tmp221 = alloca %"class.std::allocator", align 1
   %ref.tmp241 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %channelValue) #15
-  %shadowsS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 10
-  %highlightsS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 22
-  %cond-lvalue = select i1 %isShadow, ptr %shadowsS, ptr %highlightsS
+  %cond-lvalue.v = select i1 %isShadow, i64 320, i64 704
+  %cond-lvalue = getelementptr inbounds i8, ptr %props, i64 %cond-lvalue.v
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %start, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %shadowsW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 11
-  %highlightsW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 23
-  %cond-lvalue5 = select i1 %isShadow, ptr %shadowsW, ptr %highlightsW
+  %cond-lvalue5.v = select i1 %isShadow, i64 352, i64 736
+  %cond-lvalue5 = getelementptr inbounds i8, ptr %props, i64 %cond-lvalue5.v
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %pivot, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue5)
           to label %invoke.cont7 unwind label %lpad6
 
@@ -12116,9 +12058,7 @@ if.then:                                          ; preds = %invoke.cont7
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.then
-  %shadowsR = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 6
-  %highlightsR = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 18
-  %cond-lvalue14 = select i1 %isShadow, ptr %shadowsR, ptr %highlightsR
+  %cond-lvalue14.v = select i1 %isShadow, i64 192, i64 576
   br label %invoke.cont41.invoke
 
 lpad:                                             ; preds = %entry
@@ -12141,9 +12081,7 @@ if.then18:                                        ; preds = %invoke.cont7
           to label %invoke.cont19 unwind label %lpad8
 
 invoke.cont19:                                    ; preds = %if.then18
-  %shadowsG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 7
-  %highlightsG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 19
-  %cond-lvalue25 = select i1 %isShadow, ptr %shadowsG, ptr %highlightsG
+  %cond-lvalue25.v = select i1 %isShadow, i64 224, i64 608
   br label %invoke.cont41.invoke
 
 if.then30:                                        ; preds = %invoke.cont7
@@ -12151,9 +12089,7 @@ if.then30:                                        ; preds = %invoke.cont7
           to label %invoke.cont31 unwind label %lpad8
 
 invoke.cont31:                                    ; preds = %if.then30
-  %shadowsB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 8
-  %highlightsB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 20
-  %cond-lvalue37 = select i1 %isShadow, ptr %shadowsB, ptr %highlightsB
+  %cond-lvalue37.v = select i1 %isShadow, i64 256, i64 640
   br label %invoke.cont41.invoke
 
 if.else40:                                        ; preds = %invoke.cont7
@@ -12161,14 +12097,13 @@ if.else40:                                        ; preds = %invoke.cont7
           to label %invoke.cont41 unwind label %lpad8
 
 invoke.cont41:                                    ; preds = %if.else40
-  %shadowsM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 9
-  %highlightsM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 21
-  %cond-lvalue47 = select i1 %isShadow, ptr %shadowsM, ptr %highlightsM
+  %cond-lvalue47.v = select i1 %isShadow, i64 288, i64 672
   br label %invoke.cont41.invoke
 
 invoke.cont41.invoke:                             ; preds = %invoke.cont9, %invoke.cont19, %invoke.cont31, %invoke.cont41
-  %3 = phi ptr [ %cond-lvalue47, %invoke.cont41 ], [ %cond-lvalue37, %invoke.cont31 ], [ %cond-lvalue25, %invoke.cont19 ], [ %cond-lvalue14, %invoke.cont9 ]
-  %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %channelValue, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %cond-lvalue14.v.sink = phi i64 [ %cond-lvalue14.v, %invoke.cont9 ], [ %cond-lvalue25.v, %invoke.cont19 ], [ %cond-lvalue37.v, %invoke.cont31 ], [ %cond-lvalue47.v, %invoke.cont41 ]
+  %cond-lvalue14 = getelementptr inbounds i8, ptr %props, i64 %cond-lvalue14.v.sink
+  %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %channelValue, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue14)
           to label %if.end51 unwind label %lpad8
 
 if.end51:                                         ; preds = %invoke.cont41.invoke
@@ -12263,78 +12198,78 @@ invoke.cont104:                                   ; preds = %invoke.cont95
           to label %if.end162 unwind label %lpad105
 
 lpad53:                                           ; preds = %invoke.cont52
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #15
   br label %ehcleanup248
 
 lpad64:                                           ; preds = %invoke.cont60
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup77
 
 lpad66:                                           ; preds = %invoke.cont65
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad68:                                           ; preds = %invoke.cont73, %invoke.cont71, %invoke.cont69, %invoke.cont67
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad68, %lpad66
-  %.pn51 = phi { ptr, i32 } [ %8, %lpad68 ], [ %7, %lpad66 ]
+  %.pn51 = phi { ptr, i32 } [ %7, %lpad68 ], [ %6, %lpad66 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #15
   br label %ehcleanup77
 
 ehcleanup77:                                      ; preds = %ehcleanup, %lpad64
-  %.pn51.pn = phi { ptr, i32 } [ %.pn51, %ehcleanup ], [ %6, %lpad64 ]
+  %.pn51.pn = phi { ptr, i32 } [ %.pn51, %ehcleanup ], [ %5, %lpad64 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp63) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp59) #15
   br label %ehcleanup248
 
 lpad84:                                           ; preds = %invoke.cont80
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup99
 
 lpad86:                                           ; preds = %invoke.cont85
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup98
 
 lpad88:                                           ; preds = %invoke.cont93, %invoke.cont91, %invoke.cont89, %invoke.cont87
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #15
   br label %ehcleanup98
 
 ehcleanup98:                                      ; preds = %lpad88, %lpad86
-  %.pn54 = phi { ptr, i32 } [ %11, %lpad88 ], [ %10, %lpad86 ]
+  %.pn54 = phi { ptr, i32 } [ %10, %lpad88 ], [ %9, %lpad86 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82) #15
   br label %ehcleanup99
 
 ehcleanup99:                                      ; preds = %ehcleanup98, %lpad84
-  %.pn54.pn = phi { ptr, i32 } [ %.pn54, %ehcleanup98 ], [ %9, %lpad84 ]
+  %.pn54.pn = phi { ptr, i32 } [ %.pn54, %ehcleanup98 ], [ %8, %lpad84 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp83) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp79) #15
   br label %ehcleanup248
 
 lpad103:                                          ; preds = %invoke.cont95
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup108
 
 lpad105:                                          ; preds = %invoke.cont104
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp101) #15
   br label %ehcleanup108
 
 ehcleanup108:                                     ; preds = %lpad105, %lpad103
-  %.pn57 = phi { ptr, i32 } [ %13, %lpad105 ], [ %12, %lpad103 ]
+  %.pn57 = phi { ptr, i32 } [ %12, %lpad105 ], [ %11, %lpad103 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp102) #15
   br label %ehcleanup248
 
@@ -12414,72 +12349,72 @@ invoke.cont157:                                   ; preds = %invoke.cont148
           to label %if.end162 unwind label %lpad158
 
 lpad115:                                          ; preds = %invoke.cont111
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup130
 
 lpad117:                                          ; preds = %invoke.cont116
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup129
 
 lpad119:                                          ; preds = %invoke.cont124, %invoke.cont122, %invoke.cont120, %invoke.cont118
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp112) #15
   br label %ehcleanup129
 
 ehcleanup129:                                     ; preds = %lpad119, %lpad117
-  %.pn = phi { ptr, i32 } [ %16, %lpad119 ], [ %15, %lpad117 ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad119 ], [ %14, %lpad117 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp113) #15
   br label %ehcleanup130
 
 ehcleanup130:                                     ; preds = %ehcleanup129, %lpad115
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup129 ], [ %14, %lpad115 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup129 ], [ %13, %lpad115 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp114) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp110) #15
   br label %ehcleanup248
 
 lpad137:                                          ; preds = %invoke.cont133
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup152
 
 lpad139:                                          ; preds = %invoke.cont138
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup151
 
 lpad141:                                          ; preds = %invoke.cont146, %invoke.cont144, %invoke.cont142, %invoke.cont140
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134) #15
   br label %ehcleanup151
 
 ehcleanup151:                                     ; preds = %lpad141, %lpad139
-  %.pn46 = phi { ptr, i32 } [ %19, %lpad141 ], [ %18, %lpad139 ]
+  %.pn46 = phi { ptr, i32 } [ %18, %lpad141 ], [ %17, %lpad139 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp135) #15
   br label %ehcleanup152
 
 ehcleanup152:                                     ; preds = %ehcleanup151, %lpad137
-  %.pn46.pn = phi { ptr, i32 } [ %.pn46, %ehcleanup151 ], [ %17, %lpad137 ]
+  %.pn46.pn = phi { ptr, i32 } [ %.pn46, %ehcleanup151 ], [ %16, %lpad137 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp136) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp132) #15
   br label %ehcleanup248
 
 lpad156:                                          ; preds = %invoke.cont148
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup161
 
 lpad158:                                          ; preds = %invoke.cont157
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp154) #15
   br label %ehcleanup161
 
 ehcleanup161:                                     ; preds = %lpad158, %lpad156
-  %.pn49 = phi { ptr, i32 } [ %21, %lpad158 ], [ %20, %lpad156 ]
+  %.pn49 = phi { ptr, i32 } [ %20, %lpad158 ], [ %19, %lpad156 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp155) #15
   br label %ehcleanup248
 
@@ -12611,115 +12546,115 @@ invoke.cont244:                                   ; preds = %invoke.cont242
   br label %if.end247
 
 lpad168:                                          ; preds = %invoke.cont164
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup179
 
 lpad170:                                          ; preds = %invoke.cont169
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup178
 
 lpad172:                                          ; preds = %invoke.cont173, %invoke.cont171
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp165) #15
   br label %ehcleanup178
 
 ehcleanup178:                                     ; preds = %lpad172, %lpad170
-  %.pn59 = phi { ptr, i32 } [ %24, %lpad172 ], [ %23, %lpad170 ]
+  %.pn59 = phi { ptr, i32 } [ %23, %lpad172 ], [ %22, %lpad170 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp166) #15
   br label %ehcleanup179
 
 ehcleanup179:                                     ; preds = %ehcleanup178, %lpad168
-  %.pn59.pn = phi { ptr, i32 } [ %.pn59, %ehcleanup178 ], [ %22, %lpad168 ]
+  %.pn59.pn = phi { ptr, i32 } [ %.pn59, %ehcleanup178 ], [ %21, %lpad168 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp167) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp163) #15
   br label %ehcleanup248
 
 lpad186:                                          ; preds = %invoke.cont182
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup197
 
 lpad188:                                          ; preds = %invoke.cont187
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup196
 
 lpad190:                                          ; preds = %invoke.cont191, %invoke.cont189
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp183) #15
   br label %ehcleanup196
 
 ehcleanup196:                                     ; preds = %lpad190, %lpad188
-  %.pn62 = phi { ptr, i32 } [ %27, %lpad190 ], [ %26, %lpad188 ]
+  %.pn62 = phi { ptr, i32 } [ %26, %lpad190 ], [ %25, %lpad188 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp184) #15
   br label %ehcleanup197
 
 ehcleanup197:                                     ; preds = %ehcleanup196, %lpad186
-  %.pn62.pn = phi { ptr, i32 } [ %.pn62, %ehcleanup196 ], [ %25, %lpad186 ]
+  %.pn62.pn = phi { ptr, i32 } [ %.pn62, %ehcleanup196 ], [ %24, %lpad186 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp185) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp181) #15
   br label %ehcleanup248
 
 lpad204:                                          ; preds = %invoke.cont200
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup215
 
 lpad206:                                          ; preds = %invoke.cont205
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup214
 
 lpad208:                                          ; preds = %invoke.cont209, %invoke.cont207
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp201) #15
   br label %ehcleanup214
 
 ehcleanup214:                                     ; preds = %lpad208, %lpad206
-  %.pn65 = phi { ptr, i32 } [ %30, %lpad208 ], [ %29, %lpad206 ]
+  %.pn65 = phi { ptr, i32 } [ %29, %lpad208 ], [ %28, %lpad206 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp202) #15
   br label %ehcleanup215
 
 ehcleanup215:                                     ; preds = %ehcleanup214, %lpad204
-  %.pn65.pn = phi { ptr, i32 } [ %.pn65, %ehcleanup214 ], [ %28, %lpad204 ]
+  %.pn65.pn = phi { ptr, i32 } [ %.pn65, %ehcleanup214 ], [ %27, %lpad204 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp203) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp199) #15
   br label %ehcleanup248
 
 lpad222:                                          ; preds = %invoke.cont218
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup237
 
 lpad224:                                          ; preds = %invoke.cont223
-  %32 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup236
 
 lpad226:                                          ; preds = %invoke.cont231, %invoke.cont229, %invoke.cont227, %invoke.cont225
-  %33 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp219) #15
   br label %ehcleanup236
 
 ehcleanup236:                                     ; preds = %lpad226, %lpad224
-  %.pn68 = phi { ptr, i32 } [ %33, %lpad226 ], [ %32, %lpad224 ]
+  %.pn68 = phi { ptr, i32 } [ %32, %lpad226 ], [ %31, %lpad224 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp220) #15
   br label %ehcleanup237
 
 ehcleanup237:                                     ; preds = %ehcleanup236, %lpad222
-  %.pn68.pn = phi { ptr, i32 } [ %.pn68, %ehcleanup236 ], [ %31, %lpad222 ]
+  %.pn68.pn = phi { ptr, i32 } [ %.pn68, %ehcleanup236 ], [ %30, %lpad222 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp221) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp217) #15
   br label %ehcleanup248
 
 lpad243:                                          ; preds = %invoke.cont242
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp241) #15
   br label %ehcleanup248
@@ -12731,7 +12666,7 @@ if.end247:                                        ; preds = %invoke.cont244, %in
   ret void
 
 ehcleanup248:                                     ; preds = %lpad243, %ehcleanup237, %ehcleanup215, %ehcleanup197, %ehcleanup179, %ehcleanup161, %ehcleanup152, %ehcleanup130, %ehcleanup108, %ehcleanup99, %ehcleanup77, %lpad53, %lpad8
-  %.pn71 = phi { ptr, i32 } [ %34, %lpad243 ], [ %2, %lpad8 ], [ %.pn68.pn, %ehcleanup237 ], [ %.pn65.pn, %ehcleanup215 ], [ %.pn62.pn, %ehcleanup197 ], [ %.pn59.pn, %ehcleanup179 ], [ %.pn57, %ehcleanup108 ], [ %.pn54.pn, %ehcleanup99 ], [ %.pn51.pn, %ehcleanup77 ], [ %.pn49, %ehcleanup161 ], [ %.pn46.pn, %ehcleanup152 ], [ %.pn.pn, %ehcleanup130 ], [ %5, %lpad53 ]
+  %.pn71 = phi { ptr, i32 } [ %33, %lpad243 ], [ %2, %lpad8 ], [ %.pn68.pn, %ehcleanup237 ], [ %.pn65.pn, %ehcleanup215 ], [ %.pn62.pn, %ehcleanup197 ], [ %.pn59.pn, %ehcleanup179 ], [ %.pn57, %ehcleanup108 ], [ %.pn54.pn, %ehcleanup99 ], [ %.pn51.pn, %ehcleanup77 ], [ %.pn49, %ehcleanup161 ], [ %.pn46.pn, %ehcleanup152 ], [ %.pn.pn, %ehcleanup130 ], [ %4, %lpad53 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pivot) #15
   br label %ehcleanup249
 
@@ -14706,16 +14641,14 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %channelValue) #15
-  %blacksS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 4
-  %whitesS = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 28
-  %cond-lvalue = select i1 %isBlack, ptr %blacksS, ptr %whitesS
+  %cond-lvalue.v = select i1 %isBlack, i64 128, i64 896
+  %cond-lvalue = getelementptr inbounds i8, ptr %props, i64 %cond-lvalue.v
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %start, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %blacksW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 5
-  %whitesW = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 29
-  %cond-lvalue8 = select i1 %isBlack, ptr %blacksW, ptr %whitesW
+  %cond-lvalue8.v = select i1 %isBlack, i64 160, i64 928
+  %cond-lvalue8 = getelementptr inbounds i8, ptr %props, i64 %cond-lvalue8.v
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %width, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue8)
           to label %invoke.cont10 unwind label %lpad9
 
@@ -14731,8 +14664,7 @@ if.then:                                          ; preds = %invoke.cont10
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %if.then
-  %whitesR = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 24
-  %cond-lvalue18 = select i1 %isBlack, ptr %props, ptr %whitesR
+  %cond-lvalue18.idx = select i1 %isBlack, i64 0, i64 768
   br label %invoke.cont45.invoke
 
 lpad:                                             ; preds = %entry
@@ -14761,9 +14693,7 @@ if.then22:                                        ; preds = %invoke.cont10
           to label %invoke.cont23 unwind label %lpad11
 
 invoke.cont23:                                    ; preds = %if.then22
-  %blacksG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 1
-  %whitesG = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 25
-  %cond-lvalue29 = select i1 %isBlack, ptr %blacksG, ptr %whitesG
+  %cond-lvalue29.v = select i1 %isBlack, i64 32, i64 800
   br label %invoke.cont45.invoke
 
 if.then34:                                        ; preds = %invoke.cont10
@@ -14771,9 +14701,7 @@ if.then34:                                        ; preds = %invoke.cont10
           to label %invoke.cont35 unwind label %lpad11
 
 invoke.cont35:                                    ; preds = %if.then34
-  %blacksB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 2
-  %whitesB = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 26
-  %cond-lvalue41 = select i1 %isBlack, ptr %blacksB, ptr %whitesB
+  %cond-lvalue41.v = select i1 %isBlack, i64 64, i64 832
   br label %invoke.cont45.invoke
 
 if.else44:                                        ; preds = %invoke.cont10
@@ -14781,14 +14709,13 @@ if.else44:                                        ; preds = %invoke.cont10
           to label %invoke.cont45 unwind label %lpad11
 
 invoke.cont45:                                    ; preds = %if.else44
-  %blacksM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 3
-  %whitesM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 27
-  %cond-lvalue51 = select i1 %isBlack, ptr %blacksM, ptr %whitesM
+  %cond-lvalue51.v = select i1 %isBlack, i64 96, i64 864
   br label %invoke.cont45.invoke
 
 invoke.cont45.invoke:                             ; preds = %invoke.cont12, %invoke.cont23, %invoke.cont35, %invoke.cont45
-  %4 = phi ptr [ %cond-lvalue51, %invoke.cont45 ], [ %cond-lvalue41, %invoke.cont35 ], [ %cond-lvalue29, %invoke.cont23 ], [ %cond-lvalue18, %invoke.cont12 ]
-  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %channelValue, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %cond-lvalue18.idx.sink = phi i64 [ %cond-lvalue18.idx, %invoke.cont12 ], [ %cond-lvalue29.v, %invoke.cont23 ], [ %cond-lvalue41.v, %invoke.cont35 ], [ %cond-lvalue51.v, %invoke.cont45 ]
+  %cond-lvalue18 = getelementptr inbounds i8, ptr %props, i64 %cond-lvalue18.idx.sink
+  %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %channelValue, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue18)
           to label %if.end55 unwind label %lpad11
 
 if.end55:                                         ; preds = %invoke.cont45.invoke
@@ -14938,104 +14865,104 @@ invoke.cont140:                                   ; preds = %invoke.cont138
           to label %if.end237 unwind label %lpad139
 
 lpad58:                                           ; preds = %invoke.cont57
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp56) #15
   br label %ehcleanup284
 
 lpad67:                                           ; preds = %invoke.cont65
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad69:                                           ; preds = %invoke.cont74, %invoke.cont72, %invoke.cont70, %invoke.cont68
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad69, %lpad67
-  %.pn = phi { ptr, i32 } [ %8, %lpad69 ], [ %7, %lpad67 ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad69 ], [ %6, %lpad67 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp64) #15
   br label %ehcleanup284
 
 lpad81:                                           ; preds = %invoke.cont79
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup93
 
 lpad83:                                           ; preds = %invoke.cont88, %invoke.cont86, %invoke.cont84, %invoke.cont82
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #15
   br label %ehcleanup93
 
 ehcleanup93:                                      ; preds = %lpad83, %lpad81
-  %.pn56 = phi { ptr, i32 } [ %10, %lpad83 ], [ %9, %lpad81 ]
+  %.pn56 = phi { ptr, i32 } [ %9, %lpad83 ], [ %8, %lpad81 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp78) #15
   br label %ehcleanup284
 
 lpad97:                                           ; preds = %invoke.cont95
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup105
 
 lpad99:                                           ; preds = %invoke.cont100, %invoke.cont98
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96) #15
   br label %ehcleanup105
 
 ehcleanup105:                                     ; preds = %lpad99, %lpad97
-  %.pn58 = phi { ptr, i32 } [ %12, %lpad99 ], [ %11, %lpad97 ]
+  %.pn58 = phi { ptr, i32 } [ %11, %lpad99 ], [ %10, %lpad97 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp94) #15
   br label %ehcleanup284
 
 lpad109:                                          ; preds = %invoke.cont107
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup117
 
 lpad111:                                          ; preds = %invoke.cont112, %invoke.cont110
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp108) #15
   br label %ehcleanup117
 
 ehcleanup117:                                     ; preds = %lpad111, %lpad109
-  %.pn60 = phi { ptr, i32 } [ %14, %lpad111 ], [ %13, %lpad109 ]
+  %.pn60 = phi { ptr, i32 } [ %13, %lpad111 ], [ %12, %lpad109 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp106) #15
   br label %ehcleanup284
 
 lpad121:                                          ; preds = %invoke.cont119
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup133
 
 lpad123:                                          ; preds = %invoke.cont128, %invoke.cont126, %invoke.cont124, %invoke.cont122
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp120) #15
   br label %ehcleanup133
 
 ehcleanup133:                                     ; preds = %lpad123, %lpad121
-  %.pn62 = phi { ptr, i32 } [ %16, %lpad123 ], [ %15, %lpad121 ]
+  %.pn62 = phi { ptr, i32 } [ %15, %lpad123 ], [ %14, %lpad121 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp118) #15
   br label %ehcleanup284
 
 lpad137:                                          ; preds = %invoke.cont135
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup145
 
 lpad139:                                          ; preds = %invoke.cont140, %invoke.cont138
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp136) #15
   br label %ehcleanup145
 
 ehcleanup145:                                     ; preds = %lpad139, %lpad137
-  %.pn64 = phi { ptr, i32 } [ %18, %lpad139 ], [ %17, %lpad137 ]
+  %.pn64 = phi { ptr, i32 } [ %17, %lpad139 ], [ %16, %lpad137 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp134) #15
   br label %ehcleanup284
 
@@ -15179,104 +15106,104 @@ invoke.cont231:                                   ; preds = %invoke.cont229
           to label %if.end237 unwind label %lpad230
 
 lpad150:                                          ; preds = %invoke.cont148
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup162
 
 lpad152:                                          ; preds = %invoke.cont157, %invoke.cont155, %invoke.cont153, %invoke.cont151
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp149) #15
   br label %ehcleanup162
 
 ehcleanup162:                                     ; preds = %lpad152, %lpad150
-  %.pn66 = phi { ptr, i32 } [ %20, %lpad152 ], [ %19, %lpad150 ]
+  %.pn66 = phi { ptr, i32 } [ %19, %lpad152 ], [ %18, %lpad150 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp147) #15
   br label %ehcleanup284
 
 lpad166:                                          ; preds = %invoke.cont164
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup178
 
 lpad168:                                          ; preds = %invoke.cont173, %invoke.cont171, %invoke.cont169, %invoke.cont167
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp165) #15
   br label %ehcleanup178
 
 ehcleanup178:                                     ; preds = %lpad168, %lpad166
-  %.pn68 = phi { ptr, i32 } [ %22, %lpad168 ], [ %21, %lpad166 ]
+  %.pn68 = phi { ptr, i32 } [ %21, %lpad168 ], [ %20, %lpad166 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp163) #15
   br label %ehcleanup284
 
 lpad182:                                          ; preds = %invoke.cont180
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup190
 
 lpad184:                                          ; preds = %invoke.cont185, %invoke.cont183
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp181) #15
   br label %ehcleanup190
 
 ehcleanup190:                                     ; preds = %lpad184, %lpad182
-  %.pn70 = phi { ptr, i32 } [ %24, %lpad184 ], [ %23, %lpad182 ]
+  %.pn70 = phi { ptr, i32 } [ %23, %lpad184 ], [ %22, %lpad182 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp179) #15
   br label %ehcleanup284
 
 lpad194:                                          ; preds = %invoke.cont192
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup202
 
 lpad196:                                          ; preds = %invoke.cont197, %invoke.cont195
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp193) #15
   br label %ehcleanup202
 
 ehcleanup202:                                     ; preds = %lpad196, %lpad194
-  %.pn72 = phi { ptr, i32 } [ %26, %lpad196 ], [ %25, %lpad194 ]
+  %.pn72 = phi { ptr, i32 } [ %25, %lpad196 ], [ %24, %lpad194 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp191) #15
   br label %ehcleanup284
 
 lpad206:                                          ; preds = %invoke.cont204
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup218
 
 lpad208:                                          ; preds = %invoke.cont213, %invoke.cont211, %invoke.cont209, %invoke.cont207
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205) #15
   br label %ehcleanup218
 
 ehcleanup218:                                     ; preds = %lpad208, %lpad206
-  %.pn74 = phi { ptr, i32 } [ %28, %lpad208 ], [ %27, %lpad206 ]
+  %.pn74 = phi { ptr, i32 } [ %27, %lpad208 ], [ %26, %lpad206 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp203) #15
   br label %ehcleanup284
 
 lpad221:                                          ; preds = %invoke.cont220
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp219) #15
   br label %ehcleanup284
 
 lpad228:                                          ; preds = %invoke.cont226
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup236
 
 lpad230:                                          ; preds = %invoke.cont231, %invoke.cont229
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp227) #15
   br label %ehcleanup236
 
 ehcleanup236:                                     ; preds = %lpad230, %lpad228
-  %.pn76 = phi { ptr, i32 } [ %31, %lpad230 ], [ %30, %lpad228 ]
+  %.pn76 = phi { ptr, i32 } [ %30, %lpad230 ], [ %29, %lpad228 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp225) #15
   br label %ehcleanup284
 
@@ -15325,18 +15252,18 @@ invoke.cont256:                                   ; preds = %invoke.cont254
   br label %if.end283
 
 lpad243:                                          ; preds = %invoke.cont241
-  %32 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup259
 
 lpad245:                                          ; preds = %invoke.cont254, %invoke.cont252, %invoke.cont250, %invoke.cont248, %invoke.cont246, %invoke.cont244
-  %33 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp242) #15
   br label %ehcleanup259
 
 ehcleanup259:                                     ; preds = %lpad245, %lpad243
-  %.pn81 = phi { ptr, i32 } [ %33, %lpad245 ], [ %32, %lpad243 ]
+  %.pn81 = phi { ptr, i32 } [ %32, %lpad245 ], [ %31, %lpad243 ]
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp240) #15
   br label %ehcleanup284
 
@@ -15376,28 +15303,28 @@ invoke.cont277:                                   ; preds = %invoke.cont275
   br label %if.end283
 
 lpad266:                                          ; preds = %invoke.cont262
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup281
 
 lpad268:                                          ; preds = %invoke.cont267
-  %35 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup280
 
 lpad270:                                          ; preds = %invoke.cont275, %invoke.cont273, %invoke.cont271, %invoke.cont269
-  %36 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp263) #15
   br label %ehcleanup280
 
 ehcleanup280:                                     ; preds = %lpad270, %lpad268
-  %.pn78 = phi { ptr, i32 } [ %36, %lpad270 ], [ %35, %lpad268 ]
+  %.pn78 = phi { ptr, i32 } [ %35, %lpad270 ], [ %34, %lpad268 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp264) #15
   br label %ehcleanup281
 
 ehcleanup281:                                     ; preds = %ehcleanup280, %lpad266
-  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %ehcleanup280 ], [ %34, %lpad266 ]
+  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %ehcleanup280 ], [ %33, %lpad266 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp265) #15
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp261) #15
   br label %ehcleanup284
@@ -15412,7 +15339,7 @@ if.end283:                                        ; preds = %invoke.cont277, %in
   ret void
 
 ehcleanup284:                                     ; preds = %ehcleanup281, %ehcleanup259, %ehcleanup236, %lpad221, %ehcleanup218, %ehcleanup202, %ehcleanup190, %ehcleanup178, %ehcleanup162, %ehcleanup145, %ehcleanup133, %ehcleanup117, %ehcleanup105, %ehcleanup93, %ehcleanup, %lpad58, %lpad11
-  %.pn81.pn = phi { ptr, i32 } [ %.pn81, %ehcleanup259 ], [ %3, %lpad11 ], [ %.pn78.pn, %ehcleanup281 ], [ %.pn76, %ehcleanup236 ], [ %29, %lpad221 ], [ %.pn74, %ehcleanup218 ], [ %.pn72, %ehcleanup202 ], [ %.pn70, %ehcleanup190 ], [ %.pn68, %ehcleanup178 ], [ %.pn66, %ehcleanup162 ], [ %.pn64, %ehcleanup145 ], [ %.pn62, %ehcleanup133 ], [ %.pn60, %ehcleanup117 ], [ %.pn58, %ehcleanup105 ], [ %.pn56, %ehcleanup93 ], [ %.pn, %ehcleanup ], [ %6, %lpad58 ]
+  %.pn81.pn = phi { ptr, i32 } [ %.pn81, %ehcleanup259 ], [ %3, %lpad11 ], [ %.pn78.pn, %ehcleanup281 ], [ %.pn76, %ehcleanup236 ], [ %28, %lpad221 ], [ %.pn74, %ehcleanup218 ], [ %.pn72, %ehcleanup202 ], [ %.pn70, %ehcleanup190 ], [ %.pn68, %ehcleanup178 ], [ %.pn66, %ehcleanup162 ], [ %.pn64, %ehcleanup145 ], [ %.pn62, %ehcleanup133 ], [ %.pn60, %ehcleanup117 ], [ %.pn58, %ehcleanup105 ], [ %.pn56, %ehcleanup93 ], [ %.pn, %ehcleanup ], [ %5, %lpad58 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %width) #15
   br label %ehcleanup285
 
@@ -16523,7 +16450,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont14 unwind label %lpad11
 
 invoke.cont14:                                    ; preds = %invoke.cont12
-  %sContrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GTProperties", ptr %props, i64 0, i32 30
+  %sContrast = getelementptr inbounds i8, ptr %props, i64 960
   %call17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull align 8 dereferenceable(32) %sContrast)
           to label %invoke.cont16 unwind label %lpad11
 

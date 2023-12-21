@@ -6,8 +6,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.absl::(anonymous namespace)::DisplayUnit" = type { %"class.std::basic_string_view", i32, double }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.absl::uint128" = type { i64, i64 }
-%"class.absl::Duration::HiRep" = type { i32, i32 }
 %"class.absl::Duration" = type { %"class.absl::Duration::HiRep", i32 }
+%"class.absl::Duration::HiRep" = type { i32, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -316,7 +316,7 @@ if.end5:                                          ; preds = %if.end
   %add = add i64 %0, %rhs.coerce0
   %shr.i = lshr i64 %add, 32
   %conv.i = trunc i64 %shr.i to i32
-  %hi_.i = getelementptr inbounds %"class.absl::Duration::HiRep", ptr %this, i64 0, i32 1
+  %hi_.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %conv.i, ptr %hi_.i, align 4
   %conv2.i = trunc i64 %add to i32
   store i32 %conv2.i, ptr %this, align 4
@@ -392,7 +392,7 @@ if.end12:                                         ; preds = %if.end
   %sub = sub i64 %0, %rhs.coerce0
   %shr.i = lshr i64 %sub, 32
   %conv.i = trunc i64 %shr.i to i32
-  %hi_.i = getelementptr inbounds %"class.absl::Duration::HiRep", ptr %this, i64 0, i32 1
+  %hi_.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %conv.i, ptr %hi_.i, align 4
   %conv2.i = trunc i64 %sub to i32
   store i32 %conv2.i, ptr %this, align 4
@@ -2281,13 +2281,13 @@ define internal fastcc void @_ZN4absl12_GLOBAL__N_116AppendNumberUnitEPNSt7__cxx
 entry:
   %buf = alloca [15 x i8], align 1
   %d = alloca double, align 8
-  %prec1 = getelementptr inbounds %"struct.absl::(anonymous namespace)::DisplayUnit", ptr %unit, i64 0, i32 1
+  %prec1 = getelementptr inbounds i8, ptr %unit, i64 16
   %0 = load i32, ptr %prec1, align 8
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %0, i32 15)
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 15
   store double 0.000000e+00, ptr %d, align 8
   %call2 = call double @modf(double noundef %n, ptr noundef nonnull %d) #18
-  %pow10 = getelementptr inbounds %"struct.absl::(anonymous namespace)::DisplayUnit", ptr %unit, i64 0, i32 2
+  %pow10 = getelementptr inbounds i8, ptr %unit, i64 24
   %1 = load double, ptr %pow10, align 8
   %mul = fmul double %call2, %1
   %2 = tail call double @llvm.round.f64(double %mul)
@@ -2414,7 +2414,7 @@ while.end:                                        ; preds = %while.cond
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %_ZN4absl12_GLOBAL__N_18Format64EPcil.exit
-  %_M_str.i = getelementptr inbounds %"class.std::basic_string_view", ptr %unit, i64 0, i32 1
+  %_M_str.i = getelementptr inbounds i8, ptr %unit, i64 8
   %23 = load ptr, ptr %_M_str.i, align 8
   %24 = load i64, ptr %unit, align 8
   %call19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef %23, i64 noundef %24)

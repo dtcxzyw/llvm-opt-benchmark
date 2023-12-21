@@ -3,7 +3,6 @@ source_filename = "bench/openssl/original/libssl-lib-quic_srtm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.quic_srtm_st = type { ptr, ptr, ptr, i8 }
 %struct.srtm_item_st = type { ptr, ptr, ptr, i64, %struct.QUIC_STATELESS_RESET_TOKEN, [16 x i8] }
 %struct.QUIC_STATELESS_RESET_TOKEN = type { [16 x i8] }
 
@@ -42,24 +41,24 @@ if.end12:                                         ; preds = %if.end8
 if.end17:                                         ; preds = %if.end12
   call void @EVP_CIPHER_free(ptr noundef nonnull %call5) #8
   %call.i = call ptr @OPENSSL_LH_new(ptr noundef nonnull @items_fwd_hash, ptr noundef nonnull @items_fwd_cmp) #8
-  %items_fwd = getelementptr inbounds %struct.quic_srtm_st, ptr %call1, i64 0, i32 1
+  %items_fwd = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %call.i, ptr %items_fwd, align 8
   %cmp19 = icmp eq ptr %call.i, null
   br i1 %cmp19, label %if.end.i, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end17
   %call.i9 = call ptr @OPENSSL_LH_new(ptr noundef nonnull @items_rev_hash, ptr noundef nonnull @items_rev_cmp) #8
-  %items_rev = getelementptr inbounds %struct.quic_srtm_st, ptr %call1, i64 0, i32 2
+  %items_rev = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %call.i9, ptr %items_rev, align 8
   %cmp21 = icmp eq ptr %call.i9, null
   br i1 %cmp21, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end4, %if.end8, %if.end17, %lor.lhs.false, %if.end12
   %ecb.0.ph = phi ptr [ %call5, %if.end12 ], [ null, %lor.lhs.false ], [ null, %if.end17 ], [ %call5, %if.end8 ], [ null, %if.end4 ]
-  %items_rev.i = getelementptr inbounds %struct.quic_srtm_st, ptr %call1, i64 0, i32 2
+  %items_rev.i = getelementptr inbounds i8, ptr %call1, i64 16
   %0 = load ptr, ptr %items_rev.i, align 8
   call void @OPENSSL_LH_free(ptr noundef %0) #8
-  %items_fwd.i = getelementptr inbounds %struct.quic_srtm_st, ptr %call1, i64 0, i32 1
+  %items_fwd.i = getelementptr inbounds i8, ptr %call1, i64 8
   %1 = load ptr, ptr %items_fwd.i, align 8
   %cmp1.not.i = icmp eq ptr %1, null
   br i1 %cmp1.not.i, label %if.end5.i, label %if.then2.i
@@ -100,7 +99,7 @@ declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @items_fwd_hash(ptr nocapture noundef readonly %item) #2 {
 entry:
-  %opaque = getelementptr inbounds %struct.srtm_item_st, ptr %item, i64 0, i32 2
+  %opaque = getelementptr inbounds i8, ptr %item, i64 16
   %0 = load ptr, ptr %opaque, align 8
   %1 = ptrtoint ptr %0 to i64
   ret i64 %1
@@ -109,9 +108,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @items_fwd_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
 entry:
-  %opaque = getelementptr inbounds %struct.srtm_item_st, ptr %a, i64 0, i32 2
+  %opaque = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %opaque, align 8
-  %opaque1 = getelementptr inbounds %struct.srtm_item_st, ptr %b, i64 0, i32 2
+  %opaque1 = getelementptr inbounds i8, ptr %b, i64 16
   %1 = load ptr, ptr %opaque1, align 8
   %cmp = icmp ne ptr %0, %1
   %conv = zext i1 %cmp to i32
@@ -121,7 +120,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @items_rev_hash(ptr nocapture noundef readonly %item) #2 {
 entry:
-  %srt_blinded = getelementptr inbounds %struct.srtm_item_st, ptr %item, i64 0, i32 5
+  %srt_blinded = getelementptr inbounds i8, ptr %item, i64 48
   %l.0.copyload = load i64, ptr %srt_blinded, align 8
   ret i64 %l.0.copyload
 }
@@ -129,8 +128,8 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @items_rev_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
 entry:
-  %srt_blinded = getelementptr inbounds %struct.srtm_item_st, ptr %a, i64 0, i32 5
-  %srt_blinded1 = getelementptr inbounds %struct.srtm_item_st, ptr %b, i64 0, i32 5
+  %srt_blinded = getelementptr inbounds i8, ptr %a, i64 48
+  %srt_blinded1 = getelementptr inbounds i8, ptr %b, i64 48
   %call = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %srt_blinded, ptr noundef nonnull dereferenceable(16) %srt_blinded1, i64 noundef 16) #9
   ret i32 %call
 }
@@ -142,10 +141,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %items_rev = getelementptr inbounds %struct.quic_srtm_st, ptr %srtm, i64 0, i32 2
+  %items_rev = getelementptr inbounds i8, ptr %srtm, i64 16
   %0 = load ptr, ptr %items_rev, align 8
   tail call void @OPENSSL_LH_free(ptr noundef %0) #8
-  %items_fwd = getelementptr inbounds %struct.quic_srtm_st, ptr %srtm, i64 0, i32 1
+  %items_fwd = getelementptr inbounds i8, ptr %srtm, i64 8
   %1 = load ptr, ptr %items_fwd, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end5, label %if.then2
@@ -169,14 +168,14 @@ return:                                           ; preds = %entry, %if.end5
 ; Function Attrs: nounwind uwtable
 define internal void @srtm_free_each(ptr noundef %ihead) #0 {
 entry:
-  %next_by_seq_num = getelementptr inbounds %struct.srtm_item_st, ptr %ihead, i64 0, i32 1
+  %next_by_seq_num = getelementptr inbounds i8, ptr %ihead, i64 8
   %0 = load ptr, ptr %next_by_seq_num, align 8
   %cmp.not5 = icmp eq ptr %0, null
   br i1 %cmp.not5, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %item.06 = phi ptr [ %1, %for.body ], [ %0, %entry ]
-  %next_by_seq_num1 = getelementptr inbounds %struct.srtm_item_st, ptr %item.06, i64 0, i32 1
+  %next_by_seq_num1 = getelementptr inbounds i8, ptr %item.06, i64 8
   %1 = load ptr, ptr %next_by_seq_num1, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %item.06, ptr noundef nonnull @.str, i32 noundef 158) #8
   %cmp.not = icmp eq ptr %1, null
@@ -197,7 +196,7 @@ entry:
   %outl.i = alloca i32, align 4
   %key.i = alloca %struct.srtm_item_st, align 8
   %new_head = alloca ptr, align 8
-  %alloc_failed = getelementptr inbounds %struct.quic_srtm_st, ptr %srtm, i64 0, i32 3
+  %alloc_failed = getelementptr inbounds i8, ptr %srtm, i64 24
   %bf.load = load i8, ptr %alloc_failed, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -207,7 +206,7 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %srtm, i64 8
   %srtm.val = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %key.i)
-  %opaque1.i = getelementptr inbounds %struct.srtm_item_st, ptr %key.i, i64 0, i32 2
+  %opaque1.i = getelementptr inbounds i8, ptr %key.i, i64 16
   store ptr %opaque, ptr %opaque1.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %srtm.val, ptr noundef nonnull %key.i) #8
   %cmp2.not1.i = icmp eq ptr %call.i.i, null
@@ -215,7 +214,7 @@ if.end:                                           ; preds = %entry
 
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %item.02.i = phi ptr [ %2, %for.inc.i ], [ %call.i.i, %if.end ]
-  %seq_num3.i = getelementptr inbounds %struct.srtm_item_st, ptr %item.02.i, i64 0, i32 3
+  %seq_num3.i = getelementptr inbounds i8, ptr %item.02.i, i64 24
   %1 = load i64, ptr %seq_num3.i, align 8
   %cmp4.i = icmp eq i64 %1, %seq_num
   br i1 %cmp4.i, label %srtm_find.exit, label %if.else.i
@@ -225,7 +224,7 @@ if.else.i:                                        ; preds = %for.body.i
   br i1 %cmp7.i, label %if.end2, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i
-  %next_by_seq_num.i = getelementptr inbounds %struct.srtm_item_st, ptr %item.02.i, i64 0, i32 1
+  %next_by_seq_num.i = getelementptr inbounds i8, ptr %item.02.i, i64 8
   %2 = load ptr, ptr %next_by_seq_num.i, align 8
   %cmp2.not.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i, label %if.end2, label %for.body.i, !llvm.loop !6
@@ -241,16 +240,16 @@ if.end2:                                          ; preds = %if.else.i, %for.inc
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end2
-  %opaque7 = getelementptr inbounds %struct.srtm_item_st, ptr %call3, i64 0, i32 2
+  %opaque7 = getelementptr inbounds i8, ptr %call3, i64 16
   store ptr %opaque, ptr %opaque7, align 8
-  %seq_num8 = getelementptr inbounds %struct.srtm_item_st, ptr %call3, i64 0, i32 3
+  %seq_num8 = getelementptr inbounds i8, ptr %call3, i64 24
   store i64 %seq_num, ptr %seq_num8, align 8
-  %srt = getelementptr inbounds %struct.srtm_item_st, ptr %call3, i64 0, i32 4
+  %srt = getelementptr inbounds i8, ptr %call3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %srt, ptr noundef nonnull align 1 dereferenceable(16) %token, i64 16, i1 false)
   %srtm.val34 = load ptr, ptr %srtm, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %outl.i)
   store i32 0, ptr %outl.i, align 4
-  %srt_blinded.i = getelementptr inbounds %struct.srtm_item_st, ptr %call3, i64 0, i32 5
+  %srt_blinded.i = getelementptr inbounds i8, ptr %call3, i64 48
   %call.i = call i32 @EVP_EncryptUpdate(ptr noundef %srtm.val34, ptr noundef nonnull %srt_blinded.i, ptr noundef nonnull %outl.i, ptr noundef nonnull %srt, i32 noundef 16) #8
   %tobool.not.i = icmp eq i32 %call.i, 0
   %3 = load i32, ptr %outl.i, align 4
@@ -284,33 +283,33 @@ if.then20:                                        ; preds = %if.then15
 if.else:                                          ; preds = %if.end13
   %6 = load i64, ptr %seq_num8, align 8
   store ptr %call.i.i, ptr %new_head, align 8
-  %seq_num2.i89 = getelementptr inbounds %struct.srtm_item_st, ptr %call.i.i, i64 0, i32 3
+  %seq_num2.i89 = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %7 = load i64, ptr %seq_num2.i89, align 8
   %cmp3.i90 = icmp ugt i64 %7, %6
   br i1 %cmp3.i90, label %while.body.i, label %sorted_insert_seq_num.exit
 
 land.rhs.i:                                       ; preds = %while.body.i
-  %seq_num2.i = getelementptr inbounds %struct.srtm_item_st, ptr %9, i64 0, i32 3
+  %seq_num2.i = getelementptr inbounds i8, ptr %9, i64 24
   %8 = load i64, ptr %seq_num2.i, align 8
   %cmp3.i = icmp ugt i64 %8, %6
   br i1 %cmp3.i, label %while.body.i, label %sorted_insert_seq_num.exit.loopexit, !llvm.loop !7
 
 while.body.i:                                     ; preds = %if.else, %land.rhs.i
   %cur.010.i91 = phi ptr [ %9, %land.rhs.i ], [ %call.i.i, %if.else ]
-  %next_by_seq_num.i39 = getelementptr inbounds %struct.srtm_item_st, ptr %cur.010.i91, i64 0, i32 1
+  %next_by_seq_num.i39 = getelementptr inbounds i8, ptr %cur.010.i91, i64 8
   %9 = load ptr, ptr %next_by_seq_num.i39, align 8
   %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %sorted_insert_seq_num.exit.loopexit, label %land.rhs.i, !llvm.loop !7
 
 sorted_insert_seq_num.exit.loopexit:              ; preds = %land.rhs.i, %while.body.i
   %.ph103 = phi ptr [ %9, %land.rhs.i ], [ null, %while.body.i ]
-  %next_by_seq_num.i39.le = getelementptr inbounds %struct.srtm_item_st, ptr %cur.010.i91, i64 0, i32 1
+  %next_by_seq_num.i39.le = getelementptr inbounds i8, ptr %cur.010.i91, i64 8
   br label %sorted_insert_seq_num.exit
 
 sorted_insert_seq_num.exit:                       ; preds = %sorted_insert_seq_num.exit.loopexit, %if.else
   %10 = phi ptr [ %call.i.i, %if.else ], [ %.ph103, %sorted_insert_seq_num.exit.loopexit ]
   %fixup.0.lcssa.i = phi ptr [ %new_head, %if.else ], [ %next_by_seq_num.i39.le, %sorted_insert_seq_num.exit.loopexit ]
-  %next_by_seq_num5.i = getelementptr inbounds %struct.srtm_item_st, ptr %call3, i64 0, i32 1
+  %next_by_seq_num5.i = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %10, ptr %next_by_seq_num5.i, align 8
   store ptr %call3, ptr %fixup.0.lcssa.i, align 8
   %new_head.0.new_head.0.new_head.0. = load ptr, ptr %new_head, align 8
@@ -333,7 +332,7 @@ if.then29:                                        ; preds = %if.then23
   br label %return
 
 if.end32:                                         ; preds = %if.then23, %if.then15, %sorted_insert_seq_num.exit
-  %items_rev = getelementptr inbounds %struct.quic_srtm_st, ptr %srtm, i64 0, i32 2
+  %items_rev = getelementptr inbounds i8, ptr %srtm, i64 16
   %13 = load ptr, ptr %items_rev, align 8
   %call.i49 = call ptr @OPENSSL_LH_retrieve(ptr noundef %13, ptr noundef nonnull %call3) #8
   %cmp34 = icmp eq ptr %call.i49, null
@@ -356,13 +355,13 @@ srtm_check_lh.exit58.thread:                      ; preds = %if.then35
 if.else43:                                        ; preds = %if.end32
   %16 = load ptr, ptr %opaque7, align 8
   store ptr %call.i49, ptr %new_head, align 8
-  %opaque2.i95 = getelementptr inbounds %struct.srtm_item_st, ptr %call.i49, i64 0, i32 2
+  %opaque2.i95 = getelementptr inbounds i8, ptr %call.i49, i64 16
   %17 = load ptr, ptr %opaque2.i95, align 8
   %cmp3.i6496 = icmp ugt ptr %17, %16
   br i1 %cmp3.i6496, label %while.body.i66, label %sorted_insert_srt.exit
 
 land.rhs.i61:                                     ; preds = %while.body.i66
-  %opaque2.i = getelementptr inbounds %struct.srtm_item_st, ptr %19, i64 0, i32 2
+  %opaque2.i = getelementptr inbounds i8, ptr %19, i64 16
   %18 = load ptr, ptr %opaque2.i, align 8
   %cmp3.i64 = icmp ugt ptr %18, %16
   br i1 %cmp3.i64, label %while.body.i66, label %sorted_insert_srt.exit, !llvm.loop !8
@@ -408,7 +407,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define i32 @ossl_quic_srtm_remove(ptr nocapture noundef %srtm, ptr noundef %opaque, i64 noundef %seq_num) local_unnamed_addr #0 {
 entry:
   %key.i = alloca %struct.srtm_item_st, align 8
-  %alloc_failed = getelementptr inbounds %struct.quic_srtm_st, ptr %srtm, i64 0, i32 3
+  %alloc_failed = getelementptr inbounds i8, ptr %srtm, i64 24
   %bf.load = load i8, ptr %alloc_failed, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -418,20 +417,20 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %srtm, i64 8
   %srtm.val = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %key.i)
-  %opaque1.i = getelementptr inbounds %struct.srtm_item_st, ptr %key.i, i64 0, i32 2
+  %opaque1.i = getelementptr inbounds i8, ptr %key.i, i64 16
   store ptr %opaque, ptr %opaque1.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %srtm.val, ptr noundef nonnull %key.i) #8
   %cmp2.not1.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.not1.i, label %srtm_find.exit.thread, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end
-  %seq_num3.i28 = getelementptr inbounds %struct.srtm_item_st, ptr %call.i.i, i64 0, i32 3
+  %seq_num3.i28 = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %1 = load i64, ptr %seq_num3.i28, align 8
   %cmp4.i29 = icmp eq i64 %1, %seq_num
   br i1 %cmp4.i29, label %if.then4, label %if.else.i
 
 for.body.i:                                       ; preds = %for.inc.i
-  %seq_num3.i = getelementptr inbounds %struct.srtm_item_st, ptr %4, i64 0, i32 3
+  %seq_num3.i = getelementptr inbounds i8, ptr %4, i64 24
   %2 = load i64, ptr %seq_num3.i, align 8
   %cmp4.i = icmp eq i64 %2, %seq_num
   br i1 %cmp4.i, label %if.else17, label %if.else.i, !llvm.loop !6
@@ -443,7 +442,7 @@ if.else.i:                                        ; preds = %for.body.i.preheade
   br i1 %cmp7.i, label %srtm_find.exit.thread, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i
-  %next_by_seq_num.i = getelementptr inbounds %struct.srtm_item_st, ptr %item.02.i30, i64 0, i32 1
+  %next_by_seq_num.i = getelementptr inbounds i8, ptr %item.02.i30, i64 8
   %4 = load ptr, ptr %next_by_seq_num.i, align 8
   %cmp2.not.i = icmp eq ptr %4, null
   br i1 %cmp2.not.i, label %srtm_find.exit.thread, label %for.body.i, !llvm.loop !6
@@ -454,7 +453,7 @@ srtm_find.exit.thread:                            ; preds = %if.else.i, %for.inc
 
 if.then4:                                         ; preds = %for.body.i.preheader
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %key.i)
-  %next_by_seq_num = getelementptr inbounds %struct.srtm_item_st, ptr %call.i.i, i64 0, i32 1
+  %next_by_seq_num = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %5 = load ptr, ptr %next_by_seq_num, align 8
   %cmp5.not = icmp eq ptr %5, null
   %6 = load ptr, ptr %0, align 8
@@ -479,15 +478,15 @@ if.else:                                          ; preds = %if.then4
 
 if.else17:                                        ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %key.i)
-  %next_by_seq_num18 = getelementptr inbounds %struct.srtm_item_st, ptr %4, i64 0, i32 1
+  %next_by_seq_num18 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %next_by_seq_num18, align 8
-  %next_by_seq_num19 = getelementptr inbounds %struct.srtm_item_st, ptr %item.02.i30, i64 0, i32 1
+  %next_by_seq_num19 = getelementptr inbounds i8, ptr %item.02.i30, i64 8
   store ptr %8, ptr %next_by_seq_num19, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then6, %if.else, %if.else17
   %item.02.i.lcssa36 = phi ptr [ %call.i.i, %if.then6 ], [ %call.i.i, %if.else ], [ %4, %if.else17 ]
-  %items_rev.i = getelementptr inbounds %struct.quic_srtm_st, ptr %srtm, i64 0, i32 2
+  %items_rev.i = getelementptr inbounds i8, ptr %srtm, i64 16
   %9 = load ptr, ptr %items_rev.i, align 8
   %call.i.i15 = call ptr @OPENSSL_LH_retrieve(ptr noundef %9, ptr noundef nonnull %item.02.i.lcssa36) #8
   %cmp.i = icmp eq ptr %call.i.i15, %item.02.i.lcssa36
@@ -540,28 +539,28 @@ return:                                           ; preds = %srtm_remove_from_re
 define i32 @ossl_quic_srtm_cull(ptr nocapture noundef %srtm, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.srtm_item_st, align 8
-  %opaque1 = getelementptr inbounds %struct.srtm_item_st, ptr %key, i64 0, i32 2
+  %opaque1 = getelementptr inbounds i8, ptr %key, i64 16
   store ptr %opaque, ptr %opaque1, align 8
-  %alloc_failed = getelementptr inbounds %struct.quic_srtm_st, ptr %srtm, i64 0, i32 3
+  %alloc_failed = getelementptr inbounds i8, ptr %srtm, i64 24
   %bf.load = load i8, ptr %alloc_failed, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %items_fwd = getelementptr inbounds %struct.quic_srtm_st, ptr %srtm, i64 0, i32 1
+  %items_fwd = getelementptr inbounds i8, ptr %srtm, i64 8
   %0 = load ptr, ptr %items_fwd, align 8
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %0, ptr noundef nonnull %key) #8
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %items_rev.i = getelementptr inbounds %struct.quic_srtm_st, ptr %srtm, i64 0, i32 2
+  %items_rev.i = getelementptr inbounds i8, ptr %srtm, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %item.035 = phi ptr [ %call.i, %for.cond.preheader ], [ %1, %for.inc ]
-  %next_by_seq_num = getelementptr inbounds %struct.srtm_item_st, ptr %item.035, i64 0, i32 1
+  %next_by_seq_num = getelementptr inbounds i8, ptr %item.035, i64 8
   %1 = load ptr, ptr %next_by_seq_num, align 8
   %cmp5.not = icmp eq ptr %item.035, %call.i
   br i1 %cmp5.not, label %for.inc, label %if.then6
@@ -670,7 +669,7 @@ define i32 @ossl_quic_srtm_lookup(ptr nocapture noundef readonly %srtm, ptr noun
 entry:
   %outl.i = alloca i32, align 4
   %key = alloca %struct.srtm_item_st, align 8
-  %alloc_failed = getelementptr inbounds %struct.quic_srtm_st, ptr %srtm, i64 0, i32 3
+  %alloc_failed = getelementptr inbounds i8, ptr %srtm, i64 24
   %bf.load = load i8, ptr %alloc_failed, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -680,7 +679,7 @@ if.end:                                           ; preds = %entry
   %srtm.val = load ptr, ptr %srtm, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %outl.i)
   store i32 0, ptr %outl.i, align 4
-  %srt_blinded.i = getelementptr inbounds %struct.srtm_item_st, ptr %key, i64 0, i32 5
+  %srt_blinded.i = getelementptr inbounds i8, ptr %key, i64 48
   %call.i = call i32 @EVP_EncryptUpdate(ptr noundef %srtm.val, ptr noundef nonnull %srt_blinded.i, ptr noundef nonnull %outl.i, ptr noundef %token, i32 noundef 16) #8
   %tobool.not.i = icmp eq i32 %call.i, 0
   %0 = load i32, ptr %outl.i, align 4
@@ -690,7 +689,7 @@ if.end:                                           ; preds = %entry
   br i1 %narrow.i.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %items_rev = getelementptr inbounds %struct.quic_srtm_st, ptr %srtm, i64 0, i32 2
+  %items_rev = getelementptr inbounds i8, ptr %srtm, i64 16
   %1 = load ptr, ptr %items_rev, align 8
   %call.i10 = call ptr @OPENSSL_LH_retrieve(ptr noundef %1, ptr noundef nonnull %key) #8
   %cmp11 = icmp ne i64 %idx, 0
@@ -718,7 +717,7 @@ if.end8:                                          ; preds = %for.end
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  %opaque11 = getelementptr inbounds %struct.srtm_item_st, ptr %item.0.lcssa, i64 0, i32 2
+  %opaque11 = getelementptr inbounds i8, ptr %item.0.lcssa, i64 16
   %5 = load ptr, ptr %opaque11, align 8
   store ptr %5, ptr %opaque, align 8
   br label %if.end12
@@ -728,7 +727,7 @@ if.end12:                                         ; preds = %if.then10, %if.end8
   br i1 %cmp13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
-  %seq_num15 = getelementptr inbounds %struct.srtm_item_st, ptr %item.0.lcssa, i64 0, i32 3
+  %seq_num15 = getelementptr inbounds i8, ptr %item.0.lcssa, i64 24
   %6 = load i64, ptr %seq_num15, align 8
   store i64 %6, ptr %seq_num, align 8
   br label %return

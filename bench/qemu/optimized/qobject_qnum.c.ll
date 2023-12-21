@@ -3,10 +3,6 @@ source_filename = "bench/qemu/original/qobject_qnum.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QObjectBase_ = type { i32, i64 }
-%struct.QNum = type { %struct.QObjectBase_, i32, %union.anon }
-%union.anon = type { i64 }
-
 @.str = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"../qemu/qobject/qnum.c\00", align 1
 @__PRETTY_FUNCTION__.qnum_get_try_int = private unnamed_addr constant [48 x i8] c"_Bool qnum_get_try_int(const QNum *, int64_t *)\00", align 1
@@ -31,12 +27,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noalias ptr @qnum_from_int(i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #4
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refcnt.i, align 8
   store i32 2, ptr %call, align 8
-  %kind = getelementptr inbounds %struct.QNum, ptr %call, i64 0, i32 1
+  %kind = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %kind, align 8
-  %u = getelementptr inbounds %struct.QNum, ptr %call, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %value, ptr %u, align 8
   ret ptr %call
 }
@@ -48,12 +44,12 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 define dso_local noalias ptr @qnum_from_uint(i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #4
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refcnt.i, align 8
   store i32 2, ptr %call, align 8
-  %kind = getelementptr inbounds %struct.QNum, ptr %call, i64 0, i32 1
+  %kind = getelementptr inbounds i8, ptr %call, i64 16
   store i32 1, ptr %kind, align 8
-  %u = getelementptr inbounds %struct.QNum, ptr %call, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %value, ptr %u, align 8
   ret ptr %call
 }
@@ -62,12 +58,12 @@ entry:
 define dso_local noalias ptr @qnum_from_double(double noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #4
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refcnt.i, align 8
   store i32 2, ptr %call, align 8
-  %kind = getelementptr inbounds %struct.QNum, ptr %call, i64 0, i32 1
+  %kind = getelementptr inbounds i8, ptr %call, i64 16
   store i32 2, ptr %kind, align 8
-  %u = getelementptr inbounds %struct.QNum, ptr %call, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %call, i64 24
   store double %value, ptr %u, align 8
   ret ptr %call
 }
@@ -75,7 +71,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qnum_get_try_int(ptr nocapture noundef readonly %qn, ptr nocapture noundef writeonly %val) local_unnamed_addr #0 {
 entry:
-  %kind = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 1
+  %kind = getelementptr inbounds i8, ptr %qn, i64 16
   %0 = load i32, ptr %kind, align 8
   switch i32 %0, label %sw.epilog [
     i32 0, label %sw.bb
@@ -84,12 +80,12 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %u = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %qn, i64 24
   %1 = load i64, ptr %u, align 8
   br label %return.sink.split
 
 sw.bb1:                                           ; preds = %entry
-  %u2 = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u2 = getelementptr inbounds i8, ptr %qn, i64 24
   %2 = load i64, ptr %u2, align 8
   %cmp = icmp slt i64 %2, 0
   br i1 %cmp, label %return, label %return.sink.split
@@ -114,7 +110,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qnum_get_int(ptr nocapture noundef readonly %qn) local_unnamed_addr #0 {
 entry:
-  %kind.i = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 1
+  %kind.i = getelementptr inbounds i8, ptr %qn, i64 16
   %0 = load i32, ptr %kind.i, align 8
   switch i32 %0, label %sw.epilog.i [
     i32 0, label %sw.bb.i
@@ -123,12 +119,12 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %u.i = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u.i = getelementptr inbounds i8, ptr %qn, i64 24
   %1 = load i64, ptr %u.i, align 8
   br label %if.end
 
 sw.bb1.i:                                         ; preds = %entry
-  %u2.i = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u2.i = getelementptr inbounds i8, ptr %qn, i64 24
   %2 = load i64, ptr %u2.i, align 8
   %cmp.i = icmp slt i64 %2, 0
   br i1 %cmp.i, label %if.else, label %if.end
@@ -149,7 +145,7 @@ if.end:                                           ; preds = %sw.bb1.i, %sw.bb.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qnum_get_try_uint(ptr nocapture noundef readonly %qn, ptr nocapture noundef writeonly %val) local_unnamed_addr #0 {
 entry:
-  %kind = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 1
+  %kind = getelementptr inbounds i8, ptr %qn, i64 16
   %0 = load i32, ptr %kind, align 8
   switch i32 %0, label %sw.epilog [
     i32 0, label %sw.bb
@@ -158,13 +154,13 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %u = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %qn, i64 24
   %1 = load i64, ptr %u, align 8
   %cmp = icmp slt i64 %1, 0
   br i1 %cmp, label %return, label %return.sink.split
 
 sw.bb2:                                           ; preds = %entry
-  %u3 = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u3 = getelementptr inbounds i8, ptr %qn, i64 24
   %2 = load i64, ptr %u3, align 8
   br label %return.sink.split
 
@@ -185,7 +181,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qnum_get_uint(ptr nocapture noundef readonly %qn) local_unnamed_addr #0 {
 entry:
-  %kind.i = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 1
+  %kind.i = getelementptr inbounds i8, ptr %qn, i64 16
   %0 = load i32, ptr %kind.i, align 8
   switch i32 %0, label %sw.epilog.i [
     i32 0, label %sw.bb.i
@@ -194,13 +190,13 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %u.i = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u.i = getelementptr inbounds i8, ptr %qn, i64 24
   %1 = load i64, ptr %u.i, align 8
   %cmp.i = icmp slt i64 %1, 0
   br i1 %cmp.i, label %if.else, label %if.end
 
 sw.bb2.i:                                         ; preds = %entry
-  %u3.i = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u3.i = getelementptr inbounds i8, ptr %qn, i64 24
   %2 = load i64, ptr %u3.i, align 8
   br label %if.end
 
@@ -220,7 +216,7 @@ if.end:                                           ; preds = %sw.bb.i, %sw.bb2.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local double @qnum_get_double(ptr nocapture noundef readonly %qn) local_unnamed_addr #0 {
 entry:
-  %kind = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 1
+  %kind = getelementptr inbounds i8, ptr %qn, i64 16
   %0 = load i32, ptr %kind, align 8
   switch i32 %0, label %sw.epilog [
     i32 0, label %sw.bb
@@ -229,19 +225,19 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %u = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %qn, i64 24
   %1 = load i64, ptr %u, align 8
   %conv = sitofp i64 %1 to double
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %u2 = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u2 = getelementptr inbounds i8, ptr %qn, i64 24
   %2 = load i64, ptr %u2, align 8
   %conv3 = uitofp i64 %2 to double
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %u5 = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u5 = getelementptr inbounds i8, ptr %qn, i64 24
   %3 = load double, ptr %u5, align 8
   br label %return
 
@@ -257,7 +253,7 @@ return:                                           ; preds = %sw.bb4, %sw.bb1, %s
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias ptr @qnum_to_string(ptr nocapture noundef readonly %qn) local_unnamed_addr #0 {
 entry:
-  %kind = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 1
+  %kind = getelementptr inbounds i8, ptr %qn, i64 16
   %0 = load i32, ptr %kind, align 8
   switch i32 %0, label %sw.epilog [
     i32 0, label %sw.bb
@@ -266,19 +262,19 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %u = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %qn, i64 24
   %1 = load i64, ptr %u, align 8
   %call = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.3, i64 noundef %1) #6
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %u2 = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u2 = getelementptr inbounds i8, ptr %qn, i64 24
   %2 = load i64, ptr %u2, align 8
   %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.4, i64 noundef %2) #6
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %u5 = getelementptr inbounds %struct.QNum, ptr %qn, i64 0, i32 2
+  %u5 = getelementptr inbounds i8, ptr %qn, i64 24
   %3 = load double, ptr %u5, align 8
   %call6 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, double noundef %3) #6
   br label %return
@@ -346,7 +342,7 @@ if.else.i21:                                      ; preds = %qobject_type.exit.i
 
 qobject_check_type.exit23:                        ; preds = %qobject_type.exit.i19, %if.else.i21
   %retval.0.i22 = phi ptr [ null, %if.else.i21 ], [ %y.tr, %qobject_type.exit.i19 ]
-  %kind = getelementptr inbounds %struct.QNum, ptr %retval.0.i, i64 0, i32 1
+  %kind = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %2 = load i32, ptr %kind, align 8
   switch i32 %2, label %sw.epilog30 [
     i32 0, label %sw.bb
@@ -355,7 +351,7 @@ qobject_check_type.exit23:                        ; preds = %qobject_type.exit.i
   ]
 
 sw.bb:                                            ; preds = %qobject_check_type.exit23
-  %kind2 = getelementptr inbounds %struct.QNum, ptr %retval.0.i22, i64 0, i32 1
+  %kind2 = getelementptr inbounds i8, ptr %retval.0.i22, i64 16
   %3 = load i32, ptr %kind2, align 8
   switch i32 %3, label %sw.epilog [
     i32 0, label %sw.bb3
@@ -364,21 +360,21 @@ sw.bb:                                            ; preds = %qobject_check_type.
   ]
 
 sw.bb3:                                           ; preds = %sw.bb
-  %u = getelementptr inbounds %struct.QNum, ptr %retval.0.i, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %4 = load i64, ptr %u, align 8
-  %u4 = getelementptr inbounds %struct.QNum, ptr %retval.0.i22, i64 0, i32 2
+  %u4 = getelementptr inbounds i8, ptr %retval.0.i22, i64 24
   %5 = load i64, ptr %u4, align 8
   %cmp = icmp eq i64 %4, %5
   br label %return
 
 sw.bb5:                                           ; preds = %sw.bb
-  %u6 = getelementptr inbounds %struct.QNum, ptr %retval.0.i, i64 0, i32 2
+  %u6 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %6 = load i64, ptr %u6, align 8
   %cmp7 = icmp sgt i64 %6, -1
   br i1 %cmp7, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %sw.bb5
-  %u9 = getelementptr inbounds %struct.QNum, ptr %retval.0.i22, i64 0, i32 2
+  %u9 = getelementptr inbounds i8, ptr %retval.0.i22, i64 24
   %7 = load i64, ptr %u9, align 8
   %cmp10 = icmp eq i64 %6, %7
   br label %return
@@ -388,7 +384,7 @@ sw.epilog:                                        ; preds = %sw.bb
   unreachable
 
 sw.bb12:                                          ; preds = %qobject_check_type.exit23
-  %kind13 = getelementptr inbounds %struct.QNum, ptr %retval.0.i22, i64 0, i32 1
+  %kind13 = getelementptr inbounds i8, ptr %retval.0.i22, i64 16
   %8 = load i32, ptr %kind13, align 8
   switch i32 %8, label %sw.epilog21 [
     i32 0, label %tailrecurse
@@ -397,9 +393,9 @@ sw.bb12:                                          ; preds = %qobject_check_type.
   ]
 
 sw.bb16:                                          ; preds = %sw.bb12
-  %u17 = getelementptr inbounds %struct.QNum, ptr %retval.0.i, i64 0, i32 2
+  %u17 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %9 = load i64, ptr %u17, align 8
-  %u18 = getelementptr inbounds %struct.QNum, ptr %retval.0.i22, i64 0, i32 2
+  %u18 = getelementptr inbounds i8, ptr %retval.0.i22, i64 24
   %10 = load i64, ptr %u18, align 8
   %cmp19 = icmp eq i64 %9, %10
   br label %return
@@ -409,7 +405,7 @@ sw.epilog21:                                      ; preds = %sw.bb12
   unreachable
 
 sw.bb22:                                          ; preds = %qobject_check_type.exit23
-  %kind23 = getelementptr inbounds %struct.QNum, ptr %retval.0.i22, i64 0, i32 1
+  %kind23 = getelementptr inbounds i8, ptr %retval.0.i22, i64 16
   %11 = load i32, ptr %kind23, align 8
   switch i32 %11, label %sw.epilog29 [
     i32 0, label %return
@@ -418,9 +414,9 @@ sw.bb22:                                          ; preds = %qobject_check_type.
   ]
 
 sw.bb25:                                          ; preds = %sw.bb22
-  %u26 = getelementptr inbounds %struct.QNum, ptr %retval.0.i, i64 0, i32 2
+  %u26 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %12 = load double, ptr %u26, align 8
-  %u27 = getelementptr inbounds %struct.QNum, ptr %retval.0.i22, i64 0, i32 2
+  %u27 = getelementptr inbounds i8, ptr %retval.0.i22, i64 24
   %13 = load double, ptr %u27, align 8
   %cmp28 = fcmp oeq double %12, %13
   br label %return
@@ -477,7 +473,7 @@ entry:
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %q, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %q, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i

@@ -3,36 +3,7 @@ source_filename = "bench/qemu/original/block_dirty-bitmap.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.0, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.1, %union.anon.2, i32, [16 x %struct.anon.3], ptr, %struct.anon.4, ptr, ptr, %struct.anon.5, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.6, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.7, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.0 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.7 = type { ptr }
-%struct.CoQueue = type { %struct.anon.8 }
-%struct.anon.8 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.9, %struct.anon.9, i32, i32, ptr }
-%struct.anon.9 = type { ptr }
-%struct.BdrvDirtyBitmap = type { ptr, ptr, i8, ptr, ptr, i64, i8, i32, i8, i8, i8, i8, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.BlockDriver = type { ptr, i32, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.10, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.anon.10 = type { ptr, ptr }
-%struct.BlockDirtyInfo = type { ptr, i64, i32, i8, i8, i8, i8, i8 }
-%struct.BlockDirtyInfoList = type { ptr, ptr }
 %struct.BlockDriverInfo = type { i32, i32, i64, i8, i8 }
-%struct.BdrvDirtyBitmapIter = type { %struct.HBitmapIter, ptr }
-%struct.HBitmapIter = type { ptr, i32, i64, [7 x i64] }
 
 @.str = private unnamed_addr constant [5 x i8] c"name\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"../qemu/block/dirty-bitmap.c\00", align 1
@@ -97,7 +68,7 @@ entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   ret void
 }
@@ -106,7 +77,7 @@ entry:
 define dso_local void @bdrv_dirty_bitmap_unlock(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -122,14 +93,14 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %dirty_bitmaps = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 40
+  %dirty_bitmaps = getelementptr inbounds i8, ptr %bs, i64 16952
   %bm.06 = load ptr, ptr %dirty_bitmaps, align 8
   %tobool1.not7 = icmp eq ptr %bm.06, null
   br i1 %tobool1.not7, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %bm.08 = phi ptr [ %bm.0, %for.inc ], [ %bm.06, %if.end ]
-  %name2 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.08, i64 0, i32 4
+  %name2 = getelementptr inbounds i8, ptr %bm.08, i64 32
   %0 = load ptr, ptr %name2, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %for.inc, label %land.lhs.true
@@ -140,7 +111,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %tobool5.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
-  %list = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.08, i64 0, i32 12
+  %list = getelementptr inbounds i8, ptr %bm.08, i64 64
   %bm.0 = load ptr, ptr %list, align 8
   %tobool1.not = icmp eq ptr %bm.0, null
   br i1 %tobool1.not, label %return, label %for.body, !llvm.loop !5
@@ -178,14 +149,14 @@ if.end:                                           ; preds = %is_power_of_2.exit
   br i1 %tobool.not, label %if.end14, label %if.end.i32
 
 if.end.i32:                                       ; preds = %if.end
-  %dirty_bitmaps.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 40
+  %dirty_bitmaps.i = getelementptr inbounds i8, ptr %bs, i64 16952
   %bm.06.i = load ptr, ptr %dirty_bitmaps.i, align 8
   %tobool1.not7.i = icmp eq ptr %bm.06.i, null
   br i1 %tobool1.not7.i, label %if.end8, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i32, %for.inc.i
   %bm.08.i = phi ptr [ %bm.0.i, %for.inc.i ], [ %bm.06.i, %if.end.i32 ]
-  %name2.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.08.i, i64 0, i32 4
+  %name2.i = getelementptr inbounds i8, ptr %bm.08.i, i64 32
   %1 = load ptr, ptr %name2.i, align 8
   %tobool3.not.i = icmp eq ptr %1, null
   br i1 %tobool3.not.i, label %for.inc.i, label %land.lhs.true.i
@@ -196,7 +167,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %tobool5.not.i, label %if.then7, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %list.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.08.i, i64 0, i32 12
+  %list.i = getelementptr inbounds i8, ptr %bm.08.i, i64 64
   %bm.0.i = load ptr, ptr %list.i, align 8
   %tobool1.not.i33 = icmp eq ptr %bm.0.i, null
   br i1 %tobool1.not.i33, label %if.end8, label %for.body.i, !llvm.loop !5
@@ -232,34 +203,34 @@ if.end23:                                         ; preds = %if.end14
   store ptr %bs, ptr %call24, align 8
   %3 = tail call i32 @llvm.cttz.i32(i32 %granularity, i1 true), !range !7
   %call27 = tail call ptr @hbitmap_alloc(i64 noundef %call15, i32 noundef %3) #14
-  %bitmap28 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %call24, i64 0, i32 1
+  %bitmap28 = getelementptr inbounds i8, ptr %call24, i64 8
   store ptr %call27, ptr %bitmap28, align 8
-  %size = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %call24, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %call24, i64 40
   store i64 %call15, ptr %size, align 8
   %call29 = tail call noalias ptr @g_strdup(ptr noundef %name) #14
-  %name30 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %call24, i64 0, i32 4
+  %name30 = getelementptr inbounds i8, ptr %call24, i64 32
   store ptr %call29, ptr %name30, align 8
-  %disabled = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %call24, i64 0, i32 6
+  %disabled = getelementptr inbounds i8, ptr %call24, i64 48
   store i8 0, ptr %disabled, align 8
   %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %bs, i64 16904
   tail call void %5(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %dirty_bitmaps = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 40
+  %dirty_bitmaps = getelementptr inbounds i8, ptr %bs, i64 16952
   %6 = load ptr, ptr %dirty_bitmaps, align 8
-  %list = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %call24, i64 0, i32 12
+  %list = getelementptr inbounds i8, ptr %call24, i64 64
   store ptr %6, ptr %list, align 8
   %cmp31.not = icmp eq ptr %6, null
   br i1 %cmp31.not, label %if.end39, label %if.then33
 
 if.then33:                                        ; preds = %if.end23
-  %le_prev = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %6, i64 0, i32 12, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %6, i64 72
   store ptr %list, ptr %le_prev, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then33, %if.end23
   store ptr %call24, ptr %dirty_bitmaps, align 8
-  %le_prev45 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %call24, i64 0, i32 12, i32 1
+  %le_prev45 = getelementptr inbounds i8, ptr %call24, i64 72
   store ptr %dirty_bitmaps, ptr %le_prev45, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   br label %return
@@ -291,7 +262,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @bdrv_dirty_bitmap_size(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #6 {
 entry:
-  %size = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %bitmap, i64 40
   %0 = load i64, ptr %size, align 8
   ret i64 %0
 }
@@ -299,7 +270,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @bdrv_dirty_bitmap_name(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #6 {
 entry:
-  %name = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 4
+  %name = getelementptr inbounds i8, ptr %bitmap, i64 32
   %0 = load ptr, ptr %name, align 8
   ret ptr %0
 }
@@ -307,7 +278,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @bdrv_dirty_bitmap_has_successor(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #6 {
 entry:
-  %successor = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 3
+  %successor = getelementptr inbounds i8, ptr %bitmap, i64 24
   %0 = load ptr, ptr %successor, align 8
   %tobool = icmp ne ptr %0, null
   ret i1 %tobool
@@ -320,12 +291,12 @@ entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %busy1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 2
+  %busy1 = getelementptr inbounds i8, ptr %bitmap, i64 16
   store i8 %frombool, ptr %busy1, align 8
   %3 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i3 = getelementptr inbounds %struct.BlockDriverState, ptr %3, i64 0, i32 39
+  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %3, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i3, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -333,7 +304,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @bdrv_dirty_bitmap_enabled(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #6 {
 entry:
-  %disabled = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 6
+  %disabled = getelementptr inbounds i8, ptr %bitmap, i64 48
   %0 = load i8, ptr %disabled, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -355,7 +326,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %name = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 4
+  %name = getelementptr inbounds i8, ptr %bitmap, i64 32
   %2 = load ptr, ptr %name, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.6, ptr noundef %2) #14
   br label %return
@@ -366,14 +337,14 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %tobool2.not, label %if.end7, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %if.end
-  %readonly.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 8
+  %readonly.i = getelementptr inbounds i8, ptr %bitmap, i64 56
   %3 = load i8, ptr %readonly.i, align 8
   %4 = and i8 %3, 1
   %tobool.i11.not = icmp eq i8 %4, 0
   br i1 %tobool.i11.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %land.lhs.true3
-  %name6 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 4
+  %name6 = getelementptr inbounds i8, ptr %bitmap, i64 32
   %5 = load ptr, ptr %name6, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.7, ptr noundef %5) #14
   br label %return
@@ -384,14 +355,14 @@ if.end7:                                          ; preds = %land.lhs.true3, %if
   br i1 %tobool9.not, label %return, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %if.end7
-  %inconsistent.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 10
+  %inconsistent.i = getelementptr inbounds i8, ptr %bitmap, i64 58
   %6 = load i8, ptr %inconsistent.i, align 2
   %7 = and i8 %6, 1
   %tobool.i12.not = icmp eq i8 %7, 0
   br i1 %tobool.i12.not, label %return, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true10
-  %name13 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 4
+  %name13 = getelementptr inbounds i8, ptr %bitmap, i64 32
   %8 = load ptr, ptr %name13, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.8, ptr noundef %8) #14
   tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.9) #14
@@ -405,7 +376,7 @@ return:                                           ; preds = %if.end7, %land.lhs.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @bdrv_dirty_bitmap_readonly(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #6 {
 entry:
-  %readonly = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 8
+  %readonly = getelementptr inbounds i8, ptr %bitmap, i64 56
   %0 = load i8, ptr %readonly, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -415,7 +386,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @bdrv_dirty_bitmap_inconsistent(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #6 {
 entry:
-  %inconsistent = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 10
+  %inconsistent = getelementptr inbounds i8, ptr %bitmap, i64 58
   %0 = load i8, ptr %inconsistent, align 2
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -434,13 +405,13 @@ entry:
   br i1 %tobool.i.not.i, label %if.end, label %bdrv_dirty_bitmap_check.exit
 
 bdrv_dirty_bitmap_check.exit:                     ; preds = %entry
-  %name.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 4
+  %name.i = getelementptr inbounds i8, ptr %bitmap, i64 32
   %2 = load ptr, ptr %name.i, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.6, ptr noundef %2) #14
   br label %return
 
 if.end:                                           ; preds = %entry
-  %successor.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 3
+  %successor.i = getelementptr inbounds i8, ptr %bitmap, i64 24
   %3 = load ptr, ptr %successor.i, align 8
   %tobool.i.not = icmp eq ptr %3, null
   br i1 %tobool.i.not, label %if.end3, label %if.then2
@@ -450,7 +421,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %bitmap1.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1.i = getelementptr inbounds i8, ptr %bitmap, i64 8
   %4 = load ptr, ptr %bitmap1.i, align 8
   %call.i = tail call i32 @hbitmap_granularity(ptr noundef %4) #14
   %shl.i = shl nuw i32 1, %call.i
@@ -460,10 +431,10 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool7.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end3
-  %disabled = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 6
+  %disabled = getelementptr inbounds i8, ptr %bitmap, i64 48
   %6 = load i8, ptr %disabled, align 8
   %7 = and i8 %6, 1
-  %disabled11 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %call6, i64 0, i32 6
+  %disabled11 = getelementptr inbounds i8, ptr %call6, i64 48
   store i8 %7, ptr %disabled11, align 8
   store i8 1, ptr %disabled, align 8
   store ptr %call6, ptr %successor.i, align 8
@@ -478,7 +449,7 @@ return:                                           ; preds = %bdrv_dirty_bitmap_c
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @bdrv_dirty_bitmap_granularity(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   %call = tail call i32 @hbitmap_granularity(ptr noundef %0) #14
   %shl = shl nuw i32 1, %call
@@ -488,7 +459,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @bdrv_enable_dirty_bitmap_locked(ptr nocapture noundef writeonly %bitmap) local_unnamed_addr #7 {
 entry:
-  %disabled = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 6
+  %disabled = getelementptr inbounds i8, ptr %bitmap, i64 48
   store i8 0, ptr %disabled, align 8
   ret void
 }
@@ -497,7 +468,7 @@ entry:
 define dso_local void @bdrv_dirty_bitmap_enable_successor(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %successor = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 3
+  %successor = getelementptr inbounds i8, ptr %bitmap, i64 24
   %1 = load ptr, ptr %successor, align 8
   %2 = load ptr, ptr %1, align 8
   %cmp = icmp eq ptr %0, %2
@@ -510,13 +481,13 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %4(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   %5 = load ptr, ptr %successor, align 8
-  %disabled.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %5, i64 0, i32 6
+  %disabled.i = getelementptr inbounds i8, ptr %5, i64 48
   store i8 0, ptr %disabled.i, align 8
   %6 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i5 = getelementptr inbounds %struct.BlockDriverState, ptr %6, i64 0, i32 39
+  %dirty_bitmap_mutex.i5 = getelementptr inbounds i8, ptr %6, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i5, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -524,7 +495,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @bdrv_dirty_bitmap_abdicate(ptr noundef %bitmap, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %successor1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 3
+  %successor1 = getelementptr inbounds i8, ptr %bitmap, i64 24
   %0 = load ptr, ptr %successor1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -534,24 +505,24 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %name2 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 4
+  %name2 = getelementptr inbounds i8, ptr %bitmap, i64 32
   %1 = load ptr, ptr %name2, align 8
   store ptr null, ptr %name2, align 8
-  %name4 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %0, i64 0, i32 4
+  %name4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %name4, align 8
   store ptr null, ptr %successor1, align 8
-  %persistent = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 9
+  %persistent = getelementptr inbounds i8, ptr %bitmap, i64 57
   %2 = load i8, ptr %persistent, align 1
   %3 = and i8 %2, 1
-  %persistent6 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %0, i64 0, i32 9
+  %persistent6 = getelementptr inbounds i8, ptr %0, i64 57
   store i8 %3, ptr %persistent6, align 1
   store i8 0, ptr %persistent, align 1
-  %busy = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 2
+  %busy = getelementptr inbounds i8, ptr %bitmap, i64 16
   store i8 0, ptr %busy, align 8
   %4 = load ptr, ptr %bitmap, align 8
   %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
-  %dirty_bitmap_mutex.i.i = getelementptr inbounds %struct.BlockDriverState, ptr %4, i64 0, i32 39
+  %dirty_bitmap_mutex.i.i = getelementptr inbounds i8, ptr %4, i64 16904
   tail call void %6(ptr noundef nonnull %dirty_bitmap_mutex.i.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   tail call fastcc void @bdrv_release_dirty_bitmap_locked(ptr noundef nonnull %bitmap)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i.i, ptr noundef nonnull @.str.1, i32 noundef 71) #14
@@ -567,7 +538,7 @@ entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   tail call fastcc void @bdrv_release_dirty_bitmap_locked(ptr noundef nonnull %bitmap)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 71) #14
@@ -577,7 +548,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @bdrv_reclaim_dirty_bitmap_locked(ptr noundef %parent, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %successor1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %parent, i64 0, i32 3
+  %successor1 = getelementptr inbounds i8, ptr %parent, i64 24
   %0 = load ptr, ptr %successor1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -587,17 +558,17 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %bitmap = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %parent, i64 0, i32 1
+  %bitmap = getelementptr inbounds i8, ptr %parent, i64 8
   %1 = load ptr, ptr %bitmap, align 8
-  %bitmap2 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %0, i64 0, i32 1
+  %bitmap2 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %bitmap2, align 8
   tail call void @hbitmap_merge(ptr noundef %1, ptr noundef %2, ptr noundef %1) #14
-  %disabled = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %0, i64 0, i32 6
+  %disabled = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %disabled, align 8
   %4 = and i8 %3, 1
-  %disabled5 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %parent, i64 0, i32 6
+  %disabled5 = getelementptr inbounds i8, ptr %parent, i64 48
   store i8 %4, ptr %disabled5, align 8
-  %busy = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %parent, i64 0, i32 2
+  %busy = getelementptr inbounds i8, ptr %parent, i64 16
   store i8 0, ptr %busy, align 8
   tail call fastcc void @bdrv_release_dirty_bitmap_locked(ptr noundef nonnull %0)
   store ptr null, ptr %successor1, align 8
@@ -613,7 +584,7 @@ declare void @hbitmap_merge(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @bdrv_release_dirty_bitmap_locked(ptr noundef %bitmap) unnamed_addr #0 {
 entry:
-  %active_iterators = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 7
+  %active_iterators = getelementptr inbounds i8, ptr %bitmap, i64 52
   %0 = load i32, ptr %active_iterators, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.else
@@ -634,7 +605,7 @@ if.else2:                                         ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %successor.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 3
+  %successor.i = getelementptr inbounds i8, ptr %bitmap, i64 24
   %3 = load ptr, ptr %successor.i, align 8
   %tobool.i13.not = icmp eq ptr %3, null
   br i1 %tobool.i13.not, label %do.body, label %if.else6
@@ -644,15 +615,15 @@ if.else6:                                         ; preds = %if.end3
   unreachable
 
 do.body:                                          ; preds = %if.end3
-  %list = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 12
+  %list = getelementptr inbounds i8, ptr %bitmap, i64 64
   %4 = load ptr, ptr %list, align 8
   %cmp.not = icmp eq ptr %4, null
-  %le_prev18.phi.trans.insert = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 12, i32 1
+  %le_prev18.phi.trans.insert = getelementptr inbounds i8, ptr %bitmap, i64 72
   %.pre14 = load ptr, ptr %le_prev18.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end14, label %if.then8
 
 if.then8:                                         ; preds = %do.body
-  %le_prev13 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %4, i64 0, i32 12, i32 1
+  %le_prev13 = getelementptr inbounds i8, ptr %4, i64 72
   store ptr %.pre14, ptr %le_prev13, align 8
   %.pre = load ptr, ptr %list, align 8
   br label %if.end14
@@ -660,11 +631,11 @@ if.then8:                                         ; preds = %do.body
 if.end14:                                         ; preds = %do.body, %if.then8
   %5 = phi ptr [ %.pre, %if.then8 ], [ null, %do.body ]
   store ptr %5, ptr %.pre14, align 8
-  %bitmap23 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap23 = getelementptr inbounds i8, ptr %bitmap, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %bitmap23, align 8
   tail call void @hbitmap_free(ptr noundef %6) #14
-  %name = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 4
+  %name = getelementptr inbounds i8, ptr %bitmap, i64 32
   %7 = load ptr, ptr %name, align 8
   tail call void @g_free(ptr noundef %7) #14
   tail call void @g_free(ptr noundef nonnull %bitmap) #14
@@ -677,9 +648,9 @@ entry:
   %0 = load ptr, ptr %parent, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %successor1.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %parent, i64 0, i32 3
+  %successor1.i = getelementptr inbounds i8, ptr %parent, i64 24
   %3 = load ptr, ptr %successor1.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -689,17 +660,17 @@ if.then.i:                                        ; preds = %entry
   br label %bdrv_reclaim_dirty_bitmap_locked.exit
 
 if.end.i:                                         ; preds = %entry
-  %bitmap.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %parent, i64 0, i32 1
+  %bitmap.i = getelementptr inbounds i8, ptr %parent, i64 8
   %4 = load ptr, ptr %bitmap.i, align 8
-  %bitmap2.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %3, i64 0, i32 1
+  %bitmap2.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %bitmap2.i, align 8
   tail call void @hbitmap_merge(ptr noundef %4, ptr noundef %5, ptr noundef %4) #14
-  %disabled.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %3, i64 0, i32 6
+  %disabled.i = getelementptr inbounds i8, ptr %3, i64 48
   %6 = load i8, ptr %disabled.i, align 8
   %7 = and i8 %6, 1
-  %disabled5.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %parent, i64 0, i32 6
+  %disabled5.i = getelementptr inbounds i8, ptr %parent, i64 48
   store i8 %7, ptr %disabled5.i, align 8
-  %busy.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %parent, i64 0, i32 2
+  %busy.i = getelementptr inbounds i8, ptr %parent, i64 16
   store i8 0, ptr %busy.i, align 8
   tail call fastcc void @bdrv_release_dirty_bitmap_locked(ptr noundef nonnull %3)
   store ptr null, ptr %successor1.i, align 8
@@ -708,7 +679,7 @@ if.end.i:                                         ; preds = %entry
 bdrv_reclaim_dirty_bitmap_locked.exit:            ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %parent, %if.end.i ], [ null, %if.then.i ]
   %8 = load ptr, ptr %parent, align 8
-  %dirty_bitmap_mutex.i3 = getelementptr inbounds %struct.BlockDriverState, ptr %8, i64 0, i32 39
+  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %8, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i3, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret ptr %retval.0.i
 }
@@ -718,9 +689,9 @@ define dso_local void @bdrv_dirty_bitmap_truncate(ptr noundef %bs, i64 noundef %
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %bs, i64 16904
   tail call void %1(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %dirty_bitmaps = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 40
+  %dirty_bitmaps = getelementptr inbounds i8, ptr %bs, i64 16952
   %bitmap.012 = load ptr, ptr %dirty_bitmaps, align 8
   %tobool.not13 = icmp eq ptr %bitmap.012, null
   br i1 %tobool.not13, label %for.end, label %for.body
@@ -738,7 +709,7 @@ if.else:                                          ; preds = %for.body
   unreachable
 
 if.end:                                           ; preds = %for.body
-  %successor.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap.014, i64 0, i32 3
+  %successor.i = getelementptr inbounds i8, ptr %bitmap.014, i64 24
   %4 = load ptr, ptr %successor.i, align 8
   %tobool.i10.not = icmp eq ptr %4, null
   br i1 %tobool.i10.not, label %if.end4, label %if.else3
@@ -748,7 +719,7 @@ if.else3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %active_iterators = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap.014, i64 0, i32 7
+  %active_iterators = getelementptr inbounds i8, ptr %bitmap.014, i64 52
   %5 = load i32, ptr %active_iterators, align 4
   %tobool5.not = icmp eq i32 %5, 0
   br i1 %tobool5.not, label %if.end8, label %if.else7
@@ -758,12 +729,12 @@ if.else7:                                         ; preds = %if.end4
   unreachable
 
 if.end8:                                          ; preds = %if.end4
-  %bitmap9 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap.014, i64 0, i32 1
+  %bitmap9 = getelementptr inbounds i8, ptr %bitmap.014, i64 8
   %6 = load ptr, ptr %bitmap9, align 8
   tail call void @hbitmap_truncate(ptr noundef %6, i64 noundef %bytes) #14
-  %size = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap.014, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %bitmap.014, i64 40
   store i64 %bytes, ptr %size, align 8
-  %list = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap.014, i64 0, i32 12
+  %list = getelementptr inbounds i8, ptr %bitmap.014, i64 64
   %bitmap.0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %bitmap.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
@@ -780,18 +751,18 @@ define dso_local void @bdrv_release_named_dirty_bitmaps(ptr noundef %bs) local_u
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %bs, i64 16904
   tail call void %1(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %dirty_bitmaps = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 40
+  %dirty_bitmaps = getelementptr inbounds i8, ptr %bs, i64 16952
   %2 = load ptr, ptr %dirty_bitmaps, align 8
   %tobool.not7 = icmp eq ptr %2, null
   br i1 %tobool.not7, label %for.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry, %for.inc
   %bm.08 = phi ptr [ %3, %for.inc ], [ %2, %entry ]
-  %list = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.08, i64 0, i32 12
+  %list = getelementptr inbounds i8, ptr %bm.08, i64 64
   %3 = load ptr, ptr %list, align 8
-  %name.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.08, i64 0, i32 4
+  %name.i = getelementptr inbounds i8, ptr %bm.08, i64 32
   %4 = load ptr, ptr %name.i, align 8
   %tobool1.not = icmp eq ptr %4, null
   br i1 %tobool1.not, label %for.inc, label %if.then
@@ -813,13 +784,13 @@ for.end:                                          ; preds = %for.inc, %entry
 define dso_local i32 @bdrv_co_remove_persistent_dirty_bitmap(ptr noundef %bs, ptr noundef %name, ptr noundef %errp) #0 {
 entry:
   tail call void @assert_bdrv_graph_readable() #14
-  %drv = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 6
+  %drv = getelementptr inbounds i8, ptr %bs, i64 16
   %0 = load ptr, ptr %drv, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %bdrv_co_remove_persistent_dirty_bitmap = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 110
+  %bdrv_co_remove_persistent_dirty_bitmap = getelementptr inbounds i8, ptr %0, i64 848
   %1 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_remove_persistent_dirty_bitmap, ptr nonnull @.str.17, ptr nonnull @.str.18, i32 785, ptr null)
   %2 = load ptr, ptr %1, align 8
   %tobool2.not = icmp eq ptr %2, null
@@ -844,13 +815,13 @@ declare ptr @llvm.ptr.annotation.p0.p0(ptr, ptr, ptr, i32, ptr) #8
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @bdrv_supports_persistent_dirty_bitmap(ptr noundef %bs) local_unnamed_addr #0 {
 entry:
-  %drv = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 6
+  %drv = getelementptr inbounds i8, ptr %bs, i64 16
   %0 = load ptr, ptr %drv, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %bdrv_supports_persistent_dirty_bitmap = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 108
+  %bdrv_supports_persistent_dirty_bitmap = getelementptr inbounds i8, ptr %0, i64 832
   %1 = load ptr, ptr %bdrv_supports_persistent_dirty_bitmap, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %return, label %if.then
@@ -867,7 +838,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @bdrv_co_can_store_new_dirty_bitmap(ptr noundef %bs, ptr noundef %name, i32 noundef %granularity, ptr noundef %errp) #0 {
 entry:
-  %drv1 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 6
+  %drv1 = getelementptr inbounds i8, ptr %bs, i64 16
   %0 = load ptr, ptr %drv1, align 8
   tail call void @assert_bdrv_graph_readable() #14
   %tobool.not = icmp eq ptr %0, null
@@ -879,7 +850,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %bdrv_co_can_store_new_dirty_bitmap = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 109
+  %bdrv_co_can_store_new_dirty_bitmap = getelementptr inbounds i8, ptr %0, i64 840
   %1 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_can_store_new_dirty_bitmap, ptr nonnull @.str.17, ptr nonnull @.str.18, i32 781, ptr null)
   %2 = load ptr, ptr %1, align 8
   %tobool2.not = icmp eq ptr %2, null
@@ -909,12 +880,12 @@ entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %disabled = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 6
+  %disabled = getelementptr inbounds i8, ptr %bitmap, i64 48
   store i8 1, ptr %disabled, align 8
   %3 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i3 = getelementptr inbounds %struct.BlockDriverState, ptr %3, i64 0, i32 39
+  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %3, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i3, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -925,12 +896,12 @@ entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %disabled.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 6
+  %disabled.i = getelementptr inbounds i8, ptr %bitmap, i64 48
   store i8 0, ptr %disabled.i, align 8
   %3 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i3 = getelementptr inbounds %struct.BlockDriverState, ptr %3, i64 0, i32 39
+  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %3, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i3, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -942,9 +913,9 @@ entry:
   store ptr null, ptr %list, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %bs, i64 16904
   tail call void %1(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %dirty_bitmaps = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 40
+  %dirty_bitmaps = getelementptr inbounds i8, ptr %bs, i64 16952
   %bm.025 = load ptr, ptr %dirty_bitmaps, align 8
   %tobool.not26 = icmp eq ptr %bm.025, null
   br i1 %tobool.not26, label %for.end, label %for.body
@@ -953,34 +924,34 @@ for.body:                                         ; preds = %entry, %bdrv_dirty_
   %bm.028 = phi ptr [ %bm.0, %bdrv_dirty_bitmap_recording.exit ], [ %bm.025, %entry ]
   %tail.027 = phi ptr [ %19, %bdrv_dirty_bitmap_recording.exit ], [ %list, %entry ]
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #18
-  %bitmap1.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.028, i64 0, i32 1
+  %bitmap1.i = getelementptr inbounds i8, ptr %bm.028, i64 8
   %2 = load ptr, ptr %bitmap1.i, align 8
   %call.i = tail call i64 @hbitmap_count(ptr noundef %2) #14
-  %count = getelementptr inbounds %struct.BlockDirtyInfo, ptr %call, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %call.i, ptr %count, align 8
   %3 = load ptr, ptr %bitmap1.i, align 8
   %call.i23 = tail call i32 @hbitmap_granularity(ptr noundef %3) #14
   %shl.i = shl nuw i32 1, %call.i23
-  %granularity = getelementptr inbounds %struct.BlockDirtyInfo, ptr %call, i64 0, i32 2
+  %granularity = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %shl.i, ptr %granularity, align 8
-  %name = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.028, i64 0, i32 4
+  %name = getelementptr inbounds i8, ptr %bm.028, i64 32
   %4 = load ptr, ptr %name, align 8
   %call3 = tail call noalias ptr @g_strdup(ptr noundef %4) #14
   store ptr %call3, ptr %call, align 8
-  %disabled.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.028, i64 0, i32 6
+  %disabled.i = getelementptr inbounds i8, ptr %bm.028, i64 48
   %5 = load i8, ptr %disabled.i, align 8
   %6 = and i8 %5, 1
   %tobool.not.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i, label %bdrv_dirty_bitmap_recording.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %for.body
-  %successor.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.028, i64 0, i32 3
+  %successor.i = getelementptr inbounds i8, ptr %bm.028, i64 24
   %7 = load ptr, ptr %successor.i, align 8
   %tobool1.not.i = icmp eq ptr %7, null
   br i1 %tobool1.not.i, label %bdrv_dirty_bitmap_recording.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
-  %disabled3.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %7, i64 0, i32 6
+  %disabled3.i = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load i8, ptr %disabled3.i, align 8
   %9 = and i8 %8, 1
   %tobool4.not.i = icmp eq i8 %9, 0
@@ -988,34 +959,34 @@ land.rhs.i:                                       ; preds = %lor.rhs.i
 
 bdrv_dirty_bitmap_recording.exit:                 ; preds = %for.body, %lor.rhs.i, %land.rhs.i
   %10 = phi i1 [ true, %for.body ], [ false, %lor.rhs.i ], [ %tobool4.not.i, %land.rhs.i ]
-  %recording = getelementptr inbounds %struct.BlockDirtyInfo, ptr %call, i64 0, i32 3
+  %recording = getelementptr inbounds i8, ptr %call, i64 20
   %frombool = zext i1 %10 to i8
   store i8 %frombool, ptr %recording, align 4
   %11 = getelementptr i8, ptr %bm.028, i64 16
   %bm.0.val = load i8, ptr %11, align 8
   %12 = and i8 %bm.0.val, 1
-  %busy = getelementptr inbounds %struct.BlockDirtyInfo, ptr %call, i64 0, i32 4
+  %busy = getelementptr inbounds i8, ptr %call, i64 21
   store i8 %12, ptr %busy, align 1
-  %persistent = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.028, i64 0, i32 9
+  %persistent = getelementptr inbounds i8, ptr %bm.028, i64 57
   %13 = load i8, ptr %persistent, align 1
   %14 = and i8 %13, 1
-  %persistent9 = getelementptr inbounds %struct.BlockDirtyInfo, ptr %call, i64 0, i32 5
+  %persistent9 = getelementptr inbounds i8, ptr %call, i64 22
   store i8 %14, ptr %persistent9, align 2
-  %inconsistent = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.028, i64 0, i32 10
+  %inconsistent = getelementptr inbounds i8, ptr %bm.028, i64 58
   %15 = load i8, ptr %inconsistent, align 2
   %16 = and i8 %15, 1
-  %has_inconsistent = getelementptr inbounds %struct.BlockDirtyInfo, ptr %call, i64 0, i32 6
+  %has_inconsistent = getelementptr inbounds i8, ptr %call, i64 23
   store i8 %16, ptr %has_inconsistent, align 1
   %17 = load i8, ptr %inconsistent, align 2
   %18 = and i8 %17, 1
-  %inconsistent15 = getelementptr inbounds %struct.BlockDirtyInfo, ptr %call, i64 0, i32 7
+  %inconsistent15 = getelementptr inbounds i8, ptr %call, i64 24
   store i8 %18, ptr %inconsistent15, align 8
   %call17 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #19
   store ptr %call17, ptr %tail.027, align 8
-  %value = getelementptr inbounds %struct.BlockDirtyInfoList, ptr %call17, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call17, i64 8
   store ptr %call, ptr %value, align 8
   %19 = load ptr, ptr %tail.027, align 8
-  %list18 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.028, i64 0, i32 12
+  %list18 = getelementptr inbounds i8, ptr %bm.028, i64 64
   %bm.0 = load ptr, ptr %list18, align 8
   %tobool.not = icmp eq ptr %bm.0, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !10
@@ -1033,7 +1004,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @bdrv_get_dirty_count(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   %call = tail call i64 @hbitmap_count(ptr noundef %0) #14
   ret i64 %call
@@ -1045,7 +1016,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @bdrv_dirty_bitmap_get_locked(ptr nocapture noundef readonly %bitmap, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   %call = tail call zeroext i1 @hbitmap_get(ptr noundef %0, i64 noundef %offset) #14
   ret i1 %call
@@ -1059,13 +1030,13 @@ entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %bitmap1.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1.i = getelementptr inbounds i8, ptr %bitmap, i64 8
   %3 = load ptr, ptr %bitmap1.i, align 8
   %call.i = tail call zeroext i1 @hbitmap_get(ptr noundef %3, i64 noundef %offset) #14
   %4 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i3 = getelementptr inbounds %struct.BlockDriverState, ptr %4, i64 0, i32 39
+  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %4, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i3, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret i1 %call.i
 }
@@ -1099,12 +1070,12 @@ declare i32 @hbitmap_granularity(ptr noundef) local_unnamed_addr #3
 define dso_local ptr @bdrv_dirty_iter_new(ptr noundef %bitmap) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(88) ptr @g_malloc_n(i64 noundef 1, i64 noundef 88) #18
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   tail call void @hbitmap_iter_init(ptr noundef %call, ptr noundef %0, i64 noundef 0) #14
-  %bitmap2 = getelementptr inbounds %struct.BdrvDirtyBitmapIter, ptr %call, i64 0, i32 1
+  %bitmap2 = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %bitmap, ptr %bitmap2, align 8
-  %active_iterators = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 7
+  %active_iterators = getelementptr inbounds i8, ptr %bitmap, i64 52
   %1 = load i32, ptr %active_iterators, align 4
   %inc = add i32 %1, 1
   store i32 %inc, ptr %active_iterators, align 4
@@ -1123,9 +1094,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bitmap = getelementptr inbounds %struct.BdrvDirtyBitmapIter, ptr %iter, i64 0, i32 1
+  %bitmap = getelementptr inbounds i8, ptr %iter, i64 80
   %0 = load ptr, ptr %bitmap, align 8
-  %active_iterators = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %0, i64 0, i32 7
+  %active_iterators = getelementptr inbounds i8, ptr %0, i64 52
   %1 = load i32, ptr %active_iterators, align 4
   %cmp = icmp sgt i32 %1, 0
   br i1 %cmp, label %if.end2, label %if.else
@@ -1158,7 +1129,7 @@ declare i64 @hbitmap_iter_next(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @bdrv_set_dirty_bitmap_locked(ptr nocapture noundef readonly %bitmap, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
-  %readonly.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 8
+  %readonly.i = getelementptr inbounds i8, ptr %bitmap, i64 56
   %0 = load i8, ptr %readonly.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -1169,7 +1140,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %2 = load ptr, ptr %bitmap1, align 8
   tail call void @hbitmap_set(ptr noundef %2, i64 noundef %offset, i64 noundef %bytes) #14
   ret void
@@ -1183,9 +1154,9 @@ entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %readonly.i.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 8
+  %readonly.i.i = getelementptr inbounds i8, ptr %bitmap, i64 56
   %3 = load i8, ptr %readonly.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.not.i = icmp eq i8 %4, 0
@@ -1196,11 +1167,11 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 bdrv_set_dirty_bitmap_locked.exit:                ; preds = %entry
-  %bitmap1.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1.i = getelementptr inbounds i8, ptr %bitmap, i64 8
   %5 = load ptr, ptr %bitmap1.i, align 8
   tail call void @hbitmap_set(ptr noundef %5, i64 noundef %offset, i64 noundef %bytes) #14
   %6 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i3 = getelementptr inbounds %struct.BlockDriverState, ptr %6, i64 0, i32 39
+  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %6, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i3, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -1208,7 +1179,7 @@ bdrv_set_dirty_bitmap_locked.exit:                ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @bdrv_reset_dirty_bitmap_locked(ptr nocapture noundef readonly %bitmap, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
-  %readonly.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 8
+  %readonly.i = getelementptr inbounds i8, ptr %bitmap, i64 56
   %0 = load i8, ptr %readonly.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -1219,7 +1190,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %2 = load ptr, ptr %bitmap1, align 8
   tail call void @hbitmap_reset(ptr noundef %2, i64 noundef %offset, i64 noundef %bytes) #14
   ret void
@@ -1233,9 +1204,9 @@ entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %readonly.i.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 8
+  %readonly.i.i = getelementptr inbounds i8, ptr %bitmap, i64 56
   %3 = load i8, ptr %readonly.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.not.i = icmp eq i8 %4, 0
@@ -1246,11 +1217,11 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 bdrv_reset_dirty_bitmap_locked.exit:              ; preds = %entry
-  %bitmap1.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1.i = getelementptr inbounds i8, ptr %bitmap, i64 8
   %5 = load ptr, ptr %bitmap1.i, align 8
   tail call void @hbitmap_reset(ptr noundef %5, i64 noundef %offset, i64 noundef %bytes) #14
   %6 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i3 = getelementptr inbounds %struct.BlockDriverState, ptr %6, i64 0, i32 39
+  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %6, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i3, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -1258,7 +1229,7 @@ bdrv_reset_dirty_bitmap_locked.exit:              ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @bdrv_clear_dirty_bitmap(ptr nocapture noundef %bitmap, ptr noundef writeonly %out) local_unnamed_addr #0 {
 entry:
-  %readonly.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 8
+  %readonly.i = getelementptr inbounds i8, ptr %bitmap, i64 56
   %0 = load i8, ptr %readonly.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -1272,10 +1243,10 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %bitmap, align 8
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %2, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %2, i64 16904
   tail call void %4(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   %tobool.not = icmp eq ptr %out, null
-  %bitmap2 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap2 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %5 = load ptr, ptr %bitmap2, align 8
   br i1 %tobool.not, label %if.then1, label %if.else3
 
@@ -1284,7 +1255,7 @@ if.then1:                                         ; preds = %if.end
   br label %if.end8
 
 if.else3:                                         ; preds = %if.end
-  %size = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %bitmap, i64 40
   %6 = load i64, ptr %size, align 8
   %call5 = tail call i32 @hbitmap_granularity(ptr noundef %5) #14
   %call6 = tail call ptr @hbitmap_alloc(i64 noundef %6, i32 noundef %call5) #14
@@ -1294,7 +1265,7 @@ if.else3:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.else3, %if.then1
   %7 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i9 = getelementptr inbounds %struct.BlockDriverState, ptr %7, i64 0, i32 39
+  %dirty_bitmap_mutex.i9 = getelementptr inbounds i8, ptr %7, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i9, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -1304,9 +1275,9 @@ declare void @hbitmap_reset_all(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @bdrv_restore_dirty_bitmap(ptr nocapture noundef %bitmap, ptr noundef %backup) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
-  %readonly.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 8
+  %readonly.i = getelementptr inbounds i8, ptr %bitmap, i64 56
   %1 = load i8, ptr %readonly.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
@@ -1337,7 +1308,7 @@ declare void @hbitmap_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @bdrv_dirty_bitmap_serialization_size(ptr nocapture noundef readonly %bitmap, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   %call = tail call i64 @hbitmap_serialization_size(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes) #14
   ret i64 %call
@@ -1348,7 +1319,7 @@ declare i64 @hbitmap_serialization_size(ptr noundef, i64 noundef, i64 noundef) l
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @bdrv_dirty_bitmap_serialization_align(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   %call = tail call i64 @hbitmap_serialization_align(ptr noundef %0) #14
   ret i64 %call
@@ -1359,7 +1330,7 @@ declare i64 @hbitmap_serialization_align(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @bdrv_dirty_bitmap_serialization_coverage(i32 noundef %serialized_chunk_size, ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
 entry:
-  %bitmap1.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1.i = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1.i, align 8
   %call.i = tail call i32 @hbitmap_granularity(ptr noundef %0) #14
   %shl = shl i32 %serialized_chunk_size, 3
@@ -1383,7 +1354,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @bdrv_dirty_bitmap_serialize_part(ptr nocapture noundef readonly %bitmap, ptr noundef %buf, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   tail call void @hbitmap_serialize_part(ptr noundef %0, ptr noundef %buf, i64 noundef %offset, i64 noundef %bytes) #14
   ret void
@@ -1394,7 +1365,7 @@ declare void @hbitmap_serialize_part(ptr noundef, ptr noundef, i64 noundef, i64 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @bdrv_dirty_bitmap_deserialize_part(ptr nocapture noundef readonly %bitmap, ptr noundef %buf, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %finish) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   tail call void @hbitmap_deserialize_part(ptr noundef %0, ptr noundef %buf, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %finish) #14
   ret void
@@ -1405,7 +1376,7 @@ declare void @hbitmap_deserialize_part(ptr noundef, ptr noundef, i64 noundef, i6
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @bdrv_dirty_bitmap_deserialize_zeroes(ptr nocapture noundef readonly %bitmap, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %finish) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   tail call void @hbitmap_deserialize_zeroes(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %finish) #14
   ret void
@@ -1416,7 +1387,7 @@ declare void @hbitmap_deserialize_zeroes(ptr noundef, i64 noundef, i64 noundef, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @bdrv_dirty_bitmap_deserialize_ones(ptr nocapture noundef readonly %bitmap, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %finish) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   tail call void @hbitmap_deserialize_ones(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %finish) #14
   ret void
@@ -1427,7 +1398,7 @@ declare void @hbitmap_deserialize_ones(ptr noundef, i64 noundef, i64 noundef, i1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @bdrv_dirty_bitmap_deserialize_finish(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   tail call void @hbitmap_deserialize_finish(ptr noundef %0) #14
   ret void
@@ -1438,7 +1409,7 @@ declare void @hbitmap_deserialize_finish(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @bdrv_set_dirty(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
-  %dirty_bitmaps = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 40
+  %dirty_bitmaps = getelementptr inbounds i8, ptr %bs, i64 16952
   %0 = load ptr, ptr %dirty_bitmaps, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -1446,7 +1417,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %bs, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   %bitmap.09 = load ptr, ptr %dirty_bitmaps, align 8
   %tobool.not10 = icmp eq ptr %bitmap.09, null
@@ -1454,14 +1425,14 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %bitmap.011 = phi ptr [ %bitmap.0, %for.inc ], [ %bitmap.09, %if.end ]
-  %disabled.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap.011, i64 0, i32 6
+  %disabled.i = getelementptr inbounds i8, ptr %bitmap.011, i64 48
   %3 = load i8, ptr %disabled.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %if.end4, label %for.inc
 
 if.end4:                                          ; preds = %for.body
-  %readonly.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap.011, i64 0, i32 8
+  %readonly.i = getelementptr inbounds i8, ptr %bitmap.011, i64 56
   %5 = load i8, ptr %readonly.i, align 8
   %6 = and i8 %5, 1
   %tobool.i.not = icmp eq i8 %6, 0
@@ -1472,13 +1443,13 @@ if.else:                                          ; preds = %if.end4
   unreachable
 
 if.end7:                                          ; preds = %if.end4
-  %bitmap8 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap.011, i64 0, i32 1
+  %bitmap8 = getelementptr inbounds i8, ptr %bitmap.011, i64 8
   %7 = load ptr, ptr %bitmap8, align 8
   tail call void @hbitmap_set(ptr noundef %7, i64 noundef %offset, i64 noundef %bytes) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end7
-  %list = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap.011, i64 0, i32 12
+  %list = getelementptr inbounds i8, ptr %bitmap.011, i64 64
   %bitmap.0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %bitmap.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !11
@@ -1508,12 +1479,12 @@ entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %readonly = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 8
+  %readonly = getelementptr inbounds i8, ptr %bitmap, i64 56
   store i8 %frombool, ptr %readonly, align 8
   %3 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i3 = getelementptr inbounds %struct.BlockDriverState, ptr %3, i64 0, i32 39
+  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %3, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i3, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -1521,20 +1492,20 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @bdrv_has_readonly_bitmaps(ptr nocapture noundef readonly %bs) local_unnamed_addr #10 {
 entry:
-  %dirty_bitmaps = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 40
+  %dirty_bitmaps = getelementptr inbounds i8, ptr %bs, i64 16952
   %bm.03 = load ptr, ptr %dirty_bitmaps, align 8
   %tobool.not4.not = icmp eq ptr %bm.03, null
   br i1 %tobool.not4.not, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %list = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.05, i64 0, i32 12
+  %list = getelementptr inbounds i8, ptr %bm.05, i64 64
   %bm.0 = load ptr, ptr %list, align 8
   %tobool.not.not = icmp eq ptr %bm.0, null
   br i1 %tobool.not.not, label %return, label %for.body, !llvm.loop !12
 
 for.body:                                         ; preds = %entry, %for.cond
   %bm.05 = phi ptr [ %bm.0, %for.cond ], [ %bm.03, %entry ]
-  %readonly = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.05, i64 0, i32 8
+  %readonly = getelementptr inbounds i8, ptr %bm.05, i64 56
   %0 = load i8, ptr %readonly, align 8
   %1 = and i8 %0, 1
   %tobool1.not.not = icmp ne i8 %1, 0
@@ -1548,20 +1519,20 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @bdrv_has_named_bitmaps(ptr nocapture noundef readonly %bs) local_unnamed_addr #10 {
 entry:
-  %dirty_bitmaps = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 40
+  %dirty_bitmaps = getelementptr inbounds i8, ptr %bs, i64 16952
   %bm.03 = load ptr, ptr %dirty_bitmaps, align 8
   %tobool.not4.not = icmp eq ptr %bm.03, null
   br i1 %tobool.not4.not, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %list = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.05, i64 0, i32 12
+  %list = getelementptr inbounds i8, ptr %bm.05, i64 64
   %bm.0 = load ptr, ptr %list, align 8
   %tobool.not.not = icmp eq ptr %bm.0, null
   br i1 %tobool.not.not, label %return, label %for.body, !llvm.loop !13
 
 for.body:                                         ; preds = %entry, %for.cond
   %bm.05 = phi ptr [ %bm.0, %for.cond ], [ %bm.03, %entry ]
-  %name.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bm.05, i64 0, i32 4
+  %name.i = getelementptr inbounds i8, ptr %bm.05, i64 32
   %0 = load ptr, ptr %name.i, align 8
   %tobool1.not.not = icmp ne ptr %0, null
   br i1 %tobool1.not.not, label %return, label %for.cond
@@ -1578,12 +1549,12 @@ entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %persistent1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 9
+  %persistent1 = getelementptr inbounds i8, ptr %bitmap, i64 57
   store i8 %frombool, ptr %persistent1, align 1
   %3 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i3 = getelementptr inbounds %struct.BlockDriverState, ptr %3, i64 0, i32 39
+  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %3, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i3, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -1594,9 +1565,9 @@ entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %persistent = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 9
+  %persistent = getelementptr inbounds i8, ptr %bitmap, i64 57
   %3 = load i8, ptr %persistent, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -1607,12 +1578,12 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %inconsistent = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 10
+  %inconsistent = getelementptr inbounds i8, ptr %bitmap, i64 58
   store i8 1, ptr %inconsistent, align 2
-  %disabled = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 6
+  %disabled = getelementptr inbounds i8, ptr %bitmap, i64 48
   store i8 1, ptr %disabled, align 8
   %5 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i5 = getelementptr inbounds %struct.BlockDriverState, ptr %5, i64 0, i32 39
+  %dirty_bitmap_mutex.i5 = getelementptr inbounds i8, ptr %5, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i5, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -1624,12 +1595,12 @@ entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
-  %skip_store = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 11
+  %skip_store = getelementptr inbounds i8, ptr %bitmap, i64 59
   store i8 %frombool, ptr %skip_store, align 1
   %3 = load ptr, ptr %bitmap, align 8
-  %dirty_bitmap_mutex.i3 = getelementptr inbounds %struct.BlockDriverState, ptr %3, i64 0, i32 39
+  %dirty_bitmap_mutex.i3 = getelementptr inbounds i8, ptr %3, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i3, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   ret void
 }
@@ -1637,14 +1608,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @bdrv_dirty_bitmap_get_persistence(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #6 {
 entry:
-  %persistent = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 9
+  %persistent = getelementptr inbounds i8, ptr %bitmap, i64 57
   %0 = load i8, ptr %persistent, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %skip_store = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 11
+  %skip_store = getelementptr inbounds i8, ptr %bitmap, i64 59
   %2 = load i8, ptr %skip_store, align 1
   %3 = and i8 %2, 1
   %tobool1.not = icmp eq i8 %3, 0
@@ -1658,7 +1629,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @bdrv_dirty_bitmap_first(ptr nocapture noundef readonly %bs) local_unnamed_addr #6 {
 entry:
-  %dirty_bitmaps = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 40
+  %dirty_bitmaps = getelementptr inbounds i8, ptr %bs, i64 16952
   %0 = load ptr, ptr %dirty_bitmaps, align 8
   ret ptr %0
 }
@@ -1666,7 +1637,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @bdrv_dirty_bitmap_next(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #6 {
 entry:
-  %list = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 12
+  %list = getelementptr inbounds i8, ptr %bitmap, i64 64
   %0 = load ptr, ptr %list, align 8
   ret ptr %0
 }
@@ -1674,7 +1645,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @bdrv_dirty_bitmap_sha256(ptr nocapture noundef readonly %bitmap, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   %call = tail call ptr @hbitmap_sha256(ptr noundef %0, ptr noundef %errp) #14
   ret ptr %call
@@ -1685,7 +1656,7 @@ declare ptr @hbitmap_sha256(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @bdrv_dirty_bitmap_next_dirty(ptr nocapture noundef readonly %bitmap, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   %call = tail call i64 @hbitmap_next_dirty(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes) #14
   ret i64 %call
@@ -1696,7 +1667,7 @@ declare i64 @hbitmap_next_dirty(ptr noundef, i64 noundef, i64 noundef) local_unn
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @bdrv_dirty_bitmap_next_zero(ptr nocapture noundef readonly %bitmap, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   %call = tail call i64 @hbitmap_next_zero(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes) #14
   ret i64 %call
@@ -1707,7 +1678,7 @@ declare i64 @hbitmap_next_zero(ptr noundef, i64 noundef, i64 noundef) local_unna
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @bdrv_dirty_bitmap_next_dirty_area(ptr nocapture noundef readonly %bitmap, i64 noundef %start, i64 noundef %end, i64 noundef %max_dirty_count, ptr noundef %dirty_start, ptr noundef %dirty_count) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   %call = tail call zeroext i1 @hbitmap_next_dirty_area(ptr noundef %0, i64 noundef %start, i64 noundef %end, i64 noundef %max_dirty_count, ptr noundef %dirty_start, ptr noundef %dirty_count) #14
   ret i1 %call
@@ -1718,7 +1689,7 @@ declare zeroext i1 @hbitmap_next_dirty_area(ptr noundef, i64 noundef, i64 nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @bdrv_dirty_bitmap_status(ptr nocapture noundef readonly %bitmap, i64 noundef %offset, i64 noundef %bytes, ptr noundef %count) local_unnamed_addr #0 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %bitmap, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
   %call = tail call zeroext i1 @hbitmap_status(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %count) #14
   ret i1 %call
@@ -1732,7 +1703,7 @@ entry:
   %0 = load ptr, ptr %dest, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %0, i64 16904
   tail call void %2(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   %3 = load ptr, ptr %src, align 8
   %4 = load ptr, ptr %dest, align 8
@@ -1742,7 +1713,7 @@ entry:
 if.then:                                          ; preds = %entry
   %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
-  %dirty_bitmap_mutex.i18 = getelementptr inbounds %struct.BlockDriverState, ptr %3, i64 0, i32 39
+  %dirty_bitmap_mutex.i18 = getelementptr inbounds i8, ptr %3, i64 16904
   tail call void %6(ptr noundef nonnull %dirty_bitmap_mutex.i18, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   br label %if.end
 
@@ -1759,29 +1730,29 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end5
-  %name.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %src, i64 0, i32 4
+  %name.i = getelementptr inbounds i8, ptr %src, i64 32
   %9 = load ptr, ptr %name.i, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.6, ptr noundef %9) #14
   br label %out
 
 if.end.i:                                         ; preds = %if.end5
-  %inconsistent.i.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %src, i64 0, i32 10
+  %inconsistent.i.i = getelementptr inbounds i8, ptr %src, i64 58
   %10 = load i8, ptr %inconsistent.i.i, align 2
   %11 = and i8 %10, 1
   %tobool.i12.not.i = icmp eq i8 %11, 0
   br i1 %tobool.i12.not.i, label %if.end9, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end.i
-  %name13.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %src, i64 0, i32 4
+  %name13.i = getelementptr inbounds i8, ptr %src, i64 32
   %12 = load ptr, ptr %name13.i, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull @__func__.bdrv_dirty_bitmap_check, ptr noundef nonnull @.str.8, ptr noundef %12) #14
   tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.9) #14
   br label %out
 
 if.end9:                                          ; preds = %if.end.i
-  %size.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %src, i64 0, i32 5
+  %size.i = getelementptr inbounds i8, ptr %src, i64 40
   %13 = load i64, ptr %size.i, align 8
-  %size.i19 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %dest, i64 0, i32 5
+  %size.i19 = getelementptr inbounds i8, ptr %dest, i64 40
   %14 = load i64, ptr %size.i19, align 8
   %cmp12.not = icmp eq i64 %13, %14
   br i1 %cmp12.not, label %if.end16, label %if.then13
@@ -1797,7 +1768,7 @@ if.end16:                                         ; preds = %if.end9
 out:                                              ; preds = %if.then12.i, %if.then.i, %if.end, %if.end16, %if.then13
   %ret.0 = phi i1 [ false, %if.end ], [ false, %if.then13 ], [ true, %if.end16 ], [ false, %if.then.i ], [ false, %if.then12.i ]
   %15 = load ptr, ptr %dest, align 8
-  %dirty_bitmap_mutex.i22 = getelementptr inbounds %struct.BlockDriverState, ptr %15, i64 0, i32 39
+  %dirty_bitmap_mutex.i22 = getelementptr inbounds i8, ptr %15, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i22, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   %16 = load ptr, ptr %src, align 8
   %17 = load ptr, ptr %dest, align 8
@@ -1805,7 +1776,7 @@ out:                                              ; preds = %if.then12.i, %if.th
   br i1 %cmp20.not, label %if.end23, label %if.then21
 
 if.then21:                                        ; preds = %out
-  %dirty_bitmap_mutex.i23 = getelementptr inbounds %struct.BlockDriverState, ptr %16, i64 0, i32 39
+  %dirty_bitmap_mutex.i23 = getelementptr inbounds i8, ptr %16, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i23, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   br label %if.end23
 
@@ -1816,7 +1787,7 @@ if.end23:                                         ; preds = %if.then21, %out
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @bdrv_dirty_bitmap_merge_internal(ptr nocapture noundef %dest, ptr nocapture noundef readonly %src, ptr noundef %backup, i1 noundef zeroext %lock) local_unnamed_addr #0 {
 entry:
-  %readonly.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %dest, i64 0, i32 8
+  %readonly.i = getelementptr inbounds i8, ptr %dest, i64 56
   %0 = load i8, ptr %readonly.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -1827,7 +1798,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %inconsistent.i = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %dest, i64 0, i32 10
+  %inconsistent.i = getelementptr inbounds i8, ptr %dest, i64 58
   %2 = load i8, ptr %inconsistent.i, align 2
   %3 = and i8 %2, 1
   %tobool.i23.not = icmp eq i8 %3, 0
@@ -1838,7 +1809,7 @@ if.else3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %inconsistent.i24 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %src, i64 0, i32 10
+  %inconsistent.i24 = getelementptr inbounds i8, ptr %src, i64 58
   %4 = load i8, ptr %inconsistent.i24, align 2
   %5 = and i8 %4, 1
   %tobool.i25.not = icmp eq i8 %5, 0
@@ -1855,7 +1826,7 @@ if.then9:                                         ; preds = %if.end8
   %6 = load ptr, ptr %dest, align 8
   %7 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %8 = inttoptr i64 %7 to ptr
-  %dirty_bitmap_mutex.i = getelementptr inbounds %struct.BlockDriverState, ptr %6, i64 0, i32 39
+  %dirty_bitmap_mutex.i = getelementptr inbounds i8, ptr %6, i64 16904
   tail call void %8(ptr noundef nonnull %dirty_bitmap_mutex.i, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   %9 = load ptr, ptr %src, align 8
   %10 = load ptr, ptr %dest, align 8
@@ -1865,31 +1836,31 @@ if.then9:                                         ; preds = %if.end8
 if.then12:                                        ; preds = %if.then9
   %11 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %12 = inttoptr i64 %11 to ptr
-  %dirty_bitmap_mutex.i26 = getelementptr inbounds %struct.BlockDriverState, ptr %9, i64 0, i32 39
+  %dirty_bitmap_mutex.i26 = getelementptr inbounds i8, ptr %9, i64 16904
   tail call void %12(ptr noundef nonnull %dirty_bitmap_mutex.i26, ptr noundef nonnull @.str.1, i32 noundef 66) #14
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then9, %if.then12, %if.end8
   %tobool16.not = icmp eq ptr %backup, null
-  %bitmap24 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %dest, i64 0, i32 1
+  %bitmap24 = getelementptr inbounds i8, ptr %dest, i64 8
   %13 = load ptr, ptr %bitmap24, align 8
   br i1 %tobool16.not, label %if.else23, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
   store ptr %13, ptr %backup, align 8
-  %size = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %dest, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %dest, i64 40
   %14 = load i64, ptr %size, align 8
   %call18 = tail call i32 @hbitmap_granularity(ptr noundef %13) #14
   %call19 = tail call ptr @hbitmap_alloc(i64 noundef %14, i32 noundef %call18) #14
   store ptr %call19, ptr %bitmap24, align 8
   %15 = load ptr, ptr %backup, align 8
-  %bitmap21 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %src, i64 0, i32 1
+  %bitmap21 = getelementptr inbounds i8, ptr %src, i64 8
   %16 = load ptr, ptr %bitmap21, align 8
   tail call void @hbitmap_merge(ptr noundef %15, ptr noundef %16, ptr noundef %call19) #14
   br label %if.end27
 
 if.else23:                                        ; preds = %if.end15
-  %bitmap25 = getelementptr inbounds %struct.BdrvDirtyBitmap, ptr %src, i64 0, i32 1
+  %bitmap25 = getelementptr inbounds i8, ptr %src, i64 8
   %17 = load ptr, ptr %bitmap25, align 8
   tail call void @hbitmap_merge(ptr noundef %13, ptr noundef %17, ptr noundef %13) #14
   br label %if.end27
@@ -1899,7 +1870,7 @@ if.end27:                                         ; preds = %if.else23, %if.then
 
 if.then29:                                        ; preds = %if.end27
   %18 = load ptr, ptr %dest, align 8
-  %dirty_bitmap_mutex.i27 = getelementptr inbounds %struct.BlockDriverState, ptr %18, i64 0, i32 39
+  %dirty_bitmap_mutex.i27 = getelementptr inbounds i8, ptr %18, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i27, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   %19 = load ptr, ptr %src, align 8
   %20 = load ptr, ptr %dest, align 8
@@ -1907,7 +1878,7 @@ if.then29:                                        ; preds = %if.end27
   br i1 %cmp33.not, label %if.end37, label %if.then34
 
 if.then34:                                        ; preds = %if.then29
-  %dirty_bitmap_mutex.i28 = getelementptr inbounds %struct.BlockDriverState, ptr %19, i64 0, i32 39
+  %dirty_bitmap_mutex.i28 = getelementptr inbounds i8, ptr %19, i64 16904
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %dirty_bitmap_mutex.i28, ptr noundef nonnull @.str.1, i32 noundef 71) #14
   br label %if.end37
 

@@ -3,27 +3,21 @@ source_filename = "bench/abseil-cpp/original/cord_rep_consume.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.absl::cord_internal::CordRep" = type { i64, %"class.absl::cord_internal::RefcountAndFlags", i8, [3 x i8] }
-%"class.absl::cord_internal::RefcountAndFlags" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.absl::cord_internal::CordRepSubstring" = type { %"struct.absl::cord_internal::CordRep", i64, ptr }
-
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl13cord_internal7ConsumeEPNS0_7CordRepENS_11FunctionRefIFvS2_mmEEE(ptr noundef %rep, ptr %consume_fn.coerce0, ptr nocapture readonly %consume_fn.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %rep, align 8
-  %tag = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %rep, i64 0, i32 2
+  %tag = getelementptr inbounds i8, ptr %rep, i64 12
   %1 = load i8, ptr %tag, align 4
   %cmp = icmp eq i8 %1, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %start = getelementptr inbounds %"struct.absl::cord_internal::CordRepSubstring", ptr %rep, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %rep, i64 16
   %2 = load i64, ptr %start, align 8
-  %child1.i = getelementptr inbounds %"struct.absl::cord_internal::CordRepSubstring", ptr %rep, i64 0, i32 2
+  %child1.i = getelementptr inbounds i8, ptr %rep, i64 24
   %3 = load ptr, ptr %child1.i, align 8
-  %refcount.i = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %rep, i64 0, i32 1
+  %refcount.i = getelementptr inbounds i8, ptr %rep, i64 8
   %4 = load atomic i32, ptr %refcount.i acquire, align 4
   %cmp.i.i = icmp eq i32 %4, 2
   br i1 %cmp.i.i, label %delete.notnull.i, label %if.else.i
@@ -35,7 +29,7 @@ delete.notnull.i:                                 ; preds = %if.then
 if.else.i:                                        ; preds = %if.then
   %cmp.i5.i = icmp ne ptr %3, null
   tail call void @llvm.assume(i1 %cmp.i5.i)
-  %refcount.i.i = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %3, i64 0, i32 1
+  %refcount.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = atomicrmw add ptr %refcount.i.i, i32 2 monotonic, align 4
   %6 = atomicrmw sub ptr %refcount.i, i32 2 acq_rel, align 4
   %cmp.i.not.i.i = icmp eq i32 %6, 2
@@ -56,17 +50,17 @@ if.end:                                           ; preds = %if.then.i.i, %if.el
 define dso_local void @_ZN4absl13cord_internal14ReverseConsumeEPNS0_7CordRepENS_11FunctionRefIFvS2_mmEEE(ptr noundef %rep, ptr %consume_fn.coerce0, ptr nocapture readonly %consume_fn.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %rep, align 8
-  %tag.i = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %rep, i64 0, i32 2
+  %tag.i = getelementptr inbounds i8, ptr %rep, i64 12
   %1 = load i8, ptr %tag.i, align 4
   %cmp.i = icmp eq i8 %1, 1
   br i1 %cmp.i, label %if.then.i, label %_ZN4absl13cord_internal7ConsumeEPNS0_7CordRepENS_11FunctionRefIFvS2_mmEEE.exit
 
 if.then.i:                                        ; preds = %entry
-  %start.i = getelementptr inbounds %"struct.absl::cord_internal::CordRepSubstring", ptr %rep, i64 0, i32 1
+  %start.i = getelementptr inbounds i8, ptr %rep, i64 16
   %2 = load i64, ptr %start.i, align 8
-  %child1.i.i = getelementptr inbounds %"struct.absl::cord_internal::CordRepSubstring", ptr %rep, i64 0, i32 2
+  %child1.i.i = getelementptr inbounds i8, ptr %rep, i64 24
   %3 = load ptr, ptr %child1.i.i, align 8
-  %refcount.i.i = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %rep, i64 0, i32 1
+  %refcount.i.i = getelementptr inbounds i8, ptr %rep, i64 8
   %4 = load atomic i32, ptr %refcount.i.i acquire, align 4
   %cmp.i.i.i = icmp eq i32 %4, 2
   br i1 %cmp.i.i.i, label %delete.notnull.i.i, label %if.else.i.i
@@ -78,7 +72,7 @@ delete.notnull.i.i:                               ; preds = %if.then.i
 if.else.i.i:                                      ; preds = %if.then.i
   %cmp.i5.i.i = icmp ne ptr %3, null
   tail call void @llvm.assume(i1 %cmp.i5.i.i)
-  %refcount.i.i.i = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %3, i64 0, i32 1
+  %refcount.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = atomicrmw add ptr %refcount.i.i.i, i32 2 monotonic, align 4
   %6 = atomicrmw sub ptr %refcount.i.i, i32 2 acq_rel, align 4
   %cmp.i.not.i.i.i = icmp eq i32 %6, 2

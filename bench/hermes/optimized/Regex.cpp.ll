@@ -3,8 +3,6 @@ source_filename = "bench/hermes/original/Regex.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.llvh::Regex" = type <{ ptr, i32, [4 x i8] }>
-%struct.llvm_regex = type { i32, i64, ptr, ptr }
 %"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
 %"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
 %"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
@@ -46,7 +44,7 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 define hidden void @_ZN4llvh5RegexC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %error = getelementptr inbounds %"class.llvh::Regex", ptr %this, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %this, i64 8
   store i32 2, ptr %error, align 8
   ret void
 }
@@ -58,7 +56,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call, i8 0, i64 32, i1 false)
   store ptr %call, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %regex.coerce0, i64 %regex.coerce1
-  %re_endp = getelementptr inbounds %struct.llvm_regex, ptr %call, i64 0, i32 2
+  %re_endp = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %add.ptr.i, ptr %re_endp, align 8
   %and = shl i32 %Flags, 1
   %spec.select = and i32 %and, 2
@@ -70,7 +68,7 @@ entry:
   %2 = or disjoint i32 %flags.1, %1
   %or16 = xor i32 %2, 33
   %call17 = tail call i32 @llvh_regcomp(ptr noundef nonnull %call, ptr noundef %regex.coerce0, i32 noundef %or16) #14
-  %error = getelementptr inbounds %"class.llvh::Regex", ptr %this, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %call17, ptr %error, align 8
   ret void
 }
@@ -88,9 +86,9 @@ define hidden void @_ZN4llvh5RegexC2EOS0_(ptr nocapture noundef nonnull writeonl
 entry:
   %0 = load ptr, ptr %regex, align 8
   store ptr %0, ptr %this, align 8
-  %error = getelementptr inbounds %"class.llvh::Regex", ptr %regex, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %regex, i64 8
   %1 = load i32, ptr %error, align 8
-  %error3 = getelementptr inbounds %"class.llvh::Regex", ptr %this, i64 0, i32 1
+  %error3 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %1, ptr %error3, align 8
   store ptr null, ptr %regex, align 8
   store i32 2, ptr %error, align 8
@@ -126,7 +124,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh5Regex7isValidERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(32) %Error) local_unnamed_addr #1 align 2 {
 entry:
-  %error = getelementptr inbounds %"class.llvh::Regex", ptr %this, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -156,7 +154,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 define hidden noundef i32 @_ZNK4llvh5Regex13getNumMatchesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %re_nsub = getelementptr inbounds %struct.llvm_regex, ptr %0, i64 0, i32 1
+  %re_nsub = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %re_nsub, align 8
   %conv = trunc i64 %1 to i32
   ret i32 %conv
@@ -166,7 +164,7 @@ entry:
 define hidden noundef zeroext i1 @_ZN4llvh5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EE(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, ptr %String.coerce0, i64 %String.coerce1, ptr noundef %Matches) local_unnamed_addr #1 align 2 {
 entry:
   %pm = alloca %"class.llvh::SmallVector", align 8
-  %error = getelementptr inbounds %"class.llvh::Regex", ptr %this, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -178,23 +176,23 @@ if.end:                                           ; preds = %entry
 if.then6.i.thread:                                ; preds = %if.end
   %add.ptr.i.i.i.i.i43 = getelementptr inbounds i8, ptr %pm, i64 16
   store ptr %add.ptr.i.i.i.i.i43, ptr %pm, align 8
-  %Size.i.i.i.i.i44 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %pm, i64 0, i32 1
+  %Size.i.i.i.i.i44 = getelementptr inbounds i8, ptr %pm, i64 8
   store i32 0, ptr %Size.i.i.i.i.i44, align 8
-  %Capacity2.i.i.i.i.i45 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %pm, i64 0, i32 2
+  %Capacity2.i.i.i.i.i45 = getelementptr inbounds i8, ptr %pm, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i45, align 4
   br label %for.body.preheader.i
 
 if.then6.i:                                       ; preds = %if.end
   %1 = load ptr, ptr %this, align 8
-  %re_nsub = getelementptr inbounds %struct.llvm_regex, ptr %1, i64 0, i32 1
+  %re_nsub = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %re_nsub, align 8
   %3 = trunc i64 %2 to i32
   %4 = add i32 %3, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %pm, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %pm, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %pm, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %pm, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %pm, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %pm, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i, align 4
   %cond6 = call i32 @llvm.umax.i32(i32 %4, i32 1)
   %conv7 = zext i32 %cond6 to i64
@@ -235,7 +233,7 @@ _ZN4llvh15SmallVectorImplI15llvm_regmatch_tE6resizeEm.exit: ; preds = %if.end.i,
   %8 = load ptr, ptr %pm, align 8
   store i64 0, ptr %8, align 8
   %9 = load ptr, ptr %pm, align 8
-  %rm_eo = getelementptr inbounds %struct.llvm_regmatch_t, ptr %9, i64 0, i32 1
+  %rm_eo = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %String.coerce1, ptr %rm_eo, align 8
   %10 = load ptr, ptr %this, align 8
   %conv12 = zext i32 %cond49 to i64
@@ -253,13 +251,13 @@ if.end21:                                         ; preds = %_ZN4llvh15SmallVect
   br i1 %tobool2.not, label %cleanup, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  %Size.i.i16 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Matches, i64 0, i32 1
+  %Size.i.i16 = getelementptr inbounds i8, ptr %Matches, i64 8
   store i32 0, ptr %Size.i.i16, align 8
   %cmp24.not38 = icmp eq i32 %cond49, 0
   br i1 %cmp24.not38, label %cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then23
-  %Capacity.i.i24 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Matches, i64 0, i32 2
+  %Capacity.i.i24 = getelementptr inbounds i8, ptr %Matches, i64 12
   %add.ptr.i.i.i.i27 = getelementptr inbounds i8, ptr %Matches, i64 16
   br label %for.body
 
@@ -292,7 +290,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit: ; pr
 
 if.end30:                                         ; preds = %for.body
   %add.ptr = getelementptr inbounds i8, ptr %String.coerce0, i64 %13
-  %rm_eo38 = getelementptr inbounds %struct.llvm_regmatch_t, ptr %12, i64 %indvars.iv, i32 1
+  %rm_eo38 = getelementptr inbounds i8, ptr %arrayidx.i61, i64 8
   %17 = load i64, ptr %rm_eo38, align 8
   %sub = sub nsw i64 %17, %13
   %18 = load i32, ptr %Capacity.i.i24, align 4
@@ -353,13 +351,13 @@ entry:
   %ref.tmp60 = alloca %"class.llvh::Twine", align 8
   %ref.tmp61 = alloca %"class.llvh::Twine", align 8
   store ptr %Repl.coerce0, ptr %Repl, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %Repl, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %Repl, i64 8
   store i64 %Repl.coerce1, ptr %0, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %Matches, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %Matches, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Matches, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %Matches, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Matches, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %Matches, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i, align 4
   %tobool = icmp ne ptr %Error, null
   br i1 %tobool, label %land.lhs.true, label %if.end
@@ -401,7 +399,7 @@ if.end5:                                          ; preds = %if.end
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %String.coerce0, ptr noundef %2)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
@@ -409,13 +407,13 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp.i107.not149, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end5
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %Ref, i64 0, i32 1
-  %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp61, i64 0, i32 1
-  %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp61, i64 0, i32 2
-  %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp61, i64 0, i32 3
-  %LHSKind.i.i.i95 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp60, i64 0, i32 2
-  %RHSKind.i.i.i96 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp60, i64 0, i32 3
-  %RHS4.i.i.i89 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp60, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %Ref, i64 8
+  %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp61, i64 8
+  %LHSKind5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp61, i64 16
+  %RHSKind6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp61, i64 17
+  %LHSKind.i.i.i95 = getelementptr inbounds i8, ptr %ref.tmp60, i64 16
+  %RHSKind.i.i.i96 = getelementptr inbounds i8, ptr %ref.tmp60, i64 17
+  %RHS4.i.i.i89 = getelementptr inbounds i8, ptr %ref.tmp60, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
@@ -588,7 +586,7 @@ sw.epilog:                                        ; preds = %sw.epilogthread-pre
 while.end:                                        ; preds = %sw.epilog, %if.end5, %if.then13, %land.lhs.true19, %if.then21
   %22 = load ptr, ptr %Matches, align 8
   %23 = load ptr, ptr %22, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %22, i64 0, i32 1
+  %Length.i = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i64, ptr %Length.i, align 8
   %add.ptr.i98 = getelementptr inbounds i8, ptr %23, i64 %24
   %add.ptr.i100 = getelementptr inbounds i8, ptr %String.coerce0, i64 %String.coerce1
@@ -639,7 +637,7 @@ define hidden noundef zeroext i1 @_ZN4llvh5Regex12isLiteralEREENS_9StringRefE(pt
 entry:
   %Str = alloca %"class.llvh::StringRef", align 8
   store ptr %Str.coerce0, ptr %Str, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %Str, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %Str, i64 8
   store i64 %Str.coerce1, ptr %0, align 8
   %call = call noundef i64 @_ZNK4llvh9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %Str, ptr nonnull @_ZL14RegexMetachars, i64 14, i64 noundef 0) #14
   %cmp = icmp eq i64 %call, -1

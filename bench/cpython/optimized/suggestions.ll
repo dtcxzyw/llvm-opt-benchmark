@@ -864,10 +864,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.768 = type { i32 }
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
-%struct.PyListObject = type { %struct.PyVarObject, ptr, i64 }
-%struct._traceback = type { %struct._object, ptr, ptr, i32, i32 }
-%struct._frame = type { %struct._object, ptr, ptr, ptr, i32, i8, i8, i8, [1 x ptr] }
-%struct._PyInterpreterFrame = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i8, [1 x ptr] }
 
 @PyExc_AttributeError = external local_unnamed_addr global ptr, align 8
 @PyExc_NameError = external local_unnamed_addr global ptr, align 8
@@ -1191,7 +1187,7 @@ for.end.thread:                                   ; preds = %for.cond.preheader
   br label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %dir, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %dir, i64 24
   br label %for.body
 
 if.then7:                                         ; preds = %if.end4
@@ -1565,7 +1561,7 @@ lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
 
 while.body.i:                                     ; preds = %lor.lhs.false5.i, %lor.lhs.false9.i
   %traceback.0.i = phi ptr [ %14, %lor.lhs.false9.i ], [ %exception.val10, %lor.lhs.false5.i ]
-  %tb_next.i = getelementptr inbounds %struct._traceback, ptr %traceback.0.i, i64 0, i32 1
+  %tb_next.i = getelementptr inbounds i8, ptr %traceback.0.i, i64 16
   %14 = load ptr, ptr %tb_next.i, align 8
   %cmp8.i = icmp eq ptr %14, null
   br i1 %cmp8.i, label %while.end.i, label %lor.lhs.false9.i
@@ -1577,7 +1573,7 @@ lor.lhs.false9.i:                                 ; preds = %while.body.i
   br i1 %cmp.i23.not.i, label %while.body.i, label %while.end.i
 
 while.end.i:                                      ; preds = %lor.lhs.false9.i, %while.body.i
-  %tb_frame.i = getelementptr inbounds %struct._traceback, ptr %traceback.0.i, i64 0, i32 2
+  %tb_frame.i = getelementptr inbounds i8, ptr %traceback.0.i, i64 24
   %16 = load ptr, ptr %tb_frame.i, align 8
   %call.i.i = tail call ptr @PyFrame_GetCode(ptr noundef %16) #5
   %call1.i.i = tail call ptr @_PyCode_GetVarnames(ptr noundef %call.i.i) #5
@@ -1728,9 +1724,9 @@ lor.lhs.false.i.i:                                ; preds = %Py_DECREF.exit77.i.
   br i1 %tobool31.not.i.i, label %if.end33.i.i, label %land.lhs.true.i
 
 if.end33.i.i:                                     ; preds = %lor.lhs.false.i.i
-  %f_frame.i.i = getelementptr inbounds %struct._frame, ptr %16, i64 0, i32 2
+  %f_frame.i.i = getelementptr inbounds i8, ptr %16, i64 24
   %29 = load ptr, ptr %f_frame.i.i, align 8
-  %f_globals.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %29, i64 0, i32 3
+  %f_globals.i.i = getelementptr inbounds i8, ptr %29, i64 24
   %30 = load ptr, ptr %f_globals.i.i, align 8
   %call34.i.i = tail call ptr @PySequence_List(ptr noundef %30) #5
   %cmp35.i.i = icmp eq ptr %call34.i.i, null
@@ -1764,7 +1760,7 @@ lor.lhs.false40.i.i:                              ; preds = %Py_DECREF.exit68.i.
 
 if.end44.i.i:                                     ; preds = %lor.lhs.false40.i.i
   %33 = load ptr, ptr %f_frame.i.i, align 8
-  %f_builtins.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %33, i64 0, i32 4
+  %f_builtins.i.i = getelementptr inbounds i8, ptr %33, i64 32
   %34 = load ptr, ptr %f_builtins.i.i, align 8
   %call46.i.i = tail call ptr @PySequence_List(ptr noundef %34) #5
   %cmp47.i.i = icmp eq ptr %call46.i.i, null

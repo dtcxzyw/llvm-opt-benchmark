@@ -7,38 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.6 = type { i32, i32, i8, ptr }
 %struct.anon.7 = type { i32, i32, i8 }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.SHPCDevice = type { i32, i32, ptr, ptr, ptr, ptr, %struct.MemoryRegion, ptr, i32 }
-%struct.PCIBus = type { %struct.BusState, i32, ptr, ptr, i8, i32, ptr, ptr, ptr, ptr, [256 x ptr], ptr, ptr, ptr, %struct.anon, %struct.anon.4, i32, ptr, %struct.Notifier }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.Notifier = type { ptr, %struct.anon.5 }
-%struct.anon.5 = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [22 x i8] c"../qemu/hw/pci/shpc.c\00", align 1
 @__func__.shpc_device_unplug_request_cb = private unnamed_addr constant [30 x i8] c"shpc_device_unplug_request_cb\00", align 1
@@ -67,11 +35,11 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @shpc_reset(ptr noundef %d) local_unnamed_addr #0 {
 entry:
-  %shpc1 = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 37
+  %shpc1 = getelementptr inbounds i8, ptr %d, i64 2248
   %0 = load ptr, ptr %shpc1, align 8
-  %nslots2 = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 1
+  %nslots2 = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %nslots2, align 4
-  %config = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 2
+  %config = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %config, align 8
   %mul = shl i32 %1, 2
   %add = add i32 %mul, 36
@@ -107,7 +75,7 @@ entry:
   br i1 %cmp110, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %sec_bus = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 7
+  %sec_bus = getelementptr inbounds i8, ptr %0, i64 320
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -120,10 +88,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %add.ptr27 = getelementptr i8, ptr %12, i64 %idx.ext
   store i8 127, ptr %add.ptr27, align 1
   %14 = load ptr, ptr %sec_bus, align 16
+  %devices = getelementptr inbounds i8, ptr %14, i64 184
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %and = shl i64 %indvars.iv.next, 3
   %shl = and i64 %and, 248
-  %arrayidx = getelementptr %struct.PCIBus, ptr %14, i64 0, i32 10, i64 %shl
+  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %shl
   %15 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %15, null
   %.val44 = load ptr, ptr %config, align 8
@@ -197,7 +166,7 @@ for.end:                                          ; preds = %if.end, %entry
   %19 = load i8, ptr %arrayidx.i, align 1
   %20 = and i8 %19, -8
   store i8 %20, ptr %arrayidx.i, align 1
-  %msi_requested = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 8
+  %msi_requested = getelementptr inbounds i8, ptr %0, i64 328
   store i32 0, ptr %msi_requested, align 8
   tail call fastcc void @shpc_interrupt_update(ptr noundef %d)
   ret void
@@ -209,12 +178,12 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @shpc_interrupt_update(ptr noundef %d) unnamed_addr #0 {
 entry:
-  %shpc1 = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 37
+  %shpc1 = getelementptr inbounds i8, ptr %d, i64 2248
   %0 = load ptr, ptr %shpc1, align 8
-  %nslots = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 1
+  %nslots = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %nslots, align 4
   %cmp21 = icmp sgt i32 %1, 0
-  %config = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 2
+  %config = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %config, align 8
   br i1 %cmp21, label %for.body.lr.ph, label %for.end
 
@@ -266,7 +235,7 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %call24, label %land.lhs.true26, label %if.else
 
 land.lhs.true26:                                  ; preds = %for.end
-  %msi_requested = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 8
+  %msi_requested = getelementptr inbounds i8, ptr %0, i64 328
   %8 = load i32, ptr %msi_requested, align 8
   %cmp27.not = icmp eq i32 %8, %cond
   br i1 %cmp27.not, label %if.else, label %if.then29
@@ -280,7 +249,7 @@ if.else:                                          ; preds = %land.lhs.true26, %f
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else, %if.then29
-  %msi_requested31 = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 8
+  %msi_requested31 = getelementptr inbounds i8, ptr %0, i64 328
   store i32 %cond, ptr %msi_requested31, align 8
   ret void
 }
@@ -289,7 +258,7 @@ if.end30:                                         ; preds = %if.else, %if.then29
 define dso_local void @shpc_device_plug_cb(ptr noundef %hotplug_dev, ptr noundef %dev, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hotplug_dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #10
-  %shpc1 = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 37
+  %shpc1 = getelementptr inbounds i8, ptr %call.i, i64 2248
   %0 = load ptr, ptr %shpc1, align 8
   %call.i16 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #10
   %1 = getelementptr i8, ptr %call.i16, i64 208
@@ -297,7 +266,7 @@ entry:
   %shr.i = lshr i32 %call2.val, 3
   %and.i = and i32 %shr.i, 31
   %cmp.i = icmp ne i32 %and.i, 0
-  %nslots2.phi.trans.insert.i = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 1
+  %nslots2.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %nslots2.phi.trans.insert.i, align 4
   %cmp1.not.not.i = icmp sle i32 %and.i, %.pre.i
   %or.cond.not.i = select i1 %cmp.i, i1 %cmp1.not.not.i, i1 false
@@ -308,7 +277,7 @@ shpc_device_get_slot.exit:                        ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %hotplugged = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 7
+  %hotplugged = getelementptr inbounds i8, ptr %dev, i64 80
   %2 = load i32, ptr %hotplugged, align 8
   %tobool.not = icmp eq i32 %2, 0
   %3 = getelementptr i8, ptr %0, i64 8
@@ -380,7 +349,7 @@ declare void @qdev_unrealize(ptr noundef) local_unnamed_addr #2
 define dso_local void @shpc_device_unplug_request_cb(ptr noundef %hotplug_dev, ptr noundef %dev, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hotplug_dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #10
-  %shpc1 = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 37
+  %shpc1 = getelementptr inbounds i8, ptr %call.i, i64 2248
   %0 = load ptr, ptr %shpc1, align 8
   %call.i16 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #10
   %1 = getelementptr i8, ptr %call.i16, i64 208
@@ -389,7 +358,7 @@ entry:
   %and.i = and i32 %shr.i, 31
   %sub.i = add nsw i32 %and.i, -1
   %cmp.i = icmp ne i32 %and.i, 0
-  %nslots2.phi.trans.insert.i = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 1
+  %nslots2.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %nslots2.phi.trans.insert.i, align 4
   %cmp1.not.not.i = icmp sle i32 %and.i, %.pre.i
   %or.cond.not.i = select i1 %cmp.i, i1 %cmp1.not.not.i, i1 false
@@ -428,7 +397,7 @@ if.then15:                                        ; preds = %if.end8
   %add.i28 = shl nuw nsw i32 %sub.i, 3
   %and.i29 = add nuw nsw i32 %add.i28, 8
   %shl.i = and i32 %and.i29, 248
-  %sec_bus.i = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 7
+  %sec_bus.i = getelementptr inbounds i8, ptr %0, i64 320
   %5 = zext nneg i32 %shl.i to i64
   %6 = add nuw nsw i32 %shl.i, 8
   %wide.trip.count.i = zext nneg i32 %6 to i64
@@ -437,7 +406,8 @@ if.then15:                                        ; preds = %if.end8
 for.body.i:                                       ; preds = %for.inc.i, %if.then15
   %indvars.iv.i = phi i64 [ %5, %if.then15 ], [ %indvars.iv.next.i, %for.inc.i ]
   %7 = load ptr, ptr %sec_bus.i, align 16
-  %arrayidx.i = getelementptr %struct.PCIBus, ptr %7, i64 0, i32 10, i64 %indvars.iv.i
+  %devices.i = getelementptr inbounds i8, ptr %7, i64 184
+  %arrayidx.i = getelementptr [256 x ptr], ptr %devices.i, i64 0, i64 %indvars.iv.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i30
@@ -497,9 +467,9 @@ define dso_local i32 @shpc_init(ptr noundef %d, ptr noundef %sec_bus, ptr nounde
 entry:
   %val.i.i = alloca i64, align 8
   %call = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0(i64 noundef 336) #11
-  %shpc1 = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 37
+  %shpc1 = getelementptr inbounds i8, ptr %d, i64 2248
   store ptr %call, ptr %shpc1, align 8
-  %sec_bus2 = getelementptr inbounds %struct.SHPCDevice, ptr %call, i64 0, i32 7
+  %sec_bus2 = getelementptr inbounds i8, ptr %call, i64 320
   store ptr %sec_bus, ptr %sec_bus2, align 16
   %call.i = tail call i32 @pci_add_capability(ptr noundef %d, i8 noundef zeroext 12, i8 noundef zeroext 0, i8 noundef zeroext 8, ptr noundef %errp) #10
   %cmp.i = icmp slt i32 %call.i, 0
@@ -511,7 +481,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end10:                                         ; preds = %entry
-  %config1.i = getelementptr %struct.PCIDevice, ptr %d, i64 0, i32 3
+  %config1.i = getelementptr i8, ptr %d, i64 168
   %1 = load ptr, ptr %config1.i, align 8
   %idx.ext.i = zext nneg i32 %call.i to i64
   %add.ptr.i = getelementptr i8, ptr %1, i64 %idx.ext.i
@@ -523,7 +493,7 @@ if.end10:                                         ; preds = %entry
   store i32 0, ptr %add.ptr4.i, align 1
   %2 = load ptr, ptr %shpc1, align 8
   store i32 %call.i, ptr %2, align 16
-  %wmask.i = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 5
+  %wmask.i = getelementptr inbounds i8, ptr %d, i64 184
   %3 = load ptr, ptr %wmask.i, align 8
   %add.ptr6.i = getelementptr i8, ptr %3, i64 %idx.ext.i
   %add.ptr7.i = getelementptr i8, ptr %add.ptr6.i, i64 2
@@ -532,43 +502,43 @@ if.end10:                                         ; preds = %entry
   %add.ptr10.i = getelementptr i8, ptr %4, i64 %idx.ext.i
   %add.ptr11.i = getelementptr i8, ptr %add.ptr10.i, i64 4
   store i32 -1, ptr %add.ptr11.i, align 1
-  %nslots11 = getelementptr inbounds %struct.SHPCDevice, ptr %call, i64 0, i32 1
+  %nslots11 = getelementptr inbounds i8, ptr %call, i64 4
   store i32 31, ptr %nslots11, align 4
   %5 = load ptr, ptr %shpc1, align 8
-  %nslots13 = getelementptr inbounds %struct.SHPCDevice, ptr %5, i64 0, i32 1
+  %nslots13 = getelementptr inbounds i8, ptr %5, i64 4
   %6 = load i32, ptr %nslots13, align 4
   %mul = shl i32 %6, 2
   %add14 = add i32 %mul, 36
   %conv = sext i32 %add14 to i64
   %call15 = tail call noalias ptr @g_malloc0(i64 noundef %conv) #11
-  %config = getelementptr inbounds %struct.SHPCDevice, ptr %call, i64 0, i32 2
+  %config = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call15, ptr %config, align 8
   %7 = load ptr, ptr %shpc1, align 8
-  %nslots17 = getelementptr inbounds %struct.SHPCDevice, ptr %7, i64 0, i32 1
+  %nslots17 = getelementptr inbounds i8, ptr %7, i64 4
   %8 = load i32, ptr %nslots17, align 4
   %mul18 = shl i32 %8, 2
   %add19 = add i32 %mul18, 36
   %conv20 = sext i32 %add19 to i64
   %call21 = tail call noalias ptr @g_malloc0(i64 noundef %conv20) #11
-  %cmask = getelementptr inbounds %struct.SHPCDevice, ptr %call, i64 0, i32 3
+  %cmask = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call21, ptr %cmask, align 16
   %9 = load ptr, ptr %shpc1, align 8
-  %nslots23 = getelementptr inbounds %struct.SHPCDevice, ptr %9, i64 0, i32 1
+  %nslots23 = getelementptr inbounds i8, ptr %9, i64 4
   %10 = load i32, ptr %nslots23, align 4
   %mul24 = shl i32 %10, 2
   %add25 = add i32 %mul24, 36
   %conv26 = sext i32 %add25 to i64
   %call27 = tail call noalias ptr @g_malloc0(i64 noundef %conv26) #11
-  %wmask = getelementptr inbounds %struct.SHPCDevice, ptr %call, i64 0, i32 4
+  %wmask = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call27, ptr %wmask, align 8
   %11 = load ptr, ptr %shpc1, align 8
-  %nslots29 = getelementptr inbounds %struct.SHPCDevice, ptr %11, i64 0, i32 1
+  %nslots29 = getelementptr inbounds i8, ptr %11, i64 4
   %12 = load i32, ptr %nslots29, align 4
   %mul30 = shl i32 %12, 2
   %add31 = add i32 %mul30, 36
   %conv32 = sext i32 %add31 to i64
   %call33 = tail call noalias ptr @g_malloc0(i64 noundef %conv32) #11
-  %w1cmask = getelementptr inbounds %struct.SHPCDevice, ptr %call, i64 0, i32 5
+  %w1cmask = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call33, ptr %w1cmask, align 16
   tail call void @shpc_reset(ptr noundef nonnull %d)
   %13 = load ptr, ptr %config, align 8
@@ -606,9 +576,9 @@ for.body:                                         ; preds = %if.end10, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body
-  %mmio = getelementptr inbounds %struct.SHPCDevice, ptr %call, i64 0, i32 6
+  %mmio = getelementptr inbounds i8, ptr %call, i64 48
   %24 = load ptr, ptr %shpc1, align 8
-  %nslots59 = getelementptr inbounds %struct.SHPCDevice, ptr %24, i64 0, i32 1
+  %nslots59 = getelementptr inbounds i8, ptr %24, i64 4
   %25 = load i32, ptr %nslots59, align 4
   %mul60 = shl i32 %25, 2
   %add61 = add i32 %mul60, 36
@@ -625,7 +595,7 @@ for.end:                                          ; preds = %for.body
   %mul.i = shl nuw nsw i32 %conv.i, 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i)
   store i64 0, ptr %val.i.i, align 8
-  %nslots.i.i = getelementptr inbounds %struct.SHPCDevice, ptr %d.val39, i64 0, i32 1
+  %nslots.i.i = getelementptr inbounds i8, ptr %d.val39, i64 4
   %26 = load i32, ptr %nslots.i.i, align 4
   %mul.i.i = shl i32 %26, 2
   %add.i.i = add i32 %mul.i.i, 36
@@ -635,7 +605,7 @@ for.end:                                          ; preds = %for.body
 if.end.i.i:                                       ; preds = %for.end
   %sub.i.i = sub i32 %add.i.i, %mul.i
   %cond.i.i = tail call i32 @llvm.umin.i32(i32 %sub.i.i, i32 4)
-  %config.i.i = getelementptr inbounds %struct.SHPCDevice, ptr %d.val39, i64 0, i32 2
+  %config.i.i = getelementptr inbounds i8, ptr %d.val39, i64 8
   %27 = load ptr, ptr %config.i.i, align 8
   %idx.ext.i6.i = zext nneg i32 %mul.i to i64
   %add.ptr.i7.i = getelementptr i8, ptr %27, i64 %idx.ext.i6.i
@@ -654,7 +624,7 @@ shpc_cap_update_dword.exit:                       ; preds = %for.end, %if.end.i.
   tail call void @memory_region_add_subregion(ptr noundef %bar, i64 noundef %conv63, ptr noundef nonnull %mmio) #10
   %call.i41 = tail call ptr @object_dynamic_cast_assert(ptr noundef %sec_bus, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.9, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #10
   tail call void @qbus_set_hotplug_handler(ptr noundef %call.i41, ptr noundef nonnull %d) #10
-  %cap_present = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 20
+  %cap_present = getelementptr inbounds i8, ptr %d, i64 1260
   %29 = load i32, ptr %cap_present, align 4
   %or = or i32 %29, 32
   store i32 %or, ptr %cap_present, align 4
@@ -685,13 +655,13 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @shpc_cleanup(ptr nocapture noundef %d, ptr noundef %bar) local_unnamed_addr #0 {
 entry:
-  %shpc1 = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 37
+  %shpc1 = getelementptr inbounds i8, ptr %d, i64 2248
   %0 = load ptr, ptr %shpc1, align 8
-  %cap_present = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 20
+  %cap_present = getelementptr inbounds i8, ptr %d, i64 1260
   %1 = load i32, ptr %cap_present, align 4
   %and = and i32 %1, -33
   store i32 %and, ptr %cap_present, align 4
-  %mmio = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 6
+  %mmio = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @memory_region_del_subregion(ptr noundef %bar, ptr noundef nonnull %mmio) #10
   ret void
 }
@@ -701,24 +671,24 @@ declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @shpc_free(ptr nocapture noundef %d) local_unnamed_addr #0 {
 entry:
-  %shpc1 = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 37
+  %shpc1 = getelementptr inbounds i8, ptr %d, i64 2248
   %0 = load ptr, ptr %shpc1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mmio = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 6
+  %mmio = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @object_unparent(ptr noundef nonnull %mmio) #10
-  %config = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 2
+  %config = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %config, align 8
   tail call void @g_free(ptr noundef %1) #10
-  %cmask = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 3
+  %cmask = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %cmask, align 16
   tail call void @g_free(ptr noundef %2) #10
-  %wmask = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 4
+  %wmask = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %wmask, align 8
   tail call void @g_free(ptr noundef %3) #10
-  %w1cmask = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 5
+  %w1cmask = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %w1cmask, align 16
   tail call void @g_free(ptr noundef %4) #10
   tail call void @g_free(ptr noundef nonnull %0) #10
@@ -737,7 +707,7 @@ entry:
   %val.i.i = alloca i64, align 8
   %conv = zext i32 %addr to i64
   %conv1 = sext i32 %l to i64
-  %shpc = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 37
+  %shpc = getelementptr inbounds i8, ptr %d, i64 2248
   %0 = load ptr, ptr %shpc, align 8
   %1 = load i32, ptr %0, align 16
   %conv2 = sext i32 %1 to i64
@@ -759,7 +729,7 @@ if.end:                                           ; preds = %entry
   br i1 %.not.i18.not, label %if.end19, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %config = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 2
+  %config = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %2, i64 %conv2
   %add.ptr14 = getelementptr i8, ptr %add.ptr, i64 4
@@ -790,7 +760,7 @@ if.end19:                                         ; preds = %if.then10, %if.end
   %mul.i = shl nuw nsw i32 %conv.i, 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i)
   store i64 0, ptr %val.i.i, align 8
-  %nslots.i.i = getelementptr inbounds %struct.SHPCDevice, ptr %d.val11, i64 0, i32 1
+  %nslots.i.i = getelementptr inbounds i8, ptr %d.val11, i64 4
   %5 = load i32, ptr %nslots.i.i, align 4
   %mul.i.i = shl i32 %5, 2
   %add.i.i20 = add i32 %mul.i.i, 36
@@ -800,7 +770,7 @@ if.end19:                                         ; preds = %if.then10, %if.end
 if.end.i.i:                                       ; preds = %if.end19
   %sub.i.i21 = sub i32 %add.i.i20, %mul.i
   %cond.i.i = tail call i32 @llvm.umin.i32(i32 %sub.i.i21, i32 4)
-  %config.i.i = getelementptr inbounds %struct.SHPCDevice, ptr %d.val11, i64 0, i32 2
+  %config.i.i = getelementptr inbounds i8, ptr %d.val11, i64 8
   %6 = load ptr, ptr %config.i.i, align 8
   %idx.ext.i6.i = zext nneg i32 %mul.i to i64
   %add.ptr.i7.i = getelementptr i8, ptr %6, i64 %idx.ext.i6.i
@@ -824,9 +794,9 @@ return:                                           ; preds = %entry, %shpc_cap_up
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @shpc_write(ptr noundef %d, i32 noundef %addr, i64 noundef %val, i32 noundef %l) unnamed_addr #0 {
 entry:
-  %shpc1 = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 37
+  %shpc1 = getelementptr inbounds i8, ptr %d, i64 2248
   %0 = load ptr, ptr %shpc1, align 8
-  %nslots = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 1
+  %nslots = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %nslots, align 4
   %mul = shl i32 %1, 2
   %add = add i32 %mul, 36
@@ -840,9 +810,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp831, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %wmask10 = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 4
-  %w1cmask11 = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 5
-  %config = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 2
+  %wmask10 = getelementptr inbounds i8, ptr %0, i64 24
+  %w1cmask11 = getelementptr inbounds i8, ptr %0, i64 32
+  %config = getelementptr inbounds i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %cond to i64
   br label %for.body
 
@@ -903,7 +873,7 @@ for.end:                                          ; preds = %if.end16, %if.end
 
 if.then41:                                        ; preds = %for.end
   %14 = load ptr, ptr %shpc1, align 8
-  %config.i = getelementptr inbounds %struct.SHPCDevice, ptr %14, i64 0, i32 2
+  %config.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %config.i, align 8
   %add.ptr.i = getelementptr i8, ptr %15, i64 20
   %add.ptr.val.i = load i8, ptr %add.ptr.i, align 1
@@ -989,7 +959,7 @@ if.then41:                                        ; preds = %for.end
   ]
 
 for.cond47.preheader.i:                           ; preds = %if.then41
-  %nslots48.i = getelementptr inbounds %struct.SHPCDevice, ptr %14, i64 0, i32 1
+  %nslots48.i = getelementptr inbounds i8, ptr %14, i64 4
   %16 = load i32, ptr %nslots48.i, align 4
   %cmp49138.i = icmp sgt i32 %16, 0
   br i1 %cmp49138.i, label %for.body51.lr.ph.i, label %shpc_command.exit
@@ -1000,7 +970,7 @@ for.body51.lr.ph.i:                               ; preds = %for.cond47.preheade
   br label %for.body51.i
 
 for.cond.preheader.i:                             ; preds = %if.then41
-  %nslots.i = getelementptr inbounds %struct.SHPCDevice, ptr %14, i64 0, i32 1
+  %nslots.i = getelementptr inbounds i8, ptr %14, i64 4
   %17 = load i32, ptr %nslots.i, align 4
   %cmp142.i = icmp sgt i32 %17, 0
   br i1 %cmp142.i, label %for.body.lr.ph.i, label %shpc_command.exit
@@ -1096,7 +1066,7 @@ if.then38.i:                                      ; preds = %for.body36.i
   br i1 %cmp.i65.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then38.i
-  %nslots.i.i = getelementptr inbounds %struct.SHPCDevice, ptr %d.val48.i, i64 0, i32 1
+  %nslots.i.i = getelementptr inbounds i8, ptr %d.val48.i, i64 4
   %30 = load i32, ptr %nslots.i.i, align 4
   %cmp6.not.not.i.i = icmp slt i32 %30, %conv.i.i
   br i1 %cmp6.not.not.i.i, label %if.then.i.i, label %if.end.i.i
@@ -1196,7 +1166,7 @@ if.then68.i:                                      ; preds = %for.body65.i
   br i1 %cmp.i103.i, label %if.then.i120.i, label %lor.lhs.false.i104.i
 
 lor.lhs.false.i104.i:                             ; preds = %if.then68.i
-  %nslots.i105.i = getelementptr inbounds %struct.SHPCDevice, ptr %d.val50.i, i64 0, i32 1
+  %nslots.i105.i = getelementptr inbounds i8, ptr %d.val50.i, i64 4
   %38 = load i32, ptr %nslots.i105.i, align 4
   %cmp6.not.not.i106.i = icmp slt i32 %38, %conv.i93.i
   br i1 %cmp6.not.not.i106.i, label %if.then.i120.i, label %if.end.i107.i
@@ -1259,9 +1229,9 @@ return:                                           ; preds = %entry, %if.end42
 define internal i32 @shpc_load(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %0 = load ptr, ptr %pv, align 8
-  %config = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 2
+  %config = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %config, align 8
-  %nslots = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 1
+  %nslots = getelementptr inbounds i8, ptr %0, i64 4
   %2 = load i32, ptr %nslots, align 4
   %mul = shl i32 %2, 2
   %add = add i32 %mul, 36
@@ -1269,7 +1239,7 @@ entry:
   %call = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %1, i64 noundef %conv) #10
   %conv2 = trunc i64 %call to i32
   %3 = load ptr, ptr %pv, align 8
-  %nslots4 = getelementptr inbounds %struct.SHPCDevice, ptr %3, i64 0, i32 1
+  %nslots4 = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %nslots4, align 4
   %mul5 = shl i32 %4, 2
   %add6 = add i32 %mul5, 36
@@ -1278,7 +1248,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr i8, ptr %pv, i64 -2248
-  %msi_requested = getelementptr inbounds %struct.SHPCDevice, ptr %3, i64 0, i32 8
+  %msi_requested = getelementptr inbounds i8, ptr %3, i64 328
   store i32 0, ptr %msi_requested, align 8
   tail call fastcc void @shpc_interrupt_update(ptr noundef %add.ptr)
   br label %return
@@ -1292,9 +1262,9 @@ return:                                           ; preds = %entry, %if.end
 define internal i32 @shpc_save(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
 entry:
   %0 = load ptr, ptr %pv, align 8
-  %config = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 2
+  %config = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %config, align 8
-  %nslots = getelementptr inbounds %struct.SHPCDevice, ptr %0, i64 0, i32 1
+  %nslots = getelementptr inbounds i8, ptr %0, i64 4
   %2 = load i32, ptr %nslots, align 4
   %mul = shl i32 %2, 2
   %add = add i32 %mul, 36
@@ -1332,7 +1302,7 @@ entry:
   %opaque.val = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i)
   store i64 0, ptr %val.i, align 8
-  %nslots.i = getelementptr inbounds %struct.SHPCDevice, ptr %opaque.val, i64 0, i32 1
+  %nslots.i = getelementptr inbounds i8, ptr %opaque.val, i64 4
   %1 = load i32, ptr %nslots.i, align 4
   %mul.i = shl i32 %1, 2
   %add.i = add i32 %mul.i, 36
@@ -1342,7 +1312,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %sub.i = sub i32 %add.i, %conv
   %cond.i = tail call i32 @llvm.umin.i32(i32 %sub.i, i32 %size)
-  %config.i = getelementptr inbounds %struct.SHPCDevice, ptr %opaque.val, i64 0, i32 2
+  %config.i = getelementptr inbounds i8, ptr %opaque.val, i64 8
   %2 = load ptr, ptr %config.i, align 8
   %idx.ext.i = and i64 %addr, 4294967295
   %add.ptr.i = getelementptr i8, ptr %2, i64 %idx.ext.i
@@ -1385,7 +1355,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %nslots = getelementptr inbounds %struct.SHPCDevice, ptr %d.2248.val, i64 0, i32 1
+  %nslots = getelementptr inbounds i8, ptr %d.2248.val, i64 4
   %3 = load i32, ptr %nslots, align 4
   %cmp6.not.not = icmp slt i32 %3, %conv
   br i1 %cmp6.not.not, label %if.then, label %if.end
@@ -1468,7 +1438,7 @@ if.then37:                                        ; preds = %land.lhs.true34
   %add.i94 = shl nsw i32 %sub, 3
   %and.i95 = add nsw i32 %add.i94, 8
   %shl.i96 = and i32 %and.i95, 248
-  %sec_bus.i = getelementptr inbounds %struct.SHPCDevice, ptr %d.2248.val, i64 0, i32 7
+  %sec_bus.i = getelementptr inbounds i8, ptr %d.2248.val, i64 320
   %7 = zext nneg i32 %shl.i96 to i64
   %8 = add nuw nsw i32 %shl.i96, 8
   %wide.trip.count.i = zext nneg i32 %8 to i64
@@ -1477,7 +1447,8 @@ if.then37:                                        ; preds = %land.lhs.true34
 for.body.i:                                       ; preds = %for.inc.i, %if.then37
   %indvars.iv.i = phi i64 [ %7, %if.then37 ], [ %indvars.iv.next.i, %for.inc.i ]
   %9 = load ptr, ptr %sec_bus.i, align 16
-  %arrayidx.i = getelementptr %struct.PCIBus, ptr %9, i64 0, i32 10, i64 %indvars.iv.i
+  %devices.i = getelementptr inbounds i8, ptr %9, i64 184
+  %arrayidx.i = getelementptr [256 x ptr], ptr %devices.i, i64 0, i64 %indvars.iv.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i

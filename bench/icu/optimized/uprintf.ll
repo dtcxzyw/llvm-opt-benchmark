@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.u_printf_stream_handler = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.UFILE = type { ptr, ptr, ptr, %struct.u_localized_string, [1024 x i16], i8, i32 }
-%struct.u_localized_string = type { ptr, ptr, ptr, %struct.ULocaleBundle }
-%struct.ULocaleBundle = type { ptr, [5 x ptr], i8 }
-%struct.u_printf_spec_info = type { i32, i32, i16, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
 
 @_ZL7gStdOut = internal unnamed_addr global ptr null, align 8
 @_ZL16g_stream_handler = internal constant %struct.u_printf_stream_handler { ptr @_ZL14u_printf_writePvPKDsi, ptr @_ZL24u_printf_pad_and_justifyPvPK18u_printf_spec_infoPKDsi }, align 8
@@ -65,7 +61,7 @@ if.end4.i:                                        ; preds = %if.then.i, %entry
   call void @u_charsToUChars_75(ptr noundef %patternSpecification, ptr noundef nonnull %pattern.0.i, i32 noundef %conv.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i.i)
   store i32 0, ptr %written.i.i, align 4
-  %fBundle.i.i = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 3
+  %fBundle.i.i = getelementptr inbounds i8, ptr %f, i64 48
   %call.i.i = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef nonnull %pattern.0.i, ptr noundef %f, ptr noundef null, ptr noundef nonnull %fBundle.i.i, ptr noundef nonnull %written.i.i, ptr noundef nonnull %ap)
   %0 = load i32, ptr %written.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %written.i.i)
@@ -108,7 +104,7 @@ if.end4:                                          ; preds = %entry, %if.then
   call void @u_charsToUChars_75(ptr noundef %patternSpecification, ptr noundef nonnull %pattern.0, i32 noundef %conv)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i)
   store i32 0, ptr %written.i, align 4
-  %fBundle.i = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 3
+  %fBundle.i = getelementptr inbounds i8, ptr %f, i64 48
   %call.i = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef nonnull %pattern.0, ptr noundef %f, ptr noundef null, ptr noundef nonnull %fBundle.i, ptr noundef nonnull %written.i, ptr noundef %ap)
   %0 = load i32, ptr %written.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %written.i)
@@ -171,7 +167,7 @@ if.end4.i:                                        ; preds = %if.then.i, %u_get_s
   call void @u_charsToUChars_75(ptr noundef %patternSpecification, ptr noundef nonnull %pattern.0.i, i32 noundef %conv.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i.i)
   store i32 0, ptr %written.i.i, align 4
-  %fBundle.i.i = getelementptr inbounds %struct.UFILE, ptr %2, i64 0, i32 3, i32 3
+  %fBundle.i.i = getelementptr inbounds i8, ptr %2, i64 48
   %call.i.i1 = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef nonnull %pattern.0.i, ptr noundef %2, ptr noundef null, ptr noundef nonnull %fBundle.i.i, ptr noundef nonnull %written.i.i, ptr noundef nonnull %ap)
   %3 = load i32, ptr %written.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %written.i.i)
@@ -197,7 +193,7 @@ entry:
   call void @llvm.va_start(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i)
   store i32 0, ptr %written.i, align 4
-  %fBundle.i = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 3
+  %fBundle.i = getelementptr inbounds i8, ptr %f, i64 48
   %call.i = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef %patternSpecification, ptr noundef %f, ptr noundef null, ptr noundef nonnull %fBundle.i, ptr noundef nonnull %written.i, ptr noundef nonnull %ap)
   %0 = load i32, ptr %written.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %written.i)
@@ -210,7 +206,7 @@ define i32 @u_vfprintf_u_75(ptr noundef %f, ptr noundef %patternSpecification, p
 entry:
   %written = alloca i32, align 4
   store i32 0, ptr %written, align 4
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %f, i64 48
   %call = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef %patternSpecification, ptr noundef %f, ptr noundef null, ptr noundef nonnull %fBundle, ptr noundef nonnull %written, ptr noundef %ap)
   %0 = load i32, ptr %written, align 4
   ret i32 %0
@@ -243,7 +239,7 @@ u_get_stdout_75.exit:                             ; preds = %entry, %if.end.i.i,
   %2 = load ptr, ptr @_ZL7gStdOut, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i)
   store i32 0, ptr %written.i, align 4
-  %fBundle.i = getelementptr inbounds %struct.UFILE, ptr %2, i64 0, i32 3, i32 3
+  %fBundle.i = getelementptr inbounds i8, ptr %2, i64 48
   %call.i = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef %patternSpecification, ptr noundef %2, ptr noundef null, ptr noundef nonnull %fBundle.i, ptr noundef nonnull %written.i, ptr noundef nonnull %ap)
   %3 = load i32, ptr %written.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %written.i)
@@ -302,7 +298,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL24u_printf_pad_and_justifyPvPK18u_printf_spec_infoPKDsi(ptr noundef %context, ptr noundef %info, ptr noundef %result, i32 noundef %resultLen) #0 {
 entry:
-  %fWidth = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 1
+  %fWidth = getelementptr inbounds i8, ptr %info, i64 4
   %0 = load i32, ptr %fWidth, align 4
   %cmp.not = icmp ne i32 %0, -1
   %cmp2 = icmp sgt i32 %0, %resultLen
@@ -310,13 +306,13 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else20
 
 if.then:                                          ; preds = %entry
-  %fLeft = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 7
+  %fLeft = getelementptr inbounds i8, ptr %info, i64 16
   %1 = load i8, ptr %fLeft, align 4
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %for.body11.lr.ph, label %if.then3
 
 for.body11.lr.ph:                                 ; preds = %if.then
-  %fPadChar12 = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 4
+  %fPadChar12 = getelementptr inbounds i8, ptr %info, i64 12
   br label %for.body11
 
 if.then3:                                         ; preds = %if.then
@@ -326,7 +322,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp525, label %for.body.lr.ph, label %if.end22
 
 for.body.lr.ph:                                   ; preds = %if.then3
-  %fPadChar = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 4
+  %fPadChar = getelementptr inbounds i8, ptr %info, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body

@@ -6,12 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.b2ClipVertex = type { %struct.b2Vec2, %union.b2ContactID }
 %struct.b2Vec2 = type { float, float }
 %union.b2ContactID = type { i32 }
-%struct.b2Manifold = type { [2 x %struct.b2ManifoldPoint], %struct.b2Vec2, %struct.b2Vec2, i32, i32 }
 %struct.b2ManifoldPoint = type { %struct.b2Vec2, float, float, %union.b2ContactID }
-%class.b2Shape = type { ptr, i32, float }
-%class.b2PolygonShape = type <{ %class.b2Shape, %struct.b2Vec2, [8 x %struct.b2Vec2], [8 x %struct.b2Vec2], i32, [4 x i8] }>
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
-%struct.b2Rot = type { float, float }
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z17b2CollidePolygonsP10b2ManifoldPK14b2PolygonShapeRK11b2TransformS3_S6_(ptr nocapture noundef writeonly %manifold, ptr nocapture noundef readonly %polyA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef readonly %polyB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #0 {
@@ -23,11 +18,11 @@ entry:
   %clipPoints1 = alloca [2 x %struct.b2ClipVertex], align 16
   %clipPoints2 = alloca [2 x %struct.b2ClipVertex], align 16
   %ref.tmp35 = alloca %struct.b2Vec2, align 8
-  %pointCount = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 4
+  %pointCount = getelementptr inbounds i8, ptr %manifold, i64 60
   store i32 0, ptr %pointCount, align 4
-  %m_radius = getelementptr inbounds %class.b2Shape, ptr %polyA, i64 0, i32 2
+  %m_radius = getelementptr inbounds i8, ptr %polyA, i64 12
   %0 = load float, ptr %m_radius, align 4
-  %m_radius1 = getelementptr inbounds %class.b2Shape, ptr %polyB, i64 0, i32 2
+  %m_radius1 = getelementptr inbounds i8, ptr %polyB, i64 12
   %1 = load float, ptr %m_radius1, align 4
   %add = fadd float %0, %1
   store i32 0, ptr %edgeA, align 4
@@ -66,16 +61,16 @@ if.end10:                                         ; preds = %if.end5, %if.else
   %xf1.sroa.0.0 = load float, ptr %xfA.pn, align 4
   %xf1.sroa.4.0.in = getelementptr inbounds i8, ptr %xfA.pn, i64 4
   %xf1.sroa.4.0 = load float, ptr %xf1.sroa.4.0.in, align 4
-  %6 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 3
+  %6 = getelementptr inbounds i8, ptr %manifold, i64 56
   store i32 %.sink, ptr %6, align 4
-  %m_normals.i = getelementptr inbounds %class.b2PolygonShape, ptr %poly1.0, i64 0, i32 3
-  %m_count.i = getelementptr inbounds %class.b2PolygonShape, ptr %poly2.0, i64 0, i32 4
+  %m_normals.i = getelementptr inbounds i8, ptr %poly1.0, i64 88
+  %m_count.i = getelementptr inbounds i8, ptr %poly2.0, i64 152
   %7 = load i32, ptr %m_count.i, align 8
-  %m_normals2.i = getelementptr inbounds %class.b2PolygonShape, ptr %poly2.0, i64 0, i32 3
+  %m_normals2.i = getelementptr inbounds i8, ptr %poly2.0, i64 88
   %idxprom.i = sext i32 %edge1.0 to i64
   %arrayidx.i = getelementptr inbounds %struct.b2Vec2, ptr %m_normals.i, i64 %idxprom.i
   %8 = load float, ptr %arrayidx.i, align 4
-  %y.i.i = getelementptr inbounds %struct.b2Vec2, ptr %m_normals.i, i64 %idxprom.i, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %9 = load float, ptr %y.i.i, align 4
   %10 = extractelement <2 x float> %2, i64 0
   %11 = fneg float %10
@@ -104,7 +99,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %minDot.03.i = phi float [ 0x47EFFFFFE0000000, %for.body.preheader.i ], [ %minDot.1.i, %for.body.i ]
   %arrayidx7.i = getelementptr inbounds %struct.b2Vec2, ptr %m_normals2.i, i64 %indvars.iv.i
   %19 = load float, ptr %arrayidx7.i, align 4
-  %y2.i.i = getelementptr inbounds %struct.b2Vec2, ptr %m_normals2.i, i64 %indvars.iv.i, i32 1
+  %y2.i.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 4
   %20 = load float, ptr %y2.i.i, align 4
   %mul3.i.i = fmul float %18, %20
   %21 = tail call noundef float @llvm.fmuladd.f32(float %17, float %19, float %mul3.i.i)
@@ -118,14 +113,14 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.exit: ; preds = %for.body.i, %if.end10
   %index.0.lcssa.i = phi i32 [ 0, %if.end10 ], [ %index.1.i, %for.body.i ]
-  %m_vertices.i = getelementptr inbounds %class.b2PolygonShape, ptr %poly2.0, i64 0, i32 2
+  %m_vertices.i = getelementptr inbounds i8, ptr %poly2.0, i64 24
   %add.i = add nsw i32 %index.0.lcssa.i, 1
   %cmp10.i = icmp slt i32 %add.i, %7
   %cond.i = select i1 %cmp10.i, i32 %add.i, i32 0
   %idxprom13.i = sext i32 %index.0.lcssa.i to i64
   %arrayidx14.i = getelementptr inbounds %struct.b2Vec2, ptr %m_vertices.i, i64 %idxprom13.i
   %23 = load float, ptr %arrayidx14.i, align 4
-  %y.i33.i = getelementptr inbounds %struct.b2Vec2, ptr %m_vertices.i, i64 %idxprom13.i, i32 1
+  %y.i33.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 4
   %24 = load float, ptr %y.i33.i, align 4
   %25 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %26 = insertelement <2 x float> poison, float %24, i64 0
@@ -138,7 +133,7 @@ _ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.e
   %33 = fadd <2 x float> %4, %32
   store <2 x float> %33, ptr %incidentEdge, align 16
   %conv.i = trunc i32 %edge1.0 to i8
-  %id.i = getelementptr inbounds %struct.b2ClipVertex, ptr %incidentEdge, i64 0, i32 1
+  %id.i = getelementptr inbounds i8, ptr %incidentEdge, i64 8
   store i8 %conv.i, ptr %id.i, align 8
   %conv18.i = trunc i32 %index.0.lcssa.i to i8
   %indexB.i = getelementptr inbounds i8, ptr %incidentEdge, i64 9
@@ -150,7 +145,7 @@ _ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.e
   %idxprom26.i = sext i32 %cond.i to i64
   %arrayidx27.i = getelementptr inbounds %struct.b2Vec2, ptr %m_vertices.i, i64 %idxprom26.i
   %34 = load float, ptr %arrayidx27.i, align 4
-  %y.i39.i = getelementptr inbounds %struct.b2Vec2, ptr %m_vertices.i, i64 %idxprom26.i, i32 1
+  %y.i39.i = getelementptr inbounds i8, ptr %arrayidx27.i, i64 4
   %35 = load float, ptr %y.i39.i, align 4
   %36 = insertelement <2 x float> poison, float %35, i64 0
   %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> zeroinitializer
@@ -159,9 +154,9 @@ _ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.e
   %40 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
   %41 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %25, <2 x float> %40, <2 x float> %38)
   %42 = fadd <2 x float> %4, %41
-  %arrayidx29.i = getelementptr inbounds %struct.b2ClipVertex, ptr %incidentEdge, i64 1
+  %arrayidx29.i = getelementptr inbounds i8, ptr %incidentEdge, i64 12
   store <2 x float> %42, ptr %arrayidx29.i, align 4
-  %id33.i = getelementptr inbounds %struct.b2ClipVertex, ptr %incidentEdge, i64 1, i32 1
+  %id33.i = getelementptr inbounds i8, ptr %incidentEdge, i64 20
   store i8 %conv.i, ptr %id33.i, align 4
   %conv35.i = trunc i32 %cond.i to i8
   %indexB38.i = getelementptr inbounds i8, ptr %incidentEdge, i64 21
@@ -170,9 +165,9 @@ _ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.e
   store i8 1, ptr %typeA41.i, align 2
   %typeB44.i = getelementptr inbounds i8, ptr %incidentEdge, i64 23
   store i8 0, ptr %typeB44.i, align 1
-  %m_count = getelementptr inbounds %class.b2PolygonShape, ptr %poly1.0, i64 0, i32 4
+  %m_count = getelementptr inbounds i8, ptr %poly1.0, i64 152
   %43 = load i32, ptr %m_count, align 8
-  %m_vertices = getelementptr inbounds %class.b2PolygonShape, ptr %poly1.0, i64 0, i32 2
+  %m_vertices = getelementptr inbounds i8, ptr %poly1.0, i64 24
   %add12 = add nsw i32 %edge1.0, 1
   %cmp13 = icmp slt i32 %add12, %43
   %cond = select i1 %cmp13, i32 %add12, i32 0
@@ -245,9 +240,9 @@ if.end40:                                         ; preds = %_ZL18b2FindIncident
   br i1 %cmp44, label %return, label %if.end46
 
 if.end46:                                         ; preds = %if.end40
-  %localNormal47 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 1
+  %localNormal47 = getelementptr inbounds i8, ptr %manifold, i64 40
   store <2 x float> %retval.sroa.0.4.vec.insert.i52, ptr %localNormal47, align 4
-  %localPoint = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 2
+  %localPoint = getelementptr inbounds i8, ptr %manifold, i64 48
   store <2 x float> %54, ptr %localPoint, align 4
   br i1 %cmp7, label %for.body.us.preheader, label %for.body.preheader
 
@@ -271,7 +266,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %pointCount48.0175.us = phi i32 [ %pointCount48.1.us, %for.inc.us ], [ 0, %for.body.us.preheader ]
   %arrayidx51.us = getelementptr inbounds [2 x %struct.b2ClipVertex], ptr %clipPoints2, i64 0, i64 %indvars.iv178
   %83 = load float, ptr %arrayidx51.us, align 4
-  %y2.i99.us = getelementptr inbounds %struct.b2Vec2, ptr %arrayidx51.us, i64 0, i32 1
+  %y2.i99.us = getelementptr inbounds i8, ptr %arrayidx51.us, i64 4
   %84 = load float, ptr %y2.i99.us, align 4
   %mul3.i100.us = fmul float %84, %68
   %85 = call noundef float @llvm.fmuladd.f32(float %64, float %83, float %mul3.i100.us)
@@ -291,8 +286,8 @@ if.then54.us:                                     ; preds = %for.body.us
   %90 = shufflevector <2 x float> %89, <2 x float> poison, <2 x i32> zeroinitializer
   %91 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %82, <2 x float> %90, <2 x float> %88)
   store <2 x float> %91, ptr %add.ptr.us, align 4
-  %id.us = getelementptr inbounds [2 x %struct.b2ClipVertex], ptr %clipPoints2, i64 0, i64 %indvars.iv178, i32 1
-  %id64.us = getelementptr inbounds %struct.b2ManifoldPoint, ptr %manifold, i64 %idx.ext.us, i32 3
+  %id.us = getelementptr inbounds i8, ptr %arrayidx51.us, i64 8
+  %id64.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 16
   %92 = load i32, ptr %id.us, align 4
   store i32 %92, ptr %id64.us, align 4
   %inc.us = add nsw i32 %pointCount48.0175.us, 1
@@ -308,7 +303,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %pointCount48.0175 = phi i32 [ %pointCount48.1, %for.inc ], [ 0, %for.body.preheader ]
   %arrayidx51 = getelementptr inbounds [2 x %struct.b2ClipVertex], ptr %clipPoints2, i64 0, i64 %indvars.iv
   %93 = load float, ptr %arrayidx51, align 4
-  %y2.i99 = getelementptr inbounds %struct.b2Vec2, ptr %arrayidx51, i64 0, i32 1
+  %y2.i99 = getelementptr inbounds i8, ptr %arrayidx51, i64 4
   %94 = load float, ptr %y2.i99, align 4
   %mul3.i100 = fmul float %94, %68
   %95 = call noundef float @llvm.fmuladd.f32(float %64, float %93, float %mul3.i100)
@@ -328,17 +323,17 @@ if.then54:                                        ; preds = %for.body
   %100 = shufflevector <2 x float> %99, <2 x float> poison, <2 x i32> zeroinitializer
   %101 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %78, <2 x float> %100, <2 x float> %98)
   store <2 x float> %101, ptr %add.ptr, align 4
-  %id = getelementptr inbounds [2 x %struct.b2ClipVertex], ptr %clipPoints2, i64 0, i64 %indvars.iv, i32 1
-  %id64 = getelementptr inbounds %struct.b2ManifoldPoint, ptr %manifold, i64 %idx.ext, i32 3
+  %id = getelementptr inbounds i8, ptr %arrayidx51, i64 8
+  %id64 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %102 = load i32, ptr %id, align 4
   %103 = trunc i32 %102 to i8
-  %cf.sroa.2.0.id66.sroa_idx = getelementptr inbounds i8, ptr %id64, i64 1
+  %cf.sroa.2.0.id66.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 17
   %104 = lshr i32 %102, 8
   %105 = trunc i32 %104 to i8
-  %cf.sroa.3.0.id66.sroa_idx = getelementptr inbounds i8, ptr %id64, i64 2
+  %cf.sroa.3.0.id66.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 18
   %106 = lshr i32 %102, 16
   %107 = trunc i32 %106 to i8
-  %cf.sroa.4.0.id66.sroa_idx = getelementptr inbounds i8, ptr %id64, i64 3
+  %cf.sroa.4.0.id66.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 19
   %108 = lshr i32 %102, 24
   %109 = trunc i32 %108 to i8
   store i8 %105, ptr %id64, align 4
@@ -364,20 +359,20 @@ return:                                           ; preds = %if.end40, %_ZL18b2F
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef float @_ZL19b2FindMaxSeparationPiPK14b2PolygonShapeRK11b2TransformS2_S5_(ptr nocapture noundef writeonly %edgeIndex, ptr nocapture noundef readonly %poly1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf1, ptr nocapture noundef readonly %poly2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf2) unnamed_addr #1 {
 entry:
-  %m_count = getelementptr inbounds %class.b2PolygonShape, ptr %poly1, i64 0, i32 4
+  %m_count = getelementptr inbounds i8, ptr %poly1, i64 152
   %0 = load i32, ptr %m_count, align 8
-  %m_count1 = getelementptr inbounds %class.b2PolygonShape, ptr %poly2, i64 0, i32 4
+  %m_count1 = getelementptr inbounds i8, ptr %poly2, i64 152
   %1 = load i32, ptr %m_count1, align 8
-  %m_normals = getelementptr inbounds %class.b2PolygonShape, ptr %poly1, i64 0, i32 3
-  %m_vertices = getelementptr inbounds %class.b2PolygonShape, ptr %poly1, i64 0, i32 2
-  %m_vertices3 = getelementptr inbounds %class.b2PolygonShape, ptr %poly2, i64 0, i32 2
-  %q.i = getelementptr inbounds %struct.b2Transform, ptr %xf2, i64 0, i32 1
-  %q1.i = getelementptr inbounds %struct.b2Transform, ptr %xf1, i64 0, i32 1
-  %c.i.i = getelementptr inbounds %struct.b2Transform, ptr %xf2, i64 0, i32 1, i32 1
+  %m_normals = getelementptr inbounds i8, ptr %poly1, i64 88
+  %m_vertices = getelementptr inbounds i8, ptr %poly1, i64 24
+  %m_vertices3 = getelementptr inbounds i8, ptr %poly2, i64 24
+  %q.i = getelementptr inbounds i8, ptr %xf2, i64 8
+  %q1.i = getelementptr inbounds i8, ptr %xf1, i64 8
+  %c.i.i = getelementptr inbounds i8, ptr %xf2, i64 12
   %2 = load float, ptr %c.i.i, align 4
   %3 = load float, ptr %q1.i, align 4
   %4 = load float, ptr %q.i, align 4
-  %c2.i.i = getelementptr inbounds %struct.b2Transform, ptr %xf1, i64 0, i32 1, i32 1
+  %c2.i.i = getelementptr inbounds i8, ptr %xf1, i64 12
   %5 = load float, ptr %c2.i.i, align 4
   %6 = fneg float %4
   %neg.i.i = fmul float %5, %6
@@ -387,9 +382,9 @@ entry:
   %9 = load float, ptr %xf1, align 4
   %10 = load float, ptr %xf2, align 4
   %sub.i.i = fsub float %9, %10
-  %y.i.i = getelementptr inbounds %struct.b2Vec2, ptr %xf1, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %xf1, i64 4
   %11 = load float, ptr %y.i.i, align 4
-  %y2.i.i = getelementptr inbounds %struct.b2Vec2, ptr %xf2, i64 0, i32 1
+  %y2.i.i = getelementptr inbounds i8, ptr %xf2, i64 4
   %12 = load float, ptr %y2.i.i, align 4
   %sub3.i.i = fsub float %11, %12
   %mul1.i.i = fmul float %4, %sub3.i.i
@@ -415,7 +410,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %maxSeparation.033.us = phi float [ 0xC7EFFFFFE0000000, %for.body.us.preheader ], [ %maxSeparation.1.us, %for.cond9.for.end_crit_edge.us ]
   %arrayidx.us = getelementptr inbounds %struct.b2Vec2, ptr %m_normals, i64 %indvars.iv42
   %16 = load float, ptr %arrayidx.us, align 4
-  %y.i.us = getelementptr inbounds %struct.b2Vec2, ptr %m_normals, i64 %indvars.iv42, i32 1
+  %y.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 4
   %17 = load float, ptr %y.i.us, align 4
   %neg.i.us = fmul float %17, %15
   %18 = tail call float @llvm.fmuladd.f32(float %8, float %16, float %neg.i.us)
@@ -423,7 +418,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %19 = tail call float @llvm.fmuladd.f32(float %7, float %16, float %mul6.i.us)
   %arrayidx7.us = getelementptr inbounds %struct.b2Vec2, ptr %m_vertices, i64 %indvars.iv42
   %20 = load float, ptr %arrayidx7.us, align 4
-  %y.i16.us = getelementptr inbounds %struct.b2Vec2, ptr %m_vertices, i64 %indvars.iv42, i32 1
+  %y.i16.us = getelementptr inbounds i8, ptr %arrayidx7.us, i64 4
   %21 = load float, ptr %y.i16.us, align 4
   %neg.i17.us = fmul float %21, %15
   %22 = tail call float @llvm.fmuladd.f32(float %8, float %20, float %neg.i17.us)
@@ -439,7 +434,7 @@ for.body11.us:                                    ; preds = %for.body.us, %for.b
   %arrayidx13.us = getelementptr inbounds %struct.b2Vec2, ptr %m_vertices3, i64 %indvars.iv
   %24 = load float, ptr %arrayidx13.us, align 4
   %sub.i.us = fsub float %24, %add.i.us
-  %y.i20.us = getelementptr inbounds %struct.b2Vec2, ptr %m_vertices3, i64 %indvars.iv, i32 1
+  %y.i20.us = getelementptr inbounds i8, ptr %arrayidx13.us, i64 4
   %25 = load float, ptr %y.i20.us, align 4
   %sub3.i.us = fsub float %25, %add15.i.us
   %mul3.i.us = fmul float %19, %sub3.i.us

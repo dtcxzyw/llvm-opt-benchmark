@@ -3,21 +3,9 @@ source_filename = "bench/cpython/original/pegen.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Parser = type { ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, %struct.growable_comment_array, ptr, i32, i32, i32 }
-%struct.growable_comment_array = type { ptr, i64, i64 }
-%struct._memo = type { i32, ptr, i32, ptr }
-%struct.Token = type { i32, ptr, i32, i32, i32, i32, i32, ptr, ptr }
 %struct.token = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.tok_state = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, [100 x i32], i32, i32, ptr, ptr, i32, i32, i32, i32, i32, [200 x i8], [200 x i32], [200 x i32], ptr, [100 x i32], i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, [150 x %struct._tokenizer_mode], i32, i32, i32, i32 }
-%struct._tokenizer_mode = type { i32, i32, i32, i8, i32, i32, ptr, ptr, i32, i64, i64, i64, i64, ptr, i32 }
 %struct.anon.1 = type { i32, ptr }
-%struct.KeywordToken = type { ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct._ts = type { ptr, ptr, ptr, %struct.anon, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, %struct._py_trashcan, i64, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem }
-%struct.anon = type { i32 }
-%struct._py_trashcan = type { i32, ptr }
-%struct._err_stackitem = type { ptr, ptr }
-%struct.PyCompilerFlags = type { i32, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"replace\00", align 1
 @PyExc_SyntaxError = external local_unnamed_addr global ptr, align 8
@@ -39,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noalias ptr @_PyPegen_interactive_exit(ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
 entry:
-  %errcode = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 10
+  %errcode = getelementptr inbounds i8, ptr %p, i64 64
   %0 = load ptr, ptr %errcode, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -133,7 +121,7 @@ declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyPegen_insert_memo(ptr nocapture noundef readonly %p, i32 noundef %mark, i32 noundef %type, ptr noundef %node) local_unnamed_addr #1 {
 entry:
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %0 = load ptr, ptr %arena, align 8
   %call = tail call ptr @_PyArena_Malloc(ptr noundef %0, i64 noundef 32) #12
   %cmp = icmp eq ptr %call, null
@@ -141,25 +129,25 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 %type, ptr %call, align 8
-  %node2 = getelementptr inbounds %struct._memo, ptr %call, i64 0, i32 1
+  %node2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %node, ptr %node2, align 8
-  %mark3 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark3 = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load i32, ptr %mark3, align 8
-  %mark4 = getelementptr inbounds %struct._memo, ptr %call, i64 0, i32 2
+  %mark4 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %1, ptr %mark4, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %2 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %mark to i64
   %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
-  %memo = getelementptr inbounds %struct.Token, ptr %3, i64 0, i32 7
+  %memo = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %memo, align 8
-  %next = getelementptr inbounds %struct._memo, ptr %call, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %4, ptr %next, align 8
   %5 = load ptr, ptr %tokens, align 8
   %arrayidx7 = getelementptr ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx7, align 8
-  %memo8 = getelementptr inbounds %struct.Token, ptr %6, i64 0, i32 7
+  %memo8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %call, ptr %memo8, align 8
   br label %return
 
@@ -173,12 +161,12 @@ declare ptr @_PyArena_Malloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyPegen_update_memo(ptr nocapture noundef readonly %p, i32 noundef %mark, i32 noundef %type, ptr noundef %node) local_unnamed_addr #1 {
 entry:
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %mark to i64
   %arrayidx = getelementptr ptr, ptr %0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %memo = getelementptr inbounds %struct.Token, ptr %1, i64 0, i32 7
+  %memo = getelementptr inbounds i8, ptr %1, i64 40
   %m.011 = load ptr, ptr %memo, align 8
   %cmp.not12 = icmp eq ptr %m.011, null
   br i1 %cmp.not12, label %for.end, label %for.body
@@ -190,22 +178,22 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp2, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %node3 = getelementptr inbounds %struct._memo, ptr %m.013, i64 0, i32 1
+  %node3 = getelementptr inbounds i8, ptr %m.013, i64 8
   store ptr %node, ptr %node3, align 8
-  %mark4 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark4 = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark4, align 8
-  %mark5 = getelementptr inbounds %struct._memo, ptr %m.013, i64 0, i32 2
+  %mark5 = getelementptr inbounds i8, ptr %m.013, i64 16
   store i32 %3, ptr %mark5, align 8
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds %struct._memo, ptr %m.013, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %m.013, i64 24
   %m.0 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %m.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %entry
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %4 = load ptr, ptr %arena.i, align 8
   %call.i = tail call ptr @_PyArena_Malloc(ptr noundef %4, i64 noundef 32) #12
   %cmp.i = icmp eq ptr %call.i, null
@@ -213,23 +201,23 @@ for.end:                                          ; preds = %for.inc, %entry
 
 if.end.i:                                         ; preds = %for.end
   store i32 %type, ptr %call.i, align 8
-  %node2.i = getelementptr inbounds %struct._memo, ptr %call.i, i64 0, i32 1
+  %node2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %node, ptr %node2.i, align 8
-  %mark3.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark3.i = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark3.i, align 8
-  %mark4.i = getelementptr inbounds %struct._memo, ptr %call.i, i64 0, i32 2
+  %mark4.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 %5, ptr %mark4.i, align 8
   %6 = load ptr, ptr %tokens, align 8
   %arrayidx.i = getelementptr ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx.i, align 8
-  %memo.i = getelementptr inbounds %struct.Token, ptr %7, i64 0, i32 7
+  %memo.i = getelementptr inbounds i8, ptr %7, i64 40
   %8 = load ptr, ptr %memo.i, align 8
-  %next.i = getelementptr inbounds %struct._memo, ptr %call.i, i64 0, i32 3
+  %next.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %8, ptr %next.i, align 8
   %9 = load ptr, ptr %tokens, align 8
   %arrayidx7.i = getelementptr ptr, ptr %9, i64 %idxprom
   %10 = load ptr, ptr %arrayidx7.i, align 8
-  %memo8.i = getelementptr inbounds %struct.Token, ptr %10, i64 0, i32 7
+  %memo8.i = getelementptr inbounds i8, ptr %10, i64 40
   store ptr %call.i, ptr %memo8.i, align 8
   br label %return
 
@@ -249,12 +237,12 @@ entry:
   br i1 %cmp43, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %end_col_offset = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 4
-  %col_offset = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 2
-  %start = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 5
-  %type_ignore_comments = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 18
-  %num_items.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 18, i32 2
-  %size.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 18, i32 1
+  %end_col_offset = getelementptr inbounds i8, ptr %new_token, i64 16
+  %col_offset = getelementptr inbounds i8, ptr %new_token, i64 8
+  %start = getelementptr inbounds i8, ptr %new_token, i64 24
+  %type_ignore_comments = getelementptr inbounds i8, ptr %p, i64 112
+  %num_items.i = getelementptr inbounds i8, ptr %p, i64 128
+  %size.i = getelementptr inbounds i8, ptr %p, i64 120
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end10
@@ -273,7 +261,7 @@ if.end:                                           ; preds = %while.body
   %arrayidx = getelementptr i8, ptr %call1, i64 %conv
   store i8 0, ptr %arrayidx, align 1
   %4 = load ptr, ptr %p, align 8
-  %lineno = getelementptr inbounds %struct.tok_state, ptr %4, i64 0, i32 17
+  %lineno = getelementptr inbounds i8, ptr %4, i64 512
   %5 = load i32, ptr %lineno, align 8
   %6 = load i64, ptr %num_items.i, align 8
   %7 = load i64, ptr %size.i, align 8
@@ -313,7 +301,7 @@ if.end10:                                         ; preds = %if.end.i, %if.end
 
 while.end:                                        ; preds = %if.end10, %entry
   %type.0.lcssa = phi i32 [ %call, %entry ], [ %call12, %if.end10 ]
-  %start_rule = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 9
+  %start_rule = getelementptr inbounds i8, ptr %p, i64 60
   %14 = load i32, ptr %start_rule, align 4
   %cmp13 = icmp eq i32 %14, 256
   %cmp15 = icmp eq i32 %type.0.lcssa, 0
@@ -321,7 +309,7 @@ while.end:                                        ; preds = %if.end10, %entry
   br i1 %or.cond, label %land.lhs.true17, label %if.else
 
 land.lhs.true17:                                  ; preds = %while.end
-  %parsing_started = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 11
+  %parsing_started = getelementptr inbounds i8, ptr %p, i64 72
   %15 = load i32, ptr %parsing_started, align 8
   %tobool18.not = icmp eq i32 %15, 0
   br i1 %tobool18.not, label %if.else, label %if.then19
@@ -329,13 +317,13 @@ land.lhs.true17:                                  ; preds = %while.end
 if.then19:                                        ; preds = %land.lhs.true17
   store i32 0, ptr %parsing_started, align 8
   %16 = load ptr, ptr %p, align 8
-  %indent = getelementptr inbounds %struct.tok_state, ptr %16, i64 0, i32 11
+  %indent = getelementptr inbounds i8, ptr %16, i64 84
   %17 = load i32, ptr %indent, align 4
   %tobool22.not = icmp eq i32 %17, 0
   br i1 %tobool22.not, label %if.end34, label %land.lhs.true23
 
 land.lhs.true23:                                  ; preds = %if.then19
-  %flags = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 16
+  %flags = getelementptr inbounds i8, ptr %p, i64 100
   %18 = load i32, ptr %flags, align 4
   %and = and i32 %18, 2
   %tobool24.not = icmp eq i32 %and, 0
@@ -343,35 +331,35 @@ land.lhs.true23:                                  ; preds = %if.then19
 
 if.then25:                                        ; preds = %land.lhs.true23
   %sub28 = sub i32 0, %17
-  %pendin = getelementptr inbounds %struct.tok_state, ptr %16, i64 0, i32 14
+  %pendin = getelementptr inbounds i8, ptr %16, i64 492
   store i32 %sub28, ptr %pendin, align 4
   %19 = load ptr, ptr %p, align 8
-  %indent31 = getelementptr inbounds %struct.tok_state, ptr %19, i64 0, i32 11
+  %indent31 = getelementptr inbounds i8, ptr %19, i64 84
   store i32 0, ptr %indent31, align 4
   br label %if.end34
 
 if.else:                                          ; preds = %land.lhs.true17, %while.end
-  %parsing_started33 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 11
+  %parsing_started33 = getelementptr inbounds i8, ptr %p, i64 72
   store i32 1, ptr %parsing_started33, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then19, %land.lhs.true23, %if.then25, %if.else
   %type.1 = phi i32 [ 4, %land.lhs.true23 ], [ 4, %if.then25 ], [ 4, %if.then19 ], [ %type.0.lcssa, %if.else ]
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %20 = load i32, ptr %fill, align 4
-  %size = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %p, i64 24
   %21 = load i32, ptr %size, align 8
   %cmp35 = icmp eq i32 %20, %21
   br i1 %cmp35, label %land.lhs.true37, label %if.end34.if.end42_crit_edge
 
 if.end34.if.end42_crit_edge:                      ; preds = %if.end34
-  %tokens.phi.trans.insert = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.phi.trans.insert = getelementptr inbounds i8, ptr %p, i64 8
   %.pre = load ptr, ptr %tokens.phi.trans.insert, align 8
   br label %if.end42
 
 land.lhs.true37:                                  ; preds = %if.end34
   %mul.i27 = shl i32 %20, 1
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
   %22 = load ptr, ptr %tokens.i, align 8
   %conv.i = sext i32 %mul.i27 to i64
   %mul1.i = shl nsw i64 %conv.i, 3
@@ -427,18 +415,18 @@ if.end42:                                         ; preds = %if.end34.if.end42_c
   br i1 %cmp.i33, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %if.end42
-  %end_col_offset.i.i = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 4
+  %end_col_offset.i.i = getelementptr inbounds i8, ptr %new_token, i64 16
   %33 = load i32, ptr %end_col_offset.i.i, align 8
-  %col_offset.i.i = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 2
+  %col_offset.i.i = getelementptr inbounds i8, ptr %new_token, i64 8
   %34 = load i32, ptr %col_offset.i.i, align 8
   %sub.i.i = sub i32 %33, %34
-  %n_keyword_lists.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 8
+  %n_keyword_lists.i.i = getelementptr inbounds i8, ptr %p, i64 56
   %35 = load i32, ptr %n_keyword_lists.i.i, align 8
   %cmp.not.i.i = icmp slt i32 %sub.i.i, %35
   br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %cond.end.i
 
 lor.lhs.false.i.i:                                ; preds = %cond.true.i
-  %keywords.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 6
+  %keywords.i.i = getelementptr inbounds i8, ptr %p, i64 40
   %36 = load ptr, ptr %keywords.i.i, align 8
   %idxprom.i.i = sext i32 %sub.i.i to i64
   %arrayidx.i.i = getelementptr ptr, ptr %36, i64 %idxprom.i.i
@@ -447,24 +435,24 @@ lor.lhs.false.i.i:                                ; preds = %cond.true.i
   br i1 %cmp1.i.i, label %cond.end.i, label %lor.lhs.false2.i.i
 
 lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
-  %type.i.i = getelementptr inbounds %struct.KeywordToken, ptr %37, i64 0, i32 1
+  %type.i.i = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load i32, ptr %type.i.i, align 8
   %cmp6.i.i = icmp eq i32 %38, -1
   br i1 %cmp6.i.i, label %cond.end.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %lor.lhs.false2.i.i
-  %start.i.i = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 5
+  %start.i.i = getelementptr inbounds i8, ptr %new_token, i64 24
   %39 = load ptr, ptr %start.i.i, align 8
   br label %land.rhs.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
-  %incdec.ptr.i.i = getelementptr %struct.KeywordToken, ptr %k.015.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %k.015.i.i, i64 16
   %cmp10.not.i.i = icmp eq ptr %incdec.ptr.i.i, null
   br i1 %cmp10.not.i.i, label %cond.end.i, label %land.rhs.i.i, !llvm.loop !9
 
 land.rhs.i.i:                                     ; preds = %for.cond.i.i, %for.cond.preheader.i.i
   %k.015.i.i = phi ptr [ %37, %for.cond.preheader.i.i ], [ %incdec.ptr.i.i, %for.cond.i.i ]
-  %type11.i.i = getelementptr inbounds %struct.KeywordToken, ptr %k.015.i.i, i64 0, i32 1
+  %type11.i.i = getelementptr inbounds i8, ptr %k.015.i.i, i64 8
   %40 = load i32, ptr %type11.i.i, align 8
   %cmp12.not.i.i = icmp eq i32 %40, -1
   br i1 %cmp12.not.i.i, label %cond.end.i, label %for.body.i.i
@@ -478,21 +466,21 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
 cond.end.i:                                       ; preds = %for.body.i.i, %land.rhs.i.i, %for.cond.i.i, %lor.lhs.false2.i.i, %lor.lhs.false.i.i, %cond.true.i, %if.end42
   %cond.i = phi i32 [ %type.1, %if.end42 ], [ 1, %lor.lhs.false2.i.i ], [ 1, %lor.lhs.false.i.i ], [ 1, %cond.true.i ], [ 1, %land.rhs.i.i ], [ 1, %for.cond.i.i ], [ %40, %for.body.i.i ]
   store i32 %cond.i, ptr %32, align 8
-  %start.i = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 5
+  %start.i = getelementptr inbounds i8, ptr %new_token, i64 24
   %42 = load ptr, ptr %start.i, align 8
-  %end.i = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 6
+  %end.i = getelementptr inbounds i8, ptr %new_token, i64 32
   %43 = load ptr, ptr %end.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %43 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %42 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %call2.i = call ptr @PyBytes_FromStringAndSize(ptr noundef %42, i64 noundef %sub.ptr.sub.i) #12
-  %bytes.i = getelementptr inbounds %struct.Token, ptr %32, i64 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %call2.i, ptr %bytes.i, align 8
   %cmp4.i = icmp eq ptr %call2.i, null
   br i1 %cmp4.i, label %return, label %if.end.i34
 
 if.end.i34:                                       ; preds = %cond.end.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %44 = load ptr, ptr %arena.i, align 8
   %call6.i = call i32 @_PyArena_AddPyObject(ptr noundef %44, ptr noundef nonnull %call2.i) #12
   %cmp7.i = icmp slt i32 %call6.i, 0
@@ -516,9 +504,9 @@ if.then1.i67.i:                                   ; preds = %if.end.i64.i
   br label %return
 
 if.end10.i:                                       ; preds = %if.end.i34
-  %metadata.i = getelementptr inbounds %struct.Token, ptr %32, i64 0, i32 8
+  %metadata.i = getelementptr inbounds i8, ptr %32, i64 48
   store ptr null, ptr %metadata.i, align 8
-  %metadata11.i = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 7
+  %metadata11.i = getelementptr inbounds i8, ptr %new_token, i64 40
   %48 = load ptr, ptr %metadata11.i, align 8
   %cmp12.not.i = icmp eq ptr %48, null
   br i1 %cmp12.not.i, label %if.end24.i, label %if.then13.i
@@ -553,61 +541,61 @@ if.end20.i:                                       ; preds = %if.then13.i
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end20.i, %if.end10.i
-  %level25.i = getelementptr inbounds %struct.Token, ptr %32, i64 0, i32 2
+  %level25.i = getelementptr inbounds i8, ptr %32, i64 16
   %54 = load <2 x i32>, ptr %new_token, align 8
   store <2 x i32> %54, ptr %level25.i, align 8
   %55 = load ptr, ptr %p, align 8
-  %lineno27.i = getelementptr inbounds %struct.tok_state, ptr %55, i64 0, i32 17
+  %lineno27.i = getelementptr inbounds i8, ptr %55, i64 512
   %56 = load i32, ptr %lineno27.i, align 8
-  %starting_lineno.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 13
+  %starting_lineno.i = getelementptr inbounds i8, ptr %p, i64 88
   %57 = load i32, ptr %starting_lineno.i, align 8
   %cmp28.i = icmp eq i32 %56, %57
   br i1 %cmp28.i, label %cond.true29.i, label %cond.false30.i
 
 cond.true29.i:                                    ; preds = %if.end24.i
-  %starting_col_offset.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 14
+  %starting_col_offset.i = getelementptr inbounds i8, ptr %p, i64 92
   %58 = load i32, ptr %starting_col_offset.i, align 4
-  %col_offset.i = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 2
+  %col_offset.i = getelementptr inbounds i8, ptr %new_token, i64 8
   %59 = load i32, ptr %col_offset.i, align 8
   %add.i = add i32 %59, %58
   br label %cond.end32.i
 
 cond.false30.i:                                   ; preds = %if.end24.i
-  %col_offset31.i = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 2
+  %col_offset31.i = getelementptr inbounds i8, ptr %new_token, i64 8
   %60 = load i32, ptr %col_offset31.i, align 8
   br label %cond.end32.i
 
 cond.end32.i:                                     ; preds = %cond.false30.i, %cond.true29.i
   %cond33.i = phi i32 [ %add.i, %cond.true29.i ], [ %60, %cond.false30.i ]
-  %col_offset34.i = getelementptr inbounds %struct.Token, ptr %32, i64 0, i32 4
+  %col_offset34.i = getelementptr inbounds i8, ptr %32, i64 24
   store i32 %cond33.i, ptr %col_offset34.i, align 8
-  %end_lineno.i = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 3
+  %end_lineno.i = getelementptr inbounds i8, ptr %new_token, i64 12
   %61 = load i32, ptr %end_lineno.i, align 4
-  %end_lineno35.i = getelementptr inbounds %struct.Token, ptr %32, i64 0, i32 5
+  %end_lineno35.i = getelementptr inbounds i8, ptr %32, i64 28
   store i32 %61, ptr %end_lineno35.i, align 4
   %62 = load ptr, ptr %p, align 8
-  %lineno37.i = getelementptr inbounds %struct.tok_state, ptr %62, i64 0, i32 17
+  %lineno37.i = getelementptr inbounds i8, ptr %62, i64 512
   %63 = load i32, ptr %lineno37.i, align 8
   %64 = load i32, ptr %starting_lineno.i, align 8
   %cmp39.i = icmp eq i32 %63, %64
   br i1 %cmp39.i, label %cond.true40.i, label %cond.false43.i
 
 cond.true40.i:                                    ; preds = %cond.end32.i
-  %starting_col_offset41.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 14
+  %starting_col_offset41.i = getelementptr inbounds i8, ptr %p, i64 92
   %65 = load i32, ptr %starting_col_offset41.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 4
+  %end_col_offset.i = getelementptr inbounds i8, ptr %new_token, i64 16
   %66 = load i32, ptr %end_col_offset.i, align 8
   %add42.i = add i32 %66, %65
   br label %cond.end45.i
 
 cond.false43.i:                                   ; preds = %cond.end32.i
-  %end_col_offset44.i = getelementptr inbounds %struct.token, ptr %new_token, i64 0, i32 4
+  %end_col_offset44.i = getelementptr inbounds i8, ptr %new_token, i64 16
   %67 = load i32, ptr %end_col_offset44.i, align 8
   br label %cond.end45.i
 
 cond.end45.i:                                     ; preds = %cond.false43.i, %cond.true40.i
   %cond46.i = phi i32 [ %add42.i, %cond.true40.i ], [ %67, %cond.false43.i ]
-  %end_col_offset47.i = getelementptr inbounds %struct.Token, ptr %32, i64 0, i32 6
+  %end_col_offset47.i = getelementptr inbounds i8, ptr %32, i64 32
   store i32 %cond46.i, ptr %end_col_offset47.i, align 8
   %68 = load i32, ptr %fill, align 4
   %add48.i = add i32 %68, 1
@@ -617,7 +605,7 @@ cond.end45.i:                                     ; preds = %cond.false43.i, %co
 
 land.lhs.true.i:                                  ; preds = %cond.end45.i
   %69 = load ptr, ptr %p, align 8
-  %done.i = getelementptr inbounds %struct.tok_state, ptr %69, i64 0, i32 8
+  %done.i = getelementptr inbounds i8, ptr %69, i64 64
   %70 = load i32, ptr %done.i, align 8
   %cmp51.i = icmp eq i32 %70, 22
   br i1 %cmp51.i, label %if.then52.i, label %cond.true56.i
@@ -656,9 +644,9 @@ declare void @_PyToken_Free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyPegen_is_memoized(ptr noundef %p, i32 noundef %type, ptr nocapture noundef writeonly %pres) local_unnamed_addr #1 {
 entry:
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %1 = load i32, ptr %fill, align 4
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %if.then, label %if.end3
@@ -673,18 +661,18 @@ if.then.if.end3_crit_edge:                        ; preds = %if.then
   br label %if.end3
 
 if.then2:                                         ; preds = %if.then
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator, align 8
   br label %return
 
 if.end3:                                          ; preds = %if.then.if.end3_crit_edge, %entry
   %2 = phi i32 [ %.pre, %if.then.if.end3_crit_edge ], [ %0, %entry ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %3 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %3, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
-  %memo = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 7
+  %memo = getelementptr inbounds i8, ptr %4, i64 40
   %m.012 = load ptr, ptr %memo, align 8
   %cmp5.not13 = icmp eq ptr %m.012, null
   br i1 %cmp5.not13, label %return, label %for.body
@@ -696,16 +684,16 @@ for.body:                                         ; preds = %if.end3, %for.inc
   br i1 %cmp7, label %if.then8, label %for.inc
 
 if.then8:                                         ; preds = %for.body
-  %mark9 = getelementptr inbounds %struct._memo, ptr %m.014, i64 0, i32 2
+  %mark9 = getelementptr inbounds i8, ptr %m.014, i64 16
   %6 = load i32, ptr %mark9, align 8
   store i32 %6, ptr %mark, align 8
-  %node = getelementptr inbounds %struct._memo, ptr %m.014, i64 0, i32 1
+  %node = getelementptr inbounds i8, ptr %m.014, i64 8
   %7 = load ptr, ptr %node, align 8
   store ptr %7, ptr %pres, align 8
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds %struct._memo, ptr %m.014, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %m.014, i64 24
   %m.0 = load ptr, ptr %next, align 8
   %cmp5.not = icmp eq ptr %m.0, null
   br i1 %cmp5.not, label %return, label %for.body, !llvm.loop !10
@@ -718,7 +706,7 @@ return:                                           ; preds = %for.inc, %if.end3, 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyPegen_lookahead_with_name(i32 noundef %positive, ptr nocapture noundef readonly %func, ptr noundef %p) local_unnamed_addr #1 {
 entry:
-  %mark1 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark1 = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %mark1, align 8
   %call = tail call ptr %func(ptr noundef %p) #12
   store i32 %0, ptr %mark1, align 8
@@ -732,7 +720,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyPegen_lookahead_with_string(i32 noundef %positive, ptr nocapture noundef readonly %func, ptr noundef %p, ptr noundef %arg) local_unnamed_addr #1 {
 entry:
-  %mark1 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark1 = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %mark1, align 8
   %call = tail call ptr %func(ptr noundef %p, ptr noundef %arg) #12
   store i32 %0, ptr %mark1, align 8
@@ -746,7 +734,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyPegen_lookahead_with_int(i32 noundef %positive, ptr nocapture noundef readonly %func, ptr noundef %p, i32 noundef %arg) local_unnamed_addr #1 {
 entry:
-  %mark1 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark1 = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %mark1, align 8
   %call = tail call ptr %func(ptr noundef %p, i32 noundef %arg) #12
   store i32 %0, ptr %mark1, align 8
@@ -760,7 +748,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyPegen_lookahead(i32 noundef %positive, ptr nocapture noundef readonly %func, ptr noundef %p) local_unnamed_addr #1 {
 entry:
-  %mark1 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark1 = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %mark1, align 8
   %call = tail call ptr %func(ptr noundef %p) #12
   store i32 %0, ptr %mark1, align 8
@@ -774,9 +762,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef %type) local_unnamed_addr #1 {
 entry:
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %1 = load i32, ptr %fill, align 4
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %if.then, label %if.end3
@@ -791,13 +779,13 @@ if.then.if.end3_crit_edge:                        ; preds = %if.then
   br label %if.end3
 
 if.then2:                                         ; preds = %if.then
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator, align 8
   br label %return
 
 if.end3:                                          ; preds = %if.then.if.end3_crit_edge, %entry
   %2 = phi i32 [ %.pre, %if.then.if.end3_crit_edge ], [ %0, %entry ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %3 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %3, i64 %idxprom
@@ -819,7 +807,7 @@ return:                                           ; preds = %if.end3, %if.end8, 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyPegen_expect_forced_result(ptr noundef %p, ptr noundef readnone %result, ptr noundef %expected) local_unnamed_addr #1 {
 entry:
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %0 = load i32, ptr %error_indicator, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %return, label %if.end
@@ -843,15 +831,15 @@ declare ptr @_PyPegen_raise_error(ptr noundef, ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyPegen_expect_forced_token(ptr noundef %p, i32 noundef %type, ptr noundef %expected) local_unnamed_addr #1 {
 entry:
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %0 = load i32, ptr %error_indicator, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %2 = load i32, ptr %fill, align 4
   %cmp1 = icmp eq i32 %1, %2
   br i1 %cmp1, label %if.then2, label %if.end7
@@ -871,7 +859,7 @@ if.then4:                                         ; preds = %if.then2
 
 if.end7:                                          ; preds = %if.then2.if.end7_crit_edge, %if.end
   %3 = phi i32 [ %.pre, %if.then2.if.end7_crit_edge ], [ %1, %if.end ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
@@ -882,16 +870,16 @@ if.end7:                                          ; preds = %if.then2.if.end7_cr
 
 if.then11:                                        ; preds = %if.end7
   %7 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %5, i64 20
   %8 = load i32, ptr %lineno, align 4
   %conv = sext i32 %8 to i64
-  %col_offset = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load i32, ptr %col_offset, align 8
   %conv12 = sext i32 %9 to i64
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %5, i64 28
   %10 = load i32, ptr %end_lineno, align 4
   %conv13 = sext i32 %10 to i64
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %5, i64 32
   %11 = load i32, ptr %end_col_offset, align 8
   %conv14 = sext i32 %11 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv, i64 noundef %conv12, i64 noundef %conv13, i64 noundef %conv14, ptr noundef nonnull @.str.2, ptr noundef %expected)
@@ -926,9 +914,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyPegen_expect_soft_keyword(ptr noundef %p, ptr nocapture noundef readonly %keyword) local_unnamed_addr #1 {
 entry:
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %1 = load i32, ptr %fill, align 4
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %if.then, label %if.end3
@@ -943,13 +931,13 @@ if.then.if.end3_crit_edge:                        ; preds = %if.then
   br label %if.end3
 
 if.then2:                                         ; preds = %if.then
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator, align 8
   br label %return
 
 if.end3:                                          ; preds = %if.then.if.end3_crit_edge, %entry
   %2 = phi i32 [ %.pre, %if.then.if.end3_crit_edge ], [ %0, %entry ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %3 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %3, i64 %idxprom
@@ -959,14 +947,14 @@ if.end3:                                          ; preds = %if.then.if.end3_cri
   br i1 %cmp5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end3
-  %bytes = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %bytes, align 8
   %call8 = tail call ptr @PyBytes_AsString(ptr noundef %6) #12
   %tobool.not = icmp eq ptr %call8, null
   br i1 %tobool.not, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end7
-  %error_indicator10 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator10 = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator10, align 8
   br label %return
 
@@ -992,9 +980,9 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyPegen_name_token(ptr noundef %p) local_unnamed_addr #1 {
 entry:
-  %mark.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %mark.i, align 8
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
   %1 = load i32, ptr %fill.i, align 4
   %cmp.i = icmp eq i32 %0, %1
   br i1 %cmp.i, label %if.then.i, label %if.end3.i
@@ -1009,13 +997,13 @@ if.then.if.end3_crit_edge.i:                      ; preds = %if.then.i
   br label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator.i, align 8
   br label %_PyPegen_name_from_token.exit
 
 if.end3.i:                                        ; preds = %if.then.if.end3_crit_edge.i, %entry
   %2 = phi i32 [ %.pre.i, %if.then.if.end3_crit_edge.i ], [ %0, %entry ]
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
   %3 = load ptr, ptr %tokens.i, align 8
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr ptr, ptr %3, i64 %idxprom.i
@@ -1027,14 +1015,14 @@ if.end3.i:                                        ; preds = %if.then.if.end3_cri
 if.end.i:                                         ; preds = %if.end3.i
   %add.i = add i32 %2, 1
   store i32 %add.i, ptr %mark.i, align 8
-  %bytes.i = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %bytes.i, align 8
   %call.i3 = tail call ptr @PyBytes_AsString(ptr noundef %6) #12
   %tobool.not.i = icmp eq ptr %call.i3, null
   br i1 %tobool.not.i, label %if.then1.i, label %if.end2.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %error_indicator.i5 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator.i5 = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator.i5, align 8
   br label %_PyPegen_name_from_token.exit
 
@@ -1044,20 +1032,20 @@ if.end2.i:                                        ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.end2.i
-  %error_indicator6.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator6.i = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator6.i, align 8
   br label %_PyPegen_name_from_token.exit
 
 if.end7.i:                                        ; preds = %if.end2.i
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %4, i64 20
   %7 = load i32, ptr %lineno.i, align 4
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %4, i64 24
   %8 = load i32, ptr %col_offset.i, align 8
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %4, i64 28
   %9 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %4, i64 32
   %10 = load i32, ptr %end_col_offset.i, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena.i, align 8
   %call8.i = tail call ptr @_PyAST_Name(ptr noundef nonnull %call3.i, i32 noundef 1, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) #12
   br label %_PyPegen_name_from_token.exit
@@ -1070,14 +1058,14 @@ _PyPegen_name_from_token.exit:                    ; preds = %if.end3.i, %if.then
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @_PyPegen_get_last_nonnwhitespace_token(ptr nocapture noundef readonly %p) local_unnamed_addr #5 {
 entry:
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %mark, align 8
   %m.08 = add i32 %0, -1
   %cmp9 = icmp sgt i32 %m.08, -1
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %1 = load ptr, ptr %tokens, align 8
   %2 = zext nneg i32 %m.08 to i64
   br label %for.body
@@ -1123,7 +1111,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %if.then4, label %if.end24
 
 if.then4:                                         ; preds = %if.end
-  %normalize.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 12
+  %normalize.i = getelementptr inbounds i8, ptr %p, i64 80
   %2 = load ptr, ptr %normalize.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %init_normalization.exit, label %if.end8
@@ -1173,7 +1161,7 @@ if.then1.i62:                                     ; preds = %if.end.i59
 
 if.end11:                                         ; preds = %if.end8
   store ptr %call9, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %call1, ptr %arrayinit.element, align 8
   %7 = load ptr, ptr %normalize.i, align 8
   %call12 = call ptr @PyObject_Vectorcall(ptr noundef %7, ptr noundef nonnull %args, i64 noundef 2, ptr noundef null) #12
@@ -1246,7 +1234,7 @@ if.end23:                                         ; preds = %if.end15
 
 if.end24:                                         ; preds = %if.end23, %if.end
   call void @PyUnicode_InternInPlace(ptr noundef nonnull %id) #12
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %18 = load ptr, ptr %arena, align 8
   %19 = load ptr, ptr %id, align 8
   %call25 = call i32 @_PyArena_AddPyObject(ptr noundef %18, ptr noundef %19) #12
@@ -1271,7 +1259,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %error
 
 error:                                            ; preds = %if.end.i, %if.then1.i, %if.then27, %if.end.i32, %if.then1.i35, %if.then19, %Py_DECREF.exit46, %if.end.i59, %if.then1.i62, %if.then10, %if.end.i68, %if.then1.i71, %if.then7, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator, align 8
   br label %return
 
@@ -1295,9 +1283,9 @@ declare i32 @_PyArena_AddPyObject(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyPegen_string_token(ptr noundef %p) local_unnamed_addr #1 {
 entry:
-  %mark.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %mark.i, align 8
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
   %1 = load i32, ptr %fill.i, align 4
   %cmp.i = icmp eq i32 %0, %1
   br i1 %cmp.i, label %if.then.i, label %if.end3.i
@@ -1312,13 +1300,13 @@ if.then.if.end3_crit_edge.i:                      ; preds = %if.then.i
   br label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator.i, align 8
   br label %_PyPegen_expect_token.exit
 
 if.end3.i:                                        ; preds = %if.then.if.end3_crit_edge.i, %entry
   %2 = phi i32 [ %.pre.i, %if.then.if.end3_crit_edge.i ], [ %0, %entry ]
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
   %3 = load ptr, ptr %tokens.i, align 8
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr ptr, ptr %3, i64 %idxprom.i
@@ -1342,9 +1330,9 @@ define hidden ptr @_PyPegen_soft_keyword_token(ptr noundef %p) local_unnamed_add
 entry:
   %the_token = alloca ptr, align 8
   %size = alloca i64, align 8
-  %mark.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %mark.i, align 8
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
   %1 = load i32, ptr %fill.i, align 4
   %cmp.i = icmp eq i32 %0, %1
   br i1 %cmp.i, label %if.then.i, label %if.end3.i
@@ -1359,13 +1347,13 @@ if.then.if.end3_crit_edge.i:                      ; preds = %if.then.i
   br label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator.i, align 8
   br label %return
 
 if.end3.i:                                        ; preds = %if.then.if.end3_crit_edge.i, %entry
   %2 = phi i32 [ %.pre.i, %if.then.if.end3_crit_edge.i ], [ %0, %entry ]
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
   %3 = load ptr, ptr %tokens.i, align 8
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr ptr, ptr %3, i64 %idxprom.i
@@ -1377,10 +1365,10 @@ if.end3.i:                                        ; preds = %if.then.if.end3_cri
 if.end:                                           ; preds = %if.end3.i
   %add.i = add i32 %2, 1
   store i32 %add.i, ptr %mark.i, align 8
-  %bytes = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %bytes, align 8
   %call1 = call i32 @PyBytes_AsStringAndSize(ptr noundef %6, ptr noundef nonnull %the_token, ptr noundef nonnull %size) #12
-  %soft_keywords = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 7
+  %soft_keywords = getelementptr inbounds i8, ptr %p, i64 48
   %7 = load ptr, ptr %soft_keywords, align 8
   %8 = load ptr, ptr %7, align 8
   %cmp2.not13 = icmp eq ptr %8, null
@@ -1392,7 +1380,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr ptr, ptr %keyword.014, i64 1
+  %incdec.ptr = getelementptr i8, ptr %keyword.014, i64 8
   %11 = load ptr, ptr %incdec.ptr, align 8
   %cmp2.not = icmp eq ptr %11, null
   br i1 %cmp2.not, label %return, label %for.body, !llvm.loop !11
@@ -1411,7 +1399,7 @@ if.end.i:                                         ; preds = %for.body
   br i1 %tobool.not.i, label %if.then1.i, label %if.end2.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %error_indicator.i10 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator.i10 = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator.i10, align 8
   br label %return
 
@@ -1421,20 +1409,20 @@ if.end2.i:                                        ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.end2.i
-  %error_indicator6.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator6.i = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator6.i, align 8
   br label %return
 
 if.end7.i:                                        ; preds = %if.end2.i
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %4, i64 20
   %14 = load i32, ptr %lineno.i, align 4
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %4, i64 24
   %15 = load i32, ptr %col_offset.i, align 8
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %4, i64 32
   %17 = load i32, ptr %end_col_offset.i, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %18 = load ptr, ptr %arena.i, align 8
   %call8.i = call ptr @_PyAST_Name(ptr noundef nonnull %call3.i, i32 noundef 1, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17, ptr noundef %18) #12
   br label %return
@@ -1452,9 +1440,9 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyPegen_number_token(ptr noundef %p) local_unnamed_addr #1 {
 entry:
-  %mark.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %mark.i, align 8
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
   %1 = load i32, ptr %fill.i, align 4
   %cmp.i28 = icmp eq i32 %0, %1
   br i1 %cmp.i28, label %if.then.i, label %if.end3.i
@@ -1469,13 +1457,13 @@ if.then.if.end3_crit_edge.i:                      ; preds = %if.then.i
   br label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator.i, align 8
   br label %return
 
 if.end3.i:                                        ; preds = %if.then.if.end3_crit_edge.i, %entry
   %2 = phi i32 [ %.pre.i, %if.then.if.end3_crit_edge.i ], [ %0, %entry ]
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
   %3 = load ptr, ptr %tokens.i, align 8
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr ptr, ptr %3, i64 %idxprom.i
@@ -1487,19 +1475,19 @@ if.end3.i:                                        ; preds = %if.then.if.end3_cri
 if.end:                                           ; preds = %if.end3.i
   %add.i = add i32 %2, 1
   store i32 %add.i, ptr %mark.i, align 8
-  %bytes = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %bytes, align 8
   %call1 = tail call ptr @PyBytes_AsString(ptr noundef %6) #12
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator, align 8
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %feature_version = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 17
+  %feature_version = getelementptr inbounds i8, ptr %p, i64 104
   %7 = load i32, ptr %feature_version, align 8
   %cmp5 = icmp slt i32 %7, 6
   br i1 %cmp5, label %land.lhs.true, label %if.end11
@@ -1510,7 +1498,7 @@ land.lhs.true:                                    ; preds = %if.end4
   br i1 %cmp7.not, label %if.end11, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true
-  %error_indicator9 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator9 = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator9, align 8
   %8 = load ptr, ptr @PyExc_SyntaxError, align 8
   %call10 = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %8, i32 noundef 0, ptr noundef nonnull @.str.5) #12
@@ -1567,11 +1555,11 @@ parsenumber.exit:                                 ; preds = %if.then.i34, %if.th
   br i1 %cmp13, label %if.then14, label %if.end27
 
 if.then14:                                        ; preds = %parsenumber.exit
-  %error_indicator15 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator15 = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator15, align 8
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %11 = load ptr, ptr %10, align 8
-  %current_exception = getelementptr inbounds %struct._ts, ptr %11, i64 0, i32 17
+  %current_exception = getelementptr inbounds i8, ptr %11, i64 104
   %12 = load ptr, ptr %current_exception, align 8
   %cmp17.not = icmp eq ptr %12, null
   br i1 %cmp17.not, label %return, label %land.lhs.true18
@@ -1586,10 +1574,10 @@ land.lhs.true18:                                  ; preds = %if.then14
 if.then22:                                        ; preds = %land.lhs.true18
   %call23 = tail call ptr @PyErr_GetRaisedException() #12
   %15 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %4, i64 20
   %16 = load i32, ptr %lineno, align 4
   %conv = sext i32 %16 to i64
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %4, i64 28
   %17 = load i32, ptr %end_lineno, align 4
   %conv24 = sext i32 %17 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %15, i64 noundef %conv, i64 noundef -1, i64 noundef %conv24, i64 noundef -1, ptr noundef nonnull @.str.6, ptr noundef %call23)
@@ -1609,7 +1597,7 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %return
 
 if.end27:                                         ; preds = %parsenumber.exit
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %20 = load ptr, ptr %arena, align 8
   %call28 = tail call i32 @_PyArena_AddPyObject(ptr noundef %20, ptr noundef nonnull %retval.0.i33) #12
   %cmp29 = icmp slt i32 %call28, 0
@@ -1632,18 +1620,18 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then31, %if.then1.i, %if.end.i
-  %error_indicator32 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator32 = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator32, align 8
   br label %return
 
 if.end33:                                         ; preds = %if.end27
-  %lineno34 = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 3
+  %lineno34 = getelementptr inbounds i8, ptr %4, i64 20
   %23 = load i32, ptr %lineno34, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %4, i64 24
   %24 = load i32, ptr %col_offset, align 8
-  %end_lineno35 = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 5
+  %end_lineno35 = getelementptr inbounds i8, ptr %4, i64 28
   %25 = load i32, ptr %end_lineno35, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %4, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %4, i64 32
   %26 = load i32, ptr %end_col_offset, align 8
   %27 = load ptr, ptr %arena, align 8
   %call37 = tail call ptr @_PyAST_Constant(ptr noundef nonnull %retval.0.i33, ptr noundef null, i32 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef %27) #12
@@ -1675,17 +1663,17 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %and = lshr i32 %flags, 6
   %and.lobit = and i32 %and, 1
-  %type_comments = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 39
+  %type_comments = getelementptr inbounds i8, ptr %tok, i64 2832
   store i32 %and.lobit, ptr %type_comments, align 8
   store ptr %tok, ptr %call, align 8
-  %keywords = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 6
+  %keywords = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %keywords, align 8
-  %n_keyword_lists = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 8
+  %n_keyword_lists = getelementptr inbounds i8, ptr %call, i64 56
   store i32 -1, ptr %n_keyword_lists, align 8
-  %soft_keywords = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 7
+  %soft_keywords = getelementptr inbounds i8, ptr %call, i64 48
   store ptr null, ptr %soft_keywords, align 8
   %call4 = tail call ptr @PyMem_Malloc(i64 noundef 8) #12
-  %tokens = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call4, ptr %tokens, align 8
   %tobool.not = icmp eq ptr %call4, null
   br i1 %tobool.not, label %if.then6, label %if.end8
@@ -1711,12 +1699,12 @@ if.then14:                                        ; preds = %if.end8
   br label %return
 
 if.end17:                                         ; preds = %if.end8
-  %type_ignore_comments = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 18
+  %type_ignore_comments = getelementptr inbounds i8, ptr %call, i64 112
   %call.i = tail call ptr @PyMem_Malloc(i64 noundef 160) #12
   store ptr %call.i, ptr %type_ignore_comments, align 8
-  %size.i = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 18, i32 1
+  %size.i = getelementptr inbounds i8, ptr %call, i64 120
   store i64 10, ptr %size.i, align 8
-  %num_items.i = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 18, i32 2
+  %num_items.i = getelementptr inbounds i8, ptr %call, i64 128
   store i64 0, ptr %num_items.i, align 8
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %if.then20, label %if.end25
@@ -1732,27 +1720,27 @@ if.then20:                                        ; preds = %if.end17
   br label %return
 
 if.end25:                                         ; preds = %if.end17
-  %mark = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %call, i64 20
   store i32 0, ptr %fill, align 4
-  %size = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %call, i64 24
   store i32 1, ptr %size, align 8
-  %errcode26 = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 10
+  %errcode26 = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %errcode, ptr %errcode26, align 8
-  %arena27 = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 5
+  %arena27 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %arena, ptr %arena27, align 8
-  %start_rule28 = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 9
+  %start_rule28 = getelementptr inbounds i8, ptr %call, i64 60
   store i32 %start_rule, ptr %start_rule28, align 4
-  %parsing_started = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 11
+  %parsing_started = getelementptr inbounds i8, ptr %call, i64 72
   store i32 0, ptr %parsing_started, align 8
-  %normalize = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 12
-  %flags29 = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 16
+  %normalize = getelementptr inbounds i8, ptr %call, i64 80
+  %flags29 = getelementptr inbounds i8, ptr %call, i64 100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %normalize, i8 0, i64 20, i1 false)
   store i32 %flags, ptr %flags29, align 4
-  %feature_version30 = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 17
+  %feature_version30 = getelementptr inbounds i8, ptr %call, i64 104
   store i32 %feature_version, ptr %feature_version30, align 8
-  %known_err_token = getelementptr inbounds %struct.Parser, ptr %call, i64 0, i32 19
+  %known_err_token = getelementptr inbounds i8, ptr %call, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %known_err_token, i8 0, i64 16, i1 false)
   br label %return
 
@@ -1768,7 +1756,7 @@ declare ptr @PyMem_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyPegen_Parser_Free(ptr noundef %p) local_unnamed_addr #1 {
 entry:
-  %normalize = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 12
+  %normalize = getelementptr inbounds i8, ptr %p, i64 80
   %0 = load ptr, ptr %normalize, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -1790,13 +1778,13 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %size = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %p, i64 24
   %3 = load i32, ptr %size, align 8
   %cmp8 = icmp sgt i32 %3, 0
   br i1 %cmp8, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %Py_XDECREF.exit
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1812,11 +1800,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %Py_XDECREF.exit
-  %tokens1 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens1 = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens1, align 8
   tail call void @PyMem_Free(ptr noundef %8) #12
-  %type_ignore_comments = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 18
-  %num_items.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 18, i32 2
+  %type_ignore_comments = getelementptr inbounds i8, ptr %p, i64 112
+  %num_items.i = getelementptr inbounds i8, ptr %p, i64 128
   %9 = load i64, ptr %num_items.i, align 8
   %cmp5.not.i = icmp eq i64 %9, 0
   br i1 %cmp5.not.i, label %growable_comment_array_deallocate.exit, label %for.body.i
@@ -1849,7 +1837,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end13
 
 if.then:                                          ; preds = %entry
-  %flags = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 16
+  %flags = getelementptr inbounds i8, ptr %p, i64 100
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 256
   %tobool.not = icmp eq i32 %and, 0
@@ -1883,9 +1871,9 @@ land.lhs.true7:                                   ; preds = %if.end
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %land.lhs.true7, %if.end
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %5 = load i32, ptr %fill, align 4
   %sub = add i32 %5, -1
   %idxprom = sext i32 %sub to i64
@@ -1899,7 +1887,7 @@ for.body.i:                                       ; preds = %if.end11, %for.body
   %7 = load ptr, ptr %tokens, align 8
   %arrayidx.i = getelementptr ptr, ptr %7, i64 %indvars.iv.i
   %8 = load ptr, ptr %arrayidx.i, align 8
-  %memo.i = getelementptr inbounds %struct.Token, ptr %8, i64 0, i32 7
+  %memo.i = getelementptr inbounds i8, ptr %8, i64 40
   store ptr null, ptr %memo.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load i32, ptr %fill, align 4
@@ -1908,19 +1896,19 @@ for.body.i:                                       ; preds = %if.end11, %for.body
   br i1 %cmp.i, label %for.body.i, label %reset_parser_state_for_error_pass.exit, !llvm.loop !15
 
 reset_parser_state_for_error_pass.exit:           ; preds = %for.body.i, %if.end11
-  %mark.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark.i = getelementptr inbounds i8, ptr %p, i64 16
   store i32 0, ptr %mark.i, align 8
-  %call_invalid_rules.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules.i = getelementptr inbounds i8, ptr %p, i64 148
   store i32 1, ptr %call_invalid_rules.i, align 4
   %11 = load ptr, ptr %p, align 8
-  %interactive_underflow.i = getelementptr inbounds %struct.tok_state, ptr %11, i64 0, i32 40
+  %interactive_underflow.i = getelementptr inbounds i8, ptr %11, i64 2836
   store i32 1, ptr %interactive_underflow.i, align 4
   %call12 = tail call ptr @_PyPegen_parse(ptr noundef nonnull %p) #12
   tail call void @_Pypegen_set_syntax_error(ptr noundef nonnull %p, ptr noundef %6) #12
   br label %return
 
 if.end13:                                         ; preds = %entry
-  %start_rule = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 9
+  %start_rule = getelementptr inbounds i8, ptr %p, i64 60
   %12 = load i32, ptr %start_rule, align 4
   %cmp14 = icmp eq i32 %12, 256
   br i1 %cmp14, label %land.lhs.true15, label %return
@@ -1969,7 +1957,7 @@ while.body24.i:                                   ; preds = %while.cond18.i
   br label %while.cond18.i, !llvm.loop !17
 
 if.then18:                                        ; preds = %while.cond.i
-  %done = getelementptr inbounds %struct.tok_state, ptr %p.val14, i64 0, i32 8
+  %done = getelementptr inbounds i8, ptr %p.val14, i64 64
   store i32 27, ptr %done, align 8
   %16 = load ptr, ptr @PyExc_SyntaxError, align 8
   %call19 = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %16, i32 noundef 0, ptr noundef nonnull @.str.8) #12
@@ -2007,7 +1995,7 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end3:                                          ; preds = %entry
-  %fp4 = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 9
+  %fp4 = getelementptr inbounds i8, ptr %call, i64 72
   %0 = load ptr, ptr %fp4, align 8
   %tobool5 = icmp eq ptr %0, null
   %cmp6 = icmp ne ptr %ps1, null
@@ -2022,7 +2010,7 @@ lor.lhs.false9:                                   ; preds = %if.end3
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %lor.lhs.false9, %if.end3
-  %fp_interactive = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 3
+  %fp_interactive = getelementptr inbounds i8, ptr %call, i64 24
   store i32 1, ptr %fp_interactive, align 8
   br label %if.end13
 
@@ -2037,7 +2025,7 @@ if.end.i.i:                                       ; preds = %if.end13
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end13, %if.end.i.i
-  %filename = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 25
+  %filename = getelementptr inbounds i8, ptr %call, i64 2336
   store ptr %filename_ob, ptr %filename, align 8
   %tobool.not.i = icmp eq ptr %flags, null
   br i1 %tobool.not.i, label %compute_parser_flags.exit, label %if.end.i
@@ -2066,13 +2054,13 @@ compute_parser_flags.exit:                        ; preds = %_Py_NewRef.exit, %i
 if.end19:                                         ; preds = %compute_parser_flags.exit
   %call20 = tail call ptr @_PyPegen_run_parser(ptr noundef nonnull %call16)
   tail call void @_PyPegen_Parser_Free(ptr noundef nonnull %call16)
-  %fp_interactive21 = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 3
+  %fp_interactive21 = getelementptr inbounds i8, ptr %call, i64 24
   %6 = load i32, ptr %fp_interactive21, align 8
   %tobool22.not = icmp eq i32 %6, 0
   br i1 %tobool22.not, label %error, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end19
-  %interactive_src_start = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 4
+  %interactive_src_start = getelementptr inbounds i8, ptr %call, i64 32
   %7 = load ptr, ptr %interactive_src_start, align 8
   %tobool23 = icmp ne ptr %7, null
   %tobool25 = icmp ne ptr %call20, null
@@ -2171,7 +2159,7 @@ if.end.i.i:                                       ; preds = %if.end11
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end11, %if.end.i.i
-  %filename = getelementptr inbounds %struct.tok_state, ptr %tok.0, i64 0, i32 25
+  %filename = getelementptr inbounds i8, ptr %tok.0, i64 2336
   store ptr %filename_ob, ptr %filename, align 8
   br i1 %cmp1.not, label %cond.end, label %land.lhs.true15
 
@@ -2193,7 +2181,7 @@ land.lhs.true15:                                  ; preds = %_Py_NewRef.exit
   br i1 %tobool18.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %land.lhs.true15
-  %cf_feature_version = getelementptr inbounds %struct.PyCompilerFlags, ptr %flags, i64 0, i32 1
+  %cf_feature_version = getelementptr inbounds i8, ptr %flags, i64 4
   %6 = load i32, ptr %cf_feature_version, align 4
   br label %cond.end
 

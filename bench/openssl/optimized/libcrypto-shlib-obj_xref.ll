@@ -95,7 +95,7 @@ if.end26:                                         ; preds = %if.end22, %if.end
   br i1 %cmp27.not, label %if.end29, label %if.then28
 
 if.then28:                                        ; preds = %if.end26
-  %hash_id = getelementptr inbounds %struct.nid_triple, ptr %rv.1, i64 0, i32 1
+  %hash_id = getelementptr inbounds i8, ptr %rv.1, i64 4
   %5 = load i32, ptr %hash_id, align 4
   store i32 %5, ptr %pdig_nid, align 4
   br label %if.end29
@@ -105,7 +105,7 @@ if.end29:                                         ; preds = %if.then28, %if.end2
   br i1 %cmp30.not, label %return, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
-  %pkey_id = getelementptr inbounds %struct.nid_triple, ptr %rv.1, i64 0, i32 2
+  %pkey_id = getelementptr inbounds i8, ptr %rv.1, i64 8
   %6 = load i32, ptr %pkey_id, align 4
   store i32 %6, ptr %ppkey_nid, align 4
   br label %return
@@ -125,9 +125,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hash_id = getelementptr inbounds %struct.nid_triple, ptr %tmp, i64 0, i32 1
+  %hash_id = getelementptr inbounds i8, ptr %tmp, i64 4
   store i32 %dig_nid, ptr %hash_id, align 4
-  %pkey_id = getelementptr inbounds %struct.nid_triple, ptr %tmp, i64 0, i32 2
+  %pkey_id = getelementptr inbounds i8, ptr %tmp, i64 8
   store i32 %pkey_nid, ptr %pkey_id, align 4
   %call.i = call ptr @OBJ_bsearch_(ptr noundef nonnull %t, ptr noundef nonnull @sigoid_srt_xref, i32 noundef 48, i32 noundef 8, ptr noundef nonnull @sigx_cmp_BSEARCH_CMP_FN) #5
   %cmp1 = icmp eq ptr %call.i, null
@@ -226,9 +226,9 @@ if.end3:                                          ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end3
   store i32 %signid, ptr %call4, align 4
-  %hash_id = getelementptr inbounds %struct.nid_triple, ptr %call4, i64 0, i32 1
+  %hash_id = getelementptr inbounds i8, ptr %call4, i64 4
   store i32 %dig_id, ptr %hash_id, align 4
-  %pkey_id8 = getelementptr inbounds %struct.nid_triple, ptr %call4, i64 0, i32 2
+  %pkey_id8 = getelementptr inbounds i8, ptr %call4, i64 8
   store i32 %pkey_id, ptr %pkey_id8, align 4
   %1 = load ptr, ptr @sig_lock, align 8
   %call9 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #5
@@ -279,9 +279,9 @@ if.end18.i:                                       ; preds = %if.then12.i
 
 if.then15:                                        ; preds = %if.end18.i, %if.end.i
   %rv.1.i = phi ptr [ %call.i11.i, %if.end18.i ], [ %call.i.i, %if.end.i ]
-  %hash_id.i = getelementptr inbounds %struct.nid_triple, ptr %rv.1.i, i64 0, i32 1
+  %hash_id.i = getelementptr inbounds i8, ptr %rv.1.i, i64 4
   %5 = load i32, ptr %hash_id.i, align 4
-  %pkey_id.i = getelementptr inbounds %struct.nid_triple, ptr %rv.1.i, i64 0, i32 2
+  %pkey_id.i = getelementptr inbounds i8, ptr %rv.1.i, i64 8
   %6 = load i32, ptr %pkey_id.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %tmp.i)
   %cmp16 = icmp eq i32 %5, %dig_id
@@ -371,10 +371,10 @@ entry:
 define internal i32 @sigx_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  %hash_id = getelementptr inbounds %struct.nid_triple, ptr %0, i64 0, i32 1
+  %hash_id = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %hash_id, align 4
   %2 = load ptr, ptr %b, align 8
-  %hash_id1 = getelementptr inbounds %struct.nid_triple, ptr %2, i64 0, i32 1
+  %hash_id1 = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %hash_id1, align 4
   %sub = sub nsw i32 %1, %3
   %cmp.not = icmp eq i32 %sub, 0
@@ -383,9 +383,9 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pkey_id = getelementptr inbounds %struct.nid_triple, ptr %0, i64 0, i32 2
+  %pkey_id = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %pkey_id, align 4
-  %pkey_id4 = getelementptr inbounds %struct.nid_triple, ptr %2, i64 0, i32 2
+  %pkey_id4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %pkey_id4, align 4
   %sub5 = sub nsw i32 %4, %5
   br label %return
@@ -434,10 +434,10 @@ entry:
 define internal i32 @sigx_cmp_BSEARCH_CMP_FN(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #2 {
 entry:
   %0 = load ptr, ptr %a_, align 8
-  %hash_id.i = getelementptr inbounds %struct.nid_triple, ptr %0, i64 0, i32 1
+  %hash_id.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %hash_id.i, align 4
   %2 = load ptr, ptr %b_, align 8
-  %hash_id1.i = getelementptr inbounds %struct.nid_triple, ptr %2, i64 0, i32 1
+  %hash_id1.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %hash_id1.i, align 4
   %sub.i = sub nsw i32 %1, %3
   %cmp.not.i = icmp eq i32 %sub.i, 0
@@ -446,9 +446,9 @@ entry:
   br i1 %or.cond.i, label %if.end.i, label %sigx_cmp.exit
 
 if.end.i:                                         ; preds = %entry
-  %pkey_id.i = getelementptr inbounds %struct.nid_triple, ptr %0, i64 0, i32 2
+  %pkey_id.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %pkey_id.i, align 4
-  %pkey_id4.i = getelementptr inbounds %struct.nid_triple, ptr %2, i64 0, i32 2
+  %pkey_id4.i = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %pkey_id4.i, align 4
   %sub5.i = sub nsw i32 %4, %5
   br label %sigx_cmp.exit

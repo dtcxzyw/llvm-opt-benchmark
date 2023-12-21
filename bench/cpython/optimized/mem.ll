@@ -177,13 +177,13 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   store i32 1, ptr @FmHook, align 8
-  %malloc.i = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc.i, i64 0, i32 1
+  %malloc.i = getelementptr inbounds i8, ptr %alloc.i, i64 8
   store ptr @hook_fmalloc, ptr %malloc.i, align 8
-  %calloc.i = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc.i, i64 0, i32 2
+  %calloc.i = getelementptr inbounds i8, ptr %alloc.i, i64 16
   store ptr @hook_fcalloc, ptr %calloc.i, align 8
-  %realloc.i = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc.i, i64 0, i32 3
+  %realloc.i = getelementptr inbounds i8, ptr %alloc.i, i64 24
   store ptr @hook_frealloc, ptr %realloc.i, align 8
-  %free.i = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc.i, i64 0, i32 4
+  %free.i = getelementptr inbounds i8, ptr %alloc.i, i64 32
   store ptr @hook_ffree, ptr %free.i, align 8
   tail call void @PyMem_GetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @FmHook, i64 0, i32 1)) #4
   tail call void @PyMem_GetAllocator(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (%struct.anon, ptr @FmHook, i64 0, i32 2)) #4
@@ -525,7 +525,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %land.lhs.true.i
-  %malloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %ctx, i64 0, i32 1
+  %malloc = getelementptr inbounds i8, ptr %ctx, i64 8
   %3 = load ptr, ptr %malloc, align 8
   %4 = load ptr, ptr %ctx, align 8
   %call2 = tail call ptr %3(ptr noundef %4, i64 noundef %size) #4
@@ -556,7 +556,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %land.lhs.true.i
-  %calloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %ctx, i64 0, i32 2
+  %calloc = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %calloc, align 8
   %4 = load ptr, ptr %ctx, align 8
   %call2 = tail call ptr %3(ptr noundef %4, i64 noundef %nelem, i64 noundef %elsize) #4
@@ -587,7 +587,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %land.lhs.true.i
-  %realloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %ctx, i64 0, i32 3
+  %realloc = getelementptr inbounds i8, ptr %ctx, i64 24
   %3 = load ptr, ptr %realloc, align 8
   %4 = load ptr, ptr %ctx, align 8
   %call2 = tail call ptr %3(ptr noundef %4, ptr noundef %ptr, i64 noundef %new_size) #4
@@ -601,7 +601,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 ; Function Attrs: nounwind uwtable
 define internal void @hook_ffree(ptr nocapture noundef readonly %ctx, ptr noundef %ptr) #0 {
 entry:
-  %free = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %ctx, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %free, align 8
   %1 = load ptr, ptr %ctx, align 8
   tail call void %0(ptr noundef %1, ptr noundef %ptr) #4
@@ -627,17 +627,17 @@ entry:
   %alloc = alloca %struct.PyMemAllocatorEx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %hook, i8 0, i64 96, i1 false)
   store ptr %hook, ptr %alloc, align 8
-  %malloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i64 0, i32 1
+  %malloc = getelementptr inbounds i8, ptr %alloc, i64 8
   store ptr @hook_malloc, ptr %malloc, align 8
-  %calloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i64 0, i32 2
+  %calloc = getelementptr inbounds i8, ptr %alloc, i64 16
   store ptr @hook_calloc, ptr %calloc, align 8
-  %realloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i64 0, i32 3
+  %realloc = getelementptr inbounds i8, ptr %alloc, i64 24
   store ptr @hook_realloc, ptr %realloc, align 8
-  %free = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %alloc, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %alloc, i64 32
   store ptr @hook_free, ptr %free, align 8
   call void @PyMem_GetAllocator(i32 noundef %domain, ptr noundef nonnull %hook) #4
   call void @PyMem_SetAllocator(i32 noundef %domain, ptr noundef nonnull %alloc) #4
-  %ctx2 = getelementptr inbounds %struct.alloc_hook_t, ptr %hook, i64 0, i32 7
+  %ctx2 = getelementptr inbounds i8, ptr %hook, i64 88
   store ptr null, ptr %ctx2, align 8
   switch i32 %domain, label %fail [
     i32 0, label %sw.bb
@@ -669,7 +669,7 @@ if.end:                                           ; preds = %sw.epilog
 
 if.end10:                                         ; preds = %if.end
   store ptr null, ptr %ctx2, align 8
-  %malloc_size = getelementptr inbounds %struct.alloc_hook_t, ptr %hook, i64 0, i32 1
+  %malloc_size = getelementptr inbounds i8, ptr %hook, i64 40
   %1 = load i64, ptr %malloc_size, align 8
   %cmp12.not = icmp eq i64 %1, 42
   br i1 %cmp12.not, label %if.end14, label %fail
@@ -705,10 +705,10 @@ if.end25:                                         ; preds = %sw.epilog22
 
 if.end29:                                         ; preds = %if.end25
   store ptr null, ptr %ctx2, align 8
-  %realloc_ptr = getelementptr inbounds %struct.alloc_hook_t, ptr %hook, i64 0, i32 4
+  %realloc_ptr = getelementptr inbounds i8, ptr %hook, i64 64
   %3 = load ptr, ptr %realloc_ptr, align 8
   %cmp31.not = icmp eq ptr %3, %ptr.0
-  %realloc_new_size = getelementptr inbounds %struct.alloc_hook_t, ptr %hook, i64 0, i32 5
+  %realloc_new_size = getelementptr inbounds i8, ptr %hook, i64 72
   %4 = load i64, ptr %realloc_new_size, align 8
   %cmp32.not = icmp eq i64 %4, 200
   %or.cond = select i1 %cmp31.not, i1 %cmp32.not, i1 false
@@ -740,7 +740,7 @@ sw.epilog38:                                      ; preds = %sw.bb37, %sw.bb36, 
 
 if.end42:                                         ; preds = %sw.epilog38
   store ptr null, ptr %ctx2, align 8
-  %free_ptr = getelementptr inbounds %struct.alloc_hook_t, ptr %hook, i64 0, i32 6
+  %free_ptr = getelementptr inbounds i8, ptr %hook, i64 80
   %6 = load ptr, ptr %free_ptr, align 8
   %cmp44.not = icmp eq ptr %6, %ptr2.0
   br i1 %cmp44.not, label %if.end46, label %fail
@@ -776,10 +776,10 @@ if.end57:                                         ; preds = %sw.epilog54
 
 if.end61:                                         ; preds = %if.end57
   store ptr null, ptr %ctx2, align 8
-  %calloc_nelem = getelementptr inbounds %struct.alloc_hook_t, ptr %hook, i64 0, i32 2
+  %calloc_nelem = getelementptr inbounds i8, ptr %hook, i64 48
   %8 = load i64, ptr %calloc_nelem, align 8
   %cmp63.not = icmp eq i64 %8, 2
-  %calloc_elsize = getelementptr inbounds %struct.alloc_hook_t, ptr %hook, i64 0, i32 3
+  %calloc_elsize = getelementptr inbounds i8, ptr %hook, i64 56
   %9 = load i64, ptr %calloc_elsize, align 8
   %cmp65.not = icmp eq i64 %9, 5
   %or.cond33 = select i1 %cmp63.not, i1 %cmp65.not, i1 false
@@ -844,11 +844,11 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: nounwind uwtable
 define internal ptr @hook_malloc(ptr noundef %ctx, i64 noundef %size) #0 {
 entry:
-  %ctx1 = getelementptr inbounds %struct.alloc_hook_t, ptr %ctx, i64 0, i32 7
+  %ctx1 = getelementptr inbounds i8, ptr %ctx, i64 88
   store ptr %ctx, ptr %ctx1, align 8
-  %malloc_size = getelementptr inbounds %struct.alloc_hook_t, ptr %ctx, i64 0, i32 1
+  %malloc_size = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 %size, ptr %malloc_size, align 8
-  %malloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %ctx, i64 0, i32 1
+  %malloc = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %malloc, align 8
   %1 = load ptr, ptr %ctx, align 8
   %call = tail call ptr %0(ptr noundef %1, i64 noundef %size) #4
@@ -858,13 +858,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @hook_calloc(ptr noundef %ctx, i64 noundef %nelem, i64 noundef %elsize) #0 {
 entry:
-  %ctx1 = getelementptr inbounds %struct.alloc_hook_t, ptr %ctx, i64 0, i32 7
+  %ctx1 = getelementptr inbounds i8, ptr %ctx, i64 88
   store ptr %ctx, ptr %ctx1, align 8
-  %calloc_nelem = getelementptr inbounds %struct.alloc_hook_t, ptr %ctx, i64 0, i32 2
+  %calloc_nelem = getelementptr inbounds i8, ptr %ctx, i64 48
   store i64 %nelem, ptr %calloc_nelem, align 8
-  %calloc_elsize = getelementptr inbounds %struct.alloc_hook_t, ptr %ctx, i64 0, i32 3
+  %calloc_elsize = getelementptr inbounds i8, ptr %ctx, i64 56
   store i64 %elsize, ptr %calloc_elsize, align 8
-  %calloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %ctx, i64 0, i32 2
+  %calloc = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %calloc, align 8
   %1 = load ptr, ptr %ctx, align 8
   %call = tail call ptr %0(ptr noundef %1, i64 noundef %nelem, i64 noundef %elsize) #4
@@ -874,13 +874,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @hook_realloc(ptr noundef %ctx, ptr noundef %ptr, i64 noundef %new_size) #0 {
 entry:
-  %ctx1 = getelementptr inbounds %struct.alloc_hook_t, ptr %ctx, i64 0, i32 7
+  %ctx1 = getelementptr inbounds i8, ptr %ctx, i64 88
   store ptr %ctx, ptr %ctx1, align 8
-  %realloc_ptr = getelementptr inbounds %struct.alloc_hook_t, ptr %ctx, i64 0, i32 4
+  %realloc_ptr = getelementptr inbounds i8, ptr %ctx, i64 64
   store ptr %ptr, ptr %realloc_ptr, align 8
-  %realloc_new_size = getelementptr inbounds %struct.alloc_hook_t, ptr %ctx, i64 0, i32 5
+  %realloc_new_size = getelementptr inbounds i8, ptr %ctx, i64 72
   store i64 %new_size, ptr %realloc_new_size, align 8
-  %realloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %ctx, i64 0, i32 3
+  %realloc = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %realloc, align 8
   %1 = load ptr, ptr %ctx, align 8
   %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #4
@@ -890,11 +890,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @hook_free(ptr noundef %ctx, ptr noundef %ptr) #0 {
 entry:
-  %ctx1 = getelementptr inbounds %struct.alloc_hook_t, ptr %ctx, i64 0, i32 7
+  %ctx1 = getelementptr inbounds i8, ptr %ctx, i64 88
   store ptr %ctx, ptr %ctx1, align 8
-  %free_ptr = getelementptr inbounds %struct.alloc_hook_t, ptr %ctx, i64 0, i32 6
+  %free_ptr = getelementptr inbounds i8, ptr %ctx, i64 80
   store ptr %ptr, ptr %free_ptr, align 8
-  %free = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %ctx, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %free, align 8
   %1 = load ptr, ptr %ctx, align 8
   tail call void %0(ptr noundef %1, ptr noundef %ptr) #4

@@ -8,30 +8,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl" }
 %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl" = type { %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.struct_pb::UnknownFields::Field" = type { ptr, i64 }
+%"class.std::allocator.0" = type { i8 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.google::protobuf::Type" = type <{ %"class.std::__cxx11::basic_string", %"class.std::vector.3", %"class.std::vector.8", %"class.std::vector.13", %"class.std::unique_ptr", i32, [4 x i8] }>
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<google::protobuf::Field, std::allocator<google::protobuf::Field>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::Field, std::allocator<google::protobuf::Field>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::Field, std::allocator<google::protobuf::Field>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::Field, std::allocator<google::protobuf::Field>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.struct_pb::UnknownFields::Field" = type { ptr, i64 }
+%"struct.google::protobuf::Field" = type { i32, i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i8, %"class.std::vector.13", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
 %"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<google::protobuf::Option, std::allocator<google::protobuf::Option>>::_Vector_impl" }
 %"struct.std::_Vector_base<google::protobuf::Option, std::allocator<google::protobuf::Option>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::Option, std::allocator<google::protobuf::Option>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<google::protobuf::Option, std::allocator<google::protobuf::Option>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.19" }
-%"struct.std::_Head_base.19" = type { ptr }
-%"struct.google::protobuf::Field" = type { i32, i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i8, %"class.std::vector.13", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"struct.google::protobuf::Option" = type { %"class.std::__cxx11::basic_string", %"class.std::unique_ptr.22" }
 %"class.std::unique_ptr.22" = type { %"struct.std::__uniq_ptr_data.23" }
 %"struct.std::__uniq_ptr_data.23" = type { %"class.std::__uniq_ptr_impl.24" }
@@ -39,14 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.25" = type { %"struct.std::_Tuple_impl.26" }
 %"struct.std::_Tuple_impl.26" = type { %"struct.std::_Head_base.29" }
 %"struct.std::_Head_base.29" = type { ptr }
-%"class.std::allocator.0" = type { i8 }
-%"struct.google::protobuf::Enum" = type <{ %"class.std::__cxx11::basic_string", %"class.std::vector.30", %"class.std::vector.13", %"class.std::unique_ptr", i32, [4 x i8] }>
-%"class.std::vector.30" = type { %"struct.std::_Vector_base.31" }
-%"struct.std::_Vector_base.31" = type { %"struct.std::_Vector_base<google::protobuf::EnumValue, std::allocator<google::protobuf::EnumValue>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::EnumValue, std::allocator<google::protobuf::EnumValue>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::EnumValue, std::allocator<google::protobuf::EnumValue>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::EnumValue, std::allocator<google::protobuf::EnumValue>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.google::protobuf::EnumValue" = type { %"class.std::__cxx11::basic_string", i32, %"class.std::vector.13" }
-%"struct.google::protobuf::Any" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev = comdat any
 
@@ -81,7 +60,7 @@ entry:
   %ref.tmp60 = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp78 = alloca %"struct.struct_pb::UnknownFields", align 8
   %0 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i5.i = icmp eq ptr %0, %1
   br i1 %cmp.i5.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
@@ -89,16 +68,16 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %total.07.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
   %__begin2.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %0, %entry ]
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 8
   %2 = load i64, ptr %len.i, align 8
   %add.i = add i64 %2, %total.07.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
   %total.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %3 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %if.end, label %do.body.i125
@@ -119,9 +98,9 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit129: ; preds = %do.body.i125
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit129, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
   %total.0 = phi i64 [ %total.0.lcssa.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit ], [ %add8, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit129 ]
-  %fields = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 1
+  %fields = getelementptr inbounds i8, ptr %t, i64 32
   %4 = load ptr, ptr %fields, align 8
-  %_M_finish.i.i39 = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i39 = getelementptr inbounds i8, ptr %t, i64 40
   %5 = load ptr, ptr %_M_finish.i.i39, align 8
   %cmp.i.i40 = icmp eq ptr %4, %5
   br i1 %cmp.i.i40, label %if.end24, label %for.body
@@ -145,15 +124,15 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit122: ; preds = %do.body.i118
   %add20 = add i64 %total.177, 2
   %add21 = add i64 %add20, %call18
   %add22 = add i64 %add21, %ret.i117.0
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %__begin3.sroa.0.076, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.076, i64 176
   %cmp.i41 = icmp eq ptr %incdec.ptr.i, %5
   br i1 %cmp.i41, label %if.end24, label %for.body
 
 if.end24:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit122, %if.end
   %total.2 = phi i64 [ %total.0, %if.end ], [ %add22, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit122 ]
-  %oneofs = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 2
+  %oneofs = getelementptr inbounds i8, ptr %t, i64 56
   %6 = load ptr, ptr %oneofs, align 8
-  %_M_finish.i45 = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i45 = getelementptr inbounds i8, ptr %t, i64 64
   %7 = load ptr, ptr %_M_finish.i45, align 8
   %cmp.i4678 = icmp eq ptr %6, %7
   br i1 %cmp.i4678, label %for.end42, label %for.body32
@@ -161,7 +140,7 @@ if.end24:                                         ; preds = %_ZN9struct_pb8inter
 for.body32:                                       ; preds = %if.end24, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit115
   %total.380 = phi i64 [ %add39, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit115 ], [ %total.2, %if.end24 ]
   %__begin2.sroa.0.079 = phi ptr [ %incdec.ptr.i49, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit115 ], [ %6, %if.end24 ]
-  %_M_string_length.i47 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin2.sroa.0.079, i64 0, i32 1
+  %_M_string_length.i47 = getelementptr inbounds i8, ptr %__begin2.sroa.0.079, i64 8
   %8 = load i64, ptr %_M_string_length.i47, align 8
   br label %do.body.i111
 
@@ -177,15 +156,15 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit115: ; preds = %do.body.i111
   %add36 = add i64 %total.380, 2
   %add38 = add i64 %add36, %8
   %add39 = add i64 %add38, %ret.i110.0
-  %incdec.ptr.i49 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin2.sroa.0.079, i64 1
+  %incdec.ptr.i49 = getelementptr inbounds i8, ptr %__begin2.sroa.0.079, i64 32
   %cmp.i46 = icmp eq ptr %incdec.ptr.i49, %7
   br i1 %cmp.i46, label %for.end42, label %for.body32
 
 for.end42:                                        ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit115, %if.end24
   %total.3.lcssa = phi i64 [ %total.2, %if.end24 ], [ %add39, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit115 ]
-  %options = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 3
+  %options = getelementptr inbounds i8, ptr %t, i64 80
   %9 = load ptr, ptr %options, align 8
-  %_M_finish.i.i50 = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i50 = getelementptr inbounds i8, ptr %t, i64 88
   %10 = load ptr, ptr %_M_finish.i.i50, align 8
   %cmp.i.i51 = icmp eq ptr %9, %10
   br i1 %cmp.i.i51, label %if.end72, label %for.body56
@@ -209,13 +188,13 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit108: ; preds = %do.body.i104
   %add66 = add i64 %total.482, 2
   %add67 = add i64 %add66, %call64
   %add68 = add i64 %add67, %ret.i103.0
-  %incdec.ptr.i57 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__begin347.sroa.0.081, i64 1
+  %incdec.ptr.i57 = getelementptr inbounds i8, ptr %__begin347.sroa.0.081, i64 40
   %cmp.i53 = icmp eq ptr %incdec.ptr.i57, %10
   br i1 %cmp.i53, label %if.end72, label %for.body56
 
 if.end72:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit108, %for.end42
   %total.5 = phi i64 [ %total.3.lcssa, %for.end42 ], [ %add68, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit108 ]
-  %source_context = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 4
+  %source_context = getelementptr inbounds i8, ptr %t, i64 104
   %11 = load ptr, ptr %source_context, align 8
   %cmp.i61.not = icmp eq ptr %11, null
   br i1 %cmp.i61.not, label %if.end87, label %if.then74
@@ -264,7 +243,7 @@ if.then.i.i.i.i66:                                ; preds = %lpad80
 
 if.end87:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit101, %if.end72
   %total.6 = phi i64 [ %add86, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit101 ], [ %total.5, %if.end72 ]
-  %syntax = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 5
+  %syntax = getelementptr inbounds i8, ptr %t, i64 112
   %15 = load i32, ptr %syntax, align 8
   %cmp.not = icmp eq i32 %15, 0
   br i1 %cmp.not, label %if.end93, label %if.then88
@@ -299,7 +278,7 @@ define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8p
 entry:
   %ref.tmp = alloca %"struct.struct_pb::UnknownFields", align 8
   %0 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i5.i = icmp eq ptr %0, %1
   br i1 %cmp.i5.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
@@ -307,10 +286,10 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %total.07.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
   %__begin2.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %0, %entry ]
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 8
   %2 = load i64, ptr %len.i, align 8
   %add.i = add i64 %2, %total.07.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
 
@@ -339,7 +318,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit160: ; preds = %do.body.i156
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit160, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
   %total.0 = phi i64 [ %add3, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit160 ], [ %total.0.lcssa.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit ]
-  %cardinality = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 1
+  %cardinality = getelementptr inbounds i8, ptr %t, i64 4
   %4 = load i32, ptr %cardinality, align 4
   %cmp4.not = icmp eq i32 %4, 0
   br i1 %cmp4.not, label %if.end11, label %if.then5
@@ -363,7 +342,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit153: ; preds = %do.body.i149
 
 if.end11:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit153, %if.end
   %total.1 = phi i64 [ %add10, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit153 ], [ %total.0, %if.end ]
-  %number = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 2
+  %number = getelementptr inbounds i8, ptr %t, i64 8
   %5 = load i32, ptr %number, align 8
   %cmp12.not = icmp eq i32 %5, 0
   br i1 %cmp12.not, label %if.end19, label %if.then13
@@ -387,7 +366,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit146: ; preds = %do.body.i142
 
 if.end19:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit146, %if.end11
   %total.2 = phi i64 [ %add18, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit146 ], [ %total.1, %if.end11 ]
-  %_M_string_length.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 3, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 24
   %6 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp eq i64 %6, 0
   br i1 %cmp.i, label %if.end30, label %do.body.i135
@@ -408,7 +387,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit139: ; preds = %do.body.i135
 
 if.end30:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit139, %if.end19
   %total.3 = phi i64 [ %total.2, %if.end19 ], [ %add29, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit139 ]
-  %_M_string_length.i.i60 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 4, i32 1
+  %_M_string_length.i.i60 = getelementptr inbounds i8, ptr %t, i64 56
   %7 = load i64, ptr %_M_string_length.i.i60, align 8
   %cmp.i61 = icmp eq i64 %7, 0
   br i1 %cmp.i61, label %if.end41, label %do.body.i128
@@ -429,7 +408,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit132: ; preds = %do.body.i128
 
 if.end41:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit132, %if.end30
   %total.4 = phi i64 [ %total.3, %if.end30 ], [ %add40, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit132 ]
-  %oneof_index = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 5
+  %oneof_index = getelementptr inbounds i8, ptr %t, i64 80
   %8 = load i32, ptr %oneof_index, align 8
   %cmp42.not = icmp eq i32 %8, 0
   br i1 %cmp42.not, label %if.end49, label %if.then43
@@ -453,15 +432,15 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit125: ; preds = %do.body.i121
 
 if.end49:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit125, %if.end41
   %total.5 = phi i64 [ %add48, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit125 ], [ %total.4, %if.end41 ]
-  %packed = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 6
+  %packed = getelementptr inbounds i8, ptr %t, i64 84
   %9 = load i8, ptr %packed, align 4
   %10 = shl i8 %9, 1
   %11 = and i8 %10, 2
   %12 = zext nneg i8 %11 to i64
   %total.6 = add i64 %total.5, %12
-  %options = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 7
+  %options = getelementptr inbounds i8, ptr %t, i64 88
   %13 = load ptr, ptr %options, align 8
-  %_M_finish.i.i64 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i64 = getelementptr inbounds i8, ptr %t, i64 96
   %14 = load ptr, ptr %_M_finish.i.i64, align 8
   %cmp.i.i65 = icmp eq ptr %13, %14
   br i1 %cmp.i.i65, label %if.end74, label %for.body
@@ -485,13 +464,13 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit111: ; preds = %do.body.i107
   %add70 = add i64 %total.782, 2
   %add71 = add i64 %add70, %call68
   %add72 = add i64 %add71, %ret.i106.0
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__begin3.sroa.0.081, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.081, i64 40
   %cmp.i66 = icmp eq ptr %incdec.ptr.i, %14
   br i1 %cmp.i66, label %if.end74, label %for.body
 
 if.end74:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit111, %if.end49
   %total.8 = phi i64 [ %total.6, %if.end49 ], [ %add72, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit111 ]
-  %_M_string_length.i.i70 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 8, i32 1
+  %_M_string_length.i.i70 = getelementptr inbounds i8, ptr %t, i64 120
   %15 = load i64, ptr %_M_string_length.i.i70, align 8
   %cmp.i71 = icmp eq i64 %15, 0
   br i1 %cmp.i71, label %if.end85, label %do.body.i100
@@ -512,7 +491,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit104: ; preds = %do.body.i100
 
 if.end85:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit104, %if.end74
   %total.9 = phi i64 [ %total.8, %if.end74 ], [ %add84, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit104 ]
-  %_M_string_length.i.i74 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 9, i32 1
+  %_M_string_length.i.i74 = getelementptr inbounds i8, ptr %t, i64 152
   %16 = load i64, ptr %_M_string_length.i.i74, align 8
   %cmp.i75 = icmp eq i64 %16, 0
   br i1 %cmp.i75, label %if.end96, label %do.body.i
@@ -546,7 +525,7 @@ define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8p
 entry:
   %ref.tmp = alloca %"struct.struct_pb::UnknownFields", align 8
   %0 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i5.i = icmp eq ptr %0, %1
   br i1 %cmp.i5.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
@@ -554,16 +533,16 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %total.07.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
   %__begin2.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %0, %entry ]
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 8
   %2 = load i64, ptr %len.i, align 8
   %add.i = add i64 %2, %total.07.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
   %total.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %3 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %if.end, label %do.body.i22
@@ -584,7 +563,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit26: ; preds = %do.body.i22
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit26, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
   %total.0 = phi i64 [ %total.0.lcssa.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit ], [ %add8, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit26 ]
-  %value = getelementptr inbounds %"struct.google::protobuf::Option", ptr %t, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %t, i64 32
   %4 = load ptr, ptr %value, align 8
   %cmp.i13.not = icmp eq ptr %4, null
   br i1 %cmp.i13.not, label %if.end18, label %if.then10
@@ -650,7 +629,7 @@ entry:
   %ref.tmp75 = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp89 = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp97 = alloca %"struct.struct_pb::UnknownFields", align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i120 = icmp eq i64 %0, 0
   br i1 %cmp.i120, label %if.end, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282
@@ -690,9 +669,9 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266: ; preds = %while.body.i
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266, %entry
   %pos.1 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266 ]
-  %fields = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 1
+  %fields = getelementptr inbounds i8, ptr %t, i64 32
   %6 = load ptr, ptr %fields, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %t, i64 40
   %7 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i, label %if.end26, label %for.body
@@ -732,15 +711,15 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234: ; preds = %while.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp20, i8 0, i64 24, i1 false)
   call void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf5FieldEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull %add.ptr19, i64 poison, ptr noundef nonnull align 8 dereferenceable(176) %__begin3.sroa.0.0218, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp20)
   %add24 = add i64 %inc2.i226, %call18
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %__begin3.sroa.0.0218, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0218, i64 176
   %cmp.i123 = icmp eq ptr %incdec.ptr.i, %7
   br i1 %cmp.i123, label %if.end26, label %for.body
 
 if.end26:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234, %if.end
   %pos.4 = phi i64 [ %pos.1, %if.end ], [ %add24, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ]
-  %oneofs = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 2
+  %oneofs = getelementptr inbounds i8, ptr %t, i64 56
   %9 = load ptr, ptr %oneofs, align 8
-  %_M_finish.i.i133 = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i133 = getelementptr inbounds i8, ptr %t, i64 64
   %10 = load ptr, ptr %_M_finish.i.i133, align 8
   %cmp.i.i134 = icmp eq ptr %9, %10
   br i1 %cmp.i.i134, label %if.end51, label %for.body40
@@ -750,7 +729,7 @@ for.body40:                                       ; preds = %if.end26, %_ZN9stru
   %__begin331.sroa.0.0227 = phi ptr [ %incdec.ptr.i140, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202 ], [ %9, %if.end26 ]
   %arrayidx3.i211 = getelementptr inbounds i8, ptr %data, i64 %pos.5228
   store i8 26, ptr %arrayidx3.i211, align 1
-  %_M_string_length.i137 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin331.sroa.0.0227, i64 0, i32 1
+  %_M_string_length.i137 = getelementptr inbounds i8, ptr %__begin331.sroa.0.0227, i64 8
   %11 = load i64, ptr %_M_string_length.i137, align 8
   %pos.6220 = add i64 %pos.5228, 1
   %cmp.i192221 = icmp ugt i64 %11, 127
@@ -782,15 +761,15 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202: ; preds = %while.body.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr43, ptr align 1 %13, i64 %14, i1 false)
   %15 = load i64, ptr %_M_string_length.i137, align 8
   %add47 = add i64 %15, %inc2.i194
-  %incdec.ptr.i140 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin331.sroa.0.0227, i64 1
+  %incdec.ptr.i140 = getelementptr inbounds i8, ptr %__begin331.sroa.0.0227, i64 32
   %cmp.i136 = icmp eq ptr %incdec.ptr.i140, %10
   br i1 %cmp.i136, label %if.end51, label %for.body40
 
 if.end51:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202, %if.end26
   %pos.7 = phi i64 [ %pos.4, %if.end26 ], [ %add47, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202 ]
-  %options = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 3
+  %options = getelementptr inbounds i8, ptr %t, i64 80
   %16 = load ptr, ptr %options, align 8
-  %_M_finish.i.i141 = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i141 = getelementptr inbounds i8, ptr %t, i64 88
   %17 = load ptr, ptr %_M_finish.i.i141, align 8
   %cmp.i.i142 = icmp eq ptr %16, %17
   br i1 %cmp.i.i142, label %if.end83, label %for.body65
@@ -830,13 +809,13 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170: ; preds = %while.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp75, i8 0, i64 24, i1 false)
   call void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf6OptionEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull %add.ptr74, i64 poison, ptr noundef nonnull align 8 dereferenceable(40) %__begin356.sroa.0.0236, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp75)
   %add79 = add i64 %inc2.i162, %call73
-  %incdec.ptr.i151 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__begin356.sroa.0.0236, i64 1
+  %incdec.ptr.i151 = getelementptr inbounds i8, ptr %__begin356.sroa.0.0236, i64 40
   %cmp.i144 = icmp eq ptr %incdec.ptr.i151, %17
   br i1 %cmp.i144, label %if.end83, label %for.body65
 
 if.end83:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170, %if.end51
   %pos.10 = phi i64 [ %pos.7, %if.end51 ], [ %add79, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170 ]
-  %source_context = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 4
+  %source_context = getelementptr inbounds i8, ptr %t, i64 104
   %19 = load ptr, ptr %source_context, align 8
   %cmp.i158.not = icmp eq ptr %19, null
   br i1 %cmp.i158.not, label %if.end102, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154
@@ -918,7 +897,7 @@ lpad99:                                           ; preds = %_ZN9struct_pb8inter
 
 if.end102:                                        ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit164, %if.end83
   %pos.12 = phi i64 [ %add101, %_ZN9struct_pb13UnknownFieldsD2Ev.exit164 ], [ %pos.10, %if.end83 ]
-  %syntax = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 5
+  %syntax = getelementptr inbounds i8, ptr %t, i64 112
   %29 = load i32, ptr %syntax, align 8
   %cmp.not = icmp eq i32 %29, 0
   br i1 %cmp.not, label %if.end105, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122
@@ -957,7 +936,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %
 if.end105:                                        ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, %if.end102
   %pos.14 = phi i64 [ %pos.12, %if.end102 ], [ %inc2.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
   %32 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i171 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i171 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %33 = load ptr, ptr %_M_finish.i.i171, align 8
   %cmp.i7.i = icmp eq ptr %32, %33
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
@@ -967,12 +946,12 @@ for.body.i:                                       ; preds = %if.end105, %for.bod
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %32, %if.end105 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.15
   %34 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 8
   %35 = load i64, ptr %len.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %34, i64 %35, i1 false)
   %36 = load i64, ptr %len.i, align 8
   %add.i = add i64 %36, %pos.15
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 16
   %cmp.i.i172 = icmp eq ptr %incdec.ptr.i.i, %33
   br i1 %cmp.i.i172, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
@@ -1032,7 +1011,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit378: ; preds = %while.body.i
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit378, %entry
   %pos.1 = phi i64 [ 0, %entry ], [ %inc2.i370, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit378 ]
-  %cardinality = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 1
+  %cardinality = getelementptr inbounds i8, ptr %t, i64 4
   %3 = load i32, ptr %cardinality, align 4
   %cmp2.not = icmp eq i32 %3, 0
   br i1 %cmp2.not, label %if.end6, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit362
@@ -1070,7 +1049,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit346: ; preds = %while.body.i
 
 if.end6:                                          ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit346, %if.end
   %pos.3 = phi i64 [ %pos.1, %if.end ], [ %inc2.i338, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit346 ]
-  %number = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 2
+  %number = getelementptr inbounds i8, ptr %t, i64 8
   %6 = load i32, ptr %number, align 8
   %cmp7.not = icmp eq i32 %6, 0
   br i1 %cmp7.not, label %if.end11, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit330
@@ -1108,8 +1087,8 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit314: ; preds = %while.body.i
 
 if.end11:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit314, %if.end6
   %pos.5 = phi i64 [ %pos.3, %if.end6 ], [ %inc2.i306, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit314 ]
-  %name = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 3
-  %_M_string_length.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 3, i32 1
+  %name = getelementptr inbounds i8, ptr %t, i64 16
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 24
   %9 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i182 = icmp eq i64 %9, 0
   br i1 %cmp.i182, label %if.end21, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit298
@@ -1152,8 +1131,8 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282: ; preds = %while.body.i
 
 if.end21:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282, %if.end11
   %pos.7 = phi i64 [ %pos.5, %if.end11 ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282 ]
-  %type_url = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 4
-  %_M_string_length.i.i185 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 4, i32 1
+  %type_url = getelementptr inbounds i8, ptr %t, i64 48
+  %_M_string_length.i.i185 = getelementptr inbounds i8, ptr %t, i64 56
   %15 = load i64, ptr %_M_string_length.i.i185, align 8
   %cmp.i186 = icmp eq i64 %15, 0
   br i1 %cmp.i186, label %if.end34, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266
@@ -1196,7 +1175,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit250: ; preds = %while.body.i
 
 if.end34:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit250, %if.end21
   %pos.9 = phi i64 [ %pos.7, %if.end21 ], [ %add33, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit250 ]
-  %oneof_index = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 5
+  %oneof_index = getelementptr inbounds i8, ptr %t, i64 80
   %21 = load i32, ptr %oneof_index, align 8
   %cmp35.not = icmp eq i32 %21, 0
   br i1 %cmp35.not, label %if.end39, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234
@@ -1234,7 +1213,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit218: ; preds = %while.body.i
 
 if.end39:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit218, %if.end34
   %pos.11 = phi i64 [ %pos.9, %if.end34 ], [ %inc2.i210, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit218 ]
-  %packed = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 6
+  %packed = getelementptr inbounds i8, ptr %t, i64 84
   %24 = load i8, ptr %packed, align 4
   %25 = and i8 %24, 1
   %tobool.not = icmp eq i8 %25, 0
@@ -1252,9 +1231,9 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202: ; preds = %if.end39
 
 if.end46:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202, %if.end39
   %pos.12 = phi i64 [ %pos.11, %if.end39 ], [ %inc2.i178, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202 ]
-  %options = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 7
+  %options = getelementptr inbounds i8, ptr %t, i64 88
   %28 = load ptr, ptr %options, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %t, i64 96
   %29 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %28, %29
   br i1 %cmp.i.i, label %if.end63, label %for.body
@@ -1294,14 +1273,14 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154: ; preds = %while.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp57, i8 0, i64 24, i1 false)
   call void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf6OptionEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull %add.ptr56, i64 poison, ptr noundef nonnull align 8 dereferenceable(40) %__begin3.sroa.0.0297, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp57)
   %add61 = add i64 %inc2.i146, %call55
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__begin3.sroa.0.0297, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0297, i64 40
   %cmp.i190 = icmp eq ptr %incdec.ptr.i, %29
   br i1 %cmp.i190, label %if.end63, label %for.body
 
 if.end63:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154, %if.end46
   %pos.15 = phi i64 [ %pos.12, %if.end46 ], [ %add61, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154 ]
-  %json_name = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 8
-  %_M_string_length.i.i200 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 8, i32 1
+  %json_name = getelementptr inbounds i8, ptr %t, i64 112
+  %_M_string_length.i.i200 = getelementptr inbounds i8, ptr %t, i64 120
   %31 = load i64, ptr %_M_string_length.i.i200, align 8
   %cmp.i201 = icmp eq i64 %31, 0
   br i1 %cmp.i201, label %if.end76, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138
@@ -1344,8 +1323,8 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122: ; preds = %while.body.i
 
 if.end76:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122, %if.end63
   %pos.17 = phi i64 [ %pos.15, %if.end63 ], [ %add75, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122 ]
-  %default_value = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 9
-  %_M_string_length.i.i205 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 9, i32 1
+  %default_value = getelementptr inbounds i8, ptr %t, i64 144
+  %_M_string_length.i.i205 = getelementptr inbounds i8, ptr %t, i64 152
   %37 = load i64, ptr %_M_string_length.i.i205, align 8
   %cmp.i206 = icmp eq i64 %37, 0
   br i1 %cmp.i206, label %if.end89, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106
@@ -1389,7 +1368,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %
 if.end89:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, %if.end76
   %pos.19 = phi i64 [ %pos.17, %if.end76 ], [ %add88, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
   %43 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i210 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i210 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %44 = load ptr, ptr %_M_finish.i.i210, align 8
   %cmp.i7.i = icmp eq ptr %43, %44
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
@@ -1399,12 +1378,12 @@ for.body.i:                                       ; preds = %if.end89, %for.body
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %43, %if.end89 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.20
   %45 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 8
   %46 = load i64, ptr %len.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %45, i64 %46, i1 false)
   %47 = load i64, ptr %len.i, align 8
   %add.i = add i64 %47, %pos.20
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 16
   %cmp.i.i211 = icmp eq ptr %incdec.ptr.i.i, %44
   br i1 %cmp.i.i211, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
@@ -1417,7 +1396,7 @@ define dso_local void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf6Op
 entry:
   %ref.tmp = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp17 = alloca %"struct.struct_pb::UnknownFields", align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i41 = icmp eq i64 %0, 0
   br i1 %cmp.i41, label %if.end, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit71
@@ -1457,7 +1436,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit55: ; preds = %while.body.i4
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit55, %entry
   %pos.1 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit55 ]
-  %value = getelementptr inbounds %"struct.google::protobuf::Option", ptr %t, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %t, i64 32
   %6 = load ptr, ptr %value, align 8
   %cmp.i44.not = icmp eq ptr %6, null
   br i1 %cmp.i44.not, label %if.end22, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit39
@@ -1540,7 +1519,7 @@ lpad19:                                           ; preds = %_ZN9struct_pb8inter
 if.end22:                                         ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit47, %if.end
   %pos.3 = phi i64 [ %add21, %_ZN9struct_pb13UnknownFieldsD2Ev.exit47 ], [ %pos.1, %if.end ]
   %16 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %17 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i7.i = icmp eq ptr %16, %17
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
@@ -1550,12 +1529,12 @@ for.body.i:                                       ; preds = %if.end22, %for.body
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %16, %if.end22 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.4
   %18 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 8
   %19 = load i64, ptr %len.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %18, i64 %19, i1 false)
   %20 = load i64, ptr %len.i, align 8
   %add.i = add i64 %20, %pos.4
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %17
   br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
@@ -1589,21 +1568,21 @@ entry:
   br i1 %cmp771.not, label %return, label %land.lhs.true.i973.lr.ph
 
 land.lhs.true.i973.lr.ph:                         ; preds = %entry
-  %syntax = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 5
-  %source_context = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 4
-  %_M_finish.i614 = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i615 = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %options = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 3
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %tmp_str, i64 0, i32 2
-  %_M_string_length.i.i.i576 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %tmp_str, i64 0, i32 1
-  %_M_finish.i.i604 = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %oneofs = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %fields = getelementptr inbounds %"struct.google::protobuf::Type", ptr %t, i64 0, i32 1
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 2
+  %syntax = getelementptr inbounds i8, ptr %t, i64 112
+  %source_context = getelementptr inbounds i8, ptr %t, i64 104
+  %_M_finish.i614 = getelementptr inbounds i8, ptr %t, i64 88
+  %_M_end_of_storage.i615 = getelementptr inbounds i8, ptr %t, i64 96
+  %options = getelementptr inbounds i8, ptr %t, i64 80
+  %0 = getelementptr inbounds i8, ptr %tmp_str, i64 16
+  %_M_string_length.i.i.i576 = getelementptr inbounds i8, ptr %tmp_str, i64 8
+  %_M_finish.i.i604 = getelementptr inbounds i8, ptr %t, i64 64
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %t, i64 72
+  %oneofs = getelementptr inbounds i8, ptr %t, i64 56
+  %_M_finish.i = getelementptr inbounds i8, ptr %t, i64 40
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %t, i64 48
+  %fields = getelementptr inbounds i8, ptr %t, i64 32
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %1 = getelementptr inbounds i8, ptr %t, i64 16
   br label %land.lhs.true.i973
 
 land.lhs.true.i973:                               ; preds = %land.lhs.true.i973.lr.ph, %sw.epilog
@@ -2216,7 +2195,7 @@ if.then.i571:                                     ; preds = %if.end18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %52, i8 0, i64 176, i1 false)
   call void @_ZN6google8protobuf5FieldC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %52) #15
   %54 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %54, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %54, i64 176
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN6google8protobuf5FieldESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -2227,7 +2206,7 @@ if.else.i:                                        ; preds = %if.end18
 
 _ZNSt6vectorIN6google8protobuf5FieldESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %if.then.i571, %if.else.i
   %55 = phi ptr [ %incdec.ptr.i, %if.then.i571 ], [ %.pre822, %if.else.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %55, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %55, i64 -176
   %56 = load i64, ptr %pos, align 8
   %add.ptr22 = getelementptr inbounds i8, ptr %data, i64 %56
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
@@ -2265,7 +2244,7 @@ _ZN9struct_pb8internal14deserialize_toIN6google8protobuf5FieldEEEbRT_PKcm.exit: 
 
 if.then26:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf5FieldEEEbRT_PKcm.exit
   %60 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i575 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %60, i64 -1
+  %incdec.ptr.i575 = getelementptr inbounds i8, ptr %60, i64 -176
   store ptr %incdec.ptr.i575, ptr %_M_finish.i, align 8
   call void @_ZN6google8protobuf5FieldD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %incdec.ptr.i575) #15
   br label %return
@@ -2561,7 +2540,7 @@ if.end41:                                         ; preds = %invoke.cont37
   br i1 %cmp.not.i.i, label %if.else.i.i609, label %if.then.i.i605
 
 if.then.i.i605:                                   ; preds = %if.end41
-  %89 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %87, i64 0, i32 2
+  %89 = getelementptr inbounds i8, ptr %87, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %87, ptr noundef nonnull align 1 dereferenceable(1) %tmp_str) #15
   store ptr %89, ptr %87, align 8
   %90 = load ptr, ptr %tmp_str, align 8
@@ -2585,13 +2564,13 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i605
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i607
   %93 = phi i64 [ %.pre821, %if.else.i.i.i.i.i ], [ %91, %if.then.i.i.i.i.i607 ]
-  %_M_string_length.i13.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %87, i64 0, i32 1
+  %_M_string_length.i13.i.i.i.i.i = getelementptr inbounds i8, ptr %87, i64 8
   store i64 %93, ptr %_M_string_length.i13.i.i.i.i.i, align 8
   store ptr %0, ptr %tmp_str, align 8
   store i64 0, ptr %_M_string_length.i.i.i576, align 8
   store i8 0, ptr %0, align 8
   %94 = load ptr, ptr %_M_finish.i.i604, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %94, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %94, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i604, align 8
   br label %cleanup
 
@@ -2808,20 +2787,20 @@ if.end52:                                         ; preds = %if.end104.i435, %if
 if.then.i617:                                     ; preds = %if.end52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %111, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
-  %113 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %111, i64 0, i32 2
+  %113 = getelementptr inbounds i8, ptr %111, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %111, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   store ptr %113, ptr %111, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %111, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %111, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %114 = load ptr, ptr %111, align 8
   store i8 0, ptr %114, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
-  %value.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %111, i64 0, i32 1
+  %value.i.i.i.i = getelementptr inbounds i8, ptr %111, i64 32
   store ptr null, ptr %value.i.i.i.i, align 8
   %115 = load ptr, ptr %_M_finish.i614, align 8
-  %incdec.ptr.i618 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %115, i64 1
+  %incdec.ptr.i618 = getelementptr inbounds i8, ptr %115, i64 40
   store ptr %incdec.ptr.i618, ptr %_M_finish.i614, align 8
   br label %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -2832,7 +2811,7 @@ if.else.i621:                                     ; preds = %if.end52
 
 _ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %if.then.i617, %if.else.i621
   %116 = phi ptr [ %incdec.ptr.i618, %if.then.i617 ], [ %.pre, %if.else.i621 ]
-  %add.ptr.i.i624 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %116, i64 -1
+  %add.ptr.i.i624 = getelementptr inbounds i8, ptr %116, i64 -40
   %117 = load i64, ptr %pos, align 8
   %add.ptr56 = getelementptr inbounds i8, ptr %data, i64 %117
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i625)
@@ -2866,7 +2845,7 @@ _ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit:
 
 if.then60:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit
   %121 = load ptr, ptr %_M_finish.i614, align 8
-  %incdec.ptr.i635 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %121, i64 -1
+  %incdec.ptr.i635 = getelementptr inbounds i8, ptr %121, i64 -40
   store ptr %incdec.ptr.i635, ptr %_M_finish.i614, align 8
   call void @_ZN6google8protobuf6OptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i635) #15
   br label %return
@@ -2886,12 +2865,12 @@ if.then66:                                        ; preds = %sw.bb64
   %call.i637 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16, !noalias !9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i637, i8 0, i64 32, i1 false), !noalias !9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !9
-  %124 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i637, i64 0, i32 2
+  %124 = getelementptr inbounds i8, ptr %call.i637, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !9
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %call.i637, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !9
   store ptr %124, ptr %call.i637, align 8, !noalias !9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !9
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i637, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i637, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !noalias !9
   %125 = load ptr, ptr %call.i637, align 8, !noalias !9
   store i8 0, ptr %125, align 1, !noalias !9
@@ -2903,12 +2882,12 @@ if.then66:                                        ; preds = %sw.bb64
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then66
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %126, i64 0, i32 2
+  %128 = getelementptr inbounds i8, ptr %126, i64 16
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %127, %128
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %126, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %126, i64 8
   %129 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %129, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
@@ -3346,12 +3325,12 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i, label %if.then.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i: ; preds = %entry
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp3.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i)
@@ -3554,9 +3533,9 @@ if.end3:                                          ; preds = %if.end3.sink.split,
   %14 = phi i64 [ %inc83.i, %if.end82.i ], [ %inc74.i, %if.end73.i ], [ %inc65.i, %if.end64.i ], [ %inc56.i, %if.end55.i ], [ %inc47.i, %if.end46.i ], [ %inc38.i, %if.end37.i ], [ %inc29.i, %if.end28.i ], [ %inc20.i, %if.end19.i ], [ %inc13.i, %if.end12.i ], [ %inc6.i, %if.then5.i ], [ %inc105.i.sink, %if.end3.sink.split ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i176 = sub i64 %14, %sub
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %15 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 16
   %16 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %15, %16
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -3566,7 +3545,7 @@ if.then.i.i.i:                                    ; preds = %if.end3
   %ref.tmp.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 8
   store i64 %sub.i176, ptr %ref.tmp.sroa.3.0..sroa_idx.i, align 8
   %17 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %17, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %return
 
@@ -3612,7 +3591,7 @@ if.then.i.i.i12.i.i.i.i:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i: ; preds = %if.then.i.i.i12.i.i.i.i, %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %add.ptr.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 16
   %tobool.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %if.then.i21.i.i.i.i
 
@@ -3636,9 +3615,9 @@ if.end7:                                          ; preds = %sw.bb4
   store i64 %add, ptr %pos, align 8
   %add.ptr.i177 = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i178 = sub i64 %add, %sub
-  %_M_finish.i.i.i179 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i.i179 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %19 = load ptr, ptr %_M_finish.i.i.i179, align 8
-  %_M_end_of_storage.i.i.i180 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 2
+  %_M_end_of_storage.i.i.i180 = getelementptr inbounds i8, ptr %unknown_fields, i64 16
   %20 = load ptr, ptr %_M_end_of_storage.i.i.i180, align 8
   %cmp.not.i.i.i181 = icmp eq ptr %19, %20
   br i1 %cmp.not.i.i.i181, label %if.else.i.i.i185, label %if.then.i.i.i182
@@ -3648,7 +3627,7 @@ if.then.i.i.i182:                                 ; preds = %if.end7
   %ref.tmp.sroa.3.0..sroa_idx.i183 = getelementptr inbounds i8, ptr %19, i64 8
   store i64 %sub.i178, ptr %ref.tmp.sroa.3.0..sroa_idx.i183, align 8
   %21 = load ptr, ptr %_M_finish.i.i.i179, align 8
-  %incdec.ptr.i.i.i184 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %21, i64 1
+  %incdec.ptr.i.i.i184 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %incdec.ptr.i.i.i184, ptr %_M_finish.i.i.i179, align 8
   br label %return
 
@@ -3694,7 +3673,7 @@ if.then.i.i.i12.i.i.i.i213:                       ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i207
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i207: ; preds = %if.then.i.i.i12.i.i.i.i213, %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i202
-  %incdec.ptr.i.i.i.i208 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %add.ptr.i.i.i.i204, i64 1
+  %incdec.ptr.i.i.i.i208 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i204, i64 16
   %tobool.not.i.i.i.i.i209 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i.i.i209, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i211, label %if.then.i21.i.i.i.i210
 
@@ -3892,9 +3871,9 @@ if.end19:                                         ; preds = %if.end15
   store i64 %add16, ptr %pos, align 8
   %add.ptr.i216 = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i217 = sub i64 %add16, %sub
-  %_M_finish.i.i.i218 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i.i218 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %40 = load ptr, ptr %_M_finish.i.i.i218, align 8
-  %_M_end_of_storage.i.i.i219 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 2
+  %_M_end_of_storage.i.i.i219 = getelementptr inbounds i8, ptr %unknown_fields, i64 16
   %41 = load ptr, ptr %_M_end_of_storage.i.i.i219, align 8
   %cmp.not.i.i.i220 = icmp eq ptr %40, %41
   br i1 %cmp.not.i.i.i220, label %if.else.i.i.i224, label %if.then.i.i.i221
@@ -3904,7 +3883,7 @@ if.then.i.i.i221:                                 ; preds = %if.end19
   %ref.tmp.sroa.3.0..sroa_idx.i222 = getelementptr inbounds i8, ptr %40, i64 8
   store i64 %sub.i217, ptr %ref.tmp.sroa.3.0..sroa_idx.i222, align 8
   %42 = load ptr, ptr %_M_finish.i.i.i218, align 8
-  %incdec.ptr.i.i.i223 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %42, i64 1
+  %incdec.ptr.i.i.i223 = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %incdec.ptr.i.i.i223, ptr %_M_finish.i.i.i218, align 8
   br label %return
 
@@ -3950,7 +3929,7 @@ if.then.i.i.i12.i.i.i.i252:                       ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i246
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i246: ; preds = %if.then.i.i.i12.i.i.i.i252, %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i241
-  %incdec.ptr.i.i.i.i247 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %add.ptr.i.i.i.i243, i64 1
+  %incdec.ptr.i.i.i.i247 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i243, i64 16
   %tobool.not.i.i.i.i.i248 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i.i.i248, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i250, label %if.then.i21.i.i.i.i249
 
@@ -3974,9 +3953,9 @@ if.end25:                                         ; preds = %sw.bb21
   store i64 %add22, ptr %pos, align 8
   %add.ptr.i255 = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i256 = sub i64 %add22, %sub
-  %_M_finish.i.i.i257 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i.i257 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %44 = load ptr, ptr %_M_finish.i.i.i257, align 8
-  %_M_end_of_storage.i.i.i258 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 2
+  %_M_end_of_storage.i.i.i258 = getelementptr inbounds i8, ptr %unknown_fields, i64 16
   %45 = load ptr, ptr %_M_end_of_storage.i.i.i258, align 8
   %cmp.not.i.i.i259 = icmp eq ptr %44, %45
   br i1 %cmp.not.i.i.i259, label %if.else.i.i.i263, label %if.then.i.i.i260
@@ -3986,7 +3965,7 @@ if.then.i.i.i260:                                 ; preds = %if.end25
   %ref.tmp.sroa.3.0..sroa_idx.i261 = getelementptr inbounds i8, ptr %44, i64 8
   store i64 %sub.i256, ptr %ref.tmp.sroa.3.0..sroa_idx.i261, align 8
   %46 = load ptr, ptr %_M_finish.i.i.i257, align 8
-  %incdec.ptr.i.i.i262 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %46, i64 1
+  %incdec.ptr.i.i.i262 = getelementptr inbounds i8, ptr %46, i64 16
   store ptr %incdec.ptr.i.i.i262, ptr %_M_finish.i.i.i257, align 8
   br label %return
 
@@ -4032,7 +4011,7 @@ if.then.i.i.i12.i.i.i.i291:                       ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i285
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i285: ; preds = %if.then.i.i.i12.i.i.i.i291, %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i280
-  %incdec.ptr.i.i.i.i286 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %add.ptr.i.i.i.i282, i64 1
+  %incdec.ptr.i.i.i.i286 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i282, i64 16
   %tobool.not.i.i.i.i.i287 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i.i.i287, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i289, label %if.then.i21.i.i.i.i288
 
@@ -4097,25 +4076,25 @@ entry:
   br i1 %cmp1161.not, label %return, label %land.lhs.true.i1582.lr.ph
 
 land.lhs.true.i1582.lr.ph:                        ; preds = %entry
-  %default_value = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 9
-  %_M_string_length.i.i.i943 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 9, i32 1
-  %0 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 9, i32 2
-  %json_name = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 8
-  %_M_string_length.i.i.i917 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 8, i32 1
-  %1 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 8, i32 2
-  %_M_finish.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
-  %options = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 7
-  %packed = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 6
-  %oneof_index = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 5
-  %type_url = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 4
-  %_M_string_length.i.i.i886 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 4, i32 1
-  %2 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 4, i32 2
-  %name = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 3
-  %_M_string_length.i.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 3, i32 1
-  %3 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 3, i32 2
-  %number = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 2
-  %cardinality = getelementptr inbounds %"struct.google::protobuf::Field", ptr %t, i64 0, i32 1
+  %default_value = getelementptr inbounds i8, ptr %t, i64 144
+  %_M_string_length.i.i.i943 = getelementptr inbounds i8, ptr %t, i64 152
+  %0 = getelementptr inbounds i8, ptr %t, i64 160
+  %json_name = getelementptr inbounds i8, ptr %t, i64 112
+  %_M_string_length.i.i.i917 = getelementptr inbounds i8, ptr %t, i64 120
+  %1 = getelementptr inbounds i8, ptr %t, i64 128
+  %_M_finish.i = getelementptr inbounds i8, ptr %t, i64 96
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %t, i64 104
+  %options = getelementptr inbounds i8, ptr %t, i64 88
+  %packed = getelementptr inbounds i8, ptr %t, i64 84
+  %oneof_index = getelementptr inbounds i8, ptr %t, i64 80
+  %type_url = getelementptr inbounds i8, ptr %t, i64 48
+  %_M_string_length.i.i.i886 = getelementptr inbounds i8, ptr %t, i64 56
+  %2 = getelementptr inbounds i8, ptr %t, i64 64
+  %name = getelementptr inbounds i8, ptr %t, i64 16
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %t, i64 24
+  %3 = getelementptr inbounds i8, ptr %t, i64 32
+  %number = getelementptr inbounds i8, ptr %t, i64 8
+  %cardinality = getelementptr inbounds i8, ptr %t, i64 4
   br label %land.lhs.true.i1582
 
 land.lhs.true.i1582:                              ; preds = %land.lhs.true.i1582.lr.ph, %sw.epilog
@@ -5796,20 +5775,20 @@ if.end71:                                         ; preds = %if.end104.i1044, %i
 if.then.i912:                                     ; preds = %if.end71
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %152, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
-  %154 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %152, i64 0, i32 2
+  %154 = getelementptr inbounds i8, ptr %152, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %152, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   store ptr %154, ptr %152, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %152, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %152, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %155 = load ptr, ptr %152, align 8
   store i8 0, ptr %155, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
-  %value.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %152, i64 0, i32 1
+  %value.i.i.i.i = getelementptr inbounds i8, ptr %152, i64 32
   store ptr null, ptr %value.i.i.i.i, align 8
   %156 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %156, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %156, i64 40
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -5820,7 +5799,7 @@ if.else.i:                                        ; preds = %if.end71
 
 _ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %if.then.i912, %if.else.i
   %157 = phi ptr [ %incdec.ptr.i, %if.then.i912 ], [ %.pre1238, %if.else.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %157, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %157, i64 -40
   %158 = load i64, ptr %pos, align 8
   %add.ptr75 = getelementptr inbounds i8, ptr %data, i64 %158
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
@@ -5857,7 +5836,7 @@ _ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit:
 
 if.then79:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit
   %162 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i916 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %162, i64 -1
+  %incdec.ptr.i916 = getelementptr inbounds i8, ptr %162, i64 -40
   store ptr %incdec.ptr.i916, ptr %_M_finish.i, align 8
   call void @_ZN6google8protobuf6OptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i916) #15
   br label %return
@@ -6434,7 +6413,7 @@ entry:
   %ref.tmp41 = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp59 = alloca %"struct.struct_pb::UnknownFields", align 8
   %0 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i5.i = icmp eq ptr %0, %1
   br i1 %cmp.i5.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
@@ -6442,16 +6421,16 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %total.07.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
   %__begin2.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %0, %entry ]
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 8
   %2 = load i64, ptr %len.i, align 8
   %add.i = add i64 %2, %total.07.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
   %total.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %3 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %if.end, label %do.body.i99
@@ -6472,9 +6451,9 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit103: ; preds = %do.body.i99
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit103, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
   %total.0 = phi i64 [ %total.0.lcssa.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit ], [ %add8, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit103 ]
-  %enumvalue = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 1
+  %enumvalue = getelementptr inbounds i8, ptr %t, i64 32
   %4 = load ptr, ptr %enumvalue, align 8
-  %_M_finish.i.i33 = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i33 = getelementptr inbounds i8, ptr %t, i64 40
   %5 = load ptr, ptr %_M_finish.i.i33, align 8
   %cmp.i.i34 = icmp eq ptr %4, %5
   br i1 %cmp.i.i34, label %if.end23, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
@@ -6482,7 +6461,7 @@ if.end:                                           ; preds = %_ZN9struct_pb8inter
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i: ; preds = %if.end, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit96
   %total.1101 = phi i64 [ %add21, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit96 ], [ %total.0, %if.end ]
   %__begin3.sroa.0.0100 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit96 ], [ %4, %if.end ]
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin3.sroa.0.0100, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0100, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i36 = icmp eq i64 %6, 0
   br i1 %cmp.i.i36, label %if.end.i, label %do.body.i40.i
@@ -6502,7 +6481,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit44.i: ; preds = %do.body.i40
 
 if.end.i:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit44.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
   %total.0.i = phi i64 [ 0, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i ], [ %add8.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit44.i ]
-  %number.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__begin3.sroa.0.0100, i64 0, i32 1
+  %number.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0100, i64 32
   %7 = load i32, ptr %number.i, align 8
   %cmp.not.i = icmp eq i32 %7, 0
   br i1 %cmp.not.i, label %if.end14.i, label %if.then9.i
@@ -6526,9 +6505,9 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit37.i: ; preds = %do.body.i33
 
 if.end14.i:                                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit37.i, %if.end.i
   %total.1.i = phi i64 [ %add13.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit37.i ], [ %total.0.i, %if.end.i ]
-  %options.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__begin3.sroa.0.0100, i64 0, i32 2
+  %options.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0100, i64 40
   %8 = load ptr, ptr %options.i, align 8
-  %_M_finish.i.i19.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__begin3.sroa.0.0100, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i19.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0100, i64 48
   %9 = load ptr, ptr %_M_finish.i.i19.i, align 8
   %cmp.i.i20.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i20.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i72
@@ -6537,7 +6516,7 @@ _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i72: ; preds = %if.end14.i, %_Z
   %total.229.i = phi i64 [ %add27.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %total.1.i, %if.end14.i ]
   %__begin3.sroa.0.028.i = phi ptr [ %incdec.ptr.i.i39, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %8, %if.end14.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i62)
-  %_M_string_length.i.i.i74 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin3.sroa.0.028.i, i64 0, i32 1
+  %_M_string_length.i.i.i74 = getelementptr inbounds i8, ptr %__begin3.sroa.0.028.i, i64 8
   %10 = load i64, ptr %_M_string_length.i.i.i74, align 8
   %cmp.i.i75 = icmp eq i64 %10, 0
   br i1 %cmp.i.i75, label %if.end.i79, label %do.body.i22.i
@@ -6557,7 +6536,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit26.i: ; preds = %do.body.i22
 
 if.end.i79:                                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit26.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i72
   %total.0.i80 = phi i64 [ 0, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i72 ], [ %add8.i78, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit26.i ]
-  %value.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__begin3.sroa.0.028.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.028.i, i64 32
   %11 = load ptr, ptr %value.i, align 8
   %cmp.i13.not.i = icmp eq ptr %11, null
   br i1 %cmp.i13.not.i, label %call23.i.noexc, label %if.then10.i
@@ -6617,7 +6596,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i: ; preds = %do.body.i.i
   %add25.i = add i64 %total.229.i, 2
   %add26.i = add i64 %add25.i, %total.1.i88
   %add27.i = add i64 %add26.i, %ret.i.0.i
-  %incdec.ptr.i.i39 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__begin3.sroa.0.028.i, i64 1
+  %incdec.ptr.i.i39 = getelementptr inbounds i8, ptr %__begin3.sroa.0.028.i, i64 40
   %cmp.i21.i = icmp eq ptr %incdec.ptr.i.i39, %9
   br i1 %cmp.i21.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i72
 
@@ -6637,15 +6616,15 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit96: ; preds = %do.body.i92
   %add19 = add i64 %total.1101, 2
   %add20 = add i64 %add19, %total.3.i
   %add21 = add i64 %add20, %ret.i91.0
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__begin3.sroa.0.0100, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0100, i64 64
   %cmp.i35 = icmp eq ptr %incdec.ptr.i, %5
   br i1 %cmp.i35, label %if.end23, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
 
 if.end23:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit96, %if.end
   %total.2 = phi i64 [ %total.0, %if.end ], [ %add21, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit96 ]
-  %options = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 2
+  %options = getelementptr inbounds i8, ptr %t, i64 56
   %15 = load ptr, ptr %options, align 8
-  %_M_finish.i.i44 = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i44 = getelementptr inbounds i8, ptr %t, i64 64
   %16 = load ptr, ptr %_M_finish.i.i44, align 8
   %cmp.i.i45 = icmp eq ptr %15, %16
   br i1 %cmp.i.i45, label %if.end53, label %for.body37
@@ -6669,13 +6648,13 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit89: ; preds = %do.body.i85
   %add47 = add i64 %total.3103, 2
   %add48 = add i64 %add47, %call45
   %add49 = add i64 %add48, %ret.i84.0
-  %incdec.ptr.i51 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__begin328.sroa.0.0102, i64 1
+  %incdec.ptr.i51 = getelementptr inbounds i8, ptr %__begin328.sroa.0.0102, i64 40
   %cmp.i47 = icmp eq ptr %incdec.ptr.i51, %16
   br i1 %cmp.i47, label %if.end53, label %for.body37
 
 if.end53:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit89, %if.end23
   %total.4 = phi i64 [ %total.2, %if.end23 ], [ %add49, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit89 ]
-  %source_context = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 3
+  %source_context = getelementptr inbounds i8, ptr %t, i64 80
   %17 = load ptr, ptr %source_context, align 8
   %cmp.i55.not = icmp eq ptr %17, null
   br i1 %cmp.i55.not, label %if.end68, label %if.then55
@@ -6720,7 +6699,7 @@ lpad61:                                           ; preds = %if.then55
 
 if.end68:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit82, %if.end53
   %total.5 = phi i64 [ %add67, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit82 ], [ %total.4, %if.end53 ]
-  %syntax = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 4
+  %syntax = getelementptr inbounds i8, ptr %t, i64 88
   %21 = load i32, ptr %syntax, align 8
   %cmp.not = icmp eq i32 %21, 0
   br i1 %cmp.not, label %if.end74, label %if.then69
@@ -6762,7 +6741,7 @@ define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8p
 entry:
   %ref.tmp = alloca %"struct.struct_pb::UnknownFields", align 8
   %0 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i5.i = icmp eq ptr %0, %1
   br i1 %cmp.i5.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
@@ -6770,16 +6749,16 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %total.07.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
   %__begin2.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %0, %entry ]
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 8
   %2 = load i64, ptr %len.i, align 8
   %add.i = add i64 %2, %total.07.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
   %total.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %3 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %if.end, label %do.body.i40
@@ -6800,7 +6779,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit44: ; preds = %do.body.i40
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit44, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
   %total.0 = phi i64 [ %total.0.lcssa.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit ], [ %add8, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit44 ]
-  %number = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %t, i64 0, i32 1
+  %number = getelementptr inbounds i8, ptr %t, i64 32
   %4 = load i32, ptr %number, align 8
   %cmp.not = icmp eq i32 %4, 0
   br i1 %cmp.not, label %if.end14, label %if.then9
@@ -6824,9 +6803,9 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit37: ; preds = %do.body.i33
 
 if.end14:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit37, %if.end
   %total.1 = phi i64 [ %add13, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit37 ], [ %total.0, %if.end ]
-  %options = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %t, i64 0, i32 2
+  %options = getelementptr inbounds i8, ptr %t, i64 40
   %5 = load ptr, ptr %options, align 8
-  %_M_finish.i.i19 = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %t, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %t, i64 48
   %6 = load ptr, ptr %_M_finish.i.i19, align 8
   %cmp.i.i20 = icmp eq ptr %5, %6
   br i1 %cmp.i.i20, label %if.end29, label %for.body
@@ -6850,7 +6829,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
   %add25 = add i64 %total.229, 2
   %add26 = add i64 %add25, %call23
   %add27 = add i64 %add26, %ret.i.0
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__begin3.sroa.0.028, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.028, i64 40
   %cmp.i21 = icmp eq ptr %incdec.ptr.i, %6
   br i1 %cmp.i21, label %if.end29, label %for.body
 
@@ -6868,7 +6847,7 @@ entry:
   %ref.tmp49 = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp63 = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp71 = alloca %"struct.struct_pb::UnknownFields", align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i99 = icmp eq i64 %0, 0
   br i1 %cmp.i99, label %if.end, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit224
@@ -6908,9 +6887,9 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit208: ; preds = %while.body.i
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit208, %entry
   %pos.1 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit208 ]
-  %enumvalue = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 1
+  %enumvalue = getelementptr inbounds i8, ptr %t, i64 32
   %6 = load ptr, ptr %enumvalue, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %t, i64 40
   %7 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i, label %if.end25, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
@@ -6920,7 +6899,7 @@ _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i: ; preds = %if.end, %_ZN9stru
   %__begin3.sroa.0.0222 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176 ], [ %6, %if.end ]
   %arrayidx3.i185 = getelementptr inbounds i8, ptr %data, i64 %pos.2223
   store i8 18, ptr %arrayidx3.i185, align 1
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin3.sroa.0.0222, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0222, i64 8
   %8 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i104 = icmp eq i64 %8, 0
   br i1 %cmp.i.i104, label %if.end.i, label %do.body.i40.i
@@ -6940,7 +6919,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit44.i: ; preds = %do.body.i40
 
 if.end.i:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit44.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
   %total.0.i = phi i64 [ 0, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i ], [ %add8.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit44.i ]
-  %number.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__begin3.sroa.0.0222, i64 0, i32 1
+  %number.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0222, i64 32
   %9 = load i32, ptr %number.i, align 8
   %cmp.not.i = icmp eq i32 %9, 0
   br i1 %cmp.not.i, label %if.end14.i, label %if.then9.i
@@ -6964,9 +6943,9 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit37.i: ; preds = %do.body.i33
 
 if.end14.i:                                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit37.i, %if.end.i
   %total.1.i = phi i64 [ %add13.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit37.i ], [ %total.0.i, %if.end.i ]
-  %options.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__begin3.sroa.0.0222, i64 0, i32 2
+  %options.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0222, i64 40
   %10 = load ptr, ptr %options.i, align 8
-  %_M_finish.i.i19.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__begin3.sroa.0.0222, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i19.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0222, i64 48
   %11 = load ptr, ptr %_M_finish.i.i19.i, align 8
   %cmp.i.i20.i = icmp eq ptr %10, %11
   br i1 %cmp.i.i20.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i161
@@ -6975,7 +6954,7 @@ _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i161: ; preds = %if.end14.i, %_
   %total.229.i = phi i64 [ %add27.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %total.1.i, %if.end14.i ]
   %__begin3.sroa.0.028.i = phi ptr [ %incdec.ptr.i.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %10, %if.end14.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i151)
-  %_M_string_length.i.i.i163 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin3.sroa.0.028.i, i64 0, i32 1
+  %_M_string_length.i.i.i163 = getelementptr inbounds i8, ptr %__begin3.sroa.0.028.i, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i163, align 8
   %cmp.i.i164 = icmp eq i64 %12, 0
   br i1 %cmp.i.i164, label %if.end.i168, label %do.body.i22.i
@@ -6995,7 +6974,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit26.i: ; preds = %do.body.i22
 
 if.end.i168:                                      ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit26.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i161
   %total.0.i169 = phi i64 [ 0, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i161 ], [ %add8.i167, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit26.i ]
-  %value.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__begin3.sroa.0.028.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.028.i, i64 32
   %13 = load ptr, ptr %value.i, align 8
   %cmp.i13.not.i = icmp eq ptr %13, null
   br i1 %cmp.i13.not.i, label %call23.i.noexc, label %if.then10.i
@@ -7055,7 +7034,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i: ; preds = %do.body.i.i
   %add25.i = add i64 %total.229.i, 2
   %add26.i = add i64 %add25.i, %total.1.i177
   %add27.i = add i64 %add26.i, %ret.i.0.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__begin3.sroa.0.028.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.028.i, i64 40
   %cmp.i21.i = icmp eq ptr %incdec.ptr.i.i, %11
   br i1 %cmp.i21.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i161
 
@@ -7089,15 +7068,15 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176: ; preds = %while.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp19, i8 0, i64 24, i1 false)
   call void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf9EnumValueEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull %add.ptr18, i64 poison, ptr noundef nonnull align 8 dereferenceable(64) %__begin3.sroa.0.0222, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp19)
   %add23 = add i64 %inc2.i168, %total.3.i
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__begin3.sroa.0.0222, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0222, i64 64
   %cmp.i103 = icmp eq ptr %incdec.ptr.i, %7
   br i1 %cmp.i103, label %if.end25, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
 
 if.end25:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176, %if.end
   %pos.4 = phi i64 [ %pos.1, %if.end ], [ %add23, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176 ]
-  %options = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 2
+  %options = getelementptr inbounds i8, ptr %t, i64 56
   %18 = load ptr, ptr %options, align 8
-  %_M_finish.i.i116 = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i116 = getelementptr inbounds i8, ptr %t, i64 64
   %19 = load ptr, ptr %_M_finish.i.i116, align 8
   %cmp.i.i117 = icmp eq ptr %18, %19
   br i1 %cmp.i.i117, label %if.end57, label %for.body39
@@ -7137,13 +7116,13 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144: ; preds = %while.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp49, i8 0, i64 24, i1 false)
   call void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf6OptionEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull %add.ptr48, i64 poison, ptr noundef nonnull align 8 dereferenceable(40) %__begin330.sroa.0.0231, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp49)
   %add53 = add i64 %inc2.i136, %call47
-  %incdec.ptr.i126 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__begin330.sroa.0.0231, i64 1
+  %incdec.ptr.i126 = getelementptr inbounds i8, ptr %__begin330.sroa.0.0231, i64 40
   %cmp.i119 = icmp eq ptr %incdec.ptr.i126, %19
   br i1 %cmp.i119, label %if.end57, label %for.body39
 
 if.end57:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144, %if.end25
   %pos.7 = phi i64 [ %pos.4, %if.end25 ], [ %add53, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144 ]
-  %source_context = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 3
+  %source_context = getelementptr inbounds i8, ptr %t, i64 80
   %21 = load ptr, ptr %source_context, align 8
   %cmp.i133.not = icmp eq ptr %21, null
   br i1 %cmp.i133.not, label %if.end76, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit128
@@ -7225,7 +7204,7 @@ lpad73:                                           ; preds = %_ZN9struct_pb8inter
 
 if.end76:                                         ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit139, %if.end57
   %pos.9 = phi i64 [ %add75, %_ZN9struct_pb13UnknownFieldsD2Ev.exit139 ], [ %pos.7, %if.end57 ]
-  %syntax = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 4
+  %syntax = getelementptr inbounds i8, ptr %t, i64 88
   %31 = load i32, ptr %syntax, align 8
   %cmp.not = icmp eq i32 %31, 0
   br i1 %cmp.not, label %if.end79, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit96
@@ -7264,7 +7243,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %
 if.end79:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, %if.end76
   %pos.11 = phi i64 [ %pos.9, %if.end76 ], [ %inc2.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
   %34 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i146 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i146 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %35 = load ptr, ptr %_M_finish.i.i146, align 8
   %cmp.i7.i = icmp eq ptr %34, %35
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i147
@@ -7274,12 +7253,12 @@ for.body.i147:                                    ; preds = %if.end79, %for.body
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i149, %for.body.i147 ], [ %34, %if.end79 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.12
   %36 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 8
   %37 = load i64, ptr %len.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %36, i64 %37, i1 false)
   %38 = load i64, ptr %len.i, align 8
   %add.i148 = add i64 %38, %pos.12
-  %incdec.ptr.i.i149 = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 1
+  %incdec.ptr.i.i149 = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 16
   %cmp.i.i150 = icmp eq ptr %incdec.ptr.i.i149, %35
   br i1 %cmp.i.i150, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i147
 
@@ -7302,7 +7281,7 @@ define dso_local void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf9En
 entry:
   %ref.tmp = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp22 = alloca %"struct.struct_pb::UnknownFields", align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i58 = icmp eq i64 %0, 0
   br i1 %cmp.i58, label %if.end, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit109
@@ -7342,7 +7321,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit93: ; preds = %while.body.i8
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit93, %entry
   %pos.1 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit93 ]
-  %number = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %t, i64 0, i32 1
+  %number = getelementptr inbounds i8, ptr %t, i64 32
   %6 = load i32, ptr %number, align 8
   %cmp.not = icmp eq i32 %6, 0
   br i1 %cmp.not, label %if.end11, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit77
@@ -7380,9 +7359,9 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit61: ; preds = %while.body.i5
 
 if.end11:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit61, %if.end
   %pos.3 = phi i64 [ %pos.1, %if.end ], [ %inc2.i53, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit61 ]
-  %options = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %t, i64 0, i32 2
+  %options = getelementptr inbounds i8, ptr %t, i64 40
   %9 = load ptr, ptr %options, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %t, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %t, i64 48
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i, label %if.end28, label %for.body
@@ -7422,14 +7401,14 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp22, i8 0, i64 24, i1 false)
   call void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf6OptionEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull %add.ptr21, i64 poison, ptr noundef nonnull align 8 dereferenceable(40) %__begin3.sroa.0.0107, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp22)
   %add26 = add i64 %inc2.i, %call20
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__begin3.sroa.0.0107, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0107, i64 40
   %cmp.i61 = icmp eq ptr %incdec.ptr.i, %10
   br i1 %cmp.i61, label %if.end28, label %for.body
 
 if.end28:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, %if.end11
   %pos.6 = phi i64 [ %pos.3, %if.end11 ], [ %add26, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
   %12 = load ptr, ptr %unknown_fields, align 8
-  %_M_finish.i.i71 = getelementptr inbounds %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data", ptr %unknown_fields, i64 0, i32 1
+  %_M_finish.i.i71 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %13 = load ptr, ptr %_M_finish.i.i71, align 8
   %cmp.i7.i = icmp eq ptr %12, %13
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
@@ -7439,12 +7418,12 @@ for.body.i:                                       ; preds = %if.end28, %for.body
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %12, %if.end28 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.7
   %14 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
-  %len.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 8
   %15 = load i64, ptr %len.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %14, i64 %15, i1 false)
   %16 = load i64, ptr %len.i, align 8
   %add.i = add i64 %16, %pos.7
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb::UnknownFields::Field", ptr %__begin2.sroa.0.08.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i, i64 16
   %cmp.i.i72 = icmp eq ptr %incdec.ptr.i.i, %13
   br i1 %cmp.i.i72, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
@@ -7465,16 +7444,16 @@ entry:
   br i1 %cmp635.not, label %return, label %land.lhs.true.i809.lr.ph
 
 land.lhs.true.i809.lr.ph:                         ; preds = %entry
-  %syntax = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 4
-  %source_context = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 3
-  %_M_finish.i497 = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i498 = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %options = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %enumvalue = getelementptr inbounds %"struct.google::protobuf::Enum", ptr %t, i64 0, i32 1
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 2
+  %syntax = getelementptr inbounds i8, ptr %t, i64 88
+  %source_context = getelementptr inbounds i8, ptr %t, i64 80
+  %_M_finish.i497 = getelementptr inbounds i8, ptr %t, i64 64
+  %_M_end_of_storage.i498 = getelementptr inbounds i8, ptr %t, i64 72
+  %options = getelementptr inbounds i8, ptr %t, i64 56
+  %_M_finish.i = getelementptr inbounds i8, ptr %t, i64 40
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %t, i64 48
+  %enumvalue = getelementptr inbounds i8, ptr %t, i64 32
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %0 = getelementptr inbounds i8, ptr %t, i64 16
   br label %land.lhs.true.i809
 
 land.lhs.true.i809:                               ; preds = %land.lhs.true.i809.lr.ph, %sw.epilog
@@ -8083,20 +8062,20 @@ if.end18:                                         ; preds = %if.end104.i129, %if
 if.then.i488:                                     ; preds = %if.end18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %51, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
-  %53 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %51, i64 0, i32 2
+  %53 = getelementptr inbounds i8, ptr %51, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   store ptr %53, ptr %51, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %51, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %54 = load ptr, ptr %51, align 8
   store i8 0, ptr %54, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
-  %options.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %51, i64 0, i32 2
+  %options.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options.i.i.i.i, i8 0, i64 24, i1 false)
   %55 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %55, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %55, i64 64
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -8107,7 +8086,7 @@ if.else.i:                                        ; preds = %if.end18
 
 _ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %if.then.i488, %if.else.i
   %56 = phi ptr [ %incdec.ptr.i, %if.then.i488 ], [ %.pre678, %if.else.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %56, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %56, i64 -64
   %57 = load i64, ptr %pos, align 8
   %add.ptr22 = getelementptr inbounds i8, ptr %data, i64 %57
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
@@ -8147,11 +8126,11 @@ _ZN9struct_pb8internal14deserialize_toIN6google8protobuf9EnumValueEEEbRT_PKcm.ex
 
 if.then26:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf9EnumValueEEEbRT_PKcm.exit
   %61 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i492 = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %61, i64 -1
+  %incdec.ptr.i492 = getelementptr inbounds i8, ptr %61, i64 -64
   store ptr %incdec.ptr.i492, ptr %_M_finish.i, align 8
-  %options.i.i.i.i493 = getelementptr %"struct.google::protobuf::EnumValue", ptr %61, i64 -1, i32 2
+  %options.i.i.i.i493 = getelementptr inbounds i8, ptr %61, i64 -24
   %62 = load ptr, ptr %options.i.i.i.i493, align 8
-  %_M_finish.i.i.i.i.i = getelementptr %"struct.google::protobuf::EnumValue", ptr %61, i64 -1, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 -16
   %63 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %62, %63
   br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
@@ -8159,7 +8138,7 @@ if.then26:                                        ; preds = %_ZN9struct_pb8inter
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.then26, %for.body.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %62, %if.then26 ]
   call void @_ZN6google8protobuf6OptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i.i.i.i.i.i.i.i) #15
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 40
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %63
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !14
 
@@ -8178,12 +8157,12 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i.i.i
 
 _ZNSt6vectorIN6google8protobuf6OptionESaIS2_EED2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i
   %65 = load ptr, ptr %incdec.ptr.i492, align 8
-  %66 = getelementptr %"struct.google::protobuf::EnumValue", ptr %61, i64 -1, i32 0, i32 2
+  %66 = getelementptr inbounds i8, ptr %61, i64 -48
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %65, %66
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i494
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EED2Ev.exit.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i495 = getelementptr %"struct.google::protobuf::EnumValue", ptr %61, i64 -1, i32 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i495 = getelementptr inbounds i8, ptr %61, i64 -56
   %67 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i495, align 8
   %cmp3.i.i.i.i.i.i.i = icmp ult i64 %67, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
@@ -8383,20 +8362,20 @@ if.end36:                                         ; preds = %if.end104.i271, %if
 if.then.i500:                                     ; preds = %if.end36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %83, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i496)
-  %85 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %83, i64 0, i32 2
+  %85 = getelementptr inbounds i8, ptr %83, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i496) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %83, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i496) #15
   store ptr %85, ptr %83, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i496) #15
-  %_M_string_length.i.i.i.i.i.i.i501 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %83, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i501 = getelementptr inbounds i8, ptr %83, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i501, align 8
   %86 = load ptr, ptr %83, align 8
   store i8 0, ptr %86, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i496)
-  %value.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %83, i64 0, i32 1
+  %value.i.i.i.i = getelementptr inbounds i8, ptr %83, i64 32
   store ptr null, ptr %value.i.i.i.i, align 8
   %87 = load ptr, ptr %_M_finish.i497, align 8
-  %incdec.ptr.i502 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %87, i64 1
+  %incdec.ptr.i502 = getelementptr inbounds i8, ptr %87, i64 40
   store ptr %incdec.ptr.i502, ptr %_M_finish.i497, align 8
   br label %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -8407,7 +8386,7 @@ if.else.i505:                                     ; preds = %if.end36
 
 _ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %if.then.i500, %if.else.i505
   %88 = phi ptr [ %incdec.ptr.i502, %if.then.i500 ], [ %.pre, %if.else.i505 ]
-  %add.ptr.i.i508 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %88, i64 -1
+  %add.ptr.i.i508 = getelementptr inbounds i8, ptr %88, i64 -40
   %89 = load i64, ptr %pos, align 8
   %add.ptr40 = getelementptr inbounds i8, ptr %data, i64 %89
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i509)
@@ -8437,7 +8416,7 @@ _ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit:
 
 if.then44:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit
   %93 = load ptr, ptr %_M_finish.i497, align 8
-  %incdec.ptr.i519 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %93, i64 -1
+  %incdec.ptr.i519 = getelementptr inbounds i8, ptr %93, i64 -40
   store ptr %incdec.ptr.i519, ptr %_M_finish.i497, align 8
   call void @_ZN6google8protobuf6OptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i519) #15
   br label %return
@@ -8457,12 +8436,12 @@ if.then50:                                        ; preds = %sw.bb48
   %call.i521 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16, !noalias !15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i521, i8 0, i64 32, i1 false), !noalias !15
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !15
-  %96 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i521, i64 0, i32 2
+  %96 = getelementptr inbounds i8, ptr %call.i521, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %call.i521, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !15
   store ptr %96, ptr %call.i521, align 8, !noalias !15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !15
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i521, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i521, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !noalias !15
   %97 = load ptr, ptr %call.i521, align 8, !noalias !15
   store i8 0, ptr %97, align 1, !noalias !15
@@ -8474,12 +8453,12 @@ if.then50:                                        ; preds = %sw.bb48
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then50
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %98, i64 0, i32 2
+  %100 = getelementptr inbounds i8, ptr %98, i64 16
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %99, %100
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %98, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %98, i64 8
   %101 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %101, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
@@ -8956,12 +8935,12 @@ entry:
   br i1 %cmp408.not, label %return, label %land.lhs.true.i476.lr.ph
 
 land.lhs.true.i476.lr.ph:                         ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %t, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %t, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %options = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %t, i64 0, i32 2
-  %number = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %t, i64 0, i32 1
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %t, i64 48
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %t, i64 56
+  %options = getelementptr inbounds i8, ptr %t, i64 40
+  %number = getelementptr inbounds i8, ptr %t, i64 32
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %0 = getelementptr inbounds i8, ptr %t, i64 16
   br label %land.lhs.true.i476
 
 land.lhs.true.i476:                               ; preds = %land.lhs.true.i476.lr.ph, %sw.epilog
@@ -9712,20 +9691,20 @@ if.end24:                                         ; preds = %if.end104.i222, %if
 if.then.i322:                                     ; preds = %if.end24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %65, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
-  %67 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %65, i64 0, i32 2
+  %67 = getelementptr inbounds i8, ptr %65, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %65, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   store ptr %67, ptr %65, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %65, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %65, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %68 = load ptr, ptr %65, align 8
   store i8 0, ptr %68, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
-  %value.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %65, i64 0, i32 1
+  %value.i.i.i.i = getelementptr inbounds i8, ptr %65, i64 32
   store ptr null, ptr %value.i.i.i.i, align 8
   %69 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %69, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %69, i64 40
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -9736,7 +9715,7 @@ if.else.i:                                        ; preds = %if.end24
 
 _ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %if.then.i322, %if.else.i
   %70 = phi ptr [ %incdec.ptr.i, %if.then.i322 ], [ %.pre, %if.else.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %70, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %70, i64 -40
   %add.ptr28 = getelementptr inbounds i8, ptr %data, i64 %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, i8 0, i64 24, i1 false)
@@ -9772,7 +9751,7 @@ _ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit:
 
 if.then32:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf6OptionEEEbRT_PKcm.exit
   %74 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i326 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %74, i64 -1
+  %incdec.ptr.i326 = getelementptr inbounds i8, ptr %74, i64 -40
   store ptr %incdec.ptr.i326, ptr %_M_finish.i, align 8
   call void @_ZN6google8protobuf6OptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i326) #15
   br label %return
@@ -9812,9 +9791,9 @@ entry:
   br i1 %cmp309.not, label %return, label %land.lhs.true.i325.lr.ph
 
 land.lhs.true.i325.lr.ph:                         ; preds = %entry
-  %value = getelementptr inbounds %"struct.google::protobuf::Option", ptr %t, i64 0, i32 1
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %t, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %t, i64 32
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %0 = getelementptr inbounds i8, ptr %t, i64 16
   br label %land.lhs.true.i325
 
 land.lhs.true.i325:                               ; preds = %land.lhs.true.i325.lr.ph, %sw.epilog
@@ -10235,24 +10214,24 @@ if.then14:                                        ; preds = %sw.bb12
   %call.i = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %call.i, i8 0, i64 64, i1 false), !noalias !20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !20
-  %36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i, i64 0, i32 2
+  %36 = getelementptr inbounds i8, ptr %call.i, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !20
   store ptr %36, ptr %call.i, align 8, !noalias !20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !20
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !noalias !20
   %37 = load ptr, ptr %call.i, align 8, !noalias !20
   store i8 0, ptr %37, align 1, !noalias !20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !20
-  %value.i.i = getelementptr inbounds %"struct.google::protobuf::Any", ptr %call.i, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i), !noalias !20
-  %38 = getelementptr inbounds %"struct.google::protobuf::Any", ptr %call.i, i64 0, i32 1, i32 2
+  %38 = getelementptr inbounds i8, ptr %call.i, i64 48
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i) #15, !noalias !20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %value.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i) #15, !noalias !20
   store ptr %38, ptr %value.i.i, align 8, !noalias !20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i) #15, !noalias !20
-  %_M_string_length.i.i.i2.i.i = getelementptr inbounds %"struct.google::protobuf::Any", ptr %call.i, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i64 0, ptr %_M_string_length.i.i.i2.i.i, align 8, !noalias !20
   %39 = load ptr, ptr %value.i.i, align 8, !noalias !20
   store i8 0, ptr %39, align 1, !noalias !20
@@ -10263,14 +10242,14 @@ if.then14:                                        ; preds = %sw.bb12
   br i1 %tobool.not.i.i.i.i, label %if.end17, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then14
-  %value.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Any", ptr %40, i64 0, i32 1
+  %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 32
   %41 = load ptr, ptr %value.i.i.i.i.i.i, align 8
-  %42 = getelementptr inbounds %"struct.google::protobuf::Any", ptr %40, i64 0, i32 1, i32 2
+  %42 = getelementptr inbounds i8, ptr %40, i64 48
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %41, %42
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Any", ptr %40, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 40
   %43 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %43, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
@@ -10283,12 +10262,12 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %delete.notnull.i.i.
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %value.i.i.i.i.i.i) #15
   %44 = load ptr, ptr %40, align 8
-  %45 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %40, i64 0, i32 2
+  %45 = getelementptr inbounds i8, ptr %40, i64 16
   %cmp.i.i.i1.i.i.i.i.i.i = icmp eq ptr %44, %45
   br i1 %cmp.i.i.i1.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i.i.i.i.i.i, label %if.then.i.i2.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i.i.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i
-  %_M_string_length.i.i.i4.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %40, i64 0, i32 1
+  %_M_string_length.i.i.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 8
   %46 = load i64, ptr %_M_string_length.i.i.i4.i.i.i.i.i.i, align 8
   %cmp3.i.i.i5.i.i.i.i.i.i = icmp ult i64 %46, 16
   call void @llvm.assume(i1 %cmp3.i.i.i5.i.i.i.i.i.i)
@@ -10499,14 +10478,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__pos, i64 noundef %__len1, ptr noundef %__s, i64 noundef %__len2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i, align 8
   %1 = add i64 %__len1, %__pos
   %sub2 = sub i64 %0, %1
   %add = sub i64 %__len2, %__len1
   %sub4 = add i64 %add, %0
   %2 = load ptr, ptr %this, align 8
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
 
@@ -10640,7 +10619,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN6google8protobuf5FieldESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::Field, std::allocator<google::protobuf::Field>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -10685,14 +10664,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN6google8protobuf5FieldESaIS2_EE11_M_allocateEm.exit ]
   tail call void @_ZN6google8protobuf5FieldC2EOS1_(ptr noundef nonnull align 8 dereferenceable(176) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(176) %__first.addr.06.i.i.i) #15
   tail call void @_ZN6google8protobuf5FieldD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %__first.addr.06.i.i.i) #15
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 176
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 176
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6google8protobuf5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !24
 
 _ZNSt6vectorIN6google8protobuf5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6google8protobuf5FieldESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6google8protobuf5FieldESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.google::protobuf::Field", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 176
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6google8protobuf5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19, label %for.body.i.i.i12
 
@@ -10701,8 +10680,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6goog
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN6google8protobuf5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @_ZN6google8protobuf5FieldC2EOS1_(ptr noundef nonnull align 8 dereferenceable(176) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(176) %__first.addr.06.i.i.i14) #15
   tail call void @_ZN6google8protobuf5FieldD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %__first.addr.06.i.i.i14) #15
-  %incdec.ptr.i.i.i15 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i16 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 176
+  %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 176
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
   br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorIN6google8protobuf5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19, label %for.body.i.i.i12, !llvm.loop !24
 
@@ -10716,7 +10695,7 @@ if.then.i20:                                      ; preds = %_ZNSt6vectorIN6goog
   br label %_ZNSt12_Vector_baseIN6google8protobuf5FieldESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN6google8protobuf5FieldESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6google8protobuf5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19, %if.then.i20
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::Field, std::allocator<google::protobuf::Field>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %cond.i10, i64 %cond.i
@@ -10731,52 +10710,52 @@ entry:
   %ref.tmp.i3 = alloca %"class.std::allocator.0", align 1
   %ref.tmp.i1 = alloca %"class.std::allocator.0", align 1
   %ref.tmp.i = alloca %"class.std::allocator.0", align 1
-  %name = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %0 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 3, i32 2
+  %0 = getelementptr inbounds i8, ptr %this, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   store ptr %0, ptr %name, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
-  %_M_string_length.i.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 3, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %_M_string_length.i.i.i, align 8
   %1 = load ptr, ptr %name, align 8
   store i8 0, ptr %1, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %type_url = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 4
+  %type_url = getelementptr inbounds i8, ptr %this, i64 48
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1)
-  %2 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 4, i32 2
+  %2 = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %type_url, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #15
   store ptr %2, ptr %type_url, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #15
-  %_M_string_length.i.i.i2 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 4, i32 1
+  %_M_string_length.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 56
   store i64 0, ptr %_M_string_length.i.i.i2, align 8
   %3 = load ptr, ptr %type_url, align 8
   store i8 0, ptr %3, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1)
-  %options = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 7
+  %options = getelementptr inbounds i8, ptr %this, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options, i8 0, i64 24, i1 false)
-  %json_name = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 8
+  %json_name = getelementptr inbounds i8, ptr %this, i64 112
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i3)
-  %4 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 8, i32 2
+  %4 = getelementptr inbounds i8, ptr %this, i64 128
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i3) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %json_name, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i3) #15
   store ptr %4, ptr %json_name, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i3) #15
-  %_M_string_length.i.i.i4 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 8, i32 1
+  %_M_string_length.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %_M_string_length.i.i.i4, align 8
   %5 = load ptr, ptr %json_name, align 8
   store i8 0, ptr %5, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i3)
-  %default_value = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 9
+  %default_value = getelementptr inbounds i8, ptr %this, i64 144
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i5)
-  %6 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 9, i32 2
+  %6 = getelementptr inbounds i8, ptr %this, i64 160
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i5) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %default_value, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i5) #15
   store ptr %6, ptr %default_value, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i5) #15
-  %_M_string_length.i.i.i6 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 9, i32 1
+  %_M_string_length.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 152
   store i64 0, ptr %_M_string_length.i.i.i6, align 8
   %7 = load ptr, ptr %default_value, align 8
   store i8 0, ptr %7, align 1
@@ -10788,18 +10767,18 @@ entry:
 define linkonce_odr dso_local void @_ZN6google8protobuf5FieldC2EOS1_(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false)
-  %name = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 3
-  %name3 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 3
-  %1 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 3, i32 2
+  %name = getelementptr inbounds i8, ptr %this, i64 16
+  %name3 = getelementptr inbounds i8, ptr %0, i64 16
+  %1 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name, ptr noundef nonnull align 1 dereferenceable(1) %name3) #15
   store ptr %1, ptr %name, align 8
   %2 = load ptr, ptr %name3, align 8
-  %3 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 3, i32 2
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
   %cmp.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_string_length.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 3, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp3.i.i = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i)
@@ -10814,25 +10793,25 @@ if.else.i:                                        ; preds = %entry
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if.then.i, %if.else.i
-  %_M_string_length.i12.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 3, i32 1
+  %_M_string_length.i12.i = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i64, ptr %_M_string_length.i12.i, align 8
-  %_M_string_length.i13.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 3, i32 1
+  %_M_string_length.i13.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %6, ptr %_M_string_length.i13.i, align 8
   store ptr %3, ptr %name3, align 8
   store i64 0, ptr %_M_string_length.i12.i, align 8
   store i8 0, ptr %3, align 8
-  %type_url = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 4
-  %type_url4 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 4
-  %7 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 4, i32 2
+  %type_url = getelementptr inbounds i8, ptr %this, i64 48
+  %type_url4 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %type_url, ptr noundef nonnull align 1 dereferenceable(1) %type_url4) #15
   store ptr %7, ptr %type_url, align 8
   %8 = load ptr, ptr %type_url4, align 8
-  %9 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 4, i32 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 64
   %cmp.i.i7 = icmp eq ptr %8, %9
   br i1 %cmp.i.i7, label %if.then.i11, label %if.else.i8
 
 if.then.i11:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
-  %_M_string_length.i.i12 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 4, i32 1
+  %_M_string_length.i.i12 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load i64, ptr %_M_string_length.i.i12, align 8
   %cmp3.i.i13 = icmp ult i64 %10, 16
   tail call void @llvm.assume(i1 %cmp3.i.i13)
@@ -10847,41 +10826,41 @@ if.else.i8:                                       ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit15
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit15: ; preds = %if.then.i11, %if.else.i8
-  %_M_string_length.i12.i9 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 4, i32 1
+  %_M_string_length.i12.i9 = getelementptr inbounds i8, ptr %0, i64 56
   %12 = load i64, ptr %_M_string_length.i12.i9, align 8
-  %_M_string_length.i13.i10 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 4, i32 1
+  %_M_string_length.i13.i10 = getelementptr inbounds i8, ptr %this, i64 56
   store i64 %12, ptr %_M_string_length.i13.i10, align 8
   store ptr %9, ptr %type_url4, align 8
   store i64 0, ptr %_M_string_length.i12.i9, align 8
   store i8 0, ptr %9, align 8
-  %oneof_index = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 5
-  %oneof_index5 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 5
+  %oneof_index = getelementptr inbounds i8, ptr %this, i64 80
+  %oneof_index5 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %oneof_index, ptr noundef nonnull align 8 dereferenceable(5) %oneof_index5, i64 5, i1 false)
-  %options = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 7
-  %options6 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 7
+  %options = getelementptr inbounds i8, ptr %this, i64 88
+  %options6 = getelementptr inbounds i8, ptr %0, i64 88
   %13 = load ptr, ptr %options6, align 8
   store ptr %13, ptr %options, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 96
   %14 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
   store ptr %14, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 104
   %15 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   store ptr %15, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options6, i8 0, i64 24, i1 false)
-  %json_name = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 8
-  %json_name7 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 8
-  %16 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 8, i32 2
+  %json_name = getelementptr inbounds i8, ptr %this, i64 112
+  %json_name7 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %json_name, ptr noundef nonnull align 1 dereferenceable(1) %json_name7) #15
   store ptr %16, ptr %json_name, align 8
   %17 = load ptr, ptr %json_name7, align 8
-  %18 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 8, i32 2
+  %18 = getelementptr inbounds i8, ptr %0, i64 128
   %cmp.i.i16 = icmp eq ptr %17, %18
   br i1 %cmp.i.i16, label %if.then.i20, label %if.else.i17
 
 if.then.i20:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit15
-  %_M_string_length.i.i21 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 8, i32 1
+  %_M_string_length.i.i21 = getelementptr inbounds i8, ptr %0, i64 120
   %19 = load i64, ptr %_M_string_length.i.i21, align 8
   %cmp3.i.i22 = icmp ult i64 %19, 16
   tail call void @llvm.assume(i1 %cmp3.i.i22)
@@ -10896,25 +10875,25 @@ if.else.i17:                                      ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit24: ; preds = %if.then.i20, %if.else.i17
-  %_M_string_length.i12.i18 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 8, i32 1
+  %_M_string_length.i12.i18 = getelementptr inbounds i8, ptr %0, i64 120
   %21 = load i64, ptr %_M_string_length.i12.i18, align 8
-  %_M_string_length.i13.i19 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 8, i32 1
+  %_M_string_length.i13.i19 = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %21, ptr %_M_string_length.i13.i19, align 8
   store ptr %18, ptr %json_name7, align 8
   store i64 0, ptr %_M_string_length.i12.i18, align 8
   store i8 0, ptr %18, align 8
-  %default_value = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 9
-  %default_value8 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 9
-  %22 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 9, i32 2
+  %default_value = getelementptr inbounds i8, ptr %this, i64 144
+  %default_value8 = getelementptr inbounds i8, ptr %0, i64 144
+  %22 = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %default_value, ptr noundef nonnull align 1 dereferenceable(1) %default_value8) #15
   store ptr %22, ptr %default_value, align 8
   %23 = load ptr, ptr %default_value8, align 8
-  %24 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 9, i32 2
+  %24 = getelementptr inbounds i8, ptr %0, i64 160
   %cmp.i.i25 = icmp eq ptr %23, %24
   br i1 %cmp.i.i25, label %if.then.i29, label %if.else.i26
 
 if.then.i29:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit24
-  %_M_string_length.i.i30 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 9, i32 1
+  %_M_string_length.i.i30 = getelementptr inbounds i8, ptr %0, i64 152
   %25 = load i64, ptr %_M_string_length.i.i30, align 8
   %cmp3.i.i31 = icmp ult i64 %25, 16
   tail call void @llvm.assume(i1 %cmp3.i.i31)
@@ -10929,9 +10908,9 @@ if.else.i26:                                      ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit33
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit33: ; preds = %if.then.i29, %if.else.i26
-  %_M_string_length.i12.i27 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %0, i64 0, i32 9, i32 1
+  %_M_string_length.i12.i27 = getelementptr inbounds i8, ptr %0, i64 152
   %27 = load i64, ptr %_M_string_length.i12.i27, align 8
-  %_M_string_length.i13.i28 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 9, i32 1
+  %_M_string_length.i13.i28 = getelementptr inbounds i8, ptr %this, i64 152
   store i64 %27, ptr %_M_string_length.i13.i28, align 8
   store ptr %24, ptr %default_value8, align 8
   store i64 0, ptr %_M_string_length.i12.i27, align 8
@@ -10945,14 +10924,14 @@ declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf5FieldD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %default_value = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 9
+  %default_value = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %default_value, align 8
-  %1 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 9, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 160
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 9, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -10964,14 +10943,14 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %default_value) #15
-  %json_name = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 8
+  %json_name = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load ptr, ptr %json_name, align 8
-  %4 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 8, i32 2
+  %4 = getelementptr inbounds i8, ptr %this, i64 128
   %cmp.i.i.i1 = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i1, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3, label %if.then.i.i2
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %_M_string_length.i.i.i4 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 8, i32 1
+  %_M_string_length.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 120
   %5 = load i64, ptr %_M_string_length.i.i.i4, align 8
   %cmp3.i.i.i5 = icmp ult i64 %5, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i5)
@@ -10983,9 +10962,9 @@ if.then.i.i2:                                     ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3, %if.then.i.i2
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %json_name) #15
-  %options = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 7
+  %options = getelementptr inbounds i8, ptr %this, i64 88
   %6 = load ptr, ptr %options, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 96
   %7 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -10993,7 +10972,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNK
 for.body.i.i.i.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6 ]
   tail call void @_ZN6google8protobuf6OptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i.i.i.i) #15
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %7
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !14
 
@@ -11011,14 +10990,14 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6google8protobuf6OptionESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %type_url = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 4
+  %type_url = getelementptr inbounds i8, ptr %this, i64 48
   %9 = load ptr, ptr %type_url, align 8
-  %10 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 4, i32 2
+  %10 = getelementptr inbounds i8, ptr %this, i64 64
   %cmp.i.i.i7 = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, label %if.then.i.i8
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10: ; preds = %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EED2Ev.exit
-  %_M_string_length.i.i.i11 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 4, i32 1
+  %_M_string_length.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 56
   %11 = load i64, ptr %_M_string_length.i.i.i11, align 8
   %cmp3.i.i.i12 = icmp ult i64 %11, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i12)
@@ -11030,14 +11009,14 @@ if.then.i.i8:                                     ; preds = %_ZNSt6vectorIN6goog
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, %if.then.i.i8
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %type_url) #15
-  %name = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load ptr, ptr %name, align 8
-  %13 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 3, i32 2
+  %13 = getelementptr inbounds i8, ptr %this, i64 32
   %cmp.i.i.i14 = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i14, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i17, label %if.then.i.i15
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i17: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
-  %_M_string_length.i.i.i18 = getelementptr inbounds %"struct.google::protobuf::Field", ptr %this, i64 0, i32 3, i32 1
+  %_M_string_length.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load i64, ptr %_M_string_length.i.i.i18, align 8
   %cmp3.i.i.i19 = icmp ult i64 %14, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i19)
@@ -11055,20 +11034,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf6OptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %value = getelementptr inbounds %"struct.google::protobuf::Option", ptr %this, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %value, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN6google8protobuf3AnyESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %entry
-  %value.i.i.i = getelementptr inbounds %"struct.google::protobuf::Any", ptr %0, i64 0, i32 1
+  %value.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %value.i.i.i, align 8
-  %2 = getelementptr inbounds %"struct.google::protobuf::Any", ptr %0, i64 0, i32 1, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 48
   %cmp.i.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %delete.notnull.i.i
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Any", ptr %0, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
@@ -11081,12 +11060,12 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %value.i.i.i) #15
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %cmp.i.i.i1.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i1.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i.i.i, label %if.then.i.i2.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
-  %_M_string_length.i.i.i4.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i4.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i4.i.i.i, align 8
   %cmp3.i.i.i5.i.i.i = icmp ult i64 %6, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i5.i.i.i)
@@ -11104,12 +11083,12 @@ _ZNKSt14default_deleteIN6google8protobuf3AnyEEclEPS2_.exit.i: ; preds = %if.then
 _ZNSt10unique_ptrIN6google8protobuf3AnyESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN6google8protobuf3AnyEEclEPS2_.exit.i
   store ptr null, ptr %value, align 8
   %7 = load ptr, ptr %this, align 8
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt10unique_ptrIN6google8protobuf3AnyESt14default_deleteIS2_EED2Ev.exit
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp3.i.i.i = icmp ult i64 %9, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -11133,7 +11112,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -11168,16 +11147,16 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %sub.ptr.div.i
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
+  %2 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__args) #15
   store ptr %2, ptr %add.ptr, align 8
   %3 = load ptr, ptr %__args, align 8
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__args, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %__args, i64 16
   %cmp.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i11, label %if.else.i.i.i
 
 if.then.i.i.i11:                                  ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__args, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp ult i64 %5, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -11189,14 +11168,14 @@ if.else.i.i.i:                                    ; preds = %_ZNSt12_Vector_base
   store ptr %3, ptr %add.ptr, align 8
   %6 = load i64, ptr %4, align 8
   store i64 %6, ptr %2, align 8
-  %_M_string_length.i12.i.i.i.phi.trans.insert = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__args, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %__args, i64 8
   %.pre = load i64, ptr %_M_string_length.i12.i.i.i.phi.trans.insert, align 8
   br label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit: ; preds = %if.then.i.i.i11, %if.else.i.i.i
   %7 = phi i64 [ %5, %if.then.i.i.i11 ], [ %.pre, %if.else.i.i.i ]
-  %_M_string_length.i12.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__args, i64 0, i32 1
-  %_M_string_length.i13.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
+  %_M_string_length.i12.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %_M_string_length.i13.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 %7, ptr %_M_string_length.i13.i.i.i, align 8
   store ptr %4, ptr %__args, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i, align 8
@@ -11209,16 +11188,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #15
   store ptr %8, ptr %__cur.07.i.i.i, align 8, !alias.scope !25, !noalias !28
   %9 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !28, !noalias !25
-  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %11 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !alias.scope !28, !noalias !25
   %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %11, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i)
@@ -11230,27 +11209,27 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
   store ptr %9, ptr %__cur.07.i.i.i, align 8, !alias.scope !25, !noalias !28
   %12 = load i64, ptr %10, align 8, !alias.scope !28, !noalias !25
   store i64 %12, ptr %8, align 8, !alias.scope !25, !noalias !28
-  %_M_string_length.i12.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %.pre.i.i.i.i = load i64, ptr %_M_string_length.i12.i.i.i.phi.trans.insert.i.i.i.i, align 8, !alias.scope !28, !noalias !25
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %13 = phi i64 [ %11, %if.then.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i, %if.else.i.i.i.i.i.i.i ]
-  %_M_string_length.i12.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %_M_string_length.i13.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %_M_string_length.i13.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   store i64 %13, ptr %_M_string_length.i13.i.i.i.i.i.i.i, align 8, !alias.scope !25, !noalias !28
   store ptr %10, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !28, !noalias !25
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i, align 8, !alias.scope !28, !noalias !25
   store i8 0, ptr %10, align 1, !alias.scope !28, !noalias !25
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #15
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !30
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i12 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i12, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit31, label %for.body.i.i.i13
 
@@ -11259,16 +11238,16 @@ for.body.i.i.i13:                                 ; preds = %_ZNSt6vectorINSt7__
   %__first.addr.06.i.i.i15 = phi ptr [ %incdec.ptr.i.i.i23, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i20 ], [ %__position.coerce, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i14, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %__cur.07.i.i.i14, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i14, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i15) #15
   store ptr %14, ptr %__cur.07.i.i.i14, align 8, !alias.scope !31, !noalias !34
   %15 = load ptr, ptr %__first.addr.06.i.i.i15, align 8, !alias.scope !34, !noalias !31
-  %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i15, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i15, i64 16
   %cmp.i.i.i.i.i.i.i.i16 = icmp eq ptr %15, %16
   br i1 %cmp.i.i.i.i.i.i.i.i16, label %if.then.i.i.i.i.i.i.i27, label %if.else.i.i.i.i.i.i.i17
 
 if.then.i.i.i.i.i.i.i27:                          ; preds = %for.body.i.i.i13
-  %_M_string_length.i.i.i.i.i.i.i.i28 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i15, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i15, i64 8
   %17 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i28, align 8, !alias.scope !34, !noalias !31
   %cmp3.i.i.i.i.i.i.i.i29 = icmp ult i64 %17, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i29)
@@ -11280,21 +11259,21 @@ if.else.i.i.i.i.i.i.i17:                          ; preds = %for.body.i.i.i13
   store ptr %15, ptr %__cur.07.i.i.i14, align 8, !alias.scope !31, !noalias !34
   %18 = load i64, ptr %16, align 8, !alias.scope !34, !noalias !31
   store i64 %18, ptr %14, align 8, !alias.scope !31, !noalias !34
-  %_M_string_length.i12.i.i.i.phi.trans.insert.i.i.i.i18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i15, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.phi.trans.insert.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i15, i64 8
   %.pre.i.i.i.i19 = load i64, ptr %_M_string_length.i12.i.i.i.phi.trans.insert.i.i.i.i18, align 8, !alias.scope !34, !noalias !31
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i20
 
 _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i20: ; preds = %if.else.i.i.i.i.i.i.i17, %if.then.i.i.i.i.i.i.i27
   %19 = phi i64 [ %17, %if.then.i.i.i.i.i.i.i27 ], [ %.pre.i.i.i.i19, %if.else.i.i.i.i.i.i.i17 ]
-  %_M_string_length.i12.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i15, i64 0, i32 1
-  %_M_string_length.i13.i.i.i.i.i.i.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i14, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i15, i64 8
+  %_M_string_length.i13.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i14, i64 8
   store i64 %19, ptr %_M_string_length.i13.i.i.i.i.i.i.i22, align 8, !alias.scope !31, !noalias !34
   store ptr %16, ptr %__first.addr.06.i.i.i15, align 8, !alias.scope !34, !noalias !31
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i21, align 8, !alias.scope !34, !noalias !31
   store i8 0, ptr %16, align 1, !alias.scope !34, !noalias !31
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i15) #15
-  %incdec.ptr.i.i.i23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i15, i64 1
-  %incdec.ptr1.i.i.i24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i14, i64 1
+  %incdec.ptr.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i15, i64 32
+  %incdec.ptr1.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i14, i64 32
   %cmp.not.i.i.i25 = icmp eq ptr %incdec.ptr.i.i.i23, %0
   br i1 %cmp.not.i.i.i25, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit31, label %for.body.i.i.i13, !llvm.loop !30
 
@@ -11308,7 +11287,7 @@ if.then.i32:                                      ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit31, %if.then.i32
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i26, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %cond.i
@@ -11323,7 +11302,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr dso_local void @_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator.0", align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::Option, std::allocator<google::protobuf::Option>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -11360,17 +11339,17 @@ _ZNSt12_Vector_baseIN6google8protobuf6OptionESaIS2_EE11_M_allocateEm.exit: ; pre
   %add.ptr = getelementptr inbounds %"struct.google::protobuf::Option", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   store ptr %2, ptr %add.ptr, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %add.ptr, align 8
   store i8 0, ptr %3, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  %value.i.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
+  %value.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   store ptr null, ptr %value.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
@@ -11380,16 +11359,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN6google8protobuf6OptionESaIS2_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #15
   store ptr %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !36, !noalias !39
   %5 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !39, !noalias !36
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %7 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
   %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
@@ -11401,32 +11380,32 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   store ptr %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !36, !noalias !39
   %8 = load i64, ptr %6, align 8, !alias.scope !39, !noalias !36
   store i64 %8, ptr %4, align 8, !alias.scope !36, !noalias !39
-  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %.pre.i.i.i.i = load i64, ptr %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !alias.scope !39, !noalias !36
   br label %_ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %9 = phi i64 [ %7, %if.then.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i, %if.else.i.i.i.i.i.i.i.i ]
-  %_M_string_length.i12.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %_M_string_length.i13.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %_M_string_length.i13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   store i64 %9, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
   store ptr %6, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !39, !noalias !36
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
   store i8 0, ptr %6, align 1, !alias.scope !39, !noalias !36
-  %value.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %value3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %value.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
+  %value3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   %10 = load i64, ptr %value3.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
   store i64 %10, ptr %value.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
   store ptr null, ptr %value3.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
   call void @_ZN6google8protobuf6OptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i) #15
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !41
 
 _ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt12_Vector_baseIN6google8protobuf6OptionESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6google8protobuf6OptionESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %for.body.i.i.i12
 
@@ -11435,16 +11414,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6goog
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i24, %_ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i13, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #15
   store ptr %11, ptr %__cur.07.i.i.i13, align 8, !alias.scope !42, !noalias !45
   %12 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !45, !noalias !42
-  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %cmp.i.i.i.i.i.i.i.i.i15 = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i.i.i.i.i.i.i15, label %if.then.i.i.i.i.i.i.i.i28, label %if.else.i.i.i.i.i.i.i.i16
 
 if.then.i.i.i.i.i.i.i.i28:                        ; preds = %for.body.i.i.i12
-  %_M_string_length.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %14 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i29, align 8, !alias.scope !45, !noalias !42
   %cmp3.i.i.i.i.i.i.i.i.i30 = icmp ult i64 %14, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i30)
@@ -11456,26 +11435,26 @@ if.else.i.i.i.i.i.i.i.i16:                        ; preds = %for.body.i.i.i12
   store ptr %12, ptr %__cur.07.i.i.i13, align 8, !alias.scope !42, !noalias !45
   %15 = load i64, ptr %13, align 8, !alias.scope !45, !noalias !42
   store i64 %15, ptr %11, align 8, !alias.scope !42, !noalias !45
-  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %.pre.i.i.i.i18 = load i64, ptr %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i17, align 8, !alias.scope !45, !noalias !42
   br label %_ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i19
 
 _ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i19: ; preds = %if.else.i.i.i.i.i.i.i.i16, %if.then.i.i.i.i.i.i.i.i28
   %16 = phi i64 [ %14, %if.then.i.i.i.i.i.i.i.i28 ], [ %.pre.i.i.i.i18, %if.else.i.i.i.i.i.i.i.i16 ]
-  %_M_string_length.i12.i.i.i.i.i.i.i.i20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
-  %_M_string_length.i13.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i13, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
+  %_M_string_length.i13.i.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
   store i64 %16, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i21, align 8, !alias.scope !42, !noalias !45
   store ptr %13, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !45, !noalias !42
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i20, align 8, !alias.scope !45, !noalias !42
   store i8 0, ptr %13, align 1, !alias.scope !45, !noalias !42
-  %value.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__cur.07.i.i.i13, i64 0, i32 1
-  %value3.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %value.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
+  %value3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   %17 = load i64, ptr %value3.i.i.i.i.i.i.i23, align 8, !alias.scope !45, !noalias !42
   store i64 %17, ptr %value.i.i.i.i.i.i.i22, align 8, !alias.scope !42, !noalias !45
   store ptr null, ptr %value3.i.i.i.i.i.i.i23, align 8, !alias.scope !45, !noalias !42
   call void @_ZN6google8protobuf6OptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i14) #15
-  %incdec.ptr.i.i.i24 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i25 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 40
+  %incdec.ptr1.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 40
   %cmp.not.i.i.i26 = icmp eq ptr %incdec.ptr.i.i.i24, %0
   br i1 %cmp.not.i.i.i26, label %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %for.body.i.i.i12, !llvm.loop !41
 
@@ -11489,7 +11468,7 @@ if.then.i33:                                      ; preds = %_ZNSt6vectorIN6goog
   br label %_ZNSt12_Vector_baseIN6google8protobuf6OptionESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN6google8protobuf6OptionESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %if.then.i33
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::Option, std::allocator<google::protobuf::Option>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i27, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"struct.google::protobuf::Option", ptr %cond.i10, i64 %cond.i
@@ -11501,7 +11480,7 @@ _ZNSt12_Vector_baseIN6google8protobuf6OptionESaIS2_EE13_M_deallocateEPS2_m.exit:
 define linkonce_odr dso_local void @_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator.0", align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::EnumValue, std::allocator<google::protobuf::EnumValue>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -11538,17 +11517,17 @@ _ZNSt12_Vector_baseIN6google8protobuf9EnumValueESaIS2_EE11_M_allocateEm.exit: ; 
   %add.ptr = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   store ptr %2, ptr %add.ptr, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %add.ptr, align 8
   store i8 0, ptr %3, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  %options.i.i.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
+  %options.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options.i.i.i, i8 0, i64 24, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
@@ -11558,16 +11537,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN6google8protobuf9EnumValueESaIS2_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #15
   store ptr %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !47, !noalias !50
   %5 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !50, !noalias !47
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %7 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !47
   %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
@@ -11579,40 +11558,40 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   store ptr %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !47, !noalias !50
   %8 = load i64, ptr %6, align 8, !alias.scope !50, !noalias !47
   store i64 %8, ptr %4, align 8, !alias.scope !47, !noalias !50
-  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %.pre.i.i.i.i = load i64, ptr %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !alias.scope !50, !noalias !47
   br label %_ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %9 = phi i64 [ %7, %if.then.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i, %if.else.i.i.i.i.i.i.i.i ]
-  %_M_string_length.i12.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %_M_string_length.i13.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %_M_string_length.i13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   store i64 %9, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !47, !noalias !50
   store ptr %6, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !50, !noalias !47
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !47
   store i8 0, ptr %6, align 1, !alias.scope !50, !noalias !47
-  %number.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %number3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %number.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
+  %number3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   %10 = load i32, ptr %number3.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !47
   store i32 %10, ptr %number.i.i.i.i.i.i.i, align 8, !alias.scope !47, !noalias !50
-  %options.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__cur.07.i.i.i, i64 0, i32 2
-  %options4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %options.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
+  %options4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
   %11 = load <2 x ptr>, ptr %options4.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !47
   store <2 x ptr> %11, ptr %options.i.i.i.i.i.i.i, align 8, !alias.scope !47, !noalias !50
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__cur.07.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__first.addr.06.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 56
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 56
   %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !47
   store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !47, !noalias !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !50, !noalias !47
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #15
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 64
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 64
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !52
 
 _ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt12_Vector_baseIN6google8protobuf9EnumValueESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6google8protobuf9EnumValueESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 64
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, label %for.body.i.i.i12
 
@@ -11621,16 +11600,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6goog
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i30, %_ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i13, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #15
   store ptr %13, ptr %__cur.07.i.i.i13, align 8, !alias.scope !53, !noalias !56
   %14 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !56, !noalias !53
-  %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %cmp.i.i.i.i.i.i.i.i.i15 = icmp eq ptr %14, %15
   br i1 %cmp.i.i.i.i.i.i.i.i.i15, label %if.then.i.i.i.i.i.i.i.i34, label %if.else.i.i.i.i.i.i.i.i16
 
 if.then.i.i.i.i.i.i.i.i34:                        ; preds = %for.body.i.i.i12
-  %_M_string_length.i.i.i.i.i.i.i.i.i35 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %16 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i35, align 8, !alias.scope !56, !noalias !53
   %cmp3.i.i.i.i.i.i.i.i.i36 = icmp ult i64 %16, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i36)
@@ -11642,34 +11621,34 @@ if.else.i.i.i.i.i.i.i.i16:                        ; preds = %for.body.i.i.i12
   store ptr %14, ptr %__cur.07.i.i.i13, align 8, !alias.scope !53, !noalias !56
   %17 = load i64, ptr %15, align 8, !alias.scope !56, !noalias !53
   store i64 %17, ptr %13, align 8, !alias.scope !53, !noalias !56
-  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %.pre.i.i.i.i18 = load i64, ptr %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i17, align 8, !alias.scope !56, !noalias !53
   br label %_ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i19
 
 _ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i19: ; preds = %if.else.i.i.i.i.i.i.i.i16, %if.then.i.i.i.i.i.i.i.i34
   %18 = phi i64 [ %16, %if.then.i.i.i.i.i.i.i.i34 ], [ %.pre.i.i.i.i18, %if.else.i.i.i.i.i.i.i.i16 ]
-  %_M_string_length.i12.i.i.i.i.i.i.i.i20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
-  %_M_string_length.i13.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i13, i64 0, i32 1
+  %_M_string_length.i12.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
+  %_M_string_length.i13.i.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
   store i64 %18, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i21, align 8, !alias.scope !53, !noalias !56
   store ptr %15, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !56, !noalias !53
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i20, align 8, !alias.scope !56, !noalias !53
   store i8 0, ptr %15, align 1, !alias.scope !56, !noalias !53
-  %number.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__cur.07.i.i.i13, i64 0, i32 1
-  %number3.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %number.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
+  %number3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   %19 = load i32, ptr %number3.i.i.i.i.i.i.i23, align 8, !alias.scope !56, !noalias !53
   store i32 %19, ptr %number.i.i.i.i.i.i.i22, align 8, !alias.scope !53, !noalias !56
-  %options.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__cur.07.i.i.i13, i64 0, i32 2
-  %options4.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
+  %options.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 40
+  %options4.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 40
   %20 = load <2 x ptr>, ptr %options4.i.i.i.i.i.i.i25, align 8, !alias.scope !56, !noalias !53
   store <2 x ptr> %20, ptr %options.i.i.i.i.i.i.i24, align 8, !alias.scope !53, !noalias !56
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__cur.07.i.i.i13, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__first.addr.06.i.i.i14, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 56
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 56
   %21 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i29, align 8, !alias.scope !56, !noalias !53
   store ptr %21, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i28, align 8, !alias.scope !53, !noalias !56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options4.i.i.i.i.i.i.i25, i8 0, i64 24, i1 false), !alias.scope !56, !noalias !53
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #15
-  %incdec.ptr.i.i.i30 = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i31 = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i30 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 64
+  %incdec.ptr1.i.i.i31 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 64
   %cmp.not.i.i.i32 = icmp eq ptr %incdec.ptr.i.i.i30, %0
   br i1 %cmp.not.i.i.i32, label %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, label %for.body.i.i.i12, !llvm.loop !52
 
@@ -11683,7 +11662,7 @@ if.then.i39:                                      ; preds = %_ZNSt6vectorIN6goog
   br label %_ZNSt12_Vector_baseIN6google8protobuf9EnumValueESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN6google8protobuf9EnumValueESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, %if.then.i39
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::EnumValue, std::allocator<google::protobuf::EnumValue>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i33, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"struct.google::protobuf::EnumValue", ptr %cond.i10, i64 %cond.i

@@ -12,32 +12,31 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.LodePNGDecoderSettings = type { %struct.LodePNGDecompressSettings, i32, i32, i32, i32, i32, i32, i64, i64 }
 %struct.LodePNGEncoderSettings = type { %struct.LodePNGCompressSettings, i32, i32, i32, ptr, i32, i32, i32 }
 %struct.LodePNGCompressSettings = type { i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.0" = type { i8 }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
 %"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.lodepng::LodePNGICCCurve" = type { i32, ptr, i64, float, float, float, float, float, float, float }
 %"struct.lodepng::LodePNGICC" = type { i32, i32, i32, i32, [3 x float], i32, [9 x float], i32, [3 x float], i32, [3 x float], [3 x float], [3 x float], i32, [3 x %"struct.lodepng::LodePNGICCCurve"] }
+%"struct.lodepng::LodePNGICCCurve" = type { i32, ptr, i64, float, float, float, float, float, float, float }
 %"struct.lodepng::ExtractPNG" = type <{ ptr, i32, [4 x i8] }>
 %"struct.lodepng::ExtractZlib" = type { ptr, i32, %"struct.lodepng::ExtractZlib::HuffmanTree", %"struct.lodepng::ExtractZlib::HuffmanTree", %"struct.lodepng::ExtractZlib::HuffmanTree" }
 %"struct.lodepng::ExtractZlib::HuffmanTree" = type { %"class.std::vector.8" }
 %"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.lodepng::ZlibBlockInfo" = type { i32, i64, i64, i64, i32, i32, i32, %"class.std::vector.24", %"class.std::vector.24", %"class.std::vector.24", %"class.std::vector.24", %"class.std::vector.24", %"class.std::vector.24", %"class.std::vector.24", %"class.std::vector.24", %"class.std::vector.24", %"class.std::vector.24", i64, i64 }
 %"class.std::vector.24" = type { %"struct.std::_Vector_base.25" }
 %"struct.std::_Vector_base.25" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
@@ -136,7 +135,7 @@ entry:
   %state = alloca %"class.lodepng::State", align 8
   call void @_ZN7lodepng5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(544) %state)
   %0 = load ptr, ptr %png, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %png, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %png, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   %spec.select = select i1 %cmp.i.i, ptr null, ptr %0
@@ -147,7 +146,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %info_png = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
+  %info_png = getelementptr inbounds i8, ptr %state, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %agg.result, ptr noundef nonnull align 8 dereferenceable(328) %info_png, i64 328, i1 false)
   call void @_ZN7lodepng5StateD1Ev(ptr noundef nonnull align 8 dereferenceable(544) %state) #26
   ret void
@@ -179,7 +178,7 @@ entry:
   %ref.tmp5 = alloca %"class.std::allocator.0", align 1
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::allocator.0", align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %png, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %png, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %png, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %1, i64 8
@@ -192,10 +191,10 @@ entry:
   br i1 %2, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %entry
-  %_M_finish.i.i19 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %names, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %names, i64 0, i32 2
-  %_M_finish.i.i21 = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %sizes, i64 0, i32 1
-  %_M_end_of_storage.i.i22 = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %sizes, i64 0, i32 2
+  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %names, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %names, i64 16
+  %_M_finish.i.i21 = getelementptr inbounds i8, ptr %sizes, i64 8
+  %_M_end_of_storage.i.i22 = getelementptr inbounds i8, ptr %sizes, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt6vectorImSaImEE9push_backEOm.exit
@@ -264,7 +263,7 @@ invoke.cont13:                                    ; preds = %.noexc16
 if.then.i.i:                                      ; preds = %invoke.cont13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #26
   %8 = load ptr, ptr %_M_finish.i.i19, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %8, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i19, align 8
   br label %invoke.cont15
 
@@ -284,7 +283,7 @@ invoke.cont15:                                    ; preds = %if.then.i.i, %if.el
 if.then.i.i24:                                    ; preds = %invoke.cont15
   store i64 %conv, ptr %9, align 8
   %11 = load ptr, ptr %_M_finish.i.i21, align 8
-  %incdec.ptr.i.i25 = getelementptr inbounds i64, ptr %11, i64 1
+  %incdec.ptr.i.i25 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %incdec.ptr.i.i25, ptr %_M_finish.i.i21, align 8
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -328,7 +327,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit20.i.i.i
 
 _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -399,7 +398,7 @@ entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   %ref.tmp31 = alloca %"class.std::vector", align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %png, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %png, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %png, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %1, i64 8
@@ -412,8 +411,8 @@ entry:
   br i1 %2, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %entry
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %ref.tmp31, i64 0, i32 2
-  %_M_finish.i.i26 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %ref.tmp31, i64 0, i32 1
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
+  %_M_finish.i.i26 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %cleanup
@@ -493,9 +492,9 @@ if.else24:                                        ; preds = %if.else20
 if.end27:                                         ; preds = %if.else24
   %idxprom = zext nneg i32 %location.050 to i64
   %arrayidx = getelementptr inbounds %"class.std::vector.3", ptr %names, i64 %idxprom
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %arrayidx, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %arrayidx, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %7 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -506,7 +505,7 @@ if.then.i:                                        ; preds = %if.end27
 
 .noexc22:                                         ; preds = %if.then.i
   %8 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %8, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %invoke.cont28
 
@@ -569,24 +568,24 @@ invoke.cont34:                                    ; preds = %call5.i.i.i.i.noexc
   %add.ptr7.i.i = phi ptr [ %add.ptr5.i.i, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i ], [ %add.ptr.i.i25, %call5.i.i.i.i.noexc.i ]
   store ptr %add.ptr7.i.i, ptr %_M_finish.i.i26, align 8
   %arrayidx30 = getelementptr inbounds %"class.std::vector.13", ptr %chunks, i64 %idxprom
-  %_M_finish.i.i28 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data", ptr %arrayidx30, i64 0, i32 1
+  %_M_finish.i.i28 = getelementptr inbounds i8, ptr %arrayidx30, i64 8
   %10 = load ptr, ptr %_M_finish.i.i28, align 8
-  %_M_end_of_storage.i.i29 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data", ptr %arrayidx30, i64 0, i32 2
+  %_M_end_of_storage.i.i29 = getelementptr inbounds i8, ptr %arrayidx30, i64 16
   %11 = load ptr, ptr %_M_end_of_storage.i.i29, align 8
   %cmp.not.i.i = icmp eq ptr %10, %11
   br i1 %cmp.not.i.i, label %if.else.i.i, label %invoke.cont36.thread
 
 invoke.cont36.thread:                             ; preds = %invoke.cont34
   store ptr %9, ptr %10, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %10, i64 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %_M_finish.i.i26, align 8
   store ptr %12, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %10, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %13 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   store ptr %13, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp31, i8 0, i64 24, i1 false)
   %14 = load ptr, ptr %_M_finish.i.i28, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::vector", ptr %14, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i28, align 8
   br label %cleanup
 
@@ -650,7 +649,7 @@ entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   %result = alloca %"class.std::vector", align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %png, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %png, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %png, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %1, i64 8
@@ -777,13 +776,13 @@ while.end:                                        ; preds = %while.end.loopexit,
   %l1.0.lcssa = phi i64 [ 0, %entry ], [ %l1.1, %while.end.loopexit ]
   %l0.0.lcssa = phi i64 [ 0, %entry ], [ %l0.2, %while.end.loopexit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %result, i8 0, i64 24, i1 false)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %result, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %result, i64 8
   %add.ptr.i53 = getelementptr inbounds i8, ptr %7, i64 %l0.0.lcssa
   invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %result, ptr null, ptr %7, ptr %add.ptr.i53)
           to label %for.cond.preheader unwind label %lpad64.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %while.end
-  %_M_finish.i56 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data", ptr %chunks, i64 0, i32 1
+  %_M_finish.i56 = getelementptr inbounds i8, ptr %chunks, i64 8
   %8 = load ptr, ptr %_M_finish.i56, align 8
   %9 = load ptr, ptr %chunks, align 8
   %cmp69169.not = icmp eq ptr %8, %9
@@ -795,7 +794,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %11 = load ptr, ptr %_M_finish.i, align 8
   %add.ptr.i58 = getelementptr inbounds %"class.std::vector", ptr %10, i64 %i.0170
   %12 = load ptr, ptr %add.ptr.i58, align 8
-  %_M_finish.i60 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %add.ptr.i58, i64 0, i32 1
+  %_M_finish.i60 = getelementptr inbounds i8, ptr %add.ptr.i58, i64 8
   %13 = load ptr, ptr %_M_finish.i60, align 8
   %14 = load ptr, ptr %result, align 8
   %sub.ptr.lhs.cast.i.i61 = ptrtoint ptr %11 to i64
@@ -860,8 +859,8 @@ for.end:                                          ; preds = %invoke.cont87, %for
           to label %for.cond115.preheader unwind label %lpad64.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond115.preheader:                            ; preds = %for.end
-  %arrayidx116 = getelementptr inbounds %"class.std::vector.13", ptr %chunks, i64 1
-  %_M_finish.i77 = getelementptr inbounds %"class.std::vector.13", ptr %chunks, i64 1, i32 0, i32 0, i32 0, i32 1
+  %arrayidx116 = getelementptr inbounds i8, ptr %chunks, i64 24
+  %_M_finish.i77 = getelementptr inbounds i8, ptr %chunks, i64 32
   %21 = load ptr, ptr %_M_finish.i77, align 8
   %22 = load ptr, ptr %arrayidx116, align 8
   %cmp118175.not = icmp eq ptr %21, %22
@@ -873,7 +872,7 @@ for.body119:                                      ; preds = %for.cond115.prehead
   %24 = load ptr, ptr %_M_finish.i, align 8
   %add.ptr.i83 = getelementptr inbounds %"class.std::vector", ptr %23, i64 %i114.0176
   %25 = load ptr, ptr %add.ptr.i83, align 8
-  %_M_finish.i85 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %add.ptr.i83, i64 0, i32 1
+  %_M_finish.i85 = getelementptr inbounds i8, ptr %add.ptr.i83, i64 8
   %26 = load ptr, ptr %_M_finish.i85, align 8
   %27 = load ptr, ptr %result, align 8
   %sub.ptr.lhs.cast.i.i86 = ptrtoint ptr %24 to i64
@@ -908,8 +907,8 @@ for.end143:                                       ; preds = %invoke.cont137, %fo
           to label %for.cond168.preheader unwind label %lpad64.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond168.preheader:                            ; preds = %for.end143
-  %arrayidx169 = getelementptr inbounds %"class.std::vector.13", ptr %chunks, i64 2
-  %_M_finish.i103 = getelementptr inbounds %"class.std::vector.13", ptr %chunks, i64 2, i32 0, i32 0, i32 0, i32 1
+  %arrayidx169 = getelementptr inbounds i8, ptr %chunks, i64 48
+  %_M_finish.i103 = getelementptr inbounds i8, ptr %chunks, i64 56
   %33 = load ptr, ptr %_M_finish.i103, align 8
   %34 = load ptr, ptr %arrayidx169, align 8
   %cmp171181.not = icmp eq ptr %33, %34
@@ -921,7 +920,7 @@ for.body172:                                      ; preds = %for.cond168.prehead
   %36 = load ptr, ptr %_M_finish.i, align 8
   %add.ptr.i109 = getelementptr inbounds %"class.std::vector", ptr %35, i64 %i167.0182
   %37 = load ptr, ptr %add.ptr.i109, align 8
-  %_M_finish.i111 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %add.ptr.i109, i64 0, i32 1
+  %_M_finish.i111 = getelementptr inbounds i8, ptr %add.ptr.i109, i64 8
   %38 = load ptr, ptr %_M_finish.i111, align 8
   %39 = load ptr, ptr %result, align 8
   %sub.ptr.lhs.cast.i.i112 = ptrtoint ptr %36 to i64
@@ -984,13 +983,13 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -1031,7 +1030,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit: ; preds = %_ZNSt6vectorIhSa
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i18 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i18 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_finish.i18, align 8
   %sub.ptr.lhs.cast.i19 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i15
@@ -1081,7 +1080,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPhS0_ET0_
 if.end69:                                         ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit
   %8 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i
-  %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 
@@ -1103,7 +1102,7 @@ entry:
   %data = alloca %"class.std::vector", align 8
   call void @_ZN7lodepng5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(544) %state)
   %0 = load ptr, ptr %png, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %png, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %png, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   %spec.select = select i1 %cmp.i.i, ptr null, ptr %0
@@ -1394,10 +1393,10 @@ if.then.i.i.i67:                                  ; preds = %lpad55
   br label %ehcleanup125
 
 if.end60:                                         ; preds = %invoke.cont56
-  %interlace_method = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 2
+  %interlace_method = getelementptr inbounds i8, ptr %state, i64 216
   %15 = load i32, ptr %interlace_method, align 8
   %cmp61 = icmp eq i32 %15, 0
-  %_M_finish.i.i68 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data", ptr %filterTypes, i64 0, i32 1
+  %_M_finish.i.i68 = getelementptr inbounds i8, ptr %filterTypes, i64 8
   %16 = load ptr, ptr %_M_finish.i.i68, align 8
   %17 = load ptr, ptr %filterTypes, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %16 to i64
@@ -1420,7 +1419,7 @@ if.else.i70:                                      ; preds = %if.then62
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont63
 
 if.then5.i:                                       ; preds = %if.else.i70
-  %add.ptr.i71 = getelementptr inbounds %"class.std::vector", ptr %17, i64 1
+  %add.ptr.i71 = getelementptr inbounds i8, ptr %17, i64 24
   %tobool.not.i.i = icmp eq ptr %16, %add.ptr.i71
   br i1 %tobool.not.i.i, label %invoke.cont63, label %for.body.i.i.i.i.i
 
@@ -1435,7 +1434,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
   br label %_ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::vector", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %16
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !11
 
@@ -1445,13 +1444,13 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyISt6ve
 
 invoke.cont63:                                    ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i70, %if.then.i72
   %19 = load i32, ptr %w, align 4
-  %color = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3
+  %color = getelementptr inbounds i8, ptr %state, i64 224
   %call66 = invoke noundef i64 @_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode(i32 noundef %19, i32 noundef 1, ptr noundef nonnull %color)
           to label %invoke.cont65 unwind label %lpad55.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont65:                                    ; preds = %invoke.cont63
   %add = add i64 %call66, 1
-  %_M_finish.i74 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %data, i64 0, i32 1
+  %_M_finish.i74 = getelementptr inbounds i8, ptr %data, i64 8
   %20 = load ptr, ptr %_M_finish.i74, align 8
   %21 = load ptr, ptr %data, align 8
   %cmp70251.not = icmp eq ptr %20, %21
@@ -1462,9 +1461,9 @@ for.body71:                                       ; preds = %invoke.cont65, %for
   %i67.0252 = phi i64 [ %add76, %for.inc75 ], [ 0, %invoke.cont65 ]
   %23 = load ptr, ptr %filterTypes, align 8
   %add.ptr.i78 = getelementptr inbounds i8, ptr %22, i64 %i67.0252
-  %_M_finish.i79 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %23, i64 0, i32 1
+  %_M_finish.i79 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load ptr, ptr %_M_finish.i79, align 8
-  %_M_end_of_storage.i80 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %23, i64 0, i32 2
+  %_M_end_of_storage.i80 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %_M_end_of_storage.i80, align 8
   %cmp.not.i81 = icmp eq ptr %24, %25
   br i1 %cmp.not.i81, label %if.else.i84, label %if.then.i82
@@ -1558,7 +1557,7 @@ if.else.i120:                                     ; preds = %if.else
   br i1 %cmp4.i121.not, label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit136, label %if.then5.i122
 
 if.then5.i122:                                    ; preds = %if.else.i120
-  %add.ptr.i123 = getelementptr inbounds %"class.std::vector", ptr %17, i64 7
+  %add.ptr.i123 = getelementptr inbounds i8, ptr %17, i64 168
   %tobool.not.i.i124 = icmp eq ptr %16, %add.ptr.i123
   br i1 %tobool.not.i.i124, label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit136, label %for.body.i.i.i.i.i125
 
@@ -1573,7 +1572,7 @@ if.then.i.i.i.i.i.i.i.i.i128:                     ; preds = %for.body.i.i.i.i.i1
   br label %_ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i.i.i129
 
 _ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i.i.i129: ; preds = %if.then.i.i.i.i.i.i.i.i.i128, %for.body.i.i.i.i.i125
-  %incdec.ptr.i.i.i.i.i130 = getelementptr inbounds %"class.std::vector", ptr %__first.addr.04.i.i.i.i.i126, i64 1
+  %incdec.ptr.i.i.i.i.i130 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i126, i64 24
   %cmp.not.i.i.i.i.i131 = icmp eq ptr %incdec.ptr.i.i.i.i.i130, %16
   br i1 %cmp.not.i.i.i.i.i131, label %invoke.cont.i.i132, label %for.body.i.i.i.i.i125, !llvm.loop !11
 
@@ -1582,7 +1581,7 @@ invoke.cont.i.i132:                               ; preds = %_ZSt8_DestroyISt6ve
   br label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit136
 
 _ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit136: ; preds = %if.then.i133, %if.else.i120, %if.then5.i122, %invoke.cont.i.i132
-  %color103 = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 3
+  %color103 = getelementptr inbounds i8, ptr %state, i64 224
   br label %for.body81
 
 for.body81:                                       ; preds = %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit136, %for.inc119
@@ -1628,9 +1627,9 @@ for.body111:                                      ; preds = %invoke.cont104, %in
   %add.ptr.i137 = getelementptr inbounds %"class.std::vector", ptr %41, i64 %j.0246
   %42 = load ptr, ptr %data, align 8
   %add.ptr.i138 = getelementptr inbounds i8, ptr %42, i64 %pos.1242
-  %_M_finish.i139 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %add.ptr.i137, i64 0, i32 1
+  %_M_finish.i139 = getelementptr inbounds i8, ptr %add.ptr.i137, i64 8
   %43 = load ptr, ptr %_M_finish.i139, align 8
-  %_M_end_of_storage.i140 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %add.ptr.i137, i64 0, i32 2
+  %_M_end_of_storage.i140 = getelementptr inbounds i8, ptr %add.ptr.i137, i64 16
   %44 = load ptr, ptr %_M_end_of_storage.i140, align 8
   %cmp.not.i141 = icmp eq ptr %43, %44
   br i1 %cmp.not.i141, label %if.else.i144, label %if.then.i142
@@ -1777,7 +1776,7 @@ lpad:                                             ; preds = %if.else, %entry
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data", ptr %passes, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %passes, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %passes, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -1787,12 +1786,12 @@ if.end:                                           ; preds = %invoke.cont
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %filterTypes, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %filterTypes, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %filterTypes, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %filterTypes, i64 16
   %3 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %4 = load ptr, ptr %2, align 8
-  %_M_finish.i2.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %2, i64 0, i32 1
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %2, i64 0, i32 2
+  %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load <2 x ptr>, ptr %filterTypes, align 8
   store ptr %4, ptr %filterTypes, align 8
   %6 = load ptr, ptr %_M_finish.i2.i.i, align 8
@@ -1809,7 +1808,7 @@ if.else:                                          ; preds = %if.end
 
 invoke.cont4:                                     ; preds = %if.else
   %8 = load ptr, ptr %png, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %png, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %png, i64 8
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %8, %9
   %spec.select = select i1 %cmp.i.i, ptr null, ptr %8
@@ -1829,8 +1828,8 @@ invoke.cont9:                                     ; preds = %invoke.cont4
   br i1 %cmp2122.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont9
-  %_M_finish.i16 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %filterTypes, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %filterTypes, i64 0, i32 2
+  %_M_finish.i16 = getelementptr inbounds i8, ptr %filterTypes, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %filterTypes, i64 16
   %.pre = load ptr, ptr %_M_finish.i16, align 8
   br label %for.body
 
@@ -1948,7 +1947,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
 cleanup:                                          ; preds = %if.then2, %for.end, %invoke.cont
   %retval.0 = phi i32 [ 1, %invoke.cont ], [ 0, %for.end ], [ 0, %if.then2 ]
   %24 = load ptr, ptr %passes, align 8
-  %_M_finish.i18 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data", ptr %passes, i64 0, i32 1
+  %_M_finish.i18 = getelementptr inbounds i8, ptr %passes, i64 8
   %25 = load ptr, ptr %_M_finish.i18, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %24, %25
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -1964,7 +1963,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
   br label %_ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::vector", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %25
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !11
 
@@ -1994,7 +1993,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad
 define linkonce_odr void @_ZNSt6vectorIS_IhSaIhEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -2010,7 +2009,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
   br label %_ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt6vectorIhSaIhEEEvPT_.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::vector", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !11
 
@@ -2090,7 +2089,7 @@ return:                                           ; preds = %entry, %if.then18, 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7lodepng22lodepng_icc_curve_initEPNS_15LodePNGICCCurveE(ptr nocapture noundef writeonly %curve) local_unnamed_addr #6 {
 entry:
-  %lut = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 1
+  %lut = getelementptr inbounds i8, ptr %curve, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut, i8 0, i64 16, i1 false)
   ret void
 }
@@ -2098,7 +2097,7 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @_ZN7lodepng25lodepng_icc_curve_cleanupEPNS_15LodePNGICCCurveE(ptr nocapture noundef readonly %curve) local_unnamed_addr #7 {
 entry:
-  %lut = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 1
+  %lut = getelementptr inbounds i8, ptr %curve, i64 8
   %0 = load ptr, ptr %lut, align 8
   tail call void @free(ptr noundef %0) #26
   ret void
@@ -2107,11 +2106,11 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7lodepng16lodepng_icc_initEPNS_10LodePNGICCE(ptr nocapture noundef writeonly %icc) local_unnamed_addr #6 {
 entry:
-  %lut.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 0, i32 1
+  %lut.i = getelementptr inbounds i8, ptr %icc, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i, i8 0, i64 16, i1 false)
-  %lut.i3 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 1, i32 1
+  %lut.i3 = getelementptr inbounds i8, ptr %icc, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i3, i8 0, i64 16, i1 false)
-  %lut.i4 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 2, i32 1
+  %lut.i4 = getelementptr inbounds i8, ptr %icc, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i4, i8 0, i64 16, i1 false)
   ret void
 }
@@ -2119,13 +2118,13 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @_ZN7lodepng19lodepng_icc_cleanupEPNS_10LodePNGICCE(ptr nocapture noundef readonly %icc) local_unnamed_addr #7 {
 entry:
-  %lut.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 0, i32 1
+  %lut.i = getelementptr inbounds i8, ptr %icc, i64 136
   %0 = load ptr, ptr %lut.i, align 8
   tail call void @free(ptr noundef %0) #26
-  %lut.i3 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 1, i32 1
+  %lut.i3 = getelementptr inbounds i8, ptr %icc, i64 192
   %1 = load ptr, ptr %lut.i3, align 8
   tail call void @free(ptr noundef %1) #26
-  %lut.i4 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 2, i32 1
+  %lut.i4 = getelementptr inbounds i8, ptr %icc, i64 248
   %2 = load ptr, ptr %lut.i4, align 8
   tail call void @free(ptr noundef %2) #26
   ret void
@@ -2138,29 +2137,29 @@ entry:
   %icc = alloca %"struct.lodepng::LodePNGICC", align 8
   %mul = mul i32 %h, %w
   %conv = zext i32 %mul to i64
-  %info_raw = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2
-  %info_png = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
-  %bitdepth = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 1
+  %info_raw = getelementptr inbounds i8, ptr %state, i64 168
+  %info_png = getelementptr inbounds i8, ptr %state, i64 208
+  %bitdepth = getelementptr inbounds i8, ptr %state, i64 172
   %0 = load i32, ptr %bitdepth, align 4
   %cmp = icmp ugt i32 %0, 8
   %cond = select i1 %cmp, i64 65536, i64 256
   %cond4 = select i1 %cmp, i32 16, i32 8
   call void @_Z23lodepng_color_mode_make16LodePNGColorTypej(ptr nonnull sret(%struct.LodePNGColorMode) align 8 %tempmode, i32 noundef 6, i32 noundef %cond4)
-  %lut.i.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 0, i32 1
+  %lut.i.i = getelementptr inbounds i8, ptr %icc, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i.i, i8 0, i64 16, i1 false)
-  %lut.i3.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 1, i32 1
+  %lut.i3.i = getelementptr inbounds i8, ptr %icc, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i3.i, i8 0, i64 16, i1 false)
-  %lut.i4.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 2, i32 1
+  %lut.i4.i = getelementptr inbounds i8, ptr %icc, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i4.i, i8 0, i64 16, i1 false)
-  %iccp_defined = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 35
+  %iccp_defined = getelementptr inbounds i8, ptr %state, i64 440
   %1 = load i32, ptr %iccp_defined, align 8
   %tobool5.not = icmp eq i32 %1, 0
   br i1 %tobool5.not, label %if.end10, label %if.then
 
 if.then:                                          ; preds = %entry
-  %iccp_profile = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 37
+  %iccp_profile = getelementptr inbounds i8, ptr %state, i64 456
   %2 = load ptr, ptr %iccp_profile, align 8
-  %iccp_profile_size = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 38
+  %iccp_profile_size = getelementptr inbounds i8, ptr %state, i64 464
   %3 = load i32, ptr %iccp_profile_size, align 8
   %conv6 = zext i32 %3 to i64
   %call = call fastcc noundef i32 @_ZN7lodepngL8parseICCEPNS_10LodePNGICCEPKhm(ptr noundef nonnull %icc, ptr noundef %2, i64 noundef %conv6), !range !15
@@ -2175,23 +2174,23 @@ if.end:                                           ; preds = %if.then
   ]
 
 if.then3.i:                                       ; preds = %if.end
-  %has_chromaticity.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 9
+  %has_chromaticity.i = getelementptr inbounds i8, ptr %icc, i64 84
   %5 = load i32, ptr %has_chromaticity.i, align 4
   %tobool.not.i = icmp eq i32 %5, 0
-  %has_whitepoint.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 7
+  %has_whitepoint.i = getelementptr inbounds i8, ptr %icc, i64 68
   %6 = load i32, ptr %has_whitepoint.i, align 4
   %tobool7.not.i = icmp eq i32 %6, 0
   %or.cond95 = select i1 %tobool.not.i, i1 true, i1 %tobool7.not.i
   br i1 %or.cond95, label %if.end10, label %if.end9.i
 
 if.end6.i:                                        ; preds = %if.end
-  %has_whitepoint.i.old = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 7
+  %has_whitepoint.i.old = getelementptr inbounds i8, ptr %icc, i64 68
   %.old = load i32, ptr %has_whitepoint.i.old, align 4
   %tobool7.not.i.old = icmp eq i32 %.old, 0
   br i1 %tobool7.not.i.old, label %if.end10, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then3.i, %if.end6.i
-  %has_trc.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 13
+  %has_trc.i = getelementptr inbounds i8, ptr %icc, i64 124
   %7 = load i32, ptr %has_trc.i, align 4
   %tobool10.not.i = icmp ne i32 %7, 0
   %..i = zext i1 %tobool10.not.i to i32
@@ -2375,27 +2374,28 @@ entry:
   br i1 %cmp, label %return, label %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit
 
 _ZN7lodepngL15decodeICCUint32EPKhmPm.exit:        ; preds = %entry
-  %has_chromaticity = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 9
-  %has_whitepoint = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 7
-  %has_trc = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 13
-  %has_chad = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 5
+  %has_chromaticity = getelementptr inbounds i8, ptr %icc, i64 84
+  %has_whitepoint = getelementptr inbounds i8, ptr %icc, i64 68
+  %has_trc = getelementptr inbounds i8, ptr %icc, i64 124
+  %has_chad = getelementptr inbounds i8, ptr %icc, i64 28
   store i32 0, ptr %has_chad, align 4
-  %arrayidx = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 2
+  %trc = getelementptr inbounds i8, ptr %icc, i64 128
+  %arrayidx = getelementptr inbounds i8, ptr %icc, i64 240
   store i32 0, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %icc, i64 184
   store i32 0, ptr %arrayidx2, align 8
-  %white = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 8
-  %arrayidx7 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 8, i64 2
-  %arrayidx9 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 8, i64 1
-  %red = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 10
-  %arrayidx12 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 10, i64 2
-  %arrayidx14 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 10, i64 1
-  %green = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 11
-  %arrayidx17 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 11, i64 2
-  %arrayidx19 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 11, i64 1
-  %blue = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 12
-  %arrayidx22 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 12, i64 2
-  %arrayidx24 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 12, i64 1
+  %white = getelementptr inbounds i8, ptr %icc, i64 72
+  %arrayidx7 = getelementptr inbounds i8, ptr %icc, i64 80
+  %arrayidx9 = getelementptr inbounds i8, ptr %icc, i64 76
+  %red = getelementptr inbounds i8, ptr %icc, i64 88
+  %arrayidx12 = getelementptr inbounds i8, ptr %icc, i64 96
+  %arrayidx14 = getelementptr inbounds i8, ptr %icc, i64 92
+  %green = getelementptr inbounds i8, ptr %icc, i64 100
+  %arrayidx17 = getelementptr inbounds i8, ptr %icc, i64 108
+  %arrayidx19 = getelementptr inbounds i8, ptr %icc, i64 104
+  %blue = getelementptr inbounds i8, ptr %icc, i64 112
+  %arrayidx22 = getelementptr inbounds i8, ptr %icc, i64 120
+  %arrayidx24 = getelementptr inbounds i8, ptr %icc, i64 116
   %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %has_whitepoint, i8 0, i64 64, i1 false)
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -2403,13 +2403,13 @@ _ZN7lodepngL15decodeICCUint32EPKhmPm.exit:        ; preds = %entry
   %arrayidx2.i = getelementptr i8, ptr %data, i64 9
   %1 = load i8, ptr %arrayidx2.i, align 1
   %conv3.i = zext i8 %1 to i32
-  %version_major = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 1
+  %version_major = getelementptr inbounds i8, ptr %icc, i64 4
   store i32 %conv.i, ptr %version_major, align 4
   %shr30 = lshr i32 %conv3.i, 4
-  %version_minor = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 2
+  %version_minor = getelementptr inbounds i8, ptr %icc, i64 8
   store i32 %shr30, ptr %version_minor, align 8
   %and33 = and i32 %conv3.i, 15
-  %version_bugfix = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 3
+  %version_bugfix = getelementptr inbounds i8, ptr %icc, i64 12
   store i32 %and33, ptr %version_bugfix, align 4
   %arrayidx.i194 = getelementptr inbounds i8, ptr %data, i64 16
   %2 = load i8, ptr %arrayidx.i194, align 1
@@ -2454,7 +2454,7 @@ _ZN7lodepngL15decodeICCUint32EPKhmPm.exit:        ; preds = %entry
   %or14.i.i = or disjoint i32 %or9.i.i, %conv12.i.i
   %10 = sitofp i32 %or14.i.i to float
   %11 = fmul float %10, 0x3EF0000000000000
-  %illuminant = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 4
+  %illuminant = getelementptr inbounds i8, ptr %icc, i64 16
   store float %11, ptr %illuminant, align 8
   %arrayidx.i.i213 = getelementptr inbounds i8, ptr %data, i64 72
   %12 = load i8, ptr %arrayidx.i.i213, align 1
@@ -2476,7 +2476,7 @@ _ZN7lodepngL15decodeICCUint32EPKhmPm.exit:        ; preds = %entry
   %or14.i.i226 = or disjoint i32 %or9.i.i223, %conv12.i.i225
   %16 = sitofp i32 %or14.i.i226 to float
   %17 = fmul float %16, 0x3EF0000000000000
-  %arrayidx52 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 4, i64 1
+  %arrayidx52 = getelementptr inbounds i8, ptr %icc, i64 20
   store float %17, ptr %arrayidx52, align 4
   %arrayidx.i.i232 = getelementptr inbounds i8, ptr %data, i64 76
   %18 = load i8, ptr %arrayidx.i.i232, align 1
@@ -2498,7 +2498,7 @@ _ZN7lodepngL15decodeICCUint32EPKhmPm.exit:        ; preds = %entry
   %or14.i.i245 = or disjoint i32 %or9.i.i242, %conv12.i.i244
   %22 = sitofp i32 %or14.i.i245 to float
   %23 = fmul float %22, 0x3EF0000000000000
-  %arrayidx55 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 4, i64 2
+  %arrayidx55 = getelementptr inbounds i8, ptr %icc, i64 24
   store float %23, ptr %arrayidx55, align 8
   %arrayidx.i251 = getelementptr inbounds i8, ptr %data, i64 128
   %24 = load i8, ptr %arrayidx.i251, align 1
@@ -2523,9 +2523,10 @@ for.cond.preheader:                               ; preds = %_ZN7lodepngL15decod
   %or9.i261 = or disjoint i64 %or.i257, %shl8.i260
   %or14.i264 = or disjoint i64 %or9.i261, %conv12.i263
   %cmp60867.not = icmp eq i64 %or14.i264, 0
-  br i1 %cmp60867.not, label %return, label %for.body.preheader
+  br i1 %cmp60867.not, label %return, label %for.body.lr.ph
 
-for.body.preheader:                               ; preds = %for.cond.preheader
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %chad = getelementptr inbounds i8, ptr %icc, i64 32
   %28 = or disjoint i64 %shl.i253, %shl4.i256
   %29 = or disjoint i64 %28, %shl8.i260
   %30 = or disjoint i64 %29, %conv12.i263
@@ -2536,9 +2537,9 @@ for.cond:                                         ; preds = %if.end251
   %exitcond877.not = icmp eq i64 %inc256, %30
   br i1 %exitcond877.not, label %return, label %for.body, !llvm.loop !19
 
-for.body:                                         ; preds = %for.body.preheader, %for.cond
-  %i.0869 = phi i64 [ %inc256, %for.cond ], [ 0, %for.body.preheader ]
-  %pos.0868 = phi i64 [ %add.i286, %for.cond ], [ 132, %for.body.preheader ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %i.0869 = phi i64 [ 0, %for.body.lr.ph ], [ %inc256, %for.cond ]
+  %pos.0868 = phi i64 [ 132, %for.body.lr.ph ], [ %add.i286, %for.cond ]
   %add.i267 = add nuw nsw i64 %pos.0868, 8
   %cmp.i268 = icmp ugt i64 %add.i267, %size
   br i1 %cmp.i268, label %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit285, label %if.end.i269
@@ -3110,7 +3111,7 @@ if.end.i.i589:                                    ; preds = %for.body141
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit605:  ; preds = %for.body141, %if.end.i.i589
   %retval.0.i.i604 = phi float [ %134, %if.end.i.i589 ], [ 0.000000e+00, %for.body141 ]
-  %arrayidx143 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 6, i64 %j.0863
+  %arrayidx143 = getelementptr inbounds [9 x float], ptr %chad, i64 0, i64 %j.0863
   store float %retval.0.i.i604, ptr %arrayidx143, align 4
   %inc = add nuw nsw i64 %j.0863, 1
   %exitcond.not = icmp eq i64 %inc, 9
@@ -3153,7 +3154,7 @@ if.then157:                                       ; preds = %lor.lhs.false154, %
 
 if.then166:                                       ; preds = %if.then157
   %idxprom = zext nneg i32 %cond163 to i64
-  %arrayidx169 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %idxprom
+  %arrayidx169 = getelementptr inbounds [3 x %"struct.lodepng::LodePNGICCCurve"], ptr %trc, i64 0, i64 %idxprom
   store i32 1, ptr %has_trc, align 4
   %add.i606 = add nuw nsw i64 %retval.0.i284, 12
   %cmp.i607 = icmp ugt i64 %add.i606, %size
@@ -3210,7 +3211,7 @@ _ZN7lodepngL15decodeICCUint16EPKhmPm.exit:        ; preds = %if.then179, %if.end
   %retval.0.i634 = phi i32 [ %or.i633, %if.end.i627 ], [ 0, %if.then179 ]
   %conv182 = uitofp i32 %retval.0.i634 to float
   %div = fmul float %conv182, 3.906250e-03
-  %gamma = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %idxprom, i32 3
+  %gamma = getelementptr inbounds i8, ptr %arrayidx169, i64 24
   store float %div, ptr %gamma, align 8
   br label %if.end206
 
@@ -3224,11 +3225,11 @@ if.else183:                                       ; preds = %_ZN7lodepngL15decod
   br i1 %or.cond, label %return, label %for.body195.preheader
 
 for.body195.preheader:                            ; preds = %if.else183
-  %lut_size = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %idxprom, i32 2
+  %lut_size = getelementptr inbounds i8, ptr %arrayidx169, i64 16
   store i64 %conv173, ptr %lut_size, align 8
   %mul191 = shl nuw nsw i64 %conv173, 2
   %call.i = tail call noalias noundef ptr @malloc(i64 noundef %mul191) #30
-  %lut = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %idxprom, i32 1
+  %lut = getelementptr inbounds i8, ptr %arrayidx169, i64 8
   store ptr %call.i, ptr %lut, align 8
   br label %for.body195
 
@@ -3269,6 +3270,7 @@ if.end206:                                        ; preds = %_ZN7lodepngL15decod
 
 if.then209:                                       ; preds = %if.end206
   %idxprom213 = zext nneg i32 %cond163 to i64
+  %arrayidx214 = getelementptr inbounds [3 x %"struct.lodepng::LodePNGICCCurve"], ptr %trc, i64 0, i64 %idxprom213
   store i32 1, ptr %has_trc, align 4
   %add.i646 = add i64 %offset.2, 10
   %cmp.i647 = icmp ugt i64 %add.i646, %size
@@ -3289,7 +3291,6 @@ _ZN7lodepngL15decodeICCUint16EPKhmPm.exit656:     ; preds = %if.then209
 
 if.end221:                                        ; preds = %if.then209, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit656
   %retval.0.i655854 = phi i32 [ %or.i654, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit656 ], [ 0, %if.then209 ]
-  %arrayidx214 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %idxprom213
   %add222 = add nuw nsw i32 %retval.0.i655854, 2
   store i32 %add222, ptr %arrayidx214, align 8
   %add.i.i657 = add i64 %offset.2, 16
@@ -3322,7 +3323,7 @@ if.end.i.i659:                                    ; preds = %if.end221
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit675:  ; preds = %if.end221, %if.end.i.i659
   %retval.0.i.i674 = phi float [ %155, %if.end.i.i659 ], [ 0.000000e+00, %if.end221 ]
-  %gamma225 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %idxprom213, i32 3
+  %gamma225 = getelementptr inbounds i8, ptr %arrayidx214, i64 24
   store float %retval.0.i.i674, ptr %gamma225, align 8
   %cmp226.not = icmp eq i32 %retval.0.i655854, 0
   br i1 %cmp226.not, label %if.end251, label %if.then227
@@ -3357,7 +3358,7 @@ if.end.i.i678:                                    ; preds = %if.then227
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit694:  ; preds = %if.then227, %if.end.i.i678
   %retval.0.i.i693 = phi float [ %161, %if.end.i.i678 ], [ 0.000000e+00, %if.then227 ]
-  %a = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %idxprom213, i32 4
+  %a = getelementptr inbounds i8, ptr %arrayidx214, i64 28
   store float %retval.0.i.i693, ptr %a, align 4
   %add.i.i695 = add i64 %offset.2, 24
   %cmp.i.i696 = icmp ugt i64 %add.i.i695, %size
@@ -3388,7 +3389,7 @@ if.end.i.i697:                                    ; preds = %_ZN7lodepngL18decod
 
 if.end230:                                        ; preds = %if.end.i.i697, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit694
   %retval.0.i.i712 = phi float [ %167, %if.end.i.i697 ], [ 0.000000e+00, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit694 ]
-  %b = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %idxprom213, i32 5
+  %b = getelementptr inbounds i8, ptr %arrayidx214, i64 32
   store float %retval.0.i.i712, ptr %b, align 8
   %cmp231.not = icmp eq i32 %retval.0.i655854, 1
   br i1 %cmp231.not, label %if.end251, label %if.then232
@@ -3423,7 +3424,7 @@ if.end.i.i716:                                    ; preds = %if.then232
 
 if.end235:                                        ; preds = %if.end.i.i716, %if.then232
   %retval.0.i.i731 = phi float [ %173, %if.end.i.i716 ], [ 0.000000e+00, %if.then232 ]
-  %c234 = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %idxprom213, i32 6
+  %c234 = getelementptr inbounds i8, ptr %arrayidx214, i64 36
   store float %retval.0.i.i731, ptr %c234, align 4
   %cmp236 = icmp ugt i32 %retval.0.i655854, 2
   br i1 %cmp236, label %if.then237, label %if.end251
@@ -3458,7 +3459,7 @@ if.end.i.i735:                                    ; preds = %if.then237
 
 if.end239:                                        ; preds = %if.end.i.i735, %if.then237
   %retval.0.i.i750 = phi float [ %179, %if.end.i.i735 ], [ 0.000000e+00, %if.then237 ]
-  %d = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %idxprom213, i32 7
+  %d = getelementptr inbounds i8, ptr %arrayidx214, i64 40
   store float %retval.0.i.i750, ptr %d, align 8
   %cmp240 = icmp eq i32 %retval.0.i655854, 4
   br i1 %cmp240, label %if.then241, label %if.end251
@@ -3493,7 +3494,7 @@ if.end.i.i754:                                    ; preds = %if.then241
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit770:  ; preds = %if.then241, %if.end.i.i754
   %retval.0.i.i769 = phi float [ %185, %if.end.i.i754 ], [ 0.000000e+00, %if.then241 ]
-  %e = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %idxprom213, i32 8
+  %e = getelementptr inbounds i8, ptr %arrayidx214, i64 44
   store float %retval.0.i.i769, ptr %e, align 4
   %add.i.i771 = add i64 %offset.2, 40
   %cmp.i.i772 = icmp ugt i64 %add.i.i771, %size
@@ -3524,7 +3525,7 @@ if.end.i.i773:                                    ; preds = %_ZN7lodepngL18decod
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit789:  ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit770, %if.end.i.i773
   %retval.0.i.i788 = phi float [ %191, %if.end.i.i773 ], [ 0.000000e+00, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit770 ]
-  %f = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %idxprom213, i32 9
+  %f = getelementptr inbounds i8, ptr %arrayidx214, i64 48
   store float %retval.0.i.i788, ptr %f, align 8
   br label %if.end251
 
@@ -3554,7 +3555,8 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp34.not, label %if.end49, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %arrayidx = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c
+  %trc = getelementptr inbounds i8, ptr %icc, i64 128
+  %arrayidx = getelementptr inbounds [3 x %"struct.lodepng::LodePNGICCCurve"], ptr %trc, i64 0, i64 %c
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3569,19 +3571,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %if.end49, label %for.body, !llvm.loop !22
 
 if.else:                                          ; preds = %entry
-  %gama_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 22
+  %gama_defined = getelementptr inbounds i8, ptr %info, i64 180
   %0 = load i32, ptr %gama_defined, align 4
   %tobool4.not = icmp eq i32 %0, 0
   br i1 %tobool4.not, label %if.else33, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %srgb_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 33
+  %srgb_defined = getelementptr inbounds i8, ptr %info, i64 224
   %1 = load i32, ptr %srgb_defined, align 8
   %tobool5.not = icmp eq i32 %1, 0
   br i1 %tobool5.not, label %if.then6, label %if.else33
 
 if.then6:                                         ; preds = %land.lhs.true
-  %gama_gamma = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 23
+  %gama_gamma = getelementptr inbounds i8, ptr %info, i64 184
   %2 = load i32, ptr %gama_gamma, align 8
   %cmp7 = icmp eq i32 %2, 100000
   br i1 %cmp7, label %for.cond9.preheader, label %if.else18
@@ -3677,31 +3679,31 @@ if.then2:                                         ; preds = %if.end
 for.body.lr.ph:                                   ; preds = %lor.lhs.false, %if.then2
   %1 = load <4 x float>, ptr %m, align 16
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx1.i = getelementptr inbounds float, ptr %m, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %m, i64 4
   %3 = load <4 x float>, ptr %arrayidx1.i, align 4
   %4 = shufflevector <4 x float> %3, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx4.i = getelementptr inbounds float, ptr %m, i64 2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %m, i64 8
   %5 = load <4 x float>, ptr %arrayidx4.i, align 8
   %6 = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx7.i = getelementptr inbounds float, ptr %m, i64 3
+  %arrayidx7.i = getelementptr inbounds i8, ptr %m, i64 12
   %7 = load float, ptr %arrayidx7.i, align 4
   %8 = insertelement <2 x float> %2, float %7, i64 1
   %9 = fpext <2 x float> %8 to <2 x double>
-  %arrayidx9.i = getelementptr inbounds float, ptr %m, i64 4
+  %arrayidx9.i = getelementptr inbounds i8, ptr %m, i64 16
   %10 = load float, ptr %arrayidx9.i, align 16
   %11 = insertelement <2 x float> %4, float %10, i64 1
   %12 = fpext <2 x float> %11 to <2 x double>
-  %arrayidx12.i = getelementptr inbounds float, ptr %m, i64 5
+  %arrayidx12.i = getelementptr inbounds i8, ptr %m, i64 20
   %13 = load float, ptr %arrayidx12.i, align 4
   %14 = insertelement <2 x float> %6, float %13, i64 1
   %15 = fpext <2 x float> %14 to <2 x double>
-  %arrayidx15.i = getelementptr inbounds float, ptr %m, i64 6
+  %arrayidx15.i = getelementptr inbounds i8, ptr %m, i64 24
   %16 = load float, ptr %arrayidx15.i, align 8
   %conv16.i = fpext float %16 to double
-  %arrayidx17.i = getelementptr inbounds float, ptr %m, i64 7
+  %arrayidx17.i = getelementptr inbounds i8, ptr %m, i64 28
   %17 = load float, ptr %arrayidx17.i, align 4
   %conv18.i = fpext float %17 to double
-  %arrayidx20.i = getelementptr inbounds float, ptr %m, i64 8
+  %arrayidx20.i = getelementptr inbounds i8, ptr %m, i64 32
   %18 = load float, ptr %arrayidx20.i, align 16
   %conv21.i = fpext float %18 to double
   %umax = zext i32 %mul to i64
@@ -3749,22 +3751,22 @@ return:                                           ; preds = %for.body, %if.then2
 define noundef i32 @_ZN7lodepng17convertToXYZFloatEPfS0_PKfjjPK12LodePNGState(ptr nocapture noundef %out, ptr nocapture noundef writeonly %whitepoint, ptr nocapture noundef readonly %in, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %state) local_unnamed_addr #4 {
 entry:
   %icc = alloca %"struct.lodepng::LodePNGICC", align 8
-  %info_png = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
-  %lut.i.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 0, i32 1
+  %info_png = getelementptr inbounds i8, ptr %state, i64 208
+  %lut.i.i = getelementptr inbounds i8, ptr %icc, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i.i, i8 0, i64 16, i1 false)
-  %lut.i3.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 1, i32 1
+  %lut.i3.i = getelementptr inbounds i8, ptr %icc, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i3.i, i8 0, i64 16, i1 false)
-  %lut.i4.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 2, i32 1
+  %lut.i4.i = getelementptr inbounds i8, ptr %icc, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i4.i, i8 0, i64 16, i1 false)
-  %iccp_defined = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 35
+  %iccp_defined = getelementptr inbounds i8, ptr %state, i64 440
   %0 = load i32, ptr %iccp_defined, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %iccp_profile = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 37
+  %iccp_profile = getelementptr inbounds i8, ptr %state, i64 456
   %1 = load ptr, ptr %iccp_profile, align 8
-  %iccp_profile_size = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 38
+  %iccp_profile_size = getelementptr inbounds i8, ptr %state, i64 464
   %2 = load i32, ptr %iccp_profile_size, align 8
   %conv = zext i32 %2 to i64
   %call = call fastcc noundef i32 @_ZN7lodepngL8parseICCEPNS_10LodePNGICCEPKhm(ptr noundef nonnull %icc, ptr noundef %1, i64 noundef %conv), !range !15
@@ -3779,23 +3781,23 @@ if.end:                                           ; preds = %if.then
   ]
 
 if.then3.i:                                       ; preds = %if.end
-  %has_chromaticity.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 9
+  %has_chromaticity.i = getelementptr inbounds i8, ptr %icc, i64 84
   %4 = load i32, ptr %has_chromaticity.i, align 4
   %tobool.not.i = icmp eq i32 %4, 0
-  %has_whitepoint.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 7
+  %has_whitepoint.i = getelementptr inbounds i8, ptr %icc, i64 68
   %5 = load i32, ptr %has_whitepoint.i, align 4
   %tobool7.not.i = icmp eq i32 %5, 0
   %or.cond = select i1 %tobool.not.i, i1 true, i1 %tobool7.not.i
   br i1 %or.cond, label %if.end4, label %if.end9.i
 
 if.end6.i:                                        ; preds = %if.end
-  %has_whitepoint.i.old = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 7
+  %has_whitepoint.i.old = getelementptr inbounds i8, ptr %icc, i64 68
   %.old = load i32, ptr %has_whitepoint.i.old, align 4
   %tobool7.not.i.old = icmp eq i32 %.old, 0
   br i1 %tobool7.not.i.old, label %if.end4, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then3.i, %if.end6.i
-  %has_trc.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 13
+  %has_trc.i = getelementptr inbounds i8, ptr %icc, i64 124
   %6 = load i32, ptr %has_trc.i, align 4
   %tobool10.not.i = icmp ne i32 %6, 0
   %..i = zext i1 %tobool10.not.i to i32
@@ -3825,20 +3827,24 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 for.end.i:                                        ; preds = %for.body.i
   %tobool.not.i10 = icmp eq i32 %use_icc.0, 0
-  br i1 %tobool.not.i10, label %if.else.i, label %for.cond6.preheader.i
+  br i1 %tobool.not.i10, label %if.else.i, label %for.cond6.preheader.lr.ph.i
 
 for.end.thread.i:                                 ; preds = %if.end4
   %tobool.not68.i = icmp eq i32 %use_icc.0, 0
   br i1 %tobool.not68.i, label %if.else.i, label %_ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit
 
-for.cond6.preheader.i:                            ; preds = %for.end.i, %for.inc18.i
-  %i.153.i = phi i64 [ %inc19.i, %for.inc18.i ], [ 0, %for.end.i ]
+for.cond6.preheader.lr.ph.i:                      ; preds = %for.end.i
+  %trc.i = getelementptr inbounds i8, ptr %icc, i64 128
+  br label %for.cond6.preheader.i
+
+for.cond6.preheader.i:                            ; preds = %for.inc18.i, %for.cond6.preheader.lr.ph.i
+  %i.153.i = phi i64 [ 0, %for.cond6.preheader.lr.ph.i ], [ %inc19.i, %for.inc18.i ]
   %mul10.i = shl nuw nsw i64 %i.153.i, 2
   br label %for.body8.i
 
 for.body8.i:                                      ; preds = %for.body8.i, %for.cond6.preheader.i
   %c.051.i = phi i64 [ 0, %for.cond6.preheader.i ], [ %inc16.i, %for.body8.i ]
-  %arrayidx9.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.051.i
+  %arrayidx9.i = getelementptr inbounds [3 x %"struct.lodepng::LodePNGICCCurve"], ptr %trc.i, i64 0, i64 %c.051.i
   %add.i = add nuw nsw i64 %c.051.i, %mul10.i
   %arrayidx11.i = getelementptr inbounds float, ptr %in, i64 %add.i
   %8 = load float, ptr %arrayidx11.i, align 4
@@ -3855,19 +3861,19 @@ for.inc18.i:                                      ; preds = %for.body8.i
   br i1 %exitcond63.not.i, label %_ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit, label %for.cond6.preheader.i, !llvm.loop !29
 
 if.else.i:                                        ; preds = %for.end.thread.i, %for.end.i
-  %gama_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 22
+  %gama_defined.i = getelementptr inbounds i8, ptr %state, i64 388
   %9 = load i32, ptr %gama_defined.i, align 4
   %tobool21.not.i = icmp eq i32 %9, 0
   br i1 %tobool21.not.i, label %if.else48.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
-  %srgb_defined.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 33
+  %srgb_defined.i = getelementptr inbounds i8, ptr %state, i64 432
   %10 = load i32, ptr %srgb_defined.i, align 8
   %tobool22.not.i = icmp eq i32 %10, 0
   br i1 %tobool22.not.i, label %if.then23.i, label %if.else48.i
 
 if.then23.i:                                      ; preds = %land.lhs.true.i
-  %gama_gamma.i = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 23
+  %gama_gamma.i = getelementptr inbounds i8, ptr %state, i64 392
   %11 = load i32, ptr %gama_gamma.i, align 8
   %cmp24.not.i = icmp eq i32 %11, 100000
   br i1 %cmp24.not.i, label %_ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit, label %if.then25.i
@@ -4134,26 +4140,26 @@ entry:
   %mode8 = alloca %struct.LodePNGColorMode, align 8
   %mul = mul i32 %h, %w
   %conv = zext i32 %mul to i64
-  %info_raw = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2
-  %info_png = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
-  %bitdepth = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 2, i32 1
+  %info_raw = getelementptr inbounds i8, ptr %state, i64 168
+  %info_png = getelementptr inbounds i8, ptr %state, i64 208
+  %bitdepth = getelementptr inbounds i8, ptr %state, i64 172
   %0 = load i32, ptr %bitdepth, align 4
   %cmp = icmp ugt i32 %0, 8
-  %lut.i.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 0, i32 1
+  %lut.i.i = getelementptr inbounds i8, ptr %icc, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i.i, i8 0, i64 16, i1 false)
-  %lut.i3.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 1, i32 1
+  %lut.i3.i = getelementptr inbounds i8, ptr %icc, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i3.i, i8 0, i64 16, i1 false)
-  %lut.i4.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 2, i32 1
+  %lut.i4.i = getelementptr inbounds i8, ptr %icc, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i4.i, i8 0, i64 16, i1 false)
-  %iccp_defined = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 35
+  %iccp_defined = getelementptr inbounds i8, ptr %state, i64 440
   %1 = load i32, ptr %iccp_defined, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %iccp_profile = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 37
+  %iccp_profile = getelementptr inbounds i8, ptr %state, i64 456
   %2 = load ptr, ptr %iccp_profile, align 8
-  %iccp_profile_size = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 38
+  %iccp_profile_size = getelementptr inbounds i8, ptr %state, i64 464
   %3 = load i32, ptr %iccp_profile_size, align 8
   %conv2 = zext i32 %3 to i64
   %call = call fastcc noundef i32 @_ZN7lodepngL8parseICCEPNS_10LodePNGICCEPKhm(ptr noundef nonnull %icc, ptr noundef %2, i64 noundef %conv2), !range !15
@@ -4168,23 +4174,23 @@ if.end:                                           ; preds = %if.then
   ]
 
 if.then3.i:                                       ; preds = %if.end
-  %has_chromaticity.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 9
+  %has_chromaticity.i = getelementptr inbounds i8, ptr %icc, i64 84
   %5 = load i32, ptr %has_chromaticity.i, align 4
   %tobool.not.i = icmp eq i32 %5, 0
-  %has_whitepoint.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 7
+  %has_whitepoint.i = getelementptr inbounds i8, ptr %icc, i64 68
   %6 = load i32, ptr %has_whitepoint.i, align 4
   %tobool7.not.i = icmp eq i32 %6, 0
   %or.cond = select i1 %tobool.not.i, i1 true, i1 %tobool7.not.i
   br i1 %or.cond, label %if.end6, label %if.end9.i
 
 if.end6.i:                                        ; preds = %if.end
-  %has_whitepoint.i.old = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 7
+  %has_whitepoint.i.old = getelementptr inbounds i8, ptr %icc, i64 68
   %.old = load i32, ptr %has_whitepoint.i.old, align 4
   %tobool7.not.i.old = icmp eq i32 %.old, 0
   br i1 %tobool7.not.i.old, label %if.end6, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then3.i, %if.end6.i
-  %has_trc.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 13
+  %has_trc.i = getelementptr inbounds i8, ptr %icc, i64 124
   %7 = load i32, ptr %has_trc.i, align 4
   %tobool10.not.i = icmp ne i32 %7, 0
   %..i = zext i1 %tobool10.not.i to i32
@@ -4323,44 +4329,44 @@ if.end6:                                          ; preds = %if.end
 if.then7:                                         ; preds = %if.end6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %a, i8 0, i64 32, i1 false)
   store float 1.000000e+00, ptr %a, align 16
-  %0 = getelementptr inbounds [9 x float], ptr %a, i64 0, i64 4
+  %0 = getelementptr inbounds i8, ptr %a, i64 16
   store float 1.000000e+00, ptr %0, align 16
-  %1 = getelementptr inbounds [9 x float], ptr %a, i64 0, i64 8
+  %1 = getelementptr inbounds i8, ptr %a, i64 32
   store float 1.000000e+00, ptr %1, align 16
   %2 = load float, ptr %whitepoint, align 4
-  %arrayidx9 = getelementptr inbounds float, ptr %whitepoint, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %whitepoint, i64 4
   %3 = load float, ptr %arrayidx9, align 4
-  %arrayidx10 = getelementptr inbounds float, ptr %whitepoint, i64 2
+  %arrayidx10 = getelementptr inbounds i8, ptr %whitepoint, i64 8
   %4 = load float, ptr %arrayidx10, align 4
   %5 = load float, ptr %white, align 4
-  %arrayidx12 = getelementptr inbounds [3 x float], ptr %white, i64 0, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %white, i64 4
   %6 = load float, ptr %arrayidx12, align 4
-  %arrayidx13 = getelementptr inbounds [3 x float], ptr %white, i64 0, i64 2
+  %arrayidx13 = getelementptr inbounds i8, ptr %white, i64 8
   %7 = load float, ptr %arrayidx13, align 4
   call fastcc void @_ZN7lodepngL19getAdaptationMatrixEPfiffffff(ptr noundef nonnull %a, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7)
-  %arrayidx4.i = getelementptr inbounds float, ptr %a, i64 3
-  %arrayidx6.i = getelementptr inbounds float, ptr %a, i64 6
+  %arrayidx4.i = getelementptr inbounds i8, ptr %a, i64 12
+  %arrayidx6.i = getelementptr inbounds i8, ptr %a, i64 24
   %8 = load <4 x float>, ptr %m, align 16
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx1.i.i = getelementptr inbounds float, ptr %m, i64 1
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %m, i64 4
   %10 = load <4 x float>, ptr %arrayidx1.i.i, align 4
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx4.i.i = getelementptr inbounds float, ptr %m, i64 2
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %m, i64 8
   %12 = load <4 x float>, ptr %arrayidx4.i.i, align 8
   %13 = shufflevector <4 x float> %12, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx7.i.i = getelementptr inbounds float, ptr %m, i64 3
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %m, i64 12
   %14 = load float, ptr %arrayidx7.i.i, align 4
-  %arrayidx9.i.i = getelementptr inbounds float, ptr %m, i64 4
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %m, i64 16
   %15 = load float, ptr %arrayidx9.i.i, align 16
-  %arrayidx12.i.i = getelementptr inbounds float, ptr %m, i64 5
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %m, i64 20
   %16 = load float, ptr %arrayidx12.i.i, align 4
-  %arrayidx15.i.i = getelementptr inbounds float, ptr %m, i64 6
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %m, i64 24
   %17 = load float, ptr %arrayidx15.i.i, align 8
   %conv16.i.i = fpext float %17 to double
-  %arrayidx17.i.i = getelementptr inbounds float, ptr %m, i64 7
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %m, i64 28
   %18 = load float, ptr %arrayidx17.i.i, align 4
   %conv18.i.i = fpext float %18 to double
-  %arrayidx20.i.i = getelementptr inbounds float, ptr %m, i64 8
+  %arrayidx20.i.i = getelementptr inbounds i8, ptr %m, i64 32
   %19 = load float, ptr %arrayidx20.i.i, align 16
   %conv21.i.i = fpext float %19 to double
   %20 = load <2 x float>, ptr %a, align 16
@@ -4369,10 +4375,10 @@ if.then7:                                         ; preds = %if.end6
   %23 = fpext <2 x float> %22 to <2 x double>
   %24 = load <2 x float>, ptr %arrayidx6.i, align 8
   %25 = fpext <2 x float> %24 to <2 x double>
-  %arrayidx20.i = getelementptr inbounds float, ptr %a, i64 2
+  %arrayidx20.i = getelementptr inbounds i8, ptr %a, i64 8
   %26 = load float, ptr %arrayidx20.i, align 8
   %conv21.i = fpext float %26 to double
-  %arrayidx22.i = getelementptr inbounds float, ptr %a, i64 5
+  %arrayidx22.i = getelementptr inbounds i8, ptr %a, i64 20
   %27 = load float, ptr %arrayidx22.i, align 4
   %conv23.i = fpext float %27 to double
   %28 = load float, ptr %1, align 16
@@ -4456,31 +4462,31 @@ if.then26:                                        ; preds = %lor.lhs.false, %if.
 for.body.lr.ph:                                   ; preds = %if.then26
   %76 = load <4 x float>, ptr %m, align 16
   %77 = shufflevector <4 x float> %76, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx1.i = getelementptr inbounds float, ptr %m, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %m, i64 4
   %78 = load <4 x float>, ptr %arrayidx1.i, align 4
   %79 = shufflevector <4 x float> %78, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx4.i29 = getelementptr inbounds float, ptr %m, i64 2
+  %arrayidx4.i29 = getelementptr inbounds i8, ptr %m, i64 8
   %80 = load <4 x float>, ptr %arrayidx4.i29, align 8
   %81 = shufflevector <4 x float> %80, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx7.i = getelementptr inbounds float, ptr %m, i64 3
+  %arrayidx7.i = getelementptr inbounds i8, ptr %m, i64 12
   %82 = load float, ptr %arrayidx7.i, align 4
   %83 = insertelement <2 x float> %77, float %82, i64 1
   %84 = fpext <2 x float> %83 to <2 x double>
-  %arrayidx9.i = getelementptr inbounds float, ptr %m, i64 4
+  %arrayidx9.i = getelementptr inbounds i8, ptr %m, i64 16
   %85 = load float, ptr %arrayidx9.i, align 16
   %86 = insertelement <2 x float> %79, float %85, i64 1
   %87 = fpext <2 x float> %86 to <2 x double>
-  %arrayidx12.i = getelementptr inbounds float, ptr %m, i64 5
+  %arrayidx12.i = getelementptr inbounds i8, ptr %m, i64 20
   %88 = load float, ptr %arrayidx12.i, align 4
   %89 = insertelement <2 x float> %81, float %88, i64 1
   %90 = fpext <2 x float> %89 to <2 x double>
-  %arrayidx15.i32 = getelementptr inbounds float, ptr %m, i64 6
+  %arrayidx15.i32 = getelementptr inbounds i8, ptr %m, i64 24
   %91 = load float, ptr %arrayidx15.i32, align 8
   %conv16.i33 = fpext float %91 to double
-  %arrayidx17.i = getelementptr inbounds float, ptr %m, i64 7
+  %arrayidx17.i = getelementptr inbounds i8, ptr %m, i64 28
   %92 = load float, ptr %arrayidx17.i, align 4
   %conv18.i = fpext float %92 to double
-  %arrayidx20.i34 = getelementptr inbounds float, ptr %m, i64 8
+  %arrayidx20.i34 = getelementptr inbounds i8, ptr %m, i64 32
   %93 = load float, ptr %arrayidx20.i34, align 16
   %conv21.i35 = fpext float %93 to double
   br label %for.body
@@ -4551,17 +4557,21 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %cmp50.not = icmp eq i32 %mul, 0
-  br i1 %cmp50.not, label %if.end65, label %for.cond1.preheader
+  br i1 %cmp50.not, label %if.end65, label %for.cond1.preheader.lr.ph
 
-for.cond1.preheader:                              ; preds = %for.cond.preheader, %for.inc9
-  %i.051 = phi i64 [ %inc10, %for.inc9 ], [ 0, %for.cond.preheader ]
+for.cond1.preheader.lr.ph:                        ; preds = %for.cond.preheader
+  %trc = getelementptr inbounds i8, ptr %icc, i64 128
+  br label %for.cond1.preheader
+
+for.cond1.preheader:                              ; preds = %for.cond1.preheader.lr.ph, %for.inc9
+  %i.051 = phi i64 [ 0, %for.cond1.preheader.lr.ph ], [ %inc10, %for.inc9 ]
   %mul4 = shl nuw nsw i64 %i.051, 2
   %invariant.gep = getelementptr float, ptr %im, i64 %mul4
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
   %c.048 = phi i64 [ 0, %for.cond1.preheader ], [ %inc, %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit ]
-  %arrayidx = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048
+  %arrayidx = getelementptr inbounds [3 x %"struct.lodepng::LodePNGICCCurve"], ptr %trc, i64 0, i64 %c.048
   %gep = getelementptr float, ptr %invariant.gep, i64 %c.048
   %0 = load float, ptr %gep, align 4
   %1 = load i32, ptr %arrayidx, align 8
@@ -4582,10 +4592,10 @@ if.then3.i:                                       ; preds = %for.body3
   br i1 %or.cond.i, label %if.end9.i, label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 if.end9.i:                                        ; preds = %if.then3.i
-  %lut_size.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 2
+  %lut_size.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load i64, ptr %lut_size.i, align 8
   %cmp1085.i = icmp eq i64 %2, 0
-  %lut.phi.trans.insert.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 1
+  %lut.phi.trans.insert.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   br i1 %cmp1085.i, label %if.end9.if.then11_crit_edge.i, label %if.end12.i
 
 if.end9.if.then11_crit_edge.i:                    ; preds = %if.end9.i
@@ -4641,7 +4651,7 @@ if.then36.i:                                      ; preds = %for.body3
   br i1 %cmp37.i, label %cond.true.i, label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 cond.true.i:                                      ; preds = %if.then36.i
-  %gamma.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 3
+  %gamma.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %11 = load float, ptr %gamma.i, align 8
   %div38.i = fdiv float 1.000000e+00, %11
   %call.i = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %0, float noundef %div38.i)
@@ -4656,23 +4666,23 @@ if.end45.i:                                       ; preds = %if.then42.i
   br i1 %cmp46.i, label %cond.true47.i, label %cond.false55.i
 
 cond.true47.i:                                    ; preds = %if.end45.i
-  %gamma48.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 3
+  %gamma48.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %12 = load float, ptr %gamma48.i, align 8
   %div49.i = fdiv float 1.000000e+00, %12
   %call50.i = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %0, float noundef %div49.i)
-  %b51.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 5
+  %b51.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %13 = load float, ptr %b51.i, align 8
   %sub52.i = fsub float %call50.i, %13
-  %a53.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 4
+  %a53.i = getelementptr inbounds i8, ptr %arrayidx, i64 28
   %14 = load float, ptr %a53.i, align 4
   %div54.i = fdiv float %sub52.i, %14
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 cond.false55.i:                                   ; preds = %if.end45.i
-  %b56.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 5
+  %b56.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %15 = load float, ptr %b56.i, align 8
   %fneg.i = fneg float %15
-  %a57.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 4
+  %a57.i = getelementptr inbounds i8, ptr %arrayidx, i64 28
   %16 = load float, ptr %a57.i, align 4
   %div58.i = fdiv float %fneg.i, %16
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
@@ -4682,52 +4692,52 @@ if.then64.i:                                      ; preds = %for.body3
   br i1 %cmp65.i, label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit, label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.then64.i
-  %c.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 6
+  %c.i = getelementptr inbounds i8, ptr %arrayidx, i64 36
   %17 = load float, ptr %c.i, align 4
   %cmp68.i = fcmp olt float %17, %0
   br i1 %cmp68.i, label %cond.true69.i, label %cond.false79.i
 
 cond.true69.i:                                    ; preds = %if.end67.i
   %sub71.i = fsub float %0, %17
-  %gamma72.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 3
+  %gamma72.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %18 = load float, ptr %gamma72.i, align 8
   %div73.i = fdiv float 1.000000e+00, %18
   %call74.i = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %sub71.i, float noundef %div73.i)
-  %b75.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 5
+  %b75.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %19 = load float, ptr %b75.i, align 8
   %sub76.i = fsub float %call74.i, %19
-  %a77.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 4
+  %a77.i = getelementptr inbounds i8, ptr %arrayidx, i64 28
   %20 = load float, ptr %a77.i, align 4
   %div78.i = fdiv float %sub76.i, %20
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 cond.false79.i:                                   ; preds = %if.end67.i
-  %b80.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 5
+  %b80.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %21 = load float, ptr %b80.i, align 8
   %fneg81.i = fneg float %21
-  %a82.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 4
+  %a82.i = getelementptr inbounds i8, ptr %arrayidx, i64 28
   %22 = load float, ptr %a82.i, align 4
   %div83.i = fdiv float %fneg81.i, %22
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 if.then89.i:                                      ; preds = %for.body3
-  %c90.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 6
+  %c90.i = getelementptr inbounds i8, ptr %arrayidx, i64 36
   %23 = load float, ptr %c90.i, align 4
-  %d.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 7
+  %d.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %24 = load float, ptr %d.i, align 8
   %mul.i = fmul float %23, %24
   %cmp91.i = fcmp olt float %mul.i, %0
   br i1 %cmp91.i, label %cond.true92.i, label %cond.false100.i
 
 cond.true92.i:                                    ; preds = %if.then89.i
-  %gamma93.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 3
+  %gamma93.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %25 = load float, ptr %gamma93.i, align 8
   %div94.i = fdiv float 1.000000e+00, %25
   %call95.i = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %0, float noundef %div94.i)
-  %b96.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 5
+  %b96.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %26 = load float, ptr %b96.i, align 8
   %sub97.i = fsub float %call95.i, %26
-  %a98.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 4
+  %a98.i = getelementptr inbounds i8, ptr %arrayidx, i64 28
   %27 = load float, ptr %a98.i, align 4
   %div99.i = fdiv float %sub97.i, %27
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
@@ -4737,11 +4747,11 @@ cond.false100.i:                                  ; preds = %if.then89.i
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 if.then108.i:                                     ; preds = %for.body3
-  %c109.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 6
+  %c109.i = getelementptr inbounds i8, ptr %arrayidx, i64 36
   %28 = load float, ptr %c109.i, align 4
-  %d110.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 7
+  %d110.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %29 = load float, ptr %d110.i, align 8
-  %f.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 9
+  %f.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %30 = load float, ptr %f.i, align 8
   %31 = tail call float @llvm.fmuladd.f32(float %28, float %29, float %30)
   %cmp112.i = fcmp olt float %31, %0
@@ -4749,14 +4759,14 @@ if.then108.i:                                     ; preds = %for.body3
 
 cond.true113.i:                                   ; preds = %if.then108.i
   %sub115.i = fsub float %0, %28
-  %gamma116.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 3
+  %gamma116.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %32 = load float, ptr %gamma116.i, align 8
   %div117.i = fdiv float 1.000000e+00, %32
   %call118.i = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %sub115.i, float noundef %div117.i)
-  %b119.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 5
+  %b119.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %33 = load float, ptr %b119.i, align 8
   %sub120.i = fsub float %call118.i, %33
-  %a121.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 %c.048, i32 4
+  %a121.i = getelementptr inbounds i8, ptr %arrayidx, i64 28
   %34 = load float, ptr %a121.i, align 4
   %div122.i = fdiv float %sub120.i, %34
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
@@ -4782,19 +4792,19 @@ for.inc9:                                         ; preds = %_ZN7lodepngL14iccBa
   br i1 %exitcond62.not, label %if.end65, label %for.cond1.preheader, !llvm.loop !48
 
 if.else:                                          ; preds = %entry
-  %gama_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 22
+  %gama_defined = getelementptr inbounds i8, ptr %info, i64 180
   %35 = load i32, ptr %gama_defined, align 4
   %tobool12.not = icmp eq i32 %35, 0
   br i1 %tobool12.not, label %if.else44, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %srgb_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 33
+  %srgb_defined = getelementptr inbounds i8, ptr %info, i64 224
   %36 = load i32, ptr %srgb_defined, align 8
   %tobool13.not = icmp eq i32 %36, 0
   br i1 %tobool13.not, label %if.then14, label %if.else44
 
 if.then14:                                        ; preds = %land.lhs.true
-  %gama_gamma = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 23
+  %gama_gamma = getelementptr inbounds i8, ptr %info, i64 184
   %37 = load i32, ptr %gama_gamma, align 8
   %cmp15.not = icmp eq i32 %37, 100000
   br i1 %cmp15.not, label %if.end65, label %if.then16
@@ -5051,22 +5061,22 @@ declare float @llvm.fmuladd.f32(float, float, float) #11
 define noundef i32 @_ZN7lodepng19convertFromXYZFloatEPfPKfjjPK12LodePNGStateS2_j(ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %state, ptr nocapture noundef readonly %whitepoint, i32 noundef %rendering_intent) local_unnamed_addr #4 {
 entry:
   %icc = alloca %"struct.lodepng::LodePNGICC", align 8
-  %info_png = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3
-  %lut.i.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 0, i32 1
+  %info_png = getelementptr inbounds i8, ptr %state, i64 208
+  %lut.i.i = getelementptr inbounds i8, ptr %icc, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i.i, i8 0, i64 16, i1 false)
-  %lut.i3.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 1, i32 1
+  %lut.i3.i = getelementptr inbounds i8, ptr %icc, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i3.i, i8 0, i64 16, i1 false)
-  %lut.i4.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 14, i64 2, i32 1
+  %lut.i4.i = getelementptr inbounds i8, ptr %icc, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i4.i, i8 0, i64 16, i1 false)
-  %iccp_defined = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 35
+  %iccp_defined = getelementptr inbounds i8, ptr %state, i64 440
   %0 = load i32, ptr %iccp_defined, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %iccp_profile = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 37
+  %iccp_profile = getelementptr inbounds i8, ptr %state, i64 456
   %1 = load ptr, ptr %iccp_profile, align 8
-  %iccp_profile_size = getelementptr inbounds %struct.LodePNGState, ptr %state, i64 0, i32 3, i32 38
+  %iccp_profile_size = getelementptr inbounds i8, ptr %state, i64 464
   %2 = load i32, ptr %iccp_profile_size, align 8
   %conv = zext i32 %2 to i64
   %call = call fastcc noundef i32 @_ZN7lodepngL8parseICCEPNS_10LodePNGICCEPKhm(ptr noundef nonnull %icc, ptr noundef %1, i64 noundef %conv), !range !15
@@ -5081,23 +5091,23 @@ if.end:                                           ; preds = %if.then
   ]
 
 if.then3.i:                                       ; preds = %if.end
-  %has_chromaticity.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 9
+  %has_chromaticity.i = getelementptr inbounds i8, ptr %icc, i64 84
   %4 = load i32, ptr %has_chromaticity.i, align 4
   %tobool.not.i = icmp eq i32 %4, 0
-  %has_whitepoint.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 7
+  %has_whitepoint.i = getelementptr inbounds i8, ptr %icc, i64 68
   %5 = load i32, ptr %has_whitepoint.i, align 4
   %tobool7.not.i = icmp eq i32 %5, 0
   %or.cond = select i1 %tobool.not.i, i1 true, i1 %tobool7.not.i
   br i1 %or.cond, label %if.end4, label %if.end9.i
 
 if.end6.i:                                        ; preds = %if.end
-  %has_whitepoint.i.old = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 7
+  %has_whitepoint.i.old = getelementptr inbounds i8, ptr %icc, i64 68
   %.old = load i32, ptr %has_whitepoint.i.old, align 4
   %tobool7.not.i.old = icmp eq i32 %.old, 0
   br i1 %tobool7.not.i.old, label %if.end4, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then3.i, %if.end6.i
-  %has_trc.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 13
+  %has_trc.i = getelementptr inbounds i8, ptr %icc, i64 124
   %6 = load i32, ptr %has_trc.i, align 4
   %tobool10.not.i = icmp ne i32 %6, 0
   %..i = zext i1 %tobool10.not.i to i32
@@ -5129,81 +5139,81 @@ define noundef i32 @_ZN7lodepng15convertRGBModelEPhPKhjjPK12LodePNGStateS5_j(ptr
 entry:
   %whitepoint = alloca [3 x float], align 4
   %tobool.not.i = icmp eq ptr %state_in, null
-  %info_png.i = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 3
+  %info_png.i = getelementptr inbounds i8, ptr %state_in, i64 208
   %cond.i = select i1 %tobool.not.i, ptr null, ptr %info_png.i
   %tobool1.not.i = icmp eq ptr %state_out, null
-  %info_png3.i = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 3
+  %info_png3.i = getelementptr inbounds i8, ptr %state_out, i64 208
   %cond6.i = select i1 %tobool1.not.i, ptr null, ptr %info_png3.i
   br i1 %tobool.not.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %iccp_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 3, i32 35
+  %iccp_defined.i.i = getelementptr inbounds i8, ptr %state_in, i64 440
   %0 = load i32, ptr %iccp_defined.i.i, align 8
   %tobool1.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool1.not.i.i, label %if.end3.i.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  %srgb_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 3, i32 33
+  %srgb_defined.i.i = getelementptr inbounds i8, ptr %state_in, i64 432
   %1 = load i32, ptr %srgb_defined.i.i, align 8
   %tobool4.not.i.i = icmp eq i32 %1, 0
   br i1 %tobool4.not.i.i, label %if.end6.i.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
 
 if.end6.i.i:                                      ; preds = %if.end3.i.i
-  %gama_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 3, i32 22
+  %gama_defined.i.i = getelementptr inbounds i8, ptr %state_in, i64 388
   %2 = load i32, ptr %gama_defined.i.i, align 4
   %tobool7.not.i.i = icmp eq i32 %2, 0
   br i1 %tobool7.not.i.i, label %if.end9.i.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end6.i.i
-  %chrm_defined.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 3, i32 24
+  %chrm_defined.i.i = getelementptr inbounds i8, ptr %state_in, i64 396
   %3 = load i32, ptr %chrm_defined.i.i, align 4
   %tobool10.not.i.i = icmp eq i32 %3, 0
   br i1 %tobool10.not.i.i, label %if.end30.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
-  %chrm_white_x.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 3, i32 25
+  %chrm_white_x.i.i = getelementptr inbounds i8, ptr %state_in, i64 400
   %4 = load i32, ptr %chrm_white_x.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %4, 31270
   br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then11.i.i
-  %chrm_white_y.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 3, i32 26
+  %chrm_white_y.i.i = getelementptr inbounds i8, ptr %state_in, i64 404
   %5 = load i32, ptr %chrm_white_y.i.i, align 4
   %cmp12.not.i.i = icmp eq i32 %5, 32900
   br i1 %cmp12.not.i.i, label %if.end14.i.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
 
 if.end14.i.i:                                     ; preds = %lor.lhs.false.i.i
-  %chrm_red_x.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 3, i32 27
+  %chrm_red_x.i.i = getelementptr inbounds i8, ptr %state_in, i64 408
   %6 = load i32, ptr %chrm_red_x.i.i, align 8
   %cmp15.not.i.i = icmp eq i32 %6, 64000
   br i1 %cmp15.not.i.i, label %lor.lhs.false16.i.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
 
 lor.lhs.false16.i.i:                              ; preds = %if.end14.i.i
-  %chrm_red_y.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 3, i32 28
+  %chrm_red_y.i.i = getelementptr inbounds i8, ptr %state_in, i64 412
   %7 = load i32, ptr %chrm_red_y.i.i, align 4
   %cmp17.not.i.i = icmp eq i32 %7, 33000
   br i1 %cmp17.not.i.i, label %if.end19.i.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
 
 if.end19.i.i:                                     ; preds = %lor.lhs.false16.i.i
-  %chrm_green_x.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 3, i32 29
+  %chrm_green_x.i.i = getelementptr inbounds i8, ptr %state_in, i64 416
   %8 = load i32, ptr %chrm_green_x.i.i, align 8
   %cmp20.not.i.i = icmp eq i32 %8, 30000
   br i1 %cmp20.not.i.i, label %lor.lhs.false21.i.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
 
 lor.lhs.false21.i.i:                              ; preds = %if.end19.i.i
-  %chrm_green_y.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 3, i32 30
+  %chrm_green_y.i.i = getelementptr inbounds i8, ptr %state_in, i64 420
   %9 = load i32, ptr %chrm_green_y.i.i, align 4
   %cmp22.not.i.i = icmp eq i32 %9, 60000
   br i1 %cmp22.not.i.i, label %if.end24.i.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
 
 if.end24.i.i:                                     ; preds = %lor.lhs.false21.i.i
-  %chrm_blue_x.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 3, i32 31
+  %chrm_blue_x.i.i = getelementptr inbounds i8, ptr %state_in, i64 424
   %10 = load i32, ptr %chrm_blue_x.i.i, align 8
   %cmp25.not.i.i = icmp eq i32 %10, 15000
   br i1 %cmp25.not.i.i, label %lor.lhs.false26.i.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
 
 lor.lhs.false26.i.i:                              ; preds = %if.end24.i.i
-  %chrm_blue_y.i.i = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 3, i32 32
+  %chrm_blue_y.i.i = getelementptr inbounds i8, ptr %state_in, i64 428
   %11 = load i32, ptr %chrm_blue_y.i.i, align 4
   %cmp27.not.i.i = icmp eq i32 %11, 6000
   br i1 %cmp27.not.i.i, label %if.end30.i.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
@@ -5216,73 +5226,73 @@ _ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i:       ; preds = %if.end30.i.i, %lor.
   br i1 %tobool1.not.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i, label %if.end.i44.i
 
 if.end.i44.i:                                     ; preds = %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
-  %iccp_defined.i45.i = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 3, i32 35
+  %iccp_defined.i45.i = getelementptr inbounds i8, ptr %state_out, i64 440
   %12 = load i32, ptr %iccp_defined.i45.i, align 8
   %tobool1.not.i46.i = icmp eq i32 %12, 0
   br i1 %tobool1.not.i46.i, label %if.end3.i48.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i
 
 if.end3.i48.i:                                    ; preds = %if.end.i44.i
-  %srgb_defined.i49.i = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 3, i32 33
+  %srgb_defined.i49.i = getelementptr inbounds i8, ptr %state_out, i64 432
   %13 = load i32, ptr %srgb_defined.i49.i, align 8
   %tobool4.not.i50.i = icmp eq i32 %13, 0
   br i1 %tobool4.not.i50.i, label %if.end6.i51.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i
 
 if.end6.i51.i:                                    ; preds = %if.end3.i48.i
-  %gama_defined.i52.i = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 3, i32 22
+  %gama_defined.i52.i = getelementptr inbounds i8, ptr %state_out, i64 388
   %14 = load i32, ptr %gama_defined.i52.i, align 4
   %tobool7.not.i53.i = icmp eq i32 %14, 0
   br i1 %tobool7.not.i53.i, label %if.end9.i54.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i
 
 if.end9.i54.i:                                    ; preds = %if.end6.i51.i
-  %chrm_defined.i55.i = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 3, i32 24
+  %chrm_defined.i55.i = getelementptr inbounds i8, ptr %state_out, i64 396
   %15 = load i32, ptr %chrm_defined.i55.i, align 4
   %tobool10.not.i56.i = icmp eq i32 %15, 0
   br i1 %tobool10.not.i56.i, label %if.end30.i81.i, label %if.then11.i57.i
 
 if.then11.i57.i:                                  ; preds = %if.end9.i54.i
-  %chrm_white_x.i58.i = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 3, i32 25
+  %chrm_white_x.i58.i = getelementptr inbounds i8, ptr %state_out, i64 400
   %16 = load i32, ptr %chrm_white_x.i58.i, align 8
   %cmp.not.i59.i = icmp eq i32 %16, 31270
   br i1 %cmp.not.i59.i, label %lor.lhs.false.i60.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i
 
 lor.lhs.false.i60.i:                              ; preds = %if.then11.i57.i
-  %chrm_white_y.i61.i = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 3, i32 26
+  %chrm_white_y.i61.i = getelementptr inbounds i8, ptr %state_out, i64 404
   %17 = load i32, ptr %chrm_white_y.i61.i, align 4
   %cmp12.not.i62.i = icmp eq i32 %17, 32900
   br i1 %cmp12.not.i62.i, label %if.end14.i63.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i
 
 if.end14.i63.i:                                   ; preds = %lor.lhs.false.i60.i
-  %chrm_red_x.i64.i = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 3, i32 27
+  %chrm_red_x.i64.i = getelementptr inbounds i8, ptr %state_out, i64 408
   %18 = load i32, ptr %chrm_red_x.i64.i, align 8
   %cmp15.not.i65.i = icmp eq i32 %18, 64000
   br i1 %cmp15.not.i65.i, label %lor.lhs.false16.i66.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i
 
 lor.lhs.false16.i66.i:                            ; preds = %if.end14.i63.i
-  %chrm_red_y.i67.i = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 3, i32 28
+  %chrm_red_y.i67.i = getelementptr inbounds i8, ptr %state_out, i64 412
   %19 = load i32, ptr %chrm_red_y.i67.i, align 4
   %cmp17.not.i68.i = icmp eq i32 %19, 33000
   br i1 %cmp17.not.i68.i, label %if.end19.i69.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i
 
 if.end19.i69.i:                                   ; preds = %lor.lhs.false16.i66.i
-  %chrm_green_x.i70.i = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 3, i32 29
+  %chrm_green_x.i70.i = getelementptr inbounds i8, ptr %state_out, i64 416
   %20 = load i32, ptr %chrm_green_x.i70.i, align 8
   %cmp20.not.i71.i = icmp eq i32 %20, 30000
   br i1 %cmp20.not.i71.i, label %lor.lhs.false21.i72.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i
 
 lor.lhs.false21.i72.i:                            ; preds = %if.end19.i69.i
-  %chrm_green_y.i73.i = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 3, i32 30
+  %chrm_green_y.i73.i = getelementptr inbounds i8, ptr %state_out, i64 420
   %21 = load i32, ptr %chrm_green_y.i73.i, align 4
   %cmp22.not.i74.i = icmp eq i32 %21, 60000
   br i1 %cmp22.not.i74.i, label %if.end24.i75.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i
 
 if.end24.i75.i:                                   ; preds = %lor.lhs.false21.i72.i
-  %chrm_blue_x.i76.i = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 3, i32 31
+  %chrm_blue_x.i76.i = getelementptr inbounds i8, ptr %state_out, i64 424
   %22 = load i32, ptr %chrm_blue_x.i76.i, align 8
   %cmp25.not.i77.i = icmp eq i32 %22, 15000
   br i1 %cmp25.not.i77.i, label %lor.lhs.false26.i78.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i
 
 lor.lhs.false26.i78.i:                            ; preds = %if.end24.i75.i
-  %chrm_blue_y.i79.i = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 3, i32 32
+  %chrm_blue_y.i79.i = getelementptr inbounds i8, ptr %state_out, i64 428
   %23 = load i32, ptr %chrm_blue_y.i79.i, align 4
   %cmp27.not.i80.i = icmp eq i32 %23, 6000
   br i1 %cmp27.not.i80.i, label %if.end30.i81.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i
@@ -5296,9 +5306,9 @@ _ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i:     ; preds = %if.end30.i81.i, %lo
   br i1 %cmp.not.i, label %if.end.i, label %if.else
 
 if.end.i:                                         ; preds = %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i
-  %iccp_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 35
+  %iccp_defined.i = getelementptr inbounds i8, ptr %cond.i, i64 232
   %24 = load i32, ptr %iccp_defined.i, align 8
-  %iccp_defined8.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 35
+  %iccp_defined8.i = getelementptr inbounds i8, ptr %cond6.i, i64 232
   %25 = load i32, ptr %iccp_defined8.i, align 8
   %cmp9.not.i = icmp eq i32 %24, %25
   br i1 %cmp9.not.i, label %if.end11.i, label %if.else
@@ -5308,9 +5318,9 @@ if.end11.i:                                       ; preds = %if.end.i
   br i1 %tobool13.not.i, label %if.end28.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end11.i
-  %iccp_profile_size.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 38
+  %iccp_profile_size.i = getelementptr inbounds i8, ptr %cond.i, i64 256
   %26 = load i32, ptr %iccp_profile_size.i, align 8
-  %iccp_profile_size15.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 38
+  %iccp_profile_size15.i = getelementptr inbounds i8, ptr %cond6.i, i64 256
   %27 = load i32, ptr %iccp_profile_size15.i, align 8
   %cmp16.not.i = icmp eq i32 %26, %27
   br i1 %cmp16.not.i, label %for.cond.preheader.i, label %if.else
@@ -5321,9 +5331,9 @@ for.cond.preheader.i:                             ; preds = %if.then14.i
   br i1 %cmp2083.not.i, label %if.then, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %iccp_profile.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 37
+  %iccp_profile.i = getelementptr inbounds i8, ptr %cond.i, i64 248
   %28 = load ptr, ptr %iccp_profile.i, align 8
-  %iccp_profile22.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 37
+  %iccp_profile22.i = getelementptr inbounds i8, ptr %cond6.i, i64 248
   %29 = load ptr, ptr %iccp_profile22.i, align 8
   br label %for.body.i
 
@@ -5342,9 +5352,9 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %cmp25.not.i, label %for.cond.i, label %if.else
 
 if.end28.i:                                       ; preds = %if.end11.i
-  %srgb_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 33
+  %srgb_defined.i = getelementptr inbounds i8, ptr %cond.i, i64 224
   %32 = load i32, ptr %srgb_defined.i, align 8
-  %srgb_defined29.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 33
+  %srgb_defined29.i = getelementptr inbounds i8, ptr %cond6.i, i64 224
   %33 = load i32, ptr %srgb_defined29.i, align 8
   %cmp30.not.i = icmp eq i32 %32, %33
   br i1 %cmp30.not.i, label %if.end32.i, label %if.else
@@ -5354,9 +5364,9 @@ if.end32.i:                                       ; preds = %if.end28.i
   br i1 %tobool34.not.i, label %if.end36.i, label %if.then
 
 if.end36.i:                                       ; preds = %if.end32.i
-  %gama_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 22
+  %gama_defined.i = getelementptr inbounds i8, ptr %cond.i, i64 180
   %34 = load i32, ptr %gama_defined.i, align 4
-  %gama_defined37.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 22
+  %gama_defined37.i = getelementptr inbounds i8, ptr %cond6.i, i64 180
   %35 = load i32, ptr %gama_defined37.i, align 4
   %cmp38.not.i = icmp eq i32 %34, %35
   br i1 %cmp38.not.i, label %if.end40.i, label %if.else
@@ -5366,17 +5376,17 @@ if.end40.i:                                       ; preds = %if.end36.i
   br i1 %tobool42.not.i, label %if.end48.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end40.i
-  %gama_gamma.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 23
+  %gama_gamma.i = getelementptr inbounds i8, ptr %cond.i, i64 184
   %36 = load i32, ptr %gama_gamma.i, align 8
-  %gama_gamma44.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 23
+  %gama_gamma44.i = getelementptr inbounds i8, ptr %cond6.i, i64 184
   %37 = load i32, ptr %gama_gamma44.i, align 8
   %cmp45.not.i = icmp eq i32 %36, %37
   br i1 %cmp45.not.i, label %if.end48.i, label %if.else
 
 if.end48.i:                                       ; preds = %if.then43.i, %if.end40.i
-  %chrm_defined.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 24
+  %chrm_defined.i = getelementptr inbounds i8, ptr %cond.i, i64 188
   %38 = load i32, ptr %chrm_defined.i, align 4
-  %chrm_defined49.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 24
+  %chrm_defined49.i = getelementptr inbounds i8, ptr %cond6.i, i64 188
   %39 = load i32, ptr %chrm_defined49.i, align 4
   %cmp50.not.i = icmp eq i32 %38, %39
   br i1 %cmp50.not.i, label %if.end52.i, label %if.else
@@ -5386,72 +5396,72 @@ if.end52.i:                                       ; preds = %if.end48.i
   br i1 %tobool54.not.i, label %if.then, label %if.then55.i
 
 if.then55.i:                                      ; preds = %if.end52.i
-  %chrm_white_x.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 25
+  %chrm_white_x.i = getelementptr inbounds i8, ptr %cond.i, i64 192
   %40 = load i32, ptr %chrm_white_x.i, align 8
-  %chrm_white_x56.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 25
+  %chrm_white_x56.i = getelementptr inbounds i8, ptr %cond6.i, i64 192
   %41 = load i32, ptr %chrm_white_x56.i, align 8
   %cmp57.not.i = icmp eq i32 %40, %41
   br i1 %cmp57.not.i, label %if.end59.i, label %if.else
 
 if.end59.i:                                       ; preds = %if.then55.i
-  %chrm_white_y.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 26
+  %chrm_white_y.i = getelementptr inbounds i8, ptr %cond.i, i64 196
   %42 = load i32, ptr %chrm_white_y.i, align 4
-  %chrm_white_y60.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 26
+  %chrm_white_y60.i = getelementptr inbounds i8, ptr %cond6.i, i64 196
   %43 = load i32, ptr %chrm_white_y60.i, align 4
   %cmp61.not.i = icmp eq i32 %42, %43
   br i1 %cmp61.not.i, label %if.end63.i, label %if.else
 
 if.end63.i:                                       ; preds = %if.end59.i
-  %chrm_red_x.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 27
+  %chrm_red_x.i = getelementptr inbounds i8, ptr %cond.i, i64 200
   %44 = load i32, ptr %chrm_red_x.i, align 8
-  %chrm_red_x64.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 27
+  %chrm_red_x64.i = getelementptr inbounds i8, ptr %cond6.i, i64 200
   %45 = load i32, ptr %chrm_red_x64.i, align 8
   %cmp65.not.i = icmp eq i32 %44, %45
   br i1 %cmp65.not.i, label %if.end67.i, label %if.else
 
 if.end67.i:                                       ; preds = %if.end63.i
-  %chrm_red_y.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 28
+  %chrm_red_y.i = getelementptr inbounds i8, ptr %cond.i, i64 204
   %46 = load i32, ptr %chrm_red_y.i, align 4
-  %chrm_red_y68.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 28
+  %chrm_red_y68.i = getelementptr inbounds i8, ptr %cond6.i, i64 204
   %47 = load i32, ptr %chrm_red_y68.i, align 4
   %cmp69.not.i = icmp eq i32 %46, %47
   br i1 %cmp69.not.i, label %if.end71.i, label %if.else
 
 if.end71.i:                                       ; preds = %if.end67.i
-  %chrm_green_x.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 29
+  %chrm_green_x.i = getelementptr inbounds i8, ptr %cond.i, i64 208
   %48 = load i32, ptr %chrm_green_x.i, align 8
-  %chrm_green_x72.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 29
+  %chrm_green_x72.i = getelementptr inbounds i8, ptr %cond6.i, i64 208
   %49 = load i32, ptr %chrm_green_x72.i, align 8
   %cmp73.not.i = icmp eq i32 %48, %49
   br i1 %cmp73.not.i, label %if.end75.i, label %if.else
 
 if.end75.i:                                       ; preds = %if.end71.i
-  %chrm_green_y.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 30
+  %chrm_green_y.i = getelementptr inbounds i8, ptr %cond.i, i64 212
   %50 = load i32, ptr %chrm_green_y.i, align 4
-  %chrm_green_y76.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 30
+  %chrm_green_y76.i = getelementptr inbounds i8, ptr %cond6.i, i64 212
   %51 = load i32, ptr %chrm_green_y76.i, align 4
   %cmp77.not.i = icmp eq i32 %50, %51
   br i1 %cmp77.not.i, label %if.end79.i, label %if.else
 
 if.end79.i:                                       ; preds = %if.end75.i
-  %chrm_blue_x.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 31
+  %chrm_blue_x.i = getelementptr inbounds i8, ptr %cond.i, i64 216
   %52 = load i32, ptr %chrm_blue_x.i, align 8
-  %chrm_blue_x80.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 31
+  %chrm_blue_x80.i = getelementptr inbounds i8, ptr %cond6.i, i64 216
   %53 = load i32, ptr %chrm_blue_x80.i, align 8
   %cmp81.not.i = icmp eq i32 %52, %53
   br i1 %cmp81.not.i, label %if.end83.i, label %if.else
 
 if.end83.i:                                       ; preds = %if.end79.i
-  %chrm_blue_y.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond.i, i64 0, i32 32
+  %chrm_blue_y.i = getelementptr inbounds i8, ptr %cond.i, i64 220
   %54 = load i32, ptr %chrm_blue_y.i, align 4
-  %chrm_blue_y84.i = getelementptr inbounds %struct.LodePNGInfo, ptr %cond6.i, i64 0, i32 32
+  %chrm_blue_y84.i = getelementptr inbounds i8, ptr %cond6.i, i64 220
   %55 = load i32, ptr %chrm_blue_y84.i, align 4
   %cmp85.not.i = icmp eq i32 %54, %55
   br i1 %cmp85.not.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.cond.i, %if.end52.i, %if.end83.i, %if.end32.i, %for.cond.preheader.i
-  %info_raw = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 2
-  %info_raw1 = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 2
+  %info_raw = getelementptr inbounds i8, ptr %state_out, i64 168
+  %info_raw1 = getelementptr inbounds i8, ptr %state_in, i64 168
   %call2 = tail call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %out, ptr noundef %in, ptr noundef nonnull %info_raw, ptr noundef nonnull %info_raw1, i32 noundef %w, i32 noundef %h)
   br label %return
 
@@ -5484,8 +5494,8 @@ define noundef i32 @_ZN7lodepng13convertToSrgbEPhPKhjjPK12LodePNGState(ptr nound
 entry:
   %srgb = alloca %struct.LodePNGState, align 8
   call void @_Z18lodepng_state_initP12LodePNGState(ptr noundef nonnull %srgb)
-  %info_raw = getelementptr inbounds %struct.LodePNGState, ptr %srgb, i64 0, i32 2
-  %info_raw1 = getelementptr inbounds %struct.LodePNGState, ptr %state_in, i64 0, i32 2
+  %info_raw = getelementptr inbounds i8, ptr %srgb, i64 168
+  %info_raw1 = getelementptr inbounds i8, ptr %state_in, i64 168
   %call = call noundef i32 @_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_(ptr noundef nonnull %info_raw, ptr noundef nonnull %info_raw1)
   %call2 = call noundef i32 @_ZN7lodepng15convertRGBModelEPhPKhjjPK12LodePNGStateS5_j(ptr noundef %out, ptr noundef %in, i32 noundef %w, i32 noundef %h, ptr noundef nonnull %srgb, ptr noundef %state_in, i32 noundef 1)
   ret i32 %call2
@@ -5500,8 +5510,8 @@ define noundef i32 @_ZN7lodepng15convertFromSrgbEPhPKhjjPK12LodePNGState(ptr nou
 entry:
   %srgb = alloca %struct.LodePNGState, align 8
   call void @_Z18lodepng_state_initP12LodePNGState(ptr noundef nonnull %srgb)
-  %info_raw = getelementptr inbounds %struct.LodePNGState, ptr %srgb, i64 0, i32 2
-  %info_raw1 = getelementptr inbounds %struct.LodePNGState, ptr %state_out, i64 0, i32 2
+  %info_raw = getelementptr inbounds i8, ptr %srgb, i64 168
+  %info_raw1 = getelementptr inbounds i8, ptr %state_out, i64 168
   %call = call noundef i32 @_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_(ptr noundef nonnull %info_raw, ptr noundef nonnull %info_raw1)
   %call2 = call noundef i32 @_ZN7lodepng15convertRGBModelEPhPKhjjPK12LodePNGStateS5_j(ptr noundef %out, ptr noundef %in, i32 noundef %w, i32 noundef %h, ptr noundef %state_out, ptr noundef nonnull %srgb, i32 noundef 1)
   ret i32 %call2
@@ -5513,7 +5523,7 @@ entry:
   %decoder = alloca %"struct.lodepng::ExtractPNG", align 8
   store ptr %zlibinfo, ptr %decoder, align 8
   %0 = load ptr, ptr %in, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %in, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %in, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   %spec.select = select i1 %cmp.i.i, ptr null, ptr %0
@@ -5521,7 +5531,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   call void @_ZN7lodepng10ExtractPNG6decodeEPKhm(ptr noundef nonnull align 8 dereferenceable(12) %decoder, ptr noundef %spec.select, i64 noundef %sub.ptr.sub.i)
-  %error = getelementptr inbounds %"struct.lodepng::ExtractPNG", ptr %decoder, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %decoder, i64 8
   %2 = load i32, ptr %error, align 8
   %tobool.not = icmp ne i32 %2, 0
   %cond3 = zext i1 %tobool.not to i32
@@ -5534,7 +5544,7 @@ entry:
   %idat = alloca %"class.std::vector", align 8
   %out = alloca %"class.std::vector", align 8
   %zlib = alloca %"struct.lodepng::ExtractZlib", align 8
-  %error = getelementptr inbounds %"struct.lodepng::ExtractPNG", ptr %this, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %error, align 8
   %cmp = icmp eq i64 %size, 0
   %cmp2 = icmp eq ptr %in, null
@@ -5627,7 +5637,7 @@ _ZN7lodepng10ExtractPNG13readPngHeaderEPKhm.exit.thread: ; preds = %if.end, %if.
 
 if.end6:                                          ; preds = %lor.lhs.false44.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %idat, i8 0, i64 24, i1 false)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %idat, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %idat, i64 8
   %cmp8.not66 = icmp ugt i64 %size, 41
   br i1 %cmp8.not66, label %if.end11, label %if.then9
 
@@ -5738,7 +5748,7 @@ while.end:                                        ; preds = %land.lhs.true66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, i8 0, i64 24, i1 false)
   %25 = load ptr, ptr %this, align 8
   store ptr %25, ptr %zlib, align 8
-  %codetree.i = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %zlib, i64 0, i32 2
+  %codetree.i = getelementptr inbounds i8, ptr %zlib, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %codetree.i, i8 0, i64 72, i1 false)
   %26 = load ptr, ptr %_M_finish.i, align 8
   %27 = load ptr, ptr %idat, align 8
@@ -5780,9 +5790,9 @@ invoke.cont82.thread:                             ; preds = %while.end, %if.end.
   br label %_ZN7lodepng11ExtractZlib11HuffmanTreeD2Ev.exit.i
 
 invoke.cont82:                                    ; preds = %if.end26.i
-  %error.i = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %zlib, i64 0, i32 1
+  %error.i = getelementptr inbounds i8, ptr %zlib, i64 8
   %32 = load i32, ptr %error.i, align 8
-  %codelengthcodetree.i.phi.trans.insert = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %zlib, i64 0, i32 4
+  %codelengthcodetree.i.phi.trans.insert = getelementptr inbounds i8, ptr %zlib, i64 64
   %.pre = load ptr, ptr %codelengthcodetree.i.phi.trans.insert, align 8
   store i32 %32, ptr %error, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %.pre, null
@@ -5793,7 +5803,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont82
   br label %_ZN7lodepng11ExtractZlib11HuffmanTreeD2Ev.exit.i
 
 _ZN7lodepng11ExtractZlib11HuffmanTreeD2Ev.exit.i: ; preds = %invoke.cont82.thread, %if.then.i.i.i.i.i, %invoke.cont82
-  %codetreeD.i = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %zlib, i64 0, i32 3
+  %codetreeD.i = getelementptr inbounds i8, ptr %zlib, i64 40
   %33 = load ptr, ptr %codetreeD.i, align 8
   %tobool.not.i.i.i.i1.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i.i1.i, label %_ZN7lodepng11ExtractZlib11HuffmanTreeD2Ev.exit3.i, label %if.then.i.i.i.i2.i
@@ -5923,7 +5933,7 @@ entry:
   ]
 
 if.then3:                                         ; preds = %entry
-  %lut = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 1
+  %lut = getelementptr inbounds i8, ptr %curve, i64 8
   %1 = load ptr, ptr %lut, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end5
@@ -5933,7 +5943,7 @@ if.end5:                                          ; preds = %if.then3
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %lut_size = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 2
+  %lut_size = getelementptr inbounds i8, ptr %curve, i64 16
   %2 = load i64, ptr %lut_size, align 8
   %sub = add i64 %2, -1
   %conv = uitofp i64 %sub to float
@@ -5969,7 +5979,7 @@ if.then31:                                        ; preds = %entry
   br i1 %cmp32, label %cond.true33, label %return
 
 cond.true33:                                      ; preds = %if.then31
-  %gamma = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 3
+  %gamma = getelementptr inbounds i8, ptr %curve, i64 24
   %7 = load float, ptr %gamma, align 8
   %call = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %x, float noundef %7)
   br label %return
@@ -5979,10 +5989,10 @@ if.then40:                                        ; preds = %entry
   br i1 %cmp41, label %return, label %if.end43
 
 if.end43:                                         ; preds = %if.then40
-  %b = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 5
+  %b = getelementptr inbounds i8, ptr %curve, i64 32
   %8 = load float, ptr %b, align 8
   %fneg = fneg float %8
-  %a = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 4
+  %a = getelementptr inbounds i8, ptr %curve, i64 28
   %9 = load float, ptr %a, align 4
   %div = fdiv float %fneg, %9
   %cmp44 = fcmp ugt float %div, %x
@@ -5990,10 +6000,10 @@ if.end43:                                         ; preds = %if.then40
 
 cond.true45:                                      ; preds = %if.end43
   %10 = tail call float @llvm.fmuladd.f32(float %9, float %x, float %8)
-  %gamma49 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 3
+  %gamma49 = getelementptr inbounds i8, ptr %curve, i64 24
   %11 = load float, ptr %gamma49, align 8
   %call50 = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %10, float noundef %11)
-  %c = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 6
+  %c = getelementptr inbounds i8, ptr %curve, i64 36
   %12 = load float, ptr %c, align 4
   %add51 = fadd float %call50, %12
   br label %return
@@ -6003,10 +6013,10 @@ if.then58:                                        ; preds = %entry
   br i1 %cmp59, label %return, label %if.end61
 
 if.end61:                                         ; preds = %if.then58
-  %b62 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 5
+  %b62 = getelementptr inbounds i8, ptr %curve, i64 32
   %13 = load float, ptr %b62, align 8
   %fneg63 = fneg float %13
-  %a64 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 4
+  %a64 = getelementptr inbounds i8, ptr %curve, i64 28
   %14 = load float, ptr %a64, align 4
   %div65 = fdiv float %fneg63, %14
   %cmp66 = fcmp ugt float %div65, %x
@@ -6014,66 +6024,66 @@ if.end61:                                         ; preds = %if.then58
 
 cond.true67:                                      ; preds = %if.end61
   %15 = tail call float @llvm.fmuladd.f32(float %14, float %x, float %13)
-  %gamma71 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 3
+  %gamma71 = getelementptr inbounds i8, ptr %curve, i64 24
   %16 = load float, ptr %gamma71, align 8
   %call72 = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %15, float noundef %16)
-  %c73 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 6
+  %c73 = getelementptr inbounds i8, ptr %curve, i64 36
   %17 = load float, ptr %c73, align 4
   %add74 = fadd float %call72, %17
   br label %return
 
 cond.false75:                                     ; preds = %if.end61
-  %c76 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 6
+  %c76 = getelementptr inbounds i8, ptr %curve, i64 36
   %18 = load float, ptr %c76, align 4
   br label %return
 
 if.then82:                                        ; preds = %entry
-  %d = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 7
+  %d = getelementptr inbounds i8, ptr %curve, i64 40
   %19 = load float, ptr %d, align 8
   %cmp83 = fcmp ugt float %19, %x
   br i1 %cmp83, label %cond.false90, label %cond.true84
 
 cond.true84:                                      ; preds = %if.then82
-  %a85 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 4
+  %a85 = getelementptr inbounds i8, ptr %curve, i64 28
   %20 = load float, ptr %a85, align 4
-  %b87 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 5
+  %b87 = getelementptr inbounds i8, ptr %curve, i64 32
   %21 = load float, ptr %b87, align 8
   %22 = tail call float @llvm.fmuladd.f32(float %20, float %x, float %21)
-  %gamma88 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 3
+  %gamma88 = getelementptr inbounds i8, ptr %curve, i64 24
   %23 = load float, ptr %gamma88, align 8
   %call89 = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %22, float noundef %23)
   br label %return
 
 cond.false90:                                     ; preds = %if.then82
-  %c91 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 6
+  %c91 = getelementptr inbounds i8, ptr %curve, i64 36
   %24 = load float, ptr %c91, align 4
   %mul92 = fmul float %24, %x
   br label %return
 
 if.then98:                                        ; preds = %entry
-  %d99 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 7
+  %d99 = getelementptr inbounds i8, ptr %curve, i64 40
   %25 = load float, ptr %d99, align 8
   %cmp100 = fcmp ugt float %25, %x
   br i1 %cmp100, label %cond.false109, label %cond.true101
 
 cond.true101:                                     ; preds = %if.then98
-  %a102 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 4
+  %a102 = getelementptr inbounds i8, ptr %curve, i64 28
   %26 = load float, ptr %a102, align 4
-  %b104 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 5
+  %b104 = getelementptr inbounds i8, ptr %curve, i64 32
   %27 = load float, ptr %b104, align 8
   %28 = tail call float @llvm.fmuladd.f32(float %26, float %x, float %27)
-  %gamma105 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 3
+  %gamma105 = getelementptr inbounds i8, ptr %curve, i64 24
   %29 = load float, ptr %gamma105, align 8
   %call106 = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %28, float noundef %29)
-  %c107 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 6
+  %c107 = getelementptr inbounds i8, ptr %curve, i64 36
   %30 = load float, ptr %c107, align 4
   %add108 = fadd float %call106, %30
   br label %return
 
 cond.false109:                                    ; preds = %if.then98
-  %c110 = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 6
+  %c110 = getelementptr inbounds i8, ptr %curve, i64 36
   %31 = load float, ptr %c110, align 4
-  %f = getelementptr inbounds %"struct.lodepng::LodePNGICCCurve", ptr %curve, i64 0, i32 9
+  %f = getelementptr inbounds i8, ptr %curve, i64 48
   %32 = load float, ptr %f, align 8
   %33 = tail call float @llvm.fmuladd.f32(float %31, float %x, float %32)
   br label %return
@@ -6386,26 +6396,26 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %a.i, i8 0, i64 32, i1 false)
   store float 1.000000e+00, ptr %a.i, align 16
-  %1 = getelementptr inbounds [9 x float], ptr %a.i, i64 0, i64 4
+  %1 = getelementptr inbounds i8, ptr %a.i, i64 16
   store float 1.000000e+00, ptr %1, align 16
-  %2 = getelementptr inbounds [9 x float], ptr %a.i, i64 0, i64 8
+  %2 = getelementptr inbounds i8, ptr %a.i, i64 32
   store float 1.000000e+00, ptr %2, align 16
-  %has_chad.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 5
+  %has_chad.i = getelementptr inbounds i8, ptr %icc, i64 28
   %3 = load i32, ptr %has_chad.i, align 4
   %tobool.not.i = icmp eq i32 %3, 0
-  %arrayidx1.i45.phi.trans.insert.i = getelementptr inbounds float, ptr %a.i, i64 1
-  br i1 %tobool.not.i, label %for.body38.preheader.i, label %if.then22.i
+  %arrayidx1.i45.phi.trans.insert.i = getelementptr inbounds i8, ptr %a.i, i64 4
+  br i1 %tobool.not.i, label %for.cond36.preheader.i, label %if.then22.i
 
-for.body38.preheader.i:                           ; preds = %if.then.i
-  %illuminant.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 4
+for.cond36.preheader.i:                           ; preds = %if.then.i
+  %illuminant.i = getelementptr inbounds i8, ptr %icc, i64 16
   %4 = load float, ptr %illuminant.i, align 8
-  %arrayidx7.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 4, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %icc, i64 20
   %5 = load float, ptr %arrayidx7.i, align 4
-  %arrayidx9.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 4, i64 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %icc, i64 24
   %6 = load float, ptr %arrayidx9.i, align 8
-  %white10.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 8
+  %white10.i = getelementptr inbounds i8, ptr %icc, i64 72
   %7 = load <2 x float>, ptr %white10.i, align 8
-  %arrayidx15.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 8, i64 2
+  %arrayidx15.i = getelementptr inbounds i8, ptr %icc, i64 80
   %8 = load float, ptr %arrayidx15.i, align 8
   %9 = extractelement <2 x float> %7, i64 0
   %10 = extractelement <2 x float> %7, i64 1
@@ -6414,54 +6424,54 @@ for.body38.preheader.i:                           ; preds = %if.then.i
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %13 = load <4 x float>, ptr %arrayidx1.i45.phi.trans.insert.i, align 4
   %14 = shufflevector <4 x float> %13, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx4.i48.phi.trans.insert.i = getelementptr inbounds float, ptr %a.i, i64 2
+  %arrayidx4.i48.phi.trans.insert.i = getelementptr inbounds i8, ptr %a.i, i64 8
   %15 = load <4 x float>, ptr %arrayidx4.i48.phi.trans.insert.i, align 8
   %16 = shufflevector <4 x float> %15, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx7.i51.phi.trans.insert.i = getelementptr inbounds float, ptr %a.i, i64 3
-  %.pre118.i = load float, ptr %arrayidx7.i51.phi.trans.insert.i, align 4
-  %.pre119.i = load float, ptr %1, align 16
-  %arrayidx12.i56.phi.trans.insert.i = getelementptr inbounds float, ptr %a.i, i64 5
-  %.pre120.i = load float, ptr %arrayidx12.i56.phi.trans.insert.i, align 4
-  %arrayidx15.i59.phi.trans.insert.i = getelementptr inbounds float, ptr %a.i, i64 6
-  %.pre121.i = load float, ptr %arrayidx15.i59.phi.trans.insert.i, align 8
-  %arrayidx17.i61.phi.trans.insert.i = getelementptr inbounds float, ptr %a.i, i64 7
-  %.pre122.i = load float, ptr %arrayidx17.i61.phi.trans.insert.i, align 4
-  %.pre123.i = load float, ptr %2, align 16
-  %17 = insertelement <2 x float> %12, float %.pre118.i, i64 1
+  %arrayidx7.i51.phi.trans.insert.i = getelementptr inbounds i8, ptr %a.i, i64 12
+  %.pre117.i = load float, ptr %arrayidx7.i51.phi.trans.insert.i, align 4
+  %.pre118.i = load float, ptr %1, align 16
+  %arrayidx12.i56.phi.trans.insert.i = getelementptr inbounds i8, ptr %a.i, i64 20
+  %.pre119.i = load float, ptr %arrayidx12.i56.phi.trans.insert.i, align 4
+  %arrayidx15.i59.phi.trans.insert.i = getelementptr inbounds i8, ptr %a.i, i64 24
+  %.pre120.i = load float, ptr %arrayidx15.i59.phi.trans.insert.i, align 8
+  %arrayidx17.i61.phi.trans.insert.i = getelementptr inbounds i8, ptr %a.i, i64 28
+  %.pre121.i = load float, ptr %arrayidx17.i61.phi.trans.insert.i, align 4
+  %.pre122.i = load float, ptr %2, align 16
+  %17 = insertelement <2 x float> %12, float %.pre117.i, i64 1
   %18 = fpext <2 x float> %17 to <2 x double>
-  %19 = insertelement <2 x float> %14, float %.pre119.i, i64 1
+  %19 = insertelement <2 x float> %14, float %.pre118.i, i64 1
   %20 = fpext <2 x float> %19 to <2 x double>
-  %21 = insertelement <2 x float> %16, float %.pre120.i, i64 1
+  %21 = insertelement <2 x float> %16, float %.pre119.i, i64 1
   %22 = fpext <2 x float> %21 to <2 x double>
+  %.pre129.i = fpext float %.pre120.i to double
   %.pre130.i = fpext float %.pre121.i to double
   %.pre131.i = fpext float %.pre122.i to double
-  %.pre132.i = fpext float %.pre123.i to double
   br label %if.end45.i
 
 if.then22.i:                                      ; preds = %if.then.i
-  %scevgep.i = getelementptr i8, ptr %icc, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %a.i, ptr noundef nonnull align 4 dereferenceable(36) %scevgep.i, i64 36, i1 false)
+  %chad.i = getelementptr inbounds i8, ptr %icc, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %a.i, ptr noundef nonnull align 4 dereferenceable(36) %chad.i, i64 36, i1 false)
   %call.i = call fastcc noundef i32 @_ZN7lodepngL9invMatrixEPf(ptr noundef nonnull %a.i), !range !15
-  %white27.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 8
+  %white27.i = getelementptr inbounds i8, ptr %icc, i64 72
   %23 = load float, ptr %white27.i, align 8
   %conv.i = fpext float %23 to double
-  %arrayidx30.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 8, i64 1
+  %arrayidx30.i = getelementptr inbounds i8, ptr %icc, i64 76
   %24 = load float, ptr %arrayidx30.i, align 4
   %conv31.i = fpext float %24 to double
-  %arrayidx33.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 8, i64 2
+  %arrayidx33.i = getelementptr inbounds i8, ptr %icc, i64 80
   %25 = load float, ptr %arrayidx33.i, align 8
   %conv34.i = fpext float %25 to double
   %26 = load <4 x float>, ptr %a.i, align 16
   %27 = shufflevector <4 x float> %26, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %28 = load <4 x float>, ptr %arrayidx1.i45.phi.trans.insert.i, align 4
   %29 = shufflevector <4 x float> %28, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx4.i.i = getelementptr inbounds float, ptr %a.i, i64 2
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %a.i, i64 8
   %30 = load <4 x float>, ptr %arrayidx4.i.i, align 8
   %31 = shufflevector <4 x float> %30, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx7.i.i = getelementptr inbounds float, ptr %a.i, i64 3
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %a.i, i64 12
   %32 = load float, ptr %arrayidx7.i.i, align 4
   %33 = load float, ptr %1, align 16
-  %arrayidx12.i.i = getelementptr inbounds float, ptr %a.i, i64 5
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %a.i, i64 20
   %34 = load float, ptr %arrayidx12.i.i, align 4
   %35 = insertelement <2 x float> %29, float %33, i64 1
   %36 = fpext <2 x float> %35 to <2 x double>
@@ -6479,10 +6489,10 @@ if.then22.i:                                      ; preds = %if.then.i
   %48 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> zeroinitializer
   %49 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %48, <2 x double> %40, <2 x double> %46)
   %50 = fptrunc <2 x double> %49 to <2 x float>
-  %arrayidx15.i.i = getelementptr inbounds float, ptr %a.i, i64 6
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %a.i, i64 24
   %51 = load float, ptr %arrayidx15.i.i, align 8
   %conv16.i.i = fpext float %51 to double
-  %arrayidx17.i.i = getelementptr inbounds float, ptr %a.i, i64 7
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %a.i, i64 28
   %52 = load float, ptr %arrayidx17.i.i, align 4
   %conv18.i.i = fpext float %52 to double
   %mul19.i.i = fmul double %conv31.i, %conv18.i.i
@@ -6493,46 +6503,46 @@ if.then22.i:                                      ; preds = %if.then.i
   %conv22.i.i = fptrunc double %55 to float
   br label %if.end45.i
 
-if.end45.i:                                       ; preds = %if.then22.i, %for.body38.preheader.i
-  %conv21.i65.pre-phi.i = phi double [ %.pre132.i, %for.body38.preheader.i ], [ %conv21.i.i, %if.then22.i ]
-  %conv18.i62.pre-phi.i = phi double [ %.pre131.i, %for.body38.preheader.i ], [ %conv18.i.i, %if.then22.i ]
-  %conv16.i60.pre-phi.i = phi double [ %.pre130.i, %for.body38.preheader.i ], [ %conv16.i.i, %if.then22.i ]
-  %white.sroa.5.0.i = phi float [ %8, %for.body38.preheader.i ], [ %conv22.i.i, %if.then22.i ]
-  %56 = phi <2 x double> [ %22, %for.body38.preheader.i ], [ %40, %if.then22.i ]
-  %57 = phi <2 x double> [ %18, %for.body38.preheader.i ], [ %38, %if.then22.i ]
-  %58 = phi <2 x double> [ %20, %for.body38.preheader.i ], [ %36, %if.then22.i ]
-  %59 = phi <2 x float> [ %7, %for.body38.preheader.i ], [ %50, %if.then22.i ]
+if.end45.i:                                       ; preds = %if.then22.i, %for.cond36.preheader.i
+  %conv21.i65.pre-phi.i = phi double [ %.pre131.i, %for.cond36.preheader.i ], [ %conv21.i.i, %if.then22.i ]
+  %conv18.i62.pre-phi.i = phi double [ %.pre130.i, %for.cond36.preheader.i ], [ %conv18.i.i, %if.then22.i ]
+  %conv16.i60.pre-phi.i = phi double [ %.pre129.i, %for.cond36.preheader.i ], [ %conv16.i.i, %if.then22.i ]
+  %white.sroa.5.0.i = phi float [ %8, %for.cond36.preheader.i ], [ %conv22.i.i, %if.then22.i ]
+  %56 = phi <2 x double> [ %22, %for.cond36.preheader.i ], [ %40, %if.then22.i ]
+  %57 = phi <2 x double> [ %18, %for.cond36.preheader.i ], [ %38, %if.then22.i ]
+  %58 = phi <2 x double> [ %20, %for.cond36.preheader.i ], [ %36, %if.then22.i ]
+  %59 = phi <2 x float> [ %7, %for.cond36.preheader.i ], [ %50, %if.then22.i ]
   %60 = shufflevector <2 x double> %58, <2 x double> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %61 = shufflevector <2 x double> %57, <2 x double> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %62 = shufflevector <2 x double> %56, <2 x double> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %red50.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 10
+  %red50.i = getelementptr inbounds i8, ptr %icc, i64 88
   %63 = load float, ptr %red50.i, align 8
-  %arrayidx54.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 10, i64 1
+  %arrayidx54.i = getelementptr inbounds i8, ptr %icc, i64 92
   %64 = load float, ptr %arrayidx54.i, align 4
-  %arrayidx57.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 10, i64 2
+  %arrayidx57.i = getelementptr inbounds i8, ptr %icc, i64 96
   %65 = load float, ptr %arrayidx57.i, align 8
-  %green63.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 11
+  %green63.i = getelementptr inbounds i8, ptr %icc, i64 100
   %66 = load float, ptr %green63.i, align 4
   %67 = insertelement <2 x float> poison, float %63, i64 0
   %68 = insertelement <2 x float> %67, float %66, i64 1
   %69 = fpext <2 x float> %68 to <2 x double>
-  %arrayidx67.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 11, i64 1
+  %arrayidx67.i = getelementptr inbounds i8, ptr %icc, i64 104
   %70 = load float, ptr %arrayidx67.i, align 4
   %71 = insertelement <2 x float> poison, float %64, i64 0
   %72 = insertelement <2 x float> %71, float %70, i64 1
   %73 = fpext <2 x float> %72 to <2 x double>
-  %arrayidx70.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 11, i64 2
+  %arrayidx70.i = getelementptr inbounds i8, ptr %icc, i64 108
   %74 = load float, ptr %arrayidx70.i, align 4
   %75 = insertelement <2 x float> poison, float %65, i64 0
   %76 = insertelement <2 x float> %75, float %74, i64 1
   %77 = fpext <2 x float> %76 to <2 x double>
-  %blue76.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 12
+  %blue76.i = getelementptr inbounds i8, ptr %icc, i64 112
   %78 = load float, ptr %blue76.i, align 8
   %conv78.i = fpext float %78 to double
-  %arrayidx80.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 12, i64 1
+  %arrayidx80.i = getelementptr inbounds i8, ptr %icc, i64 116
   %79 = load float, ptr %arrayidx80.i, align 4
   %conv81.i = fpext float %79 to double
-  %arrayidx83.i = getelementptr inbounds %"struct.lodepng::LodePNGICC", ptr %icc, i64 0, i32 12, i64 2
+  %arrayidx83.i = getelementptr inbounds i8, ptr %icc, i64 120
   %80 = load float, ptr %arrayidx83.i, align 8
   %conv84.i = fpext float %80 to double
   %81 = shufflevector <2 x double> %73, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -6576,21 +6586,21 @@ if.end45.i:                                       ; preds = %if.then22.i, %for.b
   %conv22.i112.i = fptrunc double %117 to float
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %t.i)
   store <4 x float> %93, ptr %t.i, align 16
-  %arrayidx4.i = getelementptr inbounds [9 x float], ptr %t.i, i64 0, i64 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %t.i, i64 16
   store <4 x float> %115, ptr %arrayidx4.i, align 16
-  %arrayidx8.i = getelementptr inbounds [9 x float], ptr %t.i, i64 0, i64 8
+  %arrayidx8.i = getelementptr inbounds i8, ptr %t.i, i64 32
   store float %conv22.i112.i, ptr %arrayidx8.i, align 16
   %call.i33 = call fastcc noundef i32 @_ZN7lodepngL9invMatrixEPf(ptr noundef nonnull %t.i), !range !15
   %tobool.not.i34 = icmp eq i32 %call.i33, 0
   br i1 %tobool.not.i34, label %if.end100.i, label %_ZN7lodepngL10getICCChrmEPfS0_PKNS_10LodePNGICCE.exit
 
 if.end100.i:                                      ; preds = %if.end45.i
-  %arrayidx7.i32 = getelementptr inbounds [9 x float], ptr %t.i, i64 0, i64 7
-  %arrayidx6.i = getelementptr inbounds [9 x float], ptr %t.i, i64 0, i64 6
-  %arrayidx5.i = getelementptr inbounds [9 x float], ptr %t.i, i64 0, i64 5
-  %arrayidx3.i = getelementptr inbounds [9 x float], ptr %t.i, i64 0, i64 3
-  %arrayidx2.i = getelementptr inbounds [9 x float], ptr %t.i, i64 0, i64 2
-  %arrayidx1.i = getelementptr inbounds [9 x float], ptr %t.i, i64 0, i64 1
+  %arrayidx7.i32 = getelementptr inbounds i8, ptr %t.i, i64 28
+  %arrayidx6.i = getelementptr inbounds i8, ptr %t.i, i64 24
+  %arrayidx5.i = getelementptr inbounds i8, ptr %t.i, i64 20
+  %arrayidx3.i = getelementptr inbounds i8, ptr %t.i, i64 12
+  %arrayidx2.i = getelementptr inbounds i8, ptr %t.i, i64 8
+  %arrayidx1.i = getelementptr inbounds i8, ptr %t.i, i64 4
   %118 = extractelement <2 x float> %59, i64 0
   %conv.i36 = fpext float %118 to double
   %119 = extractelement <2 x float> %59, i64 1
@@ -6637,28 +6647,28 @@ if.end100.i:                                      ; preds = %if.end45.i
   %153 = shufflevector <4 x float> %152, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
   %154 = fmul <4 x float> %153, %93
   store <4 x float> %154, ptr %m, align 4
-  %arrayidx20.i = getelementptr inbounds float, ptr %m, i64 4
+  %arrayidx20.i = getelementptr inbounds i8, ptr %m, i64 16
   %155 = insertelement <4 x float> %151, float %conv6.i.i41, i64 2
   %156 = shufflevector <4 x float> %155, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
   %157 = fmul <4 x float> %156, %115
   store <4 x float> %157, ptr %arrayidx20.i, align 4
   %158 = extractelement <2 x float> %149, i64 1
   %mul27.i = fmul float %158, %conv22.i112.i
-  %arrayidx28.i = getelementptr inbounds float, ptr %m, i64 8
+  %arrayidx28.i = getelementptr inbounds i8, ptr %m, i64 32
   store float %mul27.i, ptr %arrayidx28.i, align 4
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %t.i)
   store <2 x float> %59, ptr %whitepoint, align 4
-  %arrayidx106.i = getelementptr inbounds float, ptr %whitepoint, i64 2
+  %arrayidx106.i = getelementptr inbounds i8, ptr %whitepoint, i64 8
   store float %white.sroa.5.0.i, ptr %arrayidx106.i, align 4
   br label %_ZN7lodepngL10getICCChrmEPfS0_PKNS_10LodePNGICCE.exit.thread
 
 if.else107.i:                                     ; preds = %if.then
-  %arrayidx108.i = getelementptr inbounds float, ptr %m, i64 8
+  %arrayidx108.i = getelementptr inbounds i8, ptr %m, i64 32
   store float 1.000000e+00, ptr %arrayidx108.i, align 4
-  %arrayidx109.i = getelementptr inbounds float, ptr %m, i64 4
+  %arrayidx109.i = getelementptr inbounds i8, ptr %m, i64 16
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %arrayidx109.i, align 4
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %m, align 4
-  %arrayidx117.i = getelementptr inbounds float, ptr %whitepoint, i64 2
+  %arrayidx117.i = getelementptr inbounds i8, ptr %whitepoint, i64 8
   store float 1.000000e+00, ptr %arrayidx117.i, align 4
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %whitepoint, align 4
   br label %_ZN7lodepngL10getICCChrmEPfS0_PKNS_10LodePNGICCE.exit.thread
@@ -6673,35 +6683,35 @@ _ZN7lodepngL10getICCChrmEPfS0_PKNS_10LodePNGICCE.exit: ; preds = %if.end45.i
   br label %return
 
 if.else:                                          ; preds = %entry
-  %chrm_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 24
+  %chrm_defined = getelementptr inbounds i8, ptr %info, i64 188
   %159 = load i32, ptr %chrm_defined, align 4
   %tobool3.not = icmp eq i32 %159, 0
   br i1 %tobool3.not, label %if.else29, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %srgb_defined = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 33
+  %srgb_defined = getelementptr inbounds i8, ptr %info, i64 224
   %160 = load i32, ptr %srgb_defined, align 8
   %tobool4.not = icmp eq i32 %160, 0
   br i1 %tobool4.not, label %if.then5, label %if.else29
 
 if.then5:                                         ; preds = %land.lhs.true
-  %chrm_white_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 25
+  %chrm_white_x = getelementptr inbounds i8, ptr %info, i64 192
   %161 = load i32, ptr %chrm_white_x, align 8
   %conv = uitofp i32 %161 to float
   %div = fdiv float %conv, 1.000000e+05
-  %chrm_white_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 26
+  %chrm_white_y = getelementptr inbounds i8, ptr %info, i64 196
   %162 = load i32, ptr %chrm_white_y, align 4
   %conv6 = uitofp i32 %162 to float
   %div7 = fdiv float %conv6, 1.000000e+05
-  %chrm_red_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 28
+  %chrm_red_y = getelementptr inbounds i8, ptr %info, i64 204
   %163 = load i32, ptr %chrm_red_y, align 4
-  %chrm_green_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 30
+  %chrm_green_y = getelementptr inbounds i8, ptr %info, i64 212
   %164 = load i32, ptr %chrm_green_y, align 4
   %165 = insertelement <2 x i32> poison, i32 %163, i64 0
   %166 = insertelement <2 x i32> %165, i32 %164, i64 1
   %167 = uitofp <2 x i32> %166 to <2 x float>
   %168 = fdiv <2 x float> %167, <float 1.000000e+05, float 1.000000e+05>
-  %chrm_blue_y = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 32
+  %chrm_blue_y = getelementptr inbounds i8, ptr %info, i64 220
   %169 = load i32, ptr %chrm_blue_y, align 4
   %conv18 = uitofp i32 %169 to float
   %div19 = fdiv float %conv18, 1.000000e+05
@@ -6717,13 +6727,13 @@ if.then5:                                         ; preds = %land.lhs.true
   br i1 %or.cond2.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then5
-  %chrm_blue_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 31
+  %chrm_blue_x = getelementptr inbounds i8, ptr %info, i64 216
   %172 = load i32, ptr %chrm_blue_x, align 8
   %conv16 = uitofp i32 %172 to float
   %div17 = fdiv float %conv16, 1.000000e+05
-  %chrm_green_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 29
+  %chrm_green_x = getelementptr inbounds i8, ptr %info, i64 208
   %173 = load i32, ptr %chrm_green_x, align 8
-  %chrm_red_x = getelementptr inbounds %struct.LodePNGInfo, ptr %info, i64 0, i32 27
+  %chrm_red_x = getelementptr inbounds i8, ptr %info, i64 200
   %174 = load i32, ptr %chrm_red_x, align 8
   %175 = insertelement <2 x i32> poison, i32 %174, i64 0
   %176 = insertelement <2 x i32> %175, i32 %173, i64 1
@@ -6739,15 +6749,15 @@ if.else.i:                                        ; preds = %if.then5
   %div19.i = fdiv float %sub18.i, %div19
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %t.i.i)
   store <2 x float> %179, ptr %t.i.i, align 16
-  %arrayidx2.i.i = getelementptr inbounds [9 x float], ptr %t.i.i, i64 0, i64 2
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 8
   store float %div16.i, ptr %arrayidx2.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds [9 x float], ptr %t.i.i, i64 0, i64 3
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 12
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx3.i.i, align 4
-  %arrayidx5.i.i = getelementptr inbounds [9 x float], ptr %t.i.i, i64 0, i64 5
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 20
   store float 1.000000e+00, ptr %arrayidx5.i.i, align 4
-  %arrayidx6.i.i = getelementptr inbounds [9 x float], ptr %t.i.i, i64 0, i64 6
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 24
   store <2 x float> %182, ptr %arrayidx6.i.i, align 8
-  %arrayidx8.i.i = getelementptr inbounds [9 x float], ptr %t.i.i, i64 0, i64 8
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 32
   store float %div19.i, ptr %arrayidx8.i.i, align 16
   %call.i.i = call fastcc noundef i32 @_ZN7lodepngL9invMatrixEPf(ptr noundef nonnull %t.i.i), !range !15
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -6758,9 +6768,9 @@ _ZN7lodepngL15getChrmMatrixXYEPfffffffff.exit:    ; preds = %if.else.i
   br label %return
 
 if.end23:                                         ; preds = %if.else.i
-  %arrayidx7.i.i29 = getelementptr inbounds [9 x float], ptr %t.i.i, i64 0, i64 7
-  %arrayidx4.i.i28 = getelementptr inbounds [9 x float], ptr %t.i.i, i64 0, i64 4
-  %arrayidx1.i.i27 = getelementptr inbounds [9 x float], ptr %t.i.i, i64 0, i64 1
+  %arrayidx7.i.i29 = getelementptr inbounds i8, ptr %t.i.i, i64 28
+  %arrayidx4.i.i28 = getelementptr inbounds i8, ptr %t.i.i, i64 16
+  %arrayidx1.i.i27 = getelementptr inbounds i8, ptr %t.i.i, i64 4
   %sub.i = fsub float 1.000000e+00, %div
   %sub6.i = fsub float %sub.i, %div7
   %div7.i = fdiv float %sub6.i, %div7
@@ -6801,30 +6811,30 @@ if.end23:                                         ; preds = %if.else.i
   %210 = fmul <2 x float> %179, %209
   store <2 x float> %210, ptr %m, align 4
   %mul15.i.i = fmul float %div16.i, %conv22.i.i.i
-  %arrayidx16.i.i = getelementptr inbounds float, ptr %m, i64 2
+  %arrayidx16.i.i = getelementptr inbounds i8, ptr %m, i64 8
   store float %mul15.i.i, ptr %arrayidx16.i.i, align 4
-  %arrayidx18.i.i = getelementptr inbounds float, ptr %m, i64 3
+  %arrayidx18.i.i = getelementptr inbounds i8, ptr %m, i64 12
   store <2 x float> %209, ptr %arrayidx18.i.i, align 4
-  %arrayidx22.i.i = getelementptr inbounds float, ptr %m, i64 5
+  %arrayidx22.i.i = getelementptr inbounds i8, ptr %m, i64 20
   store float %conv22.i.i.i, ptr %arrayidx22.i.i, align 4
-  %arrayidx24.i.i = getelementptr inbounds float, ptr %m, i64 6
+  %arrayidx24.i.i = getelementptr inbounds i8, ptr %m, i64 24
   %211 = fmul <2 x float> %182, %209
   store <2 x float> %211, ptr %arrayidx24.i.i, align 4
   %mul27.i.i = fmul float %div19.i, %conv22.i.i.i
-  %arrayidx28.i.i = getelementptr inbounds float, ptr %m, i64 8
+  %arrayidx28.i.i = getelementptr inbounds i8, ptr %m, i64 32
   store float %mul27.i.i, ptr %arrayidx28.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %t.i.i)
   store float %div.i, ptr %whitepoint, align 4
-  %arrayidx25 = getelementptr inbounds float, ptr %whitepoint, i64 1
+  %arrayidx25 = getelementptr inbounds i8, ptr %whitepoint, i64 4
   store float 1.000000e+00, ptr %arrayidx25, align 4
-  %arrayidx28 = getelementptr inbounds float, ptr %whitepoint, i64 2
+  %arrayidx28 = getelementptr inbounds i8, ptr %whitepoint, i64 8
   store float %div7.i, ptr %arrayidx28, align 4
   br label %return
 
 if.else29:                                        ; preds = %land.lhs.true, %if.else
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %m, ptr noundef nonnull align 16 dereferenceable(36) @_ZZN7lodepngL7getChrmEPfS0_jPKNS_10LodePNGICCEPK11LodePNGInfoE4srgb, i64 36, i1 false)
   store <2 x float> <float 0x3FEE6A2280000000, float 1.000000e+00>, ptr %whitepoint, align 4
-  %arrayidx34 = getelementptr inbounds float, ptr %whitepoint, i64 2
+  %arrayidx34 = getelementptr inbounds i8, ptr %whitepoint, i64 8
   store float 0x3FF16CC7E0000000, ptr %arrayidx34, align 4
   br label %return
 
@@ -6840,23 +6850,23 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define internal fastcc noundef i32 @_ZN7lodepngL9invMatrixEPf(ptr nocapture noundef %m) unnamed_addr #10 {
 entry:
   %result = alloca [9 x double], align 16
-  %arrayidx = getelementptr inbounds float, ptr %m, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %m, i64 16
   %0 = load float, ptr %arrayidx, align 4
   %conv = fpext float %0 to double
-  %arrayidx1 = getelementptr inbounds float, ptr %m, i64 8
+  %arrayidx1 = getelementptr inbounds i8, ptr %m, i64 32
   %1 = load float, ptr %arrayidx1, align 4
-  %arrayidx3 = getelementptr inbounds float, ptr %m, i64 5
-  %arrayidx5 = getelementptr inbounds float, ptr %m, i64 7
+  %arrayidx3 = getelementptr inbounds i8, ptr %m, i64 20
+  %arrayidx5 = getelementptr inbounds i8, ptr %m, i64 28
   %2 = load float, ptr %arrayidx5, align 4
   %conv6 = fpext float %2 to double
-  %arrayidx12 = getelementptr inbounds float, ptr %m, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %m, i64 12
   %3 = load float, ptr %arrayidx12, align 4
   %4 = fneg double %conv
   %5 = load float, ptr %m, align 4
-  %arrayidx30 = getelementptr inbounds float, ptr %m, i64 1
+  %arrayidx30 = getelementptr inbounds i8, ptr %m, i64 4
   %6 = load float, ptr %arrayidx30, align 4
   %conv31 = fpext float %6 to double
-  %arrayidx33 = getelementptr inbounds float, ptr %m, i64 2
+  %arrayidx33 = getelementptr inbounds i8, ptr %m, i64 8
   %7 = load float, ptr %arrayidx33, align 4
   %8 = load <2 x float>, ptr %arrayidx3, align 4
   %9 = fpext <2 x float> %8 to <2 x double>
@@ -6906,17 +6916,17 @@ if.end:                                           ; preds = %entry
   %39 = extractelement <2 x double> %38, i64 0
   %neg60 = fmul double %39, %conv
   %40 = tail call double @llvm.fmuladd.f64(double %conv31, double %10, double %neg60)
-  %arrayidx62 = getelementptr inbounds [9 x double], ptr %result, i64 0, i64 2
+  %arrayidx62 = getelementptr inbounds i8, ptr %result, i64 16
   %41 = insertelement <2 x double> poison, double %40, i64 0
   %42 = insertelement <2 x double> %41, double %23, i64 1
   %43 = fmul <2 x double> %42, %35
   store <2 x double> %43, ptr %arrayidx62, align 16
-  %arrayidx77 = getelementptr inbounds [9 x double], ptr %result, i64 0, i64 4
+  %arrayidx77 = getelementptr inbounds i8, ptr %result, i64 32
   %44 = fmul <2 x double> %29, %38
   %45 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %14, <2 x double> %44)
   %46 = fmul <2 x double> %45, %35
   store <2 x double> %46, ptr %arrayidx77, align 16
-  %arrayidx92 = getelementptr inbounds [9 x double], ptr %result, i64 0, i64 6
+  %arrayidx92 = getelementptr inbounds i8, ptr %result, i64 48
   %47 = extractelement <2 x double> %38, i64 1
   %neg103 = fmul double %47, %conv6
   %48 = tail call double @llvm.fmuladd.f64(double %22, double %conv31, double %neg103)
@@ -6927,7 +6937,7 @@ if.end:                                           ; preds = %entry
   %neg116 = fmul double %21, %conv31
   %52 = tail call double @llvm.fmuladd.f64(double %25, double %conv, double %neg116)
   %mul117 = fmul double %52, %div
-  %arrayidx118 = getelementptr inbounds [9 x double], ptr %result, i64 0, i64 8
+  %arrayidx118 = getelementptr inbounds i8, ptr %result, i64 64
   store double %mul117, ptr %arrayidx118, align 16
   br label %for.body
 
@@ -7009,22 +7019,22 @@ for.body24:                                       ; preds = %entry, %for.body24
   br i1 %exitcond.not, label %for.end46, label %for.body24, !llvm.loop !56
 
 for.end46:                                        ; preds = %for.body24
-  %arrayidx4.i = getelementptr inbounds float, ptr %m, i64 3
-  %arrayidx6.i = getelementptr inbounds float, ptr %m, i64 6
+  %arrayidx4.i = getelementptr inbounds i8, ptr %m, i64 12
+  %arrayidx6.i = getelementptr inbounds i8, ptr %m, i64 24
   %17 = load <2 x float>, ptr %m, align 4
   %18 = fpext <2 x float> %17 to <2 x double>
-  %arrayidx13.i = getelementptr inbounds float, ptr %m, i64 4
+  %arrayidx13.i = getelementptr inbounds i8, ptr %m, i64 16
   %19 = load <2 x float>, ptr %arrayidx4.i, align 4
   %20 = fpext <2 x float> %19 to <2 x double>
   %21 = load <2 x float>, ptr %arrayidx6.i, align 4
   %22 = fpext <2 x float> %21 to <2 x double>
-  %arrayidx20.i = getelementptr inbounds float, ptr %m, i64 2
+  %arrayidx20.i = getelementptr inbounds i8, ptr %m, i64 8
   %23 = load float, ptr %arrayidx20.i, align 4
   %conv21.i = fpext float %23 to double
-  %arrayidx22.i = getelementptr inbounds float, ptr %m, i64 5
+  %arrayidx22.i = getelementptr inbounds i8, ptr %m, i64 20
   %24 = load float, ptr %arrayidx22.i, align 4
   %conv23.i = fpext float %24 to double
-  %arrayidx24.i = getelementptr inbounds float, ptr %m, i64 8
+  %arrayidx24.i = getelementptr inbounds i8, ptr %m, i64 32
   %25 = load float, ptr %arrayidx24.i, align 4
   %conv25.i = fpext float %25 to double
   %mul19.i56.i = fmul double %conv23.i, 0x3FA4807D60000000
@@ -7069,7 +7079,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7lodepng11ExtractZlibD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %codelengthcodetree = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 4
+  %codelengthcodetree = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %codelengthcodetree, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN7lodepng11ExtractZlib11HuffmanTreeD2Ev.exit, label %if.then.i.i.i.i
@@ -7079,7 +7089,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN7lodepng11ExtractZlib11HuffmanTreeD2Ev.exit
 
 _ZN7lodepng11ExtractZlib11HuffmanTreeD2Ev.exit:   ; preds = %entry, %if.then.i.i.i.i
-  %codetreeD = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 3
+  %codetreeD = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %codetreeD, align 8
   %tobool.not.i.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i1, label %_ZN7lodepng11ExtractZlib11HuffmanTreeD2Ev.exit3, label %if.then.i.i.i.i2
@@ -7089,7 +7099,7 @@ if.then.i.i.i.i2:                                 ; preds = %_ZN7lodepng11Extrac
   br label %_ZN7lodepng11ExtractZlib11HuffmanTreeD2Ev.exit3
 
 _ZN7lodepng11ExtractZlib11HuffmanTreeD2Ev.exit3:  ; preds = %_ZN7lodepng11ExtractZlib11HuffmanTreeD2Ev.exit, %if.then.i.i.i.i2
-  %codetree = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 2
+  %codetree = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %codetree, align 8
   %tobool.not.i.i.i.i4 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i4, label %_ZN7lodepng11ExtractZlib11HuffmanTreeD2Ev.exit6, label %if.then.i.i.i.i5
@@ -7112,9 +7122,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -7292,9 +7302,9 @@ while.body.lr.ph:
   %pos = alloca i64, align 8
   store i64 0, ptr %bp, align 8
   store i64 0, ptr %pos, align 8
-  %error = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %error, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %in, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %in, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end27
@@ -7342,7 +7352,7 @@ if.end:                                           ; preds = %while.body
   %add55 = or disjoint i32 %10, %and3.i23
   %add = zext nneg i32 %add55 to i64
   %11 = load ptr, ptr %this, align 8
-  %_M_finish.i35 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %11, i64 0, i32 1
+  %_M_finish.i35 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %_M_finish.i35, align 8
   %13 = load ptr, ptr %11, align 8
   %sub.ptr.lhs.cast.i36 = ptrtoint ptr %12 to i64
@@ -7361,7 +7371,7 @@ if.then5.i:                                       ; preds = %if.end
 
 for.body.i.i.i.i.i:                               ; preds = %if.then5.i, %_ZN7lodepng13ZlibBlockInfoD2Ev.exit
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZN7lodepng13ZlibBlockInfoD2Ev.exit ], [ %13, %if.then5.i ]
-  %lz77_dvalue.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 16
+  %lz77_dvalue.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 264
   %14 = load ptr, ptr %lz77_dvalue.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %if.then.i.i.i.i
@@ -7371,7 +7381,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i.i
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %for.body.i.i.i.i.i
-  %lz77_lvalue.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 15
+  %lz77_lvalue.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 240
   %15 = load ptr, ptr %lz77_lvalue.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i1.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit3.i, label %if.then.i.i.i2.i
@@ -7381,7 +7391,7 @@ if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit3.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit3.i:                 ; preds = %if.then.i.i.i2.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %lz77_dbits.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 14
+  %lz77_dbits.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 216
   %16 = load ptr, ptr %lz77_dbits.i, align 8
   %tobool.not.i.i.i4.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i4.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit6.i, label %if.then.i.i.i5.i
@@ -7391,7 +7401,7 @@ if.then.i.i.i5.i:                                 ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit6.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit6.i:                 ; preds = %if.then.i.i.i5.i, %_ZNSt6vectorIiSaIiEED2Ev.exit3.i
-  %lz77_lbits.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 13
+  %lz77_lbits.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 192
   %17 = load ptr, ptr %lz77_lbits.i, align 8
   %tobool.not.i.i.i7.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i7.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit9.i, label %if.then.i.i.i8.i
@@ -7401,7 +7411,7 @@ if.then.i.i.i8.i:                                 ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit9.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit9.i:                 ; preds = %if.then.i.i.i8.i, %_ZNSt6vectorIiSaIiEED2Ev.exit6.i
-  %lz77_dcode.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 12
+  %lz77_dcode.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 168
   %18 = load ptr, ptr %lz77_dcode.i, align 8
   %tobool.not.i.i.i10.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i10.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit12.i, label %if.then.i.i.i11.i
@@ -7411,7 +7421,7 @@ if.then.i.i.i11.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit12.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit12.i:                ; preds = %if.then.i.i.i11.i, %_ZNSt6vectorIiSaIiEED2Ev.exit9.i
-  %lz77_lcode.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 11
+  %lz77_lcode.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 144
   %19 = load ptr, ptr %lz77_lcode.i, align 8
   %tobool.not.i.i.i13.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i13.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit15.i, label %if.then.i.i.i14.i
@@ -7421,7 +7431,7 @@ if.then.i.i.i14.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit15.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit15.i:                ; preds = %if.then.i.i.i14.i, %_ZNSt6vectorIiSaIiEED2Ev.exit12.i
-  %distlengths.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 10
+  %distlengths.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 120
   %20 = load ptr, ptr %distlengths.i, align 8
   %tobool.not.i.i.i16.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i16.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit18.i, label %if.then.i.i.i17.i
@@ -7431,7 +7441,7 @@ if.then.i.i.i17.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit18.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit18.i:                ; preds = %if.then.i.i.i17.i, %_ZNSt6vectorIiSaIiEED2Ev.exit15.i
-  %litlenlengths.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 9
+  %litlenlengths.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 96
   %21 = load ptr, ptr %litlenlengths.i, align 8
   %tobool.not.i.i.i19.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i19.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit21.i, label %if.then.i.i.i20.i
@@ -7441,7 +7451,7 @@ if.then.i.i.i20.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit21.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit21.i:                ; preds = %if.then.i.i.i20.i, %_ZNSt6vectorIiSaIiEED2Ev.exit18.i
-  %treecodes.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 8
+  %treecodes.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 72
   %22 = load ptr, ptr %treecodes.i, align 8
   %tobool.not.i.i.i22.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i22.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit24.i, label %if.then.i.i.i23.i
@@ -7451,7 +7461,7 @@ if.then.i.i.i23.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit24.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit24.i:                ; preds = %if.then.i.i.i23.i, %_ZNSt6vectorIiSaIiEED2Ev.exit21.i
-  %clcl.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 7
+  %clcl.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 48
   %23 = load ptr, ptr %clcl.i, align 8
   %tobool.not.i.i.i25.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i25.i, label %_ZN7lodepng13ZlibBlockInfoD2Ev.exit, label %if.then.i.i.i26.i
@@ -7461,7 +7471,7 @@ if.then.i.i.i26.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZN7lodepng13ZlibBlockInfoD2Ev.exit
 
 _ZN7lodepng13ZlibBlockInfoD2Ev.exit:              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit24.i, %if.then.i.i.i26.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 304
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %12
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !57
 
@@ -7471,9 +7481,9 @@ invoke.cont.i.i:                                  ; preds = %_ZN7lodepng13ZlibBl
 
 _ZNSt6vectorIN7lodepng13ZlibBlockInfoESaIS1_EE6resizeEm.exit: ; preds = %if.then.i, %if.then5.i, %invoke.cont.i.i
   %24 = load ptr, ptr %this, align 8
-  %_M_finish.i.i40 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %24, i64 0, i32 1
+  %_M_finish.i.i40 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %_M_finish.i.i40, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %25, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %25, i64 -304
   store i32 %add55, ptr %add.ptr.i.i, align 8
   switch i64 %add, label %if.else23 [
     i64 3, label %while.end.sink.split
@@ -7506,14 +7516,14 @@ if.end27:                                         ; preds = %if.then20, %if.else
   %31 = load i64, ptr %bp, align 8
   %sub28 = sub i64 %31, %1
   %32 = load ptr, ptr %this, align 8
-  %_M_finish.i.i51 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %32, i64 0, i32 1
+  %_M_finish.i.i51 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load ptr, ptr %_M_finish.i.i51, align 8
-  %compressedbits = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %33, i64 -1, i32 1
+  %compressedbits = getelementptr inbounds i8, ptr %33, i64 -296
   store i64 %sub28, ptr %compressedbits, align 8
   %34 = load ptr, ptr %this, align 8
-  %_M_finish.i.i53 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %34, i64 0, i32 1
+  %_M_finish.i.i53 = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load ptr, ptr %_M_finish.i.i53, align 8
-  %uncompressedbytes = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %35, i64 -1, i32 2
+  %uncompressedbytes = getelementptr inbounds i8, ptr %35, i64 -288
   store i64 %sub, ptr %uncompressedbytes, align 8
   %36 = shl nuw nsw i32 1, %sh_prom.i
   %37 = and i32 %36, %conv.i
@@ -7556,7 +7566,7 @@ while.end:                                        ; preds = %while.body.preheade
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %error = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %this, i64 8
   store i32 52, ptr %error, align 8
   br label %return
 
@@ -7577,7 +7587,7 @@ if.end:                                           ; preds = %while.end
   br i1 %cmp18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %if.end
-  %error20 = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 1
+  %error20 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 21, ptr %error20, align 8
   br label %return
 
@@ -7592,12 +7602,12 @@ for.cond.preheader:                               ; preds = %if.end21
   br i1 %cmp2724.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %out, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %out, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %out, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %out, i64 16
   br label %for.body
 
 if.then24:                                        ; preds = %if.end21
-  %error25 = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 1
+  %error25 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 23, ptr %error25, align 8
   br label %return
 
@@ -7700,28 +7710,28 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %codetree = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 2
-  %codetreeD = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 3
+  %codetree = getelementptr inbounds i8, ptr %this, i64 16
+  %codetreeD = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN7lodepng11ExtractZlib18generateFixedTreesERNS0_11HuffmanTreeES2_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %codetree, ptr noundef nonnull align 8 dereferenceable(24) %codetreeD)
   br label %if.end8
 
 if.then3:                                         ; preds = %entry
-  %codetree4 = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 2
-  %codetreeD5 = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 3
+  %codetree4 = getelementptr inbounds i8, ptr %this, i64 16
+  %codetreeD5 = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN7lodepng11ExtractZlib21getTreeInflateDynamicERNS0_11HuffmanTreeES2_PKhRmm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %codetree4, ptr noundef nonnull align 8 dereferenceable(24) %codetreeD5, ptr noundef %in, ptr noundef nonnull align 8 dereferenceable(8) %bp, i64 noundef %inlength)
-  %error = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %entry, %if.then3, %if.then
-  %codetree9 = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 2
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %error48.i = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 1
-  %codetreeD49 = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 3
-  %_M_finish.i.i.i263 = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %out, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %out, i64 0, i32 2
+  %codetree9 = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %error48.i = getelementptr inbounds i8, ptr %this, i64 8
+  %codetreeD49 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish.i.i.i263 = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i = getelementptr inbounds i8, ptr %out, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %out, i64 16
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %for.end, %if.end8
@@ -7784,13 +7794,13 @@ _ZN7lodepng11ExtractZlib19huffmanDecodeSymbolEPKhRmRKNS0_11HuffmanTreeEm.exit: ;
 
 if.end13:                                         ; preds = %if.end7.i
   %8 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %8, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %lz77_lcode = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %9, i64 -1, i32 11
+  %lz77_lcode = getelementptr inbounds i8, ptr %9, i64 -160
   %conv = trunc i64 %7 to i32
-  %_M_finish.i.i43 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %9, i64 -1, i32 11, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i43 = getelementptr inbounds i8, ptr %9, i64 -152
   %10 = load ptr, ptr %_M_finish.i.i43, align 8
-  %_M_end_of_storage.i.i = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %9, i64 -1, i32 11, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %9, i64 -144
   %11 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i44 = icmp eq ptr %10, %11
   br i1 %cmp.not.i.i44, label %if.else.i.i, label %if.then.i.i
@@ -7798,7 +7808,7 @@ if.end13:                                         ; preds = %if.end7.i
 if.then.i.i:                                      ; preds = %if.end13
   store i32 %conv, ptr %10, align 4
   %12 = load ptr, ptr %_M_finish.i.i43, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %12, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 4
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i43, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -7842,7 +7852,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i45, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i45, i64 4
   %tobool.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -7859,12 +7869,12 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %if.then.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
   %14 = load ptr, ptr %this, align 8
-  %_M_finish.i.i46 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %14, i64 0, i32 1
+  %_M_finish.i.i46 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %_M_finish.i.i46, align 8
-  %lz77_dcode = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %15, i64 -1, i32 12
-  %_M_finish.i.i48 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %15, i64 -1, i32 12, i32 0, i32 0, i32 0, i32 1
+  %lz77_dcode = getelementptr inbounds i8, ptr %15, i64 -136
+  %_M_finish.i.i48 = getelementptr inbounds i8, ptr %15, i64 -128
   %16 = load ptr, ptr %_M_finish.i.i48, align 8
-  %_M_end_of_storage.i.i49 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %15, i64 -1, i32 12, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i49 = getelementptr inbounds i8, ptr %15, i64 -120
   %17 = load ptr, ptr %_M_end_of_storage.i.i49, align 8
   %cmp.not.i.i50 = icmp eq ptr %16, %17
   br i1 %cmp.not.i.i50, label %if.else.i.i53, label %if.then.i.i51
@@ -7872,7 +7882,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %if.then.i.i, %_ZNSt
 if.then.i.i51:                                    ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
   store i32 0, ptr %16, align 4
   %18 = load ptr, ptr %_M_finish.i.i48, align 8
-  %incdec.ptr.i.i52 = getelementptr inbounds i32, ptr %18, i64 1
+  %incdec.ptr.i.i52 = getelementptr inbounds i8, ptr %18, i64 4
   store ptr %incdec.ptr.i.i52, ptr %_M_finish.i.i48, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82
 
@@ -7916,7 +7926,7 @@ if.then.i.i.i12.i.i.i80:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i74
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i74: ; preds = %if.then.i.i.i12.i.i.i80, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i70
-  %incdec.ptr.i.i.i75 = getelementptr inbounds i32, ptr %add.ptr.i.i.i72, i64 1
+  %incdec.ptr.i.i.i75 = getelementptr inbounds i8, ptr %add.ptr.i.i.i72, i64 4
   %tobool.not.i.i.i.i76 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i76, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i78, label %if.then.i21.i.i.i77
 
@@ -7933,12 +7943,12 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit82:         ; preds = %if.then.i.i51, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i78
   %20 = load ptr, ptr %this, align 8
-  %_M_finish.i.i83 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %20, i64 0, i32 1
+  %_M_finish.i.i83 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %_M_finish.i.i83, align 8
-  %lz77_lbits = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %21, i64 -1, i32 13
-  %_M_finish.i.i85 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %21, i64 -1, i32 13, i32 0, i32 0, i32 0, i32 1
+  %lz77_lbits = getelementptr inbounds i8, ptr %21, i64 -112
+  %_M_finish.i.i85 = getelementptr inbounds i8, ptr %21, i64 -104
   %22 = load ptr, ptr %_M_finish.i.i85, align 8
-  %_M_end_of_storage.i.i86 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %21, i64 -1, i32 13, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i86 = getelementptr inbounds i8, ptr %21, i64 -96
   %23 = load ptr, ptr %_M_end_of_storage.i.i86, align 8
   %cmp.not.i.i87 = icmp eq ptr %22, %23
   br i1 %cmp.not.i.i87, label %if.else.i.i90, label %if.then.i.i88
@@ -7946,7 +7956,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit82:         ; preds = %if.then.i.i51, %_ZN
 if.then.i.i88:                                    ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82
   store i32 0, ptr %22, align 4
   %24 = load ptr, ptr %_M_finish.i.i85, align 8
-  %incdec.ptr.i.i89 = getelementptr inbounds i32, ptr %24, i64 1
+  %incdec.ptr.i.i89 = getelementptr inbounds i8, ptr %24, i64 4
   store ptr %incdec.ptr.i.i89, ptr %_M_finish.i.i85, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit119
 
@@ -7990,7 +8000,7 @@ if.then.i.i.i12.i.i.i117:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i111
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i111: ; preds = %if.then.i.i.i12.i.i.i117, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i107
-  %incdec.ptr.i.i.i112 = getelementptr inbounds i32, ptr %add.ptr.i.i.i109, i64 1
+  %incdec.ptr.i.i.i112 = getelementptr inbounds i8, ptr %add.ptr.i.i.i109, i64 4
   %tobool.not.i.i.i.i113 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i.i113, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i115, label %if.then.i21.i.i.i114
 
@@ -8007,12 +8017,12 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit119:        ; preds = %if.then.i.i88, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i115
   %26 = load ptr, ptr %this, align 8
-  %_M_finish.i.i120 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %26, i64 0, i32 1
+  %_M_finish.i.i120 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %_M_finish.i.i120, align 8
-  %lz77_dbits = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %27, i64 -1, i32 14
-  %_M_finish.i.i122 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %27, i64 -1, i32 14, i32 0, i32 0, i32 0, i32 1
+  %lz77_dbits = getelementptr inbounds i8, ptr %27, i64 -88
+  %_M_finish.i.i122 = getelementptr inbounds i8, ptr %27, i64 -80
   %28 = load ptr, ptr %_M_finish.i.i122, align 8
-  %_M_end_of_storage.i.i123 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %27, i64 -1, i32 14, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i123 = getelementptr inbounds i8, ptr %27, i64 -72
   %29 = load ptr, ptr %_M_end_of_storage.i.i123, align 8
   %cmp.not.i.i124 = icmp eq ptr %28, %29
   br i1 %cmp.not.i.i124, label %if.else.i.i127, label %if.then.i.i125
@@ -8020,7 +8030,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit119:        ; preds = %if.then.i.i88, %_ZN
 if.then.i.i125:                                   ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit119
   store i32 0, ptr %28, align 4
   %30 = load ptr, ptr %_M_finish.i.i122, align 8
-  %incdec.ptr.i.i126 = getelementptr inbounds i32, ptr %30, i64 1
+  %incdec.ptr.i.i126 = getelementptr inbounds i8, ptr %30, i64 4
   store ptr %incdec.ptr.i.i126, ptr %_M_finish.i.i122, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit156
 
@@ -8064,7 +8074,7 @@ if.then.i.i.i12.i.i.i154:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i148
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i148: ; preds = %if.then.i.i.i12.i.i.i154, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i144
-  %incdec.ptr.i.i.i149 = getelementptr inbounds i32, ptr %add.ptr.i.i.i146, i64 1
+  %incdec.ptr.i.i.i149 = getelementptr inbounds i8, ptr %add.ptr.i.i.i146, i64 4
   %tobool.not.i.i.i.i150 = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i.i150, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i152, label %if.then.i21.i.i.i151
 
@@ -8081,12 +8091,12 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit156:        ; preds = %if.then.i.i125, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i152
   %32 = load ptr, ptr %this, align 8
-  %_M_finish.i.i157 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %32, i64 0, i32 1
+  %_M_finish.i.i157 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load ptr, ptr %_M_finish.i.i157, align 8
-  %lz77_lvalue = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %33, i64 -1, i32 15
-  %_M_finish.i.i159 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %33, i64 -1, i32 15, i32 0, i32 0, i32 0, i32 1
+  %lz77_lvalue = getelementptr inbounds i8, ptr %33, i64 -64
+  %_M_finish.i.i159 = getelementptr inbounds i8, ptr %33, i64 -56
   %34 = load ptr, ptr %_M_finish.i.i159, align 8
-  %_M_end_of_storage.i.i160 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %33, i64 -1, i32 15, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i160 = getelementptr inbounds i8, ptr %33, i64 -48
   %35 = load ptr, ptr %_M_end_of_storage.i.i160, align 8
   %cmp.not.i.i161 = icmp eq ptr %34, %35
   br i1 %cmp.not.i.i161, label %if.else.i.i164, label %if.then.i.i162
@@ -8094,7 +8104,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit156:        ; preds = %if.then.i.i125, %_Z
 if.then.i.i162:                                   ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit156
   store i32 0, ptr %34, align 4
   %36 = load ptr, ptr %_M_finish.i.i159, align 8
-  %incdec.ptr.i.i163 = getelementptr inbounds i32, ptr %36, i64 1
+  %incdec.ptr.i.i163 = getelementptr inbounds i8, ptr %36, i64 4
   store ptr %incdec.ptr.i.i163, ptr %_M_finish.i.i159, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit193
 
@@ -8138,7 +8148,7 @@ if.then.i.i.i12.i.i.i191:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i185
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i185: ; preds = %if.then.i.i.i12.i.i.i191, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i181
-  %incdec.ptr.i.i.i186 = getelementptr inbounds i32, ptr %add.ptr.i.i.i183, i64 1
+  %incdec.ptr.i.i.i186 = getelementptr inbounds i8, ptr %add.ptr.i.i.i183, i64 4
   %tobool.not.i.i.i.i187 = icmp eq ptr %37, null
   br i1 %tobool.not.i.i.i.i187, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i189, label %if.then.i21.i.i.i188
 
@@ -8155,12 +8165,12 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit193:        ; preds = %if.then.i.i162, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i189
   %38 = load ptr, ptr %this, align 8
-  %_M_finish.i.i194 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %38, i64 0, i32 1
+  %_M_finish.i.i194 = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %_M_finish.i.i194, align 8
-  %lz77_dvalue = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %39, i64 -1, i32 16
-  %_M_finish.i.i196 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %39, i64 -1, i32 16, i32 0, i32 0, i32 0, i32 1
+  %lz77_dvalue = getelementptr inbounds i8, ptr %39, i64 -40
+  %_M_finish.i.i196 = getelementptr inbounds i8, ptr %39, i64 -32
   %40 = load ptr, ptr %_M_finish.i.i196, align 8
-  %_M_end_of_storage.i.i197 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %39, i64 -1, i32 16, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i197 = getelementptr inbounds i8, ptr %39, i64 -24
   %41 = load ptr, ptr %_M_end_of_storage.i.i197, align 8
   %cmp.not.i.i198 = icmp eq ptr %40, %41
   br i1 %cmp.not.i.i198, label %if.else.i.i201, label %if.then.i.i199
@@ -8168,7 +8178,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit193:        ; preds = %if.then.i.i162, %_Z
 if.then.i.i199:                                   ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit193
   store i32 0, ptr %40, align 4
   %42 = load ptr, ptr %_M_finish.i.i196, align 8
-  %incdec.ptr.i.i200 = getelementptr inbounds i32, ptr %42, i64 1
+  %incdec.ptr.i.i200 = getelementptr inbounds i8, ptr %42, i64 4
   store ptr %incdec.ptr.i.i200, ptr %_M_finish.i.i196, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit230
 
@@ -8212,7 +8222,7 @@ if.then.i.i.i12.i.i.i228:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i222
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i222: ; preds = %if.then.i.i.i12.i.i.i228, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i218
-  %incdec.ptr.i.i.i223 = getelementptr inbounds i32, ptr %add.ptr.i.i.i220, i64 1
+  %incdec.ptr.i.i.i223 = getelementptr inbounds i8, ptr %add.ptr.i.i.i220, i64 4
   %tobool.not.i.i.i.i224 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i.i224, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i226, label %if.then.i21.i.i.i225
 
@@ -8539,56 +8549,56 @@ for.end:                                          ; preds = %_ZNSt6vectorIhSaIhE
   %inc79 = add i64 %numlen.0.ph, 1
   %conv80 = trunc i64 %61 to i32
   %75 = load ptr, ptr %this, align 8
-  %_M_finish.i.i319 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %75, i64 0, i32 1
+  %_M_finish.i.i319 = getelementptr inbounds i8, ptr %75, i64 8
   %76 = load ptr, ptr %_M_finish.i.i319, align 8
-  %_M_finish.i.i321 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %76, i64 -1, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i321 = getelementptr inbounds i8, ptr %76, i64 -128
   %77 = load ptr, ptr %_M_finish.i.i321, align 8
-  %add.ptr.i.i322 = getelementptr inbounds i32, ptr %77, i64 -1
+  %add.ptr.i.i322 = getelementptr inbounds i8, ptr %77, i64 -4
   store i32 %conv80, ptr %add.ptr.i.i322, align 4
   %conv85 = trunc i64 %49 to i32
   %78 = load ptr, ptr %this, align 8
-  %_M_finish.i.i323 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %78, i64 0, i32 1
+  %_M_finish.i.i323 = getelementptr inbounds i8, ptr %78, i64 8
   %79 = load ptr, ptr %_M_finish.i.i323, align 8
-  %_M_finish.i.i325 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %79, i64 -1, i32 13, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i325 = getelementptr inbounds i8, ptr %79, i64 -104
   %80 = load ptr, ptr %_M_finish.i.i325, align 8
-  %add.ptr.i.i326 = getelementptr inbounds i32, ptr %80, i64 -1
+  %add.ptr.i.i326 = getelementptr inbounds i8, ptr %80, i64 -4
   store i32 %conv85, ptr %add.ptr.i.i326, align 4
   %conv90 = trunc i64 %62 to i32
   %81 = load ptr, ptr %this, align 8
-  %_M_finish.i.i327 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %81, i64 0, i32 1
+  %_M_finish.i.i327 = getelementptr inbounds i8, ptr %81, i64 8
   %82 = load ptr, ptr %_M_finish.i.i327, align 8
-  %_M_finish.i.i329 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %82, i64 -1, i32 14, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i329 = getelementptr inbounds i8, ptr %82, i64 -80
   %83 = load ptr, ptr %_M_finish.i.i329, align 8
-  %add.ptr.i.i330 = getelementptr inbounds i32, ptr %83, i64 -1
+  %add.ptr.i.i330 = getelementptr inbounds i8, ptr %83, i64 -4
   store i32 %conv90, ptr %add.ptr.i.i330, align 4
   %conv95 = trunc i64 %add to i32
   %84 = load ptr, ptr %this, align 8
-  %_M_finish.i.i331 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %84, i64 0, i32 1
+  %_M_finish.i.i331 = getelementptr inbounds i8, ptr %84, i64 8
   %85 = load ptr, ptr %_M_finish.i.i331, align 8
-  %_M_finish.i.i333 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %85, i64 -1, i32 15, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i333 = getelementptr inbounds i8, ptr %85, i64 -56
   %86 = load ptr, ptr %_M_finish.i.i333, align 8
-  %add.ptr.i.i334 = getelementptr inbounds i32, ptr %86, i64 -1
+  %add.ptr.i.i334 = getelementptr inbounds i8, ptr %86, i64 -4
   store i32 %conv95, ptr %add.ptr.i.i334, align 4
   %conv100 = trunc i64 %add67 to i32
   %87 = load ptr, ptr %this, align 8
-  %_M_finish.i.i335 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %87, i64 0, i32 1
+  %_M_finish.i.i335 = getelementptr inbounds i8, ptr %87, i64 8
   %88 = load ptr, ptr %_M_finish.i.i335, align 8
-  %_M_finish.i.i337 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %88, i64 -1, i32 16, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i337 = getelementptr inbounds i8, ptr %88, i64 -32
   %89 = load ptr, ptr %_M_finish.i.i337, align 8
-  %add.ptr.i.i338 = getelementptr inbounds i32, ptr %89, i64 -1
+  %add.ptr.i.i338 = getelementptr inbounds i8, ptr %89, i64 -4
   store i32 %conv100, ptr %add.ptr.i.i338, align 4
   br label %for.cond.outer, !llvm.loop !61
 
 for.end108:                                       ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit230
   %90 = load ptr, ptr %this, align 8
-  %_M_finish.i.i339 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %90, i64 0, i32 1
+  %_M_finish.i.i339 = getelementptr inbounds i8, ptr %90, i64 8
   %91 = load ptr, ptr %_M_finish.i.i339, align 8
-  %numlit111 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %91, i64 -1, i32 17
+  %numlit111 = getelementptr inbounds i8, ptr %91, i64 -16
   store i64 %numlit.0.ph481, ptr %numlit111, align 8
   %92 = load ptr, ptr %this, align 8
-  %_M_finish.i.i341 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %92, i64 0, i32 1
+  %_M_finish.i.i341 = getelementptr inbounds i8, ptr %92, i64 8
   %93 = load ptr, ptr %_M_finish.i.i341, align 8
-  %numlen114 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %93, i64 -1, i32 18
+  %numlen114 = getelementptr inbounds i8, ptr %93, i64 -8
   store i64 %numlen.0.ph, ptr %numlen114, align 8
   br label %return
 
@@ -8603,14 +8613,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 304
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -8681,7 +8691,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7lodepng13ZlibBlockInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %lz77_dvalue = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %this, i64 0, i32 16
+  %lz77_dvalue = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load ptr, ptr %lz77_dvalue, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i
@@ -8691,7 +8701,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %lz77_lvalue = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %this, i64 0, i32 15
+  %lz77_lvalue = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load ptr, ptr %lz77_lvalue, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit3, label %if.then.i.i.i2
@@ -8701,7 +8711,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit3
 
 _ZNSt6vectorIiSaIiEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %if.then.i.i.i2
-  %lz77_dbits = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %this, i64 0, i32 14
+  %lz77_dbits = getelementptr inbounds i8, ptr %this, i64 216
   %2 = load ptr, ptr %lz77_dbits, align 8
   %tobool.not.i.i.i4 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i4, label %_ZNSt6vectorIiSaIiEED2Ev.exit6, label %if.then.i.i.i5
@@ -8711,7 +8721,7 @@ if.then.i.i.i5:                                   ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit6
 
 _ZNSt6vectorIiSaIiEED2Ev.exit6:                   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3, %if.then.i.i.i5
-  %lz77_lbits = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %this, i64 0, i32 13
+  %lz77_lbits = getelementptr inbounds i8, ptr %this, i64 192
   %3 = load ptr, ptr %lz77_lbits, align 8
   %tobool.not.i.i.i7 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i7, label %_ZNSt6vectorIiSaIiEED2Ev.exit9, label %if.then.i.i.i8
@@ -8721,7 +8731,7 @@ if.then.i.i.i8:                                   ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit9
 
 _ZNSt6vectorIiSaIiEED2Ev.exit9:                   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit6, %if.then.i.i.i8
-  %lz77_dcode = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %this, i64 0, i32 12
+  %lz77_dcode = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %lz77_dcode, align 8
   %tobool.not.i.i.i10 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i10, label %_ZNSt6vectorIiSaIiEED2Ev.exit12, label %if.then.i.i.i11
@@ -8731,7 +8741,7 @@ if.then.i.i.i11:                                  ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit12
 
 _ZNSt6vectorIiSaIiEED2Ev.exit12:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit9, %if.then.i.i.i11
-  %lz77_lcode = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %this, i64 0, i32 11
+  %lz77_lcode = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load ptr, ptr %lz77_lcode, align 8
   %tobool.not.i.i.i13 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i13, label %_ZNSt6vectorIiSaIiEED2Ev.exit15, label %if.then.i.i.i14
@@ -8741,7 +8751,7 @@ if.then.i.i.i14:                                  ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit15
 
 _ZNSt6vectorIiSaIiEED2Ev.exit15:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit12, %if.then.i.i.i14
-  %distlengths = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %this, i64 0, i32 10
+  %distlengths = getelementptr inbounds i8, ptr %this, i64 120
   %6 = load ptr, ptr %distlengths, align 8
   %tobool.not.i.i.i16 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i16, label %_ZNSt6vectorIiSaIiEED2Ev.exit18, label %if.then.i.i.i17
@@ -8751,7 +8761,7 @@ if.then.i.i.i17:                                  ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit18
 
 _ZNSt6vectorIiSaIiEED2Ev.exit18:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit15, %if.then.i.i.i17
-  %litlenlengths = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %this, i64 0, i32 9
+  %litlenlengths = getelementptr inbounds i8, ptr %this, i64 96
   %7 = load ptr, ptr %litlenlengths, align 8
   %tobool.not.i.i.i19 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i19, label %_ZNSt6vectorIiSaIiEED2Ev.exit21, label %if.then.i.i.i20
@@ -8761,7 +8771,7 @@ if.then.i.i.i20:                                  ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit21
 
 _ZNSt6vectorIiSaIiEED2Ev.exit21:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit18, %if.then.i.i.i20
-  %treecodes = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %this, i64 0, i32 8
+  %treecodes = getelementptr inbounds i8, ptr %this, i64 72
   %8 = load ptr, ptr %treecodes, align 8
   %tobool.not.i.i.i22 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i22, label %_ZNSt6vectorIiSaIiEED2Ev.exit24, label %if.then.i.i.i23
@@ -8771,7 +8781,7 @@ if.then.i.i.i23:                                  ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit24
 
 _ZNSt6vectorIiSaIiEED2Ev.exit24:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit21, %if.then.i.i.i23
-  %clcl = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %this, i64 0, i32 7
+  %clcl = getelementptr inbounds i8, ptr %this, i64 48
   %9 = load ptr, ptr %clcl, align 8
   %tobool.not.i.i.i25 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i25, label %_ZNSt6vectorIiSaIiEED2Ev.exit27, label %if.then.i.i.i26
@@ -8796,102 +8806,102 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %__cur.07, ptr noundef nonnull align 8 dereferenceable(44) %__first.addr.06, i64 44, i1 false), !alias.scope !69
-  %clcl.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 7
-  %clcl3.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 7
+  %clcl.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 48
+  %clcl3.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 48
   %0 = load <2 x ptr>, ptr %clcl3.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store <2 x ptr> %0, ptr %clcl.i.i.i.i, align 8, !alias.scope !64, !noalias !67
-  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 64
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 64
   %1 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store ptr %1, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %clcl3.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
-  %treecodes.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 8
-  %treecodes4.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 8
+  %treecodes.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 72
+  %treecodes4.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 72
   %2 = load <2 x ptr>, ptr %treecodes4.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store <2 x ptr> %2, ptr %treecodes.i.i.i.i, align 8, !alias.scope !64, !noalias !67
-  %_M_end_of_storage.i.i.i.i14.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i15.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i14.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 88
+  %_M_end_of_storage4.i.i.i.i15.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 88
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i15.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i14.i.i.i.i, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %treecodes4.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
-  %litlenlengths.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 9
-  %litlenlengths5.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 9
+  %litlenlengths.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 96
+  %litlenlengths5.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 96
   %4 = load <2 x ptr>, ptr %litlenlengths5.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store <2 x ptr> %4, ptr %litlenlengths.i.i.i.i, align 8, !alias.scope !64, !noalias !67
-  %_M_end_of_storage.i.i.i.i18.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 9, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i19.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 9, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i18.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 112
+  %_M_end_of_storage4.i.i.i.i19.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 112
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i19.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i18.i.i.i.i, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %litlenlengths5.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
-  %distlengths.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 10
-  %distlengths6.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 10
+  %distlengths.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 120
+  %distlengths6.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 120
   %6 = load <2 x ptr>, ptr %distlengths6.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store <2 x ptr> %6, ptr %distlengths.i.i.i.i, align 8, !alias.scope !64, !noalias !67
-  %_M_end_of_storage.i.i.i.i22.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 10, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i23.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 10, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i22.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 136
+  %_M_end_of_storage4.i.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 136
   %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i23.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store ptr %7, ptr %_M_end_of_storage.i.i.i.i22.i.i.i.i, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %distlengths6.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
-  %lz77_lcode.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 11
-  %lz77_lcode7.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 11
+  %lz77_lcode.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 144
+  %lz77_lcode7.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 144
   %8 = load <2 x ptr>, ptr %lz77_lcode7.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store <2 x ptr> %8, ptr %lz77_lcode.i.i.i.i, align 8, !alias.scope !64, !noalias !67
-  %_M_end_of_storage.i.i.i.i26.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 11, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i27.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 11, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i26.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 160
+  %_M_end_of_storage4.i.i.i.i27.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 160
   %9 = load ptr, ptr %_M_end_of_storage4.i.i.i.i27.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store ptr %9, ptr %_M_end_of_storage.i.i.i.i26.i.i.i.i, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lz77_lcode7.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
-  %lz77_dcode.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 12
-  %lz77_dcode8.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 12
+  %lz77_dcode.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 168
+  %lz77_dcode8.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 168
   %10 = load <2 x ptr>, ptr %lz77_dcode8.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store <2 x ptr> %10, ptr %lz77_dcode.i.i.i.i, align 8, !alias.scope !64, !noalias !67
-  %_M_end_of_storage.i.i.i.i30.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 12, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i31.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 12, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i30.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 184
+  %_M_end_of_storage4.i.i.i.i31.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 184
   %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i31.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store ptr %11, ptr %_M_end_of_storage.i.i.i.i30.i.i.i.i, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lz77_dcode8.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
-  %lz77_lbits.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 13
-  %lz77_lbits9.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 13
+  %lz77_lbits.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 192
+  %lz77_lbits9.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 192
   %12 = load <2 x ptr>, ptr %lz77_lbits9.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store <2 x ptr> %12, ptr %lz77_lbits.i.i.i.i, align 8, !alias.scope !64, !noalias !67
-  %_M_end_of_storage.i.i.i.i34.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 13, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i35.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 13, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i34.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 208
+  %_M_end_of_storage4.i.i.i.i35.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 208
   %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i35.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store ptr %13, ptr %_M_end_of_storage.i.i.i.i34.i.i.i.i, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lz77_lbits9.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
-  %lz77_dbits.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 14
-  %lz77_dbits10.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 14
+  %lz77_dbits.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 216
+  %lz77_dbits10.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 216
   %14 = load <2 x ptr>, ptr %lz77_dbits10.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store <2 x ptr> %14, ptr %lz77_dbits.i.i.i.i, align 8, !alias.scope !64, !noalias !67
-  %_M_end_of_storage.i.i.i.i38.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 14, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i39.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 14, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i38.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 232
+  %_M_end_of_storage4.i.i.i.i39.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 232
   %15 = load ptr, ptr %_M_end_of_storage4.i.i.i.i39.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store ptr %15, ptr %_M_end_of_storage.i.i.i.i38.i.i.i.i, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lz77_dbits10.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
-  %lz77_lvalue.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 15
-  %lz77_lvalue11.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 15
+  %lz77_lvalue.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 240
+  %lz77_lvalue11.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 240
   %16 = load <2 x ptr>, ptr %lz77_lvalue11.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store <2 x ptr> %16, ptr %lz77_lvalue.i.i.i.i, align 8, !alias.scope !64, !noalias !67
-  %_M_end_of_storage.i.i.i.i42.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 15, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i43.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 15, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i42.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 256
+  %_M_end_of_storage4.i.i.i.i43.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 256
   %17 = load ptr, ptr %_M_end_of_storage4.i.i.i.i43.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store ptr %17, ptr %_M_end_of_storage.i.i.i.i42.i.i.i.i, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lz77_lvalue11.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
-  %lz77_dvalue.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 16
-  %lz77_dvalue12.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 16
+  %lz77_dvalue.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 264
+  %lz77_dvalue12.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 264
   %18 = load <2 x ptr>, ptr %lz77_dvalue12.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store <2 x ptr> %18, ptr %lz77_dvalue.i.i.i.i, align 8, !alias.scope !64, !noalias !67
-  %_M_end_of_storage.i.i.i.i46.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 16, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i47.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 16, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i46.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 280
+  %_M_end_of_storage4.i.i.i.i47.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 280
   %19 = load ptr, ptr %_M_end_of_storage4.i.i.i.i47.i.i.i.i, align 8, !alias.scope !67, !noalias !64
   store ptr %19, ptr %_M_end_of_storage.i.i.i.i46.i.i.i.i, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lz77_dvalue12.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
-  %numlit.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 0, i32 17
-  %numlit13.i.i.i.i = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 0, i32 17
+  %numlit.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 288
+  %numlit13.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 288
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numlit.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %numlit13.i.i.i.i, i64 16, i1 false), !alias.scope !69
   tail call void @_ZN7lodepng13ZlibBlockInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %__first.addr.06) #26, !noalias !64
-  %incdec.ptr = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__first.addr.06, i64 1
-  %incdec.ptr1 = getelementptr inbounds %"struct.lodepng::ZlibBlockInfo", ptr %__cur.07, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.06, i64 304
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %__cur.07, i64 304
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !70
 
@@ -8907,9 +8917,9 @@ entry:
   %bitlenD = alloca %"class.std::vector.8", align 8
   %call5.i.i.i.i2.i.i7 = tail call noalias noundef nonnull dereferenceable(2304) ptr @_Znwm(i64 noundef 2304) #28
   store ptr %call5.i.i.i.i2.i.i7, ptr %bitlen, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %bitlen, i64 0, i32 1
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i7, i64 288
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %bitlen, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %bitlen, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i7, i64 2304
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %bitlen, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i.i.i
 
@@ -8929,9 +8939,9 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
 
 call5.i.i.i.i2.i.i.noexc15:                       ; preds = %invoke.cont
   store ptr %call5.i.i.i.i2.i.i16, ptr %bitlenD, align 8
-  %_M_finish.i.i.i8 = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %bitlenD, i64 0, i32 1
-  %add.ptr.i.i.i9 = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i16, i64 32
-  %_M_end_of_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %bitlenD, i64 0, i32 2
+  %_M_finish.i.i.i8 = getelementptr inbounds i8, ptr %bitlenD, i64 8
+  %add.ptr.i.i.i9 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i16, i64 256
+  %_M_end_of_storage.i.i.i10 = getelementptr inbounds i8, ptr %bitlenD, i64 16
   store ptr %add.ptr.i.i.i9, ptr %_M_end_of_storage.i.i.i10, align 8
   br label %for.body.i.i.i.i.i.i.i.i.i11
 
@@ -9031,9 +9041,9 @@ entry:
   %0 = load i64, ptr %bp, align 8
   %call5.i.i.i.i2.i.i88 = tail call noalias noundef nonnull dereferenceable(2304) ptr @_Znwm(i64 noundef 2304) #28
   store ptr %call5.i.i.i.i2.i.i88, ptr %bitlen, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %bitlen, i64 0, i32 1
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i88, i64 288
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %bitlen, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %bitlen, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i88, i64 2304
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %bitlen, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2304) %call5.i.i.i.i2.i.i88, i8 0, i64 2304, i1 false)
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -9043,9 +9053,9 @@ entry:
 
 call5.i.i.i.i2.i.i.noexc96:                       ; preds = %entry
   store ptr %call5.i.i.i.i2.i.i97, ptr %bitlenD, align 8
-  %_M_finish.i.i.i89 = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %bitlenD, i64 0, i32 1
-  %add.ptr.i.i.i90 = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i97, i64 32
-  %_M_end_of_storage.i.i.i91 = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %bitlenD, i64 0, i32 2
+  %_M_finish.i.i.i89 = getelementptr inbounds i8, ptr %bitlenD, i64 8
+  %add.ptr.i.i.i90 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i97, i64 256
+  %_M_end_of_storage.i.i.i91 = getelementptr inbounds i8, ptr %bitlenD, i64 16
   store ptr %add.ptr.i.i.i90, ptr %_M_end_of_storage.i.i.i91, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %call5.i.i.i.i2.i.i97, i8 0, i64 256, i1 false)
   store ptr %add.ptr.i.i.i90, ptr %_M_finish.i.i.i89, align 8
@@ -9055,7 +9065,7 @@ call5.i.i.i.i2.i.i.noexc96:                       ; preds = %entry
   br i1 %cmp.not, label %for.body.i, label %if.then
 
 if.then:                                          ; preds = %call5.i.i.i.i2.i.i.noexc96
-  %error = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %this, i64 8
   store i32 49, ptr %error, align 8
   br label %cleanup251
 
@@ -9132,21 +9142,21 @@ _ZN7lodepng11ExtractZlib18readBitsFromStreamERmPKhm.exit134: ; preds = %for.body
   %add14 = add i64 %add.i131, 4
   %conv = trunc i64 %add.i to i32
   %8 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %8, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %hlit = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %9, i64 -1, i32 4
+  %hlit = getelementptr inbounds i8, ptr %9, i64 -272
   store i32 %conv, ptr %hlit, align 8
   %conv18 = trunc i64 %add.i113 to i32
   %10 = load ptr, ptr %this, align 8
-  %_M_finish.i.i135 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %10, i64 0, i32 1
+  %_M_finish.i.i135 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %_M_finish.i.i135, align 8
-  %hdist = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %11, i64 -1, i32 5
+  %hdist = getelementptr inbounds i8, ptr %11, i64 -268
   store i32 %conv18, ptr %hdist, align 4
   %conv22 = trunc i64 %add.i131 to i32
   %12 = load ptr, ptr %this, align 8
-  %_M_finish.i.i137 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %12, i64 0, i32 1
+  %_M_finish.i.i137 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %_M_finish.i.i137, align 8
-  %hclen = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %13, i64 -1, i32 6
+  %hclen = getelementptr inbounds i8, ptr %13, i64 -264
   store i32 %conv22, ptr %hclen, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %codelengthcode, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i142 = invoke noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
@@ -9154,10 +9164,10 @@ _ZN7lodepng11ExtractZlib18readBitsFromStreamERmPKhm.exit134: ; preds = %for.body
 
 invoke.cont27:                                    ; preds = %_ZN7lodepng11ExtractZlib18readBitsFromStreamERmPKhm.exit134
   store ptr %call5.i.i.i.i2.i.i142, ptr %codelengthcode, align 8
-  %add.ptr.i.i.i139 = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i142, i64 19
-  %_M_end_of_storage.i.i.i140 = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %codelengthcode, i64 0, i32 2
+  %add.ptr.i.i.i139 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i142, i64 152
+  %_M_end_of_storage.i.i.i140 = getelementptr inbounds i8, ptr %codelengthcode, i64 16
   store ptr %add.ptr.i.i.i139, ptr %_M_end_of_storage.i.i.i140, align 8
-  %_M_finish.i.i7.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %codelengthcode, i64 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %codelengthcode, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %call5.i.i.i.i2.i.i142, i8 0, i64 152, i1 false)
   store ptr %add.ptr.i.i.i139, ptr %_M_finish.i.i7.i, align 8
   br label %for.body
@@ -9253,15 +9263,15 @@ for.body38:                                       ; preds = %for.cond35.preheade
   %22 = phi ptr [ %31, %for.inc45 ], [ %15, %for.cond35.preheader ]
   %i34.0494 = phi i64 [ %inc46, %for.inc45 ], [ 0, %for.cond35.preheader ]
   %23 = load ptr, ptr %this, align 8
-  %_M_finish.i.i161 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %23, i64 0, i32 1
+  %_M_finish.i.i161 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load ptr, ptr %_M_finish.i.i161, align 8
-  %clcl = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %24, i64 -1, i32 7
+  %clcl = getelementptr inbounds i8, ptr %24, i64 -256
   %add.ptr.i163 = getelementptr inbounds i64, ptr %22, i64 %i34.0494
   %25 = load i64, ptr %add.ptr.i163, align 8
   %conv43 = trunc i64 %25 to i32
-  %_M_finish.i.i164 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %24, i64 -1, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i164 = getelementptr inbounds i8, ptr %24, i64 -248
   %26 = load ptr, ptr %_M_finish.i.i164, align 8
-  %_M_end_of_storage.i.i = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %24, i64 -1, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %24, i64 -240
   %27 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %26, %27
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -9269,7 +9279,7 @@ for.body38:                                       ; preds = %for.cond35.preheade
 if.then.i.i:                                      ; preds = %for.body38
   store i32 %conv43, ptr %26, align 4
   %28 = load ptr, ptr %_M_finish.i.i164, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %28, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %28, i64 4
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i164, align 8
   br label %for.inc45
 
@@ -9309,7 +9319,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i165, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i165, i64 4
   %tobool.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -9336,12 +9346,12 @@ for.inc45:                                        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %cmp37, label %for.body38, label %for.end47, !llvm.loop !75
 
 for.end47:                                        ; preds = %for.inc45, %for.cond35.preheader
-  %codelengthcodetree = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 4
+  %codelengthcodetree = getelementptr inbounds i8, ptr %this, i64 64
   %call49 = invoke noundef i32 @_ZN7lodepng11ExtractZlib11HuffmanTree15makeFromLengthsERKSt6vectorImSaImEEm(ptr noundef nonnull align 8 dereferenceable(24) %codelengthcodetree, ptr noundef nonnull align 8 dereferenceable(24) %codelengthcode, i64 noundef 7)
           to label %invoke.cont48 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont48:                                    ; preds = %for.end47
-  %error50 = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 1
+  %error50 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %call49, ptr %error50, align 8
   %tobool.not = icmp eq i32 %call49, 0
   br i1 %tobool.not, label %while.cond.preheader, label %cleanup
@@ -9353,7 +9363,7 @@ while.cond.preheader:                             ; preds = %invoke.cont48
   br i1 %cmp56506.not, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %_M_finish.i.i.i167 = getelementptr inbounds %"struct.lodepng::ExtractZlib", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i167 = getelementptr inbounds i8, ptr %this, i64 72
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end201
@@ -9403,13 +9413,13 @@ if.end7.i:                                        ; preds = %if.end.i
 
 if.end63:                                         ; preds = %if.end7.i
   %39 = load ptr, ptr %this, align 8
-  %_M_finish.i.i177 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %39, i64 0, i32 1
+  %_M_finish.i.i177 = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load ptr, ptr %_M_finish.i.i177, align 8
-  %treecodes = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %40, i64 -1, i32 8
+  %treecodes = getelementptr inbounds i8, ptr %40, i64 -232
   %conv67 = trunc i64 %38 to i32
-  %_M_finish.i.i179 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %40, i64 -1, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i179 = getelementptr inbounds i8, ptr %40, i64 -224
   %41 = load ptr, ptr %_M_finish.i.i179, align 8
-  %_M_end_of_storage.i.i180 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %40, i64 -1, i32 8, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i180 = getelementptr inbounds i8, ptr %40, i64 -216
   %42 = load ptr, ptr %_M_end_of_storage.i.i180, align 8
   %cmp.not.i.i181 = icmp eq ptr %41, %42
   br i1 %cmp.not.i.i181, label %if.else.i.i184, label %if.then.i.i182
@@ -9417,7 +9427,7 @@ if.end63:                                         ; preds = %if.end7.i
 if.then.i.i182:                                   ; preds = %if.end63
   store i32 %conv67, ptr %41, align 4
   %43 = load ptr, ptr %_M_finish.i.i179, align 8
-  %incdec.ptr.i.i183 = getelementptr inbounds i32, ptr %43, i64 1
+  %incdec.ptr.i.i183 = getelementptr inbounds i8, ptr %43, i64 4
   store ptr %incdec.ptr.i.i183, ptr %_M_finish.i.i179, align 8
   br label %invoke.cont68
 
@@ -9457,7 +9467,7 @@ if.then.i.i.i12.i.i.i210:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i204
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i204: ; preds = %if.then.i.i.i12.i.i.i210, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i200
-  %incdec.ptr.i.i.i205 = getelementptr inbounds i32, ptr %add.ptr.i.i.i202, i64 1
+  %incdec.ptr.i.i.i205 = getelementptr inbounds i8, ptr %add.ptr.i.i.i202, i64 4
   %tobool.not.i.i.i.i206 = icmp eq ptr %44, null
   br i1 %tobool.not.i.i.i.i206, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i208, label %if.then.i21.i.i.i207
 
@@ -9530,7 +9540,7 @@ _ZN7lodepng11ExtractZlib18readBitsFromStreamERmPKhm.exit235: ; preds = %for.body
   %reass.sub = sub i64 %i54.0507, %add.i
   %51 = load ptr, ptr %bitlenD, align 8
   %52 = getelementptr i64, ptr %51, i64 %reass.sub
-  %add.ptr.i237 = getelementptr i64, ptr %52, i64 -258
+  %add.ptr.i237 = getelementptr i8, ptr %52, i64 -2064
   %value.0.in = select i1 %cmp91, ptr %add.ptr.i236, ptr %add.ptr.i237
   %value.0 = load i64, ptr %value.0.in, align 8
   %cmp101502.not = icmp eq i64 %add.i232, -3
@@ -9590,13 +9600,13 @@ for.body.i241:                                    ; preds = %if.then122, %for.bo
 _ZN7lodepng11ExtractZlib18readBitsFromStreamERmPKhm.exit257: ; preds = %for.body.i241
   %add130 = add i64 %add.i254, 3
   %61 = load ptr, ptr %this, align 8
-  %_M_finish.i.i258 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %61, i64 0, i32 1
+  %_M_finish.i.i258 = getelementptr inbounds i8, ptr %61, i64 8
   %62 = load ptr, ptr %_M_finish.i.i258, align 8
-  %treecodes133 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %62, i64 -1, i32 8
+  %treecodes133 = getelementptr inbounds i8, ptr %62, i64 -232
   %conv135 = trunc i64 %add130 to i32
-  %_M_finish.i.i260 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %62, i64 -1, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i260 = getelementptr inbounds i8, ptr %62, i64 -224
   %63 = load ptr, ptr %_M_finish.i.i260, align 8
-  %_M_end_of_storage.i.i261 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %62, i64 -1, i32 8, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i261 = getelementptr inbounds i8, ptr %62, i64 -216
   %64 = load ptr, ptr %_M_end_of_storage.i.i261, align 8
   %cmp.not.i.i262 = icmp eq ptr %63, %64
   br i1 %cmp.not.i.i262, label %if.else.i.i265, label %if.then.i.i263
@@ -9604,7 +9614,7 @@ _ZN7lodepng11ExtractZlib18readBitsFromStreamERmPKhm.exit257: ; preds = %for.body
 if.then.i.i263:                                   ; preds = %_ZN7lodepng11ExtractZlib18readBitsFromStreamERmPKhm.exit257
   store i32 %conv135, ptr %63, align 4
   %65 = load ptr, ptr %_M_finish.i.i260, align 8
-  %incdec.ptr.i.i264 = getelementptr inbounds i32, ptr %65, i64 1
+  %incdec.ptr.i.i264 = getelementptr inbounds i8, ptr %65, i64 4
   store ptr %incdec.ptr.i.i264, ptr %_M_finish.i.i260, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit296
 
@@ -9644,7 +9654,7 @@ if.then.i.i.i12.i.i.i291:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i285
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i285: ; preds = %if.then.i.i.i12.i.i.i291, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i281
-  %incdec.ptr.i.i.i286 = getelementptr inbounds i32, ptr %add.ptr.i.i.i283, i64 1
+  %incdec.ptr.i.i.i286 = getelementptr inbounds i8, ptr %add.ptr.i.i.i283, i64 4
   %tobool.not.i.i.i.i287 = icmp eq ptr %66, null
   br i1 %tobool.not.i.i.i.i287, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i289, label %if.then.i21.i.i.i288
 
@@ -9717,13 +9727,13 @@ for.body.i300:                                    ; preds = %if.then160, %for.bo
 _ZN7lodepng11ExtractZlib18readBitsFromStreamERmPKhm.exit316: ; preds = %for.body.i300
   %add168 = add i64 %add.i313, 11
   %75 = load ptr, ptr %this, align 8
-  %_M_finish.i.i317 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %75, i64 0, i32 1
+  %_M_finish.i.i317 = getelementptr inbounds i8, ptr %75, i64 8
   %76 = load ptr, ptr %_M_finish.i.i317, align 8
-  %treecodes171 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %76, i64 -1, i32 8
+  %treecodes171 = getelementptr inbounds i8, ptr %76, i64 -232
   %conv173 = trunc i64 %add168 to i32
-  %_M_finish.i.i319 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %76, i64 -1, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i319 = getelementptr inbounds i8, ptr %76, i64 -224
   %77 = load ptr, ptr %_M_finish.i.i319, align 8
-  %_M_end_of_storage.i.i320 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %76, i64 -1, i32 8, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i320 = getelementptr inbounds i8, ptr %76, i64 -216
   %78 = load ptr, ptr %_M_end_of_storage.i.i320, align 8
   %cmp.not.i.i321 = icmp eq ptr %77, %78
   br i1 %cmp.not.i.i321, label %if.else.i.i324, label %if.then.i.i322
@@ -9731,7 +9741,7 @@ _ZN7lodepng11ExtractZlib18readBitsFromStreamERmPKhm.exit316: ; preds = %for.body
 if.then.i.i322:                                   ; preds = %_ZN7lodepng11ExtractZlib18readBitsFromStreamERmPKhm.exit316
   store i32 %conv173, ptr %77, align 4
   %79 = load ptr, ptr %_M_finish.i.i319, align 8
-  %incdec.ptr.i.i323 = getelementptr inbounds i32, ptr %79, i64 1
+  %incdec.ptr.i.i323 = getelementptr inbounds i8, ptr %79, i64 4
   store ptr %incdec.ptr.i.i323, ptr %_M_finish.i.i319, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit355
 
@@ -9771,7 +9781,7 @@ if.then.i.i.i12.i.i.i350:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i344
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i344: ; preds = %if.then.i.i.i12.i.i.i350, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i340
-  %incdec.ptr.i.i.i345 = getelementptr inbounds i32, ptr %add.ptr.i.i.i342, i64 1
+  %incdec.ptr.i.i.i345 = getelementptr inbounds i8, ptr %add.ptr.i.i.i342, i64 4
   %tobool.not.i.i.i.i346 = icmp eq ptr %80, null
   br i1 %tobool.not.i.i.i.i346, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i348, label %if.then.i21.i.i.i347
 
@@ -9821,7 +9831,7 @@ if.end201:                                        ; preds = %if.end183, %if.end1
 
 while.end:                                        ; preds = %if.end201, %while.cond.preheader
   %86 = load ptr, ptr %bitlen, align 8
-  %add.ptr.i358 = getelementptr inbounds i64, ptr %86, i64 256
+  %add.ptr.i358 = getelementptr inbounds i8, ptr %86, i64 2048
   %87 = load i64, ptr %add.ptr.i358, align 8
   %cmp203 = icmp eq i64 %87, 0
   br i1 %cmp203, label %cleanup.sink.split, label %if.end206
@@ -9848,9 +9858,9 @@ if.end220:                                        ; preds = %invoke.cont214
   %88 = load i64, ptr %bp, align 8
   %sub221 = sub i64 %88, %0
   %89 = load ptr, ptr %this, align 8
-  %_M_finish.i.i359 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %89, i64 0, i32 1
+  %_M_finish.i.i359 = getelementptr inbounds i8, ptr %89, i64 8
   %90 = load ptr, ptr %_M_finish.i.i359, align 8
-  %treebits = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %90, i64 -1, i32 3
+  %treebits = getelementptr inbounds i8, ptr %90, i64 -280
   store i64 %sub221, ptr %treebits, align 8
   %91 = load ptr, ptr %_M_finish.i.i.i, align 8
   %92 = load ptr, ptr %bitlen, align 8
@@ -9867,15 +9877,15 @@ for.body227:                                      ; preds = %if.end220, %for.inc
   %95 = phi ptr [ %104, %for.inc234 ], [ %92, %if.end220 ]
   %j.0513 = phi i64 [ %inc235, %for.inc234 ], [ 0, %if.end220 ]
   %96 = load ptr, ptr %this, align 8
-  %_M_finish.i.i366 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %96, i64 0, i32 1
+  %_M_finish.i.i366 = getelementptr inbounds i8, ptr %96, i64 8
   %97 = load ptr, ptr %_M_finish.i.i366, align 8
-  %litlenlengths = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %97, i64 -1, i32 9
+  %litlenlengths = getelementptr inbounds i8, ptr %97, i64 -208
   %add.ptr.i368 = getelementptr inbounds i64, ptr %95, i64 %j.0513
   %98 = load i64, ptr %add.ptr.i368, align 8
   %conv232 = trunc i64 %98 to i32
-  %_M_finish.i.i369 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %97, i64 -1, i32 9, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i369 = getelementptr inbounds i8, ptr %97, i64 -200
   %99 = load ptr, ptr %_M_finish.i.i369, align 8
-  %_M_end_of_storage.i.i370 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %97, i64 -1, i32 9, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i370 = getelementptr inbounds i8, ptr %97, i64 -192
   %100 = load ptr, ptr %_M_end_of_storage.i.i370, align 8
   %cmp.not.i.i371 = icmp eq ptr %99, %100
   br i1 %cmp.not.i.i371, label %if.else.i.i374, label %if.then.i.i372
@@ -9883,7 +9893,7 @@ for.body227:                                      ; preds = %if.end220, %for.inc
 if.then.i.i372:                                   ; preds = %for.body227
   store i32 %conv232, ptr %99, align 4
   %101 = load ptr, ptr %_M_finish.i.i369, align 8
-  %incdec.ptr.i.i373 = getelementptr inbounds i32, ptr %101, i64 1
+  %incdec.ptr.i.i373 = getelementptr inbounds i8, ptr %101, i64 4
   store ptr %incdec.ptr.i.i373, ptr %_M_finish.i.i369, align 8
   br label %for.inc234
 
@@ -9923,7 +9933,7 @@ if.then.i.i.i12.i.i.i400:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i394
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i394: ; preds = %if.then.i.i.i12.i.i.i400, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i390
-  %incdec.ptr.i.i.i395 = getelementptr inbounds i32, ptr %add.ptr.i.i.i392, i64 1
+  %incdec.ptr.i.i.i395 = getelementptr inbounds i8, ptr %add.ptr.i.i.i392, i64 4
   %tobool.not.i.i.i.i396 = icmp eq ptr %102, null
   br i1 %tobool.not.i.i.i.i396, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i398, label %if.then.i21.i.i.i397
 
@@ -9953,15 +9963,15 @@ for.body241:                                      ; preds = %for.cond238.prehead
   %105 = phi ptr [ %114, %for.inc248 ], [ %94, %for.cond238.preheader ]
   %j237.0519 = phi i64 [ %inc249, %for.inc248 ], [ 0, %for.cond238.preheader ]
   %106 = load ptr, ptr %this, align 8
-  %_M_finish.i.i411 = getelementptr inbounds %"struct.std::_Vector_base<lodepng::ZlibBlockInfo, std::allocator<lodepng::ZlibBlockInfo>>::_Vector_impl_data", ptr %106, i64 0, i32 1
+  %_M_finish.i.i411 = getelementptr inbounds i8, ptr %106, i64 8
   %107 = load ptr, ptr %_M_finish.i.i411, align 8
-  %distlengths = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %107, i64 -1, i32 10
+  %distlengths = getelementptr inbounds i8, ptr %107, i64 -184
   %add.ptr.i413 = getelementptr inbounds i64, ptr %105, i64 %j237.0519
   %108 = load i64, ptr %add.ptr.i413, align 8
   %conv246 = trunc i64 %108 to i32
-  %_M_finish.i.i414 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %107, i64 -1, i32 10, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i414 = getelementptr inbounds i8, ptr %107, i64 -176
   %109 = load ptr, ptr %_M_finish.i.i414, align 8
-  %_M_end_of_storage.i.i415 = getelementptr %"struct.lodepng::ZlibBlockInfo", ptr %107, i64 -1, i32 10, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i415 = getelementptr inbounds i8, ptr %107, i64 -168
   %110 = load ptr, ptr %_M_end_of_storage.i.i415, align 8
   %cmp.not.i.i416 = icmp eq ptr %109, %110
   br i1 %cmp.not.i.i416, label %if.else.i.i419, label %if.then.i.i417
@@ -9969,7 +9979,7 @@ for.body241:                                      ; preds = %for.cond238.prehead
 if.then.i.i417:                                   ; preds = %for.body241
   store i32 %conv246, ptr %109, align 4
   %111 = load ptr, ptr %_M_finish.i.i414, align 8
-  %incdec.ptr.i.i418 = getelementptr inbounds i32, ptr %111, i64 1
+  %incdec.ptr.i.i418 = getelementptr inbounds i8, ptr %111, i64 4
   store ptr %incdec.ptr.i.i418, ptr %_M_finish.i.i414, align 8
   br label %for.inc248
 
@@ -10016,7 +10026,7 @@ if.then.i.i.i12.i.i.i445:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i439
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i439: ; preds = %if.then.i.i.i12.i.i.i445, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i435
-  %incdec.ptr.i.i.i440 = getelementptr inbounds i32, ptr %add.ptr.i.i.i437, i64 1
+  %incdec.ptr.i.i.i440 = getelementptr inbounds i8, ptr %add.ptr.i.i.i437, i64 4
   %tobool.not.i.i.i.i441 = icmp eq ptr %112, null
   br i1 %tobool.not.i.i.i.i441, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i443, label %if.then.i21.i.i.i442
 
@@ -10105,7 +10115,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i464, %
 define linkonce_odr noundef i32 @_ZN7lodepng11ExtractZlib11HuffmanTree15makeFromLengthsERKSt6vectorImSaImEEm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %bitlen, i64 noundef %maxbitlen) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp39 = alloca i64, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %bitlen, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %bitlen, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %bitlen, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -10130,7 +10140,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr i64, ptr %call5.i.i.i.i2.i.i46, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i46, i64 8
   %2 = add nsw i64 %sub.ptr.sub.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false)
   br label %invoke.cont
@@ -10252,7 +10262,7 @@ for.inc35:                                        ; preds = %for.body28, %if.the
 
 for.end37:                                        ; preds = %for.inc35, %for.cond26.preheader
   %13 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %14, %13
   br i1 %tobool.not.i.i, label %_ZNSt6vectorImSaImEE5clearEv.exit, label %invoke.cont.i.i
@@ -10422,9 +10432,9 @@ entry:
   br i1 %cmp.not, label %if.end94, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -10468,7 +10478,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
 for.body.i.i.i:                                   ; preds = %invoke.cont20, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %__position.coerce, %invoke.cont20 ]
   store i64 %2, ptr %__first.addr.04.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i64, ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr24
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !71
 
@@ -10484,7 +10494,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %1, %if.end.i.i.i.i.i ]
   store i64 %2, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i49
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i.i.i.i, !llvm.loop !71
 
@@ -10509,7 +10519,7 @@ invoke.cont35:                                    ; preds = %invoke.cont27
 for.body.i.i.i59:                                 ; preds = %invoke.cont35, %for.body.i.i.i59
   %__first.addr.04.i.i.i60 = phi ptr [ %incdec.ptr.i.i.i61, %for.body.i.i.i59 ], [ %__position.coerce, %invoke.cont35 ]
   store i64 %2, ptr %__first.addr.04.i.i.i60, align 8
-  %incdec.ptr.i.i.i61 = getelementptr inbounds i64, ptr %__first.addr.04.i.i.i60, i64 1
+  %incdec.ptr.i.i.i61 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i60, i64 8
   %cmp.not.i.i.i62 = icmp eq ptr %incdec.ptr.i.i.i61, %1
   br i1 %cmp.not.i.i.i62, label %if.end94, label %for.body.i.i.i59, !llvm.loop !71
 
@@ -10554,7 +10564,7 @@ if.end.i.i.i.i.i66:                               ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i.i68:                         ; preds = %for.body.i.i.i.i.i.i.i68, %if.end.i.i.i.i.i66
   %__first.addr.04.i.i.i.i.i.i.i69 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i70, %for.body.i.i.i.i.i.i.i68 ], [ %add.ptr54, %if.end.i.i.i.i.i66 ]
   store i64 %7, ptr %__first.addr.04.i.i.i.i.i.i.i69, align 8
-  %incdec.ptr.i.i.i.i.i.i.i70 = getelementptr inbounds i64, ptr %__first.addr.04.i.i.i.i.i.i.i69, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i69, i64 8
   %cmp.not.i.i.i.i.i.i.i71 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i70, %add.ptr.i.i.i.i.i67
   br i1 %cmp.not.i.i.i.i.i.i.i71, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i68, !llvm.loop !71
 
@@ -10698,7 +10708,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -10742,14 +10752,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #26
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #26
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !87
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
@@ -10758,8 +10768,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #26
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #26
-  %incdec.ptr.i.i.i15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
+  %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
   br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !87
 
@@ -10773,7 +10783,7 @@ if.then.i20:                                      ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, %if.then.i20
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %cond.i
@@ -10790,7 +10800,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -10837,14 +10847,14 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #26
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #26
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !87
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19
 
@@ -10853,8 +10863,8 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorINSt7__
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i22, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #26
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #26
-  %incdec.ptr.i.i.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i21, i64 1
-  %incdec.ptr1.i.i.i23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i20, i64 1
+  %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 32
+  %incdec.ptr1.i.i.i23 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 32
   %cmp.not.i.i.i24 = icmp eq ptr %incdec.ptr.i.i.i22, %0
   br i1 %cmp.not.i.i.i24, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19, !llvm.loop !87
 
@@ -10868,7 +10878,7 @@ if.then.i27:                                      ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %if.then.i27
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8
   %add.ptr26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i17, i64 %cond.i
@@ -10920,7 +10930,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIS_IhSaIhEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -10957,8 +10967,8 @@ _ZNSt12_Vector_baseISt6vectorIhSaIhEESaIS2_EE11_M_allocateEm.exit: ; preds = %_Z
   %add.ptr = getelementptr inbounds %"class.std::vector", ptr %cond.i10, i64 %sub.ptr.div.i
   %2 = load <2 x ptr>, ptr %__args, align 8
   store <2 x ptr> %2, ptr %add.ptr, align 8
-  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %add.ptr, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__args, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args, i8 0, i64 24, i1 false)
@@ -10972,19 +10982,19 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %4 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !91, !noalias !88
   store <2 x ptr> %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !88, !noalias !91
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__cur.07.i.i.i, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !91, !noalias !88
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !88, !noalias !91
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !91, !noalias !88
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::vector", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::vector", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !93
 
 _ZNSt6vectorIS_IhSaIhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt6vectorIhSaIhEESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt6vectorIhSaIhEESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::vector", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, label %for.body.i.i.i12
 
@@ -10995,13 +11005,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIS_IhSa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %6 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !97, !noalias !94
   store <2 x ptr> %6, ptr %__cur.07.i.i.i13, align 8, !alias.scope !94, !noalias !97
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__cur.07.i.i.i13, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !97, !noalias !94
   store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !94, !noalias !97
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !97, !noalias !94
-  %incdec.ptr.i.i.i19 = getelementptr inbounds %"class.std::vector", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i20 = getelementptr inbounds %"class.std::vector", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
+  %incdec.ptr1.i.i.i20 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
   %cmp.not.i.i.i21 = icmp eq ptr %incdec.ptr.i.i.i19, %0
   br i1 %cmp.not.i.i.i21, label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, label %for.body.i.i.i12, !llvm.loop !93
 
@@ -11015,7 +11025,7 @@ if.then.i24:                                      ; preds = %_ZNSt6vectorIS_IhSa
   br label %_ZNSt12_Vector_baseISt6vectorIhSaIhEESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseISt6vectorIhSaIhEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IhSaIhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, %if.then.i24
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i22, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::vector", ptr %cond.i10, i64 %cond.i
@@ -11033,9 +11043,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -11186,9 +11196,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -11336,14 +11346,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -11401,13 +11411,13 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !102, !noalias !99
   store <2 x ptr> %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !99, !noalias !102
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__cur.07.i.i.i, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !102, !noalias !99
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !99, !noalias !102
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !102, !noalias !99
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::vector", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::vector", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !93
 

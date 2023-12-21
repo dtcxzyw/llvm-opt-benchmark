@@ -3,10 +3,6 @@ source_filename = "bench/icu/original/utrie.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UNewTrie = type { [34848 x i32], ptr, i32, i32, i32, i32, i8, i8, i8, i8, [34849 x i32] }
-%struct.UTrieHeader = type { i32, i32, i32, i32 }
-%struct.UTrie = type { ptr, ptr, ptr, i32, i32, i32, i8 }
-
 ; Function Attrs: mustprogress uwtable
 define ptr @utrie_open_75(ptr noundef %fillIn, ptr noundef %aliasData, i32 noundef %maxDataLength, i32 noundef %initialValue, i32 noundef %leadUnitValue, i8 noundef signext %latin1Linear) local_unnamed_addr #0 {
 entry:
@@ -32,13 +28,13 @@ if.end7:                                          ; preds = %if.end, %if.else
   %trie.0 = phi ptr [ %call, %if.else ], [ %fillIn, %if.end ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(278816) %trie.0, i8 0, i64 278816, i1 false)
   %conv = zext i1 %cmp2.not to i8
-  %isAllocated = getelementptr inbounds %struct.UNewTrie, ptr %trie.0, i64 0, i32 6
+  %isAllocated = getelementptr inbounds i8, ptr %trie.0, i64 139416
   store i8 %conv, ptr %isAllocated, align 8
   %cmp9.not = icmp eq ptr %aliasData, null
   br i1 %cmp9.not, label %if.else11, label %if.then10
 
 if.then10:                                        ; preds = %if.end7
-  %data = getelementptr inbounds %struct.UNewTrie, ptr %trie.0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %trie.0, i64 139392
   store ptr %aliasData, ptr %data, align 8
   br label %if.end20
 
@@ -46,7 +42,7 @@ if.else11:                                        ; preds = %if.end7
   %mul = shl nsw i32 %maxDataLength, 2
   %conv12 = zext nneg i32 %mul to i64
   %call13 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv12) #14
-  %data14 = getelementptr inbounds %struct.UNewTrie, ptr %trie.0, i64 0, i32 1
+  %data14 = getelementptr inbounds i8, ptr %trie.0, i64 139392
   store ptr %call13, ptr %data14, align 8
   %cmp16 = icmp eq ptr %call13, null
   br i1 %cmp16, label %if.then17, label %if.end20
@@ -57,7 +53,7 @@ if.then17:                                        ; preds = %if.else11
 
 if.end20:                                         ; preds = %if.else11, %if.then10
   %.sink = phi i8 [ 0, %if.then10 ], [ 1, %if.else11 ]
-  %isDataAllocated19 = getelementptr inbounds %struct.UNewTrie, ptr %trie.0, i64 0, i32 7
+  %isDataAllocated19 = getelementptr inbounds i8, ptr %trie.0, i64 139417
   store i8 %.sink, ptr %isDataAllocated19, align 1
   br i1 %tobool, label %do.body, label %if.end24
 
@@ -73,9 +69,9 @@ do.body:                                          ; preds = %if.end20, %do.body
 
 if.end24:                                         ; preds = %do.body, %if.end20
   %j.1 = phi i32 [ 32, %if.end20 ], [ 288, %do.body ]
-  %dataLength = getelementptr inbounds %struct.UNewTrie, ptr %trie.0, i64 0, i32 5
+  %dataLength = getelementptr inbounds i8, ptr %trie.0, i64 139412
   store i32 %j.1, ptr %dataLength, align 4
-  %data26 = getelementptr inbounds %struct.UNewTrie, ptr %trie.0, i64 0, i32 1
+  %data26 = getelementptr inbounds i8, ptr %trie.0, i64 139392
   %0 = zext nneg i32 %j.1 to i64
   br label %while.body
 
@@ -89,15 +85,15 @@ while.body:                                       ; preds = %if.end24, %while.bo
   br i1 %cmp25, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body
-  %leadUnitValue29 = getelementptr inbounds %struct.UNewTrie, ptr %trie.0, i64 0, i32 2
+  %leadUnitValue29 = getelementptr inbounds i8, ptr %trie.0, i64 139400
   store i32 %leadUnitValue, ptr %leadUnitValue29, align 8
-  %indexLength = getelementptr inbounds %struct.UNewTrie, ptr %trie.0, i64 0, i32 3
+  %indexLength = getelementptr inbounds i8, ptr %trie.0, i64 139404
   store i32 34816, ptr %indexLength, align 4
-  %dataCapacity = getelementptr inbounds %struct.UNewTrie, ptr %trie.0, i64 0, i32 4
+  %dataCapacity = getelementptr inbounds i8, ptr %trie.0, i64 139408
   store i32 %maxDataLength, ptr %dataCapacity, align 8
-  %isLatin1Linear = getelementptr inbounds %struct.UNewTrie, ptr %trie.0, i64 0, i32 8
+  %isLatin1Linear = getelementptr inbounds i8, ptr %trie.0, i64 139418
   store i8 %latin1Linear, ptr %isLatin1Linear, align 2
-  %isCompacted = getelementptr inbounds %struct.UNewTrie, ptr %trie.0, i64 0, i32 9
+  %isCompacted = getelementptr inbounds i8, ptr %trie.0, i64 139419
   store i8 0, ptr %isCompacted, align 1
   br label %return
 
@@ -121,20 +117,20 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %data = getelementptr inbounds %struct.UNewTrie, ptr %other, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %other, i64 139392
   %0 = load ptr, ptr %data, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %isCompacted = getelementptr inbounds %struct.UNewTrie, ptr %other, i64 0, i32 9
+  %isCompacted = getelementptr inbounds i8, ptr %other, i64 139419
   %1 = load i8, ptr %isCompacted, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
   %cmp3.not = icmp eq ptr %aliasData, null
-  %dataCapacity6.phi.trans.insert = getelementptr inbounds %struct.UNewTrie, ptr %other, i64 0, i32 4
+  %dataCapacity6.phi.trans.insert = getelementptr inbounds i8, ptr %other, i64 139408
   %.pre = load i32, ptr %dataCapacity6.phi.trans.insert, align 8
   %cmp4.not = icmp sgt i32 %.pre, %aliasDataCapacity
   %or.cond = select i1 %cmp3.not, i1 true, i1 %cmp4.not
@@ -157,9 +153,9 @@ if.end11:                                         ; preds = %if.end, %if.else.if
   %aliasDataCapacity.addr.0 = phi i32 [ %.pre, %if.else.if.end11_crit_edge ], [ %aliasDataCapacity, %if.end ]
   %isDataAllocated.0 = phi i8 [ 1, %if.else.if.end11_crit_edge ], [ 0, %if.end ]
   %3 = load i32, ptr %2, align 4
-  %leadUnitValue = getelementptr inbounds %struct.UNewTrie, ptr %other, i64 0, i32 2
+  %leadUnitValue = getelementptr inbounds i8, ptr %other, i64 139400
   %4 = load i32, ptr %leadUnitValue, align 8
-  %isLatin1Linear = getelementptr inbounds %struct.UNewTrie, ptr %other, i64 0, i32 8
+  %isLatin1Linear = getelementptr inbounds i8, ptr %other, i64 139418
   %5 = load i8, ptr %isLatin1Linear, align 2
   %cmp.i = icmp slt i32 %aliasDataCapacity.addr.0, 32
   br i1 %cmp.i, label %if.then15, label %lor.lhs.false.i
@@ -183,11 +179,11 @@ if.end20.i:                                       ; preds = %if.else.i, %if.end.
   %trie.0.i = phi ptr [ %call.i, %if.else.i ], [ %fillIn, %if.end.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(278816) %trie.0.i, i8 0, i64 278816, i1 false)
   %conv.i = zext i1 %cmp2.not.i to i8
-  %isAllocated.i = getelementptr inbounds %struct.UNewTrie, ptr %trie.0.i, i64 0, i32 6
+  %isAllocated.i = getelementptr inbounds i8, ptr %trie.0.i, i64 139416
   store i8 %conv.i, ptr %isAllocated.i, align 8
-  %data.i = getelementptr inbounds %struct.UNewTrie, ptr %trie.0.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %trie.0.i, i64 139392
   store ptr %aliasData.addr.0, ptr %data.i, align 8
-  %isDataAllocated19.i = getelementptr inbounds %struct.UNewTrie, ptr %trie.0.i, i64 0, i32 7
+  %isDataAllocated19.i = getelementptr inbounds i8, ptr %trie.0.i, i64 139417
   br i1 %tobool.i, label %do.body.i, label %if.end24.i
 
 do.body.i:                                        ; preds = %if.end20.i, %do.body.i
@@ -202,7 +198,7 @@ do.body.i:                                        ; preds = %if.end20.i, %do.bod
 
 if.end24.i:                                       ; preds = %do.body.i, %if.end20.i
   %j.1.i = phi i32 [ 32, %if.end20.i ], [ 288, %do.body.i ]
-  %dataLength.i = getelementptr inbounds %struct.UNewTrie, ptr %trie.0.i, i64 0, i32 5
+  %dataLength.i = getelementptr inbounds i8, ptr %trie.0.i, i64 139412
   store i32 %j.1.i, ptr %dataLength.i, align 4
   %6 = zext nneg i32 %j.1.i to i64
   br label %while.body.i
@@ -221,20 +217,20 @@ if.then15:                                        ; preds = %lor.lhs.false.i, %i
   br label %return
 
 do.body:                                          ; preds = %while.body.i
-  %leadUnitValue29.i = getelementptr inbounds %struct.UNewTrie, ptr %trie.0.i, i64 0, i32 2
+  %leadUnitValue29.i = getelementptr inbounds i8, ptr %trie.0.i, i64 139400
   store i32 %4, ptr %leadUnitValue29.i, align 8
-  %indexLength.i = getelementptr inbounds %struct.UNewTrie, ptr %trie.0.i, i64 0, i32 3
+  %indexLength.i = getelementptr inbounds i8, ptr %trie.0.i, i64 139404
   store i32 34816, ptr %indexLength.i, align 4
-  %dataCapacity.i = getelementptr inbounds %struct.UNewTrie, ptr %trie.0.i, i64 0, i32 4
+  %dataCapacity.i = getelementptr inbounds i8, ptr %trie.0.i, i64 139408
   store i32 %aliasDataCapacity.addr.0, ptr %dataCapacity.i, align 8
-  %isLatin1Linear.i = getelementptr inbounds %struct.UNewTrie, ptr %trie.0.i, i64 0, i32 8
+  %isLatin1Linear.i = getelementptr inbounds i8, ptr %trie.0.i, i64 139418
   store i8 %5, ptr %isLatin1Linear.i, align 2
-  %isCompacted.i = getelementptr inbounds %struct.UNewTrie, ptr %trie.0.i, i64 0, i32 9
+  %isCompacted.i = getelementptr inbounds i8, ptr %trie.0.i, i64 139419
   store i8 0, ptr %isCompacted.i, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(139392) %trie.0.i, ptr noundef nonnull align 8 dereferenceable(139392) %other, i64 139392, i1 false)
   %8 = load ptr, ptr %data.i, align 8
   %9 = load ptr, ptr %data, align 8
-  %dataLength = getelementptr inbounds %struct.UNewTrie, ptr %other, i64 0, i32 5
+  %dataLength = getelementptr inbounds i8, ptr %other, i64 139412
   %10 = load i32, ptr %dataLength, align 4
   %conv22 = sext i32 %10 to i64
   %mul23 = shl nsw i64 %conv22, 2
@@ -259,20 +255,20 @@ entry:
   br i1 %cmp.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %isDataAllocated = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 7
+  %isDataAllocated = getelementptr inbounds i8, ptr %trie, i64 139417
   %0 = load i8, ptr %isDataAllocated, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %data = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %trie, i64 139392
   %1 = load ptr, ptr %data, align 8
   tail call void @uprv_free_75(ptr noundef %1)
   store ptr null, ptr %data, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then1, %if.then
-  %isAllocated = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 6
+  %isAllocated = getelementptr inbounds i8, ptr %trie, i64 139416
   %2 = load i8, ptr %isAllocated, align 8
   %tobool3.not = icmp eq i8 %2, 0
   br i1 %tobool3.not, label %if.end6, label %if.then4
@@ -294,10 +290,10 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dataLength = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 5
+  %dataLength = getelementptr inbounds i8, ptr %trie, i64 139412
   %0 = load i32, ptr %dataLength, align 4
   store i32 %0, ptr %pLength, align 4
-  %data = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %trie, i64 139392
   %1 = load ptr, ptr %data, align 8
   br label %return
 
@@ -313,7 +309,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %isCompacted = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 9
+  %isCompacted = getelementptr inbounds i8, ptr %trie, i64 139419
   %0 = load i8, ptr %isCompacted, align 1
   %tobool = icmp ne i8 %0, 0
   %cmp2 = icmp ugt i32 %c, 1114111
@@ -329,10 +325,10 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp.i, label %if.end5, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %dataLength.i.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 5
+  %dataLength.i.i = getelementptr inbounds i8, ptr %trie, i64 139412
   %2 = load i32, ptr %dataLength.i.i, align 4
   %add.i.i = add nsw i32 %2, 32
-  %dataCapacity.i.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 4
+  %dataCapacity.i.i = getelementptr inbounds i8, ptr %trie, i64 139408
   %3 = load i32, ptr %dataCapacity.i.i, align 8
   %cmp.i.i = icmp sgt i32 %add.i.i, %3
   br i1 %cmp.i.i, label %return, label %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i
@@ -344,7 +340,7 @@ _ZL20utrie_allocDataBlockP8UNewTrie.exit.i:       ; preds = %if.end.i
 
 if.end3.i:                                        ; preds = %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i
   store i32 %2, ptr %arrayidx.i, align 4
-  %data.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %trie, i64 139392
   %4 = load ptr, ptr %data.i, align 8
   %idx.ext.i = zext nneg i32 %2 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %4, i64 %idx.ext.i
@@ -356,7 +352,7 @@ if.end3.i:                                        ; preds = %_ZL20utrie_allocDat
 
 if.end5:                                          ; preds = %if.end3.i, %if.end
   %retval.0.i = phi i32 [ %2, %if.end3.i ], [ %1, %if.end ]
-  %data = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %trie, i64 139392
   %5 = load ptr, ptr %data, align 8
   %and = and i32 %c, 31
   %add = add nuw nsw i32 %retval.0.i, %and
@@ -377,7 +373,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %isCompacted = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 9
+  %isCompacted = getelementptr inbounds i8, ptr %trie, i64 139419
   %0 = load i8, ptr %isCompacted, align 1
   %tobool = icmp ne i8 %0, 0
   %cmp2 = icmp ugt i32 %c, 1114111
@@ -407,7 +403,7 @@ if.then7:                                         ; preds = %if.end5
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end5
-  %data = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %trie, i64 139392
   %2 = load ptr, ptr %data, align 8
   %cond = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
   %and = and i32 %c, 31
@@ -429,7 +425,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %isCompacted = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 9
+  %isCompacted = getelementptr inbounds i8, ptr %trie, i64 139419
   %0 = load i8, ptr %isCompacted, align 1
   %tobool = icmp ne i8 %0, 0
   %cmp2 = icmp ugt i32 %start, 1114111
@@ -445,7 +441,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %trie, i64 139392
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %1, align 4
   %and = and i32 %start, 31
@@ -461,10 +457,10 @@ if.then11:                                        ; preds = %if.end9
   br i1 %cmp.i, label %if.end14, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then11
-  %dataLength.i.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 5
+  %dataLength.i.i = getelementptr inbounds i8, ptr %trie, i64 139412
   %4 = load i32, ptr %dataLength.i.i, align 4
   %add.i.i = add nsw i32 %4, 32
-  %dataCapacity.i.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 4
+  %dataCapacity.i.i = getelementptr inbounds i8, ptr %trie, i64 139408
   %5 = load i32, ptr %dataCapacity.i.i, align 8
   %cmp.i.i = icmp sgt i32 %add.i.i, %5
   br i1 %cmp.i.i, label %return, label %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i
@@ -543,7 +539,7 @@ while.cond3.preheader.i81:                        ; preds = %if.else
 
 while.body.i77:                                   ; preds = %while.cond.preheader.i76, %while.body.i77
   %block.addr.012.i78 = phi ptr [ %incdec.ptr.i79, %while.body.i77 ], [ %add.ptr2.i74, %while.cond.preheader.i76 ]
-  %incdec.ptr.i79 = getelementptr inbounds i32, ptr %block.addr.012.i78, i64 1
+  %incdec.ptr.i79 = getelementptr inbounds i8, ptr %block.addr.012.i78, i64 4
   store i32 %value, ptr %block.addr.012.i78, align 4
   %cmp.i80 = icmp ult ptr %incdec.ptr.i79, %add.ptr.i72
   br i1 %cmp.i80, label %while.body.i77, label %return, !llvm.loop !7
@@ -559,7 +555,7 @@ if.then7.i88:                                     ; preds = %while.body5.i82
   br label %if.end.i85
 
 if.end.i85:                                       ; preds = %if.then7.i88, %while.body5.i82
-  %incdec.ptr8.i86 = getelementptr inbounds i32, ptr %block.addr.114.i83, i64 1
+  %incdec.ptr8.i86 = getelementptr inbounds i8, ptr %block.addr.114.i83, i64 4
   %cmp4.i87 = icmp ult ptr %incdec.ptr8.i86, %add.ptr.i72
   br i1 %cmp4.i87, label %while.body5.i82, label %return, !llvm.loop !8
 
@@ -574,8 +570,8 @@ while.body.lr.ph:                                 ; preds = %if.end26
   %cmp29 = icmp ne i32 %2, %value
   %. = sext i1 %cmp29 to i32
   %tobool47 = icmp ne i8 %overwrite, 0
-  %dataLength.i.i111 = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 5
-  %dataCapacity.i.i113 = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 4
+  %dataLength.i.i111 = getelementptr inbounds i8, ptr %trie, i64 139412
+  %dataCapacity.i.i113 = getelementptr inbounds i8, ptr %trie, i64 139408
   %tobool.not.i91 = icmp eq i8 %overwrite, 0
   %12 = zext i32 %start.addr.0 to i64
   br label %while.body
@@ -699,10 +695,10 @@ if.then74.if.end78_crit_edge:                     ; preds = %if.then74
   br label %if.end78
 
 if.end.i137:                                      ; preds = %if.then74
-  %dataLength.i.i138 = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 5
+  %dataLength.i.i138 = getelementptr inbounds i8, ptr %trie, i64 139412
   %24 = load i32, ptr %dataLength.i.i138, align 4
   %add.i.i139 = add nsw i32 %24, 32
-  %dataCapacity.i.i140 = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 4
+  %dataCapacity.i.i140 = getelementptr inbounds i8, ptr %trie, i64 139408
   %25 = load i32, ptr %dataCapacity.i.i140, align 8
   %cmp.i.i141 = icmp sgt i32 %add.i.i139, %25
   br i1 %cmp.i.i141, label %return, label %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i142
@@ -734,7 +730,7 @@ if.end78:                                         ; preds = %if.then74.if.end78_
 
 while.body.i158:                                  ; preds = %if.end78, %while.body.i158
   %block.addr.012.i159 = phi ptr [ %incdec.ptr.i160, %while.body.i158 ], [ %add.ptr81, %if.end78 ]
-  %incdec.ptr.i160 = getelementptr inbounds i32, ptr %block.addr.012.i159, i64 1
+  %incdec.ptr.i160 = getelementptr inbounds i8, ptr %block.addr.012.i159, i64 4
   store i32 %value, ptr %block.addr.012.i159, align 4
   %cmp.i161 = icmp ult ptr %incdec.ptr.i160, %add.ptr.i154
   br i1 %cmp.i161, label %while.body.i158, label %return, !llvm.loop !7
@@ -750,7 +746,7 @@ if.then7.i169:                                    ; preds = %while.body5.i163
   br label %if.end.i166
 
 if.end.i166:                                      ; preds = %if.then7.i169, %while.body5.i163
-  %incdec.ptr8.i167 = getelementptr inbounds i32, ptr %block.addr.114.i164, i64 1
+  %incdec.ptr8.i167 = getelementptr inbounds i8, ptr %block.addr.114.i164, i64 4
   %cmp4.i168 = icmp ult ptr %incdec.ptr8.i167, %add.ptr.i154
   br i1 %cmp4.i168, label %while.body5.i163, label %return, !llvm.loop !8
 
@@ -788,7 +784,7 @@ if.then7:                                         ; preds = %lor.lhs.false4, %if
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false4
-  %isCompacted = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 9
+  %isCompacted = getelementptr inbounds i8, ptr %trie, i64 139419
   %1 = load i8, ptr %isCompacted, align 1
   %tobool12.not = icmp eq i8 %1, 0
   br i1 %tobool12.not, label %if.then13, label %if.end19
@@ -798,21 +794,21 @@ if.then13:                                        ; preds = %if.end8
   %spec.store.select = select i1 %cmp9, ptr @_ZL21defaultGetFoldedValueP8UNewTrieii, ptr %getFoldedValue
   tail call fastcc void @_ZL13utrie_compactP8UNewTrieaP10UErrorCode(ptr noundef nonnull %trie, i8 noundef signext 0, i32 %0)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %leadIndexes.i)
-  %add.ptr.i = getelementptr inbounds i32, ptr %trie, i64 1728
+  %add.ptr.i = getelementptr inbounds i8, ptr %trie, i64 6912
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %leadIndexes.i, ptr noundef nonnull align 4 dereferenceable(128) %add.ptr.i, i64 128, i1 false)
-  %leadUnitValue.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 2
+  %leadUnitValue.i = getelementptr inbounds i8, ptr %trie, i64 139400
   %2 = load i32, ptr %leadUnitValue.i, align 8
-  %data.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %trie, i64 139392
   %3 = load ptr, ptr %data.i, align 8
   %4 = load i32, ptr %3, align 4
   %cmp.i62 = icmp eq i32 %2, %4
   br i1 %cmp.i62, label %if.end9.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then13
-  %dataLength.i.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 5
+  %dataLength.i.i = getelementptr inbounds i8, ptr %trie, i64 139412
   %5 = load i32, ptr %dataLength.i.i, align 4
   %add.i.i = add nsw i32 %5, 32
-  %dataCapacity.i.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 4
+  %dataCapacity.i.i = getelementptr inbounds i8, ptr %trie, i64 139408
   %6 = load i32, ptr %dataCapacity.i.i, align 8
   %cmp.i.i = icmp sgt i32 %add.i.i, %6
   br i1 %cmp.i.i, label %if.then3.i, label %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i
@@ -848,8 +844,8 @@ if.end9.i:                                        ; preds = %_ZL15utrie_fillBloc
   br label %for.body.i
 
 for.cond13.preheader.i:                           ; preds = %for.body.i
-  %dataLength.i.i.i.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 5
-  %dataCapacity.i.i.i.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 4
+  %dataLength.i.i.i.i = getelementptr inbounds i8, ptr %trie, i64 139412
+  %dataCapacity.i.i.i.i = getelementptr inbounds i8, ptr %trie, i64 139408
   br label %for.body15.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end9.i
@@ -1014,15 +1010,15 @@ if.then54.i:                                      ; preds = %for.end52.i
   br label %_ZL10utrie_foldP8UNewTriePFjS0_iiEP10UErrorCode.exit
 
 do.body56.i:                                      ; preds = %for.end52.i
-  %add.ptr57.i = getelementptr inbounds i32, ptr %trie, i64 2048
-  %add.ptr58.i = getelementptr inbounds i32, ptr %trie, i64 2080
+  %add.ptr57.i = getelementptr inbounds i8, ptr %trie, i64 8192
+  %add.ptr58.i = getelementptr inbounds i8, ptr %trie, i64 8320
   %sub60.i = shl i32 %indexLength.2.i, 2
   %mul.i = add i32 %sub60.i, -8192
   %conv61.i = sext i32 %mul.i to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr58.i, ptr nonnull align 4 %add.ptr57.i, i64 %conv61.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %add.ptr57.i, ptr noundef nonnull align 16 dereferenceable(128) %leadIndexes.i, i64 128, i1 false)
   %add67.i = add nsw i32 %indexLength.2.i, 32
-  %indexLength68.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 3
+  %indexLength68.i = getelementptr inbounds i8, ptr %trie, i64 139404
   store i32 %add67.i, ptr %indexLength68.i, align 4
   %pErrorCode.val61.pre = load i32, ptr %pErrorCode, align 4
   br label %_ZL10utrie_foldP8UNewTriePFjS0_iiEP10UErrorCode.exit
@@ -1038,12 +1034,12 @@ _ZL10utrie_foldP8UNewTriePFjS0_iiEP10UErrorCode.exit: ; preds = %if.then3.i, %if
 
 if.end19:                                         ; preds = %_ZL10utrie_foldP8UNewTriePFjS0_iiEP10UErrorCode.exit, %if.end8
   %tobool20.not = icmp eq i8 %reduceTo16Bits, 0
-  %dataLength21 = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 5
+  %dataLength21 = getelementptr inbounds i8, ptr %trie, i64 139412
   %22 = load i32, ptr %dataLength21, align 4
   br i1 %tobool20.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end19
-  %indexLength = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 3
+  %indexLength = getelementptr inbounds i8, ptr %trie, i64 139404
   %23 = load i32, ptr %indexLength, align 4
   %add = add nsw i32 %23, %22
   br label %cond.end
@@ -1058,12 +1054,12 @@ if.then23:                                        ; preds = %cond.end
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %cond.end
-  %indexLength25 = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 3
+  %indexLength25 = getelementptr inbounds i8, ptr %trie, i64 139404
   %24 = load i32, ptr %indexLength25, align 4
   br i1 %tobool20.not, label %if.else, label %if.then29
 
 if.then29:                                        ; preds = %if.end24
-  %dataLength30 = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 5
+  %dataLength30 = getelementptr inbounds i8, ptr %trie, i64 139412
   %25 = load i32, ptr %dataLength30, align 4
   %26 = add i32 %25, %24
   %27 = shl i32 %26, 1
@@ -1073,7 +1069,7 @@ if.then29:                                        ; preds = %if.end24
 if.else:                                          ; preds = %if.end24
   %mul = shl nsw i32 %24, 1
   %add26 = add i32 %mul, 16
-  %dataLength33 = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 5
+  %dataLength33 = getelementptr inbounds i8, ptr %trie, i64 139412
   %28 = load i32, ptr %dataLength33, align 4
   %mul34 = shl nsw i32 %28, 2
   %add35 = add nsw i32 %add26, %mul34
@@ -1087,10 +1083,10 @@ if.end36:                                         ; preds = %if.else, %if.then29
 if.end39:                                         ; preds = %if.end36
   %add.ptr = getelementptr inbounds i8, ptr %dt, i64 16
   store i32 1416784229, ptr %dt, align 4
-  %options = getelementptr inbounds %struct.UTrieHeader, ptr %dt, i64 0, i32 1
+  %options = getelementptr inbounds i8, ptr %dt, i64 4
   %spec.select = select i1 %tobool20.not, i32 293, i32 37
   store i32 %spec.select, ptr %options, align 4
-  %isLatin1Linear = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 8
+  %isLatin1Linear = getelementptr inbounds i8, ptr %trie, i64 139418
   %29 = load i8, ptr %isLatin1Linear, align 2
   %tobool44.not = icmp eq i8 %29, 0
   br i1 %tobool44.not, label %if.end48, label %if.then45
@@ -1102,11 +1098,11 @@ if.then45:                                        ; preds = %if.end39
 
 if.end48:                                         ; preds = %if.then45, %if.end39
   %30 = load i32, ptr %indexLength25, align 4
-  %indexLength50 = getelementptr inbounds %struct.UTrieHeader, ptr %dt, i64 0, i32 2
+  %indexLength50 = getelementptr inbounds i8, ptr %dt, i64 8
   store i32 %30, ptr %indexLength50, align 4
-  %dataLength51 = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 5
+  %dataLength51 = getelementptr inbounds i8, ptr %trie, i64 139412
   %31 = load i32, ptr %dataLength51, align 4
-  %dataLength52 = getelementptr inbounds %struct.UTrieHeader, ptr %dt, i64 0, i32 3
+  %dataLength52 = getelementptr inbounds i8, ptr %dt, i64 12
   store i32 %31, ptr %dataLength52, align 4
   %32 = load i32, ptr %indexLength25, align 4
   %cmp7775 = icmp sgt i32 %32, 0
@@ -1119,13 +1115,13 @@ for.body:                                         ; preds = %if.then54, %for.bod
   %i.070 = phi i32 [ %dec, %for.body ], [ %32, %if.then54 ]
   %dest16.069 = phi ptr [ %incdec.ptr60, %for.body ], [ %add.ptr, %if.then54 ]
   %p.068 = phi ptr [ %incdec.ptr, %for.body ], [ %trie, %if.then54 ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %p.068, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.068, i64 4
   %33 = load i32, ptr %p.068, align 4
   %34 = load i32, ptr %indexLength25, align 4
   %add58 = add i32 %34, %33
   %shr = lshr i32 %add58, 2
   %conv59 = trunc i32 %shr to i16
-  %incdec.ptr60 = getelementptr inbounds i16, ptr %dest16.069, i64 1
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %dest16.069, i64 2
   store i16 %conv59, ptr %dest16.069, align 2
   %dec = add nsw i32 %i.070, -1
   %cmp56 = icmp ugt i32 %i.070, 1
@@ -1142,7 +1138,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp6471, label %for.body65.preheader, label %return
 
 for.body65.preheader:                             ; preds = %for.end
-  %data61 = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 1
+  %data61 = getelementptr inbounds i8, ptr %trie, i64 139392
   %36 = load ptr, ptr %data61, align 8
   br label %for.body65
 
@@ -1150,10 +1146,10 @@ for.body65:                                       ; preds = %for.body65.preheade
   %i.174 = phi i32 [ %dec70, %for.body65 ], [ %35, %for.body65.preheader ]
   %dest16.173 = phi ptr [ %incdec.ptr68, %for.body65 ], [ %dest16.0.lcssa, %for.body65.preheader ]
   %p.172 = phi ptr [ %incdec.ptr66, %for.body65 ], [ %36, %for.body65.preheader ]
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %p.172, i64 1
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %p.172, i64 4
   %37 = load i32, ptr %p.172, align 4
   %conv67 = trunc i32 %37 to i16
-  %incdec.ptr68 = getelementptr inbounds i16, ptr %dest16.173, i64 1
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %dest16.173, i64 2
   store i16 %conv67, ptr %dest16.173, align 2
   %dec70 = add nsw i32 %i.174, -1
   %cmp64 = icmp ugt i32 %i.174, 1
@@ -1166,11 +1162,11 @@ for.body78:                                       ; preds = %if.else72, %for.bod
   %i.278 = phi i32 [ %dec84, %for.body78 ], [ %32, %if.else72 ]
   %dest16.277 = phi ptr [ %incdec.ptr82, %for.body78 ], [ %add.ptr, %if.else72 ]
   %p.276 = phi ptr [ %incdec.ptr79, %for.body78 ], [ %trie, %if.else72 ]
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %p.276, i64 1
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %p.276, i64 4
   %38 = load i32, ptr %p.276, align 4
   %shr80 = lshr i32 %38, 2
   %conv81 = trunc i32 %shr80 to i16
-  %incdec.ptr82 = getelementptr inbounds i16, ptr %dest16.277, i64 1
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %dest16.277, i64 2
   store i16 %conv81, ptr %dest16.277, align 2
   %dec84 = add nsw i32 %i.278, -1
   %cmp77 = icmp ugt i32 %i.278, 1
@@ -1183,7 +1179,7 @@ do.body.loopexit:                                 ; preds = %for.body78
 do.body:                                          ; preds = %do.body.loopexit, %if.else72
   %39 = phi i32 [ %31, %if.else72 ], [ %.pre83, %do.body.loopexit ]
   %dest16.2.lcssa = phi ptr [ %add.ptr, %if.else72 ], [ %incdec.ptr82, %do.body.loopexit ]
-  %data86 = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 1
+  %data86 = getelementptr inbounds i8, ptr %trie, i64 139392
   %40 = load ptr, ptr %data86, align 8
   %conv88 = sext i32 %39 to i64
   %mul89 = shl nsw i64 %conv88, 2
@@ -1198,11 +1194,11 @@ return:                                           ; preds = %for.body65, %for.en
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL21defaultGetFoldedValueP8UNewTrieii(ptr nocapture noundef readonly %trie, i32 noundef %start, i32 noundef %offset) unnamed_addr #9 {
 entry.split:
-  %data = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %trie, i64 139392
   %0 = load ptr, ptr %data, align 8
   %1 = load i32, ptr %0, align 4
   %add = add nsw i32 %start, 1024
-  %isCompacted.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 9
+  %isCompacted.i = getelementptr inbounds i8, ptr %trie, i64 139419
   %2 = load i8, ptr %isCompacted.i, align 1
   %.fr = freeze i8 %2
   %tobool.i.not = icmp eq i8 %.fr, 0
@@ -1249,15 +1245,15 @@ entry:
   br i1 %cmp.i, label %if.end3, label %return
 
 if.end3:                                          ; preds = %entry
-  %isCompacted = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 9
+  %isCompacted = getelementptr inbounds i8, ptr %trie, i64 139419
   %0 = load i8, ptr %isCompacted, align 1
   %tobool4.not = icmp eq i8 %0, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %map.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 10
+  %map.i = getelementptr inbounds i8, ptr %trie, i64 139420
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(139396) %map.i, i8 -1, i64 139396, i1 false)
-  %indexLength.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 3
+  %indexLength.i = getelementptr inbounds i8, ptr %trie, i64 139404
   %1 = load i32, ptr %indexLength.i, align 4
   %cmp11.i = icmp sgt i32 %1, 0
   br i1 %cmp11.i, label %for.body.preheader.i, label %_ZL17_findUnusedBlocksP8UNewTrie.exit
@@ -1273,7 +1269,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cond.i = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
   %shr.i = lshr i32 %cond.i, 5
   %idxprom9.i = zext nneg i32 %shr.i to i64
-  %arrayidx10.i = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 10, i64 %idxprom9.i
+  %arrayidx10.i = getelementptr inbounds [34849 x i32], ptr %map.i, i64 0, i64 %idxprom9.i
   store i32 0, ptr %arrayidx10.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1281,17 +1277,17 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZL17_findUnusedBlocksP8UNewTrie.exit:            ; preds = %for.body.i, %if.end6
   store i32 0, ptr %map.i, align 4
-  %isLatin1Linear = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 8
+  %isLatin1Linear = getelementptr inbounds i8, ptr %trie, i64 139418
   %3 = load i8, ptr %isLatin1Linear, align 2
   %tobool7.not = icmp eq i8 %3, 0
   %. = select i1 %tobool7.not, i32 32, i32 288
-  %dataLength = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 5
+  %dataLength = getelementptr inbounds i8, ptr %trie, i64 139412
   %4 = load i32, ptr %dataLength, align 4
   %cmp102841 = icmp sgt i32 %4, 32
   br i1 %cmp102841, label %for.body.lr.ph.lr.ph, label %for.cond92.preheader
 
 for.body.lr.ph.lr.ph:                             ; preds = %_ZL17_findUnusedBlocksP8UNewTrie.exit
-  %data = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %trie, i64 139392
   %tobool15.not = icmp eq i8 %overlap, 0
   %5 = select i1 %tobool15.not, i64 32, i64 4
   br label %for.body.lr.ph
@@ -1316,7 +1312,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %start.029 = phi i32 [ %start.0.ph42, %for.body.lr.ph ], [ %start.0.be, %for.cond.backedge ]
   %shr = ashr i32 %start.029, 5
   %idxprom = sext i32 %shr to i64
-  %arrayidx = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 10, i64 %idxprom
+  %arrayidx = getelementptr inbounds [34849 x i32], ptr %map.i, i64 0, i64 %idxprom
   %10 = load i32, ptr %arrayidx, align 4
   %cmp11 = icmp slt i32 %10, 0
   br i1 %cmp11, label %for.cond.backedge, label %if.end13
@@ -1355,8 +1351,8 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %fo
   br i1 %cmp1.i.i, label %while.body.i.i, label %for.inc.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %s.addr.06.i.i, i64 1
-  %incdec.ptr2.i.i = getelementptr inbounds i32, ptr %t.addr.07.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s.addr.06.i.i, i64 4
+  %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %t.addr.07.i.i, i64 4
   %dec.i.i = add nsw i32 %length.addr.08.i.i, -1
   %cmp.i.i = icmp ugt i32 %length.addr.08.i.i, 1
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZL18_findSameDataBlockPKjiii.exit, !llvm.loop !20
@@ -1404,8 +1400,8 @@ land.rhs.i:                                       ; preds = %land.rhs, %while.bo
   br i1 %cmp1.i, label %while.body.i, label %for.inc
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %s.addr.06.i, i64 1
-  %incdec.ptr2.i = getelementptr inbounds i32, ptr %t.addr.07.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.addr.06.i, i64 4
+  %incdec.ptr2.i = getelementptr inbounds i8, ptr %t.addr.07.i, i64 4
   %dec.i = add nsw i32 %length.addr.08.i, -1
   %cmp.i76 = icmp sgt i32 %length.addr.08.i, 1
   br i1 %cmp.i76, label %land.rhs.i, label %if.then42, !llvm.loop !20
@@ -1497,7 +1493,7 @@ for.body94:                                       ; preds = %for.cond92.preheade
   %cond106 = tail call i32 @llvm.abs.i32(i32 %34, i1 true)
   %shr107 = lshr i32 %cond106, 5
   %idxprom108 = zext nneg i32 %shr107 to i64
-  %arrayidx109 = getelementptr inbounds %struct.UNewTrie, ptr %trie, i64 0, i32 10, i64 %idxprom108
+  %arrayidx109 = getelementptr inbounds [34849 x i32], ptr %map.i, i64 0, i64 %idxprom108
   %35 = load i32, ptr %arrayidx109, align 4
   store i32 %35, ptr %arrayidx97, align 4
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
@@ -1549,7 +1545,7 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end6:                                          ; preds = %if.end3
-  %options7 = getelementptr inbounds %struct.UTrieHeader, ptr %data, i64 0, i32 1
+  %options7 = getelementptr inbounds i8, ptr %data, i64 4
   %2 = load i32, ptr %options7, align 4
   %3 = and i32 %2, 255
   %or.cond = icmp eq i32 %3, 37
@@ -1563,15 +1559,15 @@ if.end13:                                         ; preds = %if.end6
   %and14 = lshr i32 %2, 9
   %4 = trunc i32 %and14 to i8
   %conv = and i8 %4, 1
-  %isLatin1Linear = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 6
+  %isLatin1Linear = getelementptr inbounds i8, ptr %trie, i64 36
   store i8 %conv, ptr %isLatin1Linear, align 4
-  %indexLength = getelementptr inbounds %struct.UTrieHeader, ptr %data, i64 0, i32 2
+  %indexLength = getelementptr inbounds i8, ptr %data, i64 8
   %5 = load i32, ptr %indexLength, align 4
-  %indexLength16 = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 3
+  %indexLength16 = getelementptr inbounds i8, ptr %trie, i64 24
   store i32 %5, ptr %indexLength16, align 8
-  %dataLength = getelementptr inbounds %struct.UTrieHeader, ptr %data, i64 0, i32 3
+  %dataLength = getelementptr inbounds i8, ptr %data, i64 12
   %6 = load i32, ptr %dataLength, align 4
-  %dataLength17 = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 4
+  %dataLength17 = getelementptr inbounds i8, ptr %trie, i64 28
   store i32 %6, ptr %dataLength17, align 4
   %sub = add nsw i32 %length, -16
   %mul = shl nsw i32 %5, 1
@@ -1583,7 +1579,7 @@ if.then20:                                        ; preds = %if.end13
   br label %return
 
 if.end21:                                         ; preds = %if.end13
-  %add.ptr = getelementptr inbounds %struct.UTrieHeader, ptr %data, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %add.ptr, ptr %trie, align 8
   %idx.ext = sext i32 %5 to i64
   %add.ptr23 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext
@@ -1602,10 +1598,10 @@ if.then33:                                        ; preds = %if.then29
   br label %return
 
 if.end34:                                         ; preds = %if.then29
-  %data32 = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 1
+  %data32 = getelementptr inbounds i8, ptr %trie, i64 8
   store ptr %add.ptr23, ptr %data32, align 8
   %7 = load i32, ptr %add.ptr23, align 4
-  %initialValue = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 5
+  %initialValue = getelementptr inbounds i8, ptr %trie, i64 32
   store i32 %7, ptr %initialValue, align 8
   %add = add nsw i32 %mul, 16
   %add40 = add nsw i32 %add, %mul31
@@ -1621,11 +1617,11 @@ if.then44:                                        ; preds = %if.else
   br label %return
 
 if.end45:                                         ; preds = %if.else
-  %data3246 = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 1
+  %data3246 = getelementptr inbounds i8, ptr %trie, i64 8
   store ptr null, ptr %data3246, align 8
   %8 = load i16, ptr %add.ptr23, align 2
   %conv50 = zext i16 %8 to i32
-  %initialValue51 = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 5
+  %initialValue51 = getelementptr inbounds i8, ptr %trie, i64 32
   store i32 %conv50, ptr %initialValue51, align 8
   %9 = add i32 %6, %5
   %10 = shl i32 %9, 1
@@ -1634,7 +1630,7 @@ if.end45:                                         ; preds = %if.else
 
 if.end58:                                         ; preds = %if.end45, %if.end34
   %length.addr.0 = phi i32 [ %add40, %if.end34 ], [ %add57, %if.end45 ]
-  %getFoldingOffset = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 2
+  %getFoldingOffset = getelementptr inbounds i8, ptr %trie, i64 16
   store ptr @utrie_defaultGetFoldingOffset_75, ptr %getFoldingOffset, align 8
   br label %return
 
@@ -1655,9 +1651,9 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %indexLength = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 3
+  %indexLength = getelementptr inbounds i8, ptr %trie, i64 24
   store i32 2080, ptr %indexLength, align 8
-  %dataLength = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 4
+  %dataLength = getelementptr inbounds i8, ptr %trie, i64 28
   %cmp1.not.not = icmp eq i32 %leadUnitValue, %initialValue
   %spec.select = select i1 %cmp1.not.not, i32 256, i32 288
   store i32 %spec.select, ptr %dataLength, align 4
@@ -1682,9 +1678,9 @@ if.then16:                                        ; preds = %if.end14.thread, %i
   br label %return
 
 if.then20:                                        ; preds = %if.end14.thread
-  %isLatin1Linear85 = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 6
+  %isLatin1Linear85 = getelementptr inbounds i8, ptr %trie, i64 36
   store i8 1, ptr %isLatin1Linear85, align 4
-  %initialValue1886 = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 5
+  %initialValue1886 = getelementptr inbounds i8, ptr %trie, i64 32
   store i32 %initialValue, ptr %initialValue1886, align 8
   store ptr %data, ptr %trie, align 8
   br label %for.body
@@ -1709,7 +1705,7 @@ for.body34:                                       ; preds = %for.end, %for.body3
   br i1 %exitcond106.not, label %if.end40, label %for.body34, !llvm.loop !27
 
 if.end40:                                         ; preds = %for.body34, %for.end
-  %data32 = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 1
+  %data32 = getelementptr inbounds i8, ptr %trie, i64 8
   store ptr null, ptr %data32, align 8
   %1 = load i32, ptr %indexLength, align 8
   %idx.ext = sext i32 %1 to i64
@@ -1741,9 +1737,9 @@ for.body56:                                       ; preds = %for.body56.lr.ph, %
   br i1 %exitcond114.not, label %if.end105, label %for.body56, !llvm.loop !29
 
 if.else64:                                        ; preds = %if.end14
-  %isLatin1Linear = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 6
+  %isLatin1Linear = getelementptr inbounds i8, ptr %trie, i64 36
   store i8 1, ptr %isLatin1Linear, align 4
-  %initialValue18 = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 5
+  %initialValue18 = getelementptr inbounds i8, ptr %trie, i64 32
   store i32 %initialValue, ptr %initialValue18, align 8
   store ptr %data, ptr %trie, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(4160) %data, i8 0, i64 4160, i1 false)
@@ -1761,7 +1757,7 @@ if.end80:                                         ; preds = %for.body74, %if.els
   %2 = load i32, ptr %indexLength, align 8
   %idx.ext82 = sext i32 %2 to i64
   %add.ptr83 = getelementptr inbounds i16, ptr %data, i64 %idx.ext82
-  %data3284 = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 1
+  %data3284 = getelementptr inbounds i8, ptr %trie, i64 8
   store ptr %add.ptr83, ptr %data3284, align 8
   br label %for.body87
 
@@ -1786,7 +1782,7 @@ for.body98:                                       ; preds = %for.end92, %for.bod
 
 if.end105:                                        ; preds = %for.body56, %for.body98, %for.end92, %for.end50
   %actualLength.08387 = phi i32 [ %add13, %for.end92 ], [ %add10, %for.end50 ], [ %add13, %for.body98 ], [ %add10, %for.body56 ]
-  %getFoldingOffset = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 2
+  %getFoldingOffset = getelementptr inbounds i8, ptr %trie, i64 16
   store ptr @utrie_defaultGetFoldingOffset_75, ptr %getFoldingOffset, align 8
   br label %return
 
@@ -1811,16 +1807,16 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %cmp4 = icmp eq ptr %enumValue, null
   %spec.store.select = select i1 %cmp4, ptr @_ZL13enumSameValuePKvj, ptr %enumValue
-  %data328 = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 1
+  %data328 = getelementptr inbounds i8, ptr %trie, i64 8
   %1 = load ptr, ptr %data328, align 8
-  %initialValue9 = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 5
+  %initialValue9 = getelementptr inbounds i8, ptr %trie, i64 32
   %2 = load i32, ptr %initialValue9, align 8
   %call = tail call noundef i32 %spec.store.select(ptr noundef %context, i32 noundef %2)
   %cmp10 = icmp eq ptr %1, null
   br i1 %cmp10, label %for.body.us.preheader, label %for.body
 
 for.body.us.preheader:                            ; preds = %if.end
-  %indexLength = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 3
+  %indexLength = getelementptr inbounds i8, ptr %trie, i64 24
   %3 = load i32, ptr %indexLength, align 8
   br label %for.body.us
 
@@ -1934,7 +1930,7 @@ for.cond68.preheader:                             ; preds = %for.inc65, %for.inc
   %.us-phi189 = phi i32 [ %c.2.us, %for.inc65.us ], [ %c.2, %for.inc65 ]
   %.us-phi190 = phi i32 [ %prev.4.us, %for.inc65.us ], [ %prev.4, %for.inc65 ]
   %.us-phi191 = phi i32 [ %prevBlock.5.us, %for.inc65.us ], [ %prevBlock.5, %for.inc65 ]
-  %getFoldingOffset = getelementptr inbounds %struct.UTrie, ptr %trie, i64 0, i32 2
+  %getFoldingOffset = getelementptr inbounds i8, ptr %trie, i64 16
   br label %for.body70
 
 for.body:                                         ; preds = %if.end, %for.inc65

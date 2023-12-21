@@ -13,23 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.4 = type { i32, i32, i8 }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.GoldfishRTCState = type { %struct.SysBusDevice, %struct.MemoryRegion, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i8 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.0, %union.anon.1, %union.anon.2, ptr, i32, ptr, ptr, i8 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.timeval = type { i64, i64 }
 
@@ -95,11 +78,11 @@ define internal void @goldfish_rtc_class_init(ptr noundef %klass, ptr nocapture 
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @goldfish_rtc_properties) #7
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @goldfish_rtc_realize, ptr %realize, align 8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @goldfish_rtc_reset, ptr %reset, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @goldfish_rtc_vmstate, ptr %vmsd, align 8
   ret void
 }
@@ -111,20 +94,20 @@ define internal void @goldfish_rtc_realize(ptr noundef %d, ptr nocapture readnon
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #7
   %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 29, ptr noundef nonnull @__func__.GOLDFISH_RTC) #7
-  %iomem = getelementptr inbounds %struct.GoldfishRTCState, ptr %call.i10, i64 0, i32 1
-  %big_endian = getelementptr inbounds %struct.GoldfishRTCState, ptr %call.i10, i64 0, i32 11
+  %iomem = getelementptr inbounds i8, ptr %call.i10, i64 816
+  %big_endian = getelementptr inbounds i8, ptr %call.i10, i64 1144
   %0 = load i8, ptr %big_endian, align 8
   %1 = and i8 %0, 1
   %idxprom = zext nneg i8 %1 to i64
   %arrayidx = getelementptr [2 x %struct.MemoryRegionOps], ptr @goldfish_rtc_ops, i64 0, i64 %idxprom
   tail call void @memory_region_init_io(ptr noundef nonnull %iomem, ptr noundef %call.i10, ptr noundef %arrayidx, ptr noundef %call.i10, ptr noundef nonnull @.str, i64 noundef 36) #7
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %iomem) #7
-  %irq = getelementptr inbounds %struct.GoldfishRTCState, ptr %call.i10, i64 0, i32 3
+  %irq = getelementptr inbounds i8, ptr %call.i10, i64 1096
   tail call void @sysbus_init_irq(ptr noundef %call.i, ptr noundef nonnull %irq) #7
   %2 = load i32, ptr @rtc_clock, align 4
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #8
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef %2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @goldfish_rtc_interrupt, ptr noundef %call.i10) #7
-  %timer = getelementptr inbounds %struct.GoldfishRTCState, ptr %call.i10, i64 0, i32 2
+  %timer = getelementptr inbounds i8, ptr %call.i10, i64 1088
   store ptr %call.i.i.i, ptr %timer, align 16
   ret void
 }
@@ -134,12 +117,12 @@ define internal void @goldfish_rtc_reset(ptr noundef %dev) #0 {
 entry:
   %tm = alloca %struct.tm, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 29, ptr noundef nonnull @__func__.GOLDFISH_RTC) #7
-  %timer = getelementptr inbounds %struct.GoldfishRTCState, ptr %call.i, i64 0, i32 2
+  %timer = getelementptr inbounds i8, ptr %call.i, i64 1088
   %0 = load ptr, ptr %timer, align 16
   tail call void @timer_del(ptr noundef %0) #7
   call void @qemu_get_timedate(ptr noundef nonnull %tm, i64 noundef 0) #7
   %call1 = call i64 @mktimegm(ptr noundef nonnull %tm) #7
-  %tick_offset = getelementptr inbounds %struct.GoldfishRTCState, ptr %call.i, i64 0, i32 4
+  %tick_offset = getelementptr inbounds i8, ptr %call.i, i64 1104
   %mul = mul i64 %call1, 1000000000
   store i64 %mul, ptr %tick_offset, align 16
   %1 = load i32, ptr @rtc_clock, align 4
@@ -147,7 +130,7 @@ entry:
   %2 = load i64, ptr %tick_offset, align 16
   %sub = sub i64 %2, %call3
   store i64 %sub, ptr %tick_offset, align 16
-  %tick_offset_vmstate = getelementptr inbounds %struct.GoldfishRTCState, ptr %call.i, i64 0, i32 5
+  %tick_offset_vmstate = getelementptr inbounds i8, ptr %call.i, i64 1112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %tick_offset_vmstate, i8 0, i64 28, i1 false)
   ret void
 }
@@ -163,13 +146,13 @@ declare void @sysbus_init_irq(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @goldfish_rtc_interrupt(ptr nocapture noundef %opaque) #0 {
 entry:
-  %alarm_running = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 7
+  %alarm_running = getelementptr inbounds i8, ptr %opaque, i64 1128
   store i32 0, ptr %alarm_running, align 8
-  %irq_pending = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 8
+  %irq_pending = getelementptr inbounds i8, ptr %opaque, i64 1132
   store i32 1, ptr %irq_pending, align 4
-  %irq.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 3
+  %irq.i = getelementptr inbounds i8, ptr %opaque, i64 1096
   %0 = load ptr, ptr %irq.i, align 8
-  %irq_enabled.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 9
+  %irq_enabled.i = getelementptr inbounds i8, ptr %opaque, i64 1136
   %1 = load i32, ptr %irq_enabled.i, align 16
   %and.i = and i32 %1, 1
   tail call void @qemu_set_irq(ptr noundef %0, i32 noundef %and.i) #7
@@ -200,37 +183,37 @@ sw.bb:                                            ; preds = %entry
   %add.i = add i64 %call.i, %opaque.val
   %shr = lshr i64 %add.i, 32
   %conv = trunc i64 %shr to i32
-  %time_high = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 10
+  %time_high = getelementptr inbounds i8, ptr %opaque, i64 1140
   store i32 %conv, ptr %time_high, align 4
   %and = and i64 %add.i, 4294967295
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %time_high2 = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 10
+  %time_high2 = getelementptr inbounds i8, ptr %opaque, i64 1140
   %3 = load i32, ptr %time_high2, align 4
   %conv3 = zext i32 %3 to i64
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
-  %alarm_next = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 6
+  %alarm_next = getelementptr inbounds i8, ptr %opaque, i64 1120
   %4 = load i64, ptr %alarm_next, align 16
   %and5 = and i64 %4, 4294967295
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
-  %alarm_next7 = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 6
+  %alarm_next7 = getelementptr inbounds i8, ptr %opaque, i64 1120
   %5 = load i64, ptr %alarm_next7, align 16
   %shr8 = lshr i64 %5, 32
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
-  %irq_enabled = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 9
+  %irq_enabled = getelementptr inbounds i8, ptr %opaque, i64 1136
   %6 = load i32, ptr %irq_enabled, align 16
   %conv10 = zext i32 %6 to i64
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %alarm_running = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 7
+  %alarm_running = getelementptr inbounds i8, ptr %opaque, i64 1128
   %7 = load i32, ptr %alarm_running, align 8
   %conv12 = zext i32 %7 to i64
   br label %sw.epilog
@@ -272,7 +255,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i64 noundef %offset, i64 noundef %r.0) #7
   br label %trace_goldfish_rtc_read.exit
@@ -332,7 +315,7 @@ sw.bb2:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
-  %alarm_next = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 6
+  %alarm_next = getelementptr inbounds i8, ptr %opaque, i64 1120
   %7 = load i64, ptr %alarm_next, align 16
   %and.i31 = and i64 %7, -4294967296
   %shl77.i32 = and i64 %value, 4294967295
@@ -345,19 +328,19 @@ sw.bb8:                                           ; preds = %entry
   %add.i.i = add i64 %call.i.i, %s.val.i
   %10 = load i64, ptr %alarm_next, align 16
   %cmp.not.i = icmp ugt i64 %10, %add.i.i
-  %timer.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 2
+  %timer.i = getelementptr inbounds i8, ptr %opaque, i64 1088
   %11 = load ptr, ptr %timer.i, align 16
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb8
   tail call void @timer_del(ptr noundef %11) #7
-  %alarm_running.i.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 7
+  %alarm_running.i.i = getelementptr inbounds i8, ptr %opaque, i64 1128
   store i32 0, ptr %alarm_running.i.i, align 8
-  %irq_pending.i.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 8
+  %irq_pending.i.i = getelementptr inbounds i8, ptr %opaque, i64 1132
   store i32 1, ptr %irq_pending.i.i, align 4
-  %irq.i.i.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 3
+  %irq.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 1096
   %12 = load ptr, ptr %irq.i.i.i, align 8
-  %irq_enabled.i.i.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 9
+  %irq_enabled.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 1136
   %13 = load i32, ptr %irq_enabled.i.i.i, align 16
   %and.i.i.i = and i32 %13, 1
   tail call void @qemu_set_irq(ptr noundef %12, i32 noundef %and.i.i.i) #7
@@ -367,12 +350,12 @@ if.else.i:                                        ; preds = %sw.bb8
   %14 = load i64, ptr %8, align 16
   %sub.i = sub i64 %10, %14
   tail call void @timer_mod(ptr noundef %11, i64 noundef %sub.i) #7
-  %alarm_running.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 7
+  %alarm_running.i = getelementptr inbounds i8, ptr %opaque, i64 1128
   store i32 1, ptr %alarm_running.i, align 8
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %alarm_next12 = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 6
+  %alarm_next12 = getelementptr inbounds i8, ptr %opaque, i64 1120
   %15 = load i64, ptr %alarm_next12, align 16
   %and.i34 = and i64 %15, 4294967295
   %shl77.i35 = shl i64 %value, 32
@@ -383,28 +366,28 @@ sw.bb11:                                          ; preds = %entry
 sw.bb15:                                          ; preds = %entry
   %16 = trunc i64 %value to i32
   %conv = and i32 %16, 1
-  %irq_enabled = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 9
+  %irq_enabled = getelementptr inbounds i8, ptr %opaque, i64 1136
   store i32 %conv, ptr %irq_enabled, align 16
-  %irq.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 3
+  %irq.i = getelementptr inbounds i8, ptr %opaque, i64 1096
   %17 = load ptr, ptr %irq.i, align 8
-  %irq_pending.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 8
+  %irq_pending.i = getelementptr inbounds i8, ptr %opaque, i64 1132
   %18 = load i32, ptr %irq_pending.i, align 4
   %and.i38 = and i32 %18, %conv
   tail call void @qemu_set_irq(ptr noundef %17, i32 noundef %and.i38) #7
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry
-  %timer.i39 = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 2
+  %timer.i39 = getelementptr inbounds i8, ptr %opaque, i64 1088
   %19 = load ptr, ptr %timer.i39, align 16
   tail call void @timer_del(ptr noundef %19) #7
-  %alarm_running.i40 = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 7
+  %alarm_running.i40 = getelementptr inbounds i8, ptr %opaque, i64 1128
   store i32 0, ptr %alarm_running.i40, align 8
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %entry
-  %irq_pending = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 8
+  %irq_pending = getelementptr inbounds i8, ptr %opaque, i64 1132
   store i32 0, ptr %irq_pending, align 4
-  %irq.i41 = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 3
+  %irq.i41 = getelementptr inbounds i8, ptr %opaque, i64 1096
   %20 = load ptr, ptr %irq.i41, align 8
   tail call void @qemu_set_irq(ptr noundef %20, i32 noundef 0) #7
   br label %sw.epilog
@@ -445,7 +428,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %27 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %28 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %27, i64 noundef %28, i64 noundef %offset, i64 noundef %value) #7
   br label %trace_goldfish_rtc_write.exit
@@ -490,30 +473,30 @@ entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #7
   %call1 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #7
   %sub.neg = sub i64 %call1, %call
-  %tick_offset_vmstate = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 5
+  %tick_offset_vmstate = getelementptr inbounds i8, ptr %opaque, i64 1112
   %1 = load i64, ptr %tick_offset_vmstate, align 8
   %sub2 = add i64 %sub.neg, %1
-  %tick_offset = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 4
+  %tick_offset = getelementptr inbounds i8, ptr %opaque, i64 1104
   store i64 %sub2, ptr %tick_offset, align 16
   %2 = load i32, ptr @rtc_clock, align 4
   %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef %2) #7
   %add.i.i = add i64 %call.i.i, %sub2
-  %alarm_next.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 6
+  %alarm_next.i = getelementptr inbounds i8, ptr %opaque, i64 1120
   %3 = load i64, ptr %alarm_next.i, align 16
   %cmp.not.i = icmp ugt i64 %3, %add.i.i
-  %timer.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 2
+  %timer.i = getelementptr inbounds i8, ptr %opaque, i64 1088
   %4 = load ptr, ptr %timer.i, align 16
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @timer_del(ptr noundef %4) #7
-  %alarm_running.i.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 7
+  %alarm_running.i.i = getelementptr inbounds i8, ptr %opaque, i64 1128
   store i32 0, ptr %alarm_running.i.i, align 8
-  %irq_pending.i.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 8
+  %irq_pending.i.i = getelementptr inbounds i8, ptr %opaque, i64 1132
   store i32 1, ptr %irq_pending.i.i, align 4
-  %irq.i.i.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 3
+  %irq.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 1096
   %5 = load ptr, ptr %irq.i.i.i, align 8
-  %irq_enabled.i.i.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 9
+  %irq_enabled.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 1136
   %6 = load i32, ptr %irq_enabled.i.i.i, align 16
   %and.i.i.i = and i32 %6, 1
   tail call void @qemu_set_irq(ptr noundef %5, i32 noundef %and.i.i.i) #7
@@ -523,7 +506,7 @@ if.else.i:                                        ; preds = %entry
   %7 = load i64, ptr %tick_offset, align 16
   %sub.i = sub i64 %3, %7
   tail call void @timer_mod(ptr noundef %4, i64 noundef %sub.i) #7
-  %alarm_running.i = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 7
+  %alarm_running.i = getelementptr inbounds i8, ptr %opaque, i64 1128
   store i32 1, ptr %alarm_running.i, align 8
   br label %goldfish_rtc_set_alarm.exit
 
@@ -538,10 +521,10 @@ entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #7
   %call1 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #7
   %sub = sub i64 %call, %call1
-  %tick_offset = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 4
+  %tick_offset = getelementptr inbounds i8, ptr %opaque, i64 1104
   %1 = load i64, ptr %tick_offset, align 16
   %add = add i64 %sub, %1
-  %tick_offset_vmstate = getelementptr inbounds %struct.GoldfishRTCState, ptr %opaque, i64 0, i32 5
+  %tick_offset_vmstate = getelementptr inbounds i8, ptr %opaque, i64 1112
   store i64 %add, ptr %tick_offset_vmstate, align 8
   ret i32 0
 }

@@ -10,10 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%struct._upb_ArenaHead = type { ptr, ptr }
-%struct.grpc_slice_refcount = type { %"struct.std::atomic", ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 
 @.str = private unnamed_addr constant [134 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/tsi/alts/handshaker/alts_tsi_utils.cc\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"resp_buffer != nullptr\00", align 1
@@ -77,13 +73,13 @@ do.end6:                                          ; preds = %do.body1
   call void @grpc_byte_buffer_reader_readall(ptr nonnull sret(%struct.grpc_slice) align 8 %slice, ptr noundef nonnull %bbr)
   %0 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %slice, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
   %sub.i = add i64 %cond, 7
   %div7.i = and i64 %sub.i, -8
-  %end.i.i = getelementptr inbounds %struct._upb_ArenaHead, ptr %arena, i64 0, i32 1
+  %end.i.i = getelementptr inbounds i8, ptr %arena, i64 8
   %2 = load ptr, ptr %end.i.i, align 8
   %3 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -106,7 +102,7 @@ upb_Arena_Malloc.exit:                            ; preds = %if.then.i, %if.end.
   %4 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.end.i ]
   %retval.0.i = phi ptr [ %call2.i, %if.then.i ], [ %3, %if.end.i ]
   %tobool11.not = icmp eq ptr %4, null
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %slice, i64 16
   %5 = load ptr, ptr %bytes, align 8
   %bytes16 = getelementptr inbounds i8, ptr %slice, i64 9
   %cond18 = select i1 %tobool11.not, ptr %bytes16, ptr %5
@@ -158,7 +154,7 @@ if.then.i12:                                      ; preds = %grpc_gcp_Handshaker
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i12
-  %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %9, i64 0, i32 1
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %11(ptr noundef nonnull %9)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit

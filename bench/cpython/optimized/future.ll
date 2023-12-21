@@ -3,17 +3,6 @@ source_filename = "bench/cpython/original/future.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PyFutureFeatures = type { i32, %struct._PyCompilerSrcLocation }
-%struct._PyCompilerSrcLocation = type { i32, i32, i32, i32 }
-%struct._mod = type { i32, %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.asdl_stmt_seq = type { i64, ptr, [1 x ptr] }
-%struct._stmt = type { i32, %union.anon.3, i32, i32, i32, i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asdl_alias_seq = type { i64, ptr, [1 x ptr] }
-
 @.str = private unnamed_addr constant [11 x i8] c"__future__\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"nested_scopes\00", align 1
 @.str.2 = private unnamed_addr constant [11 x i8] c"generators\00", align 1
@@ -34,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden i32 @_PyFuture_FromAST(ptr nocapture noundef readonly %mod, ptr noundef %filename, ptr nocapture noundef %ff) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ff, align 4
-  %ff_location = getelementptr inbounds %struct.PyFutureFeatures, ptr %ff, i64 0, i32 1
+  %ff_location = getelementptr inbounds i8, ptr %ff, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ff_location, i8 -1, i64 16, i1 false)
   %0 = load i32, ptr %mod, align 8
   %.off.i = add i32 %0, -1
@@ -42,7 +31,7 @@ entry:
   br i1 %switch.i, label %if.end.i, label %future_parse.exit
 
 if.end.i:                                         ; preds = %entry
-  %v.i = getelementptr inbounds %struct._mod, ptr %mod, i64 0, i32 1
+  %v.i = getelementptr inbounds i8, ptr %mod, i64 8
   %1 = load ptr, ptr %v.i, align 8
   %cmp3.i = icmp eq ptr %1, null
   br i1 %cmp3.i, label %future_parse.exit, label %cond.end.i
@@ -62,14 +51,15 @@ if.end8.i:                                        ; preds = %cond.end.i
 for.body.i:                                       ; preds = %if.end8.i, %if.end27.i
   %i.128.i = phi i64 [ %inc35.i, %if.end27.i ], [ %spec.select.i, %if.end8.i ]
   %3 = load ptr, ptr %v.i, align 8
-  %arrayidx.i = getelementptr %struct.asdl_stmt_seq, ptr %3, i64 0, i32 2, i64 %i.128.i
+  %typed_elements.i = getelementptr inbounds i8, ptr %3, i64 16
+  %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %i.128.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %5 = load i32, ptr %4, align 8
   %cmp18.i = icmp eq i32 %5, 22
   br i1 %cmp18.i, label %if.then19.i, label %future_parse.exit
 
 if.then19.i:                                      ; preds = %for.body.i
-  %v20.i = getelementptr inbounds %struct._stmt, ptr %4, i64 0, i32 1
+  %v20.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %v20.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %future_parse.exit, label %land.lhs.true.i
@@ -80,9 +70,10 @@ land.lhs.true.i:                                  ; preds = %if.then19.i
   br i1 %tobool22.not.i, label %future_parse.exit, label %if.then23.i
 
 if.then23.i:                                      ; preds = %land.lhs.true.i
-  %names1.i.i = getelementptr inbounds %struct._stmt, ptr %4, i64 0, i32 1, i32 0, i32 1
+  %names1.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load ptr, ptr %names1.i.i, align 8
   %cmp.i.i = icmp eq ptr %7, null
+  %typed_elements.i.i = getelementptr inbounds i8, ptr %7, i64 16
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %if.then23.i
@@ -100,7 +91,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %fo
   br i1 %cmp3.i.i, label %for.body.i.i, label %if.end27.i
 
 for.body.i.i:                                     ; preds = %cond.end.i.i
-  %arrayidx.i.i = getelementptr %struct.asdl_alias_seq, ptr %7, i64 0, i32 2, i64 %conv.i.i
+  %arrayidx.i.i = getelementptr [1 x ptr], ptr %typed_elements.i.i, i64 0, i64 %conv.i.i
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %10 = load ptr, ptr %9, align 8
   %call.i.i = tail call ptr @PyUnicode_AsUTF8(ptr noundef %10) #4
@@ -161,8 +152,8 @@ if.else56.i.i:                                    ; preds = %if.else49.i.i
   %call57.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i.i, ptr noundef nonnull dereferenceable(7) @.str.11) #5
   %cmp58.i.i = icmp eq i32 %call57.i.i, 0
   %11 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i.i = getelementptr inbounds %struct._stmt, ptr %4, i64 0, i32 2
-  %col_offset.i.i = getelementptr inbounds %struct._stmt, ptr %4, i64 0, i32 3
+  %lineno.i.i = getelementptr inbounds i8, ptr %4, i64 64
+  %col_offset.i.i = getelementptr inbounds i8, ptr %4, i64 68
   br i1 %cmp58.i.i, label %if.then60.i.i, label %if.else61.i.i
 
 if.then60.i.i:                                    ; preds = %if.else56.i.i
@@ -192,7 +183,7 @@ return.sink.split.i.i:                            ; preds = %if.else61.i.i, %if.
   br label %future_parse.exit
 
 if.end27.i:                                       ; preds = %cond.end.i.i
-  %lineno28.i = getelementptr inbounds %struct._stmt, ptr %4, i64 0, i32 2
+  %lineno28.i = getelementptr inbounds i8, ptr %4, i64 64
   %15 = load <4 x i32>, ptr %lineno28.i, align 8
   %16 = shufflevector <4 x i32> %15, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   store <4 x i32> %16, ptr %ff_location, align 4

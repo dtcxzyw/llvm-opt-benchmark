@@ -154,7 +154,7 @@ if.end23:                                         ; preds = %if.then16
 
 if.end28:                                         ; preds = %if.end23, %if.end14
   %noptargs.0 = phi i64 [ %dec, %if.end23 ], [ %add3034, %if.end14 ]
-  %arrayidx29 = getelementptr ptr, ptr %cond1035, i64 1
+  %arrayidx29 = getelementptr i8, ptr %cond1035, i64 8
   %7 = load ptr, ptr %arrayidx29, align 8
   %tobool30.not = icmp eq ptr %7, null
   br i1 %tobool30.not, label %if.end44, label %if.then31
@@ -175,7 +175,7 @@ if.end39:                                         ; preds = %land.lhs.true35, %i
 
 if.end44:                                         ; preds = %if.end39, %if.end28
   %logopt.0 = phi i64 [ %call33, %if.end39 ], [ 0, %if.end28 ]
-  %arrayidx45 = getelementptr ptr, ptr %cond1035, i64 2
+  %arrayidx45 = getelementptr i8, ptr %cond1035, i64 16
   %8 = load ptr, ptr %arrayidx45, align 8
   %call46 = call i64 @PyLong_AsLong(ptr noundef %8) #4
   %cmp47 = icmp eq i64 %call46, -1

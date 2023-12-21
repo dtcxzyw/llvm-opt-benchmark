@@ -9,80 +9,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
-%class.btReducedDeformableBody = type { %class.btSoftBody, i8, i8, float, float, [4 x i8], %class.btAlignedObjectArray.108, %class.btAlignedObjectArray.108, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.8, %class.btVector3, %class.btVector3, %class.btAlignedObjectArray.12, %class.btVector3, %class.btVector3, %class.btVector3, float, float, %class.btVector3, %class.btVector3, float, float, %class.btVector3, %class.btVector3, %class.btMatrix3x3, %class.btTransform, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btVector3, float, float, i32, i32, %class.btAlignedObjectArray.108, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.104, i32, [4 x i8], %class.btAlignedObjectArray.104 }
-%class.btSoftBody = type { %class.btCollisionObject.base, [4 x i8], %class.btAlignedObjectArray, ptr, %"struct.btSoftBody::Config", %"struct.btSoftBody::SolverState", [4 x i8], %"struct.btSoftBody::Pose", ptr, ptr, %class.btAlignedObjectArray.16, %class.btAlignedObjectArray.20, %class.btAlignedObjectArray.24, %class.btAlignedObjectArray.28, %class.btAlignedObjectArray.32, %class.btAlignedObjectArray.36, %class.btAlignedObjectArray.40, %class.btAlignedObjectArray.44, %class.btAlignedObjectArray.44, %class.btAlignedObjectArray.48, %class.btAlignedObjectArray.52, %class.btAlignedObjectArray.56, %class.btAlignedObjectArray.60, %class.btAlignedObjectArray.64, %class.btAlignedObjectArray.68, %class.btAlignedObjectArray.64, %class.btAlignedObjectArray.72, %class.btAlignedObjectArray.76, %class.btAlignedObjectArray.80, float, [2 x %class.btVector3], i8, %struct.btDbvt, %struct.btDbvt, ptr, %struct.btDbvt, %class.btAlignedObjectArray.88, float, float, float, [4 x i8], %class.btAlignedObjectArray.8, float, float, i8, [7 x i8], %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.92, %class.btAlignedObjectArray.96, %class.btAlignedObjectArray.12, i8, i8, [6 x i8], %class.btAlignedObjectArray.100, %class.btVector3, float, i8, [3 x i8], %class.btAlignedObjectArray.104 }
-%class.btCollisionObject.base = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray, i32, %class.btVector3 }>
-%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator = type { i8 }
-%"struct.btSoftBody::Config" = type { i32, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, i32, i32, i32, i32, i32, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.4, float, float }
-%class.btAlignedObjectArray.0 = type <{ %class.btAlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.1 = type { i8 }
-%class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.5 = type { i8 }
-%"struct.btSoftBody::SolverState" = type { float, float, float, float, float }
-%"struct.btSoftBody::Pose" = type { i8, i8, float, %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.12, %class.btVector3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3 }
-%class.btAlignedObjectArray.16 = type <{ %class.btAlignedAllocator.17, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.17 = type { i8 }
-%class.btAlignedObjectArray.20 = type <{ %class.btAlignedAllocator.21, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.21 = type { i8 }
-%class.btAlignedObjectArray.24 = type <{ %class.btAlignedAllocator.25, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.25 = type { i8 }
-%class.btAlignedObjectArray.28 = type <{ %class.btAlignedAllocator.29, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.29 = type { i8 }
-%class.btAlignedObjectArray.32 = type <{ %class.btAlignedAllocator.33, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.33 = type { i8 }
-%class.btAlignedObjectArray.36 = type <{ %class.btAlignedAllocator.37, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.37 = type { i8 }
-%class.btAlignedObjectArray.40 = type <{ %class.btAlignedAllocator.41, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.41 = type { i8 }
-%class.btAlignedObjectArray.44 = type <{ %class.btAlignedAllocator.45, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.45 = type { i8 }
-%class.btAlignedObjectArray.48 = type <{ %class.btAlignedAllocator.49, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.49 = type { i8 }
-%class.btAlignedObjectArray.52 = type <{ %class.btAlignedAllocator.53, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.53 = type { i8 }
-%class.btAlignedObjectArray.56 = type <{ %class.btAlignedAllocator.57, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.57 = type { i8 }
-%class.btAlignedObjectArray.60 = type <{ %class.btAlignedAllocator.61, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.61 = type { i8 }
-%class.btAlignedObjectArray.68 = type <{ %class.btAlignedAllocator.69, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.69 = type { i8 }
-%class.btAlignedObjectArray.64 = type <{ %class.btAlignedAllocator.65, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.65 = type { i8 }
-%class.btAlignedObjectArray.72 = type <{ %class.btAlignedAllocator.73, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.73 = type { i8 }
-%class.btAlignedObjectArray.76 = type <{ %class.btAlignedAllocator.77, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.77 = type { i8 }
-%class.btAlignedObjectArray.80 = type <{ %class.btAlignedAllocator.81, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.81 = type { i8 }
-%struct.btDbvt = type { ptr, ptr, i32, i32, i32, [4 x i8], %class.btAlignedObjectArray.84 }
-%class.btAlignedObjectArray.84 = type <{ %class.btAlignedAllocator.85, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.85 = type { i8 }
-%class.btAlignedObjectArray.88 = type <{ %class.btAlignedAllocator.89, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.89 = type { i8 }
-%class.btAlignedObjectArray.92 = type <{ %class.btAlignedAllocator.93, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.93 = type { i8 }
-%class.btAlignedObjectArray.96 = type <{ %class.btAlignedAllocator.97, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.97 = type { i8 }
-%class.btAlignedObjectArray.100 = type <{ %class.btAlignedAllocator.101, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.101 = type { i8 }
-%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%class.btVector3 = type { [4 x float] }
-%class.btAlignedObjectArray.108 = type <{ %class.btAlignedAllocator.109, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.109 = type { i8 }
-%class.btAlignedObjectArray.8 = type <{ %class.btAlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.9 = type { i8 }
 %class.btAlignedObjectArray.12 = type <{ %class.btAlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btAlignedAllocator.13 = type { i8 }
-%class.btAlignedObjectArray.104 = type <{ %class.btAlignedAllocator.105, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.105 = type { i8 }
+%class.btVector3 = type { [4 x float] }
 %"struct.btSoftBody::Node" = type <{ %"struct.btSoftBody::Feature", %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, ptr, i32, i8, [3 x i8], i32, %class.btVector3, %class.btMatrix3x3, %class.btMatrix3x3, [4 x i8] }>
 %"struct.btSoftBody::Feature" = type { %"struct.btSoftBody::Element", ptr }
 %"struct.btSoftBody::Element" = type { ptr }
-%class.btCollisionObject = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray, i32, %class.btVector3, [4 x i8] }>
+%class.btMatrix3x3 = type { [3 x %class.btVector3] }
+%class.btAlignedObjectArray.8 = type <{ %class.btAlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedAllocator.9 = type { i8 }
 %class.btQuaternion = type { %class.btQuadWord }
 %class.btQuadWord = type { [4 x float] }
+%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
 %struct.btDbvtAabbMm = type { %class.btVector3, %class.btVector3 }
 
 $_ZN20btAlignedObjectArrayIfED2Ev = comdat any
@@ -139,217 +77,217 @@ define dso_local void @_ZN23btReducedDeformableBodyC2EP19btSoftBodyWorldInfoiPK9
 invoke.cont80:
   tail call void @_ZN10btSoftBodyC2EP19btSoftBodyWorldInfoiPK9btVector3PKf(ptr noundef nonnull align 8 dereferenceable(2064) %this, ptr noundef %worldInfo, i32 noundef %node_count, ptr noundef %x, ptr noundef %m)
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV23btReducedDeformableBody, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_rigidOnly = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 1
+  %m_rigidOnly = getelementptr inbounds i8, ptr %this, i64 2064
   store i8 0, ptr %m_rigidOnly, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 6, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 2104
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 6, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 2096
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 6, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 2084
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 6, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 2088
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_ownsMemory.i.i21 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 7, i32 6
+  %m_ownsMemory.i.i21 = getelementptr inbounds i8, ptr %this, i64 2136
   store i8 1, ptr %m_ownsMemory.i.i21, align 8
-  %m_data.i.i22 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 7, i32 5
+  %m_data.i.i22 = getelementptr inbounds i8, ptr %this, i64 2128
   store ptr null, ptr %m_data.i.i22, align 8
-  %m_size.i.i23 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 7, i32 2
+  %m_size.i.i23 = getelementptr inbounds i8, ptr %this, i64 2116
   store i32 0, ptr %m_size.i.i23, align 4
-  %m_capacity.i.i24 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 7, i32 3
+  %m_capacity.i.i24 = getelementptr inbounds i8, ptr %this, i64 2120
   store i32 0, ptr %m_capacity.i.i24, align 8
-  %m_ownsMemory.i.i25 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 6
+  %m_ownsMemory.i.i25 = getelementptr inbounds i8, ptr %this, i64 2168
   store i8 1, ptr %m_ownsMemory.i.i25, align 8
-  %m_data.i.i26 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 5
+  %m_data.i.i26 = getelementptr inbounds i8, ptr %this, i64 2160
   store ptr null, ptr %m_data.i.i26, align 8
-  %m_size.i.i27 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 2
+  %m_size.i.i27 = getelementptr inbounds i8, ptr %this, i64 2148
   store i32 0, ptr %m_size.i.i27, align 4
-  %m_capacity.i.i28 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 3
+  %m_capacity.i.i28 = getelementptr inbounds i8, ptr %this, i64 2152
   store i32 0, ptr %m_capacity.i.i28, align 8
-  %m_ownsMemory.i.i29 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 6
+  %m_ownsMemory.i.i29 = getelementptr inbounds i8, ptr %this, i64 2200
   store i8 1, ptr %m_ownsMemory.i.i29, align 8
-  %m_data.i.i30 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 5
+  %m_data.i.i30 = getelementptr inbounds i8, ptr %this, i64 2192
   store ptr null, ptr %m_data.i.i30, align 8
-  %m_size.i.i31 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 2
+  %m_size.i.i31 = getelementptr inbounds i8, ptr %this, i64 2180
   store i32 0, ptr %m_size.i.i31, align 4
-  %m_capacity.i.i32 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 3
+  %m_capacity.i.i32 = getelementptr inbounds i8, ptr %this, i64 2184
   store i32 0, ptr %m_capacity.i.i32, align 8
-  %m_ownsMemory.i.i33 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 6
+  %m_ownsMemory.i.i33 = getelementptr inbounds i8, ptr %this, i64 2232
   store i8 1, ptr %m_ownsMemory.i.i33, align 8
-  %m_data.i.i34 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 5
+  %m_data.i.i34 = getelementptr inbounds i8, ptr %this, i64 2224
   store ptr null, ptr %m_data.i.i34, align 8
-  %m_size.i.i35 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 2
+  %m_size.i.i35 = getelementptr inbounds i8, ptr %this, i64 2212
   store i32 0, ptr %m_size.i.i35, align 4
-  %m_capacity.i.i36 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 3
+  %m_capacity.i.i36 = getelementptr inbounds i8, ptr %this, i64 2216
   store i32 0, ptr %m_capacity.i.i36, align 8
-  %m_internalDeltaLinearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 11
-  %m_ownsMemory.i.i37 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 6
+  %m_internalDeltaLinearVelocity = getelementptr inbounds i8, ptr %this, i64 2240
+  %m_ownsMemory.i.i37 = getelementptr inbounds i8, ptr %this, i64 2296
   store i8 1, ptr %m_ownsMemory.i.i37, align 8
-  %m_data.i.i38 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
+  %m_data.i.i38 = getelementptr inbounds i8, ptr %this, i64 2288
   store ptr null, ptr %m_data.i.i38, align 8
-  %m_size.i.i39 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 2
+  %m_size.i.i39 = getelementptr inbounds i8, ptr %this, i64 2276
   store i32 0, ptr %m_size.i.i39, align 4
-  %m_capacity.i.i40 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 3
+  %m_capacity.i.i40 = getelementptr inbounds i8, ptr %this, i64 2280
   store i32 0, ptr %m_capacity.i.i40, align 8
-  %m_angularVelocityFromReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 15
-  %m_linearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19
-  %m_invInertiaLocal = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25
-  %m_rigidTransformWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26
-  %m_ownsMemory.i.i41 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35, i32 6
+  %m_angularVelocityFromReduced = getelementptr inbounds i8, ptr %this, i64 2320
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 2360
+  %m_invInertiaLocal = getelementptr inbounds i8, ptr %this, i64 2432
+  %m_rigidTransformWorld = getelementptr inbounds i8, ptr %this, i64 2480
+  %m_ownsMemory.i.i41 = getelementptr inbounds i8, ptr %this, i64 2744
   store i8 1, ptr %m_ownsMemory.i.i41, align 8
-  %m_data.i.i42 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35, i32 5
+  %m_data.i.i42 = getelementptr inbounds i8, ptr %this, i64 2736
   store ptr null, ptr %m_data.i.i42, align 8
-  %m_size.i.i43 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35, i32 2
+  %m_size.i.i43 = getelementptr inbounds i8, ptr %this, i64 2724
   store i32 0, ptr %m_size.i.i43, align 4
-  %m_capacity.i.i44 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35, i32 3
+  %m_capacity.i.i44 = getelementptr inbounds i8, ptr %this, i64 2728
   store i32 0, ptr %m_capacity.i.i44, align 8
-  %m_ownsMemory.i.i45 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 6
+  %m_ownsMemory.i.i45 = getelementptr inbounds i8, ptr %this, i64 2776
   store i8 1, ptr %m_ownsMemory.i.i45, align 8
-  %m_data.i.i46 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 5
+  %m_data.i.i46 = getelementptr inbounds i8, ptr %this, i64 2768
   store ptr null, ptr %m_data.i.i46, align 8
-  %m_size.i.i47 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 2
+  %m_size.i.i47 = getelementptr inbounds i8, ptr %this, i64 2756
   store i32 0, ptr %m_size.i.i47, align 4
-  %m_capacity.i.i48 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 3
+  %m_capacity.i.i48 = getelementptr inbounds i8, ptr %this, i64 2760
   store i32 0, ptr %m_capacity.i.i48, align 8
-  %m_ownsMemory.i.i49 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 6
+  %m_ownsMemory.i.i49 = getelementptr inbounds i8, ptr %this, i64 2808
   store i8 1, ptr %m_ownsMemory.i.i49, align 8
-  %m_data.i.i50 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 5
+  %m_data.i.i50 = getelementptr inbounds i8, ptr %this, i64 2800
   store ptr null, ptr %m_data.i.i50, align 8
-  %m_size.i.i51 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 2
+  %m_size.i.i51 = getelementptr inbounds i8, ptr %this, i64 2788
   store i32 0, ptr %m_size.i.i51, align 4
-  %m_capacity.i.i52 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 3
+  %m_capacity.i.i52 = getelementptr inbounds i8, ptr %this, i64 2792
   store i32 0, ptr %m_capacity.i.i52, align 8
-  %m_ownsMemory.i.i53 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 6
+  %m_ownsMemory.i.i53 = getelementptr inbounds i8, ptr %this, i64 2840
   store i8 1, ptr %m_ownsMemory.i.i53, align 8
-  %m_data.i.i54 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
+  %m_data.i.i54 = getelementptr inbounds i8, ptr %this, i64 2832
   store ptr null, ptr %m_data.i.i54, align 8
-  %m_size.i.i55 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 2
+  %m_size.i.i55 = getelementptr inbounds i8, ptr %this, i64 2820
   store i32 0, ptr %m_size.i.i55, align 4
-  %m_capacity.i.i56 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 3
+  %m_capacity.i.i56 = getelementptr inbounds i8, ptr %this, i64 2824
   store i32 0, ptr %m_capacity.i.i56, align 8
-  %m_ownsMemory.i.i57 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 6
+  %m_ownsMemory.i.i57 = getelementptr inbounds i8, ptr %this, i64 2872
   store i8 1, ptr %m_ownsMemory.i.i57, align 8
-  %m_data.i.i58 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 5
+  %m_data.i.i58 = getelementptr inbounds i8, ptr %this, i64 2864
   store ptr null, ptr %m_data.i.i58, align 8
-  %m_size.i.i59 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 2
+  %m_size.i.i59 = getelementptr inbounds i8, ptr %this, i64 2852
   store i32 0, ptr %m_size.i.i59, align 4
-  %m_capacity.i.i60 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 3
+  %m_capacity.i.i60 = getelementptr inbounds i8, ptr %this, i64 2856
   store i32 0, ptr %m_capacity.i.i60, align 8
-  %m_ownsMemory.i.i61 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 6
+  %m_ownsMemory.i.i61 = getelementptr inbounds i8, ptr %this, i64 2904
   store i8 1, ptr %m_ownsMemory.i.i61, align 8
-  %m_data.i.i62 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 5
+  %m_data.i.i62 = getelementptr inbounds i8, ptr %this, i64 2896
   store ptr null, ptr %m_data.i.i62, align 8
-  %m_size.i.i63 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 2
+  %m_size.i.i63 = getelementptr inbounds i8, ptr %this, i64 2884
   store i32 0, ptr %m_size.i.i63, align 4
-  %m_capacity.i.i64 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 3
+  %m_capacity.i.i64 = getelementptr inbounds i8, ptr %this, i64 2888
   store i32 0, ptr %m_capacity.i.i64, align 8
-  %m_ownsMemory.i.i65 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 6
+  %m_ownsMemory.i.i65 = getelementptr inbounds i8, ptr %this, i64 2936
   store i8 1, ptr %m_ownsMemory.i.i65, align 8
-  %m_data.i.i66 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 5
+  %m_data.i.i66 = getelementptr inbounds i8, ptr %this, i64 2928
   store ptr null, ptr %m_data.i.i66, align 8
-  %m_size.i.i67 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 2
+  %m_size.i.i67 = getelementptr inbounds i8, ptr %this, i64 2916
   store i32 0, ptr %m_size.i.i67, align 4
-  %m_capacity.i.i68 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 3
+  %m_capacity.i.i68 = getelementptr inbounds i8, ptr %this, i64 2920
   store i32 0, ptr %m_capacity.i.i68, align 8
-  %m_ownsMemory.i.i69 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 6
+  %m_ownsMemory.i.i69 = getelementptr inbounds i8, ptr %this, i64 2968
   store i8 1, ptr %m_ownsMemory.i.i69, align 8
-  %m_data.i.i70 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
+  %m_data.i.i70 = getelementptr inbounds i8, ptr %this, i64 2960
   store ptr null, ptr %m_data.i.i70, align 8
-  %m_size.i.i71 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 2
+  %m_size.i.i71 = getelementptr inbounds i8, ptr %this, i64 2948
   store i32 0, ptr %m_size.i.i71, align 4
-  %m_capacity.i.i72 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 3
+  %m_capacity.i.i72 = getelementptr inbounds i8, ptr %this, i64 2952
   store i32 0, ptr %m_capacity.i.i72, align 8
-  %m_ownsMemory.i.i73 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 43, i32 6
+  %m_ownsMemory.i.i73 = getelementptr inbounds i8, ptr %this, i64 3000
   store i8 1, ptr %m_ownsMemory.i.i73, align 8
-  %m_data.i.i74 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 43, i32 5
+  %m_data.i.i74 = getelementptr inbounds i8, ptr %this, i64 2992
   store ptr null, ptr %m_data.i.i74, align 8
-  %m_size.i.i75 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 43, i32 2
+  %m_size.i.i75 = getelementptr inbounds i8, ptr %this, i64 2980
   store i32 0, ptr %m_size.i.i75, align 4
-  %m_capacity.i.i76 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 43, i32 3
+  %m_capacity.i.i76 = getelementptr inbounds i8, ptr %this, i64 2984
   store i32 0, ptr %m_capacity.i.i76, align 8
-  %m_ownsMemory.i.i77 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 44, i32 6
+  %m_ownsMemory.i.i77 = getelementptr inbounds i8, ptr %this, i64 3032
   store i8 1, ptr %m_ownsMemory.i.i77, align 8
-  %m_data.i.i78 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 44, i32 5
+  %m_data.i.i78 = getelementptr inbounds i8, ptr %this, i64 3024
   store ptr null, ptr %m_data.i.i78, align 8
-  %m_size.i.i79 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 44, i32 2
+  %m_size.i.i79 = getelementptr inbounds i8, ptr %this, i64 3012
   store i32 0, ptr %m_size.i.i79, align 4
-  %m_capacity.i.i80 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 44, i32 3
+  %m_capacity.i.i80 = getelementptr inbounds i8, ptr %this, i64 3016
   store i32 0, ptr %m_capacity.i.i80, align 8
-  %m_ownsMemory.i.i81 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 6
+  %m_ownsMemory.i.i81 = getelementptr inbounds i8, ptr %this, i64 3064
   store i8 1, ptr %m_ownsMemory.i.i81, align 8
-  %m_data.i.i82 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 5
+  %m_data.i.i82 = getelementptr inbounds i8, ptr %this, i64 3056
   store ptr null, ptr %m_data.i.i82, align 8
-  %m_size.i.i83 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 2
+  %m_size.i.i83 = getelementptr inbounds i8, ptr %this, i64 3044
   store i32 0, ptr %m_size.i.i83, align 4
-  %m_capacity.i.i84 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 3
+  %m_capacity.i.i84 = getelementptr inbounds i8, ptr %this, i64 3048
   store i32 0, ptr %m_capacity.i.i84, align 8
-  %m_ownsMemory.i.i85 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 6
+  %m_ownsMemory.i.i85 = getelementptr inbounds i8, ptr %this, i64 3096
   store i8 1, ptr %m_ownsMemory.i.i85, align 8
-  %m_data.i.i86 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 5
+  %m_data.i.i86 = getelementptr inbounds i8, ptr %this, i64 3088
   store ptr null, ptr %m_data.i.i86, align 8
-  %m_size.i.i87 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 2
+  %m_size.i.i87 = getelementptr inbounds i8, ptr %this, i64 3076
   store i32 0, ptr %m_size.i.i87, align 4
-  %m_capacity.i.i88 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 3
+  %m_capacity.i.i88 = getelementptr inbounds i8, ptr %this, i64 3080
   store i32 0, ptr %m_capacity.i.i88, align 8
-  %m_ownsMemory.i.i89 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 6
+  %m_ownsMemory.i.i89 = getelementptr inbounds i8, ptr %this, i64 3128
   store i8 1, ptr %m_ownsMemory.i.i89, align 8
-  %m_data.i.i90 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 5
+  %m_data.i.i90 = getelementptr inbounds i8, ptr %this, i64 3120
   store ptr null, ptr %m_data.i.i90, align 8
-  %m_size.i.i91 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 2
+  %m_size.i.i91 = getelementptr inbounds i8, ptr %this, i64 3108
   store i32 0, ptr %m_size.i.i91, align 4
-  %m_capacity.i.i92 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 3
+  %m_capacity.i.i92 = getelementptr inbounds i8, ptr %this, i64 3112
   store i32 0, ptr %m_capacity.i.i92, align 8
-  %m_ownsMemory.i.i93 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 50, i32 6
+  %m_ownsMemory.i.i93 = getelementptr inbounds i8, ptr %this, i64 3168
   store i8 1, ptr %m_ownsMemory.i.i93, align 8
-  %m_data.i.i94 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 50, i32 5
+  %m_data.i.i94 = getelementptr inbounds i8, ptr %this, i64 3160
   store ptr null, ptr %m_data.i.i94, align 8
-  %m_size.i.i95 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 50, i32 2
+  %m_size.i.i95 = getelementptr inbounds i8, ptr %this, i64 3148
   store i32 0, ptr %m_size.i.i95, align 4
-  %m_capacity.i.i96 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 50, i32 3
+  %m_capacity.i.i96 = getelementptr inbounds i8, ptr %this, i64 3152
   store i32 0, ptr %m_capacity.i.i96, align 8
-  %m_reducedModel = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 56
+  %m_reducedModel = getelementptr inbounds i8, ptr %this, i64 2028
   store i8 1, ptr %m_reducedModel, align 4
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   store i32 0, ptr %m_nReduced, align 8
-  %m_nFull = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
+  %m_nFull = getelementptr inbounds i8, ptr %this, i64 2716
   store i32 0, ptr %m_nFull, align 4
-  %m_nodeIndexOffset = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 48
+  %m_nodeIndexOffset = getelementptr inbounds i8, ptr %this, i64 3136
   store i32 0, ptr %m_nodeIndexOffset, align 8
-  %m_transform_lock = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 2
+  %m_transform_lock = getelementptr inbounds i8, ptr %this, i64 2065
   store i8 0, ptr %m_transform_lock, align 1
-  %m_rhoScale = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 3
+  %m_rhoScale = getelementptr inbounds i8, ptr %this, i64 2068
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %m_rhoScale, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_internalDeltaLinearVelocity, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_angularVelocityFromReduced, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_linearVelocity, i8 0, i64 32, i1 false)
-  %arrayidx5.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 24, i32 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 2424
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %arrayidx5.i, align 8
-  %arrayidx5.i98 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 23, i32 0, i64 2
+  %arrayidx5.i98 = getelementptr inbounds i8, ptr %this, i64 2408
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx5.i98, align 8
   store float 1.000000e+00, ptr %m_invInertiaLocal, align 8
-  %arrayidx3.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 0, i32 0, i64 1
-  %arrayidx3.i1.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1, i32 0, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 2436
+  %arrayidx3.i1.i.i = getelementptr inbounds i8, ptr %this, i64 2452
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx3.i1.i.i, align 4
-  %arrayidx5.i2.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1, i32 0, i64 2
-  %arrayidx5.i5.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2, i32 0, i64 2
+  %arrayidx5.i2.i.i = getelementptr inbounds i8, ptr %this, i64 2456
+  %arrayidx5.i5.i.i = getelementptr inbounds i8, ptr %this, i64 2472
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i2.i.i, i8 0, i64 16, i1 false)
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %arrayidx5.i5.i.i, align 8
-  %m_mass = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 17
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 2352
   store <2 x float> zeroinitializer, ptr %m_mass, align 8
-  %m_linearDamping = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 21
+  %m_linearDamping = getelementptr inbounds i8, ptr %this, i64 2392
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_linearDamping, align 8
-  %m_dampingAlpha = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 31
+  %m_dampingAlpha = getelementptr inbounds i8, ptr %this, i64 2704
   store <2 x float> zeroinitializer, ptr %m_dampingAlpha, align 8
   store float 1.000000e+00, ptr %m_rigidTransformWorld, align 8
-  %arrayidx3.i.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 0, i32 0, i64 1
-  %arrayidx3.i1.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1, i32 0, i64 1
+  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 2484
+  %arrayidx3.i1.i.i.i = getelementptr inbounds i8, ptr %this, i64 2500
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx3.i1.i.i.i, align 4
-  %arrayidx5.i2.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1, i32 0, i64 2
-  %arrayidx5.i5.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2, i32 0, i64 2
+  %arrayidx5.i2.i.i.i = getelementptr inbounds i8, ptr %this, i64 2504
+  %arrayidx5.i5.i.i.i = getelementptr inbounds i8, ptr %this, i64 2520
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i2.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx5.i5.i.i.i, align 8
-  %arrayidx7.i6.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2, i32 0, i64 3
+  %arrayidx7.i6.i.i.i = getelementptr inbounds i8, ptr %this, i64 2524
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx7.i6.i.i.i, i8 0, i64 20, i1 false)
   ret void
 }
@@ -361,13 +299,13 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -378,12 +316,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -398,13 +336,13 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -415,12 +353,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -435,26 +373,27 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IfEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i.i = icmp sgt i32 %0, 0
   br i1 %cmp3.i.i, label %for.body.lr.ph.i.i, label %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %zext.i = zext nneg i32 %0 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN20btAlignedObjectArrayIfED2Ev.exit.i.i ]
   %1 = load ptr, ptr %m_data.i.i, align 8
-  %m_data.i.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv.i.i, i32 5
+  %arrayidx.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv.i.i
+  %m_data.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %2 = load ptr, ptr %m_data.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN20btAlignedObjectArrayIfED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
-  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv.i.i, i32 6
+  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %3 = load i8, ptr %m_ownsMemory.i.i.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool2.not.i.i.i.i.i = icmp eq i8 %4, 0
@@ -472,25 +411,25 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit.i.i:        ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
-  %m_size.i.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv.i.i, i32 2
-  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv.i.i, i32 6
+  %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
+  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv.i.i, i32 3
+  %m_capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   store i32 0, ptr %m_capacity.i.i.i.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %7 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %7, label %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i, label %for.body.i.i, !llvm.loop !5
 
 _ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i: ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit.i.i, %entry
-  %m_data.i1.i = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 5
+  %m_data.i1.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %m_data.i1.i, align 8
   %tobool.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load i8, ptr %m_ownsMemory.i.i, align 8
   %10 = and i8 %9, 1
   %tobool2.not.i.i = icmp eq i8 %10, 0
@@ -501,11 +440,11 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i, %if.then3.i.i
-  %m_ownsMemory.i2.i = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i2.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i2.i, align 8
   store ptr null, ptr %m_data.i1.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -523,17 +462,17 @@ declare void @_ZN10btSoftBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(20
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btReducedDeformableBody15setReducedModesEii(ptr noundef nonnull align 8 dereferenceable(3176) %this, i32 noundef %num_modes, i32 noundef %full_size) local_unnamed_addr #3 align 2 {
 entry:
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   store i32 %num_modes, ptr %m_nReduced, align 8
-  %m_nFull = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
+  %m_nFull = getelementptr inbounds i8, ptr %this, i64 2716
   store i32 %full_size, ptr %m_nFull, align 4
-  %m_size.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 2756
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i = icmp slt i32 %0, %num_modes
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit
 
 if.then4.i:                                       ; preds = %entry
-  %m_capacity.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 2760
   %1 = load i32, ptr %m_capacity.i.i.i, align 8
   %cmp.i.i = icmp slt i32 %1, %num_modes
   br i1 %cmp.i.i, label %if.then.i.i, label %for.body8.lr.ph.i
@@ -556,7 +495,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i: ; preds = %if.then.i.i.i, %if.
   br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i
-  %m_data.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 2768
   %wide.trip.count.i.i.i = zext nneg i32 %2 to i64
   br label %for.body.i.i.i
 
@@ -572,13 +511,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i, label %for.body.i.i.i, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i
-  %m_data.i5.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %this, i64 2768
   %5 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 2776
   %6 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i = icmp eq i8 %7, 0
@@ -589,14 +528,14 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 2776
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr %retval.0.i.i.i, ptr %m_data.i5.i.i, align 8
   store i32 %num_modes, ptr %m_capacity.i.i.i, align 8
   br label %for.body8.lr.ph.i
 
 for.body8.lr.ph.i:                                ; preds = %if.end.i, %if.then4.i
-  %m_data9.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 5
+  %m_data9.i = getelementptr inbounds i8, ptr %this, i64 2768
   %8 = sext i32 %0 to i64
   %wide.trip.count.i = sext i32 %num_modes to i64
   br label %for.body8.i
@@ -617,13 +556,13 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.loopexit: ; preds = %for.body8.i
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit:    ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.loopexit, %entry
   %10 = phi i32 [ %.pre, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.loopexit ], [ %num_modes, %entry ]
   store i32 %num_modes, ptr %m_size.i.i, align 4
-  %m_size.i.i2 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 2
+  %m_size.i.i2 = getelementptr inbounds i8, ptr %this, i64 2788
   %11 = load i32, ptr %m_size.i.i2, align 4
   %cmp3.i5 = icmp slt i32 %11, %10
   br i1 %cmp3.i5, label %if.then4.i6, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit46
 
 if.then4.i6:                                      ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit
-  %m_capacity.i.i.i7 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 3
+  %m_capacity.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 2792
   %12 = load i32, ptr %m_capacity.i.i.i7, align 8
   %cmp.i.i8 = icmp slt i32 %12, %10
   br i1 %cmp.i.i8, label %if.then.i.i18, label %for.body8.lr.ph.i9
@@ -646,7 +585,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i25: ; preds = %if.then.i.i.i20, 
   br i1 %cmp4.i.i.i27, label %for.body.lr.ph.i.i.i37, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i28
 
 for.body.lr.ph.i.i.i37:                           ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i25
-  %m_data.i.i.i38 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 5
+  %m_data.i.i.i38 = getelementptr inbounds i8, ptr %this, i64 2800
   %wide.trip.count.i.i.i39 = zext nneg i32 %13 to i64
   br label %for.body.i.i.i40
 
@@ -662,13 +601,13 @@ for.body.i.i.i40:                                 ; preds = %for.body.i.i.i40, %
   br i1 %exitcond.not.i.i.i45, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i28, label %for.body.i.i.i40, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i28: ; preds = %for.body.i.i.i40, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i25
-  %m_data.i5.i.i29 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 5
+  %m_data.i5.i.i29 = getelementptr inbounds i8, ptr %this, i64 2800
   %16 = load ptr, ptr %m_data.i5.i.i29, align 8
   %tobool.not.i6.i.i30 = icmp eq ptr %16, null
   br i1 %tobool.not.i6.i.i30, label %if.end.i35, label %if.then.i7.i.i31
 
 if.then.i7.i.i31:                                 ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i28
-  %m_ownsMemory.i.i.i32 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 6
+  %m_ownsMemory.i.i.i32 = getelementptr inbounds i8, ptr %this, i64 2808
   %17 = load i8, ptr %m_ownsMemory.i.i.i32, align 8
   %18 = and i8 %17, 1
   %tobool2.not.i.i.i33 = icmp eq i8 %18, 0
@@ -679,14 +618,14 @@ if.then3.i.i.i34:                                 ; preds = %if.then.i7.i.i31
   br label %if.end.i35
 
 if.end.i35:                                       ; preds = %if.then3.i.i.i34, %if.then.i7.i.i31, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i28
-  %m_ownsMemory.i.i36 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 6
+  %m_ownsMemory.i.i36 = getelementptr inbounds i8, ptr %this, i64 2808
   store i8 1, ptr %m_ownsMemory.i.i36, align 8
   store ptr %retval.0.i.i.i26, ptr %m_data.i5.i.i29, align 8
   store i32 %10, ptr %m_capacity.i.i.i7, align 8
   br label %for.body8.lr.ph.i9
 
 for.body8.lr.ph.i9:                               ; preds = %if.end.i35, %if.then4.i6
-  %m_data9.i10 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 5
+  %m_data9.i10 = getelementptr inbounds i8, ptr %this, i64 2800
   %19 = sext i32 %11 to i64
   %wide.trip.count.i11 = sext i32 %10 to i64
   br label %for.body8.i13
@@ -707,13 +646,13 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit46thread-pre-split.loopexit: ; pred
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit46:  ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit46thread-pre-split.loopexit, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit
   %21 = phi i32 [ %10, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit ], [ %.pr.pre, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit46thread-pre-split.loopexit ]
   store i32 %10, ptr %m_size.i.i2, align 4
-  %m_size.i.i47 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 2
+  %m_size.i.i47 = getelementptr inbounds i8, ptr %this, i64 2820
   %22 = load i32, ptr %m_size.i.i47, align 4
   %cmp3.i50 = icmp slt i32 %22, %21
   br i1 %cmp3.i50, label %if.then4.i51, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit91
 
 if.then4.i51:                                     ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit46
-  %m_capacity.i.i.i52 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 3
+  %m_capacity.i.i.i52 = getelementptr inbounds i8, ptr %this, i64 2824
   %23 = load i32, ptr %m_capacity.i.i.i52, align 8
   %cmp.i.i53 = icmp slt i32 %23, %21
   br i1 %cmp.i.i53, label %if.then.i.i63, label %for.body8.lr.ph.i54
@@ -736,7 +675,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i70: ; preds = %if.then.i.i.i65, 
   br i1 %cmp4.i.i.i72, label %for.body.lr.ph.i.i.i82, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i73
 
 for.body.lr.ph.i.i.i82:                           ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i70
-  %m_data.i.i.i83 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
+  %m_data.i.i.i83 = getelementptr inbounds i8, ptr %this, i64 2832
   %wide.trip.count.i.i.i84 = zext nneg i32 %24 to i64
   br label %for.body.i.i.i85
 
@@ -752,13 +691,13 @@ for.body.i.i.i85:                                 ; preds = %for.body.i.i.i85, %
   br i1 %exitcond.not.i.i.i90, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i73, label %for.body.i.i.i85, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i73: ; preds = %for.body.i.i.i85, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i70
-  %m_data.i5.i.i74 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
+  %m_data.i5.i.i74 = getelementptr inbounds i8, ptr %this, i64 2832
   %27 = load ptr, ptr %m_data.i5.i.i74, align 8
   %tobool.not.i6.i.i75 = icmp eq ptr %27, null
   br i1 %tobool.not.i6.i.i75, label %if.end.i80, label %if.then.i7.i.i76
 
 if.then.i7.i.i76:                                 ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i73
-  %m_ownsMemory.i.i.i77 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 6
+  %m_ownsMemory.i.i.i77 = getelementptr inbounds i8, ptr %this, i64 2840
   %28 = load i8, ptr %m_ownsMemory.i.i.i77, align 8
   %29 = and i8 %28, 1
   %tobool2.not.i.i.i78 = icmp eq i8 %29, 0
@@ -769,14 +708,14 @@ if.then3.i.i.i79:                                 ; preds = %if.then.i7.i.i76
   br label %if.end.i80
 
 if.end.i80:                                       ; preds = %if.then3.i.i.i79, %if.then.i7.i.i76, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i73
-  %m_ownsMemory.i.i81 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 6
+  %m_ownsMemory.i.i81 = getelementptr inbounds i8, ptr %this, i64 2840
   store i8 1, ptr %m_ownsMemory.i.i81, align 8
   store ptr %retval.0.i.i.i71, ptr %m_data.i5.i.i74, align 8
   store i32 %21, ptr %m_capacity.i.i.i52, align 8
   br label %for.body8.lr.ph.i54
 
 for.body8.lr.ph.i54:                              ; preds = %if.end.i80, %if.then4.i51
-  %m_data9.i55 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
+  %m_data9.i55 = getelementptr inbounds i8, ptr %this, i64 2832
   %30 = sext i32 %22 to i64
   %wide.trip.count.i56 = sext i32 %21 to i64
   br label %for.body8.i58
@@ -797,13 +736,13 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit91.loopexit: ; preds = %for.body8.i
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit91:  ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit91.loopexit, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit46
   %32 = phi i32 [ %.pre412, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit91.loopexit ], [ %21, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit46 ]
   store i32 %21, ptr %m_size.i.i47, align 4
-  %m_size.i.i92 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 2
+  %m_size.i.i92 = getelementptr inbounds i8, ptr %this, i64 2852
   %33 = load i32, ptr %m_size.i.i92, align 4
   %cmp3.i95 = icmp slt i32 %33, %32
   br i1 %cmp3.i95, label %if.then4.i96, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit136
 
 if.then4.i96:                                     ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit91
-  %m_capacity.i.i.i97 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 3
+  %m_capacity.i.i.i97 = getelementptr inbounds i8, ptr %this, i64 2856
   %34 = load i32, ptr %m_capacity.i.i.i97, align 8
   %cmp.i.i98 = icmp slt i32 %34, %32
   br i1 %cmp.i.i98, label %if.then.i.i108, label %for.body8.lr.ph.i99
@@ -826,7 +765,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i115: ; preds = %if.then.i.i.i110
   br i1 %cmp4.i.i.i117, label %for.body.lr.ph.i.i.i127, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i118
 
 for.body.lr.ph.i.i.i127:                          ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i115
-  %m_data.i.i.i128 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 5
+  %m_data.i.i.i128 = getelementptr inbounds i8, ptr %this, i64 2864
   %wide.trip.count.i.i.i129 = zext nneg i32 %35 to i64
   br label %for.body.i.i.i130
 
@@ -842,13 +781,13 @@ for.body.i.i.i130:                                ; preds = %for.body.i.i.i130, 
   br i1 %exitcond.not.i.i.i135, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i118, label %for.body.i.i.i130, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i118: ; preds = %for.body.i.i.i130, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i115
-  %m_data.i5.i.i119 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 5
+  %m_data.i5.i.i119 = getelementptr inbounds i8, ptr %this, i64 2864
   %38 = load ptr, ptr %m_data.i5.i.i119, align 8
   %tobool.not.i6.i.i120 = icmp eq ptr %38, null
   br i1 %tobool.not.i6.i.i120, label %if.end.i125, label %if.then.i7.i.i121
 
 if.then.i7.i.i121:                                ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i118
-  %m_ownsMemory.i.i.i122 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 6
+  %m_ownsMemory.i.i.i122 = getelementptr inbounds i8, ptr %this, i64 2872
   %39 = load i8, ptr %m_ownsMemory.i.i.i122, align 8
   %40 = and i8 %39, 1
   %tobool2.not.i.i.i123 = icmp eq i8 %40, 0
@@ -859,14 +798,14 @@ if.then3.i.i.i124:                                ; preds = %if.then.i7.i.i121
   br label %if.end.i125
 
 if.end.i125:                                      ; preds = %if.then3.i.i.i124, %if.then.i7.i.i121, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i118
-  %m_ownsMemory.i.i126 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 6
+  %m_ownsMemory.i.i126 = getelementptr inbounds i8, ptr %this, i64 2872
   store i8 1, ptr %m_ownsMemory.i.i126, align 8
   store ptr %retval.0.i.i.i116, ptr %m_data.i5.i.i119, align 8
   store i32 %32, ptr %m_capacity.i.i.i97, align 8
   br label %for.body8.lr.ph.i99
 
 for.body8.lr.ph.i99:                              ; preds = %if.end.i125, %if.then4.i96
-  %m_data9.i100 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 5
+  %m_data9.i100 = getelementptr inbounds i8, ptr %this, i64 2864
   %41 = sext i32 %33 to i64
   %wide.trip.count.i101 = sext i32 %32 to i64
   br label %for.body8.i103
@@ -887,13 +826,13 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit136thread-pre-split.loopexit: ; pre
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit136: ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit136thread-pre-split.loopexit, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit91
   %43 = phi i32 [ %32, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit91 ], [ %.pr403.pre, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit136thread-pre-split.loopexit ]
   store i32 %32, ptr %m_size.i.i92, align 4
-  %m_size.i.i137 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 2
+  %m_size.i.i137 = getelementptr inbounds i8, ptr %this, i64 2916
   %44 = load i32, ptr %m_size.i.i137, align 4
   %cmp3.i140 = icmp slt i32 %44, %43
   br i1 %cmp3.i140, label %if.then4.i141, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit181
 
 if.then4.i141:                                    ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit136
-  %m_capacity.i.i.i142 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 3
+  %m_capacity.i.i.i142 = getelementptr inbounds i8, ptr %this, i64 2920
   %45 = load i32, ptr %m_capacity.i.i.i142, align 8
   %cmp.i.i143 = icmp slt i32 %45, %43
   br i1 %cmp.i.i143, label %if.then.i.i153, label %for.body8.lr.ph.i144
@@ -916,7 +855,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i160: ; preds = %if.then.i.i.i155
   br i1 %cmp4.i.i.i162, label %for.body.lr.ph.i.i.i172, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i163
 
 for.body.lr.ph.i.i.i172:                          ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i160
-  %m_data.i.i.i173 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 5
+  %m_data.i.i.i173 = getelementptr inbounds i8, ptr %this, i64 2928
   %wide.trip.count.i.i.i174 = zext nneg i32 %46 to i64
   br label %for.body.i.i.i175
 
@@ -932,13 +871,13 @@ for.body.i.i.i175:                                ; preds = %for.body.i.i.i175, 
   br i1 %exitcond.not.i.i.i180, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i163, label %for.body.i.i.i175, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i163: ; preds = %for.body.i.i.i175, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i160
-  %m_data.i5.i.i164 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 5
+  %m_data.i5.i.i164 = getelementptr inbounds i8, ptr %this, i64 2928
   %49 = load ptr, ptr %m_data.i5.i.i164, align 8
   %tobool.not.i6.i.i165 = icmp eq ptr %49, null
   br i1 %tobool.not.i6.i.i165, label %if.end.i170, label %if.then.i7.i.i166
 
 if.then.i7.i.i166:                                ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i163
-  %m_ownsMemory.i.i.i167 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 6
+  %m_ownsMemory.i.i.i167 = getelementptr inbounds i8, ptr %this, i64 2936
   %50 = load i8, ptr %m_ownsMemory.i.i.i167, align 8
   %51 = and i8 %50, 1
   %tobool2.not.i.i.i168 = icmp eq i8 %51, 0
@@ -949,14 +888,14 @@ if.then3.i.i.i169:                                ; preds = %if.then.i7.i.i166
   br label %if.end.i170
 
 if.end.i170:                                      ; preds = %if.then3.i.i.i169, %if.then.i7.i.i166, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i163
-  %m_ownsMemory.i.i171 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 6
+  %m_ownsMemory.i.i171 = getelementptr inbounds i8, ptr %this, i64 2936
   store i8 1, ptr %m_ownsMemory.i.i171, align 8
   store ptr %retval.0.i.i.i161, ptr %m_data.i5.i.i164, align 8
   store i32 %43, ptr %m_capacity.i.i.i142, align 8
   br label %for.body8.lr.ph.i144
 
 for.body8.lr.ph.i144:                             ; preds = %if.end.i170, %if.then4.i141
-  %m_data9.i145 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 5
+  %m_data9.i145 = getelementptr inbounds i8, ptr %this, i64 2928
   %52 = sext i32 %44 to i64
   %wide.trip.count.i146 = sext i32 %43 to i64
   br label %for.body8.i148
@@ -977,13 +916,13 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit181.loopexit: ; preds = %for.body8.
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit181: ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit181.loopexit, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit136
   %54 = phi i32 [ %.pre414, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit181.loopexit ], [ %43, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit136 ]
   store i32 %43, ptr %m_size.i.i137, align 4
-  %m_size.i.i182 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 2
+  %m_size.i.i182 = getelementptr inbounds i8, ptr %this, i64 2948
   %55 = load i32, ptr %m_size.i.i182, align 4
   %cmp3.i185 = icmp slt i32 %55, %54
   br i1 %cmp3.i185, label %if.then4.i186, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit226
 
 if.then4.i186:                                    ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit181
-  %m_capacity.i.i.i187 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 3
+  %m_capacity.i.i.i187 = getelementptr inbounds i8, ptr %this, i64 2952
   %56 = load i32, ptr %m_capacity.i.i.i187, align 8
   %cmp.i.i188 = icmp slt i32 %56, %54
   br i1 %cmp.i.i188, label %if.then.i.i198, label %for.body8.lr.ph.i189
@@ -1006,7 +945,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i205: ; preds = %if.then.i.i.i200
   br i1 %cmp4.i.i.i207, label %for.body.lr.ph.i.i.i217, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i208
 
 for.body.lr.ph.i.i.i217:                          ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i205
-  %m_data.i.i.i218 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
+  %m_data.i.i.i218 = getelementptr inbounds i8, ptr %this, i64 2960
   %wide.trip.count.i.i.i219 = zext nneg i32 %57 to i64
   br label %for.body.i.i.i220
 
@@ -1022,13 +961,13 @@ for.body.i.i.i220:                                ; preds = %for.body.i.i.i220, 
   br i1 %exitcond.not.i.i.i225, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i208, label %for.body.i.i.i220, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i208: ; preds = %for.body.i.i.i220, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i205
-  %m_data.i5.i.i209 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
+  %m_data.i5.i.i209 = getelementptr inbounds i8, ptr %this, i64 2960
   %60 = load ptr, ptr %m_data.i5.i.i209, align 8
   %tobool.not.i6.i.i210 = icmp eq ptr %60, null
   br i1 %tobool.not.i6.i.i210, label %if.end.i215, label %if.then.i7.i.i211
 
 if.then.i7.i.i211:                                ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i208
-  %m_ownsMemory.i.i.i212 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 6
+  %m_ownsMemory.i.i.i212 = getelementptr inbounds i8, ptr %this, i64 2968
   %61 = load i8, ptr %m_ownsMemory.i.i.i212, align 8
   %62 = and i8 %61, 1
   %tobool2.not.i.i.i213 = icmp eq i8 %62, 0
@@ -1039,14 +978,14 @@ if.then3.i.i.i214:                                ; preds = %if.then.i7.i.i211
   br label %if.end.i215
 
 if.end.i215:                                      ; preds = %if.then3.i.i.i214, %if.then.i7.i.i211, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i208
-  %m_ownsMemory.i.i216 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 6
+  %m_ownsMemory.i.i216 = getelementptr inbounds i8, ptr %this, i64 2968
   store i8 1, ptr %m_ownsMemory.i.i216, align 8
   store ptr %retval.0.i.i.i206, ptr %m_data.i5.i.i209, align 8
   store i32 %54, ptr %m_capacity.i.i.i187, align 8
   br label %for.body8.lr.ph.i189
 
 for.body8.lr.ph.i189:                             ; preds = %if.end.i215, %if.then4.i186
-  %m_data9.i190 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
+  %m_data9.i190 = getelementptr inbounds i8, ptr %this, i64 2960
   %63 = sext i32 %55 to i64
   %wide.trip.count.i191 = sext i32 %54 to i64
   br label %for.body8.i193
@@ -1067,13 +1006,13 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit226thread-pre-split.loopexit: ; pre
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit226: ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit226thread-pre-split.loopexit, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit181
   %65 = phi i32 [ %54, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit181 ], [ %.pr404.pre, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit226thread-pre-split.loopexit ]
   store i32 %54, ptr %m_size.i.i182, align 4
-  %m_size.i.i227 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 2
+  %m_size.i.i227 = getelementptr inbounds i8, ptr %this, i64 2884
   %66 = load i32, ptr %m_size.i.i227, align 4
   %cmp3.i230 = icmp slt i32 %66, %65
   br i1 %cmp3.i230, label %if.then4.i231, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit271
 
 if.then4.i231:                                    ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit226
-  %m_capacity.i.i.i232 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 3
+  %m_capacity.i.i.i232 = getelementptr inbounds i8, ptr %this, i64 2888
   %67 = load i32, ptr %m_capacity.i.i.i232, align 8
   %cmp.i.i233 = icmp slt i32 %67, %65
   br i1 %cmp.i.i233, label %if.then.i.i243, label %for.body8.lr.ph.i234
@@ -1096,7 +1035,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i250: ; preds = %if.then.i.i.i245
   br i1 %cmp4.i.i.i252, label %for.body.lr.ph.i.i.i262, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i253
 
 for.body.lr.ph.i.i.i262:                          ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i250
-  %m_data.i.i.i263 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 5
+  %m_data.i.i.i263 = getelementptr inbounds i8, ptr %this, i64 2896
   %wide.trip.count.i.i.i264 = zext nneg i32 %68 to i64
   br label %for.body.i.i.i265
 
@@ -1112,13 +1051,13 @@ for.body.i.i.i265:                                ; preds = %for.body.i.i.i265, 
   br i1 %exitcond.not.i.i.i270, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i253, label %for.body.i.i.i265, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i253: ; preds = %for.body.i.i.i265, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i250
-  %m_data.i5.i.i254 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 5
+  %m_data.i5.i.i254 = getelementptr inbounds i8, ptr %this, i64 2896
   %71 = load ptr, ptr %m_data.i5.i.i254, align 8
   %tobool.not.i6.i.i255 = icmp eq ptr %71, null
   br i1 %tobool.not.i6.i.i255, label %if.end.i260, label %if.then.i7.i.i256
 
 if.then.i7.i.i256:                                ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i253
-  %m_ownsMemory.i.i.i257 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 6
+  %m_ownsMemory.i.i.i257 = getelementptr inbounds i8, ptr %this, i64 2904
   %72 = load i8, ptr %m_ownsMemory.i.i.i257, align 8
   %73 = and i8 %72, 1
   %tobool2.not.i.i.i258 = icmp eq i8 %73, 0
@@ -1129,14 +1068,14 @@ if.then3.i.i.i259:                                ; preds = %if.then.i7.i.i256
   br label %if.end.i260
 
 if.end.i260:                                      ; preds = %if.then3.i.i.i259, %if.then.i7.i.i256, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i253
-  %m_ownsMemory.i.i261 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 6
+  %m_ownsMemory.i.i261 = getelementptr inbounds i8, ptr %this, i64 2904
   store i8 1, ptr %m_ownsMemory.i.i261, align 8
   store ptr %retval.0.i.i.i251, ptr %m_data.i5.i.i254, align 8
   store i32 %65, ptr %m_capacity.i.i.i232, align 8
   br label %for.body8.lr.ph.i234
 
 for.body8.lr.ph.i234:                             ; preds = %if.end.i260, %if.then4.i231
-  %m_data9.i235 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 5
+  %m_data9.i235 = getelementptr inbounds i8, ptr %this, i64 2896
   %74 = sext i32 %66 to i64
   %wide.trip.count.i236 = sext i32 %65 to i64
   br label %for.body8.i238
@@ -1157,13 +1096,13 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit271.loopexit: ; preds = %for.body8.
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit271: ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit271.loopexit, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit226
   %76 = phi i32 [ %.pre416, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit271.loopexit ], [ %65, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit226 ]
   store i32 %65, ptr %m_size.i.i227, align 4
-  %m_size.i.i272 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 2
+  %m_size.i.i272 = getelementptr inbounds i8, ptr %this, i64 2276
   %77 = load i32, ptr %m_size.i.i272, align 4
   %cmp3.i275 = icmp slt i32 %77, %76
   br i1 %cmp3.i275, label %if.then4.i276, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit316
 
 if.then4.i276:                                    ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit271
-  %m_capacity.i.i.i277 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 3
+  %m_capacity.i.i.i277 = getelementptr inbounds i8, ptr %this, i64 2280
   %78 = load i32, ptr %m_capacity.i.i.i277, align 8
   %cmp.i.i278 = icmp slt i32 %78, %76
   br i1 %cmp.i.i278, label %if.then.i.i288, label %for.body8.lr.ph.i279
@@ -1186,7 +1125,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i295: ; preds = %if.then.i.i.i290
   br i1 %cmp4.i.i.i297, label %for.body.lr.ph.i.i.i307, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i298
 
 for.body.lr.ph.i.i.i307:                          ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i295
-  %m_data.i.i.i308 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
+  %m_data.i.i.i308 = getelementptr inbounds i8, ptr %this, i64 2288
   %wide.trip.count.i.i.i309 = zext nneg i32 %79 to i64
   br label %for.body.i.i.i310
 
@@ -1202,13 +1141,13 @@ for.body.i.i.i310:                                ; preds = %for.body.i.i.i310, 
   br i1 %exitcond.not.i.i.i315, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i298, label %for.body.i.i.i310, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i298: ; preds = %for.body.i.i.i310, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i295
-  %m_data.i5.i.i299 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
+  %m_data.i5.i.i299 = getelementptr inbounds i8, ptr %this, i64 2288
   %82 = load ptr, ptr %m_data.i5.i.i299, align 8
   %tobool.not.i6.i.i300 = icmp eq ptr %82, null
   br i1 %tobool.not.i6.i.i300, label %if.end.i305, label %if.then.i7.i.i301
 
 if.then.i7.i.i301:                                ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i298
-  %m_ownsMemory.i.i.i302 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 6
+  %m_ownsMemory.i.i.i302 = getelementptr inbounds i8, ptr %this, i64 2296
   %83 = load i8, ptr %m_ownsMemory.i.i.i302, align 8
   %84 = and i8 %83, 1
   %tobool2.not.i.i.i303 = icmp eq i8 %84, 0
@@ -1219,14 +1158,14 @@ if.then3.i.i.i304:                                ; preds = %if.then.i7.i.i301
   br label %if.end.i305
 
 if.end.i305:                                      ; preds = %if.then3.i.i.i304, %if.then.i7.i.i301, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i298
-  %m_ownsMemory.i.i306 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 6
+  %m_ownsMemory.i.i306 = getelementptr inbounds i8, ptr %this, i64 2296
   store i8 1, ptr %m_ownsMemory.i.i306, align 8
   store ptr %retval.0.i.i.i296, ptr %m_data.i5.i.i299, align 8
   store i32 %76, ptr %m_capacity.i.i.i277, align 8
   br label %for.body8.lr.ph.i279
 
 for.body8.lr.ph.i279:                             ; preds = %if.end.i305, %if.then4.i276
-  %m_data9.i280 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
+  %m_data9.i280 = getelementptr inbounds i8, ptr %this, i64 2288
   %85 = sext i32 %77 to i64
   %wide.trip.count.i281 = sext i32 %76 to i64
   br label %for.body8.i283
@@ -1242,13 +1181,13 @@ for.body8.i283:                                   ; preds = %for.body8.i283, %fo
 
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit316: ; preds = %for.body8.i283, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit271
   store i32 %76, ptr %m_size.i.i272, align 4
-  %m_size.i.i317 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 2
+  %m_size.i.i317 = getelementptr inbounds i8, ptr %this, i64 3076
   %87 = load i32, ptr %m_size.i.i317, align 4
   %cmp3.i320 = icmp slt i32 %87, %full_size
   br i1 %cmp3.i320, label %if.then4.i321, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit361
 
 if.then4.i321:                                    ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit316
-  %m_capacity.i.i.i322 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 3
+  %m_capacity.i.i.i322 = getelementptr inbounds i8, ptr %this, i64 3080
   %88 = load i32, ptr %m_capacity.i.i.i322, align 8
   %cmp.i.i323 = icmp slt i32 %88, %full_size
   br i1 %cmp.i.i323, label %if.then.i.i333, label %for.body8.lr.ph.i324
@@ -1271,7 +1210,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i340: ; preds = %if.then.i.i.i335
   br i1 %cmp4.i.i.i342, label %for.body.lr.ph.i.i.i352, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i343
 
 for.body.lr.ph.i.i.i352:                          ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i340
-  %m_data.i.i.i353 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 5
+  %m_data.i.i.i353 = getelementptr inbounds i8, ptr %this, i64 3088
   %wide.trip.count.i.i.i354 = zext nneg i32 %89 to i64
   br label %for.body.i.i.i355
 
@@ -1287,13 +1226,13 @@ for.body.i.i.i355:                                ; preds = %for.body.i.i.i355, 
   br i1 %exitcond.not.i.i.i360, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i343, label %for.body.i.i.i355, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i343: ; preds = %for.body.i.i.i355, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i340
-  %m_data.i5.i.i344 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 5
+  %m_data.i5.i.i344 = getelementptr inbounds i8, ptr %this, i64 3088
   %92 = load ptr, ptr %m_data.i5.i.i344, align 8
   %tobool.not.i6.i.i345 = icmp eq ptr %92, null
   br i1 %tobool.not.i6.i.i345, label %if.end.i350, label %if.then.i7.i.i346
 
 if.then.i7.i.i346:                                ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i343
-  %m_ownsMemory.i.i.i347 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 6
+  %m_ownsMemory.i.i.i347 = getelementptr inbounds i8, ptr %this, i64 3096
   %93 = load i8, ptr %m_ownsMemory.i.i.i347, align 8
   %94 = and i8 %93, 1
   %tobool2.not.i.i.i348 = icmp eq i8 %94, 0
@@ -1304,14 +1243,14 @@ if.then3.i.i.i349:                                ; preds = %if.then.i7.i.i346
   br label %if.end.i350
 
 if.end.i350:                                      ; preds = %if.then3.i.i.i349, %if.then.i7.i.i346, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i343
-  %m_ownsMemory.i.i351 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 6
+  %m_ownsMemory.i.i351 = getelementptr inbounds i8, ptr %this, i64 3096
   store i8 1, ptr %m_ownsMemory.i.i351, align 8
   store ptr %retval.0.i.i.i341, ptr %m_data.i5.i.i344, align 8
   store i32 %full_size, ptr %m_capacity.i.i.i322, align 8
   br label %for.body8.lr.ph.i324
 
 for.body8.lr.ph.i324:                             ; preds = %if.end.i350, %if.then4.i321
-  %m_data9.i325 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 5
+  %m_data9.i325 = getelementptr inbounds i8, ptr %this, i64 3088
   %95 = sext i32 %87 to i64
   %wide.trip.count.i326 = sext i32 %full_size to i64
   br label %for.body8.i328
@@ -1328,13 +1267,13 @@ for.body8.i328:                                   ; preds = %for.body8.i328, %fo
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit361: ; preds = %for.body8.i328, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit316
   store i32 %full_size, ptr %m_size.i.i317, align 4
   %97 = load i32, ptr %m_nFull, align 4
-  %m_size.i.i362 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 2
+  %m_size.i.i362 = getelementptr inbounds i8, ptr %this, i64 2212
   %98 = load i32, ptr %m_size.i.i362, align 4
   %cmp3.i365 = icmp slt i32 %98, %97
   br i1 %cmp3.i365, label %if.then4.i366, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
 
 if.then4.i366:                                    ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit361
-  %m_capacity.i.i.i367 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 3
+  %m_capacity.i.i.i367 = getelementptr inbounds i8, ptr %this, i64 2216
   %99 = load i32, ptr %m_capacity.i.i.i367, align 8
   %cmp.i.i368 = icmp slt i32 %99, %97
   br i1 %cmp.i.i368, label %if.then.i.i377, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
@@ -1357,7 +1296,7 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %if.then.i.
   br i1 %cmp4.i.i.i385, label %for.body.lr.ph.i.i.i394, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
 
 for.body.lr.ph.i.i.i394:                          ; preds = %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i
-  %m_data.i.i.i395 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 5
+  %m_data.i.i.i395 = getelementptr inbounds i8, ptr %this, i64 2224
   %wide.trip.count.i.i.i396 = zext nneg i32 %100 to i64
   br label %for.body.i.i.i397
 
@@ -1372,13 +1311,13 @@ for.body.i.i.i397:                                ; preds = %for.body.i.i.i397, 
   br i1 %exitcond.not.i.i.i402, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i, label %for.body.i.i.i397, !llvm.loop !9
 
 _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %for.body.i.i.i397, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i
-  %m_data.i5.i.i386 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 5
+  %m_data.i5.i.i386 = getelementptr inbounds i8, ptr %this, i64 2224
   %102 = load ptr, ptr %m_data.i5.i.i386, align 8
   %tobool.not.i6.i.i387 = icmp eq ptr %102, null
   br i1 %tobool.not.i6.i.i387, label %if.end.i392, label %if.then.i7.i.i388
 
 if.then.i7.i.i388:                                ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i.i389 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 6
+  %m_ownsMemory.i.i.i389 = getelementptr inbounds i8, ptr %this, i64 2232
   %103 = load i8, ptr %m_ownsMemory.i.i.i389, align 8
   %104 = and i8 %103, 1
   %tobool2.not.i.i.i390 = icmp eq i8 %104, 0
@@ -1389,7 +1328,7 @@ if.then3.i.i.i391:                                ; preds = %if.then.i7.i.i388
   br label %if.end.i392
 
 if.end.i392:                                      ; preds = %if.then3.i.i.i391, %if.then.i7.i.i388, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i393 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 6
+  %m_ownsMemory.i.i393 = getelementptr inbounds i8, ptr %this, i64 2232
   store i8 1, ptr %m_ownsMemory.i.i393, align 8
   store ptr %retval.0.i.i.i384, ptr %m_data.i5.i.i386, align 8
   store i32 %97, ptr %m_capacity.i.i.i367, align 8
@@ -1403,16 +1342,16 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %if.then4.i3
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btReducedDeformableBody12setMassPropsERK20btAlignedObjectArrayIfE(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %mass_array) local_unnamed_addr #5 align 2 {
 entry:
-  %m_nFull = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
+  %m_nFull = getelementptr inbounds i8, ptr %this, i64 2716
   %0 = load i32, ptr %m_nFull, align 4
   %cmp51 = icmp sgt i32 %0, 0
   br i1 %cmp51, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_rhoScale = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 3
-  %m_data.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %mass_array, i64 0, i32 5
-  %m_data.i13 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 5
-  %m_data.i22 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 5
+  %m_rhoScale = getelementptr inbounds i8, ptr %this, i64 2068
+  %m_data.i = getelementptr inbounds i8, ptr %mass_array, i64 16
+  %m_data.i13 = getelementptr inbounds i8, ptr %this, i64 3088
+  %m_data.i22 = getelementptr inbounds i8, ptr %this, i64 944
   %.pre = load float, ptr %m_rhoScale, align 4
   %.pre61 = load ptr, ptr %m_data.i, align 8
   %.pre62 = load ptr, ptr %m_data.i13, align 8
@@ -1454,7 +1393,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %17 = load float, ptr %m_x, align 4
   %18 = load float, ptr %arrayidx.i30, align 4
   %mul.i.i = fmul float %17, %18
-  %arrayidx3.i.i = getelementptr inbounds [4 x float], ptr %m_x, i64 0, i64 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %m_x, i64 4
   %19 = load <2 x float>, ptr %arrayidx3.i.i, align 4
   %20 = insertelement <2 x float> poison, float %18, i64 0
   %21 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> zeroinitializer
@@ -1471,12 +1410,12 @@ for.end:                                          ; preds = %for.body, %entry
   %CoM.sroa.0.0.lcssa = phi float [ 0.000000e+00, %entry ], [ %add.i, %for.body ]
   %total_mass.0.lcssa = phi float [ 0.000000e+00, %entry ], [ %14, %for.body ]
   %26 = phi <2 x float> [ zeroinitializer, %entry ], [ %23, %for.body ]
-  %m_mass = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 17
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 2352
   store float %total_mass.0.lcssa, ptr %m_mass, align 8
   %cmp22 = fcmp ogt float %total_mass.0.lcssa, 0.000000e+00
   %27 = fdiv float 1.000000e+00, %total_mass.0.lcssa
   %conv29 = select i1 %cmp22, float %27, float 0.000000e+00
-  %m_inverseMass = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 18
+  %m_inverseMass = getelementptr inbounds i8, ptr %this, i64 2356
   store float %conv29, ptr %m_inverseMass, align 4
   %mul.i.i36 = fmul float %CoM.sroa.0.0.lcssa, %27
   %28 = extractelement <2 x float> %26, i64 0
@@ -1486,9 +1425,9 @@ for.end:                                          ; preds = %for.body, %entry
   %retval.sroa.0.0.vec.insert.i.i41 = insertelement <2 x float> poison, float %mul.i.i36, i64 0
   %retval.sroa.0.4.vec.insert.i.i42 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i41, float %mul4.i.i38, i64 1
   %retval.sroa.3.12.vec.insert.i.i43 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i40, i64 0
-  %m_initialCoM = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 30
+  %m_initialCoM = getelementptr inbounds i8, ptr %this, i64 2688
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i42, ptr %m_initialCoM, align 8
-  %ref.tmp30.sroa.2.0.m_initialCoM.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 30, i32 0, i64 2
+  %ref.tmp30.sroa.2.0.m_initialCoM.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2696
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i43, ptr %ref.tmp30.sroa.2.0.m_initialCoM.sroa_idx, align 8
   ret void
 }
@@ -1502,46 +1441,46 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btReducedDeformableBody15setInertiaPropsEv(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_rigidTransformWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26
-  %m_initialCoM = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 30
-  %m_origin.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 1
+  %m_rigidTransformWorld = getelementptr inbounds i8, ptr %this, i64 2480
+  %m_initialCoM = getelementptr inbounds i8, ptr %this, i64 2688
+  %m_origin.i = getelementptr inbounds i8, ptr %this, i64 2528
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i, ptr noundef nonnull align 8 dereferenceable(16) %m_initialCoM, i64 16, i1 false)
-  %m_interpolationWorldTransform = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2
+  %m_interpolationWorldTransform = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interpolationWorldTransform, ptr noundef nonnull align 8 dereferenceable(16) %m_rigidTransformWorld, i64 16, i1 false)
-  %arrayidx5.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1
-  %arrayidx7.i.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %this, i64 2496
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2
-  %arrayidx11.i.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %this, i64 2512
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
-  %m_origin3.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 1
+  %m_origin3.i = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 8 dereferenceable(16) %m_initialCoM, i64 16, i1 false)
   tail call void @_ZN23btReducedDeformableBody33updateLocalInertiaTensorFromNodesEv(ptr noundef nonnull align 8 dereferenceable(3176) %this)
-  %m_invInertiaLocal.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25
+  %m_invInertiaLocal.i = getelementptr inbounds i8, ptr %this, i64 2432
   %0 = load float, ptr %m_invInertiaLocal.i, align 8, !noalias !11
-  %arrayidx4.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %this, i64 2448
   %1 = load float, ptr %arrayidx4.i.i.i, align 8, !noalias !11
   %mul7.i.i.i = fmul float %1, 0.000000e+00
   %2 = fadd float %0, %mul7.i.i.i
-  %arrayidx9.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2
+  %arrayidx9.i.i.i = getelementptr inbounds i8, ptr %this, i64 2464
   %3 = load float, ptr %arrayidx9.i.i.i, align 8, !noalias !11
   %4 = tail call noundef float @llvm.fmuladd.f32(float %3, float 0.000000e+00, float %2)
-  %arrayidx.i.i17.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 0, i32 0, i64 1
+  %arrayidx.i.i17.i.i = getelementptr inbounds i8, ptr %this, i64 2436
   %5 = load float, ptr %arrayidx.i.i17.i.i, align 4, !noalias !11
-  %arrayidx.i3.i18.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1, i32 0, i64 1
+  %arrayidx.i3.i18.i.i = getelementptr inbounds i8, ptr %this, i64 2452
   %6 = load float, ptr %arrayidx.i3.i18.i.i, align 4, !noalias !11
   %mul7.i19.i.i = fmul float %6, 0.000000e+00
   %7 = fadd float %5, %mul7.i19.i.i
-  %arrayidx.i5.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2, i32 0, i64 1
+  %arrayidx.i5.i.i.i = getelementptr inbounds i8, ptr %this, i64 2468
   %8 = load float, ptr %arrayidx.i5.i.i.i, align 4, !noalias !11
   %9 = tail call noundef float @llvm.fmuladd.f32(float %8, float 0.000000e+00, float %7)
-  %arrayidx.i.i20.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 0, i32 0, i64 2
+  %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %this, i64 2440
   %10 = load float, ptr %arrayidx.i.i20.i.i, align 8, !noalias !11
-  %arrayidx.i3.i21.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i21.i.i = getelementptr inbounds i8, ptr %this, i64 2456
   %11 = load float, ptr %arrayidx.i3.i21.i.i, align 8, !noalias !11
   %mul7.i23.i.i = fmul float %11, 0.000000e+00
   %12 = fadd float %10, %mul7.i23.i.i
-  %arrayidx.i5.i24.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i24.i.i = getelementptr inbounds i8, ptr %this, i64 2472
   %13 = load float, ptr %arrayidx.i5.i24.i.i, align 8, !noalias !11
   %14 = tail call noundef float @llvm.fmuladd.f32(float %13, float 0.000000e+00, float %12)
   %15 = tail call float @llvm.fmuladd.f32(float %0, float 0.000000e+00, float %1)
@@ -1571,48 +1510,48 @@ entry:
   %36 = tail call float @llvm.fmuladd.f32(float %22, float 0.000000e+00, float %24)
   %37 = tail call float @llvm.fmuladd.f32(float %22, float 0.000000e+00, float %mul7.i48.i35.i)
   %38 = fadd float %37, %26
-  %m_invInertiaTensorWorldInitial.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27
+  %m_invInertiaTensorWorldInitial.i = getelementptr inbounds i8, ptr %this, i64 2544
   %39 = insertelement <2 x float> poison, float %14, i64 0
   %40 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
   %41 = insertelement <2 x float> poison, float %27, i64 0
   %42 = insertelement <2 x float> %41, float %28, i64 1
   %43 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %40, <2 x float> zeroinitializer, <2 x float> %42)
   store <2 x float> %43, ptr %m_invInertiaTensorWorldInitial.i, align 8
-  %ref.tmp.sroa.3.0.m_invInertiaTensorWorldInitial.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 0, i32 0, i64 2
+  %ref.tmp.sroa.3.0.m_invInertiaTensorWorldInitial.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2552
   store float %30, ptr %ref.tmp.sroa.3.0.m_invInertiaTensorWorldInitial.sroa_idx.i, align 8
-  %ref.tmp.sroa.4.0.m_invInertiaTensorWorldInitial.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 0, i32 0, i64 3
+  %ref.tmp.sroa.4.0.m_invInertiaTensorWorldInitial.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2556
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.m_invInertiaTensorWorldInitial.sroa_idx.i, align 4
-  %arrayidx7.i.i2 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1
+  %arrayidx7.i.i2 = getelementptr inbounds i8, ptr %this, i64 2560
   %44 = insertelement <2 x float> poison, float %20, i64 0
   %45 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> zeroinitializer
   %46 = insertelement <2 x float> poison, float %31, i64 0
   %47 = insertelement <2 x float> %46, float %32, i64 1
   %48 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %45, <2 x float> zeroinitializer, <2 x float> %47)
   store <2 x float> %48, ptr %arrayidx7.i.i2, align 8
-  %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1, i32 0, i64 2
+  %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2568
   store float %34, ptr %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1, i32 0, i64 3
+  %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2572
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx.i, align 4
-  %arrayidx11.i.i3 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2
+  %arrayidx11.i.i3 = getelementptr inbounds i8, ptr %this, i64 2576
   %49 = insertelement <2 x float> poison, float %26, i64 0
   %50 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> zeroinitializer
   %51 = insertelement <2 x float> poison, float %35, i64 0
   %52 = insertelement <2 x float> %51, float %36, i64 1
   %53 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %50, <2 x float> zeroinitializer, <2 x float> %52)
   store <2 x float> %53, ptr %arrayidx11.i.i3, align 8
-  %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2, i32 0, i64 2
+  %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2584
   store float %38, ptr %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2, i32 0, i64 3
+  %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2588
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx.i, align 4
   tail call void @_ZN23btReducedDeformableBody19updateInertiaTensorEv(ptr noundef nonnull align 8 dereferenceable(3176) %this)
-  %m_invInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28
-  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29
+  %m_invInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2592
+  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2640
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interpolateInvInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(16) %m_invInertiaTensorWorld, i64 16, i1 false)
-  %arrayidx5.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 1
-  %arrayidx7.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 2608
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 2656
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)
-  %arrayidx9.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 2
-  %arrayidx11.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %this, i64 2624
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 2672
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9.i, i64 16, i1 false)
   ret void
 }
@@ -1620,19 +1559,19 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btReducedDeformableBody33updateLocalInertiaTensorFromNodesEv(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %m_nFull = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
+  %m_nFull = getelementptr inbounds i8, ptr %this, i64 2716
   %0 = load i32, ptr %m_nFull, align 4
   %cmp82 = icmp sgt i32 %0, 0
   br i1 %cmp82, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 944
   %1 = load ptr, ptr %m_data.i, align 8
-  %m_initialCoM = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 30
+  %m_initialCoM = getelementptr inbounds i8, ptr %this, i64 2688
   %2 = load <2 x float>, ptr %m_initialCoM, align 8
-  %arrayidx13.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 30, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 2696
   %3 = load float, ptr %arrayidx13.i, align 8
-  %m_data.i9 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 5
+  %m_data.i9 = getelementptr inbounds i8, ptr %this, i64 3088
   %4 = load ptr, ptr %m_data.i9, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -1648,7 +1587,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %m_x = getelementptr inbounds %"struct.btSoftBody::Node", ptr %1, i64 %indvars.iv, i32 1
   %8 = load <2 x float>, ptr %m_x, align 4
   %9 = fsub <2 x float> %8, %2
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %m_x, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %m_x, i64 8
   %10 = load float, ptr %arrayidx11.i, align 4
   %sub14.i = fsub float %10, %3
   %arrayidx.i11 = getelementptr inbounds float, ptr %4, i64 %indvars.iv
@@ -1722,7 +1661,7 @@ for.end:                                          ; preds = %for.body, %entry
   %52 = extractelement <2 x float> %35, i64 1
   %neg.i51.i = fmul float %inertia_tensor.sroa.11.0.lcssa, %52
   %53 = tail call noundef float @llvm.fmuladd.f32(float %inertia_tensor.sroa.0.0.lcssa, float %40, float %neg.i51.i)
-  %m_invInertiaLocal = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25
+  %m_invInertiaLocal = getelementptr inbounds i8, ptr %this, i64 2432
   %54 = shufflevector <2 x float> %33, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %55 = fmul <2 x float> %54, %35
   %56 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %32, <2 x float> %33, <2 x float> %55)
@@ -1741,25 +1680,25 @@ for.end:                                          ; preds = %for.body, %entry
   %mul30.i = fmul float %51, %div.i
   %mul33.i = fmul float %53, %div.i
   store <2 x float> %62, ptr %m_invInertiaLocal, align 8
-  %ref.tmp.sroa.3.0.m_invInertiaLocal.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 0, i32 0, i64 2
+  %ref.tmp.sroa.3.0.m_invInertiaLocal.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2440
   store float %mul15.i, ptr %ref.tmp.sroa.3.0.m_invInertiaLocal.sroa_idx, align 8
-  %ref.tmp.sroa.4.0.m_invInertiaLocal.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 0, i32 0, i64 3
+  %ref.tmp.sroa.4.0.m_invInertiaLocal.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2444
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.m_invInertiaLocal.sroa_idx, align 4
-  %arrayidx7.i36 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1
+  %arrayidx7.i36 = getelementptr inbounds i8, ptr %this, i64 2448
   store float %mul18.i, ptr %arrayidx7.i36, align 8
-  %ref.tmp.sroa.7.16.arrayidx7.i36.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1, i32 0, i64 1
+  %ref.tmp.sroa.7.16.arrayidx7.i36.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2452
   store float %mul21.i, ptr %ref.tmp.sroa.7.16.arrayidx7.i36.sroa_idx, align 4
-  %ref.tmp.sroa.8.16.arrayidx7.i36.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1, i32 0, i64 2
+  %ref.tmp.sroa.8.16.arrayidx7.i36.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2456
   store float %mul24.i, ptr %ref.tmp.sroa.8.16.arrayidx7.i36.sroa_idx, align 8
-  %ref.tmp.sroa.9.16.arrayidx7.i36.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1, i32 0, i64 3
+  %ref.tmp.sroa.9.16.arrayidx7.i36.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2460
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx7.i36.sroa_idx, align 4
-  %arrayidx11.i37 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2
+  %arrayidx11.i37 = getelementptr inbounds i8, ptr %this, i64 2464
   store float %mul27.i, ptr %arrayidx11.i37, align 8
-  %ref.tmp.sroa.12.32.arrayidx11.i37.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2, i32 0, i64 1
+  %ref.tmp.sroa.12.32.arrayidx11.i37.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2468
   store float %mul30.i, ptr %ref.tmp.sroa.12.32.arrayidx11.i37.sroa_idx, align 4
-  %ref.tmp.sroa.13.32.arrayidx11.i37.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2, i32 0, i64 2
+  %ref.tmp.sroa.13.32.arrayidx11.i37.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2472
   store float %mul33.i, ptr %ref.tmp.sroa.13.32.arrayidx11.i37.sroa_idx, align 8
-  %ref.tmp.sroa.14.32.arrayidx11.i37.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2, i32 0, i64 3
+  %ref.tmp.sroa.14.32.arrayidx11.i37.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2476
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx11.i37.sroa_idx, align 4
   ret void
 }
@@ -1767,45 +1706,45 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN23btReducedDeformableBody26updateInitialInertiaTensorERK11btMatrix3x3(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %rotation) local_unnamed_addr #10 align 2 {
 entry:
-  %m_invInertiaLocal = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25
+  %m_invInertiaLocal = getelementptr inbounds i8, ptr %this, i64 2432
   %0 = load float, ptr %m_invInertiaLocal, align 8, !noalias !15
   %1 = load float, ptr %rotation, align 4, !noalias !18
-  %arrayidx4.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 2448
   %2 = load float, ptr %arrayidx4.i.i, align 8, !noalias !15
-  %arrayidx.i.i.i = getelementptr inbounds [4 x float], ptr %rotation, i64 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %rotation, i64 4
   %3 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !18
   %mul7.i.i = fmul float %2, %3
   %4 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %mul7.i.i)
-  %arrayidx9.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %this, i64 2464
   %5 = load float, ptr %arrayidx9.i.i, align 8, !noalias !15
-  %arrayidx.i3.i.i = getelementptr inbounds [4 x float], ptr %rotation, i64 0, i64 2
+  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %rotation, i64 8
   %6 = load float, ptr %arrayidx.i3.i.i, align 4, !noalias !18
   %7 = tail call noundef float @llvm.fmuladd.f32(float %5, float %6, float %4)
-  %arrayidx.i.i17.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 0, i32 0, i64 1
+  %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %this, i64 2436
   %8 = load float, ptr %arrayidx.i.i17.i, align 4, !noalias !15
-  %arrayidx.i3.i18.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1, i32 0, i64 1
+  %arrayidx.i3.i18.i = getelementptr inbounds i8, ptr %this, i64 2452
   %9 = load float, ptr %arrayidx.i3.i18.i, align 4, !noalias !15
   %mul7.i19.i = fmul float %3, %9
   %10 = tail call float @llvm.fmuladd.f32(float %8, float %1, float %mul7.i19.i)
-  %arrayidx.i5.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2, i32 0, i64 1
+  %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %this, i64 2468
   %11 = load float, ptr %arrayidx.i5.i.i, align 4, !noalias !15
   %12 = tail call noundef float @llvm.fmuladd.f32(float %11, float %6, float %10)
-  %arrayidx.i.i20.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 0, i32 0, i64 2
+  %arrayidx.i.i20.i = getelementptr inbounds i8, ptr %this, i64 2440
   %13 = load float, ptr %arrayidx.i.i20.i, align 8, !noalias !15
-  %arrayidx.i3.i21.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i21.i = getelementptr inbounds i8, ptr %this, i64 2456
   %14 = load float, ptr %arrayidx.i3.i21.i, align 8, !noalias !15
   %mul7.i23.i = fmul float %3, %14
   %15 = tail call float @llvm.fmuladd.f32(float %13, float %1, float %mul7.i23.i)
-  %arrayidx.i5.i24.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i24.i = getelementptr inbounds i8, ptr %this, i64 2472
   %16 = load float, ptr %arrayidx.i5.i24.i, align 8, !noalias !15
   %17 = tail call noundef float @llvm.fmuladd.f32(float %16, float %6, float %15)
-  %arrayidx.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %rotation, i64 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %rotation, i64 16
   %18 = load float, ptr %arrayidx.i.i, align 4, !noalias !18
-  %arrayidx.i.i27.i = getelementptr inbounds [3 x %class.btVector3], ptr %rotation, i64 0, i64 1, i32 0, i64 1
+  %arrayidx.i.i27.i = getelementptr inbounds i8, ptr %rotation, i64 20
   %19 = load float, ptr %arrayidx.i.i27.i, align 4, !noalias !18
   %mul7.i28.i = fmul float %2, %19
   %20 = tail call float @llvm.fmuladd.f32(float %0, float %18, float %mul7.i28.i)
-  %arrayidx.i3.i30.i = getelementptr inbounds [3 x %class.btVector3], ptr %rotation, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i30.i = getelementptr inbounds i8, ptr %rotation, i64 24
   %21 = load float, ptr %arrayidx.i3.i30.i, align 4, !noalias !18
   %22 = tail call noundef float @llvm.fmuladd.f32(float %5, float %21, float %20)
   %mul7.i35.i = fmul float %9, %19
@@ -1814,13 +1753,13 @@ entry:
   %mul7.i42.i = fmul float %14, %19
   %25 = tail call float @llvm.fmuladd.f32(float %13, float %18, float %mul7.i42.i)
   %26 = tail call noundef float @llvm.fmuladd.f32(float %16, float %21, float %25)
-  %arrayidx.i45.i = getelementptr inbounds [3 x %class.btVector3], ptr %rotation, i64 0, i64 2
+  %arrayidx.i45.i = getelementptr inbounds i8, ptr %rotation, i64 32
   %27 = load float, ptr %arrayidx.i45.i, align 4, !noalias !18
-  %arrayidx.i.i47.i = getelementptr inbounds [3 x %class.btVector3], ptr %rotation, i64 0, i64 2, i32 0, i64 1
+  %arrayidx.i.i47.i = getelementptr inbounds i8, ptr %rotation, i64 36
   %28 = load float, ptr %arrayidx.i.i47.i, align 4, !noalias !18
   %mul7.i48.i = fmul float %2, %28
   %29 = tail call float @llvm.fmuladd.f32(float %0, float %27, float %mul7.i48.i)
-  %arrayidx.i3.i50.i = getelementptr inbounds [3 x %class.btVector3], ptr %rotation, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i3.i50.i = getelementptr inbounds i8, ptr %rotation, i64 40
   %30 = load float, ptr %arrayidx.i3.i50.i, align 4, !noalias !18
   %31 = tail call noundef float @llvm.fmuladd.f32(float %5, float %30, float %29)
   %mul7.i55.i = fmul float %9, %28
@@ -1838,7 +1777,7 @@ entry:
   %mul7.i62.i38 = fmul float %28, %33
   %40 = tail call float @llvm.fmuladd.f32(float %27, float %31, float %mul7.i62.i38)
   %41 = tail call noundef float @llvm.fmuladd.f32(float %30, float %35, float %40)
-  %m_invInertiaTensorWorldInitial = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27
+  %m_invInertiaTensorWorldInitial = getelementptr inbounds i8, ptr %this, i64 2544
   %42 = insertelement <2 x float> poison, float %3, i64 0
   %43 = insertelement <2 x float> %42, float %19, i64 1
   %44 = insertelement <2 x float> poison, float %12, i64 0
@@ -1855,11 +1794,11 @@ entry:
   %55 = shufflevector <2 x float> %54, <2 x float> poison, <2 x i32> zeroinitializer
   %56 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %53, <2 x float> %55, <2 x float> %51)
   store <2 x float> %56, ptr %m_invInertiaTensorWorldInitial, align 8
-  %ref.tmp.sroa.3.0.m_invInertiaTensorWorldInitial.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 0, i32 0, i64 2
+  %ref.tmp.sroa.3.0.m_invInertiaTensorWorldInitial.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2552
   store float %37, ptr %ref.tmp.sroa.3.0.m_invInertiaTensorWorldInitial.sroa_idx, align 8
-  %ref.tmp.sroa.4.0.m_invInertiaTensorWorldInitial.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 0, i32 0, i64 3
+  %ref.tmp.sroa.4.0.m_invInertiaTensorWorldInitial.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2556
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.m_invInertiaTensorWorldInitial.sroa_idx, align 4
-  %arrayidx7.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 2560
   %57 = insertelement <2 x float> poison, float %24, i64 0
   %58 = shufflevector <2 x float> %57, <2 x float> poison, <2 x i32> zeroinitializer
   %59 = fmul <2 x float> %43, %58
@@ -1870,11 +1809,11 @@ entry:
   %64 = shufflevector <2 x float> %63, <2 x float> poison, <2 x i32> zeroinitializer
   %65 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %53, <2 x float> %64, <2 x float> %62)
   store <2 x float> %65, ptr %arrayidx7.i, align 8
-  %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1, i32 0, i64 2
+  %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2568
   store float %39, ptr %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx, align 8
-  %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1, i32 0, i64 3
+  %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2572
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx, align 4
-  %arrayidx11.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 2576
   %66 = insertelement <2 x float> poison, float %33, i64 0
   %67 = shufflevector <2 x float> %66, <2 x float> poison, <2 x i32> zeroinitializer
   %68 = fmul <2 x float> %43, %67
@@ -1885,9 +1824,9 @@ entry:
   %73 = shufflevector <2 x float> %72, <2 x float> poison, <2 x i32> zeroinitializer
   %74 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %53, <2 x float> %73, <2 x float> %71)
   store <2 x float> %74, ptr %arrayidx11.i, align 8
-  %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2, i32 0, i64 2
+  %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2584
   store float %41, ptr %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx, align 8
-  %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2, i32 0, i64 3
+  %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2588
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx, align 4
   ret void
 }
@@ -1895,46 +1834,46 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN23btReducedDeformableBody19updateInertiaTensorEv(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %m_rigidTransformWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26
-  %m_invInertiaTensorWorldInitial = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27
+  %m_rigidTransformWorld = getelementptr inbounds i8, ptr %this, i64 2480
+  %m_invInertiaTensorWorldInitial = getelementptr inbounds i8, ptr %this, i64 2544
   %0 = load float, ptr %m_invInertiaTensorWorldInitial, align 8, !noalias !19
   %1 = load float, ptr %m_rigidTransformWorld, align 8, !noalias !18
-  %arrayidx4.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 2560
   %2 = load float, ptr %arrayidx4.i.i, align 8, !noalias !19
-  %arrayidx.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 0, i32 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 2484
   %3 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !18
   %mul7.i.i = fmul float %2, %3
   %4 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %mul7.i.i)
-  %arrayidx9.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %this, i64 2576
   %5 = load float, ptr %arrayidx9.i.i, align 8, !noalias !19
-  %arrayidx.i3.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 0, i32 0, i64 2
+  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %this, i64 2488
   %6 = load float, ptr %arrayidx.i3.i.i, align 8, !noalias !18
   %7 = tail call noundef float @llvm.fmuladd.f32(float %5, float %6, float %4)
-  %arrayidx.i.i17.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 0, i32 0, i64 1
+  %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %this, i64 2548
   %8 = load float, ptr %arrayidx.i.i17.i, align 4, !noalias !19
-  %arrayidx.i3.i18.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1, i32 0, i64 1
+  %arrayidx.i3.i18.i = getelementptr inbounds i8, ptr %this, i64 2564
   %9 = load float, ptr %arrayidx.i3.i18.i, align 4, !noalias !19
   %mul7.i19.i = fmul float %3, %9
   %10 = tail call float @llvm.fmuladd.f32(float %8, float %1, float %mul7.i19.i)
-  %arrayidx.i5.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2, i32 0, i64 1
+  %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %this, i64 2580
   %11 = load float, ptr %arrayidx.i5.i.i, align 4, !noalias !19
   %12 = tail call noundef float @llvm.fmuladd.f32(float %11, float %6, float %10)
-  %arrayidx.i.i20.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 0, i32 0, i64 2
+  %arrayidx.i.i20.i = getelementptr inbounds i8, ptr %this, i64 2552
   %13 = load float, ptr %arrayidx.i.i20.i, align 8, !noalias !19
-  %arrayidx.i3.i21.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i21.i = getelementptr inbounds i8, ptr %this, i64 2568
   %14 = load float, ptr %arrayidx.i3.i21.i, align 8, !noalias !19
   %mul7.i23.i = fmul float %3, %14
   %15 = tail call float @llvm.fmuladd.f32(float %13, float %1, float %mul7.i23.i)
-  %arrayidx.i5.i24.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i24.i = getelementptr inbounds i8, ptr %this, i64 2584
   %16 = load float, ptr %arrayidx.i5.i24.i, align 8, !noalias !19
   %17 = tail call noundef float @llvm.fmuladd.f32(float %16, float %6, float %15)
-  %arrayidx.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 2496
   %18 = load float, ptr %arrayidx.i.i, align 8, !noalias !18
-  %arrayidx.i.i27.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1, i32 0, i64 1
+  %arrayidx.i.i27.i = getelementptr inbounds i8, ptr %this, i64 2500
   %19 = load float, ptr %arrayidx.i.i27.i, align 4, !noalias !18
   %mul7.i28.i = fmul float %2, %19
   %20 = tail call float @llvm.fmuladd.f32(float %0, float %18, float %mul7.i28.i)
-  %arrayidx.i3.i30.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i30.i = getelementptr inbounds i8, ptr %this, i64 2504
   %21 = load float, ptr %arrayidx.i3.i30.i, align 8, !noalias !18
   %22 = tail call noundef float @llvm.fmuladd.f32(float %5, float %21, float %20)
   %mul7.i35.i = fmul float %9, %19
@@ -1943,13 +1882,13 @@ entry:
   %mul7.i42.i = fmul float %14, %19
   %25 = tail call float @llvm.fmuladd.f32(float %13, float %18, float %mul7.i42.i)
   %26 = tail call noundef float @llvm.fmuladd.f32(float %16, float %21, float %25)
-  %arrayidx.i45.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2
+  %arrayidx.i45.i = getelementptr inbounds i8, ptr %this, i64 2512
   %27 = load float, ptr %arrayidx.i45.i, align 8, !noalias !18
-  %arrayidx.i.i47.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2, i32 0, i64 1
+  %arrayidx.i.i47.i = getelementptr inbounds i8, ptr %this, i64 2516
   %28 = load float, ptr %arrayidx.i.i47.i, align 4, !noalias !18
   %mul7.i48.i = fmul float %2, %28
   %29 = tail call float @llvm.fmuladd.f32(float %0, float %27, float %mul7.i48.i)
-  %arrayidx.i3.i50.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2, i32 0, i64 2
+  %arrayidx.i3.i50.i = getelementptr inbounds i8, ptr %this, i64 2520
   %30 = load float, ptr %arrayidx.i3.i50.i, align 8, !noalias !18
   %31 = tail call noundef float @llvm.fmuladd.f32(float %5, float %30, float %29)
   %mul7.i55.i = fmul float %9, %28
@@ -1967,7 +1906,7 @@ entry:
   %mul7.i62.i37 = fmul float %28, %33
   %40 = tail call float @llvm.fmuladd.f32(float %27, float %31, float %mul7.i62.i37)
   %41 = tail call noundef float @llvm.fmuladd.f32(float %30, float %35, float %40)
-  %m_invInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28
+  %m_invInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2592
   %42 = insertelement <2 x float> poison, float %3, i64 0
   %43 = insertelement <2 x float> %42, float %19, i64 1
   %44 = insertelement <2 x float> poison, float %12, i64 0
@@ -1984,11 +1923,11 @@ entry:
   %55 = shufflevector <2 x float> %54, <2 x float> poison, <2 x i32> zeroinitializer
   %56 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %53, <2 x float> %55, <2 x float> %51)
   store <2 x float> %56, ptr %m_invInertiaTensorWorld, align 8
-  %ref.tmp.sroa.3.0.m_invInertiaTensorWorld.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 0, i32 0, i64 2
+  %ref.tmp.sroa.3.0.m_invInertiaTensorWorld.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2600
   store float %37, ptr %ref.tmp.sroa.3.0.m_invInertiaTensorWorld.sroa_idx, align 8
-  %ref.tmp.sroa.4.0.m_invInertiaTensorWorld.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 0, i32 0, i64 3
+  %ref.tmp.sroa.4.0.m_invInertiaTensorWorld.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2604
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.m_invInertiaTensorWorld.sroa_idx, align 4
-  %arrayidx7.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 2608
   %57 = insertelement <2 x float> poison, float %24, i64 0
   %58 = shufflevector <2 x float> %57, <2 x float> poison, <2 x i32> zeroinitializer
   %59 = fmul <2 x float> %43, %58
@@ -1999,11 +1938,11 @@ entry:
   %64 = shufflevector <2 x float> %63, <2 x float> poison, <2 x i32> zeroinitializer
   %65 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %53, <2 x float> %64, <2 x float> %62)
   store <2 x float> %65, ptr %arrayidx7.i, align 8
-  %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 1, i32 0, i64 2
+  %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2616
   store float %39, ptr %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx, align 8
-  %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 1, i32 0, i64 3
+  %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2620
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx, align 4
-  %arrayidx11.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 2624
   %66 = insertelement <2 x float> poison, float %33, i64 0
   %67 = shufflevector <2 x float> %66, <2 x float> poison, <2 x i32> zeroinitializer
   %68 = fmul <2 x float> %43, %67
@@ -2014,9 +1953,9 @@ entry:
   %73 = shufflevector <2 x float> %72, <2 x float> poison, <2 x i32> zeroinitializer
   %74 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %53, <2 x float> %73, <2 x float> %71)
   store <2 x float> %74, ptr %arrayidx11.i, align 8
-  %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 2, i32 0, i64 2
+  %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2632
   store float %41, ptr %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx, align 8
-  %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 2, i32 0, i64 3
+  %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2636
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx, align 4
   ret void
 }
@@ -2024,7 +1963,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN23btReducedDeformableBody16setRigidVelocityERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %v) local_unnamed_addr #10 align 2 {
 entry:
-  %m_linearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 2360
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_linearVelocity, ptr noundef nonnull align 4 dereferenceable(16) %v, i64 16, i1 false)
   ret void
 }
@@ -2032,7 +1971,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN23btReducedDeformableBody23setRigidAngularVelocityERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %omega) local_unnamed_addr #10 align 2 {
 entry:
-  %m_angularVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 20
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 2376
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_angularVelocity, ptr noundef nonnull align 4 dereferenceable(16) %omega, i64 16, i1 false)
   ret void
 }
@@ -2040,7 +1979,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN23btReducedDeformableBody17setStiffnessScaleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3176) %this, float noundef %ks) local_unnamed_addr #11 align 2 {
 entry:
-  %m_ksScale = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 4
+  %m_ksScale = getelementptr inbounds i8, ptr %this, i64 2072
   store float %ks, ptr %m_ksScale, align 8
   ret void
 }
@@ -2048,7 +1987,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN23btReducedDeformableBody12setMassScaleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3176) %this, float noundef %rho) local_unnamed_addr #11 align 2 {
 entry:
-  %m_rhoScale = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 3
+  %m_rhoScale = getelementptr inbounds i8, ptr %this, i64 2068
   store float %rho, ptr %m_rhoScale, align 4
   ret void
 }
@@ -2056,9 +1995,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btReducedDeformableBody13setFixedNodesEi(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, i32 noundef %n_node) local_unnamed_addr #3 align 2 {
 entry:
-  %m_size.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 3108
   %0 = load i32, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 3112
   %1 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp eq i32 %0, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit
@@ -2088,7 +2027,7 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %if.then.i.i.i, %if.
   br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i
-  %m_data.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 3120
   %wide.trip.count.i.i.i = zext nneg i32 %2 to i64
   br label %for.body.i.i.i
 
@@ -2104,13 +2043,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i, label %for.body.i.i.i, !llvm.loop !22
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i
-  %m_data.i5.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %this, i64 3120
   %5 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i6.i.i, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 3128
   %6 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i = icmp eq i8 %7, 0
@@ -2121,7 +2060,7 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   br label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 3128
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr %retval.0.i.i.i, ptr %m_data.i5.i.i, align 8
   store i32 %cond.i.i, ptr %m_capacity.i.i, align 8
@@ -2130,7 +2069,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %if.then3.i.i.i, 
 
 _ZN20btAlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %entry, %if.then.i, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
   %8 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %0, %if.then.i ], [ %0, %entry ]
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 3120
   %9 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %8 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %9, i64 %idxprom.i
@@ -2138,7 +2077,7 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %entry, %if.then.i, 
   %10 = load i32, ptr %m_size.i.i, align 4
   %inc.i = add nsw i32 %10, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
-  %m_data.i1 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 5
+  %m_data.i1 = getelementptr inbounds i8, ptr %this, i64 944
   %11 = load ptr, ptr %m_data.i1, align 8
   %idxprom.i2 = sext i32 %n_node to i64
   %m_im = getelementptr inbounds %"struct.btSoftBody::Node", ptr %11, i64 %idxprom.i2, i32 7
@@ -2149,9 +2088,9 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %entry, %if.then.i, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN23btReducedDeformableBody10setDampingEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3176) %this, float noundef %alpha, float noundef %beta) local_unnamed_addr #11 align 2 {
 entry:
-  %m_dampingAlpha = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 31
+  %m_dampingAlpha = getelementptr inbounds i8, ptr %this, i64 2704
   store float %alpha, ptr %m_dampingAlpha, align 8
-  %m_dampingBeta = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 32
+  %m_dampingBeta = getelementptr inbounds i8, ptr %this, i64 2708
   store float %beta, ptr %m_dampingBeta, align 4
   ret void
 }
@@ -2159,20 +2098,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btReducedDeformableBody22internalInitializationEv(ptr noundef nonnull align 8 dereferenceable(3176) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_nReduced.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced.i = getelementptr inbounds i8, ptr %this, i64 2712
   %0 = load i32, ptr %m_nReduced.i, align 8
   %cmp31.i = icmp sgt i32 %0, 0
   br i1 %cmp31.i, label %for.body.lr.ph.i, label %_ZN23btReducedDeformableBody20endOfTimeStepZeroingEv.exit
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 5
-  %m_data.i10.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
-  %m_data.i13.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 5
-  %m_data.i16.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
-  %m_data.i19.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 5
-  %m_data.i22.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 5
-  %m_data.i25.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
-  %m_data.i28.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 2928
+  %m_data.i10.i = getelementptr inbounds i8, ptr %this, i64 2960
+  %m_data.i13.i = getelementptr inbounds i8, ptr %this, i64 2896
+  %m_data.i16.i = getelementptr inbounds i8, ptr %this, i64 2288
+  %m_data.i19.i = getelementptr inbounds i8, ptr %this, i64 2768
+  %m_data.i22.i = getelementptr inbounds i8, ptr %this, i64 2800
+  %m_data.i25.i = getelementptr inbounds i8, ptr %this, i64 2832
+  %m_data.i28.i = getelementptr inbounds i8, ptr %this, i64 2864
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -2217,20 +2156,20 @@ _ZN23btReducedDeformableBody20endOfTimeStepZeroingEv.exit: ; preds = %for.body.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btReducedDeformableBody20endOfTimeStepZeroingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this) local_unnamed_addr #12 align 2 {
 entry:
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   %0 = load i32, ptr %m_nReduced, align 8
   %cmp31 = icmp sgt i32 %0, 0
   br i1 %cmp31, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 5
-  %m_data.i10 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
-  %m_data.i13 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 5
-  %m_data.i16 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
-  %m_data.i19 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 5
-  %m_data.i22 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 5
-  %m_data.i25 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
-  %m_data.i28 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2928
+  %m_data.i10 = getelementptr inbounds i8, ptr %this, i64 2960
+  %m_data.i13 = getelementptr inbounds i8, ptr %this, i64 2896
+  %m_data.i16 = getelementptr inbounds i8, ptr %this, i64 2288
+  %m_data.i19 = getelementptr inbounds i8, ptr %this, i64 2768
+  %m_data.i22 = getelementptr inbounds i8, ptr %this, i64 2800
+  %m_data.i25 = getelementptr inbounds i8, ptr %this, i64 2832
+  %m_data.i28 = getelementptr inbounds i8, ptr %this, i64 2864
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -2272,15 +2211,15 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btReducedDeformableBody24updateRestNodalPositionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_nFull = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
+  %m_nFull = getelementptr inbounds i8, ptr %this, i64 2716
   %0 = load i32, ptr %m_nFull, align 4
-  %m_size.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 3044
   %1 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i = icmp slt i32 %1, %0
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
 
 if.then4.i:                                       ; preds = %entry
-  %m_capacity.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 3048
   %2 = load i32, ptr %m_capacity.i.i.i, align 8
   %cmp.i.i = icmp slt i32 %2, %0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
@@ -2303,7 +2242,7 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %if.then.i.
   br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i
-  %m_data.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 3056
   %wide.trip.count.i.i.i = zext nneg i32 %3 to i64
   br label %for.body.i.i.i
 
@@ -2318,13 +2257,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i, label %for.body.i.i.i, !llvm.loop !9
 
 _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i
-  %m_data.i5.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %this, i64 3056
   %5 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 3064
   %6 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i = icmp eq i8 %7, 0
@@ -2335,7 +2274,7 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 3064
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr %retval.0.i.i.i, ptr %m_data.i5.i.i, align 8
   store i32 %0, ptr %m_capacity.i.i.i, align 8
@@ -2349,8 +2288,8 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %if.then4.i,
   br i1 %cmp7, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
-  %m_data.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 5
-  %m_data.i4 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 944
+  %m_data.i4 = getelementptr inbounds i8, ptr %this, i64 3056
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -2374,15 +2313,15 @@ for.end:                                          ; preds = %for.body, %_ZN20btA
 define dso_local void @_ZN23btReducedDeformableBody20updateLocalMomentArmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %delta_x = alloca %class.btAlignedObjectArray.8, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %delta_x, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %delta_x, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %delta_x, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %delta_x, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %delta_x, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %delta_x, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %delta_x, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %delta_x, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_nFull = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
+  %m_nFull = getelementptr inbounds i8, ptr %this, i64 2716
   %0 = load i32, ptr %m_nFull, align 4
   %or.cond = icmp sgt i32 %0, 0
   br i1 %or.cond, label %if.then.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit
@@ -2400,13 +2339,13 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %if.then.i.i
   br i1 %1, label %for.cond4.preheader.lr.ph, label %for.end44
 
 for.cond4.preheader.lr.ph:                        ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
-  %m_data.i18 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35, i32 5
-  %m_data.i24 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 5
-  %m_data.i30 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 5
-  %m_initialCoM = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 30
-  %arrayidx13.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 30, i32 0, i64 2
-  %m_data.i46 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 5
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
+  %m_data.i18 = getelementptr inbounds i8, ptr %this, i64 2736
+  %m_data.i24 = getelementptr inbounds i8, ptr %this, i64 2768
+  %m_data.i30 = getelementptr inbounds i8, ptr %this, i64 3056
+  %m_initialCoM = getelementptr inbounds i8, ptr %this, i64 2688
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 2696
+  %m_data.i46 = getelementptr inbounds i8, ptr %this, i64 2224
   br label %for.cond4.preheader
 
 for.cond4.preheader:                              ; preds = %for.cond4.preheader.lr.ph, %invoke.cont37
@@ -2464,7 +2403,7 @@ for.inc26:                                        ; preds = %for.body12, %for.bo
 invoke.cont37:                                    ; preds = %for.inc26
   %16 = load ptr, ptr %m_data.i30, align 8
   %arrayidx.i32 = getelementptr inbounds %class.btVector3, ptr %16, i64 %indvars.iv66
-  %arrayidx11.i33 = getelementptr inbounds [4 x float], ptr %arrayidx.i32, i64 0, i64 2
+  %arrayidx11.i33 = getelementptr inbounds i8, ptr %arrayidx.i32, i64 8
   %17 = load float, ptr %arrayidx11.i33, align 4
   %18 = load float, ptr %arrayidx13.i, align 8
   %sub14.i = fsub float %17, %18
@@ -2474,7 +2413,7 @@ invoke.cont37:                                    ; preds = %for.inc26
   %21 = fsub <2 x float> %19, %20
   %22 = load <2 x float>, ptr %arrayidx.i36, align 4
   %23 = fadd <2 x float> %21, %22
-  %arrayidx13.i40 = getelementptr inbounds [4 x float], ptr %arrayidx.i36, i64 0, i64 2
+  %arrayidx13.i40 = getelementptr inbounds i8, ptr %arrayidx.i36, i64 8
   %24 = load float, ptr %arrayidx13.i40, align 4
   %add14.i = fadd float %sub14.i, %24
   %retval.sroa.3.12.vec.insert.i43 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
@@ -2524,21 +2463,21 @@ entry:
   br i1 %initialized, label %entry.if.end_crit_edge, label %if.then
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %m_nReduced50.phi.trans.insert = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced50.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 2712
   %.pre384 = load i32, ptr %m_nReduced50.phi.trans.insert, align 8
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_projPA = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 6
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_projPA = getelementptr inbounds i8, ptr %this, i64 2080
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   %0 = load i32, ptr %m_nReduced, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %ref.tmp, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %ref.tmp, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %ref.tmp, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %ref.tmp, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   invoke void @_ZN20btAlignedObjectArrayIS_IfEE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %m_projPA, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2570,15 +2509,15 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %invoke.cont, %if.th
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_projCq = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 7
+  %m_projCq = getelementptr inbounds i8, ptr %this, i64 2112
   %6 = load i32, ptr %m_nReduced, align 8
-  %m_ownsMemory.i.i33 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %ref.tmp3, i64 0, i32 6
+  %m_ownsMemory.i.i33 = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
   store i8 1, ptr %m_ownsMemory.i.i33, align 8
-  %m_data.i.i34 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %ref.tmp3, i64 0, i32 5
+  %m_data.i.i34 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr null, ptr %m_data.i.i34, align 8
-  %m_size.i.i35 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %ref.tmp3, i64 0, i32 2
+  %m_size.i.i35 = getelementptr inbounds i8, ptr %ref.tmp3, i64 4
   store i32 0, ptr %m_size.i.i35, align 4
-  %m_capacity.i.i36 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %ref.tmp3, i64 0, i32 3
+  %m_capacity.i.i36 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store i32 0, ptr %m_capacity.i.i36, align 8
   invoke void @_ZN20btAlignedObjectArrayIS_IfEE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %m_projCq, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp3)
           to label %invoke.cont5 unwind label %lpad4
@@ -2611,13 +2550,13 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit47:          ; preds = %invoke.cont5, %if.t
   store i32 0, ptr %m_size.i.i35, align 4
   store i32 0, ptr %m_capacity.i.i36, align 8
   %12 = load i32, ptr %m_nReduced, align 8
-  %m_size.i.i48 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 2
+  %m_size.i.i48 = getelementptr inbounds i8, ptr %this, i64 2148
   %13 = load i32, ptr %m_size.i.i48, align 4
   %cmp3.i = icmp slt i32 %13, %12
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit
 
 if.then4.i:                                       ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit47
-  %m_capacity.i.i.i49 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 3
+  %m_capacity.i.i.i49 = getelementptr inbounds i8, ptr %this, i64 2152
   %14 = load i32, ptr %m_capacity.i.i.i49, align 8
   %cmp.i.i = icmp slt i32 %14, %12
   br i1 %cmp.i.i, label %if.then.i.i, label %for.body8.lr.ph.i
@@ -2640,7 +2579,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i: ; preds = %if.then.i.i.i51, %i
   br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i
-  %m_data.i.i.i56 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 5
+  %m_data.i.i.i56 = getelementptr inbounds i8, ptr %this, i64 2160
   %wide.trip.count.i.i.i = zext nneg i32 %15 to i64
   br label %for.body.i.i.i
 
@@ -2656,13 +2595,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i, label %for.body.i.i.i, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i
-  %m_data.i5.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %this, i64 2160
   %18 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
-  %m_ownsMemory.i.i.i52 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 6
+  %m_ownsMemory.i.i.i52 = getelementptr inbounds i8, ptr %this, i64 2168
   %19 = load i8, ptr %m_ownsMemory.i.i.i52, align 8
   %20 = and i8 %19, 1
   %tobool2.not.i.i.i53 = icmp eq i8 %20, 0
@@ -2673,14 +2612,14 @@ if.then3.i.i.i54:                                 ; preds = %if.then.i7.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i.i.i54, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
-  %m_ownsMemory.i.i55 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 6
+  %m_ownsMemory.i.i55 = getelementptr inbounds i8, ptr %this, i64 2168
   store i8 1, ptr %m_ownsMemory.i.i55, align 8
   store ptr %retval.0.i.i.i, ptr %m_data.i5.i.i, align 8
   store i32 %12, ptr %m_capacity.i.i.i49, align 8
   br label %for.body8.lr.ph.i
 
 for.body8.lr.ph.i:                                ; preds = %if.end.i, %if.then4.i
-  %m_data9.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 5
+  %m_data9.i = getelementptr inbounds i8, ptr %this, i64 2160
   %21 = sext i32 %13 to i64
   %wide.trip.count.i = sext i32 %12 to i64
   br label %for.body8.i
@@ -2701,13 +2640,13 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exitthread-pre-split.loopexit: ; preds 
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit:    ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exitthread-pre-split.loopexit, %_ZN20btAlignedObjectArrayIfED2Ev.exit47
   %23 = phi i32 [ %12, %_ZN20btAlignedObjectArrayIfED2Ev.exit47 ], [ %.pr.pre, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exitthread-pre-split.loopexit ]
   store i32 %12, ptr %m_size.i.i48, align 4
-  %m_size.i.i57 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 2
+  %m_size.i.i57 = getelementptr inbounds i8, ptr %this, i64 2180
   %24 = load i32, ptr %m_size.i.i57, align 4
   %cmp3.i60 = icmp slt i32 %24, %23
   br i1 %cmp3.i60, label %if.then4.i61, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit101
 
 if.then4.i61:                                     ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit
-  %m_capacity.i.i.i62 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 3
+  %m_capacity.i.i.i62 = getelementptr inbounds i8, ptr %this, i64 2184
   %25 = load i32, ptr %m_capacity.i.i.i62, align 8
   %cmp.i.i63 = icmp slt i32 %25, %23
   br i1 %cmp.i.i63, label %if.then.i.i73, label %for.body8.lr.ph.i64
@@ -2730,7 +2669,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i80: ; preds = %if.then.i.i.i75, 
   br i1 %cmp4.i.i.i82, label %for.body.lr.ph.i.i.i92, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i83
 
 for.body.lr.ph.i.i.i92:                           ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i80
-  %m_data.i.i.i93 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 5
+  %m_data.i.i.i93 = getelementptr inbounds i8, ptr %this, i64 2192
   %wide.trip.count.i.i.i94 = zext nneg i32 %26 to i64
   br label %for.body.i.i.i95
 
@@ -2746,13 +2685,13 @@ for.body.i.i.i95:                                 ; preds = %for.body.i.i.i95, %
   br i1 %exitcond.not.i.i.i100, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i83, label %for.body.i.i.i95, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i83: ; preds = %for.body.i.i.i95, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i80
-  %m_data.i5.i.i84 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 5
+  %m_data.i5.i.i84 = getelementptr inbounds i8, ptr %this, i64 2192
   %29 = load ptr, ptr %m_data.i5.i.i84, align 8
   %tobool.not.i6.i.i85 = icmp eq ptr %29, null
   br i1 %tobool.not.i6.i.i85, label %if.end.i90, label %if.then.i7.i.i86
 
 if.then.i7.i.i86:                                 ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i83
-  %m_ownsMemory.i.i.i87 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 6
+  %m_ownsMemory.i.i.i87 = getelementptr inbounds i8, ptr %this, i64 2200
   %30 = load i8, ptr %m_ownsMemory.i.i.i87, align 8
   %31 = and i8 %30, 1
   %tobool2.not.i.i.i88 = icmp eq i8 %31, 0
@@ -2763,14 +2702,14 @@ if.then3.i.i.i89:                                 ; preds = %if.then.i7.i.i86
   br label %if.end.i90
 
 if.end.i90:                                       ; preds = %if.then3.i.i.i89, %if.then.i7.i.i86, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i83
-  %m_ownsMemory.i.i91 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 6
+  %m_ownsMemory.i.i91 = getelementptr inbounds i8, ptr %this, i64 2200
   store i8 1, ptr %m_ownsMemory.i.i91, align 8
   store ptr %retval.0.i.i.i81, ptr %m_data.i5.i.i84, align 8
   store i32 %23, ptr %m_capacity.i.i.i62, align 8
   br label %for.body8.lr.ph.i64
 
 for.body8.lr.ph.i64:                              ; preds = %if.end.i90, %if.then4.i61
-  %m_data9.i65 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 5
+  %m_data9.i65 = getelementptr inbounds i8, ptr %this, i64 2192
   %32 = sext i32 %24 to i64
   %wide.trip.count.i66 = sext i32 %23 to i64
   br label %for.body8.i68
@@ -2795,12 +2734,12 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit101: ; preds = %_ZN20btAlignedObjec
   br i1 %cmp350, label %for.body.lr.ph, label %for.end107
 
 for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit101
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 6, i32 5
-  %m_nFull = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
-  %m_data.i147 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 5
-  %m_mass = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 17
-  %m_data.i157 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35, i32 5
-  %35 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %prod_i, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2096
+  %m_nFull = getelementptr inbounds i8, ptr %this, i64 2716
+  %m_data.i147 = getelementptr inbounds i8, ptr %this, i64 3088
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 2352
+  %m_data.i157 = getelementptr inbounds i8, ptr %this, i64 2736
+  %35 = getelementptr inbounds i8, ptr %prod_i, i64 8
   %.pre383 = load i32, ptr %m_nFull, align 4
   br label %for.body
 
@@ -2808,14 +2747,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %36 = phi i32 [ %.pre383, %for.body.lr.ph ], [ %82, %for.inc45 ]
   %indvars.iv365 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next366, %for.inc45 ]
   %37 = load ptr, ptr %m_data.i, align 8
+  %arrayidx.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %37, i64 %indvars.iv365
   %mul = mul nsw i32 %36, 3
-  %m_size.i.i102 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %37, i64 %indvars.iv365, i32 2
+  %m_size.i.i102 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %38 = load i32, ptr %m_size.i.i102, align 4
   %cmp3.i105 = icmp slt i32 %38, %mul
   br i1 %cmp3.i105, label %if.then4.i106, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit146
 
 if.then4.i106:                                    ; preds = %for.body
-  %m_capacity.i.i.i107 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %37, i64 %indvars.iv365, i32 3
+  %m_capacity.i.i.i107 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %39 = load i32, ptr %m_capacity.i.i.i107, align 8
   %cmp.i.i108 = icmp slt i32 %39, %mul
   br i1 %cmp.i.i108, label %if.then.i.i118, label %for.body8.lr.ph.i109
@@ -2838,7 +2778,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i125: ; preds = %if.then.i.i.i120
   br i1 %cmp4.i.i.i127, label %for.body.lr.ph.i.i.i137, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i128
 
 for.body.lr.ph.i.i.i137:                          ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i125
-  %m_data.i.i.i138 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %37, i64 %indvars.iv365, i32 5
+  %m_data.i.i.i138 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %wide.trip.count.i.i.i139 = zext nneg i32 %40 to i64
   br label %for.body.i.i.i140
 
@@ -2854,13 +2794,13 @@ for.body.i.i.i140:                                ; preds = %for.body.i.i.i140, 
   br i1 %exitcond.not.i.i.i145, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i128, label %for.body.i.i.i140, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i128: ; preds = %for.body.i.i.i140, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i125
-  %m_data.i5.i.i129 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %37, i64 %indvars.iv365, i32 5
+  %m_data.i5.i.i129 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %43 = load ptr, ptr %m_data.i5.i.i129, align 8
   %tobool.not.i6.i.i130 = icmp eq ptr %43, null
   br i1 %tobool.not.i6.i.i130, label %if.end.i135, label %if.then.i7.i.i131
 
 if.then.i7.i.i131:                                ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i128
-  %m_ownsMemory.i.i.i132 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %37, i64 %indvars.iv365, i32 6
+  %m_ownsMemory.i.i.i132 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %44 = load i8, ptr %m_ownsMemory.i.i.i132, align 8
   %45 = and i8 %44, 1
   %tobool2.not.i.i.i133 = icmp eq i8 %45, 0
@@ -2871,14 +2811,14 @@ if.then3.i.i.i134:                                ; preds = %if.then.i7.i.i131
   br label %if.end.i135
 
 if.end.i135:                                      ; preds = %if.then3.i.i.i134, %if.then.i7.i.i131, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i128
-  %m_ownsMemory.i.i136 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %37, i64 %indvars.iv365, i32 6
+  %m_ownsMemory.i.i136 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   store i8 1, ptr %m_ownsMemory.i.i136, align 8
   store ptr %retval.0.i.i.i126, ptr %m_data.i5.i.i129, align 8
   store i32 %mul, ptr %m_capacity.i.i.i107, align 8
   br label %for.body8.lr.ph.i109
 
 for.body8.lr.ph.i109:                             ; preds = %if.end.i135, %if.then4.i106
-  %m_data9.i110 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %37, i64 %indvars.iv365, i32 5
+  %m_data9.i110 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %46 = sext i32 %38 to i64
   %wide.trip.count.i111 = sext i32 %mul to i64
   br label %for.body8.i113
@@ -2912,9 +2852,9 @@ for.body16:                                       ; preds = %_ZN20btAlignedObjec
   %54 = load ptr, ptr %m_data.i160, align 8
   %arrayidx.i162 = getelementptr inbounds float, ptr %54, i64 %53
   %55 = getelementptr float, ptr %54, i64 %53
-  %arrayidx.i168 = getelementptr float, ptr %55, i64 1
+  %arrayidx.i168 = getelementptr i8, ptr %55, i64 4
   %56 = getelementptr float, ptr %54, i64 %53
-  %arrayidx.i174 = getelementptr float, ptr %56, i64 2
+  %arrayidx.i174 = getelementptr i8, ptr %56, i64 8
   %57 = load float, ptr %arrayidx.i162, align 4
   %58 = load float, ptr %arrayidx.i168, align 4
   %59 = load float, ptr %arrayidx.i174, align 4
@@ -2978,26 +2918,26 @@ for.inc45:                                        ; preds = %for.inc42, %_ZN20bt
 
 if.end:                                           ; preds = %for.inc45, %entry.if.end_crit_edge
   %85 = phi i32 [ %.pre384, %entry.if.end_crit_edge ], [ %83, %for.inc45 ]
-  %m_nReduced50 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced50 = getelementptr inbounds i8, ptr %this, i64 2712
   %cmp51355 = icmp sgt i32 %85, 0
   br i1 %cmp51355, label %for.body52.lr.ph, label %for.end107
 
 for.body52.lr.ph:                                 ; preds = %if.end
-  %m_data.i182 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 7, i32 5
-  %m_nFull55 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
-  %m_data.i230 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 5
-  %m_data.i235 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35, i32 5
-  %m_invInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28
-  %arrayidx4.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 1
-  %arrayidx9.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 2
-  %arrayidx.i.i17.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 0, i32 0, i64 1
-  %arrayidx.i3.i18.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 1, i32 0, i64 1
-  %arrayidx.i5.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 2, i32 0, i64 1
-  %arrayidx.i.i20.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 0, i32 0, i64 2
-  %arrayidx.i3.i21.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 1, i32 0, i64 2
-  %arrayidx.i5.i24.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 2, i32 0, i64 2
-  %86 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %prod_i79, i64 0, i32 1
-  %m_data.i323 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 5
+  %m_data.i182 = getelementptr inbounds i8, ptr %this, i64 2128
+  %m_nFull55 = getelementptr inbounds i8, ptr %this, i64 2716
+  %m_data.i230 = getelementptr inbounds i8, ptr %this, i64 2224
+  %m_data.i235 = getelementptr inbounds i8, ptr %this, i64 2736
+  %m_invInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2592
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 2608
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %this, i64 2624
+  %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %this, i64 2596
+  %arrayidx.i3.i18.i = getelementptr inbounds i8, ptr %this, i64 2612
+  %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %this, i64 2628
+  %arrayidx.i.i20.i = getelementptr inbounds i8, ptr %this, i64 2600
+  %arrayidx.i3.i21.i = getelementptr inbounds i8, ptr %this, i64 2616
+  %arrayidx.i5.i24.i = getelementptr inbounds i8, ptr %this, i64 2632
+  %86 = getelementptr inbounds i8, ptr %prod_i79, i64 8
+  %m_data.i323 = getelementptr inbounds i8, ptr %this, i64 3088
   %.pre385 = load i32, ptr %m_nFull55, align 4
   br label %for.body52
 
@@ -3005,14 +2945,15 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %87 = phi i32 [ %.pre385, %for.body52.lr.ph ], [ %200, %for.inc105 ]
   %indvars.iv379 = phi i64 [ 0, %for.body52.lr.ph ], [ %indvars.iv.next380, %for.inc105 ]
   %88 = load ptr, ptr %m_data.i182, align 8
+  %arrayidx.i184 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %88, i64 %indvars.iv379
   %mul56 = mul nsw i32 %87, 3
-  %m_size.i.i185 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %88, i64 %indvars.iv379, i32 2
+  %m_size.i.i185 = getelementptr inbounds i8, ptr %arrayidx.i184, i64 4
   %89 = load i32, ptr %m_size.i.i185, align 4
   %cmp3.i188 = icmp slt i32 %89, %mul56
   br i1 %cmp3.i188, label %if.then4.i189, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit229
 
 if.then4.i189:                                    ; preds = %for.body52
-  %m_capacity.i.i.i190 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %88, i64 %indvars.iv379, i32 3
+  %m_capacity.i.i.i190 = getelementptr inbounds i8, ptr %arrayidx.i184, i64 8
   %90 = load i32, ptr %m_capacity.i.i.i190, align 8
   %cmp.i.i191 = icmp slt i32 %90, %mul56
   br i1 %cmp.i.i191, label %if.then.i.i201, label %for.body8.lr.ph.i192
@@ -3035,7 +2976,7 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i208: ; preds = %if.then.i.i.i203
   br i1 %cmp4.i.i.i210, label %for.body.lr.ph.i.i.i220, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i211
 
 for.body.lr.ph.i.i.i220:                          ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i208
-  %m_data.i.i.i221 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %88, i64 %indvars.iv379, i32 5
+  %m_data.i.i.i221 = getelementptr inbounds i8, ptr %arrayidx.i184, i64 16
   %wide.trip.count.i.i.i222 = zext nneg i32 %91 to i64
   br label %for.body.i.i.i223
 
@@ -3051,13 +2992,13 @@ for.body.i.i.i223:                                ; preds = %for.body.i.i.i223, 
   br i1 %exitcond.not.i.i.i228, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i211, label %for.body.i.i.i223, !llvm.loop !7
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i211: ; preds = %for.body.i.i.i223, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i208
-  %m_data.i5.i.i212 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %88, i64 %indvars.iv379, i32 5
+  %m_data.i5.i.i212 = getelementptr inbounds i8, ptr %arrayidx.i184, i64 16
   %94 = load ptr, ptr %m_data.i5.i.i212, align 8
   %tobool.not.i6.i.i213 = icmp eq ptr %94, null
   br i1 %tobool.not.i6.i.i213, label %if.end.i218, label %if.then.i7.i.i214
 
 if.then.i7.i.i214:                                ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i211
-  %m_ownsMemory.i.i.i215 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %88, i64 %indvars.iv379, i32 6
+  %m_ownsMemory.i.i.i215 = getelementptr inbounds i8, ptr %arrayidx.i184, i64 24
   %95 = load i8, ptr %m_ownsMemory.i.i.i215, align 8
   %96 = and i8 %95, 1
   %tobool2.not.i.i.i216 = icmp eq i8 %96, 0
@@ -3068,14 +3009,14 @@ if.then3.i.i.i217:                                ; preds = %if.then.i7.i.i214
   br label %if.end.i218
 
 if.end.i218:                                      ; preds = %if.then3.i.i.i217, %if.then.i7.i.i214, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i211
-  %m_ownsMemory.i.i219 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %88, i64 %indvars.iv379, i32 6
+  %m_ownsMemory.i.i219 = getelementptr inbounds i8, ptr %arrayidx.i184, i64 24
   store i8 1, ptr %m_ownsMemory.i.i219, align 8
   store ptr %retval.0.i.i.i209, ptr %m_data.i5.i.i212, align 8
   store i32 %mul56, ptr %m_capacity.i.i.i190, align 8
   br label %for.body8.lr.ph.i192
 
 for.body8.lr.ph.i192:                             ; preds = %if.end.i218, %if.then4.i189
-  %m_data9.i193 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %88, i64 %indvars.iv379, i32 5
+  %m_data9.i193 = getelementptr inbounds i8, ptr %arrayidx.i184, i64 16
   %97 = sext i32 %89 to i64
   %wide.trip.count.i194 = sext i32 %mul56 to i64
   br label %for.body8.i196
@@ -3099,10 +3040,10 @@ for.body62:                                       ; preds = %_ZN20btAlignedObjec
   %indvars.iv373 = phi i64 [ %indvars.iv.next374, %for.inc102 ], [ 0, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit229 ]
   %100 = load ptr, ptr %m_data.i230, align 8
   %arrayidx.i232 = getelementptr inbounds %class.btVector3, ptr %100, i64 %indvars.iv373
-  %arrayidx.i.i233 = getelementptr inbounds [4 x float], ptr %arrayidx.i232, i64 0, i64 2
+  %arrayidx.i.i233 = getelementptr inbounds i8, ptr %arrayidx.i232, i64 8
   %101 = load float, ptr %arrayidx.i.i233, align 4, !noalias !31
   %fneg.i = fneg float %101
-  %arrayidx.i6.i = getelementptr inbounds [4 x float], ptr %arrayidx.i232, i64 0, i64 1
+  %arrayidx.i6.i = getelementptr inbounds i8, ptr %arrayidx.i232, i64 4
   %102 = load float, ptr %arrayidx.i6.i, align 4, !noalias !31
   %103 = load float, ptr %arrayidx.i232, align 4, !noalias !31
   %fneg12.i = fneg float %103
@@ -3113,9 +3054,9 @@ for.body62:                                       ; preds = %_ZN20btAlignedObjec
   %106 = load ptr, ptr %m_data.i238, align 8
   %arrayidx.i240 = getelementptr inbounds float, ptr %106, i64 %105
   %107 = getelementptr float, ptr %106, i64 %105
-  %arrayidx.i246 = getelementptr float, ptr %107, i64 1
+  %arrayidx.i246 = getelementptr i8, ptr %107, i64 4
   %108 = getelementptr float, ptr %106, i64 %105
-  %arrayidx.i252 = getelementptr float, ptr %108, i64 2
+  %arrayidx.i252 = getelementptr i8, ptr %108, i64 8
   %109 = load float, ptr %arrayidx.i240, align 4
   %110 = load float, ptr %arrayidx.i246, align 4
   %111 = load float, ptr %arrayidx.i252, align 4
@@ -3257,26 +3198,27 @@ eh.resume:                                        ; preds = %lpad4, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IfEE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize, ptr noundef nonnull align 8 dereferenceable(25) %fillData) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
   %cmp = icmp sgt i32 %0, %newsize
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 5
+  %m_data = getelementptr inbounds i8, ptr %this, i64 16
   %1 = sext i32 %newsize to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %_ZN20btAlignedObjectArrayIfED2Ev.exit
   %indvars.iv19 = phi i64 [ %1, %for.cond.preheader ], [ %indvars.iv.next20, %_ZN20btAlignedObjectArrayIfED2Ev.exit ]
   %2 = load ptr, ptr %m_data, align 8
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %2, i64 %indvars.iv19, i32 5
+  %arrayidx = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %2, i64 %indvars.iv19
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayIfED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %2, i64 %indvars.iv19, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %4 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %5 = and i8 %4, 1
   %tobool2.not.i.i.i = icmp eq i8 %5, 0
@@ -3294,12 +3236,12 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %for.body, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %2, i64 %indvars.iv19, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %2, i64 %indvars.iv19, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %2, i64 %indvars.iv19, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 0, ptr %m_capacity.i.i.i, align 8
   %indvars.iv.next20 = add nsw i64 %indvars.iv19, 1
   %lftr.wideiv22 = trunc i64 %indvars.iv.next20 to i32
@@ -3312,22 +3254,23 @@ if.else:                                          ; preds = %entry
 
 for.body8.lr.ph:                                  ; preds = %if.else
   tail call void @_ZN20btAlignedObjectArrayIS_IfEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize)
-  %m_data9 = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 5
-  %m_size.i3.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %fillData, i64 0, i32 2
-  %m_data.i4.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %fillData, i64 0, i32 5
+  %m_data9 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_size.i3.i = getelementptr inbounds i8, ptr %fillData, i64 4
+  %m_data.i4.i = getelementptr inbounds i8, ptr %fillData, i64 16
   %8 = sext i32 %0 to i64
   br label %for.body8
 
 for.body8:                                        ; preds = %for.body8.lr.ph, %_ZN20btAlignedObjectArrayIfEC2ERKS0_.exit
   %indvars.iv = phi i64 [ %8, %for.body8.lr.ph ], [ %indvars.iv.next, %_ZN20btAlignedObjectArrayIfEC2ERKS0_.exit ]
   %9 = load ptr, ptr %m_data9, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %9, i64 %indvars.iv, i32 6
+  %arrayidx11 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %9, i64 %indvars.iv
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %arrayidx11, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %9, i64 %indvars.iv, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %arrayidx11, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %9, i64 %indvars.iv, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %arrayidx11, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %9, i64 %indvars.iv, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %arrayidx11, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   %10 = load i32, ptr %m_size.i3.i, align 4
   %or.cond.i = icmp sgt i32 %10, 0
@@ -3420,39 +3363,39 @@ if.end15:                                         ; preds = %_ZN20btAlignedObjec
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btReducedDeformableBody28applyInternalVelocityChangesEv(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this) local_unnamed_addr #14 align 2 {
 entry:
-  %m_internalDeltaLinearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 11
-  %m_linearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19
+  %m_internalDeltaLinearVelocity = getelementptr inbounds i8, ptr %this, i64 2240
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 2360
   %0 = load <2 x float>, ptr %m_internalDeltaLinearVelocity, align 8
   %1 = load <2 x float>, ptr %m_linearVelocity, align 8
   %2 = fadd <2 x float> %0, %1
   store <2 x float> %2, ptr %m_linearVelocity, align 8
-  %arrayidx10.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 11, i32 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 2248
   %3 = load float, ptr %arrayidx10.i, align 8
-  %arrayidx12.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19, i32 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 2368
   %4 = load float, ptr %arrayidx12.i, align 8
   %add13.i = fadd float %3, %4
   store float %add13.i, ptr %arrayidx12.i, align 8
-  %m_internalDeltaAngularVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 12
-  %m_angularVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 20
+  %m_internalDeltaAngularVelocity = getelementptr inbounds i8, ptr %this, i64 2256
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 2376
   %5 = load <2 x float>, ptr %m_internalDeltaAngularVelocity, align 8
   %6 = load <2 x float>, ptr %m_angularVelocity, align 8
   %7 = fadd <2 x float> %5, %6
   store <2 x float> %7, ptr %m_angularVelocity, align 8
-  %arrayidx10.i9 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 12, i32 0, i64 2
+  %arrayidx10.i9 = getelementptr inbounds i8, ptr %this, i64 2264
   %8 = load float, ptr %arrayidx10.i9, align 8
-  %arrayidx12.i10 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 20, i32 0, i64 2
+  %arrayidx12.i10 = getelementptr inbounds i8, ptr %this, i64 2384
   %9 = load float, ptr %arrayidx12.i10, align 8
   %add13.i11 = fadd float %8, %9
   store float %add13.i11, ptr %arrayidx12.i10, align 8
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_internalDeltaLinearVelocity, i8 0, i64 32, i1 false)
   %10 = load i32, ptr %m_nReduced, align 8
   %cmp18 = icmp sgt i32 %10, 0
   br i1 %cmp18, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
-  %m_data.i12 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2288
+  %m_data.i12 = getelementptr inbounds i8, ptr %this, i64 2832
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3481,9 +3424,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btReducedDeformableBody26predictIntegratedTransformEfR11btTransform(ptr noundef nonnull align 8 dereferenceable(3176) %this, float noundef %dt, ptr noundef nonnull align 4 dereferenceable(64) %predictedTransform) local_unnamed_addr #3 align 2 {
 entry:
-  %m_rigidTransformWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26
-  %m_linearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19
-  %m_angularVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 20
+  %m_rigidTransformWorld = getelementptr inbounds i8, ptr %this, i64 2480
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 2360
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 2376
   tail call void @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_(ptr noundef nonnull align 4 dereferenceable(64) %m_rigidTransformWorld, ptr noundef nonnull align 4 dereferenceable(16) %m_linearVelocity, ptr noundef nonnull align 4 dereferenceable(16) %m_angularVelocity, float noundef %dt, ptr noundef nonnull align 4 dereferenceable(64) %predictedTransform)
   ret void
 }
@@ -3492,8 +3435,8 @@ entry:
 define linkonce_odr dso_local void @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_(ptr noundef nonnull align 4 dereferenceable(64) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %linvel, ptr noundef nonnull align 4 dereferenceable(16) %angvel, float noundef %timeStep, ptr noundef nonnull align 4 dereferenceable(64) %predictedTransform) local_unnamed_addr #13 comdat align 2 {
 entry:
   %retval.i = alloca %class.btQuaternion, align 8
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %curTrans, i64 0, i32 1
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %linvel, i64 0, i64 2
+  %m_origin.i = getelementptr inbounds i8, ptr %curTrans, i64 48
+  %arrayidx7.i = getelementptr inbounds i8, ptr %linvel, i64 8
   %0 = load float, ptr %arrayidx7.i, align 4
   %mul8.i = fmul float %0, %timeStep
   %1 = load <2 x float>, ptr %linvel, align 4
@@ -3502,16 +3445,16 @@ entry:
   %4 = fmul <2 x float> %1, %3
   %5 = load <2 x float>, ptr %m_origin.i, align 4
   %6 = fadd <2 x float> %4, %5
-  %arrayidx11.i = getelementptr inbounds %class.btTransform, ptr %curTrans, i64 0, i32 1, i32 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %curTrans, i64 56
   %7 = load float, ptr %arrayidx11.i, align 4
   %add14.i = fadd float %mul8.i, %7
   %retval.sroa.3.12.vec.insert.i17 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
-  %m_origin.i20 = getelementptr inbounds %class.btTransform, ptr %predictedTransform, i64 0, i32 1
+  %m_origin.i20 = getelementptr inbounds i8, ptr %predictedTransform, i64 48
   store <2 x float> %6, ptr %m_origin.i20, align 4
-  %ref.tmp.sroa.2.0.m_origin.i20.sroa_idx = getelementptr inbounds %class.btTransform, ptr %predictedTransform, i64 0, i32 1, i32 0, i64 2
+  %ref.tmp.sroa.2.0.m_origin.i20.sroa_idx = getelementptr inbounds i8, ptr %predictedTransform, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i17, ptr %ref.tmp.sroa.2.0.m_origin.i20.sroa_idx, align 4
   %8 = load float, ptr %angvel, align 4
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %angvel, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %angvel, i64 4
   %9 = load <2 x float>, ptr %arrayidx5.i.i, align 4
   %10 = fmul <2 x float> %9, %9
   %mul8.i.i = extractelement <2 x float> %10, i64 0
@@ -3563,7 +3506,7 @@ if.end30:                                         ; preds = %if.else, %if.then11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
-  %.fca.1.gep.i = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   %26 = fneg <2 x float> %25
@@ -3652,37 +3595,37 @@ if.then47:                                        ; preds = %_ZN12btQuaternion13
   %add41.i.i = fadd float %mul14.i.i, %mul20.i.i
   %sub42.i.i = fsub float 1.000000e+00, %add41.i.i
   store float %sub.i.i, ptr %predictedTransform, align 4
-  %arrayidx3.i.i37.i.i = getelementptr inbounds [4 x float], ptr %predictedTransform, i64 0, i64 1
+  %arrayidx3.i.i37.i.i = getelementptr inbounds i8, ptr %predictedTransform, i64 4
   store float %sub26.i.i, ptr %arrayidx3.i.i37.i.i, align 4
-  %arrayidx5.i.i.i.i = getelementptr inbounds [4 x float], ptr %predictedTransform, i64 0, i64 2
+  %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %predictedTransform, i64 8
   store float %add28.i.i, ptr %arrayidx5.i.i.i.i, align 4
-  %arrayidx7.i.i38.i.i = getelementptr inbounds [4 x float], ptr %predictedTransform, i64 0, i64 3
+  %arrayidx7.i.i38.i.i = getelementptr inbounds i8, ptr %predictedTransform, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i.i38.i.i, align 4
-  %arrayidx3.i.i.i57 = getelementptr inbounds [3 x %class.btVector3], ptr %predictedTransform, i64 0, i64 1
+  %arrayidx3.i.i.i57 = getelementptr inbounds i8, ptr %predictedTransform, i64 16
   store float %add30.i.i, ptr %arrayidx3.i.i.i57, align 4
-  %arrayidx3.i1.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %predictedTransform, i64 0, i64 1, i32 0, i64 1
+  %arrayidx3.i1.i.i.i = getelementptr inbounds i8, ptr %predictedTransform, i64 20
   store float %sub33.i.i, ptr %arrayidx3.i1.i.i.i, align 4
-  %arrayidx5.i2.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %predictedTransform, i64 0, i64 1, i32 0, i64 2
+  %arrayidx5.i2.i.i.i = getelementptr inbounds i8, ptr %predictedTransform, i64 24
   store float %sub35.i.i, ptr %arrayidx5.i2.i.i.i, align 4
-  %arrayidx7.i3.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %predictedTransform, i64 0, i64 1, i32 0, i64 3
+  %arrayidx7.i3.i.i.i = getelementptr inbounds i8, ptr %predictedTransform, i64 28
   store float 0.000000e+00, ptr %arrayidx7.i3.i.i.i, align 4
-  %arrayidx5.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %predictedTransform, i64 0, i64 2
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %predictedTransform, i64 32
   store float %sub37.i.i, ptr %arrayidx5.i.i.i, align 4
-  %arrayidx3.i4.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %predictedTransform, i64 0, i64 2, i32 0, i64 1
+  %arrayidx3.i4.i.i.i = getelementptr inbounds i8, ptr %predictedTransform, i64 36
   store float %add39.i.i, ptr %arrayidx3.i4.i.i.i, align 4
-  %arrayidx5.i5.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %predictedTransform, i64 0, i64 2, i32 0, i64 2
+  %arrayidx5.i5.i.i.i = getelementptr inbounds i8, ptr %predictedTransform, i64 40
   store float %sub42.i.i, ptr %arrayidx5.i5.i.i.i, align 4
-  %arrayidx7.i6.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %predictedTransform, i64 0, i64 2, i32 0, i64 3
+  %arrayidx7.i6.i.i.i = getelementptr inbounds i8, ptr %predictedTransform, i64 44
   store float 0.000000e+00, ptr %arrayidx7.i6.i.i.i, align 4
   br label %if.end50
 
 if.else48:                                        ; preds = %_ZN12btQuaternion13safeNormalizeEv.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %predictedTransform, ptr noundef nonnull align 4 dereferenceable(16) %curTrans, i64 16, i1 false)
-  %arrayidx5.i.i58 = getelementptr inbounds [3 x %class.btVector3], ptr %curTrans, i64 0, i64 1
-  %arrayidx7.i.i59 = getelementptr inbounds [3 x %class.btVector3], ptr %predictedTransform, i64 0, i64 1
+  %arrayidx5.i.i58 = getelementptr inbounds i8, ptr %curTrans, i64 16
+  %arrayidx7.i.i59 = getelementptr inbounds i8, ptr %predictedTransform, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i59, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i58, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %curTrans, i64 0, i64 2
-  %arrayidx11.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %predictedTransform, i64 0, i64 2
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %curTrans, i64 32
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %predictedTransform, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
   br label %if.end50
 
@@ -3693,15 +3636,15 @@ if.end50:                                         ; preds = %if.else48, %if.then
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btReducedDeformableBody17updateReducedDofsEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, float noundef %solverdt) local_unnamed_addr #14 align 2 {
 entry:
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   %0 = load i32, ptr %m_nReduced, align 8
   %cmp11 = icmp sgt i32 %0, 0
   br i1 %cmp11, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 5
-  %m_data.i5 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
-  %m_data.i8 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2800
+  %m_data.i5 = getelementptr inbounds i8, ptr %this, i64 2832
+  %m_data.i8 = getelementptr inbounds i8, ptr %this, i64 2768
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3729,27 +3672,27 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btReducedDeformableBody17mapToFullPositionERK11btTransform(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %ref_trans) local_unnamed_addr #5 align 2 {
 entry:
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %ref_trans, i64 0, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %ref_trans, i64 48
   %0 = load <2 x float>, ptr %m_origin.i, align 4
-  %origin.sroa.3.0.m_origin.i.sroa_idx = getelementptr inbounds %class.btTransform, ptr %ref_trans, i64 0, i32 1, i32 0, i64 2
+  %origin.sroa.3.0.m_origin.i.sroa_idx = getelementptr inbounds i8, ptr %ref_trans, i64 56
   %origin.sroa.3.0.copyload = load float, ptr %origin.sroa.3.0.m_origin.i.sroa_idx, align 4
-  %arrayidx10.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %ref_trans, i64 32
   %rotation.sroa.822.32.copyload = load float, ptr %arrayidx10.i, align 4
-  %rotation.sroa.10.32.arrayidx10.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 2, i32 0, i64 1
+  %rotation.sroa.10.32.arrayidx10.i.sroa_idx = getelementptr inbounds i8, ptr %ref_trans, i64 36
   %rotation.sroa.10.32.copyload = load float, ptr %rotation.sroa.10.32.arrayidx10.i.sroa_idx, align 4
-  %rotation.sroa.11.32.arrayidx10.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 2, i32 0, i64 2
+  %rotation.sroa.11.32.arrayidx10.i.sroa_idx = getelementptr inbounds i8, ptr %ref_trans, i64 40
   %rotation.sroa.11.32.copyload = load float, ptr %rotation.sroa.11.32.arrayidx10.i.sroa_idx, align 4
-  %m_nFull = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
+  %m_nFull = getelementptr inbounds i8, ptr %this, i64 2716
   %1 = load i32, ptr %m_nFull, align 4
   %cmp23 = icmp sgt i32 %1, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %rotation.sroa.7.16.arrayidx6.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 1, i32 0, i64 2
+  %rotation.sroa.7.16.arrayidx6.i.sroa_idx = getelementptr inbounds i8, ptr %ref_trans, i64 24
   %rotation.sroa.7.16.copyload = load float, ptr %rotation.sroa.7.16.arrayidx6.i.sroa_idx, align 4
-  %rotation.sroa.6.16.arrayidx6.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 1, i32 0, i64 1
+  %rotation.sroa.6.16.arrayidx6.i.sroa_idx = getelementptr inbounds i8, ptr %ref_trans, i64 20
   %rotation.sroa.6.16.copyload = load float, ptr %rotation.sroa.6.16.arrayidx6.i.sroa_idx, align 4
-  %arrayidx6.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %ref_trans, i64 16
   %rotation.sroa.421.16.copyload = load float, ptr %arrayidx6.i, align 4
   %rotation.sroa.3.0.ref_trans.sroa_idx = getelementptr inbounds i8, ptr %ref_trans, i64 8
   %2 = load <4 x float>, ptr %rotation.sroa.3.0.ref_trans.sroa_idx, align 4
@@ -3759,8 +3702,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %5 = shufflevector <4 x float> %4, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %6 = load <4 x float>, ptr %ref_trans, align 4
   %7 = shufflevector <4 x float> %6, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 5
-  %m_data.i12 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2224
+  %m_data.i12 = getelementptr inbounds i8, ptr %this, i64 944
   %8 = insertelement <2 x float> %3, float %rotation.sroa.7.16.copyload, i64 1
   %9 = insertelement <2 x float> %7, float %rotation.sroa.421.16.copyload, i64 1
   %10 = insertelement <2 x float> %5, float %rotation.sroa.6.16.copyload, i64 1
@@ -3771,9 +3714,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %11 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %11, i64 %indvars.iv
   %12 = load float, ptr %arrayidx.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %13 = load float, ptr %arrayidx7.i.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %14 = load float, ptr %arrayidx12.i.i, align 4
   %mul8.i13.i = fmul float %rotation.sroa.10.32.copyload, %13
   %15 = tail call float @llvm.fmuladd.f32(float %rotation.sroa.822.32.copyload, float %12, float %mul8.i13.i)
@@ -3791,13 +3734,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add14.i = fadd float %origin.sroa.3.0.copyload, %16
   %retval.sroa.3.12.vec.insert.i9 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
   %27 = load ptr, ptr %m_data.i12, align 8
-  %m_x = getelementptr inbounds %"struct.btSoftBody::Node", ptr %27, i64 %indvars.iv, i32 1
+  %arrayidx.i14 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %27, i64 %indvars.iv
+  %m_x = getelementptr inbounds i8, ptr %arrayidx.i14, i64 16
   store <2 x float> %26, ptr %m_x, align 8
-  %ref.tmp.sroa.2.0.m_x.sroa_idx = getelementptr inbounds %"struct.btSoftBody::Node", ptr %27, i64 %indvars.iv, i32 1, i32 0, i64 2
+  %ref.tmp.sroa.2.0.m_x.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i14, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i9, ptr %ref.tmp.sroa.2.0.m_x.sroa_idx, align 8
   %28 = load ptr, ptr %m_data.i12, align 8
-  %m_x11 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %28, i64 %indvars.iv, i32 1
-  %m_q = getelementptr inbounds %"struct.btSoftBody::Node", ptr %28, i64 %indvars.iv, i32 2
+  %arrayidx.i17 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %28, i64 %indvars.iv
+  %m_x11 = getelementptr inbounds i8, ptr %arrayidx.i17, i64 16
+  %m_q = getelementptr inbounds i8, ptr %arrayidx.i17, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_q, ptr noundef nonnull align 8 dereferenceable(16) %m_x11, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %m_nFull, align 4
@@ -3812,16 +3757,16 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btReducedDeformableBody21updateReducedVelocityEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, float noundef %solverdt) local_unnamed_addr #12 align 2 {
 entry:
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   %0 = load i32, ptr %m_nReduced, align 8
   %cmp15 = icmp sgt i32 %0, 0
   br i1 %cmp15, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 5
-  %m_data.i6 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
-  %m_data.i9 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 5
-  %m_data.i12 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2928
+  %m_data.i6 = getelementptr inbounds i8, ptr %this, i64 2960
+  %m_data.i9 = getelementptr inbounds i8, ptr %this, i64 2864
+  %m_data.i12 = getelementptr inbounds i8, ptr %this, i64 2832
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3854,13 +3799,13 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btReducedDeformableBody17mapToFullVelocityERK11btTransform(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %ref_trans) local_unnamed_addr #5 align 2 {
 entry:
-  %m_nFull = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
+  %m_nFull = getelementptr inbounds i8, ptr %this, i64 2716
   %0 = load i32, ptr %m_nFull, align 4
   %cmp4 = icmp sgt i32 %0, 0
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 944
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3870,9 +3815,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = extractvalue { <2 x float>, <2 x float> } %call, 0
   %3 = extractvalue { <2 x float>, <2 x float> } %call, 1
   %4 = load ptr, ptr %m_data.i, align 8
-  %m_v = getelementptr inbounds %"struct.btSoftBody::Node", ptr %4, i64 %indvars.iv, i32 3
+  %arrayidx.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %4, i64 %indvars.iv
+  %m_v = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   store <2 x float> %2, ptr %m_v, align 8
-  %ref.tmp.sroa.2.0.m_v.sroa_idx = getelementptr inbounds %"struct.btSoftBody::Node", ptr %4, i64 %indvars.iv, i32 3, i32 0, i64 2
+  %ref.tmp.sroa.2.0.m_v.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   store <2 x float> %3, ptr %ref.tmp.sroa.2.0.m_v.sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i32, ptr %m_nFull, align 4
@@ -3888,41 +3834,41 @@ for.end:                                          ; preds = %for.body, %entry
 define dso_local { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody23computeNodeFullVelocityERK11btTransformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %ref_trans, i32 noundef %n_node) local_unnamed_addr #15 align 2 {
 entry:
   %v_from_reduced = alloca %class.btVector3, align 4
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %v_from_reduced, i64 0, i64 1
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %v_from_reduced, i64 0, i64 2
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 5
+  %arrayidx3.i = getelementptr inbounds i8, ptr %v_from_reduced, i64 4
+  %arrayidx5.i = getelementptr inbounds i8, ptr %v_from_reduced, i64 8
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2224
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %v_from_reduced, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %n_node to i64
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %0, i64 %idxprom.i
   %1 = load float, ptr %ref_trans, align 4
   %2 = load float, ptr %arrayidx.i, align 4
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %ref_trans, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %ref_trans, i64 4
   %3 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %4 = load float, ptr %arrayidx7.i.i, align 4
-  %arrayidx10.i.i = getelementptr inbounds [4 x float], ptr %ref_trans, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %ref_trans, i64 8
   %5 = load float, ptr %arrayidx10.i.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %6 = load float, ptr %arrayidx12.i.i, align 4
-  %arrayidx.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %ref_trans, i64 16
   %7 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx5.i5.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %ref_trans, i64 20
   %8 = load float, ptr %arrayidx5.i5.i, align 4
-  %arrayidx10.i8.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %ref_trans, i64 24
   %9 = load float, ptr %arrayidx10.i8.i, align 4
-  %arrayidx.i10.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 2
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %ref_trans, i64 32
   %10 = load float, ptr %arrayidx.i10.i, align 4
-  %arrayidx5.i11.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %ref_trans, i64 36
   %11 = load float, ptr %arrayidx5.i11.i, align 4
-  %arrayidx10.i14.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %ref_trans, i64 40
   %12 = load float, ptr %arrayidx10.i14.i, align 4
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   %13 = load i32, ptr %m_nReduced, align 8
   %cmp764 = icmp sgt i32 %13, 0
-  %m_data.i9 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35, i32 5
+  %m_data.i9 = getelementptr inbounds i8, ptr %this, i64 2736
   %14 = load ptr, ptr %m_data.i9, align 8
-  %m_data.i15 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
+  %m_data.i15 = getelementptr inbounds i8, ptr %this, i64 2832
   %15 = load ptr, ptr %m_data.i15, align 8
   br i1 %cmp764, label %for.cond6.preheader.us.preheader, label %for.end16
 
@@ -3977,8 +3923,8 @@ for.end16:                                        ; preds = %entry, %for.end16.l
   %30 = insertelement <2 x float> poison, float %3, i64 0
   %31 = insertelement <2 x float> %30, float %8, i64 1
   %32 = fmul <2 x float> %29, %31
-  %m_angularVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 20
-  %arrayidx5.i20 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 20, i32 0, i64 2
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 2376
+  %arrayidx5.i20 = getelementptr inbounds i8, ptr %this, i64 2384
   %33 = load float, ptr %arrayidx5.i20, align 8
   %34 = fneg float %33
   %mul8.i.i29 = fmul float %3, %24
@@ -3989,9 +3935,9 @@ for.end16:                                        ; preds = %entry, %for.end16.l
   %39 = insertelement <2 x float> poison, float %24, i64 0
   %40 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
   %41 = fmul <2 x float> %38, %40
-  %m_linearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 2360
   %42 = load float, ptr %m_linearVelocity, align 8
-  %arrayidx7.i54 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19, i32 0, i64 1
+  %arrayidx7.i54 = getelementptr inbounds i8, ptr %this, i64 2364
   %43 = insertelement <2 x float> poison, float %1, i64 0
   %44 = insertelement <2 x float> %43, float %7, i64 1
   %45 = insertelement <2 x float> poison, float %2, i64 0
@@ -4041,69 +3987,69 @@ for.end16:                                        ; preds = %entry, %for.end16.l
 define dso_local { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody27computeTotalAngularMomentumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this) local_unnamed_addr #15 align 2 {
 entry:
   %v_from_reduced = alloca %class.btVector3, align 4
-  %m_invInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28
-  %arrayidx.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 1
-  %arrayidx6.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 2
-  %arrayidx9.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 2, i32 0, i64 2
+  %m_invInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2592
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 2608
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 2624
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %this, i64 2632
   %0 = load float, ptr %arrayidx9.i.i, align 8, !noalias !49
-  %arrayidx15.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 1, i32 0, i64 2
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %this, i64 2616
   %1 = load float, ptr %arrayidx15.i.i, align 8, !noalias !49
   %2 = load <2 x float>, ptr %arrayidx6.i.i, align 8, !noalias !49
   %3 = load <2 x float>, ptr %arrayidx.i.i, align 8, !noalias !49
   %4 = load <2 x float>, ptr %m_invInertiaTensorWorld, align 8, !noalias !49
-  %arrayidx10.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %this, i64 2600
   %5 = load float, ptr %arrayidx10.i.i, align 8, !noalias !49
-  %m_angularVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 20
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 2376
   %6 = load float, ptr %m_angularVelocity, align 8
-  %arrayidx7.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 20, i32 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 2380
   %7 = load float, ptr %arrayidx7.i.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 20, i32 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %this, i64 2384
   %8 = load float, ptr %arrayidx12.i.i, align 8
-  %m_nFull = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
+  %m_nFull = getelementptr inbounds i8, ptr %this, i64 2716
   %9 = load i32, ptr %m_nFull, align 4
   %cmp153 = icmp sgt i32 %9, 0
   br i1 %cmp153, label %for.body.lr.ph, label %for.end47
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx.i6.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 15, i32 0, i64 1
+  %arrayidx.i6.i = getelementptr inbounds i8, ptr %this, i64 2324
   %10 = load float, ptr %arrayidx.i6.i, align 4, !noalias !52
   %fneg17.i = fneg float %10
-  %m_angularVelocityFromReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 15
+  %m_angularVelocityFromReduced = getelementptr inbounds i8, ptr %this, i64 2320
   %11 = load float, ptr %m_angularVelocityFromReduced, align 8, !noalias !52
   %fneg12.i = fneg float %11
-  %arrayidx.i.i14 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 15, i32 0, i64 2
+  %arrayidx.i.i14 = getelementptr inbounds i8, ptr %this, i64 2328
   %12 = load float, ptr %arrayidx.i.i14, align 8, !noalias !52
   %fneg.i = fneg float %12
-  %m_rigidTransformWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 5
+  %m_rigidTransformWorld = getelementptr inbounds i8, ptr %this, i64 2480
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2224
   %13 = load ptr, ptr %m_data.i, align 8
   %14 = load float, ptr %m_rigidTransformWorld, align 8
-  %arrayidx5.i.i15 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 0, i32 0, i64 1
+  %arrayidx5.i.i15 = getelementptr inbounds i8, ptr %this, i64 2484
   %15 = load float, ptr %arrayidx5.i.i15, align 4
-  %arrayidx10.i.i18 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i18 = getelementptr inbounds i8, ptr %this, i64 2488
   %16 = load float, ptr %arrayidx10.i.i18, align 8
-  %arrayidx.i.i20 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1
+  %arrayidx.i.i20 = getelementptr inbounds i8, ptr %this, i64 2496
   %17 = load float, ptr %arrayidx.i.i20, align 8
-  %arrayidx5.i5.i21 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i21 = getelementptr inbounds i8, ptr %this, i64 2500
   %18 = load float, ptr %arrayidx5.i5.i21, align 4
-  %arrayidx10.i8.i23 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i23 = getelementptr inbounds i8, ptr %this, i64 2504
   %19 = load float, ptr %arrayidx10.i8.i23, align 8
-  %arrayidx.i10.i24 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2
+  %arrayidx.i10.i24 = getelementptr inbounds i8, ptr %this, i64 2512
   %20 = load float, ptr %arrayidx.i10.i24, align 8
-  %arrayidx5.i11.i25 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i25 = getelementptr inbounds i8, ptr %this, i64 2516
   %21 = load float, ptr %arrayidx5.i11.i25, align 4
-  %arrayidx10.i14.i27 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i27 = getelementptr inbounds i8, ptr %this, i64 2520
   %22 = load float, ptr %arrayidx10.i14.i27, align 8
-  %arrayidx3.i49 = getelementptr inbounds [4 x float], ptr %v_from_reduced, i64 0, i64 1
-  %arrayidx5.i50 = getelementptr inbounds [4 x float], ptr %v_from_reduced, i64 0, i64 2
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %arrayidx3.i49 = getelementptr inbounds i8, ptr %v_from_reduced, i64 4
+  %arrayidx5.i50 = getelementptr inbounds i8, ptr %v_from_reduced, i64 8
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   %23 = load i32, ptr %m_nReduced, align 8
   %cmp16150 = icmp sgt i32 %23, 0
-  %m_data.i52 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35, i32 5
+  %m_data.i52 = getelementptr inbounds i8, ptr %this, i64 2736
   %24 = load ptr, ptr %m_data.i52, align 8
-  %m_data.i58 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
+  %m_data.i58 = getelementptr inbounds i8, ptr %this, i64 2832
   %25 = load ptr, ptr %m_data.i58, align 8
-  %m_data.i61 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 5
+  %m_data.i61 = getelementptr inbounds i8, ptr %this, i64 3088
   %26 = load ptr, ptr %m_data.i61, align 8
   %wide.trip.count171 = zext nneg i32 %9 to i64
   %wide.trip.count = zext nneg i32 %23 to i64
@@ -4129,11 +4075,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %41 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %106, %for.end25 ]
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %13, i64 %indvars.iv167
   %42 = load float, ptr %arrayidx.i, align 4
-  %arrayidx7.i.i16 = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx7.i.i16 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %43 = load float, ptr %arrayidx7.i.i16, align 4
   %mul8.i.i17 = fmul float %15, %43
   %44 = tail call float @llvm.fmuladd.f32(float %14, float %42, float %mul8.i.i17)
-  %arrayidx12.i.i19 = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx12.i.i19 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %45 = load float, ptr %arrayidx12.i.i19, align 4
   %46 = tail call noundef float @llvm.fmuladd.f32(float %16, float %45, float %44)
   %mul8.i7.i22 = fmul float %43, %18
@@ -4322,41 +4268,41 @@ for.end47:                                        ; preds = %for.end25, %entry
 define dso_local { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody32internalComputeNodeDeltaVelocityERK11btTransformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %ref_trans, i32 noundef %n_node) local_unnamed_addr #15 align 2 {
 entry:
   %deltaV_from_reduced = alloca %class.btVector3, align 4
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %deltaV_from_reduced, i64 0, i64 1
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %deltaV_from_reduced, i64 0, i64 2
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 5
+  %arrayidx3.i = getelementptr inbounds i8, ptr %deltaV_from_reduced, i64 4
+  %arrayidx5.i = getelementptr inbounds i8, ptr %deltaV_from_reduced, i64 8
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2224
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %deltaV_from_reduced, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %n_node to i64
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %0, i64 %idxprom.i
   %1 = load float, ptr %ref_trans, align 4
   %2 = load float, ptr %arrayidx.i, align 4
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %ref_trans, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %ref_trans, i64 4
   %3 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %4 = load float, ptr %arrayidx7.i.i, align 4
-  %arrayidx10.i.i = getelementptr inbounds [4 x float], ptr %ref_trans, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %ref_trans, i64 8
   %5 = load float, ptr %arrayidx10.i.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %6 = load float, ptr %arrayidx12.i.i, align 4
-  %arrayidx.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %ref_trans, i64 16
   %7 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx5.i5.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %ref_trans, i64 20
   %8 = load float, ptr %arrayidx5.i5.i, align 4
-  %arrayidx10.i8.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %ref_trans, i64 24
   %9 = load float, ptr %arrayidx10.i8.i, align 4
-  %arrayidx.i10.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 2
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %ref_trans, i64 32
   %10 = load float, ptr %arrayidx.i10.i, align 4
-  %arrayidx5.i11.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %ref_trans, i64 36
   %11 = load float, ptr %arrayidx5.i11.i, align 4
-  %arrayidx10.i14.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref_trans, i64 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %ref_trans, i64 40
   %12 = load float, ptr %arrayidx10.i14.i, align 4
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   %13 = load i32, ptr %m_nReduced, align 8
   %cmp764 = icmp sgt i32 %13, 0
-  %m_data.i9 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35, i32 5
+  %m_data.i9 = getelementptr inbounds i8, ptr %this, i64 2736
   %14 = load ptr, ptr %m_data.i9, align 8
-  %m_data.i15 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
+  %m_data.i15 = getelementptr inbounds i8, ptr %this, i64 2288
   %15 = load ptr, ptr %m_data.i15, align 8
   br i1 %cmp764, label %for.cond6.preheader.us.preheader, label %for.end16
 
@@ -4411,8 +4357,8 @@ for.end16:                                        ; preds = %entry, %for.end16.l
   %30 = insertelement <2 x float> poison, float %3, i64 0
   %31 = insertelement <2 x float> %30, float %8, i64 1
   %32 = fmul <2 x float> %29, %31
-  %m_internalDeltaAngularVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 12
-  %arrayidx5.i20 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 12, i32 0, i64 2
+  %m_internalDeltaAngularVelocity = getelementptr inbounds i8, ptr %this, i64 2256
+  %arrayidx5.i20 = getelementptr inbounds i8, ptr %this, i64 2264
   %33 = load float, ptr %arrayidx5.i20, align 8
   %34 = fneg float %33
   %mul8.i.i29 = fmul float %3, %24
@@ -4423,9 +4369,9 @@ for.end16:                                        ; preds = %entry, %for.end16.l
   %39 = insertelement <2 x float> poison, float %24, i64 0
   %40 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
   %41 = fmul <2 x float> %38, %40
-  %m_internalDeltaLinearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 11
+  %m_internalDeltaLinearVelocity = getelementptr inbounds i8, ptr %this, i64 2240
   %42 = load float, ptr %m_internalDeltaLinearVelocity, align 8
-  %arrayidx7.i54 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 11, i32 0, i64 1
+  %arrayidx7.i54 = getelementptr inbounds i8, ptr %this, i64 2244
   %43 = insertelement <2 x float> poison, float %1, i64 0
   %44 = insertelement <2 x float> %43, float %7, i64 1
   %45 = insertelement <2 x float> poison, float %2, i64 0
@@ -4474,30 +4420,30 @@ for.end16:                                        ; preds = %entry, %for.end16.l
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btReducedDeformableBody18proceedToTransformEfb(ptr noundef nonnull align 8 dereferenceable(3176) %this, float noundef %dt, i1 noundef zeroext %end_of_time_step) local_unnamed_addr #3 align 2 {
 entry:
-  %m_rigidTransformWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26
-  %m_linearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19
-  %m_angularVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 20
-  %m_interpolationWorldTransform = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2
+  %m_rigidTransformWorld = getelementptr inbounds i8, ptr %this, i64 2480
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 2360
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 2376
+  %m_interpolationWorldTransform = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_(ptr noundef nonnull align 4 dereferenceable(64) %m_rigidTransformWorld, ptr noundef nonnull align 4 dereferenceable(16) %m_linearVelocity, ptr noundef nonnull align 4 dereferenceable(16) %m_angularVelocity, float noundef %dt, ptr noundef nonnull align 4 dereferenceable(64) %m_interpolationWorldTransform)
   tail call void @_ZN23btReducedDeformableBody19updateInertiaTensorEv(ptr noundef nonnull align 8 dereferenceable(3176) %this)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rigidTransformWorld, ptr noundef nonnull align 8 dereferenceable(16) %m_interpolationWorldTransform, i64 16, i1 false)
-  %arrayidx5.i.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1
-  %arrayidx7.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 2496
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2
-  %arrayidx11.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 2512
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
-  %m_origin.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 1
-  %m_origin3.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %this, i64 120
+  %m_origin3.i = getelementptr inbounds i8, ptr %this, i64 2528
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i, i64 16, i1 false)
-  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29
-  %m_invInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28
+  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2640
+  %m_invInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2592
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_invInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(16) %m_interpolateInvInertiaTensorWorld, i64 16, i1 false)
-  %arrayidx5.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1
-  %arrayidx7.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 2656
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 2608
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)
-  %arrayidx9.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2
-  %arrayidx11.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %this, i64 2672
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 2624
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9.i, i64 16, i1 false)
   ret void
 }
@@ -4506,61 +4452,61 @@ entry:
 define dso_local void @_ZN23btReducedDeformableBody11transformToERK11btTransform(ptr noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trs) unnamed_addr #13 align 2 {
 entry:
   %new_transform = alloca %class.btTransform, align 8
-  %m_rigidTransformWorld.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26
+  %m_rigidTransformWorld.i = getelementptr inbounds i8, ptr %this, i64 2480
   %0 = load <4 x float>, ptr %m_rigidTransformWorld.i, align 8
   %1 = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %current_transform.sroa.2.0.m_rigidTransformWorld.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 0, i32 0, i64 1
+  %current_transform.sroa.2.0.m_rigidTransformWorld.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2484
   %2 = load <4 x float>, ptr %current_transform.sroa.2.0.m_rigidTransformWorld.i.sroa_idx, align 4
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %current_transform.sroa.3.0.m_rigidTransformWorld.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 0, i32 0, i64 2
+  %current_transform.sroa.3.0.m_rigidTransformWorld.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2488
   %4 = load <4 x float>, ptr %current_transform.sroa.3.0.m_rigidTransformWorld.i.sroa_idx, align 8
   %5 = shufflevector <4 x float> %4, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx6.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 2496
   %current_transform.sroa.421.16.copyload = load float, ptr %arrayidx6.i.i, align 8
-  %current_transform.sroa.6.16.arrayidx6.i.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1, i32 0, i64 1
+  %current_transform.sroa.6.16.arrayidx6.i.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2500
   %current_transform.sroa.6.16.copyload = load float, ptr %current_transform.sroa.6.16.arrayidx6.i.i.sroa_idx, align 4
-  %current_transform.sroa.7.16.arrayidx6.i.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1, i32 0, i64 2
+  %current_transform.sroa.7.16.arrayidx6.i.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2504
   %current_transform.sroa.7.16.copyload = load float, ptr %current_transform.sroa.7.16.arrayidx6.i.i.sroa_idx, align 8
-  %arrayidx10.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %this, i64 2512
   %current_transform.sroa.822.32.copyload = load float, ptr %arrayidx10.i.i, align 8
-  %current_transform.sroa.10.32.arrayidx10.i.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2, i32 0, i64 1
+  %current_transform.sroa.10.32.arrayidx10.i.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2516
   %current_transform.sroa.10.32.copyload = load float, ptr %current_transform.sroa.10.32.arrayidx10.i.i.sroa_idx, align 4
-  %current_transform.sroa.11.32.arrayidx10.i.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2, i32 0, i64 2
+  %current_transform.sroa.11.32.arrayidx10.i.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2520
   %current_transform.sroa.11.32.copyload = load float, ptr %current_transform.sroa.11.32.arrayidx10.i.i.sroa_idx, align 8
-  %m_origin3.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 1
-  %current_transform.sroa.15.48.m_origin3.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 1, i32 0, i64 2
+  %m_origin3.i = getelementptr inbounds i8, ptr %this, i64 2528
+  %current_transform.sroa.15.48.m_origin3.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2536
   %current_transform.sroa.15.48.copyload = load float, ptr %current_transform.sroa.15.48.m_origin3.i.sroa_idx, align 8
   %6 = load float, ptr %trs, align 4, !noalias !60
-  %arrayidx.i.i.i = getelementptr inbounds [4 x float], ptr %trs, i64 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %trs, i64 4
   %7 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !60
-  %arrayidx.i3.i.i = getelementptr inbounds [4 x float], ptr %trs, i64 0, i64 2
+  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %trs, i64 8
   %8 = load float, ptr %arrayidx.i3.i.i, align 4, !noalias !60
   %mul7.i23.i = fmul float %current_transform.sroa.10.32.copyload, %7
   %9 = tail call float @llvm.fmuladd.f32(float %current_transform.sroa.822.32.copyload, float %6, float %mul7.i23.i)
   %10 = tail call noundef float @llvm.fmuladd.f32(float %current_transform.sroa.11.32.copyload, float %8, float %9)
-  %arrayidx.i.i2 = getelementptr inbounds [3 x %class.btVector3], ptr %trs, i64 0, i64 1
+  %arrayidx.i.i2 = getelementptr inbounds i8, ptr %trs, i64 16
   %11 = load float, ptr %arrayidx.i.i2, align 4, !noalias !60
-  %arrayidx.i.i27.i = getelementptr inbounds [3 x %class.btVector3], ptr %trs, i64 0, i64 1, i32 0, i64 1
+  %arrayidx.i.i27.i = getelementptr inbounds i8, ptr %trs, i64 20
   %12 = load float, ptr %arrayidx.i.i27.i, align 4, !noalias !60
-  %arrayidx.i3.i30.i = getelementptr inbounds [3 x %class.btVector3], ptr %trs, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i30.i = getelementptr inbounds i8, ptr %trs, i64 24
   %13 = load float, ptr %arrayidx.i3.i30.i, align 4, !noalias !60
   %mul7.i42.i = fmul float %current_transform.sroa.10.32.copyload, %12
   %14 = tail call float @llvm.fmuladd.f32(float %current_transform.sroa.822.32.copyload, float %11, float %mul7.i42.i)
   %15 = tail call noundef float @llvm.fmuladd.f32(float %current_transform.sroa.11.32.copyload, float %13, float %14)
-  %arrayidx.i45.i = getelementptr inbounds [3 x %class.btVector3], ptr %trs, i64 0, i64 2
+  %arrayidx.i45.i = getelementptr inbounds i8, ptr %trs, i64 32
   %16 = load float, ptr %arrayidx.i45.i, align 4, !noalias !60
-  %arrayidx.i.i47.i = getelementptr inbounds [3 x %class.btVector3], ptr %trs, i64 0, i64 2, i32 0, i64 1
+  %arrayidx.i.i47.i = getelementptr inbounds i8, ptr %trs, i64 36
   %17 = load float, ptr %arrayidx.i.i47.i, align 4, !noalias !60
-  %arrayidx.i3.i50.i = getelementptr inbounds [3 x %class.btVector3], ptr %trs, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i3.i50.i = getelementptr inbounds i8, ptr %trs, i64 40
   %18 = load float, ptr %arrayidx.i3.i50.i, align 4, !noalias !60
   %mul7.i62.i = fmul float %current_transform.sroa.10.32.copyload, %17
   %19 = tail call float @llvm.fmuladd.f32(float %current_transform.sroa.822.32.copyload, float %16, float %mul7.i62.i)
   %20 = tail call noundef float @llvm.fmuladd.f32(float %current_transform.sroa.11.32.copyload, float %18, float %19)
-  %m_origin.i14 = getelementptr inbounds %class.btTransform, ptr %trs, i64 0, i32 1
+  %m_origin.i14 = getelementptr inbounds i8, ptr %trs, i64 48
   %21 = load <2 x float>, ptr %m_origin3.i, align 8
   %22 = load <2 x float>, ptr %m_origin.i14, align 4
   %23 = fsub <2 x float> %22, %21
-  %arrayidx11.i = getelementptr inbounds %class.btTransform, ptr %trs, i64 0, i32 1, i32 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %trs, i64 56
   %24 = load float, ptr %arrayidx11.i, align 4
   %sub14.i = fsub float %24, %current_transform.sroa.15.48.copyload
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
@@ -4581,7 +4527,7 @@ entry:
   store float %10, ptr %ref.tmp.sroa.3.0.new_transform.sroa_idx, align 8
   %ref.tmp.sroa.4.0.new_transform.sroa_idx = getelementptr inbounds i8, ptr %new_transform, i64 12
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.new_transform.sroa_idx, align 4
-  %arrayidx8.i.i17 = getelementptr inbounds [3 x %class.btVector3], ptr %new_transform, i64 0, i64 1
+  %arrayidx8.i.i17 = getelementptr inbounds i8, ptr %new_transform, i64 16
   %37 = insertelement <2 x float> poison, float %12, i64 0
   %38 = shufflevector <2 x float> %37, <2 x float> poison, <2 x i32> zeroinitializer
   %39 = fmul <2 x float> %25, %38
@@ -4592,11 +4538,11 @@ entry:
   %44 = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> zeroinitializer
   %45 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %33, <2 x float> %44, <2 x float> %42)
   store <2 x float> %45, ptr %arrayidx8.i.i17, align 8
-  %ref.tmp.sroa.8.16.arrayidx8.i.i17.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %new_transform, i64 0, i64 1, i32 0, i64 2
+  %ref.tmp.sroa.8.16.arrayidx8.i.i17.sroa_idx = getelementptr inbounds i8, ptr %new_transform, i64 24
   store float %15, ptr %ref.tmp.sroa.8.16.arrayidx8.i.i17.sroa_idx, align 8
-  %ref.tmp.sroa.9.16.arrayidx8.i.i17.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %new_transform, i64 0, i64 1, i32 0, i64 3
+  %ref.tmp.sroa.9.16.arrayidx8.i.i17.sroa_idx = getelementptr inbounds i8, ptr %new_transform, i64 28
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx8.i.i17.sroa_idx, align 4
-  %arrayidx12.i.i19 = getelementptr inbounds [3 x %class.btVector3], ptr %new_transform, i64 0, i64 2
+  %arrayidx12.i.i19 = getelementptr inbounds i8, ptr %new_transform, i64 32
   %46 = insertelement <2 x float> poison, float %17, i64 0
   %47 = shufflevector <2 x float> %46, <2 x float> poison, <2 x i32> zeroinitializer
   %48 = fmul <2 x float> %25, %47
@@ -4607,16 +4553,16 @@ entry:
   %53 = shufflevector <2 x float> %52, <2 x float> poison, <2 x i32> zeroinitializer
   %54 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %33, <2 x float> %53, <2 x float> %51)
   store <2 x float> %54, ptr %arrayidx12.i.i19, align 8
-  %ref.tmp.sroa.13.32.arrayidx12.i.i19.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %new_transform, i64 0, i64 2, i32 0, i64 2
+  %ref.tmp.sroa.13.32.arrayidx12.i.i19.sroa_idx = getelementptr inbounds i8, ptr %new_transform, i64 40
   store float %20, ptr %ref.tmp.sroa.13.32.arrayidx12.i.i19.sroa_idx, align 8
-  %ref.tmp.sroa.14.32.arrayidx12.i.i19.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %new_transform, i64 0, i64 2, i32 0, i64 3
+  %ref.tmp.sroa.14.32.arrayidx12.i.i19.sroa_idx = getelementptr inbounds i8, ptr %new_transform, i64 44
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx12.i.i19.sroa_idx, align 4
-  %m_origin.i20 = getelementptr inbounds %class.btTransform, ptr %new_transform, i64 0, i32 1
+  %m_origin.i20 = getelementptr inbounds i8, ptr %new_transform, i64 48
   store <2 x float> %23, ptr %m_origin.i20, align 8
-  %ref.tmp5.sroa.2.0.m_origin.i20.sroa_idx = getelementptr inbounds %class.btTransform, ptr %new_transform, i64 0, i32 1, i32 0, i64 2
+  %ref.tmp5.sroa.2.0.m_origin.i20.sroa_idx = getelementptr inbounds i8, ptr %new_transform, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp5.sroa.2.0.m_origin.i20.sroa_idx, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %55 = load ptr, ptr %vfn, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(3176) %this, ptr noundef nonnull align 4 dereferenceable(64) %new_transform)
   ret void
@@ -4625,7 +4571,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZN23btReducedDeformableBody17getRigidTransformEv(ptr noundef nonnull readnone align 8 dereferenceable(3176) %this) local_unnamed_addr #16 align 2 {
 entry:
-  %m_rigidTransformWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26
+  %m_rigidTransformWorld = getelementptr inbounds i8, ptr %this, i64 2480
   ret ptr %m_rigidTransformWorld
 }
 
@@ -4634,35 +4580,35 @@ define dso_local void @_ZN23btReducedDeformableBody9transformERK11btTransform(pt
 entry:
   %nodal_disp.i = alloca %class.btVector3, align 8
   %vol = alloca %struct.btDbvtAabbMm, align 8
-  %m_transform_lock = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 2
+  %m_transform_lock = getelementptr inbounds i8, ptr %this, i64 2065
   store i8 1, ptr %m_transform_lock, align 1
-  %m_collisionShape.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 9
+  %m_collisionShape.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %m_collisionShape.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %m_rigidTransformWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26
-  %m_origin.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 1
-  %CoM.sroa.9.0.m_origin.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 1, i32 0, i64 2
+  %m_rigidTransformWorld = getelementptr inbounds i8, ptr %this, i64 2480
+  %m_origin.i = getelementptr inbounds i8, ptr %this, i64 2528
+  %CoM.sroa.9.0.m_origin.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2536
   %CoM.sroa.9.0.copyload = load float, ptr %CoM.sroa.9.0.m_origin.i.sroa_idx, align 8
-  %m_origin.i14 = getelementptr inbounds %class.btTransform, ptr %trs, i64 0, i32 1
+  %m_origin.i14 = getelementptr inbounds i8, ptr %trs, i64 48
   %2 = load <2 x float>, ptr %m_origin.i, align 8
   %3 = load <2 x float>, ptr %m_origin.i14, align 4
-  %translation.sroa.5.0.m_origin.i14.sroa_idx = getelementptr inbounds %class.btTransform, ptr %trs, i64 0, i32 1, i32 0, i64 2
+  %translation.sroa.5.0.m_origin.i14.sroa_idx = getelementptr inbounds i8, ptr %trs, i64 56
   %translation.sroa.5.0.copyload = load float, ptr %translation.sroa.5.0.m_origin.i14.sroa_idx, align 4
   %rotation.sroa.4.0.trs.sroa_idx = getelementptr inbounds i8, ptr %trs, i64 4
   %rotation.sroa.7.0.trs.sroa_idx = getelementptr inbounds i8, ptr %trs, i64 8
-  %arrayidx6.i = getelementptr inbounds [3 x %class.btVector3], ptr %trs, i64 0, i64 1
-  %rotation.sroa.14.16.arrayidx6.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %trs, i64 0, i64 1, i32 0, i64 1
-  %rotation.sroa.17.16.arrayidx6.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %trs, i64 0, i64 1, i32 0, i64 2
-  %arrayidx10.i = getelementptr inbounds [3 x %class.btVector3], ptr %trs, i64 0, i64 2
+  %arrayidx6.i = getelementptr inbounds i8, ptr %trs, i64 16
+  %rotation.sroa.14.16.arrayidx6.i.sroa_idx = getelementptr inbounds i8, ptr %trs, i64 20
+  %rotation.sroa.17.16.arrayidx6.i.sroa_idx = getelementptr inbounds i8, ptr %trs, i64 24
+  %arrayidx10.i = getelementptr inbounds i8, ptr %trs, i64 32
   %rotation.sroa.20151.32.copyload = load float, ptr %arrayidx10.i, align 4
-  %rotation.sroa.24.32.arrayidx10.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %trs, i64 0, i64 2, i32 0, i64 1
+  %rotation.sroa.24.32.arrayidx10.i.sroa_idx = getelementptr inbounds i8, ptr %trs, i64 36
   %rotation.sroa.24.32.copyload = load float, ptr %rotation.sroa.24.32.arrayidx10.i.sroa_idx, align 4
-  %rotation.sroa.27.32.arrayidx10.i.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %trs, i64 0, i64 2, i32 0, i64 2
+  %rotation.sroa.27.32.arrayidx10.i.sroa_idx = getelementptr inbounds i8, ptr %trs, i64 40
   %rotation.sroa.27.32.copyload = load float, ptr %rotation.sroa.27.32.arrayidx10.i.sroa_idx, align 4
-  %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 932
   %4 = load i32, ptr %m_size.i, align 4
   %cmp170 = icmp sgt i32 %4, 0
   br i1 %cmp170, label %for.body.lr.ph, label %for.end
@@ -4677,11 +4623,11 @@ for.body.lr.ph:                                   ; preds = %entry
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %9 = load <4 x float>, ptr %trs, align 4
   %10 = shufflevector <4 x float> %9, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %m_data.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 944
   %ref.tmp37.sroa.2.0.vol.sroa_idx = getelementptr inbounds i8, ptr %vol, i64 8
   %ref.tmp37.sroa.3.0.vol.sroa_idx = getelementptr inbounds i8, ptr %vol, i64 16
   %ref.tmp37.sroa.4.0.vol.sroa_idx = getelementptr inbounds i8, ptr %vol, i64 24
-  %m_ndbvt = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 32
+  %m_ndbvt = getelementptr inbounds i8, ptr %this, i64 1544
   %11 = insertelement <2 x float> %6, float %rotation.sroa.17.16.copyload, i64 1
   %12 = insertelement <2 x float> %10, float %rotation.sroa.10144.16.copyload, i64 1
   %13 = insertelement <2 x float> %8, float %rotation.sroa.14.16.copyload, i64 1
@@ -4694,13 +4640,14 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %18 = load ptr, ptr %m_data.i, align 8
-  %m_x = getelementptr inbounds %"struct.btSoftBody::Node", ptr %18, i64 %indvars.iv, i32 1
+  %arrayidx.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %18, i64 %indvars.iv
+  %m_x = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %19 = load float, ptr %m_x, align 4
   %sub.i = fsub float %19, %14
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %m_x, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
   %20 = load float, ptr %arrayidx5.i, align 4
   %sub8.i = fsub float %20, %15
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %m_x, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %21 = load float, ptr %arrayidx11.i, align 4
   %sub14.i = fsub float %21, %CoM.sroa.9.0.copyload
   %mul8.i13.i = fmul float %rotation.sroa.24.32.copyload, %sub8.i
@@ -4721,15 +4668,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add14.i35 = fadd float %translation.sroa.5.0.copyload, %add14.i
   %retval.sroa.3.12.vec.insert.i38 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i35, i64 0
   store <2 x float> %34, ptr %m_x, align 8
-  %ref.tmp.sroa.2.0.m_x19.sroa_idx = getelementptr inbounds %"struct.btSoftBody::Node", ptr %18, i64 %indvars.iv, i32 1, i32 0, i64 2
-  store <2 x float> %retval.sroa.3.12.vec.insert.i38, ptr %ref.tmp.sroa.2.0.m_x19.sroa_idx, align 8
-  %m_q = getelementptr inbounds %"struct.btSoftBody::Node", ptr %18, i64 %indvars.iv, i32 2
+  store <2 x float> %retval.sroa.3.12.vec.insert.i38, ptr %arrayidx11.i, align 8
+  %m_q = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %35 = load float, ptr %m_q, align 4
   %sub.i41 = fsub float %35, %14
-  %arrayidx5.i42 = getelementptr inbounds [4 x float], ptr %m_q, i64 0, i64 1
+  %arrayidx5.i42 = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
   %36 = load float, ptr %arrayidx5.i42, align 4
   %sub8.i44 = fsub float %36, %15
-  %arrayidx11.i45 = getelementptr inbounds [4 x float], ptr %m_q, i64 0, i64 2
+  %arrayidx11.i45 = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %37 = load float, ptr %arrayidx11.i45, align 4
   %sub14.i47 = fsub float %37, %CoM.sroa.9.0.copyload
   %mul8.i13.i64 = fmul float %rotation.sroa.24.32.copyload, %sub8.i44
@@ -4750,13 +4696,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add14.i89 = fadd float %translation.sroa.5.0.copyload, %add14.i77
   %retval.sroa.3.12.vec.insert.i92 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i89, i64 0
   store <2 x float> %50, ptr %m_q, align 8
-  %ref.tmp20.sroa.2.0.m_q32.sroa_idx = getelementptr inbounds %"struct.btSoftBody::Node", ptr %18, i64 %indvars.iv, i32 2, i32 0, i64 2
-  store <2 x float> %retval.sroa.3.12.vec.insert.i92, ptr %ref.tmp20.sroa.2.0.m_q32.sroa_idx, align 8
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Node", ptr %18, i64 %indvars.iv, i32 6
+  store <2 x float> %retval.sroa.3.12.vec.insert.i92, ptr %arrayidx11.i45, align 8
+  %m_n = getelementptr inbounds i8, ptr %arrayidx.i, i64 96
   %51 = load float, ptr %m_n, align 4
-  %arrayidx7.i.i96 = getelementptr inbounds [4 x float], ptr %m_n, i64 0, i64 1
+  %arrayidx7.i.i96 = getelementptr inbounds i8, ptr %arrayidx.i, i64 100
   %52 = load float, ptr %arrayidx7.i.i96, align 4
-  %arrayidx12.i.i99 = getelementptr inbounds [4 x float], ptr %m_n, i64 0, i64 2
+  %arrayidx12.i.i99 = getelementptr inbounds i8, ptr %arrayidx.i, i64 104
   %53 = load float, ptr %arrayidx12.i.i99, align 4
   %54 = insertelement <2 x float> poison, float %52, i64 0
   %55 = shufflevector <2 x float> %54, <2 x float> poison, <2 x i32> zeroinitializer
@@ -4772,8 +4717,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %64 = call noundef float @llvm.fmuladd.f32(float %rotation.sroa.27.32.copyload, float %53, float %63)
   %retval.sroa.3.12.vec.insert.i110 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %64, i64 0
   store <2 x float> %62, ptr %m_n, align 8
-  %ref.tmp33.sroa.2.0.m_n36.sroa_idx = getelementptr inbounds %"struct.btSoftBody::Node", ptr %18, i64 %indvars.iv, i32 6, i32 0, i64 2
-  store <2 x float> %retval.sroa.3.12.vec.insert.i110, ptr %ref.tmp33.sroa.2.0.m_n36.sroa_idx, align 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i110, ptr %arrayidx12.i.i99, align 8
   %65 = fsub <2 x float> %34, %17
   %sub14.i.i.i = fsub float %add14.i35, %call2
   %retval.sroa.3.12.vec.insert.i.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i.i.i, i64 0
@@ -4784,7 +4728,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i, ptr %ref.tmp37.sroa.2.0.vol.sroa_idx, align 8
   store <2 x float> %66, ptr %ref.tmp37.sroa.3.0.vol.sroa_idx, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i9.i.i, ptr %ref.tmp37.sroa.4.0.vol.sroa_idx, align 8
-  %m_leaf = getelementptr inbounds %"struct.btSoftBody::Node", ptr %18, i64 %indvars.iv, i32 9
+  %m_leaf = getelementptr inbounds i8, ptr %arrayidx.i, i64 120
   %67 = load ptr, ptr %m_leaf, align 8
   call void @_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm(ptr noundef nonnull align 8 dereferenceable(64) %m_ndbvt, ptr noundef %67, ptr noundef nonnull align 4 dereferenceable(32) %vol)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4798,15 +4742,15 @@ for.end:                                          ; preds = %for.body, %entry
   call void @_ZN10btSoftBody12updateBoundsEv(ptr noundef nonnull align 8 dereferenceable(2064) %this)
   call void @_ZN10btSoftBody15updateConstantsEv(ptr noundef nonnull align 8 dereferenceable(2064) %this)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nodal_disp.i)
-  %m_nReduced.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced.i = getelementptr inbounds i8, ptr %this, i64 2712
   %70 = load i32, ptr %m_nReduced.i, align 8
   %cmp38.i = icmp sgt i32 %70, 0
   br i1 %cmp38.i, label %for.cond2.preheader.lr.ph.i, label %_ZN23btReducedDeformableBody21updateModesByRotationERK11btMatrix3x3.exit
 
 for.cond2.preheader.lr.ph.i:                      ; preds = %for.end
-  %m_nFull.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
-  %m_data.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35, i32 5
-  %arrayidx5.i.i113 = getelementptr inbounds [4 x float], ptr %nodal_disp.i, i64 0, i64 2
+  %m_nFull.i = getelementptr inbounds i8, ptr %this, i64 2716
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 2736
+  %arrayidx5.i.i113 = getelementptr inbounds i8, ptr %nodal_disp.i, i64 8
   %71 = load i32, ptr %m_nFull.i, align 4
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %for.cond2.preheader.i, label %_ZN23btReducedDeformableBody21updateModesByRotationERK11btMatrix3x3.exit
@@ -4825,8 +4769,8 @@ for.body4.i:                                      ; preds = %for.cond2.preheader
   %m_data.i14.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %75, i64 %indvars.iv49.i, i32 5
   %77 = load ptr, ptr %m_data.i14.i, align 8
   %arrayidx.i16.i = getelementptr inbounds float, ptr %77, i64 %76
-  %arrayidx.i22.i = getelementptr float, ptr %arrayidx.i16.i, i64 1
-  %arrayidx.i28.i = getelementptr float, ptr %arrayidx.i16.i, i64 2
+  %arrayidx.i22.i = getelementptr i8, ptr %arrayidx.i16.i, i64 4
+  %arrayidx.i28.i = getelementptr i8, ptr %arrayidx.i16.i, i64 8
   %78 = load float, ptr %arrayidx.i16.i, align 4
   %79 = load float, ptr %arrayidx.i22.i, align 4
   %80 = load float, ptr %arrayidx.i28.i, align 4
@@ -4899,35 +4843,35 @@ _ZN23btReducedDeformableBody21updateModesByRotationERK11btMatrix3x3.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %nodal_disp.i)
   call void @_ZN23btReducedDeformableBody26updateInitialInertiaTensorERK11btMatrix3x3(ptr noundef nonnull align 8 dereferenceable(3176) %this, ptr noundef nonnull align 4 dereferenceable(48) %trs)
   call void @_ZN23btReducedDeformableBody19updateInertiaTensorEv(ptr noundef nonnull align 8 dereferenceable(3176) %this)
-  %m_invInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28
-  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29
+  %m_invInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2592
+  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2640
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interpolateInvInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(16) %m_invInertiaTensorWorld, i64 16, i1 false)
-  %arrayidx5.i116 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 1
-  %arrayidx7.i117 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1
+  %arrayidx5.i116 = getelementptr inbounds i8, ptr %this, i64 2608
+  %arrayidx7.i117 = getelementptr inbounds i8, ptr %this, i64 2656
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i117, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i116, i64 16, i1 false)
-  %arrayidx9.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 2
-  %arrayidx11.i118 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %this, i64 2624
+  %arrayidx11.i118 = getelementptr inbounds i8, ptr %this, i64 2672
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11.i118, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9.i, i64 16, i1 false)
-  %m_initialCoM = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 30
+  %m_initialCoM = getelementptr inbounds i8, ptr %this, i64 2688
   %116 = load <2 x float>, ptr %m_initialCoM, align 8
   %117 = load <2 x float>, ptr %m_origin.i14, align 4
   %118 = fadd <2 x float> %116, %117
-  %arrayidx11.i124 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 30, i32 0, i64 2
+  %arrayidx11.i124 = getelementptr inbounds i8, ptr %this, i64 2696
   %119 = load float, ptr %arrayidx11.i124, align 8
   %120 = load float, ptr %translation.sroa.5.0.m_origin.i14.sroa_idx, align 4
   %add14.i126 = fadd float %119, %120
   %retval.sroa.3.12.vec.insert.i129 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i126, i64 0
   store <2 x float> %118, ptr %m_origin.i, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i129, ptr %CoM.sroa.9.0.m_origin.i.sroa_idx, align 8
-  %m_interpolationWorldTransform = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2
+  %m_interpolationWorldTransform = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interpolationWorldTransform, ptr noundef nonnull align 8 dereferenceable(16) %m_rigidTransformWorld, i64 16, i1 false)
-  %arrayidx5.i.i133 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 1
-  %arrayidx7.i.i134 = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1
+  %arrayidx5.i.i133 = getelementptr inbounds i8, ptr %this, i64 2496
+  %arrayidx7.i.i134 = getelementptr inbounds i8, ptr %this, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i134, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i133, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 0, i32 0, i64 2
-  %arrayidx11.i.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %this, i64 2512
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
-  %m_origin3.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 1
+  %m_origin3.i = getelementptr inbounds i8, ptr %this, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_initialCoM, ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   %121 = load i32, ptr %m_nReduced.i, align 8
@@ -4935,14 +4879,14 @@ _ZN23btReducedDeformableBody21updateModesByRotationERK11btMatrix3x3.exit: ; pred
   br i1 %cmp31.i.i, label %for.body.lr.ph.i.i, label %_ZN23btReducedDeformableBody22internalInitializationEv.exit
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN23btReducedDeformableBody21updateModesByRotationERK11btMatrix3x3.exit
-  %m_data.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 5
-  %m_data.i10.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
-  %m_data.i13.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 5
-  %m_data.i16.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
-  %m_data.i19.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 5
-  %m_data.i22.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 5
-  %m_data.i25.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
-  %m_data.i28.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 2928
+  %m_data.i10.i.i = getelementptr inbounds i8, ptr %this, i64 2960
+  %m_data.i13.i.i = getelementptr inbounds i8, ptr %this, i64 2896
+  %m_data.i16.i.i = getelementptr inbounds i8, ptr %this, i64 2288
+  %m_data.i19.i.i = getelementptr inbounds i8, ptr %this, i64 2768
+  %m_data.i22.i.i = getelementptr inbounds i8, ptr %this, i64 2800
+  %m_data.i25.i.i = getelementptr inbounds i8, ptr %this, i64 2832
+  %m_data.i28.i.i = getelementptr inbounds i8, ptr %this, i64 2864
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -4996,23 +4940,23 @@ declare void @_ZN10btSoftBody15updateConstantsEv(ptr noundef nonnull align 8 der
 define dso_local void @_ZN23btReducedDeformableBody21updateModesByRotationERK11btMatrix3x3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %rotation) local_unnamed_addr #5 align 2 {
 entry:
   %nodal_disp = alloca %class.btVector3, align 8
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   %0 = load i32, ptr %m_nReduced, align 8
   %cmp38 = icmp sgt i32 %0, 0
   br i1 %cmp38, label %for.cond2.preheader.lr.ph, label %for.end30
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
-  %m_nFull = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35, i32 5
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %nodal_disp, i64 0, i64 2
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %rotation, i64 0, i64 1
-  %arrayidx10.i.i = getelementptr inbounds [4 x float], ptr %rotation, i64 0, i64 2
-  %arrayidx.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %rotation, i64 0, i64 1
-  %arrayidx5.i5.i = getelementptr inbounds [3 x %class.btVector3], ptr %rotation, i64 0, i64 1, i32 0, i64 1
-  %arrayidx10.i8.i = getelementptr inbounds [3 x %class.btVector3], ptr %rotation, i64 0, i64 1, i32 0, i64 2
-  %arrayidx.i10.i = getelementptr inbounds [3 x %class.btVector3], ptr %rotation, i64 0, i64 2
-  %arrayidx5.i11.i = getelementptr inbounds [3 x %class.btVector3], ptr %rotation, i64 0, i64 2, i32 0, i64 1
-  %arrayidx10.i14.i = getelementptr inbounds [3 x %class.btVector3], ptr %rotation, i64 0, i64 2, i32 0, i64 2
+  %m_nFull = getelementptr inbounds i8, ptr %this, i64 2716
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2736
+  %arrayidx5.i = getelementptr inbounds i8, ptr %nodal_disp, i64 8
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %rotation, i64 4
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %rotation, i64 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %rotation, i64 16
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %rotation, i64 20
+  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %rotation, i64 24
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %rotation, i64 32
+  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %rotation, i64 36
+  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %rotation, i64 40
   %1 = load i32, ptr %m_nFull, align 4
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %for.cond2.preheader, label %for.end30
@@ -5032,9 +4976,9 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %7 = load ptr, ptr %m_data.i14, align 8
   %arrayidx.i16 = getelementptr inbounds float, ptr %7, i64 %6
   %8 = getelementptr float, ptr %7, i64 %6
-  %arrayidx.i22 = getelementptr float, ptr %8, i64 1
+  %arrayidx.i22 = getelementptr i8, ptr %8, i64 4
   %9 = getelementptr float, ptr %7, i64 %6
-  %arrayidx.i28 = getelementptr float, ptr %9, i64 2
+  %arrayidx.i28 = getelementptr i8, ptr %9, i64 8
   %10 = load float, ptr %arrayidx.i16, align 4
   %11 = load float, ptr %arrayidx.i22, align 4
   %12 = load float, ptr %arrayidx.i28, align 4
@@ -5111,28 +5055,28 @@ for.end30:                                        ; preds = %for.inc28, %for.con
 define dso_local void @_ZN23btReducedDeformableBody5scaleERK9btVector3(ptr noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %scl) unnamed_addr #13 align 2 {
 entry:
   %vol = alloca %struct.btDbvtAabbMm, align 8
-  %m_collisionShape.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 9
+  %m_collisionShape.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %m_collisionShape.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %m_origin.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %this, i64 2528
   %2 = load <2 x float>, ptr %m_origin.i, align 8
-  %CoM.sroa.9.0.m_origin.i.sroa_idx = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 26, i32 1, i32 0, i64 2
+  %CoM.sroa.9.0.m_origin.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2536
   %CoM.sroa.9.0.copyload = load float, ptr %CoM.sroa.9.0.m_origin.i.sroa_idx, align 8
-  %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 932
   %3 = load i32, ptr %m_size.i, align 4
   %cmp78 = icmp sgt i32 %3, 0
   br i1 %cmp78, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 5
-  %arrayidx13.i12 = getelementptr inbounds [4 x float], ptr %scl, i64 0, i64 2
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 944
+  %arrayidx13.i12 = getelementptr inbounds i8, ptr %scl, i64 8
   %ref.tmp25.sroa.2.0.vol.sroa_idx = getelementptr inbounds i8, ptr %vol, i64 8
   %ref.tmp25.sroa.3.0.vol.sroa_idx = getelementptr inbounds i8, ptr %vol, i64 16
   %ref.tmp25.sroa.4.0.vol.sroa_idx = getelementptr inbounds i8, ptr %vol, i64 24
-  %m_ndbvt = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 32
+  %m_ndbvt = getelementptr inbounds i8, ptr %this, i64 1544
   %4 = insertelement <2 x float> poison, float %call2, i64 0
   %5 = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> zeroinitializer
   br label %for.body
@@ -5140,8 +5084,9 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %6 = load ptr, ptr %m_data.i, align 8
-  %m_x = getelementptr inbounds %"struct.btSoftBody::Node", ptr %6, i64 %indvars.iv, i32 1
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %m_x, i64 0, i64 2
+  %arrayidx.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %6, i64 %indvars.iv
+  %m_x = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %7 = load float, ptr %arrayidx11.i, align 4
   %sub14.i = fsub float %7, %CoM.sroa.9.0.copyload
   %8 = load float, ptr %arrayidx13.i12, align 4
@@ -5154,10 +5099,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add14.i = fadd float %CoM.sroa.9.0.copyload, %mul14.i
   %retval.sroa.3.12.vec.insert.i24 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
   store <2 x float> %13, ptr %m_x, align 8
-  %ref.tmp.sroa.2.0.m_x14.sroa_idx = getelementptr inbounds %"struct.btSoftBody::Node", ptr %6, i64 %indvars.iv, i32 1, i32 0, i64 2
-  store <2 x float> %retval.sroa.3.12.vec.insert.i24, ptr %ref.tmp.sroa.2.0.m_x14.sroa_idx, align 8
-  %m_q = getelementptr inbounds %"struct.btSoftBody::Node", ptr %6, i64 %indvars.iv, i32 2
-  %arrayidx11.i31 = getelementptr inbounds [4 x float], ptr %m_q, i64 0, i64 2
+  store <2 x float> %retval.sroa.3.12.vec.insert.i24, ptr %arrayidx11.i, align 8
+  %m_q = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %arrayidx11.i31 = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %14 = load float, ptr %arrayidx11.i31, align 4
   %sub14.i33 = fsub float %14, %CoM.sroa.9.0.copyload
   %15 = load float, ptr %arrayidx13.i12, align 4
@@ -5170,8 +5114,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add14.i57 = fadd float %CoM.sroa.9.0.copyload, %mul14.i45
   %retval.sroa.3.12.vec.insert.i60 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i57, i64 0
   store <2 x float> %20, ptr %m_q, align 8
-  %ref.tmp15.sroa.2.0.m_q24.sroa_idx = getelementptr inbounds %"struct.btSoftBody::Node", ptr %6, i64 %indvars.iv, i32 2, i32 0, i64 2
-  store <2 x float> %retval.sroa.3.12.vec.insert.i60, ptr %ref.tmp15.sroa.2.0.m_q24.sroa_idx, align 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i60, ptr %arrayidx11.i31, align 8
   %21 = fsub <2 x float> %13, %5
   %sub14.i.i.i = fsub float %add14.i, %call2
   %retval.sroa.3.12.vec.insert.i.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i.i.i, i64 0
@@ -5182,7 +5125,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i, ptr %ref.tmp25.sroa.2.0.vol.sroa_idx, align 8
   store <2 x float> %22, ptr %ref.tmp25.sroa.3.0.vol.sroa_idx, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i9.i.i, ptr %ref.tmp25.sroa.4.0.vol.sroa_idx, align 8
-  %m_leaf = getelementptr inbounds %"struct.btSoftBody::Node", ptr %6, i64 %indvars.iv, i32 9
+  %m_leaf = getelementptr inbounds i8, ptr %arrayidx.i, i64 120
   %23 = load ptr, ptr %m_leaf, align 8
   call void @_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm(ptr noundef nonnull align 8 dereferenceable(64) %m_ndbvt, ptr noundef %23, ptr noundef nonnull align 4 dereferenceable(32) %vol)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5197,31 +5140,31 @@ for.end:                                          ; preds = %for.body, %entry
   call void @_ZN10btSoftBody15updateConstantsEv(ptr noundef nonnull align 8 dereferenceable(2064) %this)
   call void @_ZN10btSoftBody19initializeDmInverseEv(ptr noundef nonnull align 8 dereferenceable(2064) %this)
   call void @_ZN23btReducedDeformableBody33updateLocalInertiaTensorFromNodesEv(ptr noundef nonnull align 8 dereferenceable(3176) %this)
-  %m_invInertiaLocal.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25
+  %m_invInertiaLocal.i = getelementptr inbounds i8, ptr %this, i64 2432
   %26 = load float, ptr %m_invInertiaLocal.i, align 8, !noalias !69
-  %arrayidx4.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %this, i64 2448
   %27 = load float, ptr %arrayidx4.i.i.i, align 8, !noalias !69
   %mul7.i.i.i = fmul float %27, 0.000000e+00
   %28 = fadd float %26, %mul7.i.i.i
-  %arrayidx9.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2
+  %arrayidx9.i.i.i = getelementptr inbounds i8, ptr %this, i64 2464
   %29 = load float, ptr %arrayidx9.i.i.i, align 8, !noalias !69
   %30 = call noundef float @llvm.fmuladd.f32(float %29, float 0.000000e+00, float %28)
-  %arrayidx.i.i17.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 0, i32 0, i64 1
+  %arrayidx.i.i17.i.i = getelementptr inbounds i8, ptr %this, i64 2436
   %31 = load float, ptr %arrayidx.i.i17.i.i, align 4, !noalias !69
-  %arrayidx.i3.i18.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1, i32 0, i64 1
+  %arrayidx.i3.i18.i.i = getelementptr inbounds i8, ptr %this, i64 2452
   %32 = load float, ptr %arrayidx.i3.i18.i.i, align 4, !noalias !69
   %mul7.i19.i.i = fmul float %32, 0.000000e+00
   %33 = fadd float %31, %mul7.i19.i.i
-  %arrayidx.i5.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2, i32 0, i64 1
+  %arrayidx.i5.i.i.i = getelementptr inbounds i8, ptr %this, i64 2468
   %34 = load float, ptr %arrayidx.i5.i.i.i, align 4, !noalias !69
   %35 = call noundef float @llvm.fmuladd.f32(float %34, float 0.000000e+00, float %33)
-  %arrayidx.i.i20.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 0, i32 0, i64 2
+  %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %this, i64 2440
   %36 = load float, ptr %arrayidx.i.i20.i.i, align 8, !noalias !69
-  %arrayidx.i3.i21.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i21.i.i = getelementptr inbounds i8, ptr %this, i64 2456
   %37 = load float, ptr %arrayidx.i3.i21.i.i, align 8, !noalias !69
   %mul7.i23.i.i = fmul float %37, 0.000000e+00
   %38 = fadd float %36, %mul7.i23.i.i
-  %arrayidx.i5.i24.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i24.i.i = getelementptr inbounds i8, ptr %this, i64 2472
   %39 = load float, ptr %arrayidx.i5.i24.i.i, align 8, !noalias !69
   %40 = call noundef float @llvm.fmuladd.f32(float %39, float 0.000000e+00, float %38)
   %41 = call float @llvm.fmuladd.f32(float %26, float 0.000000e+00, float %27)
@@ -5251,63 +5194,63 @@ for.end:                                          ; preds = %for.body, %entry
   %62 = call float @llvm.fmuladd.f32(float %48, float 0.000000e+00, float %50)
   %63 = call float @llvm.fmuladd.f32(float %48, float 0.000000e+00, float %mul7.i48.i35.i)
   %64 = fadd float %63, %52
-  %m_invInertiaTensorWorldInitial.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27
+  %m_invInertiaTensorWorldInitial.i = getelementptr inbounds i8, ptr %this, i64 2544
   %65 = insertelement <2 x float> poison, float %40, i64 0
   %66 = shufflevector <2 x float> %65, <2 x float> poison, <2 x i32> zeroinitializer
   %67 = insertelement <2 x float> poison, float %53, i64 0
   %68 = insertelement <2 x float> %67, float %54, i64 1
   %69 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %66, <2 x float> zeroinitializer, <2 x float> %68)
   store <2 x float> %69, ptr %m_invInertiaTensorWorldInitial.i, align 8
-  %ref.tmp.sroa.3.0.m_invInertiaTensorWorldInitial.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 0, i32 0, i64 2
+  %ref.tmp.sroa.3.0.m_invInertiaTensorWorldInitial.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2552
   store float %56, ptr %ref.tmp.sroa.3.0.m_invInertiaTensorWorldInitial.sroa_idx.i, align 8
-  %ref.tmp.sroa.4.0.m_invInertiaTensorWorldInitial.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 0, i32 0, i64 3
+  %ref.tmp.sroa.4.0.m_invInertiaTensorWorldInitial.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2556
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.m_invInertiaTensorWorldInitial.sroa_idx.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 2560
   %70 = insertelement <2 x float> poison, float %46, i64 0
   %71 = shufflevector <2 x float> %70, <2 x float> poison, <2 x i32> zeroinitializer
   %72 = insertelement <2 x float> poison, float %57, i64 0
   %73 = insertelement <2 x float> %72, float %58, i64 1
   %74 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %71, <2 x float> zeroinitializer, <2 x float> %73)
   store <2 x float> %74, ptr %arrayidx7.i.i, align 8
-  %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1, i32 0, i64 2
+  %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2568
   store float %60, ptr %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1, i32 0, i64 3
+  %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2572
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx.i, align 4
-  %arrayidx11.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 2576
   %75 = insertelement <2 x float> poison, float %52, i64 0
   %76 = shufflevector <2 x float> %75, <2 x float> poison, <2 x i32> zeroinitializer
   %77 = insertelement <2 x float> poison, float %61, i64 0
   %78 = insertelement <2 x float> %77, float %62, i64 1
   %79 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %76, <2 x float> zeroinitializer, <2 x float> %78)
   store <2 x float> %79, ptr %arrayidx11.i.i, align 8
-  %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2, i32 0, i64 2
+  %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2584
   store float %64, ptr %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2, i32 0, i64 3
+  %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2588
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx.i, align 4
   call void @_ZN23btReducedDeformableBody19updateInertiaTensorEv(ptr noundef nonnull align 8 dereferenceable(3176) %this)
-  %m_invInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28
-  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29
+  %m_invInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2592
+  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2640
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interpolateInvInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(16) %m_invInertiaTensorWorld, i64 16, i1 false)
-  %arrayidx5.i63 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 1
-  %arrayidx7.i64 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1
+  %arrayidx5.i63 = getelementptr inbounds i8, ptr %this, i64 2608
+  %arrayidx7.i64 = getelementptr inbounds i8, ptr %this, i64 2656
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i64, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i63, i64 16, i1 false)
-  %arrayidx9.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 2
-  %arrayidx11.i65 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %this, i64 2624
+  %arrayidx11.i65 = getelementptr inbounds i8, ptr %this, i64 2672
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11.i65, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9.i, i64 16, i1 false)
-  %m_nReduced.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced.i.i = getelementptr inbounds i8, ptr %this, i64 2712
   %80 = load i32, ptr %m_nReduced.i.i, align 8
   %cmp31.i.i = icmp sgt i32 %80, 0
   br i1 %cmp31.i.i, label %for.body.lr.ph.i.i, label %_ZN23btReducedDeformableBody22internalInitializationEv.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.end
-  %m_data.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 5
-  %m_data.i10.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
-  %m_data.i13.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 5
-  %m_data.i16.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
-  %m_data.i19.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 5
-  %m_data.i22.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 5
-  %m_data.i25.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
-  %m_data.i28.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 2928
+  %m_data.i10.i.i = getelementptr inbounds i8, ptr %this, i64 2960
+  %m_data.i13.i.i = getelementptr inbounds i8, ptr %this, i64 2896
+  %m_data.i16.i.i = getelementptr inbounds i8, ptr %this, i64 2288
+  %m_data.i19.i.i = getelementptr inbounds i8, ptr %this, i64 2768
+  %m_data.i22.i.i = getelementptr inbounds i8, ptr %this, i64 2800
+  %m_data.i25.i.i = getelementptr inbounds i8, ptr %this, i64 2832
+  %m_data.i28.i.i = getelementptr inbounds i8, ptr %this, i64 2864
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -5354,16 +5297,16 @@ declare void @_ZN10btSoftBody19initializeDmInverseEv(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btReducedDeformableBody12setTotalMassEfb(ptr noundef nonnull align 8 dereferenceable(3176) %this, float noundef %mass, i1 zeroext %fromfaces) unnamed_addr #3 align 2 {
 entry:
-  %m_mass = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 17
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 2352
   %0 = load float, ptr %m_mass, align 8
   %div = fdiv float %mass, %0
-  %m_nFull = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
+  %m_nFull = getelementptr inbounds i8, ptr %this, i64 2716
   %1 = load i32, ptr %m_nFull, align 4
   %cmp9 = icmp sgt i32 %1, 0
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 3088
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -5384,34 +5327,34 @@ for.end:                                          ; preds = %for.body, %entry
   %cmp3 = fcmp ogt float %mass, 0.000000e+00
   %6 = fdiv float 1.000000e+00, %mass
   %conv5 = select i1 %cmp3, float %6, float 0.000000e+00
-  %m_inverseMass = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 18
+  %m_inverseMass = getelementptr inbounds i8, ptr %this, i64 2356
   store float %conv5, ptr %m_inverseMass, align 4
   tail call void @_ZN23btReducedDeformableBody33updateLocalInertiaTensorFromNodesEv(ptr noundef nonnull align 8 dereferenceable(3176) %this)
-  %m_invInertiaLocal.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25
+  %m_invInertiaLocal.i = getelementptr inbounds i8, ptr %this, i64 2432
   %7 = load float, ptr %m_invInertiaLocal.i, align 8, !noalias !73
-  %arrayidx4.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %this, i64 2448
   %8 = load float, ptr %arrayidx4.i.i.i, align 8, !noalias !73
   %mul7.i.i.i = fmul float %8, 0.000000e+00
   %9 = fadd float %7, %mul7.i.i.i
-  %arrayidx9.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2
+  %arrayidx9.i.i.i = getelementptr inbounds i8, ptr %this, i64 2464
   %10 = load float, ptr %arrayidx9.i.i.i, align 8, !noalias !73
   %11 = tail call noundef float @llvm.fmuladd.f32(float %10, float 0.000000e+00, float %9)
-  %arrayidx.i.i17.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 0, i32 0, i64 1
+  %arrayidx.i.i17.i.i = getelementptr inbounds i8, ptr %this, i64 2436
   %12 = load float, ptr %arrayidx.i.i17.i.i, align 4, !noalias !73
-  %arrayidx.i3.i18.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1, i32 0, i64 1
+  %arrayidx.i3.i18.i.i = getelementptr inbounds i8, ptr %this, i64 2452
   %13 = load float, ptr %arrayidx.i3.i18.i.i, align 4, !noalias !73
   %mul7.i19.i.i = fmul float %13, 0.000000e+00
   %14 = fadd float %12, %mul7.i19.i.i
-  %arrayidx.i5.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2, i32 0, i64 1
+  %arrayidx.i5.i.i.i = getelementptr inbounds i8, ptr %this, i64 2468
   %15 = load float, ptr %arrayidx.i5.i.i.i, align 4, !noalias !73
   %16 = tail call noundef float @llvm.fmuladd.f32(float %15, float 0.000000e+00, float %14)
-  %arrayidx.i.i20.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 0, i32 0, i64 2
+  %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %this, i64 2440
   %17 = load float, ptr %arrayidx.i.i20.i.i, align 8, !noalias !73
-  %arrayidx.i3.i21.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i21.i.i = getelementptr inbounds i8, ptr %this, i64 2456
   %18 = load float, ptr %arrayidx.i3.i21.i.i, align 8, !noalias !73
   %mul7.i23.i.i = fmul float %18, 0.000000e+00
   %19 = fadd float %17, %mul7.i23.i.i
-  %arrayidx.i5.i24.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 25, i32 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i24.i.i = getelementptr inbounds i8, ptr %this, i64 2472
   %20 = load float, ptr %arrayidx.i5.i24.i.i, align 8, !noalias !73
   %21 = tail call noundef float @llvm.fmuladd.f32(float %20, float 0.000000e+00, float %19)
   %22 = tail call float @llvm.fmuladd.f32(float %7, float 0.000000e+00, float %8)
@@ -5441,63 +5384,63 @@ for.end:                                          ; preds = %for.body, %entry
   %43 = tail call float @llvm.fmuladd.f32(float %29, float 0.000000e+00, float %31)
   %44 = tail call float @llvm.fmuladd.f32(float %29, float 0.000000e+00, float %mul7.i48.i35.i)
   %45 = fadd float %44, %33
-  %m_invInertiaTensorWorldInitial.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27
+  %m_invInertiaTensorWorldInitial.i = getelementptr inbounds i8, ptr %this, i64 2544
   %46 = insertelement <2 x float> poison, float %21, i64 0
   %47 = shufflevector <2 x float> %46, <2 x float> poison, <2 x i32> zeroinitializer
   %48 = insertelement <2 x float> poison, float %34, i64 0
   %49 = insertelement <2 x float> %48, float %35, i64 1
   %50 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %47, <2 x float> zeroinitializer, <2 x float> %49)
   store <2 x float> %50, ptr %m_invInertiaTensorWorldInitial.i, align 8
-  %ref.tmp.sroa.3.0.m_invInertiaTensorWorldInitial.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 0, i32 0, i64 2
+  %ref.tmp.sroa.3.0.m_invInertiaTensorWorldInitial.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2552
   store float %37, ptr %ref.tmp.sroa.3.0.m_invInertiaTensorWorldInitial.sroa_idx.i, align 8
-  %ref.tmp.sroa.4.0.m_invInertiaTensorWorldInitial.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 0, i32 0, i64 3
+  %ref.tmp.sroa.4.0.m_invInertiaTensorWorldInitial.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2556
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.m_invInertiaTensorWorldInitial.sroa_idx.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 2560
   %51 = insertelement <2 x float> poison, float %27, i64 0
   %52 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> zeroinitializer
   %53 = insertelement <2 x float> poison, float %38, i64 0
   %54 = insertelement <2 x float> %53, float %39, i64 1
   %55 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %52, <2 x float> zeroinitializer, <2 x float> %54)
   store <2 x float> %55, ptr %arrayidx7.i.i, align 8
-  %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1, i32 0, i64 2
+  %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2568
   store float %41, ptr %ref.tmp.sroa.8.16.arrayidx7.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 1, i32 0, i64 3
+  %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2572
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx7.i.sroa_idx.i, align 4
-  %arrayidx11.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 2576
   %56 = insertelement <2 x float> poison, float %33, i64 0
   %57 = shufflevector <2 x float> %56, <2 x float> poison, <2 x i32> zeroinitializer
   %58 = insertelement <2 x float> poison, float %42, i64 0
   %59 = insertelement <2 x float> %58, float %43, i64 1
   %60 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %57, <2 x float> zeroinitializer, <2 x float> %59)
   store <2 x float> %60, ptr %arrayidx11.i.i, align 8
-  %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2, i32 0, i64 2
+  %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2584
   store float %45, ptr %ref.tmp.sroa.13.32.arrayidx11.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 27, i32 0, i64 2, i32 0, i64 3
+  %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 2588
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx11.i.sroa_idx.i, align 4
   tail call void @_ZN23btReducedDeformableBody19updateInertiaTensorEv(ptr noundef nonnull align 8 dereferenceable(3176) %this)
-  %m_invInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28
-  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29
+  %m_invInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2592
+  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2640
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interpolateInvInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(16) %m_invInertiaTensorWorld, i64 16, i1 false)
-  %arrayidx5.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 1
-  %arrayidx7.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 2608
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 2656
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)
-  %arrayidx9.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 28, i32 0, i64 2
-  %arrayidx11.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %this, i64 2624
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 2672
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9.i, i64 16, i1 false)
-  %m_nReduced.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced.i.i = getelementptr inbounds i8, ptr %this, i64 2712
   %61 = load i32, ptr %m_nReduced.i.i, align 8
   %cmp31.i.i = icmp sgt i32 %61, 0
   br i1 %cmp31.i.i, label %for.body.lr.ph.i.i, label %_ZN23btReducedDeformableBody22internalInitializationEv.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.end
-  %m_data.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 5
-  %m_data.i10.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
-  %m_data.i13.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 5
-  %m_data.i16.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
-  %m_data.i19.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 5
-  %m_data.i22.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 5
-  %m_data.i25.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
-  %m_data.i28.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 2928
+  %m_data.i10.i.i = getelementptr inbounds i8, ptr %this, i64 2960
+  %m_data.i13.i.i = getelementptr inbounds i8, ptr %this, i64 2896
+  %m_data.i16.i.i = getelementptr inbounds i8, ptr %this, i64 2288
+  %m_data.i19.i.i = getelementptr inbounds i8, ptr %this, i64 2768
+  %m_data.i22.i.i = getelementptr inbounds i8, ptr %this, i64 2800
+  %m_data.i25.i.i = getelementptr inbounds i8, ptr %this, i64 2832
+  %m_data.i28.i.i = getelementptr inbounds i8, ptr %this, i64 2864
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -5542,20 +5485,20 @@ _ZN23btReducedDeformableBody22internalInitializationEv.exit: ; preds = %for.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN23btReducedDeformableBody12applyDampingEf(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, float noundef %timeStep) local_unnamed_addr #17 align 2 {
 entry:
-  %m_linearDamping = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 21
+  %m_linearDamping = getelementptr inbounds i8, ptr %this, i64 2392
   %0 = load float, ptr %m_linearDamping, align 8
   %sub = fsub float 1.000000e+00, %0
-  %m_linearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 2360
   %1 = load <2 x float>, ptr %m_linearVelocity, align 8
   %2 = insertelement <2 x float> poison, float %sub, i64 0
   %3 = shufflevector <2 x float> %2, <2 x float> poison, <2 x i32> zeroinitializer
   %4 = fmul <2 x float> %3, %1
   store <2 x float> %4, ptr %m_linearVelocity, align 8
-  %arrayidx6.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19, i32 0, i64 2
+  %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 2368
   %5 = load float, ptr %arrayidx6.i, align 8
   %mul7.i = fmul float %sub, %5
   store float %mul7.i, ptr %arrayidx6.i, align 8
-  %m_angularDamping = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 22
+  %m_angularDamping = getelementptr inbounds i8, ptr %this, i64 2396
   %6 = load float, ptr %m_angularDamping, align 4
   %sub2 = fsub float 1.000000e+00, %6
   %mul = fmul float %6, %sub2
@@ -5566,16 +5509,16 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN23btReducedDeformableBody19applyCentralImpulseERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) local_unnamed_addr #18 align 2 {
 entry:
-  %m_linearFactor = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 23
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 2
+  %m_linearFactor = getelementptr inbounds i8, ptr %this, i64 2400
+  %arrayidx11.i = getelementptr inbounds i8, ptr %impulse, i64 8
   %0 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 23, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 2408
   %1 = load float, ptr %arrayidx13.i, align 8
   %mul14.i = fmul float %0, %1
-  %m_inverseMass = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 18
+  %m_inverseMass = getelementptr inbounds i8, ptr %this, i64 2356
   %2 = load float, ptr %m_inverseMass, align 4
   %mul8.i3 = fmul float %2, %mul14.i
-  %m_linearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 2360
   %3 = load <2 x float>, ptr %impulse, align 4
   %4 = load <2 x float>, ptr %m_linearFactor, align 8
   %5 = fmul <2 x float> %3, %4
@@ -5585,7 +5528,7 @@ entry:
   %9 = load <2 x float>, ptr %m_linearVelocity, align 8
   %10 = fadd <2 x float> %8, %9
   store <2 x float> %10, ptr %m_linearVelocity, align 8
-  %arrayidx12.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19, i32 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 2368
   %11 = load float, ptr %arrayidx12.i, align 8
   %add13.i = fadd float %mul8.i3, %11
   store float %add13.i, ptr %arrayidx12.i, align 8
@@ -5595,40 +5538,40 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN23btReducedDeformableBody18applyTorqueImpulseERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %torque) local_unnamed_addr #19 align 2 {
 entry:
-  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29
+  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2640
   %0 = load <4 x float>, ptr %m_interpolateInvInertiaTensorWorld, align 8
   %1 = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %2 = load float, ptr %torque, align 4
-  %arrayidx5.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 0, i32 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %this, i64 2644
   %3 = load <4 x float>, ptr %arrayidx5.i.i, align 4
   %4 = shufflevector <4 x float> %3, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %torque, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %torque, i64 4
   %5 = load float, ptr %arrayidx7.i.i, align 4
-  %arrayidx10.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %this, i64 2648
   %6 = load <4 x float>, ptr %arrayidx10.i.i, align 8
   %7 = shufflevector <4 x float> %6, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx12.i.i = getelementptr inbounds [4 x float], ptr %torque, i64 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %torque, i64 8
   %8 = load float, ptr %arrayidx12.i.i, align 4
-  %arrayidx.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 2656
   %9 = load float, ptr %arrayidx.i.i, align 8
-  %arrayidx5.i5.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %this, i64 2660
   %10 = load float, ptr %arrayidx5.i5.i, align 4
-  %arrayidx10.i8.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %this, i64 2664
   %11 = load float, ptr %arrayidx10.i8.i, align 8
-  %arrayidx.i10.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %this, i64 2672
   %12 = load float, ptr %arrayidx.i10.i, align 8
-  %arrayidx5.i11.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %this, i64 2676
   %13 = load float, ptr %arrayidx5.i11.i, align 4
   %mul8.i13.i = fmul float %5, %13
   %14 = tail call float @llvm.fmuladd.f32(float %12, float %2, float %mul8.i13.i)
-  %arrayidx10.i14.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %this, i64 2680
   %15 = load float, ptr %arrayidx10.i14.i, align 8
   %16 = tail call noundef float @llvm.fmuladd.f32(float %15, float %8, float %14)
-  %m_angularFactor = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 24
-  %arrayidx13.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 24, i32 0, i64 2
+  %m_angularFactor = getelementptr inbounds i8, ptr %this, i64 2416
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 2424
   %17 = load float, ptr %arrayidx13.i, align 8
   %mul14.i = fmul float %16, %17
-  %m_angularVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 20
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 2376
   %18 = insertelement <2 x float> poison, float %5, i64 0
   %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
   %20 = insertelement <2 x float> %4, float %10, i64 1
@@ -5646,7 +5589,7 @@ entry:
   %32 = load <2 x float>, ptr %m_angularVelocity, align 8
   %33 = fadd <2 x float> %31, %32
   store <2 x float> %33, ptr %m_angularVelocity, align 8
-  %arrayidx12.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 20, i32 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 2384
   %34 = load float, ptr %arrayidx12.i, align 8
   %add13.i = fadd float %mul14.i, %34
   store float %add13.i, ptr %arrayidx12.i, align 8
@@ -5656,7 +5599,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btReducedDeformableBody25internalApplyRigidImpulseERK9btVector3S2_(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rel_pos) local_unnamed_addr #13 align 2 {
 entry:
-  %m_inverseMass = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 18
+  %m_inverseMass = getelementptr inbounds i8, ptr %this, i64 2356
   %0 = load float, ptr %m_inverseMass, align 4
   %cmp = fcmp oeq float %0, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
@@ -5668,15 +5611,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %1 = phi float [ %.pre, %if.then ], [ %0, %entry ]
-  %m_linearFactor = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 23
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 1
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 2
+  %m_linearFactor = getelementptr inbounds i8, ptr %this, i64 2400
+  %arrayidx5.i = getelementptr inbounds i8, ptr %impulse, i64 4
+  %arrayidx11.i = getelementptr inbounds i8, ptr %impulse, i64 8
   %2 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 23, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 2408
   %3 = load float, ptr %arrayidx13.i, align 8
   %mul14.i = fmul float %2, %3
   %mul8.i4 = fmul float %1, %mul14.i
-  %m_internalDeltaLinearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 11
+  %m_internalDeltaLinearVelocity = getelementptr inbounds i8, ptr %this, i64 2240
   %4 = load <2 x float>, ptr %impulse, align 4
   %5 = load <2 x float>, ptr %m_linearFactor, align 8
   %6 = fmul <2 x float> %4, %5
@@ -5686,7 +5629,7 @@ if.end:                                           ; preds = %if.then, %entry
   %10 = load <2 x float>, ptr %m_internalDeltaLinearVelocity, align 8
   %11 = fadd <2 x float> %9, %10
   store <2 x float> %11, ptr %m_internalDeltaLinearVelocity, align 8
-  %arrayidx12.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 11, i32 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 2248
   %12 = load float, ptr %arrayidx12.i, align 8
   %add13.i = fadd float %mul8.i4, %12
   store float %add13.i, ptr %arrayidx12.i, align 8
@@ -5698,9 +5641,9 @@ if.end:                                           ; preds = %if.then, %entry
   %mul8.i15 = fmul float %16, %15
   %17 = load float, ptr %arrayidx11.i, align 4
   %mul14.i18 = fmul float %3, %17
-  %arrayidx.i = getelementptr inbounds [4 x float], ptr %rel_pos, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %rel_pos, i64 4
   %18 = load float, ptr %arrayidx.i, align 4
-  %arrayidx5.i25 = getelementptr inbounds [4 x float], ptr %rel_pos, i64 0, i64 2
+  %arrayidx5.i25 = getelementptr inbounds i8, ptr %rel_pos, i64 8
   %19 = load float, ptr %arrayidx5.i25, align 4
   %20 = fneg float %19
   %neg.i = fmul float %mul8.i15, %20
@@ -5712,35 +5655,35 @@ if.end:                                           ; preds = %if.then, %entry
   %25 = fneg float %18
   %neg30.i = fmul float %mul.i12, %25
   %26 = tail call float @llvm.fmuladd.f32(float %22, float %mul8.i15, float %neg30.i)
-  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29
+  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2640
   %27 = load <4 x float>, ptr %m_interpolateInvInertiaTensorWorld, align 8
   %28 = shufflevector <4 x float> %27, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx5.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 0, i32 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %this, i64 2644
   %29 = load <4 x float>, ptr %arrayidx5.i.i, align 4
   %30 = shufflevector <4 x float> %29, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx10.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %this, i64 2648
   %31 = load <4 x float>, ptr %arrayidx10.i.i, align 8
   %32 = shufflevector <4 x float> %31, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 2656
   %33 = load float, ptr %arrayidx.i.i, align 8
-  %arrayidx5.i5.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %this, i64 2660
   %34 = load float, ptr %arrayidx5.i5.i, align 4
-  %arrayidx10.i8.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %this, i64 2664
   %35 = load float, ptr %arrayidx10.i8.i, align 8
-  %arrayidx.i10.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %this, i64 2672
   %36 = load float, ptr %arrayidx.i10.i, align 8
-  %arrayidx5.i11.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %this, i64 2676
   %37 = load float, ptr %arrayidx5.i11.i, align 4
   %mul8.i13.i = fmul float %24, %37
   %38 = tail call float @llvm.fmuladd.f32(float %36, float %21, float %mul8.i13.i)
-  %arrayidx10.i14.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %this, i64 2680
   %39 = load float, ptr %arrayidx10.i14.i, align 8
   %40 = tail call noundef float @llvm.fmuladd.f32(float %39, float %26, float %38)
-  %m_angularFactor = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 24
-  %arrayidx13.i42 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 24, i32 0, i64 2
+  %m_angularFactor = getelementptr inbounds i8, ptr %this, i64 2416
+  %arrayidx13.i42 = getelementptr inbounds i8, ptr %this, i64 2424
   %41 = load float, ptr %arrayidx13.i42, align 8
   %mul14.i43 = fmul float %40, %41
-  %m_internalDeltaAngularVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 12
+  %m_internalDeltaAngularVelocity = getelementptr inbounds i8, ptr %this, i64 2256
   %42 = insertelement <2 x float> %30, float %34, i64 1
   %43 = insertelement <2 x float> poison, float %24, i64 0
   %44 = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> zeroinitializer
@@ -5758,7 +5701,7 @@ if.end:                                           ; preds = %if.then, %entry
   %56 = load <2 x float>, ptr %m_internalDeltaAngularVelocity, align 8
   %57 = fadd <2 x float> %55, %56
   store <2 x float> %57, ptr %m_internalDeltaAngularVelocity, align 8
-  %arrayidx12.i54 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 12, i32 0, i64 2
+  %arrayidx12.i54 = getelementptr inbounds i8, ptr %this, i64 2264
   %58 = load float, ptr %arrayidx12.i54, align 8
   %add13.i55 = fadd float %mul14.i43, %58
   store float %add13.i55, ptr %arrayidx12.i54, align 8
@@ -5770,37 +5713,37 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZN23btReducedDeformableBody14getRelativePosEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, i32 noundef %n_node) local_unnamed_addr #15 align 2 {
 entry:
-  %m_interpolationWorldTransform = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2
+  %m_interpolationWorldTransform = getelementptr inbounds i8, ptr %this, i64 72
   %rotation.sroa.0.0.copyload = load float, ptr %m_interpolationWorldTransform, align 8
-  %rotation.sroa.2.0.m_interpolationWorldTransform.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 0, i32 0, i64 1
+  %rotation.sroa.2.0.m_interpolationWorldTransform.sroa_idx = getelementptr inbounds i8, ptr %this, i64 76
   %rotation.sroa.2.0.copyload = load float, ptr %rotation.sroa.2.0.m_interpolationWorldTransform.sroa_idx, align 4
-  %rotation.sroa.3.0.m_interpolationWorldTransform.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 0, i32 0, i64 2
+  %rotation.sroa.3.0.m_interpolationWorldTransform.sroa_idx = getelementptr inbounds i8, ptr %this, i64 80
   %rotation.sroa.3.0.copyload = load float, ptr %rotation.sroa.3.0.m_interpolationWorldTransform.sroa_idx, align 8
-  %arrayidx6.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load <4 x float>, ptr %arrayidx6.i, align 8
   %1 = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %rotation.sroa.6.16.arrayidx6.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1, i32 0, i64 1
+  %rotation.sroa.6.16.arrayidx6.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 92
   %2 = load <4 x float>, ptr %rotation.sroa.6.16.arrayidx6.i.sroa_idx, align 4
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %rotation.sroa.7.16.arrayidx6.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1, i32 0, i64 2
+  %rotation.sroa.7.16.arrayidx6.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 96
   %4 = load <4 x float>, ptr %rotation.sroa.7.16.arrayidx6.i.sroa_idx, align 8
   %5 = shufflevector <4 x float> %4, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx10.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 104
   %rotation.sroa.82.32.copyload = load float, ptr %arrayidx10.i, align 8
-  %rotation.sroa.10.32.arrayidx10.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2, i32 0, i64 1
+  %rotation.sroa.10.32.arrayidx10.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 108
   %rotation.sroa.10.32.copyload = load float, ptr %rotation.sroa.10.32.arrayidx10.i.sroa_idx, align 4
-  %rotation.sroa.11.32.arrayidx10.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2, i32 0, i64 2
+  %rotation.sroa.11.32.arrayidx10.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 112
   %rotation.sroa.11.32.copyload = load float, ptr %rotation.sroa.11.32.arrayidx10.i.sroa_idx, align 8
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2224
   %6 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %n_node to i64
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %6, i64 %idxprom.i
   %7 = load float, ptr %arrayidx.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %8 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %rotation.sroa.2.0.copyload, %8
   %9 = tail call float @llvm.fmuladd.f32(float %rotation.sroa.0.0.copyload, float %7, float %mul8.i.i)
-  %arrayidx12.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %10 = load float, ptr %arrayidx12.i.i, align 4
   %11 = tail call noundef float @llvm.fmuladd.f32(float %rotation.sroa.3.0.copyload, float %10, float %9)
   %12 = insertelement <2 x float> %3, float %rotation.sroa.10.32.copyload, i64 1
@@ -5829,34 +5772,34 @@ entry:
   %SA = alloca %class.btMatrix3x3, align 4
   %omega_helper = alloca %class.btAlignedObjectArray.8, align 8
   %sum_multiply_A = alloca %class.btMatrix3x3, align 4
-  %m_interpolationWorldTransform = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2
+  %m_interpolationWorldTransform = getelementptr inbounds i8, ptr %this, i64 72
   %rotation.sroa.0.0.copyload = load float, ptr %m_interpolationWorldTransform, align 8
-  %rotation.sroa.7.0.m_interpolationWorldTransform.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 0, i32 0, i64 1
+  %rotation.sroa.7.0.m_interpolationWorldTransform.sroa_idx = getelementptr inbounds i8, ptr %this, i64 76
   %rotation.sroa.7.0.copyload = load float, ptr %rotation.sroa.7.0.m_interpolationWorldTransform.sroa_idx, align 4
-  %rotation.sroa.13.0.m_interpolationWorldTransform.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 0, i32 0, i64 2
+  %rotation.sroa.13.0.m_interpolationWorldTransform.sroa_idx = getelementptr inbounds i8, ptr %this, i64 80
   %rotation.sroa.13.0.copyload = load float, ptr %rotation.sroa.13.0.m_interpolationWorldTransform.sroa_idx, align 8
-  %arrayidx6.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 88
   %rotation.sroa.19599.16.copyload = load float, ptr %arrayidx6.i, align 8
-  %rotation.sroa.26.16.arrayidx6.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1, i32 0, i64 1
+  %rotation.sroa.26.16.arrayidx6.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 92
   %rotation.sroa.26.16.copyload = load float, ptr %rotation.sroa.26.16.arrayidx6.i.sroa_idx, align 4
-  %rotation.sroa.32.16.arrayidx6.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1, i32 0, i64 2
+  %rotation.sroa.32.16.arrayidx6.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 96
   %rotation.sroa.32.16.copyload = load float, ptr %rotation.sroa.32.16.arrayidx6.i.sroa_idx, align 8
-  %arrayidx10.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 104
   %rotation.sroa.38615.32.copyload = load float, ptr %arrayidx10.i, align 8
-  %rotation.sroa.45.32.arrayidx10.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2, i32 0, i64 1
+  %rotation.sroa.45.32.arrayidx10.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 108
   %rotation.sroa.45.32.copyload = load float, ptr %rotation.sroa.45.32.arrayidx10.i.sroa_idx, align 4
-  %rotation.sroa.51.32.arrayidx10.i.sroa_idx = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2, i32 0, i64 2
+  %rotation.sroa.51.32.arrayidx10.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 112
   %rotation.sroa.51.32.copyload = load float, ptr %rotation.sroa.51.32.arrayidx10.i.sroa_idx, align 8
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2224
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %n_node to i64
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %0, i64 %idxprom.i
   %1 = load float, ptr %arrayidx.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %2 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %rotation.sroa.7.0.copyload, %2
   %3 = tail call float @llvm.fmuladd.f32(float %rotation.sroa.0.0.copyload, float %1, float %mul8.i.i)
-  %arrayidx12.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load float, ptr %arrayidx12.i.i, align 4
   %5 = tail call noundef float @llvm.fmuladd.f32(float %rotation.sroa.13.0.copyload, float %4, float %3)
   %mul8.i7.i = fmul float %rotation.sroa.26.16.copyload, %2
@@ -5868,40 +5811,40 @@ entry:
   %fneg.i = fneg float %9
   %fneg12.i = fneg float %5
   %fneg17.i = fneg float %7
-  %m_data.i42 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 5
+  %m_data.i42 = getelementptr inbounds i8, ptr %this, i64 3088
   %10 = load ptr, ptr %m_data.i42, align 8
   %arrayidx.i44 = getelementptr inbounds float, ptr %10, i64 %idxprom.i
   %11 = load float, ptr %arrayidx.i44, align 4
   %cmp = fcmp ogt float %11, 0.000000e+00
-  %m_mass = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 17
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 2352
   %12 = load float, ptr %m_mass, align 8
   %div = fdiv float 1.000000e+00, %12
   %cond = select i1 %cmp, float %div, float 0.000000e+00
-  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29
+  %m_interpolateInvInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2640
   %13 = load float, ptr %m_interpolateInvInertiaTensorWorld, align 8, !noalias !76
-  %arrayidx4.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 2656
   %14 = load float, ptr %arrayidx4.i.i, align 8, !noalias !76
   %mul7.i.i = fmul float %14, %fneg.i
   %15 = tail call float @llvm.fmuladd.f32(float %13, float 0.000000e+00, float %mul7.i.i)
-  %arrayidx9.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %this, i64 2672
   %16 = load float, ptr %arrayidx9.i.i, align 8, !noalias !76
   %17 = tail call noundef float @llvm.fmuladd.f32(float %16, float %7, float %15)
-  %arrayidx.i.i17.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 0, i32 0, i64 1
+  %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %this, i64 2644
   %18 = load float, ptr %arrayidx.i.i17.i, align 4, !noalias !76
-  %arrayidx.i3.i18.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1, i32 0, i64 1
+  %arrayidx.i3.i18.i = getelementptr inbounds i8, ptr %this, i64 2660
   %19 = load float, ptr %arrayidx.i3.i18.i, align 4, !noalias !76
   %mul7.i19.i = fmul float %19, %fneg.i
   %20 = tail call float @llvm.fmuladd.f32(float %18, float 0.000000e+00, float %mul7.i19.i)
-  %arrayidx.i5.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2, i32 0, i64 1
+  %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %this, i64 2676
   %21 = load float, ptr %arrayidx.i5.i.i, align 4, !noalias !76
   %22 = tail call noundef float @llvm.fmuladd.f32(float %21, float %7, float %20)
-  %arrayidx.i.i20.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 0, i32 0, i64 2
+  %arrayidx.i.i20.i = getelementptr inbounds i8, ptr %this, i64 2648
   %23 = load float, ptr %arrayidx.i.i20.i, align 8, !noalias !76
-  %arrayidx.i3.i21.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i21.i = getelementptr inbounds i8, ptr %this, i64 2664
   %24 = load float, ptr %arrayidx.i3.i21.i, align 8, !noalias !76
   %mul7.i23.i = fmul float %24, %fneg.i
   %25 = tail call float @llvm.fmuladd.f32(float %23, float 0.000000e+00, float %mul7.i23.i)
-  %arrayidx.i5.i24.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 29, i32 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i24.i = getelementptr inbounds i8, ptr %this, i64 2680
   %26 = load float, ptr %arrayidx.i5.i24.i, align 8, !noalias !76
   %27 = tail call noundef float @llvm.fmuladd.f32(float %26, float %7, float %25)
   %28 = insertelement <2 x float> poison, float %22, i64 0
@@ -5980,15 +5923,15 @@ entry:
   %99 = fsub <2 x float> zeroinitializer, %88
   %100 = fsub <2 x float> %97, %94
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %SA, i8 0, i64 48, i1 false)
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   %101 = load i32, ptr %m_nReduced, align 8
   %cmp12631 = icmp sgt i32 %101, 0
-  %m_data.i83 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35, i32 5
+  %m_data.i83 = getelementptr inbounds i8, ptr %this, i64 2736
   %102 = load ptr, ptr %m_data.i83, align 8
   %mul = mul nsw i32 %n_node, 3
-  %m_data.i89 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 6, i32 5
+  %m_data.i89 = getelementptr inbounds i8, ptr %this, i64 2096
   %103 = load ptr, ptr %m_data.i89, align 8
-  %m_data.i95 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 7, i32 5
+  %m_data.i95 = getelementptr inbounds i8, ptr %this, i64 2128
   %104 = load ptr, ptr %m_data.i95, align 8
   br i1 %cmp12631, label %for.cond8.preheader.us.preheader, label %for.end33
 
@@ -6044,21 +5987,21 @@ for.inc31.split.us.us:                            ; preds = %for.cond11.for.inc2
 
 for.end33.loopexit:                               ; preds = %for.inc31.split.us.us
   %.pre = load float, ptr %SA, align 4, !noalias !82
-  %arrayidx4.i.i103.phi.trans.insert = getelementptr inbounds [3 x %class.btVector3], ptr %SA, i64 0, i64 1
+  %arrayidx4.i.i103.phi.trans.insert = getelementptr inbounds i8, ptr %SA, i64 16
   %.pre684 = load float, ptr %arrayidx4.i.i103.phi.trans.insert, align 4, !noalias !82
-  %arrayidx9.i.i106.phi.trans.insert = getelementptr inbounds [3 x %class.btVector3], ptr %SA, i64 0, i64 2
+  %arrayidx9.i.i106.phi.trans.insert = getelementptr inbounds i8, ptr %SA, i64 32
   %.pre685 = load float, ptr %arrayidx9.i.i106.phi.trans.insert, align 4, !noalias !82
-  %arrayidx.i.i17.i108.phi.trans.insert = getelementptr inbounds [4 x float], ptr %SA, i64 0, i64 1
+  %arrayidx.i.i17.i108.phi.trans.insert = getelementptr inbounds i8, ptr %SA, i64 4
   %.pre686 = load float, ptr %arrayidx.i.i17.i108.phi.trans.insert, align 4, !noalias !82
-  %arrayidx.i3.i18.i109.phi.trans.insert = getelementptr inbounds [3 x %class.btVector3], ptr %SA, i64 0, i64 1, i32 0, i64 1
+  %arrayidx.i3.i18.i109.phi.trans.insert = getelementptr inbounds i8, ptr %SA, i64 20
   %.pre687 = load float, ptr %arrayidx.i3.i18.i109.phi.trans.insert, align 4, !noalias !82
-  %arrayidx.i5.i.i111.phi.trans.insert = getelementptr inbounds [3 x %class.btVector3], ptr %SA, i64 0, i64 2, i32 0, i64 1
+  %arrayidx.i5.i.i111.phi.trans.insert = getelementptr inbounds i8, ptr %SA, i64 36
   %.pre688 = load float, ptr %arrayidx.i5.i.i111.phi.trans.insert, align 4, !noalias !82
-  %arrayidx.i.i20.i112.phi.trans.insert = getelementptr inbounds [4 x float], ptr %SA, i64 0, i64 2
+  %arrayidx.i.i20.i112.phi.trans.insert = getelementptr inbounds i8, ptr %SA, i64 8
   %.pre689 = load float, ptr %arrayidx.i.i20.i112.phi.trans.insert, align 4, !noalias !82
-  %arrayidx.i3.i21.i113.phi.trans.insert = getelementptr inbounds [3 x %class.btVector3], ptr %SA, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i21.i113.phi.trans.insert = getelementptr inbounds i8, ptr %SA, i64 24
   %.pre690 = load float, ptr %arrayidx.i3.i21.i113.phi.trans.insert, align 4, !noalias !82
-  %arrayidx.i5.i24.i115.phi.trans.insert = getelementptr inbounds [3 x %class.btVector3], ptr %SA, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i24.i115.phi.trans.insert = getelementptr inbounds i8, ptr %SA, i64 40
   %.pre691 = load float, ptr %arrayidx.i5.i24.i115.phi.trans.insert, align 4, !noalias !82
   br label %for.end33
 
@@ -6150,13 +6093,13 @@ for.end33:                                        ; preds = %entry, %for.end33.l
   %196 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %153, <2 x float> %195, <2 x float> %194)
   %197 = shufflevector <2 x float> %167, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %198 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %197, <2 x float> %180, <2 x float> %190)
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %omega_helper, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %omega_helper, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %omega_helper, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %omega_helper, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %omega_helper, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %omega_helper, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %omega_helper, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %omega_helper, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   br i1 %cmp12631, label %if.then.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.thread
 
@@ -6180,7 +6123,7 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %if.then.i.i
   br i1 %cmp42638, label %for.body43.lr.ph, label %invoke.cont99.thread
 
 for.body43.lr.ph:                                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
-  %m_nFull = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 34
+  %m_nFull = getelementptr inbounds i8, ptr %this, i64 2716
   %199 = fmul <2 x float> %143, zeroinitializer
   %mul7.i55.i239 = fmul float %rotation.sroa.45.32.copyload, 0.000000e+00
   %200 = shufflevector <2 x float> %148, <2 x float> poison, <2 x i32> <i32 1, i32 1>
@@ -6210,10 +6153,10 @@ invoke.cont86:                                    ; preds = %for.body43, %invoke
   %indvars.iv661 = phi i64 [ %indvars.iv.next662, %invoke.cont86 ], [ 0, %for.body43 ]
   %214 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i199 = getelementptr inbounds %class.btVector3, ptr %214, i64 %indvars.iv661
-  %arrayidx.i.i200 = getelementptr inbounds [4 x float], ptr %arrayidx.i199, i64 0, i64 2
+  %arrayidx.i.i200 = getelementptr inbounds i8, ptr %arrayidx.i199, i64 8
   %215 = load float, ptr %arrayidx.i.i200, align 4, !noalias !85
   %fneg.i201 = fneg float %215
-  %arrayidx.i6.i202 = getelementptr inbounds [4 x float], ptr %arrayidx.i199, i64 0, i64 1
+  %arrayidx.i6.i202 = getelementptr inbounds i8, ptr %arrayidx.i199, i64 4
   %216 = load float, ptr %arrayidx.i6.i202, align 4, !noalias !85
   %217 = load float, ptr %arrayidx.i199, align 4, !noalias !85
   %fneg12.i206 = fneg float %217
@@ -6307,7 +6250,7 @@ invoke.cont86:                                    ; preds = %for.body43, %invoke
   %286 = load <2 x float>, ptr %arrayidx.i342, align 4
   %287 = fadd <2 x float> %285, %286
   store <2 x float> %287, ptr %arrayidx.i342, align 4
-  %arrayidx12.i346 = getelementptr inbounds [4 x float], ptr %arrayidx.i342, i64 0, i64 2
+  %arrayidx12.i346 = getelementptr inbounds i8, ptr %arrayidx.i342, i64 8
   %288 = load float, ptr %arrayidx12.i346, align 4
   %add13.i = fadd float %241, %288
   store float %add13.i, ptr %arrayidx12.i346, align 4
@@ -6393,7 +6336,7 @@ for.inc148.split.us.us:                           ; preds = %for.cond110.for.inc
 
 invoke.cont160:                                   ; preds = %for.inc148.split.us.us, %invoke.cont99, %invoke.cont99.thread
   %306 = phi ptr [ %.ph, %invoke.cont99.thread ], [ %292, %invoke.cont99 ], [ %292, %for.inc148.split.us.us ]
-  %m_rigidOnly = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 1
+  %m_rigidOnly = getelementptr inbounds i8, ptr %this, i64 2064
   %307 = load i8, ptr %m_rigidOnly, align 8
   %308 = and i8 %307, 1
   %tobool.not = icmp eq i8 %308, 0
@@ -6401,38 +6344,34 @@ invoke.cont160:                                   ; preds = %for.inc148.split.us
 
 cond.true161:                                     ; preds = %invoke.cont160
   store <2 x float> %96, ptr %agg.result, align 4
-  %K1.sroa.9.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store float %sub26.i, ptr %K1.sroa.9.0.agg.result.sroa_idx, align 4
-  %K1.sroa.12.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
-  store float 0.000000e+00, ptr %K1.sroa.12.0.agg.result.sroa_idx, align 4
   br label %cond.end165
 
 cond.false163:                                    ; preds = %invoke.cont160
-  %arrayidx.i5.i24.i412 = getelementptr inbounds [3 x %class.btVector3], ptr %sum_multiply_A, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i24.i412 = getelementptr inbounds i8, ptr %sum_multiply_A, i64 40
   %309 = load float, ptr %arrayidx.i5.i24.i412, align 4, !noalias !96
   %310 = load float, ptr %arrayidx.i5.i24.i, align 8, !noalias !99
   %311 = load float, ptr %arrayidx.i.i20.i, align 8, !noalias !99
   %312 = load float, ptr %arrayidx.i3.i21.i, align 8, !noalias !99
-  %arrayidx.i.i20.i409 = getelementptr inbounds [4 x float], ptr %sum_multiply_A, i64 0, i64 2
+  %arrayidx.i.i20.i409 = getelementptr inbounds i8, ptr %sum_multiply_A, i64 8
   %313 = load float, ptr %arrayidx.i.i20.i409, align 4, !noalias !96
   %314 = load float, ptr %arrayidx9.i.i, align 8, !noalias !99
   %315 = load float, ptr %m_interpolateInvInertiaTensorWorld, align 8, !noalias !99
   %316 = load float, ptr %arrayidx4.i.i, align 8, !noalias !99
-  %arrayidx.i3.i21.i410 = getelementptr inbounds [3 x %class.btVector3], ptr %sum_multiply_A, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i21.i410 = getelementptr inbounds i8, ptr %sum_multiply_A, i64 24
   %317 = load float, ptr %arrayidx.i3.i21.i410, align 4, !noalias !96
   %318 = load float, ptr %arrayidx.i5.i.i, align 4, !noalias !99
   %319 = load float, ptr %arrayidx.i.i17.i, align 4, !noalias !99
   %320 = load float, ptr %arrayidx.i3.i18.i, align 4, !noalias !99
-  %arrayidx9.i.i403 = getelementptr inbounds [3 x %class.btVector3], ptr %sum_multiply_A, i64 0, i64 2
+  %arrayidx9.i.i403 = getelementptr inbounds i8, ptr %sum_multiply_A, i64 32
   %321 = load float, ptr %arrayidx9.i.i403, align 4, !noalias !96
   %322 = load float, ptr %sum_multiply_A, align 4, !noalias !96
-  %arrayidx4.i.i400 = getelementptr inbounds [3 x %class.btVector3], ptr %sum_multiply_A, i64 0, i64 1
+  %arrayidx4.i.i400 = getelementptr inbounds i8, ptr %sum_multiply_A, i64 16
   %323 = load float, ptr %arrayidx4.i.i400, align 4, !noalias !96
-  %arrayidx.i5.i.i408 = getelementptr inbounds [3 x %class.btVector3], ptr %sum_multiply_A, i64 0, i64 2, i32 0, i64 1
+  %arrayidx.i5.i.i408 = getelementptr inbounds i8, ptr %sum_multiply_A, i64 36
   %324 = load float, ptr %arrayidx.i5.i.i408, align 4, !noalias !96
-  %arrayidx.i.i17.i405 = getelementptr inbounds [4 x float], ptr %sum_multiply_A, i64 0, i64 1
+  %arrayidx.i.i17.i405 = getelementptr inbounds i8, ptr %sum_multiply_A, i64 4
   %325 = load float, ptr %arrayidx.i.i17.i405, align 4, !noalias !96
-  %arrayidx.i3.i18.i406 = getelementptr inbounds [3 x %class.btVector3], ptr %sum_multiply_A, i64 0, i64 1, i32 0, i64 1
+  %arrayidx.i3.i18.i406 = getelementptr inbounds i8, ptr %sum_multiply_A, i64 20
   %326 = load float, ptr %arrayidx.i3.i18.i406, align 4, !noalias !96
   %327 = insertelement <2 x float> poison, float %312, i64 0
   %328 = shufflevector <2 x float> %327, <2 x float> poison, <2 x i32> zeroinitializer
@@ -6544,39 +6483,40 @@ cond.false163:                                    ; preds = %invoke.cont160
   %425 = fadd <2 x float> %156, %424
   %426 = fadd <2 x float> %96, %425
   store <2 x float> %426, ptr %agg.result, align 4, !alias.scope !102
-  %arrayidx5.i.i.i.i540 = getelementptr inbounds [4 x float], ptr %agg.result, i64 0, i64 2
-  store float %add20.i520, ptr %arrayidx5.i.i.i.i540, align 4, !alias.scope !102
-  %arrayidx7.i.i.i.i541 = getelementptr inbounds [4 x float], ptr %agg.result, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx7.i.i.i.i541, align 4, !alias.scope !102
   %.pre693 = load ptr, ptr %m_data.i.i, align 8
   br label %cond.end165
 
 cond.end165:                                      ; preds = %cond.false163, %cond.true161
   %427 = phi ptr [ %.pre693, %cond.false163 ], [ %306, %cond.true161 ]
+  %sub26.i.sink = phi float [ %add20.i520, %cond.false163 ], [ %sub26.i, %cond.true161 ]
   %428 = phi <2 x float> [ %413, %cond.false163 ], [ %98, %cond.true161 ]
   %429 = phi <2 x float> [ %414, %cond.false163 ], [ %99, %cond.true161 ]
   %430 = phi <2 x float> [ %415, %cond.false163 ], [ %100, %cond.true161 ]
-  %431 = getelementptr inbounds [3 x %class.btVector3], ptr %agg.result, i64 0, i64 1
-  store <2 x float> %428, ptr %431, align 4
-  %432 = getelementptr inbounds [3 x %class.btVector3], ptr %agg.result, i64 0, i64 1, i32 0, i64 2
-  %433 = extractelement <2 x float> %430, i64 0
-  store float %433, ptr %432, align 4
-  %434 = getelementptr inbounds [3 x %class.btVector3], ptr %agg.result, i64 0, i64 1, i32 0, i64 3
-  store float 0.000000e+00, ptr %434, align 4
-  %435 = getelementptr inbounds [3 x %class.btVector3], ptr %agg.result, i64 0, i64 2
-  store <2 x float> %429, ptr %435, align 4
-  %436 = getelementptr inbounds [3 x %class.btVector3], ptr %agg.result, i64 0, i64 2, i32 0, i64 2
-  %437 = extractelement <2 x float> %430, i64 1
-  store float %437, ptr %436, align 4
-  %438 = getelementptr inbounds [3 x %class.btVector3], ptr %agg.result, i64 0, i64 2, i32 0, i64 3
-  store float 0.000000e+00, ptr %438, align 4
+  %431 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store float %sub26.i.sink, ptr %431, align 4
+  %432 = getelementptr inbounds i8, ptr %agg.result, i64 12
+  store float 0.000000e+00, ptr %432, align 4
+  %433 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store <2 x float> %428, ptr %433, align 4
+  %434 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %435 = extractelement <2 x float> %430, i64 0
+  store float %435, ptr %434, align 4
+  %436 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  store float 0.000000e+00, ptr %436, align 4
+  %437 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  store <2 x float> %429, ptr %437, align 4
+  %438 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %439 = extractelement <2 x float> %430, i64 1
+  store float %439, ptr %438, align 4
+  %440 = getelementptr inbounds i8, ptr %agg.result, i64 44
+  store float 0.000000e+00, ptr %440, align 4
   %tobool.not.i.i.i551 = icmp eq ptr %427, null
   br i1 %tobool.not.i.i.i551, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, label %if.then.i.i.i552
 
 if.then.i.i.i552:                                 ; preds = %cond.end165
-  %439 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %440 = and i8 %439, 1
-  %tobool2.not.i.i.i554 = icmp eq i8 %440, 0
+  %441 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %442 = and i8 %441, 1
+  %tobool2.not.i.i.i554 = icmp eq i8 %442, 0
   br i1 %tobool2.not.i.i.i554, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, label %if.then3.i.i.i555
 
 if.then3.i.i.i555:                                ; preds = %if.then.i.i.i552
@@ -6584,10 +6524,10 @@ if.then3.i.i.i555:                                ; preds = %if.then.i.i.i552
           to label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then3.i.i.i555
-  %441 = landingpad { ptr, i32 }
+  %443 = landingpad { ptr, i32 }
           catch ptr null
-  %442 = extractvalue { ptr, i32 } %441, 0
-  tail call void @__clang_call_terminate(ptr %442) #27
+  %444 = extractvalue { ptr, i32 } %443, 0
+  tail call void @__clang_call_terminate(ptr %444) #27
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %cond.end165, %if.then.i.i.i552, %if.then3.i.i.i555
@@ -6599,7 +6539,7 @@ define dso_local void @_ZN23btReducedDeformableBody29internalApplyFullSpaceImpul
 entry:
   %ref.tmp = alloca %class.btVector3, align 8
   %reduced_vel_tmp = alloca %class.btAlignedObjectArray.12, align 8
-  %m_rigidOnly = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 1
+  %m_rigidOnly = getelementptr inbounds i8, ptr %this, i64 2064
   %0 = load i8, ptr %m_rigidOnly, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -6611,23 +6551,23 @@ if.then:                                          ; preds = %entry
   %3 = insertelement <2 x float> poison, float %div.i, i64 0
   %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> zeroinitializer
   %5 = fmul <2 x float> %4, %2
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 2
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %impulse, i64 8
   %6 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %div.i, %6
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i, i64 0
   store <2 x float> %5, ptr %ref.tmp, align 8
-  %7 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %7, align 8
   call void @_ZN23btReducedDeformableBody24applyFullSpaceNodalForceERK9btVector3i(ptr noundef nonnull align 8 dereferenceable(3176) %this, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, i32 noundef %n_node)
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %reduced_vel_tmp, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %reduced_vel_tmp, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %reduced_vel_tmp, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %reduced_vel_tmp, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %reduced_vel_tmp, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %reduced_vel_tmp, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %reduced_vel_tmp, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %reduced_vel_tmp, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   %8 = load i32, ptr %m_nReduced, align 8
   %or.cond = icmp sgt i32 %8, 0
   br i1 %or.cond, label %if.then.i.i.i, label %if.end
@@ -6652,8 +6592,8 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit:    ; preds = %for.body8.i
   br i1 %9, label %for.body.lr.ph, label %if.then3.i.i.i37
 
 for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
-  %m_data.i13 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2832
+  %m_data.i13 = getelementptr inbounds i8, ptr %this, i64 2288
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -6684,10 +6624,10 @@ for.end:                                          ; preds = %for.body
   br i1 %17, label %for.body.lr.ph.i, label %if.then3.i.i.i37
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %m_dampingBeta.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 32
-  %m_ksScale.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 4
-  %m_data.i.i19 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 44, i32 5
-  %m_data.i8.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
+  %m_dampingBeta.i = getelementptr inbounds i8, ptr %this, i64 2708
+  %m_ksScale.i = getelementptr inbounds i8, ptr %this, i64 2072
+  %m_data.i.i19 = getelementptr inbounds i8, ptr %this, i64 3024
+  %m_data.i8.i = getelementptr inbounds i8, ptr %this, i64 2960
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -6717,9 +6657,9 @@ _ZN23btReducedDeformableBody24applyReducedDampingForceERK20btAlignedObjectArrayI
   br i1 %26, label %for.body15.lr.ph, label %if.then3.i.i.i37
 
 for.body15.lr.ph:                                 ; preds = %_ZN23btReducedDeformableBody24applyReducedDampingForceERK20btAlignedObjectArrayIfE.exit
-  %m_data.i23 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
-  %m_data.i26 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 5
-  %m_data.i29 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
+  %m_data.i23 = getelementptr inbounds i8, ptr %this, i64 2960
+  %m_data.i26 = getelementptr inbounds i8, ptr %this, i64 2896
+  %m_data.i29 = getelementptr inbounds i8, ptr %this, i64 2288
   br label %for.body15
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %for.body15
@@ -6767,19 +6707,19 @@ define dso_local void @_ZN23btReducedDeformableBody24applyFullSpaceNodalForceERK
 entry:
   %f_local = alloca %class.btVector3, align 8
   %f_ext_r = alloca %class.btAlignedObjectArray.12, align 8
-  %m_interpolationWorldTransform = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2
-  %arrayidx3.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1
-  %arrayidx6.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2
-  %arrayidx.i3.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 0, i32 0, i64 2
-  %arrayidx.i4.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1, i32 0, i64 2
-  %arrayidx.i5.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2, i32 0, i64 2
+  %m_interpolationWorldTransform = getelementptr inbounds i8, ptr %this, i64 72
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 88
+  %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 104
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %this, i64 80
+  %arrayidx.i4.i = getelementptr inbounds i8, ptr %this, i64 96
+  %arrayidx.i5.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load float, ptr %arrayidx.i3.i, align 8, !noalias !108
   %1 = load float, ptr %arrayidx.i4.i, align 8, !noalias !108
   %2 = load float, ptr %arrayidx.i5.i, align 8, !noalias !108
   %3 = load float, ptr %f_ext, align 4
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %f_ext, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %f_ext, i64 4
   %4 = load float, ptr %arrayidx7.i.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds [4 x float], ptr %f_ext, i64 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %f_ext, i64 8
   %5 = load float, ptr %arrayidx12.i.i, align 4
   %6 = load <2 x float>, ptr %m_interpolationWorldTransform, align 8, !noalias !108
   %7 = load <2 x float>, ptr %arrayidx3.i, align 8, !noalias !108
@@ -6798,17 +6738,17 @@ entry:
   %19 = tail call noundef float @llvm.fmuladd.f32(float %2, float %5, float %18)
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %19, i64 0
   store <2 x float> %17, ptr %f_local, align 8
-  %20 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %f_local, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %f_local, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %20, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %f_ext_r, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %f_ext_r, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %f_ext_r, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %f_ext_r, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %f_ext_r, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %f_ext_r, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %f_ext_r, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %f_ext_r, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   %21 = load i32, ptr %m_nReduced, align 8
   %or.cond = icmp sgt i32 %21, 0
   br i1 %or.cond, label %if.then.i.i.i, label %_ZN20btAlignedObjectArrayIfED2Ev.exit
@@ -6833,10 +6773,10 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit:    ; preds = %for.body8.i
   br i1 %22, label %for.body.lr.ph, label %if.then3.i.i.i44
 
 for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 5
-  %m_data.i18 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 6, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 2896
+  %m_data.i18 = getelementptr inbounds i8, ptr %this, i64 2096
   %mul = mul nsw i32 %n_node, 3
-  %m_data.i24 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 7, i32 5
+  %m_data.i24 = getelementptr inbounds i8, ptr %this, i64 2128
   %23 = sext i32 %mul to i64
   br label %for.body
 
@@ -6908,17 +6848,17 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %entry, %if.then3.i.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btReducedDeformableBody24applyReducedDampingForceERK20btAlignedObjectArrayIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %reduce_vel) local_unnamed_addr #12 align 2 {
 entry:
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   %0 = load i32, ptr %m_nReduced, align 8
   %cmp11 = icmp sgt i32 %0, 0
   br i1 %cmp11, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_dampingBeta = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 32
-  %m_ksScale = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 4
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 44, i32 5
-  %m_data.i5 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %reduce_vel, i64 0, i32 5
-  %m_data.i8 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
+  %m_dampingBeta = getelementptr inbounds i8, ptr %this, i64 2708
+  %m_ksScale = getelementptr inbounds i8, ptr %this, i64 2072
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 3024
+  %m_data.i5 = getelementptr inbounds i8, ptr %reduce_vel, i64 16
+  %m_data.i8 = getelementptr inbounds i8, ptr %this, i64 2960
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -6951,10 +6891,10 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN23btReducedDeformableBody17applyRigidGravityERK9btVector3f(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %gravity, float noundef %dt) local_unnamed_addr #18 align 2 {
 entry:
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %gravity, i64 0, i64 2
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %gravity, i64 8
   %0 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %0, %dt
-  %m_linearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 2360
   %1 = load <2 x float>, ptr %gravity, align 4
   %2 = insertelement <2 x float> poison, float %dt, i64 0
   %3 = shufflevector <2 x float> %2, <2 x float> poison, <2 x i32> zeroinitializer
@@ -6962,7 +6902,7 @@ entry:
   %5 = load <2 x float>, ptr %m_linearVelocity, align 8
   %6 = fadd <2 x float> %4, %5
   store <2 x float> %6, ptr %m_linearVelocity, align 8
-  %arrayidx12.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19, i32 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 2368
   %7 = load float, ptr %arrayidx12.i, align 8
   %add13.i = fadd float %mul8.i.i, %7
   store float %add13.i, ptr %arrayidx12.i, align 8
@@ -6972,16 +6912,16 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN23btReducedDeformableBody24applyReducedElasticForceERK20btAlignedObjectArrayIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %reduce_dofs) local_unnamed_addr #12 align 2 {
 entry:
-  %m_nReduced = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 33
+  %m_nReduced = getelementptr inbounds i8, ptr %this, i64 2712
   %0 = load i32, ptr %m_nReduced, align 8
   %cmp11 = icmp sgt i32 %0, 0
   br i1 %cmp11, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_ksScale = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 4
-  %m_data.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 44, i32 5
-  %m_data.i5 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %reduce_dofs, i64 0, i32 5
-  %m_data.i8 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 5
+  %m_ksScale = getelementptr inbounds i8, ptr %this, i64 2072
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 3024
+  %m_data.i5 = getelementptr inbounds i8, ptr %reduce_dofs, i64 16
+  %m_data.i8 = getelementptr inbounds i8, ptr %this, i64 2928
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -7012,7 +6952,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef float @_ZNK23btReducedDeformableBody12getTotalMassEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this) local_unnamed_addr #20 align 2 {
 entry:
-  %m_mass = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 17
+  %m_mass = getelementptr inbounds i8, ptr %this, i64 2352
   %0 = load float, ptr %m_mass, align 8
   ret float %0
 }
@@ -7020,14 +6960,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK23btReducedDeformableBody17getLinearVelocityEv(ptr noundef nonnull readnone align 8 dereferenceable(3176) %this) local_unnamed_addr #16 align 2 {
 entry:
-  %m_linearVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 19
+  %m_linearVelocity = getelementptr inbounds i8, ptr %this, i64 2360
   ret ptr %m_linearVelocity
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK23btReducedDeformableBody18getAngularVelocityEv(ptr noundef nonnull readnone align 8 dereferenceable(3176) %this) local_unnamed_addr #16 align 2 {
 entry:
-  %m_angularVelocity = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 20
+  %m_angularVelocity = getelementptr inbounds i8, ptr %this, i64 2376
   ret ptr %m_angularVelocity
 }
 
@@ -7035,7 +6975,7 @@ entry:
 define dso_local void @_ZN23btReducedDeformableBody19disableReducedModesEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3176) %this, i1 noundef zeroext %rigid_only) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %rigid_only to i8
-  %m_rigidOnly = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 1
+  %m_rigidOnly = getelementptr inbounds i8, ptr %this, i64 2064
   store i8 %frombool, ptr %m_rigidOnly, align 8
   ret void
 }
@@ -7043,7 +6983,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK23btReducedDeformableBody17isReducedModesOFFEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this) local_unnamed_addr #20 align 2 {
 entry:
-  %m_rigidOnly = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 1
+  %m_rigidOnly = getelementptr inbounds i8, ptr %this, i64 2064
   %0 = load i8, ptr %m_rigidOnly, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -7056,13 +6996,13 @@ declare void @_ZNK17btCollisionObject21serializeSingleObjectEP12btSerializer(ptr
 define linkonce_odr dso_local void @_ZN23btReducedDeformableBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(3176) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV23btReducedDeformableBody, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 50, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 3160
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayIiED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 50, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 3168
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i = icmp eq i8 %2, 0
@@ -7080,20 +7020,20 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 50, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 50, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 3148
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 3168
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 50, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 3152
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i1 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 5
+  %m_data.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 3120
   %5 = load ptr, ptr %m_data.i.i.i1, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i2, label %_ZN20btAlignedObjectArrayIiED2Ev.exit11, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit
-  %m_ownsMemory.i.i.i4 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 6
+  %m_ownsMemory.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 3128
   %6 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i5 = icmp eq i8 %7, 0
@@ -7111,20 +7051,20 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit11:          ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
-  %m_size.i.i.i8 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 2
-  %m_ownsMemory.i1.i.i9 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 6
+  %m_size.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 3108
+  %m_ownsMemory.i1.i.i9 = getelementptr inbounds i8, ptr %this, i64 3128
   store i8 1, ptr %m_ownsMemory.i1.i.i9, align 8
   store ptr null, ptr %m_data.i.i.i1, align 8
   store i32 0, ptr %m_size.i.i.i8, align 4
-  %m_capacity.i.i.i10 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 47, i32 3
+  %m_capacity.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 3112
   store i32 0, ptr %m_capacity.i.i.i10, align 8
-  %m_data.i.i.i12 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 5
+  %m_data.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 3088
   %10 = load ptr, ptr %m_data.i.i.i12, align 8
   %tobool.not.i.i.i13 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i13, label %_ZN20btAlignedObjectArrayIfED2Ev.exit, label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit11
-  %m_ownsMemory.i.i.i15 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 6
+  %m_ownsMemory.i.i.i15 = getelementptr inbounds i8, ptr %this, i64 3096
   %11 = load i8, ptr %m_ownsMemory.i.i.i15, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i.i.i16 = icmp eq i8 %12, 0
@@ -7142,20 +7082,20 @@ terminate.lpad.i18:                               ; preds = %if.then3.i.i.i17
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit11, %if.then.i.i.i14, %if.then3.i.i.i17
-  %m_size.i.i.i19 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 2
-  %m_ownsMemory.i1.i.i20 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 6
+  %m_size.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 3076
+  %m_ownsMemory.i1.i.i20 = getelementptr inbounds i8, ptr %this, i64 3096
   store i8 1, ptr %m_ownsMemory.i1.i.i20, align 8
   store ptr null, ptr %m_data.i.i.i12, align 8
   store i32 0, ptr %m_size.i.i.i19, align 4
-  %m_capacity.i.i.i21 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 46, i32 3
+  %m_capacity.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 3080
   store i32 0, ptr %m_capacity.i.i.i21, align 8
-  %m_data.i.i.i22 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 5
+  %m_data.i.i.i22 = getelementptr inbounds i8, ptr %this, i64 3056
   %15 = load ptr, ptr %m_data.i.i.i22, align 8
   %tobool.not.i.i.i23 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i23, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, label %if.then.i.i.i24
 
 if.then.i.i.i24:                                  ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit
-  %m_ownsMemory.i.i.i25 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 6
+  %m_ownsMemory.i.i.i25 = getelementptr inbounds i8, ptr %this, i64 3064
   %16 = load i8, ptr %m_ownsMemory.i.i.i25, align 8
   %17 = and i8 %16, 1
   %tobool2.not.i.i.i26 = icmp eq i8 %17, 0
@@ -7173,20 +7113,20 @@ terminate.lpad.i28:                               ; preds = %if.then3.i.i.i27
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit, %if.then.i.i.i24, %if.then3.i.i.i27
-  %m_size.i.i.i29 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 2
-  %m_ownsMemory.i1.i.i30 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 6
+  %m_size.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 3044
+  %m_ownsMemory.i1.i.i30 = getelementptr inbounds i8, ptr %this, i64 3064
   store i8 1, ptr %m_ownsMemory.i1.i.i30, align 8
   store ptr null, ptr %m_data.i.i.i22, align 8
   store i32 0, ptr %m_size.i.i.i29, align 4
-  %m_capacity.i.i.i31 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 45, i32 3
+  %m_capacity.i.i.i31 = getelementptr inbounds i8, ptr %this, i64 3048
   store i32 0, ptr %m_capacity.i.i.i31, align 8
-  %m_data.i.i.i32 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 44, i32 5
+  %m_data.i.i.i32 = getelementptr inbounds i8, ptr %this, i64 3024
   %20 = load ptr, ptr %m_data.i.i.i32, align 8
   %tobool.not.i.i.i33 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i33, label %_ZN20btAlignedObjectArrayIfED2Ev.exit42, label %if.then.i.i.i34
 
 if.then.i.i.i34:                                  ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit
-  %m_ownsMemory.i.i.i35 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 44, i32 6
+  %m_ownsMemory.i.i.i35 = getelementptr inbounds i8, ptr %this, i64 3032
   %21 = load i8, ptr %m_ownsMemory.i.i.i35, align 8
   %22 = and i8 %21, 1
   %tobool2.not.i.i.i36 = icmp eq i8 %22, 0
@@ -7204,20 +7144,20 @@ terminate.lpad.i38:                               ; preds = %if.then3.i.i.i37
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit42:          ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %if.then.i.i.i34, %if.then3.i.i.i37
-  %m_size.i.i.i39 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 44, i32 2
-  %m_ownsMemory.i1.i.i40 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 44, i32 6
+  %m_size.i.i.i39 = getelementptr inbounds i8, ptr %this, i64 3012
+  %m_ownsMemory.i1.i.i40 = getelementptr inbounds i8, ptr %this, i64 3032
   store i8 1, ptr %m_ownsMemory.i1.i.i40, align 8
   store ptr null, ptr %m_data.i.i.i32, align 8
   store i32 0, ptr %m_size.i.i.i39, align 4
-  %m_capacity.i.i.i41 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 44, i32 3
+  %m_capacity.i.i.i41 = getelementptr inbounds i8, ptr %this, i64 3016
   store i32 0, ptr %m_capacity.i.i.i41, align 8
-  %m_data.i.i.i43 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 43, i32 5
+  %m_data.i.i.i43 = getelementptr inbounds i8, ptr %this, i64 2992
   %25 = load ptr, ptr %m_data.i.i.i43, align 8
   %tobool.not.i.i.i44 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i44, label %_ZN20btAlignedObjectArrayIfED2Ev.exit53, label %if.then.i.i.i45
 
 if.then.i.i.i45:                                  ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit42
-  %m_ownsMemory.i.i.i46 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 43, i32 6
+  %m_ownsMemory.i.i.i46 = getelementptr inbounds i8, ptr %this, i64 3000
   %26 = load i8, ptr %m_ownsMemory.i.i.i46, align 8
   %27 = and i8 %26, 1
   %tobool2.not.i.i.i47 = icmp eq i8 %27, 0
@@ -7235,20 +7175,20 @@ terminate.lpad.i49:                               ; preds = %if.then3.i.i.i48
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit53:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit42, %if.then.i.i.i45, %if.then3.i.i.i48
-  %m_size.i.i.i50 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 43, i32 2
-  %m_ownsMemory.i1.i.i51 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 43, i32 6
+  %m_size.i.i.i50 = getelementptr inbounds i8, ptr %this, i64 2980
+  %m_ownsMemory.i1.i.i51 = getelementptr inbounds i8, ptr %this, i64 3000
   store i8 1, ptr %m_ownsMemory.i1.i.i51, align 8
   store ptr null, ptr %m_data.i.i.i43, align 8
   store i32 0, ptr %m_size.i.i.i50, align 4
-  %m_capacity.i.i.i52 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 43, i32 3
+  %m_capacity.i.i.i52 = getelementptr inbounds i8, ptr %this, i64 2984
   store i32 0, ptr %m_capacity.i.i.i52, align 8
-  %m_data.i.i.i54 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 5
+  %m_data.i.i.i54 = getelementptr inbounds i8, ptr %this, i64 2960
   %30 = load ptr, ptr %m_data.i.i.i54, align 8
   %tobool.not.i.i.i55 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i55, label %_ZN20btAlignedObjectArrayIfED2Ev.exit64, label %if.then.i.i.i56
 
 if.then.i.i.i56:                                  ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit53
-  %m_ownsMemory.i.i.i57 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 6
+  %m_ownsMemory.i.i.i57 = getelementptr inbounds i8, ptr %this, i64 2968
   %31 = load i8, ptr %m_ownsMemory.i.i.i57, align 8
   %32 = and i8 %31, 1
   %tobool2.not.i.i.i58 = icmp eq i8 %32, 0
@@ -7266,20 +7206,20 @@ terminate.lpad.i60:                               ; preds = %if.then3.i.i.i59
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit64:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit53, %if.then.i.i.i56, %if.then3.i.i.i59
-  %m_size.i.i.i61 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 2
-  %m_ownsMemory.i1.i.i62 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 6
+  %m_size.i.i.i61 = getelementptr inbounds i8, ptr %this, i64 2948
+  %m_ownsMemory.i1.i.i62 = getelementptr inbounds i8, ptr %this, i64 2968
   store i8 1, ptr %m_ownsMemory.i1.i.i62, align 8
   store ptr null, ptr %m_data.i.i.i54, align 8
   store i32 0, ptr %m_size.i.i.i61, align 4
-  %m_capacity.i.i.i63 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 42, i32 3
+  %m_capacity.i.i.i63 = getelementptr inbounds i8, ptr %this, i64 2952
   store i32 0, ptr %m_capacity.i.i.i63, align 8
-  %m_data.i.i.i65 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 5
+  %m_data.i.i.i65 = getelementptr inbounds i8, ptr %this, i64 2928
   %35 = load ptr, ptr %m_data.i.i.i65, align 8
   %tobool.not.i.i.i66 = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i66, label %_ZN20btAlignedObjectArrayIfED2Ev.exit75, label %if.then.i.i.i67
 
 if.then.i.i.i67:                                  ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit64
-  %m_ownsMemory.i.i.i68 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 6
+  %m_ownsMemory.i.i.i68 = getelementptr inbounds i8, ptr %this, i64 2936
   %36 = load i8, ptr %m_ownsMemory.i.i.i68, align 8
   %37 = and i8 %36, 1
   %tobool2.not.i.i.i69 = icmp eq i8 %37, 0
@@ -7297,20 +7237,20 @@ terminate.lpad.i71:                               ; preds = %if.then3.i.i.i70
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit75:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit64, %if.then.i.i.i67, %if.then3.i.i.i70
-  %m_size.i.i.i72 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 2
-  %m_ownsMemory.i1.i.i73 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 6
+  %m_size.i.i.i72 = getelementptr inbounds i8, ptr %this, i64 2916
+  %m_ownsMemory.i1.i.i73 = getelementptr inbounds i8, ptr %this, i64 2936
   store i8 1, ptr %m_ownsMemory.i1.i.i73, align 8
   store ptr null, ptr %m_data.i.i.i65, align 8
   store i32 0, ptr %m_size.i.i.i72, align 4
-  %m_capacity.i.i.i74 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 41, i32 3
+  %m_capacity.i.i.i74 = getelementptr inbounds i8, ptr %this, i64 2920
   store i32 0, ptr %m_capacity.i.i.i74, align 8
-  %m_data.i.i.i76 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 5
+  %m_data.i.i.i76 = getelementptr inbounds i8, ptr %this, i64 2896
   %40 = load ptr, ptr %m_data.i.i.i76, align 8
   %tobool.not.i.i.i77 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i77, label %_ZN20btAlignedObjectArrayIfED2Ev.exit86, label %if.then.i.i.i78
 
 if.then.i.i.i78:                                  ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit75
-  %m_ownsMemory.i.i.i79 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 6
+  %m_ownsMemory.i.i.i79 = getelementptr inbounds i8, ptr %this, i64 2904
   %41 = load i8, ptr %m_ownsMemory.i.i.i79, align 8
   %42 = and i8 %41, 1
   %tobool2.not.i.i.i80 = icmp eq i8 %42, 0
@@ -7328,20 +7268,20 @@ terminate.lpad.i82:                               ; preds = %if.then3.i.i.i81
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit86:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit75, %if.then.i.i.i78, %if.then3.i.i.i81
-  %m_size.i.i.i83 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 2
-  %m_ownsMemory.i1.i.i84 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 6
+  %m_size.i.i.i83 = getelementptr inbounds i8, ptr %this, i64 2884
+  %m_ownsMemory.i1.i.i84 = getelementptr inbounds i8, ptr %this, i64 2904
   store i8 1, ptr %m_ownsMemory.i1.i.i84, align 8
   store ptr null, ptr %m_data.i.i.i76, align 8
   store i32 0, ptr %m_size.i.i.i83, align 4
-  %m_capacity.i.i.i85 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 40, i32 3
+  %m_capacity.i.i.i85 = getelementptr inbounds i8, ptr %this, i64 2888
   store i32 0, ptr %m_capacity.i.i.i85, align 8
-  %m_data.i.i.i87 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 5
+  %m_data.i.i.i87 = getelementptr inbounds i8, ptr %this, i64 2864
   %45 = load ptr, ptr %m_data.i.i.i87, align 8
   %tobool.not.i.i.i88 = icmp eq ptr %45, null
   br i1 %tobool.not.i.i.i88, label %_ZN20btAlignedObjectArrayIfED2Ev.exit97, label %if.then.i.i.i89
 
 if.then.i.i.i89:                                  ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit86
-  %m_ownsMemory.i.i.i90 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 6
+  %m_ownsMemory.i.i.i90 = getelementptr inbounds i8, ptr %this, i64 2872
   %46 = load i8, ptr %m_ownsMemory.i.i.i90, align 8
   %47 = and i8 %46, 1
   %tobool2.not.i.i.i91 = icmp eq i8 %47, 0
@@ -7359,20 +7299,20 @@ terminate.lpad.i93:                               ; preds = %if.then3.i.i.i92
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit97:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit86, %if.then.i.i.i89, %if.then3.i.i.i92
-  %m_size.i.i.i94 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 2
-  %m_ownsMemory.i1.i.i95 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 6
+  %m_size.i.i.i94 = getelementptr inbounds i8, ptr %this, i64 2852
+  %m_ownsMemory.i1.i.i95 = getelementptr inbounds i8, ptr %this, i64 2872
   store i8 1, ptr %m_ownsMemory.i1.i.i95, align 8
   store ptr null, ptr %m_data.i.i.i87, align 8
   store i32 0, ptr %m_size.i.i.i94, align 4
-  %m_capacity.i.i.i96 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 39, i32 3
+  %m_capacity.i.i.i96 = getelementptr inbounds i8, ptr %this, i64 2856
   store i32 0, ptr %m_capacity.i.i.i96, align 8
-  %m_data.i.i.i98 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 5
+  %m_data.i.i.i98 = getelementptr inbounds i8, ptr %this, i64 2832
   %50 = load ptr, ptr %m_data.i.i.i98, align 8
   %tobool.not.i.i.i99 = icmp eq ptr %50, null
   br i1 %tobool.not.i.i.i99, label %_ZN20btAlignedObjectArrayIfED2Ev.exit108, label %if.then.i.i.i100
 
 if.then.i.i.i100:                                 ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit97
-  %m_ownsMemory.i.i.i101 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 6
+  %m_ownsMemory.i.i.i101 = getelementptr inbounds i8, ptr %this, i64 2840
   %51 = load i8, ptr %m_ownsMemory.i.i.i101, align 8
   %52 = and i8 %51, 1
   %tobool2.not.i.i.i102 = icmp eq i8 %52, 0
@@ -7390,20 +7330,20 @@ terminate.lpad.i104:                              ; preds = %if.then3.i.i.i103
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit108:         ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit97, %if.then.i.i.i100, %if.then3.i.i.i103
-  %m_size.i.i.i105 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 2
-  %m_ownsMemory.i1.i.i106 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 6
+  %m_size.i.i.i105 = getelementptr inbounds i8, ptr %this, i64 2820
+  %m_ownsMemory.i1.i.i106 = getelementptr inbounds i8, ptr %this, i64 2840
   store i8 1, ptr %m_ownsMemory.i1.i.i106, align 8
   store ptr null, ptr %m_data.i.i.i98, align 8
   store i32 0, ptr %m_size.i.i.i105, align 4
-  %m_capacity.i.i.i107 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 38, i32 3
+  %m_capacity.i.i.i107 = getelementptr inbounds i8, ptr %this, i64 2824
   store i32 0, ptr %m_capacity.i.i.i107, align 8
-  %m_data.i.i.i109 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 5
+  %m_data.i.i.i109 = getelementptr inbounds i8, ptr %this, i64 2800
   %55 = load ptr, ptr %m_data.i.i.i109, align 8
   %tobool.not.i.i.i110 = icmp eq ptr %55, null
   br i1 %tobool.not.i.i.i110, label %_ZN20btAlignedObjectArrayIfED2Ev.exit119, label %if.then.i.i.i111
 
 if.then.i.i.i111:                                 ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit108
-  %m_ownsMemory.i.i.i112 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 6
+  %m_ownsMemory.i.i.i112 = getelementptr inbounds i8, ptr %this, i64 2808
   %56 = load i8, ptr %m_ownsMemory.i.i.i112, align 8
   %57 = and i8 %56, 1
   %tobool2.not.i.i.i113 = icmp eq i8 %57, 0
@@ -7421,20 +7361,20 @@ terminate.lpad.i115:                              ; preds = %if.then3.i.i.i114
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit119:         ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit108, %if.then.i.i.i111, %if.then3.i.i.i114
-  %m_size.i.i.i116 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 2
-  %m_ownsMemory.i1.i.i117 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 6
+  %m_size.i.i.i116 = getelementptr inbounds i8, ptr %this, i64 2788
+  %m_ownsMemory.i1.i.i117 = getelementptr inbounds i8, ptr %this, i64 2808
   store i8 1, ptr %m_ownsMemory.i1.i.i117, align 8
   store ptr null, ptr %m_data.i.i.i109, align 8
   store i32 0, ptr %m_size.i.i.i116, align 4
-  %m_capacity.i.i.i118 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 37, i32 3
+  %m_capacity.i.i.i118 = getelementptr inbounds i8, ptr %this, i64 2792
   store i32 0, ptr %m_capacity.i.i.i118, align 8
-  %m_data.i.i.i120 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 5
+  %m_data.i.i.i120 = getelementptr inbounds i8, ptr %this, i64 2768
   %60 = load ptr, ptr %m_data.i.i.i120, align 8
   %tobool.not.i.i.i121 = icmp eq ptr %60, null
   br i1 %tobool.not.i.i.i121, label %_ZN20btAlignedObjectArrayIfED2Ev.exit130, label %if.then.i.i.i122
 
 if.then.i.i.i122:                                 ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit119
-  %m_ownsMemory.i.i.i123 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 6
+  %m_ownsMemory.i.i.i123 = getelementptr inbounds i8, ptr %this, i64 2776
   %61 = load i8, ptr %m_ownsMemory.i.i.i123, align 8
   %62 = and i8 %61, 1
   %tobool2.not.i.i.i124 = icmp eq i8 %62, 0
@@ -7452,22 +7392,22 @@ terminate.lpad.i126:                              ; preds = %if.then3.i.i.i125
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit130:         ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit119, %if.then.i.i.i122, %if.then3.i.i.i125
-  %m_size.i.i.i127 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 2
-  %m_ownsMemory.i1.i.i128 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 6
+  %m_size.i.i.i127 = getelementptr inbounds i8, ptr %this, i64 2756
+  %m_ownsMemory.i1.i.i128 = getelementptr inbounds i8, ptr %this, i64 2776
   store i8 1, ptr %m_ownsMemory.i1.i.i128, align 8
   store ptr null, ptr %m_data.i.i.i120, align 8
   store i32 0, ptr %m_size.i.i.i127, align 4
-  %m_capacity.i.i.i129 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 36, i32 3
+  %m_capacity.i.i.i129 = getelementptr inbounds i8, ptr %this, i64 2760
   store i32 0, ptr %m_capacity.i.i.i129, align 8
-  %m_modes = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 35
+  %m_modes = getelementptr inbounds i8, ptr %this, i64 2720
   tail call void @_ZN20btAlignedObjectArrayIS_IfEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_modes) #28
-  %m_data.i.i.i131 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 5
+  %m_data.i.i.i131 = getelementptr inbounds i8, ptr %this, i64 2288
   %65 = load ptr, ptr %m_data.i.i.i131, align 8
   %tobool.not.i.i.i132 = icmp eq ptr %65, null
   br i1 %tobool.not.i.i.i132, label %_ZN20btAlignedObjectArrayIfED2Ev.exit141, label %if.then.i.i.i133
 
 if.then.i.i.i133:                                 ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit130
-  %m_ownsMemory.i.i.i134 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 6
+  %m_ownsMemory.i.i.i134 = getelementptr inbounds i8, ptr %this, i64 2296
   %66 = load i8, ptr %m_ownsMemory.i.i.i134, align 8
   %67 = and i8 %66, 1
   %tobool2.not.i.i.i135 = icmp eq i8 %67, 0
@@ -7485,20 +7425,20 @@ terminate.lpad.i137:                              ; preds = %if.then3.i.i.i136
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit141:         ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit130, %if.then.i.i.i133, %if.then3.i.i.i136
-  %m_size.i.i.i138 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 2
-  %m_ownsMemory.i1.i.i139 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 6
+  %m_size.i.i.i138 = getelementptr inbounds i8, ptr %this, i64 2276
+  %m_ownsMemory.i1.i.i139 = getelementptr inbounds i8, ptr %this, i64 2296
   store i8 1, ptr %m_ownsMemory.i1.i.i139, align 8
   store ptr null, ptr %m_data.i.i.i131, align 8
   store i32 0, ptr %m_size.i.i.i138, align 4
-  %m_capacity.i.i.i140 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 13, i32 3
+  %m_capacity.i.i.i140 = getelementptr inbounds i8, ptr %this, i64 2280
   store i32 0, ptr %m_capacity.i.i.i140, align 8
-  %m_data.i.i.i142 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 5
+  %m_data.i.i.i142 = getelementptr inbounds i8, ptr %this, i64 2224
   %70 = load ptr, ptr %m_data.i.i.i142, align 8
   %tobool.not.i.i.i143 = icmp eq ptr %70, null
   br i1 %tobool.not.i.i.i143, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit152, label %if.then.i.i.i144
 
 if.then.i.i.i144:                                 ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit141
-  %m_ownsMemory.i.i.i145 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 6
+  %m_ownsMemory.i.i.i145 = getelementptr inbounds i8, ptr %this, i64 2232
   %71 = load i8, ptr %m_ownsMemory.i.i.i145, align 8
   %72 = and i8 %71, 1
   %tobool2.not.i.i.i146 = icmp eq i8 %72, 0
@@ -7516,20 +7456,20 @@ terminate.lpad.i148:                              ; preds = %if.then3.i.i.i147
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit152: ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit141, %if.then.i.i.i144, %if.then3.i.i.i147
-  %m_size.i.i.i149 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 2
-  %m_ownsMemory.i1.i.i150 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 6
+  %m_size.i.i.i149 = getelementptr inbounds i8, ptr %this, i64 2212
+  %m_ownsMemory.i1.i.i150 = getelementptr inbounds i8, ptr %this, i64 2232
   store i8 1, ptr %m_ownsMemory.i1.i.i150, align 8
   store ptr null, ptr %m_data.i.i.i142, align 8
   store i32 0, ptr %m_size.i.i.i149, align 4
-  %m_capacity.i.i.i151 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 10, i32 3
+  %m_capacity.i.i.i151 = getelementptr inbounds i8, ptr %this, i64 2216
   store i32 0, ptr %m_capacity.i.i.i151, align 8
-  %m_data.i.i.i153 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 5
+  %m_data.i.i.i153 = getelementptr inbounds i8, ptr %this, i64 2192
   %75 = load ptr, ptr %m_data.i.i.i153, align 8
   %tobool.not.i.i.i154 = icmp eq ptr %75, null
   br i1 %tobool.not.i.i.i154, label %_ZN20btAlignedObjectArrayIfED2Ev.exit163, label %if.then.i.i.i155
 
 if.then.i.i.i155:                                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit152
-  %m_ownsMemory.i.i.i156 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 6
+  %m_ownsMemory.i.i.i156 = getelementptr inbounds i8, ptr %this, i64 2200
   %76 = load i8, ptr %m_ownsMemory.i.i.i156, align 8
   %77 = and i8 %76, 1
   %tobool2.not.i.i.i157 = icmp eq i8 %77, 0
@@ -7547,20 +7487,20 @@ terminate.lpad.i159:                              ; preds = %if.then3.i.i.i158
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit163:         ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit152, %if.then.i.i.i155, %if.then3.i.i.i158
-  %m_size.i.i.i160 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 2
-  %m_ownsMemory.i1.i.i161 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 6
+  %m_size.i.i.i160 = getelementptr inbounds i8, ptr %this, i64 2180
+  %m_ownsMemory.i1.i.i161 = getelementptr inbounds i8, ptr %this, i64 2200
   store i8 1, ptr %m_ownsMemory.i1.i.i161, align 8
   store ptr null, ptr %m_data.i.i.i153, align 8
   store i32 0, ptr %m_size.i.i.i160, align 4
-  %m_capacity.i.i.i162 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 9, i32 3
+  %m_capacity.i.i.i162 = getelementptr inbounds i8, ptr %this, i64 2184
   store i32 0, ptr %m_capacity.i.i.i162, align 8
-  %m_data.i.i.i164 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 5
+  %m_data.i.i.i164 = getelementptr inbounds i8, ptr %this, i64 2160
   %80 = load ptr, ptr %m_data.i.i.i164, align 8
   %tobool.not.i.i.i165 = icmp eq ptr %80, null
   br i1 %tobool.not.i.i.i165, label %_ZN20btAlignedObjectArrayIfED2Ev.exit174, label %if.then.i.i.i166
 
 if.then.i.i.i166:                                 ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit163
-  %m_ownsMemory.i.i.i167 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 6
+  %m_ownsMemory.i.i.i167 = getelementptr inbounds i8, ptr %this, i64 2168
   %81 = load i8, ptr %m_ownsMemory.i.i.i167, align 8
   %82 = and i8 %81, 1
   %tobool2.not.i.i.i168 = icmp eq i8 %82, 0
@@ -7578,16 +7518,16 @@ terminate.lpad.i170:                              ; preds = %if.then3.i.i.i169
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit174:         ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit163, %if.then.i.i.i166, %if.then3.i.i.i169
-  %m_size.i.i.i171 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 2
-  %m_ownsMemory.i1.i.i172 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 6
+  %m_size.i.i.i171 = getelementptr inbounds i8, ptr %this, i64 2148
+  %m_ownsMemory.i1.i.i172 = getelementptr inbounds i8, ptr %this, i64 2168
   store i8 1, ptr %m_ownsMemory.i1.i.i172, align 8
   store ptr null, ptr %m_data.i.i.i164, align 8
   store i32 0, ptr %m_size.i.i.i171, align 4
-  %m_capacity.i.i.i173 = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 8, i32 3
+  %m_capacity.i.i.i173 = getelementptr inbounds i8, ptr %this, i64 2152
   store i32 0, ptr %m_capacity.i.i.i173, align 8
-  %m_projCq = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 7
+  %m_projCq = getelementptr inbounds i8, ptr %this, i64 2112
   tail call void @_ZN20btAlignedObjectArrayIS_IfEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_projCq) #28
-  %m_projPA = getelementptr inbounds %class.btReducedDeformableBody, ptr %this, i64 0, i32 6
+  %m_projPA = getelementptr inbounds i8, ptr %this, i64 2080
   tail call void @_ZN20btAlignedObjectArrayIS_IfEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_projPA) #28
   tail call void @_ZN10btSoftBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(2064) %this) #28
   ret void
@@ -7620,13 +7560,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btCollisionObject24checkCollideWithOverrideEPKS_(ptr noundef nonnull align 8 dereferenceable(372) %this, ptr noundef %co) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_size.i.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 35, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 324
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp5.i = icmp sgt i32 %0, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btCollisionObject, ptr %this, i64 0, i32 35, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 336
   %1 = load ptr, ptr %m_data.i, align 8
   %wide.trip.count.i = zext nneg i32 %0 to i64
   br label %for.body.i
@@ -7664,9 +7604,9 @@ declare void @_ZN10btSoftBody6rotateERK12btQuaternion(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNK10btSoftBody7getAabbER9btVector3S1_(ptr noundef nonnull align 8 dereferenceable(2064) %this, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax) unnamed_addr #4 comdat align 2 {
 entry:
-  %m_bounds = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 30
+  %m_bounds = getelementptr inbounds i8, ptr %this, i64 1508
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %m_bounds, i64 16, i1 false)
-  %arrayidx3 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 30, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 1524
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3, i64 16, i1 false)
   ret void
 }
@@ -7685,33 +7625,33 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
 entry:
   %temp = alloca [4 x float], align 16
   %0 = load float, ptr %this, align 4
-  %arrayidx.i = getelementptr inbounds [3 x %class.btVector3], ptr %this, i64 0, i64 1, i32 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load float, ptr %arrayidx.i, align 4
   %add = fadd float %0, %1
-  %arrayidx.i30 = getelementptr inbounds [3 x %class.btVector3], ptr %this, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i30 = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load float, ptr %arrayidx.i30, align 4
   %add8 = fadd float %add, %2
   %cmp = fcmp ogt float %add8, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx6 = getelementptr inbounds [3 x %class.btVector3], ptr %this, i64 0, i64 2
-  %arrayidx3 = getelementptr inbounds [3 x %class.btVector3], ptr %this, i64 0, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
   %add9 = fadd float %add8, 1.000000e+00
   %call.i = tail call noundef float @sqrtf(float noundef %add9) #28
   %div = fdiv float 5.000000e-01, %call.i
-  %arrayidx.i31 = getelementptr inbounds [3 x %class.btVector3], ptr %this, i64 0, i64 2, i32 0, i64 1
+  %arrayidx.i31 = getelementptr inbounds i8, ptr %this, i64 36
   %3 = load float, ptr %arrayidx.i31, align 4
-  %arrayidx.i32 = getelementptr inbounds [3 x %class.btVector3], ptr %this, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i32 = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load float, ptr %arrayidx.i32, align 4
   %sub = fsub float %3, %4
-  %arrayidx.i33 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 2
+  %arrayidx.i33 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load <4 x float>, ptr %arrayidx.i33, align 4
   %6 = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %7 = load <4 x float>, ptr %arrayidx6, align 4
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %9 = load float, ptr %arrayidx3, align 4
-  %arrayidx.i34 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 1
+  %arrayidx.i34 = getelementptr inbounds i8, ptr %this, i64 4
   %10 = load float, ptr %arrayidx.i34, align 4
   %11 = insertelement <2 x float> %6, float %9, i64 1
   %12 = insertelement <2 x float> %8, float %10, i64 1
@@ -7764,7 +7704,7 @@ if.else:                                          ; preds = %entry
   %26 = load float, ptr %arrayidx101, align 4
   %sub102 = fsub float %25, %26
   %mul103 = fmul float %div89, %sub102
-  %arrayidx104 = getelementptr inbounds [4 x float], ptr %temp, i64 0, i64 3
+  %arrayidx104 = getelementptr inbounds i8, ptr %temp, i64 12
   store float %mul103, ptr %arrayidx104, align 4
   %arrayidx110 = getelementptr inbounds float, ptr %arrayidx72, i64 %idxprom
   %27 = load float, ptr %arrayidx110, align 4
@@ -7809,7 +7749,7 @@ declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IfEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end
@@ -7826,7 +7766,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN20btAlignedObjectArrayIS_IfEE8allocateEi.exit: ; preds = %if.then, %if.then.i
   %retval.0.i = phi ptr [ %call.i.i, %if.then.i ], [ null, %if.then ]
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   tail call void @_ZNK20btAlignedObjectArrayIS_IfEE4copyEiiPS0_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef 0, i32 noundef %1, ptr noundef %retval.0.i)
   %2 = load i32, ptr %m_size.i, align 4
@@ -7834,20 +7774,21 @@ _ZN20btAlignedObjectArrayIS_IfEE8allocateEi.exit: ; preds = %if.then, %if.then.i
   br i1 %cmp3.i, label %for.body.lr.ph.i, label %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit
 
 for.body.lr.ph.i:                                 ; preds = %_ZN20btAlignedObjectArrayIS_IfEE8allocateEi.exit
-  %m_data.i = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %zext = zext nneg i32 %2 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %_ZN20btAlignedObjectArrayIfED2Ev.exit.i ]
   %3 = load ptr, ptr %m_data.i, align 8
-  %m_data.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %3, i64 %indvars.iv.i, i32 5
+  %arrayidx.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %3, i64 %indvars.iv.i
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %4 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZN20btAlignedObjectArrayIfED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %3, i64 %indvars.iv.i, i32 6
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %5 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i.i.i.i = icmp eq i8 %6, 0
@@ -7865,25 +7806,25 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i, %for.body.i
-  %m_size.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %3, i64 %indvars.iv.i, i32 2
-  %m_ownsMemory.i1.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %3, i64 %indvars.iv.i, i32 6
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %m_ownsMemory.i1.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i, align 4
-  %m_capacity.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %3, i64 %indvars.iv.i, i32 3
+  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = icmp eq i64 %indvars.iv.next.i, %zext
   br i1 %9, label %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit, label %for.body.i, !llvm.loop !5
 
 _ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit: ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit.i, %_ZN20btAlignedObjectArrayIS_IfEE8allocateEi.exit
-  %m_data.i5 = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 5
+  %m_data.i5 = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %m_data.i5, align 8
   %tobool.not.i6 = icmp eq ptr %10, null
   br i1 %tobool.not.i6, label %_ZN20btAlignedObjectArrayIS_IfEE10deallocateEv.exit, label %if.then.i7
 
 if.then.i7:                                       ; preds = %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit
-  %m_ownsMemory.i = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load i8, ptr %m_ownsMemory.i, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i = icmp eq i8 %12, 0
@@ -7894,7 +7835,7 @@ if.then3.i:                                       ; preds = %if.then.i7
   br label %_ZN20btAlignedObjectArrayIS_IfEE10deallocateEv.exit
 
 _ZN20btAlignedObjectArrayIS_IfEE10deallocateEv.exit: ; preds = %if.then.i7, %if.then3.i, %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i, ptr %m_data.i5, align 8
   store i32 %_Count, ptr %m_capacity.i, align 8
@@ -7911,22 +7852,24 @@ entry:
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.108, ptr %this, i64 0, i32 5
+  %m_data = getelementptr inbounds i8, ptr %this, i64 16
   %0 = sext i32 %start to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN20btAlignedObjectArrayIfEC2ERKS0_.exit
   %indvars.iv = phi i64 [ %0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN20btAlignedObjectArrayIfEC2ERKS0_.exit ]
+  %arrayidx = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %dest, i64 %indvars.iv
   %1 = load ptr, ptr %m_data, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %dest, i64 %indvars.iv, i32 6
+  %arrayidx3 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %dest, i64 %indvars.iv, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %dest, i64 %indvars.iv, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %dest, i64 %indvars.iv, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_size.i3.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv, i32 2
+  %m_size.i3.i = getelementptr inbounds i8, ptr %arrayidx3, i64 4
   %2 = load i32, ptr %m_size.i3.i, align 4
   %or.cond.i = icmp sgt i32 %2, 0
   br i1 %or.cond.i, label %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i.i, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.thread.i
@@ -7991,7 +7934,7 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
 for.body.lr.ph.i.i:                               ; preds = %for.body8.i.i
   %.pre.i = load ptr, ptr %m_data.i.i, align 8
   store i32 %2, ptr %m_size.i.i, align 4
-  %m_data.i4.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %1, i64 %indvars.iv, i32 5
+  %m_data.i4.i = getelementptr inbounds i8, ptr %arrayidx3, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i

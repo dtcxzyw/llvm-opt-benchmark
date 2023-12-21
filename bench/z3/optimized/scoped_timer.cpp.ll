@@ -19,34 +19,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.11" = type { ptr }
 %"class.std::thread" = type { %"class.std::thread::id" }
 %"class.std::thread::id" = type { i64 }
-%struct.scoped_timer_state = type { %"class.std::thread", %"class.std::timed_mutex", ptr, i32, %"struct.std::atomic", %"class.std::_V2::condition_variable_any" }
-%"class.std::timed_mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%"struct.std::atomic" = type { i32 }
-%"class.std::_V2::condition_variable_any" = type { %"class.std::condition_variable", %"class.std::shared_ptr" }
-%"class.std::condition_variable" = type { %"class.std::__condvar" }
-%"class.std::__condvar" = type { %union.pthread_cond_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
+%struct.timespec = type { i64, i64 }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<std::mutex, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<std::mutex, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<40, 8>::type" }
-%"union.std::aligned_storage<40, 8>::type" = type { [40 x i8] }
-%"struct.std::thread::_State_impl" = type { %"struct.std::thread::_State", %"struct.std::thread::_Invoker" }
-%"struct.std::thread::_State" = type { ptr }
-%"struct.std::thread::_Invoker" = type { %"class.std::tuple.12" }
-%"class.std::tuple.12" = type { %"struct.std::_Tuple_impl.13" }
-%"struct.std::_Tuple_impl.13" = type { %"struct.std::_Tuple_impl.14", %"struct.std::_Head_base.16" }
-%"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.15" }
-%"struct.std::_Head_base.15" = type { ptr }
-%"struct.std::_Head_base.16" = type { ptr }
-%struct.timespec = type { i64, i64 }
-%"class.std::type_info" = type { ptr, ptr }
 %"struct.std::_V2::condition_variable_any::_Unlock" = type { ptr }
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 
@@ -180,10 +156,10 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %if.end
 if.then3:                                         ; preds = %_ZNSt5mutex4lockEv.exit
   %call1.i.i5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL7workers) #19
   %call4 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #21
-  %cv.i = getelementptr inbounds %struct.scoped_timer_state, ptr %call4, i64 0, i32 5
+  %cv.i = getelementptr inbounds i8, ptr %call4, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call4, i8 0, i64 48, i1 false)
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv.i) #19
-  %_M_mutex.i.i = getelementptr inbounds %struct.scoped_timer_state, ptr %call4, i64 0, i32 5, i32 1
+  %_M_mutex.i.i = getelementptr inbounds i8, ptr %call4, i64 112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   store ptr null, ptr %_M_mutex.i.i, align 8, !alias.scope !4
   %call5.i.i.i2.i.i.i.i1.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
@@ -202,26 +178,26 @@ if.then.i.i:                                      ; preds = %lpad.i.i
   unreachable
 
 invoke.cont:                                      ; preds = %if.then3
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %struct.scoped_timer_state, ptr %call4, i64 0, i32 5, i32 1, i32 0, i32 1
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i2.i.i.i.i1.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %call4, i64 120
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !noalias !4
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i2.i.i.i.i1.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i2.i.i.i.i1.i.i, align 8, !noalias !4
-  %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i2.i.i.i.i1.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i.i, i8 0, i64 40, i1 false), !noalias !4
   store ptr %call5.i.i.i2.i.i.i.i1.i.i, ptr %_M_refcount.i.i.i.i.i, align 8, !alias.scope !4
   store ptr %_M_impl.i.i.i.i.i.i.i.i, ptr %_M_mutex.i.i, align 8, !alias.scope !4
   store ptr %call4, ptr %this, align 8
   %4 = atomicrmw add ptr @_ZL11num_workers, i32 1 seq_cst, align 4
   %5 = load ptr, ptr %this, align 8
-  %ms2.i = getelementptr inbounds %struct.scoped_timer_state, ptr %5, i64 0, i32 3
+  %ms2.i = getelementptr inbounds i8, ptr %5, i64 56
   store i32 %ms, ptr %ms2.i, align 8
   %6 = load ptr, ptr %this, align 8
-  %eh4.i = getelementptr inbounds %struct.scoped_timer_state, ptr %6, i64 0, i32 2
+  %eh4.i = getelementptr inbounds i8, ptr %6, i64 48
   store ptr %eh, ptr %eh4.i, align 8
   %7 = load ptr, ptr %this, align 8
-  %m_mutex.i = getelementptr inbounds %struct.scoped_timer_state, ptr %7, i64 0, i32 1
+  %m_mutex.i = getelementptr inbounds i8, ptr %7, i64 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i) #19
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZN12scoped_timer10init_stateEjP13event_handler.exit, label %if.then.i.i6
@@ -232,16 +208,16 @@ if.then.i.i6:                                     ; preds = %invoke.cont
 
 _ZN12scoped_timer10init_stateEjP13event_handler.exit: ; preds = %invoke.cont
   %8 = load ptr, ptr %this, align 8
-  %work.i = getelementptr inbounds %struct.scoped_timer_state, ptr %8, i64 0, i32 4
+  %work.i = getelementptr inbounds i8, ptr %8, i64 60
   store atomic i32 1, ptr %work.i seq_cst, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i64 0, ptr %ref.tmp, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvP18scoped_timer_stateES4_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
-  %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1
+  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %9 = load ptr, ptr %this, align 8
   store ptr %9, ptr %_M_func.i.i, align 8
-  %10 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @_ZL11thread_funcP18scoped_timer_state, ptr %10, align 8
   store ptr %call.i, ptr %agg.tmp.i, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
@@ -254,7 +230,7 @@ invoke.cont3.i:                                   ; preds = %_ZN12scoped_timer10
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont3.i
   %vtable.i.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
   br label %_ZNSt6threadC2IRFvP18scoped_timer_stateEJRS2_EvEEOT_DpOT0_.exit
@@ -268,7 +244,7 @@ lpad2.i:                                          ; preds = %_ZN12scoped_timer10
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i: ; preds = %lpad2.i
   %vtable.i.i4.i = load ptr, ptr %14, align 8
-  %vfn.i.i5.i = getelementptr inbounds ptr, ptr %vtable.i.i4.i, i64 1
+  %vfn.i.i5.i = getelementptr inbounds i8, ptr %vtable.i.i4.i, i64 8
   %15 = load ptr, ptr %vfn.i.i5.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14) #19
   br label %common.resume
@@ -298,20 +274,20 @@ lpad.body:                                        ; preds = %lpad.i.i
   br label %common.resume
 
 if.else:                                          ; preds = %_ZNSt5mutex4lockEv.exit
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %2, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %18 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %18, ptr %this, align 8
   %19 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %19, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %19, i64 -8
   store ptr %incdec.ptr.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
   %20 = load ptr, ptr %this, align 8
-  %ms2.i11 = getelementptr inbounds %struct.scoped_timer_state, ptr %20, i64 0, i32 3
+  %ms2.i11 = getelementptr inbounds i8, ptr %20, i64 56
   store i32 %ms, ptr %ms2.i11, align 8
   %21 = load ptr, ptr %this, align 8
-  %eh4.i12 = getelementptr inbounds %struct.scoped_timer_state, ptr %21, i64 0, i32 2
+  %eh4.i12 = getelementptr inbounds i8, ptr %21, i64 48
   store ptr %eh, ptr %eh4.i12, align 8
   %22 = load ptr, ptr %this, align 8
-  %m_mutex.i13 = getelementptr inbounds %struct.scoped_timer_state, ptr %22, i64 0, i32 1
+  %m_mutex.i13 = getelementptr inbounds i8, ptr %22, i64 8
   %call1.i.i.i14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i13) #19
   %tobool.not.i.i15 = icmp eq i32 %call1.i.i.i14, 0
   br i1 %tobool.not.i.i15, label %_ZN12scoped_timer10init_stateEjP13event_handler.exit18, label %if.then.i.i16
@@ -322,11 +298,11 @@ if.then.i.i16:                                    ; preds = %if.else
 
 _ZN12scoped_timer10init_stateEjP13event_handler.exit18: ; preds = %if.else
   %23 = load ptr, ptr %this, align 8
-  %work.i17 = getelementptr inbounds %struct.scoped_timer_state, ptr %23, i64 0, i32 4
+  %work.i17 = getelementptr inbounds i8, ptr %23, i64 60
   store atomic i32 1, ptr %work.i17 seq_cst, align 4
   %call1.i.i19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL7workers) #19
   %24 = load ptr, ptr %this, align 8
-  %_M_mutex.i = getelementptr inbounds %struct.scoped_timer_state, ptr %24, i64 0, i32 5, i32 1
+  %_M_mutex.i = getelementptr inbounds i8, ptr %24, i64 112
   %25 = load ptr, ptr %_M_mutex.i, align 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %25) #19
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
@@ -347,7 +323,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   unreachable
 
 _ZNSt3_V222condition_variable_any10notify_oneEv.exit: ; preds = %_ZN12scoped_timer10init_stateEjP13event_handler.exit18
-  %cv = getelementptr inbounds %struct.scoped_timer_state, ptr %24, i64 0, i32 5
+  %cv = getelementptr inbounds i8, ptr %24, i64 64
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %cv) #19
   %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %25) #19
   br label %if.end13
@@ -368,13 +344,13 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 define hidden void @_ZN12scoped_timer10init_stateEjP13event_handler(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %ms, ptr noundef %eh) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %ms2 = getelementptr inbounds %struct.scoped_timer_state, ptr %0, i64 0, i32 3
+  %ms2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %ms, ptr %ms2, align 8
   %1 = load ptr, ptr %this, align 8
-  %eh4 = getelementptr inbounds %struct.scoped_timer_state, ptr %1, i64 0, i32 2
+  %eh4 = getelementptr inbounds i8, ptr %1, i64 48
   store ptr %eh, ptr %eh4, align 8
   %2 = load ptr, ptr %this, align 8
-  %m_mutex = getelementptr inbounds %struct.scoped_timer_state, ptr %2, i64 0, i32 1
+  %m_mutex = getelementptr inbounds i8, ptr %2, i64 8
   %call1.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex) #19
   %tobool.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i, label %_ZNSt11timed_mutex4lockEv.exit, label %if.then.i
@@ -385,7 +361,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt11timed_mutex4lockEv.exit:                   ; preds = %entry
   %3 = load ptr, ptr %this, align 8
-  %work = getelementptr inbounds %struct.scoped_timer_state, ptr %3, i64 0, i32 4
+  %work = getelementptr inbounds i8, ptr %3, i64 60
   store atomic i32 1, ptr %work seq_cst, align 4
   ret void
 }
@@ -399,12 +375,12 @@ entry:
   br i1 %tobool.not.i, label %while.body.preheader, label %if.then.i
 
 while.body.preheader:                             ; preds = %entry
-  %cv = getelementptr inbounds %struct.scoped_timer_state, ptr %s, i64 0, i32 5
-  %work.i.i = getelementptr inbounds %struct.scoped_timer_state, ptr %s, i64 0, i32 4
-  %ms = getelementptr inbounds %struct.scoped_timer_state, ptr %s, i64 0, i32 3
-  %m_mutex = getelementptr inbounds %struct.scoped_timer_state, ptr %s, i64 0, i32 1
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
-  %eh = getelementptr inbounds %struct.scoped_timer_state, ptr %s, i64 0, i32 2
+  %cv = getelementptr inbounds i8, ptr %s, i64 64
+  %work.i.i = getelementptr inbounds i8, ptr %s, i64 60
+  %ms = getelementptr inbounds i8, ptr %s, i64 56
+  %m_mutex = getelementptr inbounds i8, ptr %s, i64 8
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
+  %eh = getelementptr inbounds i8, ptr %s, i64 48
   br label %while.body
 
 if.then.i:                                        ; preds = %entry
@@ -459,7 +435,7 @@ while.body10:                                     ; preds = %while.cond8
 if.then16:                                        ; preds = %while.body10
   %4 = load ptr, ptr %eh, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 2)
   br label %next
@@ -487,10 +463,10 @@ entry:
   br i1 %tobool.not, label %invoke.cont7, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_mutex = getelementptr inbounds %struct.scoped_timer_state, ptr %0, i64 0, i32 1
+  %m_mutex = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #19
   %1 = load ptr, ptr %this, align 8
-  %work6 = getelementptr inbounds %struct.scoped_timer_state, ptr %1, i64 0, i32 4
+  %work6 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load atomic i32, ptr %work6 seq_cst, align 4
   %cmp7 = icmp eq i32 %2, 1
   br i1 %cmp7, label %while.body, label %while.end
@@ -498,7 +474,7 @@ if.end:                                           ; preds = %entry
 while.body:                                       ; preds = %if.end, %while.body
   %call.i.i = tail call noundef i32 @sched_yield() #19
   %3 = load ptr, ptr %this, align 8
-  %work = getelementptr inbounds %struct.scoped_timer_state, ptr %3, i64 0, i32 4
+  %work = getelementptr inbounds i8, ptr %3, i64 60
   %4 = load atomic i32, ptr %work seq_cst, align 4
   %cmp = icmp eq i32 %4, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !11
@@ -525,7 +501,7 @@ if.then.i2:                                       ; preds = %invoke.cont4
   %7 = load ptr, ptr %this, align 8
   store ptr %7, ptr %5, align 8
   %8 = load ptr, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %8, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %incdec.ptr.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZL17available_workers, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
   br label %invoke.cont6
 
@@ -573,7 +549,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIP18scoped_timer_stateSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i
 
 _ZNSt6vectorIP18scoped_timer_stateSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIP18scoped_timer_stateSaIS1_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIP18scoped_timer_stateSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -658,9 +634,9 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %while.body
 for.body:                                         ; preds = %_ZNSt5mutex4lockEv.exit, %_ZNSt3_V222condition_variable_any10notify_oneEv.exit
   %__begin2.sroa.0.028 = phi ptr [ %incdec.ptr.i, %_ZNSt3_V222condition_variable_any10notify_oneEv.exit ], [ %1, %_ZNSt5mutex4lockEv.exit ]
   %3 = load ptr, ptr %__begin2.sroa.0.028, align 8
-  %work = getelementptr inbounds %struct.scoped_timer_state, ptr %3, i64 0, i32 4
+  %work = getelementptr inbounds i8, ptr %3, i64 60
   store atomic i32 2, ptr %work seq_cst, align 4
-  %_M_mutex.i = getelementptr inbounds %struct.scoped_timer_state, ptr %3, i64 0, i32 5, i32 1
+  %_M_mutex.i = getelementptr inbounds i8, ptr %3, i64 112
   %4 = load ptr, ptr %_M_mutex.i, align 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #19
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
@@ -681,10 +657,10 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   unreachable
 
 _ZNSt3_V222condition_variable_any10notify_oneEv.exit: ; preds = %for.body
-  %cv = getelementptr inbounds %struct.scoped_timer_state, ptr %3, i64 0, i32 5
+  %cv = getelementptr inbounds i8, ptr %3, i64 64
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %cv) #19
   %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #19
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin2.sroa.0.028, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.028, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %invoke.cont.loopexit, label %for.body
 
@@ -710,14 +686,14 @@ for.body17:                                       ; preds = %invoke.cont, %_ZN18
           to label %delete.notnull unwind label %lpad
 
 delete.notnull:                                   ; preds = %for.body17
-  %cv.i = getelementptr inbounds %struct.scoped_timer_state, ptr %9, i64 0, i32 5
-  %_M_refcount.i.i.i.i = getelementptr inbounds %struct.scoped_timer_state, ptr %9, i64 0, i32 5, i32 1, i32 0, i32 1
+  %cv.i = getelementptr inbounds i8, ptr %9, i64 64
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 120
   %10 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt3_V222condition_variable_anyD2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %11, 4294967297
   %12 = trunc i64 %11 to i32
@@ -725,10 +701,10 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #19
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -754,10 +730,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %16 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %10) #19
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 12
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %17, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -779,7 +755,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %20 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #19
   br label %_ZNSt3_V222condition_variable_anyD2Ev.exit.i
@@ -796,7 +772,7 @@ if.then.i.i:                                      ; preds = %_ZNSt3_V222conditio
 
 _ZN18scoped_timer_stateD2Ev.exit:                 ; preds = %_ZNSt3_V222condition_variable_anyD2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %9) #18
-  %incdec.ptr.i7 = getelementptr inbounds ptr, ptr %__begin29.sroa.0.030, i64 1
+  %incdec.ptr.i7 = getelementptr inbounds i8, ptr %__begin29.sroa.0.030, i64 8
   %cmp.i6.not = icmp eq ptr %incdec.ptr.i7, %7
   br i1 %cmp.i6.not, label %for.end23, label %for.body17
 
@@ -891,12 +867,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -932,18 +908,18 @@ entry:
   %__mutex = alloca %"class.std::shared_ptr", align 8
   %__unlock = alloca %"struct.std::_V2::condition_variable_any::_Unlock", align 8
   %__my_lock2 = alloca %"class.std::unique_lock", align 8
-  %_M_mutex = getelementptr inbounds %"class.std::_V2::condition_variable_any", ptr %this, i64 0, i32 1
+  %_M_mutex = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_mutex, align 8
   store ptr %0, ptr %__mutex, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__mutex, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::_V2::condition_variable_any", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %__mutex, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrISt5mutexEC2ERKS1_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -976,7 +952,7 @@ invoke.cont3:                                     ; preds = %_ZNSt10shared_ptrIS
   store ptr %__lock, ptr %__unlock, align 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %__lock) #19
   store ptr %5, ptr %__my_lock2, align 8
-  %_M_owns.i4 = getelementptr inbounds %"class.std::unique_lock", ptr %__my_lock2, i64 0, i32 1
+  %_M_owns.i4 = getelementptr inbounds i8, ptr %__my_lock2, i64 8
   store i8 1, ptr %_M_owns.i4, align 8
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(9) %__my_lock2)
           to label %invoke.cont5 unwind label %lpad4
@@ -1007,7 +983,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit13:          ; preds = %_ZNSt11unique_lockI
   br i1 %cmp.not.i.i.i15, label %_ZNSt10shared_ptrISt5mutexED2Ev.exit, label %if.then.i.i.i16
 
 if.then.i.i.i16:                                  ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit13
-  %_M_use_count.i.i.i.i17 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %9, i64 0, i32 1
+  %_M_use_count.i.i.i.i17 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %_M_use_count.i.i.i.i17 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %10, 4294967297
   %11 = trunc i64 %10 to i32
@@ -1015,10 +991,10 @@ if.then.i.i.i16:                                  ; preds = %_ZNSt11unique_lockI
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i16
   store i32 0, ptr %_M_use_count.i.i.i.i17, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %9, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %9, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   br label %if.end8.sink.split.i.i.i.i
@@ -1044,10 +1020,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %9, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %15 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %9, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 12
   %16 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1069,7 +1045,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %9, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %19 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   br label %_ZNSt10shared_ptrISt5mutexED2Ev.exit
@@ -1195,13 +1171,13 @@ unreachable:                                      ; preds = %catch2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10shared_ptrISt5mutexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1209,10 +1185,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %if.end8.sink.split.i.i.i
@@ -1238,10 +1214,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1263,7 +1239,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -1314,8 +1290,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvP18scoped_timer_stateES4_EEEEE6_M_runEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %_M_func = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %1 = load ptr, ptr %_M_func, align 8
   tail call void %0(ptr noundef %1)

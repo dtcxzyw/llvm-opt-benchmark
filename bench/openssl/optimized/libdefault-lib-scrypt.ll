@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.KDF_SCRYPT = type { ptr, ptr, ptr, i64, ptr, i64, i64, i64, i64, i64, ptr }
 
 @ossl_kdf_scrypt_functions = local_unnamed_addr constant [10 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @kdf_scrypt_new }, %struct.ossl_dispatch_st { i32 2, ptr @kdf_scrypt_dup }, %struct.ossl_dispatch_st { i32 3, ptr @kdf_scrypt_free }, %struct.ossl_dispatch_st { i32 4, ptr @kdf_scrypt_reset }, %struct.ossl_dispatch_st { i32 5, ptr @kdf_scrypt_derive }, %struct.ossl_dispatch_st { i32 8, ptr @kdf_scrypt_settable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @kdf_scrypt_set_ctx_params }, %struct.ossl_dispatch_st { i32 7, ptr @kdf_scrypt_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 10, ptr @kdf_scrypt_get_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [51 x i8] c"../openssl/providers/implementations/kdfs/scrypt.c\00", align 1
@@ -39,13 +38,13 @@ if.end.i:                                         ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.end.i
   store ptr %call, ptr %call1.i, align 8
-  %N.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 6
+  %N.i.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   store i64 1048576, ptr %N.i.i, align 8
-  %r.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 7
+  %r.i.i = getelementptr inbounds i8, ptr %call1.i, i64 56
   store i64 8, ptr %r.i.i, align 8
-  %p.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 8
+  %p.i.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   store i64 1, ptr %p.i.i, align 8
-  %maxmem_bytes.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 9
+  %maxmem_bytes.i.i = getelementptr inbounds i8, ptr %call1.i, i64 72
   store i64 1074790400, ptr %maxmem_bytes.i.i, align 8
   br label %kdf_scrypt_new_inner.exit
 
@@ -69,15 +68,15 @@ if.end.i:                                         ; preds = %entry
 
 if.then:                                          ; preds = %if.end.i
   store ptr %0, ptr %call1.i, align 8
-  %N.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 6
+  %N.i.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   store i64 1048576, ptr %N.i.i, align 8
-  %r.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 7
+  %r.i.i = getelementptr inbounds i8, ptr %call1.i, i64 56
   store i64 8, ptr %r.i.i, align 8
-  %p.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 8
+  %p.i.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   store i64 1, ptr %p.i.i, align 8
-  %maxmem_bytes.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 9
+  %maxmem_bytes.i.i = getelementptr inbounds i8, ptr %call1.i, i64 72
   store i64 1074790400, ptr %maxmem_bytes.i.i, align 8
-  %sha256 = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 10
+  %sha256 = getelementptr inbounds i8, ptr %vctx, i64 80
   %1 = load ptr, ptr %sha256, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end, label %land.lhs.true
@@ -88,65 +87,65 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %tobool.not, label %kdf_scrypt_free.exit, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %if.then
-  %propq = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %vctx, i64 8
   %2 = load ptr, ptr %propq, align 8
   %cmp5.not = icmp eq ptr %2, null
   br i1 %cmp5.not, label %if.end14, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   %call8 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef 109) #7
-  %propq9 = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 1
+  %propq9 = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call8, ptr %propq9, align 8
   %cmp11 = icmp eq ptr %call8, null
   br i1 %cmp11, label %kdf_scrypt_free.exit, label %if.end14
 
 if.end14:                                         ; preds = %if.then6, %if.end
-  %salt = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 4
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 32
   %3 = load ptr, ptr %salt, align 8
-  %salt_len = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 5
+  %salt_len = getelementptr inbounds i8, ptr %vctx, i64 40
   %4 = load i64, ptr %salt_len, align 8
-  %salt15 = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 4
-  %salt_len16 = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 5
+  %salt15 = getelementptr inbounds i8, ptr %call1.i, i64 32
+  %salt_len16 = getelementptr inbounds i8, ptr %call1.i, i64 40
   %call17 = tail call i32 @ossl_prov_memdup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %salt15, ptr noundef nonnull %salt_len16) #7
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %kdf_scrypt_free.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end14
-  %pass = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 2
+  %pass = getelementptr inbounds i8, ptr %vctx, i64 16
   %5 = load ptr, ptr %pass, align 8
-  %pass_len = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 3
+  %pass_len = getelementptr inbounds i8, ptr %vctx, i64 24
   %6 = load i64, ptr %pass_len, align 8
-  %pass19 = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 2
-  %pass_len20 = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 3
+  %pass19 = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %pass_len20 = getelementptr inbounds i8, ptr %call1.i, i64 24
   %call21 = tail call i32 @ossl_prov_memdup(ptr noundef %5, i64 noundef %6, ptr noundef nonnull %pass19, ptr noundef nonnull %pass_len20) #7
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %kdf_scrypt_free.exit, label %if.end24
 
 if.end24:                                         ; preds = %lor.lhs.false
-  %N = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 6
+  %N = getelementptr inbounds i8, ptr %vctx, i64 48
   %7 = load <2 x i64>, ptr %N, align 8
   store <2 x i64> %7, ptr %N.i.i, align 8
-  %p = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 8
+  %p = getelementptr inbounds i8, ptr %vctx, i64 64
   %8 = load <2 x i64>, ptr %p, align 8
   store <2 x i64> %8, ptr %p.i.i, align 8
   %9 = load ptr, ptr %sha256, align 8
-  %sha25630 = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 10
+  %sha25630 = getelementptr inbounds i8, ptr %call1.i, i64 80
   store ptr %9, ptr %sha25630, align 8
   br label %return
 
 kdf_scrypt_free.exit:                             ; preds = %if.end14, %lor.lhs.false, %if.then6, %land.lhs.true
-  %propq.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 1
+  %propq.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %10 = load ptr, ptr %propq.i, align 8
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 83) #7
-  %sha256.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 10
+  %sha256.i = getelementptr inbounds i8, ptr %call1.i, i64 80
   %11 = load ptr, ptr %sha256.i, align 8
   tail call void @EVP_MD_free(ptr noundef %11) #7
-  %salt.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 4
+  %salt.i.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   %12 = load ptr, ptr %salt.i.i, align 8
   tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 94) #7
-  %pass.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 2
+  %pass.i.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %13 = load ptr, ptr %pass.i.i, align 8
-  %pass_len.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %call1.i, i64 0, i32 3
+  %pass_len.i.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   %14 = load i64, ptr %pass_len.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %13, i64 noundef %14, ptr noundef nonnull @.str, i32 noundef 95) #7
   store i64 1048576, ptr %N.i.i, align 8
@@ -168,27 +167,27 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %propq = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %vctx, i64 8
   %0 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 83) #7
-  %sha256 = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 10
+  %sha256 = getelementptr inbounds i8, ptr %vctx, i64 80
   %1 = load ptr, ptr %sha256, align 8
   tail call void @EVP_MD_free(ptr noundef %1) #7
-  %salt.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 4
+  %salt.i = getelementptr inbounds i8, ptr %vctx, i64 32
   %2 = load ptr, ptr %salt.i, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 94) #7
-  %pass.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 2
+  %pass.i = getelementptr inbounds i8, ptr %vctx, i64 16
   %3 = load ptr, ptr %pass.i, align 8
-  %pass_len.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 3
+  %pass_len.i = getelementptr inbounds i8, ptr %vctx, i64 24
   %4 = load i64, ptr %pass_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %3, i64 noundef %4, ptr noundef nonnull @.str, i32 noundef 95) #7
-  %N.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 6
+  %N.i.i = getelementptr inbounds i8, ptr %vctx, i64 48
   store i64 1048576, ptr %N.i.i, align 8
-  %r.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 7
+  %r.i.i = getelementptr inbounds i8, ptr %vctx, i64 56
   store i64 8, ptr %r.i.i, align 8
-  %p.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 8
+  %p.i.i = getelementptr inbounds i8, ptr %vctx, i64 64
   store i64 1, ptr %p.i.i, align 8
-  %maxmem_bytes.i.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 9
+  %maxmem_bytes.i.i = getelementptr inbounds i8, ptr %vctx, i64 72
   store i64 1074790400, ptr %maxmem_bytes.i.i, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %vctx, ptr noundef nonnull @.str, i32 noundef 86) #7
   br label %if.end
@@ -200,21 +199,21 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal void @kdf_scrypt_reset(ptr nocapture noundef %vctx) #0 {
 entry:
-  %salt = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 4
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 32
   %0 = load ptr, ptr %salt, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 94) #7
-  %pass = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 2
+  %pass = getelementptr inbounds i8, ptr %vctx, i64 16
   %1 = load ptr, ptr %pass, align 8
-  %pass_len = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 3
+  %pass_len = getelementptr inbounds i8, ptr %vctx, i64 24
   %2 = load i64, ptr %pass_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 95) #7
-  %N.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 6
+  %N.i = getelementptr inbounds i8, ptr %vctx, i64 48
   store i64 1048576, ptr %N.i, align 8
-  %r.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 7
+  %r.i = getelementptr inbounds i8, ptr %vctx, i64 56
   store i64 8, ptr %r.i, align 8
-  %p.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 8
+  %p.i = getelementptr inbounds i8, ptr %vctx, i64 64
   store i64 1, ptr %p.i, align 8
-  %maxmem_bytes.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 9
+  %maxmem_bytes.i = getelementptr inbounds i8, ptr %vctx, i64 72
   store i64 1074790400, ptr %maxmem_bytes.i, align 8
   ret void
 }
@@ -232,7 +231,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %pass = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 2
+  %pass = getelementptr inbounds i8, ptr %vctx, i64 16
   %0 = load ptr, ptr %pass, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then3, label %if.end4
@@ -244,7 +243,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %salt = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 4
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 32
   %1 = load ptr, ptr %salt, align 8
   %cmp5 = icmp eq ptr %1, null
   br i1 %cmp5, label %if.then6, label %if.end7
@@ -256,7 +255,7 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %sha256 = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 10
+  %sha256 = getelementptr inbounds i8, ptr %vctx, i64 80
   %2 = load ptr, ptr %sha256, align 8
   %cmp8 = icmp eq ptr %2, null
   br i1 %cmp8, label %land.lhs.true, label %if.end12
@@ -264,7 +263,7 @@ if.end7:                                          ; preds = %if.end4
 land.lhs.true:                                    ; preds = %if.end7
   tail call void @EVP_MD_free(ptr noundef null) #7
   %3 = load ptr, ptr %vctx, align 8
-  %propq.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 1
+  %propq.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %4 = load ptr, ptr %propq.i, align 8
   %call.i = tail call ptr @EVP_MD_fetch(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef %4) #7
   store ptr %call.i, ptr %sha256, align 8
@@ -287,20 +286,20 @@ if.end12:                                         ; preds = %land.lhs.true.if.en
   %5 = phi ptr [ %call.i, %land.lhs.true.if.end12_crit_edge ], [ %2, %if.end7 ]
   %6 = phi ptr [ %.pre23, %land.lhs.true.if.end12_crit_edge ], [ %1, %if.end7 ]
   %7 = phi ptr [ %.pre, %land.lhs.true.if.end12_crit_edge ], [ %0, %if.end7 ]
-  %pass_len = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 3
+  %pass_len = getelementptr inbounds i8, ptr %vctx, i64 24
   %8 = load i64, ptr %pass_len, align 8
-  %salt_len = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 5
+  %salt_len = getelementptr inbounds i8, ptr %vctx, i64 40
   %9 = load i64, ptr %salt_len, align 8
-  %N = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 6
+  %N = getelementptr inbounds i8, ptr %vctx, i64 48
   %10 = load i64, ptr %N, align 8
-  %r = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 7
+  %r = getelementptr inbounds i8, ptr %vctx, i64 56
   %11 = load i64, ptr %r, align 8
-  %p = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 8
+  %p = getelementptr inbounds i8, ptr %vctx, i64 64
   %12 = load i64, ptr %p, align 8
-  %maxmem_bytes = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 9
+  %maxmem_bytes = getelementptr inbounds i8, ptr %vctx, i64 72
   %13 = load i64, ptr %maxmem_bytes, align 8
   %14 = load ptr, ptr %vctx, align 8
-  %propq = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %vctx, i64 8
   %15 = load ptr, ptr %propq, align 8
   %cmp.i16 = icmp eq i64 %11, 0
   %cmp1.i = icmp eq i64 %12, 0
@@ -414,7 +413,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end45.i
   %mul22.i.i = add i64 %sub.i.i, -32
   %mul23.i.i = mul i64 %mul22.i.i, %11
   %add.ptr24.i.i = getelementptr inbounds i32, ptr %add.ptr49.i, i64 %mul23.i.i
-  %arrayidx.i.i = getelementptr i32, ptr %add.ptr47.i, i64 -16
+  %arrayidx.i.i = getelementptr i8, ptr %add.ptr47.i, i64 -64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %scryptROMix.exit.i, %for.body.lr.ph.i
@@ -450,7 +449,7 @@ for.body.i.i:                                     ; preds = %for.body.i, %for.bo
   %or10.i.i = or disjoint i32 %shl9.i.i, %or6.i.i
   store i32 %or10.i.i, ptr %pV.053.i.i, align 4
   %inc.i.i = add nuw i64 %i.052.i.i, 1
-  %incdec.ptr11.i.i = getelementptr inbounds i32, ptr %pV.053.i.i, i64 1
+  %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %pV.053.i.i, i64 4
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %mul24.i
   br i1 %exitcond.not.i.i, label %for.body15.i.i.preheader, label %for.body.i.i, !llvm.loop !6
 
@@ -486,7 +485,7 @@ for.body42.us.i.i:                                ; preds = %for.body42.us.i.i, 
   %k.060.us.i.i = phi i64 [ 0, %for.body28.us.i.i ], [ %inc47.us.i.i, %for.body42.us.i.i ]
   %arrayidx43.us.i.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %k.060.us.i.i
   %22 = load i32, ptr %arrayidx43.us.i.i, align 4
-  %incdec.ptr44.us.i.i = getelementptr inbounds i32, ptr %pV.261.us.i.i, i64 1
+  %incdec.ptr44.us.i.i = getelementptr inbounds i8, ptr %pV.261.us.i.i, i64 4
   %23 = load i32, ptr %pV.261.us.i.i, align 4
   %xor.us.i.i = xor i32 %23, %22
   %arrayidx45.us.i.i = getelementptr inbounds i32, ptr %add.ptr47.i, i64 %k.060.us.i.i
@@ -581,12 +580,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end6, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %pass = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 2
-  %pass_len = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 3
+  %pass = getelementptr inbounds i8, ptr %vctx, i64 16
+  %pass_len = getelementptr inbounds i8, ptr %vctx, i64 24
   %0 = load ptr, ptr %pass, align 8
   %1 = load i64, ptr %pass_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 146) #7
-  %data_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 3
+  %data_size.i = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pass, i8 0, i64 16, i1 false)
   %2 = load i64, ptr %data_size.i, align 8
   %cmp.i = icmp eq i64 %2, 0
@@ -599,7 +598,7 @@ if.then.i:                                        ; preds = %if.then2
   br i1 %cmp1.i, label %return, label %if.end6
 
 if.else.i:                                        ; preds = %if.then2
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call, i64 16
   %3 = load ptr, ptr %data.i, align 8
   %cmp3.not.i = icmp eq ptr %3, null
   br i1 %cmp3.not.i, label %if.end6, label %if.then4.i
@@ -615,12 +614,12 @@ if.end6:                                          ; preds = %if.then4.i, %if.els
   br i1 %cmp8.not, label %if.end14, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  %salt = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 4
-  %salt_len = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 5
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 32
+  %salt_len = getelementptr inbounds i8, ptr %vctx, i64 40
   %4 = load ptr, ptr %salt, align 8
   %5 = load i64, ptr %salt_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @.str, i32 noundef 146) #7
-  %data_size.i31 = getelementptr inbounds %struct.ossl_param_st, ptr %call7, i64 0, i32 3
+  %data_size.i31 = getelementptr inbounds i8, ptr %call7, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %salt, i8 0, i64 16, i1 false)
   %6 = load i64, ptr %data_size.i31, align 8
   %cmp.i32 = icmp eq i64 %6, 0
@@ -633,7 +632,7 @@ if.then.i41:                                      ; preds = %if.then9
   br i1 %cmp1.i43, label %return, label %if.end14
 
 if.else.i33:                                      ; preds = %if.then9
-  %data.i34 = getelementptr inbounds %struct.ossl_param_st, ptr %call7, i64 0, i32 2
+  %data.i34 = getelementptr inbounds i8, ptr %call7, i64 16
   %7 = load ptr, ptr %data.i34, align 8
   %cmp3.not.i35 = icmp eq ptr %7, null
   br i1 %cmp3.not.i35, label %if.end14, label %if.then4.i36
@@ -660,7 +659,7 @@ if.then17:                                        ; preds = %if.end14
   br i1 %or.cond55, label %return, label %if.end25
 
 if.end25:                                         ; preds = %if.then17
-  %N = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 6
+  %N = getelementptr inbounds i8, ptr %vctx, i64 48
   store i64 %8, ptr %N, align 8
   br label %if.end26
 
@@ -678,7 +677,7 @@ if.then29:                                        ; preds = %if.end26
   br i1 %or.cond1, label %return, label %if.end35
 
 if.end35:                                         ; preds = %if.then29
-  %r = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 7
+  %r = getelementptr inbounds i8, ptr %vctx, i64 56
   store i64 %10, ptr %r, align 8
   br label %if.end36
 
@@ -696,7 +695,7 @@ if.then39:                                        ; preds = %if.end36
   br i1 %or.cond2, label %return, label %if.end45
 
 if.end45:                                         ; preds = %if.then39
-  %p46 = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 8
+  %p46 = getelementptr inbounds i8, ptr %vctx, i64 64
   store i64 %11, ptr %p46, align 8
   br label %if.end47
 
@@ -714,7 +713,7 @@ if.then50:                                        ; preds = %if.end47
   br i1 %or.cond3, label %return, label %if.end56
 
 if.end56:                                         ; preds = %if.then50
-  %maxmem_bytes = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 9
+  %maxmem_bytes = getelementptr inbounds i8, ptr %vctx, i64 72
   store i64 %12, ptr %maxmem_bytes, align 8
   br label %if.end57
 
@@ -724,15 +723,15 @@ if.end57:                                         ; preds = %if.end56, %if.end47
   br i1 %cmp59.not, label %if.end70, label %if.then60
 
 if.then60:                                        ; preds = %if.end57
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call58, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call58, i64 8
   %13 = load i32, ptr %data_type, align 8
   %cmp61.not = icmp eq i32 %13, 4
   br i1 %cmp61.not, label %lor.lhs.false62, label %return
 
 lor.lhs.false62:                                  ; preds = %if.then60
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call58, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call58, i64 16
   %14 = load ptr, ptr %data, align 8
-  %propq1.i = getelementptr inbounds %struct.KDF_SCRYPT, ptr %vctx, i64 0, i32 1
+  %propq1.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %15 = load ptr, ptr %propq1.i, align 8
   call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 174) #7
   store ptr null, ptr %propq1.i, align 8
@@ -807,11 +806,11 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @set_digest(ptr noundef %ctx) unnamed_addr #0 {
 entry:
-  %sha256 = getelementptr inbounds %struct.KDF_SCRYPT, ptr %ctx, i64 0, i32 10
+  %sha256 = getelementptr inbounds i8, ptr %ctx, i64 80
   %0 = load ptr, ptr %sha256, align 8
   tail call void @EVP_MD_free(ptr noundef %0) #7
   %1 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds %struct.KDF_SCRYPT, ptr %ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %propq, align 8
   %call = tail call ptr @EVP_MD_fetch(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef %2) #7
   store ptr %call, ptr %sha256, align 8
@@ -844,27 +843,27 @@ entry:
   %mul = shl i64 %r, 1
   %sub = shl i64 %r, 5
   %0 = getelementptr i32, ptr %B, i64 %sub
-  %add.ptr = getelementptr i32, ptr %0, i64 -16
+  %add.ptr = getelementptr i8, ptr %0, i64 -64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %X, ptr noundef nonnull align 4 dereferenceable(64) %add.ptr, i64 64, i1 false)
   %cmp12.not = icmp eq i64 %mul, 0
   br i1 %cmp12.not, label %for.end13, label %for.cond3.preheader.lr.ph
 
 for.cond3.preheader.lr.ph:                        ; preds = %entry
-  %arrayidx1.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 12
-  %arrayidx5.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 4
-  %arrayidx15.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 8
-  %arrayidx39.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 5
-  %arrayidx40.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 1
-  %arrayidx48.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 9
-  %arrayidx59.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 13
-  %arrayidx83.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 10
-  %arrayidx84.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 6
-  %arrayidx92.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 14
-  %arrayidx103.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 2
-  %arrayidx127.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 15
-  %arrayidx128.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 11
-  %arrayidx136.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 3
-  %arrayidx147.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 7
+  %arrayidx1.i = getelementptr inbounds i8, ptr %x.i, i64 48
+  %arrayidx5.i = getelementptr inbounds i8, ptr %x.i, i64 16
+  %arrayidx15.i = getelementptr inbounds i8, ptr %x.i, i64 32
+  %arrayidx39.i = getelementptr inbounds i8, ptr %x.i, i64 20
+  %arrayidx40.i = getelementptr inbounds i8, ptr %x.i, i64 4
+  %arrayidx48.i = getelementptr inbounds i8, ptr %x.i, i64 36
+  %arrayidx59.i = getelementptr inbounds i8, ptr %x.i, i64 52
+  %arrayidx83.i = getelementptr inbounds i8, ptr %x.i, i64 40
+  %arrayidx84.i = getelementptr inbounds i8, ptr %x.i, i64 24
+  %arrayidx92.i = getelementptr inbounds i8, ptr %x.i, i64 56
+  %arrayidx103.i = getelementptr inbounds i8, ptr %x.i, i64 8
+  %arrayidx127.i = getelementptr inbounds i8, ptr %x.i, i64 60
+  %arrayidx128.i = getelementptr inbounds i8, ptr %x.i, i64 44
+  %arrayidx136.i = getelementptr inbounds i8, ptr %x.i, i64 12
+  %arrayidx147.i = getelementptr inbounds i8, ptr %x.i, i64 28
   br label %for.cond3.preheader
 
 for.cond3.preheader:                              ; preds = %for.cond3.preheader.lr.ph, %salsa208_word_specification.exit
@@ -875,7 +874,7 @@ for.cond3.preheader:                              ; preds = %for.cond3.preheader
 for.body5:                                        ; preds = %for.cond3.preheader, %for.body5
   %pB.111 = phi ptr [ %pB.014, %for.cond3.preheader ], [ %incdec.ptr, %for.body5 ]
   %j.010 = phi i64 [ 0, %for.cond3.preheader ], [ %inc, %for.body5 ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %pB.111, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %pB.111, i64 4
   %1 = load i32, ptr %pB.111, align 4
   %arrayidx = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 %j.010
   %2 = load i32, ptr %arrayidx, align 4
@@ -926,71 +925,71 @@ for.cond347.preheader.i:                          ; preds = %for.body.i
   br label %for.body349.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.end
-  %i.039.i = phi i32 [ 8, %for.end ], [ %sub.i, %for.body.i ]
-  %xor214738.i = phi i32 [ %x.promoted.i, %for.end ], [ %xor214.i, %for.body.i ]
-  %xor313837.i = phi i32 [ %arrayidx1.promoted.i, %for.end ], [ %xor313.i, %for.body.i ]
-  %xor247936.i = phi i32 [ %arrayidx5.promoted.i, %for.end ], [ %xor247.i, %for.body.i ]
-  %xor2801035.i = phi i32 [ %arrayidx15.promoted.i, %for.end ], [ %xor280.i, %for.body.i ]
-  %xor2581134.i = phi i32 [ %arrayidx39.promoted.i, %for.end ], [ %xor258.i, %for.body.i ]
-  %xor1811233.i = phi i32 [ %arrayidx40.promoted.i, %for.end ], [ %xor181.i, %for.body.i ]
-  %xor2911332.i = phi i32 [ %arrayidx48.promoted.i, %for.end ], [ %xor291.i, %for.body.i ]
-  %xor3241431.i = phi i32 [ %arrayidx59.promoted.i, %for.end ], [ %xor324.i, %for.body.i ]
-  %xor3021530.i = phi i32 [ %arrayidx83.promoted.i, %for.end ], [ %xor302.i, %for.body.i ]
-  %xor2251629.i = phi i32 [ %arrayidx84.promoted.i, %for.end ], [ %xor225.i, %for.body.i ]
-  %xor3351728.i = phi i32 [ %arrayidx92.promoted.i, %for.end ], [ %xor335.i, %for.body.i ]
-  %xor1921827.i = phi i32 [ %arrayidx103.promoted.i, %for.end ], [ %xor192.i, %for.body.i ]
-  %xor3461926.i = phi i32 [ %arrayidx127.promoted.i, %for.end ], [ %xor346.i, %for.body.i ]
-  %xor2692025.i = phi i32 [ %arrayidx128.promoted.i, %for.end ], [ %xor269.i, %for.body.i ]
-  %xor2032124.i = phi i32 [ %arrayidx136.promoted.i, %for.end ], [ %xor203.i, %for.body.i ]
-  %xor2362223.i = phi i32 [ %arrayidx147.promoted.i, %for.end ], [ %xor236.i, %for.body.i ]
-  %add.i = add i32 %xor313837.i, %xor214738.i
+  %i.023.i = phi i32 [ 8, %for.end ], [ %sub.i, %for.body.i ]
+  %xor214722.i = phi i32 [ %x.promoted.i, %for.end ], [ %xor214.i, %for.body.i ]
+  %3 = phi i32 [ %arrayidx1.promoted.i, %for.end ], [ %xor313.i, %for.body.i ]
+  %4 = phi i32 [ %arrayidx5.promoted.i, %for.end ], [ %xor247.i, %for.body.i ]
+  %5 = phi i32 [ %arrayidx15.promoted.i, %for.end ], [ %xor280.i, %for.body.i ]
+  %6 = phi i32 [ %arrayidx39.promoted.i, %for.end ], [ %xor258.i, %for.body.i ]
+  %7 = phi i32 [ %arrayidx40.promoted.i, %for.end ], [ %xor181.i, %for.body.i ]
+  %8 = phi i32 [ %arrayidx48.promoted.i, %for.end ], [ %xor291.i, %for.body.i ]
+  %9 = phi i32 [ %arrayidx59.promoted.i, %for.end ], [ %xor324.i, %for.body.i ]
+  %10 = phi i32 [ %arrayidx83.promoted.i, %for.end ], [ %xor302.i, %for.body.i ]
+  %11 = phi i32 [ %arrayidx84.promoted.i, %for.end ], [ %xor225.i, %for.body.i ]
+  %12 = phi i32 [ %arrayidx92.promoted.i, %for.end ], [ %xor335.i, %for.body.i ]
+  %13 = phi i32 [ %arrayidx103.promoted.i, %for.end ], [ %xor192.i, %for.body.i ]
+  %14 = phi i32 [ %arrayidx127.promoted.i, %for.end ], [ %xor346.i, %for.body.i ]
+  %15 = phi i32 [ %arrayidx128.promoted.i, %for.end ], [ %xor269.i, %for.body.i ]
+  %16 = phi i32 [ %arrayidx136.promoted.i, %for.end ], [ %xor203.i, %for.body.i ]
+  %17 = phi i32 [ %arrayidx147.promoted.i, %for.end ], [ %xor236.i, %for.body.i ]
+  %add.i = add i32 %3, %xor214722.i
   %or.i = call i32 @llvm.fshl.i32(i32 %add.i, i32 %add.i, i32 7)
-  %xor.i = xor i32 %or.i, %xor247936.i
-  %add8.i = add i32 %xor.i, %xor214738.i
+  %xor.i = xor i32 %or.i, %4
+  %add8.i = add i32 %xor.i, %xor214722.i
   %or14.i = call i32 @llvm.fshl.i32(i32 %add8.i, i32 %add8.i, i32 9)
-  %xor16.i = xor i32 %or14.i, %xor2801035.i
+  %xor16.i = xor i32 %or14.i, %5
   %add19.i = add i32 %xor16.i, %xor.i
   %or25.i = call i32 @llvm.fshl.i32(i32 %add19.i, i32 %add19.i, i32 13)
-  %xor27.i = xor i32 %or25.i, %xor313837.i
+  %xor27.i = xor i32 %or25.i, %3
   %add30.i = add i32 %xor27.i, %xor16.i
   %or36.i = call i32 @llvm.fshl.i32(i32 %add30.i, i32 %add30.i, i32 18)
-  %xor38.i = xor i32 %or36.i, %xor214738.i
-  %add41.i = add i32 %xor1811233.i, %xor2581134.i
+  %xor38.i = xor i32 %or36.i, %xor214722.i
+  %add41.i = add i32 %7, %6
   %or47.i = call i32 @llvm.fshl.i32(i32 %add41.i, i32 %add41.i, i32 7)
-  %xor49.i = xor i32 %or47.i, %xor2911332.i
-  %add52.i = add i32 %xor49.i, %xor2581134.i
+  %xor49.i = xor i32 %or47.i, %8
+  %add52.i = add i32 %xor49.i, %6
   %or58.i = call i32 @llvm.fshl.i32(i32 %add52.i, i32 %add52.i, i32 9)
-  %xor60.i = xor i32 %or58.i, %xor3241431.i
+  %xor60.i = xor i32 %or58.i, %9
   %add63.i = add i32 %xor60.i, %xor49.i
   %or69.i = call i32 @llvm.fshl.i32(i32 %add63.i, i32 %add63.i, i32 13)
-  %xor71.i = xor i32 %or69.i, %xor1811233.i
+  %xor71.i = xor i32 %or69.i, %7
   %add74.i = add i32 %xor71.i, %xor60.i
   %or80.i = call i32 @llvm.fshl.i32(i32 %add74.i, i32 %add74.i, i32 18)
-  %xor82.i = xor i32 %or80.i, %xor2581134.i
-  %add85.i = add i32 %xor2251629.i, %xor3021530.i
+  %xor82.i = xor i32 %or80.i, %6
+  %add85.i = add i32 %11, %10
   %or91.i = call i32 @llvm.fshl.i32(i32 %add85.i, i32 %add85.i, i32 7)
-  %xor93.i = xor i32 %or91.i, %xor3351728.i
-  %add96.i = add i32 %xor93.i, %xor3021530.i
+  %xor93.i = xor i32 %or91.i, %12
+  %add96.i = add i32 %xor93.i, %10
   %or102.i = call i32 @llvm.fshl.i32(i32 %add96.i, i32 %add96.i, i32 9)
-  %xor104.i = xor i32 %or102.i, %xor1921827.i
+  %xor104.i = xor i32 %or102.i, %13
   %add107.i = add i32 %xor104.i, %xor93.i
   %or113.i = call i32 @llvm.fshl.i32(i32 %add107.i, i32 %add107.i, i32 13)
-  %xor115.i = xor i32 %or113.i, %xor2251629.i
+  %xor115.i = xor i32 %or113.i, %11
   %add118.i = add i32 %xor115.i, %xor104.i
   %or124.i = call i32 @llvm.fshl.i32(i32 %add118.i, i32 %add118.i, i32 18)
-  %xor126.i = xor i32 %or124.i, %xor3021530.i
-  %add129.i = add i32 %xor2692025.i, %xor3461926.i
+  %xor126.i = xor i32 %or124.i, %10
+  %add129.i = add i32 %15, %14
   %or135.i = call i32 @llvm.fshl.i32(i32 %add129.i, i32 %add129.i, i32 7)
-  %xor137.i = xor i32 %or135.i, %xor2032124.i
-  %add140.i = add i32 %xor137.i, %xor3461926.i
+  %xor137.i = xor i32 %or135.i, %16
+  %add140.i = add i32 %xor137.i, %14
   %or146.i = call i32 @llvm.fshl.i32(i32 %add140.i, i32 %add140.i, i32 9)
-  %xor148.i = xor i32 %or146.i, %xor2362223.i
+  %xor148.i = xor i32 %or146.i, %17
   %add151.i = add i32 %xor148.i, %xor137.i
   %or157.i = call i32 @llvm.fshl.i32(i32 %add151.i, i32 %add151.i, i32 13)
-  %xor159.i = xor i32 %or157.i, %xor2692025.i
+  %xor159.i = xor i32 %or157.i, %15
   %add162.i = add i32 %xor159.i, %xor148.i
   %or168.i = call i32 @llvm.fshl.i32(i32 %add162.i, i32 %add162.i, i32 18)
-  %xor170.i = xor i32 %or168.i, %xor3461926.i
+  %xor170.i = xor i32 %or168.i, %14
   %add173.i = add i32 %xor137.i, %xor38.i
   %or179.i = call i32 @llvm.fshl.i32(i32 %add173.i, i32 %add173.i, i32 7)
   %xor181.i = xor i32 %or179.i, %xor71.i
@@ -1039,17 +1038,17 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
   %add338.i = add i32 %xor335.i, %xor324.i
   %or344.i = call i32 @llvm.fshl.i32(i32 %add338.i, i32 %add338.i, i32 18)
   %xor346.i = xor i32 %or344.i, %xor170.i
-  %sub.i = add nsw i32 %i.039.i, -2
-  %cmp.i = icmp ugt i32 %i.039.i, 2
+  %sub.i = add nsw i32 %i.023.i, -2
+  %cmp.i = icmp ugt i32 %i.023.i, 2
   br i1 %cmp.i, label %for.body.i, label %for.cond347.preheader.i, !llvm.loop !14
 
 for.body349.i:                                    ; preds = %for.body349.i, %for.cond347.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond347.preheader.i ], [ %indvars.iv.next.i, %for.body349.i ]
   %arrayidx350.i = getelementptr inbounds [16 x i32], ptr %x.i, i64 0, i64 %indvars.iv.i
-  %3 = load i32, ptr %arrayidx350.i, align 4
+  %18 = load i32, ptr %arrayidx350.i, align 4
   %arrayidx352.i = getelementptr inbounds i32, ptr %X, i64 %indvars.iv.i
-  %4 = load i32, ptr %arrayidx352.i, align 4
-  %add353.i = add i32 %4, %3
+  %19 = load i32, ptr %arrayidx352.i, align 4
+  %add353.i = add i32 %19, %18
   store i32 %add353.i, ptr %arrayidx352.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -1059,8 +1058,8 @@ salsa208_word_specification.exit:                 ; preds = %for.body349.i
   call void @OPENSSL_cleanse(ptr noundef nonnull %x.i, i64 noundef 64) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %x.i)
   %div9 = lshr i64 %i.013, 1
-  %5 = and i64 %i.013, 1
-  %.not = icmp eq i64 %5, 0
+  %20 = and i64 %i.013, 1
+  %.not = icmp eq i64 %20, 0
   %mul7 = select i1 %.not, i64 0, i64 %r
   %add = add i64 %mul7, %div9
   %mul8 = shl i64 %add, 4

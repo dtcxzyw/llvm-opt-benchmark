@@ -76,7 +76,7 @@ lor.lhs.false9:                                   ; preds = %if.end
 if.end15:                                         ; preds = %lor.lhs.false9
   tail call void @SSL_set0_wbio(ptr noundef %call6, ptr noundef %call11) #4
   %0 = load ptr, ptr %arrayidx, align 16
-  %inlen = getelementptr inbounds [9 x %struct.tests], ptr @testpackets, i64 0, i64 %idxprom, i32 1
+  %inlen = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %inlen, align 8
   %call16 = tail call ptr @BIO_new_mem_buf(ptr noundef %0, i32 noundef %1) #4
   %call17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 314, ptr noundef nonnull @.str.6, ptr noundef %call16) #4
@@ -93,10 +93,10 @@ if.end20:                                         ; preds = %if.end15
 
 if.end26:                                         ; preds = %if.end20
   %call27 = call i64 @BIO_ctrl(ptr noundef %call11, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %data) #4
-  %2 = lshr i64 67, %idxprom
-  %3 = and i64 %2, 1
-  %cmp.not = icmp eq i64 %3, 0
-  br i1 %cmp.not, label %if.else, label %if.then28
+  %outtype = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %2 = load i32, ptr %outtype, align 4
+  %cmp = icmp eq i32 %2, 1
+  br i1 %cmp, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %if.end26
   %call29 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 325, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef %call22, i32 noundef 0) #4
@@ -104,8 +104,8 @@ if.then28:                                        ; preds = %if.end26
   br i1 %tobool30.not, label %err, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %if.then28
-  %4 = load ptr, ptr %data, align 8
-  %call32 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 326, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef %4, i64 noundef %call27, ptr noundef nonnull @verify, i64 noundef 48) #4
+  %3 = load ptr, ptr %data, align 8
+  %call32 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 326, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef %3, i64 noundef %call27, ptr noundef nonnull @verify, i64 noundef 48) #4
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %err, label %if.end51
 
@@ -114,25 +114,22 @@ if.else:                                          ; preds = %if.end26
   br i1 %cmp36, label %if.then37, label %if.else49
 
 if.then37:                                        ; preds = %if.else
-  switch i32 %call22, label %lor.end [
-    i32 0, label %land.lhs.true
-    i32 1, label %land.rhs
-  ]
+  %cmp38 = icmp eq i32 %call22, 0
+  %cmp40 = icmp eq i32 %2, 2
+  %or.cond = and i1 %cmp38, %cmp40
+  br i1 %or.cond, label %lor.end, label %lor.rhs
 
-land.lhs.true:                                    ; preds = %if.then37
-  %5 = lshr i64 396, %idxprom
-  %6 = trunc i64 %5 to i32
-  %spec.select = and i32 %6, 1
+lor.rhs:                                          ; preds = %if.then37
+  %cmp41 = icmp eq i32 %call22, 1
+  br i1 %cmp41, label %land.rhs, label %lor.end
+
+land.rhs:                                         ; preds = %lor.rhs
+  %cmp43 = icmp eq i32 %2, 0
+  %4 = zext i1 %cmp43 to i32
   br label %lor.end
 
-land.rhs:                                         ; preds = %if.then37
-  %7 = and i32 %i, -2
-  %cmp43 = icmp eq i32 %7, 4
-  %8 = zext i1 %cmp43 to i32
-  br label %lor.end
-
-lor.end:                                          ; preds = %land.lhs.true, %if.then37, %land.rhs
-  %lor.ext = phi i32 [ %8, %land.rhs ], [ 0, %if.then37 ], [ %spec.select, %land.lhs.true ]
+lor.end:                                          ; preds = %if.then37, %lor.rhs, %land.rhs
+  %lor.ext = phi i32 [ 0, %lor.rhs ], [ %4, %land.rhs ], [ 1, %if.then37 ]
   %call45 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 330, ptr noundef nonnull @.str.12, i32 noundef %lor.ext) #4
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %err, label %if.end51

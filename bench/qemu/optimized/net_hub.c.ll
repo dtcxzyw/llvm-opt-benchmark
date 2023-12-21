@@ -5,18 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.anon = type { ptr }
 %struct.NetClientInfo = type { i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.NetHub = type { i32, %struct.anon.0, i32, %struct.anon.1 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr }
-%struct.NetHubPort = type { %struct.NetClientState, %struct.anon.3, ptr, i32 }
-%struct.NetClientState = type { ptr, i32, %union.anon, ptr, ptr, ptr, ptr, [256 x i8], i8, ptr, i32, i8, i32, i32, i8, i8, i8, %union.anon.2 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.anon.3 = type { ptr, ptr }
-%struct.Netdev = type { ptr, i32, %union.anon.4 }
-%union.anon.4 = type { %struct.NetdevUserOptions }
-%struct.NetdevUserOptions = type { ptr, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr, i8, ptr, i8, ptr, ptr }
 
 @hubs = internal global %struct.anon zeroinitializer, align 8
 @.str = private unnamed_addr constant [8 x i8] c"hub %d\0A\00", align 1
@@ -52,7 +40,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp, label %if.end3, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds %struct.NetHub, ptr %hub.016, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %hub.016, i64 8
   %hub.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %hub.0, null
   br i1 %tobool.not, label %if.then2, label %for.body, !llvm.loop !5
@@ -60,31 +48,31 @@ for.inc:                                          ; preds = %for.body
 if.then2:                                         ; preds = %for.inc, %entry
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc(i64 noundef 40) #9
   store i32 %hub_id, ptr %call.i, align 8
-  %num_ports.i = getelementptr inbounds %struct.NetHub, ptr %call.i, i64 0, i32 2
+  %num_ports.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 0, ptr %num_ports.i, align 8
-  %ports.i = getelementptr inbounds %struct.NetHub, ptr %call.i, i64 0, i32 3
+  %ports.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr null, ptr %ports.i, align 8
   %1 = load ptr, ptr @hubs, align 8
-  %next.i = getelementptr inbounds %struct.NetHub, ptr %call.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %1, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %net_hub_new.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then2
-  %le_prev.i = getelementptr inbounds %struct.NetHub, ptr %1, i64 0, i32 1, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %next.i, ptr %le_prev.i, align 8
   br label %net_hub_new.exit
 
 net_hub_new.exit:                                 ; preds = %if.then2, %if.then.i
   store ptr %call.i, ptr @hubs, align 8
-  %le_prev7.i = getelementptr inbounds %struct.NetHub, ptr %call.i, i64 0, i32 1, i32 1
+  %le_prev7.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @hubs, ptr %le_prev7.i, align 8
   br label %if.end3
 
 if.end3:                                          ; preds = %for.body, %net_hub_new.exit
   %hub.1 = phi ptr [ %call.i, %net_hub_new.exit ], [ %hub.016, %for.body ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %default_name.i)
-  %num_ports.i6 = getelementptr inbounds %struct.NetHub, ptr %hub.1, i64 0, i32 2
+  %num_ports.i6 = getelementptr inbounds i8, ptr %hub.1, i64 24
   %2 = load i32, ptr %num_ports.i6, align 8
   %inc.i = add i32 %2, 1
   store i32 %inc.i, ptr %num_ports.i6, align 8
@@ -99,25 +87,25 @@ if.then.i11:                                      ; preds = %if.end3
 if.end.i:                                         ; preds = %if.then.i11, %if.end3
   %name.addr.0.i = phi ptr [ %name, %if.end3 ], [ %default_name.i, %if.then.i11 ]
   %call3.i = call ptr @qemu_new_net_client(ptr noundef nonnull @net_hub_port_info, ptr noundef %hubpeer, ptr noundef nonnull @.str.12, ptr noundef nonnull %name.addr.0.i) #10
-  %id5.i = getelementptr inbounds %struct.NetHubPort, ptr %call3.i, i64 0, i32 3
+  %id5.i = getelementptr inbounds i8, ptr %call3.i, i64 400
   store i32 %2, ptr %id5.i, align 8
-  %hub6.i = getelementptr inbounds %struct.NetHubPort, ptr %call3.i, i64 0, i32 2
+  %hub6.i = getelementptr inbounds i8, ptr %call3.i, i64 392
   store ptr %hub.1, ptr %hub6.i, align 8
-  %ports.i7 = getelementptr inbounds %struct.NetHub, ptr %hub.1, i64 0, i32 3
+  %ports.i7 = getelementptr inbounds i8, ptr %hub.1, i64 32
   %4 = load ptr, ptr %ports.i7, align 8
-  %next.i8 = getelementptr inbounds %struct.NetHubPort, ptr %call3.i, i64 0, i32 1
+  %next.i8 = getelementptr inbounds i8, ptr %call3.i, i64 376
   store ptr %4, ptr %next.i8, align 8
   %cmp.not.i9 = icmp eq ptr %4, null
   br i1 %cmp.not.i9, label %net_hub_port_new.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i
-  %le_prev.i10 = getelementptr inbounds %struct.NetHubPort, ptr %4, i64 0, i32 1, i32 1
+  %le_prev.i10 = getelementptr inbounds i8, ptr %4, i64 384
   store ptr %next.i8, ptr %le_prev.i10, align 8
   br label %net_hub_port_new.exit
 
 net_hub_port_new.exit:                            ; preds = %if.end.i, %if.then7.i
   store ptr %call3.i, ptr %ports.i7, align 8
-  %le_prev19.i = getelementptr inbounds %struct.NetHubPort, ptr %call3.i, i64 0, i32 1, i32 1
+  %le_prev19.i = getelementptr inbounds i8, ptr %call3.i, i64 384
   store ptr %ports.i7, ptr %le_prev19.i, align 8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %default_name.i)
   ret ptr %call3.i
@@ -137,26 +125,26 @@ for.body:                                         ; preds = %entry, %for.inc9
   br i1 %cmp, label %if.then, label %for.inc9
 
 if.then:                                          ; preds = %for.body
-  %ports = getelementptr inbounds %struct.NetHub, ptr %hub.014, i64 0, i32 3
+  %ports = getelementptr inbounds i8, ptr %hub.014, i64 32
   %port.015 = load ptr, ptr %ports, align 8
   %tobool2.not16 = icmp eq ptr %port.015, null
   br i1 %tobool2.not16, label %for.end12, label %for.body3
 
 for.body3:                                        ; preds = %if.then, %for.inc
   %port.017 = phi ptr [ %port.0, %for.inc ], [ %port.015, %if.then ]
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %port.017, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %port.017, i64 32
   %1 = load ptr, ptr %peer, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body3
-  %next = getelementptr inbounds %struct.NetHubPort, ptr %port.017, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %port.017, i64 376
   %port.0 = load ptr, ptr %next, align 8
   %tobool2.not = icmp eq ptr %port.0, null
   br i1 %tobool2.not, label %for.end12, label %for.body3, !llvm.loop !7
 
 for.inc9:                                         ; preds = %for.body
-  %next10 = getelementptr inbounds %struct.NetHub, ptr %hub.014, i64 0, i32 1
+  %next10 = getelementptr inbounds i8, ptr %hub.014, i64 8
   %hub.0 = load ptr, ptr %next10, align 8
   %tobool.not = icmp eq ptr %hub.0, null
   br i1 %tobool.not, label %for.end12, label %for.body, !llvm.loop !8
@@ -181,17 +169,17 @@ for.body:                                         ; preds = %entry, %for.inc11
   %hub.017 = phi ptr [ %hub.0, %for.inc11 ], [ %hub.015, %entry ]
   %0 = load i32, ptr %hub.017, align 8
   %call = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str, i32 noundef %0) #10
-  %ports = getelementptr inbounds %struct.NetHub, ptr %hub.017, i64 0, i32 3
+  %ports = getelementptr inbounds i8, ptr %hub.017, i64 32
   %port.012 = load ptr, ptr %ports, align 8
   %tobool2.not13 = icmp eq ptr %port.012, null
   br i1 %tobool2.not13, label %for.inc11, label %for.body3
 
 for.body3:                                        ; preds = %for.body, %for.inc
   %port.014 = phi ptr [ %port.0, %for.inc ], [ %port.012, %for.body ]
-  %name = getelementptr inbounds %struct.NetClientState, ptr %port.014, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %port.014, i64 56
   %1 = load ptr, ptr %name, align 8
   %call4 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.1, ptr noundef %1) #10
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %port.014, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %port.014, i64 32
   %2 = load ptr, ptr %peer, align 8
   %tobool6.not = icmp eq ptr %2, null
   br i1 %tobool6.not, label %if.else, label %if.then
@@ -207,13 +195,13 @@ if.else:                                          ; preds = %for.body3
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.else
-  %next = getelementptr inbounds %struct.NetHubPort, ptr %port.014, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %port.014, i64 376
   %port.0 = load ptr, ptr %next, align 8
   %tobool2.not = icmp eq ptr %port.0, null
   br i1 %tobool2.not, label %for.inc11, label %for.body3, !llvm.loop !9
 
 for.inc11:                                        ; preds = %for.inc, %for.body
-  %next12 = getelementptr inbounds %struct.NetHub, ptr %hub.017, i64 0, i32 1
+  %next12 = getelementptr inbounds i8, ptr %hub.017, i64 8
   %hub.0 = load ptr, ptr %next12, align 8
   %tobool.not = icmp eq ptr %hub.0, null
   br i1 %tobool.not, label %for.end14, label %for.body, !llvm.loop !10
@@ -235,7 +223,7 @@ entry:
   br i1 %cmp, label %if.end15, label %if.else
 
 if.else:                                          ; preds = %entry
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %nc, i64 32
   %2 = load ptr, ptr %peer, align 8
   %cmp2.not = icmp eq ptr %2, null
   br i1 %cmp2.not, label %return, label %land.lhs.true
@@ -252,7 +240,7 @@ if.end15:                                         ; preds = %land.lhs.true, %ent
   br i1 %tobool.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %if.end15
-  %hub = getelementptr inbounds %struct.NetHubPort, ptr %port.0, i64 0, i32 2
+  %hub = getelementptr inbounds i8, ptr %port.0, i64 392
   %5 = load ptr, ptr %hub, align 8
   %6 = load i32, ptr %5, align 8
   store i32 %6, ptr %id, align 4
@@ -266,7 +254,7 @@ return:                                           ; preds = %if.end15, %if.then1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @net_init_hubport(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef readnone %peer, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %0, 10
   br i1 %cmp, label %if.end, label %if.else
@@ -284,8 +272,8 @@ if.else2:                                         ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %u = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2
-  %netdev4 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 1
+  %u = getelementptr inbounds i8, ptr %netdev, i64 16
+  %netdev4 = getelementptr inbounds i8, ptr %netdev, i64 24
   %1 = load ptr, ptr %netdev4, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end12, label %if.then6
@@ -327,7 +315,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc19
   %hub.023 = phi ptr [ %hub.0, %for.inc19 ], [ %hub.021, %entry ]
-  %ports = getelementptr inbounds %struct.NetHub, ptr %hub.023, i64 0, i32 3
+  %ports = getelementptr inbounds i8, ptr %hub.023, i64 32
   %port.015 = load ptr, ptr %ports, align 8
   %tobool2.not16 = icmp eq ptr %port.015, null
   br i1 %tobool2.not16, label %for.inc19, label %for.body3
@@ -336,13 +324,13 @@ for.body3:                                        ; preds = %for.body, %for.inc
   %port.019 = phi ptr [ %port.0, %for.inc ], [ %port.015, %for.body ]
   %has_host_dev.018 = phi i32 [ %has_host_dev.1, %for.inc ], [ 0, %for.body ]
   %has_nic.017 = phi i32 [ %has_nic.1, %for.inc ], [ 0, %for.body ]
-  %peer4 = getelementptr inbounds %struct.NetClientState, ptr %port.019, i64 0, i32 3
+  %peer4 = getelementptr inbounds i8, ptr %port.019, i64 32
   %0 = load ptr, ptr %peer4, align 8
   %tobool5.not = icmp eq ptr %0, null
   br i1 %tobool5.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body3
-  %name = getelementptr inbounds %struct.NetClientState, ptr %port.019, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %port.019, i64 56
   %1 = load ptr, ptr %name, align 8
   tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.8, ptr noundef %1) #10
   br label %for.inc
@@ -370,7 +358,7 @@ sw.bb7:                                           ; preds = %if.end, %if.end, %i
 for.inc:                                          ; preds = %sw.bb, %sw.bb7, %if.end, %if.then
   %has_nic.1 = phi i32 [ %has_nic.017, %if.end ], [ %has_nic.017, %sw.bb7 ], [ 1, %sw.bb ], [ %has_nic.017, %if.then ]
   %has_host_dev.1 = phi i32 [ %has_host_dev.018, %if.end ], [ 1, %sw.bb7 ], [ %has_host_dev.018, %sw.bb ], [ %has_host_dev.018, %if.then ]
-  %next = getelementptr inbounds %struct.NetHubPort, ptr %port.019, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %port.019, i64 376
   %port.0 = load ptr, ptr %next, align 8
   %tobool2.not = icmp eq ptr %port.0, null
   br i1 %tobool2.not, label %for.end, label %for.body3, !llvm.loop !11
@@ -400,7 +388,7 @@ for.inc19.sink.split:                             ; preds = %land.lhs.true15, %f
   br label %for.inc19
 
 for.inc19:                                        ; preds = %for.inc19.sink.split, %for.body, %if.end11, %land.lhs.true15
-  %next20 = getelementptr inbounds %struct.NetHub, ptr %hub.023, i64 0, i32 1
+  %next20 = getelementptr inbounds i8, ptr %hub.023, i64 8
   %hub.0 = load ptr, ptr %next20, align 8
   %tobool.not = icmp eq ptr %hub.0, null
   br i1 %tobool.not, label %for.end22, label %for.body, !llvm.loop !12
@@ -414,9 +402,9 @@ declare void @warn_report(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @net_hub_flush(ptr noundef readonly %nc) local_unnamed_addr #0 {
 entry:
-  %hub = getelementptr inbounds %struct.NetHubPort, ptr %nc, i64 0, i32 2
+  %hub = getelementptr inbounds i8, ptr %nc, i64 392
   %0 = load ptr, ptr %hub, align 8
-  %ports = getelementptr inbounds %struct.NetHub, ptr %0, i64 0, i32 3
+  %ports = getelementptr inbounds i8, ptr %0, i64 32
   %port.06 = load ptr, ptr %ports, align 8
   %tobool.not7 = icmp eq ptr %port.06, null
   br i1 %tobool.not7, label %for.end, label %for.body
@@ -428,7 +416,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %incoming_queue = getelementptr inbounds %struct.NetClientState, ptr %port.09, i64 0, i32 4
+  %incoming_queue = getelementptr inbounds i8, ptr %port.09, i64 40
   %1 = load ptr, ptr %incoming_queue, align 8
   %call = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %1) #10
   %conv = zext i1 %call to i32
@@ -437,7 +425,7 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then
   %ret.1 = phi i32 [ %add, %if.then ], [ %ret.08, %for.body ]
-  %next = getelementptr inbounds %struct.NetHubPort, ptr %port.09, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %port.09, i64 376
   %port.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %port.0, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !13
@@ -464,9 +452,9 @@ declare ptr @qemu_new_net_client(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @net_hub_port_receive(ptr noundef readonly %nc, ptr noundef %buf, i64 noundef returned %len) #0 {
 entry:
-  %hub = getelementptr inbounds %struct.NetHubPort, ptr %nc, i64 0, i32 2
+  %hub = getelementptr inbounds i8, ptr %nc, i64 392
   %0 = load ptr, ptr %hub, align 8
-  %ports.i = getelementptr inbounds %struct.NetHub, ptr %0, i64 0, i32 3
+  %ports.i = getelementptr inbounds i8, ptr %0, i64 32
   %port.05.i = load ptr, ptr %ports.i, align 8
   %tobool.not6.i = icmp eq ptr %port.05.i, null
   br i1 %tobool.not6.i, label %net_hub_receive.exit, label %for.body.lr.ph.i
@@ -485,7 +473,7 @@ if.end.i:                                         ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.NetHubPort, ptr %port.07.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %port.07.i, i64 376
   %port.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %port.0.i, null
   br i1 %tobool.not.i, label %net_hub_receive.exit, label %for.body.i, !llvm.loop !14
@@ -497,10 +485,10 @@ net_hub_receive.exit:                             ; preds = %for.inc.i, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @net_hub_port_receive_iov(ptr noundef readonly %nc, ptr noundef %iov, i32 noundef %iovcnt) #0 {
 entry:
-  %hub = getelementptr inbounds %struct.NetHubPort, ptr %nc, i64 0, i32 2
+  %hub = getelementptr inbounds i8, ptr %nc, i64 392
   %0 = load ptr, ptr %hub, align 8
   %call.i = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %iovcnt) #10
-  %ports.i = getelementptr inbounds %struct.NetHub, ptr %0, i64 0, i32 3
+  %ports.i = getelementptr inbounds i8, ptr %0, i64 32
   %port.06.i = load ptr, ptr %ports.i, align 8
   %tobool.not7.i = icmp eq ptr %port.06.i, null
   br i1 %tobool.not7.i, label %net_hub_receive_iov.exit, label %for.body.i
@@ -515,7 +503,7 @@ if.end.i:                                         ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.NetHubPort, ptr %port.08.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %port.08.i, i64 376
   %port.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %port.0.i, null
   br i1 %tobool.not.i, label %net_hub_receive_iov.exit, label %for.body.i, !llvm.loop !15
@@ -527,9 +515,9 @@ net_hub_receive_iov.exit:                         ; preds = %for.inc.i, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @net_hub_port_can_receive(ptr noundef readonly %nc) #0 {
 entry:
-  %hub2 = getelementptr inbounds %struct.NetHubPort, ptr %nc, i64 0, i32 2
+  %hub2 = getelementptr inbounds i8, ptr %nc, i64 392
   %0 = load ptr, ptr %hub2, align 8
-  %ports = getelementptr inbounds %struct.NetHub, ptr %0, i64 0, i32 3
+  %ports = getelementptr inbounds i8, ptr %0, i64 32
   %port.05 = load ptr, ptr %ports, align 8
   %tobool.not6.not = icmp eq ptr %port.05, null
   br i1 %tobool.not6.not, label %return, label %for.body
@@ -545,7 +533,7 @@ if.end:                                           ; preds = %for.body
   br i1 %tobool4.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end, %for.body
-  %next = getelementptr inbounds %struct.NetHubPort, ptr %port.07, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %port.07, i64 376
   %port.0 = load ptr, ptr %next, align 8
   %tobool.not.not = icmp eq ptr %port.0, null
   br i1 %tobool.not.not, label %return, label %for.body, !llvm.loop !16
@@ -558,15 +546,15 @@ return:                                           ; preds = %if.end, %for.inc, %
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @net_hub_port_cleanup(ptr nocapture noundef %nc) #6 {
 entry:
-  %next = getelementptr inbounds %struct.NetHubPort, ptr %nc, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %nc, i64 376
   %0 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %0, null
-  %le_prev10.phi.trans.insert = getelementptr inbounds %struct.NetHubPort, ptr %nc, i64 0, i32 1, i32 1
+  %le_prev10.phi.trans.insert = getelementptr inbounds i8, ptr %nc, i64 384
   %.pre7 = load ptr, ptr %le_prev10.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %le_prev6 = getelementptr inbounds %struct.NetHubPort, ptr %0, i64 0, i32 1, i32 1
+  %le_prev6 = getelementptr inbounds i8, ptr %0, i64 384
   store ptr %.pre7, ptr %le_prev6, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %if.end

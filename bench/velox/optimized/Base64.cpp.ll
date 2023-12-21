@@ -10,12 +10,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.folly::Range" = type { ptr, ptr }
 %"class.facebook::velox::encoding::(anonymous namespace)::IOBufWrapper" = type { ptr }
-%"class.folly::IOBuf" = type { ptr, ptr, ptr, ptr, i64, i64, i64 }
-%"struct.std::pair" = type <{ ptr, i32, [4 x i8] }>
-%"class.facebook::velox::encoding::Base64Exception" = type { %"class.std::exception", ptr }
-%"class.std::exception" = type { ptr }
 %"class.std::out_of_range" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
+%"class.std::exception" = type { ptr }
 %"struct.std::__cow_string" = type { %union.anon.3 }
 %union.anon.3 = type { ptr }
 
@@ -320,7 +317,7 @@ define void @_ZN8facebook5velox8encoding6Base646encodeB5cxx11EN5folly5RangeIPKcE
 entry:
   %text = alloca %"class.folly::Range", align 8
   store ptr %text.coerce0, ptr %text, align 8
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %text, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %text, i64 8
   store ptr %text.coerce1, ptr %0, align 8
   call void @_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKSt5arrayIcLm64EEb(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %text, ptr noundef nonnull align 1 dereferenceable(64) @_ZN8facebook5velox8encodingL14kBase64CharsetE, i1 noundef zeroext true)
   ret void
@@ -329,7 +326,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKSt5arrayIcLm64EEb(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 1 dereferenceable(64) %charset, i1 noundef zeroext %include_pad) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %data, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load ptr, ptr %e_.i, align 8
   %1 = load ptr, ptr %data, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -496,7 +493,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %len
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %text.i)
   store ptr %data, ptr %text.i, align 8, !noalias !6
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %text.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %text.i, i64 8
   store ptr %add.ptr.i, ptr %0, align 8, !noalias !6
   call void @_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKSt5arrayIcLm64EEb(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %text.i, ptr noundef nonnull align 1 dereferenceable(64) @_ZN8facebook5velox8encodingL14kBase64CharsetE, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %text.i)
@@ -561,9 +558,9 @@ if.end.i4:                                        ; preds = %call.i.i.noexc
   br i1 %tobool.not.i.i.i.i.i, label %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i4
-  %data_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %data.val33.i, i64 0, i32 2
+  %data_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %data.val33.i, i64 16
   %0 = load ptr, ptr %data_.i.i.i.i.i.i, align 8, !noalias !9
-  %length_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %data.val33.i, i64 0, i32 4
+  %length_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %data.val33.i, i64 32
   %1 = load i64, ptr %length_.i.i.i.i.i.i, align 8, !noalias !9
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %1
   br label %_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i
@@ -619,9 +616,9 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %for.b
   br i1 %cmp.i.i.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  %data_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %6, i64 0, i32 2
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %data_.i.i.i.i, align 8
-  %length_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %6, i64 0, i32 4
+  %length_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load i64, ptr %length_.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %p.039.i.i, i64 %sub.ptr.sub.i41.i.i
@@ -659,9 +656,9 @@ if.then.i25.i.i:                                  ; preds = %if.end11.i.i
   br i1 %cmp.i.i.i.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i25.i.i
-  %data_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %9, i64 0, i32 2
+  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %data_.i.i.i.i.i, align 8
-  %length_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %9, i64 0, i32 4
+  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load i64, ptr %length_.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 %11
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i.i
@@ -733,9 +730,9 @@ if.end.i161.i:                                    ; preds = %if.then.i159.i, %fo
   br i1 %cmp.i.i163.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit195.i, label %if.end6.i183.i
 
 if.end6.i183.i:                                   ; preds = %if.end.i161.i
-  %data_.i.i.i172.i = getelementptr inbounds %"class.folly::IOBuf", ptr %16, i64 0, i32 2
+  %data_.i.i.i172.i = getelementptr inbounds i8, ptr %16, i64 16
   %17 = load ptr, ptr %data_.i.i.i172.i, align 8
-  %length_.i.i.i173.i = getelementptr inbounds %"class.folly::IOBuf", ptr %16, i64 0, i32 4
+  %length_.i.i.i173.i = getelementptr inbounds i8, ptr %16, i64 32
   %18 = load i64, ptr %length_.i.i.i173.i, align 8
   %add.ptr.i.i.i174.i = getelementptr inbounds i8, ptr %17, i64 %18
   %add.ptr.i184.i = getelementptr inbounds i8, ptr %p.039.i156.i, i64 %sub.ptr.sub.i41.i154.i
@@ -773,9 +770,9 @@ if.then.i25.i122.i:                               ; preds = %if.end11.i117.i
   br i1 %cmp.i.i.i124.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i, label %if.end.i.i.i128.i
 
 if.end.i.i.i128.i:                                ; preds = %if.then.i25.i122.i
-  %data_.i.i.i.i135.i = getelementptr inbounds %"class.folly::IOBuf", ptr %19, i64 0, i32 2
+  %data_.i.i.i.i135.i = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %data_.i.i.i.i135.i, align 8
-  %length_.i.i.i.i136.i = getelementptr inbounds %"class.folly::IOBuf", ptr %19, i64 0, i32 4
+  %length_.i.i.i.i136.i = getelementptr inbounds i8, ptr %19, i64 32
   %21 = load i64, ptr %length_.i.i.i.i136.i, align 8
   %add.ptr.i.i.i.i137.i = getelementptr inbounds i8, ptr %20, i64 %21
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i119.i
@@ -847,9 +844,9 @@ if.end.i255.i:                                    ; preds = %if.then.i253.i, %fo
   br i1 %cmp.i.i257.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit289.i, label %if.end6.i277.i
 
 if.end6.i277.i:                                   ; preds = %if.end.i255.i
-  %data_.i.i.i266.i = getelementptr inbounds %"class.folly::IOBuf", ptr %26, i64 0, i32 2
+  %data_.i.i.i266.i = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load ptr, ptr %data_.i.i.i266.i, align 8
-  %length_.i.i.i267.i = getelementptr inbounds %"class.folly::IOBuf", ptr %26, i64 0, i32 4
+  %length_.i.i.i267.i = getelementptr inbounds i8, ptr %26, i64 32
   %28 = load i64, ptr %length_.i.i.i267.i, align 8
   %add.ptr.i.i.i268.i = getelementptr inbounds i8, ptr %27, i64 %28
   %add.ptr.i278.i = getelementptr inbounds i8, ptr %p.039.i250.i, i64 %sub.ptr.sub.i41.i248.i
@@ -887,9 +884,9 @@ if.then.i25.i216.i:                               ; preds = %if.end11.i211.i
   br i1 %cmp.i.i.i218.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i213.i, label %if.end.i.i.i222.i
 
 if.end.i.i.i222.i:                                ; preds = %if.then.i25.i216.i
-  %data_.i.i.i.i229.i = getelementptr inbounds %"class.folly::IOBuf", ptr %29, i64 0, i32 2
+  %data_.i.i.i.i229.i = getelementptr inbounds i8, ptr %29, i64 16
   %30 = load ptr, ptr %data_.i.i.i.i229.i, align 8
-  %length_.i.i.i.i230.i = getelementptr inbounds %"class.folly::IOBuf", ptr %29, i64 0, i32 4
+  %length_.i.i.i.i230.i = getelementptr inbounds i8, ptr %29, i64 32
   %31 = load i64, ptr %length_.i.i.i.i230.i, align 8
   %add.ptr.i.i.i.i231.i = getelementptr inbounds i8, ptr %30, i64 %31
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i213.i
@@ -1001,9 +998,9 @@ if.end.i349.i:                                    ; preds = %if.then.i347.i, %fo
   br i1 %cmp.i.i351.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit383.i, label %if.end6.i371.i
 
 if.end6.i371.i:                                   ; preds = %if.end.i349.i
-  %data_.i.i.i360.i = getelementptr inbounds %"class.folly::IOBuf", ptr %42, i64 0, i32 2
+  %data_.i.i.i360.i = getelementptr inbounds i8, ptr %42, i64 16
   %43 = load ptr, ptr %data_.i.i.i360.i, align 8
-  %length_.i.i.i361.i = getelementptr inbounds %"class.folly::IOBuf", ptr %42, i64 0, i32 4
+  %length_.i.i.i361.i = getelementptr inbounds i8, ptr %42, i64 32
   %44 = load i64, ptr %length_.i.i.i361.i, align 8
   %add.ptr.i.i.i362.i = getelementptr inbounds i8, ptr %43, i64 %44
   %add.ptr.i372.i = getelementptr inbounds i8, ptr %p.039.i344.i, i64 %sub.ptr.sub.i41.i342.i
@@ -1041,9 +1038,9 @@ if.then.i25.i310.i:                               ; preds = %if.end11.i305.i
   br i1 %cmp.i.i.i312.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i307.i, label %if.end.i.i.i316.i
 
 if.end.i.i.i316.i:                                ; preds = %if.then.i25.i310.i
-  %data_.i.i.i.i323.i = getelementptr inbounds %"class.folly::IOBuf", ptr %45, i64 0, i32 2
+  %data_.i.i.i.i323.i = getelementptr inbounds i8, ptr %45, i64 16
   %46 = load ptr, ptr %data_.i.i.i.i323.i, align 8
-  %length_.i.i.i.i324.i = getelementptr inbounds %"class.folly::IOBuf", ptr %45, i64 0, i32 4
+  %length_.i.i.i.i324.i = getelementptr inbounds i8, ptr %45, i64 32
   %47 = load i64, ptr %length_.i.i.i.i324.i, align 8
   %add.ptr.i.i.i.i325.i = getelementptr inbounds i8, ptr %46, i64 %47
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i307.i
@@ -1123,9 +1120,9 @@ if.end.i443.i:                                    ; preds = %if.then.i441.i, %fo
   br i1 %cmp.i.i445.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit477.i, label %if.end6.i465.i
 
 if.end6.i465.i:                                   ; preds = %if.end.i443.i
-  %data_.i.i.i454.i = getelementptr inbounds %"class.folly::IOBuf", ptr %55, i64 0, i32 2
+  %data_.i.i.i454.i = getelementptr inbounds i8, ptr %55, i64 16
   %56 = load ptr, ptr %data_.i.i.i454.i, align 8
-  %length_.i.i.i455.i = getelementptr inbounds %"class.folly::IOBuf", ptr %55, i64 0, i32 4
+  %length_.i.i.i455.i = getelementptr inbounds i8, ptr %55, i64 32
   %57 = load i64, ptr %length_.i.i.i455.i, align 8
   %add.ptr.i.i.i456.i = getelementptr inbounds i8, ptr %56, i64 %57
   %add.ptr.i466.i = getelementptr inbounds i8, ptr %p.039.i438.i, i64 %sub.ptr.sub.i41.i436.i
@@ -1404,7 +1401,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox8encoding6Base646decodeERKSt4pairIPKciERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %payload, ptr noundef nonnull align 8 dereferenceable(32) %output) local_unnamed_addr #2 align 2 {
 entry:
-  %second = getelementptr inbounds %"struct.std::pair", ptr %payload, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %payload, i64 8
   %0 = load i32, ptr %second, align 8
   %div = sdiv i32 %0, 4
   %mul = mul nsw i32 %div, 3
@@ -1456,7 +1453,7 @@ entry:
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %msg_.i = getelementptr inbounds %"class.facebook::velox::encoding::Base64Exception", ptr %exception, i64 0, i32 1
+  %msg_.i = getelementptr inbounds i8, ptr %exception, i64 8
   store ptr @.str, ptr %msg_.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
   unreachable
@@ -1492,7 +1489,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %msg_.i = getelementptr inbounds %"class.facebook::velox::encoding::Base64Exception", ptr %exception, i64 0, i32 1
+  %msg_.i = getelementptr inbounds i8, ptr %exception, i64 8
   store ptr @.str.3, ptr %msg_.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
   unreachable
@@ -1516,7 +1513,7 @@ for.body:                                         ; preds = %for.condthread-pre-
 if.then.i:                                        ; preds = %for.body
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception.i, align 8
-  %msg_.i.i = getelementptr inbounds %"class.facebook::velox::encoding::Base64Exception", ptr %exception.i, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   store ptr @.str, ptr %msg_.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
   unreachable
@@ -1533,7 +1530,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
 if.then.i33:                                      ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit
   %exception.i34 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception.i34, align 8
-  %msg_.i.i35 = getelementptr inbounds %"class.facebook::velox::encoding::Base64Exception", ptr %exception.i34, i64 0, i32 1
+  %msg_.i.i35 = getelementptr inbounds i8, ptr %exception.i34, i64 8
   store ptr @.str, ptr %msg_.i.i35, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i34, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
   unreachable
@@ -1555,7 +1552,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
 if.then.i40:                                      ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit36
   %exception.i41 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception.i41, align 8
-  %msg_.i.i42 = getelementptr inbounds %"class.facebook::velox::encoding::Base64Exception", ptr %exception.i41, i64 0, i32 1
+  %msg_.i.i42 = getelementptr inbounds i8, ptr %exception.i41, i64 8
   store ptr @.str, ptr %msg_.i.i42, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i41, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
   unreachable
@@ -1572,7 +1569,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
 if.then.i47:                                      ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit43
   %exception.i48 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception.i48, align 8
-  %msg_.i.i49 = getelementptr inbounds %"class.facebook::velox::encoding::Base64Exception", ptr %exception.i48, i64 0, i32 1
+  %msg_.i.i49 = getelementptr inbounds i8, ptr %exception.i48, i64 8
   store ptr @.str, ptr %msg_.i.i49, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i48, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
   unreachable
@@ -1613,7 +1610,7 @@ while.end:                                        ; preds = %_ZN8facebook5velox8
 if.then.i54:                                      ; preds = %while.end
   %exception.i55 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception.i55, align 8
-  %msg_.i.i56 = getelementptr inbounds %"class.facebook::velox::encoding::Base64Exception", ptr %exception.i55, i64 0, i32 1
+  %msg_.i.i56 = getelementptr inbounds i8, ptr %exception.i55, i64 8
   store ptr @.str, ptr %msg_.i.i56, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i55, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
   unreachable
@@ -1630,7 +1627,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
 if.then.i61:                                      ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit57
   %exception.i62 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception.i62, align 8
-  %msg_.i.i63 = getelementptr inbounds %"class.facebook::velox::encoding::Base64Exception", ptr %exception.i62, i64 0, i32 1
+  %msg_.i.i63 = getelementptr inbounds i8, ptr %exception.i62, i64 8
   store ptr @.str, ptr %msg_.i.i63, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i62, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
   unreachable
@@ -1659,7 +1656,7 @@ if.then56:                                        ; preds = %_ZN8facebook5velox8
 if.then.i68:                                      ; preds = %if.then56
   %exception.i69 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception.i69, align 8
-  %msg_.i.i70 = getelementptr inbounds %"class.facebook::velox::encoding::Base64Exception", ptr %exception.i69, i64 0, i32 1
+  %msg_.i.i70 = getelementptr inbounds i8, ptr %exception.i69, i64 8
   store ptr @.str, ptr %msg_.i.i70, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i69, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
   unreachable
@@ -1687,7 +1684,7 @@ if.then67:                                        ; preds = %_ZN8facebook5velox8
 if.then.i75:                                      ; preds = %if.then67
   %exception.i76 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception.i76, align 8
-  %msg_.i.i77 = getelementptr inbounds %"class.facebook::velox::encoding::Base64Exception", ptr %exception.i76, i64 0, i32 1
+  %msg_.i.i77 = getelementptr inbounds i8, ptr %exception.i76, i64 8
   store ptr @.str, ptr %msg_.i.i77, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i76, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
   unreachable
@@ -1724,7 +1721,7 @@ if.then1:                                         ; preds = %if.end
 if.then3:                                         ; preds = %if.then1
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %msg_.i = getelementptr inbounds %"class.facebook::velox::encoding::Base64Exception", ptr %exception, i64 0, i32 1
+  %msg_.i = getelementptr inbounds i8, ptr %exception, i64 8
   store ptr @.str.1, ptr %msg_.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
   unreachable
@@ -1759,7 +1756,7 @@ if.end6:                                          ; preds = %if.end
 if.then11:                                        ; preds = %if.end6
   %exception12 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 0, inrange i32 0, i64 2), ptr %exception12, align 8
-  %msg_.i16 = getelementptr inbounds %"class.facebook::velox::encoding::Base64Exception", ptr %exception12, i64 0, i32 1
+  %msg_.i16 = getelementptr inbounds i8, ptr %exception12, i64 8
   store ptr @.str.2, ptr %msg_.i16, align 8
   tail call void @__cxa_throw(ptr nonnull %exception12, ptr nonnull @_ZTIN8facebook5velox8encoding15Base64ExceptionE, ptr nonnull @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev) #12
   unreachable
@@ -1800,7 +1797,7 @@ define void @_ZN8facebook5velox8encoding6Base649encodeUrlB5cxx11EN5folly5RangeIP
 entry:
   %text = alloca %"class.folly::Range", align 8
   store ptr %text.coerce0, ptr %text, align 8
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %text, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %text, i64 8
   store ptr %text.coerce1, ptr %0, align 8
   call void @_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKSt5arrayIcLm64EEb(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %text, ptr noundef nonnull align 1 dereferenceable(64) @_ZN8facebook5velox8encodingL17kBase64UrlCharsetE, i1 noundef zeroext false)
   ret void
@@ -1813,7 +1810,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %len
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %text.i)
   store ptr %data, ptr %text.i, align 8, !noalias !15
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %text.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %text.i, i64 8
   store ptr %add.ptr.i, ptr %0, align 8, !noalias !15
   call void @_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKSt5arrayIcLm64EEb(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %text.i, ptr noundef nonnull align 1 dereferenceable(64) @_ZN8facebook5velox8encodingL17kBase64UrlCharsetE, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %text.i)
@@ -1878,7 +1875,7 @@ nrvo.skipdtor:                                    ; preds = %call3.i.noexc
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox8encoding6Base649decodeUrlERKSt4pairIPKciERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %payload, ptr noundef nonnull align 8 dereferenceable(32) %output) local_unnamed_addr #2 align 2 {
 entry:
-  %second = getelementptr inbounds %"struct.std::pair", ptr %payload, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %payload, i64 8
   %0 = load i32, ptr %second, align 8
   %add = add nsw i32 %0, 3
   %div = sdiv i32 %add, 4
@@ -1905,7 +1902,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK8facebook5velox8encoding15Base64Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %msg_ = getelementptr inbounds %"class.facebook::velox::encoding::Base64Exception", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %msg_, align 8
   ret ptr %0
 }

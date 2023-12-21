@@ -4,25 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.bio_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, i64, i64, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.bio_dgram_data_st = type { %union.bio_addr_st, %union.bio_addr_st, i32, i32, i32, %struct.OSSL_TIME, %struct.OSSL_TIME, i32, i8 }
+%struct.timeval = type { i64, i64 }
 %union.bio_addr_st = type { %struct.sockaddr_in6, [84 x i8] }
 %struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
 %struct.in6_addr = type { %union.anon }
 %union.anon = type { [4 x i32] }
-%struct.OSSL_TIME = type { i64 }
-%struct.timeval = type { i64, i64 }
-%struct.bio_poll_descriptor_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
 %struct.mmsghdr = type { %struct.msghdr, i32 }
 %struct.msghdr = type { ptr, i32, ptr, i64, ptr, i64, i32 }
 %struct.iovec = type { ptr, i64 }
-%struct.bio_msg_st = type { ptr, i64, ptr, ptr, i64 }
-%struct.cmsghdr = type { i64, i32, i32, [0 x i8] }
-%struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
-%struct.in_addr = type { i32 }
 
 @methods_dgramp = internal constant %struct.bio_method_st { i32 1301, ptr @.str, ptr @bwrite_conv, ptr @dgram_write, ptr @bread_conv, ptr @dgram_read, ptr @dgram_puts, ptr null, ptr @dgram_ctrl, ptr @dgram_new, ptr @dgram_free, ptr null, ptr @dgram_sendmmsg, ptr @dgram_recvmmsg }, align 8
 @.str = private unnamed_addr constant [16 x i8] c"datagram socket\00", align 1
@@ -87,17 +76,17 @@ declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define internal i32 @dgram_write(ptr noundef %b, ptr noundef %in, i32 noundef %inl) #1 {
 entry:
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr, align 8
   %call = tail call ptr @__errno_location() #12
   store i32 0, ptr %call, align 4
-  %connected = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 2
+  %connected = getelementptr inbounds i8, ptr %0, i64 224
   %1 = load i32, ptr %connected, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %num = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num = getelementptr inbounds i8, ptr %b, i64 56
   %2 = load i32, ptr %num, align 8
   %conv = sext i32 %inl to i64
   %call1 = tail call i64 @write(i32 noundef %2, ptr noundef %in, i64 noundef %conv) #11
@@ -105,7 +94,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %call3 = tail call i32 @BIO_ADDR_sockaddr_size(ptr noundef nonnull %0) #11
-  %num4 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num4 = getelementptr inbounds i8, ptr %b, i64 56
   %3 = load i32, ptr %num4, align 8
   %conv5 = sext i32 %inl to i64
   %call7 = tail call ptr @BIO_ADDR_sockaddr(ptr noundef nonnull %0) #11
@@ -133,7 +122,7 @@ if.then.i:                                        ; preds = %if.end
 if.then14:                                        ; preds = %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i
   tail call void @BIO_set_flags(ptr noundef nonnull %b, i32 noundef 10) #11
   %6 = load i32, ptr %call, align 4
-  %_errno = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 3
+  %_errno = getelementptr inbounds i8, ptr %0, i64 228
   store i32 %6, ptr %_errno, align 4
   br label %if.end17
 
@@ -151,7 +140,7 @@ entry:
   %sz.i = alloca i32, align 4
   %peer = alloca %union.bio_addr_st, align 4
   %len = alloca i32, align 4
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr, align 8
   store i32 112, ptr %len, align 4
   %cmp.not = icmp eq ptr %out, null
@@ -164,14 +153,14 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %sz.i)
   %1 = load ptr, ptr %ptr, align 8
-  %next_timeout.i = getelementptr inbounds %struct.bio_dgram_data_st, ptr %1, i64 0, i32 5
+  %next_timeout.i = getelementptr inbounds i8, ptr %1, i64 240
   %2 = load i64, ptr %next_timeout.i, align 8
   %cmp.i.not.not.i.not.i = icmp eq i64 %2, 0
   br i1 %cmp.i.not.not.i.not.i, label %dgram_adjust_rcv_timeout.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   store i32 16, ptr %sz.i, align 4
-  %num.i = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num.i = getelementptr inbounds i8, ptr %b, i64 56
   %3 = load i32, ptr %num.i, align 8
   %call1.i = call i32 @getsockopt(i32 noundef %3, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %tv.i, ptr noundef nonnull %sz.i) #11
   %cmp.i = icmp slt i32 %call1.i, 0
@@ -185,13 +174,13 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %socket_timeout.i = getelementptr inbounds %struct.bio_dgram_data_st, ptr %1, i64 0, i32 6
+  %socket_timeout.i = getelementptr inbounds i8, ptr %1, i64 248
   %5 = load i64, ptr %tv.i, align 8
   %cmp.i.i = icmp slt i64 %5, 0
   br i1 %cmp.i.i, label %ossl_time_from_timeval.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i
-  %6 = getelementptr inbounds { i64, i64 }, ptr %tv.i, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %tv.i, i64 8
   %7 = load i64, ptr %6, align 8
   %mul.i.i = mul i64 %5, 1000000000
   %mul2.i.i = mul i64 %7, 1000
@@ -208,7 +197,7 @@ if.end.i:                                         ; preds = %ossl_time_from_time
   %8 = load i64, ptr %next_timeout.i, align 8
   %retval.sroa.0.0.i9.i = call i64 @llvm.usub.sat.i64(i64 %8, i64 %call8.i)
   %spec.select.i = call i64 @llvm.umax.i64(i64 %retval.sroa.0.0.i9.i, i64 1000)
-  %socket_timeout26.i = getelementptr inbounds %struct.bio_dgram_data_st, ptr %1, i64 0, i32 6
+  %socket_timeout26.i = getelementptr inbounds i8, ptr %1, i64 248
   %9 = load i64, ptr %socket_timeout26.i, align 8
   %cmp.i.not.not.i11.not.i = icmp ne i64 %9, 0
   %cmp5.i14.not.i = icmp ult i64 %9, %spec.select.i
@@ -240,17 +229,17 @@ if.then42.i:                                      ; preds = %if.then35.i
 dgram_adjust_rcv_timeout.exit:                    ; preds = %if.then, %if.end.i, %if.then35.i, %if.then42.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sz.i)
-  %peekmode = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 7
+  %peekmode = getelementptr inbounds i8, ptr %0, i64 256
   %12 = load i32, ptr %peekmode, align 8
   %tobool.not = icmp eq i32 %12, 0
   %spec.select = select i1 %tobool.not, i32 0, i32 2
-  %num = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num = getelementptr inbounds i8, ptr %b, i64 56
   %13 = load i32, ptr %num, align 8
   %conv = sext i32 %outl to i64
   %call2 = call ptr @BIO_ADDR_sockaddr_noconst(ptr noundef nonnull %peer) #11
   %call3 = call i64 @recvfrom(i32 noundef %13, ptr noundef nonnull %out, i64 noundef %conv, i32 noundef %spec.select, ptr %call2, ptr noundef nonnull %len) #11
   %conv4 = trunc i64 %call3 to i32
-  %connected = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 2
+  %connected = getelementptr inbounds i8, ptr %0, i64 224
   %14 = load i32, ptr %connected, align 8
   %tobool5 = icmp eq i32 %14, 0
   %cmp6 = icmp sgt i32 %conv4, -1
@@ -280,20 +269,20 @@ if.then.i14:                                      ; preds = %if.end10
 if.then16:                                        ; preds = %if.then.i14, %if.then.i14, %if.then.i14, %if.then.i14, %if.then.i14
   call void @BIO_set_flags(ptr noundef nonnull %b, i32 noundef 9) #11
   %16 = load i32, ptr %call, align 4
-  %_errno = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 3
+  %_errno = getelementptr inbounds i8, ptr %0, i64 228
   store i32 %16, ptr %_errno, align 4
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then.i14, %if.end10.thread, %if.then16, %if.end10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i15)
   %17 = load ptr, ptr %ptr, align 8
-  %next_timeout.i17 = getelementptr inbounds %struct.bio_dgram_data_st, ptr %17, i64 0, i32 5
+  %next_timeout.i17 = getelementptr inbounds i8, ptr %17, i64 240
   %18 = load i64, ptr %next_timeout.i17, align 8
   %cmp.i.not.not.i.not.i18 = icmp eq i64 %18, 0
   br i1 %cmp.i.not.not.i.not.i18, label %dgram_reset_rcv_timeout.exit, label %if.then.i19
 
 if.then.i19:                                      ; preds = %if.end19
-  %socket_timeout.i20 = getelementptr inbounds %struct.bio_dgram_data_st, ptr %17, i64 0, i32 6
+  %socket_timeout.i20 = getelementptr inbounds i8, ptr %17, i64 248
   %19 = load i64, ptr %socket_timeout.i20, align 8
   %t.sroa.0.0.i.i21 = call i64 @llvm.uadd.sat.i64(i64 %19, i64 999)
   %div.i.i22 = udiv i64 %t.sroa.0.0.i.i21, 1000000000
@@ -302,7 +291,7 @@ if.then.i19:                                      ; preds = %if.end19
   %div77.i.i25 = udiv i32 %div7.lhs.trunc.i.i24, 1000
   %div7.zext.i.i26 = zext nneg i32 %div77.i.i25 to i64
   store i64 %div.i.i22, ptr %tv.i15, align 8
-  %20 = getelementptr inbounds { i64, i64 }, ptr %tv.i15, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %tv.i15, i64 8
   store i64 %div7.zext.i.i26, ptr %20, align 8
   %21 = load i32, ptr %num, align 8
   %call3.i28 = call i32 @setsockopt(i32 noundef %21, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %tv.i15, i32 noundef 16) #11
@@ -350,7 +339,7 @@ entry:
   %sz = alloca i32, align 4
   %sz241 = alloca i32, align 4
   store i32 0, ptr %sockopt_val, align 4
-  %ptr1 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 10
+  %ptr1 = getelementptr inbounds i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr1, align 8
   switch i32 %cmd, label %sw.epilog333 [
     i32 92, label %sw.bb330
@@ -391,19 +380,19 @@ entry:
   ]
 
 if.end.i:                                         ; preds = %entry
-  %shutdown.i = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 6
+  %shutdown.i = getelementptr inbounds i8, ptr %b, i64 44
   %1 = load i32, ptr %shutdown.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %dgram_clear.exit, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %init.i = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 5
+  %init.i = getelementptr inbounds i8, ptr %b, i64 40
   %2 = load i32, ptr %init.i, align 8
   %tobool2.not.i = icmp eq i32 %2, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then1.i
-  %num.i = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num.i = getelementptr inbounds i8, ptr %b, i64 56
   %3 = load i32, ptr %num.i, align 8
   %call.i = tail call i32 @BIO_closesocket(i32 noundef %3) #11
   %b.val109.pre.pre = load ptr, ptr %ptr1, align 8
@@ -412,22 +401,22 @@ if.then3.i:                                       ; preds = %if.then1.i
 if.end4.i:                                        ; preds = %if.then3.i, %if.then1.i
   %b.val109.pre = phi ptr [ %b.val109.pre.pre, %if.then3.i ], [ %0, %if.then1.i ]
   store i32 0, ptr %init.i, align 8
-  %flags.i = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %b, i64 48
   store i32 0, ptr %flags.i, align 8
   br label %dgram_clear.exit
 
 dgram_clear.exit:                                 ; preds = %if.end.i, %if.end4.i
   %b.val109 = phi ptr [ %0, %if.end.i ], [ %b.val109.pre, %if.end4.i ]
   %4 = load i32, ptr %ptr, align 4
-  %num4 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num4 = getelementptr inbounds i8, ptr %b, i64 56
   store i32 %4, ptr %num4, align 8
   %conv = trunc i64 %num to i32
   store i32 %conv, ptr %shutdown.i, align 4
-  %init = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 5
+  %init = getelementptr inbounds i8, ptr %b, i64 40
   store i32 1, ptr %init, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %addr_len.i)
   store i32 112, ptr %addr_len.i, align 4
-  %local_addr.i = getelementptr inbounds %struct.bio_dgram_data_st, ptr %b.val109, i64 0, i32 1
+  %local_addr.i = getelementptr inbounds i8, ptr %b.val109, i64 112
   %call.i110 = call i32 @getsockname(i32 noundef %4, ptr nonnull %local_addr.i, ptr noundef nonnull %addr_len.i) #11
   %cmp.i111 = icmp slt i32 %call.i110, 0
   br i1 %cmp.i111, label %if.then.i, label %dgram_update_local_addr.exit
@@ -438,7 +427,7 @@ if.then.i:                                        ; preds = %dgram_clear.exit
 
 dgram_update_local_addr.exit:                     ; preds = %dgram_clear.exit, %if.then.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %addr_len.i)
-  %local_addr_enabled = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 8
+  %local_addr_enabled = getelementptr inbounds i8, ptr %0, i64 260
   %5 = load i8, ptr %local_addr_enabled, align 4
   %tobool.not = icmp eq i8 %5, 0
   br i1 %tobool.not, label %sw.epilog333, label %if.then
@@ -453,14 +442,14 @@ if.then7:                                         ; preds = %if.then
   br label %sw.epilog333
 
 sw.bb10:                                          ; preds = %entry
-  %init11 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 5
+  %init11 = getelementptr inbounds i8, ptr %b, i64 40
   %6 = load i32, ptr %init11, align 8
   %tobool12.not = icmp eq i32 %6, 0
   br i1 %tobool12.not, label %sw.epilog333, label %if.then13
 
 if.then13:                                        ; preds = %sw.bb10
   %cmp14.not = icmp eq ptr %ptr, null
-  %num19.phi.trans.insert = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num19.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 56
   %.pre = load i32, ptr %num19.phi.trans.insert, align 8
   br i1 %cmp14.not, label %if.end18, label %if.then16
 
@@ -473,14 +462,14 @@ if.end18:                                         ; preds = %if.then13, %if.then
   br label %sw.epilog333
 
 sw.bb22:                                          ; preds = %entry
-  %shutdown23 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 6
+  %shutdown23 = getelementptr inbounds i8, ptr %b, i64 44
   %7 = load i32, ptr %shutdown23, align 4
   %conv24 = sext i32 %7 to i64
   br label %sw.epilog333
 
 sw.bb25:                                          ; preds = %entry
   %conv26 = trunc i64 %num to i32
-  %shutdown27 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 6
+  %shutdown27 = getelementptr inbounds i8, ptr %b, i64 44
   store i32 %conv26, ptr %shutdown27, align 4
   br label %sw.epilog333
 
@@ -495,7 +484,7 @@ sw.bb30:                                          ; preds = %entry
 sw.bb33:                                          ; preds = %entry
   store i32 112, ptr %addr_len, align 4
   call void @BIO_ADDR_clear(ptr noundef nonnull %addr) #11
-  %num34 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num34 = getelementptr inbounds i8, ptr %b, i64 56
   %8 = load i32, ptr %num34, align 8
   %call35 = call i32 @getsockname(i32 noundef %8, ptr nonnull %addr, ptr noundef nonnull %addr_len) #11
   %cmp36 = icmp slt i32 %call35, 0
@@ -543,7 +532,7 @@ if.then56:                                        ; preds = %sw.bb50
 sw.bb59:                                          ; preds = %entry
   store i32 112, ptr %addr_len, align 4
   call void @BIO_ADDR_clear(ptr noundef nonnull %addr) #11
-  %num60 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num60 = getelementptr inbounds i8, ptr %b, i64 56
   %14 = load i32, ptr %num60, align 8
   %call63 = call i32 @getsockname(i32 noundef %14, ptr nonnull %addr, ptr noundef nonnull %addr_len) #11
   %cmp64 = icmp slt i32 %call63, 0
@@ -568,7 +557,7 @@ sw.bb70:                                          ; preds = %if.end67
 
 if.else79:                                        ; preds = %sw.bb70
   %sub80 = add nsw i32 %17, -28
-  %mtu = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 4
+  %mtu = getelementptr inbounds i8, ptr %0, i64 232
   store i32 %sub80, ptr %mtu, align 8
   %conv82 = zext i32 %sub80 to i64
   br label %sw.epilog333
@@ -584,7 +573,7 @@ sw.bb84:                                          ; preds = %if.end67
 
 if.else94:                                        ; preds = %sw.bb84
   %sub96 = add nsw i32 %19, -48
-  %mtu97 = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 4
+  %mtu97 = getelementptr inbounds i8, ptr %0, i64 232
   store i32 %sub96, ptr %mtu97, align 8
   %conv99 = zext i32 %sub96 to i64
   br label %sw.epilog333
@@ -603,14 +592,14 @@ sw.bb1.i:                                         ; preds = %sw.bb103
 land.lhs.true.i:                                  ; preds = %sw.bb1.i
   %20 = load i32, ptr %tmp_addr.i, align 4
   %cmp.i115 = icmp eq i32 %20, 0
-  %arrayidx6.i = getelementptr inbounds [4 x i32], ptr %tmp_addr.i, i64 0, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %tmp_addr.i, i64 4
   %21 = load i32, ptr %arrayidx6.i, align 4
   %cmp7.i = icmp eq i32 %21, 0
   %or.cond.i = select i1 %cmp.i115, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %arrayidx9.i = getelementptr inbounds [4 x i32], ptr %tmp_addr.i, i64 0, i64 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %tmp_addr.i, i64 8
   %22 = load i32, ptr %arrayidx9.i, align 4
   %call10.i = call i32 @htonl(i32 noundef 65535) #12
   %cmp11.i = icmp eq i32 %22, %call10.i
@@ -640,14 +629,14 @@ sw.bb109:                                         ; preds = %dgram_get_mtu_overh
 land.lhs.true:                                    ; preds = %sw.bb109
   %23 = load i32, ptr %tmp_addr, align 4
   %cmp113 = icmp eq i32 %23, 0
-  %arrayidx117 = getelementptr inbounds [4 x i32], ptr %tmp_addr, i64 0, i64 1
+  %arrayidx117 = getelementptr inbounds i8, ptr %tmp_addr, i64 4
   %24 = load i32, ptr %arrayidx117, align 4
   %cmp118 = icmp eq i32 %24, 0
   %or.cond106 = select i1 %cmp113, i1 %cmp118, i1 false
   br i1 %or.cond106, label %land.rhs, label %if.else128
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %arrayidx121 = getelementptr inbounds [4 x i32], ptr %tmp_addr, i64 0, i64 2
+  %arrayidx121 = getelementptr inbounds i8, ptr %tmp_addr, i64 8
   %25 = load i32, ptr %arrayidx121, align 4
   %call122 = call i32 @htonl(i32 noundef 65535) #12
   %cmp123 = icmp eq i32 %25, %call122
@@ -666,20 +655,20 @@ sw.default131:                                    ; preds = %dgram_get_mtu_overh
   br label %sw.epilog333
 
 sw.bb134:                                         ; preds = %entry
-  %mtu135 = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 4
+  %mtu135 = getelementptr inbounds i8, ptr %0, i64 232
   %26 = load i32, ptr %mtu135, align 8
   %conv136 = zext i32 %26 to i64
   br label %return
 
 sw.bb137:                                         ; preds = %entry
   %conv138 = trunc i64 %num to i32
-  %mtu139 = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 4
+  %mtu139 = getelementptr inbounds i8, ptr %0, i64 232
   store i32 %conv138, ptr %mtu139, align 8
   br label %sw.epilog333
 
 sw.bb140:                                         ; preds = %entry
   %cmp141.not = icmp eq ptr %ptr, null
-  %connected148 = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 2
+  %connected148 = getelementptr inbounds i8, ptr %0, i64 224
   br i1 %cmp141.not, label %if.else147, label %if.then143
 
 if.then143:                                       ; preds = %sw.bb140
@@ -715,7 +704,7 @@ sw.bb167:                                         ; preds = %entry
   br i1 %cmp170, label %if.then172, label %if.end186
 
 if.then172:                                       ; preds = %sw.bb167
-  %num173 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num173 = getelementptr inbounds i8, ptr %b, i64 56
   %27 = load i32, ptr %num173, align 8
   %call176 = call i32 @getpeername(i32 noundef %27, ptr nonnull %xaddr, ptr noundef nonnull %xaddr_len) #11
   %cmp177 = icmp eq i32 %call176, 0
@@ -738,7 +727,7 @@ if.end186:                                        ; preds = %land.lhs.true179, %
   br label %sw.epilog333
 
 sw.bb196:                                         ; preds = %entry
-  %num197 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num197 = getelementptr inbounds i8, ptr %b, i64 56
   %28 = load i32, ptr %num197, align 8
   %cmp198 = icmp ne i64 %num, 0
   %conv199 = zext i1 %cmp198 to i32
@@ -748,13 +737,13 @@ sw.bb196:                                         ; preds = %entry
   br label %sw.epilog333
 
 sw.bb204:                                         ; preds = %entry
-  %next_timeout = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 5
+  %next_timeout = getelementptr inbounds i8, ptr %0, i64 240
   %29 = load i64, ptr %ptr, align 8
   %cmp.i116 = icmp slt i64 %29, 0
   br i1 %cmp.i116, label %ossl_time_from_timeval.exit, label %if.end.i117
 
 if.end.i117:                                      ; preds = %sw.bb204
-  %30 = getelementptr inbounds { i64, i64 }, ptr %ptr, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %ptr, i64 8
   %31 = load i64, ptr %30, align 8
   %mul.i = mul i64 %29, 1000000000
   %mul2.i = mul i64 %31, 1000
@@ -767,7 +756,7 @@ ossl_time_from_timeval.exit:                      ; preds = %sw.bb204, %if.end.i
   br label %sw.epilog333
 
 sw.bb208:                                         ; preds = %entry
-  %num209 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num209 = getelementptr inbounds i8, ptr %b, i64 56
   %32 = load i32, ptr %num209, align 8
   %call210 = tail call i32 @setsockopt(i32 noundef %32, i32 noundef 1, i32 noundef 20, ptr noundef %ptr, i32 noundef 16) #11
   %conv211 = sext i32 %call210 to i64
@@ -784,7 +773,7 @@ if.then214:                                       ; preds = %sw.bb208
 
 sw.bb217:                                         ; preds = %entry
   store i32 16, ptr %sz, align 4
-  %num218 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num218 = getelementptr inbounds i8, ptr %b, i64 56
   %34 = load i32, ptr %num218, align 8
   %call219 = call i32 @getsockopt(i32 noundef %34, i32 noundef 1, i32 noundef 20, ptr noundef %ptr, ptr noundef nonnull %sz) #11
   %cmp221 = icmp slt i32 %call219, 0
@@ -813,7 +802,7 @@ cond.end:                                         ; preds = %if.else225
   br label %sw.epilog333
 
 sw.bb231:                                         ; preds = %entry
-  %num232 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num232 = getelementptr inbounds i8, ptr %b, i64 56
   %37 = load i32, ptr %num232, align 8
   %call233 = tail call i32 @setsockopt(i32 noundef %37, i32 noundef 1, i32 noundef 21, ptr noundef %ptr, i32 noundef 16) #11
   %conv234 = sext i32 %call233 to i64
@@ -830,7 +819,7 @@ if.then237:                                       ; preds = %sw.bb231
 
 sw.bb240:                                         ; preds = %entry
   store i32 16, ptr %sz241, align 4
-  %num242 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num242 = getelementptr inbounds i8, ptr %b, i64 56
   %39 = load i32, ptr %num242, align 8
   %call243 = call i32 @getsockopt(i32 noundef %39, i32 noundef 1, i32 noundef 21, ptr noundef %ptr, ptr noundef nonnull %sz241) #11
   %cmp245 = icmp slt i32 %call243, 0
@@ -859,7 +848,7 @@ cond.end255:                                      ; preds = %if.else249
   br label %sw.epilog333
 
 sw.bb259:                                         ; preds = %entry, %entry
-  %_errno = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 3
+  %_errno = getelementptr inbounds i8, ptr %0, i64 228
   %42 = load i32, ptr %_errno, align 4
   %cmp260 = icmp eq i32 %42, 11
   br i1 %cmp260, label %if.then263, label %sw.epilog333
@@ -869,7 +858,7 @@ if.then263:                                       ; preds = %sw.bb259
   br label %sw.epilog333
 
 sw.bb267:                                         ; preds = %entry
-  %_errno268 = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 3
+  %_errno268 = getelementptr inbounds i8, ptr %0, i64 228
   %43 = load i32, ptr %_errno268, align 4
   %cmp269 = icmp eq i32 %43, 90
   br i1 %cmp269, label %if.then271, label %sw.epilog333
@@ -889,7 +878,7 @@ sw.bb279:                                         ; preds = %sw.bb275
   %tobool280.not = icmp eq i64 %num, 0
   %cond281 = select i1 %tobool280.not, i32 0, i32 3
   store i32 %cond281, ptr %sockopt_val, align 4
-  %num282 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num282 = getelementptr inbounds i8, ptr %b, i64 56
   %45 = load i32, ptr %num282, align 8
   %call283 = call i32 @setsockopt(i32 noundef %45, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %sockopt_val, i32 noundef 4) #11
   %conv284 = sext i32 %call283 to i64
@@ -908,7 +897,7 @@ sw.bb290:                                         ; preds = %sw.bb275
   %tobool291.not = icmp ne i64 %num, 0
   %cond292 = zext i1 %tobool291.not to i32
   store i32 %cond292, ptr %sockopt_val, align 4
-  %num293 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num293 = getelementptr inbounds i8, ptr %b, i64 56
   %47 = load i32, ptr %num293, align 8
   %call294 = call i32 @setsockopt(i32 noundef %47, i32 noundef 41, i32 noundef 62, ptr noundef nonnull %sockopt_val, i32 noundef 4) #11
   %conv295 = sext i32 %call294 to i64
@@ -937,14 +926,14 @@ sw.bb1.i122:                                      ; preds = %sw.bb303
 land.lhs.true.i125:                               ; preds = %sw.bb1.i122
   %49 = load i32, ptr %tmp_addr.i118, align 4
   %cmp.i126 = icmp eq i32 %49, 0
-  %arrayidx6.i127 = getelementptr inbounds [4 x i32], ptr %tmp_addr.i118, i64 0, i64 1
+  %arrayidx6.i127 = getelementptr inbounds i8, ptr %tmp_addr.i118, i64 4
   %50 = load i32, ptr %arrayidx6.i127, align 4
   %cmp7.i128 = icmp eq i32 %50, 0
   %or.cond.i129 = select i1 %cmp.i126, i1 %cmp7.i128, i1 false
   br i1 %or.cond.i129, label %land.rhs.i131, label %if.else.i130
 
 land.rhs.i131:                                    ; preds = %land.lhs.true.i125
-  %arrayidx9.i132 = getelementptr inbounds [4 x i32], ptr %tmp_addr.i118, i64 0, i64 2
+  %arrayidx9.i132 = getelementptr inbounds i8, ptr %tmp_addr.i118, i64 8
   %51 = load i32, ptr %arrayidx9.i132, align 4
   %call10.i133 = call i32 @htonl(i32 noundef 65535) #12
   %cmp11.i134 = icmp eq i32 %51, %call10.i133
@@ -960,7 +949,7 @@ dgram_get_mtu_overhead.exit135:                   ; preds = %sw.bb303, %land.rhs
 
 sw.bb305:                                         ; preds = %entry, %entry
   %conv306 = trunc i64 %num to i32
-  %peekmode = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 7
+  %peekmode = getelementptr inbounds i8, ptr %0, i64 256
   store i32 %conv306, ptr %peekmode, align 8
   br label %sw.epilog333
 
@@ -970,7 +959,7 @@ sw.bb307:                                         ; preds = %entry
 sw.bb308:                                         ; preds = %entry
   %cmp309 = icmp sgt i64 %num, 0
   %conv311 = zext i1 %cmp309 to i64
-  %local_addr_enabled312 = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 8
+  %local_addr_enabled312 = getelementptr inbounds i8, ptr %0, i64 260
   %52 = load i8, ptr %local_addr_enabled312, align 4
   %conv313 = sext i8 %52 to i64
   %cmp314.not = icmp eq i64 %conv311, %conv313
@@ -988,7 +977,7 @@ if.end322:                                        ; preds = %if.then316
   br label %sw.epilog333
 
 sw.bb326:                                         ; preds = %entry
-  %local_addr_enabled327 = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 8
+  %local_addr_enabled327 = getelementptr inbounds i8, ptr %0, i64 260
   %53 = load i8, ptr %local_addr_enabled327, align 4
   %conv328 = sext i8 %53 to i32
   store i32 %conv328, ptr %ptr, align 4
@@ -999,9 +988,9 @@ sw.bb329:                                         ; preds = %entry
 
 sw.bb330:                                         ; preds = %entry, %entry
   store i32 1, ptr %ptr, align 8
-  %num331 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num331 = getelementptr inbounds i8, ptr %b, i64 56
   %54 = load i32, ptr %num331, align 8
-  %value = getelementptr inbounds %struct.bio_poll_descriptor_st, ptr %ptr, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %ptr, i64 8
   store i32 %54, ptr %value, align 8
   br label %sw.epilog333
 
@@ -1023,7 +1012,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %bi, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %bi, i64 64
   store ptr %call, ptr %ptr, align 8
   br label %return
 
@@ -1039,31 +1028,31 @@ entry:
   br i1 %cmp, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %shutdown.i = getelementptr inbounds %struct.bio_st, ptr %a, i64 0, i32 6
+  %shutdown.i = getelementptr inbounds i8, ptr %a, i64 44
   %0 = load i32, ptr %shutdown.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end2, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %init.i = getelementptr inbounds %struct.bio_st, ptr %a, i64 0, i32 5
+  %init.i = getelementptr inbounds i8, ptr %a, i64 40
   %1 = load i32, ptr %init.i, align 8
   %tobool2.not.i = icmp eq i32 %1, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then1.i
-  %num.i = getelementptr inbounds %struct.bio_st, ptr %a, i64 0, i32 9
+  %num.i = getelementptr inbounds i8, ptr %a, i64 56
   %2 = load i32, ptr %num.i, align 8
   %call.i = tail call i32 @BIO_closesocket(i32 noundef %2) #11
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.then1.i
   store i32 0, ptr %init.i, align 8
-  %flags.i = getelementptr inbounds %struct.bio_st, ptr %a, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %a, i64 48
   store i32 0, ptr %flags.i, align 8
   br label %if.end2
 
 if.end2:                                          ; preds = %if.end4.i, %if.end.i
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %a, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %a, i64 64
   %3 = load ptr, ptr %ptr, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 275) #11
   br label %return
@@ -1083,9 +1072,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr, align 8
-  %local_addr_enabled = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 8
+  %local_addr_enabled = getelementptr inbounds i8, ptr %0, i64 260
   %1 = load i8, ptr %local_addr_enabled, align 4
   %spec.store.select1 = tail call i64 @llvm.umin.i64(i64 %num_msg, i64 64)
   %.fr = freeze i8 %1
@@ -1095,9 +1084,9 @@ if.end:                                           ; preds = %entry
 
 for.body.preheader:                               ; preds = %if.end
   %3 = getelementptr i8, ptr %0, i64 112
-  %sin6_port25.i = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 1, i32 0, i32 1
-  %sin6_scope_id37.i = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 1, i32 0, i32 4
-  %sin_port3.i = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %sin6_port25.i = getelementptr inbounds i8, ptr %0, i64 114
+  %sin6_scope_id37.i = getelementptr inbounds i8, ptr %0, i64 136
+  %sin_port3.i = getelementptr inbounds i8, ptr %0, i64 114
   br label %for.body
 
 for.body.us:                                      ; preds = %if.end, %for.inc.us
@@ -1109,11 +1098,11 @@ for.body.us:                                      ; preds = %if.end, %for.inc.us
   %add.ptr.us = getelementptr inbounds i8, ptr %msg, i64 %mul.us
   %4 = load ptr, ptr %add.ptr.us, align 8
   store ptr %4, ptr %arrayidx12.us, align 16
-  %data_len.i.us = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr.us, i64 0, i32 1
+  %data_len.i.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 8
   %5 = load i64, ptr %data_len.i.us, align 8
-  %iov_len.i.us = getelementptr inbounds [64 x %struct.iovec], ptr %iov, i64 0, i64 %i.042.us, i32 1
+  %iov_len.i.us = getelementptr inbounds i8, ptr %arrayidx12.us, i64 8
   store i64 %5, ptr %iov_len.i.us, align 8
-  %peer.i.us = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr.us, i64 0, i32 2
+  %peer.i.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 16
   %6 = load ptr, ptr %peer.i.us, align 8
   store ptr %6, ptr %arrayidx.us, align 16
   %cmp3.not.i.us = icmp eq ptr %6, null
@@ -1129,22 +1118,22 @@ land.lhs.true.i.us:                               ; preds = %for.body.us
 
 translate_msg.exit.us:                            ; preds = %land.lhs.true.i.us, %for.body.us
   %.sink.i.us = phi i32 [ %switch.select22.i.us, %land.lhs.true.i.us ], [ 0, %for.body.us ]
-  %msg_namelen11.i.us = getelementptr inbounds %struct.msghdr, ptr %arrayidx.us, i64 0, i32 1
+  %msg_namelen11.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 8
   store i32 %.sink.i.us, ptr %msg_namelen11.i.us, align 8
-  %msg_iov.i.us = getelementptr inbounds %struct.msghdr, ptr %arrayidx.us, i64 0, i32 2
+  %msg_iov.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 16
   store ptr %arrayidx12.us, ptr %msg_iov.i.us, align 16
-  %msg_iovlen.i.us = getelementptr inbounds %struct.msghdr, ptr %arrayidx.us, i64 0, i32 3
+  %msg_iovlen.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 24
   store i64 1, ptr %msg_iovlen.i.us, align 8
-  %local.i.us = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr.us, i64 0, i32 3
+  %local.i.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 24
   %7 = load ptr, ptr %local.i.us, align 8
   %cmp15.not.i.us = icmp eq ptr %7, null
   %cond19.i.us = select i1 %cmp15.not.i.us, ptr null, ptr %arrayidx13.us
-  %msg_control.i.us = getelementptr inbounds %struct.msghdr, ptr %arrayidx.us, i64 0, i32 4
+  %msg_control.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 32
   store ptr %cond19.i.us, ptr %msg_control.i.us, align 16
   %cond22.i.us = select i1 %cmp15.not.i.us, i64 0, i64 40
-  %msg_controllen.i.us = getelementptr inbounds %struct.msghdr, ptr %arrayidx.us, i64 0, i32 5
+  %msg_controllen.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 40
   store i64 %cond22.i.us, ptr %msg_controllen.i.us, align 8
-  %msg_flags.i.us = getelementptr inbounds %struct.msghdr, ptr %arrayidx.us, i64 0, i32 6
+  %msg_flags.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 48
   store i32 0, ptr %msg_flags.i.us, align 16
   br i1 %cmp15.not.i.us, label %for.inc.us, label %if.then19
 
@@ -1162,11 +1151,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr = getelementptr inbounds i8, ptr %msg, i64 %mul
   %8 = load ptr, ptr %add.ptr, align 8
   store ptr %8, ptr %arrayidx12, align 16
-  %data_len.i = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr, i64 0, i32 1
+  %data_len.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %9 = load i64, ptr %data_len.i, align 8
-  %iov_len.i = getelementptr inbounds [64 x %struct.iovec], ptr %iov, i64 0, i64 %i.042, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   store i64 %9, ptr %iov_len.i, align 8
-  %peer.i = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr, i64 0, i32 2
+  %peer.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %10 = load ptr, ptr %peer.i, align 8
   store ptr %10, ptr %arrayidx, align 16
   %cmp3.not.i = icmp eq ptr %10, null
@@ -1182,22 +1171,22 @@ land.lhs.true.i:                                  ; preds = %for.body
 
 translate_msg.exit:                               ; preds = %for.body, %land.lhs.true.i
   %.sink.i = phi i32 [ %switch.select22.i, %land.lhs.true.i ], [ 0, %for.body ]
-  %msg_namelen11.i = getelementptr inbounds %struct.msghdr, ptr %arrayidx, i64 0, i32 1
+  %msg_namelen11.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 %.sink.i, ptr %msg_namelen11.i, align 8
-  %msg_iov.i = getelementptr inbounds %struct.msghdr, ptr %arrayidx, i64 0, i32 2
+  %msg_iov.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr %arrayidx12, ptr %msg_iov.i, align 16
-  %msg_iovlen.i = getelementptr inbounds %struct.msghdr, ptr %arrayidx, i64 0, i32 3
+  %msg_iovlen.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store i64 1, ptr %msg_iovlen.i, align 8
-  %local.i = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr, i64 0, i32 3
+  %local.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %11 = load ptr, ptr %local.i, align 8
   %cmp15.not.i = icmp eq ptr %11, null
   %cond19.i = select i1 %cmp15.not.i, ptr null, ptr %arrayidx13
-  %msg_control.i = getelementptr inbounds %struct.msghdr, ptr %arrayidx, i64 0, i32 4
+  %msg_control.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store ptr %cond19.i, ptr %msg_control.i, align 16
   %cond22.i = select i1 %cmp15.not.i, i64 0, i64 40
-  %msg_controllen.i = getelementptr inbounds %struct.msghdr, ptr %arrayidx, i64 0, i32 5
+  %msg_controllen.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store i64 %cond22.i, ptr %msg_controllen.i, align 8
-  %msg_flags.i = getelementptr inbounds %struct.msghdr, ptr %arrayidx, i64 0, i32 6
+  %msg_flags.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   store i32 0, ptr %msg_flags.i, align 16
   br i1 %cmp15.not.i, label %for.inc, label %if.then18
 
@@ -1216,19 +1205,19 @@ if.then19:                                        ; preds = %translate_msg.exit.
 
 if.then.i:                                        ; preds = %if.then18
   store i64 28, ptr %arrayidx13, align 8
-  %cmsg_level.i = getelementptr inbounds %struct.cmsghdr, ptr %arrayidx13, i64 0, i32 1
+  %cmsg_level.i = getelementptr inbounds i8, ptr %arrayidx13, i64 8
   store i32 0, ptr %cmsg_level.i, align 8
-  %cmsg_type.i = getelementptr inbounds %struct.cmsghdr, ptr %arrayidx13, i64 0, i32 2
+  %cmsg_type.i = getelementptr inbounds i8, ptr %arrayidx13, i64 12
   store i32 8, ptr %cmsg_type.i, align 4
-  %__cmsg_data.i = getelementptr inbounds %struct.cmsghdr, ptr %arrayidx13, i64 0, i32 3
+  %__cmsg_data.i = getelementptr inbounds i8, ptr %arrayidx13, i64 16
   %ipi_spec_dst.i = getelementptr inbounds i8, ptr %arrayidx13, i64 20
-  %sin_addr.i = getelementptr inbounds %struct.sockaddr_in, ptr %11, i64 0, i32 2
+  %sin_addr.i = getelementptr inbounds i8, ptr %11, i64 4
   %12 = load i32, ptr %sin_addr.i, align 4
   store i32 %12, ptr %ipi_spec_dst.i, align 4
-  %ipi_addr.i = getelementptr inbounds %struct.cmsghdr, ptr %arrayidx13, i64 1, i32 1
+  %ipi_addr.i = getelementptr inbounds i8, ptr %arrayidx13, i64 24
   store i32 0, ptr %ipi_addr.i, align 8
   store i32 0, ptr %__cmsg_data.i, align 8
-  %sin_port.i = getelementptr inbounds %struct.sockaddr_in, ptr %11, i64 0, i32 1
+  %sin_port.i = getelementptr inbounds i8, ptr %11, i64 2
   %13 = load i16, ptr %sin_port.i, align 2
   %cmp1.not.i = icmp eq i16 %13, 0
   br i1 %cmp1.not.i, label %for.inc.sink.split, label %land.lhs.true.i38
@@ -1240,16 +1229,16 @@ land.lhs.true.i38:                                ; preds = %if.then.i
 
 if.then12.i:                                      ; preds = %if.then18
   store i64 36, ptr %arrayidx13, align 8
-  %cmsg_level16.i = getelementptr inbounds %struct.cmsghdr, ptr %arrayidx13, i64 0, i32 1
+  %cmsg_level16.i = getelementptr inbounds i8, ptr %arrayidx13, i64 8
   store i32 41, ptr %cmsg_level16.i, align 8
-  %cmsg_type17.i = getelementptr inbounds %struct.cmsghdr, ptr %arrayidx13, i64 0, i32 2
+  %cmsg_type17.i = getelementptr inbounds i8, ptr %arrayidx13, i64 12
   store i32 50, ptr %cmsg_type17.i, align 4
-  %__cmsg_data18.i = getelementptr inbounds %struct.cmsghdr, ptr %arrayidx13, i64 0, i32 3
-  %sin6_addr.i = getelementptr inbounds %struct.sockaddr_in6, ptr %11, i64 0, i32 3
+  %__cmsg_data18.i = getelementptr inbounds i8, ptr %arrayidx13, i64 16
+  %sin6_addr.i = getelementptr inbounds i8, ptr %11, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cmsg_data18.i, ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr.i, i64 16, i1 false)
-  %ipi6_ifindex.i = getelementptr inbounds %struct.cmsghdr, ptr %arrayidx13, i64 2
+  %ipi6_ifindex.i = getelementptr inbounds i8, ptr %arrayidx13, i64 32
   store i32 0, ptr %ipi6_ifindex.i, align 8
-  %sin6_port.i = getelementptr inbounds %struct.sockaddr_in6, ptr %11, i64 0, i32 1
+  %sin6_port.i = getelementptr inbounds i8, ptr %11, i64 2
   %15 = load i16, ptr %sin6_port.i, align 2
   %cmp21.not.i36 = icmp eq i16 %15, 0
   br i1 %cmp21.not.i36, label %if.end32.i, label %land.lhs.true23.i
@@ -1260,7 +1249,7 @@ land.lhs.true23.i:                                ; preds = %if.then12.i
   br i1 %cmp29.not.i, label %if.end32.i, label %if.then29.sink.split
 
 if.end32.i:                                       ; preds = %land.lhs.true23.i, %if.then12.i
-  %sin6_scope_id.i = getelementptr inbounds %struct.sockaddr_in6, ptr %11, i64 0, i32 4
+  %sin6_scope_id.i = getelementptr inbounds i8, ptr %11, i64 24
   %17 = load i32, ptr %sin6_scope_id.i, align 4
   %cmp33.not.i = icmp eq i32 %17, 0
   br i1 %cmp33.not.i, label %for.inc.sink.split, label %land.lhs.true35.i
@@ -1294,7 +1283,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %for.inc.us
-  %num = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num = getelementptr inbounds i8, ptr %b, i64 56
   %19 = load i32, ptr %num, align 8
   %conv33 = trunc i64 %spec.store.select1 to i32
   %call34 = call i32 @sendmmsg(i32 noundef %19, ptr noundef nonnull %mh, i32 noundef %conv33, i32 noundef 0) #11
@@ -1321,9 +1310,9 @@ for.body44:                                       ; preds = %for.cond40.preheade
   %conv46 = zext i32 %21 to i64
   %mul47 = mul i64 %i.144, %stride
   %add.ptr48 = getelementptr inbounds i8, ptr %msg, i64 %mul47
-  %data_len = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr48, i64 0, i32 1
+  %data_len = getelementptr inbounds i8, ptr %add.ptr48, i64 8
   store i64 %conv46, ptr %data_len, align 8
-  %flags51 = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr48, i64 0, i32 4
+  %flags51 = getelementptr inbounds i8, ptr %add.ptr48, i64 32
   store i64 0, ptr %flags51, align 8
   %inc53 = add nuw nsw i64 %i.144, 1
   %exitcond47.not = icmp eq i64 %inc53, %conv41
@@ -1342,13 +1331,13 @@ entry:
   %mh = alloca [64 x %struct.mmsghdr], align 16
   %iov = alloca [64 x %struct.iovec], align 16
   %control = alloca [64 x [40 x i8]], align 16
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %b, i64 64
   %cmp = icmp eq i64 %num_msg, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ptr, align 8
-  %local_addr_enabled = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 8
+  %local_addr_enabled = getelementptr inbounds i8, ptr %0, i64 260
   %1 = load i8, ptr %local_addr_enabled, align 4
   %spec.store.select1 = tail call i64 @llvm.umin.i64(i64 %num_msg, i64 64)
   %.fr = freeze i8 %1
@@ -1365,11 +1354,11 @@ for.body.us:                                      ; preds = %if.end, %translate_
   %add.ptr.us = getelementptr inbounds i8, ptr %msg, i64 %mul.us
   %3 = load ptr, ptr %add.ptr.us, align 8
   store ptr %3, ptr %arrayidx12.us, align 16
-  %data_len.i.us = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr.us, i64 0, i32 1
+  %data_len.i.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 8
   %4 = load i64, ptr %data_len.i.us, align 8
-  %iov_len.i.us = getelementptr inbounds [64 x %struct.iovec], ptr %iov, i64 0, i64 %i.047.us, i32 1
+  %iov_len.i.us = getelementptr inbounds i8, ptr %arrayidx12.us, i64 8
   store i64 %4, ptr %iov_len.i.us, align 8
-  %peer.i.us = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr.us, i64 0, i32 2
+  %peer.i.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 16
   %5 = load ptr, ptr %peer.i.us, align 8
   store ptr %5, ptr %arrayidx.us, align 16
   %cmp3.not.i.us = icmp eq ptr %5, null
@@ -1385,22 +1374,22 @@ land.lhs.true.i.us:                               ; preds = %for.body.us
 
 translate_msg.exit.us:                            ; preds = %land.lhs.true.i.us, %for.body.us
   %.sink.i.us = phi i32 [ %switch.select22.i.us, %land.lhs.true.i.us ], [ 0, %for.body.us ]
-  %msg_namelen11.i.us = getelementptr inbounds %struct.msghdr, ptr %arrayidx.us, i64 0, i32 1
+  %msg_namelen11.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 8
   store i32 %.sink.i.us, ptr %msg_namelen11.i.us, align 8
-  %msg_iov.i.us = getelementptr inbounds %struct.msghdr, ptr %arrayidx.us, i64 0, i32 2
+  %msg_iov.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 16
   store ptr %arrayidx12.us, ptr %msg_iov.i.us, align 16
-  %msg_iovlen.i.us = getelementptr inbounds %struct.msghdr, ptr %arrayidx.us, i64 0, i32 3
+  %msg_iovlen.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 24
   store i64 1, ptr %msg_iovlen.i.us, align 8
-  %local.i.us = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr.us, i64 0, i32 3
+  %local.i.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 24
   %6 = load ptr, ptr %local.i.us, align 8
   %cmp15.not.i.us = icmp eq ptr %6, null
   %cond19.i.us = select i1 %cmp15.not.i.us, ptr null, ptr %arrayidx13.us
-  %msg_control.i.us = getelementptr inbounds %struct.msghdr, ptr %arrayidx.us, i64 0, i32 4
+  %msg_control.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 32
   store ptr %cond19.i.us, ptr %msg_control.i.us, align 16
   %cond22.i.us = select i1 %cmp15.not.i.us, i64 0, i64 40
-  %msg_controllen.i.us = getelementptr inbounds %struct.msghdr, ptr %arrayidx.us, i64 0, i32 5
+  %msg_controllen.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 40
   store i64 %cond22.i.us, ptr %msg_controllen.i.us, align 8
-  %msg_flags.i.us = getelementptr inbounds %struct.msghdr, ptr %arrayidx.us, i64 0, i32 6
+  %msg_flags.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 48
   store i32 0, ptr %msg_flags.i.us, align 16
   %inc.us = add nuw nsw i64 %i.047.us, 1
   %exitcond.not = icmp eq i64 %inc.us, %spec.store.select1
@@ -1420,11 +1409,11 @@ for.body:                                         ; preds = %if.end, %for.cond
   %add.ptr = getelementptr inbounds i8, ptr %msg, i64 %mul
   %7 = load ptr, ptr %add.ptr, align 8
   store ptr %7, ptr %arrayidx12, align 16
-  %data_len.i = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr, i64 0, i32 1
+  %data_len.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %8 = load i64, ptr %data_len.i, align 8
-  %iov_len.i = getelementptr inbounds [64 x %struct.iovec], ptr %iov, i64 0, i64 %i.047, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   store i64 %8, ptr %iov_len.i, align 8
-  %peer.i = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr, i64 0, i32 2
+  %peer.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %9 = load ptr, ptr %peer.i, align 8
   store ptr %9, ptr %arrayidx, align 16
   %cmp3.not.i = icmp eq ptr %9, null
@@ -1440,22 +1429,22 @@ land.lhs.true.i:                                  ; preds = %for.body
 
 translate_msg.exit:                               ; preds = %for.body, %land.lhs.true.i
   %.sink.i = phi i32 [ %switch.select22.i, %land.lhs.true.i ], [ 0, %for.body ]
-  %msg_namelen11.i = getelementptr inbounds %struct.msghdr, ptr %arrayidx, i64 0, i32 1
+  %msg_namelen11.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 %.sink.i, ptr %msg_namelen11.i, align 8
-  %msg_iov.i = getelementptr inbounds %struct.msghdr, ptr %arrayidx, i64 0, i32 2
+  %msg_iov.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr %arrayidx12, ptr %msg_iov.i, align 16
-  %msg_iovlen.i = getelementptr inbounds %struct.msghdr, ptr %arrayidx, i64 0, i32 3
+  %msg_iovlen.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store i64 1, ptr %msg_iovlen.i, align 8
-  %local.i = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr, i64 0, i32 3
+  %local.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %10 = load ptr, ptr %local.i, align 8
   %cmp15.not.i = icmp eq ptr %10, null
   %cond19.i = select i1 %cmp15.not.i, ptr null, ptr %arrayidx13
-  %msg_control.i = getelementptr inbounds %struct.msghdr, ptr %arrayidx, i64 0, i32 4
+  %msg_control.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store ptr %cond19.i, ptr %msg_control.i, align 16
   %cond22.i = select i1 %cmp15.not.i, i64 0, i64 40
-  %msg_controllen.i = getelementptr inbounds %struct.msghdr, ptr %arrayidx, i64 0, i32 5
+  %msg_controllen.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store i64 %cond22.i, ptr %msg_controllen.i, align 8
-  %msg_flags.i = getelementptr inbounds %struct.msghdr, ptr %arrayidx, i64 0, i32 6
+  %msg_flags.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   store i32 0, ptr %msg_flags.i, align 16
   br i1 %cmp15.not.i, label %for.cond, label %if.then18
 
@@ -1466,7 +1455,7 @@ if.then18:                                        ; preds = %translate_msg.exit
   br label %return
 
 for.end:                                          ; preds = %translate_msg.exit.us, %for.cond
-  %num = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num = getelementptr inbounds i8, ptr %b, i64 56
   %11 = load i32, ptr %num, align 8
   %conv21 = trunc i64 %spec.store.select1 to i32
   %call22 = call i32 @recvmmsg(i32 noundef %11, ptr noundef nonnull %mh, i32 noundef %conv21, i32 noundef 0, ptr noundef null) #11
@@ -1479,7 +1468,7 @@ for.cond28.preheader:                             ; preds = %for.end
   br i1 %cmp3048.not, label %return, label %for.body32.lr.ph
 
 for.body32.lr.ph:                                 ; preds = %for.cond28.preheader
-  %local55 = getelementptr inbounds %struct.bio_msg_st, ptr %msg, i64 0, i32 3
+  %local55 = getelementptr inbounds i8, ptr %msg, i64 24
   br label %for.body32
 
 if.then25:                                        ; preds = %for.end
@@ -1492,32 +1481,32 @@ if.then25:                                        ; preds = %for.end
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.inc58
   %i.149 = phi i64 [ 0, %for.body32.lr.ph ], [ %inc59, %for.inc58 ]
-  %msg_len = getelementptr inbounds [64 x %struct.mmsghdr], ptr %mh, i64 0, i64 %i.149, i32 1
+  %arrayidx33 = getelementptr inbounds [64 x %struct.mmsghdr], ptr %mh, i64 0, i64 %i.149
+  %msg_len = getelementptr inbounds i8, ptr %arrayidx33, i64 56
   %13 = load i32, ptr %msg_len, align 8
   %conv34 = zext i32 %13 to i64
   %mul35 = mul i64 %i.149, %stride
   %add.ptr36 = getelementptr inbounds i8, ptr %msg, i64 %mul35
-  %data_len = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr36, i64 0, i32 1
+  %data_len = getelementptr inbounds i8, ptr %add.ptr36, i64 8
   store i64 %conv34, ptr %data_len, align 8
-  %flags39 = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr36, i64 0, i32 4
+  %flags39 = getelementptr inbounds i8, ptr %add.ptr36, i64 32
   store i64 0, ptr %flags39, align 8
-  %local42 = getelementptr inbounds %struct.bio_msg_st, ptr %add.ptr36, i64 0, i32 3
+  %local42 = getelementptr inbounds i8, ptr %add.ptr36, i64 24
   %14 = load ptr, ptr %local42, align 8
   %cmp43.not = icmp eq ptr %14, null
   br i1 %cmp43.not, label %for.inc58, label %if.then45
 
 if.then45:                                        ; preds = %for.body32
-  %arrayidx33 = getelementptr inbounds [64 x %struct.mmsghdr], ptr %mh, i64 0, i64 %i.149
   %b.val.i = load ptr, ptr %ptr, align 8
   %15 = getelementptr i8, ptr %b.val.i, i64 112
   %b.val.val21.i = load i16, ptr %15, align 8
-  %msg_controllen.i39 = getelementptr inbounds %struct.msghdr, ptr %arrayidx33, i64 0, i32 5
+  %msg_controllen.i39 = getelementptr inbounds i8, ptr %arrayidx33, i64 40
   %16 = load i64, ptr %msg_controllen.i39, align 8
   %cmp.i = icmp ugt i64 %16, 15
   br i1 %cmp.i, label %cond.end.i, label %if.then54
 
 cond.end.i:                                       ; preds = %if.then45
-  %msg_control.i40 = getelementptr inbounds %struct.msghdr, ptr %arrayidx33, i64 0, i32 4
+  %msg_control.i40 = getelementptr inbounds i8, ptr %arrayidx33, i64 32
   %17 = load ptr, ptr %msg_control.i40, align 16
   %cmp1.not24.i = icmp eq ptr %17, null
   br i1 %cmp1.not24.i, label %if.then54, label %for.body.lr.ph.i
@@ -1530,13 +1519,13 @@ for.body.lr.ph.i:                                 ; preds = %cond.end.i
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.inc.us.i
   %cmsg.025.us.i = phi ptr [ %call29.us.i, %for.inc.us.i ], [ %17, %for.body.lr.ph.i ]
-  %cmsg_level.us.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.025.us.i, i64 0, i32 1
+  %cmsg_level.us.i = getelementptr inbounds i8, ptr %cmsg.025.us.i, i64 8
   %18 = load i32, ptr %cmsg_level.us.i, align 8
   %cmp3.not.us.i = icmp eq i32 %18, 0
   br i1 %cmp3.not.us.i, label %if.end.us.i, label %for.inc.us.i
 
 if.end.us.i:                                      ; preds = %for.body.us.i
-  %cmsg_type.us.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.025.us.i, i64 0, i32 2
+  %cmsg_type.us.i = getelementptr inbounds i8, ptr %cmsg.025.us.i, i64 12
   %19 = load i32, ptr %cmsg_type.us.i, align 4
   %cmp5.not.us.i = icmp eq i32 %19, 8
   br i1 %cmp5.not.us.i, label %if.end7.i, label %for.inc.us.i
@@ -1548,13 +1537,13 @@ for.inc.us.i:                                     ; preds = %if.end.us.i, %for.b
 
 for.body.us27.i:                                  ; preds = %for.body.lr.ph.i, %for.inc.us29.i
   %cmsg.025.us28.i = phi ptr [ %call29.us30.i, %for.inc.us29.i ], [ %17, %for.body.lr.ph.i ]
-  %cmsg_level11.us.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.025.us28.i, i64 0, i32 1
+  %cmsg_level11.us.i = getelementptr inbounds i8, ptr %cmsg.025.us28.i, i64 8
   %20 = load i32, ptr %cmsg_level11.us.i, align 8
   %cmp12.not.us.i = icmp eq i32 %20, 41
   br i1 %cmp12.not.us.i, label %if.end14.us.i, label %for.inc.us29.i
 
 if.end14.us.i:                                    ; preds = %for.body.us27.i
-  %cmsg_type15.us.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.025.us28.i, i64 0, i32 2
+  %cmsg_type15.us.i = getelementptr inbounds i8, ptr %cmsg.025.us28.i, i64 12
   %21 = load i32, ptr %cmsg_type15.us.i, align 4
   %cmp16.not.us.i = icmp eq i32 %21, 50
   br i1 %cmp16.not.us.i, label %if.end18.i, label %for.inc.us29.i
@@ -1571,33 +1560,33 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp1.not.i, label %if.then54, label %for.body.i, !llvm.loop !9
 
 if.end7.i:                                        ; preds = %if.end.us.i
-  %sin_addr.i = getelementptr inbounds %struct.sockaddr_in, ptr %14, i64 0, i32 2
-  %ipi_addr.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.025.us.i, i64 1, i32 1
+  %sin_addr.i = getelementptr inbounds i8, ptr %14, i64 4
+  %ipi_addr.i = getelementptr inbounds i8, ptr %cmsg.025.us.i, i64 24
   %22 = load i32, ptr %ipi_addr.i, align 8
   store i32 %22, ptr %sin_addr.i, align 4
   %23 = load ptr, ptr %ptr, align 8
   store i16 2, ptr %14, align 4
-  %sin_port.i = getelementptr inbounds %struct.bio_dgram_data_st, ptr %23, i64 0, i32 1, i32 0, i32 1
+  %sin_port.i = getelementptr inbounds i8, ptr %23, i64 114
   %24 = load i16, ptr %sin_port.i, align 2
-  %sin_port8.i = getelementptr inbounds %struct.sockaddr_in, ptr %14, i64 0, i32 1
+  %sin_port8.i = getelementptr inbounds i8, ptr %14, i64 2
   store i16 %24, ptr %sin_port8.i, align 2
   br label %for.inc58
 
 if.end18.i:                                       ; preds = %if.end14.us.i
   %25 = load ptr, ptr %ptr, align 8
-  %sin6_addr.i = getelementptr inbounds %struct.sockaddr_in6, ptr %14, i64 0, i32 3
-  %__cmsg_data21.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.025.us28.i, i64 0, i32 3
+  %sin6_addr.i = getelementptr inbounds i8, ptr %14, i64 8
+  %__cmsg_data21.i = getelementptr inbounds i8, ptr %cmsg.025.us28.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr.i, ptr noundef nonnull align 8 dereferenceable(16) %__cmsg_data21.i, i64 16, i1 false)
   store i16 10, ptr %14, align 4
-  %sin6_port.i = getelementptr inbounds %struct.bio_dgram_data_st, ptr %25, i64 0, i32 1, i32 0, i32 1
+  %sin6_port.i = getelementptr inbounds i8, ptr %25, i64 114
   %26 = load i16, ptr %sin6_port.i, align 2
-  %sin6_port24.i = getelementptr inbounds %struct.sockaddr_in6, ptr %14, i64 0, i32 1
+  %sin6_port24.i = getelementptr inbounds i8, ptr %14, i64 2
   store i16 %26, ptr %sin6_port24.i, align 2
-  %sin6_scope_id.i = getelementptr inbounds %struct.bio_dgram_data_st, ptr %25, i64 0, i32 1, i32 0, i32 4
+  %sin6_scope_id.i = getelementptr inbounds i8, ptr %25, i64 136
   %27 = load i32, ptr %sin6_scope_id.i, align 8
-  %sin6_scope_id26.i = getelementptr inbounds %struct.sockaddr_in6, ptr %14, i64 0, i32 4
+  %sin6_scope_id26.i = getelementptr inbounds i8, ptr %14, i64 24
   store i32 %27, ptr %sin6_scope_id26.i, align 4
-  %sin6_flowinfo.i = getelementptr inbounds %struct.sockaddr_in6, ptr %14, i64 0, i32 2
+  %sin6_flowinfo.i = getelementptr inbounds i8, ptr %14, i64 4
   store i32 0, ptr %sin6_flowinfo.i, align 4
   br label %for.inc58
 
@@ -1677,14 +1666,14 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %num = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num = getelementptr inbounds i8, ptr %b, i64 56
   %2 = load i32, ptr %num, align 8
   %call1 = call i32 @setsockopt(i32 noundef %2, i32 noundef 0, i32 noundef 8, ptr noundef nonnull %enable.addr, i32 noundef 4) #11
   %cmp2 = icmp sgt i32 %call1, -1
   br label %return
 
 if.then6:                                         ; preds = %entry
-  %num7 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num7 = getelementptr inbounds i8, ptr %b, i64 56
   %3 = load i32, ptr %num7, align 8
   %call8 = call i32 @setsockopt(i32 noundef %3, i32 noundef 41, i32 noundef 49, ptr noundef nonnull %enable.addr, i32 noundef 4) #11
   %cmp9 = icmp sgt i32 %call8, -1

@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ObjectPropertyIterator = type { ptr, %struct._GHashTableIter }
 %struct._GHashTableIter = type { ptr, ptr, ptr, i32, i32, ptr }
-%struct.ObjectPropertyInfoList = type { ptr, ptr }
-%struct.ObjectProperty = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectPropertyInfo = type { ptr, ptr, ptr, ptr }
-%struct.ObjectTypeInfo = type { ptr, i8, i8, ptr }
-%struct.ObjectTypeInfoList = type { ptr, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
 
 @.str = private unnamed_addr constant [27 x i8] c"../qemu/qom/qom-qmp-cmds.c\00", align 1
 @__func__.qmp_qom_list = private unnamed_addr constant [13 x i8] c"qmp_qom_list\00", align 1
@@ -69,16 +63,16 @@ while.body:                                       ; preds = %if.end2, %while.bod
   %props.013 = phi ptr [ %call6, %while.body ], [ null, %if.end2 ]
   %call5 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #6
   %call6 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #7
-  %value7 = getelementptr inbounds %struct.ObjectPropertyInfoList, ptr %call6, i64 0, i32 1
+  %value7 = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %call5, ptr %value7, align 8
   store ptr %props.013, ptr %call6, align 8
   %2 = load ptr, ptr %call314, align 8
   %call8 = call noalias ptr @g_strdup(ptr noundef %2) #5
   store ptr %call8, ptr %call5, align 8
-  %type = getelementptr inbounds %struct.ObjectProperty, ptr %call314, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call314, i64 8
   %3 = load ptr, ptr %type, align 8
   %call10 = call noalias ptr @g_strdup(ptr noundef %3) #5
-  %type11 = getelementptr inbounds %struct.ObjectPropertyInfo, ptr %call5, i64 0, i32 1
+  %type11 = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %call10, ptr %type11, align 8
   %call3 = call ptr @object_property_iter_next(ptr noundef nonnull %iter) #5
   %tobool4.not = icmp eq ptr %call3, null
@@ -174,10 +168,10 @@ entry:
   %call3 = tail call noalias ptr @g_strdup(ptr noundef %call2) #5
   store ptr %call3, ptr %call1, align 8
   %call4 = tail call zeroext i1 @object_class_is_abstract(ptr noundef %klass) #5
-  %abstract = getelementptr inbounds %struct.ObjectTypeInfo, ptr %call1, i64 0, i32 2
+  %abstract = getelementptr inbounds i8, ptr %call1, i64 9
   %frombool = zext i1 %call4 to i8
   store i8 %frombool, ptr %abstract, align 1
-  %has_abstract = getelementptr inbounds %struct.ObjectTypeInfo, ptr %call1, i64 0, i32 1
+  %has_abstract = getelementptr inbounds i8, ptr %call1, i64 8
   store i8 %frombool, ptr %has_abstract, align 8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %do.body, label %if.then
@@ -185,13 +179,13 @@ entry:
 if.then:                                          ; preds = %entry
   %call6 = tail call ptr @object_class_get_name(ptr noundef nonnull %call) #5
   %call7 = tail call noalias ptr @g_strdup(ptr noundef %call6) #5
-  %parent8 = getelementptr inbounds %struct.ObjectTypeInfo, ptr %call1, i64 0, i32 3
+  %parent8 = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %call7, ptr %parent8, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry, %if.then
   %call9 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #7
-  %value = getelementptr inbounds %struct.ObjectTypeInfoList, ptr %call9, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call9, i64 8
   store ptr %call1, ptr %value, align 8
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %call9, align 8
@@ -278,33 +272,33 @@ if.end32:                                         ; preds = %if.end27
   %1 = load ptr, ptr %call628, align 8
   %call35 = call noalias ptr @g_strdup(ptr noundef %1) #5
   store ptr %call35, ptr %call33, align 8
-  %type = getelementptr inbounds %struct.ObjectProperty, ptr %call628, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call628, i64 8
   %2 = load ptr, ptr %type, align 8
   %call37 = call noalias ptr @g_strdup(ptr noundef %2) #5
-  %type38 = getelementptr inbounds %struct.ObjectPropertyInfo, ptr %call33, i64 0, i32 1
+  %type38 = getelementptr inbounds i8, ptr %call33, i64 8
   store ptr %call37, ptr %type38, align 8
-  %description = getelementptr inbounds %struct.ObjectProperty, ptr %call628, i64 0, i32 2
+  %description = getelementptr inbounds i8, ptr %call628, i64 16
   %3 = load ptr, ptr %description, align 8
   %call39 = call noalias ptr @g_strdup(ptr noundef %3) #5
-  %description40 = getelementptr inbounds %struct.ObjectPropertyInfo, ptr %call33, i64 0, i32 2
+  %description40 = getelementptr inbounds i8, ptr %call33, i64 16
   store ptr %call39, ptr %description40, align 8
-  %defval = getelementptr inbounds %struct.ObjectProperty, ptr %call628, i64 0, i32 9
+  %defval = getelementptr inbounds i8, ptr %call628, i64 72
   %4 = load ptr, ptr %defval, align 8
   %tobool41.not = icmp eq ptr %4, null
   br i1 %tobool41.not, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end32
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %4, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %5, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
   br label %qobject_ref_impl.exit
 
 qobject_ref_impl.exit:                            ; preds = %if.end32, %if.then.i
-  %default_value = getelementptr inbounds %struct.ObjectPropertyInfo, ptr %call33, i64 0, i32 3
+  %default_value = getelementptr inbounds i8, ptr %call33, i64 24
   store ptr %4, ptr %default_value, align 8
   %call44 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #7
-  %value = getelementptr inbounds %struct.ObjectPropertyInfoList, ptr %call44, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call44, i64 8
   store ptr %call33, ptr %value, align 8
   store ptr %prop_list.0.ph32, ptr %call44, align 8
   %call626 = call ptr @object_property_iter_next(ptr noundef nonnull %iter) #5
@@ -383,18 +377,18 @@ while.body:                                       ; preds = %if.end7, %while.bod
   %0 = load ptr, ptr %call819, align 8
   %call11 = call noalias ptr @g_strdup(ptr noundef %0) #5
   store ptr %call11, ptr %call10, align 8
-  %type = getelementptr inbounds %struct.ObjectProperty, ptr %call819, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call819, i64 8
   %1 = load ptr, ptr %type, align 8
   %call13 = call noalias ptr @g_strdup(ptr noundef %1) #5
-  %type14 = getelementptr inbounds %struct.ObjectPropertyInfo, ptr %call10, i64 0, i32 1
+  %type14 = getelementptr inbounds i8, ptr %call10, i64 8
   store ptr %call13, ptr %type14, align 8
-  %description = getelementptr inbounds %struct.ObjectProperty, ptr %call819, i64 0, i32 2
+  %description = getelementptr inbounds i8, ptr %call819, i64 16
   %2 = load ptr, ptr %description, align 8
   %call15 = call noalias ptr @g_strdup(ptr noundef %2) #5
-  %description16 = getelementptr inbounds %struct.ObjectPropertyInfo, ptr %call10, i64 0, i32 2
+  %description16 = getelementptr inbounds i8, ptr %call10, i64 16
   store ptr %call15, ptr %description16, align 8
   %call17 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #7
-  %value = getelementptr inbounds %struct.ObjectPropertyInfoList, ptr %call17, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call17, i64 8
   store ptr %call10, ptr %value, align 8
   store ptr %prop_list.018, ptr %call17, align 8
   %call8 = call ptr @object_property_iter_next(ptr noundef nonnull %iter) #5

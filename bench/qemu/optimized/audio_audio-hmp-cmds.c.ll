@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.capture_list_head = type { ptr }
-%struct.CaptureState = type { ptr, %struct.capture_ops, %struct.anon }
-%struct.capture_ops = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
 
 @capture_head = internal global %struct.capture_list_head zeroinitializer, align 8
 @.str = private unnamed_addr constant [7 x i8] c"[%d]: \00", align 1
@@ -29,11 +26,11 @@ for.body:                                         ; preds = %entry, %for.body
   %s.08 = phi ptr [ %s.0, %for.body ], [ %s.05, %entry ]
   %i.07 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
   %call = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str, i32 noundef %i.07) #4
-  %ops = getelementptr inbounds %struct.CaptureState, ptr %s.08, i64 0, i32 1
+  %ops = getelementptr inbounds i8, ptr %s.08, i64 8
   %0 = load ptr, ptr %ops, align 8
   %1 = load ptr, ptr %s.08, align 8
   tail call void %0(ptr noundef %1) #4
-  %entries = getelementptr inbounds %struct.CaptureState, ptr %s.08, i64 0, i32 2
+  %entries = getelementptr inbounds i8, ptr %s.08, i64 24
   %inc = add i32 %i.07, 1
   %s.0 = load ptr, ptr %entries, align 8
   %tobool.not = icmp eq ptr %s.0, null
@@ -61,19 +58,19 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %destroy = getelementptr inbounds %struct.CaptureState, ptr %s.017, i64 0, i32 1, i32 1
+  %destroy = getelementptr inbounds i8, ptr %s.017, i64 16
   %0 = load ptr, ptr %destroy, align 8
   %1 = load ptr, ptr %s.017, align 8
   tail call void %0(ptr noundef %1) #4
-  %entries = getelementptr inbounds %struct.CaptureState, ptr %s.017, i64 0, i32 2
+  %entries = getelementptr inbounds i8, ptr %s.017, i64 24
   %2 = load ptr, ptr %entries, align 8
   %cmp2.not = icmp eq ptr %2, null
-  %le_prev13.phi.trans.insert = getelementptr inbounds %struct.CaptureState, ptr %s.017, i64 0, i32 2, i32 1
+  %le_prev13.phi.trans.insert = getelementptr inbounds i8, ptr %s.017, i64 32
   %.pre19 = load ptr, ptr %le_prev13.phi.trans.insert, align 8
   br i1 %cmp2.not, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %le_prev9 = getelementptr inbounds %struct.CaptureState, ptr %2, i64 0, i32 2, i32 1
+  %le_prev9 = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %.pre19, ptr %le_prev9, align 8
   %.pre = load ptr, ptr %entries, align 8
   br label %if.end
@@ -86,7 +83,7 @@ if.end:                                           ; preds = %if.then, %if.then4
   br label %for.end
 
 for.inc:                                          ; preds = %for.body
-  %entries19 = getelementptr inbounds %struct.CaptureState, ptr %s.017, i64 0, i32 2
+  %entries19 = getelementptr inbounds i8, ptr %s.017, i64 24
   %inc = add i32 %i.016, 1
   %s.0 = load ptr, ptr %entries19, align 8
   %tobool.not = icmp eq ptr %s.0, null
@@ -135,19 +132,19 @@ if.then11:                                        ; preds = %if.end
 
 do.body:                                          ; preds = %if.end
   %1 = load ptr, ptr @capture_head, align 8
-  %entries = getelementptr inbounds %struct.CaptureState, ptr %call8, i64 0, i32 2
+  %entries = getelementptr inbounds i8, ptr %call8, i64 24
   store ptr %1, ptr %entries, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end19, label %if.then15
 
 if.then15:                                        ; preds = %do.body
-  %le_prev = getelementptr inbounds %struct.CaptureState, ptr %1, i64 0, i32 2, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %entries, ptr %le_prev, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then15, %do.body
   store ptr %call8, ptr @capture_head, align 8
-  %le_prev21 = getelementptr inbounds %struct.CaptureState, ptr %call8, i64 0, i32 2, i32 1
+  %le_prev21 = getelementptr inbounds i8, ptr %call8, i64 32
   store ptr @capture_head, ptr %le_prev21, align 8
   br label %do.end
 

@@ -10,14 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
 %"struct.std::piecewise_construct_t" = type { i8 }
-%"struct.openvdb::v11_0::io::Queue::Impl" = type { i32, i32, %"struct.std::atomic", i32, %"class.tbb::detail::d2::concurrent_hash_map", %"class.std::map", i32, %"class.std::mutex" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.tbb::detail::d2::concurrent_hash_map" = type <{ %"class.tbb::detail::d2::hash_map_base", %"class.tbb::detail::d1::tbb_hash_compare", [6 x i8] }>
-%"class.tbb::detail::d2::hash_map_base" = type { %"class.tbb::detail::d1::tbb_allocator", %"struct.std::atomic.2", %"struct.std::atomic.2", [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket"], [64 x %"struct.std::atomic.8"] }
-%"class.tbb::detail::d1::tbb_allocator" = type { i8 }
-%"struct.std::atomic.2" = type { %"struct.std::__atomic_base.3" }
-%"struct.std::__atomic_base.3" = type { i64 }
 %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.6" }
 %"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.4" }
 %"struct.std::atomic.4" = type { %"struct.std::__atomic_base.5" }
@@ -26,29 +18,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__atomic_base.7" = type { ptr }
 %"struct.std::atomic.8" = type { %"struct.std::__atomic_base.9" }
 %"struct.std::__atomic_base.9" = type { ptr }
-%"class.tbb::detail::d1::tbb_hash_compare" = type { %"struct.std::hash", %"struct.std::equal_to" }
-%"struct.std::hash" = type { i8 }
-%"struct.std::equal_to" = type { i8 }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>, std::_Select1st<std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>, std::_Select1st<std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %struct.timespec = type { i64, i64 }
 %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor" = type { %"class.tbb::detail::d1::rw_scoped_lock.base", ptr, i64 }
 %"class.tbb::detail::d1::rw_scoped_lock.base" = type <{ ptr, i8 }>
-%"class.tbb::detail::d1::rw_scoped_lock" = type <{ ptr, i8, [7 x i8] }>
-%"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::node" = type { %"struct.tbb::detail::d2::hash_map_node_base", %union.anon.52 }
-%"struct.tbb::detail::d2::hash_map_node_base" = type { ptr, %"class.tbb::detail::d1::spin_rw_mutex" }
-%union.anon.52 = type { %"struct.std::pair" }
-%"struct.std::pair" = type { i32, i32 }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
@@ -57,16 +29,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.71" = type { %"struct.std::_Head_base.72" }
 %"struct.std::_Head_base.72" = type { ptr }
 %"class.std::tuple.73" = type { i8 }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [40 x i8] }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::shared_ptr<const openvdb::v11_0::GridBase>, std::allocator<std::shared_ptr<const openvdb::v11_0::GridBase>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::shared_ptr<const openvdb::v11_0::GridBase>, std::allocator<std::shared_ptr<const openvdb::v11_0::GridBase>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<const openvdb::v11_0::GridBase>, std::allocator<std::shared_ptr<const openvdb::v11_0::GridBase>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::shared_ptr<const openvdb::v11_0::GridBase>, std::allocator<std::shared_ptr<const openvdb::v11_0::GridBase>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.11" = type { %"class.std::__shared_ptr.12" }
-%"class.std::__shared_ptr.12" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 %"class.tbb::detail::d1::small_object_allocator" = type { ptr }
 %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::accessor" = type { %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -86,25 +52,19 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.openvdb::v11_0::io::(anonymous namespace)::Task" = type { ptr, i32, %"class.std::function" }
 %"class.std::shared_ptr.28" = type { %"class.std::__shared_ptr.29" }
 %"class.std::__shared_ptr.29" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
 %"class.openvdb::v11_0::MetaMap" = type { ptr, %"class.std::map.20" }
 %"class.std::map.20" = type { %"class.std::_Rb_tree.21" }
 %"class.std::_Rb_tree.21" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::shared_ptr<openvdb::v11_0::Metadata>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::shared_ptr<openvdb::v11_0::Metadata>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::shared_ptr<openvdb::v11_0::Metadata>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::shared_ptr<openvdb::v11_0::Metadata>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.25", %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_key_compare.25" = type { %"struct.std::less.26" }
 %"struct.std::less.26" = type { i8 }
-%"class.std::_Bind" = type { { i64, i64 }, %"class.std::tuple.40" }
-%"class.std::tuple.40" = type { %"struct.std::_Tuple_impl.41" }
-%"struct.std::_Tuple_impl.41" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.tbb::detail::d1::enqueue_task" = type { %"class.tbb::detail::d1::task", %"class.tbb::detail::d1::small_object_allocator", %class.anon, [40 x i8] }
-%"class.tbb::detail::d1::task" = type { ptr, %"class.tbb::detail::d1::task_traits", [6 x i64] }
-%"class.tbb::detail::d1::task_traits" = type { i64 }
-%"class.openvdb::v11_0::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string" }
-%"class.std::exception" = type { ptr }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
+%"class.std::shared_ptr.11" = type { %"class.std::__shared_ptr.12" }
+%"class.std::__shared_ptr.12" = type { ptr, %"class.std::__shared_count" }
 %"class.std::allocator.17" = type { i8 }
 %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::bucket_accessor" = type { %"class.tbb::detail::d1::rw_scoped_lock.base", ptr }
-%"struct.std::_Rb_tree_node.81" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.82" }
-%"struct.__gnu_cxx::__aligned_membuf.82" = type { [48 x i8] }
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>, std::_Select1st<std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>>, std::less<unsigned int>>::_Auto_node" = type { ptr, ptr }
 
 $__clang_call_terminate = comdat any
@@ -284,25 +244,25 @@ define void @_ZN7openvdb5v11_02io5QueueC2Ej(ptr nocapture noundef nonnull writeo
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #27
   store i32 120, ptr %call, align 8
-  %mCapacity.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 1
+  %mCapacity.i = getelementptr inbounds i8, ptr %call, i64 4
   store i32 100, ptr %mCapacity.i, align 4
-  %mNextId.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 3
+  %mNextId.i = getelementptr inbounds i8, ptr %call, i64 12
   store i32 1, ptr %mNextId.i, align 4
-  %my_mask.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 4, i32 0, i32 1
+  %my_mask.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 1, ptr %my_mask.i.i.i.i, align 8
-  %my_size.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 4, i32 0, i32 2
+  %my_size.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
-  %mStatus.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 4
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 4, i32 0, i32 3
   %0 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
+  %my_table11.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %entry
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
-  %node_list.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 4, i32 0, i32 3, i64 %i.07.i.i.i.i, i32 1
+  %node_list.i.i.i.i = getelementptr inbounds [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %my_embedded_segment.ptr.i.i.i.i, i64 0, i64 %i.07.i.i.i.i, i32 1
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
@@ -311,7 +271,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.body6.i.i.i.i:                                ; preds = %for.body6.i.i.i.i, %for.cond4.preheader.i.i.i.i
   %segment_index.08.i.i.i.i = phi i64 [ 0, %for.cond4.preheader.i.i.i.i ], [ %inc14.i.i.i.i, %for.body6.i.i.i.i ]
   %cmp7.i.i.i.i = icmp eq i64 %segment_index.08.i.i.i.i, 0
-  %arrayidx12.i.i.i.i = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %mStatus.i, i64 0, i32 4, i64 %segment_index.08.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds [64 x %"struct.std::atomic.8"], ptr %my_table11.i.i.i.i, i64 0, i64 %segment_index.08.i.i.i.i
   %1 = select i1 %cmp7.i.i.i.i, i64 %0, i64 0
   store atomic i64 %1, ptr %arrayidx12.i.i.i.i monotonic, align 8
   %inc14.i.i.i.i = add nuw nsw i64 %segment_index.08.i.i.i.i, 1
@@ -319,23 +279,23 @@ for.body6.i.i.i.i:                                ; preds = %for.body6.i.i.i.i, 
   br i1 %exitcond.not.i.i.i.i, label %invoke.cont, label %for.body6.i.i.i.i, !llvm.loop !6
 
 invoke.cont:                                      ; preds = %for.body6.i.i.i.i
-  %my_hash_compare.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 4, i32 1
+  %my_hash_compare.i.i.i = getelementptr inbounds i8, ptr %call, i64 584
   store i16 0, ptr %my_hash_compare.i.i.i, align 8
-  %2 = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 5, i32 0, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %call, i64 600
   store i32 0, ptr %2, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 608
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 616
   store ptr %2, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 624
   store ptr %2, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 5, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 632
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %mNextNotifierId.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 6
+  %mNextNotifierId.i = getelementptr inbounds i8, ptr %call, i64 640
   store i32 1, ptr %mNextNotifierId.i, align 8
-  %mNotifierMutex.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 7
+  %mNotifierMutex.i = getelementptr inbounds i8, ptr %call, i64 648
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mNotifierMutex.i, i8 0, i64 40, i1 false)
-  %mNumTasks2.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %call, i64 0, i32 2
+  %mNumTasks2.i = getelementptr inbounds i8, ptr %call, i64 8
   store atomic i32 0, ptr %mNumTasks2.i seq_cst, align 4
   store ptr %call, ptr %this, align 8
   store i32 %capacity, ptr %mCapacity.i, align 4
@@ -347,13 +307,13 @@ define void @_ZN7openvdb5v11_02io5QueueD2Ev(ptr nocapture noundef nonnull align 
 entry:
   %__ts.i = alloca %struct.timespec, align 8
   %0 = load ptr, ptr %this, align 8
-  %mNumTasks3 = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %0, i64 0, i32 2
+  %mNumTasks3 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i32, ptr %mNumTasks3 seq_cst, align 4
   %cmp4 = icmp sgt i32 %1, 0
   br i1 %cmp4, label %if.end.i.lr.ph, label %while.end
 
 if.end.i.lr.ph:                                   ; preds = %entry
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %__ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %__ts.i, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit
@@ -379,7 +339,7 @@ land.rhs.i:                                       ; preds = %call11.i.noexc
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %call11.i.noexc, %land.rhs.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i)
   %3 = load ptr, ptr %this, align 8
-  %mNumTasks = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %3, i64 0, i32 2
+  %mNumTasks = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i32, ptr %mNumTasks seq_cst, align 4
   %cmp = icmp sgt i32 %4, 0
   br i1 %cmp, label %if.end.i, label %while.end
@@ -421,7 +381,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define noundef zeroext i1 @_ZNK7openvdb5v11_02io5Queue5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mNumTasks = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %0, i64 0, i32 2
+  %mNumTasks = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i32, ptr %mNumTasks seq_cst, align 4
   %cmp = icmp eq i32 %1, 0
   ret i1 %cmp
@@ -431,7 +391,7 @@ entry:
 define noundef i32 @_ZNK7openvdb5v11_02io5Queue4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mNumTasks = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %0, i64 0, i32 2
+  %mNumTasks = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i32, ptr %mNumTasks seq_cst, align 4
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   ret i32 %.sroa.speculated
@@ -441,7 +401,7 @@ entry:
 define noundef i32 @_ZNK7openvdb5v11_02io5Queue8capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mCapacity = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %0, i64 0, i32 1
+  %mCapacity = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %mCapacity, align 4
   ret i32 %1
 }
@@ -451,7 +411,7 @@ define void @_ZN7openvdb5v11_02io5Queue11setCapacityEj(ptr nocapture noundef non
 entry:
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %n, i32 1)
   %0 = load ptr, ptr %this, align 8
-  %mCapacity = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %0, i64 0, i32 1
+  %mCapacity = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.speculated, ptr %mCapacity, align 4
   ret void
 }
@@ -479,12 +439,12 @@ entry:
   %acc = alloca %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", align 8
   store i32 %id, ptr %id.addr, align 4
   store ptr null, ptr %acc, align 8
-  %m_is_writer.i.i = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %acc, i64 0, i32 1
+  %m_is_writer.i.i = getelementptr inbounds i8, ptr %acc, i64 8
   store i8 0, ptr %m_is_writer.i.i, align 8
-  %my_node.i = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", ptr %acc, i64 0, i32 1
+  %my_node.i = getelementptr inbounds i8, ptr %acc, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_node.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %this, align 8
-  %mStatus = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %0, i64 0, i32 4
+  %mStatus = getelementptr inbounds i8, ptr %0, i64 16
   %call.i3 = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE6lookupILb0EjPFPNSG_4nodeERNSB_INS1_13hash_map_baseISF_NS8_13spin_rw_mutexEE6bucketEEERSD_PKS7_EEEbRKT0_SS_PNSG_14const_accessorEbT1_SJ_(ptr noundef nonnull align 8 dereferenceable(570) %mStatus, ptr noundef nonnull align 4 dereferenceable(4) %id.addr, ptr noundef null, ptr noundef nonnull %acc, i1 noundef zeroext false, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE20do_not_allocate_nodeERNSB_INS1_13hash_map_baseISF_NS8_13spin_rw_mutexEE6bucketEEERSD_PKS7_, ptr noundef null)
           to label %invoke.cont unwind label %lpad
 
@@ -493,7 +453,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %1 = load ptr, ptr %my_node.i, align 8
-  %second = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::node", ptr %1, i64 0, i32 1, i32 0, i32 1
+  %second = getelementptr inbounds i8, ptr %1, i64 20
   %2 = load i32, ptr %second, align 4
   %3 = and i32 %2, -2
   %or.cond = icmp eq i32 %3, 2
@@ -501,7 +461,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 if.then6:                                         ; preds = %invoke.cont3
   %4 = load ptr, ptr %this, align 8
-  %mStatus9 = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %4, i64 0, i32 4
+  %mStatus9 = getelementptr inbounds i8, ptr %4, i64 16
   %call.i5 = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE7excludeERNSG_14const_accessorE(ptr noundef nonnull align 8 dereferenceable(570) %mStatus9, ptr noundef nonnull align 8 dereferenceable(32) %acc)
           to label %cleanup unwind label %lpad
 
@@ -566,7 +526,7 @@ entry:
   %ref.tmp10.i = alloca %"class.std::tuple.73", align 1
   %id = alloca i32, align 4
   %0 = load ptr, ptr %this, align 8
-  %mNotifierMutex = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %0, i64 0, i32 7
+  %mNotifierMutex = getelementptr inbounds i8, ptr %0, i64 648
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mNotifierMutex) #22
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -577,31 +537,30 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %mNextNotifierId = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %1, i64 0, i32 6
+  %mNextNotifierId = getelementptr inbounds i8, ptr %1, i64 640
   %2 = load i32, ptr %mNextNotifierId, align 8
   %inc = add i32 %2, 1
   store i32 %inc, ptr %mNextNotifierId, align 8
   store i32 %2, ptr %id, align 4
   %3 = load ptr, ptr %this, align 8
-  %mNotifiers = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %3, i64 0, i32 5
+  %mNotifiers = getelementptr inbounds i8, ptr %3, i64 592
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %3, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 608
   %4 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %3, i64 0, i32 5, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 600
   %cmp.not5.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not5.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %while.body.i.i.i.i
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %4, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
   %5 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp ult i32 %5, %2
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapIjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEESt4lessIjESaISt4pairIKjS7_EEE11lower_boundERSB_.exit.i, label %while.body.i.i.i.i, !llvm.loop !8
@@ -611,7 +570,7 @@ _ZNSt3mapIjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEESt4lessIjESaISt4pair
   br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapIjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEESt4lessIjESaISt4pairIKjS7_EEE11lower_boundERSB_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %6 = load i32, ptr %_M_storage.i.i.i, align 4
   %cmp.i3.i = icmp ult i32 %2, %6
   br i1 %cmp.i3.i, label %if.then.i, label %invoke.cont
@@ -624,13 +583,13 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
 
 invoke.cont:                                      ; preds = %lor.rhs.i, %if.then.i
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %call12.i1, %if.then.i ]
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 8
+  %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i, i64 0, i32 1
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %notify, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %notify, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %7 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %7, null
@@ -669,10 +628,10 @@ _ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i: ; preds = %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  %_M_manager3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 24
+  %_M_manager3.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 56
   %14 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr %14, ptr %_M_manager.i.i.i, align 8
-  %_M_invoker4.i2.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 32
+  %_M_invoker4.i2.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 64
   %15 = load ptr, ptr %_M_invoker4.i2.i, align 8
   store ptr %15, ptr %_M_invoker.i.i, align 8
   store <2 x ptr> %13, ptr %_M_manager3.i.i, align 8
@@ -711,7 +670,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %if.then.
 define void @_ZN7openvdb5v11_02io5Queue14removeNotifierEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %id) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mNotifierMutex = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %0, i64 0, i32 7
+  %mNotifierMutex = getelementptr inbounds i8, ptr %0, i64 648
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mNotifierMutex) #22
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -722,22 +681,21 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %_M_parent.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %1, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 608
   %2 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %1, i64 0, i32 5, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 600
   %cmp.not5.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not5.i.i.i, label %if.end, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %2, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %3 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ult i32 %3, %id
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !8
@@ -747,20 +705,20 @@ _ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10
   br i1 %cmp.i.i.i, label %if.end, label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %4 = load i32, ptr %_M_storage.i.i.i3.i.i, align 4
   %cmp.i4.i.i = icmp ugt i32 %4, %id
   br i1 %cmp.i4.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
   %call.i1.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %__y.addr.1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #22
-  %_M_manager.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i1.i.i, i64 0, i32 1, i32 0, i64 24
+  %_M_manager.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 56
   %5 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt3mapIjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEESt4lessIjESaISt4pairIKjS7_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISC_E.exit, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i1.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 40
   %call.i.i.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i, i32 noundef 3)
           to label %_ZNSt3mapIjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEESt4lessIjESaISt4pairIKjS7_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISC_E.exit unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i
 
@@ -773,7 +731,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt3mapIjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEESt4lessIjESaISt4pairIKjS7_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISC_E.exit: ; preds = %if.then, %if.then.i.i.i.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #29
-  %_M_node_count.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %1, i64 0, i32 5, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %1, i64 632
   %8 = load i64, ptr %_M_node_count.i.i.i, align 8
   %dec.i.i.i = add i64 %8, -1
   store i64 %dec.i.i.i, ptr %_M_node_count.i.i.i, align 8
@@ -791,7 +749,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN7openvdb5v11_02io5Queue14clearNotifiersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mNotifierMutex = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %0, i64 0, i32 7
+  %mNotifierMutex = getelementptr inbounds i8, ptr %0, i64 648
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mNotifierMutex) #22
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -802,8 +760,8 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %mNotifiers = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %1, i64 0, i32 5
-  %_M_parent.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %1, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 1
+  %mNotifiers = getelementptr inbounds i8, ptr %1, i64 592
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 608
   %2 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %mNotifiers, ptr noundef %2)
           to label %_ZNSt3mapIjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEESt4lessIjESaISt4pairIKjS7_EEE5clearEv.exit unwind label %terminate.lpad.i.i
@@ -816,13 +774,13 @@ terminate.lpad.i.i:                               ; preds = %_ZNSt10lock_guardIS
   unreachable
 
 _ZNSt3mapIjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEESt4lessIjESaISt4pairIKjS7_EEE5clearEv.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %add.ptr.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %1, i64 0, i32 5, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 600
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
-  %_M_left.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %1, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %1, i64 616
   store ptr %add.ptr.i.i, ptr %_M_left.i.i.i, align 8
-  %_M_right.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %1, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %1, i64 624
   store ptr %add.ptr.i.i, ptr %_M_right.i.i.i, align 8
-  %_M_node_count.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %1, i64 0, i32 5, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %1, i64 632
   store i64 0, ptr %_M_node_count.i.i.i, align 8
   %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mNotifierMutex) #22
   ret void
@@ -834,17 +792,17 @@ entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %call5.i.i.i.i2.i.i2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
   store ptr %call5.i.i.i.i2.i.i2, ptr %ref.tmp, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<const openvdb::v11_0::GridBase>, std::allocator<std::shared_ptr<const openvdb::v11_0::GridBase>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %call5.i.i.i.i2.i.i2, ptr %_M_finish.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr.11", ptr %call5.i.i.i.i2.i.i2, i64 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<const openvdb::v11_0::GridBase>, std::allocator<std::shared_ptr<const openvdb::v11_0::GridBase>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i2, i64 16
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.12", ptr %grid, i64 0, i32 1
+  %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %grid, i64 8
   %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8
   %1 = icmp eq ptr %0, null
   %2 = load ptr, ptr %grid, align 8
   store ptr %2, ptr %call5.i.i.i.i2.i.i2, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i.us.i = getelementptr inbounds %"class.std::__shared_ptr.12", ptr %call5.i.i.i.i2.i.i2, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i.us.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i2, i64 8
   br i1 %1, label %for.body.lr.ph.i.i.i.i.i.split.us.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i.split.us.i:              ; preds = %entry
@@ -853,7 +811,7 @@ for.body.lr.ph.i.i.i.i.i.split.us.i:              ; preds = %entry
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %entry
   store ptr %0, ptr %_M_refcount.i.i.i.i.i.i.i.i.us.i, align 8
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -880,13 +838,13 @@ invoke.cont4:                                     ; preds = %invoke.cont
 
 for.body.i.i.i.i:                                 ; preds = %invoke.cont4, %_ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i.i ], [ %6, %invoke.cont4 ]
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.12", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %7 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %8, 4294967297
   %9 = trunc i64 %8 to i32
@@ -894,10 +852,10 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i
@@ -923,10 +881,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i7, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i5
@@ -948,13 +906,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; pre
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %17 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
   br label %_ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr.11", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %__first.addr.04.i.i.i.i, %call5.i.i.i.i2.i.i2
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !9
 
@@ -995,17 +953,17 @@ entry:
   %ref.tmp37.i = alloca %class.anon, align 8
   %task = alloca %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", align 8
   %0 = load ptr, ptr %this, align 8
-  %mNextId = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %0, i64 0, i32 3
+  %mNextId = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i32, ptr %mNextId, align 4
   %inc = add i32 %1, 1
   store i32 %inc, ptr %mNextId, align 4
-  %mId.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %task, i64 0, i32 1
+  %mId.i.i = getelementptr inbounds i8, ptr %task, i64 8
   store i32 %1, ptr %mId.i.i, align 8
-  %mNotify.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %task, i64 0, i32 2
+  %mNotify.i.i = getelementptr inbounds i8, ptr %task, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mNotify.i.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskE, i64 0, inrange i32 0, i64 2), ptr %task, align 8
-  %mGrids.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %task, i64 0, i32 1
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<const openvdb::v11_0::GridBase>, std::allocator<std::shared_ptr<const openvdb::v11_0::GridBase>>>::_Vector_impl_data", ptr %grids, i64 0, i32 1
+  %mGrids.i = getelementptr inbounds i8, ptr %task, i64 48
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %grids, i64 8
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %grids, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
@@ -1017,9 +975,9 @@ entry:
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i.thread, label %cond.true.i.i.i.i.i
 
 invoke.cont.i.i.thread:                           ; preds = %entry
-  %_M_finish.i.i.i.i11 = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %task, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i11 = getelementptr inbounds i8, ptr %task, i64 56
   %add.ptr.i.i.i.i12 = getelementptr inbounds %"class.std::shared_ptr.11", ptr null, i64 %sub.ptr.div.i.i.i
-  %_M_end_of_storage.i.i.i.i13 = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %task, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i13 = getelementptr inbounds i8, ptr %task, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrids.i, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i12, ptr %_M_end_of_storage.i.i.i.i13, align 8
   br label %invoke.cont.i
@@ -1041,10 +999,10 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEE8allocate
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEE8allocateERS6_m.exit.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i6.i3.i, ptr %mGrids.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %task, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %task, i64 56
   store ptr %call5.i.i.i.i2.i6.i3.i, ptr %_M_finish.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr.11", ptr %call5.i.i.i.i2.i6.i3.i, i64 %sub.ptr.div.i.i.i
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %task, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %task, i64 64
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i
 
@@ -1053,15 +1011,15 @@ for.body.i.i.i.i.i.i:                             ; preds = %invoke.cont.i.i, %_
   %__first.sroa.0.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %3, %invoke.cont.i.i ]
   %4 = load ptr, ptr %__first.sroa.0.06.i.i.i.i.i.i, align 8
   store ptr %4, ptr %__cur.07.i.i.i.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.12", ptr %__cur.07.i.i.i.i.i.i, i64 0, i32 1
-  %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.12", ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 8
+  %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 8
   %5 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1077,8 +1035,8 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
   br label %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
 _ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr.11", ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr.11", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %2
   br i1 %cmp.i.not.i.i.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i.i.i, !llvm.loop !10
 
@@ -1086,15 +1044,15 @@ invoke.cont.i:                                    ; preds = %_ZSt10_ConstructISt
   %_M_finish.i.i.i.i14 = phi ptr [ %_M_finish.i.i.i.i11, %invoke.cont.i.i.thread ], [ %_M_finish.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %invoke.cont.i.i.thread ], [ %incdec.ptr.i.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i14, align 8
-  %mArchive.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %task, i64 0, i32 2
+  %mArchive.i = getelementptr inbounds i8, ptr %task, i64 72
   %vtable.i = load ptr, ptr %archive, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %9 = load ptr, ptr %vfn.i, align 8
   invoke void %9(ptr nonnull sret(%"class.std::shared_ptr.28") align 8 %mArchive.i, ptr noundef nonnull align 8 dereferenceable(65) %archive)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
-  %mMetadata.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %task, i64 0, i32 3
+  %mMetadata.i = getelementptr inbounds i8, ptr %task, i64 88
   invoke void @_ZN7openvdb5v11_07MetaMapC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %mMetadata.i, ptr noundef nonnull align 8 dereferenceable(56) %metadata)
           to label %_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskC2EjRKSt6vectorISt10shared_ptrIKNS0_8GridBaseEESaIS8_EERKNS1_7ArchiveERKNS0_7MetaMapE.exit unwind label %lpad4.i
 
@@ -1137,9 +1095,9 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskC2EjRKSt6vectorISt10shared_ptrIKNS
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %arena.i)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %ref.tmp37.i)
   %call.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #22
-  %mNumTasks.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %13, i64 0, i32 2
-  %mCapacity.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %13, i64 0, i32 1
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
+  %mNumTasks.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %mCapacity.i.i = getelementptr inbounds i8, ptr %13, i64 4
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i, %_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskC2EjRKSt6vectorISt10shared_ptrIKNS0_8GridBaseEESaIS8_EERKNS1_7ArchiveERKNS0_7MetaMapE.exit
@@ -1242,18 +1200,18 @@ lpad27.i:                                         ; preds = %try.cont.i, %catch.
   br label %lpad.body
 
 if.then.i.i.i.i:                                  ; preds = %while.cond.i
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %notify.i, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %notify.i, i64 16
   %23 = getelementptr inbounds i8, ptr %notify.i, i64 8
   store i64 0, ptr %23, align 8
   %call.i.i2.i.i9 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
           to label %call.i.i2.i.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.i2.i.i.noexc:                              ; preds = %if.then.i.i.i.i
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function", ptr %notify.i, i64 0, i32 1
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %notify.i, i64 24
   store i64 ptrtoint (ptr @_ZN7openvdb5v11_02io5Queue4Impl25setStatusWithNotificationEjNS2_6StatusE to i64), ptr %call.i.i2.i.i9, align 8
-  %this.repack4.i.i.i.i.i = getelementptr inbounds { i64, i64 }, ptr %call.i.i2.i.i9, i64 0, i32 1
+  %this.repack4.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i.i9, i64 8
   store i64 0, ptr %this.repack4.i.i.i.i.i, align 8
-  %_M_bound_args.i.i.i.i.i = getelementptr inbounds %"class.std::_Bind", ptr %call.i.i2.i.i9, i64 0, i32 1
+  %_M_bound_args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i.i9, i64 16
   %24 = ptrtoint ptr %13 to i64
   store i64 %24, ptr %_M_bound_args.i.i.i.i.i, align 8
   store ptr %call.i.i2.i.i9, ptr %notify.i, align 8
@@ -1270,20 +1228,20 @@ ehcleanup43.thread.i:                             ; preds = %call.i.i2.i.i.noexc
   br label %if.then.i.i25.i
 
 _ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i.i.i: ; preds = %call.i.i2.i.i.noexc
-  %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i3031.i, ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i.i9, i64 24, i1 false)
   store ptr %call.i.i.i.i3031.i, ptr %ref.tmp.i.i.i, align 8
-  %_M_invoker.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNotify.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNotify.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
-  %_M_manager3.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %task, i64 0, i32 2, i32 0, i32 1
+  %_M_manager3.i.i.i.i = getelementptr inbounds i8, ptr %task, i64 32
   %26 = load ptr, ptr %_M_manager3.i.i.i.i, align 8
   store ptr %26, ptr %_M_manager.i.i.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvjN7openvdb5v11_02io5Queue6StatusEESt5_BindIFMNS3_4ImplEFvjS4_EPS7_St12_PlaceholderILi1EESB_ILi2EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager3.i.i.i.i, align 8
-  %_M_invoker4.i2.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %task, i64 0, i32 2, i32 1
+  %_M_invoker4.i2.i.i.i = getelementptr inbounds i8, ptr %task, i64 40
   %27 = load ptr, ptr %_M_invoker4.i2.i.i.i, align 8
   store ptr %27, ptr %_M_invoker.i.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvjN7openvdb5v11_02io5Queue6StatusEESt5_BindIFMNS3_4ImplEFvjS4_EPS7_St12_PlaceholderILi1EESB_ILi2EEEEE9_M_invokeERKSt9_Any_dataOjOS4_, ptr %_M_invoker4.i2.i.i.i, align 8
@@ -1308,17 +1266,17 @@ invoke.cont33.i:                                  ; preds = %if.then.i.i5.i.i.i,
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %acc.i.i)
   store i32 %task.val.i, ptr %id.addr.i.i, align 4
   store ptr null, ptr %acc.i.i, align 8
-  %m_is_writer.i.i.i.i.i = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %acc.i.i, i64 0, i32 1
+  %m_is_writer.i.i.i.i.i = getelementptr inbounds i8, ptr %acc.i.i, i64 8
   store i8 0, ptr %m_is_writer.i.i.i.i.i, align 8
-  %my_node.i.i.i.i = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", ptr %acc.i.i, i64 0, i32 1
+  %my_node.i.i.i.i = getelementptr inbounds i8, ptr %acc.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_node.i.i.i.i, i8 0, i64 16, i1 false)
-  %mStatus.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %13, i64 0, i32 4
+  %mStatus.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %call.i3.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE6lookupILb1EjPFPNSG_4nodeERNSB_INS1_13hash_map_baseISF_NS8_13spin_rw_mutexEE6bucketEEERSD_PKS7_EEEbRKT0_SS_PNSG_14const_accessorEbT1_SJ_(ptr noundef nonnull align 8 dereferenceable(570) %mStatus.i.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i.i, ptr noundef null, ptr noundef nonnull %acc.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE31allocate_node_default_constructIjEEPNSG_4nodeERNSB_INS1_13hash_map_baseISF_NS8_13spin_rw_mutexEE6bucketEEERKT_PKS7_, ptr noundef null)
           to label %invoke.cont2.i.i unwind label %lpad.i.i
 
 invoke.cont2.i.i:                                 ; preds = %invoke.cont33.i
   %30 = load ptr, ptr %my_node.i.i.i.i, align 8
-  %second.i.i = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::node", ptr %30, i64 0, i32 1, i32 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %30, i64 20
   store i32 1, ptr %second.i.i, align 4
   store ptr null, ptr %my_node.i.i.i.i, align 8
   %31 = load ptr, ptr %acc.i.i, align 8
@@ -1367,15 +1325,15 @@ invoke.cont35.i:                                  ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %id.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %acc.i.i)
   store i64 1, ptr %arena.i, align 8
-  %my_initialization_state.i.i.i = getelementptr inbounds %"class.tbb::detail::d1::task_arena_base", ptr %arena.i, i64 0, i32 1
+  %my_initialization_state.i.i.i = getelementptr inbounds i8, ptr %arena.i, i64 8
   store i32 0, ptr %my_initialization_state.i.i.i, align 8
-  %my_arena.i.i.i = getelementptr inbounds %"class.tbb::detail::d1::task_arena_base", ptr %arena.i, i64 0, i32 2
+  %my_arena.i.i.i = getelementptr inbounds i8, ptr %arena.i, i64 16
   store ptr null, ptr %my_arena.i.i.i, align 8
-  %my_max_concurrency.i.i.i = getelementptr inbounds %"class.tbb::detail::d1::task_arena_base", ptr %arena.i, i64 0, i32 3
+  %my_max_concurrency.i.i.i = getelementptr inbounds i8, ptr %arena.i, i64 24
   store <4 x i32> <i32 -1, i32 1, i32 1073741822, i32 -1>, ptr %my_max_concurrency.i.i.i, align 8
-  %my_core_type.i.i.i = getelementptr inbounds %"class.tbb::detail::d1::task_arena_base", ptr %arena.i, i64 0, i32 7
+  %my_core_type.i.i.i = getelementptr inbounds i8, ptr %arena.i, i64 40
   store i32 -1, ptr %my_core_type.i.i.i, align 8
-  %my_max_threads_per_core.i.i.i = getelementptr inbounds %"class.tbb::detail::d1::task_arena_base", ptr %arena.i, i64 0, i32 8
+  %my_max_threads_per_core.i.i.i = getelementptr inbounds i8, ptr %arena.i, i64 44
   store i32 -1, ptr %my_max_threads_per_core.i.i.i, align 4
   %call.i14.i = invoke noundef zeroext i1 @_ZN3tbb6detail2r16attachERNS0_2d115task_arena_baseE(ptr noundef nonnull align 8 dereferenceable(48) %arena.i)
           to label %call.i.noexc.i unwind label %lpad32.i
@@ -1464,10 +1422,10 @@ call.i.i.i.noexc.i:                               ; preds = %_ZN3tbb6detail2d110
   %49 = getelementptr inbounds i8, ptr %call.i.i.i17.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %49, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i17.i, align 64
-  %m_allocator.i.i.i.i.i = getelementptr inbounds %"class.tbb::detail::d1::enqueue_task", ptr %call.i.i.i17.i, i64 0, i32 1
+  %m_allocator.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i17.i, i64 64
   %50 = load i64, ptr %alloc.i.i.i, align 8
   store i64 %50, ptr %m_allocator.i.i.i.i.i, align 64
-  %m_func.i.i.i.i.i = getelementptr inbounds %"class.tbb::detail::d1::enqueue_task", ptr %call.i.i.i17.i, i64 0, i32 2
+  %m_func.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i17.i, i64 72
   invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(144) %m_func.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp37.i)
           to label %.noexc18.i unwind label %lpad40.i
 
@@ -1587,20 +1545,20 @@ lpad.body:                                        ; preds = %lpad.loopexit, %lpa
 define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<const openvdb::v11_0::GridBase>, std::allocator<std::shared_ptr<const openvdb::v11_0::GridBase>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i ], [ %0, %entry ]
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.12", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %2 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %3, 4294967297
   %4 = trunc i64 %3 to i32
@@ -1608,10 +1566,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i
@@ -1637,10 +1595,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -1662,13 +1620,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
   br label %_ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr.11", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !9
 
@@ -1693,10 +1651,10 @@ _ZNSt12_Vector_baseISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EED2Ev.exit:
 define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMetadata = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 3
+  %mMetadata = getelementptr inbounds i8, ptr %this, i64 88
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7openvdb5v11_07MetaMapE, i64 0, inrange i32 0, i64 2), ptr %mMetadata, align 8
-  %mMeta.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 3, i32 1
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 3, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %mMeta.i = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %mMeta.i, ptr noundef %0)
           to label %_ZN7openvdb5v11_07MetaMapD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -1709,13 +1667,13 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZN7openvdb5v11_07MetaMapD2Ev.exit:               ; preds = %entry
-  %_M_refcount.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_02io7ArchiveEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN7openvdb5v11_07MetaMapD2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -1723,10 +1681,10 @@ if.then.i.i.i:                                    ; preds = %_ZN7openvdb5v11_07M
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
   br label %if.end8.sink.split.i.i.i.i
@@ -1752,10 +1710,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1777,28 +1735,28 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
   br label %_ZNSt10shared_ptrIN7openvdb5v11_02io7ArchiveEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_02io7ArchiveEED2Ev.exit: ; preds = %_ZN7openvdb5v11_07MetaMapD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %mGrids = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 1
+  %mGrids = getelementptr inbounds i8, ptr %this, i64 48
   %14 = load ptr, ptr %mGrids, align 8
-  %_M_finish.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
   %15 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %14, %15
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_02io7ArchiveEED2Ev.exit, %_ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i.i ], [ %14, %_ZNSt10shared_ptrIN7openvdb5v11_02io7ArchiveEED2Ev.exit ]
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.12", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %16 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %17, 4294967297
   %18 = trunc i64 %17 to i32
@@ -1806,10 +1764,10 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %19 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i
@@ -1835,10 +1793,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %22 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 12
   %23 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %23, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1860,13 +1818,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; pre
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %16, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
   br label %_ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEvPT_.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr.11", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %15
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !9
 
@@ -1885,13 +1843,13 @@ if.then.i.i.i1:                                   ; preds = %invoke.cont.i
 
 _ZNSt6vectorISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i1
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_14TaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %28 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i2, label %_ZN7openvdb5v11_02io12_GLOBAL__N_14TaskD2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt6vectorISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EED2Ev.exit
-  %mNotify.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %this, i64 0, i32 2
+  %mNotify.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i.i = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %mNotify.i, ptr noundef nonnull align 8 dereferenceable(16) %mNotify.i, i32 noundef 3)
           to label %_ZN7openvdb5v11_02io12_GLOBAL__N_14TaskD2Ev.exit unwind label %terminate.lpad.i.i.i4
 
@@ -1938,7 +1896,7 @@ define linkonce_odr void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #22
   %tobool.not = icmp eq ptr %eType, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1995,7 +1953,7 @@ terminate.lpad:                                   ; preds = %catch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK7openvdb5v11_09Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %mMessage = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #22
   ret ptr %call
 }
@@ -2042,7 +2000,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #22
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
   ret void
@@ -2052,7 +2010,7 @@ entry:
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage.i = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #22
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -2097,13 +2055,13 @@ declare void @_ZN7openvdb5v11_07MetaMapC1ERKS1_(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN7openvdb5v11_02io7ArchiveEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.29", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN7openvdb5v11_02io7ArchiveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -2111,10 +2069,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   br label %if.end8.sink.split.i.i.i
@@ -2140,10 +2098,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -2165,7 +2123,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   br label %_ZNSt12__shared_ptrIN7openvdb5v11_02io7ArchiveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -2187,12 +2145,12 @@ define internal void @_ZNK7openvdb5v11_02io12_GLOBAL__N_110OutputTask7executeEv(
 entry:
   %__args.addr.i.i = alloca i32, align 4
   %__args.addr2.i.i = alloca i32, align 4
-  %mArchive = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 2
+  %mArchive = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mArchive, align 8
-  %mGrids = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 1
-  %mMetadata = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 3
+  %mGrids = getelementptr inbounds i8, ptr %this, i64 48
+  %mMetadata = getelementptr inbounds i8, ptr %this, i64 88
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(24) %mGrids, ptr noundef nonnull align 8 dereferenceable(56) %mMetadata)
           to label %try.cont unwind label %lpad
@@ -2210,7 +2168,7 @@ lpad:                                             ; preds = %entry
 
 catch2:                                           ; preds = %lpad
   %vtable4 = load ptr, ptr %6, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 2
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 16
   %7 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   %tobool.not = icmp eq ptr %call6, null
@@ -2240,20 +2198,20 @@ try.cont.sink.split:                              ; preds = %catch2, %invoke.con
 
 try.cont:                                         ; preds = %try.cont.sink.split, %entry
   %status.0 = phi i32 [ 2, %entry ], [ 3, %try.cont.sink.split ]
-  %_M_manager.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.not.i, label %_ZNK7openvdb5v11_02io12_GLOBAL__N_14Task6notifyENS1_5Queue6StatusE.exit, label %_ZNKSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEclEjS4_.exit.i
 
 _ZNKSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEclEjS4_.exit.i: ; preds = %try.cont
-  %mNotify.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %this, i64 0, i32 2
+  %mNotify.i = getelementptr inbounds i8, ptr %this, i64 16
   %10 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val.i = load i32, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i.i)
   store i32 %this.val.i, ptr %__args.addr.i.i, align 4
   store i32 %status.0, ptr %__args.addr2.i.i, align 4
-  %_M_invoker.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %this, i64 0, i32 2, i32 1
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %11 = load ptr, ptr %_M_invoker.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %mNotify.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i.i)
@@ -2278,13 +2236,13 @@ terminate.lpad:                                   ; preds = %lpad7
 define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_14TaskD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_14TaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %mNotify = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %this, i64 0, i32 2
+  %mNotify = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %mNotify, ptr noundef nonnull align 8 dereferenceable(16) %mNotify, i32 noundef 3)
           to label %_ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -2324,7 +2282,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef no
 define linkonce_odr void @_ZN7openvdb5v11_012RuntimeErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage.i = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #22
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
   ret void
@@ -2346,17 +2304,17 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %acc.i)
   store i32 %id, ptr %id.addr.i, align 4
   store ptr null, ptr %acc.i, align 8
-  %m_is_writer.i.i.i.i = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %acc.i, i64 0, i32 1
+  %m_is_writer.i.i.i.i = getelementptr inbounds i8, ptr %acc.i, i64 8
   store i8 0, ptr %m_is_writer.i.i.i.i, align 8
-  %my_node.i.i.i = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", ptr %acc.i, i64 0, i32 1
+  %my_node.i.i.i = getelementptr inbounds i8, ptr %acc.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_node.i.i.i, i8 0, i64 16, i1 false)
-  %mStatus.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %this, i64 0, i32 4
+  %mStatus.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i3.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE6lookupILb1EjPFPNSG_4nodeERNSB_INS1_13hash_map_baseISF_NS8_13spin_rw_mutexEE6bucketEEERSD_PKS7_EEEbRKT0_SS_PNSG_14const_accessorEbT1_SJ_(ptr noundef nonnull align 8 dereferenceable(570) %mStatus.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i, ptr noundef null, ptr noundef nonnull %acc.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE31allocate_node_default_constructIjEEPNSG_4nodeERNSB_INS1_13hash_map_baseISF_NS8_13spin_rw_mutexEE6bucketEEERKT_PKS7_, ptr noundef null)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %entry
   %2 = load ptr, ptr %my_node.i.i.i, align 8
-  %second.i = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::node", ptr %2, i64 0, i32 1, i32 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %2, i64 20
   store i32 %status, ptr %second.i, align 4
   store ptr null, ptr %my_node.i.i.i, align 8
   %3 = load ptr, ptr %acc.i, align 8
@@ -2408,7 +2366,7 @@ common.resume:                                    ; preds = %lpad, %lpad16, %if.
 _ZN7openvdb5v11_02io5Queue4Impl9setStatusEjNS2_6StatusE.exit: ; preds = %invoke.cont2.i, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %id.addr.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %acc.i)
-  %mNotifierMutex = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %this, i64 0, i32 7
+  %mNotifierMutex = getelementptr inbounds i8, ptr %this, i64 648
   %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mNotifierMutex) #22
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -2418,15 +2376,15 @@ if.then.i.i:                                      ; preds = %_ZN7openvdb5v11_02i
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN7openvdb5v11_02io5Queue4Impl9setStatusEjNS2_6StatusE.exit
-  %_M_node_count.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 632
   %14 = load i64, ptr %_M_node_count.i.i, align 8
   %cmp.i.i = icmp eq i64 %14, 0
   br i1 %cmp.i.i, label %if.end.thread, label %if.then
 
 if.then:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %_M_left.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 616
   %15 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 600
   %cmp.i.not35 = icmp eq ptr %15, %add.ptr.i.i
   br i1 %cmp.i.not35, label %if.end, label %for.body
 
@@ -2437,7 +2395,7 @@ for.body:                                         ; preds = %if.then, %for.inc
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i)
   store i32 %16, ptr %__args.addr.i, align 4
   store i32 %status, ptr %__args.addr2.i, align 4
-  %_M_manager.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.036, i64 0, i32 1, i32 0, i64 24
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %it.sroa.0.036, i64 56
   %17 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i5 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i5, label %if.then.i, label %if.end.i
@@ -2450,8 +2408,8 @@ if.then.i:                                        ; preds = %for.body
   unreachable
 
 if.end.i:                                         ; preds = %for.body
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.036, i64 0, i32 1, i32 0, i64 8
-  %_M_invoker.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.036, i64 0, i32 1, i32 0, i64 32
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.036, i64 40
+  %_M_invoker.i = getelementptr inbounds i8, ptr %it.sroa.0.036, i64 64
   %18 = load ptr, ptr %_M_invoker.i, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %second, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i)
           to label %for.inc unwind label %lpad.loopexit
@@ -2488,9 +2446,9 @@ if.end.thread:                                    ; preds = %_ZNSt10lock_guardIS
 
 if.then15:                                        ; preds = %if.end
   store ptr null, ptr %acc, align 8
-  %m_is_writer.i.i.i = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %acc, i64 0, i32 1
+  %m_is_writer.i.i.i = getelementptr inbounds i8, ptr %acc, i64 8
   store i8 0, ptr %m_is_writer.i.i.i, align 8
-  %my_node.i.i = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", ptr %acc, i64 0, i32 1
+  %my_node.i.i = getelementptr inbounds i8, ptr %acc, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_node.i.i, i8 0, i64 16, i1 false)
   %call.i1314 = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE6lookupILb0EjPFPNSG_4nodeERNSB_INS1_13hash_map_baseISF_NS8_13spin_rw_mutexEE6bucketEEERSD_PKS7_EEEbRKT0_SS_PNSG_14const_accessorEbT1_SJ_(ptr noundef nonnull align 8 dereferenceable(570) %mStatus.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr, ptr noundef null, ptr noundef nonnull %acc, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE20do_not_allocate_nodeERNSB_INS1_13hash_map_baseISF_NS8_13spin_rw_mutexEE6bucketEEERSD_PKS7_, ptr noundef null)
           to label %invoke.cont17 unwind label %lpad16
@@ -2547,7 +2505,7 @@ if.else.i.i.i.i27:                                ; preds = %if.then.i.i.i23
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end.thread, %if.else.i.i.i.i27, %if.then.i.i.i.i26, %if.end23
-  %mNumTasks = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %this, i64 0, i32 2
+  %mNumTasks = getelementptr inbounds i8, ptr %this, i64 8
   %30 = atomicrmw sub ptr %mNumTasks, i32 1 seq_cst, align 4
   br label %if.end26
 
@@ -2559,26 +2517,26 @@ if.end26:                                         ; preds = %if.end.thread, %if.
 define internal fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_14TaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mId.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %this, i64 0, i32 1
-  %mId2.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %0, i64 0, i32 1
+  %mId.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mId2.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %mId2.i, align 8
   store i32 %1, ptr %mId.i, align 8
-  %mNotify.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %this, i64 0, i32 2
-  %_M_manager.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %this, i64 0, i32 2, i32 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %this, i64 0, i32 2, i32 1
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %0, i64 0, i32 2, i32 0, i32 1
+  %mNotify.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mNotify.i, i8 0, i64 32, i1 false)
   %2 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_14TaskC2ERKS3_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %mNotify3.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %0, i64 0, i32 2
+  %mNotify3.i = getelementptr inbounds i8, ptr %0, i64 16
   %call3.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %mNotify.i, ptr noundef nonnull align 8 dereferenceable(16) %mNotify3.i, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  %_M_invoker4.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::Task", ptr %0, i64 0, i32 2, i32 1
+  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %_M_invoker4.i.i, align 8
   store ptr %3, ptr %_M_invoker.i.i, align 8
   %4 = load ptr, ptr %_M_manager.i.i.i.i, align 8
@@ -2609,9 +2567,9 @@ common.resume:                                    ; preds = %lpad.i.i, %if.then.
 
 _ZN7openvdb5v11_02io12_GLOBAL__N_14TaskC2ERKS3_.exit: ; preds = %entry, %invoke.cont.i.i
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mGrids = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 1
-  %mGrids2 = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %0, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %mGrids = getelementptr inbounds i8, ptr %this, i64 48
+  %mGrids2 = getelementptr inbounds i8, ptr %0, i64 48
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %mGrids2, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -2640,10 +2598,10 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEE8allocate
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEE8allocateERS6_m.exit.i.i.i.i, %_ZN7openvdb5v11_02io12_GLOBAL__N_14TaskC2ERKS3_.exit
   %cond.i.i.i.i = phi ptr [ null, %_ZN7openvdb5v11_02io12_GLOBAL__N_14TaskC2ERKS3_.exit ], [ %call5.i.i.i.i2.i6.i5, %_ZNSt16allocator_traitsISaISt10shared_ptrIKN7openvdb5v11_08GridBaseEEEE8allocateERS6_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %mGrids, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr.11", ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %11 = load ptr, ptr %mGrids2, align 8
   %12 = load ptr, ptr %_M_finish.i.i, align 8
@@ -2655,15 +2613,15 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i, %_ZS
   %__first.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %11, %invoke.cont.i ]
   %13 = load ptr, ptr %__first.sroa.0.06.i.i.i.i.i, align 8
   store ptr %13, ptr %__cur.07.i.i.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.12", ptr %__cur.07.i.i.i.i.i, i64 0, i32 1
-  %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.12", ptr %__first.sroa.0.06.i.i.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
+  %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
   %14 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8
   store ptr %14, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -2679,27 +2637,27 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   br label %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr.11", ptr %__first.sroa.0.06.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr.11", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %12
   br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i, !llvm.loop !10
 
 invoke.cont:                                      ; preds = %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i.i.i.i, %invoke.cont.i ], [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %mArchive = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 2
-  %mArchive3 = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %0, i64 0, i32 2
+  %mArchive = getelementptr inbounds i8, ptr %this, i64 72
+  %mArchive3 = getelementptr inbounds i8, ptr %0, i64 72
   %18 = load ptr, ptr %mArchive3, align 8
   store ptr %18, ptr %mArchive, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 2, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %0, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %19 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %19, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_02io7ArchiveEEC2ERKS4_.exit, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %19, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %20, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2715,8 +2673,8 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i6
   br label %_ZNSt10shared_ptrIN7openvdb5v11_02io7ArchiveEEC2ERKS4_.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_02io7ArchiveEEC2ERKS4_.exit: ; preds = %invoke.cont, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %mMetadata = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %this, i64 0, i32 3
-  %mMetadata4 = getelementptr inbounds %"class.openvdb::v11_0::io::(anonymous namespace)::OutputTask", ptr %0, i64 0, i32 3
+  %mMetadata = getelementptr inbounds i8, ptr %this, i64 88
+  %mMetadata4 = getelementptr inbounds i8, ptr %0, i64 88
   invoke void @_ZN7openvdb5v11_07MetaMapC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %mMetadata, ptr noundef nonnull align 8 dereferenceable(56) %mMetadata4)
           to label %invoke.cont6 unwind label %lpad5
 
@@ -2744,7 +2702,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d110task_arenaD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %my_initialization_state.i.i = getelementptr inbounds %"class.tbb::detail::d1::task_arena_base", ptr %this, i64 0, i32 1
+  %my_initialization_state.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i32, ptr %my_initialization_state.i.i acquire, align 8
   %cmp.i.i = icmp eq i32 %0, 2
   br i1 %cmp.i.i, label %if.then.i, label %invoke.cont
@@ -2772,7 +2730,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 define linkonce_odr void @_ZN7openvdb5v11_012RuntimeErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage.i.i = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #22
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -2788,13 +2746,14 @@ entry:
   %b = alloca %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::bucket_accessor", align 8
   %0 = load i32, ptr %key, align 4
   %conv.i.i = zext i32 %0 to i64
-  %my_mask = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 1
+  %my_mask = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load atomic i64, ptr %my_mask acquire, align 8
-  %m_is_writer.i.i = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %b, i64 0, i32 1
-  %my_b.i = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::bucket_accessor", ptr %b, i64 0, i32 1
+  %m_is_writer.i.i = getelementptr inbounds i8, ptr %b, i64 8
+  %my_b.i = getelementptr inbounds i8, ptr %b, i64 16
+  %my_table.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %tobool10.not = icmp eq ptr %result, null
   %frombool.i = zext i1 %write to i8
-  %m_is_writer.i38 = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %result, i64 0, i32 1
+  %m_is_writer.i38 = getelementptr inbounds i8, ptr %result, i64 8
   br label %restart
 
 restart:                                          ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit55, %entry
@@ -2832,7 +2791,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit.i: ; preds = %i
 
 _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit: ; preds = %restart
   %8 = load ptr, ptr %my_b.i, align 8
-  %node_list.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %8, i64 0, i32 1
+  %node_list.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load atomic i64, ptr %node_list.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %9 to ptr
   %cmp.i4.i = icmp ugt ptr %atomic-temp.i.0.i.i, inttoptr (i64 63 to ptr)
@@ -2844,7 +2803,7 @@ land.rhs.lr.ph.i:                                 ; preds = %_ZN3tbb6detail2d219
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
   %n.05.i = phi ptr [ %atomic-temp.i.0.i.i, %land.rhs.lr.ph.i ], [ %13, %while.body.i ]
-  %11 = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::node", ptr %n.05.i, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %n.05.i, i64 16
   %12 = load i32, ptr %11, align 4
   %cmp.i.i.i = icmp eq i32 %10, %12
   br i1 %cmp.i.i.i, label %if.end9, label %while.body.i
@@ -2890,7 +2849,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %shl.i.i.i.i = shl nuw nsw i64 1, %xor.i.i.i.i.i.i
   %and.i.i.i.i = and i64 %shl.i.i.i.i, 9223372036854775806
   %sub.i.i.i = sub nsw i64 %and5.i.i, %and.i.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 4, i64 %xor.i.i.i.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [64 x %"struct.std::atomic.8"], ptr %my_table.i.i.i, i64 0, i64 %xor.i.i.i.i.i.i
   %18 = load atomic i64, ptr %arrayidx.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %18 to ptr
   %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i, i32 1
@@ -2905,7 +2864,7 @@ if.end9:                                          ; preds = %land.rhs.i, %invoke
   br i1 %tobool10.not, label %cleanup, label %if.end12
 
 if.end12:                                         ; preds = %if.end9
-  %mutex = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_node_base", ptr %n.0.lcssa.i61, i64 0, i32 1
+  %mutex = getelementptr inbounds i8, ptr %n.0.lcssa.i61, i64 8
   %20 = load atomic i64, ptr %mutex monotonic, align 8
   br i1 %write, label %cond.true.i, label %cond.false.i
 
@@ -3073,9 +3032,9 @@ _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d11
   ]
 
 cleanup.cont:                                     ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit55
-  %my_node = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", ptr %result, i64 0, i32 1
+  %my_node = getelementptr inbounds i8, ptr %result, i64 16
   store ptr %n.0.lcssa.i62, ptr %my_node, align 8
-  %my_hash = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", ptr %result, i64 0, i32 2
+  %my_hash = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i.i, ptr %my_hash, align 8
   br label %if.end34
 
@@ -3110,13 +3069,14 @@ entry:
   %shl.i.i = shl nuw i64 1, %xor.i.i.i.i
   %and.i.i = and i64 %shl.i.i, -2
   %sub.i = sub i64 %h, %and.i.i
-  %arrayidx.i = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %base, i64 0, i32 4, i64 %xor.i.i.i.i
+  %my_table.i = getelementptr inbounds i8, ptr %base, i64 56
+  %arrayidx.i = getelementptr inbounds [64 x %"struct.std::atomic.8"], ptr %my_table.i, i64 0, i64 %xor.i.i.i.i
   %1 = load atomic i64, ptr %arrayidx.i acquire, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %1 to ptr
   %arrayidx4.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i, i64 %sub.i
-  %my_b = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::bucket_accessor", ptr %this, i64 0, i32 1
+  %my_b = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %arrayidx4.i, ptr %my_b, align 8
-  %node_list = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i, i64 %sub.i, i32 1
+  %node_list = getelementptr inbounds i8, ptr %arrayidx4.i, i64 8
   %2 = load atomic i64, ptr %node_list acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %2 to ptr
   %cmp.i = icmp eq ptr %atomic-temp.i.0.i, inttoptr (i64 3 to ptr)
@@ -3137,9 +3097,9 @@ cond.end.i:                                       ; preds = %land.lhs.true
 
 if.then:                                          ; preds = %cond.end.i
   store ptr %.pre12, ptr %this, align 8
-  %m_is_writer.i = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %this, i64 0, i32 1
+  %m_is_writer.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %m_is_writer.i, align 8
-  %node_list8 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.pre, i64 0, i32 1
+  %node_list8 = getelementptr inbounds i8, ptr %.pre, i64 8
   %6 = load atomic i64, ptr %node_list8 monotonic, align 8
   %atomic-temp.i.0.i4 = inttoptr i64 %6 to ptr
   %cmp.i5 = icmp eq ptr %atomic-temp.i.0.i4, inttoptr (i64 3 to ptr)
@@ -3152,7 +3112,7 @@ if.then11:                                        ; preds = %if.then
 if.else:                                          ; preds = %land.lhs.true, %cond.end.i, %entry
   %7 = phi ptr [ %.pre12, %land.lhs.true ], [ %.pre, %cond.end.i ], [ %.pre12, %entry ]
   %frombool.i = zext i1 %writer to i8
-  %m_is_writer.i6 = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %this, i64 0, i32 1
+  %m_is_writer.i6 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %frombool.i, ptr %m_is_writer.i6, align 8
   store ptr %7, ptr %this, align 8
   br i1 %writer, label %for.cond.i.i.outer, label %for.cond.i2.i.outer
@@ -3259,7 +3219,7 @@ if.end15:                                         ; preds = %seqcst.i14.i.i, %_Z
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE13rehash_bucketEPNS1_13hash_map_baseISF_NS8_13spin_rw_mutexEE6bucketEm(ptr noundef nonnull align 8 dereferenceable(570) %this, ptr noundef %b_new, i64 noundef %hash) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %node_list = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %b_new, i64 0, i32 1
+  %node_list = getelementptr inbounds i8, ptr %b_new, i64 8
   store atomic i64 0, ptr %node_list release, align 8
   %0 = tail call noundef i64 @llvm.ctlz.i64(i64 %hash, i1 true), !range !18
   %xor.i.i = xor i64 %0, 63
@@ -3272,11 +3232,12 @@ entry:
   %shl.i.i.i = shl nuw i64 1, %xor.i.i.i.i.i
   %and.i.i.i = and i64 %shl.i.i.i, -2
   %sub.i.i = sub i64 %and, %and.i.i.i
-  %arrayidx.i.i = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 4, i64 %xor.i.i.i.i.i
+  %my_table.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %arrayidx.i.i = getelementptr inbounds [64 x %"struct.std::atomic.8"], ptr %my_table.i.i, i64 0, i64 %xor.i.i.i.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %2 to ptr
   %arrayidx4.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i, i64 %sub.i.i
-  %node_list.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i, i64 %sub.i.i, i32 1
+  %node_list.i = getelementptr inbounds i8, ptr %arrayidx4.i.i, i64 8
   %3 = load atomic i64, ptr %node_list.i acquire, align 8
   %atomic-temp.i.0.i.i42 = inttoptr i64 %3 to ptr
   %cmp.i.i = icmp eq ptr %atomic-temp.i.0.i.i42, inttoptr (i64 3 to ptr)
@@ -3378,7 +3339,7 @@ invoke.cont8:                                     ; preds = %_ZN3tbb6detail2d219
   %b_old.sroa.10.2 = phi i8 [ %b_old.sroa.10.2.be, %invoke.cont8.backedge ], [ %b_old.sroa.10.0, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
   %prev.034 = phi ptr [ %prev.034.be, %invoke.cont8.backedge ], [ null, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
   %curr.033 = phi ptr [ %curr.033.be, %invoke.cont8.backedge ], [ %atomic-temp.i.0.i36, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
-  %15 = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::node", ptr %curr.033, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %curr.033, i64 16
   %16 = load i32, ptr %15, align 4
   %conv.i.i = zext i32 %16 to i64
   %and11 = and i64 %or, %conv.i.i
@@ -3600,16 +3561,17 @@ declare void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef) local_unnamed
 define linkonce_odr noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE7excludeERNSG_14const_accessorE(ptr noundef nonnull align 8 dereferenceable(570) %this, ptr noundef nonnull align 8 dereferenceable(32) %item_accessor) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::bucket_accessor", align 8
-  %my_node = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", ptr %item_accessor, i64 0, i32 1
+  %my_node = getelementptr inbounds i8, ptr %item_accessor, i64 16
   %0 = load ptr, ptr %my_node, align 8
-  %my_hash = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", ptr %item_accessor, i64 0, i32 2
+  %my_hash = getelementptr inbounds i8, ptr %item_accessor, i64 24
   %1 = load i64, ptr %my_hash, align 8
-  %my_mask = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 1
+  %my_mask = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load atomic i64, ptr %my_mask acquire, align 8
-  %m_is_writer.i.i = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %b, i64 0, i32 1
-  %my_b.i = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::bucket_accessor", ptr %b, i64 0, i32 1
-  %my_size = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 2
-  %m_is_writer.i.i25 = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %item_accessor, i64 0, i32 1
+  %m_is_writer.i.i = getelementptr inbounds i8, ptr %b, i64 8
+  %my_b.i = getelementptr inbounds i8, ptr %b, i64 16
+  %my_size = getelementptr inbounds i8, ptr %this, i64 16
+  %my_table.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_is_writer.i.i25 = getelementptr inbounds i8, ptr %item_accessor, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit36, %entry
@@ -3647,7 +3609,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit.i: ; preds = %i
 
 _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit: ; preds = %do.body
   %9 = load ptr, ptr %my_b.i, align 8
-  %node_list = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %9, i64 0, i32 1
+  %node_list = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %node_list monotonic, align 8
   %atomic-temp.i.0.i = inttoptr i64 %10 to ptr
   %tobool57 = icmp ne i64 %10, 0
@@ -3702,7 +3664,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %shl.i.i.i.i = shl nuw i64 1, %xor.i.i.i.i.i.i
   %and.i.i.i.i = and i64 %shl.i.i.i.i, -2
   %sub.i.i.i = sub i64 %and5.i.i, %and.i.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 4, i64 %xor.i.i.i.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [64 x %"struct.std::atomic.8"], ptr %my_table.i.i.i, i64 0, i64 %xor.i.i.i.i.i.i
   %18 = load atomic i64, ptr %arrayidx.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %18 to ptr
   %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i, i32 1
@@ -3834,10 +3796,10 @@ unreachable:                                      ; preds = %_ZN3tbb6detail2d219
 define linkonce_odr void @_ZNSt17_Function_handlerIFvjN7openvdb5v11_02io5Queue6StatusEESt5_BindIFMNS3_4ImplEFvjS4_EPS7_St12_PlaceholderILi1EESB_ILi2EEEEE9_M_invokeERKSt9_Any_dataOjOS4_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %__functor, align 8
-  %_M_bound_args.i.i.i.i = getelementptr inbounds %"class.std::_Bind", ptr %0, i64 0, i32 1
+  %_M_bound_args.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %_M_bound_args.i.i.i.i, align 8
   %.unpack.i.i.i.i.i.i = load i64, ptr %0, align 8
-  %.elt1.i.i.i.i.i.i = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %.elt1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %.unpack2.i.i.i.i.i.i = load i64, ptr %.elt1.i.i.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 %.unpack2.i.i.i.i.i.i
   %3 = and i64 %.unpack.i.i.i.i.i.i, 1
@@ -3908,14 +3870,15 @@ entry:
   %b = alloca %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::bucket_accessor", align 8
   %0 = load i32, ptr %key, align 4
   %conv.i.i = zext i32 %0 to i64
-  %my_mask = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 1
+  %my_mask = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load atomic i64, ptr %my_mask acquire, align 8
-  %m_is_writer.i.i = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %b, i64 0, i32 1
-  %my_b.i = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::bucket_accessor", ptr %b, i64 0, i32 1
-  %my_size.i = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 2
+  %m_is_writer.i.i = getelementptr inbounds i8, ptr %b, i64 8
+  %my_b.i = getelementptr inbounds i8, ptr %b, i64 16
+  %my_table.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %my_size.i = getelementptr inbounds i8, ptr %this, i64 16
   %tobool36.not = icmp eq ptr %result, null
   %frombool.i = zext i1 %write to i8
-  %m_is_writer.i89 = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %result, i64 0, i32 1
+  %m_is_writer.i89 = getelementptr inbounds i8, ptr %result, i64 8
   br label %restart
 
 restart:                                          ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109, %entry
@@ -3956,7 +3919,7 @@ common.resume:                                    ; preds = %if.else.i.i.i29, %i
 
 _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit: ; preds = %restart
   %8 = load ptr, ptr %my_b.i, align 8
-  %node_list.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %8, i64 0, i32 1
+  %node_list.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load atomic i64, ptr %node_list.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %9 to ptr
   %cmp.i4.i = icmp ugt ptr %atomic-temp.i.0.i.i, inttoptr (i64 63 to ptr)
@@ -3968,7 +3931,7 @@ land.rhs.lr.ph.i:                                 ; preds = %_ZN3tbb6detail2d219
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
   %n.05.i = phi ptr [ %atomic-temp.i.0.i.i, %land.rhs.lr.ph.i ], [ %13, %while.body.i ]
-  %11 = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::node", ptr %n.05.i, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %n.05.i, i64 16
   %12 = load i32, ptr %11, align 4
   %cmp.i.i.i = icmp eq i32 %10, %12
   br i1 %cmp.i.i.i, label %exists, label %while.body.i
@@ -3992,17 +3955,17 @@ if.then6:                                         ; preds = %if.then
           to label %if.end unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %if.end.i
-  %lpad.loopexit130 = landingpad { ptr, i32 }
+  %lpad.loopexit131 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then6
-  %lpad.loopexit.split-lp131 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp132 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit130, %lpad.loopexit ], [ %lpad.loopexit.split-lp131, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit131, %lpad.loopexit ], [ %lpad.loopexit.split-lp132, %lpad.loopexit.split-lp ]
   %14 = load ptr, ptr %b, align 8
   %tobool.not.i.i24 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i24, label %common.resume, label %if.then.i.i25
@@ -4026,14 +3989,14 @@ if.end:                                           ; preds = %if.then6, %if.then
   %tmp_n.addr.1 = phi ptr [ %tmp_n.addr.0, %if.then ], [ %call2.i23, %if.then6 ]
   %19 = load i8, ptr %m_is_writer.i.i, align 8
   %20 = and i8 %19, 1
-  %tobool.i.not152 = icmp eq i8 %20, 0
-  br i1 %tobool.i.not152, label %if.end.i, label %while.end
+  %tobool.i.not153 = icmp eq i8 %20, 0
+  br i1 %tobool.i.not153, label %if.end.i, label %while.end
 
 while.cond:                                       ; preds = %invoke.cont13
   br i1 %tobool.not.i46, label %if.end.i, label %while.end, !llvm.loop !28
 
 if.end.i:                                         ; preds = %if.end, %while.cond
-  %n.0153 = phi ptr [ %n.0.lcssa.i37, %while.cond ], [ null, %if.end ]
+  %n.0154 = phi ptr [ %n.0.lcssa.i37, %while.cond ], [ null, %if.end ]
   store i8 1, ptr %m_is_writer.i.i, align 8
   %21 = load ptr, ptr %b, align 8
   %call.i3132 = invoke noundef zeroext i1 @_ZN3tbb6detail2d113spin_rw_mutex7upgradeEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
@@ -4044,7 +4007,7 @@ invoke.cont10:                                    ; preds = %if.end.i
 
 while.body:                                       ; preds = %invoke.cont10
   %22 = load ptr, ptr %my_b.i, align 8
-  %node_list.i34 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %22, i64 0, i32 1
+  %node_list.i34 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load atomic i64, ptr %node_list.i34 monotonic, align 8
   %atomic-temp.i.0.i.i35 = inttoptr i64 %23 to ptr
   %cmp.i4.i36 = icmp ugt ptr %atomic-temp.i.0.i.i35, inttoptr (i64 63 to ptr)
@@ -4056,7 +4019,7 @@ land.rhs.lr.ph.i38:                               ; preds = %while.body
 
 land.rhs.i39:                                     ; preds = %while.body.i42, %land.rhs.lr.ph.i38
   %n.05.i40 = phi ptr [ %atomic-temp.i.0.i.i35, %land.rhs.lr.ph.i38 ], [ %27, %while.body.i42 ]
-  %25 = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::node", ptr %n.05.i40, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %n.05.i40, i64 16
   %26 = load i32, ptr %25, align 4
   %cmp.i.i.i41 = icmp eq i32 %24, %26
   br i1 %cmp.i.i.i41, label %invoke.cont13, label %while.body.i42
@@ -4084,7 +4047,7 @@ if.then.i:                                        ; preds = %if.then16
   br label %exists
 
 while.end:                                        ; preds = %invoke.cont10, %while.cond, %if.end
-  %n.0.lcssa = phi ptr [ null, %if.end ], [ %n.0.lcssa.i37, %while.cond ], [ %n.0153, %invoke.cont10 ]
+  %n.0.lcssa = phi ptr [ null, %if.end ], [ %n.0.lcssa.i37, %while.cond ], [ %n.0154, %invoke.cont10 ]
   %32 = load atomic i64, ptr %my_mask acquire, align 8
   %cmp.not.i = icmp eq i64 %m.0, %32
   br i1 %cmp.not.i, label %if.end31, label %if.then.i61
@@ -4115,7 +4078,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %shl.i.i.i.i = shl nuw nsw i64 1, %xor.i.i.i.i.i.i
   %and.i.i.i.i = and i64 %shl.i.i.i.i, 9223372036854775806
   %sub.i.i.i = sub nsw i64 %and5.i.i, %and.i.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 4, i64 %xor.i.i.i.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [64 x %"struct.std::atomic.8"], ptr %my_table.i.i.i, i64 0, i64 %xor.i.i.i.i.i.i
   %36 = load atomic i64, ptr %arrayidx.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %36 to ptr
   %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i, i32 1
@@ -4129,7 +4092,7 @@ if.end31:                                         ; preds = %if.then.i61, %for.e
   %38 = load ptr, ptr %my_b.i, align 8
   %39 = atomicrmw add ptr %my_size.i, i64 1 seq_cst, align 8
   %40 = add i64 %39, 1
-  %node_list.i.i67 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %38, i64 0, i32 1
+  %node_list.i.i67 = getelementptr inbounds i8, ptr %38, i64 8
   %41 = load atomic i64, ptr %node_list.i.i67 monotonic, align 8
   %atomic-temp.i.0.i.i.i68 = inttoptr i64 %41 to ptr
   store ptr %atomic-temp.i.0.i.i.i68, ptr %tmp_n.addr.1, align 8
@@ -4142,7 +4105,7 @@ if.then.i70:                                      ; preds = %if.end31
   %add.i = add i64 %m.1.ph, 1
   %43 = call noundef i64 @llvm.ctlz.i64(i64 %add.i, i1 true), !range !18
   %xor.i.i.i = xor i64 %43, 63
-  %arrayidx.i = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 4, i64 %xor.i.i.i
+  %arrayidx.i = getelementptr inbounds [64 x %"struct.std::atomic.8"], ptr %my_table.i.i.i, i64 0, i64 %xor.i.i.i
   %44 = load atomic i64, ptr %arrayidx.i acquire, align 8
   %tobool.not.i71 = icmp eq i64 %44, 0
   br i1 %tobool.not.i71, label %land.lhs.true.i, label %exists
@@ -4162,7 +4125,7 @@ exists:                                           ; preds = %land.rhs.i, %land.l
   br i1 %tobool36.not, label %cleanup, label %if.end38
 
 if.end38:                                         ; preds = %exists
-  %mutex = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_node_base", ptr %n.1, i64 0, i32 1
+  %mutex = getelementptr inbounds i8, ptr %n.1, i64 8
   %47 = load atomic i64, ptr %mutex monotonic, align 8
   br i1 %write, label %cond.true.i, label %cond.false.i
 
@@ -4309,9 +4272,9 @@ _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d11
   ]
 
 cleanup.cont:                                     ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109
-  %my_node = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", ptr %result, i64 0, i32 1
+  %my_node = getelementptr inbounds i8, ptr %result, i64 16
   store ptr %n.2, ptr %my_node, align 8
-  %my_hash = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", ptr %result, i64 0, i32 2
+  %my_hash = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i.i, ptr %my_hash, align 8
   br label %check_growth
 
@@ -4327,15 +4290,15 @@ if.then.i114:                                     ; preds = %if.then58
   %shl.i.i115 = shl nuw i64 1, %grow_segment.2
   %mul.i.i.i.i.i = shl i64 16, %grow_segment.2
   %call.i.i.i1.i.i = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i)
-          to label %for.body.i.i.i unwind label %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit7.i.i
+          to label %for.body.i.i.i unwind label %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit8.i.i
 
-common.resume.i:                                  ; preds = %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit7.i.i, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit7.i.i
-  %common.resume.op.i = phi { ptr, i32 } [ %68, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit7.i.i ], [ %71, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit7.i.i ]
-  %arrayidx.i.i6.i12.i = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 4, i64 %grow_segment.2
-  store atomic i64 0, ptr %arrayidx.i.i6.i12.i monotonic, align 8
+common.resume.i:                                  ; preds = %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit8.i.i, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit8.i.i
+  %common.resume.op.i = phi { ptr, i32 } [ %68, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit8.i.i ], [ %71, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit8.i.i ]
+  %arrayidx.i.i7.i13.i = getelementptr inbounds [64 x %"struct.std::atomic.8"], ptr %my_table.i.i.i, i64 0, i64 %grow_segment.2
+  store atomic i64 0, ptr %arrayidx.i.i7.i13.i monotonic, align 8
   br label %common.resume
 
-_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit7.i.i: ; preds = %if.then.i114
+_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit8.i.i: ; preds = %if.then.i114
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
@@ -4344,51 +4307,51 @@ for.body.i.i.i:                                   ; preds = %if.then.i114, %for.
   %i.04.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.then.i114 ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %call.i.i.i1.i.i, i64 %i.04.i.i.i
   store i64 0, ptr %add.ptr.i.i.i, align 8
-  %node_list.i.i.i.i.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %call.i.i.i1.i.i, i64 %i.04.i.i.i, i32 1
+  %node_list.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store ptr inttoptr (i64 3 to ptr), ptr %node_list.i.i.i.i.i.i, align 8
   %inc.i.i.i = add nuw i64 %i.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %shl.i.i115
   br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit.i, label %for.body.i.i.i, !llvm.loop !30
 
 _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit.i: ; preds = %for.body.i.i.i
-  %arrayidx.i116 = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 4, i64 %grow_segment.2
+  %arrayidx.i117 = getelementptr inbounds [64 x %"struct.std::atomic.8"], ptr %my_table.i.i.i, i64 0, i64 %grow_segment.2
   %69 = ptrtoint ptr %call.i.i.i1.i.i to i64
-  store atomic i64 %69, ptr %arrayidx.i116 release, align 8
+  store atomic i64 %69, ptr %arrayidx.i117 release, align 8
   %shl.i = shl i64 2, %grow_segment.2
   %70 = add i64 %shl.i, -1
   br label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit
 
 if.else.i111:                                     ; preds = %if.then58
   %call.i.i.i1.i11.i = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 4064)
-          to label %for.body.i.i15.i unwind label %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit7.i.i
+          to label %for.body.i.i16.i unwind label %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit8.i.i
 
-_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit7.i.i: ; preds = %if.else.i111
+_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit8.i.i: ; preds = %if.else.i111
   %71 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
-for.body.i.i15.i:                                 ; preds = %if.else.i111, %for.body.i.i15.i
-  %i.04.i.i16.i = phi i64 [ %inc.i.i19.i, %for.body.i.i15.i ], [ 0, %if.else.i111 ]
-  %add.ptr.i.i17.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %call.i.i.i1.i11.i, i64 %i.04.i.i16.i
-  store i64 0, ptr %add.ptr.i.i17.i, align 8
-  %node_list.i.i.i.i.i18.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %call.i.i.i1.i11.i, i64 %i.04.i.i16.i, i32 1
-  store ptr inttoptr (i64 3 to ptr), ptr %node_list.i.i.i.i.i18.i, align 8
-  %inc.i.i19.i = add nuw nsw i64 %i.04.i.i16.i, 1
-  %exitcond.not.i.i20.i = icmp eq i64 %inc.i.i19.i, 254
-  br i1 %exitcond.not.i.i20.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit23.i, label %for.body.i.i15.i, !llvm.loop !30
+for.body.i.i16.i:                                 ; preds = %if.else.i111, %for.body.i.i16.i
+  %i.04.i.i17.i = phi i64 [ %inc.i.i20.i, %for.body.i.i16.i ], [ 0, %if.else.i111 ]
+  %add.ptr.i.i18.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %call.i.i.i1.i11.i, i64 %i.04.i.i17.i
+  store i64 0, ptr %add.ptr.i.i18.i, align 8
+  %node_list.i.i.i.i.i19.i = getelementptr inbounds i8, ptr %add.ptr.i.i18.i, i64 8
+  store ptr inttoptr (i64 3 to ptr), ptr %node_list.i.i.i.i.i19.i, align 8
+  %inc.i.i20.i = add nuw nsw i64 %i.04.i.i17.i, 1
+  %exitcond.not.i.i21.i = icmp eq i64 %inc.i.i20.i, 254
+  br i1 %exitcond.not.i.i21.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit24.i, label %for.body.i.i16.i, !llvm.loop !30
 
-_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit23.i: ; preds = %for.body.i.i15.i
-  %add.ptr.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %call.i.i.i1.i11.i, i64 -2
+_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit24.i: ; preds = %for.body.i.i16.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i.i1.i11.i, i64 -32
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit23.i
-  %i.037.i = phi i64 [ 1, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit23.i ], [ %inc.i, %for.body.i ]
-  %arrayidx12.i = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 4, i64 %i.037.i
-  %shl.i24.i = shl nuw nsw i64 1, %i.037.i
-  %add.ptr14.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %add.ptr.i, i64 %shl.i24.i
+for.body.i:                                       ; preds = %for.body.i, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit24.i
+  %i.038.i = phi i64 [ 1, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit24.i ], [ %inc.i, %for.body.i ]
+  %arrayidx12.i = getelementptr inbounds [64 x %"struct.std::atomic.8"], ptr %my_table.i.i.i, i64 0, i64 %i.038.i
+  %shl.i25.i = shl nuw nsw i64 1, %i.038.i
+  %add.ptr14.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %add.ptr.i, i64 %shl.i25.i
   %72 = ptrtoint ptr %add.ptr14.i to i64
   store atomic i64 %72, ptr %arrayidx12.i release, align 8
-  %inc.i = add nuw nsw i64 %i.037.i, 1
+  %inc.i = add nuw nsw i64 %i.038.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
   br i1 %exitcond.not.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit, label %for.body.i, !llvm.loop !31
 
@@ -4418,12 +4381,12 @@ unreachable:                                      ; preds = %_ZN3tbb6detail2d219
 define linkonce_odr noundef ptr @_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE31allocate_node_default_constructIjEEPNSG_4nodeERNSB_INS1_13hash_map_baseISF_NS8_13spin_rw_mutexEE6bucketEEERKT_PKS7_(ptr noundef nonnull align 1 dereferenceable(1) %allocator, ptr noundef nonnull align 4 dereferenceable(4) %key, ptr noundef %0) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 24)
-  %mutex.i.i.i.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_node_base", ptr %call.i.i.i, i64 0, i32 1
+  %mutex.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 0, ptr %mutex.i.i.i.i.i, align 8
-  %1 = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::node", ptr %call.i.i.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %2 = load i32, ptr %key, align 4
   store i32 %2, ptr %1, align 4
-  %second.i.i.i.i.i = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::node", ptr %call.i.i.i, i64 0, i32 1, i32 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 20
   store i32 0, ptr %second.i.i.i.i.i, align 4
   ret ptr %call.i.i.i
 }
@@ -4440,7 +4403,7 @@ declare noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(p
 define internal void @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_ED2Ev(ptr noundef nonnull align 64 dereferenceable(216) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_EE, i64 0, inrange i32 0, i64 2), ptr %this, align 64
-  %m_func = getelementptr inbounds %"class.tbb::detail::d1::enqueue_task", ptr %this, i64 0, i32 2
+  %m_func = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_func) #22
   ret void
 }
@@ -4449,7 +4412,7 @@ entry:
 define internal void @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_ED0Ev(ptr noundef nonnull align 64 dereferenceable(216) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_EE, i64 0, inrange i32 0, i64 2), ptr %this, align 64
-  %m_func.i = getelementptr inbounds %"class.tbb::detail::d1::enqueue_task", ptr %this, i64 0, i32 2
+  %m_func.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_func.i) #22
   tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %this, i64 noundef 64) #29
   ret void
@@ -4458,9 +4421,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_E7executeERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(12) %ed) unnamed_addr #5 align 2 {
 entry:
-  %m_func = getelementptr inbounds %"class.tbb::detail::d1::enqueue_task", ptr %this, i64 0, i32 2
+  %m_func = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNK7openvdb5v11_02io12_GLOBAL__N_110OutputTask7executeEv(ptr noundef nonnull align 8 dereferenceable(144) %m_func)
-  %m_allocator.i = getelementptr inbounds %"class.tbb::detail::d1::enqueue_task", ptr %this, i64 0, i32 1
+  %m_allocator.i = getelementptr inbounds i8, ptr %this, i64 64
   %m_allocator.val.i = load i64, ptr %m_allocator.i, align 64
   %0 = inttoptr i64 %m_allocator.val.i to ptr
   %vtable.i.i = load ptr, ptr %this, align 64
@@ -4490,8 +4453,8 @@ declare void @_ZN3tbb6detail2r19terminateERNS0_2d115task_arena_baseE(ptr noundef
 define linkonce_odr void @_ZN7openvdb5v11_07MetaMapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7openvdb5v11_07MetaMapE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMeta = getelementptr inbounds %"class.openvdb::v11_0::MetaMap", ptr %this, i64 0, i32 1
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::MetaMap", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %mMeta = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %mMeta, ptr noundef %0)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7openvdb5v11_08MetadataEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -4511,8 +4474,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7o
 define linkonce_odr void @_ZN7openvdb5v11_07MetaMapD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7openvdb5v11_07MetaMapE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMeta.i = getelementptr inbounds %"class.openvdb::v11_0::MetaMap", ptr %this, i64 0, i32 1
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::MetaMap", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %mMeta.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %mMeta.i, ptr noundef %0)
           to label %_ZN7openvdb5v11_07MetaMapD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -4537,18 +4500,18 @@ entry:
 
 while.body:                                       ; preds = %entry, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit
   %__x.addr.05 = phi ptr [ %1, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.81", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 40
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 72
   %2 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.body
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %3, 4294967297
   %4 = trunc i64 %3 to i32
@@ -4556,10 +4519,10 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.body
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i
@@ -4585,10 +4548,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4610,13 +4573,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; pre
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit: ; preds = %while.body, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.81", ptr %__x.addr.05, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #29
   %cmp.not = icmp eq ptr %1, null
@@ -4643,8 +4606,8 @@ declare ptr @__errno_location() local_unnamed_addr #23
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_02io5Queue4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mNotifiers = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %this, i64 0, i32 5
-  %_M_parent.i.i.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 1
+  %mNotifiers = getelementptr inbounds i8, ptr %this, i64 592
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 608
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %mNotifiers, ptr noundef %0)
           to label %_ZNSt3mapIjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEESt4lessIjESaISt4pairIKjS7_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -4657,19 +4620,19 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZNSt3mapIjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEESt4lessIjESaISt4pairIKjS7_EEED2Ev.exit: ; preds = %entry
-  %mStatus = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %this, i64 0, i32 4
-  %my_mask.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %my_mask.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load atomic i64, ptr %my_mask.i.i monotonic, align 8
-  %my_size.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::Queue::Impl", ptr %this, i64 0, i32 4, i32 0, i32 2
+  %my_size.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store atomic i64 0, ptr %my_size.i.i monotonic, align 8
   %or.i.i.i = or i64 %3, 1
   %4 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !18
   %xor.i.i.i.i.i = xor i64 %4, 63
+  %my_table.i.i = getelementptr inbounds i8, ptr %this, i64 72
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit.i.i, %_ZNSt3mapIjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEESt4lessIjESaISt4pairIKjS7_EEED2Ev.exit
   %s.0.i.i = phi i64 [ %xor.i.i.i.i.i, %_ZNSt3mapIjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEESt4lessIjESaISt4pairIKjS7_EEED2Ev.exit ], [ %dec.i.i, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %mStatus, i64 0, i32 4, i64 %s.0.i.i
+  %arrayidx.i.i = getelementptr inbounds [64 x %"struct.std::atomic.8"], ptr %my_table.i.i, i64 0, i64 %s.0.i.i
   %5 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %5 to ptr
   %cond.i.i = tail call i64 @llvm.umax.i64(i64 %s.0.i.i, i64 1)
@@ -4753,18 +4716,18 @@ entry:
 
 while.body:                                       ; preds = %entry, %_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit
   %__x.addr.05 = phi ptr [ %1, %_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 24
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 56
   %2 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.body
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 40
   %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i, i32 noundef 3)
           to label %_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %terminate.lpad.i.i.i.i.i.i.i
 
@@ -4789,14 +4752,14 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_
 invoke.cont:
   %__z = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>, std::_Select1st<std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>>, std::less<unsigned int>>::_Auto_node", align 8
   store ptr %this, ptr %__z, align 8
-  %_M_node.i = getelementptr inbounds %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>, std::_Select1st<std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>>, std::less<unsigned int>>::_Auto_node", ptr %__z, i64 0, i32 1
+  %_M_node.i = getelementptr inbounds i8, ptr %__z, i64 8
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #27
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = load i32, ptr %1, align 4
   store i32 %2, ptr %_M_storage.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   store ptr %call5.i.i.i.i.i, ptr %_M_node.i, align 8
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i)
@@ -4816,7 +4779,7 @@ if.then:                                          ; preds = %invoke.cont7
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %4, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %_M_storage.i.i.i.i, align 4
   %6 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
   %cmp.i.i.i = icmp ult i32 %5, %6
@@ -4838,7 +4801,7 @@ lpad:                                             ; preds = %invoke.cont
   resume { ptr, i32 } %9
 
 if.then.i:                                        ; preds = %invoke.cont7
-  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 24
+  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 56
   %10 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
@@ -4879,7 +4842,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i, align 4
   %3 = load i32, ptr %__k, align 4
   %cmp.i = icmp ult i32 %2, %3
@@ -4897,12 +4860,11 @@ while.body.lr.ph.i:                               ; preds = %if.else
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.021.i = phi ptr [ %__x.019.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__x.021.i, i64 32
   %5 = load i32, ptr %_M_storage.i.i.i10, align 4
   %cmp.i.i = icmp ult i32 %4, %5
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !37
@@ -4919,14 +4881,14 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #32
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i, i64 0, i32 1
-  %.pre116 = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4
-  %.pre117 = load i32, ptr %__k, align 4
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %.pre114 = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4
+  %.pre115 = load i32, ptr %__k, align 4
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %7 = phi i32 [ %.pre117, %if.else.i ], [ %4, %while.end.i ]
-  %8 = phi i32 [ %.pre116, %if.else.i ], [ %5, %while.end.i ]
+  %7 = phi i32 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
+  %8 = phi i32 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp ult i32 %8, %7
@@ -4935,7 +4897,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i11 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i11 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %9 = load i32, ptr %__k, align 4
   %10 = load i32, ptr %_M_storage.i.i.i11, align 4
   %cmp.i12 = icmp ult i32 %9, %10
@@ -4949,131 +4911,129 @@ if.then18:                                        ; preds = %if.else12
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #32
-  %_M_storage.i.i.i16 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i16 = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load i32, ptr %_M_storage.i.i.i16, align 4
   %cmp.i17 = icmp ult i32 %12, %9
   br i1 %cmp.i17, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i18 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i18 = getelementptr inbounds i8, ptr %call.i, i64 24
   %13 = load ptr, ptr %_M_right.i18, align 8
   %cmp35 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select112 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
+  %spec.select110 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %return
 
 if.else42:                                        ; preds = %if.else25
   %_M_parent.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
   %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8
   %cmp.not20.i24 = icmp eq ptr %__x.019.i23, null
-  br i1 %cmp.not20.i24, label %if.then.i47, label %while.body.i26
+  br i1 %cmp.not20.i24, label %if.then.i46, label %while.body.i26
 
 while.body.i26:                                   ; preds = %if.else42, %while.body.i26
-  %__x.021.i27 = phi ptr [ %__x.0.i33, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
-  %_M_storage.i.i.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i27, i64 0, i32 1
+  %__x.021.i27 = phi ptr [ %__x.0.i32, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
+  %_M_storage.i.i.i28 = getelementptr inbounds i8, ptr %__x.021.i27, i64 32
   %14 = load i32, ptr %_M_storage.i.i.i28, align 4
   %cmp.i.i29 = icmp ult i32 %9, %14
-  %_M_left.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 2
-  %_M_right.i.i31 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 3
-  %cond.in.i32 = select i1 %cmp.i.i29, ptr %_M_left.i.i30, ptr %_M_right.i.i31
-  %__x.0.i33 = load ptr, ptr %cond.in.i32, align 8
-  %cmp.not.i34 = icmp eq ptr %__x.0.i33, null
-  br i1 %cmp.not.i34, label %while.end.i35, label %while.body.i26, !llvm.loop !37
+  %cond.in.v.i30 = select i1 %cmp.i.i29, i64 16, i64 24
+  %cond.in.i31 = getelementptr inbounds i8, ptr %__x.021.i27, i64 %cond.in.v.i30
+  %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8
+  %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
+  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !37
 
-while.end.i35:                                    ; preds = %while.body.i26
-  br i1 %cmp.i.i29, label %if.then.i47, label %if.end12.i36
+while.end.i34:                                    ; preds = %while.body.i26
+  br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
-if.then.i47:                                      ; preds = %while.end.i35, %if.else42
-  %__y.0.lcssa25.i48 = phi ptr [ %__x.021.i27, %while.end.i35 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i50 = icmp eq ptr %__y.0.lcssa25.i48, %11
-  br i1 %cmp.i4.i50, label %return, label %if.else.i51
+if.then.i46:                                      ; preds = %while.end.i34, %if.else42
+  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
-if.else.i51:                                      ; preds = %if.then.i47
-  %call.i.i52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i48) #32
-  %_M_storage.i.i.i.i39.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i52, i64 0, i32 1
-  %.pre115 = load i32, ptr %_M_storage.i.i.i.i39.phi.trans.insert, align 4
-  br label %if.end12.i36
+if.else.i50:                                      ; preds = %if.then.i46
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #32
+  %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i51, i64 32
+  %.pre113 = load i32, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 4
+  br label %if.end12.i35
 
-if.end12.i36:                                     ; preds = %if.else.i51, %while.end.i35
-  %15 = phi i32 [ %.pre115, %if.else.i51 ], [ %14, %while.end.i35 ]
-  %__y.0.lcssa26.i37 = phi ptr [ %__y.0.lcssa25.i48, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %__j.sroa.0.0.i38 = phi ptr [ %call.i.i52, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %cmp.i5.i40 = icmp ult i32 %15, %9
-  %spec.select.i41 = select i1 %cmp.i5.i40, ptr null, ptr %__j.sroa.0.0.i38
-  %spec.select18.i42 = select i1 %cmp.i5.i40, ptr %__y.0.lcssa26.i37, ptr null
+if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
+  %15 = phi i32 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
+  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %cmp.i5.i39 = icmp ult i32 %15, %9
+  %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
-  %cmp.i55 = icmp ult i32 %10, %9
-  br i1 %cmp.i55, label %if.then50, label %return
+  %cmp.i54 = icmp ult i32 %10, %9
+  br i1 %cmp.i54, label %if.then50, label %return
 
 if.then50:                                        ; preds = %if.else44
-  %_M_right.i56 = getelementptr inbounds i8, ptr %this, i64 32
-  %16 = load ptr, ptr %_M_right.i56, align 8
+  %_M_right.i55 = getelementptr inbounds i8, ptr %this, i64 32
+  %16 = load ptr, ptr %_M_right.i55, align 8
   %cmp53 = icmp eq ptr %16, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i59 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #32
-  %_M_storage.i.i.i60 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i59, i64 0, i32 1
-  %17 = load i32, ptr %_M_storage.i.i.i60, align 4
-  %cmp.i61 = icmp ult i32 %9, %17
-  br i1 %cmp.i61, label %if.then64, label %if.else74
+  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #32
+  %_M_storage.i.i.i59 = getelementptr inbounds i8, ptr %call.i58, i64 32
+  %17 = load i32, ptr %_M_storage.i.i.i59, align 4
+  %cmp.i60 = icmp ult i32 %9, %17
+  br i1 %cmp.i60, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i62 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
-  %18 = load ptr, ptr %_M_right.i62, align 8
+  %_M_right.i61 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %18 = load ptr, ptr %_M_right.i61, align 8
   %cmp67 = icmp eq ptr %18, null
-  %spec.select113 = select i1 %cmp67, ptr null, ptr %call.i59
-  %spec.select114 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i59
+  %spec.select111 = select i1 %cmp67, ptr null, ptr %call.i58
+  %spec.select112 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i58
   br label %return
 
 if.else74:                                        ; preds = %if.else57
-  %_M_parent.i.i.i65 = getelementptr inbounds i8, ptr %this, i64 16
-  %__x.019.i67 = load ptr, ptr %_M_parent.i.i.i65, align 8
-  %cmp.not20.i68 = icmp eq ptr %__x.019.i67, null
-  br i1 %cmp.not20.i68, label %if.then.i91, label %while.body.i70
+  %_M_parent.i.i.i64 = getelementptr inbounds i8, ptr %this, i64 16
+  %__x.019.i66 = load ptr, ptr %_M_parent.i.i.i64, align 8
+  %cmp.not20.i67 = icmp eq ptr %__x.019.i66, null
+  br i1 %cmp.not20.i67, label %if.then.i89, label %while.body.i69
 
-while.body.i70:                                   ; preds = %if.else74, %while.body.i70
-  %__x.021.i71 = phi ptr [ %__x.0.i77, %while.body.i70 ], [ %__x.019.i67, %if.else74 ]
-  %_M_storage.i.i.i72 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i71, i64 0, i32 1
-  %19 = load i32, ptr %_M_storage.i.i.i72, align 4
-  %cmp.i.i73 = icmp ult i32 %9, %19
-  %_M_left.i.i74 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 2
-  %_M_right.i.i75 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 3
-  %cond.in.i76 = select i1 %cmp.i.i73, ptr %_M_left.i.i74, ptr %_M_right.i.i75
-  %__x.0.i77 = load ptr, ptr %cond.in.i76, align 8
-  %cmp.not.i78 = icmp eq ptr %__x.0.i77, null
-  br i1 %cmp.not.i78, label %while.end.i79, label %while.body.i70, !llvm.loop !37
+while.body.i69:                                   ; preds = %if.else74, %while.body.i69
+  %__x.021.i70 = phi ptr [ %__x.0.i75, %while.body.i69 ], [ %__x.019.i66, %if.else74 ]
+  %_M_storage.i.i.i71 = getelementptr inbounds i8, ptr %__x.021.i70, i64 32
+  %19 = load i32, ptr %_M_storage.i.i.i71, align 4
+  %cmp.i.i72 = icmp ult i32 %9, %19
+  %cond.in.v.i73 = select i1 %cmp.i.i72, i64 16, i64 24
+  %cond.in.i74 = getelementptr inbounds i8, ptr %__x.021.i70, i64 %cond.in.v.i73
+  %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
+  %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
+  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !37
 
-while.end.i79:                                    ; preds = %while.body.i70
-  br i1 %cmp.i.i73, label %if.then.i91, label %if.end12.i80
+while.end.i77:                                    ; preds = %while.body.i69
+  br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
-if.then.i91:                                      ; preds = %while.end.i79, %if.else74
-  %__y.0.lcssa25.i92 = phi ptr [ %__x.021.i71, %while.end.i79 ], [ %add.ptr.i, %if.else74 ]
-  %_M_left.i3.i93 = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load ptr, ptr %_M_left.i3.i93, align 8
-  %cmp.i4.i94 = icmp eq ptr %__y.0.lcssa25.i92, %20
-  br i1 %cmp.i4.i94, label %return, label %if.else.i95
+if.then.i89:                                      ; preds = %while.end.i77, %if.else74
+  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %_M_left.i3.i91 = getelementptr inbounds i8, ptr %this, i64 24
+  %20 = load ptr, ptr %_M_left.i3.i91, align 8
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
-if.else.i95:                                      ; preds = %if.then.i91
-  %call.i.i96 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i92) #32
-  %_M_storage.i.i.i.i83.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i96, i64 0, i32 1
-  %.pre = load i32, ptr %_M_storage.i.i.i.i83.phi.trans.insert, align 4
-  br label %if.end12.i80
+if.else.i93:                                      ; preds = %if.then.i89
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #32
+  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i94, i64 32
+  %.pre = load i32, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 4
+  br label %if.end12.i78
 
-if.end12.i80:                                     ; preds = %if.else.i95, %while.end.i79
-  %21 = phi i32 [ %.pre, %if.else.i95 ], [ %19, %while.end.i79 ]
-  %__y.0.lcssa26.i81 = phi ptr [ %__y.0.lcssa25.i92, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %__j.sroa.0.0.i82 = phi ptr [ %call.i.i96, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %cmp.i5.i84 = icmp ult i32 %21, %9
-  %spec.select.i85 = select i1 %cmp.i5.i84, ptr null, ptr %__j.sroa.0.0.i82
-  %spec.select18.i86 = select i1 %cmp.i5.i84, ptr %__y.0.lcssa26.i81, ptr null
+if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
+  %21 = phi i32 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
+  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %cmp.i5.i82 = icmp ult i32 %21, %9
+  %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
   br label %return
 
-return:                                           ; preds = %if.end12.i80, %if.then.i91, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select113, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i47 ], [ %spec.select.i41, %if.end12.i36 ], [ null, %if.then.i91 ], [ %spec.select.i85, %if.end12.i80 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select112, %if.then32 ], [ %spec.select114, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i47 ], [ %spec.select18.i42, %if.end12.i36 ], [ %__y.0.lcssa25.i92, %if.then.i91 ], [ %spec.select18.i86, %if.end12.i80 ]
+return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5082,19 +5042,19 @@ return:                                           ; preds = %if.end12.i80, %if.t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>, std::_Select1st<std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>>, std::less<unsigned int>>::_Auto_node", ptr %this, i64 0, i32 1
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 24
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i, i32 noundef 3)
           to label %_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEESt10_Select1stISA_ESt4lessIjESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %terminate.lpad.i.i.i.i.i.i.i
 

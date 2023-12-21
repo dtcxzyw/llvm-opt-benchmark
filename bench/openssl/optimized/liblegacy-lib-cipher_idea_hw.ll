@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
 %struct.idea_key_st = type { [9 x [6 x i32]] }
-%struct.prov_idea_ctx_st = type { %struct.prov_cipher_ctx_st, %union.anon.0 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { double, [208 x i8] }
 
 @idea_cbc = internal constant %struct.prov_cipher_hw_st { ptr @cipher_hw_idea_initkey, ptr @cipher_hw_idea_cbc_cipher, ptr null }, align 8
 @idea_ofb64 = internal constant %struct.prov_cipher_hw_st { ptr @cipher_hw_idea_initkey, ptr @cipher_hw_idea_ofb64_cipher, ptr null }, align 8
@@ -43,15 +39,15 @@ entry:
 define internal i32 @cipher_hw_idea_initkey(ptr noundef %ctx, ptr noundef %key, i64 %keylen) #1 {
 entry:
   %tmp = alloca %struct.idea_key_st, align 4
-  %ks1 = getelementptr inbounds %struct.prov_idea_ctx_st, ptr %ctx, i64 0, i32 1
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %ks1 = getelementptr inbounds i8, ptr %ctx, i64 192
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %mode = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %ctx, i64 64
   %1 = load i32, ptr %mode, align 8
   %.off = add i32 %1, -3
   %switch = icmp ult i32 %.off, 2
@@ -74,13 +70,13 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_idea_cbc_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
-  %ks = getelementptr inbounds %struct.prov_idea_ctx_st, ptr %ctx, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %ctx, i64 192
   %cmp13 = icmp ugt i64 %len, 1073741823
   br i1 %cmp13, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -106,8 +102,8 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %iv3 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc5 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %iv3 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc5 = getelementptr inbounds i8, ptr %ctx, i64 108
   %bf.load6 = load i8, ptr %enc5, align 4
   %bf.lshr7 = lshr i8 %bf.load6, 1
   %bf.clear8 = and i8 %bf.lshr7, 1
@@ -131,15 +127,15 @@ declare void @IDEA_cbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 define internal i32 @cipher_hw_idea_ofb64_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %num = alloca i32, align 4
-  %num1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 18
+  %num1 = getelementptr inbounds i8, ptr %ctx, i64 160
   %0 = load i32, ptr %num1, align 8
   store i32 %0, ptr %num, align 4
-  %ks = getelementptr inbounds %struct.prov_idea_ctx_st, ptr %ctx, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %ctx, i64 192
   %cmp13 = icmp ugt i64 %len, 1073741823
   br i1 %cmp13, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -161,7 +157,7 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %cmp3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %iv4 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %iv4 = getelementptr inbounds i8, ptr %ctx, i64 32
   call void @IDEA_ofb64_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %len.addr.0.lcssa, ptr noundef nonnull %ks, ptr noundef nonnull %iv4, ptr noundef nonnull %num) #4
   br label %if.end
 
@@ -177,8 +173,8 @@ declare void @IDEA_ofb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noun
 define internal i32 @cipher_hw_idea_cfb64_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %num = alloca i32, align 4
-  %ks = getelementptr inbounds %struct.prov_idea_ctx_st, ptr %ctx, i64 0, i32 1
-  %num1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 18
+  %ks = getelementptr inbounds i8, ptr %ctx, i64 192
+  %num1 = getelementptr inbounds i8, ptr %ctx, i64 160
   %0 = load i32, ptr %num1, align 8
   store i32 %0, ptr %num, align 4
   %cmp220.not = icmp eq i64 %len, 0
@@ -186,8 +182,8 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %len, i64 1073741824)
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -222,9 +218,9 @@ declare void @IDEA_cfb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_idea_ecb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
-  %blocksize = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 8
+  %blocksize = getelementptr inbounds i8, ptr %ctx, i64 88
   %0 = load i64, ptr %blocksize, align 8
-  %ks = getelementptr inbounds %struct.prov_idea_ctx_st, ptr %ctx, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %ctx, i64 192
   %cmp = icmp ugt i64 %0, %len
   br i1 %cmp, label %return, label %if.end
 

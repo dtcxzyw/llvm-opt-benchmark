@@ -332,7 +332,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %2 = load i64, ptr %p.017, align 8
   %or = or i64 %2, %mask_to_set.018
   store i64 %or, ptr %p.017, align 8
-  %incdec.ptr = getelementptr i64, ptr %p.017, i64 1
+  %incdec.ptr = getelementptr i8, ptr %p.017, i64 8
   %sub5 = add nsw i64 %sub519, -64
   %cmp6 = icmp ugt i64 %sub519, 63
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !14
@@ -388,7 +388,7 @@ if.end:                                           ; preds = %entry
 
 if.then8:                                         ; preds = %if.end
   %3 = atomicrmw or ptr %add.ptr, i64 %shl seq_cst, align 8
-  %incdec.ptr = getelementptr i64, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr i8, ptr %add.ptr, i64 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %if.end
@@ -467,7 +467,7 @@ while.body:                                       ; preds = %while.body.preheade
   %3 = load i64, ptr %p.017, align 8
   %and8 = and i64 %3, %mask_to_clear.018
   store i64 %and8, ptr %p.017, align 8
-  %incdec.ptr = getelementptr i64, ptr %p.017, i64 1
+  %incdec.ptr = getelementptr i8, ptr %p.017, i64 8
   %sub5 = add nsw i64 %sub519, -64
   %cmp6 = icmp ugt i64 %sub519, 63
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !16
@@ -527,7 +527,7 @@ if.then8:                                         ; preds = %if.end
   %not = xor i64 %shl, -1
   %and12 = and i64 %3, %not
   store i64 %and12, ptr %add.ptr, align 8
-  %incdec.ptr = getelementptr i64, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr i8, ptr %add.ptr, i64 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then8, %if.end
@@ -555,7 +555,7 @@ if.then23:                                        ; preds = %while.body
 if.end24:                                         ; preds = %if.then23, %while.body
   %dirty.3 = phi i8 [ 1, %if.then23 ], [ %dirty.2, %while.body ]
   %sub25 = add nsw i64 %nr.addr.1, -64
-  %incdec.ptr26 = getelementptr i64, ptr %p.1, i64 1
+  %incdec.ptr26 = getelementptr i8, ptr %p.1, i64 8
   %cmp20.old = icmp ugt i64 %sub25, 63
   br i1 %cmp20.old, label %while.body, label %if.end27
 
@@ -616,7 +616,7 @@ if.then8:                                         ; preds = %if.end
   %not = xor i64 %shl, -1
   %3 = atomicrmw and ptr %add.ptr, i64 %not seq_cst, align 8
   %and9 = and i64 %3, %shl
-  %incdec.ptr = getelementptr i64, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr i8, ptr %add.ptr, i64 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then8, %if.end
@@ -646,7 +646,7 @@ while.end:                                        ; preds = %while.body
 if.end26:                                         ; preds = %while.end, %while.body
   %dirty.2 = phi i64 [ %or25, %while.end ], [ %dirty.1, %while.body ]
   %sub27 = add nsw i64 %nr.addr.1, -64
-  %incdec.ptr28 = getelementptr i64, ptr %p.1, i64 1
+  %incdec.ptr28 = getelementptr i8, ptr %p.1, i64 8
   %cmp17.old = icmp ugt i64 %sub27, 63
   br i1 %cmp17.old, label %while.body, label %if.end30
 
@@ -695,8 +695,8 @@ while.end:                                        ; preds = %entry, %while.end
   %nr.addr.05 = phi i64 [ %sub, %while.end ], [ %nr, %entry ]
   %0 = atomicrmw xchg ptr %src.addr.06, i64 0 seq_cst, align 8
   store i64 %0, ptr %dst.addr.07, align 8
-  %incdec.ptr = getelementptr i64, ptr %dst.addr.07, i64 1
-  %incdec.ptr4 = getelementptr i64, ptr %src.addr.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %dst.addr.07, i64 8
+  %incdec.ptr4 = getelementptr i8, ptr %src.addr.06, i64 8
   %sub = add nsw i64 %nr.addr.05, -64
   %cmp = icmp ugt i64 %nr.addr.05, 64
   br i1 %cmp, label %while.end, label %while.end5, !llvm.loop !18
@@ -890,12 +890,12 @@ while.body:                                       ; preds = %if.end, %while.body
   %and = and i64 %2, %notmask
   %shr = lshr i64 %and, %rem
   store i64 %shr, ptr %dst.addr.040, align 8
-  %arrayidx = getelementptr i64, ptr %src.addr.039, i64 1
+  %arrayidx = getelementptr i8, ptr %src.addr.039, i64 8
   %3 = load i64, ptr %arrayidx, align 8
   %shl3 = shl i64 %3, %sub2
   %or = or i64 %shl3, %shr
   store i64 %or, ptr %dst.addr.040, align 8
-  %incdec.ptr = getelementptr i64, ptr %dst.addr.040, i64 1
+  %incdec.ptr = getelementptr i8, ptr %dst.addr.040, i64 8
   %sub5 = add i64 %nbits.addr.038, -64
   %cmp = icmp ugt i64 %sub5, 63
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !22
@@ -915,7 +915,7 @@ if.then8:                                         ; preds = %while.end
   %sub12 = sub nsw i64 %nbits.addr.0.lcssa, %sub2
   %notmask36 = shl nsw i64 -1, %sub12
   %sub14 = xor i64 %notmask36, -1
-  %arrayidx15 = getelementptr i64, ptr %src.addr.0.lcssa, i64 1
+  %arrayidx15 = getelementptr i8, ptr %src.addr.0.lcssa, i64 8
   %5 = load i64, ptr %arrayidx15, align 8
   %and16 = and i64 %5, %sub14
   %shl18 = shl i64 %and16, %sub2
@@ -988,9 +988,9 @@ while.body:                                       ; preds = %if.end, %while.body
   %5 = load i64, ptr %src.addr.043, align 8
   %and6 = and i64 %5, %notmask
   %shr = lshr i64 %and6, %sub
-  %arrayidx = getelementptr i64, ptr %dst.addr.044, i64 1
+  %arrayidx = getelementptr i8, ptr %dst.addr.044, i64 8
   store i64 %shr, ptr %arrayidx, align 8
-  %incdec.ptr8 = getelementptr i64, ptr %src.addr.043, i64 1
+  %incdec.ptr8 = getelementptr i8, ptr %src.addr.043, i64 8
   %sub9 = add i64 %nbits.addr.042, -64
   %cmp = icmp ugt i64 %sub9, 63
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !23
@@ -1015,7 +1015,7 @@ if.then12:                                        ; preds = %while.end
   %8 = load i64, ptr %src.addr.0.lcssa, align 8
   %and22 = and i64 %8, %shl21
   %shr24 = lshr i64 %and22, %sub
-  %arrayidx25 = getelementptr i64, ptr %dst.addr.0.lcssa, i64 1
+  %arrayidx25 = getelementptr i8, ptr %dst.addr.0.lcssa, i64 8
   store i64 %shr24, ptr %arrayidx25, align 8
   br label %if.end34
 

@@ -5,13 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
 %struct.QPCIAddress = type { i32, i16, i16 }
-%struct.QVirtioSCSIDevice = type { %struct.QOSGraphObject, %struct.QVirtioSCSI }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QVirtioSCSI = type { ptr }
-%struct.QVirtioSCSIPCI = type { %struct.QVirtioPCIDevice, %struct.QVirtioSCSI }
-%struct.QVirtioPCIDevice = type { %struct.QOSGraphObject, %struct.QVirtioDevice, ptr, %struct.QPCIBar, ptr, i16, i64, i32, i32, i32, i32, i32, i32, i32 }
-%struct.QVirtioDevice = type { ptr, i16, i64, i8, i8 }
-%struct.QPCIBar = type { i64, i8 }
 
 @.str = private unnamed_addr constant [70 x i8] c"-drive id=drv0,if=none,file=null-co://,file.read-zeroes=on,format=raw\00", align 1
 @.str.1 = private unnamed_addr constant [37 x i8] c"-device scsi-hd,bus=vs0.0,drive=drv0\00", align 1
@@ -50,7 +43,7 @@ entry:
   %opts = alloca %struct.QOSGraphEdgeOptions, align 8
   store i64 32, ptr %addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %opts, ptr noundef nonnull align 8 dereferenceable(48) @__const.virtio_scsi_register_nodes.opts, i64 48, i1 false)
-  %extra_device_opts = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %opts, i64 0, i32 2
+  %extra_device_opts = getelementptr inbounds i8, ptr %opts, i64 16
   store ptr @.str.2, ptr %extra_device_opts, align 8
   tail call void @qos_node_create_driver(ptr noundef nonnull @.str.3, ptr noundef nonnull @virtio_scsi_device_create) #6
   call void @qos_node_consumes(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %opts) #6
@@ -73,7 +66,7 @@ declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_add
 define internal noalias ptr @virtio_scsi_device_create(ptr noundef %virtio_dev, ptr nocapture readnone %t_alloc, ptr nocapture readnone %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #7
-  %scsi = getelementptr inbounds %struct.QVirtioSCSIDevice, ptr %call, i64 0, i32 1
+  %scsi = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %virtio_dev, ptr %scsi, align 8
   store ptr @qvirtio_scsi_device_get_driver, ptr %call, align 8
   ret ptr %call
@@ -89,11 +82,11 @@ declare void @add_qpci_address(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal ptr @virtio_scsi_pci_create(ptr noundef %pci_bus, ptr nocapture readnone %t_alloc, ptr noundef %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(160) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 160) #7
-  %scsi = getelementptr inbounds %struct.QVirtioSCSIPCI, ptr %call, i64 0, i32 1
+  %scsi = getelementptr inbounds i8, ptr %call, i64 152
   tail call void @virtio_pci_init(ptr noundef %call, ptr noundef %pci_bus, ptr noundef %addr) #6
-  %vdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %call, i64 0, i32 1
+  %vdev = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %vdev, ptr %scsi, align 8
-  %device_type = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %call, i64 0, i32 1, i32 1
+  %device_type = getelementptr inbounds i8, ptr %call, i64 48
   %0 = load i16, ptr %device_type, align 8
   %cmp = icmp eq i16 %0, 8
   br i1 %cmp, label %do.end, label %if.else
@@ -114,7 +107,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @qvirtio_scsi_device_get_driver(ptr noundef readonly %object, ptr noundef %interface) #0 {
 entry:
-  %scsi = getelementptr inbounds %struct.QVirtioSCSIDevice, ptr %object, i64 0, i32 1
+  %scsi = getelementptr inbounds i8, ptr %object, i64 40
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.5) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %qvirtio_scsi_get_driver.exit, label %if.end.i
@@ -159,11 +152,11 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %pdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %object, i64 0, i32 2
+  %pdev = getelementptr inbounds i8, ptr %object, i64 72
   br label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %scsi = getelementptr inbounds %struct.QVirtioSCSIPCI, ptr %object, i64 0, i32 1
+  %scsi = getelementptr inbounds i8, ptr %object, i64 152
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.5) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i

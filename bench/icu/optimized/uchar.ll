@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.UTrie2 = type { ptr, ptr, ptr, i32, i32, i16, i16, i32, i32, i32, i32, ptr, i32, i8, i8, i16, ptr }
 %struct._EnumTypeCallback = type { ptr, ptr }
-%struct.USetAdder = type { ptr, ptr, ptr, ptr, ptr, ptr }
 
 @_ZL9propsTrie = internal constant %struct.UTrie2 { ptr @_ZL15propsTrie_index, ptr getelementptr (i8, ptr @_ZL15propsTrie_index, i64 9384), ptr null, i32 4692, i32 18464, i16 2624, i16 4820, i32 0, i32 0, i32 1114112, i32 23152, ptr null, i32 0, i8 0, i8 0, i16 0, ptr null }, align 8
 @_ZL16propsVectorsTrie = internal constant %struct.UTrie2 { ptr @_ZL22propsVectorsTrie_index, ptr getelementptr (i8, ptr @_ZL22propsVectorsTrie_index, i64 10736), ptr null, i32 5368, i32 27396, i16 2624, i16 5496, i32 0, i32 0, i32 1114112, i32 32760, ptr null, i32 0, i8 0, i8 0, i16 0, ptr null }, align 8
@@ -82,7 +81,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %enumRange, ptr %callback, align 8
-  %context2 = getelementptr inbounds %struct._EnumTypeCallback, ptr %callback, i64 0, i32 1
+  %context2 = getelementptr inbounds i8, ptr %callback, i64 8
   store ptr %context, ptr %context2, align 8
   call void @utrie2_enum_75(ptr noundef nonnull @_ZL9propsTrie, ptr noundef nonnull @_ZL14_enumTypeValuePKvj, ptr noundef nonnull @_ZL14_enumTypeRangePKviij, ptr noundef nonnull %callback)
   br label %return
@@ -104,7 +103,7 @@ entry:
 define internal noundef signext i8 @_ZL14_enumTypeRangePKviij(ptr nocapture noundef readonly %context, i32 noundef %start, i32 noundef %end, i32 noundef %value) #1 {
 entry:
   %0 = load ptr, ptr %context, align 8
-  %context1 = getelementptr inbounds %struct._EnumTypeCallback, ptr %context, i64 0, i32 1
+  %context1 = getelementptr inbounds i8, ptr %context, i64 8
   %1 = load ptr, ptr %context1, align 8
   %add = add nsw i32 %end, 1
   %call = tail call noundef signext i8 %0(ptr noundef %1, i32 noundef %start, i32 noundef %add, i32 noundef %value)
@@ -2738,7 +2737,7 @@ if.end:                                           ; preds = %u_getUnicodePropert
   br i1 %cmp3, label %if.then4, label %if.end8
 
 if.then4:                                         ; preds = %if.end
-  %arrayidx = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %5 = load i16, ptr %arrayidx, align 2
   %idx.ext6 = zext i16 %5 to i64
   %add.ptr7 = getelementptr inbounds i16, ptr @_ZL16scriptExtensions, i64 %idx.ext6
@@ -2754,7 +2753,7 @@ while.cond:                                       ; preds = %if.end8, %while.con
   %6 = load i16, ptr %scx.1, align 2
   %conv12 = zext i16 %6 to i32
   %cmp13 = icmp ult i32 %conv12, %sc
-  %incdec.ptr = getelementptr inbounds i16, ptr %scx.1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %scx.1, i64 2
   br i1 %cmp13, label %while.cond, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %while.cond
@@ -2874,7 +2873,7 @@ if.end14:                                         ; preds = %u_getUnicodePropert
   br i1 %cmp15, label %if.then16, label %do.body.preheader
 
 if.then16:                                        ; preds = %if.end14
-  %arrayidx17 = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %arrayidx17 = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %6 = load i16, ptr %arrayidx17, align 2
   %idx.ext18 = zext i16 %6 to i64
   %add.ptr19 = getelementptr inbounds i16, ptr @_ZL16scriptExtensions, i64 %idx.ext18
@@ -2887,7 +2886,7 @@ do.body.preheader:                                ; preds = %if.then16, %if.end1
 do.body:                                          ; preds = %do.body.backedge, %do.body.preheader
   %scx.1 = phi ptr [ %scx.1.ph, %do.body.preheader ], [ %incdec.ptr, %do.body.backedge ]
   %length.0 = phi i32 [ 0, %do.body.preheader ], [ %length.0.be, %do.body.backedge ]
-  %incdec.ptr = getelementptr inbounds i16, ptr %scx.1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %scx.1, i64 2
   %7 = load i16, ptr %scx.1, align 2
   %cmp21 = icmp slt i32 %length.0, %capacity
   br i1 %cmp21, label %if.end26, label %if.end26.thread
@@ -2990,7 +2989,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @utrie2_enum_75(ptr noundef nonnull @_ZL9propsTrie, ptr noundef null, ptr noundef nonnull @_ZL24_enumPropertyStartsRangePKviij, ptr noundef %sa)
-  %add = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add = getelementptr inbounds i8, ptr %sa, i64 8
   %1 = load ptr, ptr %add, align 8
   %2 = load ptr, ptr %sa, align 8
   tail call void %1(ptr noundef %2, i32 noundef 9)
@@ -3117,7 +3116,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext i8 @_ZL24_enumPropertyStartsRangePKviij(ptr nocapture noundef readonly %context, i32 noundef %start, i32 %end, i32 %value) #1 {
 entry:
-  %add = getelementptr inbounds %struct.USetAdder, ptr %context, i64 0, i32 1
+  %add = getelementptr inbounds i8, ptr %context, i64 8
   %0 = load ptr, ptr %add, align 8
   %1 = load ptr, ptr %context, align 8
   tail call void %0(ptr noundef %1, i32 noundef %start)

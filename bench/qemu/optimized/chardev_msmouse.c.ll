@@ -5,21 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.QemuInputHandler = type { ptr, i32, ptr, ptr }
-%struct.MouseChardev = type { %struct.Chardev, ptr, i32, [2 x i32], [10 x i8], [10 x i8], %struct.Fifo8 }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.Fifo8 = type { ptr, i32, i32, i32 }
-%struct.ChardevClass = type { %struct.ObjectClass, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.InputEvent = type { i32, %union.anon }
-%union.anon = type { %struct.InputKeyEventWrapper }
-%struct.InputKeyEventWrapper = type { ptr }
-%struct.InputMoveEvent = type { i32, i64 }
-%struct.InputBtnEvent = type { i32, i8 }
 
 @mouse_id = dso_local constant [2 x i8] c"M3", align 1
 @pnp_data = dso_local constant [19 x i8] c"\08\01$1-5\10\10\10\11<<-/53%<<", align 16
@@ -57,7 +42,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @char_msmouse_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 71, ptr noundef nonnull @__func__.MOUSE_CHARDEV) #6
-  %hs = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 1
+  %hs = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %hs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -67,7 +52,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %outbuf = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 6
+  %outbuf = getelementptr inbounds i8, ptr %call.i, i64 192
   tail call void @fifo8_destroy(ptr noundef nonnull %outbuf) #6
   ret void
 }
@@ -76,13 +61,13 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @char_msmouse_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #6
-  %open = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 4
+  %open = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @msmouse_chr_open, ptr %open, align 8
-  %chr_write = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 5
+  %chr_write = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @msmouse_chr_write, ptr %chr_write, align 8
-  %chr_accept_input = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 15
+  %chr_accept_input = getelementptr inbounds i8, ptr %call.i, i64 200
   store ptr @msmouse_chr_accept_input, ptr %chr_accept_input, align 8
-  %chr_ioctl = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 9
+  %chr_ioctl = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @msmouse_ioctl, ptr %chr_ioctl, align 8
   ret void
 }
@@ -99,11 +84,11 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 71, ptr noundef nonnull @__func__.MOUSE_CHARDEV) #6
   store i8 0, ptr %be_opened, align 1
   %call1 = tail call ptr @qemu_input_handler_register(ptr noundef %call.i, ptr noundef nonnull @msmouse_handler) #6
-  %hs = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 1
+  %hs = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr %call1, ptr %hs, align 8
-  %tiocm = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 2
+  %tiocm = getelementptr inbounds i8, ptr %call.i, i64 160
   store i32 0, ptr %tiocm, align 8
-  %outbuf = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 6
+  %outbuf = getelementptr inbounds i8, ptr %call.i, i64 192
   tail call void @fifo8_create(ptr noundef nonnull %outbuf, i32 noundef 64) #6
   ret void
 }
@@ -120,7 +105,7 @@ entry:
   %size = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 71, ptr noundef nonnull @__func__.MOUSE_CHARDEV) #6
   %call1 = tail call i32 @qemu_chr_be_can_write(ptr noundef %chr) #6
-  %outbuf = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 6
+  %outbuf = getelementptr inbounds i8, ptr %call.i, i64 192
   %call2 = tail call i32 @fifo8_num_used(ptr noundef nonnull %outbuf) #6
   %cmp10 = icmp ne i32 %call1, 0
   %cmp311 = icmp ne i32 %call2, 0
@@ -157,7 +142,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %tiocm = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 2
+  %tiocm = getelementptr inbounds i8, ptr %call.i, i64 160
   %0 = load i32, ptr %tiocm, align 8
   %1 = load i32, ptr %arg, align 4
   store i32 %1, ptr %tiocm, align 8
@@ -171,17 +156,17 @@ if.then:                                          ; preds = %sw.bb
   br i1 %tobool4.not, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.then
-  %outbuf = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 6
+  %outbuf = getelementptr inbounds i8, ptr %call.i, i64 192
   tail call void @fifo8_push_all(ptr noundef nonnull %outbuf, ptr noundef nonnull @mouse_id, i32 noundef 2) #6
   tail call void @fifo8_push_all(ptr noundef nonnull %outbuf, ptr noundef nonnull @pnp_data, i32 noundef 19) #6
   br label %for.body
 
 for.cond16.preheader:                             ; preds = %for.body
-  %arrayidx32 = getelementptr inbounds [32 x i8], ptr %bytes, i64 0, i64 20
+  %arrayidx32 = getelementptr inbounds i8, ptr %bytes, i64 20
   store i8 25, ptr %arrayidx32, align 4
-  %arrayidx38 = getelementptr inbounds [32 x i8], ptr %bytes, i64 0, i64 21
+  %arrayidx38 = getelementptr inbounds i8, ptr %bytes, i64 21
   store i8 33, ptr %arrayidx38, align 1
-  %arrayidx41 = getelementptr inbounds [32 x i8], ptr %bytes, i64 0, i64 22
+  %arrayidx41 = getelementptr inbounds i8, ptr %bytes, i64 22
   store i8 9, ptr %arrayidx41, align 2
   call void @fifo8_push_all(ptr noundef nonnull %outbuf, ptr noundef nonnull %bytes, i32 noundef 23) #6
   call void @msmouse_chr_accept_input(ptr noundef %chr)
@@ -200,14 +185,14 @@ for.body:                                         ; preds = %if.then5, %for.body
   br i1 %exitcond, label %for.cond16.preheader, label %for.body, !llvm.loop !7
 
 if.end43:                                         ; preds = %sw.bb
-  %outbuf44 = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 6
+  %outbuf44 = getelementptr inbounds i8, ptr %call.i, i64 192
   tail call void @fifo8_reset(ptr noundef nonnull %outbuf44) #6
-  %axis = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 3
+  %axis = getelementptr inbounds i8, ptr %call.i, i64 164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %axis, i8 0, i64 28, i1 false)
   br label %return
 
 sw.bb48:                                          ; preds = %entry
-  %tiocm49 = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 2
+  %tiocm49 = getelementptr inbounds i8, ptr %call.i, i64 160
   %4 = load i32, ptr %tiocm49, align 8
   store i32 %4, ptr %arg, align 4
   br label %return
@@ -227,7 +212,7 @@ declare void @fifo8_create(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal void @msmouse_input_event(ptr noundef %dev, ptr nocapture readnone %src, ptr nocapture noundef readonly %evt) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 71, ptr noundef nonnull @__func__.MOUSE_CHARDEV) #6
-  %tiocm = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 2
+  %tiocm = getelementptr inbounds i8, ptr %call.i, i64 160
   %0 = load i32, ptr %tiocm, align 8
   %and = and i32 %0, 6
   %tobool.not = icmp eq i32 %and, 0
@@ -241,13 +226,14 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %evt, i64 8
   %2 = load ptr, ptr %u, align 8
-  %value = getelementptr inbounds %struct.InputMoveEvent, ptr %2, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %value, align 8
+  %axis = getelementptr inbounds i8, ptr %call.i, i64 164
   %4 = load i32, ptr %2, align 8
   %idxprom = zext i32 %4 to i64
-  %arrayidx = getelementptr %struct.MouseChardev, ptr %call.i, i64 0, i32 3, i64 %idxprom
+  %arrayidx = getelementptr [2 x i32], ptr %axis, i64 0, i64 %idxprom
   %5 = load i32, ptr %arrayidx, align 4
   %6 = trunc i64 %3 to i32
   %conv2 = add i32 %5, %6
@@ -255,18 +241,20 @@ sw.bb:                                            ; preds = %if.end
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %if.end
-  %u4 = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u4 = getelementptr inbounds i8, ptr %evt, i64 8
   %7 = load ptr, ptr %u4, align 8
-  %down = getelementptr inbounds %struct.InputBtnEvent, ptr %7, i64 0, i32 1
+  %down = getelementptr inbounds i8, ptr %7, i64 4
   %8 = load i8, ptr %down, align 4
   %9 = and i8 %8, 1
+  %btns = getelementptr inbounds i8, ptr %call.i, i64 172
   %10 = load i32, ptr %7, align 4
   %idxprom7 = zext i32 %10 to i64
-  %arrayidx8 = getelementptr %struct.MouseChardev, ptr %call.i, i64 0, i32 4, i64 %idxprom7
+  %arrayidx8 = getelementptr [10 x i8], ptr %btns, i64 0, i64 %idxprom7
   store i8 %9, ptr %arrayidx8, align 1
+  %btnc = getelementptr inbounds i8, ptr %call.i, i64 182
   %11 = load i32, ptr %7, align 4
   %idxprom10 = zext i32 %11 to i64
-  %arrayidx11 = getelementptr %struct.MouseChardev, ptr %call.i, i64 0, i32 5, i64 %idxprom10
+  %arrayidx11 = getelementptr [10 x i8], ptr %btnc, i64 0, i64 %idxprom10
   store i8 1, ptr %arrayidx11, align 1
   br label %sw.epilog
 
@@ -280,7 +268,7 @@ entry:
   %bytes.i = alloca [4 x i8], align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 71, ptr noundef nonnull @__func__.MOUSE_CHARDEV) #6
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #6
-  %tiocm = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 2
+  %tiocm = getelementptr inbounds i8, ptr %call.i, i64 160
   %0 = load i32, ptr %tiocm, align 8
   %and = and i32 %0, 6
   %tobool.not = icmp eq i32 %and, 0
@@ -289,10 +277,10 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bytes.i)
   store i32 64, ptr %bytes.i, align 4
-  %axis.i = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 3
+  %axis.i = getelementptr inbounds i8, ptr %call.i, i64 164
   %1 = load i32, ptr %axis.i, align 4
   store i32 0, ptr %axis.i, align 4
-  %arrayidx4.i = getelementptr %struct.MouseChardev, ptr %call.i, i64 0, i32 3, i64 1
+  %arrayidx4.i = getelementptr i8, ptr %call.i, i64 168
   %2 = load i32, ptr %arrayidx4.i, align 4
   store i32 0, ptr %arrayidx4.i, align 4
   %3 = lshr i32 %2, 4
@@ -301,34 +289,34 @@ if.end:                                           ; preds = %entry
   %shr8.i = and i32 %and7.i, 3
   %or.i = or disjoint i32 %shl.i, %shr8.i
   %4 = trunc i32 %or.i to i8
-  %arrayidx13.i = getelementptr inbounds [4 x i8], ptr %bytes.i, i64 0, i64 1
+  %arrayidx13.i = getelementptr inbounds i8, ptr %bytes.i, i64 1
   %5 = trunc i32 %1 to i8
   %6 = and i8 %5, 63
   store i8 %6, ptr %arrayidx13.i, align 1
-  %arrayidx18.i = getelementptr inbounds [4 x i8], ptr %bytes.i, i64 0, i64 2
+  %arrayidx18.i = getelementptr inbounds i8, ptr %bytes.i, i64 2
   %7 = trunc i32 %2 to i8
   %8 = and i8 %7, 63
   store i8 %8, ptr %arrayidx18.i, align 2
-  %btns.i = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 4
+  %btns.i = getelementptr inbounds i8, ptr %call.i, i64 172
   %9 = load i8, ptr %btns.i, align 4
   %10 = shl i8 %9, 5
   %11 = and i8 %10, 32
   %conv11.i = or disjoint i8 %11, %4
-  %arrayidx29.i = getelementptr %struct.MouseChardev, ptr %call.i, i64 0, i32 4, i64 2
+  %arrayidx29.i = getelementptr i8, ptr %call.i, i64 174
   %12 = load i8, ptr %arrayidx29.i, align 2
   %13 = shl i8 %12, 4
   %14 = and i8 %13, 16
   %or2616.i = or disjoint i8 %conv11.i, %14
   %or3517.i = or disjoint i8 %or2616.i, 64
   store i8 %or3517.i, ptr %bytes.i, align 4
-  %arrayidx38.i = getelementptr %struct.MouseChardev, ptr %call.i, i64 0, i32 4, i64 1
+  %arrayidx38.i = getelementptr i8, ptr %call.i, i64 173
   %15 = load i8, ptr %arrayidx38.i, align 1
   %16 = and i8 %15, 1
   %tobool39.not.i = icmp eq i8 %16, 0
   br i1 %tobool39.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %arrayidx41.i = getelementptr %struct.MouseChardev, ptr %call.i, i64 0, i32 5, i64 1
+  %arrayidx41.i = getelementptr i8, ptr %call.i, i64 183
   %17 = load i8, ptr %arrayidx41.i, align 1
   %18 = and i8 %17, 1
   %tobool42.not.i = icmp eq i8 %18, 0
@@ -337,15 +325,15 @@ lor.lhs.false.i:                                  ; preds = %if.end
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end
   %19 = shl i8 %15, 5
   %20 = and i8 %19, 32
-  %arrayidx49.i = getelementptr inbounds [4 x i8], ptr %bytes.i, i64 0, i64 3
+  %arrayidx49.i = getelementptr inbounds i8, ptr %bytes.i, i64 3
   store i8 %20, ptr %arrayidx49.i, align 1
-  %arrayidx54.i = getelementptr %struct.MouseChardev, ptr %call.i, i64 0, i32 5, i64 1
+  %arrayidx54.i = getelementptr i8, ptr %call.i, i64 183
   store i8 0, ptr %arrayidx54.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %lor.lhs.false.i
   %count.0.i = phi i32 [ 4, %if.then.i ], [ 3, %lor.lhs.false.i ]
-  %outbuf.i = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 6
+  %outbuf.i = getelementptr inbounds i8, ptr %call.i, i64 192
   %call.i4 = tail call i32 @fifo8_num_free(ptr noundef nonnull %outbuf.i) #6
   %cmp.not.i = icmp ult i32 %call.i4, %count.0.i
   br i1 %cmp.not.i, label %msmouse_queue_event.exit, label %if.then56.i

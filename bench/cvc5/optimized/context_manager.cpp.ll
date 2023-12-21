@@ -4,186 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cvc5::internal::smt::ContextManager" = type <{ %"class.cvc5::internal::EnvObj", ptr, ptr, %"class.std::vector", i32, i8, [3 x i8] }>
-%"class.cvc5::internal::EnvObj" = type { ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cvc5::internal::FatalStream" = type { i8 }
-%"class.cvc5::internal::Options" = type { %"class.std::unique_ptr.49", %"class.std::unique_ptr.57", %"class.std::unique_ptr.65", %"class.std::unique_ptr.73", %"class.std::unique_ptr.81", %"class.std::unique_ptr.89", %"class.std::unique_ptr.97", %"class.std::unique_ptr.105", %"class.std::unique_ptr.113", %"class.std::unique_ptr.121", %"class.std::unique_ptr.129", %"class.std::unique_ptr.137", %"class.std::unique_ptr.145", %"class.std::unique_ptr.153", %"class.std::unique_ptr.161", %"class.std::unique_ptr.169", %"class.std::unique_ptr.177", %"class.std::unique_ptr.185", %"class.std::unique_ptr.193", %"class.std::unique_ptr.201", %"class.std::unique_ptr.209", %"class.std::unique_ptr.217", %"class.std::unique_ptr.225", %"class.std::unique_ptr.233", ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::unique_ptr.241" }
-%"class.std::unique_ptr.49" = type { %"struct.std::__uniq_ptr_data.50" }
-%"struct.std::__uniq_ptr_data.50" = type { %"class.std::__uniq_ptr_impl.51" }
-%"class.std::__uniq_ptr_impl.51" = type { %"class.std::tuple.52" }
-%"class.std::tuple.52" = type { %"struct.std::_Tuple_impl.53" }
-%"struct.std::_Tuple_impl.53" = type { %"struct.std::_Head_base.56" }
-%"struct.std::_Head_base.56" = type { ptr }
-%"class.std::unique_ptr.57" = type { %"struct.std::__uniq_ptr_data.58" }
-%"struct.std::__uniq_ptr_data.58" = type { %"class.std::__uniq_ptr_impl.59" }
-%"class.std::__uniq_ptr_impl.59" = type { %"class.std::tuple.60" }
-%"class.std::tuple.60" = type { %"struct.std::_Tuple_impl.61" }
-%"struct.std::_Tuple_impl.61" = type { %"struct.std::_Head_base.64" }
-%"struct.std::_Head_base.64" = type { ptr }
-%"class.std::unique_ptr.65" = type { %"struct.std::__uniq_ptr_data.66" }
-%"struct.std::__uniq_ptr_data.66" = type { %"class.std::__uniq_ptr_impl.67" }
-%"class.std::__uniq_ptr_impl.67" = type { %"class.std::tuple.68" }
-%"class.std::tuple.68" = type { %"struct.std::_Tuple_impl.69" }
-%"struct.std::_Tuple_impl.69" = type { %"struct.std::_Head_base.72" }
-%"struct.std::_Head_base.72" = type { ptr }
-%"class.std::unique_ptr.73" = type { %"struct.std::__uniq_ptr_data.74" }
-%"struct.std::__uniq_ptr_data.74" = type { %"class.std::__uniq_ptr_impl.75" }
-%"class.std::__uniq_ptr_impl.75" = type { %"class.std::tuple.76" }
-%"class.std::tuple.76" = type { %"struct.std::_Tuple_impl.77" }
-%"struct.std::_Tuple_impl.77" = type { %"struct.std::_Head_base.80" }
-%"struct.std::_Head_base.80" = type { ptr }
-%"class.std::unique_ptr.81" = type { %"struct.std::__uniq_ptr_data.82" }
-%"struct.std::__uniq_ptr_data.82" = type { %"class.std::__uniq_ptr_impl.83" }
-%"class.std::__uniq_ptr_impl.83" = type { %"class.std::tuple.84" }
-%"class.std::tuple.84" = type { %"struct.std::_Tuple_impl.85" }
-%"struct.std::_Tuple_impl.85" = type { %"struct.std::_Head_base.88" }
-%"struct.std::_Head_base.88" = type { ptr }
-%"class.std::unique_ptr.89" = type { %"struct.std::__uniq_ptr_data.90" }
-%"struct.std::__uniq_ptr_data.90" = type { %"class.std::__uniq_ptr_impl.91" }
-%"class.std::__uniq_ptr_impl.91" = type { %"class.std::tuple.92" }
-%"class.std::tuple.92" = type { %"struct.std::_Tuple_impl.93" }
-%"struct.std::_Tuple_impl.93" = type { %"struct.std::_Head_base.96" }
-%"struct.std::_Head_base.96" = type { ptr }
-%"class.std::unique_ptr.97" = type { %"struct.std::__uniq_ptr_data.98" }
-%"struct.std::__uniq_ptr_data.98" = type { %"class.std::__uniq_ptr_impl.99" }
-%"class.std::__uniq_ptr_impl.99" = type { %"class.std::tuple.100" }
-%"class.std::tuple.100" = type { %"struct.std::_Tuple_impl.101" }
-%"struct.std::_Tuple_impl.101" = type { %"struct.std::_Head_base.104" }
-%"struct.std::_Head_base.104" = type { ptr }
-%"class.std::unique_ptr.105" = type { %"struct.std::__uniq_ptr_data.106" }
-%"struct.std::__uniq_ptr_data.106" = type { %"class.std::__uniq_ptr_impl.107" }
-%"class.std::__uniq_ptr_impl.107" = type { %"class.std::tuple.108" }
-%"class.std::tuple.108" = type { %"struct.std::_Tuple_impl.109" }
-%"struct.std::_Tuple_impl.109" = type { %"struct.std::_Head_base.112" }
-%"struct.std::_Head_base.112" = type { ptr }
-%"class.std::unique_ptr.113" = type { %"struct.std::__uniq_ptr_data.114" }
-%"struct.std::__uniq_ptr_data.114" = type { %"class.std::__uniq_ptr_impl.115" }
-%"class.std::__uniq_ptr_impl.115" = type { %"class.std::tuple.116" }
-%"class.std::tuple.116" = type { %"struct.std::_Tuple_impl.117" }
-%"struct.std::_Tuple_impl.117" = type { %"struct.std::_Head_base.120" }
-%"struct.std::_Head_base.120" = type { ptr }
-%"class.std::unique_ptr.121" = type { %"struct.std::__uniq_ptr_data.122" }
-%"struct.std::__uniq_ptr_data.122" = type { %"class.std::__uniq_ptr_impl.123" }
-%"class.std::__uniq_ptr_impl.123" = type { %"class.std::tuple.124" }
-%"class.std::tuple.124" = type { %"struct.std::_Tuple_impl.125" }
-%"struct.std::_Tuple_impl.125" = type { %"struct.std::_Head_base.128" }
-%"struct.std::_Head_base.128" = type { ptr }
-%"class.std::unique_ptr.129" = type { %"struct.std::__uniq_ptr_data.130" }
-%"struct.std::__uniq_ptr_data.130" = type { %"class.std::__uniq_ptr_impl.131" }
-%"class.std::__uniq_ptr_impl.131" = type { %"class.std::tuple.132" }
-%"class.std::tuple.132" = type { %"struct.std::_Tuple_impl.133" }
-%"struct.std::_Tuple_impl.133" = type { %"struct.std::_Head_base.136" }
-%"struct.std::_Head_base.136" = type { ptr }
-%"class.std::unique_ptr.137" = type { %"struct.std::__uniq_ptr_data.138" }
-%"struct.std::__uniq_ptr_data.138" = type { %"class.std::__uniq_ptr_impl.139" }
-%"class.std::__uniq_ptr_impl.139" = type { %"class.std::tuple.140" }
-%"class.std::tuple.140" = type { %"struct.std::_Tuple_impl.141" }
-%"struct.std::_Tuple_impl.141" = type { %"struct.std::_Head_base.144" }
-%"struct.std::_Head_base.144" = type { ptr }
-%"class.std::unique_ptr.145" = type { %"struct.std::__uniq_ptr_data.146" }
-%"struct.std::__uniq_ptr_data.146" = type { %"class.std::__uniq_ptr_impl.147" }
-%"class.std::__uniq_ptr_impl.147" = type { %"class.std::tuple.148" }
-%"class.std::tuple.148" = type { %"struct.std::_Tuple_impl.149" }
-%"struct.std::_Tuple_impl.149" = type { %"struct.std::_Head_base.152" }
-%"struct.std::_Head_base.152" = type { ptr }
-%"class.std::unique_ptr.153" = type { %"struct.std::__uniq_ptr_data.154" }
-%"struct.std::__uniq_ptr_data.154" = type { %"class.std::__uniq_ptr_impl.155" }
-%"class.std::__uniq_ptr_impl.155" = type { %"class.std::tuple.156" }
-%"class.std::tuple.156" = type { %"struct.std::_Tuple_impl.157" }
-%"struct.std::_Tuple_impl.157" = type { %"struct.std::_Head_base.160" }
-%"struct.std::_Head_base.160" = type { ptr }
-%"class.std::unique_ptr.161" = type { %"struct.std::__uniq_ptr_data.162" }
-%"struct.std::__uniq_ptr_data.162" = type { %"class.std::__uniq_ptr_impl.163" }
-%"class.std::__uniq_ptr_impl.163" = type { %"class.std::tuple.164" }
-%"class.std::tuple.164" = type { %"struct.std::_Tuple_impl.165" }
-%"struct.std::_Tuple_impl.165" = type { %"struct.std::_Head_base.168" }
-%"struct.std::_Head_base.168" = type { ptr }
-%"class.std::unique_ptr.169" = type { %"struct.std::__uniq_ptr_data.170" }
-%"struct.std::__uniq_ptr_data.170" = type { %"class.std::__uniq_ptr_impl.171" }
-%"class.std::__uniq_ptr_impl.171" = type { %"class.std::tuple.172" }
-%"class.std::tuple.172" = type { %"struct.std::_Tuple_impl.173" }
-%"struct.std::_Tuple_impl.173" = type { %"struct.std::_Head_base.176" }
-%"struct.std::_Head_base.176" = type { ptr }
-%"class.std::unique_ptr.177" = type { %"struct.std::__uniq_ptr_data.178" }
-%"struct.std::__uniq_ptr_data.178" = type { %"class.std::__uniq_ptr_impl.179" }
-%"class.std::__uniq_ptr_impl.179" = type { %"class.std::tuple.180" }
-%"class.std::tuple.180" = type { %"struct.std::_Tuple_impl.181" }
-%"struct.std::_Tuple_impl.181" = type { %"struct.std::_Head_base.184" }
-%"struct.std::_Head_base.184" = type { ptr }
-%"class.std::unique_ptr.185" = type { %"struct.std::__uniq_ptr_data.186" }
-%"struct.std::__uniq_ptr_data.186" = type { %"class.std::__uniq_ptr_impl.187" }
-%"class.std::__uniq_ptr_impl.187" = type { %"class.std::tuple.188" }
-%"class.std::tuple.188" = type { %"struct.std::_Tuple_impl.189" }
-%"struct.std::_Tuple_impl.189" = type { %"struct.std::_Head_base.192" }
-%"struct.std::_Head_base.192" = type { ptr }
-%"class.std::unique_ptr.193" = type { %"struct.std::__uniq_ptr_data.194" }
-%"struct.std::__uniq_ptr_data.194" = type { %"class.std::__uniq_ptr_impl.195" }
-%"class.std::__uniq_ptr_impl.195" = type { %"class.std::tuple.196" }
-%"class.std::tuple.196" = type { %"struct.std::_Tuple_impl.197" }
-%"struct.std::_Tuple_impl.197" = type { %"struct.std::_Head_base.200" }
-%"struct.std::_Head_base.200" = type { ptr }
-%"class.std::unique_ptr.201" = type { %"struct.std::__uniq_ptr_data.202" }
-%"struct.std::__uniq_ptr_data.202" = type { %"class.std::__uniq_ptr_impl.203" }
-%"class.std::__uniq_ptr_impl.203" = type { %"class.std::tuple.204" }
-%"class.std::tuple.204" = type { %"struct.std::_Tuple_impl.205" }
-%"struct.std::_Tuple_impl.205" = type { %"struct.std::_Head_base.208" }
-%"struct.std::_Head_base.208" = type { ptr }
-%"class.std::unique_ptr.209" = type { %"struct.std::__uniq_ptr_data.210" }
-%"struct.std::__uniq_ptr_data.210" = type { %"class.std::__uniq_ptr_impl.211" }
-%"class.std::__uniq_ptr_impl.211" = type { %"class.std::tuple.212" }
-%"class.std::tuple.212" = type { %"struct.std::_Tuple_impl.213" }
-%"struct.std::_Tuple_impl.213" = type { %"struct.std::_Head_base.216" }
-%"struct.std::_Head_base.216" = type { ptr }
-%"class.std::unique_ptr.217" = type { %"struct.std::__uniq_ptr_data.218" }
-%"struct.std::__uniq_ptr_data.218" = type { %"class.std::__uniq_ptr_impl.219" }
-%"class.std::__uniq_ptr_impl.219" = type { %"class.std::tuple.220" }
-%"class.std::tuple.220" = type { %"struct.std::_Tuple_impl.221" }
-%"struct.std::_Tuple_impl.221" = type { %"struct.std::_Head_base.224" }
-%"struct.std::_Head_base.224" = type { ptr }
-%"class.std::unique_ptr.225" = type { %"struct.std::__uniq_ptr_data.226" }
-%"struct.std::__uniq_ptr_data.226" = type { %"class.std::__uniq_ptr_impl.227" }
-%"class.std::__uniq_ptr_impl.227" = type { %"class.std::tuple.228" }
-%"class.std::tuple.228" = type { %"struct.std::_Tuple_impl.229" }
-%"struct.std::_Tuple_impl.229" = type { %"struct.std::_Head_base.232" }
-%"struct.std::_Head_base.232" = type { ptr }
-%"class.std::unique_ptr.233" = type { %"struct.std::__uniq_ptr_data.234" }
-%"struct.std::__uniq_ptr_data.234" = type { %"class.std::__uniq_ptr_impl.235" }
-%"class.std::__uniq_ptr_impl.235" = type { %"class.std::tuple.236" }
-%"class.std::tuple.236" = type { %"struct.std::_Tuple_impl.237" }
-%"struct.std::_Tuple_impl.237" = type { %"struct.std::_Head_base.240" }
-%"struct.std::_Head_base.240" = type { ptr }
-%"class.std::unique_ptr.241" = type { %"struct.std::__uniq_ptr_data.242" }
-%"struct.std::__uniq_ptr_data.242" = type { %"class.std::__uniq_ptr_impl.243" }
-%"class.std::__uniq_ptr_impl.243" = type { %"class.std::tuple.244" }
-%"class.std::tuple.244" = type { %"struct.std::_Tuple_impl.245" }
-%"struct.std::_Tuple_impl.245" = type { %"struct.std::_Head_base.248" }
-%"struct.std::_Head_base.248" = type { ptr }
-%"struct.cvc5::internal::options::HolderBASE" = type <{ %"class.cvc5::internal::ManagedErr", i8, [7 x i8], %"class.cvc5::internal::ManagedIn", i8, i8, i8, i8, i32, i8, [7 x i8], %"class.cvc5::internal::ManagedOut", i8, i8, i8, i8, i8, [3 x i8], i64, i8, [7 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], %"class.std::bitset", i8, [7 x i8], %"class.std::vector.261", i8, [7 x i8] }>
-%"class.cvc5::internal::ManagedErr" = type { %"class.cvc5::internal::ManagedStream" }
-%"class.cvc5::internal::ManagedStream" = type { ptr, ptr, %"class.std::shared_ptr", %"class.std::__cxx11::basic_string" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.cvc5::internal::ManagedIn" = type { %"class.cvc5::internal::ManagedStream.257" }
-%"class.cvc5::internal::ManagedStream.257" = type { ptr, ptr, %"class.std::shared_ptr.258", %"class.std::__cxx11::basic_string" }
-%"class.std::shared_ptr.258" = type { %"class.std::__shared_ptr.259" }
-%"class.std::__shared_ptr.259" = type { ptr, %"class.std::__shared_count" }
-%"class.cvc5::internal::ManagedOut" = type { %"class.cvc5::internal::ManagedStream" }
-%"class.std::bitset" = type { %"struct.std::_Base_bitset" }
-%"struct.std::_Base_bitset" = type { i64 }
-%"class.std::vector.261" = type { %"struct.std::_Vector_base.262" }
-%"struct.std::_Vector_base.262" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string" }
-%"class.std::exception" = type { ptr }
 %"class.std::allocator.34" = type { i8 }
 %struct._Guard = type { ptr }
 
@@ -264,9 +85,9 @@ define hidden void @_ZN4cvc58internal3smt14ContextManagerC2ERNS0_3EnvERNS1_17Sol
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal3smt14ContextManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_state = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 1
+  %d_state = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %state, ptr %d_state, align 8
-  %d_smt = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 2
+  %d_smt = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %d_smt, i8 0, i64 37, i1 false)
   ret void
 }
@@ -276,27 +97,27 @@ declare void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt14ContextManager21notifyResetAssertionsEv(ptr noundef nonnull align 8 dereferenceable(61) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_needPostsolve.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 5
+  %d_needPostsolve.i = getelementptr inbounds i8, ptr %this, i64 60
   %0 = load i8, ptr %d_needPostsolve.i, align 4
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %d_smt.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 2
+  %d_smt.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %d_smt.i, align 8
   tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   store i8 0, ptr %d_needPostsolve.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %d_pendingPops.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 4
+  %d_pendingPops.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i32, ptr %d_pendingPops.i, align 8
   %cmp.not7.i = icmp eq i32 %3, 0
   br i1 %cmp.not7.i, label %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
-  %d_smt6.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 2
+  %d_smt6.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -311,8 +132,8 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.not.i, label %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit, label %while.body.i, !llvm.loop !4
 
 _ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit: ; preds = %while.body.i, %if.end.i
-  %d_userLevels = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 3
-  %_M_finish.i.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %d_userLevels = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %d_userLevels, align 8
   %7 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i3 = icmp eq ptr %6, %7
@@ -340,27 +161,27 @@ while.end:                                        ; preds = %while.body, %_ZN4cv
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv(ptr noundef nonnull align 8 dereferenceable(61) %this) local_unnamed_addr #3 align 2 {
 cond.end:
-  %d_needPostsolve = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 5
+  %d_needPostsolve = getelementptr inbounds i8, ptr %this, i64 60
   %0 = load i8, ptr %d_needPostsolve, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %d_smt = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 2
+  %d_smt = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %d_smt, align 8
   tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   store i8 0, ptr %d_needPostsolve, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cond.end
-  %d_pendingPops = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 4
+  %d_pendingPops = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i32, ptr %d_pendingPops, align 8
   %cmp.not7 = icmp eq i32 %3, 0
   br i1 %cmp.not7, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %d_smt6 = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 2
+  %d_smt6 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -383,11 +204,11 @@ define hidden void @_ZN4cvc58internal3smt14ContextManager7userPopEv(ptr noundef 
 entry:
   %ref.tmp6 = alloca %"class.cvc5::internal::FatalStream", align 1
   %ref.tmp30 = alloca %"class.cvc5::internal::FatalStream", align 1
-  %d_state = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 1
+  %d_state = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_state, align 8
   tail call void @_ZN4cvc58internal3smt17SolverEngineState14notifyUserPushEv(ptr noundef nonnull align 8 dereferenceable(108) %0)
-  %d_userLevels = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 3
-  %_M_finish.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %d_userLevels = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %d_userLevels, align 8
   %cmp = icmp eq ptr %1, %2
@@ -443,7 +264,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 
 cleanup.done:                                     ; preds = %if.end
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %5, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 -4
   %6 = load i32, ptr %add.ptr.i.i, align 4
   %call22 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call23 = tail call noundef i32 @_ZNK4cvc57context7Context8getLevelEv(ptr noundef nonnull align 8 dereferenceable(48) %call22)
@@ -452,7 +273,7 @@ cleanup.done:                                     ; preds = %if.end
 
 while.cond.preheader:                             ; preds = %cleanup.done
   %7 = load ptr, ptr %_M_finish.i, align 8
-  %add.ptr.i.i24 = getelementptr inbounds i32, ptr %7, i64 -1
+  %add.ptr.i.i24 = getelementptr inbounds i8, ptr %7, i64 -4
   %8 = load i32, ptr %add.ptr.i.i24, align 4
   %call515 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call526 = tail call noundef i32 @_ZNK4cvc57context7Context8getLevelEv(ptr noundef nonnull align 8 dereferenceable(48) %call515)
@@ -489,7 +310,7 @@ lpad32:                                           ; preds = %invoke.cont37, %inv
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   tail call void @_ZN4cvc58internal3smt14ContextManager11internalPopEb(ptr noundef nonnull align 8 dereferenceable(61) %this, i1 noundef zeroext true)
   %10 = load ptr, ptr %_M_finish.i, align 8
-  %add.ptr.i.i2 = getelementptr inbounds i32, ptr %10, i64 -1
+  %add.ptr.i.i2 = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %add.ptr.i.i2, align 4
   %call51 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call52 = tail call noundef i32 @_ZNK4cvc57context7Context8getLevelEv(ptr noundef nonnull align 8 dereferenceable(48) %call51)
@@ -498,7 +319,7 @@ while.body:                                       ; preds = %while.cond.preheade
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %12 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %12, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %12, i64 -4
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   ret void
 }
@@ -539,27 +360,27 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt14ContextManager12internalPushEv(ptr noundef nonnull align 8 dereferenceable(61) %this) local_unnamed_addr #3 align 2 {
 cond.end:
-  %d_needPostsolve.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 5
+  %d_needPostsolve.i = getelementptr inbounds i8, ptr %this, i64 60
   %0 = load i8, ptr %d_needPostsolve.i, align 4
   %1 = and i8 %0, 1
   %tobool.not.i6 = icmp eq i8 %1, 0
   br i1 %tobool.not.i6, label %if.end.i8, label %if.then.i7
 
 if.then.i7:                                       ; preds = %cond.end
-  %d_smt.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 2
+  %d_smt.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %d_smt.i, align 8
   tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   store i8 0, ptr %d_needPostsolve.i, align 4
   br label %if.end.i8
 
 if.end.i8:                                        ; preds = %if.then.i7, %cond.end
-  %d_pendingPops.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 4
+  %d_pendingPops.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i32, ptr %d_pendingPops.i, align 8
   %cmp.not7.i = icmp eq i32 %3, 0
   br i1 %cmp.not7.i, label %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i8
-  %d_smt6.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 2
+  %d_smt6.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -575,16 +396,16 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 _ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit: ; preds = %while.body.i, %if.end.i8
   %call5 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %base = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call5, i64 0, i32 26
+  %base = getelementptr inbounds i8, ptr %call5, i64 208
   %6 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %6, i64 0, i32 5
+  %incrementalSolving = getelementptr inbounds i8, ptr %6, i64 137
   %7 = load i8, ptr %incrementalSolving, align 1
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit
-  %d_smt = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 2
+  %d_smt = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %d_smt, align 8
   tail call void @_ZN4cvc58internal3smt9SmtDriver13notifyPushPreEv(ptr noundef nonnull align 8 dereferenceable(200) %9)
   %call6 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -600,22 +421,22 @@ if.end:                                           ; preds = %if.then, %_ZN4cvc58
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt14ContextManager20notifyCheckSatResultEb(ptr noundef nonnull align 8 dereferenceable(61) %this, i1 noundef zeroext %hasAssumptions) local_unnamed_addr #3 align 2 {
 entry:
-  %d_needPostsolve = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 5
+  %d_needPostsolve = getelementptr inbounds i8, ptr %this, i64 60
   store i8 1, ptr %d_needPostsolve, align 4
   br i1 %hasAssumptions, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call5.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %base.i = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call5.i, i64 0, i32 26
+  %base.i = getelementptr inbounds i8, ptr %call5.i, i64 208
   %0 = load ptr, ptr %base.i, align 8
-  %incrementalSolving.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %0, i64 0, i32 5
+  %incrementalSolving.i = getelementptr inbounds i8, ptr %0, i64 137
   %1 = load i8, ptr %incrementalSolving.i, align 1
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %d_pendingPops.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 4
+  %d_pendingPops.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i32, ptr %d_pendingPops.i, align 8
   %inc.i = add i32 %3, 1
   store i32 %inc.i, ptr %d_pendingPops.i, align 8
@@ -629,16 +450,16 @@ if.end:                                           ; preds = %if.then.i, %if.then
 define hidden void @_ZN4cvc58internal3smt14ContextManager11internalPopEb(ptr noundef nonnull align 8 dereferenceable(61) %this, i1 noundef zeroext %immediate) local_unnamed_addr #3 align 2 {
 cond.end:
   %call5 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %base = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call5, i64 0, i32 26
+  %base = getelementptr inbounds i8, ptr %call5, i64 208
   %0 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %0, i64 0, i32 5
+  %incrementalSolving = getelementptr inbounds i8, ptr %0, i64 137
   %1 = load i8, ptr %incrementalSolving, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %d_pendingPops = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 4
+  %d_pendingPops = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i32, ptr %d_pendingPops, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %d_pendingPops, align 8
@@ -648,27 +469,27 @@ if.end:                                           ; preds = %if.then, %cond.end
   br i1 %immediate, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end
-  %d_needPostsolve.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 5
+  %d_needPostsolve.i = getelementptr inbounds i8, ptr %this, i64 60
   %4 = load i8, ptr %d_needPostsolve.i, align 4
   %5 = and i8 %4, 1
   %tobool.not.i6 = icmp eq i8 %5, 0
   br i1 %tobool.not.i6, label %if.end.i8, label %if.then.i7
 
 if.then.i7:                                       ; preds = %if.then7
-  %d_smt.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 2
+  %d_smt.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %d_smt.i, align 8
   tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %6)
   store i8 0, ptr %d_needPostsolve.i, align 4
   br label %if.end.i8
 
 if.end.i8:                                        ; preds = %if.then.i7, %if.then7
-  %d_pendingPops.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 4
+  %d_pendingPops.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load i32, ptr %d_pendingPops.i, align 8
   %cmp.not7.i = icmp eq i32 %7, 0
   br i1 %cmp.not7.i, label %if.end8, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i8
-  %d_smt6.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 2
+  %d_smt6.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -689,7 +510,7 @@ if.end8:                                          ; preds = %while.body.i, %if.e
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt14ContextManager5setupEPNS1_9SmtDriverE(ptr noundef nonnull align 8 dereferenceable(61) %this, ptr noundef %smt) local_unnamed_addr #3 align 2 {
 entry:
-  %d_smt = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 2
+  %d_smt = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %smt, ptr %d_smt, align 8
   %call.i = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   tail call void @_ZN4cvc57context7Context4pushEv(ptr noundef nonnull align 8 dereferenceable(48) %call.i)
@@ -701,27 +522,27 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt14ContextManager8shutdownEv(ptr noundef nonnull align 8 dereferenceable(61) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_needPostsolve.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 5
+  %d_needPostsolve.i = getelementptr inbounds i8, ptr %this, i64 60
   %0 = load i8, ptr %d_needPostsolve.i, align 4
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %d_smt.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 2
+  %d_smt.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %d_smt.i, align 8
   tail call void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   store i8 0, ptr %d_needPostsolve.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %d_pendingPops.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 4
+  %d_pendingPops.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i32, ptr %d_pendingPops.i, align 8
   %cmp.not7.i = icmp eq i32 %3, 0
   br i1 %cmp.not7.i, label %_ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
-  %d_smt6.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 2
+  %d_smt6.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -737,9 +558,9 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 _ZN4cvc58internal3smt14ContextManager13doPendingPopsEv.exit: ; preds = %while.body.i, %if.end.i
   %call1 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %base2 = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call1, i64 0, i32 26
+  %base2 = getelementptr inbounds i8, ptr %call1, i64 208
   %6 = load ptr, ptr %base2, align 8
-  %incrementalSolving3 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %6, i64 0, i32 5
+  %incrementalSolving3 = getelementptr inbounds i8, ptr %6, i64 137
   %7 = load i8, ptr %incrementalSolving3, align 1
   %8 = and i8 %7, 1
   %tobool.not4 = icmp eq i8 %8, 0
@@ -754,9 +575,9 @@ land.rhs:                                         ; preds = %_ZN4cvc58internal3s
 while.body:                                       ; preds = %land.rhs
   tail call void @_ZN4cvc58internal3smt14ContextManager11internalPopEb(ptr noundef nonnull align 8 dereferenceable(61) %this, i1 noundef zeroext true)
   %call = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %base = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call, i64 0, i32 26
+  %base = getelementptr inbounds i8, ptr %call, i64 208
   %9 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %9, i64 0, i32 5
+  %incrementalSolving = getelementptr inbounds i8, ptr %9, i64 137
   %10 = load i8, ptr %incrementalSolving, align 1
   %11 = and i8 %10, 1
   %tobool.not = icmp eq i8 %11, 0
@@ -785,15 +606,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt14ContextManager8userPushEv(ptr noundef nonnull align 8 dereferenceable(61) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_state = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 1
+  %d_state = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_state, align 8
   tail call void @_ZN4cvc58internal3smt17SolverEngineState13notifyUserPopEv(ptr noundef nonnull align 8 dereferenceable(108) %0)
-  %d_userLevels = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 3
+  %d_userLevels = getelementptr inbounds i8, ptr %this, i64 32
   %call = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call2 = tail call noundef i32 @_ZNK4cvc57context7Context8getLevelEv(ptr noundef nonnull align 8 dereferenceable(48) %call)
-  %_M_finish.i.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -801,7 +622,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   store i32 %call2, ptr %1, align 4
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %3, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 4
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %cond.end
 
@@ -845,7 +666,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit20.i.i.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -887,7 +708,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define linkonce_odr hidden void @_ZN4cvc58internal14ModalExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #16
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   ret void
@@ -925,8 +746,8 @@ declare void @_ZN4cvc57context7Context5poptoEj(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK4cvc58internal3smt14ContextManager16getNumUserLevelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(61) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_userLevels = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 3
-  %_M_finish.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %d_userLevels = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %d_userLevels, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -948,7 +769,7 @@ declare void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr noundef nonnul
 define linkonce_odr hidden void @_ZN4cvc58internal3smt14ContextManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(61) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal3smt14ContextManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_userLevels = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 3
+  %d_userLevels = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_userLevels, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i
@@ -965,7 +786,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 define linkonce_odr hidden void @_ZN4cvc58internal3smt14ContextManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(61) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal3smt14ContextManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_userLevels.i = getelementptr inbounds %"class.cvc5::internal::smt::ContextManager", ptr %this, i64 0, i32 3
+  %d_userLevels.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_userLevels.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4cvc58internal3smt14ContextManagerD2Ev.exit, label %if.then.i.i.i.i
@@ -984,7 +805,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9ExceptionC2EPKc(ptr noundef n
 entry:
   %ref.tmp = alloca %"class.std::allocator.34", align 1
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg)
           to label %call.i.noexc unwind label %lpad
@@ -1036,7 +857,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define linkonce_odr hidden void @_ZN4cvc58internal14ModalExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #16
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
@@ -1046,7 +867,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4cvc58internal9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #16
   ret ptr %call
 }

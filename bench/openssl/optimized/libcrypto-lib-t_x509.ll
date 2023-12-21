@@ -3,17 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-t_x509.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.x509_st = type { %struct.x509_cinf_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.x509_sig_info_st, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, i64, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr, ptr, i32, ptr, ptr, ptr }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_val_st = type { ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.x509_sig_info_st = type { i32, i32, i32, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/x509/t_x509.c\00", align 1
 @__func__.X509_print_ex_fp = private unnamed_addr constant [17 x i8] c"X509_print_ex_fp\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"Certificate:\0A\00", align 1
@@ -204,7 +193,7 @@ if.end45:                                         ; preds = %if.end38
   br i1 %cmp46.not, label %if.else56, label %if.then47
 
 if.then47:                                        ; preds = %if.end45
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call34, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call34, i64 4
   %1 = load i32, ptr %type, align 4
   %cmp48 = icmp eq i32 %1, 258
   %sub = sub i64 0, %call42
@@ -215,7 +204,7 @@ if.then47:                                        ; preds = %if.end45
   br i1 %cmp53, label %err, label %if.end76
 
 if.else56:                                        ; preds = %if.end38, %if.end45
-  %type57 = getelementptr inbounds %struct.asn1_string_st, ptr %call34, i64 0, i32 1
+  %type57 = getelementptr inbounds i8, ptr %call34, i64 4
   %2 = load i32, ptr %type57, align 4
   %cmp58 = icmp eq i32 %2, 258
   %cond = select i1 %cmp58, ptr @.str.9, ptr @.str.4
@@ -224,7 +213,7 @@ if.else56:                                        ; preds = %if.end38, %if.end45
   br i1 %cmp60, label %err, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.else56
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call34, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.body
@@ -529,7 +518,7 @@ if.then15:                                        ; preds = %if.then12
   br i1 %tobool17.not, label %if.end25, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.then15
-  %sig_print = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %call16, i64 0, i32 21
+  %sig_print = getelementptr inbounds i8, ptr %call16, i64 160
   %3 = load ptr, ptr %sig_print, align 8
   %tobool19.not = icmp eq ptr %3, null
   br i1 %tobool19.not, label %if.end25, label %if.then20
@@ -585,7 +574,7 @@ declare void @X509_get0_uids(ptr noundef, ptr noundef, ptr noundef) local_unname
 define i32 @X509_signature_dump(ptr noundef %bp, ptr nocapture noundef readonly %sig, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sig, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %sig, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = zext i32 %0 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
@@ -803,9 +792,9 @@ if.end9:                                          ; preds = %if.end4
 
 if.end14:                                         ; preds = %if.end9
   %call15 = call i32 @i2d_X509_NAME(ptr noundef %call5, ptr noundef nonnull %dertmp) #3
-  %libctx = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 25
+  %libctx = getelementptr inbounds i8, ptr %x, i64 368
   %0 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 26
+  %propq = getelementptr inbounds i8, ptr %x, i64 376
   %1 = load ptr, ptr %propq, align 8
   %call16 = call ptr @EVP_MD_fetch(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef %1) #3
   %cmp17 = icmp eq ptr %call16, null

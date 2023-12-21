@@ -13,34 +13,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.74 = type { ptr, i32, i32, %"class.pbrt::Transform", ptr }
 %class.anon.73 = type { ptr, i32, i32, %"class.pbrt::Transform", ptr }
 %class.anon.17 = type { ptr, i32, i32, %"class.pbrt::Transform", ptr }
-%"class.pbrt::WavefrontPathIntegrator" = type { i8, i8, i8, %"class.pstd::array", %"class.pstd::array", ptr, ptr, %"class.pbrt::Filter", %"class.pbrt::Film", %"class.pbrt::Sampler", %"class.pbrt::Camera", ptr, %"class.pbrt::LightSampler", i32, i32, i8, i32, i32, %"struct.pbrt::SOA", [2 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.pstd::array" = type { [12 x i8] }
-%"class.pbrt::Filter" = type { %"class.pbrt::TaggedPointer" }
-%"class.pbrt::TaggedPointer" = type { i64 }
-%"class.pbrt::Film" = type { %"class.pbrt::TaggedPointer.4" }
-%"class.pbrt::TaggedPointer.4" = type { i64 }
-%"class.pbrt::Sampler" = type { %"class.pbrt::TaggedPointer.5" }
-%"class.pbrt::TaggedPointer.5" = type { i64 }
-%"class.pbrt::Camera" = type { %"class.pbrt::TaggedPointer.6" }
-%"class.pbrt::TaggedPointer.6" = type { i64 }
-%"class.pbrt::LightSampler" = type { %"class.pbrt::TaggedPointer.7" }
-%"class.pbrt::TaggedPointer.7" = type { i64 }
-%"struct.pbrt::SOA" = type { i32, ptr, %"struct.pbrt::SOA.8", %"struct.pbrt::SOA.9", %"struct.pbrt::SOA.10", %"struct.pbrt::SOA.10", %"struct.pbrt::SOA.11", %"struct.pbrt::SOA.16" }
-%"struct.pbrt::SOA.8" = type { i32, ptr, ptr }
-%"struct.pbrt::SOA.9" = type { i32, ptr, ptr, ptr, ptr }
-%"struct.pbrt::SOA.10" = type { i32, ptr, ptr }
-%"struct.pbrt::SOA.11" = type { i32, ptr, %"struct.pbrt::SOA.12", %"struct.pbrt::SOA.13", %"struct.pbrt::SOA.13", %"struct.pbrt::SOA.14", ptr, %"struct.pbrt::SOA.15", %"struct.pbrt::SOA.15", %"struct.pbrt::SOA.10" }
-%"struct.pbrt::SOA.12" = type { i32, ptr, ptr, ptr }
-%"struct.pbrt::SOA.13" = type { i32, ptr, ptr, ptr }
-%"struct.pbrt::SOA.14" = type { i32, ptr, ptr }
-%"struct.pbrt::SOA.15" = type { i32, ptr, ptr, ptr }
-%"struct.pbrt::SOA.16" = type { ptr, ptr, ptr, ptr, ptr }
 %"class.std::function.26" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"struct.pbrt::BasicPBRTOptions" = type { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32 }
 %"class.pbrt::SampledSpectrum" = type { %"class.pstd::array.30" }
 %"class.pstd::array.30" = type { [4 x float] }
 %"class.pbrt::Point3fi" = type { %"class.pbrt::Point3.71" }
@@ -58,30 +35,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.pbrt::SampledWavelengths" = type { %"class.pstd::array.30", %"class.pstd::array.30" }
 %"class.pstd::optional.33" = type { %"union.std::aligned_storage<56, 8>::type", i8, [7 x i8] }
 %"union.std::aligned_storage<56, 8>::type" = type { [56 x i8] }
-%"class.pbrt::FilmBase" = type { %"class.pbrt::Point2", %"class.pbrt::Bounds2", %"class.pbrt::Filter", float, ptr, %"class.std::__cxx11::basic_string" }
-%"class.pbrt::Bounds2" = type { %"class.pbrt::Point2", %"class.pbrt::Point2" }
+%"struct.pbrt::Float4" = type { [4 x float] }
+%"class.pbrt::Medium" = type { %"class.pbrt::TaggedPointer.37" }
+%"class.pbrt::TaggedPointer.37" = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.pstd::vector.57" = type { %"class.pstd::pmr::polymorphic_allocator.58", ptr, i64, i64 }
-%"class.pstd::pmr::polymorphic_allocator.58" = type { ptr }
-%"class.pbrt::Tuple3" = type { float, float, float }
-%"class.pbrt::Ray" = type { %"class.pbrt::Point3", %"class.pbrt::Vector3", float, %"class.pbrt::Medium" }
-%"class.pbrt::Point3" = type { %"class.pbrt::Tuple3" }
-%"class.pbrt::Vector3" = type { %"class.pbrt::Tuple3.36" }
-%"class.pbrt::Tuple3.36" = type { float, float, float }
-%"class.pbrt::Medium" = type { %"class.pbrt::TaggedPointer.37" }
-%"class.pbrt::TaggedPointer.37" = type { i64 }
-%"struct.pbrt::Float4" = type { [4 x float] }
-%"class.pbrt::WorkQueue" = type <{ %"struct.pbrt::SOA.39", %"struct.std::atomic", [4 x i8] }>
-%"struct.pbrt::SOA.39" = type { i32, %"struct.pbrt::SOA.40", ptr, ptr, %"struct.pbrt::SOA.9", %"struct.pbrt::SOA.10", %"struct.pbrt::SOA.10", %"struct.pbrt::SOA.10", %"struct.pbrt::SOA.41", ptr, ptr, ptr }
-%"struct.pbrt::SOA.40" = type { i32, %"struct.pbrt::SOA.12", %"struct.pbrt::SOA.15", ptr, ptr }
-%"struct.pbrt::SOA.41" = type { i32, %"struct.pbrt::SOA.42", %"struct.pbrt::SOA.13", %"struct.pbrt::SOA.13" }
-%"struct.pbrt::SOA.42" = type { i32, %"struct.pbrt::SOA.43", %"struct.pbrt::SOA.43", %"struct.pbrt::SOA.43" }
-%"struct.pbrt::SOA.43" = type { i32, ptr, ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.pbrt::CameraRay" = type { %"class.pbrt::Ray", %"class.pbrt::SampledSpectrum" }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -92,30 +51,15 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.pbrt::SpectralFilm" = type <{ %"class.pbrt::FilmBase", ptr, float, float, i32, float, i8, [3 x i8], float, %"class.pbrt::Array2D.47", %"class.pbrt::SquareMatrix", [4 x i8] }>
-%"class.pbrt::Array2D.47" = type { %"class.pbrt::Bounds2", %"class.pstd::pmr::polymorphic_allocator", ptr }
-%"class.pstd::pmr::polymorphic_allocator" = type { ptr }
-%"class.pbrt::SquareMatrix" = type { [3 x [3 x float]] }
-%"class.pbrt::GaussianFilter" = type { %"class.pbrt::Vector2", float, float, float, %"class.pbrt::FilterSampler" }
-%"class.pbrt::Vector2" = type { %"class.pbrt::Tuple2.49" }
-%"class.pbrt::Tuple2.49" = type { float, float }
-%"class.pbrt::FilterSampler" = type { %"class.pbrt::Bounds2.51", %"class.pbrt::Array2D.52", %"class.pbrt::PiecewiseConstant2D" }
-%"class.pbrt::Bounds2.51" = type { %"class.pbrt::Point2.31", %"class.pbrt::Point2.31" }
-%"class.pbrt::Array2D.52" = type { %"class.pbrt::Bounds2", %"class.pstd::pmr::polymorphic_allocator", ptr }
-%"class.pbrt::PiecewiseConstant2D" = type { %"class.pbrt::Bounds2.51", %"class.pstd::vector", %"class.pbrt::PiecewiseConstant1D" }
-%"class.pstd::vector" = type { %"class.pstd::pmr::polymorphic_allocator.53", ptr, i64, i64 }
-%"class.pstd::pmr::polymorphic_allocator.53" = type { ptr }
 %"class.pbrt::PiecewiseConstant1D" = type <{ %"class.pstd::vector.54", %"class.pstd::vector.54", float, float, float, [4 x i8] }>
 %"class.pstd::vector.54" = type { %"class.pstd::pmr::polymorphic_allocator.55", ptr, i64, i64 }
 %"class.pstd::pmr::polymorphic_allocator.55" = type { ptr }
-%"class.pbrt::MitchellFilter" = type { %"class.pbrt::Vector2", float, float, %"class.pbrt::FilterSampler" }
-%"class.pbrt::LanczosSincFilter" = type { %"class.pbrt::Vector2", float, %"class.pbrt::FilterSampler" }
 %"class.pbrt::IndependentSampler" = type { i32, i32, %"class.pbrt::RNG" }
 %"class.pbrt::RNG" = type { i64, i64 }
+%"class.pbrt::Filter" = type { %"class.pbrt::TaggedPointer" }
+%"class.pbrt::TaggedPointer" = type { i64 }
 %"class.pbrt::StratifiedSampler" = type { i32, i32, i32, i8, %"class.pbrt::RNG", %"class.pbrt::Point2", i32, i32 }
 %"class.pbrt::HaltonSampler" = type <{ i32, i32, ptr, %"class.pbrt::Point2", %"class.pbrt::Point2", [2 x i32], i64, i32, [4 x i8] }>
-%"class.pstd::vector.76" = type { %"class.pstd::pmr::polymorphic_allocator.77", ptr, i64, i64 }
-%"class.pstd::pmr::polymorphic_allocator.77" = type { ptr }
 %"class.pbrt::DigitPermutation" = type { i32, i32, ptr }
 %"class.pbrt::PaddedSobolSampler" = type { i32, i32, i32, %"class.pbrt::Point2", i32, i32 }
 %"class.pbrt::SobolSampler" = type { i32, i32, i32, i32, %"class.pbrt::Point2", i32, i64 }
@@ -337,7 +281,7 @@ entry:
   %ref.tmp.i.i21.i.i = alloca %class.anon.74, align 8
   %ref.tmp.i.i18.i.i = alloca %class.anon.73, align 8
   %ref.tmp.i.i.i.i = alloca %class.anon.17, align 8
-  %sampler = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 9
+  %sampler = getelementptr inbounds i8, ptr %this, i64 64
   %sampler.val = load i64, ptr %sampler, align 8
   %shr.i.i = lshr i64 %sampler.val, 57
   %conv.i.i = trunc i64 %shr.i.i to i32
@@ -353,18 +297,18 @@ entry:
 
 sw.bb.i.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i.i.i)
-  %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 19, i64 0
-  %0 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
-  %maxQueueSize.i.i.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 17
+  %rayQueues.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 520
+  %0 = load ptr, ptr %rayQueues.i.i.i.i.i, align 8
+  %maxQueueSize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load i32, ptr %maxQueueSize.i.i.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i.i.i, align 8
-  %2 = getelementptr inbounds %class.anon.17, ptr %ref.tmp.i.i.i.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   store i32 %y0, ptr %2, align 8
-  %3 = getelementptr inbounds %class.anon.17, ptr %ref.tmp.i.i.i.i, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 12
   store i32 %sampleIndex, ptr %3, align 4
-  %4 = getelementptr inbounds %class.anon.17, ptr %ref.tmp.i.i.i.i, i64 0, i32 3
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
-  %5 = getelementptr inbounds %class.anon.17, ptr %ref.tmp.i.i.i.i, i64 0, i32 4
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 144
   store ptr %0, ptr %5, align 8
   call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_14PMJ02BNSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i.i.i)
@@ -372,18 +316,18 @@ sw.bb.i.i:                                        ; preds = %entry
 
 sw.bb1.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i18.i.i)
-  %arrayidx.i.i.i19.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 19, i64 0
-  %6 = load ptr, ptr %arrayidx.i.i.i19.i.i, align 8
-  %maxQueueSize.i.i20.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 17
+  %rayQueues.i.i.i19.i.i = getelementptr inbounds i8, ptr %this, i64 520
+  %6 = load ptr, ptr %rayQueues.i.i.i19.i.i, align 8
+  %maxQueueSize.i.i20.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %7 = load i32, ptr %maxQueueSize.i.i20.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i18.i.i, align 8
-  %8 = getelementptr inbounds %class.anon.73, ptr %ref.tmp.i.i18.i.i, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i18.i.i, i64 8
   store i32 %y0, ptr %8, align 8
-  %9 = getelementptr inbounds %class.anon.73, ptr %ref.tmp.i.i18.i.i, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i18.i.i, i64 12
   store i32 %sampleIndex, ptr %9, align 4
-  %10 = getelementptr inbounds %class.anon.73, ptr %ref.tmp.i.i18.i.i, i64 0, i32 3
+  %10 = getelementptr inbounds i8, ptr %ref.tmp.i.i18.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
-  %11 = getelementptr inbounds %class.anon.73, ptr %ref.tmp.i.i18.i.i, i64 0, i32 4
+  %11 = getelementptr inbounds i8, ptr %ref.tmp.i.i18.i.i, i64 144
   store ptr %6, ptr %11, align 8
   call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_18IndependentSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i18.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i18.i.i)
@@ -391,18 +335,18 @@ sw.bb1.i.i:                                       ; preds = %entry
 
 sw.bb2.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i21.i.i)
-  %arrayidx.i.i.i22.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 19, i64 0
-  %12 = load ptr, ptr %arrayidx.i.i.i22.i.i, align 8
-  %maxQueueSize.i.i23.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 17
+  %rayQueues.i.i.i22.i.i = getelementptr inbounds i8, ptr %this, i64 520
+  %12 = load ptr, ptr %rayQueues.i.i.i22.i.i, align 8
+  %maxQueueSize.i.i23.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %13 = load i32, ptr %maxQueueSize.i.i23.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i21.i.i, align 8
-  %14 = getelementptr inbounds %class.anon.74, ptr %ref.tmp.i.i21.i.i, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %ref.tmp.i.i21.i.i, i64 8
   store i32 %y0, ptr %14, align 8
-  %15 = getelementptr inbounds %class.anon.74, ptr %ref.tmp.i.i21.i.i, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %ref.tmp.i.i21.i.i, i64 12
   store i32 %sampleIndex, ptr %15, align 4
-  %16 = getelementptr inbounds %class.anon.74, ptr %ref.tmp.i.i21.i.i, i64 0, i32 3
+  %16 = getelementptr inbounds i8, ptr %ref.tmp.i.i21.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
-  %17 = getelementptr inbounds %class.anon.74, ptr %ref.tmp.i.i21.i.i, i64 0, i32 4
+  %17 = getelementptr inbounds i8, ptr %ref.tmp.i.i21.i.i, i64 144
   store ptr %12, ptr %17, align 8
   call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_17StratifiedSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i21.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i21.i.i)
@@ -410,18 +354,18 @@ sw.bb2.i.i:                                       ; preds = %entry
 
 sw.bb3.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i24.i.i)
-  %arrayidx.i.i.i25.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 19, i64 0
-  %18 = load ptr, ptr %arrayidx.i.i.i25.i.i, align 8
-  %maxQueueSize.i.i26.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 17
+  %rayQueues.i.i.i25.i.i = getelementptr inbounds i8, ptr %this, i64 520
+  %18 = load ptr, ptr %rayQueues.i.i.i25.i.i, align 8
+  %maxQueueSize.i.i26.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %19 = load i32, ptr %maxQueueSize.i.i26.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i24.i.i, align 8
-  %20 = getelementptr inbounds %class.anon.75, ptr %ref.tmp.i.i24.i.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %ref.tmp.i.i24.i.i, i64 8
   store i32 %y0, ptr %20, align 8
-  %21 = getelementptr inbounds %class.anon.75, ptr %ref.tmp.i.i24.i.i, i64 0, i32 2
+  %21 = getelementptr inbounds i8, ptr %ref.tmp.i.i24.i.i, i64 12
   store i32 %sampleIndex, ptr %21, align 4
-  %22 = getelementptr inbounds %class.anon.75, ptr %ref.tmp.i.i24.i.i, i64 0, i32 3
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i.i24.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
-  %23 = getelementptr inbounds %class.anon.75, ptr %ref.tmp.i.i24.i.i, i64 0, i32 4
+  %23 = getelementptr inbounds i8, ptr %ref.tmp.i.i24.i.i, i64 144
   store ptr %18, ptr %23, align 8
   call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_13HaltonSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i24.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i24.i.i)
@@ -429,18 +373,18 @@ sw.bb3.i.i:                                       ; preds = %entry
 
 sw.bb4.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i27.i.i)
-  %arrayidx.i.i.i28.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 19, i64 0
-  %24 = load ptr, ptr %arrayidx.i.i.i28.i.i, align 8
-  %maxQueueSize.i.i29.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 17
+  %rayQueues.i.i.i28.i.i = getelementptr inbounds i8, ptr %this, i64 520
+  %24 = load ptr, ptr %rayQueues.i.i.i28.i.i, align 8
+  %maxQueueSize.i.i29.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %25 = load i32, ptr %maxQueueSize.i.i29.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i27.i.i, align 8
-  %26 = getelementptr inbounds %class.anon.78, ptr %ref.tmp.i.i27.i.i, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %ref.tmp.i.i27.i.i, i64 8
   store i32 %y0, ptr %26, align 8
-  %27 = getelementptr inbounds %class.anon.78, ptr %ref.tmp.i.i27.i.i, i64 0, i32 2
+  %27 = getelementptr inbounds i8, ptr %ref.tmp.i.i27.i.i, i64 12
   store i32 %sampleIndex, ptr %27, align 4
-  %28 = getelementptr inbounds %class.anon.78, ptr %ref.tmp.i.i27.i.i, i64 0, i32 3
+  %28 = getelementptr inbounds i8, ptr %ref.tmp.i.i27.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
-  %29 = getelementptr inbounds %class.anon.78, ptr %ref.tmp.i.i27.i.i, i64 0, i32 4
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i.i27.i.i, i64 144
   store ptr %24, ptr %29, align 8
   call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_18PaddedSobolSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i27.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i27.i.i)
@@ -448,18 +392,18 @@ sw.bb4.i.i:                                       ; preds = %entry
 
 sw.bb5.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i30.i.i)
-  %arrayidx.i.i.i31.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 19, i64 0
-  %30 = load ptr, ptr %arrayidx.i.i.i31.i.i, align 8
-  %maxQueueSize.i.i32.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 17
+  %rayQueues.i.i.i31.i.i = getelementptr inbounds i8, ptr %this, i64 520
+  %30 = load ptr, ptr %rayQueues.i.i.i31.i.i, align 8
+  %maxQueueSize.i.i32.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %31 = load i32, ptr %maxQueueSize.i.i32.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i30.i.i, align 8
-  %32 = getelementptr inbounds %class.anon.79, ptr %ref.tmp.i.i30.i.i, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %ref.tmp.i.i30.i.i, i64 8
   store i32 %y0, ptr %32, align 8
-  %33 = getelementptr inbounds %class.anon.79, ptr %ref.tmp.i.i30.i.i, i64 0, i32 2
+  %33 = getelementptr inbounds i8, ptr %ref.tmp.i.i30.i.i, i64 12
   store i32 %sampleIndex, ptr %33, align 4
-  %34 = getelementptr inbounds %class.anon.79, ptr %ref.tmp.i.i30.i.i, i64 0, i32 3
+  %34 = getelementptr inbounds i8, ptr %ref.tmp.i.i30.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %34, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
-  %35 = getelementptr inbounds %class.anon.79, ptr %ref.tmp.i.i30.i.i, i64 0, i32 4
+  %35 = getelementptr inbounds i8, ptr %ref.tmp.i.i30.i.i, i64 144
   store ptr %30, ptr %35, align 8
   call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_12SobolSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %31, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i30.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i30.i.i)
@@ -467,18 +411,18 @@ sw.bb5.i.i:                                       ; preds = %entry
 
 sw.bb6.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i33.i.i)
-  %arrayidx.i.i.i34.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 19, i64 0
-  %36 = load ptr, ptr %arrayidx.i.i.i34.i.i, align 8
-  %maxQueueSize.i.i35.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 17
+  %rayQueues.i.i.i34.i.i = getelementptr inbounds i8, ptr %this, i64 520
+  %36 = load ptr, ptr %rayQueues.i.i.i34.i.i, align 8
+  %maxQueueSize.i.i35.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %37 = load i32, ptr %maxQueueSize.i.i35.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i33.i.i, align 8
-  %38 = getelementptr inbounds %class.anon.80, ptr %ref.tmp.i.i33.i.i, i64 0, i32 1
+  %38 = getelementptr inbounds i8, ptr %ref.tmp.i.i33.i.i, i64 8
   store i32 %y0, ptr %38, align 8
-  %39 = getelementptr inbounds %class.anon.80, ptr %ref.tmp.i.i33.i.i, i64 0, i32 2
+  %39 = getelementptr inbounds i8, ptr %ref.tmp.i.i33.i.i, i64 12
   store i32 %sampleIndex, ptr %39, align 4
-  %40 = getelementptr inbounds %class.anon.80, ptr %ref.tmp.i.i33.i.i, i64 0, i32 3
+  %40 = getelementptr inbounds i8, ptr %ref.tmp.i.i33.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %40, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
-  %41 = getelementptr inbounds %class.anon.80, ptr %ref.tmp.i.i33.i.i, i64 0, i32 4
+  %41 = getelementptr inbounds i8, ptr %ref.tmp.i.i33.i.i, i64 144
   store ptr %36, ptr %41, align 8
   call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_13ZSobolSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %37, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i33.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i33.i.i)
@@ -527,7 +471,7 @@ entry:
   %agg.tmp.i = alloca %"class.std::function.26", align 8
   %agg.tmp = alloca %"class.std::function", align 8
   %0 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %useGPU = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %0, i64 0, i32 7
+  %useGPU = getelementptr inbounds i8, ptr %0, i64 10
   %1 = load i8, ptr %useGPU, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -539,8 +483,8 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %conv = sext i32 %nItems to i64
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #20
@@ -549,8 +493,8 @@ if.else:                                          ; preds = %entry
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_14PMJ02BNSamplerEEEviNS1_9TransformEiEUliE_E9_M_invokeERKSt9_Any_dataOl, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_14PMJ02BNSamplerEEEviNS1_9TransformEiEUliE_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.26", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 0, ptr %4, align 8
   %5 = ptrtoint ptr %agg.tmp to i64
@@ -658,7 +602,7 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZNKSt8func
   %2 = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
   store i64 %i.04.i.i.i, ptr %__args.addr.i.i.i.i, align 8
-  %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %2, i64 0, i32 1
+  %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt8functionIFvlEEclEl.exit.i.i.i
@@ -668,7 +612,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i
   unreachable
 
 _ZNKSt8functionIFvlEEclEl.exit.i.i.i:             ; preds = %for.body.i.i.i
-  %_M_invoker.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %2, i64 0, i32 1
+  %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
@@ -790,13 +734,13 @@ entry:
   %lambda = alloca %"class.pbrt::SampledWavelengths", align 16
   %cameraRay = alloca %"class.pstd::optional.33", align 16
   %0 = load ptr, ptr %this, align 8
-  %film = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 8
+  %film = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i64, ptr %film, align 8
   %and.i.i.i = and i64 %1, 144115188075855871
   %2 = inttoptr i64 %and.i.i.i to ptr
-  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %retval.sroa.2.0.copyload.i.i15.pn.i.i.i = load i64, ptr %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i, align 8
-  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1
+  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
@@ -807,16 +751,16 @@ entry:
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
-  %3 = getelementptr inbounds %class.anon.17, ptr %this, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %3, align 8
   %div = sdiv i32 %pixelIndex, %sub
   %add5 = add nsw i32 %div, %4
-  %x2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 1
+  %x2.i = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %x2.i, align 8
   %idxprom.i = sext i32 %pixelIndex to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
   store i32 %add, ptr %arrayidx.i, align 4
-  %y4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 2
+  %y4.i = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %y4.i, align 8
   %arrayidx7.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   store i32 %add5, ptr %arrayidx7.i, align 4
@@ -834,22 +778,22 @@ if.end:                                           ; preds = %entry
   %pPixel.sroa.5.0.insert.shift155 = shl nuw i64 %pPixel.sroa.5.0.insert.ext154, 32
   %pPixel.sroa.0.0.insert.ext147 = zext i32 %add to i64
   %pPixel.sroa.0.0.insert.insert149 = or disjoint i64 %pPixel.sroa.5.0.insert.shift155, %pPixel.sroa.0.0.insert.ext147
-  %sampler = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 9
+  %sampler = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load i64, ptr %sampler, align 8
   %and.i.i = and i64 %7, 144115188075855871
   %8 = inttoptr i64 %and.i.i to ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %pixelSampler, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 24, i1 false)
-  %9 = getelementptr inbounds %class.anon.17, ptr %this, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %this, i64 12
   %10 = load i32, ptr %9, align 4
-  %pixel.i = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %pixelSampler, i64 0, i32 4
+  %pixel.i = getelementptr inbounds i8, ptr %pixelSampler, i64 24
   store i64 %pPixel.sroa.0.0.insert.insert149, ptr %pixel.i, align 8
-  %sampleIndex.i = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %pixelSampler, i64 0, i32 5
+  %sampleIndex.i = getelementptr inbounds i8, ptr %pixelSampler, i64 32
   store i32 %10, ptr %sampleIndex.i, align 8
-  %dimension.i = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %pixelSampler, i64 0, i32 6
+  %dimension.i = getelementptr inbounds i8, ptr %pixelSampler, i64 36
   store i32 2, ptr %dimension.i, align 4
   %call12 = call noundef float @_ZN4pbrt14PMJ02BNSampler5Get1DEv(ptr noundef nonnull align 8 dereferenceable(40) %pixelSampler)
   %11 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %disableWavelengthJitter = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %11, i64 0, i32 3
+  %disableWavelengthJitter = getelementptr inbounds i8, ptr %11, i64 6
   %12 = load i8, ptr %disableWavelengthJitter, align 2
   %13 = and i8 %12, 1
   %tobool.not = icmp eq i8 %13, 0
@@ -869,27 +813,27 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sample.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp1712)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp1712, ptr noundef nonnull align 8 dereferenceable(40) %pixelSampler, i64 40, i1 false)
-  %filter = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 7
+  %filter = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load i64, ptr %filter, align 8
-  %pixel.i.i = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %agg.tmp1712, i64 0, i32 4
+  %pixel.i.i = getelementptr inbounds i8, ptr %agg.tmp1712, i64 24
   %17 = load i32, ptr %pixel.i.i, align 8, !noalias !13
-  %pixelTileSize.i.i = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %agg.tmp1712, i64 0, i32 2
+  %pixelTileSize.i.i = getelementptr inbounds i8, ptr %agg.tmp1712, i64 8
   %18 = load i32, ptr %pixelTileSize.i.i, align 8, !noalias !13
   %rem.i.i = srem i32 %17, %18
-  %y.i.i = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %agg.tmp1712, i64 0, i32 4, i32 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %agg.tmp1712, i64 28
   %19 = load i32, ptr %y.i.i, align 4, !noalias !13
   %rem4.i.i = srem i32 %19, %18
   %mul.i.i = mul nsw i32 %rem4.i.i, %18
   %add.i.i = add nsw i32 %mul.i.i, %rem.i.i
   %20 = load i32, ptr %agg.tmp1712, align 8, !noalias !13
   %mul6.i.i = mul nsw i32 %add.i.i, %20
-  %pixelSamples.i.i = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %agg.tmp1712, i64 0, i32 3
+  %pixelSamples.i.i = getelementptr inbounds i8, ptr %agg.tmp1712, i64 16
   %21 = load ptr, ptr %pixelSamples.i.i, align 8, !noalias !13
-  %sampleIndex.i.i = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %agg.tmp1712, i64 0, i32 5
+  %sampleIndex.i.i = getelementptr inbounds i8, ptr %agg.tmp1712, i64 32
   %22 = load i32, ptr %sampleIndex.i.i, align 8, !noalias !13
   %add7.i.i = add nsw i32 %mul6.i.i, %22
   %conv.i.i = sext i32 %add7.i.i to i64
-  %ptr.i.i.i = getelementptr inbounds %"class.pstd::vector.57", ptr %21, i64 0, i32 1
+  %ptr.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %ptr.i.i.i, align 8, !noalias !13
   %arrayidx.i.i.i = getelementptr inbounds %"class.pbrt::Point2.31", ptr %23, i64 %conv.i.i
   %retval.sroa.0.0.copyload.i.i = load <2 x float>, ptr %arrayidx.i.i.i, align 4, !noalias !13
@@ -920,7 +864,7 @@ if.end:                                           ; preds = %entry
   %call13.i = call noundef float @_ZN4pbrt14PMJ02BNSampler5Get1DEv(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp1712), !noalias !13
   %call15.i = call <2 x float> @_ZN4pbrt14PMJ02BNSampler5Get2DEv(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp1712), !noalias !13
   %25 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8, !noalias !13
-  %disablePixelJitter.i = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %25, i64 0, i32 2
+  %disablePixelJitter.i = getelementptr inbounds i8, ptr %25, i64 5
   %26 = load i8, ptr %disablePixelJitter.i, align 1, !noalias !13
   %27 = and i8 %26, 1
   %tobool.not.i = icmp eq i8 %27, 0
@@ -939,7 +883,7 @@ _ZN4pbrt15GetCameraSampleINS_14PMJ02BNSamplerEEENS_12CameraSampleET_NS_6Point2Ii
   %cameraSample.sroa.9.0 = phi float [ %call3.fca.1.extract.i, %if.end ], [ 1.000000e+00, %if.then.i ]
   %cameraSample.sroa.7.0 = phi float [ %call13.i, %if.end ], [ 5.000000e-01, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp1712)
-  %camera = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 10
+  %camera = getelementptr inbounds i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2113)
   store <2 x float> %cameraSample.sroa.0.0, ptr %agg.tmp2113, align 8
   %agg.tmp21.sroa.2.0.agg.tmp2113.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2113, i64 8
@@ -977,33 +921,33 @@ sw.default.i.i:                                   ; preds = %_ZN4pbrt15GetCamera
 
 _ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit: ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.default.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2113)
-  %set.i = getelementptr inbounds %"class.pstd::optional.33", ptr %cameraRay, i64 0, i32 1
+  %set.i = getelementptr inbounds i8, ptr %cameraRay, i64 56
   %30 = load i8, ptr %set.i, align 8
   %31 = and i8 %30, 1
   %tobool.i.not = icmp eq i8 %31, 0
   br i1 %tobool.i.not, label %if.end33, label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %32 = getelementptr inbounds %class.anon.17, ptr %this, i64 0, i32 3
+  %32 = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %33 = load <4 x float>, ptr %cameraRay, align 16, !noalias !21
   %agg.tmp.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %33, <4 x float> poison, <2 x i32> zeroinitializer
-  %y.i.i17 = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i17 = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %34 = load <4 x float>, ptr %y.i.i17, align 4, !noalias !21
   %agg.tmp2.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %34, <4 x float> poison, <2 x i32> zeroinitializer
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %35 = load <4 x float>, ptr %z.i.i, align 8, !noalias !21
   %agg.tmp3.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %35, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !21
-  %y3.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 1
+  %y3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !21
-  %z4.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 2
+  %z4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !21
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %32, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i)
-  %d3.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d3.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !21
-  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !21
   %call.i26 = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %32, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i)
   %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i26, 0
@@ -1022,19 +966,19 @@ if.then.i20:                                      ; preds = %invoke.cont25
   %39 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %38)
   %40 = extractelement <2 x float> %call.fca.0.extract.i, i64 1
   %41 = call noundef float @llvm.fabs.f32(float %40)
-  %high.i.i.i = getelementptr inbounds %"class.pbrt::Interval", ptr %o.i, i64 0, i32 1
+  %high.i.i.i = getelementptr inbounds i8, ptr %o.i, i64 4
   %42 = load <4 x float>, ptr %high.i.i.i, align 4
   %43 = shufflevector <4 x float> %42, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %44 = load <4 x float>, ptr %o.i, align 16
   %45 = shufflevector <4 x float> %44, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %y.i7.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1
-  %high.i1.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1, i32 1
+  %y.i7.i = getelementptr inbounds i8, ptr %o.i, i64 8
+  %high.i1.i.i = getelementptr inbounds i8, ptr %o.i, i64 12
   %46 = load float, ptr %high.i1.i.i, align 4, !noalias !21
   %47 = load float, ptr %y.i7.i, align 8, !noalias !21
   %sub.i2.i.i = fsub float %46, %47
   %div3.i.i = fmul float %sub.i2.i.i, 5.000000e-01
-  %z.i8.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2
-  %high.i3.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2, i32 1
+  %z.i8.i = getelementptr inbounds i8, ptr %o.i, i64 16
+  %high.i3.i.i = getelementptr inbounds i8, ptr %o.i, i64 20
   %48 = load float, ptr %high.i3.i.i, align 4, !noalias !21
   %49 = load float, ptr %z.i8.i, align 16, !noalias !21
   %mul4.i.i = fmul float %41, %div3.i.i
@@ -1086,12 +1030,12 @@ invoke.cont28:                                    ; preds = %invoke.cont27
   br label %if.end33
 
 if.end33:                                         ; preds = %invoke.cont28, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %ptr4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 4, i32 1
+  %ptr4.i = getelementptr inbounds i8, ptr %0, i64 208
   %68 = load ptr, ptr %ptr4.i, align 8
   %add.ptr.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %68, i64 %idxprom.i
-  %arrayidx.i23.i = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 2
-  %pdf.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1
-  %lambda4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 1
+  %arrayidx.i23.i = getelementptr inbounds i8, ptr %lambda, i64 8
+  %pdf.i = getelementptr inbounds i8, ptr %lambda, i64 16
+  %lambda4.i = getelementptr inbounds i8, ptr %0, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   %69 = load ptr, ptr %lambda4.i, align 8
   %add.ptr.i42 = getelementptr inbounds %"struct.pbrt::Float4", ptr %69, i64 %idxprom.i
@@ -1102,7 +1046,7 @@ if.end33:                                         ; preds = %invoke.cont28, %_ZN
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i43, ptr %add.ptr.i42, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i45 = getelementptr inbounds i8, ptr %add.ptr.i42, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i44, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i45, align 8
-  %pdf4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 2
+  %pdf4.i = getelementptr inbounds i8, ptr %0, i64 176
   %72 = load ptr, ptr %pdf4.i, align 8
   %add.ptr21.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %72, i64 %idxprom.i
   %73 = load <4 x float>, ptr %pdf.i, align 16
@@ -1111,7 +1055,7 @@ if.end33:                                         ; preds = %invoke.cont28, %_ZN
   store <2 x float> %agg.tmp22.sroa.0.4.vec.insert.i, ptr %add.ptr21.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i28.i = getelementptr inbounds i8, ptr %add.ptr21.i, i64 8
   store <2 x float> %agg.tmp22.sroa.3.12.vec.insert.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i28.i, align 8
-  %filterWeight48 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 1
+  %filterWeight48 = getelementptr inbounds i8, ptr %0, i64 128
   %74 = load ptr, ptr %filterWeight48, align 8
   %arrayidx = getelementptr inbounds float, ptr %74, i64 %idxprom.i
   store float %cameraSample.sroa.9.0, ptr %arrayidx, align 4
@@ -1121,83 +1065,83 @@ if.end33:                                         ; preds = %invoke.cont28, %_ZN
   br i1 %tobool49.not, label %if.end58, label %invoke.cont52
 
 invoke.cont52:                                    ; preds = %if.end33
-  %set2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 1
+  %set2.i = getelementptr inbounds i8, ptr %0, i64 256
   %77 = load ptr, ptr %set2.i, align 8
   %arrayidx.i51 = getelementptr inbounds i8, ptr %77, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i51, align 1
-  %x2.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 1
+  %x2.i.i = getelementptr inbounds i8, ptr %0, i64 272
   %78 = load ptr, ptr %x2.i.i, align 8
   %arrayidx.i.i52 = getelementptr inbounds float, ptr %78, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i.i52, align 4
-  %y4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 2
+  %y4.i.i = getelementptr inbounds i8, ptr %0, i64 280
   %79 = load ptr, ptr %y4.i.i, align 8
   %arrayidx7.i.i = getelementptr inbounds float, ptr %79, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i.i, align 4
-  %z9.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 3
+  %z9.i.i = getelementptr inbounds i8, ptr %0, i64 288
   %80 = load ptr, ptr %z9.i.i, align 8
   %arrayidx12.i.i = getelementptr inbounds float, ptr %80, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i.i, align 4
-  %x2.i11.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 1
+  %x2.i11.i = getelementptr inbounds i8, ptr %0, i64 304
   %81 = load ptr, ptr %x2.i11.i, align 8
   %arrayidx.i14.i = getelementptr inbounds float, ptr %81, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i14.i, align 4
-  %y4.i16.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 2
+  %y4.i16.i = getelementptr inbounds i8, ptr %0, i64 312
   %82 = load ptr, ptr %y4.i16.i, align 8
   %arrayidx7.i18.i = getelementptr inbounds float, ptr %82, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i18.i, align 4
-  %z9.i20.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 3
+  %z9.i20.i = getelementptr inbounds i8, ptr %0, i64 320
   %83 = load ptr, ptr %z9.i20.i, align 8
   %arrayidx12.i22.i = getelementptr inbounds float, ptr %83, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i22.i, align 4
-  %x2.i25.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 1
+  %x2.i25.i = getelementptr inbounds i8, ptr %0, i64 336
   %84 = load ptr, ptr %x2.i25.i, align 8
   %arrayidx.i28.i = getelementptr inbounds float, ptr %84, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i28.i, align 4
-  %y4.i30.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 2
+  %y4.i30.i = getelementptr inbounds i8, ptr %0, i64 344
   %85 = load ptr, ptr %y4.i30.i, align 8
   %arrayidx7.i32.i = getelementptr inbounds float, ptr %85, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i32.i, align 4
-  %z9.i34.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 3
+  %z9.i34.i = getelementptr inbounds i8, ptr %0, i64 352
   %86 = load ptr, ptr %z9.i34.i, align 8
   %arrayidx12.i36.i = getelementptr inbounds float, ptr %86, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i36.i, align 4
-  %x2.i39.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 1
+  %x2.i39.i = getelementptr inbounds i8, ptr %0, i64 368
   %87 = load ptr, ptr %x2.i39.i, align 8
   %arrayidx.i42.i = getelementptr inbounds float, ptr %87, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i42.i, align 4
-  %y4.i44.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 2
+  %y4.i44.i = getelementptr inbounds i8, ptr %0, i64 376
   %88 = load ptr, ptr %y4.i44.i, align 8
   %arrayidx7.i46.i = getelementptr inbounds float, ptr %88, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i46.i, align 4
-  %time22.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 6
+  %time22.i = getelementptr inbounds i8, ptr %0, i64 384
   %89 = load ptr, ptr %time22.i, align 8
   %arrayidx25.i = getelementptr inbounds float, ptr %89, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx25.i, align 4
-  %x2.i49.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 1
+  %x2.i49.i = getelementptr inbounds i8, ptr %0, i64 400
   %90 = load ptr, ptr %x2.i49.i, align 8
   %arrayidx.i52.i = getelementptr inbounds float, ptr %90, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i52.i, align 4
-  %y4.i54.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 2
+  %y4.i54.i = getelementptr inbounds i8, ptr %0, i64 408
   %91 = load ptr, ptr %y4.i54.i, align 8
   %arrayidx7.i56.i = getelementptr inbounds float, ptr %91, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i56.i, align 4
-  %z9.i58.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 3
+  %z9.i58.i = getelementptr inbounds i8, ptr %0, i64 416
   %92 = load ptr, ptr %z9.i58.i, align 8
   %arrayidx12.i60.i = getelementptr inbounds float, ptr %92, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i60.i, align 4
-  %x2.i63.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 1
+  %x2.i63.i = getelementptr inbounds i8, ptr %0, i64 432
   %93 = load ptr, ptr %x2.i63.i, align 8
   %arrayidx.i66.i = getelementptr inbounds float, ptr %93, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i66.i, align 4
-  %y4.i68.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 2
+  %y4.i68.i = getelementptr inbounds i8, ptr %0, i64 440
   %94 = load ptr, ptr %y4.i68.i, align 8
   %arrayidx7.i70.i = getelementptr inbounds float, ptr %94, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i70.i, align 4
-  %z9.i72.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 3
+  %z9.i72.i = getelementptr inbounds i8, ptr %0, i64 448
   %95 = load ptr, ptr %z9.i72.i, align 8
   %arrayidx12.i74.i = getelementptr inbounds float, ptr %95, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i74.i, align 4
-  %ptr4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 9, i32 1
+  %ptr4.i.i = getelementptr inbounds i8, ptr %0, i64 464
   %96 = load ptr, ptr %ptr4.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %96, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i.i, i8 0, i64 16, i1 false)
@@ -1210,70 +1154,70 @@ if.end58:                                         ; preds = %invoke.cont52, %if.
   br i1 %tobool.i58.not, label %if.else, label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %if.end58
-  %99 = getelementptr inbounds %class.anon.17, ptr %this, i64 0, i32 4
+  %99 = getelementptr inbounds i8, ptr %this, i64 144
   %100 = load ptr, ptr %99, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp10.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp17.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp20.i)
-  %size.i.i = getelementptr inbounds %"class.pbrt::WorkQueue", ptr %100, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %100, i64 400
   %101 = atomicrmw add ptr %size.i.i, i32 1 monotonic, align 4
   %102 = load float, ptr %cameraRay, align 16
-  %x2.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 1, i32 1, i32 1
+  %x2.i.i.i = getelementptr inbounds i8, ptr %100, i64 24
   %103 = load ptr, ptr %x2.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %101 to i64
   %arrayidx.i.i.i64 = getelementptr inbounds float, ptr %103, i64 %idxprom.i.i.i
   store float %102, ptr %arrayidx.i.i.i64, align 4
-  %y.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %104 = load float, ptr %y.i.i.i, align 4
-  %y4.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 1, i32 1, i32 2
+  %y4.i.i.i = getelementptr inbounds i8, ptr %100, i64 32
   %105 = load ptr, ptr %y4.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr inbounds float, ptr %105, i64 %idxprom.i.i.i
   store float %104, ptr %arrayidx7.i.i.i, align 4
-  %z.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %106 = load float, ptr %z.i.i.i, align 8
-  %z9.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 1, i32 1, i32 3
+  %z9.i.i.i = getelementptr inbounds i8, ptr %100, i64 40
   %107 = load ptr, ptr %z9.i.i.i, align 8
   %arrayidx12.i.i.i = getelementptr inbounds float, ptr %107, i64 %idxprom.i.i.i
   store float %106, ptr %arrayidx12.i.i.i, align 4
-  %d.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %108 = load float, ptr %d.i.i, align 4
-  %x2.i6.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 1, i32 2, i32 1
+  %x2.i6.i.i = getelementptr inbounds i8, ptr %100, i64 56
   %109 = load ptr, ptr %x2.i6.i.i, align 8
   %arrayidx.i9.i.i = getelementptr inbounds float, ptr %109, i64 %idxprom.i.i.i
   store float %108, ptr %arrayidx.i9.i.i, align 4
-  %y.i10.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 1
+  %y.i10.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 16
   %110 = load float, ptr %y.i10.i.i, align 16
-  %y4.i11.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 1, i32 2, i32 2
+  %y4.i11.i.i = getelementptr inbounds i8, ptr %100, i64 64
   %111 = load ptr, ptr %y4.i11.i.i, align 8
   %arrayidx7.i13.i.i = getelementptr inbounds float, ptr %111, i64 %idxprom.i.i.i
   store float %110, ptr %arrayidx7.i13.i.i, align 4
-  %z.i14.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %z.i14.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %112 = load float, ptr %z.i14.i.i, align 4
-  %z9.i15.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 1, i32 2, i32 3
+  %z9.i15.i.i = getelementptr inbounds i8, ptr %100, i64 72
   %113 = load ptr, ptr %z9.i15.i.i, align 8
   %arrayidx12.i17.i.i = getelementptr inbounds float, ptr %113, i64 %idxprom.i.i.i
   store float %112, ptr %arrayidx12.i17.i.i, align 4
-  %time.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 2
+  %time.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 24
   %114 = load float, ptr %time.i.i, align 8
-  %time9.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 1, i32 3
+  %time9.i.i = getelementptr inbounds i8, ptr %100, i64 80
   %115 = load ptr, ptr %time9.i.i, align 8
   %arrayidx.i.i65 = getelementptr inbounds float, ptr %115, i64 %idxprom.i.i.i
   store float %114, ptr %arrayidx.i.i65, align 4
-  %medium.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 3
-  %medium12.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 1, i32 4
+  %medium.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 32
+  %medium12.i.i = getelementptr inbounds i8, ptr %100, i64 88
   %116 = load ptr, ptr %medium12.i.i, align 8
   %arrayidx15.i.i = getelementptr inbounds %"class.pbrt::Medium", ptr %116, i64 %idxprom.i.i.i
   %117 = load i64, ptr %medium.i.i, align 16
   store i64 %117, ptr %arrayidx15.i.i, align 8
-  %depth.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %100, i64 96
   %118 = load ptr, ptr %depth.i, align 8
   %arrayidx.i66 = getelementptr inbounds i32, ptr %118, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx.i66, align 4
-  %pixelIndex4.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 3
+  %pixelIndex4.i = getelementptr inbounds i8, ptr %100, i64 104
   %119 = load ptr, ptr %pixelIndex4.i, align 8
   %arrayidx6.i = getelementptr inbounds i32, ptr %119, i64 %idxprom.i.i.i
   store i32 %pixelIndex, ptr %arrayidx6.i, align 4
-  %lambda4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 4, i32 1
+  %lambda4.i.i = getelementptr inbounds i8, ptr %100, i64 120
   %120 = load ptr, ptr %lambda4.i.i, align 8
   %add.ptr.i.i67 = getelementptr inbounds %"struct.pbrt::Float4", ptr %120, i64 %idxprom.i.i.i
   %121 = load <4 x float>, ptr %lambda, align 16
@@ -1283,7 +1227,7 @@ invoke.cont62:                                    ; preds = %if.end58
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i68, ptr %add.ptr.i.i67, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i70 = getelementptr inbounds i8, ptr %add.ptr.i.i67, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i.i69, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i70, align 8
-  %pdf4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 4, i32 2
+  %pdf4.i.i = getelementptr inbounds i8, ptr %100, i64 128
   %123 = load ptr, ptr %pdf4.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %123, i64 %idxprom.i.i.i
   %124 = load <4 x float>, ptr %pdf.i, align 16
@@ -1304,7 +1248,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   br i1 %exitcond.not.i.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit.i, label %for.body.i.i.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
-  %ptr4.i.i71 = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 5, i32 1
+  %ptr4.i.i71 = getelementptr inbounds i8, ptr %100, i64 160
   %125 = load ptr, ptr %ptr4.i.i71, align 8
   %add.ptr.i18.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %125, i64 %idxprom.i.i.i
   %126 = load <4 x float>, ptr %ref.tmp10.i, align 16
@@ -1313,11 +1257,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i19.i, ptr %add.ptr.i18.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i = getelementptr inbounds i8, ptr %add.ptr.i18.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i20.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i, align 8
-  %etaScale.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 9
+  %etaScale.i = getelementptr inbounds i8, ptr %100, i64 376
   %127 = load ptr, ptr %etaScale.i, align 8
   %arrayidx14.i = getelementptr inbounds float, ptr %127, i64 %idxprom.i.i.i
   store float 1.000000e+00, ptr %arrayidx14.i, align 4
-  %anyNonSpecularBounces.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 11
+  %anyNonSpecularBounces.i = getelementptr inbounds i8, ptr %100, i64 392
   %128 = load ptr, ptr %anyNonSpecularBounces.i, align 8
   %arrayidx16.i = getelementptr inbounds i32, ptr %128, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx16.i, align 4
@@ -1333,7 +1277,7 @@ for.body.i.i22.i:                                 ; preds = %for.body.i.i22.i, %
   br i1 %exitcond.not.i.i26.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit27.i, label %for.body.i.i22.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit27.i:           ; preds = %for.body.i.i22.i
-  %ptr4.i31.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 6, i32 1
+  %ptr4.i31.i = getelementptr inbounds i8, ptr %100, i64 184
   %129 = load ptr, ptr %ptr4.i31.i, align 8
   %add.ptr.i33.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %129, i64 %idxprom.i.i.i
   %130 = load <4 x float>, ptr %ref.tmp17.i, align 16
@@ -1354,7 +1298,7 @@ for.body.i.i37.i:                                 ; preds = %for.body.i.i37.i, %
   br i1 %exitcond.not.i.i41.i, label %invoke.cont65, label %for.body.i.i37.i, !llvm.loop !24
 
 invoke.cont65:                                    ; preds = %for.body.i.i37.i
-  %ptr4.i46.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 7, i32 1
+  %ptr4.i46.i = getelementptr inbounds i8, ptr %100, i64 208
   %131 = load ptr, ptr %ptr4.i46.i, align 8
   %add.ptr.i48.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %131, i64 %idxprom.i.i.i
   %132 = load <4 x float>, ptr %ref.tmp20.i, align 16
@@ -1363,7 +1307,7 @@ invoke.cont65:                                    ; preds = %for.body.i.i37.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i49.i, ptr %add.ptr.i48.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i = getelementptr inbounds i8, ptr %add.ptr.i48.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i50.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i, align 8
-  %specularBounce.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %100, i64 0, i32 10
+  %specularBounce.i = getelementptr inbounds i8, ptr %100, i64 384
   %133 = load ptr, ptr %specularBounce.i, align 8
   %arrayidx24.i = getelementptr inbounds i32, ptr %133, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx24.i, align 4
@@ -1380,8 +1324,8 @@ land.rhs.i.i74.invoke:                            ; preds = %invoke.cont27, %inv
   unreachable
 
 invoke.cont67:                                    ; preds = %invoke.cont65
-  %weight = getelementptr inbounds %"struct.pbrt::CameraRay", ptr %cameraRay, i64 0, i32 1
-  %ptr4.i80 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %weight = getelementptr inbounds i8, ptr %cameraRay, i64 40
+  %ptr4.i80 = getelementptr inbounds i8, ptr %0, i64 232
   %136 = load ptr, ptr %ptr4.i80, align 8
   %add.ptr.i82 = getelementptr inbounds %"struct.pbrt::Float4", ptr %136, i64 %idxprom.i
   %137 = load <4 x float>, ptr %weight, align 8
@@ -1393,7 +1337,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
   br label %return
 
 if.else:                                          ; preds = %if.end58
-  %ptr4.i95 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %ptr4.i95 = getelementptr inbounds i8, ptr %0, i64 232
   %138 = load ptr, ptr %ptr4.i95, align 8
   %add.ptr.i97 = getelementptr inbounds %"struct.pbrt::Float4", ptr %138, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i97, i8 0, i64 16, i1 false)
@@ -1407,11 +1351,11 @@ return:                                           ; preds = %invoke.cont67, %if.
 define linkonce_odr dso_local noundef float @_ZN4pbrt14PMJ02BNSampler5Get1DEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %buf.i = alloca [2 x i64], align 16
-  %pixel = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %this, i64 0, i32 4
+  %pixel = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %pixel, align 8
-  %dimension = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %this, i64 0, i32 6
+  %dimension = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i32, ptr %dimension, align 4
-  %seed = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %this, i64 0, i32 1
+  %seed = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %seed, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %buf.i, align 16
@@ -1443,7 +1387,7 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %while.body.i.i
   %shr42.i.i = lshr i64 %mul41.i.i, 47
   %xor43.i.i = xor i64 %shr42.i.i, %mul41.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
-  %sampleIndex = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %this, i64 0, i32 5
+  %sampleIndex = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %sampleIndex, align 8
   %3 = load i32, ptr %this, align 8
   %conv = trunc i64 %xor43.i.i to i32
@@ -1810,7 +1754,7 @@ sw.bb:                                            ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !36
-  %pdf.i.i.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %agg.result, i64 0, i32 1
+  %pdf.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i, %sw.bb
@@ -1857,7 +1801,7 @@ sw.bb3:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !47
-  %pdf.i.i.i5 = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %agg.result, i64 0, i32 1
+  %pdf.i.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 16
   br label %for.body.i.i.i6
 
 for.body.i.i.i6:                                  ; preds = %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i29, %sw.bb3
@@ -1902,9 +1846,9 @@ sw.default:                                       ; preds = %entry
   %6 = load ptr, ptr %func, align 8, !noalias !48
   %7 = load float, ptr %6, align 4, !noalias !48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %lambdaMin.i.i = getelementptr inbounds %"class.pbrt::SpectralFilm", ptr %ptr, i64 0, i32 2
+  %lambdaMin.i.i = getelementptr inbounds i8, ptr %ptr, i64 88
   %8 = load float, ptr %lambdaMin.i.i, align 8, !noalias !54
-  %lambdaMax.i.i = getelementptr inbounds %"class.pbrt::SpectralFilm", ptr %ptr, i64 0, i32 3
+  %lambdaMax.i.i = getelementptr inbounds i8, ptr %ptr, i64 92
   %9 = load float, ptr %lambdaMax.i.i, align 4, !noalias !54
   %10 = getelementptr inbounds i8, ptr %agg.result, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %10, i8 0, i64 28, i1 false), !alias.scope !55
@@ -1919,7 +1863,7 @@ sw.default:                                       ; preds = %entry
 
 for.cond21.preheader.i.i.i:                       ; preds = %for.body.i.i.i39
   %div25.i.i.i = fdiv float 1.000000e+00, %sub.i.i.i37
-  %pdf.i.i.i44 = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %agg.result, i64 0, i32 1
+  %pdf.i.i.i44 = getelementptr inbounds i8, ptr %agg.result, i64 16
   br label %for.body23.i.i.i
 
 for.body.i.i.i39:                                 ; preds = %for.body.i.i.i39, %sw.default
@@ -1958,17 +1902,17 @@ declare float @coshf(float noundef) local_unnamed_addr #12
 define linkonce_odr dso_local <2 x float> @_ZN4pbrt14PMJ02BNSampler5Get2DEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #8 comdat align 2 {
 entry:
   %buf.i = alloca [2 x i64], align 16
-  %sampleIndex = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %this, i64 0, i32 5
+  %sampleIndex = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %sampleIndex, align 8
-  %dimension = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %this, i64 0, i32 6
+  %dimension = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i32, ptr %dimension, align 4
   %cmp = icmp sgt i32 %1, 9
-  %pixel = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %this, i64 0, i32 4
+  %pixel = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %pixel, align 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %seed = getelementptr inbounds %"class.pbrt::PMJ02BNSampler", ptr %this, i64 0, i32 1
+  %seed = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %seed, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %buf.i, align 16
@@ -2150,21 +2094,21 @@ sw.bb3:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pdf.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pi.i.i.i)
   store i64 0, ptr %pi.i.i.i, align 8
-  %distrib.i.i.i = getelementptr inbounds %"class.pbrt::GaussianFilter", ptr %ptr, i64 0, i32 4, i32 2
+  %distrib.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 72
   %call.i.i.i = call <2 x float> @_ZNK4pbrt19PiecewiseConstant2D6SampleENS_6Point2IfEEPfPNS1_IiEE(ptr noundef nonnull align 8 dereferenceable(128) %distrib.i.i.i, <2 x float> %agg.tmp.sroa.0.0.copyload.i57, ptr noundef nonnull %pdf.i.i.i, ptr noundef nonnull %pi.i.i.i)
-  %f.i.i.i = getelementptr inbounds %"class.pbrt::GaussianFilter", ptr %ptr, i64 0, i32 4, i32 1
+  %f.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 40
   %agg.tmp5.sroa.0.0.copyload.i.i.i = load i64, ptr %pi.i.i.i, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i.i to i32
   %p.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, 32
   %p.sroa.4.0.extract.trunc.i.i.i.i = trunc i64 %p.sroa.4.0.extract.shift.i.i.i.i to i32
   %6 = load i32, ptr %f.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %p.sroa.0.0.extract.trunc.i.i.i.i, %6
-  %y.i.i.i.i = getelementptr inbounds %"class.pbrt::GaussianFilter", ptr %ptr, i64 0, i32 4, i32 1, i32 0, i32 0, i32 0, i32 1
+  %y.i.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 44
   %7 = load i32, ptr %y.i.i.i.i, align 4
   %sub6.i.i.i.i = sub nsw i32 %p.sroa.4.0.extract.trunc.i.i.i.i, %7
-  %values.i.i.i.i = getelementptr inbounds %"class.pbrt::GaussianFilter", ptr %ptr, i64 0, i32 4, i32 1, i32 2
+  %values.i.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 64
   %8 = load ptr, ptr %values.i.i.i.i, align 8
-  %pMax.i.i.i.i = getelementptr inbounds %"class.pbrt::GaussianFilter", ptr %ptr, i64 0, i32 4, i32 1, i32 0, i32 1
+  %pMax.i.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 48
   %9 = load i32, ptr %pMax.i.i.i.i, align 8
   %sub13.i.i.i.i = sub nsw i32 %9, %6
   %mul.i.i.i.i = mul nsw i32 %sub13.i.i.i.i, %sub6.i.i.i.i
@@ -2184,21 +2128,21 @@ sw.bb6:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pdf.i.i.i11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pi.i.i.i12)
   store i64 0, ptr %pi.i.i.i12, align 8
-  %distrib.i.i.i14 = getelementptr inbounds %"class.pbrt::MitchellFilter", ptr %ptr, i64 0, i32 3, i32 2
+  %distrib.i.i.i14 = getelementptr inbounds i8, ptr %ptr, i64 64
   %call.i.i.i15 = call <2 x float> @_ZNK4pbrt19PiecewiseConstant2D6SampleENS_6Point2IfEEPfPNS1_IiEE(ptr noundef nonnull align 8 dereferenceable(128) %distrib.i.i.i14, <2 x float> %agg.tmp.sroa.0.0.copyload.i57, ptr noundef nonnull %pdf.i.i.i11, ptr noundef nonnull %pi.i.i.i12)
-  %f.i.i.i16 = getelementptr inbounds %"class.pbrt::MitchellFilter", ptr %ptr, i64 0, i32 3, i32 1
+  %f.i.i.i16 = getelementptr inbounds i8, ptr %ptr, i64 32
   %agg.tmp5.sroa.0.0.copyload.i.i.i17 = load i64, ptr %pi.i.i.i12, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i18 = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i.i17 to i32
   %p.sroa.4.0.extract.shift.i.i.i.i19 = lshr i64 %agg.tmp5.sroa.0.0.copyload.i.i.i17, 32
   %p.sroa.4.0.extract.trunc.i.i.i.i20 = trunc i64 %p.sroa.4.0.extract.shift.i.i.i.i19 to i32
   %12 = load i32, ptr %f.i.i.i16, align 8
   %sub.i.i.i.i21 = sub i32 %p.sroa.0.0.extract.trunc.i.i.i.i18, %12
-  %y.i.i.i.i22 = getelementptr inbounds %"class.pbrt::MitchellFilter", ptr %ptr, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 1
+  %y.i.i.i.i22 = getelementptr inbounds i8, ptr %ptr, i64 36
   %13 = load i32, ptr %y.i.i.i.i22, align 4
   %sub6.i.i.i.i23 = sub nsw i32 %p.sroa.4.0.extract.trunc.i.i.i.i20, %13
-  %values.i.i.i.i24 = getelementptr inbounds %"class.pbrt::MitchellFilter", ptr %ptr, i64 0, i32 3, i32 1, i32 2
+  %values.i.i.i.i24 = getelementptr inbounds i8, ptr %ptr, i64 56
   %14 = load ptr, ptr %values.i.i.i.i24, align 8
-  %pMax.i.i.i.i25 = getelementptr inbounds %"class.pbrt::MitchellFilter", ptr %ptr, i64 0, i32 3, i32 1, i32 0, i32 1
+  %pMax.i.i.i.i25 = getelementptr inbounds i8, ptr %ptr, i64 40
   %15 = load i32, ptr %pMax.i.i.i.i25, align 8
   %sub13.i.i.i.i26 = sub nsw i32 %15, %12
   %mul.i.i.i.i27 = mul nsw i32 %sub13.i.i.i.i26, %sub6.i.i.i.i23
@@ -2218,21 +2162,21 @@ sw.bb9:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pdf.i.i.i34)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pi.i.i.i35)
   store i64 0, ptr %pi.i.i.i35, align 8
-  %distrib.i.i.i37 = getelementptr inbounds %"class.pbrt::LanczosSincFilter", ptr %ptr, i64 0, i32 2, i32 2
+  %distrib.i.i.i37 = getelementptr inbounds i8, ptr %ptr, i64 64
   %call.i.i.i38 = call <2 x float> @_ZNK4pbrt19PiecewiseConstant2D6SampleENS_6Point2IfEEPfPNS1_IiEE(ptr noundef nonnull align 8 dereferenceable(128) %distrib.i.i.i37, <2 x float> %agg.tmp.sroa.0.0.copyload.i57, ptr noundef nonnull %pdf.i.i.i34, ptr noundef nonnull %pi.i.i.i35)
-  %f.i.i.i39 = getelementptr inbounds %"class.pbrt::LanczosSincFilter", ptr %ptr, i64 0, i32 2, i32 1
+  %f.i.i.i39 = getelementptr inbounds i8, ptr %ptr, i64 32
   %agg.tmp5.sroa.0.0.copyload.i.i.i40 = load i64, ptr %pi.i.i.i35, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i41 = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i.i40 to i32
   %p.sroa.4.0.extract.shift.i.i.i.i42 = lshr i64 %agg.tmp5.sroa.0.0.copyload.i.i.i40, 32
   %p.sroa.4.0.extract.trunc.i.i.i.i43 = trunc i64 %p.sroa.4.0.extract.shift.i.i.i.i42 to i32
   %18 = load i32, ptr %f.i.i.i39, align 8
   %sub.i.i.i.i44 = sub i32 %p.sroa.0.0.extract.trunc.i.i.i.i41, %18
-  %y.i.i.i.i45 = getelementptr inbounds %"class.pbrt::LanczosSincFilter", ptr %ptr, i64 0, i32 2, i32 1, i32 0, i32 0, i32 0, i32 1
+  %y.i.i.i.i45 = getelementptr inbounds i8, ptr %ptr, i64 36
   %19 = load i32, ptr %y.i.i.i.i45, align 4
   %sub6.i.i.i.i46 = sub nsw i32 %p.sroa.4.0.extract.trunc.i.i.i.i43, %19
-  %values.i.i.i.i47 = getelementptr inbounds %"class.pbrt::LanczosSincFilter", ptr %ptr, i64 0, i32 2, i32 1, i32 2
+  %values.i.i.i.i47 = getelementptr inbounds i8, ptr %ptr, i64 56
   %20 = load ptr, ptr %values.i.i.i.i47, align 8
-  %pMax.i.i.i.i48 = getelementptr inbounds %"class.pbrt::LanczosSincFilter", ptr %ptr, i64 0, i32 2, i32 1, i32 0, i32 1
+  %pMax.i.i.i.i48 = getelementptr inbounds i8, ptr %ptr, i64 40
   %21 = load i32, ptr %pMax.i.i.i.i48, align 8
   %sub13.i.i.i.i49 = sub nsw i32 %21, %18
   %mul.i.i.i.i50 = mul nsw i32 %sub13.i.i.i.i49, %sub6.i.i.i.i46
@@ -2262,13 +2206,13 @@ define linkonce_odr dso_local <2 x float> @_ZNK4pbrt19PiecewiseConstant2D6Sample
 entry:
   %0 = extractelement <2 x float> %u.coerce, i64 1
   %1 = extractelement <2 x float> %u.coerce, i64 0
-  %nStored.i.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 2, i32 1, i32 3
+  %nStored.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load i64, ptr %nStored.i.i, align 8
   %sext.i = shl i64 %2, 32
   %conv2.i = ashr exact i64 %sext.i, 32
   %sub.i.i = add nsw i64 %conv2.i, -2
   %cmp11.i.i = icmp sgt i64 %conv2.i, 2
-  %ptr.i.i.i.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 2, i32 1, i32 1
+  %ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load ptr, ptr %ptr.i.i.i.i, align 8
   br i1 %cmp11.i.i, label %while.body.i.i, label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i
 
@@ -2308,13 +2252,13 @@ _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exi
   %conv9.i = ashr exact i64 %sext12.i, 32
   %arrayidx.i14.i = getelementptr inbounds float, ptr %3, i64 %conv9.i
   %7 = load float, ptr %arrayidx.i14.i, align 4
-  %funcInt.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 2, i32 4
+  %funcInt.i = getelementptr inbounds i8, ptr %this, i64 120
   %8 = load float, ptr %funcInt.i, align 8
   %cmp27.i = fcmp ogt float %8, 0.000000e+00
   br i1 %cmp27.i, label %cond.true.i, label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit
 
 cond.true.i:                                      ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i
-  %ptr.i21.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %ptr.i21.i = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load ptr, ptr %ptr.i21.i, align 8
   %arrayidx.i22.i = getelementptr inbounds float, ptr %9, i64 %conv6.i
   %10 = load float, ptr %arrayidx.i22.i, align 4
@@ -2323,91 +2267,91 @@ cond.true.i:                                      ; preds = %_ZN4pbrt12FindInter
 
 _ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit: ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i, %cond.true.i
   %cond.i = phi float [ %div31.i, %cond.true.i ], [ 0.000000e+00, %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i ]
-  %nStored.i.i.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 2, i32 0, i32 3
+  %nStored.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %11 = load i64, ptr %nStored.i.i.i, align 8
-  %min.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 2, i32 2
+  %min.i = getelementptr inbounds i8, ptr %this, i64 112
   %12 = load float, ptr %min.i, align 8
-  %max.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 2, i32 3
+  %max.i = getelementptr inbounds i8, ptr %this, i64 116
   %13 = load float, ptr %max.i, align 4
-  %ptr.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 1, i32 1
+  %ptr.i = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %ptr.i, align 8
   %arrayidx.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %14, i64 %conv6.i
-  %nStored.i.i7 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %14, i64 %conv6.i, i32 1, i32 3
-  %15 = load i64, ptr %nStored.i.i7, align 8
-  %sext.i8 = shl i64 %15, 32
-  %conv2.i9 = ashr exact i64 %sext.i8, 32
-  %sub.i.i10 = add nsw i64 %conv2.i9, -2
-  %cmp11.i.i11 = icmp sgt i64 %conv2.i9, 2
-  %ptr.i.i.i.i45 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %14, i64 %conv6.i, i32 1, i32 1
-  %16 = load ptr, ptr %ptr.i.i.i.i45, align 8
-  br i1 %cmp11.i.i11, label %while.body.i.i46, label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12
+  %nStored.i.i5 = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
+  %15 = load i64, ptr %nStored.i.i5, align 8
+  %sext.i6 = shl i64 %15, 32
+  %conv2.i7 = ashr exact i64 %sext.i6, 32
+  %sub.i.i8 = add nsw i64 %conv2.i7, -2
+  %cmp11.i.i9 = icmp sgt i64 %conv2.i7, 2
+  %ptr.i.i.i.i43 = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %16 = load ptr, ptr %ptr.i.i.i.i43, align 8
+  br i1 %cmp11.i.i9, label %while.body.i.i44, label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10
 
-while.body.i.i46:                                 ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %while.body.i.i46
-  %size.013.i.i47 = phi i64 [ %cond8.i.i60, %while.body.i.i46 ], [ %sub.i.i10, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
-  %first.012.i.i48 = phi i64 [ %cond.fr20.i.i57, %while.body.i.i46 ], [ 1, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
-  %shr.i.i49 = lshr i64 %size.013.i.i47, 1
-  %add.i.i50 = add i64 %shr.i.i49, %first.012.i.i48
-  %sext.i.i51 = shl i64 %add.i.i50, 32
-  %conv.i.i.i52 = ashr exact i64 %sext.i.i51, 32
-  %arrayidx.i.i.i.i53 = getelementptr inbounds float, ptr %16, i64 %conv.i.i.i52
-  %17 = load float, ptr %arrayidx.i.i.i.i53, align 4
-  %cmp.i.i.i54 = fcmp ole float %17, %1
-  %add1.i.i55 = add i64 %add.i.i50, 1
-  %cond.i.i56 = select i1 %cmp.i.i.i54, i64 %add1.i.i55, i64 %first.012.i.i48
-  %cond.fr20.i.i57 = freeze i64 %cond.i.i56
-  %add4.neg.i.i58 = xor i64 %shr.i.i49, -1
-  %sub5.i.i59 = add nsw i64 %size.013.i.i47, %add4.neg.i.i58
-  %cond8.i.i60 = select i1 %cmp.i.i.i54, i64 %sub5.i.i59, i64 %shr.i.i49
-  %cmp.i.i61 = icmp sgt i64 %cond8.i.i60, 0
-  br i1 %cmp.i.i61, label %while.body.i.i46, label %while.end.i.i62, !llvm.loop !60
+while.body.i.i44:                                 ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %while.body.i.i44
+  %size.013.i.i45 = phi i64 [ %cond8.i.i58, %while.body.i.i44 ], [ %sub.i.i8, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
+  %first.012.i.i46 = phi i64 [ %cond.fr20.i.i55, %while.body.i.i44 ], [ 1, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
+  %shr.i.i47 = lshr i64 %size.013.i.i45, 1
+  %add.i.i48 = add i64 %shr.i.i47, %first.012.i.i46
+  %sext.i.i49 = shl i64 %add.i.i48, 32
+  %conv.i.i.i50 = ashr exact i64 %sext.i.i49, 32
+  %arrayidx.i.i.i.i51 = getelementptr inbounds float, ptr %16, i64 %conv.i.i.i50
+  %17 = load float, ptr %arrayidx.i.i.i.i51, align 4
+  %cmp.i.i.i52 = fcmp ole float %17, %1
+  %add1.i.i53 = add i64 %add.i.i48, 1
+  %cond.i.i54 = select i1 %cmp.i.i.i52, i64 %add1.i.i53, i64 %first.012.i.i46
+  %cond.fr20.i.i55 = freeze i64 %cond.i.i54
+  %add4.neg.i.i56 = xor i64 %shr.i.i47, -1
+  %sub5.i.i57 = add nsw i64 %size.013.i.i45, %add4.neg.i.i56
+  %cond8.i.i58 = select i1 %cmp.i.i.i52, i64 %sub5.i.i57, i64 %shr.i.i47
+  %cmp.i.i59 = icmp sgt i64 %cond8.i.i58, 0
+  br i1 %cmp.i.i59, label %while.body.i.i44, label %while.end.i.i60, !llvm.loop !60
 
-while.end.i.i62:                                  ; preds = %while.body.i.i46
-  %sub9.i.i63 = add nsw i64 %cond.fr20.i.i57, -1
-  %high.val.i.i.i64 = tail call i64 @llvm.umin.i64(i64 %sub9.i.i63, i64 %sub.i.i10)
-  %cmp.i10.inv.i.i65 = icmp sgt i64 %cond.fr20.i.i57, 0
-  %spec.select.i.i66 = select i1 %cmp.i10.inv.i.i65, i64 %high.val.i.i.i64, i64 0
-  br label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12
+while.end.i.i60:                                  ; preds = %while.body.i.i44
+  %sub9.i.i61 = add nsw i64 %cond.fr20.i.i55, -1
+  %high.val.i.i.i62 = tail call i64 @llvm.umin.i64(i64 %sub9.i.i61, i64 %sub.i.i8)
+  %cmp.i10.inv.i.i63 = icmp sgt i64 %cond.fr20.i.i55, 0
+  %spec.select.i.i64 = select i1 %cmp.i10.inv.i.i63, i64 %high.val.i.i.i62, i64 0
+  br label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10
 
-_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12: ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %while.end.i.i62
-  %18 = phi i64 [ %spec.select.i.i66, %while.end.i.i62 ], [ 0, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
-  %sext11.i14 = shl i64 %18, 32
-  %conv6.i15 = ashr exact i64 %sext11.i14, 32
-  %arrayidx.i.i17 = getelementptr inbounds float, ptr %16, i64 %conv6.i15
-  %19 = load float, ptr %arrayidx.i.i17, align 4
-  %sext12.i18 = add i64 %sext11.i14, 4294967296
-  %conv9.i19 = ashr exact i64 %sext12.i18, 32
-  %arrayidx.i14.i20 = getelementptr inbounds float, ptr %16, i64 %conv9.i19
-  %20 = load float, ptr %arrayidx.i14.i20, align 4
-  %funcInt.i21 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %14, i64 %conv6.i, i32 4
-  %21 = load float, ptr %funcInt.i21, align 8
-  %cmp27.i22 = fcmp ogt float %21, 0.000000e+00
-  br i1 %cmp27.i22, label %cond.true.i40, label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit67
+_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10: ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %while.end.i.i60
+  %18 = phi i64 [ %spec.select.i.i64, %while.end.i.i60 ], [ 0, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
+  %sext11.i12 = shl i64 %18, 32
+  %conv6.i13 = ashr exact i64 %sext11.i12, 32
+  %arrayidx.i.i15 = getelementptr inbounds float, ptr %16, i64 %conv6.i13
+  %19 = load float, ptr %arrayidx.i.i15, align 4
+  %sext12.i16 = add i64 %sext11.i12, 4294967296
+  %conv9.i17 = ashr exact i64 %sext12.i16, 32
+  %arrayidx.i14.i18 = getelementptr inbounds float, ptr %16, i64 %conv9.i17
+  %20 = load float, ptr %arrayidx.i14.i18, align 4
+  %funcInt.i19 = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
+  %21 = load float, ptr %funcInt.i19, align 8
+  %cmp27.i20 = fcmp ogt float %21, 0.000000e+00
+  br i1 %cmp27.i20, label %cond.true.i38, label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65
 
-cond.true.i40:                                    ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12
-  %ptr.i21.i41 = getelementptr inbounds %"class.pstd::vector.54", ptr %arrayidx.i, i64 0, i32 1
-  %22 = load ptr, ptr %ptr.i21.i41, align 8
-  %arrayidx.i22.i42 = getelementptr inbounds float, ptr %22, i64 %conv6.i15
-  %23 = load float, ptr %arrayidx.i22.i42, align 4
-  %div31.i43 = fdiv float %23, %21
-  br label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit67
+cond.true.i38:                                    ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10
+  %ptr.i21.i39 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %22 = load ptr, ptr %ptr.i21.i39, align 8
+  %arrayidx.i22.i40 = getelementptr inbounds float, ptr %22, i64 %conv6.i13
+  %23 = load float, ptr %arrayidx.i22.i40, align 4
+  %div31.i41 = fdiv float %23, %21
+  br label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65
 
-_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit67: ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12, %cond.true.i40
-  %cond.i23 = phi float [ %div31.i43, %cond.true.i40 ], [ 0.000000e+00, %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12 ]
-  %nStored.i.i.i31 = getelementptr inbounds %"class.pstd::vector.54", ptr %arrayidx.i, i64 0, i32 3
-  %24 = load i64, ptr %nStored.i.i.i31, align 8
-  %min.i34 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %14, i64 %conv6.i, i32 2
-  %25 = load float, ptr %min.i34, align 8
-  %max.i35 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %14, i64 %conv6.i, i32 3
-  %26 = load float, ptr %max.i35, align 4
+_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65: ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10, %cond.true.i38
+  %cond.i21 = phi float [ %div31.i41, %cond.true.i38 ], [ 0.000000e+00, %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10 ]
+  %nStored.i.i.i29 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %24 = load i64, ptr %nStored.i.i.i29, align 8
+  %min.i32 = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
+  %25 = load float, ptr %min.i32, align 8
+  %max.i33 = getelementptr inbounds i8, ptr %arrayidx.i, i64 68
+  %26 = load float, ptr %max.i33, align 4
   %tobool.not = icmp eq ptr %pdf, null
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit67
-  %mul = fmul float %cond.i, %cond.i23
+if.then:                                          ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65
+  %mul = fmul float %cond.i, %cond.i21
   store float %mul, ptr %pdf, align 4
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit67
+if.end:                                           ; preds = %if.then, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65
   %tobool12.not = icmp eq ptr %offset, null
   br i1 %tobool12.not, label %if.end14, label %if.then13
 
@@ -2450,7 +2394,7 @@ if.end14:                                         ; preds = %if.then13, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { <2 x float>, float } @_ZNK4pbrt14TriangleFilter6SampleENS_6Point2IfEE(ptr noundef nonnull align 4 dereferenceable(8) %this, <2 x float> %u.coerce) local_unnamed_addr #8 comdat align 2 {
 entry:
-  %ref.tmp.i2 = alloca [2 x float], align 8
+  %ref.tmp.i1 = alloca [2 x float], align 8
   %ref.tmp.i = alloca [2 x float], align 8
   %0 = load float, ptr %this, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -2546,103 +2490,103 @@ if.else.i:                                        ; preds = %_ZN4pbrt14SampleDis
 _ZN4pbrt10SampleTentEff.exit:                     ; preds = %_ZN4pbrt12SampleLinearEfff.exit.i, %if.else.i
   %retval.0.i = phi float [ %add.i, %_ZN4pbrt12SampleLinearEfff.exit.i ], [ %mul4.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %y = getelementptr inbounds %"class.pbrt::Tuple2.49", ptr %this, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %this, i64 4
   %6 = load float, ptr %y, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2)
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %ref.tmp.i2, align 8
-  br label %for.body.i.i4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1)
+  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %ref.tmp.i1, align 8
+  br label %for.body.i.i3
 
-for.body.i.i4:                                    ; preds = %for.body.i.i4, %_ZN4pbrt10SampleTentEff.exit
-  %sumWeights.032.i.i5 = phi float [ %add.i.i8, %for.body.i.i4 ], [ 0.000000e+00, %_ZN4pbrt10SampleTentEff.exit ]
-  %__begin1.031.i.idx.i6 = phi i64 [ %__begin1.031.i.add.i9, %for.body.i.i4 ], [ 0, %_ZN4pbrt10SampleTentEff.exit ]
-  %__begin1.031.i.ptr.i7 = getelementptr inbounds i8, ptr %ref.tmp.i2, i64 %__begin1.031.i.idx.i6
-  %7 = load float, ptr %__begin1.031.i.ptr.i7, align 4
-  %add.i.i8 = fadd float %sumWeights.032.i.i5, %7
-  %__begin1.031.i.add.i9 = add nuw nsw i64 %__begin1.031.i.idx.i6, 4
-  %cmp.not.i.i10 = icmp eq i64 %__begin1.031.i.add.i9, 8
-  br i1 %cmp.not.i.i10, label %for.end.i.i11, label %for.body.i.i4
+for.body.i.i3:                                    ; preds = %for.body.i.i3, %_ZN4pbrt10SampleTentEff.exit
+  %sumWeights.032.i.i4 = phi float [ %add.i.i7, %for.body.i.i3 ], [ 0.000000e+00, %_ZN4pbrt10SampleTentEff.exit ]
+  %__begin1.031.i.idx.i5 = phi i64 [ %__begin1.031.i.add.i8, %for.body.i.i3 ], [ 0, %_ZN4pbrt10SampleTentEff.exit ]
+  %__begin1.031.i.ptr.i6 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 %__begin1.031.i.idx.i5
+  %7 = load float, ptr %__begin1.031.i.ptr.i6, align 4
+  %add.i.i7 = fadd float %sumWeights.032.i.i4, %7
+  %__begin1.031.i.add.i8 = add nuw nsw i64 %__begin1.031.i.idx.i5, 4
+  %cmp.not.i.i9 = icmp eq i64 %__begin1.031.i.add.i8, 8
+  br i1 %cmp.not.i.i9, label %for.end.i.i10, label %for.body.i.i3
 
-for.end.i.i11:                                    ; preds = %for.body.i.i4
+for.end.i.i10:                                    ; preds = %for.body.i.i3
   %u.sroa.0.4.vec.extract = extractelement <2 x float> %u.coerce, i64 1
-  %mul.i.i12 = fmul float %u.sroa.0.4.vec.extract, %add.i.i8
-  %cmp5.i.i13 = fcmp oeq float %mul.i.i12, %add.i.i8
-  br i1 %cmp5.i.i13, label %if.then6.i.i55, label %if.end8.i.i14
+  %mul.i.i11 = fmul float %u.sroa.0.4.vec.extract, %add.i.i7
+  %cmp5.i.i12 = fcmp oeq float %mul.i.i11, %add.i.i7
+  br i1 %cmp5.i.i12, label %if.then6.i.i54, label %if.end8.i.i13
 
-if.then6.i.i55:                                   ; preds = %for.end.i.i11
-  %or.cond.i.i.i56 = fcmp oeq float %mul.i.i12, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i56, label %if.end8.i.i14, label %if.end.i.i.i57
+if.then6.i.i54:                                   ; preds = %for.end.i.i10
+  %or.cond.i.i.i55 = fcmp oeq float %mul.i.i11, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i55, label %if.end8.i.i13, label %if.end.i.i.i56
 
-if.end.i.i.i57:                                   ; preds = %if.then6.i.i55
-  %cmp1.i.i.i58 = fcmp oeq float %mul.i.i12, 0.000000e+00
-  %v.addr.0.i.i.i59 = select i1 %cmp1.i.i.i58, float -0.000000e+00, float %mul.i.i12
-  %8 = bitcast float %v.addr.0.i.i.i59 to i32
-  %cmp5.i.i.i60 = fcmp ogt float %v.addr.0.i.i.i59, 0.000000e+00
-  %ui.0.v.i.i.i61 = select i1 %cmp5.i.i.i60, i32 -1, i32 1
-  %ui.0.i.i.i62 = add i32 %ui.0.v.i.i.i61, %8
-  %9 = bitcast i32 %ui.0.i.i.i62 to float
-  br label %if.end8.i.i14
+if.end.i.i.i56:                                   ; preds = %if.then6.i.i54
+  %cmp1.i.i.i57 = fcmp oeq float %mul.i.i11, 0.000000e+00
+  %v.addr.0.i.i.i58 = select i1 %cmp1.i.i.i57, float -0.000000e+00, float %mul.i.i11
+  %8 = bitcast float %v.addr.0.i.i.i58 to i32
+  %cmp5.i.i.i59 = fcmp ogt float %v.addr.0.i.i.i58, 0.000000e+00
+  %ui.0.v.i.i.i60 = select i1 %cmp5.i.i.i59, i32 -1, i32 1
+  %ui.0.i.i.i61 = add i32 %ui.0.v.i.i.i60, %8
+  %9 = bitcast i32 %ui.0.i.i.i61 to float
+  br label %if.end8.i.i13
 
-if.end8.i.i14:                                    ; preds = %if.end.i.i.i57, %if.then6.i.i55, %for.end.i.i11
-  %up.0.i.i15 = phi float [ %mul.i.i12, %for.end.i.i11 ], [ %9, %if.end.i.i.i57 ], [ 0xFFF0000000000000, %if.then6.i.i55 ]
-  br label %while.cond.i.i16
+if.end8.i.i13:                                    ; preds = %if.end.i.i.i56, %if.then6.i.i54, %for.end.i.i10
+  %up.0.i.i14 = phi float [ %mul.i.i11, %for.end.i.i10 ], [ %9, %if.end.i.i.i56 ], [ 0xFFF0000000000000, %if.then6.i.i54 ]
+  br label %while.cond.i.i15
 
-while.cond.i.i16:                                 ; preds = %while.cond.i.i16, %if.end8.i.i14
-  %indvars.iv.i.i17 = phi i64 [ %indvars.iv.next.i.i22, %while.cond.i.i16 ], [ 0, %if.end8.i.i14 ]
-  %sum.0.i.i18 = phi float [ %add10.i.i20, %while.cond.i.i16 ], [ 0.000000e+00, %if.end8.i.i14 ]
-  %arrayidx.i.i.i19 = getelementptr inbounds float, ptr %ref.tmp.i2, i64 %indvars.iv.i.i17
-  %10 = load float, ptr %arrayidx.i.i.i19, align 4
-  %add10.i.i20 = fadd float %sum.0.i.i18, %10
-  %cmp11.i.i21 = fcmp ugt float %add10.i.i20, %up.0.i.i15
-  %indvars.iv.next.i.i22 = add nuw i64 %indvars.iv.i.i17, 1
-  br i1 %cmp11.i.i21, label %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i23, label %while.cond.i.i16, !llvm.loop !61
+while.cond.i.i15:                                 ; preds = %while.cond.i.i15, %if.end8.i.i13
+  %indvars.iv.i.i16 = phi i64 [ %indvars.iv.next.i.i21, %while.cond.i.i15 ], [ 0, %if.end8.i.i13 ]
+  %sum.0.i.i17 = phi float [ %add10.i.i19, %while.cond.i.i15 ], [ 0.000000e+00, %if.end8.i.i13 ]
+  %arrayidx.i.i.i18 = getelementptr inbounds float, ptr %ref.tmp.i1, i64 %indvars.iv.i.i16
+  %10 = load float, ptr %arrayidx.i.i.i18, align 4
+  %add10.i.i19 = fadd float %sum.0.i.i17, %10
+  %cmp11.i.i20 = fcmp ugt float %add10.i.i19, %up.0.i.i14
+  %indvars.iv.next.i.i21 = add nuw i64 %indvars.iv.i.i16, 1
+  br i1 %cmp11.i.i20, label %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i22, label %while.cond.i.i15, !llvm.loop !61
 
-_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i23: ; preds = %while.cond.i.i16
-  %sub.i.i24 = fsub float %up.0.i.i15, %sum.0.i.i18
-  %div24.i.i25 = fdiv float %sub.i.i24, %10
-  %cmp.i23.i.i26 = fcmp ogt float %div24.i.i25, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i.i27 = select i1 %cmp.i23.i.i26, float 0x3FEFFFFFE0000000, float %div24.i.i25
-  %11 = and i64 %indvars.iv.i.i17, 4294967295
-  %cmp.i28 = icmp eq i64 %11, 0
-  br i1 %cmp.i28, label %if.then.i40, label %if.else.i29
+_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i22: ; preds = %while.cond.i.i15
+  %sub.i.i23 = fsub float %up.0.i.i14, %sum.0.i.i17
+  %div24.i.i24 = fdiv float %sub.i.i23, %10
+  %cmp.i23.i.i25 = fcmp ogt float %div24.i.i24, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i.i26 = select i1 %cmp.i23.i.i25, float 0x3FEFFFFFE0000000, float %div24.i.i24
+  %11 = and i64 %indvars.iv.i.i16, 4294967295
+  %cmp.i27 = icmp eq i64 %11, 0
+  br i1 %cmp.i27, label %if.then.i39, label %if.else.i28
 
-if.then.i40:                                      ; preds = %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i23
-  %cmp.i.i41 = fcmp oeq float %.sroa.speculated.i.i27, 0.000000e+00
-  br i1 %cmp.i.i41, label %_ZN4pbrt12SampleLinearEfff.exit.i51, label %if.end.i.i42
+if.then.i39:                                      ; preds = %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i22
+  %cmp.i.i40 = fcmp oeq float %.sroa.speculated.i.i26, 0.000000e+00
+  br i1 %cmp.i.i40, label %_ZN4pbrt12SampleLinearEfff.exit.i50, label %if.end.i.i41
 
-if.end.i.i42:                                     ; preds = %if.then.i40
-  %sub.i.i.i43 = fsub float 1.000000e+00, %.sroa.speculated.i.i27
-  %mul.i8.i.i44 = fmul float %sub.i.i.i43, 0.000000e+00
-  %add.i.i.i45 = fadd float %.sroa.speculated.i.i27, %mul.i8.i.i44
-  %call.i.i.i46 = tail call noundef float @sqrtf(float noundef %add.i.i.i45) #22
-  %add5.i.i47 = fadd float %call.i.i.i46, 0.000000e+00
-  %div.i.i48 = fdiv float %.sroa.speculated.i.i27, %add5.i.i47
-  %cmp.i.i3.i49 = fcmp ogt float %div.i.i48, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i4.i50 = select i1 %cmp.i.i3.i49, float 0x3FEFFFFFE0000000, float %div.i.i48
-  br label %_ZN4pbrt12SampleLinearEfff.exit.i51
+if.end.i.i41:                                     ; preds = %if.then.i39
+  %sub.i.i.i42 = fsub float 1.000000e+00, %.sroa.speculated.i.i26
+  %mul.i8.i.i43 = fmul float %sub.i.i.i42, 0.000000e+00
+  %add.i.i.i44 = fadd float %.sroa.speculated.i.i26, %mul.i8.i.i43
+  %call.i.i.i45 = tail call noundef float @sqrtf(float noundef %add.i.i.i44) #22
+  %add5.i.i46 = fadd float %call.i.i.i45, 0.000000e+00
+  %div.i.i47 = fdiv float %.sroa.speculated.i.i26, %add5.i.i46
+  %cmp.i.i3.i48 = fcmp ogt float %div.i.i47, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i4.i49 = select i1 %cmp.i.i3.i48, float 0x3FEFFFFFE0000000, float %div.i.i47
+  br label %_ZN4pbrt12SampleLinearEfff.exit.i50
 
-_ZN4pbrt12SampleLinearEfff.exit.i51:              ; preds = %if.end.i.i42, %if.then.i40
-  %retval.0.i5.i52 = phi float [ %.sroa.speculated.i4.i50, %if.end.i.i42 ], [ 0.000000e+00, %if.then.i40 ]
-  %mul.i53 = fmul float %6, %retval.0.i5.i52
-  %add.i54 = fsub float %mul.i53, %6
-  br label %_ZN4pbrt10SampleTentEff.exit63
+_ZN4pbrt12SampleLinearEfff.exit.i50:              ; preds = %if.end.i.i41, %if.then.i39
+  %retval.0.i5.i51 = phi float [ %.sroa.speculated.i4.i49, %if.end.i.i41 ], [ 0.000000e+00, %if.then.i39 ]
+  %mul.i52 = fmul float %6, %retval.0.i5.i51
+  %add.i53 = fsub float %mul.i52, %6
+  br label %_ZN4pbrt10SampleTentEff.exit62
 
-if.else.i29:                                      ; preds = %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i23
-  %sub.i.i8.i30 = fsub float 1.000000e+00, %.sroa.speculated.i.i27
-  %mul1.i.i.i31 = fmul float %.sroa.speculated.i.i27, 0.000000e+00
-  %add.i.i9.i32 = fadd float %sub.i.i8.i30, %mul1.i.i.i31
-  %call.i.i10.i33 = tail call noundef float @sqrtf(float noundef %add.i.i9.i32) #22
-  %add5.i11.i34 = fadd float %call.i.i10.i33, 1.000000e+00
-  %div.i12.i35 = fdiv float %.sroa.speculated.i.i27, %add5.i11.i34
-  %cmp.i.i13.i36 = fcmp ogt float %div.i12.i35, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i14.i37 = select i1 %cmp.i.i13.i36, float 0x3FEFFFFFE0000000, float %div.i12.i35
-  %mul4.i38 = fmul float %6, %.sroa.speculated.i14.i37
-  br label %_ZN4pbrt10SampleTentEff.exit63
+if.else.i28:                                      ; preds = %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i22
+  %sub.i.i8.i29 = fsub float 1.000000e+00, %.sroa.speculated.i.i26
+  %mul1.i.i.i30 = fmul float %.sroa.speculated.i.i26, 0.000000e+00
+  %add.i.i9.i31 = fadd float %sub.i.i8.i29, %mul1.i.i.i30
+  %call.i.i10.i32 = tail call noundef float @sqrtf(float noundef %add.i.i9.i31) #22
+  %add5.i11.i33 = fadd float %call.i.i10.i32, 1.000000e+00
+  %div.i12.i34 = fdiv float %.sroa.speculated.i.i26, %add5.i11.i33
+  %cmp.i.i13.i35 = fcmp ogt float %div.i12.i34, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i14.i36 = select i1 %cmp.i.i13.i35, float 0x3FEFFFFFE0000000, float %div.i12.i34
+  %mul4.i37 = fmul float %6, %.sroa.speculated.i14.i36
+  br label %_ZN4pbrt10SampleTentEff.exit62
 
-_ZN4pbrt10SampleTentEff.exit63:                   ; preds = %_ZN4pbrt12SampleLinearEfff.exit.i51, %if.else.i29
-  %retval.0.i39 = phi float [ %add.i54, %_ZN4pbrt12SampleLinearEfff.exit.i51 ], [ %mul4.i38, %if.else.i29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i2)
+_ZN4pbrt10SampleTentEff.exit62:                   ; preds = %_ZN4pbrt12SampleLinearEfff.exit.i50, %if.else.i28
+  %retval.0.i38 = phi float [ %add.i53, %_ZN4pbrt12SampleLinearEfff.exit.i50 ], [ %mul4.i37, %if.else.i28 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1)
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %retval.0.i, i64 0
-  %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %retval.0.i39, i64 1
+  %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %retval.0.i38, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float 1.000000e+00, 1
   ret { <2 x float>, float } %.fca.1.insert
@@ -2666,17 +2610,17 @@ entry:
   %ref.tmp352 = alloca %"class.pbrt::Point3fi", align 8
   %0 = load <4 x float>, ptr %p, align 4
   %1 = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %high.i.i = getelementptr inbounds %"class.pbrt::Interval", ptr %p, i64 0, i32 1
-  %y3 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %p, i64 0, i32 1
-  %high.i.i46 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %p, i64 0, i32 1, i32 1
+  %high.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %y3 = getelementptr inbounds i8, ptr %p, i64 8
+  %high.i.i46 = getelementptr inbounds i8, ptr %p, i64 12
   %2 = load float, ptr %high.i.i46, align 4
   %3 = load <2 x float>, ptr %high.i.i, align 4
   %4 = insertelement <2 x float> %1, float %2, i64 1
   %5 = fadd <2 x float> %3, %4
   %6 = fmul <2 x float> %5, <float 5.000000e-01, float 5.000000e-01>
-  %z5 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %p, i64 0, i32 2
+  %z5 = getelementptr inbounds i8, ptr %p, i64 16
   %7 = load float, ptr %z5, align 4
-  %high.i.i49 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %p, i64 0, i32 2, i32 1
+  %high.i.i49 = getelementptr inbounds i8, ptr %p, i64 20
   %8 = load float, ptr %high.i.i49, align 4
   %add.i.i50 = fadd float %7, %8
   %div.i.i51 = fmul float %add.i.i50, 5.000000e-01
@@ -2687,19 +2631,19 @@ entry:
   %mul = fmul float %11, %10
   %call11 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %12 = extractvalue { ptr, i64 } %call11, 0
-  %arrayidx.i = getelementptr inbounds float, ptr %12, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 4
   %13 = load float, ptr %arrayidx.i, align 4
   %14 = extractelement <2 x float> %6, i64 1
   %mul13 = fmul float %14, %13
   %add = fadd float %mul, %mul13
   %call16 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %15 = extractvalue { ptr, i64 } %call16, 0
-  %arrayidx.i52 = getelementptr inbounds float, ptr %15, i64 2
+  %arrayidx.i52 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load float, ptr %arrayidx.i52, align 4
   %mul18 = fmul float %div.i.i51, %16
   %call21 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %17 = extractvalue { ptr, i64 } %call21, 0
-  %arrayidx.i53 = getelementptr inbounds float, ptr %17, i64 3
+  %arrayidx.i53 = getelementptr inbounds i8, ptr %17, i64 12
   %18 = load float, ptr %arrayidx.i53, align 4
   %add23 = fadd float %mul18, %18
   %add24 = fadd float %add, %add23
@@ -2709,18 +2653,18 @@ entry:
   %mul29 = fmul float %11, %20
   %call32 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %21 = extractvalue { ptr, i64 } %call32, 0
-  %arrayidx.i54 = getelementptr inbounds float, ptr %21, i64 1
+  %arrayidx.i54 = getelementptr inbounds i8, ptr %21, i64 4
   %22 = load float, ptr %arrayidx.i54, align 4
   %mul34 = fmul float %14, %22
   %add35 = fadd float %mul29, %mul34
   %call38 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %23 = extractvalue { ptr, i64 } %call38, 0
-  %arrayidx.i55 = getelementptr inbounds float, ptr %23, i64 2
+  %arrayidx.i55 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load float, ptr %arrayidx.i55, align 4
   %mul40 = fmul float %div.i.i51, %24
   %call43 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %25 = extractvalue { ptr, i64 } %call43, 0
-  %arrayidx.i56 = getelementptr inbounds float, ptr %25, i64 3
+  %arrayidx.i56 = getelementptr inbounds i8, ptr %25, i64 12
   %26 = load float, ptr %arrayidx.i56, align 4
   %add45 = fadd float %mul40, %26
   %add46 = fadd float %add35, %add45
@@ -2730,18 +2674,18 @@ entry:
   %mul51 = fmul float %11, %28
   %call54 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %29 = extractvalue { ptr, i64 } %call54, 0
-  %arrayidx.i57 = getelementptr inbounds float, ptr %29, i64 1
+  %arrayidx.i57 = getelementptr inbounds i8, ptr %29, i64 4
   %30 = load float, ptr %arrayidx.i57, align 4
   %mul56 = fmul float %14, %30
   %add57 = fadd float %mul51, %mul56
   %call60 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %31 = extractvalue { ptr, i64 } %call60, 0
-  %arrayidx.i58 = getelementptr inbounds float, ptr %31, i64 2
+  %arrayidx.i58 = getelementptr inbounds i8, ptr %31, i64 8
   %32 = load float, ptr %arrayidx.i58, align 4
   %mul62 = fmul float %div.i.i51, %32
   %call65 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %33 = extractvalue { ptr, i64 } %call65, 0
-  %arrayidx.i59 = getelementptr inbounds float, ptr %33, i64 3
+  %arrayidx.i59 = getelementptr inbounds i8, ptr %33, i64 12
   %34 = load float, ptr %arrayidx.i59, align 4
   %add67 = fadd float %mul62, %34
   %add68 = fadd float %add57, %add67
@@ -2751,18 +2695,18 @@ entry:
   %mul73 = fmul float %11, %36
   %call76 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %37 = extractvalue { ptr, i64 } %call76, 0
-  %arrayidx.i60 = getelementptr inbounds float, ptr %37, i64 1
+  %arrayidx.i60 = getelementptr inbounds i8, ptr %37, i64 4
   %38 = load float, ptr %arrayidx.i60, align 4
   %mul78 = fmul float %14, %38
   %add79 = fadd float %mul73, %mul78
   %call82 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %39 = extractvalue { ptr, i64 } %call82, 0
-  %arrayidx.i61 = getelementptr inbounds float, ptr %39, i64 2
+  %arrayidx.i61 = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load float, ptr %arrayidx.i61, align 4
   %mul84 = fmul float %div.i.i51, %40
   %call87 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %41 = extractvalue { ptr, i64 } %call87, 0
-  %arrayidx.i62 = getelementptr inbounds float, ptr %41, i64 3
+  %arrayidx.i62 = getelementptr inbounds i8, ptr %41, i64 12
   %42 = load float, ptr %arrayidx.i62, align 4
   %add89 = fadd float %mul84, %42
   %add90 = fadd float %add79, %add89
@@ -2798,24 +2742,24 @@ if.then:                                          ; preds = %land.lhs.true.i
   %47 = tail call noundef float @llvm.fabs.f32(float %mul97)
   %call101 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %48 = extractvalue { ptr, i64 } %call101, 0
-  %arrayidx.i64 = getelementptr inbounds float, ptr %48, i64 1
+  %arrayidx.i64 = getelementptr inbounds i8, ptr %48, i64 4
   %49 = load float, ptr %arrayidx.i64, align 4
   %mul103 = fmul float %14, %49
   %50 = tail call noundef float @llvm.fabs.f32(float %mul103)
   %call108 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %51 = extractvalue { ptr, i64 } %call108, 0
-  %arrayidx.i65 = getelementptr inbounds float, ptr %51, i64 2
+  %arrayidx.i65 = getelementptr inbounds i8, ptr %51, i64 8
   %52 = load float, ptr %arrayidx.i65, align 4
   %call115 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %53 = extractvalue { ptr, i64 } %call115, 0
-  %arrayidx.i66 = getelementptr inbounds float, ptr %53, i64 3
+  %arrayidx.i66 = getelementptr inbounds i8, ptr %53, i64 12
   %54 = load float, ptr %arrayidx.i66, align 4
   %call124 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %55 = extractvalue { ptr, i64 } %call124, 0
   %56 = load float, ptr %55, align 4
   %call130 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %57 = extractvalue { ptr, i64 } %call130, 0
-  %arrayidx.i67 = getelementptr inbounds float, ptr %57, i64 1
+  %arrayidx.i67 = getelementptr inbounds i8, ptr %57, i64 4
   %58 = load float, ptr %arrayidx.i67, align 4
   %59 = insertelement <2 x float> poison, float %56, i64 0
   %60 = insertelement <2 x float> %59, float %58, i64 1
@@ -2823,11 +2767,11 @@ if.then:                                          ; preds = %land.lhs.true.i
   %62 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %61)
   %call137 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %63 = extractvalue { ptr, i64 } %call137, 0
-  %arrayidx.i68 = getelementptr inbounds float, ptr %63, i64 2
+  %arrayidx.i68 = getelementptr inbounds i8, ptr %63, i64 8
   %64 = load float, ptr %arrayidx.i68, align 4
   %call144 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %65 = extractvalue { ptr, i64 } %call144, 0
-  %arrayidx.i69 = getelementptr inbounds float, ptr %65, i64 3
+  %arrayidx.i69 = getelementptr inbounds i8, ptr %65, i64 12
   %66 = load float, ptr %arrayidx.i69, align 4
   %67 = shufflevector <2 x float> %62, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %68 = insertelement <2 x float> %67, float %47, i64 0
@@ -2850,7 +2794,7 @@ if.then:                                          ; preds = %land.lhs.true.i
   %84 = load float, ptr %83, align 4
   %call159 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %85 = extractvalue { ptr, i64 } %call159, 0
-  %arrayidx.i70 = getelementptr inbounds float, ptr %85, i64 1
+  %arrayidx.i70 = getelementptr inbounds i8, ptr %85, i64 4
   %86 = load float, ptr %arrayidx.i70, align 4
   %87 = insertelement <2 x float> poison, float %84, i64 0
   %88 = insertelement <2 x float> %87, float %86, i64 1
@@ -2861,14 +2805,14 @@ if.then:                                          ; preds = %land.lhs.true.i
   %add163 = extractelement <2 x float> %91, i64 0
   %call166 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %92 = extractvalue { ptr, i64 } %call166, 0
-  %arrayidx.i71 = getelementptr inbounds float, ptr %92, i64 2
+  %arrayidx.i71 = getelementptr inbounds i8, ptr %92, i64 8
   %93 = load float, ptr %arrayidx.i71, align 4
   %mul168 = fmul float %div.i.i51, %93
   %94 = tail call noundef float @llvm.fabs.f32(float %mul168)
   %add170 = fadd float %add163, %94
   %call173 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %95 = extractvalue { ptr, i64 } %call173, 0
-  %arrayidx.i72 = getelementptr inbounds float, ptr %95, i64 3
+  %arrayidx.i72 = getelementptr inbounds i8, ptr %95, i64 12
   %96 = load float, ptr %arrayidx.i72, align 4
   %97 = tail call noundef float @llvm.fabs.f32(float %96)
   %add176 = fadd float %add170, %97
@@ -2890,21 +2834,21 @@ if.else:                                          ; preds = %entry.if.else_crit_
   %mul188 = fmul float %div.i, %102
   %call191 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %103 = extractvalue { ptr, i64 } %call191, 0
-  %arrayidx.i81 = getelementptr inbounds float, ptr %103, i64 1
+  %arrayidx.i81 = getelementptr inbounds i8, ptr %103, i64 4
   %104 = load float, ptr %arrayidx.i81, align 4
   %105 = tail call noundef float @llvm.fabs.f32(float %104)
   %mul195 = fmul float %div3.i, %105
   %add196 = fadd float %mul188, %mul195
   %call199 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %106 = extractvalue { ptr, i64 } %call199, 0
-  %arrayidx.i82 = getelementptr inbounds float, ptr %106, i64 2
+  %arrayidx.i82 = getelementptr inbounds i8, ptr %106, i64 8
   %107 = load float, ptr %arrayidx.i82, align 4
   %call209 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %108 = extractvalue { ptr, i64 } %call209, 0
   %109 = load float, ptr %108, align 4
   %call215 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %110 = extractvalue { ptr, i64 } %call215, 0
-  %arrayidx.i83 = getelementptr inbounds float, ptr %110, i64 1
+  %arrayidx.i83 = getelementptr inbounds i8, ptr %110, i64 4
   %111 = load float, ptr %arrayidx.i83, align 4
   %112 = insertelement <2 x float> poison, float %109, i64 0
   %113 = insertelement <2 x float> %112, float %111, i64 1
@@ -2914,12 +2858,12 @@ if.else:                                          ; preds = %entry.if.else_crit_
   %116 = fadd <2 x float> %115, %shift207
   %call222 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %117 = extractvalue { ptr, i64 } %call222, 0
-  %arrayidx.i84 = getelementptr inbounds float, ptr %117, i64 2
+  %arrayidx.i84 = getelementptr inbounds i8, ptr %117, i64 8
   %118 = load float, ptr %arrayidx.i84, align 4
   %mul224 = fmul float %div.i.i51, %118
   %call229 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %119 = extractvalue { ptr, i64 } %call229, 0
-  %arrayidx.i85 = getelementptr inbounds float, ptr %119, i64 3
+  %arrayidx.i85 = getelementptr inbounds i8, ptr %119, i64 12
   %120 = load float, ptr %arrayidx.i85, align 4
   %121 = tail call noundef float @llvm.fabs.f32(float %120)
   %call240 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
@@ -2929,21 +2873,21 @@ if.else:                                          ; preds = %entry.if.else_crit_
   %mul244 = fmul float %div.i, %124
   %call247 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %125 = extractvalue { ptr, i64 } %call247, 0
-  %arrayidx.i86 = getelementptr inbounds float, ptr %125, i64 1
+  %arrayidx.i86 = getelementptr inbounds i8, ptr %125, i64 4
   %126 = load float, ptr %arrayidx.i86, align 4
   %127 = tail call noundef float @llvm.fabs.f32(float %126)
   %mul251 = fmul float %div3.i, %127
   %add252 = fadd float %mul244, %mul251
   %call255 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %128 = extractvalue { ptr, i64 } %call255, 0
-  %arrayidx.i87 = getelementptr inbounds float, ptr %128, i64 2
+  %arrayidx.i87 = getelementptr inbounds i8, ptr %128, i64 8
   %129 = load float, ptr %arrayidx.i87, align 4
   %call265 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %130 = extractvalue { ptr, i64 } %call265, 0
   %131 = load float, ptr %130, align 4
   %call271 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %132 = extractvalue { ptr, i64 } %call271, 0
-  %arrayidx.i88 = getelementptr inbounds float, ptr %132, i64 1
+  %arrayidx.i88 = getelementptr inbounds i8, ptr %132, i64 4
   %133 = load float, ptr %arrayidx.i88, align 4
   %134 = insertelement <2 x float> poison, float %131, i64 0
   %135 = insertelement <2 x float> %134, float %133, i64 1
@@ -2953,12 +2897,12 @@ if.else:                                          ; preds = %entry.if.else_crit_
   %138 = fadd <2 x float> %137, %shift208
   %call278 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %139 = extractvalue { ptr, i64 } %call278, 0
-  %arrayidx.i89 = getelementptr inbounds float, ptr %139, i64 2
+  %arrayidx.i89 = getelementptr inbounds i8, ptr %139, i64 8
   %140 = load float, ptr %arrayidx.i89, align 4
   %mul280 = fmul float %div.i.i51, %140
   %call285 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %141 = extractvalue { ptr, i64 } %call285, 0
-  %arrayidx.i90 = getelementptr inbounds float, ptr %141, i64 3
+  %arrayidx.i90 = getelementptr inbounds i8, ptr %141, i64 12
   %142 = load float, ptr %arrayidx.i90, align 4
   %143 = tail call noundef float @llvm.fabs.f32(float %142)
   %144 = insertelement <2 x float> poison, float %mul224, i64 0
@@ -2992,14 +2936,14 @@ if.else:                                          ; preds = %entry.if.else_crit_
   %mul300 = fmul float %div.i, %170
   %call303 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %171 = extractvalue { ptr, i64 } %call303, 0
-  %arrayidx.i91 = getelementptr inbounds float, ptr %171, i64 1
+  %arrayidx.i91 = getelementptr inbounds i8, ptr %171, i64 4
   %172 = load float, ptr %arrayidx.i91, align 4
   %173 = tail call noundef float @llvm.fabs.f32(float %172)
   %mul307 = fmul float %div3.i, %173
   %add308 = fadd float %mul300, %mul307
   %call311 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %174 = extractvalue { ptr, i64 } %call311, 0
-  %arrayidx.i92 = getelementptr inbounds float, ptr %174, i64 2
+  %arrayidx.i92 = getelementptr inbounds i8, ptr %174, i64 8
   %175 = load float, ptr %arrayidx.i92, align 4
   %176 = tail call noundef float @llvm.fabs.f32(float %175)
   %mul315 = fmul float %div5.i, %176
@@ -3010,7 +2954,7 @@ if.else:                                          ; preds = %entry.if.else_crit_
   %178 = load float, ptr %177, align 4
   %call327 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %179 = extractvalue { ptr, i64 } %call327, 0
-  %arrayidx.i93 = getelementptr inbounds float, ptr %179, i64 1
+  %arrayidx.i93 = getelementptr inbounds i8, ptr %179, i64 4
   %180 = load float, ptr %arrayidx.i93, align 4
   %181 = insertelement <2 x float> poison, float %178, i64 0
   %182 = insertelement <2 x float> %181, float %180, i64 1
@@ -3021,14 +2965,14 @@ if.else:                                          ; preds = %entry.if.else_crit_
   %add331 = extractelement <2 x float> %185, i64 0
   %call334 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %186 = extractvalue { ptr, i64 } %call334, 0
-  %arrayidx.i94 = getelementptr inbounds float, ptr %186, i64 2
+  %arrayidx.i94 = getelementptr inbounds i8, ptr %186, i64 8
   %187 = load float, ptr %arrayidx.i94, align 4
   %mul336 = fmul float %div.i.i51, %187
   %188 = tail call noundef float @llvm.fabs.f32(float %mul336)
   %add338 = fadd float %add331, %188
   %call341 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %189 = extractvalue { ptr, i64 } %call341, 0
-  %arrayidx.i95 = getelementptr inbounds float, ptr %189, i64 3
+  %arrayidx.i95 = getelementptr inbounds i8, ptr %189, i64 12
   %190 = load float, ptr %arrayidx.i95, align 4
   %191 = tail call noundef float @llvm.fabs.f32(float %190)
   %add344 = fadd float %add338, %191
@@ -3187,9 +3131,9 @@ _ZN4pbrt10AddRoundUpEff.exit.i50.i:               ; preds = %if.end.i.i.i44.i, %
 _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %if.then.i54.i, %_ZN4pbrt10AddRoundUpEff.exit.i50.i
   %retval.sroa.0.0.i53.i = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i55.i, %if.then.i54.i ], [ %retval.sroa.0.4.vec.insert9.i52.i, %_ZN4pbrt10AddRoundUpEff.exit.i50.i ]
   store <2 x float> %retval.sroa.0.0.i.i, ptr %agg.result, align 4
-  %y3.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %agg.result, i64 0, i32 1
+  %y3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store <2 x float> %retval.sroa.0.0.i25.i, ptr %y3.i.i.i, align 4
-  %z4.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %agg.result, i64 0, i32 2
+  %z4.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store <2 x float> %retval.sroa.0.0.i53.i, ptr %z4.i.i.i, align 4
   br label %return
 
@@ -3336,9 +3280,9 @@ _ZN4pbrt10AddRoundUpEff.exit.i50.i175:            ; preds = %if.end.i.i.i44.i169
 _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit187: ; preds = %if.then.i54.i181, %_ZN4pbrt10AddRoundUpEff.exit.i50.i175
   %retval.sroa.0.0.i53.i178 = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i55.i182, %if.then.i54.i181 ], [ %retval.sroa.0.4.vec.insert9.i52.i177, %_ZN4pbrt10AddRoundUpEff.exit.i50.i175 ]
   store <2 x float> %retval.sroa.0.0.i.i125, ptr %ref.tmp352, align 8
-  %y3.i.i.i179 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp352, i64 0, i32 1
+  %y3.i.i.i179 = getelementptr inbounds i8, ptr %ref.tmp352, i64 8
   store <2 x float> %retval.sroa.0.0.i25.i153, ptr %y3.i.i.i179, align 8
-  %z4.i.i.i180 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp352, i64 0, i32 2
+  %z4.i.i.i180 = getelementptr inbounds i8, ptr %ref.tmp352, i64 16
   store <2 x float> %retval.sroa.0.0.i53.i178, ptr %z4.i.i.i180, align 8
   call void @_ZNK4pbrt6Tuple3INS_6Point3ENS_8IntervalEEdvIfEENS1_IDTdvtlS2_EtlT_EEEES5_(ptr nonnull sret(%"class.pbrt::Point3.71") align 4 %agg.tmp351, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp352, float noundef %add90)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp351, i64 24, i1 false)
@@ -3358,22 +3302,22 @@ entry:
   %3 = load float, ptr %2, align 4
   %call5 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %4 = extractvalue { ptr, i64 } %call5, 0
-  %arrayidx.i = getelementptr inbounds float, ptr %4, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load float, ptr %arrayidx.i, align 4
   %call10 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %6 = extractvalue { ptr, i64 } %call10, 0
-  %arrayidx.i11 = getelementptr inbounds float, ptr %6, i64 2
+  %arrayidx.i11 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load float, ptr %arrayidx.i11, align 4
   %call16 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %8 = extractvalue { ptr, i64 } %call16, 0
   %9 = load float, ptr %8, align 4
   %call22 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %10 = extractvalue { ptr, i64 } %call22, 0
-  %arrayidx.i12 = getelementptr inbounds float, ptr %10, i64 1
+  %arrayidx.i12 = getelementptr inbounds i8, ptr %10, i64 4
   %11 = load float, ptr %arrayidx.i12, align 4
   %call29 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %12 = extractvalue { ptr, i64 } %call29, 0
-  %arrayidx.i13 = getelementptr inbounds float, ptr %12, i64 2
+  %arrayidx.i13 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load float, ptr %arrayidx.i13, align 4
   %14 = insertelement <2 x float> poison, float %9, i64 0
   %15 = insertelement <2 x float> %14, float %5, i64 1
@@ -3395,13 +3339,13 @@ entry:
   %mul39 = fmul float %1, %29
   %call42 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %30 = extractvalue { ptr, i64 } %call42, 0
-  %arrayidx.i14 = getelementptr inbounds float, ptr %30, i64 1
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %30, i64 4
   %31 = load float, ptr %arrayidx.i14, align 4
   %mul45 = fmul float %0, %31
   %add46 = fadd float %mul39, %mul45
   %call49 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %32 = extractvalue { ptr, i64 } %call49, 0
-  %arrayidx.i15 = getelementptr inbounds float, ptr %32, i64 2
+  %arrayidx.i15 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load float, ptr %arrayidx.i15, align 4
   %mul52 = fmul float %33, %v.coerce1
   %add53 = fadd float %add46, %mul52
@@ -3431,7 +3375,7 @@ if.end.i.i.i.i.i:                                 ; preds = %entry
 
 _ZN4pbrt12AddRoundDownEff.exit.i.i.i:             ; preds = %if.end.i.i.i.i.i, %entry
   %retval.0.i.i.i.i.i = phi float [ %2, %if.end.i.i.i.i.i ], [ 0xFFF0000000000000, %entry ]
-  %high.i.i.i = getelementptr inbounds %"class.pbrt::Interval", ptr %this, i64 0, i32 1
+  %high.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load float, ptr %high.i.i.i, align 4
   %add.i1.i.i.i = fadd float %v.sroa.0.0.vec.extract, %3
   %or.cond.i.i2.i.i.i = fcmp oeq float %add.i1.i.i.i, 0x7FF0000000000000
@@ -3457,7 +3401,7 @@ _ZN4pbrt8IntervalpLEf.exit:                       ; preds = %_ZN4pbrt12AddRoundD
   %retval.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i, float %.sroa.speculated.i.i.i.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i, ptr %this, align 4
   %v.sroa.0.4.vec.extract = extractelement <2 x float> %v.coerce0, i64 1
-  %y3 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %this, i64 0, i32 1
+  %y3 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load float, ptr %y3, align 4
   %add.i.i.i.i1 = fadd float %v.sroa.0.4.vec.extract, %6
   %or.cond.i.i.i.i.i2 = fcmp oeq float %add.i.i.i.i1, 0xFFF0000000000000
@@ -3475,7 +3419,7 @@ if.end.i.i.i.i.i3:                                ; preds = %_ZN4pbrt8IntervalpL
 
 _ZN4pbrt12AddRoundDownEff.exit.i.i.i9:            ; preds = %if.end.i.i.i.i.i3, %_ZN4pbrt8IntervalpLEf.exit
   %retval.0.i.i.i.i.i10 = phi float [ %8, %if.end.i.i.i.i.i3 ], [ 0xFFF0000000000000, %_ZN4pbrt8IntervalpLEf.exit ]
-  %high.i.i.i11 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %this, i64 0, i32 1, i32 1
+  %high.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 12
   %9 = load float, ptr %high.i.i.i11, align 4
   %add.i1.i.i.i12 = fadd float %v.sroa.0.4.vec.extract, %9
   %or.cond.i.i2.i.i.i13 = fcmp oeq float %add.i1.i.i.i12, 0x7FF0000000000000
@@ -3500,7 +3444,7 @@ _ZN4pbrt8IntervalpLEf.exit27:                     ; preds = %_ZN4pbrt12AddRoundD
   %.sroa.speculated.i.i.i.i25 = select i1 %cmp.i1.i.i.i.i24, float %retval.0.i.i9.i.i.i20, float %retval.0.i.i.i.i.i10
   %retval.sroa.0.4.vec.insert.i.i.i26 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i23, float %.sroa.speculated.i.i.i.i25, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i26, ptr %y3, align 4
-  %z5 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %this, i64 0, i32 2
+  %z5 = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load float, ptr %z5, align 4
   %add.i.i.i.i28 = fadd float %12, %v.coerce1
   %or.cond.i.i.i.i.i29 = fcmp oeq float %add.i.i.i.i28, 0xFFF0000000000000
@@ -3518,7 +3462,7 @@ if.end.i.i.i.i.i30:                               ; preds = %_ZN4pbrt8IntervalpL
 
 _ZN4pbrt12AddRoundDownEff.exit.i.i.i36:           ; preds = %if.end.i.i.i.i.i30, %_ZN4pbrt8IntervalpLEf.exit27
   %retval.0.i.i.i.i.i37 = phi float [ %14, %if.end.i.i.i.i.i30 ], [ 0xFFF0000000000000, %_ZN4pbrt8IntervalpLEf.exit27 ]
-  %high.i.i.i38 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %this, i64 0, i32 2, i32 1
+  %high.i.i.i38 = getelementptr inbounds i8, ptr %this, i64 20
   %15 = load float, ptr %high.i.i.i38, align 4
   %add.i1.i.i.i39 = fadd float %15, %v.coerce1
   %or.cond.i.i2.i.i.i40 = fcmp oeq float %add.i1.i.i.i39, 0x7FF0000000000000
@@ -3633,7 +3577,7 @@ if.then2.i36:                                     ; preds = %_ZN4pbrt12DivRoundD
   %cmp.i1.i.i = fcmp olt float %retval.0.i.i.i, %retval.0.i.i14.i
   %.sroa.speculated.i.i = select i1 %cmp.i1.i.i, float %retval.0.i.i14.i, float %retval.0.i.i.i
   %retval.sroa.0.4.vec.insert52.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert48.i, float %.sroa.speculated.i.i, i64 1
-  %y130145 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %this, i64 0, i32 1
+  %y130145 = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp4.sroa.0.0.copyload131146 = load <2 x float>, ptr %y130145, align 4
   %i.sroa.0.0.vec.extract.i37 = extractelement <2 x float> %agg.tmp4.sroa.0.0.copyload131146, i64 0
   %div.i.i38 = fdiv float %i.sroa.0.0.vec.extract.i37, %d
@@ -3675,7 +3619,7 @@ if.else.i6:                                       ; preds = %if.end.i.i29.i, %_Z
   %cmp.i1.i40.i = fcmp olt float %retval.0.i.i25.i, %retval.0.i.i35.i
   %.sroa.speculated.i41.i = select i1 %cmp.i1.i40.i, float %retval.0.i.i35.i, float %retval.0.i.i25.i
   %retval.sroa.0.4.vec.insert54.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert50.i, float %.sroa.speculated.i41.i, i64 1
-  %y130 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %this, i64 0, i32 1
+  %y130 = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp4.sroa.0.0.copyload131 = load <2 x float>, ptr %y130, align 4
   %i.sroa.0.4.vec.extract45.i7 = extractelement <2 x float> %agg.tmp4.sroa.0.0.copyload131, i64 1
   %div.i17.i8 = fdiv float %i.sroa.0.4.vec.extract45.i7, %d
@@ -3717,7 +3661,7 @@ if.then2.i99:                                     ; preds = %_ZN4pbrt12DivRoundD
   %cmp.i1.i.i62 = fcmp olt float %retval.0.i.i.i47, %retval.0.i.i14.i58
   %.sroa.speculated.i.i63 = select i1 %cmp.i1.i.i62, float %retval.0.i.i14.i58, float %retval.0.i.i.i47
   %retval.sroa.0.4.vec.insert52.i64 = insertelement <2 x float> %retval.sroa.0.0.vec.insert48.i61, float %.sroa.speculated.i.i63, i64 1
-  %z137152 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %this, i64 0, i32 2
+  %z137152 = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp7.sroa.0.0.copyload138153 = load <2 x float>, ptr %z137152, align 4
   %i.sroa.0.0.vec.extract.i100 = extractelement <2 x float> %agg.tmp7.sroa.0.0.copyload138153, i64 0
   %div.i.i101 = fdiv float %i.sroa.0.0.vec.extract.i100, %d
@@ -3769,7 +3713,7 @@ if.else.i69:                                      ; preds = %if.end.i.i29.i21, %
   %cmp.i1.i40.i32 = fcmp olt float %retval.0.i.i25.i17, %retval.0.i.i35.i28
   %.sroa.speculated.i41.i33 = select i1 %cmp.i1.i40.i32, float %retval.0.i.i35.i28, float %retval.0.i.i25.i17
   %retval.sroa.0.4.vec.insert54.i34 = insertelement <2 x float> %retval.sroa.0.0.vec.insert50.i31, float %.sroa.speculated.i41.i33, i64 1
-  %z137 = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %this, i64 0, i32 2
+  %z137 = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp7.sroa.0.0.copyload138 = load <2 x float>, ptr %z137, align 4
   %i.sroa.0.4.vec.extract45.i70 = extractelement <2 x float> %agg.tmp7.sroa.0.0.copyload138, i64 1
   %div.i17.i71 = fdiv float %i.sroa.0.4.vec.extract45.i70, %d
@@ -3818,9 +3762,9 @@ _ZN4pbrtdvENS_8IntervalEf.exit128:                ; preds = %entry, %_ZN4pbrt10D
   %retval.sroa.0.0.i133140 = phi <2 x float> [ %retval.sroa.0.4.vec.insert52.i, %_ZN4pbrt10DivRoundUpEff.exit.i120 ], [ %retval.sroa.0.4.vec.insert54.i, %_ZN4pbrt10DivRoundUpEff.exit36.i90 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %entry ]
   %retval.sroa.0.0.i98 = phi <2 x float> [ %retval.sroa.0.4.vec.insert52.i127, %_ZN4pbrt10DivRoundUpEff.exit.i120 ], [ %retval.sroa.0.4.vec.insert54.i97, %_ZN4pbrt10DivRoundUpEff.exit36.i90 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %entry ]
   store <2 x float> %retval.sroa.0.0.i133140, ptr %agg.result, align 4
-  %y3.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %agg.result, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store <2 x float> %retval.sroa.0.0.i35142, ptr %y3.i.i, align 4
-  %z4.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %agg.result, i64 0, i32 2
+  %z4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store <2 x float> %retval.sroa.0.0.i98, ptr %z4.i.i, align 4
   ret void
 }
@@ -4029,7 +3973,7 @@ entry:
   %agg.tmp.i = alloca %"class.std::function.26", align 8
   %agg.tmp = alloca %"class.std::function", align 8
   %0 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %useGPU = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %0, i64 0, i32 7
+  %useGPU = getelementptr inbounds i8, ptr %0, i64 10
   %1 = load i8, ptr %useGPU, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -4041,8 +3985,8 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %conv = sext i32 %nItems to i64
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #20
@@ -4051,8 +3995,8 @@ if.else:                                          ; preds = %entry
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_18IndependentSamplerEEEviNS1_9TransformEiEUliE_E9_M_invokeERKSt9_Any_dataOl, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_18IndependentSamplerEEEviNS1_9TransformEiEUliE_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.26", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 0, ptr %4, align 8
   %5 = ptrtoint ptr %agg.tmp to i64
@@ -4201,13 +4145,13 @@ entry:
   %agg.tmp19 = alloca %"class.pbrt::Filter", align 8
   %cameraRay = alloca %"class.pstd::optional.33", align 16
   %0 = load ptr, ptr %this, align 8
-  %film = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 8
+  %film = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i64, ptr %film, align 8
   %and.i.i.i = and i64 %1, 144115188075855871
   %2 = inttoptr i64 %and.i.i.i to ptr
-  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %retval.sroa.2.0.copyload.i.i15.pn.i.i.i = load i64, ptr %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i, align 8
-  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1
+  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
@@ -4218,16 +4162,16 @@ entry:
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
-  %3 = getelementptr inbounds %class.anon.73, ptr %this, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %3, align 8
   %div = sdiv i32 %pixelIndex, %sub
   %add5 = add nsw i32 %div, %4
-  %x2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 1
+  %x2.i = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %x2.i, align 8
   %idxprom.i = sext i32 %pixelIndex to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
   store i32 %add, ptr %arrayidx.i, align 4
-  %y4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 2
+  %y4.i = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %y4.i, align 8
   %arrayidx7.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   store i32 %add5, ptr %arrayidx7.i, align 4
@@ -4245,12 +4189,12 @@ entry:
   br i1 %or.cond.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sampler = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 9
+  %sampler = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load i64, ptr %sampler, align 8
   %and.i.i = and i64 %7, 144115188075855871
   %8 = inttoptr i64 %and.i.i to ptr
   %9 = load <2 x i32>, ptr %8, align 8
-  %10 = getelementptr inbounds %class.anon.73, ptr %this, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %this, i64 12
   %11 = load i32, ptr %10, align 4
   %mul3.i.i.i = mul i64 %pPixel.sroa.0.0.insert.insert164, -4132994306676758123
   %shr.i.i.i = lshr i64 %mul3.i.i.i, 47
@@ -4337,7 +4281,7 @@ _ZN4pbrt18IndependentSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = 
   %cmp.i.i.i = fcmp olt float %mul.i.i20, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i = select i1 %cmp.i.i.i, float %mul.i.i20, float 0x3FEFFFFFE0000000
   %16 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %disableWavelengthJitter = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %16, i64 0, i32 3
+  %disableWavelengthJitter = getelementptr inbounds i8, ptr %16, i64 6
   %17 = load i8, ptr %disableWavelengthJitter, align 2
   %18 = and i8 %17, 1
   %tobool.not = icmp eq i8 %18, 0
@@ -4360,11 +4304,11 @@ _ZN4pbrt18IndependentSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = 
   store i64 %add.i.i.i15, ptr %pixelSampler.sroa.3.0.agg.tmp17.sroa_idx, align 8
   %pixelSampler.sroa.6.0.agg.tmp17.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp17, i64 16
   store i64 %or.i.i.i, ptr %pixelSampler.sroa.6.0.agg.tmp17.sroa_idx, align 8
-  %filter = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 7
+  %filter = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load i64, ptr %filter, align 8
   store i64 %21, ptr %agg.tmp19, align 8
   call void @_ZN4pbrt15GetCameraSampleINS_18IndependentSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE(ptr nonnull sret(%"struct.pbrt::CameraSample") align 4 %cameraSample, ptr noundef nonnull byval(%"class.pbrt::IndependentSampler") align 8 %agg.tmp17, i64 %pPixel.sroa.0.0.insert.insert164, ptr noundef nonnull %agg.tmp19)
-  %camera = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 10
+  %camera = getelementptr inbounds i8, ptr %0, i64 72
   %22 = load i64, ptr %camera, align 8, !noalias !69
   %and.i.i.i25 = and i64 %22, 144115188075855871
   %23 = inttoptr i64 %and.i.i.i25 to ptr
@@ -4393,33 +4337,33 @@ sw.default.i.i:                                   ; preds = %_ZN4pbrt18Independe
   br label %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
 
 _ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit: ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.default.i.i
-  %set.i = getelementptr inbounds %"class.pstd::optional.33", ptr %cameraRay, i64 0, i32 1
+  %set.i = getelementptr inbounds i8, ptr %cameraRay, i64 56
   %24 = load i8, ptr %set.i, align 8
   %25 = and i8 %24, 1
   %tobool.i.not = icmp eq i8 %25, 0
   br i1 %tobool.i.not, label %if.end32, label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %26 = getelementptr inbounds %class.anon.73, ptr %this, i64 0, i32 3
+  %26 = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %27 = load <4 x float>, ptr %cameraRay, align 16, !noalias !74
   %agg.tmp.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %27, <4 x float> poison, <2 x i32> zeroinitializer
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %28 = load <4 x float>, ptr %y.i.i, align 4, !noalias !74
   %agg.tmp2.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %28, <4 x float> poison, <2 x i32> zeroinitializer
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %29 = load <4 x float>, ptr %z.i.i, align 8, !noalias !74
   %agg.tmp3.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %29, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !74
-  %y3.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 1
+  %y3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !74
-  %z4.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 2
+  %z4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !74
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %26, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i)
-  %d3.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d3.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !74
-  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !74
   %call.i38 = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %26, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i)
   %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i38, 0
@@ -4438,19 +4382,19 @@ if.then.i:                                        ; preds = %invoke.cont
   %33 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %32)
   %34 = extractelement <2 x float> %call.fca.0.extract.i, i64 1
   %35 = call noundef float @llvm.fabs.f32(float %34)
-  %high.i.i.i = getelementptr inbounds %"class.pbrt::Interval", ptr %o.i, i64 0, i32 1
+  %high.i.i.i = getelementptr inbounds i8, ptr %o.i, i64 4
   %36 = load <4 x float>, ptr %high.i.i.i, align 4
   %37 = shufflevector <4 x float> %36, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %38 = load <4 x float>, ptr %o.i, align 16
   %39 = shufflevector <4 x float> %38, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %y.i7.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1
-  %high.i1.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1, i32 1
+  %y.i7.i = getelementptr inbounds i8, ptr %o.i, i64 8
+  %high.i1.i.i = getelementptr inbounds i8, ptr %o.i, i64 12
   %40 = load float, ptr %high.i1.i.i, align 4, !noalias !74
   %41 = load float, ptr %y.i7.i, align 8, !noalias !74
   %sub.i2.i.i = fsub float %40, %41
   %div3.i.i = fmul float %sub.i2.i.i, 5.000000e-01
-  %z.i8.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2
-  %high.i3.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2, i32 1
+  %z.i8.i = getelementptr inbounds i8, ptr %o.i, i64 16
+  %high.i3.i.i = getelementptr inbounds i8, ptr %o.i, i64 20
   %42 = load float, ptr %high.i3.i.i, align 4, !noalias !74
   %43 = load float, ptr %z.i8.i, align 16, !noalias !74
   %mul4.i.i33 = fmul float %35, %div3.i.i
@@ -4502,12 +4446,12 @@ invoke.cont27:                                    ; preds = %invoke.cont26
   br label %if.end32
 
 if.end32:                                         ; preds = %invoke.cont27, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %ptr4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 4, i32 1
+  %ptr4.i = getelementptr inbounds i8, ptr %0, i64 208
   %62 = load ptr, ptr %ptr4.i, align 8
   %add.ptr.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %62, i64 %idxprom.i
-  %arrayidx.i23.i = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 2
-  %pdf.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1
-  %lambda4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 1
+  %arrayidx.i23.i = getelementptr inbounds i8, ptr %lambda, i64 8
+  %pdf.i = getelementptr inbounds i8, ptr %lambda, i64 16
+  %lambda4.i = getelementptr inbounds i8, ptr %0, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   %63 = load ptr, ptr %lambda4.i, align 8
   %add.ptr.i54 = getelementptr inbounds %"struct.pbrt::Float4", ptr %63, i64 %idxprom.i
@@ -4518,7 +4462,7 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i55, ptr %add.ptr.i54, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i57 = getelementptr inbounds i8, ptr %add.ptr.i54, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i56, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i57, align 8
-  %pdf4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 2
+  %pdf4.i = getelementptr inbounds i8, ptr %0, i64 176
   %66 = load ptr, ptr %pdf4.i, align 8
   %add.ptr21.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %66, i64 %idxprom.i
   %67 = load <4 x float>, ptr %pdf.i, align 16
@@ -4527,9 +4471,9 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   store <2 x float> %agg.tmp22.sroa.0.4.vec.insert.i, ptr %add.ptr21.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i28.i = getelementptr inbounds i8, ptr %add.ptr21.i, i64 8
   store <2 x float> %agg.tmp22.sroa.3.12.vec.insert.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i28.i, align 8
-  %filterWeight = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %cameraSample, i64 0, i32 3
+  %filterWeight = getelementptr inbounds i8, ptr %cameraSample, i64 20
   %68 = load float, ptr %filterWeight, align 4
-  %filterWeight44 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 1
+  %filterWeight44 = getelementptr inbounds i8, ptr %0, i64 128
   %69 = load ptr, ptr %filterWeight44, align 8
   %arrayidx = getelementptr inbounds float, ptr %69, i64 %idxprom.i
   store float %68, ptr %arrayidx, align 4
@@ -4539,83 +4483,83 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   br i1 %tobool45.not, label %if.end53, label %invoke.cont48
 
 invoke.cont48:                                    ; preds = %if.end32
-  %set2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 1
+  %set2.i = getelementptr inbounds i8, ptr %0, i64 256
   %72 = load ptr, ptr %set2.i, align 8
   %arrayidx.i63 = getelementptr inbounds i8, ptr %72, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i63, align 1
-  %x2.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 1
+  %x2.i.i = getelementptr inbounds i8, ptr %0, i64 272
   %73 = load ptr, ptr %x2.i.i, align 8
   %arrayidx.i.i64 = getelementptr inbounds float, ptr %73, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i.i64, align 4
-  %y4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 2
+  %y4.i.i = getelementptr inbounds i8, ptr %0, i64 280
   %74 = load ptr, ptr %y4.i.i, align 8
   %arrayidx7.i.i = getelementptr inbounds float, ptr %74, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i.i, align 4
-  %z9.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 3
+  %z9.i.i = getelementptr inbounds i8, ptr %0, i64 288
   %75 = load ptr, ptr %z9.i.i, align 8
   %arrayidx12.i.i = getelementptr inbounds float, ptr %75, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i.i, align 4
-  %x2.i11.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 1
+  %x2.i11.i = getelementptr inbounds i8, ptr %0, i64 304
   %76 = load ptr, ptr %x2.i11.i, align 8
   %arrayidx.i14.i = getelementptr inbounds float, ptr %76, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i14.i, align 4
-  %y4.i16.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 2
+  %y4.i16.i = getelementptr inbounds i8, ptr %0, i64 312
   %77 = load ptr, ptr %y4.i16.i, align 8
   %arrayidx7.i18.i = getelementptr inbounds float, ptr %77, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i18.i, align 4
-  %z9.i20.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 3
+  %z9.i20.i = getelementptr inbounds i8, ptr %0, i64 320
   %78 = load ptr, ptr %z9.i20.i, align 8
   %arrayidx12.i22.i = getelementptr inbounds float, ptr %78, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i22.i, align 4
-  %x2.i25.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 1
+  %x2.i25.i = getelementptr inbounds i8, ptr %0, i64 336
   %79 = load ptr, ptr %x2.i25.i, align 8
   %arrayidx.i28.i = getelementptr inbounds float, ptr %79, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i28.i, align 4
-  %y4.i30.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 2
+  %y4.i30.i = getelementptr inbounds i8, ptr %0, i64 344
   %80 = load ptr, ptr %y4.i30.i, align 8
   %arrayidx7.i32.i = getelementptr inbounds float, ptr %80, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i32.i, align 4
-  %z9.i34.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 3
+  %z9.i34.i = getelementptr inbounds i8, ptr %0, i64 352
   %81 = load ptr, ptr %z9.i34.i, align 8
   %arrayidx12.i36.i = getelementptr inbounds float, ptr %81, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i36.i, align 4
-  %x2.i39.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 1
+  %x2.i39.i = getelementptr inbounds i8, ptr %0, i64 368
   %82 = load ptr, ptr %x2.i39.i, align 8
   %arrayidx.i42.i = getelementptr inbounds float, ptr %82, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i42.i, align 4
-  %y4.i44.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 2
+  %y4.i44.i = getelementptr inbounds i8, ptr %0, i64 376
   %83 = load ptr, ptr %y4.i44.i, align 8
   %arrayidx7.i46.i = getelementptr inbounds float, ptr %83, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i46.i, align 4
-  %time22.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 6
+  %time22.i = getelementptr inbounds i8, ptr %0, i64 384
   %84 = load ptr, ptr %time22.i, align 8
   %arrayidx25.i = getelementptr inbounds float, ptr %84, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx25.i, align 4
-  %x2.i49.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 1
+  %x2.i49.i = getelementptr inbounds i8, ptr %0, i64 400
   %85 = load ptr, ptr %x2.i49.i, align 8
   %arrayidx.i52.i = getelementptr inbounds float, ptr %85, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i52.i, align 4
-  %y4.i54.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 2
+  %y4.i54.i = getelementptr inbounds i8, ptr %0, i64 408
   %86 = load ptr, ptr %y4.i54.i, align 8
   %arrayidx7.i56.i = getelementptr inbounds float, ptr %86, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i56.i, align 4
-  %z9.i58.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 3
+  %z9.i58.i = getelementptr inbounds i8, ptr %0, i64 416
   %87 = load ptr, ptr %z9.i58.i, align 8
   %arrayidx12.i60.i = getelementptr inbounds float, ptr %87, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i60.i, align 4
-  %x2.i63.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 1
+  %x2.i63.i = getelementptr inbounds i8, ptr %0, i64 432
   %88 = load ptr, ptr %x2.i63.i, align 8
   %arrayidx.i66.i = getelementptr inbounds float, ptr %88, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i66.i, align 4
-  %y4.i68.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 2
+  %y4.i68.i = getelementptr inbounds i8, ptr %0, i64 440
   %89 = load ptr, ptr %y4.i68.i, align 8
   %arrayidx7.i70.i = getelementptr inbounds float, ptr %89, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i70.i, align 4
-  %z9.i72.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 3
+  %z9.i72.i = getelementptr inbounds i8, ptr %0, i64 448
   %90 = load ptr, ptr %z9.i72.i, align 8
   %arrayidx12.i74.i = getelementptr inbounds float, ptr %90, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i74.i, align 4
-  %ptr4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 9, i32 1
+  %ptr4.i.i = getelementptr inbounds i8, ptr %0, i64 464
   %91 = load ptr, ptr %ptr4.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %91, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i.i, i8 0, i64 16, i1 false)
@@ -4628,70 +4572,70 @@ if.end53:                                         ; preds = %invoke.cont48, %if.
   br i1 %tobool.i70.not, label %if.else, label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %if.end53
-  %94 = getelementptr inbounds %class.anon.73, ptr %this, i64 0, i32 4
+  %94 = getelementptr inbounds i8, ptr %this, i64 144
   %95 = load ptr, ptr %94, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp10.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp17.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp20.i)
-  %size.i.i = getelementptr inbounds %"class.pbrt::WorkQueue", ptr %95, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %95, i64 400
   %96 = atomicrmw add ptr %size.i.i, i32 1 monotonic, align 4
   %97 = load float, ptr %cameraRay, align 16
-  %x2.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 1, i32 1
+  %x2.i.i.i = getelementptr inbounds i8, ptr %95, i64 24
   %98 = load ptr, ptr %x2.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %96 to i64
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %98, i64 %idxprom.i.i.i
   store float %97, ptr %arrayidx.i.i.i, align 4
-  %y.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %99 = load float, ptr %y.i.i.i, align 4
-  %y4.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 1, i32 2
+  %y4.i.i.i = getelementptr inbounds i8, ptr %95, i64 32
   %100 = load ptr, ptr %y4.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr inbounds float, ptr %100, i64 %idxprom.i.i.i
   store float %99, ptr %arrayidx7.i.i.i, align 4
-  %z.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %101 = load float, ptr %z.i.i.i, align 8
-  %z9.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 1, i32 3
+  %z9.i.i.i = getelementptr inbounds i8, ptr %95, i64 40
   %102 = load ptr, ptr %z9.i.i.i, align 8
   %arrayidx12.i.i.i = getelementptr inbounds float, ptr %102, i64 %idxprom.i.i.i
   store float %101, ptr %arrayidx12.i.i.i, align 4
-  %d.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %103 = load float, ptr %d.i.i, align 4
-  %x2.i6.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 2, i32 1
+  %x2.i6.i.i = getelementptr inbounds i8, ptr %95, i64 56
   %104 = load ptr, ptr %x2.i6.i.i, align 8
   %arrayidx.i9.i.i = getelementptr inbounds float, ptr %104, i64 %idxprom.i.i.i
   store float %103, ptr %arrayidx.i9.i.i, align 4
-  %y.i10.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 1
+  %y.i10.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 16
   %105 = load float, ptr %y.i10.i.i, align 16
-  %y4.i11.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 2, i32 2
+  %y4.i11.i.i = getelementptr inbounds i8, ptr %95, i64 64
   %106 = load ptr, ptr %y4.i11.i.i, align 8
   %arrayidx7.i13.i.i = getelementptr inbounds float, ptr %106, i64 %idxprom.i.i.i
   store float %105, ptr %arrayidx7.i13.i.i, align 4
-  %z.i14.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %z.i14.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %107 = load float, ptr %z.i14.i.i, align 4
-  %z9.i15.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 2, i32 3
+  %z9.i15.i.i = getelementptr inbounds i8, ptr %95, i64 72
   %108 = load ptr, ptr %z9.i15.i.i, align 8
   %arrayidx12.i17.i.i = getelementptr inbounds float, ptr %108, i64 %idxprom.i.i.i
   store float %107, ptr %arrayidx12.i17.i.i, align 4
-  %time.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 2
+  %time.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 24
   %109 = load float, ptr %time.i.i, align 8
-  %time9.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 3
+  %time9.i.i = getelementptr inbounds i8, ptr %95, i64 80
   %110 = load ptr, ptr %time9.i.i, align 8
   %arrayidx.i.i76 = getelementptr inbounds float, ptr %110, i64 %idxprom.i.i.i
   store float %109, ptr %arrayidx.i.i76, align 4
-  %medium.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 3
-  %medium12.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 4
+  %medium.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 32
+  %medium12.i.i = getelementptr inbounds i8, ptr %95, i64 88
   %111 = load ptr, ptr %medium12.i.i, align 8
   %arrayidx15.i.i = getelementptr inbounds %"class.pbrt::Medium", ptr %111, i64 %idxprom.i.i.i
   %112 = load i64, ptr %medium.i.i, align 16
   store i64 %112, ptr %arrayidx15.i.i, align 8
-  %depth.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %95, i64 96
   %113 = load ptr, ptr %depth.i, align 8
   %arrayidx.i77 = getelementptr inbounds i32, ptr %113, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx.i77, align 4
-  %pixelIndex4.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 3
+  %pixelIndex4.i = getelementptr inbounds i8, ptr %95, i64 104
   %114 = load ptr, ptr %pixelIndex4.i, align 8
   %arrayidx6.i = getelementptr inbounds i32, ptr %114, i64 %idxprom.i.i.i
   store i32 %pixelIndex, ptr %arrayidx6.i, align 4
-  %lambda4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 4, i32 1
+  %lambda4.i.i = getelementptr inbounds i8, ptr %95, i64 120
   %115 = load ptr, ptr %lambda4.i.i, align 8
   %add.ptr.i.i78 = getelementptr inbounds %"struct.pbrt::Float4", ptr %115, i64 %idxprom.i.i.i
   %116 = load <4 x float>, ptr %lambda, align 16
@@ -4701,7 +4645,7 @@ invoke.cont56:                                    ; preds = %if.end53
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i79, ptr %add.ptr.i.i78, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i81 = getelementptr inbounds i8, ptr %add.ptr.i.i78, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i.i80, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i81, align 8
-  %pdf4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 4, i32 2
+  %pdf4.i.i = getelementptr inbounds i8, ptr %95, i64 128
   %118 = load ptr, ptr %pdf4.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %118, i64 %idxprom.i.i.i
   %119 = load <4 x float>, ptr %pdf.i, align 16
@@ -4722,7 +4666,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   br i1 %exitcond.not.i.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit.i, label %for.body.i.i.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
-  %ptr4.i.i82 = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 5, i32 1
+  %ptr4.i.i82 = getelementptr inbounds i8, ptr %95, i64 160
   %120 = load ptr, ptr %ptr4.i.i82, align 8
   %add.ptr.i18.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %120, i64 %idxprom.i.i.i
   %121 = load <4 x float>, ptr %ref.tmp10.i, align 16
@@ -4731,11 +4675,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i19.i, ptr %add.ptr.i18.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i = getelementptr inbounds i8, ptr %add.ptr.i18.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i20.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i, align 8
-  %etaScale.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 9
+  %etaScale.i = getelementptr inbounds i8, ptr %95, i64 376
   %122 = load ptr, ptr %etaScale.i, align 8
   %arrayidx14.i = getelementptr inbounds float, ptr %122, i64 %idxprom.i.i.i
   store float 1.000000e+00, ptr %arrayidx14.i, align 4
-  %anyNonSpecularBounces.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 11
+  %anyNonSpecularBounces.i = getelementptr inbounds i8, ptr %95, i64 392
   %123 = load ptr, ptr %anyNonSpecularBounces.i, align 8
   %arrayidx16.i = getelementptr inbounds i32, ptr %123, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx16.i, align 4
@@ -4751,7 +4695,7 @@ for.body.i.i22.i:                                 ; preds = %for.body.i.i22.i, %
   br i1 %exitcond.not.i.i26.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit27.i, label %for.body.i.i22.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit27.i:           ; preds = %for.body.i.i22.i
-  %ptr4.i31.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 6, i32 1
+  %ptr4.i31.i = getelementptr inbounds i8, ptr %95, i64 184
   %124 = load ptr, ptr %ptr4.i31.i, align 8
   %add.ptr.i33.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %124, i64 %idxprom.i.i.i
   %125 = load <4 x float>, ptr %ref.tmp17.i, align 16
@@ -4772,7 +4716,7 @@ for.body.i.i37.i:                                 ; preds = %for.body.i.i37.i, %
   br i1 %exitcond.not.i.i41.i, label %invoke.cont59, label %for.body.i.i37.i, !llvm.loop !24
 
 invoke.cont59:                                    ; preds = %for.body.i.i37.i
-  %ptr4.i46.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 7, i32 1
+  %ptr4.i46.i = getelementptr inbounds i8, ptr %95, i64 208
   %126 = load ptr, ptr %ptr4.i46.i, align 8
   %add.ptr.i48.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %126, i64 %idxprom.i.i.i
   %127 = load <4 x float>, ptr %ref.tmp20.i, align 16
@@ -4781,7 +4725,7 @@ invoke.cont59:                                    ; preds = %for.body.i.i37.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i49.i, ptr %add.ptr.i48.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i = getelementptr inbounds i8, ptr %add.ptr.i48.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i50.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i, align 8
-  %specularBounce.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 10
+  %specularBounce.i = getelementptr inbounds i8, ptr %95, i64 384
   %128 = load ptr, ptr %specularBounce.i, align 8
   %arrayidx24.i = getelementptr inbounds i32, ptr %128, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx24.i, align 4
@@ -4798,8 +4742,8 @@ land.rhs.i.i85.invoke:                            ; preds = %invoke.cont26, %inv
   unreachable
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  %weight = getelementptr inbounds %"struct.pbrt::CameraRay", ptr %cameraRay, i64 0, i32 1
-  %ptr4.i91 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %weight = getelementptr inbounds i8, ptr %cameraRay, i64 40
+  %ptr4.i91 = getelementptr inbounds i8, ptr %0, i64 232
   %131 = load ptr, ptr %ptr4.i91, align 8
   %add.ptr.i93 = getelementptr inbounds %"struct.pbrt::Float4", ptr %131, i64 %idxprom.i
   %132 = load <4 x float>, ptr %weight, align 8
@@ -4811,7 +4755,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
   br label %return
 
 if.else:                                          ; preds = %if.end53
-  %ptr4.i106 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %ptr4.i106 = getelementptr inbounds i8, ptr %0, i64 232
   %133 = load ptr, ptr %ptr4.i106, align 8
   %add.ptr.i108 = getelementptr inbounds %"struct.pbrt::Float4", ptr %133, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i108, i8 0, i64 16, i1 false)
@@ -4827,10 +4771,10 @@ entry:
   %u.i = alloca %"class.pbrt::Point2.31", align 8
   %sample.i = alloca %class.anon.50, align 8
   %pPixel.sroa.3.0.extract.shift = lshr i64 %pPixel.coerce, 32
-  %rng.i.i = getelementptr inbounds %"class.pbrt::IndependentSampler", ptr %sampler, i64 0, i32 2
+  %rng.i.i = getelementptr inbounds i8, ptr %sampler, i64 8
   %0 = load i64, ptr %rng.i.i, align 8
   %mul.i.i.i.i = mul i64 %0, 6364136223846793005
-  %inc.i.i.i.i = getelementptr inbounds %"class.pbrt::IndependentSampler", ptr %sampler, i64 0, i32 2, i32 1
+  %inc.i.i.i.i = getelementptr inbounds i8, ptr %sampler, i64 16
   %1 = load i64, ptr %inc.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %mul.i.i.i.i, %1
   %mul.i.i1.i.i = mul i64 %add.i.i.i.i, 6364136223846793005
@@ -4867,7 +4811,7 @@ entry:
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sample.i)
   %call3.fca.0.extract = extractvalue { <2 x float>, float } %call3.i.i, 0
   %call3.fca.1.extract = extractvalue { <2 x float>, float } %call3.i.i, 1
-  %filterWeight.i = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %agg.result, i64 0, i32 3
+  %filterWeight.i = getelementptr inbounds i8, ptr %agg.result, i64 20
   %21 = insertelement <2 x i64> poison, i64 %pPixel.coerce, i64 0
   %22 = insertelement <2 x i64> %21, i64 %pPixel.sroa.3.0.extract.shift, i64 1
   %23 = trunc <2 x i64> %22 to <2 x i32>
@@ -4891,7 +4835,7 @@ entry:
   %mul.i.i = fmul float %conv.i.i, 0x3DF0000000000000
   %cmp.i.i.i = fcmp olt float %mul.i.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i = select i1 %cmp.i.i.i, float %mul.i.i, float 0x3FEFFFFFE0000000
-  %time = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %agg.result, i64 0, i32 2
+  %time = getelementptr inbounds i8, ptr %agg.result, i64 16
   store float %.sroa.speculated.i.i, ptr %time, align 4
   %add.i.i.i = add i64 %mul.i.i.i6, %1
   %mul.i.i.i10 = mul i64 %add.i.i.i, 6364136223846793005
@@ -4913,11 +4857,11 @@ entry:
   %43 = fmul <2 x float> %42, <float 0x3DF0000000000000, float 0x3DF0000000000000>
   %44 = fcmp olt <2 x float> %43, <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
   %45 = select <2 x i1> %44, <2 x float> %43, <2 x float> <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
-  %pLens = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %agg.result, i64 0, i32 1
+  %pLens = getelementptr inbounds i8, ptr %agg.result, i64 8
   store <2 x float> %45, ptr %pLens, align 4
   store float %call3.fca.1.extract, ptr %filterWeight.i, align 4
   %46 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %disablePixelJitter = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %46, i64 0, i32 2
+  %disablePixelJitter = getelementptr inbounds i8, ptr %46, i64 5
   %47 = load i8, ptr %disablePixelJitter, align 1
   %48 = and i8 %47, 1
   %tobool.not = icmp eq i8 %48, 0
@@ -4932,7 +4876,7 @@ if.then:                                          ; preds = %entry
   %retval.sroa.0.4.vec.insert.i37 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i36, float %add5.i35, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i37, ptr %agg.result, align 4
   store i32 1056964608, ptr %pLens, align 4
-  %pLens.sroa_idx = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %pLens.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 1056964608, ptr %pLens.sroa_idx, align 4
   store <2 x float> <float 5.000000e-01, float 1.000000e+00>, ptr %time, align 4
   br label %if.end
@@ -4947,7 +4891,7 @@ entry:
   %agg.tmp.i = alloca %"class.std::function.26", align 8
   %agg.tmp = alloca %"class.std::function", align 8
   %0 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %useGPU = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %0, i64 0, i32 7
+  %useGPU = getelementptr inbounds i8, ptr %0, i64 10
   %1 = load i8, ptr %useGPU, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -4959,8 +4903,8 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %conv = sext i32 %nItems to i64
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #20
@@ -4969,8 +4913,8 @@ if.else:                                          ; preds = %entry
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_17StratifiedSamplerEEEviNS1_9TransformEiEUliE_E9_M_invokeERKSt9_Any_dataOl, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_17StratifiedSamplerEEEviNS1_9TransformEiEUliE_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.26", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 0, ptr %4, align 8
   %5 = ptrtoint ptr %agg.tmp to i64
@@ -5121,13 +5065,13 @@ entry:
   %lambda = alloca %"class.pbrt::SampledWavelengths", align 16
   %cameraRay = alloca %"class.pstd::optional.33", align 16
   %0 = load ptr, ptr %this, align 8
-  %film = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 8
+  %film = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i64, ptr %film, align 8
   %and.i.i.i = and i64 %1, 144115188075855871
   %2 = inttoptr i64 %and.i.i.i to ptr
-  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %retval.sroa.2.0.copyload.i.i15.pn.i.i.i = load i64, ptr %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i, align 8
-  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1
+  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
@@ -5138,16 +5082,16 @@ entry:
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
-  %3 = getelementptr inbounds %class.anon.74, ptr %this, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %3, align 8
   %div = sdiv i32 %pixelIndex, %sub
   %add5 = add nsw i32 %div, %4
-  %x2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 1
+  %x2.i = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %x2.i, align 8
   %idxprom.i = sext i32 %pixelIndex to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
   store i32 %add, ptr %arrayidx.i, align 4
-  %y4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 2
+  %y4.i = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %y4.i, align 8
   %arrayidx7.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   store i32 %add5, ptr %arrayidx7.i, align 4
@@ -5165,20 +5109,20 @@ if.end:                                           ; preds = %entry
   %pPixel.sroa.5.0.insert.shift161 = shl nuw i64 %pPixel.sroa.5.0.insert.ext160, 32
   %pPixel.sroa.0.0.insert.ext153 = zext i32 %add to i64
   %pPixel.sroa.0.0.insert.insert155 = or disjoint i64 %pPixel.sroa.5.0.insert.shift161, %pPixel.sroa.0.0.insert.ext153
-  %sampler = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 9
+  %sampler = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load i64, ptr %sampler, align 8
   %and.i.i = and i64 %7, 144115188075855871
   %8 = inttoptr i64 %and.i.i to ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pixelSampler, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 32, i1 false)
-  %9 = getelementptr inbounds %class.anon.74, ptr %this, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %this, i64 12
   %10 = load i32, ptr %9, align 4
-  %pixel.i = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %pixelSampler, i64 0, i32 5
+  %pixel.i = getelementptr inbounds i8, ptr %pixelSampler, i64 32
   store i64 %pPixel.sroa.0.0.insert.insert155, ptr %pixel.i, align 8
-  %sampleIndex.i = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %pixelSampler, i64 0, i32 6
+  %sampleIndex.i = getelementptr inbounds i8, ptr %pixelSampler, i64 40
   store i32 %10, ptr %sampleIndex.i, align 8
-  %dimension.i = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %pixelSampler, i64 0, i32 7
+  %dimension.i = getelementptr inbounds i8, ptr %pixelSampler, i64 44
   store i32 0, ptr %dimension.i, align 4
-  %seed.i = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %pixelSampler, i64 0, i32 2
+  %seed.i = getelementptr inbounds i8, ptr %pixelSampler, i64 8
   %11 = load i32, ptr %seed.i, align 8
   %mul3.i.i.i = mul i64 %pPixel.sroa.0.0.insert.insert155, -4132994306676758123
   %shr.i.i.i = lshr i64 %mul3.i.i.i, 47
@@ -5196,7 +5140,7 @@ if.end:                                           ; preds = %entry
   %xor43.i.i.i = xor i64 %shr42.i.i.i, %mul41.i.i.i
   %shl.i.i.i = shl i64 %xor43.i.i.i, 1
   %or.i.i.i = or disjoint i64 %shl.i.i.i, 1
-  %inc.i.i.i = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %pixelSampler, i64 0, i32 4, i32 1
+  %inc.i.i.i = getelementptr inbounds i8, ptr %pixelSampler, i64 24
   store i64 %or.i.i.i, ptr %inc.i.i.i, align 8
   %cmp.not11.i.i = icmp eq i32 %10, 0
   br i1 %cmp.not11.i.i, label %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit, label %while.body.i.i.preheader
@@ -5246,13 +5190,13 @@ _ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = %
   %add.i.i.i = add i64 %xor5.i.i.i, %or.i.i.i
   %mul.i1.i.i.i = mul i64 %add.i.i.i, 6364136223846793005
   %add.i3.i.i.i = add i64 %mul.i1.i.i.i, %or.i.i.i
-  %rng.i = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %pixelSampler, i64 0, i32 4
+  %rng.i = getelementptr inbounds i8, ptr %pixelSampler, i64 16
   %mul6.i.i = mul i64 %accMult.0.lcssa.i.i, %add.i3.i.i.i
   %add7.i.i = add i64 %mul6.i.i, %accPlus.0.lcssa.i.i
   store i64 %add7.i.i, ptr %rng.i, align 8
   %call12 = call noundef float @_ZN4pbrt17StratifiedSampler5Get1DEv(ptr noundef nonnull align 8 dereferenceable(48) %pixelSampler)
   %13 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %disableWavelengthJitter = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %13, i64 0, i32 3
+  %disableWavelengthJitter = getelementptr inbounds i8, ptr %13, i64 6
   %14 = load i8, ptr %disableWavelengthJitter, align 2
   %15 = and i8 %14, 1
   %tobool.not = icmp eq i8 %15, 0
@@ -5272,7 +5216,7 @@ _ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sample.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp1714)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp1714, ptr noundef nonnull align 8 dereferenceable(48) %pixelSampler, i64 48, i1 false)
-  %filter = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 7
+  %filter = getelementptr inbounds i8, ptr %0, i64 48
   %18 = load i64, ptr %filter, align 8
   %call.i.i = call <2 x float> @_ZN4pbrt17StratifiedSampler5Get2DEv(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp1714), !noalias !83
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %u.i.i), !noalias !83
@@ -5302,7 +5246,7 @@ _ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = %
   %call13.i = call noundef float @_ZN4pbrt17StratifiedSampler5Get1DEv(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp1714), !noalias !83
   %call15.i = call <2 x float> @_ZN4pbrt17StratifiedSampler5Get2DEv(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp1714), !noalias !83
   %20 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8, !noalias !83
-  %disablePixelJitter.i = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %20, i64 0, i32 2
+  %disablePixelJitter.i = getelementptr inbounds i8, ptr %20, i64 5
   %21 = load i8, ptr %disablePixelJitter.i, align 1, !noalias !83
   %22 = and i8 %21, 1
   %tobool.not.i = icmp eq i8 %22, 0
@@ -5321,7 +5265,7 @@ _ZN4pbrt15GetCameraSampleINS_17StratifiedSamplerEEENS_12CameraSampleET_NS_6Point
   %cameraSample.sroa.9.0 = phi float [ %call3.fca.1.extract.i, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ], [ 1.000000e+00, %if.then.i ]
   %cameraSample.sroa.7.0 = phi float [ %call13.i, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ], [ 5.000000e-01, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp1714)
-  %camera = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 10
+  %camera = getelementptr inbounds i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2116)
   store <2 x float> %cameraSample.sroa.0.0, ptr %agg.tmp2116, align 8
   %agg.tmp21.sroa.2.0.agg.tmp2116.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2116, i64 8
@@ -5359,33 +5303,33 @@ sw.default.i.i:                                   ; preds = %_ZN4pbrt15GetCamera
 
 _ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit: ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.default.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2116)
-  %set.i = getelementptr inbounds %"class.pstd::optional.33", ptr %cameraRay, i64 0, i32 1
+  %set.i = getelementptr inbounds i8, ptr %cameraRay, i64 56
   %25 = load i8, ptr %set.i, align 8
   %26 = and i8 %25, 1
   %tobool.i.not = icmp eq i8 %26, 0
   br i1 %tobool.i.not, label %if.end32, label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %27 = getelementptr inbounds %class.anon.74, ptr %this, i64 0, i32 3
+  %27 = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %28 = load <4 x float>, ptr %cameraRay, align 16, !noalias !91
   %agg.tmp.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %28, <4 x float> poison, <2 x i32> zeroinitializer
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %29 = load <4 x float>, ptr %y.i.i, align 4, !noalias !91
   %agg.tmp2.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %29, <4 x float> poison, <2 x i32> zeroinitializer
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %30 = load <4 x float>, ptr %z.i.i, align 8, !noalias !91
   %agg.tmp3.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %30, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !91
-  %y3.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 1
+  %y3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !91
-  %z4.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 2
+  %z4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !91
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %27, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i)
-  %d3.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d3.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !91
-  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !91
   %call.i33 = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %27, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i)
   %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i33, 0
@@ -5404,19 +5348,19 @@ if.then.i25:                                      ; preds = %invoke.cont
   %34 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %33)
   %35 = extractelement <2 x float> %call.fca.0.extract.i, i64 1
   %36 = call noundef float @llvm.fabs.f32(float %35)
-  %high.i.i.i = getelementptr inbounds %"class.pbrt::Interval", ptr %o.i, i64 0, i32 1
+  %high.i.i.i = getelementptr inbounds i8, ptr %o.i, i64 4
   %37 = load <4 x float>, ptr %high.i.i.i, align 4
   %38 = shufflevector <4 x float> %37, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %39 = load <4 x float>, ptr %o.i, align 16
   %40 = shufflevector <4 x float> %39, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %y.i7.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1
-  %high.i1.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1, i32 1
+  %y.i7.i = getelementptr inbounds i8, ptr %o.i, i64 8
+  %high.i1.i.i = getelementptr inbounds i8, ptr %o.i, i64 12
   %41 = load float, ptr %high.i1.i.i, align 4, !noalias !91
   %42 = load float, ptr %y.i7.i, align 8, !noalias !91
   %sub.i2.i.i = fsub float %41, %42
   %div3.i.i = fmul float %sub.i2.i.i, 5.000000e-01
-  %z.i8.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2
-  %high.i3.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2, i32 1
+  %z.i8.i = getelementptr inbounds i8, ptr %o.i, i64 16
+  %high.i3.i.i = getelementptr inbounds i8, ptr %o.i, i64 20
   %43 = load float, ptr %high.i3.i.i, align 4, !noalias !91
   %44 = load float, ptr %z.i8.i, align 16, !noalias !91
   %mul4.i.i28 = fmul float %36, %div3.i.i
@@ -5468,12 +5412,12 @@ invoke.cont27:                                    ; preds = %invoke.cont26
   br label %if.end32
 
 if.end32:                                         ; preds = %invoke.cont27, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %ptr4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 4, i32 1
+  %ptr4.i = getelementptr inbounds i8, ptr %0, i64 208
   %63 = load ptr, ptr %ptr4.i, align 8
   %add.ptr.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %63, i64 %idxprom.i
-  %arrayidx.i23.i = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 2
-  %pdf.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1
-  %lambda4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 1
+  %arrayidx.i23.i = getelementptr inbounds i8, ptr %lambda, i64 8
+  %pdf.i = getelementptr inbounds i8, ptr %lambda, i64 16
+  %lambda4.i = getelementptr inbounds i8, ptr %0, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   %64 = load ptr, ptr %lambda4.i, align 8
   %add.ptr.i49 = getelementptr inbounds %"struct.pbrt::Float4", ptr %64, i64 %idxprom.i
@@ -5484,7 +5428,7 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i50, ptr %add.ptr.i49, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i49, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i51, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i52, align 8
-  %pdf4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 2
+  %pdf4.i = getelementptr inbounds i8, ptr %0, i64 176
   %67 = load ptr, ptr %pdf4.i, align 8
   %add.ptr21.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %67, i64 %idxprom.i
   %68 = load <4 x float>, ptr %pdf.i, align 16
@@ -5493,7 +5437,7 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   store <2 x float> %agg.tmp22.sroa.0.4.vec.insert.i, ptr %add.ptr21.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i28.i = getelementptr inbounds i8, ptr %add.ptr21.i, i64 8
   store <2 x float> %agg.tmp22.sroa.3.12.vec.insert.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i28.i, align 8
-  %filterWeight44 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 1
+  %filterWeight44 = getelementptr inbounds i8, ptr %0, i64 128
   %69 = load ptr, ptr %filterWeight44, align 8
   %arrayidx = getelementptr inbounds float, ptr %69, i64 %idxprom.i
   store float %cameraSample.sroa.9.0, ptr %arrayidx, align 4
@@ -5503,83 +5447,83 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   br i1 %tobool45.not, label %if.end53, label %invoke.cont48
 
 invoke.cont48:                                    ; preds = %if.end32
-  %set2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 1
+  %set2.i = getelementptr inbounds i8, ptr %0, i64 256
   %72 = load ptr, ptr %set2.i, align 8
   %arrayidx.i58 = getelementptr inbounds i8, ptr %72, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i58, align 1
-  %x2.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 1
+  %x2.i.i = getelementptr inbounds i8, ptr %0, i64 272
   %73 = load ptr, ptr %x2.i.i, align 8
   %arrayidx.i.i59 = getelementptr inbounds float, ptr %73, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i.i59, align 4
-  %y4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 2
+  %y4.i.i = getelementptr inbounds i8, ptr %0, i64 280
   %74 = load ptr, ptr %y4.i.i, align 8
   %arrayidx7.i.i = getelementptr inbounds float, ptr %74, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i.i, align 4
-  %z9.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 3
+  %z9.i.i = getelementptr inbounds i8, ptr %0, i64 288
   %75 = load ptr, ptr %z9.i.i, align 8
   %arrayidx12.i.i = getelementptr inbounds float, ptr %75, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i.i, align 4
-  %x2.i11.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 1
+  %x2.i11.i = getelementptr inbounds i8, ptr %0, i64 304
   %76 = load ptr, ptr %x2.i11.i, align 8
   %arrayidx.i14.i = getelementptr inbounds float, ptr %76, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i14.i, align 4
-  %y4.i16.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 2
+  %y4.i16.i = getelementptr inbounds i8, ptr %0, i64 312
   %77 = load ptr, ptr %y4.i16.i, align 8
   %arrayidx7.i18.i = getelementptr inbounds float, ptr %77, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i18.i, align 4
-  %z9.i20.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 3
+  %z9.i20.i = getelementptr inbounds i8, ptr %0, i64 320
   %78 = load ptr, ptr %z9.i20.i, align 8
   %arrayidx12.i22.i = getelementptr inbounds float, ptr %78, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i22.i, align 4
-  %x2.i25.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 1
+  %x2.i25.i = getelementptr inbounds i8, ptr %0, i64 336
   %79 = load ptr, ptr %x2.i25.i, align 8
   %arrayidx.i28.i = getelementptr inbounds float, ptr %79, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i28.i, align 4
-  %y4.i30.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 2
+  %y4.i30.i = getelementptr inbounds i8, ptr %0, i64 344
   %80 = load ptr, ptr %y4.i30.i, align 8
   %arrayidx7.i32.i = getelementptr inbounds float, ptr %80, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i32.i, align 4
-  %z9.i34.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 3
+  %z9.i34.i = getelementptr inbounds i8, ptr %0, i64 352
   %81 = load ptr, ptr %z9.i34.i, align 8
   %arrayidx12.i36.i = getelementptr inbounds float, ptr %81, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i36.i, align 4
-  %x2.i39.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 1
+  %x2.i39.i = getelementptr inbounds i8, ptr %0, i64 368
   %82 = load ptr, ptr %x2.i39.i, align 8
   %arrayidx.i42.i = getelementptr inbounds float, ptr %82, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i42.i, align 4
-  %y4.i44.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 2
+  %y4.i44.i = getelementptr inbounds i8, ptr %0, i64 376
   %83 = load ptr, ptr %y4.i44.i, align 8
   %arrayidx7.i46.i = getelementptr inbounds float, ptr %83, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i46.i, align 4
-  %time22.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 6
+  %time22.i = getelementptr inbounds i8, ptr %0, i64 384
   %84 = load ptr, ptr %time22.i, align 8
   %arrayidx25.i = getelementptr inbounds float, ptr %84, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx25.i, align 4
-  %x2.i49.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 1
+  %x2.i49.i = getelementptr inbounds i8, ptr %0, i64 400
   %85 = load ptr, ptr %x2.i49.i, align 8
   %arrayidx.i52.i = getelementptr inbounds float, ptr %85, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i52.i, align 4
-  %y4.i54.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 2
+  %y4.i54.i = getelementptr inbounds i8, ptr %0, i64 408
   %86 = load ptr, ptr %y4.i54.i, align 8
   %arrayidx7.i56.i = getelementptr inbounds float, ptr %86, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i56.i, align 4
-  %z9.i58.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 3
+  %z9.i58.i = getelementptr inbounds i8, ptr %0, i64 416
   %87 = load ptr, ptr %z9.i58.i, align 8
   %arrayidx12.i60.i = getelementptr inbounds float, ptr %87, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i60.i, align 4
-  %x2.i63.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 1
+  %x2.i63.i = getelementptr inbounds i8, ptr %0, i64 432
   %88 = load ptr, ptr %x2.i63.i, align 8
   %arrayidx.i66.i = getelementptr inbounds float, ptr %88, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i66.i, align 4
-  %y4.i68.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 2
+  %y4.i68.i = getelementptr inbounds i8, ptr %0, i64 440
   %89 = load ptr, ptr %y4.i68.i, align 8
   %arrayidx7.i70.i = getelementptr inbounds float, ptr %89, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i70.i, align 4
-  %z9.i72.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 3
+  %z9.i72.i = getelementptr inbounds i8, ptr %0, i64 448
   %90 = load ptr, ptr %z9.i72.i, align 8
   %arrayidx12.i74.i = getelementptr inbounds float, ptr %90, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i74.i, align 4
-  %ptr4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 9, i32 1
+  %ptr4.i.i = getelementptr inbounds i8, ptr %0, i64 464
   %91 = load ptr, ptr %ptr4.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %91, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i.i, i8 0, i64 16, i1 false)
@@ -5592,70 +5536,70 @@ if.end53:                                         ; preds = %invoke.cont48, %if.
   br i1 %tobool.i65.not, label %if.else, label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %if.end53
-  %94 = getelementptr inbounds %class.anon.74, ptr %this, i64 0, i32 4
+  %94 = getelementptr inbounds i8, ptr %this, i64 144
   %95 = load ptr, ptr %94, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp10.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp17.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp20.i)
-  %size.i.i = getelementptr inbounds %"class.pbrt::WorkQueue", ptr %95, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %95, i64 400
   %96 = atomicrmw add ptr %size.i.i, i32 1 monotonic, align 4
   %97 = load float, ptr %cameraRay, align 16
-  %x2.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 1, i32 1
+  %x2.i.i.i = getelementptr inbounds i8, ptr %95, i64 24
   %98 = load ptr, ptr %x2.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %96 to i64
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %98, i64 %idxprom.i.i.i
   store float %97, ptr %arrayidx.i.i.i, align 4
-  %y.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %99 = load float, ptr %y.i.i.i, align 4
-  %y4.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 1, i32 2
+  %y4.i.i.i = getelementptr inbounds i8, ptr %95, i64 32
   %100 = load ptr, ptr %y4.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr inbounds float, ptr %100, i64 %idxprom.i.i.i
   store float %99, ptr %arrayidx7.i.i.i, align 4
-  %z.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %101 = load float, ptr %z.i.i.i, align 8
-  %z9.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 1, i32 3
+  %z9.i.i.i = getelementptr inbounds i8, ptr %95, i64 40
   %102 = load ptr, ptr %z9.i.i.i, align 8
   %arrayidx12.i.i.i = getelementptr inbounds float, ptr %102, i64 %idxprom.i.i.i
   store float %101, ptr %arrayidx12.i.i.i, align 4
-  %d.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %103 = load float, ptr %d.i.i, align 4
-  %x2.i6.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 2, i32 1
+  %x2.i6.i.i = getelementptr inbounds i8, ptr %95, i64 56
   %104 = load ptr, ptr %x2.i6.i.i, align 8
   %arrayidx.i9.i.i = getelementptr inbounds float, ptr %104, i64 %idxprom.i.i.i
   store float %103, ptr %arrayidx.i9.i.i, align 4
-  %y.i10.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 1
+  %y.i10.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 16
   %105 = load float, ptr %y.i10.i.i, align 16
-  %y4.i11.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 2, i32 2
+  %y4.i11.i.i = getelementptr inbounds i8, ptr %95, i64 64
   %106 = load ptr, ptr %y4.i11.i.i, align 8
   %arrayidx7.i13.i.i = getelementptr inbounds float, ptr %106, i64 %idxprom.i.i.i
   store float %105, ptr %arrayidx7.i13.i.i, align 4
-  %z.i14.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %z.i14.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %107 = load float, ptr %z.i14.i.i, align 4
-  %z9.i15.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 2, i32 3
+  %z9.i15.i.i = getelementptr inbounds i8, ptr %95, i64 72
   %108 = load ptr, ptr %z9.i15.i.i, align 8
   %arrayidx12.i17.i.i = getelementptr inbounds float, ptr %108, i64 %idxprom.i.i.i
   store float %107, ptr %arrayidx12.i17.i.i, align 4
-  %time.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 2
+  %time.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 24
   %109 = load float, ptr %time.i.i, align 8
-  %time9.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 3
+  %time9.i.i = getelementptr inbounds i8, ptr %95, i64 80
   %110 = load ptr, ptr %time9.i.i, align 8
   %arrayidx.i.i71 = getelementptr inbounds float, ptr %110, i64 %idxprom.i.i.i
   store float %109, ptr %arrayidx.i.i71, align 4
-  %medium.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 3
-  %medium12.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 1, i32 4
+  %medium.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 32
+  %medium12.i.i = getelementptr inbounds i8, ptr %95, i64 88
   %111 = load ptr, ptr %medium12.i.i, align 8
   %arrayidx15.i.i = getelementptr inbounds %"class.pbrt::Medium", ptr %111, i64 %idxprom.i.i.i
   %112 = load i64, ptr %medium.i.i, align 16
   store i64 %112, ptr %arrayidx15.i.i, align 8
-  %depth.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %95, i64 96
   %113 = load ptr, ptr %depth.i, align 8
   %arrayidx.i72 = getelementptr inbounds i32, ptr %113, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx.i72, align 4
-  %pixelIndex4.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 3
+  %pixelIndex4.i = getelementptr inbounds i8, ptr %95, i64 104
   %114 = load ptr, ptr %pixelIndex4.i, align 8
   %arrayidx6.i = getelementptr inbounds i32, ptr %114, i64 %idxprom.i.i.i
   store i32 %pixelIndex, ptr %arrayidx6.i, align 4
-  %lambda4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 4, i32 1
+  %lambda4.i.i = getelementptr inbounds i8, ptr %95, i64 120
   %115 = load ptr, ptr %lambda4.i.i, align 8
   %add.ptr.i.i73 = getelementptr inbounds %"struct.pbrt::Float4", ptr %115, i64 %idxprom.i.i.i
   %116 = load <4 x float>, ptr %lambda, align 16
@@ -5665,7 +5609,7 @@ invoke.cont56:                                    ; preds = %if.end53
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i74, ptr %add.ptr.i.i73, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i76 = getelementptr inbounds i8, ptr %add.ptr.i.i73, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i.i75, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i76, align 8
-  %pdf4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 4, i32 2
+  %pdf4.i.i = getelementptr inbounds i8, ptr %95, i64 128
   %118 = load ptr, ptr %pdf4.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %118, i64 %idxprom.i.i.i
   %119 = load <4 x float>, ptr %pdf.i, align 16
@@ -5686,7 +5630,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   br i1 %exitcond.not.i.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit.i, label %for.body.i.i.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
-  %ptr4.i.i77 = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 5, i32 1
+  %ptr4.i.i77 = getelementptr inbounds i8, ptr %95, i64 160
   %120 = load ptr, ptr %ptr4.i.i77, align 8
   %add.ptr.i18.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %120, i64 %idxprom.i.i.i
   %121 = load <4 x float>, ptr %ref.tmp10.i, align 16
@@ -5695,11 +5639,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i19.i, ptr %add.ptr.i18.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i = getelementptr inbounds i8, ptr %add.ptr.i18.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i20.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i, align 8
-  %etaScale.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 9
+  %etaScale.i = getelementptr inbounds i8, ptr %95, i64 376
   %122 = load ptr, ptr %etaScale.i, align 8
   %arrayidx14.i = getelementptr inbounds float, ptr %122, i64 %idxprom.i.i.i
   store float 1.000000e+00, ptr %arrayidx14.i, align 4
-  %anyNonSpecularBounces.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 11
+  %anyNonSpecularBounces.i = getelementptr inbounds i8, ptr %95, i64 392
   %123 = load ptr, ptr %anyNonSpecularBounces.i, align 8
   %arrayidx16.i = getelementptr inbounds i32, ptr %123, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx16.i, align 4
@@ -5715,7 +5659,7 @@ for.body.i.i22.i:                                 ; preds = %for.body.i.i22.i, %
   br i1 %exitcond.not.i.i26.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit27.i, label %for.body.i.i22.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit27.i:           ; preds = %for.body.i.i22.i
-  %ptr4.i31.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 6, i32 1
+  %ptr4.i31.i = getelementptr inbounds i8, ptr %95, i64 184
   %124 = load ptr, ptr %ptr4.i31.i, align 8
   %add.ptr.i33.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %124, i64 %idxprom.i.i.i
   %125 = load <4 x float>, ptr %ref.tmp17.i, align 16
@@ -5736,7 +5680,7 @@ for.body.i.i37.i:                                 ; preds = %for.body.i.i37.i, %
   br i1 %exitcond.not.i.i41.i, label %invoke.cont59, label %for.body.i.i37.i, !llvm.loop !24
 
 invoke.cont59:                                    ; preds = %for.body.i.i37.i
-  %ptr4.i46.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 7, i32 1
+  %ptr4.i46.i = getelementptr inbounds i8, ptr %95, i64 208
   %126 = load ptr, ptr %ptr4.i46.i, align 8
   %add.ptr.i48.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %126, i64 %idxprom.i.i.i
   %127 = load <4 x float>, ptr %ref.tmp20.i, align 16
@@ -5745,7 +5689,7 @@ invoke.cont59:                                    ; preds = %for.body.i.i37.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i49.i, ptr %add.ptr.i48.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i = getelementptr inbounds i8, ptr %add.ptr.i48.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i50.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i, align 8
-  %specularBounce.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %95, i64 0, i32 10
+  %specularBounce.i = getelementptr inbounds i8, ptr %95, i64 384
   %128 = load ptr, ptr %specularBounce.i, align 8
   %arrayidx24.i = getelementptr inbounds i32, ptr %128, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx24.i, align 4
@@ -5762,8 +5706,8 @@ land.rhs.i.i80.invoke:                            ; preds = %invoke.cont26, %inv
   unreachable
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  %weight = getelementptr inbounds %"struct.pbrt::CameraRay", ptr %cameraRay, i64 0, i32 1
-  %ptr4.i86 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %weight = getelementptr inbounds i8, ptr %cameraRay, i64 40
+  %ptr4.i86 = getelementptr inbounds i8, ptr %0, i64 232
   %131 = load ptr, ptr %ptr4.i86, align 8
   %add.ptr.i88 = getelementptr inbounds %"struct.pbrt::Float4", ptr %131, i64 %idxprom.i
   %132 = load <4 x float>, ptr %weight, align 8
@@ -5775,7 +5719,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
   br label %return
 
 if.else:                                          ; preds = %if.end53
-  %ptr4.i101 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %ptr4.i101 = getelementptr inbounds i8, ptr %0, i64 232
   %133 = load ptr, ptr %ptr4.i101, align 8
   %add.ptr.i103 = getelementptr inbounds %"struct.pbrt::Float4", ptr %133, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i103, i8 0, i64 16, i1 false)
@@ -5789,11 +5733,11 @@ return:                                           ; preds = %invoke.cont61, %if.
 define linkonce_odr dso_local noundef float @_ZN4pbrt17StratifiedSampler5Get1DEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %buf.i = alloca [2 x i64], align 16
-  %pixel = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 5
+  %pixel = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %pixel, align 8
-  %dimension = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 7
+  %dimension = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %dimension, align 4
-  %seed = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 2
+  %seed = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %seed, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %buf.i, align 16
@@ -5825,10 +5769,10 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %while.body.i.i
   %shr42.i.i = lshr i64 %mul41.i.i, 47
   %xor43.i.i = xor i64 %shr42.i.i, %mul41.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
-  %sampleIndex = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 6
+  %sampleIndex = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i32, ptr %sampleIndex, align 8
   %3 = load i32, ptr %this, align 8
-  %yPixelSamples.i = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 1
+  %yPixelSamples.i = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i32, ptr %yPixelSamples.i, align 4
   %mul.i = mul nsw i32 %4, %3
   %conv = trunc i64 %xor43.i.i to i32
@@ -5887,17 +5831,17 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN4pbr
 _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %dimension, align 4
-  %jitter = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 3
+  %jitter = getelementptr inbounds i8, ptr %this, i64 12
   %6 = load i8, ptr %jitter, align 4
   %7 = and i8 %6, 1
   %tobool.not = icmp eq i8 %7, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
-  %rng = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 4
+  %rng = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %rng, align 8
   %mul.i.i = mul i64 %8, 6364136223846793005
-  %inc.i.i = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 4, i32 1
+  %inc.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load i64, ptr %inc.i.i, align 8
   %add.i.i = add i64 %mul.i.i, %9
   store i64 %add.i.i, ptr %rng, align 8
@@ -5933,11 +5877,11 @@ cond.end:                                         ; preds = %_ZN4pbrt18Permutati
 define linkonce_odr dso_local <2 x float> @_ZN4pbrt17StratifiedSampler5Get2DEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #8 comdat align 2 {
 entry:
   %buf.i = alloca [2 x i64], align 16
-  %pixel = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 5
+  %pixel = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %pixel, align 8
-  %dimension = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 7
+  %dimension = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %dimension, align 4
-  %seed = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 2
+  %seed = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %seed, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %buf.i, align 16
@@ -5969,7 +5913,7 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %while.body.i.i
   %shr42.i.i = lshr i64 %mul41.i.i, 47
   %xor43.i.i = xor i64 %shr42.i.i, %mul41.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
-  %sampleIndex = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 6
+  %sampleIndex = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i32, ptr %sampleIndex, align 8
   %3 = load <2 x i32>, ptr %this, align 8
   %4 = extractelement <2 x i32> %3, i64 0
@@ -6031,17 +5975,17 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN4pbr
 _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   %add = add nsw i32 %0, 2
   store i32 %add, ptr %dimension, align 4
-  %jitter = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 3
+  %jitter = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load i8, ptr %jitter, align 4
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %cond.end13, label %cond.true9
 
 cond.true9:                                       ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
-  %rng = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 4
+  %rng = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %rng, align 8
   %mul.i.i = mul i64 %9, 6364136223846793005
-  %inc.i.i = getelementptr inbounds %"class.pbrt::StratifiedSampler", ptr %this, i64 0, i32 4, i32 1
+  %inc.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load i64, ptr %inc.i.i, align 8
   %add.i.i = add i64 %mul.i.i, %10
   %mul.i.i4 = mul i64 %add.i.i, 6364136223846793005
@@ -6087,7 +6031,7 @@ entry:
   %agg.tmp.i = alloca %"class.std::function.26", align 8
   %agg.tmp = alloca %"class.std::function", align 8
   %0 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %useGPU = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %0, i64 0, i32 7
+  %useGPU = getelementptr inbounds i8, ptr %0, i64 10
   %1 = load i8, ptr %useGPU, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -6099,8 +6043,8 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %conv = sext i32 %nItems to i64
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #20
@@ -6109,8 +6053,8 @@ if.else:                                          ; preds = %entry
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_13HaltonSamplerEEEviNS1_9TransformEiEUliE_E9_M_invokeERKSt9_Any_dataOl, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_13HaltonSamplerEEEviNS1_9TransformEiEUliE_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.26", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 0, ptr %4, align 8
   %5 = ptrtoint ptr %agg.tmp to i64
@@ -6259,13 +6203,13 @@ entry:
   %agg.tmp19 = alloca %"class.pbrt::Filter", align 8
   %cameraRay = alloca %"class.pstd::optional.33", align 16
   %0 = load ptr, ptr %this, align 8
-  %film = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 8
+  %film = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i64, ptr %film, align 8
   %and.i.i.i = and i64 %1, 144115188075855871
   %2 = inttoptr i64 %and.i.i.i to ptr
-  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %retval.sroa.2.0.copyload.i.i15.pn.i.i.i = load i64, ptr %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i, align 8
-  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1
+  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
@@ -6276,16 +6220,16 @@ entry:
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
-  %3 = getelementptr inbounds %class.anon.75, ptr %this, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %3, align 8
   %div = sdiv i32 %pixelIndex, %sub
   %add5 = add nsw i32 %div, %4
-  %x2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 1
+  %x2.i = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %x2.i, align 8
   %idxprom.i = sext i32 %pixelIndex to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
   store i32 %add, ptr %arrayidx.i, align 4
-  %y4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 2
+  %y4.i = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %y4.i, align 8
   %arrayidx7.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   store i32 %add5, ptr %arrayidx7.i, align 4
@@ -6303,15 +6247,15 @@ if.end:                                           ; preds = %entry
   %pPixel.sroa.5.0.insert.shift147 = shl nuw i64 %pPixel.sroa.5.0.insert.ext146, 32
   %pPixel.sroa.0.0.insert.ext139 = zext i32 %add to i64
   %pPixel.sroa.0.0.insert.insert141 = or disjoint i64 %pPixel.sroa.5.0.insert.shift147, %pPixel.sroa.0.0.insert.ext139
-  %sampler = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 9
+  %sampler = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load i64, ptr %sampler, align 8
   %and.i.i = and i64 %7, 144115188075855871
   %8 = inttoptr i64 %and.i.i to ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %pixelSampler, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false)
-  %9 = getelementptr inbounds %class.anon.75, ptr %this, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %this, i64 12
   %10 = load i32, ptr %9, align 4
   call void @_ZN4pbrt13HaltonSampler16StartPixelSampleENS_6Point2IiEEii(ptr noundef nonnull align 8 dereferenceable(52) %pixelSampler, i64 %pPixel.sroa.0.0.insert.insert141, i32 noundef %10, i32 noundef 0)
-  %dimension.i = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %pixelSampler, i64 0, i32 7
+  %dimension.i = getelementptr inbounds i8, ptr %pixelSampler, i64 48
   %11 = load i32, ptr %dimension.i, align 8
   %cmp.i = icmp sgt i32 %11, 999
   %spec.select.i = select i1 %cmp.i, i32 2, i32 %11
@@ -6319,7 +6263,7 @@ if.end:                                           ; preds = %entry
   store i32 %inc.i, ptr %dimension.i, align 8
   %call.i = call noundef float @_ZNK4pbrt13HaltonSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(52) %pixelSampler, i32 noundef %spec.select.i)
   %12 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %disableWavelengthJitter = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %12, i64 0, i32 3
+  %disableWavelengthJitter = getelementptr inbounds i8, ptr %12, i64 6
   %13 = load i8, ptr %disableWavelengthJitter, align 2
   %14 = and i8 %13, 1
   %tobool.not = icmp eq i8 %14, 0
@@ -6337,11 +6281,11 @@ if.end:                                           ; preds = %entry
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %lambda, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %16, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sample.i)
-  %filter = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 7
+  %filter = getelementptr inbounds i8, ptr %0, i64 48
   %17 = load i64, ptr %filter, align 8
   store i64 %17, ptr %agg.tmp19, align 8
   call void @_ZN4pbrt15GetCameraSampleINS_13HaltonSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE(ptr nonnull sret(%"struct.pbrt::CameraSample") align 4 %cameraSample, ptr noundef nonnull byval(%"class.pbrt::HaltonSampler") align 8 %pixelSampler, i64 %pPixel.sroa.0.0.insert.insert141, ptr noundef nonnull %agg.tmp19)
-  %camera = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 10
+  %camera = getelementptr inbounds i8, ptr %0, i64 72
   %18 = load i64, ptr %camera, align 8, !noalias !100
   %and.i.i.i13 = and i64 %18, 144115188075855871
   %19 = inttoptr i64 %and.i.i.i13 to ptr
@@ -6370,33 +6314,33 @@ sw.default.i.i:                                   ; preds = %if.end
   br label %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
 
 _ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit: ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.default.i.i
-  %set.i = getelementptr inbounds %"class.pstd::optional.33", ptr %cameraRay, i64 0, i32 1
+  %set.i = getelementptr inbounds i8, ptr %cameraRay, i64 56
   %20 = load i8, ptr %set.i, align 8
   %21 = and i8 %20, 1
   %tobool.i.not = icmp eq i8 %21, 0
   br i1 %tobool.i.not, label %if.end32, label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %22 = getelementptr inbounds %class.anon.75, ptr %this, i64 0, i32 3
+  %22 = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %23 = load <4 x float>, ptr %cameraRay, align 16, !noalias !105
   %agg.tmp.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %23, <4 x float> poison, <2 x i32> zeroinitializer
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %24 = load <4 x float>, ptr %y.i.i, align 4, !noalias !105
   %agg.tmp2.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %24, <4 x float> poison, <2 x i32> zeroinitializer
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %25 = load <4 x float>, ptr %z.i.i, align 8, !noalias !105
   %agg.tmp3.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %25, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !105
-  %y3.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 1
+  %y3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !105
-  %z4.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 2
+  %z4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !105
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %22, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i)
-  %d3.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d3.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !105
-  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !105
   %call.i1619 = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %22, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i)
   %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i1619, 0
@@ -6415,19 +6359,19 @@ if.then.i:                                        ; preds = %invoke.cont
   %29 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %28)
   %30 = extractelement <2 x float> %call.fca.0.extract.i, i64 1
   %31 = call noundef float @llvm.fabs.f32(float %30)
-  %high.i.i.i = getelementptr inbounds %"class.pbrt::Interval", ptr %o.i, i64 0, i32 1
+  %high.i.i.i = getelementptr inbounds i8, ptr %o.i, i64 4
   %32 = load <4 x float>, ptr %high.i.i.i, align 4
   %33 = shufflevector <4 x float> %32, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %34 = load <4 x float>, ptr %o.i, align 16
   %35 = shufflevector <4 x float> %34, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %y.i7.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1
-  %high.i1.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1, i32 1
+  %y.i7.i = getelementptr inbounds i8, ptr %o.i, i64 8
+  %high.i1.i.i = getelementptr inbounds i8, ptr %o.i, i64 12
   %36 = load float, ptr %high.i1.i.i, align 4, !noalias !105
   %37 = load float, ptr %y.i7.i, align 8, !noalias !105
   %sub.i2.i.i = fsub float %36, %37
   %div3.i.i = fmul float %sub.i2.i.i, 5.000000e-01
-  %z.i8.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2
-  %high.i3.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2, i32 1
+  %z.i8.i = getelementptr inbounds i8, ptr %o.i, i64 16
+  %high.i3.i.i = getelementptr inbounds i8, ptr %o.i, i64 20
   %38 = load float, ptr %high.i3.i.i, align 4, !noalias !105
   %39 = load float, ptr %z.i8.i, align 16, !noalias !105
   %mul4.i.i = fmul float %31, %div3.i.i
@@ -6479,12 +6423,12 @@ invoke.cont27:                                    ; preds = %invoke.cont26
   br label %if.end32
 
 if.end32:                                         ; preds = %invoke.cont27, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %ptr4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 4, i32 1
+  %ptr4.i = getelementptr inbounds i8, ptr %0, i64 208
   %58 = load ptr, ptr %ptr4.i, align 8
   %add.ptr.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %58, i64 %idxprom.i
-  %arrayidx.i23.i = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 2
-  %pdf.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1
-  %lambda4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 1
+  %arrayidx.i23.i = getelementptr inbounds i8, ptr %lambda, i64 8
+  %pdf.i = getelementptr inbounds i8, ptr %lambda, i64 16
+  %lambda4.i = getelementptr inbounds i8, ptr %0, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   %59 = load ptr, ptr %lambda4.i, align 8
   %add.ptr.i35 = getelementptr inbounds %"struct.pbrt::Float4", ptr %59, i64 %idxprom.i
@@ -6495,7 +6439,7 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i36, ptr %add.ptr.i35, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i38 = getelementptr inbounds i8, ptr %add.ptr.i35, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i37, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i38, align 8
-  %pdf4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 2
+  %pdf4.i = getelementptr inbounds i8, ptr %0, i64 176
   %62 = load ptr, ptr %pdf4.i, align 8
   %add.ptr21.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %62, i64 %idxprom.i
   %63 = load <4 x float>, ptr %pdf.i, align 16
@@ -6504,9 +6448,9 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   store <2 x float> %agg.tmp22.sroa.0.4.vec.insert.i, ptr %add.ptr21.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i28.i = getelementptr inbounds i8, ptr %add.ptr21.i, i64 8
   store <2 x float> %agg.tmp22.sroa.3.12.vec.insert.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i28.i, align 8
-  %filterWeight = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %cameraSample, i64 0, i32 3
+  %filterWeight = getelementptr inbounds i8, ptr %cameraSample, i64 20
   %64 = load float, ptr %filterWeight, align 4
-  %filterWeight44 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 1
+  %filterWeight44 = getelementptr inbounds i8, ptr %0, i64 128
   %65 = load ptr, ptr %filterWeight44, align 8
   %arrayidx = getelementptr inbounds float, ptr %65, i64 %idxprom.i
   store float %64, ptr %arrayidx, align 4
@@ -6516,83 +6460,83 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   br i1 %tobool45.not, label %if.end53, label %invoke.cont48
 
 invoke.cont48:                                    ; preds = %if.end32
-  %set2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 1
+  %set2.i = getelementptr inbounds i8, ptr %0, i64 256
   %68 = load ptr, ptr %set2.i, align 8
   %arrayidx.i44 = getelementptr inbounds i8, ptr %68, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i44, align 1
-  %x2.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 1
+  %x2.i.i = getelementptr inbounds i8, ptr %0, i64 272
   %69 = load ptr, ptr %x2.i.i, align 8
   %arrayidx.i.i45 = getelementptr inbounds float, ptr %69, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i.i45, align 4
-  %y4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 2
+  %y4.i.i = getelementptr inbounds i8, ptr %0, i64 280
   %70 = load ptr, ptr %y4.i.i, align 8
   %arrayidx7.i.i = getelementptr inbounds float, ptr %70, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i.i, align 4
-  %z9.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 3
+  %z9.i.i = getelementptr inbounds i8, ptr %0, i64 288
   %71 = load ptr, ptr %z9.i.i, align 8
   %arrayidx12.i.i = getelementptr inbounds float, ptr %71, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i.i, align 4
-  %x2.i11.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 1
+  %x2.i11.i = getelementptr inbounds i8, ptr %0, i64 304
   %72 = load ptr, ptr %x2.i11.i, align 8
   %arrayidx.i14.i = getelementptr inbounds float, ptr %72, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i14.i, align 4
-  %y4.i16.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 2
+  %y4.i16.i = getelementptr inbounds i8, ptr %0, i64 312
   %73 = load ptr, ptr %y4.i16.i, align 8
   %arrayidx7.i18.i = getelementptr inbounds float, ptr %73, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i18.i, align 4
-  %z9.i20.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 3
+  %z9.i20.i = getelementptr inbounds i8, ptr %0, i64 320
   %74 = load ptr, ptr %z9.i20.i, align 8
   %arrayidx12.i22.i = getelementptr inbounds float, ptr %74, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i22.i, align 4
-  %x2.i25.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 1
+  %x2.i25.i = getelementptr inbounds i8, ptr %0, i64 336
   %75 = load ptr, ptr %x2.i25.i, align 8
   %arrayidx.i28.i = getelementptr inbounds float, ptr %75, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i28.i, align 4
-  %y4.i30.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 2
+  %y4.i30.i = getelementptr inbounds i8, ptr %0, i64 344
   %76 = load ptr, ptr %y4.i30.i, align 8
   %arrayidx7.i32.i = getelementptr inbounds float, ptr %76, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i32.i, align 4
-  %z9.i34.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 3
+  %z9.i34.i = getelementptr inbounds i8, ptr %0, i64 352
   %77 = load ptr, ptr %z9.i34.i, align 8
   %arrayidx12.i36.i = getelementptr inbounds float, ptr %77, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i36.i, align 4
-  %x2.i39.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 1
+  %x2.i39.i = getelementptr inbounds i8, ptr %0, i64 368
   %78 = load ptr, ptr %x2.i39.i, align 8
   %arrayidx.i42.i = getelementptr inbounds float, ptr %78, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i42.i, align 4
-  %y4.i44.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 2
+  %y4.i44.i = getelementptr inbounds i8, ptr %0, i64 376
   %79 = load ptr, ptr %y4.i44.i, align 8
   %arrayidx7.i46.i = getelementptr inbounds float, ptr %79, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i46.i, align 4
-  %time22.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 6
+  %time22.i = getelementptr inbounds i8, ptr %0, i64 384
   %80 = load ptr, ptr %time22.i, align 8
   %arrayidx25.i = getelementptr inbounds float, ptr %80, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx25.i, align 4
-  %x2.i49.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 1
+  %x2.i49.i = getelementptr inbounds i8, ptr %0, i64 400
   %81 = load ptr, ptr %x2.i49.i, align 8
   %arrayidx.i52.i = getelementptr inbounds float, ptr %81, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i52.i, align 4
-  %y4.i54.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 2
+  %y4.i54.i = getelementptr inbounds i8, ptr %0, i64 408
   %82 = load ptr, ptr %y4.i54.i, align 8
   %arrayidx7.i56.i = getelementptr inbounds float, ptr %82, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i56.i, align 4
-  %z9.i58.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 3
+  %z9.i58.i = getelementptr inbounds i8, ptr %0, i64 416
   %83 = load ptr, ptr %z9.i58.i, align 8
   %arrayidx12.i60.i = getelementptr inbounds float, ptr %83, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i60.i, align 4
-  %x2.i63.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 1
+  %x2.i63.i = getelementptr inbounds i8, ptr %0, i64 432
   %84 = load ptr, ptr %x2.i63.i, align 8
   %arrayidx.i66.i = getelementptr inbounds float, ptr %84, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i66.i, align 4
-  %y4.i68.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 2
+  %y4.i68.i = getelementptr inbounds i8, ptr %0, i64 440
   %85 = load ptr, ptr %y4.i68.i, align 8
   %arrayidx7.i70.i = getelementptr inbounds float, ptr %85, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i70.i, align 4
-  %z9.i72.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 3
+  %z9.i72.i = getelementptr inbounds i8, ptr %0, i64 448
   %86 = load ptr, ptr %z9.i72.i, align 8
   %arrayidx12.i74.i = getelementptr inbounds float, ptr %86, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i74.i, align 4
-  %ptr4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 9, i32 1
+  %ptr4.i.i = getelementptr inbounds i8, ptr %0, i64 464
   %87 = load ptr, ptr %ptr4.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %87, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i.i, i8 0, i64 16, i1 false)
@@ -6605,70 +6549,70 @@ if.end53:                                         ; preds = %invoke.cont48, %if.
   br i1 %tobool.i51.not, label %if.else, label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %if.end53
-  %90 = getelementptr inbounds %class.anon.75, ptr %this, i64 0, i32 4
+  %90 = getelementptr inbounds i8, ptr %this, i64 144
   %91 = load ptr, ptr %90, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp10.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp17.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp20.i)
-  %size.i.i = getelementptr inbounds %"class.pbrt::WorkQueue", ptr %91, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %91, i64 400
   %92 = atomicrmw add ptr %size.i.i, i32 1 monotonic, align 4
   %93 = load float, ptr %cameraRay, align 16
-  %x2.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 1, i32 1, i32 1
+  %x2.i.i.i = getelementptr inbounds i8, ptr %91, i64 24
   %94 = load ptr, ptr %x2.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %92 to i64
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %94, i64 %idxprom.i.i.i
   store float %93, ptr %arrayidx.i.i.i, align 4
-  %y.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %95 = load float, ptr %y.i.i.i, align 4
-  %y4.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 1, i32 1, i32 2
+  %y4.i.i.i = getelementptr inbounds i8, ptr %91, i64 32
   %96 = load ptr, ptr %y4.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr inbounds float, ptr %96, i64 %idxprom.i.i.i
   store float %95, ptr %arrayidx7.i.i.i, align 4
-  %z.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %97 = load float, ptr %z.i.i.i, align 8
-  %z9.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 1, i32 1, i32 3
+  %z9.i.i.i = getelementptr inbounds i8, ptr %91, i64 40
   %98 = load ptr, ptr %z9.i.i.i, align 8
   %arrayidx12.i.i.i = getelementptr inbounds float, ptr %98, i64 %idxprom.i.i.i
   store float %97, ptr %arrayidx12.i.i.i, align 4
-  %d.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %99 = load float, ptr %d.i.i, align 4
-  %x2.i6.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 1, i32 2, i32 1
+  %x2.i6.i.i = getelementptr inbounds i8, ptr %91, i64 56
   %100 = load ptr, ptr %x2.i6.i.i, align 8
   %arrayidx.i9.i.i = getelementptr inbounds float, ptr %100, i64 %idxprom.i.i.i
   store float %99, ptr %arrayidx.i9.i.i, align 4
-  %y.i10.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 1
+  %y.i10.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 16
   %101 = load float, ptr %y.i10.i.i, align 16
-  %y4.i11.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 1, i32 2, i32 2
+  %y4.i11.i.i = getelementptr inbounds i8, ptr %91, i64 64
   %102 = load ptr, ptr %y4.i11.i.i, align 8
   %arrayidx7.i13.i.i = getelementptr inbounds float, ptr %102, i64 %idxprom.i.i.i
   store float %101, ptr %arrayidx7.i13.i.i, align 4
-  %z.i14.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %z.i14.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %103 = load float, ptr %z.i14.i.i, align 4
-  %z9.i15.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 1, i32 2, i32 3
+  %z9.i15.i.i = getelementptr inbounds i8, ptr %91, i64 72
   %104 = load ptr, ptr %z9.i15.i.i, align 8
   %arrayidx12.i17.i.i = getelementptr inbounds float, ptr %104, i64 %idxprom.i.i.i
   store float %103, ptr %arrayidx12.i17.i.i, align 4
-  %time.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 2
+  %time.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 24
   %105 = load float, ptr %time.i.i, align 8
-  %time9.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 1, i32 3
+  %time9.i.i = getelementptr inbounds i8, ptr %91, i64 80
   %106 = load ptr, ptr %time9.i.i, align 8
   %arrayidx.i.i57 = getelementptr inbounds float, ptr %106, i64 %idxprom.i.i.i
   store float %105, ptr %arrayidx.i.i57, align 4
-  %medium.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 3
-  %medium12.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 1, i32 4
+  %medium.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 32
+  %medium12.i.i = getelementptr inbounds i8, ptr %91, i64 88
   %107 = load ptr, ptr %medium12.i.i, align 8
   %arrayidx15.i.i = getelementptr inbounds %"class.pbrt::Medium", ptr %107, i64 %idxprom.i.i.i
   %108 = load i64, ptr %medium.i.i, align 16
   store i64 %108, ptr %arrayidx15.i.i, align 8
-  %depth.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %91, i64 96
   %109 = load ptr, ptr %depth.i, align 8
   %arrayidx.i58 = getelementptr inbounds i32, ptr %109, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx.i58, align 4
-  %pixelIndex4.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 3
+  %pixelIndex4.i = getelementptr inbounds i8, ptr %91, i64 104
   %110 = load ptr, ptr %pixelIndex4.i, align 8
   %arrayidx6.i = getelementptr inbounds i32, ptr %110, i64 %idxprom.i.i.i
   store i32 %pixelIndex, ptr %arrayidx6.i, align 4
-  %lambda4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 4, i32 1
+  %lambda4.i.i = getelementptr inbounds i8, ptr %91, i64 120
   %111 = load ptr, ptr %lambda4.i.i, align 8
   %add.ptr.i.i59 = getelementptr inbounds %"struct.pbrt::Float4", ptr %111, i64 %idxprom.i.i.i
   %112 = load <4 x float>, ptr %lambda, align 16
@@ -6678,7 +6622,7 @@ invoke.cont56:                                    ; preds = %if.end53
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i60, ptr %add.ptr.i.i59, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i62 = getelementptr inbounds i8, ptr %add.ptr.i.i59, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i.i61, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i62, align 8
-  %pdf4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 4, i32 2
+  %pdf4.i.i = getelementptr inbounds i8, ptr %91, i64 128
   %114 = load ptr, ptr %pdf4.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %114, i64 %idxprom.i.i.i
   %115 = load <4 x float>, ptr %pdf.i, align 16
@@ -6699,7 +6643,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   br i1 %exitcond.not.i.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit.i, label %for.body.i.i.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
-  %ptr4.i.i63 = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 5, i32 1
+  %ptr4.i.i63 = getelementptr inbounds i8, ptr %91, i64 160
   %116 = load ptr, ptr %ptr4.i.i63, align 8
   %add.ptr.i18.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %116, i64 %idxprom.i.i.i
   %117 = load <4 x float>, ptr %ref.tmp10.i, align 16
@@ -6708,11 +6652,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i19.i, ptr %add.ptr.i18.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i = getelementptr inbounds i8, ptr %add.ptr.i18.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i20.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i, align 8
-  %etaScale.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 9
+  %etaScale.i = getelementptr inbounds i8, ptr %91, i64 376
   %118 = load ptr, ptr %etaScale.i, align 8
   %arrayidx14.i = getelementptr inbounds float, ptr %118, i64 %idxprom.i.i.i
   store float 1.000000e+00, ptr %arrayidx14.i, align 4
-  %anyNonSpecularBounces.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 11
+  %anyNonSpecularBounces.i = getelementptr inbounds i8, ptr %91, i64 392
   %119 = load ptr, ptr %anyNonSpecularBounces.i, align 8
   %arrayidx16.i = getelementptr inbounds i32, ptr %119, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx16.i, align 4
@@ -6728,7 +6672,7 @@ for.body.i.i22.i:                                 ; preds = %for.body.i.i22.i, %
   br i1 %exitcond.not.i.i26.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit27.i, label %for.body.i.i22.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit27.i:           ; preds = %for.body.i.i22.i
-  %ptr4.i31.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 6, i32 1
+  %ptr4.i31.i = getelementptr inbounds i8, ptr %91, i64 184
   %120 = load ptr, ptr %ptr4.i31.i, align 8
   %add.ptr.i33.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %120, i64 %idxprom.i.i.i
   %121 = load <4 x float>, ptr %ref.tmp17.i, align 16
@@ -6749,7 +6693,7 @@ for.body.i.i37.i:                                 ; preds = %for.body.i.i37.i, %
   br i1 %exitcond.not.i.i41.i, label %invoke.cont59, label %for.body.i.i37.i, !llvm.loop !24
 
 invoke.cont59:                                    ; preds = %for.body.i.i37.i
-  %ptr4.i46.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 7, i32 1
+  %ptr4.i46.i = getelementptr inbounds i8, ptr %91, i64 208
   %122 = load ptr, ptr %ptr4.i46.i, align 8
   %add.ptr.i48.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %122, i64 %idxprom.i.i.i
   %123 = load <4 x float>, ptr %ref.tmp20.i, align 16
@@ -6758,7 +6702,7 @@ invoke.cont59:                                    ; preds = %for.body.i.i37.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i49.i, ptr %add.ptr.i48.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i = getelementptr inbounds i8, ptr %add.ptr.i48.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i50.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i, align 8
-  %specularBounce.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %91, i64 0, i32 10
+  %specularBounce.i = getelementptr inbounds i8, ptr %91, i64 384
   %124 = load ptr, ptr %specularBounce.i, align 8
   %arrayidx24.i = getelementptr inbounds i32, ptr %124, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx24.i, align 4
@@ -6775,8 +6719,8 @@ land.rhs.i.i66.invoke:                            ; preds = %invoke.cont26, %inv
   unreachable
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  %weight = getelementptr inbounds %"struct.pbrt::CameraRay", ptr %cameraRay, i64 0, i32 1
-  %ptr4.i72 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %weight = getelementptr inbounds i8, ptr %cameraRay, i64 40
+  %ptr4.i72 = getelementptr inbounds i8, ptr %0, i64 232
   %127 = load ptr, ptr %ptr4.i72, align 8
   %add.ptr.i74 = getelementptr inbounds %"struct.pbrt::Float4", ptr %127, i64 %idxprom.i
   %128 = load <4 x float>, ptr %weight, align 8
@@ -6788,7 +6732,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
   br label %return
 
 if.else:                                          ; preds = %if.end53
-  %ptr4.i87 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %ptr4.i87 = getelementptr inbounds i8, ptr %0, i64 232
   %129 = load ptr, ptr %ptr4.i87, align 8
   %add.ptr.i89 = getelementptr inbounds %"struct.pbrt::Float4", ptr %129, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i89, i8 0, i64 16, i1 false)
@@ -6801,10 +6745,10 @@ return:                                           ; preds = %invoke.cont61, %if.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4pbrt13HaltonSampler16StartPixelSampleENS_6Point2IiEEii(ptr noundef nonnull align 8 dereferenceable(52) %this, i64 %p.coerce, i32 noundef %sampleIndex, i32 noundef %dim) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %baseScales = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 3
+  %baseScales = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %baseScales, align 8
-  %y.i14 = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %1 = load i32, ptr %y.i14, align 4
+  %cond-lvalue.i = getelementptr inbounds i8, ptr %this, i64 20
+  %1 = load i32, ptr %cond-lvalue.i, align 4
   %mul = mul nsw i32 %1, %0
   %cmp = icmp sgt i32 %mul, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -6812,146 +6756,147 @@ entry:
 if.then:                                          ; preds = %entry
   %p.sroa.2.0.extract.shift = lshr i64 %p.coerce, 32
   %cond.i = and i64 %p.coerce, 127
-  %cond.i19 = and i64 %p.sroa.2.0.extract.shift, 127
-  %y.i25 = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %2 = load i32, ptr %y.i25, align 4
+  %cond.i17 = and i64 %p.sroa.2.0.extract.shift, 127
+  %multInverse = getelementptr inbounds i8, ptr %this, i64 32
+  %cond-lvalue.i20 = getelementptr inbounds i8, ptr %this, i64 28
+  %2 = load i32, ptr %cond-lvalue.i20, align 4
   %.fr = freeze i32 %2
-  %cmp6.i26 = icmp sgt i32 %.fr, 0
-  %baseExponents = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 4
+  %cmp6.i21 = icmp sgt i32 %.fr, 0
+  %baseExponents = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %baseExponents, align 8
-  %.fr79 = freeze i32 %3
-  %cmp6.i = icmp sgt i32 %.fr79, 0
-  br i1 %cmp6.i26, label %if.then.split.us, label %if.then.split
+  %.fr77 = freeze i32 %3
+  %cmp6.i = icmp sgt i32 %.fr77, 0
+  br i1 %cmp6.i21, label %if.then.split.us, label %if.then.split
 
 if.then.split.us:                                 ; preds = %if.then
   br i1 %cmp6.i, label %for.body.us.us, label %for.body.us
 
 for.body.us.us:                                   ; preds = %if.then.split.us, %cond.end.us.us
   %cmp9.us.us = phi i1 [ false, %cond.end.us.us ], [ true, %if.then.split.us ]
-  %indvars.iv88 = phi i64 [ 1, %cond.end.us.us ], [ 0, %if.then.split.us ]
-  %4 = phi i64 [ %add.us.us, %cond.end.us.us ], [ 0, %if.then.split.us ]
-  br i1 %cmp9.us.us, label %for.body.i.us.us, label %for.body.i29.us.us
+  %indvars.iv86 = phi i64 [ 1, %cond.end.us.us ], [ 0, %if.then.split.us ]
+  %add4142.us.us = phi i64 [ %add.us.us, %cond.end.us.us ], [ 0, %if.then.split.us ]
+  br i1 %cmp9.us.us, label %for.body.i.us.us, label %for.body.i24.us.us
 
-for.body.i29.us.us:                               ; preds = %for.body.us.us, %for.body.i29.us.us
-  %inverse.addr.09.i30.us.us = phi i64 [ %div.i34.us.us, %for.body.i29.us.us ], [ %cond.i19, %for.body.us.us ]
-  %i.08.i31.us.us = phi i32 [ %inc.i37.us.us, %for.body.i29.us.us ], [ 0, %for.body.us.us ]
-  %index.07.i32.us.us = phi i64 [ %add.i36.us.us, %for.body.i29.us.us ], [ 0, %for.body.us.us ]
-  %rem.i33.us.us = urem i64 %inverse.addr.09.i30.us.us, 3
-  %div.i34.us.us = udiv i64 %inverse.addr.09.i30.us.us, 3
-  %mul.i35.us.us = mul i64 %index.07.i32.us.us, 3
-  %add.i36.us.us = add i64 %mul.i35.us.us, %rem.i33.us.us
-  %inc.i37.us.us = add nuw nsw i32 %i.08.i31.us.us, 1
-  %exitcond.not.i38.us.us = icmp eq i32 %inc.i37.us.us, %.fr
-  br i1 %exitcond.not.i38.us.us, label %cond.end.us.us, label %for.body.i29.us.us, !llvm.loop !108
+for.body.i24.us.us:                               ; preds = %for.body.us.us, %for.body.i24.us.us
+  %inverse.addr.09.i25.us.us = phi i64 [ %div.i29.us.us, %for.body.i24.us.us ], [ %cond.i17, %for.body.us.us ]
+  %i.08.i26.us.us = phi i32 [ %inc.i32.us.us, %for.body.i24.us.us ], [ 0, %for.body.us.us ]
+  %index.07.i27.us.us = phi i64 [ %add.i31.us.us, %for.body.i24.us.us ], [ 0, %for.body.us.us ]
+  %rem.i28.us.us = urem i64 %inverse.addr.09.i25.us.us, 3
+  %div.i29.us.us = udiv i64 %inverse.addr.09.i25.us.us, 3
+  %mul.i30.us.us = mul i64 %index.07.i27.us.us, 3
+  %add.i31.us.us = add i64 %mul.i30.us.us, %rem.i28.us.us
+  %inc.i32.us.us = add nuw nsw i32 %i.08.i26.us.us, 1
+  %exitcond.not.i33.us.us = icmp eq i32 %inc.i32.us.us, %.fr
+  br i1 %exitcond.not.i33.us.us, label %cond.end.us.us, label %for.body.i24.us.us, !llvm.loop !108
 
 for.body.i.us.us:                                 ; preds = %for.body.us.us, %for.body.i.us.us
-  %inverse.addr.09.i.us.us = phi i64 [ %div.i44.us.us, %for.body.i.us.us ], [ %cond.i, %for.body.us.us ]
+  %inverse.addr.09.i.us.us = phi i64 [ %div.i39.us.us, %for.body.i.us.us ], [ %cond.i, %for.body.us.us ]
   %i.08.i.us.us = phi i32 [ %inc.i.us.us, %for.body.i.us.us ], [ 0, %for.body.us.us ]
-  %index.07.i.us.us = phi i64 [ %add.i22.us.us, %for.body.i.us.us ], [ 0, %for.body.us.us ]
+  %index.07.i.us.us = phi i64 [ %add.i18.us.us, %for.body.i.us.us ], [ 0, %for.body.us.us ]
   %rem.i.us.us = and i64 %inverse.addr.09.i.us.us, 1
-  %div.i44.us.us = lshr i64 %inverse.addr.09.i.us.us, 1
+  %div.i39.us.us = lshr i64 %inverse.addr.09.i.us.us, 1
   %mul.i.us.us = shl i64 %index.07.i.us.us, 1
-  %add.i22.us.us = or disjoint i64 %mul.i.us.us, %rem.i.us.us
+  %add.i18.us.us = or disjoint i64 %mul.i.us.us, %rem.i.us.us
   %inc.i.us.us = add nuw nsw i32 %i.08.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i32 %inc.i.us.us, %.fr79
+  %exitcond.not.i.us.us = icmp eq i32 %inc.i.us.us, %.fr77
   br i1 %exitcond.not.i.us.us, label %cond.end.us.us, label %for.body.i.us.us, !llvm.loop !108
 
-cond.end.us.us:                                   ; preds = %for.body.i29.us.us, %for.body.i.us.us
-  %phi.call.us.us = phi ptr [ %baseScales, %for.body.i.us.us ], [ %y.i14, %for.body.i29.us.us ]
-  %cond.us.us = phi i64 [ %add.i22.us.us, %for.body.i.us.us ], [ %add.i36.us.us, %for.body.i29.us.us ]
-  %5 = load i32, ptr %phi.call.us.us, align 4
-  %div.us.us = sdiv i32 %mul, %5
+cond.end.us.us:                                   ; preds = %for.body.i24.us.us, %for.body.i.us.us
+  %phi.call.us.us = phi ptr [ %baseScales, %for.body.i.us.us ], [ %cond-lvalue.i, %for.body.i24.us.us ]
+  %cond.us.us = phi i64 [ %add.i18.us.us, %for.body.i.us.us ], [ %add.i31.us.us, %for.body.i24.us.us ]
+  %4 = load i32, ptr %phi.call.us.us, align 4
+  %div.us.us = sdiv i32 %mul, %4
   %conv20.us.us = sext i32 %div.us.us to i64
   %mul21.us.us = mul i64 %cond.us.us, %conv20.us.us
-  %arrayidx.us.us = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 5, i64 %indvars.iv88
-  %6 = load i32, ptr %arrayidx.us.us, align 4
-  %conv22.us.us = sext i32 %6 to i64
+  %arrayidx.us.us = getelementptr inbounds [2 x i32], ptr %multInverse, i64 0, i64 %indvars.iv86
+  %5 = load i32, ptr %arrayidx.us.us, align 4
+  %conv22.us.us = sext i32 %5 to i64
   %mul23.us.us = mul i64 %mul21.us.us, %conv22.us.us
-  %add.us.us = add i64 %mul23.us.us, %4
+  %add.us.us = add i64 %mul23.us.us, %add4142.us.us
   br i1 %cmp9.us.us, label %for.body.us.us, label %for.end, !llvm.loop !109
 
 for.body.us:                                      ; preds = %if.then.split.us, %cond.end.us
   %cmp9.us = phi i1 [ false, %cond.end.us ], [ true, %if.then.split.us ]
-  %indvars.iv85 = phi i64 [ 1, %cond.end.us ], [ 0, %if.then.split.us ]
-  %7 = phi i64 [ %add.us, %cond.end.us ], [ 0, %if.then.split.us ]
-  br i1 %cmp9.us, label %cond.end.us, label %for.body.i29.us
+  %indvars.iv83 = phi i64 [ 1, %cond.end.us ], [ 0, %if.then.split.us ]
+  %add4142.us = phi i64 [ %add.us, %cond.end.us ], [ 0, %if.then.split.us ]
+  br i1 %cmp9.us, label %cond.end.us, label %for.body.i24.us
 
-for.body.i29.us:                                  ; preds = %for.body.us, %for.body.i29.us
-  %inverse.addr.09.i30.us = phi i64 [ %div.i34.us, %for.body.i29.us ], [ %cond.i19, %for.body.us ]
-  %i.08.i31.us = phi i32 [ %inc.i37.us, %for.body.i29.us ], [ 0, %for.body.us ]
-  %index.07.i32.us = phi i64 [ %add.i36.us, %for.body.i29.us ], [ 0, %for.body.us ]
-  %rem.i33.us = urem i64 %inverse.addr.09.i30.us, 3
-  %div.i34.us = udiv i64 %inverse.addr.09.i30.us, 3
-  %mul.i35.us = mul i64 %index.07.i32.us, 3
-  %add.i36.us = add i64 %mul.i35.us, %rem.i33.us
-  %inc.i37.us = add nuw nsw i32 %i.08.i31.us, 1
-  %exitcond.not.i38.us = icmp eq i32 %inc.i37.us, %.fr
-  br i1 %exitcond.not.i38.us, label %cond.end.us, label %for.body.i29.us, !llvm.loop !108
+for.body.i24.us:                                  ; preds = %for.body.us, %for.body.i24.us
+  %inverse.addr.09.i25.us = phi i64 [ %div.i29.us, %for.body.i24.us ], [ %cond.i17, %for.body.us ]
+  %i.08.i26.us = phi i32 [ %inc.i32.us, %for.body.i24.us ], [ 0, %for.body.us ]
+  %index.07.i27.us = phi i64 [ %add.i31.us, %for.body.i24.us ], [ 0, %for.body.us ]
+  %rem.i28.us = urem i64 %inverse.addr.09.i25.us, 3
+  %div.i29.us = udiv i64 %inverse.addr.09.i25.us, 3
+  %mul.i30.us = mul i64 %index.07.i27.us, 3
+  %add.i31.us = add i64 %mul.i30.us, %rem.i28.us
+  %inc.i32.us = add nuw nsw i32 %i.08.i26.us, 1
+  %exitcond.not.i33.us = icmp eq i32 %inc.i32.us, %.fr
+  br i1 %exitcond.not.i33.us, label %cond.end.us, label %for.body.i24.us, !llvm.loop !108
 
-cond.end.us:                                      ; preds = %for.body.i29.us, %for.body.us
-  %phi.call.us = phi ptr [ %baseScales, %for.body.us ], [ %y.i14, %for.body.i29.us ]
-  %cond.us = phi i64 [ 0, %for.body.us ], [ %add.i36.us, %for.body.i29.us ]
-  %8 = load i32, ptr %phi.call.us, align 4
-  %div.us = sdiv i32 %mul, %8
+cond.end.us:                                      ; preds = %for.body.i24.us, %for.body.us
+  %phi.call.us = phi ptr [ %baseScales, %for.body.us ], [ %cond-lvalue.i, %for.body.i24.us ]
+  %cond.us = phi i64 [ 0, %for.body.us ], [ %add.i31.us, %for.body.i24.us ]
+  %6 = load i32, ptr %phi.call.us, align 4
+  %div.us = sdiv i32 %mul, %6
   %conv20.us = sext i32 %div.us to i64
   %mul21.us = mul i64 %cond.us, %conv20.us
-  %arrayidx.us = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 5, i64 %indvars.iv85
-  %9 = load i32, ptr %arrayidx.us, align 4
-  %conv22.us = sext i32 %9 to i64
+  %arrayidx.us = getelementptr inbounds [2 x i32], ptr %multInverse, i64 0, i64 %indvars.iv83
+  %7 = load i32, ptr %arrayidx.us, align 4
+  %conv22.us = sext i32 %7 to i64
   %mul23.us = mul i64 %mul21.us, %conv22.us
-  %add.us = add i64 %mul23.us, %7
+  %add.us = add i64 %mul23.us, %add4142.us
   br i1 %cmp9.us, label %for.body.us, label %for.end, !llvm.loop !109
 
 if.then.split:                                    ; preds = %if.then
-  br i1 %cmp6.i, label %for.body.us47, label %for.end
+  br i1 %cmp6.i, label %for.body.us44, label %for.end
 
-for.body.us47:                                    ; preds = %if.then.split, %cond.end.us62
-  %cmp9.us49 = phi i1 [ false, %cond.end.us62 ], [ true, %if.then.split ]
-  %indvars.iv = phi i64 [ 1, %cond.end.us62 ], [ 0, %if.then.split ]
-  %10 = phi i64 [ %add.us72, %cond.end.us62 ], [ 0, %if.then.split ]
-  br i1 %cmp9.us49, label %for.body.i.us52, label %cond.end.us62
+for.body.us44:                                    ; preds = %if.then.split, %cond.end.us60
+  %cmp9.us47 = phi i1 [ false, %cond.end.us60 ], [ true, %if.then.split ]
+  %indvars.iv = phi i64 [ 1, %cond.end.us60 ], [ 0, %if.then.split ]
+  %add4142.us46 = phi i64 [ %add.us70, %cond.end.us60 ], [ 0, %if.then.split ]
+  br i1 %cmp9.us47, label %for.body.i.us50, label %cond.end.us60
 
-for.body.i.us52:                                  ; preds = %for.body.us47, %for.body.i.us52
-  %inverse.addr.09.i.us53 = phi i64 [ %div.i44.us57, %for.body.i.us52 ], [ %cond.i, %for.body.us47 ]
-  %i.08.i.us54 = phi i32 [ %inc.i.us60, %for.body.i.us52 ], [ 0, %for.body.us47 ]
-  %index.07.i.us55 = phi i64 [ %add.i22.us59, %for.body.i.us52 ], [ 0, %for.body.us47 ]
-  %rem.i.us56 = and i64 %inverse.addr.09.i.us53, 1
-  %div.i44.us57 = lshr i64 %inverse.addr.09.i.us53, 1
-  %mul.i.us58 = shl i64 %index.07.i.us55, 1
-  %add.i22.us59 = or disjoint i64 %mul.i.us58, %rem.i.us56
-  %inc.i.us60 = add nuw nsw i32 %i.08.i.us54, 1
-  %exitcond.not.i.us61 = icmp eq i32 %inc.i.us60, %.fr79
-  br i1 %exitcond.not.i.us61, label %cond.end.us62, label %for.body.i.us52, !llvm.loop !108
+for.body.i.us50:                                  ; preds = %for.body.us44, %for.body.i.us50
+  %inverse.addr.09.i.us51 = phi i64 [ %div.i39.us55, %for.body.i.us50 ], [ %cond.i, %for.body.us44 ]
+  %i.08.i.us52 = phi i32 [ %inc.i.us58, %for.body.i.us50 ], [ 0, %for.body.us44 ]
+  %index.07.i.us53 = phi i64 [ %add.i18.us57, %for.body.i.us50 ], [ 0, %for.body.us44 ]
+  %rem.i.us54 = and i64 %inverse.addr.09.i.us51, 1
+  %div.i39.us55 = lshr i64 %inverse.addr.09.i.us51, 1
+  %mul.i.us56 = shl i64 %index.07.i.us53, 1
+  %add.i18.us57 = or disjoint i64 %mul.i.us56, %rem.i.us54
+  %inc.i.us58 = add nuw nsw i32 %i.08.i.us52, 1
+  %exitcond.not.i.us59 = icmp eq i32 %inc.i.us58, %.fr77
+  br i1 %exitcond.not.i.us59, label %cond.end.us60, label %for.body.i.us50, !llvm.loop !108
 
-cond.end.us62:                                    ; preds = %for.body.i.us52, %for.body.us47
-  %phi.call.us63 = phi ptr [ %y.i14, %for.body.us47 ], [ %baseScales, %for.body.i.us52 ]
-  %cond.us64 = phi i64 [ 0, %for.body.us47 ], [ %add.i22.us59, %for.body.i.us52 ]
-  %11 = load i32, ptr %phi.call.us63, align 4
-  %div.us65 = sdiv i32 %mul, %11
-  %conv20.us66 = sext i32 %div.us65 to i64
-  %mul21.us67 = mul i64 %cond.us64, %conv20.us66
-  %arrayidx.us69 = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 5, i64 %indvars.iv
-  %12 = load i32, ptr %arrayidx.us69, align 4
-  %conv22.us70 = sext i32 %12 to i64
-  %mul23.us71 = mul i64 %mul21.us67, %conv22.us70
-  %add.us72 = add i64 %mul23.us71, %10
-  br i1 %cmp9.us49, label %for.body.us47, label %for.end, !llvm.loop !109
+cond.end.us60:                                    ; preds = %for.body.i.us50, %for.body.us44
+  %phi.call.us61 = phi ptr [ %cond-lvalue.i, %for.body.us44 ], [ %baseScales, %for.body.i.us50 ]
+  %cond.us62 = phi i64 [ 0, %for.body.us44 ], [ %add.i18.us57, %for.body.i.us50 ]
+  %8 = load i32, ptr %phi.call.us61, align 4
+  %div.us63 = sdiv i32 %mul, %8
+  %conv20.us64 = sext i32 %div.us63 to i64
+  %mul21.us65 = mul i64 %cond.us62, %conv20.us64
+  %arrayidx.us67 = getelementptr inbounds [2 x i32], ptr %multInverse, i64 0, i64 %indvars.iv
+  %9 = load i32, ptr %arrayidx.us67, align 4
+  %conv22.us68 = sext i32 %9 to i64
+  %mul23.us69 = mul i64 %mul21.us65, %conv22.us68
+  %add.us70 = add i64 %mul23.us69, %add4142.us46
+  br i1 %cmp9.us47, label %for.body.us44, label %for.end, !llvm.loop !109
 
-for.end:                                          ; preds = %cond.end.us62, %cond.end.us, %cond.end.us.us, %if.then.split
-  %13 = phi i64 [ 0, %if.then.split ], [ %add.us.us, %cond.end.us.us ], [ %add.us, %cond.end.us ], [ %add.us72, %cond.end.us62 ]
+for.end:                                          ; preds = %cond.end.us60, %cond.end.us, %cond.end.us.us, %if.then.split
+  %10 = phi i64 [ 0, %if.then.split ], [ %add.us.us, %cond.end.us.us ], [ %add.us, %cond.end.us ], [ %add.us70, %cond.end.us60 ]
   %conv25 = zext nneg i32 %mul to i64
-  %rem = srem i64 %13, %conv25
+  %rem = srem i64 %10, %conv25
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %entry
-  %14 = phi i64 [ %rem, %for.end ], [ 0, %entry ]
-  %haltonIndex = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 6
+  %11 = phi i64 [ %rem, %for.end ], [ 0, %entry ]
+  %haltonIndex = getelementptr inbounds i8, ptr %this, i64 40
   %mul27 = mul nsw i32 %mul, %sampleIndex
   %conv28 = sext i32 %mul27 to i64
-  %add30 = add nsw i64 %14, %conv28
+  %add30 = add nsw i64 %11, %conv28
   store i64 %add30, ptr %haltonIndex, align 8
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %dim, i32 2)
-  %dimension = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 7
+  %dimension = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %.sroa.speculated, ptr %dimension, align 8
   ret void
 }
@@ -6965,9 +6910,9 @@ entry:
   %0 = insertelement <2 x i64> poison, i64 %pPixel.coerce, i64 0
   %1 = insertelement <2 x i64> %0, i64 %pPixel.sroa.3.0.extract.shift, i64 1
   %2 = trunc <2 x i64> %1 to <2 x i32>
-  %haltonIndex.i = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %sampler, i64 0, i32 6
+  %haltonIndex.i = getelementptr inbounds i8, ptr %sampler, i64 40
   %3 = load i64, ptr %haltonIndex.i, align 8
-  %baseExponents.i = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %sampler, i64 0, i32 4
+  %baseExponents.i = getelementptr inbounds i8, ptr %sampler, i64 24
   %4 = load i32, ptr %baseExponents.i, align 8
   %sh_prom.i = zext nneg i32 %4 to i64
   %shr.i = ashr i64 %3, %sh_prom.i
@@ -7001,42 +6946,42 @@ while.end.loopexit.i.i:                           ; preds = %while.body.i.i
 
 _ZN4pbrt14RadicalInverseEim.exit.i:               ; preds = %while.end.loopexit.i.i, %entry
   %mul12.i.i = phi float [ 0.000000e+00, %entry ], [ %8, %while.end.loopexit.i.i ]
-  %y.i1.i = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %sampler, i64 0, i32 3, i32 0, i32 1
-  %9 = load i32, ptr %y.i1.i, align 4
+  %cond-lvalue.i.i = getelementptr inbounds i8, ptr %sampler, i64 20
+  %9 = load i32, ptr %cond-lvalue.i.i, align 4
   %conv.i = sext i32 %9 to i64
   %div.i = sdiv i64 %3, %conv.i
   %10 = load i32, ptr getelementptr inbounds ([1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 1), align 4
-  %conv.i2.i = zext i32 %10 to i64
-  %div.i3.i = udiv i64 -1, %conv.i2.i
-  %sub.i4.i = sub nuw i64 %div.i3.i, %conv.i2.i
-  %conv2.i5.i = uitofp i32 %10 to float
-  %div3.i6.i = fdiv float 1.000000e+00, %conv2.i5.i
-  %tobool12.not.i7.i = icmp eq i64 %div.i, 0
-  br i1 %tobool12.not.i7.i, label %_ZN4pbrt13HaltonSampler10GetPixel2DEv.exit, label %while.body.i8.i
+  %conv.i1.i = zext i32 %10 to i64
+  %div.i2.i = udiv i64 -1, %conv.i1.i
+  %sub.i3.i = sub nuw i64 %div.i2.i, %conv.i1.i
+  %conv2.i4.i = uitofp i32 %10 to float
+  %div3.i5.i = fdiv float 1.000000e+00, %conv2.i4.i
+  %tobool12.not.i6.i = icmp eq i64 %div.i, 0
+  br i1 %tobool12.not.i6.i, label %_ZN4pbrt13HaltonSampler10GetPixel2DEv.exit, label %while.body.i7.i
 
-while.body.i8.i:                                  ; preds = %_ZN4pbrt14RadicalInverseEim.exit.i, %while.body.i8.i
-  %a.addr.016.i9.i = phi i64 [ %div5.i12.i, %while.body.i8.i ], [ %div.i, %_ZN4pbrt14RadicalInverseEim.exit.i ]
-  %invBaseM.015.i10.i = phi float [ %mul10.i16.i, %while.body.i8.i ], [ 1.000000e+00, %_ZN4pbrt14RadicalInverseEim.exit.i ]
-  %reversedDigits.014.i11.i = phi i64 [ %add.i15.i, %while.body.i8.i ], [ 0, %_ZN4pbrt14RadicalInverseEim.exit.i ]
-  %div5.i12.i = udiv i64 %a.addr.016.i9.i, %conv.i2.i
-  %reass.add.i13.i = sub i64 %reversedDigits.014.i11.i, %div5.i12.i
-  %reass.mul.i14.i = mul i64 %reass.add.i13.i, %conv.i2.i
-  %add.i15.i = add i64 %reass.mul.i14.i, %a.addr.016.i9.i
-  %mul10.i16.i = fmul float %div3.i6.i, %invBaseM.015.i10.i
-  %tobool.i17.i = icmp uge i64 %a.addr.016.i9.i, %conv.i2.i
-  %cmp.i18.i = icmp ult i64 %add.i15.i, %sub.i4.i
-  %11 = select i1 %tobool.i17.i, i1 %cmp.i18.i, i1 false
-  br i1 %11, label %while.body.i8.i, label %while.end.loopexit.i19.i, !llvm.loop !110
+while.body.i7.i:                                  ; preds = %_ZN4pbrt14RadicalInverseEim.exit.i, %while.body.i7.i
+  %a.addr.016.i8.i = phi i64 [ %div5.i11.i, %while.body.i7.i ], [ %div.i, %_ZN4pbrt14RadicalInverseEim.exit.i ]
+  %invBaseM.015.i9.i = phi float [ %mul10.i15.i, %while.body.i7.i ], [ 1.000000e+00, %_ZN4pbrt14RadicalInverseEim.exit.i ]
+  %reversedDigits.014.i10.i = phi i64 [ %add.i14.i, %while.body.i7.i ], [ 0, %_ZN4pbrt14RadicalInverseEim.exit.i ]
+  %div5.i11.i = udiv i64 %a.addr.016.i8.i, %conv.i1.i
+  %reass.add.i12.i = sub i64 %reversedDigits.014.i10.i, %div5.i11.i
+  %reass.mul.i13.i = mul i64 %reass.add.i12.i, %conv.i1.i
+  %add.i14.i = add i64 %reass.mul.i13.i, %a.addr.016.i8.i
+  %mul10.i15.i = fmul float %div3.i5.i, %invBaseM.015.i9.i
+  %tobool.i16.i = icmp uge i64 %a.addr.016.i8.i, %conv.i1.i
+  %cmp.i17.i = icmp ult i64 %add.i14.i, %sub.i3.i
+  %11 = select i1 %tobool.i16.i, i1 %cmp.i17.i, i1 false
+  br i1 %11, label %while.body.i7.i, label %while.end.loopexit.i18.i, !llvm.loop !110
 
-while.end.loopexit.i19.i:                         ; preds = %while.body.i8.i
-  %12 = uitofp i64 %add.i15.i to float
-  %13 = fmul float %mul10.i16.i, %12
+while.end.loopexit.i18.i:                         ; preds = %while.body.i7.i
+  %12 = uitofp i64 %add.i14.i to float
+  %13 = fmul float %mul10.i15.i, %12
   br label %_ZN4pbrt13HaltonSampler10GetPixel2DEv.exit
 
-_ZN4pbrt13HaltonSampler10GetPixel2DEv.exit:       ; preds = %_ZN4pbrt14RadicalInverseEim.exit.i, %while.end.loopexit.i19.i
-  %mul12.i20.i = phi float [ 0.000000e+00, %_ZN4pbrt14RadicalInverseEim.exit.i ], [ %13, %while.end.loopexit.i19.i ]
+_ZN4pbrt13HaltonSampler10GetPixel2DEv.exit:       ; preds = %_ZN4pbrt14RadicalInverseEim.exit.i, %while.end.loopexit.i18.i
+  %mul12.i19.i = phi float [ 0.000000e+00, %_ZN4pbrt14RadicalInverseEim.exit.i ], [ %13, %while.end.loopexit.i18.i ]
   %14 = insertelement <2 x float> poison, float %mul12.i.i, i64 0
-  %15 = insertelement <2 x float> %14, float %mul12.i20.i, i64 1
+  %15 = insertelement <2 x float> %14, float %mul12.i19.i, i64 1
   %16 = fcmp ogt <2 x float> %15, <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
   %17 = select <2 x i1> %16, <2 x float> <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>, <2 x float> %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %u.i)
@@ -7054,7 +6999,7 @@ _ZN4pbrt13HaltonSampler10GetPixel2DEv.exit:       ; preds = %_ZN4pbrt14RadicalIn
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sample.i)
   %call3.fca.0.extract = extractvalue { <2 x float>, float } %call3.i.i, 0
   %call3.fca.1.extract = extractvalue { <2 x float>, float } %call3.i.i, 1
-  %filterWeight.i = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %agg.result, i64 0, i32 3
+  %filterWeight.i = getelementptr inbounds i8, ptr %agg.result, i64 20
   %20 = getelementptr inbounds i8, ptr %agg.result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %20, i8 0, i64 12, i1 false)
   store float 1.000000e+00, ptr %filterWeight.i, align 4
@@ -7062,14 +7007,14 @@ _ZN4pbrt13HaltonSampler10GetPixel2DEv.exit:       ; preds = %_ZN4pbrt14RadicalIn
   %22 = fadd <2 x float> %call3.fca.0.extract, %21
   %23 = fadd <2 x float> %22, <float 5.000000e-01, float 5.000000e-01>
   store <2 x float> %23, ptr %agg.result, align 4
-  %dimension.i = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %sampler, i64 0, i32 7
+  %dimension.i = getelementptr inbounds i8, ptr %sampler, i64 48
   %24 = load i32, ptr %dimension.i, align 8
   %cmp.i = icmp sgt i32 %24, 999
   %spec.select.i = select i1 %cmp.i, i32 2, i32 %24
   %inc.i = add nsw i32 %spec.select.i, 1
   store i32 %inc.i, ptr %dimension.i, align 8
   %call.i = call noundef float @_ZNK4pbrt13HaltonSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(52) %sampler, i32 noundef %spec.select.i)
-  %time = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %agg.result, i64 0, i32 2
+  %time = getelementptr inbounds i8, ptr %agg.result, i64 16
   store float %call.i, ptr %time, align 4
   %25 = load i32, ptr %dimension.i, align 8
   %cmp.i10 = icmp sgt i32 %25, 998
@@ -7081,11 +7026,11 @@ _ZN4pbrt13HaltonSampler10GetPixel2DEv.exit:       ; preds = %_ZN4pbrt14RadicalIn
   %call7.i = call noundef float @_ZNK4pbrt13HaltonSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(52) %sampler, i32 noundef %add6.i)
   %retval.sroa.0.0.vec.insert.i14 = insertelement <2 x float> poison, float %call.i13, i64 0
   %retval.sroa.0.4.vec.insert.i15 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i14, float %call7.i, i64 1
-  %pLens = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %agg.result, i64 0, i32 1
+  %pLens = getelementptr inbounds i8, ptr %agg.result, i64 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i15, ptr %pLens, align 4
   store float %call3.fca.1.extract, ptr %filterWeight.i, align 4
   %26 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %disablePixelJitter = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %26, i64 0, i32 2
+  %disablePixelJitter = getelementptr inbounds i8, ptr %26, i64 5
   %27 = load i8, ptr %disablePixelJitter, align 1
   %28 = and i8 %27, 1
   %tobool.not = icmp eq i8 %28, 0
@@ -7100,7 +7045,7 @@ if.then:                                          ; preds = %_ZN4pbrt13HaltonSam
   %retval.sroa.0.4.vec.insert.i25 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i24, float %add5.i23, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i25, ptr %agg.result, align 4
   store i32 1056964608, ptr %pLens, align 4
-  %pLens.sroa_idx = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %pLens.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 1056964608, ptr %pLens.sroa_idx, align 4
   store <2 x float> <float 5.000000e-01, float 1.000000e+00>, ptr %time, align 4
   br label %if.end
@@ -7112,7 +7057,7 @@ if.end:                                           ; preds = %if.then, %_ZN4pbrt1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNK4pbrt13HaltonSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(52) %this, i32 noundef %dimension) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %randomize = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 1
+  %randomize = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %randomize, align 4
   switch i32 %0, label %do.end [
     i32 0, label %if.then
@@ -7120,7 +7065,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %haltonIndex = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 6
+  %haltonIndex = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %haltonIndex, align 8
   %idxprom.i = sext i32 %dimension to i64
   %arrayidx.i = getelementptr inbounds [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %idxprom.i
@@ -7174,14 +7119,14 @@ if.then4:                                         ; preds = %entry
   br i1 %cmp15.i, label %while.body.lr.ph.i, label %_ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit
 
 while.body.lr.ph.i:                               ; preds = %if.then4
-  %digitPermutations = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 2
+  %digitPermutations = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %digitPermutations, align 8
-  %ptr.i = getelementptr inbounds %"class.pstd::vector.76", ptr %7, i64 0, i32 1
+  %ptr.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %ptr.i, align 8
   %arrayidx.i5 = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %8, i64 %conv
-  %haltonIndex5 = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 6
+  %haltonIndex5 = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load i64, ptr %haltonIndex5, align 8
-  %permutations.i.i = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %8, i64 %conv, i32 2
+  %permutations.i.i = getelementptr inbounds i8, ptr %arrayidx.i5, i64 8
   %10 = load ptr, ptr %permutations.i.i, align 8
   %11 = load i32, ptr %arrayidx.i5, align 8
   br label %while.body.i15
@@ -7224,7 +7169,7 @@ _ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit: ; preds = %if
   br label %return
 
 do.end:                                           ; preds = %entry
-  %haltonIndex9 = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %this, i64 0, i32 6
+  %haltonIndex9 = getelementptr inbounds i8, ptr %this, i64 40
   %16 = load i64, ptr %haltonIndex9, align 8
   %shl = shl i32 %dimension, 4
   %add = or disjoint i32 %shl, 1
@@ -7357,7 +7302,7 @@ entry:
   %agg.tmp.i = alloca %"class.std::function.26", align 8
   %agg.tmp = alloca %"class.std::function", align 8
   %0 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %useGPU = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %0, i64 0, i32 7
+  %useGPU = getelementptr inbounds i8, ptr %0, i64 10
   %1 = load i8, ptr %useGPU, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -7369,8 +7314,8 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %conv = sext i32 %nItems to i64
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #20
@@ -7379,8 +7324,8 @@ if.else:                                          ; preds = %entry
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_18PaddedSobolSamplerEEEviNS1_9TransformEiEUliE_E9_M_invokeERKSt9_Any_dataOl, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_18PaddedSobolSamplerEEEviNS1_9TransformEiEUliE_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.26", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 0, ptr %4, align 8
   %5 = ptrtoint ptr %agg.tmp to i64
@@ -7531,13 +7476,13 @@ entry:
   %lambda = alloca %"class.pbrt::SampledWavelengths", align 16
   %cameraRay = alloca %"class.pstd::optional.33", align 16
   %0 = load ptr, ptr %this, align 8
-  %film = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 8
+  %film = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i64, ptr %film, align 8
   %and.i.i.i = and i64 %1, 144115188075855871
   %2 = inttoptr i64 %and.i.i.i to ptr
-  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %retval.sroa.2.0.copyload.i.i15.pn.i.i.i = load i64, ptr %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i, align 8
-  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1
+  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
@@ -7548,16 +7493,16 @@ entry:
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
-  %3 = getelementptr inbounds %class.anon.78, ptr %this, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %3, align 8
   %div = sdiv i32 %pixelIndex, %sub
   %add5 = add nsw i32 %div, %4
-  %x2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 1
+  %x2.i = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %x2.i, align 8
   %idxprom.i = sext i32 %pixelIndex to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
   store i32 %add, ptr %arrayidx.i, align 4
-  %y4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 2
+  %y4.i = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %y4.i, align 8
   %arrayidx7.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   store i32 %add5, ptr %arrayidx7.i, align 4
@@ -7575,22 +7520,22 @@ if.end:                                           ; preds = %entry
   %pPixel.sroa.5.0.insert.shift150 = shl nuw i64 %pPixel.sroa.5.0.insert.ext149, 32
   %pPixel.sroa.0.0.insert.ext142 = zext i32 %add to i64
   %pPixel.sroa.0.0.insert.insert144 = or disjoint i64 %pPixel.sroa.5.0.insert.shift150, %pPixel.sroa.0.0.insert.ext142
-  %sampler = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 9
+  %sampler = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load i64, ptr %sampler, align 8
   %and.i.i = and i64 %7, 144115188075855871
   %8 = inttoptr i64 %and.i.i to ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %pixelSampler, ptr noundef nonnull align 4 dereferenceable(28) %8, i64 12, i1 false)
-  %9 = getelementptr inbounds %class.anon.78, ptr %this, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %this, i64 12
   %10 = load i32, ptr %9, align 4
-  %pixel.i = getelementptr inbounds %"class.pbrt::PaddedSobolSampler", ptr %pixelSampler, i64 0, i32 3
+  %pixel.i = getelementptr inbounds i8, ptr %pixelSampler, i64 12
   store i64 %pPixel.sroa.0.0.insert.insert144, ptr %pixel.i, align 4
-  %sampleIndex.i = getelementptr inbounds %"class.pbrt::PaddedSobolSampler", ptr %pixelSampler, i64 0, i32 4
+  %sampleIndex.i = getelementptr inbounds i8, ptr %pixelSampler, i64 20
   store i32 %10, ptr %sampleIndex.i, align 4
-  %dimension.i = getelementptr inbounds %"class.pbrt::PaddedSobolSampler", ptr %pixelSampler, i64 0, i32 5
+  %dimension.i = getelementptr inbounds i8, ptr %pixelSampler, i64 24
   store i32 0, ptr %dimension.i, align 4
   %call12 = call noundef float @_ZN4pbrt18PaddedSobolSampler5Get1DEv(ptr noundef nonnull align 4 dereferenceable(28) %pixelSampler)
   %11 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %disableWavelengthJitter = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %11, i64 0, i32 3
+  %disableWavelengthJitter = getelementptr inbounds i8, ptr %11, i64 6
   %12 = load i8, ptr %disableWavelengthJitter, align 2
   %13 = and i8 %12, 1
   %tobool.not = icmp eq i8 %13, 0
@@ -7610,7 +7555,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sample.i)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %agg.tmp1712)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp1712, ptr noundef nonnull align 4 dereferenceable(28) %pixelSampler, i64 28, i1 false)
-  %filter = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 7
+  %filter = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load i64, ptr %filter, align 8
   %call.i.i = call <2 x float> @_ZN4pbrt18PaddedSobolSampler5Get2DEv(ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp1712), !noalias !119
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %u.i.i), !noalias !119
@@ -7640,7 +7585,7 @@ if.end:                                           ; preds = %entry
   %call13.i = call noundef float @_ZN4pbrt18PaddedSobolSampler5Get1DEv(ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp1712), !noalias !119
   %call15.i = call <2 x float> @_ZN4pbrt18PaddedSobolSampler5Get2DEv(ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp1712), !noalias !119
   %18 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8, !noalias !119
-  %disablePixelJitter.i = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %18, i64 0, i32 2
+  %disablePixelJitter.i = getelementptr inbounds i8, ptr %18, i64 5
   %19 = load i8, ptr %disablePixelJitter.i, align 1, !noalias !119
   %20 = and i8 %19, 1
   %tobool.not.i = icmp eq i8 %20, 0
@@ -7659,7 +7604,7 @@ _ZN4pbrt15GetCameraSampleINS_18PaddedSobolSamplerEEENS_12CameraSampleET_NS_6Poin
   %cameraSample.sroa.9.0 = phi float [ %call3.fca.1.extract.i, %if.end ], [ 1.000000e+00, %if.then.i ]
   %cameraSample.sroa.7.0 = phi float [ %call13.i, %if.end ], [ 5.000000e-01, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %agg.tmp1712)
-  %camera = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 10
+  %camera = getelementptr inbounds i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2113)
   store <2 x float> %cameraSample.sroa.0.0, ptr %agg.tmp2113, align 8
   %agg.tmp21.sroa.2.0.agg.tmp2113.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2113, i64 8
@@ -7697,33 +7642,33 @@ sw.default.i.i:                                   ; preds = %_ZN4pbrt15GetCamera
 
 _ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit: ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.default.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2113)
-  %set.i = getelementptr inbounds %"class.pstd::optional.33", ptr %cameraRay, i64 0, i32 1
+  %set.i = getelementptr inbounds i8, ptr %cameraRay, i64 56
   %23 = load i8, ptr %set.i, align 8
   %24 = and i8 %23, 1
   %tobool.i.not = icmp eq i8 %24, 0
   br i1 %tobool.i.not, label %if.end32, label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %25 = getelementptr inbounds %class.anon.78, ptr %this, i64 0, i32 3
+  %25 = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %26 = load <4 x float>, ptr %cameraRay, align 16, !noalias !127
   %agg.tmp.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %26, <4 x float> poison, <2 x i32> zeroinitializer
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %27 = load <4 x float>, ptr %y.i.i, align 4, !noalias !127
   %agg.tmp2.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %27, <4 x float> poison, <2 x i32> zeroinitializer
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %28 = load <4 x float>, ptr %z.i.i, align 8, !noalias !127
   %agg.tmp3.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %28, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !127
-  %y3.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 1
+  %y3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !127
-  %z4.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 2
+  %z4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !127
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %25, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i)
-  %d3.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d3.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !127
-  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !127
   %call.i22 = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %25, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i)
   %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i22, 0
@@ -7742,19 +7687,19 @@ if.then.i19:                                      ; preds = %invoke.cont
   %32 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %31)
   %33 = extractelement <2 x float> %call.fca.0.extract.i, i64 1
   %34 = call noundef float @llvm.fabs.f32(float %33)
-  %high.i.i.i = getelementptr inbounds %"class.pbrt::Interval", ptr %o.i, i64 0, i32 1
+  %high.i.i.i = getelementptr inbounds i8, ptr %o.i, i64 4
   %35 = load <4 x float>, ptr %high.i.i.i, align 4
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %37 = load <4 x float>, ptr %o.i, align 16
   %38 = shufflevector <4 x float> %37, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %y.i7.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1
-  %high.i1.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1, i32 1
+  %y.i7.i = getelementptr inbounds i8, ptr %o.i, i64 8
+  %high.i1.i.i = getelementptr inbounds i8, ptr %o.i, i64 12
   %39 = load float, ptr %high.i1.i.i, align 4, !noalias !127
   %40 = load float, ptr %y.i7.i, align 8, !noalias !127
   %sub.i2.i.i = fsub float %39, %40
   %div3.i.i = fmul float %sub.i2.i.i, 5.000000e-01
-  %z.i8.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2
-  %high.i3.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2, i32 1
+  %z.i8.i = getelementptr inbounds i8, ptr %o.i, i64 16
+  %high.i3.i.i = getelementptr inbounds i8, ptr %o.i, i64 20
   %41 = load float, ptr %high.i3.i.i, align 4, !noalias !127
   %42 = load float, ptr %z.i8.i, align 16, !noalias !127
   %mul4.i.i = fmul float %34, %div3.i.i
@@ -7806,12 +7751,12 @@ invoke.cont27:                                    ; preds = %invoke.cont26
   br label %if.end32
 
 if.end32:                                         ; preds = %invoke.cont27, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %ptr4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 4, i32 1
+  %ptr4.i = getelementptr inbounds i8, ptr %0, i64 208
   %61 = load ptr, ptr %ptr4.i, align 8
   %add.ptr.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %61, i64 %idxprom.i
-  %arrayidx.i23.i = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 2
-  %pdf.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1
-  %lambda4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 1
+  %arrayidx.i23.i = getelementptr inbounds i8, ptr %lambda, i64 8
+  %pdf.i = getelementptr inbounds i8, ptr %lambda, i64 16
+  %lambda4.i = getelementptr inbounds i8, ptr %0, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   %62 = load ptr, ptr %lambda4.i, align 8
   %add.ptr.i38 = getelementptr inbounds %"struct.pbrt::Float4", ptr %62, i64 %idxprom.i
@@ -7822,7 +7767,7 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i39, ptr %add.ptr.i38, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i41 = getelementptr inbounds i8, ptr %add.ptr.i38, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i40, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i41, align 8
-  %pdf4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 2
+  %pdf4.i = getelementptr inbounds i8, ptr %0, i64 176
   %65 = load ptr, ptr %pdf4.i, align 8
   %add.ptr21.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %65, i64 %idxprom.i
   %66 = load <4 x float>, ptr %pdf.i, align 16
@@ -7831,7 +7776,7 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   store <2 x float> %agg.tmp22.sroa.0.4.vec.insert.i, ptr %add.ptr21.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i28.i = getelementptr inbounds i8, ptr %add.ptr21.i, i64 8
   store <2 x float> %agg.tmp22.sroa.3.12.vec.insert.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i28.i, align 8
-  %filterWeight44 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 1
+  %filterWeight44 = getelementptr inbounds i8, ptr %0, i64 128
   %67 = load ptr, ptr %filterWeight44, align 8
   %arrayidx = getelementptr inbounds float, ptr %67, i64 %idxprom.i
   store float %cameraSample.sroa.9.0, ptr %arrayidx, align 4
@@ -7841,83 +7786,83 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   br i1 %tobool45.not, label %if.end53, label %invoke.cont48
 
 invoke.cont48:                                    ; preds = %if.end32
-  %set2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 1
+  %set2.i = getelementptr inbounds i8, ptr %0, i64 256
   %70 = load ptr, ptr %set2.i, align 8
   %arrayidx.i47 = getelementptr inbounds i8, ptr %70, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i47, align 1
-  %x2.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 1
+  %x2.i.i = getelementptr inbounds i8, ptr %0, i64 272
   %71 = load ptr, ptr %x2.i.i, align 8
   %arrayidx.i.i48 = getelementptr inbounds float, ptr %71, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i.i48, align 4
-  %y4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 2
+  %y4.i.i = getelementptr inbounds i8, ptr %0, i64 280
   %72 = load ptr, ptr %y4.i.i, align 8
   %arrayidx7.i.i = getelementptr inbounds float, ptr %72, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i.i, align 4
-  %z9.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 3
+  %z9.i.i = getelementptr inbounds i8, ptr %0, i64 288
   %73 = load ptr, ptr %z9.i.i, align 8
   %arrayidx12.i.i = getelementptr inbounds float, ptr %73, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i.i, align 4
-  %x2.i11.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 1
+  %x2.i11.i = getelementptr inbounds i8, ptr %0, i64 304
   %74 = load ptr, ptr %x2.i11.i, align 8
   %arrayidx.i14.i = getelementptr inbounds float, ptr %74, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i14.i, align 4
-  %y4.i16.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 2
+  %y4.i16.i = getelementptr inbounds i8, ptr %0, i64 312
   %75 = load ptr, ptr %y4.i16.i, align 8
   %arrayidx7.i18.i = getelementptr inbounds float, ptr %75, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i18.i, align 4
-  %z9.i20.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 3
+  %z9.i20.i = getelementptr inbounds i8, ptr %0, i64 320
   %76 = load ptr, ptr %z9.i20.i, align 8
   %arrayidx12.i22.i = getelementptr inbounds float, ptr %76, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i22.i, align 4
-  %x2.i25.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 1
+  %x2.i25.i = getelementptr inbounds i8, ptr %0, i64 336
   %77 = load ptr, ptr %x2.i25.i, align 8
   %arrayidx.i28.i = getelementptr inbounds float, ptr %77, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i28.i, align 4
-  %y4.i30.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 2
+  %y4.i30.i = getelementptr inbounds i8, ptr %0, i64 344
   %78 = load ptr, ptr %y4.i30.i, align 8
   %arrayidx7.i32.i = getelementptr inbounds float, ptr %78, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i32.i, align 4
-  %z9.i34.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 3
+  %z9.i34.i = getelementptr inbounds i8, ptr %0, i64 352
   %79 = load ptr, ptr %z9.i34.i, align 8
   %arrayidx12.i36.i = getelementptr inbounds float, ptr %79, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i36.i, align 4
-  %x2.i39.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 1
+  %x2.i39.i = getelementptr inbounds i8, ptr %0, i64 368
   %80 = load ptr, ptr %x2.i39.i, align 8
   %arrayidx.i42.i = getelementptr inbounds float, ptr %80, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i42.i, align 4
-  %y4.i44.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 2
+  %y4.i44.i = getelementptr inbounds i8, ptr %0, i64 376
   %81 = load ptr, ptr %y4.i44.i, align 8
   %arrayidx7.i46.i = getelementptr inbounds float, ptr %81, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i46.i, align 4
-  %time22.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 6
+  %time22.i = getelementptr inbounds i8, ptr %0, i64 384
   %82 = load ptr, ptr %time22.i, align 8
   %arrayidx25.i = getelementptr inbounds float, ptr %82, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx25.i, align 4
-  %x2.i49.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 1
+  %x2.i49.i = getelementptr inbounds i8, ptr %0, i64 400
   %83 = load ptr, ptr %x2.i49.i, align 8
   %arrayidx.i52.i = getelementptr inbounds float, ptr %83, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i52.i, align 4
-  %y4.i54.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 2
+  %y4.i54.i = getelementptr inbounds i8, ptr %0, i64 408
   %84 = load ptr, ptr %y4.i54.i, align 8
   %arrayidx7.i56.i = getelementptr inbounds float, ptr %84, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i56.i, align 4
-  %z9.i58.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 3
+  %z9.i58.i = getelementptr inbounds i8, ptr %0, i64 416
   %85 = load ptr, ptr %z9.i58.i, align 8
   %arrayidx12.i60.i = getelementptr inbounds float, ptr %85, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i60.i, align 4
-  %x2.i63.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 1
+  %x2.i63.i = getelementptr inbounds i8, ptr %0, i64 432
   %86 = load ptr, ptr %x2.i63.i, align 8
   %arrayidx.i66.i = getelementptr inbounds float, ptr %86, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i66.i, align 4
-  %y4.i68.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 2
+  %y4.i68.i = getelementptr inbounds i8, ptr %0, i64 440
   %87 = load ptr, ptr %y4.i68.i, align 8
   %arrayidx7.i70.i = getelementptr inbounds float, ptr %87, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i70.i, align 4
-  %z9.i72.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 3
+  %z9.i72.i = getelementptr inbounds i8, ptr %0, i64 448
   %88 = load ptr, ptr %z9.i72.i, align 8
   %arrayidx12.i74.i = getelementptr inbounds float, ptr %88, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i74.i, align 4
-  %ptr4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 9, i32 1
+  %ptr4.i.i = getelementptr inbounds i8, ptr %0, i64 464
   %89 = load ptr, ptr %ptr4.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %89, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i.i, i8 0, i64 16, i1 false)
@@ -7930,70 +7875,70 @@ if.end53:                                         ; preds = %invoke.cont48, %if.
   br i1 %tobool.i54.not, label %if.else, label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %if.end53
-  %92 = getelementptr inbounds %class.anon.78, ptr %this, i64 0, i32 4
+  %92 = getelementptr inbounds i8, ptr %this, i64 144
   %93 = load ptr, ptr %92, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp10.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp17.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp20.i)
-  %size.i.i = getelementptr inbounds %"class.pbrt::WorkQueue", ptr %93, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %93, i64 400
   %94 = atomicrmw add ptr %size.i.i, i32 1 monotonic, align 4
   %95 = load float, ptr %cameraRay, align 16
-  %x2.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 1, i32 1, i32 1
+  %x2.i.i.i = getelementptr inbounds i8, ptr %93, i64 24
   %96 = load ptr, ptr %x2.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %94 to i64
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %96, i64 %idxprom.i.i.i
   store float %95, ptr %arrayidx.i.i.i, align 4
-  %y.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %97 = load float, ptr %y.i.i.i, align 4
-  %y4.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 1, i32 1, i32 2
+  %y4.i.i.i = getelementptr inbounds i8, ptr %93, i64 32
   %98 = load ptr, ptr %y4.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr inbounds float, ptr %98, i64 %idxprom.i.i.i
   store float %97, ptr %arrayidx7.i.i.i, align 4
-  %z.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %99 = load float, ptr %z.i.i.i, align 8
-  %z9.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 1, i32 1, i32 3
+  %z9.i.i.i = getelementptr inbounds i8, ptr %93, i64 40
   %100 = load ptr, ptr %z9.i.i.i, align 8
   %arrayidx12.i.i.i = getelementptr inbounds float, ptr %100, i64 %idxprom.i.i.i
   store float %99, ptr %arrayidx12.i.i.i, align 4
-  %d.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %101 = load float, ptr %d.i.i, align 4
-  %x2.i6.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 1, i32 2, i32 1
+  %x2.i6.i.i = getelementptr inbounds i8, ptr %93, i64 56
   %102 = load ptr, ptr %x2.i6.i.i, align 8
   %arrayidx.i9.i.i = getelementptr inbounds float, ptr %102, i64 %idxprom.i.i.i
   store float %101, ptr %arrayidx.i9.i.i, align 4
-  %y.i10.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 1
+  %y.i10.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 16
   %103 = load float, ptr %y.i10.i.i, align 16
-  %y4.i11.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 1, i32 2, i32 2
+  %y4.i11.i.i = getelementptr inbounds i8, ptr %93, i64 64
   %104 = load ptr, ptr %y4.i11.i.i, align 8
   %arrayidx7.i13.i.i = getelementptr inbounds float, ptr %104, i64 %idxprom.i.i.i
   store float %103, ptr %arrayidx7.i13.i.i, align 4
-  %z.i14.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %z.i14.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %105 = load float, ptr %z.i14.i.i, align 4
-  %z9.i15.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 1, i32 2, i32 3
+  %z9.i15.i.i = getelementptr inbounds i8, ptr %93, i64 72
   %106 = load ptr, ptr %z9.i15.i.i, align 8
   %arrayidx12.i17.i.i = getelementptr inbounds float, ptr %106, i64 %idxprom.i.i.i
   store float %105, ptr %arrayidx12.i17.i.i, align 4
-  %time.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 2
+  %time.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 24
   %107 = load float, ptr %time.i.i, align 8
-  %time9.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 1, i32 3
+  %time9.i.i = getelementptr inbounds i8, ptr %93, i64 80
   %108 = load ptr, ptr %time9.i.i, align 8
   %arrayidx.i.i60 = getelementptr inbounds float, ptr %108, i64 %idxprom.i.i.i
   store float %107, ptr %arrayidx.i.i60, align 4
-  %medium.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 3
-  %medium12.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 1, i32 4
+  %medium.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 32
+  %medium12.i.i = getelementptr inbounds i8, ptr %93, i64 88
   %109 = load ptr, ptr %medium12.i.i, align 8
   %arrayidx15.i.i = getelementptr inbounds %"class.pbrt::Medium", ptr %109, i64 %idxprom.i.i.i
   %110 = load i64, ptr %medium.i.i, align 16
   store i64 %110, ptr %arrayidx15.i.i, align 8
-  %depth.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %93, i64 96
   %111 = load ptr, ptr %depth.i, align 8
   %arrayidx.i61 = getelementptr inbounds i32, ptr %111, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx.i61, align 4
-  %pixelIndex4.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 3
+  %pixelIndex4.i = getelementptr inbounds i8, ptr %93, i64 104
   %112 = load ptr, ptr %pixelIndex4.i, align 8
   %arrayidx6.i = getelementptr inbounds i32, ptr %112, i64 %idxprom.i.i.i
   store i32 %pixelIndex, ptr %arrayidx6.i, align 4
-  %lambda4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 4, i32 1
+  %lambda4.i.i = getelementptr inbounds i8, ptr %93, i64 120
   %113 = load ptr, ptr %lambda4.i.i, align 8
   %add.ptr.i.i62 = getelementptr inbounds %"struct.pbrt::Float4", ptr %113, i64 %idxprom.i.i.i
   %114 = load <4 x float>, ptr %lambda, align 16
@@ -8003,7 +7948,7 @@ invoke.cont56:                                    ; preds = %if.end53
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i63, ptr %add.ptr.i.i62, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i65 = getelementptr inbounds i8, ptr %add.ptr.i.i62, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i.i64, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i65, align 8
-  %pdf4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 4, i32 2
+  %pdf4.i.i = getelementptr inbounds i8, ptr %93, i64 128
   %116 = load ptr, ptr %pdf4.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %116, i64 %idxprom.i.i.i
   %117 = load <4 x float>, ptr %pdf.i, align 16
@@ -8024,7 +7969,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   br i1 %exitcond.not.i.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit.i, label %for.body.i.i.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
-  %ptr4.i.i66 = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 5, i32 1
+  %ptr4.i.i66 = getelementptr inbounds i8, ptr %93, i64 160
   %118 = load ptr, ptr %ptr4.i.i66, align 8
   %add.ptr.i18.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %118, i64 %idxprom.i.i.i
   %119 = load <4 x float>, ptr %ref.tmp10.i, align 16
@@ -8033,11 +7978,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i19.i, ptr %add.ptr.i18.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i = getelementptr inbounds i8, ptr %add.ptr.i18.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i20.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i, align 8
-  %etaScale.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 9
+  %etaScale.i = getelementptr inbounds i8, ptr %93, i64 376
   %120 = load ptr, ptr %etaScale.i, align 8
   %arrayidx14.i = getelementptr inbounds float, ptr %120, i64 %idxprom.i.i.i
   store float 1.000000e+00, ptr %arrayidx14.i, align 4
-  %anyNonSpecularBounces.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 11
+  %anyNonSpecularBounces.i = getelementptr inbounds i8, ptr %93, i64 392
   %121 = load ptr, ptr %anyNonSpecularBounces.i, align 8
   %arrayidx16.i = getelementptr inbounds i32, ptr %121, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx16.i, align 4
@@ -8053,7 +7998,7 @@ for.body.i.i22.i:                                 ; preds = %for.body.i.i22.i, %
   br i1 %exitcond.not.i.i26.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit27.i, label %for.body.i.i22.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit27.i:           ; preds = %for.body.i.i22.i
-  %ptr4.i31.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 6, i32 1
+  %ptr4.i31.i = getelementptr inbounds i8, ptr %93, i64 184
   %122 = load ptr, ptr %ptr4.i31.i, align 8
   %add.ptr.i33.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %122, i64 %idxprom.i.i.i
   %123 = load <4 x float>, ptr %ref.tmp17.i, align 16
@@ -8074,7 +8019,7 @@ for.body.i.i37.i:                                 ; preds = %for.body.i.i37.i, %
   br i1 %exitcond.not.i.i41.i, label %invoke.cont59, label %for.body.i.i37.i, !llvm.loop !24
 
 invoke.cont59:                                    ; preds = %for.body.i.i37.i
-  %ptr4.i46.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 7, i32 1
+  %ptr4.i46.i = getelementptr inbounds i8, ptr %93, i64 208
   %124 = load ptr, ptr %ptr4.i46.i, align 8
   %add.ptr.i48.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %124, i64 %idxprom.i.i.i
   %125 = load <4 x float>, ptr %ref.tmp20.i, align 16
@@ -8083,7 +8028,7 @@ invoke.cont59:                                    ; preds = %for.body.i.i37.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i49.i, ptr %add.ptr.i48.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i = getelementptr inbounds i8, ptr %add.ptr.i48.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i50.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i, align 8
-  %specularBounce.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %93, i64 0, i32 10
+  %specularBounce.i = getelementptr inbounds i8, ptr %93, i64 384
   %126 = load ptr, ptr %specularBounce.i, align 8
   %arrayidx24.i = getelementptr inbounds i32, ptr %126, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx24.i, align 4
@@ -8100,8 +8045,8 @@ land.rhs.i.i69.invoke:                            ; preds = %invoke.cont26, %inv
   unreachable
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  %weight = getelementptr inbounds %"struct.pbrt::CameraRay", ptr %cameraRay, i64 0, i32 1
-  %ptr4.i75 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %weight = getelementptr inbounds i8, ptr %cameraRay, i64 40
+  %ptr4.i75 = getelementptr inbounds i8, ptr %0, i64 232
   %129 = load ptr, ptr %ptr4.i75, align 8
   %add.ptr.i77 = getelementptr inbounds %"struct.pbrt::Float4", ptr %129, i64 %idxprom.i
   %130 = load <4 x float>, ptr %weight, align 8
@@ -8113,7 +8058,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
   br label %return
 
 if.else:                                          ; preds = %if.end53
-  %ptr4.i90 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %ptr4.i90 = getelementptr inbounds i8, ptr %0, i64 232
   %131 = load ptr, ptr %ptr4.i90, align 8
   %add.ptr.i92 = getelementptr inbounds %"struct.pbrt::Float4", ptr %131, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i92, i8 0, i64 16, i1 false)
@@ -8127,11 +8072,11 @@ return:                                           ; preds = %invoke.cont61, %if.
 define linkonce_odr dso_local noundef float @_ZN4pbrt18PaddedSobolSampler5Get1DEv(ptr noundef nonnull align 4 dereferenceable(28) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %buf.i = alloca [2 x i64], align 16
-  %pixel = getelementptr inbounds %"class.pbrt::PaddedSobolSampler", ptr %this, i64 0, i32 3
+  %pixel = getelementptr inbounds i8, ptr %this, i64 12
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %pixel, align 4
-  %dimension = getelementptr inbounds %"class.pbrt::PaddedSobolSampler", ptr %this, i64 0, i32 5
+  %dimension = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %dimension, align 4
-  %seed = getelementptr inbounds %"class.pbrt::PaddedSobolSampler", ptr %this, i64 0, i32 1
+  %seed = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %seed, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %buf.i, align 16
@@ -8163,7 +8108,7 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %while.body.i.i
   %shr42.i.i = lshr i64 %mul41.i.i, 47
   %xor43.i.i = xor i64 %shr42.i.i, %mul41.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
-  %sampleIndex = getelementptr inbounds %"class.pbrt::PaddedSobolSampler", ptr %this, i64 0, i32 4
+  %sampleIndex = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i32, ptr %sampleIndex, align 4
   %3 = load i32, ptr %this, align 4
   %conv = trunc i64 %xor43.i.i to i32
@@ -8233,7 +8178,7 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %this, i32 noundef %dimension, i32 noundef %a, i32 noundef %hash) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %randomize = getelementptr inbounds %"class.pbrt::PaddedSobolSampler", ptr %this, i64 0, i32 2
+  %randomize = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %randomize, align 4
   %cmp.not6.i52 = icmp eq i32 %a, 0
   switch i32 %0, label %if.else16 [
@@ -8442,11 +8387,11 @@ return:                                           ; preds = %for.end.loopexit.i,
 define linkonce_odr dso_local <2 x float> @_ZN4pbrt18PaddedSobolSampler5Get2DEv(ptr noundef nonnull align 4 dereferenceable(28) %this) local_unnamed_addr #8 comdat align 2 {
 entry:
   %buf.i = alloca [2 x i64], align 16
-  %pixel = getelementptr inbounds %"class.pbrt::PaddedSobolSampler", ptr %this, i64 0, i32 3
+  %pixel = getelementptr inbounds i8, ptr %this, i64 12
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %pixel, align 4
-  %dimension = getelementptr inbounds %"class.pbrt::PaddedSobolSampler", ptr %this, i64 0, i32 5
+  %dimension = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %dimension, align 4
-  %seed = getelementptr inbounds %"class.pbrt::PaddedSobolSampler", ptr %this, i64 0, i32 1
+  %seed = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %seed, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %buf.i, align 16
@@ -8478,7 +8423,7 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %while.body.i.i
   %shr42.i.i = lshr i64 %mul41.i.i, 47
   %xor43.i.i = xor i64 %shr42.i.i, %mul41.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
-  %sampleIndex = getelementptr inbounds %"class.pbrt::PaddedSobolSampler", ptr %this, i64 0, i32 4
+  %sampleIndex = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i32, ptr %sampleIndex, align 4
   %3 = load i32, ptr %this, align 4
   %conv = trunc i64 %xor43.i.i to i32
@@ -8554,7 +8499,7 @@ entry:
   %agg.tmp.i = alloca %"class.std::function.26", align 8
   %agg.tmp = alloca %"class.std::function", align 8
   %0 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %useGPU = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %0, i64 0, i32 7
+  %useGPU = getelementptr inbounds i8, ptr %0, i64 10
   %1 = load i8, ptr %useGPU, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -8566,8 +8511,8 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %conv = sext i32 %nItems to i64
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #20
@@ -8576,8 +8521,8 @@ if.else:                                          ; preds = %entry
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_12SobolSamplerEEEviNS1_9TransformEiEUliE_E9_M_invokeERKSt9_Any_dataOl, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_12SobolSamplerEEEviNS1_9TransformEiEUliE_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.26", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 0, ptr %4, align 8
   %5 = ptrtoint ptr %agg.tmp to i64
@@ -8726,13 +8671,13 @@ entry:
   %agg.tmp19 = alloca %"class.pbrt::Filter", align 8
   %cameraRay = alloca %"class.pstd::optional.33", align 16
   %0 = load ptr, ptr %this, align 8
-  %film = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 8
+  %film = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i64, ptr %film, align 8
   %and.i.i.i = and i64 %1, 144115188075855871
   %2 = inttoptr i64 %and.i.i.i to ptr
-  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %retval.sroa.2.0.copyload.i.i15.pn.i.i.i = load i64, ptr %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i, align 8
-  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1
+  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
@@ -8743,16 +8688,16 @@ entry:
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
-  %3 = getelementptr inbounds %class.anon.79, ptr %this, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %3, align 8
   %div = sdiv i32 %pixelIndex, %sub
   %add5 = add nsw i32 %div, %4
-  %x2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 1
+  %x2.i = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %x2.i, align 8
   %idxprom.i = sext i32 %pixelIndex to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
   store i32 %add, ptr %arrayidx.i, align 4
-  %y4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 2
+  %y4.i = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %y4.i, align 8
   %arrayidx7.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   store i32 %add5, ptr %arrayidx7.i, align 4
@@ -8770,17 +8715,17 @@ entry:
   br i1 %or.cond.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sampler = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 9
+  %sampler = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load i64, ptr %sampler, align 8
   %and.i.i = and i64 %7, 144115188075855871
   %8 = inttoptr i64 %and.i.i to ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %pixelSampler, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
-  %9 = getelementptr inbounds %class.anon.79, ptr %this, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %this, i64 12
   %10 = load i32, ptr %9, align 4
-  %pixel.i = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %pixelSampler, i64 0, i32 4
+  %pixel.i = getelementptr inbounds i8, ptr %pixelSampler, i64 16
   store i64 %pPixel.sroa.0.0.insert.insert150, ptr %pixel.i, align 8
-  %dimension.i = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %pixelSampler, i64 0, i32 5
-  %scale.i = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %pixelSampler, i64 0, i32 1
+  %dimension.i = getelementptr inbounds i8, ptr %pixelSampler, i64 24
+  %scale.i = getelementptr inbounds i8, ptr %pixelSampler, i64 4
   %11 = load i32, ptr %scale.i, align 4
   %12 = tail call i32 @llvm.ctlz.i32(i32 %11, i1 true), !range !135
   %sub.i.i.i = xor i32 %12, 31
@@ -8858,12 +8803,12 @@ for.inc25.i.i:                                    ; preds = %if.then17.i.i, %for
 
 _ZN4pbrt12SobolSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = %for.inc25.i.i, %if.end, %for.end.i.i
   %retval.0.i.i = phi i64 [ %conv.i, %if.end ], [ %shl1.i.i, %for.end.i.i ], [ %index.1.i.i, %for.inc25.i.i ]
-  %sobolIndex.i = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %pixelSampler, i64 0, i32 6
+  %sobolIndex.i = getelementptr inbounds i8, ptr %pixelSampler, i64 32
   store i64 %retval.0.i.i, ptr %sobolIndex.i, align 8
   store i32 3, ptr %dimension.i, align 8
   %call.i = call noundef float @_ZNK4pbrt12SobolSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(40) %pixelSampler, i32 noundef 2)
   %15 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %disableWavelengthJitter = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %15, i64 0, i32 3
+  %disableWavelengthJitter = getelementptr inbounds i8, ptr %15, i64 6
   %16 = load i8, ptr %disableWavelengthJitter, align 2
   %17 = and i8 %16, 1
   %tobool.not = icmp eq i8 %17, 0
@@ -8881,11 +8826,11 @@ _ZN4pbrt12SobolSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = %for.i
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %lambda, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %19, i32 noundef %sub.i.i14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sample.i)
-  %filter = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 7
+  %filter = getelementptr inbounds i8, ptr %0, i64 48
   %20 = load i64, ptr %filter, align 8
   store i64 %20, ptr %agg.tmp19, align 8
   call void @_ZN4pbrt15GetCameraSampleINS_12SobolSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE(ptr nonnull sret(%"struct.pbrt::CameraSample") align 4 %cameraSample, ptr noundef nonnull byval(%"class.pbrt::SobolSampler") align 8 %pixelSampler, i64 %pPixel.sroa.0.0.insert.insert150, ptr noundef nonnull %agg.tmp19)
-  %camera = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 10
+  %camera = getelementptr inbounds i8, ptr %0, i64 72
   %21 = load i64, ptr %camera, align 8, !noalias !144
   %and.i.i.i16 = and i64 %21, 144115188075855871
   %22 = inttoptr i64 %and.i.i.i16 to ptr
@@ -8914,33 +8859,33 @@ sw.default.i.i:                                   ; preds = %_ZN4pbrt12SobolSamp
   br label %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
 
 _ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit: ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.default.i.i
-  %set.i = getelementptr inbounds %"class.pstd::optional.33", ptr %cameraRay, i64 0, i32 1
+  %set.i = getelementptr inbounds i8, ptr %cameraRay, i64 56
   %23 = load i8, ptr %set.i, align 8
   %24 = and i8 %23, 1
   %tobool.i.not = icmp eq i8 %24, 0
   br i1 %tobool.i.not, label %if.end32, label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %25 = getelementptr inbounds %class.anon.79, ptr %this, i64 0, i32 3
+  %25 = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %26 = load <4 x float>, ptr %cameraRay, align 16, !noalias !149
   %agg.tmp.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %26, <4 x float> poison, <2 x i32> zeroinitializer
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %27 = load <4 x float>, ptr %y.i.i, align 4, !noalias !149
   %agg.tmp2.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %27, <4 x float> poison, <2 x i32> zeroinitializer
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %28 = load <4 x float>, ptr %z.i.i, align 8, !noalias !149
   %agg.tmp3.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %28, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !149
-  %y3.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 1
+  %y3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !149
-  %z4.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 2
+  %z4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !149
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %25, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i)
-  %d3.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d3.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !149
-  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !149
   %call.i2024 = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %25, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i)
   %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i2024, 0
@@ -8959,19 +8904,19 @@ if.then.i:                                        ; preds = %invoke.cont
   %32 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %31)
   %33 = extractelement <2 x float> %call.fca.0.extract.i, i64 1
   %34 = call noundef float @llvm.fabs.f32(float %33)
-  %high.i.i.i = getelementptr inbounds %"class.pbrt::Interval", ptr %o.i, i64 0, i32 1
+  %high.i.i.i = getelementptr inbounds i8, ptr %o.i, i64 4
   %35 = load <4 x float>, ptr %high.i.i.i, align 4
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %37 = load <4 x float>, ptr %o.i, align 16
   %38 = shufflevector <4 x float> %37, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %y.i7.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1
-  %high.i1.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1, i32 1
+  %y.i7.i = getelementptr inbounds i8, ptr %o.i, i64 8
+  %high.i1.i.i = getelementptr inbounds i8, ptr %o.i, i64 12
   %39 = load float, ptr %high.i1.i.i, align 4, !noalias !149
   %40 = load float, ptr %y.i7.i, align 8, !noalias !149
   %sub.i2.i.i = fsub float %39, %40
   %div3.i.i = fmul float %sub.i2.i.i, 5.000000e-01
-  %z.i8.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2
-  %high.i3.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2, i32 1
+  %z.i8.i = getelementptr inbounds i8, ptr %o.i, i64 16
+  %high.i3.i.i = getelementptr inbounds i8, ptr %o.i, i64 20
   %41 = load float, ptr %high.i3.i.i, align 4, !noalias !149
   %42 = load float, ptr %z.i8.i, align 16, !noalias !149
   %mul4.i.i = fmul float %34, %div3.i.i
@@ -9023,12 +8968,12 @@ invoke.cont27:                                    ; preds = %invoke.cont26
   br label %if.end32
 
 if.end32:                                         ; preds = %invoke.cont27, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %ptr4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 4, i32 1
+  %ptr4.i = getelementptr inbounds i8, ptr %0, i64 208
   %61 = load ptr, ptr %ptr4.i, align 8
   %add.ptr.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %61, i64 %idxprom.i
-  %arrayidx.i23.i = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 2
-  %pdf.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1
-  %lambda4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 1
+  %arrayidx.i23.i = getelementptr inbounds i8, ptr %lambda, i64 8
+  %pdf.i = getelementptr inbounds i8, ptr %lambda, i64 16
+  %lambda4.i = getelementptr inbounds i8, ptr %0, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   %62 = load ptr, ptr %lambda4.i, align 8
   %add.ptr.i43 = getelementptr inbounds %"struct.pbrt::Float4", ptr %62, i64 %idxprom.i
@@ -9039,7 +8984,7 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i44, ptr %add.ptr.i43, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i46 = getelementptr inbounds i8, ptr %add.ptr.i43, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i45, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i46, align 8
-  %pdf4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 2
+  %pdf4.i = getelementptr inbounds i8, ptr %0, i64 176
   %65 = load ptr, ptr %pdf4.i, align 8
   %add.ptr21.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %65, i64 %idxprom.i
   %66 = load <4 x float>, ptr %pdf.i, align 16
@@ -9048,9 +8993,9 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   store <2 x float> %agg.tmp22.sroa.0.4.vec.insert.i, ptr %add.ptr21.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i28.i = getelementptr inbounds i8, ptr %add.ptr21.i, i64 8
   store <2 x float> %agg.tmp22.sroa.3.12.vec.insert.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i28.i, align 8
-  %filterWeight = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %cameraSample, i64 0, i32 3
+  %filterWeight = getelementptr inbounds i8, ptr %cameraSample, i64 20
   %67 = load float, ptr %filterWeight, align 4
-  %filterWeight44 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 1
+  %filterWeight44 = getelementptr inbounds i8, ptr %0, i64 128
   %68 = load ptr, ptr %filterWeight44, align 8
   %arrayidx = getelementptr inbounds float, ptr %68, i64 %idxprom.i
   store float %67, ptr %arrayidx, align 4
@@ -9060,83 +9005,83 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   br i1 %tobool45.not, label %if.end53, label %invoke.cont48
 
 invoke.cont48:                                    ; preds = %if.end32
-  %set2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 1
+  %set2.i = getelementptr inbounds i8, ptr %0, i64 256
   %71 = load ptr, ptr %set2.i, align 8
   %arrayidx.i52 = getelementptr inbounds i8, ptr %71, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i52, align 1
-  %x2.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 1
+  %x2.i.i = getelementptr inbounds i8, ptr %0, i64 272
   %72 = load ptr, ptr %x2.i.i, align 8
   %arrayidx.i.i54 = getelementptr inbounds float, ptr %72, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i.i54, align 4
-  %y4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 2
+  %y4.i.i = getelementptr inbounds i8, ptr %0, i64 280
   %73 = load ptr, ptr %y4.i.i, align 8
   %arrayidx7.i.i = getelementptr inbounds float, ptr %73, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i.i, align 4
-  %z9.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 3
+  %z9.i.i = getelementptr inbounds i8, ptr %0, i64 288
   %74 = load ptr, ptr %z9.i.i, align 8
   %arrayidx12.i.i = getelementptr inbounds float, ptr %74, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i.i, align 4
-  %x2.i11.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 1
+  %x2.i11.i = getelementptr inbounds i8, ptr %0, i64 304
   %75 = load ptr, ptr %x2.i11.i, align 8
   %arrayidx.i14.i = getelementptr inbounds float, ptr %75, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i14.i, align 4
-  %y4.i16.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 2
+  %y4.i16.i = getelementptr inbounds i8, ptr %0, i64 312
   %76 = load ptr, ptr %y4.i16.i, align 8
   %arrayidx7.i18.i = getelementptr inbounds float, ptr %76, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i18.i, align 4
-  %z9.i20.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 3
+  %z9.i20.i = getelementptr inbounds i8, ptr %0, i64 320
   %77 = load ptr, ptr %z9.i20.i, align 8
   %arrayidx12.i22.i = getelementptr inbounds float, ptr %77, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i22.i, align 4
-  %x2.i25.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 1
+  %x2.i25.i = getelementptr inbounds i8, ptr %0, i64 336
   %78 = load ptr, ptr %x2.i25.i, align 8
   %arrayidx.i28.i = getelementptr inbounds float, ptr %78, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i28.i, align 4
-  %y4.i30.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 2
+  %y4.i30.i = getelementptr inbounds i8, ptr %0, i64 344
   %79 = load ptr, ptr %y4.i30.i, align 8
   %arrayidx7.i32.i = getelementptr inbounds float, ptr %79, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i32.i, align 4
-  %z9.i34.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 3
+  %z9.i34.i = getelementptr inbounds i8, ptr %0, i64 352
   %80 = load ptr, ptr %z9.i34.i, align 8
   %arrayidx12.i36.i = getelementptr inbounds float, ptr %80, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i36.i, align 4
-  %x2.i39.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 1
+  %x2.i39.i = getelementptr inbounds i8, ptr %0, i64 368
   %81 = load ptr, ptr %x2.i39.i, align 8
   %arrayidx.i42.i = getelementptr inbounds float, ptr %81, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i42.i, align 4
-  %y4.i44.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 2
+  %y4.i44.i = getelementptr inbounds i8, ptr %0, i64 376
   %82 = load ptr, ptr %y4.i44.i, align 8
   %arrayidx7.i46.i = getelementptr inbounds float, ptr %82, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i46.i, align 4
-  %time22.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 6
+  %time22.i = getelementptr inbounds i8, ptr %0, i64 384
   %83 = load ptr, ptr %time22.i, align 8
   %arrayidx25.i = getelementptr inbounds float, ptr %83, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx25.i, align 4
-  %x2.i49.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 1
+  %x2.i49.i = getelementptr inbounds i8, ptr %0, i64 400
   %84 = load ptr, ptr %x2.i49.i, align 8
   %arrayidx.i52.i = getelementptr inbounds float, ptr %84, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i52.i, align 4
-  %y4.i54.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 2
+  %y4.i54.i = getelementptr inbounds i8, ptr %0, i64 408
   %85 = load ptr, ptr %y4.i54.i, align 8
   %arrayidx7.i56.i = getelementptr inbounds float, ptr %85, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i56.i, align 4
-  %z9.i58.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 3
+  %z9.i58.i = getelementptr inbounds i8, ptr %0, i64 416
   %86 = load ptr, ptr %z9.i58.i, align 8
   %arrayidx12.i60.i = getelementptr inbounds float, ptr %86, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i60.i, align 4
-  %x2.i63.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 1
+  %x2.i63.i = getelementptr inbounds i8, ptr %0, i64 432
   %87 = load ptr, ptr %x2.i63.i, align 8
   %arrayidx.i66.i = getelementptr inbounds float, ptr %87, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i66.i, align 4
-  %y4.i68.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 2
+  %y4.i68.i = getelementptr inbounds i8, ptr %0, i64 440
   %88 = load ptr, ptr %y4.i68.i, align 8
   %arrayidx7.i70.i = getelementptr inbounds float, ptr %88, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i70.i, align 4
-  %z9.i72.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 3
+  %z9.i72.i = getelementptr inbounds i8, ptr %0, i64 448
   %89 = load ptr, ptr %z9.i72.i, align 8
   %arrayidx12.i74.i = getelementptr inbounds float, ptr %89, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i74.i, align 4
-  %ptr4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 9, i32 1
+  %ptr4.i.i = getelementptr inbounds i8, ptr %0, i64 464
   %90 = load ptr, ptr %ptr4.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %90, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i.i, i8 0, i64 16, i1 false)
@@ -9149,70 +9094,70 @@ if.end53:                                         ; preds = %invoke.cont48, %if.
   br i1 %tobool.i60.not, label %if.else, label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %if.end53
-  %93 = getelementptr inbounds %class.anon.79, ptr %this, i64 0, i32 4
+  %93 = getelementptr inbounds i8, ptr %this, i64 144
   %94 = load ptr, ptr %93, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp10.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp17.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp20.i)
-  %size.i.i = getelementptr inbounds %"class.pbrt::WorkQueue", ptr %94, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %94, i64 400
   %95 = atomicrmw add ptr %size.i.i, i32 1 monotonic, align 4
   %96 = load float, ptr %cameraRay, align 16
-  %x2.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 1, i32 1, i32 1
+  %x2.i.i.i = getelementptr inbounds i8, ptr %94, i64 24
   %97 = load ptr, ptr %x2.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %95 to i64
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %97, i64 %idxprom.i.i.i
   store float %96, ptr %arrayidx.i.i.i, align 4
-  %y.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %98 = load float, ptr %y.i.i.i, align 4
-  %y4.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 1, i32 1, i32 2
+  %y4.i.i.i = getelementptr inbounds i8, ptr %94, i64 32
   %99 = load ptr, ptr %y4.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr inbounds float, ptr %99, i64 %idxprom.i.i.i
   store float %98, ptr %arrayidx7.i.i.i, align 4
-  %z.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %100 = load float, ptr %z.i.i.i, align 8
-  %z9.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 1, i32 1, i32 3
+  %z9.i.i.i = getelementptr inbounds i8, ptr %94, i64 40
   %101 = load ptr, ptr %z9.i.i.i, align 8
   %arrayidx12.i.i.i = getelementptr inbounds float, ptr %101, i64 %idxprom.i.i.i
   store float %100, ptr %arrayidx12.i.i.i, align 4
-  %d.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %102 = load float, ptr %d.i.i, align 4
-  %x2.i6.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 1, i32 2, i32 1
+  %x2.i6.i.i = getelementptr inbounds i8, ptr %94, i64 56
   %103 = load ptr, ptr %x2.i6.i.i, align 8
   %arrayidx.i9.i.i = getelementptr inbounds float, ptr %103, i64 %idxprom.i.i.i
   store float %102, ptr %arrayidx.i9.i.i, align 4
-  %y.i10.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 1
+  %y.i10.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 16
   %104 = load float, ptr %y.i10.i.i, align 16
-  %y4.i11.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 1, i32 2, i32 2
+  %y4.i11.i.i = getelementptr inbounds i8, ptr %94, i64 64
   %105 = load ptr, ptr %y4.i11.i.i, align 8
   %arrayidx7.i13.i.i = getelementptr inbounds float, ptr %105, i64 %idxprom.i.i.i
   store float %104, ptr %arrayidx7.i13.i.i, align 4
-  %z.i14.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %z.i14.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %106 = load float, ptr %z.i14.i.i, align 4
-  %z9.i15.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 1, i32 2, i32 3
+  %z9.i15.i.i = getelementptr inbounds i8, ptr %94, i64 72
   %107 = load ptr, ptr %z9.i15.i.i, align 8
   %arrayidx12.i17.i.i = getelementptr inbounds float, ptr %107, i64 %idxprom.i.i.i
   store float %106, ptr %arrayidx12.i17.i.i, align 4
-  %time.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 2
+  %time.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 24
   %108 = load float, ptr %time.i.i, align 8
-  %time9.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 1, i32 3
+  %time9.i.i = getelementptr inbounds i8, ptr %94, i64 80
   %109 = load ptr, ptr %time9.i.i, align 8
   %arrayidx.i.i66 = getelementptr inbounds float, ptr %109, i64 %idxprom.i.i.i
   store float %108, ptr %arrayidx.i.i66, align 4
-  %medium.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 3
-  %medium12.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 1, i32 4
+  %medium.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 32
+  %medium12.i.i = getelementptr inbounds i8, ptr %94, i64 88
   %110 = load ptr, ptr %medium12.i.i, align 8
   %arrayidx15.i.i = getelementptr inbounds %"class.pbrt::Medium", ptr %110, i64 %idxprom.i.i.i
   %111 = load i64, ptr %medium.i.i, align 16
   store i64 %111, ptr %arrayidx15.i.i, align 8
-  %depth.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %94, i64 96
   %112 = load ptr, ptr %depth.i, align 8
   %arrayidx.i67 = getelementptr inbounds i32, ptr %112, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx.i67, align 4
-  %pixelIndex4.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 3
+  %pixelIndex4.i = getelementptr inbounds i8, ptr %94, i64 104
   %113 = load ptr, ptr %pixelIndex4.i, align 8
   %arrayidx6.i = getelementptr inbounds i32, ptr %113, i64 %idxprom.i.i.i
   store i32 %pixelIndex, ptr %arrayidx6.i, align 4
-  %lambda4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 4, i32 1
+  %lambda4.i.i = getelementptr inbounds i8, ptr %94, i64 120
   %114 = load ptr, ptr %lambda4.i.i, align 8
   %add.ptr.i.i68 = getelementptr inbounds %"struct.pbrt::Float4", ptr %114, i64 %idxprom.i.i.i
   %115 = load <4 x float>, ptr %lambda, align 16
@@ -9222,7 +9167,7 @@ invoke.cont56:                                    ; preds = %if.end53
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i69, ptr %add.ptr.i.i68, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i68, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i.i70, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i71, align 8
-  %pdf4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 4, i32 2
+  %pdf4.i.i = getelementptr inbounds i8, ptr %94, i64 128
   %117 = load ptr, ptr %pdf4.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %117, i64 %idxprom.i.i.i
   %118 = load <4 x float>, ptr %pdf.i, align 16
@@ -9243,7 +9188,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   br i1 %exitcond.not.i.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit.i, label %for.body.i.i.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
-  %ptr4.i.i72 = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 5, i32 1
+  %ptr4.i.i72 = getelementptr inbounds i8, ptr %94, i64 160
   %119 = load ptr, ptr %ptr4.i.i72, align 8
   %add.ptr.i18.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %119, i64 %idxprom.i.i.i
   %120 = load <4 x float>, ptr %ref.tmp10.i, align 16
@@ -9252,11 +9197,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i19.i, ptr %add.ptr.i18.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i = getelementptr inbounds i8, ptr %add.ptr.i18.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i20.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i, align 8
-  %etaScale.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 9
+  %etaScale.i = getelementptr inbounds i8, ptr %94, i64 376
   %121 = load ptr, ptr %etaScale.i, align 8
   %arrayidx14.i = getelementptr inbounds float, ptr %121, i64 %idxprom.i.i.i
   store float 1.000000e+00, ptr %arrayidx14.i, align 4
-  %anyNonSpecularBounces.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 11
+  %anyNonSpecularBounces.i = getelementptr inbounds i8, ptr %94, i64 392
   %122 = load ptr, ptr %anyNonSpecularBounces.i, align 8
   %arrayidx16.i = getelementptr inbounds i32, ptr %122, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx16.i, align 4
@@ -9272,7 +9217,7 @@ for.body.i.i22.i:                                 ; preds = %for.body.i.i22.i, %
   br i1 %exitcond.not.i.i26.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit27.i, label %for.body.i.i22.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit27.i:           ; preds = %for.body.i.i22.i
-  %ptr4.i31.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 6, i32 1
+  %ptr4.i31.i = getelementptr inbounds i8, ptr %94, i64 184
   %123 = load ptr, ptr %ptr4.i31.i, align 8
   %add.ptr.i33.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %123, i64 %idxprom.i.i.i
   %124 = load <4 x float>, ptr %ref.tmp17.i, align 16
@@ -9293,7 +9238,7 @@ for.body.i.i37.i:                                 ; preds = %for.body.i.i37.i, %
   br i1 %exitcond.not.i.i41.i, label %invoke.cont59, label %for.body.i.i37.i, !llvm.loop !24
 
 invoke.cont59:                                    ; preds = %for.body.i.i37.i
-  %ptr4.i46.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 7, i32 1
+  %ptr4.i46.i = getelementptr inbounds i8, ptr %94, i64 208
   %125 = load ptr, ptr %ptr4.i46.i, align 8
   %add.ptr.i48.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %125, i64 %idxprom.i.i.i
   %126 = load <4 x float>, ptr %ref.tmp20.i, align 16
@@ -9302,7 +9247,7 @@ invoke.cont59:                                    ; preds = %for.body.i.i37.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i49.i, ptr %add.ptr.i48.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i = getelementptr inbounds i8, ptr %add.ptr.i48.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i50.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i, align 8
-  %specularBounce.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %94, i64 0, i32 10
+  %specularBounce.i = getelementptr inbounds i8, ptr %94, i64 384
   %127 = load ptr, ptr %specularBounce.i, align 8
   %arrayidx24.i = getelementptr inbounds i32, ptr %127, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx24.i, align 4
@@ -9319,8 +9264,8 @@ land.rhs.i.i75.invoke:                            ; preds = %invoke.cont26, %inv
   unreachable
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  %weight = getelementptr inbounds %"struct.pbrt::CameraRay", ptr %cameraRay, i64 0, i32 1
-  %ptr4.i81 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %weight = getelementptr inbounds i8, ptr %cameraRay, i64 40
+  %ptr4.i81 = getelementptr inbounds i8, ptr %0, i64 232
   %130 = load ptr, ptr %ptr4.i81, align 8
   %add.ptr.i83 = getelementptr inbounds %"struct.pbrt::Float4", ptr %130, i64 %idxprom.i
   %131 = load <4 x float>, ptr %weight, align 8
@@ -9332,7 +9277,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
   br label %return
 
 if.else:                                          ; preds = %if.end53
-  %ptr4.i96 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %ptr4.i96 = getelementptr inbounds i8, ptr %0, i64 232
   %132 = load ptr, ptr %ptr4.i96, align 8
   %add.ptr.i98 = getelementptr inbounds %"struct.pbrt::Float4", ptr %132, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i98, i8 0, i64 16, i1 false)
@@ -9347,13 +9292,13 @@ define linkonce_odr dso_local void @_ZN4pbrt15GetCameraSampleINS_12SobolSamplerE
 entry:
   %u.i = alloca %"class.pbrt::Point2.31", align 8
   %sample.i = alloca %class.anon.50, align 8
-  %retval.sroa.0.i = alloca <2 x float>, align 8
+  %retval.i = alloca %"class.pbrt::Point2.31", align 8
   %pPixel.sroa.3.0.extract.shift = lshr i64 %pPixel.coerce, 32
   %0 = insertelement <2 x i64> poison, i64 %pPixel.coerce, i64 0
   %1 = insertelement <2 x i64> %0, i64 %pPixel.sroa.3.0.extract.shift, i64 1
   %2 = trunc <2 x i64> %1 to <2 x i32>
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.sroa.0.i)
-  %sobolIndex.i = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %sampler, i64 0, i32 6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
+  %sobolIndex.i = getelementptr inbounds i8, ptr %sampler, i64 32
   %3 = load i64, ptr %sobolIndex.i, align 8
   %cmp.not6.i.i = icmp eq i64 %3, 0
   br i1 %cmp.not6.i.i, label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit25.i, label %for.body.i.i
@@ -9413,29 +9358,27 @@ for.end.loopexit.i21.i:                           ; preds = %for.inc.i16.i
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit25.i
 
 _ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit25.i: ; preds = %for.end.loopexit.i21.i, %entry
-  %.sroa.speculated.i39.i = phi float [ %.sroa.speculated.i.i, %for.end.loopexit.i21.i ], [ 0.000000e+00, %entry ]
+  %.sroa.speculated.i36.i = phi float [ %.sroa.speculated.i.i, %for.end.loopexit.i21.i ], [ 0.000000e+00, %entry ]
   %v.0.lcssa.i22.i = phi float [ %9, %for.end.loopexit.i21.i ], [ 0.000000e+00, %entry ]
   %cmp.i.i23.i = fcmp ogt float %v.0.lcssa.i22.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i24.i = select i1 %cmp.i.i23.i, float 0x3FEFFFFFE0000000, float %v.0.lcssa.i22.i
-  store float %.sroa.speculated.i39.i, ptr %retval.sroa.0.i, align 8
-  %retval.sroa.0.i.4.i.4.i.4.y3.i.i.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i, i64 4
-  store float %.sroa.speculated.i24.i, ptr %retval.sroa.0.i.4.i.4.i.4.y3.i.i.sroa_idx, align 4
-  %scale.i = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %sampler, i64 0, i32 1
+  store float %.sroa.speculated.i36.i, ptr %retval.i, align 8
+  %y3.i.i.i = getelementptr inbounds i8, ptr %retval.i, i64 4
+  store float %.sroa.speculated.i24.i, ptr %y3.i.i.i, align 4
+  %scale.i = getelementptr inbounds i8, ptr %sampler, i64 4
   %10 = load i32, ptr %scale.i, align 4
   %conv.i = sitofp i32 %10 to float
-  %pixel.i = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %sampler, i64 0, i32 4
-  %y.i27.i = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %sampler, i64 0, i32 4, i32 0, i32 1
-  %pixel.val.i = load i32, ptr %pixel.i, align 8
-  %y.i27.val.i = load i32, ptr %y.i27.i, align 4
+  %pixel.i = getelementptr inbounds i8, ptr %sampler, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit25.i
   %cmp.i.i = phi i1 [ true, %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit25.i ], [ false, %for.body.i ]
-  %cond-lvalue.i.i.idx = select i1 %cmp.i.i, i64 0, i64 4
-  %cond-lvalue.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.i, i64 %cond-lvalue.i.i.idx
+  %cond-lvalue.idx.i.i = select i1 %cmp.i.i, i64 0, i64 4
+  %cond-lvalue.i.i = getelementptr inbounds i8, ptr %retval.i, i64 %cond-lvalue.idx.i.i
   %11 = load float, ptr %cond-lvalue.i.i, align 4
   %mul.i = fmul float %11, %conv.i
-  %12 = select i1 %cmp.i.i, i32 %pixel.val.i, i32 %y.i27.val.i
+  %cond-lvalue.i28.i = getelementptr inbounds i8, ptr %pixel.i, i64 %cond-lvalue.idx.i.i
+  %12 = load i32, ptr %cond-lvalue.i28.i, align 4
   %conv7.i = sitofp i32 %12 to float
   %sub.i = fsub float %mul.i, %conv7.i
   %cmp.i29.i = fcmp olt float %sub.i, 0.000000e+00
@@ -9446,42 +9389,42 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN4pb
   br i1 %cmp.i.i, label %for.body.i, label %_ZN4pbrt12SobolSampler10GetPixel2DEv.exit, !llvm.loop !152
 
 _ZN4pbrt12SobolSampler10GetPixel2DEv.exit:        ; preds = %for.body.i
-  %retval.sroa.0.i.0.retval.sroa.0.i.0.retval.sroa.0.i.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..i = load <2 x float>, ptr %retval.sroa.0.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.sroa.0.i)
+  %13 = load <2 x float>, ptr %retval.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %u.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sample.i)
-  store <2 x float> %retval.sroa.0.i.0.retval.sroa.0.i.0.retval.sroa.0.i.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..i, ptr %u.i, align 8
+  store <2 x float> %13, ptr %u.i, align 8
   store ptr %u.i, ptr %sample.i, align 8
-  %13 = load i64, ptr %filter, align 8
-  %and.i.i.i = and i64 %13, 144115188075855871
-  %14 = inttoptr i64 %and.i.i.i to ptr
-  %shr.i.i.i = lshr i64 %13, 57
+  %14 = load i64, ptr %filter, align 8
+  %and.i.i.i = and i64 %14, 144115188075855871
+  %15 = inttoptr i64 %and.i.i.i to ptr
+  %shr.i.i.i = lshr i64 %14, 57
   %conv.i.i.i = trunc i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
-  %call3.i.i = call { <2 x float>, float } @_ZN4pbrt6detail8DispatchIRZNKS_6Filter6SampleENS_6Point2IfEEEUlT_E_NS_12FilterSampleENS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %14, i32 noundef %sub.i.i)
+  %call3.i.i = call { <2 x float>, float } @_ZN4pbrt6detail8DispatchIRZNKS_6Filter6SampleENS_6Point2IfEEEUlT_E_NS_12FilterSampleENS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %15, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sample.i)
   %call3.fca.0.extract = extractvalue { <2 x float>, float } %call3.i.i, 0
   %call3.fca.1.extract = extractvalue { <2 x float>, float } %call3.i.i, 1
-  %filterWeight.i = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %agg.result, i64 0, i32 3
-  %15 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 12, i1 false)
+  %filterWeight.i = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %16 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %16, i8 0, i64 12, i1 false)
   store float 1.000000e+00, ptr %filterWeight.i, align 4
-  %16 = sitofp <2 x i32> %2 to <2 x float>
-  %17 = fadd <2 x float> %call3.fca.0.extract, %16
-  %18 = fadd <2 x float> %17, <float 5.000000e-01, float 5.000000e-01>
-  store <2 x float> %18, ptr %agg.result, align 4
-  %dimension.i = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %sampler, i64 0, i32 5
-  %19 = load i32, ptr %dimension.i, align 8
-  %cmp.i = icmp sgt i32 %19, 1023
-  %spec.select.i = select i1 %cmp.i, i32 2, i32 %19
+  %17 = sitofp <2 x i32> %2 to <2 x float>
+  %18 = fadd <2 x float> %call3.fca.0.extract, %17
+  %19 = fadd <2 x float> %18, <float 5.000000e-01, float 5.000000e-01>
+  store <2 x float> %19, ptr %agg.result, align 4
+  %dimension.i = getelementptr inbounds i8, ptr %sampler, i64 24
+  %20 = load i32, ptr %dimension.i, align 8
+  %cmp.i = icmp sgt i32 %20, 1023
+  %spec.select.i = select i1 %cmp.i, i32 2, i32 %20
   %inc.i = add nsw i32 %spec.select.i, 1
   store i32 %inc.i, ptr %dimension.i, align 8
   %call.i = call noundef float @_ZNK4pbrt12SobolSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(40) %sampler, i32 noundef %spec.select.i)
-  %time = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %agg.result, i64 0, i32 2
+  %time = getelementptr inbounds i8, ptr %agg.result, i64 16
   store float %call.i, ptr %time, align 4
-  %20 = load i32, ptr %dimension.i, align 8
-  %cmp.i7 = icmp sgt i32 %20, 1022
+  %21 = load i32, ptr %dimension.i, align 8
+  %cmp.i7 = icmp sgt i32 %21, 1022
   br i1 %cmp.i7, label %if.then.i, label %_ZN4pbrt12SobolSampler5Get2DEv.exit
 
 if.then.i:                                        ; preds = %_ZN4pbrt12SobolSampler10GetPixel2DEv.exit
@@ -9489,36 +9432,36 @@ if.then.i:                                        ; preds = %_ZN4pbrt12SobolSamp
   br label %_ZN4pbrt12SobolSampler5Get2DEv.exit
 
 _ZN4pbrt12SobolSampler5Get2DEv.exit:              ; preds = %_ZN4pbrt12SobolSampler10GetPixel2DEv.exit, %if.then.i
-  %21 = phi i32 [ 2, %if.then.i ], [ %20, %_ZN4pbrt12SobolSampler10GetPixel2DEv.exit ]
-  %call.i8 = call noundef float @_ZNK4pbrt12SobolSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(40) %sampler, i32 noundef %21)
-  %22 = load i32, ptr %dimension.i, align 8
-  %add5.i9 = add nsw i32 %22, 1
+  %22 = phi i32 [ 2, %if.then.i ], [ %21, %_ZN4pbrt12SobolSampler10GetPixel2DEv.exit ]
+  %call.i8 = call noundef float @_ZNK4pbrt12SobolSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(40) %sampler, i32 noundef %22)
+  %23 = load i32, ptr %dimension.i, align 8
+  %add5.i9 = add nsw i32 %23, 1
   %call6.i = call noundef float @_ZNK4pbrt12SobolSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(40) %sampler, i32 noundef %add5.i9)
   %retval.sroa.0.0.vec.insert.i10 = insertelement <2 x float> poison, float %call.i8, i64 0
   %retval.sroa.0.4.vec.insert.i11 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i10, float %call6.i, i64 1
-  %23 = load i32, ptr %dimension.i, align 8
-  %add8.i = add nsw i32 %23, 2
+  %24 = load i32, ptr %dimension.i, align 8
+  %add8.i = add nsw i32 %24, 2
   store i32 %add8.i, ptr %dimension.i, align 8
-  %pLens = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %agg.result, i64 0, i32 1
+  %pLens = getelementptr inbounds i8, ptr %agg.result, i64 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i11, ptr %pLens, align 4
   store float %call3.fca.1.extract, ptr %filterWeight.i, align 4
-  %24 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %disablePixelJitter = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %24, i64 0, i32 2
-  %25 = load i8, ptr %disablePixelJitter, align 1
-  %26 = and i8 %25, 1
-  %tobool.not = icmp eq i8 %26, 0
+  %25 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
+  %disablePixelJitter = getelementptr inbounds i8, ptr %25, i64 5
+  %26 = load i8, ptr %disablePixelJitter, align 1
+  %27 = and i8 %26, 1
+  %tobool.not = icmp eq i8 %27, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4pbrt12SobolSampler5Get2DEv.exit
-  %27 = extractelement <2 x float> %16, i64 0
-  %add.i15 = fadd float %27, 5.000000e-01
-  %28 = extractelement <2 x float> %16, i64 1
-  %add5.i19 = fadd float %28, 5.000000e-01
+  %28 = extractelement <2 x float> %17, i64 0
+  %add.i15 = fadd float %28, 5.000000e-01
+  %29 = extractelement <2 x float> %17, i64 1
+  %add5.i19 = fadd float %29, 5.000000e-01
   %retval.sroa.0.0.vec.insert.i20 = insertelement <2 x float> poison, float %add.i15, i64 0
   %retval.sroa.0.4.vec.insert.i21 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i20, float %add5.i19, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i21, ptr %agg.result, align 4
   store i32 1056964608, ptr %pLens, align 4
-  %pLens.sroa_idx = getelementptr inbounds %"struct.pbrt::CameraSample", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %pLens.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 1056964608, ptr %pLens.sroa_idx, align 4
   store <2 x float> <float 5.000000e-01, float 1.000000e+00>, ptr %time, align 4
   br label %if.end
@@ -9533,13 +9476,13 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNK4pbrt12SobolSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %dimension) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %randomize = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %this, i64 0, i32 3
+  %randomize = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %randomize, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sobolIndex = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %this, i64 0, i32 6
+  %sobolIndex = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %sobolIndex, align 8
   %cmp.not6.i = icmp eq i64 %1, 0
   br i1 %cmp.not6.i, label %return, label %for.body.preheader.i
@@ -9576,7 +9519,7 @@ for.end.loopexit.i:                               ; preds = %for.inc.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %seed = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %this, i64 0, i32 2
+  %seed = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i32, ptr %seed, align 8
   %buf.sroa.2.0.insert.ext.i = zext i32 %6 to i64
   %buf.sroa.2.0.insert.shift.i = shl nuw i64 %buf.sroa.2.0.insert.ext.i, 32
@@ -9594,7 +9537,7 @@ if.end:                                           ; preds = %entry
   %shr42.i.i = lshr i64 %mul41.i.i, 47
   %xor43.i.i = xor i64 %shr42.i.i, %mul41.i.i
   %conv = trunc i64 %xor43.i.i to i32
-  %sobolIndex17 = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %this, i64 0, i32 6
+  %sobolIndex17 = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load i64, ptr %sobolIndex17, align 8
   %cmp.not6.i52 = icmp eq i64 %7, 0
   switch i32 %0, label %if.else16 [
@@ -9766,7 +9709,7 @@ entry:
   %agg.tmp.i = alloca %"class.std::function.26", align 8
   %agg.tmp = alloca %"class.std::function", align 8
   %0 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %useGPU = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %0, i64 0, i32 7
+  %useGPU = getelementptr inbounds i8, ptr %0, i64 10
   %1 = load i8, ptr %useGPU, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -9778,8 +9721,8 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %conv = sext i32 %nItems to i64
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #20
@@ -9788,8 +9731,8 @@ if.else:                                          ; preds = %entry
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_13ZSobolSamplerEEEviNS1_9TransformEiEUliE_E9_M_invokeERKSt9_Any_dataOl, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator18GenerateCameraRaysINS1_13ZSobolSamplerEEEviNS1_9TransformEiEUliE_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.26", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 0, ptr %4, align 8
   %5 = ptrtoint ptr %agg.tmp to i64
@@ -9940,13 +9883,13 @@ entry:
   %lambda = alloca %"class.pbrt::SampledWavelengths", align 16
   %cameraRay = alloca %"class.pstd::optional.33", align 16
   %0 = load ptr, ptr %this, align 8
-  %film = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 8
+  %film = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i64, ptr %film, align 8
   %and.i.i.i = and i64 %1, 144115188075855871
   %2 = inttoptr i64 %and.i.i.i to ptr
-  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %retval.sroa.2.0.copyload.i.i15.pn.i.i.i = load i64, ptr %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i, align 8
-  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds %"class.pbrt::FilmBase", ptr %2, i64 0, i32 1
+  %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
@@ -9957,16 +9900,16 @@ entry:
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
-  %3 = getelementptr inbounds %class.anon.80, ptr %this, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %3, align 8
   %div = sdiv i32 %pixelIndex, %sub
   %add5 = add nsw i32 %div, %4
-  %x2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 1
+  %x2.i = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %x2.i, align 8
   %idxprom.i = sext i32 %pixelIndex to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
   store i32 %add, ptr %arrayidx.i, align 4
-  %y4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 2, i32 2
+  %y4.i = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %y4.i, align 8
   %arrayidx7.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   store i32 %add5, ptr %arrayidx7.i, align 4
@@ -9982,14 +9925,14 @@ entry:
 if.end:                                           ; preds = %entry
   %pPixel.sroa.5.0.insert.ext149 = zext i32 %add5 to i64
   %pPixel.sroa.0.0.insert.ext142 = zext i32 %add to i64
-  %sampler = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 9
+  %sampler = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load i64, ptr %sampler, align 8
   %and.i.i = and i64 %7, 144115188075855871
   %8 = inttoptr i64 %and.i.i to ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %pixelSampler, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  %9 = getelementptr inbounds %class.anon.80, ptr %this, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %this, i64 12
   %10 = load i32, ptr %9, align 4
-  %dimension.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %pixelSampler, i64 0, i32 5
+  %dimension.i = getelementptr inbounds i8, ptr %pixelSampler, i64 24
   store i32 0, ptr %dimension.i, align 8
   %shl.i.i.i = shl nuw nsw i64 %pPixel.sroa.5.0.insert.ext149, 16
   %xor.i.i.i = or i64 %shl.i.i.i, %pPixel.sroa.5.0.insert.ext149
@@ -10023,17 +9966,17 @@ if.end:                                           ; preds = %entry
   %xor12.i15.i.i = or i64 %shl11.i14.i.i, %and10.i13.i.i
   %and13.i16.i.i = and i64 %xor12.i15.i.i, 6148914691236517205
   %or.i.i = or disjoint i64 %shl.i.i, %and13.i16.i.i
-  %log2SamplesPerPixel.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %pixelSampler, i64 0, i32 2
+  %log2SamplesPerPixel.i = getelementptr inbounds i8, ptr %pixelSampler, i64 8
   %13 = load i32, ptr %log2SamplesPerPixel.i, align 8
   %sh_prom.i = zext nneg i32 %13 to i64
   %shl.i = shl i64 %or.i.i, %sh_prom.i
   %conv.i = sext i32 %10 to i64
   %or.i = or i64 %shl.i, %conv.i
-  %mortonIndex.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %pixelSampler, i64 0, i32 4
+  %mortonIndex.i = getelementptr inbounds i8, ptr %pixelSampler, i64 16
   store i64 %or.i, ptr %mortonIndex.i, align 8
   %call12 = call noundef float @_ZN4pbrt13ZSobolSampler5Get1DEv(ptr noundef nonnull align 8 dereferenceable(28) %pixelSampler)
   %14 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %disableWavelengthJitter = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %14, i64 0, i32 3
+  %disableWavelengthJitter = getelementptr inbounds i8, ptr %14, i64 6
   %15 = load i8, ptr %disableWavelengthJitter, align 2
   %16 = and i8 %15, 1
   %tobool.not = icmp eq i8 %16, 0
@@ -10053,7 +9996,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sample.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1712)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1712, ptr noundef nonnull align 8 dereferenceable(32) %pixelSampler, i64 32, i1 false)
-  %filter = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 7
+  %filter = getelementptr inbounds i8, ptr %0, i64 48
   %19 = load i64, ptr %filter, align 8
   %call.i.i = call <2 x float> @_ZN4pbrt13ZSobolSampler5Get2DEv(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp1712), !noalias !159
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %u.i.i), !noalias !159
@@ -10083,7 +10026,7 @@ if.end:                                           ; preds = %entry
   %call13.i = call noundef float @_ZN4pbrt13ZSobolSampler5Get1DEv(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp1712), !noalias !159
   %call15.i = call <2 x float> @_ZN4pbrt13ZSobolSampler5Get2DEv(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp1712), !noalias !159
   %21 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8, !noalias !159
-  %disablePixelJitter.i = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %21, i64 0, i32 2
+  %disablePixelJitter.i = getelementptr inbounds i8, ptr %21, i64 5
   %22 = load i8, ptr %disablePixelJitter.i, align 1, !noalias !159
   %23 = and i8 %22, 1
   %tobool.not.i = icmp eq i8 %23, 0
@@ -10102,7 +10045,7 @@ _ZN4pbrt15GetCameraSampleINS_13ZSobolSamplerEEENS_12CameraSampleET_NS_6Point2IiE
   %cameraSample.sroa.9.0 = phi float [ %call3.fca.1.extract.i, %if.end ], [ 1.000000e+00, %if.then.i ]
   %cameraSample.sroa.7.0 = phi float [ %call13.i, %if.end ], [ 5.000000e-01, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1712)
-  %camera = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 10
+  %camera = getelementptr inbounds i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2113)
   store <2 x float> %cameraSample.sroa.0.0, ptr %agg.tmp2113, align 8
   %agg.tmp21.sroa.2.0.agg.tmp2113.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2113, i64 8
@@ -10140,33 +10083,33 @@ sw.default.i.i:                                   ; preds = %_ZN4pbrt15GetCamera
 
 _ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit: ; preds = %sw.bb.i.i, %sw.bb3.i.i, %sw.bb4.i.i, %sw.default.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2113)
-  %set.i = getelementptr inbounds %"class.pstd::optional.33", ptr %cameraRay, i64 0, i32 1
+  %set.i = getelementptr inbounds i8, ptr %cameraRay, i64 56
   %26 = load i8, ptr %set.i, align 8
   %27 = and i8 %26, 1
   %tobool.i.not = icmp eq i8 %27, 0
   br i1 %tobool.i.not, label %if.end32, label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %28 = getelementptr inbounds %class.anon.80, ptr %this, i64 0, i32 3
+  %28 = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %29 = load <4 x float>, ptr %cameraRay, align 16, !noalias !167
   %agg.tmp.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %29, <4 x float> poison, <2 x i32> zeroinitializer
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %30 = load <4 x float>, ptr %y.i.i, align 4, !noalias !167
   %agg.tmp2.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %30, <4 x float> poison, <2 x i32> zeroinitializer
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %31 = load <4 x float>, ptr %z.i.i, align 8, !noalias !167
   %agg.tmp3.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %31, <4 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i, ptr %ref.tmp.i, align 8, !noalias !167
-  %y3.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 1
+  %y3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i.i, ptr %y3.i.i.i.i, align 8, !noalias !167
-  %z4.i.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %ref.tmp.i, i64 0, i32 2
+  %z4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !167
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %28, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i)
-  %d3.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d3.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %d3.i, align 4, !noalias !167
-  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %agg.tmp.sroa.2.0.d3.sroa_idx.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.d3.sroa_idx.i, align 4, !noalias !167
   %call.i22 = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %28, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i)
   %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i22, 0
@@ -10185,19 +10128,19 @@ if.then.i19:                                      ; preds = %invoke.cont
   %35 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %34)
   %36 = extractelement <2 x float> %call.fca.0.extract.i, i64 1
   %37 = call noundef float @llvm.fabs.f32(float %36)
-  %high.i.i.i = getelementptr inbounds %"class.pbrt::Interval", ptr %o.i, i64 0, i32 1
+  %high.i.i.i = getelementptr inbounds i8, ptr %o.i, i64 4
   %38 = load <4 x float>, ptr %high.i.i.i, align 4
   %39 = shufflevector <4 x float> %38, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %40 = load <4 x float>, ptr %o.i, align 16
   %41 = shufflevector <4 x float> %40, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %y.i7.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1
-  %high.i1.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 1, i32 1
+  %y.i7.i = getelementptr inbounds i8, ptr %o.i, i64 8
+  %high.i1.i.i = getelementptr inbounds i8, ptr %o.i, i64 12
   %42 = load float, ptr %high.i1.i.i, align 4, !noalias !167
   %43 = load float, ptr %y.i7.i, align 8, !noalias !167
   %sub.i2.i.i = fsub float %42, %43
   %div3.i.i = fmul float %sub.i2.i.i, 5.000000e-01
-  %z.i8.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2
-  %high.i3.i.i = getelementptr inbounds %"class.pbrt::Tuple3.72", ptr %o.i, i64 0, i32 2, i32 1
+  %z.i8.i = getelementptr inbounds i8, ptr %o.i, i64 16
+  %high.i3.i.i = getelementptr inbounds i8, ptr %o.i, i64 20
   %44 = load float, ptr %high.i3.i.i, align 4, !noalias !167
   %45 = load float, ptr %z.i8.i, align 16, !noalias !167
   %mul4.i.i = fmul float %37, %div3.i.i
@@ -10249,12 +10192,12 @@ invoke.cont27:                                    ; preds = %invoke.cont26
   br label %if.end32
 
 if.end32:                                         ; preds = %invoke.cont27, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
-  %ptr4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 4, i32 1
+  %ptr4.i = getelementptr inbounds i8, ptr %0, i64 208
   %64 = load ptr, ptr %ptr4.i, align 8
   %add.ptr.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %64, i64 %idxprom.i
-  %arrayidx.i23.i = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 2
-  %pdf.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1
-  %lambda4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 1
+  %arrayidx.i23.i = getelementptr inbounds i8, ptr %lambda, i64 8
+  %pdf.i = getelementptr inbounds i8, ptr %lambda, i64 16
+  %lambda4.i = getelementptr inbounds i8, ptr %0, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   %65 = load ptr, ptr %lambda4.i, align 8
   %add.ptr.i38 = getelementptr inbounds %"struct.pbrt::Float4", ptr %65, i64 %idxprom.i
@@ -10265,7 +10208,7 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i39, ptr %add.ptr.i38, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i41 = getelementptr inbounds i8, ptr %add.ptr.i38, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i40, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i41, align 8
-  %pdf4.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 3, i32 2
+  %pdf4.i = getelementptr inbounds i8, ptr %0, i64 176
   %68 = load ptr, ptr %pdf4.i, align 8
   %add.ptr21.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %68, i64 %idxprom.i
   %69 = load <4 x float>, ptr %pdf.i, align 16
@@ -10274,7 +10217,7 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   store <2 x float> %agg.tmp22.sroa.0.4.vec.insert.i, ptr %add.ptr21.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i28.i = getelementptr inbounds i8, ptr %add.ptr21.i, i64 8
   store <2 x float> %agg.tmp22.sroa.3.12.vec.insert.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i28.i, align 8
-  %filterWeight44 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 1
+  %filterWeight44 = getelementptr inbounds i8, ptr %0, i64 128
   %70 = load ptr, ptr %filterWeight44, align 8
   %arrayidx = getelementptr inbounds float, ptr %70, i64 %idxprom.i
   store float %cameraSample.sroa.9.0, ptr %arrayidx, align 4
@@ -10284,83 +10227,83 @@ if.end32:                                         ; preds = %invoke.cont27, %_ZN
   br i1 %tobool45.not, label %if.end53, label %invoke.cont48
 
 invoke.cont48:                                    ; preds = %if.end32
-  %set2.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 1
+  %set2.i = getelementptr inbounds i8, ptr %0, i64 256
   %73 = load ptr, ptr %set2.i, align 8
   %arrayidx.i47 = getelementptr inbounds i8, ptr %73, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i47, align 1
-  %x2.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 1
+  %x2.i.i = getelementptr inbounds i8, ptr %0, i64 272
   %74 = load ptr, ptr %x2.i.i, align 8
   %arrayidx.i.i48 = getelementptr inbounds float, ptr %74, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i.i48, align 4
-  %y4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 2
+  %y4.i.i = getelementptr inbounds i8, ptr %0, i64 280
   %75 = load ptr, ptr %y4.i.i, align 8
   %arrayidx7.i.i = getelementptr inbounds float, ptr %75, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i.i, align 4
-  %z9.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 2, i32 3
+  %z9.i.i = getelementptr inbounds i8, ptr %0, i64 288
   %76 = load ptr, ptr %z9.i.i, align 8
   %arrayidx12.i.i = getelementptr inbounds float, ptr %76, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i.i, align 4
-  %x2.i11.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 1
+  %x2.i11.i = getelementptr inbounds i8, ptr %0, i64 304
   %77 = load ptr, ptr %x2.i11.i, align 8
   %arrayidx.i14.i = getelementptr inbounds float, ptr %77, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i14.i, align 4
-  %y4.i16.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 2
+  %y4.i16.i = getelementptr inbounds i8, ptr %0, i64 312
   %78 = load ptr, ptr %y4.i16.i, align 8
   %arrayidx7.i18.i = getelementptr inbounds float, ptr %78, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i18.i, align 4
-  %z9.i20.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 3, i32 3
+  %z9.i20.i = getelementptr inbounds i8, ptr %0, i64 320
   %79 = load ptr, ptr %z9.i20.i, align 8
   %arrayidx12.i22.i = getelementptr inbounds float, ptr %79, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i22.i, align 4
-  %x2.i25.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 1
+  %x2.i25.i = getelementptr inbounds i8, ptr %0, i64 336
   %80 = load ptr, ptr %x2.i25.i, align 8
   %arrayidx.i28.i = getelementptr inbounds float, ptr %80, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i28.i, align 4
-  %y4.i30.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 2
+  %y4.i30.i = getelementptr inbounds i8, ptr %0, i64 344
   %81 = load ptr, ptr %y4.i30.i, align 8
   %arrayidx7.i32.i = getelementptr inbounds float, ptr %81, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i32.i, align 4
-  %z9.i34.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 4, i32 3
+  %z9.i34.i = getelementptr inbounds i8, ptr %0, i64 352
   %82 = load ptr, ptr %z9.i34.i, align 8
   %arrayidx12.i36.i = getelementptr inbounds float, ptr %82, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i36.i, align 4
-  %x2.i39.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 1
+  %x2.i39.i = getelementptr inbounds i8, ptr %0, i64 368
   %83 = load ptr, ptr %x2.i39.i, align 8
   %arrayidx.i42.i = getelementptr inbounds float, ptr %83, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i42.i, align 4
-  %y4.i44.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 5, i32 2
+  %y4.i44.i = getelementptr inbounds i8, ptr %0, i64 376
   %84 = load ptr, ptr %y4.i44.i, align 8
   %arrayidx7.i46.i = getelementptr inbounds float, ptr %84, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i46.i, align 4
-  %time22.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 6
+  %time22.i = getelementptr inbounds i8, ptr %0, i64 384
   %85 = load ptr, ptr %time22.i, align 8
   %arrayidx25.i = getelementptr inbounds float, ptr %85, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx25.i, align 4
-  %x2.i49.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 1
+  %x2.i49.i = getelementptr inbounds i8, ptr %0, i64 400
   %86 = load ptr, ptr %x2.i49.i, align 8
   %arrayidx.i52.i = getelementptr inbounds float, ptr %86, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i52.i, align 4
-  %y4.i54.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 2
+  %y4.i54.i = getelementptr inbounds i8, ptr %0, i64 408
   %87 = load ptr, ptr %y4.i54.i, align 8
   %arrayidx7.i56.i = getelementptr inbounds float, ptr %87, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i56.i, align 4
-  %z9.i58.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 7, i32 3
+  %z9.i58.i = getelementptr inbounds i8, ptr %0, i64 416
   %88 = load ptr, ptr %z9.i58.i, align 8
   %arrayidx12.i60.i = getelementptr inbounds float, ptr %88, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i60.i, align 4
-  %x2.i63.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 1
+  %x2.i63.i = getelementptr inbounds i8, ptr %0, i64 432
   %89 = load ptr, ptr %x2.i63.i, align 8
   %arrayidx.i66.i = getelementptr inbounds float, ptr %89, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx.i66.i, align 4
-  %y4.i68.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 2
+  %y4.i68.i = getelementptr inbounds i8, ptr %0, i64 440
   %90 = load ptr, ptr %y4.i68.i, align 8
   %arrayidx7.i70.i = getelementptr inbounds float, ptr %90, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx7.i70.i, align 4
-  %z9.i72.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 8, i32 3
+  %z9.i72.i = getelementptr inbounds i8, ptr %0, i64 448
   %91 = load ptr, ptr %z9.i72.i, align 8
   %arrayidx12.i74.i = getelementptr inbounds float, ptr %91, i64 %idxprom.i
   store float 0.000000e+00, ptr %arrayidx12.i74.i, align 4
-  %ptr4.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 6, i32 9, i32 1
+  %ptr4.i.i = getelementptr inbounds i8, ptr %0, i64 464
   %92 = load ptr, ptr %ptr4.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %92, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i.i, i8 0, i64 16, i1 false)
@@ -10373,70 +10316,70 @@ if.end53:                                         ; preds = %invoke.cont48, %if.
   br i1 %tobool.i54.not, label %if.else, label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %if.end53
-  %95 = getelementptr inbounds %class.anon.80, ptr %this, i64 0, i32 4
+  %95 = getelementptr inbounds i8, ptr %this, i64 144
   %96 = load ptr, ptr %95, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp10.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp17.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp20.i)
-  %size.i.i = getelementptr inbounds %"class.pbrt::WorkQueue", ptr %96, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %96, i64 400
   %97 = atomicrmw add ptr %size.i.i, i32 1 monotonic, align 4
   %98 = load float, ptr %cameraRay, align 16
-  %x2.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 1, i32 1, i32 1
+  %x2.i.i.i = getelementptr inbounds i8, ptr %96, i64 24
   %99 = load ptr, ptr %x2.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %97 to i64
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %99, i64 %idxprom.i.i.i
   store float %98, ptr %arrayidx.i.i.i, align 4
-  %y.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 1
+  %y.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 4
   %100 = load float, ptr %y.i.i.i, align 4
-  %y4.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 1, i32 1, i32 2
+  %y4.i.i.i = getelementptr inbounds i8, ptr %96, i64 32
   %101 = load ptr, ptr %y4.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr inbounds float, ptr %101, i64 %idxprom.i.i.i
   store float %100, ptr %arrayidx7.i.i.i, align 4
-  %z.i.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %cameraRay, i64 0, i32 2
+  %z.i.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 8
   %102 = load float, ptr %z.i.i.i, align 8
-  %z9.i.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 1, i32 1, i32 3
+  %z9.i.i.i = getelementptr inbounds i8, ptr %96, i64 40
   %103 = load ptr, ptr %z9.i.i.i, align 8
   %arrayidx12.i.i.i = getelementptr inbounds float, ptr %103, i64 %idxprom.i.i.i
   store float %102, ptr %arrayidx12.i.i.i, align 4
-  %d.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1
+  %d.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 12
   %104 = load float, ptr %d.i.i, align 4
-  %x2.i6.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 1, i32 2, i32 1
+  %x2.i6.i.i = getelementptr inbounds i8, ptr %96, i64 56
   %105 = load ptr, ptr %x2.i6.i.i, align 8
   %arrayidx.i9.i.i = getelementptr inbounds float, ptr %105, i64 %idxprom.i.i.i
   store float %104, ptr %arrayidx.i9.i.i, align 4
-  %y.i10.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 1
+  %y.i10.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 16
   %106 = load float, ptr %y.i10.i.i, align 16
-  %y4.i11.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 1, i32 2, i32 2
+  %y4.i11.i.i = getelementptr inbounds i8, ptr %96, i64 64
   %107 = load ptr, ptr %y4.i11.i.i, align 8
   %arrayidx7.i13.i.i = getelementptr inbounds float, ptr %107, i64 %idxprom.i.i.i
   store float %106, ptr %arrayidx7.i13.i.i, align 4
-  %z.i14.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 1, i32 0, i32 2
+  %z.i14.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 20
   %108 = load float, ptr %z.i14.i.i, align 4
-  %z9.i15.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 1, i32 2, i32 3
+  %z9.i15.i.i = getelementptr inbounds i8, ptr %96, i64 72
   %109 = load ptr, ptr %z9.i15.i.i, align 8
   %arrayidx12.i17.i.i = getelementptr inbounds float, ptr %109, i64 %idxprom.i.i.i
   store float %108, ptr %arrayidx12.i17.i.i, align 4
-  %time.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 2
+  %time.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 24
   %110 = load float, ptr %time.i.i, align 8
-  %time9.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 1, i32 3
+  %time9.i.i = getelementptr inbounds i8, ptr %96, i64 80
   %111 = load ptr, ptr %time9.i.i, align 8
   %arrayidx.i.i60 = getelementptr inbounds float, ptr %111, i64 %idxprom.i.i.i
   store float %110, ptr %arrayidx.i.i60, align 4
-  %medium.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %cameraRay, i64 0, i32 3
-  %medium12.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 1, i32 4
+  %medium.i.i = getelementptr inbounds i8, ptr %cameraRay, i64 32
+  %medium12.i.i = getelementptr inbounds i8, ptr %96, i64 88
   %112 = load ptr, ptr %medium12.i.i, align 8
   %arrayidx15.i.i = getelementptr inbounds %"class.pbrt::Medium", ptr %112, i64 %idxprom.i.i.i
   %113 = load i64, ptr %medium.i.i, align 16
   store i64 %113, ptr %arrayidx15.i.i, align 8
-  %depth.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %96, i64 96
   %114 = load ptr, ptr %depth.i, align 8
   %arrayidx.i61 = getelementptr inbounds i32, ptr %114, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx.i61, align 4
-  %pixelIndex4.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 3
+  %pixelIndex4.i = getelementptr inbounds i8, ptr %96, i64 104
   %115 = load ptr, ptr %pixelIndex4.i, align 8
   %arrayidx6.i = getelementptr inbounds i32, ptr %115, i64 %idxprom.i.i.i
   store i32 %pixelIndex, ptr %arrayidx6.i, align 4
-  %lambda4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 4, i32 1
+  %lambda4.i.i = getelementptr inbounds i8, ptr %96, i64 120
   %116 = load ptr, ptr %lambda4.i.i, align 8
   %add.ptr.i.i62 = getelementptr inbounds %"struct.pbrt::Float4", ptr %116, i64 %idxprom.i.i.i
   %117 = load <4 x float>, ptr %lambda, align 16
@@ -10446,7 +10389,7 @@ invoke.cont56:                                    ; preds = %if.end53
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i63, ptr %add.ptr.i.i62, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i65 = getelementptr inbounds i8, ptr %add.ptr.i.i62, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i.i64, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i65, align 8
-  %pdf4.i.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 4, i32 2
+  %pdf4.i.i = getelementptr inbounds i8, ptr %96, i64 128
   %119 = load ptr, ptr %pdf4.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %119, i64 %idxprom.i.i.i
   %120 = load <4 x float>, ptr %pdf.i, align 16
@@ -10467,7 +10410,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   br i1 %exitcond.not.i.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit.i, label %for.body.i.i.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
-  %ptr4.i.i66 = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 5, i32 1
+  %ptr4.i.i66 = getelementptr inbounds i8, ptr %96, i64 160
   %121 = load ptr, ptr %ptr4.i.i66, align 8
   %add.ptr.i18.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %121, i64 %idxprom.i.i.i
   %122 = load <4 x float>, ptr %ref.tmp10.i, align 16
@@ -10476,11 +10419,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %for.body.i.i.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i19.i, ptr %add.ptr.i18.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i = getelementptr inbounds i8, ptr %add.ptr.i18.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i20.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i, align 8
-  %etaScale.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 9
+  %etaScale.i = getelementptr inbounds i8, ptr %96, i64 376
   %123 = load ptr, ptr %etaScale.i, align 8
   %arrayidx14.i = getelementptr inbounds float, ptr %123, i64 %idxprom.i.i.i
   store float 1.000000e+00, ptr %arrayidx14.i, align 4
-  %anyNonSpecularBounces.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 11
+  %anyNonSpecularBounces.i = getelementptr inbounds i8, ptr %96, i64 392
   %124 = load ptr, ptr %anyNonSpecularBounces.i, align 8
   %arrayidx16.i = getelementptr inbounds i32, ptr %124, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx16.i, align 4
@@ -10496,7 +10439,7 @@ for.body.i.i22.i:                                 ; preds = %for.body.i.i22.i, %
   br i1 %exitcond.not.i.i26.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit27.i, label %for.body.i.i22.i, !llvm.loop !24
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit27.i:           ; preds = %for.body.i.i22.i
-  %ptr4.i31.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 6, i32 1
+  %ptr4.i31.i = getelementptr inbounds i8, ptr %96, i64 184
   %125 = load ptr, ptr %ptr4.i31.i, align 8
   %add.ptr.i33.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %125, i64 %idxprom.i.i.i
   %126 = load <4 x float>, ptr %ref.tmp17.i, align 16
@@ -10517,7 +10460,7 @@ for.body.i.i37.i:                                 ; preds = %for.body.i.i37.i, %
   br i1 %exitcond.not.i.i41.i, label %invoke.cont59, label %for.body.i.i37.i, !llvm.loop !24
 
 invoke.cont59:                                    ; preds = %for.body.i.i37.i
-  %ptr4.i46.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 7, i32 1
+  %ptr4.i46.i = getelementptr inbounds i8, ptr %96, i64 208
   %127 = load ptr, ptr %ptr4.i46.i, align 8
   %add.ptr.i48.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %127, i64 %idxprom.i.i.i
   %128 = load <4 x float>, ptr %ref.tmp20.i, align 16
@@ -10526,7 +10469,7 @@ invoke.cont59:                                    ; preds = %for.body.i.i37.i
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i49.i, ptr %add.ptr.i48.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i = getelementptr inbounds i8, ptr %add.ptr.i48.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i50.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i, align 8
-  %specularBounce.i = getelementptr inbounds %"struct.pbrt::SOA.39", ptr %96, i64 0, i32 10
+  %specularBounce.i = getelementptr inbounds i8, ptr %96, i64 384
   %129 = load ptr, ptr %specularBounce.i, align 8
   %arrayidx24.i = getelementptr inbounds i32, ptr %129, i64 %idxprom.i.i.i
   store i32 0, ptr %arrayidx24.i, align 4
@@ -10543,8 +10486,8 @@ land.rhs.i.i69.invoke:                            ; preds = %invoke.cont26, %inv
   unreachable
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  %weight = getelementptr inbounds %"struct.pbrt::CameraRay", ptr %cameraRay, i64 0, i32 1
-  %ptr4.i75 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %weight = getelementptr inbounds i8, ptr %cameraRay, i64 40
+  %ptr4.i75 = getelementptr inbounds i8, ptr %0, i64 232
   %132 = load ptr, ptr %ptr4.i75, align 8
   %add.ptr.i77 = getelementptr inbounds %"struct.pbrt::Float4", ptr %132, i64 %idxprom.i
   %133 = load <4 x float>, ptr %weight, align 8
@@ -10556,7 +10499,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
   br label %return
 
 if.else:                                          ; preds = %if.end53
-  %ptr4.i90 = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %0, i64 0, i32 18, i32 5, i32 1
+  %ptr4.i90 = getelementptr inbounds i8, ptr %0, i64 232
   %134 = load ptr, ptr %ptr4.i90, align 8
   %add.ptr.i92 = getelementptr inbounds %"struct.pbrt::Float4", ptr %134, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i92, i8 0, i64 16, i1 false)
@@ -10569,19 +10512,19 @@ return:                                           ; preds = %invoke.cont61, %if.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZN4pbrt13ZSobolSampler5Get1DEv(ptr noundef nonnull align 8 dereferenceable(28) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %log2SamplesPerPixel.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 2
+  %log2SamplesPerPixel.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %log2SamplesPerPixel.i, align 8
   %and.i = and i32 %0, 1
   %tobool.not.not.i = icmp eq i32 %and.i, 0
-  %nBase4Digits.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 3
+  %nBase4Digits.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %nBase4Digits.i, align 4
   %cmp.not.not19.i = icmp sgt i32 %1, %and.i
   br i1 %cmp.not.not19.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %mortonIndex.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 4
+  %mortonIndex.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mortonIndex.i, align 8
-  %dimension.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 5
+  %dimension.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %dimension.i, align 8
   %mul10.i = mul i32 %3, 1431655765
   %conv11.i = zext i32 %mul10.i to i64
@@ -10626,15 +10569,15 @@ for.end.i:                                        ; preds = %for.body.i, %entry
   br i1 %tobool.not.not.i, label %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, label %if.then.i
 
 for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge: ; preds = %for.end.i
-  %dimension.phi.trans.insert = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 5
+  %dimension.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load i32, ptr %dimension.phi.trans.insert, align 8
   br label %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
 
 if.then.i:                                        ; preds = %for.end.i
-  %mortonIndex21.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 4
+  %mortonIndex21.i = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load i64, ptr %mortonIndex21.i, align 8
   %shr26.i = lshr i64 %10, 1
-  %dimension27.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 5
+  %dimension27.i = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load i32, ptr %dimension27.i, align 8
   %mul28.i = mul i32 %11, 1431655765
   %conv29.i = zext i32 %mul28.i to i64
@@ -10655,10 +10598,10 @@ if.then.i:                                        ; preds = %for.end.i
 _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, %if.then.i
   %13 = phi i32 [ %11, %if.then.i ], [ %.pre, %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
   %sampleIndex.1.i = phi i64 [ %or34.i, %if.then.i ], [ %sampleIndex.0.lcssa.i, %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
-  %dimension = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 5
+  %dimension = getelementptr inbounds i8, ptr %this, i64 24
   %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %dimension, align 8
-  %seed = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 1
+  %seed = getelementptr inbounds i8, ptr %this, i64 4
   %14 = load i32, ptr %seed, align 4
   %buf.sroa.2.0.insert.ext.i = zext i32 %14 to i64
   %buf.sroa.2.0.insert.shift.i = shl nuw i64 %buf.sroa.2.0.insert.ext.i, 32
@@ -10859,19 +10802,19 @@ return:                                           ; preds = %for.end.loopexit.i,
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local <2 x float> @_ZN4pbrt13ZSobolSampler5Get2DEv(ptr noundef nonnull align 8 dereferenceable(28) %this) local_unnamed_addr #8 comdat align 2 {
 entry:
-  %log2SamplesPerPixel.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 2
+  %log2SamplesPerPixel.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %log2SamplesPerPixel.i, align 8
   %and.i = and i32 %0, 1
   %tobool.not.not.i = icmp eq i32 %and.i, 0
-  %nBase4Digits.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 3
+  %nBase4Digits.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %nBase4Digits.i, align 4
   %cmp.not.not19.i = icmp sgt i32 %1, %and.i
   br i1 %cmp.not.not19.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %mortonIndex.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 4
+  %mortonIndex.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mortonIndex.i, align 8
-  %dimension.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 5
+  %dimension.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %dimension.i, align 8
   %mul10.i = mul i32 %3, 1431655765
   %conv11.i = zext i32 %mul10.i to i64
@@ -10916,15 +10859,15 @@ for.end.i:                                        ; preds = %for.body.i, %entry
   br i1 %tobool.not.not.i, label %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, label %if.then.i
 
 for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge: ; preds = %for.end.i
-  %dimension.phi.trans.insert = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 5
+  %dimension.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load i32, ptr %dimension.phi.trans.insert, align 8
   br label %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
 
 if.then.i:                                        ; preds = %for.end.i
-  %mortonIndex21.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 4
+  %mortonIndex21.i = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load i64, ptr %mortonIndex21.i, align 8
   %shr26.i = lshr i64 %10, 1
-  %dimension27.i = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 5
+  %dimension27.i = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load i32, ptr %dimension27.i, align 8
   %mul28.i = mul i32 %11, 1431655765
   %conv29.i = zext i32 %mul28.i to i64
@@ -10945,10 +10888,10 @@ if.then.i:                                        ; preds = %for.end.i
 _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, %if.then.i
   %13 = phi i32 [ %11, %if.then.i ], [ %.pre, %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
   %sampleIndex.1.i = phi i64 [ %or34.i, %if.then.i ], [ %sampleIndex.0.lcssa.i, %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
-  %dimension = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 5
+  %dimension = getelementptr inbounds i8, ptr %this, i64 24
   %add = add nsw i32 %13, 2
   store i32 %add, ptr %dimension, align 8
-  %seed = getelementptr inbounds %"class.pbrt::ZSobolSampler", ptr %this, i64 0, i32 1
+  %seed = getelementptr inbounds i8, ptr %this, i64 4
   %14 = load i32, ptr %seed, align 4
   %buf.sroa.2.0.insert.ext.i = zext i32 %14 to i64
   %buf.sroa.2.0.insert.shift.i = shl nuw i64 %buf.sroa.2.0.insert.ext.i, 32

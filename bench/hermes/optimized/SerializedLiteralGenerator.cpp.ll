@@ -3,24 +3,6 @@ source_filename = "bench/hermes/original/SerializedLiteralGenerator.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.hermes::LiteralNumber" = type { %"class.hermes::Literal", %"class.llvh::FoldingSetBase::Node", double }
-%"class.hermes::Literal" = type { %"class.hermes::Value" }
-%"class.hermes::Value" = type { i8, %"class.hermes::Type", %"class.llvh::SmallVector" }
-%"class.hermes::Type" = type { i16, i16 }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvh::SmallVectorStorage" = type { [2 x %"struct.llvh::AlignedCharArrayUnion"] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [8 x i8] }
-%"class.llvh::FoldingSetBase::Node" = type { ptr }
-%"class.hermes::LiteralString" = type { %"class.hermes::Literal", %"class.llvh::FoldingSetBase::Node", %"class.hermes::Identifier" }
-%"class.hermes::Identifier" = type { ptr }
-%"class.hermes::LiteralBool" = type <{ %"class.hermes::Literal", i8, [7 x i8] }>
-
 $_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag = comdat any
 
 @.str = private unnamed_addr constant [21 x i8] c"Invalid Literal Kind\00", align 1
@@ -35,7 +17,7 @@ entry:
   br i1 %cmp395.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buff, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %buff, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -56,7 +38,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %value.i = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %0, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load double, ptr %value.i, align 8
   %cmp.i = fcmp ogt double %2, 0x41DFFFFFFFC00000
   %cmp5.i = fcmp olt double %2, 0xC1E0000000000000
@@ -82,7 +64,7 @@ if.end19.i:                                       ; preds = %land.lhs.true.i, %i
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %for.body
-  %value.i32 = getelementptr inbounds %"class.hermes::LiteralString", ptr %0, i64 0, i32 2
+  %value.i32 = getelementptr inbounds i8, ptr %0, i64 48
   %retval.sroa.0.0.copyload.i = load ptr, ptr %value.i32, align 8
   %str.sroa.0.0.copyload = load ptr, ptr %retval.sroa.0.0.copyload.i, align 8
   %str.sroa.3.0.call14.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i, i64 8
@@ -109,7 +91,7 @@ if.else:                                          ; preds = %cond.end
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %for.body
-  %value.i34 = getelementptr inbounds %"class.hermes::LiteralBool", ptr %0, i64 0, i32 1
+  %value.i34 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load i8, ptr %value.i34, align 8
   %8 = and i8 %7, 1
   %tobool.i35.not = icmp eq i8 %8, 0
@@ -158,7 +140,7 @@ if.end54:                                         ; preds = %if.then36, %if.then
   ]
 
 sw.bb57:                                          ; preds = %if.end54
-  %value.i42 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %11, i64 0, i32 2
+  %value.i42 = getelementptr inbounds i8, ptr %11, i64 48
   %13 = load double, ptr %value.i42, align 8
   %cmp.i43 = fcmp ogt double %13, 0x41DFFFFFFFC00000
   %cmp5.i44 = fcmp olt double %13, 0xC1E0000000000000
@@ -331,7 +313,7 @@ _ZN6hermes3hbc12_GLOBAL__N_122serializeValueToBufferIdEEvT_RSt6vectorIhSaIhEE.ex
   br label %for.inc
 
 sw.bb68:                                          ; preds = %if.end54
-  %value.i88 = getelementptr inbounds %"class.hermes::LiteralString", ptr %11, i64 0, i32 2
+  %value.i88 = getelementptr inbounds i8, ptr %11, i64 48
   %retval.sroa.0.0.copyload.i89 = load ptr, ptr %value.i88, align 8
   %str69.sroa.0.0.copyload = load ptr, ptr %retval.sroa.0.0.copyload.i89, align 8
   %str69.sroa.3.0.call75.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i89, i64 8
@@ -610,7 +592,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %seqLength.0.lcssa = phi i32 [ 0, %entry ], [ %27, %for.end.loopexit ]
   %lastTag.0.lcssa = phi i8 [ 48, %entry ], [ %lastTag.1, %for.end.loopexit ]
   tail call fastcc void @_ZN6hermes3hbc12_GLOBAL__N_117appendTagToBufferERSt6vectorIhSaIhEEhi(ptr noundef nonnull align 8 dereferenceable(24) %buff, i8 noundef zeroext %lastTag.0.lcssa, i32 noundef %seqLength.0.lcssa)
-  %_M_finish.i143 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buff, i64 0, i32 1
+  %_M_finish.i143 = getelementptr inbounds i8, ptr %buff, i64 8
   %28 = load ptr, ptr %_M_finish.i143, align 8
   %29 = load ptr, ptr %buff, align 8
   %sub.ptr.lhs.cast.i.i145 = ptrtoint ptr %28 to i64
@@ -647,9 +629,9 @@ if.then:                                          ; preds = %entry
   %0 = trunc i32 %shr to i8
   %1 = or i8 %0, %tag
   %conv2 = or i8 %1, -128
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buff, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %buff, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buff, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %buff, i64 16
   %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -785,9 +767,9 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
 if.else:                                          ; preds = %entry
   %10 = trunc i32 %seqLength to i8
   %conv7 = add i8 %10, %tag
-  %_M_finish.i.i40 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buff, i64 0, i32 1
+  %_M_finish.i.i40 = getelementptr inbounds i8, ptr %buff, i64 8
   %11 = load ptr, ptr %_M_finish.i.i40, align 8
-  %_M_end_of_storage.i.i41 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buff, i64 0, i32 2
+  %_M_end_of_storage.i.i41 = getelementptr inbounds i8, ptr %buff, i64 16
   %12 = load ptr, ptr %_M_end_of_storage.i.i41, align 8
   %cmp.not.i.i42 = icmp eq ptr %11, %12
   br i1 %cmp.not.i.i42, label %if.else.i.i45, label %if.then.i.i43
@@ -878,9 +860,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64

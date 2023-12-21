@@ -6,297 +6,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
 %"class.cvc5::internal::NodeTemplate.282" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::SetupLiteralCallBack" = type { %"class.cvc5::internal::theory::arith::linear::TNodeCallBack", ptr }
-%"class.cvc5::internal::theory::arith::linear::TNodeCallBack" = type { ptr }
-%"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
-%"class.cvc5::internal::theory::arith::linear::TheoryArithPrivate" = type { %"class.cvc5::internal::EnvObj", ptr, i8, %"class.cvc5::internal::DenseMap", ptr, ptr, %"class.std::unique_ptr", %"class.cvc5::internal::theory::arith::linear::ConstraintDatabase", i32, i32, i8, i8, %"class.cvc5::internal::theory::arith::linear::ArithStaticLearner", %"class.std::unordered_set", %"class.cvc5::context::CDInsertHashMap", i32, %"class.cvc5::context::CDQueue.54", %"class.cvc5::context::CDQueue.58", %"class.std::deque", %"class.cvc5::context::CDQueue.58", %"class.cvc5::context::CDHashSet", %"class.cvc5::internal::theory::arith::linear::ArithVariables", %"class.cvc5::internal::theory::arith::linear::ErrorSet", %"class.cvc5::internal::theory::arith::linear::Tableau", %"class.cvc5::internal::theory::arith::linear::LinearEqualityModule", %"class.cvc5::internal::theory::arith::linear::DioSolver", i32, i8, double, i32, [4 x i8], %"class.cvc5::context::CDList.200", %"class.cvc5::context::CDO.208", %"class.cvc5::context::CDO.209", %"class.cvc5::internal::theory::arith::linear::Tableau", %"class.cvc5::internal::theory::arith::linear::ArithCongruenceManager", %"class.cvc5::context::CDO.197", %"class.cvc5::internal::theory::arith::linear::DualSimplexDecisionProcedure", %"class.cvc5::internal::theory::arith::linear::FCSimplexDecisionProcedure", %"class.cvc5::internal::theory::arith::linear::SumOfInfeasibilitiesSPD", %"class.cvc5::internal::theory::arith::linear::AttemptSolutionSDP", ptr, ptr, %"class.cvc5::context::CDO.258", %"class.cvc5::internal::DeltaRational", %"class.cvc5::internal::DenseSet", %"class.cvc5::internal::DenseSet", %"class.cvc5::internal::DenseSet", %"class.cvc5::context::CDQueue.260", %"class.std::vector.262", i32, [4 x i8], %"class.cvc5::context::CDO.196", %"class.cvc5::context::CDHashSet.269", %"class.cvc5::context::CDO.197", %"class.cvc5::context::CDO.197", %"class.std::vector.271", ptr, %"class.std::vector", %"class.std::vector.60", %"class.cvc5::internal::DenseMap.276", ptr, %"class.cvc5::context::CDO.258", i32, i32, i32, %"class.std::vector.277", i8, i32, %"class.cvc5::internal::theory::arith::linear::TheoryArithPrivate::Statistics" }
-%"class.cvc5::internal::EnvObj" = type { ptr, ptr }
-%"class.cvc5::internal::DenseMap" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector.0" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::BoundsInfo, std::allocator<cvc5::internal::theory::arith::linear::BoundsInfo>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::BoundsInfo, std::allocator<cvc5::internal::theory::arith::linear::BoundsInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::BoundsInfo, std::allocator<cvc5::internal::theory::arith::linear::BoundsInfo>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::BoundsInfo, std::allocator<cvc5::internal::theory::arith::linear::BoundsInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
-%"struct.std::_Head_base.6" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::ConstraintDatabase" = type { %"class.cvc5::internal::EnvObj", %"class.std::vector.7", %"class.std::unordered_map", %"class.cvc5::context::CDQueue", %"class.cvc5::context::CDList", ptr, ptr, ptr, ptr, ptr, %"class.cvc5::internal::theory::arith::linear::RaiseConflict", %"class.cvc5::internal::Rational", %"class.cvc5::internal::Rational", %"class.cvc5::internal::DenseSet", %"class.cvc5::internal::theory::arith::linear::ConstraintDatabase::Statistics" }
-%"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
-%"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::PerVariableDatabase *, std::allocator<cvc5::internal::theory::arith::linear::PerVariableDatabase *>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::PerVariableDatabase *, std::allocator<cvc5::internal::theory::arith::linear::PerVariableDatabase *>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::PerVariableDatabase *, std::allocator<cvc5::internal::theory::arith::linear::PerVariableDatabase *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::PerVariableDatabase *, std::allocator<cvc5::internal::theory::arith::linear::PerVariableDatabase *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.cvc5::context::CDQueue" = type { %"class.cvc5::context::CDList.base", i64, i64 }
-%"class.cvc5::context::CDList.base" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector.17", i64, i8, %"class.cvc5::context::DefaultCleanUp" }>
-%"class.cvc5::context::ContextObj" = type { ptr, ptr, ptr, ptr, ptr }
-%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
-%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<const cvc5::internal::theory::arith::linear::Constraint *, std::allocator<const cvc5::internal::theory::arith::linear::Constraint *>>::_Vector_impl" }
-%"struct.std::_Vector_base<const cvc5::internal::theory::arith::linear::Constraint *, std::allocator<const cvc5::internal::theory::arith::linear::Constraint *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const cvc5::internal::theory::arith::linear::Constraint *, std::allocator<const cvc5::internal::theory::arith::linear::Constraint *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<const cvc5::internal::theory::arith::linear::Constraint *, std::allocator<const cvc5::internal::theory::arith::linear::Constraint *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::context::DefaultCleanUp" = type { i8 }
-%"class.cvc5::context::CDList" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector.17", i64, i8, %"class.cvc5::context::DefaultCleanUp", [6 x i8] }>
-%"class.cvc5::internal::theory::arith::linear::RaiseConflict" = type { ptr }
 %"class.cvc5::internal::Rational" = type { %class.__gmp_expr }
 %class.__gmp_expr = type { [1 x %struct.__mpq_struct] }
 %struct.__mpq_struct = type { %struct.__mpz_struct, %struct.__mpz_struct }
 %struct.__mpz_struct = type { i32, i32, ptr }
-%"class.cvc5::internal::theory::arith::linear::ConstraintDatabase::Statistics" = type { %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat" }
-%"class.cvc5::internal::IntStat" = type { %"class.cvc5::internal::ValueStat" }
-%"class.cvc5::internal::ValueStat" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::ArithStaticLearner" = type { %"class.cvc5::context::CDHashMap", %"class.cvc5::context::CDHashMap", %"class.cvc5::internal::theory::arith::linear::ArithStaticLearner::Statistics" }
-%"class.cvc5::context::CDHashMap" = type { %"class.cvc5::context::ContextObj", %"class.std::unordered_map.27", ptr, ptr }
-%"class.std::unordered_map.27" = type { %"class.std::_Hashtable.28" }
-%"class.std::_Hashtable.28" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.cvc5::internal::theory::arith::linear::ArithStaticLearner::Statistics" = type { %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat" }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable.41" }
-%"class.std::_Hashtable.41" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.cvc5::context::CDInsertHashMap" = type { %"class.cvc5::context::ContextObj", ptr, i64 }
-%"class.cvc5::context::CDQueue.54" = type { %"class.cvc5::context::CDList.base.57", i64, i64 }
-%"class.cvc5::context::CDList.base.57" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector", i64, i8, %"class.cvc5::context::DefaultCleanUp.56" }>
-%"class.cvc5::context::DefaultCleanUp.56" = type { i8 }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<cvc5::internal::theory::arith::linear::Constraint *, std::allocator<cvc5::internal::theory::arith::linear::Constraint *>>::_Deque_impl" }
-%"struct.std::_Deque_base<cvc5::internal::theory::arith::linear::Constraint *, std::allocator<cvc5::internal::theory::arith::linear::Constraint *>>::_Deque_impl" = type { %"struct.std::_Deque_base<cvc5::internal::theory::arith::linear::Constraint *, std::allocator<cvc5::internal::theory::arith::linear::Constraint *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<cvc5::internal::theory::arith::linear::Constraint *, std::allocator<cvc5::internal::theory::arith::linear::Constraint *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.cvc5::context::CDQueue.58" = type { %"class.cvc5::context::CDList.base.66", i64, i64 }
-%"class.cvc5::context::CDList.base.66" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector.60", i64, i8, %"class.cvc5::context::DefaultCleanUp.65" }>
-%"class.cvc5::context::DefaultCleanUp.65" = type { i8 }
-%"class.cvc5::context::CDHashSet" = type { %"class.cvc5::context::CDInsertHashMap.67" }
-%"class.cvc5::context::CDInsertHashMap.67" = type { %"class.cvc5::context::ContextObj", ptr, i64 }
-%"class.cvc5::internal::theory::arith::linear::ArithVariables" = type { %"class.cvc5::internal::DenseMap.68", %"class.cvc5::internal::DenseMap.74", i32, %"class.std::vector", %"class.std::vector", %"class.std::unordered_map.80", %"class.cvc5::internal::DenseMap", i8, %"class.cvc5::context::CDList.94", %"class.cvc5::context::CDList.100", i8, %"class.cvc5::internal::Rational", %"class.cvc5::internal::theory::arith::linear::DeltaComputeCallback" }
-%"class.cvc5::internal::DenseMap.68" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector.69" }
-%"class.std::vector.69" = type { %"struct.std::_Vector_base.70" }
-%"struct.std::_Vector_base.70" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::ArithVariables::VarInfo, std::allocator<cvc5::internal::theory::arith::linear::ArithVariables::VarInfo>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::ArithVariables::VarInfo, std::allocator<cvc5::internal::theory::arith::linear::ArithVariables::VarInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::ArithVariables::VarInfo, std::allocator<cvc5::internal::theory::arith::linear::ArithVariables::VarInfo>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::ArithVariables::VarInfo, std::allocator<cvc5::internal::theory::arith::linear::ArithVariables::VarInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::DenseMap.74" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector.75" }
-%"class.std::vector.75" = type { %"struct.std::_Vector_base.76" }
-%"struct.std::_Vector_base.76" = type { %"struct.std::_Vector_base<cvc5::internal::DeltaRational, std::allocator<cvc5::internal::DeltaRational>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::DeltaRational, std::allocator<cvc5::internal::DeltaRational>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::DeltaRational, std::allocator<cvc5::internal::DeltaRational>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::DeltaRational, std::allocator<cvc5::internal::DeltaRational>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_map.80" = type { %"class.std::_Hashtable.81" }
-%"class.std::_Hashtable.81" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.cvc5::context::CDList.94" = type { %"class.cvc5::context::ContextObj", %"class.std::vector.95", i64, i8, %"class.cvc5::internal::theory::arith::linear::ArithVariables::LowerBoundCleanUp" }
-%"class.std::vector.95" = type { %"struct.std::_Vector_base.96" }
-%"struct.std::_Vector_base.96" = type { %"struct.std::_Vector_base<std::pair<unsigned int, cvc5::internal::theory::arith::linear::Constraint *>, std::allocator<std::pair<unsigned int, cvc5::internal::theory::arith::linear::Constraint *>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned int, cvc5::internal::theory::arith::linear::Constraint *>, std::allocator<std::pair<unsigned int, cvc5::internal::theory::arith::linear::Constraint *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, cvc5::internal::theory::arith::linear::Constraint *>, std::allocator<std::pair<unsigned int, cvc5::internal::theory::arith::linear::Constraint *>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned int, cvc5::internal::theory::arith::linear::Constraint *>, std::allocator<std::pair<unsigned int, cvc5::internal::theory::arith::linear::Constraint *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::theory::arith::linear::ArithVariables::LowerBoundCleanUp" = type { ptr }
-%"class.cvc5::context::CDList.100" = type { %"class.cvc5::context::ContextObj", %"class.std::vector.95", i64, i8, %"class.cvc5::internal::theory::arith::linear::ArithVariables::UpperBoundCleanUp" }
-%"class.cvc5::internal::theory::arith::linear::ArithVariables::UpperBoundCleanUp" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::DeltaComputeCallback" = type { %"class.cvc5::internal::theory::arith::linear::RationalCallBack", ptr }
-%"class.cvc5::internal::theory::arith::linear::RationalCallBack" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::ErrorSet" = type { ptr, %"class.cvc5::internal::theory::arith::linear::ErrorInfoMap", i32, %"class.cvc5::internal::BinaryHeap", %"class.std::vector", %"class.std::vector", %"class.cvc5::internal::theory::arith::linear::TableauSizes", %"class.cvc5::internal::theory::arith::linear::BoundCountingLookup", %"class.cvc5::internal::theory::arith::linear::ErrorSet::Statistics" }
-%"class.cvc5::internal::theory::arith::linear::ErrorInfoMap" = type { %"class.cvc5::internal::DenseMap.101" }
-%"class.cvc5::internal::DenseMap.101" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector.102" }
-%"class.std::vector.102" = type { %"struct.std::_Vector_base.103" }
-%"struct.std::_Vector_base.103" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::ErrorInformation, std::allocator<cvc5::internal::theory::arith::linear::ErrorInformation>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::ErrorInformation, std::allocator<cvc5::internal::theory::arith::linear::ErrorInformation>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::ErrorInformation, std::allocator<cvc5::internal::theory::arith::linear::ErrorInformation>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::ErrorInformation, std::allocator<cvc5::internal::theory::arith::linear::ErrorInformation>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::BinaryHeap" = type { %"class.std::vector.107", %"class.cvc5::internal::theory::arith::linear::ComparatorPivotRule" }
-%"class.std::vector.107" = type { %"struct.std::_Vector_base.108" }
-%"struct.std::_Vector_base.108" = type { %"struct.std::_Vector_base<cvc5::internal::BinaryHeap<unsigned int, cvc5::internal::theory::arith::linear::ComparatorPivotRule>::HElement *, std::allocator<cvc5::internal::BinaryHeap<unsigned int, cvc5::internal::theory::arith::linear::ComparatorPivotRule>::HElement *>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::BinaryHeap<unsigned int, cvc5::internal::theory::arith::linear::ComparatorPivotRule>::HElement *, std::allocator<cvc5::internal::BinaryHeap<unsigned int, cvc5::internal::theory::arith::linear::ComparatorPivotRule>::HElement *>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::BinaryHeap<unsigned int, cvc5::internal::theory::arith::linear::ComparatorPivotRule>::HElement *, std::allocator<cvc5::internal::BinaryHeap<unsigned int, cvc5::internal::theory::arith::linear::ComparatorPivotRule>::HElement *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::BinaryHeap<unsigned int, cvc5::internal::theory::arith::linear::ComparatorPivotRule>::HElement *, std::allocator<cvc5::internal::BinaryHeap<unsigned int, cvc5::internal::theory::arith::linear::ComparatorPivotRule>::HElement *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::theory::arith::linear::ComparatorPivotRule" = type <{ ptr, i32, [4 x i8] }>
-%"class.cvc5::internal::theory::arith::linear::TableauSizes" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::BoundCountingLookup" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::ErrorSet::Statistics" = type { %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat" }
-%"class.cvc5::internal::theory::arith::linear::LinearEqualityModule" = type { ptr, ptr, %"class.cvc5::internal::theory::arith::linear::BasicVarModelUpdateCallBack", %"class.cvc5::internal::theory::arith::linear::BorderHeap", %"class.cvc5::internal::theory::arith::linear::BorderHeap", %"class.std::optional", %"class.std::optional", %"class.cvc5::internal::Rational", %"class.cvc5::internal::Rational", ptr, i8, %"class.cvc5::internal::theory::arith::linear::LinearEqualityModule::TrackingCallback", %"class.cvc5::internal::theory::arith::linear::LinearEqualityModule::Statistics" }
-%"class.cvc5::internal::theory::arith::linear::BasicVarModelUpdateCallBack" = type { %"class.cvc5::internal::theory::arith::linear::ArithVarCallBack", ptr }
-%"class.cvc5::internal::theory::arith::linear::ArithVarCallBack" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::BorderHeap" = type { i32, %"class.cvc5::internal::theory::arith::linear::BorderHeap::BorderHeapCmp", %"class.std::vector.137", %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator", i32, i32 }
-%"class.cvc5::internal::theory::arith::linear::BorderHeap::BorderHeapCmp" = type { i32 }
-%"class.std::vector.137" = type { %"struct.std::_Vector_base.138" }
-%"struct.std::_Vector_base.138" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::Border, std::allocator<cvc5::internal::theory::arith::linear::Border>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::Border, std::allocator<cvc5::internal::theory::arith::linear::Border>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::Border, std::allocator<cvc5::internal::theory::arith::linear::Border>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::Border, std::allocator<cvc5::internal::theory::arith::linear::Border>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.__gnu_cxx::__normal_iterator" = type { ptr }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
-%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<cvc5::internal::DeltaRational>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<cvc5::internal::DeltaRational>::_Storage" = type { %"class.cvc5::internal::DeltaRational" }
-%"class.cvc5::internal::theory::arith::linear::LinearEqualityModule::TrackingCallback" = type { %"class.cvc5::internal::theory::arith::linear::CoefficientChangeCallback", ptr }
-%"class.cvc5::internal::theory::arith::linear::CoefficientChangeCallback" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::LinearEqualityModule::Statistics" = type { %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat" }
-%"class.cvc5::internal::TimerStat" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::DioSolver" = type { %"class.cvc5::internal::EnvObj", %"class.std::vector.144", %"class.cvc5::context::CDO", %"class.cvc5::context::CDList.149", %"class.cvc5::context::CDO", %"class.std::unordered_map.157", %"class.cvc5::context::CDList.171", %"class.cvc5::context::CDList.179", %"class.std::deque.187", %"class.cvc5::context::CDList.190", %"class.cvc5::context::CDO", %"class.cvc5::context::CDMaybe", %"class.cvc5::context::CDO.196", %"class.cvc5::context::CDO.197", %"class.cvc5::context::CDO", %"class.cvc5::context::CDO", %"class.cvc5::context::CDQueue.199", %"class.cvc5::internal::theory::arith::linear::DioSolver::Statistics" }
-%"class.std::vector.144" = type { %"struct.std::_Vector_base.145" }
-%"struct.std::_Vector_base.145" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::Variable, std::allocator<cvc5::internal::theory::arith::linear::Variable>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::Variable, std::allocator<cvc5::internal::theory::arith::linear::Variable>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::Variable, std::allocator<cvc5::internal::theory::arith::linear::Variable>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::Variable, std::allocator<cvc5::internal::theory::arith::linear::Variable>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::context::CDList.149" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector.150", i64, i8, %"class.cvc5::context::DefaultCleanUp.155", [6 x i8] }>
-%"class.std::vector.150" = type { %"struct.std::_Vector_base.151" }
-%"struct.std::_Vector_base.151" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::DioSolver::InputConstraint, std::allocator<cvc5::internal::theory::arith::linear::DioSolver::InputConstraint>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::DioSolver::InputConstraint, std::allocator<cvc5::internal::theory::arith::linear::DioSolver::InputConstraint>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::DioSolver::InputConstraint, std::allocator<cvc5::internal::theory::arith::linear::DioSolver::InputConstraint>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::DioSolver::InputConstraint, std::allocator<cvc5::internal::theory::arith::linear::DioSolver::InputConstraint>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::context::DefaultCleanUp.155" = type { i8 }
-%"class.std::unordered_map.157" = type { %"class.std::_Hashtable.158" }
-%"class.std::_Hashtable.158" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.cvc5::context::CDList.171" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector.172", i64, i8, %"class.cvc5::context::DefaultCleanUp.177", [6 x i8] }>
-%"class.std::vector.172" = type { %"struct.std::_Vector_base.173" }
-%"struct.std::_Vector_base.173" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::DioSolver::Constraint, std::allocator<cvc5::internal::theory::arith::linear::DioSolver::Constraint>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::DioSolver::Constraint, std::allocator<cvc5::internal::theory::arith::linear::DioSolver::Constraint>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::DioSolver::Constraint, std::allocator<cvc5::internal::theory::arith::linear::DioSolver::Constraint>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::DioSolver::Constraint, std::allocator<cvc5::internal::theory::arith::linear::DioSolver::Constraint>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::context::DefaultCleanUp.177" = type { i8 }
-%"class.cvc5::context::CDList.179" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector.180", i64, i8, %"class.cvc5::context::DefaultCleanUp.185", [6 x i8] }>
-%"class.std::vector.180" = type { %"struct.std::_Vector_base.181" }
-%"struct.std::_Vector_base.181" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::DioSolver::Substitution, std::allocator<cvc5::internal::theory::arith::linear::DioSolver::Substitution>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::DioSolver::Substitution, std::allocator<cvc5::internal::theory::arith::linear::DioSolver::Substitution>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::DioSolver::Substitution, std::allocator<cvc5::internal::theory::arith::linear::DioSolver::Substitution>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::DioSolver::Substitution, std::allocator<cvc5::internal::theory::arith::linear::DioSolver::Substitution>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::context::DefaultCleanUp.185" = type { i8 }
-%"class.std::deque.187" = type { %"class.std::_Deque_base.188" }
-%"class.std::_Deque_base.188" = type { %"struct.std::_Deque_base<unsigned long, std::allocator<unsigned long>>::_Deque_impl" }
-%"struct.std::_Deque_base<unsigned long, std::allocator<unsigned long>>::_Deque_impl" = type { %"struct.std::_Deque_base<unsigned long, std::allocator<unsigned long>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<unsigned long, std::allocator<unsigned long>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.189", %"struct.std::_Deque_iterator.189" }
-%"struct.std::_Deque_iterator.189" = type { ptr, ptr, ptr, ptr }
-%"class.cvc5::context::CDList.190" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector.191", i64, i8, %"class.cvc5::context::DefaultCleanUp.193", [6 x i8] }>
-%"class.std::vector.191" = type { %"struct.std::_Vector_base.192" }
-%"struct.std::_Vector_base.192" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::context::DefaultCleanUp.193" = type { i8 }
-%"class.cvc5::context::CDMaybe" = type { %"class.cvc5::context::CDO.195" }
-%"class.cvc5::context::CDO.195" = type { %"class.cvc5::context::ContextObj", %"struct.std::pair" }
-%"struct.std::pair" = type { i8, i64 }
-%"class.cvc5::context::CDO" = type { %"class.cvc5::context::ContextObj", i64 }
-%"class.cvc5::context::CDQueue.199" = type { %"class.cvc5::context::CDList.base.194", i64, i64 }
-%"class.cvc5::context::CDList.base.194" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector.191", i64, i8, %"class.cvc5::context::DefaultCleanUp.193" }>
-%"class.cvc5::internal::theory::arith::linear::DioSolver::Statistics" = type { %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat" }
-%"class.cvc5::context::CDList.200" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector.201", i64, i8, %"class.cvc5::context::DefaultCleanUp.206", [6 x i8] }>
-%"class.std::vector.201" = type { %"struct.std::_Vector_base.202" }
-%"struct.std::_Vector_base.202" = type { %"struct.std::_Vector_base<std::pair<const cvc5::internal::theory::arith::linear::Constraint *, cvc5::internal::theory::InferenceId>, std::allocator<std::pair<const cvc5::internal::theory::arith::linear::Constraint *, cvc5::internal::theory::InferenceId>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<const cvc5::internal::theory::arith::linear::Constraint *, cvc5::internal::theory::InferenceId>, std::allocator<std::pair<const cvc5::internal::theory::arith::linear::Constraint *, cvc5::internal::theory::InferenceId>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<const cvc5::internal::theory::arith::linear::Constraint *, cvc5::internal::theory::InferenceId>, std::allocator<std::pair<const cvc5::internal::theory::arith::linear::Constraint *, cvc5::internal::theory::InferenceId>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<const cvc5::internal::theory::arith::linear::Constraint *, cvc5::internal::theory::InferenceId>, std::allocator<std::pair<const cvc5::internal::theory::arith::linear::Constraint *, cvc5::internal::theory::InferenceId>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::context::DefaultCleanUp.206" = type { i8 }
-%"class.cvc5::context::CDO.208" = type { %"class.cvc5::context::ContextObj", %"class.cvc5::internal::NodeTemplate" }
-%"class.cvc5::context::CDO.209" = type { %"class.cvc5::context::ContextObj", %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::Tableau" = type { %"class.cvc5::internal::theory::arith::linear::Matrix", %"class.cvc5::internal::DenseMap.136", %"class.cvc5::internal::DenseMap.136" }
-%"class.cvc5::internal::theory::arith::linear::Matrix" = type { %"class.std::vector.112", %"class.std::vector.117", %"class.cvc5::internal::DenseMap.122", i32, i32, %"class.cvc5::internal::theory::arith::linear::MatrixEntryVector", %"class.std::vector", %"class.cvc5::internal::Rational", %"class.cvc5::internal::theory::arith::linear::MatrixEntry" }
-%"class.std::vector.112" = type { %"struct.std::_Vector_base.113" }
-%"struct.std::_Vector_base.113" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::RowVector<cvc5::internal::Rational>, std::allocator<cvc5::internal::theory::arith::linear::RowVector<cvc5::internal::Rational>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::RowVector<cvc5::internal::Rational>, std::allocator<cvc5::internal::theory::arith::linear::RowVector<cvc5::internal::Rational>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::RowVector<cvc5::internal::Rational>, std::allocator<cvc5::internal::theory::arith::linear::RowVector<cvc5::internal::Rational>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::RowVector<cvc5::internal::Rational>, std::allocator<cvc5::internal::theory::arith::linear::RowVector<cvc5::internal::Rational>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.117" = type { %"struct.std::_Vector_base.118" }
-%"struct.std::_Vector_base.118" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::ColumnVector<cvc5::internal::Rational>, std::allocator<cvc5::internal::theory::arith::linear::ColumnVector<cvc5::internal::Rational>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::ColumnVector<cvc5::internal::Rational>, std::allocator<cvc5::internal::theory::arith::linear::ColumnVector<cvc5::internal::Rational>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::ColumnVector<cvc5::internal::Rational>, std::allocator<cvc5::internal::theory::arith::linear::ColumnVector<cvc5::internal::Rational>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::ColumnVector<cvc5::internal::Rational>, std::allocator<cvc5::internal::theory::arith::linear::ColumnVector<cvc5::internal::Rational>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::DenseMap.122" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector.123" }
-%"class.std::vector.123" = type { %"struct.std::_Vector_base.124" }
-%"struct.std::_Vector_base.124" = type { %"struct.std::_Vector_base<std::pair<unsigned int, bool>, std::allocator<std::pair<unsigned int, bool>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned int, bool>, std::allocator<std::pair<unsigned int, bool>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, bool>, std::allocator<std::pair<unsigned int, bool>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned int, bool>, std::allocator<std::pair<unsigned int, bool>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::theory::arith::linear::MatrixEntryVector" = type <{ %"class.std::vector.128", %"class.std::queue", i32, [4 x i8] }>
-%"class.std::vector.128" = type { %"struct.std::_Vector_base.129" }
-%"struct.std::_Vector_base.129" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::MatrixEntry<cvc5::internal::Rational>, std::allocator<cvc5::internal::theory::arith::linear::MatrixEntry<cvc5::internal::Rational>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::MatrixEntry<cvc5::internal::Rational>, std::allocator<cvc5::internal::theory::arith::linear::MatrixEntry<cvc5::internal::Rational>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::MatrixEntry<cvc5::internal::Rational>, std::allocator<cvc5::internal::theory::arith::linear::MatrixEntry<cvc5::internal::Rational>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::MatrixEntry<cvc5::internal::Rational>, std::allocator<cvc5::internal::theory::arith::linear::MatrixEntry<cvc5::internal::Rational>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::queue" = type { %"class.std::deque.133" }
-%"class.std::deque.133" = type { %"class.std::_Deque_base.134" }
-%"class.std::_Deque_base.134" = type { %"struct.std::_Deque_base<unsigned int, std::allocator<unsigned int>>::_Deque_impl" }
-%"struct.std::_Deque_base<unsigned int, std::allocator<unsigned int>>::_Deque_impl" = type { %"struct.std::_Deque_base<unsigned int, std::allocator<unsigned int>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<unsigned int, std::allocator<unsigned int>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.135", %"struct.std::_Deque_iterator.135" }
-%"struct.std::_Deque_iterator.135" = type { ptr, ptr, ptr, ptr }
-%"class.cvc5::internal::theory::arith::linear::MatrixEntry" = type { i32, i32, i32, i32, i32, i32, %"class.cvc5::internal::Rational" }
-%"class.cvc5::internal::DenseMap.136" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector" }
-%"class.cvc5::internal::theory::arith::linear::ArithCongruenceManager" = type { %"class.cvc5::internal::EnvObj", %"class.cvc5::context::CDRaised", %"class.cvc5::internal::theory::arith::linear::RaiseEqualityEngineConflict", %"class.cvc5::internal::DenseSet", %"class.cvc5::internal::DenseMap.210", %"class.cvc5::context::CDList.216", %"class.cvc5::context::CDTrailQueue", %"class.cvc5::context::CDHashMap.219", ptr, %"class.cvc5::internal::theory::arith::linear::SetupLiteralCallBack", ptr, ptr, ptr, %"class.std::unique_ptr", %"class.std::unique_ptr", ptr, %"class.cvc5::internal::theory::arith::linear::ArithCongruenceManager::Statistics" }
-%"class.cvc5::context::CDRaised" = type { %"class.cvc5::context::CDO.197" }
-%"class.cvc5::internal::theory::arith::linear::RaiseEqualityEngineConflict" = type { ptr }
-%"class.cvc5::internal::DenseMap.210" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector.211" }
-%"class.std::vector.211" = type { %"struct.std::_Vector_base.212" }
-%"struct.std::_Vector_base.212" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::context::CDList.216" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector.211", i64, i8, %"class.cvc5::context::DefaultCleanUp.217", [6 x i8] }>
-%"class.cvc5::context::DefaultCleanUp.217" = type { i8 }
-%"class.cvc5::context::CDTrailQueue" = type { %"class.cvc5::context::CDList.216", %"class.cvc5::context::CDO" }
-%"class.cvc5::context::CDHashMap.219" = type { %"class.cvc5::context::ContextObj", %"class.std::unordered_map.220", ptr, ptr }
-%"class.std::unordered_map.220" = type { %"class.std::_Hashtable.221" }
-%"class.std::_Hashtable.221" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.cvc5::internal::theory::arith::linear::ArithCongruenceManager::Statistics" = type { %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat" }
-%"class.cvc5::internal::theory::arith::linear::DualSimplexDecisionProcedure" = type { %"class.cvc5::internal::theory::arith::linear::SimplexDecisionProcedure", %"class.cvc5::internal::DenseMultiset", %"class.cvc5::internal::theory::arith::linear::DualSimplexDecisionProcedure::Statistics" }
-%"class.cvc5::internal::theory::arith::linear::SimplexDecisionProcedure" = type { %"class.cvc5::internal::EnvObj", i32, %"class.cvc5::internal::DenseSet", i32, ptr, ptr, ptr, ptr, i32, %"class.cvc5::internal::theory::arith::linear::RaiseConflict", ptr, %"class.cvc5::internal::theory::arith::linear::TempVarMalloc", i32, %"class.cvc5::internal::Rational", %"class.cvc5::internal::Rational", %"class.cvc5::internal::Rational", i64 }
-%"class.cvc5::internal::theory::arith::linear::TempVarMalloc" = type { %"class.cvc5::internal::theory::arith::linear::ArithVarMalloc", ptr }
-%"class.cvc5::internal::theory::arith::linear::ArithVarMalloc" = type { ptr }
-%"class.cvc5::internal::DenseMultiset" = type { %"class.cvc5::internal::DenseMap.136" }
-%"class.cvc5::internal::theory::arith::linear::DualSimplexDecisionProcedure::Statistics" = type { %"class.cvc5::internal::IntStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::ReferenceStat" }
-%"class.cvc5::internal::ReferenceStat" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::FCSimplexDecisionProcedure" = type { %"class.cvc5::internal::theory::arith::linear::SimplexDecisionProcedure", %"class.cvc5::internal::DenseMultiset", i32, i32, %"class.cvc5::internal::DenseMap.234", i32, i32, i32, %"class.cvc5::internal::DenseMap.136", %"class.std::vector", %"class.cvc5::internal::theory::arith::linear::FCSimplexDecisionProcedure::Statistics" }
-%"class.cvc5::internal::DenseMap.234" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector.235" }
-%"class.std::vector.235" = type { %"struct.std::_Vector_base.236" }
-%"struct.std::_Vector_base.236" = type { %"struct.std::_Vector_base<const cvc5::internal::Rational *, std::allocator<const cvc5::internal::Rational *>>::_Vector_impl" }
-%"struct.std::_Vector_base<const cvc5::internal::Rational *, std::allocator<const cvc5::internal::Rational *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const cvc5::internal::Rational *, std::allocator<const cvc5::internal::Rational *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<const cvc5::internal::Rational *, std::allocator<const cvc5::internal::Rational *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::theory::arith::linear::FCSimplexDecisionProcedure::Statistics" = type { %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::ReferenceStat" }
-%"class.cvc5::internal::theory::arith::linear::SumOfInfeasibilitiesSPD" = type { %"class.cvc5::internal::theory::arith::linear::SimplexDecisionProcedure", i32, i32, i32, i32, %"class.cvc5::internal::DenseMap.136", %"class.std::vector", %"class.cvc5::internal::DenseSet", %"class.cvc5::internal::DenseSet", %"class.std::vector", %"class.std::vector", %"class.std::unordered_map.240", %"class.cvc5::internal::theory::arith::linear::SumOfInfeasibilitiesSPD::Statistics" }
-%"class.std::unordered_map.240" = type { %"class.std::_Hashtable.241" }
-%"class.std::_Hashtable.241" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.cvc5::internal::theory::arith::linear::SumOfInfeasibilitiesSPD::Statistics" = type { %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::ReferenceStat" }
-%"class.cvc5::internal::theory::arith::linear::AttemptSolutionSDP" = type { %"class.cvc5::internal::theory::arith::linear::SimplexDecisionProcedure", %"class.cvc5::internal::theory::arith::linear::AttemptSolutionSDP::Statistics" }
-%"class.cvc5::internal::theory::arith::linear::AttemptSolutionSDP::Statistics" = type { %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::IntStat" }
-%"class.cvc5::internal::DeltaRational" = type { %"class.cvc5::internal::Rational", %"class.cvc5::internal::Rational" }
-%"class.cvc5::internal::DenseSet" = type { %"class.cvc5::internal::DenseMap.22" }
-%"class.cvc5::internal::DenseMap.22" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector.23" }
-%"class.std::vector.23" = type { %"struct.std::_Bvector_base" }
-%"struct.std::_Bvector_base" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" }
-%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" }
-%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" = type { %"struct.std::_Bit_iterator", %"struct.std::_Bit_iterator", ptr }
-%"struct.std::_Bit_iterator" = type { %"struct.std::_Bit_iterator_base.base", [4 x i8] }
-%"struct.std::_Bit_iterator_base.base" = type <{ ptr, i32 }>
-%"class.cvc5::context::CDQueue.260" = type { %"class.cvc5::context::CDList.base.268", i64, i64 }
-%"class.cvc5::context::CDList.base.268" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector.262", i64, i8, %"class.cvc5::context::DefaultCleanUp.267" }>
-%"class.cvc5::context::DefaultCleanUp.267" = type { i8 }
-%"class.std::vector.262" = type { %"struct.std::_Vector_base.263" }
-%"struct.std::_Vector_base.263" = type { %"struct.std::_Vector_base<cvc5::internal::TrustNode, std::allocator<cvc5::internal::TrustNode>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::TrustNode, std::allocator<cvc5::internal::TrustNode>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::TrustNode, std::allocator<cvc5::internal::TrustNode>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::TrustNode, std::allocator<cvc5::internal::TrustNode>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::context::CDO.196" = type <{ %"class.cvc5::context::ContextObj", i32, [4 x i8] }>
-%"class.cvc5::context::CDHashSet.269" = type { %"class.cvc5::context::CDInsertHashMap.270" }
-%"class.cvc5::context::CDInsertHashMap.270" = type { %"class.cvc5::context::ContextObj", ptr, i64 }
-%"class.cvc5::context::CDO.197" = type <{ %"class.cvc5::context::ContextObj", i8, [7 x i8] }>
-%"class.std::vector.271" = type { %"struct.std::_Vector_base.272" }
-%"struct.std::_Vector_base.272" = type { %"struct.std::_Vector_base<std::pair<unsigned int, cvc5::internal::Rational>, std::allocator<std::pair<unsigned int, cvc5::internal::Rational>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned int, cvc5::internal::Rational>, std::allocator<std::pair<unsigned int, cvc5::internal::Rational>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, cvc5::internal::Rational>, std::allocator<std::pair<unsigned int, cvc5::internal::Rational>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned int, cvc5::internal::Rational>, std::allocator<std::pair<unsigned int, cvc5::internal::Rational>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.60" = type { %"struct.std::_Vector_base.61" }
-%"struct.std::_Vector_base.61" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::Constraint *, std::allocator<cvc5::internal::theory::arith::linear::Constraint *>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::Constraint *, std::allocator<cvc5::internal::theory::arith::linear::Constraint *>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::Constraint *, std::allocator<cvc5::internal::theory::arith::linear::Constraint *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::linear::Constraint *, std::allocator<cvc5::internal::theory::arith::linear::Constraint *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::DenseMap.276" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector.277" }
-%"class.cvc5::context::CDO.258" = type <{ %"class.cvc5::context::ContextObj", i32, [4 x i8] }>
-%"class.std::vector.277" = type { %"struct.std::_Vector_base.278" }
-%"struct.std::_Vector_base.278" = type { %"struct.std::_Vector_base<cvc5::internal::Rational, std::allocator<cvc5::internal::Rational>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::Rational, std::allocator<cvc5::internal::Rational>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::Rational, std::allocator<cvc5::internal::Rational>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::Rational, std::allocator<cvc5::internal::Rational>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::theory::arith::linear::TheoryArithPrivate::Statistics" = type { %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::AverageStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::HistogramStat", %"class.cvc5::internal::HistogramStat", %"class.cvc5::internal::HistogramStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::TimerStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat", %"class.cvc5::internal::IntStat" }
-%"class.cvc5::internal::AverageStat" = type { ptr }
-%"class.cvc5::internal::HistogramStat" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.386" = type { i8 }
 %"class.cvc5::internal::TypeNode" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder" = type <{ %"class.std::vector.277", %"class.std::vector.17", ptr, i8, i8, [6 x i8] }>
-%"class.cvc5::internal::theory::arith::linear::Constraint" = type <{ i32, i32, %"class.cvc5::internal::DeltaRational", ptr, %"class.cvc5::internal::NodeTemplate", ptr, i8, [7 x i8], i64, %"class.cvc5::internal::NodeTemplate.282", i64, i8, [7 x i8], %"struct.std::_Rb_tree_iterator", i8, [7 x i8] }>
-%"struct.std::_Rb_tree_iterator" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.cvc5::internal::theory::arith::linear::BoundsInfo" = type { %"class.cvc5::internal::theory::arith::linear::BoundCounts", %"class.cvc5::internal::theory::arith::linear::BoundCounts" }
-%"class.cvc5::internal::theory::arith::linear::BoundCounts" = type { i32, i32 }
+%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
+%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
 %struct._Guard = type { ptr }
 
 $_ZN4cvc58internal12NodeTemplateILb1EED2Ev = comdat any
@@ -421,7 +142,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal6theory5arith6linear20SetupLiteralCallBackC2ERNS3_18TheoryArithPrivateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(9400) %ta) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear20SetupLiteralCallBackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_arith = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::SetupLiteralCallBack", ptr %this, i64 0, i32 1
+  %d_arith = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %ta, ptr %d_arith, align 8
   ret void
 }
@@ -432,7 +153,7 @@ entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp6 = alloca %"class.cvc5::internal::NodeTemplate.282", align 8
   %0 = load ptr, ptr %lit, align 8
-  %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
+  %d_kind.i = getelementptr inbounds i8, ptr %0, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %cmp = icmp eq i16 %bf.clear.i, 18
@@ -441,14 +162,15 @@ entry:
 cond.true:                                        ; preds = %entry
   %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 18), !noalias !4
   %cmp.i.i = icmp eq i32 %call2.i.i.i, 2
+  %d_children.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %idxprom.i.i = zext i1 %cmp.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 3, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %idxprom.i.i
   %1 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !4
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %2 = phi ptr [ %1, %cond.true ], [ %0, %entry ]
-  %d_arith = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::SetupLiteralCallBack", ptr %this, i64 0, i32 1
+  %d_arith = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %d_arith, align 8
   store ptr %2, ptr %agg.tmp, align 8
   %bf.load.i.i = load i64, ptr %2, align 8
@@ -477,13 +199,13 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then13.i.i, %if.else.i.i, %if.then.i.i
-  %_M_element_count.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::TheoryArithPrivate", ptr %3, i64 0, i32 13, i32 0, i32 3
+  %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 896
   %5 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %5, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.end15.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::TheoryArithPrivate", ptr %3, i64 0, i32 13, i32 0, i32 2
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 888
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i
@@ -499,12 +221,12 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont3, label %for.cond.i.i.i, !llvm.loop !7
 
 if.end15.i.i.i:                                   ; preds = %invoke.cont
-  %d_setupNodes.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::TheoryArithPrivate", ptr %3, i64 0, i32 13
+  %d_setupNodes.i = getelementptr inbounds i8, ptr %3, i64 872
   %call2.i.i.i.i4 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %d_setupNodes.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
           to label %call2.i.i.i.i.noexc unwind label %lpad2
 
 call2.i.i.i.i.noexc:                              ; preds = %if.end15.i.i.i
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::TheoryArithPrivate", ptr %3, i64 0, i32 13, i32 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 880
   %7 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %call2.i.i.i.i4, %7
   %8 = load ptr, ptr %d_setupNodes.i, align 8
@@ -635,7 +357,7 @@ declare void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate9setupAto
 define hidden void @_ZN4cvc58internal6theory5arith6linear20DeltaComputeCallbackC2ERKNS3_18TheoryArithPrivateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(9400) %ta) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear20DeltaComputeCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_ta = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::DeltaComputeCallback", ptr %this, i64 0, i32 1
+  %d_ta = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %ta, ptr %d_ta, align 8
   ret void
 }
@@ -643,7 +365,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal6theory5arith6linear20DeltaComputeCallbackclEv(ptr noalias sret(%"class.cvc5::internal::Rational") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 {
 entry:
-  %d_ta = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::DeltaComputeCallback", ptr %this, i64 0, i32 1
+  %d_ta = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_ta, align 8
   tail call void @_ZNK4cvc58internal6theory5arith6linear18TheoryArithPrivate23deltaValueForTotalOrderEv(ptr sret(%"class.cvc5::internal::Rational") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9400) %0)
   ret void
@@ -655,7 +377,7 @@ declare void @_ZNK4cvc58internal6theory5arith6linear18TheoryArithPrivate23deltaV
 define hidden void @_ZN4cvc58internal6theory5arith6linear13TempVarMallocC2ERNS3_18TheoryArithPrivateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(9400) %ta) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear13TempVarMallocE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_ta = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::TempVarMalloc", ptr %this, i64 0, i32 1
+  %d_ta = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %ta, ptr %d_ta, align 8
   ret void
 }
@@ -749,7 +471,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %invoke.cont12, %if.then.i.i, %if.then13.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #18
-  %d_ta = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::TempVarMalloc", ptr %this, i64 0, i32 1
+  %d_ta = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %d_ta, align 8
   %8 = load ptr, ptr %skolem, align 8
   store ptr %8, ptr %agg.tmp, align 8
@@ -887,7 +609,7 @@ declare noundef i32 @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate15
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear13TempVarMalloc7releaseEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %v) unnamed_addr #4 align 2 {
 entry:
-  %d_ta = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::TempVarMalloc", ptr %this, i64 0, i32 1
+  %d_ta = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_ta, align 8
   tail call void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate15releaseArithVarEj(ptr noundef nonnull align 8 dereferenceable(9400) %0, i32 noundef %v)
   ret void
@@ -899,7 +621,7 @@ declare void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate15release
 define hidden void @_ZN4cvc58internal6theory5arith6linear27BasicVarModelUpdateCallBackC2ERNS3_18TheoryArithPrivateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(9400) %ta) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear27BasicVarModelUpdateCallBackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_ta = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::BasicVarModelUpdateCallBack", ptr %this, i64 0, i32 1
+  %d_ta = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %ta, ptr %d_ta, align 8
   ret void
 }
@@ -907,12 +629,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear27BasicVarModelUpdateCallBackclEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_ta = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::BasicVarModelUpdateCallBack", ptr %this, i64 0, i32 1
+  %d_ta = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_ta, align 8
-  %d_signals.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::TheoryArithPrivate", ptr %0, i64 0, i32 22, i32 5
-  %_M_finish.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::TheoryArithPrivate", ptr %0, i64 0, i32 22, i32 5, i32 0, i32 0, i32 0, i32 1
+  %d_signals.i.i = getelementptr inbounds i8, ptr %0, i64 2136
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %0, i64 2144
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::TheoryArithPrivate", ptr %0, i64 0, i32 22, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %0, i64 2152
   %2 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -920,7 +642,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   store i32 %x, ptr %1, align 4
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate6signalEj.exit
 
@@ -964,7 +686,7 @@ if.then.i.i.i12.i.i.i.i:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit20.i.i.i.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit20.i.i.i.i: ; preds = %if.then.i.i.i12.i.i.i.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 4
   %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i, label %if.then.i21.i.i.i.i
 
@@ -1004,9 +726,9 @@ declare void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate13raiseCo
 define hidden void @_ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilderC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(58) %this, i1 noundef zeroext %produceProofs) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit.i:
   %frombool = zext i1 %produceProofs to i8
-  %d_consequent = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 2
-  %d_consequentSet = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 3
-  %d_produceProofs = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 4
+  %d_consequent = getelementptr inbounds i8, ptr %this, i64 48
+  %d_consequentSet = getelementptr inbounds i8, ptr %this, i64 56
+  %d_produceProofs = getelementptr inbounds i8, ptr %this, i64 57
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 48, i1 false)
   store i8 %frombool, ptr %d_produceProofs, align 1
   store ptr null, ptr %d_consequent, align 8
@@ -1020,11 +742,11 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilder5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(58) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_consequent = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 2
+  %d_consequent = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %d_consequent, align 8
-  %d_constraints = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 1
+  %d_constraints = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_constraints, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit, label %invoke.cont.i.i
@@ -1034,9 +756,9 @@ invoke.cont.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit
 
 _ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit: ; preds = %entry, %invoke.cont.i.i
-  %d_consequentSet = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 3
+  %d_consequentSet = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %d_consequentSet, align 8
-  %d_produceProofs = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 4
+  %d_produceProofs = getelementptr inbounds i8, ptr %this, i64 57
   %2 = load i8, ptr %d_produceProofs, align 1
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -1044,7 +766,7 @@ _ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.
 
 if.then:                                          ; preds = %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit
   %4 = load ptr, ptr %this, align 8
-  %_M_finish.i.i1 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::Rational, std::allocator<cvc5::internal::Rational>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i1 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %_M_finish.i.i1, align 8
   %tobool.not.i.i2 = icmp eq ptr %5, %4
   br i1 %tobool.not.i.i2, label %if.end, label %for.body.i.i.i.i.i
@@ -1062,7 +784,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::Rational", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %5
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i3, label %for.body.i.i.i.i.i, !llvm.loop !10
 
@@ -1077,7 +799,7 @@ if.end:                                           ; preds = %invoke.cont.i.i3, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear21FarkasConflictBuilder17underConstructionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(58) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %d_consequent = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 2
+  %d_consequent = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %d_consequent, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -1086,7 +808,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear21FarkasConflictBuilder15consequentIsSetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(58) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %d_consequentSet = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 3
+  %d_consequentSet = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i8, ptr %d_consequentSet, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -1096,7 +818,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilder13addConstraintEPKNS3_10ConstraintERKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(58) %this, ptr noundef %c, ptr noundef nonnull align 8 dereferenceable(32) %fc) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_consequent = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 2
+  %d_consequent = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %d_consequent, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.else
@@ -1106,10 +828,10 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %d_constraints = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %d_constraints = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -1117,7 +839,7 @@ if.else:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.else
   store ptr %c, ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end
 
@@ -1161,7 +883,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit20.i.i
 
 _ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -1177,24 +899,24 @@ _ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE17_M_real
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, %if.then.i, %if.then
-  %d_produceProofs = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 4
+  %d_produceProofs = getelementptr inbounds i8, ptr %this, i64 57
   %5 = load i8, ptr %d_produceProofs, align 1
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %_M_finish.i1 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::Rational, std::allocator<cvc5::internal::Rational>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i1 = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %_M_finish.i1, align 8
-  %_M_end_of_storage.i2 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::Rational, std::allocator<cvc5::internal::Rational>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i2 = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %_M_end_of_storage.i2, align 8
   %cmp.not.i3 = icmp eq ptr %7, %8
   br i1 %cmp.not.i3, label %if.else.i6, label %if.then.i4
 
 if.then.i4:                                       ; preds = %if.then3
   tail call void @__gmpz_init_set(ptr noundef nonnull %7, ptr noundef nonnull %fc)
-  %_mp_den.i.i.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %7, i64 0, i32 1
-  %_mp_den10.i.i.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %fc, i64 0, i32 1
+  %_mp_den.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %_mp_den10.i.i.i.i.i = getelementptr inbounds i8, ptr %fc, i64 16
   tail call void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i.i.i)
   invoke void @__gmpq_canonicalize(ptr noundef nonnull %7)
           to label %_ZNSt16allocator_traitsISaIN4cvc58internal8RationalEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i unwind label %lpad.i.i.i.i
@@ -1217,7 +939,7 @@ _ZN10__gmp_exprIA1_12__mpq_structS1_ED2Ev.exit.i.i.i.i: ; preds = %lpad.i.i.i.i
 
 _ZNSt16allocator_traitsISaIN4cvc58internal8RationalEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i: ; preds = %if.then.i4
   %12 = load ptr, ptr %_M_finish.i1, align 8
-  %incdec.ptr.i5 = getelementptr inbounds %"class.cvc5::internal::Rational", ptr %12, i64 1
+  %incdec.ptr.i5 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %incdec.ptr.i5, ptr %_M_finish.i1, align 8
   br label %if.end4
 
@@ -1233,14 +955,14 @@ if.end4:                                          ; preds = %if.else.i6, %_ZNSt1
 define hidden void @_ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilder13addConstraintEPKNS3_10ConstraintERKNS0_8RationalESA_(ptr noundef nonnull align 8 dereferenceable(58) %this, ptr noundef %c, ptr noundef nonnull align 8 dereferenceable(32) %fc, ptr noundef nonnull align 8 dereferenceable(32) %mult) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %prod = alloca %"class.cvc5::internal::Rational", align 8
-  %d_produceProofs = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 4
+  %d_produceProofs = getelementptr inbounds i8, ptr %this, i64 57
   %0 = load i8, ptr %d_produceProofs, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %_mp_den.i = getelementptr inbounds %struct.__mpq_struct, ptr %mult, i64 0, i32 1
+  %_mp_den.i = getelementptr inbounds i8, ptr %mult, i64 16
   %call4.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull %mult, ptr noundef nonnull %_mp_den.i) #22
   %cmp.i = icmp eq i32 %call4.i, 0
   br i1 %cmp.i, label %if.else, label %if.then
@@ -1295,8 +1017,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %agg.result, i64 0, i32 1
-  %_mp_den10.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %ref.tmp, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -1334,21 +1056,21 @@ _ZN10__gmp_exprIA1_12__mpq_structS1_ED2Ev.exit3:  ; preds = %lpad
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilder18makeLastConsequentEv(ptr nocapture noundef nonnull align 8 dereferenceable(58) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %d_constraints = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 1
+  %d_constraints = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_constraints, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.end12, label %if.else
 
 if.else:                                          ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %1, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %2 = load ptr, ptr %add.ptr.i.i, align 8
-  %d_consequent = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 2
+  %d_consequent = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %d_consequent, align 8
   store ptr %3, ptr %add.ptr.i.i, align 8
   store ptr %2, ptr %d_consequent, align 8
-  %d_produceProofs = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 4
+  %d_produceProofs = getelementptr inbounds i8, ptr %this, i64 57
   %4 = load i8, ptr %d_produceProofs, align 1
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -1356,14 +1078,14 @@ if.else:                                          ; preds = %entry
 
 if.then7:                                         ; preds = %if.else
   %6 = load ptr, ptr %this, align 8
-  %_M_finish.i.i4 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::Rational, std::allocator<cvc5::internal::Rational>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i4 = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %_M_finish.i.i4, align 8
-  %add.ptr.i.i5 = getelementptr inbounds %"class.cvc5::internal::Rational", ptr %7, i64 -1
+  %add.ptr.i.i5 = getelementptr inbounds i8, ptr %7, i64 -32
   tail call void @_ZSt4swapIN4cvc58internal8RationalEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i5)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %if.then7, %entry
-  %d_consequentSet11 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 3
+  %d_consequentSet11 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %d_consequentSet11, align 8
   ret void
 }
@@ -1373,8 +1095,8 @@ define linkonce_odr hidden void @_ZSt4swapIN4cvc58internal8RationalEENSt9enable_
 entry:
   %__tmp = alloca %"class.cvc5::internal::Rational", align 8
   call void @__gmpz_init_set(ptr noundef nonnull %__tmp, ptr noundef nonnull %__a)
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %__tmp, i64 0, i32 1
-  %_mp_den10.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %__a, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %__tmp, i64 16
+  %_mp_den10.i.i = getelementptr inbounds i8, ptr %__a, i64 16
   call void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
   invoke void @__gmpq_canonicalize(ptr noundef nonnull %__tmp)
           to label %_ZN4cvc58internal8RationalC2ERKS1_.exit unwind label %lpad.i
@@ -1443,20 +1165,20 @@ terminate.lpad.i.i9:                              ; preds = %lpad
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilder14commitConflictEv(ptr noundef nonnull align 8 dereferenceable(58) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_consequent = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 2
+  %d_consequent = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %d_consequent, align 8
-  %d_negation.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::Constraint", ptr %0, i64 0, i32 5
+  %d_negation.i = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %d_negation.i, align 8
-  %d_produceProofs = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 4
+  %d_produceProofs = getelementptr inbounds i8, ptr %this, i64 57
   %2 = load i8, ptr %d_produceProofs, align 1
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   %cond = select i1 %tobool.not, ptr null, ptr %this
-  %d_constraints = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 1
+  %d_constraints = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4cvc58internal6theory5arith6linear10Constraint15impliedByFarkasERKSt6vectorIPKS4_SaIS7_EEPKS5_INS0_8RationalESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(145) %1, ptr noundef nonnull align 8 dereferenceable(24) %d_constraints, ptr noundef %cond, i1 noundef zeroext true)
   store ptr null, ptr %d_consequent, align 8
   %4 = load ptr, ptr %d_constraints, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, %4
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit.i, label %invoke.cont.i.i.i
@@ -1466,7 +1188,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
   br label %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit.i
 
 _ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit.i: ; preds = %invoke.cont.i.i.i, %entry
-  %d_consequentSet.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FarkasConflictBuilder", ptr %this, i64 0, i32 3
+  %d_consequentSet.i = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %d_consequentSet.i, align 8
   %6 = load i8, ptr %d_produceProofs, align 1
   %7 = and i8 %6, 1
@@ -1475,7 +1197,7 @@ _ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE5clearEv.exit.i
   %8 = load ptr, ptr %this, align 8
-  %_M_finish.i.i1.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::Rational, std::allocator<cvc5::internal::Rational>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i1.i = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %_M_finish.i.i1.i, align 8
   %tobool.not.i.i2.i = icmp eq ptr %9, %8
   br i1 %tobool.not.i.i2.i, label %_ZN4cvc58internal6theory5arith6linear21FarkasConflictBuilder5resetEv.exit, label %for.body.i.i.i.i.i.i
@@ -1493,7 +1215,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i.i.i.i.
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::Rational", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %9
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i3.i, label %for.body.i.i.i.i.i.i, !llvm.loop !10
 
@@ -1550,15 +1272,15 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
   %3 = load ptr, ptr %pf, align 8
   store ptr %3, ptr %agg.tmp2, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp2, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %pf, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %pf, i64 8
   %4 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %4, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1583,7 +1305,7 @@ invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %8, i64 0, i32 1
+  %_M_use_count.i.i.i.i4 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load atomic i64, ptr %_M_use_count.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %9, 4294967297
   %10 = trunc i64 %9 to i32
@@ -1591,10 +1313,10 @@ if.then.i.i.i3:                                   ; preds = %invoke.cont
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i4, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %8, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   br label %if.end8.sink.split.i.i.i.i
@@ -1620,10 +1342,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %8, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 12
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1645,7 +1367,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %8, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %18 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   br label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev.exit
@@ -1693,13 +1415,13 @@ declare void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate21raiseBl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1707,10 +1429,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i
@@ -1736,10 +1458,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1761,7 +1483,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -1801,7 +1523,7 @@ define hidden i64 @_ZNK4cvc58internal6theory5arith6linear19BoundCountingLookup9h
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4cvc58internal6theory5arith6linear18TheoryArithPrivate10boundsInfoEj(ptr noundef nonnull align 8 dereferenceable(9400) %0, i32 noundef %basic)
-  %d_hasBounds.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::BoundsInfo", ptr %call.i, i64 0, i32 1
+  %d_hasBounds.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %d_hasBounds.i, align 4
   ret i64 %retval.sroa.0.0.copyload.i
 }
@@ -1882,9 +1604,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 1
+  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 2
+  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -1956,9 +1678,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 1
+  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 2
+  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -2145,7 +1867,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %for.body.i.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i: ; preds = %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::Rational", ptr %__first.addr.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
   br i1 %cmp.not.i.i, label %_ZSt8_DestroyIPN4cvc58internal8RationalEEvT_S4_.exit, label %for.body.i.i, !llvm.loop !10
 
@@ -2172,7 +1894,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %for.body.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i: ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %"class.cvc5::internal::Rational", ptr %__first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 32
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal8RationalEEEvT_S6_.exit, label %for.body.i, !llvm.loop !10
 
@@ -2183,7 +1905,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal8RationalEEEvT_S6_.exit: ; p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal8RationalESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::Rational, std::allocator<cvc5::internal::Rational>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -2222,8 +1944,8 @@ _ZNSt12_Vector_baseIN4cvc58internal8RationalESaIS2_EE11_M_allocateEm.exit: ; pre
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN4cvc58internal8RationalESaIS2_EE11_M_allocateEm.exit
-  %_mp_den.i.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %add.ptr, i64 0, i32 1
-  %_mp_den10.i.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %__args, i64 0, i32 1
+  %_mp_den.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %_mp_den10.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i.i)
           to label %.noexc20 unwind label %lpad
 
@@ -2249,7 +1971,7 @@ invoke.cont:                                      ; preds = %.noexc20
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::Rational", ptr %call.i.i.i.i21, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call.i.i.i.i21, i64 32
   %call.i.i.i.i22 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal8RationalEPS2_ET0_T_S7_S6_(ptr noundef %__position.coerce, ptr noundef %0, ptr noundef nonnull %incdec.ptr)
           to label %invoke.cont14 unwind label %lpad
 
@@ -2270,7 +1992,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal8RationalEEvPT_.exit.i.i.i: ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::Rational", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal8RationalES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !10
 
@@ -2283,7 +2005,7 @@ if.then.i24:                                      ; preds = %_ZSt8_DestroyIPN4cv
   br label %_ZNSt12_Vector_baseIN4cvc58internal8RationalESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN4cvc58internal8RationalESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal8RationalES2_EvT_S4_RSaIT0_E.exit, %if.then.i24
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::Rational, std::allocator<cvc5::internal::Rational>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %call.i.i.i.i22, ptr %_M_finish.i.i, align 8
   %add.ptr29 = getelementptr inbounds %"class.cvc5::internal::Rational", ptr %cond.i19, i64 %cond.i
@@ -2370,8 +2092,8 @@ for.body:                                         ; preds = %entry, %for.inc
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %for.body
-  %_mp_den.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %__cur.013, i64 0, i32 1
-  %_mp_den10.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %__first.addr.012, i64 0, i32 1
+  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %__cur.013, i64 16
+  %_mp_den10.i.i.i = getelementptr inbounds i8, ptr %__first.addr.012, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i)
           to label %.noexc7 unwind label %lpad
 
@@ -2393,8 +2115,8 @@ terminate.lpad.i.i.i:                             ; preds = %lpad.i.i
   unreachable
 
 for.inc:                                          ; preds = %.noexc7
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::Rational", ptr %__first.addr.012, i64 1
-  %incdec.ptr1 = getelementptr inbounds %"class.cvc5::internal::Rational", ptr %__cur.013, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.012, i64 32
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %__cur.013, i64 32
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !12
 

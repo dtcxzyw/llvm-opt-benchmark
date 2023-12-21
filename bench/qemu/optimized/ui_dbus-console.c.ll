@@ -5,20 +5,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.DisplayChangeListenerOps = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.touch_slot = type { i32, i32, i32 }
-%struct.QemuDmaBuf = type { i32, i32, i32, i32, i32, i64, i32, i32, i32, i32, i32, i8, ptr, i32, i8, i8 }
-%struct._DBusDisplayConsole = type { %struct._GDBusObjectSkeleton, %struct.DisplayChangeListener, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, %struct.Notifier }
-%struct._GDBusObjectSkeleton = type { %struct._GObject, ptr }
-%struct._GObject = type { %struct._GTypeInstance, i32, ptr }
-%struct._GTypeInstance = type { ptr }
-%struct.DisplayChangeListener = type { i64, ptr, ptr, ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.Notifier = type { ptr, %struct.anon.0 }
-%struct.anon.0 = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct._GError = type { i32, i32, ptr }
 %struct.QemuUIInfo = type { i16, i16, i32, i32, i32, i32, i32 }
-%struct._GObjectClass = type { %struct._GTypeClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, [6 x ptr] }
-%struct._GTypeClass = type { i64 }
 
 @dbus_display_console_get_type.static_g_define_type_id = internal global i64 0, align 8
 @.str = private unnamed_addr constant [13 x i8] c"dbus-console\00", align 1
@@ -160,9 +148,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @dbus_gl_scanout_dmabuf(ptr nocapture noundef readonly %dcl, ptr nocapture noundef readonly %dmabuf) #0 {
 entry:
-  %width = getelementptr inbounds %struct.QemuDmaBuf, ptr %dmabuf, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %dmabuf, i64 4
   %0 = load i32, ptr %width, align 4
-  %height = getelementptr inbounds %struct.QemuDmaBuf, ptr %dmabuf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %dmabuf, i64 8
   %1 = load i32, ptr %height, align 8
   %2 = getelementptr i8, ptr %dcl, i64 64
   %add.ptr.val = load ptr, ptr %2, align 8
@@ -179,7 +167,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @dbus_display_console_get_index(ptr nocapture noundef readonly %ddc) local_unnamed_addr #0 {
 entry:
-  %con = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 1, i32 3
+  %con = getelementptr inbounds i8, ptr %ddc, i64 56
   %0 = load ptr, ptr %con, align 8
   %call = tail call i32 @qemu_console_get_index(ptr noundef %0) #9
   ret i32 %call
@@ -232,13 +220,13 @@ if.then.i:                                        ; preds = %land.rhs.i
 dbus_display_console_get_type.exit:               ; preds = %if.end4, %land.rhs.i, %if.then.i
   %1 = load i64, ptr @dbus_display_console_get_type.static_g_define_type_id, align 8
   %call8 = tail call ptr (i64, ptr, ...) @g_object_new(i64 noundef %1, ptr noundef nonnull @.str.8, ptr noundef %call6, ptr noundef null) #9
-  %display9 = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call8, i64 0, i32 2
+  %display9 = getelementptr inbounds i8, ptr %call8, i64 80
   store ptr %display, ptr %display9, align 8
-  %con10 = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call8, i64 0, i32 1, i32 3
+  %con10 = getelementptr inbounds i8, ptr %call8, i64 56
   store ptr %con, ptr %con10, align 8
   %call11 = call zeroext i1 @qemu_console_fill_device_address(ptr noundef nonnull %con, ptr noundef nonnull %device_addr, i64 noundef 256, ptr noundef null) #9
   %call12 = call ptr @qemu_dbus_display1_console_skeleton_new() #9
-  %iface = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call8, i64 0, i32 4
+  %iface = getelementptr inbounds i8, ptr %call8, i64 96
   store ptr %call12, ptr %iface, align 8
   %call14 = call zeroext i1 @qemu_console_is_graphic(ptr noundef nonnull %con) #9
   %cond = select i1 %call14, ptr @.str.11, ptr @.str.12
@@ -255,10 +243,10 @@ dbus_display_console_get_type.exit:               ; preds = %if.end4, %land.rhs.
   %call26 = call ptr @g_type_check_instance_cast(ptr noundef %3, i64 noundef %call25) #9
   call void @g_dbus_object_skeleton_add_interface(ptr noundef %call23, ptr noundef %call26) #9
   %call27 = call ptr @qkbd_state_init(ptr noundef nonnull %con) #9
-  %kbd = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call8, i64 0, i32 6
+  %kbd = getelementptr inbounds i8, ptr %call8, i64 112
   store ptr %call27, ptr %kbd, align 8
   %call28 = call ptr @qemu_dbus_display1_keyboard_skeleton_new() #9
-  %iface_kbd = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call8, i64 0, i32 5
+  %iface_kbd = getelementptr inbounds i8, ptr %call8, i64 104
   store ptr %call28, ptr %iface_kbd, align 8
   %call29 = call ptr @qemu_add_led_event_handler(ptr noundef nonnull @dbus_kbd_qemu_leds_updated, ptr noundef %call8) #9
   %4 = load ptr, ptr %iface_kbd, align 8
@@ -268,7 +256,7 @@ dbus_display_console_get_type.exit:               ; preds = %if.end4, %land.rhs.
   %call36 = call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %call25) #9
   call void @g_dbus_object_skeleton_add_interface(ptr noundef %call33, ptr noundef %call36) #9
   %call37 = call ptr @qemu_dbus_display1_mouse_skeleton_new() #9
-  %iface_mouse = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call8, i64 0, i32 7
+  %iface_mouse = getelementptr inbounds i8, ptr %call8, i64 120
   store ptr %call37, ptr %iface_mouse, align 8
   %call39 = call ptr (ptr, ptr, ...) @g_object_connect(ptr noundef %call37, ptr noundef nonnull @.str.22, ptr noundef nonnull @dbus_mouse_set_pos, ptr noundef %call8, ptr noundef nonnull @.str.23, ptr noundef nonnull @dbus_mouse_rel_motion, ptr noundef %call8, ptr noundef nonnull @.str.20, ptr noundef nonnull @dbus_mouse_press, ptr noundef %call8, ptr noundef nonnull @.str.21, ptr noundef nonnull @dbus_mouse_release, ptr noundef %call8, ptr noundef null) #9
   %call41 = call ptr @g_type_check_instance_cast(ptr noundef %call8, i64 noundef %call22) #9
@@ -276,7 +264,7 @@ dbus_display_console_get_type.exit:               ; preds = %if.end4, %land.rhs.
   %call44 = call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %call25) #9
   call void @g_dbus_object_skeleton_add_interface(ptr noundef %call41, ptr noundef %call44) #9
   %call45 = call ptr @qemu_dbus_display1_multi_touch_skeleton_new() #9
-  %iface_touch = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call8, i64 0, i32 8
+  %iface_touch = getelementptr inbounds i8, ptr %call8, i64 128
   store ptr %call45, ptr %iface_touch, align 8
   %call47 = call ptr (ptr, ptr, ...) @g_object_connect(ptr noundef %call45, ptr noundef nonnull @.str.24, ptr noundef nonnull @dbus_touch_send_event, ptr noundef %call8, ptr noundef null) #9
   %7 = load ptr, ptr %iface_touch, align 8
@@ -296,9 +284,9 @@ for.body:                                         ; preds = %dbus_display_consol
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
-  %dcl = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call8, i64 0, i32 1
+  %dcl = getelementptr inbounds i8, ptr %call8, i64 32
   call void @register_displaychangelistener(ptr noundef nonnull %dcl) #9
-  %mouse_mode_notifier = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call8, i64 0, i32 12
+  %mouse_mode_notifier = getelementptr inbounds i8, ptr %call8, i64 152
   store ptr @dbus_mouse_mode_change, ptr %mouse_mode_notifier, align 8
   call void @qemu_add_mouse_mode_change_notifier(ptr noundef nonnull %mouse_mode_notifier) #9
   %call8.val = load ptr, ptr %con10, align 8
@@ -354,7 +342,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %listeners = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 3
+  %listeners = getelementptr inbounds i8, ptr %ddc, i64 88
   %0 = load ptr, ptr %listeners, align 8
   %call2 = tail call i32 @g_hash_table_contains(ptr noundef %0, ptr noundef nonnull %call) #9
   %tobool3.not = icmp eq i32 %call2, 0
@@ -375,7 +363,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 if.then8:                                         ; preds = %if.end
   %call9 = call i32 @dbus_display_error_quark() #9
   %2 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %2, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %message, align 8
   call void (ptr, i32, i32, ptr, ...) @g_dbus_method_invocation_return_error(ptr noundef %invocation, i32 noundef %call9, i32 noundef 0, ptr noundef nonnull @.str.27, ptr noundef %3) #9
   br label %cleanup.thread
@@ -389,7 +377,7 @@ if.end10:                                         ; preds = %if.end
 if.then13:                                        ; preds = %if.end10
   %call14 = call i32 @dbus_display_error_quark() #9
   %5 = load ptr, ptr %err, align 8
-  %message15 = getelementptr inbounds %struct._GError, ptr %5, i64 0, i32 2
+  %message15 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %message15, align 8
   call void (ptr, i32, i32, ptr, ...) @g_dbus_method_invocation_return_error(ptr noundef %invocation, i32 noundef %call14, i32 noundef 0, ptr noundef nonnull @.str.28, ptr noundef %6) #9
   %call16 = call i32 @close(i32 noundef %call6) #9
@@ -397,7 +385,7 @@ if.then13:                                        ; preds = %if.end10
 
 if.end17:                                         ; preds = %if.end10
   %call18 = call ptr @g_socket_connection_factory_create_connection(ptr noundef %call11) #9
-  %iface = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 4
+  %iface = getelementptr inbounds i8, ptr %ddc, i64 96
   %7 = load ptr, ptr %iface, align 8
   call void @qemu_dbus_display1_console_complete_register_listener(ptr noundef %7, ptr noundef %invocation, ptr noundef null) #9
   %call19 = tail call i64 @g_io_stream_get_type() #10
@@ -408,7 +396,7 @@ if.end17:                                         ; preds = %if.end10
   br i1 %tobool22.not, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %if.end17
-  %message24 = getelementptr inbounds %struct._GError, ptr %8, i64 0, i32 2
+  %message24 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %message24, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.29, ptr noundef %9) #9
   br label %cleanup
@@ -419,7 +407,7 @@ if.end25:                                         ; preds = %if.end17
   br i1 %tobool27.not, label %cleanup, label %if.end29
 
 if.end29:                                         ; preds = %if.end25
-  %listeners30 = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 3
+  %listeners30 = getelementptr inbounds i8, ptr %ddc, i64 88
   %10 = load ptr, ptr %listeners30, align 8
   %call31 = call ptr @dbus_display_listener_get_bus_name(ptr noundef nonnull %call26) #9
   %call32 = call i32 @g_hash_table_insert(ptr noundef %10, ptr noundef %call31, ptr noundef nonnull %call26) #9
@@ -448,7 +436,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = call i32 @qemu_get_thread_id() #9
   %16 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, ptr noundef %call) #9
   br label %trace_dbus_registered_listener.exit
@@ -502,19 +490,19 @@ define internal i32 @dbus_console_set_ui_info(ptr nocapture noundef readonly %dd
 entry:
   %info = alloca %struct.QemuUIInfo, align 4
   store i16 %arg_width_mm, ptr %info, align 4
-  %height_mm = getelementptr inbounds %struct.QemuUIInfo, ptr %info, i64 0, i32 1
+  %height_mm = getelementptr inbounds i8, ptr %info, i64 2
   store i16 %arg_height_mm, ptr %height_mm, align 2
-  %xoff = getelementptr inbounds %struct.QemuUIInfo, ptr %info, i64 0, i32 2
+  %xoff = getelementptr inbounds i8, ptr %info, i64 4
   store i32 %arg_xoff, ptr %xoff, align 4
-  %yoff = getelementptr inbounds %struct.QemuUIInfo, ptr %info, i64 0, i32 3
+  %yoff = getelementptr inbounds i8, ptr %info, i64 8
   store i32 %arg_yoff, ptr %yoff, align 4
-  %width = getelementptr inbounds %struct.QemuUIInfo, ptr %info, i64 0, i32 4
+  %width = getelementptr inbounds i8, ptr %info, i64 12
   store i32 %arg_width, ptr %width, align 4
-  %height = getelementptr inbounds %struct.QemuUIInfo, ptr %info, i64 0, i32 5
+  %height = getelementptr inbounds i8, ptr %info, i64 16
   store i32 %arg_height, ptr %height, align 4
-  %refresh_rate = getelementptr inbounds %struct.QemuUIInfo, ptr %info, i64 0, i32 6
+  %refresh_rate = getelementptr inbounds i8, ptr %info, i64 20
   store i32 0, ptr %refresh_rate, align 4
-  %con = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 1, i32 3
+  %con = getelementptr inbounds i8, ptr %ddc, i64 56
   %0 = load ptr, ptr %con, align 8
   %call = tail call zeroext i1 @dpy_ui_info_supported(ptr noundef %0) #9
   br i1 %call, label %if.end, label %if.then
@@ -527,7 +515,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %con, align 8
   %call4 = call i32 @dpy_set_ui_info(ptr noundef %1, ptr noundef nonnull %info, i1 noundef zeroext false) #9
-  %iface = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 4
+  %iface = getelementptr inbounds i8, ptr %ddc, i64 96
   %2 = load ptr, ptr %iface, align 8
   call void @qemu_dbus_display1_console_complete_set_uiinfo(ptr noundef %2, ptr noundef %invocation) #9
   br label %return
@@ -574,7 +562,7 @@ if.then.i.i:                                      ; preds = %land.rhs.i.i
 DBUS_DISPLAY_CONSOLE.exit:                        ; preds = %entry, %land.rhs.i.i, %if.then.i.i
   %1 = load i64, ptr @dbus_display_console_get_type.static_g_define_type_id, align 8
   %call1.i = tail call ptr @g_type_check_instance_cast(ptr noundef %data, i64 noundef %1) #9
-  %iface_kbd = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call1.i, i64 0, i32 5
+  %iface_kbd = getelementptr inbounds i8, ptr %call1.i, i64 104
   %2 = load ptr, ptr %iface_kbd, align 8
   tail call void @qemu_dbus_display1_keyboard_set_modifiers(ptr noundef %2, i32 noundef %ledstate) #9
   ret void
@@ -609,7 +597,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %arg_keycode) #9
   br label %trace_dbus_kbd_press.exit
@@ -620,10 +608,10 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_kbd_press.exit:                        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %kbd = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 6
+  %kbd = getelementptr inbounds i8, ptr %ddc, i64 112
   %7 = load ptr, ptr %kbd, align 8
   tail call void @qkbd_state_key_event(ptr noundef %7, i32 noundef %call, i1 noundef zeroext true) #9
-  %iface_kbd = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 5
+  %iface_kbd = getelementptr inbounds i8, ptr %ddc, i64 104
   %8 = load ptr, ptr %iface_kbd, align 8
   tail call void @qemu_dbus_display1_keyboard_complete_press(ptr noundef %8, ptr noundef %invocation) #9
   ret i32 1
@@ -658,7 +646,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %arg_keycode) #9
   br label %trace_dbus_kbd_release.exit
@@ -669,10 +657,10 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_kbd_release.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %kbd = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 6
+  %kbd = getelementptr inbounds i8, ptr %ddc, i64 112
   %7 = load ptr, ptr %kbd, align 8
   tail call void @qkbd_state_key_event(ptr noundef %7, i32 noundef %call, i1 noundef zeroext false) #9
-  %iface_kbd = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 5
+  %iface_kbd = getelementptr inbounds i8, ptr %ddc, i64 104
   %8 = load ptr, ptr %iface_kbd, align 8
   tail call void @qemu_dbus_display1_keyboard_complete_release(ptr noundef %8, ptr noundef %invocation) #9
   ret i32 1
@@ -708,7 +696,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %x, i32 noundef %y) #9
   br label %trace_dbus_mouse_set_pos.exit
@@ -719,7 +707,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_mouse_set_pos.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %con = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 1, i32 3
+  %con = getelementptr inbounds i8, ptr %ddc, i64 56
   %7 = load ptr, ptr %con, align 8
   %call = tail call zeroext i1 @qemu_input_is_absolute(ptr noundef %7) #9
   br i1 %call, label %if.end, label %if.then
@@ -750,7 +738,7 @@ if.end11:                                         ; preds = %if.end
   %11 = load ptr, ptr %con, align 8
   tail call void @qemu_input_queue_abs(ptr noundef %11, i32 noundef 1, i32 noundef %y, i32 noundef 0, i32 noundef %call7) #9
   tail call void @qemu_input_event_sync() #9
-  %iface_mouse = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 7
+  %iface_mouse = getelementptr inbounds i8, ptr %ddc, i64 120
   %12 = load ptr, ptr %iface_mouse, align 8
   tail call void @qemu_dbus_display1_mouse_complete_set_abs_position(ptr noundef %12, ptr noundef %invocation) #9
   br label %return
@@ -787,7 +775,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %dx, i32 noundef %dy) #9
   br label %trace_dbus_mouse_rel_motion.exit
@@ -798,7 +786,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_mouse_rel_motion.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %con = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 1, i32 3
+  %con = getelementptr inbounds i8, ptr %ddc, i64 56
   %7 = load ptr, ptr %con, align 8
   %call = tail call zeroext i1 @qemu_input_is_absolute(ptr noundef %7) #9
   br i1 %call, label %if.then, label %if.end
@@ -814,7 +802,7 @@ if.end:                                           ; preds = %trace_dbus_mouse_re
   %9 = load ptr, ptr %con, align 8
   tail call void @qemu_input_queue_rel(ptr noundef %9, i32 noundef 1, i32 noundef %dy) #9
   tail call void @qemu_input_event_sync() #9
-  %iface_mouse = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 7
+  %iface_mouse = getelementptr inbounds i8, ptr %ddc, i64 120
   %10 = load ptr, ptr %iface_mouse, align 8
   tail call void @qemu_dbus_display1_mouse_complete_rel_motion(ptr noundef %10, ptr noundef %invocation) #9
   br label %return
@@ -851,7 +839,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %button) #9
   br label %trace_dbus_mouse_press.exit
@@ -862,11 +850,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_mouse_press.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %con = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 1, i32 3
+  %con = getelementptr inbounds i8, ptr %ddc, i64 56
   %7 = load ptr, ptr %con, align 8
   tail call void @qemu_input_queue_btn(ptr noundef %7, i32 noundef %button, i1 noundef zeroext true) #9
   tail call void @qemu_input_event_sync() #9
-  %iface_mouse = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 7
+  %iface_mouse = getelementptr inbounds i8, ptr %ddc, i64 120
   %8 = load ptr, ptr %iface_mouse, align 8
   tail call void @qemu_dbus_display1_mouse_complete_press(ptr noundef %8, ptr noundef %invocation) #9
   ret i32 1
@@ -900,7 +888,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %button) #9
   br label %trace_dbus_mouse_release.exit
@@ -911,11 +899,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_mouse_release.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %con = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 1, i32 3
+  %con = getelementptr inbounds i8, ptr %ddc, i64 56
   %7 = load ptr, ptr %con, align 8
   tail call void @qemu_input_queue_btn(ptr noundef %7, i32 noundef %button, i1 noundef zeroext false) #9
   tail call void @qemu_input_event_sync() #9
-  %iface_mouse = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 7
+  %iface_mouse = getelementptr inbounds i8, ptr %ddc, i64 120
   %8 = load ptr, ptr %iface_mouse, align 8
   tail call void @qemu_dbus_display1_mouse_complete_release(ptr noundef %8, ptr noundef %invocation) #9
   ret i32 1
@@ -956,7 +944,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %kind, i32 noundef %conv, i32 noundef %conv1, i32 noundef %conv2) #9
   br label %trace_dbus_touch_send_event.exit
@@ -976,7 +964,7 @@ if.then:                                          ; preds = %trace_dbus_touch_se
   br label %return
 
 if.end:                                           ; preds = %trace_dbus_touch_send_event.exit
-  %con = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 1, i32 3
+  %con = getelementptr inbounds i8, ptr %ddc, i64 56
   %7 = load ptr, ptr %con, align 8
   %call12 = tail call i32 @qemu_console_get_width(ptr noundef %7, i32 noundef 0) #9
   %8 = load ptr, ptr %con, align 8
@@ -997,7 +985,7 @@ if.then20:                                        ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %iface_touch = getelementptr inbounds %struct._DBusDisplayConsole, ptr %ddc, i64 0, i32 8
+  %iface_touch = getelementptr inbounds i8, ptr %ddc, i64 128
   %13 = load ptr, ptr %iface_touch, align 8
   call void @qemu_dbus_display1_multi_touch_complete_send_event(ptr noundef %13, ptr noundef %invocation) #9
   br label %return
@@ -1044,7 +1032,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #9
-  %dispose.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 5
+  %dispose.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr @dbus_display_console_dispose, ptr %dispose.i, align 8
   ret void
 }
@@ -1072,9 +1060,9 @@ DBUS_DISPLAY_CONSOLE.exit:                        ; preds = %entry, %land.rhs.i.
   %1 = load i64, ptr @dbus_display_console_get_type.static_g_define_type_id, align 8
   %call1.i = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %1) #9
   %call1 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @g_object_unref) #9
-  %listeners = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call1.i, i64 0, i32 3
+  %listeners = getelementptr inbounds i8, ptr %call1.i, i64 88
   store ptr %call1, ptr %listeners, align 8
-  %ops = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call1.i, i64 0, i32 1, i32 1
+  %ops = getelementptr inbounds i8, ptr %call1.i, i64 40
   store ptr @dbus_console_dcl_ops, ptr %ops, align 8
   ret void
 }
@@ -1107,9 +1095,9 @@ if.then.i.i:                                      ; preds = %land.rhs.i.i
 DBUS_DISPLAY_CONSOLE.exit:                        ; preds = %entry, %land.rhs.i.i, %if.then.i.i
   %1 = load i64, ptr @dbus_display_console_get_type.static_g_define_type_id, align 8
   %call1.i = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %1) #9
-  %dcl = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call1.i, i64 0, i32 1
+  %dcl = getelementptr inbounds i8, ptr %call1.i, i64 32
   tail call void @unregister_displaychangelistener(ptr noundef nonnull %dcl) #9
-  %iface_touch = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call1.i, i64 0, i32 8
+  %iface_touch = getelementptr inbounds i8, ptr %call1.i, i64 128
   %2 = load ptr, ptr %iface_touch, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %do.body1, label %if.then
@@ -1120,7 +1108,7 @@ if.then:                                          ; preds = %DBUS_DISPLAY_CONSOL
   br label %do.body1
 
 do.body1:                                         ; preds = %if.then, %DBUS_DISPLAY_CONSOLE.exit
-  %iface_mouse = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call1.i, i64 0, i32 7
+  %iface_mouse = getelementptr inbounds i8, ptr %call1.i, i64 120
   %3 = load ptr, ptr %iface_mouse, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %do.body9, label %if.then6
@@ -1131,7 +1119,7 @@ if.then6:                                         ; preds = %do.body1
   br label %do.body9
 
 do.body9:                                         ; preds = %if.then6, %do.body1
-  %iface_kbd = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call1.i, i64 0, i32 5
+  %iface_kbd = getelementptr inbounds i8, ptr %call1.i, i64 104
   %4 = load ptr, ptr %iface_kbd, align 8
   %tobool13.not = icmp eq ptr %4, null
   br i1 %tobool13.not, label %do.body17, label %if.then14
@@ -1142,7 +1130,7 @@ if.then14:                                        ; preds = %do.body9
   br label %do.body17
 
 do.body17:                                        ; preds = %if.then14, %do.body9
-  %iface = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call1.i, i64 0, i32 4
+  %iface = getelementptr inbounds i8, ptr %call1.i, i64 96
   %5 = load ptr, ptr %iface, align 8
   %tobool21.not = icmp eq ptr %5, null
   br i1 %tobool21.not, label %do.body25, label %if.then22
@@ -1153,7 +1141,7 @@ if.then22:                                        ; preds = %do.body17
   br label %do.body25
 
 do.body25:                                        ; preds = %if.then22, %do.body17
-  %listeners = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call1.i, i64 0, i32 3
+  %listeners = getelementptr inbounds i8, ptr %call1.i, i64 88
   %6 = load ptr, ptr %listeners, align 8
   %tobool29.not = icmp eq ptr %6, null
   br i1 %tobool29.not, label %do.body33, label %if.then30
@@ -1164,7 +1152,7 @@ if.then30:                                        ; preds = %do.body25
   br label %do.body33
 
 do.body33:                                        ; preds = %if.then30, %do.body25
-  %kbd = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call1.i, i64 0, i32 6
+  %kbd = getelementptr inbounds i8, ptr %call1.i, i64 112
   %7 = load ptr, ptr %kbd, align 8
   %tobool37.not = icmp eq ptr %7, null
   br i1 %tobool37.not, label %do.end40, label %if.then38
@@ -1177,7 +1165,7 @@ if.then38:                                        ; preds = %do.body33
 do.end40:                                         ; preds = %do.body33, %if.then38
   %8 = load ptr, ptr @dbus_display_console_parent_class, align 8
   %call41 = tail call ptr @g_type_check_class_cast(ptr noundef %8, i64 noundef 80) #9
-  %dispose = getelementptr inbounds %struct._GObjectClass, ptr %call41, i64 0, i32 5
+  %dispose = getelementptr inbounds i8, ptr %call41, i64 40
   %9 = load ptr, ptr %dispose, align 8
   tail call void %9(ptr noundef %object) #9
   ret void
@@ -1268,7 +1256,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call1) #9
   br label %trace_dbus_listener_vanished.exit
@@ -1279,10 +1267,10 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_listener_vanished.exit:                ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %listeners = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call, i64 0, i32 3
+  %listeners = getelementptr inbounds i8, ptr %call, i64 88
   %7 = load ptr, ptr %listeners, align 8
   %call2 = tail call i32 @g_hash_table_remove(ptr noundef %7, ptr noundef %call1) #9
-  %kbd = getelementptr inbounds %struct._DBusDisplayConsole, ptr %call, i64 0, i32 6
+  %kbd = getelementptr inbounds i8, ptr %call, i64 112
   %8 = load ptr, ptr %kbd, align 8
   tail call void @qkbd_state_lift_all_keys(ptr noundef %8) #9
   ret void

@@ -18,7 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl" }
 %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.grpc_chttp2_settings_parser = type { i32, ptr, i8, i16, i32, [8 x i32] }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.absl::lts_20230802::str_format_internal::FormatArgImpl" = type { %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data", ptr }
@@ -27,176 +26,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.189 = type { i64, [8 x i8] }
 %"class.std::allocator.186" = type { i8 }
-%struct.grpc_chttp2_transport = type { %"class.grpc_core::Transport", %"class.grpc_core::FilterStackTransport", %"class.grpc_core::RefCounted", ptr, %"class.grpc_core::Slice", %"class.grpc_core::MemoryOwner", %"class.grpc_event_engine::experimental::MemoryAllocator::Reservation", %"class.grpc_core::ReclamationSweep", %"class.std::shared_ptr.3", ptr, %"class.absl::lts_20230802::random_internal::NonsecureURBGBase", ptr, ptr, %"class.absl::lts_20230802::Status", [5 x %struct.grpc_chttp2_stream_list], %"class.absl::lts_20230802::flat_hash_map", i64, %struct.grpc_closure, %struct.grpc_closure, %struct.grpc_closure, %struct.grpc_slice_buffer, ptr, ptr, ptr, ptr, %"class.grpc_core::ConnectivityStateTracker", %"class.grpc_core::SliceBuffer", %"class.grpc_core::HPackCompressor", %struct.grpc_slice_buffer, i64, %"class.absl::lts_20230802::Status", i32, i32, [4 x [8 x i32]], %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", i32, i32, i32, %"class.grpc_core::Chttp2PingAbusePolicy", %"class.grpc_core::Chttp2PingRatePolicy", %"class.grpc_core::Chttp2PingCallbacks", %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", %struct.grpc_closure, %"class.grpc_core::Chttp2MaxConcurrentStreamsPolicy", i64, i64, ptr, %"class.grpc_core::HPackParser", %union.anon.182, %struct.grpc_chttp2_goaway_parser, %"class.grpc_core::chttp2::TransportFlowControl", i64, i32, i8, i8, i8, i8, i32, i32, i32, i32, i8, ptr, %"struct.grpc_chttp2_transport::Parser", ptr, %struct.grpc_closure, %struct.grpc_closure, %struct.grpc_closure, %"class.absl::lts_20230802::Status", %struct.grpc_closure_list, %struct.grpc_closure, %struct.grpc_closure, %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", %struct.grpc_closure, %struct.grpc_closure, %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", %"class.grpc_core::Duration", %"class.grpc_core::Duration", %"struct.std::atomic.183", i32, i32, ptr, %"class.grpc_core::RefCountedPtr.185", i32, i32, i32, %"class.grpc_core::Duration", %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", %"class.grpc_core::Duration", i32, i32, %"class.grpc_core::Chttp2WriteSizePolicy", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%"class.grpc_core::Transport" = type { %"class.grpc_core::Orphanable" }
-%"class.grpc_core::Orphanable" = type { ptr }
-%"class.grpc_core::FilterStackTransport" = type { ptr }
-%"class.grpc_core::RefCounted" = type { %"class.grpc_core::RefCount" }
-%"class.grpc_core::RefCount" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.grpc_core::Slice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
-%"class.grpc_core::slice_detail::BaseSlice" = type { %struct.grpc_slice }
-%"class.grpc_core::MemoryOwner" = type { %"class.grpc_event_engine::experimental::MemoryAllocator" }
-%"class.grpc_event_engine::experimental::MemoryAllocator" = type { %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.grpc_event_engine::experimental::MemoryAllocator::Reservation" = type { %"class.std::shared_ptr", i64 }
-%"class.grpc_core::ReclamationSweep" = type { %"class.std::shared_ptr.0", i64, %"class.grpc_core::Waker" }
-%"class.std::shared_ptr.0" = type { %"class.std::__shared_ptr.1" }
-%"class.std::__shared_ptr.1" = type { ptr, %"class.std::__shared_count" }
-%"class.grpc_core::Waker" = type { %"struct.grpc_core::Waker::WakeableAndArg" }
-%"struct.grpc_core::Waker::WakeableAndArg" = type { ptr, i16 }
-%"class.std::shared_ptr.3" = type { %"class.std::__shared_ptr.4" }
-%"class.std::__shared_ptr.4" = type { ptr, %"class.std::__shared_count" }
-%"class.absl::lts_20230802::random_internal::NonsecureURBGBase" = type { %"class.absl::lts_20230802::random_internal::randen_engine" }
-%"class.absl::lts_20230802::random_internal::randen_engine" = type { [264 x i8], i64, %"class.absl::lts_20230802::random_internal::Randen" }
-%"class.absl::lts_20230802::random_internal::Randen" = type <{ ptr, i8, [7 x i8] }>
-%struct.grpc_chttp2_stream_list = type { ptr, ptr }
-%"class.absl::lts_20230802::flat_hash_map" = type { %"class.absl::lts_20230802::container_internal::raw_hash_map" }
-%"class.absl::lts_20230802::container_internal::raw_hash_map" = type { %"class.absl::lts_20230802::container_internal::raw_hash_set" }
-%"class.absl::lts_20230802::container_internal::raw_hash_set" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" = type { %"class.absl::lts_20230802::container_internal::CommonFields" }
-%"class.absl::lts_20230802::container_internal::CommonFields" = type { ptr, ptr, i64, %"class.absl::lts_20230802::container_internal::CompressedTuple.6" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple.6" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.7" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.7" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.8" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.8" = type { i64 }
-%"class.grpc_core::ConnectivityStateTracker" = type { ptr, %"struct.std::atomic.17", %"class.absl::lts_20230802::Status", %"class.std::map" }
-%"struct.std::atomic.17" = type { i32 }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<grpc_core::ConnectivityStateWatcherInterface *, std::pair<grpc_core::ConnectivityStateWatcherInterface *const, std::unique_ptr<grpc_core::ConnectivityStateWatcherInterface, grpc_core::OrphanableDelete>>, std::_Select1st<std::pair<grpc_core::ConnectivityStateWatcherInterface *const, std::unique_ptr<grpc_core::ConnectivityStateWatcherInterface, grpc_core::OrphanableDelete>>>, std::less<grpc_core::ConnectivityStateWatcherInterface *>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<grpc_core::ConnectivityStateWatcherInterface *, std::pair<grpc_core::ConnectivityStateWatcherInterface *const, std::unique_ptr<grpc_core::ConnectivityStateWatcherInterface, grpc_core::OrphanableDelete>>, std::_Select1st<std::pair<grpc_core::ConnectivityStateWatcherInterface *const, std::unique_ptr<grpc_core::ConnectivityStateWatcherInterface, grpc_core::OrphanableDelete>>>, std::less<grpc_core::ConnectivityStateWatcherInterface *>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.grpc_core::SliceBuffer" = type { %struct.grpc_slice_buffer }
-%"class.grpc_core::HPackCompressor" = type { i32, i8, %"class.grpc_core::HPackEncoderTable", %"struct.grpc_core::metadata_detail::StatefulCompressor" }
-%"class.grpc_core::HPackEncoderTable" = type { i32, i32, i32, i32, %"class.std::vector.22" }
-%"class.std::vector.22" = type { %"struct.std::_Vector_base.23" }
-%"struct.std::_Vector_base.23" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.grpc_core::metadata_detail::StatefulCompressor" = type <{ %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor", %"struct.grpc_core::metadata_detail::StatefulCompressor.base.147", [4 x i8] }>
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor" = type { %"class.grpc_core::hpack_encoder_detail::Compressor" }
-%"class.grpc_core::hpack_encoder_detail::Compressor" = type { %"class.grpc_core::hpack_encoder_detail::SliceIndex" }
-%"class.grpc_core::hpack_encoder_detail::SliceIndex" = type { %"class.std::vector.27" }
-%"class.std::vector.27" = type { %"struct.std::_Vector_base.28" }
-%"struct.std::_Vector_base.28" = type { %"struct.std::_Vector_base<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex, std::allocator<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex, std::allocator<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex, std::allocator<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex, std::allocator<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.147" = type <{ %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.33", %"struct.grpc_core::metadata_detail::StatefulCompressor.base.146" }>
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.33" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.34" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.34" = type { %"class.grpc_core::hpack_encoder_detail::SliceIndex" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.146" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.145" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.145" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.144" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.144" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.143" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.143" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.45", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.142" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.45" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.46" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.46" = type { i32 }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.142" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.48", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.141" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.48" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.49" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.49" = type { i32 }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.141" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.51", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.140" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.51" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.52" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.52" = type { [3 x i32] }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.140" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.139" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.139" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.57", %"struct.grpc_core::metadata_detail::StatefulCompressor.base.138" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.57" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.58" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.58" = type { %"class.grpc_core::CompressionAlgorithmSet", i32 }
-%"class.grpc_core::CompressionAlgorithmSet" = type { %"class.grpc_core::BitSet" }
-%"class.grpc_core::BitSet" = type { [1 x i8] }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.138" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.60", %"struct.grpc_core::metadata_detail::StatefulCompressor.base.137" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.60" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.61" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.61" = type { [16 x i32] }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.137" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.63", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.136" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.63" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.64" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.64" = type { %"class.grpc_core::hpack_encoder_detail::TimeoutCompressorImpl" }
-%"class.grpc_core::hpack_encoder_detail::TimeoutCompressorImpl" = type { [5 x %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout"], i32 }
-%"struct.grpc_core::hpack_encoder_detail::PreviousTimeout" = type { %"class.grpc_core::Timeout", i32 }
-%"class.grpc_core::Timeout" = type <{ i16, i8, i8 }>
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.136" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.135" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.135" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.134" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.134" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.base", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.133" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.base" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.base" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.base" = type <{ %"class.grpc_core::Slice", i32 }>
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.133" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.132" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.132" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.131" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.131" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.130" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.130" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.129" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.129" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.87", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.128" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.87" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.88" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.88" = type { i32 }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.128" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.90", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.127" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.90" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.91" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.91" = type { i32 }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.127" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.126" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.126" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.125" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.125" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.base.105" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.base.105" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.base.104" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.base.104" = type <{ %"class.grpc_core::Slice", i32 }>
-%struct.grpc_slice_buffer = type { ptr, ptr, i64, i64, i64, [7 x %struct.grpc_slice] }
-%"class.grpc_core::Chttp2PingAbusePolicy" = type { %"class.grpc_core::Timestamp", %"class.grpc_core::Duration", i32, i32 }
-%"class.grpc_core::Timestamp" = type { i64 }
-%"class.grpc_core::Chttp2PingRatePolicy" = type { i32, i32, i32, %"class.grpc_core::Timestamp" }
-%"class.grpc_core::Chttp2PingCallbacks" = type { %"class.absl::lts_20230802::flat_hash_map.149", i64, i8, i8, %"class.std::vector.164", %"class.std::vector.164" }
-%"class.absl::lts_20230802::flat_hash_map.149" = type { %"class.absl::lts_20230802::container_internal::raw_hash_map.150" }
-%"class.absl::lts_20230802::container_internal::raw_hash_map.150" = type { %"class.absl::lts_20230802::container_internal::raw_hash_set.151" }
-%"class.absl::lts_20230802::container_internal::raw_hash_set.151" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple.152" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple.152" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.153" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.153" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" }
-%"class.std::vector.164" = type { %"struct.std::_Vector_base.165" }
-%"struct.std::_Vector_base.165" = type { %"struct.std::_Vector_base<absl::lts_20230802::AnyInvocable<void ()>, std::allocator<absl::lts_20230802::AnyInvocable<void ()>>>::_Vector_impl" }
-%"struct.std::_Vector_base<absl::lts_20230802::AnyInvocable<void ()>, std::allocator<absl::lts_20230802::AnyInvocable<void ()>>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::lts_20230802::AnyInvocable<void ()>, std::allocator<absl::lts_20230802::AnyInvocable<void ()>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<absl::lts_20230802::AnyInvocable<void ()>, std::allocator<absl::lts_20230802::AnyInvocable<void ()>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::Chttp2MaxConcurrentStreamsPolicy" = type { i32, i32, i32, i32 }
-%"class.grpc_core::HPackParser" = type { ptr, %"class.std::vector.169", i64, i8, i8, %"struct.grpc_core::HPackParser::LogInfo", %"struct.grpc_core::HPackParser::InterSliceState" }
-%"class.std::vector.169" = type { %"struct.std::_Vector_base.170" }
-%"struct.std::_Vector_base.170" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.grpc_core::HPackParser::LogInfo" = type { i32, i8, i8 }
-%"struct.grpc_core::HPackParser::InterSliceState" = type { %"class.grpc_core::HPackTable", %"class.grpc_core::HpackParseResult", i32, i32, %"class.grpc_core::RandomEarlyDetection", i8, i8, i8, i8, i8, [3 x i8], %"class.std::variant" }
-%"class.grpc_core::HPackTable" = type { i32, i32, i32, %"class.grpc_core::HPackTable::MementoRingBuffer", ptr }
-%"class.grpc_core::HPackTable::MementoRingBuffer" = type { i32, i32, i32, %"class.std::vector.174" }
-%"class.std::vector.174" = type { %"struct.std::_Vector_base.175" }
-%"struct.std::_Vector_base.175" = type { %"struct.std::_Vector_base<grpc_core::HPackTable::Memento, std::allocator<grpc_core::HPackTable::Memento>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_core::HPackTable::Memento, std::allocator<grpc_core::HPackTable::Memento>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::HPackTable::Memento, std::allocator<grpc_core::HPackTable::Memento>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_core::HPackTable::Memento, std::allocator<grpc_core::HPackTable::Memento>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::HpackParseResult" = type { %"class.grpc_core::RefCountedPtr" }
-%"class.grpc_core::RefCountedPtr" = type { ptr }
-%"class.grpc_core::RandomEarlyDetection" = type { i64, i64 }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"struct.std::__detail::__variant::_Uninitialized", [24 x i8] }
-%"struct.std::__detail::__variant::_Uninitialized" = type { ptr }
-%union.anon.182 = type { %struct.grpc_chttp2_settings_parser }
-%struct.grpc_chttp2_goaway_parser = type { i32, i32, i32, ptr, i32, i32 }
-%"class.grpc_core::chttp2::TransportFlowControl" = type { ptr, i64, i8, %"class.grpc_core::BdpEstimator", %"class.grpc_core::PidController", %"class.grpc_core::Timestamp", i64, i64, i64, i64, i64, i32, i32 }
-%"class.grpc_core::BdpEstimator" = type { i64, i64, %struct.gpr_timespec, %"class.grpc_core::Duration", i32, i32, double, %"class.std::basic_string_view" }
-%struct.gpr_timespec = type { i64, i32, i32 }
-%"class.grpc_core::PidController" = type { double, double, double, double, %"class.grpc_core::PidController::Args" }
-%"class.grpc_core::PidController::Args" = type { double, double, double, double, double, double, double }
-%"struct.grpc_chttp2_transport::Parser" = type { ptr, ptr, ptr }
-%struct.grpc_closure_list = type { ptr, ptr }
-%struct.grpc_closure = type { %union.anon, ptr, ptr, %union.anon.16 }
-%union.anon = type { ptr }
-%union.anon.16 = type { i64 }
-%"struct.std::atomic.183" = type { %"struct.std::__atomic_base.184" }
-%"struct.std::__atomic_base.184" = type { i64 }
-%"class.grpc_core::RefCountedPtr.185" = type { ptr }
-%"struct.grpc_event_engine::experimental::EventEngine::TaskHandle" = type { [2 x i64] }
-%"class.grpc_core::Duration" = type { i64 }
-%"class.grpc_core::Chttp2WriteSizePolicy" = type <{ i64, %"class.grpc_core::Timestamp", i8, [7 x i8] }>
 
 $_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev = comdat any
 
@@ -278,8 +107,8 @@ for.end:                                          ; preds = %for.end.loopexit, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %4 = load ptr, ptr %agg.result, align 8
   %tobool.not = icmp eq ptr %4, null
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %data = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %bytes = getelementptr inbounds i8, ptr %agg.result, i64 16
   %5 = load ptr, ptr %bytes, align 8
   %bytes7 = getelementptr inbounds i8, ptr %agg.result, i64 9
   %cond = select i1 %tobool.not, ptr %bytes7, ptr %5
@@ -393,7 +222,7 @@ entry:
   tail call void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8 %agg.result, i64 noundef 9)
   %0 = load ptr, ptr %agg.result, align 8
   %tobool.not = icmp eq ptr %0, null
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %agg.result, i64 16
   %1 = load ptr, ptr %bytes, align 8
   %bytes2 = getelementptr inbounds i8, ptr %agg.result, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %1
@@ -414,11 +243,11 @@ entry:
   %agg.tmp10 = alloca %"class.std::vector", align 8
   %ref.tmp17 = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp18 = alloca %"class.std::vector", align 8
-  %target_settings = getelementptr inbounds %struct.grpc_chttp2_settings_parser, ptr %parser, i64 0, i32 1
+  %target_settings = getelementptr inbounds i8, ptr %parser, i64 8
   store ptr %settings, ptr %target_settings, align 8
-  %incoming_settings = getelementptr inbounds %struct.grpc_chttp2_settings_parser, ptr %parser, i64 0, i32 5
+  %incoming_settings = getelementptr inbounds i8, ptr %parser, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %incoming_settings, ptr noundef nonnull align 4 dereferenceable(32) %settings, i64 32, i1 false)
-  %is_ack = getelementptr inbounds %struct.grpc_chttp2_settings_parser, ptr %parser, i64 0, i32 2
+  %is_ack = getelementptr inbounds i8, ptr %parser, i64 16
   store i8 0, ptr %is_ack, align 8
   store i32 0, ptr %parser, align 8
   switch i8 %flags, label %if.then7 [
@@ -438,7 +267,7 @@ if.then3:                                         ; preds = %if.then
 
 invoke.cont:                                      ; preds = %if.then3
   %0 = load ptr, ptr %agg.tmp4, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp4, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -462,7 +291,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !7
 
@@ -495,7 +324,7 @@ if.then7:                                         ; preds = %entry
 
 invoke.cont12:                                    ; preds = %if.then7
   %7 = load ptr, ptr %agg.tmp10, align 8
-  %_M_finish.i11 = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp10, i64 0, i32 1
+  %_M_finish.i11 = getelementptr inbounds i8, ptr %agg.tmp10, i64 8
   %8 = load ptr, ptr %_M_finish.i11, align 8
   %cmp.not3.i.i.i.i12 = icmp eq ptr %7, %8
   br i1 %cmp.not3.i.i.i.i12, label %invoke.cont.i24, label %for.body.i.i.i.i13
@@ -519,7 +348,7 @@ terminate.lpad.i.i.i.i.i.i18:                     ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i19: ; preds = %if.then.i.i.i.i.i.i.i17, %for.body.i.i.i.i13
-  %incdec.ptr.i.i.i.i20 = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i14, i64 1
+  %incdec.ptr.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i14, i64 8
   %cmp.not.i.i.i.i21 = icmp eq ptr %incdec.ptr.i.i.i.i20, %8
   br i1 %cmp.not.i.i.i.i21, label %invoke.contthread-pre-split.i22, label %for.body.i.i.i.i13, !llvm.loop !7
 
@@ -553,7 +382,7 @@ if.then15:                                        ; preds = %if.else13
 
 invoke.cont20:                                    ; preds = %if.then15
   %14 = load ptr, ptr %agg.tmp18, align 8
-  %_M_finish.i30 = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp18, i64 0, i32 1
+  %_M_finish.i30 = getelementptr inbounds i8, ptr %agg.tmp18, i64 8
   %15 = load ptr, ptr %_M_finish.i30, align 8
   %cmp.not3.i.i.i.i31 = icmp eq ptr %14, %15
   br i1 %cmp.not3.i.i.i.i31, label %invoke.cont.i43, label %for.body.i.i.i.i32
@@ -577,7 +406,7 @@ terminate.lpad.i.i.i.i.i.i37:                     ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i38: ; preds = %if.then.i.i.i.i.i.i.i36, %for.body.i.i.i.i32
-  %incdec.ptr.i.i.i.i39 = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i33, i64 1
+  %incdec.ptr.i.i.i.i39 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i33, i64 8
   %cmp.not.i.i.i.i40 = icmp eq ptr %incdec.ptr.i.i.i.i39, %15
   br i1 %cmp.not.i.i.i.i40, label %invoke.contthread-pre-split.i41, label %for.body.i.i.i.i32, !llvm.loop !7
 
@@ -624,7 +453,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -648,7 +477,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !7
 
@@ -686,31 +515,32 @@ entry:
   %ref.tmp164 = alloca %"class.std::allocator.186", align 1
   %1 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %1, null
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %slice, i64 16
   %2 = load ptr, ptr %bytes, align 8
   %bytes2 = getelementptr inbounds i8, ptr %slice, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %2
-  %data17 = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1
+  %data17 = getelementptr inbounds i8, ptr %slice, i64 8
   %3 = load i64, ptr %data17, align 8
   %conv = and i64 %3, 255
   %cond22 = select i1 %tobool.not, i64 %conv, i64 %3
   %add.ptr = getelementptr inbounds i8, ptr %cond, i64 %cond22
-  %is_ack = getelementptr inbounds %struct.grpc_chttp2_settings_parser, ptr %p, i64 0, i32 2
+  %is_ack = getelementptr inbounds i8, ptr %p, i64 16
   %4 = load i8, ptr %is_ack, align 8
   %tobool23.not = icmp eq i8 %4, 0
   br i1 %tobool23.not, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %entry
-  %id40 = getelementptr inbounds %struct.grpc_chttp2_settings_parser, ptr %p, i64 0, i32 3
-  %value = getelementptr inbounds %struct.grpc_chttp2_settings_parser, ptr %p, i64 0, i32 4
-  %arrayidx122 = getelementptr inbounds %struct.grpc_chttp2_settings_parser, ptr %p, i64 0, i32 5, i64 3
-  %initial_window_update = getelementptr inbounds %struct.grpc_chttp2_transport, ptr %t, i64 0, i32 51
-  %is_client = getelementptr inbounds %struct.grpc_chttp2_transport, ptr %t, i64 0, i32 100
-  %peer_string = getelementptr inbounds %struct.grpc_chttp2_transport, ptr %t, i64 0, i32 4
-  %bytes.i.i = getelementptr inbounds %struct.grpc_chttp2_transport, ptr %t, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
+  %id40 = getelementptr inbounds i8, ptr %p, i64 18
+  %value = getelementptr inbounds i8, ptr %p, i64 20
+  %arrayidx122 = getelementptr inbounds i8, ptr %p, i64 36
+  %initial_window_update = getelementptr inbounds i8, ptr %t, i64 2880
+  %is_client = getelementptr inbounds i8, ptr %t, i64 3376
+  %incoming_settings148 = getelementptr inbounds i8, ptr %p, i64 24
+  %peer_string = getelementptr inbounds i8, ptr %t, i64 32
+  %bytes.i.i = getelementptr inbounds i8, ptr %t, i64 48
   %bytes5.i.i = getelementptr inbounds i8, ptr %t, i64 41
-  %data.i.i = getelementptr inbounds %struct.grpc_chttp2_transport, ptr %t, i64 0, i32 4, i32 0, i32 0, i32 1
-  %5 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %t, i64 40
+  %5 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   br label %for.cond.outer
 
 if.then:                                          ; preds = %entry
@@ -737,19 +567,18 @@ if.then24:                                        ; preds = %sw.bb
   br i1 %tobool26.not, label %if.end35, label %if.then27
 
 if.then27:                                        ; preds = %if.then24
-  %target_settings = getelementptr inbounds %struct.grpc_chttp2_settings_parser, ptr %p, i64 0, i32 1
+  %target_settings = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %target_settings, align 8
-  %incoming_settings = getelementptr inbounds %struct.grpc_chttp2_settings_parser, ptr %p, i64 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %incoming_settings, i64 32, i1 false)
-  %num_pending_induced_frames = getelementptr inbounds %struct.grpc_chttp2_transport, ptr %t, i64 0, i32 84
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %incoming_settings148, i64 32, i1 false)
+  %num_pending_induced_frames = getelementptr inbounds i8, ptr %t, i64 3292
   %7 = load i32, ptr %num_pending_induced_frames, align 4
   %inc = add i32 %7, 1
   store i32 %inc, ptr %num_pending_induced_frames, align 4
-  %qbuf = getelementptr inbounds %struct.grpc_chttp2_transport, ptr %t, i64 0, i32 28
+  %qbuf = getelementptr inbounds i8, ptr %t, i64 1672
   call void @_Z31grpc_chttp2_settings_ack_createv(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp)
   call void @grpc_slice_buffer_add(ptr noundef nonnull %qbuf, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp)
   call void @_Z26grpc_chttp2_initiate_writeP21grpc_chttp2_transport33grpc_chttp2_initiate_write_reason(ptr noundef %t, i32 noundef 13)
-  %notify_on_receive_settings = getelementptr inbounds %struct.grpc_chttp2_transport, ptr %t, i64 0, i32 11
+  %notify_on_receive_settings = getelementptr inbounds i8, ptr %t, i64 456
   %8 = load ptr, ptr %notify_on_receive_settings, align 8
   %cmp29.not = icmp eq ptr %8, null
   br i1 %cmp29.not, label %if.end35, label %if.then30
@@ -887,19 +716,19 @@ if.then92:                                        ; preds = %if.else
   %idxprom = zext i32 %23 to i64
   %arrayidx = getelementptr inbounds [8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 %idxprom
   %24 = load i32, ptr %value, align 4
-  %min_value = getelementptr inbounds [8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 %idxprom, i32 2
+  %min_value = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %25 = load i32, ptr %min_value, align 4
   %cmp94 = icmp ult i32 %24, %25
   br i1 %cmp94, label %if.then97, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then92
-  %max_value = getelementptr inbounds [8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 %idxprom, i32 3
+  %max_value = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %26 = load i32, ptr %max_value, align 16
   %cmp96 = icmp ugt i32 %24, %26
   br i1 %cmp96, label %if.then97, label %if.end118
 
 if.then97:                                        ; preds = %lor.lhs.false, %if.then92
-  %invalid_value_behavior = getelementptr inbounds [8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 %idxprom, i32 4
+  %invalid_value_behavior = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %27 = load i32, ptr %invalid_value_behavior, align 4
   switch i32 %27, label %if.end118 [
     i32 0, label %sw.bb98
@@ -907,7 +736,7 @@ if.then97:                                        ; preds = %lor.lhs.false, %if.
   ]
 
 sw.bb98:                                          ; preds = %if.then97
-  %max_value101 = getelementptr inbounds [8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 %idxprom, i32 3
+  %max_value101 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %28 = load i32, ptr %max_value101, align 16
   %max.val.i = call i32 @llvm.umin.i32(i32 %28, i32 %24)
   %retval.0.i = select i1 %cmp94, i32 %25, i32 %max.val.i
@@ -915,24 +744,24 @@ sw.bb98:                                          ; preds = %if.then97
   br label %if.end118
 
 sw.bb104:                                         ; preds = %if.then97
-  %last_new_stream_id = getelementptr inbounds %struct.grpc_chttp2_transport, ptr %t, i64 0, i32 36
+  %last_new_stream_id = getelementptr inbounds i8, ptr %t, i64 2108
   %29 = load i32, ptr %last_new_stream_id, align 4
-  %error_value = getelementptr inbounds [8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 %idxprom, i32 5
+  %error_value = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %30 = load i32, ptr %error_value, align 8
   call void @grpc_slice_from_static_string(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp105, ptr noundef nonnull @.str.5)
-  %qbuf106 = getelementptr inbounds %struct.grpc_chttp2_transport, ptr %t, i64 0, i32 28
+  %qbuf106 = getelementptr inbounds i8, ptr %t, i64 1672
   call void @_Z25grpc_chttp2_goaway_appendjjRK10grpc_sliceP17grpc_slice_buffer(i32 noundef %29, i32 noundef %30, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp105, ptr noundef nonnull %qbuf106)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %retval.sroa.0.0.copyload.i.i.i.i = load i32, ptr %value, align 4, !noalias !39
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %retval.sroa.0.0.copyload.i.i.i.i to i64
   %31 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %31, ptr %ref.tmp.i, align 8, !noalias !39
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !39
-  %arrayinit.element.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %32 = load ptr, ptr %arrayidx, align 8, !noalias !39
   store ptr %32, ptr %arrayinit.element.i, align 8, !noalias !39
-  %dispatcher_.i.i1.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1, i32 1
+  %dispatcher_.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i, align 8, !noalias !39
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp108, ptr nonnull @.str.6, i64 30, ptr nonnull %ref.tmp.i, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -972,13 +801,13 @@ if.then125:                                       ; preds = %land.lhs.true
   %38 = load i64, ptr %initial_window_update, align 8
   %add = add nsw i64 %38, %sub
   store i64 %add, ptr %initial_window_update, align 8
-  %39 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2) monotonic, align 8
+  %39 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %40 = and i8 %39, 1
   %tobool.i.i.i.not = icmp eq i8 %40, 0
   br i1 %tobool.i.i.i.not, label %lor.lhs.false134, label %if.then137
 
 lor.lhs.false134:                                 ; preds = %if.then125
-  %41 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2) monotonic, align 8
+  %41 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_flowctl_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %42 = and i8 %41, 1
   %tobool.i.i.i88.not = icmp eq i8 %42, 0
   br i1 %tobool.i.i.i88.not, label %if.end146, label %if.then137
@@ -997,9 +826,9 @@ if.end146:                                        ; preds = %lor.lhs.false134, %
   %45 = phi i32 [ 3, %lor.lhs.false134 ], [ %.pre, %if.then137 ], [ 3, %land.lhs.true ], [ %23, %if.end118 ]
   %46 = load i32, ptr %value, align 4
   %idxprom149 = zext i32 %45 to i64
-  %arrayidx150 = getelementptr inbounds %struct.grpc_chttp2_settings_parser, ptr %p, i64 0, i32 5, i64 %idxprom149
+  %arrayidx150 = getelementptr inbounds [8 x i32], ptr %incoming_settings148, i64 0, i64 %idxprom149
   store i32 %46, ptr %arrayidx150, align 4
-  %47 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2) monotonic, align 8
+  %47 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %48 = and i8 %47, 1
   %tobool.i.i.i89.not = icmp eq i8 %48, 0
   br i1 %tobool.i.i.i89.not, label %for.cond.outer.backedge, label %if.then153
@@ -1065,7 +894,7 @@ ehcleanup173:                                     ; preds = %lpad170, %lpad165
   br label %eh.resume
 
 if.else175:                                       ; preds = %if.else
-  %63 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2) monotonic, align 8
+  %63 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %64 = and i8 %63, 1
   %tobool.i.i.i90.not = icmp eq i8 %64, 0
   br i1 %tobool.i.i.i90.not, label %for.cond.outer.backedge, label %if.then178

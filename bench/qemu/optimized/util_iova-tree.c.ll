@@ -3,8 +3,8 @@ source_filename = "bench/qemu/original/util_iova-tree.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.DMAMap = type <{ i64, i64, i64, i32 }>
 %struct.IOVATreeFindIOVAArgs = type { ptr, ptr }
+%struct.DMAMap = type <{ i64, i64, i64, i32 }>
 %struct.IOVATreeAllocArgs = type { i64, i64, ptr, ptr, i64, i8 }
 
 @.str = private unnamed_addr constant [25 x i8] c"../qemu/util/iova-tree.c\00", align 1
@@ -32,14 +32,14 @@ define internal i32 @iova_tree_compare(ptr nocapture noundef readonly %a, ptr no
 entry:
   %0 = load i64, ptr %a, align 1
   %1 = load i64, ptr %b, align 1
-  %size = getelementptr inbounds %struct.DMAMap, ptr %b, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %b, i64 16
   %2 = load i64, ptr %size, align 1
   %add = add i64 %2, %1
   %cmp = icmp ugt i64 %0, %add
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %size3 = getelementptr inbounds %struct.DMAMap, ptr %a, i64 0, i32 2
+  %size3 = getelementptr inbounds i8, ptr %a, i64 16
   %3 = load i64, ptr %size3, align 1
   %add4 = add i64 %3, %0
   %cmp6 = icmp ult i64 %add4, %1
@@ -68,7 +68,7 @@ define dso_local ptr @iova_tree_find_iova(ptr nocapture noundef readonly %tree, 
 entry:
   %args = alloca %struct.IOVATreeFindIOVAArgs, align 8
   store ptr %map, ptr %args, align 8
-  %result = getelementptr inbounds %struct.IOVATreeFindIOVAArgs, ptr %args, i64 0, i32 1
+  %result = getelementptr inbounds i8, ptr %args, i64 8
   store ptr null, ptr %result, align 8
   %0 = load ptr, ptr %tree, align 8
   call void @g_tree_foreach(ptr noundef %0, ptr noundef nonnull @iova_tree_find_address_iterator, ptr noundef nonnull %args) #10
@@ -90,25 +90,25 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %data, align 8
-  %translated_addr = getelementptr inbounds %struct.DMAMap, ptr %key, i64 0, i32 1
+  %translated_addr = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load i64, ptr %translated_addr, align 1
-  %size = getelementptr inbounds %struct.DMAMap, ptr %key, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %key, i64 16
   %2 = load i64, ptr %size, align 1
   %add = add i64 %2, %1
-  %translated_addr2 = getelementptr inbounds %struct.DMAMap, ptr %0, i64 0, i32 1
+  %translated_addr2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %translated_addr2, align 1
   %cmp3 = icmp ult i64 %add, %3
   br i1 %cmp3, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end
-  %size5 = getelementptr inbounds %struct.DMAMap, ptr %0, i64 0, i32 2
+  %size5 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %size5, align 1
   %add6 = add i64 %4, %3
   %cmp8 = icmp ult i64 %add6, %1
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %lor.lhs.false
-  %result = getelementptr inbounds %struct.IOVATreeFindIOVAArgs, ptr %data, i64 0, i32 1
+  %result = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %key, ptr %result, align 8
   br label %return
 
@@ -122,7 +122,7 @@ define dso_local ptr @iova_tree_find_address(ptr nocapture noundef readonly %tre
 entry:
   %map = alloca %struct.DMAMap, align 8
   store i64 %iova, ptr %map, align 8
-  %translated_addr = getelementptr inbounds %struct.DMAMap, ptr %map, i64 0, i32 1
+  %translated_addr = getelementptr inbounds i8, ptr %map, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %translated_addr, i8 0, i64 20, i1 false)
   %0 = load ptr, ptr %tree, align 8
   %call.i = call ptr @g_tree_lookup(ptr noundef %0, ptr noundef nonnull %map) #10
@@ -133,14 +133,14 @@ entry:
 define dso_local i32 @iova_tree_insert(ptr nocapture noundef readonly %tree, ptr noundef %map) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %map, align 1
-  %size = getelementptr inbounds %struct.DMAMap, ptr %map, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %map, i64 16
   %1 = load i64, ptr %size, align 1
   %2 = xor i64 %0, -1
   %cmp = icmp ugt i64 %1, %2
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %perm = getelementptr inbounds %struct.DMAMap, ptr %map, i64 0, i32 3
+  %perm = getelementptr inbounds i8, ptr %map, i64 24
   %3 = load i32, ptr %perm, align 1
   %cmp2 = icmp eq i32 %3, 0
   br i1 %cmp2, label %return, label %if.end
@@ -216,15 +216,15 @@ declare i32 @g_tree_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local i32 @iova_tree_alloc_map(ptr nocapture noundef readonly %tree, ptr noundef %map, i64 noundef %iova_begin, i64 noundef %iova_last) local_unnamed_addr #0 {
 entry:
   %args = alloca %struct.IOVATreeAllocArgs, align 8
-  %size = getelementptr inbounds %struct.DMAMap, ptr %map, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %map, i64 16
   %0 = load i64, ptr %size, align 1
   store i64 %0, ptr %args, align 8
-  %iova_begin1 = getelementptr inbounds %struct.IOVATreeAllocArgs, ptr %args, i64 0, i32 1
+  %iova_begin1 = getelementptr inbounds i8, ptr %args, i64 8
   store i64 %iova_begin, ptr %iova_begin1, align 8
-  %prev = getelementptr inbounds %struct.IOVATreeAllocArgs, ptr %args, i64 0, i32 2
-  %this = getelementptr inbounds %struct.IOVATreeAllocArgs, ptr %args, i64 0, i32 3
-  %iova_result = getelementptr inbounds %struct.IOVATreeAllocArgs, ptr %args, i64 0, i32 4
-  %iova_found = getelementptr inbounds %struct.IOVATreeAllocArgs, ptr %args, i64 0, i32 5
+  %prev = getelementptr inbounds i8, ptr %args, i64 16
+  %this = getelementptr inbounds i8, ptr %args, i64 24
+  %iova_result = getelementptr inbounds i8, ptr %args, i64 32
+  %iova_found = getelementptr inbounds i8, ptr %args, i64 40
   %cmp = icmp ult i64 %iova_last, %iova_begin
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %prev, i8 0, i64 25, i1 false)
   br i1 %cmp, label %return, label %if.end
@@ -246,7 +246,7 @@ if.end.i:                                         ; preds = %if.end
 
 cond.true.i:                                      ; preds = %if.end.i
   %5 = load i64, ptr %4, align 1
-  %size5.i = getelementptr inbounds %struct.DMAMap, ptr %4, i64 0, i32 2
+  %size5.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %size5.i, align 1
   %add6.i = add i64 %5, 1
   %add7.i = add i64 %add6.i, %6
@@ -285,7 +285,7 @@ if.end15:                                         ; preds = %lor.lhs.false
   br i1 %cmp.i8, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end15
-  %perm.i = getelementptr inbounds %struct.DMAMap, ptr %map, i64 0, i32 3
+  %perm.i = getelementptr inbounds i8, ptr %map, i64 24
   %13 = load i32, ptr %perm.i, align 1
   %cmp2.i = icmp eq i32 %13, 0
   br i1 %cmp2.i, label %return, label %if.end.i9
@@ -319,9 +319,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %this.i = getelementptr inbounds %struct.IOVATreeAllocArgs, ptr %pargs, i64 0, i32 3
+  %this.i = getelementptr inbounds i8, ptr %pargs, i64 24
   %0 = load ptr, ptr %this.i, align 8
-  %prev.i = getelementptr inbounds %struct.IOVATreeAllocArgs, ptr %pargs, i64 0, i32 2
+  %prev.i = getelementptr inbounds i8, ptr %pargs, i64 16
   store ptr %0, ptr %prev.i, align 8
   store ptr %key, ptr %this.i, align 8
   %tobool.not.i = icmp eq ptr %key, null
@@ -329,10 +329,10 @@ if.end:                                           ; preds = %entry
 
 land.lhs.true.i:                                  ; preds = %if.end
   %1 = load i64, ptr %key, align 1
-  %size.i = getelementptr inbounds %struct.DMAMap, ptr %key, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %key, i64 16
   %2 = load i64, ptr %size.i, align 1
   %add.i = add i64 %2, %1
-  %iova_begin.i = getelementptr inbounds %struct.IOVATreeAllocArgs, ptr %pargs, i64 0, i32 1
+  %iova_begin.i = getelementptr inbounds i8, ptr %pargs, i64 8
   %3 = load i64, ptr %iova_begin.i, align 8
   %cmp.i = icmp ult i64 %add.i, %3
   br i1 %cmp.i, label %iova_tree_alloc_map_in_hole.exit, label %if.end.i
@@ -343,7 +343,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
 
 cond.true.i:                                      ; preds = %if.end.i
   %4 = load i64, ptr %0, align 1
-  %size5.i = getelementptr inbounds %struct.DMAMap, ptr %0, i64 0, i32 2
+  %size5.i = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %size5.i, align 1
   %add6.i = add i64 %4, 1
   %add7.i = add i64 %add6.i, %5
@@ -351,7 +351,7 @@ cond.true.i:                                      ; preds = %if.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end.i
   %cond.i = phi i64 [ %add7.i, %cond.true.i ], [ 0, %if.end.i ]
-  %iova_begin8.i = getelementptr inbounds %struct.IOVATreeAllocArgs, ptr %pargs, i64 0, i32 1
+  %iova_begin8.i = getelementptr inbounds i8, ptr %pargs, i64 8
   %6 = load i64, ptr %iova_begin8.i, align 8
   %cond13.i = tail call i64 @llvm.umax.i64(i64 %cond.i, i64 %6)
   br i1 %tobool.not.i, label %cond.end18.i, label %cond.true15.i
@@ -368,14 +368,14 @@ cond.end18.i:                                     ; preds = %cond.true15.i, %con
   br i1 %cmp20.i, label %if.then21.i, label %iova_tree_alloc_map_in_hole.exit
 
 if.then21.i:                                      ; preds = %cond.end18.i
-  %iova_result.i = getelementptr inbounds %struct.IOVATreeAllocArgs, ptr %pargs, i64 0, i32 4
+  %iova_result.i = getelementptr inbounds i8, ptr %pargs, i64 32
   store i64 %cond13.i, ptr %iova_result.i, align 8
-  %iova_found.i = getelementptr inbounds %struct.IOVATreeAllocArgs, ptr %pargs, i64 0, i32 5
+  %iova_found.i = getelementptr inbounds i8, ptr %pargs, i64 40
   store i8 1, ptr %iova_found.i, align 8
   br label %iova_tree_alloc_map_in_hole.exit
 
 iova_tree_alloc_map_in_hole.exit:                 ; preds = %land.lhs.true.i, %cond.end18.i, %if.then21.i
-  %iova_found = getelementptr inbounds %struct.IOVATreeAllocArgs, ptr %pargs, i64 0, i32 5
+  %iova_found = getelementptr inbounds i8, ptr %pargs, i64 40
   %9 = load i8, ptr %iova_found, align 8
   %10 = and i8 %9, 1
   %conv = zext nneg i8 %10 to i32

@@ -4,30 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.QCryptoBlockCreateOptionsLUKS = type { ptr, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32, i8, i64 }
-%struct.QCryptoBlockOpenOptions = type { i32, %union.anon }
-%union.anon = type { %struct.QCryptoBlockOptionsQCow }
-%struct.QCryptoBlockOptionsQCow = type { ptr }
-%struct.QCryptoBlockCreateOptions = type { i32, %union.anon.0 }
-%union.anon.0 = type { %struct.QCryptoBlockCreateOptionsLUKS }
-%struct.QCryptoBlockInfoLUKSSlot = type { i8, i8, i64, i8, i64, i64 }
-%struct.QCryptoBlockInfoLUKSSlotList = type { ptr, ptr }
-%struct.QCryptoBlockInfoLUKS = type { i32, i32, i32, i8, i32, i32, i64, i64, ptr, ptr }
-%struct.QCryptoBlockInfo = type { i32, %union.anon.1 }
-%union.anon.1 = type { %struct.QCryptoBlockInfoLUKS }
-%struct.QCryptoBlockAmendOptionsLUKS = type { i32, ptr, ptr, i8, i64, i8, i64, ptr }
-%struct.QCryptoBlockAmendOptions = type { i32, %union.anon.2 }
-%union.anon.2 = type { %struct.QCryptoBlockAmendOptionsLUKS }
-%struct.SecretCommonProperties = type { i8, i8, i8, i32, ptr, ptr }
-%struct.SecretProperties = type { i8, i8, i8, i32, ptr, ptr, ptr, ptr }
-%struct.SecretKeyringProperties = type { i8, i8, i8, i32, ptr, ptr, i32 }
-%struct.TlsCredsProperties = type { i8, i8, ptr, i8, i32, ptr }
-%struct.TlsCredsAnonProperties = type { i8, i8, ptr, i8, i32, ptr, i8, i8 }
-%struct.TlsCredsPskProperties = type { i8, i8, ptr, i8, i32, ptr, i8, i8, ptr }
-%struct.TlsCredsX509Properties = type { i8, i8, ptr, i8, i32, ptr, i8, i8, i8, i8, ptr }
-%struct.QCryptoAkCipherOptionsRSA = type { i32, i32 }
-%struct.QCryptoAkCipherOptions = type { i32, %union.anon.3 }
-%union.anon.3 = type { %struct.QCryptoAkCipherOptionsRSA }
 
 @QCryptoTLSCredsEndpoint_lookup = external constant %struct.QEnumLookup, align 8
 @QCryptoSecretFormat_lookup = external constant %struct.QEnumLookup, align 8
@@ -481,12 +457,12 @@ visit_type_QCryptoBlockOptionsLUKS_members.exit:  ; preds = %if.then.i
 
 if.end:                                           ; preds = %entry, %if.then.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
-  %has_cipher_alg = getelementptr inbounds %struct.QCryptoBlockCreateOptionsLUKS, ptr %obj, i64 0, i32 1
+  %has_cipher_alg = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %has_cipher_alg) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %cipher_alg = getelementptr inbounds %struct.QCryptoBlockCreateOptionsLUKS, ptr %obj, i64 0, i32 2
+  %cipher_alg = getelementptr inbounds i8, ptr %obj, i64 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %cipher_alg, align 4
   store i32 %1, ptr %value.i, align 4
@@ -497,12 +473,12 @@ if.then2:                                         ; preds = %if.end
   br i1 %call.i31, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_cipher_mode = getelementptr inbounds %struct.QCryptoBlockCreateOptionsLUKS, ptr %obj, i64 0, i32 3
+  %has_cipher_mode = getelementptr inbounds i8, ptr %obj, i64 16
   %call7 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_cipher_mode) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %cipher_mode = getelementptr inbounds %struct.QCryptoBlockCreateOptionsLUKS, ptr %obj, i64 0, i32 4
+  %cipher_mode = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i32)
   %3 = load i32, ptr %cipher_mode, align 4
   store i32 %3, ptr %value.i32, align 4
@@ -513,12 +489,12 @@ if.then8:                                         ; preds = %if.end6
   br i1 %call.i33, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
-  %has_ivgen_alg = getelementptr inbounds %struct.QCryptoBlockCreateOptionsLUKS, ptr %obj, i64 0, i32 5
+  %has_ivgen_alg = getelementptr inbounds i8, ptr %obj, i64 24
   %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %has_ivgen_alg) #4
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  %ivgen_alg = getelementptr inbounds %struct.QCryptoBlockCreateOptionsLUKS, ptr %obj, i64 0, i32 6
+  %ivgen_alg = getelementptr inbounds i8, ptr %obj, i64 28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i34)
   %5 = load i32, ptr %ivgen_alg, align 4
   store i32 %5, ptr %value.i34, align 4
@@ -529,12 +505,12 @@ if.then14:                                        ; preds = %if.end12
   br i1 %call.i35, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
-  %has_ivgen_hash_alg = getelementptr inbounds %struct.QCryptoBlockCreateOptionsLUKS, ptr %obj, i64 0, i32 7
+  %has_ivgen_hash_alg = getelementptr inbounds i8, ptr %obj, i64 32
   %call19 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_ivgen_hash_alg) #4
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
-  %ivgen_hash_alg = getelementptr inbounds %struct.QCryptoBlockCreateOptionsLUKS, ptr %obj, i64 0, i32 8
+  %ivgen_hash_alg = getelementptr inbounds i8, ptr %obj, i64 36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i36)
   %7 = load i32, ptr %ivgen_hash_alg, align 4
   store i32 %7, ptr %value.i36, align 4
@@ -545,12 +521,12 @@ if.then20:                                        ; preds = %if.end18
   br i1 %call.i37, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then20, %if.end18
-  %has_hash_alg = getelementptr inbounds %struct.QCryptoBlockCreateOptionsLUKS, ptr %obj, i64 0, i32 9
+  %has_hash_alg = getelementptr inbounds i8, ptr %obj, i64 40
   %call25 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %has_hash_alg) #4
   br i1 %call25, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.end24
-  %hash_alg = getelementptr inbounds %struct.QCryptoBlockCreateOptionsLUKS, ptr %obj, i64 0, i32 10
+  %hash_alg = getelementptr inbounds i8, ptr %obj, i64 44
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i38)
   %9 = load i32, ptr %hash_alg, align 4
   store i32 %9, ptr %value.i38, align 4
@@ -561,12 +537,12 @@ if.then26:                                        ; preds = %if.end24
   br i1 %call.i39, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.then26, %if.end24
-  %has_iter_time = getelementptr inbounds %struct.QCryptoBlockCreateOptionsLUKS, ptr %obj, i64 0, i32 11
+  %has_iter_time = getelementptr inbounds i8, ptr %obj, i64 48
   %call31 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_iter_time) #4
   br i1 %call31, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.end30
-  %iter_time = getelementptr inbounds %struct.QCryptoBlockCreateOptionsLUKS, ptr %obj, i64 0, i32 12
+  %iter_time = getelementptr inbounds i8, ptr %obj, i64 56
   %call33 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %iter_time, ptr noundef %errp) #4
   br i1 %call33, label %if.end36, label %return
 
@@ -655,7 +631,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.QCryptoBlockOpenOptions, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_key_secret.i)
   %2 = load ptr, ptr %u, align 8
   %tobool.i = icmp ne ptr %2, null
@@ -677,7 +653,7 @@ visit_type_QCryptoBlockOptionsQCow_members.exit:  ; preds = %if.then.i, %if.end5
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.QCryptoBlockOpenOptions, ptr %obj, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_key_secret.i8)
   %3 = load ptr, ptr %u3, align 8
   %tobool.i9 = icmp ne ptr %3, null
@@ -784,7 +760,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.QCryptoBlockCreateOptions, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_key_secret.i)
   %2 = load ptr, ptr %u, align 8
   %tobool.i = icmp ne ptr %2, null
@@ -806,7 +782,7 @@ visit_type_QCryptoBlockOptionsQCow_members.exit:  ; preds = %if.then.i, %if.end5
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.QCryptoBlockCreateOptions, ptr %obj, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
   %call4 = call zeroext i1 @visit_type_QCryptoBlockCreateOptionsLUKS_members(ptr noundef %v, ptr noundef nonnull %u3, ptr noundef %errp)
   br label %return
 
@@ -953,27 +929,27 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_iters = getelementptr inbounds %struct.QCryptoBlockInfoLUKSSlot, ptr %obj, i64 0, i32 1
+  %has_iters = getelementptr inbounds i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_iters) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %iters = getelementptr inbounds %struct.QCryptoBlockInfoLUKSSlot, ptr %obj, i64 0, i32 2
+  %iters = getelementptr inbounds i8, ptr %obj, i64 8
   %call3 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %iters, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_stripes = getelementptr inbounds %struct.QCryptoBlockInfoLUKSSlot, ptr %obj, i64 0, i32 3
+  %has_stripes = getelementptr inbounds i8, ptr %obj, i64 16
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_stripes) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %stripes = getelementptr inbounds %struct.QCryptoBlockInfoLUKSSlot, ptr %obj, i64 0, i32 4
+  %stripes = getelementptr inbounds i8, ptr %obj, i64 24
   %call9 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %stripes, ptr noundef %errp) #4
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
-  %key_offset = getelementptr inbounds %struct.QCryptoBlockInfoLUKSSlot, ptr %obj, i64 0, i32 5
+  %key_offset = getelementptr inbounds i8, ptr %obj, i64 32
   %call13 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %key_offset, ptr noundef %errp) #4
   br label %return
 
@@ -1050,7 +1026,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.QCryptoBlockInfoLUKSSlotList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_QCryptoBlockInfoLUKSSlot(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1111,7 +1087,7 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cipher_mode = getelementptr inbounds %struct.QCryptoBlockInfoLUKS, ptr %obj, i64 0, i32 1
+  %cipher_mode = getelementptr inbounds i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i27)
   %2 = load i32, ptr %cipher_mode, align 4
   store i32 %2, ptr %value.i27, align 4
@@ -1122,7 +1098,7 @@ if.end:                                           ; preds = %entry
   br i1 %call.i28, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %ivgen_alg = getelementptr inbounds %struct.QCryptoBlockInfoLUKS, ptr %obj, i64 0, i32 2
+  %ivgen_alg = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i29)
   %4 = load i32, ptr %ivgen_alg, align 4
   store i32 %4, ptr %value.i29, align 4
@@ -1133,12 +1109,12 @@ if.end3:                                          ; preds = %if.end
   br i1 %call.i30, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %has_ivgen_hash_alg = getelementptr inbounds %struct.QCryptoBlockInfoLUKS, ptr %obj, i64 0, i32 3
+  %has_ivgen_hash_alg = getelementptr inbounds i8, ptr %obj, i64 12
   %call7 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_ivgen_hash_alg) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %ivgen_hash_alg = getelementptr inbounds %struct.QCryptoBlockInfoLUKS, ptr %obj, i64 0, i32 4
+  %ivgen_hash_alg = getelementptr inbounds i8, ptr %obj, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i31)
   %6 = load i32, ptr %ivgen_hash_alg, align 4
   store i32 %6, ptr %value.i31, align 4
@@ -1149,7 +1125,7 @@ if.then8:                                         ; preds = %if.end6
   br i1 %call.i32, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
-  %hash_alg = getelementptr inbounds %struct.QCryptoBlockInfoLUKS, ptr %obj, i64 0, i32 5
+  %hash_alg = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i33)
   %8 = load i32, ptr %hash_alg, align 4
   store i32 %8, ptr %value.i33, align 4
@@ -1160,22 +1136,22 @@ if.end12:                                         ; preds = %if.then8, %if.end6
   br i1 %call.i34, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end12
-  %payload_offset = getelementptr inbounds %struct.QCryptoBlockInfoLUKS, ptr %obj, i64 0, i32 6
+  %payload_offset = getelementptr inbounds i8, ptr %obj, i64 24
   %call16 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %payload_offset, ptr noundef %errp) #4
   br i1 %call16, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end15
-  %master_key_iters = getelementptr inbounds %struct.QCryptoBlockInfoLUKS, ptr %obj, i64 0, i32 7
+  %master_key_iters = getelementptr inbounds i8, ptr %obj, i64 32
   %call19 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %master_key_iters, ptr noundef %errp) #4
   br i1 %call19, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.end18
-  %uuid = getelementptr inbounds %struct.QCryptoBlockInfoLUKS, ptr %obj, i64 0, i32 8
+  %uuid = getelementptr inbounds i8, ptr %obj, i64 40
   %call22 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %uuid, ptr noundef %errp) #4
   br i1 %call22, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.end21
-  %slots = getelementptr inbounds %struct.QCryptoBlockInfoLUKS, ptr %obj, i64 0, i32 9
+  %slots = getelementptr inbounds i8, ptr %obj, i64 48
   %call25 = call zeroext i1 @visit_type_QCryptoBlockInfoLUKSSlotList(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %slots, ptr noundef %errp)
   br label %return
 
@@ -1257,7 +1233,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.QCryptoBlockInfo, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_QCryptoBlockInfoLUKS_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
@@ -1315,7 +1291,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_QCryptoBlockInfo_members.exit:         ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.QCryptoBlockInfo, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = call zeroext i1 @visit_type_QCryptoBlockInfoLUKS_members(ptr noundef %v, ptr noundef nonnull %u.i, ptr noundef %errp)
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -1364,17 +1340,17 @@ entry:
   %has_new_secret = alloca i8, align 1
   %has_old_secret = alloca i8, align 1
   %has_secret = alloca i8, align 1
-  %new_secret = getelementptr inbounds %struct.QCryptoBlockAmendOptionsLUKS, ptr %obj, i64 0, i32 1
+  %new_secret = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %new_secret, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_new_secret, align 1
-  %old_secret = getelementptr inbounds %struct.QCryptoBlockAmendOptionsLUKS, ptr %obj, i64 0, i32 2
+  %old_secret = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %old_secret, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_old_secret, align 1
-  %secret = getelementptr inbounds %struct.QCryptoBlockAmendOptionsLUKS, ptr %obj, i64 0, i32 7
+  %secret = getelementptr inbounds i8, ptr %obj, i64 56
   %2 = load ptr, ptr %secret, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -1405,22 +1381,22 @@ if.then18:                                        ; preds = %if.end16
   br i1 %call20, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.then18, %if.end16
-  %has_keyslot = getelementptr inbounds %struct.QCryptoBlockAmendOptionsLUKS, ptr %obj, i64 0, i32 3
+  %has_keyslot = getelementptr inbounds i8, ptr %obj, i64 24
   %call24 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %has_keyslot) #4
   br i1 %call24, label %if.then25, label %if.end29
 
 if.then25:                                        ; preds = %if.end23
-  %keyslot = getelementptr inbounds %struct.QCryptoBlockAmendOptionsLUKS, ptr %obj, i64 0, i32 4
+  %keyslot = getelementptr inbounds i8, ptr %obj, i64 32
   %call26 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %keyslot, ptr noundef %errp) #4
   br i1 %call26, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.then25, %if.end23
-  %has_iter_time = getelementptr inbounds %struct.QCryptoBlockAmendOptionsLUKS, ptr %obj, i64 0, i32 5
+  %has_iter_time = getelementptr inbounds i8, ptr %obj, i64 40
   %call30 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_iter_time) #4
   br i1 %call30, label %if.then31, label %if.end35
 
 if.then31:                                        ; preds = %if.end29
-  %iter_time = getelementptr inbounds %struct.QCryptoBlockAmendOptionsLUKS, ptr %obj, i64 0, i32 6
+  %iter_time = getelementptr inbounds i8, ptr %obj, i64 48
   %call32 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %iter_time, ptr noundef %errp) #4
   br i1 %call32, label %if.end35, label %return
 
@@ -1513,7 +1489,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.QCryptoBlockAmendOptions, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_QCryptoBlockAmendOptionsLUKS_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
@@ -1571,7 +1547,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_QCryptoBlockAmendOptions_members.exit: ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.QCryptoBlockAmendOptions, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = call zeroext i1 @visit_type_QCryptoBlockAmendOptionsLUKS_members(ptr noundef %v, ptr noundef nonnull %u.i, ptr noundef %errp)
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -1607,12 +1583,12 @@ entry:
   %value.i = alloca i32, align 4
   %has_keyid = alloca i8, align 1
   %has_iv = alloca i8, align 1
-  %keyid = getelementptr inbounds %struct.SecretCommonProperties, ptr %obj, i64 0, i32 4
+  %keyid = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %keyid, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_keyid, align 1
-  %iv = getelementptr inbounds %struct.SecretCommonProperties, ptr %obj, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %iv, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1629,17 +1605,17 @@ if.end:                                           ; preds = %if.then
   br i1 %call8, label %if.end14, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %loaded = getelementptr inbounds %struct.SecretCommonProperties, ptr %obj, i64 0, i32 1
+  %loaded = getelementptr inbounds i8, ptr %obj, i64 1
   %call10 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded, ptr noundef %errp) #4
   br i1 %call10, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end, %if.then9, %entry
-  %has_format = getelementptr inbounds %struct.SecretCommonProperties, ptr %obj, i64 0, i32 2
+  %has_format = getelementptr inbounds i8, ptr %obj, i64 2
   %call15 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %has_format) #4
   br i1 %call15, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.end14
-  %format = getelementptr inbounds %struct.SecretCommonProperties, ptr %obj, i64 0, i32 3
+  %format = getelementptr inbounds i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %2 = load i32, ptr %format, align 4
   store i32 %2, ptr %value.i, align 4
@@ -1735,12 +1711,12 @@ define dso_local zeroext i1 @visit_type_SecretProperties_members(ptr noundef %v,
 entry:
   %has_data = alloca i8, align 1
   %has_file = alloca i8, align 1
-  %data = getelementptr inbounds %struct.SecretProperties, ptr %obj, i64 0, i32 6
+  %data = getelementptr inbounds i8, ptr %obj, i64 24
   %0 = load ptr, ptr %data, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_data, align 1
-  %file = getelementptr inbounds %struct.SecretProperties, ptr %obj, i64 0, i32 7
+  %file = getelementptr inbounds i8, ptr %obj, i64 32
   %1 = load ptr, ptr %file, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1832,7 +1808,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %serial = getelementptr inbounds %struct.SecretKeyringProperties, ptr %obj, i64 0, i32 6
+  %serial = getelementptr inbounds i8, ptr %obj, i64 24
   %call1 = tail call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %serial, ptr noundef %errp) #4
   br label %return
 
@@ -1871,7 +1847,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_SecretKeyringProperties_members.exit, label %out_obj.thread
 
 visit_type_SecretKeyringProperties_members.exit:  ; preds = %if.end5
-  %serial.i = getelementptr inbounds %struct.SecretKeyringProperties, ptr %0, i64 0, i32 6
+  %serial.i = getelementptr inbounds i8, ptr %0, i64 24
   %call1.i = tail call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %serial.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -1907,12 +1883,12 @@ entry:
   %value.i = alloca i32, align 4
   %has_dir = alloca i8, align 1
   %has_priority = alloca i8, align 1
-  %dir = getelementptr inbounds %struct.TlsCredsProperties, ptr %obj, i64 0, i32 2
+  %dir = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %dir, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_dir, align 1
-  %priority = getelementptr inbounds %struct.TlsCredsProperties, ptr %obj, i64 0, i32 5
+  %priority = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load ptr, ptr %priority, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1921,7 +1897,7 @@ entry:
   br i1 %call, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %entry
-  %verify_peer = getelementptr inbounds %struct.TlsCredsProperties, ptr %obj, i64 0, i32 1
+  %verify_peer = getelementptr inbounds i8, ptr %obj, i64 1
   %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %verify_peer, ptr noundef %errp) #4
   br i1 %call6, label %if.end8, label %return
 
@@ -1934,12 +1910,12 @@ if.then10:                                        ; preds = %if.end8
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then10, %if.end8
-  %has_endpoint = getelementptr inbounds %struct.TlsCredsProperties, ptr %obj, i64 0, i32 3
+  %has_endpoint = getelementptr inbounds i8, ptr %obj, i64 16
   %call16 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_endpoint) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %endpoint = getelementptr inbounds %struct.TlsCredsProperties, ptr %obj, i64 0, i32 4
+  %endpoint = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %2 = load i32, ptr %endpoint, align 4
   store i32 %2, ptr %value.i, align 4
@@ -2025,7 +2001,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_loaded = getelementptr inbounds %struct.TlsCredsAnonProperties, ptr %obj, i64 0, i32 6
+  %has_loaded = getelementptr inbounds i8, ptr %obj, i64 32
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_loaded) #4
   br i1 %call1, label %if.then2, label %if.end12
 
@@ -2038,7 +2014,7 @@ if.end5:                                          ; preds = %if.then2
   br i1 %call6, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %loaded = getelementptr inbounds %struct.TlsCredsAnonProperties, ptr %obj, i64 0, i32 7
+  %loaded = getelementptr inbounds i8, ptr %obj, i64 33
   %call8 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded, ptr noundef %errp) #4
   br i1 %call8, label %if.end12, label %return
 
@@ -2078,7 +2054,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %has_loaded.i = getelementptr inbounds %struct.TlsCredsAnonProperties, ptr %0, i64 0, i32 6
+  %has_loaded.i = getelementptr inbounds i8, ptr %0, i64 32
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_loaded.i) #4
   br i1 %call1.i, label %if.then2.i, label %out_obj
 
@@ -2091,7 +2067,7 @@ if.end5.i:                                        ; preds = %if.then2.i
   br i1 %call6.i, label %out_obj, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %loaded.i = getelementptr inbounds %struct.TlsCredsAnonProperties, ptr %0, i64 0, i32 7
+  %loaded.i = getelementptr inbounds i8, ptr %0, i64 33
   %call8.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded.i, ptr noundef %errp) #4
   br i1 %call8.i, label %out_obj, label %out_obj.thread16
 
@@ -2125,7 +2101,7 @@ declare void @qapi_free_TlsCredsAnonProperties(ptr noundef) local_unnamed_addr #
 define dso_local zeroext i1 @visit_type_TlsCredsPskProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_username = alloca i8, align 1
-  %username = getelementptr inbounds %struct.TlsCredsPskProperties, ptr %obj, i64 0, i32 8
+  %username = getelementptr inbounds i8, ptr %obj, i64 40
   %0 = load ptr, ptr %username, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -2134,7 +2110,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_loaded = getelementptr inbounds %struct.TlsCredsPskProperties, ptr %obj, i64 0, i32 6
+  %has_loaded = getelementptr inbounds i8, ptr %obj, i64 32
   %call2 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_loaded) #4
   br i1 %call2, label %if.then3, label %if.end13
 
@@ -2147,7 +2123,7 @@ if.end6:                                          ; preds = %if.then3
   br i1 %call7, label %if.end13, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %loaded = getelementptr inbounds %struct.TlsCredsPskProperties, ptr %obj, i64 0, i32 7
+  %loaded = getelementptr inbounds i8, ptr %obj, i64 33
   %call9 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded, ptr noundef %errp) #4
   br i1 %call9, label %if.end13, label %return
 
@@ -2224,7 +2200,7 @@ declare void @qapi_free_TlsCredsPskProperties(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @visit_type_TlsCredsX509Properties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_passwordid = alloca i8, align 1
-  %passwordid = getelementptr inbounds %struct.TlsCredsX509Properties, ptr %obj, i64 0, i32 10
+  %passwordid = getelementptr inbounds i8, ptr %obj, i64 40
   %0 = load ptr, ptr %passwordid, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -2233,7 +2209,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_loaded = getelementptr inbounds %struct.TlsCredsX509Properties, ptr %obj, i64 0, i32 6
+  %has_loaded = getelementptr inbounds i8, ptr %obj, i64 32
   %call2 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_loaded) #4
   br i1 %call2, label %if.then3, label %if.end13
 
@@ -2246,17 +2222,17 @@ if.end6:                                          ; preds = %if.then3
   br i1 %call7, label %if.end13, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %loaded = getelementptr inbounds %struct.TlsCredsX509Properties, ptr %obj, i64 0, i32 7
+  %loaded = getelementptr inbounds i8, ptr %obj, i64 33
   %call9 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded, ptr noundef %errp) #4
   br i1 %call9, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end6, %if.then8, %if.end
-  %has_sanity_check = getelementptr inbounds %struct.TlsCredsX509Properties, ptr %obj, i64 0, i32 8
+  %has_sanity_check = getelementptr inbounds i8, ptr %obj, i64 34
   %call14 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %has_sanity_check) #4
   br i1 %call14, label %if.then15, label %if.end19
 
 if.then15:                                        ; preds = %if.end13
-  %sanity_check = getelementptr inbounds %struct.TlsCredsX509Properties, ptr %obj, i64 0, i32 9
+  %sanity_check = getelementptr inbounds i8, ptr %obj, i64 35
   %call16 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %sanity_check, ptr noundef %errp) #4
   br i1 %call16, label %if.end19, label %return
 
@@ -2380,7 +2356,7 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %padding_alg = getelementptr inbounds %struct.QCryptoAkCipherOptionsRSA, ptr %obj, i64 0, i32 1
+  %padding_alg = getelementptr inbounds i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i4)
   %2 = load i32, ptr %padding_alg, align 4
   store i32 %2, ptr %value.i4, align 4
@@ -2431,7 +2407,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %visit_type_QCryptoAkCipherOptionsRSA_members.exit, label %out_obj.thread
 
 visit_type_QCryptoAkCipherOptionsRSA_members.exit: ; preds = %if.end5
-  %padding_alg.i = getelementptr inbounds %struct.QCryptoAkCipherOptionsRSA, ptr %0, i64 0, i32 1
+  %padding_alg.i = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i4.i)
   %3 = load i32, ptr %padding_alg.i, align 4
   store i32 %3, ptr %value.i4.i, align 4
@@ -2501,7 +2477,7 @@ if.end:                                           ; preds = %entry
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.QCryptoAkCipherOptions, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i5)
   %2 = load i32, ptr %u, align 4
   store i32 %2, ptr %value.i.i5, align 4
@@ -2512,7 +2488,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %call.i.i6, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %sw.bb
-  %padding_alg.i = getelementptr inbounds %struct.QCryptoAkCipherOptions, ptr %obj, i64 0, i32 1, i32 0, i32 1
+  %padding_alg.i = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i4.i)
   %4 = load i32, ptr %padding_alg.i, align 4
   store i32 %4, ptr %value.i4.i, align 4
@@ -2572,7 +2548,7 @@ if.end.i:                                         ; preds = %if.end5
   br i1 %cond.i, label %sw.bb.i, label %sw.default.i
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.QCryptoAkCipherOptions, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i5.i)
   %3 = load i32, ptr %u.i, align 4
   store i32 %3, ptr %value.i.i5.i, align 4
@@ -2587,7 +2563,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_QCryptoAkCipherOptions_members.exit:   ; preds = %sw.bb.i
-  %padding_alg.i.i = getelementptr inbounds %struct.QCryptoAkCipherOptions, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %padding_alg.i.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i4.i.i)
   %5 = load i32, ptr %padding_alg.i.i, align 4
   store i32 %5, ptr %value.i4.i.i, align 4

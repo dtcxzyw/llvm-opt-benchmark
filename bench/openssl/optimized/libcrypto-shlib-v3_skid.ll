@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.v3_ext_ctx = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.X509_val_st = type { ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_req_info_st = type { %struct.ASN1_ENCODING_st, ptr, ptr, ptr, ptr }
 
 @ossl_v3_skey_id = local_unnamed_addr constant %struct.v3_ext_method { i32 82, i32 0, ptr @ASN1_OCTET_STRING_it, ptr null, ptr null, ptr null, ptr null, ptr @i2s_ASN1_OCTET_STRING, ptr @s2i_skey_id, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/x509/v3_skid.c\00", align 1
@@ -26,7 +19,7 @@ declare ptr @ASN1_OCTET_STRING_it() #0
 ; Function Attrs: nounwind uwtable
 define ptr @i2s_ASN1_OCTET_STRING(ptr nocapture readnone %method, ptr nocapture noundef readonly %oct) #1 {
 entry:
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %oct, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %oct, i64 8
   %0 = load ptr, ptr %data, align 8
   %1 = load i32, ptr %oct, align 8
   %conv = sext i32 %1 to i64
@@ -65,7 +58,7 @@ if.then.i:                                        ; preds = %if.then4
 
 if.end.i:                                         ; preds = %if.then4
   %call1.i = call ptr @OPENSSL_hexstr2buf(ptr noundef %str, ptr noundef nonnull %length.i) #4
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call1.i, ptr %data.i, align 8
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
@@ -100,13 +93,13 @@ if.then9:                                         ; preds = %land.lhs.true
   br label %return
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %subject_cert = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 2
+  %subject_cert = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %subject_cert, align 8
   %cmp13 = icmp eq ptr %2, null
   br i1 %cmp13, label %land.lhs.true14, label %cond.true
 
 land.lhs.true14:                                  ; preds = %lor.lhs.false
-  %subject_req = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 3
+  %subject_req = getelementptr inbounds i8, ptr %ctx, i64 24
   %3 = load ptr, ptr %subject_req, align 8
   %cmp15 = icmp eq ptr %3, null
   br i1 %cmp15, label %if.then16, label %cond.false
@@ -118,11 +111,11 @@ if.then16:                                        ; preds = %if.end6, %land.lhs.
   br label %return
 
 cond.true:                                        ; preds = %lor.lhs.false
-  %key = getelementptr inbounds %struct.x509_cinf_st, ptr %2, i64 0, i32 6
+  %key = getelementptr inbounds i8, ptr %2, i64 80
   br label %cond.end
 
 cond.false:                                       ; preds = %land.lhs.true14
-  %pubkey = getelementptr inbounds %struct.X509_req_info_st, ptr %3, i64 0, i32 3
+  %pubkey = getelementptr inbounds i8, ptr %3, i64 40
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -154,7 +147,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call1 = call ptr @OPENSSL_hexstr2buf(ptr noundef %str, ptr noundef nonnull %length) #4
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %data, align 8
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then3, label %if.end4

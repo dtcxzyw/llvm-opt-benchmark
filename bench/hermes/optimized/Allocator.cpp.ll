@@ -3,17 +3,6 @@ source_filename = "bench/hermes/original/Allocator.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.hermes::BacktrackingBumpPtrAllocator" = type { %"class.std::vector", ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.hermes::BacktrackingBumpPtrAllocator::State" = type { i32, i64, %"class.llvh::SmallVector", ptr }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
 %"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
 %"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
 %"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
@@ -43,12 +32,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef %size) #9
-  %state_.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %this, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %state_.i, align 8
-  %hugeAllocs.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %0, i64 0, i32 2
-  %Size.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %0, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %hugeAllocs.i = getelementptr inbounds i8, ptr %0, i64 16
+  %Size.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %Size.i.i.i, align 8
-  %Capacity.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %0, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity.i.i.i = getelementptr inbounds i8, ptr %0, i64 28
   %2 = load i32, ptr %Capacity.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %1, %2
   br i1 %cmp.not.i.i, label %_ZN6hermes28BacktrackingBumpPtrAllocator12allocateHugeEm.exit, label %if.then.i.i
@@ -73,18 +62,18 @@ _ZN6hermes28BacktrackingBumpPtrAllocator12allocateHugeEm.exit: ; preds = %if.the
   br label %return
 
 if.end:                                           ; preds = %entry
-  %state_ = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %state_, align 8
   %9 = load i32, ptr %8, align 8
   %inc = add i32 %9, 1
   store i32 %inc, ptr %8, align 8
   %10 = load ptr, ptr %state_, align 8
-  %offset = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %10, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %10, i64 8
   store i64 0, ptr %offset, align 8
   %11 = load ptr, ptr %state_, align 8
   %12 = load i32, ptr %11, align 8
   %conv = zext i32 %12 to i64
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load ptr, ptr %_M_finish.i, align 8
   %14 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
@@ -96,7 +85,7 @@ if.end:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %if.end
   %call9 = tail call noalias noundef nonnull dereferenceable(262144) ptr @_Znwm(i64 noundef 262144) #10
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %13, %15
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -104,7 +93,7 @@ if.then7:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then7
   store ptr %call9, ptr %13, align 8
   %16 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %16, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   %.pre = load ptr, ptr %this, align 8
   br label %if.end11
@@ -135,14 +124,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %17 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !7, !noalias !4
   store i64 %17, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !4, !noalias !7
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !7, !noalias !4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %13
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN6hermes28BacktrackingBumpPtrAllocator4SlabESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !9
 
 _ZNSt6vectorISt10unique_ptrIN6hermes28BacktrackingBumpPtrAllocator4SlabESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes28BacktrackingBumpPtrAllocator4SlabESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes28BacktrackingBumpPtrAllocator4SlabESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i24 = getelementptr %"class.std::unique_ptr", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i24 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN6hermes28BacktrackingBumpPtrAllocator4SlabESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPS3_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit, label %if.then.i20.i
 
@@ -165,7 +154,7 @@ if.end11:                                         ; preds = %_ZNSt6vectorISt10un
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %18, i64 %conv15
   %21 = load ptr, ptr %add.ptr.i, align 8
   %22 = ptrtoint ptr %21 to i64
-  %offset19 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %19, i64 0, i32 1
+  %offset19 = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load i64, ptr %offset19, align 8
   %add.i = add i64 %alignment, -1
   %add.i.i8 = add i64 %add.i, %22
@@ -175,7 +164,7 @@ if.end11:                                         ; preds = %_ZNSt6vectorISt10un
   %sub.i = sub i64 %sub1.i.i, %25
   store i64 %sub.i, ptr %offset19, align 8
   %26 = load ptr, ptr %state_, align 8
-  %offset24 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %26, i64 0, i32 1
+  %offset24 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load i64, ptr %offset24, align 8
   %add = add i64 %27, %size
   %cmp25 = icmp ugt i64 %add, 262144
@@ -184,10 +173,10 @@ if.end11:                                         ; preds = %_ZNSt6vectorISt10un
 if.then27:                                        ; preds = %if.end11
   %call.i9 = tail call noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef %size) #9
   %28 = load ptr, ptr %state_, align 8
-  %hugeAllocs.i11 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %28, i64 0, i32 2
-  %Size.i.i.i12 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %28, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %hugeAllocs.i11 = getelementptr inbounds i8, ptr %28, i64 16
+  %Size.i.i.i12 = getelementptr inbounds i8, ptr %28, i64 24
   %29 = load i32, ptr %Size.i.i.i12, align 8
-  %Capacity.i.i.i13 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %28, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity.i.i.i13 = getelementptr inbounds i8, ptr %28, i64 28
   %30 = load i32, ptr %Capacity.i.i.i13, align 4
   %cmp.not.i.i14 = icmp ult i32 %29, %30
   br i1 %cmp.not.i.i14, label %_ZN6hermes28BacktrackingBumpPtrAllocator12allocateHugeEm.exit20, label %if.then.i.i15
@@ -233,7 +222,7 @@ declare void @free(ptr allocptr nocapture noundef) #3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh23SmallVectorTemplateBaseISt10unique_ptrIvPDoFvPvEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %MinSize) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %Capacity.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %Capacity.i, align 4
   %conv.i = zext i32 %0 to i64
   %add = add nuw nsw i64 %conv.i, 2
@@ -273,7 +262,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.end, %if.then.i
   %1 = load ptr, ptr %this, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %Size.i, align 8
   %conv.i5 = zext i32 %2 to i64
   %add.ptr.i23 = getelementptr inbounds %"class.std::unique_ptr.2", ptr %1, i64 %conv.i5
@@ -290,8 +279,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZN4llvh11safe_mall
   %5 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 %5, ptr %4, align 8
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.2", ptr %__first.sroa.0.06.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.2", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 16
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i23
   br i1 %cmp.i.i.not.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseISt10unique_ptrIvPDoFvPvEELb0EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit, label %for.body.i.i.i.i, !llvm.loop !11
 
@@ -308,8 +297,8 @@ while.body.i.preheader:                           ; preds = %_ZN4llvh23SmallVect
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %_ZNSt10unique_ptrIvPDoFvPvEED2Ev.exit.i
   %E.addr.04.i = phi ptr [ %incdec.ptr.i, %_ZNSt10unique_ptrIvPDoFvPvEED2Ev.exit.i ], [ %add.ptr.i, %while.body.i.preheader ]
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.2", ptr %E.addr.04.i, i64 -1
-  %add.ptr.i.i.i.i.i.i = getelementptr %"class.std::unique_ptr.2", ptr %E.addr.04.i, i64 -1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %E.addr.04.i, i64 -16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %E.addr.04.i, i64 -8
   %6 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIvPDoFvPvEED2Ev.exit.i, label %if.then.i.i

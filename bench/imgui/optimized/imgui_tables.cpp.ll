@@ -3,76 +3,14 @@ source_filename = "bench/imgui/original/imgui_tables.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ImGuiContext = type { i8, i8, %struct.ImGuiIO, %struct.ImGuiStyle, ptr, float, float, %struct.ImDrawListSharedData, double, i32, i32, i32, i8, i8, i8, i8, i8, ptr, %struct.ImVector.1, %struct.ImVector.1, i32, i32, %struct.ImVector.2, %struct.ImVector.2, %struct.ImVector.2, %struct.ImVector.3, %struct.ImGuiStorage, i32, %struct.ImVec2, ptr, ptr, ptr, ptr, ptr, %struct.ImVec2, i32, i32, float, %struct.ImVec2, %struct.ImVec2, i32, i32, i32, i8, i8, float, float, i32, i32, float, i8, i8, i8, i8, i8, i8, %struct.ImVec2, ptr, i32, i32, i32, i8, i8, ptr, i32, float, [154 x %struct.ImGuiKeyOwnerData], %struct.ImGuiKeyRoutingTable, i32, i8, i32, i32, i32, i32, %struct.ImGuiNextItemData, %struct.ImGuiLastItemData, [4 x i8], %struct.ImGuiNextWindowData, i8, i32, %struct.ImVector.6, %struct.ImVector.7, %struct.ImVector.8, %struct.ImVector.9, %struct.ImVector.10, %struct.ImVector.11, %struct.ImVector.12, %struct.ImVector.12, %struct.ImVector.13, i32, %struct.ImVector.14, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i8, i8, i8, i8, i8, i8, i8, i8, %struct.ImGuiNavItemData, i8, i8, i8, i32, i32, i32, i32, i32, i32, %struct.ImRect, %struct.ImRect, i32, i32, i32, %struct.ImGuiNavItemData, %struct.ImGuiNavItemData, %struct.ImGuiNavItemData, %struct.ImGuiNavItemData, i32, i32, ptr, ptr, ptr, float, float, i8, %struct.ImVec2, %struct.ImVec2, float, i8, i8, i8, i32, i32, i32, %struct.ImGuiPayload, %struct.ImRect, %struct.ImRect, i32, i32, float, i32, i32, i32, i32, %struct.ImVector.15, [16 x i8], i32, %struct.ImVector.16, ptr, i32, %struct.ImVector.17, %struct.ImPool, %struct.ImVector.19, %struct.ImVector.20, ptr, %struct.ImPool.21, %struct.ImVector.23, %struct.ImVector.24, i32, i32, float, float, i32, i32, i32, float, %struct.ImVec2, %struct.ImGuiInputTextState, %struct.ImGuiInputTextDeactivatedState, %struct.ImFont, i32, i32, i32, i32, float, float, i32, %struct.ImVec4, %struct.ImGuiComboPreviewData, %struct.ImRect, i8, float, float, i8, i8, float, float, float, float, i16, i16, i16, %struct.ImVector.25, %struct.ImVector.9, %struct.ImGuiTypingSelectState, %struct.ImGuiPlatformImeData, %struct.ImGuiPlatformImeData, i8, float, %struct.ImGuiTextBuffer, %struct.ImVector.27, %struct.ImChunkStream, %struct.ImChunkStream.28, %struct.ImVector.29, i32, [8 x ptr], i8, i32, ptr, %struct.ImGuiTextBuffer, ptr, ptr, float, i8, i32, i32, i32, i32, %struct.ImGuiTextBuffer, %struct.ImGuiTextIndex, i8, i8, i8, i8, i8, i32, float, %struct.ImVec4, %struct.ImGuiMetricsConfig, %struct.ImGuiIDStackTool, %struct.ImGuiDebugAllocInfo, [60 x float], i32, i32, float, i32, i32, i32, %struct.ImVector.25 }
-%struct.ImGuiIO = type { i32, i32, %struct.ImVec2, float, float, ptr, ptr, ptr, ptr, float, i8, ptr, %struct.ImVec2, i8, i8, i8, i8, i8, i8, i8, i8, float, float, float, float, float, float, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i8, i8, i8, i8, i8, i8, i8, float, i32, i32, i32, i32, %struct.ImVec2, [666 x i32], [666 x i8], [16 x float], ptr, ptr, %struct.ImVec2, [5 x i8], float, float, i32, i8, i8, i8, i8, i32, [666 x %struct.ImGuiKeyData], i8, %struct.ImVec2, [5 x %struct.ImVec2], [5 x double], [5 x i8], [5 x i8], [5 x i16], [5 x i16], [5 x i8], [5 x i8], [5 x i8], i8, [5 x float], [5 x float], [5 x float], float, i8, i8, i8, i8, i16, %struct.ImVector }
-%struct.ImGuiKeyData = type { i8, float, float, float }
-%struct.ImVector = type { i32, i32, ptr }
-%struct.ImGuiStyle = type { float, float, %struct.ImVec2, float, float, %struct.ImVec2, %struct.ImVec2, i32, float, float, float, float, %struct.ImVec2, float, float, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, float, float, float, float, float, float, float, float, float, float, float, float, i32, %struct.ImVec2, %struct.ImVec2, float, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, float, i8, i8, i8, float, float, [53 x %struct.ImVec4], float, float, float, i32, i32 }
-%struct.ImDrawListSharedData = type { %struct.ImVec2, ptr, float, float, float, %struct.ImVec4, i32, %struct.ImVector.0, [48 x %struct.ImVec2], float, [64 x i8], ptr }
-%struct.ImVector.0 = type { i32, i32, ptr }
-%struct.ImVector.1 = type { i32, i32, ptr }
-%struct.ImVector.2 = type { i32, i32, ptr }
-%struct.ImVector.3 = type { i32, i32, ptr }
-%struct.ImGuiStorage = type { %struct.ImVector.4 }
-%struct.ImVector.4 = type { i32, i32, ptr }
-%struct.ImGuiKeyOwnerData = type <{ i32, i32, i8, i8, [2 x i8] }>
-%struct.ImGuiKeyRoutingTable = type { [154 x i16], %struct.ImVector.5, %struct.ImVector.5 }
-%struct.ImVector.5 = type { i32, i32, ptr }
-%struct.ImGuiNextItemData = type <{ i32, i32, float, [4 x i8], i64, i32, i8, [3 x i8] }>
-%struct.ImGuiLastItemData = type { i32, i32, i32, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect }
-%struct.ImGuiNextWindowData = type <{ i32, i32, i32, i32, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, i32, i8, [3 x i8], %struct.ImRect, ptr, ptr, float, %struct.ImVec2, [4 x i8] }>
-%struct.ImVector.6 = type { i32, i32, ptr }
-%struct.ImVector.7 = type { i32, i32, ptr }
-%struct.ImVector.8 = type { i32, i32, ptr }
-%struct.ImVector.10 = type { i32, i32, ptr }
-%struct.ImVector.11 = type { i32, i32, ptr }
-%struct.ImVector.12 = type { i32, i32, ptr }
-%struct.ImVector.13 = type { i32, i32, ptr }
-%struct.ImVector.14 = type { i32, i32, ptr }
-%struct.ImGuiNavItemData = type <{ ptr, i32, i32, %struct.ImRect, i32, [4 x i8], i64, float, float, float, [4 x i8] }>
-%struct.ImGuiPayload = type <{ ptr, i32, i32, i32, i32, [33 x i8], i8, i8, [5 x i8] }>
-%struct.ImVector.15 = type { i32, i32, ptr }
-%struct.ImVector.16 = type { i32, i32, ptr }
-%struct.ImVector.17 = type { i32, i32, ptr }
-%struct.ImPool = type { %struct.ImVector.18, %struct.ImGuiStorage, i32, i32 }
-%struct.ImVector.18 = type { i32, i32, ptr }
-%struct.ImVector.19 = type { i32, i32, ptr }
-%struct.ImVector.20 = type { i32, i32, ptr }
-%struct.ImPool.21 = type { %struct.ImVector.22, %struct.ImGuiStorage, i32, i32 }
-%struct.ImVector.22 = type { i32, i32, ptr }
-%struct.ImVector.23 = type { i32, i32, ptr }
-%struct.ImVector.24 = type { i32, i32, ptr }
-%struct.ImVec2 = type { float, float }
-%struct.ImGuiInputTextState = type <{ ptr, i32, i32, i32, [4 x i8], %struct.ImVector, %struct.ImVector.25, %struct.ImVector.25, i8, [3 x i8], i32, float, %"struct.ImStb::STB_TexteditState", float, i8, i8, i8, i8, i32, [4 x i8] }>
-%"struct.ImStb::STB_TexteditState" = type { i32, i32, i32, i8, i32, i8, i8, i8, i8, i8, i8, i8, float, %"struct.ImStb::StbUndoState" }
-%"struct.ImStb::StbUndoState" = type { [99 x %"struct.ImStb::StbUndoRecord"], [999 x i16], i16, i16, i32, i32 }
-%"struct.ImStb::StbUndoRecord" = type { i32, i32, i32, i32 }
-%struct.ImGuiInputTextDeactivatedState = type { i32, %struct.ImVector.25 }
-%struct.ImFont = type <{ %struct.ImVector.19, float, float, %struct.ImVector, %struct.ImVector.26, ptr, ptr, ptr, i16, i16, i16, i16, float, float, i8, [3 x i8], float, float, float, i32, [2 x i8], [2 x i8] }>
-%struct.ImVector.26 = type { i32, i32, ptr }
-%struct.ImGuiComboPreviewData = type { %struct.ImRect, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, float, i32 }
-%struct.ImRect = type { %struct.ImVec2, %struct.ImVec2 }
-%struct.ImVector.9 = type { i32, i32, ptr }
-%struct.ImGuiTypingSelectState = type <{ %struct.ImGuiTypingSelectRequest, [64 x i8], i32, i32, float, i8, [3 x i8] }>
-%struct.ImGuiTypingSelectRequest = type { i32, i32, ptr, i8, i8, i8 }
-%struct.ImGuiPlatformImeData = type { i8, %struct.ImVec2, float }
-%struct.ImVector.27 = type { i32, i32, ptr }
-%struct.ImChunkStream = type { %struct.ImVector.25 }
-%struct.ImChunkStream.28 = type { %struct.ImVector.25 }
-%struct.ImVector.29 = type { i32, i32, ptr }
-%struct.ImGuiTextBuffer = type { %struct.ImVector.25 }
-%struct.ImGuiTextIndex = type <{ %struct.ImVector.10, i32, [4 x i8] }>
-%struct.ImVec4 = type { float, float, float, float }
-%struct.ImGuiMetricsConfig = type { i8, i8, i8, i8, i8, i8, i8, i8, i32, i32 }
-%struct.ImGuiIDStackTool = type { i32, i32, i32, %struct.ImVector.30, i8, float }
-%struct.ImVector.30 = type { i32, i32, ptr }
-%struct.ImGuiDebugAllocInfo = type { i32, i32, i16, [6 x %struct.ImGuiDebugAllocEntry] }
-%struct.ImGuiDebugAllocEntry = type { i32, i16, i16 }
-%struct.ImVector.25 = type { i32, i32, ptr }
 %struct.ImGuiTable = type <{ i32, i32, ptr, ptr, %struct.ImSpan, %struct.ImSpan.36, %struct.ImSpan.37, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i16, i16, float, float, float, float, float, float, i32, i32, [2 x i32], i32, i32, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, ptr, ptr, %struct.ImGuiTextBuffer, ptr, %struct.ImGuiTableInstanceData, %struct.ImVector.38, %struct.ImGuiTableColumnSortSpecs, [4 x i8], %struct.ImVector.39, %struct.ImGuiTableSortSpecs, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [6 x i8] }>
 %struct.ImSpan = type { ptr, ptr }
 %struct.ImSpan.36 = type { ptr, ptr }
 %struct.ImSpan.37 = type { ptr, ptr }
+%struct.ImRect = type { %struct.ImVec2, %struct.ImVec2 }
+%struct.ImVec2 = type { float, float }
+%struct.ImGuiTextBuffer = type { %struct.ImVector.25 }
+%struct.ImVector.25 = type { i32, i32, ptr }
 %struct.ImGuiTableInstanceData = type { i32, float, float, float, i32, i32 }
 %struct.ImVector.38 = type { i32, i32, ptr }
 %struct.ImGuiTableColumnSortSpecs = type <{ i32, i16, i16, i8, [3 x i8] }>
@@ -81,31 +19,24 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ImSpanAllocator = type { ptr, i32, i32, [6 x i32], [6 x i32] }
 %struct.ImGuiTableTempData = type <{ i32, float, float, %struct.ImVec2, [4 x i8], %struct.ImDrawListSplitter, %struct.ImRect, %struct.ImRect, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec1, float, i32, [4 x i8] }>
 %struct.ImDrawListSplitter = type { i32, i32, %struct.ImVector.20 }
+%struct.ImVector.20 = type { i32, i32, ptr }
 %struct.ImVec1 = type { float }
-%struct.ImGuiWindow = type <{ ptr, ptr, i32, i32, i32, [4 x i8], ptr, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, float, float, float, float, float, float, float, float, i32, i32, i32, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i16, i16, [2 x i8], i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i24, %struct.ImVec2, %struct.ImVec2, [4 x i8], %struct.ImVector.9, %struct.ImGuiWindowTempData, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImVec2ih, %struct.ImVec2ih, i32, float, float, [4 x i8], %struct.ImGuiStorage, %struct.ImVector.31, float, i32, ptr, %struct.ImDrawList, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [2 x i32], [2 x %struct.ImRect], [2 x %struct.ImVec2], i32, i32, i32, i8, [3 x i8] }>
-%struct.ImGuiWindowTempData = type { %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, float, float, i8, i8, %struct.ImVec1, %struct.ImVec1, %struct.ImVec1, %struct.ImVec2, i32, i16, i16, i8, i8, i8, i8, %struct.ImVec2, %struct.ImGuiMenuColumns, i32, i32, %struct.ImVector.2, ptr, ptr, i32, i32, i32, float, float, %struct.ImVector.19, %struct.ImVector.19 }
-%struct.ImGuiMenuColumns = type <{ i32, i32, i16, i16, i16, i16, i16, [4 x i16], [2 x i8] }>
-%struct.ImVec2ih = type { i16, i16 }
-%struct.ImVector.31 = type { i32, i32, ptr }
-%struct.ImDrawList = type <{ %struct.ImVector.32, %struct.ImVector, %struct.ImVector.33, i32, i32, ptr, ptr, ptr, ptr, %struct.ImVector.34, %struct.ImVector.35, %struct.ImVector.0, %struct.ImDrawCmdHeader, %struct.ImDrawListSplitter, float, [4 x i8] }>
-%struct.ImVector.32 = type { i32, i32, ptr }
-%struct.ImVector.33 = type { i32, i32, ptr }
-%struct.ImVector.34 = type { i32, i32, ptr }
-%struct.ImVector.35 = type { i32, i32, ptr }
-%struct.ImDrawCmdHeader = type <{ %struct.ImVec4, ptr, i32, [4 x i8] }>
 %struct.ImGuiTableColumn = type <{ i32, float, float, float, float, float, float, float, %struct.ImRect, i32, float, float, float, float, float, float, float, i16, i16, i16, i16, i16, i16, i16, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }>
-%struct.ImGuiTableSettings = type <{ i32, i32, float, i16, i16, i8, [3 x i8] }>
-%struct.ImGuiTableColumnSettings = type <{ float, i32, i16, i16, i16, i8, i8 }>
+%struct.ImVec4 = type { float, float, float, float }
 %struct.ImGuiTableCellData = type { i32, i16 }
 %struct.MergeGroup = type { %struct.ImRect, i32, ptr }
 %struct.ImDrawChannel = type { %struct.ImVector.32, %struct.ImVector }
+%struct.ImVector.32 = type { i32, i32, ptr }
+%struct.ImVector = type { i32, i32, ptr }
 %struct.ImDrawCmd = type { %struct.ImVec4, ptr, i32, i32, i32, ptr, ptr }
 %struct.ImGuiSettingsHandler = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %"struct.ImGuiStorage::ImGuiStoragePair" = type { i32, %union.anon }
 %union.anon = type { ptr }
+%struct.ImGuiTableColumnSettings = type <{ float, i32, i16, i16, i16, i8, i8 }>
+%struct.ImChunkStream.28 = type { %struct.ImVector.25 }
+%struct.ImGuiOldColumnData = type { float, float, i32, %struct.ImRect }
 %struct.ImGuiOldColumns = type { i32, i32, i8, i8, i32, i32, float, float, float, float, float, float, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImVector.40, %struct.ImDrawListSplitter }
 %struct.ImVector.40 = type { i32, i32, ptr }
-%struct.ImGuiOldColumnData = type { float, float, i32, %struct.ImRect }
 
 $_ZN6ImPoolI10ImGuiTableE13GetOrAddByKeyEj = comdat any
 
@@ -188,10 +119,10 @@ $_ZN10ImGuiTableD2Ev = comdat any
 define noundef ptr @_ZN5ImGui13TableFindByIDEj(i32 noundef %id) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %Map.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 167, i32 1
+  %Map.i = getelementptr inbounds i8, ptr %0, i64 19960
   %call.i = tail call noundef i32 @_ZNK12ImGuiStorage6GetIntEji(ptr noundef nonnull align 8 dereferenceable(16) %Map.i, i32 noundef %id, i32 noundef -1)
   %cmp.not.i = icmp eq i32 %call.i, -1
-  %Data.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 167, i32 0, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %0, i64 19952
   %1 = load ptr, ptr %Data.i.i, align 8
   %idxprom.i.i = sext i32 %call.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 %idxprom.i.i
@@ -221,12 +152,12 @@ entry:
   %ref.tmp113 = alloca %struct.ImVec2, align 8
   %ref.tmp353.sroa.4 = alloca <{ float, %struct.ImRect, i32, float, float, float, float, float, float, float, i16, i16, i16, i16, i16, i16 }>, align 4
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
-  %WriteAccessed.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 35
+  %WriteAccessed.i = getelementptr inbounds i8, ptr %1, i64 192
   store i8 1, ptr %WriteAccessed.i, align 8
   %2 = load ptr, ptr %CurrentWindow.i, align 8
-  %SkipItems = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 38
+  %SkipItems = getelementptr inbounds i8, ptr %2, i64 195
   %3 = load i8, ptr %SkipItems, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -251,19 +182,19 @@ cond.true:                                        ; preds = %if.end
 cond.end:                                         ; preds = %if.end, %cond.true
   %cond = phi float [ %cond.i268, %cond.true ], [ 0.000000e+00, %if.end ]
   %call9 = tail call <2 x float> @_ZN5ImGui12CalcItemSizeE6ImVec2ff(<2 x float> %agg.tmp.sroa.0.0.copyload, float noundef %cond.i, float noundef %cond)
-  %DC = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68
+  %DC = getelementptr inbounds i8, ptr %2, i64 272
   %5 = load <2 x float>, ptr %DC, align 4
   %6 = fadd <2 x float> %5, %call9
   store <2 x float> %5, ptr %outer_rect, align 8
-  %Max.i = getelementptr inbounds %struct.ImRect, ptr %outer_rect, i64 0, i32 1
+  %Max.i = getelementptr inbounds i8, ptr %outer_rect, i64 8
   store <2 x float> %6, ptr %Max.i, align 8
-  %AutoFitFramesX = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 54
+  %AutoFitFramesX = getelementptr inbounds i8, ptr %2, i64 220
   %7 = load i8, ptr %AutoFitFramesX, align 4
   %cmp13 = icmp sgt i8 %7, 0
   br i1 %cmp13, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %cond.end
-  %AutoFitFramesY = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 55
+  %AutoFitFramesY = getelementptr inbounds i8, ptr %2, i64 221
   %8 = load i8, ptr %AutoFitFramesY, align 1
   %cmp15 = icmp sgt i8 %8, 0
   br label %lor.end
@@ -289,31 +220,31 @@ if.then21:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end22:                                         ; preds = %land.lhs.true, %lor.end
-  %Tables = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 167
+  %Tables = getelementptr inbounds i8, ptr %0, i64 19944
   %call23 = call noundef ptr @_ZN6ImPoolI10ImGuiTableE13GetOrAddByKeyEj(ptr noundef nonnull align 8 dereferenceable(40) %Tables, i32 noundef %id)
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %call23, i64 4
   %13 = load i32, ptr %Flags, align 4
-  %Data.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 167, i32 0, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %0, i64 19952
   %14 = load ptr, ptr %Data.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call23 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 592
   %conv.i = trunc i64 %sub.ptr.div.i to i32
-  %TablesTempDataStacked = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 165
+  %TablesTempDataStacked = getelementptr inbounds i8, ptr %0, i64 19920
   %15 = load i32, ptr %TablesTempDataStacked, align 8
   %inc = add nsw i32 %15, 1
   store i32 %inc, ptr %TablesTempDataStacked, align 8
-  %TablesTempData = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 166
+  %TablesTempData = getelementptr inbounds i8, ptr %0, i64 19928
   %16 = load i32, ptr %TablesTempData, align 8
   %cmp26.not = icmp slt i32 %15, %16
   br i1 %cmp26.not, label %if.end31, label %if.then27
 
 if.then27:                                        ; preds = %if.end22
-  %LastTimeActive.i = getelementptr inbounds %struct.ImGuiTableTempData, ptr %ref.tmp30, i64 0, i32 1
+  %LastTimeActive.i = getelementptr inbounds i8, ptr %ref.tmp30, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp30, i8 0, i64 120, i1 false)
   store float -1.000000e+00, ptr %LastTimeActive.i, align 4
-  %Capacity.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 166, i32 1
+  %Capacity.i = getelementptr inbounds i8, ptr %0, i64 19932
   %17 = load i32, ptr %Capacity.i, align 4
   %cmp.i269.not = icmp sgt i32 %17, %15
   br i1 %cmp.i269.not, label %if.end.i, label %if.then.i
@@ -336,7 +267,7 @@ _ZNK8ImVectorI18ImGuiTableTempDataE14_grow_capacityEi.exit.i: ; preds = %cond.tr
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %_ZNK8ImVectorI18ImGuiTableTempDataE14_grow_capacityEi.exit.i
-  %Data.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 166, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %0, i64 19936
   %18 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i8.i = icmp eq ptr %18, null
   br i1 %tobool.not.i8.i, label %if.end7.i.i, label %if.then2.i.i
@@ -362,7 +293,7 @@ if.end.i:                                         ; preds = %if.end7.i.i, %if.th
   br i1 %cmp2.i.not, label %invoke.cont, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %Data.i270 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 166, i32 2
+  %Data.i270 = getelementptr inbounds i8, ptr %0, i64 19936
   %22 = sext i32 %21 to i64
   %wide.trip.count.i = sext i32 %inc to i64
   br label %for.body.i
@@ -378,12 +309,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
 
 invoke.cont:                                      ; preds = %for.body.i, %if.end.i
   store i32 %inc, ptr %TablesTempData, align 8
-  %DrawSplitter.i = getelementptr inbounds %struct.ImGuiTableTempData, ptr %ref.tmp30, i64 0, i32 5
+  %DrawSplitter.i = getelementptr inbounds i8, ptr %ref.tmp30, i64 24
   invoke void @_ZN18ImDrawListSplitter15ClearFreeMemoryEv(ptr noundef nonnull align 8 dereferenceable(24) %DrawSplitter.i)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.cont
-  %Data.i.i.i = getelementptr inbounds %struct.ImGuiTableTempData, ptr %ref.tmp30, i64 0, i32 5, i32 2, i32 2
+  %Data.i.i.i = getelementptr inbounds i8, ptr %ref.tmp30, i64 40
   %24 = load ptr, ptr %Data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i, label %if.end31, label %if.then.i.i.i
@@ -414,24 +345,24 @@ lpad:                                             ; preds = %if.then2.i.i, %_ZNK
 
 if.end31:                                         ; preds = %if.then.i.i.i, %invoke.cont.i.i, %if.end22
   %30 = load i32, ptr %TablesTempDataStacked, align 8
-  %Data.i272 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 166, i32 2
+  %Data.i272 = getelementptr inbounds i8, ptr %0, i64 19936
   %31 = load ptr, ptr %Data.i272, align 8
   %32 = sext i32 %30 to i64
   %33 = getelementptr %struct.ImGuiTableTempData, ptr %31, i64 %32
-  %arrayidx.i273 = getelementptr %struct.ImGuiTableTempData, ptr %33, i64 -1
-  %TempData = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 3
+  %arrayidx.i273 = getelementptr i8, ptr %33, i64 -120
+  %TempData = getelementptr inbounds i8, ptr %call23, i64 16
   store ptr %arrayidx.i273, ptr %TempData, align 8
   store i32 %conv.i, ptr %arrayidx.i273, align 8
   %34 = load ptr, ptr %TempData, align 8
-  %DrawSplitter = getelementptr inbounds %struct.ImGuiTableTempData, ptr %34, i64 0, i32 5
-  %DrawSplitter36 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 58
+  %DrawSplitter = getelementptr inbounds i8, ptr %34, i64 24
+  %DrawSplitter36 = getelementptr inbounds i8, ptr %call23, i64 416
   store ptr %DrawSplitter, ptr %DrawSplitter36, align 8
   store i32 0, ptr %DrawSplitter, align 8
-  %_Count.i = getelementptr inbounds %struct.ImGuiTableTempData, ptr %34, i64 0, i32 5, i32 1
+  %_Count.i = getelementptr inbounds i8, ptr %34, i64 28
   store i32 1, ptr %_Count.i, align 4
   %and38 = and i32 %flags, 57344
   %cmp39 = icmp eq i32 %and38, 0
-  %IsDefaultSizingPolicy = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 105
+  %IsDefaultSizingPolicy = getelementptr inbounds i8, ptr %call23, i64 579
   %frombool40 = zext i1 %cmp39 to i8
   store i8 %frombool40, ptr %IsDefaultSizingPolicy, align 1
   br i1 %cmp39, label %if.then.i276, label %_Z13TableFixFlagsiP11ImGuiWindow.exit
@@ -442,7 +373,7 @@ if.then.i276:                                     ; preds = %if.end31
   br i1 %tobool.not.i, label %lor.rhs.i, label %lor.end.i
 
 lor.rhs.i:                                        ; preds = %if.then.i276
-  %Flags.i = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 3
+  %Flags.i = getelementptr inbounds i8, ptr %2, i64 20
   %35 = load i32, ptr %Flags.i, align 4
   %and2.i = and i32 %35, 64
   %tobool3.not.i = icmp eq i32 %and2.i, 0
@@ -475,22 +406,22 @@ _Z13TableFixFlagsiP11ImGuiWindow.exit:            ; preds = %if.end31, %lor.end.
   %cmp25.i = icmp eq i32 %and24.i, 0
   %or27.i = or i32 %flags.addr.4.i, 16
   %flags.addr.5.i = select i1 %cmp25.i, i32 %or27.i, i32 %flags.addr.4.i
-  %RootWindow.i = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 90
+  %RootWindow.i = getelementptr inbounds i8, ptr %2, i64 904
   %38 = load ptr, ptr %RootWindow.i, align 8
-  %Flags29.i = getelementptr inbounds %struct.ImGuiWindow, ptr %38, i64 0, i32 3
+  %Flags29.i = getelementptr inbounds i8, ptr %38, i64 20
   %39 = load i32, ptr %Flags29.i, align 4
   %and30.i = and i32 %39, 256
   %tobool31.not.i = icmp eq i32 %and30.i, 0
   %flags.addr.6.i = select i1 %tobool31.not.i, i32 %flags.addr.5.i, i32 %or27.i
-  %LastFrameActive = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 12
+  %LastFrameActive = getelementptr inbounds i8, ptr %call23, i64 104
   %40 = load i32, ptr %LastFrameActive, align 8
-  %FrameCount = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 9
+  %FrameCount = getelementptr inbounds i8, ptr %0, i64 16224
   %41 = load i32, ptr %FrameCount, align 8
   %cmp42.not = icmp eq i32 %40, %41
   br i1 %cmp42.not, label %cond.false44, label %cond.end46
 
 cond.false44:                                     ; preds = %_Z13TableFixFlagsiP11ImGuiWindow.exit
-  %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 16
+  %InstanceCurrent = getelementptr inbounds i8, ptr %call23, i64 120
   %42 = load i16, ptr %InstanceCurrent, align 8
   %conv45 = sext i16 %42 to i32
   %add = add nsw i32 %conv45, 1
@@ -502,40 +433,40 @@ cond.end46:                                       ; preds = %_Z13TableFixFlagsiP
   store i32 %flags.addr.6.i, ptr %Flags, align 4
   %43 = load i32, ptr %FrameCount, align 8
   store i32 %43, ptr %LastFrameActive, align 8
-  %InnerWindow = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 56
+  %InnerWindow = getelementptr inbounds i8, ptr %call23, i64 392
   store ptr %2, ptr %InnerWindow, align 8
-  %OuterWindow = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 55
+  %OuterWindow = getelementptr inbounds i8, ptr %call23, i64 384
   store ptr %2, ptr %OuterWindow, align 8
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %call23, i64 108
   store i32 %columns_count, ptr %ColumnsCount, align 4
-  %IsLayoutLocked = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 92
+  %IsLayoutLocked = getelementptr inbounds i8, ptr %call23, i64 566
   store i8 0, ptr %IsLayoutLocked, align 2
-  %InnerWidth = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 37
+  %InnerWidth = getelementptr inbounds i8, ptr %call23, i64 204
   store float %inner_width, ptr %InnerWidth, align 4
-  %UserOuterSize = getelementptr %struct.ImGuiTableTempData, ptr %33, i64 -1, i32 3
+  %UserOuterSize = getelementptr i8, ptr %33, i64 -108
   %44 = load i64, ptr %outer_size, align 4
   store i64 %44, ptr %UserOuterSize, align 4
   %conv51 = trunc i32 %cond47 to i16
-  %InstanceCurrent52 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 16
+  %InstanceCurrent52 = getelementptr inbounds i8, ptr %call23, i64 120
   store i16 %conv51, ptr %InstanceCurrent52, align 8
   %cmp53 = icmp sgt i32 %cond47, 0
   br i1 %cmp53, label %if.then54, label %if.end63
 
 if.then54:                                        ; preds = %cond.end46
-  %InstanceDataExtra = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 60
+  %InstanceDataExtra = getelementptr inbounds i8, ptr %call23, i64 448
   %45 = load i32, ptr %InstanceDataExtra, align 8
   %cmp56 = icmp slt i32 %45, %cond47
   br i1 %cmp56, label %if.then57, label %if.end60
 
 if.then57:                                        ; preds = %if.then54
-  %Capacity.i278 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 60, i32 1
+  %Capacity.i278 = getelementptr inbounds i8, ptr %call23, i64 452
   %46 = load i32, ptr %Capacity.i278, align 4
   %cmp.i279 = icmp eq i32 %45, %46
   br i1 %cmp.i279, label %if.then.i284, label %if.then57._ZN8ImVectorI22ImGuiTableInstanceDataE9push_backERKS0_.exit_crit_edge
 
 if.then57._ZN8ImVectorI22ImGuiTableInstanceDataE9push_backERKS0_.exit_crit_edge: ; preds = %if.then57
-  %Data.i281.phi.trans.insert = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 60, i32 2
-  %.pre414 = load ptr, ptr %Data.i281.phi.trans.insert, align 8
+  %Data.i281.phi.trans.insert = getelementptr inbounds i8, ptr %call23, i64 456
+  %.pre415 = load ptr, ptr %Data.i281.phi.trans.insert, align 8
   br label %_ZN8ImVectorI22ImGuiTableInstanceDataE9push_backERKS0_.exit
 
 if.then.i284:                                     ; preds = %if.then57
@@ -554,7 +485,7 @@ if.end.i.i:                                       ; preds = %cond.true.i.i287, %
   %conv.i.i292 = sext i32 %cond7.i.i291 to i64
   %mul.i.i293 = mul nsw i64 %conv.i.i292, 24
   %call.i.i = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i293)
-  %Data.i.i294 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 60, i32 2
+  %Data.i.i294 = getelementptr inbounds i8, ptr %call23, i64 456
   %47 = load ptr, ptr %Data.i.i294, align 8
   %tobool.not.i2.i = icmp eq ptr %47, null
   br i1 %tobool.not.i2.i, label %if.end7.i.i298, label %if.then2.i.i295
@@ -575,7 +506,7 @@ if.end7.i.i298:                                   ; preds = %if.then2.i.i295, %i
   br label %_ZN8ImVectorI22ImGuiTableInstanceDataE9push_backERKS0_.exit
 
 _ZN8ImVectorI22ImGuiTableInstanceDataE9push_backERKS0_.exit: ; preds = %if.then57._ZN8ImVectorI22ImGuiTableInstanceDataE9push_backERKS0_.exit_crit_edge, %if.end7.i.i298
-  %50 = phi ptr [ %call.i.i, %if.end7.i.i298 ], [ %.pre414, %if.then57._ZN8ImVectorI22ImGuiTableInstanceDataE9push_backERKS0_.exit_crit_edge ]
+  %50 = phi ptr [ %call.i.i, %if.end7.i.i298 ], [ %.pre415, %if.then57._ZN8ImVectorI22ImGuiTableInstanceDataE9push_backERKS0_.exit_crit_edge ]
   %51 = phi i32 [ %.pre.i, %if.end7.i.i298 ], [ %45, %if.then57._ZN8ImVectorI22ImGuiTableInstanceDataE9push_backERKS0_.exit_crit_edge ]
   %idxprom.i282 = sext i32 %51 to i64
   %arrayidx.i283 = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %50, i64 %idxprom.i282
@@ -592,25 +523,25 @@ _ZN8ImVectorI22ImGuiTableInstanceDataE9push_backERKS0_.exit: ; preds = %if.then5
 if.end60:                                         ; preds = %_ZN8ImVectorI22ImGuiTableInstanceDataE9push_backERKS0_.exit, %if.then54
   %call61 = call noundef i32 @_ZN5ImGui13GetIDWithSeedEPKcS1_j(ptr noundef nonnull @.str, ptr noundef null, i32 noundef %id)
   %call62 = call noundef i32 @_ZN5ImGui13GetIDWithSeedEij(i32 noundef %cond47, i32 noundef %call61)
-  %.pre415 = load i16, ptr %InstanceCurrent52, align 8
+  %.pre416 = load i16, ptr %InstanceCurrent52, align 8
   br label %if.end63
 
 if.end63:                                         ; preds = %cond.end46, %if.end60
-  %53 = phi i16 [ %.pre415, %if.end60 ], [ %conv51, %cond.end46 ]
+  %53 = phi i16 [ %.pre416, %if.end60 ], [ %conv51, %cond.end46 ]
   %instance_id.0 = phi i32 [ %call62, %if.end60 ], [ %id, %cond.end46 ]
   %cmp.i299 = icmp eq i16 %53, 0
   br i1 %cmp.i299, label %if.then.i302, label %if.end.i300
 
 if.then.i302:                                     ; preds = %if.end63
-  %InstanceDataFirst.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 59
+  %InstanceDataFirst.i = getelementptr inbounds i8, ptr %call23, i64 424
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 if.end.i300:                                      ; preds = %if.end63
-  %Data.i.i301 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 60, i32 2
+  %Data.i.i301 = getelementptr inbounds i8, ptr %call23, i64 456
   %54 = load ptr, ptr %Data.i.i301, align 8
   %55 = sext i16 %53 to i64
   %56 = getelementptr %struct.ImGuiTableInstanceData, ptr %54, i64 %55
-  %arrayidx.i.i = getelementptr %struct.ImGuiTableInstanceData, ptr %56, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %56, i64 -24
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %if.then.i302, %if.end.i300
@@ -634,7 +565,7 @@ if.then88:                                        ; preds = %if.then68
   %cond96 = select i1 %cmp85, float %override_content_size.sroa.0.0, float 0.000000e+00
   %cond103 = select i1 %or.cond257, float 0x3810000000000000, float 0.000000e+00
   store float %cond96, ptr %ref.tmp89, align 4
-  %y.i303 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp89, i64 0, i32 1
+  %y.i303 = getelementptr inbounds i8, ptr %ref.tmp89, i64 4
   store float %cond103, ptr %y.i303, align 4
   call void @_ZN5ImGui24SetNextWindowContentSizeERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp89)
   br label %if.end104
@@ -658,22 +589,22 @@ if.end109:                                        ; preds = %if.then107, %if.end
   %call115 = call noundef zeroext i1 @_ZN5ImGui12BeginChildExEPKcjRK6ImVec2ii(ptr noundef %name, i32 noundef %instance_id.0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp113, i32 noundef 0, i32 noundef %cond112)
   %61 = load ptr, ptr %CurrentWindow.i, align 8
   store ptr %61, ptr %InnerWindow, align 8
-  %WorkRect = getelementptr inbounds %struct.ImGuiWindow, ptr %61, i64 0, i32 72
-  %WorkRect118 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 48
+  %WorkRect = getelementptr inbounds i8, ptr %61, i64 552
+  %WorkRect118 = getelementptr inbounds i8, ptr %call23, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %WorkRect118, ptr noundef nonnull align 8 dereferenceable(16) %WorkRect, i64 16, i1 false)
-  %Pos.i = getelementptr inbounds %struct.ImGuiWindow, ptr %61, i64 0, i32 7
-  %Size.i = getelementptr inbounds %struct.ImGuiWindow, ptr %61, i64 0, i32 8
+  %Pos.i = getelementptr inbounds i8, ptr %61, i64 40
+  %Size.i = getelementptr inbounds i8, ptr %61, i64 48
   %62 = load <2 x float>, ptr %Pos.i, align 8
   %63 = load <2 x float>, ptr %Size.i, align 8
   %64 = fadd <2 x float> %62, %63
-  %OuterRect = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 46
+  %OuterRect = getelementptr inbounds i8, ptr %call23, i64 240
   store <2 x float> %62, ptr %OuterRect, align 8
-  %ref.tmp119.sroa.2.0.OuterRect.sroa_idx = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 46, i32 1
+  %ref.tmp119.sroa.2.0.OuterRect.sroa_idx = getelementptr inbounds i8, ptr %call23, i64 248
   store <2 x float> %64, ptr %ref.tmp119.sroa.2.0.OuterRect.sroa_idx, align 8
-  %InnerRect = getelementptr inbounds %struct.ImGuiWindow, ptr %61, i64 0, i32 70
-  %InnerRect123 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 47
+  %InnerRect = getelementptr inbounds i8, ptr %61, i64 520
+  %InnerRect123 = getelementptr inbounds i8, ptr %call23, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %InnerRect123, ptr noundef nonnull align 8 dereferenceable(16) %InnerRect, i64 16, i1 false)
-  %SkipItems125 = getelementptr inbounds %struct.ImGuiWindow, ptr %61, i64 0, i32 38
+  %SkipItems125 = getelementptr inbounds i8, ptr %61, i64 195
   %65 = load i8, ptr %SkipItems125, align 1
   %66 = and i8 %65, 1
   %tobool126.not = icmp ne i8 %66, 0
@@ -686,13 +617,13 @@ if.then129:                                       ; preds = %if.end109
 
 if.end132:                                        ; preds = %if.end109, %if.then129
   %cmp133 = icmp eq i32 %cond47, 0
-  %HasScrollbarYCurr = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 108
+  %HasScrollbarYCurr = getelementptr inbounds i8, ptr %call23, i64 582
   %67 = load i8, ptr %HasScrollbarYCurr, align 2
   br i1 %cmp133, label %if.then134, label %if.end138
 
 if.then134:                                       ; preds = %if.end132
   %68 = and i8 %67, 1
-  %HasScrollbarYPrev = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 109
+  %HasScrollbarYPrev = getelementptr inbounds i8, ptr %call23, i64 583
   store i8 %68, ptr %HasScrollbarYPrev, align 1
   store i8 0, ptr %HasScrollbarYCurr, align 2
   br label %if.end138
@@ -700,20 +631,20 @@ if.then134:                                       ; preds = %if.end132
 if.end138:                                        ; preds = %if.end132, %if.then134
   %69 = phi i8 [ 0, %if.then134 ], [ %67, %if.end132 ]
   %70 = load ptr, ptr %InnerWindow, align 8
-  %ScrollbarY = getelementptr inbounds %struct.ImGuiWindow, ptr %70, i64 0, i32 32
+  %ScrollbarY = getelementptr inbounds i8, ptr %70, i64 189
   %71 = load i8, ptr %ScrollbarY, align 1
-  %HasScrollbarYCurr142 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 108
+  %HasScrollbarYCurr142 = getelementptr inbounds i8, ptr %call23, i64 582
   %72 = or i8 %69, %71
   %or256 = and i8 %72, 1
   store i8 %or256, ptr %HasScrollbarYCurr142, align 2
   br label %if.end151
 
 if.else147:                                       ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
-  %InnerRect148 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 47
+  %InnerRect148 = getelementptr inbounds i8, ptr %call23, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %InnerRect148, ptr noundef nonnull align 8 dereferenceable(16) %outer_rect, i64 16, i1 false)
-  %OuterRect149 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 46
+  %OuterRect149 = getelementptr inbounds i8, ptr %call23, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %OuterRect149, ptr noundef nonnull align 8 dereferenceable(16) %outer_rect, i64 16, i1 false)
-  %WorkRect150 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 48
+  %WorkRect150 = getelementptr inbounds i8, ptr %call23, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %WorkRect150, ptr noundef nonnull align 8 dereferenceable(16) %outer_rect, i64 16, i1 false)
   br label %if.end151
 
@@ -727,47 +658,47 @@ if.then153:                                       ; preds = %if.end151
 
 if.end154:                                        ; preds = %if.then153, %if.end151
   %73 = load ptr, ptr %InnerWindow, align 8
-  %Indent = getelementptr inbounds %struct.ImGuiWindow, ptr %73, i64 0, i32 68, i32 11
+  %Indent = getelementptr inbounds i8, ptr %73, i64 340
   %74 = load float, ptr %Indent, align 4
-  %HostIndentX = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 31
+  %HostIndentX = getelementptr inbounds i8, ptr %call23, i64 180
   store float %74, ptr %HostIndentX, align 4
-  %ClipRect = getelementptr inbounds %struct.ImGuiWindow, ptr %73, i64 0, i32 74
-  %HostClipRect = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 53
+  %ClipRect = getelementptr inbounds i8, ptr %73, i64 584
+  %HostClipRect = getelementptr inbounds i8, ptr %call23, i64 352
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %HostClipRect, ptr noundef nonnull align 8 dereferenceable(16) %ClipRect, i64 16, i1 false)
-  %SkipItems158 = getelementptr inbounds %struct.ImGuiWindow, ptr %73, i64 0, i32 38
+  %SkipItems158 = getelementptr inbounds i8, ptr %73, i64 195
   %75 = load i8, ptr %SkipItems158, align 1
   %76 = and i8 %75, 1
-  %HostSkipItems = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 111
+  %HostSkipItems = getelementptr inbounds i8, ptr %call23, i64 585
   store i8 %76, ptr %HostSkipItems, align 1
-  %WorkRect161 = getelementptr inbounds %struct.ImGuiWindow, ptr %73, i64 0, i32 72
-  %HostBackupWorkRect = getelementptr %struct.ImGuiTableTempData, ptr %33, i64 -1, i32 6
+  %WorkRect161 = getelementptr inbounds i8, ptr %73, i64 552
+  %HostBackupWorkRect = getelementptr i8, ptr %33, i64 -72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %HostBackupWorkRect, ptr noundef nonnull align 8 dereferenceable(16) %WorkRect161, i64 16, i1 false)
-  %ParentWorkRect = getelementptr inbounds %struct.ImGuiWindow, ptr %73, i64 0, i32 73
-  %HostBackupParentWorkRect = getelementptr %struct.ImGuiTableTempData, ptr %33, i64 -1, i32 7
+  %ParentWorkRect = getelementptr inbounds i8, ptr %73, i64 568
+  %HostBackupParentWorkRect = getelementptr i8, ptr %33, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %HostBackupParentWorkRect, ptr noundef nonnull align 8 dereferenceable(16) %ParentWorkRect, i64 16, i1 false)
-  %ColumnsOffset = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 12
-  %HostBackupColumnsOffset = getelementptr %struct.ImGuiTableTempData, ptr %33, i64 -1, i32 11
+  %ColumnsOffset = getelementptr inbounds i8, ptr %2, i64 344
+  %HostBackupColumnsOffset = getelementptr i8, ptr %33, i64 -16
   %77 = load i32, ptr %ColumnsOffset, align 8
   store i32 %77, ptr %HostBackupColumnsOffset, align 8
-  %PrevLineSize = getelementptr inbounds %struct.ImGuiWindow, ptr %73, i64 0, i32 68, i32 6
-  %HostBackupPrevLineSize = getelementptr %struct.ImGuiTableTempData, ptr %33, i64 -1, i32 8
+  %PrevLineSize = getelementptr inbounds i8, ptr %73, i64 320
+  %HostBackupPrevLineSize = getelementptr i8, ptr %33, i64 -40
   %78 = load i64, ptr %PrevLineSize, align 8
   store i64 %78, ptr %HostBackupPrevLineSize, align 8
-  %CurrLineSize = getelementptr inbounds %struct.ImGuiWindow, ptr %73, i64 0, i32 68, i32 5
-  %HostBackupCurrLineSize = getelementptr %struct.ImGuiTableTempData, ptr %33, i64 -1, i32 9
+  %CurrLineSize = getelementptr inbounds i8, ptr %73, i64 312
+  %HostBackupCurrLineSize = getelementptr i8, ptr %33, i64 -32
   %79 = load i64, ptr %CurrLineSize, align 8
   store i64 %79, ptr %HostBackupCurrLineSize, align 8
-  %CursorMaxPos = getelementptr inbounds %struct.ImGuiWindow, ptr %73, i64 0, i32 68, i32 3
-  %HostBackupCursorMaxPos = getelementptr %struct.ImGuiTableTempData, ptr %33, i64 -1, i32 10
+  %CursorMaxPos = getelementptr inbounds i8, ptr %73, i64 296
+  %HostBackupCursorMaxPos = getelementptr i8, ptr %33, i64 -24
   %80 = load i64, ptr %CursorMaxPos, align 8
   store i64 %80, ptr %HostBackupCursorMaxPos, align 8
-  %ItemWidth = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 32
+  %ItemWidth = getelementptr inbounds i8, ptr %2, i64 460
   %81 = load float, ptr %ItemWidth, align 4
-  %HostBackupItemWidth = getelementptr %struct.ImGuiTableTempData, ptr %33, i64 -1, i32 12
+  %HostBackupItemWidth = getelementptr i8, ptr %33, i64 -12
   store float %81, ptr %HostBackupItemWidth, align 4
-  %ItemWidthStack = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 34
+  %ItemWidthStack = getelementptr inbounds i8, ptr %2, i64 472
   %82 = load i32, ptr %ItemWidthStack, align 8
-  %HostBackupItemWidthStackSize = getelementptr %struct.ImGuiTableTempData, ptr %33, i64 -1, i32 13
+  %HostBackupItemWidthStackSize = getelementptr i8, ptr %33, i64 -8
   store i32 %82, ptr %HostBackupItemWidthStackSize, align 8
   %cmp174.not = icmp eq ptr %73, %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %CurrLineSize, i8 0, i64 16, i1 false)
@@ -781,7 +712,7 @@ if.then175:                                       ; preds = %if.end154
 if.then178:                                       ; preds = %if.then175
   %83 = load float, ptr %HostClipRect, align 8
   %add181 = fadd float %83, 1.000000e+00
-  %Max = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 53, i32 1
+  %Max = getelementptr inbounds i8, ptr %call23, i64 360
   %84 = load float, ptr %Max, align 8
   %cmp.i314 = fcmp olt float %add181, %84
   %cond.i315 = select i1 %cmp.i314, float %add181, float %84
@@ -794,10 +725,10 @@ if.end188:                                        ; preds = %if.then178, %if.the
   br i1 %tobool190.not, label %if.end204, label %if.then191
 
 if.then191:                                       ; preds = %if.end188
-  %y194 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 53, i32 0, i32 1
+  %y194 = getelementptr inbounds i8, ptr %call23, i64 356
   %85 = load float, ptr %y194, align 4
   %add195 = fadd float %85, 1.000000e+00
-  %y198 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 53, i32 1, i32 1
+  %y198 = getelementptr inbounds i8, ptr %call23, i64 364
   %86 = load float, ptr %y198, align 4
   %cmp.i316 = fcmp olt float %add195, %86
   %cond.i317 = select i1 %cmp.i316, float %add195, float %86
@@ -820,24 +751,24 @@ if.end204:                                        ; preds = %if.end188, %if.then
   ]
 
 cond.end234.thread:                               ; preds = %if.end204
-  %CellPadding = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 17
+  %CellPadding = getelementptr inbounds i8, ptr %0, i64 14668
   %89 = load float, ptr %CellPadding, align 4
   br label %cond.end245
 
 cond.true240:                                     ; preds = %if.end204
-  %CellPadding242 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 17
+  %CellPadding242 = getelementptr inbounds i8, ptr %0, i64 14668
   %90 = load float, ptr %CellPadding242, align 4
   br label %cond.end245
 
 cond.end245:                                      ; preds = %if.end204, %cond.end234.thread, %cond.true240
-  %cond235401 = phi float [ 0.000000e+00, %cond.true240 ], [ %89, %cond.end234.thread ], [ 0.000000e+00, %if.end204 ]
+  %cond235402 = phi float [ 0.000000e+00, %cond.true240 ], [ %89, %cond.end234.thread ], [ 0.000000e+00, %if.end204 ]
   %cond246 = phi float [ %90, %cond.true240 ], [ 0.000000e+00, %cond.end234.thread ], [ 0.000000e+00, %if.end204 ]
-  %add247 = fadd float %cond226, %cond235401
-  %CellSpacingX1 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 35
+  %add247 = fadd float %cond226, %cond235402
+  %CellSpacingX1 = getelementptr inbounds i8, ptr %call23, i64 196
   store float %add247, ptr %CellSpacingX1, align 4
-  %CellSpacingX2 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 36
-  store float %cond235401, ptr %CellSpacingX2, align 8
-  %CellPaddingX = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 34
+  %CellSpacingX2 = getelementptr inbounds i8, ptr %call23, i64 200
+  store float %cond235402, ptr %CellSpacingX2, align 8
+  %CellPaddingX = getelementptr inbounds i8, ptr %call23, i64 192
   store float %cond246, ptr %CellPaddingX, align 8
   %and248 = and i32 %flags.addr.6.i, 1024
   %tobool249.not = icmp eq i32 %and248, 0
@@ -845,7 +776,7 @@ cond.end245:                                      ; preds = %if.end204, %cond.en
   br i1 %cond218, label %cond.true252, label %cond.end257
 
 cond.true252:                                     ; preds = %cond.end245
-  %CellPadding254 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 17
+  %CellPadding254 = getelementptr inbounds i8, ptr %0, i64 14668
   %91 = load float, ptr %CellPadding254, align 4
   br label %cond.end257
 
@@ -853,39 +784,39 @@ cond.end257:                                      ; preds = %cond.end245, %cond.
   %cond258 = phi float [ %91, %cond.true252 ], [ 0.000000e+00, %cond.end245 ]
   %add259 = fadd float %cond250, %cond258
   %sub261 = fsub float %add259, %cond246
-  %OuterPaddingX = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 33
+  %OuterPaddingX = getelementptr inbounds i8, ptr %call23, i64 188
   store float %sub261, ptr %OuterPaddingX, align 4
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 15
+  %CurrentColumn = getelementptr inbounds i8, ptr %call23, i64 116
   store i32 -1, ptr %CurrentColumn, align 4
-  %CurrentRow = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 14
+  %CurrentRow = getelementptr inbounds i8, ptr %call23, i64 112
   store i32 -1, ptr %CurrentRow, align 8
-  %RowBgColorCounter = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 25
+  %RowBgColorCounter = getelementptr inbounds i8, ptr %call23, i64 152
   store i32 0, ptr %RowBgColorCounter, align 8
-  %LastRowFlags = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 24
+  %LastRowFlags = getelementptr inbounds i8, ptr %call23, i64 148
   %bf.load = load i32, ptr %LastRowFlags, align 4
   %bf.clear = and i32 %bf.load, 65535
   store i32 %bf.clear, ptr %LastRowFlags, align 4
-  %WorkRect264 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 48
+  %WorkRect264 = getelementptr inbounds i8, ptr %call23, i64 272
   %cond-lvalue = select i1 %cmp174.not, ptr %WorkRect264, ptr %ClipRect
-  %InnerClipRect = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 49
+  %InnerClipRect = getelementptr inbounds i8, ptr %call23, i64 288
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %InnerClipRect, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue, i64 16, i1 false)
   %92 = load <2 x float>, ptr %InnerClipRect, align 4
   %93 = load <2 x float>, ptr %WorkRect264, align 4
   %94 = fcmp oge <2 x float> %92, %93
   %95 = select <2 x i1> %94, <2 x float> %92, <2 x float> %93
   store <2 x float> %95, ptr %InnerClipRect, align 4
-  %Max.i320 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 49, i32 1
-  %Max5.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 48, i32 1
-  %96 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 49, i32 1, i32 1
+  %Max.i320 = getelementptr inbounds i8, ptr %call23, i64 296
+  %Max5.i = getelementptr inbounds i8, ptr %call23, i64 280
+  %96 = getelementptr inbounds i8, ptr %call23, i64 300
   %97 = load <2 x float>, ptr %Max.i320, align 4
   %98 = load <2 x float>, ptr %Max5.i, align 4
   %99 = fcmp olt <2 x float> %97, %98
   %100 = select <2 x i1> %99, <2 x float> %97, <2 x float> %98
   store <2 x float> %100, ptr %Max.i320, align 4
-  %Max.i321 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 53, i32 1
+  %Max.i321 = getelementptr inbounds i8, ptr %call23, i64 360
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %Max.i321, align 4
   %r.val.i323 = load float, ptr %HostClipRect, align 4
-  %101 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 53, i32 0, i32 1
+  %101 = getelementptr inbounds i8, ptr %call23, i64 356
   %r.val5.i = load float, ptr %101, align 4
   %102 = extractelement <2 x float> %95, i64 1
   %cmp13.i.i = fcmp olt float %102, %r.val5.i
@@ -933,34 +864,34 @@ _ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec
   br i1 %tobool273.not, label %cond.false282, label %cond.true274
 
 cond.true274:                                     ; preds = %_ZN6ImRect12ClipWithFullERKS_.exit
-  %y280 = getelementptr inbounds %struct.ImGuiWindow, ptr %73, i64 0, i32 72, i32 1, i32 1
+  %y280 = getelementptr inbounds i8, ptr %73, i64 564
   %106 = load float, ptr %y280, align 4
   %cmp.i331 = fcmp olt float %cond27.i14.i, %106
   %cond.i332 = select i1 %cmp.i331, float %cond27.i14.i, float %106
   br label %cond.end286
 
 cond.false282:                                    ; preds = %_ZN6ImRect12ClipWithFullERKS_.exit
-  %y285 = getelementptr inbounds %struct.ImGuiWindow, ptr %73, i64 0, i32 74, i32 1, i32 1
+  %y285 = getelementptr inbounds i8, ptr %73, i64 596
   %107 = load float, ptr %y285, align 4
   br label %cond.end286
 
 cond.end286:                                      ; preds = %cond.false282, %cond.true274
   %cond287 = phi float [ %cond.i332, %cond.true274 ], [ %107, %cond.false282 ]
   store float %cond287, ptr %96, align 4
-  %RowPosY2 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 19
+  %RowPosY2 = getelementptr inbounds i8, ptr %call23, i64 128
   %108 = extractelement <2 x float> %93, i64 1
   store float %108, ptr %RowPosY2, align 8
-  %RowPosY1 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 18
+  %RowPosY1 = getelementptr inbounds i8, ptr %call23, i64 124
   store float %108, ptr %RowPosY1, align 4
-  %RowCellPaddingY = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 21
+  %RowCellPaddingY = getelementptr inbounds i8, ptr %call23, i64 136
   store <2 x float> zeroinitializer, ptr %RowCellPaddingY, align 8
-  %FreezeRowsRequest = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 84
-  %IsUnfrozenRows = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 104
+  %FreezeRowsRequest = getelementptr inbounds i8, ptr %call23, i64 550
+  %IsUnfrozenRows = getelementptr inbounds i8, ptr %call23, i64 578
   store i64 0, ptr %FreezeRowsRequest, align 2
   store i8 1, ptr %IsUnfrozenRows, align 2
-  %AngledHeadersCount = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 69
+  %AngledHeadersCount = getelementptr inbounds i8, ptr %call23, i64 520
   store i16 0, ptr %AngledHeadersCount, align 8
-  %DeclColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 68
+  %DeclColumnsCount = getelementptr inbounds i8, ptr %call23, i64 518
   store i16 0, ptr %DeclColumnsCount, align 2
   %add294 = add nsw i32 %40, 1
   %109 = load i32, ptr %FrameCount, align 8
@@ -968,29 +899,29 @@ cond.end286:                                      ; preds = %cond.false282, %con
   br i1 %cmp296, label %if.then297, label %if.end298
 
 if.then297:                                       ; preds = %cond.end286
-  %IsActiveIdInTable = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 107
+  %IsActiveIdInTable = getelementptr inbounds i8, ptr %call23, i64 581
   store i8 0, ptr %IsActiveIdInTable, align 1
   br label %if.end298
 
 if.end298:                                        ; preds = %if.then297, %cond.end286
-  %AngledheadersExtraWidth = getelementptr %struct.ImGuiTableTempData, ptr %33, i64 -1, i32 2
+  %AngledheadersExtraWidth = getelementptr i8, ptr %33, i64 -112
   store float 0.000000e+00, ptr %AngledheadersExtraWidth, align 8
   %call299 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 43, float noundef 1.000000e+00)
-  %BorderColorStrong = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 27
+  %BorderColorStrong = getelementptr inbounds i8, ptr %call23, i64 164
   store i32 %call299, ptr %BorderColorStrong, align 4
   %call300 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 44, float noundef 1.000000e+00)
-  %BorderColorLight = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 28
+  %BorderColorLight = getelementptr inbounds i8, ptr %call23, i64 168
   store i32 %call300, ptr %BorderColorLight, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   store ptr %call23, ptr %CurrentTable, align 8
-  %NavIsScrollPushableX = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 18
+  %NavIsScrollPushableX = getelementptr inbounds i8, ptr %2, i64 368
   store i8 0, ptr %NavIsScrollPushableX, align 8
-  %CurrentTableIdx = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 29
+  %CurrentTableIdx = getelementptr inbounds i8, ptr %2, i64 448
   store i32 %conv.i, ptr %CurrentTableIdx, align 8
   br i1 %cmp174.not, label %if.end307, label %if.then304
 
 if.then304:                                       ; preds = %if.end298
-  %CurrentTableIdx306 = getelementptr inbounds %struct.ImGuiWindow, ptr %73, i64 0, i32 68, i32 29
+  %CurrentTableIdx306 = getelementptr inbounds i8, ptr %73, i64 448
   store i32 %conv.i, ptr %CurrentTableIdx306, align 8
   br label %if.end307
 
@@ -1003,19 +934,19 @@ if.end307:                                        ; preds = %if.then304, %if.end
   br i1 %or.cond261, label %if.then313, label %if.end314
 
 if.then313:                                       ; preds = %if.end307
-  %IsResetDisplayOrderRequest = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 103
+  %IsResetDisplayOrderRequest = getelementptr inbounds i8, ptr %call23, i64 577
   store i8 1, ptr %IsResetDisplayOrderRequest, align 1
   br label %if.end314
 
 if.end314:                                        ; preds = %if.then313, %if.end307
-  %TablesLastTimeActive = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 168
+  %TablesLastTimeActive = getelementptr inbounds i8, ptr %0, i64 19984
   %110 = load i32, ptr %TablesLastTimeActive, align 8
   %cmp316.not = icmp sgt i32 %110, %conv.i
   br i1 %cmp316.not, label %if.end321, label %if.then317
 
 if.then317:                                       ; preds = %if.end314
   %add319 = add nsw i32 %conv.i, 1
-  %Capacity.i333 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 168, i32 1
+  %Capacity.i333 = getelementptr inbounds i8, ptr %0, i64 19988
   %111 = load i32, ptr %Capacity.i333, align 4
   %cmp.i334.not = icmp sgt i32 %111, %conv.i
   br i1 %cmp.i334.not, label %if.end.i335, label %if.then.i346
@@ -1035,7 +966,7 @@ _ZNK8ImVectorIfE14_grow_capacityEi.exit.i:        ; preds = %cond.true.i.i348, %
   %conv.i.i353 = sext i32 %cond7.i.i352 to i64
   %mul.i.i354 = shl nsw i64 %conv.i.i353, 2
   %call.i.i355 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i354)
-  %Data.i.i356 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 168, i32 2
+  %Data.i.i356 = getelementptr inbounds i8, ptr %0, i64 19992
   %112 = load ptr, ptr %Data.i.i356, align 8
   %tobool.not.i8.i357 = icmp eq ptr %112, null
   br i1 %tobool.not.i8.i357, label %if.end7.i.i361, label %if.then2.i.i358
@@ -1052,16 +983,16 @@ if.then2.i.i358:                                  ; preds = %_ZNK8ImVectorIfE14_
 if.end7.i.i361:                                   ; preds = %if.then2.i.i358, %_ZNK8ImVectorIfE14_grow_capacityEi.exit.i
   store ptr %call.i.i355, ptr %Data.i.i356, align 8
   store i32 %cond7.i.i352, ptr %Capacity.i333, align 4
-  %.pre417 = load i32, ptr %TablesLastTimeActive, align 8
+  %.pre418 = load i32, ptr %TablesLastTimeActive, align 8
   br label %if.end.i335
 
 if.end.i335:                                      ; preds = %if.end7.i.i361, %if.then317
-  %115 = phi i32 [ %.pre417, %if.end7.i.i361 ], [ %110, %if.then317 ]
+  %115 = phi i32 [ %.pre418, %if.end7.i.i361 ], [ %110, %if.then317 ]
   %cmp2.i336.not = icmp sgt i32 %115, %conv.i
   br i1 %cmp2.i336.not, label %_ZN8ImVectorIfE6resizeEiRKf.exit, label %for.cond.preheader.i337
 
 for.cond.preheader.i337:                          ; preds = %if.end.i335
-  %Data.i338 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 168, i32 2
+  %Data.i338 = getelementptr inbounds i8, ptr %0, i64 19992
   %116 = sext i32 %115 to i64
   %wide.trip.count.i339 = sext i32 %add319 to i64
   br label %for.body.i341
@@ -1080,10 +1011,10 @@ _ZN8ImVectorIfE6resizeEiRKf.exit:                 ; preds = %for.body.i341, %if.
   br label %if.end321
 
 if.end321:                                        ; preds = %_ZN8ImVectorIfE6resizeEiRKf.exit, %if.end314
-  %Time = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 8
+  %Time = getelementptr inbounds i8, ptr %0, i64 16216
   %118 = load double, ptr %Time, align 8
   %conv322 = fptrunc double %118 to float
-  %Data.i362 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 168, i32 2
+  %Data.i362 = getelementptr inbounds i8, ptr %0, i64 19992
   %119 = load ptr, ptr %Data.i362, align 8
   %sext = shl i64 %sub.ptr.div.i, 32
   %idxprom.i363 = ashr exact i64 %sext, 32
@@ -1091,12 +1022,12 @@ if.end321:                                        ; preds = %_ZN8ImVectorIfE6res
   store float %conv322, ptr %arrayidx.i364, align 4
   %120 = load double, ptr %Time, align 8
   %conv326 = fptrunc double %120 to float
-  %LastTimeActive = getelementptr %struct.ImGuiTableTempData, ptr %33, i64 -1, i32 1
+  %LastTimeActive = getelementptr i8, ptr %33, i64 -116
   store float %conv326, ptr %LastTimeActive, align 4
-  %MemoryCompacted = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 110
+  %MemoryCompacted = getelementptr inbounds i8, ptr %call23, i64 584
   store i8 0, ptr %MemoryCompacted, align 8
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 4
-  %DataEnd.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 4, i32 1
+  %Columns = getelementptr inbounds i8, ptr %call23, i64 24
+  %DataEnd.i = getelementptr inbounds i8, ptr %call23, i64 32
   %121 = load ptr, ptr %DataEnd.i, align 8
   %122 = load ptr, ptr %Columns, align 8
   %sub.ptr.lhs.cast.i365 = ptrtoint ptr %121 to i64
@@ -1107,9 +1038,9 @@ if.end321:                                        ; preds = %_ZN8ImVectorIfE6res
   %cmp328.not = icmp eq i32 %conv.i369, 0
   %cmp330.not = icmp eq i32 %conv.i369, %columns_count
   %or.cond262 = or i1 %cmp328.not, %cmp330.not
-  %RawData335.phi.trans.insert = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 2
-  %.pre418 = load ptr, ptr %RawData335.phi.trans.insert, align 8
-  %RawData335 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 2
+  %RawData335.phi.trans.insert = getelementptr inbounds i8, ptr %call23, i64 8
+  %.pre419 = load ptr, ptr %RawData335.phi.trans.insert, align 8
+  %RawData335 = getelementptr inbounds i8, ptr %call23, i64 8
   br i1 %or.cond262, label %if.end334, label %if.end334.thread
 
 if.end334.thread:                                 ; preds = %if.end321
@@ -1117,191 +1048,191 @@ if.end334.thread:                                 ; preds = %if.end321
   br label %if.then337
 
 if.end334:                                        ; preds = %if.end321
-  %123 = icmp eq ptr %.pre418, null
+  %123 = icmp eq ptr %.pre419, null
   br i1 %123, label %if.then337, label %if.end338
 
 if.then337:                                       ; preds = %if.end334.thread, %if.end334
-  %old_columns_to_preserve.0430 = phi ptr [ %122, %if.end334.thread ], [ null, %if.end334 ]
-  %old_columns_raw_data.0428 = phi ptr [ %.pre418, %if.end334.thread ], [ null, %if.end334 ]
+  %old_columns_to_preserve.0431 = phi ptr [ %122, %if.end334.thread ], [ null, %if.end334 ]
+  %old_columns_raw_data.0429 = phi ptr [ %.pre419, %if.end334.thread ], [ null, %if.end334 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %span_allocator.i)
   %add.i.i370 = add nsw i32 %columns_count, 31
   %mul.i = mul i32 %columns_count, 112
-  %arrayidx6.i.i = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator.i, i64 0, i32 4, i64 0
-  %124 = getelementptr inbounds i8, ptr %span_allocator.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %124, i8 0, i64 48, i1 false)
-  store i32 %mul.i, ptr %arrayidx6.i.i, align 8
+  %Offsets.i.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 16
+  %Sizes.i.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %Offsets.i.i, i8 0, i64 48, i1 false)
+  store i32 %mul.i, ptr %Sizes.i.i, align 8
   %mul3.i = shl i32 %columns_count, 1
-  %arrayidx.i19.i = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator.i, i64 0, i32 3, i64 1
-  store i32 %mul.i, ptr %arrayidx.i19.i, align 4
-  %arrayidx6.i21.i = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator.i, i64 0, i32 4, i64 1
-  store i32 %mul3.i, ptr %arrayidx6.i21.i, align 4
+  %arrayidx.i.i371 = getelementptr inbounds i8, ptr %span_allocator.i, i64 20
+  store i32 %mul.i, ptr %arrayidx.i.i371, align 4
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 44
+  store i32 %mul3.i, ptr %arrayidx6.i.i, align 4
   %mul5.i = shl i32 %columns_count, 3
   %add9.i24.i = add i32 %mul3.i, 3
   %add.i26.i = add i32 %add9.i24.i, %mul.i
   %and.i27.i = and i32 %add.i26.i, -4
-  %arrayidx.i28.i = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator.i, i64 0, i32 3, i64 2
-  store i32 %and.i27.i, ptr %arrayidx.i28.i, align 8
-  %arrayidx6.i30.i = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator.i, i64 0, i32 4, i64 2
-  store i32 %mul5.i, ptr %arrayidx6.i30.i, align 8
-  %add9.i33.i = add nsw i32 %and.i27.i, %mul5.i
-  %125 = ashr i32 %add.i.i370, 3
-  %126 = and i32 %125, -4
-  br label %for.body.i371
+  %arrayidx.i29.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 24
+  store i32 %and.i27.i, ptr %arrayidx.i29.i, align 8
+  %arrayidx6.i32.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 48
+  store i32 %mul5.i, ptr %arrayidx6.i32.i, align 8
+  %add9.i35.i = add nsw i32 %and.i27.i, %mul5.i
+  %124 = ashr i32 %add.i.i370, 3
+  %125 = and i32 %124, -4
+  br label %for.body.i372
 
-for.body.i371:                                    ; preds = %for.body.i371, %if.then337
-  %indvars.iv.i372 = phi i64 [ 3, %if.then337 ], [ %indvars.iv.next.i373, %for.body.i371 ]
-  %127 = phi i32 [ %add9.i33.i, %if.then337 ], [ %add9.i42.i, %for.body.i371 ]
-  %add.i35.i = add nsw i32 %127, 3
-  %and.i36.i = and i32 %add.i35.i, -4
-  %arrayidx.i37.i = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator.i, i64 0, i32 3, i64 %indvars.iv.i372
-  store i32 %and.i36.i, ptr %arrayidx.i37.i, align 4
-  %arrayidx6.i39.i = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator.i, i64 0, i32 4, i64 %indvars.iv.i372
-  store i32 %126, ptr %arrayidx6.i39.i, align 4
-  %add9.i42.i = add nsw i32 %and.i36.i, %126
-  %indvars.iv.next.i373 = add nuw nsw i64 %indvars.iv.i372, 1
-  %exitcond.not.i374 = icmp eq i64 %indvars.iv.next.i373, 6
-  br i1 %exitcond.not.i374, label %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit, label %for.body.i371, !llvm.loop !7
+for.body.i372:                                    ; preds = %for.body.i372, %if.then337
+  %indvars.iv.i373 = phi i64 [ 3, %if.then337 ], [ %indvars.iv.next.i374, %for.body.i372 ]
+  %126 = phi i32 [ %add9.i35.i, %if.then337 ], [ %add9.i46.i, %for.body.i372 ]
+  %add.i37.i = add nsw i32 %126, 3
+  %and.i38.i = and i32 %add.i37.i, -4
+  %arrayidx.i40.i = getelementptr inbounds [6 x i32], ptr %Offsets.i.i, i64 0, i64 %indvars.iv.i373
+  store i32 %and.i38.i, ptr %arrayidx.i40.i, align 4
+  %arrayidx6.i43.i = getelementptr inbounds [6 x i32], ptr %Sizes.i.i, i64 0, i64 %indvars.iv.i373
+  store i32 %125, ptr %arrayidx6.i43.i, align 4
+  %add9.i46.i = add nsw i32 %and.i38.i, %125
+  %indvars.iv.next.i374 = add nuw nsw i64 %indvars.iv.i373, 1
+  %exitcond.not.i375 = icmp eq i64 %indvars.iv.next.i374, 6
+  br i1 %exitcond.not.i375, label %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit, label %for.body.i372, !llvm.loop !7
 
-_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit: ; preds = %for.body.i371
-  %conv8.i = sext i32 %add9.i42.i to i64
+_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit: ; preds = %for.body.i372
+  %conv8.i = sext i32 %add9.i46.i to i64
   %call9.i = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %conv8.i)
   store ptr %call9.i, ptr %RawData335, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %call9.i, i8 0, i64 %conv8.i, i1 false)
-  %128 = load ptr, ptr %RawData335, align 8
-  %129 = load i32, ptr %arrayidx6.i.i, align 8
-  %idx.ext4.i.i.i = sext i32 %129 to i64
-  %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %128, i64 %idx.ext4.i.i.i
-  store ptr %128, ptr %Columns, align 8
+  %127 = load ptr, ptr %RawData335, align 8
+  %128 = load i32, ptr %Sizes.i.i, align 8
+  %idx.ext4.i.i.i = sext i32 %128 to i64
+  %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %127, i64 %idx.ext4.i.i.i
+  store ptr %127, ptr %Columns, align 8
   store ptr %add.ptr5.i.i.i, ptr %DataEnd.i, align 8
-  %DisplayOrderToIndex.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 5
-  %130 = load i32, ptr %arrayidx.i19.i, align 4
-  %idx.ext.i.i46.i = sext i32 %130 to i64
-  %add.ptr.i.i47.i = getelementptr inbounds i8, ptr %128, i64 %idx.ext.i.i46.i
-  %131 = load i32, ptr %arrayidx6.i21.i, align 4
-  %idx.ext4.i.i49.i = sext i32 %131 to i64
-  %add.ptr5.i.i50.i = getelementptr inbounds i8, ptr %add.ptr.i.i47.i, i64 %idx.ext4.i.i49.i
-  store ptr %add.ptr.i.i47.i, ptr %DisplayOrderToIndex.i, align 8
-  %DataEnd.i.i51.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 5, i32 1
-  store ptr %add.ptr5.i.i50.i, ptr %DataEnd.i.i51.i, align 8
-  %RowCellData.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 6
-  %132 = load i32, ptr %arrayidx.i28.i, align 8
-  %idx.ext.i.i53.i = sext i32 %132 to i64
-  %add.ptr.i.i54.i = getelementptr inbounds i8, ptr %128, i64 %idx.ext.i.i53.i
-  %133 = load i32, ptr %arrayidx6.i30.i, align 8
-  %idx.ext4.i.i56.i = sext i32 %133 to i64
-  %add.ptr5.i.i57.i = getelementptr inbounds i8, ptr %add.ptr.i.i54.i, i64 %idx.ext4.i.i56.i
-  store ptr %add.ptr.i.i54.i, ptr %RowCellData.i, align 8
-  %DataEnd.i.i58.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 6, i32 1
-  store ptr %add.ptr5.i.i57.i, ptr %DataEnd.i.i58.i, align 8
-  %arrayidx.i59.i = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator.i, i64 0, i32 3, i64 3
-  %134 = load i32, ptr %arrayidx.i59.i, align 4
-  %idx.ext.i.i = sext i32 %134 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %128, i64 %idx.ext.i.i
-  %EnabledMaskByDisplayOrder.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 7
+  %DisplayOrderToIndex.i = getelementptr inbounds i8, ptr %call23, i64 40
+  %129 = load i32, ptr %arrayidx.i.i371, align 4
+  %idx.ext.i.i50.i = sext i32 %129 to i64
+  %add.ptr.i.i51.i = getelementptr inbounds i8, ptr %127, i64 %idx.ext.i.i50.i
+  %130 = load i32, ptr %arrayidx6.i.i, align 4
+  %idx.ext4.i.i53.i = sext i32 %130 to i64
+  %add.ptr5.i.i54.i = getelementptr inbounds i8, ptr %add.ptr.i.i51.i, i64 %idx.ext4.i.i53.i
+  store ptr %add.ptr.i.i51.i, ptr %DisplayOrderToIndex.i, align 8
+  %DataEnd.i.i55.i = getelementptr inbounds i8, ptr %call23, i64 48
+  store ptr %add.ptr5.i.i54.i, ptr %DataEnd.i.i55.i, align 8
+  %RowCellData.i = getelementptr inbounds i8, ptr %call23, i64 56
+  %131 = load i32, ptr %arrayidx.i29.i, align 8
+  %idx.ext.i.i58.i = sext i32 %131 to i64
+  %add.ptr.i.i59.i = getelementptr inbounds i8, ptr %127, i64 %idx.ext.i.i58.i
+  %132 = load i32, ptr %arrayidx6.i32.i, align 8
+  %idx.ext4.i.i62.i = sext i32 %132 to i64
+  %add.ptr5.i.i63.i = getelementptr inbounds i8, ptr %add.ptr.i.i59.i, i64 %idx.ext4.i.i62.i
+  store ptr %add.ptr.i.i59.i, ptr %RowCellData.i, align 8
+  %DataEnd.i.i64.i = getelementptr inbounds i8, ptr %call23, i64 64
+  store ptr %add.ptr5.i.i63.i, ptr %DataEnd.i.i64.i, align 8
+  %arrayidx.i66.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 28
+  %133 = load i32, ptr %arrayidx.i66.i, align 4
+  %idx.ext.i.i = sext i32 %133 to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %127, i64 %idx.ext.i.i
+  %EnabledMaskByDisplayOrder.i = getelementptr inbounds i8, ptr %call23, i64 72
   store ptr %add.ptr.i.i, ptr %EnabledMaskByDisplayOrder.i, align 8
-  %arrayidx.i60.i = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator.i, i64 0, i32 3, i64 4
-  %135 = load i32, ptr %arrayidx.i60.i, align 8
-  %idx.ext.i61.i = sext i32 %135 to i64
-  %add.ptr.i62.i = getelementptr inbounds i8, ptr %128, i64 %idx.ext.i61.i
-  %EnabledMaskByIndex.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 8
-  store ptr %add.ptr.i62.i, ptr %EnabledMaskByIndex.i, align 8
-  %arrayidx.i63.i = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator.i, i64 0, i32 3, i64 5
-  %136 = load i32, ptr %arrayidx.i63.i, align 4
-  %idx.ext.i64.i = sext i32 %136 to i64
-  %add.ptr.i65.i = getelementptr inbounds i8, ptr %128, i64 %idx.ext.i64.i
-  %VisibleMaskByIndex.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 9
-  store ptr %add.ptr.i65.i, ptr %VisibleMaskByIndex.i, align 8
+  %arrayidx.i68.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 32
+  %134 = load i32, ptr %arrayidx.i68.i, align 8
+  %idx.ext.i69.i = sext i32 %134 to i64
+  %add.ptr.i70.i = getelementptr inbounds i8, ptr %127, i64 %idx.ext.i69.i
+  %EnabledMaskByIndex.i = getelementptr inbounds i8, ptr %call23, i64 80
+  store ptr %add.ptr.i70.i, ptr %EnabledMaskByIndex.i, align 8
+  %arrayidx.i72.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 36
+  %135 = load i32, ptr %arrayidx.i72.i, align 4
+  %idx.ext.i73.i = sext i32 %135 to i64
+  %add.ptr.i74.i = getelementptr inbounds i8, ptr %127, i64 %idx.ext.i73.i
+  %VisibleMaskByIndex.i = getelementptr inbounds i8, ptr %call23, i64 88
+  store ptr %add.ptr.i74.i, ptr %VisibleMaskByIndex.i, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %span_allocator.i)
-  %IsSettingsRequestLoad = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 99
+  %IsSettingsRequestLoad = getelementptr inbounds i8, ptr %call23, i64 573
   store i8 1, ptr %IsSettingsRequestLoad, align 1
-  %IsInitializing = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 94
+  %IsInitializing = getelementptr inbounds i8, ptr %call23, i64 568
   store i8 1, ptr %IsInitializing, align 8
   br label %if.end338
 
 if.end338:                                        ; preds = %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit, %if.end334
-  %old_columns_to_preserve.0429 = phi ptr [ %old_columns_to_preserve.0430, %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit ], [ null, %if.end334 ]
-  %old_columns_raw_data.0427 = phi ptr [ %old_columns_raw_data.0428, %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit ], [ null, %if.end334 ]
-  %IsResetAllRequest = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 102
-  %137 = load i8, ptr %IsResetAllRequest, align 8
-  %138 = and i8 %137, 1
-  %tobool339.not = icmp eq i8 %138, 0
+  %old_columns_to_preserve.0430 = phi ptr [ %old_columns_to_preserve.0431, %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit ], [ null, %if.end334 ]
+  %old_columns_raw_data.0428 = phi ptr [ %old_columns_raw_data.0429, %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit ], [ null, %if.end334 ]
+  %IsResetAllRequest = getelementptr inbounds i8, ptr %call23, i64 576
+  %136 = load i8, ptr %IsResetAllRequest, align 8
+  %137 = and i8 %136, 1
+  %tobool339.not = icmp eq i8 %137, 0
   br i1 %tobool339.not, label %if.end341, label %if.end341.thread
 
 if.end341.thread:                                 ; preds = %if.end338
-  %IsSettingsDirty.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 100
+  %IsSettingsDirty.i = getelementptr inbounds i8, ptr %call23, i64 574
   store i8 1, ptr %IsSettingsDirty.i, align 2
-  %IsInitializing.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 94
+  %IsInitializing.i = getelementptr inbounds i8, ptr %call23, i64 568
   store i8 1, ptr %IsInitializing.i, align 8
   store i8 0, ptr %IsResetAllRequest, align 8
-  %IsSettingsRequestLoad.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 99
+  %IsSettingsRequestLoad.i = getelementptr inbounds i8, ptr %call23, i64 573
   store i8 0, ptr %IsSettingsRequestLoad.i, align 1
-  %SettingsLoadedFlags.i = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 10
+  %SettingsLoadedFlags.i = getelementptr inbounds i8, ptr %call23, i64 96
   store i32 0, ptr %SettingsLoadedFlags.i, align 8
   br label %if.then344
 
 if.end341:                                        ; preds = %if.end338
-  %IsInitializing342.phi.trans.insert = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 94
-  %.pre419 = load i8, ptr %IsInitializing342.phi.trans.insert, align 8
-  %139 = and i8 %.pre419, 1
-  %140 = icmp eq i8 %139, 0
-  br i1 %140, label %if.end359, label %if.then344
+  %IsInitializing342.phi.trans.insert = getelementptr inbounds i8, ptr %call23, i64 568
+  %.pre420 = load i8, ptr %IsInitializing342.phi.trans.insert, align 8
+  %138 = and i8 %.pre420, 1
+  %139 = icmp eq i8 %138, 0
+  br i1 %139, label %if.end359, label %if.then344
 
 if.then344:                                       ; preds = %if.end341.thread, %if.end341
-  %SettingsOffset = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 11
+  %SettingsOffset = getelementptr inbounds i8, ptr %call23, i64 100
   store i32 -1, ptr %SettingsOffset, align 4
-  %IsSortSpecsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 95
+  %IsSortSpecsDirty = getelementptr inbounds i8, ptr %call23, i64 569
   store i8 1, ptr %IsSortSpecsDirty, align 1
-  %InstanceInteracted = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 17
+  %InstanceInteracted = getelementptr inbounds i8, ptr %call23, i64 122
   store i16 -1, ptr %InstanceInteracted, align 2
-  %ContextPopupColumn = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 83
+  %ContextPopupColumn = getelementptr inbounds i8, ptr %call23, i64 548
   store i16 -1, ptr %ContextPopupColumn, align 4
-  %LastResizedColumn = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 75
+  %LastResizedColumn = getelementptr inbounds i8, ptr %call23, i64 532
   store i16 -1, ptr %LastResizedColumn, align 4
-  %ResizedColumn = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 74
+  %ResizedColumn = getelementptr inbounds i8, ptr %call23, i64 530
   store i16 -1, ptr %ResizedColumn, align 2
-  %ReorderColumn = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 77
+  %ReorderColumn = getelementptr inbounds i8, ptr %call23, i64 536
   store i16 -1, ptr %ReorderColumn, align 8
-  %AutoFitSingleColumn = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 73
+  %AutoFitSingleColumn = getelementptr inbounds i8, ptr %call23, i64 528
   store i16 -1, ptr %AutoFitSingleColumn, align 8
-  %HoveredColumnBorder = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 71
+  %HoveredColumnBorder = getelementptr inbounds i8, ptr %call23, i64 524
   store i16 -1, ptr %HoveredColumnBorder, align 4
-  %HoveredColumnBody = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 70
+  %HoveredColumnBody = getelementptr inbounds i8, ptr %call23, i64 522
   store i16 -1, ptr %HoveredColumnBody, align 2
-  %cmp345403 = icmp sgt i32 %columns_count, 0
-  br i1 %cmp345403, label %for.body.lr.ph, label %if.end359
+  %cmp345404 = icmp sgt i32 %columns_count, 0
+  br i1 %cmp345404, label %for.body.lr.ph, label %if.end359
 
 for.body.lr.ph:                                   ; preds = %if.then344
-  %tobool348.not = icmp ne ptr %old_columns_to_preserve.0429, null
-  %DisplayOrderToIndex = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 5
-  %sext422 = shl i64 %sub.ptr.div.i368, 32
-  %141 = ashr exact i64 %sext422, 32
+  %tobool348.not = icmp ne ptr %old_columns_to_preserve.0430, null
+  %DisplayOrderToIndex = getelementptr inbounds i8, ptr %call23, i64 40
+  %sext423 = shl i64 %sub.ptr.div.i368, 32
+  %140 = ashr exact i64 %sext423, 32
   %wide.trip.count = zext nneg i32 %columns_count to i64
   %ref.tmp353.sroa.4.52.NameOffset.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp353.sroa.4, i64 52
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end355
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end355 ]
-  %142 = load ptr, ptr %Columns, align 8
-  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %142, i64 %indvars.iv
-  %cmp350 = icmp slt i64 %indvars.iv, %141
+  %141 = load ptr, ptr %Columns, align 8
+  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %141, i64 %indvars.iv
+  %cmp350 = icmp slt i64 %indvars.iv, %140
   %or.cond263 = and i1 %tobool348.not, %cmp350
   br i1 %or.cond263, label %if.then351, label %if.else352
 
 if.then351:                                       ; preds = %for.body
-  %arrayidx = getelementptr inbounds %struct.ImGuiTableColumn, ptr %old_columns_to_preserve.0429, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds %struct.ImGuiTableColumn, ptr %old_columns_to_preserve.0430, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(111) %add.ptr.i, ptr noundef nonnull align 4 dereferenceable(111) %arrayidx, i64 111, i1 false)
   br label %if.end355
 
 if.else352:                                       ; preds = %for.body
-  %WidthAuto = getelementptr inbounds %struct.ImGuiTableColumn, ptr %142, i64 %indvars.iv, i32 5
-  %143 = load float, ptr %WidthAuto, align 4
+  %WidthAuto = getelementptr inbounds i8, ptr %add.ptr.i, i64 20
+  %142 = load float, ptr %WidthAuto, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %ref.tmp353.sroa.4, i8 0, i64 52, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp353.sroa.4.52.NameOffset.i.sroa_idx, i8 -1, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   %ref.tmp353.sroa.2.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   store float -1.000000e+00, ptr %ref.tmp353.sroa.2.0.add.ptr.i.sroa_idx, align 4
-  %ref.tmp353.sroa.3397.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
-  store float -1.000000e+00, ptr %ref.tmp353.sroa.3397.0.add.ptr.i.sroa_idx, align 4
+  %ref.tmp353.sroa.3398.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
+  store float -1.000000e+00, ptr %ref.tmp353.sroa.3398.0.add.ptr.i.sroa_idx, align 4
   %ref.tmp353.sroa.4.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp353.sroa.4.0.add.ptr.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp353.sroa.4, i64 64, i1 false)
   %ref.tmp353.sroa.5.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 92
@@ -1311,13 +1242,14 @@ if.else352:                                       ; preds = %for.body
   %ref.tmp353.sroa.7.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 96
   store i16 255, ptr %ref.tmp353.sroa.7.0.add.ptr.i.sroa_idx, align 4
   %ref.tmp353.sroa.8.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 98
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(13) %ref.tmp353.sroa.8.0.add.ptr.i.sroa_idx, i8 0, i64 13, i1 false)
-  store float %143, ptr %WidthAuto, align 4
-  %IsPreserveWidthAuto = getelementptr inbounds %struct.ImGuiTableColumn, ptr %142, i64 %indvars.iv, i32 33
+  %143 = getelementptr inbounds i8, ptr %add.ptr.i, i64 100
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(11) %143, i8 0, i64 11, i1 false)
+  store float %142, ptr %WidthAuto, align 4
+  %IsPreserveWidthAuto = getelementptr inbounds i8, ptr %add.ptr.i, i64 105
   store i8 1, ptr %IsPreserveWidthAuto, align 1
-  %IsUserEnabledNextFrame = getelementptr inbounds %struct.ImGuiTableColumn, ptr %142, i64 %indvars.iv, i32 28
+  %IsUserEnabledNextFrame = getelementptr inbounds i8, ptr %add.ptr.i, i64 100
   store i8 1, ptr %IsUserEnabledNextFrame, align 4
-  %IsUserEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %142, i64 %indvars.iv, i32 27
+  %IsUserEnabled = getelementptr inbounds i8, ptr %add.ptr.i, i64 99
   store i8 1, ptr %IsUserEnabled, align 1
   store i8 1, ptr %ref.tmp353.sroa.8.0.add.ptr.i.sroa_idx, align 2
   br label %if.end355
@@ -1325,24 +1257,24 @@ if.else352:                                       ; preds = %for.body
 if.end355:                                        ; preds = %if.else352, %if.then351
   %conv356 = trunc i64 %indvars.iv to i16
   %144 = load ptr, ptr %DisplayOrderToIndex, align 8
-  %add.ptr.i376 = getelementptr inbounds i16, ptr %144, i64 %indvars.iv
-  store i16 %conv356, ptr %add.ptr.i376, align 2
-  %DisplayOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %142, i64 %indvars.iv, i32 18
+  %add.ptr.i377 = getelementptr inbounds i16, ptr %144, i64 %indvars.iv
+  store i16 %conv356, ptr %add.ptr.i377, align 2
+  %DisplayOrder = getelementptr inbounds i8, ptr %add.ptr.i, i64 82
   store i16 %conv356, ptr %DisplayOrder, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end359, label %for.body, !llvm.loop !8
 
 if.end359:                                        ; preds = %if.end355, %if.then344, %if.end341
-  %tobool360.not = icmp eq ptr %old_columns_raw_data.0427, null
+  %tobool360.not = icmp eq ptr %old_columns_raw_data.0428, null
   br i1 %tobool360.not, label %if.end362, label %if.then361
 
 if.then361:                                       ; preds = %if.end359
-  call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %old_columns_raw_data.0427)
+  call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %old_columns_raw_data.0428)
   br label %if.end362
 
 if.end362:                                        ; preds = %if.then361, %if.end359
-  %IsSettingsRequestLoad363 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 99
+  %IsSettingsRequestLoad363 = getelementptr inbounds i8, ptr %call23, i64 573
   %145 = load i8, ptr %IsSettingsRequestLoad363, align 1
   %146 = and i8 %145, 1
   %tobool364.not = icmp eq i8 %146, 0
@@ -1353,9 +1285,9 @@ if.then365:                                       ; preds = %if.end362
   br label %if.end366
 
 if.end366:                                        ; preds = %if.then365, %if.end362
-  %FontSize = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 5
+  %FontSize = getelementptr inbounds i8, ptr %0, i64 15680
   %147 = load float, ptr %FontSize, align 8
-  %RefScale = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 43
+  %RefScale = getelementptr inbounds i8, ptr %call23, i64 228
   %148 = load float, ptr %RefScale, align 4
   %cmp367 = fcmp une float %148, 0.000000e+00
   %cmp370 = fcmp une float %148, %147
@@ -1364,59 +1296,59 @@ if.end366:                                        ; preds = %if.then365, %if.end
 
 if.then371:                                       ; preds = %if.end366
   %div = fdiv float %147, %148
-  %cmp375405 = icmp sgt i32 %columns_count, 0
-  br i1 %cmp375405, label %for.body376.preheader, label %if.end385
+  %cmp375406 = icmp sgt i32 %columns_count, 0
+  br i1 %cmp375406, label %for.body376.preheader, label %if.end385
 
 for.body376.preheader:                            ; preds = %if.then371
-  %wide.trip.count411 = zext nneg i32 %columns_count to i64
+  %wide.trip.count412 = zext nneg i32 %columns_count to i64
   br label %for.body376
 
 for.body376:                                      ; preds = %for.body376.preheader, %for.body376
-  %indvars.iv408 = phi i64 [ 0, %for.body376.preheader ], [ %indvars.iv.next409, %for.body376 ]
+  %indvars.iv409 = phi i64 [ 0, %for.body376.preheader ], [ %indvars.iv.next410, %for.body376 ]
   %149 = load ptr, ptr %Columns, align 8
-  %WidthRequest = getelementptr inbounds %struct.ImGuiTableColumn, ptr %149, i64 %indvars.iv408, i32 4
+  %WidthRequest = getelementptr inbounds %struct.ImGuiTableColumn, ptr %149, i64 %indvars.iv409, i32 4
   %150 = load float, ptr %WidthRequest, align 4
   %mul = fmul float %div, %150
   store float %mul, ptr %WidthRequest, align 4
-  %indvars.iv.next409 = add nuw nsw i64 %indvars.iv408, 1
-  %exitcond412.not = icmp eq i64 %indvars.iv.next409, %wide.trip.count411
-  br i1 %exitcond412.not, label %if.end385, label %for.body376, !llvm.loop !9
+  %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
+  %exitcond413.not = icmp eq i64 %indvars.iv.next410, %wide.trip.count412
+  br i1 %exitcond413.not, label %if.end385, label %for.body376, !llvm.loop !9
 
 if.end385:                                        ; preds = %for.body376, %if.then371, %if.end366
   store float %147, ptr %RefScale, align 4
   store i8 1, ptr %SkipItems158, align 1
-  %ColumnsNames = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 57
+  %ColumnsNames = getelementptr inbounds i8, ptr %call23, i64 400
   %151 = load i32, ptr %ColumnsNames, align 8
   %cmp389 = icmp sgt i32 %151, 0
   br i1 %cmp389, label %if.then390, label %if.end393
 
 if.then390:                                       ; preds = %if.end385
-  %Capacity.i381 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 57, i32 0, i32 1
-  %152 = load i32, ptr %Capacity.i381, align 4
-  %cmp.i382 = icmp slt i32 %152, 0
-  br i1 %cmp.i382, label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i, label %_ZN8ImVectorIcE6resizeEi.exit
+  %Capacity.i382 = getelementptr inbounds i8, ptr %call23, i64 404
+  %152 = load i32, ptr %Capacity.i382, align 4
+  %cmp.i383 = icmp slt i32 %152, 0
+  br i1 %cmp.i383, label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i, label %_ZN8ImVectorIcE6resizeEi.exit
 
 _ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %if.then390
-  %call.i.i392 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 0)
-  %Data.i.i393 = getelementptr inbounds %struct.ImGuiTable, ptr %call23, i64 0, i32 57, i32 0, i32 2
-  %153 = load ptr, ptr %Data.i.i393, align 8
+  %call.i.i393 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 0)
+  %Data.i.i394 = getelementptr inbounds i8, ptr %call23, i64 408
+  %153 = load ptr, ptr %Data.i.i394, align 8
   %tobool.not.i4.i = icmp eq ptr %153, null
-  br i1 %tobool.not.i4.i, label %if.end7.i.i396, label %if.then2.i.i394
+  br i1 %tobool.not.i4.i, label %if.end7.i.i397, label %if.then2.i.i395
 
-if.then2.i.i394:                                  ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
+if.then2.i.i395:                                  ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
   %154 = load i32, ptr %ColumnsNames, align 8
-  %conv4.i.i395 = sext i32 %154 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i392, ptr nonnull align 1 %153, i64 %conv4.i.i395, i1 false)
-  %155 = load ptr, ptr %Data.i.i393, align 8
+  %conv4.i.i396 = sext i32 %154 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i393, ptr nonnull align 1 %153, i64 %conv4.i.i396, i1 false)
+  %155 = load ptr, ptr %Data.i.i394, align 8
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %155)
-  br label %if.end7.i.i396
+  br label %if.end7.i.i397
 
-if.end7.i.i396:                                   ; preds = %if.then2.i.i394, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
-  store ptr %call.i.i392, ptr %Data.i.i393, align 8
-  store i32 0, ptr %Capacity.i381, align 4
+if.end7.i.i397:                                   ; preds = %if.then2.i.i395, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
+  store ptr %call.i.i393, ptr %Data.i.i394, align 8
+  store i32 0, ptr %Capacity.i382, align 4
   br label %_ZN8ImVectorIcE6resizeEi.exit
 
-_ZN8ImVectorIcE6resizeEi.exit:                    ; preds = %if.then390, %if.end7.i.i396
+_ZN8ImVectorIcE6resizeEi.exit:                    ; preds = %if.then390, %if.end7.i.i397
   store i32 0, ptr %ColumnsNames, align 8
   br label %if.end393
 
@@ -1441,21 +1373,21 @@ declare noundef zeroext i1 @_ZN5ImGui11IsClippedExERK6ImRectj(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6ImPoolI10ImGuiTableE13GetOrAddByKeyEj(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %key) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %Map = getelementptr inbounds %struct.ImPool, ptr %this, i64 0, i32 1
+  %Map = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef ptr @_ZN12ImGuiStorage9GetIntRefEji(ptr noundef nonnull align 8 dereferenceable(16) %Map, i32 noundef %key, i32 noundef -1)
   %0 = load i32, ptr %call, align 4
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %Data.i = getelementptr inbounds %struct.ImVector.18, ptr %this, i64 0, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Data.i, align 8
   %idxprom.i = sext i32 %0 to i64
   %arrayidx.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 %idxprom.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %FreeIdx = getelementptr inbounds %struct.ImPool, ptr %this, i64 0, i32 2
+  %FreeIdx = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %FreeIdx, align 8
   store i32 %2, ptr %call, align 4
   %3 = load i32, ptr %this, align 8
@@ -1464,13 +1396,13 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %add.i = add nsw i32 %2, 1
-  %Capacity.i.i = getelementptr inbounds %struct.ImVector.18, ptr %this, i64 0, i32 1
+  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i32, ptr %Capacity.i.i, align 4
   %cmp.i.not.i = icmp sgt i32 %4, %2
   br i1 %cmp.i.not.i, label %if.then._ZN8ImVectorI10ImGuiTableE6resizeEi.exit_crit_edge.i, label %if.then.i.i
 
 if.then._ZN8ImVectorI10ImGuiTableE6resizeEi.exit_crit_edge.i: ; preds = %if.then.i
-  %Data.i5.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds %struct.ImVector.18, ptr %this, i64 0, i32 2
+  %Data.i5.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre11.pre.i = load ptr, ptr %Data.i5.phi.trans.insert.phi.trans.insert.i, align 8
   br label %_ZN8ImVectorI10ImGuiTableE6resizeEi.exit.i
 
@@ -1489,7 +1421,7 @@ _ZNK8ImVectorI10ImGuiTableE14_grow_capacityEi.exit.i.i: ; preds = %cond.true.i.i
   %conv.i.i.i = sext i32 %cond7.i.i.i to i64
   %mul.i.i.i = mul nsw i64 %conv.i.i.i, 592
   %call.i.i.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i.i)
-  %Data.i.i.i = getelementptr inbounds %struct.ImVector.18, ptr %this, i64 0, i32 2
+  %Data.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %Data.i.i.i, align 8
   %tobool.not.i4.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i4.i.i, label %if.end7.i.i.i, label %if.then2.i.i.i
@@ -1518,7 +1450,7 @@ _ZN8ImVectorI10ImGuiTableE6resizeEi.exit.i:       ; preds = %if.end7.i.i.i, %if.
   br label %_ZN6ImPoolI10ImGuiTableE3AddEv.exit
 
 if.else.i:                                        ; preds = %if.end
-  %Data.i.i = getelementptr inbounds %struct.ImVector.18, ptr %this, i64 0, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %Data.i.i, align 8
   %idxprom.i.i = sext i32 %2 to i64
   %arrayidx.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %8, i64 %idxprom.i.i
@@ -1530,12 +1462,12 @@ _ZN6ImPoolI10ImGuiTableE3AddEv.exit:              ; preds = %_ZN8ImVectorI10ImGu
   %10 = phi ptr [ %.pre11.i, %_ZN8ImVectorI10ImGuiTableE6resizeEi.exit.i ], [ %8, %if.else.i ]
   %storemerge.i = phi i32 [ %inc.pre-phi.i, %_ZN8ImVectorI10ImGuiTableE6resizeEi.exit.i ], [ %9, %if.else.i ]
   store i32 %storemerge.i, ptr %FreeIdx, align 8
-  %Data.i5.i = getelementptr inbounds %struct.ImVector.18, ptr %this, i64 0, i32 2
+  %Data.i5.i = getelementptr inbounds i8, ptr %this, i64 8
   %arrayidx.i7.i = getelementptr inbounds %struct.ImGuiTable, ptr %10, i64 %idxprom.i6.pre-phi.i
-  %LastFrameActive.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %10, i64 %idxprom.i6.pre-phi.i, i32 12
+  %LastFrameActive.i.i = getelementptr inbounds i8, ptr %arrayidx.i7.i, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %arrayidx.i7.i, i8 0, i64 592, i1 false)
   store i32 -1, ptr %LastFrameActive.i.i, align 8
-  %AliveCount.i = getelementptr inbounds %struct.ImPool, ptr %this, i64 0, i32 3
+  %AliveCount.i = getelementptr inbounds i8, ptr %this, i64 36
   %11 = load i32, ptr %AliveCount.i, align 4
   %inc11.i = add nsw i32 %11, 1
   store i32 %inc11.i, ptr %AliveCount.i, align 4
@@ -1553,12 +1485,12 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18ImGuiTableTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %DrawSplitter = getelementptr inbounds %struct.ImGuiTableTempData, ptr %this, i64 0, i32 5
+  %DrawSplitter = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN18ImDrawListSplitter15ClearFreeMemoryEv(ptr noundef nonnull align 8 dereferenceable(24) %DrawSplitter)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTableTempData, ptr %this, i64 0, i32 5, i32 2, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN18ImDrawListSplitterD2Ev.exit, label %if.then.i.i
@@ -1605,109 +1537,110 @@ entry:
   %span_allocator = alloca %struct.ImSpanAllocator, align 8
   %add.i = add nsw i32 %columns_count, 31
   %mul = mul i32 %columns_count, 112
-  %arrayidx6.i = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator, i64 0, i32 4, i64 0
+  %Offsets.i = getelementptr inbounds i8, ptr %span_allocator, i64 16
+  %Sizes.i = getelementptr inbounds i8, ptr %span_allocator, i64 40
   %0 = getelementptr inbounds i8, ptr %span_allocator, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
-  store i32 %mul, ptr %arrayidx6.i, align 8
+  store i32 %mul, ptr %Sizes.i, align 8
   %mul3 = shl i32 %columns_count, 1
-  %arrayidx.i19 = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator, i64 0, i32 3, i64 1
-  store i32 %mul, ptr %arrayidx.i19, align 4
-  %arrayidx6.i21 = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator, i64 0, i32 4, i64 1
-  store i32 %mul3, ptr %arrayidx6.i21, align 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %span_allocator, i64 20
+  store i32 %mul, ptr %arrayidx.i, align 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %span_allocator, i64 44
+  store i32 %mul3, ptr %arrayidx6.i, align 4
   %mul5 = shl i32 %columns_count, 3
   %add9.i24 = add i32 %mul3, 3
   %add.i26 = add i32 %add9.i24, %mul
   %and.i27 = and i32 %add.i26, -4
-  %arrayidx.i28 = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator, i64 0, i32 3, i64 2
-  store i32 %and.i27, ptr %arrayidx.i28, align 8
-  %arrayidx6.i30 = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator, i64 0, i32 4, i64 2
-  store i32 %mul5, ptr %arrayidx6.i30, align 8
-  %add9.i33 = add nsw i32 %and.i27, %mul5
+  %arrayidx.i29 = getelementptr inbounds i8, ptr %span_allocator, i64 24
+  store i32 %and.i27, ptr %arrayidx.i29, align 8
+  %arrayidx6.i32 = getelementptr inbounds i8, ptr %span_allocator, i64 48
+  store i32 %mul5, ptr %arrayidx6.i32, align 8
+  %add9.i35 = add nsw i32 %and.i27, %mul5
   %1 = ashr i32 %add.i, 3
   %2 = and i32 %1, -4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 3, %entry ], [ %indvars.iv.next, %for.body ]
-  %3 = phi i32 [ %add9.i33, %entry ], [ %add9.i42, %for.body ]
-  %add.i35 = add nsw i32 %3, 3
-  %and.i36 = and i32 %add.i35, -4
-  %arrayidx.i37 = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator, i64 0, i32 3, i64 %indvars.iv
-  store i32 %and.i36, ptr %arrayidx.i37, align 4
-  %arrayidx6.i39 = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator, i64 0, i32 4, i64 %indvars.iv
-  store i32 %2, ptr %arrayidx6.i39, align 4
-  %add9.i42 = add nsw i32 %and.i36, %2
+  %3 = phi i32 [ %add9.i35, %entry ], [ %add9.i46, %for.body ]
+  %add.i37 = add nsw i32 %3, 3
+  %and.i38 = and i32 %add.i37, -4
+  %arrayidx.i40 = getelementptr inbounds [6 x i32], ptr %Offsets.i, i64 0, i64 %indvars.iv
+  store i32 %and.i38, ptr %arrayidx.i40, align 4
+  %arrayidx6.i43 = getelementptr inbounds [6 x i32], ptr %Sizes.i, i64 0, i64 %indvars.iv
+  store i32 %2, ptr %arrayidx6.i43, align 4
+  %add9.i46 = add nsw i32 %and.i38, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
-  %conv8 = sext i32 %add9.i42 to i64
+  %conv8 = sext i32 %add9.i46 to i64
   %call9 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %conv8)
-  %RawData = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 2
+  %RawData = getelementptr inbounds i8, ptr %table, i64 8
   store ptr %call9, ptr %RawData, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %call9, i8 0, i64 %conv8, i1 false)
   %4 = load ptr, ptr %RawData, align 8
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
-  %5 = load i32, ptr %arrayidx6.i, align 8
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
+  %5 = load i32, ptr %Sizes.i, align 8
   %idx.ext4.i.i = sext i32 %5 to i64
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext4.i.i
   store ptr %4, ptr %Columns, align 8
-  %DataEnd.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4, i32 1
+  %DataEnd.i.i = getelementptr inbounds i8, ptr %table, i64 32
   store ptr %add.ptr5.i.i, ptr %DataEnd.i.i, align 8
-  %DisplayOrderToIndex = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 5
-  %6 = load i32, ptr %arrayidx.i19, align 4
-  %idx.ext.i.i46 = sext i32 %6 to i64
-  %add.ptr.i.i47 = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i.i46
-  %7 = load i32, ptr %arrayidx6.i21, align 4
-  %idx.ext4.i.i49 = sext i32 %7 to i64
-  %add.ptr5.i.i50 = getelementptr inbounds i8, ptr %add.ptr.i.i47, i64 %idx.ext4.i.i49
-  store ptr %add.ptr.i.i47, ptr %DisplayOrderToIndex, align 8
-  %DataEnd.i.i51 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 5, i32 1
-  store ptr %add.ptr5.i.i50, ptr %DataEnd.i.i51, align 8
-  %RowCellData = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 6
-  %8 = load i32, ptr %arrayidx.i28, align 8
-  %idx.ext.i.i53 = sext i32 %8 to i64
-  %add.ptr.i.i54 = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i.i53
-  %9 = load i32, ptr %arrayidx6.i30, align 8
-  %idx.ext4.i.i56 = sext i32 %9 to i64
-  %add.ptr5.i.i57 = getelementptr inbounds i8, ptr %add.ptr.i.i54, i64 %idx.ext4.i.i56
-  store ptr %add.ptr.i.i54, ptr %RowCellData, align 8
-  %DataEnd.i.i58 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 6, i32 1
-  store ptr %add.ptr5.i.i57, ptr %DataEnd.i.i58, align 8
-  %arrayidx.i59 = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator, i64 0, i32 3, i64 3
-  %10 = load i32, ptr %arrayidx.i59, align 4
+  %DisplayOrderToIndex = getelementptr inbounds i8, ptr %table, i64 40
+  %6 = load i32, ptr %arrayidx.i, align 4
+  %idx.ext.i.i50 = sext i32 %6 to i64
+  %add.ptr.i.i51 = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i.i50
+  %7 = load i32, ptr %arrayidx6.i, align 4
+  %idx.ext4.i.i53 = sext i32 %7 to i64
+  %add.ptr5.i.i54 = getelementptr inbounds i8, ptr %add.ptr.i.i51, i64 %idx.ext4.i.i53
+  store ptr %add.ptr.i.i51, ptr %DisplayOrderToIndex, align 8
+  %DataEnd.i.i55 = getelementptr inbounds i8, ptr %table, i64 48
+  store ptr %add.ptr5.i.i54, ptr %DataEnd.i.i55, align 8
+  %RowCellData = getelementptr inbounds i8, ptr %table, i64 56
+  %8 = load i32, ptr %arrayidx.i29, align 8
+  %idx.ext.i.i58 = sext i32 %8 to i64
+  %add.ptr.i.i59 = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i.i58
+  %9 = load i32, ptr %arrayidx6.i32, align 8
+  %idx.ext4.i.i62 = sext i32 %9 to i64
+  %add.ptr5.i.i63 = getelementptr inbounds i8, ptr %add.ptr.i.i59, i64 %idx.ext4.i.i62
+  store ptr %add.ptr.i.i59, ptr %RowCellData, align 8
+  %DataEnd.i.i64 = getelementptr inbounds i8, ptr %table, i64 64
+  store ptr %add.ptr5.i.i63, ptr %DataEnd.i.i64, align 8
+  %arrayidx.i66 = getelementptr inbounds i8, ptr %span_allocator, i64 28
+  %10 = load i32, ptr %arrayidx.i66, align 4
   %idx.ext.i = sext i32 %10 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i
-  %EnabledMaskByDisplayOrder = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 7
+  %EnabledMaskByDisplayOrder = getelementptr inbounds i8, ptr %table, i64 72
   store ptr %add.ptr.i, ptr %EnabledMaskByDisplayOrder, align 8
-  %arrayidx.i60 = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator, i64 0, i32 3, i64 4
-  %11 = load i32, ptr %arrayidx.i60, align 8
-  %idx.ext.i61 = sext i32 %11 to i64
-  %add.ptr.i62 = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i61
-  %EnabledMaskByIndex = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 8
-  store ptr %add.ptr.i62, ptr %EnabledMaskByIndex, align 8
-  %arrayidx.i63 = getelementptr inbounds %struct.ImSpanAllocator, ptr %span_allocator, i64 0, i32 3, i64 5
-  %12 = load i32, ptr %arrayidx.i63, align 4
-  %idx.ext.i64 = sext i32 %12 to i64
-  %add.ptr.i65 = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i64
-  %VisibleMaskByIndex = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 9
-  store ptr %add.ptr.i65, ptr %VisibleMaskByIndex, align 8
+  %arrayidx.i68 = getelementptr inbounds i8, ptr %span_allocator, i64 32
+  %11 = load i32, ptr %arrayidx.i68, align 8
+  %idx.ext.i69 = sext i32 %11 to i64
+  %add.ptr.i70 = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i69
+  %EnabledMaskByIndex = getelementptr inbounds i8, ptr %table, i64 80
+  store ptr %add.ptr.i70, ptr %EnabledMaskByIndex, align 8
+  %arrayidx.i72 = getelementptr inbounds i8, ptr %span_allocator, i64 36
+  %12 = load i32, ptr %arrayidx.i72, align 4
+  %idx.ext.i73 = sext i32 %12 to i64
+  %add.ptr.i74 = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i73
+  %VisibleMaskByIndex = getelementptr inbounds i8, ptr %table, i64 88
+  store ptr %add.ptr.i74, ptr %VisibleMaskByIndex, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5ImGui18TableResetSettingsEP10ImGuiTable(ptr nocapture noundef writeonly %table) local_unnamed_addr #5 {
 entry:
-  %IsSettingsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 100
+  %IsSettingsDirty = getelementptr inbounds i8, ptr %table, i64 574
   store i8 1, ptr %IsSettingsDirty, align 2
-  %IsInitializing = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 94
+  %IsInitializing = getelementptr inbounds i8, ptr %table, i64 568
   store i8 1, ptr %IsInitializing, align 8
-  %IsResetAllRequest = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 102
+  %IsResetAllRequest = getelementptr inbounds i8, ptr %table, i64 576
   store i8 0, ptr %IsResetAllRequest, align 8
-  %IsSettingsRequestLoad = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 99
+  %IsSettingsRequestLoad = getelementptr inbounds i8, ptr %table, i64 573
   store i8 0, ptr %IsSettingsRequestLoad, align 1
-  %SettingsLoadedFlags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 10
+  %SettingsLoadedFlags = getelementptr inbounds i8, ptr %table, i64 96
   store i32 0, ptr %SettingsLoadedFlags, align 8
   ret void
 }
@@ -1718,24 +1651,24 @@ declare void @_ZN5ImGui7MemFreeEPv(ptr noundef) local_unnamed_addr #1
 define void @_ZN5ImGui17TableLoadSettingsEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %IsSettingsRequestLoad = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 99
+  %IsSettingsRequestLoad = getelementptr inbounds i8, ptr %table, i64 573
   store i8 0, ptr %IsSettingsRequestLoad, align 1
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %table, i64 4
   %1 = load i32, ptr %Flags, align 4
   %and = and i32 %1, 16
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %for.end92
 
 if.end:                                           ; preds = %entry
-  %SettingsOffset = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 11
+  %SettingsOffset = getelementptr inbounds i8, ptr %table, i64 100
   %2 = load i32, ptr %SettingsOffset, align 4
   %cmp = icmp eq i32 %2, -1
   br i1 %cmp, label %if.then1, label %if.then.i
 
 if.then1:                                         ; preds = %if.end
   %3 = load i32, ptr %table, align 8
-  %SettingsTables.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218
-  %Data.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218, i32 0, i32 2
+  %SettingsTables.i = getelementptr inbounds i8, ptr %0, i64 24384
+  %Data.i.i = getelementptr inbounds i8, ptr %0, i64 24392
   %4 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   %add.ptr.i.i = getelementptr i8, ptr %4, i64 4
@@ -1748,7 +1681,7 @@ for.body.i:                                       ; preds = %if.then1, %for.inc.
   br i1 %cmp1.i, label %if.end4, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %settings.08.i, i64 -1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %settings.08.i, i64 -4
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
   %idx.ext.i.i = sext i32 %6 to i64
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %settings.08.i, i64 %idx.ext.i.i
@@ -1759,16 +1692,16 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i.i, label %for.end92, label %for.body.i
 
 if.end4:                                          ; preds = %for.body.i
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.08.i, i64 0, i32 3
+  %ColumnsCount = getelementptr inbounds i8, ptr %settings.08.i, i64 12
   %8 = load i16, ptr %ColumnsCount, align 4
   %conv = sext i16 %8 to i32
-  %ColumnsCount5 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount5 = getelementptr inbounds i8, ptr %table, i64 108
   %9 = load i32, ptr %ColumnsCount5, align 4
   %cmp6.not = icmp eq i32 %9, %conv
   br i1 %cmp6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %IsSettingsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 100
+  %IsSettingsDirty = getelementptr inbounds i8, ptr %table, i64 574
   store i8 1, ptr %IsSettingsDirty, align 2
   %.pre = load ptr, ptr %Data.i.i, align 8
   br label %if.end8
@@ -1783,14 +1716,14 @@ if.end8:                                          ; preds = %if.then7, %if.end4
   br label %if.end12
 
 if.then.i:                                        ; preds = %if.end
-  %Data.i.i55 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218, i32 0, i32 2
+  %Data.i.i55 = getelementptr inbounds i8, ptr %0, i64 24392
   %11 = load ptr, ptr %Data.i.i55, align 8
   %idx.ext.i.i56 = sext i32 %2 to i64
   %add.ptr.i.i57 = getelementptr inbounds i8, ptr %11, i64 %idx.ext.i.i56
-  %ColumnsCountMax.i = getelementptr inbounds %struct.ImGuiTableSettings, ptr %add.ptr.i.i57, i64 0, i32 4
+  %ColumnsCountMax.i = getelementptr inbounds i8, ptr %add.ptr.i.i57, i64 14
   %12 = load i16, ptr %ColumnsCountMax.i, align 2
   %conv.i58 = sext i16 %12 to i32
-  %ColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount.i = getelementptr inbounds i8, ptr %table, i64 108
   %13 = load i32, ptr %ColumnsCount.i, align 4
   %cmp2.not.i = icmp sgt i32 %13, %conv.i58
   br i1 %cmp2.not.i, label %if.end.i, label %if.end12
@@ -1801,30 +1734,30 @@ if.end.i:                                         ; preds = %if.then.i
 
 if.end12:                                         ; preds = %if.end.i, %if.then.i, %if.end8
   %settings.0 = phi ptr [ %settings.08.i, %if.end8 ], [ %add.ptr.i.i57, %if.then.i ], [ null, %if.end.i ]
-  %SaveFlags = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.0, i64 0, i32 1
+  %SaveFlags = getelementptr inbounds i8, ptr %settings.0, i64 4
   %14 = load i32, ptr %SaveFlags, align 4
-  %SettingsLoadedFlags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 10
+  %SettingsLoadedFlags = getelementptr inbounds i8, ptr %table, i64 96
   store i32 %14, ptr %SettingsLoadedFlags, align 8
-  %RefScale = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.0, i64 0, i32 2
+  %RefScale = getelementptr inbounds i8, ptr %settings.0, i64 8
   %15 = load float, ptr %RefScale, align 4
-  %RefScale13 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 43
+  %RefScale13 = getelementptr inbounds i8, ptr %table, i64 228
   store float %15, ptr %RefScale13, align 4
-  %ColumnsCount15 = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.0, i64 0, i32 3
+  %ColumnsCount15 = getelementptr inbounds i8, ptr %settings.0, i64 12
   %16 = load i16, ptr %ColumnsCount15, align 4
   %cmp1771 = icmp sgt i16 %16, 0
   br i1 %cmp1771, label %for.body.lr.ph, label %for.end.thread
 
 for.end.thread:                                   ; preds = %if.end12
   %conv1670 = sext i16 %16 to i64
-  %sh_prom6297 = and i64 %conv1670, 4294967295
-  %notmask98 = shl nsw i64 -1, %sh_prom6297
-  %sub99 = xor i64 %notmask98, -1
+  %sh_prom6295 = and i64 %conv1670, 4294967295
+  %notmask96 = shl nsw i64 -1, %sh_prom6295
+  %sub97 = xor i64 %notmask96, -1
   br label %31
 
 for.body.lr.ph:                                   ; preds = %if.end12
-  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.0, i64 1
-  %ColumnsCount20 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %settings.0, i64 20
+  %ColumnsCount20 = getelementptr inbounds i8, ptr %table, i64 108
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1832,7 +1765,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %column_settings.074 = phi ptr [ %add.ptr.i, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %display_order_mask.073 = phi i64 [ 0, %for.body.lr.ph ], [ %display_order_mask.1, %for.inc ]
   %data_n.072 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %Index = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column_settings.074, i64 0, i32 2
+  %Index = getelementptr inbounds i8, ptr %column_settings.074, i64 8
   %18 = load i16, ptr %Index, align 4
   %cmp19 = icmp slt i16 %18, 0
   br i1 %cmp19, label %for.inc, label %lor.lhs.false
@@ -1846,73 +1779,73 @@ lor.lhs.false:                                    ; preds = %for.body
 if.end23:                                         ; preds = %lor.lhs.false
   %20 = load ptr, ptr %Columns, align 8
   %idx.ext.i = zext nneg i16 %18 to i64
+  %add.ptr.i59 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %20, i64 %idx.ext.i
   %21 = load i32, ptr %SaveFlags, align 4
   %and26 = and i32 %21, 1
   %tobool27.not = icmp eq i32 %and26, 0
   br i1 %tobool27.not, label %if.end34, label %if.then28
 
 if.then28:                                        ; preds = %if.end23
-  %IsStretch = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column_settings.074, i64 0, i32 5
+  %IsStretch = getelementptr inbounds i8, ptr %column_settings.074, i64 14
   %bf.load = load i8, ptr %IsStretch, align 2
   %22 = and i8 %bf.load, 8
   %tobool29.not = icmp eq i8 %22, 0
   %23 = load float, ptr %column_settings.074, align 4
-  %WidthRequest = getelementptr inbounds %struct.ImGuiTableColumn, ptr %20, i64 %idx.ext.i, i32 4
-  %StretchWeight = getelementptr inbounds %struct.ImGuiTableColumn, ptr %20, i64 %idx.ext.i, i32 6
-  %WidthRequest.sink = select i1 %tobool29.not, ptr %WidthRequest, ptr %StretchWeight
-  store float %23, ptr %WidthRequest.sink, align 4
-  %AutoFitQueue = getelementptr inbounds %struct.ImGuiTableColumn, ptr %20, i64 %idx.ext.i, i32 35
+  %. = select i1 %tobool29.not, i64 16, i64 24
+  %WidthRequest = getelementptr inbounds i8, ptr %add.ptr.i59, i64 %.
+  store float %23, ptr %WidthRequest, align 4
+  %AutoFitQueue = getelementptr inbounds i8, ptr %add.ptr.i59, i64 107
   store i8 0, ptr %AutoFitQueue, align 1
-  %.pre91 = load i32, ptr %SaveFlags, align 4
+  %.pre89 = load i32, ptr %SaveFlags, align 4
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then28, %if.end23
-  %24 = phi i32 [ %.pre91, %if.then28 ], [ %21, %if.end23 ]
+  %24 = phi i32 [ %.pre89, %if.then28 ], [ %21, %if.end23 ]
   %and36 = and i32 %24, 2
   %tobool37.not = icmp eq i32 %and36, 0
   br i1 %tobool37.not, label %if.end43, label %if.then38
 
 if.then38:                                        ; preds = %if.end34
-  %DisplayOrder = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column_settings.074, i64 0, i32 3
+  %DisplayOrder = getelementptr inbounds i8, ptr %column_settings.074, i64 10
   %25 = load i16, ptr %DisplayOrder, align 2
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end34, %if.then38
   %.sink = phi i16 [ %25, %if.then38 ], [ %18, %if.end34 ]
-  %26 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %20, i64 %idx.ext.i, i32 18
+  %26 = getelementptr inbounds i8, ptr %add.ptr.i59, i64 82
   store i16 %.sink, ptr %26, align 2
   %conv45 = sext i16 %.sink to i64
   %sh_prom = and i64 %conv45, 4294967295
   %shl = shl nuw i64 1, %sh_prom
   %or = or i64 %shl, %display_order_mask.073
-  %IsEnabled = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column_settings.074, i64 0, i32 5
+  %IsEnabled = getelementptr inbounds i8, ptr %column_settings.074, i64 14
   %bf.load46 = load i8, ptr %IsEnabled, align 2
-  %IsUserEnabledNextFrame = getelementptr inbounds %struct.ImGuiTableColumn, ptr %20, i64 %idx.ext.i, i32 28
+  %IsUserEnabledNextFrame = getelementptr inbounds i8, ptr %add.ptr.i59, i64 100
   %27 = lshr i8 %bf.load46, 2
   %.lobit = and i8 %27, 1
   store i8 %.lobit, ptr %IsUserEnabledNextFrame, align 4
-  %IsUserEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %20, i64 %idx.ext.i, i32 27
+  %IsUserEnabled = getelementptr inbounds i8, ptr %add.ptr.i59, i64 99
   store i8 %.lobit, ptr %IsUserEnabled, align 1
-  %SortOrder = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column_settings.074, i64 0, i32 4
+  %SortOrder = getelementptr inbounds i8, ptr %column_settings.074, i64 12
   %28 = load i16, ptr %SortOrder, align 4
-  %SortOrder51 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %20, i64 %idx.ext.i, i32 22
+  %SortOrder51 = getelementptr inbounds i8, ptr %add.ptr.i59, i64 90
   store i16 %28, ptr %SortOrder51, align 2
   %bf.load52 = load i8, ptr %IsEnabled, align 2
   %bf.clear53 = and i8 %bf.load52, 3
-  %SortDirection54 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %20, i64 %idx.ext.i, i32 37
+  %SortDirection54 = getelementptr inbounds i8, ptr %add.ptr.i59, i64 109
   %bf.load55 = load i8, ptr %SortDirection54, align 1
   %bf.clear56 = and i8 %bf.load55, -4
   %bf.set = or disjoint i8 %bf.clear56, %bf.clear53
   store i8 %bf.set, ptr %SortDirection54, align 1
-  %.pre92 = load i16, ptr %ColumnsCount15, align 4
+  %.pre90 = load i16, ptr %ColumnsCount15, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %lor.lhs.false, %if.end43
-  %29 = phi i16 [ %17, %for.body ], [ %17, %lor.lhs.false ], [ %.pre92, %if.end43 ]
+  %29 = phi i16 [ %17, %for.body ], [ %17, %lor.lhs.false ], [ %.pre90, %if.end43 ]
   %display_order_mask.1 = phi i64 [ %display_order_mask.073, %for.body ], [ %display_order_mask.073, %lor.lhs.false ], [ %or, %if.end43 ]
   %.fr = freeze i16 %29
   %inc = add nuw nsw i32 %data_n.072, 1
-  %incdec.ptr = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column_settings.074, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %column_settings.074, i64 16
   %conv16 = sext i16 %.fr to i32
   %cmp17 = icmp slt i32 %inc, %conv16
   br i1 %cmp17, label %for.body, label %for.end, !llvm.loop !10
@@ -1926,19 +1859,19 @@ for.end:                                          ; preds = %for.inc
   br label %31
 
 31:                                               ; preds = %for.end, %for.end.thread
-  %display_order_mask.0.lcssa101 = phi i64 [ 0, %for.end.thread ], [ %display_order_mask.1, %for.end ]
-  %32 = phi i64 [ %sub99, %for.end.thread ], [ %spec.select, %for.end ]
-  %cmp64.not = icmp eq i64 %display_order_mask.0.lcssa101, %32
-  %ColumnsCount81.phi.trans.insert = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
-  %.pre93 = load i32, ptr %ColumnsCount81.phi.trans.insert, align 4
+  %display_order_mask.0.lcssa99 = phi i64 [ 0, %for.end.thread ], [ %display_order_mask.1, %for.end ]
+  %32 = phi i64 [ %sub97, %for.end.thread ], [ %spec.select, %for.end ]
+  %cmp64.not = icmp eq i64 %display_order_mask.0.lcssa99, %32
+  %ColumnsCount81.phi.trans.insert = getelementptr inbounds i8, ptr %table, i64 108
+  %.pre91 = load i32, ptr %ColumnsCount81.phi.trans.insert, align 4
   br i1 %cmp64.not, label %if.end78, label %for.cond67.preheader
 
 for.cond67.preheader:                             ; preds = %31
-  %cmp6979 = icmp sgt i32 %.pre93, 0
-  br i1 %cmp6979, label %for.body70.lr.ph, label %for.end92
+  %cmp6977 = icmp sgt i32 %.pre91, 0
+  br i1 %cmp6977, label %for.body70.lr.ph, label %for.end92
 
 for.body70.lr.ph:                                 ; preds = %for.cond67.preheader
-  %Columns72 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns72 = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.body70
 
 for.body70:                                       ; preds = %for.body70.lr.ph, %for.body70
@@ -1954,30 +1887,30 @@ for.body70:                                       ; preds = %for.body70.lr.ph, %
   br i1 %cmp69, label %for.body70, label %if.end78, !llvm.loop !11
 
 if.end78:                                         ; preds = %for.body70, %31
-  %36 = phi i32 [ %.pre93, %31 ], [ %34, %for.body70 ]
-  %ColumnsCount81 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
-  %cmp8281 = icmp sgt i32 %36, 0
-  br i1 %cmp8281, label %for.body83.lr.ph, label %for.end92
+  %36 = phi i32 [ %.pre91, %31 ], [ %34, %for.body70 ]
+  %ColumnsCount81 = getelementptr inbounds i8, ptr %table, i64 108
+  %cmp8279 = icmp sgt i32 %36, 0
+  br i1 %cmp8279, label %for.body83.lr.ph, label %for.end92
 
 for.body83.lr.ph:                                 ; preds = %if.end78
-  %DisplayOrderToIndex = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 5
-  %Columns85 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %DisplayOrderToIndex = getelementptr inbounds i8, ptr %table, i64 40
+  %Columns85 = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.body83
 
 for.body83:                                       ; preds = %for.body83.lr.ph, %for.body83
-  %indvars.iv88 = phi i64 [ 0, %for.body83.lr.ph ], [ %indvars.iv.next89, %for.body83 ]
-  %conv84 = trunc i64 %indvars.iv88 to i16
+  %indvars.iv86 = phi i64 [ 0, %for.body83.lr.ph ], [ %indvars.iv.next87, %for.body83 ]
+  %conv84 = trunc i64 %indvars.iv86 to i16
   %37 = load ptr, ptr %Columns85, align 8
-  %DisplayOrder87 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %37, i64 %indvars.iv88, i32 18
+  %DisplayOrder87 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %37, i64 %indvars.iv86, i32 18
   %38 = load i16, ptr %DisplayOrder87, align 2
   %39 = load ptr, ptr %DisplayOrderToIndex, align 8
   %idx.ext.i64 = sext i16 %38 to i64
   %add.ptr.i65 = getelementptr inbounds i16, ptr %39, i64 %idx.ext.i64
   store i16 %conv84, ptr %add.ptr.i65, align 2
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %40 = load i32, ptr %ColumnsCount81, align 4
   %41 = sext i32 %40 to i64
-  %cmp82 = icmp slt i64 %indvars.iv.next89, %41
+  %cmp82 = icmp slt i64 %indvars.iv.next87, %41
   br i1 %cmp82, label %for.body83, label %for.end92, !llvm.loop !12
 
 for.end92:                                        ; preds = %for.inc.i, %for.body83, %for.cond67.preheader, %if.end78, %if.then1, %entry
@@ -1987,20 +1920,20 @@ for.end92:                                        ; preds = %for.inc.i, %for.bod
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5ImGui23TableBeginApplyRequestsEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #7 {
 entry:
-  %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 16
+  %InstanceCurrent = getelementptr inbounds i8, ptr %table, i64 120
   %0 = load i16, ptr %InstanceCurrent, align 8
   %cmp = icmp eq i16 %0, 0
   br i1 %cmp, label %if.then, label %if.end82
 
 if.then:                                          ; preds = %entry
-  %ResizedColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 74
+  %ResizedColumn = getelementptr inbounds i8, ptr %table, i64 530
   %1 = load i16, ptr %ResizedColumn, align 2
   %conv1 = sext i16 %1 to i32
   %cmp2.not = icmp eq i16 %1, -1
   br i1 %cmp2.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %ResizedColumnNextWidth = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 41
+  %ResizedColumnNextWidth = getelementptr inbounds i8, ptr %table, i64 220
   %2 = load float, ptr %ResizedColumnNextWidth, align 4
   %cmp3 = fcmp une float %2, 0x47EFFFFFE0000000
   br i1 %cmp3, label %if.then4, label %if.end
@@ -2012,19 +1945,19 @@ if.then4:                                         ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then4, %land.lhs.true, %if.then
   %3 = phi i16 [ %.pre, %if.then4 ], [ %1, %land.lhs.true ], [ -1, %if.then ]
-  %LastResizedColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 75
+  %LastResizedColumn = getelementptr inbounds i8, ptr %table, i64 532
   store i16 %3, ptr %LastResizedColumn, align 4
-  %ResizedColumnNextWidth9 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 41
+  %ResizedColumnNextWidth9 = getelementptr inbounds i8, ptr %table, i64 220
   store float 0x47EFFFFFE0000000, ptr %ResizedColumnNextWidth9, align 4
   store i16 -1, ptr %ResizedColumn, align 2
-  %AutoFitSingleColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 73
+  %AutoFitSingleColumn = getelementptr inbounds i8, ptr %table, i64 528
   %4 = load i16, ptr %AutoFitSingleColumn, align 8
   %cmp12.not = icmp eq i16 %4, -1
   br i1 %cmp12.not, label %if.end20, label %if.then13
 
 if.then13:                                        ; preds = %if.end
   %conv11 = sext i16 %4 to i32
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   %5 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i16 %4 to i64
   %WidthAuto = getelementptr inbounds %struct.ImGuiTableColumn, ptr %5, i64 %idx.ext.i, i32 5
@@ -2039,10 +1972,10 @@ if.end20:                                         ; preds = %if.end, %if.then13
   br i1 %cmp23, label %if.then24, label %if.end82
 
 if.then24:                                        ; preds = %if.end20
-  %HeldHeaderColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 76
+  %HeldHeaderColumn = getelementptr inbounds i8, ptr %table, i64 534
   %7 = load i16, ptr %HeldHeaderColumn, align 2
   %cmp26 = icmp eq i16 %7, -1
-  %ReorderColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 77
+  %ReorderColumn = getelementptr inbounds i8, ptr %table, i64 536
   %8 = load i16, ptr %ReorderColumn, align 8
   br i1 %cmp26, label %land.lhs.true27, label %if.end32
 
@@ -2064,22 +1997,22 @@ if.end32:                                         ; preds = %if.then24
   br i1 %cmp36.not, label %if.end82, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %if.end32
-  %ReorderColumnDir = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 78
+  %ReorderColumnDir = getelementptr inbounds i8, ptr %table, i64 538
   %9 = load i16, ptr %ReorderColumnDir, align 2
   %cmp39.not = icmp eq i16 %9, 0
   br i1 %cmp39.not, label %if.end82, label %if.then40
 
 if.then40:                                        ; preds = %land.lhs.true37
-  %Columns43 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns43 = getelementptr inbounds i8, ptr %table, i64 24
   %10 = load ptr, ptr %Columns43, align 8
   %idx.ext.i55 = sext i16 %8 to i64
+  %add.ptr.i56 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %10, i64 %idx.ext.i55
   %cmp48 = icmp eq i16 %9, -1
-  %PrevEnabledColumn = getelementptr inbounds %struct.ImGuiTableColumn, ptr %10, i64 %idx.ext.i55, i32 20
-  %NextEnabledColumn = getelementptr inbounds %struct.ImGuiTableColumn, ptr %10, i64 %idx.ext.i55, i32 21
-  %cond.in = select i1 %cmp48, ptr %PrevEnabledColumn, ptr %NextEnabledColumn
+  %cond.in.v = select i1 %cmp48, i64 86, i64 88
+  %cond.in = getelementptr inbounds i8, ptr %add.ptr.i56, i64 %cond.in.v
   %cond = load i16, ptr %cond.in, align 2
   %idx.ext.i57 = sext i16 %cond to i64
-  %DisplayOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %10, i64 %idx.ext.i55, i32 18
+  %DisplayOrder = getelementptr inbounds i8, ptr %add.ptr.i56, i64 82
   %11 = load i16, ptr %DisplayOrder, align 2
   %DisplayOrder52 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %10, i64 %idx.ext.i57, i32 18
   %12 = load i16, ptr %DisplayOrder52, align 2
@@ -2089,19 +2022,19 @@ if.then40:                                        ; preds = %land.lhs.true37
   br i1 %cmp57.not72, label %for.cond68.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then40
-  %DisplayOrderToIndex = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 5
+  %DisplayOrderToIndex = getelementptr inbounds i8, ptr %table, i64 40
   %13 = sext i16 %11 to i64
   %14 = sext i16 %9 to i64
   br label %for.body
 
 for.cond68.preheader:                             ; preds = %for.body, %if.then40
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %15 = load i32, ptr %ColumnsCount, align 4
   %cmp6974 = icmp sgt i32 %15, 0
   br i1 %cmp6974, label %for.body70.lr.ph, label %for.end79
 
 for.body70.lr.ph:                                 ; preds = %for.cond68.preheader
-  %DisplayOrderToIndex72 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 5
+  %DisplayOrderToIndex72 = getelementptr inbounds i8, ptr %table, i64 40
   br label %for.body70
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -2138,26 +2071,26 @@ for.body70:                                       ; preds = %for.body70.lr.ph, %
 
 for.end79:                                        ; preds = %for.body70, %for.cond68.preheader
   store i16 0, ptr %ReorderColumnDir, align 2
-  %IsSettingsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 100
+  %IsSettingsDirty = getelementptr inbounds i8, ptr %table, i64 574
   store i8 1, ptr %IsSettingsDirty, align 2
   br label %if.end82
 
 if.end82:                                         ; preds = %if.end32.thread, %entry, %if.end32, %land.lhs.true37, %for.end79, %if.end20
-  %IsResetDisplayOrderRequest = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 103
+  %IsResetDisplayOrderRequest = getelementptr inbounds i8, ptr %table, i64 577
   %26 = load i8, ptr %IsResetDisplayOrderRequest, align 1
   %27 = and i8 %26, 1
   %tobool.not = icmp eq i8 %27, 0
   br i1 %tobool.not, label %if.end99, label %for.cond84.preheader
 
 for.cond84.preheader:                             ; preds = %if.end82
-  %ColumnsCount85 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount85 = getelementptr inbounds i8, ptr %table, i64 108
   %28 = load i32, ptr %ColumnsCount85, align 4
   %cmp8676 = icmp sgt i32 %28, 0
   br i1 %cmp8676, label %for.body87.lr.ph, label %for.end96
 
 for.body87.lr.ph:                                 ; preds = %for.cond84.preheader
-  %Columns89 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
-  %DisplayOrderToIndex92 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 5
+  %Columns89 = getelementptr inbounds i8, ptr %table, i64 24
+  %DisplayOrderToIndex92 = getelementptr inbounds i8, ptr %table, i64 40
   br label %for.body87
 
 for.body87:                                       ; preds = %for.body87.lr.ph, %for.body87
@@ -2177,7 +2110,7 @@ for.body87:                                       ; preds = %for.body87.lr.ph, %
 
 for.end96:                                        ; preds = %for.body87, %for.cond84.preheader
   store i8 0, ptr %IsResetDisplayOrderRequest, align 1
-  %IsSettingsDirty98 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 100
+  %IsSettingsDirty98 = getelementptr inbounds i8, ptr %table, i64 574
   store i8 1, ptr %IsSettingsDirty98, align 2
   br label %if.end99
 
@@ -2194,33 +2127,33 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 define void @_ZN5ImGui19TableSetColumnWidthEif(i32 noundef %column_n, float noundef %width) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i32 %column_n to i64
   %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i
-  %MinColumnWidth = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 32
+  %MinColumnWidth = getelementptr inbounds i8, ptr %1, i64 184
   %3 = load float, ptr %MinColumnWidth, align 8
-  %CellPaddingX.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 34
+  %CellPaddingX.i = getelementptr inbounds i8, ptr %1, i64 192
   %4 = load float, ptr %CellPaddingX.i, align 8
   %5 = tail call float @llvm.fmuladd.f32(float %4, float 2.000000e+00, float %3)
-  %CellSpacingX1.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 35
+  %CellSpacingX1.i = getelementptr inbounds i8, ptr %1, i64 196
   %6 = load float, ptr %CellSpacingX1.i, align 4
   %add.i = fadd float %5, %6
-  %CellSpacingX2.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 36
+  %CellSpacingX2.i = getelementptr inbounds i8, ptr %1, i64 200
   %7 = load float, ptr %CellSpacingX2.i, align 8
   %add1.i = fadd float %add.i, %7
-  %Flags.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 1
+  %Flags.i = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %Flags.i, align 4
   %and.i = and i32 %8, 16777216
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %DisplayOrder.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i, i32 18
+  %DisplayOrder.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 82
   %9 = load i16, ptr %DisplayOrder.i, align 2
-  %FreezeColumnsRequest.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 86
+  %FreezeColumnsRequest.i = getelementptr inbounds i8, ptr %1, i64 554
   %10 = load i16, ptr %FreezeColumnsRequest.i, align 2
   %cmp.i = icmp slt i16 %9, %10
   br i1 %cmp.i, label %if.then3.i, label %_ZN5ImGui22TableGetMaxColumnWidthEPK10ImGuiTablei.exit
@@ -2228,16 +2161,16 @@ if.then.i:                                        ; preds = %entry
 if.then3.i:                                       ; preds = %if.then.i
   %conv2.i = sext i16 %10 to i32
   %conv.i = sext i16 %9 to i32
-  %Max.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 49, i32 1
+  %Max.i = getelementptr inbounds i8, ptr %1, i64 296
   %11 = load float, ptr %Max.i, align 8
   %sub.i = sub nsw i32 %conv2.i, %conv.i
   %conv8.i = sitofp i32 %sub.i to float
   %neg.i = fneg float %conv8.i
   %12 = tail call float @llvm.fmuladd.f32(float %neg.i, float %add1.i, float %11)
-  %MinX.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i, i32 2
+  %MinX.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %13 = load float, ptr %MinX.i, align 4
   %sub9.i = fsub float %12, %13
-  %OuterPaddingX.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 33
+  %OuterPaddingX.i = getelementptr inbounds i8, ptr %1, i64 188
   %14 = load float, ptr %OuterPaddingX.i, align 4
   %sub10.i = fsub float %sub9.i, %14
   %sub12.i = fsub float %sub10.i, %4
@@ -2250,12 +2183,12 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp17.i, label %if.then18.i, label %_ZN5ImGui22TableGetMaxColumnWidthEPK10ImGuiTablei.exit
 
 if.then18.i:                                      ; preds = %if.else.i
-  %Max19.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 48, i32 1
+  %Max19.i = getelementptr inbounds i8, ptr %1, i64 280
   %15 = load float, ptr %Max19.i, align 8
-  %ColumnsEnabledCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 66
+  %ColumnsEnabledCount.i = getelementptr inbounds i8, ptr %1, i64 514
   %16 = load i16, ptr %ColumnsEnabledCount.i, align 2
   %conv21.i = sext i16 %16 to i32
-  %IndexWithinEnabledSet.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i, i32 19
+  %IndexWithinEnabledSet.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 84
   %17 = load i16, ptr %IndexWithinEnabledSet.i, align 4
   %18 = xor i16 %17, -1
   %19 = sext i16 %18 to i32
@@ -2263,13 +2196,13 @@ if.then18.i:                                      ; preds = %if.else.i
   %conv25.i = sitofp i32 %sub24.i to float
   %neg26.i = fneg float %conv25.i
   %20 = tail call float @llvm.fmuladd.f32(float %neg26.i, float %add1.i, float %15)
-  %MinX27.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i, i32 2
+  %MinX27.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %21 = load float, ptr %MinX27.i, align 4
   %sub28.i = fsub float %20, %21
   %sub30.i = fsub float %sub28.i, %7
   %neg32.i = fneg float %4
   %22 = tail call float @llvm.fmuladd.f32(float %neg32.i, float 2.000000e+00, float %sub30.i)
-  %OuterPaddingX33.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 33
+  %OuterPaddingX33.i = getelementptr inbounds i8, ptr %1, i64 188
   %23 = load float, ptr %OuterPaddingX33.i, align 4
   %sub34.i = fsub float %22, %23
   br label %_ZN5ImGui22TableGetMaxColumnWidthEPK10ImGuiTablei.exit
@@ -2282,34 +2215,34 @@ _ZN5ImGui22TableGetMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %if.then.i, %i
   %cmp1.i = fcmp olt float %cond.i, %width
   %cond.i40 = select i1 %cmp1.i, float %cond.i, float %width
   %cond5.i = select i1 %cmp.i39, float %3, float %cond.i40
-  %WidthGiven = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i, i32 1
+  %WidthGiven = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %24 = load float, ptr %WidthGiven, align 4
   %cmp = fcmp oeq float %24, %cond5.i
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN5ImGui22TableGetMaxColumnWidthEPK10ImGuiTablei.exit
-  %WidthRequest = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i, i32 4
+  %WidthRequest = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %25 = load float, ptr %WidthRequest, align 4
   %cmp4 = fcmp oeq float %25, %cond5.i
   br i1 %cmp4, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %NextEnabledColumn = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i, i32 21
+  %NextEnabledColumn = getelementptr inbounds i8, ptr %add.ptr.i, i64 88
   %26 = load i16, ptr %NextEnabledColumn, align 4
   %cmp5.not = icmp eq i16 %26, -1
   %27 = load i32, ptr %add.ptr.i, align 4
-  %and54 = and i32 %27, 16
-  %tobool.not55 = icmp eq i32 %and54, 0
+  %and56 = and i32 %27, 16
+  %tobool.not57 = icmp eq i32 %and56, 0
   br i1 %cmp5.not, label %cond.end.thread, label %cond.end
 
 cond.end:                                         ; preds = %if.end
-  br i1 %tobool.not55, label %if.end43, label %lor.lhs.false12
+  br i1 %tobool.not57, label %if.end43, label %lor.lhs.false12
 
 cond.end.thread:                                  ; preds = %if.end
-  br i1 %tobool.not55, label %if.then29, label %if.then24
+  br i1 %tobool.not57, label %if.then29, label %if.then24
 
 lor.lhs.false12:                                  ; preds = %cond.end
-  %LeftMostStretchedColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 81
+  %LeftMostStretchedColumn = getelementptr inbounds i8, ptr %1, i64 544
   %28 = load i16, ptr %LeftMostStretchedColumn, align 8
   %cmp14 = icmp eq i16 %28, -1
   br i1 %cmp14, label %if.then24, label %lor.lhs.false15
@@ -2318,7 +2251,7 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false12
   %idx.ext.i43 = sext i16 %28 to i64
   %DisplayOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i43, i32 18
   %29 = load i16, ptr %DisplayOrder, align 2
-  %DisplayOrder21 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i, i32 18
+  %DisplayOrder21 = getelementptr inbounds i8, ptr %add.ptr.i, i64 82
   %30 = load i16, ptr %DisplayOrder21, align 2
   %cmp23.not = icmp slt i16 %29, %30
   br i1 %cmp23.not, label %if.end43, label %if.then24
@@ -2328,7 +2261,7 @@ if.then24:                                        ; preds = %cond.end.thread, %l
   br label %return.sink.split
 
 if.then29:                                        ; preds = %cond.end.thread
-  %PrevEnabledColumn = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i, i32 20
+  %PrevEnabledColumn = getelementptr inbounds i8, ptr %add.ptr.i, i64 86
   %31 = load i16, ptr %PrevEnabledColumn, align 2
   %cmp31.not = icmp eq i16 %31, -1
   br i1 %cmp31.not, label %return, label %if.end43
@@ -2336,8 +2269,8 @@ if.then29:                                        ; preds = %cond.end.thread
 if.end43:                                         ; preds = %if.then29, %lor.lhs.false15, %cond.end
   %idx.ext.i41.pn.in = phi i16 [ %26, %cond.end ], [ %26, %lor.lhs.false15 ], [ %31, %if.then29 ]
   %idx.ext.i41.pn = sext i16 %idx.ext.i41.pn.in to i64
-  %column_1.067 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i41.pn
-  %WidthRequest44 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i41.pn, i32 4
+  %column_1.069 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %idx.ext.i41.pn
+  %WidthRequest44 = getelementptr inbounds i8, ptr %column_1.069, i64 16
   %32 = load float, ptr %WidthRequest44, align 4
   %sub = fsub float %cond5.i, %25
   %sub46 = fsub float %32, %sub
@@ -2347,14 +2280,14 @@ if.end43:                                         ; preds = %if.then29, %lor.lhs
   %sub50 = fsub float %add, %cond.i48
   store float %sub50, ptr %WidthRequest, align 4
   store float %cond.i48, ptr %WidthRequest44, align 4
-  %33 = load i32, ptr %column_1.067, align 4
+  %33 = load i32, ptr %column_1.069, align 4
   %or = or i32 %33, %27
   %and55 = and i32 %or, 8
   %tobool56.not = icmp eq i32 %and55, 0
   br i1 %tobool56.not, label %return.sink.split, label %if.then57
 
 if.then57:                                        ; preds = %if.end43
-  %ColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
+  %ColumnsCount.i = getelementptr inbounds i8, ptr %1, i64 108
   %34 = load i32, ptr %ColumnsCount.i, align 4
   %cmp18.i = icmp sgt i32 %34, 0
   br i1 %cmp18.i, label %for.body.lr.ph.i, label %return.sink.split
@@ -2368,31 +2301,31 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %visible_weight.021.i = phi float [ 0.000000e+00, %for.body.lr.ph.i ], [ %visible_weight.1.i, %for.inc.i ]
   %visible_width.020.i = phi float [ 0.000000e+00, %for.body.lr.ph.i ], [ %visible_width.1.i, %for.inc.i ]
-  %IsEnabled.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %35, i64 %indvars.iv.i, i32 26
+  %add.ptr.i.i50 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %35, i64 %indvars.iv.i
+  %IsEnabled.i = getelementptr inbounds i8, ptr %add.ptr.i.i50, i64 98
   %36 = load i8, ptr %IsEnabled.i, align 2
   %37 = and i8 %36, 1
-  %tobool.not.i50 = icmp eq i8 %37, 0
-  br i1 %tobool.not.i50, label %for.inc.i, label %lor.lhs.false.i
+  %tobool.not.i51 = icmp eq i8 %37, 0
+  br i1 %tobool.not.i51, label %for.inc.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %add.ptr.i.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %35, i64 %indvars.iv.i
-  %38 = load i32, ptr %add.ptr.i.i, align 4
-  %and.i51 = and i32 %38, 8
-  %tobool1.not.i = icmp eq i32 %and.i51, 0
+  %38 = load i32, ptr %add.ptr.i.i50, align 4
+  %and.i52 = and i32 %38, 8
+  %tobool1.not.i = icmp eq i32 %and.i52, 0
   br i1 %tobool1.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %StretchWeight.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %35, i64 %indvars.iv.i, i32 6
+  %StretchWeight.i = getelementptr inbounds i8, ptr %add.ptr.i.i50, i64 24
   %39 = load float, ptr %StretchWeight.i, align 4
-  %add.i52 = fadd float %visible_weight.021.i, %39
-  %WidthRequest.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %35, i64 %indvars.iv.i, i32 4
+  %add.i53 = fadd float %visible_weight.021.i, %39
+  %WidthRequest.i = getelementptr inbounds i8, ptr %add.ptr.i.i50, i64 16
   %40 = load float, ptr %WidthRequest.i, align 4
   %add2.i = fadd float %visible_width.020.i, %40
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %lor.lhs.false.i, %for.body.i
   %visible_width.1.i = phi float [ %add2.i, %if.end.i ], [ %visible_width.020.i, %lor.lhs.false.i ], [ %visible_width.020.i, %for.body.i ]
-  %visible_weight.1.i = phi float [ %add.i52, %if.end.i ], [ %visible_weight.021.i, %lor.lhs.false.i ], [ %visible_weight.021.i, %for.body.i ]
+  %visible_weight.1.i = phi float [ %add.i53, %if.end.i ], [ %visible_weight.021.i, %lor.lhs.false.i ], [ %visible_weight.021.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.body7.i, label %for.body.i, !llvm.loop !16
@@ -2401,25 +2334,25 @@ for.body7.i:                                      ; preds = %for.inc.i, %for.inc
   %41 = phi i32 [ %47, %for.inc21.i ], [ %34, %for.inc.i ]
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %for.inc21.i ], [ 0, %for.inc.i ]
   %42 = load ptr, ptr %Columns, align 8
-  %IsEnabled11.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %42, i64 %indvars.iv26.i, i32 26
+  %add.ptr.i17.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %42, i64 %indvars.iv26.i
+  %IsEnabled11.i = getelementptr inbounds i8, ptr %add.ptr.i17.i, i64 98
   %43 = load i8, ptr %IsEnabled11.i, align 2
   %44 = and i8 %43, 1
   %tobool12.not.i = icmp eq i8 %44, 0
   br i1 %tobool12.not.i, label %for.inc21.i, label %lor.lhs.false13.i
 
 lor.lhs.false13.i:                                ; preds = %for.body7.i
-  %add.ptr.i17.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %42, i64 %indvars.iv26.i
   %45 = load i32, ptr %add.ptr.i17.i, align 4
   %and15.i = and i32 %45, 8
   %tobool16.not.i = icmp eq i32 %and15.i, 0
   br i1 %tobool16.not.i, label %for.inc21.i, label %if.end18.i
 
 if.end18.i:                                       ; preds = %lor.lhs.false13.i
-  %WidthRequest19.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %42, i64 %indvars.iv26.i, i32 4
+  %WidthRequest19.i = getelementptr inbounds i8, ptr %add.ptr.i17.i, i64 16
   %46 = load float, ptr %WidthRequest19.i, align 4
   %div.i = fdiv float %46, %visible_width.1.i
   %mul.i = fmul float %visible_weight.1.i, %div.i
-  %StretchWeight20.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %42, i64 %indvars.iv26.i, i32 6
+  %StretchWeight20.i = getelementptr inbounds i8, ptr %add.ptr.i17.i, i64 24
   store float %mul.i, ptr %StretchWeight20.i, align 4
   %.pre.i = load i32, ptr %ColumnsCount.i, align 4
   br label %for.inc21.i
@@ -2432,7 +2365,7 @@ for.inc21.i:                                      ; preds = %if.end18.i, %lor.lh
   br i1 %cmp6.i, label %for.body7.i, label %return.sink.split, !llvm.loop !17
 
 return.sink.split:                                ; preds = %for.inc21.i, %if.end43, %if.then57, %if.then24
-  %IsSettingsDirty59 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 100
+  %IsSettingsDirty59 = getelementptr inbounds i8, ptr %1, i64 574
   store i8 1, ptr %IsSettingsDirty59, align 2
   br label %return
 
@@ -2445,23 +2378,23 @@ define void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef %table) loca
 entry:
   %mouse_hit_rect = alloca %struct.ImRect, align 8
   %0 = load ptr, ptr @GImGui, align 8
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %table, i64 4
   %1 = load i32, ptr %Flags, align 4
   %and = and i32 %1, 57344
-  %IsDefaultDisplayOrder = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 101
+  %IsDefaultDisplayOrder = getelementptr inbounds i8, ptr %table, i64 575
   store i8 1, ptr %IsDefaultDisplayOrder, align 1
-  %ColumnsEnabledCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 66
+  %ColumnsEnabledCount = getelementptr inbounds i8, ptr %table, i64 514
   store i16 0, ptr %ColumnsEnabledCount, align 2
-  %EnabledMaskByIndex = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 8
+  %EnabledMaskByIndex = getelementptr inbounds i8, ptr %table, i64 80
   %2 = load ptr, ptr %EnabledMaskByIndex, align 8
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %3 = load i32, ptr %ColumnsCount, align 4
   %add.i.i = add nsw i32 %3, 31
   %shr.i.i = ashr i32 %add.i.i, 5
   %conv.i.i = sext i32 %shr.i.i to i64
   %shl.i.i = shl nsw i64 %conv.i.i, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %shl.i.i, i1 false)
-  %EnabledMaskByDisplayOrder = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 7
+  %EnabledMaskByDisplayOrder = getelementptr inbounds i8, ptr %table, i64 72
   %4 = load ptr, ptr %EnabledMaskByDisplayOrder, align 8
   %5 = load i32, ptr %ColumnsCount, align 4
   %add.i.i447 = add nsw i32 %5, 31
@@ -2469,24 +2402,24 @@ entry:
   %conv.i.i449 = sext i32 %shr.i.i448 to i64
   %shl.i.i450 = shl nsw i64 %conv.i.i449, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %shl.i.i450, i1 false)
-  %LeftMostEnabledColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 79
+  %LeftMostEnabledColumn = getelementptr inbounds i8, ptr %table, i64 540
   store i16 -1, ptr %LeftMostEnabledColumn, align 4
-  %FramePadding = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 12
+  %FramePadding = getelementptr inbounds i8, ptr %0, i64 14636
   %6 = load float, ptr %FramePadding, align 4
   %cmp.i = fcmp ole float %6, 1.000000e+00
   %cond.i = select i1 %cmp.i, float 1.000000e+00, float %6
-  %MinColumnWidth = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 32
+  %MinColumnWidth = getelementptr inbounds i8, ptr %table, i64 184
   store float %cond.i, ptr %MinColumnWidth, align 8
   %7 = load i32, ptr %ColumnsCount, align 4
   %cmp614 = icmp sgt i32 %7, 0
   br i1 %cmp614, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %DisplayOrderToIndex = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 5
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
-  %DeclColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 68
-  %IsSettingsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 100
-  %IsSortSpecsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 95
+  %DisplayOrderToIndex = getelementptr inbounds i8, ptr %table, i64 40
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
+  %DeclColumnsCount = getelementptr inbounds i8, ptr %table, i64 518
+  %IsSettingsDirty = getelementptr inbounds i8, ptr %table, i64 574
+  %IsSortSpecsDirty = getelementptr inbounds i8, ptr %table, i64 569
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2520,11 +2453,11 @@ if.end:                                           ; preds = %if.then, %for.body
 
 if.then9:                                         ; preds = %if.end
   tail call fastcc void @_ZL21TableSetupColumnFlagsP10ImGuiTableP16ImGuiTableColumni(ptr noundef nonnull %table, ptr noundef nonnull %add.ptr.i452, i32 noundef 0)
-  %NameOffset = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 17
+  %NameOffset = getelementptr inbounds i8, ptr %add.ptr.i452, i64 80
   store i16 -1, ptr %NameOffset, align 4
-  %UserID = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 9
+  %UserID = getelementptr inbounds i8, ptr %add.ptr.i452, i64 48
   store i32 0, ptr %UserID, align 4
-  %InitStretchWeightOrWidth = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 7
+  %InitStretchWeightOrWidth = getelementptr inbounds i8, ptr %add.ptr.i452, i64 28
   store float -1.000000e+00, ptr %InitStretchWeightOrWidth, align 4
   br label %if.end10
 
@@ -2541,18 +2474,18 @@ lor.lhs.false:                                    ; preds = %if.end10
   br i1 %tobool15.not, label %lor.lhs.false.if.end17_crit_edge, label %if.then16
 
 lor.lhs.false.if.end17_crit_edge:                 ; preds = %lor.lhs.false
-  %IsUserEnabledNextFrame20.phi.trans.insert = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 28
+  %IsUserEnabledNextFrame20.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr.i452, i64 100
   %.pre = load i8, ptr %IsUserEnabledNextFrame20.phi.trans.insert, align 4
   br label %if.end17
 
 if.then16:                                        ; preds = %lor.lhs.false, %if.end10
-  %IsUserEnabledNextFrame = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 28
+  %IsUserEnabledNextFrame = getelementptr inbounds i8, ptr %add.ptr.i452, i64 100
   store i8 1, ptr %IsUserEnabledNextFrame, align 4
   br label %if.end17
 
 if.end17:                                         ; preds = %lor.lhs.false.if.end17_crit_edge, %if.then16
   %15 = phi i8 [ %.pre, %lor.lhs.false.if.end17_crit_edge ], [ 1, %if.then16 ]
-  %IsUserEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 27
+  %IsUserEnabled = getelementptr inbounds i8, ptr %add.ptr.i452, i64 99
   %16 = load i8, ptr %IsUserEnabled, align 1
   %17 = and i8 %16, 1
   %18 = and i8 %15, 1
@@ -2573,10 +2506,10 @@ if.end28:                                         ; preds = %if.then24, %if.end1
   %and32 = and i32 %19, 1
   %cmp33 = icmp eq i32 %and32, 0
   %20 = select i1 %tobool30.not, i1 %cmp33, i1 false
-  %IsEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 26
+  %IsEnabled = getelementptr inbounds i8, ptr %add.ptr.i452, i64 98
   %frombool34 = zext i1 %20 to i8
   store i8 %frombool34, ptr %IsEnabled, align 2
-  %SortOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 22
+  %SortOrder = getelementptr inbounds i8, ptr %add.ptr.i452, i64 90
   %21 = load i16, ptr %SortOrder, align 2
   %cmp36.not = icmp eq i16 %21, -1
   %brmerge = select i1 %cmp36.not, i1 true, i1 %20
@@ -2606,17 +2539,16 @@ if.end50:                                         ; preds = %if.then48, %land.lh
   %24 = load i32, ptr %add.ptr.i452, align 4
   %and52 = and i32 %24, 16
   %tobool53.not = icmp eq i32 %and52, 0
-  %WidthRequest = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 4
-  %StretchWeight = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 6
-  %cond.in.in = select i1 %tobool53.not, ptr %StretchWeight, ptr %WidthRequest
+  %cond.in.in.v = select i1 %tobool53.not, i64 24, i64 16
+  %cond.in.in = getelementptr inbounds i8, ptr %add.ptr.i452, i64 %cond.in.in.v
   %cond.in = load float, ptr %cond.in.in, align 4
   %cond = fcmp olt float %cond.in, 0.000000e+00
   br i1 %cond, label %if.then58, label %if.end59
 
 if.then58:                                        ; preds = %if.end50
-  %CannotSkipItemsQueue = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 36
+  %CannotSkipItemsQueue = getelementptr inbounds i8, ptr %add.ptr.i452, i64 108
   store i8 7, ptr %CannotSkipItemsQueue, align 4
-  %AutoFitQueue = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 35
+  %AutoFitQueue = getelementptr inbounds i8, ptr %add.ptr.i452, i64 107
   store i8 7, ptr %AutoFitQueue, align 1
   br label %if.end59
 
@@ -2627,15 +2559,15 @@ if.end59:                                         ; preds = %if.then58, %if.end5
   br i1 %tobool61.not, label %if.then62, label %if.end63
 
 if.then62:                                        ; preds = %if.end59
-  %IndexWithinEnabledSet = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 19
+  %IndexWithinEnabledSet = getelementptr inbounds i8, ptr %add.ptr.i452, i64 84
   store i16 -1, ptr %IndexWithinEnabledSet, align 4
   br label %for.inc
 
 if.end63:                                         ; preds = %if.end59
   %conv64 = trunc i32 %prev_visible_column_idx.0620 to i16
-  %PrevEnabledColumn = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 20
+  %PrevEnabledColumn = getelementptr inbounds i8, ptr %add.ptr.i452, i64 86
   store i16 %conv64, ptr %PrevEnabledColumn, align 2
-  %NextEnabledColumn = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 21
+  %NextEnabledColumn = getelementptr inbounds i8, ptr %add.ptr.i452, i64 88
   store i16 -1, ptr %NextEnabledColumn, align 4
   %cmp65.not = icmp eq i32 %prev_visible_column_idx.0620, -1
   br i1 %cmp65.not, label %if.end73, label %if.then66
@@ -2652,7 +2584,7 @@ if.end73:                                         ; preds = %if.end63, %if.then6
   %28 = load i16, ptr %ColumnsEnabledCount, align 2
   %inc = add i16 %28, 1
   store i16 %inc, ptr %ColumnsEnabledCount, align 2
-  %IndexWithinEnabledSet75 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 19
+  %IndexWithinEnabledSet75 = getelementptr inbounds i8, ptr %add.ptr.i452, i64 84
   store i16 %28, ptr %IndexWithinEnabledSet75, align 4
   %29 = load ptr, ptr %EnabledMaskByIndex, align 8
   %and.i = and i32 %conv, 31
@@ -2664,7 +2596,7 @@ if.end73:                                         ; preds = %if.end63, %if.then6
   %or.i = or i32 %30, %shl.i
   store i32 %or.i, ptr %arrayidx.i, align 4
   %31 = load ptr, ptr %EnabledMaskByDisplayOrder, align 8
-  %DisplayOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 18
+  %DisplayOrder = getelementptr inbounds i8, ptr %add.ptr.i452, i64 82
   %32 = load i16, ptr %DisplayOrder, align 2
   %conv78 = sext i16 %32 to i32
   %and.i455 = and i32 %conv78, 31
@@ -2675,7 +2607,7 @@ if.end73:                                         ; preds = %if.end63, %if.then6
   %33 = load i32, ptr %arrayidx.i459, align 4
   %or.i460 = or i32 %shl.i456, %33
   store i32 %or.i460, ptr %arrayidx.i459, align 4
-  %IsPreserveWidthAuto = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 33
+  %IsPreserveWidthAuto = getelementptr inbounds i8, ptr %add.ptr.i452, i64 105
   %34 = load i8, ptr %IsPreserveWidthAuto, align 1
   %35 = and i8 %34, 1
   %tobool79.not = icmp eq i8 %35, 0
@@ -2687,13 +2619,13 @@ if.end73.if.end82_crit_edge:                      ; preds = %if.end73
   br label %if.end82
 
 if.then80:                                        ; preds = %if.end73
-  %ContentMaxXFrozen.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 13
+  %ContentMaxXFrozen.i = getelementptr inbounds i8, ptr %add.ptr.i452, i64 64
   %36 = load float, ptr %ContentMaxXFrozen.i, align 4
-  %ContentMaxXUnfrozen.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 14
+  %ContentMaxXUnfrozen.i = getelementptr inbounds i8, ptr %add.ptr.i452, i64 68
   %37 = load float, ptr %ContentMaxXUnfrozen.i, align 4
   %cmp.i.i = fcmp oge float %36, %37
   %cond.i.i = select i1 %cmp.i.i, float %36, float %37
-  %WorkMinX.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 10
+  %WorkMinX.i = getelementptr inbounds i8, ptr %add.ptr.i452, i64 52
   %38 = load float, ptr %WorkMinX.i, align 4
   %sub.i = fsub float %cond.i.i, %38
   %and.i461 = and i32 %.pre669, 8192
@@ -2701,7 +2633,7 @@ if.then80:                                        ; preds = %if.end73
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then80
-  %ContentMaxXHeadersIdeal.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 16
+  %ContentMaxXHeadersIdeal.i = getelementptr inbounds i8, ptr %add.ptr.i452, i64 76
   %39 = load float, ptr %ContentMaxXHeadersIdeal.i, align 4
   %sub2.i = fsub float %39, %38
   %cmp.i12.i = fcmp oge float %sub.i, %sub2.i
@@ -2715,7 +2647,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %tobool6.not.i, label %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %InitStretchWeightOrWidth.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 7
+  %InitStretchWeightOrWidth.i = getelementptr inbounds i8, ptr %add.ptr.i452, i64 28
   %40 = load float, ptr %InitStretchWeightOrWidth.i, align 4
   %cmp.i462 = fcmp ogt float %40, 0.000000e+00
   br i1 %cmp.i462, label %if.then7.i, label %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit
@@ -2737,7 +2669,7 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
   %42 = load float, ptr %MinColumnWidth, align 8
   %cmp.i14.i = fcmp oge float %width_auto.1.i, %42
   %cond.i15.i = select i1 %cmp.i14.i, float %width_auto.1.i, float %42
-  %WidthAuto = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 5
+  %WidthAuto = getelementptr inbounds i8, ptr %add.ptr.i452, i64 20
   store float %cond.i15.i, ptr %WidthAuto, align 4
   br label %if.end82
 
@@ -2750,25 +2682,25 @@ if.end82:                                         ; preds = %if.end73.if.end82_c
   br i1 %tobool92.not, label %if.end101, label %land.lhs.true93
 
 land.lhs.true93:                                  ; preds = %if.end82
-  %InitStretchWeightOrWidth94 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 7
+  %InitStretchWeightOrWidth94 = getelementptr inbounds i8, ptr %add.ptr.i452, i64 28
   %43 = load float, ptr %InitStretchWeightOrWidth94, align 4
   %cmp95 = fcmp ule float %43, 0.000000e+00
   %brmerge434 = or i1 %cmp85, %cmp95
   br i1 %brmerge434, label %if.end101, label %if.then98
 
 if.then98:                                        ; preds = %land.lhs.true93
-  %WidthAuto100 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 5
+  %WidthAuto100 = getelementptr inbounds i8, ptr %add.ptr.i452, i64 20
   store float %43, ptr %WidthAuto100, align 4
   br label %if.end101
 
 if.end101:                                        ; preds = %land.lhs.true93, %if.then98, %if.end82
-  %AutoFitQueue102 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 35
+  %AutoFitQueue102 = getelementptr inbounds i8, ptr %add.ptr.i452, i64 107
   %44 = load i8, ptr %AutoFitQueue102, align 1
   %cmp104.not = icmp eq i8 %44, 0
   %spec.select435 = select i1 %cmp104.not, i8 %has_auto_fit_request.0619, i8 1
   %and108 = and i32 %.pre669, 8
   %tobool109.not = icmp eq i32 %and108, 0
-  %WidthAuto114 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i451, i32 5
+  %WidthAuto114 = getelementptr inbounds i8, ptr %add.ptr.i452, i64 20
   %45 = load float, ptr %WidthAuto114, align 4
   br i1 %tobool109.not, label %if.else113, label %if.then110
 
@@ -2812,7 +2744,7 @@ for.end:                                          ; preds = %for.inc, %entry
   br i1 %tobool121.not, label %if.end131, label %land.lhs.true122
 
 land.lhs.true122:                                 ; preds = %for.end
-  %SortSpecsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 65
+  %SortSpecsCount = getelementptr inbounds i8, ptr %table, i64 512
   %50 = load i16, ptr %SortSpecsCount, align 8
   %cmp124 = icmp eq i16 %50, 0
   %and127 = and i32 %49, 134217728
@@ -2821,54 +2753,54 @@ land.lhs.true122:                                 ; preds = %for.end
   br i1 %or.cond436, label %if.then129, label %if.end131
 
 if.then129:                                       ; preds = %land.lhs.true122
-  %IsSortSpecsDirty130 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 95
+  %IsSortSpecsDirty130 = getelementptr inbounds i8, ptr %table, i64 569
   store i8 1, ptr %IsSortSpecsDirty130, align 1
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then129, %land.lhs.true122, %for.end
   %conv132 = trunc i32 %prev_visible_column_idx.0.lcssa to i16
-  %RightMostEnabledColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 80
+  %RightMostEnabledColumn = getelementptr inbounds i8, ptr %table, i64 542
   store i16 %conv132, ptr %RightMostEnabledColumn, align 2
   %51 = and i8 %has_auto_fit_request.0.lcssa, 1
   %tobool133.not = icmp eq i8 %51, 0
   br i1 %tobool133.not, label %if.end142, label %land.lhs.true134
 
 land.lhs.true134:                                 ; preds = %if.end131
-  %OuterWindow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 55
+  %OuterWindow = getelementptr inbounds i8, ptr %table, i64 384
   %52 = load ptr, ptr %OuterWindow, align 8
-  %InnerWindow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 56
+  %InnerWindow = getelementptr inbounds i8, ptr %table, i64 392
   %53 = load ptr, ptr %InnerWindow, align 8
   %cmp135.not = icmp eq ptr %52, %53
   br i1 %cmp135.not, label %if.then140, label %if.then136
 
 if.then136:                                       ; preds = %land.lhs.true134
-  %SkipItems = getelementptr inbounds %struct.ImGuiWindow, ptr %53, i64 0, i32 38
+  %SkipItems = getelementptr inbounds i8, ptr %53, i64 195
   store i8 0, ptr %SkipItems, align 1
   %.pre670.pre = load i32, ptr %ColumnsCount, align 4
   br label %if.then140
 
 if.then140:                                       ; preds = %land.lhs.true134, %if.then136
   %.pre670 = phi i32 [ %48, %land.lhs.true134 ], [ %.pre670.pre, %if.then136 ]
-  %IsSettingsDirty141 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 100
+  %IsSettingsDirty141 = getelementptr inbounds i8, ptr %table, i64 574
   store i8 1, ptr %IsSettingsDirty141, align 2
   br label %if.end142
 
 if.end142:                                        ; preds = %if.end131, %if.then140
   %54 = phi i32 [ %48, %if.end131 ], [ %.pre670, %if.then140 ]
-  %RightMostStretchedColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 82
+  %RightMostStretchedColumn = getelementptr inbounds i8, ptr %table, i64 546
   store i16 -1, ptr %RightMostStretchedColumn, align 2
-  %LeftMostStretchedColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 81
+  %LeftMostStretchedColumn = getelementptr inbounds i8, ptr %table, i64 544
   store i16 -1, ptr %LeftMostStretchedColumn, align 8
   %cmp146629 = icmp sgt i32 %54, 0
   br i1 %cmp146629, label %for.body147.lr.ph, label %for.end278
 
 for.body147.lr.ph:                                ; preds = %if.end142
-  %Columns155 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns155 = getelementptr inbounds i8, ptr %table, i64 24
   %cmp167 = icmp eq i32 %and, 16384
-  %IsInitializing = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 94
+  %IsInitializing = getelementptr inbounds i8, ptr %table, i64 568
   %cmp226 = icmp ne i32 %and, 24576
   %conv229 = sitofp i32 %count_stretch.0.lcssa to float
-  %CellPaddingX = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 34
+  %CellPaddingX = getelementptr inbounds i8, ptr %table, i64 192
   br label %for.body147
 
 for.body147:                                      ; preds = %for.body147.lr.ph, %for.inc276
@@ -2899,9 +2831,9 @@ if.end153:                                        ; preds = %for.body147
   br i1 %tobool164.not, label %if.else210, label %if.then165
 
 if.then165:                                       ; preds = %if.end153
-  %WidthAuto166 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 5
+  %WidthAuto166 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 20
   %61 = load float, ptr %WidthAuto166, align 4
-  %AutoFitQueue169 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 35
+  %AutoFitQueue169 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 107
   %62 = load i8, ptr %AutoFitQueue169, align 1
   br i1 %cmp167, label %land.lhs.true168, label %if.end175
 
@@ -2919,19 +2851,19 @@ if.else181:                                       ; preds = %if.end175
   br i1 %cmp160, label %land.lhs.true187, label %if.end207
 
 land.lhs.true187:                                 ; preds = %if.else181
-  %IsRequestOutput = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 31
+  %IsRequestOutput = getelementptr inbounds i8, ptr %add.ptr.i466, i64 103
   %63 = load i8, ptr %IsRequestOutput, align 1
   %64 = and i8 %63, 1
   %tobool188.not = icmp eq i8 %64, 0
   br i1 %tobool188.not, label %if.end207, label %if.then189
 
 if.then189:                                       ; preds = %land.lhs.true187
-  %WidthRequest190 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 4
+  %WidthRequest190 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 16
   store float %width_auto.0, ptr %WidthRequest190, align 4
   br label %if.end207
 
 if.end192:                                        ; preds = %if.end175
-  %WidthRequest180 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 4
+  %WidthRequest180 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 16
   store float %width_auto.0, ptr %WidthRequest180, align 4
   %cmp195.not = icmp eq i8 %62, 1
   br i1 %cmp195.not, label %if.end207, label %land.lhs.true196
@@ -2943,14 +2875,14 @@ land.lhs.true196:                                 ; preds = %if.end192
   br i1 %tobool197.not, label %if.end207, label %land.lhs.true198
 
 land.lhs.true198:                                 ; preds = %land.lhs.true196
-  %IsPreserveWidthAuto199 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 33
+  %IsPreserveWidthAuto199 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 105
   %67 = load i8, ptr %IsPreserveWidthAuto199, align 1
   %68 = and i8 %67, 1
   %tobool200.not = icmp eq i8 %68, 0
   br i1 %tobool200.not, label %if.then201, label %if.end207
 
 if.then201:                                       ; preds = %land.lhs.true198
-  %WidthRequest202 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 4
+  %WidthRequest202 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 16
   %69 = load float, ptr %WidthRequest202, align 4
   %70 = load float, ptr %MinColumnWidth, align 8
   %mul204 = fmul float %70, 4.000000e+00
@@ -2960,16 +2892,16 @@ if.then201:                                       ; preds = %land.lhs.true198
   br label %if.end207
 
 if.end207:                                        ; preds = %land.lhs.true187, %if.then189, %land.lhs.true168, %if.else181, %if.then201, %land.lhs.true198, %land.lhs.true196, %if.end192
-  %WidthRequest208 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 4
+  %WidthRequest208 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 16
   %71 = load float, ptr %WidthRequest208, align 4
   %add209 = fadd float %sum_width_requests.0633, %71
   br label %if.end273
 
 if.else210:                                       ; preds = %if.end153
-  %AutoFitQueue211 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 35
+  %AutoFitQueue211 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 107
   %72 = load i8, ptr %AutoFitQueue211, align 1
   %cmp213.not = icmp ne i8 %72, 0
-  %StretchWeight215 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 6
+  %StretchWeight215 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 24
   %73 = load float, ptr %StretchWeight215, align 4
   %cmp216 = fcmp olt float %73, 0.000000e+00
   %or.cond439 = select i1 %cmp213.not, i1 true, i1 %cmp216
@@ -2977,7 +2909,7 @@ if.else210:                                       ; preds = %if.end153
   br i1 %brmerge441, label %if.then219, label %if.end236
 
 if.then219:                                       ; preds = %if.else210
-  %InitStretchWeightOrWidth220 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 7
+  %InitStretchWeightOrWidth220 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 28
   %74 = load float, ptr %InitStretchWeightOrWidth220, align 4
   %cmp221 = fcmp ogt float %74, 0.000000e+00
   %brmerge699 = select i1 %cmp221, i1 true, i1 %cmp226
@@ -2985,7 +2917,7 @@ if.then219:                                       ; preds = %if.else210
   br i1 %brmerge699, label %if.end236.sink.split, label %if.then227
 
 if.then227:                                       ; preds = %if.then219
-  %WidthAuto228 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 5
+  %WidthAuto228 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 20
   %75 = load float, ptr %WidthAuto228, align 4
   %div = fdiv float %75, %stretch_sum_width_auto.0.lcssa
   %mul230 = fmul float %div, %conv229
@@ -3008,7 +2940,7 @@ lor.lhs.false242:                                 ; preds = %if.end236
   %idx.ext.i469 = sext i16 %77 to i64
   %DisplayOrder247 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %78, i64 %idx.ext.i469, i32 18
   %79 = load i16, ptr %DisplayOrder247, align 2
-  %DisplayOrder249 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 18
+  %DisplayOrder249 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 82
   %80 = load i16, ptr %DisplayOrder249, align 2
   %cmp251 = icmp sgt i16 %79, %80
   br i1 %cmp251, label %if.then252, label %if.end255
@@ -3028,7 +2960,7 @@ lor.lhs.false259:                                 ; preds = %if.end255
   %idx.ext.i471 = sext i16 %81 to i64
   %DisplayOrder264 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %82, i64 %idx.ext.i471, i32 18
   %83 = load i16, ptr %DisplayOrder264, align 2
-  %DisplayOrder266 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 18
+  %DisplayOrder266 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 82
   %84 = load i16, ptr %DisplayOrder266, align 2
   %cmp268 = icmp slt i16 %83, %84
   br i1 %cmp268, label %if.then269, label %if.end273
@@ -3041,7 +2973,7 @@ if.then269:                                       ; preds = %lor.lhs.false259, %
 if.end273:                                        ; preds = %lor.lhs.false259, %if.then269, %if.end207
   %stretch_sum_weights.1 = phi float [ %stretch_sum_weights.0632, %if.end207 ], [ %add238, %if.then269 ], [ %add238, %lor.lhs.false259 ]
   %sum_width_requests.1 = phi float [ %add209, %if.end207 ], [ %sum_width_requests.0633, %if.then269 ], [ %sum_width_requests.0633, %lor.lhs.false259 ]
-  %IsPreserveWidthAuto274 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv657, i32 33
+  %IsPreserveWidthAuto274 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 105
   store i8 0, ptr %IsPreserveWidthAuto274, align 1
   %85 = load float, ptr %CellPaddingX, align 8
   %86 = tail call float @llvm.fmuladd.f32(float %85, float 2.000000e+00, float %sum_width_requests.1)
@@ -3062,21 +2994,21 @@ for.end278:                                       ; preds = %for.inc276, %if.end
   %stretch_sum_weights.0.lcssa = phi float [ 0.000000e+00, %if.end142 ], [ %stretch_sum_weights.2, %for.inc276 ]
   %sum_width_requests.0.lcssa = phi float [ 0.000000e+00, %if.end142 ], [ %sum_width_requests.2, %for.inc276 ]
   %stretch_sum_weights.0.lcssa.fr = freeze float %stretch_sum_weights.0.lcssa
-  %ColumnsEnabledFixedCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 67
+  %ColumnsEnabledFixedCount = getelementptr inbounds i8, ptr %table, i64 516
   store i16 %count_fixed.0.lcssa, ptr %ColumnsEnabledFixedCount, align 4
-  %ColumnsStretchSumWeights = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 40
+  %ColumnsStretchSumWeights = getelementptr inbounds i8, ptr %table, i64 216
   store float %stretch_sum_weights.0.lcssa.fr, ptr %ColumnsStretchSumWeights, align 8
-  %WorkRect = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48
+  %WorkRect = getelementptr inbounds i8, ptr %table, i64 272
   %work_rect.sroa.0.0.copyload = load float, ptr %WorkRect, align 8
-  %work_rect.sroa.4.0.WorkRect.sroa_idx = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48, i32 0, i32 1
+  %work_rect.sroa.4.0.WorkRect.sroa_idx = getelementptr inbounds i8, ptr %table, i64 276
   %work_rect.sroa.4.0.copyload = load float, ptr %work_rect.sroa.4.0.WorkRect.sroa_idx, align 4
-  %work_rect.sroa.6.0.WorkRect.sroa_idx = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48, i32 1
+  %work_rect.sroa.6.0.WorkRect.sroa_idx = getelementptr inbounds i8, ptr %table, i64 280
   %work_rect.sroa.6.0.copyload = load float, ptr %work_rect.sroa.6.0.WorkRect.sroa_idx, align 8
-  %OuterPaddingX = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 33
+  %OuterPaddingX = getelementptr inbounds i8, ptr %table, i64 188
   %90 = load float, ptr %OuterPaddingX, align 4
-  %CellSpacingX1 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 35
+  %CellSpacingX1 = getelementptr inbounds i8, ptr %table, i64 196
   %91 = load float, ptr %CellSpacingX1, align 4
-  %CellSpacingX2 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 36
+  %CellSpacingX2 = getelementptr inbounds i8, ptr %table, i64 200
   %92 = load float, ptr %CellSpacingX2, align 8
   %add281 = fadd float %91, %92
   %93 = load i16, ptr %ColumnsEnabledCount, align 2
@@ -3085,23 +3017,23 @@ for.end278:                                       ; preds = %for.inc276, %if.end
   %conv284 = sitofp i32 %sub to float
   %mul285 = fmul float %add281, %conv284
   %94 = tail call float @llvm.fmuladd.f32(float %90, float 2.000000e+00, float %mul285)
-  %HasScrollbarYPrev = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 109
+  %HasScrollbarYPrev = getelementptr inbounds i8, ptr %table, i64 583
   %95 = load i8, ptr %HasScrollbarYPrev, align 1
   %96 = and i8 %95, 1
   %tobool286.not = icmp eq i8 %96, 0
   br i1 %tobool286.not, label %cond.end293, label %land.lhs.true287
 
 land.lhs.true287:                                 ; preds = %for.end278
-  %InnerWindow288 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 56
+  %InnerWindow288 = getelementptr inbounds i8, ptr %table, i64 392
   %97 = load ptr, ptr %InnerWindow288, align 8
-  %ScrollbarY = getelementptr inbounds %struct.ImGuiWindow, ptr %97, i64 0, i32 32
+  %ScrollbarY = getelementptr inbounds i8, ptr %97, i64 189
   %98 = load i8, ptr %ScrollbarY, align 1
   %99 = and i8 %98, 1
   %tobool289.not = icmp eq i8 %99, 0
   br i1 %tobool289.not, label %cond.true290, label %cond.end293
 
 cond.true290:                                     ; preds = %land.lhs.true287
-  %ScrollbarSize = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 21
+  %ScrollbarSize = getelementptr inbounds i8, ptr %0, i64 14692
   %100 = load float, ptr %ScrollbarSize, align 4
   br label %cond.end293
 
@@ -3113,14 +3045,14 @@ cond.end293:                                      ; preds = %for.end278, %land.l
   br i1 %tobool297.not, label %cond.false302, label %land.lhs.true298
 
 land.lhs.true298:                                 ; preds = %cond.end293
-  %InnerWidth = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 37
+  %InnerWidth = getelementptr inbounds i8, ptr %table, i64 204
   %102 = load float, ptr %InnerWidth, align 4
   %cmp299 = fcmp oeq float %102, 0.000000e+00
   br i1 %cmp299, label %cond.true300, label %cond.false302
 
 cond.true300:                                     ; preds = %land.lhs.true298
-  %InnerClipRect = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 49
-  %Max.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 49, i32 1
+  %InnerClipRect = getelementptr inbounds i8, ptr %table, i64 288
+  %Max.i = getelementptr inbounds i8, ptr %table, i64 296
   %103 = load float, ptr %Max.i, align 4
   %104 = load float, ptr %InnerClipRect, align 4
   %sub.i473 = fsub float %103, %104
@@ -3137,18 +3069,18 @@ cond.end304:                                      ; preds = %cond.false302, %con
   %cond.i477 = select i1 %cmp.i476, float 1.000000e+00, float %sub306
   %sub308 = fsub float %cond.i477, %94
   %sub309 = fsub float %sub308, %sum_width_requests.0.lcssa
-  %CellPaddingX310 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 34
+  %CellPaddingX310 = getelementptr inbounds i8, ptr %table, i64 192
   %105 = load float, ptr %CellPaddingX310, align 8
   %mul311 = fmul float %105, 2.000000e+00
   %conv314 = sitofp i16 %93 to float
   %106 = tail call float @llvm.fmuladd.f32(float %mul311, float %conv314, float %94)
-  %ColumnsGivenWidth = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 38
+  %ColumnsGivenWidth = getelementptr inbounds i8, ptr %table, i64 208
   store float %106, ptr %ColumnsGivenWidth, align 8
   %cmp319636 = icmp sgt i32 %89, 0
   br i1 %cmp319636, label %for.body320.lr.ph, label %for.end369
 
 for.body320.lr.ph:                                ; preds = %cond.end304
-  %Columns332 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns332 = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.body320
 
 for.body320:                                      ; preds = %for.body320.lr.ph, %for.inc367
@@ -3176,7 +3108,7 @@ if.end330:                                        ; preds = %for.body320
   br i1 %tobool336.not, label %if.end349, label %if.then337
 
 if.then337:                                       ; preds = %if.end330
-  %StretchWeight338 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %111, i64 %indvars.iv660, i32 6
+  %StretchWeight338 = getelementptr inbounds i8, ptr %add.ptr.i479, i64 24
   %113 = load float, ptr %StretchWeight338, align 4
   %div339 = fdiv float %113, %stretch_sum_weights.0.lcssa.fr
   %mul340 = fmul float %sub309, %div339
@@ -3186,14 +3118,14 @@ if.then337:                                       ; preds = %if.end330
   %add343 = fadd float %cond.i481, 0x3F847AE140000000
   %conv344 = fptosi float %add343 to i32
   %conv345 = sitofp i32 %conv344 to float
-  %WidthRequest346 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %111, i64 %indvars.iv660, i32 4
+  %WidthRequest346 = getelementptr inbounds i8, ptr %add.ptr.i479, i64 16
   store float %conv345, ptr %WidthRequest346, align 4
   %sub348 = fsub float %width_remaining_for_stretched_columns.0637, %conv345
   br label %if.end349
 
 if.end349:                                        ; preds = %if.then337, %if.end330
   %width_remaining_for_stretched_columns.1 = phi float [ %sub348, %if.then337 ], [ %width_remaining_for_stretched_columns.0637, %if.end330 ]
-  %NextEnabledColumn350 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %111, i64 %indvars.iv660, i32 21
+  %NextEnabledColumn350 = getelementptr inbounds i8, ptr %add.ptr.i479, i64 88
   %115 = load i16, ptr %NextEnabledColumn350, align 4
   %cmp352 = icmp eq i16 %115, -1
   br i1 %cmp352, label %land.lhs.true353, label %if.end359
@@ -3209,14 +3141,14 @@ if.then357:                                       ; preds = %land.lhs.true353
   br label %if.end359
 
 if.end359:                                        ; preds = %if.then357, %land.lhs.true353, %if.end349
-  %WidthRequest360 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %111, i64 %indvars.iv660, i32 4
+  %WidthRequest360 = getelementptr inbounds i8, ptr %add.ptr.i479, i64 16
   %117 = load float, ptr %WidthRequest360, align 4
   %118 = load float, ptr %MinColumnWidth, align 8
   %cmp.i482 = fcmp oge float %117, %118
   %cond.i483 = select i1 %cmp.i482, float %117, float %118
   %conv.i = fptosi float %cond.i483 to i32
   %conv1.i = sitofp i32 %conv.i to float
-  %WidthGiven = getelementptr inbounds %struct.ImGuiTableColumn, ptr %111, i64 %indvars.iv660, i32 1
+  %WidthGiven = getelementptr inbounds i8, ptr %add.ptr.i479, i64 4
   store float %conv1.i, ptr %WidthGiven, align 4
   %119 = load float, ptr %ColumnsGivenWidth, align 8
   %add366 = fadd float %119, %conv1.i
@@ -3251,8 +3183,8 @@ for.cond379.preheader:                            ; preds = %land.lhs.true371
   br i1 %or.cond1645, label %for.body386.preheader, label %if.end415
 
 for.body386.preheader:                            ; preds = %for.cond379.preheader
-  %Columns398 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
-  %DisplayOrderToIndex399 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 5
+  %Columns398 = getelementptr inbounds i8, ptr %table, i64 24
+  %DisplayOrderToIndex399 = getelementptr inbounds i8, ptr %table, i64 40
   %order_n376.0641 = add nsw i32 %.lcssa, -1
   %123 = zext nneg i32 %order_n376.0641 to i64
   br label %for.body386
@@ -3285,11 +3217,11 @@ if.end396:                                        ; preds = %for.body386
   br i1 %tobool405.not, label %for.inc413, label %if.end407
 
 if.end407:                                        ; preds = %if.end396
-  %WidthRequest408 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %129, i64 %idx.ext.i486, i32 4
+  %WidthRequest408 = getelementptr inbounds i8, ptr %add.ptr.i487, i64 16
   %131 = load float, ptr %WidthRequest408, align 4
   %add409 = fadd float %131, 1.000000e+00
   store float %add409, ptr %WidthRequest408, align 4
-  %WidthGiven410 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %129, i64 %idx.ext.i486, i32 1
+  %WidthGiven410 = getelementptr inbounds i8, ptr %add.ptr.i487, i64 4
   %132 = load float, ptr %WidthGiven410, align 4
   %add411 = fadd float %132, 1.000000e+00
   store float %add411, ptr %WidthGiven410, align 4
@@ -3305,40 +3237,40 @@ for.inc413:                                       ; preds = %if.end396, %for.bod
   br i1 %or.cond1, label %for.body386, label %if.end415, !llvm.loop !21
 
 if.end415:                                        ; preds = %for.inc413, %for.cond379.preheader, %land.lhs.true371, %for.end369
-  %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 16
+  %InstanceCurrent = getelementptr inbounds i8, ptr %table, i64 120
   %133 = load i16, ptr %InstanceCurrent, align 8
   %cmp.i488 = icmp eq i16 %133, 0
   br i1 %cmp.i488, label %if.then.i490, label %if.end.i489
 
 if.then.i490:                                     ; preds = %if.end415
-  %InstanceDataFirst.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 59
+  %InstanceDataFirst.i = getelementptr inbounds i8, ptr %table, i64 424
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 if.end.i489:                                      ; preds = %if.end415
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 60, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %table, i64 456
   %134 = load ptr, ptr %Data.i.i, align 8
   %135 = sext i16 %133 to i64
   %136 = getelementptr %struct.ImGuiTableInstanceData, ptr %134, i64 %135
-  %arrayidx.i.i = getelementptr %struct.ImGuiTableInstanceData, ptr %136, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %136, i64 -24
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %if.then.i490, %if.end.i489
   %retval.0.i = phi ptr [ %InstanceDataFirst.i, %if.then.i490 ], [ %arrayidx.i.i, %if.end.i489 ]
-  %HoveredRowNext = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 5
+  %HoveredRowNext = getelementptr inbounds i8, ptr %retval.0.i, i64 20
   %137 = load i32, ptr %HoveredRowNext, align 4
-  %HoveredRowLast = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 4
+  %HoveredRowLast = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   store i32 %137, ptr %HoveredRowLast, align 4
   store i32 -1, ptr %HoveredRowNext, align 4
-  %HoveredColumnBorder = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 71
+  %HoveredColumnBorder = getelementptr inbounds i8, ptr %table, i64 524
   store i16 -1, ptr %HoveredColumnBorder, align 4
-  %HoveredColumnBody = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 70
+  %HoveredColumnBody = getelementptr inbounds i8, ptr %table, i64 522
   store i16 -1, ptr %HoveredColumnBody, align 2
-  %OuterRect = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46
-  %Max = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 1
+  %OuterRect = getelementptr inbounds i8, ptr %table, i64 240
+  %Max = getelementptr inbounds i8, ptr %table, i64 248
   %138 = load float, ptr %Max, align 8
-  %y426 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 1, i32 1
+  %y426 = getelementptr inbounds i8, ptr %table, i64 252
   %139 = load float, ptr %y426, align 4
-  %LastOuterHeight = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 1
+  %LastOuterHeight = getelementptr inbounds i8, ptr %retval.0.i, i64 4
   %140 = load float, ptr %LastOuterHeight, align 4
   %141 = load <2 x float>, ptr %OuterRect, align 8
   %142 = extractelement <2 x float> %141, i64 1
@@ -3346,25 +3278,25 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %if.then.i490, %i
   %cmp.i491 = fcmp oge float %139, %add430
   %cond.i492 = select i1 %cmp.i491, float %139, float %add430
   store <2 x float> %141, ptr %mouse_hit_rect, align 8
-  %Max.i493 = getelementptr inbounds %struct.ImRect, ptr %mouse_hit_rect, i64 0, i32 1
+  %Max.i493 = getelementptr inbounds i8, ptr %mouse_hit_rect, i64 8
   store float %138, ptr %Max.i493, align 8
-  %y.i1.i = getelementptr inbounds %struct.ImRect, ptr %mouse_hit_rect, i64 0, i32 1, i32 1
+  %y.i1.i = getelementptr inbounds i8, ptr %mouse_hit_rect, i64 12
   store float %cond.i492, ptr %y.i1.i, align 4
-  %ActiveId = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 47
+  %ActiveId = getelementptr inbounds i8, ptr %0, i64 16492
   %143 = load i32, ptr %ActiveId, align 4
   store i32 0, ptr %ActiveId, align 4
   %call433 = call noundef zeroext i1 @_ZN5ImGui13ItemHoverableERK6ImRectji(ptr noundef nonnull align 4 dereferenceable(16) %mouse_hit_rect, i32 noundef 0, i32 noundef 0)
   store i32 %143, ptr %ActiveId, align 4
-  %MousePos = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 2, i32 59
+  %MousePos = getelementptr inbounds i8, ptr %0, i64 3656
   %144 = load float, ptr %MousePos, align 8
-  %AngledHeadersHeight = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 44
+  %AngledHeadersHeight = getelementptr inbounds i8, ptr %table, i64 232
   %145 = load float, ptr %AngledHeadersHeight, align 8
   %cmp437 = fcmp ogt float %145, 0.000000e+00
   br i1 %cmp437, label %if.then438, label %if.end470
 
 if.then438:                                       ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
-  %y = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 0, i32 1
-  %y441 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 2, i32 59, i32 1
+  %y = getelementptr inbounds i8, ptr %table, i64 244
+  %y441 = getelementptr inbounds i8, ptr %0, i64 3660
   %146 = load float, ptr %y441, align 4
   %147 = load float, ptr %y, align 4
   %cmp445 = fcmp ult float %146, %147
@@ -3377,7 +3309,7 @@ land.lhs.true446:                                 ; preds = %if.then438
 
 if.then456:                                       ; preds = %land.lhs.true446
   %sub465 = fsub float %add454, %146
-  %AngledHeadersSlope = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 45
+  %AngledHeadersSlope = getelementptr inbounds i8, ptr %table, i64 236
   %148 = load float, ptr %AngledHeadersSlope, align 4
   %mul466 = fmul float %sub465, %148
   %conv.i494 = fptosi float %mul466 to i32
@@ -3387,7 +3319,7 @@ if.then456:                                       ; preds = %land.lhs.true446
 
 if.end470:                                        ; preds = %if.then438, %land.lhs.true446, %if.then456, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
   %mouse_skewed_x.0 = phi float [ %add468, %if.then456 ], [ %144, %land.lhs.true446 ], [ %144, %if.then438 ], [ %144, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit ]
-  %FreezeColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 87
+  %FreezeColumnsCount = getelementptr inbounds i8, ptr %table, i64 556
   %149 = load i16, ptr %FreezeColumnsCount, align 4
   %cmp472 = icmp sgt i16 %149, 0
   %frombool473 = zext i1 %cmp472 to i8
@@ -3401,13 +3333,13 @@ if.end470.cont:                                   ; preds = %if.end470, %if.end4
   %cond485 = phi float [ %cond485.then.val, %if.end470.then ], [ %work_rect.sroa.0.0.copyload, %if.end470 ]
   %150 = load float, ptr %OuterPaddingX, align 4
   %151 = load float, ptr %CellSpacingX1, align 4
-  %InnerClipRect490 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 49
+  %InnerClipRect490 = getelementptr inbounds i8, ptr %table, i64 288
   %host_clip_rect.sroa.0.0.copyload = load float, ptr %InnerClipRect490, align 8
-  %host_clip_rect.sroa.7.0.InnerClipRect490.sroa_idx = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 49, i32 0, i32 1
+  %host_clip_rect.sroa.7.0.InnerClipRect490.sroa_idx = getelementptr inbounds i8, ptr %table, i64 292
   %host_clip_rect.sroa.7.0.copyload = load float, ptr %host_clip_rect.sroa.7.0.InnerClipRect490.sroa_idx, align 4
-  %host_clip_rect.sroa.11.0.InnerClipRect490.sroa_idx = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 49, i32 1
+  %host_clip_rect.sroa.11.0.InnerClipRect490.sroa_idx = getelementptr inbounds i8, ptr %table, i64 296
   %host_clip_rect.sroa.11.0.copyload = load <2 x float>, ptr %host_clip_rect.sroa.11.0.InnerClipRect490.sroa_idx, align 8
-  %VisibleMaskByIndex = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 9
+  %VisibleMaskByIndex = getelementptr inbounds i8, ptr %table, i64 88
   %152 = load ptr, ptr %VisibleMaskByIndex, align 8
   %153 = load i32, ptr %ColumnsCount, align 4
   %add.i.i496 = add nsw i32 %153, 31
@@ -3422,25 +3354,22 @@ if.end470.cont:                                   ; preds = %if.end470, %if.end4
 for.body496.lr.ph:                                ; preds = %if.end470.cont
   %add487 = fadd float %cond485, %150
   %sub489 = fsub float %add487, %151
-  %DisplayOrderToIndex498 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 5
-  %Columns502 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
-  %FreezeRowsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 85
-  %FreezeColumnsRequest.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 86
-  %mx.sroa.0.4.vec.extract.i.i530 = extractelement <2 x float> %host_clip_rect.sroa.11.0.copyload, i64 1
-  %mx.sroa.0.0.vec.extract.i.i536 = extractelement <2 x float> %host_clip_rect.sroa.11.0.copyload, i64 0
-  %HostSkipItems = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 111
+  %DisplayOrderToIndex498 = getelementptr inbounds i8, ptr %table, i64 40
+  %Columns502 = getelementptr inbounds i8, ptr %table, i64 24
+  %FreezeRowsCount = getelementptr inbounds i8, ptr %table, i64 552
+  %FreezeColumnsRequest.i = getelementptr inbounds i8, ptr %table, i64 554
   %cmp13.i.i528 = fcmp olt float %work_rect.sroa.4.0.copyload, %host_clip_rect.sroa.7.0.copyload
+  %mx.sroa.0.4.vec.extract.i.i530 = extractelement <2 x float> %host_clip_rect.sroa.11.0.copyload, i64 1
   %cmp19.i.i531 = fcmp olt float %mx.sroa.0.4.vec.extract.i.i530, %work_rect.sroa.4.0.copyload
   %mx.sroa.0.4.vec.extract..i.i532 = select i1 %cmp19.i.i531, float %mx.sroa.0.4.vec.extract.i.i530, float %work_rect.sroa.4.0.copyload
+  %mx.sroa.0.0.vec.extract.i.i536 = extractelement <2 x float> %host_clip_rect.sroa.11.0.copyload, i64 0
+  %HostSkipItems = getelementptr inbounds i8, ptr %table, i64 585
   %cond27.i.i534 = select i1 %cmp13.i.i528, float %host_clip_rect.sroa.7.0.copyload, float %mx.sroa.0.4.vec.extract..i.i532
   %cmp13.i9.i548 = fcmp ogt float %host_clip_rect.sroa.7.0.copyload, 0x47EFFFFFE0000000
   %cmp19.i12.i551 = fcmp olt float %mx.sroa.0.4.vec.extract.i.i530, 0x47EFFFFFE0000000
   %mx.sroa.0.4.vec.extract..i13.i552 = select i1 %cmp19.i12.i551, float %mx.sroa.0.4.vec.extract.i.i530, float 0x47EFFFFFE0000000
   %cond27.i14.i553 = select i1 %cmp13.i9.i548, float %host_clip_rect.sroa.7.0.copyload, float %mx.sroa.0.4.vec.extract..i13.i552
-  %cmp13.i.i = fcmp olt float %work_rect.sroa.4.0.copyload, %host_clip_rect.sroa.7.0.copyload
-  %cmp19.i.i = fcmp olt float %mx.sroa.0.4.vec.extract.i.i530, %work_rect.sroa.4.0.copyload
-  %mx.sroa.0.4.vec.extract..i.i = select i1 %cmp19.i.i, float %mx.sroa.0.4.vec.extract.i.i530, float %work_rect.sroa.4.0.copyload
-  %cond27.i.i = select i1 %cmp13.i.i, float %host_clip_rect.sroa.7.0.copyload, float %mx.sroa.0.4.vec.extract..i.i
+  %cond27.i.i = select i1 %cmp13.i.i528, float %host_clip_rect.sroa.7.0.copyload, float %mx.sroa.0.4.vec.extract..i.i532
   %cmp13.i9.i = fcmp ogt float %host_clip_rect.sroa.7.0.copyload, 0x47EFFFFFE0000000
   %cmp19.i12.i = fcmp olt float %mx.sroa.0.4.vec.extract.i.i530, 0x47EFFFFFE0000000
   %mx.sroa.0.4.vec.extract..i13.i = select i1 %cmp19.i12.i, float %mx.sroa.0.4.vec.extract.i.i530, float 0x47EFFFFFE0000000
@@ -3465,7 +3394,7 @@ for.body496:                                      ; preds = %for.body496.lr.ph, 
   %159 = load i16, ptr %FreezeRowsCount, align 8
   %cmp505 = icmp sgt i16 %159, 0
   %conv507 = zext i1 %cmp505 to i8
-  %NavLayerCurrent = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 34
+  %NavLayerCurrent = getelementptr inbounds i8, ptr %add.ptr.i503, i64 106
   store i8 %conv507, ptr %NavLayerCurrent, align 2
   %160 = and i8 %offset_x_frozen.0652, 1
   %tobool508.not = icmp eq i8 %160, 0
@@ -3499,18 +3428,18 @@ if.end521:                                        ; preds = %if.then513, %land.l
   %shl529 = shl nuw i32 1, %and528
   %and530 = and i32 %166, %shl529
   %cmp531.not = icmp eq i32 %and530, 0
-  %ClipRect = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 8
+  %ClipRect = getelementptr inbounds i8, ptr %add.ptr.i503, i64 32
   br i1 %cmp531.not, label %if.then532, label %if.end549
 
 if.then532:                                       ; preds = %if.end521
-  %Max533 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 8, i32 1
-  %WorkMinX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 10
+  %Max533 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 40
+  %WorkMinX = getelementptr inbounds i8, ptr %add.ptr.i503, i64 52
   store float %offset_x.1, ptr %WorkMinX, align 4
-  %MaxX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 3
+  %MaxX = getelementptr inbounds i8, ptr %add.ptr.i503, i64 12
   store float %offset_x.1, ptr %MaxX, align 4
-  %MinX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 2
+  %MinX = getelementptr inbounds i8, ptr %add.ptr.i503, i64 8
   store float %offset_x.1, ptr %MinX, align 4
-  %WidthGiven538 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 1
+  %WidthGiven538 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 4
   store float 0.000000e+00, ptr %WidthGiven538, align 4
   %cmp.i.i505 = fcmp olt float %offset_x.1, %host_clip_rect.sroa.0.0649
   %cmp5.i.i = fcmp olt float %mx.sroa.0.0.vec.extract.i.i536, %offset_x.1
@@ -3521,9 +3450,9 @@ if.then532:                                       ; preds = %if.end521
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %ClipRect, align 4
   %retval.sroa.0.4.vec.insert.i21.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %cond27.i14.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i21.i, ptr %Max533, align 4
-  %IsVisibleX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 29
+  %IsVisibleX = getelementptr inbounds i8, ptr %add.ptr.i503, i64 101
   store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %IsVisibleX, align 1
-  %ItemWidth = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 12
+  %ItemWidth = getelementptr inbounds i8, ptr %add.ptr.i503, i64 60
   store float 1.000000e+00, ptr %ItemWidth, align 4
   br label %for.inc722
 
@@ -3531,7 +3460,7 @@ if.end549:                                        ; preds = %if.end521
   %167 = load float, ptr %ClipRect, align 4
   %cmp555 = fcmp oge float %mouse_skewed_x.0, %167
   %or.cond442.not612 = select i1 %call433, i1 %cmp555, i1 false
-  %Max558 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 8, i32 1
+  %Max558 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 40
   %168 = load float, ptr %Max558, align 4
   %cmp560 = fcmp olt float %mouse_skewed_x.0, %168
   %or.cond443 = select i1 %or.cond442.not612, i1 %cmp560, i1 false
@@ -3542,9 +3471,10 @@ if.then561:                                       ; preds = %if.end549
   br label %if.end564
 
 if.end564:                                        ; preds = %if.then561, %if.end549
-  %MinX565 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 2
+  %MinX565 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 8
   store float %offset_x.1, ptr %MinX565, align 4
   %169 = load ptr, ptr %Columns502, align 8
+  %add.ptr.i.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %169, i64 %idx.ext.i502
   %170 = load float, ptr %MinColumnWidth, align 8
   %171 = load float, ptr %CellPaddingX310, align 8
   %172 = call float @llvm.fmuladd.f32(float %171, float 2.000000e+00, float %170)
@@ -3558,7 +3488,7 @@ if.end564:                                        ; preds = %if.then561, %if.end
   br i1 %tobool.not.i508, label %if.else.i, label %if.then.i509
 
 if.then.i509:                                     ; preds = %if.end564
-  %DisplayOrder.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %169, i64 %idx.ext.i502, i32 18
+  %DisplayOrder.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 82
   %176 = load i16, ptr %DisplayOrder.i, align 2
   %177 = load i16, ptr %FreezeColumnsRequest.i, align 2
   %cmp.i510 = icmp slt i16 %176, %177
@@ -3572,7 +3502,7 @@ if.then3.i:                                       ; preds = %if.then.i509
   %conv8.i = sitofp i32 %sub.i513 to float
   %neg.i = fneg float %conv8.i
   %179 = call float @llvm.fmuladd.f32(float %neg.i, float %add1.i, float %178)
-  %MinX.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %169, i64 %idx.ext.i502, i32 2
+  %MinX.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %180 = load float, ptr %MinX.i, align 4
   %sub9.i = fsub float %179, %180
   %181 = load float, ptr %OuterPaddingX, align 4
@@ -3590,7 +3520,7 @@ if.then18.i:                                      ; preds = %if.else.i
   %182 = load float, ptr %work_rect.sroa.6.0.WorkRect.sroa_idx, align 8
   %183 = load i16, ptr %ColumnsEnabledCount, align 2
   %conv21.i = sext i16 %183 to i32
-  %IndexWithinEnabledSet.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %169, i64 %idx.ext.i502, i32 19
+  %IndexWithinEnabledSet.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 84
   %184 = load i16, ptr %IndexWithinEnabledSet.i, align 4
   %185 = xor i16 %184, -1
   %186 = sext i16 %185 to i32
@@ -3598,7 +3528,7 @@ if.then18.i:                                      ; preds = %if.else.i
   %conv25.i = sitofp i32 %sub24.i to float
   %neg26.i = fneg float %conv25.i
   %187 = call float @llvm.fmuladd.f32(float %neg26.i, float %add1.i, float %182)
-  %MinX27.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %169, i64 %idx.ext.i502, i32 2
+  %MinX27.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %188 = load float, ptr %MinX27.i, align 4
   %sub28.i = fsub float %187, %188
   %sub30.i = fsub float %sub28.i, %174
@@ -3610,12 +3540,12 @@ if.then18.i:                                      ; preds = %if.else.i
 
 _ZN5ImGui22TableGetMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %if.then.i509, %if.then3.i, %if.else.i, %if.then18.i
   %max_width.0.i = phi float [ %sub14.i, %if.then3.i ], [ 0x47EFFFFFE0000000, %if.then.i509 ], [ %sub34.i, %if.then18.i ], [ 0x47EFFFFFE0000000, %if.else.i ]
-  %WidthGiven567 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 1
+  %WidthGiven567 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 4
   %191 = load float, ptr %WidthGiven567, align 4
   %cmp.i514 = fcmp olt float %191, %max_width.0.i
   %cond.i515 = select i1 %cmp.i514, float %191, float %max_width.0.i
   store float %cond.i515, ptr %WidthGiven567, align 4
-  %WidthRequest571 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 4
+  %WidthRequest571 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 16
   %192 = load float, ptr %WidthRequest571, align 4
   %193 = load float, ptr %MinColumnWidth, align 8
   %cmp.i516 = fcmp olt float %192, %193
@@ -3630,24 +3560,24 @@ _ZN5ImGui22TableGetMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %if.then.i509,
   %add581 = fadd float %195, %add579
   %196 = load float, ptr %CellPaddingX310, align 8
   %197 = call float @llvm.fmuladd.f32(float %196, float 2.000000e+00, float %add581)
-  %MaxX584 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 3
+  %MaxX584 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 12
   store float %197, ptr %MaxX584, align 4
   %198 = load float, ptr %CellPaddingX310, align 8
   %add587 = fadd float %offset_x.1, %198
   %199 = load float, ptr %CellSpacingX1, align 4
   %add589 = fadd float %add587, %199
-  %WorkMinX590 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 10
+  %WorkMinX590 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 52
   store float %add589, ptr %WorkMinX590, align 4
   %200 = load float, ptr %CellPaddingX310, align 8
   %sub593 = fsub float %197, %200
   %201 = load float, ptr %CellSpacingX2, align 8
   %sub595 = fsub float %sub593, %201
-  %WorkMaxX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 11
+  %WorkMaxX = getelementptr inbounds i8, ptr %add.ptr.i503, i64 56
   store float %sub595, ptr %WorkMaxX, align 4
   %mul597 = fmul float %cond.i519, 0x3FE4CCCCC0000000
   %conv.i520 = fptosi float %mul597 to i32
   %conv1.i521 = sitofp i32 %conv.i520 to float
-  %ItemWidth599 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 12
+  %ItemWidth599 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 60
   store float %conv1.i521, ptr %ItemWidth599, align 4
   %202 = insertelement <2 x float> poison, float %197, i64 0
   %203 = insertelement <2 x float> %202, float %offset_x.1, i64 1
@@ -3665,10 +3595,10 @@ _ZN5ImGui22TableGetMaxColumnWidthEPK10ImGuiTablei.exit: ; preds = %if.then.i509,
   %211 = extractelement <2 x float> %209, i64 0
   %212 = extractelement <2 x float> %209, i64 1
   %cmp623 = fcmp ogt float %211, %212
-  %IsVisibleX624 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 29
+  %IsVisibleX624 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 101
   %frombool625 = zext i1 %cmp623 to i8
   store i8 %frombool625, ptr %IsVisibleX624, align 1
-  %IsVisibleY626 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 30
+  %IsVisibleY626 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 102
   store i8 1, ptr %IsVisibleY626, align 2
   br i1 %cmp623, label %if.then631, label %lor.lhs.false635.critedge
 
@@ -3685,23 +3615,23 @@ if.then631:                                       ; preds = %_ZN5ImGui22TableGet
   br label %lor.end
 
 lor.lhs.false635.critedge:                        ; preds = %_ZN5ImGui22TableGetMaxColumnWidthEPK10ImGuiTablei.exit
-  %AutoFitQueue636.old = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 35
+  %AutoFitQueue636.old = getelementptr inbounds i8, ptr %add.ptr.i503, i64 107
   %.old = load i8, ptr %AutoFitQueue636.old, align 1
   %cmp638.not.old = icmp eq i8 %.old, 0
   br i1 %cmp638.not.old, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %lor.lhs.false635.critedge
-  %CannotSkipItemsQueue639 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 36
+  %CannotSkipItemsQueue639 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 108
   %215 = load i8, ptr %CannotSkipItemsQueue639, align 4
   %cmp641 = icmp ne i8 %215, 0
   br label %lor.end
 
 lor.end:                                          ; preds = %if.then631, %lor.rhs, %lor.lhs.false635.critedge
   %216 = phi i1 [ true, %lor.lhs.false635.critedge ], [ true, %if.then631 ], [ %cmp641, %lor.rhs ]
-  %IsRequestOutput642 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 31
+  %IsRequestOutput642 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 103
   %frombool643 = zext i1 %216 to i8
   store i8 %frombool643, ptr %IsRequestOutput642, align 1
-  %IsEnabled644 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 26
+  %IsEnabled644 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 98
   %217 = load i8, ptr %IsEnabled644, align 2
   %218 = and i8 %217, 1
   %tobool645.not = icmp eq i8 %218, 0
@@ -3718,14 +3648,14 @@ lor.end648:                                       ; preds = %lor.end
 lor.end648.thread:                                ; preds = %lor.end, %lor.end648
   %.sink = phi i8 [ %220, %lor.end648 ], [ 1, %lor.end ]
   %221 = phi i8 [ %spec.select610, %lor.end648 ], [ %has_at_least_one_column_requesting_output.0651, %lor.end ]
-  %222 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 32
+  %222 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 104
   store i8 %.sink, ptr %222, align 4
   %has_at_least_one_column_requesting_output.1 = select i1 %216, i8 %221, i8 %has_at_least_one_column_requesting_output.0651
   %223 = load i32, ptr %add.ptr.i503, align 4
   %storemerge.v = select i1 %cmp623, i32 50331648, i32 16777216
   %storemerge = or i32 %223, %storemerge.v
   store i32 %storemerge, ptr %add.ptr.i503, align 4
-  %SortOrder669 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 22
+  %SortOrder669 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 90
   %224 = load i16, ptr %SortOrder669, align 2
   %cmp671.not = icmp eq i16 %224, -1
   br i1 %cmp671.not, label %if.end675, label %if.then672
@@ -3748,7 +3678,7 @@ if.then679:                                       ; preds = %if.end675
 
 if.end682:                                        ; preds = %if.then679, %if.end675
   %227 = load float, ptr %WorkMinX590, align 4
-  %ContentMaxXFrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 13
+  %ContentMaxXFrozen = getelementptr inbounds i8, ptr %add.ptr.i503, i64 64
   %228 = insertelement <4 x float> poison, float %227, i64 0
   %229 = shufflevector <4 x float> %228, <4 x float> poison, <4 x i32> zeroinitializer
   store <4 x float> %229, ptr %ContentMaxXFrozen, align 4
@@ -3758,11 +3688,11 @@ if.end682:                                        ; preds = %if.then679, %if.end
   br i1 %cmp688, label %if.then689, label %if.end698
 
 if.then689:                                       ; preds = %if.end682
-  %AutoFitQueue690 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 35
+  %AutoFitQueue690 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 107
   %232 = load i8, ptr %AutoFitQueue690, align 1
   %233 = lshr i8 %232, 1
   store i8 %233, ptr %AutoFitQueue690, align 1
-  %CannotSkipItemsQueue694 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %158, i64 %idx.ext.i502, i32 36
+  %CannotSkipItemsQueue694 = getelementptr inbounds i8, ptr %add.ptr.i503, i64 108
   %234 = load i8, ptr %CannotSkipItemsQueue694, align 4
   %235 = lshr i8 %234, 1
   store i8 %235, ptr %CannotSkipItemsQueue694, align 4
@@ -3813,7 +3743,7 @@ for.end724:                                       ; preds = %for.inc722
   br i1 %cmp727, label %if.then728, label %if.end739
 
 if.then728:                                       ; preds = %if.end470.cont, %for.end724
-  %Columns729 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns729 = getelementptr inbounds i8, ptr %table, i64 24
   %246 = load i16, ptr %LeftMostEnabledColumn, align 4
   %247 = load ptr, ptr %Columns729, align 8
   %idx.ext.i570 = sext i16 %246 to i64
@@ -3828,7 +3758,7 @@ if.then728:                                       ; preds = %if.end470.cont, %fo
 
 if.end739:                                        ; preds = %if.then728, %for.end724
   %250 = load float, ptr %WorkRect, align 8
-  %Columns743 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns743 = getelementptr inbounds i8, ptr %table, i64 24
   %251 = load i16, ptr %RightMostEnabledColumn, align 2
   %252 = load ptr, ptr %Columns743, align 8
   %idx.ext.i574 = sext i16 %251 to i64
@@ -3867,10 +3797,10 @@ if.then771:                                       ; preds = %if.end763
 
 if.end774:                                        ; preds = %if.then771, %if.end763
   %.pre674 = phi i32 [ %and773, %if.then771 ], [ %.pre674.pre, %if.end763 ]
-  %ActiveIdIsAlive = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 48
+  %ActiveIdIsAlive = getelementptr inbounds i8, ptr %0, i64 16496
   %257 = load i32, ptr %ActiveIdIsAlive, align 8
   %cmp775 = icmp ne i32 %257, 0
-  %IsActiveIdAliveBeforeTable = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 106
+  %IsActiveIdAliveBeforeTable = getelementptr inbounds i8, ptr %table, i64 580
   %frombool776 = zext i1 %cmp775 to i8
   store i8 %frombool776, ptr %IsActiveIdAliveBeforeTable, align 4
   %258 = load i16, ptr %RightMostStretchedColumn, align 2
@@ -3898,15 +3828,15 @@ if.then787:                                       ; preds = %if.end783
   br label %if.end801
 
 if.end801:                                        ; preds = %if.then787, %if.end783
-  %InnerWindow803 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 56
+  %InnerWindow803 = getelementptr inbounds i8, ptr %table, i64 392
   %261 = load ptr, ptr %InnerWindow803, align 8
-  %ParentWorkRect = getelementptr inbounds %struct.ImGuiWindow, ptr %261, i64 0, i32 73
+  %ParentWorkRect = getelementptr inbounds i8, ptr %261, i64 568
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ParentWorkRect, ptr noundef nonnull align 8 dereferenceable(16) %WorkRect, i64 16, i1 false)
   %262 = load float, ptr %InnerClipRect490, align 8
-  %BorderX1 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 29
+  %BorderX1 = getelementptr inbounds i8, ptr %table, i64 172
   store float %262, ptr %BorderX1, align 4
   %263 = load float, ptr %host_clip_rect.sroa.11.0.InnerClipRect490.sroa_idx, align 8
-  %BorderX2 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 30
+  %BorderX2 = getelementptr inbounds i8, ptr %table, i64 176
   store float %263, ptr %BorderX2, align 8
   %264 = load i32, ptr %Flags, align 4
   %and811 = and i32 %264, 131072
@@ -3920,7 +3850,7 @@ if.then813:                                       ; preds = %if.end801
 
 if.else817:                                       ; preds = %if.end801
   %266 = load ptr, ptr %InnerWindow803, align 8
-  %y820 = getelementptr inbounds %struct.ImGuiWindow, ptr %266, i64 0, i32 75, i32 1, i32 1
+  %y820 = getelementptr inbounds i8, ptr %266, i64 612
   %267 = load float, ptr %y820, align 4
   %and822 = and i32 %264, 33554432
   %tobool823.not = icmp eq i32 %and822, 0
@@ -3939,12 +3869,12 @@ cond.end829:                                      ; preds = %if.else817, %cond.f
 if.end832:                                        ; preds = %cond.end829, %if.then813
   %269 = phi ptr [ %.pre675, %if.then813 ], [ %266, %cond.end829 ]
   %window_content_max_y.0 = phi float [ %265, %if.then813 ], [ %cond.i581, %cond.end829 ]
-  %y834 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 17, i32 1
+  %y834 = getelementptr inbounds i8, ptr %0, i64 14672
   %270 = load float, ptr %y834, align 4
   %sub835 = fsub float %window_content_max_y.0, %270
-  %y839 = getelementptr inbounds %struct.ImGuiWindow, ptr %269, i64 0, i32 72, i32 0, i32 1
+  %y839 = getelementptr inbounds i8, ptr %269, i64 556
   %271 = load float, ptr %y839, align 4
-  %y843 = getelementptr inbounds %struct.ImGuiWindow, ptr %269, i64 0, i32 72, i32 1, i32 1
+  %y843 = getelementptr inbounds i8, ptr %269, i64 564
   %272 = load float, ptr %y843, align 4
   %cmp.i582 = fcmp olt float %sub835, %271
   %cmp1.i583 = fcmp ogt float %sub835, %272
@@ -3962,28 +3892,28 @@ if.then852:                                       ; preds = %if.end832
   br label %if.end853
 
 if.end853:                                        ; preds = %if.then852, %if.end832
-  %LastTopHeadersRowHeight = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 2
+  %LastTopHeadersRowHeight = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   store float 0.000000e+00, ptr %LastTopHeadersRowHeight, align 4
-  %IsLayoutLocked = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 92
+  %IsLayoutLocked = getelementptr inbounds i8, ptr %table, i64 566
   store i8 1, ptr %IsLayoutLocked, align 2
-  %IsUsingHeaders = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 96
+  %IsUsingHeaders = getelementptr inbounds i8, ptr %table, i64 570
   store i8 0, ptr %IsUsingHeaders, align 2
-  %HighlightColumnHeader = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 72
+  %HighlightColumnHeader = getelementptr inbounds i8, ptr %table, i64 526
   store i16 -1, ptr %HighlightColumnHeader, align 2
-  %IsContextPopupOpen = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 97
+  %IsContextPopupOpen = getelementptr inbounds i8, ptr %table, i64 571
   %274 = load i8, ptr %IsContextPopupOpen, align 1
   %275 = and i8 %274, 1
   %tobool854.not = icmp eq i8 %275, 0
   br i1 %tobool854.not, label %if.else866, label %land.lhs.true855
 
 land.lhs.true855:                                 ; preds = %if.end853
-  %ContextPopupColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 83
+  %ContextPopupColumn = getelementptr inbounds i8, ptr %table, i64 548
   %276 = load i16, ptr %ContextPopupColumn, align 4
   %cmp857.not = icmp eq i16 %276, -1
   br i1 %cmp857.not, label %if.else866, label %land.lhs.true858
 
 land.lhs.true858:                                 ; preds = %land.lhs.true855
-  %InstanceInteracted = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 17
+  %InstanceInteracted = getelementptr inbounds i8, ptr %table, i64 122
   %277 = load i16, ptr %InstanceInteracted, align 2
   %278 = load i16, ptr %InstanceCurrent, align 8
   %cmp862 = icmp eq i16 %277, %278
@@ -4017,14 +3947,14 @@ if.then883:                                       ; preds = %land.lhs.true879
   br i1 %cmp885, label %if.then890, label %lor.lhs.false886
 
 lor.lhs.false886:                                 ; preds = %if.then883
-  %IsActiveIdInTable = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 107
+  %IsActiveIdInTable = getelementptr inbounds i8, ptr %table, i64 581
   %284 = load i8, ptr %IsActiveIdInTable, align 1
   %285 = and i8 %284, 1
   %tobool887.not = icmp eq i8 %285, 0
   br i1 %tobool887.not, label %lor.lhs.false888, label %if.then890
 
 lor.lhs.false888:                                 ; preds = %lor.lhs.false886
-  %DragDropActive = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 144
+  %DragDropActive = getelementptr inbounds i8, ptr %0, i64 19712
   %286 = load i8, ptr %DragDropActive, align 8
   %287 = and i8 %286, 1
   %tobool889.not = icmp eq i8 %287, 0
@@ -4035,7 +3965,7 @@ if.then890:                                       ; preds = %lor.lhs.false888, %
   br label %if.end895
 
 if.end895:                                        ; preds = %if.else866, %land.lhs.true870, %land.lhs.true874, %land.lhs.true879, %if.then890, %lor.lhs.false888
-  %DisableDefaultContextMenu = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 98
+  %DisableDefaultContextMenu = getelementptr inbounds i8, ptr %table, i64 572
   %288 = load i8, ptr %DisableDefaultContextMenu, align 4
   %289 = and i8 %288, 1
   %cmp898 = icmp ne i8 %289, 0
@@ -4044,7 +3974,7 @@ if.end895:                                        ; preds = %if.else866, %land.l
 
 if.end895.thread:                                 ; preds = %land.lhs.true858
   store i16 %276, ptr %HighlightColumnHeader, align 2
-  %DisableDefaultContextMenu607 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 98
+  %DisableDefaultContextMenu607 = getelementptr inbounds i8, ptr %table, i64 572
   %290 = load i8, ptr %DisableDefaultContextMenu607, align 4
   %291 = and i8 %290, 1
   %cmp898608 = icmp eq i8 %291, 0
@@ -4052,7 +3982,7 @@ if.end895.thread:                                 ; preds = %land.lhs.true858
 
 lor.lhs.false.i:                                  ; preds = %if.end895
   %.pre676 = load i16, ptr %InstanceCurrent, align 8
-  %InstanceInteracted.i.phi.trans.insert = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 17
+  %InstanceInteracted.i.phi.trans.insert = getelementptr inbounds i8, ptr %table, i64 122
   %.pre677 = load i16, ptr %InstanceInteracted.i.phi.trans.insert, align 2
   %cmp.not.i = icmp eq i16 %.pre676, %.pre677
   br i1 %cmp.not.i, label %if.end.i588, label %if.end903
@@ -4074,7 +4004,7 @@ if.then901:                                       ; preds = %if.end.i588
   br label %if.end903
 
 if.end903:                                        ; preds = %if.end895, %lor.lhs.false.i, %if.end4.i, %if.end895.thread, %if.then901
-  %IsSortSpecsDirty904 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 95
+  %IsSortSpecsDirty904 = getelementptr inbounds i8, ptr %table, i64 569
   %294 = load i8, ptr %IsSortSpecsDirty904, align 1
   %295 = and i8 %294, 1
   %tobool905.not = icmp eq i8 %295, 0
@@ -4091,14 +4021,14 @@ if.then910:                                       ; preds = %land.lhs.true906
   br label %if.end911
 
 if.end911:                                        ; preds = %if.then910, %land.lhs.true906, %if.end903
-  %FreezeColumnsRequest = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 86
+  %FreezeColumnsRequest = getelementptr inbounds i8, ptr %table, i64 554
   %297 = load i16, ptr %FreezeColumnsRequest, align 2
   %cmp913 = icmp sgt i16 %297, 0
   br i1 %cmp913, label %if.then914, label %if.end929
 
 if.then914:                                       ; preds = %if.end911
   %conv912 = zext nneg i16 %297 to i64
-  %DisplayOrderToIndex916 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 5
+  %DisplayOrderToIndex916 = getelementptr inbounds i8, ptr %table, i64 40
   %sub919 = add nuw nsw i64 %conv912, 4294967295
   %298 = load ptr, ptr %DisplayOrderToIndex916, align 8
   %idx.ext.i589 = and i64 %sub919, 4294967295
@@ -4111,26 +4041,26 @@ if.then914:                                       ; preds = %if.end911
   %302 = load float, ptr %OuterRect, align 8
   %sub927 = fsub float %301, %302
   %303 = load ptr, ptr %InnerWindow803, align 8
-  %DecoInnerSizeX1 = getelementptr inbounds %struct.ImGuiWindow, ptr %303, i64 0, i32 20
+  %DecoInnerSizeX1 = getelementptr inbounds i8, ptr %303, i64 120
   store float %sub927, ptr %DecoInnerSizeX1, align 8
   br label %if.end929
 
 if.end929:                                        ; preds = %if.then914, %if.end911
-  %FreezeRowsRequest = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 84
+  %FreezeRowsRequest = getelementptr inbounds i8, ptr %table, i64 550
   %304 = load i16, ptr %FreezeRowsRequest, align 2
   %cmp931 = icmp sgt i16 %304, 0
   br i1 %cmp931, label %if.then932, label %if.end934
 
 if.then932:                                       ; preds = %if.end929
-  %LastFrozenHeight = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 3
+  %LastFrozenHeight = getelementptr inbounds i8, ptr %retval.0.i, i64 12
   %305 = load float, ptr %LastFrozenHeight, align 4
   %306 = load ptr, ptr %InnerWindow803, align 8
-  %DecoInnerSizeY1 = getelementptr inbounds %struct.ImGuiWindow, ptr %306, i64 0, i32 21
+  %DecoInnerSizeY1 = getelementptr inbounds i8, ptr %306, i64 124
   store float %305, ptr %DecoInnerSizeY1, align 4
   br label %if.end934
 
 if.end934:                                        ; preds = %if.then932, %if.end929
-  %LastFrozenHeight935 = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 3
+  %LastFrozenHeight935 = getelementptr inbounds i8, ptr %retval.0.i, i64 12
   store float 0.000000e+00, ptr %LastFrozenHeight935, align 4
   %307 = load ptr, ptr %InnerWindow803, align 8
   %308 = load i32, ptr %Flags, align 4
@@ -4139,18 +4069,18 @@ if.end934:                                        ; preds = %if.then932, %if.end
   br i1 %tobool939.not, label %if.else941, label %if.then940
 
 if.then940:                                       ; preds = %if.end934
-  %DrawSplitter = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 58
+  %DrawSplitter = getelementptr inbounds i8, ptr %table, i64 416
   %309 = load ptr, ptr %DrawSplitter, align 8
-  %DrawList = getelementptr inbounds %struct.ImGuiWindow, ptr %307, i64 0, i32 86
+  %DrawList = getelementptr inbounds i8, ptr %307, i64 680
   %310 = load ptr, ptr %DrawList, align 8
   call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %309, ptr noundef %310, i32 noundef 2)
   br label %if.end947
 
 if.else941:                                       ; preds = %if.end934
-  %DrawList942 = getelementptr inbounds %struct.ImGuiWindow, ptr %307, i64 0, i32 86
+  %DrawList942 = getelementptr inbounds i8, ptr %307, i64 680
   %311 = load ptr, ptr %DrawList942, align 8
-  %ClipRect943 = getelementptr inbounds %struct.ImGuiWindow, ptr %307, i64 0, i32 74
-  %Max946 = getelementptr inbounds %struct.ImGuiWindow, ptr %307, i64 0, i32 74, i32 1
+  %ClipRect943 = getelementptr inbounds i8, ptr %307, i64 584
+  %Max946 = getelementptr inbounds i8, ptr %307, i64 592
   call void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 dereferenceable(196) %311, ptr noundef nonnull align 4 dereferenceable(8) %ClipRect943, ptr noundef nonnull align 4 dereferenceable(8) %Max946, i1 noundef zeroext false)
   br label %if.end947
 
@@ -4163,7 +4093,7 @@ define internal fastcc void @_ZL21TableSetupColumnFlagsP10ImGuiTableP16ImGuiTabl
 entry:
   %and = and i32 %flags_in, 24
   %cmp = icmp eq i32 %and, 0
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %table, i64 4
   %0 = load i32, ptr %Flags, align 4
   br i1 %cmp, label %if.then, label %if.end7
 
@@ -4185,7 +4115,7 @@ if.else:                                          ; preds = %if.then
 
 if.end7:                                          ; preds = %entry, %if.then4, %if.else
   %flags.0 = phi i32 [ %or, %if.then4 ], [ %or5, %if.else ], [ %flags_in, %entry ]
-  %Flags8 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags8 = getelementptr inbounds i8, ptr %table, i64 4
   %and9 = shl i32 %0, 5
   %2 = and i32 %and9, 32
   %3 = xor i32 %2, 32
@@ -4199,7 +4129,7 @@ if.end7:                                          ; preds = %entry, %if.then4, %
   br i1 %cmp21, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %if.end7
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   %5 = load ptr, ptr %Columns, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %column to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
@@ -4217,9 +4147,9 @@ if.end25:                                         ; preds = %if.then22, %if.end7
   %and27 = and i32 %7, 251658240
   %or28 = or i32 %and27, %flags.3
   store i32 %or28, ptr %column, align 4
-  %SortDirectionsAvailList = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 38
+  %SortDirectionsAvailList = getelementptr inbounds i8, ptr %column, i64 110
   store i8 0, ptr %SortDirectionsAvailList, align 2
-  %SortDirectionsAvailMask = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 37
+  %SortDirectionsAvailMask = getelementptr inbounds i8, ptr %column, i64 109
   %bf.load = load i8, ptr %SortDirectionsAvailMask, align 1
   %bf.clear31 = and i8 %bf.load, 3
   store i8 %bf.clear31, ptr %SortDirectionsAvailMask, align 1
@@ -4289,7 +4219,7 @@ if.end82:                                         ; preds = %if.then76, %if.end7
   %11 = or disjoint i8 %bf.shl102, %bf.value
   %bf.set104 = or disjoint i8 %11, %bf.clear31
   store i8 %bf.set104, ptr %SortDirectionsAvailMask, align 1
-  %SortOrder.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 22
+  %SortOrder.i = getelementptr inbounds i8, ptr %column, i64 90
   %12 = load i16, ptr %SortOrder.i, align 2
   %cmp.i = icmp eq i16 %12, -1
   br i1 %cmp.i, label %if.end105, label %lor.lhs.false.i
@@ -4305,7 +4235,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %13 = and i8 %conv, 3
   %bf.set.i = or disjoint i8 %11, %13
   store i8 %bf.set.i, ptr %SortDirectionsAvailMask, align 1
-  %IsSortSpecsDirty.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 95
+  %IsSortSpecsDirty.i = getelementptr inbounds i8, ptr %table, i64 569
   store i8 1, ptr %IsSortSpecsDirty.i, align 1
   br label %if.end105
 
@@ -4316,13 +4246,13 @@ if.end105:                                        ; preds = %if.end.i, %lor.lhs.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn(ptr nocapture noundef readonly %table, ptr nocapture noundef readonly %column) local_unnamed_addr #10 {
 entry:
-  %ContentMaxXFrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 13
+  %ContentMaxXFrozen = getelementptr inbounds i8, ptr %column, i64 64
   %0 = load float, ptr %ContentMaxXFrozen, align 4
-  %ContentMaxXUnfrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 14
+  %ContentMaxXUnfrozen = getelementptr inbounds i8, ptr %column, i64 68
   %1 = load float, ptr %ContentMaxXUnfrozen, align 4
   %cmp.i = fcmp oge float %0, %1
   %cond.i = select i1 %cmp.i, float %0, float %1
-  %WorkMinX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 10
+  %WorkMinX = getelementptr inbounds i8, ptr %column, i64 52
   %2 = load float, ptr %WorkMinX, align 4
   %sub = fsub float %cond.i, %2
   %3 = load i32, ptr %column, align 4
@@ -4331,7 +4261,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %ContentMaxXHeadersIdeal = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 16
+  %ContentMaxXHeadersIdeal = getelementptr inbounds i8, ptr %column, i64 76
   %4 = load float, ptr %ContentMaxXHeadersIdeal, align 4
   %sub2 = fsub float %4, %2
   %cmp.i12 = fcmp oge float %sub, %sub2
@@ -4345,13 +4275,13 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool6.not, label %if.end17, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %InitStretchWeightOrWidth = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 7
+  %InitStretchWeightOrWidth = getelementptr inbounds i8, ptr %column, i64 28
   %5 = load float, ptr %InitStretchWeightOrWidth, align 4
   %cmp = fcmp ogt float %5, 0.000000e+00
   br i1 %cmp, label %if.then7, label %if.end17
 
 if.then7:                                         ; preds = %land.lhs.true
-  %Flags8 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags8 = getelementptr inbounds i8, ptr %table, i64 4
   %6 = load i32, ptr %Flags8, align 4
   %and9 = and i32 %6, 1
   %tobool10.not = icmp ne i32 %and9, 0
@@ -4365,7 +4295,7 @@ if.then14:                                        ; preds = %if.then7
 
 if.end17:                                         ; preds = %if.then7, %if.then14, %land.lhs.true, %if.end
   %width_auto.1 = phi float [ %5, %if.then14 ], [ %width_auto.0, %land.lhs.true ], [ %width_auto.0, %if.end ], [ %width_auto.0, %if.then7 ]
-  %MinColumnWidth = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 32
+  %MinColumnWidth = getelementptr inbounds i8, ptr %table, i64 184
   %7 = load float, ptr %MinColumnWidth, align 8
   %cmp.i14 = fcmp oge float %width_auto.1, %7
   %cond.i15 = select i1 %cmp.i14, float %width_auto.1, float %7
@@ -4380,30 +4310,31 @@ declare noundef zeroext i1 @_ZN5ImGui13ItemHoverableERK6ImRectji(ptr noundef non
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_ZN5ImGui22TableGetMaxColumnWidthEPK10ImGuiTablei(ptr nocapture noundef readonly %table, i32 noundef %column_n) local_unnamed_addr #12 {
 entry:
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   %0 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i32 %column_n to i64
-  %MinColumnWidth = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 32
+  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %0, i64 %idx.ext.i
+  %MinColumnWidth = getelementptr inbounds i8, ptr %table, i64 184
   %1 = load float, ptr %MinColumnWidth, align 8
-  %CellPaddingX = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 34
+  %CellPaddingX = getelementptr inbounds i8, ptr %table, i64 192
   %2 = load float, ptr %CellPaddingX, align 8
   %3 = tail call float @llvm.fmuladd.f32(float %2, float 2.000000e+00, float %1)
-  %CellSpacingX1 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 35
+  %CellSpacingX1 = getelementptr inbounds i8, ptr %table, i64 196
   %4 = load float, ptr %CellSpacingX1, align 4
   %add = fadd float %3, %4
-  %CellSpacingX2 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 36
+  %CellSpacingX2 = getelementptr inbounds i8, ptr %table, i64 200
   %5 = load float, ptr %CellSpacingX2, align 8
   %add1 = fadd float %add, %5
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %table, i64 4
   %6 = load i32, ptr %Flags, align 4
   %and = and i32 %6, 16777216
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %DisplayOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %0, i64 %idx.ext.i, i32 18
+  %DisplayOrder = getelementptr inbounds i8, ptr %add.ptr.i, i64 82
   %7 = load i16, ptr %DisplayOrder, align 2
-  %FreezeColumnsRequest = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 86
+  %FreezeColumnsRequest = getelementptr inbounds i8, ptr %table, i64 554
   %8 = load i16, ptr %FreezeColumnsRequest, align 2
   %cmp = icmp slt i16 %7, %8
   br i1 %cmp, label %if.then3, label %if.end36
@@ -4411,16 +4342,16 @@ if.then:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.then
   %conv2 = sext i16 %8 to i32
   %conv = sext i16 %7 to i32
-  %Max = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 49, i32 1
+  %Max = getelementptr inbounds i8, ptr %table, i64 296
   %9 = load float, ptr %Max, align 8
   %sub = sub nsw i32 %conv2, %conv
   %conv8 = sitofp i32 %sub to float
   %neg = fneg float %conv8
   %10 = tail call float @llvm.fmuladd.f32(float %neg, float %add1, float %9)
-  %MinX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %0, i64 %idx.ext.i, i32 2
+  %MinX = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %11 = load float, ptr %MinX, align 4
   %sub9 = fsub float %10, %11
-  %OuterPaddingX = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 33
+  %OuterPaddingX = getelementptr inbounds i8, ptr %table, i64 188
   %12 = load float, ptr %OuterPaddingX, align 4
   %sub10 = fsub float %sub9, %12
   %sub12 = fsub float %sub10, %2
@@ -4433,12 +4364,12 @@ if.else:                                          ; preds = %entry
   br i1 %cmp17, label %if.then18, label %if.end36
 
 if.then18:                                        ; preds = %if.else
-  %Max19 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48, i32 1
+  %Max19 = getelementptr inbounds i8, ptr %table, i64 280
   %13 = load float, ptr %Max19, align 8
-  %ColumnsEnabledCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 66
+  %ColumnsEnabledCount = getelementptr inbounds i8, ptr %table, i64 514
   %14 = load i16, ptr %ColumnsEnabledCount, align 2
   %conv21 = sext i16 %14 to i32
-  %IndexWithinEnabledSet = getelementptr inbounds %struct.ImGuiTableColumn, ptr %0, i64 %idx.ext.i, i32 19
+  %IndexWithinEnabledSet = getelementptr inbounds i8, ptr %add.ptr.i, i64 84
   %15 = load i16, ptr %IndexWithinEnabledSet, align 4
   %16 = xor i16 %15, -1
   %17 = sext i16 %16 to i32
@@ -4446,13 +4377,13 @@ if.then18:                                        ; preds = %if.else
   %conv25 = sitofp i32 %sub24 to float
   %neg26 = fneg float %conv25
   %18 = tail call float @llvm.fmuladd.f32(float %neg26, float %add1, float %13)
-  %MinX27 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %0, i64 %idx.ext.i, i32 2
+  %MinX27 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %19 = load float, ptr %MinX27, align 4
   %sub28 = fsub float %18, %19
   %sub30 = fsub float %sub28, %5
   %neg32 = fneg float %2
   %20 = tail call float @llvm.fmuladd.f32(float %neg32, float 2.000000e+00, float %sub30)
-  %OuterPaddingX33 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 33
+  %OuterPaddingX33 = getelementptr inbounds i8, ptr %table, i64 188
   %21 = load float, ptr %OuterPaddingX33, align 4
   %sub34 = fsub float %20, %21
   br label %if.end36
@@ -4465,27 +4396,27 @@ if.end36:                                         ; preds = %if.else, %if.then18
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ImGui22TableSetupDrawChannelsEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #0 {
 entry:
-  %FreezeRowsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 85
+  %FreezeRowsCount = getelementptr inbounds i8, ptr %table, i64 552
   %0 = load i16, ptr %FreezeRowsCount, align 8
   %cmp = icmp sgt i16 %0, 0
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %table, i64 4
   %1 = load i32, ptr %Flags, align 4
   %and = and i32 %1, 1048576
   %tobool.not = icmp eq i32 %and, 0
-  %ColumnsEnabledCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 66
+  %ColumnsEnabledCount = getelementptr inbounds i8, ptr %table, i64 514
   %2 = load i16, ptr %ColumnsEnabledCount, align 2
   %conv1 = sext i16 %2 to i32
   %conv1. = select i1 %tobool.not, i32 %conv1, i32 1
   %add = select i1 %cmp, i32 3, i32 2
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %3 = load i32, ptr %ColumnsCount, align 4
   %cmp5 = icmp sgt i32 %3, %conv1
   br i1 %cmp5, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %VisibleMaskByIndex = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 9
+  %VisibleMaskByIndex = getelementptr inbounds i8, ptr %table, i64 88
   %4 = load ptr, ptr %VisibleMaskByIndex, align 8
-  %EnabledMaskByIndex = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 8
+  %EnabledMaskByIndex = getelementptr inbounds i8, ptr %table, i64 80
   %5 = load ptr, ptr %EnabledMaskByIndex, align 8
   %add.i = add nsw i32 %3, 31
   %shr.i = ashr i32 %add.i, 5
@@ -4503,33 +4434,33 @@ lor.end:                                          ; preds = %lor.rhs, %entry
   %mul10 = shl nsw i32 %conv1., %6
   %add11 = add nsw i32 %mul10, %add
   %add12 = add nsw i32 %add11, %cond9
-  %DrawSplitter = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 58
+  %DrawSplitter = getelementptr inbounds i8, ptr %table, i64 416
   %7 = load ptr, ptr %DrawSplitter, align 8
-  %InnerWindow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 56
+  %InnerWindow = getelementptr inbounds i8, ptr %table, i64 392
   %8 = load ptr, ptr %InnerWindow, align 8
-  %DrawList = getelementptr inbounds %struct.ImGuiWindow, ptr %8, i64 0, i32 86
+  %DrawList = getelementptr inbounds i8, ptr %8, i64 680
   %9 = load ptr, ptr %DrawList, align 8
   tail call void @_ZN18ImDrawListSplitter5SplitEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %9, i32 noundef %add12)
   %10 = trunc i32 %add12 to i16
   %11 = add i16 %10, -1
   %spec.select47 = select i1 %cond.fr, i16 %11, i16 -1
-  %DummyDrawChannel = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 89
+  %DummyDrawChannel = getelementptr inbounds i8, ptr %table, i64 560
   store i16 %spec.select47, ptr %DummyDrawChannel, align 8
-  %Bg2DrawChannelCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 90
+  %Bg2DrawChannelCurrent = getelementptr inbounds i8, ptr %table, i64 562
   store i16 1, ptr %Bg2DrawChannelCurrent, align 2
   %12 = load i16, ptr %FreezeRowsCount, align 8
   %13 = trunc i32 %conv1. to i16
   %14 = add i16 %13, 2
   %cmp21.inv = icmp slt i16 %12, 1
   %conv27 = select i1 %cmp21.inv, i16 1, i16 %14
-  %Bg2DrawChannelUnfrozen = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 91
+  %Bg2DrawChannelUnfrozen = getelementptr inbounds i8, ptr %table, i64 564
   store i16 %conv27, ptr %Bg2DrawChannelUnfrozen, align 4
   %15 = load i32, ptr %ColumnsCount, align 4
   %cmp2942 = icmp sgt i32 %15, 0
   br i1 %cmp2942, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %lor.end
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   %add38 = add nsw i32 %conv1., 1
   br label %for.body
 
@@ -4537,14 +4468,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end51 ]
   %draw_channel_current.044 = phi i32 [ 2, %for.body.lr.ph ], [ %draw_channel_current.1, %if.end51 ]
   %16 = load ptr, ptr %Columns, align 8
-  %IsVisibleX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %16, i64 %indvars.iv, i32 29
+  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %16, i64 %indvars.iv
+  %IsVisibleX = getelementptr inbounds i8, ptr %add.ptr.i, i64 101
   %17 = load i8, ptr %IsVisibleX, align 1
   %18 = and i8 %17, 1
   %tobool31.not = icmp eq i8 %18, 0
   br i1 %tobool31.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %IsVisibleY = getelementptr inbounds %struct.ImGuiTableColumn, ptr %16, i64 %indvars.iv, i32 30
+  %IsVisibleY = getelementptr inbounds i8, ptr %add.ptr.i, i64 102
   %19 = load i8, ptr %IsVisibleY, align 2
   %20 = and i8 %19, 1
   %tobool32.not = icmp eq i8 %20, 0
@@ -4552,14 +4484,14 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.then:                                          ; preds = %land.lhs.true
   %conv33 = trunc i32 %draw_channel_current.044 to i16
-  %DrawChannelFrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %16, i64 %indvars.iv, i32 24
+  %DrawChannelFrozen = getelementptr inbounds i8, ptr %add.ptr.i, i64 94
   store i16 %conv33, ptr %DrawChannelFrozen, align 2
   %21 = load i16, ptr %FreezeRowsCount, align 8
   %cmp36 = icmp sgt i16 %21, 0
   %cond41 = select i1 %cmp36, i32 %add38, i32 0
   %add42 = add nsw i32 %cond41, %draw_channel_current.044
   %conv43 = trunc i32 %add42 to i16
-  %DrawChannelUnfrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %16, i64 %indvars.iv, i32 25
+  %DrawChannelUnfrozen = getelementptr inbounds i8, ptr %add.ptr.i, i64 96
   store i16 %conv43, ptr %DrawChannelUnfrozen, align 4
   %22 = load i32, ptr %Flags, align 4
   %and45 = lshr i32 %22, 20
@@ -4570,16 +4502,16 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.else:                                          ; preds = %land.lhs.true, %for.body
   %25 = load i16, ptr %DummyDrawChannel, align 8
-  %DrawChannelUnfrozen49 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %16, i64 %indvars.iv, i32 25
+  %DrawChannelUnfrozen49 = getelementptr inbounds i8, ptr %add.ptr.i, i64 96
   store i16 %25, ptr %DrawChannelUnfrozen49, align 4
-  %DrawChannelFrozen50 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %16, i64 %indvars.iv, i32 24
+  %DrawChannelFrozen50 = getelementptr inbounds i8, ptr %add.ptr.i, i64 94
   store i16 %25, ptr %DrawChannelFrozen50, align 2
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then, %if.else
   %26 = phi i16 [ %25, %if.else ], [ %conv33, %if.then ]
   %draw_channel_current.1 = phi i32 [ %draw_channel_current.044, %if.else ], [ %spec.select, %if.then ]
-  %DrawChannelCurrent = getelementptr inbounds %struct.ImGuiTableColumn, ptr %16, i64 %indvars.iv, i32 23
+  %DrawChannelCurrent = getelementptr inbounds i8, ptr %add.ptr.i, i64 92
   store i16 %26, ptr %DrawChannelCurrent, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %ColumnsCount, align 4
@@ -4588,16 +4520,16 @@ if.end51:                                         ; preds = %if.then, %if.else
   br i1 %cmp29, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %if.end51, %lor.end
-  %InnerClipRect = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 49
-  %BgClipRect = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 50
+  %InnerClipRect = getelementptr inbounds i8, ptr %table, i64 288
+  %BgClipRect = getelementptr inbounds i8, ptr %table, i64 304
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %BgClipRect, ptr noundef nonnull align 8 dereferenceable(16) %InnerClipRect, i64 16, i1 false)
-  %OuterWindow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 55
+  %OuterWindow = getelementptr inbounds i8, ptr %table, i64 384
   %29 = load ptr, ptr %OuterWindow, align 8
-  %ClipRect = getelementptr inbounds %struct.ImGuiWindow, ptr %29, i64 0, i32 74
-  %Bg0ClipRectForDrawCmd = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 51
+  %ClipRect = getelementptr inbounds i8, ptr %29, i64 584
+  %Bg0ClipRectForDrawCmd = getelementptr inbounds i8, ptr %table, i64 320
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Bg0ClipRectForDrawCmd, ptr noundef nonnull align 8 dereferenceable(16) %ClipRect, i64 16, i1 false)
-  %HostClipRect = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 53
-  %Bg2ClipRectForDrawCmd = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 52
+  %HostClipRect = getelementptr inbounds i8, ptr %table, i64 352
+  %Bg2ClipRectForDrawCmd = getelementptr inbounds i8, ptr %table, i64 336
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Bg2ClipRectForDrawCmd, ptr noundef nonnull align 8 dereferenceable(16) %HostClipRect, i64 16, i1 false)
   ret void
 }
@@ -4609,69 +4541,68 @@ entry:
   %hovered = alloca i8, align 1
   %held = alloca i8, align 1
   %0 = load ptr, ptr @GImGui, align 8
-  %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 16
+  %InstanceCurrent = getelementptr inbounds i8, ptr %table, i64 120
   %1 = load i16, ptr %InstanceCurrent, align 8
   %cmp.i = icmp eq i16 %1, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %InstanceDataFirst.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 59
+  %InstanceDataFirst.i = getelementptr inbounds i8, ptr %table, i64 424
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 if.end.i:                                         ; preds = %entry
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 60, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %table, i64 456
   %2 = load ptr, ptr %Data.i.i, align 8
   %3 = sext i16 %1 to i64
   %4 = getelementptr %struct.ImGuiTableInstanceData, ptr %2, i64 %3
-  %arrayidx.i.i = getelementptr %struct.ImGuiTableInstanceData, ptr %4, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %4, i64 -24
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %InstanceDataFirst.i, %if.then.i ], [ %arrayidx.i.i, %if.end.i ]
-  %FreezeRowsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 85
+  %FreezeRowsCount = getelementptr inbounds i8, ptr %table, i64 552
   %5 = load i16, ptr %FreezeRowsCount, align 8
   %cmp = icmp sgt i16 %5, 0
-  %y = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 0, i32 1
-  %y3 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48, i32 0, i32 1
-  %cond.in = select i1 %cmp, ptr %y, ptr %y3
+  %cond.in.v = select i1 %cmp, i64 244, i64 276
+  %cond.in = getelementptr inbounds i8, ptr %table, i64 %cond.in.v
   %cond = load float, ptr %cond.in, align 4
-  %AngledHeadersHeight = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 44
+  %AngledHeadersHeight = getelementptr inbounds i8, ptr %table, i64 232
   %6 = load float, ptr %AngledHeadersHeight, align 8
   %add = fadd float %cond, %6
-  %y5 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 1, i32 1
+  %y5 = getelementptr inbounds i8, ptr %table, i64 252
   %7 = load float, ptr %y5, align 4
-  %LastOuterHeight = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 1
+  %LastOuterHeight = getelementptr inbounds i8, ptr %retval.0.i, i64 4
   %8 = load float, ptr %LastOuterHeight, align 4
   %add6 = fadd float %add, %8
   %cmp.i43 = fcmp oge float %7, %add6
   %cond.i = select i1 %cmp.i43, float %7, float %add6
-  %LastTopHeadersRowHeight = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 2
+  %LastTopHeadersRowHeight = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %9 = load float, ptr %LastTopHeadersRowHeight, align 4
   %add8 = fadd float %add, %9
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %10 = load i32, ptr %ColumnsCount, align 4
   %cmp949 = icmp sgt i32 %10, 0
   br i1 %cmp949, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
-  %EnabledMaskByDisplayOrder = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 7
-  %DisplayOrderToIndex = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 5
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
-  %Flags18 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
-  %IsUsingHeaders = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 96
-  %LastResizedColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 75
-  %Data.i.i.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 60, i32 2
-  %InstanceDataFirst.i.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 59
-  %y.i.i = getelementptr inbounds %struct.ImVec2, ptr %hit_rect, i64 0, i32 1
-  %Max.i = getelementptr inbounds %struct.ImRect, ptr %hit_rect, i64 0, i32 1
-  %y.i1.i = getelementptr inbounds %struct.ImRect, ptr %hit_rect, i64 0, i32 1, i32 1
-  %AutoFitSingleColumn.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 73
-  %RightMostEnabledColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 80
-  %ResizeLockMinContentsX2 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 42
-  %ResizedColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 74
-  %InstanceInteracted = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 17
-  %HoveredIdTimer = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 45
-  %HoveredColumnBorder = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 71
+  %EnabledMaskByDisplayOrder = getelementptr inbounds i8, ptr %table, i64 72
+  %DisplayOrderToIndex = getelementptr inbounds i8, ptr %table, i64 40
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
+  %Flags18 = getelementptr inbounds i8, ptr %table, i64 4
+  %IsUsingHeaders = getelementptr inbounds i8, ptr %table, i64 570
+  %LastResizedColumn = getelementptr inbounds i8, ptr %table, i64 532
+  %Data.i.i.i.i = getelementptr inbounds i8, ptr %table, i64 456
+  %InstanceDataFirst.i.i.i = getelementptr inbounds i8, ptr %table, i64 424
+  %y.i.i = getelementptr inbounds i8, ptr %hit_rect, i64 4
+  %Max.i = getelementptr inbounds i8, ptr %hit_rect, i64 8
+  %y.i1.i = getelementptr inbounds i8, ptr %hit_rect, i64 12
+  %AutoFitSingleColumn.i = getelementptr inbounds i8, ptr %table, i64 528
+  %RightMostEnabledColumn = getelementptr inbounds i8, ptr %table, i64 542
+  %ResizeLockMinContentsX2 = getelementptr inbounds i8, ptr %table, i64 224
+  %ResizedColumn = getelementptr inbounds i8, ptr %table, i64 530
+  %InstanceInteracted = getelementptr inbounds i8, ptr %table, i64 122
+  %HoveredIdTimer = getelementptr inbounds i8, ptr %0, i64 16484
+  %HoveredColumnBorder = getelementptr inbounds i8, ptr %table, i64 524
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -4715,7 +4646,7 @@ land.lhs.true:                                    ; preds = %if.end17
   br i1 %cmp30, label %for.inc, label %if.end32
 
 if.end32:                                         ; preds = %land.lhs.true, %if.end17
-  %IsVisibleX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %16, i64 %idx.ext.i44, i32 29
+  %IsVisibleX = getelementptr inbounds i8, ptr %add.ptr.i45, i64 101
   %21 = load i8, ptr %IsVisibleX, align 1
   %22 = and i8 %21, 1
   %tobool33.not = icmp eq i8 %22, 0
@@ -4735,7 +4666,7 @@ if.end.i.i.i:                                     ; preds = %if.end38
   %25 = load ptr, ptr %Data.i.i.i.i, align 8
   %26 = sext i16 %24 to i64
   %27 = getelementptr %struct.ImGuiTableInstanceData, ptr %25, i64 %26
-  %arrayidx.i.i.i.i = getelementptr %struct.ImGuiTableInstanceData, ptr %27, i64 -1
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %27, i64 -24
   br label %_ZN5ImGui22TableGetColumnResizeIDEP10ImGuiTableii.exit
 
 _ZN5ImGui22TableGetColumnResizeIDEP10ImGuiTableii.exit: ; preds = %if.end38, %if.end.i.i.i
@@ -4743,7 +4674,7 @@ _ZN5ImGui22TableGetColumnResizeIDEP10ImGuiTableii.exit: ; preds = %if.end38, %if
   %28 = load i32, ptr %retval.0.i.i.i, align 4
   %add.i = add nsw i32 %conv13, 1
   %add1.i = add i32 %add.i, %28
-  %MaxX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %16, i64 %idx.ext.i44, i32 3
+  %MaxX = getelementptr inbounds i8, ptr %add.ptr.i45, i64 12
   %29 = load float, ptr %MaxX, align 4
   %sub = fadd float %29, -4.000000e+00
   %add43 = fadd float %29, 4.000000e+00
@@ -4763,14 +4694,15 @@ land.lhs.true47:                                  ; preds = %_ZN5ImGui22TableGet
 
 if.then49:                                        ; preds = %land.lhs.true47
   %30 = load ptr, ptr %Columns, align 8
-  %IsEnabled.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %30, i64 %idx.ext.i44, i32 26
+  %add.ptr.i.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %30, i64 %idx.ext.i44
+  %IsEnabled.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 98
   %31 = load i8, ptr %IsEnabled.i, align 2
   %32 = and i8 %31, 1
   %tobool.not.i = icmp eq i8 %32, 0
   br i1 %tobool.not.i, label %_ZN5ImGui29TableSetColumnWidthAutoSingleEP10ImGuiTablei.exit, label %if.end.i46
 
 if.end.i46:                                       ; preds = %if.then49
-  %CannotSkipItemsQueue.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %30, i64 %idx.ext.i44, i32 36
+  %CannotSkipItemsQueue.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 108
   store i8 1, ptr %CannotSkipItemsQueue.i, align 4
   store i16 %15, ptr %AutoFitSingleColumn.i, align 8
   br label %_ZN5ImGui29TableSetColumnWidthAutoSingleEP10ImGuiTablei.exit
@@ -4851,16 +4783,16 @@ for.end:                                          ; preds = %for.inc, %_ZN5ImGui
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5ImGui26TableBeginContextMenuPopupEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #0 {
 entry:
-  %IsContextPopupOpen = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 97
+  %IsContextPopupOpen = getelementptr inbounds i8, ptr %table, i64 571
   %0 = load i8, ptr %IsContextPopupOpen, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 16
+  %InstanceCurrent = getelementptr inbounds i8, ptr %table, i64 120
   %2 = load i16, ptr %InstanceCurrent, align 8
-  %InstanceInteracted = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 17
+  %InstanceInteracted = getelementptr inbounds i8, ptr %table, i64 122
   %3 = load i16, ptr %InstanceInteracted, align 2
   %cmp.not = icmp eq i16 %2, %3
   br i1 %cmp.not, label %if.end, label %return
@@ -4884,36 +4816,36 @@ return:                                           ; preds = %if.end, %entry, %lo
 define void @_ZN5ImGui27TableDrawDefaultContextMenuEP10ImGuiTablei(ptr nocapture noundef %table, i32 noundef %flags_for_section_to_display) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow, align 8
-  %SkipItems = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 38
+  %SkipItems = getelementptr inbounds i8, ptr %1, i64 195
   %2 = load i8, ptr %SkipItems, align 1
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %if.end91
 
 if.end:                                           ; preds = %entry
-  %ContextPopupColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 83
+  %ContextPopupColumn = getelementptr inbounds i8, ptr %table, i64 548
   %4 = load i16, ptr %ContextPopupColumn, align 4
   %conv = sext i16 %4 to i32
   %cmp = icmp sgt i16 %4, -1
   br i1 %cmp, label %land.lhs.true, label %cond.end9
 
 land.lhs.true:                                    ; preds = %if.end
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %5 = load i32, ptr %ColumnsCount, align 4
   %cmp3.not = icmp sgt i32 %5, %conv
   br i1 %cmp3.not, label %cond.true7, label %cond.end9
 
 cond.true7:                                       ; preds = %land.lhs.true
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   %6 = load ptr, ptr %Columns, align 8
   %idx.ext.i = zext nneg i16 %4 to i64
   %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i
   br label %cond.end9
 
 cond.end9:                                        ; preds = %land.lhs.true, %if.end, %cond.true7
-  %cond57 = phi i32 [ %conv, %cond.true7 ], [ -1, %if.end ], [ -1, %land.lhs.true ]
+  %cond61 = phi i32 [ %conv, %cond.true7 ], [ -1, %if.end ], [ -1, %land.lhs.true ]
   %cond10 = phi ptr [ %add.ptr.i, %cond.true7 ], [ null, %if.end ], [ null, %land.lhs.true ]
   %and = and i32 %flags_for_section_to_display, 1
   %tobool11.not = icmp ne i32 %and, 0
@@ -4930,7 +4862,7 @@ if.then14:                                        ; preds = %if.then12
   br i1 %tobool16.not, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.then14
-  %IsEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %cond10, i64 0, i32 26
+  %IsEnabled = getelementptr inbounds i8, ptr %cond10, i64 98
   %8 = load i8, ptr %IsEnabled, align 2
   %9 = and i8 %8, 1
   %tobool17 = icmp ne i8 %9, 0
@@ -4938,7 +4870,7 @@ land.rhs:                                         ; preds = %if.then14
 
 land.end:                                         ; preds = %land.rhs, %if.then14
   %10 = phi i1 [ false, %if.then14 ], [ %tobool17, %land.rhs ]
-  %arrayidx.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 221, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 24432
   %11 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %11, null
   %cond.i = select i1 %tobool.not.i, ptr @.str.37, ptr %11
@@ -4946,27 +4878,28 @@ land.end:                                         ; preds = %land.rhs, %if.then1
   br i1 %call20, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %land.end
-  %Columns.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns.i = getelementptr inbounds i8, ptr %table, i64 24
   %12 = load ptr, ptr %Columns.i, align 8
-  %idx.ext.i.i = sext i32 %cond57 to i64
-  %IsEnabled.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %12, i64 %idx.ext.i.i, i32 26
+  %idx.ext.i.i = sext i32 %cond61 to i64
+  %add.ptr.i.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %12, i64 %idx.ext.i.i
+  %IsEnabled.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 98
   %13 = load i8, ptr %IsEnabled.i, align 2
   %14 = and i8 %13, 1
   %tobool.not.i33 = icmp eq i8 %14, 0
   br i1 %tobool.not.i33, label %if.end23, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then21
-  %CannotSkipItemsQueue.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %12, i64 %idx.ext.i.i, i32 36
+  %CannotSkipItemsQueue.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 108
   store i8 1, ptr %CannotSkipItemsQueue.i, align 4
-  %conv.i = trunc i32 %cond57 to i16
-  %AutoFitSingleColumn.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 73
+  %conv.i = trunc i32 %cond61 to i16
+  %AutoFitSingleColumn.i = getelementptr inbounds i8, ptr %table, i64 528
   store i16 %conv.i, ptr %AutoFitSingleColumn.i, align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end.i, %if.then21, %land.end, %if.then12
-  %ColumnsEnabledFixedCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 67
+  %ColumnsEnabledFixedCount = getelementptr inbounds i8, ptr %table, i64 516
   %15 = load i16, ptr %ColumnsEnabledFixedCount, align 4
-  %ColumnsEnabledCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 66
+  %ColumnsEnabledCount = getelementptr inbounds i8, ptr %table, i64 514
   %16 = load i16, ptr %ColumnsEnabledCount, align 2
   %cmp26 = icmp eq i16 %15, %16
   br i1 %cmp26, label %land.lhs.true27, label %if.end23.if.else_crit_edge
@@ -4976,67 +4909,67 @@ if.end23.if.else_crit_edge:                       ; preds = %if.end23
   br label %if.else
 
 land.lhs.true27:                                  ; preds = %if.end23
-  %Flags28 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags28 = getelementptr inbounds i8, ptr %table, i64 4
   %17 = load i32, ptr %Flags28, align 4
   %and29 = and i32 %17, 57344
   %cmp30.not = icmp eq i32 %and29, 16384
-  %.pre68 = load ptr, ptr @GImGui, align 8
+  %.pre72 = load ptr, ptr @GImGui, align 8
   br i1 %cmp30.not, label %if.else, label %if.then31
 
 if.then31:                                        ; preds = %land.lhs.true27
-  %arrayidx.i34 = getelementptr inbounds %struct.ImGuiContext, ptr %.pre68, i64 0, i32 221, i64 2
+  %arrayidx.i35 = getelementptr inbounds i8, ptr %.pre72, i64 24440
   br label %if.end34
 
 if.else:                                          ; preds = %if.end23.if.else_crit_edge, %land.lhs.true27
-  %18 = phi ptr [ %.pre, %if.end23.if.else_crit_edge ], [ %.pre68, %land.lhs.true27 ]
-  %arrayidx.i37 = getelementptr inbounds %struct.ImGuiContext, ptr %18, i64 0, i32 221, i64 3
+  %18 = phi ptr [ %.pre, %if.end23.if.else_crit_edge ], [ %.pre72, %land.lhs.true27 ]
+  %arrayidx.i39 = getelementptr inbounds i8, ptr %18, i64 24448
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else, %if.then31
-  %arrayidx.i37.sink = phi ptr [ %arrayidx.i37, %if.else ], [ %arrayidx.i34, %if.then31 ]
-  %19 = load ptr, ptr %arrayidx.i37.sink, align 8
-  %tobool.not.i38 = icmp eq ptr %19, null
-  %cond.i39 = select i1 %tobool.not.i38, ptr @.str.37, ptr %19
-  %call35 = tail call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef nonnull %cond.i39, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true)
+  %arrayidx.i39.sink = phi ptr [ %arrayidx.i39, %if.else ], [ %arrayidx.i35, %if.then31 ]
+  %19 = load ptr, ptr %arrayidx.i39.sink, align 8
+  %tobool.not.i40 = icmp eq ptr %19, null
+  %cond.i41 = select i1 %tobool.not.i40, ptr @.str.37, ptr %19
+  %call35 = tail call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef nonnull %cond.i41, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true)
   br i1 %call35, label %if.then36, label %if.end38
 
 if.then36:                                        ; preds = %if.end34
-  %ColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount.i = getelementptr inbounds i8, ptr %table, i64 108
   %20 = load i32, ptr %ColumnsCount.i, align 4
   %cmp7.i = icmp sgt i32 %20, 0
   br i1 %cmp7.i, label %for.body.lr.ph.i, label %if.end38
 
 for.body.lr.ph.i:                                 ; preds = %if.then36
-  %Columns.i40 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns.i42 = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %21 = phi i32 [ %20, %for.body.lr.ph.i ], [ %26, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %22 = load ptr, ptr %Columns.i40, align 8
-  %IsEnabled.i41 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %22, i64 %indvars.iv.i, i32 26
-  %23 = load i8, ptr %IsEnabled.i41, align 2
+  %22 = load ptr, ptr %Columns.i42, align 8
+  %add.ptr.i.i43 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %22, i64 %indvars.iv.i
+  %IsEnabled.i44 = getelementptr inbounds i8, ptr %add.ptr.i.i43, i64 98
+  %23 = load i8, ptr %IsEnabled.i44, align 2
   %24 = and i8 %23, 1
-  %tobool.not.i42 = icmp eq i8 %24, 0
-  br i1 %tobool.not.i42, label %land.lhs.true.i, label %if.end.i43
+  %tobool.not.i45 = icmp eq i8 %24, 0
+  br i1 %tobool.not.i45, label %land.lhs.true.i, label %if.end.i46
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %add.ptr.i.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %22, i64 %indvars.iv.i
-  %25 = load i32, ptr %add.ptr.i.i, align 4
+  %25 = load i32, ptr %add.ptr.i.i43, align 4
   %and.i = and i32 %25, 8
   %tobool1.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool1.not.i, label %for.inc.i, label %if.end.i43
+  br i1 %tobool1.not.i, label %for.inc.i, label %if.end.i46
 
-if.end.i43:                                       ; preds = %land.lhs.true.i, %for.body.i
-  %CannotSkipItemsQueue.i44 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %22, i64 %indvars.iv.i, i32 36
-  store i8 1, ptr %CannotSkipItemsQueue.i44, align 4
-  %AutoFitQueue.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %22, i64 %indvars.iv.i, i32 35
+if.end.i46:                                       ; preds = %land.lhs.true.i, %for.body.i
+  %CannotSkipItemsQueue.i47 = getelementptr inbounds i8, ptr %add.ptr.i.i43, i64 108
+  store i8 1, ptr %CannotSkipItemsQueue.i47, align 4
+  %AutoFitQueue.i = getelementptr inbounds i8, ptr %add.ptr.i.i43, i64 107
   store i8 2, ptr %AutoFitQueue.i, align 1
   %.pre.i = load i32, ptr %ColumnsCount.i, align 4
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.end.i43, %land.lhs.true.i
-  %26 = phi i32 [ %21, %land.lhs.true.i ], [ %.pre.i, %if.end.i43 ]
+for.inc.i:                                        ; preds = %if.end.i46, %land.lhs.true.i
+  %26 = phi i32 [ %21, %land.lhs.true.i ], [ %.pre.i, %if.end.i46 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = sext i32 %26 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %27
@@ -5049,19 +4982,19 @@ if.end38:                                         ; preds = %for.inc.i, %if.then
 
 if.then41:                                        ; preds = %if.end38
   %28 = load ptr, ptr @GImGui, align 8
-  %arrayidx.i45 = getelementptr inbounds %struct.ImGuiContext, ptr %28, i64 0, i32 221, i64 4
-  %29 = load ptr, ptr %arrayidx.i45, align 8
-  %tobool.not.i46 = icmp eq ptr %29, null
-  %cond.i47 = select i1 %tobool.not.i46, ptr @.str.37, ptr %29
-  %IsDefaultDisplayOrder = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 101
+  %arrayidx.i49 = getelementptr inbounds i8, ptr %28, i64 24456
+  %29 = load ptr, ptr %arrayidx.i49, align 8
+  %tobool.not.i50 = icmp eq ptr %29, null
+  %cond.i51 = select i1 %tobool.not.i50, ptr @.str.37, ptr %29
+  %IsDefaultDisplayOrder = getelementptr inbounds i8, ptr %table, i64 575
   %30 = load i8, ptr %IsDefaultDisplayOrder, align 1
   %31 = and i8 %30, 1
   %tobool43.not = icmp eq i8 %31, 0
-  %call44 = tail call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef nonnull %cond.i47, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext %tobool43.not)
+  %call44 = tail call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef nonnull %cond.i51, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext %tobool43.not)
   br i1 %call44, label %if.then45, label %if.end47
 
 if.then45:                                        ; preds = %if.then41
-  %IsResetDisplayOrderRequest = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 103
+  %IsResetDisplayOrderRequest = getelementptr inbounds i8, ptr %table, i64 577
   store i8 1, ptr %IsResetDisplayOrderRequest, align 1
   br label %if.end47
 
@@ -5080,24 +5013,24 @@ if.then52:                                        ; preds = %if.then50
 
 if.end53:                                         ; preds = %if.then52, %if.then50
   tail call void @_ZN5ImGui12PushItemFlagEib(i32 noundef 32, i1 noundef zeroext true)
-  %ColumnsCount54 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount54 = getelementptr inbounds i8, ptr %table, i64 108
   %32 = load i32, ptr %ColumnsCount54, align 4
-  %cmp5561 = icmp sgt i32 %32, 0
-  br i1 %cmp5561, label %for.body.lr.ph, label %for.end
+  %cmp5565 = icmp sgt i32 %32, 0
+  br i1 %cmp5565, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end53
-  %Columns56 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
-  %IsLayoutLocked.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 92
-  %DeclColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 68
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 57, i32 0, i32 2
-  %ColumnsEnabledCount76 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 66
+  %Columns56 = getelementptr inbounds i8, ptr %table, i64 24
+  %IsLayoutLocked.i = getelementptr inbounds i8, ptr %table, i64 566
+  %DeclColumnsCount.i = getelementptr inbounds i8, ptr %table, i64 518
+  %Data.i.i = getelementptr inbounds i8, ptr %table, i64 408
+  %ColumnsEnabledCount76 = getelementptr inbounds i8, ptr %table, i64 514
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %33 = load ptr, ptr %Columns56, align 8
-  %add.ptr.i49 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %33, i64 %indvars.iv
-  %34 = load i32, ptr %add.ptr.i49, align 4
+  %add.ptr.i53 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %33, i64 %indvars.iv
+  %34 = load i32, ptr %add.ptr.i53, align 4
   %and59 = and i32 %34, 1
   %tobool60.not = icmp eq i32 %and59, 0
   br i1 %tobool60.not, label %if.end62, label %for.inc
@@ -5105,40 +5038,40 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end62:                                         ; preds = %for.body
   %35 = load i8, ptr %IsLayoutLocked.i, align 2
   %36 = and i8 %35, 1
-  %cmp.i50 = icmp eq i8 %36, 0
-  br i1 %cmp.i50, label %land.lhs.true.i54, label %if.end.i51
+  %cmp.i54 = icmp eq i8 %36, 0
+  br i1 %cmp.i54, label %land.lhs.true.i58, label %if.end.i55
 
-land.lhs.true.i54:                                ; preds = %if.end62
+land.lhs.true.i58:                                ; preds = %if.end62
   %37 = load i16, ptr %DeclColumnsCount.i, align 2
   %38 = sext i16 %37 to i64
   %cmp2.not.i = icmp slt i64 %indvars.iv, %38
-  br i1 %cmp2.not.i, label %if.end.i51, label %lor.lhs.false
+  br i1 %cmp2.not.i, label %if.end.i55, label %lor.lhs.false
 
-if.end.i51:                                       ; preds = %land.lhs.true.i54, %if.end62
+if.end.i55:                                       ; preds = %land.lhs.true.i58, %if.end62
   %NameOffset.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %33, i64 %indvars.iv, i32 17
   %39 = load i16, ptr %NameOffset.i, align 4
   %cmp4.i = icmp eq i16 %39, -1
   br i1 %cmp4.i, label %lor.lhs.false, label %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit
 
-_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit: ; preds = %if.end.i51
+_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit: ; preds = %if.end.i55
   %40 = load ptr, ptr %Data.i.i, align 8
   %idxprom.i.i = sext i16 %39 to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %40, i64 %idxprom.i.i
   %cmp64 = icmp eq ptr %40, null
   br i1 %cmp64, label %if.end68, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %if.end.i51, %land.lhs.true.i54, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit
-  %retval.0.i60 = phi ptr [ %arrayidx.i.i, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit ], [ @.str.1, %land.lhs.true.i54 ], [ @.str.1, %if.end.i51 ]
-  %41 = load i8, ptr %retval.0.i60, align 1
+lor.lhs.false:                                    ; preds = %if.end.i55, %land.lhs.true.i58, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit
+  %retval.0.i64 = phi ptr [ %arrayidx.i.i, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit ], [ @.str.1, %land.lhs.true.i58 ], [ @.str.1, %if.end.i55 ]
+  %41 = load i8, ptr %retval.0.i64, align 1
   %cmp66 = icmp eq i8 %41, 0
-  %spec.select = select i1 %cmp66, ptr @.str.7, ptr %retval.0.i60
+  %spec.select = select i1 %cmp66, ptr @.str.7, ptr %retval.0.i64
   br label %if.end68
 
 if.end68:                                         ; preds = %lor.lhs.false, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit
   %name.0 = phi ptr [ @.str.7, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit ], [ %spec.select, %lor.lhs.false ]
   %and70 = and i32 %34, 128
   %tobool71.not = icmp eq i32 %and70, 0
-  %IsUserEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %33, i64 %indvars.iv, i32 27
+  %IsUserEnabled = getelementptr inbounds i8, ptr %add.ptr.i53, i64 99
   %42 = load i8, ptr %IsUserEnabled, align 1
   %43 = and i8 %42, 1
   %tobool74.not = icmp eq i8 %43, 0
@@ -5159,7 +5092,7 @@ if.end80:                                         ; preds = %land.lhs.true75, %i
 if.then85:                                        ; preds = %if.end80
   %45 = load i8, ptr %IsUserEnabled, align 1
   %46 = and i8 %45, 1
-  %IsUserEnabledNextFrame = getelementptr inbounds %struct.ImGuiTableColumn, ptr %33, i64 %indvars.iv, i32 28
+  %IsUserEnabledNextFrame = getelementptr inbounds i8, ptr %add.ptr.i53, i64 100
   %frombool89 = xor i8 %46, 1
   store i8 %frombool89, ptr %IsUserEnabledNextFrame, align 4
   br label %for.inc
@@ -5184,7 +5117,7 @@ declare void @_ZN5ImGui8EndPopupEv() local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ImGui19TableSortSpecsBuildEP10ImGuiTable(ptr noundef %table) local_unnamed_addr #0 {
 entry:
-  %IsSortSpecsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 95
+  %IsSortSpecsDirty = getelementptr inbounds i8, ptr %table, i64 569
   %0 = load i8, ptr %IsSortSpecsDirty, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -5192,13 +5125,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN5ImGui22TableSortSpecsSanitizeEP10ImGuiTable(ptr noundef nonnull %table)
-  %SortSpecsMulti = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 63
-  %SortSpecsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 65
+  %SortSpecsMulti = getelementptr inbounds i8, ptr %table, i64 480
+  %SortSpecsCount = getelementptr inbounds i8, ptr %table, i64 512
   %2 = load i16, ptr %SortSpecsCount, align 8
   %cmp = icmp slt i16 %2, 2
   %narrow = select i1 %cmp, i16 0, i16 %2
   %spec.select = sext i16 %narrow to i32
-  %Capacity.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 63, i32 1
+  %Capacity.i = getelementptr inbounds i8, ptr %table, i64 484
   %3 = load i32, ptr %Capacity.i, align 4
   %cmp.i = icmp slt i32 %3, %spec.select
   br i1 %cmp.i, label %if.then.i, label %_ZN8ImVectorI25ImGuiTableColumnSortSpecsE6resizeEi.exit
@@ -5218,7 +5151,7 @@ _ZNK8ImVectorI25ImGuiTableColumnSortSpecsE14_grow_capacityEi.exit.i: ; preds = %
   %conv.i.i = sext i32 %cond7.i.i to i64
   %mul.i.i = mul nsw i64 %conv.i.i, 12
   %call.i.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i)
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 63, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %table, i64 488
   %4 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i4.i = icmp eq ptr %4, null
   br i1 %tobool.not.i4.i, label %if.end7.i.i, label %if.then2.i.i
@@ -5239,13 +5172,13 @@ if.end7.i.i:                                      ; preds = %if.then2.i.i, %_ZNK
 
 _ZN8ImVectorI25ImGuiTableColumnSortSpecsE6resizeEi.exit: ; preds = %if.then, %if.end7.i.i
   store i32 %spec.select, ptr %SortSpecsMulti, align 8
-  %SpecsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 64, i32 2
+  %SpecsDirty = getelementptr inbounds i8, ptr %table, i64 508
   store i8 1, ptr %SpecsDirty, align 4
   store i8 0, ptr %IsSortSpecsDirty, align 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN8ImVectorI25ImGuiTableColumnSortSpecsE6resizeEi.exit, %entry
-  %SortSpecsCount5 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 65
+  %SortSpecsCount5 = getelementptr inbounds i8, ptr %table, i64 512
   %7 = load i16, ptr %SortSpecsCount5, align 8
   switch i16 %7, label %cond.false14 [
     i16 0, label %if.end34
@@ -5253,11 +5186,11 @@ if.end:                                           ; preds = %_ZN8ImVectorI25ImGu
   ]
 
 cond.true13:                                      ; preds = %if.end
-  %SortSpecsSingle = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 61
+  %SortSpecsSingle = getelementptr inbounds i8, ptr %table, i64 464
   br label %cond.end18
 
 cond.false14:                                     ; preds = %if.end
-  %Data = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 63, i32 2
+  %Data = getelementptr inbounds i8, ptr %table, i64 488
   %8 = load ptr, ptr %Data, align 8
   br label %cond.end18
 
@@ -5268,20 +5201,21 @@ cond.end18:                                       ; preds = %cond.true13, %cond.
   br i1 %or.cond, label %for.cond.preheader, label %if.end34
 
 for.cond.preheader:                               ; preds = %cond.end18
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %9 = load i32, ptr %ColumnsCount, align 4
   %cmp2333 = icmp sgt i32 %9, 0
   br i1 %cmp2333, label %for.body.lr.ph, label %if.end34
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %10 = phi i32 [ %9, %for.body.lr.ph ], [ %15, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %11 = load ptr, ptr %Columns, align 8
-  %SortOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %indvars.iv, i32 22
+  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %indvars.iv
+  %SortOrder = getelementptr inbounds i8, ptr %add.ptr.i, i64 90
   %12 = load i16, ptr %SortOrder, align 2
   %cmp25 = icmp eq i16 %12, -1
   br i1 %cmp25, label %for.inc, label %if.end27
@@ -5289,19 +5223,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end27:                                         ; preds = %for.body
   %idxprom = sext i16 %12 to i64
   %arrayidx = getelementptr inbounds %struct.ImGuiTableColumnSortSpecs, ptr %cond19, i64 %idxprom
-  %UserID = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %indvars.iv, i32 9
+  %UserID = getelementptr inbounds i8, ptr %add.ptr.i, i64 48
   %13 = load i32, ptr %UserID, align 4
   store i32 %13, ptr %arrayidx, align 4
   %conv29 = trunc i64 %indvars.iv to i16
-  %ColumnIndex = getelementptr inbounds %struct.ImGuiTableColumnSortSpecs, ptr %cond19, i64 %idxprom, i32 1
+  %ColumnIndex = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i16 %conv29, ptr %ColumnIndex, align 4
   %14 = load i16, ptr %SortOrder, align 2
-  %SortOrder31 = getelementptr inbounds %struct.ImGuiTableColumnSortSpecs, ptr %cond19, i64 %idxprom, i32 2
+  %SortOrder31 = getelementptr inbounds i8, ptr %arrayidx, i64 6
   store i16 %14, ptr %SortOrder31, align 2
-  %SortDirection = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %indvars.iv, i32 37
+  %SortDirection = getelementptr inbounds i8, ptr %add.ptr.i, i64 109
   %bf.load = load i8, ptr %SortDirection, align 1
   %bf.clear = and i8 %bf.load, 3
-  %SortDirection33 = getelementptr inbounds %struct.ImGuiTableColumnSortSpecs, ptr %cond19, i64 %idxprom, i32 3
+  %SortDirection33 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i8 %bf.clear, ptr %SortDirection33, align 4
   %.pre = load i32, ptr %ColumnsCount, align 4
   br label %for.inc
@@ -5320,10 +5254,10 @@ if.end34.loopexit:                                ; preds = %for.inc
 if.end34:                                         ; preds = %if.end34.loopexit, %for.cond.preheader, %if.end, %cond.end18
   %17 = phi i16 [ %7, %cond.end18 ], [ %7, %if.end ], [ %7, %for.cond.preheader ], [ %.pre36, %if.end34.loopexit ]
   %cond1932 = phi ptr [ %cond19, %cond.end18 ], [ null, %if.end ], [ %cond19, %for.cond.preheader ], [ %cond19, %if.end34.loopexit ]
-  %SortSpecs35 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 64
+  %SortSpecs35 = getelementptr inbounds i8, ptr %table, i64 496
   store ptr %cond1932, ptr %SortSpecs35, align 8
   %conv37 = sext i16 %17 to i32
-  %SpecsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 64, i32 1
+  %SpecsCount = getelementptr inbounds i8, ptr %table, i64 504
   store i32 %conv37, ptr %SpecsCount, align 8
   ret void
 }
@@ -5339,15 +5273,15 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %InstanceDataFirst.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 59
+  %InstanceDataFirst.i.i = getelementptr inbounds i8, ptr %table, i64 424
   br label %_ZN5ImGui18TableGetInstanceIDEP10ImGuiTablei.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %Data.i.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 60, i32 2
+  %Data.i.i.i = getelementptr inbounds i8, ptr %table, i64 456
   %0 = load ptr, ptr %Data.i.i.i, align 8
   %1 = sext i32 %instance_no to i64
   %2 = getelementptr %struct.ImGuiTableInstanceData, ptr %0, i64 %1
-  %arrayidx.i.i.i = getelementptr %struct.ImGuiTableInstanceData, ptr %2, i64 -1
+  %arrayidx.i.i.i = getelementptr i8, ptr %2, i64 -24
   br label %_ZN5ImGui18TableGetInstanceIDEP10ImGuiTablei.exit
 
 _ZN5ImGui18TableGetInstanceIDEP10ImGuiTablei.exit: ; preds = %if.then.i.i, %if.end.i.i
@@ -5367,20 +5301,21 @@ declare noundef zeroext i1 @_ZN5ImGui20IsMouseDoubleClickedEi(i32 noundef) local
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5ImGui29TableSetColumnWidthAutoSingleEP10ImGuiTablei(ptr nocapture noundef %table, i32 noundef %column_n) local_unnamed_addr #14 {
 entry:
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   %0 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i32 %column_n to i64
-  %IsEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %0, i64 %idx.ext.i, i32 26
+  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %0, i64 %idx.ext.i
+  %IsEnabled = getelementptr inbounds i8, ptr %add.ptr.i, i64 98
   %1 = load i8, ptr %IsEnabled, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %CannotSkipItemsQueue = getelementptr inbounds %struct.ImGuiTableColumn, ptr %0, i64 %idx.ext.i, i32 36
+  %CannotSkipItemsQueue = getelementptr inbounds i8, ptr %add.ptr.i, i64 108
   store i8 1, ptr %CannotSkipItemsQueue, align 4
   %conv = trunc i32 %column_n to i16
-  %AutoFitSingleColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 73
+  %AutoFitSingleColumn = getelementptr inbounds i8, ptr %table, i64 528
   store i16 %conv, ptr %AutoFitSingleColumn, align 8
   br label %return
 
@@ -5397,9 +5332,9 @@ define void @_ZN5ImGui8EndTableEv() local_unnamed_addr #2 {
 entry:
   %ref.tmp243 = alloca %struct.ImVec2, align 8
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
-  %IsLayoutLocked = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 92
+  %IsLayoutLocked = getelementptr inbounds i8, ptr %1, i64 566
   %2 = load i8, ptr %IsLayoutLocked, align 2
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -5410,15 +5345,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %Flags, align 4
-  %InnerWindow = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 56
+  %InnerWindow = getelementptr inbounds i8, ptr %1, i64 392
   %5 = load ptr, ptr %InnerWindow, align 8
-  %OuterWindow = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 55
+  %OuterWindow = getelementptr inbounds i8, ptr %1, i64 384
   %6 = load ptr, ptr %OuterWindow, align 8
-  %TempData = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 3
+  %TempData = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %TempData, align 8
-  %IsInsideRow = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 93
+  %IsInsideRow = getelementptr inbounds i8, ptr %1, i64 567
   %8 = load i8, ptr %IsInsideRow, align 1
   %9 = and i8 %8, 1
   %tobool1.not = icmp eq i8 %9, 0
@@ -5434,7 +5369,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %tobool4.not, label %if.end12, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %HoveredColumnBody = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 70
+  %HoveredColumnBody = getelementptr inbounds i8, ptr %1, i64 522
   %10 = load i16, ptr %HoveredColumnBody, align 2
   %cmp.not = icmp eq i16 %10, -1
   br i1 %cmp.not, label %if.end12, label %land.lhs.true
@@ -5451,37 +5386,37 @@ if.then8:                                         ; preds = %land.lhs.true6
   %11 = load i16, ptr %HoveredColumnBody, align 2
   %conv10 = sext i16 %11 to i32
   %12 = load ptr, ptr @GImGui, align 8
-  %CurrentTable.i = getelementptr inbounds %struct.ImGuiContext, ptr %12, i64 0, i32 164
+  %CurrentTable.i = getelementptr inbounds i8, ptr %12, i64 19912
   %13 = load ptr, ptr %CurrentTable.i, align 8
   %cmp.i = icmp eq i16 %11, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.then8
-  %CurrentColumn.i = getelementptr inbounds %struct.ImGuiTable, ptr %13, i64 0, i32 15
+  %CurrentColumn.i = getelementptr inbounds i8, ptr %13, i64 116
   %14 = load i32, ptr %CurrentColumn.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.then8
   %column_n.addr.0.i = phi i32 [ %conv10, %if.then8 ], [ %14, %land.lhs.true.i ]
-  %Flags.i = getelementptr inbounds %struct.ImGuiTable, ptr %13, i64 0, i32 1
+  %Flags.i = getelementptr inbounds i8, ptr %13, i64 4
   %15 = load i32, ptr %Flags.i, align 4
   %and.i = and i32 %15, 7
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end12, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %ColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %13, i64 0, i32 13
+  %ColumnsCount.i = getelementptr inbounds i8, ptr %13, i64 108
   %16 = load i32, ptr %ColumnsCount.i, align 4
   %cmp3.i = icmp eq i32 %column_n.addr.0.i, %16
   %17 = trunc i32 %column_n.addr.0.i to i16
-  %IsContextPopupOpen.i = getelementptr inbounds %struct.ImGuiTable, ptr %13, i64 0, i32 97
+  %IsContextPopupOpen.i = getelementptr inbounds i8, ptr %13, i64 571
   store i8 1, ptr %IsContextPopupOpen.i, align 1
   %conv.i = select i1 %cmp3.i, i16 -1, i16 %17
-  %ContextPopupColumn.i = getelementptr inbounds %struct.ImGuiTable, ptr %13, i64 0, i32 83
+  %ContextPopupColumn.i = getelementptr inbounds i8, ptr %13, i64 548
   store i16 %conv.i, ptr %ContextPopupColumn.i, align 4
-  %InstanceCurrent.i = getelementptr inbounds %struct.ImGuiTable, ptr %13, i64 0, i32 16
+  %InstanceCurrent.i = getelementptr inbounds i8, ptr %13, i64 120
   %18 = load i16, ptr %InstanceCurrent.i, align 8
-  %InstanceInteracted.i = getelementptr inbounds %struct.ImGuiTable, ptr %13, i64 0, i32 17
+  %InstanceInteracted.i = getelementptr inbounds i8, ptr %13, i64 122
   store i16 %18, ptr %InstanceInteracted.i, align 2
   %19 = load i32, ptr %13, align 8
   %call.i = tail call noundef i32 @_Z9ImHashStrPKcmj(ptr noundef nonnull @.str.6, i64 noundef 0, i32 noundef %19)
@@ -5489,44 +5424,44 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then6.i, %if.end.i, %if.then5, %land.lhs.true, %land.lhs.true6, %if.end3
-  %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 16
+  %InstanceCurrent = getelementptr inbounds i8, ptr %1, i64 120
   %20 = load i16, ptr %InstanceCurrent, align 8
   %cmp.i194 = icmp eq i16 %20, 0
   br i1 %cmp.i194, label %if.then.i, label %if.end.i195
 
 if.then.i:                                        ; preds = %if.end12
-  %InstanceDataFirst.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 59
+  %InstanceDataFirst.i = getelementptr inbounds i8, ptr %1, i64 424
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 if.end.i195:                                      ; preds = %if.end12
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 60, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %1, i64 456
   %21 = load ptr, ptr %Data.i.i, align 8
   %22 = sext i16 %20 to i64
   %23 = getelementptr %struct.ImGuiTableInstanceData, ptr %21, i64 %22
-  %arrayidx.i.i = getelementptr %struct.ImGuiTableInstanceData, ptr %23, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %23, i64 -24
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %if.then.i, %if.end.i195
   %retval.0.i = phi ptr [ %InstanceDataFirst.i, %if.then.i ], [ %arrayidx.i.i, %if.end.i195 ]
-  %HostBackupPrevLineSize = getelementptr inbounds %struct.ImGuiTableTempData, ptr %7, i64 0, i32 8
-  %PrevLineSize = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 68, i32 6
+  %HostBackupPrevLineSize = getelementptr inbounds i8, ptr %7, i64 80
+  %PrevLineSize = getelementptr inbounds i8, ptr %5, i64 320
   %24 = load i64, ptr %HostBackupPrevLineSize, align 8
   store i64 %24, ptr %PrevLineSize, align 8
-  %HostBackupCurrLineSize = getelementptr inbounds %struct.ImGuiTableTempData, ptr %7, i64 0, i32 9
-  %CurrLineSize = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 68, i32 5
+  %HostBackupCurrLineSize = getelementptr inbounds i8, ptr %7, i64 88
+  %CurrLineSize = getelementptr inbounds i8, ptr %5, i64 312
   %25 = load i64, ptr %HostBackupCurrLineSize, align 8
   store i64 %25, ptr %CurrLineSize, align 8
-  %HostBackupCursorMaxPos = getelementptr inbounds %struct.ImGuiTableTempData, ptr %7, i64 0, i32 10
-  %CursorMaxPos = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 68, i32 3
+  %HostBackupCursorMaxPos = getelementptr inbounds i8, ptr %7, i64 96
+  %CursorMaxPos = getelementptr inbounds i8, ptr %5, i64 296
   %26 = load i64, ptr %HostBackupCursorMaxPos, align 8
   store i64 %26, ptr %CursorMaxPos, align 8
-  %RowPosY2 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 19
+  %RowPosY2 = getelementptr inbounds i8, ptr %1, i64 128
   %27 = load float, ptr %RowPosY2, align 8
   %cmp17.not = icmp eq ptr %5, %6
   br i1 %cmp17.not, label %if.else, label %if.then18
 
 if.then18:                                        ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
-  %y = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 68, i32 3, i32 1
+  %y = getelementptr inbounds i8, ptr %5, i64 300
   store float %27, ptr %y, align 4
   br label %if.end32
 
@@ -5536,29 +5471,29 @@ if.else:                                          ; preds = %_ZN5ImGui20TableGet
   br i1 %tobool22.not, label %if.then23, label %if.end32
 
 if.then23:                                        ; preds = %if.else
-  %y24 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 46, i32 1, i32 1
+  %y24 = getelementptr inbounds i8, ptr %1, i64 252
   %28 = load float, ptr %y24, align 4
   %cmp.i196 = fcmp oge float %28, %27
   %cond.i = select i1 %cmp.i196, float %28, float %27
-  %y27 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 47, i32 1, i32 1
+  %y27 = getelementptr inbounds i8, ptr %1, i64 268
   store float %cond.i, ptr %y27, align 4
   store float %cond.i, ptr %y24, align 4
   br label %if.end32
 
 if.end32:                                         ; preds = %if.else, %if.then23, %if.then18
-  %y34 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 48, i32 1, i32 1
+  %y34 = getelementptr inbounds i8, ptr %1, i64 284
   %29 = load float, ptr %y34, align 4
-  %OuterRect35 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 46
-  %Max36 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 46, i32 1
-  %y37 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 46, i32 1, i32 1
+  %OuterRect35 = getelementptr inbounds i8, ptr %1, i64 240
+  %Max36 = getelementptr inbounds i8, ptr %1, i64 248
+  %y37 = getelementptr inbounds i8, ptr %1, i64 252
   %30 = load float, ptr %y37, align 4
   %cmp.i197 = fcmp oge float %29, %30
   %cond.i198 = select i1 %cmp.i197, float %29, float %30
   store float %cond.i198, ptr %y34, align 4
-  %y2.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 46, i32 0, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %1, i64 244
   %31 = load float, ptr %y2.i, align 4
   %sub.i = fsub float %30, %31
-  %LastOuterHeight = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 1
+  %LastOuterHeight = getelementptr inbounds i8, ptr %retval.0.i, i64 4
   store float %sub.i, ptr %LastOuterHeight, align 4
   %32 = load i32, ptr %Flags, align 4
   %and45 = and i32 %32, 16777216
@@ -5567,9 +5502,9 @@ if.end32:                                         ; preds = %if.else, %if.then23
 
 if.then47:                                        ; preds = %if.end32
   %33 = load ptr, ptr %InnerWindow, align 8
-  %CursorMaxPos53 = getelementptr inbounds %struct.ImGuiWindow, ptr %33, i64 0, i32 68, i32 3
+  %CursorMaxPos53 = getelementptr inbounds i8, ptr %33, i64 296
   %34 = load float, ptr %CursorMaxPos53, align 8
-  %RightMostEnabledColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 80
+  %RightMostEnabledColumn = getelementptr inbounds i8, ptr %1, i64 542
   %35 = load i16, ptr %RightMostEnabledColumn, align 2
   %cmp55.not = icmp eq i16 %35, -1
   br i1 %cmp55.not, label %if.end62, label %if.then56
@@ -5578,15 +5513,15 @@ if.then56:                                        ; preds = %if.then47
   %and49 = and i32 %32, 1024
   %tobool50.not = icmp eq i32 %and49, 0
   %cond = select i1 %tobool50.not, float 0.000000e+00, float 1.000000e+00
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %1, i64 24
   %36 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i16 %35 to i64
   %WorkMaxX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %36, i64 %idx.ext.i, i32 11
   %37 = load float, ptr %WorkMaxX, align 4
-  %CellPaddingX = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 34
+  %CellPaddingX = getelementptr inbounds i8, ptr %1, i64 192
   %38 = load float, ptr %CellPaddingX, align 8
   %add = fadd float %37, %38
-  %OuterPaddingX = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 33
+  %OuterPaddingX = getelementptr inbounds i8, ptr %1, i64 188
   %39 = load float, ptr %OuterPaddingX, align 4
   %add60 = fadd float %add, %39
   %sub = fsub float %add60, %cond
@@ -5596,13 +5531,13 @@ if.then56:                                        ; preds = %if.then47
 
 if.end62:                                         ; preds = %if.then56, %if.then47
   %max_pos_x.0 = phi float [ %cond.i200, %if.then56 ], [ %34, %if.then47 ]
-  %ResizedColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 74
+  %ResizedColumn = getelementptr inbounds i8, ptr %1, i64 530
   %40 = load i16, ptr %ResizedColumn, align 2
   %cmp64.not = icmp eq i16 %40, -1
   br i1 %cmp64.not, label %if.end67, label %if.then65
 
 if.then65:                                        ; preds = %if.end62
-  %ResizeLockMinContentsX2 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 42
+  %ResizeLockMinContentsX2 = getelementptr inbounds i8, ptr %1, i64 224
   %41 = load float, ptr %ResizeLockMinContentsX2, align 8
   %cmp.i201 = fcmp oge float %max_pos_x.0, %41
   %cond.i202 = select i1 %cmp.i201, float %max_pos_x.0, float %41
@@ -5611,7 +5546,7 @@ if.then65:                                        ; preds = %if.end62
 if.end67:                                         ; preds = %if.then65, %if.end62
   %max_pos_x.1 = phi float [ %cond.i202, %if.then65 ], [ %max_pos_x.0, %if.end62 ]
   %42 = load ptr, ptr %TempData, align 8
-  %AngledheadersExtraWidth = getelementptr inbounds %struct.ImGuiTableTempData, ptr %42, i64 0, i32 2
+  %AngledheadersExtraWidth = getelementptr inbounds i8, ptr %42, i64 8
   %43 = load float, ptr %AngledheadersExtraWidth, align 8
   %add69 = fadd float %max_pos_x.1, %43
   store float %add69, ptr %CursorMaxPos53, align 8
@@ -5623,22 +5558,22 @@ if.end74:                                         ; preds = %if.end67, %if.end32
   br i1 %tobool76.not, label %if.then77, label %if.end78
 
 if.then77:                                        ; preds = %if.end74
-  %DrawList = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 86
+  %DrawList = getelementptr inbounds i8, ptr %5, i64 680
   %44 = load ptr, ptr %DrawList, align 8
   tail call void @_ZN10ImDrawList11PopClipRectEv(ptr noundef nonnull align 8 dereferenceable(196) %44)
   br label %if.end78
 
 if.end78:                                         ; preds = %if.then77, %if.end74
-  %DrawList79 = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 86
+  %DrawList79 = getelementptr inbounds i8, ptr %5, i64 680
   %45 = load ptr, ptr %DrawList79, align 8
-  %_ClipRectStack = getelementptr inbounds %struct.ImDrawList, ptr %45, i64 0, i32 9
-  %Data.i = getelementptr inbounds %struct.ImDrawList, ptr %45, i64 0, i32 9, i32 2
+  %_ClipRectStack = getelementptr inbounds i8, ptr %45, i64 88
+  %Data.i = getelementptr inbounds i8, ptr %45, i64 96
   %46 = load ptr, ptr %Data.i, align 8
   %47 = load i32, ptr %_ClipRectStack, align 8
   %48 = sext i32 %47 to i64
   %49 = getelementptr %struct.ImVec4, ptr %46, i64 %48
-  %arrayidx.i = getelementptr %struct.ImVec4, ptr %49, i64 -1
-  %ClipRect = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 74
+  %arrayidx.i = getelementptr i8, ptr %49, i64 -16
+  %ClipRect = getelementptr inbounds i8, ptr %5, i64 584
   %50 = load <4 x float>, ptr %arrayidx.i, align 4
   store <4 x float> %50, ptr %ClipRect, align 8
   %and81 = and i32 %4, 1920
@@ -5652,7 +5587,7 @@ if.then83:                                        ; preds = %if.end78
 
 if.end84:                                         ; preds = %if.then83, %if.end78
   %51 = phi ptr [ %.pre, %if.then83 ], [ %45, %if.end78 ]
-  %DrawSplitter = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 58
+  %DrawSplitter = getelementptr inbounds i8, ptr %1, i64 416
   %52 = load ptr, ptr %DrawSplitter, align 8
   tail call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef %51, i32 noundef 0)
   %53 = load i32, ptr %Flags, align 4
@@ -5667,17 +5602,17 @@ if.then89:                                        ; preds = %if.end84
 if.end90:                                         ; preds = %if.then89, %if.end84
   %54 = load ptr, ptr %DrawList79, align 8
   tail call void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef %54)
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %1, i64 108
   %55 = load i32, ptr %ColumnsCount, align 4
   %cmp92256 = icmp sgt i32 %55, 0
   br i1 %cmp92256, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end90
-  %EnabledMaskByIndex = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 8
+  %EnabledMaskByIndex = getelementptr inbounds i8, ptr %1, i64 80
   %56 = load ptr, ptr %EnabledMaskByIndex, align 8
-  %Columns97 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
-  %MinColumnWidth.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 32
-  %ColumnsStretchSumWeights = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 40
+  %Columns97 = getelementptr inbounds i8, ptr %1, i64 24
+  %MinColumnWidth.i = getelementptr inbounds i8, ptr %1, i64 184
+  %ColumnsStretchSumWeights = getelementptr inbounds i8, ptr %1, i64 216
   %wide.trip.count = zext nneg i32 %55 to i64
   br label %for.body
 
@@ -5709,18 +5644,18 @@ if.then96:                                        ; preds = %for.body
   br i1 %or.cond, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then96
-  %WidthRequest = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv, i32 4
+  %WidthRequest = getelementptr inbounds i8, ptr %add.ptr.i205, i64 16
   %62 = load float, ptr %WidthRequest, align 4
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then96
-  %ContentMaxXFrozen.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv, i32 13
+  %ContentMaxXFrozen.i = getelementptr inbounds i8, ptr %add.ptr.i205, i64 64
   %63 = load float, ptr %ContentMaxXFrozen.i, align 4
-  %ContentMaxXUnfrozen.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv, i32 14
+  %ContentMaxXUnfrozen.i = getelementptr inbounds i8, ptr %add.ptr.i205, i64 68
   %64 = load float, ptr %ContentMaxXUnfrozen.i, align 4
   %cmp.i.i = fcmp oge float %63, %64
   %cond.i.i = select i1 %cmp.i.i, float %63, float %64
-  %WorkMinX.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv, i32 10
+  %WorkMinX.i = getelementptr inbounds i8, ptr %add.ptr.i205, i64 52
   %65 = load float, ptr %WorkMinX.i, align 4
   %sub.i206 = fsub float %cond.i.i, %65
   %and.i207 = and i32 %60, 8192
@@ -5728,7 +5663,7 @@ cond.false:                                       ; preds = %if.then96
   br i1 %tobool.not.i208, label %if.then.i212, label %if.end.i209
 
 if.then.i212:                                     ; preds = %cond.false
-  %ContentMaxXHeadersIdeal.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv, i32 16
+  %ContentMaxXHeadersIdeal.i = getelementptr inbounds i8, ptr %add.ptr.i205, i64 76
   %66 = load float, ptr %ContentMaxXHeadersIdeal.i, align 4
   %sub2.i = fsub float %66, %65
   %cmp.i12.i = fcmp oge float %sub.i206, %sub2.i
@@ -5741,7 +5676,7 @@ if.end.i209:                                      ; preds = %if.then.i212, %cond
   br i1 %tobool6.not.i, label %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit, label %land.lhs.true.i210
 
 land.lhs.true.i210:                               ; preds = %if.end.i209
-  %InitStretchWeightOrWidth.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv, i32 7
+  %InitStretchWeightOrWidth.i = getelementptr inbounds i8, ptr %add.ptr.i205, i64 28
   %67 = load float, ptr %InitStretchWeightOrWidth.i, align 4
   %cmp.i211 = fcmp ogt float %67, 0.000000e+00
   br i1 %cmp.i211, label %if.then7.i, label %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit
@@ -5775,7 +5710,7 @@ cond.end:                                         ; preds = %_ZN5ImGui23TableGet
   br i1 %or.cond193.not, label %if.then123, label %for.inc
 
 if.then123:                                       ; preds = %cond.end
-  %StretchWeight = getelementptr inbounds %struct.ImGuiTableColumn, ptr %59, i64 %indvars.iv, i32 6
+  %StretchWeight = getelementptr inbounds i8, ptr %add.ptr.i205, i64 24
   %71 = load float, ptr %StretchWeight, align 4
   %72 = load float, ptr %ColumnsStretchSumWeights, align 8
   %div = fdiv float %71, %72
@@ -5796,21 +5731,21 @@ for.end:                                          ; preds = %for.inc, %if.end90
   %auto_fit_width_for_stretched_min.0.lcssa = phi float [ 0.000000e+00, %if.end90 ], [ %auto_fit_width_for_stretched_min.1, %for.inc ]
   %auto_fit_width_for_stretched.0.lcssa = phi float [ 0.000000e+00, %if.end90 ], [ %auto_fit_width_for_stretched.2, %for.inc ]
   %auto_fit_width_for_fixed.0.lcssa = phi float [ 0.000000e+00, %if.end90 ], [ %auto_fit_width_for_fixed.2, %for.inc ]
-  %OuterPaddingX128 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 33
+  %OuterPaddingX128 = getelementptr inbounds i8, ptr %1, i64 188
   %73 = load float, ptr %OuterPaddingX128, align 4
-  %CellSpacingX1 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 35
+  %CellSpacingX1 = getelementptr inbounds i8, ptr %1, i64 196
   %74 = load float, ptr %CellSpacingX1, align 4
-  %CellSpacingX2 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 36
+  %CellSpacingX2 = getelementptr inbounds i8, ptr %1, i64 200
   %75 = load float, ptr %CellSpacingX2, align 8
   %add129 = fadd float %74, %75
-  %ColumnsEnabledCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 66
+  %ColumnsEnabledCount = getelementptr inbounds i8, ptr %1, i64 514
   %76 = load i16, ptr %ColumnsEnabledCount, align 2
   %conv130 = sext i16 %76 to i32
   %sub131 = add nsw i32 %conv130, -1
   %conv132 = sitofp i32 %sub131 to float
   %mul133 = fmul float %add129, %conv132
   %77 = tail call float @llvm.fmuladd.f32(float %73, float 2.000000e+00, float %mul133)
-  %CellPaddingX134 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 34
+  %CellPaddingX134 = getelementptr inbounds i8, ptr %1, i64 192
   %78 = load float, ptr %CellPaddingX134, align 8
   %mul = fmul float %78, 2.000000e+00
   %conv137 = sitofp i16 %76 to float
@@ -5819,7 +5754,7 @@ for.end:                                          ; preds = %for.inc, %if.end90
   %cmp.i215 = fcmp oge float %auto_fit_width_for_stretched.0.lcssa, %auto_fit_width_for_stretched_min.0.lcssa
   %cond.i216 = select i1 %cmp.i215, float %auto_fit_width_for_stretched.0.lcssa, float %auto_fit_width_for_stretched_min.0.lcssa
   %add141 = fadd float %cond.i216, %add139
-  %ColumnsAutoFitWidth = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 39
+  %ColumnsAutoFitWidth = getelementptr inbounds i8, ptr %1, i64 212
   store float %add141, ptr %ColumnsAutoFitWidth, align 4
   %80 = load i32, ptr %Flags, align 4
   %and143 = and i32 %80, 16777216
@@ -5828,52 +5763,52 @@ for.end:                                          ; preds = %for.inc, %if.end90
   br i1 %brmerge, label %if.else149, label %if.then147
 
 if.then147:                                       ; preds = %for.end
-  %Scroll = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 25
+  %Scroll = getelementptr inbounds i8, ptr %5, i64 140
   store float 0.000000e+00, ptr %Scroll, align 4
   br label %if.end193
 
 if.else149:                                       ; preds = %for.end
-  %LastResizedColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 75
+  %LastResizedColumn = getelementptr inbounds i8, ptr %1, i64 532
   %81 = load i16, ptr %LastResizedColumn, align 4
   %cmp151.not = icmp eq i16 %81, -1
   br i1 %cmp151.not, label %if.end193, label %land.lhs.true152
 
 land.lhs.true152:                                 ; preds = %if.else149
-  %ResizedColumn153 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 74
+  %ResizedColumn153 = getelementptr inbounds i8, ptr %1, i64 530
   %82 = load i16, ptr %ResizedColumn153, align 2
   %cmp155 = icmp eq i16 %82, -1
   br i1 %cmp155, label %land.lhs.true156, label %if.end193
 
 land.lhs.true156:                                 ; preds = %land.lhs.true152
-  %ScrollbarX = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 31
+  %ScrollbarX = getelementptr inbounds i8, ptr %5, i64 188
   %83 = load i8, ptr %ScrollbarX, align 4
   %84 = and i8 %83, 1
   %tobool157.not = icmp eq i8 %84, 0
   br i1 %tobool157.not, label %if.end193, label %land.lhs.true158
 
 land.lhs.true158:                                 ; preds = %land.lhs.true156
-  %InstanceInteracted = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 17
+  %InstanceInteracted = getelementptr inbounds i8, ptr %1, i64 122
   %85 = load i16, ptr %InstanceInteracted, align 2
   %86 = load i16, ptr %InstanceCurrent, align 8
   %cmp162 = icmp eq i16 %85, %86
   br i1 %cmp162, label %if.then163, label %if.end193
 
 if.then163:                                       ; preds = %land.lhs.true158
-  %MinColumnWidth = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 32
+  %MinColumnWidth = getelementptr inbounds i8, ptr %1, i64 184
   %87 = load float, ptr %MinColumnWidth, align 8
   %88 = tail call float @llvm.fmuladd.f32(float %78, float 2.000000e+00, float %87)
-  %Columns167 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %Columns167 = getelementptr inbounds i8, ptr %1, i64 24
   %89 = load ptr, ptr %Columns167, align 8
   %idx.ext.i217 = sext i16 %81 to i64
   %MaxX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %89, i64 %idx.ext.i217, i32 3
   %90 = load float, ptr %MaxX, align 4
-  %InnerClipRect = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 49
+  %InnerClipRect = getelementptr inbounds i8, ptr %1, i64 288
   %91 = load float, ptr %InnerClipRect, align 8
   %cmp172 = fcmp olt float %90, %91
   br i1 %cmp172, label %if.then173, label %if.else178
 
 if.then173:                                       ; preds = %if.then163
-  %Pos = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 7
+  %Pos = getelementptr inbounds i8, ptr %5, i64 40
   %92 = load float, ptr %Pos, align 8
   %sub176 = fsub float %90, %92
   %sub177 = fsub float %sub176, %88
@@ -5881,13 +5816,13 @@ if.then173:                                       ; preds = %if.then163
   br label %if.end193
 
 if.else178:                                       ; preds = %if.then163
-  %Max181 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 49, i32 1
+  %Max181 = getelementptr inbounds i8, ptr %1, i64 296
   %93 = load float, ptr %Max181, align 8
   %cmp183 = fcmp ogt float %90, %93
   br i1 %cmp183, label %if.then184, label %if.end193
 
 if.then184:                                       ; preds = %if.else178
-  %Pos186 = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 7
+  %Pos186 = getelementptr inbounds i8, ptr %5, i64 40
   %94 = load float, ptr %Pos186, align 8
   %sub188 = fsub float %90, %94
   %add189 = fadd float %88, %sub188
@@ -5895,25 +5830,25 @@ if.then184:                                       ; preds = %if.else178
   br label %if.end193
 
 if.end193:                                        ; preds = %if.else149, %land.lhs.true152, %land.lhs.true156, %land.lhs.true158, %if.else178, %if.then184, %if.then173, %if.then147
-  %ResizedColumn194 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 74
+  %ResizedColumn194 = getelementptr inbounds i8, ptr %1, i64 530
   %95 = load i16, ptr %ResizedColumn194, align 2
   %cmp196.not = icmp eq i16 %95, -1
   br i1 %cmp196.not, label %if.end219, label %land.lhs.true197
 
 land.lhs.true197:                                 ; preds = %if.end193
   %96 = load i16, ptr %InstanceCurrent, align 8
-  %InstanceInteracted200 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 17
+  %InstanceInteracted200 = getelementptr inbounds i8, ptr %1, i64 122
   %97 = load i16, ptr %InstanceInteracted200, align 2
   %cmp202 = icmp eq i16 %96, %97
   br i1 %cmp202, label %if.then203, label %if.end219
 
 if.then203:                                       ; preds = %land.lhs.true197
-  %Columns205 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %Columns205 = getelementptr inbounds i8, ptr %1, i64 24
   %98 = load ptr, ptr %Columns205, align 8
   %idx.ext.i219 = sext i16 %95 to i64
-  %MousePos = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 2, i32 59
+  %MousePos = getelementptr inbounds i8, ptr %0, i64 3656
   %99 = load float, ptr %MousePos, align 8
-  %ActiveIdClickOffset = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 56
+  %ActiveIdClickOffset = getelementptr inbounds i8, ptr %0, i64 16512
   %100 = load float, ptr %ActiveIdClickOffset, align 8
   %sub211 = fsub float %99, %100
   %add212 = fadd float %sub211, 4.000000e+00
@@ -5927,18 +5862,18 @@ if.then203:                                       ; preds = %land.lhs.true197
   %104 = tail call float @llvm.fmuladd.f32(float %neg, float 2.000000e+00, float %sub215)
   %conv.i221 = fptosi float %104 to i32
   %conv1.i = sitofp i32 %conv.i221 to float
-  %ResizedColumnNextWidth = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 41
+  %ResizedColumnNextWidth = getelementptr inbounds i8, ptr %1, i64 220
   store float %conv1.i, ptr %ResizedColumnNextWidth, align 4
   br label %if.end219
 
 if.end219:                                        ; preds = %if.then203, %land.lhs.true197, %if.end193
-  %ActiveIdIsAlive = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 48
+  %ActiveIdIsAlive = getelementptr inbounds i8, ptr %0, i64 16496
   %105 = load i32, ptr %ActiveIdIsAlive, align 8
   %cmp220.not = icmp eq i32 %105, 0
   br i1 %cmp220.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end219
-  %IsActiveIdAliveBeforeTable = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 106
+  %IsActiveIdAliveBeforeTable = getelementptr inbounds i8, ptr %1, i64 580
   %106 = load i8, ptr %IsActiveIdAliveBeforeTable, align 4
   %107 = and i8 %106, 1
   %108 = xor i8 %107, 1
@@ -5946,7 +5881,7 @@ land.rhs:                                         ; preds = %if.end219
 
 land.end:                                         ; preds = %land.rhs, %if.end219
   %frombool = phi i8 [ 0, %if.end219 ], [ %108, %land.rhs ]
-  %IsActiveIdInTable = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 107
+  %IsActiveIdInTable = getelementptr inbounds i8, ptr %1, i64 581
   store i8 %frombool, ptr %IsActiveIdInTable, align 1
   %109 = load i16, ptr %InstanceCurrent, align 8
   %cmp226 = icmp sgt i16 %109, 0
@@ -5958,34 +5893,34 @@ if.then227:                                       ; preds = %land.end
 
 if.end228:                                        ; preds = %if.then227, %land.end
   tail call void @_ZN5ImGui5PopIDEv()
-  %DC229 = getelementptr inbounds %struct.ImGuiWindow, ptr %6, i64 0, i32 68
-  %CursorMaxPos230 = getelementptr inbounds %struct.ImGuiWindow, ptr %6, i64 0, i32 68, i32 3
+  %DC229 = getelementptr inbounds i8, ptr %6, i64 272
+  %CursorMaxPos230 = getelementptr inbounds i8, ptr %6, i64 296
   %backup_outer_max_pos.sroa.0.0.copyload = load float, ptr %CursorMaxPos230, align 8
-  %backup_outer_max_pos.sroa.4.0.CursorMaxPos230.sroa_idx = getelementptr inbounds %struct.ImGuiWindow, ptr %6, i64 0, i32 68, i32 3, i32 1
+  %backup_outer_max_pos.sroa.4.0.CursorMaxPos230.sroa_idx = getelementptr inbounds i8, ptr %6, i64 300
   %backup_outer_max_pos.sroa.4.0.copyload = load float, ptr %backup_outer_max_pos.sroa.4.0.CursorMaxPos230.sroa_idx, align 4
-  %HostBackupWorkRect = getelementptr inbounds %struct.ImGuiTableTempData, ptr %7, i64 0, i32 6
-  %WorkRect231 = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 72
+  %HostBackupWorkRect = getelementptr inbounds i8, ptr %7, i64 48
+  %WorkRect231 = getelementptr inbounds i8, ptr %5, i64 552
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %WorkRect231, ptr noundef nonnull align 8 dereferenceable(16) %HostBackupWorkRect, i64 16, i1 false)
-  %HostBackupParentWorkRect = getelementptr inbounds %struct.ImGuiTableTempData, ptr %7, i64 0, i32 7
-  %ParentWorkRect = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 73
+  %HostBackupParentWorkRect = getelementptr inbounds i8, ptr %7, i64 64
+  %ParentWorkRect = getelementptr inbounds i8, ptr %5, i64 568
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ParentWorkRect, ptr noundef nonnull align 8 dereferenceable(16) %HostBackupParentWorkRect, i64 16, i1 false)
-  %HostSkipItems = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 111
+  %HostSkipItems = getelementptr inbounds i8, ptr %1, i64 585
   %110 = load i8, ptr %HostSkipItems, align 1
   %111 = and i8 %110, 1
-  %SkipItems = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 38
+  %SkipItems = getelementptr inbounds i8, ptr %5, i64 195
   store i8 %111, ptr %SkipItems, align 1
   %112 = load i64, ptr %OuterRect35, align 8
   store i64 %112, ptr %DC229, align 8
-  %HostBackupItemWidth = getelementptr inbounds %struct.ImGuiTableTempData, ptr %7, i64 0, i32 12
+  %HostBackupItemWidth = getelementptr inbounds i8, ptr %7, i64 108
   %113 = load float, ptr %HostBackupItemWidth, align 4
-  %ItemWidth = getelementptr inbounds %struct.ImGuiWindow, ptr %6, i64 0, i32 68, i32 32
+  %ItemWidth = getelementptr inbounds i8, ptr %6, i64 460
   store float %113, ptr %ItemWidth, align 4
-  %HostBackupItemWidthStackSize = getelementptr inbounds %struct.ImGuiTableTempData, ptr %7, i64 0, i32 13
+  %HostBackupItemWidthStackSize = getelementptr inbounds i8, ptr %7, i64 112
   %114 = load i32, ptr %HostBackupItemWidthStackSize, align 8
-  %ItemWidthStack = getelementptr inbounds %struct.ImGuiWindow, ptr %6, i64 0, i32 68, i32 34
+  %ItemWidthStack = getelementptr inbounds i8, ptr %6, i64 472
   store i32 %114, ptr %ItemWidthStack, align 8
-  %HostBackupColumnsOffset = getelementptr inbounds %struct.ImGuiTableTempData, ptr %7, i64 0, i32 11
-  %ColumnsOffset = getelementptr inbounds %struct.ImGuiWindow, ptr %6, i64 0, i32 68, i32 12
+  %HostBackupColumnsOffset = getelementptr inbounds i8, ptr %7, i64 104
+  %ColumnsOffset = getelementptr inbounds i8, ptr %6, i64 344
   %115 = load i32, ptr %HostBackupColumnsOffset, align 8
   store i32 %115, ptr %ColumnsOffset, align 8
   br i1 %cmp17.not, label %if.else242, label %if.then241
@@ -6016,28 +5951,28 @@ if.then252:                                       ; preds = %if.end248
   br label %if.end317
 
 if.else263:                                       ; preds = %if.end248
-  %UserOuterSize = getelementptr inbounds %struct.ImGuiTableTempData, ptr %7, i64 0, i32 3
+  %UserOuterSize = getelementptr inbounds i8, ptr %7, i64 12
   %122 = load float, ptr %UserOuterSize, align 4
   %cmp265 = fcmp ugt float %122, 0.000000e+00
   br i1 %cmp265, label %if.else307, label %if.then266
 
 if.then266:                                       ; preds = %if.else263
   %123 = load ptr, ptr %TempData, align 8
-  %AngledheadersExtraWidth268 = getelementptr inbounds %struct.ImGuiTableTempData, ptr %123, i64 0, i32 2
+  %AngledheadersExtraWidth268 = getelementptr inbounds i8, ptr %123, i64 8
   %124 = load float, ptr %AngledheadersExtraWidth268, align 8
   %and270 = and i32 %119, 16777216
   %tobool271.not = icmp eq i32 %and270, 0
   br i1 %tobool271.not, label %cond.end275, label %cond.true272
 
 cond.true272:                                     ; preds = %if.then266
-  %ScrollbarSizes = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 30
+  %ScrollbarSizes = getelementptr inbounds i8, ptr %5, i64 180
   %125 = load float, ptr %ScrollbarSizes, align 4
   br label %cond.end275
 
 cond.end275:                                      ; preds = %if.then266, %cond.true272
   %cond276 = phi float [ %125, %cond.true272 ], [ 0.000000e+00, %if.then266 ]
   %add277 = fadd float %124, %cond276
-  %IdealMaxPos = getelementptr inbounds %struct.ImGuiWindow, ptr %6, i64 0, i32 68, i32 4
+  %IdealMaxPos = getelementptr inbounds i8, ptr %6, i64 304
   %126 = load float, ptr %IdealMaxPos, align 8
   %127 = load float, ptr %OuterRect35, align 8
   %128 = load float, ptr %ColumnsAutoFitWidth, align 4
@@ -6064,7 +5999,7 @@ if.end317:                                        ; preds = %cond.end275, %if.el
   %cmp.i231 = fcmp oge float %backup_outer_max_pos.sroa.0.0.copyload, %cond.i230.sink264
   %cond.i232 = select i1 %cmp.i231, float %backup_outer_max_pos.sroa.0.0.copyload, float %cond.i230.sink264
   store float %cond.i232, ptr %CursorMaxPos230, align 8
-  %y319 = getelementptr inbounds %struct.ImGuiTableTempData, ptr %7, i64 0, i32 3, i32 1
+  %y319 = getelementptr inbounds i8, ptr %7, i64 16
   %133 = load float, ptr %y319, align 4
   %cmp320 = fcmp ugt float %133, 0.000000e+00
   br i1 %cmp320, label %if.else352, label %if.then321
@@ -6076,13 +6011,13 @@ if.then321:                                       ; preds = %if.end317
   br i1 %tobool325.not, label %cond.end330, label %cond.true326
 
 cond.true326:                                     ; preds = %if.then321
-  %y328 = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 30, i32 1
+  %y328 = getelementptr inbounds i8, ptr %5, i64 184
   %135 = load float, ptr %y328, align 4
   br label %cond.end330
 
 cond.end330:                                      ; preds = %if.then321, %cond.true326
   %cond331 = phi float [ %135, %cond.true326 ], [ 0.000000e+00, %if.then321 ]
-  %y334 = getelementptr inbounds %struct.ImGuiWindow, ptr %6, i64 0, i32 68, i32 4, i32 1
+  %y334 = getelementptr inbounds i8, ptr %6, i64 308
   %136 = load float, ptr %y334, align 4
   %add335 = fadd float %27, %cond331
   %sub338 = fsub float %add335, %133
@@ -6103,7 +6038,7 @@ if.end361:                                        ; preds = %if.else352, %cond.e
   %cmp.i241 = fcmp oge float %backup_outer_max_pos.sroa.4.0.copyload, %.sink265
   %cond.i242 = select i1 %cmp.i241, float %backup_outer_max_pos.sroa.4.0.copyload, float %.sink265
   store float %cond.i242, ptr %backup_outer_max_pos.sroa.4.0.CursorMaxPos230.sroa_idx, align 4
-  %IsSettingsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 100
+  %IsSettingsDirty = getelementptr inbounds i8, ptr %1, i64 574
   %139 = load i8, ptr %IsSettingsDirty, align 2
   %140 = and i8 %139, 1
   %tobool362.not = icmp eq i8 %140, 0
@@ -6114,9 +6049,9 @@ if.then363:                                       ; preds = %if.end361
   br label %if.end364
 
 if.end364:                                        ; preds = %if.then363, %if.end361
-  %IsInitializing = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 94
+  %IsInitializing = getelementptr inbounds i8, ptr %1, i64 568
   store i8 0, ptr %IsInitializing, align 8
-  %TablesTempDataStacked = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 165
+  %TablesTempDataStacked = getelementptr inbounds i8, ptr %0, i64 19920
   %141 = load i32, ptr %TablesTempDataStacked, align 8
   %dec = add nsw i32 %141, -1
   store i32 %dec, ptr %TablesTempDataStacked, align 8
@@ -6125,7 +6060,7 @@ if.end364:                                        ; preds = %if.then363, %if.end
 
 cond.end371:                                      ; preds = %if.end364
   %sub368 = add nsw i32 %141, -2
-  %Data.i243 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 166, i32 2
+  %Data.i243 = getelementptr inbounds i8, ptr %0, i64 19936
   %142 = load ptr, ptr %Data.i243, align 8
   %idxprom.i = zext nneg i32 %sub368 to i64
   %arrayidx.i244 = getelementptr inbounds %struct.ImGuiTableTempData, ptr %142, i64 %idxprom.i
@@ -6138,7 +6073,7 @@ cond.end377.thread:                               ; preds = %cond.end371, %if.en
 
 cond.end377:                                      ; preds = %cond.end371
   %143 = load i32, ptr %arrayidx.i244, align 8
-  %Data.i.i245 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 167, i32 0, i32 2
+  %Data.i.i245 = getelementptr inbounds i8, ptr %0, i64 19952
   %144 = load ptr, ptr %Data.i.i245, align 8
   %idxprom.i.i = sext i32 %143 to i64
   %arrayidx.i.i246 = getelementptr inbounds %struct.ImGuiTable, ptr %144, i64 %idxprom.i.i
@@ -6147,11 +6082,11 @@ cond.end377:                                      ; preds = %cond.end371
   br i1 %tobool381.not, label %cond.end396, label %if.end388
 
 if.end388:                                        ; preds = %cond.end377
-  %TempData384 = getelementptr inbounds %struct.ImGuiTable, ptr %144, i64 %idxprom.i.i, i32 3
+  %TempData384 = getelementptr inbounds i8, ptr %arrayidx.i.i246, i64 16
   store ptr %arrayidx.i244, ptr %TempData384, align 8
-  %DrawSplitter385 = getelementptr inbounds %struct.ImGuiTableTempData, ptr %142, i64 %idxprom.i, i32 5
+  %DrawSplitter385 = getelementptr inbounds i8, ptr %arrayidx.i244, i64 24
   %145 = load ptr, ptr %CurrentTable, align 8
-  %DrawSplitter387 = getelementptr inbounds %struct.ImGuiTable, ptr %145, i64 0, i32 58
+  %DrawSplitter387 = getelementptr inbounds i8, ptr %145, i64 416
   store ptr %DrawSplitter385, ptr %DrawSplitter387, align 8
   %.pr = load ptr, ptr %CurrentTable, align 8
   %tobool390.not = icmp eq ptr %.pr, null
@@ -6168,7 +6103,7 @@ cond.true391:                                     ; preds = %if.end388
 
 cond.end396:                                      ; preds = %cond.end377, %cond.end377.thread, %if.end388, %cond.true391
   %cond397 = phi i32 [ %conv.i248, %cond.true391 ], [ -1, %if.end388 ], [ -1, %cond.end377.thread ], [ -1, %cond.end377 ]
-  %CurrentTableIdx = getelementptr inbounds %struct.ImGuiWindow, ptr %6, i64 0, i32 68, i32 29
+  %CurrentTableIdx = getelementptr inbounds i8, ptr %6, i64 448
   store i32 %cond397, ptr %CurrentTableIdx, align 8
   call void @_ZN5ImGui39NavUpdateCurrentWindowIsScrollPushableXEv()
   ret void
@@ -6184,20 +6119,21 @@ entry:
   %ref.tmp188 = alloca %struct.ImVec2, align 4
   %ref.tmp190 = alloca %struct.ImVec2, align 4
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow, align 8
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 15
+  %CurrentColumn = getelementptr inbounds i8, ptr %table, i64 116
   %2 = load i32, ptr %CurrentColumn, align 4
   %cmp.not = icmp eq i32 %2, -1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %Columns.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns.i = getelementptr inbounds i8, ptr %table, i64 24
   %3 = load ptr, ptr %Columns.i, align 8
   %idx.ext.i.i = sext i32 %2 to i64
-  %InnerWindow.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 56
+  %add.ptr.i.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i.i
+  %InnerWindow.i = getelementptr inbounds i8, ptr %table, i64 392
   %4 = load ptr, ptr %InnerWindow.i, align 8
-  %IsSetPos.i = getelementptr inbounds %struct.ImGuiWindow, ptr %4, i64 0, i32 68, i32 10
+  %IsSetPos.i = getelementptr inbounds i8, ptr %4, i64 337
   %5 = load i8, ptr %IsSetPos.i, align 1
   %6 = and i8 %5, 1
   %tobool.not.i = icmp eq i8 %6, 0
@@ -6208,46 +6144,41 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
-  %RowFlags.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 24
+  %RowFlags.i = getelementptr inbounds i8, ptr %table, i64 148
   %bf.load.i = load i32, ptr %RowFlags.i, align 4
   %and.i = and i32 %bf.load.i, 1
   %tobool1.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
-
-if.then2.i:                                       ; preds = %if.end.i
-  %ContentMaxXHeadersUsed.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i.i, i32 15
-  br label %if.end4.i
+  br i1 %tobool1.not.i, label %if.else.i, label %if.end4.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %IsUnfrozenRows.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 104
+  %IsUnfrozenRows.i = getelementptr inbounds i8, ptr %table, i64 578
   %7 = load i8, ptr %IsUnfrozenRows.i, align 2
   %8 = and i8 %7, 1
   %tobool3.not.i = icmp eq i8 %8, 0
-  %ContentMaxXUnfrozen.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i.i, i32 14
-  %ContentMaxXFrozen.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i.i, i32 13
-  %cond.i = select i1 %tobool3.not.i, ptr %ContentMaxXFrozen.i, ptr %ContentMaxXUnfrozen.i
+  %cond.v.i = select i1 %tobool3.not.i, i64 64, i64 68
   br label %if.end4.i
 
-if.end4.i:                                        ; preds = %if.else.i, %if.then2.i
-  %p_max_pos_x.0.i = phi ptr [ %ContentMaxXHeadersUsed.i, %if.then2.i ], [ %cond.i, %if.else.i ]
-  %9 = load float, ptr %p_max_pos_x.0.i, align 4
-  %CursorMaxPos.i = getelementptr inbounds %struct.ImGuiWindow, ptr %4, i64 0, i32 68, i32 3
+if.end4.i:                                        ; preds = %if.else.i, %if.end.i
+  %cond.v.sink.i = phi i64 [ %cond.v.i, %if.else.i ], [ 72, %if.end.i ]
+  %cond.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %cond.v.sink.i
+  %9 = load float, ptr %cond.i, align 4
+  %CursorMaxPos.i = getelementptr inbounds i8, ptr %4, i64 296
   %10 = load float, ptr %CursorMaxPos.i, align 8
   %cmp.i.i = fcmp oge float %9, %10
   %cond.i.i = select i1 %cmp.i.i, float %9, float %10
-  store float %cond.i.i, ptr %p_max_pos_x.0.i, align 4
-  %IsEnabled.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i.i, i32 26
+  store float %cond.i.i, ptr %cond.i, align 4
+  %IsEnabled.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 98
   %11 = load i8, ptr %IsEnabled.i, align 2
   %12 = and i8 %11, 1
   %tobool7.not.i = icmp eq i8 %12, 0
   br i1 %tobool7.not.i, label %_ZN5ImGui12TableEndCellEP10ImGuiTable.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end4.i
-  %RowPosY2.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 19
+  %RowPosY2.i = getelementptr inbounds i8, ptr %table, i64 128
   %13 = load float, ptr %RowPosY2.i, align 8
-  %y.i = getelementptr inbounds %struct.ImGuiWindow, ptr %4, i64 0, i32 68, i32 3, i32 1
+  %y.i = getelementptr inbounds i8, ptr %4, i64 300
   %14 = load float, ptr %y.i, align 4
-  %RowCellPaddingY.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 21
+  %RowCellPaddingY.i = getelementptr inbounds i8, ptr %table, i64 136
   %15 = load float, ptr %RowCellPaddingY.i, align 8
   %add.i = fadd float %14, %15
   %cmp.i20.i = fcmp oge float %13, %add.i
@@ -6256,13 +6187,13 @@ if.then8.i:                                       ; preds = %if.end4.i
   br label %_ZN5ImGui12TableEndCellEP10ImGuiTable.exit
 
 _ZN5ImGui12TableEndCellEP10ImGuiTable.exit:       ; preds = %if.end4.i, %if.then8.i
-  %ItemWidth.i = getelementptr inbounds %struct.ImGuiWindow, ptr %4, i64 0, i32 68, i32 32
+  %ItemWidth.i = getelementptr inbounds i8, ptr %4, i64 460
   %16 = load float, ptr %ItemWidth.i, align 4
-  %ItemWidth15.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i.i, i32 12
+  %ItemWidth15.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 60
   store float %16, ptr %ItemWidth15.i, align 4
-  %RowTextBaseline.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 22
+  %RowTextBaseline.i = getelementptr inbounds i8, ptr %table, i64 140
   %17 = load float, ptr %RowTextBaseline.i, align 4
-  %PrevLineTextBaseOffset.i = getelementptr inbounds %struct.ImGuiWindow, ptr %4, i64 0, i32 68, i32 8
+  %PrevLineTextBaseOffset.i = getelementptr inbounds i8, ptr %4, i64 332
   %18 = load float, ptr %PrevLineTextBaseOffset.i, align 4
   %cmp.i22.i = fcmp oge float %17, %18
   %cond.i23.i = select i1 %cmp.i22.i, float %17, float %18
@@ -6270,7 +6201,7 @@ _ZN5ImGui12TableEndCellEP10ImGuiTable.exit:       ; preds = %if.end4.i, %if.then
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5ImGui12TableEndCellEP10ImGuiTable.exit, %entry
-  %LogEnabled = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 222
+  %LogEnabled = getelementptr inbounds i8, ptr %0, i64 24488
   %19 = load i8, ptr %LogEnabled, align 8
   %20 = and i8 %19, 1
   %tobool.not = icmp eq i8 %20, 0
@@ -6281,43 +6212,43 @@ if.then1:                                         ; preds = %if.end
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end
-  %RowPosY2 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 19
+  %RowPosY2 = getelementptr inbounds i8, ptr %table, i64 128
   %21 = load float, ptr %RowPosY2, align 8
-  %y = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 68, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %1, i64 276
   store float %21, ptr %y, align 4
-  %RowPosY1 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 18
+  %RowPosY1 = getelementptr inbounds i8, ptr %table, i64 124
   %22 = load float, ptr %RowPosY1, align 4
-  %CurrentRow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 14
+  %CurrentRow = getelementptr inbounds i8, ptr %table, i64 112
   %23 = load i32, ptr %CurrentRow, align 8
   %add = add nsw i32 %23, 1
-  %FreezeRowsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 85
+  %FreezeRowsCount = getelementptr inbounds i8, ptr %table, i64 552
   %24 = load i16, ptr %FreezeRowsCount, align 8
   %conv = sext i16 %24 to i32
   %cmp4 = icmp eq i32 %add, %conv
-  %FreezeRowsRequest = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 84
+  %FreezeRowsRequest = getelementptr inbounds i8, ptr %table, i64 550
   %25 = load i16, ptr %FreezeRowsRequest, align 2
   %conv7 = sext i16 %25 to i32
   %cmp8 = icmp eq i32 %add, %conv7
-  %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 16
+  %InstanceCurrent = getelementptr inbounds i8, ptr %table, i64 120
   %26 = load i16, ptr %InstanceCurrent, align 8
   %cmp.i = icmp eq i16 %26, 0
   br i1 %cmp.i, label %if.then.i145, label %if.end.i144
 
 if.then.i145:                                     ; preds = %if.end2
-  %InstanceDataFirst.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 59
+  %InstanceDataFirst.i = getelementptr inbounds i8, ptr %table, i64 424
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 if.end.i144:                                      ; preds = %if.end2
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 60, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %table, i64 456
   %27 = load ptr, ptr %Data.i.i, align 8
   %28 = sext i16 %26 to i64
   %29 = getelementptr %struct.ImGuiTableInstanceData, ptr %27, i64 %28
-  %arrayidx.i.i = getelementptr %struct.ImGuiTableInstanceData, ptr %29, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %29, i64 -24
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %if.then.i145, %if.end.i144
   %retval.0.i = phi ptr [ %InstanceDataFirst.i, %if.then.i145 ], [ %arrayidx.i.i, %if.end.i144 ]
-  %RowFlags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 24
+  %RowFlags = getelementptr inbounds i8, ptr %table, i64 148
   %bf.load = load i32, ptr %RowFlags, align 4
   %and = and i32 %bf.load, 1
   %tobool11.not = icmp eq i32 %and, 0
@@ -6332,32 +6263,32 @@ land.lhs.true:                                    ; preds = %_ZN5ImGui20TableGet
 
 if.then18:                                        ; preds = %land.lhs.true
   %sub = fsub float %21, %22
-  %LastTopHeadersRowHeight = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 2
+  %LastTopHeadersRowHeight = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %31 = load float, ptr %LastTopHeadersRowHeight, align 4
   %add19 = fadd float %sub, %31
   store float %add19, ptr %LastTopHeadersRowHeight, align 4
   br label %if.end20
 
 if.end20:                                         ; preds = %land.lhs.true, %if.then18, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
-  %y21 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 49, i32 0, i32 1
+  %y21 = getelementptr inbounds i8, ptr %table, i64 292
   %32 = load float, ptr %y21, align 4
   %cmp22 = fcmp ult float %21, %32
   br i1 %cmp22, label %if.end194, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end20
-  %y24 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 49, i32 1, i32 1
+  %y24 = getelementptr inbounds i8, ptr %table, i64 300
   %33 = load float, ptr %y24, align 4
   %cmp25 = fcmp ugt float %22, %33
   br i1 %cmp25, label %if.end194, label %if.then28
 
 if.then28:                                        ; preds = %land.rhs
-  %HoveredColumnBody = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 70
+  %HoveredColumnBody = getelementptr inbounds i8, ptr %table, i64 522
   %34 = load i16, ptr %HoveredColumnBody, align 2
   %cmp30.not = icmp eq i16 %34, -1
   br i1 %cmp30.not, label %if.end41, label %land.lhs.true31
 
 land.lhs.true31:                                  ; preds = %if.then28
-  %y32 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 2, i32 59, i32 1
+  %y32 = getelementptr inbounds i8, ptr %0, i64 3660
   %35 = load float, ptr %y32, align 4
   %cmp33 = fcmp oge float %35, %22
   %cmp38 = fcmp olt float %35, %21
@@ -6366,25 +6297,25 @@ land.lhs.true31:                                  ; preds = %if.then28
 
 if.then39:                                        ; preds = %land.lhs.true31
   %36 = load i32, ptr %CurrentRow, align 8
-  %HoveredRowNext = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 5
+  %HoveredRowNext = getelementptr inbounds i8, ptr %retval.0.i, i64 20
   store i32 %36, ptr %HoveredRowNext, align 4
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then39, %land.lhs.true31, %if.then28
-  %RowBgColor = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 26
+  %RowBgColor = getelementptr inbounds i8, ptr %table, i64 156
   %37 = load i32, ptr %RowBgColor, align 4
   %cmp42.not = icmp eq i32 %37, 16777216
   br i1 %cmp42.not, label %if.else, label %if.end53
 
 if.else:                                          ; preds = %if.end41
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %table, i64 4
   %38 = load i32, ptr %Flags, align 4
   %and46 = and i32 %38, 64
   %tobool47.not = icmp eq i32 %and46, 0
   br i1 %tobool47.not, label %if.end53, label %if.then48
 
 if.then48:                                        ; preds = %if.else
-  %RowBgColorCounter = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 25
+  %RowBgColorCounter = getelementptr inbounds i8, ptr %table, i64 152
   %39 = load i32, ptr %RowBgColorCounter, align 8
   %and49 = and i32 %39, 1
   %tobool50.not = icmp eq i32 %and49, 0
@@ -6394,7 +6325,7 @@ if.then48:                                        ; preds = %if.else
 
 if.end53:                                         ; preds = %if.end41, %if.else, %if.then48
   %bg_col0.0 = phi i32 [ %call51, %if.then48 ], [ 0, %if.else ], [ %37, %if.end41 ]
-  %arrayidx55 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 26, i64 1
+  %arrayidx55 = getelementptr inbounds i8, ptr %table, i64 160
   %40 = load i32, ptr %arrayidx55, align 4
   %cmp56.not = icmp eq i32 %40, 16777216
   %spec.select = select i1 %cmp56.not, i32 0, i32 %40
@@ -6403,7 +6334,7 @@ if.end53:                                         ; preds = %if.end41, %if.else,
   br i1 %cmp62, label %land.lhs.true63, label %if.end74
 
 land.lhs.true63:                                  ; preds = %if.end53
-  %Flags64 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags64 = getelementptr inbounds i8, ptr %table, i64 4
   %42 = load i32, ptr %Flags64, align 4
   %and65 = and i32 %42, 128
   %tobool66.not = icmp eq i32 %and65, 0
@@ -6413,15 +6344,14 @@ if.then67:                                        ; preds = %land.lhs.true63
   %bf.load69 = load i32, ptr %RowFlags, align 4
   %43 = and i32 %bf.load69, 65536
   %tobool72.not = icmp eq i32 %43, 0
-  %BorderColorStrong = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 27
-  %BorderColorLight = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 28
-  %cond73.in = select i1 %tobool72.not, ptr %BorderColorLight, ptr %BorderColorStrong
+  %cond73.in.v = select i1 %tobool72.not, i64 168, i64 164
+  %cond73.in = getelementptr inbounds i8, ptr %table, i64 %cond73.in.v
   %cond73 = load i32, ptr %cond73.in, align 4
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then67, %land.lhs.true63, %if.end53
   %top_border_col.0 = phi i32 [ %cond73, %if.then67 ], [ 0, %land.lhs.true63 ], [ 0, %if.end53 ]
-  %RowCellDataCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 88
+  %RowCellDataCurrent = getelementptr inbounds i8, ptr %table, i64 558
   %44 = load i16, ptr %RowCellDataCurrent, align 2
   %cmp76 = icmp sgt i16 %44, -1
   %or = or i32 %spec.select, %bg_col0.0
@@ -6432,31 +6362,31 @@ if.end74:                                         ; preds = %if.then67, %land.lh
   br i1 %brmerge143, label %if.then86, label %if.end94
 
 if.then86:                                        ; preds = %if.end74
-  %Flags87 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags87 = getelementptr inbounds i8, ptr %table, i64 4
   %45 = load i32, ptr %Flags87, align 4
   %and88 = and i32 %45, 1048576
   %cmp89 = icmp eq i32 %and88, 0
   br i1 %cmp89, label %if.then90, label %if.end92
 
 if.then90:                                        ; preds = %if.then86
-  %Bg0ClipRectForDrawCmd = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 51
+  %Bg0ClipRectForDrawCmd = getelementptr inbounds i8, ptr %table, i64 320
   %46 = load <4 x float>, ptr %Bg0ClipRectForDrawCmd, align 4
   %retval.sroa.3.8.vec.insert.i = shufflevector <4 x float> %46, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %47 = extractelement <4 x float> %46, i64 3
   %retval.sroa.0.4.vec.insert.i = shufflevector <4 x float> %46, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i, float %47, i64 1
-  %DrawList = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %DrawList = getelementptr inbounds i8, ptr %1, i64 680
   %48 = load ptr, ptr %DrawList, align 8
-  %_CmdHeader = getelementptr inbounds %struct.ImDrawList, ptr %48, i64 0, i32 12
+  %_CmdHeader = getelementptr inbounds i8, ptr %48, i64 136
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %_CmdHeader, align 8
-  %ref.tmp.sroa.2.0.ClipRect.sroa_idx = getelementptr inbounds %struct.ImDrawList, ptr %48, i64 0, i32 12, i32 0, i32 2
+  %ref.tmp.sroa.2.0.ClipRect.sroa_idx = getelementptr inbounds i8, ptr %48, i64 144
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.ClipRect.sroa_idx, align 8
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then90, %if.then86
-  %DrawSplitter = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 58
+  %DrawSplitter = getelementptr inbounds i8, ptr %table, i64 416
   %49 = load ptr, ptr %DrawSplitter, align 8
-  %DrawList93 = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %DrawList93 = getelementptr inbounds i8, ptr %1, i64 680
   %50 = load ptr, ptr %DrawList93, align 8
   tail call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef %50, i32 noundef 0)
   br label %if.end94
@@ -6468,21 +6398,21 @@ if.end94:                                         ; preds = %if.end74, %if.end92
 
 if.then98:                                        ; preds = %if.end94
   %tobool95.not = icmp ne i32 %bg_col0.0, 0
-  %WorkRect = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48
+  %WorkRect = getelementptr inbounds i8, ptr %table, i64 272
   %51 = load float, ptr %WorkRect, align 8
-  %Max101 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48, i32 1
+  %Max101 = getelementptr inbounds i8, ptr %table, i64 280
   %52 = load float, ptr %Max101, align 8
-  %y.i.i = getelementptr inbounds %struct.ImVec2, ptr %row_rect, i64 0, i32 1
-  %Max.i = getelementptr inbounds %struct.ImRect, ptr %row_rect, i64 0, i32 1
-  %y.i1.i = getelementptr inbounds %struct.ImRect, ptr %row_rect, i64 0, i32 1, i32 1
-  %BgClipRect = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 50
+  %y.i.i = getelementptr inbounds i8, ptr %row_rect, i64 4
+  %Max.i = getelementptr inbounds i8, ptr %row_rect, i64 8
+  %y.i1.i = getelementptr inbounds i8, ptr %row_rect, i64 12
+  %BgClipRect = getelementptr inbounds i8, ptr %table, i64 304
   %53 = load <2 x float>, ptr %BgClipRect, align 4
   %54 = insertelement <2 x float> poison, float %51, i64 0
   %55 = insertelement <2 x float> %54, float %22, i64 1
   %56 = fcmp oge <2 x float> %55, %53
   %57 = select <2 x i1> %56, <2 x float> %55, <2 x float> %53
   store <2 x float> %57, ptr %row_rect, align 8
-  %Max5.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 50, i32 1
+  %Max5.i = getelementptr inbounds i8, ptr %table, i64 312
   %58 = load <2 x float>, ptr %Max5.i, align 4
   %59 = insertelement <2 x float> poison, float %52, i64 0
   %60 = insertelement <2 x float> %59, float %21, i64 1
@@ -6491,11 +6421,11 @@ if.then98:                                        ; preds = %if.end94
   store <2 x float> %62, ptr %Max.i, align 8
   %63 = fcmp olt <2 x float> %57, %62
   %cmp109 = extractelement <2 x i1> %63, i64 1
-  %or.cond212 = select i1 %tobool95.not, i1 %cmp109, i1 false
-  br i1 %or.cond212, label %if.then110, label %if.end114
+  %or.cond213 = select i1 %tobool95.not, i1 %cmp109, i1 false
+  br i1 %or.cond213, label %if.then110, label %if.end114
 
 if.then110:                                       ; preds = %if.then98
-  %DrawList111 = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %DrawList111 = getelementptr inbounds i8, ptr %1, i64 680
   %64 = load ptr, ptr %DrawList111, align 8
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %64, ptr noundef nonnull align 4 dereferenceable(8) %row_rect, ptr noundef nonnull align 4 dereferenceable(8) %Max.i, i32 noundef %bg_col0.0, float noundef 0.000000e+00, i32 noundef 0)
   br label %if.end114
@@ -6510,7 +6440,7 @@ land.lhs.true116:                                 ; preds = %if.end114
   br i1 %cmp121, label %if.then122, label %if.end127
 
 if.then122:                                       ; preds = %land.lhs.true116
-  %DrawList123 = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %DrawList123 = getelementptr inbounds i8, ptr %1, i64 680
   %67 = load ptr, ptr %DrawList123, align 8
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %67, ptr noundef nonnull align 4 dereferenceable(8) %row_rect, ptr noundef nonnull align 4 dereferenceable(8) %Max.i, i32 noundef %spec.select, float noundef 0.000000e+00, i32 noundef 0)
   br label %if.end127
@@ -6519,69 +6449,70 @@ if.end127:                                        ; preds = %if.end114, %land.lh
   br i1 %cmp76, label %if.then129, label %if.end158
 
 if.then129:                                       ; preds = %if.end127
-  %RowCellData = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 6
+  %RowCellData = getelementptr inbounds i8, ptr %table, i64 56
   %68 = load i16, ptr %RowCellDataCurrent, align 2
   %69 = load ptr, ptr %RowCellData, align 8
   %idx.ext.i = sext i16 %68 to i64
   %add.ptr.i = getelementptr inbounds %struct.ImGuiTableCellData, ptr %69, i64 %idx.ext.i
-  %cmp135.not200 = icmp slt i16 %68, 0
-  br i1 %cmp135.not200, label %if.end158, label %for.body.lr.ph
+  %cmp135.not201 = icmp slt i16 %68, 0
+  br i1 %cmp135.not201, label %if.end158, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then129
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
-  %WorkRect.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48
-  %Max.i154 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48, i32 1
-  %70 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %cell_bg_rect, i64 0, i32 1
-  %BgClipRect141 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 50
-  %Max5.i172 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 50, i32 1
-  %DrawList155 = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
+  %WorkRect.i = getelementptr inbounds i8, ptr %table, i64 272
+  %Max.i155 = getelementptr inbounds i8, ptr %table, i64 280
+  %70 = getelementptr inbounds i8, ptr %cell_bg_rect, i64 8
+  %BgClipRect141 = getelementptr inbounds i8, ptr %table, i64 304
+  %Max5.i173 = getelementptr inbounds i8, ptr %table, i64 312
+  %DrawList155 = getelementptr inbounds i8, ptr %1, i64 680
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %cell_data.0201 = phi ptr [ %69, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
-  %Column = getelementptr inbounds %struct.ImGuiTableCellData, ptr %cell_data.0201, i64 0, i32 1
+  %cell_data.0202 = phi ptr [ %69, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
+  %Column = getelementptr inbounds i8, ptr %cell_data.0202, i64 4
   %71 = load i16, ptr %Column, align 4
   %72 = load ptr, ptr %Columns, align 8
   %idx.ext.i148 = sext i16 %71 to i64
-  %MinX.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %72, i64 %idx.ext.i148, i32 2
+  %add.ptr.i149 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %72, i64 %idx.ext.i148
+  %MinX.i = getelementptr inbounds i8, ptr %add.ptr.i149, i64 8
   %73 = load float, ptr %MinX.i, align 4
-  %MaxX.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %72, i64 %idx.ext.i148, i32 3
+  %MaxX.i = getelementptr inbounds i8, ptr %add.ptr.i149, i64 12
   %74 = load float, ptr %MaxX.i, align 4
   %75 = load float, ptr %WorkRect.i, align 8
-  %cmp.i.i152 = fcmp oge float %73, %75
-  %cond.i.i153 = select i1 %cmp.i.i152, float %73, float %75
-  %76 = load float, ptr %Max.i154, align 8
+  %cmp.i.i153 = fcmp oge float %73, %75
+  %cond.i.i154 = select i1 %cmp.i.i153, float %73, float %75
+  %76 = load float, ptr %Max.i155, align 8
   %cmp.i8.i = fcmp olt float %74, %76
   %cond.i9.i = select i1 %cmp.i8.i, float %74, float %76
   %77 = load float, ptr %RowPosY1, align 4
   %78 = load float, ptr %RowPosY2, align 8
   %79 = load <2 x float>, ptr %BgClipRect141, align 4
-  %80 = insertelement <2 x float> poison, float %cond.i.i153, i64 0
+  %80 = insertelement <2 x float> poison, float %cond.i.i154, i64 0
   %81 = insertelement <2 x float> %80, float %77, i64 1
   %82 = fcmp oge <2 x float> %81, %79
   %83 = select <2 x i1> %82, <2 x float> %81, <2 x float> %79
   store <2 x float> %83, ptr %cell_bg_rect, align 8
-  %84 = load <2 x float>, ptr %Max5.i172, align 4
+  %84 = load <2 x float>, ptr %Max5.i173, align 4
   %85 = insertelement <2 x float> poison, float %cond.i9.i, i64 0
   %86 = insertelement <2 x float> %85, float %78, i64 1
   %87 = fcmp olt <2 x float> %86, %84
   %88 = select <2 x i1> %87, <2 x float> %86, <2 x float> %84
   store <2 x float> %88, ptr %70, align 8
-  %ClipRect144 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %72, i64 %idx.ext.i148, i32 8
+  %ClipRect144 = getelementptr inbounds i8, ptr %add.ptr.i149, i64 32
   %89 = load float, ptr %ClipRect144, align 4
   %90 = extractelement <2 x float> %83, i64 0
-  %cmp.i183 = fcmp oge float %90, %89
-  %cond.i184 = select i1 %cmp.i183, float %90, float %89
-  store float %cond.i184, ptr %cell_bg_rect, align 8
+  %cmp.i184 = fcmp oge float %90, %89
+  %cond.i185 = select i1 %cmp.i184, float %90, float %89
+  store float %cond.i185, ptr %cell_bg_rect, align 8
   %91 = load float, ptr %MaxX.i, align 4
   %92 = extractelement <2 x float> %88, i64 0
-  %cmp.i185 = fcmp olt float %92, %91
-  %cond.i186 = select i1 %cmp.i185, float %92, float %91
-  store float %cond.i186, ptr %70, align 8
+  %cmp.i186 = fcmp olt float %92, %91
+  %cond.i187 = select i1 %cmp.i186, float %92, float %91
+  store float %cond.i187, ptr %70, align 8
   %93 = load ptr, ptr %DrawList155, align 8
-  %94 = load i32, ptr %cell_data.0201, align 4
+  %94 = load i32, ptr %cell_data.0202, align 4
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %93, ptr noundef nonnull align 4 dereferenceable(8) %cell_bg_rect, ptr noundef nonnull align 4 dereferenceable(8) %70, i32 noundef %94, float noundef 0.000000e+00, i32 noundef 0)
-  %incdec.ptr = getelementptr inbounds %struct.ImGuiTableCellData, ptr %cell_data.0201, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cell_data.0202, i64 8
   %cmp135.not = icmp ugt ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp135.not, label %if.end158, label %for.body, !llvm.loop !29
 
@@ -6590,30 +6521,30 @@ if.end158:                                        ; preds = %for.body, %if.then1
   br i1 %tobool159.not, label %if.end174, label %land.lhs.true160
 
 land.lhs.true160:                                 ; preds = %if.end158
-  %y163 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 50, i32 0, i32 1
+  %y163 = getelementptr inbounds i8, ptr %table, i64 308
   %95 = load float, ptr %y163, align 4
   %cmp164 = fcmp ult float %22, %95
   br i1 %cmp164, label %if.end174, label %land.lhs.true165
 
 land.lhs.true165:                                 ; preds = %land.lhs.true160
-  %y168 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 50, i32 1, i32 1
+  %y168 = getelementptr inbounds i8, ptr %table, i64 316
   %96 = load float, ptr %y168, align 4
   %cmp169 = fcmp olt float %22, %96
   br i1 %cmp169, label %if.then170, label %if.end174
 
 if.then170:                                       ; preds = %land.lhs.true165
-  %DrawList171 = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %DrawList171 = getelementptr inbounds i8, ptr %1, i64 680
   %97 = load ptr, ptr %DrawList171, align 8
-  %BorderX1 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 29
+  %BorderX1 = getelementptr inbounds i8, ptr %table, i64 172
   %98 = load float, ptr %BorderX1, align 4
   store float %98, ptr %ref.tmp172, align 4
-  %y.i187 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp172, i64 0, i32 1
-  store float %22, ptr %y.i187, align 4
-  %BorderX2 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 30
+  %y.i188 = getelementptr inbounds i8, ptr %ref.tmp172, i64 4
+  store float %22, ptr %y.i188, align 4
+  %BorderX2 = getelementptr inbounds i8, ptr %table, i64 176
   %99 = load float, ptr %BorderX2, align 8
   store float %99, ptr %ref.tmp173, align 4
-  %y.i188 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp173, i64 0, i32 1
-  store float %22, ptr %y.i188, align 4
+  %y.i189 = getelementptr inbounds i8, ptr %ref.tmp173, i64 4
+  store float %22, ptr %y.i189, align 4
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %97, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp172, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp173, i32 noundef %top_border_col.0, float noundef 1.000000e+00)
   br label %if.end174
 
@@ -6621,31 +6552,31 @@ if.end174:                                        ; preds = %if.then170, %land.l
   br i1 %cmp4, label %land.lhs.true176, label %if.end194
 
 land.lhs.true176:                                 ; preds = %if.end174
-  %y179 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 50, i32 0, i32 1
+  %y179 = getelementptr inbounds i8, ptr %table, i64 308
   %100 = load float, ptr %y179, align 4
   %cmp180 = fcmp ult float %21, %100
   br i1 %cmp180, label %if.end194, label %land.lhs.true181
 
 land.lhs.true181:                                 ; preds = %land.lhs.true176
-  %y184 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 50, i32 1, i32 1
+  %y184 = getelementptr inbounds i8, ptr %table, i64 316
   %101 = load float, ptr %y184, align 4
   %cmp185 = fcmp olt float %21, %101
   br i1 %cmp185, label %if.then186, label %if.end194
 
 if.then186:                                       ; preds = %land.lhs.true181
-  %DrawList187 = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %DrawList187 = getelementptr inbounds i8, ptr %1, i64 680
   %102 = load ptr, ptr %DrawList187, align 8
-  %BorderX1189 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 29
+  %BorderX1189 = getelementptr inbounds i8, ptr %table, i64 172
   %103 = load float, ptr %BorderX1189, align 4
   store float %103, ptr %ref.tmp188, align 4
-  %y.i189 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp188, i64 0, i32 1
-  store float %21, ptr %y.i189, align 4
-  %BorderX2191 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 30
+  %y.i190 = getelementptr inbounds i8, ptr %ref.tmp188, i64 4
+  store float %21, ptr %y.i190, align 4
+  %BorderX2191 = getelementptr inbounds i8, ptr %table, i64 176
   %104 = load float, ptr %BorderX2191, align 8
   store float %104, ptr %ref.tmp190, align 4
-  %y.i190 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp190, i64 0, i32 1
-  store float %21, ptr %y.i190, align 4
-  %BorderColorStrong192 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 27
+  %y.i191 = getelementptr inbounds i8, ptr %ref.tmp190, i64 4
+  store float %21, ptr %y.i191, align 4
+  %BorderColorStrong192 = getelementptr inbounds i8, ptr %table, i64 164
   %105 = load i32, ptr %BorderColorStrong192, align 4
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %102, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp188, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp190, i32 noundef %105, float noundef 1.000000e+00)
   br label %if.end194
@@ -6654,13 +6585,13 @@ if.end194:                                        ; preds = %if.end20, %if.end17
   br i1 %cmp8, label %for.cond197.preheader, label %if.end204
 
 for.cond197.preheader:                            ; preds = %if.end194
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %106 = load i32, ptr %ColumnsCount, align 4
-  %cmp198202 = icmp sgt i32 %106, 0
-  br i1 %cmp198202, label %for.body199.lr.ph, label %if.end204
+  %cmp198203 = icmp sgt i32 %106, 0
+  br i1 %cmp198203, label %for.body199.lr.ph, label %if.end204
 
 for.body199.lr.ph:                                ; preds = %for.cond197.preheader
-  %Columns200 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns200 = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.body199
 
 for.body199:                                      ; preds = %for.body199.lr.ph, %for.body199
@@ -6680,38 +6611,38 @@ if.end204:                                        ; preds = %for.body199, %for.c
 if.then206:                                       ; preds = %if.end204
   %110 = load float, ptr %RowPosY2, align 8
   %add208 = fadd float %110, 1.000000e+00
-  %y211 = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 71, i32 0, i32 1
+  %y211 = getelementptr inbounds i8, ptr %1, i64 540
   %111 = load float, ptr %y211, align 4
-  %cmp.i193 = fcmp oge float %add208, %111
-  %cond.i194 = select i1 %cmp.i193, float %add208, float %111
-  %IsUnfrozenRows = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 104
+  %cmp.i194 = fcmp oge float %add208, %111
+  %cond.i195 = select i1 %cmp.i194, float %add208, float %111
+  %IsUnfrozenRows = getelementptr inbounds i8, ptr %table, i64 578
   store i8 1, ptr %IsUnfrozenRows, align 2
-  %y214 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 0, i32 1
+  %y214 = getelementptr inbounds i8, ptr %table, i64 244
   %112 = load float, ptr %y214, align 4
-  %sub215 = fsub float %cond.i194, %112
-  %LastFrozenHeight = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 3
+  %sub215 = fsub float %cond.i195, %112
+  %LastFrozenHeight = getelementptr inbounds i8, ptr %retval.0.i, i64 12
   store float %sub215, ptr %LastFrozenHeight, align 4
-  %y218 = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 71, i32 1, i32 1
+  %y218 = getelementptr inbounds i8, ptr %1, i64 548
   %113 = load float, ptr %y218, align 4
-  %cmp.i195 = fcmp olt float %cond.i194, %113
-  %cond.i196 = select i1 %cmp.i195, float %cond.i194, float %113
-  %y221 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 52, i32 0, i32 1
-  store float %cond.i196, ptr %y221, align 4
-  %y224 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 50, i32 0, i32 1
-  store float %cond.i196, ptr %y224, align 4
+  %cmp.i196 = fcmp olt float %cond.i195, %113
+  %cond.i197 = select i1 %cmp.i196, float %cond.i195, float %113
+  %y221 = getelementptr inbounds i8, ptr %table, i64 340
+  store float %cond.i197, ptr %y221, align 4
+  %y224 = getelementptr inbounds i8, ptr %table, i64 308
+  store float %cond.i197, ptr %y224, align 4
   %114 = load float, ptr %y218, align 4
-  %y230 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 52, i32 1, i32 1
+  %y230 = getelementptr inbounds i8, ptr %table, i64 348
   store float %114, ptr %y230, align 4
-  %y233 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 50, i32 1, i32 1
+  %y233 = getelementptr inbounds i8, ptr %table, i64 316
   store float %114, ptr %y233, align 4
-  %Bg2DrawChannelUnfrozen = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 91
+  %Bg2DrawChannelUnfrozen = getelementptr inbounds i8, ptr %table, i64 564
   %115 = load i16, ptr %Bg2DrawChannelUnfrozen, align 4
-  %Bg2DrawChannelCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 90
+  %Bg2DrawChannelCurrent = getelementptr inbounds i8, ptr %table, i64 562
   store i16 %115, ptr %Bg2DrawChannelCurrent, align 2
   %116 = load float, ptr %RowPosY2, align 8
   %117 = load float, ptr %RowPosY1, align 4
   %sub236 = fsub float %116, %117
-  %y239 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48, i32 0, i32 1
+  %y239 = getelementptr inbounds i8, ptr %table, i64 276
   %118 = load float, ptr %y239, align 4
   %add241 = fadd float %116, %118
   %119 = load float, ptr %y214, align 4
@@ -6720,64 +6651,65 @@ if.then206:                                       ; preds = %if.end204
   store float %sub245, ptr %RowPosY2, align 8
   %sub251 = fsub float %sub245, %sub236
   store float %sub251, ptr %RowPosY1, align 4
-  %ColumnsCount255 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount255 = getelementptr inbounds i8, ptr %table, i64 108
   %120 = load i32, ptr %ColumnsCount255, align 4
-  %cmp256204 = icmp sgt i32 %120, 0
-  br i1 %cmp256204, label %for.body257.lr.ph, label %for.end269
+  %cmp256205 = icmp sgt i32 %120, 0
+  br i1 %cmp256205, label %for.body257.lr.ph, label %for.end269
 
 for.body257.lr.ph:                                ; preds = %if.then206
-  %Columns259 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns259 = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.body257
 
 for.body257:                                      ; preds = %for.body257.lr.ph, %for.body257
-  %indvars.iv207 = phi i64 [ 0, %for.body257.lr.ph ], [ %indvars.iv.next208, %for.body257 ]
+  %indvars.iv208 = phi i64 [ 0, %for.body257.lr.ph ], [ %indvars.iv.next209, %for.body257 ]
   %121 = load ptr, ptr %Columns259, align 8
-  %DrawChannelUnfrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %121, i64 %indvars.iv207, i32 25
+  %add.ptr.i199 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %121, i64 %indvars.iv208
+  %DrawChannelUnfrozen = getelementptr inbounds i8, ptr %add.ptr.i199, i64 96
   %122 = load i16, ptr %DrawChannelUnfrozen, align 4
-  %DrawChannelCurrent = getelementptr inbounds %struct.ImGuiTableColumn, ptr %121, i64 %indvars.iv207, i32 23
+  %DrawChannelCurrent = getelementptr inbounds i8, ptr %add.ptr.i199, i64 92
   store i16 %122, ptr %DrawChannelCurrent, align 4
   %123 = load float, ptr %y221, align 4
-  %y266 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %121, i64 %indvars.iv207, i32 8, i32 0, i32 1
+  %y266 = getelementptr inbounds i8, ptr %add.ptr.i199, i64 36
   store float %123, ptr %y266, align 4
-  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
+  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %124 = load i32, ptr %ColumnsCount255, align 4
   %125 = sext i32 %124 to i64
-  %cmp256 = icmp slt i64 %indvars.iv.next208, %125
+  %cmp256 = icmp slt i64 %indvars.iv.next209, %125
   br i1 %cmp256, label %for.body257, label %for.end269, !llvm.loop !31
 
 for.end269:                                       ; preds = %for.body257, %if.then206
-  %Columns270 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns270 = getelementptr inbounds i8, ptr %table, i64 24
   %126 = load ptr, ptr %Columns270, align 8
-  %ClipRect272 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %126, i64 0, i32 8
+  %ClipRect272 = getelementptr inbounds i8, ptr %126, i64 32
   %127 = load <4 x float>, ptr %ClipRect272, align 4
   %retval.sroa.3.8.vec.insert.i.i = shufflevector <4 x float> %127, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %128 = extractelement <4 x float> %127, i64 3
-  %retval.sroa.0.4.vec.insert.i.i199 = shufflevector <4 x float> %127, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %retval.sroa.0.4.vec.insert.i.i200 = shufflevector <4 x float> %127, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %128, i64 1
-  %ClipRect.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 74
+  %ClipRect.i = getelementptr inbounds i8, ptr %1, i64 584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull align 4 dereferenceable(16) %ClipRect272, i64 16, i1 false)
-  %DrawList.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %DrawList.i = getelementptr inbounds i8, ptr %1, i64 680
   %129 = load ptr, ptr %DrawList.i, align 8
-  %_CmdHeader.i = getelementptr inbounds %struct.ImDrawList, ptr %129, i64 0, i32 12
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i199, ptr %_CmdHeader.i, align 8
-  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds %struct.ImDrawList, ptr %129, i64 0, i32 12, i32 0, i32 2
+  %_CmdHeader.i = getelementptr inbounds i8, ptr %129, i64 136
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i200, ptr %_CmdHeader.i, align 8
+  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds i8, ptr %129, i64 144
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i, align 8
   %130 = load ptr, ptr %DrawList.i, align 8
-  %_ClipRectStack.i = getelementptr inbounds %struct.ImDrawList, ptr %130, i64 0, i32 9
-  %Data.i = getelementptr inbounds %struct.ImDrawList, ptr %130, i64 0, i32 9, i32 2
+  %_ClipRectStack.i = getelementptr inbounds i8, ptr %130, i64 88
+  %Data.i = getelementptr inbounds i8, ptr %130, i64 96
   %131 = load ptr, ptr %Data.i, align 8
   %132 = load i32, ptr %_ClipRectStack.i, align 8
   %133 = sext i32 %132 to i64
   %134 = getelementptr %struct.ImVec4, ptr %131, i64 %133
-  %arrayidx.i = getelementptr %struct.ImVec4, ptr %134, i64 -1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i199, ptr %arrayidx.i, align 4
-  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr %struct.ImVec4, ptr %134, i64 -1, i32 2
+  %arrayidx.i = getelementptr i8, ptr %134, i64 -16
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i200, ptr %arrayidx.i, align 4
+  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr i8, ptr %134, i64 -8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i, align 4
-  %DrawSplitter273 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 58
+  %DrawSplitter273 = getelementptr inbounds i8, ptr %table, i64 416
   %135 = load ptr, ptr %DrawSplitter273, align 8
   %136 = load ptr, ptr %DrawList.i, align 8
   %137 = load ptr, ptr %Columns270, align 8
-  %DrawChannelCurrent277 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %137, i64 0, i32 23
+  %DrawChannelCurrent277 = getelementptr inbounds i8, ptr %137, i64 92
   %138 = load i16, ptr %DrawChannelCurrent277, align 4
   %conv278 = zext i16 %138 to i32
   call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef %136, i32 noundef %conv278)
@@ -6790,14 +6722,14 @@ if.end279:                                        ; preds = %for.end269, %if.end
   br i1 %tobool285.not, label %if.then286, label %if.end289
 
 if.then286:                                       ; preds = %if.end279
-  %RowBgColorCounter287 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 25
+  %RowBgColorCounter287 = getelementptr inbounds i8, ptr %table, i64 152
   %139 = load i32, ptr %RowBgColorCounter287, align 8
   %inc288 = add nsw i32 %139, 1
   store i32 %inc288, ptr %RowBgColorCounter287, align 8
   br label %if.end289
 
 if.end289:                                        ; preds = %if.then286, %if.end279
-  %IsInsideRow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 93
+  %IsInsideRow = getelementptr inbounds i8, ptr %table, i64 567
   store i8 0, ptr %IsInsideRow, align 1
   ret void
 }
@@ -6810,37 +6742,37 @@ declare noundef zeroext i1 @_ZN5ImGui15IsMouseReleasedEi(i32 noundef) local_unna
 define void @_ZN5ImGui20TableOpenContextMenuEi(i32 noundef %column_n) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
   %cmp = icmp eq i32 %column_n, -1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 15
+  %CurrentColumn = getelementptr inbounds i8, ptr %1, i64 116
   %2 = load i32, ptr %CurrentColumn, align 4
   br label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %column_n.addr.0 = phi i32 [ %column_n, %entry ], [ %2, %land.lhs.true ]
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i32, ptr %Flags, align 4
   %and = and i32 %3, 7
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %1, i64 108
   %4 = load i32, ptr %ColumnsCount, align 4
   %cmp3 = icmp eq i32 %column_n.addr.0, %4
   %5 = trunc i32 %column_n.addr.0 to i16
-  %IsContextPopupOpen = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 97
+  %IsContextPopupOpen = getelementptr inbounds i8, ptr %1, i64 571
   store i8 1, ptr %IsContextPopupOpen, align 1
   %conv = select i1 %cmp3, i16 -1, i16 %5
-  %ContextPopupColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 83
+  %ContextPopupColumn = getelementptr inbounds i8, ptr %1, i64 548
   store i16 %conv, ptr %ContextPopupColumn, align 4
-  %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 16
+  %InstanceCurrent = getelementptr inbounds i8, ptr %1, i64 120
   %6 = load i16, ptr %InstanceCurrent, align 8
-  %InstanceInteracted = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 17
+  %InstanceInteracted = getelementptr inbounds i8, ptr %1, i64 122
   store i16 %6, ptr %InstanceInteracted, align 2
   %7 = load i32, ptr %1, align 8
   %call = tail call noundef i32 @_Z9ImHashStrPKcmj(ptr noundef nonnull @.str.6, i64 noundef 0, i32 noundef %7)
@@ -6866,25 +6798,25 @@ entry:
   %ref.tmp157 = alloca %struct.ImVec2, align 4
   %ref.tmp186 = alloca %struct.ImVec2, align 4
   %ref.tmp187 = alloca %struct.ImVec2, align 4
-  %InnerWindow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 56
+  %InnerWindow = getelementptr inbounds i8, ptr %table, i64 392
   %0 = load ptr, ptr %InnerWindow, align 8
-  %OuterWindow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 55
+  %OuterWindow = getelementptr inbounds i8, ptr %table, i64 384
   %1 = load ptr, ptr %OuterWindow, align 8
-  %ClipRect = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 74
-  %OuterRect = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46
-  %y.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 0, i32 1
+  %ClipRect = getelementptr inbounds i8, ptr %1, i64 584
+  %OuterRect = getelementptr inbounds i8, ptr %table, i64 240
+  %y.i = getelementptr inbounds i8, ptr %table, i64 244
   %2 = load float, ptr %y.i, align 4
-  %Max.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 74, i32 1
-  %y2.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 74, i32 1, i32 1
+  %Max.i = getelementptr inbounds i8, ptr %1, i64 592
+  %y2.i = getelementptr inbounds i8, ptr %1, i64 596
   %3 = load float, ptr %y2.i, align 4
   %cmp.i = fcmp olt float %2, %3
   br i1 %cmp.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %entry
-  %Max3.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 1
-  %y4.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 1, i32 1
+  %Max3.i = getelementptr inbounds i8, ptr %table, i64 248
+  %y4.i = getelementptr inbounds i8, ptr %table, i64 252
   %4 = load float, ptr %y4.i, align 4
-  %y6.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 74, i32 0, i32 1
+  %y6.i = getelementptr inbounds i8, ptr %1, i64 588
   %5 = load float, ptr %y6.i, align 4
   %cmp7.i = fcmp ogt float %4, %5
   br i1 %cmp7.i, label %land.lhs.true8.i, label %return
@@ -6902,71 +6834,71 @@ _ZNK6ImRect8OverlapsERKS_.exit:                   ; preds = %land.lhs.true8.i
   br i1 %cmp17.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNK6ImRect8OverlapsERKS_.exit
-  %DrawList = getelementptr inbounds %struct.ImGuiWindow, ptr %0, i64 0, i32 86
+  %DrawList = getelementptr inbounds i8, ptr %0, i64 680
   %10 = load ptr, ptr %DrawList, align 8
-  %DrawSplitter = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 58
+  %DrawSplitter = getelementptr inbounds i8, ptr %table, i64 416
   %11 = load ptr, ptr %DrawSplitter, align 8
   tail call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %10, i32 noundef 0)
-  %Bg0ClipRectForDrawCmd = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 51
-  %Max = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 51, i32 1
+  %Bg0ClipRectForDrawCmd = getelementptr inbounds i8, ptr %table, i64 320
+  %Max = getelementptr inbounds i8, ptr %table, i64 328
   tail call void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 dereferenceable(196) %10, ptr noundef nonnull align 4 dereferenceable(8) %Bg0ClipRectForDrawCmd, ptr noundef nonnull align 4 dereferenceable(8) %Max, i1 noundef zeroext false)
-  %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 16
+  %InstanceCurrent = getelementptr inbounds i8, ptr %table, i64 120
   %12 = load i16, ptr %InstanceCurrent, align 8
   %cmp.i90 = icmp eq i16 %12, 0
   br i1 %cmp.i90, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %InstanceDataFirst.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 59
+  %InstanceDataFirst.i = getelementptr inbounds i8, ptr %table, i64 424
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 if.end.i:                                         ; preds = %if.end
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 60, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %table, i64 456
   %13 = load ptr, ptr %Data.i.i, align 8
   %14 = sext i16 %12 to i64
   %15 = getelementptr %struct.ImGuiTableInstanceData, ptr %13, i64 %14
-  %arrayidx.i.i = getelementptr %struct.ImGuiTableInstanceData, ptr %15, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %15, i64 -24
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %InstanceDataFirst.i, %if.then.i ], [ %arrayidx.i.i, %if.end.i ]
-  %y = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 47, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %table, i64 260
   %16 = load float, ptr %y, align 4
-  %FreezeRowsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 85
+  %FreezeRowsCount = getelementptr inbounds i8, ptr %table, i64 552
   %17 = load i16, ptr %FreezeRowsCount, align 8
   %cmp = icmp sgt i16 %17, 0
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
-  %y9 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48, i32 0, i32 1
+  %y9 = getelementptr inbounds i8, ptr %table, i64 276
   %18 = load float, ptr %y9, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit, %cond.false
   %cond = phi float [ %18, %cond.false ], [ %16, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit ]
-  %AngledHeadersHeight = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 44
+  %AngledHeadersHeight = getelementptr inbounds i8, ptr %table, i64 232
   %19 = load float, ptr %AngledHeadersHeight, align 8
   %add = fadd float %cond, %19
   %cmp.i91 = fcmp oge float %16, %add
   %cond.i = select i1 %cmp.i91, float %16, float %add
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %table, i64 4
   %20 = load i32, ptr %Flags, align 4
   %and = and i32 %20, 256
   %tobool.not = icmp eq i32 %and, 0
   %cond11 = select i1 %tobool.not, float 0.000000e+00, float 1.000000e+00
   %add12 = fadd float %cond.i, %cond11
-  %y15 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 47, i32 1, i32 1
+  %y15 = getelementptr inbounds i8, ptr %table, i64 268
   %21 = load float, ptr %y15, align 4
-  %IsUsingHeaders = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 96
+  %IsUsingHeaders = getelementptr inbounds i8, ptr %table, i64 570
   %22 = load i8, ptr %IsUsingHeaders, align 2
   %23 = and i8 %22, 1
   %tobool16.not = icmp eq i8 %23, 0
   br i1 %tobool16.not, label %cond.end37, label %cond.true17
 
 cond.true17:                                      ; preds = %cond.end
-  %y31 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48, i32 0, i32 1
+  %y31 = getelementptr inbounds i8, ptr %table, i64 276
   %cond33.in = select i1 %cmp, ptr %y, ptr %y31
   %cond33 = load float, ptr %cond33.in, align 4
-  %LastTopHeadersRowHeight = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 2
+  %LastTopHeadersRowHeight = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %24 = load float, ptr %LastTopHeadersRowHeight, align 4
   %add34 = fadd float %cond33, %24
   %cmp.i92 = fcmp olt float %21, %add34
@@ -6980,24 +6912,24 @@ cond.end37:                                       ; preds = %cond.end, %cond.tru
   br i1 %tobool41.not, label %if.end115, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %cond.end37
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %25 = load i32, ptr %ColumnsCount, align 4
   %cmp43110 = icmp sgt i32 %25, 0
   br i1 %cmp43110, label %for.body.lr.ph, label %if.end115
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %EnabledMaskByDisplayOrder = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 7
-  %DisplayOrderToIndex = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 5
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
-  %HoveredColumnBorder = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 71
-  %ResizedColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 74
-  %InstanceInteracted = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 17
-  %FreezeColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 87
-  %Max69 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 49, i32 1
-  %y.i96 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp, i64 0, i32 1
-  %y.i97 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp111, i64 0, i32 1
-  %BorderColorLight.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 28
-  %BorderColorStrong.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 27
+  %EnabledMaskByDisplayOrder = getelementptr inbounds i8, ptr %table, i64 72
+  %DisplayOrderToIndex = getelementptr inbounds i8, ptr %table, i64 40
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
+  %HoveredColumnBorder = getelementptr inbounds i8, ptr %table, i64 524
+  %ResizedColumn = getelementptr inbounds i8, ptr %table, i64 530
+  %InstanceInteracted = getelementptr inbounds i8, ptr %table, i64 122
+  %FreezeColumnsCount = getelementptr inbounds i8, ptr %table, i64 556
+  %Max69 = getelementptr inbounds i8, ptr %table, i64 296
+  %y.i96 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %y.i97 = getelementptr inbounds i8, ptr %ref.tmp111, i64 4
+  %BorderColorLight.i = getelementptr inbounds i8, ptr %table, i64 168
+  %BorderColorStrong.i = getelementptr inbounds i8, ptr %table, i64 164
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -7045,7 +6977,7 @@ land.end:                                         ; preds = %land.rhs, %if.end48
   %39 = add nuw nsw i64 %indvars.iv, 1
   %40 = and i64 %conv65, 4294967295
   %cmp67 = icmp eq i64 %39, %40
-  %MaxX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %32, i64 %idx.ext.i94, i32 3
+  %MaxX = getelementptr inbounds i8, ptr %add.ptr.i95, i64 12
   %41 = load float, ptr %MaxX, align 4
   %42 = load float, ptr %Max69, align 8
   %cmp70 = fcmp ule float %41, %42
@@ -7056,7 +6988,7 @@ if.end73:                                         ; preds = %land.end
   %43 = load i32, ptr %add.ptr.i95, align 4
   %and62 = and i32 %43, 1073741856
   %cmp63 = icmp eq i32 %and62, 0
-  %NextEnabledColumn = getelementptr inbounds %struct.ImGuiTableColumn, ptr %32, i64 %idx.ext.i94, i32 21
+  %NextEnabledColumn = getelementptr inbounds i8, ptr %add.ptr.i95, i64 88
   %44 = load i16, ptr %NextEnabledColumn, align 4
   %cmp75 = icmp ne i16 %44, -1
   %brmerge85 = select i1 %cmp75, i1 true, i1 %cmp63
@@ -7069,7 +7001,7 @@ if.then78:                                        ; preds = %if.end73
   br i1 %or.cond, label %if.end87, label %for.inc
 
 if.end87:                                         ; preds = %if.then78, %if.end73
-  %ClipRect89 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %32, i64 %idx.ext.i94, i32 8
+  %ClipRect89 = getelementptr inbounds i8, ptr %add.ptr.i95, i64 32
   %47 = load float, ptr %ClipRect89, align 4
   %cmp92 = fcmp ugt float %41, %47
   br i1 %cmp92, label %if.end94, label %for.inc
@@ -7160,13 +7092,13 @@ if.end115:                                        ; preds = %if.end115.loopexit,
 
 if.then119:                                       ; preds = %if.end115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %outer_border, ptr noundef nonnull align 8 dereferenceable(16) %OuterRect, i64 16, i1 false)
-  %BorderColorStrong = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 27
+  %BorderColorStrong = getelementptr inbounds i8, ptr %table, i64 164
   %59 = load i32, ptr %BorderColorStrong, align 4
   %cmp123 = icmp eq i32 %and117, 1280
   br i1 %cmp123, label %if.then124, label %if.else
 
 if.then124:                                       ; preds = %if.then119
-  %Max127 = getelementptr inbounds %struct.ImRect, ptr %outer_border, i64 0, i32 1
+  %Max127 = getelementptr inbounds i8, ptr %outer_border, i64 8
   %60 = load <2 x float>, ptr %Max127, align 4
   %61 = fadd <2 x float> %60, <float 1.000000e+00, float 1.000000e+00>
   store <2 x float> %61, ptr %ref.tmp126, align 8
@@ -7180,14 +7112,14 @@ if.else:                                          ; preds = %if.then119
 
 if.then133:                                       ; preds = %if.else
   %62 = load float, ptr %outer_border, align 4
-  %Max138 = getelementptr inbounds %struct.ImRect, ptr %outer_border, i64 0, i32 1
-  %y139 = getelementptr inbounds %struct.ImRect, ptr %outer_border, i64 0, i32 1, i32 1
+  %Max138 = getelementptr inbounds i8, ptr %outer_border, i64 8
+  %y139 = getelementptr inbounds i8, ptr %outer_border, i64 12
   %63 = load float, ptr %y139, align 4
   store float %62, ptr %ref.tmp135, align 4
-  %y.i104 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp135, i64 0, i32 1
+  %y.i104 = getelementptr inbounds i8, ptr %ref.tmp135, i64 4
   store float %63, ptr %y.i104, align 4
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %10, ptr noundef nonnull align 4 dereferenceable(8) %outer_border, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp135, i32 noundef %59, float noundef 1.000000e+00)
-  %y144 = getelementptr inbounds %struct.ImVec2, ptr %outer_border, i64 0, i32 1
+  %y144 = getelementptr inbounds i8, ptr %outer_border, i64 4
   %64 = load <2 x float>, ptr %y144, align 4
   %65 = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   store <2 x float> %65, ptr %ref.tmp140, align 8
@@ -7200,17 +7132,17 @@ if.else146:                                       ; preds = %if.else
   br i1 %tobool149.not, label %if.end166, label %if.then150
 
 if.then150:                                       ; preds = %if.else146
-  %Max153 = getelementptr inbounds %struct.ImRect, ptr %outer_border, i64 0, i32 1
-  %y156 = getelementptr inbounds %struct.ImVec2, ptr %outer_border, i64 0, i32 1
+  %Max153 = getelementptr inbounds i8, ptr %outer_border, i64 8
+  %y156 = getelementptr inbounds i8, ptr %outer_border, i64 4
   %66 = load <2 x float>, ptr %y156, align 4
   %67 = shufflevector <2 x float> %66, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   store <2 x float> %67, ptr %ref.tmp152, align 8
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %10, ptr noundef nonnull align 4 dereferenceable(8) %outer_border, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp152, i32 noundef %59, float noundef 1.000000e+00)
   %68 = load float, ptr %outer_border, align 4
-  %y161 = getelementptr inbounds %struct.ImRect, ptr %outer_border, i64 0, i32 1, i32 1
+  %y161 = getelementptr inbounds i8, ptr %outer_border, i64 12
   %69 = load float, ptr %y161, align 4
   store float %68, ptr %ref.tmp157, align 4
-  %y.i107 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp157, i64 0, i32 1
+  %y.i107 = getelementptr inbounds i8, ptr %ref.tmp157, i64 4
   store float %69, ptr %y.i107, align 4
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %10, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp157, ptr noundef nonnull align 4 dereferenceable(8) %Max153, i32 noundef %59, float noundef 1.000000e+00)
   br label %if.end166
@@ -7222,36 +7154,36 @@ if.end166:                                        ; preds = %if.then124, %if.els
   br i1 %tobool169.not, label %if.end189, label %land.lhs.true170
 
 land.lhs.true170:                                 ; preds = %if.end166
-  %RowPosY2 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 19
+  %RowPosY2 = getelementptr inbounds i8, ptr %table, i64 128
   %71 = load float, ptr %RowPosY2, align 8
   %72 = load float, ptr %y4.i, align 4
   %cmp174 = fcmp olt float %71, %72
   br i1 %cmp174, label %if.then175, label %if.end189
 
 if.then175:                                       ; preds = %land.lhs.true170
-  %y178 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 50, i32 0, i32 1
+  %y178 = getelementptr inbounds i8, ptr %table, i64 308
   %73 = load float, ptr %y178, align 4
   %cmp179 = fcmp ult float %71, %73
   br i1 %cmp179, label %if.end189, label %land.lhs.true180
 
 land.lhs.true180:                                 ; preds = %if.then175
-  %y183 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 50, i32 1, i32 1
+  %y183 = getelementptr inbounds i8, ptr %table, i64 316
   %74 = load float, ptr %y183, align 4
   %cmp184 = fcmp olt float %71, %74
   br i1 %cmp184, label %if.then185, label %if.end189
 
 if.then185:                                       ; preds = %land.lhs.true180
-  %BorderX1 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 29
+  %BorderX1 = getelementptr inbounds i8, ptr %table, i64 172
   %75 = load float, ptr %BorderX1, align 4
   store float %75, ptr %ref.tmp186, align 4
-  %y.i108 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp186, i64 0, i32 1
+  %y.i108 = getelementptr inbounds i8, ptr %ref.tmp186, i64 4
   store float %71, ptr %y.i108, align 4
-  %BorderX2 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 30
+  %BorderX2 = getelementptr inbounds i8, ptr %table, i64 176
   %76 = load float, ptr %BorderX2, align 8
   store float %76, ptr %ref.tmp187, align 4
-  %y.i109 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp187, i64 0, i32 1
+  %y.i109 = getelementptr inbounds i8, ptr %ref.tmp187, i64 4
   store float %71, ptr %y.i109, align 4
-  %BorderColorLight = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 28
+  %BorderColorLight = getelementptr inbounds i8, ptr %table, i64 168
   %77 = load i32, ptr %BorderColorLight, align 8
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %10, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp186, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp187, i32 noundef %77, float noundef 1.000000e+00)
   br label %if.end189
@@ -7269,18 +7201,18 @@ define void @_ZN5ImGui22TableMergeDrawChannelsEP10ImGuiTable(ptr nocapture nound
 entry:
   %merge_groups = alloca [4 x %struct.MergeGroup], align 16
   %0 = load ptr, ptr @GImGui, align 8
-  %DrawSplitter = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 58
+  %DrawSplitter = getelementptr inbounds i8, ptr %table, i64 416
   %1 = load ptr, ptr %DrawSplitter, align 8
-  %FreezeRowsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 85
+  %FreezeRowsCount = getelementptr inbounds i8, ptr %table, i64 552
   %2 = load i16, ptr %FreezeRowsCount, align 8
-  %FreezeColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 87
+  %FreezeColumnsCount = getelementptr inbounds i8, ptr %table, i64 556
   %3 = load i16, ptr %FreezeColumnsCount, align 4
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
   %arrayctor.cur.idx = phi i64 [ 0, %entry ], [ %arrayctor.cur.add, %arrayctor.loop ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %merge_groups, i64 %arrayctor.cur.idx
-  %ChannelsMask.i = getelementptr inbounds %struct.MergeGroup, ptr %arrayctor.cur.ptr, i64 0, i32 2
+  %ChannelsMask.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 24
   store ptr null, ptr %ChannelsMask.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %arrayctor.cur.ptr, i8 0, i64 20, i1 false)
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 32
@@ -7290,21 +7222,21 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
 arrayctor.cont:                                   ; preds = %arrayctor.loop
   %cmp = icmp sgt i16 %2, 0
   %cmp2 = icmp slt i16 %3, 1
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %4 = load i32, ptr %ColumnsCount, align 4
   %mul = shl nsw i32 %4, 1
   %add.i = add nsw i32 %mul, 35
   %5 = ashr i32 %add.i, 3
   %shl.i = and i32 %5, -4
-  %TempBuffer = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 254
+  %TempBuffer = getelementptr inbounds i8, ptr %0, i64 25016
   %mul5 = mul nsw i32 %shl.i, 5
-  %Capacity.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 254, i32 1
+  %Capacity.i = getelementptr inbounds i8, ptr %0, i64 25020
   %6 = load i32, ptr %Capacity.i, align 4
   %cmp.not.i = icmp slt i32 %6, %mul5
   br i1 %cmp.not.i, label %if.end.i, label %arrayctor.cont._ZN8ImVectorIcE7reserveEi.exit_crit_edge
 
 arrayctor.cont._ZN8ImVectorIcE7reserveEi.exit_crit_edge: ; preds = %arrayctor.cont
-  %Data.phi.trans.insert = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 254, i32 2
+  %Data.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 25024
   %.pre = load ptr, ptr %Data.phi.trans.insert, align 8
   %.pre217 = sext i32 %mul5 to i64
   br label %_ZN8ImVectorIcE7reserveEi.exit
@@ -7312,7 +7244,7 @@ arrayctor.cont._ZN8ImVectorIcE7reserveEi.exit_crit_edge: ; preds = %arrayctor.co
 if.end.i:                                         ; preds = %arrayctor.cont
   %conv.i109 = sext i32 %mul5 to i64
   %call.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %conv.i109)
-  %Data.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 254, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %0, i64 25024
   %7 = load ptr, ptr %Data.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %if.end7.i, label %if.then2.i
@@ -7333,7 +7265,7 @@ if.end7.i:                                        ; preds = %if.then2.i, %if.end
 _ZN8ImVectorIcE7reserveEi.exit:                   ; preds = %arrayctor.cont._ZN8ImVectorIcE7reserveEi.exit_crit_edge, %if.end7.i
   %conv8.pre-phi = phi i64 [ %.pre217, %arrayctor.cont._ZN8ImVectorIcE7reserveEi.exit_crit_edge ], [ %conv.i109, %if.end7.i ]
   %10 = phi ptr [ %.pre, %arrayctor.cont._ZN8ImVectorIcE7reserveEi.exit_crit_edge ], [ %call.i, %if.end7.i ]
-  %Data = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 254, i32 2
+  %Data = getelementptr inbounds i8, ptr %0, i64 25024
   tail call void @llvm.memset.p0.i64(ptr align 1 %10, i8 0, i64 %conv8.pre-phi, i1 false)
   %11 = load ptr, ptr %Data, align 8
   %12 = sext i32 %shl.i to i64
@@ -7358,9 +7290,9 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp20172, label %for.body21.lr.ph, label %if.end272
 
 for.body21.lr.ph:                                 ; preds = %for.end
-  %VisibleMaskByIndex = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 9
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
-  %Data.i110 = getelementptr inbounds %struct.ImDrawListSplitter, ptr %1, i64 0, i32 2, i32 2
+  %VisibleMaskByIndex = getelementptr inbounds i8, ptr %table, i64 88
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
+  %Data.i110 = getelementptr inbounds i8, ptr %1, i64 16
   br label %for.body21
 
 for.body21:                                       ; preds = %for.body21.lr.ph, %for.inc97
@@ -7382,18 +7314,17 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
 if.end:                                           ; preds = %for.body21
   %19 = load ptr, ptr %Columns, align 8
   %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %19, i64 %indvars.iv195
-  %DrawChannelFrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %19, i64 %indvars.iv195, i32 24
-  %DrawChannelUnfrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %19, i64 %indvars.iv195, i32 25
-  %ContentMaxXUnfrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %19, i64 %indvars.iv195, i32 14
-  %ContentMaxXHeadersUsed = getelementptr inbounds %struct.ImGuiTableColumn, ptr %19, i64 %indvars.iv195, i32 15
-  %ContentMaxXFrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %19, i64 %indvars.iv195, i32 13
-  %Max = getelementptr inbounds %struct.ImGuiTableColumn, ptr %19, i64 %indvars.iv195, i32 8, i32 1
+  %ContentMaxXUnfrozen = getelementptr inbounds i8, ptr %add.ptr.i, i64 68
+  %ContentMaxXHeadersUsed = getelementptr inbounds i8, ptr %add.ptr.i, i64 72
+  %ContentMaxXFrozen = getelementptr inbounds i8, ptr %add.ptr.i, i64 64
+  %Max = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   br label %for.body29
 
 for.body29:                                       ; preds = %if.end, %for.inc94
   %merge_group_mask.1171 = phi i32 [ %merge_group_mask.0174, %if.end ], [ %merge_group_mask.2, %for.inc94 ]
   %cmp30 = phi i1 [ true, %if.end ], [ false, %for.inc94 ]
-  %cond31.in = select i1 %cmp30, ptr %DrawChannelFrozen, ptr %DrawChannelUnfrozen
+  %cond31.in.v = select i1 %cmp30, i64 94, i64 96
+  %cond31.in = getelementptr inbounds i8, ptr %add.ptr.i, i64 %cond31.in.v
   %cond31 = load i16, ptr %cond31.in, align 2
   %conv32 = zext i16 %cond31 to i32
   %20 = load ptr, ptr %Data.i110, align 8
@@ -7404,17 +7335,17 @@ for.body29:                                       ; preds = %if.end, %for.inc94
   br i1 %cmp34, label %land.lhs.true, label %for.inc94
 
 land.lhs.true:                                    ; preds = %for.body29
-  %Data.i111 = getelementptr inbounds %struct.ImVector.32, ptr %arrayidx.i, i64 0, i32 2
+  %Data.i111 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %22 = load ptr, ptr %Data.i111, align 8
   %23 = zext nneg i32 %21 to i64
   %24 = getelementptr %struct.ImDrawCmd, ptr %22, i64 %23
-  %ElemCount = getelementptr %struct.ImDrawCmd, ptr %24, i64 -1, i32 4
+  %ElemCount = getelementptr i8, ptr %24, i64 -24
   %25 = load i32, ptr %ElemCount, align 8
   %cmp37 = icmp eq i32 %25, 0
   br i1 %cmp37, label %land.lhs.true38, label %if.end44
 
 land.lhs.true38:                                  ; preds = %land.lhs.true
-  %UserCallback = getelementptr %struct.ImDrawCmd, ptr %24, i64 -1, i32 5
+  %UserCallback = getelementptr i8, ptr %24, i64 -16
   %26 = load ptr, ptr %UserCallback, align 8
   %cmp41 = icmp eq ptr %26, null
   br i1 %cmp41, label %if.then42, label %if.end44
@@ -7483,7 +7414,7 @@ land.end:                                         ; preds = %land.rhs, %if.end67
   %add78 = or disjoint i32 %cond77, %cond72
   %idxprom79 = zext nneg i32 %add78 to i64
   %arrayidx80 = getelementptr inbounds [4 x %struct.MergeGroup], ptr %merge_groups, i64 0, i64 %idxprom79
-  %ChannelsCount = getelementptr inbounds [4 x %struct.MergeGroup], ptr %merge_groups, i64 0, i64 %idxprom79, i32 1
+  %ChannelsCount = getelementptr inbounds i8, ptr %arrayidx80, i64 16
   %39 = load i32, ptr %ChannelsCount, align 16
   %cmp81 = icmp eq i32 %39, 0
   br i1 %cmp81, label %if.then82, label %land.end.if.end84_crit_edge
@@ -7498,7 +7429,7 @@ if.then82:                                        ; preds = %land.end
 
 if.end84:                                         ; preds = %land.end.if.end84_crit_edge, %if.then82
   %40 = phi float [ %.pre212, %land.end.if.end84_crit_edge ], [ 0x47EFFFFFE0000000, %if.then82 ]
-  %ChannelsMask85 = getelementptr inbounds [4 x %struct.MergeGroup], ptr %merge_groups, i64 0, i64 %idxprom79, i32 2
+  %ChannelsMask85 = getelementptr inbounds i8, ptr %arrayidx80, i64 24
   %41 = load ptr, ptr %ChannelsMask85, align 8
   %and.i = and i32 %conv32, 31
   %shl.i117 = shl nuw i32 1, %and.i
@@ -7512,11 +7443,11 @@ if.end84:                                         ; preds = %land.end.if.end84_c
   store i32 %inc87, ptr %ChannelsCount, align 16
   %43 = load ptr, ptr %Data.i111, align 8
   %44 = load float, ptr %43, align 4
-  %y.i = getelementptr inbounds %struct.ImVec4, ptr %43, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %43, i64 4
   %45 = load float, ptr %y.i, align 4
-  %z.i = getelementptr inbounds %struct.ImVec4, ptr %43, i64 0, i32 2
+  %z.i = getelementptr inbounds i8, ptr %43, i64 8
   %46 = load float, ptr %z.i, align 4
-  %w.i = getelementptr inbounds %struct.ImVec4, ptr %43, i64 0, i32 3
+  %w.i = getelementptr inbounds i8, ptr %43, i64 12
   %47 = load float, ptr %w.i, align 4
   %cmp.i124 = fcmp ogt float %40, %44
   br i1 %cmp.i124, label %if.then.i, label %if.end.i125
@@ -7526,7 +7457,7 @@ if.then.i:                                        ; preds = %if.end84
   br label %if.end.i125
 
 if.end.i125:                                      ; preds = %if.then.i, %if.end84
-  %y.i126 = getelementptr inbounds %struct.ImVec2, ptr %arrayidx80, i64 0, i32 1
+  %y.i126 = getelementptr inbounds i8, ptr %arrayidx80, i64 4
   %48 = load float, ptr %y.i126, align 4
   %cmp11.i = fcmp ogt float %48, %45
   br i1 %cmp11.i, label %if.then12.i, label %if.end17.i
@@ -7536,7 +7467,7 @@ if.then12.i:                                      ; preds = %if.end.i125
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i125
-  %Max.i127 = getelementptr inbounds %struct.ImRect, ptr %arrayidx80, i64 0, i32 1
+  %Max.i127 = getelementptr inbounds i8, ptr %arrayidx80, i64 8
   %49 = load float, ptr %Max.i127, align 8
   %cmp21.i = fcmp olt float %49, %46
   br i1 %cmp21.i, label %if.then22.i, label %if.end27.i
@@ -7546,7 +7477,7 @@ if.then22.i:                                      ; preds = %if.end17.i
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.then22.i, %if.end17.i
-  %y29.i = getelementptr inbounds %struct.ImRect, ptr %arrayidx80, i64 0, i32 1, i32 1
+  %y29.i = getelementptr inbounds i8, ptr %arrayidx80, i64 12
   %50 = load float, ptr %y29.i, align 4
   %cmp32.i = fcmp olt float %50, %47
   br i1 %cmp32.i, label %if.then33.i, label %_ZN6ImRect3AddERKS_.exit
@@ -7566,7 +7497,7 @@ for.inc94:                                        ; preds = %for.body29, %if.end
   br i1 %cmp28, label %for.body29, label %for.end96, !llvm.loop !34
 
 for.end96:                                        ; preds = %for.inc94
-  %DrawChannelCurrent = getelementptr inbounds %struct.ImGuiTableColumn, ptr %19, i64 %indvars.iv195, i32 23
+  %DrawChannelCurrent = getelementptr inbounds i8, ptr %add.ptr.i, i64 92
   store i16 -1, ptr %DrawChannelCurrent, align 4
   %.pre213 = load i32, ptr %ColumnsCount, align 4
   br label %for.inc97
@@ -7584,17 +7515,17 @@ for.end99:                                        ; preds = %for.inc97
   br i1 %53, label %if.end272, label %if.then101
 
 if.then101:                                       ; preds = %for.end99
-  %DrawChannelsTempMergeBuffer = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 169
-  %_Count = getelementptr inbounds %struct.ImDrawListSplitter, ptr %1, i64 0, i32 1
+  %DrawChannelsTempMergeBuffer = getelementptr inbounds i8, ptr %0, i64 20000
+  %_Count = getelementptr inbounds i8, ptr %1, i64 4
   %54 = load i32, ptr %_Count, align 4
   %sub = add nsw i32 %54, -2
-  %Capacity.i128 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 169, i32 1
+  %Capacity.i128 = getelementptr inbounds i8, ptr %0, i64 20004
   %55 = load i32, ptr %Capacity.i128, align 4
   %cmp.i129 = icmp slt i32 %55, %sub
   br i1 %cmp.i129, label %if.then.i131, label %if.then101._ZN8ImVectorI13ImDrawChannelE6resizeEi.exit_crit_edge
 
 if.then101._ZN8ImVectorI13ImDrawChannelE6resizeEi.exit_crit_edge: ; preds = %if.then101
-  %Data103.phi.trans.insert = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 169, i32 2
+  %Data103.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 20008
   %.pre214 = load ptr, ptr %Data103.phi.trans.insert, align 8
   br label %_ZN8ImVectorI13ImDrawChannelE6resizeEi.exit
 
@@ -7613,7 +7544,7 @@ _ZNK8ImVectorI13ImDrawChannelE14_grow_capacityEi.exit.i: ; preds = %cond.true.i.
   %conv.i.i = sext i32 %cond7.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 5
   %call.i.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i)
-  %Data.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 169, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %0, i64 20008
   %56 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i4.i = icmp eq ptr %56, null
   br i1 %tobool.not.i4.i, label %if.end7.i.i, label %if.then2.i.i
@@ -7635,7 +7566,7 @@ if.end7.i.i:                                      ; preds = %if.then2.i.i, %_ZNK
 _ZN8ImVectorI13ImDrawChannelE6resizeEi.exit:      ; preds = %if.then101._ZN8ImVectorI13ImDrawChannelE6resizeEi.exit_crit_edge, %if.end7.i.i
   %59 = phi ptr [ %.pre214, %if.then101._ZN8ImVectorI13ImDrawChannelE6resizeEi.exit_crit_edge ], [ %call.i.i, %if.end7.i.i ]
   store i32 %sub, ptr %DrawChannelsTempMergeBuffer, align 8
-  %Data103 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 169, i32 2
+  %Data103 = getelementptr inbounds i8, ptr %0, i64 20008
   %60 = load i32, ptr %_Count, align 4
   %dec.i132 = add nsw i32 %60, -1
   %cmp.not.not9.i = icmp sgt i32 %60, 2
@@ -7670,7 +7601,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.not.not.i, label %while.body.i, label %_Z21ImBitArraySetBitRangePjii.exit, !llvm.loop !36
 
 _Z21ImBitArraySetBitRangePjii.exit:               ; preds = %while.body.i, %_ZN8ImVectorI13ImDrawChannelE6resizeEi.exit
-  %Bg2DrawChannelUnfrozen = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 91
+  %Bg2DrawChannelUnfrozen = getelementptr inbounds i8, ptr %table, i64 564
   %65 = load i16, ptr %Bg2DrawChannelUnfrozen, align 4
   %conv105 = zext i16 %65 to i32
   %and.i140 = and i32 %conv105, 31
@@ -7685,18 +7616,18 @@ _Z21ImBitArraySetBitRangePjii.exit:               ; preds = %while.body.i, %_ZN8
   %67 = load i32, ptr %_Count, align 4
   %cond108.neg = select i1 %cmp, i32 -3, i32 -2
   %sub109 = add i32 %67, %cond108.neg
-  %HostClipRect = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 53
+  %HostClipRect = getelementptr inbounds i8, ptr %table, i64 352
   %host_rect.sroa.0.0.copyload = load float, ptr %HostClipRect, align 8
-  %host_rect.sroa.2.0.HostClipRect.sroa_idx = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 53, i32 0, i32 1
+  %host_rect.sroa.2.0.HostClipRect.sroa_idx = getelementptr inbounds i8, ptr %table, i64 356
   %host_rect.sroa.2.0.copyload = load float, ptr %host_rect.sroa.2.0.HostClipRect.sroa_idx, align 4
-  %host_rect.sroa.3.0.HostClipRect.sroa_idx = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 53, i32 1
+  %host_rect.sroa.3.0.HostClipRect.sroa_idx = getelementptr inbounds i8, ptr %table, i64 360
   %host_rect.sroa.3.0.copyload = load float, ptr %host_rect.sroa.3.0.HostClipRect.sroa_idx, align 8
-  %host_rect.sroa.4.0.HostClipRect.sroa_idx = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 53, i32 1, i32 1
+  %host_rect.sroa.4.0.HostClipRect.sroa_idx = getelementptr inbounds i8, ptr %table, i64 364
   %host_rect.sroa.4.0.copyload = load float, ptr %host_rect.sroa.4.0.HostClipRect.sroa_idx, align 4
-  %Flags160 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags160 = getelementptr inbounds i8, ptr %table, i64 4
   %shr176 = ashr i32 %add.i, 5
   %cmp177175 = icmp sgt i32 %shr176, 0
-  %Data.i153 = getelementptr inbounds %struct.ImDrawListSplitter, ptr %1, i64 0, i32 2, i32 2
+  %Data.i153 = getelementptr inbounds i8, ptr %1, i64 16
   %wide.trip.count = zext nneg i32 %shr176 to i64
   br label %for.body113
 
@@ -7711,13 +7642,13 @@ for.body113:                                      ; preds = %_Z21ImBitArraySetBi
   %indvars.iv205 = phi i64 [ 0, %_Z21ImBitArraySetBitRangePjii.exit ], [ %indvars.iv.next206, %for.inc235 ]
   %dst_tmp.0183 = phi ptr [ %59, %_Z21ImBitArraySetBitRangePjii.exit ], [ %dst_tmp.4, %for.inc235 ]
   %remaining_count.0182 = phi i32 [ %sub109, %_Z21ImBitArraySetBitRangePjii.exit ], [ %remaining_count.1, %for.inc235 ]
-  %ChannelsCount116 = getelementptr inbounds [4 x %struct.MergeGroup], ptr %merge_groups, i64 0, i64 %indvars.iv205, i32 1
+  %arrayidx115 = getelementptr inbounds [4 x %struct.MergeGroup], ptr %merge_groups, i64 0, i64 %indvars.iv205
+  %ChannelsCount116 = getelementptr inbounds i8, ptr %arrayidx115, i64 16
   %70 = load i32, ptr %ChannelsCount116, align 16
   %tobool117.not = icmp eq i32 %70, 0
   br i1 %tobool117.not, label %if.end224, label %if.then118
 
 if.then118:                                       ; preds = %for.body113
-  %arrayidx115 = getelementptr inbounds [4 x %struct.MergeGroup], ptr %merge_groups, i64 0, i64 %indvars.iv205
   %merge_clip_rect.sroa.0.0.copyload = load <4 x float>, ptr %arrayidx115, align 16
   %and123218 = and i64 %indvars.iv205, 1
   %cmp124 = icmp eq i64 %and123218, 0
@@ -7778,7 +7709,7 @@ if.end171:                                        ; preds = %if.then163, %land.l
   br i1 %cmp177175, label %for.body178.lr.ph, label %for.cond189.preheader
 
 for.body178.lr.ph:                                ; preds = %if.end171
-  %ChannelsMask179 = getelementptr inbounds [4 x %struct.MergeGroup], ptr %merge_groups, i64 0, i64 %indvars.iv205, i32 2
+  %ChannelsMask179 = getelementptr inbounds i8, ptr %arrayidx115, i64 24
   %72 = load ptr, ptr %ChannelsMask179, align 8
   br label %for.body178
 
@@ -7788,7 +7719,7 @@ for.cond189.preheader:                            ; preds = %for.body178, %if.en
   br i1 %cmp191177, label %for.body195.lr.ph, label %if.end224
 
 for.body195.lr.ph:                                ; preds = %for.cond189.preheader
-  %ChannelsMask196 = getelementptr inbounds [4 x %struct.MergeGroup], ptr %merge_groups, i64 0, i64 %indvars.iv205, i32 2
+  %ChannelsMask196 = getelementptr inbounds i8, ptr %arrayidx115, i64 24
   %74 = load ptr, ptr %ChannelsMask196, align 8
   %retval.sroa.3.8.vec.insert.i = shufflevector <4 x float> %merge_clip_rect.sroa.0.3, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %75 = extractelement <4 x float> %merge_clip_rect.sroa.0.3, i64 3
@@ -7832,12 +7763,12 @@ if.end205:                                        ; preds = %for.body195
   %dec = add nsw i32 %merge_channels_count.0179, -1
   %81 = load ptr, ptr %Data.i153, align 8
   %arrayidx.i155 = getelementptr inbounds %struct.ImDrawChannel, ptr %81, i64 %indvars.iv202
-  %Data.i156 = getelementptr inbounds %struct.ImVector.32, ptr %arrayidx.i155, i64 0, i32 2
+  %Data.i156 = getelementptr inbounds i8, ptr %arrayidx.i155, i64 8
   %82 = load ptr, ptr %Data.i156, align 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %82, align 8
   %ref.tmp216.sroa.2.0.ClipRect220.sroa_idx = getelementptr inbounds i8, ptr %82, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp216.sroa.2.0.ClipRect220.sroa_idx, align 8
-  %incdec.ptr = getelementptr inbounds %struct.ImDrawChannel, ptr %dst_tmp.1178, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %dst_tmp.1178, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dst_tmp.1178, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i155, i64 32, i1 false)
   %.pre215 = load i32, ptr %_Count, align 4
   br label %for.inc221
@@ -7861,7 +7792,7 @@ if.end224:                                        ; preds = %for.inc221, %for.co
   br i1 %brmerge108.not, label %if.then228, label %for.inc235
 
 if.then228:                                       ; preds = %if.end224
-  %incdec.ptr229 = getelementptr inbounds %struct.ImDrawChannel, ptr %dst_tmp.3, i64 1
+  %incdec.ptr229 = getelementptr inbounds i8, ptr %dst_tmp.3, i64 32
   %86 = load i16, ptr %Bg2DrawChannelUnfrozen, align 4
   %87 = load ptr, ptr %Data.i153, align 8
   %idxprom.i158 = zext i16 %86 to i64
@@ -7894,7 +7825,7 @@ for.body245:                                      ; preds = %for.cond239.prehead
 if.end254:                                        ; preds = %for.body245
   %91 = load ptr, ptr %Data.i153, align 8
   %arrayidx.i162 = getelementptr inbounds %struct.ImDrawChannel, ptr %91, i64 %indvars.iv209
-  %incdec.ptr258 = getelementptr inbounds %struct.ImDrawChannel, ptr %dst_tmp.5188, i64 1
+  %incdec.ptr258 = getelementptr inbounds i8, ptr %dst_tmp.5188, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dst_tmp.5188, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i162, i64 32, i1 false)
   %dec259 = add nsw i32 %remaining_count.2187, -1
   %.pre216 = load i32, ptr %_Count, align 4
@@ -7914,7 +7845,7 @@ for.inc260:                                       ; preds = %for.body245, %if.en
 for.end262:                                       ; preds = %for.inc260, %for.cond239.preheader
   %.lcssa = phi i32 [ %68, %for.cond239.preheader ], [ %92, %for.inc260 ]
   %95 = load ptr, ptr %Data.i153, align 8
-  %add.ptr265 = getelementptr inbounds %struct.ImDrawChannel, ptr %95, i64 2
+  %add.ptr265 = getelementptr inbounds i8, ptr %95, i64 64
   %96 = load ptr, ptr %Data103, align 8
   %sub269 = add nsw i32 %.lcssa, -2
   %conv270 = sext i32 %sub269 to i64
@@ -7939,9 +7870,9 @@ declare void @_ZN5ImGui8ItemSizeERK6ImVec2f(ptr noundef nonnull align 4 derefere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ImGui17TableSaveSettingsEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #0 {
 entry:
-  %IsSettingsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 100
+  %IsSettingsDirty = getelementptr inbounds i8, ptr %table, i64 574
   store i8 0, ptr %IsSettingsDirty, align 2
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %table, i64 4
   %0 = load i32, ptr %Flags, align 4
   %and = and i32 %0, 16
   %tobool.not = icmp eq i32 %and, 0
@@ -7949,20 +7880,20 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @GImGui, align 8
-  %SettingsOffset.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 11
+  %SettingsOffset.i = getelementptr inbounds i8, ptr %table, i64 100
   %2 = load i32, ptr %SettingsOffset.i, align 4
   %cmp.not.i = icmp eq i32 %2, -1
   br i1 %cmp.not.i, label %if.then1, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %Data.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %1, i64 0, i32 218, i32 0, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %1, i64 24392
   %3 = load ptr, ptr %Data.i.i, align 8
   %idx.ext.i.i = sext i32 %2 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %idx.ext.i.i
-  %ColumnsCountMax.i = getelementptr inbounds %struct.ImGuiTableSettings, ptr %add.ptr.i.i, i64 0, i32 4
+  %ColumnsCountMax.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 14
   %4 = load i16, ptr %ColumnsCountMax.i, align 2
   %conv.i = sext i16 %4 to i32
-  %ColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount.i = getelementptr inbounds i8, ptr %table, i64 108
   %5 = load i32, ptr %ColumnsCount.i, align 4
   %cmp2.not.i = icmp sgt i32 %5, %conv.i
   br i1 %cmp2.not.i, label %if.end.i, label %if.end4
@@ -7973,10 +7904,10 @@ if.end.i:                                         ; preds = %if.then.i
 
 if.then1:                                         ; preds = %if.end.i, %if.end
   %6 = load i32, ptr %table, align 8
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %7 = load i32, ptr %ColumnsCount, align 4
   %call2 = tail call noundef ptr @_ZN5ImGui19TableSettingsCreateEji(i32 noundef %6, i32 noundef %7)
-  %Data.i = getelementptr inbounds %struct.ImGuiContext, ptr %1, i64 0, i32 218, i32 0, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %1, i64 24392
   %8 = load ptr, ptr %Data.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
@@ -7989,20 +7920,20 @@ if.then1:                                         ; preds = %if.end.i, %if.end
 if.end4:                                          ; preds = %if.then.i, %if.then1
   %9 = phi i32 [ %.pre, %if.then1 ], [ %5, %if.then.i ]
   %settings.0 = phi ptr [ %call2, %if.then1 ], [ %add.ptr.i.i, %if.then.i ]
-  %ColumnsCount5 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount5 = getelementptr inbounds i8, ptr %table, i64 108
   %conv = trunc i32 %9 to i16
-  %ColumnsCount6 = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.0, i64 0, i32 3
+  %ColumnsCount6 = getelementptr inbounds i8, ptr %settings.0, i64 12
   store i16 %conv, ptr %ColumnsCount6, align 4
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   %10 = load ptr, ptr %Columns, align 8
-  %SaveFlags = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.0, i64 0, i32 1
+  %SaveFlags = getelementptr inbounds i8, ptr %settings.0, i64 4
   store i32 0, ptr %SaveFlags, align 4
   %11 = load i32, ptr %ColumnsCount5, align 4
   %cmp949 = icmp sgt i32 %11, 0
   br i1 %cmp949, label %for.body.preheader, label %cond.end77
 
 for.body.preheader:                               ; preds = %if.end4
-  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.0, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %settings.0, i64 20
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -8013,31 +7944,30 @@ for.body:                                         ; preds = %for.body.preheader,
   %12 = load i32, ptr %column.050, align 4
   %and11 = and i32 %12, 8
   %tobool12.not = icmp eq i32 %and11, 0
-  %StretchWeight = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column.050, i64 0, i32 6
-  %WidthRequest = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column.050, i64 0, i32 4
-  %cond.in = select i1 %tobool12.not, ptr %WidthRequest, ptr %StretchWeight
+  %cond.in.v = select i1 %tobool12.not, i64 16, i64 24
+  %cond.in = getelementptr inbounds i8, ptr %column.050, i64 %cond.in.v
   %cond = load float, ptr %cond.in, align 4
   store float %cond, ptr %column_settings.051, align 4
   %conv13 = trunc i32 %n.053 to i16
-  %Index = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column_settings.051, i64 0, i32 2
+  %Index = getelementptr inbounds i8, ptr %column_settings.051, i64 8
   store i16 %conv13, ptr %Index, align 4
-  %DisplayOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column.050, i64 0, i32 18
+  %DisplayOrder = getelementptr inbounds i8, ptr %column.050, i64 82
   %13 = load i16, ptr %DisplayOrder, align 2
-  %DisplayOrder14 = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column_settings.051, i64 0, i32 3
+  %DisplayOrder14 = getelementptr inbounds i8, ptr %column_settings.051, i64 10
   store i16 %13, ptr %DisplayOrder14, align 2
-  %SortOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column.050, i64 0, i32 22
+  %SortOrder = getelementptr inbounds i8, ptr %column.050, i64 90
   %14 = load i16, ptr %SortOrder, align 2
-  %SortOrder15 = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column_settings.051, i64 0, i32 4
+  %SortOrder15 = getelementptr inbounds i8, ptr %column_settings.051, i64 12
   store i16 %14, ptr %SortOrder15, align 4
-  %SortDirection = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column.050, i64 0, i32 37
+  %SortDirection = getelementptr inbounds i8, ptr %column.050, i64 109
   %bf.load = load i8, ptr %SortDirection, align 1
   %bf.clear = and i8 %bf.load, 3
-  %SortDirection16 = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column_settings.051, i64 0, i32 5
+  %SortDirection16 = getelementptr inbounds i8, ptr %column_settings.051, i64 14
   %bf.load17 = load i8, ptr %SortDirection16, align 2
   %bf.clear18 = and i8 %bf.load17, -4
   %bf.set = or disjoint i8 %bf.clear18, %bf.clear
   store i8 %bf.set, ptr %SortDirection16, align 2
-  %IsUserEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column.050, i64 0, i32 27
+  %IsUserEnabled = getelementptr inbounds i8, ptr %column.050, i64 99
   %15 = load i8, ptr %IsUserEnabled, align 1
   %16 = shl i8 %15, 2
   %bf.shl = and i8 %16, 4
@@ -8054,7 +7984,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %and36 = and i32 %19, 8
   %cmp37 = icmp eq i32 %and36, 0
   %save_ref_scale.1 = select i1 %cmp37, i8 1, i8 %save_ref_scale.052
-  %InitStretchWeightOrWidth = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column.050, i64 0, i32 7
+  %InitStretchWeightOrWidth = getelementptr inbounds i8, ptr %column.050, i64 28
   %20 = load float, ptr %InitStretchWeightOrWidth, align 4
   %cmp40 = fcmp une float %cond, %20
   br i1 %cmp40, label %if.then41, label %if.end43
@@ -8106,8 +8036,8 @@ if.then66:                                        ; preds = %if.end57
 
 for.inc:                                          ; preds = %if.end57, %if.then66
   %inc = add nuw nsw i32 %n.053, 1
-  %incdec.ptr = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column.050, i64 1
-  %incdec.ptr70 = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column_settings.051, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %column.050, i64 112
+  %incdec.ptr70 = getelementptr inbounds i8, ptr %column_settings.051, i64 16
   %30 = load i32, ptr %ColumnsCount5, align 4
   %cmp9 = icmp slt i32 %inc, %30
   br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !41
@@ -8122,13 +8052,13 @@ for.end:                                          ; preds = %for.inc
   br i1 %32, label %cond.end77, label %cond.true75
 
 cond.true75:                                      ; preds = %for.end
-  %RefScale = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 43
+  %RefScale = getelementptr inbounds i8, ptr %table, i64 228
   %34 = load float, ptr %RefScale, align 4
   br label %cond.end77
 
 cond.end77:                                       ; preds = %if.end4, %for.end, %cond.true75
   %cond78 = phi float [ %34, %cond.true75 ], [ 0.000000e+00, %for.end ], [ 0.000000e+00, %if.end4 ]
-  %RefScale79 = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.0, i64 0, i32 2
+  %RefScale79 = getelementptr inbounds i8, ptr %settings.0, i64 8
   store float %cond78, ptr %RefScale79, align 4
   tail call void @_ZN5ImGui20MarkIniSettingsDirtyEv()
   br label %return
@@ -8143,18 +8073,18 @@ declare void @_ZN5ImGui39NavUpdateCurrentWindowIsScrollPushableXEv() local_unnam
 define void @_ZN5ImGui16TableSetupColumnEPKcifj(ptr noundef %label, i32 noundef %flags, float noundef %init_width_or_weight, i32 noundef %user_id) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
-  %DeclColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 68
+  %DeclColumnsCount = getelementptr inbounds i8, ptr %1, i64 518
   %2 = load i16, ptr %DeclColumnsCount, align 2
   %conv = sext i16 %2 to i32
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %1, i64 108
   %3 = load i32, ptr %ColumnsCount, align 4
   %cmp.not = icmp sgt i32 %3, %conv
   br i1 %cmp.not, label %if.end, label %if.end85
 
 if.end:                                           ; preds = %entry
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i16 %2 to i64
   %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %4, i64 %idx.ext.i
@@ -8167,7 +8097,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then14, label %if.end22
 
 if.then14:                                        ; preds = %if.end
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %Flags, align 4
   %6 = trunc i32 %5 to i16
   %trunc = and i16 %6, -8192
@@ -8188,7 +8118,7 @@ if.end22:                                         ; preds = %if.then14, %if.then
 
 if.then25:                                        ; preds = %if.end22
   %or26 = or i32 %flags.addr.0, 4096
-  %AngledHeadersCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 69
+  %AngledHeadersCount = getelementptr inbounds i8, ptr %1, i64 520
   %7 = load i16, ptr %AngledHeadersCount, align 8
   %inc27 = add i16 %7, 1
   store i16 %inc27, ptr %AngledHeadersCount, align 8
@@ -8197,25 +8127,25 @@ if.then25:                                        ; preds = %if.end22
 if.end28:                                         ; preds = %if.then25, %if.end22
   %flags.addr.1 = phi i32 [ %or26, %if.then25 ], [ %flags.addr.0, %if.end22 ]
   tail call fastcc void @_ZL21TableSetupColumnFlagsP10ImGuiTableP16ImGuiTableColumni(ptr noundef nonnull %1, ptr noundef nonnull %add.ptr.i, i32 noundef %flags.addr.1)
-  %UserID = getelementptr inbounds %struct.ImGuiTableColumn, ptr %4, i64 %idx.ext.i, i32 9
+  %UserID = getelementptr inbounds i8, ptr %add.ptr.i, i64 48
   store i32 %user_id, ptr %UserID, align 4
   %8 = load i32, ptr %add.ptr.i, align 4
-  %InitStretchWeightOrWidth = getelementptr inbounds %struct.ImGuiTableColumn, ptr %4, i64 %idx.ext.i, i32 7
+  %InitStretchWeightOrWidth = getelementptr inbounds i8, ptr %add.ptr.i, i64 28
   store float %init_width_or_weight, ptr %InitStretchWeightOrWidth, align 4
-  %IsInitializing = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 94
+  %IsInitializing = getelementptr inbounds i8, ptr %1, i64 568
   %9 = load i8, ptr %IsInitializing, align 8
   %10 = and i8 %9, 1
   %tobool30.not = icmp eq i8 %10, 0
   br i1 %tobool30.not, label %if.end73, label %if.then31
 
 if.then31:                                        ; preds = %if.end28
-  %WidthRequest = getelementptr inbounds %struct.ImGuiTableColumn, ptr %4, i64 %idx.ext.i, i32 4
+  %WidthRequest = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %11 = load float, ptr %WidthRequest, align 4
   %cmp32 = fcmp olt float %11, 0.000000e+00
   br i1 %cmp32, label %land.lhs.true33, label %if.end52
 
 land.lhs.true33:                                  ; preds = %if.then31
-  %StretchWeight = getelementptr inbounds %struct.ImGuiTableColumn, ptr %4, i64 %idx.ext.i, i32 6
+  %StretchWeight = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %12 = load float, ptr %StretchWeight, align 4
   %cmp34 = fcmp olt float %12, 0.000000e+00
   br i1 %cmp34, label %if.then35, label %if.end52
@@ -8244,7 +8174,7 @@ if.end48:                                         ; preds = %if.then45, %if.end4
   br i1 %cmp13, label %if.then50, label %if.end52
 
 if.then50:                                        ; preds = %if.end48
-  %AutoFitQueue = getelementptr inbounds %struct.ImGuiTableColumn, ptr %4, i64 %idx.ext.i, i32 35
+  %AutoFitQueue = getelementptr inbounds i8, ptr %add.ptr.i, i64 107
   store i8 0, ptr %AutoFitQueue, align 1
   br label %if.end52
 
@@ -8254,16 +8184,16 @@ if.end52:                                         ; preds = %if.end48, %if.then5
   br i1 %tobool54.not, label %if.end59, label %land.lhs.true55
 
 land.lhs.true55:                                  ; preds = %if.end52
-  %SettingsLoadedFlags = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 10
+  %SettingsLoadedFlags = getelementptr inbounds i8, ptr %1, i64 96
   %13 = load i32, ptr %SettingsLoadedFlags, align 8
   %and56 = and i32 %13, 4
   %cmp57 = icmp eq i32 %and56, 0
   br i1 %cmp57, label %if.then58, label %if.end59
 
 if.then58:                                        ; preds = %land.lhs.true55
-  %IsUserEnabledNextFrame = getelementptr inbounds %struct.ImGuiTableColumn, ptr %4, i64 %idx.ext.i, i32 28
+  %IsUserEnabledNextFrame = getelementptr inbounds i8, ptr %add.ptr.i, i64 100
   store i8 0, ptr %IsUserEnabledNextFrame, align 4
-  %IsUserEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %4, i64 %idx.ext.i, i32 27
+  %IsUserEnabled = getelementptr inbounds i8, ptr %add.ptr.i, i64 99
   store i8 0, ptr %IsUserEnabled, align 1
   br label %if.end59
 
@@ -8273,19 +8203,19 @@ if.end59:                                         ; preds = %if.then58, %land.lh
   br i1 %tobool61.not, label %if.end73, label %land.lhs.true62
 
 land.lhs.true62:                                  ; preds = %if.end59
-  %SettingsLoadedFlags63 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 10
+  %SettingsLoadedFlags63 = getelementptr inbounds i8, ptr %1, i64 96
   %14 = load i32, ptr %SettingsLoadedFlags63, align 8
   %and64 = and i32 %14, 8
   %cmp65 = icmp eq i32 %and64, 0
   br i1 %cmp65, label %if.then66, label %if.end73
 
 if.then66:                                        ; preds = %land.lhs.true62
-  %SortOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %4, i64 %idx.ext.i, i32 22
+  %SortOrder = getelementptr inbounds i8, ptr %add.ptr.i, i64 90
   store i16 0, ptr %SortOrder, align 2
   %and68 = and i32 %8, 32768
   %tobool69.not = icmp eq i32 %and68, 0
   %conv71 = select i1 %tobool69.not, i8 1, i8 2
-  %SortDirection = getelementptr inbounds %struct.ImGuiTableColumn, ptr %4, i64 %idx.ext.i, i32 37
+  %SortDirection = getelementptr inbounds i8, ptr %add.ptr.i, i64 109
   %bf.load = load i8, ptr %SortDirection, align 1
   %bf.clear = and i8 %bf.load, -4
   %bf.set = or disjoint i8 %conv71, %bf.clear
@@ -8293,7 +8223,7 @@ if.then66:                                        ; preds = %land.lhs.true62
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end59, %land.lhs.true62, %if.then66, %if.end28
-  %NameOffset = getelementptr inbounds %struct.ImGuiTableColumn, ptr %4, i64 %idx.ext.i, i32 17
+  %NameOffset = getelementptr inbounds i8, ptr %add.ptr.i, i64 80
   store i16 -1, ptr %NameOffset, align 4
   %cmp74.not = icmp eq ptr %label, null
   br i1 %cmp74.not, label %if.end85, label %land.lhs.true75
@@ -8304,7 +8234,7 @@ land.lhs.true75:                                  ; preds = %if.end73
   br i1 %cmp77.not, label %if.end85, label %if.then78
 
 if.then78:                                        ; preds = %land.lhs.true75
-  %ColumnsNames = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 57
+  %ColumnsNames = getelementptr inbounds i8, ptr %1, i64 400
   %16 = load i32, ptr %ColumnsNames, align 8
   %spec.select.i = tail call noundef i32 @llvm.usub.sat.i32(i32 %16, i32 1)
   %conv80 = trunc i32 %spec.select.i to i16
@@ -8328,16 +8258,16 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 define void @_ZN5ImGui22TableSetupScrollFreezeEii(i32 noundef %columns, i32 noundef %rows) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %Flags, align 4
   %and = and i32 %2, 16777216
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %1, i64 108
   %3 = load i32, ptr %ColumnsCount, align 4
   %cond.i = tail call noundef i32 @llvm.smin.i32(i32 %columns, i32 %3)
   %4 = trunc i32 %cond.i to i16
@@ -8345,38 +8275,38 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i16 [ %4, %cond.true ], [ 0, %entry ]
-  %FreezeColumnsRequest = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 86
+  %FreezeColumnsRequest = getelementptr inbounds i8, ptr %1, i64 554
   store i16 %cond, ptr %FreezeColumnsRequest, align 2
-  %InnerWindow = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 56
+  %InnerWindow = getelementptr inbounds i8, ptr %1, i64 392
   %5 = load ptr, ptr %InnerWindow, align 8
-  %Scroll = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 25
+  %Scroll = getelementptr inbounds i8, ptr %5, i64 140
   %6 = load float, ptr %Scroll, align 4
   %cmp = fcmp une float %6, 0.000000e+00
   %cond8 = select i1 %cmp, i16 %cond, i16 0
-  %FreezeColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 87
+  %FreezeColumnsCount = getelementptr inbounds i8, ptr %1, i64 556
   store i16 %cond8, ptr %FreezeColumnsCount, align 4
   %and11 = and i32 %2, 33554432
   %tobool12.not = icmp eq i32 %and11, 0
   %7 = trunc i32 %rows to i16
   %conv19 = select i1 %tobool12.not, i16 0, i16 %7
-  %FreezeRowsRequest = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 84
+  %FreezeRowsRequest = getelementptr inbounds i8, ptr %1, i64 550
   store i16 %conv19, ptr %FreezeRowsRequest, align 2
-  %y = getelementptr inbounds %struct.ImGuiWindow, ptr %5, i64 0, i32 25, i32 1
+  %y = getelementptr inbounds i8, ptr %5, i64 144
   %8 = load float, ptr %y, align 4
   %cmp22 = fcmp une float %8, 0.000000e+00
   %cond28 = select i1 %cmp22, i16 %conv19, i16 0
-  %FreezeRowsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 85
+  %FreezeRowsCount = getelementptr inbounds i8, ptr %1, i64 552
   store i16 %cond28, ptr %FreezeRowsCount, align 8
   %cmp32 = icmp eq i16 %cond28, 0
-  %IsUnfrozenRows = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 104
+  %IsUnfrozenRows = getelementptr inbounds i8, ptr %1, i64 578
   %frombool = zext i1 %cmp32 to i8
   store i8 %frombool, ptr %IsUnfrozenRows, align 2
   %cmp3543 = icmp sgt i16 %cond, 0
   br i1 %cmp3543, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %cond.end
-  %DisplayOrderToIndex = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 5
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %DisplayOrderToIndex = getelementptr inbounds i8, ptr %1, i64 40
+  %Columns = getelementptr inbounds i8, ptr %1, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -8429,13 +8359,13 @@ for.end:                                          ; preds = %for.inc, %cond.end
 define noundef i32 @_ZN5ImGui19TableGetColumnCountEv() local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %1, i64 108
   %2 = load i32, ptr %ColumnsCount, align 4
   br label %cond.end
 
@@ -8448,7 +8378,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 define noundef ptr @_ZN5ImGui18TableGetColumnNameEi(i32 noundef %column_n) local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -8458,27 +8388,27 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 15
+  %CurrentColumn = getelementptr inbounds i8, ptr %1, i64 116
   %2 = load i32, ptr %CurrentColumn, align 4
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end
   %column_n.addr.0 = phi i32 [ %2, %if.then1 ], [ %column_n, %if.end ]
-  %IsLayoutLocked.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 92
+  %IsLayoutLocked.i = getelementptr inbounds i8, ptr %1, i64 566
   %3 = load i8, ptr %IsLayoutLocked.i, align 2
   %4 = and i8 %3, 1
   %cmp.i = icmp eq i8 %4, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end2
-  %DeclColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 68
+  %DeclColumnsCount.i = getelementptr inbounds i8, ptr %1, i64 518
   %5 = load i16, ptr %DeclColumnsCount.i, align 2
   %conv1.i = sext i16 %5 to i32
   %cmp2.not.i = icmp slt i32 %column_n.addr.0, %conv1.i
   br i1 %cmp2.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end2
-  %Columns.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %Columns.i = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %Columns.i, align 8
   %idx.ext.i.i = sext i32 %column_n.addr.0 to i64
   %NameOffset.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i.i, i32 17
@@ -8487,7 +8417,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
   br i1 %cmp4.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 57, i32 0, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %1, i64 408
   %8 = load ptr, ptr %Data.i.i, align 8
   %idxprom.i.i = sext i16 %7 to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i
@@ -8501,21 +8431,21 @@ return:                                           ; preds = %if.end6.i, %if.end.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei(ptr nocapture noundef readonly %table, i32 noundef %column_n) local_unnamed_addr #13 {
 entry:
-  %IsLayoutLocked = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 92
+  %IsLayoutLocked = getelementptr inbounds i8, ptr %table, i64 566
   %0 = load i8, ptr %IsLayoutLocked, align 2
   %1 = and i8 %0, 1
   %cmp = icmp eq i8 %1, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %DeclColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 68
+  %DeclColumnsCount = getelementptr inbounds i8, ptr %table, i64 518
   %2 = load i16, ptr %DeclColumnsCount, align 2
   %conv1 = sext i16 %2 to i32
   %cmp2.not = icmp sgt i32 %conv1, %column_n
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   %3 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i32 %column_n to i64
   %NameOffset = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i, i32 17
@@ -8524,7 +8454,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %Data.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 57, i32 0, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %table, i64 408
   %5 = load ptr, ptr %Data.i, align 8
   %idxprom.i = sext i16 %4 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 %idxprom.i
@@ -8540,7 +8470,7 @@ define void @_ZN5ImGui21TableSetColumnEnabledEib(i32 noundef %column_n, i1 nound
 entry:
   %frombool = zext i1 %enabled to i8
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -8550,13 +8480,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 15
+  %CurrentColumn = getelementptr inbounds i8, ptr %1, i64 116
   %2 = load i32, ptr %CurrentColumn, align 4
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end
   %column_n.addr.0 = phi i32 [ %2, %if.then1 ], [ %column_n, %if.end ]
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i32 %column_n.addr.0 to i64
   %IsUserEnabledNextFrame = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i, i32 28
@@ -8571,7 +8501,7 @@ return:                                           ; preds = %entry, %if.end2
 define noundef i32 @_ZN5ImGui19TableGetColumnFlagsEi(i32 noundef %column_n) local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -8581,19 +8511,19 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 15
+  %CurrentColumn = getelementptr inbounds i8, ptr %1, i64 116
   %2 = load i32, ptr %CurrentColumn, align 4
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end
   %column_n.addr.0 = phi i32 [ %2, %if.then1 ], [ %column_n, %if.end ]
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %1, i64 108
   %3 = load i32, ptr %ColumnsCount, align 4
   %cmp3 = icmp eq i32 %column_n.addr.0, %3
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end2
-  %HoveredColumnBody = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 70
+  %HoveredColumnBody = getelementptr inbounds i8, ptr %1, i64 522
   %4 = load i16, ptr %HoveredColumnBody, align 2
   %conv = sext i16 %4 to i32
   %cmp5 = icmp eq i32 %column_n.addr.0, %conv
@@ -8601,7 +8531,7 @@ if.then4:                                         ; preds = %if.end2
   br label %return
 
 if.end6:                                          ; preds = %if.end2
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i32 %column_n.addr.0 to i64
   %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %5, i64 %idx.ext.i
@@ -8616,24 +8546,25 @@ return:                                           ; preds = %entry, %if.end6, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define { <2 x float>, <2 x float> } @_ZN5ImGui18TableGetCellBgRectEPK10ImGuiTablei(ptr nocapture noundef readonly %table, i32 noundef %column_n) local_unnamed_addr #13 {
 entry:
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   %0 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i32 %column_n to i64
-  %MinX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %0, i64 %idx.ext.i, i32 2
+  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %0, i64 %idx.ext.i
+  %MinX = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %1 = load float, ptr %MinX, align 4
-  %MaxX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %0, i64 %idx.ext.i, i32 3
+  %MaxX = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   %2 = load float, ptr %MaxX, align 4
-  %WorkRect = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48
+  %WorkRect = getelementptr inbounds i8, ptr %table, i64 272
   %3 = load float, ptr %WorkRect, align 8
   %cmp.i = fcmp oge float %1, %3
   %cond.i = select i1 %cmp.i, float %1, float %3
-  %Max = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48, i32 1
+  %Max = getelementptr inbounds i8, ptr %table, i64 280
   %4 = load float, ptr %Max, align 8
   %cmp.i8 = fcmp olt float %2, %4
   %cond.i9 = select i1 %cmp.i8, float %2, float %4
-  %RowPosY1 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 18
+  %RowPosY1 = getelementptr inbounds i8, ptr %table, i64 124
   %5 = load float, ptr %RowPosY1, align 4
-  %RowPosY2 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 19
+  %RowPosY2 = getelementptr inbounds i8, ptr %table, i64 128
   %6 = load float, ptr %RowPosY2, align 8
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %cond.i, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %5, i64 1
@@ -8648,13 +8579,13 @@ entry:
 define noundef i32 @_ZN5ImGui21TableGetHoveredColumnEv() local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %HoveredColumnBody = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 70
+  %HoveredColumnBody = getelementptr inbounds i8, ptr %1, i64 522
   %2 = load i16, ptr %HoveredColumnBody, align 2
   %conv = sext i16 %2 to i32
   br label %return
@@ -8668,32 +8599,32 @@ return:                                           ; preds = %entry, %if.end
 define noundef i32 @_ZN5ImGui18TableGetHoveredRowEv() local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 16
+  %InstanceCurrent = getelementptr inbounds i8, ptr %1, i64 120
   %2 = load i16, ptr %InstanceCurrent, align 8
   %cmp.i = icmp eq i16 %2, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %InstanceDataFirst.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 59
+  %InstanceDataFirst.i = getelementptr inbounds i8, ptr %1, i64 424
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 if.end.i:                                         ; preds = %if.end
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 60, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %1, i64 456
   %3 = load ptr, ptr %Data.i.i, align 8
   %4 = sext i16 %2 to i64
   %5 = getelementptr %struct.ImGuiTableInstanceData, ptr %3, i64 %4
-  %arrayidx.i.i = getelementptr %struct.ImGuiTableInstanceData, ptr %5, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %5, i64 -24
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %InstanceDataFirst.i, %if.then.i ], [ %arrayidx.i.i, %if.end.i ]
-  %HoveredRowLast = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 4
+  %HoveredRowLast = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %6 = load i32, ptr %HoveredRowLast, align 4
   br label %return
 
@@ -8706,7 +8637,7 @@ return:                                           ; preds = %entry, %_ZN5ImGui20
 define void @_ZN5ImGui15TableSetBgColorEiji(i32 noundef %target, i32 noundef %color, i32 noundef %column_n) local_unnamed_addr #14 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
   %cmp = icmp eq i32 %color, 16777216
   %spec.store.select = select i1 %cmp, i32 0, i32 %color
@@ -8717,9 +8648,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %RowPosY1 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 18
+  %RowPosY1 = getelementptr inbounds i8, ptr %1, i64 124
   %2 = load float, ptr %RowPosY1, align 4
-  %y = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 49, i32 1, i32 1
+  %y = getelementptr inbounds i8, ptr %1, i64 300
   %3 = load float, ptr %y, align 4
   %cmp1 = fcmp ogt float %2, %3
   br i1 %cmp1, label %sw.epilog, label %if.end3
@@ -8729,13 +8660,13 @@ if.end3:                                          ; preds = %sw.bb
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end3
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 15
+  %CurrentColumn = getelementptr inbounds i8, ptr %1, i64 116
   %4 = load i32, ptr %CurrentColumn, align 4
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end3
   %column_n.addr.0 = phi i32 [ %4, %if.then5 ], [ %column_n, %if.end3 ]
-  %VisibleMaskByIndex = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 9
+  %VisibleMaskByIndex = getelementptr inbounds i8, ptr %1, i64 88
   %5 = load ptr, ptr %VisibleMaskByIndex, align 8
   %shr = ashr i32 %column_n.addr.0, 5
   %idxprom = sext i32 %shr to i64
@@ -8748,10 +8679,10 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp8.not, label %sw.epilog, label %if.end10
 
 if.end10:                                         ; preds = %if.end6
-  %RowCellDataCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 88
+  %RowCellDataCurrent = getelementptr inbounds i8, ptr %1, i64 558
   %7 = load i16, ptr %RowCellDataCurrent, align 2
   %cmp11 = icmp slt i16 %7, 0
-  %RowCellData19.phi.trans.insert.phi.trans.insert = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 6
+  %RowCellData19.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 56
   %.pre.pre = load ptr, ptr %RowCellData19.phi.trans.insert.phi.trans.insert, align 8
   br i1 %cmp11, label %if.then16, label %lor.lhs.false
 
@@ -8774,22 +8705,23 @@ if.end18:                                         ; preds = %if.then16, %lor.lhs
   %add.ptr.i22 = getelementptr inbounds %struct.ImGuiTableCellData, ptr %.pre.pre, i64 %idx.ext.i21
   store i32 %spec.store.select, ptr %add.ptr.i22, align 4
   %conv23 = trunc i32 %column_n.addr.0 to i16
-  %Column24 = getelementptr inbounds %struct.ImGuiTableCellData, ptr %.pre.pre, i64 %idx.ext.i21, i32 1
+  %Column24 = getelementptr inbounds i8, ptr %add.ptr.i22, i64 4
   store i16 %conv23, ptr %Column24, align 4
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry, %entry
-  %RowPosY126 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 18
+  %RowPosY126 = getelementptr inbounds i8, ptr %1, i64 124
   %10 = load float, ptr %RowPosY126, align 4
-  %y29 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 49, i32 1, i32 1
+  %y29 = getelementptr inbounds i8, ptr %1, i64 300
   %11 = load float, ptr %y29, align 4
   %cmp30 = fcmp ogt float %10, %11
   br i1 %cmp30, label %sw.epilog, label %if.end32
 
 if.end32:                                         ; preds = %sw.bb25
   %cmp33 = icmp eq i32 %target, 2
+  %RowBgColor = getelementptr inbounds i8, ptr %1, i64 156
   %idxprom34 = zext i1 %cmp33 to i64
-  %arrayidx35 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 26, i64 %idxprom34
+  %arrayidx35 = getelementptr inbounds [2 x i32], ptr %RowBgColor, i64 0, i64 %idxprom34
   store i32 %spec.store.select, ptr %arrayidx35, align 4
   br label %sw.epilog
 
@@ -8801,13 +8733,13 @@ sw.epilog:                                        ; preds = %entry, %sw.bb25, %i
 define noundef i32 @_ZN5ImGui16TableGetRowIndexEv() local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %CurrentRow = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 14
+  %CurrentRow = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load i32, ptr %CurrentRow, align 8
   br label %return
 
@@ -8820,9 +8752,9 @@ return:                                           ; preds = %entry, %if.end
 define void @_ZN5ImGui12TableNextRowEif(i32 noundef %row_flags, float noundef %row_min_height) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
-  %IsLayoutLocked = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 92
+  %IsLayoutLocked = getelementptr inbounds i8, ptr %1, i64 566
   %2 = load i8, ptr %IsLayoutLocked, align 2
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -8833,7 +8765,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %IsInsideRow = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 93
+  %IsInsideRow = getelementptr inbounds i8, ptr %1, i64 567
   %4 = load i8, ptr %IsInsideRow, align 1
   %5 = and i8 %4, 1
   %tobool1.not = icmp eq i8 %5, 0
@@ -8844,32 +8776,32 @@ if.then2:                                         ; preds = %if.end
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
-  %RowFlags = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 24
+  %RowFlags = getelementptr inbounds i8, ptr %1, i64 148
   %bf.load = load i32, ptr %RowFlags, align 4
   %bf.shl = shl i32 %bf.load, 16
   %bf.value8 = and i32 %row_flags, 65535
   %bf.set10 = or disjoint i32 %bf.shl, %bf.value8
   store i32 %bf.set10, ptr %RowFlags, align 4
-  %y = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 17, i32 1
+  %y = getelementptr inbounds i8, ptr %0, i64 14672
   %6 = load float, ptr %y, align 4
-  %RowCellPaddingY = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 21
+  %RowCellPaddingY = getelementptr inbounds i8, ptr %1, i64 136
   store float %6, ptr %RowCellPaddingY, align 8
-  %RowMinHeight = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 20
+  %RowMinHeight = getelementptr inbounds i8, ptr %1, i64 132
   store float %row_min_height, ptr %RowMinHeight, align 4
   tail call void @_ZN5ImGui13TableBeginRowEP10ImGuiTable(ptr noundef nonnull %1)
   %7 = load float, ptr %RowCellPaddingY, align 8
-  %RowPosY2 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 19
+  %RowPosY2 = getelementptr inbounds i8, ptr %1, i64 128
   %8 = load float, ptr %RowPosY2, align 8
   %9 = tail call float @llvm.fmuladd.f32(float %7, float 2.000000e+00, float %8)
-  %RowPosY1 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 18
+  %RowPosY1 = getelementptr inbounds i8, ptr %1, i64 124
   %10 = load float, ptr %RowPosY1, align 4
   %add = fadd float %10, %row_min_height
   %cmp.i = fcmp oge float %9, %add
   %cond.i = select i1 %cmp.i, float %9, float %add
   store float %cond.i, ptr %RowPosY2, align 8
-  %InnerWindow = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 56
+  %InnerWindow = getelementptr inbounds i8, ptr %1, i64 392
   %11 = load ptr, ptr %InnerWindow, align 8
-  %SkipItems = getelementptr inbounds %struct.ImGuiWindow, ptr %11, i64 0, i32 38
+  %SkipItems = getelementptr inbounds i8, ptr %11, i64 195
   store i8 1, ptr %SkipItems, align 1
   ret void
 }
@@ -8877,76 +8809,76 @@ if.end3:                                          ; preds = %if.then2, %if.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ImGui13TableBeginRowEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #0 {
 entry:
-  %InnerWindow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 56
+  %InnerWindow = getelementptr inbounds i8, ptr %table, i64 392
   %0 = load ptr, ptr %InnerWindow, align 8
-  %CurrentRow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 14
+  %CurrentRow = getelementptr inbounds i8, ptr %table, i64 112
   %1 = load i32, ptr %CurrentRow, align 8
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %CurrentRow, align 8
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 15
+  %CurrentColumn = getelementptr inbounds i8, ptr %table, i64 116
   store i32 -1, ptr %CurrentColumn, align 4
-  %RowBgColor = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 26
-  %arrayidx = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 26, i64 1
+  %RowBgColor = getelementptr inbounds i8, ptr %table, i64 156
+  %arrayidx = getelementptr inbounds i8, ptr %table, i64 160
   store i32 16777216, ptr %arrayidx, align 4
   store i32 16777216, ptr %RowBgColor, align 4
-  %RowCellDataCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 88
+  %RowCellDataCurrent = getelementptr inbounds i8, ptr %table, i64 558
   store i16 -1, ptr %RowCellDataCurrent, align 2
-  %IsInsideRow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 93
+  %IsInsideRow = getelementptr inbounds i8, ptr %table, i64 567
   store i8 1, ptr %IsInsideRow, align 1
-  %RowPosY2 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 19
+  %RowPosY2 = getelementptr inbounds i8, ptr %table, i64 128
   %2 = load float, ptr %RowPosY2, align 8
   %cmp = icmp eq i32 %inc, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %FreezeRowsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 85
+  %FreezeRowsCount = getelementptr inbounds i8, ptr %table, i64 552
   %3 = load i16, ptr %FreezeRowsCount, align 8
   %cmp4 = icmp sgt i16 %3, 0
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %y = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %table, i64 244
   %4 = load float, ptr %y, align 4
-  %y5 = getelementptr inbounds %struct.ImGuiWindow, ptr %0, i64 0, i32 68, i32 0, i32 1
+  %y5 = getelementptr inbounds i8, ptr %0, i64 276
   store float %4, ptr %y5, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %next_y1.0 = phi float [ %4, %if.then ], [ %2, %land.lhs.true ], [ %2, %entry ]
   store float %next_y1.0, ptr %RowPosY2, align 8
-  %RowPosY1 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 18
+  %RowPosY1 = getelementptr inbounds i8, ptr %table, i64 124
   store float %next_y1.0, ptr %RowPosY1, align 4
-  %RowTextBaseline = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 22
+  %RowTextBaseline = getelementptr inbounds i8, ptr %table, i64 140
   store float 0.000000e+00, ptr %RowTextBaseline, align 4
-  %DC7 = getelementptr inbounds %struct.ImGuiWindow, ptr %0, i64 0, i32 68
-  %Indent = getelementptr inbounds %struct.ImGuiWindow, ptr %0, i64 0, i32 68, i32 11
+  %DC7 = getelementptr inbounds i8, ptr %0, i64 272
+  %Indent = getelementptr inbounds i8, ptr %0, i64 340
   %5 = load float, ptr %Indent, align 4
-  %HostIndentX = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 31
+  %HostIndentX = getelementptr inbounds i8, ptr %table, i64 180
   %6 = load float, ptr %HostIndentX, align 4
   %sub = fsub float %5, %6
-  %RowIndentOffsetX = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 23
+  %RowIndentOffsetX = getelementptr inbounds i8, ptr %table, i64 144
   store float %sub, ptr %RowIndentOffsetX, align 8
-  %PrevLineTextBaseOffset = getelementptr inbounds %struct.ImGuiWindow, ptr %0, i64 0, i32 68, i32 8
+  %PrevLineTextBaseOffset = getelementptr inbounds i8, ptr %0, i64 332
   store float 0.000000e+00, ptr %PrevLineTextBaseOffset, align 4
   %7 = load i32, ptr %DC7, align 8
-  %y14 = getelementptr inbounds %struct.ImGuiWindow, ptr %0, i64 0, i32 68, i32 0, i32 1
+  %y14 = getelementptr inbounds i8, ptr %0, i64 276
   %8 = load float, ptr %y14, align 4
-  %RowCellPaddingY = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 21
+  %RowCellPaddingY = getelementptr inbounds i8, ptr %table, i64 136
   %9 = load float, ptr %RowCellPaddingY, align 8
   %add = fadd float %8, %9
-  %CursorPosPrevLine = getelementptr inbounds %struct.ImGuiWindow, ptr %0, i64 0, i32 68, i32 1
+  %CursorPosPrevLine = getelementptr inbounds i8, ptr %0, i64 280
   store i32 %7, ptr %CursorPosPrevLine, align 8
-  %CursorPosPrevLine.sroa_idx = getelementptr inbounds %struct.ImGuiWindow, ptr %0, i64 0, i32 68, i32 1, i32 1
+  %CursorPosPrevLine.sroa_idx = getelementptr inbounds i8, ptr %0, i64 284
   store float %add, ptr %CursorPosPrevLine.sroa_idx, align 4
-  %CurrLineSize = getelementptr inbounds %struct.ImGuiWindow, ptr %0, i64 0, i32 68, i32 5
-  %IsSetPos = getelementptr inbounds %struct.ImGuiWindow, ptr %0, i64 0, i32 68, i32 10
+  %CurrLineSize = getelementptr inbounds i8, ptr %0, i64 312
+  %IsSetPos = getelementptr inbounds i8, ptr %0, i64 337
   store i8 0, ptr %IsSetPos, align 1
-  %IsSameLine = getelementptr inbounds %struct.ImGuiWindow, ptr %0, i64 0, i32 68, i32 9
+  %IsSameLine = getelementptr inbounds i8, ptr %0, i64 336
   store i8 0, ptr %IsSameLine, align 8
-  %y22 = getelementptr inbounds %struct.ImGuiWindow, ptr %0, i64 0, i32 68, i32 3, i32 1
+  %y22 = getelementptr inbounds i8, ptr %0, i64 300
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %CurrLineSize, i8 0, i64 16, i1 false)
   store float %next_y1.0, ptr %y22, align 4
-  %RowFlags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 24
+  %RowFlags = getelementptr inbounds i8, ptr %table, i64 148
   %bf.load = load i32, ptr %RowFlags, align 4
   %and = and i32 %bf.load, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -8955,11 +8887,11 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 if.then23:                                        ; preds = %if.end
   %call = tail call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 42, float noundef 1.000000e+00)
   %10 = load ptr, ptr @GImGui, align 8
-  %CurrentTable.i = getelementptr inbounds %struct.ImGuiContext, ptr %10, i64 0, i32 164
+  %CurrentTable.i = getelementptr inbounds i8, ptr %10, i64 19912
   %11 = load ptr, ptr %CurrentTable.i, align 8
-  %RowPosY126.i = getelementptr inbounds %struct.ImGuiTable, ptr %11, i64 0, i32 18
+  %RowPosY126.i = getelementptr inbounds i8, ptr %11, i64 124
   %12 = load float, ptr %RowPosY126.i, align 4
-  %y29.i = getelementptr inbounds %struct.ImGuiTable, ptr %11, i64 0, i32 49, i32 1, i32 1
+  %y29.i = getelementptr inbounds i8, ptr %11, i64 300
   %13 = load float, ptr %y29.i, align 4
   %cmp30.i = fcmp ogt float %12, %13
   br i1 %cmp30.i, label %_ZN5ImGui15TableSetBgColorEiji.exit, label %if.end32.i
@@ -8967,8 +8899,8 @@ if.then23:                                        ; preds = %if.end
 if.end32.i:                                       ; preds = %if.then23
   %cmp.i = icmp eq i32 %call, 16777216
   %spec.store.select.i = select i1 %cmp.i, i32 0, i32 %call
-  %arrayidx35.i = getelementptr inbounds %struct.ImGuiTable, ptr %11, i64 0, i32 26, i64 0
-  store i32 %spec.store.select.i, ptr %arrayidx35.i, align 4
+  %RowBgColor.i = getelementptr inbounds i8, ptr %11, i64 156
+  store i32 %spec.store.select.i, ptr %RowBgColor.i, align 4
   br label %_ZN5ImGui15TableSetBgColorEiji.exit
 
 _ZN5ImGui15TableSetBgColorEiji.exit:              ; preds = %if.then23, %if.end32.i
@@ -8977,7 +8909,7 @@ _ZN5ImGui15TableSetBgColorEiji.exit:              ; preds = %if.then23, %if.end3
   br i1 %cmp25, label %if.then26, label %if.end28
 
 if.then26:                                        ; preds = %_ZN5ImGui15TableSetBgColorEiji.exit
-  %IsUsingHeaders = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 96
+  %IsUsingHeaders = getelementptr inbounds i8, ptr %table, i64 570
   store i8 1, ptr %IsUsingHeaders, align 2
   br label %if.end28
 
@@ -8988,14 +8920,15 @@ if.end28:                                         ; preds = %_ZN5ImGui15TableSet
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ImGui12TableEndCellEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #0 {
 entry:
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 15
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
+  %CurrentColumn = getelementptr inbounds i8, ptr %table, i64 116
   %0 = load i32, ptr %CurrentColumn, align 4
   %1 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i32 %0 to i64
-  %InnerWindow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 56
+  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i
+  %InnerWindow = getelementptr inbounds i8, ptr %table, i64 392
   %2 = load ptr, ptr %InnerWindow, align 8
-  %IsSetPos = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 10
+  %IsSetPos = getelementptr inbounds i8, ptr %2, i64 337
   %3 = load i8, ptr %IsSetPos, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -9006,46 +8939,41 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %RowFlags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 24
+  %RowFlags = getelementptr inbounds i8, ptr %table, i64 148
   %bf.load = load i32, ptr %RowFlags, align 4
   %and = and i32 %bf.load, 1
   %tobool1.not = icmp eq i32 %and, 0
-  br i1 %tobool1.not, label %if.else, label %if.then2
-
-if.then2:                                         ; preds = %if.end
-  %ContentMaxXHeadersUsed = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i, i32 15
-  br label %if.end4
+  br i1 %tobool1.not, label %if.else, label %if.end4
 
 if.else:                                          ; preds = %if.end
-  %IsUnfrozenRows = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 104
+  %IsUnfrozenRows = getelementptr inbounds i8, ptr %table, i64 578
   %5 = load i8, ptr %IsUnfrozenRows, align 2
   %6 = and i8 %5, 1
   %tobool3.not = icmp eq i8 %6, 0
-  %ContentMaxXUnfrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i, i32 14
-  %ContentMaxXFrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i, i32 13
-  %cond = select i1 %tobool3.not, ptr %ContentMaxXFrozen, ptr %ContentMaxXUnfrozen
+  %cond.v = select i1 %tobool3.not, i64 64, i64 68
   br label %if.end4
 
-if.end4:                                          ; preds = %if.else, %if.then2
-  %p_max_pos_x.0 = phi ptr [ %ContentMaxXHeadersUsed, %if.then2 ], [ %cond, %if.else ]
-  %7 = load float, ptr %p_max_pos_x.0, align 4
-  %CursorMaxPos = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 3
+if.end4:                                          ; preds = %if.end, %if.else
+  %cond.v.sink = phi i64 [ %cond.v, %if.else ], [ 72, %if.end ]
+  %cond = getelementptr inbounds i8, ptr %add.ptr.i, i64 %cond.v.sink
+  %7 = load float, ptr %cond, align 4
+  %CursorMaxPos = getelementptr inbounds i8, ptr %2, i64 296
   %8 = load float, ptr %CursorMaxPos, align 8
   %cmp.i = fcmp oge float %7, %8
   %cond.i = select i1 %cmp.i, float %7, float %8
-  store float %cond.i, ptr %p_max_pos_x.0, align 4
-  %IsEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i, i32 26
+  store float %cond.i, ptr %cond, align 4
+  %IsEnabled = getelementptr inbounds i8, ptr %add.ptr.i, i64 98
   %9 = load i8, ptr %IsEnabled, align 2
   %10 = and i8 %9, 1
   %tobool7.not = icmp eq i8 %10, 0
   br i1 %tobool7.not, label %if.end13, label %if.then8
 
 if.then8:                                         ; preds = %if.end4
-  %RowPosY2 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 19
+  %RowPosY2 = getelementptr inbounds i8, ptr %table, i64 128
   %11 = load float, ptr %RowPosY2, align 8
-  %y = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 3, i32 1
+  %y = getelementptr inbounds i8, ptr %2, i64 300
   %12 = load float, ptr %y, align 4
-  %RowCellPaddingY = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 21
+  %RowCellPaddingY = getelementptr inbounds i8, ptr %table, i64 136
   %13 = load float, ptr %RowCellPaddingY, align 8
   %add = fadd float %12, %13
   %cmp.i20 = fcmp oge float %11, %add
@@ -9054,13 +8982,13 @@ if.then8:                                         ; preds = %if.end4
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then8, %if.end4
-  %ItemWidth = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 32
+  %ItemWidth = getelementptr inbounds i8, ptr %2, i64 460
   %14 = load float, ptr %ItemWidth, align 4
-  %ItemWidth15 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i, i32 12
+  %ItemWidth15 = getelementptr inbounds i8, ptr %add.ptr.i, i64 60
   store float %14, ptr %ItemWidth15, align 4
-  %RowTextBaseline = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 22
+  %RowTextBaseline = getelementptr inbounds i8, ptr %table, i64 140
   %15 = load float, ptr %RowTextBaseline, align 4
-  %PrevLineTextBaseOffset = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 8
+  %PrevLineTextBaseOffset = getelementptr inbounds i8, ptr %2, i64 332
   %16 = load float, ptr %PrevLineTextBaseOffset, align 4
   %cmp.i22 = fcmp oge float %15, %16
   %cond.i23 = select i1 %cmp.i22, float %15, float %16
@@ -9082,24 +9010,24 @@ entry:
   %1 = extractelement <4 x float> %0, i64 3
   %retval.sroa.0.4.vec.insert.i = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i, float %1, i64 1
-  %ClipRect = getelementptr inbounds %struct.ImGuiWindow, ptr %window, i64 0, i32 74
+  %ClipRect = getelementptr inbounds i8, ptr %window, i64 584
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect, ptr noundef nonnull align 4 dereferenceable(16) %clip_rect, i64 16, i1 false)
-  %DrawList = getelementptr inbounds %struct.ImGuiWindow, ptr %window, i64 0, i32 86
+  %DrawList = getelementptr inbounds i8, ptr %window, i64 680
   %2 = load ptr, ptr %DrawList, align 8
-  %_CmdHeader = getelementptr inbounds %struct.ImDrawList, ptr %2, i64 0, i32 12
+  %_CmdHeader = getelementptr inbounds i8, ptr %2, i64 136
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %_CmdHeader, align 8
-  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx = getelementptr inbounds %struct.ImDrawList, ptr %2, i64 0, i32 12, i32 0, i32 2
+  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx = getelementptr inbounds i8, ptr %2, i64 144
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx, align 8
   %3 = load ptr, ptr %DrawList, align 8
-  %_ClipRectStack = getelementptr inbounds %struct.ImDrawList, ptr %3, i64 0, i32 9
-  %Data = getelementptr inbounds %struct.ImDrawList, ptr %3, i64 0, i32 9, i32 2
+  %_ClipRectStack = getelementptr inbounds i8, ptr %3, i64 88
+  %Data = getelementptr inbounds i8, ptr %3, i64 96
   %4 = load ptr, ptr %Data, align 8
   %5 = load i32, ptr %_ClipRectStack, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr %struct.ImVec4, ptr %4, i64 %6
-  %arrayidx = getelementptr %struct.ImVec4, ptr %7, i64 -1
+  %arrayidx = getelementptr i8, ptr %7, i64 -16
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %arrayidx, align 4
-  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx = getelementptr %struct.ImVec4, ptr %7, i64 -1, i32 2
+  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx = getelementptr i8, ptr %7, i64 -8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx, align 4
   ret void
 }
@@ -9108,13 +9036,13 @@ entry:
 define noundef i32 @_ZN5ImGui19TableGetColumnIndexEv() local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 15
+  %CurrentColumn = getelementptr inbounds i8, ptr %1, i64 116
   %2 = load i32, ptr %CurrentColumn, align 4
   br label %return
 
@@ -9127,13 +9055,13 @@ return:                                           ; preds = %entry, %if.end
 define noundef zeroext i1 @_ZN5ImGui19TableSetColumnIndexEi(i32 noundef %column_n) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 15
+  %CurrentColumn = getelementptr inbounds i8, ptr %1, i64 116
   %2 = load i32, ptr %CurrentColumn, align 4
   %cmp.not = icmp eq i32 %2, %column_n
   br i1 %cmp.not, label %if.end6, label %if.then1
@@ -9143,12 +9071,13 @@ if.then1:                                         ; preds = %if.end
   br i1 %cmp3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.then1
-  %Columns.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %Columns.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %Columns.i, align 8
   %idx.ext.i.i = sext i32 %2 to i64
-  %InnerWindow.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 56
+  %add.ptr.i.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i.i
+  %InnerWindow.i = getelementptr inbounds i8, ptr %1, i64 392
   %4 = load ptr, ptr %InnerWindow.i, align 8
-  %IsSetPos.i = getelementptr inbounds %struct.ImGuiWindow, ptr %4, i64 0, i32 68, i32 10
+  %IsSetPos.i = getelementptr inbounds i8, ptr %4, i64 337
   %5 = load i8, ptr %IsSetPos.i, align 1
   %6 = and i8 %5, 1
   %tobool.not.i = icmp eq i8 %6, 0
@@ -9159,46 +9088,41 @@ if.then.i:                                        ; preds = %if.then4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then4
-  %RowFlags.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 24
+  %RowFlags.i = getelementptr inbounds i8, ptr %1, i64 148
   %bf.load.i = load i32, ptr %RowFlags.i, align 4
   %and.i = and i32 %bf.load.i, 1
   %tobool1.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
-
-if.then2.i:                                       ; preds = %if.end.i
-  %ContentMaxXHeadersUsed.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i.i, i32 15
-  br label %if.end4.i
+  br i1 %tobool1.not.i, label %if.else.i, label %if.end4.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %IsUnfrozenRows.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 104
+  %IsUnfrozenRows.i = getelementptr inbounds i8, ptr %1, i64 578
   %7 = load i8, ptr %IsUnfrozenRows.i, align 2
   %8 = and i8 %7, 1
   %tobool3.not.i = icmp eq i8 %8, 0
-  %ContentMaxXUnfrozen.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i.i, i32 14
-  %ContentMaxXFrozen.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i.i, i32 13
-  %cond.i = select i1 %tobool3.not.i, ptr %ContentMaxXFrozen.i, ptr %ContentMaxXUnfrozen.i
+  %cond.v.i = select i1 %tobool3.not.i, i64 64, i64 68
   br label %if.end4.i
 
-if.end4.i:                                        ; preds = %if.else.i, %if.then2.i
-  %p_max_pos_x.0.i = phi ptr [ %ContentMaxXHeadersUsed.i, %if.then2.i ], [ %cond.i, %if.else.i ]
-  %9 = load float, ptr %p_max_pos_x.0.i, align 4
-  %CursorMaxPos.i = getelementptr inbounds %struct.ImGuiWindow, ptr %4, i64 0, i32 68, i32 3
+if.end4.i:                                        ; preds = %if.else.i, %if.end.i
+  %cond.v.sink.i = phi i64 [ %cond.v.i, %if.else.i ], [ 72, %if.end.i ]
+  %cond.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %cond.v.sink.i
+  %9 = load float, ptr %cond.i, align 4
+  %CursorMaxPos.i = getelementptr inbounds i8, ptr %4, i64 296
   %10 = load float, ptr %CursorMaxPos.i, align 8
   %cmp.i.i = fcmp oge float %9, %10
   %cond.i.i = select i1 %cmp.i.i, float %9, float %10
-  store float %cond.i.i, ptr %p_max_pos_x.0.i, align 4
-  %IsEnabled.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i.i, i32 26
+  store float %cond.i.i, ptr %cond.i, align 4
+  %IsEnabled.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 98
   %11 = load i8, ptr %IsEnabled.i, align 2
   %12 = and i8 %11, 1
   %tobool7.not.i = icmp eq i8 %12, 0
   br i1 %tobool7.not.i, label %_ZN5ImGui12TableEndCellEP10ImGuiTable.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end4.i
-  %RowPosY2.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 19
+  %RowPosY2.i = getelementptr inbounds i8, ptr %1, i64 128
   %13 = load float, ptr %RowPosY2.i, align 8
-  %y.i = getelementptr inbounds %struct.ImGuiWindow, ptr %4, i64 0, i32 68, i32 3, i32 1
+  %y.i = getelementptr inbounds i8, ptr %4, i64 300
   %14 = load float, ptr %y.i, align 4
-  %RowCellPaddingY.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 21
+  %RowCellPaddingY.i = getelementptr inbounds i8, ptr %1, i64 136
   %15 = load float, ptr %RowCellPaddingY.i, align 8
   %add.i = fadd float %14, %15
   %cmp.i20.i = fcmp oge float %13, %add.i
@@ -9207,13 +9131,13 @@ if.then8.i:                                       ; preds = %if.end4.i
   br label %_ZN5ImGui12TableEndCellEP10ImGuiTable.exit
 
 _ZN5ImGui12TableEndCellEP10ImGuiTable.exit:       ; preds = %if.end4.i, %if.then8.i
-  %ItemWidth.i = getelementptr inbounds %struct.ImGuiWindow, ptr %4, i64 0, i32 68, i32 32
+  %ItemWidth.i = getelementptr inbounds i8, ptr %4, i64 460
   %16 = load float, ptr %ItemWidth.i, align 4
-  %ItemWidth15.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %3, i64 %idx.ext.i.i, i32 12
+  %ItemWidth15.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 60
   store float %16, ptr %ItemWidth15.i, align 4
-  %RowTextBaseline.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 22
+  %RowTextBaseline.i = getelementptr inbounds i8, ptr %1, i64 140
   %17 = load float, ptr %RowTextBaseline.i, align 4
-  %PrevLineTextBaseOffset.i = getelementptr inbounds %struct.ImGuiWindow, ptr %4, i64 0, i32 68, i32 8
+  %PrevLineTextBaseOffset.i = getelementptr inbounds i8, ptr %4, i64 332
   %18 = load float, ptr %PrevLineTextBaseOffset.i, align 4
   %cmp.i22.i = fcmp oge float %17, %18
   %cond.i23.i = select i1 %cmp.i22.i, float %17, float %18
@@ -9225,7 +9149,7 @@ if.end5:                                          ; preds = %_ZN5ImGui12TableEnd
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end5, %if.end
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %1, i64 24
   %19 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i32 %column_n to i64
   %IsRequestOutput = getelementptr inbounds %struct.ImGuiTableColumn, ptr %19, i64 %idx.ext.i, i32 31
@@ -9243,15 +9167,15 @@ return:                                           ; preds = %entry, %if.end6
 define void @_ZN5ImGui14TableBeginCellEP10ImGuiTablei(ptr nocapture noundef %table, i32 noundef %column_n) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   %1 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i32 %column_n to i64
   %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i
-  %InnerWindow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 56
+  %InnerWindow = getelementptr inbounds i8, ptr %table, i64 392
   %2 = load ptr, ptr %InnerWindow, align 8
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 15
+  %CurrentColumn = getelementptr inbounds i8, ptr %table, i64 116
   store i32 %column_n, ptr %CurrentColumn, align 4
-  %WorkMinX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i, i32 10
+  %WorkMinX = getelementptr inbounds i8, ptr %add.ptr.i, i64 52
   %3 = load float, ptr %WorkMinX, align 4
   %4 = load i32, ptr %add.ptr.i, align 4
   %and = and i32 %4, 65536
@@ -9259,60 +9183,60 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %RowIndentOffsetX = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 23
+  %RowIndentOffsetX = getelementptr inbounds i8, ptr %table, i64 144
   %5 = load float, ptr %RowIndentOffsetX, align 8
   %add = fadd float %3, %5
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %start_x.0 = phi float [ %add, %if.then ], [ %3, %entry ]
-  %DC = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68
+  %DC = getelementptr inbounds i8, ptr %2, i64 272
   store float %start_x.0, ptr %DC, align 8
-  %RowPosY1 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 18
+  %RowPosY1 = getelementptr inbounds i8, ptr %table, i64 124
   %6 = load float, ptr %RowPosY1, align 4
-  %RowCellPaddingY = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 21
+  %RowCellPaddingY = getelementptr inbounds i8, ptr %table, i64 136
   %7 = load float, ptr %RowCellPaddingY, align 8
   %add1 = fadd float %6, %7
-  %y = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %2, i64 276
   store float %add1, ptr %y, align 4
-  %CursorMaxPos = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 3
+  %CursorMaxPos = getelementptr inbounds i8, ptr %2, i64 296
   store float %start_x.0, ptr %CursorMaxPos, align 8
-  %Pos = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 7
+  %Pos = getelementptr inbounds i8, ptr %2, i64 40
   %8 = load float, ptr %Pos, align 8
   %sub = fsub float %start_x.0, %8
-  %Indent = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 11
+  %Indent = getelementptr inbounds i8, ptr %2, i64 340
   %9 = load float, ptr %Indent, align 4
   %sub12 = fsub float %sub, %9
-  %ColumnsOffset = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 12
+  %ColumnsOffset = getelementptr inbounds i8, ptr %2, i64 344
   store float %sub12, ptr %ColumnsOffset, align 8
-  %CursorPosPrevLine = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 1
+  %CursorPosPrevLine = getelementptr inbounds i8, ptr %2, i64 280
   store float %start_x.0, ptr %CursorPosPrevLine, align 8
-  %RowTextBaseline = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 22
+  %RowTextBaseline = getelementptr inbounds i8, ptr %table, i64 140
   %10 = load float, ptr %RowTextBaseline, align 4
-  %CurrLineTextBaseOffset = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 7
+  %CurrLineTextBaseOffset = getelementptr inbounds i8, ptr %2, i64 328
   store float %10, ptr %CurrLineTextBaseOffset, align 8
-  %NavLayerCurrent = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i, i32 34
+  %NavLayerCurrent = getelementptr inbounds i8, ptr %add.ptr.i, i64 106
   %11 = load i8, ptr %NavLayerCurrent, align 2
   %conv = sext i8 %11 to i32
-  %NavLayerCurrent22 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 15
+  %NavLayerCurrent22 = getelementptr inbounds i8, ptr %2, i64 360
   store i32 %conv, ptr %NavLayerCurrent22, align 8
-  %WorkRect = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 72
-  %y26 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 72, i32 0, i32 1
+  %WorkRect = getelementptr inbounds i8, ptr %2, i64 552
+  %y26 = getelementptr inbounds i8, ptr %2, i64 556
   store float %add1, ptr %y26, align 4
   %12 = load float, ptr %WorkMinX, align 4
   store float %12, ptr %WorkRect, align 8
-  %WorkMaxX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i, i32 11
+  %WorkMaxX = getelementptr inbounds i8, ptr %add.ptr.i, i64 56
   %13 = load float, ptr %WorkMaxX, align 4
-  %Max = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 72, i32 1
+  %Max = getelementptr inbounds i8, ptr %2, i64 560
   store float %13, ptr %Max, align 8
-  %ItemWidth = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i, i32 12
+  %ItemWidth = getelementptr inbounds i8, ptr %add.ptr.i, i64 60
   %14 = load float, ptr %ItemWidth, align 4
-  %ItemWidth34 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 32
+  %ItemWidth34 = getelementptr inbounds i8, ptr %2, i64 460
   store float %14, ptr %ItemWidth34, align 4
-  %IsSkipItems = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i, i32 32
+  %IsSkipItems = getelementptr inbounds i8, ptr %add.ptr.i, i64 104
   %15 = load i8, ptr %IsSkipItems, align 4
   %16 = and i8 %15, 1
-  %SkipItems = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 38
+  %SkipItems = getelementptr inbounds i8, ptr %2, i64 195
   store i8 %16, ptr %SkipItems, align 1
   %17 = load i8, ptr %IsSkipItems, align 4
   %18 = and i8 %17, 1
@@ -9320,64 +9244,64 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool37.not, label %if.end40, label %if.then38
 
 if.then38:                                        ; preds = %if.end
-  %LastItemData = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 75
+  %LastItemData = getelementptr inbounds i8, ptr %0, i64 18808
   store i32 0, ptr %LastItemData, align 8
-  %StatusFlags = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 75, i32 2
+  %StatusFlags = getelementptr inbounds i8, ptr %0, i64 18816
   store i32 0, ptr %StatusFlags, align 8
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then38, %if.end
-  %Flags41 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags41 = getelementptr inbounds i8, ptr %table, i64 4
   %19 = load i32, ptr %Flags41, align 4
   %and42 = and i32 %19, 1048576
   %tobool43.not = icmp eq i32 %and42, 0
   br i1 %tobool43.not, label %if.else, label %if.then44
 
 if.then44:                                        ; preds = %if.end40
-  %DrawSplitter = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 58
+  %DrawSplitter = getelementptr inbounds i8, ptr %table, i64 416
   %20 = load ptr, ptr %DrawSplitter, align 8
-  %DrawList = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 86
+  %DrawList = getelementptr inbounds i8, ptr %2, i64 680
   %21 = load ptr, ptr %DrawList, align 8
   tail call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef %21, i32 noundef 2)
   br label %if.end48
 
 if.else:                                          ; preds = %if.end40
-  %ClipRect = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i, i32 8
+  %ClipRect = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %22 = load <4 x float>, ptr %ClipRect, align 4
   %retval.sroa.3.8.vec.insert.i.i = shufflevector <4 x float> %22, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %23 = extractelement <4 x float> %22, i64 3
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %22, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %23, i64 1
-  %ClipRect.i = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 74
+  %ClipRect.i = getelementptr inbounds i8, ptr %2, i64 584
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull align 4 dereferenceable(16) %ClipRect, i64 16, i1 false)
-  %DrawList.i = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 86
+  %DrawList.i = getelementptr inbounds i8, ptr %2, i64 680
   %24 = load ptr, ptr %DrawList.i, align 8
-  %_CmdHeader.i = getelementptr inbounds %struct.ImDrawList, ptr %24, i64 0, i32 12
+  %_CmdHeader.i = getelementptr inbounds i8, ptr %24, i64 136
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %_CmdHeader.i, align 8
-  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds %struct.ImDrawList, ptr %24, i64 0, i32 12, i32 0, i32 2
+  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds i8, ptr %24, i64 144
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i, align 8
   %25 = load ptr, ptr %DrawList.i, align 8
-  %_ClipRectStack.i = getelementptr inbounds %struct.ImDrawList, ptr %25, i64 0, i32 9
-  %Data.i = getelementptr inbounds %struct.ImDrawList, ptr %25, i64 0, i32 9, i32 2
+  %_ClipRectStack.i = getelementptr inbounds i8, ptr %25, i64 88
+  %Data.i = getelementptr inbounds i8, ptr %25, i64 96
   %26 = load ptr, ptr %Data.i, align 8
   %27 = load i32, ptr %_ClipRectStack.i, align 8
   %28 = sext i32 %27 to i64
   %29 = getelementptr %struct.ImVec4, ptr %26, i64 %28
-  %arrayidx.i = getelementptr %struct.ImVec4, ptr %29, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %29, i64 -16
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %arrayidx.i, align 4
-  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr %struct.ImVec4, ptr %29, i64 -1, i32 2
+  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr i8, ptr %29, i64 -8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i, align 4
-  %DrawSplitter45 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 58
+  %DrawSplitter45 = getelementptr inbounds i8, ptr %table, i64 416
   %30 = load ptr, ptr %DrawSplitter45, align 8
   %31 = load ptr, ptr %DrawList.i, align 8
-  %DrawChannelCurrent = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %idx.ext.i, i32 23
+  %DrawChannelCurrent = getelementptr inbounds i8, ptr %add.ptr.i, i64 92
   %32 = load i16, ptr %DrawChannelCurrent, align 4
   %conv47 = zext i16 %32 to i32
   tail call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef %31, i32 noundef %conv47)
   br label %if.end48
 
 if.end48:                                         ; preds = %if.else, %if.then44
-  %LogEnabled = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 222
+  %LogEnabled = getelementptr inbounds i8, ptr %0, i64 24488
   %33 = load i8, ptr %LogEnabled, align 8
   %34 = and i8 %33, 1
   %tobool49.not = icmp eq i8 %34, 0
@@ -9391,7 +9315,7 @@ land.lhs.true:                                    ; preds = %if.end48
 
 if.then52:                                        ; preds = %land.lhs.true
   tail call void @_ZN5ImGui15LogRenderedTextEPK6ImVec2PKcS4_(ptr noundef nonnull %DC, ptr noundef nonnull @.str.2, ptr noundef null)
-  %LogLinePosY = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 228
+  %LogLinePosY = getelementptr inbounds i8, ptr %0, i64 24536
   store float 0x47EFFFFFE0000000, ptr %LogLinePosY, align 8
   br label %if.end55
 
@@ -9403,23 +9327,23 @@ if.end55:                                         ; preds = %if.then52, %land.lh
 define noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %IsInsideRow = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 93
+  %IsInsideRow = getelementptr inbounds i8, ptr %1, i64 567
   %2 = load i8, ptr %IsInsideRow, align 1
   %3 = and i8 %2, 1
   %tobool1.not = icmp eq i8 %3, 0
   br i1 %tobool1.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 15
+  %CurrentColumn = getelementptr inbounds i8, ptr %1, i64 116
   %4 = load i32, ptr %CurrentColumn, align 4
   %add = add nsw i32 %4, 1
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %1, i64 108
   %5 = load i32, ptr %ColumnsCount, align 4
   %cmp = icmp slt i32 %add, %5
   br i1 %cmp, label %if.then2, label %if.else
@@ -9429,12 +9353,13 @@ if.then2:                                         ; preds = %land.lhs.true
   br i1 %cmp4.not, label %if.end9, label %if.then5
 
 if.then5:                                         ; preds = %if.then2
-  %Columns.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %Columns.i = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %Columns.i, align 8
   %idx.ext.i.i = sext i32 %4 to i64
-  %InnerWindow.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 56
+  %add.ptr.i.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i.i
+  %InnerWindow.i = getelementptr inbounds i8, ptr %1, i64 392
   %7 = load ptr, ptr %InnerWindow.i, align 8
-  %IsSetPos.i = getelementptr inbounds %struct.ImGuiWindow, ptr %7, i64 0, i32 68, i32 10
+  %IsSetPos.i = getelementptr inbounds i8, ptr %7, i64 337
   %8 = load i8, ptr %IsSetPos.i, align 1
   %9 = and i8 %8, 1
   %tobool.not.i = icmp eq i8 %9, 0
@@ -9445,46 +9370,41 @@ if.then.i:                                        ; preds = %if.then5
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then5
-  %RowFlags.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 24
+  %RowFlags.i = getelementptr inbounds i8, ptr %1, i64 148
   %bf.load.i = load i32, ptr %RowFlags.i, align 4
   %and.i = and i32 %bf.load.i, 1
   %tobool1.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
-
-if.then2.i:                                       ; preds = %if.end.i
-  %ContentMaxXHeadersUsed.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i.i, i32 15
-  br label %if.end4.i
+  br i1 %tobool1.not.i, label %if.else.i, label %if.end4.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %IsUnfrozenRows.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 104
+  %IsUnfrozenRows.i = getelementptr inbounds i8, ptr %1, i64 578
   %10 = load i8, ptr %IsUnfrozenRows.i, align 2
   %11 = and i8 %10, 1
   %tobool3.not.i = icmp eq i8 %11, 0
-  %ContentMaxXUnfrozen.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i.i, i32 14
-  %ContentMaxXFrozen.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i.i, i32 13
-  %cond.i = select i1 %tobool3.not.i, ptr %ContentMaxXFrozen.i, ptr %ContentMaxXUnfrozen.i
+  %cond.v.i = select i1 %tobool3.not.i, i64 64, i64 68
   br label %if.end4.i
 
-if.end4.i:                                        ; preds = %if.else.i, %if.then2.i
-  %p_max_pos_x.0.i = phi ptr [ %ContentMaxXHeadersUsed.i, %if.then2.i ], [ %cond.i, %if.else.i ]
-  %12 = load float, ptr %p_max_pos_x.0.i, align 4
-  %CursorMaxPos.i = getelementptr inbounds %struct.ImGuiWindow, ptr %7, i64 0, i32 68, i32 3
+if.end4.i:                                        ; preds = %if.else.i, %if.end.i
+  %cond.v.sink.i = phi i64 [ %cond.v.i, %if.else.i ], [ 72, %if.end.i ]
+  %cond.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %cond.v.sink.i
+  %12 = load float, ptr %cond.i, align 4
+  %CursorMaxPos.i = getelementptr inbounds i8, ptr %7, i64 296
   %13 = load float, ptr %CursorMaxPos.i, align 8
   %cmp.i.i = fcmp oge float %12, %13
   %cond.i.i = select i1 %cmp.i.i, float %12, float %13
-  store float %cond.i.i, ptr %p_max_pos_x.0.i, align 4
-  %IsEnabled.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i.i, i32 26
+  store float %cond.i.i, ptr %cond.i, align 4
+  %IsEnabled.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 98
   %14 = load i8, ptr %IsEnabled.i, align 2
   %15 = and i8 %14, 1
   %tobool7.not.i = icmp eq i8 %15, 0
   br i1 %tobool7.not.i, label %_ZN5ImGui12TableEndCellEP10ImGuiTable.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end4.i
-  %RowPosY2.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 19
+  %RowPosY2.i = getelementptr inbounds i8, ptr %1, i64 128
   %16 = load float, ptr %RowPosY2.i, align 8
-  %y.i = getelementptr inbounds %struct.ImGuiWindow, ptr %7, i64 0, i32 68, i32 3, i32 1
+  %y.i = getelementptr inbounds i8, ptr %7, i64 300
   %17 = load float, ptr %y.i, align 4
-  %RowCellPaddingY.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 21
+  %RowCellPaddingY.i = getelementptr inbounds i8, ptr %1, i64 136
   %18 = load float, ptr %RowCellPaddingY.i, align 8
   %add.i = fadd float %17, %18
   %cmp.i20.i = fcmp oge float %16, %add.i
@@ -9493,13 +9413,13 @@ if.then8.i:                                       ; preds = %if.end4.i
   br label %_ZN5ImGui12TableEndCellEP10ImGuiTable.exit
 
 _ZN5ImGui12TableEndCellEP10ImGuiTable.exit:       ; preds = %if.end4.i, %if.then8.i
-  %ItemWidth.i = getelementptr inbounds %struct.ImGuiWindow, ptr %7, i64 0, i32 68, i32 32
+  %ItemWidth.i = getelementptr inbounds i8, ptr %7, i64 460
   %19 = load float, ptr %ItemWidth.i, align 4
-  %ItemWidth15.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i.i, i32 12
+  %ItemWidth15.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 60
   store float %19, ptr %ItemWidth15.i, align 4
-  %RowTextBaseline.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 22
+  %RowTextBaseline.i = getelementptr inbounds i8, ptr %1, i64 140
   %20 = load float, ptr %RowTextBaseline.i, align 4
-  %PrevLineTextBaseOffset.i = getelementptr inbounds %struct.ImGuiWindow, ptr %7, i64 0, i32 68, i32 8
+  %PrevLineTextBaseOffset.i = getelementptr inbounds i8, ptr %7, i64 332
   %21 = load float, ptr %PrevLineTextBaseOffset.i, align 4
   %cmp.i22.i = fcmp oge float %20, %21
   %cond.i23.i = select i1 %cmp.i22.i, float %20, float %21
@@ -9509,60 +9429,60 @@ _ZN5ImGui12TableEndCellEP10ImGuiTable.exit:       ; preds = %if.end4.i, %if.then
   br label %if.end9
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
-  %IsLayoutLocked.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 92
+  %IsLayoutLocked.i = getelementptr inbounds i8, ptr %1, i64 566
   %23 = load i8, ptr %IsLayoutLocked.i, align 2
   %24 = and i8 %23, 1
   %tobool.not.i11 = icmp eq i8 %24, 0
-  br i1 %tobool.not.i11, label %if.then.i24, label %if.end.i12
+  br i1 %tobool.not.i11, label %if.then.i23, label %if.end.i12
 
-if.then.i24:                                      ; preds = %if.else
+if.then.i23:                                      ; preds = %if.else
   tail call void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef nonnull %1)
-  %.pre25 = load i8, ptr %IsInsideRow, align 1
-  %.pre26 = and i8 %.pre25, 1
+  %.pre24 = load i8, ptr %IsInsideRow, align 1
+  %.pre25 = and i8 %.pre24, 1
   br label %if.end.i12
 
-if.end.i12:                                       ; preds = %if.then.i24, %if.else
-  %.pre-phi = phi i8 [ %.pre26, %if.then.i24 ], [ %3, %if.else ]
+if.end.i12:                                       ; preds = %if.then.i23, %if.else
+  %.pre-phi = phi i8 [ %.pre25, %if.then.i23 ], [ %3, %if.else ]
   %tobool1.not.i13 = icmp eq i8 %.pre-phi, 0
-  br i1 %tobool1.not.i13, label %_ZN5ImGui12TableNextRowEif.exit, label %if.then2.i14
+  br i1 %tobool1.not.i13, label %_ZN5ImGui12TableNextRowEif.exit, label %if.then2.i
 
-if.then2.i14:                                     ; preds = %if.end.i12
+if.then2.i:                                       ; preds = %if.end.i12
   tail call void @_ZN5ImGui11TableEndRowEP10ImGuiTable(ptr noundef nonnull %1)
   br label %_ZN5ImGui12TableNextRowEif.exit
 
-_ZN5ImGui12TableNextRowEif.exit:                  ; preds = %if.end.i12, %if.then2.i14
-  %RowFlags.i15 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 24
-  %bf.load.i16 = load i32, ptr %RowFlags.i15, align 4
-  %bf.shl.i = shl i32 %bf.load.i16, 16
-  store i32 %bf.shl.i, ptr %RowFlags.i15, align 4
-  %y.i17 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 17, i32 1
-  %25 = load float, ptr %y.i17, align 4
-  %RowCellPaddingY.i18 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 21
-  store float %25, ptr %RowCellPaddingY.i18, align 8
-  %RowMinHeight.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 20
+_ZN5ImGui12TableNextRowEif.exit:                  ; preds = %if.end.i12, %if.then2.i
+  %RowFlags.i14 = getelementptr inbounds i8, ptr %1, i64 148
+  %bf.load.i15 = load i32, ptr %RowFlags.i14, align 4
+  %bf.shl.i = shl i32 %bf.load.i15, 16
+  store i32 %bf.shl.i, ptr %RowFlags.i14, align 4
+  %y.i16 = getelementptr inbounds i8, ptr %0, i64 14672
+  %25 = load float, ptr %y.i16, align 4
+  %RowCellPaddingY.i17 = getelementptr inbounds i8, ptr %1, i64 136
+  store float %25, ptr %RowCellPaddingY.i17, align 8
+  %RowMinHeight.i = getelementptr inbounds i8, ptr %1, i64 132
   store float 0.000000e+00, ptr %RowMinHeight.i, align 4
   tail call void @_ZN5ImGui13TableBeginRowEP10ImGuiTable(ptr noundef nonnull %1)
-  %26 = load float, ptr %RowCellPaddingY.i18, align 8
-  %RowPosY2.i19 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 19
-  %27 = load float, ptr %RowPosY2.i19, align 8
+  %26 = load float, ptr %RowCellPaddingY.i17, align 8
+  %RowPosY2.i18 = getelementptr inbounds i8, ptr %1, i64 128
+  %27 = load float, ptr %RowPosY2.i18, align 8
   %28 = tail call float @llvm.fmuladd.f32(float %26, float 2.000000e+00, float %27)
-  %RowPosY1.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 18
+  %RowPosY1.i = getelementptr inbounds i8, ptr %1, i64 124
   %29 = load float, ptr %RowPosY1.i, align 4
-  %add.i20 = fadd float %29, 0.000000e+00
-  %cmp.i.i21 = fcmp oge float %28, %add.i20
-  %cond.i.i22 = select i1 %cmp.i.i21, float %28, float %add.i20
-  store float %cond.i.i22, ptr %RowPosY2.i19, align 8
-  %InnerWindow.i23 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 56
-  %30 = load ptr, ptr %InnerWindow.i23, align 8
-  %SkipItems.i = getelementptr inbounds %struct.ImGuiWindow, ptr %30, i64 0, i32 38
+  %add.i19 = fadd float %29, 0.000000e+00
+  %cmp.i.i20 = fcmp oge float %28, %add.i19
+  %cond.i.i21 = select i1 %cmp.i.i20, float %28, float %add.i19
+  store float %cond.i.i21, ptr %RowPosY2.i18, align 8
+  %InnerWindow.i22 = getelementptr inbounds i8, ptr %1, i64 392
+  %30 = load ptr, ptr %InnerWindow.i22, align 8
+  %SkipItems.i = getelementptr inbounds i8, ptr %30, i64 195
   store i8 1, ptr %SkipItems.i, align 1
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then2, %_ZN5ImGui12TableEndCellEP10ImGuiTable.exit, %_ZN5ImGui12TableNextRowEif.exit
   %.sink = phi i32 [ 0, %_ZN5ImGui12TableNextRowEif.exit ], [ %22, %_ZN5ImGui12TableEndCellEP10ImGuiTable.exit ], [ 0, %if.then2 ]
   tail call void @_ZN5ImGui14TableBeginCellEP10ImGuiTablei(ptr noundef nonnull %1, i32 noundef %.sink)
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
-  %CurrentColumn10 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 15
+  %Columns = getelementptr inbounds i8, ptr %1, i64 24
+  %CurrentColumn10 = getelementptr inbounds i8, ptr %1, i64 116
   %31 = load i32, ptr %CurrentColumn10, align 4
   %32 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i32 %31 to i64
@@ -9582,13 +9502,13 @@ declare void @_ZN5ImGui51ErrorCheckUsingSetCursorPosToExtendParentBoundariesEv()
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5ImGui33TableUpdateColumnsWeightFromWidthEP10ImGuiTable(ptr nocapture noundef readonly %table) local_unnamed_addr #6 {
 entry:
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %0 = load i32, ptr %ColumnsCount, align 4
   %cmp18 = icmp sgt i32 %0, 0
   br i1 %cmp18, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   %1 = load ptr, ptr %Columns, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -9597,31 +9517,31 @@ for.cond4.preheader:                              ; preds = %for.inc
   br i1 %cmp18, label %for.body7.lr.ph, label %for.end23
 
 for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
-  %Columns9 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns9 = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.body7
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %visible_weight.021 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %visible_weight.1, %for.inc ]
   %visible_width.020 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %visible_width.1, %for.inc ]
-  %IsEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %indvars.iv, i32 26
+  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %indvars.iv
+  %IsEnabled = getelementptr inbounds i8, ptr %add.ptr.i, i64 98
   %2 = load i8, ptr %IsEnabled, align 2
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %indvars.iv
   %4 = load i32, ptr %add.ptr.i, align 4
   %and = and i32 %4, 8
   %tobool1.not = icmp eq i32 %and, 0
   br i1 %tobool1.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %StretchWeight = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %indvars.iv, i32 6
+  %StretchWeight = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %5 = load float, ptr %StretchWeight, align 4
   %add = fadd float %visible_weight.021, %5
-  %WidthRequest = getelementptr inbounds %struct.ImGuiTableColumn, ptr %1, i64 %indvars.iv, i32 4
+  %WidthRequest = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %6 = load float, ptr %WidthRequest, align 4
   %add2 = fadd float %visible_width.020, %6
   br label %for.inc
@@ -9637,25 +9557,25 @@ for.body7:                                        ; preds = %for.body7.lr.ph, %f
   %7 = phi i32 [ %0, %for.body7.lr.ph ], [ %13, %for.inc21 ]
   %indvars.iv26 = phi i64 [ 0, %for.body7.lr.ph ], [ %indvars.iv.next27, %for.inc21 ]
   %8 = load ptr, ptr %Columns9, align 8
-  %IsEnabled11 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %8, i64 %indvars.iv26, i32 26
+  %add.ptr.i17 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %8, i64 %indvars.iv26
+  %IsEnabled11 = getelementptr inbounds i8, ptr %add.ptr.i17, i64 98
   %9 = load i8, ptr %IsEnabled11, align 2
   %10 = and i8 %9, 1
   %tobool12.not = icmp eq i8 %10, 0
   br i1 %tobool12.not, label %for.inc21, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %for.body7
-  %add.ptr.i17 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %8, i64 %indvars.iv26
   %11 = load i32, ptr %add.ptr.i17, align 4
   %and15 = and i32 %11, 8
   %tobool16.not = icmp eq i32 %and15, 0
   br i1 %tobool16.not, label %for.inc21, label %if.end18
 
 if.end18:                                         ; preds = %lor.lhs.false13
-  %WidthRequest19 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %8, i64 %indvars.iv26, i32 4
+  %WidthRequest19 = getelementptr inbounds i8, ptr %add.ptr.i17, i64 16
   %12 = load float, ptr %WidthRequest19, align 4
   %div = fdiv float %12, %visible_width.1
   %mul = fmul float %visible_weight.1, %div
-  %StretchWeight20 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %8, i64 %indvars.iv26, i32 6
+  %StretchWeight20 = getelementptr inbounds i8, ptr %add.ptr.i17, i64 24
   store float %mul, ptr %StretchWeight20, align 4
   %.pre = load i32, ptr %ColumnsCount, align 4
   br label %for.inc21
@@ -9674,36 +9594,36 @@ for.end23:                                        ; preds = %for.inc21, %entry, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5ImGui26TableSetColumnWidthAutoAllEP10ImGuiTable(ptr nocapture noundef readonly %table) local_unnamed_addr #6 {
 entry:
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %0 = load i32, ptr %ColumnsCount, align 4
   %cmp7 = icmp sgt i32 %0, 0
   br i1 %cmp7, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %6, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %Columns, align 8
-  %IsEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %indvars.iv, i32 26
+  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %indvars.iv
+  %IsEnabled = getelementptr inbounds i8, ptr %add.ptr.i, i64 98
   %3 = load i8, ptr %IsEnabled, align 2
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %indvars.iv
   %5 = load i32, ptr %add.ptr.i, align 4
   %and = and i32 %5, 8
   %tobool1.not = icmp eq i32 %and, 0
   br i1 %tobool1.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %for.body
-  %CannotSkipItemsQueue = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %indvars.iv, i32 36
+  %CannotSkipItemsQueue = getelementptr inbounds i8, ptr %add.ptr.i, i64 108
   store i8 1, ptr %CannotSkipItemsQueue, align 4
-  %AutoFitQueue = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %indvars.iv, i32 35
+  %AutoFitQueue = getelementptr inbounds i8, ptr %add.ptr.i, i64 107
   store i8 2, ptr %AutoFitQueue, align 1
   %.pre = load i32, ptr %ColumnsCount, align 4
   br label %for.inc
@@ -9723,41 +9643,41 @@ for.end:                                          ; preds = %for.inc, %entry
 define void @_ZN5ImGui26TablePushBackgroundChannelEv() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %2 = load ptr, ptr %CurrentTable, align 8
-  %ClipRect = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 74
-  %HostBackupInnerClipRect = getelementptr inbounds %struct.ImGuiTable, ptr %2, i64 0, i32 54
+  %ClipRect = getelementptr inbounds i8, ptr %1, i64 584
+  %HostBackupInnerClipRect = getelementptr inbounds i8, ptr %2, i64 368
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %HostBackupInnerClipRect, ptr noundef nonnull align 8 dereferenceable(16) %ClipRect, i64 16, i1 false)
-  %Bg2ClipRectForDrawCmd = getelementptr inbounds %struct.ImGuiTable, ptr %2, i64 0, i32 52
+  %Bg2ClipRectForDrawCmd = getelementptr inbounds i8, ptr %2, i64 336
   %3 = load <4 x float>, ptr %Bg2ClipRectForDrawCmd, align 4
   %retval.sroa.3.8.vec.insert.i.i = shufflevector <4 x float> %3, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %4 = extractelement <4 x float> %3, i64 3
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %3, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %4, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect, ptr noundef nonnull align 4 dereferenceable(16) %Bg2ClipRectForDrawCmd, i64 16, i1 false)
-  %DrawList.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %DrawList.i = getelementptr inbounds i8, ptr %1, i64 680
   %5 = load ptr, ptr %DrawList.i, align 8
-  %_CmdHeader.i = getelementptr inbounds %struct.ImDrawList, ptr %5, i64 0, i32 12
+  %_CmdHeader.i = getelementptr inbounds i8, ptr %5, i64 136
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %_CmdHeader.i, align 8
-  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds %struct.ImDrawList, ptr %5, i64 0, i32 12, i32 0, i32 2
+  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 144
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i, align 8
   %6 = load ptr, ptr %DrawList.i, align 8
-  %_ClipRectStack.i = getelementptr inbounds %struct.ImDrawList, ptr %6, i64 0, i32 9
-  %Data.i = getelementptr inbounds %struct.ImDrawList, ptr %6, i64 0, i32 9, i32 2
+  %_ClipRectStack.i = getelementptr inbounds i8, ptr %6, i64 88
+  %Data.i = getelementptr inbounds i8, ptr %6, i64 96
   %7 = load ptr, ptr %Data.i, align 8
   %8 = load i32, ptr %_ClipRectStack.i, align 8
   %9 = sext i32 %8 to i64
   %10 = getelementptr %struct.ImVec4, ptr %7, i64 %9
-  %arrayidx.i = getelementptr %struct.ImVec4, ptr %10, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %10, i64 -16
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %arrayidx.i, align 4
-  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr %struct.ImVec4, ptr %10, i64 -1, i32 2
+  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr i8, ptr %10, i64 -8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i, align 4
-  %DrawSplitter = getelementptr inbounds %struct.ImGuiTable, ptr %2, i64 0, i32 58
+  %DrawSplitter = getelementptr inbounds i8, ptr %2, i64 416
   %11 = load ptr, ptr %DrawSplitter, align 8
   %12 = load ptr, ptr %DrawList.i, align 8
-  %Bg2DrawChannelCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %2, i64 0, i32 90
+  %Bg2DrawChannelCurrent = getelementptr inbounds i8, ptr %2, i64 562
   %13 = load i16, ptr %Bg2DrawChannelCurrent, align 2
   %conv = zext i16 %13 to i32
   tail call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %12, i32 noundef %conv)
@@ -9768,41 +9688,41 @@ entry:
 define void @_ZN5ImGui25TablePopBackgroundChannelEv() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %2 = load ptr, ptr %CurrentTable, align 8
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %2, i64 0, i32 4
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %2, i64 0, i32 15
+  %Columns = getelementptr inbounds i8, ptr %2, i64 24
+  %CurrentColumn = getelementptr inbounds i8, ptr %2, i64 116
   %3 = load i32, ptr %CurrentColumn, align 4
   %4 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i32 %3 to i64
-  %HostBackupInnerClipRect = getelementptr inbounds %struct.ImGuiTable, ptr %2, i64 0, i32 54
+  %HostBackupInnerClipRect = getelementptr inbounds i8, ptr %2, i64 368
   %5 = load <4 x float>, ptr %HostBackupInnerClipRect, align 4
   %retval.sroa.3.8.vec.insert.i.i = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %6 = extractelement <4 x float> %5, i64 3
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %6, i64 1
-  %ClipRect.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 74
+  %ClipRect.i = getelementptr inbounds i8, ptr %1, i64 584
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull align 4 dereferenceable(16) %HostBackupInnerClipRect, i64 16, i1 false)
-  %DrawList.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %DrawList.i = getelementptr inbounds i8, ptr %1, i64 680
   %7 = load ptr, ptr %DrawList.i, align 8
-  %_CmdHeader.i = getelementptr inbounds %struct.ImDrawList, ptr %7, i64 0, i32 12
+  %_CmdHeader.i = getelementptr inbounds i8, ptr %7, i64 136
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %_CmdHeader.i, align 8
-  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds %struct.ImDrawList, ptr %7, i64 0, i32 12, i32 0, i32 2
+  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 144
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i, align 8
   %8 = load ptr, ptr %DrawList.i, align 8
-  %_ClipRectStack.i = getelementptr inbounds %struct.ImDrawList, ptr %8, i64 0, i32 9
-  %Data.i = getelementptr inbounds %struct.ImDrawList, ptr %8, i64 0, i32 9, i32 2
+  %_ClipRectStack.i = getelementptr inbounds i8, ptr %8, i64 88
+  %Data.i = getelementptr inbounds i8, ptr %8, i64 96
   %9 = load ptr, ptr %Data.i, align 8
   %10 = load i32, ptr %_ClipRectStack.i, align 8
   %11 = sext i32 %10 to i64
   %12 = getelementptr %struct.ImVec4, ptr %9, i64 %11
-  %arrayidx.i = getelementptr %struct.ImVec4, ptr %12, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %12, i64 -16
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %arrayidx.i, align 4
-  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr %struct.ImVec4, ptr %12, i64 -1, i32 2
+  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr i8, ptr %12, i64 -8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i, align 4
-  %DrawSplitter = getelementptr inbounds %struct.ImGuiTable, ptr %2, i64 0, i32 58
+  %DrawSplitter = getelementptr inbounds i8, ptr %2, i64 416
   %13 = load ptr, ptr %DrawSplitter, align 8
   %14 = load ptr, ptr %DrawList.i, align 8
   %DrawChannelCurrent = getelementptr inbounds %struct.ImGuiTableColumn, ptr %4, i64 %idx.ext.i, i32 23
@@ -9820,16 +9740,16 @@ declare void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonnull align
 define noundef ptr @_ZN5ImGui17TableGetSortSpecsEv() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %Flags, align 4
   %and = and i32 %2, 8
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %IsLayoutLocked = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 92
+  %IsLayoutLocked = getelementptr inbounds i8, ptr %1, i64 566
   %3 = load i8, ptr %IsLayoutLocked, align 2
   %4 = and i8 %3, 1
   %tobool1.not = icmp eq i8 %4, 0
@@ -9841,7 +9761,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.then2, %if.end
   tail call void @_ZN5ImGui19TableSortSpecsBuildEP10ImGuiTable(ptr noundef nonnull %1)
-  %SortSpecs = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 64
+  %SortSpecs = getelementptr inbounds i8, ptr %1, i64 496
   br label %return
 
 return:                                           ; preds = %entry, %if.end3
@@ -9852,13 +9772,13 @@ return:                                           ; preds = %entry, %if.end3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn(ptr nocapture noundef writeonly %table, ptr nocapture noundef %column) local_unnamed_addr #9 {
 entry:
-  %SortOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 22
+  %SortOrder = getelementptr inbounds i8, ptr %column, i64 90
   %0 = load i16, ptr %SortOrder, align 2
   %cmp = icmp eq i16 %0, -1
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %SortDirectionsAvailMask = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 37
+  %SortDirectionsAvailMask = getelementptr inbounds i8, ptr %column, i64 109
   %bf.load = load i8, ptr %SortDirectionsAvailMask, align 1
   %bf.lshr = lshr i8 %bf.load, 4
   %conv1 = zext nneg i8 %bf.lshr to i32
@@ -9876,7 +9796,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %bf.clear8 = and i8 %bf.load, -4
   %bf.set = or disjoint i8 %2, %bf.clear8
   store i8 %bf.set, ptr %SortDirectionsAvailMask, align 1
-  %IsSortSpecsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 95
+  %IsSortSpecsDirty = getelementptr inbounds i8, ptr %table, i64 569
   store i8 1, ptr %IsSortSpecsDirty, align 1
   br label %return
 
@@ -9887,13 +9807,13 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN5ImGui31TableGetColumnNextSortDirectionEP16ImGuiTableColumn(ptr nocapture noundef readonly %column) local_unnamed_addr #10 {
 entry:
-  %SortOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 22
+  %SortOrder = getelementptr inbounds i8, ptr %column, i64 90
   %0 = load i16, ptr %SortOrder, align 2
   %cmp = icmp eq i16 %0, -1
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %SortDirection = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 37
+  %SortDirection = getelementptr inbounds i8, ptr %column, i64 109
   %bf.load = load i8, ptr %SortDirection, align 1
   %bf.clear = and i8 %bf.load, 3
   %conv2 = zext nneg i8 %bf.clear to i32
@@ -9943,9 +9863,9 @@ return:                                           ; preds = %for.inc, %if.then5,
 define void @_ZN5ImGui27TableSetColumnSortDirectionEiib(i32 noundef %column_n, i32 noundef %sort_direction, i1 noundef zeroext %append_to_sort_specs) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %Flags, align 4
   %and = and i32 %2, 67108864
   %tobool.not = icmp ne i32 %and, 0
@@ -9953,13 +9873,13 @@ entry:
   br i1 %spec.select, label %for.cond.preheader, label %if.end9
 
 for.cond.preheader:                               ; preds = %entry
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %1, i64 108
   %3 = load i32, ptr %ColumnsCount, align 4
   %cmp30 = icmp sgt i32 %3, 0
   br i1 %cmp30, label %for.body.lr.ph, label %if.end9
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %Columns, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %for.body
@@ -9980,12 +9900,12 @@ if.end9.loopexit:                                 ; preds = %for.body
 
 if.end9:                                          ; preds = %if.end9.loopexit, %for.cond.preheader, %entry
   %conv26 = phi i16 [ 0, %entry ], [ 1, %for.cond.preheader ], [ %6, %if.end9.loopexit ]
-  %Columns10 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %Columns10 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load ptr, ptr %Columns10, align 8
   %idx.ext.i26 = sext i32 %column_n to i64
   %add.ptr.i27 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %7, i64 %idx.ext.i26
   %conv = trunc i32 %sort_direction to i8
-  %SortDirection = getelementptr inbounds %struct.ImGuiTableColumn, ptr %7, i64 %idx.ext.i26, i32 37
+  %SortDirection = getelementptr inbounds i8, ptr %add.ptr.i27, i64 109
   %bf.load = load i8, ptr %SortDirection, align 1
   %bf.value = and i8 %conv, 3
   %bf.clear = and i8 %bf.load, -4
@@ -9993,7 +9913,7 @@ if.end9:                                          ; preds = %if.end9.loopexit, %
   store i8 %bf.set, ptr %SortDirection, align 1
   %conv15 = and i32 %sort_direction, 3
   %cmp16 = icmp eq i32 %conv15, 0
-  %SortOrder18 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %7, i64 %idx.ext.i26, i32 22
+  %SortOrder18 = getelementptr inbounds i8, ptr %add.ptr.i27, i64 90
   br i1 %cmp16, label %if.end29.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.end9
@@ -10008,26 +9928,31 @@ if.end29.sink.split:                              ; preds = %if.else, %if.end9
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end29.sink.split, %if.else
-  %ColumnsCount32 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
+  %ColumnsCount32 = getelementptr inbounds i8, ptr %1, i64 108
   %9 = load i32, ptr %ColumnsCount32, align 4
   %cmp3333 = icmp sgt i32 %9, 0
   br i1 %cmp3333, label %for.body34.lr.ph, label %for.end44
 
 for.body34.lr.ph:                                 ; preds = %if.end29
-  %IsSortSpecsDirty.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 95
-  br i1 %spec.select, label %for.body34.us, label %for.body34
+  %IsSortSpecsDirty.i = getelementptr inbounds i8, ptr %1, i64 569
+  br i1 %spec.select, label %for.body34.us, label %for.body34.preheader
+
+for.body34.preheader:                             ; preds = %for.body34.lr.ph
+  %SortOrder.i.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr.i27, i64 90
+  br label %for.body34
 
 for.body34.us:                                    ; preds = %for.body34.lr.ph, %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit.us
   %10 = phi i32 [ %15, %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit.us ], [ %9, %for.body34.lr.ph ]
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit.us ], [ 0, %for.body34.lr.ph ]
   %11 = load ptr, ptr %Columns10, align 8
-  %SortOrder.i.us = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %indvars.iv39, i32 22
+  %add.ptr.i29.us = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %indvars.iv39
+  %SortOrder.i.us = getelementptr inbounds i8, ptr %add.ptr.i29.us, i64 90
   %12 = load i16, ptr %SortOrder.i.us, align 2
   %cmp.i.us = icmp eq i16 %12, -1
   br i1 %cmp.i.us, label %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit.us, label %lor.lhs.false.i.us
 
 lor.lhs.false.i.us:                               ; preds = %for.body34.us
-  %SortDirectionsAvailMask.i.us = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %indvars.iv39, i32 37
+  %SortDirectionsAvailMask.i.us = getelementptr inbounds i8, ptr %add.ptr.i29.us, i64 109
   %bf.load.i.us = load i8, ptr %SortDirectionsAvailMask.i.us, align 1
   %bf.lshr.i.us = lshr i8 %bf.load.i.us, 4
   %conv1.i.us = zext nneg i8 %bf.lshr.i.us to i32
@@ -10039,7 +9964,7 @@ lor.lhs.false.i.us:                               ; preds = %for.body34.us
   br i1 %cmp4.not.i.us, label %if.end.i.us, label %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit.us
 
 if.end.i.us:                                      ; preds = %lor.lhs.false.i.us
-  %13 = getelementptr %struct.ImGuiTableColumn, ptr %11, i64 %indvars.iv39, i32 38
+  %13 = getelementptr i8, ptr %add.ptr.i29.us, i64 110
   %column.val.i.us = load i8, ptr %13, align 2
   %14 = and i8 %column.val.i.us, 3
   %bf.clear8.i.us = and i8 %bf.load.i.us, -4
@@ -10056,16 +9981,16 @@ _ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit.us:
   %cmp33.us = icmp slt i64 %indvars.iv.next40, %16
   br i1 %cmp33.us, label %for.body34.us, label %for.end44, !llvm.loop !45
 
-for.body34:                                       ; preds = %for.body34.lr.ph, %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit
-  %indvars.iv36 = phi i64 [ %indvars.iv.next37, %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit ], [ 0, %for.body34.lr.ph ]
+for.body34:                                       ; preds = %for.body34.preheader, %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit
+  %indvars.iv36 = phi i64 [ 0, %for.body34.preheader ], [ %indvars.iv.next37, %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit ]
   %17 = load ptr, ptr %Columns10, align 8
   %add.ptr.i29 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %17, i64 %indvars.iv36
   %cmp37.not = icmp eq ptr %add.ptr.i29, %add.ptr.i27
-  %SortOrder.i.phi.trans.insert = getelementptr inbounds %struct.ImGuiTableColumn, ptr %17, i64 %indvars.iv36, i32 22
   br i1 %cmp37.not, label %if.end41, label %if.end41.thread
 
 if.end41.thread:                                  ; preds = %for.body34
-  store i16 -1, ptr %SortOrder.i.phi.trans.insert, align 2
+  %SortOrder40 = getelementptr inbounds i8, ptr %add.ptr.i29, i64 90
+  store i16 -1, ptr %SortOrder40, align 2
   br label %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit
 
 if.end41:                                         ; preds = %for.body34
@@ -10074,7 +9999,7 @@ if.end41:                                         ; preds = %for.body34
   br i1 %cmp.i, label %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end41
-  %SortDirectionsAvailMask.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %17, i64 %indvars.iv36, i32 37
+  %SortDirectionsAvailMask.i = getelementptr inbounds i8, ptr %add.ptr.i29, i64 109
   %bf.load.i = load i8, ptr %SortDirectionsAvailMask.i, align 1
   %bf.lshr.i = lshr i8 %bf.load.i, 4
   %conv1.i = zext nneg i8 %bf.lshr.i to i32
@@ -10103,9 +10028,9 @@ _ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit: ; 
   br i1 %cmp33, label %for.body34, label %for.end44, !llvm.loop !45
 
 for.end44:                                        ; preds = %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit, %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit.us, %if.end29
-  %IsSettingsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 100
+  %IsSettingsDirty = getelementptr inbounds i8, ptr %1, i64 574
   store i8 1, ptr %IsSettingsDirty, align 2
-  %IsSortSpecsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 95
+  %IsSortSpecsDirty = getelementptr inbounds i8, ptr %1, i64 569
   store i8 1, ptr %IsSortSpecsDirty, align 1
   ret void
 }
@@ -10113,13 +10038,13 @@ for.end44:                                        ; preds = %_ZN5ImGui27TableFix
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5ImGui22TableSortSpecsSanitizeEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #6 {
 entry:
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %0 = load i32, ptr %ColumnsCount, align 4
   %cmp63 = icmp sgt i32 %0, 0
   br i1 %cmp63, label %for.body.lr.ph, label %land.lhs.true85
 
 for.body.lr.ph:                                   ; preds = %entry
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -10128,13 +10053,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %sort_order_count.066 = phi i32 [ 0, %for.body.lr.ph ], [ %sort_order_count.1, %if.end ]
   %sort_order_mask.065 = phi i64 [ 0, %for.body.lr.ph ], [ %sort_order_mask.1, %if.end ]
   %2 = load ptr, ptr %Columns, align 8
-  %SortOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %indvars.iv, i32 22
+  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %indvars.iv
+  %SortOrder = getelementptr inbounds i8, ptr %add.ptr.i, i64 90
   %3 = load i16, ptr %SortOrder, align 2
   %cmp1.not = icmp eq i16 %3, -1
   br i1 %cmp1.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %IsEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %2, i64 %indvars.iv, i32 26
+  %IsEnabled = getelementptr inbounds i8, ptr %add.ptr.i, i64 98
   %4 = load i8, ptr %IsEnabled, align 2
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -10170,7 +10096,7 @@ for.end:                                          ; preds = %if.end
   br i1 %cmp14, label %land.end, label %land.end.thread115
 
 land.end:                                         ; preds = %for.end
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %table, i64 4
   %9 = load i32, ptr %Flags, align 4
   %and = and i32 %9, 67108864
   %tobool15.not = icmp eq i32 %and, 0
@@ -10183,11 +10109,11 @@ land.end.thread115:                               ; preds = %for.end
   br i1 %or.cond120, label %for.cond24.preheader.lr.ph.thread, label %if.end83
 
 for.cond24.preheader.lr.ph.thread:                ; preds = %land.end.thread115
-  %Columns33122 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns33122 = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.cond24.preheader.preheader
 
 for.cond24.preheader.lr.ph:                       ; preds = %land.end
-  %Columns33 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns33 = getelementptr inbounds i8, ptr %table, i64 24
   br i1 %tobool15.not, label %for.cond24.preheader.us, label %for.cond24.preheader.preheader
 
 for.cond24.preheader.preheader:                   ; preds = %for.cond24.preheader.lr.ph.thread, %for.cond24.preheader.lr.ph
@@ -10332,7 +10258,7 @@ if.end83:                                         ; preds = %for.end55, %land.en
   br i1 %cmp84, label %land.lhs.true85, label %if.end112
 
 land.lhs.true85:                                  ; preds = %entry, %if.end83
-  %Flags86 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags86 = getelementptr inbounds i8, ptr %table, i64 4
   %27 = load i32, ptr %Flags86, align 4
   %and87 = and i32 %27, 134217728
   %tobool88.not = icmp eq i32 %and87, 0
@@ -10344,33 +10270,33 @@ for.cond91.preheader:                             ; preds = %land.lhs.true85
   br i1 %cmp9375, label %for.body94.lr.ph, label %if.end112
 
 for.body94.lr.ph:                                 ; preds = %for.cond91.preheader
-  %Columns96 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns96 = getelementptr inbounds i8, ptr %table, i64 24
   %29 = load ptr, ptr %Columns96, align 8
   %wide.trip.count89 = zext nneg i32 %28 to i64
   br label %for.body94
 
 for.body94:                                       ; preds = %for.body94.lr.ph, %for.inc109
   %indvars.iv86 = phi i64 [ 0, %for.body94.lr.ph ], [ %indvars.iv.next87, %for.inc109 ]
-  %IsEnabled98 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %29, i64 %indvars.iv86, i32 26
+  %add.ptr.i59 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %29, i64 %indvars.iv86
+  %IsEnabled98 = getelementptr inbounds i8, ptr %add.ptr.i59, i64 98
   %30 = load i8, ptr %IsEnabled98, align 2
   %31 = and i8 %30, 1
   %tobool99.not = icmp eq i8 %31, 0
   br i1 %tobool99.not, label %for.inc109, label %land.lhs.true100
 
 land.lhs.true100:                                 ; preds = %for.body94
-  %add.ptr.i59 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %29, i64 %indvars.iv86
   %32 = load i32, ptr %add.ptr.i59, align 4
   %and102 = and i32 %32, 512
   %tobool103.not = icmp eq i32 %and102, 0
   br i1 %tobool103.not, label %if.then104, label %for.inc109
 
 if.then104:                                       ; preds = %land.lhs.true100
-  %SortOrder105 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %29, i64 %indvars.iv86, i32 22
+  %SortOrder105 = getelementptr inbounds i8, ptr %add.ptr.i59, i64 90
   store i16 0, ptr %SortOrder105, align 2
   %33 = getelementptr i8, ptr %add.ptr.i59, i64 110
   %call97.val = load i8, ptr %33, align 2
   %34 = and i8 %call97.val, 3
-  %SortDirection = getelementptr inbounds %struct.ImGuiTableColumn, ptr %29, i64 %indvars.iv86, i32 37
+  %SortDirection = getelementptr inbounds i8, ptr %add.ptr.i59, i64 109
   %bf.load = load i8, ptr %SortDirection, align 1
   %bf.clear = and i8 %bf.load, -4
   %bf.set = or disjoint i8 %bf.clear, %34
@@ -10385,7 +10311,7 @@ for.inc109:                                       ; preds = %for.body94, %land.l
 if.end112:                                        ; preds = %for.inc109, %for.inc76, %land.end, %for.cond91.preheader, %for.end55.us, %if.then104, %land.lhs.true85, %if.end83
   %sort_order_count.3 = phi i32 [ 0, %land.lhs.true85 ], [ 1, %if.then104 ], [ %sort_order_count.1, %if.end83 ], [ 1, %for.end55.us ], [ 0, %for.cond91.preheader ], [ %sort_order_count.1, %land.end ], [ 1, %for.inc76 ], [ 0, %for.inc109 ]
   %conv113 = trunc i32 %sort_order_count.3 to i16
-  %SortSpecsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 65
+  %SortSpecsCount = getelementptr inbounds i8, ptr %table, i64 512
   store i16 %conv113, ptr %SortSpecsCount, align 8
   ret void
 }
@@ -10394,21 +10320,21 @@ if.end112:                                        ; preds = %for.inc109, %for.in
 define noundef float @_ZN5ImGui23TableGetHeaderRowHeightEv() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
-  %FontSize = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 5
+  %FontSize = getelementptr inbounds i8, ptr %0, i64 15680
   %2 = load float, ptr %FontSize, align 8
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %1, i64 108
   %3 = load i32, ptr %ColumnsCount, align 4
   %cmp13 = icmp sgt i32 %3, 0
   br i1 %cmp13, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %EnabledMaskByIndex = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 8
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
-  %IsLayoutLocked.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 92
-  %DeclColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 68
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 57, i32 0, i32 2
+  %EnabledMaskByIndex = getelementptr inbounds i8, ptr %1, i64 80
+  %Columns = getelementptr inbounds i8, ptr %1, i64 24
+  %IsLayoutLocked.i = getelementptr inbounds i8, ptr %1, i64 566
+  %DeclColumnsCount.i = getelementptr inbounds i8, ptr %1, i64 518
+  %Data.i.i = getelementptr inbounds i8, ptr %1, i64 408
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -10478,7 +10404,7 @@ for.inc:                                          ; preds = %for.body, %_ZN5ImGu
 
 for.end:                                          ; preds = %for.inc, %entry
   %row_height.0.lcssa = phi float [ %2, %entry ], [ %row_height.1, %for.inc ]
-  %y10 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 17, i32 1
+  %y10 = getelementptr inbounds i8, ptr %0, i64 14672
   %18 = load float, ptr %y10, align 4
   %19 = tail call float @llvm.fmuladd.f32(float %18, float 2.000000e+00, float %row_height.0.lcssa)
   ret float %19
@@ -10490,19 +10416,19 @@ declare <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef, ptr noundef, 
 define noundef float @_ZN5ImGui33TableGetHeaderAngledMaxLabelWidthEv() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %1, i64 108
   %2 = load i32, ptr %ColumnsCount, align 4
   %cmp12 = icmp sgt i32 %2, 0
   br i1 %cmp12, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %EnabledMaskByIndex = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 8
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
-  %IsLayoutLocked.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 92
-  %DeclColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 68
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 57, i32 0, i32 2
+  %EnabledMaskByIndex = getelementptr inbounds i8, ptr %1, i64 80
+  %Columns = getelementptr inbounds i8, ptr %1, i64 24
+  %IsLayoutLocked.i = getelementptr inbounds i8, ptr %1, i64 566
+  %DeclColumnsCount.i = getelementptr inbounds i8, ptr %1, i64 518
+  %Data.i.i = getelementptr inbounds i8, ptr %1, i64 408
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -10572,7 +10498,7 @@ for.inc:                                          ; preds = %for.body, %_ZN5ImGu
 
 for.end:                                          ; preds = %for.inc, %entry
   %width.0.lcssa = phi float [ 0.000000e+00, %entry ], [ %width.1, %for.inc ]
-  %CellPadding = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 17
+  %CellPadding = getelementptr inbounds i8, ptr %0, i64 14668
   %17 = load float, ptr %CellPadding, align 4
   %18 = tail call float @llvm.fmuladd.f32(float %17, float 2.000000e+00, float %width.0.lcssa)
   ret float %18
@@ -10582,9 +10508,9 @@ for.end:                                          ; preds = %for.inc, %entry
 define void @_ZN5ImGui15TableHeadersRowEv() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
-  %IsLayoutLocked = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 92
+  %IsLayoutLocked = getelementptr inbounds i8, ptr %1, i64 566
   %2 = load i8, ptr %IsLayoutLocked, align 2
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -10593,26 +10519,26 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef nonnull %1)
   %.pre = load ptr, ptr @GImGui, align 8
-  %CurrentTable.i.phi.trans.insert = getelementptr inbounds %struct.ImGuiContext, ptr %.pre, i64 0, i32 164
+  %CurrentTable.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 19912
   %.pre64 = load ptr, ptr %CurrentTable.i.phi.trans.insert, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %4 = phi ptr [ %.pre64, %if.then ], [ %1, %entry ]
   %5 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
-  %FontSize.i = getelementptr inbounds %struct.ImGuiContext, ptr %5, i64 0, i32 5
+  %FontSize.i = getelementptr inbounds i8, ptr %5, i64 15680
   %6 = load float, ptr %FontSize.i, align 8
-  %ColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 13
+  %ColumnsCount.i = getelementptr inbounds i8, ptr %4, i64 108
   %7 = load i32, ptr %ColumnsCount.i, align 4
   %cmp13.i = icmp sgt i32 %7, 0
   br i1 %cmp13.i, label %for.body.lr.ph.i, label %_ZN5ImGui23TableGetHeaderRowHeightEv.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %EnabledMaskByIndex.i = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 8
-  %Columns.i = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 4
-  %IsLayoutLocked.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 92
-  %DeclColumnsCount.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 68
-  %Data.i.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 57, i32 0, i32 2
+  %EnabledMaskByIndex.i = getelementptr inbounds i8, ptr %4, i64 80
+  %Columns.i = getelementptr inbounds i8, ptr %4, i64 24
+  %IsLayoutLocked.i.i = getelementptr inbounds i8, ptr %4, i64 566
+  %DeclColumnsCount.i.i = getelementptr inbounds i8, ptr %4, i64 518
+  %Data.i.i.i = getelementptr inbounds i8, ptr %4, i64 408
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -10682,7 +10608,7 @@ for.inc.i:                                        ; preds = %_ZN5ImGui18TableGet
 
 _ZN5ImGui23TableGetHeaderRowHeightEv.exit.loopexit: ; preds = %for.inc.i
   %.pre65 = load ptr, ptr @GImGui, align 8
-  %CurrentTable.i14.phi.trans.insert = getelementptr inbounds %struct.ImGuiContext, ptr %.pre65, i64 0, i32 164
+  %CurrentTable.i14.phi.trans.insert = getelementptr inbounds i8, ptr %.pre65, i64 19912
   %.pre66 = load ptr, ptr %CurrentTable.i14.phi.trans.insert, align 8
   br label %_ZN5ImGui23TableGetHeaderRowHeightEv.exit
 
@@ -10690,10 +10616,10 @@ _ZN5ImGui23TableGetHeaderRowHeightEv.exit:        ; preds = %_ZN5ImGui23TableGet
   %22 = phi ptr [ %4, %if.end ], [ %.pre66, %_ZN5ImGui23TableGetHeaderRowHeightEv.exit.loopexit ]
   %23 = phi ptr [ %5, %if.end ], [ %.pre65, %_ZN5ImGui23TableGetHeaderRowHeightEv.exit.loopexit ]
   %row_height.0.lcssa.i = phi float [ %6, %if.end ], [ %row_height.1.i, %_ZN5ImGui23TableGetHeaderRowHeightEv.exit.loopexit ]
-  %y10.i = getelementptr inbounds %struct.ImGuiContext, ptr %5, i64 0, i32 3, i32 17, i32 1
+  %y10.i = getelementptr inbounds i8, ptr %5, i64 14672
   %24 = load float, ptr %y10.i, align 4
   %25 = tail call noundef float @llvm.fmuladd.f32(float %24, float 2.000000e+00, float %row_height.0.lcssa.i)
-  %IsLayoutLocked.i = getelementptr inbounds %struct.ImGuiTable, ptr %22, i64 0, i32 92
+  %IsLayoutLocked.i = getelementptr inbounds i8, ptr %22, i64 566
   %26 = load i8, ptr %IsLayoutLocked.i, align 2
   %27 = and i8 %26, 1
   %tobool.not.i = icmp eq i8 %27, 0
@@ -10704,7 +10630,7 @@ if.then.i17:                                      ; preds = %_ZN5ImGui23TableGet
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i17, %_ZN5ImGui23TableGetHeaderRowHeightEv.exit
-  %IsInsideRow.i = getelementptr inbounds %struct.ImGuiTable, ptr %22, i64 0, i32 93
+  %IsInsideRow.i = getelementptr inbounds i8, ptr %22, i64 567
   %28 = load i8, ptr %IsInsideRow.i, align 1
   %29 = and i8 %28, 1
   %tobool1.not.i = icmp eq i8 %29, 0
@@ -10715,35 +10641,35 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %_ZN5ImGui12TableNextRowEif.exit
 
 _ZN5ImGui12TableNextRowEif.exit:                  ; preds = %if.end.i, %if.then2.i
-  %RowFlags.i = getelementptr inbounds %struct.ImGuiTable, ptr %22, i64 0, i32 24
+  %RowFlags.i = getelementptr inbounds i8, ptr %22, i64 148
   %bf.load.i = load i32, ptr %RowFlags.i, align 4
   %bf.shl.i = shl i32 %bf.load.i, 16
   %bf.set10.i = or disjoint i32 %bf.shl.i, 1
   store i32 %bf.set10.i, ptr %RowFlags.i, align 4
-  %y.i = getelementptr inbounds %struct.ImGuiContext, ptr %23, i64 0, i32 3, i32 17, i32 1
+  %y.i = getelementptr inbounds i8, ptr %23, i64 14672
   %30 = load float, ptr %y.i, align 4
-  %RowCellPaddingY.i = getelementptr inbounds %struct.ImGuiTable, ptr %22, i64 0, i32 21
+  %RowCellPaddingY.i = getelementptr inbounds i8, ptr %22, i64 136
   store float %30, ptr %RowCellPaddingY.i, align 8
-  %RowMinHeight.i = getelementptr inbounds %struct.ImGuiTable, ptr %22, i64 0, i32 20
+  %RowMinHeight.i = getelementptr inbounds i8, ptr %22, i64 132
   store float %25, ptr %RowMinHeight.i, align 4
   tail call void @_ZN5ImGui13TableBeginRowEP10ImGuiTable(ptr noundef nonnull %22)
   %31 = load float, ptr %RowCellPaddingY.i, align 8
-  %RowPosY2.i = getelementptr inbounds %struct.ImGuiTable, ptr %22, i64 0, i32 19
+  %RowPosY2.i = getelementptr inbounds i8, ptr %22, i64 128
   %32 = load float, ptr %RowPosY2.i, align 8
   %33 = tail call float @llvm.fmuladd.f32(float %31, float 2.000000e+00, float %32)
-  %RowPosY1.i = getelementptr inbounds %struct.ImGuiTable, ptr %22, i64 0, i32 18
+  %RowPosY1.i = getelementptr inbounds i8, ptr %22, i64 124
   %34 = load float, ptr %RowPosY1.i, align 4
   %add.i = fadd float %25, %34
   %cmp.i.i15 = fcmp oge float %33, %add.i
   %cond.i.i16 = select i1 %cmp.i.i15, float %33, float %add.i
   store float %cond.i.i16, ptr %RowPosY2.i, align 8
-  %InnerWindow.i = getelementptr inbounds %struct.ImGuiTable, ptr %22, i64 0, i32 56
+  %InnerWindow.i = getelementptr inbounds i8, ptr %22, i64 392
   %35 = load ptr, ptr %InnerWindow.i, align 8
-  %SkipItems.i = getelementptr inbounds %struct.ImGuiWindow, ptr %35, i64 0, i32 38
+  %SkipItems.i = getelementptr inbounds i8, ptr %35, i64 195
   store i8 1, ptr %SkipItems.i, align 1
   %call1 = tail call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   %ref.tmp.sroa.0.4.vec.extract = extractelement <2 x float> %call1, i64 1
-  %HostSkipItems = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 111
+  %HostSkipItems = getelementptr inbounds i8, ptr %1, i64 585
   %36 = load i8, ptr %HostSkipItems, align 1
   %37 = and i8 %36, 1
   %tobool2.not = icmp eq i8 %37, 0
@@ -10751,13 +10677,13 @@ _ZN5ImGui12TableNextRowEif.exit:                  ; preds = %if.end.i, %if.then2
 
 if.end4:                                          ; preds = %_ZN5ImGui12TableNextRowEif.exit
   %38 = load ptr, ptr @GImGui, align 8
-  %CurrentTable.i18 = getelementptr inbounds %struct.ImGuiContext, ptr %38, i64 0, i32 164
+  %CurrentTable.i18 = getelementptr inbounds i8, ptr %38, i64 19912
   %39 = load ptr, ptr %CurrentTable.i18, align 8
   %tobool.not.i19 = icmp eq ptr %39, null
   br i1 %tobool.not.i19, label %for.end, label %_ZN5ImGui19TableGetColumnCountEv.exit
 
 _ZN5ImGui19TableGetColumnCountEv.exit:            ; preds = %if.end4
-  %ColumnsCount.i20 = getelementptr inbounds %struct.ImGuiTable, ptr %39, i64 0, i32 13
+  %ColumnsCount.i20 = getelementptr inbounds i8, ptr %39, i64 108
   %40 = load i32, ptr %ColumnsCount.i20, align 4
   %cmp61 = icmp sgt i32 %40, 0
   br i1 %cmp61, label %for.body.preheader, label %for.end
@@ -10774,20 +10700,20 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.end8:                                          ; preds = %for.body
   %42 = load ptr, ptr @GImGui, align 8
-  %CurrentTable.i21 = getelementptr inbounds %struct.ImGuiContext, ptr %42, i64 0, i32 164
+  %CurrentTable.i21 = getelementptr inbounds i8, ptr %42, i64 19912
   %43 = load ptr, ptr %CurrentTable.i21, align 8
   %tobool.not.i22 = icmp eq ptr %43, null
   br i1 %tobool.not.i22, label %cond.end, label %if.end.i23
 
 if.end.i23:                                       ; preds = %if.end8
-  %ColumnsCount.i24 = getelementptr inbounds %struct.ImGuiTable, ptr %43, i64 0, i32 13
+  %ColumnsCount.i24 = getelementptr inbounds i8, ptr %43, i64 108
   %44 = load i32, ptr %ColumnsCount.i24, align 4
   %45 = zext i32 %44 to i64
   %cmp3.i = icmp eq i64 %indvars.iv, %45
   br i1 %cmp3.i, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %if.end.i23
-  %HoveredColumnBody.i = getelementptr inbounds %struct.ImGuiTable, ptr %43, i64 0, i32 70
+  %HoveredColumnBody.i = getelementptr inbounds i8, ptr %43, i64 522
   %46 = load i16, ptr %HoveredColumnBody.i, align 2
   %conv.i = sext i16 %46 to i64
   %47 = and i64 %conv.i, 4294967295
@@ -10796,7 +10722,7 @@ if.then4.i:                                       ; preds = %if.end.i23
   br label %_ZN5ImGui19TableGetColumnFlagsEi.exit
 
 if.end6.i:                                        ; preds = %if.end.i23
-  %Columns.i25 = getelementptr inbounds %struct.ImGuiTable, ptr %43, i64 0, i32 4
+  %Columns.i25 = getelementptr inbounds i8, ptr %43, i64 24
   %48 = load ptr, ptr %Columns.i25, align 8
   %add.ptr.i.i26 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %48, i64 %indvars.iv
   %49 = load i32, ptr %add.ptr.i.i26, align 4
@@ -10809,21 +10735,21 @@ _ZN5ImGui19TableGetColumnFlagsEi.exit:            ; preds = %if.then4.i, %if.end
   br i1 %tobool10.not, label %if.end.i30, label %cond.end
 
 if.end.i30:                                       ; preds = %_ZN5ImGui19TableGetColumnFlagsEi.exit
-  %IsLayoutLocked.i.i31 = getelementptr inbounds %struct.ImGuiTable, ptr %43, i64 0, i32 92
+  %IsLayoutLocked.i.i31 = getelementptr inbounds i8, ptr %43, i64 566
   %50 = load i8, ptr %IsLayoutLocked.i.i31, align 2
   %51 = and i8 %50, 1
   %cmp.i.i32 = icmp eq i8 %51, 0
   br i1 %cmp.i.i32, label %land.lhs.true.i.i41, label %if.end.i.i33
 
 land.lhs.true.i.i41:                              ; preds = %if.end.i30
-  %DeclColumnsCount.i.i42 = getelementptr inbounds %struct.ImGuiTable, ptr %43, i64 0, i32 68
+  %DeclColumnsCount.i.i42 = getelementptr inbounds i8, ptr %43, i64 518
   %52 = load i16, ptr %DeclColumnsCount.i.i42, align 2
   %53 = sext i16 %52 to i64
   %cmp2.not.i.i43 = icmp slt i64 %indvars.iv, %53
   br i1 %cmp2.not.i.i43, label %if.end.i.i33, label %cond.end
 
 if.end.i.i33:                                     ; preds = %land.lhs.true.i.i41, %if.end.i30
-  %Columns.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %43, i64 0, i32 4
+  %Columns.i.i = getelementptr inbounds i8, ptr %43, i64 24
   %54 = load ptr, ptr %Columns.i.i, align 8
   %NameOffset.i.i34 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %54, i64 %indvars.iv, i32 17
   %55 = load i16, ptr %NameOffset.i.i34, align 4
@@ -10831,7 +10757,7 @@ if.end.i.i33:                                     ; preds = %land.lhs.true.i.i41
   br i1 %cmp4.i.i35, label %cond.end, label %if.end6.i.i36
 
 if.end6.i.i36:                                    ; preds = %if.end.i.i33
-  %Data.i.i.i37 = getelementptr inbounds %struct.ImGuiTable, ptr %43, i64 0, i32 57, i32 0, i32 2
+  %Data.i.i.i37 = getelementptr inbounds i8, ptr %43, i64 408
   %56 = load ptr, ptr %Data.i.i.i37, align 8
   %idxprom.i.i.i38 = sext i16 %55 to i64
   %arrayidx.i.i.i39 = getelementptr inbounds i8, ptr %56, i64 %idxprom.i.i.i38
@@ -10857,13 +10783,13 @@ for.end:                                          ; preds = %for.inc, %if.end4, 
 
 land.lhs.true:                                    ; preds = %for.end
   %57 = load ptr, ptr @GImGui, align 8
-  %CurrentTable.i44 = getelementptr inbounds %struct.ImGuiContext, ptr %57, i64 0, i32 164
+  %CurrentTable.i44 = getelementptr inbounds i8, ptr %57, i64 19912
   %58 = load ptr, ptr %CurrentTable.i44, align 8
   %tobool.not.i45 = icmp eq ptr %58, null
   br i1 %tobool.not.i45, label %_ZN5ImGui21TableGetHoveredColumnEv.exit, label %if.end.i46
 
 if.end.i46:                                       ; preds = %land.lhs.true
-  %HoveredColumnBody.i47 = getelementptr inbounds %struct.ImGuiTable, ptr %58, i64 0, i32 70
+  %HoveredColumnBody.i47 = getelementptr inbounds i8, ptr %58, i64 522
   %59 = load i16, ptr %HoveredColumnBody.i47, align 2
   %conv.i48 = sext i16 %59 to i32
   br label %_ZN5ImGui21TableGetHoveredColumnEv.exit
@@ -10886,31 +10812,31 @@ if.then22:                                        ; preds = %if.then16
   br i1 %cmp.i51, label %land.lhs.true.i, label %if.end.i52
 
 land.lhs.true.i:                                  ; preds = %if.then22
-  %CurrentColumn.i = getelementptr inbounds %struct.ImGuiTable, ptr %58, i64 0, i32 15
+  %CurrentColumn.i = getelementptr inbounds i8, ptr %58, i64 116
   %60 = load i32, ptr %CurrentColumn.i, align 4
   br label %if.end.i52
 
 if.end.i52:                                       ; preds = %land.lhs.true.i, %if.then22
   %column_n.addr.0.i = phi i32 [ %cond.i69, %if.then22 ], [ %60, %land.lhs.true.i ]
-  %Flags.i = getelementptr inbounds %struct.ImGuiTable, ptr %58, i64 0, i32 1
+  %Flags.i = getelementptr inbounds i8, ptr %58, i64 4
   %61 = load i32, ptr %Flags.i, align 4
   %and.i53 = and i32 %61, 7
   %tobool.not.i54 = icmp eq i32 %and.i53, 0
   br i1 %tobool.not.i54, label %if.end24, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i52
-  %ColumnsCount.i55 = getelementptr inbounds %struct.ImGuiTable, ptr %58, i64 0, i32 13
+  %ColumnsCount.i55 = getelementptr inbounds i8, ptr %58, i64 108
   %62 = load i32, ptr %ColumnsCount.i55, align 4
   %cmp3.i56 = icmp eq i32 %column_n.addr.0.i, %62
   %63 = trunc i32 %column_n.addr.0.i to i16
-  %IsContextPopupOpen.i = getelementptr inbounds %struct.ImGuiTable, ptr %58, i64 0, i32 97
+  %IsContextPopupOpen.i = getelementptr inbounds i8, ptr %58, i64 571
   store i8 1, ptr %IsContextPopupOpen.i, align 1
   %conv.i57 = select i1 %cmp3.i56, i16 -1, i16 %63
-  %ContextPopupColumn.i = getelementptr inbounds %struct.ImGuiTable, ptr %58, i64 0, i32 83
+  %ContextPopupColumn.i = getelementptr inbounds i8, ptr %58, i64 548
   store i16 %conv.i57, ptr %ContextPopupColumn.i, align 4
-  %InstanceCurrent.i = getelementptr inbounds %struct.ImGuiTable, ptr %58, i64 0, i32 16
+  %InstanceCurrent.i = getelementptr inbounds i8, ptr %58, i64 120
   %64 = load i16, ptr %InstanceCurrent.i, align 8
-  %InstanceInteracted.i = getelementptr inbounds %struct.ImGuiTable, ptr %58, i64 0, i32 17
+  %InstanceInteracted.i = getelementptr inbounds i8, ptr %58, i64 122
   store i16 %64, ptr %InstanceInteracted.i, align 2
   %65 = load i32, ptr %58, align 8
   %call.i = tail call noundef i32 @_Z9ImHashStrPKcmj(ptr noundef nonnull @.str.6, i64 noundef 0, i32 noundef %65)
@@ -10937,20 +10863,20 @@ entry:
   %held = alloca i8, align 1
   %ref.tmp259 = alloca %struct.ImVec2, align 4
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow, align 8
-  %SkipItems = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 38
+  %SkipItems = getelementptr inbounds i8, ptr %1, i64 195
   %2 = load i8, ptr %SkipItems, align 1
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %if.end283
 
 if.end:                                           ; preds = %entry
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %4 = load ptr, ptr %CurrentTable, align 8
-  %CurrentColumn = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 15
+  %CurrentColumn = getelementptr inbounds i8, ptr %4, i64 116
   %5 = load i32, ptr %CurrentColumn, align 4
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %Columns, align 8
   %idx.ext.i = sext i32 %5 to i64
   %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i
@@ -10959,37 +10885,38 @@ if.end:                                           ; preds = %entry
   %call3 = tail call noundef ptr @_ZN5ImGui19FindRenderedTextEndEPKcS1_(ptr noundef nonnull %spec.store.select, ptr noundef null)
   %call4 = tail call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef nonnull %spec.store.select, ptr noundef %call3, i1 noundef zeroext true, float noundef -1.000000e+00)
   store <2 x float> %call4, ptr %label_size, align 8
-  %DC = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 68
+  %DC = getelementptr inbounds i8, ptr %1, i64 272
   %7 = load i64, ptr %DC, align 8
   store i64 %7, ptr %label_pos, align 8
   %8 = load ptr, ptr %Columns, align 8
-  %MinX.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %8, i64 %idx.ext.i, i32 2
+  %add.ptr.i.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %8, i64 %idx.ext.i
+  %MinX.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %9 = load float, ptr %MinX.i, align 4
-  %MaxX.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %8, i64 %idx.ext.i, i32 3
+  %MaxX.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
   %10 = load float, ptr %MaxX.i, align 4
-  %WorkRect.i = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 48
+  %WorkRect.i = getelementptr inbounds i8, ptr %4, i64 272
   %11 = load float, ptr %WorkRect.i, align 8
   %cmp.i.i = fcmp oge float %9, %11
   %cond.i.i = select i1 %cmp.i.i, float %9, float %11
-  %Max.i = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 48, i32 1
+  %Max.i = getelementptr inbounds i8, ptr %4, i64 280
   %12 = load float, ptr %Max.i, align 8
   %cmp.i8.i = fcmp olt float %10, %12
   %cond.i9.i = select i1 %cmp.i8.i, float %10, float %12
-  %RowPosY1.i = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 18
+  %RowPosY1.i = getelementptr inbounds i8, ptr %4, i64 124
   %13 = load float, ptr %RowPosY1.i, align 4
-  %RowPosY2.i = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 19
+  %RowPosY2.i = getelementptr inbounds i8, ptr %4, i64 128
   %14 = load float, ptr %RowPosY2.i, align 8
   %15 = extractelement <2 x float> %call4, i64 1
-  %RowMinHeight = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 20
+  %RowMinHeight = getelementptr inbounds i8, ptr %4, i64 132
   %16 = load float, ptr %RowMinHeight, align 4
-  %RowCellPaddingY = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 21
+  %RowCellPaddingY = getelementptr inbounds i8, ptr %4, i64 136
   %17 = load float, ptr %RowCellPaddingY, align 8
   %neg = fneg float %17
   %18 = tail call float @llvm.fmuladd.f32(float %neg, float 2.000000e+00, float %16)
   %cmp.i = fcmp oge float %15, %18
   %cond.i = select i1 %cmp.i, float %15, float %18
   store i32 0, ptr %sort_order_suf, align 4
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %4, i64 4
   %19 = load i32, ptr %Flags, align 4
   %and = and i32 %19, 8
   %tobool7.not = icmp eq i32 %and, 0
@@ -11008,14 +10935,14 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool10.not, label %if.then11, label %if.end30
 
 if.then11:                                        ; preds = %land.lhs.true
-  %FontSize = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 5
+  %FontSize = getelementptr inbounds i8, ptr %0, i64 15680
   %27 = load float, ptr %FontSize, align 8
-  %FramePadding = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 12
+  %FramePadding = getelementptr inbounds i8, ptr %0, i64 14636
   %28 = load float, ptr %FramePadding, align 4
   %29 = tail call float @llvm.fmuladd.f32(float %27, float 0x3FE4CCCCC0000000, float %28)
   %conv.i = fptosi float %29 to i32
   %conv1.i = sitofp i32 %conv.i to float
-  %SortOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i, i32 22
+  %SortOrder = getelementptr inbounds i8, ptr %add.ptr.i, i64 90
   %30 = load i16, ptr %SortOrder, align 2
   %cmp13.not = icmp ne i16 %30, -1
   %cmp18 = icmp sgt i16 %30, 0
@@ -11025,7 +10952,7 @@ if.then19:                                        ; preds = %if.then11
   %narrow = add nuw i16 %30, 1
   %add = zext i16 %narrow to i32
   %call22 = call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %sort_order_suf, i64 noundef 4, ptr noundef nonnull @.str.3, i32 noundef %add)
-  %ItemInnerSpacing = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 16
+  %ItemInnerSpacing = getelementptr inbounds i8, ptr %0, i64 14660
   %31 = load float, ptr %ItemInnerSpacing, align 4
   %call26 = call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef nonnull %sort_order_suf, ptr noundef null, i1 noundef zeroext false, float noundef -1.000000e+00)
   %ref.tmp.sroa.0.0.vec.extract = extractelement <2 x float> %call26, i64 0
@@ -11039,7 +10966,7 @@ if.end30:                                         ; preds = %if.then11, %if.then
   %add33 = fadd float %22, %21
   %add34 = fadd float %w_sort_text.0, %add33
   %add35 = fadd float %w_arrow.0, %add34
-  %ContentMaxXHeadersUsed = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i, i32 15
+  %ContentMaxXHeadersUsed = getelementptr inbounds i8, ptr %add.ptr.i, i64 72
   %cmp.i117 = fcmp uge float %add35, %cond.i9.i
   %.not = select i1 %sort_arrow.1.shrunk, i1 true, i1 %cmp.i117
   %cond = select i1 %.not, float %cond.i9.i, float %add35
@@ -11051,27 +10978,27 @@ if.end30:                                         ; preds = %if.then11, %if.then
   store <2 x float> %36, ptr %ContentMaxXHeadersUsed, align 4
   %call45 = call noundef i32 @_ZN11ImGuiWindow5GetIDEPKcS1_(ptr noundef nonnull align 8 dereferenceable(1013) %1, ptr noundef nonnull %spec.store.select, ptr noundef null)
   %add55 = fadd float %13, %cond.i
-  %y57 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 17, i32 1
+  %y57 = getelementptr inbounds i8, ptr %0, i64 14672
   %37 = load float, ptr %y57, align 4
   %38 = call float @llvm.fmuladd.f32(float %37, float 2.000000e+00, float %add55)
   %cmp.i123 = fcmp oge float %14, %38
   %cond.i124 = select i1 %cmp.i123, float %14, float %38
   store float %cond.i.i, ptr %bb, align 4
-  %y.i.i = getelementptr inbounds %struct.ImVec2, ptr %bb, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %bb, i64 4
   store float %13, ptr %y.i.i, align 4
-  %Max.i125 = getelementptr inbounds %struct.ImRect, ptr %bb, i64 0, i32 1
+  %Max.i125 = getelementptr inbounds i8, ptr %bb, i64 8
   store float %cond.i9.i, ptr %Max.i125, align 4
-  %y.i1.i = getelementptr inbounds %struct.ImRect, ptr %bb, i64 0, i32 1, i32 1
+  %y.i1.i = getelementptr inbounds i8, ptr %bb, i64 12
   store float %cond.i124, ptr %y.i1.i, align 4
   store float 0.000000e+00, ptr %ref.tmp59, align 4
-  %y.i = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp59, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp59, i64 4
   store float %cond.i, ptr %y.i, align 4
   call void @_ZN5ImGui8ItemSizeERK6ImVec2f(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp59, float noundef -1.000000e+00)
   %call60 = call noundef zeroext i1 @_ZN5ImGui7ItemAddERK6ImRectjPS1_i(ptr noundef nonnull align 4 dereferenceable(16) %bb, i32 noundef %call45, ptr noundef null, i32 noundef 0)
   br i1 %call60, label %if.end62, label %if.end283
 
 if.end62:                                         ; preds = %if.end30
-  %HighlightColumnHeader = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 72
+  %HighlightColumnHeader = getelementptr inbounds i8, ptr %4, i64 526
   %39 = load i16, ptr %HighlightColumnHeader, align 2
   %call65 = call noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr noundef nonnull align 4 dereferenceable(16) %bb, i32 noundef %call45, ptr noundef nonnull %hovered, ptr noundef nonnull %held, i32 noundef 4096)
   %40 = load i8, ptr %held, align 1
@@ -11099,13 +11026,13 @@ if.then71:                                        ; preds = %if.end62.if.then71_
   %cond78 = select i1 %tobool67.not, i32 %cond76, i32 26
   %call79 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %cond78, float noundef 1.000000e+00)
   %43 = load ptr, ptr @GImGui, align 8
-  %CurrentTable.i = getelementptr inbounds %struct.ImGuiContext, ptr %43, i64 0, i32 164
+  %CurrentTable.i = getelementptr inbounds i8, ptr %43, i64 19912
   %44 = load ptr, ptr %CurrentTable.i, align 8
   %cmp.i126 = icmp eq i32 %call79, 16777216
   %spec.store.select.i = select i1 %cmp.i126, i32 0, i32 %call79
-  %RowPosY1.i127 = getelementptr inbounds %struct.ImGuiTable, ptr %44, i64 0, i32 18
+  %RowPosY1.i127 = getelementptr inbounds i8, ptr %44, i64 124
   %45 = load float, ptr %RowPosY1.i127, align 4
-  %y.i128 = getelementptr inbounds %struct.ImGuiTable, ptr %44, i64 0, i32 49, i32 1, i32 1
+  %y.i128 = getelementptr inbounds i8, ptr %44, i64 300
   %46 = load float, ptr %y.i128, align 4
   %cmp1.i = fcmp ogt float %45, %46
   br i1 %cmp1.i, label %if.end87, label %if.end3.i
@@ -11116,13 +11043,13 @@ if.end3.i:                                        ; preds = %if.then71
   br i1 %cmp4.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %CurrentColumn.i = getelementptr inbounds %struct.ImGuiTable, ptr %44, i64 0, i32 15
+  %CurrentColumn.i = getelementptr inbounds i8, ptr %44, i64 116
   %48 = load i32, ptr %CurrentColumn.i, align 4
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.end3.i
   %column_n.addr.0.i = phi i32 [ %48, %if.then5.i ], [ %47, %if.end3.i ]
-  %VisibleMaskByIndex.i = getelementptr inbounds %struct.ImGuiTable, ptr %44, i64 0, i32 9
+  %VisibleMaskByIndex.i = getelementptr inbounds i8, ptr %44, i64 88
   %49 = load ptr, ptr %VisibleMaskByIndex.i, align 8
   %shr.i = ashr i32 %column_n.addr.0.i, 5
   %idxprom.i = sext i32 %shr.i to i64
@@ -11135,10 +11062,10 @@ if.end6.i:                                        ; preds = %if.then5.i, %if.end
   br i1 %cmp8.not.i, label %if.end87, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %RowCellDataCurrent.i = getelementptr inbounds %struct.ImGuiTable, ptr %44, i64 0, i32 88
+  %RowCellDataCurrent.i = getelementptr inbounds i8, ptr %44, i64 558
   %51 = load i16, ptr %RowCellDataCurrent.i, align 2
   %cmp11.i = icmp slt i16 %51, 0
-  %RowCellData19.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds %struct.ImGuiTable, ptr %44, i64 0, i32 6
+  %RowCellData19.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %44, i64 56
   %.pre.pre.i = load ptr, ptr %RowCellData19.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %cmp11.i, label %if.then16.i, label %lor.lhs.false.i
 
@@ -11160,13 +11087,10 @@ if.end18.i:                                       ; preds = %if.then16.i, %lor.l
   %idx.ext.i21.i = sext i16 %53 to i64
   %add.ptr.i22.i = getelementptr inbounds %struct.ImGuiTableCellData, ptr %.pre.pre.i, i64 %idx.ext.i21.i
   store i32 %spec.store.select.i, ptr %add.ptr.i22.i, align 4
-  %conv23.i = trunc i32 %column_n.addr.0.i to i16
-  %Column24.i = getelementptr inbounds %struct.ImGuiTableCellData, ptr %.pre.pre.i, i64 %idx.ext.i21.i, i32 1
-  store i16 %conv23.i, ptr %Column24.i, align 4
-  br label %if.end87
+  br label %if.end87.sink.split
 
 if.else:                                          ; preds = %lor.lhs.false
-  %RowFlags = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 24
+  %RowFlags = getelementptr inbounds i8, ptr %4, i64 148
   %bf.load = load i32, ptr %RowFlags, align 4
   %and81 = and i32 %bf.load, 1
   %cmp82 = icmp eq i32 %and81, 0
@@ -11175,13 +11099,13 @@ if.else:                                          ; preds = %lor.lhs.false
 if.then83:                                        ; preds = %if.else
   %call84 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 42, float noundef 1.000000e+00)
   %54 = load ptr, ptr @GImGui, align 8
-  %CurrentTable.i130 = getelementptr inbounds %struct.ImGuiContext, ptr %54, i64 0, i32 164
+  %CurrentTable.i130 = getelementptr inbounds i8, ptr %54, i64 19912
   %55 = load ptr, ptr %CurrentTable.i130, align 8
   %cmp.i131 = icmp eq i32 %call84, 16777216
   %spec.store.select.i132 = select i1 %cmp.i131, i32 0, i32 %call84
-  %RowPosY1.i133 = getelementptr inbounds %struct.ImGuiTable, ptr %55, i64 0, i32 18
+  %RowPosY1.i133 = getelementptr inbounds i8, ptr %55, i64 124
   %56 = load float, ptr %RowPosY1.i133, align 4
-  %y.i134 = getelementptr inbounds %struct.ImGuiTable, ptr %55, i64 0, i32 49, i32 1, i32 1
+  %y.i134 = getelementptr inbounds i8, ptr %55, i64 300
   %57 = load float, ptr %y.i134, align 4
   %cmp1.i135 = fcmp ogt float %56, %57
   br i1 %cmp1.i135, label %if.end87, label %if.end3.i136
@@ -11192,13 +11116,13 @@ if.end3.i136:                                     ; preds = %if.then83
   br i1 %cmp4.i137, label %if.then5.i165, label %if.end6.i138
 
 if.then5.i165:                                    ; preds = %if.end3.i136
-  %CurrentColumn.i166 = getelementptr inbounds %struct.ImGuiTable, ptr %55, i64 0, i32 15
+  %CurrentColumn.i166 = getelementptr inbounds i8, ptr %55, i64 116
   %59 = load i32, ptr %CurrentColumn.i166, align 4
   br label %if.end6.i138
 
 if.end6.i138:                                     ; preds = %if.then5.i165, %if.end3.i136
   %column_n.addr.0.i139 = phi i32 [ %59, %if.then5.i165 ], [ %58, %if.end3.i136 ]
-  %VisibleMaskByIndex.i140 = getelementptr inbounds %struct.ImGuiTable, ptr %55, i64 0, i32 9
+  %VisibleMaskByIndex.i140 = getelementptr inbounds i8, ptr %55, i64 88
   %60 = load ptr, ptr %VisibleMaskByIndex.i140, align 8
   %shr.i141 = ashr i32 %column_n.addr.0.i139, 5
   %idxprom.i142 = sext i32 %shr.i141 to i64
@@ -11211,10 +11135,10 @@ if.end6.i138:                                     ; preds = %if.then5.i165, %if.
   br i1 %cmp8.not.i147, label %if.end87, label %if.end10.i148
 
 if.end10.i148:                                    ; preds = %if.end6.i138
-  %RowCellDataCurrent.i149 = getelementptr inbounds %struct.ImGuiTable, ptr %55, i64 0, i32 88
+  %RowCellDataCurrent.i149 = getelementptr inbounds i8, ptr %55, i64 558
   %62 = load i16, ptr %RowCellDataCurrent.i149, align 2
   %cmp11.i150 = icmp slt i16 %62, 0
-  %RowCellData19.phi.trans.insert.phi.trans.insert.i151 = getelementptr inbounds %struct.ImGuiTable, ptr %55, i64 0, i32 6
+  %RowCellData19.phi.trans.insert.phi.trans.insert.i151 = getelementptr inbounds i8, ptr %55, i64 56
   %.pre.pre.i152 = load ptr, ptr %RowCellData19.phi.trans.insert.phi.trans.insert.i151, align 8
   br i1 %cmp11.i150, label %if.then16.i158, label %lor.lhs.false.i153
 
@@ -11236,12 +11160,17 @@ if.end18.i160:                                    ; preds = %if.then16.i158, %lo
   %idx.ext.i21.i161 = sext i16 %64 to i64
   %add.ptr.i22.i162 = getelementptr inbounds %struct.ImGuiTableCellData, ptr %.pre.pre.i152, i64 %idx.ext.i21.i161
   store i32 %spec.store.select.i132, ptr %add.ptr.i22.i162, align 4
-  %conv23.i163 = trunc i32 %column_n.addr.0.i139 to i16
-  %Column24.i164 = getelementptr inbounds %struct.ImGuiTableCellData, ptr %.pre.pre.i152, i64 %idx.ext.i21.i161, i32 1
+  br label %if.end87.sink.split
+
+if.end87.sink.split:                              ; preds = %if.end18.i, %if.end18.i160
+  %column_n.addr.0.i139.sink = phi i32 [ %column_n.addr.0.i139, %if.end18.i160 ], [ %column_n.addr.0.i, %if.end18.i ]
+  %add.ptr.i22.i162.sink = phi ptr [ %add.ptr.i22.i162, %if.end18.i160 ], [ %add.ptr.i22.i, %if.end18.i ]
+  %conv23.i163 = trunc i32 %column_n.addr.0.i139.sink to i16
+  %Column24.i164 = getelementptr inbounds i8, ptr %add.ptr.i22.i162.sink, i64 4
   store i16 %conv23.i163, ptr %Column24.i164, align 4
   br label %if.end87
 
-if.end87:                                         ; preds = %if.end18.i160, %if.end6.i138, %if.then83, %if.end18.i, %if.end6.i, %if.then71, %if.else
+if.end87:                                         ; preds = %if.end87.sink.split, %if.end6.i138, %if.then83, %if.end6.i, %if.then71, %if.else
   call void @_ZN5ImGui18RenderNavHighlightERK6ImRectji(ptr noundef nonnull align 4 dereferenceable(16) %bb, i32 noundef %call45, i32 noundef 10)
   %65 = load i8, ptr %held, align 1
   %66 = and i8 %65, 1
@@ -11249,9 +11178,9 @@ if.end87:                                         ; preds = %if.end18.i160, %if.
   br i1 %tobool88.not, label %if.end91.thread, label %land.lhs.true99
 
 if.end91.thread:                                  ; preds = %if.end87
-  %y93187 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 15, i32 1
+  %y93187 = getelementptr inbounds i8, ptr %0, i64 14656
   %67 = load float, ptr %y93187, align 4
-  %y96188 = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 68, i32 0, i32 1
+  %y96188 = getelementptr inbounds i8, ptr %1, i64 276
   %68 = load float, ptr %y96188, align 4
   %neg97189 = fneg float %67
   %69 = call float @llvm.fmuladd.f32(float %neg97189, float 5.000000e-01, float %68)
@@ -11260,11 +11189,11 @@ if.end91.thread:                                  ; preds = %if.end87
 
 land.lhs.true99:                                  ; preds = %if.end87
   %conv90 = trunc i32 %5 to i16
-  %HeldHeaderColumn = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 76
+  %HeldHeaderColumn = getelementptr inbounds i8, ptr %4, i64 534
   store i16 %conv90, ptr %HeldHeaderColumn, align 2
-  %y93 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 15, i32 1
+  %y93 = getelementptr inbounds i8, ptr %0, i64 14656
   %70 = load float, ptr %y93, align 4
-  %y96 = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 68, i32 0, i32 1
+  %y96 = getelementptr inbounds i8, ptr %1, i64 276
   %71 = load float, ptr %y96, align 4
   %neg97 = fneg float %70
   %72 = call float @llvm.fmuladd.f32(float %neg97, float 5.000000e-01, float %71)
@@ -11279,32 +11208,32 @@ land.lhs.true103:                                 ; preds = %land.lhs.true99
   br i1 %call104, label %land.lhs.true105, label %if.end200
 
 land.lhs.true105:                                 ; preds = %land.lhs.true103
-  %DragDropActive = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 144
+  %DragDropActive = getelementptr inbounds i8, ptr %0, i64 19712
   %74 = load i8, ptr %DragDropActive, align 8
   %75 = and i8 %74, 1
   %tobool106.not = icmp eq i8 %75, 0
   br i1 %tobool106.not, label %if.then107, label %if.end200
 
 if.then107:                                       ; preds = %land.lhs.true105
-  %ReorderColumn = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 77
+  %ReorderColumn = getelementptr inbounds i8, ptr %4, i64 536
   store i16 %conv90, ptr %ReorderColumn, align 8
-  %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 16
+  %InstanceCurrent = getelementptr inbounds i8, ptr %4, i64 120
   %76 = load i16, ptr %InstanceCurrent, align 8
-  %InstanceInteracted = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 17
+  %InstanceInteracted = getelementptr inbounds i8, ptr %4, i64 122
   store i16 %76, ptr %InstanceInteracted, align 2
-  %MouseDelta = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 2, i32 53
+  %MouseDelta = getelementptr inbounds i8, ptr %0, i64 232
   %77 = load float, ptr %MouseDelta, align 8
   %cmp110 = fcmp olt float %77, 0.000000e+00
   br i1 %cmp110, label %land.lhs.true111, label %if.end150
 
 land.lhs.true111:                                 ; preds = %if.then107
-  %MousePos = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 2, i32 59
+  %MousePos = getelementptr inbounds i8, ptr %0, i64 3656
   %78 = load float, ptr %MousePos, align 8
   %cmp116 = fcmp olt float %78, %cond.i.i
   br i1 %cmp116, label %if.then117, label %if.end150
 
 if.then117:                                       ; preds = %land.lhs.true111
-  %PrevEnabledColumn = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i, i32 20
+  %PrevEnabledColumn = getelementptr inbounds i8, ptr %add.ptr.i, i64 86
   %79 = load i16, ptr %PrevEnabledColumn, align 2
   %cmp119.not = icmp eq i16 %79, -1
   br i1 %cmp119.not, label %if.end150, label %cond.end126
@@ -11312,11 +11241,11 @@ if.then117:                                       ; preds = %land.lhs.true111
 cond.end126:                                      ; preds = %if.then117
   %80 = load ptr, ptr %Columns, align 8
   %idx.ext.i168 = sext i16 %79 to i64
+  %add.ptr.i169 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %80, i64 %idx.ext.i168
   %tobool128.not = icmp eq ptr %80, null
   br i1 %tobool128.not, label %if.end150, label %if.then129
 
 if.then129:                                       ; preds = %cond.end126
-  %add.ptr.i169 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %80, i64 %idx.ext.i168
   %81 = load i32, ptr %add.ptr.i, align 4
   %82 = load i32, ptr %add.ptr.i169, align 4
   %or = or i32 %82, %81
@@ -11325,19 +11254,19 @@ if.then129:                                       ; preds = %cond.end126
   br i1 %tobool133.not, label %if.then134, label %if.end150
 
 if.then134:                                       ; preds = %if.then129
-  %IndexWithinEnabledSet = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i, i32 19
+  %IndexWithinEnabledSet = getelementptr inbounds i8, ptr %add.ptr.i, i64 84
   %83 = load i16, ptr %IndexWithinEnabledSet, align 4
-  %FreezeColumnsRequest = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 86
+  %FreezeColumnsRequest = getelementptr inbounds i8, ptr %4, i64 554
   %84 = load i16, ptr %FreezeColumnsRequest, align 2
   %cmp137 = icmp slt i16 %83, %84
-  %IndexWithinEnabledSet139 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %80, i64 %idx.ext.i168, i32 19
+  %IndexWithinEnabledSet139 = getelementptr inbounds i8, ptr %add.ptr.i169, i64 84
   %85 = load i16, ptr %IndexWithinEnabledSet139, align 4
   %86 = icmp sge i16 %85, %84
   %cmp145 = xor i1 %cmp137, %86
   br i1 %cmp145, label %if.then146, label %if.end150
 
 if.then146:                                       ; preds = %if.then134
-  %ReorderColumnDir = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 78
+  %ReorderColumnDir = getelementptr inbounds i8, ptr %4, i64 538
   store i16 -1, ptr %ReorderColumnDir, align 2
   %.pr.pre = load float, ptr %MouseDelta, align 8
   br label %if.end150
@@ -11348,13 +11277,13 @@ if.end150:                                        ; preds = %cond.end126, %if.th
   br i1 %cmp154, label %land.lhs.true155, label %if.end200
 
 land.lhs.true155:                                 ; preds = %if.end150
-  %MousePos157 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 2, i32 59
+  %MousePos157 = getelementptr inbounds i8, ptr %0, i64 3656
   %88 = load float, ptr %MousePos157, align 8
   %cmp161 = fcmp ogt float %88, %cond.i9.i
   br i1 %cmp161, label %if.then162, label %if.end200
 
 if.then162:                                       ; preds = %land.lhs.true155
-  %NextEnabledColumn = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i, i32 21
+  %NextEnabledColumn = getelementptr inbounds i8, ptr %add.ptr.i, i64 88
   %89 = load i16, ptr %NextEnabledColumn, align 4
   %cmp164.not = icmp eq i16 %89, -1
   br i1 %cmp164.not, label %if.end200, label %cond.end171
@@ -11362,11 +11291,11 @@ if.then162:                                       ; preds = %land.lhs.true155
 cond.end171:                                      ; preds = %if.then162
   %90 = load ptr, ptr %Columns, align 8
   %idx.ext.i170 = sext i16 %89 to i64
+  %add.ptr.i171 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %90, i64 %idx.ext.i170
   %tobool173.not = icmp eq ptr %90, null
   br i1 %tobool173.not, label %if.end200, label %if.then174
 
 if.then174:                                       ; preds = %cond.end171
-  %add.ptr.i171 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %90, i64 %idx.ext.i170
   %91 = load i32, ptr %add.ptr.i, align 4
   %92 = load i32, ptr %add.ptr.i171, align 4
   %or177 = or i32 %92, %91
@@ -11375,19 +11304,19 @@ if.then174:                                       ; preds = %cond.end171
   br i1 %tobool179.not, label %if.then180, label %if.end200
 
 if.then180:                                       ; preds = %if.then174
-  %IndexWithinEnabledSet181 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i, i32 19
+  %IndexWithinEnabledSet181 = getelementptr inbounds i8, ptr %add.ptr.i, i64 84
   %93 = load i16, ptr %IndexWithinEnabledSet181, align 4
-  %FreezeColumnsRequest183 = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 86
+  %FreezeColumnsRequest183 = getelementptr inbounds i8, ptr %4, i64 554
   %94 = load i16, ptr %FreezeColumnsRequest183, align 2
   %cmp185 = icmp slt i16 %93, %94
-  %IndexWithinEnabledSet187 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %90, i64 %idx.ext.i170, i32 19
+  %IndexWithinEnabledSet187 = getelementptr inbounds i8, ptr %add.ptr.i171, i64 84
   %95 = load i16, ptr %IndexWithinEnabledSet187, align 4
   %96 = icmp sge i16 %95, %94
   %cmp193 = xor i1 %cmp185, %96
   br i1 %cmp193, label %if.then194, label %if.end200
 
 if.then194:                                       ; preds = %if.then180
-  %ReorderColumnDir195 = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 78
+  %ReorderColumnDir195 = getelementptr inbounds i8, ptr %4, i64 538
   store i16 1, ptr %ReorderColumnDir195, align 2
   br label %if.end200
 
@@ -11408,7 +11337,7 @@ land.lhs.true209:                                 ; preds = %if.end200
   br i1 %tobool212.not, label %if.then213, label %if.end257
 
 if.then213:                                       ; preds = %land.lhs.true209
-  %SortOrder214 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i, i32 22
+  %SortOrder214 = getelementptr inbounds i8, ptr %add.ptr.i, i64 90
   %99 = load i16, ptr %SortOrder214, align 2
   %cmp216.not = icmp eq i16 %99, -1
   br i1 %cmp216.not, label %if.end246, label %if.then217
@@ -11422,7 +11351,7 @@ if.then217:                                       ; preds = %if.then213
 if.then231:                                       ; preds = %if.then217
   %call232 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 0, float noundef 0x3FE6666660000000)
   call void @_ZN5ImGui14PushStyleColorEij(i32 noundef 0, i32 noundef %call232)
-  %ItemInnerSpacing234 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 16
+  %ItemInnerSpacing234 = getelementptr inbounds i8, ptr %0, i64 14660
   %100 = load float, ptr %ItemInnerSpacing234, align 4
   %add236 = fadd float %cond.i175, %100
   %agg.tmp.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add236, i64 0
@@ -11434,12 +11363,12 @@ if.then231:                                       ; preds = %if.then217
 
 if.end239:                                        ; preds = %if.then231, %if.then217
   %x218.0 = phi float [ %add238, %if.then231 ], [ %cond.i175, %if.then217 ]
-  %DrawList = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %DrawList = getelementptr inbounds i8, ptr %1, i64 680
   %101 = load ptr, ptr %DrawList, align 8
   %agg.tmp240.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %x218.0, i64 0
   %agg.tmp240.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp240.sroa.0.0.vec.insert, float %25, i64 1
   %call241 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 0, float noundef 1.000000e+00)
-  %SortDirection = getelementptr inbounds %struct.ImGuiTableColumn, ptr %6, i64 %idx.ext.i, i32 37
+  %SortDirection = getelementptr inbounds i8, ptr %add.ptr.i, i64 109
   %bf.load242 = load i8, ptr %SortDirection, align 1
   %bf.clear = and i8 %bf.load242, 3
   %cmp244 = icmp eq i8 %bf.clear, 1
@@ -11451,7 +11380,7 @@ if.end246:                                        ; preds = %if.end239, %if.then
   br i1 %call65, label %land.lhs.true248, label %if.end257
 
 land.lhs.true248:                                 ; preds = %if.end246
-  %ReorderColumn249 = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 0, i32 77
+  %ReorderColumn249 = getelementptr inbounds i8, ptr %4, i64 536
   %102 = load i16, ptr %ReorderColumn249, align 8
   %conv250 = sext i16 %102 to i32
   %cmp251.not = icmp eq i32 %5, %conv250
@@ -11459,7 +11388,7 @@ land.lhs.true248:                                 ; preds = %if.end246
 
 if.then252:                                       ; preds = %land.lhs.true248
   %call253 = call noundef i32 @_ZN5ImGui31TableGetColumnNextSortDirectionEP16ImGuiTableColumn(ptr noundef nonnull %add.ptr.i), !range !54
-  %KeyShift = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 2, i32 65
+  %KeyShift = getelementptr inbounds i8, ptr %0, i64 3685
   %103 = load i8, ptr %KeyShift, align 1
   %104 = and i8 %103, 1
   %tobool255 = icmp ne i8 %104, 0
@@ -11467,14 +11396,14 @@ if.then252:                                       ; preds = %land.lhs.true248
   br label %if.end257
 
 if.end257:                                        ; preds = %if.end246, %land.lhs.true248, %if.then252, %land.lhs.true209, %if.end200
-  %DrawList258 = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %DrawList258 = getelementptr inbounds i8, ptr %1, i64 680
   %105 = load ptr, ptr %DrawList258, align 8
   %add261 = fadd float %cond.i, %25
-  %y264 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 12, i32 1
+  %y264 = getelementptr inbounds i8, ptr %0, i64 14640
   %106 = load float, ptr %y264, align 4
   %add265 = fadd float %add261, %106
   store float %cond.i173, ptr %ref.tmp259, align 4
-  %y.i178 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp259, i64 0, i32 1
+  %y.i178 = getelementptr inbounds i8, ptr %ref.tmp259, i64 4
   store float %add265, ptr %y.i178, align 4
   call void @_ZN5ImGui18RenderTextEllipsisEP10ImDrawListRK6ImVec2S4_ffPKcS6_PS3_(ptr noundef %105, ptr noundef nonnull align 4 dereferenceable(8) %label_pos, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp259, float noundef %cond.i173, float noundef %cond.i173, ptr noundef nonnull %spec.store.select, ptr noundef %call3, ptr noundef nonnull %label_size)
   %107 = load float, ptr %label_size, align 8
@@ -11490,7 +11419,7 @@ land.lhs.true272:                                 ; preds = %if.end257
   br i1 %tobool273.not, label %if.end278, label %land.lhs.true274
 
 land.lhs.true274:                                 ; preds = %land.lhs.true272
-  %ActiveId = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 47
+  %ActiveId = getelementptr inbounds i8, ptr %0, i64 16492
   %111 = load i32, ptr %ActiveId, align 4
   %cmp275 = icmp eq i32 %111, 0
   br i1 %cmp275, label %if.then276, label %if.end278
@@ -11513,37 +11442,37 @@ land.lhs.true280:                                 ; preds = %if.end278
 
 if.then282:                                       ; preds = %land.lhs.true280
   %112 = load ptr, ptr @GImGui, align 8
-  %CurrentTable.i179 = getelementptr inbounds %struct.ImGuiContext, ptr %112, i64 0, i32 164
+  %CurrentTable.i179 = getelementptr inbounds i8, ptr %112, i64 19912
   %113 = load ptr, ptr %CurrentTable.i179, align 8
   %cmp.i180 = icmp eq i32 %5, -1
   br i1 %cmp.i180, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.then282
-  %CurrentColumn.i184 = getelementptr inbounds %struct.ImGuiTable, ptr %113, i64 0, i32 15
+  %CurrentColumn.i184 = getelementptr inbounds i8, ptr %113, i64 116
   %114 = load i32, ptr %CurrentColumn.i184, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.then282
   %column_n.addr.0.i181 = phi i32 [ %5, %if.then282 ], [ %114, %land.lhs.true.i ]
-  %Flags.i = getelementptr inbounds %struct.ImGuiTable, ptr %113, i64 0, i32 1
+  %Flags.i = getelementptr inbounds i8, ptr %113, i64 4
   %115 = load i32, ptr %Flags.i, align 4
   %and.i182 = and i32 %115, 7
   %tobool.not.i = icmp eq i32 %and.i182, 0
   br i1 %tobool.not.i, label %if.end283, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %ColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %113, i64 0, i32 13
+  %ColumnsCount.i = getelementptr inbounds i8, ptr %113, i64 108
   %116 = load i32, ptr %ColumnsCount.i, align 4
   %cmp3.i = icmp eq i32 %column_n.addr.0.i181, %116
   %117 = trunc i32 %column_n.addr.0.i181 to i16
-  %IsContextPopupOpen.i = getelementptr inbounds %struct.ImGuiTable, ptr %113, i64 0, i32 97
+  %IsContextPopupOpen.i = getelementptr inbounds i8, ptr %113, i64 571
   store i8 1, ptr %IsContextPopupOpen.i, align 1
   %conv.i183 = select i1 %cmp3.i, i16 -1, i16 %117
-  %ContextPopupColumn.i = getelementptr inbounds %struct.ImGuiTable, ptr %113, i64 0, i32 83
+  %ContextPopupColumn.i = getelementptr inbounds i8, ptr %113, i64 548
   store i16 %conv.i183, ptr %ContextPopupColumn.i, align 4
-  %InstanceCurrent.i = getelementptr inbounds %struct.ImGuiTable, ptr %113, i64 0, i32 16
+  %InstanceCurrent.i = getelementptr inbounds i8, ptr %113, i64 120
   %118 = load i16, ptr %InstanceCurrent.i, align 8
-  %InstanceInteracted.i = getelementptr inbounds %struct.ImGuiTable, ptr %113, i64 0, i32 17
+  %InstanceInteracted.i = getelementptr inbounds i8, ptr %113, i64 122
   store i16 %118, ptr %InstanceInteracted.i, align 2
   %119 = load i32, ptr %113, align 8
   %call.i = call noundef i32 @_Z9ImHashStrPKcmj(ptr noundef nonnull @.str.6, i64 noundef 0, i32 noundef %119)
@@ -11584,7 +11513,7 @@ declare noundef zeroext i1 @_ZN5ImGui13IsItemHoveredEi(i32 noundef) local_unname
 define void @_ZN5ImGui21TableAngledHeadersRowEv() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %TableAngledHeadersAngle = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 30
+  %TableAngledHeadersAngle = getelementptr inbounds i8, ptr %0, i64 14728
   %1 = load float, ptr %TableAngledHeadersAngle, align 8
   tail call void @_ZN5ImGui23TableAngledHeadersRowExEff(float noundef %1, float noundef 0.000000e+00)
   ret void
@@ -11602,27 +11531,27 @@ entry:
   %pivot_in = alloca %struct.ImVec2, align 8
   %pivot_out = alloca %struct.ImVec2, align 8
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
+  %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
   %1 = load ptr, ptr %CurrentTable, align 8
-  %CurrentWindow = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow = getelementptr inbounds i8, ptr %0, i64 16392
   %2 = load ptr, ptr %CurrentWindow, align 8
-  %DrawList = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 86
+  %DrawList = getelementptr inbounds i8, ptr %2, i64 680
   %3 = load ptr, ptr %DrawList, align 8
   %cmp = fcmp oeq float %max_label_width, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %ColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
+  %ColumnsCount.i = getelementptr inbounds i8, ptr %1, i64 108
   %4 = load i32, ptr %ColumnsCount.i, align 4
   %cmp12.i = icmp sgt i32 %4, 0
   br i1 %cmp12.i, label %for.body.lr.ph.i, label %_ZN5ImGui33TableGetHeaderAngledMaxLabelWidthEv.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then
-  %EnabledMaskByIndex.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 8
-  %Columns.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
-  %IsLayoutLocked.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 92
-  %DeclColumnsCount.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 68
-  %Data.i.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 57, i32 0, i32 2
+  %EnabledMaskByIndex.i = getelementptr inbounds i8, ptr %1, i64 80
+  %Columns.i = getelementptr inbounds i8, ptr %1, i64 24
+  %IsLayoutLocked.i.i = getelementptr inbounds i8, ptr %1, i64 566
+  %DeclColumnsCount.i.i = getelementptr inbounds i8, ptr %1, i64 518
+  %Data.i.i.i = getelementptr inbounds i8, ptr %1, i64 408
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -11692,7 +11621,7 @@ for.inc.i:                                        ; preds = %_ZN5ImGui18TableGet
 
 _ZN5ImGui33TableGetHeaderAngledMaxLabelWidthEv.exit: ; preds = %for.inc.i, %if.then
   %width.0.lcssa.i = phi float [ 0.000000e+00, %if.then ], [ %width.1.i, %for.inc.i ]
-  %CellPadding.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 17
+  %CellPadding.i = getelementptr inbounds i8, ptr %0, i64 14668
   %19 = load float, ptr %CellPadding.i, align 4
   %20 = tail call noundef float @llvm.fmuladd.f32(float %19, float 2.000000e+00, float %width.0.lcssa.i)
   br label %if.end
@@ -11714,9 +11643,9 @@ cond.true6:                                       ; preds = %if.end
 cond.end10:                                       ; preds = %if.end, %cond.true6
   %cond212 = phi float [ %call4, %cond.true6 ], [ %call2, %if.end ]
   %cond11 = phi float [ %call8, %cond.true6 ], [ %call3, %if.end ]
-  %RowCellPaddingY = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 21
+  %RowCellPaddingY = getelementptr inbounds i8, ptr %1, i64 136
   %21 = load float, ptr %RowCellPaddingY, align 8
-  %FontSize = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 5
+  %FontSize = getelementptr inbounds i8, ptr %0, i64 15680
   %22 = load float, ptr %FontSize, align 8
   %23 = tail call float @llvm.fmuladd.f32(float %21, float 2.000000e+00, float %22)
   %fneg = fneg float %23
@@ -11726,439 +11655,503 @@ cond.end10:                                       ; preds = %if.end, %cond.true6
   %25 = tail call float @llvm.fabs.f32(float %24)
   %fneg19 = fneg float %call3
   %div = fdiv float %25, %fneg19
-  %26 = insertelement <2 x float> poison, float %call2, i64 0
-  %27 = insertelement <2 x float> %26, float %call3, i64 1
-  %28 = insertelement <2 x float> poison, float %div, i64 0
-  %29 = shufflevector <2 x float> %28, <2 x float> poison, <2 x i32> zeroinitializer
-  %30 = fmul <2 x float> %27, %29
-  %AngledHeadersHeight = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 44
+  %mul.i = fmul float %call2, %div
+  %mul1.i = fmul float %call3, %div
+  %AngledHeadersHeight = getelementptr inbounds i8, ptr %1, i64 232
   store float %25, ptr %AngledHeadersHeight, align 8
   %cmp21 = fcmp une float %call3, 0.000000e+00
   %div23 = fdiv float %call2, %call3
   %cond26 = select i1 %cmp21, float %div23, float 0.000000e+00
-  %AngledHeadersSlope = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 45
+  %AngledHeadersSlope = getelementptr inbounds i8, ptr %1, i64 236
   store float %cond26, ptr %AngledHeadersSlope, align 4
-  %31 = load ptr, ptr @GImGui, align 8
-  %CurrentTable.i126 = getelementptr inbounds %struct.ImGuiContext, ptr %31, i64 0, i32 164
-  %32 = load ptr, ptr %CurrentTable.i126, align 8
-  %IsLayoutLocked.i = getelementptr inbounds %struct.ImGuiTable, ptr %32, i64 0, i32 92
-  %33 = load i8, ptr %IsLayoutLocked.i, align 2
-  %34 = and i8 %33, 1
-  %tobool.not.i127 = icmp eq i8 %34, 0
+  %26 = load ptr, ptr @GImGui, align 8
+  %CurrentTable.i126 = getelementptr inbounds i8, ptr %26, i64 19912
+  %27 = load ptr, ptr %CurrentTable.i126, align 8
+  %IsLayoutLocked.i = getelementptr inbounds i8, ptr %27, i64 566
+  %28 = load i8, ptr %IsLayoutLocked.i, align 2
+  %29 = and i8 %28, 1
+  %tobool.not.i127 = icmp eq i8 %29, 0
   br i1 %tobool.not.i127, label %if.then.i131, label %if.end.i
 
 if.then.i131:                                     ; preds = %cond.end10
-  tail call void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef nonnull %32)
+  tail call void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef nonnull %27)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i131, %cond.end10
-  %IsInsideRow.i = getelementptr inbounds %struct.ImGuiTable, ptr %32, i64 0, i32 93
-  %35 = load i8, ptr %IsInsideRow.i, align 1
-  %36 = and i8 %35, 1
-  %tobool1.not.i = icmp eq i8 %36, 0
+  %IsInsideRow.i = getelementptr inbounds i8, ptr %27, i64 567
+  %30 = load i8, ptr %IsInsideRow.i, align 1
+  %31 = and i8 %30, 1
+  %tobool1.not.i = icmp eq i8 %31, 0
   br i1 %tobool1.not.i, label %_ZN5ImGui12TableNextRowEif.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void @_ZN5ImGui11TableEndRowEP10ImGuiTable(ptr noundef nonnull %32)
+  tail call void @_ZN5ImGui11TableEndRowEP10ImGuiTable(ptr noundef nonnull %27)
   br label %_ZN5ImGui12TableNextRowEif.exit
 
 _ZN5ImGui12TableNextRowEif.exit:                  ; preds = %if.end.i, %if.then2.i
-  %RowFlags.i = getelementptr inbounds %struct.ImGuiTable, ptr %32, i64 0, i32 24
+  %RowFlags.i = getelementptr inbounds i8, ptr %27, i64 148
   %bf.load.i = load i32, ptr %RowFlags.i, align 4
   %bf.shl.i = shl i32 %bf.load.i, 16
   %bf.set10.i = or disjoint i32 %bf.shl.i, 1
   store i32 %bf.set10.i, ptr %RowFlags.i, align 4
-  %y.i128 = getelementptr inbounds %struct.ImGuiContext, ptr %31, i64 0, i32 3, i32 17, i32 1
-  %37 = load float, ptr %y.i128, align 4
-  %RowCellPaddingY.i = getelementptr inbounds %struct.ImGuiTable, ptr %32, i64 0, i32 21
-  store float %37, ptr %RowCellPaddingY.i, align 8
-  %RowMinHeight.i = getelementptr inbounds %struct.ImGuiTable, ptr %32, i64 0, i32 20
+  %y.i128 = getelementptr inbounds i8, ptr %26, i64 14672
+  %32 = load float, ptr %y.i128, align 4
+  %RowCellPaddingY.i = getelementptr inbounds i8, ptr %27, i64 136
+  store float %32, ptr %RowCellPaddingY.i, align 8
+  %RowMinHeight.i = getelementptr inbounds i8, ptr %27, i64 132
   store float %25, ptr %RowMinHeight.i, align 4
-  tail call void @_ZN5ImGui13TableBeginRowEP10ImGuiTable(ptr noundef nonnull %32)
-  %38 = load float, ptr %RowCellPaddingY.i, align 8
-  %RowPosY2.i = getelementptr inbounds %struct.ImGuiTable, ptr %32, i64 0, i32 19
-  %39 = load float, ptr %RowPosY2.i, align 8
-  %40 = tail call float @llvm.fmuladd.f32(float %38, float 2.000000e+00, float %39)
-  %RowPosY1.i = getelementptr inbounds %struct.ImGuiTable, ptr %32, i64 0, i32 18
-  %41 = load float, ptr %RowPosY1.i, align 4
-  %add.i = fadd float %25, %41
-  %cmp.i.i129 = fcmp oge float %40, %add.i
-  %cond.i.i130 = select i1 %cmp.i.i129, float %40, float %add.i
+  tail call void @_ZN5ImGui13TableBeginRowEP10ImGuiTable(ptr noundef nonnull %27)
+  %33 = load float, ptr %RowCellPaddingY.i, align 8
+  %RowPosY2.i = getelementptr inbounds i8, ptr %27, i64 128
+  %34 = load float, ptr %RowPosY2.i, align 8
+  %35 = tail call float @llvm.fmuladd.f32(float %33, float 2.000000e+00, float %34)
+  %RowPosY1.i = getelementptr inbounds i8, ptr %27, i64 124
+  %36 = load float, ptr %RowPosY1.i, align 4
+  %add.i = fadd float %25, %36
+  %cmp.i.i129 = fcmp oge float %35, %add.i
+  %cond.i.i130 = select i1 %cmp.i.i129, float %35, float %add.i
   store float %cond.i.i130, ptr %RowPosY2.i, align 8
-  %InnerWindow.i = getelementptr inbounds %struct.ImGuiTable, ptr %32, i64 0, i32 56
-  %42 = load ptr, ptr %InnerWindow.i, align 8
-  %SkipItems.i = getelementptr inbounds %struct.ImGuiWindow, ptr %42, i64 0, i32 38
+  %InnerWindow.i = getelementptr inbounds i8, ptr %27, i64 392
+  %37 = load ptr, ptr %InnerWindow.i, align 8
+  %SkipItems.i = getelementptr inbounds i8, ptr %37, i64 195
   store i8 1, ptr %SkipItems.i, align 1
   %call27 = tail call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
-  %DrawSplitter = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 58
-  %43 = load ptr, ptr %DrawSplitter, align 8
-  tail call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef %3, i32 noundef 0)
-  %BgClipRect = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 50
-  %44 = load float, ptr %BgClipRect, align 8
-  %FreezeColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 87
-  %45 = load i16, ptr %FreezeColumnsCount, align 4
-  %cmp28 = icmp sgt i16 %45, 0
+  %DrawSplitter = getelementptr inbounds i8, ptr %1, i64 416
+  %38 = load ptr, ptr %DrawSplitter, align 8
+  tail call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef %3, i32 noundef 0)
+  %BgClipRect = getelementptr inbounds i8, ptr %1, i64 304
+  %39 = load float, ptr %BgClipRect, align 8
+  %FreezeColumnsCount = getelementptr inbounds i8, ptr %1, i64 556
+  %40 = load i16, ptr %FreezeColumnsCount, align 4
+  %cmp28 = icmp sgt i16 %40, 0
   br i1 %cmp28, label %if.then29, label %if.end35
 
 if.then29:                                        ; preds = %_ZN5ImGui12TableNextRowEif.exit
-  %conv = zext nneg i16 %45 to i64
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %conv = zext nneg i16 %40 to i64
+  %Columns = getelementptr inbounds i8, ptr %1, i64 24
   %sub32 = add nuw nsw i64 %conv, 4294967295
-  %46 = load ptr, ptr %Columns, align 8
+  %41 = load ptr, ptr %Columns, align 8
   %idx.ext.i = and i64 %sub32, 4294967295
-  %MaxX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %46, i64 %idx.ext.i, i32 3
-  %47 = load float, ptr %MaxX, align 4
-  %cmp.i132 = fcmp oge float %44, %47
-  %cond.i = select i1 %cmp.i132, float %44, float %47
+  %MaxX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %41, i64 %idx.ext.i, i32 3
+  %42 = load float, ptr %MaxX, align 4
+  %cmp.i132 = fcmp oge float %39, %42
+  %cond.i = select i1 %cmp.i132, float %39, float %42
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then29, %_ZN5ImGui12TableNextRowEif.exit
-  %clip_rect_min_x.0 = phi float [ %cond.i, %if.then29 ], [ %44, %_ZN5ImGui12TableNextRowEif.exit ]
-  %48 = load ptr, ptr @GImGui, align 8
-  %CurrentTable.i133 = getelementptr inbounds %struct.ImGuiContext, ptr %48, i64 0, i32 164
-  %49 = load ptr, ptr %CurrentTable.i133, align 8
-  %RowPosY126.i = getelementptr inbounds %struct.ImGuiTable, ptr %49, i64 0, i32 18
-  %50 = load float, ptr %RowPosY126.i, align 4
-  %y29.i = getelementptr inbounds %struct.ImGuiTable, ptr %49, i64 0, i32 49, i32 1, i32 1
-  %51 = load float, ptr %y29.i, align 4
-  %cmp30.i = fcmp ogt float %50, %51
+  %clip_rect_min_x.0 = phi float [ %cond.i, %if.then29 ], [ %39, %_ZN5ImGui12TableNextRowEif.exit ]
+  %43 = load ptr, ptr @GImGui, align 8
+  %CurrentTable.i133 = getelementptr inbounds i8, ptr %43, i64 19912
+  %44 = load ptr, ptr %CurrentTable.i133, align 8
+  %RowPosY126.i = getelementptr inbounds i8, ptr %44, i64 124
+  %45 = load float, ptr %RowPosY126.i, align 4
+  %y29.i = getelementptr inbounds i8, ptr %44, i64 300
+  %46 = load float, ptr %y29.i, align 4
+  %cmp30.i = fcmp ogt float %45, %46
   br i1 %cmp30.i, label %_ZN5ImGui15TableSetBgColorEiji.exit, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.end35
-  %arrayidx35.i = getelementptr inbounds %struct.ImGuiTable, ptr %49, i64 0, i32 26, i64 0
-  store i32 0, ptr %arrayidx35.i, align 4
+  %RowBgColor.i = getelementptr inbounds i8, ptr %44, i64 156
+  store i32 0, ptr %RowBgColor.i, align 4
   br label %_ZN5ImGui15TableSetBgColorEiji.exit
 
 _ZN5ImGui15TableSetBgColorEiji.exit:              ; preds = %if.end35, %if.end32.i
-  %Max = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 50, i32 1
+  %Max = getelementptr inbounds i8, ptr %1, i64 312
   tail call void @_ZN5ImGui12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 4 dereferenceable(8) %BgClipRect, ptr noundef nonnull align 4 dereferenceable(8) %Max, i1 noundef zeroext false)
   %call43 = tail call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 42, float noundef 2.500000e-01)
   tail call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %3, ptr noundef nonnull align 4 dereferenceable(8) %BgClipRect, ptr noundef nonnull align 4 dereferenceable(8) %Max, i32 noundef %call43, float noundef 0.000000e+00, i32 noundef 0)
-  %y47 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 50, i32 0, i32 1
-  %52 = load float, ptr %y47, align 4
+  %y47 = getelementptr inbounds i8, ptr %1, i64 308
+  %47 = load float, ptr %y47, align 4
   store float %clip_rect_min_x.0, ptr %ref.tmp44, align 4
-  %y.i134 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp44, i64 0, i32 1
-  store float %52, ptr %y.i134, align 4
+  %y.i134 = getelementptr inbounds i8, ptr %ref.tmp44, i64 4
+  store float %47, ptr %y.i134, align 4
   call void @_ZN5ImGui12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp44, ptr noundef nonnull align 4 dereferenceable(8) %Max, i1 noundef zeroext true)
-  %WorkRect = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 48
-  %53 = load float, ptr %WorkRect, align 8
-  %54 = load float, ptr %y47, align 4
-  %Max56 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 48, i32 1
-  %55 = load float, ptr %Max56, align 8
-  %y58 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 0, i32 1
-  %56 = load float, ptr %y58, align 4
-  %add59 = fadd float %25, %56
-  store float %53, ptr %row_r, align 4
-  %y.i.i = getelementptr inbounds %struct.ImVec2, ptr %row_r, i64 0, i32 1
-  store float %54, ptr %y.i.i, align 4
-  %Max.i = getelementptr inbounds %struct.ImRect, ptr %row_r, i64 0, i32 1
-  store float %55, ptr %Max.i, align 4
-  %y.i1.i = getelementptr inbounds %struct.ImRect, ptr %row_r, i64 0, i32 1, i32 1
+  %WorkRect = getelementptr inbounds i8, ptr %1, i64 272
+  %48 = load float, ptr %WorkRect, align 8
+  %49 = load float, ptr %y47, align 4
+  %Max56 = getelementptr inbounds i8, ptr %1, i64 280
+  %50 = load float, ptr %Max56, align 8
+  %y58 = getelementptr inbounds i8, ptr %2, i64 276
+  %51 = load float, ptr %y58, align 4
+  %add59 = fadd float %25, %51
+  store float %48, ptr %row_r, align 4
+  %y.i.i = getelementptr inbounds i8, ptr %row_r, i64 4
+  store float %49, ptr %y.i.i, align 4
+  %Max.i = getelementptr inbounds i8, ptr %row_r, i64 8
+  store float %50, ptr %Max.i, align 4
+  %y.i1.i = getelementptr inbounds i8, ptr %row_r, i64 12
   store float %add59, ptr %y.i1.i, align 4
   %call60 = call noundef i32 @_ZN5ImGui5GetIDEPKc(ptr noundef nonnull @.str.5)
   %call61 = call noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr noundef nonnull align 4 dereferenceable(16) %row_r, i32 noundef %call60, ptr noundef null, ptr noundef null, i32 noundef 0)
   call void @_ZN5ImGui11KeepAliveIDEj(i32 noundef %call60)
-  %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 16
-  %57 = load i16, ptr %InstanceCurrent, align 8
-  %cmp.i135 = icmp eq i16 %57, 0
+  %InstanceCurrent = getelementptr inbounds i8, ptr %1, i64 120
+  %52 = load i16, ptr %InstanceCurrent, align 8
+  %cmp.i135 = icmp eq i16 %52, 0
   br i1 %cmp.i135, label %if.then.i137, label %if.end.i136
 
 if.then.i137:                                     ; preds = %_ZN5ImGui15TableSetBgColorEiji.exit
-  %InstanceDataFirst.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 59
+  %InstanceDataFirst.i = getelementptr inbounds i8, ptr %1, i64 424
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 if.end.i136:                                      ; preds = %_ZN5ImGui15TableSetBgColorEiji.exit
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 60, i32 2
-  %58 = load ptr, ptr %Data.i.i, align 8
-  %59 = sext i16 %57 to i64
-  %60 = getelementptr %struct.ImGuiTableInstanceData, ptr %58, i64 %59
-  %arrayidx.i.i = getelementptr %struct.ImGuiTableInstanceData, ptr %60, i64 -1
+  %Data.i.i = getelementptr inbounds i8, ptr %1, i64 456
+  %53 = load ptr, ptr %Data.i.i, align 8
+  %54 = sext i16 %52 to i64
+  %55 = getelementptr %struct.ImGuiTableInstanceData, ptr %53, i64 %54
+  %arrayidx.i.i = getelementptr i8, ptr %55, i64 -24
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %if.then.i137, %if.end.i136
   %retval.0.i = phi ptr [ %InstanceDataFirst.i, %if.then.i137 ], [ %arrayidx.i.i, %if.end.i136 ]
-  %HighlightColumnHeader = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 72
-  %61 = load i16, ptr %HighlightColumnHeader, align 2
-  %conv64 = sext i16 %61 to i32
-  %cmp65 = icmp eq i16 %61, -1
+  %HighlightColumnHeader = getelementptr inbounds i8, ptr %1, i64 526
+  %56 = load i16, ptr %HighlightColumnHeader, align 2
+  %conv64 = sext i16 %56 to i32
+  %cmp65 = icmp eq i16 %56, -1
   br i1 %cmp65, label %land.lhs.true, label %if.end85
 
 land.lhs.true:                                    ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
-  %HoveredColumnBody = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 70
-  %62 = load i16, ptr %HoveredColumnBody, align 2
-  %cmp67.not = icmp eq i16 %62, -1
+  %HoveredColumnBody = getelementptr inbounds i8, ptr %1, i64 522
+  %57 = load i16, ptr %HoveredColumnBody, align 2
+  %cmp67.not = icmp eq i16 %57, -1
   br i1 %cmp67.not, label %if.end85, label %if.then68
 
 if.then68:                                        ; preds = %land.lhs.true
-  %HoveredRowLast = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i, i64 0, i32 4
-  %63 = load i32, ptr %HoveredRowLast, align 4
-  %cmp69 = icmp eq i32 %63, 0
+  %HoveredRowLast = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  %58 = load i32, ptr %HoveredRowLast, align 4
+  %cmp69 = icmp eq i32 %58, 0
   br i1 %cmp69, label %land.lhs.true70, label %if.end85
 
 land.lhs.true70:                                  ; preds = %if.then68
-  %HoveredColumnBorder = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 71
-  %64 = load i16, ptr %HoveredColumnBorder, align 4
-  %cmp72 = icmp eq i16 %64, -1
+  %HoveredColumnBorder = getelementptr inbounds i8, ptr %1, i64 524
+  %59 = load i16, ptr %HoveredColumnBorder, align 4
+  %cmp72 = icmp eq i16 %59, -1
   br i1 %cmp72, label %land.lhs.true73, label %if.end85
 
 land.lhs.true73:                                  ; preds = %land.lhs.true70
-  %ActiveId = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 47
-  %65 = load i32, ptr %ActiveId, align 4
-  %cmp74 = icmp eq i32 %65, 0
-  %cmp76 = icmp eq i32 %65, %call60
+  %ActiveId = getelementptr inbounds i8, ptr %0, i64 16492
+  %60 = load i32, ptr %ActiveId, align 4
+  %cmp74 = icmp eq i32 %60, 0
+  %cmp76 = icmp eq i32 %60, %call60
   %or.cond = or i1 %cmp74, %cmp76
   br i1 %or.cond, label %if.then81, label %lor.lhs.false77
 
 lor.lhs.false77:                                  ; preds = %land.lhs.true73
-  %IsActiveIdInTable = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 107
-  %66 = load i8, ptr %IsActiveIdInTable, align 1
-  %67 = and i8 %66, 1
-  %tobool78.not = icmp eq i8 %67, 0
+  %IsActiveIdInTable = getelementptr inbounds i8, ptr %1, i64 581
+  %61 = load i8, ptr %IsActiveIdInTable, align 1
+  %62 = and i8 %61, 1
+  %tobool78.not = icmp eq i8 %62, 0
   br i1 %tobool78.not, label %lor.lhs.false79, label %if.then81
 
 lor.lhs.false79:                                  ; preds = %lor.lhs.false77
-  %DragDropActive = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 144
-  %68 = load i8, ptr %DragDropActive, align 8
-  %69 = and i8 %68, 1
-  %tobool80.not = icmp eq i8 %69, 0
+  %DragDropActive = getelementptr inbounds i8, ptr %0, i64 19712
+  %63 = load i8, ptr %DragDropActive, align 8
+  %64 = and i8 %63, 1
+  %tobool80.not = icmp eq i8 %64, 0
   br i1 %tobool80.not, label %if.end85, label %if.then81
 
 if.then81:                                        ; preds = %lor.lhs.false79, %lor.lhs.false77, %land.lhs.true73
-  %conv83 = sext i16 %62 to i32
+  %conv83 = sext i16 %57 to i32
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then68, %land.lhs.true70, %lor.lhs.false79, %if.then81, %land.lhs.true, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
   %highlight_column_n.0 = phi i32 [ %conv83, %if.then81 ], [ -1, %lor.lhs.false79 ], [ -1, %land.lhs.true70 ], [ -1, %if.then68 ], [ -1, %land.lhs.true ], [ %conv64, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit ]
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 13
-  %EnabledMaskByDisplayOrder = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 7
-  %DisplayOrderToIndex = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 5
-  %Columns96 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 4
+  %ColumnsCount = getelementptr inbounds i8, ptr %1, i64 108
+  %EnabledMaskByDisplayOrder = getelementptr inbounds i8, ptr %1, i64 72
+  %DisplayOrderToIndex = getelementptr inbounds i8, ptr %1, i64 40
+  %Columns96 = getelementptr inbounds i8, ptr %1, i64 24
   %bg_shape.sroa_idx = getelementptr inbounds i8, ptr %bg_shape, i64 4
-  %arrayidx110 = getelementptr inbounds [4 x %struct.ImVec2], ptr %bg_shape, i64 0, i64 1
-  %arrayidx110.sroa_idx = getelementptr inbounds [4 x %struct.ImVec2], ptr %bg_shape, i64 0, i64 1, i32 1
-  %arrayidx114 = getelementptr inbounds [4 x %struct.ImVec2], ptr %bg_shape, i64 0, i64 2
-  %arrayidx118 = getelementptr inbounds [4 x %struct.ImVec2], ptr %bg_shape, i64 0, i64 3
-  %HoveredColumnBorder.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 71
-  %ResizedColumn.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 74
-  %InstanceInteracted.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 17
-  %Flags.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 1
-  %BorderColorLight.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 28
-  %BorderColorStrong.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 27
-  %IsLayoutLocked.i154 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 92
-  %DeclColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 68
-  %Data.i.i158 = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 57, i32 0, i32 2
-  %ClipRect = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 74
-  %CellPaddingX = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 34
-  %Max.i167 = getelementptr inbounds %struct.ImRect, ptr %label_r, i64 0, i32 1
-  %_VtxCurrentIdx = getelementptr inbounds %struct.ImDrawList, ptr %3, i64 0, i32 4
+  %arrayidx110 = getelementptr inbounds i8, ptr %bg_shape, i64 8
+  %arrayidx110.sroa_idx = getelementptr inbounds i8, ptr %bg_shape, i64 12
+  %arrayidx114 = getelementptr inbounds i8, ptr %bg_shape, i64 16
+  %arrayidx118 = getelementptr inbounds i8, ptr %bg_shape, i64 24
+  %HoveredColumnBorder.i = getelementptr inbounds i8, ptr %1, i64 524
+  %ResizedColumn.i = getelementptr inbounds i8, ptr %1, i64 530
+  %InstanceInteracted.i = getelementptr inbounds i8, ptr %1, i64 122
+  %Flags.i = getelementptr inbounds i8, ptr %1, i64 4
+  %BorderColorLight.i = getelementptr inbounds i8, ptr %1, i64 168
+  %BorderColorStrong.i = getelementptr inbounds i8, ptr %1, i64 164
+  %IsLayoutLocked.i154 = getelementptr inbounds i8, ptr %1, i64 566
+  %DeclColumnsCount.i = getelementptr inbounds i8, ptr %1, i64 518
+  %Data.i.i158 = getelementptr inbounds i8, ptr %1, i64 408
+  %ClipRect = getelementptr inbounds i8, ptr %2, i64 584
+  %CellPaddingX = getelementptr inbounds i8, ptr %1, i64 192
+  %Max.i167 = getelementptr inbounds i8, ptr %label_r, i64 8
+  %_VtxCurrentIdx = getelementptr inbounds i8, ptr %3, i64 52
   %ref.tmp179.sroa.0.4.vec.insert = insertelement <2 x float> <float poison, float 0.000000e+00>, float %23, i64 0
-  %70 = load i32, ptr %ColumnsCount, align 4
-  %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %for.cond87.preheader.preheader, label %for.end195
+  %65 = load i32, ptr %ColumnsCount, align 4
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %for.cond87.preheader.preheader, label %for.end195
 
 for.cond87.preheader.preheader:                   ; preds = %if.end85
-  %72 = extractelement <2 x float> %30, i64 0
+  %67 = insertelement <2 x float> poison, float %call2, i64 0
+  %68 = insertelement <2 x float> %67, float %call3, i64 1
   br label %for.cond87.preheader
 
 for.cond87.preheader:                             ; preds = %for.cond87.preheader.preheader, %for.inc193
-  %73 = phi i32 [ %150, %for.inc193 ], [ %70, %for.cond87.preheader.preheader ]
-  %max_x.0227 = phi float [ %max_x.1.lcssa, %for.inc193 ], [ 0.000000e+00, %for.cond87.preheader.preheader ]
-  %trunc.not = phi i1 [ false, %for.inc193 ], [ true, %for.cond87.preheader.preheader ]
-  %cmp88218 = icmp sgt i32 %73, 0
-  br i1 %cmp88218, label %for.body89, label %for.inc193
+  %69 = phi i32 [ %160, %for.inc193 ], [ %65, %for.cond87.preheader.preheader ]
+  %70 = phi i32 [ %161, %for.inc193 ], [ %65, %for.cond87.preheader.preheader ]
+  %71 = phi i32 [ %162, %for.inc193 ], [ %65, %for.cond87.preheader.preheader ]
+  %max_x.0228 = phi float [ %max_x.1.lcssa, %for.inc193 ], [ 0.000000e+00, %for.cond87.preheader.preheader ]
+  %pass.0227 = phi i32 [ %inc194, %for.inc193 ], [ 0, %for.cond87.preheader.preheader ]
+  %cmp88218 = icmp sgt i32 %71, 0
+  br i1 %cmp88218, label %for.body89.lr.ph, label %for.inc193
 
-for.body89:                                       ; preds = %for.cond87.preheader, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond87.preheader ]
-  %max_x.1223 = phi float [ %max_x.3, %for.inc ], [ %max_x.0227, %for.cond87.preheader ]
-  %74 = load ptr, ptr %EnabledMaskByDisplayOrder, align 8
-  %75 = trunc i64 %indvars.iv to i32
+for.body89.lr.ph:                                 ; preds = %for.cond87.preheader
+  %trunc.not = icmp eq i32 %pass.0227, 0
+  br i1 %trunc.not, label %for.body89.us, label %for.body89
+
+for.body89.us:                                    ; preds = %for.body89.lr.ph, %for.inc.us
+  %72 = phi i32 [ %128, %for.inc.us ], [ %69, %for.body89.lr.ph ]
+  %indvars.iv235 = phi i64 [ %indvars.iv.next236, %for.inc.us ], [ 0, %for.body89.lr.ph ]
+  %max_x.1223.us = phi float [ %max_x.3.us, %for.inc.us ], [ %max_x.0228, %for.body89.lr.ph ]
+  %73 = load ptr, ptr %EnabledMaskByDisplayOrder, align 8
+  %74 = trunc i64 %indvars.iv235 to i32
+  %shr.us = lshr i64 %indvars.iv235, 5
+  %idxprom.us = and i64 %shr.us, 134217727
+  %arrayidx.us = getelementptr inbounds i32, ptr %73, i64 %idxprom.us
+  %75 = load i32, ptr %arrayidx.us, align 4
+  %and.us = and i32 %74, 31
+  %shl.us = shl nuw i32 1, %and.us
+  %and90.us = and i32 %75, %shl.us
+  %cmp91.not.us = icmp eq i32 %and90.us, 0
+  br i1 %cmp91.not.us, label %for.inc.us, label %if.end93.us
+
+if.end93.us:                                      ; preds = %for.body89.us
+  %76 = load ptr, ptr %DisplayOrderToIndex, align 8
+  %add.ptr.i139.us = getelementptr inbounds i16, ptr %76, i64 %indvars.iv235
+  %77 = load i16, ptr %add.ptr.i139.us, align 2
+  %78 = load ptr, ptr %Columns96, align 8
+  %idx.ext.i140.us = sext i16 %77 to i64
+  %add.ptr.i141.us = getelementptr inbounds %struct.ImGuiTableColumn, ptr %78, i64 %idx.ext.i140.us
+  %79 = load i32, ptr %add.ptr.i141.us, align 4
+  %and98.us = and i32 %79, 262144
+  %cmp99.us = icmp eq i32 %and98.us, 0
+  br i1 %cmp99.us, label %for.inc.us, label %arrayctor.loop.us.preheader
+
+arrayctor.loop.us.preheader:                      ; preds = %if.end93.us
+  %conv95.us = sext i16 %77 to i32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %bg_shape, i8 0, i64 32, i1 false)
+  %MaxX103.us = getelementptr inbounds i8, ptr %add.ptr.i141.us, i64 12
+  %80 = load i32, ptr %MaxX103.us, align 4
+  %81 = load i32, ptr %y.i1.i, align 4
+  store i32 %80, ptr %bg_shape, align 16
+  store i32 %81, ptr %bg_shape.sroa_idx, align 4
+  %MinX.us = getelementptr inbounds i8, ptr %add.ptr.i141.us, i64 8
+  %82 = load i32, ptr %MinX.us, align 4
+  store i32 %82, ptr %arrayidx110, align 8
+  store i32 %81, ptr %arrayidx110.sroa_idx, align 4
+  %arrayidx110.val.cast.us = bitcast i32 %82 to float
+  %arrayidx110.val116.cast.us = bitcast i32 %81 to float
+  %add.i145.us = fadd float %mul.i, %arrayidx110.val.cast.us
+  %add3.i.us = fadd float %mul1.i, %arrayidx110.val116.cast.us
+  %retval.sroa.0.0.vec.insert.i146.us = insertelement <2 x float> poison, float %add.i145.us, i64 0
+  %retval.sroa.0.4.vec.insert.i147.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i146.us, float %add3.i.us, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i147.us, ptr %arrayidx114, align 16
+  %83 = bitcast i32 %80 to float
+  %add.i148.us = fadd float %mul.i, %83
+  %retval.sroa.0.0.vec.insert.i150.us = insertelement <2 x float> poison, float %add.i148.us, i64 0
+  %retval.sroa.0.4.vec.insert.i151.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i150.us, float %add3.i.us, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i151.us, ptr %arrayidx118, align 8
+  %call125.us = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 42, float noundef 1.000000e+00)
+  call void @_ZN10ImDrawList13AddQuadFilledERK6ImVec2S2_S2_S2_j(ptr noundef nonnull align 8 dereferenceable(196) %3, ptr noundef nonnull align 4 dereferenceable(8) %bg_shape, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx110, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx114, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx118, i32 noundef %call125.us)
+  %cmp126.us = icmp eq i32 %highlight_column_n.0, %conv95.us
+  br i1 %cmp126.us, label %if.then127.us, label %if.end133.us
+
+if.then127.us:                                    ; preds = %arrayctor.loop.us.preheader
+  %call132.us = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 24, float noundef 1.000000e+00)
+  call void @_ZN10ImDrawList13AddQuadFilledERK6ImVec2S2_S2_S2_j(ptr noundef nonnull align 8 dereferenceable(196) %3, ptr noundef nonnull align 4 dereferenceable(8) %bg_shape, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx110, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx114, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx118, i32 noundef %call132.us)
+  br label %if.end133.us
+
+if.end133.us:                                     ; preds = %if.then127.us, %arrayctor.loop.us.preheader
+  %84 = load float, ptr %arrayidx118, align 8
+  %cmp.i152.us = fcmp oge float %max_x.1223.us, %84
+  %cond.i153.us = select i1 %cmp.i152.us, float %max_x.1223.us, float %84
+  %85 = load i8, ptr %IsLayoutLocked.i154, align 2
+  %86 = and i8 %85, 1
+  %cmp.i155.us = icmp eq i8 %86, 0
+  br i1 %cmp.i155.us, label %land.lhs.true.i.us, label %if.end.i156.us
+
+land.lhs.true.i.us:                               ; preds = %if.end133.us
+  %87 = load i16, ptr %DeclColumnsCount.i, align 2
+  %cmp2.not.i161.us = icmp sgt i16 %87, %77
+  br i1 %cmp2.not.i161.us, label %if.end.i156.us, label %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.us
+
+if.end.i156.us:                                   ; preds = %land.lhs.true.i.us, %if.end133.us
+  %88 = load ptr, ptr %Columns96, align 8
+  %NameOffset.i.us = getelementptr inbounds %struct.ImGuiTableColumn, ptr %88, i64 %idx.ext.i140.us, i32 17
+  %89 = load i16, ptr %NameOffset.i.us, align 4
+  %cmp4.i.us = icmp eq i16 %89, -1
+  br i1 %cmp4.i.us, label %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.us, label %if.end6.i.us
+
+if.end6.i.us:                                     ; preds = %if.end.i156.us
+  %90 = load ptr, ptr %Data.i.i158, align 8
+  %idxprom.i.i.us = sext i16 %89 to i64
+  %arrayidx.i.i159.us = getelementptr inbounds i8, ptr %90, i64 %idxprom.i.i.us
+  br label %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.us
+
+_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.us: ; preds = %if.end6.i.us, %if.end.i156.us, %land.lhs.true.i.us
+  %retval.0.i160.us = phi ptr [ %arrayidx.i.i159.us, %if.end6.i.us ], [ @.str.1, %land.lhs.true.i.us ], [ @.str.1, %if.end.i156.us ]
+  %91 = load float, ptr %RowCellPaddingY, align 8
+  %92 = call float @llvm.fmuladd.f32(float %fneg19, float %91, float %max_label_width.addr.0)
+  br i1 %cmp1, label %cond.true155.critedge.us, label %cond.false146.us
+
+cond.false146.us:                                 ; preds = %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.us
+  %93 = load float, ptr %CellPaddingX, align 8
+  %94 = insertelement <2 x float> poison, float %92, i64 0
+  %95 = insertelement <2 x float> %94, float %23, i64 1
+  %96 = insertelement <2 x float> poison, float %93, i64 0
+  %97 = insertelement <2 x float> %96, float %91, i64 1
+  %98 = fadd <2 x float> %95, %97
+  %99 = load <2 x float>, ptr %ClipRect, align 4
+  %100 = fadd <2 x float> %99, %98
+  store <2 x float> %99, ptr %label_r, align 16
+  store <2 x float> %100, ptr %Max.i167, align 8
+  %call153.us = call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %retval.0.i160.us, ptr noundef null, i1 noundef zeroext true, float noundef -1.000000e+00)
+  store <2 x float> %call153.us, ptr %label_size, align 8
+  %101 = load float, ptr %CellPaddingX, align 8
+  br label %cond.end163.us
+
+cond.true155.critedge.us:                         ; preds = %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.us
+  %102 = insertelement <2 x float> poison, float %92, i64 0
+  %103 = insertelement <2 x float> %102, float %23, i64 1
+  %104 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %91, i64 1
+  %105 = fadd <2 x float> %103, %104
+  %106 = load <2 x float>, ptr %ClipRect, align 4
+  %107 = fadd <2 x float> %105, %106
+  store <2 x float> %106, ptr %label_r, align 16
+  store <2 x float> %107, ptr %Max.i167, align 8
+  %call153.c.us = call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %retval.0.i160.us, ptr noundef null, i1 noundef zeroext true, float noundef -1.000000e+00)
+  store <2 x float> %call153.c.us, ptr %label_size, align 8
+  %108 = extractelement <2 x float> %call153.c.us, i64 0
+  %sub157.us = fsub float %max_label_width.addr.0, %108
+  %109 = load float, ptr %CellPaddingX, align 8
+  %sub159.us = fsub float %sub157.us, %109
+  %cmp.i174.us = fcmp ole float %sub159.us, 0.000000e+00
+  %cond.i175.us = select i1 %cmp.i174.us, float 0.000000e+00, float %sub159.us
+  br label %cond.end163.us
+
+cond.end163.us:                                   ; preds = %cond.true155.critedge.us, %cond.false146.us
+  %cond164.us = phi float [ %cond.i175.us, %cond.true155.critedge.us ], [ %101, %cond.false146.us ]
+  %110 = load float, ptr %RowCellPaddingY, align 8
+  %111 = load i32, ptr %_VtxCurrentIdx, align 4
+  %112 = load <2 x float>, ptr %label_r, align 16
+  %113 = insertelement <2 x float> poison, float %cond164.us, i64 0
+  %114 = insertelement <2 x float> %113, float %110, i64 1
+  %115 = fadd <2 x float> %114, %112
+  store <2 x float> %115, ptr %ref.tmp166, align 8
+  %116 = load float, ptr %Max.i167, align 8
+  call void @_ZN5ImGui18RenderTextEllipsisEP10ImDrawListRK6ImVec2S4_ffPKcS6_PS3_(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp166, ptr noundef nonnull align 4 dereferenceable(8) %Max.i167, float noundef %116, float noundef %116, ptr noundef %retval.0.i160.us, ptr noundef null, ptr noundef nonnull %label_size)
+  %117 = load i32, ptr %_VtxCurrentIdx, align 4
+  %118 = load <4 x float>, ptr %label_r, align 16
+  %retval.sroa.0.0.vec.insert.i181.us = shufflevector <4 x float> %118, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %119 = extractelement <4 x float> %118, i64 3
+  %retval.sroa.0.4.vec.insert.i182.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i181.us, float %119, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i182.us, ptr %pivot_in, align 8
+  %WorkMinX.us = getelementptr inbounds i8, ptr %add.ptr.i141.us, i64 52
+  %120 = load float, ptr %WorkMinX.us, align 4
+  %121 = load float, ptr %y.i1.i, align 4
+  %122 = insertelement <2 x float> poison, float %92, i64 0
+  %123 = shufflevector <2 x float> %122, <2 x float> poison, <2 x i32> zeroinitializer
+  %124 = fmul <2 x float> %68, %123
+  %ref.tmp179.sroa.0.2.us = select i1 %cmp1, <2 x float> %124, <2 x float> %ref.tmp179.sroa.0.4.vec.insert
+  %125 = insertelement <2 x float> poison, float %120, i64 0
+  %126 = insertelement <2 x float> %125, float %121, i64 1
+  %127 = fadd <2 x float> %126, %ref.tmp179.sroa.0.2.us
+  store <2 x float> %127, ptr %pivot_out, align 8
+  call void @_ZN5ImGui22ShadeVertsTransformPosEP10ImDrawListiiRK6ImVec2ffS4_(ptr noundef nonnull %3, i32 noundef %111, i32 noundef %117, ptr noundef nonnull align 4 dereferenceable(8) %pivot_in, float noundef %cond212, float noundef %cond11, ptr noundef nonnull align 4 dereferenceable(8) %pivot_out)
+  %.pre238 = load i32, ptr %ColumnsCount, align 4
+  br label %for.inc.us
+
+for.inc.us:                                       ; preds = %cond.end163.us, %if.end93.us, %for.body89.us
+  %128 = phi i32 [ %72, %for.body89.us ], [ %72, %if.end93.us ], [ %.pre238, %cond.end163.us ]
+  %max_x.3.us = phi float [ %max_x.1223.us, %for.body89.us ], [ %max_x.1223.us, %if.end93.us ], [ %cond.i153.us, %cond.end163.us ]
+  %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
+  %129 = sext i32 %128 to i64
+  %cmp88.us = icmp slt i64 %indvars.iv.next236, %129
+  br i1 %cmp88.us, label %for.body89.us, label %for.inc193, !llvm.loop !55
+
+for.body89:                                       ; preds = %for.body89.lr.ph, %for.inc
+  %130 = phi i32 [ %157, %for.inc ], [ %69, %for.body89.lr.ph ]
+  %131 = phi i32 [ %158, %for.inc ], [ %70, %for.body89.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body89.lr.ph ]
+  %132 = load ptr, ptr %EnabledMaskByDisplayOrder, align 8
+  %133 = trunc i64 %indvars.iv to i32
   %shr = lshr i64 %indvars.iv, 5
   %idxprom = and i64 %shr, 134217727
-  %arrayidx = getelementptr inbounds i32, ptr %74, i64 %idxprom
-  %76 = load i32, ptr %arrayidx, align 4
-  %and = and i32 %75, 31
+  %arrayidx = getelementptr inbounds i32, ptr %132, i64 %idxprom
+  %134 = load i32, ptr %arrayidx, align 4
+  %and = and i32 %133, 31
   %shl = shl nuw i32 1, %and
-  %and90 = and i32 %76, %shl
+  %and90 = and i32 %134, %shl
   %cmp91.not = icmp eq i32 %and90, 0
   br i1 %cmp91.not, label %for.inc, label %if.end93
 
 if.end93:                                         ; preds = %for.body89
-  %77 = load ptr, ptr %DisplayOrderToIndex, align 8
-  %add.ptr.i139 = getelementptr inbounds i16, ptr %77, i64 %indvars.iv
-  %78 = load i16, ptr %add.ptr.i139, align 2
-  %conv95 = sext i16 %78 to i32
-  %79 = load ptr, ptr %Columns96, align 8
-  %idx.ext.i140 = sext i16 %78 to i64
-  %add.ptr.i141 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %79, i64 %idx.ext.i140
-  %80 = load i32, ptr %add.ptr.i141, align 4
-  %and98 = and i32 %80, 262144
+  %135 = load ptr, ptr %DisplayOrderToIndex, align 8
+  %add.ptr.i139 = getelementptr inbounds i16, ptr %135, i64 %indvars.iv
+  %136 = load i16, ptr %add.ptr.i139, align 2
+  %137 = load ptr, ptr %Columns96, align 8
+  %idx.ext.i140 = sext i16 %136 to i64
+  %add.ptr.i141 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %137, i64 %idx.ext.i140
+  %138 = load i32, ptr %add.ptr.i141, align 4
+  %and98 = and i32 %138, 262144
   %cmp99 = icmp eq i32 %and98, 0
   br i1 %cmp99, label %for.inc, label %arrayctor.loop.preheader
 
 arrayctor.loop.preheader:                         ; preds = %if.end93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %bg_shape, i8 0, i64 32, i1 false)
-  %MaxX103 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %79, i64 %idx.ext.i140, i32 3
-  %81 = load i32, ptr %MaxX103, align 4
-  %82 = load i32, ptr %y.i1.i, align 4
-  store i32 %81, ptr %bg_shape, align 16
-  store i32 %82, ptr %bg_shape.sroa_idx, align 4
-  %MinX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %79, i64 %idx.ext.i140, i32 2
-  %83 = load i32, ptr %MinX, align 4
-  store i32 %83, ptr %arrayidx110, align 8
-  store i32 %82, ptr %arrayidx110.sroa_idx, align 4
-  %84 = insertelement <2 x i32> poison, i32 %83, i64 0
-  %85 = insertelement <2 x i32> %84, i32 %82, i64 1
-  %86 = bitcast <2 x i32> %85 to <2 x float>
-  %87 = fadd <2 x float> %30, %86
-  store <2 x float> %87, ptr %arrayidx114, align 16
-  %88 = bitcast i32 %81 to float
-  %add.i148 = fadd float %72, %88
-  %89 = insertelement <2 x float> %87, float %add.i148, i64 0
-  store <2 x float> %89, ptr %arrayidx118, align 8
-  br i1 %trunc.not, label %if.then120, label %if.then188
-
-if.then120:                                       ; preds = %arrayctor.loop.preheader
-  %call125 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 42, float noundef 1.000000e+00)
-  call void @_ZN10ImDrawList13AddQuadFilledERK6ImVec2S2_S2_S2_j(ptr noundef nonnull align 8 dereferenceable(196) %3, ptr noundef nonnull align 4 dereferenceable(8) %bg_shape, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx110, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx114, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx118, i32 noundef %call125)
-  %cmp126 = icmp eq i32 %highlight_column_n.0, %conv95
-  br i1 %cmp126, label %if.then127, label %if.end133
-
-if.then127:                                       ; preds = %if.then120
-  %call132 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 24, float noundef 1.000000e+00)
-  call void @_ZN10ImDrawList13AddQuadFilledERK6ImVec2S2_S2_S2_j(ptr noundef nonnull align 8 dereferenceable(196) %3, ptr noundef nonnull align 4 dereferenceable(8) %bg_shape, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx110, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx114, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx118, i32 noundef %call132)
-  br label %if.end133
-
-if.end133:                                        ; preds = %if.then127, %if.then120
-  %90 = load float, ptr %arrayidx118, align 8
-  %cmp.i152 = fcmp oge float %max_x.1223, %90
-  %cond.i153 = select i1 %cmp.i152, float %max_x.1223, float %90
-  %91 = load i8, ptr %IsLayoutLocked.i154, align 2
-  %92 = and i8 %91, 1
-  %cmp.i155 = icmp eq i8 %92, 0
-  br i1 %cmp.i155, label %land.lhs.true.i, label %if.end.i156
-
-land.lhs.true.i:                                  ; preds = %if.end133
-  %93 = load i16, ptr %DeclColumnsCount.i, align 2
-  %cmp2.not.i161 = icmp sgt i16 %93, %78
-  br i1 %cmp2.not.i161, label %if.end.i156, label %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit
-
-if.end.i156:                                      ; preds = %land.lhs.true.i, %if.end133
-  %94 = load ptr, ptr %Columns96, align 8
-  %NameOffset.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %94, i64 %idx.ext.i140, i32 17
-  %95 = load i16, ptr %NameOffset.i, align 4
-  %cmp4.i = icmp eq i16 %95, -1
-  br i1 %cmp4.i, label %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit, label %if.end6.i
-
-if.end6.i:                                        ; preds = %if.end.i156
-  %96 = load ptr, ptr %Data.i.i158, align 8
-  %idxprom.i.i = sext i16 %95 to i64
-  %arrayidx.i.i159 = getelementptr inbounds i8, ptr %96, i64 %idxprom.i.i
-  br label %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit
-
-_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit: ; preds = %land.lhs.true.i, %if.end.i156, %if.end6.i
-  %retval.0.i160 = phi ptr [ %arrayidx.i.i159, %if.end6.i ], [ @.str.1, %land.lhs.true.i ], [ @.str.1, %if.end.i156 ]
-  %97 = load float, ptr %RowCellPaddingY, align 8
-  %98 = call float @llvm.fmuladd.f32(float %fneg19, float %97, float %max_label_width.addr.0)
-  br i1 %cmp1, label %cond.true155.critedge, label %cond.false146
-
-cond.false146:                                    ; preds = %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit
-  %99 = load float, ptr %CellPaddingX, align 8
-  %100 = insertelement <2 x float> poison, float %98, i64 0
-  %101 = insertelement <2 x float> %100, float %23, i64 1
-  %102 = insertelement <2 x float> poison, float %99, i64 0
-  %103 = insertelement <2 x float> %102, float %97, i64 1
-  %104 = fadd <2 x float> %101, %103
-  %105 = load <2 x float>, ptr %ClipRect, align 4
-  %106 = fadd <2 x float> %105, %104
-  store <2 x float> %105, ptr %label_r, align 16
-  store <2 x float> %106, ptr %Max.i167, align 8
-  %call153 = call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %retval.0.i160, ptr noundef null, i1 noundef zeroext true, float noundef -1.000000e+00)
-  store <2 x float> %call153, ptr %label_size, align 8
-  %107 = load float, ptr %CellPaddingX, align 8
-  br label %cond.end163
-
-cond.true155.critedge:                            ; preds = %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit
-  %108 = insertelement <2 x float> poison, float %98, i64 0
-  %109 = insertelement <2 x float> %108, float %23, i64 1
-  %110 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %97, i64 1
-  %111 = fadd <2 x float> %109, %110
-  %112 = load <2 x float>, ptr %ClipRect, align 4
-  %113 = fadd <2 x float> %111, %112
-  store <2 x float> %112, ptr %label_r, align 16
-  store <2 x float> %113, ptr %Max.i167, align 8
-  %call153.c = call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %retval.0.i160, ptr noundef null, i1 noundef zeroext true, float noundef -1.000000e+00)
-  store <2 x float> %call153.c, ptr %label_size, align 8
-  %114 = extractelement <2 x float> %call153.c, i64 0
-  %sub157 = fsub float %max_label_width.addr.0, %114
-  %115 = load float, ptr %CellPaddingX, align 8
-  %sub159 = fsub float %sub157, %115
-  %cmp.i174 = fcmp ole float %sub159, 0.000000e+00
-  %cond.i175 = select i1 %cmp.i174, float 0.000000e+00, float %sub159
-  br label %cond.end163
-
-cond.end163:                                      ; preds = %cond.false146, %cond.true155.critedge
-  %cond164 = phi float [ %cond.i175, %cond.true155.critedge ], [ %107, %cond.false146 ]
-  %116 = load float, ptr %RowCellPaddingY, align 8
-  %117 = load i32, ptr %_VtxCurrentIdx, align 4
-  %118 = load <2 x float>, ptr %label_r, align 16
-  %119 = insertelement <2 x float> poison, float %cond164, i64 0
-  %120 = insertelement <2 x float> %119, float %116, i64 1
-  %121 = fadd <2 x float> %120, %118
-  store <2 x float> %121, ptr %ref.tmp166, align 8
-  %122 = load float, ptr %Max.i167, align 8
-  call void @_ZN5ImGui18RenderTextEllipsisEP10ImDrawListRK6ImVec2S4_ffPKcS6_PS3_(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp166, ptr noundef nonnull align 4 dereferenceable(8) %Max.i167, float noundef %122, float noundef %122, ptr noundef %retval.0.i160, ptr noundef null, ptr noundef nonnull %label_size)
-  %123 = load i32, ptr %_VtxCurrentIdx, align 4
-  %124 = load <4 x float>, ptr %label_r, align 16
-  %retval.sroa.0.0.vec.insert.i181 = shufflevector <4 x float> %124, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %125 = extractelement <4 x float> %124, i64 3
-  %retval.sroa.0.4.vec.insert.i182 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i181, float %125, i64 1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i182, ptr %pivot_in, align 8
-  %WorkMinX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %79, i64 %idx.ext.i140, i32 10
-  %126 = load float, ptr %WorkMinX, align 4
-  %127 = load float, ptr %y.i1.i, align 4
-  %128 = insertelement <2 x float> poison, float %98, i64 0
-  %129 = shufflevector <2 x float> %128, <2 x float> poison, <2 x i32> zeroinitializer
-  %130 = fmul <2 x float> %27, %129
-  %ref.tmp179.sroa.0.2 = select i1 %cmp1, <2 x float> %130, <2 x float> %ref.tmp179.sroa.0.4.vec.insert
-  %131 = insertelement <2 x float> poison, float %126, i64 0
-  %132 = insertelement <2 x float> %131, float %127, i64 1
-  %133 = fadd <2 x float> %132, %ref.tmp179.sroa.0.2
-  store <2 x float> %133, ptr %pivot_out, align 8
-  call void @_ZN5ImGui22ShadeVertsTransformPosEP10ImDrawListiiRK6ImVec2ffS4_(ptr noundef nonnull %3, i32 noundef %117, i32 noundef %123, ptr noundef nonnull align 4 dereferenceable(8) %pivot_in, float noundef %cond212, float noundef %cond11, ptr noundef nonnull align 4 dereferenceable(8) %pivot_out)
-  br label %for.inc
-
-if.then188:                                       ; preds = %arrayctor.loop.preheader
-  %134 = load i16, ptr %HoveredColumnBorder.i, align 4
-  %cmp.i193 = icmp eq i16 %134, %78
-  %135 = load i16, ptr %ResizedColumn.i, align 2
-  %cmp2.i = icmp eq i16 %135, %78
+  %MaxX103 = getelementptr inbounds i8, ptr %add.ptr.i141, i64 12
+  %139 = load i32, ptr %MaxX103, align 4
+  %140 = load i32, ptr %y.i1.i, align 4
+  store i32 %139, ptr %bg_shape, align 16
+  store i32 %140, ptr %bg_shape.sroa_idx, align 4
+  %MinX = getelementptr inbounds i8, ptr %add.ptr.i141, i64 8
+  %141 = load i32, ptr %MinX, align 4
+  store i32 %141, ptr %arrayidx110, align 8
+  store i32 %140, ptr %arrayidx110.sroa_idx, align 4
+  %arrayidx110.val.cast = bitcast i32 %141 to float
+  %arrayidx110.val116.cast = bitcast i32 %140 to float
+  %add.i145 = fadd float %mul.i, %arrayidx110.val.cast
+  %add3.i = fadd float %mul1.i, %arrayidx110.val116.cast
+  %retval.sroa.0.0.vec.insert.i146 = insertelement <2 x float> poison, float %add.i145, i64 0
+  %retval.sroa.0.4.vec.insert.i147 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i146, float %add3.i, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i147, ptr %arrayidx114, align 16
+  %142 = bitcast i32 %139 to float
+  %add.i148 = fadd float %mul.i, %142
+  %retval.sroa.0.0.vec.insert.i150 = insertelement <2 x float> poison, float %add.i148, i64 0
+  %retval.sroa.0.4.vec.insert.i151 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i150, float %add3.i, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i151, ptr %arrayidx118, align 8
+  %143 = load i16, ptr %HoveredColumnBorder.i, align 4
+  %cmp.i193 = icmp eq i16 %143, %136
+  %144 = load i16, ptr %ResizedColumn.i, align 2
+  %cmp2.i = icmp eq i16 %144, %136
   br i1 %cmp2.i, label %land.end.i, label %land.end.thread.i
 
-land.end.thread.i:                                ; preds = %if.then188
-  %136 = load i16, ptr %FreezeColumnsCount, align 4
-  %conv711.i = sext i16 %136 to i64
-  %137 = add nuw nsw i64 %indvars.iv, 1
-  %138 = and i64 %conv711.i, 4294967295
-  %cmp813.i = icmp eq i64 %137, %138
+land.end.thread.i:                                ; preds = %arrayctor.loop.preheader
+  %145 = load i16, ptr %FreezeColumnsCount, align 4
+  %conv711.i = sext i16 %145 to i64
+  %146 = add nuw nsw i64 %indvars.iv, 1
+  %147 = and i64 %conv711.i, 4294967295
+  %cmp813.i = icmp eq i64 %146, %147
   br i1 %cmp.i193, label %if.then.i198, label %if.end.i195
 
-land.end.i:                                       ; preds = %if.then188
-  %139 = load i16, ptr %InstanceInteracted.i, align 2
-  %140 = load i16, ptr %InstanceCurrent, align 8
-  %cmp5.i = icmp eq i16 %139, %140
+land.end.i:                                       ; preds = %arrayctor.loop.preheader
+  %148 = load i16, ptr %InstanceInteracted.i, align 2
+  %149 = load i16, ptr %InstanceCurrent, align 8
+  %cmp5.i = icmp eq i16 %148, %149
   %cond.fr.i = freeze i1 %cmp5.i
-  %141 = load i16, ptr %FreezeColumnsCount, align 4
-  %conv7.i = sext i16 %141 to i64
-  %142 = add nuw nsw i64 %indvars.iv, 1
-  %143 = and i64 %conv7.i, 4294967295
-  %cmp8.i = icmp eq i64 %142, %143
+  %150 = load i16, ptr %FreezeColumnsCount, align 4
+  %conv7.i = sext i16 %150 to i64
+  %151 = add nuw nsw i64 %indvars.iv, 1
+  %152 = and i64 %conv7.i, 4294967295
+  %cmp8.i = icmp eq i64 %151, %152
   %brmerge.i = select i1 %cond.fr.i, i1 true, i1 %cmp.i193
   %..i = select i1 %cond.fr.i, i32 29, i32 28
   br i1 %brmerge.i, label %if.then.i198, label %if.end.i195
 
 if.then.i198:                                     ; preds = %land.end.i, %land.end.thread.i
-  %144 = phi i32 [ 28, %land.end.thread.i ], [ %..i, %land.end.i ]
-  %call.i = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %144, float noundef 1.000000e+00)
+  %153 = phi i32 [ 28, %land.end.thread.i ], [ %..i, %land.end.i ]
+  %call.i = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %153, float noundef 1.000000e+00)
   br label %_ZL23TableGetColumnBorderColP10ImGuiTableii.exit
 
 if.end.i195:                                      ; preds = %land.end.i, %land.end.thread.i
@@ -12166,53 +12159,58 @@ if.end.i195:                                      ; preds = %land.end.i, %land.e
   br i1 %cmp81618.i, label %if.then15.i, label %lor.lhs.false13.i
 
 lor.lhs.false13.i:                                ; preds = %if.end.i195
-  %145 = load i32, ptr %Flags.i, align 4
-  %and.i196 = and i32 %145, 6144
+  %154 = load i32, ptr %Flags.i, align 4
+  %and.i196 = and i32 %154, 6144
   %tobool14.not.i = icmp eq i32 %and.i196, 0
   br i1 %tobool14.not.i, label %if.end16.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %lor.lhs.false13.i, %if.end.i195
-  %146 = load i32, ptr %BorderColorStrong.i, align 4
+  %155 = load i32, ptr %BorderColorStrong.i, align 4
   br label %_ZL23TableGetColumnBorderColP10ImGuiTableii.exit
 
 if.end16.i:                                       ; preds = %lor.lhs.false13.i
-  %147 = load i32, ptr %BorderColorLight.i, align 8
+  %156 = load i32, ptr %BorderColorLight.i, align 8
   br label %_ZL23TableGetColumnBorderColP10ImGuiTableii.exit
 
 _ZL23TableGetColumnBorderColP10ImGuiTableii.exit: ; preds = %if.then.i198, %if.then15.i, %if.end16.i
-  %retval.0.i197 = phi i32 [ %call.i, %if.then.i198 ], [ %146, %if.then15.i ], [ %147, %if.end16.i ]
+  %retval.0.i197 = phi i32 [ %call.i, %if.then.i198 ], [ %155, %if.then15.i ], [ %156, %if.end16.i ]
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %3, ptr noundef nonnull align 4 dereferenceable(8) %bg_shape, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx118, i32 noundef %retval.0.i197, float noundef 1.000000e+00)
+  %.pre = load i32, ptr %ColumnsCount, align 4
   br label %for.inc
 
-for.inc:                                          ; preds = %cond.end163, %_ZL23TableGetColumnBorderColP10ImGuiTableii.exit, %if.end93, %for.body89
-  %max_x.3 = phi float [ %max_x.1223, %for.body89 ], [ %max_x.1223, %if.end93 ], [ %max_x.1223, %_ZL23TableGetColumnBorderColP10ImGuiTableii.exit ], [ %cond.i153, %cond.end163 ]
+for.inc:                                          ; preds = %_ZL23TableGetColumnBorderColP10ImGuiTableii.exit, %if.end93, %for.body89
+  %157 = phi i32 [ %.pre, %_ZL23TableGetColumnBorderColP10ImGuiTableii.exit ], [ %130, %if.end93 ], [ %130, %for.body89 ]
+  %158 = phi i32 [ %.pre, %_ZL23TableGetColumnBorderColP10ImGuiTableii.exit ], [ %131, %if.end93 ], [ %131, %for.body89 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %148 = load i32, ptr %ColumnsCount, align 4
-  %149 = sext i32 %148 to i64
-  %cmp88 = icmp slt i64 %indvars.iv.next, %149
+  %159 = sext i32 %158 to i64
+  %cmp88 = icmp slt i64 %indvars.iv.next, %159
   br i1 %cmp88, label %for.body89, label %for.inc193, !llvm.loop !55
 
-for.inc193:                                       ; preds = %for.inc, %for.cond87.preheader
-  %150 = phi i32 [ %73, %for.cond87.preheader ], [ %148, %for.inc ]
-  %max_x.1.lcssa = phi float [ %max_x.0227, %for.cond87.preheader ], [ %max_x.3, %for.inc ]
-  br i1 %trunc.not, label %for.cond87.preheader, label %for.end195, !llvm.loop !56
+for.inc193:                                       ; preds = %for.inc, %for.inc.us, %for.cond87.preheader
+  %160 = phi i32 [ %69, %for.cond87.preheader ], [ %128, %for.inc.us ], [ %157, %for.inc ]
+  %161 = phi i32 [ %70, %for.cond87.preheader ], [ %128, %for.inc.us ], [ %158, %for.inc ]
+  %162 = phi i32 [ %71, %for.cond87.preheader ], [ %128, %for.inc.us ], [ %158, %for.inc ]
+  %max_x.1.lcssa = phi float [ %max_x.0228, %for.cond87.preheader ], [ %max_x.3.us, %for.inc.us ], [ %max_x.0228, %for.inc ]
+  %inc194 = add nuw nsw i32 %pass.0227, 1
+  %exitcond.not = icmp eq i32 %inc194, 2
+  br i1 %exitcond.not, label %for.end195, label %for.cond87.preheader, !llvm.loop !56
 
 for.end195:                                       ; preds = %for.inc193, %if.end85
-  %.us-phi = phi float [ 0.000000e+00, %if.end85 ], [ %max_x.1.lcssa, %for.inc193 ]
+  %.us-phi229 = phi float [ 0.000000e+00, %if.end85 ], [ %max_x.1.lcssa, %for.inc193 ]
   call void @_ZN5ImGui11PopClipRectEv()
   call void @_ZN5ImGui11PopClipRectEv()
-  %RightMostEnabledColumn = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 80
-  %151 = load i16, ptr %RightMostEnabledColumn, align 2
-  %152 = load ptr, ptr %Columns96, align 8
-  %idx.ext.i200 = sext i16 %151 to i64
-  %MaxX199 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %152, i64 %idx.ext.i200, i32 3
-  %153 = load float, ptr %MaxX199, align 4
-  %sub200 = fsub float %.us-phi, %153
+  %RightMostEnabledColumn = getelementptr inbounds i8, ptr %1, i64 542
+  %163 = load i16, ptr %RightMostEnabledColumn, align 2
+  %164 = load ptr, ptr %Columns96, align 8
+  %idx.ext.i200 = sext i16 %163 to i64
+  %MaxX199 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %164, i64 %idx.ext.i200, i32 3
+  %165 = load float, ptr %MaxX199, align 4
+  %sub200 = fsub float %.us-phi229, %165
   %cmp.i202 = fcmp ole float %sub200, 0.000000e+00
   %cond.i203 = select i1 %cmp.i202, float 0.000000e+00, float %sub200
-  %TempData = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 0, i32 3
-  %154 = load ptr, ptr %TempData, align 8
-  %AngledheadersExtraWidth = getelementptr inbounds %struct.ImGuiTableTempData, ptr %154, i64 0, i32 2
+  %TempData = getelementptr inbounds i8, ptr %1, i64 16
+  %166 = load ptr, ptr %TempData, align 8
+  %AngledheadersExtraWidth = getelementptr inbounds i8, ptr %166, i64 8
   store float %cond.i203, ptr %AngledheadersExtraWidth, align 8
   ret void
 }
@@ -12254,19 +12252,19 @@ declare void @_ZN5ImGui11PopItemFlagEv() local_unnamed_addr #1
 define noundef nonnull ptr @_ZN5ImGui19TableSettingsCreateEji(i32 noundef %id, i32 noundef %columns_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %SettingsTables = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218
+  %SettingsTables = getelementptr inbounds i8, ptr %0, i64 24384
   %mul.i = shl i32 %columns_count, 4
   %1 = load i32, ptr %SettingsTables, align 8
   %2 = add i32 %mul.i, 27
   %conv.i4 = and i32 %2, -8
   %add4.i = add nsw i32 %1, %conv.i4
-  %Capacity.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218, i32 0, i32 1
+  %Capacity.i.i = getelementptr inbounds i8, ptr %0, i64 24388
   %3 = load i32, ptr %Capacity.i.i, align 4
   %cmp.i.i = icmp slt i32 %3, %add4.i
   br i1 %cmp.i.i, label %if.then.i.i, label %entry._ZN8ImVectorIcE6resizeEi.exit_crit_edge.i
 
 entry._ZN8ImVectorIcE6resizeEi.exit_crit_edge.i:  ; preds = %entry
-  %Data.phi.trans.insert.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218, i32 0, i32 2
+  %Data.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 24392
   %.pre.i = load ptr, ptr %Data.phi.trans.insert.i, align 8
   br label %_ZN13ImChunkStreamI18ImGuiTableSettingsE11alloc_chunkEm.exit
 
@@ -12284,7 +12282,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %cond.true.i.i.i, %i
   %cond7.i.i.i = tail call noundef i32 @llvm.smax.i32(i32 %cond.i.i.i, i32 %add4.i)
   %conv.i.i.i = sext i32 %cond7.i.i.i to i64
   %call.i.i.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %conv.i.i.i)
-  %Data.i.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218, i32 0, i32 2
+  %Data.i.i.i = getelementptr inbounds i8, ptr %0, i64 24392
   %4 = load ptr, ptr %Data.i.i.i, align 8
   %tobool.not.i4.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i4.i.i, label %if.end7.i.i.i, label %if.then2.i.i.i
@@ -12305,7 +12303,7 @@ if.end7.i.i.i:                                    ; preds = %if.then2.i.i.i, %_Z
 _ZN13ImChunkStreamI18ImGuiTableSettingsE11alloc_chunkEm.exit: ; preds = %entry._ZN8ImVectorIcE6resizeEi.exit_crit_edge.i, %if.end7.i.i.i
   %7 = phi ptr [ %.pre.i, %entry._ZN8ImVectorIcE6resizeEi.exit_crit_edge.i ], [ %call.i.i.i, %if.end7.i.i.i ]
   store i32 %add4.i, ptr %SettingsTables, align 8
-  %Data.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218, i32 0, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %0, i64 24392
   %idx.ext.i = sext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %idx.ext.i
   store i32 %conv.i4, ptr %add.ptr.i, align 4
@@ -12324,21 +12322,21 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %n.011.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.body.preheader.i ]
   %settings_column.010.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i.i, %for.body.preheader.i ]
   store float 0.000000e+00, ptr %settings_column.010.i, align 4
-  %UserID.i.i = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %settings_column.010.i, i64 0, i32 1
+  %UserID.i.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 4
   store i32 0, ptr %UserID.i.i, align 4
-  %Index.i.i = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %settings_column.010.i, i64 0, i32 2
+  %Index.i.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 8
   store i16 -1, ptr %Index.i.i, align 4
-  %SortOrder.i.i = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %settings_column.010.i, i64 0, i32 4
+  %SortOrder.i.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 12
   store i16 -1, ptr %SortOrder.i.i, align 4
-  %DisplayOrder.i.i = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %settings_column.010.i, i64 0, i32 3
+  %DisplayOrder.i.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 10
   store i16 -1, ptr %DisplayOrder.i.i, align 2
-  %SortDirection.i.i = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %settings_column.010.i, i64 0, i32 5
+  %SortDirection.i.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 14
   %bf.load.i.i = load i8, ptr %SortDirection.i.i, align 2
   %bf.clear3.i.i = and i8 %bf.load.i.i, -16
   %bf.set4.i.i = or disjoint i8 %bf.clear3.i.i, 4
   store i8 %bf.set4.i.i, ptr %SortDirection.i.i, align 2
   %inc.i = add nuw nsw i32 %n.011.i, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %settings_column.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 16
   %exitcond.not.i = icmp eq i32 %inc.i, %columns_count
   br i1 %exitcond.not.i, label %_ZL17TableSettingsInitP18ImGuiTableSettingsjii.exit, label %for.body.i, !llvm.loop !58
 
@@ -12358,8 +12356,8 @@ _ZL17TableSettingsInitP18ImGuiTableSettingsjii.exit: ; preds = %for.body.i, %_ZN
 define noundef ptr @_ZN5ImGui21TableSettingsFindByIDEj(i32 noundef %id) local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %SettingsTables = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218
-  %Data.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218, i32 0, i32 2
+  %SettingsTables = getelementptr inbounds i8, ptr %0, i64 24384
+  %Data.i = getelementptr inbounds i8, ptr %0, i64 24392
   %1 = load ptr, ptr %Data.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   %add.ptr.i = getelementptr i8, ptr %1, i64 4
@@ -12372,7 +12370,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp1, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %settings.08, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %settings.08, i64 -4
   %3 = load i32, ptr %arrayidx.i.i, align 4
   %idx.ext.i = sext i32 %3 to i64
   %add.ptr.i5 = getelementptr inbounds i8, ptr %settings.08, i64 %idx.ext.i
@@ -12390,21 +12388,21 @@ return:                                           ; preds = %for.body, %for.inc,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN5ImGui21TableGetBoundSettingsEP10ImGuiTable(ptr nocapture noundef readonly %table) local_unnamed_addr #14 {
 entry:
-  %SettingsOffset = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 11
+  %SettingsOffset = getelementptr inbounds i8, ptr %table, i64 100
   %0 = load i32, ptr %SettingsOffset, align 4
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @GImGui, align 8
-  %Data.i = getelementptr inbounds %struct.ImGuiContext, ptr %1, i64 0, i32 218, i32 0, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %1, i64 24392
   %2 = load ptr, ptr %Data.i, align 8
   %idx.ext.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i
-  %ColumnsCountMax = getelementptr inbounds %struct.ImGuiTableSettings, ptr %add.ptr.i, i64 0, i32 4
+  %ColumnsCountMax = getelementptr inbounds i8, ptr %add.ptr.i, i64 14
   %3 = load i16, ptr %ColumnsCountMax, align 2
   %conv = sext i16 %3 to i32
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %4 = load i32, ptr %ColumnsCount, align 4
   %cmp2.not = icmp sgt i32 %4, %conv
   br i1 %cmp2.not, label %if.end, label %return
@@ -12428,17 +12426,17 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 64, i1 false)
   store ptr @.str.8, ptr %ini_handler, align 8
   %call = tail call noundef i32 @_Z9ImHashStrPKcmj(ptr noundef nonnull @.str.8, i64 noundef 0, i32 noundef 0)
-  %TypeHash = getelementptr inbounds %struct.ImGuiSettingsHandler, ptr %ini_handler, i64 0, i32 1
+  %TypeHash = getelementptr inbounds i8, ptr %ini_handler, i64 8
   store i32 %call, ptr %TypeHash, align 8
-  %ClearAllFn = getelementptr inbounds %struct.ImGuiSettingsHandler, ptr %ini_handler, i64 0, i32 2
+  %ClearAllFn = getelementptr inbounds i8, ptr %ini_handler, i64 16
   store ptr @_ZL29TableSettingsHandler_ClearAllP12ImGuiContextP20ImGuiSettingsHandler, ptr %ClearAllFn, align 8
-  %ReadOpenFn = getelementptr inbounds %struct.ImGuiSettingsHandler, ptr %ini_handler, i64 0, i32 4
+  %ReadOpenFn = getelementptr inbounds i8, ptr %ini_handler, i64 32
   store ptr @_ZL29TableSettingsHandler_ReadOpenP12ImGuiContextP20ImGuiSettingsHandlerPKc, ptr %ReadOpenFn, align 8
-  %ReadLineFn = getelementptr inbounds %struct.ImGuiSettingsHandler, ptr %ini_handler, i64 0, i32 5
+  %ReadLineFn = getelementptr inbounds i8, ptr %ini_handler, i64 40
   store ptr @_ZL29TableSettingsHandler_ReadLineP12ImGuiContextP20ImGuiSettingsHandlerPvPKc, ptr %ReadLineFn, align 8
-  %ApplyAllFn = getelementptr inbounds %struct.ImGuiSettingsHandler, ptr %ini_handler, i64 0, i32 6
+  %ApplyAllFn = getelementptr inbounds i8, ptr %ini_handler, i64 48
   store ptr @_ZL29TableSettingsHandler_ApplyAllP12ImGuiContextP20ImGuiSettingsHandler, ptr %ApplyAllFn, align 8
-  %WriteAllFn = getelementptr inbounds %struct.ImGuiSettingsHandler, ptr %ini_handler, i64 0, i32 7
+  %WriteAllFn = getelementptr inbounds i8, ptr %ini_handler, i64 56
   store ptr @_ZL29TableSettingsHandler_WriteAllP12ImGuiContextP20ImGuiSettingsHandlerP15ImGuiTextBuffer, ptr %WriteAllFn, align 8
   call void @_ZN5ImGui18AddSettingsHandlerEPK20ImGuiSettingsHandler(ptr noundef nonnull %ini_handler)
   ret void
@@ -12447,14 +12445,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL29TableSettingsHandler_ClearAllP12ImGuiContextP20ImGuiSettingsHandler(ptr nocapture noundef %ctx, ptr nocapture readnone %0) #0 {
 entry:
-  %Map.i = getelementptr inbounds %struct.ImGuiContext, ptr %ctx, i64 0, i32 167, i32 1
+  %Map.i = getelementptr inbounds i8, ptr %ctx, i64 19960
   %1 = load i32, ptr %Map.i, align 8
   %cmp.not8 = icmp eq i32 %1, 0
   br i1 %cmp.not8, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %Data.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %ctx, i64 0, i32 167, i32 1, i32 0, i32 2
-  %Data.i.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %ctx, i64 0, i32 167, i32 0, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %ctx, i64 19968
+  %Data.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 19952
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -12484,14 +12482,14 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !59
 
 for.end:                                          ; preds = %for.inc, %entry
-  %Data.i.i6 = getelementptr inbounds %struct.ImGuiContext, ptr %ctx, i64 0, i32 218, i32 0, i32 2
+  %Data.i.i6 = getelementptr inbounds i8, ptr %ctx, i64 24392
   %9 = load ptr, ptr %Data.i.i6, align 8
   %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %_ZN13ImChunkStreamI18ImGuiTableSettingsE5clearEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end
-  %SettingsTables = getelementptr inbounds %struct.ImGuiContext, ptr %ctx, i64 0, i32 218
-  %Capacity.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %ctx, i64 0, i32 218, i32 0, i32 1
+  %SettingsTables = getelementptr inbounds i8, ptr %ctx, i64 24384
+  %Capacity.i.i = getelementptr inbounds i8, ptr %ctx, i64 24388
   store i32 0, ptr %Capacity.i.i, align 4
   store i32 0, ptr %SettingsTables, align 8
   tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %9)
@@ -12516,8 +12514,8 @@ entry:
 if.end:                                           ; preds = %entry
   %2 = load i32, ptr %id, align 4
   %3 = load ptr, ptr @GImGui, align 8
-  %SettingsTables.i = getelementptr inbounds %struct.ImGuiContext, ptr %3, i64 0, i32 218
-  %Data.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %3, i64 0, i32 218, i32 0, i32 2
+  %SettingsTables.i = getelementptr inbounds i8, ptr %3, i64 24384
+  %Data.i.i = getelementptr inbounds i8, ptr %3, i64 24392
   %4 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   %add.ptr.i.i = getelementptr i8, ptr %4, i64 4
@@ -12530,7 +12528,7 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
   br i1 %cmp1.i, label %if.then3, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %settings.08.i, i64 -1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %settings.08.i, i64 -4
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
   %idx.ext.i.i = sext i32 %6 to i64
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %settings.08.i, i64 %idx.ext.i.i
@@ -12541,7 +12539,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i.i, label %if.end9, label %for.body.i
 
 if.then3:                                         ; preds = %for.body.i
-  %ColumnsCountMax = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.08.i, i64 0, i32 4
+  %ColumnsCountMax = getelementptr inbounds i8, ptr %settings.08.i, i64 14
   %8 = load i16, ptr %ColumnsCountMax, align 2
   %conv = sext i16 %8 to i32
   %9 = load i32, ptr %columns_count, align 4
@@ -12554,38 +12552,38 @@ if.then5:                                         ; preds = %if.then3
   br i1 %cmp9.i, label %for.body.preheader.i, label %_ZL17TableSettingsInitP18ImGuiTableSettingsjii.exit
 
 for.body.preheader.i:                             ; preds = %if.then5
-  %add.ptr.i.i6 = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.08.i, i64 1
+  %add.ptr.i.i6 = getelementptr inbounds i8, ptr %settings.08.i, i64 20
   br label %for.body.i7
 
 for.body.i7:                                      ; preds = %for.body.i7, %for.body.preheader.i
   %n.011.i = phi i32 [ %inc.i, %for.body.i7 ], [ 0, %for.body.preheader.i ]
   %settings_column.010.i = phi ptr [ %incdec.ptr.i, %for.body.i7 ], [ %add.ptr.i.i6, %for.body.preheader.i ]
   store float 0.000000e+00, ptr %settings_column.010.i, align 4
-  %UserID.i.i = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %settings_column.010.i, i64 0, i32 1
+  %UserID.i.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 4
   store i32 0, ptr %UserID.i.i, align 4
-  %Index.i.i = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %settings_column.010.i, i64 0, i32 2
+  %Index.i.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 8
   store i16 -1, ptr %Index.i.i, align 4
-  %SortOrder.i.i = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %settings_column.010.i, i64 0, i32 4
+  %SortOrder.i.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 12
   store i16 -1, ptr %SortOrder.i.i, align 4
-  %DisplayOrder.i.i = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %settings_column.010.i, i64 0, i32 3
+  %DisplayOrder.i.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 10
   store i16 -1, ptr %DisplayOrder.i.i, align 2
-  %SortDirection.i.i = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %settings_column.010.i, i64 0, i32 5
+  %SortDirection.i.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 14
   %bf.load.i.i = load i8, ptr %SortDirection.i.i, align 2
   %bf.clear3.i.i = and i8 %bf.load.i.i, -16
   %bf.set4.i.i = or disjoint i8 %bf.clear3.i.i, 4
   store i8 %bf.set4.i.i, ptr %SortDirection.i.i, align 2
   %inc.i = add nuw nsw i32 %n.011.i, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %settings_column.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 16
   %exitcond.not.i = icmp eq i32 %inc.i, %conv
   br i1 %exitcond.not.i, label %_ZL17TableSettingsInitP18ImGuiTableSettingsjii.exit, label %for.body.i7, !llvm.loop !58
 
 _ZL17TableSettingsInitP18ImGuiTableSettingsjii.exit: ; preds = %for.body.i7, %if.then5
   store i32 %2, ptr %settings.08.i, align 4
   %conv.i = trunc i32 %9 to i16
-  %ColumnsCount.i = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.08.i, i64 0, i32 3
+  %ColumnsCount.i = getelementptr inbounds i8, ptr %settings.08.i, i64 12
   store i16 %conv.i, ptr %ColumnsCount.i, align 4
   store i16 %8, ptr %ColumnsCountMax, align 2
-  %WantApply.i = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.08.i, i64 0, i32 5
+  %WantApply.i = getelementptr inbounds i8, ptr %settings.08.i, i64 16
   store i8 1, ptr %WantApply.i, align 4
   br label %return
 
@@ -12623,7 +12621,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load float, ptr %f, align 4
-  %RefScale = getelementptr inbounds %struct.ImGuiTableSettings, ptr %entry2, i64 0, i32 2
+  %RefScale = getelementptr inbounds i8, ptr %entry2, i64 8
   store float %2, ptr %RefScale, align 4
   br label %if.end84
 
@@ -12636,7 +12634,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end84, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTableSettings, ptr %entry2, i64 0, i32 3
+  %ColumnsCount = getelementptr inbounds i8, ptr %entry2, i64 12
   %4 = load i16, ptr %ColumnsCount, align 4
   %conv = sext i16 %4 to i32
   %cmp7.not = icmp slt i32 %3, %conv
@@ -12648,12 +12646,12 @@ if.end9:                                          ; preds = %lor.lhs.false
   %add.ptr = getelementptr inbounds i8, ptr %line, i64 %idx.ext
   %call10 = call noundef ptr @_Z14ImStrSkipBlankPKc(ptr noundef %add.ptr)
   store i8 0, ptr %c, align 1
-  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableSettings, ptr %entry2, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %entry2, i64 20
   %6 = load i32, ptr %column_n, align 4
   %idx.ext12 = sext i32 %6 to i64
   %add.ptr13 = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %idx.ext12
   %conv14 = trunc i32 %6 to i16
-  %Index = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %idx.ext12, i32 2
+  %Index = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   store i16 %conv14, ptr %Index, align 4
   %call15 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %call10, ptr noundef nonnull @.str.41, ptr noundef nonnull %n, ptr noundef nonnull %r) #24
   %cmp16 = icmp eq i32 %call15, 1
@@ -12665,7 +12663,7 @@ if.then17:                                        ; preds = %if.end9
   %add.ptr19 = getelementptr inbounds i8, ptr %call10, i64 %idx.ext18
   %call20 = call noundef ptr @_Z14ImStrSkipBlankPKc(ptr noundef %add.ptr19)
   %8 = load i32, ptr %n, align 4
-  %UserID = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %idx.ext12, i32 1
+  %UserID = getelementptr inbounds i8, ptr %add.ptr13, i64 4
   store i32 %8, ptr %UserID, align 4
   br label %if.end21
 
@@ -12683,11 +12681,11 @@ if.then24:                                        ; preds = %if.end21
   %10 = load i32, ptr %n, align 4
   %conv28 = sitofp i32 %10 to float
   store float %conv28, ptr %add.ptr13, align 4
-  %IsStretch = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %idx.ext12, i32 5
+  %IsStretch = getelementptr inbounds i8, ptr %add.ptr13, i64 14
   %bf.load = load i8, ptr %IsStretch, align 2
   %bf.clear = and i8 %bf.load, -9
   store i8 %bf.clear, ptr %IsStretch, align 2
-  %SaveFlags = getelementptr inbounds %struct.ImGuiTableSettings, ptr %entry2, i64 0, i32 1
+  %SaveFlags = getelementptr inbounds i8, ptr %entry2, i64 4
   %11 = load i32, ptr %SaveFlags, align 4
   %or = or i32 %11, 1
   store i32 %or, ptr %SaveFlags, align 4
@@ -12706,11 +12704,11 @@ if.then32:                                        ; preds = %if.end29
   %call35 = call noundef ptr @_Z14ImStrSkipBlankPKc(ptr noundef %add.ptr34)
   %13 = load float, ptr %f, align 4
   store float %13, ptr %add.ptr13, align 4
-  %IsStretch37 = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %idx.ext12, i32 5
+  %IsStretch37 = getelementptr inbounds i8, ptr %add.ptr13, i64 14
   %bf.load38 = load i8, ptr %IsStretch37, align 2
   %bf.set40 = or i8 %bf.load38, 8
   store i8 %bf.set40, ptr %IsStretch37, align 2
-  %SaveFlags41 = getelementptr inbounds %struct.ImGuiTableSettings, ptr %entry2, i64 0, i32 1
+  %SaveFlags41 = getelementptr inbounds i8, ptr %entry2, i64 4
   %14 = load i32, ptr %SaveFlags41, align 4
   %or42 = or i32 %14, 1
   store i32 %or42, ptr %SaveFlags41, align 4
@@ -12729,14 +12727,14 @@ if.then46:                                        ; preds = %if.end43
   %call49 = call noundef ptr @_Z14ImStrSkipBlankPKc(ptr noundef %add.ptr48)
   %16 = load i32, ptr %n, align 4
   %conv50 = trunc i32 %16 to i8
-  %IsEnabled = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %idx.ext12, i32 5
+  %IsEnabled = getelementptr inbounds i8, ptr %add.ptr13, i64 14
   %bf.load51 = load i8, ptr %IsEnabled, align 2
   %bf.value = shl i8 %conv50, 2
   %bf.shl = and i8 %bf.value, 4
   %bf.clear52 = and i8 %bf.load51, -5
   %bf.set53 = or disjoint i8 %bf.shl, %bf.clear52
   store i8 %bf.set53, ptr %IsEnabled, align 2
-  %SaveFlags54 = getelementptr inbounds %struct.ImGuiTableSettings, ptr %entry2, i64 0, i32 1
+  %SaveFlags54 = getelementptr inbounds i8, ptr %entry2, i64 4
   %17 = load i32, ptr %SaveFlags54, align 4
   %or55 = or i32 %17, 4
   store i32 %or55, ptr %SaveFlags54, align 4
@@ -12755,9 +12753,9 @@ if.then59:                                        ; preds = %if.end56
   %call62 = call noundef ptr @_Z14ImStrSkipBlankPKc(ptr noundef %add.ptr61)
   %19 = load i32, ptr %n, align 4
   %conv63 = trunc i32 %19 to i16
-  %DisplayOrder = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %idx.ext12, i32 3
+  %DisplayOrder = getelementptr inbounds i8, ptr %add.ptr13, i64 10
   store i16 %conv63, ptr %DisplayOrder, align 2
-  %SaveFlags64 = getelementptr inbounds %struct.ImGuiTableSettings, ptr %entry2, i64 0, i32 1
+  %SaveFlags64 = getelementptr inbounds i8, ptr %entry2, i64 4
   %20 = load i32, ptr %SaveFlags64, align 4
   %or65 = or i32 %20, 2
   store i32 %or65, ptr %SaveFlags64, align 4
@@ -12776,17 +12774,17 @@ if.then69:                                        ; preds = %if.end66
   %call72 = call noundef ptr @_Z14ImStrSkipBlankPKc(ptr noundef %add.ptr71)
   %22 = load i32, ptr %n, align 4
   %conv73 = trunc i32 %22 to i16
-  %SortOrder = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %idx.ext12, i32 4
+  %SortOrder = getelementptr inbounds i8, ptr %add.ptr13, i64 12
   store i16 %conv73, ptr %SortOrder, align 4
   %23 = load i8, ptr %c, align 1
   %cmp75 = icmp eq i8 %23, 94
   %conv76 = select i1 %cmp75, i8 2, i8 1
-  %SortDirection = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %idx.ext12, i32 5
+  %SortDirection = getelementptr inbounds i8, ptr %add.ptr13, i64 14
   %bf.load77 = load i8, ptr %SortDirection, align 2
   %bf.clear79 = and i8 %bf.load77, -4
   %bf.set80 = or disjoint i8 %bf.clear79, %conv76
   store i8 %bf.set80, ptr %SortDirection, align 2
-  %SaveFlags81 = getelementptr inbounds %struct.ImGuiTableSettings, ptr %entry2, i64 0, i32 1
+  %SaveFlags81 = getelementptr inbounds i8, ptr %entry2, i64 4
   %24 = load i32, ptr %SaveFlags81, align 4
   %or82 = or i32 %24, 8
   store i32 %or82, ptr %SaveFlags81, align 4
@@ -12799,14 +12797,14 @@ if.end84:                                         ; preds = %if.end66, %if.then6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL29TableSettingsHandler_ApplyAllP12ImGuiContextP20ImGuiSettingsHandler(ptr nocapture noundef readonly %ctx, ptr nocapture readnone %0) #6 {
 entry:
-  %Map.i = getelementptr inbounds %struct.ImGuiContext, ptr %ctx, i64 0, i32 167, i32 1
+  %Map.i = getelementptr inbounds i8, ptr %ctx, i64 19960
   %1 = load i32, ptr %Map.i, align 8
   %cmp.not7 = icmp eq i32 %1, 0
   br i1 %cmp.not7, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %Data.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %ctx, i64 0, i32 167, i32 1, i32 0, i32 2
-  %Data.i.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %ctx, i64 0, i32 167, i32 0, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %ctx, i64 19968
+  %Data.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 19952
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -12823,9 +12821,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then:                                          ; preds = %for.body
   %idxprom.i.i.i = sext i32 %5 to i64
-  %IsSettingsRequestLoad = getelementptr inbounds %struct.ImGuiTable, ptr %6, i64 %idxprom.i.i.i, i32 99
+  %arrayidx.i.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %6, i64 %idxprom.i.i.i
+  %IsSettingsRequestLoad = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 573
   store i8 1, ptr %IsSettingsRequestLoad, align 1
-  %SettingsOffset = getelementptr inbounds %struct.ImGuiTable, ptr %6, i64 %idxprom.i.i.i, i32 11
+  %SettingsOffset = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 100
   store i32 -1, ptr %SettingsOffset, align 4
   %.pre = load i32, ptr %Map.i, align 8
   br label %for.inc
@@ -12844,27 +12843,27 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL29TableSettingsHandler_WriteAllP12ImGuiContextP20ImGuiSettingsHandlerP15ImGuiTextBuffer(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %handler, ptr noundef %buf) #0 {
 entry:
-  %SettingsTables = getelementptr inbounds %struct.ImGuiContext, ptr %ctx, i64 0, i32 218
-  %Data.i = getelementptr inbounds %struct.ImGuiContext, ptr %ctx, i64 0, i32 218, i32 0, i32 2
+  %SettingsTables = getelementptr inbounds i8, ptr %ctx, i64 24384
+  %Data.i = getelementptr inbounds i8, ptr %ctx, i64 24392
   %0 = load ptr, ptr %Data.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %for.end101, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 4
-  %Capacity.i.i = getelementptr inbounds %struct.ImVector.25, ptr %buf, i64 0, i32 1
-  %Data.i.i = getelementptr inbounds %struct.ImVector.25, ptr %buf, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %buf, i64 4
+  %Data.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc98
   %1 = phi ptr [ %0, %for.body.lr.ph ], [ %35, %for.inc98 ]
-  %settings.071 = phi ptr [ %add.ptr.i, %for.body.lr.ph ], [ %add.ptr.i62, %for.inc98 ]
-  %2 = load i32, ptr %settings.071, align 4
+  %settings.070 = phi ptr [ %add.ptr.i, %for.body.lr.ph ], [ %add.ptr.i62, %for.inc98 ]
+  %2 = load i32, ptr %settings.070, align 4
   %cmp1 = icmp eq i32 %2, 0
   br i1 %cmp1, label %for.inc98, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %SaveFlags = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.071, i64 0, i32 1
+  %SaveFlags = getelementptr inbounds i8, ptr %settings.070, i64 4
   %3 = load i32, ptr %SaveFlags, align 4
   %and = and i32 %3, 1
   %cmp2.not.not = icmp eq i32 %and, 0
@@ -12879,7 +12878,7 @@ if.end21:                                         ; preds = %if.end
   %9 = load i32, ptr %buf, align 8
   %spec.select.i = tail call noundef i32 @llvm.usub.sat.i32(i32 %9, i32 1)
   %add = add nsw i32 %spec.select.i, 30
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.071, i64 0, i32 3
+  %ColumnsCount = getelementptr inbounds i8, ptr %settings.070, i64 12
   %10 = load i16, ptr %ColumnsCount, align 4
   %conv = sext i16 %10 to i32
   %mul = mul nsw i32 %conv, 50
@@ -12906,17 +12905,17 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end7.i.i:                                      ; preds = %if.then2.i.i, %if.end.i.i
   store ptr %call.i.i, ptr %Data.i.i, align 8
   store i32 %add23, ptr %Capacity.i.i, align 4
-  %.pre = load i32, ptr %settings.071, align 4
-  %.pre72 = load i16, ptr %ColumnsCount, align 4
-  %.pre76 = sext i16 %.pre72 to i32
+  %.pre = load i32, ptr %settings.070, align 4
+  %.pre71 = load i16, ptr %ColumnsCount, align 4
+  %.pre75 = sext i16 %.pre71 to i32
   br label %_ZN15ImGuiTextBuffer7reserveEi.exit
 
 _ZN15ImGuiTextBuffer7reserveEi.exit:              ; preds = %if.end21, %if.end7.i.i
-  %conv26.pre-phi = phi i32 [ %conv, %if.end21 ], [ %.pre76, %if.end7.i.i ]
+  %conv26.pre-phi = phi i32 [ %conv, %if.end21 ], [ %.pre75, %if.end7.i.i ]
   %15 = phi i32 [ %2, %if.end21 ], [ %.pre, %if.end7.i.i ]
   %16 = load ptr, ptr %handler, align 8
   tail call void (ptr, ptr, ...) @_ZN15ImGuiTextBuffer7appendfEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %buf, ptr noundef nonnull @.str.47, ptr noundef %16, i32 noundef %15, i32 noundef %conv26.pre-phi)
-  %RefScale = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.071, i64 0, i32 2
+  %RefScale = getelementptr inbounds i8, ptr %settings.070, i64 8
   %17 = load float, ptr %RefScale, align 4
   %cmp27 = fcmp une float %17, 0.000000e+00
   br i1 %cmp27, label %if.then28, label %if.end31
@@ -12932,7 +12931,7 @@ if.end31:                                         ; preds = %if.then28, %_ZN15Im
   br i1 %cmp3667, label %for.body37.lr.ph, label %for.end
 
 for.body37.lr.ph:                                 ; preds = %if.end31
-  %add.ptr.i61 = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.071, i64 1
+  %add.ptr.i61 = getelementptr inbounds i8, ptr %settings.070, i64 20
   %19 = and i32 %3, 7
   %20 = extractelement <4 x i1> %7, i64 1
   %21 = extractelement <4 x i1> %7, i64 2
@@ -12941,9 +12940,9 @@ for.body37.lr.ph:                                 ; preds = %if.end31
 
 for.body37:                                       ; preds = %for.body37.lr.ph, %for.inc
   %23 = phi i16 [ %18, %for.body37.lr.ph ], [ %34, %for.inc ]
-  %column_n.070 = phi i32 [ 0, %for.body37.lr.ph ], [ %inc, %for.inc ]
+  %column_n.069 = phi i32 [ 0, %for.body37.lr.ph ], [ %inc, %for.inc ]
   %column.068 = phi ptr [ %add.ptr.i61, %for.body37.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %UserID = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column.068, i64 0, i32 1
+  %UserID = getelementptr inbounds i8, ptr %column.068, i64 4
   %24 = load i32, ptr %UserID, align 4
   %25 = or i32 %19, %24
   %brmerge59 = icmp ne i32 %25, 0
@@ -12951,7 +12950,7 @@ for.body37:                                       ; preds = %for.body37.lr.ph, %
   br i1 %brmerge60, label %lor.end, label %land.rhs
 
 land.rhs:                                         ; preds = %for.body37
-  %SortOrder = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column.068, i64 0, i32 4
+  %SortOrder = getelementptr inbounds i8, ptr %column.068, i64 12
   %26 = load i16, ptr %SortOrder, align 4
   %cmp46.not = icmp eq i16 %26, -1
   br i1 %cmp46.not, label %for.inc, label %if.end50
@@ -12960,7 +12959,7 @@ lor.end:                                          ; preds = %for.body37
   br i1 %brmerge59, label %if.end50, label %for.inc
 
 if.end50:                                         ; preds = %land.rhs, %lor.end
-  tail call void (ptr, ptr, ...) @_ZN15ImGuiTextBuffer7appendfEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %buf, ptr noundef nonnull @.str.49, i32 noundef %column_n.070)
+  tail call void (ptr, ptr, ...) @_ZN15ImGuiTextBuffer7appendfEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %buf, ptr noundef nonnull @.str.49, i32 noundef %column_n.069)
   %27 = load i32, ptr %UserID, align 4
   %cmp52.not = icmp eq i32 %27, 0
   br i1 %cmp52.not, label %if.end55, label %if.then53
@@ -12973,7 +12972,7 @@ if.end55:                                         ; preds = %if.then53, %if.end5
   br i1 %cmp2.not.not, label %if.end72, label %land.lhs.true57
 
 land.lhs.true57:                                  ; preds = %if.end55
-  %IsStretch = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column.068, i64 0, i32 5
+  %IsStretch = getelementptr inbounds i8, ptr %column.068, i64 14
   %bf.load = load i8, ptr %IsStretch, align 2
   %28 = and i8 %bf.load, 8
   %tobool58.not = icmp eq i8 %28, 0
@@ -13002,7 +13001,7 @@ if.end72:                                         ; preds = %if.end55, %if.then6
   br i1 %22, label %if.end79, label %if.then74
 
 if.then74:                                        ; preds = %if.end72
-  %IsEnabled = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column.068, i64 0, i32 5
+  %IsEnabled = getelementptr inbounds i8, ptr %column.068, i64 14
   %bf.load75 = load i8, ptr %IsEnabled, align 2
   %bf.lshr76 = lshr i8 %bf.load75, 2
   %bf.clear77 = and i8 %bf.lshr76, 1
@@ -13014,7 +13013,7 @@ if.end79:                                         ; preds = %if.then74, %if.end7
   br i1 %21, label %if.end83, label %if.then81
 
 if.then81:                                        ; preds = %if.end79
-  %DisplayOrder = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column.068, i64 0, i32 3
+  %DisplayOrder = getelementptr inbounds i8, ptr %column.068, i64 10
   %32 = load i16, ptr %DisplayOrder, align 2
   %conv82 = sext i16 %32 to i32
   tail call void (ptr, ptr, ...) @_ZN15ImGuiTextBuffer7appendfEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %buf, ptr noundef nonnull @.str.54, i32 noundef %conv82)
@@ -13024,14 +13023,14 @@ if.end83:                                         ; preds = %if.then81, %if.end7
   br i1 %20, label %if.end97, label %land.lhs.true85
 
 land.lhs.true85:                                  ; preds = %if.end83
-  %SortOrder86 = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column.068, i64 0, i32 4
+  %SortOrder86 = getelementptr inbounds i8, ptr %column.068, i64 12
   %33 = load i16, ptr %SortOrder86, align 4
   %cmp88.not = icmp eq i16 %33, -1
   br i1 %cmp88.not, label %if.end97, label %if.then89
 
 if.then89:                                        ; preds = %land.lhs.true85
   %conv87 = sext i16 %33 to i32
-  %SortDirection = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column.068, i64 0, i32 5
+  %SortDirection = getelementptr inbounds i8, ptr %column.068, i64 14
   %bf.load92 = load i8, ptr %SortDirection, align 2
   %bf.clear93 = and i8 %bf.load92, 3
   %cmp95 = icmp eq i8 %bf.clear93, 1
@@ -13041,28 +13040,28 @@ if.then89:                                        ; preds = %land.lhs.true85
 
 if.end97:                                         ; preds = %if.then89, %land.lhs.true85, %if.end83
   tail call void @_ZN15ImGuiTextBuffer6appendEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %buf, ptr noundef nonnull @.str.56, ptr noundef null)
-  %.pre74 = load i16, ptr %ColumnsCount, align 4
+  %.pre73 = load i16, ptr %ColumnsCount, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs, %lor.end, %if.end97
-  %34 = phi i16 [ %23, %land.rhs ], [ %23, %lor.end ], [ %.pre74, %if.end97 ]
-  %inc = add nuw nsw i32 %column_n.070, 1
-  %incdec.ptr = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %column.068, i64 1
+  %34 = phi i16 [ %23, %land.rhs ], [ %23, %lor.end ], [ %.pre73, %if.end97 ]
+  %inc = add nuw nsw i32 %column_n.069, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %column.068, i64 16
   %conv35 = sext i16 %34 to i32
   %cmp36 = icmp slt i32 %inc, %conv35
   br i1 %cmp36, label %for.body37, label %for.end, !llvm.loop !61
 
 for.end:                                          ; preds = %for.inc, %if.end31
   tail call void @_ZN15ImGuiTextBuffer6appendEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %buf, ptr noundef nonnull @.str.56, ptr noundef null)
-  %.pre75 = load ptr, ptr %Data.i, align 8
+  %.pre74 = load ptr, ptr %Data.i, align 8
   br label %for.inc98
 
 for.inc98:                                        ; preds = %if.end, %for.body, %for.end
-  %35 = phi ptr [ %1, %if.end ], [ %1, %for.body ], [ %.pre75, %for.end ]
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %settings.071, i64 -1
+  %35 = phi ptr [ %1, %if.end ], [ %1, %for.body ], [ %.pre74, %for.end ]
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %settings.070, i64 -4
   %36 = load i32, ptr %arrayidx.i.i, align 4
   %idx.ext.i = sext i32 %36 to i64
-  %add.ptr.i62 = getelementptr inbounds i8, ptr %settings.071, i64 %idx.ext.i
+  %add.ptr.i62 = getelementptr inbounds i8, ptr %settings.070, i64 %idx.ext.i
   %37 = load i32, ptr %SettingsTables, align 8
   %idx.ext.i.i = sext i32 %37 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %35, i64 %idx.ext.i.i
@@ -13080,7 +13079,7 @@ declare void @_ZN5ImGui18AddSettingsHandlerEPK20ImGuiSettingsHandler(ptr noundef
 define void @_ZN5ImGui11TableRemoveEP10ImGuiTable(ptr noundef %table) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %Data.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 167, i32 0, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %0, i64 19952
   %1 = load ptr, ptr %Data.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %table to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -13092,19 +13091,19 @@ entry:
   %idxprom.i.i.i = ashr exact i64 %sext.i, 32
   %arrayidx.i.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 %idxprom.i.i.i
   tail call void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull align 8 dereferenceable(586) %arrayidx.i.i.i) #24
-  %FreeIdx.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 167, i32 2
+  %FreeIdx.i.i = getelementptr inbounds i8, ptr %0, i64 19976
   %3 = load i32, ptr %FreeIdx.i.i, align 8
   %4 = load ptr, ptr %Data.i, align 8
   %arrayidx.i5.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 %idxprom.i.i.i
   store i32 %3, ptr %arrayidx.i5.i.i, align 4
   store i32 %conv.i, ptr %FreeIdx.i.i, align 8
-  %Map.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 167, i32 1
+  %Map.i.i = getelementptr inbounds i8, ptr %0, i64 19960
   tail call void @_ZN12ImGuiStorage6SetIntEji(ptr noundef nonnull align 8 dereferenceable(16) %Map.i.i, i32 noundef %2, i32 noundef -1)
-  %AliveCount.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 167, i32 3
+  %AliveCount.i.i = getelementptr inbounds i8, ptr %0, i64 19980
   %5 = load i32, ptr %AliveCount.i.i, align 4
   %dec.i.i = add nsw i32 %5, -1
   store i32 %dec.i.i, ptr %AliveCount.i.i, align 4
-  %Data.i5 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 168, i32 2
+  %Data.i5 = getelementptr inbounds i8, ptr %0, i64 19992
   %6 = load ptr, ptr %Data.i5, align 8
   %arrayidx.i = getelementptr inbounds float, ptr %6, i64 %idxprom.i.i.i
   store float -1.000000e+00, ptr %arrayidx.i, align 4
@@ -13115,16 +13114,16 @@ entry:
 define void @_ZN5ImGui30TableGcCompactTransientBuffersEP10ImGuiTable(ptr noundef %table) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %SortSpecs = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 64
+  %SortSpecs = getelementptr inbounds i8, ptr %table, i64 496
   store ptr null, ptr %SortSpecs, align 8
-  %Data.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 63, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %table, i64 488
   %1 = load ptr, ptr %Data.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZN8ImVectorI25ImGuiTableColumnSortSpecsE5clearEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %SortSpecsMulti = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 63
-  %Capacity.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 63, i32 1
+  %SortSpecsMulti = getelementptr inbounds i8, ptr %table, i64 480
+  %Capacity.i = getelementptr inbounds i8, ptr %table, i64 484
   store i32 0, ptr %Capacity.i, align 4
   store i32 0, ptr %SortSpecsMulti, align 8
   tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %1)
@@ -13132,16 +13131,16 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN8ImVectorI25ImGuiTableColumnSortSpecsE5clearEv.exit
 
 _ZN8ImVectorI25ImGuiTableColumnSortSpecsE5clearEv.exit: ; preds = %entry, %if.then.i
-  %IsSortSpecsDirty = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 95
+  %IsSortSpecsDirty = getelementptr inbounds i8, ptr %table, i64 569
   store i8 1, ptr %IsSortSpecsDirty, align 1
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 57, i32 0, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %table, i64 408
   %2 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZN15ImGuiTextBuffer5clearEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN8ImVectorI25ImGuiTableColumnSortSpecsE5clearEv.exit
-  %ColumnsNames = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 57
-  %Capacity.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 57, i32 0, i32 1
+  %ColumnsNames = getelementptr inbounds i8, ptr %table, i64 400
+  %Capacity.i.i = getelementptr inbounds i8, ptr %table, i64 404
   store i32 0, ptr %Capacity.i.i, align 4
   store i32 0, ptr %ColumnsNames, align 8
   tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %2)
@@ -13149,15 +13148,15 @@ if.then.i.i:                                      ; preds = %_ZN8ImVectorI25ImGu
   br label %_ZN15ImGuiTextBuffer5clearEv.exit
 
 _ZN15ImGuiTextBuffer5clearEv.exit:                ; preds = %_ZN8ImVectorI25ImGuiTableColumnSortSpecsE5clearEv.exit, %if.then.i.i
-  %MemoryCompacted = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 110
+  %MemoryCompacted = getelementptr inbounds i8, ptr %table, i64 584
   store i8 1, ptr %MemoryCompacted, align 8
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %3 = load i32, ptr %ColumnsCount, align 4
   %cmp13 = icmp sgt i32 %3, 0
   br i1 %cmp13, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN15ImGuiTextBuffer5clearEv.exit
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -13172,13 +13171,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !62
 
 for.end:                                          ; preds = %for.body, %_ZN15ImGuiTextBuffer5clearEv.exit
-  %Data.i11 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 167, i32 0, i32 2
+  %Data.i11 = getelementptr inbounds i8, ptr %0, i64 19952
   %7 = load ptr, ptr %Data.i11, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %table to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 592
-  %Data.i12 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 168, i32 2
+  %Data.i12 = getelementptr inbounds i8, ptr %0, i64 19992
   %8 = load ptr, ptr %Data.i12, align 8
   %sext = shl i64 %sub.ptr.div.i, 32
   %idxprom.i = ashr exact i64 %sext, 32
@@ -13190,9 +13189,9 @@ for.end:                                          ; preds = %for.body, %_ZN15ImG
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ImGui30TableGcCompactTransientBuffersEP18ImGuiTableTempData(ptr noundef %temp_data) local_unnamed_addr #0 {
 entry:
-  %DrawSplitter = getelementptr inbounds %struct.ImGuiTableTempData, ptr %temp_data, i64 0, i32 5
+  %DrawSplitter = getelementptr inbounds i8, ptr %temp_data, i64 24
   tail call void @_ZN18ImDrawListSplitter15ClearFreeMemoryEv(ptr noundef nonnull align 8 dereferenceable(24) %DrawSplitter)
-  %LastTimeActive = getelementptr inbounds %struct.ImGuiTableTempData, ptr %temp_data, i64 0, i32 1
+  %LastTimeActive = getelementptr inbounds i8, ptr %temp_data, i64 4
   store float -1.000000e+00, ptr %LastTimeActive, align 4
   ret void
 }
@@ -13204,8 +13203,8 @@ define void @_ZN5ImGui22TableGcCompactSettingsEv() local_unnamed_addr #0 persona
 entry:
   %new_chunk_stream = alloca %struct.ImChunkStream.28, align 8
   %0 = load ptr, ptr @GImGui, align 8
-  %SettingsTables = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218
-  %Data.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218, i32 0, i32 2
+  %SettingsTables = getelementptr inbounds i8, ptr %0, i64 24384
+  %Data.i = getelementptr inbounds i8, ptr %0, i64 24392
   %1 = load ptr, ptr %Data.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   %.pre = load i32, ptr %SettingsTables, align 8
@@ -13225,7 +13224,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp1.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings.058, i64 0, i32 3
+  %ColumnsCount = getelementptr inbounds i8, ptr %settings.058, i64 12
   %3 = load i16, ptr %ColumnsCount, align 4
   %conv.i = sext i16 %3 to i32
   %mul.i = shl nsw i32 %conv.i, 4
@@ -13235,7 +13234,7 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then
   %required_memory.1 = phi i32 [ %add, %if.then ], [ %required_memory.059, %for.body ]
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %settings.058, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %settings.058, i64 -4
   %4 = load i32, ptr %arrayidx.i.i, align 4
   %idx.ext.i = sext i32 %4 to i64
   %add.ptr.i16 = getelementptr inbounds i8, ptr %settings.058, i64 %idx.ext.i
@@ -13252,12 +13251,12 @@ for.end.thread:                                   ; preds = %entry
 
 invoke.cont.thread:                               ; preds = %for.end.thread
   store i64 0, ptr %new_chunk_stream, align 8
-  %Capacity.i72 = getelementptr inbounds %struct.ImVector.25, ptr %new_chunk_stream, i64 0, i32 1
+  %Capacity.i72 = getelementptr inbounds i8, ptr %new_chunk_stream, i64 4
   br label %invoke.cont.invoke.cont38_crit_edge
 
 if.end9:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %new_chunk_stream, i8 0, i64 16, i1 false)
-  %Capacity.i = getelementptr inbounds %struct.ImVector.25, ptr %new_chunk_stream, i64 0, i32 1
+  %Capacity.i = getelementptr inbounds i8, ptr %new_chunk_stream, i64 4
   %cmp.not.i = icmp sgt i32 %required_memory.1, 0
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont
 
@@ -13267,7 +13266,7 @@ if.end.i:                                         ; preds = %if.end9
           to label %if.end7.i unwind label %lpad.loopexit.split-lp
 
 if.end7.i:                                        ; preds = %if.end.i
-  %Data.i18 = getelementptr inbounds %struct.ImVector.25, ptr %new_chunk_stream, i64 0, i32 2
+  %Data.i18 = getelementptr inbounds i8, ptr %new_chunk_stream, i64 8
   %.pre61.pre = load ptr, ptr %Data.i, align 8
   store ptr %call.i20, ptr %Data.i18, align 8
   store i32 %required_memory.1, ptr %Capacity.i, align 4
@@ -13289,7 +13288,7 @@ invoke.cont.invoke.cont38_crit_edge:              ; preds = %invoke.cont.thread,
 
 for.body17.lr.ph:                                 ; preds = %invoke.cont
   %add.ptr.i23 = getelementptr inbounds i8, ptr %6, i64 4
-  %Data.phi.trans.insert.i = getelementptr inbounds %struct.ImVector.25, ptr %new_chunk_stream, i64 0, i32 2
+  %Data.phi.trans.insert.i = getelementptr inbounds i8, ptr %new_chunk_stream, i64 8
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.inc32
@@ -13303,7 +13302,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   br i1 %cmp19.not, label %for.inc32, label %if.then20
 
 if.then20:                                        ; preds = %for.body17
-  %ColumnsCount21 = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings11.060, i64 0, i32 3
+  %ColumnsCount21 = getelementptr inbounds i8, ptr %settings11.060, i64 12
   %13 = load i16, ptr %ColumnsCount21, align 4
   %conv.i25 = sext i16 %13 to i32
   %mul.i26 = shl nsw i32 %conv.i25, 4
@@ -13382,7 +13381,7 @@ for.inc32:                                        ; preds = %for.body17, %invoke
   %.pre.i63 = phi ptr [ %9, %for.body17 ], [ %17, %invoke.cont25 ]
   %20 = phi i32 [ %10, %for.body17 ], [ %15, %invoke.cont25 ]
   %21 = phi i32 [ %11, %for.body17 ], [ %add4.i, %invoke.cont25 ]
-  %arrayidx.i.i37 = getelementptr inbounds i32, ptr %settings11.060, i64 -1
+  %arrayidx.i.i37 = getelementptr inbounds i8, ptr %settings11.060, i64 -4
   %22 = load i32, ptr %arrayidx.i.i37, align 4
   %idx.ext.i38 = sext i32 %22 to i64
   %add.ptr.i39 = getelementptr inbounds i8, ptr %settings11.060, i64 %idx.ext.i38
@@ -13402,11 +13401,11 @@ invoke.cont38:                                    ; preds = %for.inc32, %invoke.
   %28 = phi i32 [ %.pre66, %invoke.cont.invoke.cont38_crit_edge ], [ %23, %for.inc32 ]
   store i32 %27, ptr %SettingsTables, align 8
   store i32 %28, ptr %new_chunk_stream, align 8
-  %Capacity.i.i46 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218, i32 0, i32 1
+  %Capacity.i.i46 = getelementptr inbounds i8, ptr %0, i64 24388
   %29 = load i32, ptr %Capacity.i.i46, align 4
   store i32 %26, ptr %Capacity.i.i46, align 4
   store i32 %29, ptr %Capacity.i7478, align 4
-  %Data8.i.i = getelementptr inbounds %struct.ImVector.25, ptr %new_chunk_stream, i64 0, i32 2
+  %Data8.i.i = getelementptr inbounds i8, ptr %new_chunk_stream, i64 8
   store ptr %24, ptr %Data.i, align 8
   store ptr %25, ptr %Data8.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %25, null
@@ -13430,7 +13429,7 @@ return:                                           ; preds = %for.end.thread, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %Data.i = getelementptr inbounds %struct.ImVector.25, ptr %this, i64 0, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Data.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN8ImVectorIcED2Ev.exit, label %if.then.i
@@ -13458,7 +13457,7 @@ entry:
   %buf = alloca [512 x i8], align 16
   %ref.tmp188 = alloca %struct.ImVec2, align 8
   %r = alloca %struct.ImRect, align 4
-  %LastFrameActive = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 12
+  %LastFrameActive = getelementptr inbounds i8, ptr %table, i64 104
   %0 = load i32, ptr %LastFrameActive, align 8
   %call = tail call noundef i32 @_ZN5ImGui13GetFrameCountEv()
   %sub = add nsw i32 %call, -2
@@ -13473,11 +13472,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %cond = phi ptr [ @.str.10, %if.then ], [ @.str.1, %entry ]
   %1 = load i32, ptr %table, align 8
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 13
+  %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
   %2 = load i32, ptr %ColumnsCount, align 4
-  %OuterWindow = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 55
+  %OuterWindow = getelementptr inbounds i8, ptr %table, i64 384
   %3 = load ptr, ptr %OuterWindow, align 8
-  %Name = getelementptr inbounds %struct.ImGuiWindow, ptr %3, i64 0, i32 1
+  %Name = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name, align 8
   %call3 = tail call noundef zeroext i1 (ptr, ptr, ...) @_ZN5ImGui8TreeNodeEPKvPKcz(ptr noundef nonnull %table, ptr noundef nonnull @.str.9, i32 noundef %1, i32 noundef %2, ptr noundef %4, ptr noundef nonnull %cond)
   br i1 %cmp.not, label %if.then6, label %if.end7
@@ -13492,8 +13491,8 @@ if.end7:                                          ; preds = %if.then6, %if.end
 
 if.then9:                                         ; preds = %if.end7
   %call10 = tail call noundef ptr @_ZN5ImGui21GetForegroundDrawListEv()
-  %OuterRect = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46
-  %Max = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 1
+  %OuterRect = getelementptr inbounds i8, ptr %table, i64 240
+  %Max = getelementptr inbounds i8, ptr %table, i64 248
   tail call void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonnull align 8 dereferenceable(196) %call10, ptr noundef nonnull align 4 dereferenceable(8) %OuterRect, ptr noundef nonnull align 4 dereferenceable(8) %Max, i32 noundef -16711681, float noundef 0.000000e+00, i32 noundef 0, float noundef 1.000000e+00)
   br label %if.end12
 
@@ -13502,7 +13501,7 @@ if.end12:                                         ; preds = %if.then9, %if.end7
   br i1 %call13, label %land.lhs.true, label %if.end20
 
 land.lhs.true:                                    ; preds = %if.end12
-  %HoveredColumnBody = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 70
+  %HoveredColumnBody = getelementptr inbounds i8, ptr %table, i64 522
   %5 = load i16, ptr %HoveredColumnBody, align 2
   %cmp14.not = icmp eq i16 %5, -1
   br i1 %cmp14.not, label %if.end20, label %if.then15
@@ -13520,7 +13519,7 @@ if.end20:                                         ; preds = %if.then15, %land.lh
   br i1 %call3, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.end20
-  %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 16
+  %InstanceCurrent = getelementptr inbounds i8, ptr %table, i64 120
   %6 = load i16, ptr %InstanceCurrent, align 8
   %cmp25 = icmp sgt i16 %6, 0
   br i1 %cmp25, label %if.then26, label %if.end29
@@ -13533,21 +13532,21 @@ if.then26:                                        ; preds = %if.end23
 
 if.end29:                                         ; preds = %if.then26, %if.end23
   %call30 = call noundef zeroext i1 @_ZN5ImGui11SmallButtonEPKc(ptr noundef nonnull @.str.12)
-  %OuterRect32 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46
+  %OuterRect32 = getelementptr inbounds i8, ptr %table, i64 240
   %7 = load float, ptr %OuterRect32, align 8
   %conv34 = fpext float %7 to double
-  %y = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %table, i64 244
   %8 = load float, ptr %y, align 4
   %conv37 = fpext float %8 to double
-  %Max.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 1
+  %Max.i = getelementptr inbounds i8, ptr %table, i64 248
   %9 = load float, ptr %Max.i, align 4
   %sub.i = fsub float %9, %7
   %conv40 = fpext float %sub.i to double
-  %y.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 46, i32 1, i32 1
+  %y.i = getelementptr inbounds i8, ptr %table, i64 252
   %10 = load float, ptr %y.i, align 4
   %sub.i100 = fsub float %10, %8
   %conv43 = fpext float %sub.i100 to double
-  %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %table, i64 4
   %11 = load i32, ptr %Flags, align 4
   %and.i = and i32 %11, 57344
   %12 = add nsw i32 %and.i, -8192
@@ -13564,45 +13563,45 @@ switch.lookup:                                    ; preds = %if.end29
 _ZL33DebugNodeTableGetSizingPolicyDesci.exit:     ; preds = %if.end29, %switch.lookup
   %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.61, %if.end29 ]
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.13, double noundef %conv34, double noundef %conv37, double noundef %conv40, double noundef %conv43, ptr noundef nonnull %retval.0.i)
-  %ColumnsGivenWidth = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 38
+  %ColumnsGivenWidth = getelementptr inbounds i8, ptr %table, i64 208
   %16 = load float, ptr %ColumnsGivenWidth, align 8
   %conv45 = fpext float %16 to double
-  %ColumnsAutoFitWidth = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 39
+  %ColumnsAutoFitWidth = getelementptr inbounds i8, ptr %table, i64 212
   %17 = load float, ptr %ColumnsAutoFitWidth, align 4
   %conv46 = fpext float %17 to double
-  %InnerWidth = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 37
+  %InnerWidth = getelementptr inbounds i8, ptr %table, i64 204
   %18 = load float, ptr %InnerWidth, align 4
   %conv47 = fpext float %18 to double
   %cmp49 = fcmp oeq float %18, 0.000000e+00
   %cond50 = select i1 %cmp49, ptr @.str.15, ptr @.str.1
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.14, double noundef %conv45, double noundef %conv46, double noundef %conv47, ptr noundef nonnull %cond50)
-  %CellPaddingX = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 34
+  %CellPaddingX = getelementptr inbounds i8, ptr %table, i64 192
   %19 = load float, ptr %CellPaddingX, align 8
   %conv51 = fpext float %19 to double
-  %CellSpacingX1 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 35
+  %CellSpacingX1 = getelementptr inbounds i8, ptr %table, i64 196
   %20 = load float, ptr %CellSpacingX1, align 4
   %conv52 = fpext float %20 to double
-  %CellSpacingX2 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 36
+  %CellSpacingX2 = getelementptr inbounds i8, ptr %table, i64 200
   %21 = load float, ptr %CellSpacingX2, align 8
   %conv53 = fpext float %21 to double
-  %OuterPaddingX = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 33
+  %OuterPaddingX = getelementptr inbounds i8, ptr %table, i64 188
   %22 = load float, ptr %OuterPaddingX, align 4
   %conv54 = fpext float %22 to double
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.16, double noundef %conv51, double noundef %conv52, double noundef %conv53, double noundef %conv54)
-  %HoveredColumnBody55 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 70
+  %HoveredColumnBody55 = getelementptr inbounds i8, ptr %table, i64 522
   %23 = load i16, ptr %HoveredColumnBody55, align 2
   %conv56 = sext i16 %23 to i32
-  %HoveredColumnBorder = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 71
+  %HoveredColumnBorder = getelementptr inbounds i8, ptr %table, i64 524
   %24 = load i16, ptr %HoveredColumnBorder, align 4
   %conv57 = sext i16 %24 to i32
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.17, i32 noundef %conv56, i32 noundef %conv57)
-  %ResizedColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 74
+  %ResizedColumn = getelementptr inbounds i8, ptr %table, i64 530
   %25 = load i16, ptr %ResizedColumn, align 2
   %conv58 = sext i16 %25 to i32
-  %ReorderColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 77
+  %ReorderColumn = getelementptr inbounds i8, ptr %table, i64 536
   %26 = load i16, ptr %ReorderColumn, align 8
   %conv59 = sext i16 %26 to i32
-  %HeldHeaderColumn = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 76
+  %HeldHeaderColumn = getelementptr inbounds i8, ptr %table, i64 534
   %27 = load i16, ptr %HeldHeaderColumn, align 2
   %conv60 = sext i16 %27 to i32
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.18, i32 noundef %conv58, i32 noundef %conv59, i32 noundef %conv60)
@@ -13611,8 +13610,8 @@ _ZL33DebugNodeTableGetSizingPolicyDesci.exit:     ; preds = %if.end29, %switch.l
   br i1 %cmp64.not122, label %for.cond68.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZL33DebugNodeTableGetSizingPolicyDesci.exit
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 60, i32 2
-  %InstanceDataFirst.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 59
+  %Data.i.i = getelementptr inbounds i8, ptr %table, i64 456
+  %InstanceDataFirst.i = getelementptr inbounds i8, ptr %table, i64 424
   br label %for.body
 
 for.cond68.preheader:                             ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit, %_ZL33DebugNodeTableGetSizingPolicyDesci.exit
@@ -13621,7 +13620,7 @@ for.cond68.preheader:                             ; preds = %_ZN5ImGui20TableGet
   br i1 %cmp70124, label %for.body71.lr.ph, label %for.end206
 
 for.body71.lr.ph:                                 ; preds = %for.cond68.preheader
-  %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
+  %Columns = getelementptr inbounds i8, ptr %table, i64 24
   %30 = load ptr, ptr %Columns, align 8
   %wide.trip.count = zext nneg i32 %29 to i64
   br label %for.body71
@@ -13634,14 +13633,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 if.end.i:                                         ; preds = %for.body
   %31 = load ptr, ptr %Data.i.i, align 8
   %32 = getelementptr %struct.ImGuiTableInstanceData, ptr %31, i64 %indvars.iv
-  %arrayidx.i.i = getelementptr %struct.ImGuiTableInstanceData, ptr %32, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %32, i64 -24
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
 _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %for.body, %if.end.i
   %retval.0.i101 = phi ptr [ %arrayidx.i.i, %if.end.i ], [ %InstanceDataFirst.i, %for.body ]
-  %HoveredRowLast = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i101, i64 0, i32 4
+  %HoveredRowLast = getelementptr inbounds i8, ptr %retval.0.i101, i64 16
   %33 = load i32, ptr %HoveredRowLast, align 4
-  %LastOuterHeight = getelementptr inbounds %struct.ImGuiTableInstanceData, ptr %retval.0.i101, i64 0, i32 1
+  %LastOuterHeight = getelementptr inbounds i8, ptr %retval.0.i101, i64 4
   %34 = load float, ptr %LastOuterHeight, align 4
   %conv66 = fpext float %34 to double
   %35 = trunc i64 %indvars.iv to i32
@@ -13656,15 +13655,15 @@ for.cond84.preheader:                             ; preds = %for.inc80
   br i1 %cmp70124, label %for.body87.lr.ph, label %for.end206
 
 for.body87.lr.ph:                                 ; preds = %for.cond84.preheader
-  %Columns88 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
-  %IsLayoutLocked.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 92
-  %DeclColumnsCount.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 68
-  %Data.i.i108 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 57, i32 0, i32 2
-  %WorkRect = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 48
-  %FreezeColumnsRequest = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 86
-  %y.i.i = getelementptr inbounds %struct.ImVec2, ptr %r, i64 0, i32 1
-  %Max.i112 = getelementptr inbounds %struct.ImRect, ptr %r, i64 0, i32 1
-  %y.i1.i = getelementptr inbounds %struct.ImRect, ptr %r, i64 0, i32 1, i32 1
+  %Columns88 = getelementptr inbounds i8, ptr %table, i64 24
+  %IsLayoutLocked.i = getelementptr inbounds i8, ptr %table, i64 566
+  %DeclColumnsCount.i = getelementptr inbounds i8, ptr %table, i64 518
+  %Data.i.i108 = getelementptr inbounds i8, ptr %table, i64 408
+  %WorkRect = getelementptr inbounds i8, ptr %table, i64 272
+  %FreezeColumnsRequest = getelementptr inbounds i8, ptr %table, i64 554
+  %y.i.i = getelementptr inbounds i8, ptr %r, i64 4
+  %Max.i112 = getelementptr inbounds i8, ptr %r, i64 8
+  %y.i1.i = getelementptr inbounds i8, ptr %r, i64 12
   br label %for.body87
 
 for.body71:                                       ; preds = %for.body71.lr.ph, %for.inc80
@@ -13677,7 +13676,7 @@ for.body71:                                       ; preds = %for.body71.lr.ph, %
   br i1 %tobool74.not, label %for.inc80, label %if.then75
 
 if.then75:                                        ; preds = %for.body71
-  %StretchWeight = getelementptr inbounds %struct.ImGuiTableColumn, ptr %30, i64 %indvars.iv133, i32 6
+  %StretchWeight = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %39 = load float, ptr %StretchWeight, align 4
   %add78 = fadd float %sum_weights.0126, %39
   br label %for.inc80
@@ -13717,15 +13716,15 @@ if.end6.i:                                        ; preds = %if.end.i107
 
 _ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit: ; preds = %land.lhs.true.i, %if.end.i107, %if.end6.i
   %retval.0.i110 = phi ptr [ %arrayidx.i.i109, %if.end6.i ], [ @.str.1, %land.lhs.true.i ], [ @.str.1, %if.end.i107 ]
-  %DisplayOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 18
+  %DisplayOrder = getelementptr inbounds i8, ptr %add.ptr.i105, i64 82
   %47 = load i16, ptr %DisplayOrder, align 2
   %conv91 = sext i16 %47 to i32
-  %MinX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 2
+  %MinX = getelementptr inbounds i8, ptr %add.ptr.i105, i64 8
   %48 = load float, ptr %MinX, align 4
   %49 = load float, ptr %WorkRect, align 8
   %sub94 = fsub float %48, %49
   %conv95 = fpext float %sub94 to double
-  %MaxX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 3
+  %MaxX = getelementptr inbounds i8, ptr %add.ptr.i105, i64 12
   %50 = load float, ptr %MaxX, align 4
   %sub99 = fsub float %50, %49
   %conv100 = fpext float %sub99 to double
@@ -13733,42 +13732,42 @@ _ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit: ; preds = %land.lhs.true.i, 
   %52 = sext i16 %51 to i64
   %cmp102 = icmp slt i64 %indvars.iv136, %52
   %cond103 = select i1 %cmp102, ptr @.str.21, ptr @.str.1
-  %IsEnabled = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 26
+  %IsEnabled = getelementptr inbounds i8, ptr %add.ptr.i105, i64 98
   %53 = load i8, ptr %IsEnabled, align 2
   %54 = and i8 %53, 1
   %conv105 = zext nneg i8 %54 to i32
-  %IsVisibleX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 29
+  %IsVisibleX = getelementptr inbounds i8, ptr %add.ptr.i105, i64 101
   %55 = load i8, ptr %IsVisibleX, align 1
   %56 = and i8 %55, 1
   %conv107 = zext nneg i8 %56 to i32
-  %IsVisibleY = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 30
+  %IsVisibleY = getelementptr inbounds i8, ptr %add.ptr.i105, i64 102
   %57 = load i8, ptr %IsVisibleY, align 2
   %58 = and i8 %57, 1
   %conv109 = zext nneg i8 %58 to i32
-  %IsRequestOutput = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 31
+  %IsRequestOutput = getelementptr inbounds i8, ptr %add.ptr.i105, i64 103
   %59 = load i8, ptr %IsRequestOutput, align 1
   %60 = and i8 %59, 1
   %conv111 = zext nneg i8 %60 to i32
-  %IsSkipItems = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 32
+  %IsSkipItems = getelementptr inbounds i8, ptr %add.ptr.i105, i64 104
   %61 = load i8, ptr %IsSkipItems, align 4
   %62 = and i8 %61, 1
   %conv113 = zext nneg i8 %62 to i32
-  %DrawChannelFrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 24
+  %DrawChannelFrozen = getelementptr inbounds i8, ptr %add.ptr.i105, i64 94
   %63 = load i16, ptr %DrawChannelFrozen, align 2
   %conv114 = zext i16 %63 to i32
-  %DrawChannelUnfrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 25
+  %DrawChannelUnfrozen = getelementptr inbounds i8, ptr %add.ptr.i105, i64 96
   %64 = load i16, ptr %DrawChannelUnfrozen, align 4
   %conv115 = zext i16 %64 to i32
-  %WidthGiven = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 1
+  %WidthGiven = getelementptr inbounds i8, ptr %add.ptr.i105, i64 4
   %65 = load float, ptr %WidthGiven, align 4
   %conv116 = fpext float %65 to double
-  %WidthRequest = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 4
+  %WidthRequest = getelementptr inbounds i8, ptr %add.ptr.i105, i64 16
   %66 = load float, ptr %WidthRequest, align 4
   %conv117 = fpext float %66 to double
-  %WidthAuto = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 5
+  %WidthAuto = getelementptr inbounds i8, ptr %add.ptr.i105, i64 20
   %67 = load float, ptr %WidthAuto, align 4
   %conv118 = fpext float %67 to double
-  %StretchWeight119 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 6
+  %StretchWeight119 = getelementptr inbounds i8, ptr %add.ptr.i105, i64 24
   %68 = load float, ptr %StretchWeight119, align 4
   %conv120 = fpext float %68 to double
   %cmp122 = fcmp ogt float %68, 0.000000e+00
@@ -13780,43 +13779,43 @@ _ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit: ; preds = %land.lhs.true.i, 
   %conv129 = fpext float %50 to double
   %sub132 = fsub float %50, %48
   %conv133 = fpext float %sub132 to double
-  %ClipRect = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 8
+  %ClipRect = getelementptr inbounds i8, ptr %add.ptr.i105, i64 32
   %69 = load float, ptr %ClipRect, align 4
   %conv136 = fpext float %69 to double
-  %Max138 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 8, i32 1
+  %Max138 = getelementptr inbounds i8, ptr %add.ptr.i105, i64 40
   %70 = load float, ptr %Max138, align 4
   %conv140 = fpext float %70 to double
   %sub147 = fsub float %70, %69
   %conv148 = fpext float %sub147 to double
-  %ContentMaxXFrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 13
+  %ContentMaxXFrozen = getelementptr inbounds i8, ptr %add.ptr.i105, i64 64
   %71 = load float, ptr %ContentMaxXFrozen, align 4
-  %WorkMinX = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 10
+  %WorkMinX = getelementptr inbounds i8, ptr %add.ptr.i105, i64 52
   %72 = load float, ptr %WorkMinX, align 4
   %sub149 = fsub float %71, %72
   %conv150 = fpext float %sub149 to double
-  %ContentMaxXUnfrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 14
+  %ContentMaxXUnfrozen = getelementptr inbounds i8, ptr %add.ptr.i105, i64 68
   %73 = load float, ptr %ContentMaxXUnfrozen, align 4
   %sub152 = fsub float %73, %72
   %conv153 = fpext float %sub152 to double
-  %ContentMaxXHeadersUsed = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 15
+  %ContentMaxXHeadersUsed = getelementptr inbounds i8, ptr %add.ptr.i105, i64 72
   %74 = load float, ptr %ContentMaxXHeadersUsed, align 4
   %sub155 = fsub float %74, %72
   %conv156 = fpext float %sub155 to double
-  %ContentMaxXHeadersIdeal = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 16
+  %ContentMaxXHeadersIdeal = getelementptr inbounds i8, ptr %add.ptr.i105, i64 76
   %75 = load float, ptr %ContentMaxXHeadersIdeal, align 4
   %sub158 = fsub float %75, %72
   %conv159 = fpext float %sub158 to double
-  %SortOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 22
+  %SortOrder = getelementptr inbounds i8, ptr %add.ptr.i105, i64 90
   %76 = load i16, ptr %SortOrder, align 2
   %conv160 = sext i16 %76 to i32
-  %SortDirection = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 37
+  %SortDirection = getelementptr inbounds i8, ptr %add.ptr.i105, i64 109
   %bf.load = load i8, ptr %SortDirection, align 1
   %bf.clear = and i8 %bf.load, 3
   %cmp162 = icmp eq i8 %bf.clear, 1
   %cmp169 = icmp eq i8 %bf.clear, 2
   %cond170 = select i1 %cmp169, ptr @.str.23, ptr @.str.1
   %cond172 = select i1 %cmp162, ptr @.str.22, ptr %cond170
-  %UserID = getelementptr inbounds %struct.ImGuiTableColumn, ptr %40, i64 %indvars.iv136, i32 9
+  %UserID = getelementptr inbounds i8, ptr %add.ptr.i105, i64 48
   %77 = load i32, ptr %UserID, align 4
   %78 = load i32, ptr %add.ptr.i105, align 4
   %and175 = and i32 %78, 8
@@ -13858,18 +13857,18 @@ for.inc204:                                       ; preds = %_ZN5ImGui18TableGet
 
 for.end206:                                       ; preds = %for.inc204, %for.cond68.preheader, %for.cond84.preheader
   %.lcssa = phi i32 [ %29, %for.cond84.preheader ], [ %29, %for.cond68.preheader ], [ %84, %for.inc204 ]
-  %SettingsOffset.i = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 11
+  %SettingsOffset.i = getelementptr inbounds i8, ptr %table, i64 100
   %86 = load i32, ptr %SettingsOffset.i, align 4
   %cmp.not.i = icmp eq i32 %86, -1
   br i1 %cmp.not.i, label %if.end210, label %if.then.i113
 
 if.then.i113:                                     ; preds = %for.end206
   %87 = load ptr, ptr @GImGui, align 8
-  %Data.i.i114 = getelementptr inbounds %struct.ImGuiContext, ptr %87, i64 0, i32 218, i32 0, i32 2
+  %Data.i.i114 = getelementptr inbounds i8, ptr %87, i64 24392
   %88 = load ptr, ptr %Data.i.i114, align 8
   %idx.ext.i.i115 = sext i32 %86 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %88, i64 %idx.ext.i.i115
-  %ColumnsCountMax.i = getelementptr inbounds %struct.ImGuiTableSettings, ptr %add.ptr.i.i, i64 0, i32 4
+  %ColumnsCountMax.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 14
   %89 = load i16, ptr %ColumnsCountMax.i, align 2
   %conv.i = sext i16 %89 to i32
   %cmp2.not.i116 = icmp sgt i32 %.lcssa, %conv.i
@@ -13887,7 +13886,7 @@ if.end210:                                        ; preds = %for.end206, %if.end
   br i1 %call30, label %if.then212, label %if.end213
 
 if.then212:                                       ; preds = %if.end210
-  %IsResetAllRequest = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 102
+  %IsResetAllRequest = getelementptr inbounds i8, ptr %table, i64 576
   store i8 1, ptr %IsResetAllRequest, align 8
   br label %if.end213
 
@@ -13931,19 +13930,19 @@ entry:
   %0 = load i32, ptr %settings, align 4
   %conv = zext i32 %0 to i64
   %1 = inttoptr i64 %conv to ptr
-  %ColumnsCount = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings, i64 0, i32 3
+  %ColumnsCount = getelementptr inbounds i8, ptr %settings, i64 12
   %2 = load i16, ptr %ColumnsCount, align 4
   %conv2 = sext i16 %2 to i32
   %call = tail call noundef zeroext i1 (ptr, ptr, ...) @_ZN5ImGui8TreeNodeEPKvPKcz(ptr noundef %1, ptr noundef nonnull @.str.27, i32 noundef %0, i32 noundef %conv2)
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %SaveFlags = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings, i64 0, i32 1
+  %SaveFlags = getelementptr inbounds i8, ptr %settings, i64 4
   %3 = load i32, ptr %SaveFlags, align 4
   tail call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.28, i32 noundef %3)
   %4 = load i16, ptr %ColumnsCount, align 4
   %conv4 = sext i16 %4 to i32
-  %ColumnsCountMax = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings, i64 0, i32 4
+  %ColumnsCountMax = getelementptr inbounds i8, ptr %settings, i64 14
   %5 = load i16, ptr %ColumnsCountMax, align 2
   %conv5 = sext i16 %5 to i32
   tail call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.29, i32 noundef %conv4, i32 noundef %conv5)
@@ -13952,16 +13951,16 @@ if.end:                                           ; preds = %entry
   br i1 %cmp40, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableSettings, ptr %settings, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %settings, i64 20
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %indvars.iv
-  %SortOrder = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %indvars.iv, i32 4
+  %SortOrder = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %7 = load i16, ptr %SortOrder, align 4
   %cmp10.not = icmp eq i16 %7, -1
-  %IsEnabled.phi.trans.insert = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %indvars.iv, i32 5
+  %IsEnabled.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx, i64 14
   %bf.load24.pre = load i8, ptr %IsEnabled.phi.trans.insert, align 2
   %bf.load.fr = freeze i8 %bf.load24.pre
   br i1 %cmp10.not, label %for.cond, label %cond.end
@@ -13978,7 +13977,7 @@ cond.end:                                         ; preds = %for.body
 for.cond:                                         ; preds = %for.body, %cond.end
   %conv142834 = phi i32 [ %conv14, %cond.end ], [ -1, %for.body ]
   %8 = phi ptr [ %spec.select, %cond.end ], [ @.str.33, %for.body ]
-  %conv122735.in.in = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %indvars.iv, i32 3
+  %conv122735.in.in = getelementptr inbounds i8, ptr %arrayidx, i64 10
   %conv122735.in = load i16, ptr %conv122735.in.in, align 2
   %conv122735 = sext i16 %conv122735.in to i32
   %bf.lshr = lshr i8 %bf.load.fr, 2
@@ -13989,7 +13988,7 @@ for.cond:                                         ; preds = %for.body, %cond.end
   %cond-lvalue33 = select i1 %tobool.not, ptr @.str.35, ptr @.str.34
   %10 = load float, ptr %arrayidx, align 4
   %conv35 = fpext float %10 to double
-  %UserID = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %indvars.iv, i32 1
+  %UserID = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %11 = load i32, ptr %UserID, align 4
   %12 = trunc i64 %indvars.iv to i32
   tail call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.30, i32 noundef %12, i32 noundef %conv122735, i32 noundef %conv142834, ptr noundef nonnull %8, i32 noundef %conv26, ptr noundef nonnull %cond-lvalue33, double noundef %conv35, i32 noundef %11)
@@ -14013,15 +14012,15 @@ declare void @_ZN5ImGui7TreePopEv() local_unnamed_addr #1
 define noundef i32 @_ZN5ImGui14GetColumnIndexEv() local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
-  %CurrentColumns = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 68, i32 28
+  %CurrentColumns = getelementptr inbounds i8, ptr %1, i64 440
   %2 = load ptr, ptr %CurrentColumns, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %Current = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 4
+  %Current = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %Current, align 4
   br label %cond.end
 
@@ -14034,15 +14033,15 @@ cond.end:                                         ; preds = %entry, %cond.true
 define noundef i32 @_ZN5ImGui15GetColumnsCountEv() local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
-  %CurrentColumns = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 68, i32 28
+  %CurrentColumns = getelementptr inbounds i8, ptr %1, i64 440
   %2 = load ptr, ptr %CurrentColumns, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %Count = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 5
+  %Count = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i32, ptr %Count, align 8
   br label %cond.end
 
@@ -14054,9 +14053,9 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZN5ImGui23GetColumnOffsetFromNormEPK15ImGuiOldColumnsf(ptr nocapture noundef readonly %columns, float noundef %offset_norm) local_unnamed_addr #10 {
 entry:
-  %OffMaxX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %columns, i64 0, i32 7
+  %OffMaxX = getelementptr inbounds i8, ptr %columns, i64 24
   %0 = load float, ptr %OffMaxX, align 8
-  %OffMinX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %columns, i64 0, i32 6
+  %OffMinX = getelementptr inbounds i8, ptr %columns, i64 20
   %1 = load float, ptr %OffMinX, align 4
   %sub = fsub float %0, %1
   %mul = fmul float %sub, %offset_norm
@@ -14066,9 +14065,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZN5ImGui23GetColumnNormFromOffsetEPK15ImGuiOldColumnsf(ptr nocapture noundef readonly %columns, float noundef %offset) local_unnamed_addr #10 {
 entry:
-  %OffMaxX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %columns, i64 0, i32 7
+  %OffMaxX = getelementptr inbounds i8, ptr %columns, i64 24
   %0 = load float, ptr %OffMaxX, align 8
-  %OffMinX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %columns, i64 0, i32 6
+  %OffMinX = getelementptr inbounds i8, ptr %columns, i64 20
   %1 = load float, ptr %OffMinX, align 4
   %sub = fsub float %0, %1
   %div = fdiv float %offset, %sub
@@ -14079,9 +14078,9 @@ entry:
 define noundef float @_ZN5ImGui15GetColumnOffsetEi(i32 noundef %column_index) local_unnamed_addr #12 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
-  %CurrentColumns = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 68, i32 28
+  %CurrentColumns = getelementptr inbounds i8, ptr %1, i64 440
   %2 = load ptr, ptr %CurrentColumns, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end
@@ -14091,20 +14090,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %Current = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 4
+  %Current = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %Current, align 4
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
   %column_index.addr.0 = phi i32 [ %3, %if.then2 ], [ %column_index, %if.end ]
-  %Data.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 15, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %2, i64 104
   %4 = load ptr, ptr %Data.i, align 8
   %idxprom.i = sext i32 %column_index.addr.0 to i64
   %arrayidx.i = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %4, i64 %idxprom.i
   %5 = load float, ptr %arrayidx.i, align 4
-  %OffMinX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 6
+  %OffMinX = getelementptr inbounds i8, ptr %2, i64 20
   %6 = load float, ptr %OffMinX, align 4
-  %OffMaxX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 7
+  %OffMaxX = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load float, ptr %OffMaxX, align 8
   %sub.i = fsub float %7, %6
   %8 = tail call noundef float @llvm.fmuladd.f32(float %sub.i, float %5, float %6)
@@ -14119,9 +14118,9 @@ return:                                           ; preds = %entry, %if.end3
 define noundef float @_ZN5ImGui14GetColumnWidthEi(i32 noundef %column_index) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow, align 8
-  %CurrentColumns = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 68, i32 28
+  %CurrentColumns = getelementptr inbounds i8, ptr %1, i64 440
   %2 = load ptr, ptr %CurrentColumns, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %if.end
@@ -14136,23 +14135,23 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %Current = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 4
+  %Current = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %Current, align 4
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
   %column_index.addr.0 = phi i32 [ %3, %if.then2 ], [ %column_index, %if.end ]
-  %Data.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 15, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %2, i64 104
   %4 = load ptr, ptr %Data.i, align 8
   %5 = sext i32 %column_index.addr.0 to i64
   %6 = getelementptr %struct.ImGuiOldColumnData, ptr %4, i64 %5
-  %arrayidx.i = getelementptr %struct.ImGuiOldColumnData, ptr %6, i64 1
+  %arrayidx.i = getelementptr i8, ptr %6, i64 28
   %7 = load float, ptr %arrayidx.i, align 4
   %8 = load float, ptr %6, align 4
   %sub = fsub float %7, %8
-  %OffMaxX.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 7
+  %OffMaxX.i = getelementptr inbounds i8, ptr %2, i64 24
   %9 = load float, ptr %OffMaxX.i, align 8
-  %OffMinX.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 6
+  %OffMinX.i = getelementptr inbounds i8, ptr %2, i64 20
   %10 = load float, ptr %OffMinX.i, align 4
   %sub.i = fsub float %9, %10
   %mul.i = fmul float %sub, %sub.i
@@ -14172,35 +14171,35 @@ tailrecurse:                                      ; preds = %if.then16, %entry
   %column_index.tr = phi i32 [ %column_index, %entry ], [ %add, %if.then16 ]
   %offset.tr = phi float [ %offset, %entry ], [ %add20, %if.then16 ]
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow, align 8
-  %CurrentColumns = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 68, i32 28
+  %CurrentColumns = getelementptr inbounds i8, ptr %1, i64 440
   %2 = load ptr, ptr %CurrentColumns, align 8
   %cmp = icmp slt i32 %column_index.tr, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %tailrecurse
-  %Current = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 4
+  %Current = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %Current, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %tailrecurse
   %column_index.addr.0 = phi i32 [ %3, %if.then ], [ %column_index.tr, %tailrecurse ]
-  %Flags = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %2, i64 4
   %4 = load i32, ptr %Flags, align 4
   %and = and i32 %4, 4
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %land.end, label %cond.end
 
 land.end:                                         ; preds = %if.end
-  %Count = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 5
+  %Count = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %Count, align 8
   %sub = add nsw i32 %5, -1
   %cmp1 = icmp slt i32 %column_index.addr.0, %sub
   br i1 %cmp1, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %land.end
-  %IsBeingResized = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 3
+  %IsBeingResized = getelementptr inbounds i8, ptr %2, i64 9
   %6 = load i8, ptr %IsBeingResized, align 1
   %7 = and i8 %6, 1
   %tobool3.not = icmp eq i8 %7, 0
@@ -14208,27 +14207,26 @@ cond.true:                                        ; preds = %land.end
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %cond.true
-  %Current.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 4
+  %Current.i = getelementptr inbounds i8, ptr %2, i64 12
   %8 = load i32, ptr %Current.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %cond.true
   %column_index.addr.0.i = phi i32 [ %8, %if.then.i ], [ %column_index.addr.0, %cond.true ]
-  %Data.i.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 15, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %2, i64 104
   %9 = load ptr, ptr %Data.i.i, align 8
   %10 = sext i32 %column_index.addr.0.i to i64
   %11 = getelementptr %struct.ImGuiOldColumnData, ptr %9, i64 %10
-  %arrayidx.i15.i = getelementptr %struct.ImGuiOldColumnData, ptr %11, i64 1
-  %OffsetNormBeforeResize.i = getelementptr %struct.ImGuiOldColumnData, ptr %11, i64 1, i32 1
   %OffsetNormBeforeResize4.i = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %9, i64 %10, i32 1
   %.sink20.i = select i1 %tobool3.not, ptr %11, ptr %OffsetNormBeforeResize4.i
-  %.sink.in.i = select i1 %tobool3.not, ptr %arrayidx.i15.i, ptr %OffsetNormBeforeResize.i
+  %.sink.in.i.v = select i1 %tobool3.not, i64 28, i64 32
+  %.sink.in.i = getelementptr i8, ptr %11, i64 %.sink.in.i.v
   %.sink.i = load float, ptr %.sink.in.i, align 4
   %12 = load float, ptr %.sink20.i, align 4
   %sub11.i = fsub float %.sink.i, %12
-  %OffMaxX.i.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 7
+  %OffMaxX.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %13 = load float, ptr %OffMaxX.i.i, align 8
-  %OffMinX.i.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 6
+  %OffMinX.i.i = getelementptr inbounds i8, ptr %2, i64 20
   %14 = load float, ptr %OffMinX.i.i, align 4
   %sub.i.i = fsub float %13, %14
   %mul.i.i = fmul float %sub11.i, %sub.i.i
@@ -14239,14 +14237,14 @@ cond.end:                                         ; preds = %if.end, %land.end, 
   %cond = phi float [ %mul.i.i, %if.end.i ], [ 0.000000e+00, %land.end ], [ 0.000000e+00, %if.end ]
   %and5 = and i32 %4, 8
   %tobool6.not = icmp eq i32 %and5, 0
-  %OffMaxX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 7
+  %OffMaxX = getelementptr inbounds i8, ptr %2, i64 24
   %16 = load float, ptr %OffMaxX, align 8
   br i1 %tobool6.not, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %cond.end
-  %ColumnsMinSpacing = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 20
+  %ColumnsMinSpacing = getelementptr inbounds i8, ptr %0, i64 14688
   %17 = load float, ptr %ColumnsMinSpacing, align 8
-  %Count8 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 5
+  %Count8 = getelementptr inbounds i8, ptr %2, i64 16
   %18 = load i32, ptr %Count8, align 8
   %sub9 = sub nsw i32 %18, %column_index.addr.0
   %conv = sitofp i32 %sub9 to float
@@ -14258,12 +14256,12 @@ if.then7:                                         ; preds = %cond.end
 
 if.end11:                                         ; preds = %cond.end, %if.then7
   %offset.addr.0 = phi float [ %cond.i, %if.then7 ], [ %offset.tr, %cond.end ]
-  %OffMinX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 6
+  %OffMinX = getelementptr inbounds i8, ptr %2, i64 20
   %20 = load float, ptr %OffMinX, align 4
   %sub12 = fsub float %offset.addr.0, %20
   %sub.i = fsub float %16, %20
   %div.i = fdiv float %sub12, %sub.i
-  %Data.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 15, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %2, i64 104
   %21 = load ptr, ptr %Data.i, align 8
   %idxprom.i = sext i32 %column_index.addr.0 to i64
   %arrayidx.i = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %21, i64 %idxprom.i
@@ -14272,7 +14270,7 @@ if.end11:                                         ; preds = %cond.end, %if.then7
 
 if.then16:                                        ; preds = %if.end11
   %add = add nsw i32 %column_index.addr.0, 1
-  %ColumnsMinSpacing18 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 20
+  %ColumnsMinSpacing18 = getelementptr inbounds i8, ptr %0, i64 14688
   %22 = load float, ptr %ColumnsMinSpacing18, align 8
   %cmp.i22 = fcmp oge float %22, %cond
   %cond.i23 = select i1 %cmp.i22, float %22, float %cond
@@ -14287,10 +14285,10 @@ if.end21:                                         ; preds = %if.end11
 define void @_ZN5ImGui14SetColumnWidthEif(i32 noundef %column_index, float noundef %width) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
   %cmp = icmp slt i32 %column_index, 0
-  %CurrentColumns = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 68, i32 28
+  %CurrentColumns = getelementptr inbounds i8, ptr %1, i64 440
   %2 = load ptr, ptr %CurrentColumns, align 8
   br i1 %cmp, label %if.end.i, label %if.end
 
@@ -14299,27 +14297,27 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %_ZN5ImGui15GetColumnOffsetEi.exit, label %if.end3.i
 
 if.end.i:                                         ; preds = %entry
-  %Current = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 4
+  %Current = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %Current, align 4
   %cmp1.i = icmp slt i32 %3, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %Current.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 4
+  %Current.i = getelementptr inbounds i8, ptr %2, i64 12
   %4 = load i32, ptr %Current.i, align 4
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end, %if.then2.i, %if.end.i
   %column_index.addr.059 = phi i32 [ %3, %if.then2.i ], [ %3, %if.end.i ], [ %column_index, %if.end ]
   %column_index.addr.0.i = phi i32 [ %4, %if.then2.i ], [ %3, %if.end.i ], [ %column_index, %if.end ]
-  %Data.i.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 15, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %2, i64 104
   %5 = load ptr, ptr %Data.i.i, align 8
   %idxprom.i.i = sext i32 %column_index.addr.0.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %5, i64 %idxprom.i.i
   %6 = load float, ptr %arrayidx.i.i, align 4
-  %OffMinX.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 6
+  %OffMinX.i = getelementptr inbounds i8, ptr %2, i64 20
   %7 = load float, ptr %OffMinX.i, align 4
-  %OffMaxX.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 7
+  %OffMaxX.i = getelementptr inbounds i8, ptr %2, i64 24
   %8 = load float, ptr %OffMaxX.i, align 8
   %sub.i.i = fsub float %8, %7
   %9 = tail call noundef float @llvm.fmuladd.f32(float %sub.i.i, float %6, float %7)
@@ -14338,25 +14336,26 @@ _ZN5ImGui15GetColumnOffsetEi.exit:                ; preds = %if.end, %if.end3.i
 define void @_ZN5ImGui18PushColumnClipRectEi(i32 noundef %column_index) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
-  %CurrentColumns = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 68, i32 28
+  %CurrentColumns = getelementptr inbounds i8, ptr %1, i64 440
   %2 = load ptr, ptr %CurrentColumns, align 8
   %cmp = icmp slt i32 %column_index, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %Current = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 4
+  %Current = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %Current, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %column_index.addr.0 = phi i32 [ %3, %if.then ], [ %column_index, %entry ]
-  %Data.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 15, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %2, i64 104
   %4 = load ptr, ptr %Data.i, align 8
   %idxprom.i = sext i32 %column_index.addr.0 to i64
-  %ClipRect = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %4, i64 %idxprom.i, i32 3
-  %Max = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %4, i64 %idxprom.i, i32 3, i32 1
+  %arrayidx.i = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %4, i64 %idxprom.i
+  %ClipRect = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
+  %Max = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
   tail call void @_ZN5ImGui12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 4 dereferenceable(8) %ClipRect, ptr noundef nonnull align 4 dereferenceable(8) %Max, i1 noundef zeroext false)
   ret void
 }
@@ -14365,44 +14364,44 @@ if.end:                                           ; preds = %if.then, %entry
 define void @_ZN5ImGui21PushColumnsBackgroundEv() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
-  %CurrentColumns = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 68, i32 28
+  %CurrentColumns = getelementptr inbounds i8, ptr %1, i64 440
   %2 = load ptr, ptr %CurrentColumns, align 8
-  %Count = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 5
+  %Count = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i32, ptr %Count, align 8
   %cmp = icmp eq i32 %3, 1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ClipRect = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 74
-  %HostBackupClipRect = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 13
+  %ClipRect = getelementptr inbounds i8, ptr %1, i64 584
+  %HostBackupClipRect = getelementptr inbounds i8, ptr %2, i64 60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %HostBackupClipRect, ptr noundef nonnull align 8 dereferenceable(16) %ClipRect, i64 16, i1 false)
-  %HostInitialClipRect = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 12
+  %HostInitialClipRect = getelementptr inbounds i8, ptr %2, i64 44
   %4 = load <4 x float>, ptr %HostInitialClipRect, align 4
   %retval.sroa.3.8.vec.insert.i.i = shufflevector <4 x float> %4, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %5 = extractelement <4 x float> %4, i64 3
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %4, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %5, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect, ptr noundef nonnull align 4 dereferenceable(16) %HostInitialClipRect, i64 16, i1 false)
-  %DrawList.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %DrawList.i = getelementptr inbounds i8, ptr %1, i64 680
   %6 = load ptr, ptr %DrawList.i, align 8
-  %_CmdHeader.i = getelementptr inbounds %struct.ImDrawList, ptr %6, i64 0, i32 12
+  %_CmdHeader.i = getelementptr inbounds i8, ptr %6, i64 136
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %_CmdHeader.i, align 8
-  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds %struct.ImDrawList, ptr %6, i64 0, i32 12, i32 0, i32 2
+  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 144
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i, align 8
   %7 = load ptr, ptr %DrawList.i, align 8
-  %_ClipRectStack.i = getelementptr inbounds %struct.ImDrawList, ptr %7, i64 0, i32 9
-  %Data.i = getelementptr inbounds %struct.ImDrawList, ptr %7, i64 0, i32 9, i32 2
+  %_ClipRectStack.i = getelementptr inbounds i8, ptr %7, i64 88
+  %Data.i = getelementptr inbounds i8, ptr %7, i64 96
   %8 = load ptr, ptr %Data.i, align 8
   %9 = load i32, ptr %_ClipRectStack.i, align 8
   %10 = sext i32 %9 to i64
   %11 = getelementptr %struct.ImVec4, ptr %8, i64 %10
-  %arrayidx.i = getelementptr %struct.ImVec4, ptr %11, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %11, i64 -16
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %arrayidx.i, align 4
-  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr %struct.ImVec4, ptr %11, i64 -1, i32 2
+  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr i8, ptr %11, i64 -8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i, align 4
-  %Splitter = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 16
+  %Splitter = getelementptr inbounds i8, ptr %2, i64 112
   %12 = load ptr, ptr %DrawList.i, align 8
   tail call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %Splitter, ptr noundef %12, i32 noundef 0)
   br label %return
@@ -14415,44 +14414,44 @@ return:                                           ; preds = %entry, %if.end
 define void @_ZN5ImGui20PopColumnsBackgroundEv() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
-  %CurrentColumns = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 68, i32 28
+  %CurrentColumns = getelementptr inbounds i8, ptr %1, i64 440
   %2 = load ptr, ptr %CurrentColumns, align 8
-  %Count = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 5
+  %Count = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i32, ptr %Count, align 8
   %cmp = icmp eq i32 %3, 1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %HostBackupClipRect = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 13
+  %HostBackupClipRect = getelementptr inbounds i8, ptr %2, i64 60
   %4 = load <4 x float>, ptr %HostBackupClipRect, align 4
   %retval.sroa.3.8.vec.insert.i.i = shufflevector <4 x float> %4, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %5 = extractelement <4 x float> %4, i64 3
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %4, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %5, i64 1
-  %ClipRect.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 74
+  %ClipRect.i = getelementptr inbounds i8, ptr %1, i64 584
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull align 4 dereferenceable(16) %HostBackupClipRect, i64 16, i1 false)
-  %DrawList.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 86
+  %DrawList.i = getelementptr inbounds i8, ptr %1, i64 680
   %6 = load ptr, ptr %DrawList.i, align 8
-  %_CmdHeader.i = getelementptr inbounds %struct.ImDrawList, ptr %6, i64 0, i32 12
+  %_CmdHeader.i = getelementptr inbounds i8, ptr %6, i64 136
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %_CmdHeader.i, align 8
-  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds %struct.ImDrawList, ptr %6, i64 0, i32 12, i32 0, i32 2
+  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 144
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i, align 8
   %7 = load ptr, ptr %DrawList.i, align 8
-  %_ClipRectStack.i = getelementptr inbounds %struct.ImDrawList, ptr %7, i64 0, i32 9
-  %Data.i = getelementptr inbounds %struct.ImDrawList, ptr %7, i64 0, i32 9, i32 2
+  %_ClipRectStack.i = getelementptr inbounds i8, ptr %7, i64 88
+  %Data.i = getelementptr inbounds i8, ptr %7, i64 96
   %8 = load ptr, ptr %Data.i, align 8
   %9 = load i32, ptr %_ClipRectStack.i, align 8
   %10 = sext i32 %9 to i64
   %11 = getelementptr %struct.ImVec4, ptr %8, i64 %10
-  %arrayidx.i = getelementptr %struct.ImVec4, ptr %11, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %11, i64 -16
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %arrayidx.i, align 4
-  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr %struct.ImVec4, ptr %11, i64 -1, i32 2
+  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr i8, ptr %11, i64 -8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i, align 4
-  %Splitter = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 16
+  %Splitter = getelementptr inbounds i8, ptr %2, i64 112
   %12 = load ptr, ptr %DrawList.i, align 8
-  %Current = getelementptr inbounds %struct.ImGuiOldColumns, ptr %2, i64 0, i32 4
+  %Current = getelementptr inbounds i8, ptr %2, i64 12
   %13 = load i32, ptr %Current, align 4
   %add = add nsw i32 %13, 1
   tail call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %Splitter, ptr noundef %12, i32 noundef %add)
@@ -14466,13 +14465,13 @@ return:                                           ; preds = %entry, %if.end
 define noundef ptr @_ZN5ImGui19FindOrCreateColumnsEP11ImGuiWindowj(ptr nocapture noundef %window, i32 noundef %id) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.ImGuiOldColumns, align 8
-  %ColumnsStorage = getelementptr inbounds %struct.ImGuiWindow, ptr %window, i64 0, i32 83
+  %ColumnsStorage = getelementptr inbounds i8, ptr %window, i64 656
   %0 = load i32, ptr %ColumnsStorage, align 8
   %cmp23 = icmp sgt i32 %0, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %Data.i = getelementptr inbounds %struct.ImGuiWindow, ptr %window, i64 0, i32 83, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %window, i64 664
   %1 = load ptr, ptr %Data.i, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -14491,13 +14490,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.cond, %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, i8 0, i64 136, i1 false)
-  %Capacity.i = getelementptr inbounds %struct.ImGuiWindow, ptr %window, i64 0, i32 83, i32 1
+  %Capacity.i = getelementptr inbounds i8, ptr %window, i64 660
   %3 = load i32, ptr %Capacity.i, align 4
   %cmp.i = icmp eq i32 %0, %3
   br i1 %cmp.i, label %if.then.i, label %for.end.invoke.cont_crit_edge
 
 for.end.invoke.cont_crit_edge:                    ; preds = %for.end
-  %Data.i13.phi.trans.insert = getelementptr inbounds %struct.ImGuiWindow, ptr %window, i64 0, i32 83, i32 2
+  %Data.i13.phi.trans.insert = getelementptr inbounds i8, ptr %window, i64 664
   %.pre = load ptr, ptr %Data.i13.phi.trans.insert, align 8
   br label %invoke.cont
 
@@ -14520,7 +14519,7 @@ if.end.i.i:                                       ; preds = %cond.true.i.i, %if.
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %if.end.i.i
-  %Data.i.i = getelementptr inbounds %struct.ImGuiWindow, ptr %window, i64 0, i32 83, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %window, i64 664
   %4 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i2.i = icmp eq ptr %4, null
   br i1 %tobool.not.i2.i, label %if.end7.i.i, label %if.then2.i.i
@@ -14543,19 +14542,19 @@ if.end7.i.i:                                      ; preds = %if.then2.i.i, %call
 invoke.cont:                                      ; preds = %for.end.invoke.cont_crit_edge, %if.end7.i.i
   %7 = phi ptr [ %call.i.i16, %if.end7.i.i ], [ %.pre, %for.end.invoke.cont_crit_edge ]
   %8 = phi i32 [ %.pre.i, %if.end7.i.i ], [ %0, %for.end.invoke.cont_crit_edge ]
-  %Data.i13 = getelementptr inbounds %struct.ImGuiWindow, ptr %window, i64 0, i32 83, i32 2
+  %Data.i13 = getelementptr inbounds i8, ptr %window, i64 664
   %idxprom.i14 = sext i32 %8 to i64
   %arrayidx.i15 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %7, i64 %idxprom.i14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %arrayidx.i15, ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, i64 136, i1 false)
   %9 = load i32, ptr %ColumnsStorage, align 8
   %inc.i = add nsw i32 %9, 1
   store i32 %inc.i, ptr %ColumnsStorage, align 8
-  %Splitter.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %ref.tmp, i64 0, i32 16
+  %Splitter.i = getelementptr inbounds i8, ptr %ref.tmp, i64 112
   invoke void @_ZN18ImDrawListSplitter15ClearFreeMemoryEv(ptr noundef nonnull align 8 dereferenceable(24) %Splitter.i)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.cont
-  %Data.i.i.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %ref.tmp, i64 0, i32 16, i32 2, i32 2
+  %Data.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 128
   %10 = load ptr, ptr %Data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %_ZN18ImDrawListSplitterD2Ev.exit.i, label %if.then.i.i.i
@@ -14579,7 +14578,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont
   unreachable
 
 _ZN18ImDrawListSplitterD2Ev.exit.i:               ; preds = %if.then.i.i.i, %invoke.cont.i.i
-  %Data.i.i17 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %ref.tmp, i64 0, i32 15, i32 2
+  %Data.i.i17 = getelementptr inbounds i8, ptr %ref.tmp, i64 104
   %15 = load ptr, ptr %Data.i.i17, align 8
   %tobool.not.i.i18 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i18, label %_ZN15ImGuiOldColumnsD2Ev.exit, label %if.then.i.i
@@ -14600,7 +14599,7 @@ _ZN15ImGuiOldColumnsD2Ev.exit:                    ; preds = %_ZN18ImDrawListSpli
   %19 = load i32, ptr %ColumnsStorage, align 8
   %20 = sext i32 %19 to i64
   %21 = getelementptr %struct.ImGuiOldColumns, ptr %18, i64 %20
-  %arrayidx.i20 = getelementptr %struct.ImGuiOldColumns, ptr %21, i64 -1
+  %arrayidx.i20 = getelementptr i8, ptr %21, i64 -136
   store i32 %id, ptr %arrayidx.i20, align 8
   br label %return
 
@@ -14618,12 +14617,12 @@ return:                                           ; preds = %for.body, %_ZN15ImG
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15ImGuiOldColumnsD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %Splitter = getelementptr inbounds %struct.ImGuiOldColumns, ptr %this, i64 0, i32 16
+  %Splitter = getelementptr inbounds i8, ptr %this, i64 112
   invoke void @_ZN18ImDrawListSplitter15ClearFreeMemoryEv(ptr noundef nonnull align 8 dereferenceable(24) %Splitter)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %Data.i.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %this, i64 0, i32 16, i32 2, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN18ImDrawListSplitterD2Ev.exit, label %if.then.i.i
@@ -14647,7 +14646,7 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %invoke.cont.i, %if.then.i.i
-  %Data.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %this, i64 0, i32 15, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %this, i64 104
   %5 = load ptr, ptr %Data.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %_ZN8ImVectorI18ImGuiOldColumnDataED2Ev.exit, label %if.then.i
@@ -14671,9 +14670,9 @@ _ZN8ImVectorI18ImGuiOldColumnDataED2Ev.exit:      ; preds = %_ZN18ImDrawListSpli
 define noundef i32 @_ZN5ImGui12GetColumnsIDEPKci(ptr noundef %str_id, i32 noundef %columns_count) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
-  %WriteAccessed.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 35
+  %WriteAccessed.i = getelementptr inbounds i8, ptr %1, i64 192
   store i8 1, ptr %WriteAccessed.i, align 8
   %2 = load ptr, ptr %CurrentWindow.i, align 8
   %tobool.not = icmp eq ptr %str_id, null
@@ -14690,12 +14689,12 @@ entry:
 define void @_ZN5ImGui12BeginColumnsEPKcii(ptr noundef %str_id, i32 noundef %columns_count, i32 noundef %flags) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
-  %WriteAccessed.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 35
+  %WriteAccessed.i = getelementptr inbounds i8, ptr %1, i64 192
   store i8 1, ptr %WriteAccessed.i, align 8
   %2 = load ptr, ptr %CurrentWindow.i, align 8
-  %WriteAccessed.i.i = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 35
+  %WriteAccessed.i.i = getelementptr inbounds i8, ptr %2, i64 192
   store i8 1, ptr %WriteAccessed.i.i, align 8
   %3 = load ptr, ptr %CurrentWindow.i, align 8
   %tobool.not.i = icmp eq ptr %str_id, null
@@ -14706,44 +14705,44 @@ entry:
   %call6.i = tail call noundef i32 @_ZN11ImGuiWindow5GetIDEPKcS1_(ptr noundef nonnull align 8 dereferenceable(1013) %3, ptr noundef nonnull %cond5.i, ptr noundef null)
   tail call void @_ZN5ImGui5PopIDEv()
   %call2 = tail call noundef ptr @_ZN5ImGui19FindOrCreateColumnsEP11ImGuiWindowj(ptr noundef %2, i32 noundef %call6.i)
-  %Current = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 4
+  %Current = getelementptr inbounds i8, ptr %call2, i64 12
   store i32 0, ptr %Current, align 4
-  %Count = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 5
+  %Count = getelementptr inbounds i8, ptr %call2, i64 16
   store i32 %columns_count, ptr %Count, align 8
-  %Flags = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %call2, i64 4
   store i32 %flags, ptr %Flags, align 4
-  %CurrentColumns = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 28
+  %CurrentColumns = getelementptr inbounds i8, ptr %2, i64 440
   store ptr %call2, ptr %CurrentColumns, align 8
-  %NavIsScrollPushableX = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 18
+  %NavIsScrollPushableX = getelementptr inbounds i8, ptr %2, i64 368
   store i8 0, ptr %NavIsScrollPushableX, align 8
-  %y = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %2, i64 276
   %5 = load float, ptr %y, align 4
-  %HostCursorPosY = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 10
+  %HostCursorPosY = getelementptr inbounds i8, ptr %call2, i64 36
   store float %5, ptr %HostCursorPosY, align 4
-  %CursorMaxPos = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 3
+  %CursorMaxPos = getelementptr inbounds i8, ptr %2, i64 296
   %6 = load float, ptr %CursorMaxPos, align 8
-  %HostCursorMaxPosX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 11
+  %HostCursorMaxPosX = getelementptr inbounds i8, ptr %call2, i64 40
   store float %6, ptr %HostCursorMaxPosX, align 8
-  %ClipRect = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 74
-  %HostInitialClipRect = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 12
+  %ClipRect = getelementptr inbounds i8, ptr %2, i64 584
+  %HostInitialClipRect = getelementptr inbounds i8, ptr %call2, i64 44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %HostInitialClipRect, ptr noundef nonnull align 8 dereferenceable(16) %ClipRect, i64 16, i1 false)
-  %ParentWorkRect = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 73
-  %HostBackupParentWorkRect = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 14
+  %ParentWorkRect = getelementptr inbounds i8, ptr %2, i64 568
+  %HostBackupParentWorkRect = getelementptr inbounds i8, ptr %call2, i64 76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %HostBackupParentWorkRect, ptr noundef nonnull align 8 dereferenceable(16) %ParentWorkRect, i64 16, i1 false)
-  %WorkRect = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 72
+  %WorkRect = getelementptr inbounds i8, ptr %2, i64 552
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ParentWorkRect, ptr noundef nonnull align 8 dereferenceable(16) %WorkRect, i64 16, i1 false)
-  %ItemSpacing = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 15
+  %ItemSpacing = getelementptr inbounds i8, ptr %0, i64 14652
   %7 = load float, ptr %ItemSpacing, align 4
-  %WindowPadding = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 13
+  %WindowPadding = getelementptr inbounds i8, ptr %2, i64 88
   %8 = load float, ptr %WindowPadding, align 8
   %mul = fmul float %8, 5.000000e-01
-  %WindowBorderSize = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 15
+  %WindowBorderSize = getelementptr inbounds i8, ptr %2, i64 100
   %9 = load float, ptr %WindowBorderSize, align 4
   %cmp.i = fcmp oge float %mul, %9
   %cond.i = select i1 %cmp.i, float %mul, float %9
   %conv.i = fptosi float %cond.i to i32
   %conv1.i = sitofp i32 %conv.i to float
-  %Max = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 72, i32 1
+  %Max = getelementptr inbounds i8, ptr %2, i64 560
   %10 = load float, ptr %Max, align 8
   %add = fadd float %7, %10
   %sub = fsub float %7, %8
@@ -14751,28 +14750,28 @@ entry:
   %cond.i81 = select i1 %cmp.i80, float %sub, float 0.000000e+00
   %sub16 = fsub float %add, %cond.i81
   %add20 = fadd float %10, %conv1.i
-  %Indent = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 11
+  %Indent = getelementptr inbounds i8, ptr %2, i64 340
   %11 = load float, ptr %Indent, align 4
   %sub23 = fsub float %11, %7
   %add28 = fadd float %cond.i81, %sub23
-  %OffMinX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 6
+  %OffMinX = getelementptr inbounds i8, ptr %call2, i64 20
   store float %add28, ptr %OffMinX, align 4
   %cmp.i84 = fcmp olt float %sub16, %add20
   %cond.i85 = select i1 %cmp.i84, float %sub16, float %add20
-  %Pos = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 7
+  %Pos = getelementptr inbounds i8, ptr %2, i64 40
   %12 = load float, ptr %Pos, align 8
   %sub31 = fsub float %cond.i85, %12
   %add33 = fadd float %add28, 1.000000e+00
   %cmp.i86 = fcmp oge float %sub31, %add33
   %cond.i87 = select i1 %cmp.i86, float %sub31, float %add33
-  %OffMaxX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 7
+  %OffMaxX = getelementptr inbounds i8, ptr %call2, i64 24
   store float %cond.i87, ptr %OffMaxX, align 8
   %13 = load float, ptr %y, align 4
-  %LineMaxY = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 9
+  %LineMaxY = getelementptr inbounds i8, ptr %call2, i64 32
   store float %13, ptr %LineMaxY, align 8
-  %LineMinY = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 8
+  %LineMinY = getelementptr inbounds i8, ptr %call2, i64 28
   store float %13, ptr %LineMinY, align 4
-  %Columns = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 15
+  %Columns = getelementptr inbounds i8, ptr %call2, i64 96
   %14 = load i32, ptr %Columns, align 8
   %cmp.not = icmp eq i32 %14, 0
   %add40 = add i32 %columns_count, 1
@@ -14781,14 +14780,14 @@ entry:
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %Capacity.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 15, i32 1
+  %Capacity.i = getelementptr inbounds i8, ptr %call2, i64 100
   %15 = load i32, ptr %Capacity.i, align 4
   %cmp.i88 = icmp slt i32 %15, 0
   br i1 %cmp.i88, label %_ZNK8ImVectorI18ImGuiOldColumnDataE14_grow_capacityEi.exit.i, label %if.end.thread
 
 _ZNK8ImVectorI18ImGuiOldColumnDataE14_grow_capacityEi.exit.i: ; preds = %if.then
   %call.i.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 0)
-  %Data.i.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 15, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %call2, i64 104
   %16 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i4.i = icmp eq ptr %16, null
   br i1 %tobool.not.i4.i, label %if.end7.i.i, label %if.then2.i.i
@@ -14810,24 +14809,24 @@ if.end7.i.i:                                      ; preds = %if.then2.i.i, %_ZNK
 if.end.thread:                                    ; preds = %if.end7.i.i, %if.then
   %19 = phi i32 [ 0, %if.end7.i.i ], [ %15, %if.then ]
   store i32 0, ptr %Columns, align 8
-  %IsFirstFrame171 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 2
-  store i8 1, ptr %IsFirstFrame171, align 8
+  %IsFirstFrame172 = getelementptr inbounds i8, ptr %call2, i64 8
+  store i8 1, ptr %IsFirstFrame172, align 8
   br label %if.then49
 
 if.end:                                           ; preds = %entry
-  %IsFirstFrame = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 2
+  %IsFirstFrame = getelementptr inbounds i8, ptr %call2, i64 8
   %frombool = zext i1 %cmp.not to i8
   store i8 %frombool, ptr %IsFirstFrame, align 8
   br i1 %cmp.not, label %if.end.if.then49_crit_edge, label %if.end56
 
 if.end.if.then49_crit_edge:                       ; preds = %if.end
-  %Capacity.i89.phi.trans.insert = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 15, i32 1
+  %Capacity.i89.phi.trans.insert = getelementptr inbounds i8, ptr %call2, i64 100
   %.pre = load i32, ptr %Capacity.i89.phi.trans.insert, align 4
   br label %if.then49
 
 if.then49:                                        ; preds = %if.end.if.then49_crit_edge, %if.end.thread
   %20 = phi i32 [ %.pre, %if.end.if.then49_crit_edge ], [ %19, %if.end.thread ]
-  %Capacity.i89 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 15, i32 1
+  %Capacity.i89 = getelementptr inbounds i8, ptr %call2, i64 100
   %cmp.not.i.not = icmp sgt i32 %20, %columns_count
   br i1 %cmp.not.i.not, label %_ZN8ImVectorI18ImGuiOldColumnDataE7reserveEi.exit, label %if.end.i
 
@@ -14835,7 +14834,7 @@ if.end.i:                                         ; preds = %if.then49
   %conv.i90 = sext i32 %add40 to i64
   %mul.i = mul nsw i64 %conv.i90, 28
   %call.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i)
-  %Data.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 15, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %call2, i64 104
   %21 = load ptr, ptr %Data.i, align 8
   %tobool.not.i91 = icmp eq ptr %21, null
   br i1 %tobool.not.i91, label %if.end7.i, label %if.then2.i
@@ -14855,26 +14854,26 @@ if.end7.i:                                        ; preds = %if.then2.i, %if.end
   br label %_ZN8ImVectorI18ImGuiOldColumnDataE7reserveEi.exit
 
 _ZN8ImVectorI18ImGuiOldColumnDataE7reserveEi.exit: ; preds = %if.then49, %if.end7.i
-  %cmp53.not185 = icmp slt i32 %columns_count, 0
-  br i1 %cmp53.not185, label %for.end85, label %for.body.lr.ph
+  %cmp53.not186 = icmp slt i32 %columns_count, 0
+  br i1 %cmp53.not186, label %for.end85, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN8ImVectorI18ImGuiOldColumnDataE7reserveEi.exit
   %conv54 = sitofp i32 %columns_count to float
-  %Data.i.i107 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 15, i32 2
-  %.pre189 = load i32, ptr %Columns, align 8
+  %Data.i.i107 = getelementptr inbounds i8, ptr %call2, i64 104
+  %.pre190 = load i32, ptr %Columns, align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit
-  %24 = phi i32 [ %.pre189, %for.body.lr.ph ], [ %inc.i, %_ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit ]
-  %n.0186 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit ]
-  %conv = sitofp i32 %n.0186 to float
+  %24 = phi i32 [ %.pre190, %for.body.lr.ph ], [ %inc.i, %_ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit ]
+  %n.0187 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit ]
+  %conv = sitofp i32 %n.0187 to float
   %div = fdiv float %conv, %conv54
   %25 = load i32, ptr %Capacity.i89, align 4
   %cmp.i93 = icmp eq i32 %24, %25
   br i1 %cmp.i93, label %if.then.i96, label %for.body._ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit_crit_edge
 
 for.body._ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit_crit_edge: ; preds = %for.body
-  %.pre190 = load ptr, ptr %Data.i.i107, align 8
+  %.pre191 = load ptr, ptr %Data.i.i107, align 8
   br label %_ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit
 
 if.then.i96:                                      ; preds = %for.body
@@ -14913,7 +14912,7 @@ if.end7.i.i111:                                   ; preds = %if.then2.i.i108, %i
   br label %_ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit
 
 _ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit: ; preds = %for.body._ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit_crit_edge, %if.end7.i.i111
-  %29 = phi ptr [ %call.i.i106, %if.end7.i.i111 ], [ %.pre190, %for.body._ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit_crit_edge ]
+  %29 = phi ptr [ %call.i.i106, %if.end7.i.i111 ], [ %.pre191, %for.body._ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit_crit_edge ]
   %30 = phi i32 [ %.pre.i, %if.end7.i.i111 ], [ %24, %for.body._ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit_crit_edge ]
   %idxprom.i = sext i32 %30 to i64
   %arrayidx.i = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %29, i64 %idxprom.i
@@ -14923,49 +14922,49 @@ _ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit: ; preds = %for.body._ZN
   %31 = load i32, ptr %Columns, align 8
   %inc.i = add nsw i32 %31, 1
   store i32 %inc.i, ptr %Columns, align 8
-  %inc = add nuw i32 %n.0186, 1
-  %exitcond.not = icmp eq i32 %n.0186, %columns_count
+  %inc = add nuw i32 %n.0187, 1
+  %exitcond.not = icmp eq i32 %n.0187, %columns_count
   br i1 %exitcond.not, label %if.end56, label %for.body, !llvm.loop !68
 
 if.end56:                                         ; preds = %_ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit, %if.end
-  %cmp59187 = icmp sgt i32 %columns_count, 0
-  br i1 %cmp59187, label %for.body60.lr.ph, label %for.end85
+  %cmp59188 = icmp sgt i32 %columns_count, 0
+  br i1 %cmp59188, label %for.body60.lr.ph, label %for.end85
 
 for.body60.lr.ph:                                 ; preds = %if.end56
-  %Data.i112 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 15, i32 2
-  %Max.i131 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 74, i32 1
-  %32 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 74, i32 0, i32 1
+  %Data.i112 = getelementptr inbounds i8, ptr %call2, i64 104
+  %Max.i131 = getelementptr inbounds i8, ptr %2, i64 592
+  %32 = getelementptr inbounds i8, ptr %2, i64 588
   br label %for.body60
 
 for.body60:                                       ; preds = %for.body60.lr.ph, %_ZN6ImRect12ClipWithFullERKS_.exit
-  %n57.0188 = phi i32 [ 0, %for.body60.lr.ph ], [ %add73180, %_ZN6ImRect12ClipWithFullERKS_.exit ]
+  %n57.0189 = phi i32 [ 0, %for.body60.lr.ph ], [ %add73181, %_ZN6ImRect12ClipWithFullERKS_.exit ]
   %33 = load ptr, ptr %Data.i112, align 8
-  %idxprom.i113 = sext i32 %n57.0188 to i64
+  %idxprom.i113 = sext i32 %n57.0189 to i64
   %34 = load float, ptr %Pos, align 8
   %35 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i.i115 = getelementptr inbounds %struct.ImGuiContext, ptr %35, i64 0, i32 29
+  %CurrentWindow.i.i115 = getelementptr inbounds i8, ptr %35, i64 16392
   %36 = load ptr, ptr %CurrentWindow.i.i115, align 8
-  %CurrentColumns.i = getelementptr inbounds %struct.ImGuiWindow, ptr %36, i64 0, i32 68, i32 28
+  %CurrentColumns.i = getelementptr inbounds i8, ptr %36, i64 440
   %37 = load ptr, ptr %CurrentColumns.i, align 8
   %cmp.i116 = icmp eq ptr %37, null
   br i1 %cmp.i116, label %_ZN5ImGui15GetColumnOffsetEi.exit.thread, label %if.end.i122
 
 _ZN5ImGui15GetColumnOffsetEi.exit.thread:         ; preds = %for.body60
-  %add73178 = add nuw nsw i32 %n57.0188, 1
+  %add73179 = add nuw nsw i32 %n57.0189, 1
   br label %_ZN5ImGui15GetColumnOffsetEi.exit130
 
 if.end.i122:                                      ; preds = %for.body60
-  %Data.i.i118 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %37, i64 0, i32 15, i32 2
+  %Data.i.i118 = getelementptr inbounds i8, ptr %37, i64 104
   %38 = load ptr, ptr %Data.i.i118, align 8
   %arrayidx.i.i = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %38, i64 %idxprom.i113
   %39 = load float, ptr %arrayidx.i.i, align 4
-  %OffMinX.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %37, i64 0, i32 6
+  %OffMinX.i = getelementptr inbounds i8, ptr %37, i64 20
   %40 = load float, ptr %OffMinX.i, align 4
-  %OffMaxX.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %37, i64 0, i32 7
+  %OffMaxX.i = getelementptr inbounds i8, ptr %37, i64 24
   %41 = load float, ptr %OffMaxX.i, align 8
   %sub.i.i = fsub float %41, %40
   %42 = tail call noundef float @llvm.fmuladd.f32(float %sub.i.i, float %39, float %40)
-  %add73 = add nuw nsw i32 %n57.0188, 1
+  %add73 = add nuw nsw i32 %n57.0189, 1
   %idxprom.i.i124 = sext i32 %add73 to i64
   %arrayidx.i.i125 = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %38, i64 %idxprom.i.i124
   %43 = load float, ptr %arrayidx.i.i125, align 4
@@ -14973,20 +14972,20 @@ if.end.i122:                                      ; preds = %for.body60
   br label %_ZN5ImGui15GetColumnOffsetEi.exit130
 
 _ZN5ImGui15GetColumnOffsetEi.exit130:             ; preds = %_ZN5ImGui15GetColumnOffsetEi.exit.thread, %if.end.i122
-  %add73180 = phi i32 [ %add73, %if.end.i122 ], [ %add73178, %_ZN5ImGui15GetColumnOffsetEi.exit.thread ]
+  %add73181 = phi i32 [ %add73, %if.end.i122 ], [ %add73179, %_ZN5ImGui15GetColumnOffsetEi.exit.thread ]
   %.pn = phi float [ %42, %if.end.i122 ], [ 0.000000e+00, %_ZN5ImGui15GetColumnOffsetEi.exit.thread ]
   %retval.0.i129 = phi float [ %44, %if.end.i122 ], [ 0.000000e+00, %_ZN5ImGui15GetColumnOffsetEi.exit.thread ]
-  %conv70179.in.in.in = fadd float %34, %.pn
-  %conv70179.in.in = fadd float %conv70179.in.in.in, 5.000000e-01
-  %conv70179.in = fptosi float %conv70179.in.in to i32
-  %conv70179 = sitofp i32 %conv70179.in to float
+  %conv70180.in.in.in = fadd float %34, %.pn
+  %conv70180.in.in = fadd float %conv70180.in.in.in, 5.000000e-01
+  %conv70180.in = fptosi float %conv70180.in.in to i32
+  %conv70180 = sitofp i32 %conv70180.in to float
   %add75 = fadd float %34, %retval.0.i129
   %sub76 = fadd float %add75, -1.000000e+00
   %add77 = fadd float %sub76, 5.000000e-01
   %conv78 = fptosi float %add77 to i32
   %conv79 = sitofp i32 %conv78 to float
   %ClipRect80 = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %33, i64 %idxprom.i113, i32 3
-  store float %conv70179, ptr %ClipRect80, align 4
+  store float %conv70180, ptr %ClipRect80, align 4
   %ref.tmp.sroa.2.0.ClipRect80.sroa_idx = getelementptr inbounds i8, ptr %ClipRect80, i64 4
   store float 0xC7EFFFFFE0000000, ptr %ref.tmp.sroa.2.0.ClipRect80.sroa_idx, align 4
   %ref.tmp.sroa.3.0.ClipRect80.sroa_idx = getelementptr inbounds i8, ptr %ClipRect80, i64 8
@@ -15007,10 +15006,10 @@ cond.false16.i.i:                                 ; preds = %_ZN5ImGui15GetColum
 
 _ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %_ZN5ImGui15GetColumnOffsetEi.exit130
   %cond27.i.i = phi float [ %r.val5.i, %_ZN5ImGui15GetColumnOffsetEi.exit130 ], [ %mx.sroa.0.4.vec.extract..i.i, %cond.false16.i.i ]
-  %cmp.i.i = fcmp ogt float %r.val.i, %conv70179
+  %cmp.i.i = fcmp ogt float %r.val.i, %conv70180
   %mx.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
-  %cmp5.i.i = fcmp olt float %mx.sroa.0.0.vec.extract.i.i, %conv70179
-  %mx.sroa.0.0.vec.extract..i.i = select i1 %cmp5.i.i, float %mx.sroa.0.0.vec.extract.i.i, float %conv70179
+  %cmp5.i.i = fcmp olt float %mx.sroa.0.0.vec.extract.i.i, %conv70180
+  %mx.sroa.0.0.vec.extract..i.i = select i1 %cmp5.i.i, float %mx.sroa.0.0.vec.extract.i.i, float %conv70180
   %cond11.i.i = select i1 %cmp.i.i, float %r.val.i, float %mx.sroa.0.0.vec.extract..i.i
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %cond11.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %cond27.i.i, i64 1
@@ -15037,7 +15036,7 @@ _ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec
   %retval.sroa.0.0.vec.insert.i20.i = insertelement <2 x float> poison, float %cond11.i19.i, i64 0
   %retval.sroa.0.4.vec.insert.i21.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i20.i, float %cond27.i14.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i21.i, ptr %ref.tmp.sroa.3.0.ClipRect80.sroa_idx, align 4
-  %cmp59 = icmp slt i32 %add73180, %columns_count
+  %cmp59 = icmp slt i32 %add73181, %columns_count
   br i1 %cmp59, label %for.body60, label %for.end85, !llvm.loop !69
 
 for.end85:                                        ; preds = %_ZN6ImRect12ClipWithFullERKS_.exit, %_ZN8ImVectorI18ImGuiOldColumnDataE7reserveEi.exit, %if.end56
@@ -15046,100 +15045,100 @@ for.end85:                                        ; preds = %_ZN6ImRect12ClipWit
   br i1 %cmp87, label %if.then88, label %if.end93
 
 if.then88:                                        ; preds = %for.end85
-  %Splitter = getelementptr inbounds %struct.ImGuiOldColumns, ptr %call2, i64 0, i32 16
-  %DrawList = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 86
+  %Splitter = getelementptr inbounds i8, ptr %call2, i64 112
+  %DrawList = getelementptr inbounds i8, ptr %2, i64 680
   %46 = load ptr, ptr %DrawList, align 8
   %add90 = add nuw nsw i32 %45, 1
   tail call void @_ZN18ImDrawListSplitter5SplitEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %Splitter, ptr noundef %46, i32 noundef %add90)
   %47 = load ptr, ptr %DrawList, align 8
   tail call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %Splitter, ptr noundef %47, i32 noundef 1)
   %48 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i.i132 = getelementptr inbounds %struct.ImGuiContext, ptr %48, i64 0, i32 29
+  %CurrentWindow.i.i132 = getelementptr inbounds i8, ptr %48, i64 16392
   %49 = load ptr, ptr %CurrentWindow.i.i132, align 8
-  %CurrentColumns.i133 = getelementptr inbounds %struct.ImGuiWindow, ptr %49, i64 0, i32 68, i32 28
+  %CurrentColumns.i133 = getelementptr inbounds i8, ptr %49, i64 440
   %50 = load ptr, ptr %CurrentColumns.i133, align 8
-  %Data.i.i135 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %50, i64 0, i32 15, i32 2
+  %Data.i.i135 = getelementptr inbounds i8, ptr %50, i64 104
   %51 = load ptr, ptr %Data.i.i135, align 8
-  %ClipRect.i = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %51, i64 0, i32 3
-  %Max.i137 = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %51, i64 0, i32 3, i32 1
-  tail call void @_ZN5ImGui12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 4 dereferenceable(8) %ClipRect.i, ptr noundef nonnull align 4 dereferenceable(8) %Max.i137, i1 noundef zeroext false)
+  %ClipRect.i = getelementptr inbounds i8, ptr %51, i64 12
+  %Max.i138 = getelementptr inbounds i8, ptr %51, i64 20
+  tail call void @_ZN5ImGui12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 4 dereferenceable(8) %ClipRect.i, ptr noundef nonnull align 4 dereferenceable(8) %Max.i138, i1 noundef zeroext false)
   br label %if.end93
 
 if.end93:                                         ; preds = %if.then88, %for.end85
   %52 = load i32, ptr %Current, align 4
   %53 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i.i138 = getelementptr inbounds %struct.ImGuiContext, ptr %53, i64 0, i32 29
-  %54 = load ptr, ptr %CurrentWindow.i.i138, align 8
-  %CurrentColumns.i139 = getelementptr inbounds %struct.ImGuiWindow, ptr %54, i64 0, i32 68, i32 28
-  %55 = load ptr, ptr %CurrentColumns.i139, align 8
-  %cmp.i140 = icmp eq ptr %55, null
-  br i1 %cmp.i140, label %_ZN5ImGui15GetColumnOffsetEi.exit167, label %if.end.i141
+  %CurrentWindow.i.i139 = getelementptr inbounds i8, ptr %53, i64 16392
+  %54 = load ptr, ptr %CurrentWindow.i.i139, align 8
+  %CurrentColumns.i140 = getelementptr inbounds i8, ptr %54, i64 440
+  %55 = load ptr, ptr %CurrentColumns.i140, align 8
+  %cmp.i141 = icmp eq ptr %55, null
+  br i1 %cmp.i141, label %_ZN5ImGui15GetColumnOffsetEi.exit168, label %if.end.i142
 
-if.end.i141:                                      ; preds = %if.end93
+if.end.i142:                                      ; preds = %if.end93
   %cmp1.i = icmp slt i32 %52, 0
-  br i1 %cmp1.i, label %if.then2.i149, label %if.end.i154
+  br i1 %cmp1.i, label %if.then2.i150, label %if.end.i155
 
-if.then2.i149:                                    ; preds = %if.end.i141
-  %Current.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %55, i64 0, i32 4
+if.then2.i150:                                    ; preds = %if.end.i142
+  %Current.i = getelementptr inbounds i8, ptr %55, i64 12
   %56 = load i32, ptr %Current.i, align 4
-  br label %if.end.i154
+  br label %if.end.i155
 
-if.end.i154:                                      ; preds = %if.then2.i149, %if.end.i141
-  %column_index.addr.0.i = phi i32 [ %56, %if.then2.i149 ], [ %52, %if.end.i141 ]
-  %Data.i.i142 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %55, i64 0, i32 15, i32 2
-  %57 = load ptr, ptr %Data.i.i142, align 8
-  %idxprom.i.i143 = sext i32 %column_index.addr.0.i to i64
-  %arrayidx.i.i144 = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %57, i64 %idxprom.i.i143
-  %58 = load float, ptr %arrayidx.i.i144, align 4
-  %OffMinX.i145 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %55, i64 0, i32 6
-  %59 = load float, ptr %OffMinX.i145, align 4
-  %OffMaxX.i146 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %55, i64 0, i32 7
-  %60 = load float, ptr %OffMaxX.i146, align 8
-  %sub.i.i147 = fsub float %60, %59
-  %61 = tail call noundef float @llvm.fmuladd.f32(float %sub.i.i147, float %58, float %59)
+if.end.i155:                                      ; preds = %if.then2.i150, %if.end.i142
+  %column_index.addr.0.i = phi i32 [ %56, %if.then2.i150 ], [ %52, %if.end.i142 ]
+  %Data.i.i143 = getelementptr inbounds i8, ptr %55, i64 104
+  %57 = load ptr, ptr %Data.i.i143, align 8
+  %idxprom.i.i144 = sext i32 %column_index.addr.0.i to i64
+  %arrayidx.i.i145 = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %57, i64 %idxprom.i.i144
+  %58 = load float, ptr %arrayidx.i.i145, align 4
+  %OffMinX.i146 = getelementptr inbounds i8, ptr %55, i64 20
+  %59 = load float, ptr %OffMinX.i146, align 4
+  %OffMaxX.i147 = getelementptr inbounds i8, ptr %55, i64 24
+  %60 = load float, ptr %OffMaxX.i147, align 8
+  %sub.i.i148 = fsub float %60, %59
+  %61 = tail call noundef float @llvm.fmuladd.f32(float %sub.i.i148, float %58, float %59)
   %add97 = add nsw i32 %52, 1
-  %cmp1.i155 = icmp slt i32 %52, -1
-  br i1 %cmp1.i155, label %if.then2.i165, label %if.end3.i156
+  %cmp1.i156 = icmp slt i32 %52, -1
+  br i1 %cmp1.i156, label %if.then2.i166, label %if.end3.i157
 
-if.then2.i165:                                    ; preds = %if.end.i154
-  %Current.i166 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %55, i64 0, i32 4
-  %62 = load i32, ptr %Current.i166, align 4
-  br label %if.end3.i156
+if.then2.i166:                                    ; preds = %if.end.i155
+  %Current.i167 = getelementptr inbounds i8, ptr %55, i64 12
+  %62 = load i32, ptr %Current.i167, align 4
+  br label %if.end3.i157
 
-if.end3.i156:                                     ; preds = %if.then2.i165, %if.end.i154
-  %column_index.addr.0.i157 = phi i32 [ %62, %if.then2.i165 ], [ %add97, %if.end.i154 ]
-  %idxprom.i.i159 = sext i32 %column_index.addr.0.i157 to i64
-  %arrayidx.i.i160 = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %57, i64 %idxprom.i.i159
-  %63 = load float, ptr %arrayidx.i.i160, align 4
-  %64 = tail call noundef float @llvm.fmuladd.f32(float %sub.i.i147, float %63, float %59)
-  br label %_ZN5ImGui15GetColumnOffsetEi.exit167
+if.end3.i157:                                     ; preds = %if.then2.i166, %if.end.i155
+  %column_index.addr.0.i158 = phi i32 [ %62, %if.then2.i166 ], [ %add97, %if.end.i155 ]
+  %idxprom.i.i160 = sext i32 %column_index.addr.0.i158 to i64
+  %arrayidx.i.i161 = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %57, i64 %idxprom.i.i160
+  %63 = load float, ptr %arrayidx.i.i161, align 4
+  %64 = tail call noundef float @llvm.fmuladd.f32(float %sub.i.i148, float %63, float %59)
+  br label %_ZN5ImGui15GetColumnOffsetEi.exit168
 
-_ZN5ImGui15GetColumnOffsetEi.exit167:             ; preds = %if.end93, %if.end3.i156
-  %retval.0.i148183 = phi float [ %61, %if.end3.i156 ], [ 0.000000e+00, %if.end93 ]
-  %retval.0.i164 = phi float [ %64, %if.end3.i156 ], [ 0.000000e+00, %if.end93 ]
-  %DC = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68
-  %sub99 = fsub float %retval.0.i164, %retval.0.i148183
+_ZN5ImGui15GetColumnOffsetEi.exit168:             ; preds = %if.end93, %if.end3.i157
+  %retval.0.i149184 = phi float [ %61, %if.end3.i157 ], [ 0.000000e+00, %if.end93 ]
+  %retval.0.i165 = phi float [ %64, %if.end3.i157 ], [ 0.000000e+00, %if.end93 ]
+  %DC = getelementptr inbounds i8, ptr %2, i64 272
+  %sub99 = fsub float %retval.0.i165, %retval.0.i149184
   %mul100 = fmul float %sub99, 0x3FE4CCCCC0000000
   tail call void @_ZN5ImGui13PushItemWidthEf(float noundef %mul100)
   %65 = load float, ptr %WindowPadding, align 8
   %sub103 = fsub float %7, %65
-  %cmp.i168 = fcmp oge float %sub103, 0.000000e+00
-  %cond.i169 = select i1 %cmp.i168, float %sub103, float 0.000000e+00
-  %ColumnsOffset = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 12
-  store float %cond.i169, ptr %ColumnsOffset, align 8
+  %cmp.i169 = fcmp oge float %sub103, 0.000000e+00
+  %cond.i170 = select i1 %cmp.i169, float %sub103, float 0.000000e+00
+  %ColumnsOffset = getelementptr inbounds i8, ptr %2, i64 344
+  store float %cond.i170, ptr %ColumnsOffset, align 8
   %66 = load float, ptr %Pos, align 8
   %67 = load float, ptr %Indent, align 4
   %add112 = fadd float %66, %67
-  %add116 = fadd float %cond.i169, %add112
+  %add116 = fadd float %cond.i170, %add112
   %conv117 = fptosi float %add116 to i32
   %conv118 = sitofp i32 %conv117 to float
   store float %conv118, ptr %DC, align 8
-  %add124 = fadd float %retval.0.i164, %66
+  %add124 = fadd float %retval.0.i165, %66
   %sub125 = fsub float %add124, %7
   store float %sub125, ptr %Max, align 8
-  %y130 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 75, i32 1, i32 1
+  %y130 = getelementptr inbounds i8, ptr %2, i64 612
   %68 = load float, ptr %y130, align 4
-  %y133 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 72, i32 1, i32 1
+  %y133 = getelementptr inbounds i8, ptr %2, i64 564
   store float %68, ptr %y133, align 4
   ret void
 }
@@ -15150,37 +15149,37 @@ declare void @_ZN5ImGui13PushItemWidthEf(float noundef) local_unnamed_addr #1
 define void @_ZN5ImGui10NextColumnEv() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
-  %WriteAccessed.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 35
+  %WriteAccessed.i = getelementptr inbounds i8, ptr %1, i64 192
   store i8 1, ptr %WriteAccessed.i, align 8
   %2 = load ptr, ptr %CurrentWindow.i, align 8
-  %SkipItems = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 38
+  %SkipItems = getelementptr inbounds i8, ptr %2, i64 195
   %3 = load i8, ptr %SkipItems, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %DC = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68
-  %CurrentColumns = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 28
+  %DC = getelementptr inbounds i8, ptr %2, i64 272
+  %CurrentColumns = getelementptr inbounds i8, ptr %2, i64 440
   %5 = load ptr, ptr %CurrentColumns, align 8
   %cmp = icmp eq ptr %5, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %Count = getelementptr inbounds %struct.ImGuiOldColumns, ptr %5, i64 0, i32 5
+  %Count = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i32, ptr %Count, align 8
   %cmp3 = icmp eq i32 %6, 1
   br i1 %cmp3, label %if.then4, label %if.end13
 
 if.then4:                                         ; preds = %if.end
-  %Pos = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 7
+  %Pos = getelementptr inbounds i8, ptr %2, i64 40
   %7 = load float, ptr %Pos, align 8
-  %Indent = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 11
+  %Indent = getelementptr inbounds i8, ptr %2, i64 340
   %8 = load float, ptr %Indent, align 4
   %add = fadd float %7, %8
-  %ColumnsOffset = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 12
+  %ColumnsOffset = getelementptr inbounds i8, ptr %2, i64 344
   %9 = load float, ptr %ColumnsOffset, align 8
   %add9 = fadd float %add, %9
   %conv = fptosi float %add9 to i32
@@ -15189,7 +15188,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %Current = getelementptr inbounds %struct.ImGuiOldColumns, ptr %5, i64 0, i32 4
+  %Current = getelementptr inbounds i8, ptr %5, i64 12
   %10 = load i32, ptr %Current, align 4
   %inc = add nsw i32 %10, 1
   %cmp15 = icmp eq i32 %inc, %6
@@ -15197,7 +15196,7 @@ if.end13:                                         ; preds = %if.end
   store i32 %spec.store.select, ptr %Current, align 4
   tail call void @_ZN5ImGui12PopItemWidthEv()
   %11 = load i32, ptr %Current, align 4
-  %Data.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %5, i64 0, i32 15, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %5, i64 104
   %12 = load ptr, ptr %Data.i, align 8
   %idxprom.i = sext i32 %11 to i64
   %ClipRect = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %12, i64 %idxprom.i, i32 3
@@ -15206,35 +15205,35 @@ if.end13:                                         ; preds = %if.end
   %14 = extractelement <4 x float> %13, i64 3
   %retval.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %13, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i.i, float %14, i64 1
-  %ClipRect.i = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 74
+  %ClipRect.i = getelementptr inbounds i8, ptr %2, i64 584
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClipRect.i, ptr noundef nonnull align 4 dereferenceable(16) %ClipRect, i64 16, i1 false)
-  %DrawList.i = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 86
+  %DrawList.i = getelementptr inbounds i8, ptr %2, i64 680
   %15 = load ptr, ptr %DrawList.i, align 8
-  %_CmdHeader.i = getelementptr inbounds %struct.ImDrawList, ptr %15, i64 0, i32 12
+  %_CmdHeader.i = getelementptr inbounds i8, ptr %15, i64 136
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %_CmdHeader.i, align 8
-  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds %struct.ImDrawList, ptr %15, i64 0, i32 12, i32 0, i32 2
+  %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 144
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.ClipRect1.sroa_idx.i, align 8
   %16 = load ptr, ptr %DrawList.i, align 8
-  %_ClipRectStack.i = getelementptr inbounds %struct.ImDrawList, ptr %16, i64 0, i32 9
-  %Data.i44 = getelementptr inbounds %struct.ImDrawList, ptr %16, i64 0, i32 9, i32 2
+  %_ClipRectStack.i = getelementptr inbounds i8, ptr %16, i64 88
+  %Data.i44 = getelementptr inbounds i8, ptr %16, i64 96
   %17 = load ptr, ptr %Data.i44, align 8
   %18 = load i32, ptr %_ClipRectStack.i, align 8
   %19 = sext i32 %18 to i64
   %20 = getelementptr %struct.ImVec4, ptr %17, i64 %19
-  %arrayidx.i45 = getelementptr %struct.ImVec4, ptr %20, i64 -1
+  %arrayidx.i45 = getelementptr i8, ptr %20, i64 -16
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %arrayidx.i45, align 4
-  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr %struct.ImVec4, ptr %20, i64 -1, i32 2
+  %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i = getelementptr i8, ptr %20, i64 -8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %clip_rect_vec4.sroa.3.0.arrayidx.sroa_idx.i, align 4
-  %Splitter = getelementptr inbounds %struct.ImGuiOldColumns, ptr %5, i64 0, i32 16
+  %Splitter = getelementptr inbounds i8, ptr %5, i64 112
   %21 = load ptr, ptr %DrawList.i, align 8
   %22 = load i32, ptr %Current, align 4
   %add22 = add nsw i32 %22, 1
   tail call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %Splitter, ptr noundef %21, i32 noundef %add22)
-  %ItemSpacing = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 3, i32 15
+  %ItemSpacing = getelementptr inbounds i8, ptr %0, i64 14652
   %23 = load float, ptr %ItemSpacing, align 4
-  %LineMaxY = getelementptr inbounds %struct.ImGuiOldColumns, ptr %5, i64 0, i32 9
+  %LineMaxY = getelementptr inbounds i8, ptr %5, i64 32
   %24 = load float, ptr %LineMaxY, align 8
-  %y = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %2, i64 276
   %25 = load float, ptr %y, align 4
   %cmp.i = fcmp oge float %24, %25
   %cond.i = select i1 %cmp.i, float %24, float %25
@@ -15245,22 +15244,22 @@ if.end13:                                         ; preds = %if.end
 
 if.then30:                                        ; preds = %if.end13
   %27 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %27, i64 0, i32 29
+  %CurrentWindow.i.i = getelementptr inbounds i8, ptr %27, i64 16392
   %28 = load ptr, ptr %CurrentWindow.i.i, align 8
-  %CurrentColumns.i = getelementptr inbounds %struct.ImGuiWindow, ptr %28, i64 0, i32 68, i32 28
+  %CurrentColumns.i = getelementptr inbounds i8, ptr %28, i64 440
   %29 = load ptr, ptr %CurrentColumns.i, align 8
   %cmp.i46 = icmp eq ptr %29, null
   br i1 %cmp.i46, label %_ZN5ImGui15GetColumnOffsetEi.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then30
-  %Data.i.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %29, i64 0, i32 15, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %29, i64 104
   %30 = load ptr, ptr %Data.i.i, align 8
   %idxprom.i.i = zext nneg i32 %26 to i64
   %arrayidx.i.i = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %30, i64 %idxprom.i.i
   %31 = load float, ptr %arrayidx.i.i, align 4
-  %OffMinX.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %29, i64 0, i32 6
+  %OffMinX.i = getelementptr inbounds i8, ptr %29, i64 20
   %32 = load float, ptr %OffMinX.i, align 4
-  %OffMaxX.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %29, i64 0, i32 7
+  %OffMaxX.i = getelementptr inbounds i8, ptr %29, i64 24
   %33 = load float, ptr %OffMaxX.i, align 8
   %sub.i.i = fsub float %33, %32
   %34 = tail call noundef float @llvm.fmuladd.f32(float %sub.i.i, float %31, float %32)
@@ -15268,28 +15267,28 @@ if.end3.i:                                        ; preds = %if.then30
 
 _ZN5ImGui15GetColumnOffsetEi.exit:                ; preds = %if.then30, %if.end3.i
   %retval.0.i = phi float [ %34, %if.end3.i ], [ 0.000000e+00, %if.then30 ]
-  %Indent34 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 11
+  %Indent34 = getelementptr inbounds i8, ptr %2, i64 340
   %35 = load float, ptr %Indent34, align 4
   %sub = fsub float %retval.0.i, %35
   %add36 = fadd float %23, %sub
-  %ColumnsOffset38 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 12
+  %ColumnsOffset38 = getelementptr inbounds i8, ptr %2, i64 344
   store float %add36, ptr %ColumnsOffset38, align 8
   br label %if.end48
 
 if.else:                                          ; preds = %if.end13
-  %WindowPadding = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 13
+  %WindowPadding = getelementptr inbounds i8, ptr %2, i64 88
   %36 = load float, ptr %WindowPadding, align 8
   %sub41 = fsub float %23, %36
   %cmp.i47 = fcmp oge float %sub41, 0.000000e+00
   %cond.i48 = select i1 %cmp.i47, float %sub41, float 0.000000e+00
-  %ColumnsOffset44 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 12
+  %ColumnsOffset44 = getelementptr inbounds i8, ptr %2, i64 344
   store float %cond.i48, ptr %ColumnsOffset44, align 8
-  %IsSameLine = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 9
+  %IsSameLine = getelementptr inbounds i8, ptr %2, i64 336
   store i8 0, ptr %IsSameLine, align 8
   %37 = load float, ptr %LineMaxY, align 8
-  %LineMinY = getelementptr inbounds %struct.ImGuiOldColumns, ptr %5, i64 0, i32 8
+  %LineMinY = getelementptr inbounds i8, ptr %5, i64 28
   store float %37, ptr %LineMinY, align 4
-  %Indent52.phi.trans.insert = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 11
+  %Indent52.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 340
   %.pre = load float, ptr %Indent52.phi.trans.insert, align 4
   %.pre86 = load float, ptr %ColumnsOffset44, align 8
   %.pre87 = load ptr, ptr @GImGui, align 8
@@ -15299,26 +15298,26 @@ if.end48:                                         ; preds = %if.else, %_ZN5ImGui
   %38 = phi ptr [ %.pre87, %if.else ], [ %27, %_ZN5ImGui15GetColumnOffsetEi.exit ]
   %39 = phi float [ %.pre86, %if.else ], [ %add36, %_ZN5ImGui15GetColumnOffsetEi.exit ]
   %40 = phi float [ %.pre, %if.else ], [ %35, %_ZN5ImGui15GetColumnOffsetEi.exit ]
-  %Pos49 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 7
+  %Pos49 = getelementptr inbounds i8, ptr %2, i64 40
   %41 = load float, ptr %Pos49, align 8
   %add54 = fadd float %41, %40
   %add58 = fadd float %add54, %39
   %conv59 = fptosi float %add58 to i32
   %conv60 = sitofp i32 %conv59 to float
   store float %conv60, ptr %DC, align 8
-  %LineMinY64 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %5, i64 0, i32 8
+  %LineMinY64 = getelementptr inbounds i8, ptr %5, i64 28
   %42 = load float, ptr %LineMinY64, align 4
   store float %42, ptr %y, align 4
-  %CurrLineSize = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 5
+  %CurrLineSize = getelementptr inbounds i8, ptr %2, i64 312
   store i32 0, ptr %CurrLineSize, align 8
-  %CurrLineSize.sroa_idx = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 5, i32 1
+  %CurrLineSize.sroa_idx = getelementptr inbounds i8, ptr %2, i64 316
   store i32 0, ptr %CurrLineSize.sroa_idx, align 4
-  %CurrLineTextBaseOffset = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 7
+  %CurrLineTextBaseOffset = getelementptr inbounds i8, ptr %2, i64 328
   store float 0.000000e+00, ptr %CurrLineTextBaseOffset, align 8
   %43 = load i32, ptr %Current, align 4
-  %CurrentWindow.i.i49 = getelementptr inbounds %struct.ImGuiContext, ptr %38, i64 0, i32 29
+  %CurrentWindow.i.i49 = getelementptr inbounds i8, ptr %38, i64 16392
   %44 = load ptr, ptr %CurrentWindow.i.i49, align 8
-  %CurrentColumns.i50 = getelementptr inbounds %struct.ImGuiWindow, ptr %44, i64 0, i32 68, i32 28
+  %CurrentColumns.i50 = getelementptr inbounds i8, ptr %44, i64 440
   %45 = load ptr, ptr %CurrentColumns.i50, align 8
   %cmp.i51 = icmp eq ptr %45, null
   br i1 %cmp.i51, label %_ZN5ImGui15GetColumnOffsetEi.exit82, label %if.end.i52
@@ -15328,20 +15327,20 @@ if.end.i52:                                       ; preds = %if.end48
   br i1 %cmp1.i53, label %if.then2.i63, label %if.end.i69
 
 if.then2.i63:                                     ; preds = %if.end.i52
-  %Current.i64 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %45, i64 0, i32 4
+  %Current.i64 = getelementptr inbounds i8, ptr %45, i64 12
   %46 = load i32, ptr %Current.i64, align 4
   br label %if.end.i69
 
 if.end.i69:                                       ; preds = %if.then2.i63, %if.end.i52
   %column_index.addr.0.i55 = phi i32 [ %46, %if.then2.i63 ], [ %43, %if.end.i52 ]
-  %Data.i.i56 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %45, i64 0, i32 15, i32 2
+  %Data.i.i56 = getelementptr inbounds i8, ptr %45, i64 104
   %47 = load ptr, ptr %Data.i.i56, align 8
   %idxprom.i.i57 = sext i32 %column_index.addr.0.i55 to i64
   %arrayidx.i.i58 = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %47, i64 %idxprom.i.i57
   %48 = load float, ptr %arrayidx.i.i58, align 4
-  %OffMinX.i59 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %45, i64 0, i32 6
+  %OffMinX.i59 = getelementptr inbounds i8, ptr %45, i64 20
   %49 = load float, ptr %OffMinX.i59, align 4
-  %OffMaxX.i60 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %45, i64 0, i32 7
+  %OffMaxX.i60 = getelementptr inbounds i8, ptr %45, i64 24
   %50 = load float, ptr %OffMaxX.i60, align 8
   %sub.i.i61 = fsub float %50, %49
   %51 = tail call noundef float @llvm.fmuladd.f32(float %sub.i.i61, float %48, float %49)
@@ -15350,7 +15349,7 @@ if.end.i69:                                       ; preds = %if.then2.i63, %if.e
   br i1 %cmp1.i70, label %if.then2.i80, label %if.end3.i71
 
 if.then2.i80:                                     ; preds = %if.end.i69
-  %Current.i81 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %45, i64 0, i32 4
+  %Current.i81 = getelementptr inbounds i8, ptr %45, i64 12
   %52 = load i32, ptr %Current.i81, align 4
   br label %if.end3.i71
 
@@ -15371,7 +15370,7 @@ _ZN5ImGui15GetColumnOffsetEi.exit82:              ; preds = %if.end48, %if.end3.
   %55 = load float, ptr %Pos49, align 8
   %add78 = fadd float %retval.0.i79, %55
   %sub79 = fsub float %add78, %23
-  %Max = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 72, i32 1
+  %Max = getelementptr inbounds i8, ptr %2, i64 560
   store float %sub79, ptr %Max, align 8
   br label %return
 
@@ -15390,33 +15389,33 @@ entry:
   %ref.tmp57 = alloca %struct.ImVec2, align 4
   %ref.tmp59 = alloca %struct.ImVec2, align 4
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
-  %WriteAccessed.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 35
+  %WriteAccessed.i = getelementptr inbounds i8, ptr %1, i64 192
   store i8 1, ptr %WriteAccessed.i, align 8
   %2 = load ptr, ptr %CurrentWindow.i, align 8
-  %CurrentColumns = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 28
+  %CurrentColumns = getelementptr inbounds i8, ptr %2, i64 440
   %3 = load ptr, ptr %CurrentColumns, align 8
   tail call void @_ZN5ImGui12PopItemWidthEv()
-  %Count = getelementptr inbounds %struct.ImGuiOldColumns, ptr %3, i64 0, i32 5
+  %Count = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %Count, align 8
   %cmp = icmp sgt i32 %4, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN5ImGui11PopClipRectEv()
-  %Splitter = getelementptr inbounds %struct.ImGuiOldColumns, ptr %3, i64 0, i32 16
-  %DrawList = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 86
+  %Splitter = getelementptr inbounds i8, ptr %3, i64 112
+  %DrawList = getelementptr inbounds i8, ptr %2, i64 680
   %5 = load ptr, ptr %DrawList, align 8
   tail call void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr noundef nonnull align 8 dereferenceable(24) %Splitter, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %Flags = getelementptr inbounds %struct.ImGuiOldColumns, ptr %3, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %3, i64 4
   %6 = load i32, ptr %Flags, align 4
-  %LineMaxY = getelementptr inbounds %struct.ImGuiOldColumns, ptr %3, i64 0, i32 9
+  %LineMaxY = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load float, ptr %LineMaxY, align 8
-  %y = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %2, i64 276
   %8 = load float, ptr %y, align 4
   %cmp.i = fcmp oge float %7, %8
   %cond.i = select i1 %cmp.i, float %7, float %8
@@ -15427,9 +15426,9 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end
-  %HostCursorMaxPosX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %3, i64 0, i32 11
+  %HostCursorMaxPosX = getelementptr inbounds i8, ptr %3, i64 40
   %9 = load float, ptr %HostCursorMaxPosX, align 8
-  %CursorMaxPos = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 3
+  %CursorMaxPos = getelementptr inbounds i8, ptr %2, i64 296
   store float %9, ptr %CursorMaxPos, align 8
   br label %if.end10
 
@@ -15439,20 +15438,20 @@ if.end10:                                         ; preds = %if.then8, %if.end
   br i1 %tobool12.not, label %land.lhs.true, label %if.end82
 
 land.lhs.true:                                    ; preds = %if.end10
-  %SkipItems = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 38
+  %SkipItems = getelementptr inbounds i8, ptr %2, i64 195
   %10 = load i8, ptr %SkipItems, align 1
   %11 = and i8 %10, 1
   %tobool13.not = icmp eq i8 %11, 0
   br i1 %tobool13.not, label %if.then14, label %if.end82
 
 if.then14:                                        ; preds = %land.lhs.true
-  %HostCursorPosY = getelementptr inbounds %struct.ImGuiOldColumns, ptr %3, i64 0, i32 10
+  %HostCursorPosY = getelementptr inbounds i8, ptr %3, i64 36
   %12 = load float, ptr %HostCursorPosY, align 4
-  %y15 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 74, i32 0, i32 1
+  %y15 = getelementptr inbounds i8, ptr %2, i64 588
   %13 = load float, ptr %y15, align 4
   %cmp.i56 = fcmp oge float %12, %13
   %cond.i57 = select i1 %cmp.i56, float %12, float %13
-  %y21 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 74, i32 1, i32 1
+  %y21 = getelementptr inbounds i8, ptr %2, i64 596
   %14 = load float, ptr %y21, align 4
   %cmp.i58 = fcmp olt float %cond.i, %14
   %cond.i59 = select i1 %cmp.i58, float %cond.i, float %14
@@ -15461,18 +15460,18 @@ if.then14:                                        ; preds = %land.lhs.true
   br i1 %cmp2472, label %for.body.lr.ph, label %if.end82
 
 for.body.lr.ph:                                   ; preds = %if.then14
-  %Data.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %3, i64 0, i32 15, i32 2
-  %Pos = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 7
+  %Data.i = getelementptr inbounds i8, ptr %3, i64 104
+  %Pos = getelementptr inbounds i8, ptr %2, i64 40
   %column_hit_rect.sroa_idx = getelementptr inbounds i8, ptr %column_hit_rect, i64 4
-  %Max.i = getelementptr inbounds %struct.ImRect, ptr %column_hit_rect, i64 0, i32 1
-  %Max.i.sroa_idx = getelementptr inbounds %struct.ImRect, ptr %column_hit_rect, i64 0, i32 1, i32 1
+  %Max.i = getelementptr inbounds i8, ptr %column_hit_rect, i64 8
+  %Max.i.sroa_idx = getelementptr inbounds i8, ptr %column_hit_rect, i64 12
   %and35 = and i32 %6, 2
   %tobool36.not = icmp eq i32 %and35, 0
-  %MouseCursor = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 180
-  %DrawList56 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 86
+  %MouseCursor = getelementptr inbounds i8, ptr %0, i64 20120
+  %DrawList56 = getelementptr inbounds i8, ptr %2, i64 680
   %add58 = fadd float %cond.i57, 1.000000e+00
-  %y.i62 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp57, i64 0, i32 1
-  %y.i63 = getelementptr inbounds %struct.ImVec2, ptr %ref.tmp59, i64 0, i32 1
+  %y.i62 = getelementptr inbounds i8, ptr %ref.tmp57, i64 4
+  %y.i63 = getelementptr inbounds i8, ptr %ref.tmp59, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -15481,21 +15480,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %16 = load ptr, ptr %Data.i, align 8
   %17 = load float, ptr %Pos, align 8
   %18 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %18, i64 0, i32 29
+  %CurrentWindow.i.i = getelementptr inbounds i8, ptr %18, i64 16392
   %19 = load ptr, ptr %CurrentWindow.i.i, align 8
-  %CurrentColumns.i = getelementptr inbounds %struct.ImGuiWindow, ptr %19, i64 0, i32 68, i32 28
+  %CurrentColumns.i = getelementptr inbounds i8, ptr %19, i64 440
   %20 = load ptr, ptr %CurrentColumns.i, align 8
   %cmp.i60 = icmp eq ptr %20, null
   br i1 %cmp.i60, label %_ZN5ImGui15GetColumnOffsetEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %Data.i.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %20, i64 0, i32 15, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %20, i64 104
   %21 = load ptr, ptr %Data.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %21, i64 %indvars.iv
   %22 = load float, ptr %arrayidx.i.i, align 4
-  %OffMinX.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %20, i64 0, i32 6
+  %OffMinX.i = getelementptr inbounds i8, ptr %20, i64 20
   %23 = load float, ptr %OffMinX.i, align 4
-  %OffMaxX.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %20, i64 0, i32 7
+  %OffMaxX.i = getelementptr inbounds i8, ptr %20, i64 24
   %24 = load float, ptr %OffMaxX.i, align 8
   %sub.i.i = fsub float %24, %23
   %25 = call noundef float @llvm.fmuladd.f32(float %sub.i.i, float %22, float %23)
@@ -15585,7 +15584,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp60.not, label %if.end82, label %if.then61
 
 if.then61:                                        ; preds = %for.end
-  %IsBeingResized = getelementptr inbounds %struct.ImGuiOldColumns, ptr %3, i64 0, i32 3
+  %IsBeingResized = getelementptr inbounds i8, ptr %3, i64 9
   %39 = load i8, ptr %IsBeingResized, align 1
   %40 = and i8 %39, 1
   %tobool62.not = icmp ne i8 %40, 0
@@ -15594,7 +15593,7 @@ if.then61:                                        ; preds = %for.end
   br i1 %or.cond, label %if.end77, label %for.body69.lr.ph
 
 for.body69.lr.ph:                                 ; preds = %if.then61
-  %Data.i64 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %3, i64 0, i32 15, i32 2
+  %Data.i64 = getelementptr inbounds i8, ptr %3, i64 104
   br label %for.body69
 
 for.body69:                                       ; preds = %for.body69.lr.ph, %for.body69
@@ -15602,7 +15601,7 @@ for.body69:                                       ; preds = %for.body69.lr.ph, %
   %41 = load ptr, ptr %Data.i64, align 8
   %arrayidx.i66 = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %41, i64 %indvars.iv79
   %42 = load float, ptr %arrayidx.i66, align 4
-  %OffsetNormBeforeResize = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %41, i64 %indvars.iv79, i32 1
+  %OffsetNormBeforeResize = getelementptr inbounds i8, ptr %arrayidx.i66, i64 4
   store float %42, ptr %OffsetNormBeforeResize, align 4
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %43 = load i32, ptr %Count, align 8
@@ -15613,18 +15612,18 @@ for.body69:                                       ; preds = %for.body69.lr.ph, %
 if.end77:                                         ; preds = %for.body69, %if.then61
   store i8 1, ptr %IsBeingResized, align 1
   %45 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i70 = getelementptr inbounds %struct.ImGuiContext, ptr %45, i64 0, i32 29
+  %CurrentWindow.i70 = getelementptr inbounds i8, ptr %45, i64 16392
   %46 = load ptr, ptr %CurrentWindow.i70, align 8
-  %MousePos.i = getelementptr inbounds %struct.ImGuiContext, ptr %45, i64 0, i32 2, i32 59
+  %MousePos.i = getelementptr inbounds i8, ptr %45, i64 3656
   %47 = load float, ptr %MousePos.i, align 8
-  %ActiveIdClickOffset.i = getelementptr inbounds %struct.ImGuiContext, ptr %45, i64 0, i32 56
+  %ActiveIdClickOffset.i = getelementptr inbounds i8, ptr %45, i64 16512
   %48 = load float, ptr %ActiveIdClickOffset.i, align 8
   %sub.i = fsub float %47, %48
   %add.i = fadd float %sub.i, 4.000000e+00
-  %Pos.i = getelementptr inbounds %struct.ImGuiWindow, ptr %46, i64 0, i32 7
+  %Pos.i = getelementptr inbounds i8, ptr %46, i64 40
   %49 = load float, ptr %Pos.i, align 8
   %sub4.i = fsub float %add.i, %49
-  %CurrentColumns.i.i = getelementptr inbounds %struct.ImGuiWindow, ptr %46, i64 0, i32 68, i32 28
+  %CurrentColumns.i.i = getelementptr inbounds i8, ptr %46, i64 440
   %50 = load ptr, ptr %CurrentColumns.i.i, align 8
   %cmp.i.i = icmp eq ptr %50, null
   br i1 %cmp.i.i, label %_ZN5ImGui15GetColumnOffsetEi.exit.i, label %if.end.i.i
@@ -15635,20 +15634,20 @@ if.end.i.i:                                       ; preds = %if.end77
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end3.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %Current.i.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %50, i64 0, i32 4
+  %Current.i.i = getelementptr inbounds i8, ptr %50, i64 12
   %51 = load i32, ptr %Current.i.i, align 4
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then2.i.i, %if.end.i.i
   %column_index.addr.0.i.i = phi i32 [ %51, %if.then2.i.i ], [ %sub5.i, %if.end.i.i ]
-  %Data.i.i.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %50, i64 0, i32 15, i32 2
+  %Data.i.i.i = getelementptr inbounds i8, ptr %50, i64 104
   %52 = load ptr, ptr %Data.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %column_index.addr.0.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %52, i64 %idxprom.i.i.i
   %53 = load float, ptr %arrayidx.i.i.i, align 4
-  %OffMinX.i.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %50, i64 0, i32 6
+  %OffMinX.i.i = getelementptr inbounds i8, ptr %50, i64 20
   %54 = load float, ptr %OffMinX.i.i, align 4
-  %OffMaxX.i.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %50, i64 0, i32 7
+  %OffMaxX.i.i = getelementptr inbounds i8, ptr %50, i64 24
   %55 = load float, ptr %OffMaxX.i.i, align 8
   %sub.i.i.i = fsub float %55, %54
   %56 = call noundef float @llvm.fmuladd.f32(float %sub.i.i.i, float %53, float %54)
@@ -15656,7 +15655,7 @@ if.end3.i.i:                                      ; preds = %if.then2.i.i, %if.e
 
 _ZN5ImGui15GetColumnOffsetEi.exit.i:              ; preds = %if.end3.i.i, %if.end77
   %retval.0.i.i = phi float [ %56, %if.end3.i.i ], [ 0.000000e+00, %if.end77 ]
-  %ColumnsMinSpacing.i = getelementptr inbounds %struct.ImGuiContext, ptr %45, i64 0, i32 3, i32 20
+  %ColumnsMinSpacing.i = getelementptr inbounds i8, ptr %45, i64 14688
   %57 = load float, ptr %ColumnsMinSpacing.i, align 8
   %add6.i = fadd float %retval.0.i.i, %57
   %cmp.i8.i = fcmp oge float %sub4.i, %add6.i
@@ -15675,20 +15674,20 @@ if.end.i12.i:                                     ; preds = %if.then.i
   br i1 %cmp1.i13.i, label %if.then2.i23.i, label %if.end3.i14.i
 
 if.then2.i23.i:                                   ; preds = %if.end.i12.i
-  %Current.i24.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %50, i64 0, i32 4
+  %Current.i24.i = getelementptr inbounds i8, ptr %50, i64 12
   %59 = load i32, ptr %Current.i24.i, align 4
   br label %if.end3.i14.i
 
 if.end3.i14.i:                                    ; preds = %if.then2.i23.i, %if.end.i12.i
   %column_index.addr.0.i15.i = phi i32 [ %59, %if.then2.i23.i ], [ %add8.i, %if.end.i12.i ]
-  %Data.i.i16.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %50, i64 0, i32 15, i32 2
+  %Data.i.i16.i = getelementptr inbounds i8, ptr %50, i64 104
   %60 = load ptr, ptr %Data.i.i16.i, align 8
   %idxprom.i.i17.i = sext i32 %column_index.addr.0.i15.i to i64
   %arrayidx.i.i18.i = getelementptr inbounds %struct.ImGuiOldColumnData, ptr %60, i64 %idxprom.i.i17.i
   %61 = load float, ptr %arrayidx.i.i18.i, align 4
-  %OffMinX.i19.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %50, i64 0, i32 6
+  %OffMinX.i19.i = getelementptr inbounds i8, ptr %50, i64 20
   %62 = load float, ptr %OffMinX.i19.i, align 4
-  %OffMaxX.i20.i = getelementptr inbounds %struct.ImGuiOldColumns, ptr %50, i64 0, i32 7
+  %OffMaxX.i20.i = getelementptr inbounds i8, ptr %50, i64 24
   %63 = load float, ptr %OffMaxX.i20.i, align 8
   %sub.i.i21.i = fsub float %63, %62
   %64 = call noundef float @llvm.fmuladd.f32(float %sub.i.i21.i, float %61, float %62)
@@ -15708,20 +15707,20 @@ _ZL22GetDraggedColumnOffsetP15ImGuiOldColumnsi.exit: ; preds = %_ZN5ImGui15GetCo
 
 if.end82:                                         ; preds = %if.then14, %for.end, %_ZL22GetDraggedColumnOffsetP15ImGuiOldColumnsi.exit, %land.lhs.true, %if.end10
   %is_being_resized.0 = phi i8 [ 0, %if.end10 ], [ 0, %land.lhs.true ], [ 1, %_ZL22GetDraggedColumnOffsetP15ImGuiOldColumnsi.exit ], [ 0, %for.end ], [ 0, %if.then14 ]
-  %DC = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68
-  %IsBeingResized84 = getelementptr inbounds %struct.ImGuiOldColumns, ptr %3, i64 0, i32 3
+  %DC = getelementptr inbounds i8, ptr %2, i64 272
+  %IsBeingResized84 = getelementptr inbounds i8, ptr %3, i64 9
   store i8 %is_being_resized.0, ptr %IsBeingResized84, align 1
-  %ParentWorkRect = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 73
-  %WorkRect = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 72
+  %ParentWorkRect = getelementptr inbounds i8, ptr %2, i64 568
+  %WorkRect = getelementptr inbounds i8, ptr %2, i64 552
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %WorkRect, ptr noundef nonnull align 8 dereferenceable(16) %ParentWorkRect, i64 16, i1 false)
-  %HostBackupParentWorkRect = getelementptr inbounds %struct.ImGuiOldColumns, ptr %3, i64 0, i32 14
+  %HostBackupParentWorkRect = getelementptr inbounds i8, ptr %3, i64 76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ParentWorkRect, ptr noundef nonnull align 4 dereferenceable(16) %HostBackupParentWorkRect, i64 16, i1 false)
   store ptr null, ptr %CurrentColumns, align 8
-  %ColumnsOffset = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 12
+  %ColumnsOffset = getelementptr inbounds i8, ptr %2, i64 344
   store float 0.000000e+00, ptr %ColumnsOffset, align 8
-  %Pos90 = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 7
+  %Pos90 = getelementptr inbounds i8, ptr %2, i64 40
   %65 = load float, ptr %Pos90, align 8
-  %Indent = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 11
+  %Indent = getelementptr inbounds i8, ptr %2, i64 340
   %66 = load float, ptr %Indent, align 4
   %add94 = fadd float %65, %66
   %add98 = fadd float %add94, 0.000000e+00
@@ -15736,26 +15735,26 @@ if.end82:                                         ; preds = %if.then14, %for.end
 define void @_ZN5ImGui7ColumnsEiPKcb(i32 noundef %columns_count, ptr noundef %id, i1 noundef zeroext %border) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
+  %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
-  %WriteAccessed.i = getelementptr inbounds %struct.ImGuiWindow, ptr %1, i64 0, i32 35
+  %WriteAccessed.i = getelementptr inbounds i8, ptr %1, i64 192
   store i8 1, ptr %WriteAccessed.i, align 8
   %2 = load ptr, ptr %CurrentWindow.i, align 8
   %not.border = xor i1 %border, true
   %cond = zext i1 %not.border to i32
-  %CurrentColumns = getelementptr inbounds %struct.ImGuiWindow, ptr %2, i64 0, i32 68, i32 28
+  %CurrentColumns = getelementptr inbounds i8, ptr %2, i64 440
   %3 = load ptr, ptr %CurrentColumns, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %Count = getelementptr inbounds %struct.ImGuiOldColumns, ptr %3, i64 0, i32 5
+  %Count = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %Count, align 8
   %cmp1 = icmp eq i32 %4, %columns_count
   br i1 %cmp1, label %land.lhs.true2, label %if.then5
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %Flags = getelementptr inbounds %struct.ImGuiOldColumns, ptr %3, i64 0, i32 1
+  %Flags = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i32, ptr %Flags, align 4
   %cmp3 = icmp eq i32 %5, %cond
   br i1 %cmp3, label %if.end9, label %if.then5
@@ -15801,13 +15800,13 @@ declare noundef ptr @_ZN12ImGuiStorage9GetIntRefEji(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull align 8 dereferenceable(586) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %RawData = getelementptr inbounds %struct.ImGuiTable, ptr %this, i64 0, i32 2
+  %RawData = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %RawData, align 8
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %Data.i = getelementptr inbounds %struct.ImGuiTable, ptr %this, i64 0, i32 63, i32 2
+  %Data.i = getelementptr inbounds i8, ptr %this, i64 488
   %1 = load ptr, ptr %Data.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit, label %if.then.i
@@ -15824,7 +15823,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit: ; preds = %invoke.cont, %if.then.i
-  %Data.i1 = getelementptr inbounds %struct.ImGuiTable, ptr %this, i64 0, i32 60, i32 2
+  %Data.i1 = getelementptr inbounds i8, ptr %this, i64 456
   %4 = load ptr, ptr %Data.i1, align 8
   %tobool.not.i2 = icmp eq ptr %4, null
   br i1 %tobool.not.i2, label %_ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit, label %if.then.i3
@@ -15841,7 +15840,7 @@ terminate.lpad.i4:                                ; preds = %if.then.i3
   unreachable
 
 _ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit:  ; preds = %_ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit, %if.then.i3
-  %Data.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %this, i64 0, i32 57, i32 0, i32 2
+  %Data.i.i = getelementptr inbounds i8, ptr %this, i64 408
   %7 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %_ZN15ImGuiTextBufferD2Ev.exit, label %if.then.i.i

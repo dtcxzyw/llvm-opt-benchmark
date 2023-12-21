@@ -327,7 +327,7 @@ if.then123:                                       ; preds = %if.end121
 
 if.end124:                                        ; preds = %if.end121
   %call125 = call ptr @u_memcpy_75(ptr noundef %dest, ptr noundef nonnull @_ZL10ACE_PREFIX, i32 noundef 4)
-  %add.ptr = getelementptr inbounds i16, ptr %dest, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %dest, i64 8
   %call126 = call ptr @u_memcpy_75(ptr noundef nonnull %add.ptr, ptr noundef nonnull %b2.0, i32 noundef %b2Len.0)
   br label %if.end129
 
@@ -535,7 +535,7 @@ for.body.i:                                       ; preds = %if.end42, %for.cond
   br i1 %cmp6.not.i, label %for.cond.i, label %if.else80
 
 if.then45:                                        ; preds = %for.cond.i
-  %add.ptr = getelementptr inbounds i16, ptr %b1.1, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %b1.1, i64 8
   %sub = add nsw i32 %b1Len.1, -4
   %call46 = call i32 @u_strFromPunycode_75(ptr noundef nonnull %add.ptr, i32 noundef %sub, ptr noundef nonnull %b2Stack, i32 noundef 100, ptr noundef null, ptr noundef %status)
   %11 = load i32, ptr %status, align 4
@@ -913,7 +913,7 @@ if.end35:                                         ; preds = %if.end25.thread, %i
   br i1 %cmp36, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %if.end35
-  %incdec.ptr = getelementptr inbounds i16, ptr %currentDest.181, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %currentDest.181, i64 2
   store i16 46, ptr %currentDest.181, align 2
   %dec = add nsw i32 %remainingDestCapacity.282, -1
   br label %if.end38
@@ -1101,7 +1101,7 @@ if.then32:                                        ; preds = %if.end30
   %idx.ext33 = sext i32 %retval.0.i to i64
   %add.ptr34 = getelementptr inbounds i16, ptr %labelStart.0, i64 %idx.ext33
   %8 = load i16, ptr %add.ptr34, align 2
-  %incdec.ptr = getelementptr inbounds i16, ptr %currentDest.1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %currentDest.1, i64 2
   store i16 %8, ptr %currentDest.1, align 2
   %dec = add nsw i32 %remainingDestCapacity.2, -1
   br label %if.end35

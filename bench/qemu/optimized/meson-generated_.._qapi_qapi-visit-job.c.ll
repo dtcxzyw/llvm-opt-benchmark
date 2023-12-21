@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.q_obj_JOB_STATUS_CHANGE_arg = type { ptr, i32 }
-%struct.JobInfo = type { ptr, i32, i32, i64, i64, ptr }
-%struct.JobInfoList = type { ptr, ptr }
 
 @JobType_lookup = external constant %struct.QEnumLookup, align 8
 @JobStatus_lookup = external constant %struct.QEnumLookup, align 8
@@ -68,7 +65,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %status = getelementptr inbounds %struct.q_obj_JOB_STATUS_CHANGE_arg, ptr %obj, i64 0, i32 1
+  %status = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %status, align 4
   store i32 %0, ptr %value.i, align 4
@@ -133,7 +130,7 @@ entry:
   %value.i18 = alloca i32, align 4
   %value.i = alloca i32, align 4
   %has_error = alloca i8, align 1
-  %error = getelementptr inbounds %struct.JobInfo, ptr %obj, i64 0, i32 5
+  %error = getelementptr inbounds i8, ptr %obj, i64 32
   %0 = load ptr, ptr %error, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -142,7 +139,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.JobInfo, ptr %obj, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %type, align 4
   store i32 %1, ptr %value.i, align 4
@@ -153,7 +150,7 @@ if.end:                                           ; preds = %entry
   br i1 %call.i, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %status = getelementptr inbounds %struct.JobInfo, ptr %obj, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %obj, i64 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i18)
   %3 = load i32, ptr %status, align 4
   store i32 %3, ptr %value.i18, align 4
@@ -164,12 +161,12 @@ if.end4:                                          ; preds = %if.end
   br i1 %call.i19, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end4
-  %current_progress = getelementptr inbounds %struct.JobInfo, ptr %obj, i64 0, i32 3
+  %current_progress = getelementptr inbounds i8, ptr %obj, i64 16
   %call8 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %current_progress, ptr noundef %errp) #4
   br i1 %call8, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end7
-  %total_progress = getelementptr inbounds %struct.JobInfo, ptr %obj, i64 0, i32 4
+  %total_progress = getelementptr inbounds i8, ptr %obj, i64 24
   %call11 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %total_progress, ptr noundef %errp) #4
   br i1 %call11, label %if.end13, label %return
 
@@ -272,7 +269,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.JobInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_JobInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 

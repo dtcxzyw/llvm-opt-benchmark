@@ -3,9 +3,6 @@ source_filename = "bench/luajit/original/buildvm_fold.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BuildCtx = type { ptr, i32, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [200 x %struct.BuildReloc] }
-%struct.BuildReloc = type { i32, i32, i32 }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [31 x i8] c"Error: missing input filename\0A\00", align 1
 @stdin = external local_unnamed_addr global ptr, align 8
@@ -48,7 +45,7 @@ entry:
   %htab.i = alloca [8193 x i32], align 16
   %p.addr.i = alloca ptr, align 8
   %buf = alloca [256 x i8], align 16
-  %args = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 4
+  %args = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %args, align 8
   %1 = load ptr, ptr %0, align 8
   %cmp = icmp eq ptr %1, null
@@ -91,7 +88,7 @@ if.then10:                                        ; preds = %if.else
 
 if.end15:                                         ; preds = %if.else, %if.then8
   %fp.0 = phi ptr [ %6, %if.then8 ], [ %call9, %if.else ]
-  %fp16 = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 2
+  %fp16 = getelementptr inbounds i8, ptr %ctx, i64 16
   %9 = load ptr, ptr %fp16, align 8
   %10 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 46, i64 1, ptr %9)
   %11 = load ptr, ptr %fp16, align 8

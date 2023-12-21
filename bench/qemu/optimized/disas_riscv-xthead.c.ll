@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.rv_opcode_data = type { ptr, i32, ptr, ptr, i16, i16, i16, i16 }
-%struct.rv_decode = type { ptr, i64, i64, ptr, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8 }
 
 @.str = private unnamed_addr constant [11 x i8] c"th.illegal\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"O\09\00", align 1
@@ -133,12 +132,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @decode_xtheadba(ptr nocapture noundef %dec, i32 noundef %isa) local_unnamed_addr #0 {
 entry:
-  %inst1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %1 = and i64 %0, 4160778367
   %narrow = icmp eq i64 %1, 4107
   %op.0 = zext i1 %narrow to i16
-  %op14 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %op14 = getelementptr inbounds i8, ptr %dec, i64 40
   store i16 %op.0, ptr %op14, align 8
   ret void
 }
@@ -146,7 +145,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @decode_xtheadbb(ptr nocapture noundef %dec, i32 noundef %isa) local_unnamed_addr #0 {
 entry:
-  %inst1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %1 = and i64 %0, 127
   %or.cond = icmp eq i64 %1, 11
@@ -220,7 +219,7 @@ sw.bb40:                                          ; preds = %sw.bb4
 
 sw.epilog43:                                      ; preds = %sw.bb32, %sw.bb26, %sw.bb20, %sw.bb14, %sw.bb11, %sw.bb7, %sw.bb10, %sw.bb38, %sw.bb40, %sw.bb39, %sw.bb4, %entry
   %op.0 = phi i16 [ 0, %sw.bb4 ], [ 5, %sw.bb40 ], [ 4, %sw.bb39 ], [ 0, %sw.bb7 ], [ 2, %sw.bb38 ], [ 3, %sw.bb10 ], [ 0, %entry ], [ %spec.select, %sw.bb11 ], [ %spec.select11, %sw.bb14 ], [ %spec.select12, %sw.bb20 ], [ %spec.select13, %sw.bb26 ], [ %spec.select14, %sw.bb32 ]
-  %op44 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %op44 = getelementptr inbounds i8, ptr %dec, i64 40
   store i16 %op.0, ptr %op44, align 8
   ret void
 }
@@ -228,12 +227,12 @@ sw.epilog43:                                      ; preds = %sw.bb32, %sw.bb26, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @decode_xtheadbs(ptr nocapture noundef %dec, i32 noundef %isa) local_unnamed_addr #0 {
 entry:
-  %inst1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %1 = and i64 %0, 4227887231
   %or.cond9 = icmp eq i64 %1, 2281705483
   %op.0 = select i1 %or.cond9, i16 11, i16 0
-  %op14 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %op14 = getelementptr inbounds i8, ptr %dec, i64 40
   store i16 %op.0, ptr %op14, align 8
   ret void
 }
@@ -241,7 +240,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @decode_xtheadcmo(ptr nocapture noundef %dec, i32 noundef %isa) local_unnamed_addr #0 {
 entry:
-  %inst1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %1 = and i64 %0, 28799
   %or.cond15 = icmp eq i64 %1, 11
@@ -363,7 +362,7 @@ sw.bb62:                                          ; preds = %sw.bb7
 
 sw.epilog70:                                      ; preds = %sw.bb62, %sw.bb56, %sw.bb50, %sw.bb42, %sw.bb36, %sw.bb19, %sw.bb13, %sw.bb10, %sw.bb7, %sw.bb25, %sw.bb26, %sw.bb27, %sw.bb28, %sw.bb29, %sw.bb30, %sw.bb31, %sw.bb32, %sw.bb33, %sw.bb34, %sw.bb35, %sw.bb48, %sw.bb49, %entry
   %op.0 = phi i16 [ 0, %sw.bb7 ], [ 29, %sw.bb49 ], [ 28, %sw.bb48 ], [ 25, %sw.bb35 ], [ 24, %sw.bb34 ], [ 23, %sw.bb33 ], [ 22, %sw.bb32 ], [ 21, %sw.bb31 ], [ 20, %sw.bb30 ], [ 19, %sw.bb29 ], [ 18, %sw.bb28 ], [ 17, %sw.bb27 ], [ 16, %sw.bb26 ], [ 15, %sw.bb25 ], [ 0, %entry ], [ %spec.select, %sw.bb10 ], [ %spec.select16, %sw.bb13 ], [ %spec.select17, %sw.bb19 ], [ %spec.select18, %sw.bb36 ], [ %spec.select19, %sw.bb42 ], [ %spec.select20, %sw.bb50 ], [ %spec.select21, %sw.bb56 ], [ %spec.select22, %sw.bb62 ]
-  %op71 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %op71 = getelementptr inbounds i8, ptr %dec, i64 40
   store i16 %op.0, ptr %op71, align 8
   ret void
 }
@@ -371,7 +370,7 @@ sw.epilog70:                                      ; preds = %sw.bb62, %sw.bb56, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @decode_xtheadcondmov(ptr nocapture noundef %dec, i32 noundef %isa) local_unnamed_addr #0 {
 entry:
-  %inst1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %1 = and i64 %0, 28799
   %or.cond7 = icmp eq i64 %1, 4107
@@ -388,7 +387,7 @@ sw.bb7:                                           ; preds = %entry
 
 sw.epilog14:                                      ; preds = %sw.bb7, %entry
   %op.0 = phi i16 [ 0, %entry ], [ %switch.select9, %sw.bb7 ]
-  %op15 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %op15 = getelementptr inbounds i8, ptr %dec, i64 40
   store i16 %op.0, ptr %op15, align 8
   ret void
 }
@@ -396,7 +395,7 @@ sw.epilog14:                                      ; preds = %sw.bb7, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @decode_xtheadfmemidx(ptr nocapture noundef %dec, i32 noundef %isa) local_unnamed_addr #0 {
 entry:
-  %inst1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %1 = and i64 %0, 127
   %or.cond = icmp eq i64 %1, 11
@@ -439,7 +438,7 @@ sw.epilog24.sink.split:                           ; preds = %switch.lookup, %swi
 
 sw.epilog24:                                      ; preds = %sw.epilog24.sink.split, %sw.bb14, %sw.bb7, %sw.bb4, %entry
   %op.0 = phi i16 [ 0, %sw.bb4 ], [ 0, %sw.bb14 ], [ 0, %sw.bb7 ], [ 0, %entry ], [ %switch.load10, %sw.epilog24.sink.split ]
-  %op25 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %op25 = getelementptr inbounds i8, ptr %dec, i64 40
   store i16 %op.0, ptr %op25, align 8
   ret void
 }
@@ -447,7 +446,7 @@ sw.epilog24:                                      ; preds = %sw.epilog24.sink.sp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @decode_xtheadfmv(ptr nocapture noundef %dec, i32 noundef %isa) local_unnamed_addr #0 {
 entry:
-  %inst1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %1 = and i64 %0, 28799
   %or.cond9 = icmp eq i64 %1, 4107
@@ -475,7 +474,7 @@ sw.bb13:                                          ; preds = %sw.bb7
 
 sw.epilog21:                                      ; preds = %sw.bb13, %sw.bb10, %sw.bb7, %entry
   %op.0 = phi i16 [ 0, %sw.bb7 ], [ 0, %entry ], [ %spec.select, %sw.bb10 ], [ %spec.select10, %sw.bb13 ]
-  %op22 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %op22 = getelementptr inbounds i8, ptr %dec, i64 40
   store i16 %op.0, ptr %op22, align 8
   ret void
 }
@@ -483,7 +482,7 @@ sw.epilog21:                                      ; preds = %sw.bb13, %sw.bb10, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @decode_xtheadmac(ptr nocapture noundef %dec, i32 noundef %isa) local_unnamed_addr #0 {
 entry:
-  %inst1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %1 = and i64 %0, 28799
   %or.cond7 = icmp eq i64 %1, 4107
@@ -503,7 +502,7 @@ switch.lookup:                                    ; preds = %sw.bb7
 
 sw.epilog18:                                      ; preds = %switch.lookup, %sw.bb7, %entry
   %op.0 = phi i16 [ 0, %sw.bb7 ], [ 0, %entry ], [ %switch.load, %switch.lookup ]
-  %op19 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %op19 = getelementptr inbounds i8, ptr %dec, i64 40
   store i16 %op.0, ptr %op19, align 8
   ret void
 }
@@ -511,7 +510,7 @@ sw.epilog18:                                      ; preds = %switch.lookup, %sw.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @decode_xtheadmemidx(ptr nocapture noundef %dec, i32 noundef %isa) local_unnamed_addr #0 {
 entry:
-  %inst1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %1 = and i64 %0, 127
   %or.cond = icmp eq i64 %1, 11
@@ -552,7 +551,7 @@ sw.epilog60.sink.split:                           ; preds = %switch.lookup, %swi
 
 sw.epilog60:                                      ; preds = %sw.epilog60.sink.split, %sw.bb38, %sw.bb7, %sw.bb4, %entry
   %op.0 = phi i16 [ 0, %sw.bb4 ], [ 0, %sw.bb38 ], [ 0, %sw.bb7 ], [ 0, %entry ], [ %switch.load9, %sw.epilog60.sink.split ]
-  %op61 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %op61 = getelementptr inbounds i8, ptr %dec, i64 40
   store i16 %op.0, ptr %op61, align 8
   ret void
 }
@@ -560,7 +559,7 @@ sw.epilog60:                                      ; preds = %sw.epilog60.sink.sp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @decode_xtheadmempair(ptr nocapture noundef %dec, i32 noundef %isa) local_unnamed_addr #0 {
 entry:
-  %inst1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %1 = and i64 %0, 127
   %or.cond = icmp eq i64 %1, 11
@@ -598,7 +597,7 @@ switch.lookup:                                    ; preds = %sw.bb7
 
 sw.epilog21:                                      ; preds = %switch.lookup, %sw.bb7, %sw.bb13, %sw.bb4, %entry
   %op.0 = phi i16 [ 0, %sw.bb4 ], [ 0, %sw.bb7 ], [ 0, %entry ], [ %switch.select8, %sw.bb13 ], [ %switch.masked, %switch.lookup ]
-  %op22 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %op22 = getelementptr inbounds i8, ptr %dec, i64 40
   store i16 %op.0, ptr %op22, align 8
   ret void
 }
@@ -606,7 +605,7 @@ sw.epilog21:                                      ; preds = %switch.lookup, %sw.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @decode_xtheadsync(ptr nocapture noundef %dec, i32 noundef %isa) local_unnamed_addr #0 {
 entry:
-  %inst1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %1 = and i64 %0, 28799
   %or.cond8 = icmp eq i64 %1, 11
@@ -638,7 +637,7 @@ switch.lookup:                                    ; preds = %sw.bb11
 
 sw.epilog21:                                      ; preds = %switch.lookup, %sw.bb11, %sw.bb7, %sw.bb10, %entry
   %op.0 = phi i16 [ 0, %sw.bb7 ], [ 0, %sw.bb11 ], [ 100, %sw.bb10 ], [ 0, %entry ], [ %switch.masked, %switch.lookup ]
-  %op22 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %op22 = getelementptr inbounds i8, ptr %dec, i64 40
   store i16 %op.0, ptr %op22, align 8
   ret void
 }

@@ -3,13 +3,6 @@ source_filename = "bench/cpython/original/critical_section.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._PyCriticalSection = type { i64, ptr }
-%struct._ts = type { ptr, ptr, ptr, %struct.anon, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, %struct._py_trashcan, i64, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem }
-%struct.anon = type { i32 }
-%struct._py_trashcan = type { i32, ptr }
-%struct._err_stackitem = type { ptr, ptr }
-%struct._PyCriticalSection2 = type { %struct._PyCriticalSection, ptr }
-
 @_Py_tss_tstate = external thread_local global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
@@ -17,9 +10,9 @@ define dso_local void @_PyCriticalSection_BeginSlow(ptr noundef %c, ptr noundef 
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %mutex = getelementptr inbounds %struct._PyCriticalSection, ptr %c, i64 0, i32 1
+  %mutex = getelementptr inbounds i8, ptr %c, i64 8
   store ptr null, ptr %mutex, align 8
-  %critical_section = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 25
+  %critical_section = getelementptr inbounds i8, ptr %1, i64 176
   %2 = load i64, ptr %critical_section, align 8
   store i64 %2, ptr %c, align 8
   %3 = ptrtoint ptr %c to i64
@@ -36,8 +29,8 @@ define dso_local void @_PyCriticalSection2_BeginSlow(ptr noundef %c, ptr noundef
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %mutex = getelementptr inbounds %struct._PyCriticalSection, ptr %c, i64 0, i32 1
-  %critical_section = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 25
+  %mutex = getelementptr inbounds i8, ptr %c, i64 8
+  %critical_section = getelementptr inbounds i8, ptr %1, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mutex, i8 0, i64 16, i1 false)
   %2 = load i64, ptr %critical_section, align 8
   store i64 %2, ptr %c, align 8
@@ -66,7 +59,7 @@ if.then.i9:                                       ; preds = %if.end
   br label %PyMutex_Lock.exit10
 
 PyMutex_Lock.exit10:                              ; preds = %if.end, %if.then.i9
-  %mutex2 = getelementptr inbounds %struct._PyCriticalSection2, ptr %c, i64 0, i32 1
+  %mutex2 = getelementptr inbounds i8, ptr %c, i64 16
   store ptr %m1, ptr %mutex, align 8
   store ptr %m2, ptr %mutex2, align 8
   ret void
@@ -75,7 +68,7 @@ PyMutex_Lock.exit10:                              ; preds = %if.end, %if.then.i9
 ; Function Attrs: nounwind uwtable
 define dso_local void @_PyCriticalSection_SuspendAll(ptr nocapture noundef %tstate) local_unnamed_addr #0 {
 entry:
-  %critical_section = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 25
+  %critical_section = getelementptr inbounds i8, ptr %tstate, i64 176
   %0 = load i64, ptr %critical_section, align 8
   %cmp.i12 = icmp eq i64 %0, 0
   %and.i13 = and i64 %0, 1
@@ -88,7 +81,7 @@ while.body:                                       ; preds = %entry, %if.end10
   %tagptr.016 = phi ptr [ %2, %if.end10 ], [ %critical_section, %entry ]
   %and.i9 = and i64 %1, -4
   %2 = inttoptr i64 %and.i9 to ptr
-  %mutex = getelementptr inbounds %struct._PyCriticalSection, ptr %2, i64 0, i32 1
+  %mutex = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mutex, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.end10, label %if.then
@@ -109,7 +102,7 @@ PyMutex_Unlock.exit:                              ; preds = %if.then, %if.then.i
   br i1 %tobool4.not, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %PyMutex_Unlock.exit
-  %mutex2 = getelementptr inbounds %struct._PyCriticalSection2, ptr %2, i64 0, i32 1
+  %mutex2 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load ptr, ptr %mutex2, align 8
   %tobool6.not = icmp eq ptr %7, null
   br i1 %tobool6.not, label %if.end10, label %if.then7
@@ -141,11 +134,11 @@ while.end:                                        ; preds = %if.end10, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local void @_PyCriticalSection_Resume(ptr nocapture noundef %tstate) local_unnamed_addr #0 {
 entry:
-  %critical_section = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 25
+  %critical_section = getelementptr inbounds i8, ptr %tstate, i64 176
   %0 = load i64, ptr %critical_section, align 8
   %and.i = and i64 %0, -4
   %1 = inttoptr i64 %and.i to ptr
-  %mutex = getelementptr inbounds %struct._PyCriticalSection, ptr %1, i64 0, i32 1
+  %mutex = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mutex, align 8
   store ptr null, ptr %mutex, align 8
   %and = and i64 %0, 2
@@ -153,7 +146,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mutex2 = getelementptr inbounds %struct._PyCriticalSection2, ptr %1, i64 0, i32 1
+  %mutex2 = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %mutex2, align 8
   store ptr null, ptr %mutex2, align 8
   br label %if.end
@@ -188,7 +181,7 @@ if.then.i13:                                      ; preds = %if.then7
 
 PyMutex_Lock.exit14:                              ; preds = %if.then7, %if.then.i13
   store ptr %2, ptr %mutex, align 8
-  %mutex212 = getelementptr inbounds %struct._PyCriticalSection2, ptr %c2.0, i64 0, i32 1
+  %mutex212 = getelementptr inbounds i8, ptr %c2.0, i64 16
   store ptr %m2.0, ptr %mutex212, align 8
   br label %if.end13
 

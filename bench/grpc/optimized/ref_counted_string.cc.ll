@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.grpc_core::RefCountedPtr" = type { ptr }
-%"struct.grpc_core::RefCountedString::Header" = type { %"class.grpc_core::RefCount", i64 }
-%"class.grpc_core::RefCount" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.grpc_core::RefCountedString" = type { %"struct.grpc_core::RefCountedString::Header", [0 x i8] }
 
 @_ZN9grpc_core16RefCountedStringC1ESt17basic_string_viewIcSt11char_traitsIcEE = unnamed_addr alias void (ptr, i64, ptr), ptr @_ZN9grpc_core16RefCountedStringC2ESt17basic_string_viewIcSt11char_traitsIcEE
 
@@ -31,11 +26,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN9grpc_core16RefCountedStringC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 %src.coerce0, ptr nocapture readonly %src.coerce1) unnamed_addr #3 align 2 {
 entry:
   store i64 1, ptr %this, align 8
-  %length = getelementptr inbounds %"struct.grpc_core::RefCountedString::Header", ptr %this, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %src.coerce0, ptr %length, align 8
-  %payload_ = getelementptr inbounds %"class.grpc_core::RefCountedString", ptr %this, i64 0, i32 1
+  %payload_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %payload_, ptr align 1 %src.coerce1, i64 %src.coerce0, i1 false)
-  %arrayidx = getelementptr inbounds %"class.grpc_core::RefCountedString", ptr %this, i64 0, i32 1, i64 %src.coerce0
+  %arrayidx = getelementptr inbounds [0 x i8], ptr %payload_, i64 0, i64 %src.coerce0
   store i8 0, ptr %arrayidx, align 1
   ret void
 }

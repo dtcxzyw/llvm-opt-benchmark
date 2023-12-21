@@ -3,16 +3,6 @@ source_filename = "bench/box2d/original/b2_circle_shape.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.b2Shape = type { ptr, i32, float }
-%class.b2CircleShape = type { %class.b2Shape, %struct.b2Vec2 }
-%struct.b2Vec2 = type { float, float }
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
-%struct.b2Rot = type { float, float }
-%struct.b2RayCastInput = type { %struct.b2Vec2, %struct.b2Vec2, float }
-%struct.b2RayCastOutput = type { %struct.b2Vec2, float }
-%struct.b2AABB = type { %struct.b2Vec2, %struct.b2Vec2 }
-%struct.b2MassData = type { float, %struct.b2Vec2, float }
-
 $_ZN13b2CircleShapeD2Ev = comdat any
 
 $_ZN13b2CircleShapeD0Ev = comdat any
@@ -34,13 +24,13 @@ define noundef ptr @_ZNK13b2CircleShape5CloneEP16b2BlockAllocator(ptr nocapture 
 entry:
   %call = tail call noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, i32 noundef 24)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13b2CircleShape, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %m_type.i = getelementptr inbounds %class.b2Shape, ptr %call, i64 0, i32 1
+  %m_type.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_type.i, i8 0, i64 16, i1 false)
-  %m_type2.i.i = getelementptr inbounds %class.b2Shape, ptr %this, i64 0, i32 1
+  %m_type2.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %m_type2.i.i, align 8
   store i64 %0, ptr %m_type.i, align 8
-  %m_p.i = getelementptr inbounds %class.b2CircleShape, ptr %call, i64 0, i32 1
-  %m_p2.i = getelementptr inbounds %class.b2CircleShape, ptr %this, i64 0, i32 1
+  %m_p.i = getelementptr inbounds i8, ptr %call, i64 16
+  %m_p2.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %m_p2.i, align 8
   store i64 %1, ptr %m_p.i, align 8
   ret ptr %call
@@ -57,13 +47,13 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK13b2CircleShape9TestPointERK11b2TransformRK6b2Vec2(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %transform, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p) unnamed_addr #3 align 2 {
 entry:
-  %q = getelementptr inbounds %struct.b2Transform, ptr %transform, i64 0, i32 1
-  %m_p = getelementptr inbounds %class.b2CircleShape, ptr %this, i64 0, i32 1
-  %c.i = getelementptr inbounds %struct.b2Transform, ptr %transform, i64 0, i32 1, i32 1
+  %q = getelementptr inbounds i8, ptr %transform, i64 8
+  %m_p = getelementptr inbounds i8, ptr %this, i64 16
+  %c.i = getelementptr inbounds i8, ptr %transform, i64 12
   %0 = load float, ptr %c.i, align 4
   %1 = load float, ptr %m_p, align 8
   %2 = load float, ptr %q, align 4
-  %y.i = getelementptr inbounds %class.b2CircleShape, ptr %this, i64 0, i32 1, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load float, ptr %y.i, align 4
   %4 = fneg float %2
   %neg.i = fmul float %3, %4
@@ -72,17 +62,17 @@ entry:
   %6 = tail call float @llvm.fmuladd.f32(float %2, float %1, float %mul6.i)
   %7 = load float, ptr %transform, align 4
   %add.i = fadd float %7, %5
-  %y.i2 = getelementptr inbounds %struct.b2Vec2, ptr %transform, i64 0, i32 1
+  %y.i2 = getelementptr inbounds i8, ptr %transform, i64 4
   %8 = load float, ptr %y.i2, align 4
   %add3.i = fadd float %8, %6
   %9 = load float, ptr %p, align 4
   %sub.i = fsub float %9, %add.i
-  %y.i5 = getelementptr inbounds %struct.b2Vec2, ptr %p, i64 0, i32 1
+  %y.i5 = getelementptr inbounds i8, ptr %p, i64 4
   %10 = load float, ptr %y.i5, align 4
   %sub3.i = fsub float %10, %add3.i
   %mul3.i = fmul float %sub3.i, %sub3.i
   %11 = tail call noundef float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul3.i)
-  %m_radius = getelementptr inbounds %class.b2Shape, ptr %this, i64 0, i32 2
+  %m_radius = getelementptr inbounds i8, ptr %this, i64 12
   %12 = load float, ptr %m_radius, align 4
   %mul = fmul float %12, %12
   %cmp = fcmp ole float %11, %mul
@@ -92,15 +82,15 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZNK13b2CircleShape7RayCastEP15b2RayCastOutputRK14b2RayCastInputRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %output, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %input, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %transform, i32 %childIndex) unnamed_addr #4 align 2 {
 entry:
-  %q = getelementptr inbounds %struct.b2Transform, ptr %transform, i64 0, i32 1
-  %m_p = getelementptr inbounds %class.b2CircleShape, ptr %this, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %transform, i64 8
+  %m_p = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_p, align 8
-  %y.i = getelementptr inbounds %class.b2CircleShape, ptr %this, i64 0, i32 1, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load float, ptr %y.i, align 4
-  %m_radius = getelementptr inbounds %class.b2Shape, ptr %this, i64 0, i32 2
+  %m_radius = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load float, ptr %m_radius, align 4
   %neg = fneg float %2
-  %p2 = getelementptr inbounds %struct.b2RayCastInput, ptr %input, i64 0, i32 1
+  %p2 = getelementptr inbounds i8, ptr %input, i64 8
   %3 = load <2 x float>, ptr %q, align 4
   %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %5 = extractelement <2 x float> %3, i64 0
@@ -145,7 +135,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp14, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %maxFraction = getelementptr inbounds %struct.b2RayCastInput, ptr %input, i64 0, i32 2
+  %maxFraction = getelementptr inbounds i8, ptr %input, i64 16
   %30 = load float, ptr %maxFraction, align 4
   %mul = fmul float %27, %30
   %cmp15 = fcmp ult float %mul, %fneg
@@ -153,7 +143,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then16:                                        ; preds = %land.lhs.true
   %div = fdiv float %fneg, %27
-  %fraction = getelementptr inbounds %struct.b2RayCastOutput, ptr %output, i64 0, i32 1
+  %fraction = getelementptr inbounds i8, ptr %output, i64 8
   store float %div, ptr %fraction, align 4
   %31 = insertelement <2 x float> poison, float %div, i64 0
   %32 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> zeroinitializer
@@ -190,10 +180,10 @@ declare float @sqrtf(float noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK13b2CircleShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %transform, i32 %childIndex) unnamed_addr #7 align 2 {
 entry:
-  %q = getelementptr inbounds %struct.b2Transform, ptr %transform, i64 0, i32 1
-  %m_p = getelementptr inbounds %class.b2CircleShape, ptr %this, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %transform, i64 8
+  %m_p = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_p, align 8
-  %y.i = getelementptr inbounds %class.b2CircleShape, ptr %this, i64 0, i32 1, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load float, ptr %y.i, align 4
   %2 = load <4 x float>, ptr %this, align 8
   %3 = load <2 x float>, ptr %q, align 4
@@ -212,7 +202,7 @@ entry:
   %16 = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> <i32 3, i32 3>
   %17 = fsub <2 x float> %15, %16
   store <2 x float> %17, ptr %aabb, align 4
-  %upperBound = getelementptr inbounds %struct.b2AABB, ptr %aabb, i64 0, i32 1
+  %upperBound = getelementptr inbounds i8, ptr %aabb, i64 8
   %18 = load <4 x float>, ptr %this, align 8
   %19 = shufflevector <4 x float> %18, <4 x float> poison, <2 x i32> <i32 3, i32 3>
   %20 = fadd <2 x float> %15, %19
@@ -224,25 +214,25 @@ entry:
 define void @_ZNK13b2CircleShape11ComputeMassEP10b2MassDataf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %massData, float noundef %density) unnamed_addr #8 align 2 {
 entry:
   %mul = fmul float %density, 0x400921FB60000000
-  %m_radius = getelementptr inbounds %class.b2Shape, ptr %this, i64 0, i32 2
+  %m_radius = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_radius, align 4
   %mul2 = fmul float %mul, %0
   %mul4 = fmul float %0, %mul2
   store float %mul4, ptr %massData, align 4
-  %m_p = getelementptr inbounds %class.b2CircleShape, ptr %this, i64 0, i32 1
-  %center = getelementptr inbounds %struct.b2MassData, ptr %massData, i64 0, i32 1
+  %m_p = getelementptr inbounds i8, ptr %this, i64 16
+  %center = getelementptr inbounds i8, ptr %massData, i64 4
   %1 = load i64, ptr %m_p, align 8
   store i64 %1, ptr %center, align 4
   %2 = load float, ptr %m_radius, align 4
   %mul7 = fmul float %2, 5.000000e-01
   %3 = load float, ptr %m_p, align 8
-  %y.i = getelementptr inbounds %class.b2CircleShape, ptr %this, i64 0, i32 1, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load float, ptr %y.i, align 4
   %mul3.i = fmul float %4, %4
   %5 = tail call noundef float @llvm.fmuladd.f32(float %3, float %3, float %mul3.i)
   %6 = tail call float @llvm.fmuladd.f32(float %mul7, float %2, float %5)
   %mul12 = fmul float %mul4, %6
-  %I = getelementptr inbounds %struct.b2MassData, ptr %massData, i64 0, i32 2
+  %I = getelementptr inbounds i8, ptr %massData, i64 12
   store float %mul12, ptr %I, align 4
   ret void
 }

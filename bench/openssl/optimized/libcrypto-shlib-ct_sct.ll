@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ct_sct.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.sct_st = type { i32, ptr, i64, ptr, i64, i64, ptr, i64, i8, i8, ptr, i64, i32, i32, i32 }
-%struct.ct_policy_eval_ctx_st = type { ptr, ptr, ptr, i64, ptr, ptr }
-
 @.str = private unnamed_addr constant [30 x i8] c"../openssl/crypto/ct/ct_sct.c\00", align 1
 @__func__.SCT_set_version = private unnamed_addr constant [16 x i8] c"SCT_set_version\00", align 1
 @__func__.SCT_set_log_entry_type = private unnamed_addr constant [23 x i8] c"SCT_set_log_entry_type\00", align 1
@@ -22,7 +19,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %entry_type = getelementptr inbounds %struct.sct_st, ptr %call, i64 0, i32 12
+  %entry_type = getelementptr inbounds i8, ptr %call, i64 88
   store i32 -1, ptr %entry_type, align 8
   store i32 -1, ptr %call, align 8
   br label %return
@@ -40,16 +37,16 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %log_id = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 3
+  %log_id = getelementptr inbounds i8, ptr %sct, i64 24
   %0 = load ptr, ptr %log_id, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 39) #6
-  %ext = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 6
+  %ext = getelementptr inbounds i8, ptr %sct, i64 48
   %1 = load ptr, ptr %ext, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 40) #6
-  %sig = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 10
+  %sig = getelementptr inbounds i8, ptr %sct, i64 72
   %2 = load ptr, ptr %sig, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 41) #6
-  %sct1 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 1
+  %sct1 = getelementptr inbounds i8, ptr %sct, i64 8
   %3 = load ptr, ptr %sct1, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 42) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %sct, ptr noundef nonnull @.str, i32 noundef 43) #6
@@ -84,7 +81,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %sct, align 8
-  %validation_status = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 0, ptr %validation_status, align 8
   br label %return
 
@@ -102,13 +99,13 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 ; Function Attrs: nounwind uwtable
 define i32 @SCT_set_log_entry_type(ptr nocapture noundef writeonly %sct, i32 noundef %entry_type) local_unnamed_addr #0 {
 entry:
-  %validation_status = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 0, ptr %validation_status, align 8
   %switch = icmp ult i32 %entry_type, 2
   br i1 %switch, label %sw.bb, label %sw.epilog
 
 sw.bb:                                            ; preds = %entry
-  %entry_type1 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 12
+  %entry_type1 = getelementptr inbounds i8, ptr %sct, i64 88
   store i32 %entry_type, ptr %entry_type1, align 8
   br label %return
 
@@ -139,13 +136,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %log_id2 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 3
+  %log_id2 = getelementptr inbounds i8, ptr %sct, i64 24
   %1 = load ptr, ptr %log_id2, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 85) #6
   store ptr %log_id, ptr %log_id2, align 8
-  %log_id_len4 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 4
+  %log_id_len4 = getelementptr inbounds i8, ptr %sct, i64 32
   store i64 %log_id_len, ptr %log_id_len4, align 8
-  %validation_status = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 0, ptr %validation_status, align 8
   br label %return
 
@@ -170,11 +167,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %log_id2 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 3
+  %log_id2 = getelementptr inbounds i8, ptr %sct, i64 24
   %1 = load ptr, ptr %log_id2, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 99) #6
-  %log_id_len4 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 4
-  %validation_status = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %log_id_len4 = getelementptr inbounds i8, ptr %sct, i64 32
+  %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 0, ptr %validation_status, align 8
   %cmp5 = icmp ne ptr %log_id, null
   %cmp7 = icmp ne i64 %log_id_len, 0
@@ -202,9 +199,9 @@ declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SCT_set_timestamp(ptr nocapture noundef writeonly %sct, i64 noundef %timestamp) local_unnamed_addr #2 {
 entry:
-  %timestamp1 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 5
+  %timestamp1 = getelementptr inbounds i8, ptr %sct, i64 40
   store i64 %timestamp, ptr %timestamp1, align 8
-  %validation_status = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 0, ptr %validation_status, align 8
   ret void
 }
@@ -218,20 +215,20 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %hash_alg = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 8
+  %hash_alg = getelementptr inbounds i8, ptr %sct, i64 64
   store i8 4, ptr %hash_alg, align 8
-  %sig_alg = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 9
+  %sig_alg = getelementptr inbounds i8, ptr %sct, i64 65
   store i8 1, ptr %sig_alg, align 1
-  %validation_status = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 0, ptr %validation_status, align 8
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %hash_alg2 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 8
+  %hash_alg2 = getelementptr inbounds i8, ptr %sct, i64 64
   store i8 4, ptr %hash_alg2, align 8
-  %sig_alg3 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 9
+  %sig_alg3 = getelementptr inbounds i8, ptr %sct, i64 65
   store i8 3, ptr %sig_alg3, align 1
-  %validation_status4 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status4 = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 0, ptr %validation_status4, align 8
   br label %return
 
@@ -249,13 +246,13 @@ return:                                           ; preds = %sw.default, %sw.bb1
 ; Function Attrs: nounwind uwtable
 define void @SCT_set0_extensions(ptr nocapture noundef %sct, ptr noundef %ext, i64 noundef %ext_len) local_unnamed_addr #0 {
 entry:
-  %ext1 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 6
+  %ext1 = getelementptr inbounds i8, ptr %sct, i64 48
   %0 = load ptr, ptr %ext1, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 141) #6
   store ptr %ext, ptr %ext1, align 8
-  %ext_len3 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 7
+  %ext_len3 = getelementptr inbounds i8, ptr %sct, i64 56
   store i64 %ext_len, ptr %ext_len3, align 8
-  %validation_status = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 0, ptr %validation_status, align 8
   ret void
 }
@@ -263,11 +260,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @SCT_set1_extensions(ptr nocapture noundef %sct, ptr noundef %ext, i64 noundef %ext_len) local_unnamed_addr #0 {
 entry:
-  %ext1 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 6
+  %ext1 = getelementptr inbounds i8, ptr %sct, i64 48
   %0 = load ptr, ptr %ext1, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 149) #6
-  %ext_len3 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 7
-  %validation_status = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %ext_len3 = getelementptr inbounds i8, ptr %sct, i64 56
+  %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 0, ptr %validation_status, align 8
   %cmp = icmp ne ptr %ext, null
   %cmp4 = icmp ne i64 %ext_len, 0
@@ -293,13 +290,13 @@ return:                                           ; preds = %entry, %if.end, %if
 ; Function Attrs: nounwind uwtable
 define void @SCT_set0_signature(ptr nocapture noundef %sct, ptr noundef %sig, i64 noundef %sig_len) local_unnamed_addr #0 {
 entry:
-  %sig1 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 10
+  %sig1 = getelementptr inbounds i8, ptr %sct, i64 72
   %0 = load ptr, ptr %sig1, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 165) #6
   store ptr %sig, ptr %sig1, align 8
-  %sig_len3 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 11
+  %sig_len3 = getelementptr inbounds i8, ptr %sct, i64 80
   store i64 %sig_len, ptr %sig_len3, align 8
-  %validation_status = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 0, ptr %validation_status, align 8
   ret void
 }
@@ -307,11 +304,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @SCT_set1_signature(ptr nocapture noundef %sct, ptr noundef %sig, i64 noundef %sig_len) local_unnamed_addr #0 {
 entry:
-  %sig1 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 10
+  %sig1 = getelementptr inbounds i8, ptr %sct, i64 72
   %0 = load ptr, ptr %sig1, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 173) #6
-  %sig_len3 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 11
-  %validation_status = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %sig_len3 = getelementptr inbounds i8, ptr %sct, i64 80
+  %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 0, ptr %validation_status, align 8
   %cmp = icmp ne ptr %sig, null
   %cmp4 = icmp ne i64 %sig_len, 0
@@ -344,7 +341,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @SCT_get_log_entry_type(ptr nocapture noundef readonly %sct) local_unnamed_addr #3 {
 entry:
-  %entry_type = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 12
+  %entry_type = getelementptr inbounds i8, ptr %sct, i64 88
   %0 = load i32, ptr %entry_type, align 8
   ret i32 %0
 }
@@ -352,10 +349,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @SCT_get0_log_id(ptr nocapture noundef readonly %sct, ptr nocapture noundef writeonly %log_id) local_unnamed_addr #4 {
 entry:
-  %log_id1 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 3
+  %log_id1 = getelementptr inbounds i8, ptr %sct, i64 24
   %0 = load ptr, ptr %log_id1, align 8
   store ptr %0, ptr %log_id, align 8
-  %log_id_len = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 4
+  %log_id_len = getelementptr inbounds i8, ptr %sct, i64 32
   %1 = load i64, ptr %log_id_len, align 8
   ret i64 %1
 }
@@ -363,7 +360,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @SCT_get_timestamp(ptr nocapture noundef readonly %sct) local_unnamed_addr #3 {
 entry:
-  %timestamp = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 5
+  %timestamp = getelementptr inbounds i8, ptr %sct, i64 40
   %0 = load i64, ptr %timestamp, align 8
   ret i64 %0
 }
@@ -376,13 +373,13 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %hash_alg = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 8
+  %hash_alg = getelementptr inbounds i8, ptr %sct, i64 64
   %1 = load i8, ptr %hash_alg, align 8
   %cmp1 = icmp eq i8 %1, 4
   br i1 %cmp1, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.then
-  %sig_alg = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 9
+  %sig_alg = getelementptr inbounds i8, ptr %sct, i64 65
   %2 = load i8, ptr %sig_alg, align 1
   %switch.selectcmp = icmp eq i8 %2, 1
   %switch.select = select i1 %switch.selectcmp, i32 668, i32 0
@@ -398,10 +395,10 @@ return:                                           ; preds = %entry, %if.then, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @SCT_get0_extensions(ptr nocapture noundef readonly %sct, ptr nocapture noundef writeonly %ext) local_unnamed_addr #4 {
 entry:
-  %ext1 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 6
+  %ext1 = getelementptr inbounds i8, ptr %sct, i64 48
   %0 = load ptr, ptr %ext1, align 8
   store ptr %0, ptr %ext, align 8
-  %ext_len = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 7
+  %ext_len = getelementptr inbounds i8, ptr %sct, i64 56
   %1 = load i64, ptr %ext_len, align 8
   ret i64 %1
 }
@@ -409,10 +406,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @SCT_get0_signature(ptr nocapture noundef readonly %sct, ptr nocapture noundef writeonly %sig) local_unnamed_addr #4 {
 entry:
-  %sig1 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 10
+  %sig1 = getelementptr inbounds i8, ptr %sct, i64 72
   %0 = load ptr, ptr %sig1, align 8
   store ptr %0, ptr %sig, align 8
-  %sig_len = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 11
+  %sig_len = getelementptr inbounds i8, ptr %sct, i64 80
   %1 = load i64, ptr %sig_len, align 8
   ret i64 %1
 }
@@ -427,38 +424,38 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %log_id = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 3
+  %log_id = getelementptr inbounds i8, ptr %sct, i64 24
   %1 = load ptr, ptr %log_id, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb1
-  %hash_alg.i.i = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 8
+  %hash_alg.i.i = getelementptr inbounds i8, ptr %sct, i64 64
   %2 = load i8, ptr %hash_alg.i.i, align 8
   %cmp1.i.i = icmp eq i8 %2, 4
   br i1 %cmp1.i.i, label %if.then3.i.i, label %return
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %sig_alg.i.i = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 9
+  %sig_alg.i.i = getelementptr inbounds i8, ptr %sct, i64 65
   %3 = load i8, ptr %sig_alg.i.i, align 1
   %4 = and i8 %3, -3
   %or.cond.not.i = icmp eq i8 %4, 1
   br i1 %or.cond.not.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.then3.i.i
-  %sig.i = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 10
+  %sig.i = getelementptr inbounds i8, ptr %sct, i64 72
   %5 = load ptr, ptr %sig.i, align 8
   %cmp1.not.i = icmp eq ptr %5, null
   br i1 %cmp1.not.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %sig_len.i = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 11
+  %sig_len.i = getelementptr inbounds i8, ptr %sct, i64 80
   %6 = load i64, ptr %sig_len.i, align 8
   %cmp2.i = icmp ne i64 %6, 0
   br label %return
 
 sw.default:                                       ; preds = %entry
-  %sct2 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 1
+  %sct2 = getelementptr inbounds i8, ptr %sct, i64 8
   %7 = load ptr, ptr %sct2, align 8
   %cmp3 = icmp ne ptr %7, null
   br label %return
@@ -477,26 +474,26 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %land.end
 
 if.then.i:                                        ; preds = %entry
-  %hash_alg.i = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 8
+  %hash_alg.i = getelementptr inbounds i8, ptr %sct, i64 64
   %1 = load i8, ptr %hash_alg.i, align 8
   %cmp1.i = icmp eq i8 %1, 4
   br i1 %cmp1.i, label %if.then3.i, label %land.end
 
 if.then3.i:                                       ; preds = %if.then.i
-  %sig_alg.i = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 9
+  %sig_alg.i = getelementptr inbounds i8, ptr %sct, i64 65
   %2 = load i8, ptr %sig_alg.i, align 1
   %3 = and i8 %2, -3
   %or.cond.not = icmp eq i8 %3, 1
   br i1 %or.cond.not, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %if.then3.i
-  %sig = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 10
+  %sig = getelementptr inbounds i8, ptr %sct, i64 72
   %4 = load ptr, ptr %sig, align 8
   %cmp1.not = icmp eq ptr %4, null
   br i1 %cmp1.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %sig_len = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 11
+  %sig_len = getelementptr inbounds i8, ptr %sct, i64 80
   %5 = load i64, ptr %sig_len, align 8
   %cmp2 = icmp ne i64 %5, 0
   %6 = zext i1 %cmp2 to i32
@@ -510,7 +507,7 @@ land.end:                                         ; preds = %if.then3.i, %entry,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @SCT_get_source(ptr nocapture noundef readonly %sct) local_unnamed_addr #3 {
 entry:
-  %source = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 13
+  %source = getelementptr inbounds i8, ptr %sct, i64 92
   %0 = load i32, ptr %source, align 4
   ret i32 %0
 }
@@ -518,9 +515,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @SCT_set_source(ptr nocapture noundef writeonly %sct, i32 noundef %source) local_unnamed_addr #2 {
 entry:
-  %source1 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 13
+  %source1 = getelementptr inbounds i8, ptr %sct, i64 92
   store i32 %source, ptr %source1, align 4
-  %validation_status = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 0, ptr %validation_status, align 8
   %switch.tableidx = add i32 %source, -1
   %0 = icmp ult i32 %switch.tableidx, 3
@@ -530,7 +527,7 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.SCT_set_source, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
-  %entry_type1.i6 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 12
+  %entry_type1.i6 = getelementptr inbounds i8, ptr %sct, i64 88
   store i32 %switch.load, ptr %entry_type1.i6, align 8
   br label %return
 
@@ -541,7 +538,7 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @SCT_get_validation_status(ptr nocapture noundef readonly %sct) local_unnamed_addr #3 {
 entry:
-  %validation_status = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   %0 = load i32, ptr %validation_status, align 8
   ret i32 %0
 }
@@ -558,30 +555,30 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %validation_status = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 5, ptr %validation_status, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %log_store = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %ctx, i64 0, i32 2
+  %log_store = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %log_store, align 8
-  %log_id = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 3
+  %log_id = getelementptr inbounds i8, ptr %sct, i64 24
   %2 = load ptr, ptr %log_id, align 8
-  %log_id_len = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 4
+  %log_id_len = getelementptr inbounds i8, ptr %sct, i64 32
   %3 = load i64, ptr %log_id_len, align 8
   %call = tail call ptr @CTLOG_STORE_get0_log_by_id(ptr noundef %1, ptr noundef %2, i64 noundef %3) #6
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %validation_status3 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status3 = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 1, ptr %validation_status3, align 8
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %libctx = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %ctx, i64 0, i32 4
+  %libctx = getelementptr inbounds i8, ptr %ctx, i64 32
   %4 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %ctx, i64 0, i32 5
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 40
   %5 = load ptr, ptr %propq, align 8
   %call5 = tail call ptr @SCT_CTX_new(ptr noundef %4, ptr noundef %5) #6
   %cmp6 = icmp eq ptr %call5, null
@@ -600,19 +597,19 @@ if.end13:                                         ; preds = %if.end8
   br i1 %cmp15.not, label %if.end17, label %err
 
 if.end17:                                         ; preds = %if.end13
-  %entry_type.i = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 12
+  %entry_type.i = getelementptr inbounds i8, ptr %sct, i64 88
   %7 = load i32, ptr %entry_type.i, align 8
   %cmp19 = icmp eq i32 %7, 1
   br i1 %cmp19, label %if.then20, label %if.end35
 
 if.then20:                                        ; preds = %if.end17
-  %issuer = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %ctx, i64 0, i32 1
+  %issuer = getelementptr inbounds i8, ptr %ctx, i64 8
   %8 = load ptr, ptr %issuer, align 8
   %cmp21 = icmp eq ptr %8, null
   br i1 %cmp21, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %if.then20
-  %validation_status23 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status23 = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 4, ptr %validation_status23, align 8
   br label %err
 
@@ -629,7 +626,7 @@ if.end30:                                         ; preds = %if.end24
   br i1 %cmp32.not, label %if.end35, label %err
 
 if.end35:                                         ; preds = %if.end30, %if.end17
-  %epoch_time_in_ms = getelementptr inbounds %struct.ct_policy_eval_ctx_st, ptr %ctx, i64 0, i32 3
+  %epoch_time_in_ms = getelementptr inbounds i8, ptr %ctx, i64 24
   %10 = load i64, ptr %epoch_time_in_ms, align 8
   call void @SCT_CTX_set_time(ptr noundef nonnull %call5, i64 noundef %10) #6
   %11 = load ptr, ptr %ctx, align 8
@@ -638,7 +635,7 @@ if.end35:                                         ; preds = %if.end30, %if.end17
   br i1 %cmp37.not, label %if.else, label %if.then38
 
 if.then38:                                        ; preds = %if.end35
-  %validation_status39 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status39 = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 4, ptr %validation_status39, align 8
   br label %err
 
@@ -646,7 +643,7 @@ if.else:                                          ; preds = %if.end35
   %call40 = call i32 @SCT_CTX_verify(ptr noundef nonnull %call5, ptr noundef nonnull %sct) #6
   %cmp41 = icmp eq i32 %call40, 1
   %cond = select i1 %cmp41, i32 2, i32 3
-  %validation_status42 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 14
+  %validation_status42 = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 %cond, ptr %validation_status42, align 8
   %12 = zext i1 %cmp41 to i32
   br label %err

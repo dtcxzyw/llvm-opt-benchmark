@@ -3,39 +3,9 @@ source_filename = "bench/assimp/original/BaseProcess.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Assimp::BaseProcess" = type { ptr, ptr, ptr }
-%"class.Assimp::ImporterPimpl" = type { ptr, i8, ptr, i8, %"class.std::vector", %"class.std::vector.0", ptr, %"class.std::__cxx11::basic_string", %"class.std::__exception_ptr::exception_ptr", %"class.std::map", %"class.std::map.11", %"class.std::map.16", %"class.std::map.21", %"class.std::map.26", i8, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<Assimp::BaseImporter *, std::allocator<Assimp::BaseImporter *>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::BaseImporter *, std::allocator<Assimp::BaseImporter *>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::BaseImporter *, std::allocator<Assimp::BaseImporter *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::BaseImporter *, std::allocator<Assimp::BaseImporter *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<Assimp::BaseProcess *, std::allocator<Assimp::BaseProcess *>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::BaseProcess *, std::allocator<Assimp::BaseProcess *>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::BaseProcess *, std::allocator<Assimp::BaseProcess *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::BaseProcess *, std::allocator<Assimp::BaseProcess *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::__exception_ptr::exception_ptr" = type { ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, int>, std::_Select1st<std::pair<const unsigned int, int>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, int>, std::_Select1st<std::pair<const unsigned int, int>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::map.11" = type { %"class.std::_Rb_tree.12" }
-%"class.std::_Rb_tree.12" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, float>, std::_Select1st<std::pair<const unsigned int, float>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, float>, std::_Select1st<std::pair<const unsigned int, float>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::map.16" = type { %"class.std::_Rb_tree.17" }
-%"class.std::_Rb_tree.17" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned int, std::__cxx11::basic_string<char>>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned int, std::__cxx11::basic_string<char>>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::map.21" = type { %"class.std::_Rb_tree.22" }
-%"class.std::_Rb_tree.22" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, aiMatrix4x4t<float>>, std::_Select1st<std::pair<const unsigned int, aiMatrix4x4t<float>>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, aiMatrix4x4t<float>>, std::_Select1st<std::pair<const unsigned int, aiMatrix4x4t<float>>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::map.26" = type { %"class.std::_Rb_tree.27" }
-%"class.std::_Rb_tree.27" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, void *>, std::_Select1st<std::pair<const unsigned int, void *>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, void *>, std::_Select1st<std::pair<const unsigned int, void *>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -65,7 +35,7 @@ declare void @llvm.trap() #0
 define void @_ZN6Assimp11BaseProcessC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp11BaseProcessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %shared = getelementptr inbounds %"class.Assimp::BaseProcess", ptr %this, i64 0, i32 1
+  %shared = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %shared, i8 0, i64 16, i1 false)
   ret void
 }
@@ -91,28 +61,28 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %pImp, align 8
-  %mScene = getelementptr inbounds %"class.Assimp::ImporterPimpl", ptr %0, i64 0, i32 6
+  %mScene = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %mScene, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %try.cont, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %call5 = tail call noundef ptr @_ZNK6Assimp8Importer18GetProgressHandlerEv(ptr noundef nonnull align 8 dereferenceable(8) %pImp)
-  %progress = getelementptr inbounds %"class.Assimp::BaseProcess", ptr %this, i64 0, i32 2
+  %progress = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call5, ptr %progress, align 8
   %cmp7 = icmp eq ptr %call5, null
   br i1 %cmp7, label %try.cont, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %pImp)
   %3 = load ptr, ptr %pImp, align 8
-  %mScene11 = getelementptr inbounds %"class.Assimp::ImporterPimpl", ptr %3, i64 0, i32 6
+  %mScene11 = getelementptr inbounds i8, ptr %3, i64 80
   %4 = load ptr, ptr %mScene11, align 8
   %vtable12 = load ptr, ptr %this, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 5
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 40
   %5 = load ptr, ptr %vfn13, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %4)
           to label %try.cont unwind label %lpad
@@ -129,11 +99,11 @@ catch:                                            ; preds = %lpad
   %9 = extractvalue { ptr, i32 } %6, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #12
   %vtable15 = load ptr, ptr %10, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 2
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 16
   %11 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
   %12 = load ptr, ptr %pImp, align 8
-  %mErrorString = getelementptr inbounds %"class.Assimp::ImporterPimpl", ptr %12, i64 0, i32 7
+  %mErrorString = getelementptr inbounds i8, ptr %12, i64 88
   %call22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %mErrorString, ptr noundef %call17)
           to label %invoke.cont21 unwind label %lpad18
 
@@ -143,13 +113,13 @@ invoke.cont21:                                    ; preds = %catch
 
 invoke.cont23:                                    ; preds = %invoke.cont21
   %13 = load ptr, ptr %pImp, align 8
-  %mErrorString27 = getelementptr inbounds %"class.Assimp::ImporterPimpl", ptr %13, i64 0, i32 7
+  %mErrorString27 = getelementptr inbounds i8, ptr %13, i64 88
   invoke void @_ZN6Assimp6Logger5errorIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call24, ptr noundef nonnull align 8 dereferenceable(32) %mErrorString27)
           to label %invoke.cont28 unwind label %lpad18
 
 invoke.cont28:                                    ; preds = %invoke.cont23
   %14 = load ptr, ptr %pImp, align 8
-  %mScene31 = getelementptr inbounds %"class.Assimp::ImporterPimpl", ptr %14, i64 0, i32 6
+  %mScene31 = getelementptr inbounds i8, ptr %14, i64 80
   %15 = load ptr, ptr %mScene31, align 8
   %isnull = icmp eq ptr %15, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -162,7 +132,7 @@ delete.notnull:                                   ; preds = %invoke.cont28
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont28
   %16 = phi ptr [ %.pre, %delete.notnull ], [ %14, %invoke.cont28 ]
-  %mScene34 = getelementptr inbounds %"class.Assimp::ImporterPimpl", ptr %16, i64 0, i32 6
+  %mScene34 = getelementptr inbounds i8, ptr %16, i64 80
   store ptr null, ptr %mScene34, align 8
   tail call void @__cxa_end_catch()
   br label %try.cont

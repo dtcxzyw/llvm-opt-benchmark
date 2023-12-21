@@ -59,7 +59,7 @@ tailrecurse.i.preheader:                          ; preds = %while.cond.preheade
 tailrecurse.i:                                    ; preds = %tailrecurse.i.preheader, %tailrecurse.backedge.i
   %3 = phi i32 [ %.pr, %tailrecurse.backedge.i ], [ %2, %tailrecurse.i.preheader ]
   %type_ptr.tr.i = phi ptr [ %type_ptr.tr.be.i, %tailrecurse.backedge.i ], [ %type_ptr.095, %tailrecurse.i.preheader ]
-  %incdec.ptr.i = getelementptr i32, ptr %type_ptr.tr.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %type_ptr.tr.i, i64 4
   switch i32 %3, label %thunk_type_next.exit.loopexit [
     i32 1, label %thunk_type_next.exit
     i32 2, label %thunk_type_next.exit
@@ -76,7 +76,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   ]
 
 sw.bb2.i:                                         ; preds = %tailrecurse.i
-  %add.ptr.i = getelementptr i32, ptr %type_ptr.tr.i, i64 2
+  %add.ptr.i = getelementptr i8, ptr %type_ptr.tr.i, i64 8
   br label %tailrecurse.backedge.i
 
 tailrecurse.backedge.i:                           ; preds = %sw.bb2.i, %tailrecurse.i
@@ -85,7 +85,7 @@ tailrecurse.backedge.i:                           ; preds = %sw.bb2.i, %tailrecu
   br label %tailrecurse.i
 
 sw.bb4.i:                                         ; preds = %tailrecurse.i
-  %add.ptr5.i = getelementptr i32, ptr %type_ptr.tr.i, i64 2
+  %add.ptr5.i = getelementptr i8, ptr %type_ptr.tr.i, i64 8
   br label %thunk_type_next.exit
 
 thunk_type_next.exit.loopexit:                    ; preds = %tailrecurse.i
@@ -111,18 +111,21 @@ for.body.us.preheader:                            ; preds = %while.end
   %idx.ext = sext i32 %id to i64
   %add.ptr = getelementptr %struct.StructEntry, ptr %5, i64 %idx.ext
   store ptr %types, ptr %add.ptr, align 8
-  %nb_fields6 = getelementptr %struct.StructEntry, ptr %5, i64 %idx.ext, i32 1
+  %nb_fields6 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i32 %inc, ptr %nb_fields6, align 8
-  %name7 = getelementptr %struct.StructEntry, ptr %5, i64 %idx.ext, i32 7
+  %name7 = getelementptr inbounds i8, ptr %add.ptr, i64 72
   store ptr %name, ptr %name7, align 8
   %conv10 = zext nneg i32 %inc to i64
+  %field_offsets = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %size37 = getelementptr inbounds i8, ptr %add.ptr, i64 56
+  %align40 = getelementptr inbounds i8, ptr %add.ptr, i64 64
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond13.for.end_crit_edge.us
   %tobool6.not.i.us = phi i1 [ true, %for.body.us.preheader ], [ false, %for.cond13.for.end_crit_edge.us ]
   %indvars.iv135 = phi i64 [ 0, %for.body.us.preheader ], [ 1, %for.cond13.for.end_crit_edge.us ]
   %call11.us = tail call noalias ptr @g_malloc_n(i64 noundef %conv10, i64 noundef 4) #10
-  %arrayidx.us = getelementptr %struct.StructEntry, ptr %5, i64 %idx.ext, i32 2, i64 %indvars.iv135
+  %arrayidx.us = getelementptr [2 x ptr], ptr %field_offsets, i64 0, i64 %indvars.iv135
   store ptr %call11.us, ptr %arrayidx.us, align 8
   %6 = load ptr, ptr %add.ptr, align 8
   %..i.us = select i1 %tobool6.not.i.us, i32 2, i32 8
@@ -149,7 +152,7 @@ tailrecurse.i37.us:                               ; preds = %tailrecurse.i37.pre
 
 sw.bb10.i.us:                                     ; preds = %tailrecurse.i37.us
   %8 = load ptr, ptr @struct_entries, align 8
-  %arrayidx11.i.us = getelementptr i32, ptr %type_ptr.tr.i38.us, i64 1
+  %arrayidx11.i.us = getelementptr i8, ptr %type_ptr.tr.i38.us, i64 4
   %9 = load i32, ptr %arrayidx11.i.us, align 4
   %idx.ext.i.us = zext i32 %9 to i64
   %arrayidx14.i.us = getelementptr %struct.StructEntry, ptr %8, i64 %idx.ext.i.us, i32 5, i64 %indvars.iv135
@@ -157,9 +160,9 @@ sw.bb10.i.us:                                     ; preds = %tailrecurse.i37.us
   br label %thunk_type_size.exit.us
 
 sw.bb9.i.us:                                      ; preds = %tailrecurse.i37.us
-  %arrayidx.i.us = getelementptr i32, ptr %type_ptr.tr.i38.us, i64 1
+  %arrayidx.i.us = getelementptr i8, ptr %type_ptr.tr.i38.us, i64 4
   %11 = load i32, ptr %arrayidx.i.us, align 4
-  %add.ptr.i40.us = getelementptr i32, ptr %type_ptr.tr.i38.us, i64 2
+  %add.ptr.i40.us = getelementptr i8, ptr %type_ptr.tr.i38.us, i64 8
   %mul.i.us = mul i32 %11, %accumulator.tr.i.us
   br label %tailrecurse.i37.us
 
@@ -194,7 +197,7 @@ tailrecurse.i41.us:                               ; preds = %sw.bb15.i.us, %thun
 
 sw.bb17.i.us:                                     ; preds = %tailrecurse.i41.us
   %13 = load ptr, ptr @struct_entries, align 8
-  %arrayidx.i43.us = getelementptr i32, ptr %type_ptr.tr.i42.us, i64 1
+  %arrayidx.i43.us = getelementptr i8, ptr %type_ptr.tr.i42.us, i64 4
   %14 = load i32, ptr %arrayidx.i43.us, align 4
   %idx.ext.i44.us = zext i32 %14 to i64
   %arrayidx19.i.us = getelementptr %struct.StructEntry, ptr %13, i64 %idx.ext.i44.us, i32 6, i64 %indvars.iv135
@@ -202,7 +205,7 @@ sw.bb17.i.us:                                     ; preds = %tailrecurse.i41.us
   br label %thunk_type_align.exit.us
 
 sw.bb15.i.us:                                     ; preds = %tailrecurse.i41.us
-  %add.ptr.i47.us = getelementptr i32, ptr %type_ptr.tr.i42.us, i64 2
+  %add.ptr.i47.us = getelementptr i8, ptr %type_ptr.tr.i42.us, i64 8
   br label %tailrecurse.i41.us
 
 thunk_type_align.exit.us.loopexit140:             ; preds = %tailrecurse.i41.us
@@ -226,7 +229,7 @@ thunk_type_align.exit.us:                         ; preds = %tailrecurse.i41.us,
 
 tailrecurse.i50.us:                               ; preds = %tailrecurse.i50.us.backedge, %thunk_type_align.exit.us
   %type_ptr.tr.i51.us = phi ptr [ %type_ptr.199.us, %thunk_type_align.exit.us ], [ %type_ptr.tr.i51.us.be, %tailrecurse.i50.us.backedge ]
-  %incdec.ptr.i52.us = getelementptr i32, ptr %type_ptr.tr.i51.us, i64 1
+  %incdec.ptr.i52.us = getelementptr i8, ptr %type_ptr.tr.i51.us, i64 4
   %17 = load i32, ptr %type_ptr.tr.i51.us, align 4
   switch i32 %17, label %thunk_type_next.exit61.loopexit.us [
     i32 1, label %thunk_type_next.exit61.us
@@ -244,11 +247,11 @@ tailrecurse.i50.us:                               ; preds = %tailrecurse.i50.us.
   ]
 
 sw.bb4.i53.us:                                    ; preds = %tailrecurse.i50.us
-  %add.ptr5.i54.us = getelementptr i32, ptr %type_ptr.tr.i51.us, i64 2
+  %add.ptr5.i54.us = getelementptr i8, ptr %type_ptr.tr.i51.us, i64 8
   br label %thunk_type_next.exit61.us
 
 sw.bb2.i56.us:                                    ; preds = %tailrecurse.i50.us
-  %add.ptr.i57.us = getelementptr i32, ptr %type_ptr.tr.i51.us, i64 2
+  %add.ptr.i57.us = getelementptr i8, ptr %type_ptr.tr.i51.us, i64 8
   br label %tailrecurse.i50.us.backedge
 
 tailrecurse.i50.us.backedge:                      ; preds = %sw.bb2.i56.us, %tailrecurse.i50.us
@@ -282,9 +285,9 @@ for.cond13.for.end_crit_edge.us:                  ; preds = %thunk_type_next.exi
   %sub33.us = add i32 %add32.us, %spec.select.us
   %not35.us = sub nsw i32 0, %spec.select.us
   %and36.us = and i32 %sub33.us, %not35.us
-  %arrayidx39.us = getelementptr %struct.StructEntry, ptr %5, i64 %idx.ext, i32 5, i64 %indvars.iv135
+  %arrayidx39.us = getelementptr [2 x i32], ptr %size37, i64 0, i64 %indvars.iv135
   store i32 %and36.us, ptr %arrayidx39.us, align 4
-  %arrayidx42.us = getelementptr %struct.StructEntry, ptr %5, i64 %idx.ext, i32 6, i64 %indvars.iv135
+  %arrayidx42.us = getelementptr [2 x i32], ptr %align40, i64 0, i64 %indvars.iv135
   store i32 %spec.select.us, ptr %arrayidx42.us, align 4
   br i1 %tobool6.not.i.us, label %for.body.us, label %for.end45, !llvm.loop !8
 
@@ -321,8 +324,8 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @struct_entries, align 8
   %idx.ext = sext i32 %id to i64
   %add.ptr = getelementptr %struct.StructEntry, ptr %1, i64 %idx.ext
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr, ptr noundef nonnull align 8 dereferenceable(80) %se1, i64 80, i1 false)
-  %name1 = getelementptr %struct.StructEntry, ptr %1, i64 %idx.ext, i32 7
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr, ptr noundef nonnull align 8 dereferenceable(80) %se1, i64 72, i1 false)
+  %name1 = getelementptr inbounds i8, ptr %add.ptr, i64 72
   store ptr %name, ptr %name1, align 8
   ret void
 }
@@ -333,7 +336,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @thunk_convert(ptr noundef %dst, ptr noundef %src, ptr noundef %type_ptr, i32 noundef %to_host) local_unnamed_addr #0 {
 entry:
-  %incdec.ptr = getelementptr i32, ptr %type_ptr, i64 1
+  %incdec.ptr = getelementptr i8, ptr %type_ptr, i64 4
   %0 = load i32, ptr %type_ptr, align 4
   switch i32 %0, label %sw.default [
     i32 1, label %sw.bb
@@ -401,7 +404,7 @@ sw.bb22:                                          ; preds = %thunk_type_size.exi
   br label %sw.epilog75
 
 sw.bb25:                                          ; preds = %entry
-  %incdec.ptr26 = getelementptr i32, ptr %type_ptr, i64 2
+  %incdec.ptr26 = getelementptr i8, ptr %type_ptr, i64 8
   %8 = load i32, ptr %incdec.ptr, align 4
   br label %tailrecurse.i75
 
@@ -430,15 +433,15 @@ sw.bb5.i89:                                       ; preds = %tailrecurse.i75
   br label %thunk_type_size.exit96
 
 sw.bb9.i85:                                       ; preds = %tailrecurse.i75
-  %arrayidx.i86 = getelementptr i32, ptr %type_ptr.tr.i77, i64 1
+  %arrayidx.i86 = getelementptr i8, ptr %type_ptr.tr.i77, i64 4
   %10 = load i32, ptr %arrayidx.i86, align 4
-  %add.ptr.i87 = getelementptr i32, ptr %type_ptr.tr.i77, i64 2
+  %add.ptr.i87 = getelementptr i8, ptr %type_ptr.tr.i77, i64 8
   %mul.i88 = mul i32 %10, %accumulator.tr.i76
   br label %tailrecurse.i75
 
 sw.bb10.i78:                                      ; preds = %tailrecurse.i75
   %11 = load ptr, ptr @struct_entries, align 8
-  %arrayidx11.i79 = getelementptr i32, ptr %type_ptr.tr.i77, i64 1
+  %arrayidx11.i79 = getelementptr i8, ptr %type_ptr.tr.i77, i64 4
   %12 = load i32, ptr %arrayidx11.i79, align 4
   %idx.ext.i80 = zext i32 %12 to i64
   %idxprom.i81 = sext i32 %to_host to i64
@@ -487,15 +490,15 @@ sw.bb5.i111:                                      ; preds = %tailrecurse.i97
   br label %thunk_type_size.exit118
 
 sw.bb9.i107:                                      ; preds = %tailrecurse.i97
-  %arrayidx.i108 = getelementptr i32, ptr %type_ptr.tr.i99, i64 1
+  %arrayidx.i108 = getelementptr i8, ptr %type_ptr.tr.i99, i64 4
   %15 = load i32, ptr %arrayidx.i108, align 4
-  %add.ptr.i109 = getelementptr i32, ptr %type_ptr.tr.i99, i64 2
+  %add.ptr.i109 = getelementptr i8, ptr %type_ptr.tr.i99, i64 8
   %mul.i110 = mul i32 %15, %accumulator.tr.i98
   br label %tailrecurse.i97
 
 sw.bb10.i100:                                     ; preds = %tailrecurse.i97
   %16 = load ptr, ptr @struct_entries, align 8
-  %arrayidx11.i101 = getelementptr i32, ptr %type_ptr.tr.i99, i64 1
+  %arrayidx11.i101 = getelementptr i8, ptr %type_ptr.tr.i99, i64 4
   %17 = load i32, ptr %arrayidx11.i101, align 4
   %idx.ext.i102 = zext i32 %17 to i64
   %idxprom.i103 = sext i32 %sub to i64
@@ -540,7 +543,7 @@ tailrecurse.i119.preheader:                       ; preds = %for.body, %thunk_ty
 
 tailrecurse.i119:                                 ; preds = %tailrecurse.i119.backedge, %tailrecurse.i119.preheader
   %type_ptr.tr.i120 = phi ptr [ %incdec.ptr26, %tailrecurse.i119.preheader ], [ %type_ptr.tr.i120.be, %tailrecurse.i119.backedge ]
-  %incdec.ptr.i = getelementptr i32, ptr %type_ptr.tr.i120, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %type_ptr.tr.i120, i64 4
   %19 = load i32, ptr %type_ptr.tr.i120, align 4
   switch i32 %19, label %sw.epilog75.loopexit [
     i32 1, label %sw.epilog75
@@ -558,7 +561,7 @@ tailrecurse.i119:                                 ; preds = %tailrecurse.i119.ba
   ]
 
 sw.bb2.i:                                         ; preds = %tailrecurse.i119
-  %add.ptr.i122 = getelementptr i32, ptr %type_ptr.tr.i120, i64 2
+  %add.ptr.i122 = getelementptr i8, ptr %type_ptr.tr.i120, i64 8
   br label %tailrecurse.i119.backedge
 
 tailrecurse.i119.backedge:                        ; preds = %sw.bb2.i, %tailrecurse.i119
@@ -566,7 +569,7 @@ tailrecurse.i119.backedge:                        ; preds = %sw.bb2.i, %tailrecu
   br label %tailrecurse.i119
 
 sw.bb4.i:                                         ; preds = %tailrecurse.i119
-  %add.ptr5.i = getelementptr i32, ptr %type_ptr.tr.i120, i64 2
+  %add.ptr5.i = getelementptr i8, ptr %type_ptr.tr.i120, i64 8
   br label %sw.epilog75
 
 sw.bb35:                                          ; preds = %entry
@@ -581,34 +584,36 @@ if.else:                                          ; preds = %sw.bb35
 
 if.end:                                           ; preds = %sw.bb35
   %22 = load ptr, ptr @struct_entries, align 8
-  %incdec.ptr41 = getelementptr i32, ptr %type_ptr, i64 2
+  %incdec.ptr41 = getelementptr i8, ptr %type_ptr, i64 8
   %idx.ext42 = zext i32 %20 to i64
-  %convert = getelementptr %struct.StructEntry, ptr %22, i64 %idx.ext42, i32 3
+  %add.ptr43 = getelementptr %struct.StructEntry, ptr %22, i64 %idx.ext42
+  %convert = getelementptr inbounds i8, ptr %add.ptr43, i64 32
   %23 = load ptr, ptr %convert, align 8
   %cmp44.not = icmp eq ptr %23, null
-  %idxprom51 = sext i32 %to_host to i64
   br i1 %cmp44.not, label %if.else49, label %if.then46
 
 if.then46:                                        ; preds = %if.end
-  %arrayidx48 = getelementptr %struct.StructEntry, ptr %22, i64 %idx.ext42, i32 3, i64 %idxprom51
+  %idxprom = sext i32 %to_host to i64
+  %arrayidx48 = getelementptr [2 x ptr], ptr %convert, i64 0, i64 %idxprom
   %24 = load ptr, ptr %arrayidx48, align 8
   tail call void %24(ptr noundef %dst, ptr noundef %src) #11
   br label %sw.epilog75
 
 if.else49:                                        ; preds = %if.end
-  %arrayidx52 = getelementptr %struct.StructEntry, ptr %22, i64 %idx.ext42, i32 2, i64 %idxprom51
+  %field_offsets = getelementptr inbounds i8, ptr %add.ptr43, i64 16
+  %idxprom51 = sext i32 %to_host to i64
+  %arrayidx52 = getelementptr [2 x ptr], ptr %field_offsets, i64 0, i64 %idxprom51
   %25 = load ptr, ptr %arrayidx52, align 8
   %sub54 = sub i32 1, %to_host
   %idxprom55 = sext i32 %sub54 to i64
-  %arrayidx56 = getelementptr %struct.StructEntry, ptr %22, i64 %idx.ext42, i32 2, i64 %idxprom55
+  %arrayidx56 = getelementptr [2 x ptr], ptr %field_offsets, i64 0, i64 %idxprom55
   %26 = load ptr, ptr %arrayidx56, align 8
-  %nb_fields = getelementptr %struct.StructEntry, ptr %22, i64 %idx.ext42, i32 1
+  %nb_fields = getelementptr inbounds i8, ptr %add.ptr43, i64 8
   %27 = load i32, ptr %nb_fields, align 8
   %cmp58180 = icmp sgt i32 %27, 0
   br i1 %cmp58180, label %for.body60.preheader, label %sw.epilog75
 
 for.body60.preheader:                             ; preds = %if.else49
-  %add.ptr43 = getelementptr %struct.StructEntry, ptr %22, i64 %idx.ext42
   %28 = load ptr, ptr %add.ptr43, align 8
   br label %for.body60
 
@@ -649,7 +654,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @thunk_print(ptr noundef %arg, ptr noundef %type_ptr) local_unnamed_addr #0 {
 entry:
-  %incdec.ptr = getelementptr i32, ptr %type_ptr, i64 1
+  %incdec.ptr = getelementptr i8, ptr %type_ptr, i64 4
   %0 = load i32, ptr %type_ptr, align 4
   switch i32 %0, label %do.body [
     i32 1, label %sw.bb
@@ -715,7 +720,7 @@ sw.bb24:                                          ; preds = %entry
   br label %sw.epilog79
 
 sw.bb34:                                          ; preds = %entry
-  %incdec.ptr35 = getelementptr i32, ptr %type_ptr, i64 2
+  %incdec.ptr35 = getelementptr i8, ptr %type_ptr, i64 8
   %10 = load i32, ptr %incdec.ptr, align 4
   br label %tailrecurse.i55
 
@@ -739,15 +744,15 @@ tailrecurse.i55:                                  ; preds = %sw.bb9.i64, %sw.bb3
   ]
 
 sw.bb9.i64:                                       ; preds = %tailrecurse.i55
-  %arrayidx.i65 = getelementptr i32, ptr %type_ptr.tr.i57, i64 1
+  %arrayidx.i65 = getelementptr i8, ptr %type_ptr.tr.i57, i64 4
   %12 = load i32, ptr %arrayidx.i65, align 4
-  %add.ptr.i66 = getelementptr i32, ptr %type_ptr.tr.i57, i64 2
+  %add.ptr.i66 = getelementptr i8, ptr %type_ptr.tr.i57, i64 8
   %mul.i67 = mul i32 %12, %accumulator.tr.i56
   br label %tailrecurse.i55
 
 sw.bb10.i58:                                      ; preds = %tailrecurse.i55
   %13 = load ptr, ptr @struct_entries, align 8
-  %arrayidx11.i59 = getelementptr i32, ptr %type_ptr.tr.i57, i64 1
+  %arrayidx11.i59 = getelementptr i8, ptr %type_ptr.tr.i57, i64 4
   %14 = load i32, ptr %arrayidx11.i59, align 4
   %idx.ext.i60 = zext i32 %14 to i64
   %arrayidx14.i61 = getelementptr %struct.StructEntry, ptr %13, i64 %idx.ext.i60, i32 5, i64 0
@@ -830,7 +835,7 @@ if.end49:                                         ; preds = %for.end, %if.end, %
 
 tailrecurse.i74:                                  ; preds = %tailrecurse.i74.backedge, %if.end49
   %type_ptr.tr.i75 = phi ptr [ %incdec.ptr35, %if.end49 ], [ %type_ptr.tr.i75.be, %tailrecurse.i74.backedge ]
-  %incdec.ptr.i = getelementptr i32, ptr %type_ptr.tr.i75, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %type_ptr.tr.i75, i64 4
   %17 = load i32, ptr %type_ptr.tr.i75, align 4
   switch i32 %17, label %sw.epilog79.loopexit [
     i32 1, label %sw.epilog79
@@ -848,7 +853,7 @@ tailrecurse.i74:                                  ; preds = %tailrecurse.i74.bac
   ]
 
 sw.bb2.i:                                         ; preds = %tailrecurse.i74
-  %add.ptr.i77 = getelementptr i32, ptr %type_ptr.tr.i75, i64 2
+  %add.ptr.i77 = getelementptr i8, ptr %type_ptr.tr.i75, i64 8
   br label %tailrecurse.i74.backedge
 
 tailrecurse.i74.backedge:                         ; preds = %sw.bb2.i, %tailrecurse.i74
@@ -856,15 +861,16 @@ tailrecurse.i74.backedge:                         ; preds = %sw.bb2.i, %tailrecu
   br label %tailrecurse.i74
 
 sw.bb4.i:                                         ; preds = %tailrecurse.i74
-  %add.ptr5.i = getelementptr i32, ptr %type_ptr.tr.i75, i64 2
+  %add.ptr5.i = getelementptr i8, ptr %type_ptr.tr.i75, i64 8
   br label %sw.epilog79
 
 sw.bb51:                                          ; preds = %entry
   %18 = load ptr, ptr @struct_entries, align 8
-  %incdec.ptr54 = getelementptr i32, ptr %type_ptr, i64 2
+  %incdec.ptr54 = getelementptr i8, ptr %type_ptr, i64 8
   %19 = load i32, ptr %incdec.ptr, align 4
   %idx.ext55 = zext i32 %19 to i64
-  %print = getelementptr %struct.StructEntry, ptr %18, i64 %idx.ext55, i32 4
+  %add.ptr56 = getelementptr %struct.StructEntry, ptr %18, i64 %idx.ext55
+  %print = getelementptr inbounds i8, ptr %add.ptr56, i64 48
   %20 = load ptr, ptr %print, align 8
   %cmp57.not = icmp eq ptr %20, null
   br i1 %cmp57.not, label %if.else61, label %if.then59
@@ -874,12 +880,11 @@ if.then59:                                        ; preds = %sw.bb51
   br label %sw.epilog79
 
 if.else61:                                        ; preds = %sw.bb51
-  %add.ptr56 = getelementptr %struct.StructEntry, ptr %18, i64 %idx.ext55
   %21 = load ptr, ptr %add.ptr56, align 8
-  %field_offsets = getelementptr %struct.StructEntry, ptr %18, i64 %idx.ext55, i32 2
+  %field_offsets = getelementptr inbounds i8, ptr %add.ptr56, i64 16
   %22 = load ptr, ptr %field_offsets, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15) #11
-  %nb_fields = getelementptr %struct.StructEntry, ptr %18, i64 %idx.ext55, i32 1
+  %nb_fields = getelementptr inbounds i8, ptr %add.ptr56, i64 8
   %23 = load i32, ptr %nb_fields, align 8
   %cmp64119 = icmp sgt i32 %23, 0
   br i1 %cmp64119, label %for.body66, label %for.end77
@@ -939,13 +944,13 @@ for.body:                                         ; preds = %entry, %for.inc
   %arrayidx = getelementptr %struct.bitmask_transtbl, ptr %tbl, i64 %i.010
   %0 = load i32, ptr %arrayidx, align 4
   %and = and i32 %0, %target_mask
-  %target_bits = getelementptr %struct.bitmask_transtbl, ptr %tbl, i64 %i.010, i32 1
+  %target_bits = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %target_bits, align 4
   %cmp3 = icmp eq i32 %and, %1
   br i1 %cmp3, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %host_bits = getelementptr %struct.bitmask_transtbl, ptr %tbl, i64 %i.010, i32 3
+  %host_bits = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %2 = load i32, ptr %host_bits, align 4
   %or = or i32 %2, %host_mask.09
   br label %for.inc
@@ -970,16 +975,17 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
   %target_mask.09 = phi i32 [ %target_mask.1, %for.inc ], [ 0, %entry ]
-  %host_mask1 = getelementptr %struct.bitmask_transtbl, ptr %tbl, i64 %i.010, i32 2
+  %arrayidx = getelementptr %struct.bitmask_transtbl, ptr %tbl, i64 %i.010
+  %host_mask1 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i32, ptr %host_mask1, align 4
   %and = and i32 %0, %host_mask
-  %host_bits = getelementptr %struct.bitmask_transtbl, ptr %tbl, i64 %i.010, i32 3
+  %host_bits = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %1 = load i32, ptr %host_bits, align 4
   %cmp3 = icmp eq i32 %and, %1
   br i1 %cmp3, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %target_bits = getelementptr %struct.bitmask_transtbl, ptr %tbl, i64 %i.010, i32 1
+  %target_bits = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %2 = load i32, ptr %target_bits, align 4
   %or = or i32 %2, %target_mask.09
   br label %for.inc
@@ -1025,15 +1031,15 @@ sw.bb5.i:                                         ; preds = %tailrecurse.i
   br label %thunk_type_size.exit
 
 sw.bb9.i:                                         ; preds = %tailrecurse.i
-  %arrayidx.i = getelementptr i32, ptr %type_ptr.tr.i, i64 1
+  %arrayidx.i = getelementptr i8, ptr %type_ptr.tr.i, i64 4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %add.ptr.i = getelementptr i32, ptr %type_ptr.tr.i, i64 2
+  %add.ptr.i = getelementptr i8, ptr %type_ptr.tr.i, i64 8
   %mul.i = mul i32 %1, %accumulator.tr.i
   br label %tailrecurse.i
 
 sw.bb10.i:                                        ; preds = %tailrecurse.i
   %2 = load ptr, ptr @struct_entries, align 8
-  %arrayidx11.i = getelementptr i32, ptr %type_ptr.tr.i, i64 1
+  %arrayidx11.i = getelementptr i8, ptr %type_ptr.tr.i, i64 4
   %3 = load i32, ptr %arrayidx11.i, align 4
   %idx.ext.i = zext i32 %3 to i64
   %idxprom.i = sext i32 %is_host to i64
@@ -1086,12 +1092,12 @@ thunk_type_size.exit.i:                           ; preds = %tailrecurse.i
   br label %thunk_type_align.exit
 
 sw.bb15.i:                                        ; preds = %tailrecurse.i
-  %add.ptr.i = getelementptr i32, ptr %type_ptr.tr.i, i64 2
+  %add.ptr.i = getelementptr i8, ptr %type_ptr.tr.i, i64 8
   br label %tailrecurse.i
 
 sw.bb17.i:                                        ; preds = %tailrecurse.i
   %1 = load ptr, ptr @struct_entries, align 8
-  %arrayidx.i = getelementptr i32, ptr %type_ptr.tr.i, i64 1
+  %arrayidx.i = getelementptr i8, ptr %type_ptr.tr.i, i64 4
   %2 = load i32, ptr %arrayidx.i, align 4
   %idx.ext.i = zext i32 %2 to i64
   %idxprom.i = sext i32 %is_host to i64

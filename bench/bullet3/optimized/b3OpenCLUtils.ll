@@ -314,7 +314,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %1 = load ptr, ptr @__clewGetPlatformInfo, align 8
-  %m_platformName = getelementptr inbounds %struct.b3OpenCLPlatformInfo, ptr %platformInfo, i64 0, i32 1
+  %m_platformName = getelementptr inbounds i8, ptr %platformInfo, i64 1024
   %call3 = tail call i32 %1(ptr noundef %platform, i32 noundef 2306, i64 noundef 1024, ptr noundef nonnull %m_platformName, ptr noundef null)
   %cmp4.not = icmp eq i32 %call3, 0
   br i1 %cmp4.not, label %if.end7, label %if.then5
@@ -325,7 +325,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.then5, %if.end
   %2 = load ptr, ptr @__clewGetPlatformInfo, align 8
-  %m_platformVersion = getelementptr inbounds %struct.b3OpenCLPlatformInfo, ptr %platformInfo, i64 0, i32 2
+  %m_platformVersion = getelementptr inbounds i8, ptr %platformInfo, i64 2048
   %call9 = tail call i32 %2(ptr noundef %platform, i32 noundef 2305, i64 noundef 1024, ptr noundef nonnull %m_platformVersion, ptr noundef null)
   %cmp10.not = icmp eq i32 %call9, 0
   br i1 %cmp10.not, label %if.end13, label %if.then11
@@ -346,9 +346,9 @@ define dso_local void @b3OpenCLUtils_printPlatformInfo(ptr noundef %platform) lo
 entry:
   %platformInfo = alloca %struct.b3OpenCLPlatformInfo, align 1
   store i8 0, ptr %platformInfo, align 1
-  %m_platformName.i = getelementptr inbounds %struct.b3OpenCLPlatformInfo, ptr %platformInfo, i64 0, i32 1
+  %m_platformName.i = getelementptr inbounds i8, ptr %platformInfo, i64 1024
   store i8 0, ptr %m_platformName.i, align 1
-  %m_platformVersion.i = getelementptr inbounds %struct.b3OpenCLPlatformInfo, ptr %platformInfo, i64 0, i32 2
+  %m_platformVersion.i = getelementptr inbounds i8, ptr %platformInfo, i64 2048
   store i8 0, ptr %m_platformVersion.i, align 1
   %0 = load ptr, ptr @__clewGetPlatformInfo, align 8
   %call.i = call i32 %0(ptr noundef %platform, i32 noundef 2307, i64 noundef 1024, ptr noundef nonnull %platformInfo, ptr noundef null)
@@ -398,7 +398,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %0, i8 0, i64 40, i1 false)
   store i64 4228, ptr %cps, align 16
   %1 = ptrtoint ptr %platform to i64
-  %arrayidx1 = getelementptr inbounds [7 x i64], ptr %cps, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %cps, i64 8
   store i64 %1, ptr %arrayidx1, align 8
   store i32 -1, ptr %num_devices, align 4
   %2 = load ptr, ptr @__clewGetDeviceIDs, align 8
@@ -654,9 +654,9 @@ for.body46:                                       ; preds = %for.end, %for.cond4
 
 if.then51:                                        ; preds = %for.body46
   store i8 0, ptr %platformInfo, align 1
-  %m_platformName.i = getelementptr inbounds %struct.b3OpenCLPlatformInfo, ptr %platformInfo, i64 0, i32 1
+  %m_platformName.i = getelementptr inbounds i8, ptr %platformInfo, i64 1024
   store i8 0, ptr %m_platformName.i, align 1
-  %m_platformVersion.i = getelementptr inbounds %struct.b3OpenCLPlatformInfo, ptr %platformInfo, i64 0, i32 2
+  %m_platformVersion.i = getelementptr inbounds i8, ptr %platformInfo, i64 2048
   store i8 0, ptr %m_platformVersion.i, align 1
   %23 = load ptr, ptr @__clewGetPlatformInfo, align 8
   %call.i40 = call i32 %23(ptr noundef %22, i32 noundef 2307, i64 noundef 1024, ptr noundef nonnull %platformInfo, ptr noundef null)
@@ -752,97 +752,97 @@ entry:
   %0 = load ptr, ptr @__clewGetDeviceInfo, align 8
   %call = tail call i32 %0(ptr noundef %device, i32 noundef 4139, i64 noundef 1024, ptr noundef %info, ptr noundef null)
   %1 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_deviceVendor = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 1
+  %m_deviceVendor = getelementptr inbounds i8, ptr %info, i64 1024
   %call1 = tail call i32 %1(ptr noundef %device, i32 noundef 4140, i64 noundef 1024, ptr noundef nonnull %m_deviceVendor, ptr noundef null)
   %2 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_driverVersion = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 2
+  %m_driverVersion = getelementptr inbounds i8, ptr %info, i64 2048
   %call2 = tail call i32 %2(ptr noundef %device, i32 noundef 4141, i64 noundef 1024, ptr noundef nonnull %m_driverVersion, ptr noundef null)
   %3 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_deviceType = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 4
+  %m_deviceType = getelementptr inbounds i8, ptr %info, i64 4096
   %call3 = tail call i32 %3(ptr noundef %device, i32 noundef 4096, i64 noundef 8, ptr noundef nonnull %m_deviceType, ptr noundef null)
   %4 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_computeUnits = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 5
+  %m_computeUnits = getelementptr inbounds i8, ptr %info, i64 4104
   %call4 = tail call i32 %4(ptr noundef %device, i32 noundef 4098, i64 noundef 4, ptr noundef nonnull %m_computeUnits, ptr noundef null)
   %5 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_workitemDims = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 6
+  %m_workitemDims = getelementptr inbounds i8, ptr %info, i64 4112
   %call5 = tail call i32 %5(ptr noundef %device, i32 noundef 4099, i64 noundef 8, ptr noundef nonnull %m_workitemDims, ptr noundef null)
   %6 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_workItemSize = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 7
+  %m_workItemSize = getelementptr inbounds i8, ptr %info, i64 4120
   %call6 = tail call i32 %6(ptr noundef %device, i32 noundef 4101, i64 noundef 24, ptr noundef nonnull %m_workItemSize, ptr noundef null)
   %7 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_workgroupSize = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 13
+  %m_workgroupSize = getelementptr inbounds i8, ptr %info, i64 4184
   %call7 = tail call i32 %7(ptr noundef %device, i32 noundef 4100, i64 noundef 8, ptr noundef nonnull %m_workgroupSize, ptr noundef null)
   %8 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_clockFrequency = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 14
+  %m_clockFrequency = getelementptr inbounds i8, ptr %info, i64 4192
   %call8 = tail call i32 %8(ptr noundef %device, i32 noundef 4108, i64 noundef 4, ptr noundef nonnull %m_clockFrequency, ptr noundef null)
   %9 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_addressBits = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 22
+  %m_addressBits = getelementptr inbounds i8, ptr %info, i64 4240
   %call9 = tail call i32 %9(ptr noundef %device, i32 noundef 4109, i64 noundef 4, ptr noundef nonnull %m_addressBits, ptr noundef null)
   %10 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_maxMemAllocSize = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 23
+  %m_maxMemAllocSize = getelementptr inbounds i8, ptr %info, i64 4248
   %call10 = tail call i32 %10(ptr noundef %device, i32 noundef 4112, i64 noundef 8, ptr noundef nonnull %m_maxMemAllocSize, ptr noundef null)
   %11 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_globalMemSize = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 17
+  %m_globalMemSize = getelementptr inbounds i8, ptr %info, i64 4216
   %call11 = tail call i32 %11(ptr noundef %device, i32 noundef 4127, i64 noundef 8, ptr noundef nonnull %m_globalMemSize, ptr noundef null)
   %12 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_errorCorrectionSupport = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 18
+  %m_errorCorrectionSupport = getelementptr inbounds i8, ptr %info, i64 4224
   %call12 = tail call i32 %12(ptr noundef %device, i32 noundef 4132, i64 noundef 4, ptr noundef nonnull %m_errorCorrectionSupport, ptr noundef null)
   %13 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_localMemType = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 19
+  %m_localMemType = getelementptr inbounds i8, ptr %info, i64 4228
   %call13 = tail call i32 %13(ptr noundef %device, i32 noundef 4130, i64 noundef 4, ptr noundef nonnull %m_localMemType, ptr noundef null)
   %14 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_localMemSize = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 16
+  %m_localMemSize = getelementptr inbounds i8, ptr %info, i64 4208
   %call14 = tail call i32 %14(ptr noundef %device, i32 noundef 4131, i64 noundef 8, ptr noundef nonnull %m_localMemSize, ptr noundef null)
   %15 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_constantBufferSize = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 15
+  %m_constantBufferSize = getelementptr inbounds i8, ptr %info, i64 4200
   %call15 = tail call i32 %15(ptr noundef %device, i32 noundef 4128, i64 noundef 8, ptr noundef nonnull %m_constantBufferSize, ptr noundef null)
   %16 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_queueProperties = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 24
+  %m_queueProperties = getelementptr inbounds i8, ptr %info, i64 4256
   %call16 = tail call i32 %16(ptr noundef %device, i32 noundef 4138, i64 noundef 8, ptr noundef nonnull %m_queueProperties, ptr noundef null)
   %17 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_imageSupport = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 25
+  %m_imageSupport = getelementptr inbounds i8, ptr %info, i64 4264
   %call17 = tail call i32 %17(ptr noundef %device, i32 noundef 4118, i64 noundef 4, ptr noundef nonnull %m_imageSupport, ptr noundef null)
   %18 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_maxReadImageArgs = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 20
+  %m_maxReadImageArgs = getelementptr inbounds i8, ptr %info, i64 4232
   %call18 = tail call i32 %18(ptr noundef %device, i32 noundef 4110, i64 noundef 4, ptr noundef nonnull %m_maxReadImageArgs, ptr noundef null)
   %19 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_maxWriteImageArgs = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 21
+  %m_maxWriteImageArgs = getelementptr inbounds i8, ptr %info, i64 4236
   %call19 = tail call i32 %19(ptr noundef %device, i32 noundef 4111, i64 noundef 4, ptr noundef nonnull %m_maxWriteImageArgs, ptr noundef null)
   %20 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_image2dMaxWidth = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 8
+  %m_image2dMaxWidth = getelementptr inbounds i8, ptr %info, i64 4144
   %call20 = tail call i32 %20(ptr noundef %device, i32 noundef 4113, i64 noundef 8, ptr noundef nonnull %m_image2dMaxWidth, ptr noundef null)
   %21 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_image2dMaxHeight = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 9
+  %m_image2dMaxHeight = getelementptr inbounds i8, ptr %info, i64 4152
   %call21 = tail call i32 %21(ptr noundef %device, i32 noundef 4114, i64 noundef 8, ptr noundef nonnull %m_image2dMaxHeight, ptr noundef null)
   %22 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_image3dMaxWidth = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 10
+  %m_image3dMaxWidth = getelementptr inbounds i8, ptr %info, i64 4160
   %call22 = tail call i32 %22(ptr noundef %device, i32 noundef 4115, i64 noundef 8, ptr noundef nonnull %m_image3dMaxWidth, ptr noundef null)
   %23 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_image3dMaxHeight = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 11
+  %m_image3dMaxHeight = getelementptr inbounds i8, ptr %info, i64 4168
   %call23 = tail call i32 %23(ptr noundef %device, i32 noundef 4116, i64 noundef 8, ptr noundef nonnull %m_image3dMaxHeight, ptr noundef null)
   %24 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_image3dMaxDepth = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 12
+  %m_image3dMaxDepth = getelementptr inbounds i8, ptr %info, i64 4176
   %call24 = tail call i32 %24(ptr noundef %device, i32 noundef 4117, i64 noundef 8, ptr noundef nonnull %m_image3dMaxDepth, ptr noundef null)
   %25 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_deviceExtensions = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 3
+  %m_deviceExtensions = getelementptr inbounds i8, ptr %info, i64 3072
   %call25 = tail call i32 %25(ptr noundef %device, i32 noundef 4144, i64 noundef 1024, ptr noundef nonnull %m_deviceExtensions, ptr noundef null)
   %26 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_vecWidthChar = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 26
+  %m_vecWidthChar = getelementptr inbounds i8, ptr %info, i64 4268
   %call26 = tail call i32 %26(ptr noundef %device, i32 noundef 4102, i64 noundef 4, ptr noundef nonnull %m_vecWidthChar, ptr noundef null)
   %27 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_vecWidthShort = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 27
+  %m_vecWidthShort = getelementptr inbounds i8, ptr %info, i64 4272
   %call27 = tail call i32 %27(ptr noundef %device, i32 noundef 4103, i64 noundef 4, ptr noundef nonnull %m_vecWidthShort, ptr noundef null)
   %28 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_vecWidthInt = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 28
+  %m_vecWidthInt = getelementptr inbounds i8, ptr %info, i64 4276
   %call28 = tail call i32 %28(ptr noundef %device, i32 noundef 4104, i64 noundef 4, ptr noundef nonnull %m_vecWidthInt, ptr noundef null)
   %29 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_vecWidthLong = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 29
+  %m_vecWidthLong = getelementptr inbounds i8, ptr %info, i64 4280
   %call29 = tail call i32 %29(ptr noundef %device, i32 noundef 4105, i64 noundef 4, ptr noundef nonnull %m_vecWidthLong, ptr noundef null)
   %30 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_vecWidthFloat = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 30
+  %m_vecWidthFloat = getelementptr inbounds i8, ptr %info, i64 4284
   %call30 = tail call i32 %30(ptr noundef %device, i32 noundef 4106, i64 noundef 4, ptr noundef nonnull %m_vecWidthFloat, ptr noundef null)
   %31 = load ptr, ptr @__clewGetDeviceInfo, align 8
-  %m_vecWidthDouble = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 31
+  %m_vecWidthDouble = getelementptr inbounds i8, ptr %info, i64 4288
   %call31 = tail call i32 %31(ptr noundef %device, i32 noundef 4107, i64 noundef 4, ptr noundef nonnull %m_vecWidthDouble, ptr noundef null)
   ret void
 }
@@ -854,11 +854,11 @@ entry:
   call void @_ZN13b3OpenCLUtils13getDeviceInfoEP13_cl_device_idP18b3OpenCLDeviceInfo(ptr noundef %device, ptr noundef nonnull %info)
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.17)
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.18, ptr noundef nonnull %info)
-  %m_deviceVendor = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 1
+  %m_deviceVendor = getelementptr inbounds i8, ptr %info, i64 1024
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.19, ptr noundef nonnull %m_deviceVendor)
-  %m_driverVersion = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 2
+  %m_driverVersion = getelementptr inbounds i8, ptr %info, i64 2048
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.20, ptr noundef nonnull %m_driverVersion)
-  %m_deviceType = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 4
+  %m_deviceType = getelementptr inbounds i8, ptr %info, i64 4096
   %0 = load i64, ptr %m_deviceType, align 8
   %and = and i64 %0, 2
   %tobool.not = icmp eq i64 %and, 0
@@ -902,59 +902,59 @@ if.then16:                                        ; preds = %if.end12
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %if.end12
-  %m_computeUnits = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 5
+  %m_computeUnits = getelementptr inbounds i8, ptr %info, i64 4104
   %4 = load i32, ptr %m_computeUnits, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.26, i32 noundef %4)
-  %m_workitemDims = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 6
+  %m_workitemDims = getelementptr inbounds i8, ptr %info, i64 4112
   %5 = load i64, ptr %m_workitemDims, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.27, i64 noundef %5)
-  %m_workItemSize = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 7
+  %m_workItemSize = getelementptr inbounds i8, ptr %info, i64 4120
   %6 = load i64, ptr %m_workItemSize, align 8
-  %arrayidx19 = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 7, i64 1
+  %arrayidx19 = getelementptr inbounds i8, ptr %info, i64 4128
   %7 = load i64, ptr %arrayidx19, align 8
-  %arrayidx21 = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 7, i64 2
+  %arrayidx21 = getelementptr inbounds i8, ptr %info, i64 4136
   %8 = load i64, ptr %arrayidx21, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.28, i64 noundef %6, i64 noundef %7, i64 noundef %8)
-  %m_workgroupSize = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 13
+  %m_workgroupSize = getelementptr inbounds i8, ptr %info, i64 4184
   %9 = load i64, ptr %m_workgroupSize, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.29, i64 noundef %9)
-  %m_clockFrequency = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 14
+  %m_clockFrequency = getelementptr inbounds i8, ptr %info, i64 4192
   %10 = load i32, ptr %m_clockFrequency, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.30, i32 noundef %10)
-  %m_addressBits = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 22
+  %m_addressBits = getelementptr inbounds i8, ptr %info, i64 4240
   %11 = load i32, ptr %m_addressBits, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.31, i32 noundef %11)
-  %m_maxMemAllocSize = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 23
+  %m_maxMemAllocSize = getelementptr inbounds i8, ptr %info, i64 4248
   %12 = load i64, ptr %m_maxMemAllocSize, align 8
   %div1 = lshr i64 %12, 20
   %conv = trunc i64 %div1 to i32
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.32, i32 noundef %conv)
-  %m_globalMemSize = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 17
+  %m_globalMemSize = getelementptr inbounds i8, ptr %info, i64 4216
   %13 = load i64, ptr %m_globalMemSize, align 8
   %div222 = lshr i64 %13, 20
   %conv23 = trunc i64 %div222 to i32
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.33, i32 noundef %conv23)
-  %m_errorCorrectionSupport = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 18
+  %m_errorCorrectionSupport = getelementptr inbounds i8, ptr %info, i64 4224
   %14 = load i32, ptr %m_errorCorrectionSupport, align 8
   %cmp = icmp eq i32 %14, 1
   %cond = select i1 %cmp, ptr @.str.35, ptr @.str.36
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.34, ptr noundef nonnull %cond)
-  %m_localMemType = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 19
+  %m_localMemType = getelementptr inbounds i8, ptr %info, i64 4228
   %15 = load i32, ptr %m_localMemType, align 4
   %cmp24 = icmp eq i32 %15, 1
   %cond25 = select i1 %cmp24, ptr @.str.38, ptr @.str.39
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.37, ptr noundef nonnull %cond25)
-  %m_localMemSize = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 16
+  %m_localMemSize = getelementptr inbounds i8, ptr %info, i64 4208
   %16 = load i64, ptr %m_localMemSize, align 8
   %div263 = lshr i64 %16, 10
   %conv27 = trunc i64 %div263 to i32
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.40, i32 noundef %conv27)
-  %m_constantBufferSize = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 15
+  %m_constantBufferSize = getelementptr inbounds i8, ptr %info, i64 4200
   %17 = load i64, ptr %m_constantBufferSize, align 8
   %div284 = lshr i64 %17, 10
   %conv29 = trunc i64 %div284 to i32
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.41, i32 noundef %conv29)
-  %m_queueProperties = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 24
+  %m_queueProperties = getelementptr inbounds i8, ptr %info, i64 4256
   %18 = load i64, ptr %m_queueProperties, align 8
   %and30 = and i64 %18, 1
   %tobool31.not = icmp eq i64 %and30, 0
@@ -976,32 +976,32 @@ if.then37:                                        ; preds = %if.end33
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then37, %if.end33
-  %m_imageSupport = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 25
+  %m_imageSupport = getelementptr inbounds i8, ptr %info, i64 4264
   %20 = load i32, ptr %m_imageSupport, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.45, i32 noundef %20)
-  %m_maxReadImageArgs = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 20
+  %m_maxReadImageArgs = getelementptr inbounds i8, ptr %info, i64 4232
   %21 = load i32, ptr %m_maxReadImageArgs, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.46, i32 noundef %21)
-  %m_maxWriteImageArgs = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 21
+  %m_maxWriteImageArgs = getelementptr inbounds i8, ptr %info, i64 4236
   %22 = load i32, ptr %m_maxWriteImageArgs, align 4
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.47, i32 noundef %22)
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.48)
-  %m_image2dMaxWidth = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 8
+  %m_image2dMaxWidth = getelementptr inbounds i8, ptr %info, i64 4144
   %23 = load i64, ptr %m_image2dMaxWidth, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.49, i64 noundef %23)
-  %m_image2dMaxHeight = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 9
+  %m_image2dMaxHeight = getelementptr inbounds i8, ptr %info, i64 4152
   %24 = load i64, ptr %m_image2dMaxHeight, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.50, i64 noundef %24)
-  %m_image3dMaxWidth = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 10
+  %m_image3dMaxWidth = getelementptr inbounds i8, ptr %info, i64 4160
   %25 = load i64, ptr %m_image3dMaxWidth, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.51, i64 noundef %25)
-  %m_image3dMaxHeight = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 11
+  %m_image3dMaxHeight = getelementptr inbounds i8, ptr %info, i64 4168
   %26 = load i64, ptr %m_image3dMaxHeight, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.52, i64 noundef %26)
-  %m_image3dMaxDepth = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 12
+  %m_image3dMaxDepth = getelementptr inbounds i8, ptr %info, i64 4176
   %27 = load i64, ptr %m_image3dMaxDepth, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.53, i64 noundef %27)
-  %m_deviceExtensions = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 3
+  %m_deviceExtensions = getelementptr inbounds i8, ptr %info, i64 3072
   %28 = load i8, ptr %m_deviceExtensions, align 8
   %cmp41.not = icmp eq i8 %28, 0
   br i1 %cmp41.not, label %if.else, label %if.then42
@@ -1016,17 +1016,17 @@ if.else:                                          ; preds = %if.end38
 
 if.end45:                                         ; preds = %if.else, %if.then42
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.56)
-  %m_vecWidthChar = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 26
+  %m_vecWidthChar = getelementptr inbounds i8, ptr %info, i64 4268
   %29 = load i32, ptr %m_vecWidthChar, align 4
-  %m_vecWidthShort = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 27
+  %m_vecWidthShort = getelementptr inbounds i8, ptr %info, i64 4272
   %30 = load i32, ptr %m_vecWidthShort, align 8
-  %m_vecWidthInt = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 28
+  %m_vecWidthInt = getelementptr inbounds i8, ptr %info, i64 4276
   %31 = load i32, ptr %m_vecWidthInt, align 4
-  %m_vecWidthLong = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 29
+  %m_vecWidthLong = getelementptr inbounds i8, ptr %info, i64 4280
   %32 = load i32, ptr %m_vecWidthLong, align 8
-  %m_vecWidthFloat = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 30
+  %m_vecWidthFloat = getelementptr inbounds i8, ptr %info, i64 4284
   %33 = load i32, ptr %m_vecWidthFloat, align 4
-  %m_vecWidthDouble = getelementptr inbounds %struct.b3OpenCLDeviceInfo, ptr %info, i64 0, i32 31
+  %m_vecWidthDouble = getelementptr inbounds i8, ptr %info, i64 4288
   %34 = load i32, ptr %m_vecWidthDouble, align 8
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.57, i32 noundef %29, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef %34)
   ret void

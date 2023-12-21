@@ -98,7 +98,7 @@ if.end:                                           ; preds = %entry
 for.body.i:                                       ; preds = %if.end, %for.body.i
   %p.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.end ]
   store i32 67108864, ptr %p.05.i, align 4
-  %incdec.ptr.i = getelementptr i32, ptr %p.05.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %p.05.i, i64 4
   %cmp.i = icmp ult ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !5
 
@@ -169,7 +169,7 @@ if.end:                                           ; preds = %fdt_node_end_offset
 for.body.i:                                       ; preds = %if.end, %for.body.i
   %p.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i6, %if.end ]
   store i32 67108864, ptr %p.05.i, align 4
-  %incdec.ptr.i = getelementptr i32, ptr %p.05.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %p.05.i, i64 4
   %cmp.i7 = icmp ult ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.i7, label %for.body.i, label %return, !llvm.loop !5
 

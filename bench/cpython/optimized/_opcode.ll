@@ -193,7 +193,7 @@ if.end18:                                         ; preds = %land.lhs.true14, %i
 
 if.end21:                                         ; preds = %if.end18
   %dec = add i64 %add, -2
-  %arrayidx22 = getelementptr ptr, ptr %cond1021, i64 1
+  %arrayidx22 = getelementptr i8, ptr %cond1021, i64 8
   %5 = load ptr, ptr %arrayidx22, align 8
   br label %skip_optional_posonly
 
@@ -204,7 +204,7 @@ skip_optional_posonly:                            ; preds = %if.end18, %if.end21
   br i1 %tobool23.not, label %skip_optional_kwonly, label %if.end25
 
 if.end25:                                         ; preds = %skip_optional_posonly
-  %arrayidx26 = getelementptr ptr, ptr %cond1021, i64 2
+  %arrayidx26 = getelementptr i8, ptr %cond1021, i64 16
   %6 = load ptr, ptr %arrayidx26, align 8
   br label %skip_optional_kwonly
 
@@ -761,7 +761,7 @@ if.then1.i407.i:                                  ; preds = %if.end.i404.i
 
 if.end10.i:                                       ; preds = %if.end4.i
   %call.val139.i = load ptr, ptr %2, align 8
-  %arrayidx.i.i = getelementptr ptr, ptr %call.val139.i, i64 1
+  %arrayidx.i.i = getelementptr i8, ptr %call.val139.i, i64 8
   store ptr %call7.i, ptr %arrayidx.i.i, align 8
   %call14.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #3
   %cmp15.i = icmp eq ptr %call14.i, null
@@ -785,7 +785,7 @@ if.then1.i398.i:                                  ; preds = %if.end.i395.i
 
 if.end17.i:                                       ; preds = %if.end10.i
   %call.val140.i = load ptr, ptr %2, align 8
-  %arrayidx.i164.i = getelementptr ptr, ptr %call.val140.i, i64 2
+  %arrayidx.i164.i = getelementptr i8, ptr %call.val140.i, i64 16
   store ptr %call14.i, ptr %arrayidx.i164.i, align 8
   %call21.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29) #3
   %cmp22.i = icmp eq ptr %call21.i, null
@@ -809,7 +809,7 @@ if.then1.i389.i:                                  ; preds = %if.end.i386.i
 
 if.end24.i:                                       ; preds = %if.end17.i
   %call.val141.i = load ptr, ptr %2, align 8
-  %arrayidx.i165.i = getelementptr ptr, ptr %call.val141.i, i64 3
+  %arrayidx.i165.i = getelementptr i8, ptr %call.val141.i, i64 24
   store ptr %call21.i, ptr %arrayidx.i165.i, align 8
   %call28.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #3
   %cmp29.i = icmp eq ptr %call28.i, null
@@ -833,7 +833,7 @@ if.then1.i380.i:                                  ; preds = %if.end.i377.i
 
 if.end31.i:                                       ; preds = %if.end24.i
   %call.val142.i = load ptr, ptr %2, align 8
-  %arrayidx.i166.i = getelementptr ptr, ptr %call.val142.i, i64 4
+  %arrayidx.i166.i = getelementptr i8, ptr %call.val142.i, i64 32
   store ptr %call28.i, ptr %arrayidx.i166.i, align 8
   %call35.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33) #3
   %cmp36.i = icmp eq ptr %call35.i, null
@@ -857,7 +857,7 @@ if.then1.i371.i:                                  ; preds = %if.end.i368.i
 
 if.end38.i:                                       ; preds = %if.end31.i
   %call.val143.i = load ptr, ptr %2, align 8
-  %arrayidx.i167.i = getelementptr ptr, ptr %call.val143.i, i64 5
+  %arrayidx.i167.i = getelementptr i8, ptr %call.val143.i, i64 40
   store ptr %call35.i, ptr %arrayidx.i167.i, align 8
   %call42.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35) #3
   %cmp43.i = icmp eq ptr %call42.i, null
@@ -881,7 +881,7 @@ if.then1.i362.i:                                  ; preds = %if.end.i359.i
 
 if.end45.i:                                       ; preds = %if.end38.i
   %call.val144.i = load ptr, ptr %2, align 8
-  %arrayidx.i168.i = getelementptr ptr, ptr %call.val144.i, i64 6
+  %arrayidx.i168.i = getelementptr i8, ptr %call.val144.i, i64 48
   store ptr %call42.i, ptr %arrayidx.i168.i, align 8
   %call49.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37) #3
   %cmp50.i = icmp eq ptr %call49.i, null
@@ -905,7 +905,7 @@ if.then1.i353.i:                                  ; preds = %if.end.i350.i
 
 if.end52.i:                                       ; preds = %if.end45.i
   %call.val145.i = load ptr, ptr %2, align 8
-  %arrayidx.i169.i = getelementptr ptr, ptr %call.val145.i, i64 7
+  %arrayidx.i169.i = getelementptr i8, ptr %call.val145.i, i64 56
   store ptr %call49.i, ptr %arrayidx.i169.i, align 8
   %call56.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39) #3
   %cmp57.i = icmp eq ptr %call56.i, null
@@ -929,7 +929,7 @@ if.then1.i344.i:                                  ; preds = %if.end.i341.i
 
 if.end59.i:                                       ; preds = %if.end52.i
   %call.val146.i = load ptr, ptr %2, align 8
-  %arrayidx.i170.i = getelementptr ptr, ptr %call.val146.i, i64 8
+  %arrayidx.i170.i = getelementptr i8, ptr %call.val146.i, i64 64
   store ptr %call56.i, ptr %arrayidx.i170.i, align 8
   %call63.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41) #3
   %cmp64.i = icmp eq ptr %call63.i, null
@@ -953,7 +953,7 @@ if.then1.i335.i:                                  ; preds = %if.end.i332.i
 
 if.end66.i:                                       ; preds = %if.end59.i
   %call.val147.i = load ptr, ptr %2, align 8
-  %arrayidx.i171.i = getelementptr ptr, ptr %call.val147.i, i64 9
+  %arrayidx.i171.i = getelementptr i8, ptr %call.val147.i, i64 72
   store ptr %call63.i, ptr %arrayidx.i171.i, align 8
   %call70.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #3
   %cmp71.i = icmp eq ptr %call70.i, null
@@ -977,7 +977,7 @@ if.then1.i326.i:                                  ; preds = %if.end.i323.i
 
 if.end73.i:                                       ; preds = %if.end66.i
   %call.val148.i = load ptr, ptr %2, align 8
-  %arrayidx.i172.i = getelementptr ptr, ptr %call.val148.i, i64 10
+  %arrayidx.i172.i = getelementptr i8, ptr %call.val148.i, i64 80
   store ptr %call70.i, ptr %arrayidx.i172.i, align 8
   %call77.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #3
   %cmp78.i = icmp eq ptr %call77.i, null
@@ -1001,7 +1001,7 @@ if.then1.i317.i:                                  ; preds = %if.end.i314.i
 
 if.end80.i:                                       ; preds = %if.end73.i
   %call.val149.i = load ptr, ptr %2, align 8
-  %arrayidx.i173.i = getelementptr ptr, ptr %call.val149.i, i64 11
+  %arrayidx.i173.i = getelementptr i8, ptr %call.val149.i, i64 88
   store ptr %call77.i, ptr %arrayidx.i173.i, align 8
   %call84.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47) #3
   %cmp85.i = icmp eq ptr %call84.i, null
@@ -1025,7 +1025,7 @@ if.then1.i308.i:                                  ; preds = %if.end.i305.i
 
 if.end87.i:                                       ; preds = %if.end80.i
   %call.val150.i = load ptr, ptr %2, align 8
-  %arrayidx.i174.i = getelementptr ptr, ptr %call.val150.i, i64 12
+  %arrayidx.i174.i = getelementptr i8, ptr %call.val150.i, i64 96
   store ptr %call84.i, ptr %arrayidx.i174.i, align 8
   %call91.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49) #3
   %cmp92.i = icmp eq ptr %call91.i, null
@@ -1049,7 +1049,7 @@ if.then1.i299.i:                                  ; preds = %if.end.i296.i
 
 if.end94.i:                                       ; preds = %if.end87.i
   %call.val151.i = load ptr, ptr %2, align 8
-  %arrayidx.i175.i = getelementptr ptr, ptr %call.val151.i, i64 13
+  %arrayidx.i175.i = getelementptr i8, ptr %call.val151.i, i64 104
   store ptr %call91.i, ptr %arrayidx.i175.i, align 8
   %call98.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51) #3
   %cmp99.i = icmp eq ptr %call98.i, null
@@ -1073,7 +1073,7 @@ if.then1.i290.i:                                  ; preds = %if.end.i287.i
 
 if.end101.i:                                      ; preds = %if.end94.i
   %call.val152.i = load ptr, ptr %2, align 8
-  %arrayidx.i176.i = getelementptr ptr, ptr %call.val152.i, i64 14
+  %arrayidx.i176.i = getelementptr i8, ptr %call.val152.i, i64 112
   store ptr %call98.i, ptr %arrayidx.i176.i, align 8
   %call105.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53) #3
   %cmp106.i = icmp eq ptr %call105.i, null
@@ -1097,7 +1097,7 @@ if.then1.i281.i:                                  ; preds = %if.end.i278.i
 
 if.end108.i:                                      ; preds = %if.end101.i
   %call.val153.i = load ptr, ptr %2, align 8
-  %arrayidx.i177.i = getelementptr ptr, ptr %call.val153.i, i64 15
+  %arrayidx.i177.i = getelementptr i8, ptr %call.val153.i, i64 120
   store ptr %call105.i, ptr %arrayidx.i177.i, align 8
   %call112.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55) #3
   %cmp113.i = icmp eq ptr %call112.i, null
@@ -1121,7 +1121,7 @@ if.then1.i272.i:                                  ; preds = %if.end.i269.i
 
 if.end115.i:                                      ; preds = %if.end108.i
   %call.val154.i = load ptr, ptr %2, align 8
-  %arrayidx.i178.i = getelementptr ptr, ptr %call.val154.i, i64 16
+  %arrayidx.i178.i = getelementptr i8, ptr %call.val154.i, i64 128
   store ptr %call112.i, ptr %arrayidx.i178.i, align 8
   %call119.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57) #3
   %cmp120.i = icmp eq ptr %call119.i, null
@@ -1145,7 +1145,7 @@ if.then1.i263.i:                                  ; preds = %if.end.i260.i
 
 if.end122.i:                                      ; preds = %if.end115.i
   %call.val155.i = load ptr, ptr %2, align 8
-  %arrayidx.i179.i = getelementptr ptr, ptr %call.val155.i, i64 17
+  %arrayidx.i179.i = getelementptr i8, ptr %call.val155.i, i64 136
   store ptr %call119.i, ptr %arrayidx.i179.i, align 8
   %call126.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59) #3
   %cmp127.i = icmp eq ptr %call126.i, null
@@ -1169,7 +1169,7 @@ if.then1.i254.i:                                  ; preds = %if.end.i251.i
 
 if.end129.i:                                      ; preds = %if.end122.i
   %call.val156.i = load ptr, ptr %2, align 8
-  %arrayidx.i180.i = getelementptr ptr, ptr %call.val156.i, i64 18
+  %arrayidx.i180.i = getelementptr i8, ptr %call.val156.i, i64 144
   store ptr %call126.i, ptr %arrayidx.i180.i, align 8
   %call133.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61) #3
   %cmp134.i = icmp eq ptr %call133.i, null
@@ -1193,7 +1193,7 @@ if.then1.i245.i:                                  ; preds = %if.end.i242.i
 
 if.end136.i:                                      ; preds = %if.end129.i
   %call.val157.i = load ptr, ptr %2, align 8
-  %arrayidx.i181.i = getelementptr ptr, ptr %call.val157.i, i64 19
+  %arrayidx.i181.i = getelementptr i8, ptr %call.val157.i, i64 152
   store ptr %call133.i, ptr %arrayidx.i181.i, align 8
   %call140.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63) #3
   %cmp141.i = icmp eq ptr %call140.i, null
@@ -1217,7 +1217,7 @@ if.then1.i236.i:                                  ; preds = %if.end.i233.i
 
 if.end143.i:                                      ; preds = %if.end136.i
   %call.val158.i = load ptr, ptr %2, align 8
-  %arrayidx.i182.i = getelementptr ptr, ptr %call.val158.i, i64 20
+  %arrayidx.i182.i = getelementptr i8, ptr %call.val158.i, i64 160
   store ptr %call140.i, ptr %arrayidx.i182.i, align 8
   %call147.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65) #3
   %cmp148.i = icmp eq ptr %call147.i, null
@@ -1241,7 +1241,7 @@ if.then1.i227.i:                                  ; preds = %if.end.i224.i
 
 if.end150.i:                                      ; preds = %if.end143.i
   %call.val159.i = load ptr, ptr %2, align 8
-  %arrayidx.i183.i = getelementptr ptr, ptr %call.val159.i, i64 21
+  %arrayidx.i183.i = getelementptr i8, ptr %call.val159.i, i64 168
   store ptr %call147.i, ptr %arrayidx.i183.i, align 8
   %call154.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67) #3
   %cmp155.i = icmp eq ptr %call154.i, null
@@ -1265,7 +1265,7 @@ if.then1.i218.i:                                  ; preds = %if.end.i215.i
 
 if.end157.i:                                      ; preds = %if.end150.i
   %call.val160.i = load ptr, ptr %2, align 8
-  %arrayidx.i184.i = getelementptr ptr, ptr %call.val160.i, i64 22
+  %arrayidx.i184.i = getelementptr i8, ptr %call.val160.i, i64 176
   store ptr %call154.i, ptr %arrayidx.i184.i, align 8
   %call161.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69) #3
   %cmp162.i = icmp eq ptr %call161.i, null
@@ -1289,7 +1289,7 @@ if.then1.i209.i:                                  ; preds = %if.end.i206.i
 
 if.end164.i:                                      ; preds = %if.end157.i
   %call.val161.i = load ptr, ptr %2, align 8
-  %arrayidx.i185.i = getelementptr ptr, ptr %call.val161.i, i64 23
+  %arrayidx.i185.i = getelementptr i8, ptr %call.val161.i, i64 184
   store ptr %call161.i, ptr %arrayidx.i185.i, align 8
   %call168.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71) #3
   %cmp169.i = icmp eq ptr %call168.i, null
@@ -1313,7 +1313,7 @@ if.then1.i200.i:                                  ; preds = %if.end.i197.i
 
 if.end171.i:                                      ; preds = %if.end164.i
   %call.val162.i = load ptr, ptr %2, align 8
-  %arrayidx.i186.i = getelementptr ptr, ptr %call.val162.i, i64 24
+  %arrayidx.i186.i = getelementptr i8, ptr %call.val162.i, i64 192
   store ptr %call168.i, ptr %arrayidx.i186.i, align 8
   %call175.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73) #3
   %cmp176.i = icmp eq ptr %call175.i, null
@@ -1337,7 +1337,7 @@ if.then1.i191.i:                                  ; preds = %if.end.i188.i
 
 if.end178.i:                                      ; preds = %if.end171.i
   %call.val163.i = load ptr, ptr %2, align 8
-  %arrayidx.i187.i = getelementptr ptr, ptr %call.val163.i, i64 25
+  %arrayidx.i187.i = getelementptr i8, ptr %call.val163.i, i64 200
   store ptr %call175.i, ptr %arrayidx.i187.i, align 8
   %53 = load ptr, ptr %2, align 8
   br label %for.body.i

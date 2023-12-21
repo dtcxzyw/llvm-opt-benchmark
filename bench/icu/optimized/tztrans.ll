@@ -3,10 +3,6 @@ source_filename = "bench/icu/original/tztrans.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::TimeZoneTransition" = type { %"class.icu_75::UObject", double, ptr, ptr }
-%"class.icu_75::UObject" = type { ptr }
-%"class.std::type_info" = type { ptr, ptr }
-
 @_ZZN6icu_7518TimeZoneTransition16getStaticClassIDEvE7classID = internal global i8 0, align 1
 @_ZTVN6icu_7518TimeZoneTransitionE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6icu_7518TimeZoneTransitionE, ptr @_ZN6icu_7518TimeZoneTransitionD1Ev, ptr @_ZN6icu_7518TimeZoneTransitionD0Ev, ptr @_ZNK6icu_7518TimeZoneTransition17getDynamicClassIDEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -35,25 +31,25 @@ entry:
 define void @_ZN6icu_7518TimeZoneTransitionC2EdRKNS_12TimeZoneRuleES3_(ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %time, ptr noundef nonnull align 8 dereferenceable(80) %from, ptr noundef nonnull align 8 dereferenceable(80) %to) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518TimeZoneTransitionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fTime = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 1
+  %fTime = getelementptr inbounds i8, ptr %this, i64 8
   store double %time, ptr %fTime, align 8
   %vtable = load ptr, ptr %from, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = invoke noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(80) %from)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %fFrom = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 2
+  %fFrom = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call, ptr %fFrom, align 8
   %vtable2 = load ptr, ptr %to, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 3
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 24
   %1 = load ptr, ptr %vfn3, align 8
   %call5 = invoke noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(80) %to)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %fTo = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 3
+  %fTo = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call5, ptr %fTo, align 8
   ret void
 
@@ -76,7 +72,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZN6icu_7518TimeZoneTransitionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518TimeZoneTransitionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fTime = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 1
+  %fTime = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fTime, i8 0, i64 24, i1 false)
   ret void
 }
@@ -85,13 +81,13 @@ entry:
 define void @_ZN6icu_7518TimeZoneTransitionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518TimeZoneTransitionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fTime = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 1
-  %fTime2 = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %source, i64 0, i32 1
+  %fTime = getelementptr inbounds i8, ptr %this, i64 8
+  %fTime2 = getelementptr inbounds i8, ptr %source, i64 8
   %0 = load double, ptr %fTime2, align 8
   store double %0, ptr %fTime, align 8
-  %fFrom = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 2
-  %fTo = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 3
-  %fFrom3 = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %source, i64 0, i32 2
+  %fFrom = getelementptr inbounds i8, ptr %this, i64 16
+  %fTo = getelementptr inbounds i8, ptr %this, i64 24
+  %fFrom3 = getelementptr inbounds i8, ptr %source, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fFrom, i8 0, i64 16, i1 false)
   %1 = load ptr, ptr %fFrom3, align 8
   %cmp.not = icmp eq ptr %1, null
@@ -99,7 +95,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   %call = invoke noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(80) %1)
           to label %invoke.cont unwind label %lpad
@@ -115,14 +111,14 @@ lpad:                                             ; preds = %if.then8, %if.then
   resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %fTo6 = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %source, i64 0, i32 3
+  %fTo6 = getelementptr inbounds i8, ptr %source, i64 24
   %4 = load ptr, ptr %fTo6, align 8
   %cmp7.not = icmp eq ptr %4, null
   br i1 %cmp7.not, label %if.end15, label %if.then8
 
 if.then8:                                         ; preds = %if.end
   %vtable10 = load ptr, ptr %4, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 3
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 24
   %5 = load ptr, ptr %vfn11, align 8
   %call13 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(80) %4)
           to label %invoke.cont12 unwind label %lpad
@@ -139,27 +135,27 @@ if.end15:                                         ; preds = %invoke.cont12, %if.
 define void @_ZN6icu_7518TimeZoneTransitionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518TimeZoneTransitionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fFrom = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 2
+  %fFrom = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %fFrom, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(80) %0) #9
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
-  %fTo = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 3
+  %fTo = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %fTo, align 8
   %cmp3.not = icmp eq ptr %2, null
   br i1 %cmp3.not, label %if.end11, label %delete.notnull7
 
 delete.notnull7:                                  ; preds = %if.end
   %vtable8 = load ptr, ptr %2, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 1
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 8
   %3 = load ptr, ptr %vfn9, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(80) %2) #9
   br label %if.end11
@@ -211,47 +207,47 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fTime = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %right, i64 0, i32 1
+  %fTime = getelementptr inbounds i8, ptr %right, i64 8
   %0 = load double, ptr %fTime, align 8
-  %fTime2 = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 1
+  %fTime2 = getelementptr inbounds i8, ptr %this, i64 8
   store double %0, ptr %fTime2, align 8
-  %fFrom = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %right, i64 0, i32 2
+  %fFrom = getelementptr inbounds i8, ptr %right, i64 16
   %1 = load ptr, ptr %fFrom, align 8
-  %fFrom.i = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 2
+  %fFrom.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %fFrom.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %3 = load ptr, ptr %vfn.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(80) %2) #9
   br label %_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE.exit
 
 _ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE.exit: ; preds = %if.then, %delete.notnull.i
   %vtable3.i = load ptr, ptr %1, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 3
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 24
   %4 = load ptr, ptr %vfn4.i, align 8
   %call.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(80) %1)
   store ptr %call.i, ptr %fFrom.i, align 8
-  %fTo = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %right, i64 0, i32 3
+  %fTo = getelementptr inbounds i8, ptr %right, i64 24
   %5 = load ptr, ptr %fTo, align 8
-  %fTo.i = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 3
+  %fTo.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %fTo.i, align 8
   %cmp.not.i4 = icmp eq ptr %6, null
   br i1 %cmp.not.i4, label %_ZN6icu_7518TimeZoneTransition5setToERKNS_12TimeZoneRuleE.exit, label %delete.notnull.i5
 
 delete.notnull.i5:                                ; preds = %_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE.exit
   %vtable.i6 = load ptr, ptr %6, align 8
-  %vfn.i7 = getelementptr inbounds ptr, ptr %vtable.i6, i64 1
+  %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 8
   %7 = load ptr, ptr %vfn.i7, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(80) %6) #9
   br label %_ZN6icu_7518TimeZoneTransition5setToERKNS_12TimeZoneRuleE.exit
 
 _ZN6icu_7518TimeZoneTransition5setToERKNS_12TimeZoneRuleE.exit: ; preds = %_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE.exit, %delete.notnull.i5
   %vtable3.i8 = load ptr, ptr %5, align 8
-  %vfn4.i9 = getelementptr inbounds ptr, ptr %vtable3.i8, i64 3
+  %vfn4.i9 = getelementptr inbounds i8, ptr %vtable3.i8, i64 24
   %8 = load ptr, ptr %vfn4.i9, align 8
   %call.i10 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(80) %5)
   store ptr %call.i10, ptr %fTo.i, align 8
@@ -264,21 +260,21 @@ if.end:                                           ; preds = %_ZN6icu_7518TimeZon
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(80) %from) local_unnamed_addr #1 align 2 {
 entry:
-  %fFrom = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 2
+  %fFrom = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %fFrom, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(80) %0) #9
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
   %vtable3 = load ptr, ptr %from, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 3
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
   %2 = load ptr, ptr %vfn4, align 8
   %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(80) %from)
   store ptr %call, ptr %fFrom, align 8
@@ -288,21 +284,21 @@ if.end:                                           ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7518TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(80) %to) local_unnamed_addr #1 align 2 {
 entry:
-  %fTo = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 3
+  %fTo = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %fTo, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(80) %0) #9
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
   %vtable3 = load ptr, ptr %to, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 3
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
   %2 = load ptr, ptr %vfn4, align 8
   %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(80) %to)
   store ptr %call, ptr %fTo, align 8
@@ -317,14 +313,14 @@ entry:
 
 typeid.end:                                       ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %0 = getelementptr inbounds ptr, ptr %vtable, i64 -1
+  %0 = getelementptr inbounds i8, ptr %vtable, i64 -8
   %1 = load ptr, ptr %0, align 8
   %vtable2 = load ptr, ptr %that, align 8
-  %2 = getelementptr inbounds ptr, ptr %vtable2, i64 -1
+  %2 = getelementptr inbounds i8, ptr %vtable2, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %__name.i.i = getelementptr inbounds %"class.std::type_info", ptr %1, i64 0, i32 1
+  %__name.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %__name.i.i, align 8
-  %__name2.i.i = getelementptr inbounds %"class.std::type_info", ptr %3, i64 0, i32 1
+  %__name2.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %__name2.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i, label %if.end4, label %if.end.i.i
@@ -344,18 +340,18 @@ _ZNKSt9type_infoneERKS_.exit:                     ; preds = %if.end.i.i
   br i1 %cmp7.i.i.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %typeid.end, %_ZNKSt9type_infoneERKS_.exit
-  %fTime = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 1
+  %fTime = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load double, ptr %fTime, align 8
-  %fTime5 = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %that, i64 0, i32 1
+  %fTime5 = getelementptr inbounds i8, ptr %that, i64 8
   %9 = load double, ptr %fTime5, align 8
   %cmp6 = fcmp une double %8, %9
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %fFrom = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 2
+  %fFrom = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %fFrom, align 8
   %cmp9 = icmp eq ptr %10, null
-  %fFrom10 = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %that, i64 0, i32 2
+  %fFrom10 = getelementptr inbounds i8, ptr %that, i64 16
   %11 = load ptr, ptr %fFrom10, align 8
   %cmp11 = icmp eq ptr %11, null
   %or.cond = select i1 %cmp9, i1 %cmp11, i1 false
@@ -367,16 +363,16 @@ lor.lhs.false:                                    ; preds = %if.end8
 
 land.lhs.true17:                                  ; preds = %lor.lhs.false
   %vtable20 = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable20, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable20, i64 32
   %12 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(80) %11)
   br i1 %call21, label %if.then22, label %if.end41
 
 if.then22:                                        ; preds = %if.end8, %land.lhs.true17
-  %fTo = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 3
+  %fTo = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load ptr, ptr %fTo, align 8
   %cmp23 = icmp eq ptr %13, null
-  %fTo25 = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %that, i64 0, i32 3
+  %fTo25 = getelementptr inbounds i8, ptr %that, i64 24
   %14 = load ptr, ptr %fTo25, align 8
   %cmp26 = icmp eq ptr %14, null
   %or.cond12 = select i1 %cmp23, i1 %cmp26, i1 false
@@ -388,7 +384,7 @@ lor.lhs.false27:                                  ; preds = %if.then22
 
 land.lhs.true33:                                  ; preds = %lor.lhs.false27
   %vtable36 = load ptr, ptr %13, align 8
-  %vfn37 = getelementptr inbounds ptr, ptr %vtable36, i64 4
+  %vfn37 = getelementptr inbounds i8, ptr %vtable36, i64 32
   %15 = load ptr, ptr %vfn37, align 8
   %call38 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull align 8 dereferenceable(80) %14)
   br i1 %call38, label %return, label %if.end41
@@ -412,7 +408,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7518TimeZoneTransition7setTimeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, double noundef %time) local_unnamed_addr #6 align 2 {
 entry:
-  %fTime = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 1
+  %fTime = getelementptr inbounds i8, ptr %this, i64 8
   store double %time, ptr %fTime, align 8
   ret void
 }
@@ -420,14 +416,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7518TimeZoneTransition9adoptFromEPNS_12TimeZoneRuleE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %from) local_unnamed_addr #5 align 2 {
 entry:
-  %fFrom = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 2
+  %fFrom = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %fFrom, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(80) %0) #9
   br label %if.end
@@ -440,14 +436,14 @@ if.end:                                           ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7518TimeZoneTransition7adoptToEPNS_12TimeZoneRuleE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %to) local_unnamed_addr #5 align 2 {
 entry:
-  %fTo = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 3
+  %fTo = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %fTo, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(80) %0) #9
   br label %if.end
@@ -460,7 +456,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fTime = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 1
+  %fTime = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load double, ptr %fTime, align 8
   ret double %0
 }
@@ -468,7 +464,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK6icu_7518TimeZoneTransition5getToEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fTo = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 3
+  %fTo = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %fTo, align 8
   ret ptr %0
 }
@@ -476,7 +472,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK6icu_7518TimeZoneTransition7getFromEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fFrom = getelementptr inbounds %"class.icu_75::TimeZoneTransition", ptr %this, i64 0, i32 2
+  %fFrom = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %fFrom, align 8
   ret ptr %0
 }

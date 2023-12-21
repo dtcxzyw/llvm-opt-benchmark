@@ -4,12 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.dpx::Writer" = type { ptr, %"struct.dpx::Header", i64, ptr }
-%"struct.dpx::Header" = type <{ %"struct.dpx::GenericHeader", %"struct.dpx::IndustryHeader", i8, [3 x i8] }>
-%"struct.dpx::GenericHeader" = type { i32, i32, [8 x i8], i32, i32, i32, i32, i32, [100 x i8], [24 x i8], [100 x i8], [200 x i8], [200 x i8], i32, [104 x i8], i16, i16, i32, i32, [8 x %"struct.dpx::ImageElement"], [52 x i8], i32, i32, float, float, i32, i32, [100 x i8], [24 x i8], [32 x i8], [32 x i8], [4 x i16], [2 x i32], float, float, [20 x i8] }
-%"struct.dpx::ImageElement" = type { i32, i32, float, i32, float, i8, i8, i8, i8, i16, i16, i32, i32, i32, [32 x i8] }
-%"struct.dpx::IndustryHeader" = type { [2 x i8], [2 x i8], [2 x i8], [6 x i8], [4 x i8], [32 x i8], i32, i32, i32, float, float, [32 x i8], [100 x i8], [56 x i8], i32, i32, i8, i8, i8, i8, float, float, float, float, float, float, float, float, float, float, [76 x i8] }
 %"class.OpenImageIO_v2_6_0::basic_string_view" = type { ptr, i64 }
+%"struct.dpx::ImageElement" = type { i32, i32, float, i32, float, i8, i8, i8, i8, i16, i16, i32, i32, i32, [32 x i8] }
 
 $_ZN3dpx11WriteBufferIhLi8ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb = comdat any
 
@@ -193,9 +189,9 @@ sw.epilog:                                        ; preds = %for.body.i.i22, %fo
 define hidden void @_ZN3dpx6WriterC2Ev(ptr noundef nonnull align 8 dereferenceable(2080) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3dpx6WriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %header = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1
+  %header = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3dpx6HeaderC1Ev(ptr noundef nonnull align 4 dereferenceable(2049) %header)
-  %fileLoc = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 2
+  %fileLoc = getelementptr inbounds i8, ptr %this, i64 2064
   store i64 0, ptr %fileLoc, align 8
   ret void
 }
@@ -237,8 +233,8 @@ _ZN3dpx13GenericHeader11SetFileNameEPKc.exit:     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   store ptr %fileName, ptr %agg.tmp.i, align 8
   %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %fileName) #19
-  %fileName.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 8
-  %m_len.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i, i64 0, i32 1
+  %fileName.i = getelementptr inbounds i8, ptr %this, i64 44
+  %m_len.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 %call.i.i.i.i, ptr %m_len.i.i, align 8
   %call.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %fileName.i, ptr noundef nonnull %agg.tmp.i, i64 noundef 100) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
@@ -252,8 +248,8 @@ _ZN3dpx13GenericHeader19SetCreationTimeDateEPKc.exit: ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i6)
   store ptr %creationTimeDate, ptr %agg.tmp.i6, align 8
   %call.i.i.i.i9 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %creationTimeDate) #19
-  %creationTimeDate.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 9
-  %m_len.i.i11 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i6, i64 0, i32 1
+  %creationTimeDate.i = getelementptr inbounds i8, ptr %this, i64 144
+  %m_len.i.i11 = getelementptr inbounds i8, ptr %agg.tmp.i6, i64 8
   store i64 %call.i.i.i.i9, ptr %m_len.i.i11, align 8
   %call.i12 = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %creationTimeDate.i, ptr noundef nonnull %agg.tmp.i6, i64 noundef 24) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i6)
@@ -261,7 +257,7 @@ _ZN3dpx13GenericHeader19SetCreationTimeDateEPKc.exit: ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %call = call i64 @time(ptr noundef null) #19
-  %header5 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1
+  %header5 = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN3dpx13GenericHeader19SetCreationTimeDateEl(ptr noundef nonnull align 4 dereferenceable(1664) %header5, i64 noundef %call)
   br label %if.end6
 
@@ -273,8 +269,8 @@ _ZN3dpx13GenericHeader10SetCreatorEPKc.exit:      ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i13)
   store ptr %creator, ptr %agg.tmp.i13, align 8
   %call.i.i.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %creator) #19
-  %creator.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 10
-  %m_len.i.i18 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i13, i64 0, i32 1
+  %creator.i = getelementptr inbounds i8, ptr %this, i64 168
+  %m_len.i.i18 = getelementptr inbounds i8, ptr %agg.tmp.i13, i64 8
   store i64 %call.i.i.i.i16, ptr %m_len.i.i18, align 8
   %call.i19 = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %creator.i, ptr noundef nonnull %agg.tmp.i13, i64 noundef 100) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i13)
@@ -283,8 +279,8 @@ _ZN3dpx13GenericHeader10SetCreatorEPKc.exit:      ; preds = %if.end6
 if.else10:                                        ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i20)
   store ptr @.str, ptr %agg.tmp.i20, align 8
-  %creator.i24 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 10
-  %m_len.i.i25 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i20, i64 0, i32 1
+  %creator.i24 = getelementptr inbounds i8, ptr %this, i64 168
+  %m_len.i.i25 = getelementptr inbounds i8, ptr %agg.tmp.i20, i64 8
   store i64 15, ptr %m_len.i.i25, align 8
   %call.i26 = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %creator.i24, ptr noundef nonnull %agg.tmp.i20, i64 noundef 100) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i20)
@@ -298,8 +294,8 @@ _ZN3dpx13GenericHeader10SetProjectEPKc.exit:      ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i27)
   store ptr %project, ptr %agg.tmp.i27, align 8
   %call.i.i.i.i30 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %project) #19
-  %project.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 11
-  %m_len.i.i32 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i27, i64 0, i32 1
+  %project.i = getelementptr inbounds i8, ptr %this, i64 268
+  %m_len.i.i32 = getelementptr inbounds i8, ptr %agg.tmp.i27, i64 8
   store i64 %call.i.i.i.i30, ptr %m_len.i.i32, align 8
   %call.i33 = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %project.i, ptr noundef nonnull %agg.tmp.i27, i64 noundef 200) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i27)
@@ -313,20 +309,20 @@ _ZN3dpx13GenericHeader12SetCopyrightEPKc.exit:    ; preds = %if.end16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i34)
   store ptr %copyright, ptr %agg.tmp.i34, align 8
   %call.i.i.i.i37 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %copyright) #19
-  %copyright.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 12
-  %m_len.i.i39 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp.i34, i64 0, i32 1
+  %copyright.i = getelementptr inbounds i8, ptr %this, i64 468
+  %m_len.i.i39 = getelementptr inbounds i8, ptr %agg.tmp.i34, i64 8
   store i64 %call.i.i.i.i37, ptr %m_len.i.i39, align 8
   %call.i40 = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %copyright.i, ptr noundef nonnull %agg.tmp.i34, i64 noundef 200) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i34)
   br label %if.end20
 
 if.end20:                                         ; preds = %_ZN3dpx13GenericHeader12SetCopyrightEPKc.exit, %if.end16
-  %encryptKey.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 13
+  %encryptKey.i = getelementptr inbounds i8, ptr %this, i64 668
   store i32 %encryptKey, ptr %encryptKey.i, align 4
   br i1 %swapEndian, label %if.then23, label %if.end28
 
 if.then23:                                        ; preds = %if.end20
-  %header21 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1
+  %header21 = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr1.i = getelementptr inbounds i8, ptr %this, i64 11
   br label %for.body.i
 
@@ -356,11 +352,11 @@ declare void @_ZN3dpx13GenericHeader19SetCreationTimeDateEl(ptr noundef nonnull 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3dpx6Writer12SetImageInfoEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2080) %this, i32 noundef %width, i32 noundef %height) local_unnamed_addr #8 align 2 {
 entry:
-  %imageOrientation.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 15
+  %imageOrientation.i = getelementptr inbounds i8, ptr %this, i64 776
   store i16 0, ptr %imageOrientation.i, align 8
-  %pixelsPerLine.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 17
+  %pixelsPerLine.i = getelementptr inbounds i8, ptr %this, i64 780
   store i32 %width, ptr %pixelsPerLine.i, align 4
-  %linesPerElement.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 18
+  %linesPerElement.i = getelementptr inbounds i8, ptr %this, i64 784
   store i32 %height, ptr %linesPerElement.i, align 8
   ret void
 }
@@ -368,12 +364,12 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK3dpx6Writer16NextAvailElementEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2080) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %header = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1
+  %chan.i = getelementptr inbounds i8, ptr %this, i64 788
   br label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
 
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %descriptor.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %indvars.iv, i32 5
+  %descriptor.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %indvars.iv, i32 5
   %0 = load i8, ptr %descriptor.i, align 8
   %cmp2 = icmp eq i8 %0, -1
   br i1 %cmp2, label %for.end.split.loop.exit, label %for.inc
@@ -395,7 +391,7 @@ for.end:                                          ; preds = %for.inc, %for.end.s
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3dpx6Writer12SetOutStreamEP9OutStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2080) %this, ptr noundef %fd) local_unnamed_addr #8 align 2 {
 entry:
-  %fd2 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd2 = getelementptr inbounds i8, ptr %this, i64 2072
   store ptr %fd, ptr %fd2, align 8
   ret void
 }
@@ -403,18 +399,18 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3dpx6Writer11WriteHeaderEv(ptr noundef nonnull align 8 dereferenceable(2080) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %header = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1
+  %header = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3dpx6Header16CalculateOffsetsEv(ptr noundef nonnull align 4 dereferenceable(2049) %header)
-  %fd = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %this, i64 2072
   %0 = load ptr, ptr %fd, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 0, i32 noundef 0)
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fileLoc = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 2
+  %fileLoc = getelementptr inbounds i8, ptr %this, i64 2064
   store i64 2048, ptr %fileLoc, align 8
   %2 = load ptr, ptr %fd, align 8
   %call6 = tail call noundef zeroext i1 @_ZN3dpx6Header5WriteEP9OutStream(ptr noundef nonnull align 4 dereferenceable(2049) %header, ptr noundef %2)
@@ -433,7 +429,7 @@ declare noundef zeroext i1 @_ZN3dpx6Header5WriteEP9OutStream(ptr noundef nonnull
 define hidden void @_ZN3dpx6Writer11SetUserDataEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2080) %this, i64 noundef %size) local_unnamed_addr #8 align 2 {
 entry:
   %conv = trunc i64 %size to i32
-  %userSize.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 7
+  %userSize.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %conv, ptr %userSize.i, align 8
   ret void
 }
@@ -441,20 +437,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3dpx6Writer13WriteUserDataEPv(ptr nocapture noundef nonnull align 8 dereferenceable(2080) %this, ptr noundef %data) local_unnamed_addr #5 align 2 {
 entry:
-  %userSize.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 7
+  %userSize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %userSize.i, align 8
   %conv = zext i32 %0 to i64
-  %fd = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %this, i64 2072
   %1 = load ptr, ptr %fd, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %data, i64 noundef %conv)
   %cmp.i = icmp eq i64 %call.i, %conv
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fileLoc = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 2
+  %fileLoc = getelementptr inbounds i8, ptr %this, i64 2064
   %3 = load i64, ptr %fileLoc, align 8
   %add = add i64 %3, %conv
   store i64 %add, ptr %fileLoc, align 8
@@ -471,39 +467,40 @@ entry:
   br i1 %or.cond, label %return, label %_ZN3dpx13GenericHeader20SetEndOfImagePaddingEij.exit
 
 _ZN3dpx13GenericHeader20SetEndOfImagePaddingEij.exit: ; preds = %entry
-  %header = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1
+  %header = getelementptr inbounds i8, ptr %this, i64 8
+  %chan.i = getelementptr inbounds i8, ptr %this, i64 788
   %idxprom.i = zext nneg i32 %num to i64
-  %arrayidx.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i
   store i32 %dataSign, ptr %arrayidx.i, align 4
-  %lowData.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 1
+  %lowData.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 1
   store i32 %lowData, ptr %lowData.i, align 8
-  %lowQuantity.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 2
+  %lowQuantity.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 2
   store float %lowQuantity, ptr %lowQuantity.i, align 4
-  %highData.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 3
+  %highData.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 3
   store i32 %highData, ptr %highData.i, align 8
-  %highQuantity.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 4
+  %highQuantity.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 4
   store float %highQuantity, ptr %highQuantity.i, align 4
   %conv.i = trunc i32 %desc to i8
-  %descriptor.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 5
+  %descriptor.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 5
   store i8 %conv.i, ptr %descriptor.i, align 8
-  %conv.i32 = trunc i32 %transfer to i8
-  %transfer.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 6
-  store i8 %conv.i32, ptr %transfer.i, align 1
-  %conv.i36 = trunc i32 %colorimetric to i8
-  %colorimetric.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 7
-  store i8 %conv.i36, ptr %colorimetric.i, align 2
-  %bitDepth.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 8
+  %conv.i37 = trunc i32 %transfer to i8
+  %transfer.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 6
+  store i8 %conv.i37, ptr %transfer.i, align 1
+  %conv.i42 = trunc i32 %colorimetric to i8
+  %colorimetric.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 7
+  store i8 %conv.i42, ptr %colorimetric.i, align 2
+  %bitDepth.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 8
   store i8 %bitDepth, ptr %bitDepth.i, align 1
-  %conv.i43 = trunc i32 %packing to i16
-  %packing.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 9
-  store i16 %conv.i43, ptr %packing.i, align 4
+  %conv.i51 = trunc i32 %packing to i16
+  %packing.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 9
+  store i16 %conv.i51, ptr %packing.i, align 4
   %cmp3.i = icmp ne i32 %encoding, 0
-  %conv.i47 = zext i1 %cmp3.i to i16
-  %encoding.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 10
-  store i16 %conv.i47, ptr %encoding.i, align 2
-  %endOfLinePadding.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 12
+  %conv.i56 = zext i1 %cmp3.i to i16
+  %encoding.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 10
+  store i16 %conv.i56, ptr %encoding.i, align 2
+  %endOfLinePadding.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 12
   store i32 %eolnPadding, ptr %endOfLinePadding.i, align 4
-  %endOfImagePadding.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 13
+  %endOfImagePadding.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 13
   store i32 %eoimPadding, ptr %endOfImagePadding.i, align 8
   tail call void @_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv(ptr noundef nonnull align 4 dereferenceable(1664) %header)
   br label %return
@@ -517,7 +514,7 @@ declare void @_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3dpx6Writer12WritePadDataEi(ptr nocapture noundef nonnull align 8 dereferenceable(2080) %this, i32 noundef %alignment) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fileLoc = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 2
+  %fileLoc = getelementptr inbounds i8, ptr %this, i64 2064
   %0 = load i64, ptr %fileLoc, align 8
   %.fr = freeze i64 %0
   %conv = sext i32 %alignment to i64
@@ -544,10 +541,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.then
   %pad.sroa.0.0 = phi ptr [ %call5.i.i.i.i1.i.i7, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %if.then ]
-  %fd = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %this, i64 2072
   %2 = load ptr, ptr %fd, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   %call14 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %pad.sroa.0.0, i64 noundef %conv9)
           to label %invoke.cont13 unwind label %lpad12
@@ -597,15 +594,15 @@ entry:
   br i1 %or.cond, label %return, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
 
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %entry
-  %header = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1
+  %chan.i = getelementptr inbounds i8, ptr %this, i64 788
   %idxprom.i = zext nneg i32 %element to i64
-  %descriptor.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 5
+  %descriptor.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 5
   %0 = load i8, ptr %descriptor.i, align 8
   %cmp3 = icmp eq i8 %0, -1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
-  %fileLoc.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 2
+  %fileLoc.i = getelementptr inbounds i8, ptr %this, i64 2064
   %1 = load i64, ptr %fileLoc.i, align 8
   %.fr.i = freeze i64 %1
   %sub.i = add i64 %.fr.i, 8191
@@ -624,10 +621,10 @@ if.then.i:                                        ; preds = %if.end5
   tail call void @llvm.assume(i1 %cmp.not.i.i.i.i.i)
   %call5.i.i.i.i1.i.i7.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv9.i) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i.i7.i, i8 -1, i64 %conv9.i, i1 false)
-  %fd.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd.i = getelementptr inbounds i8, ptr %this, i64 2072
   %3 = load ptr, ptr %fd.i, align 8
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %4 = load ptr, ptr %vfn.i, align 8
   %call14.i = invoke noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %call5.i.i.i.i1.i.i7.i, i64 noundef %conv9.i)
           to label %invoke.cont13.i unwind label %lpad12.i
@@ -653,21 +650,21 @@ lpad12.i:                                         ; preds = %if.then.i
 _ZN3dpx13GenericHeader13SetDataOffsetEij.exit:    ; preds = %invoke.cont13.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_crit_edge, %if.end5
   %7 = phi i64 [ %.pre, %invoke.cont13.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_crit_edge ], [ %.fr.i, %if.end5 ]
   %conv = trunc i64 %7 to i32
-  %dataOffset.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 11
+  %dataOffset.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 11
   store i32 %conv, ptr %dataOffset.i, align 8
   %add = add nsw i64 %7, %count
   store i64 %add, ptr %fileLoc.i, align 8
-  %fd = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %this, i64 2072
   %8 = load ptr, ptr %fd, align 8
-  %vtable.i8 = load ptr, ptr %8, align 8
-  %vfn.i9 = getelementptr inbounds ptr, ptr %vtable.i8, i64 3
-  %9 = load ptr, ptr %vfn.i9, align 8
+  %vtable.i9 = load ptr, ptr %8, align 8
+  %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 24
+  %9 = load ptr, ptr %vfn.i10, align 8
   %call.i = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %data, i64 noundef %count)
-  %cmp.i10 = icmp eq i64 %call.i, %count
+  %cmp.i11 = icmp eq i64 %call.i, %count
   br label %return
 
 return:                                           ; preds = %invoke.cont13.i, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %entry, %_ZN3dpx13GenericHeader13SetDataOffsetEij.exit
-  %retval.0 = phi i1 [ %cmp.i10, %_ZN3dpx13GenericHeader13SetDataOffsetEij.exit ], [ false, %entry ], [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ false, %invoke.cont13.i ]
+  %retval.0 = phi i1 [ %cmp.i11, %_ZN3dpx13GenericHeader13SetDataOffsetEij.exit ], [ false, %entry ], [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ false, %invoke.cont13.i ]
   ret i1 %retval.0
 }
 
@@ -678,14 +675,15 @@ entry:
   br i1 %or.cond, label %return, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
 
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %entry
-  %header = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1
+  %chan.i = getelementptr inbounds i8, ptr %this, i64 788
   %idxprom.i = zext nneg i32 %element to i64
-  %descriptor.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 5
+  %descriptor.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 5
   %0 = load i8, ptr %descriptor.i, align 8
   %cmp3 = icmp eq i8 %0, -1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
+  %header = getelementptr inbounds i8, ptr %this, i64 8
   %call7 = tail call noundef i32 @_ZNK3dpx13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull align 4 dereferenceable(1664) %header, i32 noundef %element)
   %call8 = tail call noundef zeroext i1 @_ZN3dpx6Writer12WriteElementEiPvNS_8DataSizeE(ptr noundef nonnull align 8 dereferenceable(2080) %this, i32 noundef %element, ptr noundef %data, i32 noundef %call7)
   br label %return
@@ -704,15 +702,16 @@ entry:
   br i1 %or.cond, label %return, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
 
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %entry
-  %header = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1
+  %header = getelementptr inbounds i8, ptr %this, i64 8
+  %chan.i = getelementptr inbounds i8, ptr %this, i64 788
   %idxprom.i = zext nneg i32 %element to i64
-  %descriptor.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 5
+  %descriptor.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 5
   %0 = load i8, ptr %descriptor.i, align 8
   %cmp3 = icmp eq i8 %0, -1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
-  %fileLoc.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 2
+  %fileLoc.i = getelementptr inbounds i8, ptr %this, i64 2064
   %1 = load i64, ptr %fileLoc.i, align 8
   %.fr.i = freeze i64 %1
   %sub.i = add i64 %.fr.i, 8191
@@ -731,10 +730,10 @@ if.then.i:                                        ; preds = %if.end5
   tail call void @llvm.assume(i1 %cmp.not.i.i.i.i.i)
   %call5.i.i.i.i1.i.i7.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv9.i) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i.i7.i, i8 -1, i64 %conv9.i, i1 false)
-  %fd.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd.i = getelementptr inbounds i8, ptr %this, i64 2072
   %3 = load ptr, ptr %fd.i, align 8
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %4 = load ptr, ptr %vfn.i, align 8
   %call14.i = invoke noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %call5.i.i.i.i1.i.i7.i, i64 noundef %conv9.i)
           to label %invoke.cont13.i unwind label %lpad12.i
@@ -760,32 +759,32 @@ if.end8:                                          ; preds = %if.end5, %invoke.co
   br i1 %cmp9, label %if.then10, label %_ZNK3dpx13GenericHeader8BitDepthEi.exit
 
 _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %if.end8
-  %dataOffset.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 11
+  %dataOffset.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 11
   store i32 %conv, ptr %dataOffset.i, align 8
-  %encoding.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 10
-  %endOfLinePadding.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 12
+  %encoding.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 10
+  %endOfLinePadding.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 12
   %8 = load <2 x i32>, ptr %endOfLinePadding.i, align 4
   %9 = icmp eq <2 x i32> %8, <i32 -1, i32 -1>
   %10 = select <2 x i1> %9, <2 x i32> zeroinitializer, <2 x i32> %8
-  %bitDepth.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 8
+  %bitDepth.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 8
   br label %_ZNK3dpx13GenericHeader12ImagePackingEi.exit
 
 if.then10:                                        ; preds = %if.end8
-  %imageOffset.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %imageOffset.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %conv, ptr %imageOffset.i, align 4
-  %dataOffset.i216 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 19, i64 0, i32 11
-  store i32 %conv, ptr %dataOffset.i216, align 8
-  %encoding.i218 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 19, i64 0, i32 10
-  %endOfLinePadding.i223 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 19, i64 0, i32 12
-  %11 = load <2 x i32>, ptr %endOfLinePadding.i223, align 4
+  %dataOffset.i222 = getelementptr inbounds i8, ptr %this, i64 816
+  store i32 %conv, ptr %dataOffset.i222, align 8
+  %encoding.i225 = getelementptr inbounds i8, ptr %this, i64 814
+  %endOfLinePadding.i231 = getelementptr inbounds i8, ptr %this, i64 820
+  %11 = load <2 x i32>, ptr %endOfLinePadding.i231, align 4
   %12 = icmp eq <2 x i32> %11, <i32 -1, i32 -1>
   %13 = select <2 x i1> %12, <2 x i32> zeroinitializer, <2 x i32> %11
-  %bitDepth.i233 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 19, i64 0, i32 8
+  %bitDepth.i243 = getelementptr inbounds i8, ptr %this, i64 811
   br label %_ZNK3dpx13GenericHeader12ImagePackingEi.exit
 
 _ZNK3dpx13GenericHeader12ImagePackingEi.exit:     ; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit, %if.then10
-  %phi.call190.in = phi ptr [ %bitDepth.i233, %if.then10 ], [ %bitDepth.i, %_ZNK3dpx13GenericHeader8BitDepthEi.exit ]
-  %.in.in.in.in = phi ptr [ %encoding.i218, %if.then10 ], [ %encoding.i, %_ZNK3dpx13GenericHeader8BitDepthEi.exit ]
+  %phi.call190.in = phi ptr [ %bitDepth.i243, %if.then10 ], [ %bitDepth.i, %_ZNK3dpx13GenericHeader8BitDepthEi.exit ]
+  %.in.in.in.in = phi ptr [ %encoding.i225, %if.then10 ], [ %encoding.i, %_ZNK3dpx13GenericHeader8BitDepthEi.exit ]
   %14 = phi <2 x i32> [ %13, %if.then10 ], [ %10, %_ZNK3dpx13GenericHeader8BitDepthEi.exit ]
   %.in.in.in = load i16, ptr %.in.in.in.in, align 2
   %.in.in = icmp eq i16 %.in.in.in, 1
@@ -793,9 +792,9 @@ _ZNK3dpx13GenericHeader12ImagePackingEi.exit:     ; preds = %_ZNK3dpx13GenericHe
   %call26 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %header)
   %call28 = tail call noundef i32 @_ZNK3dpx6Header6HeightEv(ptr noundef nonnull align 4 dereferenceable(2049) %header)
   %call30 = tail call noundef i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr noundef nonnull align 4 dereferenceable(1664) %header, i32 noundef %element)
-  %packing.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %header, i64 0, i32 19, i64 %idxprom.i, i32 9
+  %packing.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 9
   %15 = load i16, ptr %packing.i, align 4
-  %conv.i238 = zext i16 %15 to i32
+  %conv.i249 = zext i16 %15 to i32
   %cmp33 = icmp eq i32 %call26, 0
   %cmp35 = icmp eq i32 %call28, 0
   %or.cond1 = or i1 %cmp33, %cmp35
@@ -840,8 +839,8 @@ lor.lhs.false55:                                  ; preds = %land.lhs.true50
   %cmp61 = icmp eq i16 %15, 1
   %20 = and i1 %cmp57, %cmp61
   %cmp64 = icmp eq i8 %phi.call190, 16
-  %or.cond5264 = or i1 %cmp64, %20
-  %or.cond192 = and i1 %cmp59, %or.cond5264
+  %or.cond5276 = or i1 %cmp64, %20
+  %or.cond192 = and i1 %cmp59, %or.cond5276
   br i1 %or.cond192, label %if.then77, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %lor.lhs.false55
@@ -868,7 +867,7 @@ delete.notnull:                                   ; preds = %if.then77
 if.else:                                          ; preds = %lor.lhs.false72, %land.lhs.true, %if.end46
   switch i8 %phi.call190, label %if.end228 [
     i8 8, label %sw.bb
-    i8 10, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit248
+    i8 10, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit260
     i8 12, label %sw.bb140
     i8 16, label %sw.bb163
     i8 32, label %sw.bb186
@@ -877,108 +876,108 @@ if.else:                                          ; preds = %lor.lhs.false72, %l
 
 sw.bb:                                            ; preds = %if.else
   %cmp85 = icmp eq i32 %size, 0
-  %fd = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %this, i64 2072
   %21 = load ptr, ptr %fd, align 8
   %22 = load i32, ptr %header, align 8
-  %call.i240 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %header, i32 noundef %22)
+  %call.i251 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %header, i32 noundef %22)
   br i1 %cmp85, label %if.then86, label %if.else95
 
 if.then86:                                        ; preds = %sw.bb
-  %call91 = call noundef i32 @_ZN3dpx11WriteBufferIhLi8ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %21, i32 noundef 0, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i238, i1 noundef zeroext %.in.in, i1 noundef zeroext false, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i240)
+  %call91 = call noundef i32 @_ZN3dpx11WriteBufferIhLi8ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %21, i32 noundef 0, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i249, i1 noundef zeroext %.in.in, i1 noundef zeroext false, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i251)
   br label %if.end228.sink.split
 
 if.else95:                                        ; preds = %sw.bb
-  %call101 = call noundef i32 @_ZN3dpx11WriteBufferIhLi8ELb0EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %21, i32 noundef %size, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i238, i1 noundef zeroext %.in.in, i1 noundef zeroext false, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i240)
+  %call101 = call noundef i32 @_ZN3dpx11WriteBufferIhLi8ELb0EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %21, i32 noundef %size, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i249, i1 noundef zeroext %.in.in, i1 noundef zeroext false, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i251)
   br label %if.end228.sink.split
 
-_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit248: ; preds = %if.else
+_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit260: ; preds = %if.else
   %23 = load i8, ptr %descriptor.i, align 8
   %cmp109 = icmp eq i8 %23, 50
   br i1 %cmp109, label %land.lhs.true110, label %if.end117
 
-land.lhs.true110:                                 ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit248
+land.lhs.true110:                                 ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit260
   %call112 = tail call noundef zeroext i1 @_ZNK3dpx6Header9DatumSwapEi(ptr noundef nonnull align 4 dereferenceable(2049) %header, i32 noundef %element)
   br label %if.end117
 
-if.end117:                                        ; preds = %land.lhs.true110, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit248
-  %reverse.0 = phi i1 [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit248 ], [ %call112, %land.lhs.true110 ]
+if.end117:                                        ; preds = %land.lhs.true110, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit260
+  %reverse.0 = phi i1 [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit260 ], [ %call112, %land.lhs.true110 ]
   %cmp118 = icmp eq i32 %size, 1
-  %fd120 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd120 = getelementptr inbounds i8, ptr %this, i64 2072
   %24 = load ptr, ptr %fd120, align 8
   %25 = load i32, ptr %header, align 8
-  %call.i249 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %header, i32 noundef %25)
+  %call.i261 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %header, i32 noundef %25)
   br i1 %cmp118, label %if.then119, label %if.else129
 
 if.then119:                                       ; preds = %if.end117
-  %call125 = call noundef i32 @_ZN3dpx11WriteBufferItLi10ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %24, i32 noundef 1, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i238, i1 noundef zeroext %.in.in, i1 noundef zeroext %reverse.0, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i249)
+  %call125 = call noundef i32 @_ZN3dpx11WriteBufferItLi10ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %24, i32 noundef 1, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i249, i1 noundef zeroext %.in.in, i1 noundef zeroext %reverse.0, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i261)
   br label %if.end228.sink.split
 
 if.else129:                                       ; preds = %if.end117
-  %call135 = call noundef i32 @_ZN3dpx11WriteBufferItLi10ELb0EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %24, i32 noundef %size, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i238, i1 noundef zeroext %.in.in, i1 noundef zeroext %reverse.0, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i249)
+  %call135 = call noundef i32 @_ZN3dpx11WriteBufferItLi10ELb0EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %24, i32 noundef %size, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i249, i1 noundef zeroext %.in.in, i1 noundef zeroext %reverse.0, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i261)
   br label %if.end228.sink.split
 
 sw.bb140:                                         ; preds = %if.else
   %cmp141 = icmp eq i32 %size, 1
-  %fd143 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd143 = getelementptr inbounds i8, ptr %this, i64 2072
   %26 = load ptr, ptr %fd143, align 8
   %27 = load i32, ptr %header, align 8
-  %call.i251 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %header, i32 noundef %27)
+  %call.i263 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %header, i32 noundef %27)
   br i1 %cmp141, label %if.then142, label %if.else152
 
 if.then142:                                       ; preds = %sw.bb140
-  %call148 = call noundef i32 @_ZN3dpx11WriteBufferItLi12ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %26, i32 noundef 1, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i238, i1 noundef zeroext %.in.in, i1 noundef zeroext false, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i251)
+  %call148 = call noundef i32 @_ZN3dpx11WriteBufferItLi12ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %26, i32 noundef 1, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i249, i1 noundef zeroext %.in.in, i1 noundef zeroext false, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i263)
   br label %if.end228.sink.split
 
 if.else152:                                       ; preds = %sw.bb140
-  %call158 = call noundef i32 @_ZN3dpx11WriteBufferItLi12ELb0EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %26, i32 noundef %size, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i238, i1 noundef zeroext %.in.in, i1 noundef zeroext false, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i251)
+  %call158 = call noundef i32 @_ZN3dpx11WriteBufferItLi12ELb0EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %26, i32 noundef %size, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i249, i1 noundef zeroext %.in.in, i1 noundef zeroext false, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i263)
   br label %if.end228.sink.split
 
 sw.bb163:                                         ; preds = %if.else
   %cmp164 = icmp eq i32 %size, 1
-  %fd166 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd166 = getelementptr inbounds i8, ptr %this, i64 2072
   %28 = load ptr, ptr %fd166, align 8
   %29 = load i32, ptr %header, align 8
-  %call.i253 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %header, i32 noundef %29)
+  %call.i265 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %header, i32 noundef %29)
   br i1 %cmp164, label %if.then165, label %if.else175
 
 if.then165:                                       ; preds = %sw.bb163
-  %call171 = call noundef i32 @_ZN3dpx11WriteBufferItLi16ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %28, i32 noundef 1, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i238, i1 noundef zeroext %.in.in, i1 noundef zeroext false, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i253)
+  %call171 = call noundef i32 @_ZN3dpx11WriteBufferItLi16ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %28, i32 noundef 1, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i249, i1 noundef zeroext %.in.in, i1 noundef zeroext false, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i265)
   br label %if.end228.sink.split
 
 if.else175:                                       ; preds = %sw.bb163
-  %call181 = call noundef i32 @_ZN3dpx11WriteBufferItLi16ELb0EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %28, i32 noundef %size, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i238, i1 noundef zeroext %.in.in, i1 noundef zeroext false, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i253)
+  %call181 = call noundef i32 @_ZN3dpx11WriteBufferItLi16ELb0EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb(ptr noundef %28, i32 noundef %size, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i249, i1 noundef zeroext %.in.in, i1 noundef zeroext false, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i265)
   br label %if.end228.sink.split
 
 sw.bb186:                                         ; preds = %if.else
   %cmp187 = icmp eq i32 %size, 3
-  %fd189 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd189 = getelementptr inbounds i8, ptr %this, i64 2072
   %30 = load ptr, ptr %fd189, align 8
   %31 = load i32, ptr %header, align 8
-  %call.i255 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %header, i32 noundef %31)
+  %call.i267 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %header, i32 noundef %31)
   br i1 %cmp187, label %if.then188, label %if.else197
 
 if.then188:                                       ; preds = %sw.bb186
-  %call193 = call noundef i32 @_ZN3dpx16WriteFloatBufferIfLi32ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbiPcRbb(ptr noundef %30, i32 noundef 3, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i238, i1 noundef zeroext %.in.in, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i255)
+  %call193 = call noundef i32 @_ZN3dpx16WriteFloatBufferIfLi32ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbiPcRbb(ptr noundef %30, i32 noundef 3, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i249, i1 noundef zeroext %.in.in, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i267)
   br label %if.end228.sink.split
 
 if.else197:                                       ; preds = %sw.bb186
-  %call202 = call noundef i32 @_ZN3dpx16WriteFloatBufferIfLi32ELb0EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbiPcRbb(ptr noundef %30, i32 noundef %size, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i238, i1 noundef zeroext %.in.in, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i255)
+  %call202 = call noundef i32 @_ZN3dpx16WriteFloatBufferIfLi32ELb0EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbiPcRbb(ptr noundef %30, i32 noundef %size, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i249, i1 noundef zeroext %.in.in, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i267)
   br label %if.end228.sink.split
 
 sw.bb207:                                         ; preds = %if.else
   %cmp208 = icmp eq i32 %size, 4
-  %fd210 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd210 = getelementptr inbounds i8, ptr %this, i64 2072
   %32 = load ptr, ptr %fd210, align 8
   %33 = load i32, ptr %header, align 8
-  %call.i257 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %header, i32 noundef %33)
+  %call.i269 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %header, i32 noundef %33)
   br i1 %cmp208, label %if.then209, label %if.else218
 
 if.then209:                                       ; preds = %sw.bb207
-  %call214 = call noundef i32 @_ZN3dpx16WriteFloatBufferIdLi64ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbiPcRbb(ptr noundef %32, i32 noundef 4, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i238, i1 noundef zeroext %.in.in, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i257)
+  %call214 = call noundef i32 @_ZN3dpx16WriteFloatBufferIdLi64ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbiPcRbb(ptr noundef %32, i32 noundef 4, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i249, i1 noundef zeroext %.in.in, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i269)
   br label %if.end228.sink.split
 
 if.else218:                                       ; preds = %sw.bb207
-  %call223 = call noundef i32 @_ZN3dpx16WriteFloatBufferIdLi64ELb0EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbiPcRbb(ptr noundef %32, i32 noundef %size, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i238, i1 noundef zeroext %.in.in, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i257)
+  %call223 = call noundef i32 @_ZN3dpx16WriteFloatBufferIdLi64ELb0EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbiPcRbb(ptr noundef %32, i32 noundef %size, ptr noundef %data, i32 noundef %call26, i32 noundef %call28, i32 noundef %call30, i32 noundef %conv.i249, i1 noundef zeroext %.in.in, i32 noundef %17, ptr noundef %blank.0, ptr noundef nonnull align 1 dereferenceable(1) %status, i1 noundef zeroext %call.i269)
   br label %if.end228.sink.split
 
 if.end228.sink.split:                             ; preds = %if.then209, %if.else218, %if.then188, %if.else197, %if.then165, %if.else175, %if.then142, %if.else152, %if.then119, %if.else129, %if.then86, %if.else95
@@ -1001,14 +1000,14 @@ if.then232:                                       ; preds = %if.end228
   %37 = load i64, ptr %fileLoc.i, align 8
   %add235 = add nsw i64 %37, %conv233
   store i64 %add235, ptr %fileLoc.i, align 8
-  %fd236 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd236 = getelementptr inbounds i8, ptr %this, i64 2072
   %38 = load ptr, ptr %fd236, align 8
-  %vtable.i259 = load ptr, ptr %38, align 8
-  %vfn.i260 = getelementptr inbounds ptr, ptr %vtable.i259, i64 3
-  %39 = load ptr, ptr %vfn.i260, align 8
-  %call.i261 = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef %blank.0, i64 noundef %conv233)
-  %cmp.i262 = icmp eq i64 %call.i261, %conv233
-  %frombool239 = zext i1 %cmp.i262 to i8
+  %vtable.i271 = load ptr, ptr %38, align 8
+  %vfn.i272 = getelementptr inbounds i8, ptr %vtable.i271, i64 24
+  %39 = load ptr, ptr %vfn.i272, align 8
+  %call.i273 = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef %blank.0, i64 noundef %conv233)
+  %cmp.i274 = icmp eq i64 %call.i273, %conv233
+  %frombool239 = zext i1 %cmp.i274 to i8
   store i8 %frombool239, ptr %status, align 1
   br label %if.end240
 
@@ -1060,7 +1059,7 @@ entry:
   %mul7 = mul i32 %eolnPad, %height
   %conv8 = zext i32 %mul7 to i64
   %add = add i64 %mul6, %conv8
-  %fileLoc = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 2
+  %fileLoc = getelementptr inbounds i8, ptr %this, i64 2064
   %0 = load i64, ptr %fileLoc, align 8
   %add9 = add i64 %add, %0
   store i64 %add9, ptr %fileLoc, align 8
@@ -1072,7 +1071,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp33.not, label %if.end26, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %fd = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %this, i64 2072
   %mul10 = mul i32 %bytes, %width
   %conv13 = zext i32 %mul10 to i64
   %conv16 = zext i32 %eoimPad to i64
@@ -1091,7 +1090,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext = zext i32 %mul11 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %add.ptr, i64 noundef %conv13)
   %cmp.i = icmp eq i64 %call.i, %conv13
@@ -1100,17 +1099,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end:                                           ; preds = %for.body
   %4 = load ptr, ptr %fd, align 8
   %vtable.i18 = load ptr, ptr %4, align 8
-  %vfn.i19 = getelementptr inbounds ptr, ptr %vtable.i18, i64 3
+  %vfn.i19 = getelementptr inbounds i8, ptr %vtable.i18, i64 24
   %5 = load ptr, ptr %vfn.i19, align 8
   %call.i20 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %blank, i64 noundef %conv16)
   %cmp.i21 = icmp eq i64 %call.i20, %conv16
   br i1 %cmp.i21, label %for.cond, label %if.end36
 
 if.else:                                          ; preds = %entry
-  %fd20 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd20 = getelementptr inbounds i8, ptr %this, i64 2072
   %6 = load ptr, ptr %fd20, align 8
   %vtable.i22 = load ptr, ptr %6, align 8
-  %vfn.i23 = getelementptr inbounds ptr, ptr %vtable.i22, i64 3
+  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 24
   %7 = load ptr, ptr %vfn.i23, align 8
   %call.i24 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %data, i64 noundef %mul6)
   %cmp.i25 = icmp eq i64 %call.i24, %mul6
@@ -1127,10 +1126,10 @@ if.then29:                                        ; preds = %if.end26
   %8 = load i64, ptr %fileLoc, align 8
   %add32 = add nsw i64 %8, %conv30
   store i64 %add32, ptr %fileLoc, align 8
-  %fd33 = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd33 = getelementptr inbounds i8, ptr %this, i64 2072
   %9 = load ptr, ptr %fd33, align 8
   %vtable.i26 = load ptr, ptr %9, align 8
-  %vfn.i27 = getelementptr inbounds ptr, ptr %vtable.i26, i64 3
+  %vfn.i27 = getelementptr inbounds i8, ptr %vtable.i26, i64 24
   %10 = load ptr, ptr %vfn.i27, align 8
   %call.i28 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %blank, i64 noundef %conv30)
   %cmp.i29 = icmp eq i64 %call.i28, %conv30
@@ -1245,7 +1244,7 @@ for.body.i34.i:                                   ; preds = %if.then8.i, %for.bo
 if.end23:                                         ; preds = %for.body.i34.i, %for.body.i25.i, %for.body.i16.i, %for.body.i.i.preheader, %if.then8.i, %if.then5.i, %if.then2.i, %if.then.i, %for.body
   %add28 = add i32 %fileOffset.047, %mul
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %conv43)
   %cmp.i = icmp eq i64 %call.i, %conv43
@@ -1257,7 +1256,7 @@ if.end47:                                         ; preds = %if.end23
 if.then49:                                        ; preds = %if.end47
   %add50 = add nsw i32 %add28, %eolnPad
   %vtable.i33 = load ptr, ptr %fd, align 8
-  %vfn.i34 = getelementptr inbounds ptr, ptr %vtable.i33, i64 3
+  %vfn.i34 = getelementptr inbounds i8, ptr %vtable.i33, i64 24
   %6 = load ptr, ptr %vfn.i34, align 8
   %call.i35 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv51)
   %cmp.i36 = icmp eq i64 %call.i35, %conv51
@@ -1317,7 +1316,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %call10.us = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %add27.us = add i32 %fileOffset.039.us, %mul
   %vtable.i.us = load ptr, ptr %fd, align 8
-  %vfn.i.us = getelementptr inbounds ptr, ptr %vtable.i.us, i64 3
+  %vfn.i.us = getelementptr inbounds i8, ptr %vtable.i.us, i64 24
   %2 = load ptr, ptr %vfn.i.us, align 8
   %call.i.us = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %conv42)
   %cmp.i.us = icmp eq i64 %call.i.us, %conv42
@@ -1334,7 +1333,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %add27 = add i32 %fileOffset.039, %mul
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %conv42)
   %cmp.i = icmp eq i64 %call.i, %conv42
@@ -1343,7 +1342,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end46:                                         ; preds = %for.body
   %add49 = add nsw i32 %add27, %eolnPad
   %vtable.i28 = load ptr, ptr %fd, align 8
-  %vfn.i29 = getelementptr inbounds ptr, ptr %vtable.i28, i64 3
+  %vfn.i29 = getelementptr inbounds i8, ptr %vtable.i28, i64 24
   %4 = load ptr, ptr %vfn.i29, align 8
   %call.i30 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv50)
   %cmp.i31 = icmp eq i64 %call.i30, %conv50
@@ -1391,7 +1390,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   br i1 %cmp9141.not, label %delete.notnull, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %cond.end
-  %invariant.gep139 = getelementptr i32, ptr %call, i64 -1
+  %invariant.gep139 = getelementptr i8, ptr %call, i64 -4
   %cmp4.i32.i = icmp sgt i32 %mul, 0
   %wide.trip.count.i34.i = zext i32 %mul to i64
   %add15.i = add nsw i32 %mul, 2
@@ -1733,7 +1732,7 @@ _ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i:         ; preds = %for.body.i.i.i36.i
 
 if.end51:                                         ; preds = %_ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i, %if.end36
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %34 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul39)
   %cmp.i = icmp eq i64 %call.i, %mul39
@@ -1745,7 +1744,7 @@ if.end60:                                         ; preds = %if.end51
 if.then62:                                        ; preds = %if.end60
   %add63 = add nsw i32 %conv42, %eolnPad
   %vtable.i120 = load ptr, ptr %fd, align 8
-  %vfn.i121 = getelementptr inbounds ptr, ptr %vtable.i120, i64 3
+  %vfn.i121 = getelementptr inbounds i8, ptr %vtable.i120, i64 24
   %35 = load ptr, ptr %vfn.i121, align 8
   %call.i122 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv64)
   %cmp.i123 = icmp eq i64 %call.i122, %conv64
@@ -1792,7 +1791,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   br i1 %cmp9133.not, label %delete.notnull, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %cond.end
-  %invariant.gep131 = getelementptr i32, ptr %call, i64 -1
+  %invariant.gep131 = getelementptr i8, ptr %call, i64 -4
   %cmp18.i = icmp sgt i32 %mul, 0
   %add15.i = add nsw i32 %mul, 2
   %div16.i = sdiv i32 %add15.i, 3
@@ -2075,7 +2074,7 @@ _ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i:         ; preds = %for.body.i.i.i36.i
 
 if.end50:                                         ; preds = %_ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i, %if.end35
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %31 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul38)
   %cmp.i = icmp eq i64 %call.i, %mul38
@@ -2087,7 +2086,7 @@ if.end59:                                         ; preds = %if.end50
 if.then61:                                        ; preds = %if.end59
   %add62 = add nsw i32 %conv41, %eolnPad
   %vtable.i114 = load ptr, ptr %fd, align 8
-  %vfn.i115 = getelementptr inbounds ptr, ptr %vtable.i114, i64 3
+  %vfn.i115 = getelementptr inbounds i8, ptr %vtable.i114, i64 24
   %32 = load ptr, ptr %vfn.i115, align 8
   %call.i116 = tail call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv63)
   %cmp.i117 = icmp eq i64 %call.i116, %conv63
@@ -2351,7 +2350,7 @@ for.body.i.i14.i:                                 ; preds = %if.else.i, %for.bod
 
 if.end57:                                         ; preds = %for.body.i.i14.i, %_ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i.i, %if.else.i, %if.then.i46, %if.end42
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %22 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul45)
   %cmp.i47 = icmp eq i64 %call.i, %mul45
@@ -2363,7 +2362,7 @@ if.end66:                                         ; preds = %if.end57
 if.then68:                                        ; preds = %if.end66
   %add69 = add nsw i32 %conv48, %eolnPad
   %vtable.i48 = load ptr, ptr %fd, align 8
-  %vfn.i49 = getelementptr inbounds ptr, ptr %vtable.i48, i64 3
+  %vfn.i49 = getelementptr inbounds i8, ptr %vtable.i48, i64 24
   %23 = load ptr, ptr %vfn.i49, align 8
   %call.i50 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv70)
   %cmp.i51 = icmp eq i64 %call.i50, %conv70
@@ -2569,7 +2568,7 @@ for.body.i.i14.i:                                 ; preds = %if.else.i, %for.bod
 
 if.end56:                                         ; preds = %for.body.i.i14.i, %_ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i.i, %if.else.i, %if.then.i40, %if.end41
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %19 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul44)
   %cmp.i41 = icmp eq i64 %call.i, %mul44
@@ -2581,7 +2580,7 @@ if.end65:                                         ; preds = %if.end56
 if.then67:                                        ; preds = %if.end65
   %add68 = add nsw i32 %conv47, %eolnPad
   %vtable.i42 = load ptr, ptr %fd, align 8
-  %vfn.i43 = getelementptr inbounds ptr, ptr %vtable.i42, i64 3
+  %vfn.i43 = getelementptr inbounds i8, ptr %vtable.i42, i64 24
   %20 = load ptr, ptr %vfn.i43, align 8
   %call.i44 = tail call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv69)
   %cmp.i45 = icmp eq i64 %call.i44, %conv69
@@ -2728,7 +2727,7 @@ for.body.i.i22.i:                                 ; preds = %if.end23, %for.body
 
 if.end38:                                         ; preds = %for.body.i.i22.i, %if.end23
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %10 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul26)
   %cmp.i = icmp eq i64 %call.i, %mul26
@@ -2740,7 +2739,7 @@ if.end47:                                         ; preds = %if.end38
 if.then49:                                        ; preds = %if.end47
   %add50 = add nsw i32 %conv29, %eolnPad
   %vtable.i33 = load ptr, ptr %fd, align 8
-  %vfn.i34 = getelementptr inbounds ptr, ptr %vtable.i33, i64 3
+  %vfn.i34 = getelementptr inbounds i8, ptr %vtable.i33, i64 24
   %11 = load ptr, ptr %vfn.i34, align 8
   %call.i35 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv51)
   %cmp.i36 = icmp eq i64 %call.i35, %conv51
@@ -2830,7 +2829,7 @@ if.end46.us.us:                                   ; preds = %if.end37.loopexit.u
 if.end37.loopexit.us.us:                          ; preds = %for.body.i.i22.i.us.us
   %conv28.us.us = add i32 %fileOffset.039.us.us, %1
   %vtable.i.us.us = load ptr, ptr %fd, align 8
-  %vfn.i.us.us = getelementptr inbounds ptr, ptr %vtable.i.us.us, i64 3
+  %vfn.i.us.us = getelementptr inbounds i8, ptr %vtable.i.us.us, i64 24
   %8 = load ptr, ptr %vfn.i.us.us, align 8
   %call.i.us.us = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul25)
   %cmp.i.us.us = icmp eq i64 %call.i.us.us, %mul25
@@ -2857,7 +2856,7 @@ for.body.i.i22.i.us:                              ; preds = %for.body.i.i22.i.us
 if.end46.us:                                      ; preds = %if.end37.loopexit.us
   %add49.us = add nsw i32 %conv28.us, %eolnPad
   %vtable.i28.us = load ptr, ptr %fd, align 8
-  %vfn.i29.us = getelementptr inbounds ptr, ptr %vtable.i28.us, i64 3
+  %vfn.i29.us = getelementptr inbounds i8, ptr %vtable.i28.us, i64 24
   %11 = load ptr, ptr %vfn.i29.us, align 8
   %call.i30.us = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv50)
   %cmp.i31.us = icmp eq i64 %call.i30.us, %conv50
@@ -2871,7 +2870,7 @@ for.inc.us:                                       ; preds = %if.end46.us
 if.end37.loopexit.us:                             ; preds = %for.body.i.i22.i.us
   %conv28.us = add i32 %fileOffset.039.us, %1
   %vtable.i.us = load ptr, ptr %fd, align 8
-  %vfn.i.us = getelementptr inbounds ptr, ptr %vtable.i.us, i64 3
+  %vfn.i.us = getelementptr inbounds i8, ptr %vtable.i.us, i64 24
   %12 = load ptr, ptr %vfn.i.us, align 8
   %call.i.us = tail call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul25)
   %cmp.i.us = icmp eq i64 %call.i.us, %mul25
@@ -2892,7 +2891,7 @@ for.body.us42:                                    ; preds = %for.body.us42.prehe
   %call10.us45 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %conv28.us46 = add i32 %fileOffset.039.us43, %1
   %vtable.i.us47 = load ptr, ptr %fd, align 8
-  %vfn.i.us48 = getelementptr inbounds ptr, ptr %vtable.i.us47, i64 3
+  %vfn.i.us48 = getelementptr inbounds i8, ptr %vtable.i.us47, i64 24
   %16 = load ptr, ptr %vfn.i.us48, align 8
   %call.i.us49 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul25)
   %cmp.i.us50 = icmp eq i64 %call.i.us49, %mul25
@@ -2909,7 +2908,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %conv28 = add i32 %fileOffset.039, %1
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %17 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul25)
   %cmp.i = icmp eq i64 %call.i, %mul25
@@ -2918,7 +2917,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
 if.end46:                                         ; preds = %for.body
   %add49 = add nsw i32 %conv28, %eolnPad
   %vtable.i28 = load ptr, ptr %fd, align 8
-  %vfn.i29 = getelementptr inbounds ptr, ptr %vtable.i28, i64 3
+  %vfn.i29 = getelementptr inbounds i8, ptr %vtable.i28, i64 24
   %18 = load ptr, ptr %vfn.i29, align 8
   %call.i30 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv50)
   %cmp.i31 = icmp eq i64 %call.i30, %conv50
@@ -3019,7 +3018,7 @@ if.end39.us.us:                                   ; preds = %if.end30.loopexit.u
 if.end30.loopexit.us.us:                          ; preds = %_ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i.us.us
   %conv21.us.us = add i32 %fileOffset.038.us.us, %1
   %vtable.i.us.us = load ptr, ptr %fd, align 8
-  %vfn.i.us.us = getelementptr inbounds ptr, ptr %vtable.i.us.us, i64 3
+  %vfn.i.us.us = getelementptr inbounds i8, ptr %vtable.i.us.us, i64 24
   %8 = load ptr, ptr %vfn.i.us.us, align 8
   %call.i.us.us = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul18)
   %cmp.i.us.us = icmp eq i64 %call.i.us.us, %mul18
@@ -3059,7 +3058,7 @@ _ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i.us:      ; preds = %for.body.i.i.i36.i.
 if.end39.us:                                      ; preds = %if.end30.loopexit.us
   %add42.us = add nsw i32 %conv21.us, %eolnPad
   %vtable.i27.us = load ptr, ptr %fd, align 8
-  %vfn.i28.us = getelementptr inbounds ptr, ptr %vtable.i27.us, i64 3
+  %vfn.i28.us = getelementptr inbounds i8, ptr %vtable.i27.us, i64 24
   %11 = load ptr, ptr %vfn.i28.us, align 8
   %call.i29.us = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv43)
   %cmp.i30.us = icmp eq i64 %call.i29.us, %conv43
@@ -3073,7 +3072,7 @@ for.inc.us:                                       ; preds = %if.end39.us
 if.end30.loopexit.us:                             ; preds = %_ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i.us
   %conv21.us = add i32 %fileOffset.038.us, %1
   %vtable.i.us = load ptr, ptr %fd, align 8
-  %vfn.i.us = getelementptr inbounds ptr, ptr %vtable.i.us, i64 3
+  %vfn.i.us = getelementptr inbounds i8, ptr %vtable.i.us, i64 24
   %12 = load ptr, ptr %vfn.i.us, align 8
   %call.i.us = tail call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul18)
   %cmp.i.us = icmp eq i64 %call.i.us, %mul18
@@ -3094,7 +3093,7 @@ for.body.us41:                                    ; preds = %for.body.us41.prehe
   %call5.us44 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %conv21.us45 = add i32 %fileOffset.038.us42, %1
   %vtable.i.us46 = load ptr, ptr %fd, align 8
-  %vfn.i.us47 = getelementptr inbounds ptr, ptr %vtable.i.us46, i64 3
+  %vfn.i.us47 = getelementptr inbounds i8, ptr %vtable.i.us46, i64 24
   %16 = load ptr, ptr %vfn.i.us47, align 8
   %call.i.us48 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul18)
   %cmp.i.us49 = icmp eq i64 %call.i.us48, %mul18
@@ -3111,7 +3110,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %call5 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %conv21 = add i32 %fileOffset.038, %1
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %17 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul18)
   %cmp.i = icmp eq i64 %call.i, %mul18
@@ -3120,7 +3119,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
 if.end39:                                         ; preds = %for.body
   %add42 = add nsw i32 %conv21, %eolnPad
   %vtable.i27 = load ptr, ptr %fd, align 8
-  %vfn.i28 = getelementptr inbounds ptr, ptr %vtable.i27, i64 3
+  %vfn.i28 = getelementptr inbounds i8, ptr %vtable.i27, i64 24
   %18 = load ptr, ptr %vfn.i28, align 8
   %call.i29 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv43)
   %cmp.i30 = icmp eq i64 %call.i29, %conv43
@@ -3276,7 +3275,7 @@ _ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i:         ; preds = %for.body.i.i.i36.i
 
 if.end31:                                         ; preds = %_ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i, %if.end
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %10 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul19)
   %cmp.i = icmp eq i64 %call.i, %mul19
@@ -3288,7 +3287,7 @@ if.end40:                                         ; preds = %if.end31
 if.then42:                                        ; preds = %if.end40
   %add43 = add nsw i32 %conv22, %eolnPad
   %vtable.i32 = load ptr, ptr %fd, align 8
-  %vfn.i33 = getelementptr inbounds ptr, ptr %vtable.i32, i64 3
+  %vfn.i33 = getelementptr inbounds i8, ptr %vtable.i32, i64 24
   %11 = load ptr, ptr %vfn.i33, align 8
   %call.i34 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv44)
   %cmp.i35 = icmp eq i64 %call.i34, %conv44
@@ -3392,7 +3391,7 @@ if.end39.us.us:                                   ; preds = %if.end30.loopexit.u
 if.end30.loopexit.us.us:                          ; preds = %_ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i.us.us
   %conv21.us.us = add i32 %fileOffset.038.us.us, %1
   %vtable.i.us.us = load ptr, ptr %fd, align 8
-  %vfn.i.us.us = getelementptr inbounds ptr, ptr %vtable.i.us.us, i64 3
+  %vfn.i.us.us = getelementptr inbounds i8, ptr %vtable.i.us.us, i64 24
   %8 = load ptr, ptr %vfn.i.us.us, align 8
   %call.i.us.us = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul18)
   %cmp.i.us.us = icmp eq i64 %call.i.us.us, %mul18
@@ -3432,7 +3431,7 @@ _ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i.us:      ; preds = %for.body.i.i.i36.i.
 if.end39.us:                                      ; preds = %if.end30.loopexit.us
   %add42.us = add nsw i32 %conv21.us, %eolnPad
   %vtable.i27.us = load ptr, ptr %fd, align 8
-  %vfn.i28.us = getelementptr inbounds ptr, ptr %vtable.i27.us, i64 3
+  %vfn.i28.us = getelementptr inbounds i8, ptr %vtable.i27.us, i64 24
   %11 = load ptr, ptr %vfn.i28.us, align 8
   %call.i29.us = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv43)
   %cmp.i30.us = icmp eq i64 %call.i29.us, %conv43
@@ -3446,7 +3445,7 @@ for.inc.us:                                       ; preds = %if.end39.us
 if.end30.loopexit.us:                             ; preds = %_ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i.us
   %conv21.us = add i32 %fileOffset.038.us, %1
   %vtable.i.us = load ptr, ptr %fd, align 8
-  %vfn.i.us = getelementptr inbounds ptr, ptr %vtable.i.us, i64 3
+  %vfn.i.us = getelementptr inbounds i8, ptr %vtable.i.us, i64 24
   %12 = load ptr, ptr %vfn.i.us, align 8
   %call.i.us = tail call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul18)
   %cmp.i.us = icmp eq i64 %call.i.us, %mul18
@@ -3467,7 +3466,7 @@ for.body.us41:                                    ; preds = %for.body.us41.prehe
   %call5.us44 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %conv21.us45 = add i32 %fileOffset.038.us42, %1
   %vtable.i.us46 = load ptr, ptr %fd, align 8
-  %vfn.i.us47 = getelementptr inbounds ptr, ptr %vtable.i.us46, i64 3
+  %vfn.i.us47 = getelementptr inbounds i8, ptr %vtable.i.us46, i64 24
   %16 = load ptr, ptr %vfn.i.us47, align 8
   %call.i.us48 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul18)
   %cmp.i.us49 = icmp eq i64 %call.i.us48, %mul18
@@ -3484,7 +3483,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %call5 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %conv21 = add i32 %fileOffset.038, %1
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %17 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul18)
   %cmp.i = icmp eq i64 %call.i, %mul18
@@ -3493,7 +3492,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
 if.end39:                                         ; preds = %for.body
   %add42 = add nsw i32 %conv21, %eolnPad
   %vtable.i27 = load ptr, ptr %fd, align 8
-  %vfn.i28 = getelementptr inbounds ptr, ptr %vtable.i27, i64 3
+  %vfn.i28 = getelementptr inbounds i8, ptr %vtable.i27, i64 24
   %18 = load ptr, ptr %vfn.i28, align 8
   %call.i29 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv43)
   %cmp.i30 = icmp eq i64 %call.i29, %conv43
@@ -3651,7 +3650,7 @@ _ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i:         ; preds = %for.body.i.i.i36.i
 
 if.end31:                                         ; preds = %_ZN3dpx9SwapBytesIjEET_RS1_.exit.i.i44.i, %if.end
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %10 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull %call, i64 noundef %mul19)
   %cmp.i = icmp eq i64 %call.i, %mul19
@@ -3663,7 +3662,7 @@ if.end40:                                         ; preds = %if.end31
 if.then42:                                        ; preds = %if.end40
   %add43 = add nsw i32 %conv22, %eolnPad
   %vtable.i32 = load ptr, ptr %fd, align 8
-  %vfn.i33 = getelementptr inbounds ptr, ptr %vtable.i32, i64 3
+  %vfn.i33 = getelementptr inbounds i8, ptr %vtable.i32, i64 24
   %11 = load ptr, ptr %vfn.i33, align 8
   %call.i34 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef %blank, i64 noundef %conv44)
   %cmp.i35 = icmp eq i64 %call.i34, %conv44
@@ -3689,13 +3688,13 @@ delete.notnull:                                   ; preds = %for.inc, %delete.no
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3dpx6Writer6FinishEv(ptr noundef nonnull align 8 dereferenceable(2080) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %header = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1
-  %fileLoc = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 2
+  %header = getelementptr inbounds i8, ptr %this, i64 8
+  %fileLoc = getelementptr inbounds i8, ptr %this, i64 2064
   %0 = load i64, ptr %fileLoc, align 8
   %conv = trunc i64 %0 to i32
-  %fileSize.i = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %fileSize.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %conv, ptr %fileSize.i, align 8
-  %fd = getelementptr inbounds %"class.dpx::Writer", ptr %this, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %this, i64 2072
   %1 = load ptr, ptr %fd, align 8
   %call = tail call noundef zeroext i1 @_ZN3dpx6Header15WriteOffsetDataEP9OutStream(ptr noundef nonnull align 4 dereferenceable(2049) %header, ptr noundef %1)
   ret i1 %call

@@ -15,12 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.2 = type { %struct.replaygain_synthesis_spec_t, i32, double, %struct.DitherContext }
 %struct.DitherContext = type { ptr, i64, double, float, [8 x [16 x float]], [8 x [16 x float]], [8 x i32], i32, i32 }
 %struct.analysis_options = type { i32, i32 }
-%struct.FLAC__FrameHeader = type { i32, i32, i32, i32, i32, i32, %union.anon.3, i8 }
-%union.anon.3 = type { i64 }
-%struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon.8 }
-%union.anon.8 = type { %struct.FLAC__StreamMetadata_CueSheet }
-%struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
-%struct.foreign_metadata_t = type { i32, ptr, i64, i64, i64, i32, i32, i32, i32, i32, i32 }
 %struct.foreign_block_t = type { i64, i32 }
 
 @.str = private unnamed_addr constant [2 x i8] c"-\00", align 1
@@ -151,103 +145,103 @@ entry:
   %error.i = alloca ptr, align 8
   %buffer.i = alloca [3 x i8], align 1
   %decoder_session = alloca %struct.DecoderSession, align 8
-  %format = getelementptr inbounds %struct.decode_options_t, ptr %options, i64 0, i32 13
+  %format = getelementptr inbounds i8, ptr %options, i64 120
   %0 = load i32, ptr %format, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %format_options = getelementptr inbounds %struct.decode_options_t, ptr %options, i64 0, i32 14
-  %is_big_endian1 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 27
+  %format_options = getelementptr inbounds i8, ptr %options, i64 128
+  %is_big_endian1 = getelementptr inbounds i8, ptr %decoder_session, i64 1276
   %1 = load <2 x i32>, ptr %format_options, align 8
   store <2 x i32> %1, ptr %is_big_endian1, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %is_ogg = getelementptr inbounds %struct.decode_options_t, ptr %options, i64 0, i32 3
-  %serial_number = getelementptr inbounds %struct.decode_options_t, ptr %options, i64 0, i32 5
+  %is_ogg = getelementptr inbounds i8, ptr %options, i64 32
+  %serial_number = getelementptr inbounds i8, ptr %options, i64 40
   %2 = load i64, ptr %serial_number, align 8
-  %force_subformat = getelementptr inbounds %struct.decode_options_t, ptr %options, i64 0, i32 12
+  %force_subformat = getelementptr inbounds i8, ptr %options, i64 116
   %3 = load i32, ptr %force_subformat, align 4
   %4 = load <4 x i32>, ptr %options, align 8
-  %channel_map_none = getelementptr inbounds %struct.decode_options_t, ptr %options, i64 0, i32 10
+  %channel_map_none = getelementptr inbounds i8, ptr %options, i64 108
   %5 = load <2 x i32>, ptr %channel_map_none, align 4
-  %replaygain_synthesis_spec = getelementptr inbounds %struct.decode_options_t, ptr %options, i64 0, i32 2
-  %skip_specification = getelementptr inbounds %struct.decode_options_t, ptr %options, i64 0, i32 6
-  %until_specification = getelementptr inbounds %struct.decode_options_t, ptr %options, i64 0, i32 7
-  %has_cue_specification = getelementptr inbounds %struct.decode_options_t, ptr %options, i64 0, i32 8
+  %replaygain_synthesis_spec = getelementptr inbounds i8, ptr %options, i64 8
+  %skip_specification = getelementptr inbounds i8, ptr %options, i64 48
+  %until_specification = getelementptr inbounds i8, ptr %options, i64 64
+  %has_cue_specification = getelementptr inbounds i8, ptr %options, i64 80
   %6 = load i32, ptr %has_cue_specification, align 8
   %tobool.not = icmp eq i32 %6, 0
-  %cue_specification = getelementptr inbounds %struct.decode_options_t, ptr %options, i64 0, i32 9
+  %cue_specification = getelementptr inbounds i8, ptr %options, i64 84
   %cond = select i1 %tobool.not, ptr null, ptr %cue_specification
-  %format_options9 = getelementptr inbounds %struct.decode_options_t, ptr %options, i64 0, i32 14
+  %format_options9 = getelementptr inbounds i8, ptr %options, i64 128
   %7 = load ptr, ptr %format_options9, align 8
   %cond11 = select i1 %cmp, ptr null, ptr %7
-  %replaygain.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 9
+  %replaygain.i = getelementptr inbounds i8, ptr %decoder_session, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %replaygain.i, ptr noundef nonnull align 8 dereferenceable(24) %replaygain_synthesis_spec, i64 24, i1 false)
-  %use_first_serial_number2.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 1
+  %use_first_serial_number2.i = getelementptr inbounds i8, ptr %decoder_session, i64 4
   %8 = load <2 x i32>, ptr %is_ogg, align 8
   store <2 x i32> %8, ptr %decoder_session, align 8
-  %serial_number3.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 2
+  %serial_number3.i = getelementptr inbounds i8, ptr %decoder_session, i64 8
   store i64 %2, ptr %serial_number3.i, align 8
-  %format4.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 3
+  %format4.i = getelementptr inbounds i8, ptr %decoder_session, i64 16
   store i32 %0, ptr %format4.i, align 8
-  %subformat5.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 4
+  %subformat5.i = getelementptr inbounds i8, ptr %decoder_session, i64 20
   store i32 %3, ptr %subformat5.i, align 4
-  %treat_warnings_as_errors6.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 5
-  %continue_through_decode_errors7.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 6
-  %channel_map_none8.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 7
+  %treat_warnings_as_errors6.i = getelementptr inbounds i8, ptr %decoder_session, i64 24
+  %continue_through_decode_errors7.i = getelementptr inbounds i8, ptr %decoder_session, i64 28
+  %channel_map_none8.i = getelementptr inbounds i8, ptr %decoder_session, i64 32
   %9 = shufflevector <2 x i32> %5, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %10 = shufflevector <4 x i32> %4, <4 x i32> %9, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x i32> %10, ptr %treat_warnings_as_errors6.i, align 8
-  %apply.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 9, i32 1
+  %apply.i = getelementptr inbounds i8, ptr %decoder_session, i64 64
   store i32 0, ptr %apply.i, align 8
-  %scale.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 9, i32 2
+  %scale.i = getelementptr inbounds i8, ptr %decoder_session, i64 72
   store double 0.000000e+00, ptr %scale.i, align 8
   %cmp.i = icmp eq ptr %outfilename, null
   %conv.i = zext i1 %cmp.i to i32
-  %test_only.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 10
+  %test_only.i = getelementptr inbounds i8, ptr %decoder_session, i64 1176
   store i32 %conv.i, ptr %test_only.i, align 8
-  %analysis_mode12.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 11
+  %analysis_mode12.i = getelementptr inbounds i8, ptr %decoder_session, i64 1180
   store i32 %analysis_mode, ptr %analysis_mode12.i, align 4
-  %aopts13.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 12
+  %aopts13.i = getelementptr inbounds i8, ptr %decoder_session, i64 1184
   store i64 %aopts.coerce, ptr %aopts13.i, align 8
-  %skip_specification14.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 13
+  %skip_specification14.i = getelementptr inbounds i8, ptr %decoder_session, i64 1192
   store ptr %skip_specification, ptr %skip_specification14.i, align 8
-  %until_specification15.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 14
+  %until_specification15.i = getelementptr inbounds i8, ptr %decoder_session, i64 1200
   store ptr %until_specification, ptr %until_specification15.i, align 8
-  %cue_specification16.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 15
+  %cue_specification16.i = getelementptr inbounds i8, ptr %decoder_session, i64 1208
   store ptr %cond, ptr %cue_specification16.i, align 8
   %call.i = call ptr @grabbag__file_get_basename(ptr noundef %infilename) #13
-  %inbasefilename.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 16
+  %inbasefilename.i = getelementptr inbounds i8, ptr %decoder_session, i64 1216
   store ptr %call.i, ptr %inbasefilename.i, align 8
-  %infilename17.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 17
+  %infilename17.i = getelementptr inbounds i8, ptr %decoder_session, i64 1224
   store ptr %infilename, ptr %infilename17.i, align 8
-  %outfilename18.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 18
+  %outfilename18.i = getelementptr inbounds i8, ptr %decoder_session, i64 1232
   store ptr %outfilename, ptr %outfilename18.i, align 8
-  %samples_processed.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 19
+  %samples_processed.i = getelementptr inbounds i8, ptr %decoder_session, i64 1240
   %11 = extractelement <2 x i32> %5, i64 1
   %tobool.not.i = icmp eq i32 %11, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %samples_processed.i, i8 0, i64 28, i1 false)
   %spec.select.i = zext i1 %tobool.not.i to i32
-  %12 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 25
+  %12 = getelementptr inbounds i8, ptr %decoder_session, i64 1268
   store i32 %spec.select.i, ptr %12, align 4
-  %iff_headers_need_fixup.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 26
+  %iff_headers_need_fixup.i = getelementptr inbounds i8, ptr %decoder_session, i64 1272
   store i32 0, ptr %iff_headers_need_fixup.i, align 8
-  %total_samples.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 31
-  %got_stream_info.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 29
+  %total_samples.i = getelementptr inbounds i8, ptr %decoder_session, i64 1296
+  %got_stream_info.i = getelementptr inbounds i8, ptr %decoder_session, i64 1284
   store i32 0, ptr %got_stream_info.i, align 4
-  %has_md5sum.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 30
+  %has_md5sum.i = getelementptr inbounds i8, ptr %decoder_session, i64 1288
   store i32 0, ptr %has_md5sum.i, align 8
-  %sample_rate.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 34
+  %sample_rate.i = getelementptr inbounds i8, ptr %decoder_session, i64 1312
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_samples.i, i8 0, i64 16, i1 false)
   store i32 -1, ptr %sample_rate.i, align 8
-  %channel_mask.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 35
-  %fout.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 38
-  %foreign_metadata20.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 39
+  %channel_mask.i = getelementptr inbounds i8, ptr %decoder_session, i64 1316
+  %fout.i = getelementptr inbounds i8, ptr %decoder_session, i64 1336
+  %foreign_metadata20.i = getelementptr inbounds i8, ptr %decoder_session, i64 1344
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %channel_mask.i, i8 0, i64 28, i1 false)
   store ptr %cond11, ptr %foreign_metadata20.i, align 8
-  %old_clock.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 43
+  %old_clock.i = getelementptr inbounds i8, ptr %decoder_session, i64 1376
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %old_clock.i, i8 0, i64 16, i1 false)
   %13 = load i32, ptr %test_only.i, align 8
   %tobool22.not.i = icmp eq i32 %13, 0
@@ -357,7 +351,7 @@ if.end25.i:                                       ; preds = %if.then19.i, %if.en
 
 if.end27.i:                                       ; preds = %if.end25.i, %land.lhs.true.i, %if.end14
   %call28.i5 = call ptr @FLAC__stream_decoder_new() #13
-  %decoder.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 37
+  %decoder.i = getelementptr inbounds i8, ptr %decoder_session, i64 1328
   store ptr %call28.i5, ptr %decoder.i, align 8
   %cmp30.i = icmp eq ptr %call28.i5, null
   br i1 %cmp30.i, label %if.then32.i, label %if.end34.i
@@ -472,7 +466,7 @@ if.then.i.i9:                                     ; preds = %if.then85.i
 
 if.then17:                                        ; preds = %if.then6.i, %if.then12.i, %if.then22.i, %if.then32.i, %if.then85.i, %if.then.i.i9
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %buffer.i)
-  %decoder.i11 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 37
+  %decoder.i11 = getelementptr inbounds i8, ptr %decoder_session, i64 1328
   %51 = load ptr, ptr %decoder.i11, align 8
   %tobool.not.i12 = icmp eq ptr %51, null
   br i1 %tobool.not.i12, label %if.end.i15, label %if.then.i13
@@ -527,7 +521,7 @@ if.then.i41:                                      ; preds = %if.end19
   %64 = load ptr, ptr %decoder.i, align 8
   %call2.i113 = call ptr @FLAC__stream_decoder_get_resolved_state_string(ptr noundef %64) #13
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %63, i32 noundef 1, ptr noundef nonnull @.str.68, i32 noundef %conv.i111, ptr noundef nonnull @.str.22, ptr noundef %call2.i113) #13
-  %aborting_due_to_unparseable.i114 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 23
+  %aborting_due_to_unparseable.i114 = getelementptr inbounds i8, ptr %decoder_session, i64 1260
   %65 = load i32, ptr %aborting_due_to_unparseable.i114, align 4
   %tobool.not.i115 = icmp eq i32 %65, 0
   br i1 %tobool.not.i115, label %if.then22, label %if.then.i116
@@ -558,7 +552,7 @@ if.then3.i:                                       ; preds = %if.end.i26
   %75 = load ptr, ptr %decoder.i, align 8
   %call2.i105 = call ptr @FLAC__stream_decoder_get_resolved_state_string(ptr noundef %75) #13
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %74, i32 noundef 1, ptr noundef nonnull @.str.68, i32 noundef %conv.i103, ptr noundef nonnull @.str.22, ptr noundef %call2.i105) #13
-  %aborting_due_to_unparseable.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 23
+  %aborting_due_to_unparseable.i = getelementptr inbounds i8, ptr %decoder_session, i64 1260
   %76 = load i32, ptr %aborting_due_to_unparseable.i, align 4
   %tobool.not.i106 = icmp eq i32 %76, 0
   br i1 %tobool.not.i106, label %print_error_with_state.exit, label %if.then.i107
@@ -582,12 +576,12 @@ if.end7.i:                                        ; preds = %print_error_with_st
 
 if.then9.i:                                       ; preds = %if.end7.i
   %82 = load ptr, ptr %decoder.i, align 8
-  %decode_position.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 36
+  %decode_position.i = getelementptr inbounds i8, ptr %decoder_session, i64 1320
   %call11.i = call i32 @FLAC__stream_decoder_get_decode_position(ptr noundef %82, ptr noundef nonnull %decode_position.i) #13
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then9.i, %if.end7.i
-  %abort_flag.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 21
+  %abort_flag.i = getelementptr inbounds i8, ptr %decoder_session, i64 1252
   %83 = load i32, ptr %abort_flag.i, align 4
   %tobool13.not.i = icmp eq i32 %83, 0
   br i1 %tobool13.not.i, label %if.end15.i, label %if.then22
@@ -601,7 +595,7 @@ if.end15.i:                                       ; preds = %if.end12.i
   br i1 %or.cond127, label %if.then18.i, label %if.end64.i
 
 if.then18.i:                                      ; preds = %if.end15.i
-  %channels.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 33
+  %channels.i = getelementptr inbounds i8, ptr %decoder_session, i64 1308
   %86 = load i32, ptr %channels.i, align 4
   %switch.tableidx = add i32 %86, -1
   %87 = icmp ult i32 %switch.tableidx, 8
@@ -638,7 +632,7 @@ if.then74.i:                                      ; preds = %if.then71.i
 
 if.end77.i:                                       ; preds = %if.then71.i, %if.end64.i
   %94 = load ptr, ptr %skip_specification14.i, align 8
-  %value.i = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %94, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %94, i64 8
   %95 = load i64, ptr %value.i, align 8
   %cmp78.i = icmp sgt i64 %95, 0
   br i1 %cmp78.i, label %if.then79.i, label %if.end87.i
@@ -657,7 +651,7 @@ if.end87.i:                                       ; preds = %if.then79.i, %if.en
   %97 = load ptr, ptr %decoder.i, align 8
   %call89.i = call i32 @FLAC__stream_decoder_process_until_end_of_stream(ptr noundef %97) #13
   %tobool90.not.i = icmp eq i32 %call89.i, 0
-  %aborting_due_to_until.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 22
+  %aborting_due_to_until.i = getelementptr inbounds i8, ptr %decoder_session, i64 1256
   %98 = load i32, ptr %aborting_due_to_until.i, align 8
   %tobool92.not.i = icmp eq i32 %98, 0
   %or.cond130 = select i1 %tobool90.not.i, i1 %tobool92.not.i, i1 false
@@ -711,9 +705,9 @@ land.lhs.true120.i:                               ; preds = %if.end114.i
 
 if.then123.i:                                     ; preds = %land.lhs.true120.i
   %108 = load i64, ptr %total_samples.i, align 8
-  %channels125.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 33
+  %channels125.i = getelementptr inbounds i8, ptr %decoder_session, i64 1308
   %109 = load i32, ptr %channels125.i, align 4
-  %bps.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 32
+  %bps.i = getelementptr inbounds i8, ptr %decoder_session, i64 1304
   %110 = load i32, ptr %bps.i, align 8
   %add.i = add i32 %110, 7
   %div65.i = lshr i32 %add.i, 3
@@ -988,11 +982,11 @@ if.end73.i:                                       ; preds = %fixup_iff_headers.e
 if.then75.i:                                      ; preds = %if.end73.i
   %163 = load ptr, ptr %infilename17.i, align 8
   %164 = load ptr, ptr %outfilename18.i, align 8
-  %fm_offset1.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 40
+  %fm_offset1.i = getelementptr inbounds i8, ptr %decoder_session, i64 1352
   %165 = load i64, ptr %fm_offset1.i, align 8
-  %fm_offset2.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 41
+  %fm_offset2.i = getelementptr inbounds i8, ptr %decoder_session, i64 1360
   %166 = load i64, ptr %fm_offset2.i, align 8
-  %fm_offset3.i = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 42
+  %fm_offset3.i = getelementptr inbounds i8, ptr %decoder_session, i64 1368
   %167 = load i64, ptr %fm_offset3.i, align 8
   %call78.i = call i32 @flac__foreign_metadata_write_to_iff(ptr noundef nonnull %162, ptr noundef %163, ptr noundef %164, i64 noundef %165, i64 noundef %166, i64 noundef %167, ptr noundef nonnull %error.i) #13
   %tobool79.not.i = icmp eq i32 %call78.i, 0
@@ -1082,17 +1076,17 @@ declare i32 @FLAC__stream_decoder_init_ogg_file(ptr noundef, ptr noundef, ptr no
 define internal i32 @write_callback(ptr nocapture readnone %decoder, ptr noundef %frame, ptr noundef %buffer, ptr noundef %client_data) #0 {
 entry:
   %dpos = alloca i64, align 8
-  %fout1 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 38
+  %fout1 = getelementptr inbounds i8, ptr %client_data, i64 1336
   %0 = load ptr, ptr %fout1, align 8
-  %bits_per_sample = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %frame, i64 0, i32 4
+  %bits_per_sample = getelementptr inbounds i8, ptr %frame, i64 16
   %1 = load i32, ptr %bits_per_sample, align 8
-  %channels3 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %frame, i64 0, i32 2
+  %channels3 = getelementptr inbounds i8, ptr %frame, i64 8
   %2 = load i32, ptr %channels3, align 8
   %rem = and i32 %1, 7
   %tobool.not = icmp eq i32 %rem, 0
   %sub = sub nuw nsw i32 8, %rem
   %cond = select i1 %tobool.not, i32 0, i32 %sub
-  %format = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 3
+  %format = getelementptr inbounds i8, ptr %client_data, i64 16
   %3 = load i32, ptr %format, align 8
   switch i32 %3, label %cond.false25 [
     i32 4, label %cond.end52
@@ -1103,7 +1097,7 @@ entry:
   ]
 
 land.lhs.true:                                    ; preds = %entry
-  %subformat = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 4
+  %subformat = getelementptr inbounds i8, ptr %client_data, i64 20
   %4 = load i32, ptr %subformat, align 4
   switch i32 %4, label %cond.false25 [
     i32 3, label %cond.end52
@@ -1111,7 +1105,7 @@ land.lhs.true:                                    ; preds = %entry
   ]
 
 cond.false25:                                     ; preds = %land.lhs.true, %entry
-  %is_big_endian26 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 27
+  %is_big_endian26 = getelementptr inbounds i8, ptr %client_data, i64 1276
   %5 = load i32, ptr %is_big_endian26, align 4
   br label %cond.end29
 
@@ -1130,7 +1124,7 @@ cond.true46:                                      ; preds = %cond.end29, %cond.e
   br label %cond.end52
 
 cond.false48:                                     ; preds = %cond.end29
-  %is_unsigned_samples49 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 28
+  %is_unsigned_samples49 = getelementptr inbounds i8, ptr %client_data, i64 1280
   %6 = load i32, ptr %is_unsigned_samples49, align 8
   br label %cond.end52
 
@@ -1141,13 +1135,13 @@ cond.end52:                                       ; preds = %land.lhs.true, %con
   %cond30359 = phi i32 [ %cond30, %cond.true46 ], [ %cond30, %cond.false48 ], [ %cond30, %cond.end29 ], [ 1, %entry ], [ 1, %land.lhs.true ], [ 0, %cond.end52.fold.split ]
   %cond53 = phi i32 [ %conv, %cond.true46 ], [ %6, %cond.false48 ], [ 0, %cond.end29 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %cond.end52.fold.split ]
   %7 = load i32, ptr %frame, align 8
-  %abort_flag = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 21
+  %abort_flag = getelementptr inbounds i8, ptr %client_data, i64 1252
   %8 = load i32, ptr %abort_flag, align 4
   %tobool55.not = icmp eq i32 %8, 0
   br i1 %tobool55.not, label %if.end, label %return
 
 if.end:                                           ; preds = %cond.end52
-  %bps56 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 32
+  %bps56 = getelementptr inbounds i8, ptr %client_data, i64 1304
   %9 = load i32, ptr %bps56, align 8
   %tobool57.not = icmp eq i32 %9, 0
   br i1 %tobool57.not, label %if.else73, label %if.then58
@@ -1157,15 +1151,15 @@ if.then58:                                        ; preds = %if.end
   br i1 %cmp60.not, label %if.end91, label %if.then62
 
 if.then62:                                        ; preds = %if.then58
-  %got_stream_info = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 29
+  %got_stream_info = getelementptr inbounds i8, ptr %client_data, i64 1284
   %10 = load i32, ptr %got_stream_info, align 4
   %tobool63.not = icmp eq i32 %10, 0
   %11 = load ptr, ptr @stderr, align 8
-  %inbasefilename66 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename66 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %12 = load ptr, ptr %inbasefilename66, align 8
   %.str.11..str.10 = select i1 %tobool63.not, ptr @.str.11, ptr @.str.10
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %11, i32 noundef 1, ptr noundef nonnull %.str.11..str.10, ptr noundef %12, i32 noundef %1, i32 noundef %9) #13
-  %continue_through_decode_errors = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 6
+  %continue_through_decode_errors = getelementptr inbounds i8, ptr %client_data, i64 28
   %13 = load i32, ptr %continue_through_decode_errors, align 4
   %tobool69.not = icmp eq i32 %13, 0
   br i1 %tobool69.not, label %return, label %if.end91
@@ -1176,7 +1170,7 @@ if.else73:                                        ; preds = %if.end
 
 if.then86:                                        ; preds = %if.else73
   %14 = load ptr, ptr @stderr, align 8
-  %inbasefilename87 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename87 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %15 = load ptr, ptr %inbasefilename87, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %14, i32 noundef 1, ptr noundef nonnull @.str.12, ptr noundef %15, i32 noundef 0) #13
   br label %return
@@ -1186,7 +1180,7 @@ if.end89:                                         ; preds = %if.else73
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then58, %if.then62, %if.end89
-  %channels92 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 33
+  %channels92 = getelementptr inbounds i8, ptr %client_data, i64 1308
   %16 = load i32, ptr %channels92, align 4
   %tobool93.not = icmp eq i32 %16, 0
   br i1 %tobool93.not, label %if.else113, label %if.then94
@@ -1196,15 +1190,15 @@ if.then94:                                        ; preds = %if.end91
   br i1 %cmp96.not, label %if.end115, label %if.then98
 
 if.then98:                                        ; preds = %if.then94
-  %got_stream_info99 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 29
+  %got_stream_info99 = getelementptr inbounds i8, ptr %client_data, i64 1284
   %17 = load i32, ptr %got_stream_info99, align 4
   %tobool100.not = icmp eq i32 %17, 0
   %18 = load ptr, ptr @stderr, align 8
-  %inbasefilename105 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename105 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %19 = load ptr, ptr %inbasefilename105, align 8
   %.str.14..str.13 = select i1 %tobool100.not, ptr @.str.14, ptr @.str.13
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %18, i32 noundef 1, ptr noundef nonnull %.str.14..str.13, ptr noundef %19, i32 noundef %2, i32 noundef %16) #13
-  %continue_through_decode_errors108 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 6
+  %continue_through_decode_errors108 = getelementptr inbounds i8, ptr %client_data, i64 28
   %20 = load i32, ptr %continue_through_decode_errors108, align 4
   %tobool109.not = icmp eq i32 %20, 0
   br i1 %tobool109.not, label %return, label %if.end115
@@ -1214,10 +1208,10 @@ if.else113:                                       ; preds = %if.end91
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then94, %if.then98, %if.else113
-  %sample_rate = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 34
+  %sample_rate = getelementptr inbounds i8, ptr %client_data, i64 1312
   %21 = load i32, ptr %sample_rate, align 8
   %cmp116.not = icmp eq i32 %21, -1
-  %sample_rate145 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %frame, i64 0, i32 1
+  %sample_rate145 = getelementptr inbounds i8, ptr %frame, i64 4
   %22 = load i32, ptr %sample_rate145, align 4
   br i1 %cmp116.not, label %if.else143, label %if.then118
 
@@ -1226,15 +1220,15 @@ if.then118:                                       ; preds = %if.end115
   br i1 %cmp122.not, label %if.end147, label %if.then124
 
 if.then124:                                       ; preds = %if.then118
-  %got_stream_info125 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 29
+  %got_stream_info125 = getelementptr inbounds i8, ptr %client_data, i64 1284
   %23 = load i32, ptr %got_stream_info125, align 4
   %tobool126.not = icmp eq i32 %23, 0
   %24 = load ptr, ptr @stderr, align 8
-  %inbasefilename133 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename133 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %25 = load ptr, ptr %inbasefilename133, align 8
   %.str.16..str.15 = select i1 %tobool126.not, ptr @.str.16, ptr @.str.15
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %24, i32 noundef 1, ptr noundef nonnull %.str.16..str.15, ptr noundef %25, i32 noundef %22, i32 noundef %21) #13
-  %continue_through_decode_errors138 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 6
+  %continue_through_decode_errors138 = getelementptr inbounds i8, ptr %client_data, i64 28
   %26 = load i32, ptr %continue_through_decode_errors138, align 4
   %tobool139.not = icmp eq i32 %26, 0
   br i1 %tobool139.not, label %return, label %if.end147
@@ -1244,20 +1238,20 @@ if.else143:                                       ; preds = %if.end115
   br label %if.end147
 
 if.end147:                                        ; preds = %if.then118, %if.then124, %if.else143
-  %skip_specification = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 13
+  %skip_specification = getelementptr inbounds i8, ptr %client_data, i64 1192
   %27 = load ptr, ptr %skip_specification, align 8
   %28 = load i32, ptr %27, align 8
   %tobool148.not = icmp eq i32 %28, 0
   br i1 %tobool148.not, label %lor.lhs.false149, label %if.then152
 
 lor.lhs.false149:                                 ; preds = %if.end147
-  %got_stream_info150 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 29
+  %got_stream_info150 = getelementptr inbounds i8, ptr %client_data, i64 1284
   %29 = load i32, ptr %got_stream_info150, align 4
   %tobool151.not = icmp eq i32 %29, 0
   br i1 %tobool151.not, label %if.then152, label %if.end162
 
 if.then152:                                       ; preds = %lor.lhs.false149, %if.end147
-  %value = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %27, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %27, i64 8
   %30 = load i64, ptr %value, align 8
   %cmp154 = icmp eq i64 %30, 0
   br i1 %cmp154, label %if.then156, label %if.else159
@@ -1268,26 +1262,26 @@ if.then156:                                       ; preds = %if.then152
 
 if.else159:                                       ; preds = %if.then152
   %31 = load ptr, ptr @stderr, align 8
-  %inbasefilename160 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename160 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %32 = load ptr, ptr %inbasefilename160, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %31, i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef %32) #13
   br label %return
 
 if.end162:                                        ; preds = %if.then156, %lor.lhs.false149
-  %until_specification = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 14
+  %until_specification = getelementptr inbounds i8, ptr %client_data, i64 1200
   %33 = load ptr, ptr %until_specification, align 8
   %34 = load i32, ptr %33, align 8
   %tobool164.not = icmp eq i32 %34, 0
   br i1 %tobool164.not, label %lor.lhs.false165, label %if.then168
 
 lor.lhs.false165:                                 ; preds = %if.end162
-  %got_stream_info166 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 29
+  %got_stream_info166 = getelementptr inbounds i8, ptr %client_data, i64 1284
   %35 = load i32, ptr %got_stream_info166, align 4
   %tobool167.not = icmp eq i32 %35, 0
   br i1 %tobool167.not, label %if.then168, label %if.end179
 
 if.then168:                                       ; preds = %lor.lhs.false165, %if.end162
-  %value170 = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %33, i64 0, i32 2
+  %value170 = getelementptr inbounds i8, ptr %33, i64 8
   %36 = load i64, ptr %value170, align 8
   %cmp171 = icmp eq i64 %36, 0
   br i1 %cmp171, label %if.then173, label %if.else176
@@ -1299,23 +1293,23 @@ if.then173:                                       ; preds = %if.then168
 
 if.else176:                                       ; preds = %if.then168
   %37 = load ptr, ptr @stderr, align 8
-  %inbasefilename177 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename177 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %38 = load ptr, ptr %inbasefilename177, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %37, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef %38) #13
   br label %return
 
 if.end179:                                        ; preds = %if.then173, %lor.lhs.false165
   %39 = phi ptr [ %.pre, %if.then173 ], [ %33, %lor.lhs.false165 ]
-  %value181 = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %39, i64 0, i32 2
+  %value181 = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load i64, ptr %value181, align 8
   %cmp182 = icmp sgt i64 %40, 0
   br i1 %cmp182, label %if.then184, label %if.end202
 
 if.then184:                                       ; preds = %if.end179
   %41 = load ptr, ptr %skip_specification, align 8
-  %value186 = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %41, i64 0, i32 2
+  %value186 = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load i64, ptr %value186, align 8
-  %samples_processed = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 19
+  %samples_processed = getelementptr inbounds i8, ptr %client_data, i64 1240
   %43 = load i64, ptr %samples_processed, align 8
   %add = add i64 %43, %42
   %conv189 = zext i32 %7 to i64
@@ -1329,23 +1323,23 @@ if.then184:                                       ; preds = %if.end179
 
 if.then199:                                       ; preds = %if.then184
   store i32 1, ptr %abort_flag, align 4
-  %aborting_due_to_until = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 22
+  %aborting_due_to_until = getelementptr inbounds i8, ptr %client_data, i64 1256
   store i32 1, ptr %aborting_due_to_until, align 8
   br label %return
 
 if.end202:                                        ; preds = %if.then184, %if.end179
   %wide_samples.1 = phi i32 [ %wide_samples.0, %if.then184 ], [ %7, %if.end179 ]
-  %analysis_mode = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 11
+  %analysis_mode = getelementptr inbounds i8, ptr %client_data, i64 1180
   %44 = load i32, ptr %analysis_mode, align 4
   %tobool203.not = icmp eq i32 %44, 0
   br i1 %tobool203.not, label %if.end208, label %if.then204
 
 if.then204:                                       ; preds = %if.end202
-  %decoder205 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 37
+  %decoder205 = getelementptr inbounds i8, ptr %client_data, i64 1328
   %45 = load ptr, ptr %decoder205, align 8
   %call = call i32 @FLAC__stream_decoder_get_decode_position(ptr noundef %45, ptr noundef nonnull %dpos) #13
   %46 = load i64, ptr %dpos, align 8
-  %decode_position = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 36
+  %decode_position = getelementptr inbounds i8, ptr %client_data, i64 1320
   %47 = load i64, ptr %decode_position, align 8
   %sub206 = sub i64 %46, %47
   store i64 %46, ptr %decode_position, align 8
@@ -1358,15 +1352,15 @@ if.end208:                                        ; preds = %if.then204, %if.end
 
 if.then211:                                       ; preds = %if.end208
   %conv212 = zext i32 %wide_samples.1 to i64
-  %samples_processed213 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 19
+  %samples_processed213 = getelementptr inbounds i8, ptr %client_data, i64 1240
   %48 = load i64, ptr %samples_processed213, align 8
   %add214 = add i64 %48, %conv212
   store i64 %add214, ptr %samples_processed213, align 8
-  %frame_counter = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 20
+  %frame_counter = getelementptr inbounds i8, ptr %client_data, i64 1248
   %49 = load i32, ptr %frame_counter, align 8
   %inc = add i32 %49, 1
   store i32 %inc, ptr %frame_counter, align 8
-  %old_samples_processed = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 44
+  %old_samples_processed = getelementptr inbounds i8, ptr %client_data, i64 1384
   %50 = load i64, ptr %old_samples_processed, align 8
   %sub216 = sub i64 %add214, %50
   %cmp217 = icmp ugt i64 %sub216, 25000
@@ -1376,7 +1370,7 @@ if.then219:                                       ; preds = %if.then211
   %call220 = call i64 @clock() #13
   %51 = load i64, ptr %samples_processed213, align 8
   store i64 %51, ptr %old_samples_processed, align 8
-  %old_clock = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 43
+  %old_clock = getelementptr inbounds i8, ptr %client_data, i64 1376
   %52 = load i64, ptr %old_clock, align 8
   %sub223 = sub nsw i64 %call220, %52
   %cmp224 = icmp sgt i64 %sub223, 250000
@@ -1395,16 +1389,16 @@ if.end229:                                        ; preds = %if.then219, %if.the
 if.then232:                                       ; preds = %if.end229
   %54 = load i32, ptr %frame_counter, align 8
   %sub234 = add i32 %54, -1
-  %decode_position235 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 36
+  %decode_position235 = getelementptr inbounds i8, ptr %client_data, i64 1320
   %55 = load i64, ptr %decode_position235, align 8
   %sub236 = sub i64 %55, %frame_bytes.0
-  %aopts = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 12
+  %aopts = getelementptr inbounds i8, ptr %client_data, i64 1184
   %56 = load i64, ptr %aopts, align 8
   call void @flac__analyze_frame(ptr noundef nonnull %frame, i32 noundef %sub234, i64 noundef %sub236, i64 noundef %frame_bytes.0, i64 %56, ptr noundef %0) #13
   br label %return
 
 if.else237:                                       ; preds = %if.end229
-  %test_only = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 10
+  %test_only = getelementptr inbounds i8, ptr %client_data, i64 1176
   %57 = load i32, ptr %test_only, align 8
   %tobool238.not = icmp eq i32 %57, 0
   br i1 %tobool238.not, label %if.then239, label %return
@@ -1413,7 +1407,7 @@ if.then239:                                       ; preds = %if.else237
   br i1 %tobool.not, label %if.end256, label %land.lhs.true241
 
 land.lhs.true241:                                 ; preds = %if.then239
-  %apply = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9, i32 1
+  %apply = getelementptr inbounds i8, ptr %client_data, i64 64
   %58 = load i32, ptr %apply, align 8
   %tobool242.not = icmp ne i32 %58, 0
   %cmp247371.not = icmp eq i32 %2, 0
@@ -1447,7 +1441,7 @@ for.cond246.for.inc253_crit_edge.us:              ; preds = %for.body249.us
   br i1 %exitcond468.not, label %if.end256, label %for.cond246.preheader.us, !llvm.loop !10
 
 if.end256:                                        ; preds = %for.cond246.for.inc253_crit_edge.us, %land.lhs.true241, %if.then239
-  %apply258 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9, i32 1
+  %apply258 = getelementptr inbounds i8, ptr %client_data, i64 64
   %61 = load i32, ptr %apply258, align 8
   %tobool259.not = icmp eq i32 %61, 0
   br i1 %tobool259.not, label %if.else273, label %if.then260
@@ -1456,17 +1450,17 @@ if.then260:                                       ; preds = %if.end256
   %tobool261.not = icmp eq i32 %cond30359, 0
   %lnot.ext = zext i1 %tobool261.not to i32
   %add262 = add i32 %cond, %1
-  %scale = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9, i32 2
+  %scale = getelementptr inbounds i8, ptr %client_data, i64 72
   %62 = load double, ptr %scale, align 8
-  %limiter = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9, i32 0, i32 2
+  %limiter = getelementptr inbounds i8, ptr %client_data, i64 48
   %63 = load i32, ptr %limiter, align 8
   %cmp265 = icmp eq i32 %63, 2
   %conv266 = zext i1 %cmp265 to i32
-  %noise_shaping = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9, i32 0, i32 3
+  %noise_shaping = getelementptr inbounds i8, ptr %client_data, i64 52
   %64 = load i32, ptr %noise_shaping, align 4
   %cmp269 = icmp ne i32 %64, 0
   %conv270 = zext i1 %cmp269 to i32
-  %dither_context = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9, i32 3
+  %dither_context = getelementptr inbounds i8, ptr %client_data, i64 80
   %call272 = call i64 @FLAC__replaygain_synthesis__apply_gain(ptr noundef nonnull @write_callback.ubuf, i32 noundef %lnot.ext, i32 noundef %cond53, ptr noundef %buffer, i32 noundef %wide_samples.1, i32 noundef %2, i32 noundef %1, i32 noundef %add262, double noundef %62, i32 noundef %conv266, i32 noundef %conv270, ptr noundef nonnull %dither_context) #13
   br label %if.end814
 
@@ -1486,7 +1480,7 @@ if.end295:                                        ; preds = %if.else273
   %65 = load ptr, ptr %buffer, align 8
   %mul294 = shl nuw nsw i64 %conv212, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 @write_callback.ubuf, ptr align 4 %65, i64 %mul294, i1 false)
-  %arrayidx300 = getelementptr inbounds ptr, ptr %buffer, i64 1
+  %arrayidx300 = getelementptr inbounds i8, ptr %buffer, i64 8
   %umax633 = call i32 @llvm.umax.i32(i32 %wide_samples.1, i32 1)
   %wide.trip.count634 = zext i32 %umax633 to i64
   br label %for.body299
@@ -1500,7 +1494,7 @@ for.body299:                                      ; preds = %if.end295, %for.bod
   %conv303 = trunc i32 %67 to i16
   store i16 %conv303, ptr %buf1_.0446, align 2
   %indvars.iv.next631 = add nuw nsw i64 %indvars.iv630, 1
-  %add.ptr306 = getelementptr inbounds i16, ptr %buf1_.0446, i64 2
+  %add.ptr306 = getelementptr inbounds i8, ptr %buf1_.0446, i64 4
   %exitcond635.not = icmp eq i64 %indvars.iv.next631, %wide.trip.count634
   br i1 %exitcond635.not, label %for.end307, label %for.body299, !llvm.loop !11
 
@@ -1528,7 +1522,7 @@ for.body327:                                      ; preds = %for.body327.prehead
   %arrayidx330 = getelementptr inbounds i32, ptr %68, i64 %indvars.iv624
   %69 = load i32, ptr %arrayidx330, align 4
   %conv331 = trunc i32 %69 to i16
-  %incdec.ptr = getelementptr inbounds i16, ptr %buf1_323.0444, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %buf1_323.0444, i64 2
   store i16 %conv331, ptr %buf1_323.0444, align 2
   %indvars.iv.next625 = add nuw nsw i64 %indvars.iv624, 1
   %exitcond629.not = icmp eq i64 %indvars.iv.next625, %wide.trip.count628
@@ -1556,7 +1550,7 @@ if.then343:                                       ; preds = %if.then341
   br i1 %cmp279, label %if.else370, label %for.cond347.preheader
 
 for.cond347.preheader:                            ; preds = %if.then343
-  %arrayidx359 = getelementptr inbounds ptr, ptr %buffer, i64 1
+  %arrayidx359 = getelementptr inbounds i8, ptr %buffer, i64 8
   %umax598 = call i32 @llvm.umax.i32(i32 %wide_samples.1, i32 1)
   %wide.trip.count599 = zext i32 %umax598 to i64
   br label %for.body350
@@ -1646,7 +1640,7 @@ if.else415:                                       ; preds = %if.then341
   br i1 %cmp279, label %if.else440, label %for.cond419.preheader
 
 for.cond419.preheader:                            ; preds = %if.else415
-  %arrayidx430 = getelementptr inbounds ptr, ptr %buffer, i64 1
+  %arrayidx430 = getelementptr inbounds i8, ptr %buffer, i64 8
   %umax573 = call i32 @llvm.umax.i32(i32 %wide_samples.1, i32 1)
   %wide.trip.count574 = zext i32 %umax573 to i64
   br label %for.body422
@@ -2131,7 +2125,7 @@ land.lhs.true825:                                 ; preds = %if.then821
   br i1 %cmp827, label %if.then829, label %if.end831
 
 if.then829:                                       ; preds = %land.lhs.true825
-  %aborting_due_to_until830 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 22
+  %aborting_due_to_until830 = getelementptr inbounds i8, ptr %client_data, i64 1256
   store i32 1, ptr %aborting_due_to_until830, align 8
   br label %if.end831
 
@@ -2159,47 +2153,47 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %got_stream_info = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 29
+  %got_stream_info = getelementptr inbounds i8, ptr %client_data, i64 1284
   %1 = load i32, ptr %got_stream_info, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end4, label %if.then1
 
 if.then1:                                         ; preds = %if.then
   %2 = load ptr, ptr @stderr, align 8
-  %inbasefilename = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename = getelementptr inbounds i8, ptr %client_data, i64 1216
   %3 = load ptr, ptr %inbasefilename, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.27, ptr noundef %3) #13
-  %continue_through_decode_errors = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 6
+  %continue_through_decode_errors = getelementptr inbounds i8, ptr %client_data, i64 28
   %4 = load i32, ptr %continue_through_decode_errors, align 4
   %tobool2.not = icmp eq i32 %4, 0
   br i1 %tobool2.not, label %if.then3, label %if.end199
 
 if.then3:                                         ; preds = %if.then1
-  %abort_flag = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 21
+  %abort_flag = getelementptr inbounds i8, ptr %client_data, i64 1252
   store i32 1, ptr %abort_flag, align 4
   br label %if.end199
 
 if.end4:                                          ; preds = %if.then
   store i32 1, ptr %got_stream_info, align 4
-  %md5sum = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %metadata, i64 0, i32 3, i32 0, i32 0, i64 40
+  %md5sum = getelementptr inbounds i8, ptr %metadata, i64 56
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %md5sum, ptr noundef nonnull dereferenceable(16) @.str.28, i64 16)
   %cmp6 = icmp ne i32 %bcmp, 0
   %conv = zext i1 %cmp6 to i32
-  %has_md5sum = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 30
+  %has_md5sum = getelementptr inbounds i8, ptr %client_data, i64 1288
   store i32 %conv, ptr %has_md5sum, align 8
-  %bits_per_sample = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %metadata, i64 0, i32 3, i32 0, i32 0, i64 24
+  %bits_per_sample = getelementptr inbounds i8, ptr %metadata, i64 40
   %5 = load i32, ptr %bits_per_sample, align 8
-  %bps = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 32
+  %bps = getelementptr inbounds i8, ptr %client_data, i64 1304
   store i32 %5, ptr %bps, align 8
-  %channels = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %metadata, i64 0, i32 3, i32 0, i32 0, i64 20
+  %channels = getelementptr inbounds i8, ptr %metadata, i64 36
   %6 = load i32, ptr %channels, align 4
-  %channels9 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 33
+  %channels9 = getelementptr inbounds i8, ptr %client_data, i64 1308
   store i32 %6, ptr %channels9, align 4
-  %sample_rate = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %metadata, i64 0, i32 3, i32 0, i32 0, i64 16
+  %sample_rate = getelementptr inbounds i8, ptr %metadata, i64 32
   %7 = load i32, ptr %sample_rate, align 8
-  %sample_rate11 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 34
+  %sample_rate11 = getelementptr inbounds i8, ptr %client_data, i64 1312
   store i32 %7, ptr %sample_rate11, align 8
-  %skip_specification = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 13
+  %skip_specification = getelementptr inbounds i8, ptr %client_data, i64 1192
   %8 = load ptr, ptr %skip_specification, align 8
   %call13 = tail call i32 @flac__utils_canonicalize_skip_until_specification(ptr noundef %8, i32 noundef %7) #13
   %tobool14.not = icmp eq i32 %call13, 0
@@ -2207,19 +2201,19 @@ if.end4:                                          ; preds = %if.then
 
 if.then15:                                        ; preds = %if.end4
   %9 = load ptr, ptr @stderr, align 8
-  %inbasefilename16 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename16 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %10 = load ptr, ptr %inbasefilename16, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %9, i32 noundef 1, ptr noundef nonnull @.str.29, ptr noundef %10) #13
-  %abort_flag17 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 21
+  %abort_flag17 = getelementptr inbounds i8, ptr %client_data, i64 1252
   store i32 1, ptr %abort_flag17, align 4
   br label %if.end199
 
 if.end18:                                         ; preds = %if.end4
   %11 = load ptr, ptr %skip_specification, align 8
-  %value = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %11, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i64, ptr %value, align 8
   %13 = freeze i64 %12
-  %total_samples = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %metadata, i64 0, i32 3, i32 0, i32 0, i64 32
+  %total_samples = getelementptr inbounds i8, ptr %metadata, i64 48
   %14 = load i64, ptr %total_samples, align 8
   %15 = add i64 %14, -1
   %or.cond98.not = icmp ult i64 %15, %13
@@ -2227,10 +2221,10 @@ if.end18:                                         ; preds = %if.end4
 
 if.then27:                                        ; preds = %if.end18
   %16 = load ptr, ptr @stderr, align 8
-  %inbasefilename28 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename28 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %17 = load ptr, ptr %inbasefilename28, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %16, i32 noundef 1, ptr noundef nonnull @.str.30, ptr noundef %17) #13
-  %abort_flag29 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 21
+  %abort_flag29 = getelementptr inbounds i8, ptr %client_data, i64 1252
   store i32 1, ptr %abort_flag29, align 4
   br label %if.end199
 
@@ -2242,20 +2236,20 @@ if.else:                                          ; preds = %if.end18
 
 if.then37:                                        ; preds = %if.else
   %18 = load ptr, ptr @stderr, align 8
-  %inbasefilename38 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename38 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %19 = load ptr, ptr %inbasefilename38, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %18, i32 noundef 1, ptr noundef nonnull @.str.31, ptr noundef %19) #13
-  %abort_flag39 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 21
+  %abort_flag39 = getelementptr inbounds i8, ptr %client_data, i64 1252
   store i32 1, ptr %abort_flag39, align 4
   br label %if.end199
 
 if.end41:                                         ; preds = %if.else
   %sub = sub i64 %14, %13
-  %total_samples44 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 31
+  %total_samples44 = getelementptr inbounds i8, ptr %client_data, i64 1296
   store i64 %sub, ptr %total_samples44, align 8
-  %until_specification = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 14
+  %until_specification = getelementptr inbounds i8, ptr %client_data, i64 1200
   %20 = load ptr, ptr %until_specification, align 8
-  %inbasefilename45 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename45 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %21 = load ptr, ptr %inbasefilename45, align 8
   %22 = load i32, ptr %sample_rate11, align 8
   %23 = load i64, ptr %total_samples, align 8
@@ -2264,13 +2258,13 @@ if.end41:                                         ; preds = %if.else
   br i1 %tobool50.not, label %if.then51, label %if.end53
 
 if.then51:                                        ; preds = %if.end41
-  %abort_flag52 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 21
+  %abort_flag52 = getelementptr inbounds i8, ptr %client_data, i64 1252
   store i32 1, ptr %abort_flag52, align 4
   br label %if.end199
 
 if.end53:                                         ; preds = %if.end41
   %24 = load ptr, ptr %until_specification, align 8
-  %value55 = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %24, i64 0, i32 2
+  %value55 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i64, ptr %value55, align 8
   %cmp56.not = icmp eq i64 %25, 0
   br i1 %cmp56.not, label %if.end64, label %if.then58
@@ -2284,7 +2278,7 @@ if.then58:                                        ; preds = %if.end53
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then58, %if.end53
-  %format = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 3
+  %format = getelementptr inbounds i8, ptr %client_data, i64 16
   %28 = load i32, ptr %format, align 8
   %cmp65 = icmp eq i32 %28, 0
   %.pre = load i32, ptr %bps, align 8
@@ -2301,7 +2295,7 @@ if.then74:                                        ; preds = %land.lhs.true67
   %29 = load ptr, ptr @stderr, align 8
   %30 = load ptr, ptr %inbasefilename45, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %29, i32 noundef 1, ptr noundef nonnull @.str.12, ptr noundef %30, i32 noundef %.pre) #13
-  %abort_flag77 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 21
+  %abort_flag77 = getelementptr inbounds i8, ptr %client_data, i64 1252
   store i32 1, ptr %abort_flag77, align 4
   br label %if.end199
 
@@ -2314,118 +2308,118 @@ if.then86:                                        ; preds = %if.end78
   %32 = load ptr, ptr @stderr, align 8
   %33 = load ptr, ptr %inbasefilename45, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %32, i32 noundef 1, ptr noundef nonnull @.str.32, ptr noundef %33, i32 noundef %.pre) #13
-  %abort_flag89 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 21
+  %abort_flag89 = getelementptr inbounds i8, ptr %client_data, i64 1252
   store i32 1, ptr %abort_flag89, align 4
   br label %if.end199
 
 if.then95:                                        ; preds = %entry
-  %total_samples96 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 31
+  %total_samples96 = getelementptr inbounds i8, ptr %client_data, i64 1296
   %34 = load i64, ptr %total_samples96, align 8
   %cmp97 = icmp eq i64 %34, 0
   br i1 %cmp97, label %if.then99, label %if.end102
 
 if.then99:                                        ; preds = %if.then95
   %35 = load ptr, ptr @stderr, align 8
-  %inbasefilename100 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename100 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %36 = load ptr, ptr %inbasefilename100, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %35, i32 noundef 1, ptr noundef nonnull @.str.33, ptr noundef %36) #13
-  %abort_flag101 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 21
+  %abort_flag101 = getelementptr inbounds i8, ptr %client_data, i64 1252
   store i32 1, ptr %abort_flag101, align 4
   br label %if.end199
 
 if.end102:                                        ; preds = %if.then95
-  %cue_specification = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 15
+  %cue_specification = getelementptr inbounds i8, ptr %client_data, i64 1208
   %37 = load ptr, ptr %cue_specification, align 8
-  %data103 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %metadata, i64 0, i32 3
-  %skip_specification105 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 13
+  %data103 = getelementptr inbounds i8, ptr %metadata, i64 16
+  %skip_specification105 = getelementptr inbounds i8, ptr %client_data, i64 1192
   %38 = load ptr, ptr %skip_specification105, align 8
-  %until_specification106 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 14
+  %until_specification106 = getelementptr inbounds i8, ptr %client_data, i64 1200
   %39 = load ptr, ptr %until_specification106, align 8
   tail call void @flac__utils_canonicalize_cue_specification(ptr noundef %37, ptr noundef nonnull %data103, i64 noundef %34, ptr noundef %38, ptr noundef %39) #13
   %40 = load ptr, ptr %until_specification106, align 8
-  %value108 = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %40, i64 0, i32 2
+  %value108 = getelementptr inbounds i8, ptr %40, i64 8
   %41 = load i64, ptr %value108, align 8
   %42 = load ptr, ptr %skip_specification105, align 8
-  %value110 = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %42, i64 0, i32 2
+  %value110 = getelementptr inbounds i8, ptr %42, i64 8
   %43 = load i64, ptr %value110, align 8
   %sub111 = sub nsw i64 %41, %43
   store i64 %sub111, ptr %total_samples96, align 8
   br label %if.end199
 
 if.then117:                                       ; preds = %entry
-  %replaygain = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9
+  %replaygain = getelementptr inbounds i8, ptr %client_data, i64 40
   %44 = load i32, ptr %replaygain, align 8
   %tobool118.not = icmp eq i32 %44, 0
   br i1 %tobool118.not, label %if.end185, label %if.then119
 
 if.then119:                                       ; preds = %if.then117
-  %use_album_gain = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9, i32 0, i32 1
+  %use_album_gain = getelementptr inbounds i8, ptr %client_data, i64 44
   %45 = load i32, ptr %use_album_gain, align 4
   %call122 = call i32 @grabbag__replaygain_load_from_vorbiscomment(ptr noundef nonnull %metadata, i32 noundef %45, i32 noundef 0, ptr noundef nonnull %reference, ptr noundef nonnull %gain, ptr noundef nonnull %peak) #13
-  %apply124 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9, i32 1
+  %apply124 = getelementptr inbounds i8, ptr %client_data, i64 64
   store i32 %call122, ptr %apply124, align 8
   %tobool125.not = icmp eq i32 %call122, 0
   br i1 %tobool125.not, label %if.then126, label %if.else141
 
 if.then126:                                       ; preds = %if.then119
   %46 = load ptr, ptr @stderr, align 8
-  %inbasefilename127 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename127 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %47 = load ptr, ptr %inbasefilename127, align 8
   %48 = load i32, ptr %use_album_gain, align 4
   %tobool131.not = icmp eq i32 %48, 0
   %cond = select i1 %tobool131.not, ptr @.str.36, ptr @.str.35
   %cond136 = select i1 %tobool131.not, ptr @.str.35, ptr @.str.36
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %46, i32 noundef 1, ptr noundef nonnull @.str.34, ptr noundef %47, ptr noundef nonnull %cond, ptr noundef nonnull %cond136) #13
-  %treat_warnings_as_errors = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 5
+  %treat_warnings_as_errors = getelementptr inbounds i8, ptr %client_data, i64 24
   %49 = load i32, ptr %treat_warnings_as_errors, align 8
   %tobool137.not = icmp eq i32 %49, 0
   br i1 %tobool137.not, label %if.end185, label %if.then138
 
 if.then138:                                       ; preds = %if.then126
-  %abort_flag139 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 21
+  %abort_flag139 = getelementptr inbounds i8, ptr %client_data, i64 1252
   store i32 1, ptr %abort_flag139, align 4
   br label %if.end199
 
 if.else141:                                       ; preds = %if.then119
-  %bps142 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 32
+  %bps142 = getelementptr inbounds i8, ptr %client_data, i64 1304
   %50 = load i32, ptr %bps142, align 8
   %cmp143 = icmp eq i32 %50, 0
   br i1 %cmp143, label %if.then145, label %if.else152
 
 if.then145:                                       ; preds = %if.else141
   %51 = load ptr, ptr @stderr, align 8
-  %inbasefilename146 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename146 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %52 = load ptr, ptr %inbasefilename146, align 8
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %51, i32 noundef 1, ptr noundef nonnull @.str.37, ptr noundef %52) #13
-  %treat_warnings_as_errors147 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 5
+  %treat_warnings_as_errors147 = getelementptr inbounds i8, ptr %client_data, i64 24
   %53 = load i32, ptr %treat_warnings_as_errors147, align 8
   %tobool148.not = icmp eq i32 %53, 0
   br i1 %tobool148.not, label %if.end185, label %if.then149
 
 if.then149:                                       ; preds = %if.then145
-  %abort_flag150 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 21
+  %abort_flag150 = getelementptr inbounds i8, ptr %client_data, i64 1252
   store i32 1, ptr %abort_flag150, align 4
   br label %if.end199
 
 if.else152:                                       ; preds = %if.else141
   %54 = load double, ptr %peak, align 8
   %55 = load double, ptr %gain, align 8
-  %preamp = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9, i32 0, i32 4
+  %preamp = getelementptr inbounds i8, ptr %client_data, i64 56
   %56 = load double, ptr %preamp, align 8
-  %limiter = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9, i32 0, i32 2
+  %limiter = getelementptr inbounds i8, ptr %client_data, i64 48
   %57 = load i32, ptr %limiter, align 8
   %cmp157 = icmp eq i32 %57, 1
   %conv158 = zext i1 %cmp157 to i32
   %call159 = call double @grabbag__replaygain_compute_scale_factor(double noundef %54, double noundef %55, double noundef %56, i32 noundef %conv158) #13
-  %scale = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9, i32 2
+  %scale = getelementptr inbounds i8, ptr %client_data, i64 72
   store double %call159, ptr %scale, align 8
-  %dither_context = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9, i32 3
+  %dither_context = getelementptr inbounds i8, ptr %client_data, i64 80
   %58 = load i32, ptr %bps142, align 8
-  %noise_shaping = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 9, i32 0, i32 3
+  %noise_shaping = getelementptr inbounds i8, ptr %client_data, i64 52
   %59 = load i32, ptr %noise_shaping, align 4
   call void @FLAC__replaygain_synthesis__init_dither_context(ptr noundef nonnull %dither_context, i32 noundef %58, i32 noundef %59) #13
   %60 = load ptr, ptr @stderr, align 8
-  %inbasefilename165 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename165 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %61 = load ptr, ptr %inbasefilename165, align 8
   %62 = load i32, ptr %use_album_gain, align 4
   %tobool169.not = icmp eq i32 %62, 0
@@ -2447,19 +2441,19 @@ if.else152:                                       ; preds = %if.else141
   br label %if.end185
 
 if.end185:                                        ; preds = %if.then126, %if.then145, %if.else152, %if.then117
-  %channel_mask = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 35
+  %channel_mask = getelementptr inbounds i8, ptr %client_data, i64 1316
   %call186 = call i32 @flac__utils_get_channel_mask_tag(ptr noundef nonnull %metadata, ptr noundef nonnull %channel_mask) #13
   br label %if.end199
 
 land.lhs.true191:                                 ; preds = %entry
-  %warn_user_about_foreign_metadata = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 25
+  %warn_user_about_foreign_metadata = getelementptr inbounds i8, ptr %client_data, i64 1268
   %71 = load i32, ptr %warn_user_about_foreign_metadata, align 4
   %tobool192.not = icmp eq i32 %71, 0
   br i1 %tobool192.not, label %if.end199, label %if.then193
 
 if.then193:                                       ; preds = %land.lhs.true191
   %72 = load ptr, ptr @stderr, align 8
-  %inbasefilename194 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename194 = getelementptr inbounds i8, ptr %client_data, i64 1216
   %73 = load ptr, ptr %inbasefilename194, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %72, i32 noundef 1, ptr noundef nonnull @.str.46, ptr noundef %73) #13
   store i32 0, ptr %warn_user_about_foreign_metadata, align 4
@@ -2472,13 +2466,13 @@ if.end199:                                        ; preds = %entry, %if.end78, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @error_callback(ptr noundef %decoder, i32 noundef %status, ptr nocapture noundef %client_data) #0 {
 entry:
-  %error_callback_suppress_messages = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 24
+  %error_callback_suppress_messages = getelementptr inbounds i8, ptr %client_data, i64 1264
   %0 = load i32, ptr %error_callback_suppress_messages, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %inbasefilename = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 16
+  %inbasefilename = getelementptr inbounds i8, ptr %client_data, i64 1216
   %1 = load ptr, ptr %inbasefilename, align 8
   tail call void @stats_print_name(i32 noundef 1, ptr noundef %1) #13
   %2 = load ptr, ptr @stderr, align 8
@@ -2489,7 +2483,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %continue_through_decode_errors = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 6
+  %continue_through_decode_errors = getelementptr inbounds i8, ptr %client_data, i64 28
   %4 = load i32, ptr %continue_through_decode_errors, align 4
   %tobool1.not = icmp eq i32 %4, 0
   br i1 %tobool1.not, label %if.then2, label %if.end13
@@ -2516,12 +2510,12 @@ if.else:                                          ; preds = %land.lhs.true5, %if
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.else
-  %aborting_due_to_unparseable = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 23
+  %aborting_due_to_unparseable = getelementptr inbounds i8, ptr %client_data, i64 1260
   store i32 1, ptr %aborting_due_to_unparseable, align 4
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %if.then10, %if.then7
-  %abort_flag = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 21
+  %abort_flag = getelementptr inbounds i8, ptr %client_data, i64 1252
   store i32 1, ptr %abort_flag, align 4
   br label %if.end13
 
@@ -2544,8 +2538,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end26
 
 if.then:                                          ; preds = %entry
-  %samples_processed = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 19
-  %total_samples = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 31
+  %samples_processed = getelementptr inbounds i8, ptr %decoder_session, i64 1240
+  %total_samples = getelementptr inbounds i8, ptr %decoder_session, i64 1296
   %1 = load i64, ptr %total_samples, align 8
   %cmp3.not = icmp eq i64 %1, 0
   br i1 %cmp3.not, label %if.else, label %if.then5
@@ -2563,16 +2557,16 @@ if.then5:                                         ; preds = %if.then
   br i1 %cmp7, label %if.end26, label %if.end
 
 if.end:                                           ; preds = %if.then5
-  %inbasefilename = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 16
+  %inbasefilename = getelementptr inbounds i8, ptr %decoder_session, i64 1216
   %4 = load ptr, ptr %inbasefilename, align 8
   tail call void @stats_print_name(i32 noundef 2, ptr noundef %4) #13
-  %test_only = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 10
+  %test_only = getelementptr inbounds i8, ptr %decoder_session, i64 1176
   %5 = load i32, ptr %test_only, align 8
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %analysis_mode = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 11
+  %analysis_mode = getelementptr inbounds i8, ptr %decoder_session, i64 1180
   %6 = load i32, ptr %analysis_mode, align 4
   %tobool10.not = icmp eq i32 %6, 0
   %cond = select i1 %tobool10.not, ptr @.str.22, ptr @.str.21
@@ -2584,16 +2578,16 @@ cond.end:                                         ; preds = %if.end, %cond.false
   br label %if.end26
 
 if.else:                                          ; preds = %if.then
-  %inbasefilename14 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 16
+  %inbasefilename14 = getelementptr inbounds i8, ptr %decoder_session, i64 1216
   %7 = load ptr, ptr %inbasefilename14, align 8
   tail call void @stats_print_name(i32 noundef 2, ptr noundef %7) #13
-  %test_only15 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 10
+  %test_only15 = getelementptr inbounds i8, ptr %decoder_session, i64 1176
   %8 = load i32, ptr %test_only15, align 8
   %tobool16.not = icmp eq i32 %8, 0
   br i1 %tobool16.not, label %cond.false18, label %cond.end22
 
 cond.false18:                                     ; preds = %if.else
-  %analysis_mode19 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 11
+  %analysis_mode19 = getelementptr inbounds i8, ptr %decoder_session, i64 1180
   %9 = load i32, ptr %analysis_mode19, align 4
   %tobool20.not = icmp eq i32 %9, 0
   %cond21 = select i1 %tobool20.not, ptr @.str.26, ptr @.str.25
@@ -2643,7 +2637,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %value = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %spec, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %spec, i64 8
   %2 = load i64, ptr %value, align 8
   %cmp = icmp eq i64 %2, 0
   br i1 %cmp, label %if.then2, label %if.end4.thread
@@ -2657,7 +2651,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %if.then6, label %if.end4.if.end19_crit_edge
 
 if.end4.if.end19_crit_edge:                       ; preds = %if.end4
-  %value20.phi.trans.insert = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %spec, i64 0, i32 2
+  %value20.phi.trans.insert = getelementptr inbounds i8, ptr %spec, i64 8
   %.pre = load i64, ptr %value20.phi.trans.insert, align 8
   br label %if.end19
 
@@ -2731,7 +2725,7 @@ declare i32 @FLAC__stream_decoder_process_until_end_of_metadata(ptr noundef) loc
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @print_error_with_state(ptr nocapture noundef readonly %d, ptr noundef %message) unnamed_addr #0 {
 entry:
-  %inbasefilename = getelementptr inbounds %struct.DecoderSession, ptr %d, i64 0, i32 16
+  %inbasefilename = getelementptr inbounds i8, ptr %d, i64 1216
   %0 = load ptr, ptr %inbasefilename, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %1 = trunc i64 %call to i32
@@ -2739,11 +2733,11 @@ entry:
   %2 = load ptr, ptr @stderr, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.54, ptr noundef %0, ptr noundef %message) #13
   %3 = load ptr, ptr @stderr, align 8
-  %decoder = getelementptr inbounds %struct.DecoderSession, ptr %d, i64 0, i32 37
+  %decoder = getelementptr inbounds i8, ptr %d, i64 1328
   %4 = load ptr, ptr %decoder, align 8
   %call2 = tail call ptr @FLAC__stream_decoder_get_resolved_state_string(ptr noundef %4) #13
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.68, i32 noundef %conv, ptr noundef nonnull @.str.22, ptr noundef %call2) #13
-  %aborting_due_to_unparseable = getelementptr inbounds %struct.DecoderSession, ptr %d, i64 0, i32 23
+  %aborting_due_to_unparseable = getelementptr inbounds i8, ptr %d, i64 1260
   %5 = load i32, ptr %aborting_due_to_unparseable, align 4
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2785,9 +2779,9 @@ entry:
   %val.addr.i187 = alloca i32, align 4
   %val.addr.i183 = alloca i64, align 8
   %val.addr.i = alloca i32, align 4
-  %format1 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 3
+  %format1 = getelementptr inbounds i8, ptr %decoder_session, i64 16
   %0 = load i32, ptr %format1, align 8
-  %subformat2 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 4
+  %subformat2 = getelementptr inbounds i8, ptr %decoder_session, i64 20
   %1 = load i32, ptr %subformat2, align 4
   switch i32 %0, label %cond.false5 [
     i32 1, label %cond.end13
@@ -2817,7 +2811,7 @@ lor.rhs:                                          ; preds = %cond.end13
   br i1 %or.cond2, label %land.rhs, label %lor.end35
 
 land.rhs:                                         ; preds = %lor.rhs
-  %channel_mask = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 35
+  %channel_mask = getelementptr inbounds i8, ptr %decoder_session, i64 1316
   %3 = load i32, ptr %channel_mask, align 4
   switch i32 %3, label %lor.end35 [
     i32 0, label %lor.lhs.false28
@@ -2826,7 +2820,7 @@ land.rhs:                                         ; preds = %lor.rhs
   ]
 
 lor.lhs.false28:                                  ; preds = %land.rhs, %land.rhs, %land.rhs
-  %bps = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 32
+  %bps = getelementptr inbounds i8, ptr %decoder_session, i64 1304
   %4 = load i32, ptr %bps, align 8
   switch i32 %4, label %lor.end35 [
     i32 8, label %lor.rhs33
@@ -2834,7 +2828,7 @@ lor.lhs.false28:                                  ; preds = %land.rhs, %land.rhs
   ]
 
 lor.rhs33:                                        ; preds = %lor.lhs.false28, %lor.lhs.false28
-  %channels = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 33
+  %channels = getelementptr inbounds i8, ptr %decoder_session, i64 1308
   %5 = load i32, ptr %channels, align 4
   %cmp34 = icmp ugt i32 %5, 2
   br label %lor.end35
@@ -2842,11 +2836,11 @@ lor.rhs33:                                        ; preds = %lor.lhs.false28, %l
 lor.end35:                                        ; preds = %lor.lhs.false28, %land.rhs, %lor.rhs, %lor.rhs33, %cond.end13
   %6 = phi i1 [ true, %cond.end13 ], [ false, %lor.rhs ], [ %cmp34, %lor.rhs33 ], [ true, %land.rhs ], [ true, %lor.lhs.false28 ]
   %lor.ext = zext i1 %6 to i32
-  %channels36 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 33
+  %channels36 = getelementptr inbounds i8, ptr %decoder_session, i64 1308
   %7 = load i32, ptr %channels36, align 4
   %conv = zext i32 %7 to i64
   %mul = mul i64 %conv, %samples
-  %bps37 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 32
+  %bps37 = getelementptr inbounds i8, ptr %decoder_session, i64 1304
   %8 = load i32, ptr %bps37, align 8
   %add = add i32 %8, 7
   %div182 = lshr i32 %add, 3
@@ -2858,7 +2852,7 @@ lor.end35:                                        ; preds = %lor.lhs.false28, %l
   %add45 = add i64 %mul39, 1
   %and46 = and i64 %add45, -2
   %cond48 = select i1 %cmp40, i64 %and, i64 %and46
-  %foreign_metadata = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 39
+  %foreign_metadata = getelementptr inbounds i8, ptr %decoder_session, i64 1344
   %9 = load ptr, ptr %foreign_metadata, align 8
   %cmp49 = icmp eq i64 %samples, 0
   br i1 %cmp49, label %if.then, label %if.end56
@@ -2870,20 +2864,20 @@ if.then:                                          ; preds = %lor.end35
 
 if.then53:                                        ; preds = %if.then
   %11 = load ptr, ptr @stderr, align 8
-  %inbasefilename = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 16
+  %inbasefilename = getelementptr inbounds i8, ptr %decoder_session, i64 1216
   %12 = load ptr, ptr %inbasefilename, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %11, i32 noundef 1, ptr noundef nonnull @.str.75, ptr noundef %12, ptr noundef %cond14) #13
   %13 = load ptr, ptr @stderr, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %13, i32 noundef 1, ptr noundef nonnull @.str.76, ptr noundef %cond14) #13
   %14 = load ptr, ptr @stderr, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %14, i32 noundef 1, ptr noundef nonnull @.str.77) #13
-  %treat_warnings_as_errors = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 5
+  %treat_warnings_as_errors = getelementptr inbounds i8, ptr %decoder_session, i64 24
   %15 = load i32, ptr %treat_warnings_as_errors, align 8
   %tobool.not = icmp eq i32 %15, 0
   br i1 %tobool.not, label %if.end56, label %return
 
 if.else:                                          ; preds = %if.then
-  %iff_headers_need_fixup = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 26
+  %iff_headers_need_fixup = getelementptr inbounds i8, ptr %decoder_session, i64 1272
   store i32 1, ptr %iff_headers_need_fixup, align 8
   br label %if.end56
 
@@ -2894,16 +2888,16 @@ if.end56:                                         ; preds = %if.else, %if.then53
 if.then58:                                        ; preds = %if.end56
   %cmp59 = icmp eq i32 %0, 3
   %cond61 = select i1 %cmp59, i64 2, i64 1
-  %num_blocks = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 2
+  %num_blocks = getelementptr inbounds i8, ptr %9, i64 16
   %16 = load i64, ptr %num_blocks, align 8
   %cmp63257 = icmp ult i64 %cond61, %16
   br i1 %cmp63257, label %for.body.lr.ph, label %if.end73
 
 for.body.lr.ph:                                   ; preds = %if.then58
-  %format_block = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 3
+  %format_block = getelementptr inbounds i8, ptr %9, i64 24
   %17 = load i64, ptr %format_block, align 8
-  %audio_block = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 4
-  %blocks = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 1
+  %audio_block = getelementptr inbounds i8, ptr %9, i64 32
+  %blocks = getelementptr inbounds i8, ptr %9, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2973,7 +2967,7 @@ if.else115:                                       ; preds = %if.else108
   br i1 %tobool57.not, label %if.end129, label %cond.true120
 
 cond.true120:                                     ; preds = %if.else115
-  %aifc_comm_length = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 9
+  %aifc_comm_length = getelementptr inbounds i8, ptr %9, i64 56
   %21 = load i32, ptr %aifc_comm_length, align 8
   br label %if.end129
 
@@ -2990,7 +2984,7 @@ if.end129:                                        ; preds = %cond.true120, %if.e
 
 if.then138:                                       ; preds = %if.end129
   %23 = load ptr, ptr @stderr, align 8
-  %inbasefilename139 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 16
+  %inbasefilename139 = getelementptr inbounds i8, ptr %decoder_session, i64 1216
   %24 = load ptr, ptr %inbasefilename139, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %23, i32 noundef 1, ptr noundef nonnull @.str.78, ptr noundef %24, ptr noundef %cond14) #13
   br label %return
@@ -3114,19 +3108,19 @@ if.end217:                                        ; preds = %if.end213
 if.end222:                                        ; preds = %if.end158, %if.end173, %if.end217
   %cmp147250253 = phi i1 [ true, %if.end217 ], [ false, %if.end158 ], [ %cmp147250255, %if.end173 ]
   %call223 = tail call i64 @ftello64(ptr noundef %f)
-  %fm_offset1 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 40
+  %fm_offset1 = getelementptr inbounds i8, ptr %decoder_session, i64 1352
   store i64 %call223, ptr %fm_offset1, align 8
   br i1 %tobool57.not, label %if.end248, label %if.then225
 
 if.then225:                                       ; preds = %if.end222
   %cond228 = select i1 %cmp147250253, i64 2, i64 1
-  %format_block231 = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 3
+  %format_block231 = getelementptr inbounds i8, ptr %9, i64 24
   %26 = load i64, ptr %format_block231, align 8
   %cmp232262 = icmp ult i64 %cond228, %26
   br i1 %cmp232262, label %for.body234.lr.ph, label %if.end248
 
 for.body234.lr.ph:                                ; preds = %if.then225
-  %blocks235 = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 1
+  %blocks235 = getelementptr inbounds i8, ptr %9, i64 8
   br label %for.body234
 
 for.cond230:                                      ; preds = %for.body234
@@ -3147,7 +3141,7 @@ for.body234:                                      ; preds = %for.body234.lr.ph, 
 
 if.then242:                                       ; preds = %for.body234
   %30 = load ptr, ptr @stderr, align 8
-  %inbasefilename243 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 16
+  %inbasefilename243 = getelementptr inbounds i8, ptr %decoder_session, i64 1216
   %31 = load ptr, ptr %inbasefilename243, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %30, i32 noundef 1, ptr noundef nonnull @.str.83, ptr noundef %31) #13
   br label %return
@@ -3186,9 +3180,9 @@ if.end268:                                        ; preds = %if.else263
 if.end277:                                        ; preds = %if.end268, %if.end256
   %32 = load i32, ptr %bps37, align 8
   %33 = load i32, ptr %channels36, align 4
-  %sample_rate = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 34
+  %sample_rate = getelementptr inbounds i8, ptr %decoder_session, i64 1312
   %34 = load i32, ptr %sample_rate, align 8
-  %channel_mask280 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 35
+  %channel_mask280 = getelementptr inbounds i8, ptr %decoder_session, i64 1316
   %35 = load i32, ptr %channel_mask280, align 4
   %call281 = tail call fastcc i32 @write_riff_wave_fmt_chunk_body(ptr noundef %f, i32 noundef %lor.ext, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35), !range !7
   %tobool282.not = icmp eq i32 %call281, 0
@@ -3196,15 +3190,15 @@ if.end277:                                        ; preds = %if.end268, %if.end2
 
 if.end284:                                        ; preds = %if.end277
   %call285 = tail call i64 @ftello64(ptr noundef %f)
-  %fm_offset2 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 41
+  %fm_offset2 = getelementptr inbounds i8, ptr %decoder_session, i64 1360
   store i64 %call285, ptr %fm_offset2, align 8
   br i1 %tobool57.not, label %if.end308, label %if.then287
 
 if.then287:                                       ; preds = %if.end284
-  %format_block288 = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 3
+  %format_block288 = getelementptr inbounds i8, ptr %9, i64 24
   %36 = load i64, ptr %format_block288, align 8
-  %audio_block291 = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 4
-  %blocks295 = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 1
+  %audio_block291 = getelementptr inbounds i8, ptr %9, i64 32
+  %blocks295 = getelementptr inbounds i8, ptr %9, i64 8
   br label %for.cond290
 
 for.cond290:                                      ; preds = %for.body294, %if.then287
@@ -3225,7 +3219,7 @@ for.body294:                                      ; preds = %for.cond290
 
 if.then302:                                       ; preds = %for.body294
   %40 = load ptr, ptr @stderr, align 8
-  %inbasefilename303 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 16
+  %inbasefilename303 = getelementptr inbounds i8, ptr %decoder_session, i64 1216
   %41 = load ptr, ptr %inbasefilename303, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %40, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef %41) #13
   br label %return
@@ -3265,7 +3259,7 @@ if.end333:                                        ; preds = %if.else328
 if.end339:                                        ; preds = %if.end333, %if.end316
   %call340 = tail call i64 @ftello64(ptr noundef %f)
   %add341 = add i64 %call340, %cond48
-  %fm_offset3 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 42
+  %fm_offset3 = getelementptr inbounds i8, ptr %decoder_session, i64 1368
   store i64 %add341, ptr %fm_offset3, align 8
   br label %return
 
@@ -3311,18 +3305,18 @@ if.else361:                                       ; preds = %if.end352
 
 if.end367:                                        ; preds = %if.else361, %if.then355
   %call368 = tail call i64 @ftello64(ptr noundef %f)
-  %fm_offset1369 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 40
+  %fm_offset1369 = getelementptr inbounds i8, ptr %decoder_session, i64 1352
   store i64 %call368, ptr %fm_offset1369, align 8
   br i1 %tobool57.not, label %cond.end398.thread, label %for.cond372.preheader
 
 for.cond372.preheader:                            ; preds = %if.end367
-  %format_block373 = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 3
+  %format_block373 = getelementptr inbounds i8, ptr %9, i64 24
   %49 = load i64, ptr %format_block373, align 8
   %cmp374260 = icmp ugt i64 %49, 1
   br i1 %cmp374260, label %for.body376.lr.ph, label %cond.end398
 
 for.body376.lr.ph:                                ; preds = %for.cond372.preheader
-  %blocks377 = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 1
+  %blocks377 = getelementptr inbounds i8, ptr %9, i64 8
   br label %for.body376
 
 cond.end398.thread:                               ; preds = %if.end367
@@ -3347,13 +3341,13 @@ for.body376:                                      ; preds = %for.body376.lr.ph, 
 
 if.then384:                                       ; preds = %for.body376
   %53 = load ptr, ptr @stderr, align 8
-  %inbasefilename385 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 16
+  %inbasefilename385 = getelementptr inbounds i8, ptr %decoder_session, i64 1216
   %54 = load ptr, ptr %inbasefilename385, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %53, i32 noundef 1, ptr noundef nonnull @.str.90, ptr noundef %54) #13
   br label %return
 
 cond.end398:                                      ; preds = %for.cond372, %for.cond372.preheader
-  %aifc_comm_length396 = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 9
+  %aifc_comm_length396 = getelementptr inbounds i8, ptr %9, i64 56
   %55 = load i32, ptr %aifc_comm_length396, align 8
   %.fr = freeze i32 %55
   %cmp.i231 = icmp eq i32 %.fr, 0
@@ -3363,7 +3357,7 @@ cond.end398:                                      ; preds = %for.cond372, %for.c
 
 56:                                               ; preds = %cond.end398, %cond.end398.thread
   %57 = phi i32 [ %..i241, %cond.end398.thread ], [ %spec.select, %cond.end398 ]
-  %.in = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 34
+  %.in = getelementptr inbounds i8, ptr %decoder_session, i64 1312
   %58 = load i32, ptr %.in, align 8
   %59 = load i32, ptr %channels36, align 4
   %60 = load i32, ptr %bps37, align 8
@@ -3563,15 +3557,15 @@ for.body.i:                                       ; preds = %if.end49.i, %for.co
 
 if.end403:                                        ; preds = %for.cond.i, %if.end49.i, %if.end27.i
   %call404 = tail call i64 @ftello64(ptr noundef %f)
-  %fm_offset2405 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 41
+  %fm_offset2405 = getelementptr inbounds i8, ptr %decoder_session, i64 1360
   store i64 %call404, ptr %fm_offset2405, align 8
   br i1 %tobool57.not, label %if.end428, label %if.then407
 
 if.then407:                                       ; preds = %if.end403
-  %format_block408 = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 3
+  %format_block408 = getelementptr inbounds i8, ptr %9, i64 24
   %92 = load i64, ptr %format_block408, align 8
-  %audio_block411 = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 4
-  %blocks415 = getelementptr inbounds %struct.foreign_metadata_t, ptr %9, i64 0, i32 1
+  %audio_block411 = getelementptr inbounds i8, ptr %9, i64 32
+  %blocks415 = getelementptr inbounds i8, ptr %9, i64 8
   br label %for.cond410
 
 for.cond410:                                      ; preds = %for.body414, %if.then407
@@ -3592,7 +3586,7 @@ for.body414:                                      ; preds = %for.cond410
 
 if.then422:                                       ; preds = %for.body414
   %96 = load ptr, ptr @stderr, align 8
-  %inbasefilename423 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 16
+  %inbasefilename423 = getelementptr inbounds i8, ptr %decoder_session, i64 1216
   %97 = load ptr, ptr %inbasefilename423, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %96, i32 noundef 1, ptr noundef nonnull @.str.91, ptr noundef %97) #13
   br label %return
@@ -3622,7 +3616,7 @@ if.end443:                                        ; preds = %if.end439
 if.end447:                                        ; preds = %if.end443
   %call448 = tail call i64 @ftello64(ptr noundef %f)
   %add449 = add i64 %call448, %cond48
-  %fm_offset3450 = getelementptr inbounds %struct.DecoderSession, ptr %decoder_session, i64 0, i32 42
+  %fm_offset3450 = getelementptr inbounds i8, ptr %decoder_session, i64 1368
   store i64 %add449, ptr %fm_offset3450, align 8
   br label %return
 

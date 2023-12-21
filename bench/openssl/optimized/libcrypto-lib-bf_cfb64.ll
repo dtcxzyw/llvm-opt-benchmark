@@ -23,7 +23,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %incdec.ptr20 = getelementptr inbounds i8, ptr %ivec, i64 5
   %incdec.ptr24 = getelementptr inbounds i8, ptr %ivec, i64 6
   %incdec.ptr30 = getelementptr inbounds i8, ptr %ivec, i64 7
-  %arrayidx41 = getelementptr inbounds [2 x i32], ptr %ti, i64 0, i64 1
+  %arrayidx41 = getelementptr inbounds i8, ptr %ti, i64 4
   br label %while.body
 
 while.cond81.preheader:                           ; preds = %entry
@@ -37,7 +37,7 @@ while.body84.lr.ph:                               ; preds = %while.cond81.prehea
   %incdec.ptr110 = getelementptr inbounds i8, ptr %ivec, i64 5
   %incdec.ptr114 = getelementptr inbounds i8, ptr %ivec, i64 6
   %incdec.ptr120 = getelementptr inbounds i8, ptr %ivec, i64 7
-  %arrayidx131 = getelementptr inbounds [2 x i32], ptr %ti, i64 0, i64 1
+  %arrayidx131 = getelementptr inbounds i8, ptr %ti, i64 4
   br label %while.body84
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end

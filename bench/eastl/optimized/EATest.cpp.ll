@@ -14,24 +14,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %"struct.EA::Thread::ThreadTime" = type { %struct.timespec }
 %struct.timespec = type { i64, i64 }
-%"class.EA::UnitTest::Test" = type { ptr, %"class.eastl::basic_string", ptr, i64, i64, ptr, i8, i64 }
+%"struct.EA::UnitTest::TestCollection::TestInfo" = type { ptr, i8 }
 %"class.eastl::basic_string" = type { %"class.eastl::compressed_pair" }
 %"class.eastl::compressed_pair" = type { %"class.eastl::compressed_pair_imp" }
 %"class.eastl::compressed_pair_imp" = type { %"struct.eastl::basic_string<char>::Layout" }
 %"struct.eastl::basic_string<char>::Layout" = type { %union.anon }
 %union.anon = type { %"struct.eastl::basic_string<char>::HeapLayout" }
 %"struct.eastl::basic_string<char>::HeapLayout" = type { ptr, i64, i64 }
-%"struct.eastl::basic_string<char>::SSOLayout" = type { [23 x i8], %"struct.eastl::basic_string<char>::SSOLayout::SSOSize" }
-%"struct.eastl::basic_string<char>::SSOLayout::SSOSize" = type { i8 }
-%"class.EA::UnitTest::TestFunction" = type { %"class.EA::UnitTest::Test", ptr }
-%"struct.EA::UnitTest::TestCollection::TestInfo" = type { ptr, i8 }
-%"class.EA::UnitTest::TestSuite" = type { %"class.EA::UnitTest::Test", %"class.EA::UnitTest::TestCollection", i32, %"class.eastl::vector.2" }
-%"class.eastl::vector.2" = type { %"struct.eastl::VectorBase.3" }
-%"struct.eastl::VectorBase.3" = type { ptr, ptr, %"class.eastl::compressed_pair.4" }
-%"class.eastl::compressed_pair.4" = type { %"class.eastl::compressed_pair_imp.5" }
-%"class.eastl::compressed_pair_imp.5" = type { ptr }
 %"struct.EA::UnitTest::TestSuite::ResultInfo" = type { ptr, i32 }
-%"class.EA::UnitTest::TestApplication" = type { %"class.EA::UnitTest::TestSuite", i32, ptr, ptr, ptr }
 %"class.EA::EAMain::CommandLine" = type { i32, ptr, ptr }
 
 $__clang_call_terminate = comdat any
@@ -394,7 +384,7 @@ entry:
   %mul.neg.i = mul nsw i64 %div.i.sext, -1000
   %sub.i = add nsw i64 %mul.neg.i, %conv2
   %mul3.i = mul nsw i64 %sub.i, 1000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ref.tmp, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %mul3.i, ptr %tv_nsec.i, align 8
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   ret void
@@ -436,7 +426,7 @@ if.end:                                           ; preds = %if.then, %entry
   %inc.i.i = zext i1 %cmp.i.i to i64
   %retval.sroa.0.0.i = add nsw i64 %add.i.i, %inc.i.i
   store i64 0, ptr %nThreadSleepDuration, align 8
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %nThreadSleepDuration, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %nThreadSleepDuration, i64 8
   store i64 25000000, ptr %tv_nsec.i, align 8
   %cmp6 = icmp ugt i32 %nSleepTime.0, 100
   br i1 %cmp6, label %if.end11, label %if.end18
@@ -561,7 +551,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %pTestContext, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(80) %pTestContext, i1 noundef zeroext %bValue, ptr noundef %pMessage)
   br label %if.end5
@@ -707,7 +697,7 @@ entry:
 define dso_local void @_ZN2EA8UnitTest4TestC2EPKcPFvS3_E(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %pTestName, ptr noundef %pReportFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %msTestName, align 8
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
@@ -732,9 +722,9 @@ if.then.i.i.i.i:                                  ; preds = %_ZN5eastl10CharStrl
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i.i.i.i.i.i, ptr %msTestName, align 8
   %or.i.i.i.i.i = or i64 %sub.ptr.sub.i.i.i, -9223372036854775808
-  %mnCapacity.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %mnCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %or.i.i.i.i.i, ptr %mnCapacity.i.i.i.i.i, align 8
-  %mnSize.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %sub.ptr.sub.i.i.i, ptr %mnSize.i.i.i.i.i, align 8
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcRKS1_.exit
 
@@ -750,7 +740,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcRKS1_.exit: ; preds = %if.then.i.i
   %2 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i.i = icmp slt i8 %2, 0
   %3 = load ptr, ptr %msTestName, align 8
-  %mnSize.i.i6.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i6.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %mnSize.i.i6.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %conv.i.i.i.i.i.i = zext nneg i8 %2 to i64
@@ -758,11 +748,11 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcRKS1_.exit: ; preds = %if.then.i.i
   %add.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %msTestName, i64 %sub.i.i.i.i.i.i
   %cond.i.i.i.i = select i1 %tobool.i.i5.i.i.i, ptr %add.ptr.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i
   store i8 0, ptr %cond.i.i.i.i, align 1
-  %mpParentSuite = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 2
-  %mpReportFunction = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 5
+  %mpParentSuite = getelementptr inbounds i8, ptr %this, i64 32
+  %mpReportFunction = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpParentSuite, i8 0, i64 24, i1 false)
   store ptr %pReportFunction, ptr %mpReportFunction, align 8
-  %mbForceReport = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 6
+  %mbForceReport = getelementptr inbounds i8, ptr %this, i64 64
   store i8 0, ptr %mbForceReport, align 8
   ret void
 }
@@ -777,7 +767,7 @@ entry:
   br i1 %tobool.i.i.i, label %if.then.i.i, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %msTestName, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
@@ -800,7 +790,7 @@ entry:
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i, label %_ZN2EA8UnitTest4TestD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %msTestName.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %msTestName.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN2EA8UnitTest4TestD2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i
@@ -832,7 +822,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZNK2EA8UnitTest4Test14GetParentSuiteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #15 align 2 {
 entry:
-  %mpParentSuite = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 2
+  %mpParentSuite = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %mpParentSuite, align 8
   ret ptr %0
 }
@@ -844,13 +834,13 @@ entry:
 
 while.cond:                                       ; preds = %while.body, %entry
   %pTest.0 = phi ptr [ %this, %entry ], [ %0, %while.body ]
-  %pReportFunction.0.in = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %pTest.0, i64 0, i32 5
+  %pReportFunction.0.in = getelementptr inbounds i8, ptr %pTest.0, i64 56
   %pReportFunction.0 = load ptr, ptr %pReportFunction.0.in, align 8
   %tobool.not = icmp eq ptr %pReportFunction.0, null
   br i1 %tobool.not, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %mpParentSuite = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %pTest.0, i64 0, i32 2
+  %mpParentSuite = getelementptr inbounds i8, ptr %pTest.0, i64 32
   %0 = load ptr, ptr %mpParentSuite, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %while.end, label %while.cond, !llvm.loop !8
@@ -864,21 +854,21 @@ while.end:                                        ; preds = %while.body, %while.
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK2EA8UnitTest4Test7GetNameERN5eastl12basic_stringIcNS2_9allocatorEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(24) %sName) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName = getelementptr inbounds i8, ptr %this, i64 8
   %mRemainingSizeField.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   %0 = load i8, ptr %mRemainingSizeField.i.i.i, align 1
   %tobool.i.i.i = icmp slt i8 %0, 0
   %1 = load ptr, ptr %msTestName, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %1, ptr %msTestName
-  %mnSize.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mnSize.i.i.i, align 8
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %2, i64 %sub.i.i.i
-  %mRemainingSizeField.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %sName, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i = getelementptr inbounds i8, ptr %sName, i64 23
   %3 = load i8, ptr %mRemainingSizeField.i.i.i.i, align 1
   %tobool.i.i.i.i = icmp slt i8 %3, 0
-  %mnSize.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %sName, i64 0, i32 1
+  %mnSize.i.i.i.i = getelementptr inbounds i8, ptr %sName, i64 8
   %4 = load i64, ptr %mnSize.i.i.i.i, align 8
   %conv.i.i.i.i = zext nneg i8 %3 to i64
   %sub.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i
@@ -962,7 +952,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6assignEPKcm.exit: ; preds = %if.end.i.i
 define dso_local noundef i32 @_ZN2EA8UnitTest4Test3RunEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(80) %this)
   ret i32 0
@@ -974,7 +964,7 @@ entry:
   br i1 %bValue, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mnErrorCount = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 4
+  %mnErrorCount = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %mnErrorCount, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %mnErrorCount, align 8
@@ -983,7 +973,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName = getelementptr inbounds i8, ptr %this, i64 8
   %mRemainingSizeField.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   %2 = load i8, ptr %mRemainingSizeField.i.i.i, align 1
   %tobool.i.i.i = icmp slt i8 %2, 0
@@ -999,7 +989,7 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.end4:                                          ; preds = %entry
-  %mnSuccessCount = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 3
+  %mnSuccessCount = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load i64, ptr %mnSuccessCount, align 8
   %inc5 = add i64 %7, 1
   store i64 %inc5, ptr %mnSuccessCount, align 8
@@ -1022,7 +1012,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.va_end(ptr nonnull %arguments)
   %or.cond = icmp ult i32 %call, 384
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   br i1 %or.cond, label %if.then6, label %if.else
 
@@ -1043,13 +1033,13 @@ return:                                           ; preds = %entry, %if.else, %i
 define dso_local void @_ZN2EA8UnitTest4Test11WriteReportEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca [384 x i8], align 16
-  %mpParentSuite = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 2
+  %mpParentSuite = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %mpParentSuite, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %mbForceReport = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 6
+  %mbForceReport = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i8, ptr %mbForceReport, align 8
   %2 = and i8 %1, 1
   %tobool2.not = icmp eq i8 %2, 0
@@ -1057,20 +1047,20 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(80) %this)
-  %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName = getelementptr inbounds i8, ptr %this, i64 8
   %mRemainingSizeField.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   %4 = load i8, ptr %mRemainingSizeField.i.i.i, align 1
   %tobool.i.i.i = icmp slt i8 %4, 0
   %5 = load ptr, ptr %msTestName, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %5, ptr %msTestName
-  %mnErrorCount = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 4
+  %mnErrorCount = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load i64, ptr %mnErrorCount, align 8
   %tobool4.not = icmp eq i64 %6, 0
   %.str.14..str.15 = select i1 %tobool4.not, ptr @.str.15, ptr @.str.14
-  %mnElapsedTestTimeInMicroseconds = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 7
+  %mnElapsedTestTimeInMicroseconds = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load i64, ptr %mnElapsedTestTimeInMicroseconds, align 8
   %conv = uitofp i64 %7 to float
   %div = fdiv float %conv, 1.000000e+06
@@ -1089,7 +1079,7 @@ declare noundef i32 @_ZN2EA4StdC7SprintfEPcPKcz(ptr noundef, ptr noundef, ...) l
 define dso_local void @_ZN2EA8UnitTest12TestFunctionC2EPKcPFivE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %pTestName, ptr noundef %pFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msTestName.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %msTestName.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
@@ -1114,9 +1104,9 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5eastl10CharStrl
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i.i.i.i.i.i.i, ptr %msTestName.i, align 8
   %or.i.i.i.i.i.i = or i64 %sub.ptr.sub.i.i.i.i, -9223372036854775808
-  %mnCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %mnCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %or.i.i.i.i.i.i, ptr %mnCapacity.i.i.i.i.i.i, align 8
-  %mnSize.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %sub.ptr.sub.i.i.i.i, ptr %mnSize.i.i.i.i.i.i, align 8
   br label %_ZN2EA8UnitTest4TestC2EPKcPFvS3_E.exit
 
@@ -1132,7 +1122,7 @@ _ZN2EA8UnitTest4TestC2EPKcPFvS3_E.exit:           ; preds = %if.then.i.i.i.i.i, 
   %2 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i.i.i = icmp slt i8 %2, 0
   %3 = load ptr, ptr %msTestName.i, align 8
-  %mnSize.i.i6.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %mnSize.i.i6.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %conv.i.i.i.i.i.i.i = zext nneg i8 %2 to i64
@@ -1140,10 +1130,10 @@ _ZN2EA8UnitTest4TestC2EPKcPFvS3_E.exit:           ; preds = %if.then.i.i.i.i.i, 
   %add.ptr.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %msTestName.i, i64 %sub.i.i.i.i.i.i.i
   %cond.i.i.i.i.i = select i1 %tobool.i.i5.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i.i
   store i8 0, ptr %cond.i.i.i.i.i, align 1
-  %mpParentSuite.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 2
+  %mpParentSuite.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %mpParentSuite.i, i8 0, i64 33, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest12TestFunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mpFunction = getelementptr inbounds %"class.EA::UnitTest::TestFunction", ptr %this, i64 0, i32 1
+  %mpFunction = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %pFunction, ptr %mpFunction, align 8
   ret void
 }
@@ -1151,7 +1141,7 @@ _ZN2EA8UnitTest4TestC2EPKcPFvS3_E.exit:           ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA8UnitTest12TestFunction3RunEv(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 {
 entry:
-  %mpFunction = getelementptr inbounds %"class.EA::UnitTest::TestFunction", ptr %this, i64 0, i32 1
+  %mpFunction = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %mpFunction, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end8, label %if.then
@@ -1163,23 +1153,22 @@ if.then:                                          ; preds = %entry
   %call3 = tail call noundef i32 %1()
   %2 = and i32 %call3, 2147483647
   %or.cond.not = icmp eq i32 %2, 0
-  %mnSuccessCount = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 3
-  %mnErrorCount = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 4
-  %mnSuccessCount.sink5 = select i1 %or.cond.not, ptr %mnSuccessCount, ptr %mnErrorCount
-  %3 = load i64, ptr %mnSuccessCount.sink5, align 8
+  %. = select i1 %or.cond.not, i64 40, i64 48
+  %mnSuccessCount = getelementptr inbounds i8, ptr %this, i64 %.
+  %3 = load i64, ptr %mnSuccessCount, align 8
   %inc6 = add i64 %3, 1
-  store i64 %inc6, ptr %mnSuccessCount.sink5, align 8
+  store i64 %inc6, ptr %mnSuccessCount, align 8
   %call.i3 = tail call noundef i64 @_ZN2EA4StdC7GetTimeEv()
   %div.i4 = udiv i64 %call.i3, 1000
   %sub = sub nsw i64 %div.i4, %div.i
-  %mnElapsedTestTimeInMicroseconds = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 7
+  %mnElapsedTestTimeInMicroseconds = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %sub, ptr %mnElapsedTestTimeInMicroseconds, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then, %entry
   %nTestResult.0 = phi i32 [ %call3, %if.then ], [ 0, %entry ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(80) %this)
   ret i32 %nTestResult.0
@@ -1189,7 +1178,7 @@ if.end8:                                          ; preds = %if.then, %entry
 define dso_local void @_ZN2EA8UnitTest14TestCollectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #17 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1
+  %mTests = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mTests, i8 0, i64 24, i1 false)
   ret void
 }
@@ -1198,8 +1187,8 @@ entry:
 define dso_local void @_ZN2EA8UnitTest14TestCollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1
-  %mpEnd.i = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %mTests = getelementptr inbounds i8, ptr %this, i64 8
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -1209,10 +1198,10 @@ while.cond:                                       ; preds = %while.body, %entry
   br i1 %cmp.i, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %incdec.ptr.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %1, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 -16
   %2 = load ptr, ptr %incdec.ptr.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   %call5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %2, i1 noundef zeroext true)
           to label %while.cond unwind label %terminate.lpad, !llvm.loop !9
@@ -1253,8 +1242,8 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define dso_local void @_ZN2EA8UnitTest14TestCollectionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mTests.i = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1
-  %mpEnd.i.i = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %mTests.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mpEnd.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %entry
@@ -1264,10 +1253,10 @@ while.cond.i:                                     ; preds = %while.body.i, %entr
   br i1 %cmp.i.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %1, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -16
   %2 = load ptr, ptr %incdec.ptr.i.i, align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %3 = load ptr, ptr %vfn.i, align 8
   %call5.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %2, i1 noundef zeroext true)
           to label %while.cond.i unwind label %terminate.lpad.i, !llvm.loop !9
@@ -1296,15 +1285,15 @@ _ZN2EA8UnitTest14TestCollectionD2Ev.exit:         ; preds = %while.end.i, %_ZN5e
 define dso_local noundef zeroext i1 @_ZN2EA8UnitTest14TestCollection7AddTestEPNS0_4TestEb(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %pTest, i1 noundef zeroext %bTakeOwnership) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %bTakeOwnership to i8
-  %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1
+  %mTests = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mTests, align 8
-  %mpEnd.i = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %mpEnd.i, align 8
   %cmp.not11 = icmp eq ptr %0, %1
   br i1 %cmp.not11, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %it.012, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.012, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %1
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !10
 
@@ -1315,13 +1304,13 @@ for.body:                                         ; preds = %entry, %for.cond
   br i1 %cmp6, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %entry
-  %mCapacityAllocator.i.i = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %mCapacityAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %cmp.i = icmp ult ptr %1, %3
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
-  %incdec.ptr.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %1, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %incdec.ptr.i, ptr %mpEnd.i, align 8
   store ptr %pTest, ptr %1, align 8
   %testInfo.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
@@ -1374,7 +1363,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %_ZN5eastl34uninitia
   br label %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i
 
 _ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPN2EA8UnitTest14TestCollection8TestInfoES5_S5_EET1_T_T0_S6_.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 16
   store ptr %retval.0.i.i.i, ptr %mTests, align 8
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %retval.0.i.i.i, i64 %cond.i.i.i
@@ -1391,7 +1380,7 @@ define dso_local void @_ZN2EA8UnitTest14TestCollection7AddTestEPKcPFivE(ptr noun
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #31
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %msTestName.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %call, i64 0, i32 1
+  %msTestName.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i8 0, ptr %msTestName.i.i, align 1
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 31
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
@@ -1419,9 +1408,9 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN5eastl10CharStrl
 call.i.i.i.i.i.i.i.i.noexc:                       ; preds = %if.then.i.i.i.i.i.i
   store ptr %call.i.i.i.i.i.i.i.i1, ptr %msTestName.i.i, align 8
   %or.i.i.i.i.i.i.i = or i64 %sub.ptr.sub.i.i.i.i.i, -9223372036854775808
-  %mnCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %mnCapacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %or.i.i.i.i.i.i.i, ptr %mnCapacity.i.i.i.i.i.i.i, align 8
-  %mnSize.i.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %sub.ptr.sub.i.i.i.i.i, ptr %mnSize.i.i.i.i.i.i.i, align 8
   br label %invoke.cont
 
@@ -1437,7 +1426,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   %2 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i.i.i.i = icmp slt i8 %2, 0
   %3 = load ptr, ptr %msTestName.i.i, align 8
-  %mnSize.i.i6.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %4 = load i64, ptr %mnSize.i.i6.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %conv.i.i.i.i.i.i.i.i = zext nneg i8 %2 to i64
@@ -1445,13 +1434,13 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   %add.ptr.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %msTestName.i.i, i64 %sub.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = select i1 %tobool.i.i5.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i.i.i
   store i8 0, ptr %cond.i.i.i.i.i.i, align 1
-  %mpParentSuite.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %call, i64 0, i32 2
+  %mpParentSuite.i.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %mpParentSuite.i.i, i8 0, i64 33, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest12TestFunctionE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %mpFunction.i = getelementptr inbounds %"class.EA::UnitTest::TestFunction", ptr %call, i64 0, i32 1
+  %mpFunction.i = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %pFunction, ptr %mpFunction.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %call, i1 noundef zeroext true)
   ret void
@@ -1470,7 +1459,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 define dso_local void @_ZN2EA8UnitTest14TestCollection8AddTestsEPKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %pCollection) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %pCollection, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(32) %pCollection, ptr noundef null, i64 noundef 0)
   %tobool.not = icmp eq i64 %call, 0
@@ -1481,7 +1470,7 @@ _ZN5eastl6vectorIPN2EA8UnitTest4TestENS_9allocatorEEC2EmRKS5_.exit: ; preds = %e
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i.i.i.i, i8 0, i64 %mul.i.i.i, i1 false)
   %vtable3 = load ptr, ptr %pCollection, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 7
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 56
   %1 = load ptr, ptr %vfn4, align 8
   %call5 = invoke noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(32) %pCollection, ptr noundef %call.i.i.i.i.i, i64 noundef %call)
           to label %for.body unwind label %lpad
@@ -1491,7 +1480,7 @@ for.body:                                         ; preds = %_ZN5eastl6vectorIPN
   %add.ptr.i7 = getelementptr inbounds ptr, ptr %call.i.i.i.i.i, i64 %i.015
   %2 = load ptr, ptr %add.ptr.i7, align 8
   %vtable8 = load ptr, ptr %this, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 2
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 16
   %3 = load ptr, ptr %vfn9, align 8
   %call11 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %2, i1 noundef zeroext false)
           to label %for.inc unwind label %lpad.thread
@@ -1532,9 +1521,9 @@ if.end:                                           ; preds = %_ZN5eastl9allocator
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN2EA8UnitTest14TestCollection10RemoveTestEPNS0_4TestEb(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef readnone %pTest, i1 noundef zeroext %bDeleteIfOwned) unnamed_addr #0 align 2 {
 entry:
-  %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1
+  %mTests = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mTests, align 8
-  %mpEnd.i = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %mpEnd.i, align 8
   %cmp.not11.not = icmp eq ptr %0, %1
   br i1 %cmp.not11.not, label %return, label %for.body
@@ -1549,7 +1538,7 @@ if.then:                                          ; preds = %for.body
   br i1 %bDeleteIfOwned, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %if.then
-  %mbOwned = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %itA.012, i64 0, i32 1
+  %mbOwned = getelementptr inbounds i8, ptr %itA.012, i64 8
   %3 = load i8, ptr %mbOwned, align 8
   %4 = and i8 %3, 1
   %tobool5.not = icmp eq i8 %4, 0
@@ -1559,7 +1548,7 @@ land.lhs.true:                                    ; preds = %if.then
 
 delete.notnull:                                   ; preds = %land.lhs.true
   %vtable = load ptr, ptr %pTest, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(80) %pTest) #33
   %.pre = load ptr, ptr %mpEnd.i, align 8
@@ -1567,7 +1556,7 @@ delete.notnull:                                   ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %delete.notnull, %land.lhs.true, %if.then
   %6 = phi ptr [ %.pre, %delete.notnull ], [ %1, %land.lhs.true ], [ %1, %if.then ]
-  %add.ptr.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %itA.012, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %itA.012, i64 16
   %cmp.i = icmp ult ptr %add.ptr.i, %6
   br i1 %cmp.i, label %_ZN5eastl4moveIPN2EA8UnitTest14TestCollection8TestInfoES5_EET0_T_S7_S6_.exit.i, label %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5eraseEPKS4_.exit
 
@@ -1581,12 +1570,12 @@ _ZN5eastl4moveIPN2EA8UnitTest14TestCollection8TestInfoES5_EET0_T_S7_S6_.exit.i: 
 
 _ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5eraseEPKS4_.exit: ; preds = %if.end, %_ZN5eastl4moveIPN2EA8UnitTest14TestCollection8TestInfoES5_EET0_T_S7_S6_.exit.i
   %9 = phi ptr [ %.pre.i, %_ZN5eastl4moveIPN2EA8UnitTest14TestCollection8TestInfoES5_EET0_T_S7_S6_.exit.i ], [ %6, %if.end ]
-  %incdec.ptr.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %9, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 -16
   store ptr %incdec.ptr.i, ptr %mpEnd.i, align 8
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %itA.012, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %itA.012, i64 16
   %cmp.not.not = icmp eq ptr %incdec.ptr, %1
   br i1 %cmp.not.not, label %return, label %for.body, !llvm.loop !12
 
@@ -1599,26 +1588,26 @@ return:                                           ; preds = %for.inc, %entry, %_
 define dso_local noundef zeroext i1 @_ZN2EA8UnitTest14TestCollection10RemoveTestEPKcb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %pTestName, i1 noundef zeroext %bDeleteIfOwned) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sName = alloca %"class.eastl::basic_string", align 8
-  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %sName, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %sName, i64 23
   store i8 0, ptr %sName, align 8
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
-  %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1
+  %mTests = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mTests, align 8
-  %mpEnd.i = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %mpEnd.i, align 8
   %cmp.not14 = icmp eq ptr %0, %1
   br i1 %cmp.not14, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit9, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %pTestName to i64
-  %mnSize.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %sName, i64 0, i32 1
+  %mnSize.i.i.i.i = getelementptr inbounds i8, ptr %sName, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %it.015 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %2 = load ptr, ptr %it.015, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(24) %sName)
           to label %while.cond.i.i unwind label %lpad.loopexit
@@ -1652,7 +1641,7 @@ _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exi
 if.then:                                          ; preds = %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit
   %8 = load ptr, ptr %it.015, align 8
   %vtable7 = load ptr, ptr %this, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 5
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 40
   %9 = load ptr, ptr %vfn8, align 8
   %call10 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %8, i1 noundef zeroext %bDeleteIfOwned)
           to label %if.then.cleanup_crit_edge unwind label %lpad.loopexit.split-lp
@@ -1690,7 +1679,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit: ; preds = %lpad, %if.then.i.i
   resume { ptr, i32 } %lpad.phi
 
 for.inc:                                          ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit
-  %incdec.ptr = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %it.015, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.015, i64 16
   %12 = load ptr, ptr %mpEnd.i, align 8
   %cmp.not = icmp eq ptr %incdec.ptr, %12
   br i1 %cmp.not, label %cleanup, label %for.body, !llvm.loop !13
@@ -1735,18 +1724,18 @@ cond.end:                                         ; preds = %entry, %cond.true
 define dso_local noundef ptr @_ZN2EA8UnitTest14TestCollection12FindTestInfoEPKcb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %pTestName, i1 noundef zeroext %bRecursive) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sNameCurrent = alloca %"class.eastl::basic_string", align 8
-  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %sNameCurrent, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %sNameCurrent, i64 23
   store i8 0, ptr %sNameCurrent, align 8
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
-  %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1
+  %mTests = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mTests, align 8
-  %mpEnd.i = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %mpEnd.i, align 8
   %cmp.not33 = icmp eq ptr %0, %1
   br i1 %cmp.not33, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mnSize.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %sNameCurrent, i64 0, i32 1
+  %mnSize.i.i.i = getelementptr inbounds i8, ptr %sNameCurrent, i64 8
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %pTestName to i64
   br label %for.body
 
@@ -1754,7 +1743,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %it.034 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %2 = load ptr, ptr %it.034, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(24) %sNameCurrent)
           to label %invoke.cont unwind label %lpad.loopexit
@@ -1844,7 +1833,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit: ; preds = %lpad, %if.then.i.i
   resume { ptr, i32 } %lpad.phi
 
 for.inc:                                          ; preds = %for.body.i.i.i, %_ZN5eastl8CompareIIcEEiPKT_S3_m.exit.thread.i.i
-  %incdec.ptr = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %it.034, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.034, i64 16
   %12 = load ptr, ptr %mpEnd.i, align 8
   %cmp.not = icmp eq ptr %incdec.ptr, %12
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !15
@@ -1864,7 +1853,7 @@ if.then10:                                        ; preds = %if.then7
   %sub.ptr.rhs.cast = ptrtoint ptr %pTestName to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %tobool.i.i.i.i = icmp slt i8 %14, 0
-  %mnSize.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %sNameCurrent, i64 0, i32 1
+  %mnSize.i.i.i.i = getelementptr inbounds i8, ptr %sNameCurrent, i64 8
   %conv.i.i.i.i12 = zext nneg i8 %14 to i64
   %sub.i.i.i.i13 = sub nsw i64 23, %conv.i.i.i.i12
   %cond.i.i.i14 = select i1 %tobool.i.i.i.i, i64 %13, i64 %sub.i.i.i.i13
@@ -1991,8 +1980,8 @@ entry:
   br i1 %tobool.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1
-  %mpEnd.i = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %mTests = getelementptr inbounds i8, ptr %this, i64 8
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %mpEnd.i, align 8
   %1 = load ptr, ptr %mTests, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -2017,8 +2006,8 @@ for.body:                                         ; preds = %if.then, %for.body
   br i1 %exitcond.not, label %if.end8, label %for.body, !llvm.loop !16
 
 if.end8:                                          ; preds = %for.body, %if.then, %entry
-  %mTests9 = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1
-  %mpEnd.i13 = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %mTests9 = getelementptr inbounds i8, ptr %this, i64 8
+  %mpEnd.i13 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %mpEnd.i13, align 8
   %5 = load ptr, ptr %mTests9, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %4 to i64
@@ -2035,7 +2024,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 define dso_local void @_ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %pTestName, ptr noundef %pReportFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msTestName.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %msTestName.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
@@ -2060,9 +2049,9 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5eastl10CharStrl
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i.i.i.i.i.i.i, ptr %msTestName.i, align 8
   %or.i.i.i.i.i.i = or i64 %sub.ptr.sub.i.i.i.i, -9223372036854775808
-  %mnCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %mnCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %or.i.i.i.i.i.i, ptr %mnCapacity.i.i.i.i.i.i, align 8
-  %mnSize.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %sub.ptr.sub.i.i.i.i, ptr %mnSize.i.i.i.i.i.i, align 8
   br label %invoke.cont3
 
@@ -2078,7 +2067,7 @@ invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i, 
   %2 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i.i.i = icmp slt i8 %2, 0
   %3 = load ptr, ptr %msTestName.i, align 8
-  %mnSize.i.i6.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %mnSize.i.i6.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %conv.i.i.i.i.i.i.i = zext nneg i8 %2 to i64
@@ -2086,20 +2075,20 @@ invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i, 
   %add.ptr.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %msTestName.i, i64 %sub.i.i.i.i.i.i.i
   %cond.i.i.i.i.i = select i1 %tobool.i.i5.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i.i
   store i8 0, ptr %cond.i.i.i.i.i, align 1
-  %mpParentSuite.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 2
-  %mpReportFunction.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 5
+  %mpParentSuite.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mpReportFunction.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpParentSuite.i, i8 0, i64 24, i1 false)
   store ptr %pReportFunction, ptr %mpReportFunction.i, align 8
-  %mbForceReport.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 6
+  %mbForceReport.i = getelementptr inbounds i8, ptr %this, i64 64
   store i8 0, ptr %mbForceReport.i, align 8
   %5 = getelementptr inbounds i8, ptr %this, i64 80
   %mTests.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mTests.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 1, i64 2), ptr %5, align 8
-  %mnTestResult = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 2
+  %mnTestResult = getelementptr inbounds i8, ptr %this, i64 112
   store i32 -2147483647, ptr %mnTestResult, align 8
-  %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3
+  %mResults = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mResults, i8 0, i64 24, i1 false)
   ret void
 }
@@ -2110,7 +2099,7 @@ entry:
   store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 80
   store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3
+  %mResults = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %mResults, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
@@ -2132,10 +2121,10 @@ while.cond.i:                                     ; preds = %while.body.i, %_ZN5
   br i1 %cmp.i.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %2, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -16
   %3 = load ptr, ptr %incdec.ptr.i.i, align 8
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %4 = load ptr, ptr %vfn.i, align 8
   %call5.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef %3, i1 noundef zeroext true)
           to label %while.cond.i unwind label %terminate.lpad.i, !llvm.loop !9
@@ -2163,7 +2152,7 @@ _ZN2EA8UnitTest14TestCollectionD2Ev.exit:         ; preds = %while.end.i, %_ZN5e
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i, label %_ZN2EA8UnitTest4TestD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %_ZN2EA8UnitTest14TestCollectionD2Ev.exit
-  %msTestName.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %msTestName.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i, label %_ZN2EA8UnitTest4TestD2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i
@@ -2204,10 +2193,10 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %_Z
   br i1 %cmp.i.i.i, label %while.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %3, i64 -1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 -16
   %4 = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 5
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
   %5 = load ptr, ptr %vfn.i.i, align 8
   %call5.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %4, i1 noundef zeroext true)
           to label %while.cond.i.i unwind label %terminate.lpad.i.i, !llvm.loop !9
@@ -2254,7 +2243,7 @@ entry:
   store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
-  %mResults.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3
+  %mResults.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %mResults.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
@@ -2276,10 +2265,10 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %_Z
   br i1 %cmp.i.i.i, label %while.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %2, i64 -1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 -16
   %3 = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %vtable.i.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 5
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
   %4 = load ptr, ptr %vfn.i.i, align 8
   %call5.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef %3, i1 noundef zeroext true)
           to label %while.cond.i.i unwind label %terminate.lpad.i.i, !llvm.loop !9
@@ -2307,7 +2296,7 @@ _ZN2EA8UnitTest14TestCollectionD2Ev.exit.i:       ; preds = %_ZN5eastl9allocator
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN2EA8UnitTest9TestSuiteD2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %_ZN2EA8UnitTest14TestCollectionD2Ev.exit.i
-  %msTestName.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %msTestName.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN2EA8UnitTest9TestSuiteD2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
@@ -2334,14 +2323,14 @@ define dso_local void @_ZN2EA8UnitTest9TestSuite3RunERNS1_10ResultInfoE(ptr noun
 entry:
   %nErrorCount = alloca i32, align 4
   store i32 0, ptr %nErrorCount, align 4
-  %mnResult = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %resultInfo, i64 0, i32 1
+  %mnResult = getelementptr inbounds i8, ptr %resultInfo, i64 8
   %0 = load i32, ptr %mnResult, align 8
   %cmp = icmp eq i32 %0, -2147483647
   br i1 %cmp, label %if.then, label %if.end22
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %resultInfo, align 8
-  %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %1, i64 0, i32 1
+  %msTestName = getelementptr inbounds i8, ptr %1, i64 8
   %mRemainingSizeField.i.i.i = getelementptr inbounds i8, ptr %1, i64 31
   %2 = load i8, ptr %mRemainingSizeField.i.i.i, align 1
   %tobool.i.i.i = icmp slt i8 %2, 0
@@ -2349,7 +2338,7 @@ if.then:                                          ; preds = %entry
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %3, ptr %msTestName
   tail call void (i32, ptr, ...) @_ZN2EA6EAMain15ReportVerbosityEjPKcz(i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %spec.select.i.i)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %4 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(144) %this)
   %cmp3.not = icmp eq i32 %call2, 0
@@ -2358,7 +2347,7 @@ if.then:                                          ; preds = %entry
 if.then4:                                         ; preds = %if.then
   store i32 1, ptr %mnResult, align 8
   %5 = load ptr, ptr %resultInfo, align 8
-  %msTestName7 = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %5, i64 0, i32 1
+  %msTestName7 = getelementptr inbounds i8, ptr %5, i64 8
   %mRemainingSizeField.i.i.i17 = getelementptr inbounds i8, ptr %5, i64 31
   %6 = load i8, ptr %mRemainingSizeField.i.i.i17, align 1
   %tobool.i.i.i18 = icmp slt i8 %6, 0
@@ -2370,7 +2359,7 @@ if.then4:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then4, %if.then
   %8 = load ptr, ptr %resultInfo, align 8
   %vtable11 = load ptr, ptr %8, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 2
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 16
   %9 = load ptr, ptr %vfn12, align 8
   %call13 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(80) %8)
   %cmp14.not = icmp eq i32 %call13, 0
@@ -2379,7 +2368,7 @@ if.end:                                           ; preds = %if.then4, %if.then
 if.then15:                                        ; preds = %if.end
   store i32 1, ptr %mnResult, align 8
   %10 = load ptr, ptr %resultInfo, align 8
-  %msTestName18 = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %10, i64 0, i32 1
+  %msTestName18 = getelementptr inbounds i8, ptr %10, i64 8
   %mRemainingSizeField.i.i.i20 = getelementptr inbounds i8, ptr %10, i64 31
   %11 = load i8, ptr %mRemainingSizeField.i.i.i20, align 1
   %tobool.i.i.i21 = icmp slt i8 %11, 0
@@ -2400,7 +2389,7 @@ if.end22:                                         ; preds = %if.end22thread-pre-
 if.end31:                                         ; preds = %if.end22
   %13 = load ptr, ptr %resultInfo, align 8
   %vtable27 = load ptr, ptr %13, align 8
-  %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 8
+  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 64
   %14 = load ptr, ptr %vfn28, align 8
   %call29 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(80) %13)
   store i32 %call29, ptr %mnResult, align 8
@@ -2410,7 +2399,7 @@ if.end31:                                         ; preds = %if.end22
 if.then34:                                        ; preds = %if.end22, %if.end31
   %16 = load ptr, ptr %resultInfo, align 8
   %vtable36 = load ptr, ptr %16, align 8
-  %vfn37 = getelementptr inbounds ptr, ptr %vtable36, i64 3
+  %vfn37 = getelementptr inbounds i8, ptr %vtable36, i64 24
   %17 = load ptr, ptr %vfn37, align 8
   %call38 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(80) %16)
   %cmp39.not = icmp eq i32 %call38, 0
@@ -2419,7 +2408,7 @@ if.then34:                                        ; preds = %if.end22, %if.end31
 if.then40:                                        ; preds = %if.then34
   store i32 1, ptr %mnResult, align 8
   %18 = load ptr, ptr %resultInfo, align 8
-  %msTestName43 = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %18, i64 0, i32 1
+  %msTestName43 = getelementptr inbounds i8, ptr %18, i64 8
   %mRemainingSizeField.i.i.i23 = getelementptr inbounds i8, ptr %18, i64 31
   %19 = load i8, ptr %mRemainingSizeField.i.i.i23, align 1
   %tobool.i.i.i24 = icmp slt i8 %19, 0
@@ -2430,7 +2419,7 @@ if.then40:                                        ; preds = %if.then34
 
 if.end46:                                         ; preds = %if.then40, %if.then34
   %vtable47 = load ptr, ptr %this, align 8
-  %vfn48 = getelementptr inbounds ptr, ptr %vtable47, i64 17
+  %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 136
   %21 = load ptr, ptr %vfn48, align 8
   %call49 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(144) %this)
   %cmp50.not = icmp eq i32 %call49, 0
@@ -2439,7 +2428,7 @@ if.end46:                                         ; preds = %if.then40, %if.then
 if.then51:                                        ; preds = %if.end46
   store i32 1, ptr %mnResult, align 8
   %22 = load ptr, ptr %resultInfo, align 8
-  %msTestName54 = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %22, i64 0, i32 1
+  %msTestName54 = getelementptr inbounds i8, ptr %22, i64 8
   %mRemainingSizeField.i.i.i26 = getelementptr inbounds i8, ptr %22, i64 31
   %23 = load i8, ptr %mRemainingSizeField.i.i.i26, align 1
   %tobool.i.i.i27 = icmp slt i8 %23, 0
@@ -2452,7 +2441,7 @@ if.end58:                                         ; preds = %if.end46, %if.then5
   %25 = load i32, ptr %nErrorCount, align 4
   %conv = sext i32 %25 to i64
   %26 = load ptr, ptr %resultInfo, align 8
-  %mnErrorCount = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %26, i64 0, i32 4
+  %mnErrorCount = getelementptr inbounds i8, ptr %26, i64 48
   %27 = load i64, ptr %mnErrorCount, align 8
   %add = add i64 %27, %conv
   store i64 %add, ptr %mnErrorCount, align 8
@@ -2465,23 +2454,23 @@ declare void @_ZN2EA6EAMain15ReportVerbosityEjPKcz(i32 noundef, ptr noundef, ...
 define dso_local noundef i32 @_ZN2EA8UnitTest9TestSuite3RunEv(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.EA::Thread::ThreadTime", align 8
-  %mnTestResult = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 2
+  %mnTestResult = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %mnTestResult, align 8
-  %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3
+  %mResults = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %mResults, align 8
-  %mpEnd.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load ptr, ptr %mpEnd.i, align 8
   %cmp.not6 = icmp eq ptr %0, %1
   br i1 %cmp.not6, label %if.end15, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %ref.tmp.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %it.08 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %bContinueRequested.07 = phi i8 [ 0, %for.body.lr.ph ], [ %bContinueRequested.1, %for.inc ]
-  %mnResult = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %it.08, i64 0, i32 1
+  %mnResult = getelementptr inbounds i8, ptr %it.08, i64 8
   %2 = load i32, ptr %mnResult, align 8
   %cmp4.not = icmp eq i32 %2, -2147483647
   br i1 %cmp4.not, label %if.end, label %for.inc
@@ -2510,7 +2499,7 @@ if.then10:                                        ; preds = %if.else
 
 for.inc:                                          ; preds = %if.then7, %if.then10, %if.else, %for.body
   %bContinueRequested.1 = phi i8 [ %bContinueRequested.07, %for.body ], [ 1, %if.then7 ], [ %bContinueRequested.07, %if.then10 ], [ %bContinueRequested.07, %if.else ]
-  %incdec.ptr = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %it.08, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.08, i64 16
   %4 = load ptr, ptr %mpEnd.i, align 8
   %cmp.not = icmp eq ptr %incdec.ptr, %4
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !18
@@ -2522,7 +2511,7 @@ for.end:                                          ; preds = %for.inc
 
 if.end15:                                         ; preds = %entry, %for.end
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %7 = load ptr, ptr %vfn, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(144) %this)
   %8 = load i32, ptr %mnTestResult, align 8
@@ -2546,9 +2535,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3
+  %mResults = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %mResults, align 8
-  %mpEnd.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load ptr, ptr %mpEnd.i, align 8
   %cmp.not11 = icmp eq ptr %0, %1
   br i1 %cmp.not11, label %return, label %for.body.lr.ph
@@ -2564,13 +2553,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp6, label %if.then10, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %it.012, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.012, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %1
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !19
 
 if.then10:                                        ; preds = %for.body
   tail call void @_ZN2EA8UnitTest9TestSuite3RunERNS1_10ResultInfoE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(16) %it.012)
-  %mnResult = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %it.012, i64 0, i32 1
+  %mnResult = getelementptr inbounds i8, ptr %it.012, i64 8
   %4 = load i32, ptr %mnResult, align 8
   br label %return
 
@@ -2582,7 +2571,7 @@ return:                                           ; preds = %for.inc, %if.end, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK2EA8UnitTest9TestSuite13GetTestResultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #15 align 2 {
 entry:
-  %mnTestResult = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 2
+  %mnTestResult = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i32, ptr %mnTestResult, align 8
   ret i32 %0
 }
@@ -2599,7 +2588,7 @@ entry:
   br i1 %cmp.not11.i, label %for.end.i, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %it.012.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.012.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
@@ -2616,7 +2605,7 @@ for.end.i:                                        ; preds = %for.cond.i, %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %1, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i.i, align 8
   store ptr %pTest, ptr %1, align 8
   %testInfo.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -2669,7 +2658,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i: ; preds = %_ZN5eastl34uninitia
   br label %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i.i
 
 _ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPN2EA8UnitTest14TestCollection8TestInfoES5_S5_EET1_T_T0_S6_.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %retval.0.i.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i.i.i.i, i64 16
   store ptr %retval.0.i.i.i.i, ptr %mTests.i, align 8
   store ptr %incdec.ptr.i.i.i, ptr %mpEnd.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %retval.0.i.i.i.i, i64 %cond.i.i.i.i
@@ -2677,18 +2666,18 @@ _ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInser
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i.i, %if.then.i.i
-  %mpParentSuite = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %pTest, i64 0, i32 2
+  %mpParentSuite = getelementptr inbounds i8, ptr %pTest, i64 32
   store ptr %this, ptr %mpParentSuite, align 8
-  %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3
-  %mpEnd.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %mResults = getelementptr inbounds i8, ptr %this, i64 120
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 128
   %9 = load ptr, ptr %mpEnd.i, align 8
-  %mCapacityAllocator.i.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3, i32 0, i32 2
+  %mCapacityAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %10 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %cmp.i = icmp ult ptr %9, %10
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %incdec.ptr.i4 = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %9, i64 1
+  %incdec.ptr.i4 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %incdec.ptr.i4, ptr %mpEnd.i, align 8
   store ptr %pTest, ptr %9, align 8
   %resultInfo.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
@@ -2743,7 +2732,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %_ZN5eastl34uninitia
   br label %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i
 
 _ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPN2EA8UnitTest9TestSuite10ResultInfoES5_S5_EET1_T_T0_S6_.exit.i.i
-  %incdec.ptr.i.i3 = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i3 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 16
   store ptr %retval.0.i.i.i, ptr %mResults, align 8
   store ptr %incdec.ptr.i.i3, ptr %mpEnd.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %retval.0.i.i.i, i64 %cond.i.i.i
@@ -2781,9 +2770,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN2EA8UnitTest9TestSuite10RemoveTestEPNS0_4TestEb(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %pTest, i1 noundef zeroext %bDeleteIfOwned) unnamed_addr #0 align 2 {
 entry:
-  %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3
+  %mResults = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %mResults, align 8
-  %mpEnd.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load ptr, ptr %mpEnd.i, align 8
   %cmp.not13 = icmp eq ptr %0, %1
   br i1 %cmp.not13, label %for.end, label %for.body
@@ -2792,7 +2781,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %it.014 = phi ptr [ %add.ptr.i, %for.inc ], [ %0, %entry ]
   %2 = load ptr, ptr %it.014, align 8
   %cmp4 = icmp eq ptr %2, %pTest
-  %add.ptr.i = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %it.014, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %it.014, i64 16
   br i1 %cmp4, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
@@ -2809,7 +2798,7 @@ _ZN5eastl4moveIPN2EA8UnitTest9TestSuite10ResultInfoES5_EET0_T_S7_S6_.exit.i: ; p
 
 _ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5eraseEPKS4_.exit: ; preds = %if.then, %_ZN5eastl4moveIPN2EA8UnitTest9TestSuite10ResultInfoES5_EET0_T_S7_S6_.exit.i
   %5 = phi ptr [ %.pre.i, %_ZN5eastl4moveIPN2EA8UnitTest9TestSuite10ResultInfoES5_EET0_T_S7_S6_.exit.i ], [ %1, %if.then ]
-  %incdec.ptr.i = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %5, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 -16
   store ptr %incdec.ptr.i, ptr %mpEnd.i, align 8
   br label %for.end
 
@@ -2819,7 +2808,7 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %entry, %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5eraseEPKS4_.exit
   %vtable = load ptr, ptr %pTest, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %6 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(80) %pTest)
   %mTests.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -2839,7 +2828,7 @@ if.then.i:                                        ; preds = %for.body.i
   br i1 %bDeleteIfOwned, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %mbOwned.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %itA.012.i, i64 0, i32 1
+  %mbOwned.i = getelementptr inbounds i8, ptr %itA.012.i, i64 8
   %10 = load i8, ptr %mbOwned.i, align 8
   %11 = and i8 %10, 1
   %tobool5.not.i = icmp eq i8 %11, 0
@@ -2847,7 +2836,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i
 
 delete.notnull.i:                                 ; preds = %land.lhs.true.i
   %vtable.i = load ptr, ptr %pTest, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %12 = load ptr, ptr %vfn.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(80) %pTest) #33
   %.pre.i8 = load ptr, ptr %mpEnd.i.i, align 8
@@ -2855,7 +2844,7 @@ delete.notnull.i:                                 ; preds = %land.lhs.true.i
 
 if.end.i:                                         ; preds = %delete.notnull.i, %land.lhs.true.i, %if.then.i
   %13 = phi ptr [ %.pre.i8, %delete.notnull.i ], [ %8, %land.lhs.true.i ], [ %8, %if.then.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %itA.012.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %itA.012.i, i64 16
   %cmp.i.i = icmp ult ptr %add.ptr.i.i, %13
   br i1 %cmp.i.i, label %_ZN5eastl4moveIPN2EA8UnitTest14TestCollection8TestInfoES5_EET0_T_S7_S6_.exit.i.i, label %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5eraseEPKS4_.exit.i
 
@@ -2869,12 +2858,12 @@ _ZN5eastl4moveIPN2EA8UnitTest14TestCollection8TestInfoES5_EET0_T_S7_S6_.exit.i.i
 
 _ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5eraseEPKS4_.exit.i: ; preds = %_ZN5eastl4moveIPN2EA8UnitTest14TestCollection8TestInfoES5_EET0_T_S7_S6_.exit.i.i, %if.end.i
   %16 = phi ptr [ %.pre.i.i, %_ZN5eastl4moveIPN2EA8UnitTest14TestCollection8TestInfoES5_EET0_T_S7_S6_.exit.i.i ], [ %13, %if.end.i ]
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %16, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %16, i64 -16
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i.i, align 8
   br label %_ZN2EA8UnitTest14TestCollection10RemoveTestEPNS0_4TestEb.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i7 = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %itA.012.i, i64 1
+  %incdec.ptr.i7 = getelementptr inbounds i8, ptr %itA.012.i, i64 16
   %cmp.not.not.i = icmp eq ptr %incdec.ptr.i7, %8
   br i1 %cmp.not.not.i, label %_ZN2EA8UnitTest14TestCollection10RemoveTestEPNS0_4TestEb.exit, label %for.body.i, !llvm.loop !12
 
@@ -2897,7 +2886,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %it.014.i = phi ptr [ %add.ptr.i.i, %for.inc.i ], [ %0, %entry ]
   %2 = load ptr, ptr %it.014.i, align 8
   %cmp4.i = icmp eq ptr %2, %pTest
-  %add.ptr.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %it.014.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %it.014.i, i64 16
   br i1 %cmp4.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -2914,7 +2903,7 @@ _ZN5eastl4moveIPN2EA8UnitTest9TestSuite10ResultInfoES5_EET0_T_S7_S6_.exit.i.i: ;
 
 _ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5eraseEPKS4_.exit.i: ; preds = %_ZN5eastl4moveIPN2EA8UnitTest9TestSuite10ResultInfoES5_EET0_T_S7_S6_.exit.i.i, %if.then.i
   %5 = phi ptr [ %.pre.i.i, %_ZN5eastl4moveIPN2EA8UnitTest9TestSuite10ResultInfoES5_EET0_T_S7_S6_.exit.i.i ], [ %1, %if.then.i ]
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %5, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 -16
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i.i, align 8
   br label %for.end.i
 
@@ -2924,7 +2913,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i, %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5eraseEPKS4_.exit.i, %entry
   %vtable.i = load ptr, ptr %pTest, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %6 = load ptr, ptr %vfn.i, align 8
   %call7.i = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(80) %pTest)
   %mTests.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2944,7 +2933,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br i1 %bDeleteIfOwned, label %land.lhs.true.i.i, label %if.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then.i.i
-  %mbOwned.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %itA.012.i.i, i64 0, i32 1
+  %mbOwned.i.i = getelementptr inbounds i8, ptr %itA.012.i.i, i64 8
   %10 = load i8, ptr %mbOwned.i.i, align 8
   %11 = and i8 %10, 1
   %tobool5.not.i.i = icmp eq i8 %11, 0
@@ -2952,7 +2941,7 @@ land.lhs.true.i.i:                                ; preds = %if.then.i.i
 
 delete.notnull.i.i:                               ; preds = %land.lhs.true.i.i
   %vtable.i.i = load ptr, ptr %pTest, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(80) %pTest) #33
   %.pre.i8.i = load ptr, ptr %mpEnd.i.i.i, align 8
@@ -2960,7 +2949,7 @@ delete.notnull.i.i:                               ; preds = %land.lhs.true.i.i
 
 if.end.i.i:                                       ; preds = %delete.notnull.i.i, %land.lhs.true.i.i, %if.then.i.i
   %13 = phi ptr [ %.pre.i8.i, %delete.notnull.i.i ], [ %8, %land.lhs.true.i.i ], [ %8, %if.then.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %itA.012.i.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %itA.012.i.i, i64 16
   %cmp.i.i.i = icmp ult ptr %add.ptr.i.i.i, %13
   br i1 %cmp.i.i.i, label %_ZN5eastl4moveIPN2EA8UnitTest14TestCollection8TestInfoES5_EET0_T_S7_S6_.exit.i.i.i, label %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5eraseEPKS4_.exit.i.i
 
@@ -2974,12 +2963,12 @@ _ZN5eastl4moveIPN2EA8UnitTest14TestCollection8TestInfoES5_EET0_T_S7_S6_.exit.i.i
 
 _ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5eraseEPKS4_.exit.i.i: ; preds = %_ZN5eastl4moveIPN2EA8UnitTest14TestCollection8TestInfoES5_EET0_T_S7_S6_.exit.i.i.i, %if.end.i.i
   %16 = phi ptr [ %.pre.i.i.i, %_ZN5eastl4moveIPN2EA8UnitTest14TestCollection8TestInfoES5_EET0_T_S7_S6_.exit.i.i.i ], [ %13, %if.end.i.i ]
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %16, i64 -1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %16, i64 -16
   store ptr %incdec.ptr.i.i.i, ptr %mpEnd.i.i.i, align 8
   br label %_ZN2EA8UnitTest9TestSuite10RemoveTestEPNS0_4TestEb.exit
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr.i7.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %itA.012.i.i, i64 1
+  %incdec.ptr.i7.i = getelementptr inbounds i8, ptr %itA.012.i.i, i64 16
   %cmp.not.not.i.i = icmp eq ptr %incdec.ptr.i7.i, %8
   br i1 %cmp.not.not.i.i, label %_ZN2EA8UnitTest9TestSuite10RemoveTestEPNS0_4TestEb.exit, label %for.body.i.i, !llvm.loop !12
 
@@ -3008,13 +2997,13 @@ define dso_local void @_ZN2EA8UnitTest9TestSuite11WriteReportEv(ptr noundef nonn
 entry:
   %buffer = alloca [384 x i8], align 16
   %sName = alloca %"class.eastl::basic_string", align 8
-  %mpParentSuite = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 2
+  %mpParentSuite = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %mpParentSuite, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %mbForceReport = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 6
+  %mbForceReport = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i8, ptr %mbForceReport, align 8
   %2 = and i8 %1, 1
   %tobool2.not = icmp eq i8 %2, 0
@@ -3022,14 +3011,14 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(80) %this)
-  %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName = getelementptr inbounds i8, ptr %this, i64 8
   %mRemainingSizeField.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   %4 = load i8, ptr %mRemainingSizeField.i.i.i, align 1
   %tobool.i.i.i = icmp slt i8 %4, 0
-  %mnSize.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i64, ptr %mnSize.i.i.i, align 8
   %conv.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
@@ -3041,26 +3030,26 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %add.ptr = getelementptr i8, ptr %7, i64 17
   %add8 = sub i64 54, %cond.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 45, i64 %add8, i1 false)
-  %arrayidx = getelementptr inbounds [384 x i8], ptr %buffer, i64 0, i64 71
+  %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 71
   store i8 10, ptr %arrayidx, align 1
-  %arrayidx9 = getelementptr inbounds [384 x i8], ptr %buffer, i64 0, i64 72
+  %arrayidx9 = getelementptr inbounds i8, ptr %buffer, i64 72
   store i8 0, ptr %arrayidx9, align 8
   call void %call(ptr noundef nonnull %buffer)
-  %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3
+  %mResults = getelementptr inbounds i8, ptr %this, i64 120
   %8 = load ptr, ptr %mResults, align 8
-  %mpEnd.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 128
   %9 = load ptr, ptr %mpEnd.i, align 8
   %cmp.not26 = icmp eq ptr %8, %9
   br i1 %cmp.not26, label %for.cond28.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %mbForceReport26 = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 6
-  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %sName, i64 0, i32 1
+  %mbForceReport26 = getelementptr inbounds i8, ptr %this, i64 64
+  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %sName, i64 23
   br label %for.body
 
 for.cond28.preheader:                             ; preds = %for.inc, %if.then
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(70) %buffer, i8 45, i64 70, i1 false)
-  %arrayidx35 = getelementptr inbounds [384 x i8], ptr %buffer, i64 0, i64 70
+  %arrayidx35 = getelementptr inbounds i8, ptr %buffer, i64 70
   store i8 10, ptr %arrayidx35, align 2
   store i8 0, ptr %arrayidx, align 1
   call void %call(ptr noundef nonnull %buffer)
@@ -3069,7 +3058,7 @@ for.cond28.preheader:                             ; preds = %for.inc, %if.then
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %it.027 = phi ptr [ %8, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %10 = load ptr, ptr %it.027, align 8
-  %mnResult = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %it.027, i64 0, i32 1
+  %mnResult = getelementptr inbounds i8, ptr %it.027, i64 8
   %11 = load i32, ptr %mnResult, align 8
   %cmp14 = icmp eq i32 %11, -2147483647
   br i1 %cmp14, label %if.then15, label %if.else
@@ -3078,7 +3067,7 @@ if.then15:                                        ; preds = %for.body
   store i8 0, ptr %sName, align 8
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %vtable16 = load ptr, ptr %10, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 4
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 32
   %12 = load ptr, ptr %vfn17, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(24) %sName)
           to label %invoke.cont unwind label %lpad
@@ -3125,19 +3114,19 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit25: ; preds = %lpad, %if.then.i
   resume { ptr, i32 } %17
 
 if.else:                                          ; preds = %for.body
-  %mbForceReport20 = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %10, i64 0, i32 6
+  %mbForceReport20 = getelementptr inbounds i8, ptr %10, i64 64
   %20 = load i8, ptr %mbForceReport20, align 8
   %21 = and i8 %20, 1
   store i8 1, ptr %mbForceReport20, align 8
   %vtable23 = load ptr, ptr %10, align 8
-  %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 7
+  %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 56
   %22 = load ptr, ptr %vfn24, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(80) %10)
   store i8 %21, ptr %mbForceReport26, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %if.then.i.i, %invoke.cont19, %if.else
-  %incdec.ptr = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %it.027, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.027, i64 16
   %23 = load ptr, ptr %mpEnd.i, align 8
   %cmp.not = icmp eq ptr %incdec.ptr, %23
   br i1 %cmp.not, label %for.cond28.preheader, label %for.body, !llvm.loop !21
@@ -3163,7 +3152,7 @@ define dso_local void @_ZN2EA8UnitTest15TestApplicationC2EPKciPPcPFivES7_(ptr no
 entry:
   %call = tail call noundef ptr @_ZN2EA6EAMain17GetReportFunctionEv()
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msTestName.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %msTestName.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
@@ -3188,9 +3177,9 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN5eastl10CharStrl
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i.i.i.i.i.i.i.i, ptr %msTestName.i.i, align 8
   %or.i.i.i.i.i.i.i = or i64 %sub.ptr.sub.i.i.i.i.i, -9223372036854775808
-  %mnCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %mnCapacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %or.i.i.i.i.i.i.i, ptr %mnCapacity.i.i.i.i.i.i.i, align 8
-  %mnSize.i.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %sub.ptr.sub.i.i.i.i.i, ptr %mnSize.i.i.i.i.i.i.i, align 8
   br label %_ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E.exit
 
@@ -3206,7 +3195,7 @@ _ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E.exit:      ; preds = %if.then.i.i.i.i.i.i
   %2 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i.i.i.i = icmp slt i8 %2, 0
   %3 = load ptr, ptr %msTestName.i.i, align 8
-  %mnSize.i.i6.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %mnSize.i.i6.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %conv.i.i.i.i.i.i.i.i = zext nneg i8 %2 to i64
@@ -3214,28 +3203,28 @@ _ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E.exit:      ; preds = %if.then.i.i.i.i.i.i
   %add.ptr.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %msTestName.i.i, i64 %sub.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = select i1 %tobool.i.i5.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i.i.i
   store i8 0, ptr %cond.i.i.i.i.i.i, align 1
-  %mpParentSuite.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 2
-  %mpReportFunction.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 5
+  %mpParentSuite.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mpReportFunction.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpParentSuite.i.i, i8 0, i64 24, i1 false)
   store ptr %call, ptr %mpReportFunction.i.i, align 8
-  %mbForceReport.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 6
+  %mbForceReport.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i8 0, ptr %mbForceReport.i.i, align 8
   %5 = getelementptr inbounds i8, ptr %this, i64 80
   %mTests.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mTests.i.i, i8 0, i64 24, i1 false)
-  %mnTestResult.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 2
+  %mnTestResult.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 -2147483647, ptr %mnTestResult.i, align 8
-  %mResults.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3
+  %mResults.i = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mResults.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i64 0, inrange i32 1, i64 2), ptr %5, align 8
-  %mArgc = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this, i64 0, i32 1
+  %mArgc = getelementptr inbounds i8, ptr %this, i64 144
   store i32 %argc, ptr %mArgc, align 8
-  %mArgv = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this, i64 0, i32 2
+  %mArgv = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %argv, ptr %mArgv, align 8
-  %mpInitFunction = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this, i64 0, i32 3
+  %mpInitFunction = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %pInitFunction, ptr %mpInitFunction, align 8
-  %mpShutdownFunction = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this, i64 0, i32 4
+  %mpShutdownFunction = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %pShutdownFunction, ptr %mpShutdownFunction, align 8
   ret void
 }
@@ -3248,7 +3237,7 @@ entry:
   store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
-  %mResults.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3
+  %mResults.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %mResults.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
@@ -3270,10 +3259,10 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %_Z
   br i1 %cmp.i.i.i, label %while.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %2, i64 -1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 -16
   %3 = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %vtable.i.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 5
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
   %4 = load ptr, ptr %vfn.i.i, align 8
   %call5.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef %3, i1 noundef zeroext true)
           to label %while.cond.i.i unwind label %terminate.lpad.i.i, !llvm.loop !9
@@ -3301,7 +3290,7 @@ _ZN2EA8UnitTest14TestCollectionD2Ev.exit.i:       ; preds = %_ZN5eastl9allocator
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN2EA8UnitTest9TestSuiteD2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %_ZN2EA8UnitTest14TestCollectionD2Ev.exit.i
-  %msTestName.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %msTestName.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN2EA8UnitTest9TestSuiteD2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
@@ -3342,10 +3331,10 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %cmp.i.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %3, i64 -1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -16
   %4 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 5
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 40
   %5 = load ptr, ptr %vfn.i.i.i, align 8
   %call5.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %4, i1 noundef zeroext true)
           to label %while.cond.i.i.i unwind label %terminate.lpad.i.i.i, !llvm.loop !9
@@ -3392,7 +3381,7 @@ entry:
   store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i.i, align 8
-  %mResults.i.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3
+  %mResults.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %mResults.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i
@@ -3414,10 +3403,10 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %cmp.i.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %2, i64 -1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -16
   %3 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %add.ptr.i.i, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 5
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 40
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   %call5.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef %3, i1 noundef zeroext true)
           to label %while.cond.i.i.i unwind label %terminate.lpad.i.i.i, !llvm.loop !9
@@ -3445,7 +3434,7 @@ _ZN2EA8UnitTest14TestCollectionD2Ev.exit.i.i:     ; preds = %_ZN5eastl9allocator
   br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN2EA8UnitTest15TestApplicationD2Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN2EA8UnitTest14TestCollectionD2Ev.exit.i.i
-  %msTestName.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %msTestName.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN2EA8UnitTest15TestApplicationD2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i.i
@@ -3470,9 +3459,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA8UnitTest15TestApplication6SetArgEiPPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %this, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #23 align 2 {
 entry:
-  %mArgc = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this, i64 0, i32 1
+  %mArgc = getelementptr inbounds i8, ptr %this, i64 144
   store i32 %argc, ptr %mArgc, align 8
-  %mArgv = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this, i64 0, i32 2
+  %mArgv = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %argv, ptr %mArgv, align 8
   ret void
 }
@@ -3481,7 +3470,7 @@ entry:
 define dso_local void @_ZN2EA8UnitTest15TestApplication14SetForceReportEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %this, i1 noundef zeroext %bReport) local_unnamed_addr #23 align 2 {
 entry:
   %frombool = zext i1 %bReport to i8
-  %mbForceReport = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 6
+  %mbForceReport = getelementptr inbounds i8, ptr %this, i64 64
   store i8 %frombool, ptr %mbForceReport, align 8
   ret void
 }
@@ -3489,7 +3478,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA8UnitTest15TestApplication4InitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this) unnamed_addr #0 align 2 {
 entry:
-  %mpInitFunction = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this, i64 0, i32 3
+  %mpInitFunction = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %mpInitFunction, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end8, label %if.then2
@@ -3510,7 +3499,7 @@ return:                                           ; preds = %if.then2, %if.end8
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA8UnitTest15TestApplication8ShutdownEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this) unnamed_addr #0 align 2 {
 entry:
-  %mpShutdownFunction = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this, i64 0, i32 4
+  %mpShutdownFunction = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %mpShutdownFunction, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end4, label %if.then
@@ -3537,13 +3526,13 @@ entry:
   %commandLine = alloca %"class.EA::EAMain::CommandLine", align 8
   %sResult = alloca ptr, align 8
   %sTestName = alloca ptr, align 8
-  %mArgc = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this, i64 0, i32 1
+  %mArgc = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load i32, ptr %mArgc, align 8
-  %mArgv = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this, i64 0, i32 2
+  %mArgv = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load ptr, ptr %mArgv, align 8
   call void @_ZN2EA6EAMain11CommandLineC1EiPPc(ptr noundef nonnull align 8 dereferenceable(24) %commandLine, i32 noundef %0, ptr noundef %1)
   store ptr null, ptr %sResult, align 8
-  %mbForceReport = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 6
+  %mbForceReport = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load i8, ptr %mbForceReport, align 8
   %3 = and i8 %2, 1
   %call = invoke noundef zeroext i1 @_ZNK2EA6EAMain11CommandLine13HasHelpSwitchEv(ptr noundef nonnull align 8 dereferenceable(24) %commandLine)
@@ -3640,7 +3629,7 @@ _ZN2EA8UnitTest25GetSystemTimeMicrosecondsEv.exit: ; preds = %if.then21
 
 while.body.lr.ph:                                 ; preds = %_ZN2EA8UnitTest25GetSystemTimeMicrosecondsEv.exit
   %div.i = udiv i64 %call.i2223, 1000
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %ref.tmp.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN2EA8UnitTest25GetSystemTimeMicrosecondsEv.exit29
@@ -3838,7 +3827,7 @@ if.then112.invoke:                                ; preds = %invoke.cont109, %in
 
 if.end115:                                        ; preds = %if.then112.invoke, %invoke.cont109
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %14 = load ptr, ptr %vfn, align 8
   %call117 = invoke noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(176) %this)
           to label %invoke.cont116 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3872,23 +3861,23 @@ if.then128:                                       ; preds = %invoke.cont125
   %sub.ptr.rhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %mnTestResult.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 2
+  %mnTestResult.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %mnTestResult.i, align 8
-  %mResults.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3
+  %mResults.i = getelementptr inbounds i8, ptr %this, i64 120
   %17 = load ptr, ptr %mResults.i, align 8
-  %mpEnd.i.i = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %mpEnd.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %18 = load ptr, ptr %mpEnd.i.i, align 8
   %cmp.not6.i = icmp eq ptr %17, %18
   br i1 %cmp.not6.i, label %if.end15.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then128
-  %tv_nsec.i.i.i = getelementptr inbounds %struct.timespec, ptr %ref.tmp.i.i, i64 0, i32 1
+  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %it.08.i = phi ptr [ %17, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
   %bContinueRequested.07.i = phi i8 [ 0, %for.body.lr.ph.i ], [ %bContinueRequested.1.i, %for.inc.i ]
-  %mnResult.i = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %it.08.i, i64 0, i32 1
+  %mnResult.i = getelementptr inbounds i8, ptr %it.08.i, i64 8
   %19 = load i32, ptr %mnResult.i, align 8
   %cmp4.not.i = icmp eq i32 %19, -2147483647
   br i1 %cmp4.not.i, label %if.end.i, label %for.inc.i
@@ -3923,7 +3912,7 @@ if.then10.i:                                      ; preds = %if.else.i
 
 for.inc.i:                                        ; preds = %if.then10.i, %if.else.i, %.noexc35, %for.body.i
   %bContinueRequested.1.i = phi i8 [ %bContinueRequested.07.i, %for.body.i ], [ 1, %.noexc35 ], [ %bContinueRequested.07.i, %if.then10.i ], [ %bContinueRequested.07.i, %if.else.i ]
-  %incdec.ptr.i = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %it.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.08.i, i64 16
   %21 = load ptr, ptr %mpEnd.i.i, align 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %21
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !18
@@ -3935,7 +3924,7 @@ for.end.i:                                        ; preds = %for.inc.i
 
 if.end15.i:                                       ; preds = %for.end.i, %if.then128
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %24 = load ptr, ptr %vfn.i, align 8
   invoke void %24(ptr noundef nonnull align 8 dereferenceable(144) %this)
           to label %.noexc36 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3987,23 +3976,23 @@ if.then147:                                       ; preds = %invoke.cont144
   %sub.ptr.rhs.cast.i39 = ptrtoint ptr %28 to i64
   %sub.ptr.sub.i40 = sub i64 %sub.ptr.lhs.cast.i38, %sub.ptr.rhs.cast.i39
   %sub.ptr.div.i41 = ashr exact i64 %sub.ptr.sub.i40, 4
-  %mnTestResult.i43 = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 2
+  %mnTestResult.i43 = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %mnTestResult.i43, align 8
-  %mResults.i44 = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3
+  %mResults.i44 = getelementptr inbounds i8, ptr %this, i64 120
   %29 = load ptr, ptr %mResults.i44, align 8
-  %mpEnd.i.i45 = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %mpEnd.i.i45 = getelementptr inbounds i8, ptr %this, i64 128
   %30 = load ptr, ptr %mpEnd.i.i45, align 8
   %cmp.not6.i46 = icmp eq ptr %29, %30
   br i1 %cmp.not6.i46, label %if.end15.i60, label %for.body.lr.ph.i47
 
 for.body.lr.ph.i47:                               ; preds = %if.then147
-  %tv_nsec.i.i.i48 = getelementptr inbounds %struct.timespec, ptr %ref.tmp.i.i42, i64 0, i32 1
+  %tv_nsec.i.i.i48 = getelementptr inbounds i8, ptr %ref.tmp.i.i42, i64 8
   br label %for.body.i49
 
 for.body.i49:                                     ; preds = %for.inc.i54, %for.body.lr.ph.i47
   %it.08.i50 = phi ptr [ %29, %for.body.lr.ph.i47 ], [ %incdec.ptr.i56, %for.inc.i54 ]
   %bContinueRequested.07.i51 = phi i8 [ 0, %for.body.lr.ph.i47 ], [ %bContinueRequested.1.i55, %for.inc.i54 ]
-  %mnResult.i52 = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %it.08.i50, i64 0, i32 1
+  %mnResult.i52 = getelementptr inbounds i8, ptr %it.08.i50, i64 8
   %31 = load i32, ptr %mnResult.i52, align 8
   %cmp4.not.i53 = icmp eq i32 %31, -2147483647
   br i1 %cmp4.not.i53, label %if.end.i63, label %for.inc.i54
@@ -4038,7 +4027,7 @@ if.then10.i67:                                    ; preds = %if.else.i65
 
 for.inc.i54:                                      ; preds = %if.then10.i67, %if.else.i65, %.noexc70, %for.body.i49
   %bContinueRequested.1.i55 = phi i8 [ %bContinueRequested.07.i51, %for.body.i49 ], [ 1, %.noexc70 ], [ %bContinueRequested.07.i51, %if.then10.i67 ], [ %bContinueRequested.07.i51, %if.else.i65 ]
-  %incdec.ptr.i56 = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %it.08.i50, i64 1
+  %incdec.ptr.i56 = getelementptr inbounds i8, ptr %it.08.i50, i64 16
   %33 = load ptr, ptr %mpEnd.i.i45, align 8
   %cmp.not.i57 = icmp eq ptr %incdec.ptr.i56, %33
   br i1 %cmp.not.i57, label %for.end.i58, label %for.body.i49, !llvm.loop !18
@@ -4050,7 +4039,7 @@ for.end.i58:                                      ; preds = %for.inc.i54
 
 if.end15.i60:                                     ; preds = %for.end.i58, %if.then147
   %vtable.i61 = load ptr, ptr %this, align 8
-  %vfn.i62 = getelementptr inbounds ptr, ptr %vtable.i61, i64 7
+  %vfn.i62 = getelementptr inbounds i8, ptr %vtable.i61, i64 56
   %36 = load ptr, ptr %vfn.i62, align 8
   invoke void %36(ptr noundef nonnull align 8 dereferenceable(144) %this)
           to label %.noexc71 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4068,7 +4057,7 @@ invoke.cont152:                                   ; preds = %.noexc71, %for.end.
 if.else155:                                       ; preds = %invoke.cont144
   %38 = load ptr, ptr %sTestName, align 8
   %vtable156 = load ptr, ptr %this, align 8
-  %vfn157 = getelementptr inbounds ptr, ptr %vtable156, i64 11
+  %vfn157 = getelementptr inbounds i8, ptr %vtable156, i64 88
   %39 = load ptr, ptr %vfn157, align 8
   %call159 = invoke noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %38)
           to label %invoke.cont158 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4108,7 +4097,7 @@ Cleanup:                                          ; preds = %invoke.cont116, %in
   %nTestCount.2 = phi i64 [ %nTestCount.1, %invoke.cont175 ], [ 0, %invoke.cont116 ]
   %nTestResult.3 = phi i32 [ %add177, %invoke.cont175 ], [ 1, %invoke.cont116 ]
   %vtable178 = load ptr, ptr %this, align 8
-  %vfn179 = getelementptr inbounds ptr, ptr %vtable178, i64 3
+  %vfn179 = getelementptr inbounds i8, ptr %vtable178, i64 24
   %42 = load ptr, ptr %vfn179, align 8
   %call181 = invoke noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(176) %this)
           to label %invoke.cont180 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4172,17 +4161,17 @@ invoke.cont7:
   %sTestName1 = alloca %"class.eastl::basic_string", align 8
   %sTestName2 = alloca %"class.eastl::basic_string", align 8
   %sAppName = alloca %"class.eastl::basic_string", align 8
-  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %sTestName1, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %sTestName1, i64 23
   store i8 16, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %sTestName1, ptr noundef nonnull align 1 dereferenceable(7) @.str.51, i64 7, i1 false)
   %add.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %sTestName1, i64 7
   store i8 0, ptr %add.ptr.i1.i.i.i.i, align 1
-  %mRemainingSizeField.i.i.i.i.i.i3 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %sTestName2, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i3 = getelementptr inbounds i8, ptr %sTestName2, i64 23
   store i8 16, ptr %mRemainingSizeField.i.i.i.i.i.i3, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %sTestName2, ptr noundef nonnull align 1 dereferenceable(7) @.str.52, i64 7, i1 false)
   %add.ptr.i1.i.i.i.i20 = getelementptr inbounds i8, ptr %sTestName2, i64 7
   store i8 0, ptr %add.ptr.i1.i.i.i.i20, align 1
-  %mRemainingSizeField.i.i.i.i.i.i30 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %sAppName, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %sAppName, i64 23
   store i8 14, ptr %mRemainingSizeField.i.i.i.i.i.i30, align 1
   %mTests.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 88
   %.pre116 = load ptr, ptr %mTests.phi.trans.insert, align 8
@@ -4199,7 +4188,7 @@ invoke.cont7:
 if.then:                                          ; preds = %invoke.cont7
   %0 = load ptr, ptr %.pre116, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %sTestName1)
           to label %if.end unwind label %lpad10
@@ -4230,16 +4219,16 @@ if.end:                                           ; preds = %if.then, %invoke.co
   br i1 %cmp17, label %if.then18, label %if.end27
 
 if.then18:                                        ; preds = %if.end
-  %add.ptr.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %6, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %add.ptr.i, align 8
   %vtable24 = load ptr, ptr %7, align 8
-  %vfn25 = getelementptr inbounds ptr, ptr %vtable24, i64 4
+  %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 32
   %8 = load ptr, ptr %vfn25, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(24) %sTestName2)
           to label %if.end27 unwind label %lpad10
 
 if.end27:                                         ; preds = %if.then18, %if.end
-  %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName = getelementptr inbounds i8, ptr %this, i64 8
   %mRemainingSizeField.i.i.i63 = getelementptr inbounds i8, ptr %this, i64 31
   %9 = load i8, ptr %mRemainingSizeField.i.i.i63, align 1
   %tobool.i.i.i64 = icmp slt i8 %9, 0
@@ -4453,7 +4442,7 @@ declare noundef i32 @_ZN2EA4StdC7StricmpEPKcS2_(ptr noundef, ptr noundef) local_
 define dso_local void @_ZN2EA8UnitTest15TestApplication14PrintTestNamesEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i1 zeroext %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sName = alloca %"class.eastl::basic_string", align 8
-  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %sName, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %sName, i64 23
   store i8 0, ptr %sName, align 8
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %mTests = getelementptr inbounds i8, ptr %this, i64 88
@@ -4477,7 +4466,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %3, i64 %i.012
   %4 = load ptr, ptr %add.ptr.i, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(24) %sName)
           to label %invoke.cont5 unwind label %lpad
@@ -4552,7 +4541,7 @@ init.check:                                       ; preds = %entry
 
 invoke.cont:                                      ; preds = %init.check
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.EA::UnitTest::TestCollection", ptr @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, i64 0, i32 1), i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.EA::UnitTest::TestCollection", ptr @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, i64 0, i32 1, i32 0, i32 0), i8 0, i64 24, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2EA8UnitTest14TestCollectionD2Ev, ptr nonnull @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, ptr nonnull @__dso_handle) #33
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2EA8UnitTest11GetRegistryEvE9sRegistry) #33
   br label %init.end
@@ -4580,7 +4569,7 @@ entry:
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i, label %_ZN2EA8UnitTest4TestD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %msTestName.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %msTestName.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN2EA8UnitTest4TestD2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i
@@ -4603,7 +4592,7 @@ entry:
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN2EA8UnitTest12TestFunctionD2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %msTestName.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1
+  %msTestName.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %msTestName.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN2EA8UnitTest12TestFunctionD2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
@@ -4633,10 +4622,10 @@ entry:
   br i1 %cmp.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mRemainingSizeField.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %this, i64 0, i32 1
+  %mRemainingSizeField.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i = icmp slt i8 %0, 0
-  %mnSize.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %this, i64 0, i32 1
+  %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %mnSize.i.i, align 8
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
@@ -4644,7 +4633,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %pEnd to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %pBegin to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %mnCapacity.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %this, i64 0, i32 2
+  %mnCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
   %and.i.i = and i64 %2, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 23

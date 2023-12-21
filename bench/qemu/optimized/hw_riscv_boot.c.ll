@@ -9,54 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QTailQLink = type { ptr, ptr }
 %union.anon.8 = type { %struct.QTailQLink }
 %union.CPUTailQ = type { %struct.QTailQLink }
-%struct.RISCVHartArrayState = type { %struct.SysBusDevice, i32, i32, ptr, i64, ptr }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon.6], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon.6 = type { i64, ptr }
-%struct.ArchCPU = type { %struct.CPUState, %struct.CPUArchState, ptr, ptr, %struct.RISCVCPUConfig, ptr, i32, ptr, [8 x i8] }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i64, i8, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, [32 x %struct.PMUCTRState], [32 x i64], [32 x i64], i64, i64, i64, i64, %struct.pmp_table_t, i64, i64, [2 x i64], [2 x i64], [2 x i64], [2 x ptr], [2 x ptr], [2 x ptr], i64, i8, ptr, ptr, [4 x ptr], [4 x ptr], i8, i64, i64, i64, i64, i64, i64, i64, i64, [4 x i64], [4 x i64], [4 x i64], i64, i64, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.PMUCTRState = type { i64, i64, i64, i64, i8, i64 }
-%struct.pmp_table_t = type { [16 x %struct.pmp_entry_t], [16 x %struct.pmp_addr_t], i32 }
-%struct.pmp_entry_t = type { i64, i8 }
-%struct.pmp_addr_t = type { i64, i64 }
-%struct.RISCVCPUConfig = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, i8, i8, i8, i8, i8, %struct.RISCVSATPMap }
-%struct.RISCVSATPMap = type { i16, i16, i16 }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.fdt_header = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.fw_dynamic_info = type { i64, i64, i64, i64, i64, i64 }
 
 @.str = private unnamed_addr constant [3 x i8] c"MS\00", align 1
@@ -99,9 +51,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @riscv_is_32bit(ptr nocapture noundef readonly %harts) local_unnamed_addr #0 {
 entry:
-  %harts1 = getelementptr inbounds %struct.RISCVHartArrayState, ptr %harts, i64 0, i32 5
+  %harts1 = getelementptr inbounds i8, ptr %harts, i64 840
   %0 = load ptr, ptr %harts1, align 8
-  %misa_mxl_max = getelementptr inbounds %struct.ArchCPU, ptr %0, i64 0, i32 1, i32 22
+  %misa_mxl_max = getelementptr inbounds i8, ptr %0, i64 15188
   %1 = load i32, ptr %misa_mxl_max, align 4
   %cmp = icmp eq i32 %1, 1
   ret i1 %cmp
@@ -125,7 +77,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %0 = trunc i64 %indvars.iv to i32
   %call2 = tail call ptr @qemu_get_cpu(i32 noundef %0) #11
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
-  %1 = getelementptr %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 23
+  %1 = getelementptr i8, ptr %call.i, i64 15192
   %env4.val = load i32, ptr %1, align 8
   %2 = and i32 %env4.val, 262144
   %tobool.not = icmp eq i32 %2, 0
@@ -159,9 +111,9 @@ declare noalias ptr @g_strjoinv(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @riscv_calc_kernel_start_addr(ptr nocapture noundef readonly %harts, i64 noundef %firmware_end_addr) local_unnamed_addr #0 {
 entry:
-  %harts1.i = getelementptr inbounds %struct.RISCVHartArrayState, ptr %harts, i64 0, i32 5
+  %harts1.i = getelementptr inbounds i8, ptr %harts, i64 840
   %0 = load ptr, ptr %harts1.i, align 8
-  %misa_mxl_max.i = getelementptr inbounds %struct.ArchCPU, ptr %0, i64 0, i32 1, i32 22
+  %misa_mxl_max.i = getelementptr inbounds i8, ptr %0, i64 15188
   %1 = load i32, ptr %misa_mxl_max.i, align 4
   %cmp.i = icmp eq i32 %1, 1
   %sub = add i64 %firmware_end_addr, 4194303
@@ -175,9 +127,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local nonnull ptr @riscv_default_firmware_name(ptr nocapture noundef readonly %harts) local_unnamed_addr #0 {
 entry:
-  %harts1.i = getelementptr inbounds %struct.RISCVHartArrayState, ptr %harts, i64 0, i32 5
+  %harts1.i = getelementptr inbounds i8, ptr %harts, i64 840
   %0 = load ptr, ptr %harts1.i, align 8
-  %misa_mxl_max.i = getelementptr inbounds %struct.ArchCPU, ptr %0, i64 0, i32 1, i32 22
+  %misa_mxl_max.i = getelementptr inbounds i8, ptr %0, i64 15188
   %1 = load i32, ptr %misa_mxl_max.i, align 4
   %cmp.i = icmp eq i32 %1, 1
   %.str.3..str.4 = select i1 %cmp.i, ptr @.str.3, ptr @.str.4
@@ -245,7 +197,7 @@ define dso_local i64 @riscv_find_and_load_firmware(ptr nocapture noundef readonl
 entry:
   %firmware_entry.i = alloca i64, align 8
   %firmware_end.i = alloca i64, align 8
-  %firmware = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 10
+  %firmware = getelementptr inbounds i8, ptr %machine, i64 88
   %0 = load ptr, ptr %firmware, align 8
   %call = tail call ptr @riscv_find_firmware(ptr noundef %0, ptr noundef %default_machine_firmware)
   %tobool.not = icmp eq ptr %call, null
@@ -264,7 +216,7 @@ if.then2.i:                                       ; preds = %do.end.i
 
 if.end3.i:                                        ; preds = %do.end.i
   %2 = load ptr, ptr @current_machine, align 8
-  %ram_size.i = getelementptr inbounds %struct.MachineState, ptr %2, i64 0, i32 19
+  %ram_size.i = getelementptr inbounds i8, ptr %2, i64 144
   %3 = load i64, ptr %ram_size.i, align 8
   %call4.i = call i64 @load_image_targphys_as(ptr noundef nonnull %call, i64 noundef %firmware_load_addr, i64 noundef %3, ptr noundef null) #11
   %cmp5.i = icmp sgt i64 %call4.i, 0
@@ -314,7 +266,7 @@ if.then2:                                         ; preds = %do.end
 
 if.end3:                                          ; preds = %do.end
   %1 = load ptr, ptr @current_machine, align 8
-  %ram_size = getelementptr inbounds %struct.MachineState, ptr %1, i64 0, i32 19
+  %ram_size = getelementptr inbounds i8, ptr %1, i64 144
   %2 = load i64, ptr %ram_size, align 8
   %call4 = call i64 @load_image_targphys_as(ptr noundef nonnull %firmware_filename, i64 noundef %firmware_load_addr, i64 noundef %2, ptr noundef null) #11
   %cmp5 = icmp sgt i64 %call4, 0
@@ -353,9 +305,9 @@ define dso_local i64 @riscv_load_kernel(ptr nocapture noundef readonly %machine,
 entry:
   %kernel_load_base = alloca i64, align 8
   %kernel_entry = alloca i64, align 8
-  %kernel_filename1 = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 23
+  %kernel_filename1 = getelementptr inbounds i8, ptr %machine, i64 240
   %0 = load ptr, ptr %kernel_filename1, align 8
-  %fdt2 = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 1
+  %fdt2 = getelementptr inbounds i8, ptr %machine, i64 40
   %1 = load ptr, ptr %fdt2, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %do.end
@@ -381,7 +333,7 @@ if.end5:                                          ; preds = %do.end
 
 if.end9:                                          ; preds = %if.end5
   %3 = load ptr, ptr @current_machine, align 8
-  %ram_size = getelementptr inbounds %struct.MachineState, ptr %3, i64 0, i32 19
+  %ram_size = getelementptr inbounds i8, ptr %3, i64 144
   %4 = load i64, ptr %ram_size, align 8
   %call10 = call i64 @load_image_targphys_as(ptr noundef nonnull %0, i64 noundef %kernel_start_addr, i64 noundef %4, ptr noundef null) #11
   %cmp11 = icmp sgt i64 %call10, 0
@@ -397,9 +349,9 @@ if.end13:                                         ; preds = %if.end9
   unreachable
 
 out:                                              ; preds = %if.end5, %if.then12, %if.then4
-  %harts1.i = getelementptr inbounds %struct.RISCVHartArrayState, ptr %harts, i64 0, i32 5
+  %harts1.i = getelementptr inbounds i8, ptr %harts, i64 840
   %5 = load ptr, ptr %harts1.i, align 8
-  %misa_mxl_max.i = getelementptr inbounds %struct.ArchCPU, ptr %5, i64 0, i32 1, i32 22
+  %misa_mxl_max.i = getelementptr inbounds i8, ptr %5, i64 15188
   %6 = load i32, ptr %misa_mxl_max.i, align 4
   %cmp.i = icmp eq i32 %6, 1
   br i1 %cmp.i, label %if.then15, label %if.end17
@@ -414,7 +366,7 @@ if.end17:                                         ; preds = %if.then15, %out
   br i1 %load_initrd, label %land.lhs.true, label %if.end20
 
 land.lhs.true:                                    ; preds = %if.end17
-  %initrd_filename = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 25
+  %initrd_filename = getelementptr inbounds i8, ptr %machine, i64 256
   %8 = load ptr, ptr %initrd_filename, align 8
   %tobool18.not = icmp eq ptr %8, null
   br i1 %tobool18.not, label %if.end20, label %do.end.i
@@ -422,7 +374,7 @@ land.lhs.true:                                    ; preds = %if.end17
 do.end.i:                                         ; preds = %land.lhs.true
   %9 = load i64, ptr %kernel_entry, align 8
   %10 = load ptr, ptr %fdt2, align 8
-  %ram_size.i = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 19
+  %ram_size.i = getelementptr inbounds i8, ptr %machine, i64 144
   %11 = load i64, ptr %ram_size.i, align 8
   %div20.i = lshr i64 %11, 1
   %cond.i = call i64 @llvm.umin.i64(i64 %div20.i, i64 134217728)
@@ -460,7 +412,7 @@ if.end20:                                         ; preds = %if.then11.i, %if.en
   br i1 %tobool21.not, label %if.end30, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %if.end20
-  %kernel_cmdline = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 24
+  %kernel_cmdline = getelementptr inbounds i8, ptr %machine, i64 248
   %12 = load ptr, ptr %kernel_cmdline, align 8
   %tobool23.not = icmp eq ptr %12, null
   br i1 %tobool23.not, label %if.end30, label %land.lhs.true24
@@ -486,7 +438,7 @@ declare i32 @qemu_fdt_setprop_string(ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @riscv_compute_fdt_addr(i64 noundef %dram_base, i64 noundef %dram_size, ptr nocapture noundef readonly %ms) local_unnamed_addr #1 {
 entry:
-  %fdt = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 1
+  %fdt = getelementptr inbounds i8, ptr %ms, i64 40
   %0 = load ptr, ptr %fdt, align 8
   %call = tail call i32 @fdt_pack(ptr noundef %0) #11
   %cmp = icmp eq i32 %call, 0
@@ -498,7 +450,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %1 = load ptr, ptr %fdt, align 8
-  %totalsize = getelementptr inbounds %struct.fdt_header, ptr %1, i64 0, i32 1
+  %totalsize = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i8, ptr %totalsize, align 1
   %conv.i = zext i8 %2 to i32
   %shl.i = shl nuw i32 %conv.i, 24
@@ -526,7 +478,7 @@ if.then4:                                         ; preds = %do.end
 
 if.end5:                                          ; preds = %do.end
   %tobool.not = icmp eq i64 %dram_size, 0
-  %ram_size9 = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 19
+  %ram_size9 = getelementptr inbounds i8, ptr %ms, i64 144
   %6 = load i64, ptr %ram_size9, align 8
   %cond = tail call i64 @llvm.umin.i64(i64 %6, i64 %dram_size)
   %cond11 = select i1 %tobool.not, i64 %6, i64 %cond
@@ -545,7 +497,7 @@ declare i32 @fdt_pack(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @riscv_load_fdt(i64 noundef %fdt_addr, ptr noundef %fdt) local_unnamed_addr #1 {
 entry:
-  %totalsize = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 1
+  %totalsize = getelementptr inbounds i8, ptr %fdt, i64 4
   %0 = load i8, ptr %totalsize, align 1
   %conv.i = zext i8 %0 to i32
   %shl.i = shl nuw i32 %conv.i, 24
@@ -586,13 +538,13 @@ define dso_local void @riscv_rom_copy_firmware_info(ptr nocapture noundef readno
 entry:
   %dinfo = alloca %struct.fw_dynamic_info, align 8
   store i64 1229083471, ptr %dinfo, align 8
-  %version = getelementptr inbounds %struct.fw_dynamic_info, ptr %dinfo, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %dinfo, i64 8
   store i64 2, ptr %version, align 8
-  %next_mode = getelementptr inbounds %struct.fw_dynamic_info, ptr %dinfo, i64 0, i32 3
+  %next_mode = getelementptr inbounds i8, ptr %dinfo, i64 24
   store i64 1, ptr %next_mode, align 8
-  %next_addr = getelementptr inbounds %struct.fw_dynamic_info, ptr %dinfo, i64 0, i32 2
+  %next_addr = getelementptr inbounds i8, ptr %dinfo, i64 16
   store i64 %kernel_entry, ptr %next_addr, align 8
-  %options = getelementptr inbounds %struct.fw_dynamic_info, ptr %dinfo, i64 0, i32 4
+  %options = getelementptr inbounds i8, ptr %dinfo, i64 32
   %conv = zext i32 %reset_vec_size to i64
   %sub = sub i64 %rom_size, %conv
   %cmp = icmp ult i64 %sub, 48
@@ -615,9 +567,9 @@ define dso_local void @riscv_setup_rom_reset_vec(ptr nocapture noundef readnone 
 entry:
   %dinfo.i = alloca %struct.fw_dynamic_info, align 8
   %reset_vec = alloca [10 x i32], align 16
-  %harts1.i = getelementptr inbounds %struct.RISCVHartArrayState, ptr %harts, i64 0, i32 5
+  %harts1.i = getelementptr inbounds i8, ptr %harts, i64 840
   %0 = load ptr, ptr %harts1.i, align 8
-  %misa_mxl_max.i = getelementptr inbounds %struct.ArchCPU, ptr %0, i64 0, i32 1, i32 22
+  %misa_mxl_max.i = getelementptr inbounds i8, ptr %0, i64 15188
   %1 = load i32, ptr %misa_mxl_max.i, align 4
   %cmp.i = icmp eq i32 %1, 1
   %shr = lshr i64 %start_addr, 32
@@ -627,29 +579,29 @@ entry:
   %start_addr_hi32.0 = select i1 %cmp.i, i32 0, i32 %conv
   %fdt_load_addr_hi32.0 = select i1 %cmp.i, i32 0, i32 %conv2
   store i32 663, ptr %reset_vec, align 16
-  %arrayinit.element = getelementptr inbounds i32, ptr %reset_vec, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %reset_vec, i64 4
   store i32 42108435, ptr %arrayinit.element, align 4
-  %arrayinit.element3 = getelementptr inbounds i32, ptr %reset_vec, i64 2
+  %arrayinit.element3 = getelementptr inbounds i8, ptr %reset_vec, i64 8
   store i32 -247454349, ptr %arrayinit.element3, align 8
-  %arrayinit.element4 = getelementptr inbounds i32, ptr %reset_vec, i64 3
-  %arrayinit.element5 = getelementptr inbounds i32, ptr %reset_vec, i64 4
-  %arrayinit.element6 = getelementptr inbounds i32, ptr %reset_vec, i64 5
+  %arrayinit.element4 = getelementptr inbounds i8, ptr %reset_vec, i64 12
+  %arrayinit.element5 = getelementptr inbounds i8, ptr %reset_vec, i64 16
+  %arrayinit.element6 = getelementptr inbounds i8, ptr %reset_vec, i64 20
   store i32 163943, ptr %arrayinit.element6, align 4
-  %arrayinit.element7 = getelementptr inbounds i32, ptr %reset_vec, i64 6
+  %arrayinit.element7 = getelementptr inbounds i8, ptr %reset_vec, i64 24
   %conv8 = trunc i64 %start_addr to i32
   store i32 %conv8, ptr %arrayinit.element7, align 8
-  %arrayinit.element9 = getelementptr inbounds i32, ptr %reset_vec, i64 7
+  %arrayinit.element9 = getelementptr inbounds i8, ptr %reset_vec, i64 28
   store i32 %start_addr_hi32.0, ptr %arrayinit.element9, align 4
-  %arrayinit.element10 = getelementptr inbounds i32, ptr %reset_vec, i64 8
+  %arrayinit.element10 = getelementptr inbounds i8, ptr %reset_vec, i64 32
   %conv11 = trunc i64 %fdt_load_addr to i32
   store i32 %conv11, ptr %arrayinit.element10, align 16
-  %arrayinit.element12 = getelementptr inbounds i32, ptr %reset_vec, i64 9
+  %arrayinit.element12 = getelementptr inbounds i8, ptr %reset_vec, i64 36
   store i32 %fdt_load_addr_hi32.0, ptr %arrayinit.element12, align 4
   %. = select i1 %cmp.i, i32 33727875, i32 33731971
   %.14 = select i1 %cmp.i, i32 25338499, i32 25342595
   store i32 %., ptr %arrayinit.element4, align 4
   store i32 %.14, ptr %arrayinit.element5, align 16
-  %ext_zicsr = getelementptr inbounds %struct.ArchCPU, ptr %0, i64 0, i32 4, i32 26
+  %ext_zicsr = getelementptr inbounds i8, ptr %0, i64 19018
   %2 = load i8, ptr %ext_zicsr, align 2
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -663,13 +615,13 @@ if.end23:                                         ; preds = %if.then21, %entry
   %call30 = call ptr @rom_add_blob(ptr noundef nonnull @.str.19, ptr noundef nonnull %reset_vec, i64 noundef 40, i64 noundef 40, i64 noundef %rom_base, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @address_space_memory, i1 noundef zeroext true) #11
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %dinfo.i)
   store i64 1229083471, ptr %dinfo.i, align 8
-  %version.i = getelementptr inbounds %struct.fw_dynamic_info, ptr %dinfo.i, i64 0, i32 1
+  %version.i = getelementptr inbounds i8, ptr %dinfo.i, i64 8
   store i64 2, ptr %version.i, align 8
-  %next_mode.i = getelementptr inbounds %struct.fw_dynamic_info, ptr %dinfo.i, i64 0, i32 3
+  %next_mode.i = getelementptr inbounds i8, ptr %dinfo.i, i64 24
   store i64 1, ptr %next_mode.i, align 8
-  %next_addr.i = getelementptr inbounds %struct.fw_dynamic_info, ptr %dinfo.i, i64 0, i32 2
+  %next_addr.i = getelementptr inbounds i8, ptr %dinfo.i, i64 16
   store i64 %kernel_entry, ptr %next_addr.i, align 8
-  %options.i = getelementptr inbounds %struct.fw_dynamic_info, ptr %dinfo.i, i64 0, i32 4
+  %options.i = getelementptr inbounds i8, ptr %dinfo.i, i64 32
   %sub.i = add i64 %rom_size, -40
   %cmp.i12 = icmp ult i64 %sub.i, 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %options.i, i8 0, i64 16, i1 false)
@@ -699,11 +651,11 @@ for.body:                                         ; preds = %entry, %for.body
   %cs.0.in5 = phi i64 [ %1, %for.body ], [ %0, %entry ]
   %cs.0 = inttoptr i64 %cs.0.in5 to ptr
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %cs.0, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
-  %kernel_addr1 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 137
+  %kernel_addr1 = getelementptr inbounds i8, ptr %call.i, i64 18952
   store i64 %kernel_addr, ptr %kernel_addr1, align 8
-  %fdt_addr3 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 138
+  %fdt_addr3 = getelementptr inbounds i8, ptr %call.i, i64 18960
   store i64 %fdt_addr, ptr %fdt_addr3, align 16
-  %node = getelementptr inbounds %struct.CPUState, ptr %cs.0, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cs.0, i64 568
   %1 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !8
   %tobool.not = icmp eq i64 %1, 0
@@ -716,7 +668,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @riscv_setup_firmware_boot(ptr nocapture noundef readonly %machine) local_unnamed_addr #1 {
 entry:
-  %kernel_filename = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 23
+  %kernel_filename = getelementptr inbounds i8, ptr %machine, i64 240
   %0 = load ptr, ptr %kernel_filename, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end10, label %if.then
@@ -733,10 +685,10 @@ if.else:                                          ; preds = %if.then
 if.end:                                           ; preds = %if.then
   %1 = load ptr, ptr %kernel_filename, align 8
   tail call void @load_image_to_fw_cfg(ptr noundef nonnull %call, i16 noundef zeroext 8, i16 noundef zeroext 17, ptr noundef %1, i1 noundef zeroext true) #11
-  %initrd_filename = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 25
+  %initrd_filename = getelementptr inbounds i8, ptr %machine, i64 256
   %2 = load ptr, ptr %initrd_filename, align 8
   tail call void @load_image_to_fw_cfg(ptr noundef nonnull %call, i16 noundef zeroext 11, i16 noundef zeroext 18, ptr noundef %2, i1 noundef zeroext false) #11
-  %kernel_cmdline = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 24
+  %kernel_cmdline = getelementptr inbounds i8, ptr %machine, i64 248
   %3 = load ptr, ptr %kernel_cmdline, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.end10, label %if.then5

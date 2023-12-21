@@ -3,20 +3,14 @@ source_filename = "bench/box2d/original/b2_collision.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.b2Manifold = type { [2 x %struct.b2ManifoldPoint], %struct.b2Vec2, %struct.b2Vec2, i32, i32 }
 %struct.b2ManifoldPoint = type { %struct.b2Vec2, float, float, %union.b2ContactID }
-%union.b2ContactID = type { i32 }
 %struct.b2Vec2 = type { float, float }
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
-%struct.b2Rot = type { float, float }
-%struct.b2WorldManifold = type { %struct.b2Vec2, [2 x %struct.b2Vec2], [2 x float] }
-%struct.b2RayCastInput = type { %struct.b2Vec2, %struct.b2Vec2, float }
-%struct.b2AABB = type { %struct.b2Vec2, %struct.b2Vec2 }
-%struct.b2RayCastOutput = type { %struct.b2Vec2, float }
+%union.b2ContactID = type { i32 }
 %struct.b2ClipVertex = type { %struct.b2Vec2, %union.b2ContactID }
-%struct.b2ContactFeature = type { i8, i8, i8, i8 }
 %struct.b2DistanceInput = type <{ %struct.b2DistanceProxy, %struct.b2DistanceProxy, %struct.b2Transform, %struct.b2Transform, i8, [7 x i8] }>
 %struct.b2DistanceProxy = type { [2 x %struct.b2Vec2], ptr, i32, float }
+%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
+%struct.b2Rot = type { float, float }
 %struct.b2SimplexCache = type { float, i16, [3 x i8], [3 x i8] }
 %struct.b2DistanceOutput = type { %struct.b2Vec2, %struct.b2Vec2, float, i32 }
 %struct.b2Hull = type { [8 x %struct.b2Vec2], i32 }
@@ -24,13 +18,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN15b2WorldManifold10InitializeEPK10b2ManifoldRK11b2TransformfS5_f(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) %this, ptr nocapture noundef readonly %manifold, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, float noundef %radiusA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB, float noundef %radiusB) local_unnamed_addr #0 align 2 {
 entry:
-  %pointCount = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 4
+  %pointCount = getelementptr inbounds i8, ptr %manifold, i64 60
   %0 = load i32, ptr %pointCount, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %sw.epilog, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %manifold, i64 56
   %1 = load i32, ptr %type, align 4
   switch i32 %1, label %sw.epilog [
     i32 0, label %sw.bb
@@ -40,14 +34,14 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %this, align 4
-  %localPoint = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 2
-  %q.i = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1
+  %localPoint = getelementptr inbounds i8, ptr %manifold, i64 48
+  %q.i = getelementptr inbounds i8, ptr %xfA, i64 8
   %2 = load float, ptr %localPoint, align 4
-  %y.i30 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 2, i32 1
+  %y.i30 = getelementptr inbounds i8, ptr %manifold, i64 52
   %3 = load float, ptr %y.i30, align 4
-  %q.i31 = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1
+  %q.i31 = getelementptr inbounds i8, ptr %xfB, i64 8
   %4 = load float, ptr %manifold, align 4
-  %y.i33 = getelementptr inbounds %struct.b2Vec2, ptr %manifold, i64 0, i32 1
+  %y.i33 = getelementptr inbounds i8, ptr %manifold, i64 4
   %5 = load float, ptr %y.i33, align 4
   %6 = load <2 x float>, ptr %q.i, align 4
   %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -115,7 +109,7 @@ if.end11:                                         ; preds = %if.end.i, %if.then6
   %51 = fsub <2 x float> %31, %50
   %52 = fadd <2 x float> %47, %51
   %53 = fmul <2 x float> %52, <float 5.000000e-01, float 5.000000e-01>
-  %points24 = getelementptr inbounds %struct.b2WorldManifold, ptr %this, i64 0, i32 1
+  %points24 = getelementptr inbounds i8, ptr %this, i64 8
   store <2 x float> %53, ptr %points24, align 4
   %54 = fsub <2 x float> %51, %47
   %sub.i76 = extractelement <2 x float> %54, i64 0
@@ -124,16 +118,16 @@ if.end11:                                         ; preds = %if.end.i, %if.then6
   %mul3.i = extractelement <2 x float> %56, i64 1
   %57 = extractelement <2 x float> %43, i64 0
   %58 = tail call noundef float @llvm.fmuladd.f32(float %sub.i76, float %57, float %mul3.i)
-  %separations = getelementptr inbounds %struct.b2WorldManifold, ptr %this, i64 0, i32 2
+  %separations = getelementptr inbounds i8, ptr %this, i64 24
   store float %58, ptr %separations, align 4
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %if.end
-  %q = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1
-  %localNormal = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 1
-  %c.i84 = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1, i32 1
+  %q = getelementptr inbounds i8, ptr %xfA, i64 8
+  %localNormal = getelementptr inbounds i8, ptr %manifold, i64 40
+  %c.i84 = getelementptr inbounds i8, ptr %xfA, i64 12
   %59 = load float, ptr %localNormal, align 4
-  %y.i85 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 1, i32 1
+  %y.i85 = getelementptr inbounds i8, ptr %manifold, i64 44
   %60 = load float, ptr %y.i85, align 4
   %61 = load <2 x float>, ptr %q, align 4
   %62 = shufflevector <2 x float> %61, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -147,11 +141,11 @@ sw.bb31:                                          ; preds = %if.end
   %70 = shufflevector <2 x float> %69, <2 x float> poison, <2 x i32> zeroinitializer
   %71 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %62, <2 x float> %70, <2 x float> %68)
   store <2 x float> %71, ptr %this, align 4
-  %localPoint35 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 2
+  %localPoint35 = getelementptr inbounds i8, ptr %manifold, i64 48
   %72 = load float, ptr %c.i84, align 4
   %73 = load float, ptr %localPoint35, align 4
   %74 = load float, ptr %q, align 4
-  %y.i91 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 2, i32 1
+  %y.i91 = getelementptr inbounds i8, ptr %manifold, i64 52
   %75 = load float, ptr %y.i91, align 4
   %76 = fneg float %74
   %neg.i92 = fmul float %75, %76
@@ -160,7 +154,7 @@ sw.bb31:                                          ; preds = %if.end
   %add.i93 = fadd float %78, %77
   %mul12.i94 = fmul float %72, %75
   %79 = tail call float @llvm.fmuladd.f32(float %74, float %73, float %mul12.i94)
-  %y14.i95 = getelementptr inbounds %struct.b2Vec2, ptr %xfA, i64 0, i32 1
+  %y14.i95 = getelementptr inbounds i8, ptr %xfA, i64 4
   %80 = load float, ptr %y14.i95, align 4
   %add15.i96 = fadd float %79, %80
   %81 = load i32, ptr %pointCount, align 4
@@ -168,10 +162,12 @@ sw.bb31:                                          ; preds = %if.end
   br i1 %cmp38298, label %for.body.lr.ph, label %sw.epilog
 
 for.body.lr.ph:                                   ; preds = %sw.bb31
-  %q.i99 = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1
+  %q.i99 = getelementptr inbounds i8, ptr %xfB, i64 8
   %82 = insertelement <2 x float> poison, float %radiusB, i64 0
   %83 = shufflevector <2 x float> %82, <2 x float> poison, <2 x i32> zeroinitializer
   %84 = fmul <2 x float> %71, %83
+  %points61 = getelementptr inbounds i8, ptr %this, i64 8
+  %separations68 = getelementptr inbounds i8, ptr %this, i64 24
   %85 = extractelement <2 x float> %71, i64 0
   %86 = extractelement <2 x float> %71, i64 1
   br label %for.body
@@ -180,7 +176,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv301 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next302, %for.body ]
   %arrayidx40 = getelementptr inbounds [2 x %struct.b2ManifoldPoint], ptr %manifold, i64 0, i64 %indvars.iv301
   %87 = load float, ptr %arrayidx40, align 4
-  %y.i101 = getelementptr inbounds %struct.b2Vec2, ptr %arrayidx40, i64 0, i32 1
+  %y.i101 = getelementptr inbounds i8, ptr %arrayidx40, i64 4
   %88 = load float, ptr %y.i101, align 4
   %89 = load <2 x float>, ptr %q.i99, align 4
   %90 = shufflevector <2 x float> %89, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -209,7 +205,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %109 = fsub <2 x float> %101, %84
   %110 = fadd <2 x float> %109, %108
   %111 = fmul <2 x float> %110, <float 5.000000e-01, float 5.000000e-01>
-  %arrayidx63 = getelementptr inbounds %struct.b2WorldManifold, ptr %this, i64 0, i32 1, i64 %indvars.iv301
+  %arrayidx63 = getelementptr inbounds [2 x %struct.b2Vec2], ptr %points61, i64 0, i64 %indvars.iv301
   store <2 x float> %111, ptr %arrayidx63, align 4
   %112 = fsub <2 x float> %109, %108
   %sub.i151 = extractelement <2 x float> %112, i64 0
@@ -217,7 +213,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %114 = fmul <2 x float> %71, %113
   %mul3.i159 = extractelement <2 x float> %114, i64 1
   %115 = tail call noundef float @llvm.fmuladd.f32(float %sub.i151, float %85, float %mul3.i159)
-  %arrayidx70 = getelementptr inbounds %struct.b2WorldManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv301
+  %arrayidx70 = getelementptr inbounds [2 x float], ptr %separations68, i64 0, i64 %indvars.iv301
   store float %115, ptr %arrayidx70, align 4
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %116 = load i32, ptr %pointCount, align 4
@@ -226,11 +222,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp38, label %for.body, label %sw.epilog, !llvm.loop !4
 
 sw.bb71:                                          ; preds = %if.end
-  %q73 = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1
-  %localNormal74 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 1
-  %c.i160 = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1, i32 1
+  %q73 = getelementptr inbounds i8, ptr %xfB, i64 8
+  %localNormal74 = getelementptr inbounds i8, ptr %manifold, i64 40
+  %c.i160 = getelementptr inbounds i8, ptr %xfB, i64 12
   %118 = load float, ptr %localNormal74, align 4
-  %y.i161 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 1, i32 1
+  %y.i161 = getelementptr inbounds i8, ptr %manifold, i64 44
   %119 = load float, ptr %y.i161, align 4
   %120 = load <2 x float>, ptr %q73, align 4
   %121 = shufflevector <2 x float> %120, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -244,11 +240,11 @@ sw.bb71:                                          ; preds = %if.end
   %129 = shufflevector <2 x float> %128, <2 x float> poison, <2 x i32> zeroinitializer
   %130 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %121, <2 x float> %129, <2 x float> %127)
   store <2 x float> %130, ptr %this, align 4
-  %localPoint78 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 2
+  %localPoint78 = getelementptr inbounds i8, ptr %manifold, i64 48
   %131 = load float, ptr %c.i160, align 4
   %132 = load float, ptr %localPoint78, align 4
   %133 = load float, ptr %q73, align 4
-  %y.i168 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 2, i32 1
+  %y.i168 = getelementptr inbounds i8, ptr %manifold, i64 52
   %134 = load float, ptr %y.i168, align 4
   %135 = fneg float %133
   %neg.i169 = fmul float %134, %135
@@ -257,7 +253,7 @@ sw.bb71:                                          ; preds = %if.end
   %add.i170 = fadd float %137, %136
   %mul12.i171 = fmul float %131, %134
   %138 = tail call float @llvm.fmuladd.f32(float %133, float %132, float %mul12.i171)
-  %y14.i172 = getelementptr inbounds %struct.b2Vec2, ptr %xfB, i64 0, i32 1
+  %y14.i172 = getelementptr inbounds i8, ptr %xfB, i64 4
   %139 = load float, ptr %y14.i172, align 4
   %add15.i173 = fadd float %138, %139
   %140 = load i32, ptr %pointCount, align 4
@@ -265,10 +261,12 @@ sw.bb71:                                          ; preds = %if.end
   br i1 %cmp83296, label %for.body84.lr.ph, label %for.end122
 
 for.body84.lr.ph:                                 ; preds = %sw.bb71
-  %q.i176 = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1
+  %q.i176 = getelementptr inbounds i8, ptr %xfA, i64 8
   %141 = insertelement <2 x float> poison, float %radiusA, i64 0
   %142 = shufflevector <2 x float> %141, <2 x float> poison, <2 x i32> zeroinitializer
   %143 = fmul <2 x float> %130, %142
+  %points110 = getelementptr inbounds i8, ptr %this, i64 8
+  %separations117 = getelementptr inbounds i8, ptr %this, i64 24
   %144 = extractelement <2 x float> %130, i64 0
   %145 = extractelement <2 x float> %130, i64 1
   br label %for.body84
@@ -277,7 +275,7 @@ for.body84:                                       ; preds = %for.body84.lr.ph, %
   %indvars.iv = phi i64 [ 0, %for.body84.lr.ph ], [ %indvars.iv.next, %for.body84 ]
   %arrayidx88 = getelementptr inbounds [2 x %struct.b2ManifoldPoint], ptr %manifold, i64 0, i64 %indvars.iv
   %146 = load float, ptr %arrayidx88, align 4
-  %y.i178 = getelementptr inbounds %struct.b2Vec2, ptr %arrayidx88, i64 0, i32 1
+  %y.i178 = getelementptr inbounds i8, ptr %arrayidx88, i64 4
   %147 = load float, ptr %y.i178, align 4
   %148 = load <2 x float>, ptr %q.i176, align 4
   %149 = shufflevector <2 x float> %148, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -306,7 +304,7 @@ for.body84:                                       ; preds = %for.body84.lr.ph, %
   %168 = fsub <2 x float> %160, %143
   %169 = fadd <2 x float> %168, %167
   %170 = fmul <2 x float> %169, <float 5.000000e-01, float 5.000000e-01>
-  %arrayidx112 = getelementptr inbounds %struct.b2WorldManifold, ptr %this, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx112 = getelementptr inbounds [2 x %struct.b2Vec2], ptr %points110, i64 0, i64 %indvars.iv
   store <2 x float> %170, ptr %arrayidx112, align 4
   %171 = fsub <2 x float> %168, %167
   %sub.i228 = extractelement <2 x float> %171, i64 0
@@ -314,7 +312,7 @@ for.body84:                                       ; preds = %for.body84.lr.ph, %
   %173 = fmul <2 x float> %130, %172
   %mul3.i236 = extractelement <2 x float> %173, i64 1
   %174 = tail call noundef float @llvm.fmuladd.f32(float %sub.i228, float %144, float %mul3.i236)
-  %arrayidx119 = getelementptr inbounds %struct.b2WorldManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx119 = getelementptr inbounds [2 x float], ptr %separations117, i64 0, i64 %indvars.iv
   store float %174, ptr %arrayidx119, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %175 = load i32, ptr %pointCount, align 4
@@ -339,21 +337,21 @@ define void @_Z16b2GetPointStatesP12b2PointStateS0_PK10b2ManifoldS3_(ptr nocaptu
 entry:
   store i32 0, ptr %state1, align 4
   store i32 0, ptr %state2, align 4
-  %arrayidx.c = getelementptr inbounds i32, ptr %state1, i64 1
+  %arrayidx.c = getelementptr inbounds i8, ptr %state1, i64 4
   store i32 0, ptr %arrayidx.c, align 4
-  %arrayidx2.c = getelementptr inbounds i32, ptr %state2, i64 1
+  %arrayidx2.c = getelementptr inbounds i8, ptr %state2, i64 4
   store i32 0, ptr %arrayidx2.c, align 4
-  %pointCount = getelementptr inbounds %struct.b2Manifold, ptr %manifold1, i64 0, i32 4
+  %pointCount = getelementptr inbounds i8, ptr %manifold1, i64 60
   %0 = load i32, ptr %pointCount, align 4
   %cmp529 = icmp sgt i32 %0, 0
   br i1 %cmp529, label %for.body6.lr.ph, label %for.cond30.preheader
 
 for.body6.lr.ph:                                  ; preds = %entry
-  %pointCount13 = getelementptr inbounds %struct.b2Manifold, ptr %manifold2, i64 0, i32 4
+  %pointCount13 = getelementptr inbounds i8, ptr %manifold2, i64 60
   br label %for.body6
 
 for.cond30.preheader:                             ; preds = %for.inc26, %entry
-  %pointCount31 = getelementptr inbounds %struct.b2Manifold, ptr %manifold2, i64 0, i32 4
+  %pointCount31 = getelementptr inbounds i8, ptr %manifold2, i64 60
   %1 = load i32, ptr %pointCount31, align 4
   %cmp3233 = icmp sgt i32 %1, 0
   br i1 %cmp3233, label %for.body33, label %for.end60
@@ -445,7 +443,7 @@ entry:
   %normal = alloca %struct.b2Vec2, align 8
   %0 = load i64, ptr %input, align 4
   store i64 %0, ptr %p, align 8
-  %p2 = getelementptr inbounds %struct.b2RayCastInput, ptr %input, i64 0, i32 1
+  %p2 = getelementptr inbounds i8, ptr %input, i64 8
   %1 = lshr i64 %0, 32
   %2 = load <2 x float>, ptr %p2, align 4
   %3 = insertelement <2 x i64> poison, i64 %0, i64 0
@@ -458,7 +456,7 @@ entry:
   %9 = fneg <2 x float> %7
   %10 = select <2 x i1> %8, <2 x float> %7, <2 x float> %9
   store <2 x float> %10, ptr %absD, align 8
-  %upperBound17 = getelementptr inbounds %struct.b2AABB, ptr %this, i64 0, i32 1
+  %upperBound17 = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -526,14 +524,14 @@ for.inc:                                          ; preds = %lor.lhs.false, %if.
 
 for.end:                                          ; preds = %for.inc
   %cmp34 = fcmp olt float %tmin.2, 0.000000e+00
-  %maxFraction = getelementptr inbounds %struct.b2RayCastInput, ptr %input, i64 0, i32 2
+  %maxFraction = getelementptr inbounds i8, ptr %input, i64 16
   %19 = load float, ptr %maxFraction, align 4
   %cmp36 = fcmp olt float %19, %tmin.2
   %or.cond = select i1 %cmp34, i1 true, i1 %cmp36
   br i1 %or.cond, label %return, label %if.end38
 
 if.end38:                                         ; preds = %for.end
-  %fraction = getelementptr inbounds %struct.b2RayCastOutput, ptr %output, i64 0, i32 1
+  %fraction = getelementptr inbounds i8, ptr %output, i64 8
   store float %tmin.2, ptr %fraction, align 4
   %20 = load i64, ptr %normal, align 8
   store i64 %20, ptr %output, align 4
@@ -549,16 +547,16 @@ define noundef i32 @_Z19b2ClipSegmentToLineP12b2ClipVertexPKS_RK6b2Vec2fi(ptr no
 entry:
   %0 = load float, ptr %normal, align 4
   %1 = load float, ptr %vIn, align 4
-  %y.i = getelementptr inbounds %struct.b2Vec2, ptr %normal, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %normal, i64 4
   %2 = load float, ptr %y.i, align 4
-  %y2.i = getelementptr inbounds %struct.b2Vec2, ptr %vIn, i64 0, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %vIn, i64 4
   %3 = load float, ptr %y2.i, align 4
   %mul3.i = fmul float %2, %3
   %4 = tail call noundef float @llvm.fmuladd.f32(float %0, float %1, float %mul3.i)
   %sub = fsub float %4, %offset
-  %arrayidx1 = getelementptr inbounds %struct.b2ClipVertex, ptr %vIn, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %vIn, i64 12
   %5 = load float, ptr %arrayidx1, align 4
-  %y2.i30 = getelementptr inbounds %struct.b2ClipVertex, ptr %vIn, i64 1, i32 0, i32 1
+  %y2.i30 = getelementptr inbounds i8, ptr %vIn, i64 16
   %6 = load float, ptr %y2.i30, align 4
   %mul3.i31 = fmul float %2, %6
   %7 = tail call noundef float @llvm.fmuladd.f32(float %0, float %5, float %mul3.i31)
@@ -602,15 +600,15 @@ if.then15:                                        ; preds = %if.end13
   %arrayidx29 = getelementptr inbounds %struct.b2ClipVertex, ptr %vOut, i64 %idxprom28
   store <2 x float> %14, ptr %arrayidx29, align 4
   %conv = trunc i32 %vertexIndexA to i8
-  %id = getelementptr inbounds %struct.b2ClipVertex, ptr %vOut, i64 %idxprom28, i32 1
+  %id = getelementptr inbounds i8, ptr %arrayidx29, i64 8
   store i8 %conv, ptr %id, align 4
   %indexB = getelementptr inbounds i8, ptr %vIn, i64 9
   %15 = load i8, ptr %indexB, align 1
-  %indexB38 = getelementptr inbounds %struct.b2ContactFeature, ptr %id, i64 0, i32 1
+  %indexB38 = getelementptr inbounds i8, ptr %arrayidx29, i64 9
   store i8 %15, ptr %indexB38, align 1
-  %typeA = getelementptr inbounds %struct.b2ContactFeature, ptr %id, i64 0, i32 2
+  %typeA = getelementptr inbounds i8, ptr %arrayidx29, i64 10
   store i8 0, ptr %typeA, align 2
-  %typeB = getelementptr inbounds %struct.b2ContactFeature, ptr %id, i64 0, i32 3
+  %typeB = getelementptr inbounds i8, ptr %arrayidx29, i64 11
   store i8 1, ptr %typeB, align 1
   %inc45 = add nuw nsw i32 %count.1, 1
   br label %if.end46
@@ -626,23 +624,23 @@ entry:
   %input = alloca %struct.b2DistanceInput, align 8
   %cache = alloca %struct.b2SimplexCache, align 4
   %output = alloca %struct.b2DistanceOutput, align 4
-  %m_vertices.i.i = getelementptr inbounds %struct.b2DistanceProxy, ptr %input, i64 0, i32 1
+  %m_vertices.i.i = getelementptr inbounds i8, ptr %input, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_vertices.i.i, i8 0, i64 16, i1 false)
-  %m_vertices.i1.i = getelementptr inbounds %struct.b2DistanceInput, ptr %input, i64 0, i32 1, i32 1
+  %m_vertices.i1.i = getelementptr inbounds i8, ptr %input, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_vertices.i1.i, i8 0, i64 16, i1 false)
   call void @_ZN15b2DistanceProxy3SetEPK7b2Shapei(ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef %shapeA, i32 noundef %indexA)
-  %proxyB = getelementptr inbounds %struct.b2DistanceInput, ptr %input, i64 0, i32 1
+  %proxyB = getelementptr inbounds i8, ptr %input, i64 32
   call void @_ZN15b2DistanceProxy3SetEPK7b2Shapei(ptr noundef nonnull align 8 dereferenceable(32) %proxyB, ptr noundef %shapeB, i32 noundef %indexB)
-  %transformA = getelementptr inbounds %struct.b2DistanceInput, ptr %input, i64 0, i32 2
+  %transformA = getelementptr inbounds i8, ptr %input, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %transformA, ptr noundef nonnull align 4 dereferenceable(16) %xfA, i64 16, i1 false)
-  %transformB = getelementptr inbounds %struct.b2DistanceInput, ptr %input, i64 0, i32 3
+  %transformB = getelementptr inbounds i8, ptr %input, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %transformB, ptr noundef nonnull align 4 dereferenceable(16) %xfB, i64 16, i1 false)
-  %useRadii = getelementptr inbounds %struct.b2DistanceInput, ptr %input, i64 0, i32 4
+  %useRadii = getelementptr inbounds i8, ptr %input, i64 96
   store i8 1, ptr %useRadii, align 8
-  %count = getelementptr inbounds %struct.b2SimplexCache, ptr %cache, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %cache, i64 4
   store i16 0, ptr %count, align 4
   call void @_Z10b2DistanceP16b2DistanceOutputP14b2SimplexCachePK15b2DistanceInput(ptr noundef nonnull %output, ptr noundef nonnull %cache, ptr noundef nonnull %input)
-  %distance = getelementptr inbounds %struct.b2DistanceOutput, ptr %output, i64 0, i32 2
+  %distance = getelementptr inbounds i8, ptr %output, i64 16
   %0 = load float, ptr %distance, align 4
   %cmp = fcmp olt float %0, 0x3EB4000000000000
   ret i1 %cmp
@@ -660,7 +658,7 @@ entry:
   %leftPoints = alloca [6 x %struct.b2Vec2], align 16
   %hull1 = alloca %struct.b2Hull, align 4
   %hull2 = alloca %struct.b2Hull, align 4
-  %count1 = getelementptr inbounds %struct.b2Hull, ptr %agg.result, i64 0, i32 1
+  %count1 = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i32 0, ptr %count1, align 4
   %0 = add i32 %count, -9
   %or.cond = icmp ult i32 %0, -6
@@ -733,7 +731,7 @@ if.end34:                                         ; preds = %for.end31
   %mul1.i.i = fmul float %add3.i.i, 5.000000e-01
   %13 = load float, ptr %ps, align 16
   %sub.i.i66 = fsub float %mul.i.i, %13
-  %y2.i.i68 = getelementptr inbounds %struct.b2Vec2, ptr %ps, i64 0, i32 1
+  %y2.i.i68 = getelementptr inbounds i8, ptr %ps, i64 4
   %14 = load float, ptr %y2.i.i68, align 4
   %sub3.i.i69 = fsub float %mul1.i.i, %14
   %mul3.i.i70 = fmul float %sub3.i.i69, %sub3.i.i69
@@ -748,7 +746,7 @@ for.body42:                                       ; preds = %if.end34, %for.body
   %arrayidx44 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %ps, i64 0, i64 %indvars.iv230
   %16 = load float, ptr %arrayidx44, align 8
   %sub.i.i71 = fsub float %mul.i.i, %16
-  %y2.i.i73 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %ps, i64 0, i64 %indvars.iv230, i32 1
+  %y2.i.i73 = getelementptr inbounds i8, ptr %arrayidx44, i64 4
   %17 = load float, ptr %y2.i.i73, align 4
   %sub3.i.i74 = fsub float %mul1.i.i, %17
   %mul3.i.i75 = fmul float %sub3.i.i74, %sub3.i.i74
@@ -789,7 +787,7 @@ for.body65:                                       ; preds = %for.body65.preheade
   %arrayidx68 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %ps, i64 0, i64 %indvars.iv234
   %27 = load float, ptr %arrayidx68, align 8
   %sub.i.i81 = fsub float %p1.sroa.0.0.vec.extract, %27
-  %y2.i.i83 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %ps, i64 0, i64 %indvars.iv234, i32 1
+  %y2.i.i83 = getelementptr inbounds i8, ptr %arrayidx68, i64 4
   %28 = load float, ptr %y2.i.i83, align 4
   %sub3.i.i84 = fsub float %p1.sroa.0.4.vec.extract, %28
   %mul3.i.i85 = fmul float %sub3.i.i84, %sub3.i.i84
@@ -841,7 +839,7 @@ for.body89:                                       ; preds = %for.end75, %for.inc
   %arrayidx92 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %ps, i64 0, i64 %indvars.iv239
   %44 = load float, ptr %arrayidx92, align 8
   %sub.i91 = fsub float %44, %p1.sroa.0.0.vec.extract
-  %y.i92 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %ps, i64 0, i64 %indvars.iv239, i32 1
+  %y.i92 = getelementptr inbounds i8, ptr %arrayidx92, i64 4
   %45 = load float, ptr %y.i92, align 4
   %sub3.i94 = fsub float %45, %p1.sroa.0.4.vec.extract
   %46 = fneg float %sub3.i94
@@ -883,10 +881,10 @@ for.inc111:                                       ; preds = %for.inc111.sink.spl
 for.end113:                                       ; preds = %for.inc111
   call fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nonnull align 4 %hull1, <2 x float> %21, <2 x float> %32, ptr noundef nonnull %rightPoints, i32 noundef %rightCount.1)
   call fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nonnull align 4 %hull2, <2 x float> %32, <2 x float> %21, ptr noundef nonnull %leftPoints, i32 noundef %leftCount.1)
-  %count118 = getelementptr inbounds %struct.b2Hull, ptr %hull1, i64 0, i32 1
+  %count118 = getelementptr inbounds i8, ptr %hull1, i64 64
   %49 = load i32, ptr %count118, align 4
   %cmp119 = icmp eq i32 %49, 0
-  %count120 = getelementptr inbounds %struct.b2Hull, ptr %hull2, i64 0, i32 1
+  %count120 = getelementptr inbounds i8, ptr %hull2, i64 64
   %50 = load i32, ptr %count120, align 4
   %cmp121 = icmp eq i32 %50, 0
   %or.cond1 = select i1 %cmp119, i1 %cmp121, i1 false
@@ -1055,7 +1053,7 @@ entry:
   %rightPoints = alloca [8 x %struct.b2Vec2], align 16
   %hull1 = alloca %struct.b2Hull, align 4
   %hull2 = alloca %struct.b2Hull, align 4
-  %count1 = getelementptr inbounds %struct.b2Hull, ptr %agg.result, i64 0, i32 1
+  %count1 = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i32 0, ptr %count1, align 4
   %cmp = icmp eq i32 %count, 0
   br i1 %cmp, label %return, label %if.end
@@ -1076,7 +1074,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %rightPoints, i8 0, i64 64, i1 false)
   %9 = load float, ptr %ps, align 4
   %sub.i25 = fsub float %9, %1
-  %y.i26 = getelementptr inbounds %struct.b2Vec2, ptr %ps, i64 0, i32 1
+  %y.i26 = getelementptr inbounds i8, ptr %ps, i64 4
   %10 = load float, ptr %y.i26, align 4
   %sub3.i28 = fsub float %10, %0
   %e.sroa.0.4.vec.extract48 = extractelement <2 x float> %e.sroa.0.0, i64 1
@@ -1109,7 +1107,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx15 = getelementptr inbounds %struct.b2Vec2, ptr %ps, i64 %indvars.iv
   %14 = load float, ptr %arrayidx15, align 4
   %sub.i32 = fsub float %14, %1
-  %y.i33 = getelementptr inbounds %struct.b2Vec2, ptr %ps, i64 %indvars.iv, i32 1
+  %y.i33 = getelementptr inbounds i8, ptr %arrayidx15, i64 4
   %15 = load float, ptr %y.i33, align 4
   %sub3.i35 = fsub float %15, %0
   %16 = fneg float %sub3.i35
@@ -1152,7 +1150,7 @@ if.end32:                                         ; preds = %for.end
   %bestPoint.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx34, align 4
   call fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nonnull align 4 %hull1, <2 x float> %p1.coerce, <2 x float> %bestPoint.sroa.0.0.copyload, ptr noundef nonnull %rightPoints, i32 noundef %rightCount.1.lcssa)
   call fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nonnull align 4 %hull2, <2 x float> %bestPoint.sroa.0.0.copyload, <2 x float> %p2.coerce, ptr noundef nonnull %rightPoints, i32 noundef %rightCount.1.lcssa)
-  %count41 = getelementptr inbounds %struct.b2Hull, ptr %hull1, i64 0, i32 1
+  %count41 = getelementptr inbounds i8, ptr %hull1, i64 64
   %21 = load i32, ptr %count41, align 4
   %cmp4268 = icmp sgt i32 %21, 0
   br i1 %cmp4268, label %for.body43.preheader, label %for.end53
@@ -1186,7 +1184,7 @@ for.end53:                                        ; preds = %for.end53.loopexit,
   %idxprom57 = sext i32 %24 to i64
   %arrayidx58 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %agg.result, i64 0, i64 %idxprom57
   store <2 x float> %bestPoint.sroa.0.0.copyload, ptr %arrayidx58, align 4
-  %count61 = getelementptr inbounds %struct.b2Hull, ptr %hull2, i64 0, i32 1
+  %count61 = getelementptr inbounds i8, ptr %hull2, i64 64
   %25 = load i32, ptr %count61, align 4
   %cmp6270 = icmp sgt i32 %25, 0
   br i1 %cmp6270, label %for.body63.preheader, label %return
@@ -1216,7 +1214,7 @@ return:                                           ; preds = %for.body63, %for.en
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_Z14b2ValidateHullRK6b2Hull(ptr nocapture noundef nonnull readonly align 4 dereferenceable(68) %hull) local_unnamed_addr #7 {
 entry:
-  %count = getelementptr inbounds %struct.b2Hull, ptr %hull, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %hull, i64 64
   %0 = load i32, ptr %count, align 4
   %1 = add i32 %0, -9
   %or.cond = icmp ult i32 %1, -6
@@ -1267,7 +1265,7 @@ if.end19.us:                                      ; preds = %for.body14.us
   %arrayidx22.us = getelementptr inbounds [8 x %struct.b2Vec2], ptr %hull, i64 0, i64 %indvars.iv
   %15 = load float, ptr %arrayidx22.us, align 4
   %sub.i31.us = fsub float %15, %13
-  %y.i32.us = getelementptr inbounds [8 x %struct.b2Vec2], ptr %hull, i64 0, i64 %indvars.iv, i32 1
+  %y.i32.us = getelementptr inbounds i8, ptr %arrayidx22.us, i64 4
   %16 = load float, ptr %y.i32.us, align 4
   %sub3.i34.us = fsub float %16, %14
   %17 = fneg float %sub3.i34.us

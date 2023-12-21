@@ -4,16 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%class.ast_object_ref = type { %class.object_ref.base, ptr }
-%class.object_ref.base = type <{ ptr, i32 }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%class.default_exception = type { %class.z3_exception, %"class.std::__cxx11::basic_string" }
-%class.z3_exception = type { ptr }
-%class.cmd_exception = type { %class.default_exception, i32, i32 }
-%class.ast = type { i32, i24, i32, i32 }
 %struct._Guard = type { ptr }
 
 $_ZN13cmd_exceptionC2EPKc = comdat any
@@ -61,7 +55,7 @@ define hidden noundef ptr @_Z11get_ast_refR11cmd_contextRK6symbol(ptr noundef no
 entry:
   %call = tail call noundef ptr @_ZNK11cmd_context15find_object_refERK6symbol(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %v)
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(12) %call)
   %cmp.not = icmp eq ptr %call1, @.str.2
@@ -83,7 +77,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %m_ast.i = getelementptr inbounds %class.ast_object_ref, ptr %call, i64 0, i32 1
+  %m_ast.i = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %m_ast.i, align 8
   ret ptr %2
 }
@@ -130,14 +124,14 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %this, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #10
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13cmd_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_line = getelementptr inbounds %class.cmd_exception, ptr %this, i64 0, i32 1
+  %m_line = getelementptr inbounds i8, ptr %this, i64 40
   store i32 -1, ptr %m_line, align 8
-  %m_pos = getelementptr inbounds %class.cmd_exception, ptr %this, i64 0, i32 2
+  %m_pos = getelementptr inbounds i8, ptr %this, i64 44
   store i32 -1, ptr %m_pos, align 4
   ret void
 
@@ -160,7 +154,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define linkonce_odr hidden void @_ZN13cmd_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %this, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i) #10
   ret void
 }
@@ -172,7 +166,7 @@ define hidden noundef ptr @_Z12get_expr_refR11cmd_contextRK6symbol(ptr noundef n
 entry:
   %call.i = tail call noundef ptr @_ZNK11cmd_context15find_object_refERK6symbol(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %v)
   %vtable.i = load ptr, ptr %call.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   %call1.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(12) %call.i)
   %cmp.not.i = icmp eq ptr %call1.i, @.str.2
@@ -199,9 +193,9 @@ lpad.i:                                           ; preds = %if.then.i
   br label %common.resume
 
 _Z11get_ast_refR11cmd_contextRK6symbol.exit:      ; preds = %entry
-  %m_ast.i.i = getelementptr inbounds %class.ast_object_ref, ptr %call.i, i64 0, i32 1
+  %m_ast.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %m_ast.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds %class.ast, ptr %2, i64 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %3 = add nsw i32 %bf.clear.i.i.i, -5
@@ -254,7 +248,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr hidden void @_ZN13cmd_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_msg.i.i = getelementptr inbounds %class.default_exception, ptr %this, i64 0, i32 1
+  %m_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i) #10
   tail call void @_ZdlPv(ptr noundef nonnull %this) #12
   ret void

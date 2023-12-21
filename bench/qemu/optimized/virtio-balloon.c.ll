@@ -5,13 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
 %struct.QPCIAddress = type { i32, i16, i16 }
-%struct.QVirtioBalloonDevice = type { %struct.QOSGraphObject, %struct.QVirtioBalloon }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QVirtioBalloon = type { ptr }
-%struct.QVirtioBalloonPCI = type { %struct.QVirtioPCIDevice, %struct.QVirtioBalloon }
-%struct.QVirtioPCIDevice = type { %struct.QOSGraphObject, %struct.QVirtioDevice, ptr, %struct.QPCIBar, ptr, i16, i64, i32, i32, i32, i32, i32, i32, i32 }
-%struct.QVirtioDevice = type { ptr, i16, i64, i8, i8 }
-%struct.QPCIBar = type { i64, i8 }
 
 @.str = private unnamed_addr constant [10 x i8] c"addr=04.0\00", align 1
 @__const.virtio_balloon_register_nodes.opts = private unnamed_addr constant %struct.QOSGraphEdgeOptions { ptr null, i32 0, ptr @.str, ptr null, ptr null, ptr null }, align 8
@@ -66,7 +59,7 @@ declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_add
 define internal noalias ptr @virtio_balloon_device_create(ptr noundef %virtio_dev, ptr nocapture readnone %t_alloc, ptr nocapture readnone %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #7
-  %balloon = getelementptr inbounds %struct.QVirtioBalloonDevice, ptr %call, i64 0, i32 1
+  %balloon = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %virtio_dev, ptr %balloon, align 8
   store ptr @qvirtio_balloon_device_get_driver, ptr %call, align 8
   ret ptr %call
@@ -82,9 +75,9 @@ declare void @add_qpci_address(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal ptr @virtio_balloon_pci_create(ptr noundef %pci_bus, ptr nocapture readnone %t_alloc, ptr noundef %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(160) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 160) #7
-  %balloon = getelementptr inbounds %struct.QVirtioBalloonPCI, ptr %call, i64 0, i32 1
+  %balloon = getelementptr inbounds i8, ptr %call, i64 152
   tail call void @virtio_pci_init(ptr noundef %call, ptr noundef %pci_bus, ptr noundef %addr) #6
-  %vdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %call, i64 0, i32 1
+  %vdev = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %vdev, ptr %balloon, align 8
   store ptr @qvirtio_balloon_pci_get_driver, ptr %call, align 8
   ret ptr %call
@@ -96,7 +89,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @qvirtio_balloon_device_get_driver(ptr noundef readonly %object, ptr noundef %interface) #0 {
 entry:
-  %balloon = getelementptr inbounds %struct.QVirtioBalloonDevice, ptr %object, i64 0, i32 1
+  %balloon = getelementptr inbounds i8, ptr %object, i64 40
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.4) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %qvirtio_balloon_get_driver.exit, label %if.end.i
@@ -139,11 +132,11 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %pdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %object, i64 0, i32 2
+  %pdev = getelementptr inbounds i8, ptr %object, i64 72
   br label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %balloon = getelementptr inbounds %struct.QVirtioBalloonPCI, ptr %object, i64 0, i32 1
+  %balloon = getelementptr inbounds i8, ptr %object, i64 152
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.4) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i

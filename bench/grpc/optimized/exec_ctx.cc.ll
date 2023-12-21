@@ -5,21 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.absl::lts_20230802::Status" = type { i64 }
-%"class.grpc_core::ExecCtx" = type { ptr, %struct.grpc_closure_list, %"struct.grpc_core::ExecCtx::CombinerData", i64, %"class.grpc_core::ScopedTimeCache", ptr }
-%struct.grpc_closure_list = type { ptr, ptr }
-%"struct.grpc_core::ExecCtx::CombinerData" = type { ptr, ptr }
-%"class.grpc_core::ScopedTimeCache" = type { %"class.grpc_core::Timestamp::ScopedSource", %"class.std::optional" }
-%"class.grpc_core::Timestamp::ScopedSource" = type { %"class.grpc_core::Timestamp::Source", ptr }
-%"class.grpc_core::Timestamp::Source" = type { ptr }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage" = type { %"class.grpc_core::Timestamp" }
-%"class.grpc_core::Timestamp" = type { i64 }
-%struct.grpc_closure = type { %union.anon, ptr, ptr, %union.anon.0 }
-%union.anon = type { ptr }
-%union.anon.0 = type { i64 }
 
 $_ZN4absl12lts_202308026StatusD2Ev = comdat any
 
@@ -50,7 +35,7 @@ define noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr nocapture noundef n
 entry:
   %error.i = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
-  %closure_list_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 1
+  %closure_list_ = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end8, %entry
@@ -68,13 +53,13 @@ while.body:                                       ; preds = %if.then, %_ZL12exec
   %0 = load ptr, ptr %c.09, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %error.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %error_data.i = getelementptr inbounds %struct.grpc_closure, ptr %c.09, i64 0, i32 3
+  %error_data.i = getelementptr inbounds i8, ptr %c.09, i64 24
   %1 = load i64, ptr %error_data.i, align 8
   call void @_ZN9grpc_core8internal21StatusMoveFromHeapPtrEm(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %error.i, i64 noundef %1)
   store i64 0, ptr %error_data.i, align 8
-  %cb.i = getelementptr inbounds %struct.grpc_closure, ptr %c.09, i64 0, i32 1
+  %cb.i = getelementptr inbounds i8, ptr %c.09, i64 8
   %2 = load ptr, ptr %cb.i, align 8
-  %cb_arg.i = getelementptr inbounds %struct.grpc_closure, ptr %c.09, i64 0, i32 2
+  %cb_arg.i = getelementptr inbounds i8, ptr %c.09, i64 16
   %3 = load ptr, ptr %cb_arg.i, align 8
   %4 = load i64, ptr %error.i, align 8
   store i64 %4, ptr %agg.tmp.i, align 8
@@ -138,7 +123,7 @@ if.end8:                                          ; preds = %_ZL12exec_ctx_runP1
   br label %for.cond, !llvm.loop !6
 
 do.body:                                          ; preds = %if.else
-  %combiner_data_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 2
+  %combiner_data_ = getelementptr inbounds i8, ptr %this, i64 24
   %12 = load ptr, ptr %combiner_data_, align 8
   %cmp9.not = icmp eq ptr %12, null
   br i1 %cmp9.not, label %do.end, label %if.then10
@@ -183,7 +168,7 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit:       ; preds = %if.end, %if.then.i.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
-  %error_data = getelementptr inbounds %struct.grpc_closure, ptr %closure, i64 0, i32 3
+  %error_data = getelementptr inbounds i8, ptr %closure, i64 24
   store i64 %call, ptr %error_data, align 8
   %3 = load i64, ptr %agg.tmp, align 8
   %and.i.i.i3 = and i64 %3, 1
@@ -204,21 +189,21 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i5
 if.end.i.i:                                       ; preds = %if.then.i.i5, %invoke.cont
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
   %7 = load ptr, ptr %6, align 8
-  %closure_list_.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %7, i64 0, i32 1
+  %closure_list_.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr null, ptr %closure, align 8
   %8 = load ptr, ptr %closure_list_.i.i, align 8
   %cmp1.i.i = icmp eq ptr %8, null
   br i1 %cmp1.i.i, label %_ZL14exec_ctx_schedP12grpc_closure.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %tail.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %7, i64 0, i32 1, i32 1
+  %tail.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %tail.i.i, align 8
   br label %_ZL14exec_ctx_schedP12grpc_closure.exit
 
 _ZL14exec_ctx_schedP12grpc_closure.exit:          ; preds = %if.end.i.i, %if.else.i.i
   %.sink.i.i = phi ptr [ %9, %if.else.i.i ], [ %closure_list_.i.i, %if.end.i.i ]
   store ptr %closure, ptr %.sink.i.i, align 8
-  %tail6.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %7, i64 0, i32 1, i32 1
+  %tail6.i.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %closure, ptr %tail6.i.i, align 8
   br label %return
 
@@ -274,21 +259,21 @@ if.end.i.i:                                       ; preds = %if.end.i.i.lr.ph, %
   %c.06 = phi ptr [ %0, %if.end.i.i.lr.ph ], [ %2, %_ZL14exec_ctx_schedP12grpc_closure.exit ]
   %2 = load ptr, ptr %c.06, align 8
   %3 = load ptr, ptr %1, align 8
-  %closure_list_.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %3, i64 0, i32 1
+  %closure_list_.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %c.06, align 8
   %4 = load ptr, ptr %closure_list_.i.i, align 8
   %cmp1.i.i = icmp eq ptr %4, null
   br i1 %cmp1.i.i, label %_ZL14exec_ctx_schedP12grpc_closure.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %tail.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %3, i64 0, i32 1, i32 1
+  %tail.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %tail.i.i, align 8
   br label %_ZL14exec_ctx_schedP12grpc_closure.exit
 
 _ZL14exec_ctx_schedP12grpc_closure.exit:          ; preds = %if.end.i.i, %if.else.i.i
   %.sink.i.i = phi ptr [ %5, %if.else.i.i ], [ %closure_list_.i.i, %if.end.i.i ]
   store ptr %c.06, ptr %.sink.i.i, align 8
-  %tail6.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %3, i64 0, i32 1, i32 1
+  %tail6.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %c.06, ptr %tail6.i.i, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %while.end, label %if.end.i.i, !llvm.loop !7

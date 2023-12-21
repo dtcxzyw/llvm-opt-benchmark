@@ -25,7 +25,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal void @property_defn_free(ptr noundef %elem) #0 {
 entry:
-  %defn = getelementptr inbounds %struct.PROPERTY_DEFN_ELEM, ptr %elem, i64 0, i32 1
+  %defn = getelementptr inbounds i8, ptr %elem, i64 8
   %0 = load ptr, ptr %defn, align 8
   tail call void @ossl_property_free(ptr noundef %0) #5
   tail call void @CRYPTO_free(ptr noundef %elem, ptr noundef nonnull @.str, i32 noundef 48) #5
@@ -77,7 +77,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp10, label %return, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %if.end
-  %defn = getelementptr inbounds %struct.PROPERTY_DEFN_ELEM, ptr %call.i, i64 0, i32 1
+  %defn = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %defn, align 8
   br label %return
 
@@ -126,7 +126,7 @@ if.end11:                                         ; preds = %if.end6
 if.then14:                                        ; preds = %if.end11
   %0 = load ptr, ptr %pl, align 8
   call void @ossl_property_free(ptr noundef %0) #5
-  %defn = getelementptr inbounds %struct.PROPERTY_DEFN_ELEM, ptr %call.i21, i64 0, i32 1
+  %defn = getelementptr inbounds i8, ptr %call.i21, i64 8
   %1 = load ptr, ptr %defn, align 8
   store ptr %1, ptr %pl, align 8
   br label %end
@@ -139,10 +139,10 @@ if.end15:                                         ; preds = %if.end11
   br i1 %cmp18.not, label %if.end38, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  %body = getelementptr inbounds %struct.PROPERTY_DEFN_ELEM, ptr %call17, i64 0, i32 2
+  %body = getelementptr inbounds i8, ptr %call17, i64 16
   store ptr %body, ptr %call17, align 8
   %2 = load ptr, ptr %pl, align 8
-  %defn21 = getelementptr inbounds %struct.PROPERTY_DEFN_ELEM, ptr %call17, i64 0, i32 1
+  %defn21 = getelementptr inbounds i8, ptr %call17, i64 8
   store ptr %2, ptr %defn21, align 8
   %add24 = add i64 %call16, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body, ptr nonnull align 1 %prop, i64 %add24, i1 false)

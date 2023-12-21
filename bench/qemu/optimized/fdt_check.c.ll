@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/fdt_check.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.fdt_header = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fdt_check_full(ptr noundef %fdt, i64 noundef %bufsize) local_unnamed_addr #0 {
 entry:
@@ -28,7 +26,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end3
-  %totalsize = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 1
+  %totalsize = getelementptr inbounds i8, ptr %fdt, i64 4
   %0 = load i8, ptr %totalsize, align 1
   %conv.i = zext i8 %0 to i64
   %shl.i = shl nuw nsw i64 %conv.i, 24

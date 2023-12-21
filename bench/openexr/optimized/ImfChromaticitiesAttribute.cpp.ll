@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imf_3_2::TypedAttribute" = type { %"class.Imf_3_2::Attribute", %"struct.Imf_3_2::Chromaticities" }
-%"class.Imf_3_2::Attribute" = type { ptr }
-%"struct.Imf_3_2::Chromaticities" = type { %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2" }
 %"class.Imath_3_2::Vec2" = type { float, float }
 
 $_ZN7Imf_3_214TypedAttributeINS_14ChromaticitiesEEC5ERKS1_ = comdat any
@@ -71,35 +68,35 @@ define weak_odr void @_ZN7Imf_3_214TypedAttributeINS_14ChromaticitiesEEC2ERKS1_(
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_14ChromaticitiesEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load float, ptr %value, align 4
   store float %0, ptr %_value, align 8
-  %y.i.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %value, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %y3.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %1 = load float, ptr %y3.i.i, align 4
   store float %1, ptr %y.i.i, align 4
-  %green.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 1
-  %green3.i = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %value, i64 0, i32 1
+  %green.i = getelementptr inbounds i8, ptr %this, i64 16
+  %green3.i = getelementptr inbounds i8, ptr %value, i64 8
   %2 = load float, ptr %green3.i, align 4
   store float %2, ptr %green.i, align 8
-  %y.i4.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 1, i32 1
-  %y3.i5.i = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %value, i64 0, i32 1, i32 1
+  %y.i4.i = getelementptr inbounds i8, ptr %this, i64 20
+  %y3.i5.i = getelementptr inbounds i8, ptr %value, i64 12
   %3 = load float, ptr %y3.i5.i, align 4
   store float %3, ptr %y.i4.i, align 4
-  %blue.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 2
-  %blue4.i = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %value, i64 0, i32 2
+  %blue.i = getelementptr inbounds i8, ptr %this, i64 24
+  %blue4.i = getelementptr inbounds i8, ptr %value, i64 16
   %4 = load float, ptr %blue4.i, align 4
   store float %4, ptr %blue.i, align 8
-  %y.i6.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 2, i32 1
-  %y3.i7.i = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %value, i64 0, i32 2, i32 1
+  %y.i6.i = getelementptr inbounds i8, ptr %this, i64 28
+  %y3.i7.i = getelementptr inbounds i8, ptr %value, i64 20
   %5 = load float, ptr %y3.i7.i, align 4
   store float %5, ptr %y.i6.i, align 4
-  %white.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 3
-  %white5.i = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %value, i64 0, i32 3
+  %white.i = getelementptr inbounds i8, ptr %this, i64 32
+  %white5.i = getelementptr inbounds i8, ptr %value, i64 24
   %6 = load float, ptr %white5.i, align 4
   store float %6, ptr %white.i, align 8
-  %y.i8.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 3, i32 1
-  %y3.i9.i = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %value, i64 0, i32 3, i32 1
+  %y.i8.i = getelementptr inbounds i8, ptr %this, i64 36
+  %y3.i9.i = getelementptr inbounds i8, ptr %value, i64 28
   %7 = load float, ptr %y3.i9.i, align 4
   store float %7, ptr %y.i8.i, align 4
   ret void
@@ -131,14 +128,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(32) ptr @_ZN7Imf_3_214TypedAttributeINS_14ChromaticitiesEE5valueEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %_value
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(32) ptr @_ZNK7Imf_3_214TypedAttributeINS_14ChromaticitiesEE5valueEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %_value
 }
 
@@ -172,7 +169,7 @@ entry:
 
 .noexc:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_14ChromaticitiesEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_value.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %call, i64 0, i32 1
+  %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   store <2 x float> <float 0x3FE47AE140000000, float 0x3FD51EB860000000>, ptr %ref.tmp.i, align 8
   store <2 x float> <float 0x3FD3333340000000, float 0x3FE3333340000000>, ptr %ref.tmp2.i, align 8
   store <2 x float> <float 0x3FC3333340000000, float 0x3FAEB851E0000000>, ptr %ref.tmp3.i, align 8
@@ -230,7 +227,7 @@ entry:
 
 .noexc:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_14ChromaticitiesEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_value.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %call, i64 0, i32 1
+  %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   store <2 x float> <float 0x3FE47AE140000000, float 0x3FD51EB860000000>, ptr %ref.tmp.i, align 8
   store <2 x float> <float 0x3FD3333340000000, float 0x3FE3333340000000>, ptr %ref.tmp2.i, align 8
   store <2 x float> <float 0x3FC3333340000000, float 0x3FAEB851E0000000>, ptr %ref.tmp3.i, align 8
@@ -250,7 +247,7 @@ invoke.cont:                                      ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp3.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i)
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(8) %this)
   ret ptr %call
@@ -289,37 +286,37 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214TypedAttributeINS_14ChromaticitiesEE4castERKNS_9AttributeE.exit: ; preds = %entry
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %0, i64 0, i32 1
-  %_value2 = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %0, i64 8
+  %_value2 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load float, ptr %_value, align 4
   store float %2, ptr %_value2, align 8
-  %y.i.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load float, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store float %3, ptr %y3.i.i, align 4
-  %green.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 1
-  %green3.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %0, i64 0, i32 1, i32 1
+  %green.i = getelementptr inbounds i8, ptr %this, i64 16
+  %green3.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load float, ptr %green3.i, align 4
   store float %4, ptr %green.i, align 8
-  %y.i4.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %0, i64 0, i32 1, i32 1, i32 1
+  %y.i4.i = getelementptr inbounds i8, ptr %0, i64 20
   %5 = load float, ptr %y.i4.i, align 4
-  %y3.i5.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 1, i32 1
+  %y3.i5.i = getelementptr inbounds i8, ptr %this, i64 20
   store float %5, ptr %y3.i5.i, align 4
-  %blue.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 2
-  %blue5.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %0, i64 0, i32 1, i32 2
+  %blue.i = getelementptr inbounds i8, ptr %this, i64 24
+  %blue5.i = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load float, ptr %blue5.i, align 4
   store float %6, ptr %blue.i, align 8
-  %y.i6.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %0, i64 0, i32 1, i32 2, i32 1
+  %y.i6.i = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load float, ptr %y.i6.i, align 4
-  %y3.i7.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 2, i32 1
+  %y3.i7.i = getelementptr inbounds i8, ptr %this, i64 28
   store float %7, ptr %y3.i7.i, align 4
-  %white.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 3
-  %white7.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %0, i64 0, i32 1, i32 3
+  %white.i = getelementptr inbounds i8, ptr %this, i64 32
+  %white7.i = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load float, ptr %white7.i, align 4
   store float %8, ptr %white.i, align 8
-  %y.i8.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %0, i64 0, i32 1, i32 3, i32 1
+  %y.i8.i = getelementptr inbounds i8, ptr %0, i64 36
   %9 = load float, ptr %y.i8.i, align 4
-  %y3.i9.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 3, i32 1
+  %y3.i9.i = getelementptr inbounds i8, ptr %this, i64 36
   store float %9, ptr %y3.i9.i, align 4
   ret void
 }
@@ -479,179 +476,179 @@ entry:
   %b.i21 = alloca [4 x i8], align 1
   %b.i8 = alloca [4 x i8], align 1
   %b.i = alloca [4 x i8], align 1
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %_value, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   %conv.i = trunc i32 %0 to i8
   store i8 %conv.i, ptr %b.i, align 1
   %shr.i = lshr i32 %0, 8
   %conv1.i = trunc i32 %shr.i to i8
-  %arrayidx2.i = getelementptr inbounds [4 x i8], ptr %b.i, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %b.i, i64 1
   store i8 %conv1.i, ptr %arrayidx2.i, align 1
   %shr3.i = lshr i32 %0, 16
   %conv4.i = trunc i32 %shr3.i to i8
-  %arrayidx5.i = getelementptr inbounds [4 x i8], ptr %b.i, i64 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %b.i, i64 2
   store i8 %conv4.i, ptr %arrayidx5.i, align 1
   %shr6.i = lshr i32 %0, 24
   %conv7.i = trunc i32 %shr6.i to i8
-  %arrayidx8.i = getelementptr inbounds [4 x i8], ptr %b.i, i64 0, i64 3
+  %arrayidx8.i = getelementptr inbounds i8, ptr %b.i, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
-  %y = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %y, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i8)
   %conv.i9 = trunc i32 %2 to i8
   store i8 %conv.i9, ptr %b.i8, align 1
   %shr.i10 = lshr i32 %2, 8
   %conv1.i11 = trunc i32 %shr.i10 to i8
-  %arrayidx2.i12 = getelementptr inbounds [4 x i8], ptr %b.i8, i64 0, i64 1
+  %arrayidx2.i12 = getelementptr inbounds i8, ptr %b.i8, i64 1
   store i8 %conv1.i11, ptr %arrayidx2.i12, align 1
   %shr3.i13 = lshr i32 %2, 16
   %conv4.i14 = trunc i32 %shr3.i13 to i8
-  %arrayidx5.i15 = getelementptr inbounds [4 x i8], ptr %b.i8, i64 0, i64 2
+  %arrayidx5.i15 = getelementptr inbounds i8, ptr %b.i8, i64 2
   store i8 %conv4.i14, ptr %arrayidx5.i15, align 1
   %shr6.i16 = lshr i32 %2, 24
   %conv7.i17 = trunc i32 %shr6.i16 to i8
-  %arrayidx8.i18 = getelementptr inbounds [4 x i8], ptr %b.i8, i64 0, i64 3
+  %arrayidx8.i18 = getelementptr inbounds i8, ptr %b.i8, i64 3
   store i8 %conv7.i17, ptr %arrayidx8.i18, align 1
   %vtable.i.i.i19 = load ptr, ptr %os, align 8
-  %vfn.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i19, i64 2
+  %vfn.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i19, i64 16
   %3 = load ptr, ptr %vfn.i.i.i20, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i8, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i8)
-  %green = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 1
+  %green = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i32, ptr %green, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i21)
   %conv.i22 = trunc i32 %4 to i8
   store i8 %conv.i22, ptr %b.i21, align 1
   %shr.i23 = lshr i32 %4, 8
   %conv1.i24 = trunc i32 %shr.i23 to i8
-  %arrayidx2.i25 = getelementptr inbounds [4 x i8], ptr %b.i21, i64 0, i64 1
+  %arrayidx2.i25 = getelementptr inbounds i8, ptr %b.i21, i64 1
   store i8 %conv1.i24, ptr %arrayidx2.i25, align 1
   %shr3.i26 = lshr i32 %4, 16
   %conv4.i27 = trunc i32 %shr3.i26 to i8
-  %arrayidx5.i28 = getelementptr inbounds [4 x i8], ptr %b.i21, i64 0, i64 2
+  %arrayidx5.i28 = getelementptr inbounds i8, ptr %b.i21, i64 2
   store i8 %conv4.i27, ptr %arrayidx5.i28, align 1
   %shr6.i29 = lshr i32 %4, 24
   %conv7.i30 = trunc i32 %shr6.i29 to i8
-  %arrayidx8.i31 = getelementptr inbounds [4 x i8], ptr %b.i21, i64 0, i64 3
+  %arrayidx8.i31 = getelementptr inbounds i8, ptr %b.i21, i64 3
   store i8 %conv7.i30, ptr %arrayidx8.i31, align 1
   %vtable.i.i.i32 = load ptr, ptr %os, align 8
-  %vfn.i.i.i33 = getelementptr inbounds ptr, ptr %vtable.i.i.i32, i64 2
+  %vfn.i.i.i33 = getelementptr inbounds i8, ptr %vtable.i.i.i32, i64 16
   %5 = load ptr, ptr %vfn.i.i.i33, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i21, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i21)
-  %y8 = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 1, i32 1
+  %y8 = getelementptr inbounds i8, ptr %this, i64 20
   %6 = load i32, ptr %y8, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i34)
   %conv.i35 = trunc i32 %6 to i8
   store i8 %conv.i35, ptr %b.i34, align 1
   %shr.i36 = lshr i32 %6, 8
   %conv1.i37 = trunc i32 %shr.i36 to i8
-  %arrayidx2.i38 = getelementptr inbounds [4 x i8], ptr %b.i34, i64 0, i64 1
+  %arrayidx2.i38 = getelementptr inbounds i8, ptr %b.i34, i64 1
   store i8 %conv1.i37, ptr %arrayidx2.i38, align 1
   %shr3.i39 = lshr i32 %6, 16
   %conv4.i40 = trunc i32 %shr3.i39 to i8
-  %arrayidx5.i41 = getelementptr inbounds [4 x i8], ptr %b.i34, i64 0, i64 2
+  %arrayidx5.i41 = getelementptr inbounds i8, ptr %b.i34, i64 2
   store i8 %conv4.i40, ptr %arrayidx5.i41, align 1
   %shr6.i42 = lshr i32 %6, 24
   %conv7.i43 = trunc i32 %shr6.i42 to i8
-  %arrayidx8.i44 = getelementptr inbounds [4 x i8], ptr %b.i34, i64 0, i64 3
+  %arrayidx8.i44 = getelementptr inbounds i8, ptr %b.i34, i64 3
   store i8 %conv7.i43, ptr %arrayidx8.i44, align 1
   %vtable.i.i.i45 = load ptr, ptr %os, align 8
-  %vfn.i.i.i46 = getelementptr inbounds ptr, ptr %vtable.i.i.i45, i64 2
+  %vfn.i.i.i46 = getelementptr inbounds i8, ptr %vtable.i.i.i45, i64 16
   %7 = load ptr, ptr %vfn.i.i.i46, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i34, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i34)
-  %blue = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 2
+  %blue = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load i32, ptr %blue, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i47)
   %conv.i48 = trunc i32 %8 to i8
   store i8 %conv.i48, ptr %b.i47, align 1
   %shr.i49 = lshr i32 %8, 8
   %conv1.i50 = trunc i32 %shr.i49 to i8
-  %arrayidx2.i51 = getelementptr inbounds [4 x i8], ptr %b.i47, i64 0, i64 1
+  %arrayidx2.i51 = getelementptr inbounds i8, ptr %b.i47, i64 1
   store i8 %conv1.i50, ptr %arrayidx2.i51, align 1
   %shr3.i52 = lshr i32 %8, 16
   %conv4.i53 = trunc i32 %shr3.i52 to i8
-  %arrayidx5.i54 = getelementptr inbounds [4 x i8], ptr %b.i47, i64 0, i64 2
+  %arrayidx5.i54 = getelementptr inbounds i8, ptr %b.i47, i64 2
   store i8 %conv4.i53, ptr %arrayidx5.i54, align 1
   %shr6.i55 = lshr i32 %8, 24
   %conv7.i56 = trunc i32 %shr6.i55 to i8
-  %arrayidx8.i57 = getelementptr inbounds [4 x i8], ptr %b.i47, i64 0, i64 3
+  %arrayidx8.i57 = getelementptr inbounds i8, ptr %b.i47, i64 3
   store i8 %conv7.i56, ptr %arrayidx8.i57, align 1
   %vtable.i.i.i58 = load ptr, ptr %os, align 8
-  %vfn.i.i.i59 = getelementptr inbounds ptr, ptr %vtable.i.i.i58, i64 2
+  %vfn.i.i.i59 = getelementptr inbounds i8, ptr %vtable.i.i.i58, i64 16
   %9 = load ptr, ptr %vfn.i.i.i59, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i47, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i47)
-  %y13 = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 2, i32 1
+  %y13 = getelementptr inbounds i8, ptr %this, i64 28
   %10 = load i32, ptr %y13, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i60)
   %conv.i61 = trunc i32 %10 to i8
   store i8 %conv.i61, ptr %b.i60, align 1
   %shr.i62 = lshr i32 %10, 8
   %conv1.i63 = trunc i32 %shr.i62 to i8
-  %arrayidx2.i64 = getelementptr inbounds [4 x i8], ptr %b.i60, i64 0, i64 1
+  %arrayidx2.i64 = getelementptr inbounds i8, ptr %b.i60, i64 1
   store i8 %conv1.i63, ptr %arrayidx2.i64, align 1
   %shr3.i65 = lshr i32 %10, 16
   %conv4.i66 = trunc i32 %shr3.i65 to i8
-  %arrayidx5.i67 = getelementptr inbounds [4 x i8], ptr %b.i60, i64 0, i64 2
+  %arrayidx5.i67 = getelementptr inbounds i8, ptr %b.i60, i64 2
   store i8 %conv4.i66, ptr %arrayidx5.i67, align 1
   %shr6.i68 = lshr i32 %10, 24
   %conv7.i69 = trunc i32 %shr6.i68 to i8
-  %arrayidx8.i70 = getelementptr inbounds [4 x i8], ptr %b.i60, i64 0, i64 3
+  %arrayidx8.i70 = getelementptr inbounds i8, ptr %b.i60, i64 3
   store i8 %conv7.i69, ptr %arrayidx8.i70, align 1
   %vtable.i.i.i71 = load ptr, ptr %os, align 8
-  %vfn.i.i.i72 = getelementptr inbounds ptr, ptr %vtable.i.i.i71, i64 2
+  %vfn.i.i.i72 = getelementptr inbounds i8, ptr %vtable.i.i.i71, i64 16
   %11 = load ptr, ptr %vfn.i.i.i72, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i60, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i60)
-  %white = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 3
+  %white = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load i32, ptr %white, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i73)
   %conv.i74 = trunc i32 %12 to i8
   store i8 %conv.i74, ptr %b.i73, align 1
   %shr.i75 = lshr i32 %12, 8
   %conv1.i76 = trunc i32 %shr.i75 to i8
-  %arrayidx2.i77 = getelementptr inbounds [4 x i8], ptr %b.i73, i64 0, i64 1
+  %arrayidx2.i77 = getelementptr inbounds i8, ptr %b.i73, i64 1
   store i8 %conv1.i76, ptr %arrayidx2.i77, align 1
   %shr3.i78 = lshr i32 %12, 16
   %conv4.i79 = trunc i32 %shr3.i78 to i8
-  %arrayidx5.i80 = getelementptr inbounds [4 x i8], ptr %b.i73, i64 0, i64 2
+  %arrayidx5.i80 = getelementptr inbounds i8, ptr %b.i73, i64 2
   store i8 %conv4.i79, ptr %arrayidx5.i80, align 1
   %shr6.i81 = lshr i32 %12, 24
   %conv7.i82 = trunc i32 %shr6.i81 to i8
-  %arrayidx8.i83 = getelementptr inbounds [4 x i8], ptr %b.i73, i64 0, i64 3
+  %arrayidx8.i83 = getelementptr inbounds i8, ptr %b.i73, i64 3
   store i8 %conv7.i82, ptr %arrayidx8.i83, align 1
   %vtable.i.i.i84 = load ptr, ptr %os, align 8
-  %vfn.i.i.i85 = getelementptr inbounds ptr, ptr %vtable.i.i.i84, i64 2
+  %vfn.i.i.i85 = getelementptr inbounds i8, ptr %vtable.i.i.i84, i64 16
   %13 = load ptr, ptr %vfn.i.i.i85, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i73, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i73)
-  %y18 = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 3, i32 1
+  %y18 = getelementptr inbounds i8, ptr %this, i64 36
   %14 = load i32, ptr %y18, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i86)
   %conv.i87 = trunc i32 %14 to i8
   store i8 %conv.i87, ptr %b.i86, align 1
   %shr.i88 = lshr i32 %14, 8
   %conv1.i89 = trunc i32 %shr.i88 to i8
-  %arrayidx2.i90 = getelementptr inbounds [4 x i8], ptr %b.i86, i64 0, i64 1
+  %arrayidx2.i90 = getelementptr inbounds i8, ptr %b.i86, i64 1
   store i8 %conv1.i89, ptr %arrayidx2.i90, align 1
   %shr3.i91 = lshr i32 %14, 16
   %conv4.i92 = trunc i32 %shr3.i91 to i8
-  %arrayidx5.i93 = getelementptr inbounds [4 x i8], ptr %b.i86, i64 0, i64 2
+  %arrayidx5.i93 = getelementptr inbounds i8, ptr %b.i86, i64 2
   store i8 %conv4.i92, ptr %arrayidx5.i93, align 1
   %shr6.i94 = lshr i32 %14, 24
   %conv7.i95 = trunc i32 %shr6.i94 to i8
-  %arrayidx8.i96 = getelementptr inbounds [4 x i8], ptr %b.i86, i64 0, i64 3
+  %arrayidx8.i96 = getelementptr inbounds i8, ptr %b.i86, i64 3
   store i8 %conv7.i95, ptr %arrayidx8.i96, align 1
   %vtable.i.i.i97 = load ptr, ptr %os, align 8
-  %vfn.i.i.i98 = getelementptr inbounds ptr, ptr %vtable.i.i.i97, i64 2
+  %vfn.i.i.i98 = getelementptr inbounds i8, ptr %vtable.i.i.i97, i64 16
   %15 = load ptr, ptr %vfn.i.i.i98, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i86, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i86)
@@ -669,73 +666,73 @@ entry:
   %b.i12 = alloca [4 x i8], align 4
   %b.i8 = alloca [4 x i8], align 4
   %b.i = alloca [4 x i8], align 4
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   %vtable.i.i.i = load ptr, ptr %is, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i, i32 noundef 4)
   %1 = load i32, ptr %b.i, align 4
   store i32 %1, ptr %_value, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
-  %y = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %this, i64 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i8)
   %vtable.i.i.i9 = load ptr, ptr %is, align 8
-  %vfn.i.i.i10 = getelementptr inbounds ptr, ptr %vtable.i.i.i9, i64 3
+  %vfn.i.i.i10 = getelementptr inbounds i8, ptr %vtable.i.i.i9, i64 24
   %2 = load ptr, ptr %vfn.i.i.i10, align 8
   %call.i.i.i11 = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i8, i32 noundef 4)
   %3 = load i32, ptr %b.i8, align 4
   store i32 %3, ptr %y, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i8)
-  %green = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 1
+  %green = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i12)
   %vtable.i.i.i13 = load ptr, ptr %is, align 8
-  %vfn.i.i.i14 = getelementptr inbounds ptr, ptr %vtable.i.i.i13, i64 3
+  %vfn.i.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i.i13, i64 24
   %4 = load ptr, ptr %vfn.i.i.i14, align 8
   %call.i.i.i15 = call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i12, i32 noundef 4)
   %5 = load i32, ptr %b.i12, align 4
   store i32 %5, ptr %green, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i12)
-  %y8 = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 1, i32 1
+  %y8 = getelementptr inbounds i8, ptr %this, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i16)
   %vtable.i.i.i17 = load ptr, ptr %is, align 8
-  %vfn.i.i.i18 = getelementptr inbounds ptr, ptr %vtable.i.i.i17, i64 3
+  %vfn.i.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i.i17, i64 24
   %6 = load ptr, ptr %vfn.i.i.i18, align 8
   %call.i.i.i19 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i16, i32 noundef 4)
   %7 = load i32, ptr %b.i16, align 4
   store i32 %7, ptr %y8, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i16)
-  %blue = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 2
+  %blue = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i20)
   %vtable.i.i.i21 = load ptr, ptr %is, align 8
-  %vfn.i.i.i22 = getelementptr inbounds ptr, ptr %vtable.i.i.i21, i64 3
+  %vfn.i.i.i22 = getelementptr inbounds i8, ptr %vtable.i.i.i21, i64 24
   %8 = load ptr, ptr %vfn.i.i.i22, align 8
   %call.i.i.i23 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i20, i32 noundef 4)
   %9 = load i32, ptr %b.i20, align 4
   store i32 %9, ptr %blue, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i20)
-  %y13 = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 2, i32 1
+  %y13 = getelementptr inbounds i8, ptr %this, i64 28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i24)
   %vtable.i.i.i25 = load ptr, ptr %is, align 8
-  %vfn.i.i.i26 = getelementptr inbounds ptr, ptr %vtable.i.i.i25, i64 3
+  %vfn.i.i.i26 = getelementptr inbounds i8, ptr %vtable.i.i.i25, i64 24
   %10 = load ptr, ptr %vfn.i.i.i26, align 8
   %call.i.i.i27 = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i24, i32 noundef 4)
   %11 = load i32, ptr %b.i24, align 4
   store i32 %11, ptr %y13, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i24)
-  %white = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 3
+  %white = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i28)
   %vtable.i.i.i29 = load ptr, ptr %is, align 8
-  %vfn.i.i.i30 = getelementptr inbounds ptr, ptr %vtable.i.i.i29, i64 3
+  %vfn.i.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i.i29, i64 24
   %12 = load ptr, ptr %vfn.i.i.i30, align 8
   %call.i.i.i31 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i28, i32 noundef 4)
   %13 = load i32, ptr %b.i28, align 4
   store i32 %13, ptr %white, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i28)
-  %y18 = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1, i32 3, i32 1
+  %y18 = getelementptr inbounds i8, ptr %this, i64 36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i32)
   %vtable.i.i.i33 = load ptr, ptr %is, align 8
-  %vfn.i.i.i34 = getelementptr inbounds ptr, ptr %vtable.i.i.i33, i64 3
+  %vfn.i.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i.i33, i64 24
   %14 = load ptr, ptr %vfn.i.i.i34, align 8
   %call.i.i.i35 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i32, i32 noundef 4)
   %15 = load i32, ptr %b.i32, align 4

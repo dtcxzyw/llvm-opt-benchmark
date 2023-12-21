@@ -3,36 +3,8 @@ source_filename = "bench/qemu/original/hw_9pfs_cofs.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.V9fsPDU = type { i32, i16, i8, i8, %struct.CoQueue, ptr, %struct.anon.0, i32 }
-%struct.CoQueue = type { %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.V9fsState = type { %struct.anon.1, %struct.anon.2, ptr, ptr, %struct.FsContext, ptr, i32, i32, [128 x %struct.V9fsPDU], ptr, %struct.CoRwlock, i32, ptr, %struct.V9fsConf, %struct.stat, i64, %struct.qht, %struct.qht, %struct.qht, i64, i16, i64 }
-%struct.anon.1 = type { ptr }
-%struct.anon.2 = type { ptr }
-%struct.FsContext = type { i32, ptr, i32, ptr, %struct.ExtendedOps, ptr, ptr, i32, i32 }
-%struct.ExtendedOps = type { ptr }
-%struct.CoRwlock = type { %struct.CoMutex, i32, %struct.anon.4 }
-%struct.CoMutex = type { i32, ptr, %struct.anon.3, %struct.anon.3, i32, i32, ptr }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.V9fsConf = type { ptr, ptr }
-%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
-%struct.timespec = type { i64, i64 }
-%struct.qht = type { ptr, ptr, %struct.QemuMutex, i32 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.V9fsString = type { i16, ptr }
-%struct.FileOperations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.FsCred = type { i32, i32, i32, i64 }
 %struct.V9fsPath = type { i16, ptr }
-%struct.V9fsFidState = type { i32, i32, %struct.V9fsPath, %union.V9fsFidOpenState, %union.V9fsFidOpenState, i32, i32, i32, i32, i8, %struct.anon.5, %struct.anon.6 }
-%union.V9fsFidOpenState = type { %struct.V9fsDir }
-%struct.V9fsDir = type { ptr, i32, %struct.CoMutex, %struct.QemuMutex }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
 
 @.str = private unnamed_addr constant [20 x i8] c"co_run_in_worker_bh\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"coroutine_fn\00", section "llvm.metadata"
@@ -45,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @v9fs_co_readlink(ptr nocapture noundef readonly %pdu, ptr noundef %path, ptr nocapture noundef %buf) #0 {
 entry:
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %1 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %1, align 1
@@ -53,14 +25,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %export_flags.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4, i32 2
+  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %v9fs_path_read_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %rename_lock.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
   tail call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %rename_lock.i) #4
   br label %v9fs_path_read_lock.exit
 
@@ -71,12 +43,12 @@ v9fs_path_read_lock.exit:                         ; preds = %if.end, %if.then.i
   tail call void @qemu_coroutine_yield() #4
   tail call void @qemu_bh_delete(ptr noundef %call3) #4
   %call.i = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #5
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %buf, i64 0, i32 1
-  %ops.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 3
-  %ctx.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4
+  %data.i = getelementptr inbounds i8, ptr %buf, i64 8
+  %ops.i = getelementptr inbounds i8, ptr %0, i64 24
+  %ctx.i = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %call.i, ptr %data.i, align 8
   %3 = load ptr, ptr %ops.i, align 8
-  %readlink20.i = getelementptr inbounds %struct.FileOperations, ptr %3, i64 0, i32 4
+  %readlink20.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %readlink20.i, align 8
   %call221.i = tail call i64 %4(ptr noundef nonnull %ctx.i, ptr noundef %path, ptr noundef %call.i, i64 noundef 4096) #4
   %cmp22.i = icmp slt i64 %call221.i, 0
@@ -102,7 +74,7 @@ if.then6.i:                                       ; preds = %if.else.i
   %call8.i = tail call noalias ptr @g_malloc(i64 noundef %mul.i) #5
   store ptr %call8.i, ptr %data.i, align 8
   %7 = load ptr, ptr %ops.i, align 8
-  %readlink.i = getelementptr inbounds %struct.FileOperations, ptr %7, i64 0, i32 4
+  %readlink.i = getelementptr inbounds i8, ptr %7, i64 32
   %8 = load ptr, ptr %readlink.i, align 8
   %call2.i = tail call i64 %8(ptr noundef nonnull %ctx.i, ptr noundef %path, ptr noundef %call8.i, i64 noundef %mul.i) #4
   %cmp.i = icmp slt i64 %call2.i, 0
@@ -138,7 +110,7 @@ do.end:                                           ; preds = %__readlink.exit, %i
   br i1 %tobool.not.i9, label %return, label %if.then.i10
 
 if.then.i10:                                      ; preds = %do.end
-  %rename_lock.i11 = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i11 = getelementptr inbounds i8, ptr %0, i64 7288
   tail call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i11) #4
   br label %return
 
@@ -150,14 +122,14 @@ return:                                           ; preds = %if.then.i10, %do.en
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @v9fs_path_read_lock(ptr noundef %s) #0 {
 entry:
-  %export_flags = getelementptr inbounds %struct.V9fsState, ptr %s, i64 0, i32 4, i32 2
+  %export_flags = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load i32, ptr %export_flags, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %rename_lock = getelementptr inbounds %struct.V9fsState, ptr %s, i64 0, i32 10
+  %rename_lock = getelementptr inbounds i8, ptr %s, i64 7288
   tail call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %rename_lock) #4
   br label %if.end
 
@@ -183,14 +155,14 @@ declare ptr @__errno_location() local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @v9fs_path_unlock(ptr noundef %s) #0 {
 entry:
-  %export_flags = getelementptr inbounds %struct.V9fsState, ptr %s, i64 0, i32 4, i32 2
+  %export_flags = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load i32, ptr %export_flags, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %rename_lock = getelementptr inbounds %struct.V9fsState, ptr %s, i64 0, i32 10
+  %rename_lock = getelementptr inbounds i8, ptr %s, i64 7288
   tail call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock) #4
   br label %if.end
 
@@ -201,7 +173,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @v9fs_co_statfs(ptr nocapture noundef readonly %pdu, ptr noundef %path, ptr noundef %stbuf) #0 {
 entry:
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %1 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %1, align 1
@@ -209,14 +181,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %export_flags.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4, i32 2
+  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %v9fs_path_read_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %rename_lock.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
   tail call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %rename_lock.i) #4
   br label %v9fs_path_read_lock.exit
 
@@ -226,11 +198,11 @@ v9fs_path_read_lock.exit:                         ; preds = %if.end, %if.then.i
   tail call void @qemu_bh_schedule(ptr noundef %call3) #4
   tail call void @qemu_coroutine_yield() #4
   tail call void @qemu_bh_delete(ptr noundef %call3) #4
-  %ops = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %ops, align 8
-  %statfs = getelementptr inbounds %struct.FileOperations, ptr %3, i64 0, i32 29
+  %statfs = getelementptr inbounds i8, ptr %3, i64 232
   %4 = load ptr, ptr %statfs, align 8
-  %ctx = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %0, i64 32
   %call5 = tail call i32 %4(ptr noundef nonnull %ctx, ptr noundef %path, ptr noundef %stbuf) #4
   %cmp = icmp slt i32 %call5, 0
   br i1 %cmp, label %if.then6, label %do.end
@@ -250,7 +222,7 @@ do.end:                                           ; preds = %v9fs_path_read_lock
   br i1 %tobool.not.i9, label %return, label %if.then.i10
 
 if.then.i10:                                      ; preds = %do.end
-  %rename_lock.i11 = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i11 = getelementptr inbounds i8, ptr %0, i64 7288
   tail call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i11) #4
   br label %return
 
@@ -263,7 +235,7 @@ return:                                           ; preds = %if.then.i10, %do.en
 define dso_local i32 @v9fs_co_chmod(ptr nocapture noundef readonly %pdu, ptr noundef %path, i32 noundef %mode) #0 {
 entry:
   %cred = alloca %struct.FsCred, align 8
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %1 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %1, align 1
@@ -272,16 +244,16 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @cred_init(ptr noundef nonnull %cred) #4
-  %fc_mode = getelementptr inbounds %struct.FsCred, ptr %cred, i64 0, i32 2
+  %fc_mode = getelementptr inbounds i8, ptr %cred, i64 8
   store i32 %mode, ptr %fc_mode, align 8
-  %export_flags.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4, i32 2
+  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %v9fs_path_read_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %rename_lock.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %rename_lock.i) #4
   br label %v9fs_path_read_lock.exit
 
@@ -291,11 +263,11 @@ v9fs_path_read_lock.exit:                         ; preds = %if.end, %if.then.i
   call void @qemu_bh_schedule(ptr noundef %call3) #4
   call void @qemu_coroutine_yield() #4
   call void @qemu_bh_delete(ptr noundef %call3) #4
-  %ops = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %ops, align 8
-  %chmod = getelementptr inbounds %struct.FileOperations, ptr %3, i64 0, i32 5
+  %chmod = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %chmod, align 8
-  %ctx = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %0, i64 32
   %call5 = call i32 %4(ptr noundef nonnull %ctx, ptr noundef %path, ptr noundef nonnull %cred) #4
   %cmp = icmp slt i32 %call5, 0
   br i1 %cmp, label %if.then6, label %do.end
@@ -315,7 +287,7 @@ do.end:                                           ; preds = %v9fs_path_read_lock
   br i1 %tobool.not.i9, label %return, label %if.then.i10
 
 if.then.i10:                                      ; preds = %do.end
-  %rename_lock.i11 = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i11 = getelementptr inbounds i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i11) #4
   br label %return
 
@@ -329,7 +301,7 @@ declare void @cred_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @v9fs_co_utimensat(ptr nocapture noundef readonly %pdu, ptr noundef %path, ptr noundef %times) #0 {
 entry:
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %1 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %1, align 1
@@ -337,14 +309,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %export_flags.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4, i32 2
+  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %v9fs_path_read_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %rename_lock.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
   tail call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %rename_lock.i) #4
   br label %v9fs_path_read_lock.exit
 
@@ -354,11 +326,11 @@ v9fs_path_read_lock.exit:                         ; preds = %if.end, %if.then.i
   tail call void @qemu_bh_schedule(ptr noundef %call3) #4
   tail call void @qemu_coroutine_yield() #4
   tail call void @qemu_bh_delete(ptr noundef %call3) #4
-  %ops = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %ops, align 8
-  %utimensat = getelementptr inbounds %struct.FileOperations, ptr %3, i64 0, i32 8
+  %utimensat = getelementptr inbounds i8, ptr %3, i64 64
   %4 = load ptr, ptr %utimensat, align 8
-  %ctx = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %0, i64 32
   %call5 = tail call i32 %4(ptr noundef nonnull %ctx, ptr noundef %path, ptr noundef %times) #4
   %cmp = icmp slt i32 %call5, 0
   br i1 %cmp, label %if.then6, label %do.end
@@ -378,7 +350,7 @@ do.end:                                           ; preds = %v9fs_path_read_lock
   br i1 %tobool.not.i9, label %return, label %if.then.i10
 
 if.then.i10:                                      ; preds = %do.end
-  %rename_lock.i11 = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i11 = getelementptr inbounds i8, ptr %0, i64 7288
   tail call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i11) #4
   br label %return
 
@@ -391,7 +363,7 @@ return:                                           ; preds = %if.then.i10, %do.en
 define dso_local i32 @v9fs_co_chown(ptr nocapture noundef readonly %pdu, ptr noundef %path, i32 noundef %uid, i32 noundef %gid) #0 {
 entry:
   %cred = alloca %struct.FsCred, align 8
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %1 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %1, align 1
@@ -401,16 +373,16 @@ entry:
 if.end:                                           ; preds = %entry
   call void @cred_init(ptr noundef nonnull %cred) #4
   store i32 %uid, ptr %cred, align 8
-  %fc_gid = getelementptr inbounds %struct.FsCred, ptr %cred, i64 0, i32 1
+  %fc_gid = getelementptr inbounds i8, ptr %cred, i64 4
   store i32 %gid, ptr %fc_gid, align 4
-  %export_flags.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4, i32 2
+  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %v9fs_path_read_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %rename_lock.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %rename_lock.i) #4
   br label %v9fs_path_read_lock.exit
 
@@ -420,11 +392,11 @@ v9fs_path_read_lock.exit:                         ; preds = %if.end, %if.then.i
   call void @qemu_bh_schedule(ptr noundef %call3) #4
   call void @qemu_coroutine_yield() #4
   call void @qemu_bh_delete(ptr noundef %call3) #4
-  %ops = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %ops, align 8
-  %chown = getelementptr inbounds %struct.FileOperations, ptr %3, i64 0, i32 6
+  %chown = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load ptr, ptr %chown, align 8
-  %ctx = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %0, i64 32
   %call5 = call i32 %4(ptr noundef nonnull %ctx, ptr noundef %path, ptr noundef nonnull %cred) #4
   %cmp = icmp slt i32 %call5, 0
   br i1 %cmp, label %if.then6, label %do.end
@@ -444,7 +416,7 @@ do.end:                                           ; preds = %v9fs_path_read_lock
   br i1 %tobool.not.i9, label %return, label %if.then.i10
 
 if.then.i10:                                      ; preds = %do.end
-  %rename_lock.i11 = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i11 = getelementptr inbounds i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i11) #4
   br label %return
 
@@ -456,7 +428,7 @@ return:                                           ; preds = %if.then.i10, %do.en
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @v9fs_co_truncate(ptr nocapture noundef readonly %pdu, ptr noundef %path, i64 noundef %size) #0 {
 entry:
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %1 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %1, align 1
@@ -464,14 +436,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %export_flags.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4, i32 2
+  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %v9fs_path_read_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %rename_lock.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
   tail call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %rename_lock.i) #4
   br label %v9fs_path_read_lock.exit
 
@@ -481,11 +453,11 @@ v9fs_path_read_lock.exit:                         ; preds = %if.end, %if.then.i
   tail call void @qemu_bh_schedule(ptr noundef %call3) #4
   tail call void @qemu_coroutine_yield() #4
   tail call void @qemu_bh_delete(ptr noundef %call3) #4
-  %ops = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %ops, align 8
-  %truncate = getelementptr inbounds %struct.FileOperations, ptr %3, i64 0, i32 27
+  %truncate = getelementptr inbounds i8, ptr %3, i64 216
   %4 = load ptr, ptr %truncate, align 8
-  %ctx = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %0, i64 32
   %call5 = tail call i32 %4(ptr noundef nonnull %ctx, ptr noundef %path, i64 noundef %size) #4
   %cmp = icmp slt i32 %call5, 0
   br i1 %cmp, label %if.then6, label %do.end
@@ -505,7 +477,7 @@ do.end:                                           ; preds = %v9fs_path_read_lock
   br i1 %tobool.not.i9, label %return, label %if.then.i10
 
 if.then.i10:                                      ; preds = %do.end
-  %rename_lock.i11 = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i11 = getelementptr inbounds i8, ptr %0, i64 7288
   tail call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i11) #4
   br label %return
 
@@ -519,7 +491,7 @@ define dso_local i32 @v9fs_co_mknod(ptr nocapture noundef readonly %pdu, ptr nou
 entry:
   %path = alloca %struct.V9fsPath, align 8
   %cred = alloca %struct.FsCred, align 8
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %1 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %1, align 1
@@ -529,20 +501,20 @@ entry:
 if.end:                                           ; preds = %entry
   call void @cred_init(ptr noundef nonnull %cred) #4
   store i32 %uid, ptr %cred, align 8
-  %fc_gid = getelementptr inbounds %struct.FsCred, ptr %cred, i64 0, i32 1
+  %fc_gid = getelementptr inbounds i8, ptr %cred, i64 4
   store i32 %gid, ptr %fc_gid, align 4
-  %fc_mode = getelementptr inbounds %struct.FsCred, ptr %cred, i64 0, i32 2
+  %fc_mode = getelementptr inbounds i8, ptr %cred, i64 8
   store i32 %mode, ptr %fc_mode, align 8
-  %fc_rdev = getelementptr inbounds %struct.FsCred, ptr %cred, i64 0, i32 3
+  %fc_rdev = getelementptr inbounds i8, ptr %cred, i64 16
   store i64 %dev, ptr %fc_rdev, align 8
-  %export_flags.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4, i32 2
+  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %v9fs_path_read_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %rename_lock.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %rename_lock.i) #4
   br label %v9fs_path_read_lock.exit
 
@@ -552,13 +524,13 @@ v9fs_path_read_lock.exit:                         ; preds = %if.end, %if.then.i
   call void @qemu_bh_schedule(ptr noundef %call3) #4
   call void @qemu_coroutine_yield() #4
   call void @qemu_bh_delete(ptr noundef %call3) #4
-  %ops = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %ops, align 8
-  %mknod = getelementptr inbounds %struct.FileOperations, ptr %3, i64 0, i32 7
+  %mknod = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load ptr, ptr %mknod, align 8
-  %ctx = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4
-  %path5 = getelementptr inbounds %struct.V9fsFidState, ptr %fidp, i64 0, i32 2
-  %data = getelementptr inbounds %struct.V9fsString, ptr %name, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %0, i64 32
+  %path5 = getelementptr inbounds i8, ptr %fidp, i64 8
+  %data = getelementptr inbounds i8, ptr %name, i64 8
   %5 = load ptr, ptr %data, align 8
   %call6 = call i32 %4(ptr noundef nonnull %ctx, ptr noundef nonnull %path5, ptr noundef %5, ptr noundef nonnull %cred) #4
   %cmp = icmp slt i32 %call6, 0
@@ -579,7 +551,7 @@ if.else:                                          ; preds = %v9fs_path_read_lock
 
 if.then13:                                        ; preds = %if.else
   %8 = load ptr, ptr %ops, align 8
-  %lstat = getelementptr inbounds %struct.FileOperations, ptr %8, i64 0, i32 3
+  %lstat = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %lstat, align 8
   %call16 = call i32 %9(ptr noundef nonnull %ctx, ptr noundef nonnull %path, ptr noundef %stbuf) #4
   %cmp17 = icmp slt i32 %call16, 0
@@ -605,7 +577,7 @@ do.end:                                           ; preds = %if.then7, %if.end22
   br i1 %tobool.not.i16, label %return, label %if.then.i17
 
 if.then.i17:                                      ; preds = %do.end
-  %rename_lock.i18 = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i18 = getelementptr inbounds i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i18) #4
   br label %return
 
@@ -623,7 +595,7 @@ declare void @v9fs_path_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @v9fs_co_remove(ptr nocapture noundef readonly %pdu, ptr nocapture noundef readonly %path) #0 {
 entry:
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %1 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %1, align 1
@@ -631,14 +603,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %export_flags.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4, i32 2
+  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %v9fs_path_read_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %rename_lock.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
   tail call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %rename_lock.i) #4
   br label %v9fs_path_read_lock.exit
 
@@ -648,12 +620,12 @@ v9fs_path_read_lock.exit:                         ; preds = %if.end, %if.then.i
   tail call void @qemu_bh_schedule(ptr noundef %call3) #4
   tail call void @qemu_coroutine_yield() #4
   tail call void @qemu_bh_delete(ptr noundef %call3) #4
-  %ops = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %ops, align 8
-  %remove = getelementptr inbounds %struct.FileOperations, ptr %3, i64 0, i32 9
+  %remove = getelementptr inbounds i8, ptr %3, i64 72
   %4 = load ptr, ptr %remove, align 8
-  %ctx = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4
-  %data = getelementptr inbounds %struct.V9fsPath, ptr %path, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %0, i64 32
+  %data = getelementptr inbounds i8, ptr %path, i64 8
   %5 = load ptr, ptr %data, align 8
   %call5 = tail call i32 %4(ptr noundef nonnull %ctx, ptr noundef %5) #4
   %cmp = icmp slt i32 %call5, 0
@@ -674,7 +646,7 @@ do.end:                                           ; preds = %v9fs_path_read_lock
   br i1 %tobool.not.i9, label %return, label %if.then.i10
 
 if.then.i10:                                      ; preds = %do.end
-  %rename_lock.i11 = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i11 = getelementptr inbounds i8, ptr %0, i64 7288
   tail call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i11) #4
   br label %return
 
@@ -686,7 +658,7 @@ return:                                           ; preds = %if.then.i10, %do.en
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @v9fs_co_unlinkat(ptr nocapture noundef readonly %pdu, ptr noundef %path, ptr nocapture noundef readonly %name, i32 noundef %flags) #0 {
 entry:
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %1 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %1, align 1
@@ -694,14 +666,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %export_flags.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4, i32 2
+  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %v9fs_path_read_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %rename_lock.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
   tail call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %rename_lock.i) #4
   br label %v9fs_path_read_lock.exit
 
@@ -711,12 +683,12 @@ v9fs_path_read_lock.exit:                         ; preds = %if.end, %if.then.i
   tail call void @qemu_bh_schedule(ptr noundef %call3) #4
   tail call void @qemu_coroutine_yield() #4
   tail call void @qemu_bh_delete(ptr noundef %call3) #4
-  %ops = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %ops, align 8
-  %unlinkat = getelementptr inbounds %struct.FileOperations, ptr %3, i64 0, i32 36
+  %unlinkat = getelementptr inbounds i8, ptr %3, i64 288
   %4 = load ptr, ptr %unlinkat, align 8
-  %ctx = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4
-  %data = getelementptr inbounds %struct.V9fsString, ptr %name, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %0, i64 32
+  %data = getelementptr inbounds i8, ptr %name, i64 8
   %5 = load ptr, ptr %data, align 8
   %call5 = tail call i32 %4(ptr noundef nonnull %ctx, ptr noundef %path, ptr noundef %5, i32 noundef %flags) #4
   %cmp = icmp slt i32 %call5, 0
@@ -737,7 +709,7 @@ do.end:                                           ; preds = %v9fs_path_read_lock
   br i1 %tobool.not.i9, label %return, label %if.then.i10
 
 if.then.i10:                                      ; preds = %do.end
-  %rename_lock.i11 = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i11 = getelementptr inbounds i8, ptr %0, i64 7288
   tail call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i11) #4
   br label %return
 
@@ -755,21 +727,21 @@ entry:
   br i1 %tobool.not, label %do.body, label %return
 
 do.body:                                          ; preds = %entry
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %1 = load ptr, ptr %s1, align 8
   %call2 = tail call ptr @qemu_coroutine_self() #4
   %call3 = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @co_run_in_worker_bh, ptr noundef %call2, ptr noundef nonnull @.str, ptr noundef null) #4
   tail call void @qemu_bh_schedule(ptr noundef %call3) #4
   tail call void @qemu_coroutine_yield() #4
   tail call void @qemu_bh_delete(ptr noundef %call3) #4
-  %ops = getelementptr inbounds %struct.V9fsState, ptr %1, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %ops, align 8
-  %rename = getelementptr inbounds %struct.FileOperations, ptr %2, i64 0, i32 26
+  %rename = getelementptr inbounds i8, ptr %2, i64 208
   %3 = load ptr, ptr %rename, align 8
-  %ctx = getelementptr inbounds %struct.V9fsState, ptr %1, i64 0, i32 4
-  %data = getelementptr inbounds %struct.V9fsPath, ptr %oldpath, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %1, i64 32
+  %data = getelementptr inbounds i8, ptr %oldpath, i64 8
   %4 = load ptr, ptr %data, align 8
-  %data5 = getelementptr inbounds %struct.V9fsPath, ptr %newpath, i64 0, i32 1
+  %data5 = getelementptr inbounds i8, ptr %newpath, i64 8
   %5 = load ptr, ptr %data5, align 8
   %call6 = tail call i32 %3(ptr noundef nonnull %ctx, ptr noundef %4, ptr noundef %5) #4
   %cmp = icmp slt i32 %call6, 0
@@ -800,21 +772,21 @@ entry:
   br i1 %tobool.not, label %do.body, label %return
 
 do.body:                                          ; preds = %entry
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %1 = load ptr, ptr %s1, align 8
   %call2 = tail call ptr @qemu_coroutine_self() #4
   %call3 = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @co_run_in_worker_bh, ptr noundef %call2, ptr noundef nonnull @.str, ptr noundef null) #4
   tail call void @qemu_bh_schedule(ptr noundef %call3) #4
   tail call void @qemu_coroutine_yield() #4
   tail call void @qemu_bh_delete(ptr noundef %call3) #4
-  %ops = getelementptr inbounds %struct.V9fsState, ptr %1, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %ops, align 8
-  %renameat = getelementptr inbounds %struct.FileOperations, ptr %2, i64 0, i32 35
+  %renameat = getelementptr inbounds i8, ptr %2, i64 280
   %3 = load ptr, ptr %renameat, align 8
-  %ctx = getelementptr inbounds %struct.V9fsState, ptr %1, i64 0, i32 4
-  %data = getelementptr inbounds %struct.V9fsString, ptr %oldname, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %1, i64 32
+  %data = getelementptr inbounds i8, ptr %oldname, i64 8
   %4 = load ptr, ptr %data, align 8
-  %data5 = getelementptr inbounds %struct.V9fsString, ptr %newname, i64 0, i32 1
+  %data5 = getelementptr inbounds i8, ptr %newname, i64 8
   %5 = load ptr, ptr %data5, align 8
   %call6 = tail call i32 %3(ptr noundef nonnull %ctx, ptr noundef %olddirpath, ptr noundef %4, ptr noundef %newdirpath, ptr noundef %5) #4
   %cmp = icmp slt i32 %call6, 0
@@ -841,7 +813,7 @@ define dso_local i32 @v9fs_co_symlink(ptr nocapture noundef readonly %pdu, ptr n
 entry:
   %cred = alloca %struct.FsCred, align 8
   %path = alloca %struct.V9fsPath, align 8
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %1 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %1, align 1
@@ -850,21 +822,21 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @cred_init(ptr noundef nonnull %cred) #4
-  %uid = getelementptr inbounds %struct.V9fsFidState, ptr %dfidp, i64 0, i32 7
+  %uid = getelementptr inbounds i8, ptr %dfidp, i64 256
   %2 = load i32, ptr %uid, align 8
   store i32 %2, ptr %cred, align 8
-  %fc_gid = getelementptr inbounds %struct.FsCred, ptr %cred, i64 0, i32 1
+  %fc_gid = getelementptr inbounds i8, ptr %cred, i64 4
   store i32 %gid, ptr %fc_gid, align 4
-  %fc_mode = getelementptr inbounds %struct.FsCred, ptr %cred, i64 0, i32 2
+  %fc_mode = getelementptr inbounds i8, ptr %cred, i64 8
   store i32 511, ptr %fc_mode, align 8
-  %export_flags.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4, i32 2
+  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %3, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %v9fs_path_read_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %rename_lock.i = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %rename_lock.i) #4
   br label %v9fs_path_read_lock.exit
 
@@ -874,13 +846,13 @@ v9fs_path_read_lock.exit:                         ; preds = %if.end, %if.then.i
   call void @qemu_bh_schedule(ptr noundef %call3) #4
   call void @qemu_coroutine_yield() #4
   call void @qemu_bh_delete(ptr noundef %call3) #4
-  %ops = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %ops, align 8
-  %symlink = getelementptr inbounds %struct.FileOperations, ptr %4, i64 0, i32 10
+  %symlink = getelementptr inbounds i8, ptr %4, i64 80
   %5 = load ptr, ptr %symlink, align 8
-  %ctx = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4
-  %path5 = getelementptr inbounds %struct.V9fsFidState, ptr %dfidp, i64 0, i32 2
-  %data = getelementptr inbounds %struct.V9fsString, ptr %name, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %0, i64 32
+  %path5 = getelementptr inbounds i8, ptr %dfidp, i64 8
+  %data = getelementptr inbounds i8, ptr %name, i64 8
   %6 = load ptr, ptr %data, align 8
   %call6 = call i32 %5(ptr noundef nonnull %ctx, ptr noundef %oldpath, ptr noundef nonnull %path5, ptr noundef %6, ptr noundef nonnull %cred) #4
   %cmp = icmp slt i32 %call6, 0
@@ -901,7 +873,7 @@ if.else:                                          ; preds = %v9fs_path_read_lock
 
 if.then13:                                        ; preds = %if.else
   %9 = load ptr, ptr %ops, align 8
-  %lstat = getelementptr inbounds %struct.FileOperations, ptr %9, i64 0, i32 3
+  %lstat = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %lstat, align 8
   %call16 = call i32 %10(ptr noundef nonnull %ctx, ptr noundef nonnull %path, ptr noundef %stbuf) #4
   %cmp17 = icmp slt i32 %call16, 0
@@ -927,7 +899,7 @@ do.end:                                           ; preds = %if.then7, %if.end22
   br i1 %tobool.not.i17, label %return, label %if.then.i18
 
 if.then.i18:                                      ; preds = %do.end
-  %rename_lock.i19 = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 10
+  %rename_lock.i19 = getelementptr inbounds i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i19) #4
   br label %return
 
@@ -939,19 +911,19 @@ return:                                           ; preds = %if.then.i18, %do.en
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @v9fs_co_name_to_path(ptr nocapture noundef readonly %pdu, ptr noundef %dirpath, ptr noundef %name, ptr noundef %path) #0 {
 entry:
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %ctx = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4
-  %export_flags = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 4, i32 2
+  %ctx = getelementptr inbounds i8, ptr %0, i64 32
+  %export_flags = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %export_flags, align 8
   %and = and i32 %1, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ops = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %ops, align 8
-  %name_to_path = getelementptr inbounds %struct.FileOperations, ptr %2, i64 0, i32 34
+  %name_to_path = getelementptr inbounds i8, ptr %2, i64 272
   %3 = load ptr, ptr %name_to_path, align 8
   %call = tail call i32 %3(ptr noundef nonnull %ctx, ptr noundef %dirpath, ptr noundef %name, ptr noundef %path) #4
   %cmp = icmp slt i32 %call, 0
@@ -975,9 +947,9 @@ do.body:                                          ; preds = %if.else
   tail call void @qemu_bh_schedule(ptr noundef %call10) #4
   tail call void @qemu_coroutine_yield() #4
   tail call void @qemu_bh_delete(ptr noundef %call10) #4
-  %ops12 = getelementptr inbounds %struct.V9fsState, ptr %0, i64 0, i32 3
+  %ops12 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %ops12, align 8
-  %name_to_path13 = getelementptr inbounds %struct.FileOperations, ptr %6, i64 0, i32 34
+  %name_to_path13 = getelementptr inbounds i8, ptr %6, i64 272
   %7 = load ptr, ptr %name_to_path13, align 8
   %call15 = tail call i32 %7(ptr noundef nonnull %ctx, ptr noundef %dirpath, ptr noundef %name, ptr noundef %path) #4
   %cmp16 = icmp slt i32 %call15, 0

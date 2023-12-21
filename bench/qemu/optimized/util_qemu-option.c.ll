@@ -3,20 +3,8 @@ source_filename = "bench/qemu/original/util_qemu-option.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QemuOptsList = type { ptr, ptr, i8, %union.anon, [0 x %struct.QemuOptDesc] }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
 %struct.QemuOptDesc = type { ptr, i32, ptr, ptr }
-%struct._GString = type { ptr, i64, i64 }
-%struct._GPtrArray = type { ptr, i32 }
-%struct.QemuOpts = type { ptr, ptr, %struct.Location, %union.anon.0, %union.anon.1 }
 %struct.Location = type { i32, i32, ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuOpt = type { ptr, ptr, ptr, %union.anon.2, ptr, %union.anon.3 }
-%union.anon.2 = type { i64 }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.QemuOptsIter = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [27 x i8] c"../qemu/util/qemu-option.c\00", align 1
 @__func__.parse_option_size = private unnamed_addr constant [18 x i8] c"parse_option_size\00", align 1
@@ -202,7 +190,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %desc1 = getelementptr inbounds %struct.QemuOptsList, ptr %list, i64 0, i32 4
+  %desc1 = getelementptr inbounds i8, ptr %list, i64 40
   br label %land.rhs
 
 land.rhs:                                         ; preds = %if.end, %if.end13
@@ -213,7 +201,7 @@ land.rhs:                                         ; preds = %if.end, %if.end13
 
 while.body:                                       ; preds = %land.rhs
   %call4 = tail call ptr @g_string_new(ptr noundef null) #19
-  %type = getelementptr inbounds %struct.QemuOptDesc, ptr %desc.030, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %desc.030, i64 8
   %1 = load i32, ptr %type, align 8
   %2 = icmp ult i32 %1, 4
   br i1 %2, label %switch.lookup, label %do.body.i
@@ -228,13 +216,13 @@ switch.lookup:                                    ; preds = %while.body
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.qemu_opts_print_help, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call4, ptr noundef nonnull @.str.6, ptr noundef %3, ptr noundef nonnull %switch.load) #19
-  %help = getelementptr inbounds %struct.QemuOptDesc, ptr %desc.030, i64 0, i32 2
+  %help = getelementptr inbounds i8, ptr %desc.030, i64 16
   %5 = load ptr, ptr %help, align 8
   %tobool7.not = icmp eq ptr %5, null
   br i1 %tobool7.not, label %if.end13, label %if.then8
 
 if.then8:                                         ; preds = %switch.lookup
-  %len = getelementptr inbounds %struct._GString, ptr %call4, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %call4, i64 8
   %6 = load i64, ptr %len, align 8
   %cmp = icmp ult i64 %6, 24
   br i1 %cmp, label %if.then9, label %if.end11
@@ -254,13 +242,13 @@ if.end11:                                         ; preds = %if.then9, %if.then8
 if.end13:                                         ; preds = %if.end11, %switch.lookup
   %call14 = tail call ptr @g_string_free(ptr noundef %call4, i32 noundef 0) #19
   tail call void @g_ptr_array_add(ptr noundef %call, ptr noundef %call14) #19
-  %incdec.ptr = getelementptr %struct.QemuOptDesc, ptr %desc.030, i64 1
+  %incdec.ptr = getelementptr i8, ptr %desc.030, i64 32
   %tobool2.not = icmp eq ptr %incdec.ptr, null
   br i1 %tobool2.not, label %while.end, label %land.rhs, !llvm.loop !5
 
 while.end:                                        ; preds = %if.end13, %land.rhs
   tail call void @g_ptr_array_sort(ptr noundef %call, ptr noundef nonnull @qemu_pstrcmp0) #19
-  %len17 = getelementptr inbounds %struct._GPtrArray, ptr %call, i64 0, i32 1
+  %len17 = getelementptr inbounds i8, ptr %call, i64 8
   %8 = load i32, ptr %len17, align 8
   %cmp18.not = icmp eq i32 %8, 0
   br i1 %print_caption, label %land.lhs.true, label %if.else29
@@ -298,7 +286,7 @@ if.else39:                                        ; preds = %if.then33
   br label %if.end43
 
 if.end43:                                         ; preds = %if.else29, %if.else39, %if.then36, %if.then23, %if.else26
-  %len44 = getelementptr inbounds %struct._GPtrArray, ptr %call, i64 0, i32 1
+  %len44 = getelementptr inbounds i8, ptr %call, i64 8
   %11 = load i32, ptr %len44, align 8
   %cmp4531.not = icmp eq i32 %11, 0
   br i1 %cmp4531.not, label %for.end, label %for.body
@@ -350,33 +338,26 @@ declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @qemu_opt_find(ptr nocapture noundef readonly %opts, ptr nocapture noundef readonly %name) local_unnamed_addr #5 {
 entry:
-  %tql_prev = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3, i32 0, i32 1
-  %.pn4 = load ptr, ptr %tql_prev, align 8
-  %opt.0.in.in5 = getelementptr inbounds %struct.QTailQLink, ptr %.pn4, i64 0, i32 1
-  %opt.0.in6 = load ptr, ptr %opt.0.in.in5, align 8
-  %opt.07 = load ptr, ptr %opt.0.in6, align 8
-  %tobool.not8 = icmp eq ptr %opt.07, null
-  br i1 %tobool.not8, label %return, label %for.body
+  br label %for.cond
 
-for.body:                                         ; preds = %entry, %for.inc
-  %opt.09 = phi ptr [ %opt.0, %for.inc ], [ %opt.07, %entry ]
-  %0 = load ptr, ptr %opt.09, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
-  %cmp.not = icmp eq i32 %call, 0
-  br i1 %cmp.not, label %return, label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %tql_prev3 = getelementptr inbounds %struct.QemuOpt, ptr %opt.09, i64 0, i32 5, i32 0, i32 1
-  %.pn = load ptr, ptr %tql_prev3, align 8
-  %opt.0.in.in = getelementptr inbounds %struct.QTailQLink, ptr %.pn, i64 0, i32 1
+for.cond:                                         ; preds = %for.body, %entry
+  %opts.pn = phi ptr [ %opts, %entry ], [ %opt.0, %for.body ]
+  %.pn.in = getelementptr inbounds i8, ptr %opts.pn, i64 48
+  %.pn = load ptr, ptr %.pn.in, align 8
+  %opt.0.in.in = getelementptr inbounds i8, ptr %.pn, i64 8
   %opt.0.in = load ptr, ptr %opt.0.in.in, align 8
   %opt.0 = load ptr, ptr %opt.0.in, align 8
   %tobool.not = icmp eq ptr %opt.0, null
-  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !8
+  br i1 %tobool.not, label %return, label %for.body
 
-return:                                           ; preds = %for.body, %for.inc, %entry
-  %opt.0.lcssa = phi ptr [ null, %entry ], [ null, %for.inc ], [ %opt.09, %for.body ]
-  ret ptr %opt.0.lcssa
+for.body:                                         ; preds = %for.cond
+  %0 = load ptr, ptr %opt.0, align 8
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
+  %cmp.not = icmp eq i32 %call, 0
+  br i1 %cmp.not, label %return, label %for.cond, !llvm.loop !8
+
+return:                                           ; preds = %for.cond, %for.body
+  ret ptr %opt.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -386,37 +367,28 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define dso_local ptr @qemu_opt_get(ptr noundef readonly %opts, ptr nocapture noundef readonly %name) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %opts, null
-  br i1 %cmp, label %return, label %if.end
+  br i1 %cmp, label %return, label %for.cond.i
 
-if.end:                                           ; preds = %entry
-  %tql_prev.i = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3, i32 0, i32 1
-  %.pn4.i = load ptr, ptr %tql_prev.i, align 8
-  %opt.0.in.in5.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn4.i, i64 0, i32 1
-  %opt.0.in6.i = load ptr, ptr %opt.0.in.in5.i, align 8
-  %opt.07.i = load ptr, ptr %opt.0.in6.i, align 8
-  %tobool.not8.i = icmp eq ptr %opt.07.i, null
-  br i1 %tobool.not8.i, label %if.then1, label %for.body.i
-
-for.body.i:                                       ; preds = %if.end, %for.inc.i
-  %opt.09.i = phi ptr [ %opt.0.i, %for.inc.i ], [ %opt.07.i, %if.end ]
-  %0 = load ptr, ptr %opt.09.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
-  %cmp.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i, label %if.end3, label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i
-  %tql_prev3.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 5, i32 0, i32 1
-  %.pn.i = load ptr, ptr %tql_prev3.i, align 8
-  %opt.0.in.in.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn.i, i64 0, i32 1
+for.cond.i:                                       ; preds = %entry, %for.body.i
+  %opts.pn.i = phi ptr [ %opt.0.i, %for.body.i ], [ %opts, %entry ]
+  %.pn.in.i = getelementptr inbounds i8, ptr %opts.pn.i, i64 48
+  %.pn.i = load ptr, ptr %.pn.in.i, align 8
+  %opt.0.in.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   %opt.0.in.i = load ptr, ptr %opt.0.in.in.i, align 8
   %opt.0.i = load ptr, ptr %opt.0.in.i, align 8
   %tobool.not.i = icmp eq ptr %opt.0.i, null
-  br i1 %tobool.not.i, label %if.then1, label %for.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %if.then1, label %for.body.i
 
-if.then1:                                         ; preds = %for.inc.i, %if.end
+for.body.i:                                       ; preds = %for.cond.i
+  %0 = load ptr, ptr %opt.0.i, align 8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
+  %cmp.not.i = icmp eq i32 %call.i, 0
+  br i1 %cmp.not.i, label %if.end3, label %for.cond.i, !llvm.loop !8
+
+if.then1:                                         ; preds = %for.cond.i
   %1 = getelementptr i8, ptr %opts, i64 8
   %opts.val = load ptr, ptr %1, align 8
-  %desc1.i = getelementptr inbounds %struct.QemuOptsList, ptr %opts.val, i64 0, i32 4
+  %desc1.i = getelementptr inbounds i8, ptr %opts.val, i64 40
   %2 = load ptr, ptr %desc1.i, align 8
   %cmp.not6.i.i = icmp eq ptr %2, null
   br i1 %cmp.not6.i.i, label %return, label %for.body.i.preheader.i
@@ -442,11 +414,11 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 cond.true.i:                                      ; preds = %for.body.i.i, %for.body.i.preheader.i
   %arrayidx8.i.lcssa.i = phi ptr [ %desc1.i, %for.body.i.preheader.i ], [ %arrayidx.i.i, %for.body.i.i ]
-  %def_value_str.i = getelementptr inbounds %struct.QemuOptDesc, ptr %arrayidx8.i.lcssa.i, i64 0, i32 3
+  %def_value_str.i = getelementptr inbounds i8, ptr %arrayidx8.i.lcssa.i, i64 24
   br label %return.sink.split
 
 if.end3:                                          ; preds = %for.body.i
-  %str = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 1
+  %str = getelementptr inbounds i8, ptr %opt.0.i, i64 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end3, %cond.true.i
@@ -463,11 +435,11 @@ return:                                           ; preds = %for.cond.i.i, %retu
 define dso_local void @qemu_opt_iter_init(ptr nocapture noundef writeonly %iter, ptr noundef %opts, ptr noundef %name) local_unnamed_addr #7 {
 entry:
   store ptr %opts, ptr %iter, align 8
-  %head = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3
+  %head = getelementptr inbounds i8, ptr %opts, i64 40
   %0 = load ptr, ptr %head, align 8
-  %opt = getelementptr inbounds %struct.QemuOptsIter, ptr %iter, i64 0, i32 1
+  %opt = getelementptr inbounds i8, ptr %iter, i64 8
   store ptr %0, ptr %opt, align 8
-  %name2 = getelementptr inbounds %struct.QemuOptsIter, ptr %iter, i64 0, i32 2
+  %name2 = getelementptr inbounds i8, ptr %iter, i64 16
   store ptr %name, ptr %name2, align 8
   ret void
 }
@@ -475,9 +447,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qemu_opt_iter_next(ptr nocapture noundef %iter) local_unnamed_addr #0 {
 entry:
-  %opt = getelementptr inbounds %struct.QemuOptsIter, ptr %iter, i64 0, i32 1
+  %opt = getelementptr inbounds i8, ptr %iter, i64 8
   %0 = load ptr, ptr %opt, align 8
-  %name = getelementptr inbounds %struct.QemuOptsIter, ptr %iter, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %iter, i64 16
   %1 = load ptr, ptr %name, align 8
   %tobool = icmp ne ptr %1, null
   %tobool1 = icmp ne ptr %0, null
@@ -493,7 +465,7 @@ land.rhs:                                         ; preds = %entry, %while.body
   br i1 %tobool4.not, label %while.body, label %cond.true
 
 while.body:                                       ; preds = %land.rhs
-  %next = getelementptr inbounds %struct.QemuOpt, ptr %ret.0, i64 0, i32 5
+  %next = getelementptr inbounds i8, ptr %ret.0, i64 40
   %4 = load ptr, ptr %next, align 8
   %tobool1.old.not = icmp eq ptr %4, null
   br i1 %tobool1.old.not, label %cond.end11.critedge, label %land.rhs
@@ -504,10 +476,10 @@ if.end:                                           ; preds = %entry
 
 cond.true:                                        ; preds = %land.rhs, %if.end
   %ret.116 = phi ptr [ %0, %if.end ], [ %ret.0, %land.rhs ]
-  %next6 = getelementptr inbounds %struct.QemuOpt, ptr %ret.116, i64 0, i32 5
+  %next6 = getelementptr inbounds i8, ptr %ret.116, i64 40
   %5 = load ptr, ptr %next6, align 8
   store ptr %5, ptr %opt, align 8
-  %str = getelementptr inbounds %struct.QemuOpt, ptr %ret.116, i64 0, i32 1
+  %str = getelementptr inbounds i8, ptr %ret.116, i64 8
   %6 = load ptr, ptr %str, align 8
   br label %cond.end11
 
@@ -526,37 +498,28 @@ declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local ptr @qemu_opt_get_del(ptr noundef readonly %opts, ptr nocapture noundef readonly %name) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %opts, null
-  br i1 %cmp, label %return, label %if.end
+  br i1 %cmp, label %return, label %for.cond.i
 
-if.end:                                           ; preds = %entry
-  %tql_prev.i = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3, i32 0, i32 1
-  %.pn4.i = load ptr, ptr %tql_prev.i, align 8
-  %opt.0.in.in5.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn4.i, i64 0, i32 1
-  %opt.0.in6.i = load ptr, ptr %opt.0.in.in5.i, align 8
-  %opt.07.i = load ptr, ptr %opt.0.in6.i, align 8
-  %tobool.not8.i = icmp eq ptr %opt.07.i, null
-  br i1 %tobool.not8.i, label %if.then1, label %for.body.i
-
-for.body.i:                                       ; preds = %if.end, %for.inc.i
-  %opt.09.i = phi ptr [ %opt.0.i, %for.inc.i ], [ %opt.07.i, %if.end ]
-  %0 = load ptr, ptr %opt.09.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
-  %cmp.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i, label %if.end4, label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i
-  %tql_prev3.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 5, i32 0, i32 1
-  %.pn.i = load ptr, ptr %tql_prev3.i, align 8
-  %opt.0.in.in.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn.i, i64 0, i32 1
+for.cond.i:                                       ; preds = %entry, %for.body.i
+  %opts.pn.i = phi ptr [ %opt.0.i, %for.body.i ], [ %opts, %entry ]
+  %.pn.in.i = getelementptr inbounds i8, ptr %opts.pn.i, i64 48
+  %.pn.i = load ptr, ptr %.pn.in.i, align 8
+  %opt.0.in.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   %opt.0.in.i = load ptr, ptr %opt.0.in.in.i, align 8
   %opt.0.i = load ptr, ptr %opt.0.in.i, align 8
   %tobool.not.i = icmp eq ptr %opt.0.i, null
-  br i1 %tobool.not.i, label %if.then1, label %for.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %if.then1, label %for.body.i
 
-if.then1:                                         ; preds = %for.inc.i, %if.end
+for.body.i:                                       ; preds = %for.cond.i
+  %0 = load ptr, ptr %opt.0.i, align 8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
+  %cmp.not.i = icmp eq i32 %call.i, 0
+  br i1 %cmp.not.i, label %if.end4, label %for.cond.i, !llvm.loop !8
+
+if.then1:                                         ; preds = %for.cond.i
   %1 = getelementptr i8, ptr %opts, i64 8
   %opts.val = load ptr, ptr %1, align 8
-  %desc1.i = getelementptr inbounds %struct.QemuOptsList, ptr %opts.val, i64 0, i32 4
+  %desc1.i = getelementptr inbounds i8, ptr %opts.val, i64 40
   %2 = load ptr, ptr %desc1.i, align 8
   %cmp.not6.i.i = icmp eq ptr %2, null
   br i1 %cmp.not6.i.i, label %find_default_by_name.exit, label %for.body.i.preheader.i
@@ -582,7 +545,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 cond.true.i:                                      ; preds = %for.body.i.i, %for.body.i.preheader.i
   %arrayidx8.i.lcssa.i = phi ptr [ %desc1.i, %for.body.i.preheader.i ], [ %arrayidx.i.i, %for.body.i.i ]
-  %def_value_str.i = getelementptr inbounds %struct.QemuOptDesc, ptr %arrayidx8.i.lcssa.i, i64 0, i32 3
+  %def_value_str.i = getelementptr inbounds i8, ptr %arrayidx8.i.lcssa.i, i64 24
   %4 = load ptr, ptr %def_value_str.i, align 8
   br label %find_default_by_name.exit
 
@@ -592,7 +555,7 @@ find_default_by_name.exit:                        ; preds = %for.cond.i.i, %if.t
   br label %return
 
 if.end4:                                          ; preds = %for.body.i
-  %str5 = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 1
+  %str5 = getelementptr inbounds i8, ptr %opt.0.i, i64 8
   %5 = load ptr, ptr %str5, align 8
   store ptr null, ptr %str5, align 8
   %6 = getelementptr i8, ptr %opts, i64 40
@@ -600,51 +563,47 @@ if.end4:                                          ; preds = %for.body.i
   %tobool.not1.i = icmp eq ptr %opts.val8, null
   br i1 %tobool.not1.i, label %return, label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %if.end4, %for.inc.i10
-  %opt.02.i = phi ptr [ %7, %for.inc.i10 ], [ %opts.val8, %if.end4 ]
-  %next.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 5
+land.rhs.i:                                       ; preds = %if.end4, %for.inc.i
+  %opt.02.i = phi ptr [ %7, %for.inc.i ], [ %opts.val8, %if.end4 ]
+  %next.i = getelementptr inbounds i8, ptr %opt.02.i, i64 40
   %7 = load ptr, ptr %next.i, align 8
   %8 = load ptr, ptr %opt.02.i, align 8
   %call.i9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %name) #18
   %tobool2.not.i = icmp eq i32 %call.i9, 0
-  br i1 %tobool2.not.i, label %if.then.i, label %for.inc.i10
+  br i1 %tobool2.not.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.rhs.i
-  %cmp.not.i.i12 = icmp eq ptr %7, null
-  %tql_prev6.i.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 5, i32 0, i32 1
+  %cmp.not.i.i11 = icmp eq ptr %7, null
+  %tql_prev6.i.i = getelementptr inbounds i8, ptr %opt.02.i, i64 48
   %9 = load ptr, ptr %tql_prev6.i.i, align 8
-  br i1 %cmp.not.i.i12, label %if.else.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %if.then.i
-  %tql_prev4.i.i = getelementptr inbounds %struct.QemuOpt, ptr %7, i64 0, i32 5, i32 0, i32 1
-  br label %qemu_opt_del.exit.i
+  br i1 %cmp.not.i.i11, label %if.else.i.i, label %qemu_opt_del.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i
-  %opts.i.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 4
+  %opts.i.i = getelementptr inbounds i8, ptr %opt.02.i, i64 32
   %10 = load ptr, ptr %opts.i.i, align 8
-  %tql_prev7.i.i = getelementptr inbounds %struct.QemuOpts, ptr %10, i64 0, i32 3, i32 0, i32 1
   br label %qemu_opt_del.exit.i
 
-qemu_opt_del.exit.i:                              ; preds = %if.else.i.i, %if.then.i.i
-  %tql_prev7.sink.i.i = phi ptr [ %tql_prev7.i.i, %if.else.i.i ], [ %tql_prev4.i.i, %if.then.i.i ]
-  store ptr %9, ptr %tql_prev7.sink.i.i, align 8
+qemu_opt_del.exit.i:                              ; preds = %if.else.i.i, %if.then.i
+  %.sink.i.i = phi ptr [ %10, %if.else.i.i ], [ %7, %if.then.i ]
+  %tql_prev7.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 48
+  store ptr %9, ptr %tql_prev7.i.i, align 8
   %11 = load ptr, ptr %next.i, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %opt.02.i, align 8
   tail call void @g_free(ptr noundef %12) #19
-  %str.i.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 1
+  %str.i.i = getelementptr inbounds i8, ptr %opt.02.i, i64 8
   %13 = load ptr, ptr %str.i.i, align 8
   tail call void @g_free(ptr noundef %13) #19
   tail call void @g_free(ptr noundef nonnull %opt.02.i) #19
-  br label %for.inc.i10
+  br label %for.inc.i
 
-for.inc.i10:                                      ; preds = %qemu_opt_del.exit.i, %land.rhs.i
-  %tobool.not.i11 = icmp eq ptr %7, null
-  br i1 %tobool.not.i11, label %return, label %land.rhs.i, !llvm.loop !10
+for.inc.i:                                        ; preds = %qemu_opt_del.exit.i, %land.rhs.i
+  %tobool.not.i10 = icmp eq ptr %7, null
+  br i1 %tobool.not.i10, label %return, label %land.rhs.i, !llvm.loop !10
 
-return:                                           ; preds = %for.inc.i10, %if.end4, %entry, %find_default_by_name.exit
-  %retval.0 = phi ptr [ %call3, %find_default_by_name.exit ], [ null, %entry ], [ %5, %if.end4 ], [ %5, %for.inc.i10 ]
+return:                                           ; preds = %for.inc.i, %if.end4, %entry, %find_default_by_name.exit
+  %retval.0 = phi ptr [ %call3, %find_default_by_name.exit ], [ null, %entry ], [ %5, %if.end4 ], [ %5, %for.inc.i ]
   ret ptr %retval.0
 }
 
@@ -653,26 +612,20 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @qemu_opt_has_help_opt(ptr nocapture noundef readonly %opts) local_unnamed_addr #5 {
 entry:
-  %tql_prev = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3, i32 0, i32 1
-  %.pn3 = load ptr, ptr %tql_prev, align 8
-  %opt.0.in.in4 = getelementptr inbounds %struct.QTailQLink, ptr %.pn3, i64 0, i32 1
-  %opt.0.in5 = load ptr, ptr %opt.0.in.in4, align 8
-  %opt.06 = load ptr, ptr %opt.0.in5, align 8
-  %tobool.not7.not = icmp eq ptr %opt.06, null
-  br i1 %tobool.not7.not, label %return, label %for.body
+  br label %for.cond
 
-for.cond:                                         ; preds = %is_help_option.exit
-  %tql_prev2 = getelementptr inbounds %struct.QemuOpt, ptr %opt.08, i64 0, i32 5, i32 0, i32 1
-  %.pn = load ptr, ptr %tql_prev2, align 8
-  %opt.0.in.in = getelementptr inbounds %struct.QTailQLink, ptr %.pn, i64 0, i32 1
+for.cond:                                         ; preds = %is_help_option.exit, %entry
+  %opts.pn = phi ptr [ %opts, %entry ], [ %opt.0, %is_help_option.exit ]
+  %.pn.in = getelementptr inbounds i8, ptr %opts.pn, i64 48
+  %.pn = load ptr, ptr %.pn.in, align 8
+  %opt.0.in.in = getelementptr inbounds i8, ptr %.pn, i64 8
   %opt.0.in = load ptr, ptr %opt.0.in.in, align 8
   %opt.0 = load ptr, ptr %opt.0.in, align 8
-  %tobool.not.not = icmp eq ptr %opt.0, null
-  br i1 %tobool.not.not, label %return, label %for.body, !llvm.loop !11
+  %tobool.not.not = icmp ne ptr %opt.0, null
+  br i1 %tobool.not.not, label %for.body, label %return
 
-for.body:                                         ; preds = %entry, %for.cond
-  %opt.08 = phi ptr [ %opt.0, %for.cond ], [ %opt.06, %entry ]
-  %0 = load ptr, ptr %opt.08, align 8
+for.body:                                         ; preds = %for.cond
+  %0 = load ptr, ptr %opt.0, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.35) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %is_help_option.exit
@@ -680,11 +633,10 @@ for.body:                                         ; preds = %entry, %for.cond
 is_help_option.exit:                              ; preds = %for.body
   %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.36) #18
   %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %return, label %for.cond
+  br i1 %tobool2.not.i, label %return, label %for.cond, !llvm.loop !11
 
-return:                                           ; preds = %is_help_option.exit, %for.cond, %for.body, %entry
-  %tobool.not.lcssa = phi i1 [ false, %entry ], [ true, %for.body ], [ false, %for.cond ], [ true, %is_help_option.exit ]
-  ret i1 %tobool.not.lcssa
+return:                                           ; preds = %for.body, %for.cond, %is_help_option.exit
+  ret i1 %tobool.not.not
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -701,37 +653,28 @@ entry:
   %frombool = zext i1 %defval to i8
   store i8 %frombool, ptr %ret, align 1
   %cmp = icmp eq ptr %opts, null
-  br i1 %cmp, label %return, label %if.end
+  br i1 %cmp, label %return, label %for.cond.i
 
-if.end:                                           ; preds = %entry
-  %tql_prev.i = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3, i32 0, i32 1
-  %.pn4.i = load ptr, ptr %tql_prev.i, align 8
-  %opt.0.in.in5.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn4.i, i64 0, i32 1
-  %opt.0.in6.i = load ptr, ptr %opt.0.in.in5.i, align 8
-  %opt.07.i = load ptr, ptr %opt.0.in6.i, align 8
-  %tobool.not8.i = icmp eq ptr %opt.07.i, null
-  br i1 %tobool.not8.i, label %if.then5, label %for.body.i
-
-for.body.i:                                       ; preds = %if.end, %for.inc.i
-  %opt.09.i = phi ptr [ %opt.0.i, %for.inc.i ], [ %opt.07.i, %if.end ]
-  %0 = load ptr, ptr %opt.09.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
-  %cmp.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i, label %if.end12, label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i
-  %tql_prev3.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 5, i32 0, i32 1
-  %.pn.i = load ptr, ptr %tql_prev3.i, align 8
-  %opt.0.in.in.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn.i, i64 0, i32 1
+for.cond.i:                                       ; preds = %entry, %for.body.i
+  %opts.pn.i = phi ptr [ %opt.0.i, %for.body.i ], [ %opts, %entry ]
+  %.pn.in.i = getelementptr inbounds i8, ptr %opts.pn.i, i64 48
+  %.pn.i = load ptr, ptr %.pn.in.i, align 8
+  %opt.0.in.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   %opt.0.in.i = load ptr, ptr %opt.0.in.in.i, align 8
   %opt.0.i = load ptr, ptr %opt.0.in.i, align 8
   %tobool.not.i = icmp eq ptr %opt.0.i, null
-  br i1 %tobool.not.i, label %if.then5, label %for.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %if.then5, label %for.body.i
 
-if.then5:                                         ; preds = %for.inc.i, %if.end
+for.body.i:                                       ; preds = %for.cond.i
+  %0 = load ptr, ptr %opt.0.i, align 8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
+  %cmp.not.i = icmp eq i32 %call.i, 0
+  br i1 %cmp.not.i, label %if.end12, label %for.cond.i, !llvm.loop !8
+
+if.then5:                                         ; preds = %for.cond.i
   %1 = getelementptr i8, ptr %opts, i64 8
   %opts.val = load ptr, ptr %1, align 8
-  %desc1.i = getelementptr inbounds %struct.QemuOptsList, ptr %opts.val, i64 0, i32 4
+  %desc1.i = getelementptr inbounds i8, ptr %opts.val, i64 40
   %2 = load ptr, ptr %desc1.i, align 8
   %cmp.not6.i.i = icmp eq ptr %2, null
   br i1 %cmp.not6.i.i, label %if.end10, label %for.body.i.preheader.i
@@ -757,7 +700,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 find_default_by_name.exit:                        ; preds = %for.body.i.i, %for.body.i.preheader.i
   %arrayidx8.i.lcssa.i = phi ptr [ %desc1.i, %for.body.i.preheader.i ], [ %arrayidx.i.i, %for.body.i.i ]
-  %def_value_str.i = getelementptr inbounds %struct.QemuOptDesc, ptr %arrayidx8.i.lcssa.i, i64 0, i32 3
+  %def_value_str.i = getelementptr inbounds i8, ptr %arrayidx8.i.lcssa.i, i64 24
   %4 = load ptr, ptr %def_value_str.i, align 8
   %tobool7.not = icmp eq ptr %4, null
   br i1 %tobool7.not, label %if.end10, label %if.then8
@@ -774,13 +717,13 @@ if.end10:                                         ; preds = %for.cond.i.i, %if.t
   br label %return
 
 if.end12:                                         ; preds = %for.body.i
-  %desc = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 2
+  %desc = getelementptr inbounds i8, ptr %opt.0.i, i64 16
   %7 = load ptr, ptr %desc, align 8
   %tobool13.not = icmp eq ptr %7, null
   br i1 %tobool13.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end12
-  %type = getelementptr inbounds %struct.QemuOptDesc, ptr %7, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %type, align 8
   %cmp15 = icmp eq i32 %8, 1
   br i1 %cmp15, label %if.end17, label %if.else
@@ -790,7 +733,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   unreachable
 
 if.end17:                                         ; preds = %land.lhs.true
-  %value = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt.0.i, i64 24
   %9 = load i8, ptr %value, align 8
   %10 = and i8 %9, 1
   br i1 %del, label %if.then21, label %if.end22
@@ -801,50 +744,46 @@ if.then21:                                        ; preds = %if.end17
   %tobool.not1.i = icmp eq ptr %opts.val11, null
   br i1 %tobool.not1.i, label %if.end22, label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %if.then21, %for.inc.i13
-  %opt.02.i = phi ptr [ %12, %for.inc.i13 ], [ %opts.val11, %if.then21 ]
-  %next.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 5
+land.rhs.i:                                       ; preds = %if.then21, %for.inc.i
+  %opt.02.i = phi ptr [ %12, %for.inc.i ], [ %opts.val11, %if.then21 ]
+  %next.i = getelementptr inbounds i8, ptr %opt.02.i, i64 40
   %12 = load ptr, ptr %next.i, align 8
   %13 = load ptr, ptr %opt.02.i, align 8
   %call.i12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %name) #18
   %tobool2.not.i = icmp eq i32 %call.i12, 0
-  br i1 %tobool2.not.i, label %if.then.i, label %for.inc.i13
+  br i1 %tobool2.not.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.rhs.i
-  %cmp.not.i.i15 = icmp eq ptr %12, null
-  %tql_prev6.i.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 5, i32 0, i32 1
+  %cmp.not.i.i14 = icmp eq ptr %12, null
+  %tql_prev6.i.i = getelementptr inbounds i8, ptr %opt.02.i, i64 48
   %14 = load ptr, ptr %tql_prev6.i.i, align 8
-  br i1 %cmp.not.i.i15, label %if.else.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %if.then.i
-  %tql_prev4.i.i = getelementptr inbounds %struct.QemuOpt, ptr %12, i64 0, i32 5, i32 0, i32 1
-  br label %qemu_opt_del.exit.i
+  br i1 %cmp.not.i.i14, label %if.else.i.i, label %qemu_opt_del.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i
-  %opts.i.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 4
+  %opts.i.i = getelementptr inbounds i8, ptr %opt.02.i, i64 32
   %15 = load ptr, ptr %opts.i.i, align 8
-  %tql_prev7.i.i = getelementptr inbounds %struct.QemuOpts, ptr %15, i64 0, i32 3, i32 0, i32 1
   br label %qemu_opt_del.exit.i
 
-qemu_opt_del.exit.i:                              ; preds = %if.else.i.i, %if.then.i.i
-  %tql_prev7.sink.i.i = phi ptr [ %tql_prev7.i.i, %if.else.i.i ], [ %tql_prev4.i.i, %if.then.i.i ]
-  store ptr %14, ptr %tql_prev7.sink.i.i, align 8
+qemu_opt_del.exit.i:                              ; preds = %if.else.i.i, %if.then.i
+  %.sink.i.i = phi ptr [ %15, %if.else.i.i ], [ %12, %if.then.i ]
+  %tql_prev7.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 48
+  store ptr %14, ptr %tql_prev7.i.i, align 8
   %16 = load ptr, ptr %next.i, align 8
   store ptr %16, ptr %14, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   %17 = load ptr, ptr %opt.02.i, align 8
   tail call void @g_free(ptr noundef %17) #19
-  %str.i.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 1
+  %str.i.i = getelementptr inbounds i8, ptr %opt.02.i, i64 8
   %18 = load ptr, ptr %str.i.i, align 8
   tail call void @g_free(ptr noundef %18) #19
   tail call void @g_free(ptr noundef nonnull %opt.02.i) #19
-  br label %for.inc.i13
+  br label %for.inc.i
 
-for.inc.i13:                                      ; preds = %qemu_opt_del.exit.i, %land.rhs.i
-  %tobool.not.i14 = icmp eq ptr %12, null
-  br i1 %tobool.not.i14, label %if.end22, label %land.rhs.i, !llvm.loop !10
+for.inc.i:                                        ; preds = %qemu_opt_del.exit.i, %land.rhs.i
+  %tobool.not.i13 = icmp eq ptr %12, null
+  br i1 %tobool.not.i13, label %if.end22, label %land.rhs.i, !llvm.loop !10
 
-if.end22:                                         ; preds = %for.inc.i13, %if.then21, %if.end17
+if.end22:                                         ; preds = %for.inc.i, %if.then21, %if.end17
   %tobool23 = icmp ne i8 %10, 0
   br label %return
 
@@ -872,37 +811,28 @@ define internal fastcc i64 @qemu_opt_get_number_helper(ptr noundef readonly %opt
 entry:
   %number.i = alloca i64, align 8
   %cmp = icmp eq ptr %opts, null
-  br i1 %cmp, label %return, label %if.end
+  br i1 %cmp, label %return, label %for.cond.i
 
-if.end:                                           ; preds = %entry
-  %tql_prev.i = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3, i32 0, i32 1
-  %.pn4.i = load ptr, ptr %tql_prev.i, align 8
-  %opt.0.in.in5.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn4.i, i64 0, i32 1
-  %opt.0.in6.i = load ptr, ptr %opt.0.in.in5.i, align 8
-  %opt.07.i = load ptr, ptr %opt.0.in6.i, align 8
-  %tobool.not8.i = icmp eq ptr %opt.07.i, null
-  br i1 %tobool.not8.i, label %if.then2, label %for.body.i
-
-for.body.i:                                       ; preds = %if.end, %for.inc.i
-  %opt.09.i = phi ptr [ %opt.0.i, %for.inc.i ], [ %opt.07.i, %if.end ]
-  %0 = load ptr, ptr %opt.09.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
-  %cmp.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i, label %if.end7, label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i
-  %tql_prev3.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 5, i32 0, i32 1
-  %.pn.i = load ptr, ptr %tql_prev3.i, align 8
-  %opt.0.in.in.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn.i, i64 0, i32 1
+for.cond.i:                                       ; preds = %entry, %for.body.i
+  %opts.pn.i = phi ptr [ %opt.0.i, %for.body.i ], [ %opts, %entry ]
+  %.pn.in.i = getelementptr inbounds i8, ptr %opts.pn.i, i64 48
+  %.pn.i = load ptr, ptr %.pn.in.i, align 8
+  %opt.0.in.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   %opt.0.in.i = load ptr, ptr %opt.0.in.in.i, align 8
   %opt.0.i = load ptr, ptr %opt.0.in.i, align 8
   %tobool.not.i = icmp eq ptr %opt.0.i, null
-  br i1 %tobool.not.i, label %if.then2, label %for.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %if.then2, label %for.body.i
 
-if.then2:                                         ; preds = %for.inc.i, %if.end
+for.body.i:                                       ; preds = %for.cond.i
+  %0 = load ptr, ptr %opt.0.i, align 8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
+  %cmp.not.i = icmp eq i32 %call.i, 0
+  br i1 %cmp.not.i, label %if.end7, label %for.cond.i, !llvm.loop !8
+
+if.then2:                                         ; preds = %for.cond.i
   %1 = getelementptr i8, ptr %opts, i64 8
   %opts.val = load ptr, ptr %1, align 8
-  %desc1.i = getelementptr inbounds %struct.QemuOptsList, ptr %opts.val, i64 0, i32 4
+  %desc1.i = getelementptr inbounds i8, ptr %opts.val, i64 40
   %2 = load ptr, ptr %desc1.i, align 8
   %cmp.not6.i.i = icmp eq ptr %2, null
   br i1 %cmp.not6.i.i, label %return, label %for.body.i.preheader.i
@@ -928,7 +858,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 find_default_by_name.exit:                        ; preds = %for.body.i.i, %for.body.i.preheader.i
   %arrayidx8.i.lcssa.i = phi ptr [ %desc1.i, %for.body.i.preheader.i ], [ %arrayidx.i.i, %for.body.i.i ]
-  %def_value_str.i = getelementptr inbounds %struct.QemuOptDesc, ptr %arrayidx8.i.lcssa.i, i64 0, i32 3
+  %def_value_str.i = getelementptr inbounds i8, ptr %arrayidx8.i.lcssa.i, i64 24
   %4 = load ptr, ptr %def_value_str.i, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %return, label %if.then4
@@ -959,13 +889,13 @@ parse_option_number.exit:                         ; preds = %if.then.i, %if.then
   br label %return
 
 if.end7:                                          ; preds = %for.body.i
-  %desc = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 2
+  %desc = getelementptr inbounds i8, ptr %opt.0.i, i64 16
   %6 = load ptr, ptr %desc, align 8
   %tobool8.not = icmp eq ptr %6, null
   br i1 %tobool8.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end7
-  %type = getelementptr inbounds %struct.QemuOptDesc, ptr %6, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %type, align 8
   %cmp10 = icmp eq i32 %7, 2
   br i1 %cmp10, label %if.end12, label %if.else
@@ -975,7 +905,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   unreachable
 
 if.end12:                                         ; preds = %land.lhs.true
-  %value = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt.0.i, i64 24
   %8 = load i64, ptr %value, align 8
   br i1 %del, label %if.then14, label %return
 
@@ -985,51 +915,47 @@ if.then14:                                        ; preds = %if.end12
   %tobool.not1.i = icmp eq ptr %opts.val11, null
   br i1 %tobool.not1.i, label %return, label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %if.then14, %for.inc.i14
-  %opt.02.i = phi ptr [ %10, %for.inc.i14 ], [ %opts.val11, %if.then14 ]
-  %next.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 5
+land.rhs.i:                                       ; preds = %if.then14, %for.inc.i
+  %opt.02.i = phi ptr [ %10, %for.inc.i ], [ %opts.val11, %if.then14 ]
+  %next.i = getelementptr inbounds i8, ptr %opt.02.i, i64 40
   %10 = load ptr, ptr %next.i, align 8
   %11 = load ptr, ptr %opt.02.i, align 8
   %call.i13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %name) #18
   %tobool2.not.i = icmp eq i32 %call.i13, 0
-  br i1 %tobool2.not.i, label %if.then.i16, label %for.inc.i14
+  br i1 %tobool2.not.i, label %if.then.i15, label %for.inc.i
 
-if.then.i16:                                      ; preds = %land.rhs.i
-  %cmp.not.i.i17 = icmp eq ptr %10, null
-  %tql_prev6.i.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 5, i32 0, i32 1
+if.then.i15:                                      ; preds = %land.rhs.i
+  %cmp.not.i.i16 = icmp eq ptr %10, null
+  %tql_prev6.i.i = getelementptr inbounds i8, ptr %opt.02.i, i64 48
   %12 = load ptr, ptr %tql_prev6.i.i, align 8
-  br i1 %cmp.not.i.i17, label %if.else.i.i, label %if.then.i.i
+  br i1 %cmp.not.i.i16, label %if.else.i.i, label %qemu_opt_del.exit.i
 
-if.then.i.i:                                      ; preds = %if.then.i16
-  %tql_prev4.i.i = getelementptr inbounds %struct.QemuOpt, ptr %10, i64 0, i32 5, i32 0, i32 1
-  br label %qemu_opt_del.exit.i
-
-if.else.i.i:                                      ; preds = %if.then.i16
-  %opts.i.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 4
+if.else.i.i:                                      ; preds = %if.then.i15
+  %opts.i.i = getelementptr inbounds i8, ptr %opt.02.i, i64 32
   %13 = load ptr, ptr %opts.i.i, align 8
-  %tql_prev7.i.i = getelementptr inbounds %struct.QemuOpts, ptr %13, i64 0, i32 3, i32 0, i32 1
   br label %qemu_opt_del.exit.i
 
-qemu_opt_del.exit.i:                              ; preds = %if.else.i.i, %if.then.i.i
-  %tql_prev7.sink.i.i = phi ptr [ %tql_prev7.i.i, %if.else.i.i ], [ %tql_prev4.i.i, %if.then.i.i ]
-  store ptr %12, ptr %tql_prev7.sink.i.i, align 8
+qemu_opt_del.exit.i:                              ; preds = %if.else.i.i, %if.then.i15
+  %.sink.i.i = phi ptr [ %13, %if.else.i.i ], [ %10, %if.then.i15 ]
+  %tql_prev7.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 48
+  store ptr %12, ptr %tql_prev7.i.i, align 8
   %14 = load ptr, ptr %next.i, align 8
   store ptr %14, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %opt.02.i, align 8
   tail call void @g_free(ptr noundef %15) #19
-  %str.i.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 1
+  %str.i.i = getelementptr inbounds i8, ptr %opt.02.i, i64 8
   %16 = load ptr, ptr %str.i.i, align 8
   tail call void @g_free(ptr noundef %16) #19
   tail call void @g_free(ptr noundef nonnull %opt.02.i) #19
-  br label %for.inc.i14
+  br label %for.inc.i
 
-for.inc.i14:                                      ; preds = %qemu_opt_del.exit.i, %land.rhs.i
-  %tobool.not.i15 = icmp eq ptr %10, null
-  br i1 %tobool.not.i15, label %return, label %land.rhs.i, !llvm.loop !10
+for.inc.i:                                        ; preds = %qemu_opt_del.exit.i, %land.rhs.i
+  %tobool.not.i14 = icmp eq ptr %10, null
+  br i1 %tobool.not.i14, label %return, label %land.rhs.i, !llvm.loop !10
 
-return:                                           ; preds = %for.inc.i14, %for.cond.i.i, %if.then2, %if.end12, %if.then14, %find_default_by_name.exit, %parse_option_number.exit, %entry
-  %retval.0 = phi i64 [ %defval, %entry ], [ %defval, %find_default_by_name.exit ], [ %ret.0, %parse_option_number.exit ], [ %8, %if.then14 ], [ %8, %if.end12 ], [ %defval, %if.then2 ], [ %defval, %for.cond.i.i ], [ %8, %for.inc.i14 ]
+return:                                           ; preds = %for.inc.i, %for.cond.i.i, %if.then2, %if.end12, %if.then14, %find_default_by_name.exit, %parse_option_number.exit, %entry
+  %retval.0 = phi i64 [ %defval, %entry ], [ %defval, %find_default_by_name.exit ], [ %ret.0, %parse_option_number.exit ], [ %8, %if.then14 ], [ %8, %if.end12 ], [ %defval, %if.then2 ], [ %defval, %for.cond.i.i ], [ %8, %for.inc.i ]
   ret i64 %retval.0
 }
 
@@ -1052,37 +978,28 @@ define internal fastcc i64 @qemu_opt_get_size_helper(ptr noundef readonly %opts,
 entry:
   %size.i = alloca i64, align 8
   %cmp = icmp eq ptr %opts, null
-  br i1 %cmp, label %return, label %if.end
+  br i1 %cmp, label %return, label %for.cond.i
 
-if.end:                                           ; preds = %entry
-  %tql_prev.i = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3, i32 0, i32 1
-  %.pn4.i = load ptr, ptr %tql_prev.i, align 8
-  %opt.0.in.in5.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn4.i, i64 0, i32 1
-  %opt.0.in6.i = load ptr, ptr %opt.0.in.in5.i, align 8
-  %opt.07.i = load ptr, ptr %opt.0.in6.i, align 8
-  %tobool.not8.i = icmp eq ptr %opt.07.i, null
-  br i1 %tobool.not8.i, label %if.then2, label %for.body.i
-
-for.body.i:                                       ; preds = %if.end, %for.inc.i
-  %opt.09.i = phi ptr [ %opt.0.i, %for.inc.i ], [ %opt.07.i, %if.end ]
-  %0 = load ptr, ptr %opt.09.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
-  %cmp.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i, label %if.end7, label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i
-  %tql_prev3.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 5, i32 0, i32 1
-  %.pn.i = load ptr, ptr %tql_prev3.i, align 8
-  %opt.0.in.in.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn.i, i64 0, i32 1
+for.cond.i:                                       ; preds = %entry, %for.body.i
+  %opts.pn.i = phi ptr [ %opt.0.i, %for.body.i ], [ %opts, %entry ]
+  %.pn.in.i = getelementptr inbounds i8, ptr %opts.pn.i, i64 48
+  %.pn.i = load ptr, ptr %.pn.in.i, align 8
+  %opt.0.in.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   %opt.0.in.i = load ptr, ptr %opt.0.in.in.i, align 8
   %opt.0.i = load ptr, ptr %opt.0.in.i, align 8
   %tobool.not.i = icmp eq ptr %opt.0.i, null
-  br i1 %tobool.not.i, label %if.then2, label %for.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %if.then2, label %for.body.i
 
-if.then2:                                         ; preds = %for.inc.i, %if.end
+for.body.i:                                       ; preds = %for.cond.i
+  %0 = load ptr, ptr %opt.0.i, align 8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
+  %cmp.not.i = icmp eq i32 %call.i, 0
+  br i1 %cmp.not.i, label %if.end7, label %for.cond.i, !llvm.loop !8
+
+if.then2:                                         ; preds = %for.cond.i
   %1 = getelementptr i8, ptr %opts, i64 8
   %opts.val = load ptr, ptr %1, align 8
-  %desc1.i = getelementptr inbounds %struct.QemuOptsList, ptr %opts.val, i64 0, i32 4
+  %desc1.i = getelementptr inbounds i8, ptr %opts.val, i64 40
   %2 = load ptr, ptr %desc1.i, align 8
   %cmp.not6.i.i = icmp eq ptr %2, null
   br i1 %cmp.not6.i.i, label %return, label %for.body.i.preheader.i
@@ -1108,7 +1025,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 find_default_by_name.exit:                        ; preds = %for.body.i.i, %for.body.i.preheader.i
   %arrayidx8.i.lcssa.i = phi ptr [ %desc1.i, %for.body.i.preheader.i ], [ %arrayidx.i.i, %for.body.i.i ]
-  %def_value_str.i = getelementptr inbounds %struct.QemuOptDesc, ptr %arrayidx8.i.lcssa.i, i64 0, i32 3
+  %def_value_str.i = getelementptr inbounds i8, ptr %arrayidx8.i.lcssa.i, i64 24
   %4 = load ptr, ptr %def_value_str.i, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %return, label %if.then4
@@ -1140,13 +1057,13 @@ parse_option_size.exit:                           ; preds = %if.then.i, %if.then
   br label %return
 
 if.end7:                                          ; preds = %for.body.i
-  %desc = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 2
+  %desc = getelementptr inbounds i8, ptr %opt.0.i, i64 16
   %6 = load ptr, ptr %desc, align 8
   %tobool8.not = icmp eq ptr %6, null
   br i1 %tobool8.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end7
-  %type = getelementptr inbounds %struct.QemuOptDesc, ptr %6, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %type, align 8
   %cmp10 = icmp eq i32 %7, 3
   br i1 %cmp10, label %if.end12, label %if.else
@@ -1156,7 +1073,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   unreachable
 
 if.end12:                                         ; preds = %land.lhs.true
-  %value = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt.0.i, i64 24
   %8 = load i64, ptr %value, align 8
   br i1 %del, label %if.then14, label %return
 
@@ -1166,51 +1083,47 @@ if.then14:                                        ; preds = %if.end12
   %tobool.not1.i = icmp eq ptr %opts.val11, null
   br i1 %tobool.not1.i, label %return, label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %if.then14, %for.inc.i14
-  %opt.02.i = phi ptr [ %10, %for.inc.i14 ], [ %opts.val11, %if.then14 ]
-  %next.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 5
+land.rhs.i:                                       ; preds = %if.then14, %for.inc.i
+  %opt.02.i = phi ptr [ %10, %for.inc.i ], [ %opts.val11, %if.then14 ]
+  %next.i = getelementptr inbounds i8, ptr %opt.02.i, i64 40
   %10 = load ptr, ptr %next.i, align 8
   %11 = load ptr, ptr %opt.02.i, align 8
   %call.i13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %name) #18
   %tobool2.not.i = icmp eq i32 %call.i13, 0
-  br i1 %tobool2.not.i, label %if.then.i16, label %for.inc.i14
+  br i1 %tobool2.not.i, label %if.then.i15, label %for.inc.i
 
-if.then.i16:                                      ; preds = %land.rhs.i
-  %cmp.not.i.i17 = icmp eq ptr %10, null
-  %tql_prev6.i.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 5, i32 0, i32 1
+if.then.i15:                                      ; preds = %land.rhs.i
+  %cmp.not.i.i16 = icmp eq ptr %10, null
+  %tql_prev6.i.i = getelementptr inbounds i8, ptr %opt.02.i, i64 48
   %12 = load ptr, ptr %tql_prev6.i.i, align 8
-  br i1 %cmp.not.i.i17, label %if.else.i.i, label %if.then.i.i
+  br i1 %cmp.not.i.i16, label %if.else.i.i, label %qemu_opt_del.exit.i
 
-if.then.i.i:                                      ; preds = %if.then.i16
-  %tql_prev4.i.i = getelementptr inbounds %struct.QemuOpt, ptr %10, i64 0, i32 5, i32 0, i32 1
-  br label %qemu_opt_del.exit.i
-
-if.else.i.i:                                      ; preds = %if.then.i16
-  %opts.i.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 4
+if.else.i.i:                                      ; preds = %if.then.i15
+  %opts.i.i = getelementptr inbounds i8, ptr %opt.02.i, i64 32
   %13 = load ptr, ptr %opts.i.i, align 8
-  %tql_prev7.i.i = getelementptr inbounds %struct.QemuOpts, ptr %13, i64 0, i32 3, i32 0, i32 1
   br label %qemu_opt_del.exit.i
 
-qemu_opt_del.exit.i:                              ; preds = %if.else.i.i, %if.then.i.i
-  %tql_prev7.sink.i.i = phi ptr [ %tql_prev7.i.i, %if.else.i.i ], [ %tql_prev4.i.i, %if.then.i.i ]
-  store ptr %12, ptr %tql_prev7.sink.i.i, align 8
+qemu_opt_del.exit.i:                              ; preds = %if.else.i.i, %if.then.i15
+  %.sink.i.i = phi ptr [ %13, %if.else.i.i ], [ %10, %if.then.i15 ]
+  %tql_prev7.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 48
+  store ptr %12, ptr %tql_prev7.i.i, align 8
   %14 = load ptr, ptr %next.i, align 8
   store ptr %14, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %opt.02.i, align 8
   tail call void @g_free(ptr noundef %15) #19
-  %str.i.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.02.i, i64 0, i32 1
+  %str.i.i = getelementptr inbounds i8, ptr %opt.02.i, i64 8
   %16 = load ptr, ptr %str.i.i, align 8
   tail call void @g_free(ptr noundef %16) #19
   tail call void @g_free(ptr noundef nonnull %opt.02.i) #19
-  br label %for.inc.i14
+  br label %for.inc.i
 
-for.inc.i14:                                      ; preds = %qemu_opt_del.exit.i, %land.rhs.i
-  %tobool.not.i15 = icmp eq ptr %10, null
-  br i1 %tobool.not.i15, label %return, label %land.rhs.i, !llvm.loop !10
+for.inc.i:                                        ; preds = %qemu_opt_del.exit.i, %land.rhs.i
+  %tobool.not.i14 = icmp eq ptr %10, null
+  br i1 %tobool.not.i14, label %return, label %land.rhs.i, !llvm.loop !10
 
-return:                                           ; preds = %for.inc.i14, %for.cond.i.i, %if.then2, %if.end12, %if.then14, %find_default_by_name.exit, %parse_option_size.exit, %entry
-  %retval.0 = phi i64 [ %defval, %entry ], [ %defval, %find_default_by_name.exit ], [ %ret.0, %parse_option_size.exit ], [ %8, %if.then14 ], [ %8, %if.end12 ], [ %defval, %if.then2 ], [ %defval, %for.cond.i.i ], [ %8, %for.inc.i14 ]
+return:                                           ; preds = %for.inc.i, %for.cond.i.i, %if.then2, %if.end12, %if.then14, %find_default_by_name.exit, %parse_option_size.exit, %entry
+  %retval.0 = phi i64 [ %defval, %entry ], [ %defval, %find_default_by_name.exit ], [ %ret.0, %parse_option_size.exit ], [ %8, %if.then14 ], [ %8, %if.end12 ], [ %defval, %if.then2 ], [ %defval, %for.cond.i.i ], [ %8, %for.inc.i ]
   ret i64 %retval.0
 }
 
@@ -1224,81 +1137,74 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_opt_unset(ptr nocapture noundef readonly %opts, ptr nocapture noundef readonly %name) local_unnamed_addr #0 {
 entry:
-  %tql_prev.i = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3, i32 0, i32 1
-  %.pn4.i = load ptr, ptr %tql_prev.i, align 8
-  %opt.0.in.in5.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn4.i, i64 0, i32 1
-  %opt.0.in6.i = load ptr, ptr %opt.0.in.in5.i, align 8
-  %opt.07.i = load ptr, ptr %opt.0.in6.i, align 8
-  %tobool.not8.i = icmp eq ptr %opt.07.i, null
-  br i1 %tobool.not8.i, label %qemu_opt_find.exit, label %for.body.i
+  br label %for.cond.i
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %opt.09.i = phi ptr [ %opt.0.i, %for.inc.i ], [ %opt.07.i, %entry ]
-  %0 = load ptr, ptr %opt.09.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
-  %cmp.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i, label %qemu_opt_find.exit, label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i
-  %tql_prev3.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 5, i32 0, i32 1
-  %.pn.i = load ptr, ptr %tql_prev3.i, align 8
-  %opt.0.in.in.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn.i, i64 0, i32 1
+for.cond.i:                                       ; preds = %for.body.i, %entry
+  %opts.pn.i = phi ptr [ %opts, %entry ], [ %opt.0.i, %for.body.i ]
+  %.pn.in.i = getelementptr inbounds i8, ptr %opts.pn.i, i64 48
+  %.pn.i = load ptr, ptr %.pn.in.i, align 8
+  %opt.0.in.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   %opt.0.in.i = load ptr, ptr %opt.0.in.in.i, align 8
   %opt.0.i = load ptr, ptr %opt.0.in.i, align 8
   %tobool.not.i = icmp eq ptr %opt.0.i, null
-  br i1 %tobool.not.i, label %qemu_opt_find.exit, label %for.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %qemu_opt_find.exit, label %for.body.i
 
-qemu_opt_find.exit:                               ; preds = %for.body.i, %for.inc.i, %entry
-  %opt.0.lcssa.i = phi ptr [ null, %entry ], [ %opt.09.i, %for.body.i ], [ null, %for.inc.i ]
-  %list = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 1
+for.body.i:                                       ; preds = %for.cond.i
+  %0 = load ptr, ptr %opt.0.i, align 8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #18
+  %cmp.not.i = icmp eq i32 %call.i, 0
+  br i1 %cmp.not.i, label %qemu_opt_find.exit.thread, label %for.cond.i, !llvm.loop !8
+
+qemu_opt_find.exit:                               ; preds = %for.cond.i
+  %list = getelementptr inbounds i8, ptr %opts, i64 8
   %1 = load ptr, ptr %list, align 8
   %2 = getelementptr i8, ptr %1, i64 40
   %.val = load ptr, ptr %2, align 8
   %cmp.i = icmp eq ptr %.val, null
-  br i1 %cmp.i, label %if.end, label %if.else
+  br i1 %cmp.i, label %return, label %if.else
 
-if.else:                                          ; preds = %qemu_opt_find.exit
+qemu_opt_find.exit.thread:                        ; preds = %for.body.i
+  %list4 = getelementptr inbounds i8, ptr %opts, i64 8
+  %3 = load ptr, ptr %list4, align 8
+  %4 = getelementptr i8, ptr %3, i64 40
+  %.val5 = load ptr, ptr %4, align 8
+  %cmp.i6 = icmp eq ptr %.val5, null
+  br i1 %cmp.i6, label %if.else3, label %if.else
+
+if.else:                                          ; preds = %qemu_opt_find.exit.thread, %qemu_opt_find.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str, i32 noundef 472, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_opt_unset) #20
   unreachable
 
-if.end:                                           ; preds = %qemu_opt_find.exit
-  %cmp = icmp eq ptr %opt.0.lcssa.i, null
-  br i1 %cmp, label %return, label %if.else3
-
-if.else3:                                         ; preds = %if.end
-  %next.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.0.lcssa.i, i64 0, i32 5
-  %3 = load ptr, ptr %next.i, align 8
-  %cmp.not.i3 = icmp eq ptr %3, null
-  %tql_prev6.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.0.lcssa.i, i64 0, i32 5, i32 0, i32 1
-  %4 = load ptr, ptr %tql_prev6.i, align 8
-  br i1 %cmp.not.i3, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %if.else3
-  %tql_prev4.i = getelementptr inbounds %struct.QemuOpt, ptr %3, i64 0, i32 5, i32 0, i32 1
-  br label %qemu_opt_del.exit
+if.else3:                                         ; preds = %qemu_opt_find.exit.thread
+  %next.i = getelementptr inbounds i8, ptr %opt.0.i, i64 40
+  %5 = load ptr, ptr %next.i, align 8
+  %cmp.not.i3 = icmp eq ptr %5, null
+  %tql_prev6.i = getelementptr inbounds i8, ptr %opt.0.i, i64 48
+  %6 = load ptr, ptr %tql_prev6.i, align 8
+  br i1 %cmp.not.i3, label %if.else.i, label %qemu_opt_del.exit
 
 if.else.i:                                        ; preds = %if.else3
-  %opts.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.0.lcssa.i, i64 0, i32 4
-  %5 = load ptr, ptr %opts.i, align 8
-  %tql_prev7.i = getelementptr inbounds %struct.QemuOpts, ptr %5, i64 0, i32 3, i32 0, i32 1
+  %opts.i = getelementptr inbounds i8, ptr %opt.0.i, i64 32
+  %7 = load ptr, ptr %opts.i, align 8
   br label %qemu_opt_del.exit
 
-qemu_opt_del.exit:                                ; preds = %if.then.i, %if.else.i
-  %tql_prev7.sink.i = phi ptr [ %tql_prev7.i, %if.else.i ], [ %tql_prev4.i, %if.then.i ]
-  store ptr %4, ptr %tql_prev7.sink.i, align 8
-  %6 = load ptr, ptr %next.i, align 8
-  store ptr %6, ptr %4, align 8
+qemu_opt_del.exit:                                ; preds = %if.else3, %if.else.i
+  %.sink.i = phi ptr [ %7, %if.else.i ], [ %5, %if.else3 ]
+  %tql_prev7.i = getelementptr inbounds i8, ptr %.sink.i, i64 48
+  store ptr %6, ptr %tql_prev7.i, align 8
+  %8 = load ptr, ptr %next.i, align 8
+  store ptr %8, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
-  %7 = load ptr, ptr %opt.0.lcssa.i, align 8
-  tail call void @g_free(ptr noundef %7) #19
-  %str.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.0.lcssa.i, i64 0, i32 1
-  %8 = load ptr, ptr %str.i, align 8
-  tail call void @g_free(ptr noundef %8) #19
-  tail call void @g_free(ptr noundef nonnull %opt.0.lcssa.i) #19
+  %9 = load ptr, ptr %opt.0.i, align 8
+  tail call void @g_free(ptr noundef %9) #19
+  %str.i = getelementptr inbounds i8, ptr %opt.0.i, i64 8
+  %10 = load ptr, ptr %str.i, align 8
+  tail call void @g_free(ptr noundef %10) #19
+  tail call void @g_free(ptr noundef nonnull %opt.0.i) #19
   br label %return
 
-return:                                           ; preds = %if.end, %qemu_opt_del.exit
-  %retval.0 = phi i32 [ 0, %qemu_opt_del.exit ], [ -1, %if.end ]
+return:                                           ; preds = %qemu_opt_find.exit, %qemu_opt_del.exit
+  %retval.0 = phi i32 [ 0, %qemu_opt_del.exit ], [ -1, %qemu_opt_find.exit ]
   ret i32 %retval.0
 }
 
@@ -1309,21 +1215,21 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #21
   %call1.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
   store ptr %call1.i, ptr %call.i, align 8
-  %str.i = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 1
+  %str.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call, ptr %str.i, align 8
-  %opts3.i = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 4
+  %opts3.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %opts, ptr %opts3.i, align 8
-  %next.i = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 5
+  %next.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr null, ptr %next.i, align 8
-  %tql_prev.i = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3, i32 0, i32 1
+  %tql_prev.i = getelementptr inbounds i8, ptr %opts, i64 48
   %0 = load ptr, ptr %tql_prev.i, align 8
-  %tql_prev5.i = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 5, i32 0, i32 1
+  %tql_prev5.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %0, ptr %tql_prev5.i, align 8
   store ptr %call.i, ptr %0, align 8
   store ptr %next.i, ptr %tql_prev.i, align 8
-  %list1.i = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 1
+  %list1.i = getelementptr inbounds i8, ptr %opts, i64 8
   %1 = load ptr, ptr %list1.i, align 8
-  %desc2.i = getelementptr inbounds %struct.QemuOptsList, ptr %1, i64 0, i32 4
+  %desc2.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %desc2.i, align 8
   %cmp.not6.i.i = icmp eq ptr %2, null
   br i1 %cmp.not6.i.i, label %opt_validate.exit, label %for.body.i.preheader.i
@@ -1353,7 +1259,7 @@ opt_validate.exit.thread:                         ; preds = %for.cond.i.i
 
 opt_validate.exit:                                ; preds = %for.body.i.i, %entry, %for.body.i.preheader.i
   %retval.0.i10.i = phi ptr [ null, %entry ], [ %desc2.i, %for.body.i.preheader.i ], [ %arrayidx.i.i, %for.body.i.i ]
-  %desc5.i = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 2
+  %desc5.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %retval.0.i10.i, ptr %desc5.i, align 8
   %call6.i = tail call fastcc zeroext i1 @qemu_opt_parse(ptr noundef nonnull %call.i, ptr noundef %errp)
   br i1 %call6.i, label %return, label %if.then
@@ -1362,20 +1268,16 @@ if.then:                                          ; preds = %opt_validate.exit.t
   %4 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   %5 = load ptr, ptr %tql_prev5.i, align 8
-  br i1 %cmp.not.i, label %if.else.i, label %if.then.i3
-
-if.then.i3:                                       ; preds = %if.then
-  %tql_prev4.i = getelementptr inbounds %struct.QemuOpt, ptr %4, i64 0, i32 5, i32 0, i32 1
-  br label %qemu_opt_del.exit
+  br i1 %cmp.not.i, label %if.else.i, label %qemu_opt_del.exit
 
 if.else.i:                                        ; preds = %if.then
   %6 = load ptr, ptr %opts3.i, align 8
-  %tql_prev7.i = getelementptr inbounds %struct.QemuOpts, ptr %6, i64 0, i32 3, i32 0, i32 1
   br label %qemu_opt_del.exit
 
-qemu_opt_del.exit:                                ; preds = %if.then.i3, %if.else.i
-  %tql_prev7.sink.i = phi ptr [ %tql_prev7.i, %if.else.i ], [ %tql_prev4.i, %if.then.i3 ]
-  store ptr %5, ptr %tql_prev7.sink.i, align 8
+qemu_opt_del.exit:                                ; preds = %if.then, %if.else.i
+  %.sink.i = phi ptr [ %6, %if.else.i ], [ %4, %if.then ]
+  %tql_prev7.i = getelementptr inbounds i8, ptr %.sink.i, i64 48
+  store ptr %5, ptr %tql_prev7.i, align 8
   %7 = load ptr, ptr %next.i, align 8
   store ptr %7, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
@@ -1387,17 +1289,17 @@ qemu_opt_del.exit:                                ; preds = %if.then.i3, %if.els
   br label %return
 
 return:                                           ; preds = %opt_validate.exit, %qemu_opt_del.exit
-  %retval.0.i9 = phi i1 [ true, %opt_validate.exit ], [ false, %qemu_opt_del.exit ]
-  ret i1 %retval.0.i9
+  %retval.0.i8 = phi i1 [ true, %opt_validate.exit ], [ false, %qemu_opt_del.exit ]
+  ret i1 %retval.0.i8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qemu_opt_set_bool(ptr noundef %opts, ptr noundef %name, i1 noundef zeroext %val, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %frombool = zext i1 %val to i8
-  %list1 = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 1
+  %list1 = getelementptr inbounds i8, ptr %opts, i64 8
   %0 = load ptr, ptr %list1, align 8
-  %desc2 = getelementptr inbounds %struct.QemuOptsList, ptr %0, i64 0, i32 4
+  %desc2 = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %desc2, align 8
   %cmp.not6.i = icmp eq ptr %1, null
   br i1 %cmp.not6.i, label %if.end, label %for.body.i.preheader
@@ -1430,21 +1332,21 @@ if.end:                                           ; preds = %for.body.i, %for.bo
   %call4 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #21
   %call5 = tail call noalias ptr @g_strdup(ptr noundef %name) #19
   store ptr %call5, ptr %call4, align 8
-  %opts7 = getelementptr inbounds %struct.QemuOpt, ptr %call4, i64 0, i32 4
+  %opts7 = getelementptr inbounds i8, ptr %call4, i64 32
   store ptr %opts, ptr %opts7, align 8
-  %desc8 = getelementptr inbounds %struct.QemuOpt, ptr %call4, i64 0, i32 2
+  %desc8 = getelementptr inbounds i8, ptr %call4, i64 16
   store ptr %retval.0.i20, ptr %desc8, align 8
-  %value = getelementptr inbounds %struct.QemuOpt, ptr %call4, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %call4, i64 24
   store i8 %frombool, ptr %value, align 8
   %cond = select i1 %val, ptr @.str.17, ptr @.str.18
   %call13 = tail call noalias ptr @g_strdup(ptr noundef nonnull %cond) #19
-  %str = getelementptr inbounds %struct.QemuOpt, ptr %call4, i64 0, i32 1
+  %str = getelementptr inbounds i8, ptr %call4, i64 8
   store ptr %call13, ptr %str, align 8
-  %next = getelementptr inbounds %struct.QemuOpt, ptr %call4, i64 0, i32 5
+  %next = getelementptr inbounds i8, ptr %call4, i64 40
   store ptr null, ptr %next, align 8
-  %tql_prev = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %opts, i64 48
   %3 = load ptr, ptr %tql_prev, align 8
-  %tql_prev15 = getelementptr inbounds %struct.QemuOpt, ptr %call4, i64 0, i32 5, i32 0, i32 1
+  %tql_prev15 = getelementptr inbounds i8, ptr %call4, i64 48
   store ptr %3, ptr %tql_prev15, align 8
   store ptr %call4, ptr %3, align 8
   store ptr %next, ptr %tql_prev, align 8
@@ -1461,9 +1363,9 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qemu_opt_set_number(ptr noundef %opts, ptr noundef %name, i64 noundef %val, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %list1 = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 1
+  %list1 = getelementptr inbounds i8, ptr %opts, i64 8
   %0 = load ptr, ptr %list1, align 8
-  %desc2 = getelementptr inbounds %struct.QemuOptsList, ptr %0, i64 0, i32 4
+  %desc2 = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %desc2, align 8
   %cmp.not6.i = icmp eq ptr %1, null
   br i1 %cmp.not6.i, label %if.end, label %for.body.i.preheader
@@ -1496,20 +1398,20 @@ if.end:                                           ; preds = %for.body.i, %for.bo
   %call4 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #21
   %call5 = tail call noalias ptr @g_strdup(ptr noundef %name) #19
   store ptr %call5, ptr %call4, align 8
-  %opts7 = getelementptr inbounds %struct.QemuOpt, ptr %call4, i64 0, i32 4
+  %opts7 = getelementptr inbounds i8, ptr %call4, i64 32
   store ptr %opts, ptr %opts7, align 8
-  %desc8 = getelementptr inbounds %struct.QemuOpt, ptr %call4, i64 0, i32 2
+  %desc8 = getelementptr inbounds i8, ptr %call4, i64 16
   store ptr %retval.0.i20, ptr %desc8, align 8
-  %value = getelementptr inbounds %struct.QemuOpt, ptr %call4, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %call4, i64 24
   store i64 %val, ptr %value, align 8
   %call9 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.19, i64 noundef %val) #19
-  %str = getelementptr inbounds %struct.QemuOpt, ptr %call4, i64 0, i32 1
+  %str = getelementptr inbounds i8, ptr %call4, i64 8
   store ptr %call9, ptr %str, align 8
-  %next = getelementptr inbounds %struct.QemuOpt, ptr %call4, i64 0, i32 5
+  %next = getelementptr inbounds i8, ptr %call4, i64 40
   store ptr null, ptr %next, align 8
-  %tql_prev = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %opts, i64 48
   %3 = load ptr, ptr %tql_prev, align 8
-  %tql_prev11 = getelementptr inbounds %struct.QemuOpt, ptr %call4, i64 0, i32 5, i32 0, i32 1
+  %tql_prev11 = getelementptr inbounds i8, ptr %call4, i64 48
   store ptr %3, ptr %tql_prev11, align 8
   store ptr %call4, ptr %3, align 8
   store ptr %next, ptr %tql_prev, align 8
@@ -1525,34 +1427,34 @@ declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_opt_foreach(ptr nocapture noundef readonly %opts, ptr nocapture noundef readonly %func, ptr noundef %opaque, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %head = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3
-  %opt.07 = load ptr, ptr %head, align 8
-  %tobool.not8 = icmp eq ptr %opt.07, null
-  br i1 %tobool.not8, label %return, label %for.body.lr.ph
+  %opt.0.in7 = getelementptr inbounds i8, ptr %opts, i64 40
+  %opt.08 = load ptr, ptr %opt.0.in7, align 8
+  %tobool.not9 = icmp eq ptr %opt.08, null
+  br i1 %tobool.not9, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %tobool2.not = icmp eq ptr %errp, null
   br i1 %tobool2.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end.us
-  %opt.09.us = phi ptr [ %opt.0.us, %if.end.us ], [ %opt.07, %for.body.lr.ph ]
-  %0 = load ptr, ptr %opt.09.us, align 8
-  %str.us = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.us, i64 0, i32 1
+  %opt.010.us = phi ptr [ %opt.0.us, %if.end.us ], [ %opt.08, %for.body.lr.ph ]
+  %0 = load ptr, ptr %opt.010.us, align 8
+  %str.us = getelementptr inbounds i8, ptr %opt.010.us, i64 8
   %1 = load ptr, ptr %str.us, align 8
   %call.us = tail call i32 %func(ptr noundef %opaque, ptr noundef %0, ptr noundef %1, ptr noundef null) #19
   %tobool1.not.us = icmp eq i32 %call.us, 0
   br i1 %tobool1.not.us, label %if.end.us, label %return
 
 if.end.us:                                        ; preds = %for.body.us
-  %next.us = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.us, i64 0, i32 5
-  %opt.0.us = load ptr, ptr %next.us, align 8
+  %opt.0.in.us = getelementptr inbounds i8, ptr %opt.010.us, i64 40
+  %opt.0.us = load ptr, ptr %opt.0.in.us, align 8
   %tobool.not.us = icmp eq ptr %opt.0.us, null
   br i1 %tobool.not.us, label %return, label %for.body.us, !llvm.loop !12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %opt.09 = phi ptr [ %opt.0, %for.inc ], [ %opt.07, %for.body.lr.ph ]
-  %2 = load ptr, ptr %opt.09, align 8
-  %str = getelementptr inbounds %struct.QemuOpt, ptr %opt.09, i64 0, i32 1
+  %opt.010 = phi ptr [ %opt.0, %for.inc ], [ %opt.08, %for.body.lr.ph ]
+  %2 = load ptr, ptr %opt.010, align 8
+  %str = getelementptr inbounds i8, ptr %opt.010, i64 8
   %3 = load ptr, ptr %str, align 8
   %call = tail call i32 %func(ptr noundef %opaque, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %errp) #19
   %tobool1.not = icmp eq i32 %call, 0
@@ -1568,8 +1470,8 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 for.inc:                                          ; preds = %if.end
-  %next = getelementptr inbounds %struct.QemuOpt, ptr %opt.09, i64 0, i32 5
-  %opt.0 = load ptr, ptr %next, align 8
+  %opt.0.in = getelementptr inbounds i8, ptr %opt.010, i64 40
+  %opt.0 = load ptr, ptr %opt.0.in, align 8
   %tobool.not = icmp eq ptr %opt.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !12
 
@@ -1581,7 +1483,7 @@ return:                                           ; preds = %for.body, %for.inc,
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @qemu_opts_find(ptr nocapture noundef readonly %list, ptr noundef readonly %id) local_unnamed_addr #5 {
 entry:
-  %head = getelementptr inbounds %struct.QemuOptsList, ptr %list, i64 0, i32 3
+  %head = getelementptr inbounds i8, ptr %list, i64 24
   %opts.010 = load ptr, ptr %head, align 8
   %tobool.not11 = icmp eq ptr %opts.010, null
   br i1 %tobool.not11, label %return, label %for.body.lr.ph
@@ -1597,7 +1499,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
   br i1 %tobool2.us.not, label %return, label %if.end.us
 
 if.end.us:                                        ; preds = %for.body.us
-  %next.us = getelementptr inbounds %struct.QemuOpts, ptr %opts.012.us, i64 0, i32 4
+  %next.us = getelementptr inbounds i8, ptr %opts.012.us, i64 56
   %opts.0.us = load ptr, ptr %next.us, align 8
   %tobool.not.us = icmp eq ptr %opts.0.us, null
   br i1 %tobool.not.us, label %return, label %for.body.us, !llvm.loop !13
@@ -1614,7 +1516,7 @@ land.lhs.true8:                                   ; preds = %for.body
   br i1 %tobool10.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true8
-  %next = getelementptr inbounds %struct.QemuOpts, ptr %opts.012, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %opts.012, i64 56
   %opts.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %opts.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !13
@@ -1627,7 +1529,7 @@ return:                                           ; preds = %land.lhs.true8, %fo
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qemu_opts_create(ptr noundef %list, ptr noundef %id, i32 noundef %fail_if_exists, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %merge_lists = getelementptr inbounds %struct.QemuOptsList, ptr %list, i64 0, i32 2
+  %merge_lists = getelementptr inbounds i8, ptr %list, i64 16
   %0 = load i8, ptr %merge_lists, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1642,7 +1544,7 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %head.i = getelementptr inbounds %struct.QemuOptsList, ptr %list, i64 0, i32 3
+  %head.i = getelementptr inbounds i8, ptr %list, i64 24
   %opts.010.i = load ptr, ptr %head.i, align 8
   %tobool.not11.i = icmp eq ptr %opts.010.i, null
   br i1 %tobool.not11.i, label %if.end19, label %for.body.us.i
@@ -1654,7 +1556,7 @@ for.body.us.i:                                    ; preds = %if.end, %if.end.us.
   br i1 %tobool2.us.not.i, label %return, label %if.end.us.i
 
 if.end.us.i:                                      ; preds = %for.body.us.i
-  %next.us.i = getelementptr inbounds %struct.QemuOpts, ptr %opts.012.us.i, i64 0, i32 4
+  %next.us.i = getelementptr inbounds i8, ptr %opts.012.us.i, i64 56
   %opts.0.us.i = load ptr, ptr %next.us.i, align 8
   %tobool.not.us.i = icmp eq ptr %opts.0.us.i, null
   br i1 %tobool.not.us.i, label %if.end19, label %for.body.us.i, !llvm.loop !13
@@ -1680,7 +1582,7 @@ if.then13:                                        ; preds = %if.end11
   br label %return
 
 if.end14:                                         ; preds = %if.end11
-  %head.i29 = getelementptr inbounds %struct.QemuOptsList, ptr %list, i64 0, i32 3
+  %head.i29 = getelementptr inbounds i8, ptr %list, i64 24
   %opts.010.i30 = load ptr, ptr %head.i29, align 8
   %tobool.not11.i31 = icmp eq ptr %opts.010.i30, null
   br i1 %tobool.not11.i31, label %if.end19, label %for.body.i
@@ -1697,7 +1599,7 @@ land.lhs.true8.i:                                 ; preds = %for.body.i
   br i1 %tobool10.not.i, label %if.then16, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true8.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.QemuOpts, ptr %opts.012.i, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %opts.012.i, i64 56
   %opts.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %opts.0.i, null
   br i1 %tobool.not.i, label %if.end19, label %for.body.i, !llvm.loop !13
@@ -1711,19 +1613,19 @@ if.end19:                                         ; preds = %if.end.us.i, %for.i
   %call20 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #21
   %call21 = tail call noalias ptr @g_strdup(ptr noundef %id) #19
   store ptr %call21, ptr %call20, align 8
-  %list23 = getelementptr inbounds %struct.QemuOpts, ptr %call20, i64 0, i32 1
+  %list23 = getelementptr inbounds i8, ptr %call20, i64 8
   store ptr %list, ptr %list23, align 8
-  %loc = getelementptr inbounds %struct.QemuOpts, ptr %call20, i64 0, i32 2
+  %loc = getelementptr inbounds i8, ptr %call20, i64 16
   %call24 = tail call ptr @loc_save(ptr noundef nonnull %loc) #19
-  %head = getelementptr inbounds %struct.QemuOpts, ptr %call20, i64 0, i32 3
+  %head = getelementptr inbounds i8, ptr %call20, i64 40
   store ptr null, ptr %head, align 8
-  %tql_prev = getelementptr inbounds %struct.QemuOpts, ptr %call20, i64 0, i32 3, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call20, i64 48
   store ptr %head, ptr %tql_prev, align 8
-  %next = getelementptr inbounds %struct.QemuOpts, ptr %call20, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %call20, i64 56
   store ptr null, ptr %next, align 8
-  %tql_prev29 = getelementptr inbounds %struct.QemuOptsList, ptr %list, i64 0, i32 3, i32 0, i32 1
+  %tql_prev29 = getelementptr inbounds i8, ptr %list, i64 32
   %5 = load ptr, ptr %tql_prev29, align 8
-  %tql_prev31 = getelementptr inbounds %struct.QemuOpts, ptr %call20, i64 0, i32 4, i32 0, i32 1
+  %tql_prev31 = getelementptr inbounds i8, ptr %call20, i64 64
   store ptr %5, ptr %tql_prev31, align 8
   store ptr %call20, ptr %5, align 8
   store ptr %next, ptr %tql_prev29, align 8
@@ -1741,14 +1643,14 @@ declare ptr @loc_save(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_opts_reset(ptr nocapture noundef readonly %list) local_unnamed_addr #0 {
 entry:
-  %head = getelementptr inbounds %struct.QemuOptsList, ptr %list, i64 0, i32 3
+  %head = getelementptr inbounds i8, ptr %list, i64 24
   %0 = load ptr, ptr %head, align 8
   %tobool.not3 = icmp eq ptr %0, null
   br i1 %tobool.not3, label %for.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry, %land.rhs
   %opts.04 = phi ptr [ %1, %land.rhs ], [ %0, %entry ]
-  %next = getelementptr inbounds %struct.QemuOpts, ptr %opts.04, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %opts.04, i64 56
   %1 = load ptr, ptr %next, align 8
   tail call void @qemu_opts_del(ptr noundef nonnull %opts.04)
   %tobool.not = icmp eq ptr %1, null
@@ -1765,39 +1667,35 @@ entry:
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %head = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3
+  %head = getelementptr inbounds i8, ptr %opts, i64 40
   %0 = load ptr, ptr %head, align 8
   %cmp116 = icmp eq ptr %0, null
   br i1 %cmp116, label %do.body, label %if.end3
 
 if.end3:                                          ; preds = %for.cond.preheader, %qemu_opt_del.exit
   %1 = phi ptr [ %8, %qemu_opt_del.exit ], [ %0, %for.cond.preheader ]
-  %next.i = getelementptr inbounds %struct.QemuOpt, ptr %1, i64 0, i32 5
+  %next.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
-  %tql_prev6.i = getelementptr inbounds %struct.QemuOpt, ptr %1, i64 0, i32 5, i32 0, i32 1
+  %tql_prev6.i = getelementptr inbounds i8, ptr %1, i64 48
   %3 = load ptr, ptr %tql_prev6.i, align 8
-  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %if.end3
-  %tql_prev4.i = getelementptr inbounds %struct.QemuOpt, ptr %2, i64 0, i32 5, i32 0, i32 1
-  br label %qemu_opt_del.exit
+  br i1 %cmp.not.i, label %if.else.i, label %qemu_opt_del.exit
 
 if.else.i:                                        ; preds = %if.end3
-  %opts.i = getelementptr inbounds %struct.QemuOpt, ptr %1, i64 0, i32 4
+  %opts.i = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %opts.i, align 8
-  %tql_prev7.i = getelementptr inbounds %struct.QemuOpts, ptr %4, i64 0, i32 3, i32 0, i32 1
   br label %qemu_opt_del.exit
 
-qemu_opt_del.exit:                                ; preds = %if.then.i, %if.else.i
-  %tql_prev7.sink.i = phi ptr [ %tql_prev7.i, %if.else.i ], [ %tql_prev4.i, %if.then.i ]
-  store ptr %3, ptr %tql_prev7.sink.i, align 8
+qemu_opt_del.exit:                                ; preds = %if.end3, %if.else.i
+  %.sink.i = phi ptr [ %4, %if.else.i ], [ %2, %if.end3 ]
+  %tql_prev7.i = getelementptr inbounds i8, ptr %.sink.i, i64 48
+  store ptr %3, ptr %tql_prev7.i, align 8
   %5 = load ptr, ptr %next.i, align 8
   store ptr %5, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %1, align 8
   tail call void @g_free(ptr noundef %6) #19
-  %str.i = getelementptr inbounds %struct.QemuOpt, ptr %1, i64 0, i32 1
+  %str.i = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %str.i, align 8
   tail call void @g_free(ptr noundef %7) #19
   tail call void @g_free(ptr noundef nonnull %1) #19
@@ -1806,21 +1704,21 @@ qemu_opt_del.exit:                                ; preds = %if.then.i, %if.else
   br i1 %cmp1, label %do.body, label %if.end3
 
 do.body:                                          ; preds = %qemu_opt_del.exit, %for.cond.preheader
-  %next = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %opts, i64 56
   %9 = load ptr, ptr %next, align 8
   %cmp4.not = icmp eq ptr %9, null
-  %tql_prev11 = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 4, i32 0, i32 1
+  %tql_prev11 = getelementptr inbounds i8, ptr %opts, i64 64
   %10 = load ptr, ptr %tql_prev11, align 8
   br i1 %cmp4.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %do.body
-  %tql_prev9 = getelementptr inbounds %struct.QemuOpts, ptr %9, i64 0, i32 4, i32 0, i32 1
+  %tql_prev9 = getelementptr inbounds i8, ptr %9, i64 64
   br label %if.end14
 
 if.else:                                          ; preds = %do.body
-  %list = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %opts, i64 8
   %11 = load ptr, ptr %list, align 8
-  %tql_prev13 = getelementptr inbounds %struct.QemuOptsList, ptr %11, i64 0, i32 3, i32 0, i32 1
+  %tql_prev13 = getelementptr inbounds i8, ptr %11, i64 32
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then5
@@ -1841,7 +1739,7 @@ return:                                           ; preds = %entry, %if.end14
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_opts_loc_restore(ptr noundef %opts) local_unnamed_addr #0 {
 entry:
-  %loc = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 2
+  %loc = getelementptr inbounds i8, ptr %opts, i64 16
   tail call void @loc_restore(ptr noundef nonnull %loc) #19
   ret void
 }
@@ -1865,9 +1763,9 @@ entry:
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local void @qemu_opts_print(ptr nocapture noundef readonly %opts, ptr noundef %separator) local_unnamed_addr #11 {
 entry:
-  %list = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %opts, i64 8
   %0 = load ptr, ptr %list, align 8
-  %desc1 = getelementptr inbounds %struct.QemuOptsList, ptr %0, i64 0, i32 4
+  %desc1 = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %opts, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1880,24 +1778,26 @@ if.end:                                           ; preds = %if.then, %entry
   %sep.0 = phi ptr [ %separator, %if.then ], [ @.str.8, %entry ]
   %2 = load ptr, ptr %desc1, align 8
   %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then3, label %for.cond8.preheader
+  br i1 %cmp, label %for.cond.preheader, label %for.cond.i32.preheader
 
-for.cond8.preheader:                              ; preds = %if.end
-  %tql_prev.i = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3, i32 0, i32 1
-  br label %for.body12
+for.cond.preheader:                               ; preds = %if.end
+  %opt.0.in47 = getelementptr inbounds i8, ptr %opts, i64 40
+  %opt.048 = load ptr, ptr %opt.0.in47, align 8
+  %tobool4.not49 = icmp eq ptr %opt.048, null
+  br i1 %tobool4.not49, label %for.end39, label %for.body
 
-if.then3:                                         ; preds = %if.end
-  %head = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3
-  %opt.046 = load ptr, ptr %head, align 8
-  %tobool4.not47 = icmp eq ptr %opt.046, null
-  br i1 %tobool4.not47, label %for.end39, label %for.body
+for.cond.loopexit:                                ; preds = %for.cond.i
+  %opt.0.in = getelementptr inbounds i8, ptr %opt.051, i64 40
+  %opt.0 = load ptr, ptr %opt.0.in, align 8
+  %tobool4.not = icmp eq ptr %opt.0, null
+  br i1 %tobool4.not, label %for.end39, label %for.body, !llvm.loop !15
 
-for.body:                                         ; preds = %if.then3, %escaped_print.exit
-  %opt.049 = phi ptr [ %opt.0, %escaped_print.exit ], [ %opt.046, %if.then3 ]
-  %sep.148 = phi ptr [ %separator, %escaped_print.exit ], [ %sep.0, %if.then3 ]
-  %3 = load ptr, ptr %opt.049, align 8
-  %call6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, ptr noundef %sep.148, ptr noundef %3)
-  %str = getelementptr inbounds %struct.QemuOpt, ptr %opt.049, i64 0, i32 1
+for.body:                                         ; preds = %for.cond.preheader, %for.cond.loopexit
+  %opt.051 = phi ptr [ %opt.0, %for.cond.loopexit ], [ %opt.048, %for.cond.preheader ]
+  %sep.150 = phi ptr [ %separator, %for.cond.loopexit ], [ %sep.0, %for.cond.preheader ]
+  %3 = load ptr, ptr %opt.051, align 8
+  %call6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, ptr noundef %sep.150, ptr noundef %3)
+  %str = getelementptr inbounds i8, ptr %opt.051, i64 8
   %4 = load ptr, ptr %str, align 8
   br label %for.cond.i
 
@@ -1905,7 +1805,7 @@ for.cond.i:                                       ; preds = %if.end.i, %for.body
   %ptr.0.i = phi ptr [ %4, %for.body ], [ %incdec.ptr.i, %if.end.i ]
   %5 = load i8, ptr %ptr.0.i, align 1
   switch i8 %5, label %if.end.i [
-    i8 0, label %escaped_print.exit
+    i8 0, label %for.cond.loopexit
     i8 44, label %if.then.i
   ]
 
@@ -1919,58 +1819,46 @@ if.end.i:                                         ; preds = %if.then.i, %for.con
   %conv2.i = sext i8 %6 to i32
   %call3.i = tail call i32 @putchar(i32 noundef %conv2.i)
   %incdec.ptr.i = getelementptr i8, ptr %ptr.0.i, i64 1
-  br label %for.cond.i, !llvm.loop !15
-
-escaped_print.exit:                               ; preds = %for.cond.i
-  %next = getelementptr inbounds %struct.QemuOpt, ptr %opt.049, i64 0, i32 5
-  %opt.0 = load ptr, ptr %next, align 8
-  %tobool4.not = icmp eq ptr %opt.0, null
-  br i1 %tobool4.not, label %for.end39, label %for.body, !llvm.loop !16
+  br label %for.cond.i, !llvm.loop !16
 
 land.rhsthread-pre-split:                         ; preds = %for.inc38
   %.pr = load ptr, ptr %incdec.ptr, align 8
   %tobool11.not = icmp eq ptr %.pr, null
-  br i1 %tobool11.not, label %for.end39, label %for.body12
+  br i1 %tobool11.not, label %for.end39, label %for.cond.i32.preheader
 
-for.body12:                                       ; preds = %for.cond8.preheader, %land.rhsthread-pre-split
-  %desc.04454 = phi ptr [ %desc1, %for.cond8.preheader ], [ %incdec.ptr, %land.rhsthread-pre-split ]
-  %sep.24553 = phi ptr [ %sep.0, %for.cond8.preheader ], [ %sep.3, %land.rhsthread-pre-split ]
-  %7 = phi ptr [ %2, %for.cond8.preheader ], [ %.pr, %land.rhsthread-pre-split ]
-  %.pn4.i = load ptr, ptr %tql_prev.i, align 8
-  %opt.0.in.in5.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn4.i, i64 0, i32 1
-  %opt.0.in6.i = load ptr, ptr %opt.0.in.in5.i, align 8
-  %opt.07.i = load ptr, ptr %opt.0.in6.i, align 8
-  %tobool.not8.i = icmp eq ptr %opt.07.i, null
-  br i1 %tobool.not8.i, label %qemu_opt_find.exit, label %for.body.i
+for.cond.i32.preheader:                           ; preds = %if.end, %land.rhsthread-pre-split
+  %desc.04556 = phi ptr [ %incdec.ptr, %land.rhsthread-pre-split ], [ %desc1, %if.end ]
+  %sep.24655 = phi ptr [ %sep.3, %land.rhsthread-pre-split ], [ %sep.0, %if.end ]
+  %7 = phi ptr [ %.pr, %land.rhsthread-pre-split ], [ %2, %if.end ]
+  br label %for.cond.i32
 
-for.body.i:                                       ; preds = %for.body12, %for.inc.i
-  %opt.09.i = phi ptr [ %opt.0.i, %for.inc.i ], [ %opt.07.i, %for.body12 ]
-  %8 = load ptr, ptr %opt.09.i, align 8
-  %call.i32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %7) #18
-  %cmp.not.i = icmp eq i32 %call.i32, 0
-  br i1 %cmp.not.i, label %qemu_opt_find.exit, label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i
-  %tql_prev3.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.09.i, i64 0, i32 5, i32 0, i32 1
-  %.pn.i = load ptr, ptr %tql_prev3.i, align 8
-  %opt.0.in.in.i = getelementptr inbounds %struct.QTailQLink, ptr %.pn.i, i64 0, i32 1
+for.cond.i32:                                     ; preds = %for.cond.i32.preheader, %for.body.i
+  %opts.pn.i = phi ptr [ %opt.0.i, %for.body.i ], [ %opts, %for.cond.i32.preheader ]
+  %.pn.in.i = getelementptr inbounds i8, ptr %opts.pn.i, i64 48
+  %.pn.i = load ptr, ptr %.pn.in.i, align 8
+  %opt.0.in.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   %opt.0.in.i = load ptr, ptr %opt.0.in.in.i, align 8
   %opt.0.i = load ptr, ptr %opt.0.in.i, align 8
   %tobool.not.i = icmp eq ptr %opt.0.i, null
-  br i1 %tobool.not.i, label %qemu_opt_find.exit, label %for.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %qemu_opt_find.exit, label %for.body.i
 
-qemu_opt_find.exit:                               ; preds = %for.body.i, %for.inc.i, %for.body12
-  %opt.0.lcssa.i = phi ptr [ null, %for.body12 ], [ %opt.09.i, %for.body.i ], [ null, %for.inc.i ]
-  %tobool15 = icmp ne ptr %opt.0.lcssa.i, null
-  %str16 = getelementptr inbounds %struct.QemuOpt, ptr %opt.0.lcssa.i, i64 0, i32 1
-  %def_value_str = getelementptr inbounds %struct.QemuOptDesc, ptr %desc.04454, i64 0, i32 3
+for.body.i:                                       ; preds = %for.cond.i32
+  %8 = load ptr, ptr %opt.0.i, align 8
+  %call.i33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %7) #18
+  %cmp.not.i = icmp eq i32 %call.i33, 0
+  br i1 %cmp.not.i, label %qemu_opt_find.exit, label %for.cond.i32, !llvm.loop !8
+
+qemu_opt_find.exit:                               ; preds = %for.cond.i32, %for.body.i
+  %tobool15 = icmp ne ptr %opt.0.i, null
+  %str16 = getelementptr inbounds i8, ptr %opt.0.i, i64 8
+  %def_value_str = getelementptr inbounds i8, ptr %desc.04556, i64 24
   %cond.in = select i1 %tobool15, ptr %str16, ptr %def_value_str
   %cond = load ptr, ptr %cond.in, align 8
   %tobool17.not = icmp eq ptr %cond, null
   br i1 %tobool17.not, label %for.inc38, label %if.end19
 
 if.end19:                                         ; preds = %qemu_opt_find.exit
-  %type = getelementptr inbounds %struct.QemuOptDesc, ptr %desc.04454, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %desc.04556, i64 8
   %9 = load i32, ptr %type, align 8
   switch i32 %9, label %lor.lhs.false [
     i32 0, label %if.then21
@@ -1978,28 +1866,28 @@ if.end19:                                         ; preds = %qemu_opt_find.exit
   ]
 
 if.then21:                                        ; preds = %if.end19
-  %call23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, ptr noundef %sep.24553, ptr noundef nonnull %7)
-  br label %for.cond.i33
+  %call23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, ptr noundef %sep.24655, ptr noundef nonnull %7)
+  br label %for.cond.i34
 
-for.cond.i33:                                     ; preds = %if.end.i38, %if.then21
-  %ptr.0.i34 = phi ptr [ %cond, %if.then21 ], [ %incdec.ptr.i41, %if.end.i38 ]
-  %10 = load i8, ptr %ptr.0.i34, align 1
-  switch i8 %10, label %if.end.i38 [
+for.cond.i34:                                     ; preds = %if.end.i39, %if.then21
+  %ptr.0.i35 = phi ptr [ %cond, %if.then21 ], [ %incdec.ptr.i42, %if.end.i39 ]
+  %10 = load i8, ptr %ptr.0.i35, align 1
+  switch i8 %10, label %if.end.i39 [
     i8 0, label %for.inc38
-    i8 44, label %if.then.i35
+    i8 44, label %if.then.i36
   ]
 
-if.then.i35:                                      ; preds = %for.cond.i33
-  %call.i36 = tail call i32 @putchar(i32 noundef 44)
-  %.pre.i37 = load i8, ptr %ptr.0.i34, align 1
-  br label %if.end.i38
+if.then.i36:                                      ; preds = %for.cond.i34
+  %call.i37 = tail call i32 @putchar(i32 noundef 44)
+  %.pre.i38 = load i8, ptr %ptr.0.i35, align 1
+  br label %if.end.i39
 
-if.end.i38:                                       ; preds = %if.then.i35, %for.cond.i33
-  %11 = phi i8 [ %10, %for.cond.i33 ], [ %.pre.i37, %if.then.i35 ]
-  %conv2.i39 = sext i8 %11 to i32
-  %call3.i40 = tail call i32 @putchar(i32 noundef %conv2.i39)
-  %incdec.ptr.i41 = getelementptr i8, ptr %ptr.0.i34, i64 1
-  br label %for.cond.i33, !llvm.loop !15
+if.end.i39:                                       ; preds = %if.then.i36, %for.cond.i34
+  %11 = phi i8 [ %10, %for.cond.i34 ], [ %.pre.i38, %if.then.i36 ]
+  %conv2.i40 = sext i8 %11 to i32
+  %call3.i41 = tail call i32 @putchar(i32 noundef %conv2.i40)
+  %incdec.ptr.i42 = getelementptr i8, ptr %ptr.0.i35, i64 1
+  br label %for.cond.i34, !llvm.loop !16
 
 lor.lhs.false:                                    ; preds = %if.end19
   %cmp27 = icmp eq i32 %9, 2
@@ -2010,22 +1898,22 @@ land.lhs.true:                                    ; preds = %if.end19
   br i1 %tobool15, label %if.then29, label %if.else33
 
 if.then29:                                        ; preds = %lor.lhs.false, %land.lhs.true
-  %value31 = getelementptr inbounds %struct.QemuOpt, ptr %opt.0.lcssa.i, i64 0, i32 3
+  %value31 = getelementptr inbounds i8, ptr %opt.0.i, i64 24
   %12 = load i64, ptr %value31, align 8
-  %call32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef %sep.24553, ptr noundef nonnull %7, i64 noundef %12)
+  %call32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef %sep.24655, ptr noundef nonnull %7, i64 noundef %12)
   br label %for.inc38
 
 if.else33:                                        ; preds = %land.lhs.true, %lor.lhs.false
-  %call35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %sep.24553, ptr noundef nonnull %7, ptr noundef nonnull %cond)
+  %call35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %sep.24655, ptr noundef nonnull %7, ptr noundef nonnull %cond)
   br label %for.inc38
 
-for.inc38:                                        ; preds = %for.cond.i33, %if.else33, %if.then29, %qemu_opt_find.exit
-  %sep.3 = phi ptr [ %sep.24553, %qemu_opt_find.exit ], [ %separator, %if.then29 ], [ %separator, %if.else33 ], [ %separator, %for.cond.i33 ]
-  %incdec.ptr = getelementptr %struct.QemuOptDesc, ptr %desc.04454, i64 1
+for.inc38:                                        ; preds = %for.cond.i34, %if.else33, %if.then29, %qemu_opt_find.exit
+  %sep.3 = phi ptr [ %sep.24655, %qemu_opt_find.exit ], [ %separator, %if.then29 ], [ %separator, %if.else33 ], [ %separator, %for.cond.i34 ]
+  %incdec.ptr = getelementptr i8, ptr %desc.04556, i64 32
   %tobool9.not = icmp eq ptr %incdec.ptr, null
   br i1 %tobool9.not, label %for.end39, label %land.rhsthread-pre-split, !llvm.loop !17
 
-for.end39:                                        ; preds = %for.inc38, %land.rhsthread-pre-split, %escaped_print.exit, %if.then3
+for.end39:                                        ; preds = %for.inc38, %land.rhsthread-pre-split, %for.cond.loopexit, %for.cond.preheader
   ret void
 }
 
@@ -2290,18 +2178,18 @@ entry:
   %option = alloca ptr, align 8
   %value = alloca ptr, align 8
   %0 = load i8, ptr %params, align 1
-  %tobool.not40 = icmp eq i8 %0, 0
-  br i1 %tobool.not40, label %return, label %for.body.lr.ph
+  %tobool.not39 = icmp eq i8 %0, 0
+  br i1 %tobool.not39, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %tobool2.not = icmp eq ptr %help_wanted, null
-  %tql_prev.i = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3, i32 0, i32 1
+  %tql_prev.i = getelementptr inbounds i8, ptr %opts, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.backedge
-  %p.042 = phi ptr [ %params, %for.body.lr.ph ], [ %call, %for.cond.backedge ]
-  %firstname.addr.041 = phi ptr [ %firstname, %for.body.lr.ph ], [ null, %for.cond.backedge ]
-  %call = call fastcc ptr @get_opt_name_value(ptr noundef nonnull %p.042, ptr noundef %firstname.addr.041, i1 noundef zeroext %warn_on_flag, ptr noundef %help_wanted, ptr noundef nonnull %option, ptr noundef nonnull %value)
+  %p.041 = phi ptr [ %params, %for.body.lr.ph ], [ %call, %for.cond.backedge ]
+  %firstname.addr.040 = phi ptr [ %firstname, %for.body.lr.ph ], [ null, %for.cond.backedge ]
+  %call = call fastcc ptr @get_opt_name_value(ptr noundef nonnull %p.041, ptr noundef %firstname.addr.040, i1 noundef zeroext %warn_on_flag, ptr noundef %help_wanted, ptr noundef nonnull %option, ptr noundef nonnull %value)
   br i1 %tobool2.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
@@ -2339,22 +2227,22 @@ if.end7:                                          ; preds = %if.end
   %call.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #21
   %call1.i = tail call noalias ptr @g_strdup(ptr noundef %5) #19
   store ptr %call1.i, ptr %call.i, align 8
-  %str.i = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 1
+  %str.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %8, ptr %str.i, align 8
-  %opts3.i = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 4
+  %opts3.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %opts, ptr %opts3.i, align 8
-  %next.i = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 5
+  %next.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr null, ptr %next.i, align 8
   %9 = load ptr, ptr %tql_prev.i, align 8
-  %tql_prev5.i = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 5, i32 0, i32 1
+  %tql_prev5.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %9, ptr %tql_prev5.i, align 8
   store ptr %call.i, ptr %9, align 8
   store ptr %next.i, ptr %tql_prev.i, align 8
   tail call void @g_free(ptr noundef %5) #19
   %10 = load ptr, ptr %opts3.i, align 8
-  %list1.i = getelementptr inbounds %struct.QemuOpts, ptr %10, i64 0, i32 1
+  %list1.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %list1.i, align 8
-  %desc2.i = getelementptr inbounds %struct.QemuOptsList, ptr %11, i64 0, i32 4
+  %desc2.i = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load ptr, ptr %call.i, align 8
   %13 = load ptr, ptr %desc2.i, align 8
   %cmp.not6.i.i = icmp eq ptr %13, null
@@ -2385,46 +2273,42 @@ opt_validate.exit.thread:                         ; preds = %for.cond.i.i
 
 opt_validate.exit:                                ; preds = %for.body.i.i, %if.end7, %for.body.i.preheader.i
   %retval.0.i10.i = phi ptr [ null, %if.end7 ], [ %desc2.i, %for.body.i.preheader.i ], [ %arrayidx.i.i, %for.body.i.i ]
-  %desc5.i = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 2
+  %desc5.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %retval.0.i10.i, ptr %desc5.i, align 8
   %call6.i = tail call fastcc zeroext i1 @qemu_opt_parse(ptr noundef nonnull %call.i, ptr noundef %errp)
   br i1 %call6.i, label %for.cond.backedge, label %if.then10
 
 if.then10:                                        ; preds = %opt_validate.exit, %opt_validate.exit.thread
-  %tql_prev5.i55 = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 5, i32 0, i32 1
-  %next.i57 = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 5
-  %str.i61 = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 1
-  %15 = load ptr, ptr %next.i57, align 8
+  %tql_prev5.i54 = getelementptr inbounds i8, ptr %call.i, i64 48
+  %next.i56 = getelementptr inbounds i8, ptr %call.i, i64 40
+  %str.i60 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %15 = load ptr, ptr %next.i56, align 8
   %cmp.not.i = icmp eq ptr %15, null
-  %16 = load ptr, ptr %tql_prev5.i55, align 8
-  br i1 %cmp.not.i, label %if.else.i, label %if.then.i6
-
-if.then.i6:                                       ; preds = %if.then10
-  %tql_prev4.i = getelementptr inbounds %struct.QemuOpt, ptr %15, i64 0, i32 5, i32 0, i32 1
-  br label %qemu_opt_del.exit
+  %16 = load ptr, ptr %tql_prev5.i54, align 8
+  br i1 %cmp.not.i, label %if.else.i, label %qemu_opt_del.exit
 
 if.else.i:                                        ; preds = %if.then10
-  %opts3.i59 = getelementptr inbounds %struct.QemuOpt, ptr %call.i, i64 0, i32 4
-  %17 = load ptr, ptr %opts3.i59, align 8
-  %tql_prev7.i = getelementptr inbounds %struct.QemuOpts, ptr %17, i64 0, i32 3, i32 0, i32 1
+  %opts3.i58 = getelementptr inbounds i8, ptr %call.i, i64 32
+  %17 = load ptr, ptr %opts3.i58, align 8
   br label %qemu_opt_del.exit
 
-qemu_opt_del.exit:                                ; preds = %if.then.i6, %if.else.i
-  %tql_prev7.sink.i = phi ptr [ %tql_prev7.i, %if.else.i ], [ %tql_prev4.i, %if.then.i6 ]
-  store ptr %16, ptr %tql_prev7.sink.i, align 8
-  %18 = load ptr, ptr %next.i57, align 8
+qemu_opt_del.exit:                                ; preds = %if.then10, %if.else.i
+  %.sink.i = phi ptr [ %17, %if.else.i ], [ %15, %if.then10 ]
+  %tql_prev7.i = getelementptr inbounds i8, ptr %.sink.i, i64 48
+  store ptr %16, ptr %tql_prev7.i, align 8
+  %18 = load ptr, ptr %next.i56, align 8
   store ptr %18, ptr %16, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i57, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i56, i8 0, i64 16, i1 false)
   %19 = load ptr, ptr %call.i, align 8
   tail call void @g_free(ptr noundef %19) #19
-  %20 = load ptr, ptr %str.i61, align 8
+  %20 = load ptr, ptr %str.i60, align 8
   tail call void @g_free(ptr noundef %20) #19
   tail call void @g_free(ptr noundef nonnull %call.i) #19
   br label %return
 
 return:                                           ; preds = %for.cond.backedge, %entry, %qemu_opt_del.exit, %if.then
-  %tobool.not15 = phi i1 [ false, %qemu_opt_del.exit ], [ false, %if.then ], [ true, %entry ], [ true, %for.cond.backedge ]
-  ret i1 %tobool.not15
+  %tobool.not14 = phi i1 [ false, %qemu_opt_del.exit ], [ false, %if.then ], [ true, %entry ], [ true, %for.cond.backedge ]
+  ret i1 %tobool.not14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2468,7 +2352,7 @@ opts_parse_id.exit:                               ; preds = %if.end.i, %for.body
   br i1 %permit_abbrev, label %lor.lhs.false, label %cond.end
 
 lor.lhs.false:                                    ; preds = %opts_parse_id.exit
-  %implied_opt_name = getelementptr inbounds %struct.QemuOptsList, ptr %list, i64 0, i32 1
+  %implied_opt_name = getelementptr inbounds i8, ptr %list, i64 8
   %4 = load ptr, ptr %implied_opt_name, align 8
   %tobool2.not = icmp eq ptr %4, null
   br i1 %tobool2.not, label %if.else, label %cond.end
@@ -2479,7 +2363,7 @@ if.else:                                          ; preds = %lor.lhs.false
 
 cond.end:                                         ; preds = %lor.lhs.false, %opts_parse_id.exit
   %cond = phi ptr [ null, %opts_parse_id.exit ], [ %4, %lor.lhs.false ]
-  %merge_lists = getelementptr inbounds %struct.QemuOptsList, ptr %list, i64 0, i32 2
+  %merge_lists = getelementptr inbounds i8, ptr %list, i64 16
   %5 = load i8, ptr %merge_lists, align 8
   %6 = and i8 %5, 1
   %7 = xor i8 %6, 1
@@ -2650,7 +2534,7 @@ entry:
   br i1 %cmp.not11, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %list = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %opts, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end9
@@ -2722,19 +2606,19 @@ if.then2:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %head = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3
+  %head = getelementptr inbounds i8, ptr %opts, i64 40
   %1 = load ptr, ptr %head, align 8
   %tobool5.not17 = icmp eq ptr %1, null
   br i1 %tobool5.not17, label %for.end28, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end4
   %tobool7.not = icmp eq ptr %list, null
-  %desc9 = getelementptr inbounds %struct.QemuOptsList, ptr %list, i64 0, i32 4
+  %desc9 = getelementptr inbounds i8, ptr %list, i64 40
   br i1 %del, label %land.rhs.us, label %land.rhs.lr.ph.split
 
 land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %for.inc27.us
   %opt.018.us = phi ptr [ %2, %for.inc27.us ], [ %1, %land.rhs.lr.ph ]
-  %next6.us = getelementptr inbounds %struct.QemuOpt, ptr %opt.018.us, i64 0, i32 5
+  %next6.us = getelementptr inbounds i8, ptr %opt.018.us, i64 40
   %2 = load ptr, ptr %next6.us, align 8
   br i1 %tobool7.not, label %land.rhs.us.if.end22.us_crit_edge, label %if.then8.us
 
@@ -2748,7 +2632,7 @@ if.then8.us:                                      ; preds = %land.rhs.us
   br i1 %tobool11.not.not15.us, label %for.inc27.us, label %for.body12.lr.ph.us
 
 for.cond10.us:                                    ; preds = %for.body12.us
-  %incdec.ptr.us = getelementptr %struct.QemuOptDesc, ptr %desc.016.us, i64 1
+  %incdec.ptr.us = getelementptr i8, ptr %desc.016.us, i64 32
   %4 = load ptr, ptr %incdec.ptr.us, align 8
   %tobool11.not.not.us = icmp eq ptr %4, null
   br i1 %tobool11.not.not.us, label %for.inc27.us, label %for.body12.us, !llvm.loop !23
@@ -2762,28 +2646,24 @@ for.body12.us:                                    ; preds = %for.body12.lr.ph.us
 
 if.end22.us:                                      ; preds = %for.body12.us, %land.rhs.us.if.end22.us_crit_edge
   %6 = phi ptr [ %.pre, %land.rhs.us.if.end22.us_crit_edge ], [ %14, %for.body12.us ]
-  %str.us = getelementptr inbounds %struct.QemuOpt, ptr %opt.018.us, i64 0, i32 1
+  %str.us = getelementptr inbounds i8, ptr %opt.018.us, i64 8
   %7 = load ptr, ptr %str.us, align 8
   tail call void @qdict_put_str(ptr noundef %qdict.addr.0, ptr noundef %6, ptr noundef %7) #19
   %8 = load ptr, ptr %next6.us, align 8
   %cmp.not.i.us = icmp eq ptr %8, null
-  %tql_prev6.i.us = getelementptr inbounds %struct.QemuOpt, ptr %opt.018.us, i64 0, i32 5, i32 0, i32 1
+  %tql_prev6.i.us = getelementptr inbounds i8, ptr %opt.018.us, i64 48
   %9 = load ptr, ptr %tql_prev6.i.us, align 8
-  br i1 %cmp.not.i.us, label %if.else.i.us, label %if.then.i.us
-
-if.then.i.us:                                     ; preds = %if.end22.us
-  %tql_prev4.i.us = getelementptr inbounds %struct.QemuOpt, ptr %8, i64 0, i32 5, i32 0, i32 1
-  br label %qemu_opt_del.exit.us
+  br i1 %cmp.not.i.us, label %if.else.i.us, label %qemu_opt_del.exit.us
 
 if.else.i.us:                                     ; preds = %if.end22.us
-  %opts.i.us = getelementptr inbounds %struct.QemuOpt, ptr %opt.018.us, i64 0, i32 4
+  %opts.i.us = getelementptr inbounds i8, ptr %opt.018.us, i64 32
   %10 = load ptr, ptr %opts.i.us, align 8
-  %tql_prev7.i.us = getelementptr inbounds %struct.QemuOpts, ptr %10, i64 0, i32 3, i32 0, i32 1
   br label %qemu_opt_del.exit.us
 
-qemu_opt_del.exit.us:                             ; preds = %if.else.i.us, %if.then.i.us
-  %tql_prev7.sink.i.us = phi ptr [ %tql_prev7.i.us, %if.else.i.us ], [ %tql_prev4.i.us, %if.then.i.us ]
-  store ptr %9, ptr %tql_prev7.sink.i.us, align 8
+qemu_opt_del.exit.us:                             ; preds = %if.else.i.us, %if.end22.us
+  %.sink.i.us = phi ptr [ %10, %if.else.i.us ], [ %8, %if.end22.us ]
+  %tql_prev7.i.us = getelementptr inbounds i8, ptr %.sink.i.us, i64 48
+  store ptr %9, ptr %tql_prev7.i.us, align 8
   %11 = load ptr, ptr %next6.us, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next6.us, i8 0, i64 16, i1 false)
@@ -2807,10 +2687,10 @@ land.rhs.lr.ph.split:                             ; preds = %land.rhs.lr.ph
 
 land.rhs.us19:                                    ; preds = %land.rhs.lr.ph.split, %land.rhs.us19
   %opt.018.us20 = phi ptr [ %15, %land.rhs.us19 ], [ %1, %land.rhs.lr.ph.split ]
-  %next6.us21 = getelementptr inbounds %struct.QemuOpt, ptr %opt.018.us20, i64 0, i32 5
+  %next6.us21 = getelementptr inbounds i8, ptr %opt.018.us20, i64 40
   %15 = load ptr, ptr %next6.us21, align 8
   %16 = load ptr, ptr %opt.018.us20, align 8
-  %str.us23 = getelementptr inbounds %struct.QemuOpt, ptr %opt.018.us20, i64 0, i32 1
+  %str.us23 = getelementptr inbounds i8, ptr %opt.018.us20, i64 8
   %17 = load ptr, ptr %str.us23, align 8
   tail call void @qdict_put_str(ptr noundef %qdict.addr.0, ptr noundef %16, ptr noundef %17) #19
   %tobool5.not.us25 = icmp eq ptr %15, null
@@ -2828,7 +2708,7 @@ land.rhsthread-pre-split:                         ; preds = %for.inc27
 land.rhs:                                         ; preds = %land.rhs.lr.ph.split.split, %land.rhsthread-pre-split
   %20 = phi ptr [ %.pr, %land.rhsthread-pre-split ], [ %18, %land.rhs.lr.ph.split.split ]
   %opt.018 = phi ptr [ %21, %land.rhsthread-pre-split ], [ %1, %land.rhs.lr.ph.split.split ]
-  %next6 = getelementptr inbounds %struct.QemuOpt, ptr %opt.018, i64 0, i32 5
+  %next6 = getelementptr inbounds i8, ptr %opt.018, i64 40
   %21 = load ptr, ptr %next6, align 8
   %tobool11.not.not15 = icmp eq ptr %20, null
   br i1 %tobool11.not.not15, label %for.inc27, label %for.body12.lr.ph
@@ -2838,7 +2718,7 @@ for.body12.lr.ph:                                 ; preds = %land.rhs
   br label %for.body12
 
 for.cond10:                                       ; preds = %for.body12
-  %incdec.ptr = getelementptr %struct.QemuOptDesc, ptr %desc.016, i64 1
+  %incdec.ptr = getelementptr i8, ptr %desc.016, i64 32
   %23 = load ptr, ptr %incdec.ptr, align 8
   %tobool11.not.not = icmp eq ptr %23, null
   br i1 %tobool11.not.not, label %for.inc27, label %for.body12, !llvm.loop !23
@@ -2851,7 +2731,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   br i1 %tobool16.not, label %if.end22.loopexit, label %for.cond10
 
 if.end22.loopexit:                                ; preds = %for.body12
-  %str = getelementptr inbounds %struct.QemuOpt, ptr %opt.018, i64 0, i32 1
+  %str = getelementptr inbounds i8, ptr %opt.018, i64 8
   %25 = load ptr, ptr %str, align 8
   tail call void @qdict_put_str(ptr noundef %qdict.addr.0, ptr noundef %22, ptr noundef %25) #19
   br label %for.inc27
@@ -2889,17 +2769,17 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then2.i, %if.end.i
-  %head.i = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3
+  %head.i = getelementptr inbounds i8, ptr %opts, i64 40
   %1 = load ptr, ptr %head.i, align 8
   %tobool5.not17.i = icmp eq ptr %1, null
   br i1 %tobool5.not17.i, label %qemu_opts_to_qdict_filtered.exit, label %land.rhs.us19.i
 
 land.rhs.us19.i:                                  ; preds = %if.end4.i, %land.rhs.us19.i
   %opt.018.us20.i = phi ptr [ %2, %land.rhs.us19.i ], [ %1, %if.end4.i ]
-  %next6.us21.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.018.us20.i, i64 0, i32 5
+  %next6.us21.i = getelementptr inbounds i8, ptr %opt.018.us20.i, i64 40
   %2 = load ptr, ptr %next6.us21.i, align 8
   %3 = load ptr, ptr %opt.018.us20.i, align 8
-  %str.us23.i = getelementptr inbounds %struct.QemuOpt, ptr %opt.018.us20.i, i64 0, i32 1
+  %str.us23.i = getelementptr inbounds i8, ptr %opt.018.us20.i, i64 8
   %4 = load ptr, ptr %str.us23.i, align 8
   tail call void @qdict_put_str(ptr noundef %qdict.addr.0.i, ptr noundef %3, ptr noundef %4) #19
   %tobool5.not.us25.i = icmp eq ptr %2, null
@@ -2912,26 +2792,26 @@ qemu_opts_to_qdict_filtered.exit:                 ; preds = %land.rhs.us19.i, %i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qemu_opts_validate(ptr nocapture noundef readonly %opts, ptr noundef %desc, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %list = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 1
+  %list = getelementptr inbounds i8, ptr %opts, i64 8
   %0 = load ptr, ptr %list, align 8
   %1 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %1, align 8
   %cmp.i = icmp eq ptr %.val, null
-  br i1 %cmp.i, label %if.end, label %if.else
+  br i1 %cmp.i, label %for.cond, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str, i32 noundef 1101, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_opts_validate) #20
   unreachable
 
-if.end:                                           ; preds = %entry
-  %head = getelementptr inbounds %struct.QemuOpts, ptr %opts, i64 0, i32 3
-  %opt.025 = load ptr, ptr %head, align 8
-  %tobool.not26 = icmp eq ptr %opt.025, null
-  br i1 %tobool.not26, label %return, label %for.body
+for.cond:                                         ; preds = %entry, %find_desc_by_name.exit
+  %opts.pn = phi ptr [ %opt.0, %find_desc_by_name.exit ], [ %opts, %entry ]
+  %opt.0.in = getelementptr inbounds i8, ptr %opts.pn, i64 40
+  %opt.0 = load ptr, ptr %opt.0.in, align 8
+  %tobool.not = icmp eq ptr %opt.0, null
+  br i1 %tobool.not, label %return, label %for.body
 
-for.body:                                         ; preds = %if.end, %for.inc
-  %opt.027 = phi ptr [ %opt.0, %for.inc ], [ %opt.025, %if.end ]
-  %2 = load ptr, ptr %opt.027, align 8
+for.body:                                         ; preds = %for.cond
+  %2 = load ptr, ptr %opt.0, align 8
   %3 = load ptr, ptr %desc, align 8
   %cmp.not6.i = icmp eq ptr %3, null
   br i1 %cmp.not6.i, label %find_desc_by_name.exit.thread, label %for.body.i.preheader
@@ -2956,27 +2836,21 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp5.i, label %find_desc_by_name.exit, label %for.cond.i, !llvm.loop !9
 
 find_desc_by_name.exit.thread:                    ; preds = %for.body, %for.cond.i
-  %desc210 = getelementptr inbounds %struct.QemuOpt, ptr %opt.027, i64 0, i32 2
+  %desc210 = getelementptr inbounds i8, ptr %opt.0, i64 16
   store ptr null, ptr %desc210, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1106, ptr noundef nonnull @__func__.qemu_opts_validate, ptr noundef nonnull @.str.16, ptr noundef %2) #19
   br label %return
 
 find_desc_by_name.exit:                           ; preds = %for.body.i, %for.body.i.preheader
   %arrayidx8.i.lcssa = phi ptr [ %desc, %for.body.i.preheader ], [ %arrayidx.i, %for.body.i ]
-  %desc2 = getelementptr inbounds %struct.QemuOpt, ptr %opt.027, i64 0, i32 2
+  %desc2 = getelementptr inbounds i8, ptr %opt.0, i64 16
   store ptr %arrayidx8.i.lcssa, ptr %desc2, align 8
-  %call8 = tail call fastcc zeroext i1 @qemu_opt_parse(ptr noundef nonnull %opt.027, ptr noundef %errp)
-  br i1 %call8, label %for.inc, label %return
+  %call8 = tail call fastcc zeroext i1 @qemu_opt_parse(ptr noundef nonnull %opt.0, ptr noundef %errp)
+  br i1 %call8, label %for.cond, label %return, !llvm.loop !27
 
-for.inc:                                          ; preds = %find_desc_by_name.exit
-  %next = getelementptr inbounds %struct.QemuOpt, ptr %opt.027, i64 0, i32 5
-  %opt.0 = load ptr, ptr %next, align 8
-  %tobool.not = icmp eq ptr %opt.0, null
-  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !27
-
-return:                                           ; preds = %find_desc_by_name.exit, %for.inc, %if.end, %find_desc_by_name.exit.thread
-  %tobool.not17 = phi i1 [ false, %find_desc_by_name.exit.thread ], [ true, %if.end ], [ %call8, %for.inc ], [ %call8, %find_desc_by_name.exit ]
-  ret i1 %tobool.not17
+return:                                           ; preds = %for.cond, %find_desc_by_name.exit, %find_desc_by_name.exit.thread
+  %tobool.not30 = phi i1 [ false, %find_desc_by_name.exit.thread ], [ true, %for.cond ], [ %tobool.not, %find_desc_by_name.exit ]
+  ret i1 %tobool.not30
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2984,13 +2858,13 @@ define internal fastcc zeroext i1 @qemu_opt_parse(ptr noundef %opt, ptr noundef 
 entry:
   %size.i = alloca i64, align 8
   %number.i = alloca i64, align 8
-  %desc = getelementptr inbounds %struct.QemuOpt, ptr %opt, i64 0, i32 2
+  %desc = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %desc, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.QemuOptDesc, ptr %0, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %type, align 8
   switch i32 %1, label %sw.default [
     i32 0, label %return
@@ -3001,15 +2875,15 @@ if.end:                                           ; preds = %entry
 
 sw.bb2:                                           ; preds = %if.end
   %2 = load ptr, ptr %opt, align 8
-  %str = getelementptr inbounds %struct.QemuOpt, ptr %opt, i64 0, i32 1
+  %str = getelementptr inbounds i8, ptr %opt, i64 8
   %3 = load ptr, ptr %str, align 8
-  %value = getelementptr inbounds %struct.QemuOpt, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 24
   %call = tail call zeroext i1 @qapi_bool_parse(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %value, ptr noundef %errp) #19
   br label %return
 
 sw.bb3:                                           ; preds = %if.end
   %4 = load ptr, ptr %opt, align 8
-  %str5 = getelementptr inbounds %struct.QemuOpt, ptr %opt, i64 0, i32 1
+  %str5 = getelementptr inbounds i8, ptr %opt, i64 8
   %5 = load ptr, ptr %str5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %number.i)
   %call.i = call i32 @qemu_strtou64(ptr noundef %5, ptr noundef null, i32 noundef 0, ptr noundef nonnull %number.i) #19
@@ -3027,7 +2901,7 @@ if.then1.i:                                       ; preds = %sw.bb3
   br label %parse_option_number.exit
 
 if.end2.i:                                        ; preds = %sw.bb3
-  %value6 = getelementptr inbounds %struct.QemuOpt, ptr %opt, i64 0, i32 3
+  %value6 = getelementptr inbounds i8, ptr %opt, i64 24
   %6 = load i64, ptr %number.i, align 8
   store i64 %6, ptr %value6, align 8
   br label %parse_option_number.exit
@@ -3039,7 +2913,7 @@ parse_option_number.exit:                         ; preds = %if.then.i, %if.then
 
 sw.bb8:                                           ; preds = %if.end
   %7 = load ptr, ptr %opt, align 8
-  %str10 = getelementptr inbounds %struct.QemuOpt, ptr %opt, i64 0, i32 1
+  %str10 = getelementptr inbounds i8, ptr %opt, i64 8
   %8 = load ptr, ptr %str10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i)
   %call.i13 = call i32 @qemu_strtosz(ptr noundef %8, ptr noundef null, ptr noundef nonnull %size.i) #19
@@ -3058,7 +2932,7 @@ if.then1.i17:                                     ; preds = %sw.bb8
   br label %parse_option_size.exit
 
 if.end2.i14:                                      ; preds = %sw.bb8
-  %value11 = getelementptr inbounds %struct.QemuOpt, ptr %opt, i64 0, i32 3
+  %value11 = getelementptr inbounds i8, ptr %opt, i64 24
   %9 = load i64, ptr %size.i, align 8
   store i64 %9, ptr %value11, align 8
   br label %parse_option_size.exit
@@ -3082,7 +2956,7 @@ define dso_local i32 @qemu_opts_foreach(ptr nocapture noundef readonly %list, pt
 entry:
   %loc = alloca %struct.Location, align 8
   %call = call ptr @loc_push_none(ptr noundef nonnull %loc) #19
-  %head = getelementptr inbounds %struct.QemuOptsList, ptr %list, i64 0, i32 3
+  %head = getelementptr inbounds i8, ptr %list, i64 24
   %0 = load ptr, ptr %head, align 8
   %tobool.not7 = icmp eq ptr %0, null
   br i1 %tobool.not7, label %for.end, label %land.rhs.lr.ph
@@ -3093,9 +2967,9 @@ land.rhs.lr.ph:                                   ; preds = %entry
 
 land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %if.end.us
   %opts.08.us = phi ptr [ %1, %if.end.us ], [ %0, %land.rhs.lr.ph ]
-  %next1.us = getelementptr inbounds %struct.QemuOpts, ptr %opts.08.us, i64 0, i32 4
+  %next1.us = getelementptr inbounds i8, ptr %opts.08.us, i64 56
   %1 = load ptr, ptr %next1.us, align 8
-  %loc2.us = getelementptr inbounds %struct.QemuOpts, ptr %opts.08.us, i64 0, i32 2
+  %loc2.us = getelementptr inbounds i8, ptr %opts.08.us, i64 16
   call void @loc_restore(ptr noundef nonnull %loc2.us) #19
   %call3.us = call i32 %func(ptr noundef %opaque, ptr noundef nonnull %opts.08.us, ptr noundef null) #19
   %tobool4.not.us = icmp eq i32 %call3.us, 0
@@ -3107,9 +2981,9 @@ if.end.us:                                        ; preds = %land.rhs.us
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %opts.08 = phi ptr [ %2, %for.inc ], [ %0, %land.rhs.lr.ph ]
-  %next1 = getelementptr inbounds %struct.QemuOpts, ptr %opts.08, i64 0, i32 4
+  %next1 = getelementptr inbounds i8, ptr %opts.08, i64 56
   %2 = load ptr, ptr %next1, align 8
-  %loc2 = getelementptr inbounds %struct.QemuOpts, ptr %opts.08, i64 0, i32 2
+  %loc2 = getelementptr inbounds i8, ptr %opts.08, i64 16
   call void @loc_restore(ptr noundef nonnull %loc2) #19
   %call3 = call i32 %func(ptr noundef %opaque, ptr noundef nonnull %opts.08, ptr noundef nonnull %errp) #19
   %tobool4.not = icmp eq i32 %call3, 0
@@ -3156,10 +3030,10 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end.i31, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %head = getelementptr inbounds %struct.QemuOptsList, ptr %dst, i64 0, i32 3
+  %head = getelementptr inbounds i8, ptr %dst, i64 24
   %0 = load ptr, ptr %head, align 8
   %cmp = icmp eq ptr %0, null
-  %desc1.i = getelementptr inbounds %struct.QemuOptsList, ptr %dst, i64 0, i32 4
+  %desc1.i = getelementptr inbounds i8, ptr %dst, i64 40
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %if.end.i
@@ -3171,14 +3045,14 @@ land.rhs.i:                                       ; preds = %while.body.i, %if.e
 
 while.body.i:                                     ; preds = %land.rhs.i
   %inc.i = add i64 %num_opts.06.i, 1
-  %incdec.ptr.i = getelementptr %struct.QemuOptDesc, ptr %desc.05.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %desc.05.i, i64 32
   %tobool2.not.i = icmp eq ptr %incdec.ptr.i, null
   br i1 %tobool2.not.i, label %if.end.i31, label %land.rhs.i, !llvm.loop !29
 
 if.end.i31:                                       ; preds = %land.rhs.i, %while.body.i, %if.end
   %phi.call = phi i64 [ 0, %if.end ], [ %num_opts.06.i, %land.rhs.i ], [ %inc.i, %while.body.i ]
   %need_head_update.0 = phi i1 [ true, %if.end ], [ %cmp, %while.body.i ], [ %cmp, %land.rhs.i ]
-  %desc1.i32 = getelementptr inbounds %struct.QemuOptsList, ptr %list, i64 0, i32 4
+  %desc1.i32 = getelementptr inbounds i8, ptr %list, i64 40
   br label %land.rhs.i33
 
 land.rhs.i33:                                     ; preds = %while.body.i37, %if.end.i31
@@ -3190,7 +3064,7 @@ land.rhs.i33:                                     ; preds = %while.body.i37, %if
 
 while.body.i37:                                   ; preds = %land.rhs.i33
   %inc.i38 = add i64 %num_opts.06.i34, 1
-  %incdec.ptr.i39 = getelementptr %struct.QemuOptDesc, ptr %desc.05.i35, i64 1
+  %incdec.ptr.i39 = getelementptr i8, ptr %desc.05.i35, i64 32
   %tobool2.not.i40 = icmp eq ptr %incdec.ptr.i39, null
   br i1 %tobool2.not.i40, label %count_opts_list.exit42, label %land.rhs.i33, !llvm.loop !29
 
@@ -3210,15 +3084,15 @@ if.end10:                                         ; preds = %if.then9, %count_op
   br i1 %need_head_update.0, label %do.body, label %if.end16
 
 do.body:                                          ; preds = %if.end10
-  %head13 = getelementptr inbounds %struct.QemuOptsList, ptr %call7, i64 0, i32 3
+  %head13 = getelementptr inbounds i8, ptr %call7, i64 24
   store ptr null, ptr %head13, align 8
-  %tql_prev = getelementptr inbounds %struct.QemuOptsList, ptr %call7, i64 0, i32 3, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call7, i64 32
   store ptr %head13, ptr %tql_prev, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %do.body, %if.end10
-  %desc17 = getelementptr inbounds %struct.QemuOptsList, ptr %call7, i64 0, i32 4
-  %arrayidx = getelementptr %struct.QemuOptsList, ptr %call7, i64 0, i32 4, i64 %phi.call
+  %desc17 = getelementptr inbounds i8, ptr %call7, i64 40
+  %arrayidx = getelementptr [0 x %struct.QemuOptDesc], ptr %desc17, i64 0, i64 %phi.call
   store ptr null, ptr %arrayidx, align 8
   br label %land.rhs
 
@@ -3251,15 +3125,15 @@ for.body.i:                                       ; preds = %while.body, %for.co
 
 if.then30:                                        ; preds = %for.cond.i, %while.body
   %inc = add i64 %num_dst_opts.047, 1
-  %arrayidx32 = getelementptr %struct.QemuOptsList, ptr %call7, i64 0, i32 4, i64 %num_dst_opts.047
+  %arrayidx32 = getelementptr [0 x %struct.QemuOptDesc], ptr %desc17, i64 0, i64 %num_dst_opts.047
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx32, ptr noundef nonnull align 8 dereferenceable(32) %desc.048, i64 32, i1 false)
-  %arrayidx34 = getelementptr %struct.QemuOptsList, ptr %call7, i64 0, i32 4, i64 %inc
+  %arrayidx34 = getelementptr [0 x %struct.QemuOptDesc], ptr %desc17, i64 0, i64 %inc
   store ptr null, ptr %arrayidx34, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %for.body.i, %if.then30
   %num_dst_opts.1 = phi i64 [ %inc, %if.then30 ], [ %num_dst_opts.047, %for.body.i ]
-  %incdec.ptr = getelementptr %struct.QemuOptDesc, ptr %desc.048, i64 1
+  %incdec.ptr = getelementptr i8, ptr %desc.048, i64 32
   %tobool22.not = icmp eq ptr %incdec.ptr, null
   br i1 %tobool22.not, label %return, label %land.rhs, !llvm.loop !30
 

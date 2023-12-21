@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.CONF_VALUE = type { ptr, ptr, ptr }
-%struct.conf_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/conf/conf_api.c\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"ENV\00", align 1
@@ -20,10 +19,10 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %vv, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %vv, i64 8
   store ptr null, ptr %name, align 8
   store ptr %section, ptr %vv, align 8
-  %data = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %conf, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp3.not = icmp eq ptr %0, null
   br i1 %cmp3.not, label %return, label %cond.true
@@ -50,10 +49,10 @@ entry:
   br i1 %or.cond.i, label %_CONF_get_section.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %name.i = getelementptr inbounds %struct.CONF_VALUE, ptr %vv.i, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %vv.i, i64 8
   store ptr null, ptr %name.i, align 8
   store ptr %section, ptr %vv.i, align 8
-  %data.i = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %conf, i64 16
   %0 = load ptr, ptr %data.i, align 8
   %cmp3.not.i = icmp eq ptr %0, null
   br i1 %cmp3.not.i, label %_CONF_get_section.exit.thread, label %_CONF_get_section.exit
@@ -69,7 +68,7 @@ _CONF_get_section.exit:                           ; preds = %if.end.i
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_CONF_get_section.exit
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call6.i, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call6.i, i64 16
   %1 = load ptr, ptr %value, align 8
   br label %return
 
@@ -81,7 +80,7 @@ return:                                           ; preds = %_CONF_get_section.e
 ; Function Attrs: nounwind uwtable
 define i32 @_CONF_add_string(ptr nocapture noundef readonly %conf, ptr nocapture noundef readonly %section, ptr noundef %value) local_unnamed_addr #0 {
 entry:
-  %value1 = getelementptr inbounds %struct.CONF_VALUE, ptr %section, i64 0, i32 2
+  %value1 = getelementptr inbounds i8, ptr %section, i64 16
   %0 = load ptr, ptr %value1, align 8
   %1 = load ptr, ptr %section, align 8
   store ptr %1, ptr %value, align 8
@@ -90,7 +89,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %conf, i64 16
   %2 = load ptr, ptr %data, align 8
   %call8 = tail call ptr @OPENSSL_LH_insert(ptr noundef %2, ptr noundef nonnull %value) #6
   %cmp.not = icmp eq ptr %call8, null
@@ -98,10 +97,10 @@ if.end:                                           ; preds = %entry
 
 if.then9:                                         ; preds = %if.end
   %call12 = tail call ptr @OPENSSL_sk_delete_ptr(ptr noundef %0, ptr noundef nonnull %call8) #6
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call8, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call8, i64 8
   %3 = load ptr, ptr %name, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 59) #6
-  %value13 = getelementptr inbounds %struct.CONF_VALUE, ptr %call8, i64 0, i32 2
+  %value13 = getelementptr inbounds i8, ptr %call8, i64 16
   %4 = load ptr, ptr %value13, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 60) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call8, ptr noundef nonnull @.str, i32 noundef 61) #6
@@ -136,7 +135,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %conf, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp4 = icmp eq ptr %0, null
   br i1 %cmp4, label %return, label %if.end6
@@ -146,7 +145,7 @@ if.end6:                                          ; preds = %if.end3
   br i1 %cmp7.not, label %if.end26, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %name9 = getelementptr inbounds %struct.CONF_VALUE, ptr %vv, i64 0, i32 1
+  %name9 = getelementptr inbounds i8, ptr %vv, i64 8
   store ptr %name, ptr %name9, align 8
   store ptr %section, ptr %vv, align 8
   %call14 = call ptr @OPENSSL_LH_retrieve(ptr noundef nonnull %0, ptr noundef nonnull %vv) #6
@@ -154,7 +153,7 @@ if.then8:                                         ; preds = %if.end6
   br i1 %cmp15.not, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.then8
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call14, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call14, i64 16
   %1 = load ptr, ptr %value, align 8
   br label %return
 
@@ -170,7 +169,7 @@ if.then20:                                        ; preds = %if.end17
 
 if.end26:                                         ; preds = %if.end17, %if.then20, %if.end6
   store ptr @.str.2, ptr %vv, align 8
-  %name28 = getelementptr inbounds %struct.CONF_VALUE, ptr %vv, i64 0, i32 1
+  %name28 = getelementptr inbounds i8, ptr %vv, i64 8
   store ptr %name, ptr %name28, align 8
   %2 = load ptr, ptr %data, align 8
   %call32 = call ptr @OPENSSL_LH_retrieve(ptr noundef %2, ptr noundef nonnull %vv) #6
@@ -178,7 +177,7 @@ if.end26:                                         ; preds = %if.end17, %if.then2
   br i1 %cmp33, label %return, label %if.end35
 
 if.end35:                                         ; preds = %if.end26
-  %value36 = getelementptr inbounds %struct.CONF_VALUE, ptr %call32, i64 0, i32 2
+  %value36 = getelementptr inbounds i8, ptr %call32, i64 16
   %3 = load ptr, ptr %value36, align 8
   br label %return
 
@@ -199,7 +198,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %conf, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.then2, label %if.end10
@@ -226,7 +225,7 @@ entry:
   %0 = load ptr, ptr %v, align 8
   %call = tail call i64 @OPENSSL_LH_strhash(ptr noundef %0) #6
   %shl = shl i64 %call, 2
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %v, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %v, i64 8
   %1 = load ptr, ptr %name, align 8
   %call1 = tail call i64 @OPENSSL_LH_strhash(ptr noundef %1) #6
   %xor = xor i64 %call1, %shl
@@ -247,10 +246,10 @@ if.then:                                          ; preds = %entry
   br i1 %cmp4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then, %entry
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %a, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %name, align 8
   %cmp7.not = icmp eq ptr %2, null
-  %name16.phi.trans.insert = getelementptr inbounds %struct.CONF_VALUE, ptr %b, i64 0, i32 1
+  %name16.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 8
   %.pre = load ptr, ptr %name16.phi.trans.insert, align 8
   br i1 %cmp7.not, label %if.end14, label %land.lhs.true
 
@@ -281,10 +280,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %includedir = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 5
+  %includedir = getelementptr inbounds i8, ptr %conf, i64 32
   %0 = load ptr, ptr %includedir, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 141) #6
-  %data = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %conf, i64 16
   %1 = load ptr, ptr %data, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end3
@@ -308,7 +307,7 @@ declare void @OPENSSL_LH_set_down_load(ptr noundef, i64 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal void @value_free_hash(ptr noundef %a, ptr noundef %conf) #0 {
 entry:
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %a, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %name, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -326,13 +325,13 @@ declare void @OPENSSL_LH_doall(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @value_free_stack_doall(ptr noundef %a) #0 {
 entry:
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %a, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %name, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %a, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %a, i64 16
   %1 = load ptr, ptr %value, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #6
   %cmp210 = icmp sgt i32 %call1, 0
@@ -342,10 +341,10 @@ for.body:                                         ; preds = %if.end, %for.body
   %i.0.in11 = phi i32 [ %i.0, %for.body ], [ %call1, %if.end ]
   %i.0 = add nsw i32 %i.0.in11, -1
   %call4 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %i.0) #6
-  %value5 = getelementptr inbounds %struct.CONF_VALUE, ptr %call4, i64 0, i32 2
+  %value5 = getelementptr inbounds i8, ptr %call4, i64 16
   %2 = load ptr, ptr %value5, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 176) #6
-  %name6 = getelementptr inbounds %struct.CONF_VALUE, ptr %call4, i64 0, i32 1
+  %name6 = getelementptr inbounds i8, ptr %call4, i64 8
   %3 = load ptr, ptr %name6, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 177) #6
   tail call void @CRYPTO_free(ptr noundef %call4, ptr noundef nonnull @.str, i32 noundef 178) #6
@@ -389,11 +388,11 @@ if.end4:                                          ; preds = %if.end
 
 if.end12:                                         ; preds = %if.end4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call7, ptr align 1 %section, i64 %conv6, i1 false)
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr null, ptr %name, align 8
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call1, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %call, ptr %value, align 8
-  %data = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %conf, i64 16
   %0 = load ptr, ptr %data, align 8
   %call17 = tail call ptr @OPENSSL_LH_insert(ptr noundef %0, ptr noundef nonnull %call1) #6
   %cmp18.not = icmp eq ptr %call17, null

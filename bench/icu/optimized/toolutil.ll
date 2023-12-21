@@ -3,10 +3,6 @@ source_filename = "bench/icu/original/toolutil.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::ErrorCode" = type <{ ptr, i32, [4 x i8] }>
-%"class.icu_75::IcuToolErrorCode" = type { %"class.icu_75::ErrorCode.base", ptr }
-%"class.icu_75::ErrorCode.base" = type <{ ptr, i32 }>
-%struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %"class.std::basic_ofstream" = type { %"class.std::basic_ostream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
@@ -25,7 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::basic_ifstream" = type { %"class.std::basic_istream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
-%struct.UToolMemory = type { [64 x i8], i32, i32, i32, i32, ptr, [8 x i8], [1 x i8], [15 x i8] }
 
 $__clang_call_terminate = comdat any
 
@@ -47,7 +42,7 @@ $__clang_call_terminate = comdat any
 define void @_ZN6icu_7516IcuToolErrorCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %errorCode.i = getelementptr inbounds %"class.icu_75::ErrorCode", ptr %this, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %errorCode.i, align 8
   %cmp.i.i = icmp slt i32 %0, 1
   br i1 %cmp.i.i, label %if.end, label %if.then
@@ -102,11 +97,11 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 define void @_ZNK6icu_7516IcuToolErrorCode13handleFailureEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %location = getelementptr inbounds %"class.icu_75::IcuToolErrorCode", ptr %this, i64 0, i32 1
+  %location = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %location, align 8
   %call = tail call noundef ptr @_ZNK6icu_759ErrorCode9errorNameEv(ptr noundef nonnull align 8 dereferenceable(12) %this)
   %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %1, ptr noundef %call) #23
-  %errorCode = getelementptr inbounds %"class.icu_75::ErrorCode", ptr %this, i64 0, i32 1
+  %errorCode = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %errorCode, align 8
   tail call void @exit(i32 noundef %2) #22
   unreachable
@@ -132,7 +127,7 @@ if.then:                                          ; preds = %entry
   %call = tail call i64 @time(ptr noundef null) #21
   store i64 %call, ptr %now, align 8
   %call1 = call ptr @gmtime(ptr noundef nonnull %now) #21
-  %tm_year = getelementptr inbounds %struct.tm, ptr %call1, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %call1, i64 20
   %1 = load i32, ptr %tm_year, align 4
   %add = add nsw i32 %1, 1900
   store i32 %add, ptr @_ZL11currentYear, align 4
@@ -405,17 +400,17 @@ if.then2:                                         ; preds = %entry
 
 if.end4:                                          ; preds = %entry
   %spec.select = tail call i32 @llvm.smax.i32(i32 %maxCapacity, i32 %initialCapacity)
-  %staticArray = getelementptr inbounds %struct.UToolMemory, ptr %call, i64 0, i32 7
-  %array = getelementptr inbounds %struct.UToolMemory, ptr %call, i64 0, i32 5
+  %staticArray = getelementptr inbounds i8, ptr %call, i64 96
+  %array = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %staticArray, ptr %array, align 16
   %call7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %name) #21
-  %capacity = getelementptr inbounds %struct.UToolMemory, ptr %call, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %call, i64 64
   store i32 %initialCapacity, ptr %capacity, align 16
-  %maxCapacity8 = getelementptr inbounds %struct.UToolMemory, ptr %call, i64 0, i32 2
+  %maxCapacity8 = getelementptr inbounds i8, ptr %call, i64 68
   store i32 %spec.select, ptr %maxCapacity8, align 4
-  %size9 = getelementptr inbounds %struct.UToolMemory, ptr %call, i64 0, i32 3
+  %size9 = getelementptr inbounds i8, ptr %call, i64 72
   store i32 %size, ptr %size9, align 8
-  %idx = getelementptr inbounds %struct.UToolMemory, ptr %call, i64 0, i32 4
+  %idx = getelementptr inbounds i8, ptr %call, i64 76
   store i32 0, ptr %idx, align 4
   ret ptr %call
 }
@@ -433,9 +428,9 @@ entry:
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %array = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 5
+  %array = getelementptr inbounds i8, ptr %mem, i64 80
   %0 = load ptr, ptr %array, align 16
-  %staticArray = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 7
+  %staticArray = getelementptr inbounds i8, ptr %mem, i64 96
   %cmp1.not = icmp eq ptr %0, %staticArray
   br i1 %cmp1.not, label %if.end, label %if.then2
 
@@ -456,7 +451,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @utm_getStart(ptr nocapture noundef readonly %mem) local_unnamed_addr #16 {
 entry:
-  %array = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 5
+  %array = getelementptr inbounds i8, ptr %mem, i64 80
   %0 = load ptr, ptr %array, align 16
   ret ptr %0
 }
@@ -464,7 +459,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @utm_countItems(ptr nocapture noundef readonly %mem) local_unnamed_addr #16 {
 entry:
-  %idx = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 4
+  %idx = getelementptr inbounds i8, ptr %mem, i64 76
   %0 = load i32, ptr %idx, align 4
   ret i32 %0
 }
@@ -472,13 +467,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define ptr @utm_alloc(ptr noundef %mem) local_unnamed_addr #14 {
 entry:
-  %idx = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 4
+  %idx = getelementptr inbounds i8, ptr %mem, i64 76
   %0 = load i32, ptr %idx, align 4
   %add = add nsw i32 %0, 1
   tail call fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %mem, i32 noundef %add)
-  %array = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 5
+  %array = getelementptr inbounds i8, ptr %mem, i64 80
   %1 = load ptr, ptr %array, align 16
-  %size = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %mem, i64 72
   %2 = load i32, ptr %size, align 8
   %mul = mul nsw i32 %2, %0
   %idx.ext = sext i32 %mul to i64
@@ -492,13 +487,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %mem, i32 noundef %capacity) unnamed_addr #14 {
 entry:
-  %capacity1 = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 1
+  %capacity1 = getelementptr inbounds i8, ptr %mem, i64 64
   %0 = load i32, ptr %capacity1, align 16
   %cmp = icmp slt i32 %0, %capacity
   br i1 %cmp, label %if.then, label %if.end52
 
 if.then:                                          ; preds = %entry
-  %maxCapacity = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 2
+  %maxCapacity = getelementptr inbounds i8, ptr %mem, i64 68
   %1 = load i32, ptr %maxCapacity, align 4
   %cmp2 = icmp slt i32 %1, %capacity
   br i1 %cmp2, label %if.then3, label %if.end
@@ -523,11 +518,11 @@ if.else:                                          ; preds = %if.end
 
 if.end17:                                         ; preds = %if.else, %if.end
   %newCapacity.0 = phi i32 [ %capacity, %if.end ], [ %.mul, %if.else ]
-  %array = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 5
+  %array = getelementptr inbounds i8, ptr %mem, i64 80
   %3 = load ptr, ptr %array, align 16
-  %staticArray = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 7
+  %staticArray = getelementptr inbounds i8, ptr %mem, i64 96
   %cmp19 = icmp eq ptr %3, %staticArray
-  %size = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %mem, i64 72
   %4 = load i32, ptr %size, align 8
   %mul21 = mul nsw i32 %4, %newCapacity.0
   %conv22 = sext i32 %mul21 to i64
@@ -540,7 +535,7 @@ if.then20:                                        ; preds = %if.end17
   br i1 %cmp26.not, label %if.then46, label %if.end43.thread
 
 if.end43.thread:                                  ; preds = %if.then20
-  %idx = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 4
+  %idx = getelementptr inbounds i8, ptr %mem, i64 76
   %5 = load i32, ptr %idx, align 4
   %conv31 = sext i32 %5 to i64
   %6 = load i32, ptr %size, align 8
@@ -575,13 +570,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress uwtable
 define ptr @utm_allocN(ptr noundef %mem, i32 noundef %n) local_unnamed_addr #14 {
 entry:
-  %idx = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 4
+  %idx = getelementptr inbounds i8, ptr %mem, i64 76
   %0 = load i32, ptr %idx, align 4
   %add = add nsw i32 %0, %n
   tail call fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %mem, i32 noundef %add)
-  %array = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 5
+  %array = getelementptr inbounds i8, ptr %mem, i64 80
   %1 = load ptr, ptr %array, align 16
-  %size = getelementptr inbounds %struct.UToolMemory, ptr %mem, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %mem, i64 72
   %2 = load i32, ptr %size, align 8
   %mul = mul nsw i32 %2, %0
   %idx.ext = sext i32 %mul to i64

@@ -5,38 +5,20 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.std::allocator" = type { i8 }
-%"class.facebook::velox::expression::calculate::Parser" = type { ptr, %"class.facebook::velox::expression::calculate::Parser::stack", ptr }
-%"class.facebook::velox::expression::calculate::Parser::stack" = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<facebook::velox::expression::calculate::Parser::stack_symbol_type, std::allocator<facebook::velox::expression::calculate::Parser::stack_symbol_type>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::velox::expression::calculate::Parser::stack_symbol_type, std::allocator<facebook::velox::expression::calculate::Parser::stack_symbol_type>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::velox::expression::calculate::Parser::stack_symbol_type, std::allocator<facebook::velox::expression::calculate::Parser::stack_symbol_type>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::velox::expression::calculate::Parser::stack_symbol_type, std::allocator<facebook::velox::expression::calculate::Parser::stack_symbol_type>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type" = type { %"struct.facebook::velox::expression::calculate::Parser::basic_symbol" }
 %"struct.facebook::velox::expression::calculate::Parser::basic_symbol" = type { %"struct.facebook::velox::expression::calculate::Parser::by_state", %"class.facebook::velox::expression::calculate::Parser::value_type" }
 %"struct.facebook::velox::expression::calculate::Parser::by_state" = type { i8 }
 %"class.facebook::velox::expression::calculate::Parser::value_type" = type { %union.anon.0 }
 %union.anon.0 = type { x86_fp80, [16 x i8] }
-%"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type" = type { %"struct.facebook::velox::expression::calculate::Parser::basic_symbol" }
+%"struct.facebook::velox::expression::calculate::Parser::symbol_type" = type { %"struct.facebook::velox::expression::calculate::Parser::basic_symbol.1" }
 %"struct.facebook::velox::expression::calculate::Parser::basic_symbol.1" = type { %"struct.facebook::velox::expression::calculate::Parser::by_kind", %"class.facebook::velox::expression::calculate::Parser::value_type" }
 %"struct.facebook::velox::expression::calculate::Parser::by_kind" = type { i32 }
-%"struct.facebook::velox::expression::calculate::Parser::symbol_type" = type { %"struct.facebook::velox::expression::calculate::Parser::basic_symbol.1" }
 %"class.facebook::velox::expression::calculate::Parser::context" = type { ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.5 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.5 = type { i64, [8 x i8] }
-%"class.facebook::velox::expression::calculate::Scanner" = type { %class.yyFlexLexer.base, ptr }
-%class.yyFlexLexer.base = type <{ %class.FlexLexer.base, i32, i32, [4 x i8], ptr, %"class.std::basic_istream", %"class.std::basic_ostream", i8, [3 x i8], i32, ptr, i32, i32, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32 }>
-%class.FlexLexer.base = type <{ ptr, ptr, i32, i32, i32 }>
-%"class.std::basic_istream" = type { ptr, i64, %"class.std::basic_ios" }
-%"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
-%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
-%"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.std::locale" = type { ptr }
-%"class.std::basic_ostream" = type { ptr, %"class.std::basic_ios" }
 %"class.std::allocator.2" = type { i8 }
 %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, int>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %struct._Guard = type { ptr }
 
 $_ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt6vectorIS5_SaIS5_EEE4pushEOS5_ = comdat any
@@ -162,7 +144,7 @@ define void @_ZN8facebook5velox10expression9calculate6ParserC2EPNS2_7ScannerE(pt
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook5velox10expression9calculate6ParserE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %yystack_ = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %this, i64 0, i32 1
+  %yystack_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   invoke void @_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EEC2EmRKS6_(ptr noundef nonnull align 8 dereferenceable(24) %yystack_, i64 noundef 200, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %_ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt6vectorIS5_SaIS5_EEEC2Em.exit unwind label %terminate.lpad.i
@@ -176,7 +158,7 @@ terminate.lpad.i:                                 ; preds = %entry
 
 _ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt6vectorIS5_SaIS5_EEEC2Em.exit: ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %scanner = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %this, i64 0, i32 2
+  %scanner = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %scanner_yyarg, ptr %scanner, align 8
   ret void
 }
@@ -185,9 +167,9 @@ _ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt
 define void @_ZN8facebook5velox10expression9calculate6ParserD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook5velox10expression9calculate6ParserE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %yystack_ = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %this, i64 0, i32 1
+  %yystack_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %yystack_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
@@ -206,13 +188,13 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
   br i1 %cond.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i.i.i
 
 sw.bb2.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i.i
-  %value3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %value3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i.i) #26
   br label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   store i8 0, ptr %__first.addr.04.i.i.i.i.i, align 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 48
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !4
 
@@ -422,7 +404,7 @@ return:                                           ; preds = %entry, %if.else
 define void @_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(48) %this) unnamed_addr #9 align 2 {
 entry:
   store i8 0, ptr %this, align 16
-  %value.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %this, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %value.i, i8 0, i64 32, i1 false)
   ret void
 }
@@ -432,7 +414,7 @@ define void @_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeC
 entry:
   %0 = load i8, ptr %that, align 16
   store i8 %0, ptr %this, align 16
-  %value.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %this, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %value.i, i8 0, i64 32, i1 false)
   %1 = load i8, ptr %that, align 16
   %cmp.i = icmp eq i8 %1, 0
@@ -450,13 +432,13 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit: ; preds =
   ]
 
 sw.bb:                                            ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit
-  %value2 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %that, i64 0, i32 1
+  %value2 = getelementptr inbounds i8, ptr %that, i64 16
   %3 = load i64, ptr %value2, align 16
   store i64 %3, ptr %value.i, align 16
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit
-  %value5 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %that, i64 0, i32 1
+  %value5 = getelementptr inbounds i8, ptr %that, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i, ptr noundef nonnull align 8 dereferenceable(32) %value5) #26
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value5) #26
   br label %sw.epilog
@@ -472,7 +454,7 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeC2EaONS3_11symbol_typeE(ptr noundef nonnull align 16 dereferenceable(48) %this, i8 noundef signext %s, ptr noundef nonnull align 16 dereferenceable(48) %that) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 %s, ptr %this, align 16
-  %value.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %this, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %value.i, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %that, align 16
   switch i32 %0, label %sw.epilog [
@@ -482,13 +464,13 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry
-  %value2 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol.1", ptr %that, i64 0, i32 1
+  %value2 = getelementptr inbounds i8, ptr %that, i64 16
   %1 = load i64, ptr %value2, align 16
   store i64 %1, ptr %value.i, align 16
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %value5 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol.1", ptr %that, i64 0, i32 1
+  %value5 = getelementptr inbounds i8, ptr %that, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i, ptr noundef nonnull align 8 dereferenceable(32) %value5) #26
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value5) #26
   br label %sw.epilog
@@ -501,7 +483,7 @@ sw.epilog:                                        ; preds = %sw.bb3, %sw.bb, %en
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcONS3_17stack_symbol_typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef readnone %m, ptr noundef nonnull align 16 dereferenceable(48) %sym) local_unnamed_addr #10 align 2 {
 entry:
-  %yystack_ = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %this, i64 0, i32 1
+  %yystack_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt6vectorIS5_SaIS5_EEE4pushEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %yystack_, ptr noundef nonnull align 16 dereferenceable(48) %sym)
   ret void
 }
@@ -511,9 +493,9 @@ define linkonce_odr void @_ZN8facebook5velox10expression9calculate6Parser5stackI
 entry:
   %ref.tmp = alloca %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", align 16
   call void @_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeC1Ev(ptr noundef nonnull align 16 dereferenceable(48) %ref.tmp)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::expression::calculate::Parser::stack_symbol_type, std::allocator<facebook::velox::expression::calculate::Parser::stack_symbol_type>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::expression::calculate::Parser::stack_symbol_type, std::allocator<facebook::velox::expression::calculate::Parser::stack_symbol_type>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -524,7 +506,7 @@ if.then.i.i:                                      ; preds = %entry
 
 .noexc:                                           ; preds = %if.then.i.i
   %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %2, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 48
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont
 
@@ -545,7 +527,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i: ; p
   br i1 %cond.i.i.i, label %sw.bb2.i.i.i, label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit
 
 sw.bb2.i.i.i:                                     ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i
-  %value3.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %ref.tmp, i64 0, i32 1
+  %value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit
 
@@ -558,7 +540,7 @@ _ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit: ; p
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 48
   %7 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %6, i64 %sub.ptr.div.i.i.i
-  %add.ptr.i.i = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %7, i64 -1
+  %add.ptr.i.i = getelementptr i8, ptr %7, i64 -48
   %8 = load i8, ptr %t, align 16
   store i8 %8, ptr %add.ptr.i.i, align 1
   store i8 0, ptr %t, align 16
@@ -578,15 +560,15 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i: ; preds
   ]
 
 sw.bb.i:                                          ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i
-  %value.i = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %7, i64 -1, i32 0, i32 1
-  %value2.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %t, i64 0, i32 1
+  %value.i = getelementptr i8, ptr %7, i64 -32
+  %value2.i = getelementptr inbounds i8, ptr %t, i64 16
   %11 = load i64, ptr %value2.i, align 16
   store i64 %11, ptr %value.i, align 8
   br label %_ZN8facebook5velox10expression9calculate6Parser12basic_symbolINS3_8by_stateEE4moveERS6_.exit
 
 sw.bb3.i:                                         ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i
-  %value4.i = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %7, i64 -1, i32 0, i32 1
-  %value5.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %t, i64 0, i32 1
+  %value4.i = getelementptr i8, ptr %7, i64 -32
+  %value5.i = getelementptr inbounds i8, ptr %t, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value4.i, ptr noundef nonnull align 8 dereferenceable(32) %value5.i) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value5.i) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser12basic_symbolINS3_8by_stateEE4moveERS6_.exit
@@ -609,7 +591,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i3: ; 
   br i1 %cond.i.i.i6, label %sw.bb2.i.i.i7, label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit9
 
 sw.bb2.i.i.i7:                                    ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i3
-  %value3.i.i.i8 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %ref.tmp, i64 0, i32 1
+  %value3.i.i.i8 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i8) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit9
 
@@ -622,7 +604,7 @@ define void @_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11
 entry:
   %ref.tmp = alloca %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", align 16
   call void @_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeC1EaONS3_11symbol_typeE(ptr noundef nonnull align 16 dereferenceable(48) %ref.tmp, i8 noundef signext %s, ptr noundef nonnull align 16 dereferenceable(48) %sym)
-  %yystack_.i = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %this, i64 0, i32 1
+  %yystack_.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt6vectorIS5_SaIS5_EEE4pushEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %yystack_.i, ptr noundef nonnull align 16 dereferenceable(48) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -639,7 +621,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i: ; p
   br i1 %cond.i.i.i, label %sw.bb2.i.i.i, label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit
 
 sw.bb2.i.i.i:                                     ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i
-  %value3.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %ref.tmp, i64 0, i32 1
+  %value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit
 
@@ -661,7 +643,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i2: ; 
   br i1 %cond.i.i.i5, label %sw.bb2.i.i.i6, label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit8
 
 sw.bb2.i.i.i6:                                    ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i2
-  %value3.i.i.i7 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %ref.tmp, i64 0, i32 1
+  %value3.i.i.i7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i7) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit8
 
@@ -677,13 +659,13 @@ entry:
 
 for.body.lr.ph.i:                                 ; preds = %entry
   %conv = zext nneg i32 %n to i64
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i, %for.body.lr.ph.i
   %n.addr.03.i = phi i64 [ %conv, %for.body.lr.ph.i ], [ %dec.i, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i ]
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %0, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 -48
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   %1 = load i8, ptr %incdec.ptr.i.i, align 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %1, 0
@@ -697,7 +679,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
   br i1 %cond.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i
 
 sw.bb2.i.i.i.i.i.i.i:                             ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i
-  %value3.i.i.i.i.i.i.i = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %0, i64 -1, i32 0, i32 1
+  %value3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i
 
@@ -763,7 +745,7 @@ entry:
 define noundef i32 @_ZN8facebook5velox10expression9calculate6ParserclEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #10 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(40) %this)
   ret i32 %call
@@ -780,11 +762,11 @@ entry:
   %msg = alloca %"class.std::__cxx11::basic_string", align 8
   %error_token = alloca %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", align 16
   store i32 -2, ptr %yyla, align 16
-  %value.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol.1", ptr %yyla, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %yyla, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %value.i.i, i8 0, i64 32, i1 false)
-  %yystack_ = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %this, i64 0, i32 1
+  %yystack_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %yystack_, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i.i, label %_ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt6vectorIS5_SaIS5_EEE5clearEv.exit, label %for.body.i.i.i.i.i.i
@@ -803,13 +785,13 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
   br i1 %cond.i.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i.i.i.i
 
 sw.bb2.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i.i.i
-  %value3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %__first.addr.04.i.i.i.i.i.i, i64 0, i32 1
+  %value3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i.i.i) #26
   br label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   store i8 0, ptr %__first.addr.04.i.i.i.i.i.i, align 1
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 48
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !4
 
@@ -839,7 +821,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i: ;
   br i1 %cond.i.i.i.i, label %sw.bb2.i.i.i.i, label %_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit
 
 sw.bb2.i.i.i.i:                                   ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i
-  %value3.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %ref.tmp.i, i64 0, i32 1
+  %value3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i) #26
   br label %_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit
 
@@ -858,16 +840,16 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i2.i: 
   br i1 %cond.i.i.i5.i, label %sw.bb2.i.i.i6.i, label %lpad.body
 
 sw.bb2.i.i.i6.i:                                  ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i2.i
-  %value3.i.i.i7.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %ref.tmp.i, i64 0, i32 1
+  %value3.i.i.i7.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i7.i) #26
   br label %lpad.body
 
 _ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit: ; preds = %invoke.cont.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i, %sw.bb2.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %scanner = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %this, i64 0, i32 2
-  %value3.i.i.i.i63 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %ref.tmp.i45, i64 0, i32 1
-  %value86 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %yylhs, i64 0, i32 1
-  %value3.i.i.i372 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %error_token, i64 0, i32 1
+  %scanner = getelementptr inbounds i8, ptr %this, i64 32
+  %value3.i.i.i.i63 = getelementptr inbounds i8, ptr %ref.tmp.i45, i64 16
+  %value86 = getelementptr inbounds i8, ptr %yylhs, i64 16
+  %value3.i.i.i372 = getelementptr inbounds i8, ptr %error_token, i64 16
   br label %yynewstate.outer
 
 yynewstate.outer:                                 ; preds = %yynewstate.outer.backedge, %_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.exit
@@ -880,7 +862,7 @@ yynewstate.outer:                                 ; preds = %yynewstate.outer.ba
   %sub.ptr.sub.i.i.i520 = sub i64 %sub.ptr.lhs.cast.i.i.i518, %sub.ptr.rhs.cast.i.i.i519
   %sub.ptr.div.i.i.i521 = sdiv exact i64 %sub.ptr.sub.i.i.i520, 48
   %11 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %10, i64 %sub.ptr.div.i.i.i521
-  %add.ptr.i.i522 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %11, i64 -1
+  %add.ptr.i.i522 = getelementptr i8, ptr %11, i64 -48
   %12 = load i8, ptr %add.ptr.i.i522, align 16
   %cmp523 = icmp eq i8 %12, 5
   br i1 %cmp523, label %if.end429, label %yybackup
@@ -1066,7 +1048,7 @@ _ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE.
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 48
   %36 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %35, i64 %sub.ptr.div.i.i.i
-  %add.ptr.i.i = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %36, i64 -1
+  %add.ptr.i.i = getelementptr i8, ptr %36, i64 -48
   %37 = load i8, ptr %add.ptr.i.i, align 16
   %cmp = icmp eq i8 %37, 5
   br i1 %cmp, label %if.end429, label %yybackup
@@ -1079,7 +1061,7 @@ yydefault:                                        ; preds = %if.end28, %lor.lhs.
   %sub.ptr.sub.i.i.i71 = sub i64 %sub.ptr.lhs.cast.i.i.i69, %sub.ptr.rhs.cast.i.i.i70
   %sub.ptr.div.i.i.i72 = sdiv exact i64 %sub.ptr.sub.i.i.i71, 48
   %40 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %39, i64 %sub.ptr.div.i.i.i72
-  %add.ptr.i.i73 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %40, i64 -1
+  %add.ptr.i.i73 = getelementptr i8, ptr %40, i64 -48
   %41 = load i8, ptr %add.ptr.i.i73, align 16
   %idxprom58 = sext i8 %41 to i64
   %arrayidx59 = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox10expression9calculate6Parser9yydefact_E, i64 0, i64 %idxprom58
@@ -1194,10 +1176,10 @@ sw.bb89:                                          ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i88 = sub i64 %sub.ptr.lhs.cast.i.i.i86, %sub.ptr.rhs.cast.i.i.i87
   %sub.ptr.div.i.i.i89 = sdiv exact i64 %sub.ptr.sub.i.i.i88, 48
   %58 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %57, i64 %sub.ptr.div.i.i.i89
-  %value95 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %58, i64 -3, i32 0, i32 1
-  %value100 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %58, i64 -1, i32 0, i32 1
+  %value95 = getelementptr i8, ptr %58, i64 -128
+  %value100 = getelementptr i8, ptr %58, i64 -32
   %59 = load i64, ptr %value100, align 8
-  %values_.i = getelementptr inbounds %"class.facebook::velox::expression::calculate::Scanner", ptr %55, i64 0, i32 1
+  %values_.i = getelementptr inbounds i8, ptr %55, i64 736
   %60 = load ptr, ptr %values_.i, align 8
   %call.i.i97 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef nonnull align 8 dereferenceable(32) %value95)
           to label %_ZN8facebook5velox10expression9calculate7Scanner8setValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit unwind label %lpad92
@@ -1237,7 +1219,7 @@ sw.bb105:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i101 = sub i64 %sub.ptr.lhs.cast.i.i.i99, %sub.ptr.rhs.cast.i.i.i100
   %sub.ptr.div.i.i.i102 = sdiv exact i64 %sub.ptr.sub.i.i.i101, 48
   %68 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %67, i64 %sub.ptr.div.i.i.i102
-  %value109 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %68, i64 -1, i32 0, i32 1
+  %value109 = getelementptr i8, ptr %68, i64 -32
   %69 = load i64, ptr %value109, align 8
   store i64 %69, ptr %value86, align 16
   br label %try.cont360
@@ -1250,9 +1232,9 @@ sw.bb113:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i107 = sub i64 %sub.ptr.lhs.cast.i.i.i105, %sub.ptr.rhs.cast.i.i.i106
   %sub.ptr.div.i.i.i108 = sdiv exact i64 %sub.ptr.sub.i.i.i107, 48
   %72 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %71, i64 %sub.ptr.div.i.i.i108
-  %value117 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %72, i64 -3, i32 0, i32 1
+  %value117 = getelementptr i8, ptr %72, i64 -128
   %73 = load i64, ptr %value117, align 8
-  %value122 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %72, i64 -1, i32 0, i32 1
+  %value122 = getelementptr i8, ptr %72, i64 -32
   %74 = load i64, ptr %value122, align 8
   %add124 = add nsw i64 %74, %73
   store i64 %add124, ptr %value86, align 16
@@ -1266,9 +1248,9 @@ sw.bb127:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i119 = sub i64 %sub.ptr.lhs.cast.i.i.i117, %sub.ptr.rhs.cast.i.i.i118
   %sub.ptr.div.i.i.i120 = sdiv exact i64 %sub.ptr.sub.i.i.i119, 48
   %77 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %76, i64 %sub.ptr.div.i.i.i120
-  %value131 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %77, i64 -3, i32 0, i32 1
+  %value131 = getelementptr i8, ptr %77, i64 -128
   %78 = load i64, ptr %value131, align 8
-  %value136 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %77, i64 -1, i32 0, i32 1
+  %value136 = getelementptr i8, ptr %77, i64 -32
   %79 = load i64, ptr %value136, align 8
   %sub138 = sub nsw i64 %78, %79
   store i64 %sub138, ptr %value86, align 16
@@ -1282,9 +1264,9 @@ sw.bb141:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i131 = sub i64 %sub.ptr.lhs.cast.i.i.i129, %sub.ptr.rhs.cast.i.i.i130
   %sub.ptr.div.i.i.i132 = sdiv exact i64 %sub.ptr.sub.i.i.i131, 48
   %82 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %81, i64 %sub.ptr.div.i.i.i132
-  %value145 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %82, i64 -3, i32 0, i32 1
+  %value145 = getelementptr i8, ptr %82, i64 -128
   %83 = load i64, ptr %value145, align 8
-  %value150 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %82, i64 -1, i32 0, i32 1
+  %value150 = getelementptr i8, ptr %82, i64 -32
   %84 = load i64, ptr %value150, align 8
   %mul = mul nsw i64 %84, %83
   store i64 %mul, ptr %value86, align 16
@@ -1298,9 +1280,9 @@ sw.bb154:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i143 = sub i64 %sub.ptr.lhs.cast.i.i.i141, %sub.ptr.rhs.cast.i.i.i142
   %sub.ptr.div.i.i.i144 = sdiv exact i64 %sub.ptr.sub.i.i.i143, 48
   %87 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %86, i64 %sub.ptr.div.i.i.i144
-  %value158 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %87, i64 -3, i32 0, i32 1
+  %value158 = getelementptr i8, ptr %87, i64 -128
   %88 = load i64, ptr %value158, align 8
-  %value163 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %87, i64 -1, i32 0, i32 1
+  %value163 = getelementptr i8, ptr %87, i64 -32
   %89 = load i64, ptr %value163, align 8
   %div = sdiv i64 %88, %89
   store i64 %div, ptr %value86, align 16
@@ -1314,9 +1296,9 @@ sw.bb167:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i155 = sub i64 %sub.ptr.lhs.cast.i.i.i153, %sub.ptr.rhs.cast.i.i.i154
   %sub.ptr.div.i.i.i156 = sdiv exact i64 %sub.ptr.sub.i.i.i155, 48
   %92 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %91, i64 %sub.ptr.div.i.i.i156
-  %value171 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %92, i64 -3, i32 0, i32 1
+  %value171 = getelementptr i8, ptr %92, i64 -128
   %93 = load i64, ptr %value171, align 8
-  %value176 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %92, i64 -1, i32 0, i32 1
+  %value176 = getelementptr i8, ptr %92, i64 -32
   %94 = load i64, ptr %value176, align 8
   %rem = srem i64 %93, %94
   store i64 %rem, ptr %value86, align 16
@@ -1330,7 +1312,7 @@ sw.bb180:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i167 = sub i64 %sub.ptr.lhs.cast.i.i.i165, %sub.ptr.rhs.cast.i.i.i166
   %sub.ptr.div.i.i.i168 = sdiv exact i64 %sub.ptr.sub.i.i.i167, 48
   %97 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %96, i64 %sub.ptr.div.i.i.i168
-  %value184 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %97, i64 -1, i32 0, i32 1
+  %value184 = getelementptr i8, ptr %97, i64 -32
   %98 = load i64, ptr %value184, align 8
   %sub186 = sub nsw i64 0, %98
   store i64 %sub186, ptr %value86, align 16
@@ -1344,7 +1326,7 @@ sw.bb189:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i173 = sub i64 %sub.ptr.lhs.cast.i.i.i171, %sub.ptr.rhs.cast.i.i.i172
   %sub.ptr.div.i.i.i174 = sdiv exact i64 %sub.ptr.sub.i.i.i173, 48
   %101 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %100, i64 %sub.ptr.div.i.i.i174
-  %value193 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %101, i64 -2, i32 0, i32 1
+  %value193 = getelementptr i8, ptr %101, i64 -80
   %102 = load i64, ptr %value193, align 8
   store i64 %102, ptr %value86, align 16
   br label %try.cont360
@@ -1357,8 +1339,8 @@ sw.bb197:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i179 = sub i64 %sub.ptr.lhs.cast.i.i.i177, %sub.ptr.rhs.cast.i.i.i178
   %sub.ptr.div.i.i.i180 = sdiv exact i64 %sub.ptr.sub.i.i.i179, 48
   %105 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %104, i64 %sub.ptr.div.i.i.i180
-  %value201 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %105, i64 -4, i32 0, i32 1
-  %value206 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %105, i64 -2, i32 0, i32 1
+  %value201 = getelementptr i8, ptr %105, i64 -176
+  %value206 = getelementptr i8, ptr %105, i64 -80
   %106 = load i64, ptr %value201, align 8
   %107 = load i64, ptr %value206, align 8
   %108 = call i64 @llvm.smax.i64(i64 %106, i64 %107)
@@ -1373,8 +1355,8 @@ sw.bb212:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i192 = sub i64 %sub.ptr.lhs.cast.i.i.i190, %sub.ptr.rhs.cast.i.i.i191
   %sub.ptr.div.i.i.i193 = sdiv exact i64 %sub.ptr.sub.i.i.i192, 48
   %111 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %110, i64 %sub.ptr.div.i.i.i193
-  %value216 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %111, i64 -4, i32 0, i32 1
-  %value221 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %111, i64 -2, i32 0, i32 1
+  %value216 = getelementptr i8, ptr %111, i64 -176
+  %value221 = getelementptr i8, ptr %111, i64 -80
   %112 = load i64, ptr %value221, align 8
   %113 = load i64, ptr %value216, align 8
   %114 = call i64 @llvm.smin.i64(i64 %112, i64 %113)
@@ -1389,9 +1371,9 @@ sw.bb227:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i206 = sub i64 %sub.ptr.lhs.cast.i.i.i204, %sub.ptr.rhs.cast.i.i.i205
   %sub.ptr.div.i.i.i207 = sdiv exact i64 %sub.ptr.sub.i.i.i206, 48
   %117 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %116, i64 %sub.ptr.div.i.i.i207
-  %value231 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %117, i64 -3, i32 0, i32 1
+  %value231 = getelementptr i8, ptr %117, i64 -128
   %118 = load i64, ptr %value231, align 8
-  %value236 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %117, i64 -1, i32 0, i32 1
+  %value236 = getelementptr i8, ptr %117, i64 -32
   %119 = load i64, ptr %value236, align 8
   %cmp238 = icmp slt i64 %118, %119
   %conv239 = zext i1 %cmp238 to i64
@@ -1406,9 +1388,9 @@ sw.bb242:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i218 = sub i64 %sub.ptr.lhs.cast.i.i.i216, %sub.ptr.rhs.cast.i.i.i217
   %sub.ptr.div.i.i.i219 = sdiv exact i64 %sub.ptr.sub.i.i.i218, 48
   %122 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %121, i64 %sub.ptr.div.i.i.i219
-  %value246 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %122, i64 -3, i32 0, i32 1
+  %value246 = getelementptr i8, ptr %122, i64 -128
   %123 = load i64, ptr %value246, align 8
-  %value251 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %122, i64 -1, i32 0, i32 1
+  %value251 = getelementptr i8, ptr %122, i64 -32
   %124 = load i64, ptr %value251, align 8
   %cmp253 = icmp sle i64 %123, %124
   %conv254 = zext i1 %cmp253 to i64
@@ -1423,9 +1405,9 @@ sw.bb257:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i230 = sub i64 %sub.ptr.lhs.cast.i.i.i228, %sub.ptr.rhs.cast.i.i.i229
   %sub.ptr.div.i.i.i231 = sdiv exact i64 %sub.ptr.sub.i.i.i230, 48
   %127 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %126, i64 %sub.ptr.div.i.i.i231
-  %value261 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %127, i64 -3, i32 0, i32 1
+  %value261 = getelementptr i8, ptr %127, i64 -128
   %128 = load i64, ptr %value261, align 8
-  %value266 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %127, i64 -1, i32 0, i32 1
+  %value266 = getelementptr i8, ptr %127, i64 -32
   %129 = load i64, ptr %value266, align 8
   %cmp268 = icmp sgt i64 %128, %129
   %conv269 = zext i1 %cmp268 to i64
@@ -1440,9 +1422,9 @@ sw.bb272:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i242 = sub i64 %sub.ptr.lhs.cast.i.i.i240, %sub.ptr.rhs.cast.i.i.i241
   %sub.ptr.div.i.i.i243 = sdiv exact i64 %sub.ptr.sub.i.i.i242, 48
   %132 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %131, i64 %sub.ptr.div.i.i.i243
-  %value276 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %132, i64 -3, i32 0, i32 1
+  %value276 = getelementptr i8, ptr %132, i64 -128
   %133 = load i64, ptr %value276, align 8
-  %value281 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %132, i64 -1, i32 0, i32 1
+  %value281 = getelementptr i8, ptr %132, i64 -32
   %134 = load i64, ptr %value281, align 8
   %cmp283 = icmp sge i64 %133, %134
   %conv284 = zext i1 %cmp283 to i64
@@ -1457,9 +1439,9 @@ sw.bb287:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i254 = sub i64 %sub.ptr.lhs.cast.i.i.i252, %sub.ptr.rhs.cast.i.i.i253
   %sub.ptr.div.i.i.i255 = sdiv exact i64 %sub.ptr.sub.i.i.i254, 48
   %137 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %136, i64 %sub.ptr.div.i.i.i255
-  %value291 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %137, i64 -3, i32 0, i32 1
+  %value291 = getelementptr i8, ptr %137, i64 -128
   %138 = load i64, ptr %value291, align 8
-  %value296 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %137, i64 -1, i32 0, i32 1
+  %value296 = getelementptr i8, ptr %137, i64 -32
   %139 = load i64, ptr %value296, align 8
   %cmp298 = icmp eq i64 %138, %139
   %conv299 = zext i1 %cmp298 to i64
@@ -1474,9 +1456,9 @@ sw.bb302:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i266 = sub i64 %sub.ptr.lhs.cast.i.i.i264, %sub.ptr.rhs.cast.i.i.i265
   %sub.ptr.div.i.i.i267 = sdiv exact i64 %sub.ptr.sub.i.i.i266, 48
   %142 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %141, i64 %sub.ptr.div.i.i.i267
-  %value306 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %142, i64 -3, i32 0, i32 1
+  %value306 = getelementptr i8, ptr %142, i64 -128
   %143 = load i64, ptr %value306, align 8
-  %value311 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %142, i64 -1, i32 0, i32 1
+  %value311 = getelementptr i8, ptr %142, i64 -32
   %144 = load i64, ptr %value311, align 8
   %cmp313 = icmp ne i64 %143, %144
   %conv314 = zext i1 %cmp313 to i64
@@ -1491,12 +1473,11 @@ sw.bb317:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i278 = sub i64 %sub.ptr.lhs.cast.i.i.i276, %sub.ptr.rhs.cast.i.i.i277
   %sub.ptr.div.i.i.i279 = sdiv exact i64 %sub.ptr.sub.i.i.i278, 48
   %147 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %146, i64 %sub.ptr.div.i.i.i279
-  %value321 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %147, i64 -5, i32 0, i32 1
+  %value321 = getelementptr i8, ptr %147, i64 -224
   %148 = load i64, ptr %value321, align 8
   %tobool323.not = icmp eq i64 %148, 0
-  %value327 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %147, i64 -3, i32 0, i32 1
-  %value332 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %147, i64 -1, i32 0, i32 1
-  %cond.in = select i1 %tobool323.not, ptr %value332, ptr %value327
+  %cond.in.v = select i1 %tobool323.not, i64 -32, i64 -128
+  %cond.in = getelementptr i8, ptr %147, i64 %cond.in.v
   %cond = load i64, ptr %cond.in, align 8
   store i64 %cond, ptr %value86, align 16
   br label %try.cont360
@@ -1510,8 +1491,8 @@ sw.bb336:                                         ; preds = %sw.epilog
   %sub.ptr.sub.i.i.i296 = sub i64 %sub.ptr.lhs.cast.i.i.i294, %sub.ptr.rhs.cast.i.i.i295
   %sub.ptr.div.i.i.i297 = sdiv exact i64 %sub.ptr.sub.i.i.i296, 48
   %152 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %151, i64 %sub.ptr.div.i.i.i297
-  %value341 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %152, i64 -1, i32 0, i32 1
-  %values_.i299 = getelementptr inbounds %"class.facebook::velox::expression::calculate::Scanner", ptr %149, i64 0, i32 1
+  %value341 = getelementptr i8, ptr %152, i64 -32
+  %values_.i299 = getelementptr inbounds i8, ptr %149, i64 736
   %153 = load ptr, ptr %values_.i299, align 8
   %call.i.i.i301 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %153, ptr noundef nonnull align 8 dereferenceable(32) %value341)
           to label %call.i.i.i.noexc unwind label %lpad92
@@ -1566,7 +1547,7 @@ for.body.lr.ph.i.i:                               ; preds = %try.cont360
 for.body.i.i:                                     ; preds = %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i, %for.body.lr.ph.i.i
   %n.addr.03.i.i = phi i64 [ %conv.i304, %for.body.lr.ph.i.i ], [ %dec.i.i, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i ]
   %158 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %158, i64 -1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %158, i64 -48
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   %159 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i8 %159, 0
@@ -1580,7 +1561,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
   br i1 %cond.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i
 
 sw.bb2.i.i.i.i.i.i.i.i:                           ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i
-  %value3.i.i.i.i.i.i.i.i = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %158, i64 -1, i32 0, i32 1
+  %value3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %158, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i
 
@@ -1658,14 +1639,14 @@ if.then363:                                       ; preds = %yyerrlab
 
 invoke.cont364:                                   ; preds = %if.then363
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %165 = load ptr, ptr %vfn, align 8
   invoke void %165(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %msg, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %yyctx)
           to label %invoke.cont365 unwind label %lpad.loopexit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont365:                                   ; preds = %invoke.cont364
   %vtable366 = load ptr, ptr %this, align 8
-  %vfn367 = getelementptr inbounds ptr, ptr %vtable366, i64 3
+  %vfn367 = getelementptr inbounds i8, ptr %vtable366, i64 24
   %166 = load ptr, ptr %vfn367, align 8
   invoke void %166(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg)
           to label %if.end371.thread unwind label %lpad368
@@ -1708,7 +1689,7 @@ for.body.lr.ph.i.i317:                            ; preds = %yyerrorlab
 for.body.i.i320:                                  ; preds = %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i328, %for.body.lr.ph.i.i317
   %n.addr.03.i.i321 = phi i64 [ %conv.i318, %for.body.lr.ph.i.i317 ], [ %dec.i.i329, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i328 ]
   %170 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i322 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %170, i64 -1
+  %incdec.ptr.i.i.i322 = getelementptr inbounds i8, ptr %170, i64 -48
   store ptr %incdec.ptr.i.i.i322, ptr %_M_finish.i.i.i, align 8
   %171 = load i8, ptr %incdec.ptr.i.i.i322, align 1
   %cmp.i.i.i.i.i.i.i.i.i323 = icmp eq i8 %171, 0
@@ -1722,7 +1703,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
   br i1 %cond.i.i.i.i.i.i.i.i327, label %sw.bb2.i.i.i.i.i.i.i.i331, label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i328
 
 sw.bb2.i.i.i.i.i.i.i.i331:                        ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i324
-  %value3.i.i.i.i.i.i.i.i332 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %170, i64 -1, i32 0, i32 1
+  %value3.i.i.i.i.i.i.i.i332 = getelementptr inbounds i8, ptr %170, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i332) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i328
 
@@ -1744,7 +1725,7 @@ for.cond:                                         ; preds = %_ZNSt6vectorIN8face
   %sub.ptr.sub.i.i.i337 = sub i64 %sub.ptr.lhs.cast.i.i.i335, %sub.ptr.rhs.cast.i.i.i336
   %sub.ptr.div.i.i.i338 = sdiv exact i64 %sub.ptr.sub.i.i.i337, 48
   %175 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %174, i64 %sub.ptr.div.i.i.i338
-  %add.ptr.i.i339 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %175, i64 -1
+  %add.ptr.i.i339 = getelementptr i8, ptr %175, i64 -48
   %176 = load i8, ptr %add.ptr.i.i339, align 16
   %idxprom389 = sext i8 %176 to i64
   %arrayidx390 = getelementptr inbounds [0 x i16], ptr @_ZN8facebook5velox10expression9calculate6Parser7yypact_E, i64 0, i64 %idxprom389
@@ -1772,7 +1753,7 @@ if.end410:                                        ; preds = %land.lhs.true397, %
   br i1 %cmp413, label %if.end429, label %for.body.i.i349.preheader
 
 for.body.i.i349.preheader:                        ; preds = %if.end410
-  %incdec.ptr.i.i.i351 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %173, i64 -1
+  %incdec.ptr.i.i.i351 = getelementptr inbounds i8, ptr %173, i64 -48
   store ptr %incdec.ptr.i.i.i351, ptr %_M_finish.i.i.i, align 8
   %181 = load i8, ptr %incdec.ptr.i.i.i351, align 1
   %cmp.i.i.i.i.i.i.i.i.i352 = icmp eq i8 %181, 0
@@ -1786,7 +1767,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
   br i1 %cond.i.i.i.i.i.i.i.i356, label %sw.bb2.i.i.i.i.i.i.i.i360, label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i357
 
 sw.bb2.i.i.i.i.i.i.i.i360:                        ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i353
-  %value3.i.i.i.i.i.i.i.i361 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %173, i64 -1, i32 0, i32 1
+  %value3.i.i.i.i.i.i.i.i361 = getelementptr inbounds i8, ptr %173, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i361) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i357
 
@@ -1870,7 +1851,7 @@ for.body.lr.ph.i.i385:                            ; preds = %if.end429
 for.body.i.i388:                                  ; preds = %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i396, %for.body.lr.ph.i.i385
   %n.addr.03.i.i389 = phi i64 [ %conv.i386, %for.body.lr.ph.i.i385 ], [ %dec.i.i397, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i396 ]
   %192 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i390 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %192, i64 -1
+  %incdec.ptr.i.i.i390 = getelementptr inbounds i8, ptr %192, i64 -48
   store ptr %incdec.ptr.i.i.i390, ptr %_M_finish.i.i.i, align 8
   %193 = load i8, ptr %incdec.ptr.i.i.i390, align 1
   %cmp.i.i.i.i.i.i.i.i.i391 = icmp eq i8 %193, 0
@@ -1884,7 +1865,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
   br i1 %cond.i.i.i.i.i.i.i.i395, label %sw.bb2.i.i.i.i.i.i.i.i399, label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i396
 
 sw.bb2.i.i.i.i.i.i.i.i399:                        ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i392
-  %value3.i.i.i.i.i.i.i.i400 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %192, i64 -1, i32 0, i32 1
+  %value3.i.i.i.i.i.i.i.i400 = getelementptr inbounds i8, ptr %192, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i400) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i396
 
@@ -1905,7 +1886,7 @@ _ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit401: ; preds = %_ZN
 
 while.body:                                       ; preds = %_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit401, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i423
   %197 = phi ptr [ %200, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i423 ], [ %195, %_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei.exit401 ]
-  %incdec.ptr.i.i.i417 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %197, i64 -1
+  %incdec.ptr.i.i.i417 = getelementptr inbounds i8, ptr %197, i64 -48
   store ptr %incdec.ptr.i.i.i417, ptr %_M_finish.i.i.i, align 8
   %198 = load i8, ptr %incdec.ptr.i.i.i417, align 1
   %cmp.i.i.i.i.i.i.i.i.i418 = icmp eq i8 %198, 0
@@ -1919,7 +1900,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
   br i1 %cond.i.i.i.i.i.i.i.i422, label %sw.bb2.i.i.i.i.i.i.i.i426, label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i423
 
 sw.bb2.i.i.i.i.i.i.i.i426:                        ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i419
-  %value3.i.i.i.i.i.i.i.i427 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %197, i64 -1, i32 0, i32 1
+  %value3.i.i.i.i.i.i.i.i427 = getelementptr inbounds i8, ptr %197, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i427) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i423
 
@@ -1941,7 +1922,7 @@ lpad441:                                          ; preds = %while.end453
 
 while.body448:                                    ; preds = %catch437, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i450
   %203 = phi ptr [ %206, %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i450 ], [ %190, %catch437 ]
-  %incdec.ptr.i.i.i444 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %203, i64 -1
+  %incdec.ptr.i.i.i444 = getelementptr inbounds i8, ptr %203, i64 -48
   store ptr %incdec.ptr.i.i.i444, ptr %_M_finish.i.i.i, align 8
   %204 = load i8, ptr %incdec.ptr.i.i.i444, align 1
   %cmp.i.i.i.i.i.i.i.i.i445 = icmp eq i8 %204, 0
@@ -1955,7 +1936,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
   br i1 %cond.i.i.i.i.i.i.i.i449, label %sw.bb2.i.i.i.i.i.i.i.i453, label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i450
 
 sw.bb2.i.i.i.i.i.i.i.i453:                        ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i.i446
-  %value3.i.i.i.i.i.i.i.i454 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %203, i64 -1, i32 0, i32 1
+  %value3.i.i.i.i.i.i.i.i454 = getelementptr inbounds i8, ptr %203, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i.i454) #26
   br label %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE8pop_backEv.exit.i.i450
 
@@ -2022,7 +2003,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1
   %vtable = load ptr, ptr %yyexc, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %yyexc) #26
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #26
@@ -2058,7 +2039,7 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   %vtable3 = load ptr, ptr %this, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 3
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
   %2 = load ptr, ptr %vfn4, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont6 unwind label %lpad5
@@ -2218,7 +2199,7 @@ entry:
 define void @_ZN8facebook5velox10expression9calculate6Parser7contextC2ERKS3_RKNS3_11symbol_typeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(40) %yyparser, ptr noundef nonnull align 16 dereferenceable(48) %yyla) unnamed_addr #5 align 2 {
 entry:
   store ptr %yyparser, ptr %this, align 8
-  %yyla_ = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser::context", ptr %this, i64 0, i32 1
+  %yyla_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %yyla, ptr %yyla_, align 8
   ret void
 }
@@ -2227,8 +2208,8 @@ entry:
 define noundef i32 @_ZNK8facebook5velox10expression9calculate6Parser7context15expected_tokensEPNS3_11symbol_kind16symbol_kind_typeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef writeonly %yyarg, i32 noundef %yyargn) local_unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %yystack_ = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %0, i64 0, i32 1
-  %_M_finish.i.i.i = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %yystack_ = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %2 = load ptr, ptr %yystack_, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -2236,7 +2217,7 @@ entry:
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 48
   %3 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %2, i64 %sub.ptr.div.i.i.i
-  %add.ptr.i.i = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %3, i64 -1
+  %add.ptr.i.i = getelementptr i8, ptr %3, i64 -48
   %4 = load i8, ptr %add.ptr.i.i, align 16
   %idxprom = sext i8 %4 to i64
   %arrayidx = getelementptr inbounds [0 x i16], ptr @_ZN8facebook5velox10expression9calculate6Parser7yypact_E, i64 0, i64 %idxprom
@@ -2345,7 +2326,7 @@ return:                                           ; preds = %if.then23, %if.end3
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKNS3_7contextEPNS3_11symbol_kind16symbol_kind_typeEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %yyctx, ptr noundef %yyarg, i32 noundef %yyargn) local_unnamed_addr #15 align 2 {
 entry:
-  %yyla_.i = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser::context", ptr %yyctx, i64 0, i32 1
+  %yyla_.i = getelementptr inbounds i8, ptr %yyctx, i64 8
   %0 = load ptr, ptr %yyla_.i, align 8
   %1 = load i32, ptr %0, align 4
   %cmp.i = icmp eq i32 %1, -2
@@ -2360,7 +2341,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %add.ptr = getelementptr inbounds i32, ptr %yyarg, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %yyarg, i64 4
   %cond = select i1 %tobool.not, ptr null, ptr %add.ptr
   %sub = add nsw i32 %yyargn, -1
   %call6 = tail call noundef i32 @_ZNK8facebook5velox10expression9calculate6Parser7context15expected_tokensEPNS3_11symbol_kind16symbol_kind_typeEi(ptr noundef nonnull align 8 dereferenceable(16) %yyctx, ptr noundef %cond, i32 noundef %sub)
@@ -2377,7 +2358,7 @@ define void @_ZNK8facebook5velox10expression9calculate6Parser15yysyntax_error_B5
 entry:
   %yyarg = alloca [5 x i32], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %yyla_.i.i = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser::context", ptr %yyctx, i64 0, i32 1
+  %yyla_.i.i = getelementptr inbounds i8, ptr %yyctx, i64 8
   %0 = load ptr, ptr %yyla_.i.i, align 8
   %1 = load i32, ptr %0, align 4
   %cmp.i.i = icmp eq i32 %1, -2
@@ -2385,10 +2366,10 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i32 %1, ptr %yyarg, align 16
-  %add.ptr.i = getelementptr inbounds i32, ptr %yyarg, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %yyarg, i64 4
   %2 = load ptr, ptr %yyctx, align 8
-  %yystack_.i = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %2, i64 0, i32 1
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.facebook::velox::expression::calculate::Parser", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %yystack_.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %4 = load ptr, ptr %yystack_.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
@@ -2396,7 +2377,7 @@ if.then.i:                                        ; preds = %entry
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 48
   %5 = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %4, i64 %sub.ptr.div.i.i.i.i
-  %add.ptr.i.i.i = getelementptr %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %5, i64 -1
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 -48
   %6 = load i8, ptr %add.ptr.i.i.i, align 16
   %idxprom.i9 = sext i8 %6 to i64
   %arrayidx.i10 = getelementptr inbounds [0 x i16], ptr @_ZN8facebook5velox10expression9calculate6Parser7yypact_E, i64 0, i64 %idxprom.i9
@@ -2581,13 +2562,13 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
   br i1 %cond.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i, label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i
 
 sw.bb2.i.i.i.i.i.i:                               ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i
-  %value3.i.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %__first.addr.04.i.i, i64 0, i32 1
+  %value3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i) #26
   br label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i
 
 _ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i: ; preds = %sw.bb2.i.i.i.i.i.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i, %for.body.i.i
   store i8 0, ptr %__first.addr.04.i.i, align 1
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %__first.addr.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 48
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
   br i1 %cmp.not.i.i, label %_ZSt8_DestroyIPN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvT_S7_.exit, label %for.body.i.i, !llvm.loop !4
 
@@ -2615,13 +2596,13 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i:
   br i1 %cond.i.i.i.i.i, label %sw.bb2.i.i.i.i.i, label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i
 
 sw.bb2.i.i.i.i.i:                                 ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i
-  %value3.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %__first.addr.04.i, i64 0, i32 1
+  %value3.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i) #26
   br label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i
 
 _ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i: ; preds = %sw.bb2.i.i.i.i.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i, %for.body.i
   store i8 0, ptr %__first.addr.04.i, align 1
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %__first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 48
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEEvT_S9_.exit, label %for.body.i, !llvm.loop !4
 
@@ -2649,7 +2630,7 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit: ; preds = %entry
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %call.i2.i.i, %2
   %call.i = tail call noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k, i64 noundef %call.i2.i.i)
@@ -2699,7 +2680,7 @@ unreachable.i.i:                                  ; preds = %invoke.cont14.i.i
   unreachable
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS7_EESR_IJEEEEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb1EEEEEEDpOT_.exit: ; preds = %if.end
-  %_M_node.i = getelementptr inbounds %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, int>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", ptr %__node5, i64 0, i32 1
+  %_M_node.i = getelementptr inbounds i8, ptr %__node5, i64 8
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 40
   store i32 0, ptr %second.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i, ptr %_M_node.i, align 8
@@ -2721,12 +2702,12 @@ return:                                           ; preds = %_ZNSt10_HashtableIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
-  %_M_next_resize.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4, i32 1
+  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -2792,7 +2773,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %18, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -2826,7 +2807,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, int>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", ptr %this, i64 0, i32 1
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2860,7 +2841,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %1, align 8
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr.i.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 48
   %.pre = load i64, ptr %add.ptr.i.phi.trans.insert, align 8
   br label %for.cond
@@ -2932,7 +2913,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -2960,7 +2941,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiELb1EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i4.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiELb1EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -3010,7 +2991,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -3019,7 +3000,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -3028,13 +3009,13 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not = icmp ugt i64 %0, 20
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.0.08 = load ptr, ptr %_M_before_begin.i.i, align 8
   %cmp.i.not9 = icmp eq ptr %retval.sroa.0.08, null
   br i1 %cmp.i.not9, label %return, label %for.body
@@ -3078,7 +3059,7 @@ terminate.lpad.i.i:                               ; preds = %if.end15
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit: ; preds = %if.end15
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %call.i2.i.i, %4
   %call.i = tail call noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k, i64 noundef %call.i2.i.i)
@@ -3097,13 +3078,13 @@ return:                                           ; preds = %_ZNKSt8__detail15_H
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not = icmp ugt i64 %0, 20
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.0.08 = load ptr, ptr %_M_before_begin.i.i, align 8
   %cmp.i.not9 = icmp eq ptr %retval.sroa.0.08, null
   br i1 %cmp.i.not9, label %return, label %for.body
@@ -3147,7 +3128,7 @@ terminate.lpad.i.i:                               ; preds = %if.end15
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit: ; preds = %if.end15
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %call.i2.i.i, %4
   %call.i = tail call noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k, i64 noundef %call.i2.i.i)
@@ -3284,7 +3265,7 @@ _ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESa
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EEC2EmRKS6_.exit.thread, label %_ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EEC2EmRKS6_.exit
 
 _ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EEC2EmRKS6_.exit.thread: ; preds = %_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE17_S_check_init_lenEmRKS6_.exit
-  %_M_finish.i.i4 = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::expression::calculate::Parser::stack_symbol_type, std::allocator<facebook::velox::expression::calculate::Parser::stack_symbol_type>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i4 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   br label %invoke.cont
 
@@ -3292,10 +3273,10 @@ _ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_
   %mul.i.i.i.i.i = mul nuw nsw i64 %__n, 48
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #29
   store ptr %call5.i.i.i.i2.i, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::expression::calculate::Parser::stack_symbol_type, std::allocator<facebook::velox::expression::calculate::Parser::stack_symbol_type>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i2.i, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %call5.i.i.i.i2.i, i64 %__n
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::expression::calculate::Parser::stack_symbol_type, std::allocator<facebook::velox::expression::calculate::Parser::stack_symbol_type>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i
 
@@ -3307,7 +3288,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %dec.i.i.i.i = add i64 %__n.addr.08.i.i.i.i, -1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %__cur.09.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i, i64 48
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !20
 
@@ -3367,7 +3348,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 16 dereferenceable(48) %__args) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::expression::calculate::Parser::stack_symbol_type, std::allocator<facebook::velox::expression::calculate::Parser::stack_symbol_type>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3416,8 +3397,8 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.i
           to label %for.inc.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %__first.sroa.0.09.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %__cur.010.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i.i, i64 48
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 48
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %__position.coerce
   br i1 %cmp.i.i.not.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i, !llvm.loop !21
 
@@ -3456,7 +3437,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont8.i.i.i.
 
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 48
   %cmp.i.i.not8.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.i.i.not8.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
@@ -3467,8 +3448,8 @@ for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for
           to label %for.inc.i.i.i.i.i30 unwind label %lpad.i.i.i.i.i24
 
 for.inc.i.i.i.i.i30:                              ; preds = %for.body.i.i.i.i.i21
-  %incdec.ptr.i.i.i.i.i.i31 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %__first.sroa.0.09.i.i.i.i.i23, i64 1
-  %incdec.ptr.i.i.i.i.i32 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %__cur.010.i.i.i.i.i22, i64 1
+  %incdec.ptr.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i.i23, i64 48
+  %incdec.ptr.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 48
   %cmp.i.i.not.i.i.i.i.i33 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i31, %0
   br i1 %cmp.i.i.not.i.i.i.i.i33, label %invoke.cont14, label %for.body.i.i.i.i.i21, !llvm.loop !21
 
@@ -3524,13 +3505,13 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.
   br i1 %cond.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i
 
 sw.bb2.i.i.i.i.i.i.i:                             ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i
-  %value3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %value3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i.i.i) #26
   br label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i, %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i, %for.body.i.i.i
   store i8 0, ptr %__first.addr.04.i.i.i, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 48
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN8facebook5velox10expression9calculate6Parser17stack_symbol_typeES5_EvT_S7_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !4
 
@@ -3543,7 +3524,7 @@ if.then.i39:                                      ; preds = %_ZSt8_DestroyIPN8fa
   br label %_ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPN8facebook5velox10expression9calculate6Parser17stack_symbol_typeES5_EvT_S7_RSaIT0_E.exit, %if.then.i39
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::expression::calculate::Parser::stack_symbol_type, std::allocator<facebook::velox::expression::calculate::Parser::stack_symbol_type>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i34, ptr %_M_finish.i.i, align 8
   %add.ptr29 = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %cond.i19, i64 %cond.i
@@ -3571,7 +3552,7 @@ _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i:
   br i1 %cond.i.i.i.i.i, label %sw.bb2.i.i.i.i.i, label %if.end.thread
 
 sw.bb2.i.i.i.i.i:                                 ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i
-  %value3.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::basic_symbol", ptr %add.ptr, i64 0, i32 1
+  %value3.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i.i.i) #26
   br label %if.end.thread
 

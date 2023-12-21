@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libapps-lib-engine_loader.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_store_loader_ctx_st = type { ptr, ptr, i32, i32 }
-
 @.str = private unnamed_addr constant [19 x i8] c"org.openssl.engine\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"org.openssl.engine:\00", align 1
 @.str.2 = private unnamed_addr constant [36 x i8] c"../openssl/apps/lib/engine_loader.c\00", align 1
@@ -110,7 +108,7 @@ if.then23:                                        ; preds = %if.end17
 
 if.end25:                                         ; preds = %if.then23
   store ptr %call14, ptr %call.i, align 8
-  %keyid2.i = getelementptr inbounds %struct.ossl_store_loader_ctx_st, ptr %call.i, i64 0, i32 1
+  %keyid2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call16, ptr %keyid2.i, align 8
   br label %return
 
@@ -138,7 +136,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry, %entry, %entry
-  %expected4 = getelementptr inbounds %struct.ossl_store_loader_ctx_st, ptr %ctx, i64 0, i32 2
+  %expected4 = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 %expected, ptr %expected4, align 8
   br label %return
 
@@ -152,7 +150,7 @@ declare i32 @OSSL_STORE_LOADER_set_load(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal ptr @engine_load(ptr nocapture noundef %ctx, ptr noundef %ui_method, ptr noundef %ui_data) #0 {
 entry:
-  %loaded = getelementptr inbounds %struct.ossl_store_loader_ctx_st, ptr %ctx, i64 0, i32 3
+  %loaded = getelementptr inbounds i8, ptr %ctx, i64 20
   %0 = load i32, ptr %loaded, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.else.thread
@@ -164,7 +162,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %if.else.thread, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %expected = getelementptr inbounds %struct.ossl_store_loader_ctx_st, ptr %ctx, i64 0, i32 2
+  %expected = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load i32, ptr %expected, align 8
   switch i32 %2, label %land.lhs.true [
     i32 0, label %if.end
@@ -173,7 +171,7 @@ if.then1:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then1, %if.then1
   %3 = load ptr, ptr %ctx, align 8
-  %keyid = getelementptr inbounds %struct.ossl_store_loader_ctx_st, ptr %ctx, i64 0, i32 1
+  %keyid = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %keyid, align 8
   %call7 = tail call ptr @ENGINE_load_private_key(ptr noundef %3, ptr noundef %4, ptr noundef %ui_method, ptr noundef %ui_data) #7
   %cmp8 = icmp eq ptr %call7, null
@@ -194,7 +192,7 @@ lor.lhs.false11:                                  ; preds = %land.lhs.true, %if.
 if.then14:                                        ; preds = %lor.lhs.false11, %land.lhs.true
   %pkey.023 = phi ptr [ %pkey.024, %lor.lhs.false11 ], [ null, %land.lhs.true ]
   %7 = load ptr, ptr %ctx, align 8
-  %keyid16 = getelementptr inbounds %struct.ossl_store_loader_ctx_st, ptr %ctx, i64 0, i32 1
+  %keyid16 = getelementptr inbounds i8, ptr %ctx, i64 8
   %8 = load ptr, ptr %keyid16, align 8
   %call17 = tail call ptr @ENGINE_load_public_key(ptr noundef %7, ptr noundef %8, ptr noundef %ui_method, ptr noundef %ui_data) #7
   br label %if.end22
@@ -246,7 +244,7 @@ declare i32 @OSSL_STORE_LOADER_set_eof(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @engine_eof(ptr nocapture noundef readonly %ctx) #3 {
 entry:
-  %loaded = getelementptr inbounds %struct.ossl_store_loader_ctx_st, ptr %ctx, i64 0, i32 3
+  %loaded = getelementptr inbounds i8, ptr %ctx, i64 20
   %0 = load i32, ptr %loaded, align 4
   %cmp = icmp ne i32 %0, 0
   %conv = zext i1 %cmp to i32
@@ -272,7 +270,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr %ctx, align 8
   %call.i = tail call i32 @ENGINE_free(ptr noundef %0) #7
-  %keyid.i = getelementptr inbounds %struct.ossl_store_loader_ctx_st, ptr %ctx, i64 0, i32 1
+  %keyid.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %keyid.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 59) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %ctx, ptr noundef nonnull @.str.2, i32 noundef 60) #7

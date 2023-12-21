@@ -3,12 +3,6 @@ source_filename = "bench/openssl/original/padlock-dso-e_padlock.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.st_dynamic_fns = type { ptr, %struct.st_dynamic_MEM_fns }
-%struct.st_dynamic_MEM_fns = type { ptr, ptr, ptr }
-%struct.padlock_cipher_data = type { [16 x i8], %union.anon, %struct.aes_key_st }
-%union.anon = type { [4 x i32] }
-%struct.aes_key_st = type { [60 x i32], i32 }
-
 @.str = private unnamed_addr constant [8 x i8] c"padlock\00", align 1
 @padlock_name = internal global [100 x i8] zeroinitializer, align 16
 @.str.1 = private unnamed_addr constant [21 x i8] c"VIA PadLock (%s, %s)\00", align 1
@@ -52,11 +46,11 @@ entry:
   br i1 %cmp, label %skip_cbs, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mem_fns = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns, i64 0, i32 1
+  %mem_fns = getelementptr inbounds i8, ptr %fns, i64 8
   %1 = load ptr, ptr %mem_fns, align 8
-  %realloc_fn = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns, i64 0, i32 1, i32 1
+  %realloc_fn = getelementptr inbounds i8, ptr %fns, i64 16
   %2 = load ptr, ptr %realloc_fn, align 8
-  %free_fn = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns, i64 0, i32 1, i32 2
+  %free_fn = getelementptr inbounds i8, ptr %fns, i64 24
   %3 = load ptr, ptr %free_fn, align 8
   %call3 = tail call i32 @CRYPTO_set_mem_functions(ptr noundef %1, ptr noundef %2, ptr noundef %3) #9
   %call4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 524288, ptr noundef null) #9
@@ -1172,7 +1166,7 @@ if.end:                                           ; preds = %entry
 if.else:                                          ; preds = %if.end
   %call12 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #9
   %cmp13 = icmp eq i32 %call12, 0
-  %cword15 = getelementptr inbounds %struct.padlock_cipher_data, ptr %add.ptr, i64 0, i32 1
+  %cword15 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %bf.load16 = load i16, ptr %cword15, align 4
   %bf.shl = select i1 %cmp13, i16 512, i16 0
   %bf.clear17 = and i16 %bf.load16, -3600
@@ -1183,7 +1177,7 @@ if.end19:                                         ; preds = %if.end, %if.else
   %bf.load22 = phi i16 [ %bf.set18, %if.else ], [ 0, %if.end ]
   %sub20 = add nsw i32 %mul, -128
   %div = sdiv i32 %sub20, 32
-  %cword21 = getelementptr inbounds %struct.padlock_cipher_data, ptr %add.ptr, i64 0, i32 1
+  %cword21 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %2 = trunc i32 %div to i16
   %3 = add i16 %2, 10
   %bf.value23 = and i16 %3, 15
@@ -1201,7 +1195,7 @@ if.end19:                                         ; preds = %if.end, %if.else
   ]
 
 sw.bb:                                            ; preds = %if.end19
-  %ks = getelementptr inbounds %struct.padlock_cipher_data, ptr %add.ptr, i64 0, i32 2
+  %ks = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ks, ptr noundef nonnull align 1 dereferenceable(16) %key, i64 16, i1 false)
   %bf.clear40 = and i16 %bf.set34, -129
   br label %sw.epilog
@@ -1211,14 +1205,14 @@ sw.bb42:                                          ; preds = %if.end19, %if.end19
   %or.cond1 = icmp ult i32 %5, -2
   %tobool = icmp ne i32 %enc, 0
   %or.cond2 = or i1 %tobool, %or.cond1
-  %ks52 = getelementptr inbounds %struct.padlock_cipher_data, ptr %add.ptr, i64 0, i32 2
+  %ks52 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %call53 = tail call fastcc i32 @padlock_aes_set_encrypt_key(ptr noundef nonnull %key, i32 noundef %mul, ptr noundef nonnull %ks52), !range !4
   %cmp.i = icmp slt i32 %call53, 0
   %or.cond28 = select i1 %or.cond2, i1 true, i1 %cmp.i
   br i1 %or.cond28, label %if.end54, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb42
-  %rounds.i = getelementptr inbounds %struct.padlock_cipher_data, ptr %add.ptr, i64 0, i32 2, i32 1
+  %rounds.i = getelementptr inbounds i8, ptr %add.ptr, i64 272
   %6 = load i32, ptr %rounds.i, align 4
   %cmp169.i = icmp sgt i32 %6, 0
   br i1 %cmp169.i, label %for.body.preheader.i, label %if.end54
@@ -1274,7 +1268,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.body47.i:                                     ; preds = %for.cond44.preheader.i, %for.inc91.i
   %rk.075.i = phi ptr [ %add.ptr.i, %for.inc91.i ], [ %ks52, %for.cond44.preheader.i ]
   %i.174.i = phi i32 [ %inc92.i, %for.inc91.i ], [ 1, %for.cond44.preheader.i ]
-  %add.ptr.i = getelementptr inbounds i32, ptr %rk.075.i, i64 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %rk.075.i, i64 16
   br label %for.body50.i
 
 for.body50.i:                                     ; preds = %for.body50.i, %for.body47.i
@@ -1327,7 +1321,7 @@ for.inc91.i:                                      ; preds = %for.body50.i
   br i1 %cmp46.i, label %for.body47.i, label %if.end54, !llvm.loop !8
 
 if.end54:                                         ; preds = %for.inc91.i, %sw.bb42, %for.cond44.preheader.i, %if.end.i
-  %ks55 = getelementptr inbounds %struct.padlock_cipher_data, ptr %add.ptr, i64 0, i32 2
+  %ks55 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @padlock_key_bswap(ptr noundef nonnull %ks55) #9
   %bf.load57 = load i16, ptr %cword21, align 4
   %bf.set59 = or i16 %bf.load57, 128
@@ -1405,13 +1399,13 @@ if.end6:                                          ; preds = %if.end, %if.end, %i
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end6
-  %rounds = getelementptr inbounds %struct.aes_key_st, ptr %key, i64 0, i32 1
+  %rounds = getelementptr inbounds i8, ptr %key, i64 240
   store i32 10, ptr %rounds, align 4
   br label %if.end15
 
 if.else:                                          ; preds = %if.end6
   %cmp9 = icmp eq i32 %bits, 192
-  %rounds11 = getelementptr inbounds %struct.aes_key_st, ptr %key, i64 0, i32 1
+  %rounds11 = getelementptr inbounds i8, ptr %key, i64 240
   br i1 %cmp9, label %if.then10, label %if.else12
 
 if.then10:                                        ; preds = %if.else
@@ -1459,7 +1453,7 @@ if.end15:                                         ; preds = %if.then10, %if.else
   %7 = load i8, ptr %arrayidx41, align 1
   %conv42 = zext i8 %7 to i32
   %xor43 = or disjoint i32 %xor39, %conv42
-  %arrayidx44 = getelementptr inbounds i32, ptr %key, i64 1
+  %arrayidx44 = getelementptr inbounds i8, ptr %key, i64 4
   store i32 %xor43, ptr %arrayidx44, align 4
   %add.ptr45 = getelementptr inbounds i8, ptr %userKey, i64 8
   %8 = load i8, ptr %add.ptr45, align 1
@@ -1479,7 +1473,7 @@ if.end15:                                         ; preds = %if.then10, %if.else
   %11 = load i8, ptr %arrayidx60, align 1
   %conv61 = zext i8 %11 to i32
   %xor62 = or disjoint i32 %xor58, %conv61
-  %arrayidx63 = getelementptr inbounds i32, ptr %key, i64 2
+  %arrayidx63 = getelementptr inbounds i8, ptr %key, i64 8
   store i32 %xor62, ptr %arrayidx63, align 4
   %add.ptr64 = getelementptr inbounds i8, ptr %userKey, i64 12
   %12 = load i8, ptr %add.ptr64, align 1
@@ -1499,7 +1493,7 @@ if.end15:                                         ; preds = %if.then10, %if.else
   %15 = load i8, ptr %arrayidx79, align 1
   %conv80 = zext i8 %15 to i32
   %xor81 = or disjoint i32 %xor77, %conv80
-  %arrayidx82 = getelementptr inbounds i32, ptr %key, i64 3
+  %arrayidx82 = getelementptr inbounds i8, ptr %key, i64 12
   store i32 %xor81, ptr %arrayidx82, align 4
   br i1 %cmp7, label %while.body, label %if.end131
 
@@ -1507,7 +1501,7 @@ while.body:                                       ; preds = %if.end15, %while.bo
   %16 = phi i32 [ %xor112, %while.body ], [ %xor25, %if.end15 ]
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %while.body ], [ 0, %if.end15 ]
   %rk.0 = phi ptr [ %arrayidx113, %while.body ], [ %key, %if.end15 ]
-  %arrayidx86 = getelementptr inbounds i32, ptr %rk.0, i64 3
+  %arrayidx86 = getelementptr inbounds i8, ptr %rk.0, i64 12
   %17 = load i32, ptr %arrayidx86, align 4
   %shr = lshr i32 %17, 16
   %and = and i32 %shr, 255
@@ -1541,20 +1535,20 @@ while.body:                                       ; preds = %if.end15, %while.bo
   %arrayidx111 = getelementptr inbounds [10 x i32], ptr @rcon, i64 0, i64 %indvars.iv138
   %22 = load i32, ptr %arrayidx111, align 4
   %xor112 = xor i32 %xor109, %22
-  %arrayidx113 = getelementptr inbounds i32, ptr %rk.0, i64 4
+  %arrayidx113 = getelementptr inbounds i8, ptr %rk.0, i64 16
   store i32 %xor112, ptr %arrayidx113, align 4
-  %arrayidx114 = getelementptr inbounds i32, ptr %rk.0, i64 1
+  %arrayidx114 = getelementptr inbounds i8, ptr %rk.0, i64 4
   %23 = load i32, ptr %arrayidx114, align 4
   %xor116 = xor i32 %xor112, %23
-  %arrayidx117 = getelementptr inbounds i32, ptr %rk.0, i64 5
+  %arrayidx117 = getelementptr inbounds i8, ptr %rk.0, i64 20
   store i32 %xor116, ptr %arrayidx117, align 4
-  %arrayidx118 = getelementptr inbounds i32, ptr %rk.0, i64 2
+  %arrayidx118 = getelementptr inbounds i8, ptr %rk.0, i64 8
   %24 = load i32, ptr %arrayidx118, align 4
   %xor120 = xor i32 %24, %xor116
-  %arrayidx121 = getelementptr inbounds i32, ptr %rk.0, i64 6
+  %arrayidx121 = getelementptr inbounds i8, ptr %rk.0, i64 24
   store i32 %xor120, ptr %arrayidx121, align 4
   %xor124 = xor i32 %xor120, %17
-  %arrayidx125 = getelementptr inbounds i32, ptr %rk.0, i64 7
+  %arrayidx125 = getelementptr inbounds i8, ptr %rk.0, i64 28
   store i32 %xor124, ptr %arrayidx125, align 4
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %cmp126 = icmp eq i64 %indvars.iv.next139, 10
@@ -1579,7 +1573,7 @@ if.end131:                                        ; preds = %if.end15
   %28 = load i8, ptr %arrayidx147, align 1
   %conv148 = zext i8 %28 to i32
   %xor149 = or disjoint i32 %xor145, %conv148
-  %arrayidx150 = getelementptr inbounds i32, ptr %key, i64 4
+  %arrayidx150 = getelementptr inbounds i8, ptr %key, i64 16
   store i32 %xor149, ptr %arrayidx150, align 4
   %add.ptr151 = getelementptr inbounds i8, ptr %userKey, i64 20
   %29 = load i8, ptr %add.ptr151, align 1
@@ -1599,7 +1593,7 @@ if.end131:                                        ; preds = %if.end15
   %32 = load i8, ptr %arrayidx166, align 1
   %conv167 = zext i8 %32 to i32
   %xor168 = or disjoint i32 %xor164, %conv167
-  %arrayidx169 = getelementptr inbounds i32, ptr %key, i64 5
+  %arrayidx169 = getelementptr inbounds i8, ptr %key, i64 20
   store i32 %xor168, ptr %arrayidx169, align 4
   %cmp170 = icmp eq i32 %bits, 192
   br i1 %cmp170, label %while.body173, label %if.end231
@@ -1644,29 +1638,29 @@ while.body173:                                    ; preds = %if.end131, %if.end2
   %arrayidx202 = getelementptr inbounds [10 x i32], ptr @rcon, i64 0, i64 %indvars.iv135
   %42 = load i32, ptr %arrayidx202, align 4
   %xor203 = xor i32 %xor200, %42
-  %arrayidx204 = getelementptr inbounds i32, ptr %rk.1, i64 6
+  %arrayidx204 = getelementptr inbounds i8, ptr %rk.1, i64 24
   store i32 %xor203, ptr %arrayidx204, align 4
   %xor207 = xor i32 %xor203, %35
-  %arrayidx208 = getelementptr inbounds i32, ptr %rk.1, i64 7
+  %arrayidx208 = getelementptr inbounds i8, ptr %rk.1, i64 28
   store i32 %xor207, ptr %arrayidx208, align 4
   %xor211 = xor i32 %34, %xor207
-  %arrayidx212 = getelementptr inbounds i32, ptr %rk.1, i64 8
+  %arrayidx212 = getelementptr inbounds i8, ptr %rk.1, i64 32
   store i32 %xor211, ptr %arrayidx212, align 4
   %xor215 = xor i32 %33, %xor211
-  %arrayidx216 = getelementptr inbounds i32, ptr %rk.1, i64 9
+  %arrayidx216 = getelementptr inbounds i8, ptr %rk.1, i64 36
   store i32 %xor215, ptr %arrayidx216, align 4
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %cmp218 = icmp eq i64 %indvars.iv.next136, 8
   br i1 %cmp218, label %return, label %if.end221
 
 if.end221:                                        ; preds = %while.body173
-  %arrayidx222 = getelementptr inbounds i32, ptr %rk.1, i64 4
+  %arrayidx222 = getelementptr inbounds i8, ptr %rk.1, i64 16
   %43 = load i32, ptr %arrayidx222, align 4
   %xor224 = xor i32 %43, %xor215
-  %arrayidx225 = getelementptr inbounds i32, ptr %rk.1, i64 10
+  %arrayidx225 = getelementptr inbounds i8, ptr %rk.1, i64 40
   store i32 %xor224, ptr %arrayidx225, align 4
   %xor228 = xor i32 %xor224, %37
-  %arrayidx229 = getelementptr inbounds i32, ptr %rk.1, i64 11
+  %arrayidx229 = getelementptr inbounds i8, ptr %rk.1, i64 44
   store i32 %xor228, ptr %arrayidx229, align 4
   br label %while.body173
 
@@ -1689,7 +1683,7 @@ if.end231:                                        ; preds = %if.end131
   %47 = load i8, ptr %arrayidx247, align 1
   %conv248 = zext i8 %47 to i32
   %xor249 = or disjoint i32 %xor245, %conv248
-  %arrayidx250 = getelementptr inbounds i32, ptr %key, i64 6
+  %arrayidx250 = getelementptr inbounds i8, ptr %key, i64 24
   store i32 %xor249, ptr %arrayidx250, align 4
   %add.ptr251 = getelementptr inbounds i8, ptr %userKey, i64 28
   %48 = load i8, ptr %add.ptr251, align 1
@@ -1709,7 +1703,7 @@ if.end231:                                        ; preds = %if.end131
   %51 = load i8, ptr %arrayidx266, align 1
   %conv267 = zext i8 %51 to i32
   %xor268 = or disjoint i32 %xor264, %conv267
-  %arrayidx269 = getelementptr inbounds i32, ptr %key, i64 7
+  %arrayidx269 = getelementptr inbounds i8, ptr %key, i64 28
   store i32 %xor268, ptr %arrayidx269, align 4
   %cmp270 = icmp eq i32 %bits, 256
   br i1 %cmp270, label %while.body273, label %return
@@ -1754,23 +1748,23 @@ while.body273:                                    ; preds = %if.end231, %if.end3
   %arrayidx302 = getelementptr inbounds [10 x i32], ptr @rcon, i64 0, i64 %indvars.iv
   %61 = load i32, ptr %arrayidx302, align 4
   %xor303 = xor i32 %xor300, %61
-  %arrayidx304 = getelementptr inbounds i32, ptr %rk.2, i64 8
+  %arrayidx304 = getelementptr inbounds i8, ptr %rk.2, i64 32
   store i32 %xor303, ptr %arrayidx304, align 4
   %xor307 = xor i32 %xor303, %54
-  %arrayidx308 = getelementptr inbounds i32, ptr %rk.2, i64 9
+  %arrayidx308 = getelementptr inbounds i8, ptr %rk.2, i64 36
   store i32 %xor307, ptr %arrayidx308, align 4
   %xor311 = xor i32 %53, %xor307
-  %arrayidx312 = getelementptr inbounds i32, ptr %rk.2, i64 10
+  %arrayidx312 = getelementptr inbounds i8, ptr %rk.2, i64 40
   store i32 %xor311, ptr %arrayidx312, align 4
   %xor315 = xor i32 %52, %xor311
-  %arrayidx316 = getelementptr inbounds i32, ptr %rk.2, i64 11
+  %arrayidx316 = getelementptr inbounds i8, ptr %rk.2, i64 44
   store i32 %xor315, ptr %arrayidx316, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp318 = icmp eq i64 %indvars.iv.next, 7
   br i1 %cmp318, label %return, label %if.end321
 
 if.end321:                                        ; preds = %while.body273
-  %arrayidx323 = getelementptr inbounds i32, ptr %rk.2, i64 4
+  %arrayidx323 = getelementptr inbounds i8, ptr %rk.2, i64 16
   %62 = load i32, ptr %arrayidx323, align 4
   %shr324 = lshr i32 %xor315, 24
   %idxprom325 = zext nneg i32 %shr324 to i64
@@ -1801,20 +1795,20 @@ if.end321:                                        ; preds = %while.body273
   %66 = load i8, ptr %arrayidx346, align 1
   %conv347 = zext i8 %66 to i32
   %xor348 = xor i32 %xor343, %conv347
-  %arrayidx349 = getelementptr inbounds i32, ptr %rk.2, i64 12
+  %arrayidx349 = getelementptr inbounds i8, ptr %rk.2, i64 48
   store i32 %xor348, ptr %arrayidx349, align 4
-  %arrayidx350 = getelementptr inbounds i32, ptr %rk.2, i64 5
+  %arrayidx350 = getelementptr inbounds i8, ptr %rk.2, i64 20
   %67 = load i32, ptr %arrayidx350, align 4
   %xor352 = xor i32 %xor348, %67
-  %arrayidx353 = getelementptr inbounds i32, ptr %rk.2, i64 13
+  %arrayidx353 = getelementptr inbounds i8, ptr %rk.2, i64 52
   store i32 %xor352, ptr %arrayidx353, align 4
-  %arrayidx354 = getelementptr inbounds i32, ptr %rk.2, i64 6
+  %arrayidx354 = getelementptr inbounds i8, ptr %rk.2, i64 24
   %68 = load i32, ptr %arrayidx354, align 4
   %xor356 = xor i32 %68, %xor352
-  %arrayidx357 = getelementptr inbounds i32, ptr %rk.2, i64 14
+  %arrayidx357 = getelementptr inbounds i8, ptr %rk.2, i64 56
   store i32 %xor356, ptr %arrayidx357, align 4
   %xor360 = xor i32 %xor356, %56
-  %arrayidx361 = getelementptr inbounds i32, ptr %rk.2, i64 15
+  %arrayidx361 = getelementptr inbounds i8, ptr %rk.2, i64 60
   store i32 %xor360, ptr %arrayidx361, align 4
   br label %while.body273
 
@@ -1970,7 +1964,7 @@ if.then57:                                        ; preds = %if.end45, %if.end55
   %add.ptr62 = getelementptr inbounds i8, ptr %in_arg.addr.3, i64 %and47
   %conv63 = trunc i64 %nbytes.addr.470 to i32
   %call64 = tail call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %conv63) #9
-  %cword = getelementptr inbounds %struct.padlock_cipher_data, ptr %add.ptr, i64 0, i32 1
+  %cword = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %bf.load = load i16, ptr %cword, align 4
   %8 = and i16 %bf.load, 512
   %tobool65.not = icmp eq i16 %8, 0

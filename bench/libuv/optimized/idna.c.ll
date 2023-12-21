@@ -1144,12 +1144,12 @@ if.then:                                          ; preds = %uv__wtf8_decode1.ex
   %shr = lshr i32 %sub, 10
   %4 = trunc i32 %shr to i16
   %conv = add nuw nsw i16 %4, -10240
-  %incdec.ptr = getelementptr inbounds i16, ptr %w_target.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %w_target.addr.0, i64 2
   store i16 %conv, ptr %w_target.addr.0, align 2
   %5 = trunc i32 %and54.i to i16
   %6 = and i16 %5, 1023
   %conv3 = or disjoint i16 %6, -9216
-  %incdec.ptr4 = getelementptr inbounds i16, ptr %w_target.addr.0, i64 2
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %w_target.addr.0, i64 4
   store i16 %conv3, ptr %incdec.ptr, align 2
   br label %do.cond
 
@@ -1157,7 +1157,7 @@ if.else:                                          ; preds = %if.then53.i, %if.en
   %retval.0.i13 = phi i32 [ %and54.i, %uv__wtf8_decode1.exit ], [ -1, %if.end38.i ], [ -1, %if.end21.i ], [ -1, %if.end7.i ], [ -1, %if.end.i ], [ %conv.i, %do.body ], [ %and37.i, %if.then36.i ], [ %and20.i, %if.then19.i ], [ -1, %if.then53.i ]
   %source_ptr.addr.112 = phi ptr [ %incdec.ptr39.i, %uv__wtf8_decode1.exit ], [ %incdec.ptr39.i, %if.end38.i ], [ %incdec.ptr22.i, %if.end21.i ], [ %incdec.ptr.i, %if.end7.i ], [ %source_ptr.addr.0, %if.end.i ], [ %source_ptr.addr.0, %do.body ], [ %incdec.ptr22.i, %if.then36.i ], [ %incdec.ptr.i, %if.then19.i ], [ %incdec.ptr39.i, %if.then53.i ]
   %conv6 = trunc i32 %retval.0.i13 to i16
-  %incdec.ptr7 = getelementptr inbounds i16, ptr %w_target.addr.0, i64 1
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %w_target.addr.0, i64 2
   store i16 %conv6, ptr %w_target.addr.0, align 2
   br label %do.cond
 
@@ -1192,7 +1192,7 @@ while.body:                                       ; preds = %entry, %if.end18
   br i1 %or.cond1.i, label %if.then.i, label %uv__get_surrogate_value.exit
 
 if.then.i:                                        ; preds = %while.body
-  %arrayidx8.i = getelementptr inbounds i16, ptr %w_source_ptr.addr.020, i64 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %w_source_ptr.addr.020, i64 2
   %2 = load i16, ptr %arrayidx8.i, align 2
   %3 = and i16 %2, -1024
   %or.cond2.i = icmp eq i16 %3, -9216
@@ -1238,7 +1238,7 @@ if.then9:                                         ; preds = %if.else7
 
 if.else11:                                        ; preds = %if.else7
   %add12 = add i64 %target_len.019, 4
-  %incdec.ptr = getelementptr inbounds i16, ptr %w_source_ptr.addr.020, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %w_source_ptr.addr.020, i64 2
   %cmp13 = icmp sgt i64 %w_source_len.addr.018, 0
   %dec = sext i1 %cmp13 to i64
   %spec.select = add nsw i64 %w_source_len.addr.018, %dec
@@ -1248,7 +1248,7 @@ if.end18:                                         ; preds = %if.else11, %if.then
   %w_source_len.addr.1 = phi i64 [ %w_source_len.addr.018, %if.then3 ], [ %w_source_len.addr.018, %if.then5 ], [ %w_source_len.addr.018, %if.then9 ], [ %spec.select, %if.else11 ]
   %target_len.1 = phi i64 [ %add, %if.then3 ], [ %add6, %if.then5 ], [ %add10, %if.then9 ], [ %add12, %if.else11 ]
   %w_source_ptr.addr.1 = phi ptr [ %w_source_ptr.addr.020, %if.then3 ], [ %w_source_ptr.addr.020, %if.then5 ], [ %w_source_ptr.addr.020, %if.then9 ], [ %incdec.ptr, %if.else11 ]
-  %incdec.ptr19 = getelementptr inbounds i16, ptr %w_source_ptr.addr.1, i64 1
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %w_source_ptr.addr.1, i64 2
   %cmp20 = icmp sgt i64 %w_source_len.addr.1, 0
   %dec22 = sext i1 %cmp20 to i64
   %spec.select16 = add nsw i64 %w_source_len.addr.1, %dec22
@@ -1288,7 +1288,7 @@ while.body.i:                                     ; preds = %if.then, %if.end18.
   br i1 %or.cond1.i.i, label %if.then.i.i, label %uv__get_surrogate_value.exit.i
 
 if.then.i.i:                                      ; preds = %while.body.i
-  %arrayidx8.i.i = getelementptr inbounds i16, ptr %w_source_ptr.addr.020.i, i64 1
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %w_source_ptr.addr.020.i, i64 2
   %3 = load i16, ptr %arrayidx8.i.i, align 2
   %4 = and i16 %3, -1024
   %or.cond2.i.i = icmp eq i16 %4, -9216
@@ -1334,7 +1334,7 @@ if.then9.i:                                       ; preds = %if.else7.i
 
 if.else11.i:                                      ; preds = %if.else7.i
   %add12.i = add i64 %target_len.019.i, 4
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %w_source_ptr.addr.020.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %w_source_ptr.addr.020.i, i64 2
   %cmp13.i = icmp sgt i64 %w_source_len.addr.018.i, 0
   %dec.i = sext i1 %cmp13.i to i64
   %spec.select.i = add nsw i64 %w_source_len.addr.018.i, %dec.i
@@ -1344,7 +1344,7 @@ if.end18.i:                                       ; preds = %if.else11.i, %if.th
   %w_source_len.addr.1.i = phi i64 [ %w_source_len.addr.018.i, %if.then3.i ], [ %w_source_len.addr.018.i, %if.then5.i ], [ %w_source_len.addr.018.i, %if.then9.i ], [ %spec.select.i, %if.else11.i ]
   %target_len.1.i = phi i64 [ %add.i, %if.then3.i ], [ %add6.i, %if.then5.i ], [ %add10.i, %if.then9.i ], [ %add12.i, %if.else11.i ]
   %w_source_ptr.addr.1.i = phi ptr [ %w_source_ptr.addr.020.i, %if.then3.i ], [ %w_source_ptr.addr.020.i, %if.then5.i ], [ %w_source_ptr.addr.020.i, %if.then9.i ], [ %incdec.ptr.i, %if.else11.i ]
-  %incdec.ptr19.i = getelementptr inbounds i16, ptr %w_source_ptr.addr.1.i, i64 1
+  %incdec.ptr19.i = getelementptr inbounds i8, ptr %w_source_ptr.addr.1.i, i64 2
   %cmp20.i = icmp sgt i64 %w_source_len.addr.1.i, 0
   %dec22.i = sext i1 %cmp20.i to i64
   %spec.select16.i = add nsw i64 %w_source_len.addr.1.i, %dec22.i
@@ -1405,7 +1405,7 @@ while.body:                                       ; preds = %if.end15, %if.end10
   br i1 %or.cond1.i, label %if.then.i, label %uv__get_surrogate_value.exit
 
 if.then.i:                                        ; preds = %while.body
-  %arrayidx8.i = getelementptr inbounds i16, ptr %w_source_ptr.addr.0143, i64 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %w_source_ptr.addr.0143, i64 2
   %9 = load i16, ptr %arrayidx8.i, align 2
   %10 = and i16 %9, -1024
   %or.cond2.i = icmp eq i16 %10, -9216
@@ -1520,7 +1520,7 @@ if.end88:                                         ; preds = %if.end79
   %conv91 = or disjoint i8 %25, -128
   %incdec.ptr92 = getelementptr inbounds i8, ptr %target.1142, i64 4
   store i8 %conv91, ptr %incdec.ptr84, align 1
-  %incdec.ptr93 = getelementptr inbounds i16, ptr %w_source_ptr.addr.0143, i64 1
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %w_source_ptr.addr.0143, i64 2
   %cmp94 = icmp sgt i64 %w_source_len.addr.0140, 0
   %dec = sext i1 %cmp94 to i64
   %spec.select = add nsw i64 %w_source_len.addr.0140, %dec
@@ -1534,7 +1534,7 @@ if.end100:                                        ; preds = %if.end88, %if.end33
   %sub.ptr.lhs.cast = ptrtoint ptr %target.2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %26 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %incdec.ptr101 = getelementptr inbounds i16, ptr %w_source_ptr.addr.1, i64 1
+  %incdec.ptr101 = getelementptr inbounds i8, ptr %w_source_ptr.addr.1, i64 2
   %cmp102 = icmp sgt i64 %w_source_len.addr.1, 0
   %dec105 = sext i1 %cmp102 to i64
   %spec.select78 = add nsw i64 %w_source_len.addr.1, %dec105
@@ -1603,7 +1603,7 @@ while.body.i83:                                   ; preds = %if.end127, %if.end1
   br i1 %or.cond1.i.i90, label %if.then.i.i124, label %uv__get_surrogate_value.exit.i91
 
 if.then.i.i124:                                   ; preds = %while.body.i83
-  %arrayidx8.i.i125 = getelementptr inbounds i16, ptr %w_source_ptr.addr.020.i84, i64 1
+  %arrayidx8.i.i125 = getelementptr inbounds i8, ptr %w_source_ptr.addr.020.i84, i64 2
   %32 = load i16, ptr %arrayidx8.i.i125, align 2
   %33 = and i16 %32, -1024
   %or.cond2.i.i126 = icmp eq i16 %33, -9216
@@ -1649,7 +1649,7 @@ if.then9.i118:                                    ; preds = %if.else7.i100
 
 if.else11.i102:                                   ; preds = %if.else7.i100
   %add12.i103 = add i64 %target_len.019.i85, 4
-  %incdec.ptr.i104 = getelementptr inbounds i16, ptr %w_source_ptr.addr.020.i84, i64 1
+  %incdec.ptr.i104 = getelementptr inbounds i8, ptr %w_source_ptr.addr.020.i84, i64 2
   %cmp13.i105 = icmp sgt i64 %w_source_len.addr.018.i86, 0
   %dec.i106 = sext i1 %cmp13.i105 to i64
   %spec.select.i107 = add nsw i64 %w_source_len.addr.018.i86, %dec.i106
@@ -1659,7 +1659,7 @@ if.end18.i108:                                    ; preds = %if.else11.i102, %if
   %w_source_len.addr.1.i109 = phi i64 [ %w_source_len.addr.018.i86, %if.then3.i122 ], [ %w_source_len.addr.018.i86, %if.then5.i120 ], [ %w_source_len.addr.018.i86, %if.then9.i118 ], [ %spec.select.i107, %if.else11.i102 ]
   %target_len.1.i110 = phi i64 [ %add.i123, %if.then3.i122 ], [ %add6.i121, %if.then5.i120 ], [ %add10.i119, %if.then9.i118 ], [ %add12.i103, %if.else11.i102 ]
   %w_source_ptr.addr.1.i111 = phi ptr [ %w_source_ptr.addr.020.i84, %if.then3.i122 ], [ %w_source_ptr.addr.020.i84, %if.then5.i120 ], [ %w_source_ptr.addr.020.i84, %if.then9.i118 ], [ %incdec.ptr.i104, %if.else11.i102 ]
-  %incdec.ptr19.i112 = getelementptr inbounds i16, ptr %w_source_ptr.addr.1.i111, i64 1
+  %incdec.ptr19.i112 = getelementptr inbounds i8, ptr %w_source_ptr.addr.1.i111, i64 2
   %cmp20.i113 = icmp sgt i64 %w_source_len.addr.1.i109, 0
   %dec22.i114 = sext i1 %cmp20.i113 to i64
   %spec.select16.i115 = add nsw i64 %w_source_len.addr.1.i109, %dec22.i114

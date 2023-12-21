@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.pq_heap_st = type { ptr, i64 }
-%struct.ossl_pqueue_st = type { ptr, ptr, ptr, i64, i64, i64 }
 %struct.pq_elem_st = type { i64 }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/ssl/priority_queue.c\00", align 1
@@ -19,13 +18,13 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %htop = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 3
+  %htop = getelementptr inbounds i8, ptr %pq, i64 24
   %0 = load i64, ptr %htop, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %htop, align 8
-  %freelist = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 5
+  %freelist = getelementptr inbounds i8, ptr %pq, i64 40
   %1 = load i64, ptr %freelist, align 8
-  %elements = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %pq, i64 8
   %2 = load ptr, ptr %elements, align 8
   %arrayidx = getelementptr inbounds %struct.pq_elem_st, ptr %2, i64 %1
   %3 = load i64, ptr %arrayidx, align 8
@@ -44,7 +43,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not11.i, label %pqueue_move_down.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end
-  %compare.i = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 2
+  %compare.i = getelementptr inbounds i8, ptr %pq, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
@@ -69,11 +68,11 @@ if.end.i:                                         ; preds = %while.body.i
   %arrayidx2.i.i = getelementptr inbounds %struct.pq_heap_st, ptr %pq.val.i, i64 %div9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx2.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %t_h.i.i, i64 16, i1 false)
-  %index.i.i = getelementptr inbounds %struct.pq_heap_st, ptr %pq.val.i, i64 %n.addr.012.i, i32 1
+  %index.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %11 = load i64, ptr %index.i.i, align 8
   %arrayidx5.i.i = getelementptr inbounds %struct.pq_elem_st, ptr %pq.val10.i, i64 %11
   store i64 %n.addr.012.i, ptr %arrayidx5.i.i, align 8
-  %index7.i.i = getelementptr inbounds %struct.pq_heap_st, ptr %pq.val.i, i64 %div9.i, i32 1
+  %index7.i.i = getelementptr inbounds i8, ptr %arrayidx2.i.i, i64 8
   %12 = load i64, ptr %index7.i.i, align 8
   %arrayidx8.i.i = getelementptr inbounds %struct.pq_elem_st, ptr %pq.val10.i, i64 %12
   store i64 %div9.i, ptr %arrayidx8.i.i, align 8
@@ -101,9 +100,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hmax = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 4
+  %hmax = getelementptr inbounds i8, ptr %pq, i64 32
   %0 = load i64, ptr %hmax, align 8
-  %htop = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 3
+  %htop = getelementptr inbounds i8, ptr %pq, i64 24
   %1 = load i64, ptr %htop, align 8
   %add = add i64 %1, %n
   %cmp1 = icmp ult i64 %add, %0
@@ -146,7 +145,7 @@ if.end7:                                          ; preds = %compute_pqueue_grow
 
 if.end11:                                         ; preds = %if.end7
   store ptr %call8, ptr %pq, align 8
-  %elements = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %pq, i64 8
   %4 = load ptr, ptr %elements, align 8
   %mul13 = shl i64 %retval.0.i, 3
   %call14 = tail call ptr @CRYPTO_realloc(ptr noundef %4, i64 noundef %mul13, ptr noundef nonnull @.str, i32 noundef 319) #7
@@ -156,7 +155,7 @@ if.end11:                                         ; preds = %if.end7
 if.end17:                                         ; preds = %if.end11
   store ptr %call14, ptr %elements, align 8
   store i64 %retval.0.i, ptr %hmax, align 8
-  %freelist.i = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 5
+  %freelist.i = getelementptr inbounds i8, ptr %pq, i64 40
   %5 = load i64, ptr %freelist.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.pq_elem_st, ptr %call14, i64 %0
   store i64 %5, ptr %arrayidx.i, align 8
@@ -189,7 +188,7 @@ return:                                           ; preds = %if.end11, %if.end7,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @ossl_pqueue_peek(ptr nocapture noundef readonly %pq) local_unnamed_addr #1 {
 entry:
-  %htop = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 3
+  %htop = getelementptr inbounds i8, ptr %pq, i64 24
   %0 = load i64, ptr %htop, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %return, label %if.then
@@ -212,7 +211,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %htop = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 3
+  %htop = getelementptr inbounds i8, ptr %pq, i64 24
   %0 = load i64, ptr %htop, align 8
   %cmp1 = icmp eq i64 %0, 0
   br i1 %cmp1, label %return, label %if.end
@@ -220,7 +219,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %1 = load ptr, ptr %pq, align 8
   %2 = load ptr, ptr %1, align 8
-  %index = getelementptr inbounds %struct.pq_heap_st, ptr %1, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i64, ptr %index, align 8
   %dec = add i64 %0, -1
   store i64 %dec, ptr %htop, align 8
@@ -241,11 +240,11 @@ if.then5:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %if.then5
-  %compare.i = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 2
+  %compare.i = getelementptr inbounds i8, ptr %pq, i64 16
   %8 = load ptr, ptr %compare.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.pq_heap_st, ptr %6, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx3.i13 = getelementptr inbounds %struct.pq_heap_st, ptr %6, i64 2
+  %arrayidx3.i13 = getelementptr inbounds i8, ptr %6, i64 32
   %10 = load ptr, ptr %arrayidx3.i13, align 8
   %call.i = tail call i32 %8(ptr noundef %9, ptr noundef %10) #7
   %cmp5.i = icmp sgt i32 %call.i, 0
@@ -256,7 +255,7 @@ if.then.i:                                        ; preds = %if.then5
 if.end7.i:                                        ; preds = %if.then.i, %if.then5
   %11 = phi i64 [ %7, %if.then5 ], [ %.pre.i, %if.then.i ]
   %p.0.i = phi i64 [ 1, %if.then5 ], [ %spec.select.i, %if.then.i ]
-  %compare10.i = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 2
+  %compare10.i = getelementptr inbounds i8, ptr %pq, i64 16
   %cmp929.i = icmp ugt i64 %11, %p.0.i
   br i1 %cmp929.i, label %land.rhs.i, label %if.end7
 
@@ -281,11 +280,11 @@ while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx2.i.i = getelementptr inbounds %struct.pq_heap_st, ptr %pq.val.i, i64 %p.131.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx2.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %t_h.i.i, i64 16, i1 false)
-  %index.i.i = getelementptr inbounds %struct.pq_heap_st, ptr %pq.val.i, i64 %n.addr.030.i, i32 1
+  %index.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %15 = load i64, ptr %index.i.i, align 8
   %arrayidx5.i.i = getelementptr inbounds %struct.pq_elem_st, ptr %pq.val28.i, i64 %15
   store i64 %n.addr.030.i, ptr %arrayidx5.i.i, align 8
-  %index7.i.i = getelementptr inbounds %struct.pq_heap_st, ptr %pq.val.i, i64 %p.131.i, i32 1
+  %index7.i.i = getelementptr inbounds i8, ptr %arrayidx2.i.i, i64 8
   %16 = load i64, ptr %index7.i.i, align 8
   %arrayidx8.i.i = getelementptr inbounds %struct.pq_elem_st, ptr %pq.val28.i, i64 %16
   store i64 %p.131.i, ptr %arrayidx8.i.i, align 8
@@ -316,9 +315,9 @@ if.end34.i:                                       ; preds = %if.then22.i, %while
   br i1 %cmp9.i, label %land.rhs.i, label %if.end7, !llvm.loop !9
 
 if.end7:                                          ; preds = %if.end34.i, %land.rhs.i, %if.end7.i, %if.end
-  %freelist = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 5
+  %freelist = getelementptr inbounds i8, ptr %pq, i64 40
   %22 = load i64, ptr %freelist, align 8
-  %elements = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %pq, i64 8
   %23 = load ptr, ptr %elements, align 8
   %arrayidx = getelementptr inbounds %struct.pq_elem_st, ptr %23, i64 %3
   store i64 %22, ptr %arrayidx, align 8
@@ -338,19 +337,19 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %hmax = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 4
+  %hmax = getelementptr inbounds i8, ptr %pq, i64 32
   %0 = load i64, ptr %hmax, align 8
   %cmp1.not = icmp ugt i64 %0, %elem
   br i1 %cmp1.not, label %lor.lhs.false2, label %return
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %htop = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 3
+  %htop = getelementptr inbounds i8, ptr %pq, i64 24
   %1 = load i64, ptr %htop, align 8
   %cmp3 = icmp eq i64 %1, 0
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %elements = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %pq, i64 8
   %2 = load ptr, ptr %elements, align 8
   %arrayidx = getelementptr inbounds %struct.pq_elem_st, ptr %2, i64 %elem
   %3 = load i64, ptr %arrayidx, align 8
@@ -359,7 +358,7 @@ if.end:                                           ; preds = %lor.lhs.false2
   br i1 %cmp5, label %if.then6, label %if.end13
 
 if.then6:                                         ; preds = %if.end
-  %freelist = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 5
+  %freelist = getelementptr inbounds i8, ptr %pq, i64 40
   %4 = load i64, ptr %freelist, align 8
   store i64 %4, ptr %arrayidx, align 8
   store i64 %elem, ptr %freelist, align 8
@@ -387,11 +386,11 @@ while.body.i:                                     ; preds = %if.end13, %while.bo
   %arrayidx2.i.i = getelementptr inbounds %struct.pq_heap_st, ptr %pq.val.i, i64 %div4.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx2.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %t_h.i.i, i64 16, i1 false)
-  %index.i.i = getelementptr inbounds %struct.pq_heap_st, ptr %pq.val.i, i64 %n.addr.07.i, i32 1
+  %index.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %8 = load i64, ptr %index.i.i, align 8
   %arrayidx5.i.i = getelementptr inbounds %struct.pq_elem_st, ptr %pq.val5.i, i64 %8
   store i64 %n.addr.07.i, ptr %arrayidx5.i.i, align 8
-  %index7.i.i = getelementptr inbounds %struct.pq_heap_st, ptr %pq.val.i, i64 %div4.i, i32 1
+  %index7.i.i = getelementptr inbounds i8, ptr %arrayidx2.i.i, i64 8
   %9 = load i64, ptr %index7.i.i, align 8
   %arrayidx8.i.i = getelementptr inbounds %struct.pq_elem_st, ptr %pq.val5.i, i64 %9
   store i64 %div4.i, ptr %arrayidx8.i.i, align 8
@@ -428,18 +427,18 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %compare4 = getelementptr inbounds %struct.ossl_pqueue_st, ptr %call, i64 0, i32 2
+  %compare4 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %compare, ptr %compare4, align 8
-  %hmax = getelementptr inbounds %struct.ossl_pqueue_st, ptr %call, i64 0, i32 4
+  %hmax = getelementptr inbounds i8, ptr %call, i64 32
   store i64 8, ptr %hmax, align 8
-  %htop = getelementptr inbounds %struct.ossl_pqueue_st, ptr %call, i64 0, i32 3
+  %htop = getelementptr inbounds i8, ptr %call, i64 24
   store i64 0, ptr %htop, align 8
-  %freelist = getelementptr inbounds %struct.ossl_pqueue_st, ptr %call, i64 0, i32 5
+  %freelist = getelementptr inbounds i8, ptr %call, i64 40
   store i64 0, ptr %freelist, align 8
   %call5 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 128, ptr noundef nonnull @.str, i32 noundef 343) #7
   store ptr %call5, ptr %call, align 8
   %call6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 64, ptr noundef nonnull @.str, i32 noundef 344) #7
-  %elements = getelementptr inbounds %struct.ossl_pqueue_st, ptr %call, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call6, ptr %elements, align 8
   %cmp8 = icmp eq ptr %call5, null
   %cmp10 = icmp eq ptr %call6, null
@@ -485,7 +484,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pq, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 356) #7
-  %elements = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %pq, i64 8
   %1 = load ptr, ptr %elements, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 357) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %pq, ptr noundef nonnull @.str, i32 noundef 358) #7
@@ -504,7 +503,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %htop = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 3
+  %htop = getelementptr inbounds i8, ptr %pq, i64 24
   %0 = load i64, ptr %htop, align 8
   %cmp16.not = icmp eq i64 %0, 0
   br i1 %cmp16.not, label %ossl_pqueue_free.exit, label %for.body
@@ -523,7 +522,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 ossl_pqueue_free.exit:                            ; preds = %for.body, %for.cond.preheader
   %4 = load ptr, ptr %pq, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 356) #7
-  %elements.i = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %pq, i64 8
   %5 = load ptr, ptr %elements.i, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 357) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %pq, ptr noundef nonnull @.str, i32 noundef 358) #7
@@ -540,7 +539,7 @@ entry:
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %htop = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 3
+  %htop = getelementptr inbounds i8, ptr %pq, i64 24
   %0 = load i64, ptr %htop, align 8
   br label %cond.end
 

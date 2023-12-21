@@ -3,9 +3,8 @@ source_filename = "bench/luajit/original/buildvm_asm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BuildCtx = type { ptr, i32, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [200 x %struct.BuildReloc] }
-%struct.BuildReloc = type { i32, i32, i32 }
 %struct.BuildSym = type { ptr, i32 }
+%struct.BuildReloc = type { i32, i32, i32 }
 
 @.str = private unnamed_addr constant [26 x i8] c"\09.file \22buildvm_%s.dasc\22\0A\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"\09.text\0A\00", align 1
@@ -55,14 +54,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @emit_asm(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
-  %fp = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 2
+  %fp = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %fp, align 8
-  %dasm_arch = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 20
+  %dasm_arch = getelementptr inbounds i8, ptr %ctx, i64 144
   %1 = load ptr, ptr %dasm_arch, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %1)
   %2 = load ptr, ptr %fp, align 8
   %3 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 7, i64 1, ptr %2)
-  %mode.i = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 1
+  %mode.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load i32, ptr %mode.i, align 8
   %5 = icmp ult i32 %4, 3
   br i1 %5, label %switch.lookup, label %emit_asm_align.exit
@@ -78,7 +77,7 @@ switch.lookup:                                    ; preds = %entry
 
 emit_asm_align.exit:                              ; preds = %entry, %switch.lookup
   %8 = phi i32 [ %4, %entry ], [ %.pr, %switch.lookup ]
-  %beginsym = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 16
+  %beginsym = getelementptr inbounds i8, ptr %ctx, i64 112
   %9 = load ptr, ptr %beginsym, align 8
   switch i32 %8, label %emit_asm_label.exit [
     i32 0, label %sw.bb.i
@@ -114,16 +113,17 @@ if.then:                                          ; preds = %emit_asm_label.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %emit_asm_label.exit
-  %nsym = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 9
+  %nsym = getelementptr inbounds i8, ptr %ctx, i64 64
   %17 = load i32, ptr %nsym, align 8
   %cmp5123 = icmp sgt i32 %17, 0
   br i1 %cmp5123, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %sym = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 13
-  %nreloc = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 10
-  %code = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 5
-  %relocsym = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 14
+  %sym = getelementptr inbounds i8, ptr %ctx, i64 88
+  %nreloc = getelementptr inbounds i8, ptr %ctx, i64 68
+  %reloc = getelementptr inbounds i8, ptr %ctx, i64 152
+  %code = getelementptr inbounds i8, ptr %ctx, i64 40
+  %relocsym = getelementptr inbounds i8, ptr %ctx, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %emit_asm_bytes.exit114
@@ -131,7 +131,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %em
   %rel.0124 = phi i32 [ 0, %for.body.lr.ph ], [ %rel.1.lcssa, %emit_asm_bytes.exit114 ]
   %18 = load ptr, ptr %sym, align 8
   %arrayidx = getelementptr inbounds %struct.BuildSym, ptr %18, i64 %indvars.iv127
-  %ofs6 = getelementptr inbounds %struct.BuildSym, ptr %18, i64 %indvars.iv127, i32 1
+  %ofs6 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %19 = load i32, ptr %ofs6, align 8
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %ofs10 = getelementptr inbounds %struct.BuildSym, ptr %18, i64 %indvars.iv.next128, i32 1
@@ -176,14 +176,14 @@ land.rhs.preheader:                               ; preds = %emit_asm_label.exit
 land.rhs:                                         ; preds = %land.rhs.preheader, %if.end41
   %indvars.iv = phi i64 [ %29, %land.rhs.preheader ], [ %indvars.iv.next, %if.end41 ]
   %ofs.0118 = phi i32 [ %19, %land.rhs.preheader ], [ %add43, %if.end41 ]
-  %arrayidx16 = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 21, i64 %indvars.iv
+  %arrayidx16 = getelementptr inbounds [200 x %struct.BuildReloc], ptr %reloc, i64 0, i64 %indvars.iv
   %30 = load i32, ptr %arrayidx16, align 4
   %cmp18.not = icmp sgt i32 %30, %20
   br i1 %cmp18.not, label %while.end.loopexit, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %sub23 = sub nsw i32 %30, %ofs.0118
-  %type = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 21, i64 %indvars.iv, i32 2
+  %type = getelementptr inbounds i8, ptr %arrayidx16, i64 8
   %31 = load i32, ptr %type, align 4
   %cmp24.not = icmp eq i32 %31, 0
   br i1 %cmp24.not, label %if.else, label %land.lhs.true
@@ -200,7 +200,7 @@ if.then29:                                        ; preds = %land.lhs.true, %lan
   %idx.ext = sext i32 %ofs.0118 to i64
   %add.ptr = getelementptr inbounds i8, ptr %33, i64 %idx.ext
   %34 = load ptr, ptr %relocsym, align 8
-  %sym30 = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 21, i64 %indvars.iv, i32 1
+  %sym30 = getelementptr inbounds i8, ptr %arrayidx16, i64 4
   %35 = load i32, ptr %sym30, align 4
   %idxprom31 = sext i32 %35 to i64
   %arrayidx32 = getelementptr inbounds ptr, ptr %34, i64 %idxprom31
@@ -380,7 +380,7 @@ if.then17.i:                                      ; preds = %for.end.i
 emit_asm_bytes.exit:                              ; preds = %for.end.i, %if.then17.i
   %55 = load i32, ptr %type, align 4
   %56 = load ptr, ptr %relocsym, align 8
-  %sym38 = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 21, i64 %indvars.iv, i32 1
+  %sym38 = getelementptr inbounds i8, ptr %arrayidx16, i64 4
   %57 = load i32, ptr %sym38, align 4
   %idxprom39 = sext i32 %57 to i64
   %arrayidx40 = getelementptr inbounds ptr, ptr %56, i64 %idxprom39
@@ -519,7 +519,7 @@ sw.bb57:                                          ; preds = %for.end
 sw.epilog.sink.split:                             ; preds = %for.end, %sw.bb, %sw.bb57
   %.str.6.sink = phi ptr [ @.str.6, %sw.bb57 ], [ @.str.5, %sw.bb ], [ @.str.5, %for.end ]
   %78 = load ptr, ptr %fp, align 8
-  %dasm_ident59 = getelementptr inbounds %struct.BuildCtx, ptr %ctx, i64 0, i32 19
+  %dasm_ident59 = getelementptr inbounds i8, ptr %ctx, i64 136
   %79 = load ptr, ptr %dasm_ident59, align 8
   %call60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull %.str.6.sink, ptr noundef %79)
   br label %sw.epilog

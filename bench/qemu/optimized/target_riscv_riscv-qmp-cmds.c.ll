@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.RISCVCPUMultiExtConfig = type { ptr, i32, i8 }
-%struct.CpuDefinitionInfo = type { ptr, i8, i8, i8, i8, ptr, ptr, ptr, i8 }
-%struct.CpuDefinitionInfoList = type { ptr, ptr }
-%struct.CpuModelInfo = type { ptr, ptr }
-%struct.ObjectProperty = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
 
 @.str = private unnamed_addr constant [10 x i8] c"riscv-cpu\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"../qemu/target/riscv/riscv-qmp-cmds.c\00", align 1
@@ -64,15 +59,15 @@ entry:
   %call3 = tail call noalias ptr @g_strndup(ptr noundef %call1, i64 noundef %sub) #7
   store ptr %call3, ptr %call, align 8
   %call4 = tail call noalias ptr @g_strdup(ptr noundef %call1) #7
-  %q_typename = getelementptr inbounds %struct.CpuDefinitionInfo, ptr %call, i64 0, i32 6
+  %q_typename = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call4, ptr %q_typename, align 8
   %call5 = tail call ptr @object_class_dynamic_cast(ptr noundef %data, ptr noundef nonnull @.str.9) #7
   %cmp = icmp eq ptr %call5, null
-  %q_static = getelementptr inbounds %struct.CpuDefinitionInfo, ptr %call, i64 0, i32 3
+  %q_static = getelementptr inbounds i8, ptr %call, i64 10
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %q_static, align 2
   %call6 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #8
-  %value = getelementptr inbounds %struct.CpuDefinitionInfoList, ptr %call6, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %call, ptr %value, align 8
   %0 = load ptr, ptr %user_data, align 8
   store ptr %0, ptr %call6, align 8
@@ -107,7 +102,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %props = getelementptr inbounds %struct.CpuModelInfo, ptr %model, i64 0, i32 1
+  %props = getelementptr inbounds i8, ptr %model, i64 8
   %2 = load ptr, ptr %props, align 8
   %tobool4.not = icmp eq ptr %2, null
   br i1 %tobool4.not, label %if.end11, label %if.then5
@@ -238,7 +233,7 @@ for.body.i40:                                     ; preds = %if.end24, %riscv_ob
   br i1 %tobool.not.i.i, label %riscv_obj_add_qdict_prop.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i40
-  %get.i.i = getelementptr inbounds %struct.ObjectProperty, ptr %call.i.i41, i64 0, i32 3
+  %get.i.i = getelementptr inbounds i8, ptr %call.i.i41, i64 24
   %16 = load ptr, ptr %get.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %16, null
   br i1 %tobool1.not.i.i, label %if.else.i.i43, label %if.end.i.i
@@ -273,7 +268,7 @@ for.body.i45:                                     ; preds = %riscv_obj_add_multi
   br i1 %tobool.not.i.i48, label %riscv_obj_add_qdict_prop.exit.i54, label %if.then.i.i49
 
 if.then.i.i49:                                    ; preds = %for.body.i45
-  %get.i.i50 = getelementptr inbounds %struct.ObjectProperty, ptr %call.i.i47, i64 0, i32 3
+  %get.i.i50 = getelementptr inbounds i8, ptr %call.i.i47, i64 24
   %20 = load ptr, ptr %get.i.i50, align 8
   %tobool1.not.i.i51 = icmp eq ptr %20, null
   br i1 %tobool1.not.i.i51, label %if.else.i.i60, label %if.end.i.i52
@@ -308,7 +303,7 @@ for.body.i63:                                     ; preds = %riscv_obj_add_multi
   br i1 %tobool.not.i.i66, label %riscv_obj_add_qdict_prop.exit.i72, label %if.then.i.i67
 
 if.then.i.i67:                                    ; preds = %for.body.i63
-  %get.i.i68 = getelementptr inbounds %struct.ObjectProperty, ptr %call.i.i65, i64 0, i32 3
+  %get.i.i68 = getelementptr inbounds i8, ptr %call.i.i65, i64 24
   %24 = load ptr, ptr %get.i.i68, align 8
   %tobool1.not.i.i69 = icmp eq ptr %24, null
   br i1 %tobool1.not.i.i69, label %if.else.i.i78, label %if.end.i.i70
@@ -336,7 +331,7 @@ riscv_obj_add_multiext_props.exit79:              ; preds = %riscv_obj_add_qdict
   br i1 %tobool.not.i81, label %riscv_obj_add_qdict_prop.exit, label %if.then.i82
 
 if.then.i82:                                      ; preds = %riscv_obj_add_multiext_props.exit79
-  %get.i = getelementptr inbounds %struct.ObjectProperty, ptr %call.i80, i64 0, i32 3
+  %get.i = getelementptr inbounds i8, ptr %call.i80, i64 24
   %26 = load ptr, ptr %get.i, align 8
   %tobool1.not.i = icmp eq ptr %26, null
   br i1 %tobool1.not.i, label %if.else.i, label %if.end.i83
@@ -356,7 +351,7 @@ riscv_obj_add_qdict_prop.exit:                    ; preds = %riscv_obj_add_multi
   br i1 %tobool.not.i86, label %riscv_obj_add_qdict_prop.exit93, label %if.then.i87
 
 if.then.i87:                                      ; preds = %riscv_obj_add_qdict_prop.exit
-  %get.i88 = getelementptr inbounds %struct.ObjectProperty, ptr %call.i85, i64 0, i32 3
+  %get.i88 = getelementptr inbounds i8, ptr %call.i85, i64 24
   %27 = load ptr, ptr %get.i88, align 8
   %tobool1.not.i89 = icmp eq ptr %27, null
   br i1 %tobool1.not.i89, label %if.else.i92, label %if.end.i90
@@ -380,7 +375,7 @@ if.then35:                                        ; preds = %riscv_obj_add_qdict
   br i1 %tobool36.not, label %if.end50, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then35
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call32, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call32, i64 8
   %28 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i94 = icmp eq i64 %28, 0
   br i1 %tobool1.not.i94, label %if.else.i97, label %land.lhs.true.i
@@ -400,7 +395,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   br label %if.end50
 
 if.else:                                          ; preds = %riscv_obj_add_qdict_prop.exit93
-  %props49 = getelementptr inbounds %struct.CpuModelInfo, ptr %call26, i64 0, i32 1
+  %props49 = getelementptr inbounds i8, ptr %call26, i64 8
   store ptr %call32, ptr %props49, align 8
   br label %if.end50
 

@@ -43,13 +43,13 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i: ; preds =
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i.if.end_crit_edge: ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i
   %ab.sroa.8.0.b.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 8
   %ab.sroa.8.0.copyload.pre = load double, ptr %ab.sroa.8.0.b.sroa_idx.phi.trans.insert, align 8
-  %arrayidx.i.i.i.i.phi.trans.insert = getelementptr inbounds [3 x double], ptr %a, i64 0, i64 1
+  %arrayidx.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %a, i64 8
   %.pre = load double, ptr %arrayidx.i.i.i.i.phi.trans.insert, align 8
   br label %if.end
 
 land.lhs.true.i.i:                                ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i, %entry
-  %arrayidx5.i.i = getelementptr inbounds [3 x double], ptr %a, i64 0, i64 1
-  %arrayidx7.i.i = getelementptr inbounds [3 x double], ptr %b, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %a, i64 8
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %b, i64 8
   %6 = load double, ptr %arrayidx5.i.i, align 8
   %7 = load double, ptr %arrayidx7.i.i, align 8
   %sub.i3.i.i = fsub double %6, %7
@@ -68,8 +68,8 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i: ; preds
   br i1 %cmp11.i10.i.i, label %if.end, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i, %land.lhs.true.i.i
-  %arrayidx10.i.i = getelementptr inbounds [3 x double], ptr %a, i64 0, i64 2
-  %arrayidx12.i.i = getelementptr inbounds [3 x double], ptr %b, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %a, i64 16
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %b, i64 16
   %12 = load double, ptr %arrayidx10.i.i, align 8
   %13 = load double, ptr %arrayidx12.i.i, align 8
   %sub.i12.i.i = fsub double %12, %13
@@ -105,7 +105,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i128: ; pred
   br i1 %cmp11.i.i.i132, label %if.end, label %land.lhs.true.i.i108
 
 land.lhs.true.i.i108:                             ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i128, %land.lhs.true
-  %arrayidx7.i.i110 = getelementptr inbounds [3 x double], ptr %c, i64 0, i64 1
+  %arrayidx7.i.i110 = getelementptr inbounds i8, ptr %c, i64 8
   %23 = load double, ptr %arrayidx7.i.i110, align 8
   %sub.i3.i.i111 = fsub double %6, %23
   %24 = tail call noundef double @llvm.fabs.f64(double %sub.i3.i.i111)
@@ -123,7 +123,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i123: ; pr
   br i1 %cmp11.i10.i.i127, label %if.end, label %land.rhs.i.i113
 
 land.rhs.i.i113:                                  ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i123, %land.lhs.true.i.i108
-  %arrayidx12.i.i115 = getelementptr inbounds [3 x double], ptr %c, i64 0, i64 2
+  %arrayidx12.i.i115 = getelementptr inbounds i8, ptr %c, i64 16
   %28 = load double, ptr %arrayidx12.i.i115, align 8
   %sub.i12.i.i116 = fsub double %12, %28
   %29 = tail call noundef double @llvm.fabs.f64(double %sub.i12.i.i116)
@@ -155,7 +155,7 @@ if.end:                                           ; preds = %_ZN7openvdb5v11_04m
   %36 = insertelement <2 x double> poison, double %0, i64 0
   %37 = insertelement <2 x double> %36, double %33, i64 1
   %38 = fsub <2 x double> %35, %37
-  %arrayidx.i.i3.i.i = getelementptr inbounds [3 x double], ptr %a, i64 0, i64 2
+  %arrayidx.i.i3.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %39 = load double, ptr %arrayidx.i.i3.i.i, align 8
   %ac.sroa.15.0.c.sroa_idx = getelementptr inbounds i8, ptr %c, i64 16
   %ac.sroa.15.0.copyload = load double, ptr %ac.sroa.15.0.c.sroa_idx, align 8
@@ -262,7 +262,7 @@ if.else4.i:                                       ; preds = %if.else.i
   %78 = load <2 x double>, ptr %agg.result, align 8, !alias.scope !4
   %79 = fadd <2 x double> %77, %78
   store <2 x double> %79, ptr %agg.result, align 8, !alias.scope !4
-  %arrayidx8.i.i28.i = getelementptr inbounds [3 x double], ptr %agg.result, i64 0, i64 2
+  %arrayidx8.i.i28.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %80 = load double, ptr %arrayidx8.i.i28.i, align 8, !alias.scope !4
   %add9.i.i.i = fadd double %mul7.i.i.i, %80
   store double %add9.i.i.i, ptr %arrayidx8.i.i28.i, align 8, !alias.scope !4
@@ -272,7 +272,7 @@ _ZN7openvdb5v11_04math28closestPointOnSegmentToPointERKNS1_4Vec3IdEES5_S5_Rd.exi
   %t.0 = phi double [ %div.i, %if.else4.i ], [ 1.000000e+00, %if.then3.i ], [ 0.000000e+00, %if.then.i ]
   %sub = fsub double 1.000000e+00, %t.0
   store double %sub, ptr %uvw, align 8
-  %arrayidx.i.i = getelementptr inbounds [3 x double], ptr %uvw, i64 0, i64 2
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %uvw, i64 16
   store double %t.0, ptr %arrayidx.i.i, align 8
   br label %return
 
@@ -408,7 +408,7 @@ if.else4.i263:                                    ; preds = %if.else.i259
   %117 = load <2 x double>, ptr %agg.result, align 8, !alias.scope !9
   %118 = fadd <2 x double> %116, %117
   store <2 x double> %118, ptr %agg.result, align 8, !alias.scope !9
-  %arrayidx8.i.i28.i271 = getelementptr inbounds [3 x double], ptr %agg.result, i64 0, i64 2
+  %arrayidx8.i.i28.i271 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %119 = load double, ptr %arrayidx8.i.i28.i271, align 8, !alias.scope !9
   %add9.i.i.i272 = fadd double %mul7.i.i.i267, %119
   store double %add9.i.i.i272, ptr %arrayidx8.i.i28.i271, align 8, !alias.scope !9
@@ -418,7 +418,7 @@ _ZN7openvdb5v11_04math28closestPointOnSegmentToPointERKNS1_4Vec3IdEES5_S5_Rd.exi
   %t13.0 = phi double [ %div.i264, %if.else4.i263 ], [ 1.000000e+00, %if.then3.i262 ], [ 0.000000e+00, %if.then.i258 ]
   %sub14 = fsub double 1.000000e+00, %t13.0
   store double %sub14, ptr %uvw, align 8
-  %arrayidx.i.i274 = getelementptr inbounds [3 x double], ptr %uvw, i64 0, i64 1
+  %arrayidx.i.i274 = getelementptr inbounds i8, ptr %uvw, i64 8
   store double %t13.0, ptr %arrayidx.i.i274, align 8
   br label %return
 
@@ -455,7 +455,7 @@ if.end23:                                         ; preds = %if.end18
   br i1 %or.cond104, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %if.end23
-  %arrayidx.i.i292 = getelementptr inbounds [3 x double], ptr %uvw, i64 0, i64 1
+  %arrayidx.i.i292 = getelementptr inbounds i8, ptr %uvw, i64 8
   store double 1.000000e+00, ptr %arrayidx.i.i292, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %b, i64 24, i1 false)
   br label %return
@@ -477,7 +477,7 @@ if.then38:                                        ; preds = %if.end31
   %137 = fsub <2 x double> %57, %130
   %sub39 = extractelement <2 x double> %137, i64 0
   %div = fdiv double %135, %sub39
-  %arrayidx.i.i293 = getelementptr inbounds [3 x double], ptr %uvw, i64 0, i64 1
+  %arrayidx.i.i293 = getelementptr inbounds i8, ptr %uvw, i64 8
   store double %div, ptr %arrayidx.i.i293, align 8
   %sub42 = fsub double 1.000000e+00, %div
   store double %sub42, ptr %uvw, align 8
@@ -490,7 +490,7 @@ if.then38:                                        ; preds = %if.end31
   %142 = load <2 x double>, ptr %agg.result, align 8, !alias.scope !14
   %143 = fadd <2 x double> %141, %142
   store <2 x double> %143, ptr %agg.result, align 8, !alias.scope !14
-  %arrayidx8.i.i302 = getelementptr inbounds [3 x double], ptr %agg.result, i64 0, i64 2
+  %arrayidx8.i.i302 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %144 = load double, ptr %arrayidx8.i.i302, align 8, !alias.scope !14
   %add9.i.i = fadd double %mul7.i.i.i298, %144
   store double %add9.i.i, ptr %arrayidx8.i.i302, align 8, !alias.scope !14
@@ -518,7 +518,7 @@ if.end45:                                         ; preds = %if.end31
   br i1 %or.cond105, label %if.end53, label %if.then51
 
 if.then51:                                        ; preds = %if.end45
-  %arrayidx.i.i320 = getelementptr inbounds [3 x double], ptr %uvw, i64 0, i64 2
+  %arrayidx.i.i320 = getelementptr inbounds i8, ptr %uvw, i64 16
   store double 1.000000e+00, ptr %arrayidx.i.i320, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %c, i64 24, i1 false)
   br label %return
@@ -537,7 +537,7 @@ if.end53:                                         ; preds = %if.end45
 if.then61:                                        ; preds = %if.end53
   %sub62 = fsub double %134, %155
   %div63 = fdiv double %134, %sub62
-  %arrayidx.i.i321 = getelementptr inbounds [3 x double], ptr %uvw, i64 0, i64 2
+  %arrayidx.i.i321 = getelementptr inbounds i8, ptr %uvw, i64 16
   store double %div63, ptr %arrayidx.i.i321, align 8
   %sub66 = fsub double 1.000000e+00, %div63
   store double %sub66, ptr %uvw, align 8
@@ -550,7 +550,7 @@ if.then61:                                        ; preds = %if.end53
   %163 = load <2 x double>, ptr %agg.result, align 8, !alias.scope !17
   %164 = fadd <2 x double> %162, %163
   store <2 x double> %164, ptr %agg.result, align 8, !alias.scope !17
-  %arrayidx8.i.i334 = getelementptr inbounds [3 x double], ptr %agg.result, i64 0, i64 2
+  %arrayidx8.i.i334 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %165 = load double, ptr %arrayidx8.i.i334, align 8, !alias.scope !17
   %add9.i.i335 = fadd double %mul7.i.i.i328, %165
   store double %add9.i.i335, ptr %arrayidx8.i.i334, align 8, !alias.scope !17
@@ -576,10 +576,10 @@ land.lhs.true77:                                  ; preds = %land.lhs.true74
 if.then80:                                        ; preds = %land.lhs.true77
   %add = fadd double %sub75, %sub78
   %div84 = fdiv double %sub75, %add
-  %arrayidx.i.i336 = getelementptr inbounds [3 x double], ptr %uvw, i64 0, i64 2
+  %arrayidx.i.i336 = getelementptr inbounds i8, ptr %uvw, i64 16
   store double %div84, ptr %arrayidx.i.i336, align 8
   %sub87 = fsub double 1.000000e+00, %div84
-  %arrayidx.i.i338 = getelementptr inbounds [3 x double], ptr %uvw, i64 0, i64 1
+  %arrayidx.i.i338 = getelementptr inbounds i8, ptr %uvw, i64 8
   store double %sub87, ptr %arrayidx.i.i338, align 8
   %ref.tmp91.sroa.6.0.copyload = load double, ptr %ac.sroa.15.0.c.sroa_idx, align 8
   %168 = load double, ptr %ab.sroa.15.0.b.sroa_idx, align 8, !noalias !20
@@ -595,7 +595,7 @@ if.then80:                                        ; preds = %land.lhs.true77
   %175 = load <2 x double>, ptr %agg.result, align 8, !alias.scope !23
   %176 = fadd <2 x double> %174, %175
   store <2 x double> %176, ptr %agg.result, align 8, !alias.scope !23
-  %arrayidx8.i.i357 = getelementptr inbounds [3 x double], ptr %agg.result, i64 0, i64 2
+  %arrayidx8.i.i357 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %177 = load double, ptr %arrayidx8.i.i357, align 8, !alias.scope !23
   %add9.i.i358 = fadd double %mul7.i.i.i351, %177
   store double %add9.i.i358, ptr %arrayidx8.i.i357, align 8, !alias.scope !23
@@ -606,10 +606,10 @@ if.end92:                                         ; preds = %land.lhs.true77, %l
   %add94 = fadd double %136, %add93
   %div95 = fdiv double 1.000000e+00, %add94
   %mul = fmul double %136, %div95
-  %arrayidx.i.i359 = getelementptr inbounds [3 x double], ptr %uvw, i64 0, i64 2
+  %arrayidx.i.i359 = getelementptr inbounds i8, ptr %uvw, i64 16
   store double %mul, ptr %arrayidx.i.i359, align 8
   %mul97 = fmul double %158, %div95
-  %arrayidx.i.i360 = getelementptr inbounds [3 x double], ptr %uvw, i64 0, i64 1
+  %arrayidx.i.i360 = getelementptr inbounds i8, ptr %uvw, i64 8
   store double %mul97, ptr %arrayidx.i.i360, align 8
   %sub100 = fsub double 1.000000e+00, %mul97
   %sub102 = fsub double %sub100, %mul
@@ -650,7 +650,7 @@ entry:
   %0 = load <2 x double>, ptr %b, align 8
   %1 = load <2 x double>, ptr %a, align 8, !noalias !29
   %2 = fsub <2 x double> %0, %1
-  %arrayidx.i.i3.i.i = getelementptr inbounds [3 x double], ptr %a, i64 0, i64 2
+  %arrayidx.i.i3.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %3 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !29
   %sub9.i.i = fsub double %ab.sroa.13.0.copyload, %3
   %ref.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
@@ -699,7 +699,7 @@ if.else4:                                         ; preds = %if.else
   %15 = load <2 x double>, ptr %agg.result, align 8, !alias.scope !30
   %16 = fadd <2 x double> %14, %15
   store <2 x double> %16, ptr %agg.result, align 8, !alias.scope !30
-  %arrayidx8.i.i28 = getelementptr inbounds [3 x double], ptr %agg.result, i64 0, i64 2
+  %arrayidx8.i.i28 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %17 = load double, ptr %arrayidx8.i.i28, align 8, !alias.scope !30
   %add9.i.i = fadd double %mul7.i.i, %17
   store double %add9.i.i, ptr %arrayidx8.i.i28, align 8, !alias.scope !30

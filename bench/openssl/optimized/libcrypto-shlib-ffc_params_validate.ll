@@ -62,7 +62,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %q = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %params, i64 8
   %1 = load ptr, ptr %q, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %return, label %if.end
@@ -97,7 +97,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %q = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %params, i64 8
   %1 = load ptr, ptr %q, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.then, label %if.end
@@ -140,11 +140,11 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %flags = getelementptr inbounds %struct.ffc_params_st, ptr %tmpparams, i64 0, i32 10
+  %flags = getelementptr inbounds i8, ptr %tmpparams, i64 64
   store i32 2, ptr %flags, align 8
-  %gindex = getelementptr inbounds %struct.ffc_params_st, ptr %tmpparams, i64 0, i32 8
+  %gindex = getelementptr inbounds i8, ptr %tmpparams, i64 56
   store i32 -1, ptr %gindex, align 8
-  %flags6 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 10
+  %flags6 = getelementptr inbounds i8, ptr %params, i64 64
   %0 = load i32, ptr %flags6, align 8
   %and = and i32 %0, 4
   %tobool7.not = icmp eq i32 %and, 0
@@ -156,7 +156,7 @@ if.then8:                                         ; preds = %if.end5
   br i1 %cmp1.i9, label %if.then.i, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %if.then8
-  %q.i = getelementptr inbounds %struct.ffc_params_st, ptr %tmpparams, i64 0, i32 1
+  %q.i = getelementptr inbounds i8, ptr %tmpparams, i64 8
   %2 = load ptr, ptr %q.i, align 8
   %cmp3.i = icmp eq ptr %2, null
   br i1 %cmp3.i, label %if.then.i, label %if.end.i
@@ -178,7 +178,7 @@ if.else:                                          ; preds = %if.end5
   br i1 %cmp1.i9, label %land.lhs.true, label %lor.lhs.false2.i10
 
 lor.lhs.false2.i10:                               ; preds = %if.else
-  %q.i11 = getelementptr inbounds %struct.ffc_params_st, ptr %tmpparams, i64 0, i32 1
+  %q.i11 = getelementptr inbounds i8, ptr %tmpparams, i64 8
   %4 = load ptr, ptr %q.i11, align 8
   %cmp3.i12 = icmp eq ptr %4, null
   br i1 %cmp3.i12, label %land.lhs.true, label %if.end.i13
@@ -243,13 +243,13 @@ entry:
 if.end:                                           ; preds = %entry
   %cmp1 = icmp eq ptr %res, null
   %spec.store.select = select i1 %cmp1, ptr %tmpres, ptr %res
-  %seed = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 4
+  %seed = getelementptr inbounds i8, ptr %params, i64 32
   %0 = load ptr, ptr %seed, align 8
   %cmp4.not = icmp eq ptr %0, null
   br i1 %cmp4.not, label %if.else8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %flags = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 10
+  %flags = getelementptr inbounds i8, ptr %params, i64 64
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 4
   %tobool.not = icmp eq i32 %and, 0
@@ -261,7 +261,7 @@ lor.lhs.false.i:                                  ; preds = %if.then5
   br i1 %cmp1.i22, label %if.then.i, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
-  %q.i = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q.i = getelementptr inbounds i8, ptr %params, i64 8
   %3 = load ptr, ptr %q.i, align 8
   %cmp3.i = icmp eq ptr %3, null
   br i1 %cmp3.i, label %if.then.i, label %if.end.i
@@ -283,7 +283,7 @@ lor.lhs.false.i21:                                ; preds = %if.then5
   br i1 %cmp1.i22, label %return, label %lor.lhs.false2.i23
 
 lor.lhs.false2.i23:                               ; preds = %lor.lhs.false.i21
-  %q.i24 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q.i24 = getelementptr inbounds i8, ptr %params, i64 8
   %5 = load ptr, ptr %q.i24, align 8
   %cmp3.i25 = icmp eq ptr %5, null
   br i1 %cmp3.i25, label %return, label %if.end.i26
@@ -308,7 +308,7 @@ if.then11:                                        ; preds = %if.else8
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then11
-  %q = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %params, i64 8
   %7 = load ptr, ptr %q, align 8
   %call16 = call i32 @BN_check_prime(ptr noundef %7, ptr noundef nonnull %call12, ptr noundef null) #3
   %cmp17.not.not = icmp eq i32 %call16, 1

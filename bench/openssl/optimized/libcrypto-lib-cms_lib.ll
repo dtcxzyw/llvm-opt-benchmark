@@ -3,28 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-cms_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CMS_ContentInfo_st = type { ptr, %union.anon, %struct.CMS_CTX_st }
-%union.anon = type { ptr }
-%struct.CMS_CTX_st = type { ptr, ptr }
-%struct.CMS_SignedData_st = type { i32, ptr, ptr, ptr, ptr, ptr }
-%struct.CMS_EnvelopedData_st = type { i32, ptr, ptr, ptr, ptr }
-%struct.CMS_AuthEnvelopedData_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CMS_CertificateChoices = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.CMS_EncapsulatedContentInfo_st = type { ptr, ptr, i32 }
-%struct.CMS_EncryptedContentInfo_st = type { ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, i32 }
-%struct.CMS_DigestedData_st = type { i32, ptr, ptr, ptr }
-%struct.CMS_EncryptedData_st = type { i32, ptr, ptr }
-%struct.CMS_AuthenticatedData_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CMS_CompressedData_st = type { i32, ptr, ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon.1 }
-%union.anon.1 = type { ptr }
-%struct.CMS_OriginatorInfo_st = type { ptr, ptr }
-%struct.CMS_RevocationInfoChoice_st = type { i32, %union.anon.2 }
-%union.anon.2 = type { ptr }
-%struct.CMS_IssuerAndSerialNumber_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/cms/cms_lib.c\00", align 1
 @__func__.CMS_dataInit = private unnamed_addr constant [13 x i8] c"CMS_dataInit\00", align 1
 @__func__.ossl_cms_DataFinal = private unnamed_addr constant [19 x i8] c"ossl_cms_DataFinal\00", align 1
@@ -67,9 +45,9 @@ cond.end:                                         ; preds = %entry
   br i1 %cmp.not.i, label %ossl_cms_ctx_get0_propq.exit, label %cond.true.i7
 
 cond.true.i7:                                     ; preds = %cond.end
-  %ctx.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %0, i64 0, i32 2
+  %ctx.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %ctx.i, align 8
-  %propq.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %0, i64 0, i32 2, i32 1
+  %propq.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %propq.i, align 8
   br label %ossl_cms_ctx_get0_propq.exit
 
@@ -95,7 +73,7 @@ if.end:                                           ; preds = %if.then, %ossl_cms_
 define ptr @ossl_cms_get0_cmsctx(ptr noundef readnone %cms) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq ptr %cms, null
-  %ctx = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %cms, i64 16
   %cond = select i1 %cmp.not, ptr null, ptr %ctx
   ret ptr %cond
 }
@@ -124,7 +102,7 @@ entry:
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %propq = getelementptr inbounds %struct.CMS_CTX_st, ptr %ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %propq, align 8
   br label %cond.end
 
@@ -142,9 +120,9 @@ entry:
   br i1 %cmp.not.i, label %ossl_cms_ctx_get0_propq.exit, label %cond.true.i11
 
 cond.true.i11:                                    ; preds = %entry
-  %ctx.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %ci, i64 0, i32 2
+  %ctx.i = getelementptr inbounds i8, ptr %ci, i64 16
   %0 = load ptr, ptr %ctx.i, align 8
-  %propq.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %ci, i64 0, i32 2, i32 1
+  %propq.i = getelementptr inbounds i8, ptr %ci, i64 24
   %1 = load ptr, ptr %propq.i, align 8
   br label %ossl_cms_ctx_get0_propq.exit
 
@@ -157,27 +135,15 @@ ossl_cms_ctx_get0_propq.exit:                     ; preds = %entry, %cond.true.i
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %2) #5
   switch i32 %call.i, label %cms_get0_certificate_choices.exit.thread [
     i32 22, label %cms_get0_certificate_choices.exit.thread22
-    i32 23, label %sw.bb1.i
-    i32 1059, label %sw.bb6.i
+    i32 23, label %cms_get0_certificate_choices.exit
+    i32 1059, label %cms_get0_certificate_choices.exit
   ]
 
 cms_get0_certificate_choices.exit.thread22:       ; preds = %ossl_cms_ctx_get0_propq.exit
-  %d.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %ci, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %ci, i64 8
   %3 = load ptr, ptr %d.i, align 8
-  %certificates.i = getelementptr inbounds %struct.CMS_SignedData_st, ptr %3, i64 0, i32 3
+  %certificates.i = getelementptr inbounds i8, ptr %3, i64 24
   br label %for.cond.preheader
-
-sw.bb1.i:                                         ; preds = %ossl_cms_ctx_get0_propq.exit
-  %d2.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %ci, i64 0, i32 1
-  %4 = load ptr, ptr %d2.i, align 8
-  %originatorInfo.i = getelementptr inbounds %struct.CMS_EnvelopedData_st, ptr %4, i64 0, i32 1
-  br label %cms_get0_certificate_choices.exit
-
-sw.bb6.i:                                         ; preds = %ossl_cms_ctx_get0_propq.exit
-  %d7.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %ci, i64 0, i32 1
-  %5 = load ptr, ptr %d7.i, align 8
-  %originatorInfo8.i = getelementptr inbounds %struct.CMS_AuthEnvelopedData_st, ptr %5, i64 0, i32 1
-  br label %cms_get0_certificate_choices.exit
 
 cms_get0_certificate_choices.exit.thread:         ; preds = %ossl_cms_ctx_get0_propq.exit
   tail call void @ERR_new() #5
@@ -185,37 +151,39 @@ cms_get0_certificate_choices.exit.thread:         ; preds = %ossl_cms_ctx_get0_p
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 152, ptr noundef null) #5
   br label %if.end10
 
-cms_get0_certificate_choices.exit:                ; preds = %sw.bb1.i, %sw.bb6.i
-  %originatorInfo.i.sink = phi ptr [ %originatorInfo.i, %sw.bb1.i ], [ %originatorInfo8.i, %sw.bb6.i ]
-  %6 = load ptr, ptr %originatorInfo.i.sink, align 8
-  %cmp.not = icmp eq ptr %6, null
+cms_get0_certificate_choices.exit:                ; preds = %ossl_cms_ctx_get0_propq.exit, %ossl_cms_ctx_get0_propq.exit
+  %d2.i = getelementptr inbounds i8, ptr %ci, i64 8
+  %4 = load ptr, ptr %d2.i, align 8
+  %originatorInfo.i = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load ptr, ptr %originatorInfo.i, align 8
+  %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %if.end10, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %cms_get0_certificate_choices.exit.thread22, %cms_get0_certificate_choices.exit
-  %retval.0.i25 = phi ptr [ %certificates.i, %cms_get0_certificate_choices.exit.thread22 ], [ %6, %cms_get0_certificate_choices.exit ]
-  %7 = load ptr, ptr %retval.0.i25, align 8
-  %call.i1319 = tail call i32 @OPENSSL_sk_num(ptr noundef %7) #5
+  %retval.0.i25 = phi ptr [ %certificates.i, %cms_get0_certificate_choices.exit.thread22 ], [ %5, %cms_get0_certificate_choices.exit ]
+  %6 = load ptr, ptr %retval.0.i25, align 8
+  %call.i1319 = tail call i32 @OPENSSL_sk_num(ptr noundef %6) #5
   %cmp520 = icmp sgt i32 %call.i1319, 0
   br i1 %cmp520, label %for.body, label %if.end10
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.021 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %8 = load ptr, ptr %retval.0.i25, align 8
-  %call.i14 = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %i.021) #5
-  %9 = load i32, ptr %call.i14, align 8
-  %cmp7 = icmp eq i32 %9, 0
+  %7 = load ptr, ptr %retval.0.i25, align 8
+  %call.i14 = tail call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %i.021) #5
+  %8 = load i32, ptr %call.i14, align 8
+  %cmp7 = icmp eq i32 %8, 0
   br i1 %cmp7, label %if.then8, label %for.inc
 
 if.then8:                                         ; preds = %for.body
-  %d = getelementptr inbounds %struct.CMS_CertificateChoices, ptr %call.i14, i64 0, i32 1
-  %10 = load ptr, ptr %d, align 8
-  %call9 = tail call i32 @ossl_x509_set0_libctx(ptr noundef %10, ptr noundef %cond.i1016, ptr noundef %cond.i12) #5
+  %d = getelementptr inbounds i8, ptr %call.i14, i64 8
+  %9 = load ptr, ptr %d, align 8
+  %call9 = tail call i32 @ossl_x509_set0_libctx(ptr noundef %9, ptr noundef %cond.i1016, ptr noundef %cond.i12) #5
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then8
   %inc = add nuw nsw i32 %i.021, 1
-  %11 = load ptr, ptr %retval.0.i25, align 8
-  %call.i13 = tail call i32 @OPENSSL_sk_num(ptr noundef %11) #5
+  %10 = load ptr, ptr %retval.0.i25, align 8
+  %call.i13 = tail call i32 @OPENSSL_sk_num(ptr noundef %10) #5
   %cmp5 = icmp slt i32 %inc, %call.i13
   br i1 %cmp5, label %for.body, label %if.end10, !llvm.loop !4
 
@@ -244,9 +212,9 @@ entry:
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ctx = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %call1, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %libctx, ptr %ctx, align 8
-  %propq4 = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %call1, i64 0, i32 2, i32 1
+  %propq4 = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr null, ptr %propq4, align 8
   %cmp5.not = icmp eq ptr %propq, null
   br i1 %cmp5.not, label %if.end15, label %if.then6
@@ -282,7 +250,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @ossl_cms_env_enc_content_free(ptr noundef nonnull %cms) #5
-  %propq = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 2, i32 1
+  %propq = getelementptr inbounds i8, ptr %cms, i64 24
   %0 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 78) #5
   %call = tail call ptr @CMS_ContentInfo_it() #5
@@ -302,7 +270,7 @@ entry:
   br i1 %cmp.not.i, label %CMS_ContentInfo_new_ex.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ctx.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %call1.i, i64 0, i32 2
+  %ctx.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx.i, i8 0, i64 16, i1 false)
   br label %CMS_ContentInfo_new_ex.exit
 
@@ -356,7 +324,7 @@ if.end6.i:                                        ; preds = %if.end.i
 
 if.then8.i:                                       ; preds = %if.end6.i, %if.end.i
   %1 = phi ptr [ %call5.i, %if.end6.i ], [ %0, %if.end.i ]
-  %flags.i = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 3
+  %flags.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %flags.i, align 8
   %or.i = or i64 %2, 32
   store i64 %or.i, ptr %flags.i, align 8
@@ -403,7 +371,7 @@ if.end6:                                          ; preds = %if.end2
 
 if.then8:                                         ; preds = %if.end2, %if.end6
   %1 = phi ptr [ %call5, %if.end6 ], [ %0, %if.end2 ]
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %flags, align 8
   %or = or i64 %2, 32
   store i64 %or, ptr %flags, align 8
@@ -438,7 +406,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 lor.lhs.false:                                    ; preds = %if.end
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %0, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %flags, align 8
   %cmp7 = icmp eq i64 %1, 32
   br i1 %cmp7, label %if.then8, label %if.end11
@@ -449,7 +417,7 @@ if.then8:                                         ; preds = %lor.lhs.false
   br label %return
 
 if.end11:                                         ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %0, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i32, ptr %0, align 8
   %call12 = tail call ptr @BIO_new_mem_buf(ptr noundef %2, i32 noundef %3) #5
@@ -465,7 +433,7 @@ define ptr @CMS_get0_content(ptr noundef readonly %cms) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
-  %d24 = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d24 = getelementptr inbounds i8, ptr %cms, i64 8
   switch i32 %call, label %sw.default [
     i32 21, label %return
     i32 22, label %sw.bb1
@@ -479,51 +447,51 @@ entry:
 
 sw.bb1:                                           ; preds = %entry
   %1 = load ptr, ptr %d24, align 8
-  %encapContentInfo = getelementptr inbounds %struct.CMS_SignedData_st, ptr %1, i64 0, i32 2
+  %encapContentInfo = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %encapContentInfo, align 8
-  %eContent = getelementptr inbounds %struct.CMS_EncapsulatedContentInfo_st, ptr %2, i64 0, i32 1
+  %eContent = getelementptr inbounds i8, ptr %2, i64 8
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   %3 = load ptr, ptr %d24, align 8
-  %encryptedContentInfo = getelementptr inbounds %struct.CMS_EnvelopedData_st, ptr %3, i64 0, i32 3
+  %encryptedContentInfo = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %encryptedContentInfo, align 8
-  %encryptedContent = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %4, i64 0, i32 2
+  %encryptedContent = getelementptr inbounds i8, ptr %4, i64 16
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   %5 = load ptr, ptr %d24, align 8
-  %encapContentInfo7 = getelementptr inbounds %struct.CMS_DigestedData_st, ptr %5, i64 0, i32 2
+  %encapContentInfo7 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %encapContentInfo7, align 8
-  %eContent8 = getelementptr inbounds %struct.CMS_EncapsulatedContentInfo_st, ptr %6, i64 0, i32 1
+  %eContent8 = getelementptr inbounds i8, ptr %6, i64 8
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   %7 = load ptr, ptr %d24, align 8
-  %encryptedContentInfo11 = getelementptr inbounds %struct.CMS_EncryptedData_st, ptr %7, i64 0, i32 1
+  %encryptedContentInfo11 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %encryptedContentInfo11, align 8
-  %encryptedContent12 = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %8, i64 0, i32 2
+  %encryptedContent12 = getelementptr inbounds i8, ptr %8, i64 16
   br label %return
 
 sw.bb13:                                          ; preds = %entry
   %9 = load ptr, ptr %d24, align 8
-  %authEncryptedContentInfo = getelementptr inbounds %struct.CMS_AuthEnvelopedData_st, ptr %9, i64 0, i32 3
+  %authEncryptedContentInfo = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %authEncryptedContentInfo, align 8
-  %encryptedContent15 = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %10, i64 0, i32 2
+  %encryptedContent15 = getelementptr inbounds i8, ptr %10, i64 16
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   %11 = load ptr, ptr %d24, align 8
-  %encapContentInfo18 = getelementptr inbounds %struct.CMS_AuthenticatedData_st, ptr %11, i64 0, i32 5
+  %encapContentInfo18 = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load ptr, ptr %encapContentInfo18, align 8
-  %eContent19 = getelementptr inbounds %struct.CMS_EncapsulatedContentInfo_st, ptr %12, i64 0, i32 1
+  %eContent19 = getelementptr inbounds i8, ptr %12, i64 8
   br label %return
 
 sw.bb20:                                          ; preds = %entry
   %13 = load ptr, ptr %d24, align 8
-  %encapContentInfo22 = getelementptr inbounds %struct.CMS_CompressedData_st, ptr %13, i64 0, i32 3
+  %encapContentInfo22 = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %encapContentInfo22, align 8
-  %eContent23 = getelementptr inbounds %struct.CMS_EncapsulatedContentInfo_st, ptr %14, i64 0, i32 1
+  %eContent23 = getelementptr inbounds i8, ptr %14, i64 8
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -533,7 +501,7 @@ sw.default:                                       ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.default
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %15, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %15, i64 8
   br label %return
 
 if.end:                                           ; preds = %sw.default
@@ -577,7 +545,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %flags.i = getelementptr inbounds %struct.asn1_string_st, ptr %0, i64 0, i32 3
+  %flags.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %flags.i, align 8
   %cmp7.i = icmp eq i64 %1, 32
   br i1 %cmp7.i, label %if.then8.i, label %if.end11.i
@@ -588,7 +556,7 @@ if.then8.i:                                       ; preds = %lor.lhs.false.i
   br label %if.end
 
 if.end11.i:                                       ; preds = %lor.lhs.false.i
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %0, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %data.i, align 8
   %3 = load i32, ptr %0, align 8
   %call12.i = tail call ptr @BIO_new_mem_buf(ptr noundef %2, i32 noundef %3) #5
@@ -708,7 +676,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %0, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 32
   %tobool1.not = icmp eq i64 %and, 0
@@ -734,7 +702,7 @@ if.end6:                                          ; preds = %if.then2
   %conv = trunc i64 %call7 to i32
   call void @ASN1_STRING_set0(ptr noundef %2, ptr noundef %3, i32 noundef %conv) #5
   %4 = load ptr, ptr %call, align 8
-  %flags9 = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 3
+  %flags9 = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load i64, ptr %flags9, align 8
   %and10 = and i64 %5, -33
   store i64 %and10, ptr %flags9, align 8
@@ -828,51 +796,51 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %d = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %cms, i64 8
   %1 = load ptr, ptr %d, align 8
-  %encapContentInfo = getelementptr inbounds %struct.CMS_SignedData_st, ptr %1, i64 0, i32 2
+  %encapContentInfo = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %encapContentInfo, align 8
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %d2 = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d2 = getelementptr inbounds i8, ptr %cms, i64 8
   %3 = load ptr, ptr %d2, align 8
-  %encryptedContentInfo = getelementptr inbounds %struct.CMS_EnvelopedData_st, ptr %3, i64 0, i32 3
+  %encryptedContentInfo = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %encryptedContentInfo, align 8
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %d5 = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d5 = getelementptr inbounds i8, ptr %cms, i64 8
   %5 = load ptr, ptr %d5, align 8
-  %encapContentInfo6 = getelementptr inbounds %struct.CMS_DigestedData_st, ptr %5, i64 0, i32 2
+  %encapContentInfo6 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %encapContentInfo6, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
-  %d9 = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d9 = getelementptr inbounds i8, ptr %cms, i64 8
   %7 = load ptr, ptr %d9, align 8
-  %encryptedContentInfo10 = getelementptr inbounds %struct.CMS_EncryptedData_st, ptr %7, i64 0, i32 1
+  %encryptedContentInfo10 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %encryptedContentInfo10, align 8
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %d13 = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d13 = getelementptr inbounds i8, ptr %cms, i64 8
   %9 = load ptr, ptr %d13, align 8
-  %authEncryptedContentInfo = getelementptr inbounds %struct.CMS_AuthEnvelopedData_st, ptr %9, i64 0, i32 3
+  %authEncryptedContentInfo = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %authEncryptedContentInfo, align 8
   br label %return
 
 sw.bb15:                                          ; preds = %entry
-  %d16 = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d16 = getelementptr inbounds i8, ptr %cms, i64 8
   %11 = load ptr, ptr %d16, align 8
-  %encapContentInfo17 = getelementptr inbounds %struct.CMS_AuthenticatedData_st, ptr %11, i64 0, i32 5
+  %encapContentInfo17 = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load ptr, ptr %encapContentInfo17, align 8
   br label %return
 
 sw.bb19:                                          ; preds = %entry
-  %d20 = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d20 = getelementptr inbounds i8, ptr %cms, i64 8
   %13 = load ptr, ptr %d20, align 8
-  %encapContentInfo21 = getelementptr inbounds %struct.CMS_CompressedData_st, ptr %13, i64 0, i32 3
+  %encapContentInfo21 = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %encapContentInfo21, align 8
   br label %return
 
@@ -954,7 +922,7 @@ entry:
 
 cond.true.i10:                                    ; preds = %entry
   %1 = load ptr, ptr %ctx, align 8
-  %propq.i = getelementptr inbounds %struct.CMS_CTX_st, ptr %ctx, i64 0, i32 1
+  %propq.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %propq.i, align 8
   br label %ossl_cms_ctx_get0_propq.exit
 
@@ -1093,27 +1061,15 @@ entry:
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
   switch i32 %call.i, label %cms_get0_certificate_choices.exit.thread [
     i32 22, label %cms_get0_certificate_choices.exit.thread12
-    i32 23, label %sw.bb1.i
-    i32 1059, label %sw.bb6.i
+    i32 23, label %cms_get0_certificate_choices.exit
+    i32 1059, label %cms_get0_certificate_choices.exit
   ]
 
 cms_get0_certificate_choices.exit.thread12:       ; preds = %entry
-  %d.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %cms, i64 8
   %1 = load ptr, ptr %d.i, align 8
-  %certificates.i = getelementptr inbounds %struct.CMS_SignedData_st, ptr %1, i64 0, i32 3
+  %certificates.i = getelementptr inbounds i8, ptr %1, i64 24
   br label %if.end
-
-sw.bb1.i:                                         ; preds = %entry
-  %d2.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
-  %2 = load ptr, ptr %d2.i, align 8
-  %originatorInfo.i = getelementptr inbounds %struct.CMS_EnvelopedData_st, ptr %2, i64 0, i32 1
-  br label %cms_get0_certificate_choices.exit
-
-sw.bb6.i:                                         ; preds = %entry
-  %d7.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
-  %3 = load ptr, ptr %d7.i, align 8
-  %originatorInfo8.i = getelementptr inbounds %struct.CMS_AuthEnvelopedData_st, ptr %3, i64 0, i32 1
-  br label %cms_get0_certificate_choices.exit
 
 cms_get0_certificate_choices.exit.thread:         ; preds = %entry
   tail call void @ERR_new() #5
@@ -1121,16 +1077,18 @@ cms_get0_certificate_choices.exit.thread:         ; preds = %entry
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 152, ptr noundef null) #5
   br label %return
 
-cms_get0_certificate_choices.exit:                ; preds = %sw.bb1.i, %sw.bb6.i
-  %retval.0.i.in = phi ptr [ %originatorInfo.i, %sw.bb1.i ], [ %originatorInfo8.i, %sw.bb6.i ]
+cms_get0_certificate_choices.exit:                ; preds = %entry, %entry
+  %.pn.in = getelementptr inbounds i8, ptr %cms, i64 8
+  %.pn = load ptr, ptr %.pn.in, align 8
+  %retval.0.i.in = getelementptr inbounds i8, ptr %.pn, i64 8
   %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %cms_get0_certificate_choices.exit.thread12, %cms_get0_certificate_choices.exit
   %retval.0.i15 = phi ptr [ %certificates.i, %cms_get0_certificate_choices.exit.thread12 ], [ %retval.0.i, %cms_get0_certificate_choices.exit ]
-  %4 = load ptr, ptr %retval.0.i15, align 8
-  %cmp1 = icmp eq ptr %4, null
+  %2 = load ptr, ptr %retval.0.i15, align 8
+  %cmp1 = icmp eq ptr %2, null
   br i1 %cmp1, label %if.end4, label %if.end7
 
 if.end4:                                          ; preds = %if.end
@@ -1146,8 +1104,8 @@ if.end7:                                          ; preds = %if.end, %if.end4
   br i1 %tobool.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %5 = load ptr, ptr %retval.0.i15, align 8
-  %call.i9 = tail call i32 @OPENSSL_sk_push(ptr noundef %5, ptr noundef nonnull %call9) #5
+  %3 = load ptr, ptr %retval.0.i15, align 8
+  %call.i9 = tail call i32 @OPENSSL_sk_push(ptr noundef %3, ptr noundef nonnull %call9) #5
   %tobool13.not = icmp eq i32 %call.i9, 0
   br i1 %tobool13.not, label %if.then14, label %return
 
@@ -1172,27 +1130,15 @@ entry:
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
   switch i32 %call.i, label %cms_get0_certificate_choices.exit.thread [
     i32 22, label %cms_get0_certificate_choices.exit.thread19
-    i32 23, label %sw.bb1.i
-    i32 1059, label %sw.bb6.i
+    i32 23, label %cms_get0_certificate_choices.exit
+    i32 1059, label %cms_get0_certificate_choices.exit
   ]
 
 cms_get0_certificate_choices.exit.thread19:       ; preds = %entry
-  %d.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %cms, i64 8
   %1 = load ptr, ptr %d.i, align 8
-  %certificates.i = getelementptr inbounds %struct.CMS_SignedData_st, ptr %1, i64 0, i32 3
+  %certificates.i = getelementptr inbounds i8, ptr %1, i64 24
   br label %for.cond.preheader
-
-sw.bb1.i:                                         ; preds = %entry
-  %d2.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
-  %2 = load ptr, ptr %d2.i, align 8
-  %originatorInfo.i = getelementptr inbounds %struct.CMS_EnvelopedData_st, ptr %2, i64 0, i32 1
-  br label %cms_get0_certificate_choices.exit
-
-sw.bb6.i:                                         ; preds = %entry
-  %d7.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
-  %3 = load ptr, ptr %d7.i, align 8
-  %originatorInfo8.i = getelementptr inbounds %struct.CMS_AuthEnvelopedData_st, ptr %3, i64 0, i32 1
-  br label %cms_get0_certificate_choices.exit
 
 cms_get0_certificate_choices.exit.thread:         ; preds = %entry
   tail call void @ERR_new() #5
@@ -1200,31 +1146,33 @@ cms_get0_certificate_choices.exit.thread:         ; preds = %entry
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 152, ptr noundef null) #5
   br label %return
 
-cms_get0_certificate_choices.exit:                ; preds = %sw.bb1.i, %sw.bb6.i
-  %originatorInfo.i.sink = phi ptr [ %originatorInfo.i, %sw.bb1.i ], [ %originatorInfo8.i, %sw.bb6.i ]
-  %4 = load ptr, ptr %originatorInfo.i.sink, align 8
-  %cmp = icmp eq ptr %4, null
+cms_get0_certificate_choices.exit:                ; preds = %entry, %entry
+  %d2.i = getelementptr inbounds i8, ptr %cms, i64 8
+  %2 = load ptr, ptr %d2.i, align 8
+  %originatorInfo.i = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = load ptr, ptr %originatorInfo.i, align 8
+  %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %cms_get0_certificate_choices.exit.thread19, %cms_get0_certificate_choices.exit
-  %retval.0.i22 = phi ptr [ %certificates.i, %cms_get0_certificate_choices.exit.thread19 ], [ %4, %cms_get0_certificate_choices.exit ]
-  %5 = load ptr, ptr %retval.0.i22, align 8
-  %call.i1216 = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #5
+  %retval.0.i22 = phi ptr [ %certificates.i, %cms_get0_certificate_choices.exit.thread19 ], [ %3, %cms_get0_certificate_choices.exit ]
+  %4 = load ptr, ptr %retval.0.i22, align 8
+  %call.i1216 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #5
   %cmp217 = icmp sgt i32 %call.i1216, 0
   br i1 %cmp217, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.018 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %6 = load ptr, ptr %retval.0.i22, align 8
-  %call.i13 = tail call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %i.018) #5
-  %7 = load i32, ptr %call.i13, align 8
-  %cmp4 = icmp eq i32 %7, 0
+  %5 = load ptr, ptr %retval.0.i22, align 8
+  %call.i13 = tail call ptr @OPENSSL_sk_value(ptr noundef %5, i32 noundef %i.018) #5
+  %6 = load i32, ptr %call.i13, align 8
+  %cmp4 = icmp eq i32 %6, 0
   br i1 %cmp4, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %for.body
-  %d = getelementptr inbounds %struct.CMS_CertificateChoices, ptr %call.i13, i64 0, i32 1
-  %8 = load ptr, ptr %d, align 8
-  %call6 = tail call i32 @X509_cmp(ptr noundef %8, ptr noundef %cert) #5
+  %d = getelementptr inbounds i8, ptr %call.i13, i64 8
+  %7 = load ptr, ptr %d, align 8
+  %call6 = tail call i32 @X509_cmp(ptr noundef %7, ptr noundef %cert) #5
   %cmp7 = icmp eq i32 %call6, 0
   br i1 %cmp7, label %if.then8, label %for.inc
 
@@ -1234,8 +1182,8 @@ if.then8:                                         ; preds = %if.then5
 
 for.inc:                                          ; preds = %for.body, %if.then5
   %inc = add nuw nsw i32 %i.018, 1
-  %9 = load ptr, ptr %retval.0.i22, align 8
-  %call.i12 = tail call i32 @OPENSSL_sk_num(ptr noundef %9) #5
+  %8 = load ptr, ptr %retval.0.i22, align 8
+  %call.i12 = tail call i32 @OPENSSL_sk_num(ptr noundef %8) #5
   %cmp2 = icmp slt i32 %inc, %call.i12
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !6
 
@@ -1246,7 +1194,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 
 if.end13:                                         ; preds = %for.end
   store i32 0, ptr %call11, align 8
-  %d15 = getelementptr inbounds %struct.CMS_CertificateChoices, ptr %call11, i64 0, i32 1
+  %d15 = getelementptr inbounds i8, ptr %call11, i64 8
   store ptr %cert, ptr %d15, align 8
   br label %return
 
@@ -1294,27 +1242,27 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %d.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %cms, i64 8
   %1 = load ptr, ptr %d.i, align 8
-  %crls.i = getelementptr inbounds %struct.CMS_SignedData_st, ptr %1, i64 0, i32 4
+  %crls.i = getelementptr inbounds i8, ptr %1, i64 32
   br label %if.end
 
 sw.bb1.i:                                         ; preds = %entry
-  %d2.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d2.i = getelementptr inbounds i8, ptr %cms, i64 8
   %2 = load ptr, ptr %d2.i, align 8
-  %originatorInfo.i = getelementptr inbounds %struct.CMS_EnvelopedData_st, ptr %2, i64 0, i32 1
+  %originatorInfo.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %originatorInfo.i, align 8
   %cmp.i = icmp eq ptr %3, null
-  %crls5.i = getelementptr inbounds %struct.CMS_OriginatorInfo_st, ptr %3, i64 0, i32 1
+  %crls5.i = getelementptr inbounds i8, ptr %3, i64 8
   br i1 %cmp.i, label %return, label %if.end
 
 sw.bb6.i:                                         ; preds = %entry
-  %d7.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d7.i = getelementptr inbounds i8, ptr %cms, i64 8
   %4 = load ptr, ptr %d7.i, align 8
-  %originatorInfo8.i = getelementptr inbounds %struct.CMS_AuthEnvelopedData_st, ptr %4, i64 0, i32 1
+  %originatorInfo8.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %originatorInfo8.i, align 8
   %cmp9.i = icmp eq ptr %5, null
-  %crls14.i = getelementptr inbounds %struct.CMS_OriginatorInfo_st, ptr %5, i64 0, i32 1
+  %crls14.i = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %cmp9.i, label %return, label %if.end
 
 sw.default.i:                                     ; preds = %entry
@@ -1372,7 +1320,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %call, align 8
-  %d = getelementptr inbounds %struct.CMS_RevocationInfoChoice_st, ptr %call, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %crl, ptr %d, align 8
   br label %return
 
@@ -1395,7 +1343,7 @@ if.end:                                           ; preds = %entry
 
 CMS_add0_crl.exit:                                ; preds = %if.end
   store i32 0, ptr %call.i, align 8
-  %d.i = getelementptr inbounds %struct.CMS_RevocationInfoChoice_st, ptr %call.i, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %crl, ptr %d.i, align 8
   br label %return
 
@@ -1421,27 +1369,15 @@ entry:
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
   switch i32 %call.i, label %cms_get0_certificate_choices.exit.thread [
     i32 22, label %cms_get0_certificate_choices.exit.thread13
-    i32 23, label %sw.bb1.i
-    i32 1059, label %sw.bb6.i
+    i32 23, label %cms_get0_certificate_choices.exit
+    i32 1059, label %cms_get0_certificate_choices.exit
   ]
 
 cms_get0_certificate_choices.exit.thread13:       ; preds = %entry
-  %d.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %cms, i64 8
   %1 = load ptr, ptr %d.i, align 8
-  %certificates.i = getelementptr inbounds %struct.CMS_SignedData_st, ptr %1, i64 0, i32 3
+  %certificates.i = getelementptr inbounds i8, ptr %1, i64 24
   br label %for.cond.preheader
-
-sw.bb1.i:                                         ; preds = %entry
-  %d2.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
-  %2 = load ptr, ptr %d2.i, align 8
-  %originatorInfo.i = getelementptr inbounds %struct.CMS_EnvelopedData_st, ptr %2, i64 0, i32 1
-  br label %cms_get0_certificate_choices.exit
-
-sw.bb6.i:                                         ; preds = %entry
-  %d7.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
-  %3 = load ptr, ptr %d7.i, align 8
-  %originatorInfo8.i = getelementptr inbounds %struct.CMS_AuthEnvelopedData_st, ptr %3, i64 0, i32 1
-  br label %cms_get0_certificate_choices.exit
 
 cms_get0_certificate_choices.exit.thread:         ; preds = %entry
   tail call void @ERR_new() #5
@@ -1449,43 +1385,45 @@ cms_get0_certificate_choices.exit.thread:         ; preds = %entry
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 152, ptr noundef null) #5
   br label %return
 
-cms_get0_certificate_choices.exit:                ; preds = %sw.bb1.i, %sw.bb6.i
-  %originatorInfo.i.sink = phi ptr [ %originatorInfo.i, %sw.bb1.i ], [ %originatorInfo8.i, %sw.bb6.i ]
-  %4 = load ptr, ptr %originatorInfo.i.sink, align 8
-  %cmp = icmp eq ptr %4, null
+cms_get0_certificate_choices.exit:                ; preds = %entry, %entry
+  %d2.i = getelementptr inbounds i8, ptr %cms, i64 8
+  %2 = load ptr, ptr %d2.i, align 8
+  %originatorInfo.i = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = load ptr, ptr %originatorInfo.i, align 8
+  %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %cms_get0_certificate_choices.exit.thread13, %cms_get0_certificate_choices.exit
-  %retval.0.i16 = phi ptr [ %certificates.i, %cms_get0_certificate_choices.exit.thread13 ], [ %4, %cms_get0_certificate_choices.exit ]
-  %5 = load ptr, ptr %retval.0.i16, align 8
-  %call.i610 = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #5
+  %retval.0.i16 = phi ptr [ %certificates.i, %cms_get0_certificate_choices.exit.thread13 ], [ %3, %cms_get0_certificate_choices.exit ]
+  %4 = load ptr, ptr %retval.0.i16, align 8
+  %call.i610 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #5
   %cmp211 = icmp sgt i32 %call.i610, 0
   br i1 %cmp211, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.012 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %6 = load ptr, ptr %retval.0.i16, align 8
-  %call.i7 = call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %i.012) #5
-  %7 = load i32, ptr %call.i7, align 8
-  %cmp4 = icmp eq i32 %7, 0
+  %5 = load ptr, ptr %retval.0.i16, align 8
+  %call.i7 = call ptr @OPENSSL_sk_value(ptr noundef %5, i32 noundef %i.012) #5
+  %6 = load i32, ptr %call.i7, align 8
+  %cmp4 = icmp eq i32 %6, 0
   br i1 %cmp4, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %for.body
-  %d = getelementptr inbounds %struct.CMS_CertificateChoices, ptr %call.i7, i64 0, i32 1
-  %8 = load ptr, ptr %d, align 8
-  %call6 = call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %certs, ptr noundef %8, i32 noundef 1) #5
+  %d = getelementptr inbounds i8, ptr %call.i7, i64 8
+  %7 = load ptr, ptr %d, align 8
+  %call6 = call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %certs, ptr noundef %7, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %if.then5
-  %9 = load ptr, ptr %certs, align 8
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %9) #5
+  %8 = load ptr, ptr %certs, align 8
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %8) #5
   br label %return
 
 for.inc:                                          ; preds = %for.body, %if.then5
   %inc = add nuw nsw i32 %i.012, 1
-  %10 = load ptr, ptr %retval.0.i16, align 8
-  %call.i6 = call i32 @OPENSSL_sk_num(ptr noundef %10) #5
+  %9 = load ptr, ptr %retval.0.i16, align 8
+  %call.i6 = call i32 @OPENSSL_sk_num(ptr noundef %9) #5
   %cmp2 = icmp slt i32 %inc, %call.i6
   br i1 %cmp2, label %for.body, label %for.end.loopexit, !llvm.loop !8
 
@@ -1514,27 +1452,27 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %d.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %cms, i64 8
   %1 = load ptr, ptr %d.i, align 8
-  %crls.i = getelementptr inbounds %struct.CMS_SignedData_st, ptr %1, i64 0, i32 4
+  %crls.i = getelementptr inbounds i8, ptr %1, i64 32
   br label %cms_get0_revocation_choices.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  %d2.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d2.i = getelementptr inbounds i8, ptr %cms, i64 8
   %2 = load ptr, ptr %d2.i, align 8
-  %originatorInfo.i = getelementptr inbounds %struct.CMS_EnvelopedData_st, ptr %2, i64 0, i32 1
+  %originatorInfo.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %originatorInfo.i, align 8
   %cmp.i = icmp eq ptr %3, null
-  %crls5.i = getelementptr inbounds %struct.CMS_OriginatorInfo_st, ptr %3, i64 0, i32 1
+  %crls5.i = getelementptr inbounds i8, ptr %3, i64 8
   br i1 %cmp.i, label %return, label %cms_get0_revocation_choices.exit
 
 sw.bb6.i:                                         ; preds = %entry
-  %d7.i = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %cms, i64 0, i32 1
+  %d7.i = getelementptr inbounds i8, ptr %cms, i64 8
   %4 = load ptr, ptr %d7.i, align 8
-  %originatorInfo8.i = getelementptr inbounds %struct.CMS_AuthEnvelopedData_st, ptr %4, i64 0, i32 1
+  %originatorInfo8.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %originatorInfo8.i, align 8
   %cmp9.i = icmp eq ptr %5, null
-  %crls14.i = getelementptr inbounds %struct.CMS_OriginatorInfo_st, ptr %5, i64 0, i32 1
+  %crls14.i = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %cmp9.i, label %return, label %cms_get0_revocation_choices.exit
 
 sw.default.i:                                     ; preds = %entry
@@ -1570,7 +1508,7 @@ if.then9:                                         ; preds = %if.then7
 
 if.end14:                                         ; preds = %if.then9, %if.then7
   %crls.1 = phi ptr [ %call10, %if.then9 ], [ %crls.015, %if.then7 ]
-  %d = getelementptr inbounds %struct.CMS_RevocationInfoChoice_st, ptr %call5, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call5, i64 8
   %9 = load ptr, ptr %d, align 8
   %call17 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %crls.1, ptr noundef %9) #5
   %tobool.not = icmp eq i32 %call17, 0
@@ -1615,7 +1553,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %serialNumber = getelementptr inbounds %struct.CMS_IssuerAndSerialNumber_st, ptr %ias, i64 0, i32 1
+  %serialNumber = getelementptr inbounds i8, ptr %ias, i64 8
   %1 = load ptr, ptr %serialNumber, align 8
   %call2 = tail call ptr @X509_get0_serialNumber(ptr noundef %cert) #5
   %call3 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %1, ptr noundef %call2) #5
@@ -1669,7 +1607,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %err, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %serialNumber = getelementptr inbounds %struct.CMS_IssuerAndSerialNumber_st, ptr %call1, i64 0, i32 1
+  %serialNumber = getelementptr inbounds i8, ptr %call1, i64 8
   %0 = load ptr, ptr %serialNumber, align 8
   %call7 = tail call ptr @X509_get0_serialNumber(ptr noundef %cert) #5
   %call8 = tail call i32 @ASN1_STRING_copy(ptr noundef %0, ptr noundef %call7) #5

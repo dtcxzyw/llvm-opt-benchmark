@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
-%struct.prov_cast_ctx_st = type { %struct.prov_cipher_ctx_st, %union.anon.0 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { double, [120 x i8] }
 
 @sm4_cbc = internal constant %struct.prov_cipher_hw_st { ptr @cipher_hw_sm4_initkey, ptr @ossl_cipher_hw_generic_cbc, ptr @cipher_hw_sm4_copyctx }, align 8
 @sm4_ecb = internal constant %struct.prov_cipher_hw_st { ptr @cipher_hw_sm4_initkey, ptr @ossl_cipher_hw_generic_ecb, ptr @cipher_hw_sm4_copyctx }, align 8
@@ -48,17 +44,17 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_sm4_initkey(ptr noundef %ctx, ptr noundef %key, i64 %keylen) #1 {
 entry:
-  %ks1 = getelementptr inbounds %struct.prov_cast_ctx_st, ptr %ctx, i64 0, i32 1
-  %ks2 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 20
+  %ks1 = getelementptr inbounds i8, ptr %ctx, i64 192
+  %ks2 = getelementptr inbounds i8, ptr %ctx, i64 176
   store ptr %ks1, ptr %ks2, align 8
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.end
 
 lor.lhs.false:                                    ; preds = %entry
-  %mode = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %ctx, i64 64
   %1 = load i32, ptr %mode, align 8
   %.off = add i32 %1, -1
   %switch = icmp ult i32 %.off, 2
@@ -68,7 +64,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false, %entry
   %ossl_sm4_decrypt.sink = phi ptr [ @ossl_sm4_encrypt, %entry ], [ %spec.select, %lor.lhs.false ]
   %call5 = tail call i32 @ossl_sm4_set_key(ptr noundef %key, ptr noundef nonnull %ks1) #5
-  %block6 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 3
+  %block6 = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %ossl_sm4_decrypt.sink, ptr %block6, align 8
   ret i32 1
 }
@@ -79,8 +75,8 @@ declare i32 @ossl_cipher_hw_generic_cbc(ptr noundef, ptr noundef, ptr noundef, i
 define internal void @cipher_hw_sm4_copyctx(ptr noundef %dst, ptr nocapture noundef readonly %src) #3 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %dst, ptr noundef nonnull align 8 dereferenceable(320) %src, i64 320, i1 false)
-  %ks = getelementptr inbounds %struct.prov_cast_ctx_st, ptr %dst, i64 0, i32 1
-  %ks1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %dst, i64 0, i32 20
+  %ks = getelementptr inbounds i8, ptr %dst, i64 192
+  %ks1 = getelementptr inbounds i8, ptr %dst, i64 176
   store ptr %ks, ptr %ks1, align 8
   ret void
 }

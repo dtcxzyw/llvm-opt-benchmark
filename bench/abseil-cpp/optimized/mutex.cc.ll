@@ -21,9 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::atomic.17" = type { %"struct.std::__atomic_base.18" }
 %"struct.std::__atomic_base.18" = type { ptr }
 %"class.absl::base_internal::SchedulingGuard::ScopedEnable" = type { i32 }
-%"struct.absl::base_internal::PerThreadSynch" = type { ptr, ptr, i8, i8, i8, i8, i8, i32, %"struct.std::atomic.10", ptr, i64, i64, ptr }
-%"struct.std::atomic.10" = type { i32 }
-%"struct.absl::SynchEvent" = type { i32, ptr, i64, ptr, ptr, i8, [1 x i8] }
 %"struct.absl::SynchWaitParams" = type <{ ptr, ptr, %"class.absl::synchronization_internal::KernelTimeout", ptr, ptr, ptr, i64, i8, [7 x i8] }>
 %"class.absl::synchronization_internal::KernelTimeout" = type { i64 }
 %struct.sched_param = type { i32 }
@@ -373,7 +370,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %suppress_fatal_errors = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %call, i64 0, i32 6
+  %suppress_fatal_errors = getelementptr inbounds i8, ptr %call, i64 20
   store i8 1, ptr %suppress_fatal_errors, align 4
   br label %if.end
 
@@ -388,7 +385,7 @@ define dso_local void @_ZN4absl5Mutex14EnableDebugLogEPKc(ptr noundef nonnull al
 if.then.i:
   %dtor = alloca { i64, i64 }, align 8
   %call = tail call fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef nonnull %this, ptr noundef %name, i64 noundef 16, i64 noundef 64)
-  %log = getelementptr inbounds %"struct.absl::SynchEvent", ptr %call, i64 0, i32 5
+  %log = getelementptr inbounds i8, ptr %call, i64 40
   store i8 1, ptr %log, align 8
   %0 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
   %and.i.i.i.i = and i32 %0, 1
@@ -477,7 +474,7 @@ for.body:                                         ; preds = %if.then, %for.end
 
 for.body4:                                        ; preds = %for.body, %if.end
   %e.035 = phi ptr [ %7, %if.end ], [ %6, %for.body ]
-  %next5 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e.035, i64 0, i32 1
+  %next5 = getelementptr inbounds i8, ptr %e.035, i64 8
   %7 = load ptr, ptr %next5, align 8
   %8 = load i32, ptr %e.035, align 8
   %dec = add nsw i32 %8, -1
@@ -532,14 +529,14 @@ if.then11:                                        ; preds = %for.cond.backedge.i
 
 land.rhs:                                         ; preds = %if.then11, %for.inc17
   %e10.040 = phi ptr [ %e10.0, %for.inc17 ], [ %e10.038, %if.then11 ]
-  %masked_addr = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e10.040, i64 0, i32 2
+  %masked_addr = getelementptr inbounds i8, ptr %e10.040, i64 16
   %14 = load i64, ptr %masked_addr, align 8
   %15 = xor i64 %14, %0
   %cmp15.not = icmp eq i64 %15, -1136490970041655429
   br i1 %cmp15.not, label %if.else, label %for.inc17
 
 for.inc17:                                        ; preds = %land.rhs
-  %next18 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e10.040, i64 0, i32 1
+  %next18 = getelementptr inbounds i8, ptr %e10.040, i64 8
   %e10.0 = load ptr, ptr %next18, align 8
   %cmp13.not = icmp eq ptr %e10.0, null
   br i1 %cmp13.not, label %if.then22, label %land.rhs, !llvm.loop !8
@@ -552,15 +549,15 @@ if.then22:                                        ; preds = %if.end4.i, %for.inc
   %call27 = tail call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc5AllocEm(i64 noundef %add)
   store i32 2, ptr %call27, align 8
   %xor.i27 = xor i64 %0, -1136490970041655429
-  %masked_addr30 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %call27, i64 0, i32 2
+  %masked_addr30 = getelementptr inbounds i8, ptr %call27, i64 16
   store i64 %xor.i27, ptr %masked_addr30, align 8
-  %invariant = getelementptr inbounds %"struct.absl::SynchEvent", ptr %call27, i64 0, i32 3
-  %name31 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %call27, i64 0, i32 6
+  %invariant = getelementptr inbounds i8, ptr %call27, i64 24
+  %name31 = getelementptr inbounds i8, ptr %call27, i64 41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %invariant, i8 0, i64 17, i1 false)
   %call32 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %name31, ptr noundef nonnull dereferenceable(1) %spec.store.select) #23
   %arrayidx34 = getelementptr inbounds [1031 x ptr], ptr @_ZN4abslL11synch_eventE, i64 0, i64 %rem
   %16 = load ptr, ptr %arrayidx34, align 8
-  %next35 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %call27, i64 0, i32 1
+  %next35 = getelementptr inbounds i8, ptr %call27, i64 8
   store ptr %16, ptr %next35, align 8
   store ptr %call27, ptr %arrayidx34, align 8
   br label %if.end40
@@ -613,9 +610,9 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call2 = tail call fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef nonnull %this, ptr noundef null, i64 noundef 16, i64 noundef 64)
-  %invariant3 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %call2, i64 0, i32 3
+  %invariant3 = getelementptr inbounds i8, ptr %call2, i64 24
   store ptr %invariant, ptr %invariant3, align 8
-  %arg4 = getelementptr inbounds %"struct.absl::SynchEvent", ptr %call2, i64 0, i32 4
+  %arg4 = getelementptr inbounds i8, ptr %call2, i64 32
   store ptr %arg, ptr %arg4, align 8
   %2 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
   %and.i.i.i.i = and i32 %2, 1
@@ -692,16 +689,16 @@ if.then7:                                         ; preds = %if.then
   br i1 %cmp8.not, label %if.then21, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %if.then7
-  %waitp.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %s, i64 0, i32 9
-  %priority.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %s, i64 0, i32 7
-  %skip1.i88 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %s, i64 0, i32 1
+  %waitp.i = getelementptr inbounds i8, ptr %s, i64 32
+  %priority.i = getelementptr inbounds i8, ptr %s, i64 24
+  %skip1.i88 = getelementptr inbounds i8, ptr %s, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond
   %w.0 = phi ptr [ %24, %do.cond ], [ %4, %do.body.preheader ]
   %5 = load ptr, ptr %waitp.i, align 8
   %6 = load ptr, ptr %5, align 8
-  %waitp1.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w.0, i64 0, i32 9
+  %waitp1.i = getelementptr inbounds i8, ptr %w.0, i64 32
   %7 = load ptr, ptr %waitp1.i, align 8
   %8 = load ptr, ptr %7, align 8
   %cmp.i = icmp eq ptr %6, %8
@@ -709,15 +706,15 @@ do.body:                                          ; preds = %do.body.preheader, 
 
 land.lhs.true.i:                                  ; preds = %do.body
   %9 = load i32, ptr %priority.i, align 8
-  %priority3.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w.0, i64 0, i32 7
+  %priority3.i = getelementptr inbounds i8, ptr %w.0, i64 24
   %10 = load i32, ptr %priority3.i, align 8
   %cmp4.i = icmp eq i32 %9, %10
   br i1 %cmp4.i, label %land.rhs.i, label %if.then12
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %cond.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %5, i64 0, i32 1
+  %cond.i = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load ptr, ptr %cond.i, align 8
-  %cond7.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %7, i64 0, i32 1
+  %cond7.i = getelementptr inbounds i8, ptr %7, i64 8
   %12 = load ptr, ptr %cond7.i, align 8
   %cmp.i.i = icmp eq ptr %11, null
   %cmp1.i.i = icmp eq ptr %12, null
@@ -729,17 +726,17 @@ if.then.i.i:                                      ; preds = %land.rhs.i
   br i1 %cmp2.i.i, label %if.else, label %if.then12
 
 if.end.i.i:                                       ; preds = %land.rhs.i
-  %eval_.i.i = getelementptr inbounds %"class.absl::Condition", ptr %11, i64 0, i32 1
+  %eval_.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %eval_.i.i, align 8
-  %eval_3.i.i = getelementptr inbounds %"class.absl::Condition", ptr %12, i64 0, i32 1
+  %eval_3.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %eval_3.i.i, align 8
   %cmp4.i.i = icmp eq ptr %13, %14
   br i1 %cmp4.i.i, label %land.lhs.true.i.i, label %if.then12
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %arg_.i.i = getelementptr inbounds %"class.absl::Condition", ptr %11, i64 0, i32 2
+  %arg_.i.i = getelementptr inbounds i8, ptr %11, i64 24
   %15 = load ptr, ptr %arg_.i.i, align 8
-  %arg_5.i.i = getelementptr inbounds %"class.absl::Condition", ptr %12, i64 0, i32 2
+  %arg_5.i.i = getelementptr inbounds i8, ptr %12, i64 24
   %16 = load ptr, ptr %arg_5.i.i, align 8
   %cmp6.i.i = icmp eq ptr %15, %16
   br i1 %cmp6.i.i, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit, label %if.then12
@@ -750,13 +747,13 @@ _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit: ; pr
   br i1 %tobool.not.i.i, label %if.else, label %if.then12
 
 if.then12:                                        ; preds = %if.end.i.i, %land.lhs.true.i.i, %do.body, %land.lhs.true.i, %if.then.i.i, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit
-  %skip.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w.0, i64 0, i32 1
+  %skip.i = getelementptr inbounds i8, ptr %w.0, i64 8
   %17 = load ptr, ptr %skip.i, align 8
   %cmp.not.i = icmp eq ptr %17, null
   br i1 %cmp.not.i, label %do.cond, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.then12
-  %skip19.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %17, i64 0, i32 1
+  %skip19.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %skip19.i, align 8
   %cmp2.not10.i = icmp eq ptr %18, null
   br i1 %cmp2.not10.i, label %while.end.i, label %while.body.i
@@ -765,9 +762,9 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %19 = phi ptr [ %20, %while.body.i ], [ %18, %while.cond.preheader.i ]
   %x2.012.i = phi ptr [ %19, %while.body.i ], [ %17, %while.cond.preheader.i ]
   %x1.011.i = phi ptr [ %x2.012.i, %while.body.i ], [ %w.0, %while.cond.preheader.i ]
-  %skip3.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %x1.011.i, i64 0, i32 1
+  %skip3.i = getelementptr inbounds i8, ptr %x1.011.i, i64 8
   store ptr %19, ptr %skip3.i, align 8
-  %skip1.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %19, i64 0, i32 1
+  %skip1.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %skip1.i, align 8
   %cmp2.not.i = icmp eq ptr %20, null
   br i1 %cmp2.not.i, label %while.end.i, label %while.body.i, !llvm.loop !9
@@ -778,7 +775,7 @@ while.end.i:                                      ; preds = %while.body.i, %whil
   br label %do.cond
 
 if.else:                                          ; preds = %if.then.i.i, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit
-  %skip.i86 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w.0, i64 0, i32 1
+  %skip.i86 = getelementptr inbounds i8, ptr %w.0, i64 8
   %21 = load ptr, ptr %skip.i86, align 8
   %cmp.i87 = icmp eq ptr %21, %s
   br i1 %cmp.i87, label %if.then.i, label %do.cond
@@ -828,27 +825,27 @@ if.else.i91:                                      ; preds = %if.then21
   br i1 %cmp4.not.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit, label %land.lhs.true.i92
 
 land.lhs.true.i92:                                ; preds = %if.else.i91
-  %waitp.i.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %pw.1105, i64 0, i32 9
+  %waitp.i.i = getelementptr inbounds i8, ptr %pw.1105, i64 32
   %27 = load ptr, ptr %waitp.i.i, align 8
   %28 = load ptr, ptr %27, align 8
-  %waitp1.i.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %26, i64 0, i32 9
+  %waitp1.i.i = getelementptr inbounds i8, ptr %26, i64 32
   %29 = load ptr, ptr %waitp1.i.i, align 8
   %30 = load ptr, ptr %29, align 8
   %cmp.i.i93 = icmp eq ptr %28, %30
   br i1 %cmp.i.i93, label %land.lhs.true.i.i94, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 land.lhs.true.i.i94:                              ; preds = %land.lhs.true.i92
-  %priority.i.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %pw.1105, i64 0, i32 7
+  %priority.i.i = getelementptr inbounds i8, ptr %pw.1105, i64 24
   %31 = load i32, ptr %priority.i.i, align 8
-  %priority3.i.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %26, i64 0, i32 7
+  %priority3.i.i = getelementptr inbounds i8, ptr %26, i64 24
   %32 = load i32, ptr %priority3.i.i, align 8
   %cmp4.i.i95 = icmp eq i32 %31, %32
   br i1 %cmp4.i.i95, label %land.rhs.i.i96, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 land.rhs.i.i96:                                   ; preds = %land.lhs.true.i.i94
-  %cond.i.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %27, i64 0, i32 1
+  %cond.i.i = getelementptr inbounds i8, ptr %27, i64 8
   %33 = load ptr, ptr %cond.i.i, align 8
-  %cond7.i.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %29, i64 0, i32 1
+  %cond7.i.i = getelementptr inbounds i8, ptr %29, i64 8
   %34 = load ptr, ptr %cond7.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %33, null
   %cmp1.i.i.i = icmp eq ptr %34, null
@@ -860,17 +857,17 @@ if.then.i.i.i:                                    ; preds = %land.rhs.i.i96
   br i1 %cmp2.i.i.i, label %if.then6.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 if.end.i.i.i:                                     ; preds = %land.rhs.i.i96
-  %eval_.i.i.i = getelementptr inbounds %"class.absl::Condition", ptr %33, i64 0, i32 1
+  %eval_.i.i.i = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load ptr, ptr %eval_.i.i.i, align 8
-  %eval_3.i.i.i = getelementptr inbounds %"class.absl::Condition", ptr %34, i64 0, i32 1
+  %eval_3.i.i.i = getelementptr inbounds i8, ptr %34, i64 16
   %36 = load ptr, ptr %eval_3.i.i.i, align 8
   %cmp4.i.i.i = icmp eq ptr %35, %36
   br i1 %cmp4.i.i.i, label %land.lhs.true.i.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i
-  %arg_.i.i.i = getelementptr inbounds %"class.absl::Condition", ptr %33, i64 0, i32 2
+  %arg_.i.i.i = getelementptr inbounds i8, ptr %33, i64 24
   %37 = load ptr, ptr %arg_.i.i.i, align 8
-  %arg_5.i.i.i = getelementptr inbounds %"class.absl::Condition", ptr %34, i64 0, i32 2
+  %arg_5.i.i.i = getelementptr inbounds i8, ptr %34, i64 24
   %38 = load ptr, ptr %arg_5.i.i.i, align 8
   %cmp6.i.i.i = icmp eq ptr %37, %38
   br i1 %cmp6.i.i.i, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
@@ -881,10 +878,10 @@ _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i: ; 
   br i1 %tobool.not.i.i.i, label %if.then6.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 if.then6.i:                                       ; preds = %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i, %if.then.i.i.i
-  %skip.i97 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %26, i64 0, i32 1
+  %skip.i97 = getelementptr inbounds i8, ptr %26, i64 8
   %39 = load ptr, ptr %skip.i97, align 8
   %cmp8.not.i = icmp eq ptr %39, null
-  %skip15.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %pw.1105, i64 0, i32 1
+  %skip15.i = getelementptr inbounds i8, ptr %pw.1105, i64 8
   br i1 %cmp8.not.i, label %if.else13.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then6.i
@@ -898,7 +895,7 @@ if.else13.i:                                      ; preds = %if.then6.i
 _ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit: ; preds = %if.then.i98, %if.else.i91, %land.lhs.true.i92, %land.lhs.true.i.i94, %if.then.i.i.i, %if.end.i.i.i, %land.lhs.true.i.i.i, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i, %if.then9.i, %if.else13.i
   %head.addr.0.i = phi ptr [ %cond.i99, %if.then.i98 ], [ %3, %if.then9.i ], [ %3, %if.else13.i ], [ %3, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i ], [ %3, %if.else.i91 ], [ %3, %if.then.i.i.i ], [ %3, %land.lhs.true.i.i94 ], [ %3, %land.lhs.true.i92 ], [ %3, %land.lhs.true.i.i.i ], [ %3, %if.end.i.i.i ]
   store ptr null, ptr %s, align 8
-  %state = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %s, i64 0, i32 8
+  %state = getelementptr inbounds i8, ptr %s, i64 28
   store atomic i32 0, ptr %state release, align 4
   br label %if.end26
 
@@ -906,8 +903,8 @@ if.end26:                                         ; preds = %if.end19, %_ZN4absl
   %h.0 = phi ptr [ %head.addr.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit ], [ %3, %if.end19 ]
   %cmp31.not = icmp eq ptr %h.0, null
   %40 = ptrtoint ptr %h.0 to i64
-  %readers = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %h.0, i64 0, i32 10
-  %maybe_unlocking = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %h.0, i64 0, i32 5
+  %readers = getelementptr inbounds i8, ptr %h.0, i64 40
+  %maybe_unlocking = getelementptr inbounds i8, ptr %h.0, i64 19
   br i1 %cmp31.not, label %do.body27.us.preheader, label %do.body27
 
 do.body27.us.preheader:                           ; preds = %if.then, %if.end26
@@ -938,27 +935,27 @@ if.end40:                                         ; preds = %do.body27, %do.body
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %y) unnamed_addr #7 {
 entry:
-  %waitp = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %x, i64 0, i32 9
+  %waitp = getelementptr inbounds i8, ptr %x, i64 32
   %0 = load ptr, ptr %waitp, align 8
   %1 = load ptr, ptr %0, align 8
-  %waitp1 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %y, i64 0, i32 9
+  %waitp1 = getelementptr inbounds i8, ptr %y, i64 32
   %2 = load ptr, ptr %waitp1, align 8
   %3 = load ptr, ptr %2, align 8
   %cmp = icmp eq ptr %1, %3
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %priority = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %x, i64 0, i32 7
+  %priority = getelementptr inbounds i8, ptr %x, i64 24
   %4 = load i32, ptr %priority, align 8
-  %priority3 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %y, i64 0, i32 7
+  %priority3 = getelementptr inbounds i8, ptr %y, i64 24
   %5 = load i32, ptr %priority3, align 8
   %cmp4 = icmp eq i32 %4, %5
   br i1 %cmp4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %cond = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %0, i64 0, i32 1
+  %cond = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %cond, align 8
-  %cond7 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %2, i64 0, i32 1
+  %cond7 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %cond7, align 8
   %cmp.i = icmp eq ptr %6, null
   %cmp1.i = icmp eq ptr %7, null
@@ -970,17 +967,17 @@ if.then.i:                                        ; preds = %land.rhs
   br label %land.end
 
 if.end.i:                                         ; preds = %land.rhs
-  %eval_.i = getelementptr inbounds %"class.absl::Condition", ptr %6, i64 0, i32 1
+  %eval_.i = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %eval_.i, align 8
-  %eval_3.i = getelementptr inbounds %"class.absl::Condition", ptr %7, i64 0, i32 1
+  %eval_3.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %eval_3.i, align 8
   %cmp4.i = icmp eq ptr %8, %9
   br i1 %cmp4.i, label %land.lhs.true.i, label %land.end
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %arg_.i = getelementptr inbounds %"class.absl::Condition", ptr %6, i64 0, i32 2
+  %arg_.i = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %arg_.i, align 8
-  %arg_5.i = getelementptr inbounds %"class.absl::Condition", ptr %7, i64 0, i32 2
+  %arg_5.i = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %arg_5.i, align 8
   %cmp6.i = icmp eq ptr %10, %11
   br i1 %cmp6.i, label %land.rhs.i, label %land.end
@@ -1007,13 +1004,13 @@ entry:
   %ref.tmp8.i.i.i.i.i.i.i = alloca %"class.absl::Duration", align 8
   %ref.tmp12.i.i.i.i.i.i.i = alloca %"class.absl::Duration", align 8
   %enable_rescheduling.i = alloca %"class.absl::base_internal::SchedulingGuard::ScopedEnable", align 4
-  %state = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %s, i64 0, i32 8
+  %state = getelementptr inbounds i8, ptr %s, i64 28
   %0 = load atomic i32, ptr %state acquire, align 4
   %cmp61 = icmp eq i32 %0, 1
   br i1 %cmp61, label %while.body.lr.ph, label %do.body
 
 while.body.lr.ph:                                 ; preds = %entry
-  %waitp = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %s, i64 0, i32 9
+  %waitp = getelementptr inbounds i8, ptr %s, i64 32
   %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %lhs.i.i.i.i.i.i.i.i.i.i12, i64 8
   %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %lhs.i.i.i.i.i.i.i.i11, i64 8
   %tmp.coerce10.sroa.2.0.ref.tmp8.sroa_idx.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %ref.tmp8.i.i.i.i.i.i.i13, i64 8
@@ -1026,7 +1023,7 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %1 = load ptr, ptr %waitp, align 8
-  %timeout = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %1, i64 0, i32 2
+  %timeout = getelementptr inbounds i8, ptr %1, i64 16
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %timeout, align 8
   %call.i.i = call noundef zeroext i1 @AbslInternalPerThreadSemWait(i64 %agg.tmp.sroa.0.0.copyload)
   br i1 %call.i.i, label %if.end, label %if.then
@@ -1259,10 +1256,10 @@ _ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %if.then.i, %i
 
 while.end:                                        ; preds = %_ZN4absl24synchronization_internal10MutexDelayEii.exit, %if.then
   %14 = load ptr, ptr %waitp, align 8
-  %timeout10 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %14, i64 0, i32 2
+  %timeout10 = getelementptr inbounds i8, ptr %14, i64 16
   store i64 -1, ptr %timeout10, align 8
   %15 = load ptr, ptr %waitp, align 8
-  %cond = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %15, i64 0, i32 1
+  %cond = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %cond, align 8
   br label %if.end
 
@@ -1272,13 +1269,13 @@ if.end:                                           ; preds = %while.end, %while.b
   br i1 %cmp, label %while.body, label %do.body, !llvm.loop !13
 
 do.body:                                          ; preds = %if.end, %entry
-  %waitp13 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %s, i64 0, i32 9
+  %waitp13 = getelementptr inbounds i8, ptr %s, i64 32
   %17 = load ptr, ptr %waitp13, align 8
   %cmp14.not = icmp eq ptr %17, null
   br i1 %cmp14.not, label %lor.rhs, label %do.end20
 
 lor.rhs:                                          ; preds = %do.body
-  %suppress_fatal_errors = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %s, i64 0, i32 6
+  %suppress_fatal_errors = getelementptr inbounds i8, ptr %s, i64 20
   %18 = load i8, ptr %suppress_fatal_errors, align 4
   %19 = and i8 %18, 1
   %tobool = icmp eq i8 %19, 0
@@ -1300,7 +1297,7 @@ define dso_local noundef ptr @_ZN4absl5Mutex6WakeupEPNS_13base_internal14PerThre
 entry:
   %0 = load ptr, ptr %w, align 8
   store ptr null, ptr %w, align 8
-  %state = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w, i64 0, i32 8
+  %state = getelementptr inbounds i8, ptr %w, i64 28
   store atomic i32 0, ptr %state release, align 4
   tail call void @AbslInternalPerThreadSemPost(ptr noundef nonnull %w)
   ret ptr %0
@@ -1440,14 +1437,14 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end11
 
 land.lhs.true:                                    ; preds = %entry
-  %fast_or = getelementptr inbounds %"struct.absl::MuHowS", ptr %how, i64 0, i32 1
+  %fast_or = getelementptr inbounds i8, ptr %how, i64 8
   %2 = load i64, ptr %fast_or, align 8
   %and3 = and i32 %flags, 1
   %switch.i = icmp eq i32 %and3, 0
   %..i = select i1 %switch.i, i64 -1, i64 -3
   %and5 = and i64 %0, %..i
   %or = or i64 %2, %and5
-  %fast_add = getelementptr inbounds %"struct.absl::MuHowS", ptr %how, i64 0, i32 2
+  %fast_add = getelementptr inbounds i8, ptr %how, i64 16
   %3 = load i64, ptr %fast_add, align 8
   %add = add nsw i64 %or, %3
   %4 = cmpxchg ptr %this, i64 %0, i64 %add acquire monotonic, align 8
@@ -1459,7 +1456,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp7, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %eval_.i.i = getelementptr inbounds %"class.absl::Condition", ptr %cond, i64 0, i32 1
+  %eval_.i.i = getelementptr inbounds i8, ptr %cond, i64 16
   %6 = load ptr, ptr %eval_.i.i, align 8
   %call.i.i = tail call noundef zeroext i1 %6(ptr noundef nonnull %cond)
   br i1 %call.i.i, label %return, label %if.end11
@@ -1477,15 +1474,15 @@ if.then.i.i.i:                                    ; preds = %if.end11
 _ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit: ; preds = %if.end11, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %call1.i.i.i, %if.then.i.i.i ], [ %call.i.i.i, %if.end11 ]
   store ptr %how, ptr %waitp, align 8
-  %cond.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 1
+  %cond.i = getelementptr inbounds i8, ptr %waitp, i64 8
   store ptr %cond, ptr %cond.i, align 8
-  %timeout.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 2
+  %timeout.i = getelementptr inbounds i8, ptr %waitp, i64 16
   store i64 %t.coerce, ptr %timeout.i, align 8
-  %cvmu.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 3
+  %cvmu.i = getelementptr inbounds i8, ptr %waitp, i64 24
   store ptr null, ptr %cvmu.i, align 8
-  %thread.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 4
+  %thread.i = getelementptr inbounds i8, ptr %waitp, i64 32
   store ptr %retval.0.i.i.i, ptr %thread.i, align 8
-  %cv_word.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 5
+  %cv_word.i = getelementptr inbounds i8, ptr %waitp, i64 40
   store ptr null, ptr %cv_word.i, align 8
   %7 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
   %cmp.i.i = icmp eq i64 %7, 0
@@ -1506,10 +1503,10 @@ if.end.i.i:                                       ; preds = %_ZN4abslL27Synch_Ge
 
 _ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.in.i.i = phi i64 [ %or.i.i.i, %if.then.i.i ], [ %call2.i.i, %if.end.i.i ]
-  %contention_start_cycles.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 6
+  %contention_start_cycles.i = getelementptr inbounds i8, ptr %waitp, i64 48
   %retval.0.i.i = ashr i64 %retval.0.in.i.i, 1
   store i64 %retval.0.i.i, ptr %contention_start_cycles.i, align 8
-  %should_submit_contention_data.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 7
+  %should_submit_contention_data.i = getelementptr inbounds i8, ptr %waitp, i64 56
   store i8 0, ptr %should_submit_contention_data.i, align 8
   %cmp14.not = icmp eq ptr %cond, null
   %or16 = or i32 %flags, 2
@@ -1532,7 +1529,7 @@ if.end20:                                         ; preds = %if.then18, %_ZN4abs
   br i1 %or.cond, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end20
-  %eval_.i.i45 = getelementptr inbounds %"class.absl::Condition", ptr %cond, i64 0, i32 1
+  %eval_.i.i45 = getelementptr inbounds i8, ptr %cond, i64 16
   %11 = load ptr, ptr %eval_.i.i45, align 8
   %call.i.i46 = call noundef zeroext i1 %11(ptr noundef nonnull %cond)
   br label %return
@@ -1546,7 +1543,7 @@ return:                                           ; preds = %if.end20, %lor.rhs,
 define dso_local noundef zeroext i1 @_ZN4absl5Mutex11AwaitCommonERKNS_9ConditionENS_24synchronization_internal13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %cond, i64 %t.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %waitp = alloca %"struct.absl::SynchWaitParams", align 8
-  %eval_.i = getelementptr inbounds %"class.absl::Condition", ptr %cond, i64 0, i32 1
+  %eval_.i = getelementptr inbounds i8, ptr %cond, i64 16
   %0 = load ptr, ptr %eval_.i, align 8
   %call.i6 = tail call noundef zeroext i1 %0(ptr noundef nonnull %cond)
   br i1 %call.i6, label %return, label %if.end
@@ -1567,15 +1564,15 @@ if.then.i.i.i:                                    ; preds = %if.end
 _ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit: ; preds = %if.end, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %call1.i.i.i, %if.then.i.i.i ], [ %call.i.i.i, %if.end ]
   store ptr %cond3, ptr %waitp, align 8
-  %cond.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 1
+  %cond.i = getelementptr inbounds i8, ptr %waitp, i64 8
   store ptr %cond, ptr %cond.i, align 8
-  %timeout.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 2
+  %timeout.i = getelementptr inbounds i8, ptr %waitp, i64 16
   store i64 %t.coerce, ptr %timeout.i, align 8
-  %cvmu.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 3
+  %cvmu.i = getelementptr inbounds i8, ptr %waitp, i64 24
   store ptr null, ptr %cvmu.i, align 8
-  %thread.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 4
+  %thread.i = getelementptr inbounds i8, ptr %waitp, i64 32
   store ptr %retval.0.i.i.i, ptr %thread.i, align 8
-  %cv_word.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 5
+  %cv_word.i = getelementptr inbounds i8, ptr %waitp, i64 40
   store ptr null, ptr %cv_word.i, align 8
   %2 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
   %cmp.i.i = icmp eq i64 %2, 0
@@ -1596,10 +1593,10 @@ if.end.i.i:                                       ; preds = %_ZN4abslL27Synch_Ge
 
 _ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.in.i.i = phi i64 [ %or.i.i.i, %if.then.i.i ], [ %call2.i.i, %if.end.i.i ]
-  %contention_start_cycles.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 6
+  %contention_start_cycles.i = getelementptr inbounds i8, ptr %waitp, i64 48
   %retval.0.i.i = ashr i64 %retval.0.in.i.i, 1
   store i64 %retval.0.i.i, ptr %contention_start_cycles.i, align 8
-  %should_submit_contention_data.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 7
+  %should_submit_contention_data.i = getelementptr inbounds i8, ptr %waitp, i64 56
   store i8 0, ptr %should_submit_contention_data.i, align 8
   call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %waitp) #25
   %4 = load ptr, ptr %thread.i, align 8
@@ -1630,7 +1627,7 @@ return:                                           ; preds = %_ZN4absl15SynchWait
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK4absl9Condition4EvalEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %eval_ = getelementptr inbounds %"class.absl::Condition", ptr %this, i64 0, i32 1
+  %eval_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %eval_, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull %this)
   ret i1 %call
@@ -1650,7 +1647,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call2.i248 = tail call fastcc noundef ptr @_ZN4abslL13GetSynchEventEPKv(ptr noundef nonnull %this)
   %cmp3.i = icmp eq ptr %call2.i248, null
-  %name.i = getelementptr inbounds %"struct.absl::SynchEvent", ptr %call2.i248, i64 0, i32 6
+  %name.i = getelementptr inbounds i8, ptr %call2.i248, i64 41
   %cond-lvalue.i = select i1 %cmp3.i, ptr @.str.35, ptr %name.i
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2473, ptr noundef nonnull @.str.36, ptr noundef nonnull %this, ptr noundef nonnull %cond-lvalue.i)
   unreachable
@@ -1701,15 +1698,15 @@ if.end:                                           ; preds = %if.then, %invoke.co
   br i1 %cmp6, label %for.cond.outer.preheader, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %thread = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 4
+  %thread = getelementptr inbounds i8, ptr %waitp, i64 32
   %4 = load ptr, ptr %thread, align 8
-  %waitp7 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %4, i64 0, i32 9
+  %waitp7 = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load ptr, ptr %waitp7, align 8
   %cmp8 = icmp eq ptr %5, null
   br i1 %cmp8, label %for.cond.outer.preheader, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false
-  %suppress_fatal_errors = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %4, i64 0, i32 6
+  %suppress_fatal_errors = getelementptr inbounds i8, ptr %4, i64 20
   %6 = load i8, ptr %suppress_fatal_errors, align 4
   %7 = and i8 %6, 1
   %tobool.not = icmp eq i8 %7, 0
@@ -1789,7 +1786,7 @@ if.then54:                                        ; preds = %if.then51
   br i1 %cmp6, label %do.body59, label %do.body70.preheader
 
 do.body70.preheader:                              ; preds = %if.then54
-  %cv_word = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 5
+  %cv_word = getelementptr inbounds i8, ptr %waitp, i64 40
   br label %do.body70
 
 do.body59:                                        ; preds = %if.then54
@@ -1839,14 +1836,14 @@ if.end106:                                        ; preds = %if.then51
   br i1 %cmp110.not, label %do.body144, label %land.lhs.true111
 
 land.lhs.true111:                                 ; preds = %if.end106
-  %readers = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %23, i64 0, i32 10
+  %readers = getelementptr inbounds i8, ptr %23, i64 40
   %24 = load i64, ptr %readers, align 8
   %and112 = and i64 %24, -256
   %cmp113 = icmp sgt i64 %and112, 256
   br i1 %cmp113, label %if.then114, label %do.body144
 
 if.then114:                                       ; preds = %land.lhs.true111
-  %readers.le = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %23, i64 0, i32 10
+  %readers.le = getelementptr inbounds i8, ptr %23, i64 40
   %sub116 = add nsw i64 %24, -256
   store i64 %sub116, ptr %readers.le, align 8
   br i1 %cmp6, label %for.end.sink.split, label %if.then119
@@ -1872,7 +1869,7 @@ do.body144:                                       ; preds = %if.end106, %land.lh
   br i1 %cmp145, label %if.end190, label %lor.rhs146
 
 lor.rhs146:                                       ; preds = %do.body144
-  %maybe_unlocking = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %23, i64 0, i32 5
+  %maybe_unlocking = getelementptr inbounds i8, ptr %23, i64 19
   %26 = load i8, ptr %maybe_unlocking, align 1
   %27 = and i8 %26, 1
   %tobool147.not = icmp eq i8 %27, 0
@@ -1883,7 +1880,7 @@ do.body151:                                       ; preds = %lor.rhs146
   unreachable
 
 land.lhs.true163:                                 ; preds = %lor.rhs146
-  %may_skip = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %old_h.0.ph, i64 0, i32 2
+  %may_skip = getelementptr inbounds i8, ptr %old_h.0.ph, i64 16
   %28 = load i8, ptr %may_skip, align 8
   %29 = and i8 %28, 1
   %tobool164.not = icmp eq i8 %29, 0
@@ -1891,7 +1888,7 @@ land.lhs.true163:                                 ; preds = %lor.rhs146
 
 if.then165:                                       ; preds = %land.lhs.true163
   store i8 1, ptr %may_skip, align 8
-  %skip = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %old_h.0.ph, i64 0, i32 1
+  %skip = getelementptr inbounds i8, ptr %old_h.0.ph, i64 8
   %30 = load ptr, ptr %skip, align 8
   %cmp168.not = icmp eq ptr %30, null
   br i1 %cmp168.not, label %do.end181, label %do.body171
@@ -1906,27 +1903,27 @@ do.end181:                                        ; preds = %if.then165
 
 land.lhs.true183:                                 ; preds = %do.end181
   %31 = load ptr, ptr %old_h.0.ph, align 8
-  %waitp.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %old_h.0.ph, i64 0, i32 9
+  %waitp.i = getelementptr inbounds i8, ptr %old_h.0.ph, i64 32
   %32 = load ptr, ptr %waitp.i, align 8
   %33 = load ptr, ptr %32, align 8
-  %waitp1.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %31, i64 0, i32 9
+  %waitp1.i = getelementptr inbounds i8, ptr %31, i64 32
   %34 = load ptr, ptr %waitp1.i, align 8
   %35 = load ptr, ptr %34, align 8
   %cmp.i256 = icmp eq ptr %33, %35
   br i1 %cmp.i256, label %land.lhs.true.i, label %if.end190
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true183
-  %priority.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %old_h.0.ph, i64 0, i32 7
+  %priority.i = getelementptr inbounds i8, ptr %old_h.0.ph, i64 24
   %36 = load i32, ptr %priority.i, align 8
-  %priority3.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %31, i64 0, i32 7
+  %priority3.i = getelementptr inbounds i8, ptr %31, i64 24
   %37 = load i32, ptr %priority3.i, align 8
   %cmp4.i = icmp eq i32 %36, %37
   br i1 %cmp4.i, label %land.rhs.i, label %if.end190
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %cond.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %32, i64 0, i32 1
+  %cond.i = getelementptr inbounds i8, ptr %32, i64 8
   %38 = load ptr, ptr %cond.i, align 8
-  %cond7.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %34, i64 0, i32 1
+  %cond7.i = getelementptr inbounds i8, ptr %34, i64 8
   %39 = load ptr, ptr %cond7.i, align 8
   %cmp.i.i = icmp eq ptr %38, null
   %cmp1.i.i = icmp eq ptr %39, null
@@ -1938,17 +1935,17 @@ if.then.i.i:                                      ; preds = %land.rhs.i
   br i1 %cmp2.i.i, label %if.then186, label %if.end190
 
 if.end.i.i:                                       ; preds = %land.rhs.i
-  %eval_.i.i = getelementptr inbounds %"class.absl::Condition", ptr %38, i64 0, i32 1
+  %eval_.i.i = getelementptr inbounds i8, ptr %38, i64 16
   %40 = load ptr, ptr %eval_.i.i, align 8
-  %eval_3.i.i = getelementptr inbounds %"class.absl::Condition", ptr %39, i64 0, i32 1
+  %eval_3.i.i = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load ptr, ptr %eval_3.i.i, align 8
   %cmp4.i.i = icmp eq ptr %40, %41
   br i1 %cmp4.i.i, label %land.lhs.true.i.i, label %if.end190
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %arg_.i.i = getelementptr inbounds %"class.absl::Condition", ptr %38, i64 0, i32 2
+  %arg_.i.i = getelementptr inbounds i8, ptr %38, i64 24
   %42 = load ptr, ptr %arg_.i.i, align 8
-  %arg_5.i.i = getelementptr inbounds %"class.absl::Condition", ptr %39, i64 0, i32 2
+  %arg_5.i.i = getelementptr inbounds i8, ptr %39, i64 24
   %43 = load ptr, ptr %arg_5.i.i, align 8
   %cmp6.i.i = icmp eq ptr %42, %43
   br i1 %cmp6.i.i, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit, label %if.end190
@@ -1964,20 +1961,20 @@ if.then186:                                       ; preds = %if.then.i.i, %_ZN4a
 
 if.end190:                                        ; preds = %if.end.i.i, %land.lhs.true.i.i, %land.lhs.true183, %land.lhs.true.i, %do.body144, %if.then.i.i, %do.end181, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit, %if.then186, %land.lhs.true163
   %44 = load ptr, ptr %23, align 256
-  %waitp192 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %44, i64 0, i32 9
+  %waitp192 = getelementptr inbounds i8, ptr %44, i64 32
   %45 = load ptr, ptr %waitp192, align 8
   %46 = load ptr, ptr %45, align 8
   %cmp193 = icmp eq ptr %46, @_ZN4abslL11kExclusiveSE
   br i1 %cmp193, label %land.lhs.true194, label %if.else201
 
 land.lhs.true194:                                 ; preds = %if.end190
-  %cond197 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %45, i64 0, i32 1
+  %cond197 = getelementptr inbounds i8, ptr %45, i64 8
   %47 = load ptr, ptr %cond197, align 8
   %cmp198 = icmp eq ptr %47, null
   br i1 %cmp198, label %if.then199, label %if.else201
 
 if.then199:                                       ; preds = %land.lhs.true194
-  %wake = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %44, i64 0, i32 3
+  %wake = getelementptr inbounds i8, ptr %44, i64 17
   store i8 1, ptr %wake, align 1
   br label %do.body301
 
@@ -1986,7 +1983,7 @@ if.else201:                                       ; preds = %land.lhs.true194, %
   br i1 %cmp202.not, label %if.else213, label %land.lhs.true203
 
 land.lhs.true203:                                 ; preds = %if.else201
-  %waitp204 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w.0.ph, i64 0, i32 9
+  %waitp204 = getelementptr inbounds i8, ptr %w.0.ph, i64 32
   %48 = load ptr, ptr %waitp204, align 8
   %49 = load ptr, ptr %48, align 8
   %cmp206 = icmp eq ptr %49, @_ZN4abslL11kExclusiveSE
@@ -2005,9 +2002,9 @@ if.else213:                                       ; preds = %land.lhs.true203, %
 
 if.then215:                                       ; preds = %if.else213
   %and217 = and i64 %8, -106
-  %readers218 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %old_h.0.ph, i64 0, i32 10
+  %readers218 = getelementptr inbounds i8, ptr %old_h.0.ph, i64 40
   store i64 0, ptr %readers218, align 8
-  %maybe_unlocking219 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %old_h.0.ph, i64 0, i32 5
+  %maybe_unlocking219 = getelementptr inbounds i8, ptr %old_h.0.ph, i64 19
   store i8 0, ptr %maybe_unlocking219, align 1
   br i1 %cmp6, label %for.end.sink.split, label %if.then221
 
@@ -2025,9 +2022,9 @@ if.then227:                                       ; preds = %if.then221
 if.end233:                                        ; preds = %if.else213
   %call108.old_h.0 = select i1 %cmp145, ptr %23, ptr %old_h.0.ph
   %w_walk.0 = load ptr, ptr %call108.old_h.0, align 8
-  %may_skip240 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %23, i64 0, i32 2
+  %may_skip240 = getelementptr inbounds i8, ptr %23, i64 16
   store i8 0, ptr %may_skip240, align 16
-  %skip242 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %23, i64 0, i32 1
+  %skip242 = getelementptr inbounds i8, ptr %23, i64 8
   %51 = load ptr, ptr %skip242, align 8
   %cmp243.not = icmp eq ptr %51, null
   br i1 %cmp243.not, label %while.body.preheader, label %do.body246
@@ -2037,7 +2034,7 @@ do.body246:                                       ; preds = %if.end233
   unreachable
 
 while.body.preheader:                             ; preds = %if.end233
-  %maybe_unlocking257 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %23, i64 0, i32 5
+  %maybe_unlocking257 = getelementptr inbounds i8, ptr %23, i64 19
   store i8 1, ptr %maybe_unlocking257, align 1
   store atomic i64 %8, ptr %this release, align 8
   br label %while.body
@@ -2048,17 +2045,17 @@ while.body:                                       ; preds = %if.end298, %while.b
   %w.1354 = phi ptr [ %w.2, %if.end298 ], [ %w.0.ph, %while.body.preheader ]
   %pw.1353 = phi ptr [ %pw.2, %if.end298 ], [ %pw.0.ph, %while.body.preheader ]
   %wr_wait.1352 = phi i64 [ %wr_wait.2, %if.end298 ], [ %wr_wait.0.ph, %while.body.preheader ]
-  %wake260 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w_walk.1355, i64 0, i32 3
+  %wake260 = getelementptr inbounds i8, ptr %w_walk.1355, i64 17
   store i8 0, ptr %wake260, align 1
-  %waitp261 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w_walk.1355, i64 0, i32 9
+  %waitp261 = getelementptr inbounds i8, ptr %w_walk.1355, i64 32
   %52 = load ptr, ptr %waitp261, align 8
-  %cond262 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %52, i64 0, i32 1
+  %cond262 = getelementptr inbounds i8, ptr %52, i64 8
   %53 = load ptr, ptr %cond262, align 8
   %cmp263 = icmp eq ptr %53, null
   br i1 %cmp263, label %if.then269, label %lor.lhs.false264
 
 lor.lhs.false264:                                 ; preds = %while.body
-  %eval_.i.i257 = getelementptr inbounds %"class.absl::Condition", ptr %53, i64 0, i32 1
+  %eval_.i.i257 = getelementptr inbounds i8, ptr %53, i64 16
   %54 = load ptr, ptr %eval_.i.i257, align 8
   %call.i.i258 = tail call noundef zeroext i1 %54(ptr noundef nonnull %53)
   br i1 %call.i.i258, label %if.then269, label %if.end287
@@ -2094,13 +2091,13 @@ if.end287:                                        ; preds = %if.else278, %if.the
   br i1 %tobool289.not, label %if.else291, label %if.end294
 
 if.else291:                                       ; preds = %if.end287
-  %skip.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w_walk.1355, i64 0, i32 1
+  %skip.i = getelementptr inbounds i8, ptr %w_walk.1355, i64 8
   %61 = load ptr, ptr %skip.i, align 8
   %cmp.not.i = icmp eq ptr %61, null
   br i1 %cmp.not.i, label %if.end294, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.else291
-  %skip19.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %61, i64 0, i32 1
+  %skip19.i = getelementptr inbounds i8, ptr %61, i64 8
   %62 = load ptr, ptr %skip19.i, align 8
   %cmp2.not10.i = icmp eq ptr %62, null
   br i1 %cmp2.not10.i, label %while.end.i, label %while.body.i
@@ -2109,9 +2106,9 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %63 = phi ptr [ %64, %while.body.i ], [ %62, %while.cond.preheader.i ]
   %x2.012.i = phi ptr [ %63, %while.body.i ], [ %61, %while.cond.preheader.i ]
   %x1.011.i = phi ptr [ %x2.012.i, %while.body.i ], [ %w_walk.1355, %while.cond.preheader.i ]
-  %skip3.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %x1.011.i, i64 0, i32 1
+  %skip3.i = getelementptr inbounds i8, ptr %x1.011.i, i64 8
   store ptr %63, ptr %skip3.i, align 8
-  %skip1.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %63, i64 0, i32 1
+  %skip1.i = getelementptr inbounds i8, ptr %63, i64 8
   %64 = load ptr, ptr %skip1.i, align 8
   %cmp2.not.i = icmp eq ptr %64, null
   br i1 %cmp2.not.i, label %while.end.i, label %while.body.i, !llvm.loop !9
@@ -2148,14 +2145,14 @@ do.body.i259:                                     ; preds = %do.body301, %land.r
   %pw.addr.0.i = phi ptr [ %pw.addr.122.i, %land.rhs.i265 ], [ %pw.4, %do.body301 ]
   %skipped.0.i = phi i8 [ %skipped.123.i, %land.rhs.i265 ], [ 0, %do.body301 ]
   %w.0.i = load ptr, ptr %pw.addr.0.i, align 8
-  %wake.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w.0.i, i64 0, i32 3
+  %wake.i = getelementptr inbounds i8, ptr %w.0.i, i64 17
   %67 = load i8, ptr %wake.i, align 1
   %68 = and i8 %67, 1
   %tobool.not.i = icmp eq i8 %68, 0
   br i1 %tobool.not.i, label %if.else.i, label %do.body1.i
 
 do.body1.i:                                       ; preds = %do.body.i259
-  %skip.i260 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %pw.addr.0.i, i64 0, i32 1
+  %skip.i260 = getelementptr inbounds i8, ptr %pw.addr.0.i, i64 8
   %69 = load ptr, ptr %skip.i260, align 8
   %cmp.not.i261 = icmp eq ptr %69, null
   br i1 %cmp.not.i261, label %do.end6.i, label %do.body3.i
@@ -2179,27 +2176,27 @@ if.else.i.i:                                      ; preds = %do.end6.i
   br i1 %cmp3.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i, label %land.lhs.true.i.i263
 
 land.lhs.true.i.i263:                             ; preds = %if.else.i.i
-  %waitp.i.i.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %pw.addr.0.i, i64 0, i32 9
+  %waitp.i.i.i = getelementptr inbounds i8, ptr %pw.addr.0.i, i64 32
   %71 = load ptr, ptr %waitp.i.i.i, align 8
   %72 = load ptr, ptr %71, align 8
-  %waitp1.i.i.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %70, i64 0, i32 9
+  %waitp1.i.i.i = getelementptr inbounds i8, ptr %70, i64 32
   %73 = load ptr, ptr %waitp1.i.i.i, align 8
   %74 = load ptr, ptr %73, align 8
   %cmp.i.i.i = icmp eq ptr %72, %74
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %land.lhs.true.i.i263
-  %priority.i.i.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %pw.addr.0.i, i64 0, i32 7
+  %priority.i.i.i = getelementptr inbounds i8, ptr %pw.addr.0.i, i64 24
   %75 = load i32, ptr %priority.i.i.i, align 8
-  %priority3.i.i.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %70, i64 0, i32 7
+  %priority3.i.i.i = getelementptr inbounds i8, ptr %70, i64 24
   %76 = load i32, ptr %priority3.i.i.i, align 8
   %cmp4.i.i.i = icmp eq i32 %75, %76
   br i1 %cmp4.i.i.i, label %land.rhs.i.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %cond.i.i.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %71, i64 0, i32 1
+  %cond.i.i.i = getelementptr inbounds i8, ptr %71, i64 8
   %77 = load ptr, ptr %cond.i.i.i, align 8
-  %cond7.i.i.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %73, i64 0, i32 1
+  %cond7.i.i.i = getelementptr inbounds i8, ptr %73, i64 8
   %78 = load ptr, ptr %cond7.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %77, null
   %cmp1.i.i.i.i = icmp eq ptr %78, null
@@ -2211,17 +2208,17 @@ if.then.i.i.i.i:                                  ; preds = %land.rhs.i.i.i
   br i1 %cmp2.i.i.i.i, label %if.then6.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i.i
-  %eval_.i.i.i.i = getelementptr inbounds %"class.absl::Condition", ptr %77, i64 0, i32 1
+  %eval_.i.i.i.i = getelementptr inbounds i8, ptr %77, i64 16
   %79 = load ptr, ptr %eval_.i.i.i.i, align 8
-  %eval_3.i.i.i.i = getelementptr inbounds %"class.absl::Condition", ptr %78, i64 0, i32 1
+  %eval_3.i.i.i.i = getelementptr inbounds i8, ptr %78, i64 16
   %80 = load ptr, ptr %eval_3.i.i.i.i, align 8
   %cmp4.i.i.i.i = icmp eq ptr %79, %80
   br i1 %cmp4.i.i.i.i, label %land.lhs.true.i.i.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end.i.i.i.i
-  %arg_.i.i.i.i = getelementptr inbounds %"class.absl::Condition", ptr %77, i64 0, i32 2
+  %arg_.i.i.i.i = getelementptr inbounds i8, ptr %77, i64 24
   %81 = load ptr, ptr %arg_.i.i.i.i, align 8
-  %arg_5.i.i.i.i = getelementptr inbounds %"class.absl::Condition", ptr %78, i64 0, i32 2
+  %arg_5.i.i.i.i = getelementptr inbounds i8, ptr %78, i64 24
   %82 = load ptr, ptr %arg_5.i.i.i.i, align 8
   %cmp6.i.i.i.i = icmp eq ptr %81, %82
   br i1 %cmp6.i.i.i.i, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
@@ -2232,7 +2229,7 @@ _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i.i: 
   br i1 %tobool.not.i.i.i.i, label %if.then6.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 if.then6.i.i:                                     ; preds = %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i.i, %if.then.i.i.i.i
-  %skip.i.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %70, i64 0, i32 1
+  %skip.i.i = getelementptr inbounds i8, ptr %70, i64 8
   %83 = load ptr, ptr %skip.i.i, align 8
   %cmp8.not.i.i = icmp eq ptr %83, null
   br i1 %cmp8.not.i.i, label %if.else13.i.i, label %if.then9.i.i
@@ -2250,7 +2247,7 @@ _ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i: ; preds = %if.
   %84 = load ptr, ptr %wake_tail.addr.0.i, align 8
   store ptr %84, ptr %w.0.i, align 8
   store ptr %w.0.i, ptr %wake_tail.addr.0.i, align 8
-  %waitp.i264 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w.0.i, i64 0, i32 9
+  %waitp.i264 = getelementptr inbounds i8, ptr %w.0.i, i64 32
   %85 = load ptr, ptr %waitp.i264, align 8
   %86 = load ptr, ptr %85, align 8
   %cmp9.i = icmp ne ptr %86, @_ZN4abslL11kExclusiveSE
@@ -2259,13 +2256,13 @@ _ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i: ; preds = %if.
   br i1 %or.cond.i, label %land.rhs.i265, label %invoke.cont317
 
 if.else.i:                                        ; preds = %do.body.i259
-  %skip.i15.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w.0.i, i64 0, i32 1
+  %skip.i15.i = getelementptr inbounds i8, ptr %w.0.i, i64 8
   %87 = load ptr, ptr %skip.i15.i, align 8
   %cmp.not.i.i = icmp eq ptr %87, null
   br i1 %cmp.not.i.i, label %land.rhs.i265, label %while.cond.preheader.i.i
 
 while.cond.preheader.i.i:                         ; preds = %if.else.i
-  %skip19.i.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %87, i64 0, i32 1
+  %skip19.i.i = getelementptr inbounds i8, ptr %87, i64 8
   %88 = load ptr, ptr %skip19.i.i, align 8
   %cmp2.not10.i.i = icmp eq ptr %88, null
   br i1 %cmp2.not10.i.i, label %while.end.i.i, label %while.body.i.i
@@ -2274,9 +2271,9 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
   %89 = phi ptr [ %90, %while.body.i.i ], [ %88, %while.cond.preheader.i.i ]
   %x2.012.i.i = phi ptr [ %89, %while.body.i.i ], [ %87, %while.cond.preheader.i.i ]
   %x1.011.i.i = phi ptr [ %x2.012.i.i, %while.body.i.i ], [ %w.0.i, %while.cond.preheader.i.i ]
-  %skip3.i.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %x1.011.i.i, i64 0, i32 1
+  %skip3.i.i = getelementptr inbounds i8, ptr %x1.011.i.i, i64 8
   store ptr %89, ptr %skip3.i.i, align 8
-  %skip1.i.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %89, i64 0, i32 1
+  %skip1.i.i = getelementptr inbounds i8, ptr %89, i64 8
   %90 = load ptr, ptr %skip1.i.i, align 8
   %cmp2.not.i.i = icmp eq ptr %90, null
   br i1 %cmp2.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !9
@@ -2321,9 +2318,9 @@ do.end341:                                        ; preds = %do.body327
   br i1 %cmp342.not, label %for.end.sink.split, label %if.then343
 
 if.then343:                                       ; preds = %do.end341
-  %readers344 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %h.0, i64 0, i32 10
+  %readers344 = getelementptr inbounds i8, ptr %h.0, i64 40
   store i64 0, ptr %readers344, align 8
-  %maybe_unlocking345 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %h.0, i64 0, i32 5
+  %maybe_unlocking345 = getelementptr inbounds i8, ptr %h.0, i64 19
   store i8 0, ptr %maybe_unlocking345, align 1
   %93 = ptrtoint ptr %h.0 to i64
   %94 = or i64 %wr_wait.4, %93
@@ -2410,22 +2407,22 @@ _ZN4absl13base_internal10CycleClock3NowEv.exit:   ; preds = %if.end.i, %if.then.
 do.body360:                                       ; preds = %_ZN4absl13base_internal10CycleClock3NowEv.exit, %if.end371
   %wake_list.0.wake_list.0.286 = phi ptr [ %wake_list.0.wake_list.0.wake_list.0.286.pre, %_ZN4absl13base_internal10CycleClock3NowEv.exit ], [ %104, %if.end371 ]
   %total_wait_cycles.0 = phi i64 [ 0, %_ZN4absl13base_internal10CycleClock3NowEv.exit ], [ %total_wait_cycles.1, %if.end371 ]
-  %cond_waiter = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %wake_list.0.wake_list.0.286, i64 0, i32 4
+  %cond_waiter = getelementptr inbounds i8, ptr %wake_list.0.wake_list.0.286, i64 18
   %99 = load i8, ptr %cond_waiter, align 2
   %100 = and i8 %99, 1
   %tobool361.not = icmp eq i8 %100, 0
   br i1 %tobool361.not, label %if.then362, label %if.end371
 
 if.then362:                                       ; preds = %do.body360
-  %waitp363 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %wake_list.0.wake_list.0.286, i64 0, i32 9
+  %waitp363 = getelementptr inbounds i8, ptr %wake_list.0.wake_list.0.286, i64 32
   %101 = load ptr, ptr %waitp363, align 8
-  %contention_start_cycles = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %101, i64 0, i32 6
+  %contention_start_cycles = getelementptr inbounds i8, ptr %101, i64 48
   %102 = load i64, ptr %contention_start_cycles, align 8
   %sub364 = sub nsw i64 %retval.0.i, %102
   %add = add nsw i64 %sub364, %total_wait_cycles.0
   store i64 %retval.0.i, ptr %contention_start_cycles, align 8
   %103 = load ptr, ptr %waitp363, align 8
-  %should_submit_contention_data = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %103, i64 0, i32 7
+  %should_submit_contention_data = getelementptr inbounds i8, ptr %103, i64 56
   store i8 1, ptr %should_submit_contention_data, align 8
   br label %if.end371
 
@@ -2433,7 +2430,7 @@ if.end371:                                        ; preds = %if.then362, %do.bod
   %total_wait_cycles.1 = phi i64 [ %add, %if.then362 ], [ %total_wait_cycles.0, %do.body360 ]
   %104 = load ptr, ptr %wake_list.0.wake_list.0.286, align 8
   store ptr null, ptr %wake_list.0.wake_list.0.286, align 8
-  %state.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %wake_list.0.wake_list.0.286, i64 0, i32 8
+  %state.i = getelementptr inbounds i8, ptr %wake_list.0.wake_list.0.286, i64 28
   store atomic i32 0, ptr %state.i release, align 4
   tail call void @AbslInternalPerThreadSemPost(ptr noundef nonnull %wake_list.0.wake_list.0.286)
   store ptr %104, ptr %wake_list, align 8
@@ -2478,15 +2475,15 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.then, %entry
-  %thread = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 4
+  %thread = getelementptr inbounds i8, ptr %waitp, i64 32
   %2 = load ptr, ptr %thread, align 8
-  %waitp3 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %2, i64 0, i32 9
+  %waitp3 = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %waitp3, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %for.cond.preheader, label %lor.rhs
 
 for.cond.preheader:                               ; preds = %lor.rhs, %do.body
-  %cond117 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 1
+  %cond117 = getelementptr inbounds i8, ptr %waitp, i64 8
   %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs.i.i.i.i.i.i.i.i.i.i, i64 8
   %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs.i.i.i.i.i.i.i.i, i64 8
   %tmp.coerce10.sroa.2.0.ref.tmp8.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp8.i.i.i.i.i.i.i, i64 8
@@ -2494,7 +2491,7 @@ for.cond.preheader:                               ; preds = %lor.rhs, %do.body
   br label %for.cond
 
 lor.rhs:                                          ; preds = %do.body
-  %suppress_fatal_errors = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %2, i64 0, i32 6
+  %suppress_fatal_errors = getelementptr inbounds i8, ptr %2, i64 20
   %4 = load i8, ptr %suppress_fatal_errors, align 4
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -2537,21 +2534,21 @@ do.body15.i:                                      ; preds = %do.body10.i
 
 invoke.cont17:                                    ; preds = %do.body10.i, %for.cond
   %9 = load ptr, ptr %waitp, align 8
-  %slow_need_zero = getelementptr inbounds %"struct.absl::MuHowS", ptr %9, i64 0, i32 3
+  %slow_need_zero = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load i64, ptr %slow_need_zero, align 8
   %and19 = and i64 %10, %6
   %cmp20 = icmp eq i64 %and19, 0
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %invoke.cont17
-  %fast_or = getelementptr inbounds %"struct.absl::MuHowS", ptr %9, i64 0, i32 1
+  %fast_or = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i64, ptr %fast_or, align 8
   %and24 = and i32 %flags.addr.0, 1
   %switch.i = icmp eq i32 %and24, 0
   %..i = select i1 %switch.i, i64 -1, i64 -3
   %and27 = and i64 %..i, %6
   %or = or i64 %11, %and27
-  %fast_add = getelementptr inbounds %"struct.absl::MuHowS", ptr %9, i64 0, i32 2
+  %fast_add = getelementptr inbounds i8, ptr %9, i64 16
   %12 = load i64, ptr %fast_add, align 8
   %add = add nsw i64 %or, %12
   %13 = cmpxchg ptr %this, i64 %6, i64 %add acquire monotonic, align 8
@@ -2564,7 +2561,7 @@ if.then30:                                        ; preds = %if.then21
   br i1 %cmp32, label %do.body219, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then30
-  %eval_.i.i = getelementptr inbounds %"class.absl::Condition", ptr %15, i64 0, i32 1
+  %eval_.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load ptr, ptr %eval_.i.i, align 8
   %call.i.i239 = call noundef zeroext i1 %16(ptr noundef nonnull %15)
   br i1 %call.i.i239, label %do.body219, label %if.end39
@@ -2610,12 +2607,12 @@ do.end70:                                         ; preds = %if.then47
 
 if.else82:                                        ; preds = %do.end70
   %22 = load ptr, ptr %thread, align 8
-  %waitp84 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %22, i64 0, i32 9
+  %waitp84 = getelementptr inbounds i8, ptr %22, i64 32
   store ptr null, ptr %waitp84, align 8
   br label %do.body195
 
 if.else86:                                        ; preds = %if.else
-  %slow_inc_need_zero = getelementptr inbounds %"struct.absl::MuHowS", ptr %9, i64 0, i32 4
+  %slow_inc_need_zero = getelementptr inbounds i8, ptr %9, i64 32
   %23 = load i64, ptr %slow_inc_need_zero, align 8
   %and89 = and i32 %flags.addr.0, 1
   %switch.i242 = icmp eq i32 %and89, 0
@@ -2636,7 +2633,7 @@ if.then94:                                        ; preds = %if.else86
 if.then103:                                       ; preds = %if.then94
   %and.i246 = and i64 %6, -256
   %27 = inttoptr i64 %and.i246 to ptr
-  %readers = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %27, i64 0, i32 10
+  %readers = getelementptr inbounds i8, ptr %27, i64 40
   %28 = load i64, ptr %readers, align 8
   %add106 = add nsw i64 %28, 256
   store i64 %add106, ptr %readers, align 8
@@ -2656,7 +2653,7 @@ do.end116:                                        ; preds = %do.body107
   br i1 %cmp118, label %do.body219, label %lor.lhs.false119
 
 lor.lhs.false119:                                 ; preds = %do.end116
-  %eval_.i.i247 = getelementptr inbounds %"class.absl::Condition", ptr %32, i64 0, i32 1
+  %eval_.i.i247 = getelementptr inbounds i8, ptr %32, i64 16
   %33 = load ptr, ptr %eval_.i.i247, align 8
   %call.i.i248 = call noundef zeroext i1 %33(ptr noundef nonnull %32)
   br i1 %call.i.i248, label %do.body219, label %if.end126
@@ -2722,13 +2719,13 @@ do.body195:                                       ; preds = %if.else132, %land.l
   %c.2 = phi i32 [ 0, %if.end39 ], [ %c.0, %if.then21 ], [ 0, %if.then189 ], [ %c.0, %if.else132 ], [ %c.0, %land.lhs.true135 ], [ %c.0, %if.then94 ], [ 0, %if.end126 ], [ %c.0, %if.else82 ]
   %flags.addr.2 = phi i32 [ %or43, %if.end39 ], [ %flags.addr.0, %if.then21 ], [ %or192, %if.then189 ], [ %flags.addr.0, %if.else132 ], [ %flags.addr.0, %land.lhs.true135 ], [ %flags.addr.0, %if.then94 ], [ %or130, %if.end126 ], [ %flags.addr.0, %if.else82 ]
   %44 = load ptr, ptr %thread, align 8
-  %waitp197 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %44, i64 0, i32 9
+  %waitp197 = getelementptr inbounds i8, ptr %44, i64 32
   %45 = load ptr, ptr %waitp197, align 8
   %cmp198 = icmp eq ptr %45, null
   br i1 %cmp198, label %do.end216, label %lor.rhs199
 
 lor.rhs199:                                       ; preds = %do.body195
-  %suppress_fatal_errors201 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %44, i64 0, i32 6
+  %suppress_fatal_errors201 = getelementptr inbounds i8, ptr %44, i64 20
   %46 = load i8, ptr %suppress_fatal_errors201, align 4
   %47 = and i8 %46, 1
   %tobool202.not = icmp eq i8 %47, 0
@@ -2870,13 +2867,13 @@ _ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %if.then.i, %i
 do.body219:                                       ; preds = %lor.lhs.false, %if.then30, %lor.lhs.false119, %do.end116
   %v.64 = phi i64 [ %6, %if.then30 ], [ %6, %lor.lhs.false ], [ %29, %do.end116 ], [ %29, %lor.lhs.false119 ]
   %54 = load ptr, ptr %thread, align 8
-  %waitp221 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %54, i64 0, i32 9
+  %waitp221 = getelementptr inbounds i8, ptr %54, i64 32
   %55 = load ptr, ptr %waitp221, align 8
   %cmp222 = icmp eq ptr %55, null
   br i1 %cmp222, label %do.end240, label %lor.rhs223
 
 lor.rhs223:                                       ; preds = %do.body219
-  %suppress_fatal_errors225 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %54, i64 0, i32 6
+  %suppress_fatal_errors225 = getelementptr inbounds i8, ptr %54, i64 20
   %56 = load i8, ptr %suppress_fatal_errors225, align 4
   %57 = and i8 %56, 1
   %tobool226 = icmp eq i8 %57, 0
@@ -3003,14 +3000,14 @@ _ZN4absl13base_internal8SpinLock4LockEv.exit.i:   ; preds = %if.then.i.i, %_ZN4a
 
 land.rhs.i:                                       ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit.i, %for.inc.i
   %e.011.i = phi ptr [ %e.0.i, %for.inc.i ], [ %e.09.i, %_ZN4absl13base_internal8SpinLock4LockEv.exit.i ]
-  %masked_addr.i = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e.011.i, i64 0, i32 2
+  %masked_addr.i = getelementptr inbounds i8, ptr %e.011.i, i64 16
   %5 = load i64, ptr %masked_addr.i, align 8
   %6 = xor i64 %5, %0
   %cmp1.not.i = icmp eq i64 %6, -1136490970041655429
   br i1 %cmp1.not.i, label %if.then.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.rhs.i
-  %next.i = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e.011.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %e.011.i, i64 8
   %e.0.i = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %e.0.i, null
   br i1 %cmp.not.i, label %if.end.i, label %land.rhs.i, !llvm.loop !23
@@ -3038,7 +3035,7 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %if.end.i, %if.then7
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN4abslL13GetSynchEventEPKv.exit
-  %log = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e.08.i, i64 0, i32 5
+  %log = getelementptr inbounds i8, ptr %e.08.i, i64 40
   %10 = load i8, ptr %log, align 8
   %11 = and i8 %10, 1
   %tobool.not = icmp eq i8 %11, 0
@@ -3079,7 +3076,7 @@ if.end20:                                         ; preds = %if.end, %for.body, 
   %idxprom15 = zext nneg i32 %ev to i64
   %msg = getelementptr inbounds [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %idxprom15, i32 1
   %14 = load ptr, ptr %msg, align 8
-  %name = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e.08.i, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %e.08.i, i64 41
   %cond-lvalue = select i1 %cmp, ptr @.str.35, ptr %name
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 452, ptr noundef nonnull @.str.52, ptr noundef %14, ptr noundef %obj, ptr noundef nonnull %cond-lvalue, ptr noundef nonnull %buffer)
   %arrayidx22 = getelementptr inbounds [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %idxprom15
@@ -3099,13 +3096,13 @@ if.end20.thread:                                  ; preds = %lor.lhs.false
   br i1 %cmp2437.not, label %if.then.i23, label %land.lhs.true26
 
 land.lhs.true26:                                  ; preds = %if.end20.thread, %if.end20
-  %invariant = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e.08.i, i64 0, i32 3
+  %invariant = getelementptr inbounds i8, ptr %e.08.i, i64 24
   %17 = load ptr, ptr %invariant, align 8
   %cmp27.not = icmp eq ptr %17, null
   br i1 %cmp27.not, label %if.then.i23, label %if.then28
 
 if.then28:                                        ; preds = %land.lhs.true26
-  %arg.i = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e.08.i, i64 0, i32 4
+  %arg.i = getelementptr inbounds i8, ptr %e.08.i, i64 32
   %18 = load ptr, ptr %arg.i, align 8
   call void %17(ptr noundef %18)
   br label %if.then.i23
@@ -3328,7 +3325,7 @@ entry:
   %enable_rescheduling.i.i = alloca %"class.absl::base_internal::SchedulingGuard::ScopedEnable", align 4
   %policy = alloca i32, align 4
   %param = alloca %struct.sched_param, align 4
-  %cv_word = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 5
+  %cv_word = getelementptr inbounds i8, ptr %waitp, i64 40
   %0 = load ptr, ptr %cv_word, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3577,9 +3574,9 @@ _ZN4absl24synchronization_internal10MutexDelayEii.exit.i: ; preds = %if.else5.i.
   br label %while.cond.i, !llvm.loop !29
 
 do.body.i:                                        ; preds = %lor.rhs.i
-  %thread.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 4
+  %thread.i = getelementptr inbounds i8, ptr %waitp, i64 32
   %15 = load ptr, ptr %thread.i, align 8
-  %waitp6.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %15, i64 0, i32 9
+  %waitp6.i = getelementptr inbounds i8, ptr %15, i64 32
   %16 = load ptr, ptr %waitp6.i, align 8
   %cmp7.not.i = icmp eq ptr %16, null
   br i1 %cmp7.not.i, label %do.end12.i, label %do.body9.i
@@ -3610,7 +3607,7 @@ if.else.i:                                        ; preds = %do.end12.i
 
 _ZN4abslL14CondVarEnqueueEPNS_15SynchWaitParamsE.exit: ; preds = %if.then17.i, %if.else.i
   %22 = phi ptr [ %21, %if.else.i ], [ %17, %if.then17.i ]
-  %state.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %22, i64 0, i32 8
+  %state.i = getelementptr inbounds i8, ptr %22, i64 28
   store atomic i32 1, ptr %state.i monotonic, align 4
   %23 = load ptr, ptr %thread.i, align 8
   %and27.i = and i64 %v.0.i, 2
@@ -3620,9 +3617,9 @@ _ZN4abslL14CondVarEnqueueEPNS_15SynchWaitParamsE.exit: ; preds = %if.then17.i, %
   br label %return
 
 if.end:                                           ; preds = %entry
-  %thread = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 4
+  %thread = getelementptr inbounds i8, ptr %waitp, i64 32
   %25 = load ptr, ptr %thread, align 8
-  %waitp1 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 9
+  %waitp1 = getelementptr inbounds i8, ptr %25, i64 32
   %26 = load ptr, ptr %waitp1, align 8
   %cmp2 = icmp eq ptr %26, null
   %cmp4 = icmp eq ptr %26, %waitp
@@ -3630,7 +3627,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %do.end10, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end
-  %suppress_fatal_errors = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 6
+  %suppress_fatal_errors = getelementptr inbounds i8, ptr %25, i64 20
   %27 = load i8, ptr %suppress_fatal_errors, align 4
   %28 = and i8 %27, 1
   %tobool.not = icmp eq i8 %28, 0
@@ -3642,13 +3639,13 @@ do.body6:                                         ; preds = %lor.rhs
 
 do.end10:                                         ; preds = %if.end, %lor.rhs
   store ptr %waitp, ptr %waitp1, align 8
-  %skip = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 1
+  %skip = getelementptr inbounds i8, ptr %25, i64 8
   store ptr null, ptr %skip, align 8
-  %may_skip = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 2
+  %may_skip = getelementptr inbounds i8, ptr %25, i64 16
   store i8 1, ptr %may_skip, align 8
-  %wake = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 3
+  %wake = getelementptr inbounds i8, ptr %25, i64 17
   store i8 0, ptr %wake, align 1
-  %cond_waiter = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 4
+  %cond_waiter = getelementptr inbounds i8, ptr %25, i64 18
   %29 = trunc i32 %flags to i8
   %30 = lshr i8 %29, 1
   %frombool = and i8 %30, 1
@@ -3678,7 +3675,7 @@ if.end.i:                                         ; preds = %if.then15
 _ZN4absl13base_internal10CycleClock3NowEv.exit:   ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi i64 [ %or.i.i, %if.then.i ], [ %call2.i, %if.end.i ]
   %retval.0.i = ashr i64 %retval.0.in.i, 1
-  %next_priority_read_cycles = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 11
+  %next_priority_read_cycles = getelementptr inbounds i8, ptr %25, i64 48
   %33 = load i64, ptr %next_priority_read_cycles, align 8
   %cmp16 = icmp slt i64 %33, %retval.0.i
   br i1 %cmp16, label %if.then17, label %if.end29
@@ -3695,7 +3692,7 @@ do.body22:                                        ; preds = %if.then17
 
 if.else:                                          ; preds = %if.then17
   %34 = load i32, ptr %param, align 4
-  %priority = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 7
+  %priority = getelementptr inbounds i8, ptr %25, i64 24
   store i32 %34, ptr %priority, align 8
   %call.i = call noundef double @_ZN4absl13base_internal18UnscaledCycleClock9FrequencyEv()
   %mul.i = fmul double %call.i, 5.000000e-01
@@ -3710,22 +3707,22 @@ if.end29:                                         ; preds = %_ZN4absl13base_inte
 
 if.then31:                                        ; preds = %if.end29
   store ptr %25, ptr %25, align 8
-  %readers = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 10
+  %readers = getelementptr inbounds i8, ptr %25, i64 40
   store i64 %mu, ptr %readers, align 8
-  %maybe_unlocking = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 5
+  %maybe_unlocking = getelementptr inbounds i8, ptr %25, i64 19
   store i8 0, ptr %maybe_unlocking, align 1
   br label %if.end141
 
 if.else32:                                        ; preds = %if.end29
-  %priority33 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 7
+  %priority33 = getelementptr inbounds i8, ptr %25, i64 24
   %35 = load i32, ptr %priority33, align 8
-  %priority34 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %head, i64 0, i32 7
+  %priority34 = getelementptr inbounds i8, ptr %head, i64 24
   %36 = load i32, ptr %priority34, align 8
   %cmp35 = icmp sgt i32 %35, %36
   br i1 %cmp35, label %if.then36, label %if.else95
 
 if.then36:                                        ; preds = %if.else32
-  %maybe_unlocking37 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %head, i64 0, i32 5
+  %maybe_unlocking37 = getelementptr inbounds i8, ptr %head, i64 19
   %37 = load i8, ptr %maybe_unlocking37, align 1
   %38 = and i8 %37, 1
   %tobool38.not = icmp eq i8 %38, 0
@@ -3735,13 +3732,13 @@ do.body40:                                        ; preds = %if.then36, %_ZN4abs
   %39 = phi i32 [ %45, %_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit ], [ %35, %if.then36 ]
   %advance_to.0 = phi ptr [ %x1.1.i, %_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit ], [ %head, %if.then36 ]
   %40 = load ptr, ptr %advance_to.0, align 8
-  %skip.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %40, i64 0, i32 1
+  %skip.i = getelementptr inbounds i8, ptr %40, i64 8
   %41 = load ptr, ptr %skip.i, align 8
   %cmp.not.i82 = icmp eq ptr %41, null
   br i1 %cmp.not.i82, label %_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %do.body40
-  %skip19.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %41, i64 0, i32 1
+  %skip19.i = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load ptr, ptr %skip19.i, align 8
   %cmp2.not10.i = icmp eq ptr %42, null
   br i1 %cmp2.not10.i, label %while.end.i, label %while.body.i83
@@ -3750,9 +3747,9 @@ while.body.i83:                                   ; preds = %while.cond.preheade
   %43 = phi ptr [ %44, %while.body.i83 ], [ %42, %while.cond.preheader.i ]
   %x2.012.i = phi ptr [ %43, %while.body.i83 ], [ %41, %while.cond.preheader.i ]
   %x1.011.i = phi ptr [ %x2.012.i, %while.body.i83 ], [ %40, %while.cond.preheader.i ]
-  %skip3.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %x1.011.i, i64 0, i32 1
+  %skip3.i = getelementptr inbounds i8, ptr %x1.011.i, i64 8
   store ptr %43, ptr %skip3.i, align 8
-  %skip1.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %43, i64 0, i32 1
+  %skip1.i = getelementptr inbounds i8, ptr %43, i64 8
   %44 = load ptr, ptr %skip1.i, align 8
   %cmp2.not.i = icmp eq ptr %44, null
   br i1 %cmp2.not.i, label %while.end.i, label %while.body.i83, !llvm.loop !9
@@ -3766,7 +3763,7 @@ while.end.i:                                      ; preds = %while.body.i83, %wh
 _ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit: ; preds = %do.body40, %while.end.i
   %45 = phi i32 [ %.pre181, %while.end.i ], [ %39, %do.body40 ]
   %x1.1.i = phi ptr [ %x2.0.lcssa.i, %while.end.i ], [ %40, %do.body40 ]
-  %priority44 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %x1.1.i, i64 0, i32 7
+  %priority44 = getelementptr inbounds i8, ptr %x1.1.i, i64 24
   %46 = load i32, ptr %priority44, align 8
   %cmp45.not = icmp sgt i32 %45, %46
   br i1 %cmp45.not, label %if.then55, label %do.body40, !llvm.loop !30
@@ -3777,7 +3774,7 @@ if.else47:                                        ; preds = %if.then36
   br i1 %cmp48, label %land.lhs.true, label %if.else95
 
 land.lhs.true:                                    ; preds = %if.else47
-  %cond = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 1
+  %cond = getelementptr inbounds i8, ptr %waitp, i64 8
   %48 = load ptr, ptr %cond, align 8
   %cmp49 = icmp eq ptr %48, null
   br i1 %cmp49, label %if.then55, label %if.else95
@@ -3787,13 +3784,13 @@ if.then55:                                        ; preds = %_ZN4abslL4SkipEPNS_
   %49 = load ptr, ptr %enqueue_after.0178, align 8
   store ptr %49, ptr %25, align 8
   store ptr %25, ptr %enqueue_after.0178, align 8
-  %skip60 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %enqueue_after.0178, i64 0, i32 1
+  %skip60 = getelementptr inbounds i8, ptr %enqueue_after.0178, i64 8
   %50 = load ptr, ptr %skip60, align 8
   %cmp61 = icmp eq ptr %50, null
   br i1 %cmp61, label %do.end77, label %lor.rhs62
 
 lor.rhs62:                                        ; preds = %if.then55
-  %waitp.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %enqueue_after.0178, i64 0, i32 9
+  %waitp.i = getelementptr inbounds i8, ptr %enqueue_after.0178, i64 32
   %51 = load ptr, ptr %waitp.i, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %waitp1, align 8
@@ -3802,16 +3799,16 @@ lor.rhs62:                                        ; preds = %if.then55
   br i1 %cmp.i85, label %land.lhs.true.i, label %do.body68
 
 land.lhs.true.i:                                  ; preds = %lor.rhs62
-  %priority.i = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %enqueue_after.0178, i64 0, i32 7
+  %priority.i = getelementptr inbounds i8, ptr %enqueue_after.0178, i64 24
   %55 = load i32, ptr %priority.i, align 8
   %56 = load i32, ptr %priority33, align 8
   %cmp4.i = icmp eq i32 %55, %56
   br i1 %cmp4.i, label %land.rhs.i, label %do.body68
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %cond.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %51, i64 0, i32 1
+  %cond.i = getelementptr inbounds i8, ptr %51, i64 8
   %57 = load ptr, ptr %cond.i, align 8
-  %cond7.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %53, i64 0, i32 1
+  %cond7.i = getelementptr inbounds i8, ptr %53, i64 8
   %58 = load ptr, ptr %cond7.i, align 8
   %cmp.i.i86 = icmp eq ptr %57, null
   %cmp1.i.i = icmp eq ptr %58, null
@@ -3823,17 +3820,17 @@ if.then.i.i87:                                    ; preds = %land.rhs.i
   br i1 %cmp2.i.i88, label %do.end77, label %do.body68
 
 if.end.i.i:                                       ; preds = %land.rhs.i
-  %eval_.i.i = getelementptr inbounds %"class.absl::Condition", ptr %57, i64 0, i32 1
+  %eval_.i.i = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load ptr, ptr %eval_.i.i, align 8
-  %eval_3.i.i = getelementptr inbounds %"class.absl::Condition", ptr %58, i64 0, i32 1
+  %eval_3.i.i = getelementptr inbounds i8, ptr %58, i64 16
   %60 = load ptr, ptr %eval_3.i.i, align 8
   %cmp4.i.i = icmp eq ptr %59, %60
   br i1 %cmp4.i.i, label %land.lhs.true.i.i, label %do.body68
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %arg_.i.i = getelementptr inbounds %"class.absl::Condition", ptr %57, i64 0, i32 2
+  %arg_.i.i = getelementptr inbounds i8, ptr %57, i64 24
   %61 = load ptr, ptr %arg_.i.i, align 8
-  %arg_5.i.i = getelementptr inbounds %"class.absl::Condition", ptr %58, i64 0, i32 2
+  %arg_5.i.i = getelementptr inbounds i8, ptr %58, i64 24
   %62 = load ptr, ptr %arg_5.i.i, align 8
   %cmp6.i.i = icmp eq ptr %61, %62
   br i1 %cmp6.i.i, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit, label %do.body68
@@ -3852,14 +3849,14 @@ do.end77:                                         ; preds = %if.then.i.i87, %if.
   br i1 %cmp78.not, label %if.end88, label %land.lhs.true79
 
 land.lhs.true79:                                  ; preds = %do.end77
-  %may_skip80 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %enqueue_after.0178, i64 0, i32 2
+  %may_skip80 = getelementptr inbounds i8, ptr %enqueue_after.0178, i64 16
   %63 = load i8, ptr %may_skip80, align 8
   %64 = and i8 %63, 1
   %tobool81.not = icmp eq i8 %64, 0
   br i1 %tobool81.not, label %if.end88, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %land.lhs.true79
-  %waitp.i89 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %enqueue_after.0178, i64 0, i32 9
+  %waitp.i89 = getelementptr inbounds i8, ptr %enqueue_after.0178, i64 32
   %65 = load ptr, ptr %waitp.i89, align 8
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %waitp1, align 8
@@ -3868,16 +3865,16 @@ land.lhs.true82:                                  ; preds = %land.lhs.true79
   br i1 %cmp.i91, label %land.lhs.true.i92, label %if.end88
 
 land.lhs.true.i92:                                ; preds = %land.lhs.true82
-  %priority.i93 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %enqueue_after.0178, i64 0, i32 7
+  %priority.i93 = getelementptr inbounds i8, ptr %enqueue_after.0178, i64 24
   %69 = load i32, ptr %priority.i93, align 8
   %70 = load i32, ptr %priority33, align 8
   %cmp4.i95 = icmp eq i32 %69, %70
   br i1 %cmp4.i95, label %land.rhs.i96, label %if.end88
 
 land.rhs.i96:                                     ; preds = %land.lhs.true.i92
-  %cond.i97 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %65, i64 0, i32 1
+  %cond.i97 = getelementptr inbounds i8, ptr %65, i64 8
   %71 = load ptr, ptr %cond.i97, align 8
-  %cond7.i98 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %67, i64 0, i32 1
+  %cond7.i98 = getelementptr inbounds i8, ptr %67, i64 8
   %72 = load ptr, ptr %cond7.i98, align 8
   %cmp.i.i99 = icmp eq ptr %71, null
   %cmp1.i.i100 = icmp eq ptr %72, null
@@ -3889,17 +3886,17 @@ if.then.i.i113:                                   ; preds = %land.rhs.i96
   br i1 %cmp2.i.i114, label %if.then85, label %if.end88
 
 if.end.i.i102:                                    ; preds = %land.rhs.i96
-  %eval_.i.i103 = getelementptr inbounds %"class.absl::Condition", ptr %71, i64 0, i32 1
+  %eval_.i.i103 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = load ptr, ptr %eval_.i.i103, align 8
-  %eval_3.i.i104 = getelementptr inbounds %"class.absl::Condition", ptr %72, i64 0, i32 1
+  %eval_3.i.i104 = getelementptr inbounds i8, ptr %72, i64 16
   %74 = load ptr, ptr %eval_3.i.i104, align 8
   %cmp4.i.i105 = icmp eq ptr %73, %74
   br i1 %cmp4.i.i105, label %land.lhs.true.i.i106, label %if.end88
 
 land.lhs.true.i.i106:                             ; preds = %if.end.i.i102
-  %arg_.i.i107 = getelementptr inbounds %"class.absl::Condition", ptr %71, i64 0, i32 2
+  %arg_.i.i107 = getelementptr inbounds i8, ptr %71, i64 24
   %75 = load ptr, ptr %arg_.i.i107, align 8
-  %arg_5.i.i108 = getelementptr inbounds %"class.absl::Condition", ptr %72, i64 0, i32 2
+  %arg_5.i.i108 = getelementptr inbounds i8, ptr %72, i64 24
   %76 = load ptr, ptr %arg_5.i.i108, align 8
   %cmp6.i.i109 = icmp eq ptr %75, %76
   br i1 %cmp6.i.i109, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit115, label %if.end88
@@ -3917,7 +3914,7 @@ if.end88:                                         ; preds = %if.end.i.i102, %lan
   %77 = load ptr, ptr %25, align 8
   %78 = load ptr, ptr %waitp1, align 8
   %79 = load ptr, ptr %78, align 8
-  %waitp1.i117 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %77, i64 0, i32 9
+  %waitp1.i117 = getelementptr inbounds i8, ptr %77, i64 32
   %80 = load ptr, ptr %waitp1.i117, align 8
   %81 = load ptr, ptr %80, align 8
   %cmp.i118 = icmp eq ptr %79, %81
@@ -3925,15 +3922,15 @@ if.end88:                                         ; preds = %if.end.i.i102, %lan
 
 land.lhs.true.i119:                               ; preds = %if.end88
   %82 = load i32, ptr %priority33, align 8
-  %priority3.i121 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %77, i64 0, i32 7
+  %priority3.i121 = getelementptr inbounds i8, ptr %77, i64 24
   %83 = load i32, ptr %priority3.i121, align 8
   %cmp4.i122 = icmp eq i32 %82, %83
   br i1 %cmp4.i122, label %land.rhs.i123, label %if.end141
 
 land.rhs.i123:                                    ; preds = %land.lhs.true.i119
-  %cond.i124 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %78, i64 0, i32 1
+  %cond.i124 = getelementptr inbounds i8, ptr %78, i64 8
   %84 = load ptr, ptr %cond.i124, align 8
-  %cond7.i125 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %80, i64 0, i32 1
+  %cond7.i125 = getelementptr inbounds i8, ptr %80, i64 8
   %85 = load ptr, ptr %cond7.i125, align 8
   %cmp.i.i126 = icmp eq ptr %84, null
   %cmp1.i.i127 = icmp eq ptr %85, null
@@ -3945,17 +3942,17 @@ if.then.i.i140:                                   ; preds = %land.rhs.i123
   br i1 %cmp2.i.i141, label %if.then91, label %if.end141
 
 if.end.i.i129:                                    ; preds = %land.rhs.i123
-  %eval_.i.i130 = getelementptr inbounds %"class.absl::Condition", ptr %84, i64 0, i32 1
+  %eval_.i.i130 = getelementptr inbounds i8, ptr %84, i64 16
   %86 = load ptr, ptr %eval_.i.i130, align 8
-  %eval_3.i.i131 = getelementptr inbounds %"class.absl::Condition", ptr %85, i64 0, i32 1
+  %eval_3.i.i131 = getelementptr inbounds i8, ptr %85, i64 16
   %87 = load ptr, ptr %eval_3.i.i131, align 8
   %cmp4.i.i132 = icmp eq ptr %86, %87
   br i1 %cmp4.i.i132, label %land.lhs.true.i.i133, label %if.end141
 
 land.lhs.true.i.i133:                             ; preds = %if.end.i.i129
-  %arg_.i.i134 = getelementptr inbounds %"class.absl::Condition", ptr %84, i64 0, i32 2
+  %arg_.i.i134 = getelementptr inbounds i8, ptr %84, i64 24
   %88 = load ptr, ptr %arg_.i.i134, align 8
-  %arg_5.i.i135 = getelementptr inbounds %"class.absl::Condition", ptr %85, i64 0, i32 2
+  %arg_5.i.i135 = getelementptr inbounds i8, ptr %85, i64 24
   %89 = load ptr, ptr %arg_5.i.i135, align 8
   %cmp6.i.i136 = icmp eq ptr %88, %89
   br i1 %cmp6.i.i136, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit142, label %if.end141
@@ -3976,13 +3973,13 @@ if.else95:                                        ; preds = %land.lhs.true, %if.
   br i1 %tobool97.not, label %if.else122, label %land.lhs.true98
 
 land.lhs.true98:                                  ; preds = %if.else95
-  %priority101 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %.pre, i64 0, i32 7
+  %priority101 = getelementptr inbounds i8, ptr %.pre, i64 24
   %90 = load i32, ptr %priority101, align 8
   %cmp102.not = icmp slt i32 %35, %90
   br i1 %cmp102.not, label %if.else122, label %land.lhs.true103
 
 land.lhs.true103:                                 ; preds = %land.lhs.true98
-  %maybe_unlocking104 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %head, i64 0, i32 5
+  %maybe_unlocking104 = getelementptr inbounds i8, ptr %head, i64 19
   %91 = load i8, ptr %maybe_unlocking104, align 1
   %92 = and i8 %91, 1
   %tobool105.not = icmp eq i8 %92, 0
@@ -3994,7 +3991,7 @@ lor.lhs.false106:                                 ; preds = %land.lhs.true103
   br i1 %cmp108, label %land.lhs.true109, label %if.else122
 
 land.lhs.true109:                                 ; preds = %lor.lhs.false106
-  %cond110 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 1
+  %cond110 = getelementptr inbounds i8, ptr %waitp, i64 8
   %94 = load ptr, ptr %cond110, align 8
   %cmp2.i = icmp eq ptr %94, null
   br i1 %cmp2.i, label %if.then112, label %if.else122
@@ -4013,23 +4010,23 @@ if.then118:                                       ; preds = %if.then112
 if.else122:                                       ; preds = %land.lhs.true109, %lor.lhs.false106, %land.lhs.true98, %if.else95
   store ptr %.pre, ptr %25, align 8
   store ptr %25, ptr %head, align 8
-  %readers126 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %head, i64 0, i32 10
+  %readers126 = getelementptr inbounds i8, ptr %head, i64 40
   %96 = load i64, ptr %readers126, align 8
-  %readers127 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 10
+  %readers127 = getelementptr inbounds i8, ptr %25, i64 40
   store i64 %96, ptr %readers127, align 8
-  %maybe_unlocking128 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %head, i64 0, i32 5
+  %maybe_unlocking128 = getelementptr inbounds i8, ptr %head, i64 19
   %97 = load i8, ptr %maybe_unlocking128, align 1
   %98 = and i8 %97, 1
-  %maybe_unlocking130 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 5
+  %maybe_unlocking130 = getelementptr inbounds i8, ptr %25, i64 19
   store i8 %98, ptr %maybe_unlocking130, align 1
-  %may_skip132 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %head, i64 0, i32 2
+  %may_skip132 = getelementptr inbounds i8, ptr %head, i64 16
   %99 = load i8, ptr %may_skip132, align 8
   %100 = and i8 %99, 1
   %tobool133.not = icmp eq i8 %100, 0
   br i1 %tobool133.not, label %if.end141, label %land.lhs.true134
 
 land.lhs.true134:                                 ; preds = %if.else122
-  %waitp.i146 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %head, i64 0, i32 9
+  %waitp.i146 = getelementptr inbounds i8, ptr %head, i64 32
   %101 = load ptr, ptr %waitp.i146, align 8
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %waitp1, align 8
@@ -4044,9 +4041,9 @@ land.lhs.true.i149:                               ; preds = %land.lhs.true134
   br i1 %cmp4.i152, label %land.rhs.i153, label %if.end141
 
 land.rhs.i153:                                    ; preds = %land.lhs.true.i149
-  %cond.i154 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %101, i64 0, i32 1
+  %cond.i154 = getelementptr inbounds i8, ptr %101, i64 8
   %107 = load ptr, ptr %cond.i154, align 8
-  %cond7.i155 = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %103, i64 0, i32 1
+  %cond7.i155 = getelementptr inbounds i8, ptr %103, i64 8
   %108 = load ptr, ptr %cond7.i155, align 8
   %cmp.i.i156 = icmp eq ptr %107, null
   %cmp1.i.i157 = icmp eq ptr %108, null
@@ -4058,17 +4055,17 @@ if.then.i.i170:                                   ; preds = %land.rhs.i153
   br i1 %cmp2.i.i171, label %if.then136, label %if.end141
 
 if.end.i.i159:                                    ; preds = %land.rhs.i153
-  %eval_.i.i160 = getelementptr inbounds %"class.absl::Condition", ptr %107, i64 0, i32 1
+  %eval_.i.i160 = getelementptr inbounds i8, ptr %107, i64 16
   %109 = load ptr, ptr %eval_.i.i160, align 8
-  %eval_3.i.i161 = getelementptr inbounds %"class.absl::Condition", ptr %108, i64 0, i32 1
+  %eval_3.i.i161 = getelementptr inbounds i8, ptr %108, i64 16
   %110 = load ptr, ptr %eval_3.i.i161, align 8
   %cmp4.i.i162 = icmp eq ptr %109, %110
   br i1 %cmp4.i.i162, label %land.lhs.true.i.i163, label %if.end141
 
 land.lhs.true.i.i163:                             ; preds = %if.end.i.i159
-  %arg_.i.i164 = getelementptr inbounds %"class.absl::Condition", ptr %107, i64 0, i32 2
+  %arg_.i.i164 = getelementptr inbounds i8, ptr %107, i64 24
   %111 = load ptr, ptr %arg_.i.i164, align 8
-  %arg_5.i.i165 = getelementptr inbounds %"class.absl::Condition", ptr %108, i64 0, i32 2
+  %arg_5.i.i165 = getelementptr inbounds i8, ptr %108, i64 24
   %112 = load ptr, ptr %arg_5.i.i165, align 8
   %cmp6.i.i166 = icmp eq ptr %111, %112
   br i1 %cmp6.i.i166, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit172, label %if.end141
@@ -4079,13 +4076,13 @@ _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit172: ;
   br i1 %tobool.not.i.i169, label %if.then136, label %if.end141
 
 if.then136:                                       ; preds = %if.then.i.i170, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit172
-  %skip137 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %head, i64 0, i32 1
+  %skip137 = getelementptr inbounds i8, ptr %head, i64 8
   store ptr %25, ptr %skip137, align 8
   br label %if.end141
 
 if.end141:                                        ; preds = %if.end.i.i159, %land.lhs.true.i.i163, %land.lhs.true134, %land.lhs.true.i149, %if.end.i.i129, %land.lhs.true.i.i133, %if.end88, %land.lhs.true.i119, %if.then.i.i170, %if.then.i.i140, %if.else122, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit172, %if.then136, %if.then91, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit142, %if.then112, %if.then118, %if.then31
   %head.addr.0 = phi ptr [ %25, %if.then31 ], [ %head, %if.then91 ], [ %head, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit142 ], [ %head, %if.then118 ], [ %head, %if.then112 ], [ %25, %if.then136 ], [ %25, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit172 ], [ %25, %if.else122 ], [ %head, %if.then.i.i140 ], [ %25, %if.then.i.i170 ], [ %head, %land.lhs.true.i119 ], [ %head, %if.end88 ], [ %head, %land.lhs.true.i.i133 ], [ %head, %if.end.i.i129 ], [ %25, %land.lhs.true.i149 ], [ %25, %land.lhs.true134 ], [ %25, %land.lhs.true.i.i163 ], [ %25, %if.end.i.i159 ]
-  %state = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %25, i64 0, i32 8
+  %state = getelementptr inbounds i8, ptr %25, i64 28
   store atomic i32 1, ptr %state monotonic, align 4
   br label %return
 
@@ -4105,7 +4102,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call fastcc noundef ptr @_ZN4abslL13GetSynchEventEPKv(ptr noundef nonnull %this)
   %cmp3 = icmp eq ptr %call2, null
-  %name = getelementptr inbounds %"struct.absl::SynchEvent", ptr %call2, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %call2, i64 41
   %cond-lvalue = select i1 %cmp3, ptr @.str.35, ptr %name
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2473, ptr noundef nonnull @.str.36, ptr noundef nonnull %this, ptr noundef nonnull %cond-lvalue)
   unreachable
@@ -4125,9 +4122,9 @@ entry:
 define dso_local void @_ZN4absl5Mutex3FerEPNS_13base_internal14PerThreadSynchE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %w) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %enable_rescheduling.i = alloca %"class.absl::base_internal::SchedulingGuard::ScopedEnable", align 4
-  %waitp = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w, i64 0, i32 9
+  %waitp = getelementptr inbounds i8, ptr %w, i64 32
   %0 = load ptr, ptr %waitp, align 8
-  %cond = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %0, i64 0, i32 1
+  %cond = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %cond, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %do.body8, label %do.body2
@@ -4137,7 +4134,7 @@ do.body2:                                         ; preds = %entry
   unreachable
 
 do.body8:                                         ; preds = %entry
-  %cv_word = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %0, i64 0, i32 5
+  %cv_word = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %cv_word, align 8
   %cmp10.not = icmp eq ptr %2, null
   br i1 %cmp10.not, label %do.end23, label %do.body13
@@ -4147,7 +4144,7 @@ do.body13:                                        ; preds = %do.body8
   unreachable
 
 do.end23:                                         ; preds = %do.body8
-  %timeout = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %0, i64 0, i32 2
+  %timeout = getelementptr inbounds i8, ptr %0, i64 16
   store i64 -1, ptr %timeout, align 8
   %3 = load atomic i64, ptr %this monotonic, align 8
   %4 = load ptr, ptr %waitp, align 8
@@ -4161,7 +4158,7 @@ do.end23:                                         ; preds = %do.body8
 
 if.then30:                                        ; preds = %_ZN4absl24synchronization_internal10MutexDelayEii.exit, %do.end23
   store ptr null, ptr %w, align 8
-  %state = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %w, i64 0, i32 8
+  %state = getelementptr inbounds i8, ptr %w, i64 28
   store atomic i32 0, ptr %state release, align 4
   tail call void @AbslInternalPerThreadSemPost(ptr noundef nonnull %w)
   br label %cleanup
@@ -4293,7 +4290,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call fastcc noundef ptr @_ZN4abslL13GetSynchEventEPKv(ptr noundef nonnull %this)
   %cmp3 = icmp eq ptr %call2, null
-  %name = getelementptr inbounds %"struct.absl::SynchEvent", ptr %call2, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %call2, i64 41
   %cond-lvalue = select i1 %cmp3, ptr @.str.35, ptr %name
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 2464, ptr noundef nonnull @.str.34, ptr noundef nonnull %this, ptr noundef nonnull %cond-lvalue)
   unreachable
@@ -4332,14 +4329,14 @@ _ZN4absl13base_internal8SpinLock4LockEv.exit:     ; preds = %_ZN4absl13base_inte
 
 land.rhs:                                         ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit, %for.inc
   %e.011 = phi ptr [ %e.0, %for.inc ], [ %e.09, %_ZN4absl13base_internal8SpinLock4LockEv.exit ]
-  %masked_addr = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e.011, i64 0, i32 2
+  %masked_addr = getelementptr inbounds i8, ptr %e.011, i64 16
   %5 = load i64, ptr %masked_addr, align 8
   %6 = xor i64 %5, %0
   %cmp1.not = icmp eq i64 %6, -1136490970041655429
   br i1 %cmp1.not, label %if.then, label %for.inc
 
 for.inc:                                          ; preds = %land.rhs
-  %next = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e.011, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %e.011, i64 8
   %e.0 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %e.0, null
   br i1 %cmp.not, label %if.end, label %land.rhs, !llvm.loop !23
@@ -4370,7 +4367,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %if.end, %if.then7.i
 define dso_local void @_ZN4absl7CondVar14EnableDebugLogEPKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   %call = tail call fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef nonnull %this, ptr noundef %name, i64 noundef 2, i64 noundef 1)
-  %log = getelementptr inbounds %"struct.absl::SynchEvent", ptr %call, i64 0, i32 5
+  %log = getelementptr inbounds i8, ptr %call, i64 40
   store i8 1, ptr %log, align 8
   %0 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
   %and.i.i.i.i = and i32 %0, 1
@@ -4469,7 +4466,7 @@ if.then13:                                        ; preds = %while.end
   %6 = ptrtoint ptr %cond to i64
   %h.0 = select i1 %cmp16, i64 %6, i64 %and4
   store ptr null, ptr %s, align 8
-  %state = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %s, i64 0, i32 8
+  %state = getelementptr inbounds i8, ptr %s, i64 28
   store atomic i32 0, ptr %state release, align 4
   br label %if.end21
 
@@ -4644,15 +4641,15 @@ if.then.i.i.i:                                    ; preds = %if.end
 _ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit: ; preds = %if.end, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %call1.i.i.i, %if.then.i.i.i ], [ %call.i.i.i, %if.end ]
   store ptr %cond, ptr %waitp, align 8
-  %cond.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 1
+  %cond.i = getelementptr inbounds i8, ptr %waitp, i64 8
   store ptr null, ptr %cond.i, align 8
-  %timeout.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 2
+  %timeout.i = getelementptr inbounds i8, ptr %waitp, i64 16
   store i64 %t.coerce, ptr %timeout.i, align 8
-  %cvmu.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 3
+  %cvmu.i = getelementptr inbounds i8, ptr %waitp, i64 24
   store ptr %mutex, ptr %cvmu.i, align 8
-  %thread.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 4
+  %thread.i = getelementptr inbounds i8, ptr %waitp, i64 32
   store ptr %retval.0.i.i.i, ptr %thread.i, align 8
-  %cv_word.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 5
+  %cv_word.i = getelementptr inbounds i8, ptr %waitp, i64 40
   store ptr %this, ptr %cv_word.i, align 8
   %3 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
   %cmp.i.i = icmp eq i64 %3, 0
@@ -4673,14 +4670,14 @@ if.end.i.i:                                       ; preds = %_ZN4abslL27Synch_Ge
 
 _ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.in.i.i = phi i64 [ %or.i.i.i, %if.then.i.i ], [ %call2.i.i, %if.end.i.i ]
-  %contention_start_cycles.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 6
+  %contention_start_cycles.i = getelementptr inbounds i8, ptr %waitp, i64 48
   %retval.0.i.i = ashr i64 %retval.0.in.i.i, 1
   store i64 %retval.0.i.i, ptr %contention_start_cycles.i, align 8
-  %should_submit_contention_data.i = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %waitp, i64 0, i32 7
+  %should_submit_contention_data.i = getelementptr inbounds i8, ptr %waitp, i64 56
   store i8 0, ptr %should_submit_contention_data.i, align 8
   call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %mutex, ptr noundef nonnull %waitp) #25
   %5 = load ptr, ptr %thread.i, align 8
-  %state12 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %5, i64 0, i32 8
+  %state12 = getelementptr inbounds i8, ptr %5, i64 28
   %6 = load atomic i32, ptr %state12 acquire, align 4
   %cmp913 = icmp eq i32 %6, 1
   br i1 %cmp913, label %while.body, label %do.body
@@ -4700,7 +4697,7 @@ if.end19:                                         ; preds = %if.then14, %while.b
   %rc.1 = phi i8 [ %rc.014, %while.body ], [ 1, %if.then14 ]
   %t.sroa.0.1 = phi i64 [ %t.sroa.0.015, %while.body ], [ -1, %if.then14 ]
   %8 = load ptr, ptr %thread.i, align 8
-  %state = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %8, i64 0, i32 8
+  %state = getelementptr inbounds i8, ptr %8, i64 28
   %9 = load atomic i32, ptr %state acquire, align 4
   %cmp9 = icmp eq i32 %9, 1
   br i1 %cmp9, label %while.body, label %do.body.loopexit, !llvm.loop !34
@@ -4713,7 +4710,7 @@ do.body.loopexit:                                 ; preds = %if.end19
 do.body:                                          ; preds = %do.body.loopexit, %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit
   %rc.0.lcssa = phi i1 [ false, %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit ], [ %11, %do.body.loopexit ]
   %12 = load ptr, ptr %thread.i, align 8
-  %waitp21 = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %12, i64 0, i32 9
+  %waitp21 = getelementptr inbounds i8, ptr %12, i64 32
   %13 = load ptr, ptr %waitp21, align 8
   %cmp22.not = icmp eq ptr %13, null
   br i1 %cmp22.not, label %do.body24, label %do.end28
@@ -4788,9 +4785,9 @@ if.end19:                                         ; preds = %if.end12.thread59, 
   %v.070.lcssa.sink = phi i64 [ %v.070, %if.end12.thread59 ], [ %and14, %if.end12 ]
   %and1466 = phi i64 [ %and1462, %if.end12.thread59 ], [ %and14, %if.end12 ]
   store atomic i64 %v.070.lcssa.sink, ptr %this release, align 8
-  %waitp = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %4, i64 0, i32 9
+  %waitp = getelementptr inbounds i8, ptr %4, i64 32
   %6 = load ptr, ptr %waitp, align 8
-  %cvmu = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %6, i64 0, i32 3
+  %cvmu = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %cvmu, align 8
   tail call void @_ZN4absl5Mutex3FerEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %4)
   %8 = load atomic i64, ptr @_ZN4absl12_GLOBAL__N_115cond_var_tracerE acquire, align 8
@@ -4886,9 +4883,9 @@ if.then8:                                         ; preds = %if.then
 do.body:                                          ; preds = %do.body, %if.then8
   %n.0 = phi ptr [ %5, %if.then8 ], [ %6, %do.body ]
   %6 = load ptr, ptr %n.0, align 8
-  %waitp = getelementptr inbounds %"struct.absl::base_internal::PerThreadSynch", ptr %n.0, i64 0, i32 9
+  %waitp = getelementptr inbounds i8, ptr %n.0, i64 32
   %7 = load ptr, ptr %waitp, align 8
-  %cvmu = getelementptr inbounds %"struct.absl::SynchWaitParams", ptr %7, i64 0, i32 3
+  %cvmu = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %cvmu, align 8
   tail call void @_ZN4absl5Mutex3FerEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %n.0)
   %cmp10.not = icmp eq ptr %n.0, %4
@@ -5004,7 +5001,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %0, align 8
   store ptr @_ZN4absl9Condition19CallVoidPtrFunctionEPKS0_, ptr %arrayinit.end, align 8
-  %arg_ = getelementptr inbounds %"class.absl::Condition", ptr %this, i64 0, i32 2
+  %arg_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %arg, ptr %arg_, align 8
   store ptr %func, ptr %this, align 8
   ret void
@@ -5014,7 +5011,7 @@ entry:
 define dso_local noundef zeroext i1 @_ZN4absl9Condition19CallVoidPtrFunctionEPKS0_(ptr nocapture noundef readonly %c) #0 align 2 {
 entry:
   %function_pointer.0.copyload = load ptr, ptr %c, align 8
-  %arg_ = getelementptr inbounds %"class.absl::Condition", ptr %c, i64 0, i32 2
+  %arg_ = getelementptr inbounds i8, ptr %c, i64 24
   %0 = load ptr, ptr %arg_, align 8
   %call = tail call noundef zeroext i1 %function_pointer.0.copyload(ptr noundef %0)
   ret i1 %call
@@ -5027,7 +5024,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %0, align 8
   store ptr @_ZN4absl9Condition19CallVoidPtrFunctionEPKS0_, ptr %arrayinit.end, align 8
-  %arg_ = getelementptr inbounds %"class.absl::Condition", ptr %this, i64 0, i32 2
+  %arg_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %cond, ptr %arg_, align 8
   store ptr @_ZN4abslL11DereferenceEPv, ptr %this, align 8
   ret void
@@ -5055,17 +5052,17 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %eval_ = getelementptr inbounds %"class.absl::Condition", ptr %a, i64 0, i32 1
+  %eval_ = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %eval_, align 8
-  %eval_3 = getelementptr inbounds %"class.absl::Condition", ptr %b, i64 0, i32 1
+  %eval_3 = getelementptr inbounds i8, ptr %b, i64 16
   %1 = load ptr, ptr %eval_3, align 8
   %cmp4 = icmp eq ptr %0, %1
   br i1 %cmp4, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %arg_ = getelementptr inbounds %"class.absl::Condition", ptr %a, i64 0, i32 2
+  %arg_ = getelementptr inbounds i8, ptr %a, i64 24
   %2 = load ptr, ptr %arg_, align 8
-  %arg_5 = getelementptr inbounds %"class.absl::Condition", ptr %b, i64 0, i32 2
+  %arg_5 = getelementptr inbounds i8, ptr %b, i64 24
   %3 = load ptr, ptr %arg_5, align 8
   %cmp6 = icmp eq ptr %2, %3
   br i1 %cmp6, label %land.rhs, label %return

@@ -27,12 +27,12 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid, ptr noundef nonnull align 16 dereferenceable(16) %tmp, i64 16, i1 false)
-  %arrayidx1 = getelementptr [16 x i8], ptr %uuid, i64 0, i64 8
+  %arrayidx1 = getelementptr i8, ptr %uuid, i64 8
   %0 = load i8, ptr %arrayidx1, align 4
   %1 = and i8 %0, 63
   %2 = or disjoint i8 %1, -128
   store i8 %2, ptr %arrayidx1, align 4
-  %arrayidx4 = getelementptr [16 x i8], ptr %uuid, i64 0, i64 6
+  %arrayidx4 = getelementptr i8, ptr %uuid, i64 6
   %3 = load i8, ptr %arrayidx4, align 2
   %4 = and i8 %3, 15
   %5 = or disjoint i8 %4, 64

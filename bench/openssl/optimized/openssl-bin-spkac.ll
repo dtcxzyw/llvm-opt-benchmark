@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.Netscape_spkac_st = type { ptr, ptr }
 
 @OPT_SECTION_STR = external constant [0 x i8], align 1
 @.str = private unnamed_addr constant [18 x i8] c"General options:\0A\00", align 1
@@ -237,7 +236,7 @@ if.end59:                                         ; preds = %if.end55
 
 land.lhs.true:                                    ; preds = %if.end59
   %4 = load ptr, ptr %call56, align 8
-  %challenge62 = getelementptr inbounds %struct.Netscape_spkac_st, ptr %4, i64 0, i32 1
+  %challenge62 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %challenge62, align 8
   %call63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %challenge.0) #4
   %conv = trunc i64 %call63 to i32

@@ -16,13 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyType_Slot = type { i32, ptr }
 %struct.anon = type { i32, ptr }
 %struct.PyStructSequence_Field = type { ptr, ptr }
-%struct.ProfilerObject = type { %struct._object, ptr, ptr, ptr, i32, ptr, double, i32, ptr }
-%struct.PyCFunctionObject = type { %struct._object, ptr, ptr, ptr, ptr, ptr }
-%struct._ProfilerEntry = type { %struct.rotating_node_s, ptr, i64, i64, i64, i64, i64, ptr }
-%struct.rotating_node_s = type { ptr, ptr, ptr }
-%struct._ProfilerContext = type { i64, i64, ptr, ptr }
-%struct._ProfilerSubEntry = type { %struct.rotating_node_s, i64, i64, i64, i64, i64 }
-%struct._lsprof_state = type { ptr, ptr, ptr }
 %struct.statscollector_t = type { ptr, ptr, double, ptr }
 
 @_Py_NoneStruct = external global %struct._object, align 8
@@ -121,7 +114,7 @@ entry:
 define internal fastcc void @ptrace_enter_call(ptr noundef %self, ptr noundef %key, ptr noundef %userObj) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyErr_GetRaisedException() #4
-  %profilerEntries.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 1
+  %profilerEntries.i = getelementptr inbounds i8, ptr %self, i64 16
   %call.i = tail call ptr @RotatingTree_Get(ptr noundef nonnull %profilerEntries.i, ptr noundef %key) #4
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then, label %if.end5
@@ -132,7 +125,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %flags.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load i32, ptr %flags.i, align 8
   %or.i = or i32 %0, 256
   store i32 %or.i, ptr %flags.i, align 8
@@ -160,13 +153,13 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   br label %newProfilerEntry.exit
 
 if.end.i.i:                                       ; preds = %PyObject_TypeCheck.exit.i.i, %if.end.i
-  %m_self.i.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %userObj, i64 0, i32 2
+  %m_self.i.i = getelementptr inbounds i8, ptr %userObj, i64 24
   %3 = load ptr, ptr %m_self.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else31.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %m_module.i.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %userObj, i64 0, i32 3
+  %m_module.i.i = getelementptr inbounds i8, ptr %userObj, i64 32
   %4 = load ptr, ptr %m_module.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %4, null
   br i1 %cmp3.not.i.i, label %if.end27.i.i, label %if.then4.i.i
@@ -215,7 +208,7 @@ if.then21.i.i:                                    ; preds = %if.then12.i.i, %if.
   br i1 %tobool23.not.i.i, label %if.then24.i.i, label %if.end26.i.i
 
 if.then24.i.i:                                    ; preds = %if.then21.i.i
-  %m_ml.i.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %userObj, i64 0, i32 1
+  %m_ml.i.i = getelementptr inbounds i8, ptr %userObj, i64 16
   %9 = load ptr, ptr %m_ml.i.i, align 8
   %10 = load ptr, ptr %9, align 8
   %call25.i.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.1, ptr noundef nonnull %modname.0.i.i, ptr noundef %10) #4
@@ -251,18 +244,18 @@ if.then1.i77.i.i:                                 ; preds = %if.end.i74.i.i
   br label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %if.then1.i77.i.i, %if.end.i74.i.i, %if.end26.i.i, %if.then15.i.i, %PyObject_TypeCheck.exit51.i.i, %if.then2.i.i
-  %m_ml28.i.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %userObj, i64 0, i32 1
+  %m_ml28.i.i = getelementptr inbounds i8, ptr %userObj, i64 16
   %15 = load ptr, ptr %m_ml28.i.i, align 8
   %16 = load ptr, ptr %15, align 8
   %call30.i.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.2, ptr noundef %16) #4
   br label %normalizeUserObj.exit.i
 
 if.else31.i.i:                                    ; preds = %if.end.i.i
-  %m_ml33.i.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %userObj, i64 0, i32 1
+  %m_ml33.i.i = getelementptr inbounds i8, ptr %userObj, i64 16
   %17 = load ptr, ptr %m_ml33.i.i, align 8
   %18 = load ptr, ptr %17, align 8
   %call35.i.i = tail call ptr @PyUnicode_FromString(ptr noundef %18) #4
-  %m_module37.i.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %userObj, i64 0, i32 3
+  %m_module37.i.i = getelementptr inbounds i8, ptr %userObj, i64 32
   %19 = load ptr, ptr %m_module37.i.i, align 8
   %cmp38.not.i.i = icmp eq ptr %call35.i.i, null
   br i1 %cmp38.not.i.i, label %if.end49.i.i, label %if.then39.i.i
@@ -358,7 +351,7 @@ normalizeUserObj.exit.i:                          ; preds = %if.else58.i.i, %if.
 if.then3.i:                                       ; preds = %normalizeUserObj.exit.i
   tail call void @PyErr_Clear() #4
   tail call void @PyMem_Free(ptr noundef nonnull %call.i12) #4
-  %flags4.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %flags4.i = getelementptr inbounds i8, ptr %self, i64 40
   %33 = load i32, ptr %flags4.i, align 8
   %or5.i = or i32 %33, 256
   store i32 %or5.i, ptr %flags4.i, align 8
@@ -367,22 +360,22 @@ if.then3.i:                                       ; preds = %normalizeUserObj.ex
 newProfilerEntry.exit:                            ; preds = %if.then.i.i, %if.end.i.i.i.i, %Py_DECREF.exit.i.i, %normalizeUserObj.exit.i
   %retval.0.i18.i = phi ptr [ %retval.0.i.i, %normalizeUserObj.exit.i ], [ %userObj, %if.end.i.i.i.i ], [ %userObj, %if.then.i.i ], [ %call44.i.i, %Py_DECREF.exit.i.i ]
   store ptr %key, ptr %call.i12, align 8
-  %userObj8.i = getelementptr inbounds %struct._ProfilerEntry, ptr %call.i12, i64 0, i32 1
+  %userObj8.i = getelementptr inbounds i8, ptr %call.i12, i64 24
   store ptr %retval.0.i18.i, ptr %userObj8.i, align 8
-  %tt.i = getelementptr inbounds %struct._ProfilerEntry, ptr %call.i12, i64 0, i32 2
+  %tt.i = getelementptr inbounds i8, ptr %call.i12, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %tt.i, i8 0, i64 48, i1 false)
   tail call void @RotatingTree_Add(ptr noundef nonnull %profilerEntries.i, ptr noundef nonnull %call.i12) #4
   br label %if.end5
 
 if.end5:                                          ; preds = %newProfilerEntry.exit, %entry
   %profEntry.0 = phi ptr [ %call.i12, %newProfilerEntry.exit ], [ %call.i, %entry ]
-  %freelistProfilerContext = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 3
+  %freelistProfilerContext = getelementptr inbounds i8, ptr %self, i64 32
   %34 = load ptr, ptr %freelistProfilerContext, align 8
   %tobool.not = icmp eq ptr %34, null
   br i1 %tobool.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end5
-  %previous = getelementptr inbounds %struct._ProfilerContext, ptr %34, i64 0, i32 2
+  %previous = getelementptr inbounds i8, ptr %34, i64 16
   %35 = load ptr, ptr %previous, align 8
   store ptr %35, ptr %freelistProfilerContext, align 8
   br label %if.end12
@@ -393,7 +386,7 @@ if.else:                                          ; preds = %if.end5
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.else
-  %flags = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %self, i64 40
   %36 = load i32, ptr %flags, align 8
   %or = or i32 %36, 256
   store i32 %or, ptr %flags, align 8
@@ -401,20 +394,20 @@ if.then10:                                        ; preds = %if.else
 
 if.end12:                                         ; preds = %if.else, %if.then6
   %pContext.0 = phi ptr [ %34, %if.then6 ], [ %call8, %if.else ]
-  %ctxEntry.i = getelementptr inbounds %struct._ProfilerContext, ptr %pContext.0, i64 0, i32 3
+  %ctxEntry.i = getelementptr inbounds i8, ptr %pContext.0, i64 24
   store ptr %profEntry.0, ptr %ctxEntry.i, align 8
-  %subt.i = getelementptr inbounds %struct._ProfilerContext, ptr %pContext.0, i64 0, i32 1
+  %subt.i = getelementptr inbounds i8, ptr %pContext.0, i64 8
   store i64 0, ptr %subt.i, align 8
-  %currentProfilerContext.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 2
+  %currentProfilerContext.i = getelementptr inbounds i8, ptr %self, i64 24
   %37 = load ptr, ptr %currentProfilerContext.i, align 8
-  %previous.i = getelementptr inbounds %struct._ProfilerContext, ptr %pContext.0, i64 0, i32 2
+  %previous.i = getelementptr inbounds i8, ptr %pContext.0, i64 16
   store ptr %37, ptr %previous.i, align 8
   store ptr %pContext.0, ptr %currentProfilerContext.i, align 8
-  %recursionLevel.i = getelementptr inbounds %struct._ProfilerEntry, ptr %profEntry.0, i64 0, i32 6
+  %recursionLevel.i = getelementptr inbounds i8, ptr %profEntry.0, i64 64
   %38 = load i64, ptr %recursionLevel.i, align 8
   %inc.i = add i64 %38, 1
   store i64 %inc.i, ptr %recursionLevel.i, align 8
-  %flags.i14 = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %flags.i14 = getelementptr inbounds i8, ptr %self, i64 40
   %39 = load i32, ptr %flags.i14, align 8
   %and.i = and i32 %39, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -426,9 +419,9 @@ land.lhs.true.i:                                  ; preds = %if.end12
   br i1 %tobool4.not.i, label %initContext.exit, label %if.then.i15
 
 if.then.i15:                                      ; preds = %land.lhs.true.i
-  %ctxEntry6.i = getelementptr inbounds %struct._ProfilerContext, ptr %40, i64 0, i32 3
+  %ctxEntry6.i = getelementptr inbounds i8, ptr %40, i64 24
   %41 = load ptr, ptr %ctxEntry6.i, align 8
-  %calls.i.i = getelementptr inbounds %struct._ProfilerEntry, ptr %41, i64 0, i32 7
+  %calls.i.i = getelementptr inbounds i8, ptr %41, i64 72
   %call.i.i = tail call ptr @RotatingTree_Get(ptr noundef nonnull %calls.i.i, ptr noundef nonnull %profEntry.0) #4
   %cmp.i16 = icmp eq ptr %call.i.i, null
   br i1 %cmp.i16, label %if.then7.i, label %if.then10.i
@@ -440,7 +433,7 @@ if.then7.i:                                       ; preds = %if.then.i15
 
 if.end.i.i18:                                     ; preds = %if.then7.i
   store ptr %profEntry.0, ptr %call.i18.i, align 8
-  %tt.i.i = getelementptr inbounds %struct._ProfilerSubEntry, ptr %call.i18.i, i64 0, i32 1
+  %tt.i.i = getelementptr inbounds i8, ptr %call.i18.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tt.i.i, i8 0, i64 40, i1 false)
   tail call void @RotatingTree_Add(ptr noundef nonnull %calls.i.i, ptr noundef nonnull %call.i18.i) #4
   br label %if.then10.i
@@ -453,7 +446,7 @@ if.end.i19:                                       ; preds = %if.then7.i
 
 if.then10.i:                                      ; preds = %if.end.i.i18, %if.then.i15
   %subentry.0.ph.i = phi ptr [ %call.i18.i, %if.end.i.i18 ], [ %call.i.i, %if.then.i15 ]
-  %recursionLevel11.i = getelementptr inbounds %struct._ProfilerSubEntry, ptr %subentry.0.ph.i, i64 0, i32 5
+  %recursionLevel11.i = getelementptr inbounds i8, ptr %subentry.0.ph.i, i64 56
   %43 = load i64, ptr %recursionLevel11.i, align 8
   %inc12.i = add i64 %43, 1
   store i64 %inc12.i, ptr %recursionLevel11.i, align 8
@@ -472,14 +465,14 @@ restorePyerr:                                     ; preds = %if.then3.i, %if.the
 ; Function Attrs: nounwind uwtable
 define hidden nonnull ptr @pyreturn_callback(ptr noundef %self, ptr nocapture noundef readonly %args, i64 %size) #0 {
 entry:
-  %currentProfilerContext.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 2
+  %currentProfilerContext.i = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %currentProfilerContext.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %ptrace_leave_call.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr %args, align 8
-  %profilerEntries.i.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 1
+  %profilerEntries.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %call.i.i = tail call ptr @RotatingTree_Get(ptr noundef nonnull %profilerEntries.i.i, ptr noundef %1) #4
   %tobool.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
@@ -489,15 +482,15 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end3.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %previous.i = getelementptr inbounds %struct._ProfilerContext, ptr %0, i64 0, i32 2
+  %previous.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %previous.i, align 8
   store ptr %2, ptr %currentProfilerContext.i, align 8
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.else.i, %if.then1.i
-  %freelistProfilerContext.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 3
+  %freelistProfilerContext.i = getelementptr inbounds i8, ptr %self, i64 32
   %3 = load ptr, ptr %freelistProfilerContext.i, align 8
-  %previous4.i = getelementptr inbounds %struct._ProfilerContext, ptr %0, i64 0, i32 2
+  %previous4.i = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %previous4.i, align 8
   store ptr %0, ptr %freelistProfilerContext.i, align 8
   br label %ptrace_leave_call.exit
@@ -568,18 +561,18 @@ return:                                           ; preds = %if.end11, %PyObject
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ccall_callback(ptr noundef %self, ptr nocapture noundef readonly %args, i64 %size) #0 {
 entry:
-  %flags = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 4
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr ptr, ptr %args, i64 2
+  %arrayidx = getelementptr i8, ptr %args, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
-  %arrayidx1 = getelementptr ptr, ptr %args, i64 3
+  %arrayidx1 = getelementptr i8, ptr %args, i64 24
   %2 = load ptr, ptr %arrayidx1, align 8
-  %missing = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 8
+  %missing = getelementptr inbounds i8, ptr %self, i64 72
   %3 = load ptr, ptr %missing, align 8
   %4 = getelementptr i8, ptr %1, i64 8
   %callable.val13.i = load ptr, ptr %4, align 8
@@ -629,7 +622,7 @@ PyObject_TypeCheck.exit19.i:                      ; preds = %if.end11.i
 
 if.then3:                                         ; preds = %if.then.i, %if.end.i.i, %PyObject_TypeCheck.exit19.i, %if.end11.i
   %retval.0.i.ph = phi ptr [ %call8.i, %if.end11.i ], [ %call8.i, %PyObject_TypeCheck.exit19.i ], [ %1, %if.end.i.i ], [ %1, %if.then.i ]
-  %m_ml = getelementptr inbounds %struct.PyCFunctionObject, ptr %retval.0.i.ph, i64 0, i32 1
+  %m_ml = getelementptr inbounds i8, ptr %retval.0.i.ph, i64 16
   %9 = load ptr, ptr %m_ml, align 8
   tail call fastcc void @ptrace_enter_call(ptr noundef nonnull %self, ptr noundef %9, ptr noundef nonnull %retval.0.i.ph)
   %10 = load i64, ptr %retval.0.i.ph, align 8
@@ -654,18 +647,18 @@ if.end4:                                          ; preds = %if.end.i9, %PyObjec
 ; Function Attrs: nounwind uwtable
 define hidden ptr @creturn_callback(ptr noundef %self, ptr nocapture noundef readonly %args, i64 %size) #0 {
 entry:
-  %flags = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 4
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr ptr, ptr %args, i64 2
+  %arrayidx = getelementptr i8, ptr %args, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
-  %arrayidx1 = getelementptr ptr, ptr %args, i64 3
+  %arrayidx1 = getelementptr i8, ptr %args, i64 24
   %2 = load ptr, ptr %arrayidx1, align 8
-  %missing = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 8
+  %missing = getelementptr inbounds i8, ptr %self, i64 72
   %3 = load ptr, ptr %missing, align 8
   %4 = getelementptr i8, ptr %1, i64 8
   %callable.val13.i = load ptr, ptr %4, align 8
@@ -715,15 +708,15 @@ PyObject_TypeCheck.exit19.i:                      ; preds = %if.end11.i
 
 if.then3:                                         ; preds = %if.then.i, %if.end.i.i, %PyObject_TypeCheck.exit19.i, %if.end11.i
   %retval.0.i.ph = phi ptr [ %call8.i, %if.end11.i ], [ %call8.i, %PyObject_TypeCheck.exit19.i ], [ %1, %if.end.i.i ], [ %1, %if.then.i ]
-  %currentProfilerContext.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 2
+  %currentProfilerContext.i = getelementptr inbounds i8, ptr %self, i64 24
   %9 = load ptr, ptr %currentProfilerContext.i, align 8
   %cmp.i10 = icmp eq ptr %9, null
   br i1 %cmp.i10, label %ptrace_leave_call.exit, label %if.end.i11
 
 if.end.i11:                                       ; preds = %if.then3
-  %m_ml = getelementptr inbounds %struct.PyCFunctionObject, ptr %retval.0.i.ph, i64 0, i32 1
+  %m_ml = getelementptr inbounds i8, ptr %retval.0.i.ph, i64 16
   %10 = load ptr, ptr %m_ml, align 8
-  %profilerEntries.i.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 1
+  %profilerEntries.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %call.i.i = tail call ptr @RotatingTree_Get(ptr noundef nonnull %profilerEntries.i.i, ptr noundef %10) #4
   %tobool.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i12
@@ -733,15 +726,15 @@ if.then1.i12:                                     ; preds = %if.end.i11
   br label %if.end3.i
 
 if.else.i:                                        ; preds = %if.end.i11
-  %previous.i = getelementptr inbounds %struct._ProfilerContext, ptr %9, i64 0, i32 2
+  %previous.i = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %previous.i, align 8
   store ptr %11, ptr %currentProfilerContext.i, align 8
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.else.i, %if.then1.i12
-  %freelistProfilerContext.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 3
+  %freelistProfilerContext.i = getelementptr inbounds i8, ptr %self, i64 32
   %12 = load ptr, ptr %freelistProfilerContext.i, align 8
-  %previous4.i = getelementptr inbounds %struct._ProfilerContext, ptr %9, i64 0, i32 2
+  %previous4.i = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %12, ptr %previous4.i, align 8
   store ptr %9, ptr %freelistProfilerContext.i, align 8
   br label %ptrace_leave_call.exit
@@ -805,7 +798,7 @@ declare ptr @PyObject_Repr(ptr noundef) local_unnamed_addr #1
 define internal fastcc i64 @call_timer(ptr nocapture noundef readonly %pObj) unnamed_addr #0 {
 entry:
   %result.i = alloca i64, align 8
-  %externalTimer = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 5
+  %externalTimer = getelementptr inbounds i8, ptr %pObj, i64 48
   %0 = load ptr, ptr %externalTimer, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -822,7 +815,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i, label %_PyVectorcall_FunctionInline.exit.i.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i.i:          ; preds = %if.then
-  %tp_vectorcall_offset.i.i.i.i = getelementptr inbounds %struct._typeobject, ptr %callable.val.i.i.i.i, i64 0, i32 5
+  %tp_vectorcall_offset.i.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i.i, i64 56
   %4 = load i64, ptr %tp_vectorcall_offset.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr i8, ptr %0, i64 %4
   %ptr.0.copyload.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 1
@@ -849,7 +842,7 @@ if.then.i:                                        ; preds = %_PyObject_CallNoArg
   br label %CallExternalTimer.exit
 
 if.end.i:                                         ; preds = %_PyObject_CallNoArgs.exit.i
-  %externalTimerUnit.i = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 6
+  %externalTimerUnit.i = getelementptr inbounds i8, ptr %pObj, i64 56
   %6 = load double, ptr %externalTimerUnit.i, align 8
   %cmp2.i = fcmp ogt double %6, 0.000000e+00
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
@@ -926,16 +919,16 @@ entry:
   %call = tail call fastcc i64 @call_timer(ptr noundef %pObj)
   %0 = load i64, ptr %self, align 8
   %sub = sub i64 %call, %0
-  %subt = getelementptr inbounds %struct._ProfilerContext, ptr %self, i64 0, i32 1
+  %subt = getelementptr inbounds i8, ptr %self, i64 8
   %1 = load i64, ptr %subt, align 8
   %sub2 = sub i64 %sub, %1
-  %previous = getelementptr inbounds %struct._ProfilerContext, ptr %self, i64 0, i32 2
+  %previous = getelementptr inbounds i8, ptr %self, i64 16
   %2 = load ptr, ptr %previous, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %subt4 = getelementptr inbounds %struct._ProfilerContext, ptr %2, i64 0, i32 1
+  %subt4 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %subt4, align 8
   %add = add i64 %3, %sub
   store i64 %add, ptr %subt4, align 8
@@ -944,26 +937,25 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %4 = phi ptr [ %.pre, %if.then ], [ null, %entry ]
-  %currentProfilerContext = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 2
+  %currentProfilerContext = getelementptr inbounds i8, ptr %pObj, i64 24
   store ptr %4, ptr %currentProfilerContext, align 8
-  %recursionLevel = getelementptr inbounds %struct._ProfilerEntry, ptr %entry1, i64 0, i32 6
+  %recursionLevel = getelementptr inbounds i8, ptr %entry1, i64 64
   %5 = load i64, ptr %recursionLevel, align 8
   %dec = add i64 %5, -1
   store i64 %dec, ptr %recursionLevel, align 8
   %cmp = icmp eq i64 %dec, 0
-  %recursivecallcount = getelementptr inbounds %struct._ProfilerEntry, ptr %entry1, i64 0, i32 5
-  %tt7 = getelementptr inbounds %struct._ProfilerEntry, ptr %entry1, i64 0, i32 2
-  %recursivecallcount.sink26 = select i1 %cmp, ptr %tt7, ptr %recursivecallcount
-  %.sink25 = select i1 %cmp, i64 %sub, i64 1
-  %6 = load i64, ptr %recursivecallcount.sink26, align 8
-  %inc = add i64 %6, %.sink25
-  store i64 %inc, ptr %recursivecallcount.sink26, align 8
-  %it10 = getelementptr inbounds %struct._ProfilerEntry, ptr %entry1, i64 0, i32 3
+  %. = select i1 %cmp, i64 32, i64 56
+  %sub. = select i1 %cmp, i64 %sub, i64 1
+  %recursivecallcount = getelementptr inbounds i8, ptr %entry1, i64 %.
+  %6 = load i64, ptr %recursivecallcount, align 8
+  %inc = add i64 %6, %sub.
+  store i64 %inc, ptr %recursivecallcount, align 8
+  %it10 = getelementptr inbounds i8, ptr %entry1, i64 40
   %7 = load <2 x i64>, ptr %it10, align 8
   %8 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %sub2, i64 0
   %9 = add <2 x i64> %7, %8
   store <2 x i64> %9, ptr %it10, align 8
-  %flags = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %pObj, i64 40
   %10 = load i32, ptr %flags, align 8
   %and = and i32 %10, 2
   %tobool13.not = icmp eq i32 %and, 0
@@ -975,27 +967,26 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool15.not, label %if.end36, label %if.then16
 
 if.then16:                                        ; preds = %land.lhs.true
-  %ctxEntry = getelementptr inbounds %struct._ProfilerContext, ptr %11, i64 0, i32 3
+  %ctxEntry = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %ctxEntry, align 8
-  %calls.i = getelementptr inbounds %struct._ProfilerEntry, ptr %12, i64 0, i32 7
+  %calls.i = getelementptr inbounds i8, ptr %12, i64 72
   %call.i = tail call ptr @RotatingTree_Get(ptr noundef nonnull %calls.i, ptr noundef nonnull %entry1) #4
   %tobool19.not = icmp eq ptr %call.i, null
   br i1 %tobool19.not, label %if.end36, label %if.then20
 
 if.then20:                                        ; preds = %if.then16
-  %recursionLevel21 = getelementptr inbounds %struct._ProfilerSubEntry, ptr %call.i, i64 0, i32 5
+  %recursionLevel21 = getelementptr inbounds i8, ptr %call.i, i64 56
   %13 = load i64, ptr %recursionLevel21, align 8
   %dec22 = add i64 %13, -1
   store i64 %dec22, ptr %recursionLevel21, align 8
   %cmp23 = icmp eq i64 %dec22, 0
-  %recursivecallcount28 = getelementptr inbounds %struct._ProfilerSubEntry, ptr %call.i, i64 0, i32 4
-  %tt25 = getelementptr inbounds %struct._ProfilerSubEntry, ptr %call.i, i64 0, i32 1
-  %recursivecallcount28.sink28 = select i1 %cmp23, ptr %tt25, ptr %recursivecallcount28
-  %.sink27 = select i1 %cmp23, i64 %sub, i64 1
-  %14 = load i64, ptr %recursivecallcount28.sink28, align 8
-  %inc29 = add i64 %14, %.sink27
-  store i64 %inc29, ptr %recursivecallcount28.sink28, align 8
-  %it31 = getelementptr inbounds %struct._ProfilerSubEntry, ptr %call.i, i64 0, i32 2
+  %.30 = select i1 %cmp23, i64 24, i64 48
+  %sub.31 = select i1 %cmp23, i64 %sub, i64 1
+  %recursivecallcount28 = getelementptr inbounds i8, ptr %call.i, i64 %.30
+  %14 = load i64, ptr %recursivecallcount28, align 8
+  %inc29 = add i64 %14, %sub.31
+  store i64 %inc29, ptr %recursivecallcount28, align 8
+  %it31 = getelementptr inbounds i8, ptr %call.i, i64 32
   %15 = load <2 x i64>, ptr %it31, align 8
   %16 = add <2 x i64> %15, %8
   store <2 x i64> %16, ptr %it31, align 8
@@ -1023,7 +1014,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %stats_entry_type = getelementptr inbounds %struct._lsprof_state, ptr %call.i, i64 0, i32 1
+  %stats_entry_type = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %stats_entry_type, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -1034,7 +1025,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %stats_subentry_type = getelementptr inbounds %struct._lsprof_state, ptr %call.i, i64 0, i32 2
+  %stats_subentry_type = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %stats_subentry_type, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.end27, label %if.then19
@@ -1078,7 +1069,7 @@ if.then1.i30:                                     ; preds = %if.end.i27
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i27, %if.then1.i30, %if.then, %entry
-  %stats_entry_type = getelementptr inbounds %struct._lsprof_state, ptr %call.i, i64 0, i32 1
+  %stats_entry_type = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %stats_entry_type, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -1101,7 +1092,7 @@ if.then1.i21:                                     ; preds = %if.end.i18
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i18, %if.then1.i21, %if.then5, %do.body1
-  %stats_subentry_type = getelementptr inbounds %struct._lsprof_state, ptr %call.i, i64 0, i32 2
+  %stats_subentry_type = getelementptr inbounds i8, ptr %call.i, i64 16
   %6 = load ptr, ptr %stats_subentry_type, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.end14, label %if.then12
@@ -1150,7 +1141,7 @@ if.end:                                           ; preds = %entry
 
 if.end7:                                          ; preds = %if.end
   %call8 = tail call ptr @PyStructSequence_NewType(ptr noundef nonnull @profiler_entry_desc) #4
-  %stats_entry_type = getelementptr inbounds %struct._lsprof_state, ptr %call, i64 0, i32 1
+  %stats_entry_type = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call8, ptr %stats_entry_type, align 8
   %cmp10 = icmp eq ptr %call8, null
   br i1 %cmp10, label %return, label %if.end12
@@ -1162,7 +1153,7 @@ if.end12:                                         ; preds = %if.end7
 
 if.end17:                                         ; preds = %if.end12
   %call18 = tail call ptr @PyStructSequence_NewType(ptr noundef nonnull @profiler_subentry_desc) #4
-  %stats_subentry_type = getelementptr inbounds %struct._lsprof_state, ptr %call, i64 0, i32 2
+  %stats_subentry_type = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call18, ptr %stats_subentry_type, align 8
   %cmp20 = icmp eq ptr %call18, null
   br i1 %cmp20, label %return, label %if.end22
@@ -1189,7 +1180,7 @@ declare ptr @PyStructSequence_NewType(ptr noundef) local_unnamed_addr #1
 define internal void @profiler_dealloc(ptr noundef %op) #0 {
 entry:
   tail call void @PyObject_GC_UnTrack(ptr noundef %op) #4
-  %flags = getelementptr inbounds %struct.ProfilerObject, ptr %op, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %op, i64 40
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -1206,14 +1197,14 @@ if.then2:                                         ; preds = %if.then
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then, %if.then2, %entry
-  %currentProfilerContext.i = getelementptr inbounds %struct.ProfilerObject, ptr %op, i64 0, i32 2
+  %currentProfilerContext.i = getelementptr inbounds i8, ptr %op, i64 24
   %1 = load ptr, ptr %currentProfilerContext.i, align 8
   %tobool.not10.i = icmp eq ptr %1, null
   br i1 %tobool.not10.i, label %flush_unmatched.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end3, %if.then5.i
   %2 = phi ptr [ %5, %if.then5.i ], [ %1, %if.end3 ]
-  %ctxEntry.i = getelementptr inbounds %struct._ProfilerContext, ptr %2, i64 0, i32 3
+  %ctxEntry.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %ctxEntry.i, align 8
   %tobool2.not.i = icmp eq ptr %3, null
   br i1 %tobool2.not.i, label %if.else.i, label %if.then.i
@@ -1223,7 +1214,7 @@ if.then.i:                                        ; preds = %while.body.i
   br label %if.then5.i
 
 if.else.i:                                        ; preds = %while.body.i
-  %previous.i = getelementptr inbounds %struct._ProfilerContext, ptr %2, i64 0, i32 2
+  %previous.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %previous.i, align 8
   store ptr %4, ptr %currentProfilerContext.i, align 8
   br label %if.then5.i
@@ -1235,7 +1226,7 @@ if.then5.i:                                       ; preds = %if.else.i, %if.then
   br i1 %tobool.not.i, label %flush_unmatched.exit, label %while.body.i, !llvm.loop !4
 
 flush_unmatched.exit:                             ; preds = %if.then5.i, %if.end3
-  %profilerEntries.i = getelementptr inbounds %struct.ProfilerObject, ptr %op, i64 0, i32 1
+  %profilerEntries.i = getelementptr inbounds i8, ptr %op, i64 16
   %6 = load ptr, ptr %profilerEntries.i, align 8
   %call.i10 = tail call i32 @RotatingTree_Enum(ptr noundef %6, ptr noundef nonnull @freeEntry, ptr noundef null) #4
   store ptr null, ptr %profilerEntries.i, align 8
@@ -1249,14 +1240,14 @@ if.then.i13:                                      ; preds = %flush_unmatched.exi
   br label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.then.i13, %flush_unmatched.exit
-  %freelistProfilerContext.i = getelementptr inbounds %struct.ProfilerObject, ptr %op, i64 0, i32 3
+  %freelistProfilerContext.i = getelementptr inbounds i8, ptr %op, i64 32
   %8 = load ptr, ptr %freelistProfilerContext.i, align 8
   %tobool4.not11.i = icmp eq ptr %8, null
   br i1 %tobool4.not11.i, label %clearEntries.exit, label %while.body.i15
 
 while.body.i15:                                   ; preds = %if.end.i14, %while.body.i15
   %9 = phi ptr [ %11, %while.body.i15 ], [ %8, %if.end.i14 ]
-  %previous.i16 = getelementptr inbounds %struct._ProfilerContext, ptr %9, i64 0, i32 2
+  %previous.i16 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %previous.i16, align 8
   store ptr %10, ptr %freelistProfilerContext.i, align 8
   tail call void @PyMem_Free(ptr noundef nonnull %9) #4
@@ -1266,7 +1257,7 @@ while.body.i15:                                   ; preds = %if.end.i14, %while.
 
 clearEntries.exit:                                ; preds = %while.body.i15, %if.end.i14
   store ptr null, ptr %freelistProfilerContext.i, align 8
-  %externalTimer = getelementptr inbounds %struct.ProfilerObject, ptr %op, i64 0, i32 5
+  %externalTimer = getelementptr inbounds i8, ptr %op, i64 48
   %12 = load ptr, ptr %externalTimer, align 8
   %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i17
@@ -1290,7 +1281,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 Py_XDECREF.exit:                                  ; preds = %clearEntries.exit, %if.then.i17, %if.end.i.i, %if.then1.i.i
   %15 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %15, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %op.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %op.val, i64 320
   %16 = load ptr, ptr %tp_free, align 8
   tail call void %16(ptr noundef nonnull %op) #4
   %17 = load i64, ptr %op.val, align 8
@@ -1333,7 +1324,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i15, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %flags.i = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %pObj, i64 40
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, -3
   store i32 %and.i, ptr %flags.i, align 8
@@ -1344,7 +1335,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp1.i, label %if.then2.i, label %setSubcalls.exit
 
 if.then2.i:                                       ; preds = %if.else.i
-  %flags3.i = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 4
+  %flags3.i = getelementptr inbounds i8, ptr %pObj, i64 40
   %2 = load i32, ptr %flags3.i, align 8
   %or.i = or i32 %2, 2
   store i32 %or.i, ptr %flags3.i, align 8
@@ -1356,7 +1347,7 @@ setSubcalls.exit:                                 ; preds = %if.then.i, %if.else
   br i1 %cmp.i16, label %if.then.i22, label %if.else.i17
 
 if.then.i22:                                      ; preds = %setSubcalls.exit
-  %flags.i23 = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 4
+  %flags.i23 = getelementptr inbounds i8, ptr %pObj, i64 40
   %4 = load i32, ptr %flags.i23, align 8
   %and.i24 = and i32 %4, -5
   store i32 %and.i24, ptr %flags.i23, align 8
@@ -1367,7 +1358,7 @@ if.else.i17:                                      ; preds = %setSubcalls.exit
   br i1 %cmp1.i18, label %if.then2.i19, label %setBuiltins.exit
 
 if.then2.i19:                                     ; preds = %if.else.i17
-  %flags3.i20 = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 4
+  %flags3.i20 = getelementptr inbounds i8, ptr %pObj, i64 40
   %5 = load i32, ptr %flags3.i20, align 8
   %or.i21 = or i32 %5, 4
   store i32 %or.i21, ptr %flags3.i20, align 8
@@ -1375,9 +1366,9 @@ if.then2.i19:                                     ; preds = %if.else.i17
 
 setBuiltins.exit:                                 ; preds = %if.then.i22, %if.else.i17, %if.then2.i19
   %6 = load double, ptr %timeunit, align 8
-  %externalTimerUnit = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 6
+  %externalTimerUnit = getelementptr inbounds i8, ptr %pObj, i64 56
   store double %6, ptr %externalTimerUnit, align 8
-  %externalTimer = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 5
+  %externalTimer = getelementptr inbounds i8, ptr %pObj, i64 48
   %7 = load ptr, ptr %externalTimer, align 8
   %8 = load ptr, ptr %timer, align 8
   %cmp.not.i.i = icmp eq ptr %8, null
@@ -1415,7 +1406,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %_Py_XNewRef.exit, %if.then.i25, %if.end.i.i, %if.then1.i.i
-  %tool_id = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 7
+  %tool_id = getelementptr inbounds i8, ptr %pObj, i64 64
   store i32 2, ptr %tool_id, align 8
   %call7 = call ptr @_PyImport_GetModuleAttrString(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #4
   %tobool8.not = icmp eq ptr %call7, null
@@ -1423,7 +1414,7 @@ Py_XDECREF.exit:                                  ; preds = %_Py_XNewRef.exit, %
 
 if.end10:                                         ; preds = %Py_XDECREF.exit
   %call11 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %call7, ptr noundef nonnull @.str.38) #4
-  %missing = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 8
+  %missing = getelementptr inbounds i8, ptr %pObj, i64 72
   store ptr %call11, ptr %missing, align 8
   %tobool13.not = icmp eq ptr %call11, null
   %12 = load i64, ptr %call7, align 8
@@ -1498,9 +1489,9 @@ if.end:                                           ; preds = %entry
   %2 = getelementptr i8, ptr %cls.val, i64 32
   %cls.val.val = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %collect.i)
-  %state.i = getelementptr inbounds %struct.statscollector_t, ptr %collect.i, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %collect.i, i64 24
   store ptr %cls.val.val, ptr %state.i, align 8
-  %flags.i.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %flags.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %3, 256
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
@@ -1514,13 +1505,13 @@ pending_exception.exit.i:                         ; preds = %if.end
   br label %_lsprof_Profiler_getstats_impl.exit
 
 if.end.i:                                         ; preds = %if.end
-  %externalTimer.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 5
+  %externalTimer.i = getelementptr inbounds i8, ptr %self, i64 48
   %5 = load ptr, ptr %externalTimer.i, align 8
   %tobool2.not.i = icmp eq ptr %5, null
   br i1 %tobool2.not.i, label %if.then3.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %externalTimerUnit.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 6
+  %externalTimerUnit.i = getelementptr inbounds i8, ptr %self, i64 56
   %6 = load double, ptr %externalTimerUnit.i, align 8
   %cmp.i = fcmp oeq double %6, 0.000000e+00
   br i1 %cmp.i, label %if.then3.i, label %if.end7.i
@@ -1533,7 +1524,7 @@ if.then3.i:                                       ; preds = %lor.lhs.false.i, %i
 
 if.end7.i:                                        ; preds = %if.then3.i, %lor.lhs.false.i
   %.sink.i = phi double [ %div.i, %if.then3.i ], [ %6, %lor.lhs.false.i ]
-  %factor6.i = getelementptr inbounds %struct.statscollector_t, ptr %collect.i, i64 0, i32 2
+  %factor6.i = getelementptr inbounds i8, ptr %collect.i, i64 16
   store double %.sink.i, ptr %factor6.i, align 8
   %call8.i = tail call ptr @PyList_New(i64 noundef 0) #4
   store ptr %call8.i, ptr %collect.i, align 8
@@ -1541,7 +1532,7 @@ if.end7.i:                                        ; preds = %if.then3.i, %lor.lh
   br i1 %cmp10.i, label %_lsprof_Profiler_getstats_impl.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end7.i
-  %profilerEntries.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 1
+  %profilerEntries.i = getelementptr inbounds i8, ptr %self, i64 16
   %7 = load ptr, ptr %profilerEntries.i, align 8
   %call14.i = call i32 @RotatingTree_Enum(ptr noundef %7, ptr noundef nonnull @statsForEntry, ptr noundef nonnull %collect.i) #4
   %cmp15.not.i = icmp eq i32 %call14.i, 0
@@ -1591,7 +1582,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i31, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %flags.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, -3
   store i32 %and.i, ptr %flags.i, align 8
@@ -1602,7 +1593,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp1.i, label %if.then2.i, label %setSubcalls.exit
 
 if.then2.i:                                       ; preds = %if.else.i
-  %flags3.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %flags3.i = getelementptr inbounds i8, ptr %self, i64 40
   %2 = load i32, ptr %flags3.i, align 8
   %or.i = or i32 %2, 2
   store i32 %or.i, ptr %flags3.i, align 8
@@ -1614,7 +1605,7 @@ setSubcalls.exit:                                 ; preds = %if.then.i, %if.else
   br i1 %cmp.i32, label %if.then.i38, label %if.else.i33
 
 if.then.i38:                                      ; preds = %setSubcalls.exit
-  %flags.i39 = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %flags.i39 = getelementptr inbounds i8, ptr %self, i64 40
   %4 = load i32, ptr %flags.i39, align 8
   %and.i40 = and i32 %4, -5
   store i32 %and.i40, ptr %flags.i39, align 8
@@ -1625,7 +1616,7 @@ if.else.i33:                                      ; preds = %setSubcalls.exit
   br i1 %cmp1.i34, label %if.then2.i35, label %setBuiltins.exit
 
 if.then2.i35:                                     ; preds = %if.else.i33
-  %flags3.i36 = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %flags3.i36 = getelementptr inbounds i8, ptr %self, i64 40
   %5 = load i32, ptr %flags3.i36, align 8
   %or.i37 = or i32 %5, 4
   store i32 %or.i37, ptr %flags3.i36, align 8
@@ -1637,7 +1628,7 @@ setBuiltins.exit:                                 ; preds = %if.then.i38, %if.el
   br i1 %tobool7.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %setBuiltins.exit
-  %tool_id = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 7
+  %tool_id = getelementptr inbounds i8, ptr %self, i64 64
   %6 = load i32, ptr %tool_id, align 8
   %call10 = call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call6, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %6, ptr noundef nonnull @.str.26) #4
   %cmp11 = icmp eq ptr %call10, null
@@ -1663,11 +1654,10 @@ if.then1.i70:                                     ; preds = %if.end.i67
 
 for.body:                                         ; preds = %if.end9, %Py_DECREF.exit54
   %indvars.iv = phi i64 [ %indvars.iv.next, %Py_DECREF.exit54 ], [ 0, %if.end9 ]
-  %arrayidx47 = phi ptr [ %arrayidx, %Py_DECREF.exit54 ], [ @callback_table, %if.end9 ]
+  %10 = phi ptr [ %19, %Py_DECREF.exit54 ], [ @.str.12, %if.end9 ]
+  %arrayidx46 = phi ptr [ %arrayidx, %Py_DECREF.exit54 ], [ @callback_table, %if.end9 ]
   %all_events.044 = phi i32 [ %or, %Py_DECREF.exit54 ], [ 0, %if.end9 ]
-  %callback_method = getelementptr [10 x %struct.anon], ptr @callback_table, i64 0, i64 %indvars.iv, i32 1
-  %10 = load ptr, ptr %callback_method, align 8
-  %call19 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %self, ptr noundef %10) #4
+  %call19 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %self, ptr noundef nonnull %10) #4
   %tobool20.not = icmp eq ptr %call19, null
   br i1 %tobool20.not, label %if.then21, label %if.end22
 
@@ -1689,7 +1679,7 @@ if.then1.i61:                                     ; preds = %if.end.i58
 
 if.end22:                                         ; preds = %for.body
   %13 = load i32, ptr %tool_id, align 8
-  %14 = load i32, ptr %arrayidx47, align 16
+  %14 = load i32, ptr %arrayidx46, align 16
   %shl = shl nuw i32 1, %14
   %call26 = call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call6, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %13, i32 noundef %shl, ptr noundef nonnull %call19) #4
   %cmp.not.i = icmp eq ptr %call26, null
@@ -1731,23 +1721,25 @@ Py_DECREF.exit54:                                 ; preds = %Py_XDECREF.exit, %i
   %or = or i32 %shl, %all_events.044
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr [10 x %struct.anon], ptr @callback_table, i64 0, i64 %indvars.iv.next
-  %tobool15.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %tobool15.not, label %for.end, label %for.body, !llvm.loop !7
+  %callback_method = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %19 = load ptr, ptr %callback_method, align 8
+  %exitcond = icmp eq i64 %indvars.iv.next, 9
+  br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %Py_DECREF.exit54
-  %19 = load i32, ptr %tool_id, align 8
-  %call32 = call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call6, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef %19, i32 noundef %or) #4
+  %20 = load i32, ptr %tool_id, align 8
+  %call32 = call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call6, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef %20, i32 noundef %or) #4
   %tobool33.not = icmp eq ptr %call32, null
-  %20 = load i64, ptr %call6, align 8
-  %21 = and i64 %20, 2147483648
-  %cmp.i85.not = icmp eq i64 %21, 0
+  %21 = load i64, ptr %call6, align 8
+  %22 = and i64 %21, 2147483648
+  %cmp.i85.not = icmp eq i64 %22, 0
   br i1 %tobool33.not, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %for.end
   br i1 %cmp.i85.not, label %if.end.i40, label %return
 
 if.end.i40:                                       ; preds = %if.then34
-  %dec.i41 = add i64 %20, -1
+  %dec.i41 = add i64 %21, -1
   store i64 %dec.i41, ptr %call6, align 8
   %cmp.i42 = icmp eq i64 %dec.i41, 0
   br i1 %cmp.i42, label %if.then1.i43, label %return
@@ -1760,7 +1752,7 @@ if.end35:                                         ; preds = %for.end
   br i1 %cmp.i85.not, label %if.end.i, label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.end35
-  %dec.i = add i64 %20, -1
+  %dec.i = add i64 %21, -1
   store i64 %dec.i, ptr %call6, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
@@ -1770,9 +1762,9 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end35, %if.then1.i, %if.end.i
-  %flags = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
-  %22 = load i32, ptr %flags, align 8
-  %or36 = or i32 %22, 1
+  %flags = getelementptr inbounds i8, ptr %self, i64 40
+  %23 = load i32, ptr %flags, align 8
+  %or36 = or i32 %23, 1
   store i32 %or36, ptr %flags, align 8
   br label %return
 
@@ -1784,7 +1776,7 @@ return:                                           ; preds = %if.end.i40, %if.the
 ; Function Attrs: nounwind uwtable
 define internal ptr @profiler_disable(ptr nocapture noundef %self, ptr nocapture readnone %noarg) #0 {
 entry:
-  %flags = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -1796,14 +1788,14 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then
-  %tool_id = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 7
+  %tool_id = getelementptr inbounds i8, ptr %self, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr [10 x %struct.anon], ptr @callback_table, i64 0, i64 %indvars.iv
+  %arrayidx40 = phi ptr [ @callback_table, %for.cond.preheader ], [ %arrayidx, %for.inc ]
   %1 = load i32, ptr %tool_id, align 8
-  %2 = load i32, ptr %arrayidx, align 16
+  %2 = load i32, ptr %arrayidx40, align 16
   %shl = shl nuw i32 1, %2
   %call6 = tail call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %1, i32 noundef %shl, ptr noundef nonnull @_Py_NoneStruct) #4
   %tobool7.not = icmp eq ptr %call6, null
@@ -1843,8 +1835,9 @@ if.then1.i69:                                     ; preds = %if.end.i66
 
 for.inc:                                          ; preds = %if.end.i66, %if.then1.i69, %if.end9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %tobool3.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !8
+  %arrayidx = getelementptr [10 x %struct.anon], ptr @callback_table, i64 0, i64 %indvars.iv.next
+  %exitcond = icmp eq i64 %indvars.iv.next, 9
+  br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc
   %7 = load i32, ptr %tool_id, align 8
@@ -1942,14 +1935,14 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit35, %
   %19 = load i32, ptr %flags, align 8
   %and21 = and i32 %19, -2
   store i32 %and21, ptr %flags, align 8
-  %currentProfilerContext.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 2
+  %currentProfilerContext.i = getelementptr inbounds i8, ptr %self, i64 24
   %20 = load ptr, ptr %currentProfilerContext.i, align 8
   %tobool.not10.i = icmp eq ptr %20, null
   br i1 %tobool.not10.i, label %if.end22, label %while.body.i
 
 while.body.i:                                     ; preds = %Py_DECREF.exit, %if.then5.i
   %21 = phi ptr [ %24, %if.then5.i ], [ %20, %Py_DECREF.exit ]
-  %ctxEntry.i = getelementptr inbounds %struct._ProfilerContext, ptr %21, i64 0, i32 3
+  %ctxEntry.i = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %ctxEntry.i, align 8
   %tobool2.not.i = icmp eq ptr %22, null
   br i1 %tobool2.not.i, label %if.else.i, label %if.then.i
@@ -1959,7 +1952,7 @@ if.then.i:                                        ; preds = %while.body.i
   br label %if.then5.i
 
 if.else.i:                                        ; preds = %while.body.i
-  %previous.i = getelementptr inbounds %struct._ProfilerContext, ptr %21, i64 0, i32 2
+  %previous.i = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %previous.i, align 8
   store ptr %23, ptr %currentProfilerContext.i, align 8
   br label %if.then5.i
@@ -1995,11 +1988,11 @@ return:                                           ; preds = %pending_exception.e
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @profiler_clear(ptr nocapture noundef %pObj, ptr nocapture readnone %noarg) #0 {
 entry:
-  %profilerEntries.i = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 1
+  %profilerEntries.i = getelementptr inbounds i8, ptr %pObj, i64 16
   %0 = load ptr, ptr %profilerEntries.i, align 8
   %call.i = tail call i32 @RotatingTree_Enum(ptr noundef %0, ptr noundef nonnull @freeEntry, ptr noundef null) #4
   store ptr null, ptr %profilerEntries.i, align 8
-  %currentProfilerContext.i = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 2
+  %currentProfilerContext.i = getelementptr inbounds i8, ptr %pObj, i64 24
   %1 = load ptr, ptr %currentProfilerContext.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -2010,14 +2003,14 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %freelistProfilerContext.i = getelementptr inbounds %struct.ProfilerObject, ptr %pObj, i64 0, i32 3
+  %freelistProfilerContext.i = getelementptr inbounds i8, ptr %pObj, i64 32
   %2 = load ptr, ptr %freelistProfilerContext.i, align 8
   %tobool4.not11.i = icmp eq ptr %2, null
   br i1 %tobool4.not11.i, label %clearEntries.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.i
   %3 = phi ptr [ %5, %while.body.i ], [ %2, %if.end.i ]
-  %previous.i = getelementptr inbounds %struct._ProfilerContext, ptr %3, i64 0, i32 2
+  %previous.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %previous.i, align 8
   store ptr %4, ptr %freelistProfilerContext.i, align 8
   tail call void @PyMem_Free(ptr noundef nonnull %3) #4
@@ -2041,20 +2034,20 @@ declare i32 @RotatingTree_Enum(ptr noundef, ptr noundef, ptr noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define internal i32 @statsForEntry(ptr nocapture noundef readonly %node, ptr noundef %arg) #0 {
 entry:
-  %callcount = getelementptr inbounds %struct._ProfilerEntry, ptr %node, i64 0, i32 4
+  %callcount = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load i64, ptr %callcount, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %calls = getelementptr inbounds %struct._ProfilerEntry, ptr %node, i64 0, i32 7
+  %calls = getelementptr inbounds i8, ptr %node, i64 72
   %1 = load ptr, ptr %calls, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %call = tail call ptr @PyList_New(i64 noundef 0) #4
-  %sublist = getelementptr inbounds %struct.statscollector_t, ptr %arg, i64 0, i32 1
+  %sublist = getelementptr inbounds i8, ptr %arg, i64 8
   store ptr %call, ptr %sublist, align 8
   %cmp5 = icmp eq ptr %call, null
   br i1 %cmp5, label %return, label %if.end7
@@ -2089,32 +2082,32 @@ if.end.i.i:                                       ; preds = %if.else
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.else, %if.end.i.i
-  %sublist15 = getelementptr inbounds %struct.statscollector_t, ptr %arg, i64 0, i32 1
+  %sublist15 = getelementptr inbounds i8, ptr %arg, i64 8
   store ptr @_Py_NoneStruct, ptr %sublist15, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end7, %_Py_NewRef.exit
   %6 = phi ptr [ @_Py_NoneStruct, %_Py_NewRef.exit ], [ %.pre, %if.end7 ]
-  %state = getelementptr inbounds %struct.statscollector_t, ptr %arg, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %arg, i64 24
   %7 = load ptr, ptr %state, align 8
-  %stats_entry_type = getelementptr inbounds %struct._lsprof_state, ptr %7, i64 0, i32 1
+  %stats_entry_type = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %stats_entry_type, align 8
-  %userObj = getelementptr inbounds %struct._ProfilerEntry, ptr %node, i64 0, i32 1
+  %userObj = getelementptr inbounds i8, ptr %node, i64 24
   %9 = load ptr, ptr %userObj, align 8
   %10 = load i64, ptr %callcount, align 8
-  %recursivecallcount = getelementptr inbounds %struct._ProfilerEntry, ptr %node, i64 0, i32 5
+  %recursivecallcount = getelementptr inbounds i8, ptr %node, i64 56
   %11 = load i64, ptr %recursivecallcount, align 8
-  %factor = getelementptr inbounds %struct.statscollector_t, ptr %arg, i64 0, i32 2
+  %factor = getelementptr inbounds i8, ptr %arg, i64 16
   %12 = load double, ptr %factor, align 8
-  %tt = getelementptr inbounds %struct._ProfilerEntry, ptr %node, i64 0, i32 2
+  %tt = getelementptr inbounds i8, ptr %node, i64 32
   %13 = load i64, ptr %tt, align 8
   %conv = sitofp i64 %13 to double
   %mul = fmul double %12, %conv
-  %it = getelementptr inbounds %struct._ProfilerEntry, ptr %node, i64 0, i32 3
+  %it = getelementptr inbounds i8, ptr %node, i64 40
   %14 = load i64, ptr %it, align 8
   %conv19 = sitofp i64 %14 to double
   %mul20 = fmul double %12, %conv19
-  %sublist21 = getelementptr inbounds %struct.statscollector_t, ptr %arg, i64 0, i32 1
+  %sublist21 = getelementptr inbounds i8, ptr %arg, i64 8
   %call22 = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %8, ptr noundef nonnull @.str.18, ptr noundef %9, i64 noundef %10, i64 noundef %11, double noundef %mul, double noundef %mul20, ptr noundef %6) #4
   %15 = load ptr, ptr %sublist21, align 8
   %16 = load i64, ptr %15, align 8
@@ -2165,23 +2158,23 @@ return:                                           ; preds = %return.sink.split, 
 define internal i32 @statsForSubEntry(ptr nocapture noundef readonly %node, ptr nocapture noundef readonly %arg) #0 {
 entry:
   %0 = load ptr, ptr %node, align 8
-  %state = getelementptr inbounds %struct.statscollector_t, ptr %arg, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %arg, i64 24
   %1 = load ptr, ptr %state, align 8
-  %stats_subentry_type = getelementptr inbounds %struct._lsprof_state, ptr %1, i64 0, i32 2
+  %stats_subentry_type = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %stats_subentry_type, align 8
-  %userObj = getelementptr inbounds %struct._ProfilerEntry, ptr %0, i64 0, i32 1
+  %userObj = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %userObj, align 8
-  %callcount = getelementptr inbounds %struct._ProfilerSubEntry, ptr %node, i64 0, i32 3
+  %callcount = getelementptr inbounds i8, ptr %node, i64 40
   %4 = load i64, ptr %callcount, align 8
-  %recursivecallcount = getelementptr inbounds %struct._ProfilerSubEntry, ptr %node, i64 0, i32 4
+  %recursivecallcount = getelementptr inbounds i8, ptr %node, i64 48
   %5 = load i64, ptr %recursivecallcount, align 8
-  %factor = getelementptr inbounds %struct.statscollector_t, ptr %arg, i64 0, i32 2
+  %factor = getelementptr inbounds i8, ptr %arg, i64 16
   %6 = load double, ptr %factor, align 8
-  %tt = getelementptr inbounds %struct._ProfilerSubEntry, ptr %node, i64 0, i32 1
+  %tt = getelementptr inbounds i8, ptr %node, i64 24
   %7 = load i64, ptr %tt, align 8
   %conv = sitofp i64 %7 to double
   %mul = fmul double %6, %conv
-  %it = getelementptr inbounds %struct._ProfilerSubEntry, ptr %node, i64 0, i32 2
+  %it = getelementptr inbounds i8, ptr %node, i64 32
   %8 = load i64, ptr %it, align 8
   %conv3 = sitofp i64 %8 to double
   %mul4 = fmul double %6, %conv3
@@ -2190,7 +2183,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sublist = getelementptr inbounds %struct.statscollector_t, ptr %arg, i64 0, i32 1
+  %sublist = getelementptr inbounds i8, ptr %arg, i64 8
   %9 = load ptr, ptr %sublist, align 8
   %call6 = tail call i32 @PyList_Append(ptr noundef %9, ptr noundef nonnull %call) #4
   %10 = load i64, ptr %call, align 8
@@ -2230,10 +2223,10 @@ declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal i32 @freeEntry(ptr noundef %header, ptr nocapture readnone %arg) #0 {
 entry:
-  %calls = getelementptr inbounds %struct._ProfilerEntry, ptr %header, i64 0, i32 7
+  %calls = getelementptr inbounds i8, ptr %header, i64 72
   %0 = load ptr, ptr %calls, align 8
   %call = tail call i32 @RotatingTree_Enum(ptr noundef %0, ptr noundef nonnull @freeSubEntry, ptr noundef null) #4
-  %userObj = getelementptr inbounds %struct._ProfilerEntry, ptr %header, i64 0, i32 1
+  %userObj = getelementptr inbounds i8, ptr %header, i64 24
   %1 = load ptr, ptr %userObj, align 8
   %2 = load i64, ptr %1, align 8
   %3 = and i64 %2, 2147483648

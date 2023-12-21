@@ -3,15 +3,8 @@ source_filename = "bench/openssl/original/libcrypto-lib-rsa_backend.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.rsa_st = type { i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.rsa_pss_params_30_st, ptr, ptr, %struct.crypto_ex_data_st, %struct.CRYPTO_REF_COUNT, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.rsa_pss_params_30_st = type { i32, %struct.anon, i32, i32 }
 %struct.anon = type { i32, i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.rsa_prime_info_st = type { ptr, ptr, ptr, ptr, ptr }
-%struct.rsa_pss_params_st = type { ptr, ptr, ptr, ptr, ptr }
-%struct.X509_algor_st = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [2 x i8] c"n\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"e\00", align 1
@@ -485,13 +478,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5.not, label %if.end10, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp7 = icmp eq i32 %0, 4
   br i1 %cmp7, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.then6
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %data, align 8
   br label %if.end10
 
@@ -528,13 +521,13 @@ if.end22:                                         ; preds = %if.end21, %if.end10
 if.then24:                                        ; preds = %if.end22
   %call25 = tail call i32 @ossl_rsa_pss_params_30_maskgenalg(ptr noundef null) #4
   store ptr null, ptr %mgfname, align 8
-  %data_type26 = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 0, i32 1
+  %data_type26 = getelementptr inbounds i8, ptr %call2, i64 8
   %9 = load i32, ptr %data_type26, align 8
   %cmp27 = icmp eq i32 %9, 4
   br i1 %cmp27, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %if.then24
-  %data29 = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 0, i32 2
+  %data29 = getelementptr inbounds i8, ptr %call2, i64 16
   %10 = load ptr, ptr %data29, align 8
   store ptr %10, ptr %mgfname, align 8
   br label %if.end34
@@ -545,7 +538,7 @@ if.else:                                          ; preds = %if.then24
   br i1 %tobool31.not, label %return, label %if.else.if.end34_crit_edge
 
 if.else.if.end34_crit_edge:                       ; preds = %if.else
-  %data35.phi.trans.insert = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 0, i32 2
+  %data35.phi.trans.insert = getelementptr inbounds i8, ptr %call2, i64 16
   %.pre = load ptr, ptr %data35.phi.trans.insert, align 8
   br label %if.end34
 
@@ -562,13 +555,13 @@ if.end41:                                         ; preds = %if.end34, %if.end22
 
 if.then43:                                        ; preds = %if.end41
   store ptr null, ptr %mdname, align 8
-  %data_type44 = getelementptr inbounds %struct.ossl_param_st, ptr %call1, i64 0, i32 1
+  %data_type44 = getelementptr inbounds i8, ptr %call1, i64 8
   %12 = load i32, ptr %data_type44, align 8
   %cmp45 = icmp eq i32 %12, 4
   br i1 %cmp45, label %if.then46, label %if.else48
 
 if.then46:                                        ; preds = %if.then43
-  %data47 = getelementptr inbounds %struct.ossl_param_st, ptr %call1, i64 0, i32 2
+  %data47 = getelementptr inbounds i8, ptr %call1, i64 16
   %13 = load ptr, ptr %data47, align 8
   store ptr %13, ptr %mdname, align 8
   br label %if.end53
@@ -601,13 +594,13 @@ if.end62:                                         ; preds = %lor.lhs.false56, %i
 
 if.then64:                                        ; preds = %if.end62
   store ptr null, ptr %mgf1mdname, align 8
-  %data_type65 = getelementptr inbounds %struct.ossl_param_st, ptr %call3, i64 0, i32 1
+  %data_type65 = getelementptr inbounds i8, ptr %call3, i64 8
   %15 = load i32, ptr %data_type65, align 8
   %cmp66 = icmp eq i32 %15, 4
   br i1 %cmp66, label %if.then67, label %if.else69
 
 if.then67:                                        ; preds = %if.then64
-  %data68 = getelementptr inbounds %struct.ossl_param_st, ptr %call3, i64 0, i32 2
+  %data68 = getelementptr inbounds i8, ptr %call3, i64 16
   %16 = load ptr, ptr %data68, align 8
   store ptr %16, ptr %mgf1mdname, align 8
   br label %if.end74
@@ -688,7 +681,7 @@ declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_rsa_is_foreign(ptr noundef %rsa) local_unnamed_addr #0 {
 entry:
-  %engine = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 4
+  %engine = getelementptr inbounds i8, ptr %rsa, i64 32
   %0 = load ptr, ptr %engine, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %lor.lhs.false, label %return
@@ -712,7 +705,7 @@ declare ptr @RSA_PKCS1_OpenSSL() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_rsa_dup(ptr noundef %rsa, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
-  %engine.i = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 4
+  %engine.i = getelementptr inbounds i8, ptr %rsa, i64 32
   %0 = load ptr, ptr %engine.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %ossl_rsa_is_foreign.exit, label %return
@@ -724,7 +717,7 @@ ossl_rsa_is_foreign.exit:                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %ossl_rsa_is_foreign.exit
-  %libctx = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %libctx = getelementptr inbounds i8, ptr %rsa, i64 8
   %1 = load ptr, ptr %libctx, align 8
   %call1 = tail call ptr @ossl_rsa_new_with_ctx(ptr noundef %1) #4
   %cmp = icmp eq ptr %call1, null
@@ -736,26 +729,26 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4.not, label %if.end16, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %n6 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %n6 = getelementptr inbounds i8, ptr %rsa, i64 40
   %2 = load ptr, ptr %n6, align 8
   %cmp.not.i52 = icmp eq ptr %2, null
   br i1 %cmp.not.i52, label %if.end10, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then5
-  %n = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 5
+  %n = getelementptr inbounds i8, ptr %call1, i64 40
   %call.i53 = tail call ptr @BN_dup(ptr noundef nonnull %2) #4
   store ptr %call.i53, ptr %n, align 8
   %cmp1.i = icmp eq ptr %call.i53, null
   br i1 %cmp1.i, label %err, label %if.end10
 
 if.end10:                                         ; preds = %land.lhs.true.i, %if.then5
-  %e11 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %e11 = getelementptr inbounds i8, ptr %rsa, i64 48
   %3 = load ptr, ptr %e11, align 8
   %cmp.not.i55 = icmp eq ptr %3, null
   br i1 %cmp.not.i55, label %if.end16, label %land.lhs.true.i56
 
 land.lhs.true.i56:                                ; preds = %if.end10
-  %e = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 6
+  %e = getelementptr inbounds i8, ptr %call1, i64 48
   %call.i57 = tail call ptr @BN_dup(ptr noundef nonnull %3) #4
   store ptr %call.i57, ptr %e, align 8
   %cmp1.i58 = icmp eq ptr %call.i57, null
@@ -767,110 +760,110 @@ if.end16:                                         ; preds = %land.lhs.true.i56, 
   br i1 %cmp18.not, label %if.end50, label %if.then19
 
 if.then19:                                        ; preds = %if.end16
-  %d20 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 7
+  %d20 = getelementptr inbounds i8, ptr %rsa, i64 56
   %4 = load ptr, ptr %d20, align 8
   %cmp.not.i62 = icmp eq ptr %4, null
   br i1 %cmp.not.i62, label %if.end24, label %land.lhs.true.i63
 
 land.lhs.true.i63:                                ; preds = %if.then19
-  %d = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 7
+  %d = getelementptr inbounds i8, ptr %call1, i64 56
   %call.i64 = tail call ptr @BN_dup(ptr noundef nonnull %4) #4
   store ptr %call.i64, ptr %d, align 8
   %cmp1.i65 = icmp eq ptr %call.i64, null
   br i1 %cmp1.i65, label %err, label %if.end24
 
 if.end24:                                         ; preds = %land.lhs.true.i63, %if.then19
-  %p25 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %p25 = getelementptr inbounds i8, ptr %rsa, i64 64
   %5 = load ptr, ptr %p25, align 8
   %cmp.not.i69 = icmp eq ptr %5, null
   br i1 %cmp.not.i69, label %if.end29, label %land.lhs.true.i70
 
 land.lhs.true.i70:                                ; preds = %if.end24
-  %p = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 8
+  %p = getelementptr inbounds i8, ptr %call1, i64 64
   %call.i71 = tail call ptr @BN_dup(ptr noundef nonnull %5) #4
   store ptr %call.i71, ptr %p, align 8
   %cmp1.i72 = icmp eq ptr %call.i71, null
   br i1 %cmp1.i72, label %err, label %if.end29
 
 if.end29:                                         ; preds = %land.lhs.true.i70, %if.end24
-  %q30 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %q30 = getelementptr inbounds i8, ptr %rsa, i64 72
   %6 = load ptr, ptr %q30, align 8
   %cmp.not.i76 = icmp eq ptr %6, null
   br i1 %cmp.not.i76, label %if.end34, label %land.lhs.true.i77
 
 land.lhs.true.i77:                                ; preds = %if.end29
-  %q = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 9
+  %q = getelementptr inbounds i8, ptr %call1, i64 72
   %call.i78 = tail call ptr @BN_dup(ptr noundef nonnull %6) #4
   store ptr %call.i78, ptr %q, align 8
   %cmp1.i79 = icmp eq ptr %call.i78, null
   br i1 %cmp1.i79, label %err, label %if.end34
 
 if.end34:                                         ; preds = %land.lhs.true.i77, %if.end29
-  %dmp135 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 10
+  %dmp135 = getelementptr inbounds i8, ptr %rsa, i64 80
   %7 = load ptr, ptr %dmp135, align 8
   %cmp.not.i83 = icmp eq ptr %7, null
   br i1 %cmp.not.i83, label %if.end39, label %land.lhs.true.i84
 
 land.lhs.true.i84:                                ; preds = %if.end34
-  %dmp1 = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 10
+  %dmp1 = getelementptr inbounds i8, ptr %call1, i64 80
   %call.i85 = tail call ptr @BN_dup(ptr noundef nonnull %7) #4
   store ptr %call.i85, ptr %dmp1, align 8
   %cmp1.i86 = icmp eq ptr %call.i85, null
   br i1 %cmp1.i86, label %err, label %if.end39
 
 if.end39:                                         ; preds = %land.lhs.true.i84, %if.end34
-  %dmq140 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 11
+  %dmq140 = getelementptr inbounds i8, ptr %rsa, i64 88
   %8 = load ptr, ptr %dmq140, align 8
   %cmp.not.i90 = icmp eq ptr %8, null
   br i1 %cmp.not.i90, label %if.end44, label %land.lhs.true.i91
 
 land.lhs.true.i91:                                ; preds = %if.end39
-  %dmq1 = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 11
+  %dmq1 = getelementptr inbounds i8, ptr %call1, i64 88
   %call.i92 = tail call ptr @BN_dup(ptr noundef nonnull %8) #4
   store ptr %call.i92, ptr %dmq1, align 8
   %cmp1.i93 = icmp eq ptr %call.i92, null
   br i1 %cmp1.i93, label %err, label %if.end44
 
 if.end44:                                         ; preds = %land.lhs.true.i91, %if.end39
-  %iqmp45 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 12
+  %iqmp45 = getelementptr inbounds i8, ptr %rsa, i64 96
   %9 = load ptr, ptr %iqmp45, align 8
   %cmp.not.i97 = icmp eq ptr %9, null
   br i1 %cmp.not.i97, label %land.lhs.true, label %land.lhs.true.i98
 
 land.lhs.true.i98:                                ; preds = %if.end44
-  %iqmp = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 12
+  %iqmp = getelementptr inbounds i8, ptr %call1, i64 96
   %call.i99 = tail call ptr @BN_dup(ptr noundef nonnull %9) #4
   store ptr %call.i99, ptr %iqmp, align 8
   %cmp1.i100 = icmp eq ptr %call.i99, null
   br i1 %cmp1.i100, label %err, label %land.lhs.true
 
 if.end50:                                         ; preds = %if.end16
-  %version = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 2
+  %version = getelementptr inbounds i8, ptr %rsa, i64 16
   %10 = load i32, ptr %version, align 8
-  %version51 = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 2
+  %version51 = getelementptr inbounds i8, ptr %call1, i64 16
   store i32 %10, ptr %version51, align 8
-  %flags = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 18
+  %flags = getelementptr inbounds i8, ptr %rsa, i64 164
   %11 = load i32, ptr %flags, align 4
-  %flags52 = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 18
+  %flags52 = getelementptr inbounds i8, ptr %call1, i64 164
   store i32 %11, ptr %flags52, align 4
-  %pss_params = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 13
-  %pss_params53 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 13
+  %pss_params = getelementptr inbounds i8, ptr %call1, i64 104
+  %pss_params53 = getelementptr inbounds i8, ptr %rsa, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pss_params, ptr noundef nonnull align 8 dereferenceable(20) %pss_params53, i64 20, i1 false)
   br label %if.end94
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i98, %if.end44
-  %version147 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 2
+  %version147 = getelementptr inbounds i8, ptr %rsa, i64 16
   %12 = load i32, ptr %version147, align 8
-  %version51148 = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 2
+  %version51148 = getelementptr inbounds i8, ptr %call1, i64 16
   store i32 %12, ptr %version51148, align 8
-  %flags149 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 18
+  %flags149 = getelementptr inbounds i8, ptr %rsa, i64 164
   %13 = load i32, ptr %flags149, align 4
-  %flags52150 = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 18
+  %flags52150 = getelementptr inbounds i8, ptr %call1, i64 164
   store i32 %13, ptr %flags52150, align 4
-  %pss_params151 = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 13
-  %pss_params53152 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 13
+  %pss_params151 = getelementptr inbounds i8, ptr %call1, i64 104
+  %pss_params53152 = getelementptr inbounds i8, ptr %rsa, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pss_params151, ptr noundef nonnull align 8 dereferenceable(20) %pss_params53152, i64 20, i1 false)
-  %prime_infos = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 15
+  %prime_infos = getelementptr inbounds i8, ptr %rsa, i64 136
   %14 = load ptr, ptr %prime_infos, align 8
   %call.i104 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #4
   %cmp57 = icmp sgt i32 %call.i104, 0
@@ -878,7 +871,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i98, 
 
 if.then58:                                        ; preds = %land.lhs.true
   %call.i105 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %call.i104) #4
-  %prime_infos60 = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 15
+  %prime_infos60 = getelementptr inbounds i8, ptr %call1, i64 136
   store ptr %call.i105, ptr %prime_infos60, align 8
   %cmp62 = icmp eq ptr %call.i105, null
   br i1 %cmp62, label %err, label %for.body
@@ -905,26 +898,26 @@ land.lhs.true.i109:                               ; preds = %if.end69
   br i1 %cmp1.i111, label %err, label %if.end78
 
 if.end78:                                         ; preds = %land.lhs.true.i109, %if.end69
-  %d80 = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call.i107, i64 0, i32 1
+  %d80 = getelementptr inbounds i8, ptr %call.i107, i64 8
   %18 = load ptr, ptr %d80, align 8
   %cmp.not.i115 = icmp eq ptr %18, null
   br i1 %cmp.not.i115, label %if.end84, label %land.lhs.true.i116
 
 land.lhs.true.i116:                               ; preds = %if.end78
-  %d79 = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call66, i64 0, i32 1
+  %d79 = getelementptr inbounds i8, ptr %call66, i64 8
   %call.i117 = tail call ptr @BN_dup(ptr noundef nonnull %18) #4
   store ptr %call.i117, ptr %d79, align 8
   %cmp1.i118 = icmp eq ptr %call.i117, null
   br i1 %cmp1.i118, label %err, label %if.end84
 
 if.end84:                                         ; preds = %land.lhs.true.i116, %if.end78
-  %t85 = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call.i107, i64 0, i32 2
+  %t85 = getelementptr inbounds i8, ptr %call.i107, i64 16
   %19 = load ptr, ptr %t85, align 8
   %cmp.not.i122 = icmp eq ptr %19, null
   br i1 %cmp.not.i122, label %for.inc, label %land.lhs.true.i123
 
 land.lhs.true.i123:                               ; preds = %if.end84
-  %t = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call66, i64 0, i32 2
+  %t = getelementptr inbounds i8, ptr %call66, i64 16
   %call.i124 = tail call ptr @BN_dup(ptr noundef nonnull %19) #4
   store ptr %call.i124, ptr %t, align 8
   %cmp1.i125 = icmp eq ptr %call.i124, null
@@ -941,23 +934,23 @@ for.end:                                          ; preds = %for.inc
   br i1 %tobool91.not, label %err, label %if.end94
 
 if.end94:                                         ; preds = %if.end50, %for.end, %land.lhs.true
-  %pss = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 14
+  %pss = getelementptr inbounds i8, ptr %rsa, i64 128
   %20 = load ptr, ptr %pss, align 8
   %cmp95.not = icmp eq ptr %20, null
   br i1 %cmp95.not, label %if.end117, label %if.then96
 
 if.then96:                                        ; preds = %if.end94
   %call98 = tail call ptr @RSA_PSS_PARAMS_dup(ptr noundef nonnull %20) #4
-  %pss99 = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 14
+  %pss99 = getelementptr inbounds i8, ptr %call1, i64 128
   store ptr %call98, ptr %pss99, align 8
   %21 = load ptr, ptr %pss, align 8
-  %maskGenAlgorithm = getelementptr inbounds %struct.rsa_pss_params_st, ptr %21, i64 0, i32 1
+  %maskGenAlgorithm = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %maskGenAlgorithm, align 8
   %cmp101.not = icmp eq ptr %22, null
   br i1 %cmp101.not, label %if.end117, label %land.lhs.true102
 
 land.lhs.true102:                                 ; preds = %if.then96
-  %maskGenAlgorithm104 = getelementptr inbounds %struct.rsa_pss_params_st, ptr %call98, i64 0, i32 1
+  %maskGenAlgorithm104 = getelementptr inbounds i8, ptr %call98, i64 8
   %23 = load ptr, ptr %maskGenAlgorithm104, align 8
   %cmp105 = icmp eq ptr %23, null
   br i1 %cmp105, label %if.then106, label %if.end117
@@ -965,17 +958,17 @@ land.lhs.true102:                                 ; preds = %if.then96
 if.then106:                                       ; preds = %land.lhs.true102
   %call109 = tail call ptr @ossl_x509_algor_mgf1_decode(ptr noundef nonnull %22) #4
   %24 = load ptr, ptr %pss99, align 8
-  %maskHash = getelementptr inbounds %struct.rsa_pss_params_st, ptr %24, i64 0, i32 4
+  %maskHash = getelementptr inbounds i8, ptr %24, i64 32
   store ptr %call109, ptr %maskHash, align 8
   %25 = load ptr, ptr %pss99, align 8
-  %maskHash112 = getelementptr inbounds %struct.rsa_pss_params_st, ptr %25, i64 0, i32 4
+  %maskHash112 = getelementptr inbounds i8, ptr %25, i64 32
   %26 = load ptr, ptr %maskHash112, align 8
   %cmp113 = icmp eq ptr %26, null
   br i1 %cmp113, label %err, label %if.end117
 
 if.end117:                                        ; preds = %if.then96, %land.lhs.true102, %if.then106, %if.end94
-  %ex_data = getelementptr inbounds %struct.rsa_st, ptr %call1, i64 0, i32 16
-  %ex_data118 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 16
+  %ex_data = getelementptr inbounds i8, ptr %call1, i64 144
+  %ex_data118 = getelementptr inbounds i8, ptr %rsa, i64 144
   %call119 = tail call i32 @CRYPTO_dup_ex_data(i32 noundef 9, ptr noundef nonnull %ex_data, ptr noundef nonnull %ex_data118) #4
   %tobool120.not = icmp eq i32 %call119, 0
   br i1 %tobool120.not, label %err, label %return
@@ -1010,21 +1003,21 @@ declare void @RSA_free(ptr noundef) local_unnamed_addr #1
 define ptr @ossl_rsa_pss_decode(ptr nocapture noundef readonly %alg) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @RSA_PSS_PARAMS_it() #4
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %alg, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %alg, i64 8
   %0 = load ptr, ptr %parameter, align 8
   %call1 = tail call ptr @ASN1_TYPE_unpack_sequence(ptr noundef %call, ptr noundef %0) #4
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %maskGenAlgorithm = getelementptr inbounds %struct.rsa_pss_params_st, ptr %call1, i64 0, i32 1
+  %maskGenAlgorithm = getelementptr inbounds i8, ptr %call1, i64 8
   %1 = load ptr, ptr %maskGenAlgorithm, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %call5 = tail call ptr @ossl_x509_algor_mgf1_decode(ptr noundef nonnull %1) #4
-  %maskHash = getelementptr inbounds %struct.rsa_pss_params_st, ptr %call1, i64 0, i32 4
+  %maskHash = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr %call5, ptr %maskHash, align 8
   %cmp7 = icmp eq ptr %call5, null
   br i1 %cmp7, label %if.then8, label %return
@@ -1060,7 +1053,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %maskHash = getelementptr inbounds %struct.rsa_pss_params_st, ptr %pss, i64 0, i32 4
+  %maskHash = getelementptr inbounds i8, ptr %pss, i64 32
   %1 = load ptr, ptr %maskHash, align 8
   %call5 = call ptr @ossl_x509_algor_get_md(ptr noundef %1) #4
   store ptr %call5, ptr %pmgf1md, align 8
@@ -1068,7 +1061,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %saltLength = getelementptr inbounds %struct.rsa_pss_params_st, ptr %pss, i64 0, i32 2
+  %saltLength = getelementptr inbounds i8, ptr %pss, i64 16
   %2 = load ptr, ptr %saltLength, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.else, label %if.then9
@@ -1085,7 +1078,7 @@ if.else:                                          ; preds = %if.end8
 if.end13:                                         ; preds = %if.else, %if.then9
   %storemerge = phi i32 [ %call12, %if.else ], [ %conv, %if.then9 ]
   store i32 %storemerge, ptr %psaltlen, align 4
-  %trailerField = getelementptr inbounds %struct.rsa_pss_params_st, ptr %pss, i64 0, i32 3
+  %trailerField = getelementptr inbounds i8, ptr %pss, i64 24
   %3 = load ptr, ptr %trailerField, align 8
   %tobool14.not = icmp eq ptr %3, null
   br i1 %tobool14.not, label %if.else19, label %if.then15
@@ -1147,21 +1140,21 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %call.i = call ptr @RSA_PSS_PARAMS_it() #4
-  %parameter.i = getelementptr inbounds %struct.X509_algor_st, ptr %alg, i64 0, i32 1
+  %parameter.i = getelementptr inbounds i8, ptr %alg, i64 8
   %2 = load ptr, ptr %parameter.i, align 8
   %call1.i = call ptr @ASN1_TYPE_unpack_sequence(ptr noundef %call.i, ptr noundef %2) #4
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %if.then10, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end6
-  %maskGenAlgorithm.i = getelementptr inbounds %struct.rsa_pss_params_st, ptr %call1.i, i64 0, i32 1
+  %maskGenAlgorithm.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %3 = load ptr, ptr %maskGenAlgorithm.i, align 8
   %cmp2.not.i = icmp eq ptr %3, null
   br i1 %cmp2.not.i, label %lor.lhs.false, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %call5.i = call ptr @ossl_x509_algor_mgf1_decode(ptr noundef nonnull %3) #4
-  %maskHash.i = getelementptr inbounds %struct.rsa_pss_params_st, ptr %call1.i, i64 0, i32 4
+  %maskHash.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   store ptr %call5.i, ptr %maskHash.i, align 8
   %cmp7.i = icmp eq ptr %call5.i, null
   br i1 %cmp7.i, label %if.then8.i, label %lor.lhs.false

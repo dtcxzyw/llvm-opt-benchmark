@@ -7,15 +7,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.node::AssertionInfo" = type { ptr, ptr, ptr }
 %"class.node::quic::StatelessResetToken" = type { %"class.node::MemoryRetainer", ptr, [16 x i8] }
 %"class.node::MemoryRetainer" = type { ptr }
-%"class.node::quic::TokenSecret" = type { %"class.node::MemoryRetainer", [16 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.node::quic::RetryToken" = type { %"class.node::MemoryRetainer", [78 x i8], %struct.ngtcp2_vec }
-%struct.ngtcp2_vec = type { ptr, i64 }
-%"class.node::SocketAddress" = type { %"class.node::MemoryRetainer", %struct.sockaddr_storage }
-%struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
@@ -24,8 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::_Optional_payload_base<node::quic::CID>::_Storage" = type { %"class.node::quic::CID" }
 %"class.node::quic::CID" = type { %"class.node::MemoryRetainer", %struct.ngtcp2_cid, ptr }
 %struct.ngtcp2_cid = type { i64, [20 x i8] }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<node::quic::CID>::_Storage", i8, [7 x i8] }>
-%"class.node::quic::RegularToken" = type { %"class.node::MemoryRetainer", [57 x i8], %struct.ngtcp2_vec }
 
 $_ZN4node4quic19StatelessResetTokenD2Ev = comdat any
 
@@ -134,7 +127,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN4node4quic11TokenSecretC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic11TokenSecretE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buf_ = getelementptr inbounds %"class.node::quic::TokenSecret", ptr %this, i64 0, i32 1
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buf_, i8 0, i64 16, i1 false)
   %call.i = tail call i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef nonnull %buf_, i64 noundef 16) #18
   %0 = and i8 %call.i, 1
@@ -156,7 +149,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node4quic11TokenSecret5ResetEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %buf_ = getelementptr inbounds %"class.node::quic::TokenSecret", ptr %this, i64 0, i32 1
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef nonnull %buf_, i64 noundef 16) #18
   %0 = and i8 %call, 1
   %tobool.i.not = icmp eq i8 %0, 0
@@ -175,7 +168,7 @@ do.end6:                                          ; preds = %entry
 define dso_local void @_ZN4node4quic11TokenSecretC2EPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef readonly %secret) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic11TokenSecretE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buf_ = getelementptr inbounds %"class.node::quic::TokenSecret", ptr %this, i64 0, i32 1
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buf_, i8 0, i64 16, i1 false)
   %cmp.not.i = icmp eq ptr %secret, null
   br i1 %cmp.not.i, label %do.body4.i, label %_ZN4node4quic11TokenSecretaSEPKh.exit
@@ -202,7 +195,7 @@ do.body4:                                         ; preds = %entry
   unreachable
 
 do.end5:                                          ; preds = %entry
-  %buf_ = getelementptr inbounds %"class.node::quic::TokenSecret", ptr %this, i64 0, i32 1
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buf_, ptr noundef nonnull align 1 dereferenceable(16) %other, i64 16, i1 false)
   ret ptr %this
 }
@@ -218,7 +211,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK4node4quic11TokenSecretcvPKhEv(ptr noundef nonnull readnone align 8 dereferenceable(24) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %buf_ = getelementptr inbounds %"class.node::quic::TokenSecret", ptr %this, i64 0, i32 1
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %buf_
 }
 
@@ -228,7 +221,7 @@ declare i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef, i64 noundef) local_unnamed_a
 define dso_local void @_ZN4node4quic19StatelessResetTokenC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 1
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_, i8 0, i64 24, i1 false)
   ret void
 }
@@ -237,7 +230,7 @@ entry:
 define dso_local void @_ZN4node4quic19StatelessResetTokenC2EPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %token) unnamed_addr #9 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 1
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %token, ptr %ptr_, align 8
   ret void
 }
@@ -246,10 +239,10 @@ entry:
 define dso_local void @_ZN4node4quic19StatelessResetTokenC2ERKNS0_11TokenSecretERKNS0_3CIDE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %secret, ptr noundef nonnull align 8 dereferenceable(48) %cid) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 1
-  %buf_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 2
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 8
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %buf_, ptr %ptr_, align 8
-  %buf_.i = getelementptr inbounds %"class.node::quic::TokenSecret", ptr %secret, i64 0, i32 1
+  %buf_.i = getelementptr inbounds i8, ptr %secret, i64 8
   %call4 = tail call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %cid) #18
   %call5 = tail call i32 @ngtcp2_crypto_generate_stateless_reset_token(ptr noundef nonnull %buf_, ptr noundef nonnull %buf_.i, i64 noundef 16, ptr noundef %call4) #18
   %cmp.not = icmp eq i32 %call5, 0
@@ -272,9 +265,9 @@ declare noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull al
 define dso_local void @_ZN4node4quic19StatelessResetTokenC2EPhRKNS0_11TokenSecretERKNS0_3CIDE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %token, ptr noundef nonnull align 8 dereferenceable(24) %secret, ptr noundef nonnull align 8 dereferenceable(48) %cid) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 1
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %token, ptr %ptr_, align 8
-  %buf_.i = getelementptr inbounds %"class.node::quic::TokenSecret", ptr %secret, i64 0, i32 1
+  %buf_.i = getelementptr inbounds i8, ptr %secret, i64 8
   %call2 = tail call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %cid) #18
   %call3 = tail call i32 @ngtcp2_crypto_generate_stateless_reset_token(ptr noundef %token, ptr noundef nonnull %buf_.i, i64 noundef 16, ptr noundef %call2) #18
   %cmp.not = icmp eq i32 %call3, 0
@@ -293,10 +286,10 @@ do.end7:                                          ; preds = %entry
 define dso_local void @_ZN4node4quic19StatelessResetTokenC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 1
-  %buf_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 2
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 8
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %buf_, ptr %ptr_, align 8
-  %ptr_.i = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %other, i64 0, i32 1
+  %ptr_.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %ptr_.i, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.else, label %if.then
@@ -316,7 +309,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4node4quic19StatelessResetTokencvbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 1
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr_, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -325,10 +318,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef nonnull ptr @_ZNK4node4quic19StatelessResetTokencvPKhEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 1
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr_, align 8
   %cmp.not = icmp eq ptr %0, null
-  %buf_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 2
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 16
   %cond = select i1 %cmp.not, ptr %buf_, ptr %0
   ret ptr %cond
 }
@@ -336,10 +329,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef nonnull ptr @_ZNK4node4quic19StatelessResetTokencvPKcEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 1
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr_, align 8
   %cmp.not = icmp eq ptr %0, null
-  %buf_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 2
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 16
   %cond = select i1 %cmp.not, ptr %buf_, ptr %0
   ret ptr %cond
 }
@@ -347,9 +340,9 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4node4quic19StatelessResetTokeneqERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #12 align 2 {
 entry:
-  %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 1
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr_, align 8
-  %ptr_2 = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %other, i64 0, i32 1
+  %ptr_2 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load ptr, ptr %ptr_2, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %return, label %if.end
@@ -373,9 +366,9 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4node4quic19StatelessResetTokenneERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #12 align 2 {
 entry:
-  %ptr_.i = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 1
+  %ptr_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr_.i, align 8
-  %ptr_2.i = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %other, i64 0, i32 1
+  %ptr_2.i = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load ptr, ptr %ptr_2.i, align 8
   %cmp.i = icmp eq ptr %0, %1
   br i1 %cmp.i, label %_ZNK4node4quic19StatelessResetTokeneqERKS1_.exit, label %if.end.i
@@ -401,7 +394,7 @@ define dso_local void @_ZNK4node4quic19StatelessResetToken8ToStringB5cxx11Ev(ptr
 entry:
   %dest = alloca [32 x i8], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this, i64 0, i32 1
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -437,7 +430,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK4node4quic19StatelessResetToken4HashclERKS1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %token) local_unnamed_addr #13 align 2 {
 entry:
-  %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %token, i64 0, i32 1
+  %ptr_ = getelementptr inbounds i8, ptr %token, i64 8
   %0 = load ptr, ptr %ptr_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %for.body
@@ -473,11 +466,11 @@ entry:
 define dso_local void @_ZN4node4quic10RetryTokenC2EjRKNS_13SocketAddressERKNS0_3CIDES7_RKNS0_11TokenSecretE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %version, ptr noundef nonnull align 8 dereferenceable(136) %address, ptr noundef nonnull align 8 dereferenceable(48) %retry_cid, ptr noundef nonnull align 8 dereferenceable(48) %odcid, ptr noundef nonnull align 8 dereferenceable(24) %token_secret) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic10RetryTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buf_ = getelementptr inbounds %"class.node::quic::RetryToken", ptr %this, i64 0, i32 1
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(78) %buf_, i8 0, i64 78, i1 false)
-  %ptr_ = getelementptr inbounds %"class.node::quic::RetryToken", ptr %this, i64 0, i32 2
-  %buf_.i.i = getelementptr inbounds %"class.node::quic::TokenSecret", ptr %token_secret, i64 0, i32 1
-  %address_.i.i = getelementptr inbounds %"class.node::SocketAddress", ptr %address, i64 0, i32 1
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 88
+  %buf_.i.i = getelementptr inbounds i8, ptr %token_secret, i64 8
+  %address_.i.i = getelementptr inbounds i8, ptr %address, i64 8
   %0 = load i16, ptr %address_.i.i, align 8
   %cmp.i.i.i.i = icmp eq i16 %0, 2
   %conv.i = select i1 %cmp.i.i.i.i, i32 16, i32 28
@@ -488,7 +481,7 @@ entry:
   %cmp.i = icmp eq i64 %call6.i, 0
   %.buffer.i = select i1 %cmp.i, ptr null, ptr %buf_
   store ptr %.buffer.i, ptr %ptr_, align 8
-  %1 = getelementptr inbounds %"class.node::quic::RetryToken", ptr %this, i64 0, i32 2, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 96
   store i64 %call6.i, ptr %1, align 8
   ret void
 }
@@ -497,9 +490,9 @@ entry:
 define dso_local void @_ZN4node4quic10RetryTokenC2EPKhm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr noundef %token, i64 noundef %size) unnamed_addr #9 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic10RetryTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ptr_ = getelementptr inbounds %"class.node::quic::RetryToken", ptr %this, i64 0, i32 2
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %token, ptr %ptr_, align 8
-  %len = getelementptr inbounds %"class.node::quic::RetryToken", ptr %this, i64 0, i32 2, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 96
   store i64 %size, ptr %len, align 8
   ret void
 }
@@ -508,20 +501,20 @@ entry:
 define dso_local void @_ZN4node4quic10RetryToken8ValidateEjRKNS_13SocketAddressERKNS0_3CIDERKNS0_11TokenSecretEm(ptr noalias sret(%"class.std::optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %version, ptr noundef nonnull align 8 dereferenceable(136) %addr, ptr noundef nonnull align 8 dereferenceable(48) %dcid, ptr noundef nonnull align 8 dereferenceable(24) %token_secret, i64 noundef %verification_expiration) local_unnamed_addr #3 align 2 {
 entry:
   %ocid = alloca %struct.ngtcp2_cid, align 8
-  %ptr_ = getelementptr inbounds %"class.node::quic::RetryToken", ptr %this, i64 0, i32 2
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %ptr_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %len = getelementptr inbounds %"class.node::quic::RetryToken", ptr %this, i64 0, i32 2, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load i64, ptr %len, align 8
   %cmp3 = icmp eq i64 %1, 0
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %buf_.i = getelementptr inbounds %"class.node::quic::TokenSecret", ptr %token_secret, i64 0, i32 1
-  %address_.i = getelementptr inbounds %"class.node::SocketAddress", ptr %addr, i64 0, i32 1
+  %buf_.i = getelementptr inbounds i8, ptr %token_secret, i64 8
+  %address_.i = getelementptr inbounds i8, ptr %addr, i64 8
   %2 = load i16, ptr %address_.i, align 8
   %cmp.i.i.i = icmp eq i16 %2, 2
   %conv = select i1 %cmp.i.i.i, i32 16, i32 28
@@ -538,7 +531,7 @@ if.end17:                                         ; preds = %if.end
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end17
   %.sink = phi i8 [ 1, %if.end17 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end ]
-  %_M_engaged.i.i.i.i.i5 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i8 %.sink, ptr %_M_engaged.i.i.i.i.i5, align 8
   ret void
 }
@@ -550,14 +543,14 @@ declare i64 @uv_hrtime() local_unnamed_addr #0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4node4quic10RetryTokencvRK10ngtcp2_vecEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %ptr_ = getelementptr inbounds %"class.node::quic::RetryToken", ptr %this, i64 0, i32 2
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 88
   ret ptr %ptr_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK4node4quic10RetryTokencvPK10ngtcp2_vecEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %ptr_ = getelementptr inbounds %"class.node::quic::RetryToken", ptr %this, i64 0, i32 2
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 88
   ret ptr %ptr_
 }
 
@@ -565,9 +558,9 @@ entry:
 define dso_local void @_ZN4node4quic12RegularTokenC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic12RegularTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buf_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this, i64 0, i32 1
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %buf_, i8 0, i64 57, i1 false)
-  %ptr_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this, i64 0, i32 2
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ptr_, i8 0, i64 16, i1 false)
   ret void
 }
@@ -576,11 +569,11 @@ entry:
 define dso_local void @_ZN4node4quic12RegularTokenC2EjRKNS_13SocketAddressERKNS0_11TokenSecretE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 %version, ptr noundef nonnull align 8 dereferenceable(136) %address, ptr noundef nonnull align 8 dereferenceable(24) %token_secret) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic12RegularTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buf_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this, i64 0, i32 1
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %buf_, i8 0, i64 57, i1 false)
-  %ptr_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this, i64 0, i32 2
-  %buf_.i.i = getelementptr inbounds %"class.node::quic::TokenSecret", ptr %token_secret, i64 0, i32 1
-  %address_.i.i = getelementptr inbounds %"class.node::SocketAddress", ptr %address, i64 0, i32 1
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 72
+  %buf_.i.i = getelementptr inbounds i8, ptr %token_secret, i64 8
+  %address_.i.i = getelementptr inbounds i8, ptr %address, i64 8
   %0 = load i16, ptr %address_.i.i, align 8
   %cmp.i.i.i.i = icmp eq i16 %0, 2
   %conv.i = select i1 %cmp.i.i.i.i, i32 16, i32 28
@@ -589,7 +582,7 @@ entry:
   %cmp.i = icmp eq i64 %call4.i, 0
   %.buffer.i = select i1 %cmp.i, ptr null, ptr %buf_
   store ptr %.buffer.i, ptr %ptr_, align 8
-  %1 = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this, i64 0, i32 2, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 80
   store i64 %call4.i, ptr %1, align 8
   ret void
 }
@@ -598,9 +591,9 @@ entry:
 define dso_local void @_ZN4node4quic12RegularTokenC2EPKhm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr noundef %token, i64 noundef %size) unnamed_addr #9 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic12RegularTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ptr_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this, i64 0, i32 2
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %token, ptr %ptr_, align 8
-  %len = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this, i64 0, i32 2, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 80
   store i64 %size, ptr %len, align 8
   ret void
 }
@@ -608,10 +601,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4node4quic12RegularTokencvbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %ptr_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this, i64 0, i32 2
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %ptr_, align 8
   %cmp.not = icmp ne ptr %0, null
-  %len = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this, i64 0, i32 2, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load i64, ptr %len, align 8
   %cmp3 = icmp ne i64 %1, 0
   %2 = select i1 %cmp.not, i1 %cmp3, i1 false
@@ -621,20 +614,20 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4node4quic12RegularToken8ValidateEjRKNS_13SocketAddressERKNS0_11TokenSecretEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i32 noundef %version, ptr noundef nonnull align 8 dereferenceable(136) %addr, ptr noundef nonnull align 8 dereferenceable(24) %token_secret, i64 noundef %verification_expiration) local_unnamed_addr #3 align 2 {
 entry:
-  %ptr_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this, i64 0, i32 2
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %ptr_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %len = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this, i64 0, i32 2, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load i64, ptr %len, align 8
   %cmp3 = icmp eq i64 %1, 0
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %buf_.i = getelementptr inbounds %"class.node::quic::TokenSecret", ptr %token_secret, i64 0, i32 1
-  %address_.i = getelementptr inbounds %"class.node::SocketAddress", ptr %addr, i64 0, i32 1
+  %buf_.i = getelementptr inbounds i8, ptr %token_secret, i64 8
+  %address_.i = getelementptr inbounds i8, ptr %addr, i64 8
   %2 = load i16, ptr %address_.i, align 8
   %cmp.i.i.i = icmp eq i16 %2, 2
   %conv = select i1 %cmp.i.i.i, i32 16, i32 28
@@ -654,14 +647,14 @@ declare i32 @ngtcp2_crypto_verify_regular_token(ptr noundef, i64 noundef, ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4node4quic12RegularTokencvRK10ngtcp2_vecEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %ptr_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this, i64 0, i32 2
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 72
   ret ptr %ptr_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK4node4quic12RegularTokencvPK10ngtcp2_vecEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %ptr_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this, i64 0, i32 2
+  %ptr_ = getelementptr inbounds i8, ptr %this, i64 72
   ret ptr %ptr_
 }
 

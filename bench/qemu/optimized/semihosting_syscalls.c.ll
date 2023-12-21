@@ -3,13 +3,8 @@ source_filename = "bench/qemu/original/semihosting_syscalls.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.GuestFD = type { i32, %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, i64, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.gdb_stat = type <{ i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i32, i32, i32 }>
-%struct.gdb_timeval = type <{ i32, i64 }>
 
 @.str = private unnamed_addr constant [31 x i8] c"../qemu/semihosting/syscalls.c\00", align 1
 @__func__.semihost_sys_close = private unnamed_addr constant [19 x i8] c"semihost_sys_close\00", align 1
@@ -260,7 +255,7 @@ sw.bb1:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.then.i, label %do.body.preheader.i
 
 do.body.preheader.i:                              ; preds = %sw.bb1
-  %2 = getelementptr inbounds %struct.GuestFD, ptr %gf, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %gf, i64 8
   br label %do.body.i
 
 if.then.i:                                        ; preds = %sw.bb1
@@ -288,9 +283,9 @@ if.else.i:                                        ; preds = %do.body.i
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %len1.i = getelementptr inbounds %struct.GuestFD, ptr %gf, i64 0, i32 1, i32 0, i32 1
+  %len1.i = getelementptr inbounds i8, ptr %gf, i64 16
   %5 = load i64, ptr %len1.i, align 8
-  %off.i = getelementptr inbounds %struct.GuestFD, ptr %gf, i64 0, i32 1, i32 0, i32 2
+  %off.i = getelementptr inbounds i8, ptr %gf, i64 24
   %6 = load i64, ptr %off.i, align 8
   %sub.i = sub i64 %5, %6
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %spec.store.select)
@@ -303,7 +298,7 @@ if.then3.i:                                       ; preds = %sw.bb2
   br label %sw.epilog
 
 if.end4.i:                                        ; preds = %sw.bb2
-  %7 = getelementptr inbounds %struct.GuestFD, ptr %gf, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %gf, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %off.i, align 8
   %add.ptr.i = getelementptr i8, ptr %8, i64 %9
@@ -385,7 +380,7 @@ if.then.i:                                        ; preds = %sw.bb1
   br label %sw.epilog
 
 if.end.i:                                         ; preds = %sw.bb1
-  %2 = getelementptr inbounds %struct.GuestFD, ptr %gf, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %gf, i64 8
   %3 = load i32, ptr %2, align 8
   %call2.i = tail call i64 @write(i32 noundef %3, ptr noundef nonnull %call1.i, i64 noundef %spec.store.select) #12
   %cmp.i = icmp eq i64 %call2.i, -1
@@ -497,21 +492,17 @@ host_lseek.exit:                                  ; preds = %sw.bb1, %if.then2.i
 sw.bb2:                                           ; preds = %if.end
   switch i32 %gdb_whence, label %if.else.i [
     i32 0, label %sw.epilog.i
-    i32 1, label %sw.bb1.i
+    i32 1, label %sw.epilog.sink.split.i
     i32 2, label %sw.bb3.i
   ]
 
-sw.bb1.i:                                         ; preds = %sw.bb2
-  %off2.i = getelementptr inbounds %struct.GuestFD, ptr %call, i64 0, i32 1, i32 0, i32 2
-  br label %sw.epilog.sink.split.i
-
 sw.bb3.i:                                         ; preds = %sw.bb2
-  %len.i = getelementptr inbounds %struct.GuestFD, ptr %call, i64 0, i32 1, i32 0, i32 1
   br label %sw.epilog.sink.split.i
 
-sw.epilog.sink.split.i:                           ; preds = %sw.bb3.i, %sw.bb1.i
-  %len.sink.i = phi ptr [ %len.i, %sw.bb3.i ], [ %off2.i, %sw.bb1.i ]
-  %4 = load i64, ptr %len.sink.i, align 8
+sw.epilog.sink.split.i:                           ; preds = %sw.bb3.i, %sw.bb2
+  %.sink.i = phi i64 [ 16, %sw.bb3.i ], [ 24, %sw.bb2 ]
+  %len.i = getelementptr inbounds i8, ptr %call, i64 %.sink.i
+  %4 = load i64, ptr %len.i, align 8
   %add4.i = add i64 %4, %off
   br label %sw.epilog.i
 
@@ -521,13 +512,13 @@ sw.epilog.i:                                      ; preds = %sw.epilog.sink.spli
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %sw.epilog.i
-  %len5.i = getelementptr inbounds %struct.GuestFD, ptr %call, i64 0, i32 1, i32 0, i32 1
+  %len5.i = getelementptr inbounds i8, ptr %call, i64 16
   %5 = load i64, ptr %len5.i, align 8
   %cmp6.not.i = icmp ugt i64 %ret.0.i, %5
   br i1 %cmp6.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %off7.i = getelementptr inbounds %struct.GuestFD, ptr %call, i64 0, i32 1, i32 0, i32 2
+  %off7.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %ret.0.i, ptr %off7.i, align 8
   tail call void %complete(ptr noundef %cs, i64 noundef %ret.0.i, i32 noundef 0) #12
   br label %sw.epilog
@@ -649,7 +640,7 @@ if.then.i:                                        ; preds = %sw.bb1
   br label %host_flen.exit
 
 if.else.i:                                        ; preds = %sw.bb1
-  %st_size.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 8
+  %st_size.i = getelementptr inbounds i8, ptr %buf.i, i64 48
   %4 = load i64, ptr %st_size.i, align 8
   tail call void %flen_cb(ptr noundef %cs, i64 noundef %4, i32 noundef 0) #12
   br label %host_flen.exit
@@ -718,7 +709,7 @@ if.end.i:                                         ; preds = %sw.bb1
   br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %copy_stat_to_user.exit.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i
-  %st_ino.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 1
+  %st_ino.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %5 = load i64, ptr %st_ino.i.i, align 8
   %cmp7.not.i.i = icmp ult i64 %5, 4294967296
   br i1 %cmp7.not.i.i, label %if.end.i.i, label %copy_stat_to_user.exit.i
@@ -734,67 +725,67 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   store i32 %6, ptr %call9.i.i, align 1
   %conv16.i.i = trunc i64 %5 to i32
   %7 = tail call i32 @llvm.bswap.i32(i32 %conv16.i.i)
-  %gdb_st_ino.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 1
+  %gdb_st_ino.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 4
   store i32 %7, ptr %gdb_st_ino.i.i, align 1
-  %st_mode.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 3
+  %st_mode.i.i = getelementptr inbounds i8, ptr %buf.i, i64 24
   %8 = load i32, ptr %st_mode.i.i, align 8
   %9 = tail call i32 @llvm.bswap.i32(i32 %8)
-  %gdb_st_mode.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 2
+  %gdb_st_mode.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 8
   store i32 %9, ptr %gdb_st_mode.i.i, align 1
-  %st_nlink.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 2
+  %st_nlink.i.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %10 = load i64, ptr %st_nlink.i.i, align 8
   %conv19.i.i = trunc i64 %10 to i32
   %11 = tail call i32 @llvm.bswap.i32(i32 %conv19.i.i)
-  %gdb_st_nlink.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 3
+  %gdb_st_nlink.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 12
   store i32 %11, ptr %gdb_st_nlink.i.i, align 1
-  %st_uid.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 4
+  %st_uid.i.i = getelementptr inbounds i8, ptr %buf.i, i64 28
   %12 = load i32, ptr %st_uid.i.i, align 4
   %13 = tail call i32 @llvm.bswap.i32(i32 %12)
-  %gdb_st_uid.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 4
+  %gdb_st_uid.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 16
   store i32 %13, ptr %gdb_st_uid.i.i, align 1
-  %st_gid.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 5
+  %st_gid.i.i = getelementptr inbounds i8, ptr %buf.i, i64 32
   %14 = load i32, ptr %st_gid.i.i, align 8
   %15 = tail call i32 @llvm.bswap.i32(i32 %14)
-  %gdb_st_gid.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 5
+  %gdb_st_gid.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 20
   store i32 %15, ptr %gdb_st_gid.i.i, align 1
-  %st_rdev.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 7
+  %st_rdev.i.i = getelementptr inbounds i8, ptr %buf.i, i64 40
   %16 = load i64, ptr %st_rdev.i.i, align 8
   %conv23.i.i = trunc i64 %16 to i32
   %17 = tail call i32 @llvm.bswap.i32(i32 %conv23.i.i)
-  %gdb_st_rdev.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 6
+  %gdb_st_rdev.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 24
   store i32 %17, ptr %gdb_st_rdev.i.i, align 1
-  %st_size.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 8
+  %st_size.i.i = getelementptr inbounds i8, ptr %buf.i, i64 48
   %18 = load i64, ptr %st_size.i.i, align 8
   %19 = tail call i64 @llvm.bswap.i64(i64 %18)
-  %gdb_st_size.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 7
+  %gdb_st_size.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 28
   store i64 %19, ptr %gdb_st_size.i.i, align 1
-  %st_blksize.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 9
+  %st_blksize.i.i = getelementptr inbounds i8, ptr %buf.i, i64 56
   %20 = load i64, ptr %st_blksize.i.i, align 8
   %21 = tail call i64 @llvm.bswap.i64(i64 %20)
-  %gdb_st_blksize.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 8
+  %gdb_st_blksize.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 36
   store i64 %21, ptr %gdb_st_blksize.i.i, align 1
-  %st_blocks.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 10
+  %st_blocks.i.i = getelementptr inbounds i8, ptr %buf.i, i64 64
   %22 = load i64, ptr %st_blocks.i.i, align 8
   %23 = tail call i64 @llvm.bswap.i64(i64 %22)
-  %gdb_st_blocks.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 9
+  %gdb_st_blocks.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 44
   store i64 %23, ptr %gdb_st_blocks.i.i, align 1
-  %st_atim.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 11
+  %st_atim.i.i = getelementptr inbounds i8, ptr %buf.i, i64 72
   %24 = load i64, ptr %st_atim.i.i, align 8
   %conv28.i.i = trunc i64 %24 to i32
   %25 = tail call i32 @llvm.bswap.i32(i32 %conv28.i.i)
-  %gdb_st_atime.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 10
+  %gdb_st_atime.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 52
   store i32 %25, ptr %gdb_st_atime.i.i, align 1
-  %st_mtim.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 12
+  %st_mtim.i.i = getelementptr inbounds i8, ptr %buf.i, i64 88
   %26 = load i64, ptr %st_mtim.i.i, align 8
   %conv31.i.i = trunc i64 %26 to i32
   %27 = tail call i32 @llvm.bswap.i32(i32 %conv31.i.i)
-  %gdb_st_mtime.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 11
+  %gdb_st_mtime.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 56
   store i32 %27, ptr %gdb_st_mtime.i.i, align 1
-  %st_ctim.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 13
+  %st_ctim.i.i = getelementptr inbounds i8, ptr %buf.i, i64 104
   %28 = load i64, ptr %st_ctim.i.i, align 8
   %conv34.i.i = trunc i64 %28 to i32
   %29 = tail call i32 @llvm.bswap.i32(i32 %conv34.i.i)
-  %gdb_st_ctime.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 12
+  %gdb_st_ctime.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 60
   store i32 %29, ptr %gdb_st_ctime.i.i, align 1
   br label %copy_stat_to_user.exit.i
 
@@ -815,13 +806,13 @@ sw.bb2:                                           ; preds = %if.end
 
 if.end11.i.i16:                                   ; preds = %sw.bb2
   store <4 x i32> <i32 0, i32 0, i32 -1239351296, i32 0>, ptr %call9.i.i14, align 1
-  %gdb_st_uid.i.i20 = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i14, i64 0, i32 4
+  %gdb_st_uid.i.i20 = getelementptr inbounds i8, ptr %call9.i.i14, i64 16
   store i32 0, ptr %gdb_st_uid.i.i20, align 1
-  %gdb_st_gid.i.i21 = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i14, i64 0, i32 5
+  %gdb_st_gid.i.i21 = getelementptr inbounds i8, ptr %call9.i.i14, i64 20
   store i32 0, ptr %gdb_st_gid.i.i21, align 1
-  %gdb_st_rdev.i.i22 = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i14, i64 0, i32 6
+  %gdb_st_rdev.i.i22 = getelementptr inbounds i8, ptr %call9.i.i14, i64 24
   store i32 83886080, ptr %gdb_st_rdev.i.i22, align 1
-  %gdb_st_size.i.i23 = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i14, i64 0, i32 7
+  %gdb_st_size.i.i23 = getelementptr inbounds i8, ptr %call9.i.i14, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %gdb_st_size.i.i23, i8 0, i64 36, i1 false)
   br label %console_fstat.exit
 
@@ -954,7 +945,7 @@ if.else.i:                                        ; preds = %if.end.i8
   br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %if.end10.i
 
 lor.lhs.false.i.i:                                ; preds = %if.else.i
-  %st_ino.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 1
+  %st_ino.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %6 = load i64, ptr %st_ino.i.i, align 8
   %cmp7.not.i.i = icmp ult i64 %6, 4294967296
   br i1 %cmp7.not.i.i, label %if.end.i.i9, label %if.end10.i
@@ -970,67 +961,67 @@ copy_stat_to_user.exit.i:                         ; preds = %if.end.i.i9
   store i32 %7, ptr %call9.i.i, align 1
   %conv16.i.i = trunc i64 %6 to i32
   %8 = tail call i32 @llvm.bswap.i32(i32 %conv16.i.i)
-  %gdb_st_ino.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 1
+  %gdb_st_ino.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 4
   store i32 %8, ptr %gdb_st_ino.i.i, align 1
-  %st_mode.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 3
+  %st_mode.i.i = getelementptr inbounds i8, ptr %buf.i, i64 24
   %9 = load i32, ptr %st_mode.i.i, align 8
   %10 = tail call i32 @llvm.bswap.i32(i32 %9)
-  %gdb_st_mode.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 2
+  %gdb_st_mode.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 8
   store i32 %10, ptr %gdb_st_mode.i.i, align 1
-  %st_nlink.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 2
+  %st_nlink.i.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %11 = load i64, ptr %st_nlink.i.i, align 8
   %conv19.i.i = trunc i64 %11 to i32
   %12 = tail call i32 @llvm.bswap.i32(i32 %conv19.i.i)
-  %gdb_st_nlink.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 3
+  %gdb_st_nlink.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 12
   store i32 %12, ptr %gdb_st_nlink.i.i, align 1
-  %st_uid.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 4
+  %st_uid.i.i = getelementptr inbounds i8, ptr %buf.i, i64 28
   %13 = load i32, ptr %st_uid.i.i, align 4
   %14 = tail call i32 @llvm.bswap.i32(i32 %13)
-  %gdb_st_uid.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 4
+  %gdb_st_uid.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 16
   store i32 %14, ptr %gdb_st_uid.i.i, align 1
-  %st_gid.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 5
+  %st_gid.i.i = getelementptr inbounds i8, ptr %buf.i, i64 32
   %15 = load i32, ptr %st_gid.i.i, align 8
   %16 = tail call i32 @llvm.bswap.i32(i32 %15)
-  %gdb_st_gid.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 5
+  %gdb_st_gid.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 20
   store i32 %16, ptr %gdb_st_gid.i.i, align 1
-  %st_rdev.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 7
+  %st_rdev.i.i = getelementptr inbounds i8, ptr %buf.i, i64 40
   %17 = load i64, ptr %st_rdev.i.i, align 8
   %conv23.i.i = trunc i64 %17 to i32
   %18 = tail call i32 @llvm.bswap.i32(i32 %conv23.i.i)
-  %gdb_st_rdev.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 6
+  %gdb_st_rdev.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 24
   store i32 %18, ptr %gdb_st_rdev.i.i, align 1
-  %st_size.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 8
+  %st_size.i.i = getelementptr inbounds i8, ptr %buf.i, i64 48
   %19 = load i64, ptr %st_size.i.i, align 8
   %20 = tail call i64 @llvm.bswap.i64(i64 %19)
-  %gdb_st_size.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 7
+  %gdb_st_size.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 28
   store i64 %20, ptr %gdb_st_size.i.i, align 1
-  %st_blksize.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 9
+  %st_blksize.i.i = getelementptr inbounds i8, ptr %buf.i, i64 56
   %21 = load i64, ptr %st_blksize.i.i, align 8
   %22 = tail call i64 @llvm.bswap.i64(i64 %21)
-  %gdb_st_blksize.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 8
+  %gdb_st_blksize.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 36
   store i64 %22, ptr %gdb_st_blksize.i.i, align 1
-  %st_blocks.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 10
+  %st_blocks.i.i = getelementptr inbounds i8, ptr %buf.i, i64 64
   %23 = load i64, ptr %st_blocks.i.i, align 8
   %24 = tail call i64 @llvm.bswap.i64(i64 %23)
-  %gdb_st_blocks.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 9
+  %gdb_st_blocks.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 44
   store i64 %24, ptr %gdb_st_blocks.i.i, align 1
-  %st_atim.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 11
+  %st_atim.i.i = getelementptr inbounds i8, ptr %buf.i, i64 72
   %25 = load i64, ptr %st_atim.i.i, align 8
   %conv28.i.i = trunc i64 %25 to i32
   %26 = tail call i32 @llvm.bswap.i32(i32 %conv28.i.i)
-  %gdb_st_atime.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 10
+  %gdb_st_atime.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 52
   store i32 %26, ptr %gdb_st_atime.i.i, align 1
-  %st_mtim.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 12
+  %st_mtim.i.i = getelementptr inbounds i8, ptr %buf.i, i64 88
   %27 = load i64, ptr %st_mtim.i.i, align 8
   %conv31.i.i = trunc i64 %27 to i32
   %28 = tail call i32 @llvm.bswap.i32(i32 %conv31.i.i)
-  %gdb_st_mtime.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 11
+  %gdb_st_mtime.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 56
   store i32 %28, ptr %gdb_st_mtime.i.i, align 1
-  %st_ctim.i.i = getelementptr inbounds %struct.stat, ptr %buf.i, i64 0, i32 13
+  %st_ctim.i.i = getelementptr inbounds i8, ptr %buf.i, i64 104
   %29 = load i64, ptr %st_ctim.i.i, align 8
   %conv34.i.i = trunc i64 %29 to i32
   %30 = tail call i32 @llvm.bswap.i32(i32 %conv34.i.i)
-  %gdb_st_ctime.i.i = getelementptr inbounds %struct.gdb_stat, ptr %call9.i.i, i64 0, i32 12
+  %gdb_st_ctime.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 60
   store i32 %30, ptr %gdb_st_ctime.i.i, align 1
   br label %if.end10.i
 
@@ -1514,7 +1505,7 @@ if.end3.i:                                        ; preds = %if.end.i
   store i32 %0, ptr %call1.i, align 1
   %rem.i = srem i64 %call4.i, 1000000
   %1 = tail call i64 @llvm.bswap.i64(i64 %rem.i)
-  %tv_usec.i = getelementptr inbounds %struct.gdb_timeval, ptr %call1.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %call1.i, i64 4
   store i64 %1, ptr %tv_usec.i, align 1
   br label %if.end
 

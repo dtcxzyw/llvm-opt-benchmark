@@ -45,21 +45,21 @@ if.end5:                                          ; preds = %entry, %if.then
   %pattern.0 = phi ptr [ %call2, %if.then ], [ %patBuffer, %entry ]
   call void @u_charsToUChars_75(ptr noundef %patternSpecification, ptr noundef nonnull %pattern.0, i32 noundef %add)
   call void @llvm.lifetime.start.p0(i64 2160, ptr nonnull %inStr.i)
-  %fOwnFile.i = getelementptr inbounds %struct.UFILE, ptr %inStr.i, i64 0, i32 5
+  %fOwnFile.i = getelementptr inbounds i8, ptr %inStr.i, i64 2152
   store i8 0, ptr %fOwnFile.i, align 8
-  %fUCBuffer.i = getelementptr inbounds %struct.UFILE, ptr %inStr.i, i64 0, i32 4
+  %fUCBuffer.i = getelementptr inbounds i8, ptr %inStr.i, i64 104
   store i16 0, ptr %fUCBuffer.i, align 8
-  %str.i = getelementptr inbounds %struct.UFILE, ptr %inStr.i, i64 0, i32 3
-  %fBuffer.i = getelementptr inbounds %struct.UFILE, ptr %inStr.i, i64 0, i32 3, i32 2
+  %str.i = getelementptr inbounds i8, ptr %inStr.i, i64 24
+  %fBuffer.i = getelementptr inbounds i8, ptr %inStr.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %inStr.i, i8 0, i64 24, i1 false)
   store ptr %buffer, ptr %fBuffer.i, align 8
   store ptr %buffer, ptr %str.i, align 8
   %call.i = call i32 @u_strlen_75(ptr noundef %buffer)
   %idx.ext.i = sext i32 %call.i to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %buffer, i64 %idx.ext.i
-  %fLimit.i = getelementptr inbounds %struct.UFILE, ptr %inStr.i, i64 0, i32 3, i32 1
+  %fLimit.i = getelementptr inbounds i8, ptr %inStr.i, i64 32
   store ptr %add.ptr.i, ptr %fLimit.i, align 8
-  %fBundle.i = getelementptr inbounds %struct.UFILE, ptr %inStr.i, i64 0, i32 3, i32 3
+  %fBundle.i = getelementptr inbounds i8, ptr %inStr.i, i64 48
   %call4.i = call ptr @u_locbund_init_75(ptr noundef nonnull %fBundle.i, ptr noundef nonnull @.str)
   %cmp.i = icmp eq ptr %call4.i, null
   br i1 %cmp.i, label %u_vsscanf_u_75.exit, label %if.end.i
@@ -94,21 +94,21 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 2160, ptr nonnull %inStr.i)
-  %fOwnFile.i = getelementptr inbounds %struct.UFILE, ptr %inStr.i, i64 0, i32 5
+  %fOwnFile.i = getelementptr inbounds i8, ptr %inStr.i, i64 2152
   store i8 0, ptr %fOwnFile.i, align 8
-  %fUCBuffer.i = getelementptr inbounds %struct.UFILE, ptr %inStr.i, i64 0, i32 4
+  %fUCBuffer.i = getelementptr inbounds i8, ptr %inStr.i, i64 104
   store i16 0, ptr %fUCBuffer.i, align 8
-  %str.i = getelementptr inbounds %struct.UFILE, ptr %inStr.i, i64 0, i32 3
-  %fBuffer.i = getelementptr inbounds %struct.UFILE, ptr %inStr.i, i64 0, i32 3, i32 2
+  %str.i = getelementptr inbounds i8, ptr %inStr.i, i64 24
+  %fBuffer.i = getelementptr inbounds i8, ptr %inStr.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %inStr.i, i8 0, i64 24, i1 false)
   store ptr %buffer, ptr %fBuffer.i, align 8
   store ptr %buffer, ptr %str.i, align 8
   %call.i = call i32 @u_strlen_75(ptr noundef %buffer)
   %idx.ext.i = sext i32 %call.i to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %buffer, i64 %idx.ext.i
-  %fLimit.i = getelementptr inbounds %struct.UFILE, ptr %inStr.i, i64 0, i32 3, i32 1
+  %fLimit.i = getelementptr inbounds i8, ptr %inStr.i, i64 32
   store ptr %add.ptr.i, ptr %fLimit.i, align 8
-  %fBundle.i = getelementptr inbounds %struct.UFILE, ptr %inStr.i, i64 0, i32 3, i32 3
+  %fBundle.i = getelementptr inbounds i8, ptr %inStr.i, i64 48
   %call4.i = call ptr @u_locbund_init_75(ptr noundef nonnull %fBundle.i, ptr noundef nonnull @.str)
   %cmp.i = icmp eq ptr %call4.i, null
   br i1 %cmp.i, label %u_vsscanf_u_75.exit, label %if.end.i
@@ -129,21 +129,21 @@ u_vsscanf_u_75.exit:                              ; preds = %entry, %if.end.i
 define i32 @u_vsscanf_u_75(ptr noundef %buffer, ptr noundef %patternSpecification, ptr noundef %ap) local_unnamed_addr #0 {
 entry:
   %inStr = alloca %struct.UFILE, align 8
-  %fOwnFile = getelementptr inbounds %struct.UFILE, ptr %inStr, i64 0, i32 5
+  %fOwnFile = getelementptr inbounds i8, ptr %inStr, i64 2152
   store i8 0, ptr %fOwnFile, align 8
-  %fUCBuffer = getelementptr inbounds %struct.UFILE, ptr %inStr, i64 0, i32 4
+  %fUCBuffer = getelementptr inbounds i8, ptr %inStr, i64 104
   store i16 0, ptr %fUCBuffer, align 8
-  %str = getelementptr inbounds %struct.UFILE, ptr %inStr, i64 0, i32 3
-  %fBuffer = getelementptr inbounds %struct.UFILE, ptr %inStr, i64 0, i32 3, i32 2
+  %str = getelementptr inbounds i8, ptr %inStr, i64 24
+  %fBuffer = getelementptr inbounds i8, ptr %inStr, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %inStr, i8 0, i64 24, i1 false)
   store ptr %buffer, ptr %fBuffer, align 8
   store ptr %buffer, ptr %str, align 8
   %call = tail call i32 @u_strlen_75(ptr noundef %buffer)
   %idx.ext = sext i32 %call to i64
   %add.ptr = getelementptr inbounds i16, ptr %buffer, i64 %idx.ext
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %inStr, i64 0, i32 3, i32 1
+  %fLimit = getelementptr inbounds i8, ptr %inStr, i64 32
   store ptr %add.ptr, ptr %fLimit, align 8
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %inStr, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %inStr, i64 48
   %call4 = call ptr @u_locbund_init_75(ptr noundef nonnull %fBundle, ptr noundef nonnull @.str)
   %cmp = icmp eq ptr %call4, null
   br i1 %cmp, label %return, label %if.end

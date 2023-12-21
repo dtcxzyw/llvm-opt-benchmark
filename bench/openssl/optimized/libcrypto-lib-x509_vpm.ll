@@ -27,11 +27,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %trust = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %call, i64 0, i32 5
+  %trust = getelementptr inbounds i8, ptr %call, i64 36
   store i32 0, ptr %trust, align 4
-  %depth = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %call, i64 0, i32 6
+  %depth = getelementptr inbounds i8, ptr %call, i64 40
   store i32 -1, ptr %depth, align 8
-  %auth_level = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %call, i64 0, i32 7
+  %auth_level = getelementptr inbounds i8, ptr %call, i64 44
   store i32 -1, ptr %auth_level, align 4
   br label %return
 
@@ -48,19 +48,19 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %policies = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 8
+  %policies = getelementptr inbounds i8, ptr %param, i64 48
   %0 = load ptr, ptr %policies, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @ASN1_OBJECT_free) #8
-  %hosts = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 9
+  %hosts = getelementptr inbounds i8, ptr %param, i64 56
   %1 = load ptr, ptr %hosts, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %1, ptr noundef nonnull @str_free) #8
-  %peername = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 11
+  %peername = getelementptr inbounds i8, ptr %param, i64 72
   %2 = load ptr, ptr %peername, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 102) #8
-  %email = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 12
+  %email = getelementptr inbounds i8, ptr %param, i64 80
   %3 = load ptr, ptr %email, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 103) #8
-  %ip = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 14
+  %ip = getelementptr inbounds i8, ptr %param, i64 96
   %4 = load ptr, ptr %ip, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 104) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %param, ptr noundef nonnull @.str, i32 noundef 105) #8
@@ -90,9 +90,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %inh_flags1 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 2
+  %inh_flags1 = getelementptr inbounds i8, ptr %dest, i64 16
   %0 = load i32, ptr %inh_flags1, align 8
-  %inh_flags2 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 2
+  %inh_flags2 = getelementptr inbounds i8, ptr %src, i64 16
   %1 = load i32, ptr %inh_flags2, align 8
   %or = or i32 %1, %0
   %conv = zext i32 %or to i64
@@ -114,7 +114,7 @@ if.end12:                                         ; preds = %if.end7
   %cmp14.not = icmp eq i64 %and13, 0
   %and16 = and i64 %conv, 2
   %cmp17.not = icmp eq i64 %and16, 0
-  %purpose = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 4
+  %purpose = getelementptr inbounds i8, ptr %src, i64 32
   %2 = load i32, ptr %purpose, align 8
   br i1 %cmp17.not, label %lor.lhs.false, label %if.end71
 
@@ -126,24 +126,24 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   br i1 %cmp14.not, label %lor.lhs.false22, label %if.end29.thread74
 
 lor.lhs.false22:                                  ; preds = %land.lhs.true
-  %purpose23 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 4
+  %purpose23 = getelementptr inbounds i8, ptr %dest, i64 32
   %3 = load i32, ptr %purpose23, align 8
   %cmp24 = icmp eq i32 %3, 0
   br i1 %cmp24, label %if.end29.thread74, label %lor.lhs.false31.thread
 
 if.end29.thread74:                                ; preds = %land.lhs.true, %lor.lhs.false22
-  %purpose2876 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 4
+  %purpose2876 = getelementptr inbounds i8, ptr %dest, i64 32
   store i32 %2, ptr %purpose2876, align 8
   br label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false, %if.end29.thread74
-  %trust = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 5
+  %trust = getelementptr inbounds i8, ptr %src, i64 36
   %4 = load i32, ptr %trust, align 4
   %cmp32.not = icmp eq i32 %4, 0
   br i1 %cmp32.not, label %lor.lhs.false45, label %land.lhs.true34
 
 lor.lhs.false31.thread:                           ; preds = %lor.lhs.false22
-  %trust99 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 5
+  %trust99 = getelementptr inbounds i8, ptr %src, i64 36
   %5 = load i32, ptr %trust99, align 4
   %cmp32.not100 = icmp eq i32 %5, 0
   br i1 %cmp32.not100, label %lor.lhs.false45, label %lor.lhs.false36
@@ -153,19 +153,19 @@ land.lhs.true34:                                  ; preds = %lor.lhs.false31
 
 lor.lhs.false36:                                  ; preds = %lor.lhs.false31.thread, %land.lhs.true34
   %6 = phi i32 [ %5, %lor.lhs.false31.thread ], [ %4, %land.lhs.true34 ]
-  %trust37 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 5
+  %trust37 = getelementptr inbounds i8, ptr %dest, i64 36
   %7 = load i32, ptr %trust37, align 4
   %cmp38 = icmp eq i32 %7, 0
   br i1 %cmp38, label %if.end43.thread78, label %lor.lhs.false45
 
 if.end43.thread78:                                ; preds = %land.lhs.true34, %lor.lhs.false36
   %8 = phi i32 [ %4, %land.lhs.true34 ], [ %6, %lor.lhs.false36 ]
-  %trust4280 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 5
+  %trust4280 = getelementptr inbounds i8, ptr %dest, i64 36
   store i32 %8, ptr %trust4280, align 4
   br label %lor.lhs.false45
 
 lor.lhs.false45:                                  ; preds = %lor.lhs.false31.thread, %lor.lhs.false31, %lor.lhs.false36, %if.end43.thread78
-  %depth = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 6
+  %depth = getelementptr inbounds i8, ptr %src, i64 40
   %9 = load i32, ptr %depth, align 8
   %cmp46.not = icmp eq i32 %9, -1
   br i1 %cmp46.not, label %lor.lhs.false59, label %land.lhs.true48
@@ -174,24 +174,24 @@ land.lhs.true48:                                  ; preds = %lor.lhs.false45
   br i1 %cmp14.not, label %lor.lhs.false50, label %if.end57.thread82
 
 lor.lhs.false50:                                  ; preds = %land.lhs.true48
-  %depth51 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 6
+  %depth51 = getelementptr inbounds i8, ptr %dest, i64 40
   %10 = load i32, ptr %depth51, align 8
   %cmp52 = icmp eq i32 %10, -1
   br i1 %cmp52, label %if.end57.thread82, label %lor.lhs.false59.thread
 
 if.end57.thread82:                                ; preds = %land.lhs.true48, %lor.lhs.false50
-  %depth5684 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 6
+  %depth5684 = getelementptr inbounds i8, ptr %dest, i64 40
   store i32 %9, ptr %depth5684, align 8
   br label %lor.lhs.false59
 
 lor.lhs.false59:                                  ; preds = %lor.lhs.false45, %if.end57.thread82
-  %auth_level = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 7
+  %auth_level = getelementptr inbounds i8, ptr %src, i64 44
   %11 = load i32, ptr %auth_level, align 4
   %cmp60.not = icmp eq i32 %11, -1
   br i1 %cmp60.not, label %lor.lhs.false73, label %land.lhs.true62
 
 lor.lhs.false59.thread:                           ; preds = %lor.lhs.false50
-  %auth_level101 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 7
+  %auth_level101 = getelementptr inbounds i8, ptr %src, i64 44
   %12 = load i32, ptr %auth_level101, align 4
   %cmp60.not102 = icmp eq i32 %12, -1
   br i1 %cmp60.not102, label %lor.lhs.false73, label %lor.lhs.false64
@@ -201,38 +201,38 @@ land.lhs.true62:                                  ; preds = %lor.lhs.false59
 
 lor.lhs.false64:                                  ; preds = %lor.lhs.false59.thread, %land.lhs.true62
   %13 = phi i32 [ %12, %lor.lhs.false59.thread ], [ %11, %land.lhs.true62 ]
-  %auth_level65 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 7
+  %auth_level65 = getelementptr inbounds i8, ptr %dest, i64 44
   %14 = load i32, ptr %auth_level65, align 4
   %cmp66 = icmp eq i32 %14, -1
   br i1 %cmp66, label %if.end71.thread86, label %lor.lhs.false73
 
 if.end71.thread86:                                ; preds = %land.lhs.true62, %lor.lhs.false64
   %15 = phi i32 [ %11, %land.lhs.true62 ], [ %13, %lor.lhs.false64 ]
-  %auth_level7088 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 7
+  %auth_level7088 = getelementptr inbounds i8, ptr %dest, i64 44
   store i32 %15, ptr %auth_level7088, align 4
   br label %lor.lhs.false73
 
 if.end71:                                         ; preds = %if.end12
-  %purpose28 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 4
+  %purpose28 = getelementptr inbounds i8, ptr %dest, i64 32
   store i32 %2, ptr %purpose28, align 8
-  %trust41 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 5
+  %trust41 = getelementptr inbounds i8, ptr %src, i64 36
   %16 = load i32, ptr %trust41, align 4
-  %trust42 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 5
+  %trust42 = getelementptr inbounds i8, ptr %dest, i64 36
   store i32 %16, ptr %trust42, align 4
-  %depth55 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 6
+  %depth55 = getelementptr inbounds i8, ptr %src, i64 40
   %17 = load i32, ptr %depth55, align 8
-  %depth56 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 6
+  %depth56 = getelementptr inbounds i8, ptr %dest, i64 40
   store i32 %17, ptr %depth56, align 8
-  %auth_level69 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 7
+  %auth_level69 = getelementptr inbounds i8, ptr %src, i64 44
   %18 = load i32, ptr %auth_level69, align 4
-  %auth_level70 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 7
+  %auth_level70 = getelementptr inbounds i8, ptr %dest, i64 44
   store i32 %18, ptr %auth_level70, align 4
-  %flags79.phi.trans.insert = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 3
+  %flags79.phi.trans.insert = getelementptr inbounds i8, ptr %dest, i64 24
   %.pre = load i64, ptr %flags79.phi.trans.insert, align 8
   br label %if.then77
 
 lor.lhs.false73:                                  ; preds = %lor.lhs.false59.thread, %lor.lhs.false59, %lor.lhs.false64, %if.end71.thread86
-  %flags = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %dest, i64 24
   %19 = load i64, ptr %flags, align 8
   %and74 = and i64 %19, 2
   %cmp75 = icmp eq i64 %and74, 0
@@ -240,11 +240,11 @@ lor.lhs.false73:                                  ; preds = %lor.lhs.false59.thr
 
 if.then77:                                        ; preds = %if.end71, %lor.lhs.false73
   %20 = phi i64 [ %.pre, %if.end71 ], [ %19, %lor.lhs.false73 ]
-  %check_time = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 1
+  %check_time = getelementptr inbounds i8, ptr %src, i64 8
   %21 = load i64, ptr %check_time, align 8
-  %check_time78 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 1
+  %check_time78 = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %21, ptr %check_time78, align 8
-  %flags79 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 3
+  %flags79 = getelementptr inbounds i8, ptr %dest, i64 24
   %and80 = and i64 %20, -3
   store i64 %and80, ptr %flags79, align 8
   br label %if.end81
@@ -256,18 +256,18 @@ if.end81:                                         ; preds = %if.then77, %lor.lhs
   br i1 %cmp83.not, label %if.end87, label %if.then85
 
 if.then85:                                        ; preds = %if.end81
-  %flags86 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 3
+  %flags86 = getelementptr inbounds i8, ptr %dest, i64 24
   store i64 0, ptr %flags86, align 8
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then85, %if.end81
   %23 = phi i64 [ 0, %if.then85 ], [ %22, %if.end81 ]
-  %flags88 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 3
+  %flags88 = getelementptr inbounds i8, ptr %src, i64 24
   %24 = load i64, ptr %flags88, align 8
-  %flags89 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 3
+  %flags89 = getelementptr inbounds i8, ptr %dest, i64 24
   %or90 = or i64 %23, %24
   store i64 %or90, ptr %flags89, align 8
-  %policies = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 8
+  %policies = getelementptr inbounds i8, ptr %src, i64 48
   %25 = load ptr, ptr %policies, align 8
   br i1 %cmp17.not, label %lor.lhs.false92, label %if.then101.thread
 
@@ -279,7 +279,7 @@ land.lhs.true95:                                  ; preds = %lor.lhs.false92
   br i1 %cmp14.not, label %lor.lhs.false97, label %if.then101
 
 lor.lhs.false97:                                  ; preds = %land.lhs.true95
-  %policies98 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 8
+  %policies98 = getelementptr inbounds i8, ptr %dest, i64 48
   %26 = load ptr, ptr %policies98, align 8
   %cmp99 = icmp eq ptr %26, null
   br i1 %cmp99, label %if.then101, label %lor.lhs.false108.thread
@@ -295,13 +295,13 @@ if.then101.thread:                                ; preds = %if.end87
   br i1 %tobool103.not91, label %return, label %if.end120
 
 lor.lhs.false108:                                 ; preds = %if.then101, %lor.lhs.false92
-  %hostflags = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 10
+  %hostflags = getelementptr inbounds i8, ptr %src, i64 64
   %27 = load i32, ptr %hostflags, align 8
   %cmp109.not = icmp eq i32 %27, 0
   br i1 %cmp109.not, label %lor.lhs.false122, label %land.lhs.true111
 
 lor.lhs.false108.thread:                          ; preds = %lor.lhs.false97
-  %hostflags103 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 10
+  %hostflags103 = getelementptr inbounds i8, ptr %src, i64 64
   %28 = load i32, ptr %hostflags103, align 8
   %cmp109.not104 = icmp eq i32 %28, 0
   br i1 %cmp109.not104, label %lor.lhs.false122, label %lor.lhs.false113
@@ -311,26 +311,26 @@ land.lhs.true111:                                 ; preds = %lor.lhs.false108
 
 lor.lhs.false113:                                 ; preds = %lor.lhs.false108.thread, %land.lhs.true111
   %29 = phi i32 [ %28, %lor.lhs.false108.thread ], [ %27, %land.lhs.true111 ]
-  %hostflags114 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 10
+  %hostflags114 = getelementptr inbounds i8, ptr %dest, i64 64
   %30 = load i32, ptr %hostflags114, align 8
   %cmp115 = icmp eq i32 %30, 0
   br i1 %cmp115, label %if.end120.thread94, label %lor.lhs.false122
 
 if.end120.thread94:                               ; preds = %land.lhs.true111, %lor.lhs.false113
   %31 = phi i32 [ %27, %land.lhs.true111 ], [ %29, %lor.lhs.false113 ]
-  %hostflags11996 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 10
+  %hostflags11996 = getelementptr inbounds i8, ptr %dest, i64 64
   store i32 %31, ptr %hostflags11996, align 8
   br label %lor.lhs.false122
 
 if.end120:                                        ; preds = %if.then101.thread
-  %hostflags118 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 10
+  %hostflags118 = getelementptr inbounds i8, ptr %src, i64 64
   %32 = load i32, ptr %hostflags118, align 8
-  %hostflags119 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 10
+  %hostflags119 = getelementptr inbounds i8, ptr %dest, i64 64
   store i32 %32, ptr %hostflags119, align 8
   br label %if.then131
 
 lor.lhs.false122:                                 ; preds = %lor.lhs.false108.thread, %lor.lhs.false108, %lor.lhs.false113, %if.end120.thread94
-  %hosts = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 9
+  %hosts = getelementptr inbounds i8, ptr %src, i64 56
   %33 = load ptr, ptr %hosts, align 8
   %cmp123.not = icmp eq ptr %33, null
   br i1 %cmp123.not, label %lor.lhs.false154, label %land.lhs.true125
@@ -339,17 +339,17 @@ land.lhs.true125:                                 ; preds = %lor.lhs.false122
   br i1 %cmp14.not, label %lor.lhs.false127, label %if.then131
 
 lor.lhs.false127:                                 ; preds = %land.lhs.true125
-  %hosts128 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 9
+  %hosts128 = getelementptr inbounds i8, ptr %dest, i64 56
   %34 = load ptr, ptr %hosts128, align 8
   %cmp129 = icmp eq ptr %34, null
   br i1 %cmp129, label %if.then131, label %lor.lhs.false154.thread
 
 if.then131:                                       ; preds = %if.end120, %lor.lhs.false127, %land.lhs.true125
-  %hosts132 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 9
+  %hosts132 = getelementptr inbounds i8, ptr %dest, i64 56
   %35 = load ptr, ptr %hosts132, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %35, ptr noundef nonnull @str_free) #8
   store ptr null, ptr %hosts132, align 8
-  %hosts136 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 9
+  %hosts136 = getelementptr inbounds i8, ptr %src, i64 56
   %36 = load ptr, ptr %hosts136, align 8
   %cmp137.not = icmp eq ptr %36, null
   br i1 %cmp137.not, label %if.end152, label %if.then139
@@ -364,13 +364,13 @@ if.end152:                                        ; preds = %if.then131, %if.the
   br i1 %cmp17.not, label %lor.lhs.false154, label %if.then163
 
 lor.lhs.false154:                                 ; preds = %lor.lhs.false122, %if.end152
-  %email = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 12
+  %email = getelementptr inbounds i8, ptr %src, i64 80
   %37 = load ptr, ptr %email, align 8
   %cmp155.not = icmp eq ptr %37, null
   br i1 %cmp155.not, label %lor.lhs.false171, label %land.lhs.true157
 
 lor.lhs.false154.thread:                          ; preds = %lor.lhs.false127
-  %email105 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 12
+  %email105 = getelementptr inbounds i8, ptr %src, i64 80
   %38 = load ptr, ptr %email105, align 8
   %cmp155.not106 = icmp eq ptr %38, null
   br i1 %cmp155.not106, label %lor.lhs.false171, label %lor.lhs.false159
@@ -380,22 +380,22 @@ land.lhs.true157:                                 ; preds = %lor.lhs.false154
 
 lor.lhs.false159:                                 ; preds = %lor.lhs.false154.thread, %land.lhs.true157
   %39 = phi ptr [ %38, %lor.lhs.false154.thread ], [ %37, %land.lhs.true157 ]
-  %email160 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 12
+  %email160 = getelementptr inbounds i8, ptr %dest, i64 80
   %40 = load ptr, ptr %email160, align 8
   %cmp161 = icmp eq ptr %40, null
   br i1 %cmp161, label %if.then163.thread, label %lor.lhs.false171
 
 if.then163.thread:                                ; preds = %lor.lhs.false159, %land.lhs.true157
   %.ph = phi ptr [ %37, %land.lhs.true157 ], [ %39, %lor.lhs.false159 ]
-  %email1.i109 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 12
-  %emaillen2.i110 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 13
+  %email1.i109 = getelementptr inbounds i8, ptr %dest, i64 80
+  %emaillen2.i110 = getelementptr inbounds i8, ptr %dest, i64 88
   br label %if.then.i.i
 
 if.then163:                                       ; preds = %if.end152
-  %email164.phi.trans.insert = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 12
+  %email164.phi.trans.insert = getelementptr inbounds i8, ptr %src, i64 80
   %.pre107 = load ptr, ptr %email164.phi.trans.insert, align 8
-  %email1.i = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 12
-  %emaillen2.i = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 13
+  %email1.i = getelementptr inbounds i8, ptr %dest, i64 80
+  %emaillen2.i = getelementptr inbounds i8, ptr %dest, i64 88
   %cmp.not.i.i = icmp eq ptr %.pre107, null
   br i1 %cmp.not.i.i, label %if.end169, label %if.then.i.i
 
@@ -403,7 +403,7 @@ if.then.i.i:                                      ; preds = %if.then163.thread, 
   %emaillen2.i114 = phi ptr [ %emaillen2.i110, %if.then163.thread ], [ %emaillen2.i, %if.then163 ]
   %email1.i112 = phi ptr [ %email1.i109, %if.then163.thread ], [ %email1.i, %if.then163 ]
   %41 = phi ptr [ %.ph, %if.then163.thread ], [ %.pre107, %if.then163 ]
-  %emaillen = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 13
+  %emaillen = getelementptr inbounds i8, ptr %src, i64 88
   %42 = load i64, ptr %emaillen, align 8
   %cmp1.i.i = icmp eq i64 %42, 0
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end.i.i
@@ -437,12 +437,12 @@ if.end169:                                        ; preds = %if.end6.i.i, %if.th
   br i1 %cmp17.not, label %lor.lhs.false171, label %if.end169.if.then180_crit_edge
 
 if.end169.if.then180_crit_edge:                   ; preds = %if.end169
-  %ip181.phi.trans.insert = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 14
+  %ip181.phi.trans.insert = getelementptr inbounds i8, ptr %src, i64 96
   %.pre108 = load ptr, ptr %ip181.phi.trans.insert, align 8
   br label %if.then180
 
 lor.lhs.false171:                                 ; preds = %lor.lhs.false154.thread, %lor.lhs.false154, %lor.lhs.false159, %if.end169
-  %ip = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 14
+  %ip = getelementptr inbounds i8, ptr %src, i64 96
   %44 = load ptr, ptr %ip, align 8
   %cmp172.not = icmp eq ptr %44, null
   br i1 %cmp172.not, label %if.end186, label %land.lhs.true174
@@ -451,14 +451,14 @@ land.lhs.true174:                                 ; preds = %lor.lhs.false171
   br i1 %cmp14.not, label %lor.lhs.false176, label %if.then180
 
 lor.lhs.false176:                                 ; preds = %land.lhs.true174
-  %ip177 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %dest, i64 0, i32 14
+  %ip177 = getelementptr inbounds i8, ptr %dest, i64 96
   %45 = load ptr, ptr %ip177, align 8
   %cmp178 = icmp eq ptr %45, null
   br i1 %cmp178, label %if.then180, label %if.end186
 
 if.then180:                                       ; preds = %if.end169.if.then180_crit_edge, %lor.lhs.false176, %land.lhs.true174
   %46 = phi ptr [ %.pre108, %if.end169.if.then180_crit_edge ], [ %44, %lor.lhs.false176 ], [ %44, %land.lhs.true174 ]
-  %iplen = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %src, i64 0, i32 15
+  %iplen = getelementptr inbounds i8, ptr %src, i64 104
   %47 = load i64, ptr %iplen, align 8
   %call182 = tail call i32 @X509_VERIFY_PARAM_set1_ip(ptr noundef nonnull %dest, ptr noundef %46, i64 noundef %47), !range !4
   %tobool183.not = icmp eq i32 %call182, 0
@@ -485,7 +485,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %policies1 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 8
+  %policies1 = getelementptr inbounds i8, ptr %param, i64 48
   %0 = load ptr, ptr %policies1, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @ASN1_OBJECT_free) #8
   %cmp3 = icmp eq ptr %policies, null
@@ -530,7 +530,7 @@ if.then26:                                        ; preds = %if.end21
   br label %return
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
-  %flags = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %param, i64 24
   %2 = load i64, ptr %flags, align 8
   %or = or i64 %2, 128
   store i64 %or, ptr %flags, align 8
@@ -553,8 +553,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @X509_VERIFY_PARAM_set1_email(ptr nocapture noundef %param, ptr noundef readonly %email, i64 noundef %emaillen) local_unnamed_addr #0 {
 entry:
-  %email1 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 12
-  %emaillen2 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 13
+  %email1 = getelementptr inbounds i8, ptr %param, i64 80
+  %emaillen2 = getelementptr inbounds i8, ptr %param, i64 88
   %cmp.not.i = icmp eq ptr %email, null
   br i1 %cmp.not.i, label %if.end7.i, label %if.then.i
 
@@ -609,8 +609,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry, %entry, %entry
-  %ip4 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 14
-  %iplen5 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 15
+  %ip4 = getelementptr inbounds i8, ptr %param, i64 96
+  %iplen5 = getelementptr inbounds i8, ptr %param, i64 104
   %cmp.not.i = icmp eq ptr %ip, null
   br i1 %cmp.not.i, label %if.end7.i, label %if.then.i
 
@@ -662,7 +662,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %inh_flags = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %to, i64 0, i32 2
+  %inh_flags = getelementptr inbounds i8, ptr %to, i64 16
   %0 = load i32, ptr %inh_flags, align 8
   %or = or i32 %0, 1
   store i32 %or, ptr %inh_flags, align 8
@@ -698,7 +698,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @X509_VERIFY_PARAM_set_flags(ptr nocapture noundef %param, i64 noundef %flags) local_unnamed_addr #2 {
 entry:
-  %flags1 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 3
+  %flags1 = getelementptr inbounds i8, ptr %param, i64 24
   %0 = load i64, ptr %flags1, align 8
   %or = or i64 %0, %flags
   %and = and i64 %flags, 1920
@@ -713,7 +713,7 @@ entry:
 define i32 @X509_VERIFY_PARAM_clear_flags(ptr nocapture noundef %param, i64 noundef %flags) local_unnamed_addr #2 {
 entry:
   %not = xor i64 %flags, -1
-  %flags1 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 3
+  %flags1 = getelementptr inbounds i8, ptr %param, i64 24
   %0 = load i64, ptr %flags1, align 8
   %and = and i64 %0, %not
   store i64 %and, ptr %flags1, align 8
@@ -723,7 +723,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @X509_VERIFY_PARAM_get_flags(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
 entry:
-  %flags = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %param, i64 24
   %0 = load i64, ptr %flags, align 8
   ret i64 %0
 }
@@ -731,7 +731,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @X509_VERIFY_PARAM_get_inh_flags(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
 entry:
-  %inh_flags = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 2
+  %inh_flags = getelementptr inbounds i8, ptr %param, i64 16
   %0 = load i32, ptr %inh_flags, align 8
   ret i32 %0
 }
@@ -739,7 +739,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @X509_VERIFY_PARAM_set_inh_flags(ptr nocapture noundef writeonly %param, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
-  %inh_flags = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 2
+  %inh_flags = getelementptr inbounds i8, ptr %param, i64 16
   store i32 %flags, ptr %inh_flags, align 8
   ret i32 1
 }
@@ -747,7 +747,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef %param, i32 noundef %purpose) local_unnamed_addr #0 {
 entry:
-  %purpose1 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 4
+  %purpose1 = getelementptr inbounds i8, ptr %param, i64 32
   %call = tail call i32 @X509_PURPOSE_set(ptr noundef nonnull %purpose1, i32 noundef %purpose) #8
   ret i32 %call
 }
@@ -757,7 +757,7 @@ declare i32 @X509_PURPOSE_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @X509_VERIFY_PARAM_set_trust(ptr noundef %param, i32 noundef %trust) local_unnamed_addr #0 {
 entry:
-  %trust1 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 5
+  %trust1 = getelementptr inbounds i8, ptr %param, i64 36
   %call = tail call i32 @X509_TRUST_set(ptr noundef nonnull %trust1, i32 noundef %trust) #8
   ret i32 %call
 }
@@ -767,7 +767,7 @@ declare i32 @X509_TRUST_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_VERIFY_PARAM_set_depth(ptr nocapture noundef writeonly %param, i32 noundef %depth) local_unnamed_addr #4 {
 entry:
-  %depth1 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 6
+  %depth1 = getelementptr inbounds i8, ptr %param, i64 40
   store i32 %depth, ptr %depth1, align 8
   ret void
 }
@@ -775,7 +775,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_VERIFY_PARAM_set_auth_level(ptr nocapture noundef writeonly %param, i32 noundef %auth_level) local_unnamed_addr #4 {
 entry:
-  %auth_level1 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 7
+  %auth_level1 = getelementptr inbounds i8, ptr %param, i64 44
   store i32 %auth_level, ptr %auth_level1, align 4
   ret void
 }
@@ -783,7 +783,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @X509_VERIFY_PARAM_get_time(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
 entry:
-  %check_time = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 1
+  %check_time = getelementptr inbounds i8, ptr %param, i64 8
   %0 = load i64, ptr %check_time, align 8
   ret i64 %0
 }
@@ -791,9 +791,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @X509_VERIFY_PARAM_set_time(ptr nocapture noundef %param, i64 noundef %t) local_unnamed_addr #2 {
 entry:
-  %check_time = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 1
+  %check_time = getelementptr inbounds i8, ptr %param, i64 8
   store i64 %t, ptr %check_time, align 8
-  %flags = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %param, i64 24
   %0 = load i64, ptr %flags, align 8
   %or = or i64 %0, 2
   store i64 %or, ptr %flags, align 8
@@ -803,7 +803,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @X509_VERIFY_PARAM_add0_policy(ptr nocapture noundef %param, ptr noundef %policy) local_unnamed_addr #0 {
 entry:
-  %policies = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 8
+  %policies = getelementptr inbounds i8, ptr %param, i64 48
   %0 = load ptr, ptr %policies, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end5
@@ -839,7 +839,7 @@ declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @X509_VERIFY_PARAM_get0_host(ptr nocapture noundef readonly %param, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %hosts = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 9
+  %hosts = getelementptr inbounds i8, ptr %param, i64 56
   %0 = load ptr, ptr %hosts, align 8
   %call1 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %idx) #8
   ret ptr %call1
@@ -892,7 +892,7 @@ if.end18:                                         ; preds = %if.then, %land.lhs.
   br i1 %cmp19, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %if.end18
-  %hosts = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %vpm, i64 0, i32 9
+  %hosts = getelementptr inbounds i8, ptr %vpm, i64 56
   %2 = load ptr, ptr %hosts, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %2, ptr noundef nonnull @str_free) #8
   store ptr null, ptr %hosts, align 8
@@ -909,7 +909,7 @@ if.end32:                                         ; preds = %if.end25
   br i1 %cmp34, label %return, label %if.end37
 
 if.end37:                                         ; preds = %if.end32
-  %hosts38 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %vpm, i64 0, i32 9
+  %hosts38 = getelementptr inbounds i8, ptr %vpm, i64 56
   %3 = load ptr, ptr %hosts38, align 8
   %cmp39 = icmp eq ptr %3, null
   br i1 %cmp39, label %land.lhs.true41, label %if.end47
@@ -958,7 +958,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_VERIFY_PARAM_set_hostflags(ptr nocapture noundef writeonly %param, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
-  %hostflags = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 10
+  %hostflags = getelementptr inbounds i8, ptr %param, i64 64
   store i32 %flags, ptr %hostflags, align 8
   ret void
 }
@@ -966,7 +966,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @X509_VERIFY_PARAM_get_hostflags(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
 entry:
-  %hostflags = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 10
+  %hostflags = getelementptr inbounds i8, ptr %param, i64 64
   %0 = load i32, ptr %hostflags, align 8
   ret i32 %0
 }
@@ -974,7 +974,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_VERIFY_PARAM_get0_peername(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
 entry:
-  %peername = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 11
+  %peername = getelementptr inbounds i8, ptr %param, i64 72
   %0 = load ptr, ptr %peername, align 8
   ret ptr %0
 }
@@ -986,13 +986,13 @@ entry:
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %peername1 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %from, i64 0, i32 11
+  %peername1 = getelementptr inbounds i8, ptr %from, i64 72
   %0 = load ptr, ptr %peername1, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %0, %cond.true ], [ null, %entry ]
-  %peername2 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %to, i64 0, i32 11
+  %peername2 = getelementptr inbounds i8, ptr %to, i64 72
   %1 = load ptr, ptr %peername2, align 8
   %cmp3.not = icmp eq ptr %1, %cond
   br i1 %cmp3.not, label %if.end, label %if.then
@@ -1006,7 +1006,7 @@ if.end:                                           ; preds = %if.then, %cond.end
   br i1 %cmp.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %peername8 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %from, i64 0, i32 11
+  %peername8 = getelementptr inbounds i8, ptr %from, i64 72
   store ptr null, ptr %peername8, align 8
   br label %if.end9
 
@@ -1017,7 +1017,7 @@ if.end9:                                          ; preds = %if.then7, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_VERIFY_PARAM_get0_email(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
 entry:
-  %email = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 12
+  %email = getelementptr inbounds i8, ptr %param, i64 80
   %0 = load ptr, ptr %email, align 8
   ret ptr %0
 }
@@ -1029,7 +1029,7 @@ entry:
   br i1 %cmp.i, label %int_X509_VERIFY_PARAM_get0_ip.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %ip.i = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 14
+  %ip.i = getelementptr inbounds i8, ptr %param, i64 96
   %0 = load ptr, ptr %ip.i, align 8
   %cmp1.i = icmp eq ptr %0, null
   br i1 %cmp1.i, label %int_X509_VERIFY_PARAM_get0_ip.exit.thread, label %cond.false
@@ -1041,7 +1041,7 @@ int_X509_VERIFY_PARAM_get0_ip.exit.thread:        ; preds = %entry, %lor.lhs.fal
   br label %cond.end
 
 cond.false:                                       ; preds = %lor.lhs.false.i
-  %iplen.i = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 15
+  %iplen.i = getelementptr inbounds i8, ptr %param, i64 104
   %1 = load i64, ptr %iplen.i, align 8
   %conv = trunc i64 %1 to i32
   %call1 = tail call ptr @ossl_ipaddr_to_asc(ptr noundef nonnull %0, i32 noundef %conv) #8
@@ -1077,7 +1077,7 @@ declare i32 @ossl_a2i_ipadd(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @X509_VERIFY_PARAM_get_depth(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
 entry:
-  %depth = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 6
+  %depth = getelementptr inbounds i8, ptr %param, i64 40
   %0 = load i32, ptr %depth, align 8
   ret i32 %0
 }
@@ -1085,7 +1085,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @X509_VERIFY_PARAM_get_auth_level(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
 entry:
-  %auth_level = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr %param, i64 0, i32 7
+  %auth_level = getelementptr inbounds i8, ptr %param, i64 44
   %0 = load i32, ptr %auth_level, align 4
   ret i32 %0
 }

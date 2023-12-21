@@ -421,237 +421,237 @@ entry:
   %ref.tmp115 = alloca %"struct.(anonymous namespace)::Uint128TestCase", align 16
   %ref.tmp120 = alloca %"struct.(anonymous namespace)::Uint128TestCase", align 16
   store i64 1, ptr %ref.tmp, align 16
-  %hi_.i = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp, i64 0, i32 1
+  %hi_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %hi_.i, align 8
-  %flags = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i32 2, ptr %flags, align 16
-  %width = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp, i64 0, i32 2
+  %width = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i64 0, ptr %width, align 8
-  %expected = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp, i64 0, i32 3
+  %expected = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store ptr @.str.9, ptr %expected, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp)
   store i64 1, ptr %ref.tmp2, align 16
-  %hi_.i1 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp2, i64 0, i32 1
+  %hi_.i1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i64 0, ptr %hi_.i1, align 8
-  %flags4 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp2, i64 0, i32 1
+  %flags4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i32 64, ptr %flags4, align 16
-  %width5 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp2, i64 0, i32 2
+  %width5 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
   store i64 0, ptr %width5, align 8
-  %expected6 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp2, i64 0, i32 3
+  %expected6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
   store ptr @.str.9, ptr %expected6, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp2)
   store i64 1, ptr %ref.tmp7, align 16
-  %hi_.i2 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp7, i64 0, i32 1
+  %hi_.i2 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store i64 0, ptr %hi_.i2, align 8
-  %flags9 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp7, i64 0, i32 1
+  %flags9 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
   store i32 8, ptr %flags9, align 16
-  %width10 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp7, i64 0, i32 2
+  %width10 = getelementptr inbounds i8, ptr %ref.tmp7, i64 24
   store i64 0, ptr %width10, align 8
-  %expected11 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp7, i64 0, i32 3
+  %expected11 = getelementptr inbounds i8, ptr %ref.tmp7, i64 32
   store ptr @.str.9, ptr %expected11, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp7)
   store i64 9, ptr %ref.tmp12, align 16
-  %hi_.i3 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp12, i64 0, i32 1
+  %hi_.i3 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   store i64 0, ptr %hi_.i3, align 8
-  %flags14 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp12, i64 0, i32 1
+  %flags14 = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
   store i32 2, ptr %flags14, align 16
-  %width15 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp12, i64 0, i32 2
+  %width15 = getelementptr inbounds i8, ptr %ref.tmp12, i64 24
   store i64 0, ptr %width15, align 8
-  %expected16 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp12, i64 0, i32 3
+  %expected16 = getelementptr inbounds i8, ptr %ref.tmp12, i64 32
   store ptr @.str.10, ptr %expected16, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp12)
   store i64 9, ptr %ref.tmp17, align 16
-  %hi_.i4 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp17, i64 0, i32 1
+  %hi_.i4 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
   store i64 0, ptr %hi_.i4, align 8
-  %flags19 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp17, i64 0, i32 1
+  %flags19 = getelementptr inbounds i8, ptr %ref.tmp17, i64 16
   store i32 64, ptr %flags19, align 16
-  %width20 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp17, i64 0, i32 2
+  %width20 = getelementptr inbounds i8, ptr %ref.tmp17, i64 24
   store i64 0, ptr %width20, align 8
-  %expected21 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp17, i64 0, i32 3
+  %expected21 = getelementptr inbounds i8, ptr %ref.tmp17, i64 32
   store ptr @.str.11, ptr %expected21, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp17)
   store i64 9, ptr %ref.tmp22, align 16
-  %hi_.i5 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp22, i64 0, i32 1
+  %hi_.i5 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   store i64 0, ptr %hi_.i5, align 8
-  %flags24 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp22, i64 0, i32 1
+  %flags24 = getelementptr inbounds i8, ptr %ref.tmp22, i64 16
   store i32 8, ptr %flags24, align 16
-  %width25 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp22, i64 0, i32 2
+  %width25 = getelementptr inbounds i8, ptr %ref.tmp22, i64 24
   store i64 0, ptr %width25, align 8
-  %expected26 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp22, i64 0, i32 3
+  %expected26 = getelementptr inbounds i8, ptr %ref.tmp22, i64 32
   store ptr @.str.10, ptr %expected26, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp22)
   store i64 12345, ptr %ref.tmp27, align 16
-  %hi_.i6 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp27, i64 0, i32 1
+  %hi_.i6 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
   store i64 0, ptr %hi_.i6, align 8
-  %flags29 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp27, i64 0, i32 1
+  %flags29 = getelementptr inbounds i8, ptr %ref.tmp27, i64 16
   store i32 2, ptr %flags29, align 16
-  %width30 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp27, i64 0, i32 2
+  %width30 = getelementptr inbounds i8, ptr %ref.tmp27, i64 24
   store i64 0, ptr %width30, align 8
-  %expected31 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp27, i64 0, i32 3
+  %expected31 = getelementptr inbounds i8, ptr %ref.tmp27, i64 32
   store ptr @.str.12, ptr %expected31, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp27)
   store i64 12345, ptr %ref.tmp32, align 16
-  %hi_.i7 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp32, i64 0, i32 1
+  %hi_.i7 = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
   store i64 0, ptr %hi_.i7, align 8
-  %flags34 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp32, i64 0, i32 1
+  %flags34 = getelementptr inbounds i8, ptr %ref.tmp32, i64 16
   store i32 64, ptr %flags34, align 16
-  %width35 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp32, i64 0, i32 2
+  %width35 = getelementptr inbounds i8, ptr %ref.tmp32, i64 24
   store i64 0, ptr %width35, align 8
-  %expected36 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp32, i64 0, i32 3
+  %expected36 = getelementptr inbounds i8, ptr %ref.tmp32, i64 32
   store ptr @.str.13, ptr %expected36, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp32)
   store i64 12345, ptr %ref.tmp37, align 16
-  %hi_.i8 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp37, i64 0, i32 1
+  %hi_.i8 = getelementptr inbounds i8, ptr %ref.tmp37, i64 8
   store i64 0, ptr %hi_.i8, align 8
-  %flags39 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp37, i64 0, i32 1
+  %flags39 = getelementptr inbounds i8, ptr %ref.tmp37, i64 16
   store i32 8, ptr %flags39, align 16
-  %width40 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp37, i64 0, i32 2
+  %width40 = getelementptr inbounds i8, ptr %ref.tmp37, i64 24
   store i64 0, ptr %width40, align 8
-  %expected41 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp37, i64 0, i32 3
+  %expected41 = getelementptr inbounds i8, ptr %ref.tmp37, i64 32
   store ptr @.str.14, ptr %expected41, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp37)
   store i64 -9223372036854775808, ptr %ref.tmp42, align 16
-  %hi_.i9 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp42, i64 0, i32 1
+  %hi_.i9 = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
   store i64 0, ptr %hi_.i9, align 8
-  %flags44 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp42, i64 0, i32 1
+  %flags44 = getelementptr inbounds i8, ptr %ref.tmp42, i64 16
   store i32 2, ptr %flags44, align 16
-  %width45 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp42, i64 0, i32 2
+  %width45 = getelementptr inbounds i8, ptr %ref.tmp42, i64 24
   store i64 0, ptr %width45, align 8
-  %expected46 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp42, i64 0, i32 3
+  %expected46 = getelementptr inbounds i8, ptr %ref.tmp42, i64 32
   store ptr @.str.15, ptr %expected46, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp42)
   store i64 -9223372036854775808, ptr %ref.tmp47, align 16
-  %hi_.i10 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp47, i64 0, i32 1
+  %hi_.i10 = getelementptr inbounds i8, ptr %ref.tmp47, i64 8
   store i64 0, ptr %hi_.i10, align 8
-  %flags49 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp47, i64 0, i32 1
+  %flags49 = getelementptr inbounds i8, ptr %ref.tmp47, i64 16
   store i32 64, ptr %flags49, align 16
-  %width50 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp47, i64 0, i32 2
+  %width50 = getelementptr inbounds i8, ptr %ref.tmp47, i64 24
   store i64 0, ptr %width50, align 8
-  %expected51 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp47, i64 0, i32 3
+  %expected51 = getelementptr inbounds i8, ptr %ref.tmp47, i64 32
   store ptr @.str.16, ptr %expected51, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp47)
   store i64 -9223372036854775808, ptr %ref.tmp52, align 16
-  %hi_.i11 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp52, i64 0, i32 1
+  %hi_.i11 = getelementptr inbounds i8, ptr %ref.tmp52, i64 8
   store i64 0, ptr %hi_.i11, align 8
-  %flags54 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp52, i64 0, i32 1
+  %flags54 = getelementptr inbounds i8, ptr %ref.tmp52, i64 16
   store i32 8, ptr %flags54, align 16
-  %width55 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp52, i64 0, i32 2
+  %width55 = getelementptr inbounds i8, ptr %ref.tmp52, i64 24
   store i64 0, ptr %width55, align 8
-  %expected56 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp52, i64 0, i32 3
+  %expected56 = getelementptr inbounds i8, ptr %ref.tmp52, i64 32
   store ptr @.str.17, ptr %expected56, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp52)
   store i64 -1, ptr %ref.tmp57, align 16
-  %hi_.i12 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp57, i64 0, i32 1
+  %hi_.i12 = getelementptr inbounds i8, ptr %ref.tmp57, i64 8
   store i64 0, ptr %hi_.i12, align 8
-  %flags59 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp57, i64 0, i32 1
+  %flags59 = getelementptr inbounds i8, ptr %ref.tmp57, i64 16
   store i32 2, ptr %flags59, align 16
-  %width60 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp57, i64 0, i32 2
+  %width60 = getelementptr inbounds i8, ptr %ref.tmp57, i64 24
   store i64 0, ptr %width60, align 8
-  %expected61 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp57, i64 0, i32 3
+  %expected61 = getelementptr inbounds i8, ptr %ref.tmp57, i64 32
   store ptr @.str.18, ptr %expected61, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp57)
   store i64 -1, ptr %ref.tmp62, align 16
-  %hi_.i13 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp62, i64 0, i32 1
+  %hi_.i13 = getelementptr inbounds i8, ptr %ref.tmp62, i64 8
   store i64 0, ptr %hi_.i13, align 8
-  %flags65 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp62, i64 0, i32 1
+  %flags65 = getelementptr inbounds i8, ptr %ref.tmp62, i64 16
   store i32 64, ptr %flags65, align 16
-  %width66 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp62, i64 0, i32 2
+  %width66 = getelementptr inbounds i8, ptr %ref.tmp62, i64 24
   store i64 0, ptr %width66, align 8
-  %expected67 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp62, i64 0, i32 3
+  %expected67 = getelementptr inbounds i8, ptr %ref.tmp62, i64 32
   store ptr @.str.19, ptr %expected67, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp62)
   store i64 -1, ptr %ref.tmp68, align 16
-  %hi_.i14 = getelementptr inbounds %"class.absl::uint128", ptr %ref.tmp68, i64 0, i32 1
+  %hi_.i14 = getelementptr inbounds i8, ptr %ref.tmp68, i64 8
   store i64 0, ptr %hi_.i14, align 8
-  %flags71 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp68, i64 0, i32 1
+  %flags71 = getelementptr inbounds i8, ptr %ref.tmp68, i64 16
   store i32 8, ptr %flags71, align 16
-  %width72 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp68, i64 0, i32 2
+  %width72 = getelementptr inbounds i8, ptr %ref.tmp68, i64 24
   store i64 0, ptr %width72, align 8
-  %expected73 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp68, i64 0, i32 3
+  %expected73 = getelementptr inbounds i8, ptr %ref.tmp68, i64 32
   store ptr @.str.20, ptr %expected73, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp68)
   store i64 0, ptr %ref.tmp74, align 16
-  %0 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp74, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp74, i64 8
   store i64 1, ptr %0, align 8
-  %flags77 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp74, i64 0, i32 1
+  %flags77 = getelementptr inbounds i8, ptr %ref.tmp74, i64 16
   store i32 2, ptr %flags77, align 16
-  %width78 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp74, i64 0, i32 2
+  %width78 = getelementptr inbounds i8, ptr %ref.tmp74, i64 24
   store i64 0, ptr %width78, align 8
-  %expected79 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp74, i64 0, i32 3
+  %expected79 = getelementptr inbounds i8, ptr %ref.tmp74, i64 32
   store ptr @.str.21, ptr %expected79, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp74)
   store i64 0, ptr %ref.tmp80, align 16
-  %1 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp80, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp80, i64 8
   store i64 1, ptr %1, align 8
-  %flags83 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp80, i64 0, i32 1
+  %flags83 = getelementptr inbounds i8, ptr %ref.tmp80, i64 16
   store i32 64, ptr %flags83, align 16
-  %width84 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp80, i64 0, i32 2
+  %width84 = getelementptr inbounds i8, ptr %ref.tmp80, i64 24
   store i64 0, ptr %width84, align 8
-  %expected85 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp80, i64 0, i32 3
+  %expected85 = getelementptr inbounds i8, ptr %ref.tmp80, i64 32
   store ptr @.str.22, ptr %expected85, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp80)
   store i64 0, ptr %ref.tmp86, align 16
-  %2 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp86, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp86, i64 8
   store i64 1, ptr %2, align 8
-  %flags89 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp86, i64 0, i32 1
+  %flags89 = getelementptr inbounds i8, ptr %ref.tmp86, i64 16
   store i32 8, ptr %flags89, align 16
-  %width90 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp86, i64 0, i32 2
+  %width90 = getelementptr inbounds i8, ptr %ref.tmp86, i64 24
   store i64 0, ptr %width90, align 8
-  %expected91 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp86, i64 0, i32 3
+  %expected91 = getelementptr inbounds i8, ptr %ref.tmp86, i64 32
   store ptr @.str.23, ptr %expected91, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp86)
   store i64 0, ptr %ref.tmp92, align 16
-  %3 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp92, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp92, i64 8
   store i64 -9223372036854775808, ptr %3, align 8
-  %flags95 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp92, i64 0, i32 1
+  %flags95 = getelementptr inbounds i8, ptr %ref.tmp92, i64 16
   store i32 2, ptr %flags95, align 16
-  %width96 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp92, i64 0, i32 2
+  %width96 = getelementptr inbounds i8, ptr %ref.tmp92, i64 24
   store i64 0, ptr %width96, align 8
-  %expected97 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp92, i64 0, i32 3
+  %expected97 = getelementptr inbounds i8, ptr %ref.tmp92, i64 32
   store ptr @.str.24, ptr %expected97, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp92)
   store i64 0, ptr %ref.tmp98, align 16
-  %4 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp98, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp98, i64 8
   store i64 -9223372036854775808, ptr %4, align 8
-  %flags101 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp98, i64 0, i32 1
+  %flags101 = getelementptr inbounds i8, ptr %ref.tmp98, i64 16
   store i32 64, ptr %flags101, align 16
-  %width102 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp98, i64 0, i32 2
+  %width102 = getelementptr inbounds i8, ptr %ref.tmp98, i64 24
   store i64 0, ptr %width102, align 8
-  %expected103 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp98, i64 0, i32 3
+  %expected103 = getelementptr inbounds i8, ptr %ref.tmp98, i64 32
   store ptr @.str.25, ptr %expected103, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp98)
   store i64 0, ptr %ref.tmp104, align 16
-  %5 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp104, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp104, i64 8
   store i64 -9223372036854775808, ptr %5, align 8
-  %flags107 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp104, i64 0, i32 1
+  %flags107 = getelementptr inbounds i8, ptr %ref.tmp104, i64 16
   store i32 8, ptr %flags107, align 16
-  %width108 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp104, i64 0, i32 2
+  %width108 = getelementptr inbounds i8, ptr %ref.tmp104, i64 24
   store i64 0, ptr %width108, align 8
-  %expected109 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp104, i64 0, i32 3
+  %expected109 = getelementptr inbounds i8, ptr %ref.tmp104, i64 32
   store ptr @.str.26, ptr %expected109, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp104)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp110, ptr noundef nonnull align 16 dereferenceable(16) @_ZN4absl11kuint128maxE, i64 16, i1 false)
-  %flags112 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp110, i64 0, i32 1
+  %flags112 = getelementptr inbounds i8, ptr %ref.tmp110, i64 16
   store i32 2, ptr %flags112, align 16
-  %width113 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp110, i64 0, i32 2
+  %width113 = getelementptr inbounds i8, ptr %ref.tmp110, i64 24
   store i64 0, ptr %width113, align 8
-  %expected114 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp110, i64 0, i32 3
+  %expected114 = getelementptr inbounds i8, ptr %ref.tmp110, i64 32
   store ptr @.str.27, ptr %expected114, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp110)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp115, ptr noundef nonnull align 16 dereferenceable(16) @_ZN4absl11kuint128maxE, i64 16, i1 false)
-  %flags117 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp115, i64 0, i32 1
+  %flags117 = getelementptr inbounds i8, ptr %ref.tmp115, i64 16
   store i32 64, ptr %flags117, align 16
-  %width118 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp115, i64 0, i32 2
+  %width118 = getelementptr inbounds i8, ptr %ref.tmp115, i64 24
   store i64 0, ptr %width118, align 8
-  %expected119 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp115, i64 0, i32 3
+  %expected119 = getelementptr inbounds i8, ptr %ref.tmp115, i64 32
   store ptr @.str.28, ptr %expected119, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp115)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp120, ptr noundef nonnull align 16 dereferenceable(16) @_ZN4absl11kuint128maxE, i64 16, i1 false)
-  %flags122 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp120, i64 0, i32 1
+  %flags122 = getelementptr inbounds i8, ptr %ref.tmp120, i64 16
   store i32 8, ptr %flags122, align 16
-  %width123 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp120, i64 0, i32 2
+  %width123 = getelementptr inbounds i8, ptr %ref.tmp120, i64 24
   store i64 0, ptr %width123, align 8
-  %expected124 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %ref.tmp120, i64 0, i32 3
+  %expected124 = getelementptr inbounds i8, ptr %ref.tmp120, i64 32
   store ptr @.str.29, ptr %expected124, align 16
   call fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp120)
   ret void
@@ -685,10 +685,10 @@ entry:
   %ref.tmp51 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp63 = alloca %"class.testing::Message", align 8
   %ref.tmp65 = alloca %"class.testing::internal::AssertHelper", align 8
-  %flags = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %test_case, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %test_case, i64 16
   %0 = load i32, ptr %flags, align 16
   %cmp = icmp eq i32 %0, 2
-  %width = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %test_case, i64 0, i32 2
+  %width = getelementptr inbounds i8, ptr %test_case, i64 24
   %1 = load i64, ptr %width, align 8
   %cmp1 = icmp eq i64 %1, 0
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
@@ -738,7 +738,7 @@ lpad.i:                                           ; preds = %invoke.cont
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %expected = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %test_case, i64 0, i32 3
+  %expected = getelementptr inbounds i8, ptr %test_case, i64 32
   %9 = load ptr, ptr %expected, align 16, !noalias !8
   %call.i.i.i22 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %9) #16, !noalias !8
   %cmp.i.i.i = icmp eq i32 %call.i.i.i22, 0
@@ -786,7 +786,7 @@ if.else:                                          ; preds = %invoke.cont6
           to label %invoke.cont11 unwind label %lpad7
 
 invoke.cont11:                                    ; preds = %if.else
-  %message_.i.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
+  %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %15 = load ptr, ptr %message_.i.i, align 8
   %cmp.i.i.not.i.i = icmp eq ptr %15, null
   br i1 %cmp.i.i.not.i.i, label %invoke.cont14, label %cond.true.i.i
@@ -812,7 +812,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont18
   %vtable.i.i.i = load ptr, ptr %16, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %17 = load ptr, ptr %vfn.i.i.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(128) %16) #16
   br label %_ZN7testing7MessageD2Ev.exit
@@ -840,7 +840,7 @@ ehcleanup20:                                      ; preds = %lpad17, %lpad13
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i26: ; preds = %ehcleanup20
   %vtable.i.i.i27 = load ptr, ptr %20, align 8
-  %vfn.i.i.i28 = getelementptr inbounds ptr, ptr %vtable.i.i.i27, i64 1
+  %vfn.i.i.i28 = getelementptr inbounds i8, ptr %vtable.i.i.i27, i64 8
   %21 = load ptr, ptr %vfn.i.i.i28, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(128) %20) #16
   br label %_ZN7testing7MessageD2Ev.exit29
@@ -850,7 +850,7 @@ _ZN7testing7MessageD2Ev.exit29:                   ; preds = %ehcleanup20, %_ZNKS
   br label %ehcleanup21
 
 if.end:                                           ; preds = %invoke.cont6, %_ZN7testing7MessageD2Ev.exit
-  %message_.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
+  %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %22 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i30 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i30, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -876,14 +876,14 @@ if.end22:                                         ; preds = %_ZN7testing15Assert
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
   %23 = load i32, ptr %flags, align 16
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   store i32 %23, ptr %_M_flags.i, align 8
   %vtable27 = load ptr, ptr %os, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
   %vbase.offset29 = load i64, ptr %vbase.offset.ptr28, align 8
   %add.ptr30 = getelementptr inbounds i8, ptr %os, i64 %vbase.offset29
   %24 = load i64, ptr %width, align 8
-  %_M_width.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr30, i64 0, i32 2
+  %_M_width.i = getelementptr inbounds i8, ptr %add.ptr30, i64 16
   store i64 %24, ptr %_M_width.i, align 8
   %vtable34 = load ptr, ptr %os, align 8
   %vbase.offset.ptr35 = getelementptr i8, ptr %vtable34, i64 -24
@@ -928,7 +928,7 @@ invoke.cont48:                                    ; preds = %.noexc32
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %invoke.cont48
-  %expected54 = getelementptr inbounds %"struct.(anonymous namespace)::Uint128TestCase", ptr %test_case, i64 0, i32 3
+  %expected54 = getelementptr inbounds i8, ptr %test_case, i64 32
   %28 = load ptr, ptr %expected54, align 16, !noalias !13
   %call.i.i.i34 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51, ptr noundef %28) #16, !noalias !13
   %cmp.i.i.i35 = icmp eq i32 %call.i.i.i34, 0
@@ -985,7 +985,7 @@ if.else62:                                        ; preds = %invoke.cont56
           to label %invoke.cont64 unwind label %lpad58
 
 invoke.cont64:                                    ; preds = %if.else62
-  %message_.i.i42 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar50, i64 0, i32 1
+  %message_.i.i42 = getelementptr inbounds i8, ptr %gtest_ar50, i64 8
   %36 = load ptr, ptr %message_.i.i42, align 8
   %cmp.i.i.not.i.i43 = icmp eq ptr %36, null
   br i1 %cmp.i.i.not.i.i43, label %invoke.cont67, label %cond.true.i.i44
@@ -1011,7 +1011,7 @@ invoke.cont71:                                    ; preds = %invoke.cont69
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i49: ; preds = %invoke.cont71
   %vtable.i.i.i50 = load ptr, ptr %37, align 8
-  %vfn.i.i.i51 = getelementptr inbounds ptr, ptr %vtable.i.i.i50, i64 1
+  %vfn.i.i.i51 = getelementptr inbounds i8, ptr %vtable.i.i.i50, i64 8
   %38 = load ptr, ptr %vfn.i.i.i51, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(128) %37) #16
   br label %_ZN7testing7MessageD2Ev.exit52
@@ -1039,7 +1039,7 @@ ehcleanup73:                                      ; preds = %lpad70, %lpad66
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i54: ; preds = %ehcleanup73
   %vtable.i.i.i55 = load ptr, ptr %41, align 8
-  %vfn.i.i.i56 = getelementptr inbounds ptr, ptr %vtable.i.i.i55, i64 1
+  %vfn.i.i.i56 = getelementptr inbounds i8, ptr %vtable.i.i.i55, i64 8
   %42 = load ptr, ptr %vfn.i.i.i56, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(128) %41) #16
   br label %_ZN7testing7MessageD2Ev.exit57
@@ -1049,7 +1049,7 @@ _ZN7testing7MessageD2Ev.exit57:                   ; preds = %ehcleanup73, %_ZNKS
   br label %ehcleanup75
 
 if.end74:                                         ; preds = %invoke.cont56, %_ZN7testing7MessageD2Ev.exit52
-  %message_.i58 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar50, i64 0, i32 1
+  %message_.i58 = getelementptr inbounds i8, ptr %gtest_ar50, i64 8
   %43 = load ptr, ptr %message_.i58, align 8
   %cmp.not.i.i59 = icmp eq ptr %43, null
   br i1 %cmp.not.i.i59, label %_ZN7testing15AssertionResultD2Ev.exit61, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i60
@@ -1103,7 +1103,7 @@ declare void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %message_ = getelementptr inbounds %"class.testing::AssertionResult", ptr %this, i64 0, i32 1
+  %message_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %message_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
@@ -1147,7 +1147,7 @@ _ZNSt16allocator_traitsISaIPKcEE8allocateERS2_m.exit.i.i.i.i: ; preds = %entry
 
 _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit:     ; preds = %_ZNSt16allocator_traitsISaIPKcEE8allocateERS2_m.exit.i.i.i.i
   store ptr @.str.35, ptr %call5.i.i.i.i.i.i8, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i.i.i8, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 8
   br label %sw.epilog
 
 _ZNSt16allocator_traitsISaIPKcEE8allocateERS2_m.exit.i.i.i.i28: ; preds = %entry
@@ -1156,7 +1156,7 @@ _ZNSt16allocator_traitsISaIPKcEE8allocateERS2_m.exit.i.i.i.i28: ; preds = %entry
 
 _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit45:   ; preds = %_ZNSt16allocator_traitsISaIPKcEE8allocateERS2_m.exit.i.i.i.i28
   store ptr @.str.36, ptr %call5.i.i.i.i.i.i44, align 8
-  %incdec.ptr.i.i.i35 = getelementptr inbounds ptr, ptr %call5.i.i.i.i.i.i44, i64 1
+  %incdec.ptr.i.i.i35 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i44, i64 8
   br label %sw.epilog
 
 _ZNSt16allocator_traitsISaIPKcEE8allocateERS2_m.exit.i.i.i.i65: ; preds = %entry
@@ -1165,7 +1165,7 @@ _ZNSt16allocator_traitsISaIPKcEE8allocateERS2_m.exit.i.i.i.i65: ; preds = %entry
 
 _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit82:   ; preds = %_ZNSt16allocator_traitsISaIPKcEE8allocateERS2_m.exit.i.i.i.i65
   store ptr @.str.37, ptr %call5.i.i.i.i.i.i81, align 8
-  %incdec.ptr.i.i.i72 = getelementptr inbounds ptr, ptr %call5.i.i.i.i.i.i81, i64 1
+  %incdec.ptr.i.i.i72 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i81, i64 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit82, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit45, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit, %entry
@@ -1214,7 +1214,7 @@ if.then.i.i.i12.i.i.i115:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i109
 
 _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i109: ; preds = %if.then.i.i.i12.i.i.i115, %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i.i105
-  %incdec.ptr.i.i.i110 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i107, i64 1
+  %incdec.ptr.i.i.i110 = getelementptr inbounds i8, ptr %add.ptr.i.i.i107, i64 8
   %tobool.not.i.i.i.i111 = icmp eq ptr %flagstr.sroa.0.4, null
   br i1 %tobool.not.i.i.i.i111, label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i113, label %if.then.i21.i.i.i112
 
@@ -1261,7 +1261,7 @@ if.then.i.i.i12.i.i.i152:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i146
 
 _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i146: ; preds = %if.then.i.i.i12.i.i.i152, %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i.i142
-  %incdec.ptr.i.i.i147 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i144, i64 1
+  %incdec.ptr.i.i.i147 = getelementptr inbounds i8, ptr %add.ptr.i.i.i144, i64 8
   %tobool.not.i.i.i.i148 = icmp eq ptr %flagstr.sroa.0.4, null
   br i1 %tobool.not.i.i.i.i148, label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i150, label %if.then.i21.i.i.i149
 
@@ -1315,7 +1315,7 @@ if.then.i.i.i12.i.i.i189:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i183
 
 _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i183: ; preds = %if.then.i.i.i12.i.i.i189, %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i.i179
-  %incdec.ptr.i.i.i184 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i181, i64 1
+  %incdec.ptr.i.i.i184 = getelementptr inbounds i8, ptr %add.ptr.i.i.i181, i64 8
   %tobool.not.i.i.i.i185 = icmp eq ptr %flagstr.sroa.0.4, null
   br i1 %tobool.not.i.i.i.i185, label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i187, label %if.then.i21.i.i.i186
 
@@ -1341,7 +1341,7 @@ if.then:                                          ; preds = %sw.epilog20
 
 if.then.i.i199:                                   ; preds = %if.then
   store ptr @.str.41, ptr %flagstr.sroa.24.7, align 8
-  %incdec.ptr.i.i200 = getelementptr inbounds ptr, ptr %flagstr.sroa.24.7, i64 1
+  %incdec.ptr.i.i200 = getelementptr inbounds i8, ptr %flagstr.sroa.24.7, i64 8
   br label %if.end
 
 if.else.i.i201:                                   ; preds = %if.then
@@ -1386,7 +1386,7 @@ if.then.i.i.i12.i.i.i227:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i221
 
 _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i221: ; preds = %if.then.i.i.i12.i.i.i227, %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i.i217
-  %incdec.ptr.i.i.i222 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i219, i64 1
+  %incdec.ptr.i.i.i222 = getelementptr inbounds i8, ptr %add.ptr.i.i.i219, i64 8
   %tobool.not.i.i.i.i223 = icmp eq ptr %flagstr.sroa.0.8, null
   br i1 %tobool.not.i.i.i.i223, label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i225, label %if.then.i21.i.i.i224
 
@@ -1412,7 +1412,7 @@ if.then28:                                        ; preds = %if.end
 
 if.then.i.i237:                                   ; preds = %if.then28
   store ptr @.str.42, ptr %flagstr.sroa.24.9, align 8
-  %incdec.ptr.i.i238 = getelementptr inbounds ptr, ptr %flagstr.sroa.24.9, i64 1
+  %incdec.ptr.i.i238 = getelementptr inbounds i8, ptr %flagstr.sroa.24.9, i64 8
   br label %if.end31
 
 if.else.i.i239:                                   ; preds = %if.then28
@@ -1457,7 +1457,7 @@ if.then.i.i.i12.i.i.i265:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i259
 
 _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i259: ; preds = %if.then.i.i.i12.i.i.i265, %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i.i255
-  %incdec.ptr.i.i.i260 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i257, i64 1
+  %incdec.ptr.i.i.i260 = getelementptr inbounds i8, ptr %add.ptr.i.i.i257, i64 8
   %tobool.not.i.i.i.i261 = icmp eq ptr %flagstr.sroa.0.10, null
   br i1 %tobool.not.i.i.i.i261, label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i263, label %if.then.i21.i.i.i262
 
@@ -1483,7 +1483,7 @@ if.then35:                                        ; preds = %if.end31
 
 if.then.i.i275:                                   ; preds = %if.then35
   store ptr @.str.43, ptr %flagstr.sroa.24.11, align 8
-  %incdec.ptr.i.i276 = getelementptr inbounds ptr, ptr %flagstr.sroa.24.11, i64 1
+  %incdec.ptr.i.i276 = getelementptr inbounds i8, ptr %flagstr.sroa.24.11, i64 8
   br label %if.end38
 
 if.else.i.i277:                                   ; preds = %if.then35
@@ -1528,7 +1528,7 @@ if.then.i.i.i12.i.i.i303:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i297
 
 _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i297: ; preds = %if.then.i.i.i12.i.i.i303, %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i.i293
-  %incdec.ptr.i.i.i298 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i295, i64 1
+  %incdec.ptr.i.i.i298 = getelementptr inbounds i8, ptr %add.ptr.i.i.i295, i64 8
   %tobool.not.i.i.i.i299 = icmp eq ptr %flagstr.sroa.0.12, null
   br i1 %tobool.not.i.i.i.i299, label %if.end38, label %if.then.i21.i.i.i300
 
@@ -1591,7 +1591,7 @@ lpad40:                                           ; preds = %lpad40.loopexit.spl
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %flagstr.sroa.24.13, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %flagstr.sroa.24.13, i64 -8
   %3 = load ptr, ptr %add.ptr.i.i, align 8
   %call53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %msg, ptr noundef %3)
           to label %if.end56 unwind label %lpad40.loopexit.split-lp
@@ -2009,261 +2009,261 @@ entry:
   %ref.tmp165 = alloca %"struct.(anonymous namespace)::Int128TestCase", align 16
   %ref.tmp170 = alloca %"struct.(anonymous namespace)::Int128TestCase", align 16
   store i128 1, ptr %ref.tmp, align 16
-  %flags = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i32 2, ptr %flags, align 16
-  %width = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp, i64 0, i32 3
+  %width = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i64 0, ptr %width, align 8
-  %expected = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp, i64 0, i32 4
+  %expected = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store ptr @.str.9, ptr %expected, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp)
   store i128 1, ptr %ref.tmp2, align 16
-  %flags4 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp2, i64 0, i32 1
+  %flags4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i32 64, ptr %flags4, align 16
-  %width5 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp2, i64 0, i32 3
+  %width5 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
   store i64 0, ptr %width5, align 8
-  %expected6 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp2, i64 0, i32 4
+  %expected6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
   store ptr @.str.9, ptr %expected6, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp2)
   store i128 1, ptr %ref.tmp7, align 16
-  %flags9 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp7, i64 0, i32 1
+  %flags9 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
   store i32 8, ptr %flags9, align 16
-  %width10 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp7, i64 0, i32 3
+  %width10 = getelementptr inbounds i8, ptr %ref.tmp7, i64 24
   store i64 0, ptr %width10, align 8
-  %expected11 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp7, i64 0, i32 4
+  %expected11 = getelementptr inbounds i8, ptr %ref.tmp7, i64 32
   store ptr @.str.9, ptr %expected11, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp7)
   store i128 9, ptr %ref.tmp12, align 16
-  %flags14 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp12, i64 0, i32 1
+  %flags14 = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
   store i32 2, ptr %flags14, align 16
-  %width15 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp12, i64 0, i32 3
+  %width15 = getelementptr inbounds i8, ptr %ref.tmp12, i64 24
   store i64 0, ptr %width15, align 8
-  %expected16 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp12, i64 0, i32 4
+  %expected16 = getelementptr inbounds i8, ptr %ref.tmp12, i64 32
   store ptr @.str.10, ptr %expected16, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp12)
   store i128 9, ptr %ref.tmp17, align 16
-  %flags19 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp17, i64 0, i32 1
+  %flags19 = getelementptr inbounds i8, ptr %ref.tmp17, i64 16
   store i32 64, ptr %flags19, align 16
-  %width20 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp17, i64 0, i32 3
+  %width20 = getelementptr inbounds i8, ptr %ref.tmp17, i64 24
   store i64 0, ptr %width20, align 8
-  %expected21 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp17, i64 0, i32 4
+  %expected21 = getelementptr inbounds i8, ptr %ref.tmp17, i64 32
   store ptr @.str.11, ptr %expected21, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp17)
   store i128 9, ptr %ref.tmp22, align 16
-  %flags24 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp22, i64 0, i32 1
+  %flags24 = getelementptr inbounds i8, ptr %ref.tmp22, i64 16
   store i32 8, ptr %flags24, align 16
-  %width25 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp22, i64 0, i32 3
+  %width25 = getelementptr inbounds i8, ptr %ref.tmp22, i64 24
   store i64 0, ptr %width25, align 8
-  %expected26 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp22, i64 0, i32 4
+  %expected26 = getelementptr inbounds i8, ptr %ref.tmp22, i64 32
   store ptr @.str.10, ptr %expected26, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp22)
   store i128 12345, ptr %ref.tmp27, align 16
-  %flags29 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp27, i64 0, i32 1
+  %flags29 = getelementptr inbounds i8, ptr %ref.tmp27, i64 16
   store i32 2, ptr %flags29, align 16
-  %width30 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp27, i64 0, i32 3
+  %width30 = getelementptr inbounds i8, ptr %ref.tmp27, i64 24
   store i64 0, ptr %width30, align 8
-  %expected31 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp27, i64 0, i32 4
+  %expected31 = getelementptr inbounds i8, ptr %ref.tmp27, i64 32
   store ptr @.str.12, ptr %expected31, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp27)
   store i128 12345, ptr %ref.tmp32, align 16
-  %flags34 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp32, i64 0, i32 1
+  %flags34 = getelementptr inbounds i8, ptr %ref.tmp32, i64 16
   store i32 64, ptr %flags34, align 16
-  %width35 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp32, i64 0, i32 3
+  %width35 = getelementptr inbounds i8, ptr %ref.tmp32, i64 24
   store i64 0, ptr %width35, align 8
-  %expected36 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp32, i64 0, i32 4
+  %expected36 = getelementptr inbounds i8, ptr %ref.tmp32, i64 32
   store ptr @.str.13, ptr %expected36, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp32)
   store i128 12345, ptr %ref.tmp37, align 16
-  %flags39 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp37, i64 0, i32 1
+  %flags39 = getelementptr inbounds i8, ptr %ref.tmp37, i64 16
   store i32 8, ptr %flags39, align 16
-  %width40 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp37, i64 0, i32 3
+  %width40 = getelementptr inbounds i8, ptr %ref.tmp37, i64 24
   store i64 0, ptr %width40, align 8
-  %expected41 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp37, i64 0, i32 4
+  %expected41 = getelementptr inbounds i8, ptr %ref.tmp37, i64 32
   store ptr @.str.14, ptr %expected41, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp37)
   store i128 9223372036854775808, ptr %ref.tmp42, align 16
-  %flags44 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp42, i64 0, i32 1
+  %flags44 = getelementptr inbounds i8, ptr %ref.tmp42, i64 16
   store i32 2, ptr %flags44, align 16
-  %width45 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp42, i64 0, i32 3
+  %width45 = getelementptr inbounds i8, ptr %ref.tmp42, i64 24
   store i64 0, ptr %width45, align 8
-  %expected46 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp42, i64 0, i32 4
+  %expected46 = getelementptr inbounds i8, ptr %ref.tmp42, i64 32
   store ptr @.str.15, ptr %expected46, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp42)
   store i128 9223372036854775808, ptr %ref.tmp47, align 16
-  %flags49 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp47, i64 0, i32 1
+  %flags49 = getelementptr inbounds i8, ptr %ref.tmp47, i64 16
   store i32 64, ptr %flags49, align 16
-  %width50 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp47, i64 0, i32 3
+  %width50 = getelementptr inbounds i8, ptr %ref.tmp47, i64 24
   store i64 0, ptr %width50, align 8
-  %expected51 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp47, i64 0, i32 4
+  %expected51 = getelementptr inbounds i8, ptr %ref.tmp47, i64 32
   store ptr @.str.16, ptr %expected51, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp47)
   store i128 9223372036854775808, ptr %ref.tmp52, align 16
-  %flags54 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp52, i64 0, i32 1
+  %flags54 = getelementptr inbounds i8, ptr %ref.tmp52, i64 16
   store i32 8, ptr %flags54, align 16
-  %width55 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp52, i64 0, i32 3
+  %width55 = getelementptr inbounds i8, ptr %ref.tmp52, i64 24
   store i64 0, ptr %width55, align 8
-  %expected56 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp52, i64 0, i32 4
+  %expected56 = getelementptr inbounds i8, ptr %ref.tmp52, i64 32
   store ptr @.str.17, ptr %expected56, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp52)
   store i128 18446744073709551615, ptr %ref.tmp57, align 16
-  %flags59 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp57, i64 0, i32 1
+  %flags59 = getelementptr inbounds i8, ptr %ref.tmp57, i64 16
   store i32 2, ptr %flags59, align 16
-  %width60 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp57, i64 0, i32 3
+  %width60 = getelementptr inbounds i8, ptr %ref.tmp57, i64 24
   store i64 0, ptr %width60, align 8
-  %expected61 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp57, i64 0, i32 4
+  %expected61 = getelementptr inbounds i8, ptr %ref.tmp57, i64 32
   store ptr @.str.18, ptr %expected61, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp57)
   store i128 18446744073709551615, ptr %ref.tmp62, align 16
-  %flags65 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp62, i64 0, i32 1
+  %flags65 = getelementptr inbounds i8, ptr %ref.tmp62, i64 16
   store i32 64, ptr %flags65, align 16
-  %width66 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp62, i64 0, i32 3
+  %width66 = getelementptr inbounds i8, ptr %ref.tmp62, i64 24
   store i64 0, ptr %width66, align 8
-  %expected67 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp62, i64 0, i32 4
+  %expected67 = getelementptr inbounds i8, ptr %ref.tmp62, i64 32
   store ptr @.str.19, ptr %expected67, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp62)
   store i128 18446744073709551615, ptr %ref.tmp68, align 16
-  %flags71 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp68, i64 0, i32 1
+  %flags71 = getelementptr inbounds i8, ptr %ref.tmp68, i64 16
   store i32 8, ptr %flags71, align 16
-  %width72 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp68, i64 0, i32 3
+  %width72 = getelementptr inbounds i8, ptr %ref.tmp68, i64 24
   store i64 0, ptr %width72, align 8
-  %expected73 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp68, i64 0, i32 4
+  %expected73 = getelementptr inbounds i8, ptr %ref.tmp68, i64 32
   store ptr @.str.20, ptr %expected73, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp68)
   store i64 0, ptr %ref.tmp74, align 16
-  %0 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp74, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp74, i64 8
   store i64 1, ptr %0, align 8
-  %flags77 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp74, i64 0, i32 1
+  %flags77 = getelementptr inbounds i8, ptr %ref.tmp74, i64 16
   store i32 2, ptr %flags77, align 16
-  %width78 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp74, i64 0, i32 3
+  %width78 = getelementptr inbounds i8, ptr %ref.tmp74, i64 24
   store i64 0, ptr %width78, align 8
-  %expected79 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp74, i64 0, i32 4
+  %expected79 = getelementptr inbounds i8, ptr %ref.tmp74, i64 32
   store ptr @.str.21, ptr %expected79, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp74)
   store i64 0, ptr %ref.tmp80, align 16
-  %1 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp80, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp80, i64 8
   store i64 1, ptr %1, align 8
-  %flags84 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp80, i64 0, i32 1
+  %flags84 = getelementptr inbounds i8, ptr %ref.tmp80, i64 16
   store i32 64, ptr %flags84, align 16
-  %width85 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp80, i64 0, i32 3
+  %width85 = getelementptr inbounds i8, ptr %ref.tmp80, i64 24
   store i64 0, ptr %width85, align 8
-  %expected86 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp80, i64 0, i32 4
+  %expected86 = getelementptr inbounds i8, ptr %ref.tmp80, i64 32
   store ptr @.str.22, ptr %expected86, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp80)
   store i64 0, ptr %ref.tmp87, align 16
-  %2 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp87, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
   store i64 1, ptr %2, align 8
-  %flags91 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp87, i64 0, i32 1
+  %flags91 = getelementptr inbounds i8, ptr %ref.tmp87, i64 16
   store i32 8, ptr %flags91, align 16
-  %width92 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp87, i64 0, i32 3
+  %width92 = getelementptr inbounds i8, ptr %ref.tmp87, i64 24
   store i64 0, ptr %width92, align 8
-  %expected93 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp87, i64 0, i32 4
+  %expected93 = getelementptr inbounds i8, ptr %ref.tmp87, i64 32
   store ptr @.str.23, ptr %expected93, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp87)
   store i64 -1, ptr %ref.tmp94, align 16
-  %3 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp94, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp94, i64 8
   store i64 9223372036854775807, ptr %3, align 8
-  %flags100 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp94, i64 0, i32 1
+  %flags100 = getelementptr inbounds i8, ptr %ref.tmp94, i64 16
   store i32 2, ptr %flags100, align 16
-  %width101 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp94, i64 0, i32 3
+  %width101 = getelementptr inbounds i8, ptr %ref.tmp94, i64 24
   store i64 0, ptr %width101, align 8
-  %expected102 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp94, i64 0, i32 4
+  %expected102 = getelementptr inbounds i8, ptr %ref.tmp94, i64 32
   store ptr @.str.75, ptr %expected102, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp94)
   store i64 -1, ptr %ref.tmp103, align 16
-  %4 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp103, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp103, i64 8
   store i64 9223372036854775807, ptr %4, align 8
-  %flags109 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp103, i64 0, i32 1
+  %flags109 = getelementptr inbounds i8, ptr %ref.tmp103, i64 16
   store i32 64, ptr %flags109, align 16
-  %width110 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp103, i64 0, i32 3
+  %width110 = getelementptr inbounds i8, ptr %ref.tmp103, i64 24
   store i64 0, ptr %width110, align 8
-  %expected111 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp103, i64 0, i32 4
+  %expected111 = getelementptr inbounds i8, ptr %ref.tmp103, i64 32
   store ptr @.str.76, ptr %expected111, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp103)
   store i64 -1, ptr %ref.tmp112, align 16
-  %5 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp112, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp112, i64 8
   store i64 9223372036854775807, ptr %5, align 8
-  %flags118 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp112, i64 0, i32 1
+  %flags118 = getelementptr inbounds i8, ptr %ref.tmp112, i64 16
   store i32 8, ptr %flags118, align 16
-  %width119 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp112, i64 0, i32 3
+  %width119 = getelementptr inbounds i8, ptr %ref.tmp112, i64 24
   store i64 0, ptr %width119, align 8
-  %expected120 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp112, i64 0, i32 4
+  %expected120 = getelementptr inbounds i8, ptr %ref.tmp112, i64 32
   store ptr @.str.77, ptr %expected120, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp112)
   store i64 0, ptr %ref.tmp121, align 16
-  %6 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp121, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp121, i64 8
   store i64 -9223372036854775808, ptr %6, align 8
-  %flags126 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp121, i64 0, i32 1
+  %flags126 = getelementptr inbounds i8, ptr %ref.tmp121, i64 16
   store i32 2, ptr %flags126, align 16
-  %width127 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp121, i64 0, i32 3
+  %width127 = getelementptr inbounds i8, ptr %ref.tmp121, i64 24
   store i64 0, ptr %width127, align 8
-  %expected128 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp121, i64 0, i32 4
+  %expected128 = getelementptr inbounds i8, ptr %ref.tmp121, i64 32
   store ptr @.str.78, ptr %expected128, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp121)
   store i64 0, ptr %ref.tmp129, align 16
-  %7 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp129, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp129, i64 8
   store i64 -9223372036854775808, ptr %7, align 8
-  %flags134 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp129, i64 0, i32 1
+  %flags134 = getelementptr inbounds i8, ptr %ref.tmp129, i64 16
   store i32 64, ptr %flags134, align 16
-  %width135 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp129, i64 0, i32 3
+  %width135 = getelementptr inbounds i8, ptr %ref.tmp129, i64 24
   store i64 0, ptr %width135, align 8
-  %expected136 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp129, i64 0, i32 4
+  %expected136 = getelementptr inbounds i8, ptr %ref.tmp129, i64 32
   store ptr @.str.25, ptr %expected136, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp129)
   store i64 0, ptr %ref.tmp137, align 16
-  %8 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp137, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp137, i64 8
   store i64 -9223372036854775808, ptr %8, align 8
-  %flags142 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp137, i64 0, i32 1
+  %flags142 = getelementptr inbounds i8, ptr %ref.tmp137, i64 16
   store i32 8, ptr %flags142, align 16
-  %width143 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp137, i64 0, i32 3
+  %width143 = getelementptr inbounds i8, ptr %ref.tmp137, i64 24
   store i64 0, ptr %width143, align 8
-  %expected144 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp137, i64 0, i32 4
+  %expected144 = getelementptr inbounds i8, ptr %ref.tmp137, i64 32
   store ptr @.str.26, ptr %expected144, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp137)
   store i128 -1, ptr %ref.tmp145, align 16
-  %flags147 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp145, i64 0, i32 1
+  %flags147 = getelementptr inbounds i8, ptr %ref.tmp145, i64 16
   store i32 2, ptr %flags147, align 16
-  %width148 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp145, i64 0, i32 3
+  %width148 = getelementptr inbounds i8, ptr %ref.tmp145, i64 24
   store i64 0, ptr %width148, align 8
-  %expected149 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp145, i64 0, i32 4
+  %expected149 = getelementptr inbounds i8, ptr %ref.tmp145, i64 32
   store ptr @.str.79, ptr %expected149, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp145)
   store i128 -1, ptr %ref.tmp150, align 16
-  %flags152 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp150, i64 0, i32 1
+  %flags152 = getelementptr inbounds i8, ptr %ref.tmp150, i64 16
   store i32 64, ptr %flags152, align 16
-  %width153 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp150, i64 0, i32 3
+  %width153 = getelementptr inbounds i8, ptr %ref.tmp150, i64 24
   store i64 0, ptr %width153, align 8
-  %expected154 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp150, i64 0, i32 4
+  %expected154 = getelementptr inbounds i8, ptr %ref.tmp150, i64 32
   store ptr @.str.28, ptr %expected154, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp150)
   store i128 -1, ptr %ref.tmp155, align 16
-  %flags157 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp155, i64 0, i32 1
+  %flags157 = getelementptr inbounds i8, ptr %ref.tmp155, i64 16
   store i32 8, ptr %flags157, align 16
-  %width158 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp155, i64 0, i32 3
+  %width158 = getelementptr inbounds i8, ptr %ref.tmp155, i64 24
   store i64 0, ptr %width158, align 8
-  %expected159 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp155, i64 0, i32 4
+  %expected159 = getelementptr inbounds i8, ptr %ref.tmp155, i64 32
   store ptr @.str.29, ptr %expected159, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp155)
   store i128 -12345, ptr %ref.tmp160, align 16
-  %flags162 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp160, i64 0, i32 1
+  %flags162 = getelementptr inbounds i8, ptr %ref.tmp160, i64 16
   store i32 2, ptr %flags162, align 16
-  %width163 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp160, i64 0, i32 3
+  %width163 = getelementptr inbounds i8, ptr %ref.tmp160, i64 24
   store i64 0, ptr %width163, align 8
-  %expected164 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp160, i64 0, i32 4
+  %expected164 = getelementptr inbounds i8, ptr %ref.tmp160, i64 32
   store ptr @.str.80, ptr %expected164, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp160)
   store i128 -12345, ptr %ref.tmp165, align 16
-  %flags167 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp165, i64 0, i32 1
+  %flags167 = getelementptr inbounds i8, ptr %ref.tmp165, i64 16
   store i32 64, ptr %flags167, align 16
-  %width168 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp165, i64 0, i32 3
+  %width168 = getelementptr inbounds i8, ptr %ref.tmp165, i64 24
   store i64 0, ptr %width168, align 8
-  %expected169 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp165, i64 0, i32 4
+  %expected169 = getelementptr inbounds i8, ptr %ref.tmp165, i64 32
   store ptr @.str.81, ptr %expected169, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp165)
   store i128 -12345, ptr %ref.tmp170, align 16
-  %flags172 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp170, i64 0, i32 1
+  %flags172 = getelementptr inbounds i8, ptr %ref.tmp170, i64 16
   store i32 8, ptr %flags172, align 16
-  %width173 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp170, i64 0, i32 3
+  %width173 = getelementptr inbounds i8, ptr %ref.tmp170, i64 24
   store i64 0, ptr %width173, align 8
-  %expected174 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %ref.tmp170, i64 0, i32 4
+  %expected174 = getelementptr inbounds i8, ptr %ref.tmp170, i64 32
   store ptr @.str.82, ptr %expected174, align 16
   call fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128TestCaseE(ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp170)
   ret void
@@ -2288,10 +2288,10 @@ entry:
   %ref.tmp48 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp58 = alloca %"class.testing::Message", align 8
   %ref.tmp61 = alloca %"class.testing::internal::AssertHelper", align 8
-  %flags = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %test_case, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %test_case, i64 16
   %0 = load i32, ptr %flags, align 16
   %cmp = icmp eq i32 %0, 2
-  %width = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %test_case, i64 0, i32 3
+  %width = getelementptr inbounds i8, ptr %test_case, i64 24
   %1 = load i64, ptr %width, align 8
   %cmp1 = icmp eq i64 %1, 0
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
@@ -2341,7 +2341,7 @@ lpad.i:                                           ; preds = %invoke.cont
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %expected = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %test_case, i64 0, i32 4
+  %expected = getelementptr inbounds i8, ptr %test_case, i64 32
   %9 = load ptr, ptr %expected, align 16, !noalias !43
   %call.i.i.i22 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %9) #16, !noalias !43
   %cmp.i.i.i = icmp eq i32 %call.i.i.i22, 0
@@ -2384,7 +2384,7 @@ if.else:                                          ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %if.else
-  %message_.i.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
+  %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %14 = load ptr, ptr %message_.i.i, align 8
   %cmp.i.i.not.i.i = icmp eq ptr %14, null
   br i1 %cmp.i.i.not.i.i, label %invoke.cont13, label %cond.true.i.i
@@ -2410,7 +2410,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont17
   %vtable.i.i.i = load ptr, ptr %15, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %16 = load ptr, ptr %vfn.i.i.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(128) %15) #16
   br label %_ZN7testing7MessageD2Ev.exit
@@ -2443,7 +2443,7 @@ ehcleanup19:                                      ; preds = %lpad16, %lpad12
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i26: ; preds = %ehcleanup19
   %vtable.i.i.i27 = load ptr, ptr %20, align 8
-  %vfn.i.i.i28 = getelementptr inbounds ptr, ptr %vtable.i.i.i27, i64 1
+  %vfn.i.i.i28 = getelementptr inbounds i8, ptr %vtable.i.i.i27, i64 8
   %21 = load ptr, ptr %vfn.i.i.i28, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(128) %20) #16
   br label %_ZN7testing7MessageD2Ev.exit29
@@ -2453,7 +2453,7 @@ _ZN7testing7MessageD2Ev.exit29:                   ; preds = %ehcleanup19, %_ZNKS
   br label %ehcleanup20
 
 if.end:                                           ; preds = %invoke.cont6, %_ZN7testing7MessageD2Ev.exit
-  %message_.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
+  %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %22 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i30 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i30, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -2479,14 +2479,14 @@ if.end21:                                         ; preds = %_ZN7testing15Assert
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
   %23 = load i32, ptr %flags, align 16
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   store i32 %23, ptr %_M_flags.i, align 8
   %vtable24 = load ptr, ptr %os, align 8
   %vbase.offset.ptr25 = getelementptr i8, ptr %vtable24, i64 -24
   %vbase.offset26 = load i64, ptr %vbase.offset.ptr25, align 8
   %add.ptr27 = getelementptr inbounds i8, ptr %os, i64 %vbase.offset26
   %24 = load i64, ptr %width, align 8
-  %_M_width.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr27, i64 0, i32 2
+  %_M_width.i = getelementptr inbounds i8, ptr %add.ptr27, i64 16
   store i64 %24, ptr %_M_width.i, align 8
   %vtable30 = load ptr, ptr %os, align 8
   %vbase.offset.ptr31 = getelementptr i8, ptr %vtable30, i64 -24
@@ -2531,7 +2531,7 @@ invoke.cont45:                                    ; preds = %.noexc32
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %invoke.cont45
-  %expected51 = getelementptr inbounds %"struct.(anonymous namespace)::Int128TestCase", ptr %test_case, i64 0, i32 4
+  %expected51 = getelementptr inbounds i8, ptr %test_case, i64 32
   %28 = load ptr, ptr %expected51, align 16, !noalias !48
   %call.i.i.i34 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, ptr noundef %28) #16, !noalias !48
   %cmp.i.i.i35 = icmp eq i32 %call.i.i.i34, 0
@@ -2583,7 +2583,7 @@ if.else57:                                        ; preds = %invoke.cont53
           to label %invoke.cont60 unwind label %lpad59
 
 invoke.cont60:                                    ; preds = %if.else57
-  %message_.i.i42 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar47, i64 0, i32 1
+  %message_.i.i42 = getelementptr inbounds i8, ptr %gtest_ar47, i64 8
   %35 = load ptr, ptr %message_.i.i42, align 8
   %cmp.i.i.not.i.i43 = icmp eq ptr %35, null
   br i1 %cmp.i.i.not.i.i43, label %invoke.cont63, label %cond.true.i.i44
@@ -2609,7 +2609,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i49: ; preds = %invoke.cont67
   %vtable.i.i.i50 = load ptr, ptr %36, align 8
-  %vfn.i.i.i51 = getelementptr inbounds ptr, ptr %vtable.i.i.i50, i64 1
+  %vfn.i.i.i51 = getelementptr inbounds i8, ptr %vtable.i.i.i50, i64 8
   %37 = load ptr, ptr %vfn.i.i.i51, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(128) %36) #16
   br label %_ZN7testing7MessageD2Ev.exit52
@@ -2642,7 +2642,7 @@ ehcleanup69:                                      ; preds = %lpad66, %lpad62
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i54: ; preds = %ehcleanup69
   %vtable.i.i.i55 = load ptr, ptr %41, align 8
-  %vfn.i.i.i56 = getelementptr inbounds ptr, ptr %vtable.i.i.i55, i64 1
+  %vfn.i.i.i56 = getelementptr inbounds i8, ptr %vtable.i.i.i55, i64 8
   %42 = load ptr, ptr %vfn.i.i.i56, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(128) %41) #16
   br label %_ZN7testing7MessageD2Ev.exit57
@@ -2652,7 +2652,7 @@ _ZN7testing7MessageD2Ev.exit57:                   ; preds = %ehcleanup69, %_ZNKS
   br label %ehcleanup71
 
 if.end70:                                         ; preds = %invoke.cont53, %_ZN7testing7MessageD2Ev.exit52
-  %message_.i58 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar47, i64 0, i32 1
+  %message_.i58 = getelementptr inbounds i8, ptr %gtest_ar47, i64 8
   %43 = load ptr, ptr %message_.i58, align 8
   %cmp.not.i.i59 = icmp eq ptr %43, null
   br i1 %cmp.not.i.i59, label %_ZN7testing15AssertionResultD2Ev.exit61, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i60
@@ -2918,7 +2918,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
-  %line.i.i = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i, i64 0, i32 1
+  %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 103, ptr %line.i.i, align 8
   %call.i = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i unwind label %lpad4.i
@@ -3001,7 +3001,7 @@ invoke.cont.i10:                                  ; preds = %.noexc.i8
           to label %invoke.cont3.i13 unwind label %lpad2.i11
 
 invoke.cont3.i13:                                 ; preds = %invoke.cont.i10
-  %line.i.i14 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i1, i64 0, i32 1
+  %line.i.i14 = getelementptr inbounds i8, ptr %agg.tmp.i1, i64 32
   store i32 148, ptr %line.i.i14, align 8
   %call.i15 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i17 unwind label %lpad4.i16
@@ -3078,7 +3078,7 @@ invoke.cont.i34:                                  ; preds = %.noexc.i32
           to label %invoke.cont3.i38 unwind label %lpad2.i35
 
 invoke.cont3.i38:                                 ; preds = %invoke.cont.i34
-  %line.i.i39 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i24, i64 0, i32 1
+  %line.i.i39 = getelementptr inbounds i8, ptr %agg.tmp.i24, i64 32
   store i32 174, ptr %line.i.i39, align 8
   %call.i40 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i42 unwind label %lpad4.i41
@@ -3155,7 +3155,7 @@ invoke.cont.i60:                                  ; preds = %.noexc.i58
           to label %invoke.cont3.i64 unwind label %lpad2.i61
 
 invoke.cont3.i64:                                 ; preds = %invoke.cont.i60
-  %line.i.i65 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i50, i64 0, i32 1
+  %line.i.i65 = getelementptr inbounds i8, ptr %agg.tmp.i50, i64 32
   store i32 234, ptr %line.i.i65, align 8
   %call.i66 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i68 unwind label %lpad4.i67

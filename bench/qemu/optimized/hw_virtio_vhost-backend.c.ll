@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.VhostOps = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.vhost_dev = type { ptr, %struct.MemoryListener, %struct.MemoryListener, ptr, i32, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i8, i8, i64, ptr, ptr, ptr, ptr, %struct.anon, %struct.anon.1, %struct.IOMMUNotifier, ptr }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.anon = type { ptr, ptr }
-%struct.anon.1 = type { ptr }
-%struct.IOMMUNotifier = type { ptr, i32, i64, i64, i32, %struct.anon.2 }
-%struct.anon.2 = type { ptr, ptr }
 %struct.vhost_msg_v2 = type { i32, i32, %union.anon.3 }
 %union.anon.3 = type { %struct.vhost_iotlb_msg, [32 x i8] }
 %struct.vhost_iotlb_msg = type { i64, i64, i64, i8, i8 }
@@ -39,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_init(ptr nocapture noundef %dev, ptr noundef %opaque, ptr nocapture readnone %errp) #0 {
 entry:
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
   %1 = load i32, ptr %0, align 8
   %cmp = icmp eq i32 %1, 1
@@ -50,7 +41,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %opaque1 = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque1 = getelementptr inbounds i8, ptr %dev, i64 536
   store ptr %opaque, ptr %opaque1, align 8
   ret i32 0
 }
@@ -58,7 +49,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_cleanup(ptr nocapture noundef readonly %dev) #0 {
 entry:
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
   %1 = load i32, ptr %0, align 8
   %cmp = icmp eq i32 %1, 1
@@ -69,7 +60,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %opaque = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv = trunc i64 %3 to i32
@@ -126,7 +117,7 @@ return:                                           ; preds = %if.end4, %if.then3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_net_set_backend(ptr nocapture noundef readonly %dev, ptr noundef %file) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -137,7 +128,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -159,7 +150,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_scsi_set_endpoint(ptr nocapture noundef readonly %dev, ptr noundef %target) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -170,7 +161,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -192,7 +183,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_scsi_clear_endpoint(ptr nocapture noundef readonly %dev, ptr noundef %target) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -203,7 +194,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -225,7 +216,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_scsi_get_abi_version(ptr nocapture noundef readonly %dev, ptr noundef %version) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -236,7 +227,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -260,7 +251,7 @@ define internal i32 @vhost_kernel_set_log_base(ptr nocapture noundef readonly %d
 entry:
   %base.addr = alloca i64, align 8
   store i64 %base, ptr %base.addr, align 8
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -271,7 +262,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -293,7 +284,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_set_mem_table(ptr nocapture noundef readonly %dev, ptr noundef %mem) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -304,7 +295,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -326,7 +317,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_set_vring_addr(ptr nocapture noundef readonly %dev, ptr noundef %addr) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -337,7 +328,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -359,7 +350,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_set_vring_endian(ptr nocapture noundef readonly %dev, ptr noundef %ring) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -370,7 +361,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -392,7 +383,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_set_vring_num(ptr nocapture noundef readonly %dev, ptr noundef %ring) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -403,7 +394,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -425,7 +416,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_set_vring_base(ptr nocapture noundef readonly %dev, ptr noundef %ring) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -436,7 +427,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -458,7 +449,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_get_vring_base(ptr nocapture noundef readonly %dev, ptr noundef %ring) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -469,7 +460,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -491,7 +482,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_set_vring_kick(ptr nocapture noundef readonly %dev, ptr noundef %file) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -502,7 +493,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -524,7 +515,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_set_vring_call(ptr nocapture noundef readonly %dev, ptr noundef %file) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -535,7 +526,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -557,7 +548,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_set_vring_err(ptr nocapture noundef readonly %dev, ptr noundef %file) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -568,7 +559,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -590,7 +581,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_set_vring_busyloop_timeout(ptr nocapture noundef readonly %dev, ptr noundef %s) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -601,7 +592,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -625,7 +616,7 @@ define internal i32 @vhost_kernel_set_features(ptr nocapture noundef readonly %d
 entry:
   %features.addr = alloca i64, align 8
   store i64 %features, ptr %features.addr, align 8
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -636,7 +627,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -658,7 +649,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_get_features(ptr nocapture noundef readonly %dev, ptr noundef %features) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -669,7 +660,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -692,7 +683,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 define internal i32 @vhost_kernel_set_backend_cap(ptr nocapture noundef %dev) #0 {
 entry:
   %features = alloca i64, align 8
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -703,7 +694,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -756,7 +747,7 @@ vhost_kernel_call.exit15:                         ; preds = %if.end.i6, %cond.tr
 
 if.end4:                                          ; preds = %vhost_kernel_call.exit15
   %11 = load i64, ptr %features, align 8
-  %backend_cap = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 18
+  %backend_cap = getelementptr inbounds i8, ptr %dev, i64 496
   store i64 %11, ptr %backend_cap, align 8
   br label %return
 
@@ -767,7 +758,7 @@ return:                                           ; preds = %vhost_kernel_call.e
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_set_owner(ptr nocapture noundef readonly %dev) #0 {
 entry:
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -778,7 +769,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -800,13 +791,13 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_kernel_get_vq_index(ptr nocapture noundef readonly %dev, i32 noundef %idx) #0 {
 entry:
-  %vq_index = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 10
+  %vq_index = getelementptr inbounds i8, ptr %dev, i64 444
   %0 = load i32, ptr %vq_index, align 4
   %cmp.not = icmp sgt i32 %0, %idx
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %nvqs = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %dev, i64 440
   %1 = load i32, ptr %nvqs, align 8
   %add = add i32 %1, %0
   %cmp2 = icmp ugt i32 %add, %idx
@@ -826,7 +817,7 @@ define internal i32 @vhost_kernel_vsock_set_guest_cid(ptr nocapture noundef read
 entry:
   %guest_cid.addr = alloca i64, align 8
   store i64 %guest_cid, ptr %guest_cid.addr, align 8
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -837,7 +828,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -861,7 +852,7 @@ define internal i32 @vhost_kernel_vsock_set_running(ptr nocapture noundef readon
 entry:
   %start.addr = alloca i32, align 4
   store i32 %start, ptr %start.addr, align 4
-  %vhost_ops.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -872,7 +863,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv.i = trunc i64 %3 to i32
@@ -895,7 +886,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 define internal void @vhost_kernel_set_iotlb_callback(ptr noundef %dev, i32 noundef %enabled) #0 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
-  %opaque1 = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque1 = getelementptr inbounds i8, ptr %dev, i64 536
   %0 = load ptr, ptr %opaque1, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv2 = trunc i64 %1 to i32
@@ -918,17 +909,17 @@ define internal i32 @vhost_kernel_send_device_iotlb_msg(ptr nocapture noundef re
 entry:
   %msg = alloca %struct.vhost_msg_v2, align 8
   %msg3 = alloca %struct.vhost_msg, align 8
-  %backend_cap = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 18
+  %backend_cap = getelementptr inbounds i8, ptr %dev, i64 496
   %0 = load i64, ptr %backend_cap, align 8
   %and = and i64 %0, 2
   %tobool.not = icmp eq i64 %and, 0
-  %opaque5 = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 24
+  %opaque5 = getelementptr inbounds i8, ptr %dev, i64 536
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %msg, i8 0, i64 72, i1 false)
   store i32 2, ptr %msg, align 8
-  %1 = getelementptr inbounds %struct.vhost_msg_v2, ptr %msg, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %msg, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %imsg, i64 32, i1 false)
   %2 = load ptr, ptr %opaque5, align 8
   %3 = ptrtoint ptr %2 to i64
@@ -940,7 +931,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %msg3, i8 0, i64 72, i1 false)
   store i32 1, ptr %msg3, align 8
-  %4 = getelementptr inbounds %struct.vhost_msg, ptr %msg3, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %msg3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %imsg, i64 32, i1 false)
   %5 = load ptr, ptr %opaque5, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -963,11 +954,11 @@ define dso_local i32 @vhost_backend_update_device_iotlb(ptr noundef %dev, i64 no
 entry:
   %imsg = alloca %struct.vhost_iotlb_msg, align 8
   store i64 %iova, ptr %imsg, align 8
-  %uaddr2 = getelementptr inbounds %struct.vhost_iotlb_msg, ptr %imsg, i64 0, i32 2
+  %uaddr2 = getelementptr inbounds i8, ptr %imsg, i64 16
   store i64 %uaddr, ptr %uaddr2, align 8
-  %size = getelementptr inbounds %struct.vhost_iotlb_msg, ptr %imsg, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %imsg, i64 8
   store i64 %len, ptr %size, align 8
-  %type = getelementptr inbounds %struct.vhost_iotlb_msg, ptr %imsg, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %imsg, i64 25
   store i8 2, ptr %type, align 1
   %switch.tableidx = add i32 %perm, -1
   %0 = icmp ult i32 %switch.tableidx, 3
@@ -976,15 +967,15 @@ entry:
 switch.lookup:                                    ; preds = %entry
   %switch.idx.cast = trunc i32 %switch.tableidx to i8
   %switch.offset = add nuw nsw i8 %switch.idx.cast, 1
-  %perm7 = getelementptr inbounds %struct.vhost_iotlb_msg, ptr %imsg, i64 0, i32 3
+  %perm7 = getelementptr inbounds i8, ptr %imsg, i64 24
   store i8 %switch.offset, ptr %perm7, align 8
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %1 = load ptr, ptr %vhost_ops, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %switch.lookup
-  %vhost_send_device_iotlb_msg = getelementptr inbounds %struct.VhostOps, ptr %1, i64 0, i32 33
+  %vhost_send_device_iotlb_msg = getelementptr inbounds i8, ptr %1, i64 264
   %2 = load ptr, ptr %vhost_send_device_iotlb_msg, align 8
   %tobool9.not = icmp eq ptr %2, null
   br i1 %tobool9.not, label %return, label %if.then
@@ -1003,17 +994,17 @@ define dso_local i32 @vhost_backend_invalidate_device_iotlb(ptr noundef %dev, i6
 entry:
   %imsg = alloca %struct.vhost_iotlb_msg, align 8
   store i64 %iova, ptr %imsg, align 8
-  %size = getelementptr inbounds %struct.vhost_iotlb_msg, ptr %imsg, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %imsg, i64 8
   store i64 %len, ptr %size, align 8
-  %type = getelementptr inbounds %struct.vhost_iotlb_msg, ptr %imsg, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %imsg, i64 25
   store i8 3, ptr %type, align 1
-  %vhost_ops = getelementptr inbounds %struct.vhost_dev, ptr %dev, i64 0, i32 23
+  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %vhost_send_device_iotlb_msg = getelementptr inbounds %struct.VhostOps, ptr %0, i64 0, i32 33
+  %vhost_send_device_iotlb_msg = getelementptr inbounds i8, ptr %0, i64 264
   %1 = load ptr, ptr %vhost_send_device_iotlb_msg, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %return, label %if.then
@@ -1039,7 +1030,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.vhost_iotlb_msg, ptr %imsg, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %imsg, i64 25
   %1 = load i8, ptr %type, align 1
   switch i8 %1, label %sw.default [
     i8 1, label %sw.bb
@@ -1048,7 +1039,7 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %2 = load i64, ptr %imsg, align 8
-  %perm = getelementptr inbounds %struct.vhost_iotlb_msg, ptr %imsg, i64 0, i32 3
+  %perm = getelementptr inbounds i8, ptr %imsg, i64 24
   %3 = load i8, ptr %perm, align 8
   %cmp = icmp ne i8 %3, 1
   %conv6 = zext i1 %cmp to i32
@@ -1096,11 +1087,11 @@ define internal void @vhost_kernel_iotlb_read(ptr noundef %opaque) #0 {
 entry:
   %msg = alloca %struct.vhost_msg_v2, align 8
   %msg12 = alloca %struct.vhost_msg, align 8
-  %backend_cap = getelementptr inbounds %struct.vhost_dev, ptr %opaque, i64 0, i32 18
+  %backend_cap = getelementptr inbounds i8, ptr %opaque, i64 496
   %0 = load i64, ptr %backend_cap, align 8
   %and = and i64 %0, 2
   %tobool.not = icmp eq i64 %and, 0
-  %opaque14 = getelementptr inbounds %struct.vhost_dev, ptr %opaque, i64 0, i32 24
+  %opaque14 = getelementptr inbounds i8, ptr %opaque, i64 536
   %1 = load ptr, ptr %opaque14, align 8
   %2 = ptrtoint ptr %1 to i64
   %conv1530 = trunc i64 %2 to i32
@@ -1112,9 +1103,9 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp28, label %while.body.lr.ph, label %if.end32
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %3 = getelementptr inbounds %struct.vhost_msg_v2, ptr %msg, i64 0, i32 2
-  %type.i = getelementptr inbounds %struct.vhost_msg_v2, ptr %msg, i64 0, i32 2, i32 0, i32 4
-  %perm.i = getelementptr inbounds %struct.vhost_msg_v2, ptr %msg, i64 0, i32 2, i32 0, i32 3
+  %3 = getelementptr inbounds i8, ptr %msg, i64 8
+  %type.i = getelementptr inbounds i8, ptr %msg, i64 33
+  %perm.i = getelementptr inbounds i8, ptr %msg, i64 32
   br label %while.body
 
 while.cond13.preheader:                           ; preds = %entry
@@ -1123,9 +1114,9 @@ while.cond13.preheader:                           ; preds = %entry
   br i1 %cmp1732, label %while.body19.lr.ph, label %if.end32
 
 while.body19.lr.ph:                               ; preds = %while.cond13.preheader
-  %4 = getelementptr inbounds %struct.vhost_msg, ptr %msg12, i64 0, i32 1
-  %type.i10 = getelementptr inbounds %struct.vhost_msg, ptr %msg12, i64 0, i32 1, i32 0, i32 4
-  %perm.i14 = getelementptr inbounds %struct.vhost_msg, ptr %msg12, i64 0, i32 1, i32 0, i32 3
+  %4 = getelementptr inbounds i8, ptr %msg12, i64 8
+  %type.i10 = getelementptr inbounds i8, ptr %msg12, i64 33
+  %perm.i14 = getelementptr inbounds i8, ptr %msg12, i64 32
   br label %while.body19
 
 while.body:                                       ; preds = %while.body.lr.ph, %vhost_backend_handle_iotlb_msg.exit

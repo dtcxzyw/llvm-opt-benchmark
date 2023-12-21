@@ -53,14 +53,14 @@ if.end9:                                          ; preds = %if.end3
   br i1 %cmp10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %st_mode = getelementptr inbounds %struct.stat, ptr %sb, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %sb, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp12 = icmp eq i32 %and, 32768
   br i1 %cmp12, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.then11
-  %st_size = getelementptr inbounds %struct.stat, ptr %sb, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %sb, i64 48
   %1 = load i64, ptr %st_size, align 8
   br label %if.end15
 
@@ -186,7 +186,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %st_mode = getelementptr inbounds %struct.stat, ptr %sb, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %sb, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp1 = icmp eq i32 %and, 32768

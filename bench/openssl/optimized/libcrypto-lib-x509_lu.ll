@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-x509_lu.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.x509_lookup_st = type { i32, i32, ptr, ptr, ptr }
-%struct.x509_lookup_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.x509_store_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, %struct.CRYPTO_REF_COUNT, ptr }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
 %struct.x509_object_st = type { i32, %union.anon }
 %union.anon = type { ptr }
 %struct.x509_st = type { %struct.x509_cinf_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.x509_sig_info_st, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, i64, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr, ptr, i32, ptr, ptr, ptr }
@@ -17,9 +12,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.X509_algor_st = type { ptr, ptr }
 %struct.asn1_string_st = type { i32, i32, ptr, i64 }
 %struct.x509_sig_info_st = type { i32, i32, i32, i32 }
+%struct.CRYPTO_REF_COUNT = type { i32 }
+%struct.crypto_ex_data_st = type { ptr, ptr }
 %struct.X509_crl_st = type { %struct.X509_crl_info_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.CRYPTO_REF_COUNT, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, [20 x i8], ptr, ptr, ptr, ptr, ptr }
 %struct.X509_crl_info_st = type { ptr, %struct.X509_algor_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.x509_store_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, ptr, %struct.crypto_ex_data_st, ptr, i32, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/x509/x509_lu.c\00", align 1
 @__func__.X509_STORE_new = private unnamed_addr constant [15 x i8] c"X509_STORE_new\00", align 1
@@ -36,9 +32,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %method1 = getelementptr inbounds %struct.x509_lookup_st, ptr %call, i64 0, i32 2
+  %method1 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %method, ptr %method1, align 8
-  %new_item = getelementptr inbounds %struct.x509_lookup_method_st, ptr %method, i64 0, i32 1
+  %new_item = getelementptr inbounds i8, ptr %method, i64 8
   %0 = load ptr, ptr %new_item, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %return, label %land.lhs.true
@@ -68,13 +64,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %method = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 2
+  %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end7, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %free = getelementptr inbounds %struct.x509_lookup_method_st, ptr %0, i64 0, i32 2
+  %free = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %free, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %if.end7, label %if.then4
@@ -94,7 +90,7 @@ return:                                           ; preds = %entry, %if.end7
 ; Function Attrs: nounwind uwtable
 define i32 @X509_STORE_lock(ptr nocapture noundef readonly %xs) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 18
+  %lock = getelementptr inbounds i8, ptr %xs, i64 152
   %0 = load ptr, ptr %lock, align 8
   %call = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #6
   ret i32 %call
@@ -105,7 +101,7 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @X509_STORE_unlock(ptr nocapture noundef readonly %xs) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 18
+  %lock = getelementptr inbounds i8, ptr %xs, i64 152
   %0 = load ptr, ptr %lock, align 8
   %call = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %0) #6
   ret i32 %call
@@ -116,13 +112,13 @@ declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @X509_LOOKUP_init(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %method = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 2
+  %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %init = getelementptr inbounds %struct.x509_lookup_method_st, ptr %0, i64 0, i32 3
+  %init = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %init, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %return, label %if.then3
@@ -139,13 +135,13 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define i32 @X509_LOOKUP_shutdown(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %method = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 2
+  %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shutdown = getelementptr inbounds %struct.x509_lookup_method_st, ptr %0, i64 0, i32 4
+  %shutdown = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %shutdown, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %return, label %if.then3
@@ -162,13 +158,13 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define i32 @X509_LOOKUP_ctrl_ex(ptr noundef %ctx, i32 noundef %cmd, ptr noundef %argc, i64 noundef %argl, ptr noundef %ret, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
-  %method = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 2
+  %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ctrl_ex = getelementptr inbounds %struct.x509_lookup_method_st, ptr %0, i64 0, i32 11
+  %ctrl_ex = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %ctrl_ex, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end6, label %if.then3
@@ -178,7 +174,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %ctrl = getelementptr inbounds %struct.x509_lookup_method_st, ptr %0, i64 0, i32 5
+  %ctrl = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %ctrl, align 8
   %cmp8.not = icmp eq ptr %2, null
   br i1 %cmp8.not, label %return, label %if.then9
@@ -195,13 +191,13 @@ return:                                           ; preds = %if.end6, %entry, %i
 ; Function Attrs: nounwind uwtable
 define i32 @X509_LOOKUP_ctrl(ptr noundef %ctx, i32 noundef %cmd, ptr noundef %argc, i64 noundef %argl, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
-  %method.i = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 2
+  %method.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %X509_LOOKUP_ctrl_ex.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %ctrl_ex.i = getelementptr inbounds %struct.x509_lookup_method_st, ptr %0, i64 0, i32 11
+  %ctrl_ex.i = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %ctrl_ex.i, align 8
   %cmp2.not.i = icmp eq ptr %1, null
   br i1 %cmp2.not.i, label %if.end6.i, label %if.then3.i
@@ -211,7 +207,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %X509_LOOKUP_ctrl_ex.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %ctrl.i = getelementptr inbounds %struct.x509_lookup_method_st, ptr %0, i64 0, i32 5
+  %ctrl.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %ctrl.i, align 8
   %cmp8.not.i = icmp eq ptr %2, null
   br i1 %cmp8.not.i, label %X509_LOOKUP_ctrl_ex.exit, label %if.then9.i
@@ -228,22 +224,22 @@ X509_LOOKUP_ctrl_ex.exit:                         ; preds = %entry, %if.then3.i,
 ; Function Attrs: nounwind uwtable
 define i32 @X509_LOOKUP_by_subject_ex(ptr noundef %ctx, i32 noundef %type, ptr noundef %name, ptr noundef %ret, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
-  %skip = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 1
+  %skip = getelementptr inbounds i8, ptr %ctx, i64 4
   %0 = load i32, ptr %skip, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %method = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 2
+  %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %method, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %lor.lhs.false
-  %get_by_subject = getelementptr inbounds %struct.x509_lookup_method_st, ptr %1, i64 0, i32 6
+  %get_by_subject = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load ptr, ptr %get_by_subject, align 8
   %cmp3 = icmp eq ptr %2, null
-  %get_by_subject_ex = getelementptr inbounds %struct.x509_lookup_method_st, ptr %1, i64 0, i32 10
+  %get_by_subject_ex = getelementptr inbounds i8, ptr %1, i64 80
   %3 = load ptr, ptr %get_by_subject_ex, align 8
   %cmp5 = icmp eq ptr %3, null
   br i1 %cmp3, label %land.lhs.true, label %if.end
@@ -270,22 +266,22 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @X509_LOOKUP_by_subject(ptr noundef %ctx, i32 noundef %type, ptr noundef %name, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
-  %skip.i = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 1
+  %skip.i = getelementptr inbounds i8, ptr %ctx, i64 4
   %0 = load i32, ptr %skip.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %X509_LOOKUP_by_subject_ex.exit
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %method.i = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 2
+  %method.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %method.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %X509_LOOKUP_by_subject_ex.exit, label %lor.lhs.false1.i
 
 lor.lhs.false1.i:                                 ; preds = %lor.lhs.false.i
-  %get_by_subject.i = getelementptr inbounds %struct.x509_lookup_method_st, ptr %1, i64 0, i32 6
+  %get_by_subject.i = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load ptr, ptr %get_by_subject.i, align 8
   %cmp3.i = icmp eq ptr %2, null
-  %get_by_subject_ex.i = getelementptr inbounds %struct.x509_lookup_method_st, ptr %1, i64 0, i32 10
+  %get_by_subject_ex.i = getelementptr inbounds i8, ptr %1, i64 80
   %3 = load ptr, ptr %get_by_subject_ex.i, align 8
   %cmp5.i = icmp eq ptr %3, null
   br i1 %cmp3.i, label %land.lhs.true.i, label %if.end.i
@@ -312,13 +308,13 @@ X509_LOOKUP_by_subject_ex.exit:                   ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @X509_LOOKUP_by_issuer_serial(ptr noundef %ctx, i32 noundef %type, ptr noundef %name, ptr noundef %serial, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
-  %method = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 2
+  %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %get_by_issuer_serial = getelementptr inbounds %struct.x509_lookup_method_st, ptr %0, i64 0, i32 7
+  %get_by_issuer_serial = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %get_by_issuer_serial, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %return, label %if.end
@@ -335,13 +331,13 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @X509_LOOKUP_by_fingerprint(ptr noundef %ctx, i32 noundef %type, ptr noundef %bytes, i32 noundef %len, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
-  %method = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 2
+  %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %get_by_fingerprint = getelementptr inbounds %struct.x509_lookup_method_st, ptr %0, i64 0, i32 8
+  %get_by_fingerprint = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %get_by_fingerprint, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %return, label %if.end
@@ -358,13 +354,13 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @X509_LOOKUP_by_alias(ptr noundef %ctx, i32 noundef %type, ptr noundef %str, i32 noundef %len, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
-  %method = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 2
+  %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %get_by_alias = getelementptr inbounds %struct.x509_lookup_method_st, ptr %0, i64 0, i32 9
+  %get_by_alias = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %get_by_alias, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %return, label %if.end
@@ -381,7 +377,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @X509_LOOKUP_set_method_data(ptr nocapture noundef writeonly %ctx, ptr noundef %data) local_unnamed_addr #2 {
 entry:
-  %method_data = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 3
+  %method_data = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %data, ptr %method_data, align 8
   ret i32 1
 }
@@ -389,7 +385,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_LOOKUP_get_method_data(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %method_data = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 3
+  %method_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %method_data, align 8
   ret ptr %0
 }
@@ -397,7 +393,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_LOOKUP_get_store(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %store_ctx = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 4
+  %store_ctx = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %store_ctx, align 8
   ret ptr %0
 }
@@ -411,7 +407,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @x509_object_cmp) #6
-  %objs = getelementptr inbounds %struct.x509_store_st, ptr %call, i64 0, i32 1
+  %objs = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call2, ptr %objs, align 8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %err, label %if.end5
@@ -419,33 +415,33 @@ if.end:                                           ; preds = %entry
 if.end5:                                          ; preds = %if.end
   store i32 1, ptr %call, align 8
   %call6 = tail call ptr @OPENSSL_sk_new_null() #6
-  %get_cert_methods = getelementptr inbounds %struct.x509_store_st, ptr %call, i64 0, i32 2
+  %get_cert_methods = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call6, ptr %get_cert_methods, align 8
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %err, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
   %call10 = tail call ptr @X509_VERIFY_PARAM_new() #6
-  %param = getelementptr inbounds %struct.x509_store_st, ptr %call, i64 0, i32 3
+  %param = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call10, ptr %param, align 8
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %err, label %if.end13
 
 if.end13:                                         ; preds = %if.end9
-  %ex_data = getelementptr inbounds %struct.x509_store_st, ptr %call, i64 0, i32 16
+  %ex_data = getelementptr inbounds i8, ptr %call, i64 128
   %call14 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 4, ptr noundef nonnull %call, ptr noundef nonnull %ex_data) #6
   %tobool.not = icmp eq i32 %call14, 0
   br i1 %tobool.not, label %err, label %if.end16
 
 if.end16:                                         ; preds = %if.end13
   %call17 = tail call ptr @CRYPTO_THREAD_lock_new() #6
-  %lock = getelementptr inbounds %struct.x509_store_st, ptr %call, i64 0, i32 18
+  %lock = getelementptr inbounds i8, ptr %call, i64 152
   store ptr %call17, ptr %lock, align 8
   %cmp19 = icmp eq ptr %call17, null
   br i1 %cmp19, label %err, label %if.end21
 
 if.end21:                                         ; preds = %if.end16
-  %references = getelementptr inbounds %struct.x509_store_st, ptr %call, i64 0, i32 17
+  %references = getelementptr inbounds i8, ptr %call, i64 144
   store atomic i32 1, ptr %references seq_cst, align 4
   br label %return
 
@@ -455,15 +451,15 @@ err:                                              ; preds = %if.end16, %if.end13
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink16, ptr noundef nonnull @__func__.X509_STORE_new) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #6
-  %param26 = getelementptr inbounds %struct.x509_store_st, ptr %call, i64 0, i32 3
+  %param26 = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load ptr, ptr %param26, align 8
   tail call void @X509_VERIFY_PARAM_free(ptr noundef %0) #6
   %1 = load ptr, ptr %objs, align 8
   tail call void @OPENSSL_sk_free(ptr noundef %1) #6
-  %get_cert_methods29 = getelementptr inbounds %struct.x509_store_st, ptr %call, i64 0, i32 2
+  %get_cert_methods29 = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %get_cert_methods29, align 8
   tail call void @OPENSSL_sk_free(ptr noundef %2) #6
-  %lock31 = getelementptr inbounds %struct.x509_store_st, ptr %call, i64 0, i32 18
+  %lock31 = getelementptr inbounds i8, ptr %call, i64 152
   %3 = load ptr, ptr %lock31, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %3) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 222) #6
@@ -494,17 +490,17 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %data = getelementptr inbounds %struct.x509_object_st, ptr %0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %data, align 8
-  %data3 = getelementptr inbounds %struct.x509_object_st, ptr %2, i64 0, i32 1
+  %data3 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %data3, align 8
   %call = tail call i32 @X509_subject_name_cmp(ptr noundef %4, ptr noundef %5) #6
   br label %return
 
 sw.bb4:                                           ; preds = %if.end
-  %data5 = getelementptr inbounds %struct.x509_object_st, ptr %0, i64 0, i32 1
+  %data5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %data5, align 8
-  %data6 = getelementptr inbounds %struct.x509_object_st, ptr %2, i64 0, i32 1
+  %data6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %data6, align 8
   %call7 = tail call i32 @X509_CRL_cmp(ptr noundef %6, ptr noundef %7) #6
   br label %return
@@ -541,7 +537,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %references = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 17
+  %references = getelementptr inbounds i8, ptr %xs, i64 144
   %0 = atomicrmw sub ptr %references, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -555,7 +551,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  %get_cert_methods = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 2
+  %get_cert_methods = getelementptr inbounds i8, ptr %xs, i64 16
   %1 = load ptr, ptr %get_cert_methods, align 8
   %call521 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #6
   %cmp622 = icmp sgt i32 %call521, 0
@@ -564,13 +560,13 @@ if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exi
 for.body:                                         ; preds = %if.end3, %X509_LOOKUP_free.exit
   %storemerge23 = phi i32 [ %inc, %X509_LOOKUP_free.exit ], [ 0, %if.end3 ]
   %call8 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %storemerge23) #6
-  %method.i = getelementptr inbounds %struct.x509_lookup_st, ptr %call8, i64 0, i32 2
+  %method.i = getelementptr inbounds i8, ptr %call8, i64 8
   %2 = load ptr, ptr %method.i, align 8
   %cmp.i13 = icmp eq ptr %2, null
   br i1 %cmp.i13, label %X509_LOOKUP_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %shutdown.i = getelementptr inbounds %struct.x509_lookup_method_st, ptr %2, i64 0, i32 4
+  %shutdown.i = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %shutdown.i, align 8
   %cmp2.not.i = icmp eq ptr %3, null
   br i1 %cmp2.not.i, label %land.lhs.true.i, label %if.end.i15
@@ -583,7 +579,7 @@ if.end.i15:                                       ; preds = %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i, %if.end.i15
   %.pr27 = phi ptr [ %.pr.pre, %if.end.i15 ], [ %2, %if.end.i ]
-  %free.i = getelementptr inbounds %struct.x509_lookup_method_st, ptr %.pr27, i64 0, i32 2
+  %free.i = getelementptr inbounds i8, ptr %.pr27, i64 16
   %4 = load ptr, ptr %free.i, align 8
   %cmp3.not.i = icmp eq ptr %4, null
   br i1 %cmp3.not.i, label %X509_LOOKUP_free.exit, label %if.then4.i
@@ -601,15 +597,15 @@ X509_LOOKUP_free.exit:                            ; preds = %for.body, %if.end.i
 
 for.end:                                          ; preds = %X509_LOOKUP_free.exit, %if.end3
   tail call void @OPENSSL_sk_free(ptr noundef %1) #6
-  %objs = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 1
+  %objs = getelementptr inbounds i8, ptr %xs, i64 8
   %5 = load ptr, ptr %objs, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %5, ptr noundef nonnull @X509_OBJECT_free) #6
-  %ex_data = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 16
+  %ex_data = getelementptr inbounds i8, ptr %xs, i64 128
   tail call void @CRYPTO_free_ex_data(i32 noundef 4, ptr noundef nonnull %xs, ptr noundef nonnull %ex_data) #6
-  %param = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 3
+  %param = getelementptr inbounds i8, ptr %xs, i64 24
   %6 = load ptr, ptr %param, align 8
   tail call void @X509_VERIFY_PARAM_free(ptr noundef %6) #6
-  %lock = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 18
+  %lock = getelementptr inbounds i8, ptr %xs, i64 152
   %7 = load ptr, ptr %lock, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %7) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %xs, ptr noundef nonnull @.str, i32 noundef 253) #6
@@ -639,13 +635,13 @@ if.end.i:                                         ; preds = %entry
   ]
 
 sw.bb1.i:                                         ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.x509_object_st, ptr %a, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data.i, align 8
   tail call void @X509_free(ptr noundef %1) #6
   br label %x509_object_free_internal.exit
 
 sw.bb2.i:                                         ; preds = %if.end.i
-  %data3.i = getelementptr inbounds %struct.x509_object_st, ptr %a, i64 0, i32 1
+  %data3.i = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %data3.i, align 8
   tail call void @X509_CRL_free(ptr noundef %2) #6
   br label %x509_object_free_internal.exit
@@ -660,7 +656,7 @@ declare void @CRYPTO_free_ex_data(i32 noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @X509_STORE_up_ref(ptr nocapture noundef %xs) local_unnamed_addr #4 {
 entry:
-  %references = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 17
+  %references = getelementptr inbounds i8, ptr %xs, i64 144
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
   %cmp1 = icmp sgt i32 %0, 0
   %cond = zext i1 %cmp1 to i32
@@ -670,7 +666,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @X509_STORE_add_lookup(ptr noundef %xs, ptr noundef %m) local_unnamed_addr #0 {
 entry:
-  %get_cert_methods = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 2
+  %get_cert_methods = getelementptr inbounds i8, ptr %xs, i64 16
   %0 = load ptr, ptr %get_cert_methods, align 8
   %call118 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #6
   %cmp19 = icmp sgt i32 %call118, 0
@@ -685,7 +681,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %entry, %for.cond
   %i.020 = phi i32 [ %inc, %for.cond ], [ 0, %entry ]
   %call3 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %i.020) #6
-  %method = getelementptr inbounds %struct.x509_lookup_st, ptr %call3, i64 0, i32 2
+  %method = getelementptr inbounds i8, ptr %call3, i64 8
   %1 = load ptr, ptr %method, align 8
   %cmp4 = icmp eq ptr %1, %m
   br i1 %cmp4, label %return, label %for.cond
@@ -696,9 +692,9 @@ for.end:                                          ; preds = %for.cond, %entry
   br i1 %cmp.i, label %if.then7, label %if.end.i
 
 if.end.i:                                         ; preds = %for.end
-  %method1.i = getelementptr inbounds %struct.x509_lookup_st, ptr %call.i, i64 0, i32 2
+  %method1.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %m, ptr %method1.i, align 8
-  %new_item.i = getelementptr inbounds %struct.x509_lookup_method_st, ptr %m, i64 0, i32 1
+  %new_item.i = getelementptr inbounds i8, ptr %m, i64 8
   %2 = load ptr, ptr %new_item.i, align 8
   %cmp2.not.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i, label %if.end8, label %land.lhs.true.i
@@ -719,7 +715,7 @@ if.then7:                                         ; preds = %if.then6.i, %for.en
   br label %return
 
 if.end8:                                          ; preds = %land.lhs.true.i, %if.end.i
-  %store_ctx = getelementptr inbounds %struct.x509_lookup_st, ptr %call.i, i64 0, i32 4
+  %store_ctx = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %xs, ptr %store_ctx, align 8
   %3 = load ptr, ptr %get_cert_methods, align 8
   %call12 = tail call i32 @OPENSSL_sk_push(ptr noundef %3, ptr noundef nonnull %call.i) #6
@@ -735,7 +731,7 @@ if.end.i14:                                       ; preds = %if.end8
   br i1 %cmp1.not.i, label %X509_LOOKUP_free.exit, label %land.lhs.true.i15
 
 land.lhs.true.i15:                                ; preds = %if.end.i14
-  %free.i = getelementptr inbounds %struct.x509_lookup_method_st, ptr %4, i64 0, i32 2
+  %free.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %free.i, align 8
   %cmp3.not.i = icmp eq ptr %5, null
   br i1 %cmp3.not.i, label %X509_LOOKUP_free.exit, label %if.then4.i
@@ -776,13 +772,13 @@ if.end.i.i:                                       ; preds = %if.end
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %data.i.i = getelementptr inbounds %struct.x509_object_st, ptr %call.i, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %data.i.i, align 8
   tail call void @X509_free(ptr noundef %1) #6
   br label %X509_OBJECT_free.exit
 
 sw.bb2.i.i:                                       ; preds = %if.end.i.i
-  %data3.i.i = getelementptr inbounds %struct.x509_object_st, ptr %call.i, i64 0, i32 1
+  %data3.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load ptr, ptr %data3.i.i, align 8
   tail call void @X509_CRL_free(ptr noundef %2) #6
   br label %X509_OBJECT_free.exit
@@ -833,7 +829,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %stmp, align 8
-  %data = getelementptr inbounds %struct.x509_object_st, ptr %stmp, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %stmp, i64 8
   store ptr null, ptr %data, align 8
   %1 = getelementptr i8, ptr %0, i64 152
   %.val = load ptr, ptr %1, align 8
@@ -842,7 +838,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %objs = getelementptr inbounds %struct.x509_store_st, ptr %0, i64 0, i32 1
+  %objs = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %objs, align 8
   %call6 = tail call i32 @OPENSSL_sk_is_sorted(ptr noundef %2) #6
   %tobool7.not = icmp eq i32 %call6, 0
@@ -879,15 +875,15 @@ X509_OBJECT_idx_by_subject.exit.thread.i:         ; preds = %if.end16
   br label %X509_OBJECT_retrieve_by_subject.exit
 
 sw.bb.i.i.i:                                      ; preds = %if.end16
-  %data.i.i.i = getelementptr inbounds %struct.x509_object_st, ptr %stmp.i.i.i, i64 0, i32 1
+  %data.i.i.i = getelementptr inbounds i8, ptr %stmp.i.i.i, i64 8
   store ptr %x509_s.i.i.i, ptr %data.i.i.i, align 8
-  %subject.i.i.i = getelementptr inbounds %struct.x509_cinf_st, ptr %x509_s.i.i.i, i64 0, i32 5
+  %subject.i.i.i = getelementptr inbounds i8, ptr %x509_s.i.i.i, i64 72
   br label %X509_OBJECT_idx_by_subject.exit.i
 
 sw.bb2.i.i.i:                                     ; preds = %if.end16
-  %data3.i.i.i = getelementptr inbounds %struct.x509_object_st, ptr %stmp.i.i.i, i64 0, i32 1
+  %data3.i.i.i = getelementptr inbounds i8, ptr %stmp.i.i.i, i64 8
   store ptr %crl_s.i.i.i, ptr %data3.i.i.i, align 8
-  %issuer.i.i.i = getelementptr inbounds %struct.X509_crl_info_st, ptr %crl_s.i.i.i, i64 0, i32 2
+  %issuer.i.i.i = getelementptr inbounds i8, ptr %crl_s.i.i.i, i64 24
   br label %X509_OBJECT_idx_by_subject.exit.i
 
 X509_OBJECT_idx_by_subject.exit.i:                ; preds = %sw.bb2.i.i.i, %sw.bb.i.i.i
@@ -914,28 +910,28 @@ X509_OBJECT_retrieve_by_subject.exit:             ; preds = %X509_OBJECT_idx_by_
   br i1 %or.cond, label %for.cond.preheader, label %if.end42
 
 for.cond.preheader:                               ; preds = %X509_OBJECT_retrieve_by_subject.exit
-  %get_cert_methods = getelementptr inbounds %struct.x509_store_st, ptr %0, i64 0, i32 2
+  %get_cert_methods = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %get_cert_methods, align 8
   %call2441 = call i32 @OPENSSL_sk_num(ptr noundef %8) #6
   %cmp2542 = icmp sgt i32 %call2441, 0
   br i1 %cmp2542, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %libctx = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 35
-  %propq = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 36
+  %libctx = getelementptr inbounds i8, ptr %ctx, i64 264
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 272
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.043 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %9 = load ptr, ptr %get_cert_methods, align 8
   %call28 = call ptr @OPENSSL_sk_value(ptr noundef %9, i32 noundef %i.043) #6
-  %skip = getelementptr inbounds %struct.x509_lookup_st, ptr %call28, i64 0, i32 1
+  %skip = getelementptr inbounds i8, ptr %call28, i64 4
   %10 = load i32, ptr %skip, align 4
   %tobool29.not = icmp eq i32 %10, 0
   br i1 %tobool29.not, label %if.end31, label %for.inc
 
 if.end31:                                         ; preds = %for.body
-  %method = getelementptr inbounds %struct.x509_lookup_st, ptr %call28, i64 0, i32 2
+  %method = getelementptr inbounds i8, ptr %call28, i64 8
   %11 = load ptr, ptr %method, align 8
   %cmp32 = icmp eq ptr %11, null
   br i1 %cmp32, label %return, label %lor.lhs.false1.i
@@ -943,10 +939,10 @@ if.end31:                                         ; preds = %for.body
 lor.lhs.false1.i:                                 ; preds = %if.end31
   %12 = load ptr, ptr %libctx, align 8
   %13 = load ptr, ptr %propq, align 8
-  %get_by_subject.i = getelementptr inbounds %struct.x509_lookup_method_st, ptr %11, i64 0, i32 6
+  %get_by_subject.i = getelementptr inbounds i8, ptr %11, i64 48
   %14 = load ptr, ptr %get_by_subject.i, align 8
   %cmp3.i = icmp eq ptr %14, null
-  %get_by_subject_ex.i = getelementptr inbounds %struct.x509_lookup_method_st, ptr %11, i64 0, i32 10
+  %get_by_subject_ex.i = getelementptr inbounds i8, ptr %11, i64 80
   %15 = load ptr, ptr %get_by_subject_ex.i, align 8
   %cmp5.i = icmp eq ptr %15, null
   br i1 %cmp3.i, label %land.lhs.true.i, label %if.end.i31
@@ -989,13 +985,13 @@ if.end42:                                         ; preds = %X509_LOOKUP_by_subj
   ]
 
 sw.bb1.i:                                         ; preds = %if.end42
-  %data.i = getelementptr inbounds %struct.x509_object_st, ptr %tmp.1, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %tmp.1, i64 8
   %18 = load ptr, ptr %data.i, align 8
   %call.i33 = call i32 @X509_up_ref(ptr noundef %18) #6
   br label %X509_OBJECT_up_ref_count.exit
 
 sw.bb2.i:                                         ; preds = %if.end42
-  %data3.i = getelementptr inbounds %struct.x509_object_st, ptr %tmp.1, i64 0, i32 1
+  %data3.i = getelementptr inbounds i8, ptr %tmp.1, i64 8
   %19 = load ptr, ptr %data3.i, align 8
   %call4.i = call i32 @X509_CRL_up_ref(ptr noundef %19) #6
   br label %X509_OBJECT_up_ref_count.exit
@@ -1012,9 +1008,9 @@ X509_OBJECT_up_ref_count.exit.if.end46_crit_edge: ; preds = %X509_OBJECT_up_ref_
 if.end46:                                         ; preds = %X509_OBJECT_up_ref_count.exit.if.end46_crit_edge, %if.end42
   %20 = phi i32 [ %.pre, %X509_OBJECT_up_ref_count.exit.if.end46_crit_edge ], [ %17, %if.end42 ]
   store i32 %20, ptr %ret, align 8
-  %data49 = getelementptr inbounds %struct.x509_object_st, ptr %tmp.1, i64 0, i32 1
+  %data49 = getelementptr inbounds i8, ptr %tmp.1, i64 8
   %21 = load ptr, ptr %data49, align 8
-  %data50 = getelementptr inbounds %struct.x509_object_st, ptr %ret, i64 0, i32 1
+  %data50 = getelementptr inbounds i8, ptr %ret, i64 8
   store ptr %21, ptr %data50, align 8
   br label %return
 
@@ -1054,7 +1050,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %tobool.not = icmp eq i32 %crl, 0
-  %data6 = getelementptr inbounds %struct.x509_object_st, ptr %call.i, i64 0, i32 1
+  %data6 = getelementptr inbounds i8, ptr %call.i, i64 8
   br i1 %tobool.not, label %sw.bb1.i, label %sw.bb2.i
 
 sw.bb1.i:                                         ; preds = %if.end3
@@ -1079,7 +1075,7 @@ X509_OBJECT_free.exit:                            ; preds = %X509_OBJECT_up_ref_
   br label %return.sink.split
 
 if.end12:                                         ; preds = %X509_OBJECT_up_ref_count.exit
-  %lock.i = getelementptr inbounds %struct.x509_store_st, ptr %store, i64 0, i32 18
+  %lock.i = getelementptr inbounds i8, ptr %store, i64 152
   %0 = load ptr, ptr %lock.i, align 8
   %call.i20 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #6
   %tobool14.not = icmp eq i32 %call.i20, 0
@@ -1090,7 +1086,7 @@ X509_OBJECT_free.exit27:                          ; preds = %if.end12
   br label %return.sink.split
 
 if.end17:                                         ; preds = %if.end12
-  %objs = getelementptr inbounds %struct.x509_store_st, ptr %store, i64 0, i32 1
+  %objs = getelementptr inbounds i8, ptr %store, i64 8
   %1 = load ptr, ptr %objs, align 8
   %call18 = tail call ptr @X509_OBJECT_retrieve_match(ptr noundef %1, ptr noundef nonnull %call.i)
   %tobool19.not = icmp eq ptr %call18, null
@@ -1120,13 +1116,13 @@ if.end.i.i31:                                     ; preds = %if.end27, %if.end27
   ]
 
 sw.bb1.i.i32:                                     ; preds = %if.end.i.i31
-  %data.i.i33 = getelementptr inbounds %struct.x509_object_st, ptr %call.i, i64 0, i32 1
+  %data.i.i33 = getelementptr inbounds i8, ptr %call.i, i64 8
   %7 = load ptr, ptr %data.i.i33, align 8
   tail call void @X509_free(ptr noundef %7) #6
   br label %return.sink.split
 
 sw.bb2.i.i34:                                     ; preds = %if.end.i.i31
-  %data3.i.i35 = getelementptr inbounds %struct.x509_object_st, ptr %call.i, i64 0, i32 1
+  %data3.i.i35 = getelementptr inbounds i8, ptr %call.i, i64 8
   %8 = load ptr, ptr %data3.i.i35, align 8
   tail call void @X509_CRL_free(ptr noundef %8) #6
   br label %return.sink.split
@@ -1169,13 +1165,13 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.x509_object_st, ptr %a, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data, align 8
   %call = tail call i32 @X509_up_ref(ptr noundef %1) #6
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %data3 = getelementptr inbounds %struct.x509_object_st, ptr %a, i64 0, i32 1
+  %data3 = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %data3, align 8
   %call4 = tail call i32 @X509_CRL_up_ref(ptr noundef %2) #6
   br label %return
@@ -1201,7 +1197,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.x509_object_st, ptr %a, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data, align 8
   br label %return
 
@@ -1222,7 +1218,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.x509_object_st, ptr %a, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data, align 8
   br label %return
 
@@ -1257,20 +1253,20 @@ if.end.i:                                         ; preds = %lor.lhs.false
   ]
 
 sw.bb1.i:                                         ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.x509_object_st, ptr %a, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data.i, align 8
   tail call void @X509_free(ptr noundef %1) #6
   br label %x509_object_free_internal.exit
 
 sw.bb2.i:                                         ; preds = %if.end.i
-  %data3.i = getelementptr inbounds %struct.x509_object_st, ptr %a, i64 0, i32 1
+  %data3.i = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %data3.i, align 8
   tail call void @X509_CRL_free(ptr noundef %2) #6
   br label %x509_object_free_internal.exit
 
 x509_object_free_internal.exit:                   ; preds = %if.end.i, %sw.bb1.i, %sw.bb2.i
   store i32 1, ptr %a, align 8
-  %data = getelementptr inbounds %struct.x509_object_st, ptr %a, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   store ptr %obj, ptr %data, align 8
   br label %return
 
@@ -1298,20 +1294,20 @@ if.end.i:                                         ; preds = %lor.lhs.false
   ]
 
 sw.bb1.i:                                         ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.x509_object_st, ptr %a, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data.i, align 8
   tail call void @X509_free(ptr noundef %1) #6
   br label %x509_object_free_internal.exit
 
 sw.bb2.i:                                         ; preds = %if.end.i
-  %data3.i = getelementptr inbounds %struct.x509_object_st, ptr %a, i64 0, i32 1
+  %data3.i = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %data3.i, align 8
   tail call void @X509_CRL_free(ptr noundef %2) #6
   br label %x509_object_free_internal.exit
 
 x509_object_free_internal.exit:                   ; preds = %if.end.i, %sw.bb1.i, %sw.bb2.i
   store i32 2, ptr %a, align 8
-  %data = getelementptr inbounds %struct.x509_object_st, ptr %a, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   store ptr %obj, ptr %data, align 8
   br label %return
 
@@ -1336,15 +1332,15 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %data.i = getelementptr inbounds %struct.x509_object_st, ptr %stmp.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %stmp.i, i64 8
   store ptr %x509_s.i, ptr %data.i, align 8
-  %subject.i = getelementptr inbounds %struct.x509_cinf_st, ptr %x509_s.i, i64 0, i32 5
+  %subject.i = getelementptr inbounds i8, ptr %x509_s.i, i64 72
   br label %sw.epilog.i
 
 sw.bb2.i:                                         ; preds = %entry
-  %data3.i = getelementptr inbounds %struct.x509_object_st, ptr %stmp.i, i64 0, i32 1
+  %data3.i = getelementptr inbounds i8, ptr %stmp.i, i64 8
   store ptr %crl_s.i, ptr %data3.i, align 8
-  %issuer.i = getelementptr inbounds %struct.X509_crl_info_st, ptr %crl_s.i, i64 0, i32 2
+  %issuer.i = getelementptr inbounds i8, ptr %crl_s.i, i64 24
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb2.i, %sw.bb.i
@@ -1383,15 +1379,15 @@ X509_OBJECT_idx_by_subject.exit.thread:           ; preds = %entry
   br label %return
 
 sw.bb.i.i:                                        ; preds = %entry
-  %data.i.i = getelementptr inbounds %struct.x509_object_st, ptr %stmp.i.i, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %stmp.i.i, i64 8
   store ptr %x509_s.i.i, ptr %data.i.i, align 8
-  %subject.i.i = getelementptr inbounds %struct.x509_cinf_st, ptr %x509_s.i.i, i64 0, i32 5
+  %subject.i.i = getelementptr inbounds i8, ptr %x509_s.i.i, i64 72
   br label %X509_OBJECT_idx_by_subject.exit
 
 sw.bb2.i.i:                                       ; preds = %entry
-  %data3.i.i = getelementptr inbounds %struct.x509_object_st, ptr %stmp.i.i, i64 0, i32 1
+  %data3.i.i = getelementptr inbounds i8, ptr %stmp.i.i, i64 8
   store ptr %crl_s.i.i, ptr %data3.i.i, align 8
-  %issuer.i.i = getelementptr inbounds %struct.X509_crl_info_st, ptr %crl_s.i.i, i64 0, i32 2
+  %issuer.i.i = getelementptr inbounds i8, ptr %crl_s.i.i, i64 24
   br label %X509_OBJECT_idx_by_subject.exit
 
 X509_OBJECT_idx_by_subject.exit:                  ; preds = %sw.bb.i.i, %sw.bb2.i.i
@@ -1416,7 +1412,7 @@ return:                                           ; preds = %X509_OBJECT_idx_by_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get0_objects(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %objs = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 1
+  %objs = getelementptr inbounds i8, ptr %xs, i64 8
   %0 = load ptr, ptr %objs, align 8
   ret ptr %0
 }
@@ -1439,14 +1435,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %lock.i = getelementptr inbounds %struct.x509_store_st, ptr %store, i64 0, i32 18
+  %lock.i = getelementptr inbounds i8, ptr %store, i64 152
   %0 = load ptr, ptr %lock.i, align 8
   %call.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #6
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %out_free, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
-  %objs7 = getelementptr inbounds %struct.x509_store_st, ptr %store, i64 0, i32 1
+  %objs7 = getelementptr inbounds i8, ptr %store, i64 8
   %1 = load ptr, ptr %objs7, align 8
   tail call void @OPENSSL_sk_sort(ptr noundef %1) #6
   %2 = load ptr, ptr %objs7, align 8
@@ -1466,7 +1462,7 @@ lor.lhs.false.i:                                  ; preds = %for.body
   br i1 %cmp1.not.i, label %X509_OBJECT_get0_X509.exit, label %for.inc
 
 X509_OBJECT_get0_X509.exit:                       ; preds = %lor.lhs.false.i
-  %data.i = getelementptr inbounds %struct.x509_object_st, ptr %call14, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %call14, i64 8
   %4 = load ptr, ptr %data.i, align 8
   %cmp16.not = icmp eq ptr %4, null
   br i1 %cmp16.not, label %for.inc, label %land.lhs.true
@@ -1524,23 +1520,23 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %lock.i = getelementptr inbounds %struct.x509_store_st, ptr %0, i64 0, i32 18
+  %lock.i = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load ptr, ptr %lock.i, align 8
   %call.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #6
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %objs = getelementptr inbounds %struct.x509_store_st, ptr %0, i64 0, i32 1
+  %objs = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %objs, align 8
   tail call void @OPENSSL_sk_sort(ptr noundef %2) #6
   %3 = load ptr, ptr %objs, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stmp.i)
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %x509_s.i)
   store i32 1, ptr %stmp.i, align 8
-  %data.i = getelementptr inbounds %struct.x509_object_st, ptr %stmp.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %stmp.i, i64 8
   store ptr %x509_s.i, ptr %data.i, align 8
-  %subject.i = getelementptr inbounds %struct.x509_cinf_st, ptr %x509_s.i, i64 0, i32 5
+  %subject.i = getelementptr inbounds i8, ptr %x509_s.i, i64 72
   store ptr %nm, ptr %subject.i, align 8
   %call6.i = call i32 @OPENSSL_sk_find_all(ptr noundef %3, ptr noundef nonnull %stmp.i, ptr noundef nonnull %cnt) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmp.i)
@@ -1574,13 +1570,13 @@ if.end.i.i:                                       ; preds = %if.end14
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %data.i.i = getelementptr inbounds %struct.x509_object_st, ptr %call.i26, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %call.i26, i64 8
   %7 = load ptr, ptr %data.i.i, align 8
   call void @X509_free(ptr noundef %7) #6
   br label %X509_OBJECT_free.exit
 
 sw.bb2.i.i:                                       ; preds = %if.end.i.i
-  %data3.i.i = getelementptr inbounds %struct.x509_object_st, ptr %call.i26, i64 0, i32 1
+  %data3.i.i = getelementptr inbounds i8, ptr %call.i26, i64 8
   %8 = load ptr, ptr %data3.i.i, align 8
   call void @X509_CRL_free(ptr noundef %8) #6
   br label %X509_OBJECT_free.exit
@@ -1601,13 +1597,13 @@ if.end.i.i30:                                     ; preds = %if.end14
   ]
 
 sw.bb1.i.i31:                                     ; preds = %if.end.i.i30
-  %data.i.i32 = getelementptr inbounds %struct.x509_object_st, ptr %call.i26, i64 0, i32 1
+  %data.i.i32 = getelementptr inbounds i8, ptr %call.i26, i64 8
   %9 = load ptr, ptr %data.i.i32, align 8
   call void @X509_free(ptr noundef %9) #6
   br label %X509_OBJECT_free.exit35
 
 sw.bb2.i.i33:                                     ; preds = %if.end.i.i30
-  %data3.i.i34 = getelementptr inbounds %struct.x509_object_st, ptr %call.i26, i64 0, i32 1
+  %data3.i.i34 = getelementptr inbounds i8, ptr %call.i26, i64 8
   %10 = load ptr, ptr %data3.i.i34, align 8
   call void @X509_CRL_free(ptr noundef %10) #6
   br label %X509_OBJECT_free.exit35
@@ -1626,9 +1622,9 @@ if.end24:                                         ; preds = %X509_OBJECT_free.ex
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stmp.i38)
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %x509_s.i39)
   store i32 1, ptr %stmp.i38, align 8
-  %data.i40 = getelementptr inbounds %struct.x509_object_st, ptr %stmp.i38, i64 0, i32 1
+  %data.i40 = getelementptr inbounds i8, ptr %stmp.i38, i64 8
   store ptr %x509_s.i39, ptr %data.i40, align 8
-  %subject.i41 = getelementptr inbounds %struct.x509_cinf_st, ptr %x509_s.i39, i64 0, i32 5
+  %subject.i41 = getelementptr inbounds i8, ptr %x509_s.i39, i64 72
   store ptr %nm, ptr %subject.i41, align 8
   %call6.i42 = call i32 @OPENSSL_sk_find_all(ptr noundef %13, ptr noundef nonnull %stmp.i38, ptr noundef nonnull %cnt) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmp.i38)
@@ -1656,7 +1652,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %idx.149 = phi i32 [ %inc47, %for.inc ], [ %idx.0, %for.cond.preheader ]
   %15 = load ptr, ptr %objs, align 8
   %call41 = call ptr @OPENSSL_sk_value(ptr noundef %15, i32 noundef %idx.149) #6
-  %data = getelementptr inbounds %struct.x509_object_st, ptr %call41, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call41, i64 8
   %16 = load ptr, ptr %data, align 8
   %call42 = call i32 @X509_add_cert(ptr noundef nonnull %call34, ptr noundef %16, i32 noundef 1) #6
   %tobool43.not = icmp eq i32 %call42, 0
@@ -1716,13 +1712,13 @@ if.end.i.i:                                       ; preds = %lor.lhs.false4
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %data.i.i = getelementptr inbounds %struct.x509_object_st, ptr %call.i, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %data.i.i, align 8
   tail call void @X509_free(ptr noundef %1) #6
   br label %X509_OBJECT_free.exit
 
 sw.bb2.i.i:                                       ; preds = %if.end.i.i
-  %data3.i.i = getelementptr inbounds %struct.x509_object_st, ptr %call.i, i64 0, i32 1
+  %data3.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load ptr, ptr %data3.i.i, align 8
   tail call void @X509_CRL_free(ptr noundef %2) #6
   br label %X509_OBJECT_free.exit
@@ -1739,13 +1735,13 @@ if.end.i.i28:                                     ; preds = %lor.lhs.false4
   ]
 
 sw.bb1.i.i29:                                     ; preds = %if.end.i.i28
-  %data.i.i30 = getelementptr inbounds %struct.x509_object_st, ptr %call.i, i64 0, i32 1
+  %data.i.i30 = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %data.i.i30, align 8
   tail call void @X509_free(ptr noundef %3) #6
   br label %X509_OBJECT_free.exit33
 
 sw.bb2.i.i31:                                     ; preds = %if.end.i.i28
-  %data3.i.i32 = getelementptr inbounds %struct.x509_object_st, ptr %call.i, i64 0, i32 1
+  %data3.i.i32 = getelementptr inbounds i8, ptr %call.i, i64 8
   %4 = load ptr, ptr %data3.i.i32, align 8
   tail call void @X509_CRL_free(ptr noundef %4) #6
   br label %X509_OBJECT_free.exit33
@@ -1756,7 +1752,7 @@ X509_OBJECT_free.exit33:                          ; preds = %if.end.i.i28, %sw.b
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %X509_OBJECT_free.exit33
-  %lock.i = getelementptr inbounds %struct.x509_store_st, ptr %0, i64 0, i32 18
+  %lock.i = getelementptr inbounds i8, ptr %0, i64 152
   %5 = load ptr, ptr %lock.i, align 8
   %call.i34 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %5) #6
   %tobool.not = icmp eq i32 %call.i34, 0
@@ -1767,16 +1763,16 @@ if.then12:                                        ; preds = %if.end10
   br label %return
 
 if.end14:                                         ; preds = %if.end10
-  %objs = getelementptr inbounds %struct.x509_store_st, ptr %0, i64 0, i32 1
+  %objs = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %objs, align 8
   tail call void @OPENSSL_sk_sort(ptr noundef %6) #6
   %7 = load ptr, ptr %objs, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stmp.i)
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %crl_s.i)
   store i32 2, ptr %stmp.i, align 8
-  %data3.i = getelementptr inbounds %struct.x509_object_st, ptr %stmp.i, i64 0, i32 1
+  %data3.i = getelementptr inbounds i8, ptr %stmp.i, i64 8
   store ptr %crl_s.i, ptr %data3.i, align 8
-  %issuer.i = getelementptr inbounds %struct.X509_crl_info_st, ptr %crl_s.i, i64 0, i32 2
+  %issuer.i = getelementptr inbounds i8, ptr %crl_s.i, i64 24
   store ptr %nm, ptr %issuer.i, align 8
   %call6.i = call i32 @OPENSSL_sk_find_all(ptr noundef %7, ptr noundef nonnull %stmp.i, ptr noundef nonnull %cnt) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmp.i)
@@ -1799,7 +1795,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %idx.047 = phi i32 [ %inc42, %for.inc ], [ %call6.i, %for.cond.preheader ]
   %10 = load ptr, ptr %objs, align 8
   %call25 = call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %idx.047) #6
-  %data = getelementptr inbounds %struct.x509_object_st, ptr %call25, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call25, i64 8
   %11 = load ptr, ptr %data, align 8
   %call26 = call i32 @X509_CRL_up_ref(ptr noundef %11) #6
   %tobool27.not = icmp eq i32 %call26, 0
@@ -1865,7 +1861,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp1222, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end9
-  %data6.i = getelementptr inbounds %struct.x509_object_st, ptr %x, i64 0, i32 1
+  %data6.i = getelementptr inbounds i8, ptr %x, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1883,14 +1879,14 @@ if.end.i:                                         ; preds = %for.body
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.x509_object_st, ptr %call14, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %call14, i64 8
   %3 = load ptr, ptr %data.i, align 8
   %4 = load ptr, ptr %data6.i, align 8
   %call.i = tail call i32 @X509_subject_name_cmp(ptr noundef %3, ptr noundef %4) #6
   br label %x509_object_cmp.exit
 
 sw.bb4.i:                                         ; preds = %if.end.i
-  %data5.i = getelementptr inbounds %struct.x509_object_st, ptr %call14, i64 0, i32 1
+  %data5.i = getelementptr inbounds i8, ptr %call14, i64 8
   %5 = load ptr, ptr %data5.i, align 8
   %6 = load ptr, ptr %data6.i, align 8
   %call7.i = tail call i32 @X509_CRL_cmp(ptr noundef %5, ptr noundef %6) #6
@@ -1913,7 +1909,7 @@ if.end17:                                         ; preds = %if.end.i, %if.end17
   ]
 
 if.then20:                                        ; preds = %if.end17
-  %data = getelementptr inbounds %struct.x509_object_st, ptr %call14, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call14, i64 8
   %8 = load ptr, ptr %data, align 8
   %9 = load ptr, ptr %data6.i, align 8
   %call22 = tail call i32 @X509_cmp(ptr noundef %8, ptr noundef %9) #6
@@ -1921,7 +1917,7 @@ if.then20:                                        ; preds = %if.end17
   br i1 %tobool23.not, label %return, label %for.inc
 
 if.then28:                                        ; preds = %if.end17
-  %data29 = getelementptr inbounds %struct.x509_object_st, ptr %call14, i64 0, i32 1
+  %data29 = getelementptr inbounds i8, ptr %call14, i64 8
   %10 = load ptr, ptr %data29, align 8
   %11 = load ptr, ptr %data6.i, align 8
   %call31 = tail call i32 @X509_CRL_match(ptr noundef %10, ptr noundef %11) #6
@@ -1972,13 +1968,13 @@ if.end.i.i:                                       ; preds = %if.end
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %data.i.i = getelementptr inbounds %struct.x509_object_st, ptr %call.i, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load ptr, ptr %data.i.i, align 8
   tail call void @X509_free(ptr noundef %2) #6
   br label %X509_OBJECT_free.exit
 
 sw.bb2.i.i:                                       ; preds = %if.end.i.i
-  %data3.i.i = getelementptr inbounds %struct.x509_object_st, ptr %call.i, i64 0, i32 1
+  %data3.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %data3.i.i, align 8
   tail call void @X509_CRL_free(ptr noundef %3) #6
   br label %X509_OBJECT_free.exit
@@ -1988,9 +1984,9 @@ X509_OBJECT_free.exit:                            ; preds = %if.end.i.i, %sw.bb1
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %check_issued = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 9
+  %check_issued = getelementptr inbounds i8, ptr %ctx, i64 72
   %4 = load ptr, ptr %check_issued, align 8
-  %data = getelementptr inbounds %struct.x509_object_st, ptr %call.i, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call.i, i64 8
   %5 = load ptr, ptr %data, align 8
   %call7 = tail call i32 %4(ptr noundef nonnull %ctx, ptr noundef %x, ptr noundef %5) #6
   %tobool.not = icmp eq i32 %call7, 0
@@ -2032,23 +2028,23 @@ X509_OBJECT_free.exit56:                          ; preds = %if.end.i.i51, %sw.b
   br i1 %cmp16, label %return, label %if.end18
 
 if.end18:                                         ; preds = %X509_OBJECT_free.exit56
-  %lock.i = getelementptr inbounds %struct.x509_store_st, ptr %0, i64 0, i32 18
+  %lock.i = getelementptr inbounds i8, ptr %0, i64 152
   %11 = load ptr, ptr %lock.i, align 8
   %call.i57 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %11) #6
   %tobool20.not = icmp eq i32 %call.i57, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
-  %objs = getelementptr inbounds %struct.x509_store_st, ptr %0, i64 0, i32 1
+  %objs = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %objs, align 8
   tail call void @OPENSSL_sk_sort(ptr noundef %12) #6
   %13 = load ptr, ptr %objs, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stmp.i)
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %x509_s.i)
   store i32 1, ptr %stmp.i, align 8
-  %data.i = getelementptr inbounds %struct.x509_object_st, ptr %stmp.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %stmp.i, i64 8
   store ptr %x509_s.i, ptr %data.i, align 8
-  %subject.i = getelementptr inbounds %struct.x509_cinf_st, ptr %x509_s.i, i64 0, i32 5
+  %subject.i = getelementptr inbounds i8, ptr %x509_s.i, i64 72
   store ptr %call2, ptr %subject.i, align 8
   %call6.i = call i32 @OPENSSL_sk_find_all(ptr noundef %13, ptr noundef nonnull %stmp.i, ptr noundef nonnull %nmatch) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmp.i)
@@ -2070,7 +2066,7 @@ for.body:                                         ; preds = %if.end22, %for.inc
 
 if.end35:                                         ; preds = %for.body
   %17 = load ptr, ptr %check_issued, align 8
-  %data37 = getelementptr inbounds %struct.x509_object_st, ptr %call31, i64 0, i32 1
+  %data37 = getelementptr inbounds i8, ptr %call31, i64 8
   %18 = load ptr, ptr %data37, align 8
   %call38 = call i32 %17(ptr noundef nonnull %ctx, ptr noundef %x, ptr noundef %18) #6
   %tobool39.not = icmp eq i32 %call38, 0
@@ -2156,7 +2152,7 @@ declare ptr @X509_get0_notAfter(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @X509_STORE_set_flags(ptr nocapture noundef readonly %xs, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %param = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 3
+  %param = getelementptr inbounds i8, ptr %xs, i64 24
   %0 = load ptr, ptr %param, align 8
   %call = tail call i32 @X509_VERIFY_PARAM_set_flags(ptr noundef %0, i64 noundef %flags) #6
   ret i32 %call
@@ -2167,7 +2163,7 @@ declare i32 @X509_VERIFY_PARAM_set_flags(ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define i32 @X509_STORE_set_depth(ptr nocapture noundef readonly %xs, i32 noundef %depth) local_unnamed_addr #0 {
 entry:
-  %param = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 3
+  %param = getelementptr inbounds i8, ptr %xs, i64 24
   %0 = load ptr, ptr %param, align 8
   tail call void @X509_VERIFY_PARAM_set_depth(ptr noundef %0, i32 noundef %depth) #6
   ret i32 1
@@ -2178,7 +2174,7 @@ declare void @X509_VERIFY_PARAM_set_depth(ptr noundef, i32 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define i32 @X509_STORE_set_purpose(ptr nocapture noundef readonly %xs, i32 noundef %purpose) local_unnamed_addr #0 {
 entry:
-  %param = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 3
+  %param = getelementptr inbounds i8, ptr %xs, i64 24
   %0 = load ptr, ptr %param, align 8
   %call = tail call i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef %0, i32 noundef %purpose) #6
   ret i32 %call
@@ -2189,7 +2185,7 @@ declare i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define i32 @X509_STORE_set_trust(ptr nocapture noundef readonly %xs, i32 noundef %trust) local_unnamed_addr #0 {
 entry:
-  %param = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 3
+  %param = getelementptr inbounds i8, ptr %xs, i64 24
   %0 = load ptr, ptr %param, align 8
   %call = tail call i32 @X509_VERIFY_PARAM_set_trust(ptr noundef %0, i32 noundef %trust) #6
   ret i32 %call
@@ -2200,7 +2196,7 @@ declare i32 @X509_VERIFY_PARAM_set_trust(ptr noundef, i32 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define i32 @X509_STORE_set1_param(ptr nocapture noundef readonly %xs, ptr noundef %param) local_unnamed_addr #0 {
 entry:
-  %param1 = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 3
+  %param1 = getelementptr inbounds i8, ptr %xs, i64 24
   %0 = load ptr, ptr %param1, align 8
   %call = tail call i32 @X509_VERIFY_PARAM_set1(ptr noundef %0, ptr noundef %param) #6
   ret i32 %call
@@ -2211,7 +2207,7 @@ declare i32 @X509_VERIFY_PARAM_set1(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get0_param(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %param = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 3
+  %param = getelementptr inbounds i8, ptr %xs, i64 24
   %0 = load ptr, ptr %param, align 8
   ret ptr %0
 }
@@ -2219,7 +2215,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_verify(ptr nocapture noundef writeonly %xs, ptr noundef %verify) local_unnamed_addr #2 {
 entry:
-  %verify1 = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 4
+  %verify1 = getelementptr inbounds i8, ptr %xs, i64 32
   store ptr %verify, ptr %verify1, align 8
   ret void
 }
@@ -2227,7 +2223,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_verify(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %verify = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 4
+  %verify = getelementptr inbounds i8, ptr %xs, i64 32
   %0 = load ptr, ptr %verify, align 8
   ret ptr %0
 }
@@ -2235,7 +2231,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_verify_cb(ptr nocapture noundef writeonly %xs, ptr noundef %verify_cb) local_unnamed_addr #2 {
 entry:
-  %verify_cb1 = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 5
+  %verify_cb1 = getelementptr inbounds i8, ptr %xs, i64 40
   store ptr %verify_cb, ptr %verify_cb1, align 8
   ret void
 }
@@ -2243,7 +2239,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_verify_cb(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %verify_cb = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 5
+  %verify_cb = getelementptr inbounds i8, ptr %xs, i64 40
   %0 = load ptr, ptr %verify_cb, align 8
   ret ptr %0
 }
@@ -2251,7 +2247,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_get_issuer(ptr nocapture noundef writeonly %xs, ptr noundef %get_issuer) local_unnamed_addr #2 {
 entry:
-  %get_issuer1 = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 6
+  %get_issuer1 = getelementptr inbounds i8, ptr %xs, i64 48
   store ptr %get_issuer, ptr %get_issuer1, align 8
   ret void
 }
@@ -2259,7 +2255,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_get_issuer(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %get_issuer = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 6
+  %get_issuer = getelementptr inbounds i8, ptr %xs, i64 48
   %0 = load ptr, ptr %get_issuer, align 8
   ret ptr %0
 }
@@ -2267,7 +2263,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_check_issued(ptr nocapture noundef writeonly %xs, ptr noundef %check_issued) local_unnamed_addr #2 {
 entry:
-  %check_issued1 = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 7
+  %check_issued1 = getelementptr inbounds i8, ptr %xs, i64 56
   store ptr %check_issued, ptr %check_issued1, align 8
   ret void
 }
@@ -2275,7 +2271,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_check_issued(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %check_issued = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 7
+  %check_issued = getelementptr inbounds i8, ptr %xs, i64 56
   %0 = load ptr, ptr %check_issued, align 8
   ret ptr %0
 }
@@ -2283,7 +2279,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_check_revocation(ptr nocapture noundef writeonly %xs, ptr noundef %cb) local_unnamed_addr #2 {
 entry:
-  %check_revocation = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 8
+  %check_revocation = getelementptr inbounds i8, ptr %xs, i64 64
   store ptr %cb, ptr %check_revocation, align 8
   ret void
 }
@@ -2291,7 +2287,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_check_revocation(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %check_revocation = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 8
+  %check_revocation = getelementptr inbounds i8, ptr %xs, i64 64
   %0 = load ptr, ptr %check_revocation, align 8
   ret ptr %0
 }
@@ -2299,7 +2295,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_get_crl(ptr nocapture noundef writeonly %xs, ptr noundef %get_crl) local_unnamed_addr #2 {
 entry:
-  %get_crl1 = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 9
+  %get_crl1 = getelementptr inbounds i8, ptr %xs, i64 72
   store ptr %get_crl, ptr %get_crl1, align 8
   ret void
 }
@@ -2307,7 +2303,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_get_crl(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %get_crl = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 9
+  %get_crl = getelementptr inbounds i8, ptr %xs, i64 72
   %0 = load ptr, ptr %get_crl, align 8
   ret ptr %0
 }
@@ -2315,7 +2311,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_check_crl(ptr nocapture noundef writeonly %xs, ptr noundef %check_crl) local_unnamed_addr #2 {
 entry:
-  %check_crl1 = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 10
+  %check_crl1 = getelementptr inbounds i8, ptr %xs, i64 80
   store ptr %check_crl, ptr %check_crl1, align 8
   ret void
 }
@@ -2323,7 +2319,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_check_crl(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %check_crl = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 10
+  %check_crl = getelementptr inbounds i8, ptr %xs, i64 80
   %0 = load ptr, ptr %check_crl, align 8
   ret ptr %0
 }
@@ -2331,7 +2327,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_cert_crl(ptr nocapture noundef writeonly %xs, ptr noundef %cert_crl) local_unnamed_addr #2 {
 entry:
-  %cert_crl1 = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 11
+  %cert_crl1 = getelementptr inbounds i8, ptr %xs, i64 88
   store ptr %cert_crl, ptr %cert_crl1, align 8
   ret void
 }
@@ -2339,7 +2335,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_cert_crl(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %cert_crl = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 11
+  %cert_crl = getelementptr inbounds i8, ptr %xs, i64 88
   %0 = load ptr, ptr %cert_crl, align 8
   ret ptr %0
 }
@@ -2347,7 +2343,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_check_policy(ptr nocapture noundef writeonly %xs, ptr noundef %check_policy) local_unnamed_addr #2 {
 entry:
-  %check_policy1 = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 12
+  %check_policy1 = getelementptr inbounds i8, ptr %xs, i64 96
   store ptr %check_policy, ptr %check_policy1, align 8
   ret void
 }
@@ -2355,7 +2351,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_check_policy(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %check_policy = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 12
+  %check_policy = getelementptr inbounds i8, ptr %xs, i64 96
   %0 = load ptr, ptr %check_policy, align 8
   ret ptr %0
 }
@@ -2363,7 +2359,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_lookup_certs(ptr nocapture noundef writeonly %xs, ptr noundef %lookup_certs) local_unnamed_addr #2 {
 entry:
-  %lookup_certs1 = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 13
+  %lookup_certs1 = getelementptr inbounds i8, ptr %xs, i64 104
   store ptr %lookup_certs, ptr %lookup_certs1, align 8
   ret void
 }
@@ -2371,7 +2367,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_lookup_certs(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %lookup_certs = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 13
+  %lookup_certs = getelementptr inbounds i8, ptr %xs, i64 104
   %0 = load ptr, ptr %lookup_certs, align 8
   ret ptr %0
 }
@@ -2379,7 +2375,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_lookup_crls(ptr nocapture noundef writeonly %xs, ptr noundef %lookup_crls) local_unnamed_addr #2 {
 entry:
-  %lookup_crls1 = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 14
+  %lookup_crls1 = getelementptr inbounds i8, ptr %xs, i64 112
   store ptr %lookup_crls, ptr %lookup_crls1, align 8
   ret void
 }
@@ -2387,7 +2383,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_lookup_crls(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %lookup_crls = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 14
+  %lookup_crls = getelementptr inbounds i8, ptr %xs, i64 112
   %0 = load ptr, ptr %lookup_crls, align 8
   ret ptr %0
 }
@@ -2395,7 +2391,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_cleanup(ptr nocapture noundef writeonly %xs, ptr noundef %cleanup) local_unnamed_addr #2 {
 entry:
-  %cleanup1 = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 15
+  %cleanup1 = getelementptr inbounds i8, ptr %xs, i64 120
   store ptr %cleanup, ptr %cleanup1, align 8
   ret void
 }
@@ -2403,7 +2399,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_cleanup(ptr nocapture noundef readonly %xs) local_unnamed_addr #3 {
 entry:
-  %cleanup = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 15
+  %cleanup = getelementptr inbounds i8, ptr %xs, i64 120
   %0 = load ptr, ptr %cleanup, align 8
   ret ptr %0
 }
@@ -2411,7 +2407,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @X509_STORE_set_ex_data(ptr noundef %xs, i32 noundef %idx, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 16
+  %ex_data = getelementptr inbounds i8, ptr %xs, i64 128
   %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %data) #6
   ret i32 %call
 }
@@ -2421,7 +2417,7 @@ declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define ptr @X509_STORE_get_ex_data(ptr noundef %xs, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.x509_store_st, ptr %xs, i64 0, i32 16
+  %ex_data = getelementptr inbounds i8, ptr %xs, i64 128
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #6
   ret ptr %call
 }

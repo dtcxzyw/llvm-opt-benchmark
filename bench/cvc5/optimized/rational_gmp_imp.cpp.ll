@@ -18,7 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<cvc5::internal::Rational>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<cvc5::internal::Rational>::_Storage" = type { %"class.cvc5::internal::Rational" }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<cvc5::internal::Rational>::_Storage", i8, [7 x i8] }>
 %struct.__gmp_alloc_cstring = type { ptr }
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
@@ -117,7 +116,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %invoke.cont8
           to label %.noexc unwind label %lpad9
 
 .noexc:                                           ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %agg.result, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %denominator)
           to label %.noexc9 unwind label %lpad9
 
@@ -258,13 +257,13 @@ define hidden noundef i32 @_ZNK4cvc58internal8Rational6absCmpERKS1_(ptr noundef 
 entry:
   %rpos = alloca %"class.cvc5::internal::Rational", align 8
   %qpos = alloca %"class.cvc5::internal::Rational", align 8
-  %_mp_size.i = getelementptr inbounds %struct.__mpz_struct, ptr %this, i64 0, i32 1
+  %_mp_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %_mp_size.i, align 4
   %cmp6.i = icmp ne i32 %0, 0
   %conv.i = zext i1 %cmp6.i to i32
   %cmp.inv.i = icmp slt i32 %0, 0
   %cond.i = select i1 %cmp.inv.i, i32 -1, i32 %conv.i
-  %_mp_size.i18 = getelementptr inbounds %struct.__mpz_struct, ptr %q, i64 0, i32 1
+  %_mp_size.i18 = getelementptr inbounds i8, ptr %q, i64 4
   %1 = load i32, ptr %_mp_size.i18, align 4
   %cmp6.i19 = icmp ne i32 %1, 0
   %conv.i20 = zext i1 %cmp6.i19 to i32
@@ -345,8 +344,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %agg.result, i64 0, i32 1
-  %_mp_den10.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %ref.tmp, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -391,7 +390,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @__gmpq_init(ptr noundef nonnull %q)
-  %_mp_size.i.i.i.i.i.i = getelementptr inbounds %struct.__mpz_struct, ptr %q, i64 0, i32 1
+  %_mp_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %q, i64 4
   store i32 0, ptr %_mp_size.i.i.i.i.i.i, align 4
   invoke void @__gmpq_canonicalize(ptr noundef nonnull %q)
           to label %_ZN4cvc58internal8RationalC2Ev.exit unwind label %lpad.i
@@ -422,8 +421,8 @@ invoke.cont2:                                     ; preds = %_ZN4cvc58internal8R
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont2
-  %_mp_den.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %agg.result, i64 0, i32 1
-  %_mp_den10.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %q, i64 0, i32 1
+  %_mp_den.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %q, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i.i.i.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i.i.i.i.i.i)
           to label %.noexc2 unwind label %lpad
 
@@ -445,7 +444,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %lpad.i.i.i.i.i.i.i
   unreachable
 
 invoke.cont3:                                     ; preds = %.noexc2
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   invoke void @__gmpq_clear(ptr noundef nonnull %q)
           to label %return unwind label %terminate.lpad.i.i3
@@ -475,7 +474,7 @@ terminate.lpad.i.i5:                              ; preds = %lpad.body
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_engaged.i.i.i.i.i8 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i8, align 8
   br label %return
 

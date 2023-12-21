@@ -7,46 +7,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.CPUTailQ = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct._GString = type { ptr, i64, i64 }
 %struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
 %struct.in_addr = type { i32 }
 %struct.sockaddr_un = type { i16, [108 x i8] }
-%struct.GDBProcess = type { i32, i8, ptr }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.CPUClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @gdbserver_user_state.0 = internal unnamed_addr global i32 0, align 8
 @gdbserver_user_state.1 = internal unnamed_addr global ptr null, align 8
@@ -273,7 +236,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %code, 255
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %conv11.i.i) #11
@@ -352,10 +315,10 @@ if.then4:                                         ; preds = %if.then2
   %6 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
   tail call void @gdb_append_thread_id(ptr noundef %cpu, ptr noundef %6) #11
   %7 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 14), align 8
-  %len.i = getelementptr inbounds %struct._GString, ptr %7, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %len.i, align 8
   %add.i = add i64 %8, 1
-  %allocated_len.i = getelementptr inbounds %struct._GString, ptr %7, i64 0, i32 2
+  %allocated_len.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %allocated_len.i, align 8
   %cmp.i = icmp ult i64 %add.i, %9
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -513,9 +476,9 @@ if.end.i:                                         ; preds = %if.then
   store i16 2, ptr %sockaddr.i, align 4
   %conv.i = trunc i64 %call to i16
   %call2.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv.i) #12
-  %sin_port.i = getelementptr inbounds %struct.sockaddr_in, ptr %sockaddr.i, i64 0, i32 1
+  %sin_port.i = getelementptr inbounds i8, ptr %sockaddr.i, i64 2
   store i16 %call2.i, ptr %sin_port.i, align 2
-  %sin_addr.i = getelementptr inbounds %struct.sockaddr_in, ptr %sockaddr.i, i64 0, i32 2
+  %sin_addr.i = getelementptr inbounds i8, ptr %sockaddr.i, i64 4
   store i32 0, ptr %sin_addr.i, align 4
   %call3.i = call i32 @bind(i32 noundef %call.i, ptr nonnull %sockaddr.i, i32 noundef 16) #11
   %cmp4.i = icmp slt i32 %call3.i, 0
@@ -625,7 +588,7 @@ gdb_accept_tcp.exit:                              ; preds = %if.then4.i
   call void @gdb_init_gdbserver_state() #11
   call void @gdb_create_default_process(ptr noundef nonnull @gdbserver_state) #11
   %2 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
-  %attached.i.i = getelementptr inbounds %struct.GDBProcess, ptr %2, i64 0, i32 1
+  %attached.i.i = getelementptr inbounds i8, ptr %2, i64 4
   store i8 1, ptr %attached.i.i, align 4
   %call.i.i = call ptr @gdb_first_attached_cpu() #11
   store ptr %call.i.i, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
@@ -655,7 +618,7 @@ if.then15:                                        ; preds = %for.cond.i23
   call void @gdb_init_gdbserver_state() #11
   call void @gdb_create_default_process(ptr noundef nonnull @gdbserver_state) #11
   %4 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 12), align 8
-  %attached.i.i31 = getelementptr inbounds %struct.GDBProcess, ptr %4, i64 0, i32 1
+  %attached.i.i31 = getelementptr inbounds i8, ptr %4, i64 4
   store i8 1, ptr %attached.i.i31, align 4
   %call.i.i32 = call ptr @gdb_first_attached_cpu() #11
   store ptr %call.i.i32, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
@@ -738,7 +701,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #11
   br label %trace_gdbstub_op_continue.exit
@@ -762,13 +725,13 @@ entry:
   br i1 %tobool.not6, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end7
   %cpu.07.in = phi i64 [ %0, %for.body.lr.ph ], [ %11, %while.end7 ]
   %cpu.07 = inttoptr i64 %cpu.07.in to ptr
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %cpu.07, i64 0, i32 51
+  %cpu_index = getelementptr inbounds i8, ptr %cpu.07, i64 712
   %1 = load i32, ptr %cpu_index, align 8
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr i8, ptr %newstates, i64 %idxprom
@@ -816,7 +779,7 @@ trace_gdbstub_op_stepping.exit:                   ; preds = %if.then, %land.lhs.
   br label %while.end7
 
 while.end7:                                       ; preds = %for.body, %trace_gdbstub_op_stepping.exit
-  %node = getelementptr inbounds %struct.CPUState, ptr %cpu.07, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cpu.07, i64 568
   %11 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
   %tobool.not = icmp eq i64 %11, 0
@@ -832,7 +795,7 @@ define dso_local i32 @gdb_target_memory_rw_debug(ptr noundef %cpu, i64 noundef %
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #11
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #11
-  %memory_rw_debug = getelementptr inbounds %struct.CPUClass, ptr %call1.i, i64 0, i32 4
+  %memory_rw_debug = getelementptr inbounds i8, ptr %call1.i, i64 200
   %0 = load ptr, ptr %memory_rw_debug, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -865,12 +828,12 @@ for.body:                                         ; preds = %entry, %for.body
   %cpu.0.in8 = phi i64 [ %2, %for.body ], [ %0, %entry ]
   %max_cpus.07 = phi i32 [ %cond, %for.body ], [ 1, %entry ]
   %cpu.0 = inttoptr i64 %cpu.0.in8 to ptr
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %cpu.0, i64 0, i32 51
+  %cpu_index = getelementptr inbounds i8, ptr %cpu.0, i64 712
   %1 = load i32, ptr %cpu_index, align 8
   %cmp.not = icmp ugt i32 %max_cpus.07, %1
   %add = add i32 %1, 1
   %cond = select i1 %cmp.not, i32 %max_cpus.07, i32 %add
-  %node = getelementptr inbounds %struct.CPUState, ptr %cpu.0, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cpu.0, i64 568
   %2 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %tobool.not = icmp eq i64 %2, 0
@@ -913,7 +876,7 @@ for.body:                                         ; preds = %while.end, %while.e
   br i1 %tobool1.not, label %while.end6, label %return
 
 while.end6:                                       ; preds = %for.body
-  %node = getelementptr inbounds %struct.CPUState, ptr %cpu.06, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cpu.06, i64 568
   %1 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
   %tobool.not = icmp eq i64 %1, 0
@@ -946,7 +909,7 @@ for.body:                                         ; preds = %while.end, %while.e
   br i1 %tobool1.not, label %while.end6, label %return
 
 while.end6:                                       ; preds = %for.body
-  %node = getelementptr inbounds %struct.CPUState, ptr %cpu.06, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cpu.06, i64 568
   %1 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
   %tobool.not = icmp eq i64 %1, 0

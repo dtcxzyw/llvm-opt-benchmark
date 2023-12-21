@@ -8,13 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.QPCIAddress = type { i32, i16, i16 }
-%struct.QVirtio9PDevice = type { %struct.QOSGraphObject, %struct.QVirtio9P }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QVirtio9P = type { ptr, ptr }
-%struct.QVirtio9PPCI = type { %struct.QVirtioPCIDevice, %struct.QVirtio9P }
-%struct.QVirtioPCIDevice = type { %struct.QOSGraphObject, %struct.QVirtioDevice, ptr, %struct.QPCIBar, ptr, i16, i64, i32, i32, i32, i32, i32, i32, i32 }
-%struct.QVirtioDevice = type { ptr, i16, i64, i8, i8 }
-%struct.QPCIBar = type { i64, i8 }
 
 @local_test_path = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [39 x i8] c"../qemu/tests/qtest/libqos/virtio-9p.c\00", align 1
@@ -100,7 +93,7 @@ if.else17:                                        ; preds = %do.body13
   unreachable
 
 do.body21:                                        ; preds = %do.body13
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %3 = load i32, ptr %st_mode, align 8
   %and = and i32 %3, 61440
   %cmp22 = icmp eq i32 %and, 16384
@@ -245,7 +238,7 @@ entry:
   %opts = alloca %struct.QOSGraphEdgeOptions, align 8
   store i64 32, ptr %addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %opts, ptr noundef nonnull align 8 dereferenceable(48) @__const.virtio_9p_register_nodes.opts, i64 48, i1 false)
-  %extra_device_opts = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %opts, i64 0, i32 2
+  %extra_device_opts = getelementptr inbounds i8, ptr %opts, i64 16
   store ptr @.str.15, ptr %extra_device_opts, align 8
   tail call void @qos_node_create_driver(ptr noundef nonnull @.str.18, ptr noundef nonnull @virtio_9p_device_create) #11
   call void @qos_node_consumes(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull %opts) #11
@@ -288,13 +281,13 @@ declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_add
 define internal noalias ptr @virtio_9p_device_create(ptr noundef %virtio_dev, ptr noundef %t_alloc, ptr nocapture readnone %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #13
-  %v9p = getelementptr inbounds %struct.QVirtio9PDevice, ptr %call, i64 0, i32 1
+  %v9p = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %virtio_dev, ptr %v9p, align 8
   store ptr %t_alloc, ptr @alloc, align 8
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @virtio_9p_device_destructor, ptr %destructor, align 8
   store ptr @virtio_9p_device_get_driver, ptr %call, align 8
-  %start_hw = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 2
+  %start_hw = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @virtio_9p_device_start_hw, ptr %start_hw, align 8
   ret ptr %call
 }
@@ -309,12 +302,12 @@ declare void @add_qpci_address(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal ptr @virtio_9p_pci_create(ptr noundef %pci_bus, ptr noundef %t_alloc, ptr noundef %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(168) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 168) #13
-  %v9p = getelementptr inbounds %struct.QVirtio9PPCI, ptr %call, i64 0, i32 1
+  %v9p = getelementptr inbounds i8, ptr %call, i64 152
   tail call void @virtio_pci_init(ptr noundef %call, ptr noundef %pci_bus, ptr noundef %addr) #11
-  %vdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %call, i64 0, i32 1
+  %vdev = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %vdev, ptr %v9p, align 8
   store ptr %t_alloc, ptr @alloc, align 8
-  %device_type = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %call, i64 0, i32 1, i32 1
+  %device_type = getelementptr inbounds i8, ptr %call, i64 48
   %0 = load i16, ptr %device_type, align 8
   %cmp = icmp eq i16 %0, 9
   br i1 %cmp, label %do.end, label %if.else
@@ -325,9 +318,9 @@ if.else:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %if.else, %entry
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @virtio_9p_pci_destructor, ptr %destructor, align 8
-  %start_hw = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 2
+  %start_hw = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @virtio_9p_pci_start_hw, ptr %start_hw, align 8
   store ptr @virtio_9p_pci_get_driver, ptr %call, align 8
   ret ptr %call
@@ -339,9 +332,9 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_9p_device_destructor(ptr nocapture noundef readonly %obj) #0 {
 entry:
-  %v9p1 = getelementptr inbounds %struct.QVirtio9PDevice, ptr %obj, i64 0, i32 1
+  %v9p1 = getelementptr inbounds i8, ptr %obj, i64 40
   %v9p1.val = load ptr, ptr %v9p1, align 8
-  %0 = getelementptr %struct.QVirtio9PDevice, ptr %obj, i64 0, i32 1, i32 1
+  %0 = getelementptr i8, ptr %obj, i64 48
   %v9p1.val1 = load ptr, ptr %0, align 8
   %v9p1.val.val = load ptr, ptr %v9p1.val, align 8
   %1 = load ptr, ptr @alloc, align 8
@@ -352,7 +345,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @virtio_9p_device_get_driver(ptr noundef readonly %object, ptr noundef %interface) #0 {
 entry:
-  %v9p = getelementptr inbounds %struct.QVirtio9PDevice, ptr %object, i64 0, i32 1
+  %v9p = getelementptr inbounds i8, ptr %object, i64 40
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.21) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %virtio_9p_get_driver.exit, label %if.end.i
@@ -380,7 +373,7 @@ virtio_9p_get_driver.exit:                        ; preds = %entry, %if.then3.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_9p_device_start_hw(ptr nocapture noundef %obj) #0 {
 entry:
-  %v9p1 = getelementptr inbounds %struct.QVirtio9PDevice, ptr %obj, i64 0, i32 1
+  %v9p1 = getelementptr inbounds i8, ptr %obj, i64 40
   %0 = load ptr, ptr %v9p1, align 8
   %call.i = tail call i64 @qvirtio_get_features(ptr noundef %0) #11
   %and.i = and i64 %call.i, -1610612737
@@ -389,7 +382,7 @@ entry:
   %2 = load ptr, ptr %v9p1, align 8
   %3 = load ptr, ptr @alloc, align 8
   %call3.i = tail call ptr @qvirtqueue_setup(ptr noundef %2, ptr noundef %3, i16 noundef zeroext 0) #11
-  %vq.i = getelementptr inbounds %struct.QVirtio9PDevice, ptr %obj, i64 0, i32 1, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %obj, i64 48
   store ptr %call3.i, ptr %vq.i, align 8
   %4 = load ptr, ptr %v9p1, align 8
   tail call void @qvirtio_set_driver_ok(ptr noundef %4) #11
@@ -418,9 +411,9 @@ declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_9p_pci_destructor(ptr noundef %obj) #0 {
 entry:
-  %v9p = getelementptr inbounds %struct.QVirtio9PPCI, ptr %obj, i64 0, i32 1
+  %v9p = getelementptr inbounds i8, ptr %obj, i64 152
   %v9p.val = load ptr, ptr %v9p, align 8
-  %0 = getelementptr %struct.QVirtio9PPCI, ptr %obj, i64 0, i32 1, i32 1
+  %0 = getelementptr i8, ptr %obj, i64 160
   %v9p.val2 = load ptr, ptr %0, align 8
   %v9p.val.val = load ptr, ptr %v9p.val, align 8
   %1 = load ptr, ptr @alloc, align 8
@@ -432,7 +425,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_9p_pci_start_hw(ptr noundef %obj) #0 {
 entry:
-  %v9p = getelementptr inbounds %struct.QVirtio9PPCI, ptr %obj, i64 0, i32 1
+  %v9p = getelementptr inbounds i8, ptr %obj, i64 152
   tail call void @qvirtio_pci_start_hw(ptr noundef %obj) #11
   %0 = load ptr, ptr %v9p, align 8
   %call.i = tail call i64 @qvirtio_get_features(ptr noundef %0) #11
@@ -442,7 +435,7 @@ entry:
   %2 = load ptr, ptr %v9p, align 8
   %3 = load ptr, ptr @alloc, align 8
   %call3.i = tail call ptr @qvirtqueue_setup(ptr noundef %2, ptr noundef %3, i16 noundef zeroext 0) #11
-  %vq.i = getelementptr inbounds %struct.QVirtio9PPCI, ptr %obj, i64 0, i32 1, i32 1
+  %vq.i = getelementptr inbounds i8, ptr %obj, i64 160
   store ptr %call3.i, ptr %vq.i, align 8
   %4 = load ptr, ptr %v9p, align 8
   tail call void @qvirtio_set_driver_ok(ptr noundef %4) #11
@@ -457,11 +450,11 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %pdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %object, i64 0, i32 2
+  %pdev = getelementptr inbounds i8, ptr %object, i64 72
   br label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %v9p = getelementptr inbounds %struct.QVirtio9PPCI, ptr %object, i64 0, i32 1
+  %v9p = getelementptr inbounds i8, ptr %object, i64 152
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.21) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i

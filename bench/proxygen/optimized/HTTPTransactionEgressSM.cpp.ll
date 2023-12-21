@@ -84,87 +84,87 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   store i16 0, ptr %ref.tmp2, align 2
-  %second.i3 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 0, i32 1
+  %second.i3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 2
   store i8 1, ptr %second.i3, align 2
-  %arrayinit.element = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 3
   store i16 1, ptr %arrayinit.element, align 1
-  %second.i5 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 1, i32 1
+  %second.i5 = getelementptr inbounds i8, ptr %ref.tmp2, i64 5
   store i8 1, ptr %second.i5, align 1
-  %arrayinit.element14 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 2
+  %arrayinit.element14 = getelementptr inbounds i8, ptr %ref.tmp2, i64 6
   store i16 513, ptr %arrayinit.element14, align 2
-  %second.i7 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 2, i32 1
+  %second.i7 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i8 3, ptr %second.i7, align 2
-  %arrayinit.element21 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 3
+  %arrayinit.element21 = getelementptr inbounds i8, ptr %ref.tmp2, i64 9
   store i16 1281, ptr %arrayinit.element21, align 1
-  %second.i9 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 3, i32 1
+  %second.i9 = getelementptr inbounds i8, ptr %ref.tmp2, i64 11
   store i8 7, ptr %second.i9, align 1
-  %arrayinit.element28 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 4
+  %arrayinit.element28 = getelementptr inbounds i8, ptr %ref.tmp2, i64 12
   store i16 769, ptr %arrayinit.element28, align 2
-  %second.i11 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 4, i32 1
+  %second.i11 = getelementptr inbounds i8, ptr %ref.tmp2, i64 14
   store i8 4, ptr %second.i11, align 2
-  %arrayinit.element35 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 5
+  %arrayinit.element35 = getelementptr inbounds i8, ptr %ref.tmp2, i64 15
   store i16 1537, ptr %arrayinit.element35, align 1
-  %second.i13 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 5, i32 1
+  %second.i13 = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
   store i8 8, ptr %second.i13, align 1
-  %arrayinit.element42 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 6
+  %arrayinit.element42 = getelementptr inbounds i8, ptr %ref.tmp2, i64 18
   store i16 515, ptr %arrayinit.element42, align 2
-  %second.i15 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 6, i32 1
+  %second.i15 = getelementptr inbounds i8, ptr %ref.tmp2, i64 20
   store i8 3, ptr %second.i15, align 2
-  %arrayinit.element49 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 7
+  %arrayinit.element49 = getelementptr inbounds i8, ptr %ref.tmp2, i64 21
   store i16 1283, ptr %arrayinit.element49, align 1
-  %second.i17 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 7, i32 1
+  %second.i17 = getelementptr inbounds i8, ptr %ref.tmp2, i64 23
   store i8 7, ptr %second.i17, align 1
-  %arrayinit.element56 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 8
+  %arrayinit.element56 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
   store i16 1539, ptr %arrayinit.element56, align 2
-  %second.i19 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 8, i32 1
+  %second.i19 = getelementptr inbounds i8, ptr %ref.tmp2, i64 26
   store i8 8, ptr %second.i19, align 2
-  %arrayinit.element63 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 9
+  %arrayinit.element63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 27
   store i16 516, ptr %arrayinit.element63, align 1
-  %second.i21 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 9, i32 1
+  %second.i21 = getelementptr inbounds i8, ptr %ref.tmp2, i64 29
   store i8 5, ptr %second.i21, align 1
-  %arrayinit.element70 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 10
+  %arrayinit.element70 = getelementptr inbounds i8, ptr %ref.tmp2, i64 30
   store i16 517, ptr %arrayinit.element70, align 2
-  %second.i23 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 10, i32 1
+  %second.i23 = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
   store i8 5, ptr %second.i23, align 2
-  %arrayinit.element77 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 11
+  %arrayinit.element77 = getelementptr inbounds i8, ptr %ref.tmp2, i64 33
   store i16 1029, ptr %arrayinit.element77, align 1
-  %second.i25 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 11, i32 1
+  %second.i25 = getelementptr inbounds i8, ptr %ref.tmp2, i64 35
   store i8 6, ptr %second.i25, align 1
-  %arrayinit.element84 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 12
+  %arrayinit.element84 = getelementptr inbounds i8, ptr %ref.tmp2, i64 36
   store i16 774, ptr %arrayinit.element84, align 2
-  %second.i27 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 12, i32 1
+  %second.i27 = getelementptr inbounds i8, ptr %ref.tmp2, i64 38
   store i8 4, ptr %second.i27, align 2
-  %arrayinit.element91 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 13
+  %arrayinit.element91 = getelementptr inbounds i8, ptr %ref.tmp2, i64 39
   store i16 1286, ptr %arrayinit.element91, align 1
-  %second.i29 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 13, i32 1
+  %second.i29 = getelementptr inbounds i8, ptr %ref.tmp2, i64 41
   store i8 7, ptr %second.i29, align 1
-  %arrayinit.element98 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 14
+  %arrayinit.element98 = getelementptr inbounds i8, ptr %ref.tmp2, i64 42
   store i16 1542, ptr %arrayinit.element98, align 2
-  %second.i31 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 14, i32 1
+  %second.i31 = getelementptr inbounds i8, ptr %ref.tmp2, i64 44
   store i8 8, ptr %second.i31, align 2
-  %arrayinit.element105 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 15
+  %arrayinit.element105 = getelementptr inbounds i8, ptr %ref.tmp2, i64 45
   store i16 1543, ptr %arrayinit.element105, align 1
-  %second.i33 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 15, i32 1
+  %second.i33 = getelementptr inbounds i8, ptr %ref.tmp2, i64 47
   store i8 8, ptr %second.i33, align 1
-  %arrayinit.element112 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 16
+  %arrayinit.element112 = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
   store i16 257, ptr %arrayinit.element112, align 2
-  %second.i35 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 16, i32 1
+  %second.i35 = getelementptr inbounds i8, ptr %ref.tmp2, i64 50
   store i8 2, ptr %second.i35, align 2
-  %arrayinit.element119 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 17
+  %arrayinit.element119 = getelementptr inbounds i8, ptr %ref.tmp2, i64 51
   store i16 258, ptr %arrayinit.element119, align 1
-  %second.i37 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 17, i32 1
+  %second.i37 = getelementptr inbounds i8, ptr %ref.tmp2, i64 53
   store i8 2, ptr %second.i37, align 1
-  %arrayinit.element126 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 18
+  %arrayinit.element126 = getelementptr inbounds i8, ptr %ref.tmp2, i64 54
   store i16 1282, ptr %arrayinit.element126, align 2
-  %second.i39 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 18, i32 1
+  %second.i39 = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
   store i8 7, ptr %second.i39, align 2
-  %arrayinit.element133 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 19
+  %arrayinit.element133 = getelementptr inbounds i8, ptr %ref.tmp2, i64 57
   store i16 1538, ptr %arrayinit.element133, align 1
-  %second.i41 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 19, i32 1
+  %second.i41 = getelementptr inbounds i8, ptr %ref.tmp2, i64 59
   store i8 8, ptr %second.i41, align 1
-  %arrayinit.element140 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 20
+  %arrayinit.element140 = getelementptr inbounds i8, ptr %ref.tmp2, i64 60
   store i16 1800, ptr %arrayinit.element140, align 2
-  %second.i43 = getelementptr inbounds %"struct.std::pair.5", ptr %ref.tmp2, i64 20, i32 1
+  %second.i43 = getelementptr inbounds i8, ptr %ref.tmp2, i64 62
   store i8 9, ptr %second.i43, align 2
   invoke void @_ZNSt6vectorISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EEC2ESt16initializer_listIS6_ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr nonnull %ref.tmp2, i64 21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147)
           to label %invoke.cont149 unwind label %lpad148
@@ -176,11 +176,11 @@ invoke.cont149:                                   ; preds = %init
 _ZN8proxygen15TransitionTableINS_27HTTPTransactionEgressSMData5StateENS1_5EventEED2Ev.exit: ; preds = %invoke.cont149
   %2 = load <2 x ptr>, ptr %ref.tmp, align 16
   store <2 x ptr> %2, ptr @_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions, align 16
-  %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
+  %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 16
   store ptr %3, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 0, i32 0, i32 0, i32 0, i64 16), align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
-  %nStates_3.i.i.i = getelementptr inbounds %"class.proxygen::TransitionTable", ptr %ref.tmp, i64 0, i32 1
+  %nStates_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %4 = load <2 x i64>, ptr %nStates_3.i.i.i, align 8
   store <2 x i64> %4, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 0, i32 0, i32 0, i32 0, i64 24), align 8
   %.pre = load ptr, ptr %agg.tmp, align 8
@@ -252,7 +252,7 @@ for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt4pai
 call5.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i.i.preheader.i
   store ptr %call5.i.i.i.i2, ptr %this, align 8
   %add.ptr.i1 = getelementptr inbounds %"struct.std::pair.5", ptr %call5.i.i.i.i2, i64 %__l.coerce1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<std::pair<proxygen::HTTPTransactionEgressSMData::State, proxygen::HTTPTransactionEgressSMData::Event>, proxygen::HTTPTransactionEgressSMData::State>, std::allocator<std::pair<std::pair<proxygen::HTTPTransactionEgressSMData::State, proxygen::HTTPTransactionEgressSMData::Event>, proxygen::HTTPTransactionEgressSMData::State>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i1, ptr %_M_end_of_storage.i, align 8
   %0 = add nsw i64 %add.ptr.i.idx, -3
   %1 = urem i64 %0, 3
@@ -264,7 +264,7 @@ call5.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i.i.pr
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i, %call5.i.i.i.i.noexc
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i, %call5.i.i.i.i.noexc ], [ null, %_ZNSt6vectorISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i ]
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<std::pair<proxygen::HTTPTransactionEgressSMData::State, proxygen::HTTPTransactionEgressSMData::Event>, proxygen::HTTPTransactionEgressSMData::State>, std::allocator<std::pair<std::pair<proxygen::HTTPTransactionEgressSMData::State, proxygen::HTTPTransactionEgressSMData::Event>, proxygen::HTTPTransactionEgressSMData::State>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   ret void
 
@@ -292,9 +292,9 @@ entry:
   %ref.tmp11 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp17 = alloca i8, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %nStates_ = getelementptr inbounds %"class.proxygen::TransitionTable", ptr %this, i64 0, i32 1
+  %nStates_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %nStates, ptr %nStates_, align 8
-  %nEvents_ = getelementptr inbounds %"class.proxygen::TransitionTable", ptr %this, i64 0, i32 2
+  %nEvents_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %nEvents, ptr %nEvents_, align 8
   store i64 %nStates, ptr %ref.tmp, align 8
   store i8 -1, ptr %ref.tmp2, align 1
@@ -341,7 +341,7 @@ lpad13:                                           ; preds = %invoke.cont12
 while.end:                                        ; preds = %invoke.cont6
   %mul = mul i64 %nEvents, %nStates
   store i8 -1, ptr %ref.tmp17, align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -370,7 +370,7 @@ invoke.cont.i.i:                                  ; preds = %if.then7.i
 
 invoke.cont19:                                    ; preds = %invoke.cont.i.i, %if.then7.i, %if.else.i, %if.then.i
   %5 = load ptr, ptr %transitions, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<std::pair<proxygen::HTTPTransactionEgressSMData::State, proxygen::HTTPTransactionEgressSMData::Event>, proxygen::HTTPTransactionEgressSMData::State>, std::allocator<std::pair<std::pair<proxygen::HTTPTransactionEgressSMData::State, proxygen::HTTPTransactionEgressSMData::Event>, proxygen::HTTPTransactionEgressSMData::State>>>::_Vector_impl_data", ptr %transitions, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %transitions, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i6.not10 = icmp eq ptr %5, %6
   br i1 %cmp.i6.not10, label %for.end, label %for.body
@@ -390,7 +390,7 @@ for.body:                                         ; preds = %invoke.cont19, %for
   %9 = getelementptr i8, ptr %8, i64 %mul.i
   %add.ptr.i7 = getelementptr i8, ptr %9, i64 %conv2.i
   store i8 %t.sroa.3.0.copyload, ptr %add.ptr.i7, align 1
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair.5", ptr %__begin0.sroa.0.011, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.011, i64 3
   %cmp.i6.not = icmp eq ptr %incdec.ptr.i, %6
   br i1 %cmp.i6.not, label %for.end, label %for.body
 
@@ -414,7 +414,7 @@ entry:
   %_result9 = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp18 = alloca %"class.google::LogMessageFatal", align 8
   %conv = zext i8 %s to i64
-  %nStates_ = getelementptr inbounds %"class.proxygen::TransitionTable", ptr %this, i64 0, i32 1
+  %nStates_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %nStates_, align 8
   %cmp.i = icmp ugt i64 %0, %conv
   br i1 %cmp.i, label %while.cond8, label %if.else.i
@@ -473,7 +473,7 @@ lpad:                                             ; preds = %while.body
 
 while.cond8:                                      ; preds = %entry, %_ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   %conv11 = zext i8 %e to i64
-  %nEvents_ = getelementptr inbounds %"class.proxygen::TransitionTable", ptr %this, i64 0, i32 2
+  %nEvents_ = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i64, ptr %nEvents_, align 8
   %cmp.i5 = icmp ugt i64 %4, %conv11
   br i1 %cmp.i5, label %while.end22, label %if.else.i6
@@ -778,9 +778,9 @@ entry:
   br i1 %cmp.not, label %if.end92, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64

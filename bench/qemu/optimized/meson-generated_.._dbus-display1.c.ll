@@ -13,78 +13,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._GDBusMethodInfo = type { i32, ptr, ptr, ptr, ptr }
 %struct._ExtendedGDBusArgInfo = type { %struct._GDBusArgInfo, i32 }
 %struct._GDBusArgInfo = type { i32, ptr, ptr, ptr }
-%struct._QemuDBusDisplay1VMIface = type { %struct._GTypeInterface, ptr, ptr, ptr, ptr }
-%struct._GTypeInterface = type { i64, i64 }
-%struct._QemuDBusDisplay1ConsoleIface = type { %struct._GTypeInterface, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._QemuDBusDisplay1KeyboardIface = type { %struct._GTypeInterface, ptr, ptr, ptr }
-%struct._QemuDBusDisplay1MouseIface = type { %struct._GTypeInterface, ptr, ptr, ptr, ptr, ptr }
-%struct._QemuDBusDisplay1MultiTouchIface = type { %struct._GTypeInterface, ptr, ptr }
-%struct._QemuDBusDisplay1ListenerIface = type { %struct._GTypeInterface, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._QemuDBusDisplay1ClipboardIface = type { %struct._GTypeInterface, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._QemuDBusDisplay1AudioIface = type { %struct._GTypeInterface, ptr, ptr, ptr }
-%struct._QemuDBusDisplay1AudioOutListenerIface = type { %struct._GTypeInterface, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._QemuDBusDisplay1AudioInListenerIface = type { %struct._GTypeInterface, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._QemuDBusDisplay1ChardevIface = type { %struct._GTypeInterface, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._GObjectClass = type { %struct._GTypeClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, [6 x ptr] }
-%struct._GTypeClass = type { i64 }
-%struct._GDBusProxyClass = type { %struct._GObjectClass, ptr, ptr, [32 x ptr] }
-%struct._QemuDBusDisplay1VMProxy = type { %struct._GDBusProxy, ptr }
-%struct._GDBusProxy = type { %struct._GObject, ptr }
-%struct._GObject = type { %struct._GTypeInstance, i32, ptr }
-%struct._GTypeInstance = type { ptr }
 %struct._GVariantIter = type { [16 x i64] }
-%struct._GDBusSignalInfo = type { i32, ptr, ptr, ptr }
 %struct._GValue = type { i64, [2 x %union.anon] }
 %union.anon = type { i64 }
-%struct._ExtendedGDBusSignalInfo = type { %struct._GDBusSignalInfo, ptr }
-%struct._GError = type { i32, i32, ptr }
-%struct._GDBusInterfaceSkeletonClass = type { %struct._GObjectClass, ptr, ptr, ptr, ptr, [8 x ptr], ptr, [8 x ptr] }
-%struct._QemuDBusDisplay1VMSkeleton = type { %struct._GDBusInterfaceSkeleton, ptr }
-%struct._GDBusInterfaceSkeleton = type { %struct._GObject, ptr }
-%struct._QemuDBusDisplay1VMSkeletonPrivate = type { ptr, ptr, ptr, ptr, %union._GMutex }
-%union._GMutex = type { ptr }
-%struct._GList = type { ptr, ptr, ptr }
-%struct.ChangedProperty = type { ptr, i32, %struct._GValue }
 %struct._GVariantBuilder = type { %union.anon.0 }
 %union.anon.0 = type { %struct.anon }
 %struct.anon = type { i64, ptr, [14 x i64] }
-%struct._GParamSpec = type { %struct._GTypeInstance, ptr, i32, i64, i64, ptr, ptr, ptr, i32, i32 }
-%struct._QemuDBusDisplay1ConsoleProxy = type { %struct._GDBusProxy, ptr }
-%struct._QemuDBusDisplay1ConsoleSkeleton = type { %struct._GDBusInterfaceSkeleton, ptr }
-%struct._QemuDBusDisplay1ConsoleSkeletonPrivate = type { ptr, ptr, ptr, ptr, %union._GMutex }
-%struct._QemuDBusDisplay1KeyboardProxy = type { %struct._GDBusProxy, ptr }
-%struct._QemuDBusDisplay1KeyboardSkeleton = type { %struct._GDBusInterfaceSkeleton, ptr }
-%struct._QemuDBusDisplay1KeyboardSkeletonPrivate = type { ptr, ptr, ptr, ptr, %union._GMutex }
-%struct._QemuDBusDisplay1MouseProxy = type { %struct._GDBusProxy, ptr }
-%struct._QemuDBusDisplay1MouseSkeleton = type { %struct._GDBusInterfaceSkeleton, ptr }
-%struct._QemuDBusDisplay1MouseSkeletonPrivate = type { ptr, ptr, ptr, ptr, %union._GMutex }
-%struct._QemuDBusDisplay1MultiTouchProxy = type { %struct._GDBusProxy, ptr }
-%struct._QemuDBusDisplay1MultiTouchSkeleton = type { %struct._GDBusInterfaceSkeleton, ptr }
-%struct._QemuDBusDisplay1MultiTouchSkeletonPrivate = type { ptr, ptr, ptr, ptr, %union._GMutex }
-%struct._QemuDBusDisplay1ListenerProxy = type { %struct._GDBusProxy, ptr }
-%struct._QemuDBusDisplay1ListenerSkeleton = type { %struct._GDBusInterfaceSkeleton, ptr }
-%struct._QemuDBusDisplay1ListenerSkeletonPrivate = type { ptr, ptr, ptr, ptr, %union._GMutex }
-%struct._QemuDBusDisplay1ListenerWin32MapProxy = type { %struct._GDBusProxy, ptr }
-%struct._QemuDBusDisplay1ListenerWin32MapSkeleton = type { %struct._GDBusInterfaceSkeleton, ptr }
-%struct._QemuDBusDisplay1ListenerWin32MapSkeletonPrivate = type { ptr, ptr, ptr, ptr, %union._GMutex }
-%struct._QemuDBusDisplay1ListenerWin32D3d11Proxy = type { %struct._GDBusProxy, ptr }
-%struct._QemuDBusDisplay1ListenerWin32D3d11Skeleton = type { %struct._GDBusInterfaceSkeleton, ptr }
-%struct._QemuDBusDisplay1ListenerWin32D3d11SkeletonPrivate = type { ptr, ptr, ptr, ptr, %union._GMutex }
-%struct._QemuDBusDisplay1ClipboardProxy = type { %struct._GDBusProxy, ptr }
-%struct._QemuDBusDisplay1ClipboardSkeleton = type { %struct._GDBusInterfaceSkeleton, ptr }
-%struct._QemuDBusDisplay1ClipboardSkeletonPrivate = type { ptr, ptr, ptr, ptr, %union._GMutex }
-%struct._QemuDBusDisplay1AudioProxy = type { %struct._GDBusProxy, ptr }
-%struct._QemuDBusDisplay1AudioSkeleton = type { %struct._GDBusInterfaceSkeleton, ptr }
-%struct._QemuDBusDisplay1AudioSkeletonPrivate = type { ptr, ptr, ptr, ptr, %union._GMutex }
-%struct._QemuDBusDisplay1AudioOutListenerProxy = type { %struct._GDBusProxy, ptr }
-%struct._QemuDBusDisplay1AudioOutListenerSkeleton = type { %struct._GDBusInterfaceSkeleton, ptr }
-%struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate = type { ptr, ptr, ptr, ptr, %union._GMutex }
-%struct._QemuDBusDisplay1AudioInListenerProxy = type { %struct._GDBusProxy, ptr }
-%struct._QemuDBusDisplay1AudioInListenerSkeleton = type { %struct._GDBusInterfaceSkeleton, ptr }
-%struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate = type { ptr, ptr, ptr, ptr, %union._GMutex }
-%struct._QemuDBusDisplay1ChardevProxy = type { %struct._GDBusProxy, ptr }
-%struct._QemuDBusDisplay1ChardevSkeleton = type { %struct._GDBusInterfaceSkeleton, ptr }
-%struct._QemuDBusDisplay1ChardevSkeletonPrivate = type { ptr, ptr, ptr, ptr, %union._GMutex }
 
 @_qemu_dbus_display1_vm_interface_info = internal constant %struct._ExtendedGDBusInterfaceInfo { %struct._GDBusInterfaceInfo { i32 -1, ptr @.str.10, ptr null, ptr null, ptr @_qemu_dbus_display1_vm_property_info_pointers, ptr null }, ptr @.str.104 }, align 8
 @.str = private unnamed_addr constant [5 x i8] c"name\00", align 1
@@ -935,7 +869,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_vm_get_type.exit:              ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_vm_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_name = getelementptr inbounds %struct._QemuDBusDisplay1VMIface, ptr %call1, i64 0, i32 3
+  %get_name = getelementptr inbounds i8, ptr %call1, i64 32
   %3 = load ptr, ptr %get_name, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -990,7 +924,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_vm_get_type.exit:              ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_vm_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_uuid = getelementptr inbounds %struct._QemuDBusDisplay1VMIface, ptr %call1, i64 0, i32 4
+  %get_uuid = getelementptr inbounds i8, ptr %call1, i64 40
   %3 = load ptr, ptr %get_uuid, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -1037,7 +971,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_vm_get_type.exit:              ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_vm_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_console_ids = getelementptr inbounds %struct._QemuDBusDisplay1VMIface, ptr %call1, i64 0, i32 1
+  %get_console_ids = getelementptr inbounds i8, ptr %call1, i64 16
   %3 = load ptr, ptr %get_console_ids, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -1084,7 +1018,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_vm_get_type.exit:              ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_vm_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1VMIface, ptr %call1, i64 0, i32 2
+  %get_interfaces = getelementptr inbounds i8, ptr %call1, i64 24
   %3 = load ptr, ptr %get_interfaces, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -1509,7 +1443,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_console_get_type.exit:         ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_console_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_label = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %call1, i64 0, i32 7
+  %get_label = getelementptr inbounds i8, ptr %call1, i64 64
   %3 = load ptr, ptr %get_label, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -1556,7 +1490,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_console_get_type.exit:         ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_console_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_head = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %call1, i64 0, i32 4
+  %get_head = getelementptr inbounds i8, ptr %call1, i64 40
   %3 = load ptr, ptr %get_head, align 8
   %call2 = tail call i32 %3(ptr noundef nonnull %object) #12
   ret i32 %call2
@@ -1593,7 +1527,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_console_get_type.exit:         ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_console_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_type_ = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %call1, i64 0, i32 8
+  %get_type_ = getelementptr inbounds i8, ptr %call1, i64 72
   %3 = load ptr, ptr %get_type_, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -1640,7 +1574,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_console_get_type.exit:         ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_console_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_width = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %call1, i64 0, i32 9
+  %get_width = getelementptr inbounds i8, ptr %call1, i64 80
   %3 = load ptr, ptr %get_width, align 8
   %call2 = tail call i32 %3(ptr noundef nonnull %object) #12
   ret i32 %call2
@@ -1677,7 +1611,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_console_get_type.exit:         ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_console_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_height = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %call1, i64 0, i32 5
+  %get_height = getelementptr inbounds i8, ptr %call1, i64 48
   %3 = load ptr, ptr %get_height, align 8
   %call2 = tail call i32 %3(ptr noundef nonnull %object) #12
   ret i32 %call2
@@ -1714,7 +1648,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_console_get_type.exit:         ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_console_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_device_address = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %call1, i64 0, i32 3
+  %get_device_address = getelementptr inbounds i8, ptr %call1, i64 32
   %3 = load ptr, ptr %get_device_address, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -1761,7 +1695,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_console_get_type.exit:         ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_console_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %call1, i64 0, i32 6
+  %get_interfaces = getelementptr inbounds i8, ptr %call1, i64 56
   %3 = load ptr, ptr %get_interfaces, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -2292,7 +2226,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_keyboard_get_type.exit:        ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_keyboard_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_modifiers = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardIface, ptr %call1, i64 0, i32 3
+  %get_modifiers = getelementptr inbounds i8, ptr %call1, i64 32
   %3 = load ptr, ptr %get_modifiers, align 8
   %call2 = tail call i32 %3(ptr noundef nonnull %object) #12
   ret i32 %call2
@@ -2788,7 +2722,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_mouse_get_type.exit:           ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_mouse_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_is_absolute = getelementptr inbounds %struct._QemuDBusDisplay1MouseIface, ptr %call1, i64 0, i32 5
+  %get_is_absolute = getelementptr inbounds i8, ptr %call1, i64 48
   %3 = load ptr, ptr %get_is_absolute, align 8
   %call2 = tail call i32 %3(ptr noundef nonnull %object) #12
   ret i32 %call2
@@ -3396,7 +3330,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_multi_touch_get_type.exit:     ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_multi_touch_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_max_slots = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchIface, ptr %call1, i64 0, i32 2
+  %get_max_slots = getelementptr inbounds i8, ptr %call1, i64 24
   %3 = load ptr, ptr %get_max_slots, align 8
   %call2 = tail call i32 %3(ptr noundef nonnull %object) #12
   ret i32 %call2
@@ -3841,7 +3775,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_listener_get_type.exit:        ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_listener_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1ListenerIface, ptr %call1, i64 0, i32 8
+  %get_interfaces = getelementptr inbounds i8, ptr %call1, i64 72
   %3 = load ptr, ptr %get_interfaces, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -5551,7 +5485,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_clipboard_get_type.exit:       ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_clipboard_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardIface, ptr %call1, i64 0, i32 6
+  %get_interfaces = getelementptr inbounds i8, ptr %call1, i64 56
   %3 = load ptr, ptr %get_interfaces, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -6232,7 +6166,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_audio_get_type.exit:           ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_audio_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1AudioIface, ptr %call1, i64 0, i32 3
+  %get_interfaces = getelementptr inbounds i8, ptr %call1, i64 32
   %3 = load ptr, ptr %get_interfaces, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -6741,7 +6675,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_audio_out_listener_get_type.exit: ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_audio_out_listener_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerIface, ptr %call1, i64 0, i32 6
+  %get_interfaces = getelementptr inbounds i8, ptr %call1, i64 56
   %3 = load ptr, ptr %get_interfaces, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -7431,7 +7365,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_audio_in_listener_get_type.exit: ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_audio_in_listener_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerIface, ptr %call1, i64 0, i32 6
+  %get_interfaces = getelementptr inbounds i8, ptr %call1, i64 56
   %3 = load ptr, ptr %get_interfaces, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -8132,7 +8066,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_chardev_get_type.exit:         ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_chardev_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_name = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %call1, i64 0, i32 6
+  %get_name = getelementptr inbounds i8, ptr %call1, i64 56
   %3 = load ptr, ptr %get_name, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -8179,7 +8113,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_chardev_get_type.exit:         ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_chardev_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_feopened = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %call1, i64 0, i32 4
+  %get_feopened = getelementptr inbounds i8, ptr %call1, i64 40
   %3 = load ptr, ptr %get_feopened, align 8
   %call2 = tail call i32 %3(ptr noundef nonnull %object) #12
   ret i32 %call2
@@ -8216,7 +8150,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_chardev_get_type.exit:         ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_chardev_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_echo = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %call1, i64 0, i32 3
+  %get_echo = getelementptr inbounds i8, ptr %call1, i64 32
   %3 = load ptr, ptr %get_echo, align 8
   %call2 = tail call i32 %3(ptr noundef nonnull %object) #12
   ret i32 %call2
@@ -8253,7 +8187,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_chardev_get_type.exit:         ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_chardev_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_owner = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %call1, i64 0, i32 7
+  %get_owner = getelementptr inbounds i8, ptr %call1, i64 64
   %3 = load ptr, ptr %get_owner, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -8300,7 +8234,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 qemu_dbus_display1_chardev_get_type.exit:         ; preds = %entry, %land.rhs.i, %if.then.i
   %2 = load i64, ptr @qemu_dbus_display1_chardev_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr @g_type_interface_peek(ptr noundef %0, i64 noundef %2) #12
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %call1, i64 0, i32 5
+  %get_interfaces = getelementptr inbounds i8, ptr %call1, i64 48
   %3 = load ptr, ptr %get_interfaces, align 8
   %call2 = tail call ptr %3(ptr noundef nonnull %object) #12
   ret ptr %call2
@@ -8757,17 +8691,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_vm_proxy_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_vm_proxy_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_vm_proxy_set_property, ptr %set_property.i, align 8
   %call1.i = tail call i64 @g_dbus_proxy_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %g_signal.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 2
+  %g_signal.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_vm_proxy_g_signal, ptr %g_signal.i, align 8
-  %g_properties_changed.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 1
+  %g_properties_changed.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_vm_proxy_g_properties_changed, ptr %g_properties_changed.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str) #12
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 2, ptr noundef nonnull @.str.1) #12
@@ -8782,7 +8716,7 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1VMProxy_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %proxy, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMProxy, ptr %proxy, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %proxy, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
   %call1 = tail call i64 @g_dbus_proxy_get_type() #13
   %call2 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call1) #12
@@ -8795,13 +8729,13 @@ declare i32 @g_type_add_instance_private(i64 noundef, i64 noundef) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_vm_proxy_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_name = getelementptr inbounds %struct._QemuDBusDisplay1VMIface, ptr %iface, i64 0, i32 3
+  %get_name = getelementptr inbounds i8, ptr %iface, i64 32
   store ptr @qemu_dbus_display1_vm_proxy_get_name, ptr %get_name, align 8
-  %get_uuid = getelementptr inbounds %struct._QemuDBusDisplay1VMIface, ptr %iface, i64 0, i32 4
+  %get_uuid = getelementptr inbounds i8, ptr %iface, i64 40
   store ptr @qemu_dbus_display1_vm_proxy_get_uuid, ptr %get_uuid, align 8
-  %get_console_ids = getelementptr inbounds %struct._QemuDBusDisplay1VMIface, ptr %iface, i64 0, i32 1
+  %get_console_ids = getelementptr inbounds i8, ptr %iface, i64 16
   store ptr @qemu_dbus_display1_vm_proxy_get_console_ids, ptr %get_console_ids, align 8
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1VMIface, ptr %iface, i64 0, i32 2
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 24
   store ptr @qemu_dbus_display1_vm_proxy_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -8822,12 +8756,12 @@ define internal void @qemu_dbus_display1_vm_proxy_finalize(ptr noundef %object) 
 entry:
   %call = tail call i64 @qemu_dbus_display1_vm_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   tail call void @g_datalist_clear(ptr noundef %0) #12
   %1 = load ptr, ptr @qemu_dbus_display1_vm_proxy_parent_class, align 8
   %call2 = tail call ptr @g_type_check_class_cast(ptr noundef %1, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call2, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load ptr, ptr %finalize, align 8
   tail call void %2(ptr noundef %object) #12
   ret void
@@ -8850,10 +8784,10 @@ do.end:                                           ; preds = %entry
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call3 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %name, align 8
   %call4 = tail call ptr @g_dbus_proxy_get_cached_property(ptr noundef %call3, ptr noundef %2) #12
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %1, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %1, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -8895,13 +8829,13 @@ do.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr [5 x ptr], ptr @_qemu_dbus_display1_vm_property_info_pointers, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %1, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %signature, align 8
   %call = tail call ptr @g_variant_type_checked_(ptr noundef %2) #12
   %call3 = tail call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %value, ptr noundef %call) #12
   %call4 = tail call i64 @g_dbus_proxy_get_type() #13
   %call5 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call4) #12
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %name, align 8
   %call7 = tail call ptr (ptr, ...) @g_variant_new(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.10, ptr noundef %3, ptr noundef %call3) #12
   tail call void @g_dbus_proxy_call(ptr noundef %call5, ptr noundef nonnull @.str.115, ptr noundef %call7, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef nonnull @qemu_dbus_display1_vm_proxy_set_property_cb, ptr noundef %1) #12
@@ -8947,7 +8881,7 @@ qemu_dbus_display1_vm_get_type.exit:              ; preds = %if.end, %land.rhs.i
   br i1 %cmp8.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %qemu_dbus_display1_vm_get_type.exit
-  %args = getelementptr inbounds %struct._GDBusSignalInfo, ptr %call, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -8955,9 +8889,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.023 = phi i64 [ 1, %while.body.lr.ph ], [ %n.1, %if.end16 ]
   %2 = load ptr, ptr %args, align 8
   %3 = getelementptr ptr, ptr %2, i64 %n.023
-  %arrayidx9 = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx9, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %4, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %use_gvariant, align 8
   %tobool.not = icmp eq i32 %5, 0
   %arrayidx15 = getelementptr %struct._GValue, ptr %call2, i64 %n.023
@@ -8980,7 +8914,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %if.end16, %qemu_dbus_display1_vm_get_type.exit
-  %signal_name17 = getelementptr inbounds %struct._ExtendedGDBusSignalInfo, ptr %call, i64 0, i32 1
+  %signal_name17 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %signal_name17, align 8
   %call19 = call i32 @g_signal_lookup(ptr noundef %6, i64 noundef %1) #12
   call void @g_signal_emitv(ptr noundef %call2, i32 noundef %call19, i32 noundef 0, ptr noundef null) #12
@@ -9017,7 +8951,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -9032,7 +8966,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call3, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call3, i64 40
   %4 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_notify(ptr noundef %call5, ptr noundef %4) #12
   br label %if.end
@@ -9051,7 +8985,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp6.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %priv10 = getelementptr inbounds %struct._QemuDBusDisplay1VMProxy, ptr %call1, i64 0, i32 1
+  %priv10 = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -9068,7 +9002,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then16:                                        ; preds = %for.body
   %call17 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name18 = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call9, i64 0, i32 1
+  %hyphen_name18 = getelementptr inbounds i8, ptr %call9, i64 40
   %11 = load ptr, ptr %hyphen_name18, align 8
   call void @g_object_notify(ptr noundef %call17, ptr noundef %11) #12
   br label %for.inc
@@ -9108,14 +9042,14 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %user_data, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load ptr, ptr %error, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %message, align 8
   %3 = load i32, ptr %1, align 8
   %call1 = call ptr @g_quark_to_string(i32 noundef %3) #13
-  %code = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %code, align 4
   call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.117, ptr noundef %0, ptr noundef %2, ptr noundef %call1, i32 noundef %4) #12
   %5 = load ptr, ptr %error, align 8
@@ -9240,7 +9174,7 @@ define internal ptr @qemu_dbus_display1_vm_proxy_get_interfaces(ptr noundef %obj
 entry:
   %call = tail call i64 @qemu_dbus_display1_vm_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %call2 = tail call ptr @g_datalist_get_data(ptr noundef %0, ptr noundef nonnull @.str.110) #12
   %cmp.not = icmp eq ptr %call2, null
@@ -9292,13 +9226,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_vm_skeleton_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_vm_skeleton_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_vm_skeleton_set_property, ptr %set_property.i, align 8
-  %notify.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 8
+  %notify.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @qemu_dbus_display1_vm_skeleton_notify, ptr %notify.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str) #12
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 2, ptr noundef nonnull @.str.1) #12
@@ -9306,13 +9240,13 @@ if.end:                                           ; preds = %if.then, %entry
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 4, ptr noundef nonnull @.str.3) #12
   %call2.i = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call3.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call2.i) #12
-  %get_info.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 1
+  %get_info.i = getelementptr inbounds i8, ptr %call3.i, i64 136
   store ptr @qemu_dbus_display1_vm_skeleton_dbus_interface_get_info, ptr %get_info.i, align 8
-  %get_properties.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 3
+  %get_properties.i = getelementptr inbounds i8, ptr %call3.i, i64 152
   store ptr @qemu_dbus_display1_vm_skeleton_dbus_interface_get_properties, ptr %get_properties.i, align 8
-  %flush.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 4
+  %flush.i = getelementptr inbounds i8, ptr %call3.i, i64 160
   store ptr @qemu_dbus_display1_vm_skeleton_dbus_interface_flush, ptr %flush.i, align 8
-  %get_vtable.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 2
+  %get_vtable.i = getelementptr inbounds i8, ptr %call3.i, i64 144
   store ptr @qemu_dbus_display1_vm_skeleton_dbus_interface_get_vtable, ptr %get_vtable.i, align 8
   ret void
 }
@@ -9323,13 +9257,13 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1VMSkeleton_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %skeleton, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeleton, ptr %skeleton, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %skeleton, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %add.ptr.i, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   tail call void @g_mutex_init(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_main_context_ref_thread_default() #12
   %1 = load ptr, ptr %priv, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %1, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call2, ptr %context, align 8
   %call4 = tail call noalias dereferenceable_or_null(96) ptr @g_malloc0_n(i64 noundef 4, i64 noundef 24) #15
   %2 = load ptr, ptr %priv, align 8
@@ -9339,15 +9273,15 @@ entry:
   %call8 = tail call ptr @g_value_init(ptr noundef %4, i64 noundef 64) #12
   %5 = load ptr, ptr %priv, align 8
   %6 = load ptr, ptr %5, align 8
-  %arrayidx11 = getelementptr %struct._GValue, ptr %6, i64 1
+  %arrayidx11 = getelementptr i8, ptr %6, i64 24
   %call12 = tail call ptr @g_value_init(ptr noundef %arrayidx11, i64 noundef 64) #12
   %7 = load ptr, ptr %priv, align 8
   %8 = load ptr, ptr %7, align 8
-  %arrayidx15 = getelementptr %struct._GValue, ptr %8, i64 2
+  %arrayidx15 = getelementptr i8, ptr %8, i64 48
   %call16 = tail call ptr @g_value_init(ptr noundef %arrayidx15, i64 noundef 84) #12
   %9 = load ptr, ptr %priv, align 8
   %10 = load ptr, ptr %9, align 8
-  %arrayidx19 = getelementptr %struct._GValue, ptr %10, i64 3
+  %arrayidx19 = getelementptr i8, ptr %10, i64 72
   %call20 = tail call i64 @g_strv_get_type() #13
   %call21 = tail call ptr @g_value_init(ptr noundef %arrayidx19, i64 noundef %call20) #12
   ret void
@@ -9356,13 +9290,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_vm_skeleton_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_name = getelementptr inbounds %struct._QemuDBusDisplay1VMIface, ptr %iface, i64 0, i32 3
+  %get_name = getelementptr inbounds i8, ptr %iface, i64 32
   store ptr @qemu_dbus_display1_vm_skeleton_get_name, ptr %get_name, align 8
-  %get_uuid = getelementptr inbounds %struct._QemuDBusDisplay1VMIface, ptr %iface, i64 0, i32 4
+  %get_uuid = getelementptr inbounds i8, ptr %iface, i64 40
   store ptr @qemu_dbus_display1_vm_skeleton_get_uuid, ptr %get_uuid, align 8
-  %get_console_ids = getelementptr inbounds %struct._QemuDBusDisplay1VMIface, ptr %iface, i64 0, i32 1
+  %get_console_ids = getelementptr inbounds i8, ptr %iface, i64 16
   store ptr @qemu_dbus_display1_vm_skeleton_get_console_ids, ptr %get_console_ids, align 8
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1VMIface, ptr %iface, i64 0, i32 2
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 24
   store ptr @qemu_dbus_display1_vm_skeleton_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -9372,7 +9306,7 @@ define internal void @qemu_dbus_display1_vm_skeleton_finalize(ptr noundef %objec
 entry:
   %call = tail call i64 @qemu_dbus_display1_vm_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -9390,11 +9324,11 @@ for.end:                                          ; preds = %for.body
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %4, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %changed_properties, align 8
   tail call void @g_list_free_full(ptr noundef %5, ptr noundef nonnull @_changed_property_free) #12
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %6, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp6.not = icmp eq ptr %7, null
   br i1 %cmp6.not, label %if.end, label %if.then
@@ -9406,15 +9340,15 @@ if.then:                                          ; preds = %for.end
 
 if.end:                                           ; preds = %if.then, %for.end
   %8 = phi ptr [ %.pre, %if.then ], [ %6, %for.end ]
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %8, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %context, align 8
   tail call void @g_main_context_unref(ptr noundef %9) #12
   %10 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %10, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %10, i64 32
   tail call void @g_mutex_clear(ptr noundef nonnull %lock) #12
   %11 = load ptr, ptr @qemu_dbus_display1_vm_skeleton_parent_class, align 8
   %call11 = tail call ptr @g_type_check_class_cast(ptr noundef %11, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call11, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call11, i64 48
   %12 = load ptr, ptr %finalize, align 8
   tail call void %12(ptr noundef %object) #12
   ret void
@@ -9434,9 +9368,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %1 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %2 = load ptr, ptr %priv, align 8
   %3 = load ptr, ptr %2, align 8
@@ -9444,7 +9378,7 @@ do.end:                                           ; preds = %entry
   %arrayidx = getelementptr %struct._GValue, ptr %3, i64 %idxprom
   tail call void @g_value_copy(ptr noundef %arrayidx, ptr noundef %value) #12
   %4 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock6 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }
@@ -9466,9 +9400,9 @@ do.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr [5 x ptr], ptr @_qemu_dbus_display1_vm_property_info_pointers, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %2 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %2, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %2, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   tail call void @g_object_freeze_notify(ptr noundef %object) #12
   %3 = load ptr, ptr %priv, align 8
@@ -9486,7 +9420,7 @@ if.then9:                                         ; preds = %do.end
   br i1 %cmp13.not, label %if.end22, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %if.then9
-  %emits_changed_signal = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %1, i64 0, i32 2
+  %emits_changed_signal = getelementptr inbounds i8, ptr %1, i64 48
   %bf.load = load i8, ptr %emits_changed_signal, align 8
   %5 = and i8 %bf.load, 2
   %tobool15.not = icmp eq i8 %5, 0
@@ -9496,37 +9430,34 @@ if.then16:                                        ; preds = %land.lhs.true14
   %6 = load ptr, ptr %priv, align 8
   %7 = load ptr, ptr %6, align 8
   %arrayidx21 = getelementptr %struct._GValue, ptr %7, i64 %idxprom
-  %changed_properties.i = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %6, i64 0, i32 1
-  %l.013.i = load ptr, ptr %changed_properties.i, align 8
-  %cmp.not14.i = icmp eq ptr %l.013.i, null
-  br i1 %cmp.not14.i, label %if.then4.i, label %for.body.i
+  br label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct._GList, ptr %l.015.i, i64 0, i32 1
-  %l.0.i = load ptr, ptr %next.i, align 8
+for.cond.i:                                       ; preds = %for.body.i, %if.then16
+  %.pn.i = phi ptr [ %6, %if.then16 ], [ %l.0.i, %for.body.i ]
+  %l.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %l.0.i = load ptr, ptr %l.0.in.i, align 8
   %cmp.not.i = icmp eq ptr %l.0.i, null
-  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !11
+  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i
 
-for.body.i:                                       ; preds = %if.then16, %for.cond.i
-  %l.015.i = phi ptr [ %l.0.i, %for.cond.i ], [ %l.013.i, %if.then16 ]
-  %8 = load ptr, ptr %l.015.i, align 8
+for.body.i:                                       ; preds = %for.cond.i
+  %8 = load ptr, ptr %l.0.i, align 8
   %9 = load ptr, ptr %8, align 8
   %cmp2.i = icmp eq ptr %9, %1
-  br i1 %cmp2.i, label %if.end22, label %for.cond.i
+  br i1 %cmp2.i, label %if.end22, label %for.cond.i, !llvm.loop !11
 
-if.then4.i:                                       ; preds = %for.cond.i, %if.then16
+if.then4.i:                                       ; preds = %for.cond.i
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #15
-  %prop_id5.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 1
+  %prop_id5.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %prop_id, ptr %prop_id5.i, align 8
   store ptr %1, ptr %call.i, align 8
   %10 = load ptr, ptr %priv, align 8
-  %changed_properties8.i = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %10, i64 0, i32 1
+  %changed_properties8.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %changed_properties8.i, align 8
   %call9.i = tail call ptr @g_list_prepend(ptr noundef %11, ptr noundef nonnull %call.i) #12
   %12 = load ptr, ptr %priv, align 8
-  %changed_properties11.i = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %12, i64 0, i32 1
+  %changed_properties11.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %call9.i, ptr %changed_properties11.i, align 8
-  %orig_value12.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 2
+  %orig_value12.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %13 = load i64, ptr %arrayidx21, align 8
   %call13.i = tail call ptr @g_value_init(ptr noundef nonnull %orig_value12.i, i64 noundef %13) #12
   tail call void @g_value_copy(ptr noundef nonnull %arrayidx21, ptr noundef nonnull %orig_value12.i) #12
@@ -9542,7 +9473,7 @@ if.end22:                                         ; preds = %for.body.i, %if.the
 
 if.end28:                                         ; preds = %if.end22, %do.end
   %16 = load ptr, ptr %priv, align 8
-  %lock30 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock30 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock30) #12
   tail call void @g_object_thaw_notify(ptr noundef %object) #12
   ret void
@@ -9553,18 +9484,18 @@ define internal void @qemu_dbus_display1_vm_skeleton_notify(ptr noundef %object,
 entry:
   %call = tail call i64 @qemu_dbus_display1_vm_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %1, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %changed_properties, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.end
@@ -9572,29 +9503,29 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call ptr @g_idle_source_new() #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source7 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %4, i64 0, i32 2
+  %changed_properties_idle_source7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call5, ptr %changed_properties_idle_source7, align 8
   %5 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source9 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %5, i64 0, i32 2
+  %changed_properties_idle_source9 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %changed_properties_idle_source9, align 8
   tail call void @g_source_set_priority(ptr noundef %6, i32 noundef 0) #12
   %7 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source11 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %7, i64 0, i32 2
+  %changed_properties_idle_source11 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %changed_properties_idle_source11, align 8
   %call12 = tail call ptr @g_object_ref(ptr noundef nonnull %call1) #12
   tail call void @g_source_set_callback(ptr noundef %8, ptr noundef nonnull @_qemu_dbus_display1_vm_emit_changed, ptr noundef %call12, ptr noundef nonnull @g_object_unref) #12
   %9 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source14 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %9, i64 0, i32 2
+  %changed_properties_idle_source14 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %changed_properties_idle_source14, align 8
   tail call void @g_source_set_name(ptr noundef %10, ptr noundef nonnull @.str.123) #12
   %11 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source16 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %11, i64 0, i32 2
+  %changed_properties_idle_source16 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %changed_properties_idle_source16, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %11, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %context, align 8
   %call18 = tail call i32 @g_source_attach(ptr noundef %12, ptr noundef %13) #12
   %14 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source20 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %14, i64 0, i32 2
+  %changed_properties_idle_source20 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %changed_properties_idle_source20, align 8
   tail call void @g_source_unref(ptr noundef %15) #12
   %.pre = load ptr, ptr %priv, align 8
@@ -9602,7 +9533,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %16 = phi ptr [ %.pre, %if.then ], [ %1, %land.lhs.true ], [ %1, %entry ]
-  %lock22 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock22 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock22) #12
   ret void
 }
@@ -9626,7 +9557,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %0 = phi ptr [ @_qemu_dbus_display1_vm_property_info_name, %entry ], [ %4, %for.inc ]
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %0, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -9638,7 +9569,7 @@ if.then:                                          ; preds = %for.body
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call5) #12
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9) #12
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %0, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %name, align 8
   %call11 = call ptr @_qemu_dbus_display1_vm_skeleton_handle_get_property(ptr poison, ptr poison, ptr poison, ptr nonnull poison, ptr noundef %2, ptr noundef null, ptr noundef %call1)
   %cmp12.not = icmp eq ptr %call11, null
@@ -9668,12 +9599,12 @@ define internal void @qemu_dbus_display1_vm_skeleton_dbus_interface_flush(ptr no
 entry:
   %call = tail call i64 @qemu_dbus_display1_vm_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %_skeleton, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end11.critedge, label %if.then
@@ -9681,16 +9612,16 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @g_source_destroy(ptr noundef nonnull %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source6 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %3, i64 0, i32 2
+  %changed_properties_idle_source6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %changed_properties_idle_source6, align 8
   %4 = load ptr, ptr %priv, align 8
-  %lock8 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock8 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8) #12
   %call10 = tail call i32 @_qemu_dbus_display1_vm_emit_changed(ptr noundef nonnull %call1)
   br label %if.end11
 
 if.end11.critedge:                                ; preds = %entry
-  %lock8.c = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock8.c = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8.c) #12
   br label %if.end11
 
@@ -9709,7 +9640,7 @@ declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @_changed_property_free(ptr noundef %data) #1 {
 entry:
-  %orig_value = getelementptr inbounds %struct.ChangedProperty, ptr %data, i64 0, i32 2
+  %orig_value = getelementptr inbounds i8, ptr %data, i64 16
   tail call void @g_value_unset(ptr noundef nonnull %orig_value) #12
   tail call void @g_free(ptr noundef %data) #12
   ret void
@@ -9936,54 +9867,54 @@ entry:
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
   %call = tail call i64 @qemu_dbus_display1_vm_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %user_data, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.118) #12
   call void @g_variant_builder_init(ptr noundef nonnull %builder, ptr noundef %call2) #12
   %call3 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.111) #12
   call void @g_variant_builder_init(ptr noundef nonnull %invalidated_builder, ptr noundef %call3) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %1, i64 0, i32 1
-  %l.021 = load ptr, ptr %changed_properties, align 8
-  %cmp.not22 = icmp eq ptr %l.021, null
-  br i1 %cmp.not22, label %if.else, label %for.body
+  %l.0.in21 = getelementptr inbounds i8, ptr %1, i64 8
+  %l.022 = load ptr, ptr %l.0.in21, align 8
+  %cmp.not23 = icmp eq ptr %l.022, null
+  br i1 %cmp.not23, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %l.024 = phi ptr [ %l.0, %for.inc ], [ %l.021, %entry ]
-  %num_changes.023 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
-  %2 = load ptr, ptr %l.024, align 8
+  %l.025 = phi ptr [ %l.0, %for.inc ], [ %l.022, %entry ]
+  %num_changes.024 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
+  %2 = load ptr, ptr %l.025, align 8
   %3 = load ptr, ptr %priv, align 8
   %4 = load ptr, ptr %3, align 8
-  %prop_id = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 1
+  %prop_id = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %prop_id, align 8
   %sub = add i32 %5, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr %struct._GValue, ptr %4, i64 %idxprom
-  %orig_value = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 2
+  %orig_value = getelementptr inbounds i8, ptr %2, i64 16
   %call6 = call fastcc i32 @_g_value_equal(ptr noundef %arrayidx, ptr noundef nonnull %orig_value)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %2, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %6, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %signature, align 8
   %call7 = call ptr @g_variant_type_checked_(ptr noundef %7) #12
   %call8 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %arrayidx, ptr noundef %call7) #12
   %8 = load ptr, ptr %2, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %8, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %name, align 8
   call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef nonnull %builder, ptr noundef nonnull @.str.124, ptr noundef %9, ptr noundef %call8) #12
   call void @g_variant_unref(ptr noundef %call8) #12
-  %inc = add i32 %num_changes.023, 1
+  %inc = add i32 %num_changes.024, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %num_changes.1 = phi i32 [ %num_changes.023, %for.body ], [ %inc, %if.then ]
-  %next = getelementptr inbounds %struct._GList, ptr %l.024, i64 0, i32 1
-  %l.0 = load ptr, ptr %next, align 8
+  %num_changes.1 = phi i32 [ %num_changes.024, %for.body ], [ %inc, %if.then ]
+  %l.0.in = getelementptr inbounds i8, ptr %l.025, i64 8
+  %l.0 = load ptr, ptr %l.0.in, align 8
   %cmp.not = icmp eq ptr %l.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !14
 
@@ -9997,16 +9928,16 @@ if.then12:                                        ; preds = %for.end
   %call15 = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call16 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef %call15) #12
   %call17 = call ptr @g_dbus_interface_skeleton_get_connections(ptr noundef %call16) #12
-  %cmp19.not25 = icmp eq ptr %call17, null
-  br i1 %cmp19.not25, label %for.end28, label %for.body20
+  %cmp19.not26 = icmp eq ptr %call17, null
+  br i1 %cmp19.not26, label %for.end28, label %for.body20
 
 for.body20:                                       ; preds = %if.then12, %for.body20
-  %ll.026 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
-  %11 = load ptr, ptr %ll.026, align 8
+  %ll.027 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
+  %11 = load ptr, ptr %ll.027, align 8
   %call23 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call15) #12
   %call24 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call23) #12
   %call25 = call i32 @g_dbus_connection_emit_signal(ptr noundef %11, ptr noundef null, ptr noundef %call24, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr noundef %call14, ptr noundef null) #12
-  %next27 = getelementptr inbounds %struct._GList, ptr %ll.026, i64 0, i32 1
+  %next27 = getelementptr inbounds i8, ptr %ll.027, i64 8
   %12 = load ptr, ptr %next27, align 8
   %cmp19.not = icmp eq ptr %12, null
   br i1 %cmp19.not, label %for.end28, label %for.body20, !llvm.loop !15
@@ -10023,17 +9954,17 @@ if.else:                                          ; preds = %entry, %for.end
 
 if.end29:                                         ; preds = %if.else, %for.end28
   %13 = load ptr, ptr %priv, align 8
-  %changed_properties31 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %13, i64 0, i32 1
+  %changed_properties31 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %changed_properties31, align 8
   call void @g_list_free_full(ptr noundef %14, ptr noundef nonnull @_changed_property_free) #12
   %15 = load ptr, ptr %priv, align 8
-  %changed_properties33 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %15, i64 0, i32 1
+  %changed_properties33 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %changed_properties33, align 8
   %16 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %16, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %changed_properties_idle_source, align 8
   %17 = load ptr, ptr %priv, align 8
-  %lock36 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %17, i64 0, i32 4
+  %lock36 = getelementptr inbounds i8, ptr %17, i64 32
   call void @g_mutex_unlock(ptr noundef nonnull %lock36) #12
   ret i32 0
 }
@@ -10077,7 +10008,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -10089,13 +10020,13 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %value_type = getelementptr inbounds %struct._GParamSpec, ptr %call3, i64 0, i32 3
+  %value_type = getelementptr inbounds i8, ptr %call3, i64 24
   %2 = load i64, ptr %value_type, align 8
   %call8 = call ptr @g_value_init(ptr noundef nonnull %value, i64 noundef %2) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
   %3 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_get_property(ptr noundef %call9, ptr noundef %3, ptr noundef nonnull %value) #12
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call11 = call ptr @g_variant_type_checked_(ptr noundef %4) #12
   %call12 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef nonnull %value, ptr noundef %call11) #12
@@ -10137,7 +10068,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @g_variant_n_children(ptr noundef %parameters) #12
-  %pass_fdlist = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %pass_fdlist = getelementptr inbounds i8, ptr %call2, i64 48
   %0 = load i32, ptr %pass_fdlist, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i64 2, i64 3
@@ -10163,7 +10094,7 @@ qemu_dbus_display1_vm_get_type.exit:              ; preds = %do.end, %land.rhs.i
   %2 = load i64, ptr @qemu_dbus_display1_vm_get_type.static_g_define_type_id, align 8
   %call6 = tail call ptr @g_value_init(ptr noundef %call4, i64 noundef %2) #12
   tail call void @g_value_set_object(ptr noundef %call4, ptr noundef %call1) #12
-  %arrayidx8 = getelementptr %struct._GValue, ptr %call4, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call4, i64 24
   %call9 = tail call i64 @g_dbus_method_invocation_get_type() #13
   %call10 = tail call ptr @g_value_init(ptr noundef %arrayidx8, i64 noundef %call9) #12
   tail call void @g_value_set_object(ptr noundef %arrayidx8, ptr noundef %invocation) #12
@@ -10172,7 +10103,7 @@ qemu_dbus_display1_vm_get_type.exit:              ; preds = %do.end, %land.rhs.i
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %qemu_dbus_display1_vm_get_type.exit
-  %arrayidx16 = getelementptr %struct._GValue, ptr %call4, i64 2
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 48
   %call17 = tail call i64 @g_unix_fd_list_get_type() #13
   %call18 = tail call ptr @g_value_init(ptr noundef %arrayidx16, i64 noundef %call17) #12
   %call21 = tail call ptr @g_dbus_method_invocation_get_message(ptr noundef %invocation) #12
@@ -10188,7 +10119,7 @@ if.end23:                                         ; preds = %if.then15, %qemu_db
   br i1 %cmp26.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %in_args = getelementptr inbounds %struct._GDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %in_args = getelementptr inbounds i8, ptr %call2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -10198,7 +10129,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i64 %n.140, %cond
   %arrayidx29 = getelementptr ptr, ptr %4, i64 %sub
   %5 = load ptr, ptr %arrayidx29, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %5, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i32, ptr %use_gvariant, align 8
   %tobool30.not = icmp eq i32 %6, 0
   %arrayidx38 = getelementptr %struct._GValue, ptr %call4, i64 %n.140
@@ -10221,7 +10152,7 @@ if.end39:                                         ; preds = %if.else36, %if.then
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !16
 
 while.end:                                        ; preds = %if.end39, %if.end23
-  %signal_name = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 1
+  %signal_name = getelementptr inbounds i8, ptr %call2, i64 40
   %7 = load ptr, ptr %signal_name, align 8
   %call41 = call i32 @g_signal_lookup(ptr noundef %7, i64 noundef %2) #12
   %call42 = call ptr @g_value_init(ptr noundef nonnull %return_value, i64 noundef 20) #12
@@ -10270,7 +10201,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -10282,7 +10213,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %call2, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -10333,15 +10264,15 @@ define internal ptr @qemu_dbus_display1_vm_skeleton_get_name(ptr noundef %object
 entry:
   %call = tail call i64 @qemu_dbus_display1_vm_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call ptr @g_value_get_string(ptr noundef %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -10351,16 +10282,16 @@ define internal ptr @qemu_dbus_display1_vm_skeleton_get_uuid(ptr noundef %object
 entry:
   %call = tail call i64 @qemu_dbus_display1_vm_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
-  %arrayidx = getelementptr %struct._GValue, ptr %2, i64 1
+  %arrayidx = getelementptr i8, ptr %2, i64 24
   %call3 = tail call ptr @g_value_get_string(ptr noundef %arrayidx) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -10370,16 +10301,16 @@ define internal ptr @qemu_dbus_display1_vm_skeleton_get_console_ids(ptr noundef 
 entry:
   %call = tail call i64 @qemu_dbus_display1_vm_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
-  %arrayidx = getelementptr %struct._GValue, ptr %2, i64 2
+  %arrayidx = getelementptr i8, ptr %2, i64 48
   %call3 = tail call ptr @g_value_get_variant(ptr noundef %arrayidx) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -10389,16 +10320,16 @@ define internal ptr @qemu_dbus_display1_vm_skeleton_get_interfaces(ptr noundef %
 entry:
   %call = tail call i64 @qemu_dbus_display1_vm_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
-  %arrayidx = getelementptr %struct._GValue, ptr %2, i64 3
+  %arrayidx = getelementptr i8, ptr %2, i64 72
   %call3 = tail call ptr @g_value_get_boxed(ptr noundef %arrayidx) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1VMSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -10426,17 +10357,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_console_proxy_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_console_proxy_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_console_proxy_set_property, ptr %set_property.i, align 8
   %call1.i = tail call i64 @g_dbus_proxy_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %g_signal.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 2
+  %g_signal.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_console_proxy_g_signal, ptr %g_signal.i, align 8
-  %g_properties_changed.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 1
+  %g_properties_changed.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_console_proxy_g_properties_changed, ptr %g_properties_changed.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.12) #12
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 2, ptr noundef nonnull @.str.13) #12
@@ -10454,7 +10385,7 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1ConsoleProxy_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %proxy, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleProxy, ptr %proxy, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %proxy, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
   %call1 = tail call i64 @g_dbus_proxy_get_type() #13
   %call2 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call1) #12
@@ -10465,19 +10396,19 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_console_proxy_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_label = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 7
+  %get_label = getelementptr inbounds i8, ptr %iface, i64 64
   store ptr @qemu_dbus_display1_console_proxy_get_label, ptr %get_label, align 8
-  %get_head = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 4
+  %get_head = getelementptr inbounds i8, ptr %iface, i64 40
   store ptr @qemu_dbus_display1_console_proxy_get_head, ptr %get_head, align 8
-  %get_type_ = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 8
+  %get_type_ = getelementptr inbounds i8, ptr %iface, i64 72
   store ptr @qemu_dbus_display1_console_proxy_get_type_, ptr %get_type_, align 8
-  %get_width = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 9
+  %get_width = getelementptr inbounds i8, ptr %iface, i64 80
   store ptr @qemu_dbus_display1_console_proxy_get_width, ptr %get_width, align 8
-  %get_height = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 5
+  %get_height = getelementptr inbounds i8, ptr %iface, i64 48
   store ptr @qemu_dbus_display1_console_proxy_get_height, ptr %get_height, align 8
-  %get_device_address = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 3
+  %get_device_address = getelementptr inbounds i8, ptr %iface, i64 32
   store ptr @qemu_dbus_display1_console_proxy_get_device_address, ptr %get_device_address, align 8
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 6
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 56
   store ptr @qemu_dbus_display1_console_proxy_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -10487,12 +10418,12 @@ define internal void @qemu_dbus_display1_console_proxy_finalize(ptr noundef %obj
 entry:
   %call = tail call i64 @qemu_dbus_display1_console_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   tail call void @g_datalist_clear(ptr noundef %0) #12
   %1 = load ptr, ptr @qemu_dbus_display1_console_proxy_parent_class, align 8
   %call2 = tail call ptr @g_type_check_class_cast(ptr noundef %1, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call2, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load ptr, ptr %finalize, align 8
   tail call void %2(ptr noundef %object) #12
   ret void
@@ -10515,10 +10446,10 @@ do.end:                                           ; preds = %entry
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call3 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %name, align 8
   %call4 = tail call ptr @g_dbus_proxy_get_cached_property(ptr noundef %call3, ptr noundef %2) #12
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %1, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %1, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -10560,13 +10491,13 @@ do.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr [8 x ptr], ptr @_qemu_dbus_display1_console_property_info_pointers, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %1, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %signature, align 8
   %call = tail call ptr @g_variant_type_checked_(ptr noundef %2) #12
   %call3 = tail call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %value, ptr noundef %call) #12
   %call4 = tail call i64 @g_dbus_proxy_get_type() #13
   %call5 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call4) #12
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %name, align 8
   %call7 = tail call ptr (ptr, ...) @g_variant_new(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.24, ptr noundef %3, ptr noundef %call3) #12
   tail call void @g_dbus_proxy_call(ptr noundef %call5, ptr noundef nonnull @.str.115, ptr noundef %call7, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef nonnull @qemu_dbus_display1_console_proxy_set_property_cb, ptr noundef %1) #12
@@ -10612,7 +10543,7 @@ qemu_dbus_display1_console_get_type.exit:         ; preds = %if.end, %land.rhs.i
   br i1 %cmp8.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %qemu_dbus_display1_console_get_type.exit
-  %args = getelementptr inbounds %struct._GDBusSignalInfo, ptr %call, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -10620,9 +10551,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.023 = phi i64 [ 1, %while.body.lr.ph ], [ %n.1, %if.end16 ]
   %2 = load ptr, ptr %args, align 8
   %3 = getelementptr ptr, ptr %2, i64 %n.023
-  %arrayidx9 = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx9, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %4, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %use_gvariant, align 8
   %tobool.not = icmp eq i32 %5, 0
   %arrayidx15 = getelementptr %struct._GValue, ptr %call2, i64 %n.023
@@ -10645,7 +10576,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !18
 
 while.end:                                        ; preds = %if.end16, %qemu_dbus_display1_console_get_type.exit
-  %signal_name17 = getelementptr inbounds %struct._ExtendedGDBusSignalInfo, ptr %call, i64 0, i32 1
+  %signal_name17 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %signal_name17, align 8
   %call19 = call i32 @g_signal_lookup(ptr noundef %6, i64 noundef %1) #12
   call void @g_signal_emitv(ptr noundef %call2, i32 noundef %call19, i32 noundef 0, ptr noundef null) #12
@@ -10682,7 +10613,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -10697,7 +10628,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call3, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call3, i64 40
   %4 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_notify(ptr noundef %call5, ptr noundef %4) #12
   br label %if.end
@@ -10716,7 +10647,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp6.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %priv10 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleProxy, ptr %call1, i64 0, i32 1
+  %priv10 = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -10733,7 +10664,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then16:                                        ; preds = %for.body
   %call17 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name18 = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call9, i64 0, i32 1
+  %hyphen_name18 = getelementptr inbounds i8, ptr %call9, i64 40
   %11 = load ptr, ptr %hyphen_name18, align 8
   call void @g_object_notify(ptr noundef %call17, ptr noundef %11) #12
   br label %for.inc
@@ -10760,14 +10691,14 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %user_data, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load ptr, ptr %error, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %message, align 8
   %3 = load i32, ptr %1, align 8
   %call1 = call ptr @g_quark_to_string(i32 noundef %3) #13
-  %code = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %code, align 4
   call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.151, ptr noundef %0, ptr noundef %2, ptr noundef %call1, i32 noundef %4) #12
   %5 = load ptr, ptr %error, align 8
@@ -10913,7 +10844,7 @@ define internal ptr @qemu_dbus_display1_console_proxy_get_interfaces(ptr noundef
 entry:
   %call = tail call i64 @qemu_dbus_display1_console_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %call2 = tail call ptr @g_datalist_get_data(ptr noundef %0, ptr noundef nonnull @.str.110) #12
   %cmp.not = icmp eq ptr %call2, null
@@ -10956,13 +10887,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_console_skeleton_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_console_skeleton_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_console_skeleton_set_property, ptr %set_property.i, align 8
-  %notify.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 8
+  %notify.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @qemu_dbus_display1_console_skeleton_notify, ptr %notify.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.12) #12
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 2, ptr noundef nonnull @.str.13) #12
@@ -10973,13 +10904,13 @@ if.end:                                           ; preds = %if.then, %entry
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 7, ptr noundef nonnull @.str.3) #12
   %call2.i = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call3.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call2.i) #12
-  %get_info.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 1
+  %get_info.i = getelementptr inbounds i8, ptr %call3.i, i64 136
   store ptr @qemu_dbus_display1_console_skeleton_dbus_interface_get_info, ptr %get_info.i, align 8
-  %get_properties.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 3
+  %get_properties.i = getelementptr inbounds i8, ptr %call3.i, i64 152
   store ptr @qemu_dbus_display1_console_skeleton_dbus_interface_get_properties, ptr %get_properties.i, align 8
-  %flush.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 4
+  %flush.i = getelementptr inbounds i8, ptr %call3.i, i64 160
   store ptr @qemu_dbus_display1_console_skeleton_dbus_interface_flush, ptr %flush.i, align 8
-  %get_vtable.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 2
+  %get_vtable.i = getelementptr inbounds i8, ptr %call3.i, i64 144
   store ptr @qemu_dbus_display1_console_skeleton_dbus_interface_get_vtable, ptr %get_vtable.i, align 8
   ret void
 }
@@ -10990,13 +10921,13 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1ConsoleSkeleton_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %skeleton, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %skeleton, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %skeleton, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %add.ptr.i, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   tail call void @g_mutex_init(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_main_context_ref_thread_default() #12
   %1 = load ptr, ptr %priv, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %1, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call2, ptr %context, align 8
   %call4 = tail call noalias dereferenceable_or_null(168) ptr @g_malloc0_n(i64 noundef 7, i64 noundef 24) #15
   %2 = load ptr, ptr %priv, align 8
@@ -11006,27 +10937,27 @@ entry:
   %call8 = tail call ptr @g_value_init(ptr noundef %4, i64 noundef 64) #12
   %5 = load ptr, ptr %priv, align 8
   %6 = load ptr, ptr %5, align 8
-  %arrayidx11 = getelementptr %struct._GValue, ptr %6, i64 1
+  %arrayidx11 = getelementptr i8, ptr %6, i64 24
   %call12 = tail call ptr @g_value_init(ptr noundef %arrayidx11, i64 noundef 28) #12
   %7 = load ptr, ptr %priv, align 8
   %8 = load ptr, ptr %7, align 8
-  %arrayidx15 = getelementptr %struct._GValue, ptr %8, i64 2
+  %arrayidx15 = getelementptr i8, ptr %8, i64 48
   %call16 = tail call ptr @g_value_init(ptr noundef %arrayidx15, i64 noundef 64) #12
   %9 = load ptr, ptr %priv, align 8
   %10 = load ptr, ptr %9, align 8
-  %arrayidx19 = getelementptr %struct._GValue, ptr %10, i64 3
+  %arrayidx19 = getelementptr i8, ptr %10, i64 72
   %call20 = tail call ptr @g_value_init(ptr noundef %arrayidx19, i64 noundef 28) #12
   %11 = load ptr, ptr %priv, align 8
   %12 = load ptr, ptr %11, align 8
-  %arrayidx23 = getelementptr %struct._GValue, ptr %12, i64 4
+  %arrayidx23 = getelementptr i8, ptr %12, i64 96
   %call24 = tail call ptr @g_value_init(ptr noundef %arrayidx23, i64 noundef 28) #12
   %13 = load ptr, ptr %priv, align 8
   %14 = load ptr, ptr %13, align 8
-  %arrayidx27 = getelementptr %struct._GValue, ptr %14, i64 5
+  %arrayidx27 = getelementptr i8, ptr %14, i64 120
   %call28 = tail call ptr @g_value_init(ptr noundef %arrayidx27, i64 noundef 64) #12
   %15 = load ptr, ptr %priv, align 8
   %16 = load ptr, ptr %15, align 8
-  %arrayidx31 = getelementptr %struct._GValue, ptr %16, i64 6
+  %arrayidx31 = getelementptr i8, ptr %16, i64 144
   %call32 = tail call i64 @g_strv_get_type() #13
   %call33 = tail call ptr @g_value_init(ptr noundef %arrayidx31, i64 noundef %call32) #12
   ret void
@@ -11035,19 +10966,19 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_console_skeleton_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_label = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 7
+  %get_label = getelementptr inbounds i8, ptr %iface, i64 64
   store ptr @qemu_dbus_display1_console_skeleton_get_label, ptr %get_label, align 8
-  %get_head = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 4
+  %get_head = getelementptr inbounds i8, ptr %iface, i64 40
   store ptr @qemu_dbus_display1_console_skeleton_get_head, ptr %get_head, align 8
-  %get_type_ = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 8
+  %get_type_ = getelementptr inbounds i8, ptr %iface, i64 72
   store ptr @qemu_dbus_display1_console_skeleton_get_type_, ptr %get_type_, align 8
-  %get_width = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 9
+  %get_width = getelementptr inbounds i8, ptr %iface, i64 80
   store ptr @qemu_dbus_display1_console_skeleton_get_width, ptr %get_width, align 8
-  %get_height = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 5
+  %get_height = getelementptr inbounds i8, ptr %iface, i64 48
   store ptr @qemu_dbus_display1_console_skeleton_get_height, ptr %get_height, align 8
-  %get_device_address = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 3
+  %get_device_address = getelementptr inbounds i8, ptr %iface, i64 32
   store ptr @qemu_dbus_display1_console_skeleton_get_device_address, ptr %get_device_address, align 8
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleIface, ptr %iface, i64 0, i32 6
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 56
   store ptr @qemu_dbus_display1_console_skeleton_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -11057,7 +10988,7 @@ define internal void @qemu_dbus_display1_console_skeleton_finalize(ptr noundef %
 entry:
   %call = tail call i64 @qemu_dbus_display1_console_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -11075,11 +11006,11 @@ for.end:                                          ; preds = %for.body
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %4, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %changed_properties, align 8
   tail call void @g_list_free_full(ptr noundef %5, ptr noundef nonnull @_changed_property_free) #12
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %6, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp6.not = icmp eq ptr %7, null
   br i1 %cmp6.not, label %if.end, label %if.then
@@ -11091,15 +11022,15 @@ if.then:                                          ; preds = %for.end
 
 if.end:                                           ; preds = %if.then, %for.end
   %8 = phi ptr [ %.pre, %if.then ], [ %6, %for.end ]
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %8, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %context, align 8
   tail call void @g_main_context_unref(ptr noundef %9) #12
   %10 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %10, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %10, i64 32
   tail call void @g_mutex_clear(ptr noundef nonnull %lock) #12
   %11 = load ptr, ptr @qemu_dbus_display1_console_skeleton_parent_class, align 8
   %call11 = tail call ptr @g_type_check_class_cast(ptr noundef %11, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call11, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call11, i64 48
   %12 = load ptr, ptr %finalize, align 8
   tail call void %12(ptr noundef %object) #12
   ret void
@@ -11119,9 +11050,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %1 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %2 = load ptr, ptr %priv, align 8
   %3 = load ptr, ptr %2, align 8
@@ -11129,7 +11060,7 @@ do.end:                                           ; preds = %entry
   %arrayidx = getelementptr %struct._GValue, ptr %3, i64 %idxprom
   tail call void @g_value_copy(ptr noundef %arrayidx, ptr noundef %value) #12
   %4 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock6 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }
@@ -11151,9 +11082,9 @@ do.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr [8 x ptr], ptr @_qemu_dbus_display1_console_property_info_pointers, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %2 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %2, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %2, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   tail call void @g_object_freeze_notify(ptr noundef %object) #12
   %3 = load ptr, ptr %priv, align 8
@@ -11171,7 +11102,7 @@ if.then9:                                         ; preds = %do.end
   br i1 %cmp13.not, label %if.end22, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %if.then9
-  %emits_changed_signal = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %1, i64 0, i32 2
+  %emits_changed_signal = getelementptr inbounds i8, ptr %1, i64 48
   %bf.load = load i8, ptr %emits_changed_signal, align 8
   %5 = and i8 %bf.load, 2
   %tobool15.not = icmp eq i8 %5, 0
@@ -11181,37 +11112,34 @@ if.then16:                                        ; preds = %land.lhs.true14
   %6 = load ptr, ptr %priv, align 8
   %7 = load ptr, ptr %6, align 8
   %arrayidx21 = getelementptr %struct._GValue, ptr %7, i64 %idxprom
-  %changed_properties.i = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %6, i64 0, i32 1
-  %l.013.i = load ptr, ptr %changed_properties.i, align 8
-  %cmp.not14.i = icmp eq ptr %l.013.i, null
-  br i1 %cmp.not14.i, label %if.then4.i, label %for.body.i
+  br label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct._GList, ptr %l.015.i, i64 0, i32 1
-  %l.0.i = load ptr, ptr %next.i, align 8
+for.cond.i:                                       ; preds = %for.body.i, %if.then16
+  %.pn.i = phi ptr [ %6, %if.then16 ], [ %l.0.i, %for.body.i ]
+  %l.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %l.0.i = load ptr, ptr %l.0.in.i, align 8
   %cmp.not.i = icmp eq ptr %l.0.i, null
-  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !23
+  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i
 
-for.body.i:                                       ; preds = %if.then16, %for.cond.i
-  %l.015.i = phi ptr [ %l.0.i, %for.cond.i ], [ %l.013.i, %if.then16 ]
-  %8 = load ptr, ptr %l.015.i, align 8
+for.body.i:                                       ; preds = %for.cond.i
+  %8 = load ptr, ptr %l.0.i, align 8
   %9 = load ptr, ptr %8, align 8
   %cmp2.i = icmp eq ptr %9, %1
-  br i1 %cmp2.i, label %if.end22, label %for.cond.i
+  br i1 %cmp2.i, label %if.end22, label %for.cond.i, !llvm.loop !23
 
-if.then4.i:                                       ; preds = %for.cond.i, %if.then16
+if.then4.i:                                       ; preds = %for.cond.i
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #15
-  %prop_id5.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 1
+  %prop_id5.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %prop_id, ptr %prop_id5.i, align 8
   store ptr %1, ptr %call.i, align 8
   %10 = load ptr, ptr %priv, align 8
-  %changed_properties8.i = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %10, i64 0, i32 1
+  %changed_properties8.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %changed_properties8.i, align 8
   %call9.i = tail call ptr @g_list_prepend(ptr noundef %11, ptr noundef nonnull %call.i) #12
   %12 = load ptr, ptr %priv, align 8
-  %changed_properties11.i = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %12, i64 0, i32 1
+  %changed_properties11.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %call9.i, ptr %changed_properties11.i, align 8
-  %orig_value12.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 2
+  %orig_value12.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %13 = load i64, ptr %arrayidx21, align 8
   %call13.i = tail call ptr @g_value_init(ptr noundef nonnull %orig_value12.i, i64 noundef %13) #12
   tail call void @g_value_copy(ptr noundef nonnull %arrayidx21, ptr noundef nonnull %orig_value12.i) #12
@@ -11227,7 +11155,7 @@ if.end22:                                         ; preds = %for.body.i, %if.the
 
 if.end28:                                         ; preds = %if.end22, %do.end
   %16 = load ptr, ptr %priv, align 8
-  %lock30 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock30 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock30) #12
   tail call void @g_object_thaw_notify(ptr noundef %object) #12
   ret void
@@ -11238,18 +11166,18 @@ define internal void @qemu_dbus_display1_console_skeleton_notify(ptr noundef %ob
 entry:
   %call = tail call i64 @qemu_dbus_display1_console_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %1, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %changed_properties, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.end
@@ -11257,29 +11185,29 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call ptr @g_idle_source_new() #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source7 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %4, i64 0, i32 2
+  %changed_properties_idle_source7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call5, ptr %changed_properties_idle_source7, align 8
   %5 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source9 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %5, i64 0, i32 2
+  %changed_properties_idle_source9 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %changed_properties_idle_source9, align 8
   tail call void @g_source_set_priority(ptr noundef %6, i32 noundef 0) #12
   %7 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source11 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %7, i64 0, i32 2
+  %changed_properties_idle_source11 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %changed_properties_idle_source11, align 8
   %call12 = tail call ptr @g_object_ref(ptr noundef nonnull %call1) #12
   tail call void @g_source_set_callback(ptr noundef %8, ptr noundef nonnull @_qemu_dbus_display1_console_emit_changed, ptr noundef %call12, ptr noundef nonnull @g_object_unref) #12
   %9 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source14 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %9, i64 0, i32 2
+  %changed_properties_idle_source14 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %changed_properties_idle_source14, align 8
   tail call void @g_source_set_name(ptr noundef %10, ptr noundef nonnull @.str.153) #12
   %11 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source16 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %11, i64 0, i32 2
+  %changed_properties_idle_source16 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %changed_properties_idle_source16, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %11, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %context, align 8
   %call18 = tail call i32 @g_source_attach(ptr noundef %12, ptr noundef %13) #12
   %14 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source20 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %14, i64 0, i32 2
+  %changed_properties_idle_source20 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %changed_properties_idle_source20, align 8
   tail call void @g_source_unref(ptr noundef %15) #12
   %.pre = load ptr, ptr %priv, align 8
@@ -11287,7 +11215,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %16 = phi ptr [ %.pre, %if.then ], [ %1, %land.lhs.true ], [ %1, %entry ]
-  %lock22 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock22 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock22) #12
   ret void
 }
@@ -11311,7 +11239,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %0 = phi ptr [ @_qemu_dbus_display1_console_property_info_label, %entry ], [ %4, %for.inc ]
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %0, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -11323,7 +11251,7 @@ if.then:                                          ; preds = %for.body
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call5) #12
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9) #12
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %0, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %name, align 8
   %call11 = call ptr @_qemu_dbus_display1_console_skeleton_handle_get_property(ptr poison, ptr poison, ptr poison, ptr nonnull poison, ptr noundef %2, ptr noundef null, ptr noundef %call1)
   %cmp12.not = icmp eq ptr %call11, null
@@ -11353,12 +11281,12 @@ define internal void @qemu_dbus_display1_console_skeleton_dbus_interface_flush(p
 entry:
   %call = tail call i64 @qemu_dbus_display1_console_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %_skeleton, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end11.critedge, label %if.then
@@ -11366,16 +11294,16 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @g_source_destroy(ptr noundef nonnull %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source6 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %3, i64 0, i32 2
+  %changed_properties_idle_source6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %changed_properties_idle_source6, align 8
   %4 = load ptr, ptr %priv, align 8
-  %lock8 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock8 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8) #12
   %call10 = tail call i32 @_qemu_dbus_display1_console_emit_changed(ptr noundef nonnull %call1)
   br label %if.end11
 
 if.end11.critedge:                                ; preds = %entry
-  %lock8.c = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock8.c = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8.c) #12
   br label %if.end11
 
@@ -11396,54 +11324,54 @@ entry:
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
   %call = tail call i64 @qemu_dbus_display1_console_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %user_data, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.118) #12
   call void @g_variant_builder_init(ptr noundef nonnull %builder, ptr noundef %call2) #12
   %call3 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.111) #12
   call void @g_variant_builder_init(ptr noundef nonnull %invalidated_builder, ptr noundef %call3) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %1, i64 0, i32 1
-  %l.021 = load ptr, ptr %changed_properties, align 8
-  %cmp.not22 = icmp eq ptr %l.021, null
-  br i1 %cmp.not22, label %if.else, label %for.body
+  %l.0.in21 = getelementptr inbounds i8, ptr %1, i64 8
+  %l.022 = load ptr, ptr %l.0.in21, align 8
+  %cmp.not23 = icmp eq ptr %l.022, null
+  br i1 %cmp.not23, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %l.024 = phi ptr [ %l.0, %for.inc ], [ %l.021, %entry ]
-  %num_changes.023 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
-  %2 = load ptr, ptr %l.024, align 8
+  %l.025 = phi ptr [ %l.0, %for.inc ], [ %l.022, %entry ]
+  %num_changes.024 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
+  %2 = load ptr, ptr %l.025, align 8
   %3 = load ptr, ptr %priv, align 8
   %4 = load ptr, ptr %3, align 8
-  %prop_id = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 1
+  %prop_id = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %prop_id, align 8
   %sub = add i32 %5, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr %struct._GValue, ptr %4, i64 %idxprom
-  %orig_value = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 2
+  %orig_value = getelementptr inbounds i8, ptr %2, i64 16
   %call6 = call fastcc i32 @_g_value_equal(ptr noundef %arrayidx, ptr noundef nonnull %orig_value)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %2, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %6, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %signature, align 8
   %call7 = call ptr @g_variant_type_checked_(ptr noundef %7) #12
   %call8 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %arrayidx, ptr noundef %call7) #12
   %8 = load ptr, ptr %2, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %8, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %name, align 8
   call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef nonnull %builder, ptr noundef nonnull @.str.124, ptr noundef %9, ptr noundef %call8) #12
   call void @g_variant_unref(ptr noundef %call8) #12
-  %inc = add i32 %num_changes.023, 1
+  %inc = add i32 %num_changes.024, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %num_changes.1 = phi i32 [ %num_changes.023, %for.body ], [ %inc, %if.then ]
-  %next = getelementptr inbounds %struct._GList, ptr %l.024, i64 0, i32 1
-  %l.0 = load ptr, ptr %next, align 8
+  %num_changes.1 = phi i32 [ %num_changes.024, %for.body ], [ %inc, %if.then ]
+  %l.0.in = getelementptr inbounds i8, ptr %l.025, i64 8
+  %l.0 = load ptr, ptr %l.0.in, align 8
   %cmp.not = icmp eq ptr %l.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !25
 
@@ -11457,16 +11385,16 @@ if.then12:                                        ; preds = %for.end
   %call15 = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call16 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef %call15) #12
   %call17 = call ptr @g_dbus_interface_skeleton_get_connections(ptr noundef %call16) #12
-  %cmp19.not25 = icmp eq ptr %call17, null
-  br i1 %cmp19.not25, label %for.end28, label %for.body20
+  %cmp19.not26 = icmp eq ptr %call17, null
+  br i1 %cmp19.not26, label %for.end28, label %for.body20
 
 for.body20:                                       ; preds = %if.then12, %for.body20
-  %ll.026 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
-  %11 = load ptr, ptr %ll.026, align 8
+  %ll.027 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
+  %11 = load ptr, ptr %ll.027, align 8
   %call23 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call15) #12
   %call24 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call23) #12
   %call25 = call i32 @g_dbus_connection_emit_signal(ptr noundef %11, ptr noundef null, ptr noundef %call24, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr noundef %call14, ptr noundef null) #12
-  %next27 = getelementptr inbounds %struct._GList, ptr %ll.026, i64 0, i32 1
+  %next27 = getelementptr inbounds i8, ptr %ll.027, i64 8
   %12 = load ptr, ptr %next27, align 8
   %cmp19.not = icmp eq ptr %12, null
   br i1 %cmp19.not, label %for.end28, label %for.body20, !llvm.loop !26
@@ -11483,17 +11411,17 @@ if.else:                                          ; preds = %entry, %for.end
 
 if.end29:                                         ; preds = %if.else, %for.end28
   %13 = load ptr, ptr %priv, align 8
-  %changed_properties31 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %13, i64 0, i32 1
+  %changed_properties31 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %changed_properties31, align 8
   call void @g_list_free_full(ptr noundef %14, ptr noundef nonnull @_changed_property_free) #12
   %15 = load ptr, ptr %priv, align 8
-  %changed_properties33 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %15, i64 0, i32 1
+  %changed_properties33 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %changed_properties33, align 8
   %16 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %16, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %changed_properties_idle_source, align 8
   %17 = load ptr, ptr %priv, align 8
-  %lock36 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %17, i64 0, i32 4
+  %lock36 = getelementptr inbounds i8, ptr %17, i64 32
   call void @g_mutex_unlock(ptr noundef nonnull %lock36) #12
   ret i32 0
 }
@@ -11515,7 +11443,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -11527,13 +11455,13 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %value_type = getelementptr inbounds %struct._GParamSpec, ptr %call3, i64 0, i32 3
+  %value_type = getelementptr inbounds i8, ptr %call3, i64 24
   %2 = load i64, ptr %value_type, align 8
   %call8 = call ptr @g_value_init(ptr noundef nonnull %value, i64 noundef %2) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
   %3 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_get_property(ptr noundef %call9, ptr noundef %3, ptr noundef nonnull %value) #12
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call11 = call ptr @g_variant_type_checked_(ptr noundef %4) #12
   %call12 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef nonnull %value, ptr noundef %call11) #12
@@ -11563,7 +11491,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @g_variant_n_children(ptr noundef %parameters) #12
-  %pass_fdlist = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %pass_fdlist = getelementptr inbounds i8, ptr %call2, i64 48
   %0 = load i32, ptr %pass_fdlist, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i64 2, i64 3
@@ -11589,7 +11517,7 @@ qemu_dbus_display1_console_get_type.exit:         ; preds = %do.end, %land.rhs.i
   %2 = load i64, ptr @qemu_dbus_display1_console_get_type.static_g_define_type_id, align 8
   %call6 = tail call ptr @g_value_init(ptr noundef %call4, i64 noundef %2) #12
   tail call void @g_value_set_object(ptr noundef %call4, ptr noundef %call1) #12
-  %arrayidx8 = getelementptr %struct._GValue, ptr %call4, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call4, i64 24
   %call9 = tail call i64 @g_dbus_method_invocation_get_type() #13
   %call10 = tail call ptr @g_value_init(ptr noundef %arrayidx8, i64 noundef %call9) #12
   tail call void @g_value_set_object(ptr noundef %arrayidx8, ptr noundef %invocation) #12
@@ -11598,7 +11526,7 @@ qemu_dbus_display1_console_get_type.exit:         ; preds = %do.end, %land.rhs.i
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %qemu_dbus_display1_console_get_type.exit
-  %arrayidx16 = getelementptr %struct._GValue, ptr %call4, i64 2
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 48
   %call17 = tail call i64 @g_unix_fd_list_get_type() #13
   %call18 = tail call ptr @g_value_init(ptr noundef %arrayidx16, i64 noundef %call17) #12
   %call21 = tail call ptr @g_dbus_method_invocation_get_message(ptr noundef %invocation) #12
@@ -11614,7 +11542,7 @@ if.end23:                                         ; preds = %if.then15, %qemu_db
   br i1 %cmp26.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %in_args = getelementptr inbounds %struct._GDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %in_args = getelementptr inbounds i8, ptr %call2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -11624,7 +11552,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i64 %n.140, %cond
   %arrayidx29 = getelementptr ptr, ptr %4, i64 %sub
   %5 = load ptr, ptr %arrayidx29, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %5, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i32, ptr %use_gvariant, align 8
   %tobool30.not = icmp eq i32 %6, 0
   %arrayidx38 = getelementptr %struct._GValue, ptr %call4, i64 %n.140
@@ -11647,7 +11575,7 @@ if.end39:                                         ; preds = %if.else36, %if.then
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !27
 
 while.end:                                        ; preds = %if.end39, %if.end23
-  %signal_name = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 1
+  %signal_name = getelementptr inbounds i8, ptr %call2, i64 40
   %7 = load ptr, ptr %signal_name, align 8
   %call41 = call i32 @g_signal_lookup(ptr noundef %7, i64 noundef %2) #12
   %call42 = call ptr @g_value_init(ptr noundef nonnull %return_value, i64 noundef 20) #12
@@ -11696,7 +11624,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -11708,7 +11636,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %call2, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -11739,15 +11667,15 @@ define internal ptr @qemu_dbus_display1_console_skeleton_get_label(ptr noundef %
 entry:
   %call = tail call i64 @qemu_dbus_display1_console_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call ptr @g_value_get_string(ptr noundef %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -11757,16 +11685,16 @@ define internal i32 @qemu_dbus_display1_console_skeleton_get_head(ptr noundef %o
 entry:
   %call = tail call i64 @qemu_dbus_display1_console_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
-  %arrayidx = getelementptr %struct._GValue, ptr %2, i64 1
+  %arrayidx = getelementptr i8, ptr %2, i64 24
   %call3 = tail call i32 @g_value_get_uint(ptr noundef %arrayidx) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret i32 %call3
 }
@@ -11776,16 +11704,16 @@ define internal ptr @qemu_dbus_display1_console_skeleton_get_type_(ptr noundef %
 entry:
   %call = tail call i64 @qemu_dbus_display1_console_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
-  %arrayidx = getelementptr %struct._GValue, ptr %2, i64 2
+  %arrayidx = getelementptr i8, ptr %2, i64 48
   %call3 = tail call ptr @g_value_get_string(ptr noundef %arrayidx) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -11795,16 +11723,16 @@ define internal i32 @qemu_dbus_display1_console_skeleton_get_width(ptr noundef %
 entry:
   %call = tail call i64 @qemu_dbus_display1_console_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
-  %arrayidx = getelementptr %struct._GValue, ptr %2, i64 3
+  %arrayidx = getelementptr i8, ptr %2, i64 72
   %call3 = tail call i32 @g_value_get_uint(ptr noundef %arrayidx) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret i32 %call3
 }
@@ -11814,16 +11742,16 @@ define internal i32 @qemu_dbus_display1_console_skeleton_get_height(ptr noundef 
 entry:
   %call = tail call i64 @qemu_dbus_display1_console_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
-  %arrayidx = getelementptr %struct._GValue, ptr %2, i64 4
+  %arrayidx = getelementptr i8, ptr %2, i64 96
   %call3 = tail call i32 @g_value_get_uint(ptr noundef %arrayidx) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret i32 %call3
 }
@@ -11833,16 +11761,16 @@ define internal ptr @qemu_dbus_display1_console_skeleton_get_device_address(ptr 
 entry:
   %call = tail call i64 @qemu_dbus_display1_console_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
-  %arrayidx = getelementptr %struct._GValue, ptr %2, i64 5
+  %arrayidx = getelementptr i8, ptr %2, i64 120
   %call3 = tail call ptr @g_value_get_string(ptr noundef %arrayidx) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -11852,16 +11780,16 @@ define internal ptr @qemu_dbus_display1_console_skeleton_get_interfaces(ptr noun
 entry:
   %call = tail call i64 @qemu_dbus_display1_console_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
-  %arrayidx = getelementptr %struct._GValue, ptr %2, i64 6
+  %arrayidx = getelementptr i8, ptr %2, i64 144
   %call3 = tail call ptr @g_value_get_boxed(ptr noundef %arrayidx) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ConsoleSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -11881,17 +11809,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_keyboard_proxy_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_keyboard_proxy_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_keyboard_proxy_set_property, ptr %set_property.i, align 8
   %call1.i = tail call i64 @g_dbus_proxy_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %g_signal.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 2
+  %g_signal.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_keyboard_proxy_g_signal, ptr %g_signal.i, align 8
-  %g_properties_changed.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 1
+  %g_properties_changed.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_keyboard_proxy_g_properties_changed, ptr %g_properties_changed.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.25) #12
   ret void
@@ -11903,7 +11831,7 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1KeyboardProxy_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %proxy, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardProxy, ptr %proxy, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %proxy, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
   %call1 = tail call i64 @g_dbus_proxy_get_type() #13
   %call2 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call1) #12
@@ -11914,7 +11842,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_keyboard_proxy_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_modifiers = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardIface, ptr %iface, i64 0, i32 3
+  %get_modifiers = getelementptr inbounds i8, ptr %iface, i64 32
   store ptr @qemu_dbus_display1_keyboard_proxy_get_modifiers, ptr %get_modifiers, align 8
   ret void
 }
@@ -11924,12 +11852,12 @@ define internal void @qemu_dbus_display1_keyboard_proxy_finalize(ptr noundef %ob
 entry:
   %call = tail call i64 @qemu_dbus_display1_keyboard_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   tail call void @g_datalist_clear(ptr noundef %0) #12
   %1 = load ptr, ptr @qemu_dbus_display1_keyboard_proxy_parent_class, align 8
   %call2 = tail call ptr @g_type_check_class_cast(ptr noundef %1, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call2, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load ptr, ptr %finalize, align 8
   tail call void %2(ptr noundef %object) #12
   ret void
@@ -12020,7 +11948,7 @@ qemu_dbus_display1_keyboard_get_type.exit:        ; preds = %if.end, %land.rhs.i
   br i1 %cmp8.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %qemu_dbus_display1_keyboard_get_type.exit
-  %args = getelementptr inbounds %struct._GDBusSignalInfo, ptr %call, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -12028,9 +11956,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.023 = phi i64 [ 1, %while.body.lr.ph ], [ %n.1, %if.end16 ]
   %2 = load ptr, ptr %args, align 8
   %3 = getelementptr ptr, ptr %2, i64 %n.023
-  %arrayidx9 = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx9, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %4, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %use_gvariant, align 8
   %tobool.not = icmp eq i32 %5, 0
   %arrayidx15 = getelementptr %struct._GValue, ptr %call2, i64 %n.023
@@ -12053,7 +11981,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !29
 
 while.end:                                        ; preds = %if.end16, %qemu_dbus_display1_keyboard_get_type.exit
-  %signal_name17 = getelementptr inbounds %struct._ExtendedGDBusSignalInfo, ptr %call, i64 0, i32 1
+  %signal_name17 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %signal_name17, align 8
   %call19 = call i32 @g_signal_lookup(ptr noundef %6, i64 noundef %1) #12
   call void @g_signal_emitv(ptr noundef %call2, i32 noundef %call19, i32 noundef 0, ptr noundef null) #12
@@ -12090,7 +12018,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -12105,7 +12033,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call3, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call3, i64 40
   %4 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_notify(ptr noundef %call5, ptr noundef %4) #12
   br label %if.end
@@ -12124,7 +12052,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp6.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %priv10 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardProxy, ptr %call1, i64 0, i32 1
+  %priv10 = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -12141,7 +12069,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then16:                                        ; preds = %for.body
   %call17 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name18 = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call9, i64 0, i32 1
+  %hyphen_name18 = getelementptr inbounds i8, ptr %call9, i64 40
   %11 = load ptr, ptr %hyphen_name18, align 8
   call void @g_object_notify(ptr noundef %call17, ptr noundef %11) #12
   br label %for.inc
@@ -12168,14 +12096,14 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %user_data, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load ptr, ptr %error, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %message, align 8
   %3 = load i32, ptr %1, align 8
   %call1 = call ptr @g_quark_to_string(i32 noundef %3) #13
-  %code = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %code, align 4
   call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.161, ptr noundef %0, ptr noundef %2, ptr noundef %call1, i32 noundef %4) #12
   %5 = load ptr, ptr %error, align 8
@@ -12226,24 +12154,24 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_keyboard_skeleton_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_keyboard_skeleton_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_keyboard_skeleton_set_property, ptr %set_property.i, align 8
-  %notify.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 8
+  %notify.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @qemu_dbus_display1_keyboard_skeleton_notify, ptr %notify.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.25) #12
   %call2.i = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call3.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call2.i) #12
-  %get_info.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 1
+  %get_info.i = getelementptr inbounds i8, ptr %call3.i, i64 136
   store ptr @qemu_dbus_display1_keyboard_skeleton_dbus_interface_get_info, ptr %get_info.i, align 8
-  %get_properties.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 3
+  %get_properties.i = getelementptr inbounds i8, ptr %call3.i, i64 152
   store ptr @qemu_dbus_display1_keyboard_skeleton_dbus_interface_get_properties, ptr %get_properties.i, align 8
-  %flush.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 4
+  %flush.i = getelementptr inbounds i8, ptr %call3.i, i64 160
   store ptr @qemu_dbus_display1_keyboard_skeleton_dbus_interface_flush, ptr %flush.i, align 8
-  %get_vtable.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 2
+  %get_vtable.i = getelementptr inbounds i8, ptr %call3.i, i64 144
   store ptr @qemu_dbus_display1_keyboard_skeleton_dbus_interface_get_vtable, ptr %get_vtable.i, align 8
   ret void
 }
@@ -12254,13 +12182,13 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1KeyboardSkeleton_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %skeleton, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeleton, ptr %skeleton, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %skeleton, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %add.ptr.i, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   tail call void @g_mutex_init(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_main_context_ref_thread_default() #12
   %1 = load ptr, ptr %priv, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %1, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call2, ptr %context, align 8
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #15
   %2 = load ptr, ptr %priv, align 8
@@ -12274,7 +12202,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_keyboard_skeleton_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_modifiers = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardIface, ptr %iface, i64 0, i32 3
+  %get_modifiers = getelementptr inbounds i8, ptr %iface, i64 32
   store ptr @qemu_dbus_display1_keyboard_skeleton_get_modifiers, ptr %get_modifiers, align 8
   ret void
 }
@@ -12284,7 +12212,7 @@ define internal void @qemu_dbus_display1_keyboard_skeleton_finalize(ptr noundef 
 entry:
   %call = tail call i64 @qemu_dbus_display1_keyboard_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @g_value_unset(ptr noundef %1) #12
@@ -12292,11 +12220,11 @@ entry:
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %4, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %changed_properties, align 8
   tail call void @g_list_free_full(ptr noundef %5, ptr noundef nonnull @_changed_property_free) #12
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %6, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp6.not = icmp eq ptr %7, null
   br i1 %cmp6.not, label %if.end, label %if.then
@@ -12308,15 +12236,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %8 = phi ptr [ %.pre, %if.then ], [ %6, %entry ]
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %8, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %context, align 8
   tail call void @g_main_context_unref(ptr noundef %9) #12
   %10 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %10, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %10, i64 32
   tail call void @g_mutex_clear(ptr noundef nonnull %lock) #12
   %11 = load ptr, ptr @qemu_dbus_display1_keyboard_skeleton_parent_class, align 8
   %call11 = tail call ptr @g_type_check_class_cast(ptr noundef %11, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call11, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call11, i64 48
   %12 = load ptr, ptr %finalize, align 8
   tail call void %12(ptr noundef %object) #12
   ret void
@@ -12335,15 +12263,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   tail call void @g_value_copy(ptr noundef %2, ptr noundef %value) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock6 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }
@@ -12361,9 +12289,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   tail call void @g_object_freeze_notify(ptr noundef %object) #12
   %1 = load ptr, ptr %priv, align 8
@@ -12382,37 +12310,34 @@ if.then9:                                         ; preds = %do.end
 
 if.then16:                                        ; preds = %if.then9
   %3 = load ptr, ptr %.pre18, align 8
-  %changed_properties.i = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %.pre18, i64 0, i32 1
-  %l.01.i = load ptr, ptr %changed_properties.i, align 8
-  %cmp.not2.i = icmp eq ptr %l.01.i, null
-  br i1 %cmp.not2.i, label %if.then4.i, label %for.body.i
+  br label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct._GList, ptr %l.03.i, i64 0, i32 1
-  %l.0.i = load ptr, ptr %next.i, align 8
+for.cond.i:                                       ; preds = %for.body.i, %if.then16
+  %.pn.i = phi ptr [ %.pre18, %if.then16 ], [ %l.0.i, %for.body.i ]
+  %l.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %l.0.i = load ptr, ptr %l.0.in.i, align 8
   %cmp.not.i = icmp eq ptr %l.0.i, null
-  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !33
+  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i
 
-for.body.i:                                       ; preds = %if.then16, %for.cond.i
-  %l.03.i = phi ptr [ %l.0.i, %for.cond.i ], [ %l.01.i, %if.then16 ]
-  %4 = load ptr, ptr %l.03.i, align 8
+for.body.i:                                       ; preds = %for.cond.i
+  %4 = load ptr, ptr %l.0.i, align 8
   %5 = load ptr, ptr %4, align 8
   %cmp2.i = icmp eq ptr %5, @_qemu_dbus_display1_keyboard_property_info_modifiers
-  br i1 %cmp2.i, label %if.end22, label %for.cond.i
+  br i1 %cmp2.i, label %if.end22, label %for.cond.i, !llvm.loop !33
 
-if.then4.i:                                       ; preds = %for.cond.i, %if.then16
+if.then4.i:                                       ; preds = %for.cond.i
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #15
-  %prop_id5.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 1
+  %prop_id5.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %prop_id5.i, align 8
   store ptr @_qemu_dbus_display1_keyboard_property_info_modifiers, ptr %call.i, align 8
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties8.i = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %6, i64 0, i32 1
+  %changed_properties8.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %changed_properties8.i, align 8
   %call9.i = tail call ptr @g_list_prepend(ptr noundef %7, ptr noundef nonnull %call.i) #12
   %8 = load ptr, ptr %priv, align 8
-  %changed_properties11.i = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %8, i64 0, i32 1
+  %changed_properties11.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call9.i, ptr %changed_properties11.i, align 8
-  %orig_value12.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 2
+  %orig_value12.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %9 = load i64, ptr %3, align 8
   %call13.i = tail call ptr @g_value_init(ptr noundef nonnull %orig_value12.i, i64 noundef %9) #12
   tail call void @g_value_copy(ptr noundef nonnull %3, ptr noundef nonnull %orig_value12.i) #12
@@ -12428,7 +12353,7 @@ if.end22:                                         ; preds = %for.body.i, %if.the
 
 if.end28:                                         ; preds = %if.end22, %do.end
   %12 = load ptr, ptr %priv, align 8
-  %lock30 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %12, i64 0, i32 4
+  %lock30 = getelementptr inbounds i8, ptr %12, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock30) #12
   tail call void @g_object_thaw_notify(ptr noundef %object) #12
   ret void
@@ -12439,18 +12364,18 @@ define internal void @qemu_dbus_display1_keyboard_skeleton_notify(ptr noundef %o
 entry:
   %call = tail call i64 @qemu_dbus_display1_keyboard_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %1, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %changed_properties, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.end
@@ -12458,29 +12383,29 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call ptr @g_idle_source_new() #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source7 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %4, i64 0, i32 2
+  %changed_properties_idle_source7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call5, ptr %changed_properties_idle_source7, align 8
   %5 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source9 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %5, i64 0, i32 2
+  %changed_properties_idle_source9 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %changed_properties_idle_source9, align 8
   tail call void @g_source_set_priority(ptr noundef %6, i32 noundef 0) #12
   %7 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source11 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %7, i64 0, i32 2
+  %changed_properties_idle_source11 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %changed_properties_idle_source11, align 8
   %call12 = tail call ptr @g_object_ref(ptr noundef nonnull %call1) #12
   tail call void @g_source_set_callback(ptr noundef %8, ptr noundef nonnull @_qemu_dbus_display1_keyboard_emit_changed, ptr noundef %call12, ptr noundef nonnull @g_object_unref) #12
   %9 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source14 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %9, i64 0, i32 2
+  %changed_properties_idle_source14 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %changed_properties_idle_source14, align 8
   tail call void @g_source_set_name(ptr noundef %10, ptr noundef nonnull @.str.163) #12
   %11 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source16 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %11, i64 0, i32 2
+  %changed_properties_idle_source16 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %changed_properties_idle_source16, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %11, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %context, align 8
   %call18 = tail call i32 @g_source_attach(ptr noundef %12, ptr noundef %13) #12
   %14 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source20 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %14, i64 0, i32 2
+  %changed_properties_idle_source20 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %changed_properties_idle_source20, align 8
   tail call void @g_source_unref(ptr noundef %15) #12
   %.pre = load ptr, ptr %priv, align 8
@@ -12488,7 +12413,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %16 = phi ptr [ %.pre, %if.then ], [ %1, %land.lhs.true ], [ %1, %entry ]
-  %lock22 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock22 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock22) #12
   ret void
 }
@@ -12532,12 +12457,12 @@ define internal void @qemu_dbus_display1_keyboard_skeleton_dbus_interface_flush(
 entry:
   %call = tail call i64 @qemu_dbus_display1_keyboard_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %_skeleton, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end11.critedge, label %if.then
@@ -12545,16 +12470,16 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @g_source_destroy(ptr noundef nonnull %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source6 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %3, i64 0, i32 2
+  %changed_properties_idle_source6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %changed_properties_idle_source6, align 8
   %4 = load ptr, ptr %priv, align 8
-  %lock8 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock8 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8) #12
   %call10 = tail call i32 @_qemu_dbus_display1_keyboard_emit_changed(ptr noundef nonnull %call1)
   br label %if.end11
 
 if.end11.critedge:                                ; preds = %entry
-  %lock8.c = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock8.c = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8.c) #12
   br label %if.end11
 
@@ -12575,54 +12500,54 @@ entry:
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
   %call = tail call i64 @qemu_dbus_display1_keyboard_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %user_data, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.118) #12
   call void @g_variant_builder_init(ptr noundef nonnull %builder, ptr noundef %call2) #12
   %call3 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.111) #12
   call void @g_variant_builder_init(ptr noundef nonnull %invalidated_builder, ptr noundef %call3) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %1, i64 0, i32 1
-  %l.021 = load ptr, ptr %changed_properties, align 8
-  %cmp.not22 = icmp eq ptr %l.021, null
-  br i1 %cmp.not22, label %if.else, label %for.body
+  %l.0.in21 = getelementptr inbounds i8, ptr %1, i64 8
+  %l.022 = load ptr, ptr %l.0.in21, align 8
+  %cmp.not23 = icmp eq ptr %l.022, null
+  br i1 %cmp.not23, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %l.024 = phi ptr [ %l.0, %for.inc ], [ %l.021, %entry ]
-  %num_changes.023 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
-  %2 = load ptr, ptr %l.024, align 8
+  %l.025 = phi ptr [ %l.0, %for.inc ], [ %l.022, %entry ]
+  %num_changes.024 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
+  %2 = load ptr, ptr %l.025, align 8
   %3 = load ptr, ptr %priv, align 8
   %4 = load ptr, ptr %3, align 8
-  %prop_id = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 1
+  %prop_id = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %prop_id, align 8
   %sub = add i32 %5, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr %struct._GValue, ptr %4, i64 %idxprom
-  %orig_value = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 2
+  %orig_value = getelementptr inbounds i8, ptr %2, i64 16
   %call6 = call fastcc i32 @_g_value_equal(ptr noundef %arrayidx, ptr noundef nonnull %orig_value)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %2, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %6, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %signature, align 8
   %call7 = call ptr @g_variant_type_checked_(ptr noundef %7) #12
   %call8 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %arrayidx, ptr noundef %call7) #12
   %8 = load ptr, ptr %2, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %8, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %name, align 8
   call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef nonnull %builder, ptr noundef nonnull @.str.124, ptr noundef %9, ptr noundef %call8) #12
   call void @g_variant_unref(ptr noundef %call8) #12
-  %inc = add i32 %num_changes.023, 1
+  %inc = add i32 %num_changes.024, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %num_changes.1 = phi i32 [ %num_changes.023, %for.body ], [ %inc, %if.then ]
-  %next = getelementptr inbounds %struct._GList, ptr %l.024, i64 0, i32 1
-  %l.0 = load ptr, ptr %next, align 8
+  %num_changes.1 = phi i32 [ %num_changes.024, %for.body ], [ %inc, %if.then ]
+  %l.0.in = getelementptr inbounds i8, ptr %l.025, i64 8
+  %l.0 = load ptr, ptr %l.0.in, align 8
   %cmp.not = icmp eq ptr %l.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !34
 
@@ -12636,16 +12561,16 @@ if.then12:                                        ; preds = %for.end
   %call15 = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call16 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef %call15) #12
   %call17 = call ptr @g_dbus_interface_skeleton_get_connections(ptr noundef %call16) #12
-  %cmp19.not25 = icmp eq ptr %call17, null
-  br i1 %cmp19.not25, label %for.end28, label %for.body20
+  %cmp19.not26 = icmp eq ptr %call17, null
+  br i1 %cmp19.not26, label %for.end28, label %for.body20
 
 for.body20:                                       ; preds = %if.then12, %for.body20
-  %ll.026 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
-  %11 = load ptr, ptr %ll.026, align 8
+  %ll.027 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
+  %11 = load ptr, ptr %ll.027, align 8
   %call23 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call15) #12
   %call24 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call23) #12
   %call25 = call i32 @g_dbus_connection_emit_signal(ptr noundef %11, ptr noundef null, ptr noundef %call24, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr noundef %call14, ptr noundef null) #12
-  %next27 = getelementptr inbounds %struct._GList, ptr %ll.026, i64 0, i32 1
+  %next27 = getelementptr inbounds i8, ptr %ll.027, i64 8
   %12 = load ptr, ptr %next27, align 8
   %cmp19.not = icmp eq ptr %12, null
   br i1 %cmp19.not, label %for.end28, label %for.body20, !llvm.loop !35
@@ -12662,17 +12587,17 @@ if.else:                                          ; preds = %entry, %for.end
 
 if.end29:                                         ; preds = %if.else, %for.end28
   %13 = load ptr, ptr %priv, align 8
-  %changed_properties31 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %13, i64 0, i32 1
+  %changed_properties31 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %changed_properties31, align 8
   call void @g_list_free_full(ptr noundef %14, ptr noundef nonnull @_changed_property_free) #12
   %15 = load ptr, ptr %priv, align 8
-  %changed_properties33 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %15, i64 0, i32 1
+  %changed_properties33 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %changed_properties33, align 8
   %16 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %16, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %changed_properties_idle_source, align 8
   %17 = load ptr, ptr %priv, align 8
-  %lock36 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %17, i64 0, i32 4
+  %lock36 = getelementptr inbounds i8, ptr %17, i64 32
   call void @g_mutex_unlock(ptr noundef nonnull %lock36) #12
   ret i32 0
 }
@@ -12694,7 +12619,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -12706,13 +12631,13 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %value_type = getelementptr inbounds %struct._GParamSpec, ptr %call3, i64 0, i32 3
+  %value_type = getelementptr inbounds i8, ptr %call3, i64 24
   %2 = load i64, ptr %value_type, align 8
   %call8 = call ptr @g_value_init(ptr noundef nonnull %value, i64 noundef %2) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
   %3 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_get_property(ptr noundef %call9, ptr noundef %3, ptr noundef nonnull %value) #12
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call11 = call ptr @g_variant_type_checked_(ptr noundef %4) #12
   %call12 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef nonnull %value, ptr noundef %call11) #12
@@ -12742,7 +12667,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @g_variant_n_children(ptr noundef %parameters) #12
-  %pass_fdlist = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %pass_fdlist = getelementptr inbounds i8, ptr %call2, i64 48
   %0 = load i32, ptr %pass_fdlist, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i64 2, i64 3
@@ -12768,7 +12693,7 @@ qemu_dbus_display1_keyboard_get_type.exit:        ; preds = %do.end, %land.rhs.i
   %2 = load i64, ptr @qemu_dbus_display1_keyboard_get_type.static_g_define_type_id, align 8
   %call6 = tail call ptr @g_value_init(ptr noundef %call4, i64 noundef %2) #12
   tail call void @g_value_set_object(ptr noundef %call4, ptr noundef %call1) #12
-  %arrayidx8 = getelementptr %struct._GValue, ptr %call4, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call4, i64 24
   %call9 = tail call i64 @g_dbus_method_invocation_get_type() #13
   %call10 = tail call ptr @g_value_init(ptr noundef %arrayidx8, i64 noundef %call9) #12
   tail call void @g_value_set_object(ptr noundef %arrayidx8, ptr noundef %invocation) #12
@@ -12777,7 +12702,7 @@ qemu_dbus_display1_keyboard_get_type.exit:        ; preds = %do.end, %land.rhs.i
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %qemu_dbus_display1_keyboard_get_type.exit
-  %arrayidx16 = getelementptr %struct._GValue, ptr %call4, i64 2
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 48
   %call17 = tail call i64 @g_unix_fd_list_get_type() #13
   %call18 = tail call ptr @g_value_init(ptr noundef %arrayidx16, i64 noundef %call17) #12
   %call21 = tail call ptr @g_dbus_method_invocation_get_message(ptr noundef %invocation) #12
@@ -12793,7 +12718,7 @@ if.end23:                                         ; preds = %if.then15, %qemu_db
   br i1 %cmp26.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %in_args = getelementptr inbounds %struct._GDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %in_args = getelementptr inbounds i8, ptr %call2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -12803,7 +12728,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i64 %n.140, %cond
   %arrayidx29 = getelementptr ptr, ptr %4, i64 %sub
   %5 = load ptr, ptr %arrayidx29, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %5, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i32, ptr %use_gvariant, align 8
   %tobool30.not = icmp eq i32 %6, 0
   %arrayidx38 = getelementptr %struct._GValue, ptr %call4, i64 %n.140
@@ -12826,7 +12751,7 @@ if.end39:                                         ; preds = %if.else36, %if.then
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !36
 
 while.end:                                        ; preds = %if.end39, %if.end23
-  %signal_name = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 1
+  %signal_name = getelementptr inbounds i8, ptr %call2, i64 40
   %7 = load ptr, ptr %signal_name, align 8
   %call41 = call i32 @g_signal_lookup(ptr noundef %7, i64 noundef %2) #12
   %call42 = call ptr @g_value_init(ptr noundef nonnull %return_value, i64 noundef 20) #12
@@ -12875,7 +12800,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -12887,7 +12812,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %call2, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -12918,15 +12843,15 @@ define internal i32 @qemu_dbus_display1_keyboard_skeleton_get_modifiers(ptr noun
 entry:
   %call = tail call i64 @qemu_dbus_display1_keyboard_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call i32 @g_value_get_uint(ptr noundef %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1KeyboardSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret i32 %call3
 }
@@ -12948,17 +12873,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_mouse_proxy_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_mouse_proxy_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_mouse_proxy_set_property, ptr %set_property.i, align 8
   %call1.i = tail call i64 @g_dbus_proxy_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %g_signal.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 2
+  %g_signal.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_mouse_proxy_g_signal, ptr %g_signal.i, align 8
-  %g_properties_changed.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 1
+  %g_properties_changed.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_mouse_proxy_g_properties_changed, ptr %g_properties_changed.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.31) #12
   ret void
@@ -12970,7 +12895,7 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1MouseProxy_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %proxy, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MouseProxy, ptr %proxy, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %proxy, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
   %call1 = tail call i64 @g_dbus_proxy_get_type() #13
   %call2 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call1) #12
@@ -12981,7 +12906,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_mouse_proxy_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_is_absolute = getelementptr inbounds %struct._QemuDBusDisplay1MouseIface, ptr %iface, i64 0, i32 5
+  %get_is_absolute = getelementptr inbounds i8, ptr %iface, i64 48
   store ptr @qemu_dbus_display1_mouse_proxy_get_is_absolute, ptr %get_is_absolute, align 8
   ret void
 }
@@ -12991,12 +12916,12 @@ define internal void @qemu_dbus_display1_mouse_proxy_finalize(ptr noundef %objec
 entry:
   %call = tail call i64 @qemu_dbus_display1_mouse_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MouseProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   tail call void @g_datalist_clear(ptr noundef %0) #12
   %1 = load ptr, ptr @qemu_dbus_display1_mouse_proxy_parent_class, align 8
   %call2 = tail call ptr @g_type_check_class_cast(ptr noundef %1, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call2, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load ptr, ptr %finalize, align 8
   tail call void %2(ptr noundef %object) #12
   ret void
@@ -13087,7 +13012,7 @@ qemu_dbus_display1_mouse_get_type.exit:           ; preds = %if.end, %land.rhs.i
   br i1 %cmp8.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %qemu_dbus_display1_mouse_get_type.exit
-  %args = getelementptr inbounds %struct._GDBusSignalInfo, ptr %call, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -13095,9 +13020,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.023 = phi i64 [ 1, %while.body.lr.ph ], [ %n.1, %if.end16 ]
   %2 = load ptr, ptr %args, align 8
   %3 = getelementptr ptr, ptr %2, i64 %n.023
-  %arrayidx9 = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx9, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %4, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %use_gvariant, align 8
   %tobool.not = icmp eq i32 %5, 0
   %arrayidx15 = getelementptr %struct._GValue, ptr %call2, i64 %n.023
@@ -13120,7 +13045,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !38
 
 while.end:                                        ; preds = %if.end16, %qemu_dbus_display1_mouse_get_type.exit
-  %signal_name17 = getelementptr inbounds %struct._ExtendedGDBusSignalInfo, ptr %call, i64 0, i32 1
+  %signal_name17 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %signal_name17, align 8
   %call19 = call i32 @g_signal_lookup(ptr noundef %6, i64 noundef %1) #12
   call void @g_signal_emitv(ptr noundef %call2, i32 noundef %call19, i32 noundef 0, ptr noundef null) #12
@@ -13157,7 +13082,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MouseProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -13172,7 +13097,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call3, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call3, i64 40
   %4 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_notify(ptr noundef %call5, ptr noundef %4) #12
   br label %if.end
@@ -13191,7 +13116,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp6.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %priv10 = getelementptr inbounds %struct._QemuDBusDisplay1MouseProxy, ptr %call1, i64 0, i32 1
+  %priv10 = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -13208,7 +13133,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then16:                                        ; preds = %for.body
   %call17 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name18 = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call9, i64 0, i32 1
+  %hyphen_name18 = getelementptr inbounds i8, ptr %call9, i64 40
   %11 = load ptr, ptr %hyphen_name18, align 8
   call void @g_object_notify(ptr noundef %call17, ptr noundef %11) #12
   br label %for.inc
@@ -13235,14 +13160,14 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %user_data, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load ptr, ptr %error, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %message, align 8
   %3 = load i32, ptr %1, align 8
   %call1 = call ptr @g_quark_to_string(i32 noundef %3) #13
-  %code = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %code, align 4
   call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.175, ptr noundef %0, ptr noundef %2, ptr noundef %call1, i32 noundef %4) #12
   %5 = load ptr, ptr %error, align 8
@@ -13295,24 +13220,24 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_mouse_skeleton_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_mouse_skeleton_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_mouse_skeleton_set_property, ptr %set_property.i, align 8
-  %notify.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 8
+  %notify.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @qemu_dbus_display1_mouse_skeleton_notify, ptr %notify.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.31) #12
   %call2.i = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call3.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call2.i) #12
-  %get_info.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 1
+  %get_info.i = getelementptr inbounds i8, ptr %call3.i, i64 136
   store ptr @qemu_dbus_display1_mouse_skeleton_dbus_interface_get_info, ptr %get_info.i, align 8
-  %get_properties.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 3
+  %get_properties.i = getelementptr inbounds i8, ptr %call3.i, i64 152
   store ptr @qemu_dbus_display1_mouse_skeleton_dbus_interface_get_properties, ptr %get_properties.i, align 8
-  %flush.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 4
+  %flush.i = getelementptr inbounds i8, ptr %call3.i, i64 160
   store ptr @qemu_dbus_display1_mouse_skeleton_dbus_interface_flush, ptr %flush.i, align 8
-  %get_vtable.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 2
+  %get_vtable.i = getelementptr inbounds i8, ptr %call3.i, i64 144
   store ptr @qemu_dbus_display1_mouse_skeleton_dbus_interface_get_vtable, ptr %get_vtable.i, align 8
   ret void
 }
@@ -13323,13 +13248,13 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1MouseSkeleton_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %skeleton, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeleton, ptr %skeleton, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %skeleton, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %add.ptr.i, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   tail call void @g_mutex_init(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_main_context_ref_thread_default() #12
   %1 = load ptr, ptr %priv, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %1, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call2, ptr %context, align 8
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #15
   %2 = load ptr, ptr %priv, align 8
@@ -13343,7 +13268,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_mouse_skeleton_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_is_absolute = getelementptr inbounds %struct._QemuDBusDisplay1MouseIface, ptr %iface, i64 0, i32 5
+  %get_is_absolute = getelementptr inbounds i8, ptr %iface, i64 48
   store ptr @qemu_dbus_display1_mouse_skeleton_get_is_absolute, ptr %get_is_absolute, align 8
   ret void
 }
@@ -13353,7 +13278,7 @@ define internal void @qemu_dbus_display1_mouse_skeleton_finalize(ptr noundef %ob
 entry:
   %call = tail call i64 @qemu_dbus_display1_mouse_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @g_value_unset(ptr noundef %1) #12
@@ -13361,11 +13286,11 @@ entry:
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %4, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %changed_properties, align 8
   tail call void @g_list_free_full(ptr noundef %5, ptr noundef nonnull @_changed_property_free) #12
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %6, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp6.not = icmp eq ptr %7, null
   br i1 %cmp6.not, label %if.end, label %if.then
@@ -13377,15 +13302,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %8 = phi ptr [ %.pre, %if.then ], [ %6, %entry ]
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %8, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %context, align 8
   tail call void @g_main_context_unref(ptr noundef %9) #12
   %10 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %10, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %10, i64 32
   tail call void @g_mutex_clear(ptr noundef nonnull %lock) #12
   %11 = load ptr, ptr @qemu_dbus_display1_mouse_skeleton_parent_class, align 8
   %call11 = tail call ptr @g_type_check_class_cast(ptr noundef %11, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call11, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call11, i64 48
   %12 = load ptr, ptr %finalize, align 8
   tail call void %12(ptr noundef %object) #12
   ret void
@@ -13404,15 +13329,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   tail call void @g_value_copy(ptr noundef %2, ptr noundef %value) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock6 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }
@@ -13430,9 +13355,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   tail call void @g_object_freeze_notify(ptr noundef %object) #12
   %1 = load ptr, ptr %priv, align 8
@@ -13451,37 +13376,34 @@ if.then9:                                         ; preds = %do.end
 
 if.then16:                                        ; preds = %if.then9
   %3 = load ptr, ptr %.pre18, align 8
-  %changed_properties.i = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %.pre18, i64 0, i32 1
-  %l.01.i = load ptr, ptr %changed_properties.i, align 8
-  %cmp.not2.i = icmp eq ptr %l.01.i, null
-  br i1 %cmp.not2.i, label %if.then4.i, label %for.body.i
+  br label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct._GList, ptr %l.03.i, i64 0, i32 1
-  %l.0.i = load ptr, ptr %next.i, align 8
+for.cond.i:                                       ; preds = %for.body.i, %if.then16
+  %.pn.i = phi ptr [ %.pre18, %if.then16 ], [ %l.0.i, %for.body.i ]
+  %l.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %l.0.i = load ptr, ptr %l.0.in.i, align 8
   %cmp.not.i = icmp eq ptr %l.0.i, null
-  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !42
+  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i
 
-for.body.i:                                       ; preds = %if.then16, %for.cond.i
-  %l.03.i = phi ptr [ %l.0.i, %for.cond.i ], [ %l.01.i, %if.then16 ]
-  %4 = load ptr, ptr %l.03.i, align 8
+for.body.i:                                       ; preds = %for.cond.i
+  %4 = load ptr, ptr %l.0.i, align 8
   %5 = load ptr, ptr %4, align 8
   %cmp2.i = icmp eq ptr %5, @_qemu_dbus_display1_mouse_property_info_is_absolute
-  br i1 %cmp2.i, label %if.end22, label %for.cond.i
+  br i1 %cmp2.i, label %if.end22, label %for.cond.i, !llvm.loop !42
 
-if.then4.i:                                       ; preds = %for.cond.i, %if.then16
+if.then4.i:                                       ; preds = %for.cond.i
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #15
-  %prop_id5.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 1
+  %prop_id5.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %prop_id5.i, align 8
   store ptr @_qemu_dbus_display1_mouse_property_info_is_absolute, ptr %call.i, align 8
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties8.i = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %6, i64 0, i32 1
+  %changed_properties8.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %changed_properties8.i, align 8
   %call9.i = tail call ptr @g_list_prepend(ptr noundef %7, ptr noundef nonnull %call.i) #12
   %8 = load ptr, ptr %priv, align 8
-  %changed_properties11.i = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %8, i64 0, i32 1
+  %changed_properties11.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call9.i, ptr %changed_properties11.i, align 8
-  %orig_value12.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 2
+  %orig_value12.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %9 = load i64, ptr %3, align 8
   %call13.i = tail call ptr @g_value_init(ptr noundef nonnull %orig_value12.i, i64 noundef %9) #12
   tail call void @g_value_copy(ptr noundef nonnull %3, ptr noundef nonnull %orig_value12.i) #12
@@ -13497,7 +13419,7 @@ if.end22:                                         ; preds = %for.body.i, %if.the
 
 if.end28:                                         ; preds = %if.end22, %do.end
   %12 = load ptr, ptr %priv, align 8
-  %lock30 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %12, i64 0, i32 4
+  %lock30 = getelementptr inbounds i8, ptr %12, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock30) #12
   tail call void @g_object_thaw_notify(ptr noundef %object) #12
   ret void
@@ -13508,18 +13430,18 @@ define internal void @qemu_dbus_display1_mouse_skeleton_notify(ptr noundef %obje
 entry:
   %call = tail call i64 @qemu_dbus_display1_mouse_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %1, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %changed_properties, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.end
@@ -13527,29 +13449,29 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call ptr @g_idle_source_new() #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source7 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %4, i64 0, i32 2
+  %changed_properties_idle_source7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call5, ptr %changed_properties_idle_source7, align 8
   %5 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source9 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %5, i64 0, i32 2
+  %changed_properties_idle_source9 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %changed_properties_idle_source9, align 8
   tail call void @g_source_set_priority(ptr noundef %6, i32 noundef 0) #12
   %7 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source11 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %7, i64 0, i32 2
+  %changed_properties_idle_source11 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %changed_properties_idle_source11, align 8
   %call12 = tail call ptr @g_object_ref(ptr noundef nonnull %call1) #12
   tail call void @g_source_set_callback(ptr noundef %8, ptr noundef nonnull @_qemu_dbus_display1_mouse_emit_changed, ptr noundef %call12, ptr noundef nonnull @g_object_unref) #12
   %9 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source14 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %9, i64 0, i32 2
+  %changed_properties_idle_source14 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %changed_properties_idle_source14, align 8
   tail call void @g_source_set_name(ptr noundef %10, ptr noundef nonnull @.str.177) #12
   %11 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source16 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %11, i64 0, i32 2
+  %changed_properties_idle_source16 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %changed_properties_idle_source16, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %11, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %context, align 8
   %call18 = tail call i32 @g_source_attach(ptr noundef %12, ptr noundef %13) #12
   %14 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source20 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %14, i64 0, i32 2
+  %changed_properties_idle_source20 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %changed_properties_idle_source20, align 8
   tail call void @g_source_unref(ptr noundef %15) #12
   %.pre = load ptr, ptr %priv, align 8
@@ -13557,7 +13479,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %16 = phi ptr [ %.pre, %if.then ], [ %1, %land.lhs.true ], [ %1, %entry ]
-  %lock22 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock22 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock22) #12
   ret void
 }
@@ -13601,12 +13523,12 @@ define internal void @qemu_dbus_display1_mouse_skeleton_dbus_interface_flush(ptr
 entry:
   %call = tail call i64 @qemu_dbus_display1_mouse_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %_skeleton, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end11.critedge, label %if.then
@@ -13614,16 +13536,16 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @g_source_destroy(ptr noundef nonnull %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source6 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %3, i64 0, i32 2
+  %changed_properties_idle_source6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %changed_properties_idle_source6, align 8
   %4 = load ptr, ptr %priv, align 8
-  %lock8 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock8 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8) #12
   %call10 = tail call i32 @_qemu_dbus_display1_mouse_emit_changed(ptr noundef nonnull %call1)
   br label %if.end11
 
 if.end11.critedge:                                ; preds = %entry
-  %lock8.c = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock8.c = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8.c) #12
   br label %if.end11
 
@@ -13644,54 +13566,54 @@ entry:
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
   %call = tail call i64 @qemu_dbus_display1_mouse_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %user_data, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.118) #12
   call void @g_variant_builder_init(ptr noundef nonnull %builder, ptr noundef %call2) #12
   %call3 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.111) #12
   call void @g_variant_builder_init(ptr noundef nonnull %invalidated_builder, ptr noundef %call3) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %1, i64 0, i32 1
-  %l.021 = load ptr, ptr %changed_properties, align 8
-  %cmp.not22 = icmp eq ptr %l.021, null
-  br i1 %cmp.not22, label %if.else, label %for.body
+  %l.0.in21 = getelementptr inbounds i8, ptr %1, i64 8
+  %l.022 = load ptr, ptr %l.0.in21, align 8
+  %cmp.not23 = icmp eq ptr %l.022, null
+  br i1 %cmp.not23, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %l.024 = phi ptr [ %l.0, %for.inc ], [ %l.021, %entry ]
-  %num_changes.023 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
-  %2 = load ptr, ptr %l.024, align 8
+  %l.025 = phi ptr [ %l.0, %for.inc ], [ %l.022, %entry ]
+  %num_changes.024 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
+  %2 = load ptr, ptr %l.025, align 8
   %3 = load ptr, ptr %priv, align 8
   %4 = load ptr, ptr %3, align 8
-  %prop_id = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 1
+  %prop_id = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %prop_id, align 8
   %sub = add i32 %5, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr %struct._GValue, ptr %4, i64 %idxprom
-  %orig_value = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 2
+  %orig_value = getelementptr inbounds i8, ptr %2, i64 16
   %call6 = call fastcc i32 @_g_value_equal(ptr noundef %arrayidx, ptr noundef nonnull %orig_value)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %2, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %6, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %signature, align 8
   %call7 = call ptr @g_variant_type_checked_(ptr noundef %7) #12
   %call8 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %arrayidx, ptr noundef %call7) #12
   %8 = load ptr, ptr %2, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %8, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %name, align 8
   call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef nonnull %builder, ptr noundef nonnull @.str.124, ptr noundef %9, ptr noundef %call8) #12
   call void @g_variant_unref(ptr noundef %call8) #12
-  %inc = add i32 %num_changes.023, 1
+  %inc = add i32 %num_changes.024, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %num_changes.1 = phi i32 [ %num_changes.023, %for.body ], [ %inc, %if.then ]
-  %next = getelementptr inbounds %struct._GList, ptr %l.024, i64 0, i32 1
-  %l.0 = load ptr, ptr %next, align 8
+  %num_changes.1 = phi i32 [ %num_changes.024, %for.body ], [ %inc, %if.then ]
+  %l.0.in = getelementptr inbounds i8, ptr %l.025, i64 8
+  %l.0 = load ptr, ptr %l.0.in, align 8
   %cmp.not = icmp eq ptr %l.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !43
 
@@ -13705,16 +13627,16 @@ if.then12:                                        ; preds = %for.end
   %call15 = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call16 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef %call15) #12
   %call17 = call ptr @g_dbus_interface_skeleton_get_connections(ptr noundef %call16) #12
-  %cmp19.not25 = icmp eq ptr %call17, null
-  br i1 %cmp19.not25, label %for.end28, label %for.body20
+  %cmp19.not26 = icmp eq ptr %call17, null
+  br i1 %cmp19.not26, label %for.end28, label %for.body20
 
 for.body20:                                       ; preds = %if.then12, %for.body20
-  %ll.026 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
-  %11 = load ptr, ptr %ll.026, align 8
+  %ll.027 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
+  %11 = load ptr, ptr %ll.027, align 8
   %call23 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call15) #12
   %call24 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call23) #12
   %call25 = call i32 @g_dbus_connection_emit_signal(ptr noundef %11, ptr noundef null, ptr noundef %call24, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr noundef %call14, ptr noundef null) #12
-  %next27 = getelementptr inbounds %struct._GList, ptr %ll.026, i64 0, i32 1
+  %next27 = getelementptr inbounds i8, ptr %ll.027, i64 8
   %12 = load ptr, ptr %next27, align 8
   %cmp19.not = icmp eq ptr %12, null
   br i1 %cmp19.not, label %for.end28, label %for.body20, !llvm.loop !44
@@ -13731,17 +13653,17 @@ if.else:                                          ; preds = %entry, %for.end
 
 if.end29:                                         ; preds = %if.else, %for.end28
   %13 = load ptr, ptr %priv, align 8
-  %changed_properties31 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %13, i64 0, i32 1
+  %changed_properties31 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %changed_properties31, align 8
   call void @g_list_free_full(ptr noundef %14, ptr noundef nonnull @_changed_property_free) #12
   %15 = load ptr, ptr %priv, align 8
-  %changed_properties33 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %15, i64 0, i32 1
+  %changed_properties33 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %changed_properties33, align 8
   %16 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %16, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %changed_properties_idle_source, align 8
   %17 = load ptr, ptr %priv, align 8
-  %lock36 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %17, i64 0, i32 4
+  %lock36 = getelementptr inbounds i8, ptr %17, i64 32
   call void @g_mutex_unlock(ptr noundef nonnull %lock36) #12
   ret i32 0
 }
@@ -13763,7 +13685,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -13775,13 +13697,13 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %value_type = getelementptr inbounds %struct._GParamSpec, ptr %call3, i64 0, i32 3
+  %value_type = getelementptr inbounds i8, ptr %call3, i64 24
   %2 = load i64, ptr %value_type, align 8
   %call8 = call ptr @g_value_init(ptr noundef nonnull %value, i64 noundef %2) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
   %3 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_get_property(ptr noundef %call9, ptr noundef %3, ptr noundef nonnull %value) #12
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call11 = call ptr @g_variant_type_checked_(ptr noundef %4) #12
   %call12 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef nonnull %value, ptr noundef %call11) #12
@@ -13811,7 +13733,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @g_variant_n_children(ptr noundef %parameters) #12
-  %pass_fdlist = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %pass_fdlist = getelementptr inbounds i8, ptr %call2, i64 48
   %0 = load i32, ptr %pass_fdlist, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i64 2, i64 3
@@ -13837,7 +13759,7 @@ qemu_dbus_display1_mouse_get_type.exit:           ; preds = %do.end, %land.rhs.i
   %2 = load i64, ptr @qemu_dbus_display1_mouse_get_type.static_g_define_type_id, align 8
   %call6 = tail call ptr @g_value_init(ptr noundef %call4, i64 noundef %2) #12
   tail call void @g_value_set_object(ptr noundef %call4, ptr noundef %call1) #12
-  %arrayidx8 = getelementptr %struct._GValue, ptr %call4, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call4, i64 24
   %call9 = tail call i64 @g_dbus_method_invocation_get_type() #13
   %call10 = tail call ptr @g_value_init(ptr noundef %arrayidx8, i64 noundef %call9) #12
   tail call void @g_value_set_object(ptr noundef %arrayidx8, ptr noundef %invocation) #12
@@ -13846,7 +13768,7 @@ qemu_dbus_display1_mouse_get_type.exit:           ; preds = %do.end, %land.rhs.i
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %qemu_dbus_display1_mouse_get_type.exit
-  %arrayidx16 = getelementptr %struct._GValue, ptr %call4, i64 2
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 48
   %call17 = tail call i64 @g_unix_fd_list_get_type() #13
   %call18 = tail call ptr @g_value_init(ptr noundef %arrayidx16, i64 noundef %call17) #12
   %call21 = tail call ptr @g_dbus_method_invocation_get_message(ptr noundef %invocation) #12
@@ -13862,7 +13784,7 @@ if.end23:                                         ; preds = %if.then15, %qemu_db
   br i1 %cmp26.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %in_args = getelementptr inbounds %struct._GDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %in_args = getelementptr inbounds i8, ptr %call2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -13872,7 +13794,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i64 %n.140, %cond
   %arrayidx29 = getelementptr ptr, ptr %4, i64 %sub
   %5 = load ptr, ptr %arrayidx29, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %5, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i32, ptr %use_gvariant, align 8
   %tobool30.not = icmp eq i32 %6, 0
   %arrayidx38 = getelementptr %struct._GValue, ptr %call4, i64 %n.140
@@ -13895,7 +13817,7 @@ if.end39:                                         ; preds = %if.else36, %if.then
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !45
 
 while.end:                                        ; preds = %if.end39, %if.end23
-  %signal_name = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 1
+  %signal_name = getelementptr inbounds i8, ptr %call2, i64 40
   %7 = load ptr, ptr %signal_name, align 8
   %call41 = call i32 @g_signal_lookup(ptr noundef %7, i64 noundef %2) #12
   %call42 = call ptr @g_value_init(ptr noundef nonnull %return_value, i64 noundef 20) #12
@@ -13944,7 +13866,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -13956,7 +13878,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %call2, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -13987,15 +13909,15 @@ define internal i32 @qemu_dbus_display1_mouse_skeleton_get_is_absolute(ptr nound
 entry:
   %call = tail call i64 @qemu_dbus_display1_mouse_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call i32 @g_value_get_boolean(ptr noundef %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1MouseSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret i32 %call3
 }
@@ -14017,17 +13939,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_multi_touch_proxy_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_multi_touch_proxy_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_multi_touch_proxy_set_property, ptr %set_property.i, align 8
   %call1.i = tail call i64 @g_dbus_proxy_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %g_signal.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 2
+  %g_signal.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_multi_touch_proxy_g_signal, ptr %g_signal.i, align 8
-  %g_properties_changed.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 1
+  %g_properties_changed.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_multi_touch_proxy_g_properties_changed, ptr %g_properties_changed.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.38) #12
   ret void
@@ -14039,7 +13961,7 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1MultiTouchProxy_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %proxy, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchProxy, ptr %proxy, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %proxy, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
   %call1 = tail call i64 @g_dbus_proxy_get_type() #13
   %call2 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call1) #12
@@ -14050,7 +13972,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_multi_touch_proxy_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_max_slots = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchIface, ptr %iface, i64 0, i32 2
+  %get_max_slots = getelementptr inbounds i8, ptr %iface, i64 24
   store ptr @qemu_dbus_display1_multi_touch_proxy_get_max_slots, ptr %get_max_slots, align 8
   ret void
 }
@@ -14060,12 +13982,12 @@ define internal void @qemu_dbus_display1_multi_touch_proxy_finalize(ptr noundef 
 entry:
   %call = tail call i64 @qemu_dbus_display1_multi_touch_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   tail call void @g_datalist_clear(ptr noundef %0) #12
   %1 = load ptr, ptr @qemu_dbus_display1_multi_touch_proxy_parent_class, align 8
   %call2 = tail call ptr @g_type_check_class_cast(ptr noundef %1, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call2, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load ptr, ptr %finalize, align 8
   tail call void %2(ptr noundef %object) #12
   ret void
@@ -14156,7 +14078,7 @@ qemu_dbus_display1_multi_touch_get_type.exit:     ; preds = %if.end, %land.rhs.i
   br i1 %cmp8.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %qemu_dbus_display1_multi_touch_get_type.exit
-  %args = getelementptr inbounds %struct._GDBusSignalInfo, ptr %call, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -14164,9 +14086,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.023 = phi i64 [ 1, %while.body.lr.ph ], [ %n.1, %if.end16 ]
   %2 = load ptr, ptr %args, align 8
   %3 = getelementptr ptr, ptr %2, i64 %n.023
-  %arrayidx9 = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx9, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %4, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %use_gvariant, align 8
   %tobool.not = icmp eq i32 %5, 0
   %arrayidx15 = getelementptr %struct._GValue, ptr %call2, i64 %n.023
@@ -14189,7 +14111,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !47
 
 while.end:                                        ; preds = %if.end16, %qemu_dbus_display1_multi_touch_get_type.exit
-  %signal_name17 = getelementptr inbounds %struct._ExtendedGDBusSignalInfo, ptr %call, i64 0, i32 1
+  %signal_name17 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %signal_name17, align 8
   %call19 = call i32 @g_signal_lookup(ptr noundef %6, i64 noundef %1) #12
   call void @g_signal_emitv(ptr noundef %call2, i32 noundef %call19, i32 noundef 0, ptr noundef null) #12
@@ -14226,7 +14148,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -14241,7 +14163,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call3, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call3, i64 40
   %4 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_notify(ptr noundef %call5, ptr noundef %4) #12
   br label %if.end
@@ -14260,7 +14182,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp6.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %priv10 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchProxy, ptr %call1, i64 0, i32 1
+  %priv10 = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -14277,7 +14199,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then16:                                        ; preds = %for.body
   %call17 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name18 = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call9, i64 0, i32 1
+  %hyphen_name18 = getelementptr inbounds i8, ptr %call9, i64 40
   %11 = load ptr, ptr %hyphen_name18, align 8
   call void @g_object_notify(ptr noundef %call17, ptr noundef %11) #12
   br label %for.inc
@@ -14304,14 +14226,14 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %user_data, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load ptr, ptr %error, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %message, align 8
   %3 = load i32, ptr %1, align 8
   %call1 = call ptr @g_quark_to_string(i32 noundef %3) #13
-  %code = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %code, align 4
   call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.186, ptr noundef %0, ptr noundef %2, ptr noundef %call1, i32 noundef %4) #12
   %5 = load ptr, ptr %error, align 8
@@ -14364,24 +14286,24 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_multi_touch_skeleton_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_multi_touch_skeleton_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_multi_touch_skeleton_set_property, ptr %set_property.i, align 8
-  %notify.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 8
+  %notify.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @qemu_dbus_display1_multi_touch_skeleton_notify, ptr %notify.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.38) #12
   %call2.i = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call3.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call2.i) #12
-  %get_info.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 1
+  %get_info.i = getelementptr inbounds i8, ptr %call3.i, i64 136
   store ptr @qemu_dbus_display1_multi_touch_skeleton_dbus_interface_get_info, ptr %get_info.i, align 8
-  %get_properties.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 3
+  %get_properties.i = getelementptr inbounds i8, ptr %call3.i, i64 152
   store ptr @qemu_dbus_display1_multi_touch_skeleton_dbus_interface_get_properties, ptr %get_properties.i, align 8
-  %flush.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 4
+  %flush.i = getelementptr inbounds i8, ptr %call3.i, i64 160
   store ptr @qemu_dbus_display1_multi_touch_skeleton_dbus_interface_flush, ptr %flush.i, align 8
-  %get_vtable.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 2
+  %get_vtable.i = getelementptr inbounds i8, ptr %call3.i, i64 144
   store ptr @qemu_dbus_display1_multi_touch_skeleton_dbus_interface_get_vtable, ptr %get_vtable.i, align 8
   ret void
 }
@@ -14392,13 +14314,13 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1MultiTouchSkeleton_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %skeleton, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeleton, ptr %skeleton, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %skeleton, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %add.ptr.i, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   tail call void @g_mutex_init(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_main_context_ref_thread_default() #12
   %1 = load ptr, ptr %priv, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %1, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call2, ptr %context, align 8
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #15
   %2 = load ptr, ptr %priv, align 8
@@ -14412,7 +14334,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_multi_touch_skeleton_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_max_slots = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchIface, ptr %iface, i64 0, i32 2
+  %get_max_slots = getelementptr inbounds i8, ptr %iface, i64 24
   store ptr @qemu_dbus_display1_multi_touch_skeleton_get_max_slots, ptr %get_max_slots, align 8
   ret void
 }
@@ -14422,7 +14344,7 @@ define internal void @qemu_dbus_display1_multi_touch_skeleton_finalize(ptr nound
 entry:
   %call = tail call i64 @qemu_dbus_display1_multi_touch_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @g_value_unset(ptr noundef %1) #12
@@ -14430,11 +14352,11 @@ entry:
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %4, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %changed_properties, align 8
   tail call void @g_list_free_full(ptr noundef %5, ptr noundef nonnull @_changed_property_free) #12
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %6, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp6.not = icmp eq ptr %7, null
   br i1 %cmp6.not, label %if.end, label %if.then
@@ -14446,15 +14368,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %8 = phi ptr [ %.pre, %if.then ], [ %6, %entry ]
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %8, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %context, align 8
   tail call void @g_main_context_unref(ptr noundef %9) #12
   %10 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %10, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %10, i64 32
   tail call void @g_mutex_clear(ptr noundef nonnull %lock) #12
   %11 = load ptr, ptr @qemu_dbus_display1_multi_touch_skeleton_parent_class, align 8
   %call11 = tail call ptr @g_type_check_class_cast(ptr noundef %11, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call11, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call11, i64 48
   %12 = load ptr, ptr %finalize, align 8
   tail call void %12(ptr noundef %object) #12
   ret void
@@ -14473,15 +14395,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   tail call void @g_value_copy(ptr noundef %2, ptr noundef %value) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock6 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }
@@ -14499,9 +14421,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   tail call void @g_object_freeze_notify(ptr noundef %object) #12
   %1 = load ptr, ptr %priv, align 8
@@ -14520,37 +14442,34 @@ if.then9:                                         ; preds = %do.end
 
 if.then16:                                        ; preds = %if.then9
   %3 = load ptr, ptr %.pre18, align 8
-  %changed_properties.i = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %.pre18, i64 0, i32 1
-  %l.01.i = load ptr, ptr %changed_properties.i, align 8
-  %cmp.not2.i = icmp eq ptr %l.01.i, null
-  br i1 %cmp.not2.i, label %if.then4.i, label %for.body.i
+  br label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct._GList, ptr %l.03.i, i64 0, i32 1
-  %l.0.i = load ptr, ptr %next.i, align 8
+for.cond.i:                                       ; preds = %for.body.i, %if.then16
+  %.pn.i = phi ptr [ %.pre18, %if.then16 ], [ %l.0.i, %for.body.i ]
+  %l.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %l.0.i = load ptr, ptr %l.0.in.i, align 8
   %cmp.not.i = icmp eq ptr %l.0.i, null
-  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !51
+  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i
 
-for.body.i:                                       ; preds = %if.then16, %for.cond.i
-  %l.03.i = phi ptr [ %l.0.i, %for.cond.i ], [ %l.01.i, %if.then16 ]
-  %4 = load ptr, ptr %l.03.i, align 8
+for.body.i:                                       ; preds = %for.cond.i
+  %4 = load ptr, ptr %l.0.i, align 8
   %5 = load ptr, ptr %4, align 8
   %cmp2.i = icmp eq ptr %5, @_qemu_dbus_display1_multi_touch_property_info_max_slots
-  br i1 %cmp2.i, label %if.end22, label %for.cond.i
+  br i1 %cmp2.i, label %if.end22, label %for.cond.i, !llvm.loop !51
 
-if.then4.i:                                       ; preds = %for.cond.i, %if.then16
+if.then4.i:                                       ; preds = %for.cond.i
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #15
-  %prop_id5.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 1
+  %prop_id5.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %prop_id5.i, align 8
   store ptr @_qemu_dbus_display1_multi_touch_property_info_max_slots, ptr %call.i, align 8
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties8.i = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %6, i64 0, i32 1
+  %changed_properties8.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %changed_properties8.i, align 8
   %call9.i = tail call ptr @g_list_prepend(ptr noundef %7, ptr noundef nonnull %call.i) #12
   %8 = load ptr, ptr %priv, align 8
-  %changed_properties11.i = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %8, i64 0, i32 1
+  %changed_properties11.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call9.i, ptr %changed_properties11.i, align 8
-  %orig_value12.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 2
+  %orig_value12.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %9 = load i64, ptr %3, align 8
   %call13.i = tail call ptr @g_value_init(ptr noundef nonnull %orig_value12.i, i64 noundef %9) #12
   tail call void @g_value_copy(ptr noundef nonnull %3, ptr noundef nonnull %orig_value12.i) #12
@@ -14566,7 +14485,7 @@ if.end22:                                         ; preds = %for.body.i, %if.the
 
 if.end28:                                         ; preds = %if.end22, %do.end
   %12 = load ptr, ptr %priv, align 8
-  %lock30 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %12, i64 0, i32 4
+  %lock30 = getelementptr inbounds i8, ptr %12, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock30) #12
   tail call void @g_object_thaw_notify(ptr noundef %object) #12
   ret void
@@ -14577,18 +14496,18 @@ define internal void @qemu_dbus_display1_multi_touch_skeleton_notify(ptr noundef
 entry:
   %call = tail call i64 @qemu_dbus_display1_multi_touch_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %1, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %changed_properties, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.end
@@ -14596,29 +14515,29 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call ptr @g_idle_source_new() #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source7 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %4, i64 0, i32 2
+  %changed_properties_idle_source7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call5, ptr %changed_properties_idle_source7, align 8
   %5 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source9 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %5, i64 0, i32 2
+  %changed_properties_idle_source9 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %changed_properties_idle_source9, align 8
   tail call void @g_source_set_priority(ptr noundef %6, i32 noundef 0) #12
   %7 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source11 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %7, i64 0, i32 2
+  %changed_properties_idle_source11 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %changed_properties_idle_source11, align 8
   %call12 = tail call ptr @g_object_ref(ptr noundef nonnull %call1) #12
   tail call void @g_source_set_callback(ptr noundef %8, ptr noundef nonnull @_qemu_dbus_display1_multi_touch_emit_changed, ptr noundef %call12, ptr noundef nonnull @g_object_unref) #12
   %9 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source14 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %9, i64 0, i32 2
+  %changed_properties_idle_source14 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %changed_properties_idle_source14, align 8
   tail call void @g_source_set_name(ptr noundef %10, ptr noundef nonnull @.str.188) #12
   %11 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source16 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %11, i64 0, i32 2
+  %changed_properties_idle_source16 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %changed_properties_idle_source16, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %11, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %context, align 8
   %call18 = tail call i32 @g_source_attach(ptr noundef %12, ptr noundef %13) #12
   %14 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source20 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %14, i64 0, i32 2
+  %changed_properties_idle_source20 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %changed_properties_idle_source20, align 8
   tail call void @g_source_unref(ptr noundef %15) #12
   %.pre = load ptr, ptr %priv, align 8
@@ -14626,7 +14545,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %16 = phi ptr [ %.pre, %if.then ], [ %1, %land.lhs.true ], [ %1, %entry ]
-  %lock22 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock22 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock22) #12
   ret void
 }
@@ -14670,12 +14589,12 @@ define internal void @qemu_dbus_display1_multi_touch_skeleton_dbus_interface_flu
 entry:
   %call = tail call i64 @qemu_dbus_display1_multi_touch_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %_skeleton, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end11.critedge, label %if.then
@@ -14683,16 +14602,16 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @g_source_destroy(ptr noundef nonnull %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source6 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %3, i64 0, i32 2
+  %changed_properties_idle_source6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %changed_properties_idle_source6, align 8
   %4 = load ptr, ptr %priv, align 8
-  %lock8 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock8 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8) #12
   %call10 = tail call i32 @_qemu_dbus_display1_multi_touch_emit_changed(ptr noundef nonnull %call1)
   br label %if.end11
 
 if.end11.critedge:                                ; preds = %entry
-  %lock8.c = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock8.c = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8.c) #12
   br label %if.end11
 
@@ -14713,54 +14632,54 @@ entry:
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
   %call = tail call i64 @qemu_dbus_display1_multi_touch_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %user_data, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.118) #12
   call void @g_variant_builder_init(ptr noundef nonnull %builder, ptr noundef %call2) #12
   %call3 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.111) #12
   call void @g_variant_builder_init(ptr noundef nonnull %invalidated_builder, ptr noundef %call3) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %1, i64 0, i32 1
-  %l.021 = load ptr, ptr %changed_properties, align 8
-  %cmp.not22 = icmp eq ptr %l.021, null
-  br i1 %cmp.not22, label %if.else, label %for.body
+  %l.0.in21 = getelementptr inbounds i8, ptr %1, i64 8
+  %l.022 = load ptr, ptr %l.0.in21, align 8
+  %cmp.not23 = icmp eq ptr %l.022, null
+  br i1 %cmp.not23, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %l.024 = phi ptr [ %l.0, %for.inc ], [ %l.021, %entry ]
-  %num_changes.023 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
-  %2 = load ptr, ptr %l.024, align 8
+  %l.025 = phi ptr [ %l.0, %for.inc ], [ %l.022, %entry ]
+  %num_changes.024 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
+  %2 = load ptr, ptr %l.025, align 8
   %3 = load ptr, ptr %priv, align 8
   %4 = load ptr, ptr %3, align 8
-  %prop_id = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 1
+  %prop_id = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %prop_id, align 8
   %sub = add i32 %5, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr %struct._GValue, ptr %4, i64 %idxprom
-  %orig_value = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 2
+  %orig_value = getelementptr inbounds i8, ptr %2, i64 16
   %call6 = call fastcc i32 @_g_value_equal(ptr noundef %arrayidx, ptr noundef nonnull %orig_value)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %2, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %6, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %signature, align 8
   %call7 = call ptr @g_variant_type_checked_(ptr noundef %7) #12
   %call8 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %arrayidx, ptr noundef %call7) #12
   %8 = load ptr, ptr %2, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %8, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %name, align 8
   call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef nonnull %builder, ptr noundef nonnull @.str.124, ptr noundef %9, ptr noundef %call8) #12
   call void @g_variant_unref(ptr noundef %call8) #12
-  %inc = add i32 %num_changes.023, 1
+  %inc = add i32 %num_changes.024, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %num_changes.1 = phi i32 [ %num_changes.023, %for.body ], [ %inc, %if.then ]
-  %next = getelementptr inbounds %struct._GList, ptr %l.024, i64 0, i32 1
-  %l.0 = load ptr, ptr %next, align 8
+  %num_changes.1 = phi i32 [ %num_changes.024, %for.body ], [ %inc, %if.then ]
+  %l.0.in = getelementptr inbounds i8, ptr %l.025, i64 8
+  %l.0 = load ptr, ptr %l.0.in, align 8
   %cmp.not = icmp eq ptr %l.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !52
 
@@ -14774,16 +14693,16 @@ if.then12:                                        ; preds = %for.end
   %call15 = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call16 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef %call15) #12
   %call17 = call ptr @g_dbus_interface_skeleton_get_connections(ptr noundef %call16) #12
-  %cmp19.not25 = icmp eq ptr %call17, null
-  br i1 %cmp19.not25, label %for.end28, label %for.body20
+  %cmp19.not26 = icmp eq ptr %call17, null
+  br i1 %cmp19.not26, label %for.end28, label %for.body20
 
 for.body20:                                       ; preds = %if.then12, %for.body20
-  %ll.026 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
-  %11 = load ptr, ptr %ll.026, align 8
+  %ll.027 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
+  %11 = load ptr, ptr %ll.027, align 8
   %call23 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call15) #12
   %call24 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call23) #12
   %call25 = call i32 @g_dbus_connection_emit_signal(ptr noundef %11, ptr noundef null, ptr noundef %call24, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr noundef %call14, ptr noundef null) #12
-  %next27 = getelementptr inbounds %struct._GList, ptr %ll.026, i64 0, i32 1
+  %next27 = getelementptr inbounds i8, ptr %ll.027, i64 8
   %12 = load ptr, ptr %next27, align 8
   %cmp19.not = icmp eq ptr %12, null
   br i1 %cmp19.not, label %for.end28, label %for.body20, !llvm.loop !53
@@ -14800,17 +14719,17 @@ if.else:                                          ; preds = %entry, %for.end
 
 if.end29:                                         ; preds = %if.else, %for.end28
   %13 = load ptr, ptr %priv, align 8
-  %changed_properties31 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %13, i64 0, i32 1
+  %changed_properties31 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %changed_properties31, align 8
   call void @g_list_free_full(ptr noundef %14, ptr noundef nonnull @_changed_property_free) #12
   %15 = load ptr, ptr %priv, align 8
-  %changed_properties33 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %15, i64 0, i32 1
+  %changed_properties33 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %changed_properties33, align 8
   %16 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %16, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %changed_properties_idle_source, align 8
   %17 = load ptr, ptr %priv, align 8
-  %lock36 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %17, i64 0, i32 4
+  %lock36 = getelementptr inbounds i8, ptr %17, i64 32
   call void @g_mutex_unlock(ptr noundef nonnull %lock36) #12
   ret i32 0
 }
@@ -14832,7 +14751,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -14844,13 +14763,13 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %value_type = getelementptr inbounds %struct._GParamSpec, ptr %call3, i64 0, i32 3
+  %value_type = getelementptr inbounds i8, ptr %call3, i64 24
   %2 = load i64, ptr %value_type, align 8
   %call8 = call ptr @g_value_init(ptr noundef nonnull %value, i64 noundef %2) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
   %3 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_get_property(ptr noundef %call9, ptr noundef %3, ptr noundef nonnull %value) #12
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call11 = call ptr @g_variant_type_checked_(ptr noundef %4) #12
   %call12 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef nonnull %value, ptr noundef %call11) #12
@@ -14880,7 +14799,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @g_variant_n_children(ptr noundef %parameters) #12
-  %pass_fdlist = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %pass_fdlist = getelementptr inbounds i8, ptr %call2, i64 48
   %0 = load i32, ptr %pass_fdlist, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i64 2, i64 3
@@ -14906,7 +14825,7 @@ qemu_dbus_display1_multi_touch_get_type.exit:     ; preds = %do.end, %land.rhs.i
   %2 = load i64, ptr @qemu_dbus_display1_multi_touch_get_type.static_g_define_type_id, align 8
   %call6 = tail call ptr @g_value_init(ptr noundef %call4, i64 noundef %2) #12
   tail call void @g_value_set_object(ptr noundef %call4, ptr noundef %call1) #12
-  %arrayidx8 = getelementptr %struct._GValue, ptr %call4, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call4, i64 24
   %call9 = tail call i64 @g_dbus_method_invocation_get_type() #13
   %call10 = tail call ptr @g_value_init(ptr noundef %arrayidx8, i64 noundef %call9) #12
   tail call void @g_value_set_object(ptr noundef %arrayidx8, ptr noundef %invocation) #12
@@ -14915,7 +14834,7 @@ qemu_dbus_display1_multi_touch_get_type.exit:     ; preds = %do.end, %land.rhs.i
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %qemu_dbus_display1_multi_touch_get_type.exit
-  %arrayidx16 = getelementptr %struct._GValue, ptr %call4, i64 2
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 48
   %call17 = tail call i64 @g_unix_fd_list_get_type() #13
   %call18 = tail call ptr @g_value_init(ptr noundef %arrayidx16, i64 noundef %call17) #12
   %call21 = tail call ptr @g_dbus_method_invocation_get_message(ptr noundef %invocation) #12
@@ -14931,7 +14850,7 @@ if.end23:                                         ; preds = %if.then15, %qemu_db
   br i1 %cmp26.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %in_args = getelementptr inbounds %struct._GDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %in_args = getelementptr inbounds i8, ptr %call2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -14941,7 +14860,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i64 %n.140, %cond
   %arrayidx29 = getelementptr ptr, ptr %4, i64 %sub
   %5 = load ptr, ptr %arrayidx29, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %5, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i32, ptr %use_gvariant, align 8
   %tobool30.not = icmp eq i32 %6, 0
   %arrayidx38 = getelementptr %struct._GValue, ptr %call4, i64 %n.140
@@ -14964,7 +14883,7 @@ if.end39:                                         ; preds = %if.else36, %if.then
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !54
 
 while.end:                                        ; preds = %if.end39, %if.end23
-  %signal_name = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 1
+  %signal_name = getelementptr inbounds i8, ptr %call2, i64 40
   %7 = load ptr, ptr %signal_name, align 8
   %call41 = call i32 @g_signal_lookup(ptr noundef %7, i64 noundef %2) #12
   %call42 = call ptr @g_value_init(ptr noundef nonnull %return_value, i64 noundef 20) #12
@@ -15013,7 +14932,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -15025,7 +14944,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %call2, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -15056,15 +14975,15 @@ define internal i32 @qemu_dbus_display1_multi_touch_skeleton_get_max_slots(ptr n
 entry:
   %call = tail call i64 @qemu_dbus_display1_multi_touch_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call i32 @g_value_get_int(ptr noundef %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1MultiTouchSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret i32 %call3
 }
@@ -15084,17 +15003,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_listener_proxy_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_listener_proxy_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_listener_proxy_set_property, ptr %set_property.i, align 8
   %call1.i = tail call i64 @g_dbus_proxy_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %g_signal.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 2
+  %g_signal.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_listener_proxy_g_signal, ptr %g_signal.i, align 8
-  %g_properties_changed.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 1
+  %g_properties_changed.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_listener_proxy_g_properties_changed, ptr %g_properties_changed.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.3) #12
   ret void
@@ -15106,7 +15025,7 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1ListenerProxy_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %proxy, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerProxy, ptr %proxy, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %proxy, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
   %call1 = tail call i64 @g_dbus_proxy_get_type() #13
   %call2 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call1) #12
@@ -15117,7 +15036,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_listener_proxy_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1ListenerIface, ptr %iface, i64 0, i32 8
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 72
   store ptr @qemu_dbus_display1_listener_proxy_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -15127,12 +15046,12 @@ define internal void @qemu_dbus_display1_listener_proxy_finalize(ptr noundef %ob
 entry:
   %call = tail call i64 @qemu_dbus_display1_listener_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   tail call void @g_datalist_clear(ptr noundef %0) #12
   %1 = load ptr, ptr @qemu_dbus_display1_listener_proxy_parent_class, align 8
   %call2 = tail call ptr @g_type_check_class_cast(ptr noundef %1, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call2, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load ptr, ptr %finalize, align 8
   tail call void %2(ptr noundef %object) #12
   ret void
@@ -15223,7 +15142,7 @@ qemu_dbus_display1_listener_get_type.exit:        ; preds = %if.end, %land.rhs.i
   br i1 %cmp8.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %qemu_dbus_display1_listener_get_type.exit
-  %args = getelementptr inbounds %struct._GDBusSignalInfo, ptr %call, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -15231,9 +15150,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.023 = phi i64 [ 1, %while.body.lr.ph ], [ %n.1, %if.end16 ]
   %2 = load ptr, ptr %args, align 8
   %3 = getelementptr ptr, ptr %2, i64 %n.023
-  %arrayidx9 = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx9, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %4, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %use_gvariant, align 8
   %tobool.not = icmp eq i32 %5, 0
   %arrayidx15 = getelementptr %struct._GValue, ptr %call2, i64 %n.023
@@ -15256,7 +15175,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !56
 
 while.end:                                        ; preds = %if.end16, %qemu_dbus_display1_listener_get_type.exit
-  %signal_name17 = getelementptr inbounds %struct._ExtendedGDBusSignalInfo, ptr %call, i64 0, i32 1
+  %signal_name17 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %signal_name17, align 8
   %call19 = call i32 @g_signal_lookup(ptr noundef %6, i64 noundef %1) #12
   call void @g_signal_emitv(ptr noundef %call2, i32 noundef %call19, i32 noundef 0, ptr noundef null) #12
@@ -15293,7 +15212,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -15308,7 +15227,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call3, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call3, i64 40
   %4 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_notify(ptr noundef %call5, ptr noundef %4) #12
   br label %if.end
@@ -15327,7 +15246,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp6.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %priv10 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerProxy, ptr %call1, i64 0, i32 1
+  %priv10 = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -15344,7 +15263,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then16:                                        ; preds = %for.body
   %call17 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name18 = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call9, i64 0, i32 1
+  %hyphen_name18 = getelementptr inbounds i8, ptr %call9, i64 40
   %11 = load ptr, ptr %hyphen_name18, align 8
   call void @g_object_notify(ptr noundef %call17, ptr noundef %11) #12
   br label %for.inc
@@ -15371,14 +15290,14 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %user_data, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load ptr, ptr %error, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %message, align 8
   %3 = load i32, ptr %1, align 8
   %call1 = call ptr @g_quark_to_string(i32 noundef %3) #13
-  %code = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %code, align 4
   call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.209, ptr noundef %0, ptr noundef %2, ptr noundef %call1, i32 noundef %4) #12
   %5 = load ptr, ptr %error, align 8
@@ -15398,7 +15317,7 @@ define internal ptr @qemu_dbus_display1_listener_proxy_get_interfaces(ptr nounde
 entry:
   %call = tail call i64 @qemu_dbus_display1_listener_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %call2 = tail call ptr @g_datalist_get_data(ptr noundef %0, ptr noundef nonnull @.str.110) #12
   %cmp.not = icmp eq ptr %call2, null
@@ -15439,24 +15358,24 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_listener_skeleton_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_listener_skeleton_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_listener_skeleton_set_property, ptr %set_property.i, align 8
-  %notify.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 8
+  %notify.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @qemu_dbus_display1_listener_skeleton_notify, ptr %notify.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.3) #12
   %call2.i = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call3.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call2.i) #12
-  %get_info.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 1
+  %get_info.i = getelementptr inbounds i8, ptr %call3.i, i64 136
   store ptr @qemu_dbus_display1_listener_skeleton_dbus_interface_get_info, ptr %get_info.i, align 8
-  %get_properties.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 3
+  %get_properties.i = getelementptr inbounds i8, ptr %call3.i, i64 152
   store ptr @qemu_dbus_display1_listener_skeleton_dbus_interface_get_properties, ptr %get_properties.i, align 8
-  %flush.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 4
+  %flush.i = getelementptr inbounds i8, ptr %call3.i, i64 160
   store ptr @qemu_dbus_display1_listener_skeleton_dbus_interface_flush, ptr %flush.i, align 8
-  %get_vtable.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 2
+  %get_vtable.i = getelementptr inbounds i8, ptr %call3.i, i64 144
   store ptr @qemu_dbus_display1_listener_skeleton_dbus_interface_get_vtable, ptr %get_vtable.i, align 8
   ret void
 }
@@ -15467,13 +15386,13 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1ListenerSkeleton_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %skeleton, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeleton, ptr %skeleton, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %skeleton, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %add.ptr.i, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   tail call void @g_mutex_init(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_main_context_ref_thread_default() #12
   %1 = load ptr, ptr %priv, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %1, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call2, ptr %context, align 8
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #15
   %2 = load ptr, ptr %priv, align 8
@@ -15488,7 +15407,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_listener_skeleton_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1ListenerIface, ptr %iface, i64 0, i32 8
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 72
   store ptr @qemu_dbus_display1_listener_skeleton_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -15498,7 +15417,7 @@ define internal void @qemu_dbus_display1_listener_skeleton_finalize(ptr noundef 
 entry:
   %call = tail call i64 @qemu_dbus_display1_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @g_value_unset(ptr noundef %1) #12
@@ -15506,11 +15425,11 @@ entry:
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %4, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %changed_properties, align 8
   tail call void @g_list_free_full(ptr noundef %5, ptr noundef nonnull @_changed_property_free) #12
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %6, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp6.not = icmp eq ptr %7, null
   br i1 %cmp6.not, label %if.end, label %if.then
@@ -15522,15 +15441,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %8 = phi ptr [ %.pre, %if.then ], [ %6, %entry ]
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %8, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %context, align 8
   tail call void @g_main_context_unref(ptr noundef %9) #12
   %10 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %10, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %10, i64 32
   tail call void @g_mutex_clear(ptr noundef nonnull %lock) #12
   %11 = load ptr, ptr @qemu_dbus_display1_listener_skeleton_parent_class, align 8
   %call11 = tail call ptr @g_type_check_class_cast(ptr noundef %11, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call11, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call11, i64 48
   %12 = load ptr, ptr %finalize, align 8
   tail call void %12(ptr noundef %object) #12
   ret void
@@ -15549,15 +15468,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   tail call void @g_value_copy(ptr noundef %2, ptr noundef %value) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock6 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }
@@ -15575,9 +15494,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   tail call void @g_object_freeze_notify(ptr noundef %object) #12
   %1 = load ptr, ptr %priv, align 8
@@ -15596,37 +15515,34 @@ if.then9:                                         ; preds = %do.end
 
 if.then16:                                        ; preds = %if.then9
   %3 = load ptr, ptr %.pre18, align 8
-  %changed_properties.i = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %.pre18, i64 0, i32 1
-  %l.01.i = load ptr, ptr %changed_properties.i, align 8
-  %cmp.not2.i = icmp eq ptr %l.01.i, null
-  br i1 %cmp.not2.i, label %if.then4.i, label %for.body.i
+  br label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct._GList, ptr %l.03.i, i64 0, i32 1
-  %l.0.i = load ptr, ptr %next.i, align 8
+for.cond.i:                                       ; preds = %for.body.i, %if.then16
+  %.pn.i = phi ptr [ %.pre18, %if.then16 ], [ %l.0.i, %for.body.i ]
+  %l.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %l.0.i = load ptr, ptr %l.0.in.i, align 8
   %cmp.not.i = icmp eq ptr %l.0.i, null
-  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !60
+  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i
 
-for.body.i:                                       ; preds = %if.then16, %for.cond.i
-  %l.03.i = phi ptr [ %l.0.i, %for.cond.i ], [ %l.01.i, %if.then16 ]
-  %4 = load ptr, ptr %l.03.i, align 8
+for.body.i:                                       ; preds = %for.cond.i
+  %4 = load ptr, ptr %l.0.i, align 8
   %5 = load ptr, ptr %4, align 8
   %cmp2.i = icmp eq ptr %5, @_qemu_dbus_display1_listener_property_info_interfaces
-  br i1 %cmp2.i, label %if.end22, label %for.cond.i
+  br i1 %cmp2.i, label %if.end22, label %for.cond.i, !llvm.loop !60
 
-if.then4.i:                                       ; preds = %for.cond.i, %if.then16
+if.then4.i:                                       ; preds = %for.cond.i
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #15
-  %prop_id5.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 1
+  %prop_id5.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %prop_id5.i, align 8
   store ptr @_qemu_dbus_display1_listener_property_info_interfaces, ptr %call.i, align 8
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties8.i = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %6, i64 0, i32 1
+  %changed_properties8.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %changed_properties8.i, align 8
   %call9.i = tail call ptr @g_list_prepend(ptr noundef %7, ptr noundef nonnull %call.i) #12
   %8 = load ptr, ptr %priv, align 8
-  %changed_properties11.i = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %8, i64 0, i32 1
+  %changed_properties11.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call9.i, ptr %changed_properties11.i, align 8
-  %orig_value12.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 2
+  %orig_value12.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %9 = load i64, ptr %3, align 8
   %call13.i = tail call ptr @g_value_init(ptr noundef nonnull %orig_value12.i, i64 noundef %9) #12
   tail call void @g_value_copy(ptr noundef nonnull %3, ptr noundef nonnull %orig_value12.i) #12
@@ -15642,7 +15558,7 @@ if.end22:                                         ; preds = %for.body.i, %if.the
 
 if.end28:                                         ; preds = %if.end22, %do.end
   %12 = load ptr, ptr %priv, align 8
-  %lock30 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %12, i64 0, i32 4
+  %lock30 = getelementptr inbounds i8, ptr %12, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock30) #12
   tail call void @g_object_thaw_notify(ptr noundef %object) #12
   ret void
@@ -15653,18 +15569,18 @@ define internal void @qemu_dbus_display1_listener_skeleton_notify(ptr noundef %o
 entry:
   %call = tail call i64 @qemu_dbus_display1_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %1, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %changed_properties, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.end
@@ -15672,29 +15588,29 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call ptr @g_idle_source_new() #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source7 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %4, i64 0, i32 2
+  %changed_properties_idle_source7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call5, ptr %changed_properties_idle_source7, align 8
   %5 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source9 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %5, i64 0, i32 2
+  %changed_properties_idle_source9 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %changed_properties_idle_source9, align 8
   tail call void @g_source_set_priority(ptr noundef %6, i32 noundef 0) #12
   %7 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source11 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %7, i64 0, i32 2
+  %changed_properties_idle_source11 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %changed_properties_idle_source11, align 8
   %call12 = tail call ptr @g_object_ref(ptr noundef nonnull %call1) #12
   tail call void @g_source_set_callback(ptr noundef %8, ptr noundef nonnull @_qemu_dbus_display1_listener_emit_changed, ptr noundef %call12, ptr noundef nonnull @g_object_unref) #12
   %9 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source14 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %9, i64 0, i32 2
+  %changed_properties_idle_source14 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %changed_properties_idle_source14, align 8
   tail call void @g_source_set_name(ptr noundef %10, ptr noundef nonnull @.str.211) #12
   %11 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source16 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %11, i64 0, i32 2
+  %changed_properties_idle_source16 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %changed_properties_idle_source16, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %11, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %context, align 8
   %call18 = tail call i32 @g_source_attach(ptr noundef %12, ptr noundef %13) #12
   %14 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source20 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %14, i64 0, i32 2
+  %changed_properties_idle_source20 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %changed_properties_idle_source20, align 8
   tail call void @g_source_unref(ptr noundef %15) #12
   %.pre = load ptr, ptr %priv, align 8
@@ -15702,7 +15618,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %16 = phi ptr [ %.pre, %if.then ], [ %1, %land.lhs.true ], [ %1, %entry ]
-  %lock22 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock22 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock22) #12
   ret void
 }
@@ -15746,12 +15662,12 @@ define internal void @qemu_dbus_display1_listener_skeleton_dbus_interface_flush(
 entry:
   %call = tail call i64 @qemu_dbus_display1_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %_skeleton, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end11.critedge, label %if.then
@@ -15759,16 +15675,16 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @g_source_destroy(ptr noundef nonnull %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source6 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %3, i64 0, i32 2
+  %changed_properties_idle_source6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %changed_properties_idle_source6, align 8
   %4 = load ptr, ptr %priv, align 8
-  %lock8 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock8 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8) #12
   %call10 = tail call i32 @_qemu_dbus_display1_listener_emit_changed(ptr noundef nonnull %call1)
   br label %if.end11
 
 if.end11.critedge:                                ; preds = %entry
-  %lock8.c = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock8.c = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8.c) #12
   br label %if.end11
 
@@ -15789,54 +15705,54 @@ entry:
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
   %call = tail call i64 @qemu_dbus_display1_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %user_data, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.118) #12
   call void @g_variant_builder_init(ptr noundef nonnull %builder, ptr noundef %call2) #12
   %call3 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.111) #12
   call void @g_variant_builder_init(ptr noundef nonnull %invalidated_builder, ptr noundef %call3) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %1, i64 0, i32 1
-  %l.021 = load ptr, ptr %changed_properties, align 8
-  %cmp.not22 = icmp eq ptr %l.021, null
-  br i1 %cmp.not22, label %if.else, label %for.body
+  %l.0.in21 = getelementptr inbounds i8, ptr %1, i64 8
+  %l.022 = load ptr, ptr %l.0.in21, align 8
+  %cmp.not23 = icmp eq ptr %l.022, null
+  br i1 %cmp.not23, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %l.024 = phi ptr [ %l.0, %for.inc ], [ %l.021, %entry ]
-  %num_changes.023 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
-  %2 = load ptr, ptr %l.024, align 8
+  %l.025 = phi ptr [ %l.0, %for.inc ], [ %l.022, %entry ]
+  %num_changes.024 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
+  %2 = load ptr, ptr %l.025, align 8
   %3 = load ptr, ptr %priv, align 8
   %4 = load ptr, ptr %3, align 8
-  %prop_id = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 1
+  %prop_id = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %prop_id, align 8
   %sub = add i32 %5, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr %struct._GValue, ptr %4, i64 %idxprom
-  %orig_value = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 2
+  %orig_value = getelementptr inbounds i8, ptr %2, i64 16
   %call6 = call fastcc i32 @_g_value_equal(ptr noundef %arrayidx, ptr noundef nonnull %orig_value)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %2, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %6, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %signature, align 8
   %call7 = call ptr @g_variant_type_checked_(ptr noundef %7) #12
   %call8 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %arrayidx, ptr noundef %call7) #12
   %8 = load ptr, ptr %2, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %8, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %name, align 8
   call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef nonnull %builder, ptr noundef nonnull @.str.124, ptr noundef %9, ptr noundef %call8) #12
   call void @g_variant_unref(ptr noundef %call8) #12
-  %inc = add i32 %num_changes.023, 1
+  %inc = add i32 %num_changes.024, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %num_changes.1 = phi i32 [ %num_changes.023, %for.body ], [ %inc, %if.then ]
-  %next = getelementptr inbounds %struct._GList, ptr %l.024, i64 0, i32 1
-  %l.0 = load ptr, ptr %next, align 8
+  %num_changes.1 = phi i32 [ %num_changes.024, %for.body ], [ %inc, %if.then ]
+  %l.0.in = getelementptr inbounds i8, ptr %l.025, i64 8
+  %l.0 = load ptr, ptr %l.0.in, align 8
   %cmp.not = icmp eq ptr %l.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !61
 
@@ -15850,16 +15766,16 @@ if.then12:                                        ; preds = %for.end
   %call15 = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call16 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef %call15) #12
   %call17 = call ptr @g_dbus_interface_skeleton_get_connections(ptr noundef %call16) #12
-  %cmp19.not25 = icmp eq ptr %call17, null
-  br i1 %cmp19.not25, label %for.end28, label %for.body20
+  %cmp19.not26 = icmp eq ptr %call17, null
+  br i1 %cmp19.not26, label %for.end28, label %for.body20
 
 for.body20:                                       ; preds = %if.then12, %for.body20
-  %ll.026 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
-  %11 = load ptr, ptr %ll.026, align 8
+  %ll.027 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
+  %11 = load ptr, ptr %ll.027, align 8
   %call23 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call15) #12
   %call24 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call23) #12
   %call25 = call i32 @g_dbus_connection_emit_signal(ptr noundef %11, ptr noundef null, ptr noundef %call24, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr noundef %call14, ptr noundef null) #12
-  %next27 = getelementptr inbounds %struct._GList, ptr %ll.026, i64 0, i32 1
+  %next27 = getelementptr inbounds i8, ptr %ll.027, i64 8
   %12 = load ptr, ptr %next27, align 8
   %cmp19.not = icmp eq ptr %12, null
   br i1 %cmp19.not, label %for.end28, label %for.body20, !llvm.loop !62
@@ -15876,17 +15792,17 @@ if.else:                                          ; preds = %entry, %for.end
 
 if.end29:                                         ; preds = %if.else, %for.end28
   %13 = load ptr, ptr %priv, align 8
-  %changed_properties31 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %13, i64 0, i32 1
+  %changed_properties31 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %changed_properties31, align 8
   call void @g_list_free_full(ptr noundef %14, ptr noundef nonnull @_changed_property_free) #12
   %15 = load ptr, ptr %priv, align 8
-  %changed_properties33 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %15, i64 0, i32 1
+  %changed_properties33 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %changed_properties33, align 8
   %16 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %16, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %changed_properties_idle_source, align 8
   %17 = load ptr, ptr %priv, align 8
-  %lock36 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %17, i64 0, i32 4
+  %lock36 = getelementptr inbounds i8, ptr %17, i64 32
   call void @g_mutex_unlock(ptr noundef nonnull %lock36) #12
   ret i32 0
 }
@@ -15908,7 +15824,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -15920,13 +15836,13 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %value_type = getelementptr inbounds %struct._GParamSpec, ptr %call3, i64 0, i32 3
+  %value_type = getelementptr inbounds i8, ptr %call3, i64 24
   %2 = load i64, ptr %value_type, align 8
   %call8 = call ptr @g_value_init(ptr noundef nonnull %value, i64 noundef %2) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
   %3 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_get_property(ptr noundef %call9, ptr noundef %3, ptr noundef nonnull %value) #12
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call11 = call ptr @g_variant_type_checked_(ptr noundef %4) #12
   %call12 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef nonnull %value, ptr noundef %call11) #12
@@ -15956,7 +15872,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @g_variant_n_children(ptr noundef %parameters) #12
-  %pass_fdlist = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %pass_fdlist = getelementptr inbounds i8, ptr %call2, i64 48
   %0 = load i32, ptr %pass_fdlist, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i64 2, i64 3
@@ -15982,7 +15898,7 @@ qemu_dbus_display1_listener_get_type.exit:        ; preds = %do.end, %land.rhs.i
   %2 = load i64, ptr @qemu_dbus_display1_listener_get_type.static_g_define_type_id, align 8
   %call6 = tail call ptr @g_value_init(ptr noundef %call4, i64 noundef %2) #12
   tail call void @g_value_set_object(ptr noundef %call4, ptr noundef %call1) #12
-  %arrayidx8 = getelementptr %struct._GValue, ptr %call4, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call4, i64 24
   %call9 = tail call i64 @g_dbus_method_invocation_get_type() #13
   %call10 = tail call ptr @g_value_init(ptr noundef %arrayidx8, i64 noundef %call9) #12
   tail call void @g_value_set_object(ptr noundef %arrayidx8, ptr noundef %invocation) #12
@@ -15991,7 +15907,7 @@ qemu_dbus_display1_listener_get_type.exit:        ; preds = %do.end, %land.rhs.i
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %qemu_dbus_display1_listener_get_type.exit
-  %arrayidx16 = getelementptr %struct._GValue, ptr %call4, i64 2
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 48
   %call17 = tail call i64 @g_unix_fd_list_get_type() #13
   %call18 = tail call ptr @g_value_init(ptr noundef %arrayidx16, i64 noundef %call17) #12
   %call21 = tail call ptr @g_dbus_method_invocation_get_message(ptr noundef %invocation) #12
@@ -16007,7 +15923,7 @@ if.end23:                                         ; preds = %if.then15, %qemu_db
   br i1 %cmp26.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %in_args = getelementptr inbounds %struct._GDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %in_args = getelementptr inbounds i8, ptr %call2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -16017,7 +15933,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i64 %n.140, %cond
   %arrayidx29 = getelementptr ptr, ptr %4, i64 %sub
   %5 = load ptr, ptr %arrayidx29, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %5, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i32, ptr %use_gvariant, align 8
   %tobool30.not = icmp eq i32 %6, 0
   %arrayidx38 = getelementptr %struct._GValue, ptr %call4, i64 %n.140
@@ -16040,7 +15956,7 @@ if.end39:                                         ; preds = %if.else36, %if.then
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !63
 
 while.end:                                        ; preds = %if.end39, %if.end23
-  %signal_name = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 1
+  %signal_name = getelementptr inbounds i8, ptr %call2, i64 40
   %7 = load ptr, ptr %signal_name, align 8
   %call41 = call i32 @g_signal_lookup(ptr noundef %7, i64 noundef %2) #12
   %call42 = call ptr @g_value_init(ptr noundef nonnull %return_value, i64 noundef 20) #12
@@ -16089,7 +16005,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -16101,7 +16017,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %call2, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -16132,15 +16048,15 @@ define internal ptr @qemu_dbus_display1_listener_skeleton_get_interfaces(ptr nou
 entry:
   %call = tail call i64 @qemu_dbus_display1_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call ptr @g_value_get_boxed(ptr noundef %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -16160,17 +16076,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_listener_win32_map_proxy_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_listener_win32_map_proxy_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_listener_win32_map_proxy_set_property, ptr %set_property.i, align 8
   %call1.i = tail call i64 @g_dbus_proxy_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %g_signal.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 2
+  %g_signal.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_listener_win32_map_proxy_g_signal, ptr %g_signal.i, align 8
-  %g_properties_changed.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 1
+  %g_properties_changed.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_listener_win32_map_proxy_g_properties_changed, ptr %g_properties_changed.i, align 8
   ret void
 }
@@ -16181,7 +16097,7 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1ListenerWin32MapProxy_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %proxy, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32MapProxy, ptr %proxy, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %proxy, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
   %call1 = tail call i64 @g_dbus_proxy_get_type() #13
   %call2 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call1) #12
@@ -16200,12 +16116,12 @@ define internal void @qemu_dbus_display1_listener_win32_map_proxy_finalize(ptr n
 entry:
   %call = tail call i64 @qemu_dbus_display1_listener_win32_map_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32MapProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   tail call void @g_datalist_clear(ptr noundef %0) #12
   %1 = load ptr, ptr @qemu_dbus_display1_listener_win32_map_proxy_parent_class, align 8
   %call2 = tail call ptr @g_type_check_class_cast(ptr noundef %1, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call2, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load ptr, ptr %finalize, align 8
   tail call void %2(ptr noundef %object) #12
   ret void
@@ -16261,7 +16177,7 @@ qemu_dbus_display1_listener_win32_map_get_type.exit: ; preds = %if.end, %land.rh
   br i1 %cmp8.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %qemu_dbus_display1_listener_win32_map_get_type.exit
-  %args = getelementptr inbounds %struct._GDBusSignalInfo, ptr %call, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -16269,9 +16185,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.023 = phi i64 [ 1, %while.body.lr.ph ], [ %n.1, %if.end16 ]
   %2 = load ptr, ptr %args, align 8
   %3 = getelementptr ptr, ptr %2, i64 %n.023
-  %arrayidx9 = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx9, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %4, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %use_gvariant, align 8
   %tobool.not = icmp eq i32 %5, 0
   %arrayidx15 = getelementptr %struct._GValue, ptr %call2, i64 %n.023
@@ -16294,7 +16210,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !65
 
 while.end:                                        ; preds = %if.end16, %qemu_dbus_display1_listener_win32_map_get_type.exit
-  %signal_name17 = getelementptr inbounds %struct._ExtendedGDBusSignalInfo, ptr %call, i64 0, i32 1
+  %signal_name17 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %signal_name17, align 8
   %call19 = call i32 @g_signal_lookup(ptr noundef %6, i64 noundef %1) #12
   call void @g_signal_emitv(ptr noundef %call2, i32 noundef %call19, i32 noundef 0, ptr noundef null) #12
@@ -16331,7 +16247,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32MapProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -16346,7 +16262,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call3, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call3, i64 40
   %4 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_notify(ptr noundef %call5, ptr noundef %4) #12
   br label %if.end
@@ -16365,7 +16281,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp6.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %priv10 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32MapProxy, ptr %call1, i64 0, i32 1
+  %priv10 = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -16382,7 +16298,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then16:                                        ; preds = %for.body
   %call17 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name18 = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call9, i64 0, i32 1
+  %hyphen_name18 = getelementptr inbounds i8, ptr %call9, i64 40
   %11 = load ptr, ptr %hyphen_name18, align 8
   call void @g_object_notify(ptr noundef %call17, ptr noundef %11) #12
   br label %for.inc
@@ -16414,17 +16330,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_listener_win32_map_skeleton_finalize, ptr %finalize.i, align 8
   %call1.i = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %get_info.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call2.i, i64 0, i32 1
+  %get_info.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_listener_win32_map_skeleton_dbus_interface_get_info, ptr %get_info.i, align 8
-  %get_properties.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call2.i, i64 0, i32 3
+  %get_properties.i = getelementptr inbounds i8, ptr %call2.i, i64 152
   store ptr @qemu_dbus_display1_listener_win32_map_skeleton_dbus_interface_get_properties, ptr %get_properties.i, align 8
-  %flush.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call2.i, i64 0, i32 4
+  %flush.i = getelementptr inbounds i8, ptr %call2.i, i64 160
   store ptr @qemu_dbus_display1_listener_win32_map_skeleton_dbus_interface_flush, ptr %flush.i, align 8
-  %get_vtable.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call2.i, i64 0, i32 2
+  %get_vtable.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_listener_win32_map_skeleton_dbus_interface_get_vtable, ptr %get_vtable.i, align 8
   ret void
 }
@@ -16435,13 +16351,13 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1ListenerWin32MapSkeleton_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %skeleton, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32MapSkeleton, ptr %skeleton, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %skeleton, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32MapSkeletonPrivate, ptr %add.ptr.i, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   tail call void @g_mutex_init(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_main_context_ref_thread_default() #12
   %1 = load ptr, ptr %priv, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32MapSkeletonPrivate, ptr %1, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call2, ptr %context, align 8
   ret void
 }
@@ -16457,13 +16373,13 @@ define internal void @qemu_dbus_display1_listener_win32_map_skeleton_finalize(pt
 entry:
   %call = tail call i64 @qemu_dbus_display1_listener_win32_map_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32MapSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32MapSkeletonPrivate, ptr %0, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %changed_properties, align 8
   tail call void @g_list_free_full(ptr noundef %1, ptr noundef nonnull @_changed_property_free) #12
   %2 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32MapSkeletonPrivate, ptr %2, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -16475,15 +16391,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %4 = phi ptr [ %.pre, %if.then ], [ %2, %entry ]
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32MapSkeletonPrivate, ptr %4, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %context, align 8
   tail call void @g_main_context_unref(ptr noundef %5) #12
   %6 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32MapSkeletonPrivate, ptr %6, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %6, i64 32
   tail call void @g_mutex_clear(ptr noundef nonnull %lock) #12
   %7 = load ptr, ptr @qemu_dbus_display1_listener_win32_map_skeleton_parent_class, align 8
   %call7 = tail call ptr @g_type_check_class_cast(ptr noundef %7, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call7, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call7, i64 48
   %8 = load ptr, ptr %finalize, align 8
   tail call void %8(ptr noundef %object) #12
   ret void
@@ -16537,7 +16453,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @g_variant_n_children(ptr noundef %parameters) #12
-  %pass_fdlist = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %pass_fdlist = getelementptr inbounds i8, ptr %call2, i64 48
   %0 = load i32, ptr %pass_fdlist, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i64 2, i64 3
@@ -16563,7 +16479,7 @@ qemu_dbus_display1_listener_win32_map_get_type.exit: ; preds = %do.end, %land.rh
   %2 = load i64, ptr @qemu_dbus_display1_listener_win32_map_get_type.static_g_define_type_id, align 8
   %call6 = tail call ptr @g_value_init(ptr noundef %call4, i64 noundef %2) #12
   tail call void @g_value_set_object(ptr noundef %call4, ptr noundef %call1) #12
-  %arrayidx8 = getelementptr %struct._GValue, ptr %call4, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call4, i64 24
   %call9 = tail call i64 @g_dbus_method_invocation_get_type() #13
   %call10 = tail call ptr @g_value_init(ptr noundef %arrayidx8, i64 noundef %call9) #12
   tail call void @g_value_set_object(ptr noundef %arrayidx8, ptr noundef %invocation) #12
@@ -16572,7 +16488,7 @@ qemu_dbus_display1_listener_win32_map_get_type.exit: ; preds = %do.end, %land.rh
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %qemu_dbus_display1_listener_win32_map_get_type.exit
-  %arrayidx16 = getelementptr %struct._GValue, ptr %call4, i64 2
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 48
   %call17 = tail call i64 @g_unix_fd_list_get_type() #13
   %call18 = tail call ptr @g_value_init(ptr noundef %arrayidx16, i64 noundef %call17) #12
   %call21 = tail call ptr @g_dbus_method_invocation_get_message(ptr noundef %invocation) #12
@@ -16588,7 +16504,7 @@ if.end23:                                         ; preds = %if.then15, %qemu_db
   br i1 %cmp26.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %in_args = getelementptr inbounds %struct._GDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %in_args = getelementptr inbounds i8, ptr %call2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -16598,7 +16514,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i64 %n.140, %cond
   %arrayidx29 = getelementptr ptr, ptr %4, i64 %sub
   %5 = load ptr, ptr %arrayidx29, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %5, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i32, ptr %use_gvariant, align 8
   %tobool30.not = icmp eq i32 %6, 0
   %arrayidx38 = getelementptr %struct._GValue, ptr %call4, i64 %n.140
@@ -16621,7 +16537,7 @@ if.end39:                                         ; preds = %if.else36, %if.then
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !69
 
 while.end:                                        ; preds = %if.end39, %if.end23
-  %signal_name = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 1
+  %signal_name = getelementptr inbounds i8, ptr %call2, i64 40
   %7 = load ptr, ptr %signal_name, align 8
   %call41 = call i32 @g_signal_lookup(ptr noundef %7, i64 noundef %2) #12
   %call42 = call ptr @g_value_init(ptr noundef nonnull %return_value, i64 noundef 20) #12
@@ -16670,7 +16586,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -16682,13 +16598,13 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %value_type = getelementptr inbounds %struct._GParamSpec, ptr %call3, i64 0, i32 3
+  %value_type = getelementptr inbounds i8, ptr %call3, i64 24
   %2 = load i64, ptr %value_type, align 8
   %call8 = call ptr @g_value_init(ptr noundef nonnull %value, i64 noundef %2) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
   %3 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_get_property(ptr noundef %call9, ptr noundef %3, ptr noundef nonnull %value) #12
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call11 = call ptr @g_variant_type_checked_(ptr noundef %4) #12
   %call12 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef nonnull %value, ptr noundef %call11) #12
@@ -16717,7 +16633,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -16729,7 +16645,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %call2, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -16770,17 +16686,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_listener_win32_d3d11_proxy_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_listener_win32_d3d11_proxy_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_listener_win32_d3d11_proxy_set_property, ptr %set_property.i, align 8
   %call1.i = tail call i64 @g_dbus_proxy_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %g_signal.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 2
+  %g_signal.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_listener_win32_d3d11_proxy_g_signal, ptr %g_signal.i, align 8
-  %g_properties_changed.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 1
+  %g_properties_changed.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_listener_win32_d3d11_proxy_g_properties_changed, ptr %g_properties_changed.i, align 8
   ret void
 }
@@ -16791,7 +16707,7 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1ListenerWin32D3d11Proxy_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %proxy, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32D3d11Proxy, ptr %proxy, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %proxy, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
   %call1 = tail call i64 @g_dbus_proxy_get_type() #13
   %call2 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call1) #12
@@ -16810,12 +16726,12 @@ define internal void @qemu_dbus_display1_listener_win32_d3d11_proxy_finalize(ptr
 entry:
   %call = tail call i64 @qemu_dbus_display1_listener_win32_d3d11_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32D3d11Proxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   tail call void @g_datalist_clear(ptr noundef %0) #12
   %1 = load ptr, ptr @qemu_dbus_display1_listener_win32_d3d11_proxy_parent_class, align 8
   %call2 = tail call ptr @g_type_check_class_cast(ptr noundef %1, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call2, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load ptr, ptr %finalize, align 8
   tail call void %2(ptr noundef %object) #12
   ret void
@@ -16871,7 +16787,7 @@ qemu_dbus_display1_listener_win32_d3d11_get_type.exit: ; preds = %if.end, %land.
   br i1 %cmp8.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %qemu_dbus_display1_listener_win32_d3d11_get_type.exit
-  %args = getelementptr inbounds %struct._GDBusSignalInfo, ptr %call, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -16879,9 +16795,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.023 = phi i64 [ 1, %while.body.lr.ph ], [ %n.1, %if.end16 ]
   %2 = load ptr, ptr %args, align 8
   %3 = getelementptr ptr, ptr %2, i64 %n.023
-  %arrayidx9 = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx9, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %4, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %use_gvariant, align 8
   %tobool.not = icmp eq i32 %5, 0
   %arrayidx15 = getelementptr %struct._GValue, ptr %call2, i64 %n.023
@@ -16904,7 +16820,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !71
 
 while.end:                                        ; preds = %if.end16, %qemu_dbus_display1_listener_win32_d3d11_get_type.exit
-  %signal_name17 = getelementptr inbounds %struct._ExtendedGDBusSignalInfo, ptr %call, i64 0, i32 1
+  %signal_name17 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %signal_name17, align 8
   %call19 = call i32 @g_signal_lookup(ptr noundef %6, i64 noundef %1) #12
   call void @g_signal_emitv(ptr noundef %call2, i32 noundef %call19, i32 noundef 0, ptr noundef null) #12
@@ -16941,7 +16857,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32D3d11Proxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -16956,7 +16872,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call3, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call3, i64 40
   %4 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_notify(ptr noundef %call5, ptr noundef %4) #12
   br label %if.end
@@ -16975,7 +16891,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp6.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %priv10 = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32D3d11Proxy, ptr %call1, i64 0, i32 1
+  %priv10 = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -16992,7 +16908,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then16:                                        ; preds = %for.body
   %call17 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name18 = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call9, i64 0, i32 1
+  %hyphen_name18 = getelementptr inbounds i8, ptr %call9, i64 40
   %11 = load ptr, ptr %hyphen_name18, align 8
   call void @g_object_notify(ptr noundef %call17, ptr noundef %11) #12
   br label %for.inc
@@ -17024,17 +16940,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_listener_win32_d3d11_skeleton_finalize, ptr %finalize.i, align 8
   %call1.i = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %get_info.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call2.i, i64 0, i32 1
+  %get_info.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_listener_win32_d3d11_skeleton_dbus_interface_get_info, ptr %get_info.i, align 8
-  %get_properties.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call2.i, i64 0, i32 3
+  %get_properties.i = getelementptr inbounds i8, ptr %call2.i, i64 152
   store ptr @qemu_dbus_display1_listener_win32_d3d11_skeleton_dbus_interface_get_properties, ptr %get_properties.i, align 8
-  %flush.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call2.i, i64 0, i32 4
+  %flush.i = getelementptr inbounds i8, ptr %call2.i, i64 160
   store ptr @qemu_dbus_display1_listener_win32_d3d11_skeleton_dbus_interface_flush, ptr %flush.i, align 8
-  %get_vtable.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call2.i, i64 0, i32 2
+  %get_vtable.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_listener_win32_d3d11_skeleton_dbus_interface_get_vtable, ptr %get_vtable.i, align 8
   ret void
 }
@@ -17045,13 +16961,13 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1ListenerWin32D3d11Skeleton_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %skeleton, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32D3d11Skeleton, ptr %skeleton, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %skeleton, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32D3d11SkeletonPrivate, ptr %add.ptr.i, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   tail call void @g_mutex_init(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_main_context_ref_thread_default() #12
   %1 = load ptr, ptr %priv, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32D3d11SkeletonPrivate, ptr %1, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call2, ptr %context, align 8
   ret void
 }
@@ -17067,13 +16983,13 @@ define internal void @qemu_dbus_display1_listener_win32_d3d11_skeleton_finalize(
 entry:
   %call = tail call i64 @qemu_dbus_display1_listener_win32_d3d11_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32D3d11Skeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32D3d11SkeletonPrivate, ptr %0, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %changed_properties, align 8
   tail call void @g_list_free_full(ptr noundef %1, ptr noundef nonnull @_changed_property_free) #12
   %2 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32D3d11SkeletonPrivate, ptr %2, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -17085,15 +17001,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %4 = phi ptr [ %.pre, %if.then ], [ %2, %entry ]
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32D3d11SkeletonPrivate, ptr %4, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %context, align 8
   tail call void @g_main_context_unref(ptr noundef %5) #12
   %6 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ListenerWin32D3d11SkeletonPrivate, ptr %6, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %6, i64 32
   tail call void @g_mutex_clear(ptr noundef nonnull %lock) #12
   %7 = load ptr, ptr @qemu_dbus_display1_listener_win32_d3d11_skeleton_parent_class, align 8
   %call7 = tail call ptr @g_type_check_class_cast(ptr noundef %7, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call7, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call7, i64 48
   %8 = load ptr, ptr %finalize, align 8
   tail call void %8(ptr noundef %object) #12
   ret void
@@ -17147,7 +17063,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @g_variant_n_children(ptr noundef %parameters) #12
-  %pass_fdlist = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %pass_fdlist = getelementptr inbounds i8, ptr %call2, i64 48
   %0 = load i32, ptr %pass_fdlist, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i64 2, i64 3
@@ -17173,7 +17089,7 @@ qemu_dbus_display1_listener_win32_d3d11_get_type.exit: ; preds = %do.end, %land.
   %2 = load i64, ptr @qemu_dbus_display1_listener_win32_d3d11_get_type.static_g_define_type_id, align 8
   %call6 = tail call ptr @g_value_init(ptr noundef %call4, i64 noundef %2) #12
   tail call void @g_value_set_object(ptr noundef %call4, ptr noundef %call1) #12
-  %arrayidx8 = getelementptr %struct._GValue, ptr %call4, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call4, i64 24
   %call9 = tail call i64 @g_dbus_method_invocation_get_type() #13
   %call10 = tail call ptr @g_value_init(ptr noundef %arrayidx8, i64 noundef %call9) #12
   tail call void @g_value_set_object(ptr noundef %arrayidx8, ptr noundef %invocation) #12
@@ -17182,7 +17098,7 @@ qemu_dbus_display1_listener_win32_d3d11_get_type.exit: ; preds = %do.end, %land.
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %qemu_dbus_display1_listener_win32_d3d11_get_type.exit
-  %arrayidx16 = getelementptr %struct._GValue, ptr %call4, i64 2
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 48
   %call17 = tail call i64 @g_unix_fd_list_get_type() #13
   %call18 = tail call ptr @g_value_init(ptr noundef %arrayidx16, i64 noundef %call17) #12
   %call21 = tail call ptr @g_dbus_method_invocation_get_message(ptr noundef %invocation) #12
@@ -17198,7 +17114,7 @@ if.end23:                                         ; preds = %if.then15, %qemu_db
   br i1 %cmp26.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %in_args = getelementptr inbounds %struct._GDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %in_args = getelementptr inbounds i8, ptr %call2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -17208,7 +17124,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i64 %n.140, %cond
   %arrayidx29 = getelementptr ptr, ptr %4, i64 %sub
   %5 = load ptr, ptr %arrayidx29, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %5, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i32, ptr %use_gvariant, align 8
   %tobool30.not = icmp eq i32 %6, 0
   %arrayidx38 = getelementptr %struct._GValue, ptr %call4, i64 %n.140
@@ -17231,7 +17147,7 @@ if.end39:                                         ; preds = %if.else36, %if.then
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !75
 
 while.end:                                        ; preds = %if.end39, %if.end23
-  %signal_name = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 1
+  %signal_name = getelementptr inbounds i8, ptr %call2, i64 40
   %7 = load ptr, ptr %signal_name, align 8
   %call41 = call i32 @g_signal_lookup(ptr noundef %7, i64 noundef %2) #12
   %call42 = call ptr @g_value_init(ptr noundef nonnull %return_value, i64 noundef 20) #12
@@ -17280,7 +17196,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -17292,13 +17208,13 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %value_type = getelementptr inbounds %struct._GParamSpec, ptr %call3, i64 0, i32 3
+  %value_type = getelementptr inbounds i8, ptr %call3, i64 24
   %2 = load i64, ptr %value_type, align 8
   %call8 = call ptr @g_value_init(ptr noundef nonnull %value, i64 noundef %2) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
   %3 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_get_property(ptr noundef %call9, ptr noundef %3, ptr noundef nonnull %value) #12
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call11 = call ptr @g_variant_type_checked_(ptr noundef %4) #12
   %call12 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef nonnull %value, ptr noundef %call11) #12
@@ -17327,7 +17243,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -17339,7 +17255,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %call2, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -17380,17 +17296,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_clipboard_proxy_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_clipboard_proxy_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_clipboard_proxy_set_property, ptr %set_property.i, align 8
   %call1.i = tail call i64 @g_dbus_proxy_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %g_signal.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 2
+  %g_signal.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_clipboard_proxy_g_signal, ptr %g_signal.i, align 8
-  %g_properties_changed.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 1
+  %g_properties_changed.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_clipboard_proxy_g_properties_changed, ptr %g_properties_changed.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.3) #12
   ret void
@@ -17402,7 +17318,7 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1ClipboardProxy_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %proxy, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardProxy, ptr %proxy, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %proxy, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
   %call1 = tail call i64 @g_dbus_proxy_get_type() #13
   %call2 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call1) #12
@@ -17413,7 +17329,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_clipboard_proxy_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardIface, ptr %iface, i64 0, i32 6
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 56
   store ptr @qemu_dbus_display1_clipboard_proxy_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -17423,12 +17339,12 @@ define internal void @qemu_dbus_display1_clipboard_proxy_finalize(ptr noundef %o
 entry:
   %call = tail call i64 @qemu_dbus_display1_clipboard_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   tail call void @g_datalist_clear(ptr noundef %0) #12
   %1 = load ptr, ptr @qemu_dbus_display1_clipboard_proxy_parent_class, align 8
   %call2 = tail call ptr @g_type_check_class_cast(ptr noundef %1, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call2, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load ptr, ptr %finalize, align 8
   tail call void %2(ptr noundef %object) #12
   ret void
@@ -17519,7 +17435,7 @@ qemu_dbus_display1_clipboard_get_type.exit:       ; preds = %if.end, %land.rhs.i
   br i1 %cmp8.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %qemu_dbus_display1_clipboard_get_type.exit
-  %args = getelementptr inbounds %struct._GDBusSignalInfo, ptr %call, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -17527,9 +17443,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.023 = phi i64 [ 1, %while.body.lr.ph ], [ %n.1, %if.end16 ]
   %2 = load ptr, ptr %args, align 8
   %3 = getelementptr ptr, ptr %2, i64 %n.023
-  %arrayidx9 = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx9, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %4, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %use_gvariant, align 8
   %tobool.not = icmp eq i32 %5, 0
   %arrayidx15 = getelementptr %struct._GValue, ptr %call2, i64 %n.023
@@ -17552,7 +17468,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !77
 
 while.end:                                        ; preds = %if.end16, %qemu_dbus_display1_clipboard_get_type.exit
-  %signal_name17 = getelementptr inbounds %struct._ExtendedGDBusSignalInfo, ptr %call, i64 0, i32 1
+  %signal_name17 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %signal_name17, align 8
   %call19 = call i32 @g_signal_lookup(ptr noundef %6, i64 noundef %1) #12
   call void @g_signal_emitv(ptr noundef %call2, i32 noundef %call19, i32 noundef 0, ptr noundef null) #12
@@ -17589,7 +17505,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -17604,7 +17520,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call3, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call3, i64 40
   %4 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_notify(ptr noundef %call5, ptr noundef %4) #12
   br label %if.end
@@ -17623,7 +17539,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp6.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %priv10 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardProxy, ptr %call1, i64 0, i32 1
+  %priv10 = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -17640,7 +17556,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then16:                                        ; preds = %for.body
   %call17 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name18 = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call9, i64 0, i32 1
+  %hyphen_name18 = getelementptr inbounds i8, ptr %call9, i64 40
   %11 = load ptr, ptr %hyphen_name18, align 8
   call void @g_object_notify(ptr noundef %call17, ptr noundef %11) #12
   br label %for.inc
@@ -17667,14 +17583,14 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %user_data, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load ptr, ptr %error, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %message, align 8
   %3 = load i32, ptr %1, align 8
   %call1 = call ptr @g_quark_to_string(i32 noundef %3) #13
-  %code = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %code, align 4
   call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.236, ptr noundef %0, ptr noundef %2, ptr noundef %call1, i32 noundef %4) #12
   %5 = load ptr, ptr %error, align 8
@@ -17694,7 +17610,7 @@ define internal ptr @qemu_dbus_display1_clipboard_proxy_get_interfaces(ptr nound
 entry:
   %call = tail call i64 @qemu_dbus_display1_clipboard_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %call2 = tail call ptr @g_datalist_get_data(ptr noundef %0, ptr noundef nonnull @.str.110) #12
   %cmp.not = icmp eq ptr %call2, null
@@ -17735,24 +17651,24 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_clipboard_skeleton_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_clipboard_skeleton_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_clipboard_skeleton_set_property, ptr %set_property.i, align 8
-  %notify.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 8
+  %notify.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @qemu_dbus_display1_clipboard_skeleton_notify, ptr %notify.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.3) #12
   %call2.i = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call3.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call2.i) #12
-  %get_info.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 1
+  %get_info.i = getelementptr inbounds i8, ptr %call3.i, i64 136
   store ptr @qemu_dbus_display1_clipboard_skeleton_dbus_interface_get_info, ptr %get_info.i, align 8
-  %get_properties.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 3
+  %get_properties.i = getelementptr inbounds i8, ptr %call3.i, i64 152
   store ptr @qemu_dbus_display1_clipboard_skeleton_dbus_interface_get_properties, ptr %get_properties.i, align 8
-  %flush.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 4
+  %flush.i = getelementptr inbounds i8, ptr %call3.i, i64 160
   store ptr @qemu_dbus_display1_clipboard_skeleton_dbus_interface_flush, ptr %flush.i, align 8
-  %get_vtable.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 2
+  %get_vtable.i = getelementptr inbounds i8, ptr %call3.i, i64 144
   store ptr @qemu_dbus_display1_clipboard_skeleton_dbus_interface_get_vtable, ptr %get_vtable.i, align 8
   ret void
 }
@@ -17763,13 +17679,13 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1ClipboardSkeleton_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %skeleton, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeleton, ptr %skeleton, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %skeleton, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %add.ptr.i, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   tail call void @g_mutex_init(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_main_context_ref_thread_default() #12
   %1 = load ptr, ptr %priv, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %1, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call2, ptr %context, align 8
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #15
   %2 = load ptr, ptr %priv, align 8
@@ -17784,7 +17700,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_clipboard_skeleton_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardIface, ptr %iface, i64 0, i32 6
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 56
   store ptr @qemu_dbus_display1_clipboard_skeleton_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -17794,7 +17710,7 @@ define internal void @qemu_dbus_display1_clipboard_skeleton_finalize(ptr noundef
 entry:
   %call = tail call i64 @qemu_dbus_display1_clipboard_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @g_value_unset(ptr noundef %1) #12
@@ -17802,11 +17718,11 @@ entry:
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %4, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %changed_properties, align 8
   tail call void @g_list_free_full(ptr noundef %5, ptr noundef nonnull @_changed_property_free) #12
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %6, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp6.not = icmp eq ptr %7, null
   br i1 %cmp6.not, label %if.end, label %if.then
@@ -17818,15 +17734,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %8 = phi ptr [ %.pre, %if.then ], [ %6, %entry ]
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %8, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %context, align 8
   tail call void @g_main_context_unref(ptr noundef %9) #12
   %10 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %10, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %10, i64 32
   tail call void @g_mutex_clear(ptr noundef nonnull %lock) #12
   %11 = load ptr, ptr @qemu_dbus_display1_clipboard_skeleton_parent_class, align 8
   %call11 = tail call ptr @g_type_check_class_cast(ptr noundef %11, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call11, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call11, i64 48
   %12 = load ptr, ptr %finalize, align 8
   tail call void %12(ptr noundef %object) #12
   ret void
@@ -17845,15 +17761,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   tail call void @g_value_copy(ptr noundef %2, ptr noundef %value) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock6 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }
@@ -17871,9 +17787,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   tail call void @g_object_freeze_notify(ptr noundef %object) #12
   %1 = load ptr, ptr %priv, align 8
@@ -17892,37 +17808,34 @@ if.then9:                                         ; preds = %do.end
 
 if.then16:                                        ; preds = %if.then9
   %3 = load ptr, ptr %.pre18, align 8
-  %changed_properties.i = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %.pre18, i64 0, i32 1
-  %l.01.i = load ptr, ptr %changed_properties.i, align 8
-  %cmp.not2.i = icmp eq ptr %l.01.i, null
-  br i1 %cmp.not2.i, label %if.then4.i, label %for.body.i
+  br label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct._GList, ptr %l.03.i, i64 0, i32 1
-  %l.0.i = load ptr, ptr %next.i, align 8
+for.cond.i:                                       ; preds = %for.body.i, %if.then16
+  %.pn.i = phi ptr [ %.pre18, %if.then16 ], [ %l.0.i, %for.body.i ]
+  %l.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %l.0.i = load ptr, ptr %l.0.in.i, align 8
   %cmp.not.i = icmp eq ptr %l.0.i, null
-  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !81
+  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i
 
-for.body.i:                                       ; preds = %if.then16, %for.cond.i
-  %l.03.i = phi ptr [ %l.0.i, %for.cond.i ], [ %l.01.i, %if.then16 ]
-  %4 = load ptr, ptr %l.03.i, align 8
+for.body.i:                                       ; preds = %for.cond.i
+  %4 = load ptr, ptr %l.0.i, align 8
   %5 = load ptr, ptr %4, align 8
   %cmp2.i = icmp eq ptr %5, @_qemu_dbus_display1_clipboard_property_info_interfaces
-  br i1 %cmp2.i, label %if.end22, label %for.cond.i
+  br i1 %cmp2.i, label %if.end22, label %for.cond.i, !llvm.loop !81
 
-if.then4.i:                                       ; preds = %for.cond.i, %if.then16
+if.then4.i:                                       ; preds = %for.cond.i
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #15
-  %prop_id5.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 1
+  %prop_id5.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %prop_id5.i, align 8
   store ptr @_qemu_dbus_display1_clipboard_property_info_interfaces, ptr %call.i, align 8
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties8.i = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %6, i64 0, i32 1
+  %changed_properties8.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %changed_properties8.i, align 8
   %call9.i = tail call ptr @g_list_prepend(ptr noundef %7, ptr noundef nonnull %call.i) #12
   %8 = load ptr, ptr %priv, align 8
-  %changed_properties11.i = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %8, i64 0, i32 1
+  %changed_properties11.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call9.i, ptr %changed_properties11.i, align 8
-  %orig_value12.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 2
+  %orig_value12.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %9 = load i64, ptr %3, align 8
   %call13.i = tail call ptr @g_value_init(ptr noundef nonnull %orig_value12.i, i64 noundef %9) #12
   tail call void @g_value_copy(ptr noundef nonnull %3, ptr noundef nonnull %orig_value12.i) #12
@@ -17938,7 +17851,7 @@ if.end22:                                         ; preds = %for.body.i, %if.the
 
 if.end28:                                         ; preds = %if.end22, %do.end
   %12 = load ptr, ptr %priv, align 8
-  %lock30 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %12, i64 0, i32 4
+  %lock30 = getelementptr inbounds i8, ptr %12, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock30) #12
   tail call void @g_object_thaw_notify(ptr noundef %object) #12
   ret void
@@ -17949,18 +17862,18 @@ define internal void @qemu_dbus_display1_clipboard_skeleton_notify(ptr noundef %
 entry:
   %call = tail call i64 @qemu_dbus_display1_clipboard_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %1, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %changed_properties, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.end
@@ -17968,29 +17881,29 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call ptr @g_idle_source_new() #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source7 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %4, i64 0, i32 2
+  %changed_properties_idle_source7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call5, ptr %changed_properties_idle_source7, align 8
   %5 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source9 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %5, i64 0, i32 2
+  %changed_properties_idle_source9 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %changed_properties_idle_source9, align 8
   tail call void @g_source_set_priority(ptr noundef %6, i32 noundef 0) #12
   %7 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source11 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %7, i64 0, i32 2
+  %changed_properties_idle_source11 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %changed_properties_idle_source11, align 8
   %call12 = tail call ptr @g_object_ref(ptr noundef nonnull %call1) #12
   tail call void @g_source_set_callback(ptr noundef %8, ptr noundef nonnull @_qemu_dbus_display1_clipboard_emit_changed, ptr noundef %call12, ptr noundef nonnull @g_object_unref) #12
   %9 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source14 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %9, i64 0, i32 2
+  %changed_properties_idle_source14 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %changed_properties_idle_source14, align 8
   tail call void @g_source_set_name(ptr noundef %10, ptr noundef nonnull @.str.238) #12
   %11 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source16 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %11, i64 0, i32 2
+  %changed_properties_idle_source16 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %changed_properties_idle_source16, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %11, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %context, align 8
   %call18 = tail call i32 @g_source_attach(ptr noundef %12, ptr noundef %13) #12
   %14 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source20 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %14, i64 0, i32 2
+  %changed_properties_idle_source20 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %changed_properties_idle_source20, align 8
   tail call void @g_source_unref(ptr noundef %15) #12
   %.pre = load ptr, ptr %priv, align 8
@@ -17998,7 +17911,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %16 = phi ptr [ %.pre, %if.then ], [ %1, %land.lhs.true ], [ %1, %entry ]
-  %lock22 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock22 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock22) #12
   ret void
 }
@@ -18042,12 +17955,12 @@ define internal void @qemu_dbus_display1_clipboard_skeleton_dbus_interface_flush
 entry:
   %call = tail call i64 @qemu_dbus_display1_clipboard_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %_skeleton, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end11.critedge, label %if.then
@@ -18055,16 +17968,16 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @g_source_destroy(ptr noundef nonnull %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source6 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %3, i64 0, i32 2
+  %changed_properties_idle_source6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %changed_properties_idle_source6, align 8
   %4 = load ptr, ptr %priv, align 8
-  %lock8 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock8 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8) #12
   %call10 = tail call i32 @_qemu_dbus_display1_clipboard_emit_changed(ptr noundef nonnull %call1)
   br label %if.end11
 
 if.end11.critedge:                                ; preds = %entry
-  %lock8.c = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock8.c = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8.c) #12
   br label %if.end11
 
@@ -18085,54 +17998,54 @@ entry:
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
   %call = tail call i64 @qemu_dbus_display1_clipboard_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %user_data, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.118) #12
   call void @g_variant_builder_init(ptr noundef nonnull %builder, ptr noundef %call2) #12
   %call3 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.111) #12
   call void @g_variant_builder_init(ptr noundef nonnull %invalidated_builder, ptr noundef %call3) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %1, i64 0, i32 1
-  %l.021 = load ptr, ptr %changed_properties, align 8
-  %cmp.not22 = icmp eq ptr %l.021, null
-  br i1 %cmp.not22, label %if.else, label %for.body
+  %l.0.in21 = getelementptr inbounds i8, ptr %1, i64 8
+  %l.022 = load ptr, ptr %l.0.in21, align 8
+  %cmp.not23 = icmp eq ptr %l.022, null
+  br i1 %cmp.not23, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %l.024 = phi ptr [ %l.0, %for.inc ], [ %l.021, %entry ]
-  %num_changes.023 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
-  %2 = load ptr, ptr %l.024, align 8
+  %l.025 = phi ptr [ %l.0, %for.inc ], [ %l.022, %entry ]
+  %num_changes.024 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
+  %2 = load ptr, ptr %l.025, align 8
   %3 = load ptr, ptr %priv, align 8
   %4 = load ptr, ptr %3, align 8
-  %prop_id = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 1
+  %prop_id = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %prop_id, align 8
   %sub = add i32 %5, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr %struct._GValue, ptr %4, i64 %idxprom
-  %orig_value = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 2
+  %orig_value = getelementptr inbounds i8, ptr %2, i64 16
   %call6 = call fastcc i32 @_g_value_equal(ptr noundef %arrayidx, ptr noundef nonnull %orig_value)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %2, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %6, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %signature, align 8
   %call7 = call ptr @g_variant_type_checked_(ptr noundef %7) #12
   %call8 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %arrayidx, ptr noundef %call7) #12
   %8 = load ptr, ptr %2, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %8, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %name, align 8
   call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef nonnull %builder, ptr noundef nonnull @.str.124, ptr noundef %9, ptr noundef %call8) #12
   call void @g_variant_unref(ptr noundef %call8) #12
-  %inc = add i32 %num_changes.023, 1
+  %inc = add i32 %num_changes.024, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %num_changes.1 = phi i32 [ %num_changes.023, %for.body ], [ %inc, %if.then ]
-  %next = getelementptr inbounds %struct._GList, ptr %l.024, i64 0, i32 1
-  %l.0 = load ptr, ptr %next, align 8
+  %num_changes.1 = phi i32 [ %num_changes.024, %for.body ], [ %inc, %if.then ]
+  %l.0.in = getelementptr inbounds i8, ptr %l.025, i64 8
+  %l.0 = load ptr, ptr %l.0.in, align 8
   %cmp.not = icmp eq ptr %l.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !82
 
@@ -18146,16 +18059,16 @@ if.then12:                                        ; preds = %for.end
   %call15 = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call16 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef %call15) #12
   %call17 = call ptr @g_dbus_interface_skeleton_get_connections(ptr noundef %call16) #12
-  %cmp19.not25 = icmp eq ptr %call17, null
-  br i1 %cmp19.not25, label %for.end28, label %for.body20
+  %cmp19.not26 = icmp eq ptr %call17, null
+  br i1 %cmp19.not26, label %for.end28, label %for.body20
 
 for.body20:                                       ; preds = %if.then12, %for.body20
-  %ll.026 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
-  %11 = load ptr, ptr %ll.026, align 8
+  %ll.027 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
+  %11 = load ptr, ptr %ll.027, align 8
   %call23 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call15) #12
   %call24 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call23) #12
   %call25 = call i32 @g_dbus_connection_emit_signal(ptr noundef %11, ptr noundef null, ptr noundef %call24, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr noundef %call14, ptr noundef null) #12
-  %next27 = getelementptr inbounds %struct._GList, ptr %ll.026, i64 0, i32 1
+  %next27 = getelementptr inbounds i8, ptr %ll.027, i64 8
   %12 = load ptr, ptr %next27, align 8
   %cmp19.not = icmp eq ptr %12, null
   br i1 %cmp19.not, label %for.end28, label %for.body20, !llvm.loop !83
@@ -18172,17 +18085,17 @@ if.else:                                          ; preds = %entry, %for.end
 
 if.end29:                                         ; preds = %if.else, %for.end28
   %13 = load ptr, ptr %priv, align 8
-  %changed_properties31 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %13, i64 0, i32 1
+  %changed_properties31 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %changed_properties31, align 8
   call void @g_list_free_full(ptr noundef %14, ptr noundef nonnull @_changed_property_free) #12
   %15 = load ptr, ptr %priv, align 8
-  %changed_properties33 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %15, i64 0, i32 1
+  %changed_properties33 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %changed_properties33, align 8
   %16 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %16, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %changed_properties_idle_source, align 8
   %17 = load ptr, ptr %priv, align 8
-  %lock36 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %17, i64 0, i32 4
+  %lock36 = getelementptr inbounds i8, ptr %17, i64 32
   call void @g_mutex_unlock(ptr noundef nonnull %lock36) #12
   ret i32 0
 }
@@ -18204,7 +18117,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -18216,13 +18129,13 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %value_type = getelementptr inbounds %struct._GParamSpec, ptr %call3, i64 0, i32 3
+  %value_type = getelementptr inbounds i8, ptr %call3, i64 24
   %2 = load i64, ptr %value_type, align 8
   %call8 = call ptr @g_value_init(ptr noundef nonnull %value, i64 noundef %2) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
   %3 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_get_property(ptr noundef %call9, ptr noundef %3, ptr noundef nonnull %value) #12
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call11 = call ptr @g_variant_type_checked_(ptr noundef %4) #12
   %call12 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef nonnull %value, ptr noundef %call11) #12
@@ -18252,7 +18165,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @g_variant_n_children(ptr noundef %parameters) #12
-  %pass_fdlist = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %pass_fdlist = getelementptr inbounds i8, ptr %call2, i64 48
   %0 = load i32, ptr %pass_fdlist, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i64 2, i64 3
@@ -18278,7 +18191,7 @@ qemu_dbus_display1_clipboard_get_type.exit:       ; preds = %do.end, %land.rhs.i
   %2 = load i64, ptr @qemu_dbus_display1_clipboard_get_type.static_g_define_type_id, align 8
   %call6 = tail call ptr @g_value_init(ptr noundef %call4, i64 noundef %2) #12
   tail call void @g_value_set_object(ptr noundef %call4, ptr noundef %call1) #12
-  %arrayidx8 = getelementptr %struct._GValue, ptr %call4, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call4, i64 24
   %call9 = tail call i64 @g_dbus_method_invocation_get_type() #13
   %call10 = tail call ptr @g_value_init(ptr noundef %arrayidx8, i64 noundef %call9) #12
   tail call void @g_value_set_object(ptr noundef %arrayidx8, ptr noundef %invocation) #12
@@ -18287,7 +18200,7 @@ qemu_dbus_display1_clipboard_get_type.exit:       ; preds = %do.end, %land.rhs.i
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %qemu_dbus_display1_clipboard_get_type.exit
-  %arrayidx16 = getelementptr %struct._GValue, ptr %call4, i64 2
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 48
   %call17 = tail call i64 @g_unix_fd_list_get_type() #13
   %call18 = tail call ptr @g_value_init(ptr noundef %arrayidx16, i64 noundef %call17) #12
   %call21 = tail call ptr @g_dbus_method_invocation_get_message(ptr noundef %invocation) #12
@@ -18303,7 +18216,7 @@ if.end23:                                         ; preds = %if.then15, %qemu_db
   br i1 %cmp26.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %in_args = getelementptr inbounds %struct._GDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %in_args = getelementptr inbounds i8, ptr %call2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -18313,7 +18226,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i64 %n.140, %cond
   %arrayidx29 = getelementptr ptr, ptr %4, i64 %sub
   %5 = load ptr, ptr %arrayidx29, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %5, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i32, ptr %use_gvariant, align 8
   %tobool30.not = icmp eq i32 %6, 0
   %arrayidx38 = getelementptr %struct._GValue, ptr %call4, i64 %n.140
@@ -18336,7 +18249,7 @@ if.end39:                                         ; preds = %if.else36, %if.then
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !84
 
 while.end:                                        ; preds = %if.end39, %if.end23
-  %signal_name = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 1
+  %signal_name = getelementptr inbounds i8, ptr %call2, i64 40
   %7 = load ptr, ptr %signal_name, align 8
   %call41 = call i32 @g_signal_lookup(ptr noundef %7, i64 noundef %2) #12
   %call42 = call ptr @g_value_init(ptr noundef nonnull %return_value, i64 noundef 20) #12
@@ -18385,7 +18298,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -18397,7 +18310,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %call2, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -18428,15 +18341,15 @@ define internal ptr @qemu_dbus_display1_clipboard_skeleton_get_interfaces(ptr no
 entry:
   %call = tail call i64 @qemu_dbus_display1_clipboard_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call ptr @g_value_get_boxed(ptr noundef %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ClipboardSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -18456,17 +18369,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_audio_proxy_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_audio_proxy_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_audio_proxy_set_property, ptr %set_property.i, align 8
   %call1.i = tail call i64 @g_dbus_proxy_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %g_signal.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 2
+  %g_signal.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_audio_proxy_g_signal, ptr %g_signal.i, align 8
-  %g_properties_changed.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 1
+  %g_properties_changed.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_audio_proxy_g_properties_changed, ptr %g_properties_changed.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.3) #12
   ret void
@@ -18478,7 +18391,7 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1AudioProxy_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %proxy, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioProxy, ptr %proxy, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %proxy, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
   %call1 = tail call i64 @g_dbus_proxy_get_type() #13
   %call2 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call1) #12
@@ -18489,7 +18402,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_audio_proxy_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1AudioIface, ptr %iface, i64 0, i32 3
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 32
   store ptr @qemu_dbus_display1_audio_proxy_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -18499,12 +18412,12 @@ define internal void @qemu_dbus_display1_audio_proxy_finalize(ptr noundef %objec
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   tail call void @g_datalist_clear(ptr noundef %0) #12
   %1 = load ptr, ptr @qemu_dbus_display1_audio_proxy_parent_class, align 8
   %call2 = tail call ptr @g_type_check_class_cast(ptr noundef %1, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call2, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load ptr, ptr %finalize, align 8
   tail call void %2(ptr noundef %object) #12
   ret void
@@ -18595,7 +18508,7 @@ qemu_dbus_display1_audio_get_type.exit:           ; preds = %if.end, %land.rhs.i
   br i1 %cmp8.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %qemu_dbus_display1_audio_get_type.exit
-  %args = getelementptr inbounds %struct._GDBusSignalInfo, ptr %call, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -18603,9 +18516,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.023 = phi i64 [ 1, %while.body.lr.ph ], [ %n.1, %if.end16 ]
   %2 = load ptr, ptr %args, align 8
   %3 = getelementptr ptr, ptr %2, i64 %n.023
-  %arrayidx9 = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx9, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %4, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %use_gvariant, align 8
   %tobool.not = icmp eq i32 %5, 0
   %arrayidx15 = getelementptr %struct._GValue, ptr %call2, i64 %n.023
@@ -18628,7 +18541,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !86
 
 while.end:                                        ; preds = %if.end16, %qemu_dbus_display1_audio_get_type.exit
-  %signal_name17 = getelementptr inbounds %struct._ExtendedGDBusSignalInfo, ptr %call, i64 0, i32 1
+  %signal_name17 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %signal_name17, align 8
   %call19 = call i32 @g_signal_lookup(ptr noundef %6, i64 noundef %1) #12
   call void @g_signal_emitv(ptr noundef %call2, i32 noundef %call19, i32 noundef 0, ptr noundef null) #12
@@ -18665,7 +18578,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -18680,7 +18593,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call3, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call3, i64 40
   %4 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_notify(ptr noundef %call5, ptr noundef %4) #12
   br label %if.end
@@ -18699,7 +18612,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp6.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %priv10 = getelementptr inbounds %struct._QemuDBusDisplay1AudioProxy, ptr %call1, i64 0, i32 1
+  %priv10 = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -18716,7 +18629,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then16:                                        ; preds = %for.body
   %call17 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name18 = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call9, i64 0, i32 1
+  %hyphen_name18 = getelementptr inbounds i8, ptr %call9, i64 40
   %11 = load ptr, ptr %hyphen_name18, align 8
   call void @g_object_notify(ptr noundef %call17, ptr noundef %11) #12
   br label %for.inc
@@ -18743,14 +18656,14 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %user_data, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load ptr, ptr %error, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %message, align 8
   %3 = load i32, ptr %1, align 8
   %call1 = call ptr @g_quark_to_string(i32 noundef %3) #13
-  %code = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %code, align 4
   call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.243, ptr noundef %0, ptr noundef %2, ptr noundef %call1, i32 noundef %4) #12
   %5 = load ptr, ptr %error, align 8
@@ -18770,7 +18683,7 @@ define internal ptr @qemu_dbus_display1_audio_proxy_get_interfaces(ptr noundef %
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %call2 = tail call ptr @g_datalist_get_data(ptr noundef %0, ptr noundef nonnull @.str.110) #12
   %cmp.not = icmp eq ptr %call2, null
@@ -18811,24 +18724,24 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_audio_skeleton_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_audio_skeleton_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_audio_skeleton_set_property, ptr %set_property.i, align 8
-  %notify.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 8
+  %notify.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @qemu_dbus_display1_audio_skeleton_notify, ptr %notify.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.3) #12
   %call2.i = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call3.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call2.i) #12
-  %get_info.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 1
+  %get_info.i = getelementptr inbounds i8, ptr %call3.i, i64 136
   store ptr @qemu_dbus_display1_audio_skeleton_dbus_interface_get_info, ptr %get_info.i, align 8
-  %get_properties.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 3
+  %get_properties.i = getelementptr inbounds i8, ptr %call3.i, i64 152
   store ptr @qemu_dbus_display1_audio_skeleton_dbus_interface_get_properties, ptr %get_properties.i, align 8
-  %flush.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 4
+  %flush.i = getelementptr inbounds i8, ptr %call3.i, i64 160
   store ptr @qemu_dbus_display1_audio_skeleton_dbus_interface_flush, ptr %flush.i, align 8
-  %get_vtable.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 2
+  %get_vtable.i = getelementptr inbounds i8, ptr %call3.i, i64 144
   store ptr @qemu_dbus_display1_audio_skeleton_dbus_interface_get_vtable, ptr %get_vtable.i, align 8
   ret void
 }
@@ -18839,13 +18752,13 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1AudioSkeleton_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %skeleton, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeleton, ptr %skeleton, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %skeleton, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %add.ptr.i, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   tail call void @g_mutex_init(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_main_context_ref_thread_default() #12
   %1 = load ptr, ptr %priv, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %1, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call2, ptr %context, align 8
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #15
   %2 = load ptr, ptr %priv, align 8
@@ -18860,7 +18773,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_audio_skeleton_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1AudioIface, ptr %iface, i64 0, i32 3
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 32
   store ptr @qemu_dbus_display1_audio_skeleton_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -18870,7 +18783,7 @@ define internal void @qemu_dbus_display1_audio_skeleton_finalize(ptr noundef %ob
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @g_value_unset(ptr noundef %1) #12
@@ -18878,11 +18791,11 @@ entry:
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %4, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %changed_properties, align 8
   tail call void @g_list_free_full(ptr noundef %5, ptr noundef nonnull @_changed_property_free) #12
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %6, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp6.not = icmp eq ptr %7, null
   br i1 %cmp6.not, label %if.end, label %if.then
@@ -18894,15 +18807,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %8 = phi ptr [ %.pre, %if.then ], [ %6, %entry ]
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %8, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %context, align 8
   tail call void @g_main_context_unref(ptr noundef %9) #12
   %10 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %10, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %10, i64 32
   tail call void @g_mutex_clear(ptr noundef nonnull %lock) #12
   %11 = load ptr, ptr @qemu_dbus_display1_audio_skeleton_parent_class, align 8
   %call11 = tail call ptr @g_type_check_class_cast(ptr noundef %11, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call11, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call11, i64 48
   %12 = load ptr, ptr %finalize, align 8
   tail call void %12(ptr noundef %object) #12
   ret void
@@ -18921,15 +18834,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   tail call void @g_value_copy(ptr noundef %2, ptr noundef %value) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock6 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }
@@ -18947,9 +18860,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   tail call void @g_object_freeze_notify(ptr noundef %object) #12
   %1 = load ptr, ptr %priv, align 8
@@ -18968,37 +18881,34 @@ if.then9:                                         ; preds = %do.end
 
 if.then16:                                        ; preds = %if.then9
   %3 = load ptr, ptr %.pre18, align 8
-  %changed_properties.i = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %.pre18, i64 0, i32 1
-  %l.01.i = load ptr, ptr %changed_properties.i, align 8
-  %cmp.not2.i = icmp eq ptr %l.01.i, null
-  br i1 %cmp.not2.i, label %if.then4.i, label %for.body.i
+  br label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct._GList, ptr %l.03.i, i64 0, i32 1
-  %l.0.i = load ptr, ptr %next.i, align 8
+for.cond.i:                                       ; preds = %for.body.i, %if.then16
+  %.pn.i = phi ptr [ %.pre18, %if.then16 ], [ %l.0.i, %for.body.i ]
+  %l.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %l.0.i = load ptr, ptr %l.0.in.i, align 8
   %cmp.not.i = icmp eq ptr %l.0.i, null
-  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !90
+  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i
 
-for.body.i:                                       ; preds = %if.then16, %for.cond.i
-  %l.03.i = phi ptr [ %l.0.i, %for.cond.i ], [ %l.01.i, %if.then16 ]
-  %4 = load ptr, ptr %l.03.i, align 8
+for.body.i:                                       ; preds = %for.cond.i
+  %4 = load ptr, ptr %l.0.i, align 8
   %5 = load ptr, ptr %4, align 8
   %cmp2.i = icmp eq ptr %5, @_qemu_dbus_display1_audio_property_info_interfaces
-  br i1 %cmp2.i, label %if.end22, label %for.cond.i
+  br i1 %cmp2.i, label %if.end22, label %for.cond.i, !llvm.loop !90
 
-if.then4.i:                                       ; preds = %for.cond.i, %if.then16
+if.then4.i:                                       ; preds = %for.cond.i
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #15
-  %prop_id5.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 1
+  %prop_id5.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %prop_id5.i, align 8
   store ptr @_qemu_dbus_display1_audio_property_info_interfaces, ptr %call.i, align 8
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties8.i = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %6, i64 0, i32 1
+  %changed_properties8.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %changed_properties8.i, align 8
   %call9.i = tail call ptr @g_list_prepend(ptr noundef %7, ptr noundef nonnull %call.i) #12
   %8 = load ptr, ptr %priv, align 8
-  %changed_properties11.i = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %8, i64 0, i32 1
+  %changed_properties11.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call9.i, ptr %changed_properties11.i, align 8
-  %orig_value12.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 2
+  %orig_value12.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %9 = load i64, ptr %3, align 8
   %call13.i = tail call ptr @g_value_init(ptr noundef nonnull %orig_value12.i, i64 noundef %9) #12
   tail call void @g_value_copy(ptr noundef nonnull %3, ptr noundef nonnull %orig_value12.i) #12
@@ -19014,7 +18924,7 @@ if.end22:                                         ; preds = %for.body.i, %if.the
 
 if.end28:                                         ; preds = %if.end22, %do.end
   %12 = load ptr, ptr %priv, align 8
-  %lock30 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %12, i64 0, i32 4
+  %lock30 = getelementptr inbounds i8, ptr %12, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock30) #12
   tail call void @g_object_thaw_notify(ptr noundef %object) #12
   ret void
@@ -19025,18 +18935,18 @@ define internal void @qemu_dbus_display1_audio_skeleton_notify(ptr noundef %obje
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %1, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %changed_properties, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.end
@@ -19044,29 +18954,29 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call ptr @g_idle_source_new() #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source7 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %4, i64 0, i32 2
+  %changed_properties_idle_source7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call5, ptr %changed_properties_idle_source7, align 8
   %5 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source9 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %5, i64 0, i32 2
+  %changed_properties_idle_source9 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %changed_properties_idle_source9, align 8
   tail call void @g_source_set_priority(ptr noundef %6, i32 noundef 0) #12
   %7 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source11 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %7, i64 0, i32 2
+  %changed_properties_idle_source11 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %changed_properties_idle_source11, align 8
   %call12 = tail call ptr @g_object_ref(ptr noundef nonnull %call1) #12
   tail call void @g_source_set_callback(ptr noundef %8, ptr noundef nonnull @_qemu_dbus_display1_audio_emit_changed, ptr noundef %call12, ptr noundef nonnull @g_object_unref) #12
   %9 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source14 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %9, i64 0, i32 2
+  %changed_properties_idle_source14 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %changed_properties_idle_source14, align 8
   tail call void @g_source_set_name(ptr noundef %10, ptr noundef nonnull @.str.245) #12
   %11 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source16 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %11, i64 0, i32 2
+  %changed_properties_idle_source16 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %changed_properties_idle_source16, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %11, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %context, align 8
   %call18 = tail call i32 @g_source_attach(ptr noundef %12, ptr noundef %13) #12
   %14 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source20 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %14, i64 0, i32 2
+  %changed_properties_idle_source20 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %changed_properties_idle_source20, align 8
   tail call void @g_source_unref(ptr noundef %15) #12
   %.pre = load ptr, ptr %priv, align 8
@@ -19074,7 +18984,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %16 = phi ptr [ %.pre, %if.then ], [ %1, %land.lhs.true ], [ %1, %entry ]
-  %lock22 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock22 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock22) #12
   ret void
 }
@@ -19118,12 +19028,12 @@ define internal void @qemu_dbus_display1_audio_skeleton_dbus_interface_flush(ptr
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %_skeleton, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end11.critedge, label %if.then
@@ -19131,16 +19041,16 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @g_source_destroy(ptr noundef nonnull %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source6 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %3, i64 0, i32 2
+  %changed_properties_idle_source6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %changed_properties_idle_source6, align 8
   %4 = load ptr, ptr %priv, align 8
-  %lock8 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock8 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8) #12
   %call10 = tail call i32 @_qemu_dbus_display1_audio_emit_changed(ptr noundef nonnull %call1)
   br label %if.end11
 
 if.end11.critedge:                                ; preds = %entry
-  %lock8.c = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock8.c = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8.c) #12
   br label %if.end11
 
@@ -19161,54 +19071,54 @@ entry:
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
   %call = tail call i64 @qemu_dbus_display1_audio_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %user_data, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.118) #12
   call void @g_variant_builder_init(ptr noundef nonnull %builder, ptr noundef %call2) #12
   %call3 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.111) #12
   call void @g_variant_builder_init(ptr noundef nonnull %invalidated_builder, ptr noundef %call3) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %1, i64 0, i32 1
-  %l.021 = load ptr, ptr %changed_properties, align 8
-  %cmp.not22 = icmp eq ptr %l.021, null
-  br i1 %cmp.not22, label %if.else, label %for.body
+  %l.0.in21 = getelementptr inbounds i8, ptr %1, i64 8
+  %l.022 = load ptr, ptr %l.0.in21, align 8
+  %cmp.not23 = icmp eq ptr %l.022, null
+  br i1 %cmp.not23, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %l.024 = phi ptr [ %l.0, %for.inc ], [ %l.021, %entry ]
-  %num_changes.023 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
-  %2 = load ptr, ptr %l.024, align 8
+  %l.025 = phi ptr [ %l.0, %for.inc ], [ %l.022, %entry ]
+  %num_changes.024 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
+  %2 = load ptr, ptr %l.025, align 8
   %3 = load ptr, ptr %priv, align 8
   %4 = load ptr, ptr %3, align 8
-  %prop_id = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 1
+  %prop_id = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %prop_id, align 8
   %sub = add i32 %5, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr %struct._GValue, ptr %4, i64 %idxprom
-  %orig_value = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 2
+  %orig_value = getelementptr inbounds i8, ptr %2, i64 16
   %call6 = call fastcc i32 @_g_value_equal(ptr noundef %arrayidx, ptr noundef nonnull %orig_value)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %2, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %6, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %signature, align 8
   %call7 = call ptr @g_variant_type_checked_(ptr noundef %7) #12
   %call8 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %arrayidx, ptr noundef %call7) #12
   %8 = load ptr, ptr %2, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %8, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %name, align 8
   call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef nonnull %builder, ptr noundef nonnull @.str.124, ptr noundef %9, ptr noundef %call8) #12
   call void @g_variant_unref(ptr noundef %call8) #12
-  %inc = add i32 %num_changes.023, 1
+  %inc = add i32 %num_changes.024, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %num_changes.1 = phi i32 [ %num_changes.023, %for.body ], [ %inc, %if.then ]
-  %next = getelementptr inbounds %struct._GList, ptr %l.024, i64 0, i32 1
-  %l.0 = load ptr, ptr %next, align 8
+  %num_changes.1 = phi i32 [ %num_changes.024, %for.body ], [ %inc, %if.then ]
+  %l.0.in = getelementptr inbounds i8, ptr %l.025, i64 8
+  %l.0 = load ptr, ptr %l.0.in, align 8
   %cmp.not = icmp eq ptr %l.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !91
 
@@ -19222,16 +19132,16 @@ if.then12:                                        ; preds = %for.end
   %call15 = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call16 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef %call15) #12
   %call17 = call ptr @g_dbus_interface_skeleton_get_connections(ptr noundef %call16) #12
-  %cmp19.not25 = icmp eq ptr %call17, null
-  br i1 %cmp19.not25, label %for.end28, label %for.body20
+  %cmp19.not26 = icmp eq ptr %call17, null
+  br i1 %cmp19.not26, label %for.end28, label %for.body20
 
 for.body20:                                       ; preds = %if.then12, %for.body20
-  %ll.026 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
-  %11 = load ptr, ptr %ll.026, align 8
+  %ll.027 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
+  %11 = load ptr, ptr %ll.027, align 8
   %call23 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call15) #12
   %call24 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call23) #12
   %call25 = call i32 @g_dbus_connection_emit_signal(ptr noundef %11, ptr noundef null, ptr noundef %call24, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr noundef %call14, ptr noundef null) #12
-  %next27 = getelementptr inbounds %struct._GList, ptr %ll.026, i64 0, i32 1
+  %next27 = getelementptr inbounds i8, ptr %ll.027, i64 8
   %12 = load ptr, ptr %next27, align 8
   %cmp19.not = icmp eq ptr %12, null
   br i1 %cmp19.not, label %for.end28, label %for.body20, !llvm.loop !92
@@ -19248,17 +19158,17 @@ if.else:                                          ; preds = %entry, %for.end
 
 if.end29:                                         ; preds = %if.else, %for.end28
   %13 = load ptr, ptr %priv, align 8
-  %changed_properties31 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %13, i64 0, i32 1
+  %changed_properties31 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %changed_properties31, align 8
   call void @g_list_free_full(ptr noundef %14, ptr noundef nonnull @_changed_property_free) #12
   %15 = load ptr, ptr %priv, align 8
-  %changed_properties33 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %15, i64 0, i32 1
+  %changed_properties33 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %changed_properties33, align 8
   %16 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %16, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %changed_properties_idle_source, align 8
   %17 = load ptr, ptr %priv, align 8
-  %lock36 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %17, i64 0, i32 4
+  %lock36 = getelementptr inbounds i8, ptr %17, i64 32
   call void @g_mutex_unlock(ptr noundef nonnull %lock36) #12
   ret i32 0
 }
@@ -19280,7 +19190,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -19292,13 +19202,13 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %value_type = getelementptr inbounds %struct._GParamSpec, ptr %call3, i64 0, i32 3
+  %value_type = getelementptr inbounds i8, ptr %call3, i64 24
   %2 = load i64, ptr %value_type, align 8
   %call8 = call ptr @g_value_init(ptr noundef nonnull %value, i64 noundef %2) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
   %3 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_get_property(ptr noundef %call9, ptr noundef %3, ptr noundef nonnull %value) #12
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call11 = call ptr @g_variant_type_checked_(ptr noundef %4) #12
   %call12 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef nonnull %value, ptr noundef %call11) #12
@@ -19328,7 +19238,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @g_variant_n_children(ptr noundef %parameters) #12
-  %pass_fdlist = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %pass_fdlist = getelementptr inbounds i8, ptr %call2, i64 48
   %0 = load i32, ptr %pass_fdlist, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i64 2, i64 3
@@ -19354,7 +19264,7 @@ qemu_dbus_display1_audio_get_type.exit:           ; preds = %do.end, %land.rhs.i
   %2 = load i64, ptr @qemu_dbus_display1_audio_get_type.static_g_define_type_id, align 8
   %call6 = tail call ptr @g_value_init(ptr noundef %call4, i64 noundef %2) #12
   tail call void @g_value_set_object(ptr noundef %call4, ptr noundef %call1) #12
-  %arrayidx8 = getelementptr %struct._GValue, ptr %call4, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call4, i64 24
   %call9 = tail call i64 @g_dbus_method_invocation_get_type() #13
   %call10 = tail call ptr @g_value_init(ptr noundef %arrayidx8, i64 noundef %call9) #12
   tail call void @g_value_set_object(ptr noundef %arrayidx8, ptr noundef %invocation) #12
@@ -19363,7 +19273,7 @@ qemu_dbus_display1_audio_get_type.exit:           ; preds = %do.end, %land.rhs.i
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %qemu_dbus_display1_audio_get_type.exit
-  %arrayidx16 = getelementptr %struct._GValue, ptr %call4, i64 2
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 48
   %call17 = tail call i64 @g_unix_fd_list_get_type() #13
   %call18 = tail call ptr @g_value_init(ptr noundef %arrayidx16, i64 noundef %call17) #12
   %call21 = tail call ptr @g_dbus_method_invocation_get_message(ptr noundef %invocation) #12
@@ -19379,7 +19289,7 @@ if.end23:                                         ; preds = %if.then15, %qemu_db
   br i1 %cmp26.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %in_args = getelementptr inbounds %struct._GDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %in_args = getelementptr inbounds i8, ptr %call2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -19389,7 +19299,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i64 %n.140, %cond
   %arrayidx29 = getelementptr ptr, ptr %4, i64 %sub
   %5 = load ptr, ptr %arrayidx29, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %5, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i32, ptr %use_gvariant, align 8
   %tobool30.not = icmp eq i32 %6, 0
   %arrayidx38 = getelementptr %struct._GValue, ptr %call4, i64 %n.140
@@ -19412,7 +19322,7 @@ if.end39:                                         ; preds = %if.else36, %if.then
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !93
 
 while.end:                                        ; preds = %if.end39, %if.end23
-  %signal_name = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 1
+  %signal_name = getelementptr inbounds i8, ptr %call2, i64 40
   %7 = load ptr, ptr %signal_name, align 8
   %call41 = call i32 @g_signal_lookup(ptr noundef %7, i64 noundef %2) #12
   %call42 = call ptr @g_value_init(ptr noundef nonnull %return_value, i64 noundef 20) #12
@@ -19461,7 +19371,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -19473,7 +19383,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %call2, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -19504,15 +19414,15 @@ define internal ptr @qemu_dbus_display1_audio_skeleton_get_interfaces(ptr nounde
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call ptr @g_value_get_boxed(ptr noundef %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1AudioSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -19532,17 +19442,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_audio_out_listener_proxy_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_audio_out_listener_proxy_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_audio_out_listener_proxy_set_property, ptr %set_property.i, align 8
   %call1.i = tail call i64 @g_dbus_proxy_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %g_signal.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 2
+  %g_signal.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_audio_out_listener_proxy_g_signal, ptr %g_signal.i, align 8
-  %g_properties_changed.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 1
+  %g_properties_changed.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_audio_out_listener_proxy_g_properties_changed, ptr %g_properties_changed.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.3) #12
   ret void
@@ -19554,7 +19464,7 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1AudioOutListenerProxy_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %proxy, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerProxy, ptr %proxy, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %proxy, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
   %call1 = tail call i64 @g_dbus_proxy_get_type() #13
   %call2 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call1) #12
@@ -19565,7 +19475,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_audio_out_listener_proxy_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerIface, ptr %iface, i64 0, i32 6
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 56
   store ptr @qemu_dbus_display1_audio_out_listener_proxy_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -19575,12 +19485,12 @@ define internal void @qemu_dbus_display1_audio_out_listener_proxy_finalize(ptr n
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_out_listener_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   tail call void @g_datalist_clear(ptr noundef %0) #12
   %1 = load ptr, ptr @qemu_dbus_display1_audio_out_listener_proxy_parent_class, align 8
   %call2 = tail call ptr @g_type_check_class_cast(ptr noundef %1, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call2, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load ptr, ptr %finalize, align 8
   tail call void %2(ptr noundef %object) #12
   ret void
@@ -19671,7 +19581,7 @@ qemu_dbus_display1_audio_out_listener_get_type.exit: ; preds = %if.end, %land.rh
   br i1 %cmp8.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %qemu_dbus_display1_audio_out_listener_get_type.exit
-  %args = getelementptr inbounds %struct._GDBusSignalInfo, ptr %call, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -19679,9 +19589,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.023 = phi i64 [ 1, %while.body.lr.ph ], [ %n.1, %if.end16 ]
   %2 = load ptr, ptr %args, align 8
   %3 = getelementptr ptr, ptr %2, i64 %n.023
-  %arrayidx9 = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx9, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %4, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %use_gvariant, align 8
   %tobool.not = icmp eq i32 %5, 0
   %arrayidx15 = getelementptr %struct._GValue, ptr %call2, i64 %n.023
@@ -19704,7 +19614,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !95
 
 while.end:                                        ; preds = %if.end16, %qemu_dbus_display1_audio_out_listener_get_type.exit
-  %signal_name17 = getelementptr inbounds %struct._ExtendedGDBusSignalInfo, ptr %call, i64 0, i32 1
+  %signal_name17 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %signal_name17, align 8
   %call19 = call i32 @g_signal_lookup(ptr noundef %6, i64 noundef %1) #12
   call void @g_signal_emitv(ptr noundef %call2, i32 noundef %call19, i32 noundef 0, ptr noundef null) #12
@@ -19741,7 +19651,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -19756,7 +19666,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call3, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call3, i64 40
   %4 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_notify(ptr noundef %call5, ptr noundef %4) #12
   br label %if.end
@@ -19775,7 +19685,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp6.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %priv10 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerProxy, ptr %call1, i64 0, i32 1
+  %priv10 = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -19792,7 +19702,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then16:                                        ; preds = %for.body
   %call17 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name18 = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call9, i64 0, i32 1
+  %hyphen_name18 = getelementptr inbounds i8, ptr %call9, i64 40
   %11 = load ptr, ptr %hyphen_name18, align 8
   call void @g_object_notify(ptr noundef %call17, ptr noundef %11) #12
   br label %for.inc
@@ -19819,14 +19729,14 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %user_data, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load ptr, ptr %error, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %message, align 8
   %3 = load i32, ptr %1, align 8
   %call1 = call ptr @g_quark_to_string(i32 noundef %3) #13
-  %code = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %code, align 4
   call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.265, ptr noundef %0, ptr noundef %2, ptr noundef %call1, i32 noundef %4) #12
   %5 = load ptr, ptr %error, align 8
@@ -19846,7 +19756,7 @@ define internal ptr @qemu_dbus_display1_audio_out_listener_proxy_get_interfaces(
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_out_listener_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %call2 = tail call ptr @g_datalist_get_data(ptr noundef %0, ptr noundef nonnull @.str.110) #12
   %cmp.not = icmp eq ptr %call2, null
@@ -19887,24 +19797,24 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_audio_out_listener_skeleton_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_audio_out_listener_skeleton_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_audio_out_listener_skeleton_set_property, ptr %set_property.i, align 8
-  %notify.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 8
+  %notify.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @qemu_dbus_display1_audio_out_listener_skeleton_notify, ptr %notify.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.3) #12
   %call2.i = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call3.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call2.i) #12
-  %get_info.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 1
+  %get_info.i = getelementptr inbounds i8, ptr %call3.i, i64 136
   store ptr @qemu_dbus_display1_audio_out_listener_skeleton_dbus_interface_get_info, ptr %get_info.i, align 8
-  %get_properties.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 3
+  %get_properties.i = getelementptr inbounds i8, ptr %call3.i, i64 152
   store ptr @qemu_dbus_display1_audio_out_listener_skeleton_dbus_interface_get_properties, ptr %get_properties.i, align 8
-  %flush.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 4
+  %flush.i = getelementptr inbounds i8, ptr %call3.i, i64 160
   store ptr @qemu_dbus_display1_audio_out_listener_skeleton_dbus_interface_flush, ptr %flush.i, align 8
-  %get_vtable.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 2
+  %get_vtable.i = getelementptr inbounds i8, ptr %call3.i, i64 144
   store ptr @qemu_dbus_display1_audio_out_listener_skeleton_dbus_interface_get_vtable, ptr %get_vtable.i, align 8
   ret void
 }
@@ -19915,13 +19825,13 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1AudioOutListenerSkeleton_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %skeleton, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeleton, ptr %skeleton, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %skeleton, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %add.ptr.i, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   tail call void @g_mutex_init(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_main_context_ref_thread_default() #12
   %1 = load ptr, ptr %priv, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %1, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call2, ptr %context, align 8
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #15
   %2 = load ptr, ptr %priv, align 8
@@ -19936,7 +19846,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_audio_out_listener_skeleton_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerIface, ptr %iface, i64 0, i32 6
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 56
   store ptr @qemu_dbus_display1_audio_out_listener_skeleton_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -19946,7 +19856,7 @@ define internal void @qemu_dbus_display1_audio_out_listener_skeleton_finalize(pt
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_out_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @g_value_unset(ptr noundef %1) #12
@@ -19954,11 +19864,11 @@ entry:
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %4, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %changed_properties, align 8
   tail call void @g_list_free_full(ptr noundef %5, ptr noundef nonnull @_changed_property_free) #12
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %6, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp6.not = icmp eq ptr %7, null
   br i1 %cmp6.not, label %if.end, label %if.then
@@ -19970,15 +19880,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %8 = phi ptr [ %.pre, %if.then ], [ %6, %entry ]
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %8, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %context, align 8
   tail call void @g_main_context_unref(ptr noundef %9) #12
   %10 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %10, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %10, i64 32
   tail call void @g_mutex_clear(ptr noundef nonnull %lock) #12
   %11 = load ptr, ptr @qemu_dbus_display1_audio_out_listener_skeleton_parent_class, align 8
   %call11 = tail call ptr @g_type_check_class_cast(ptr noundef %11, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call11, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call11, i64 48
   %12 = load ptr, ptr %finalize, align 8
   tail call void %12(ptr noundef %object) #12
   ret void
@@ -19997,15 +19907,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   tail call void @g_value_copy(ptr noundef %2, ptr noundef %value) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock6 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }
@@ -20023,9 +19933,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   tail call void @g_object_freeze_notify(ptr noundef %object) #12
   %1 = load ptr, ptr %priv, align 8
@@ -20044,37 +19954,34 @@ if.then9:                                         ; preds = %do.end
 
 if.then16:                                        ; preds = %if.then9
   %3 = load ptr, ptr %.pre18, align 8
-  %changed_properties.i = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %.pre18, i64 0, i32 1
-  %l.01.i = load ptr, ptr %changed_properties.i, align 8
-  %cmp.not2.i = icmp eq ptr %l.01.i, null
-  br i1 %cmp.not2.i, label %if.then4.i, label %for.body.i
+  br label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct._GList, ptr %l.03.i, i64 0, i32 1
-  %l.0.i = load ptr, ptr %next.i, align 8
+for.cond.i:                                       ; preds = %for.body.i, %if.then16
+  %.pn.i = phi ptr [ %.pre18, %if.then16 ], [ %l.0.i, %for.body.i ]
+  %l.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %l.0.i = load ptr, ptr %l.0.in.i, align 8
   %cmp.not.i = icmp eq ptr %l.0.i, null
-  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !99
+  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i
 
-for.body.i:                                       ; preds = %if.then16, %for.cond.i
-  %l.03.i = phi ptr [ %l.0.i, %for.cond.i ], [ %l.01.i, %if.then16 ]
-  %4 = load ptr, ptr %l.03.i, align 8
+for.body.i:                                       ; preds = %for.cond.i
+  %4 = load ptr, ptr %l.0.i, align 8
   %5 = load ptr, ptr %4, align 8
   %cmp2.i = icmp eq ptr %5, @_qemu_dbus_display1_audio_out_listener_property_info_interfaces
-  br i1 %cmp2.i, label %if.end22, label %for.cond.i
+  br i1 %cmp2.i, label %if.end22, label %for.cond.i, !llvm.loop !99
 
-if.then4.i:                                       ; preds = %for.cond.i, %if.then16
+if.then4.i:                                       ; preds = %for.cond.i
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #15
-  %prop_id5.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 1
+  %prop_id5.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %prop_id5.i, align 8
   store ptr @_qemu_dbus_display1_audio_out_listener_property_info_interfaces, ptr %call.i, align 8
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties8.i = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %6, i64 0, i32 1
+  %changed_properties8.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %changed_properties8.i, align 8
   %call9.i = tail call ptr @g_list_prepend(ptr noundef %7, ptr noundef nonnull %call.i) #12
   %8 = load ptr, ptr %priv, align 8
-  %changed_properties11.i = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %8, i64 0, i32 1
+  %changed_properties11.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call9.i, ptr %changed_properties11.i, align 8
-  %orig_value12.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 2
+  %orig_value12.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %9 = load i64, ptr %3, align 8
   %call13.i = tail call ptr @g_value_init(ptr noundef nonnull %orig_value12.i, i64 noundef %9) #12
   tail call void @g_value_copy(ptr noundef nonnull %3, ptr noundef nonnull %orig_value12.i) #12
@@ -20090,7 +19997,7 @@ if.end22:                                         ; preds = %for.body.i, %if.the
 
 if.end28:                                         ; preds = %if.end22, %do.end
   %12 = load ptr, ptr %priv, align 8
-  %lock30 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %12, i64 0, i32 4
+  %lock30 = getelementptr inbounds i8, ptr %12, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock30) #12
   tail call void @g_object_thaw_notify(ptr noundef %object) #12
   ret void
@@ -20101,18 +20008,18 @@ define internal void @qemu_dbus_display1_audio_out_listener_skeleton_notify(ptr 
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_out_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %1, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %changed_properties, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.end
@@ -20120,29 +20027,29 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call ptr @g_idle_source_new() #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source7 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %4, i64 0, i32 2
+  %changed_properties_idle_source7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call5, ptr %changed_properties_idle_source7, align 8
   %5 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source9 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %5, i64 0, i32 2
+  %changed_properties_idle_source9 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %changed_properties_idle_source9, align 8
   tail call void @g_source_set_priority(ptr noundef %6, i32 noundef 0) #12
   %7 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source11 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %7, i64 0, i32 2
+  %changed_properties_idle_source11 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %changed_properties_idle_source11, align 8
   %call12 = tail call ptr @g_object_ref(ptr noundef nonnull %call1) #12
   tail call void @g_source_set_callback(ptr noundef %8, ptr noundef nonnull @_qemu_dbus_display1_audio_out_listener_emit_changed, ptr noundef %call12, ptr noundef nonnull @g_object_unref) #12
   %9 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source14 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %9, i64 0, i32 2
+  %changed_properties_idle_source14 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %changed_properties_idle_source14, align 8
   tail call void @g_source_set_name(ptr noundef %10, ptr noundef nonnull @.str.267) #12
   %11 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source16 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %11, i64 0, i32 2
+  %changed_properties_idle_source16 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %changed_properties_idle_source16, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %11, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %context, align 8
   %call18 = tail call i32 @g_source_attach(ptr noundef %12, ptr noundef %13) #12
   %14 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source20 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %14, i64 0, i32 2
+  %changed_properties_idle_source20 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %changed_properties_idle_source20, align 8
   tail call void @g_source_unref(ptr noundef %15) #12
   %.pre = load ptr, ptr %priv, align 8
@@ -20150,7 +20057,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %16 = phi ptr [ %.pre, %if.then ], [ %1, %land.lhs.true ], [ %1, %entry ]
-  %lock22 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock22 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock22) #12
   ret void
 }
@@ -20194,12 +20101,12 @@ define internal void @qemu_dbus_display1_audio_out_listener_skeleton_dbus_interf
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_out_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %_skeleton, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end11.critedge, label %if.then
@@ -20207,16 +20114,16 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @g_source_destroy(ptr noundef nonnull %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source6 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %3, i64 0, i32 2
+  %changed_properties_idle_source6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %changed_properties_idle_source6, align 8
   %4 = load ptr, ptr %priv, align 8
-  %lock8 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock8 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8) #12
   %call10 = tail call i32 @_qemu_dbus_display1_audio_out_listener_emit_changed(ptr noundef nonnull %call1)
   br label %if.end11
 
 if.end11.critedge:                                ; preds = %entry
-  %lock8.c = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock8.c = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8.c) #12
   br label %if.end11
 
@@ -20237,54 +20144,54 @@ entry:
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
   %call = tail call i64 @qemu_dbus_display1_audio_out_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %user_data, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.118) #12
   call void @g_variant_builder_init(ptr noundef nonnull %builder, ptr noundef %call2) #12
   %call3 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.111) #12
   call void @g_variant_builder_init(ptr noundef nonnull %invalidated_builder, ptr noundef %call3) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %1, i64 0, i32 1
-  %l.021 = load ptr, ptr %changed_properties, align 8
-  %cmp.not22 = icmp eq ptr %l.021, null
-  br i1 %cmp.not22, label %if.else, label %for.body
+  %l.0.in21 = getelementptr inbounds i8, ptr %1, i64 8
+  %l.022 = load ptr, ptr %l.0.in21, align 8
+  %cmp.not23 = icmp eq ptr %l.022, null
+  br i1 %cmp.not23, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %l.024 = phi ptr [ %l.0, %for.inc ], [ %l.021, %entry ]
-  %num_changes.023 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
-  %2 = load ptr, ptr %l.024, align 8
+  %l.025 = phi ptr [ %l.0, %for.inc ], [ %l.022, %entry ]
+  %num_changes.024 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
+  %2 = load ptr, ptr %l.025, align 8
   %3 = load ptr, ptr %priv, align 8
   %4 = load ptr, ptr %3, align 8
-  %prop_id = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 1
+  %prop_id = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %prop_id, align 8
   %sub = add i32 %5, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr %struct._GValue, ptr %4, i64 %idxprom
-  %orig_value = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 2
+  %orig_value = getelementptr inbounds i8, ptr %2, i64 16
   %call6 = call fastcc i32 @_g_value_equal(ptr noundef %arrayidx, ptr noundef nonnull %orig_value)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %2, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %6, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %signature, align 8
   %call7 = call ptr @g_variant_type_checked_(ptr noundef %7) #12
   %call8 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %arrayidx, ptr noundef %call7) #12
   %8 = load ptr, ptr %2, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %8, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %name, align 8
   call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef nonnull %builder, ptr noundef nonnull @.str.124, ptr noundef %9, ptr noundef %call8) #12
   call void @g_variant_unref(ptr noundef %call8) #12
-  %inc = add i32 %num_changes.023, 1
+  %inc = add i32 %num_changes.024, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %num_changes.1 = phi i32 [ %num_changes.023, %for.body ], [ %inc, %if.then ]
-  %next = getelementptr inbounds %struct._GList, ptr %l.024, i64 0, i32 1
-  %l.0 = load ptr, ptr %next, align 8
+  %num_changes.1 = phi i32 [ %num_changes.024, %for.body ], [ %inc, %if.then ]
+  %l.0.in = getelementptr inbounds i8, ptr %l.025, i64 8
+  %l.0 = load ptr, ptr %l.0.in, align 8
   %cmp.not = icmp eq ptr %l.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !100
 
@@ -20298,16 +20205,16 @@ if.then12:                                        ; preds = %for.end
   %call15 = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call16 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef %call15) #12
   %call17 = call ptr @g_dbus_interface_skeleton_get_connections(ptr noundef %call16) #12
-  %cmp19.not25 = icmp eq ptr %call17, null
-  br i1 %cmp19.not25, label %for.end28, label %for.body20
+  %cmp19.not26 = icmp eq ptr %call17, null
+  br i1 %cmp19.not26, label %for.end28, label %for.body20
 
 for.body20:                                       ; preds = %if.then12, %for.body20
-  %ll.026 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
-  %11 = load ptr, ptr %ll.026, align 8
+  %ll.027 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
+  %11 = load ptr, ptr %ll.027, align 8
   %call23 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call15) #12
   %call24 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call23) #12
   %call25 = call i32 @g_dbus_connection_emit_signal(ptr noundef %11, ptr noundef null, ptr noundef %call24, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr noundef %call14, ptr noundef null) #12
-  %next27 = getelementptr inbounds %struct._GList, ptr %ll.026, i64 0, i32 1
+  %next27 = getelementptr inbounds i8, ptr %ll.027, i64 8
   %12 = load ptr, ptr %next27, align 8
   %cmp19.not = icmp eq ptr %12, null
   br i1 %cmp19.not, label %for.end28, label %for.body20, !llvm.loop !101
@@ -20324,17 +20231,17 @@ if.else:                                          ; preds = %entry, %for.end
 
 if.end29:                                         ; preds = %if.else, %for.end28
   %13 = load ptr, ptr %priv, align 8
-  %changed_properties31 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %13, i64 0, i32 1
+  %changed_properties31 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %changed_properties31, align 8
   call void @g_list_free_full(ptr noundef %14, ptr noundef nonnull @_changed_property_free) #12
   %15 = load ptr, ptr %priv, align 8
-  %changed_properties33 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %15, i64 0, i32 1
+  %changed_properties33 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %changed_properties33, align 8
   %16 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %16, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %changed_properties_idle_source, align 8
   %17 = load ptr, ptr %priv, align 8
-  %lock36 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %17, i64 0, i32 4
+  %lock36 = getelementptr inbounds i8, ptr %17, i64 32
   call void @g_mutex_unlock(ptr noundef nonnull %lock36) #12
   ret i32 0
 }
@@ -20356,7 +20263,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -20368,13 +20275,13 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %value_type = getelementptr inbounds %struct._GParamSpec, ptr %call3, i64 0, i32 3
+  %value_type = getelementptr inbounds i8, ptr %call3, i64 24
   %2 = load i64, ptr %value_type, align 8
   %call8 = call ptr @g_value_init(ptr noundef nonnull %value, i64 noundef %2) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
   %3 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_get_property(ptr noundef %call9, ptr noundef %3, ptr noundef nonnull %value) #12
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call11 = call ptr @g_variant_type_checked_(ptr noundef %4) #12
   %call12 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef nonnull %value, ptr noundef %call11) #12
@@ -20404,7 +20311,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @g_variant_n_children(ptr noundef %parameters) #12
-  %pass_fdlist = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %pass_fdlist = getelementptr inbounds i8, ptr %call2, i64 48
   %0 = load i32, ptr %pass_fdlist, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i64 2, i64 3
@@ -20430,7 +20337,7 @@ qemu_dbus_display1_audio_out_listener_get_type.exit: ; preds = %do.end, %land.rh
   %2 = load i64, ptr @qemu_dbus_display1_audio_out_listener_get_type.static_g_define_type_id, align 8
   %call6 = tail call ptr @g_value_init(ptr noundef %call4, i64 noundef %2) #12
   tail call void @g_value_set_object(ptr noundef %call4, ptr noundef %call1) #12
-  %arrayidx8 = getelementptr %struct._GValue, ptr %call4, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call4, i64 24
   %call9 = tail call i64 @g_dbus_method_invocation_get_type() #13
   %call10 = tail call ptr @g_value_init(ptr noundef %arrayidx8, i64 noundef %call9) #12
   tail call void @g_value_set_object(ptr noundef %arrayidx8, ptr noundef %invocation) #12
@@ -20439,7 +20346,7 @@ qemu_dbus_display1_audio_out_listener_get_type.exit: ; preds = %do.end, %land.rh
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %qemu_dbus_display1_audio_out_listener_get_type.exit
-  %arrayidx16 = getelementptr %struct._GValue, ptr %call4, i64 2
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 48
   %call17 = tail call i64 @g_unix_fd_list_get_type() #13
   %call18 = tail call ptr @g_value_init(ptr noundef %arrayidx16, i64 noundef %call17) #12
   %call21 = tail call ptr @g_dbus_method_invocation_get_message(ptr noundef %invocation) #12
@@ -20455,7 +20362,7 @@ if.end23:                                         ; preds = %if.then15, %qemu_db
   br i1 %cmp26.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %in_args = getelementptr inbounds %struct._GDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %in_args = getelementptr inbounds i8, ptr %call2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -20465,7 +20372,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i64 %n.140, %cond
   %arrayidx29 = getelementptr ptr, ptr %4, i64 %sub
   %5 = load ptr, ptr %arrayidx29, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %5, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i32, ptr %use_gvariant, align 8
   %tobool30.not = icmp eq i32 %6, 0
   %arrayidx38 = getelementptr %struct._GValue, ptr %call4, i64 %n.140
@@ -20488,7 +20395,7 @@ if.end39:                                         ; preds = %if.else36, %if.then
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !102
 
 while.end:                                        ; preds = %if.end39, %if.end23
-  %signal_name = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 1
+  %signal_name = getelementptr inbounds i8, ptr %call2, i64 40
   %7 = load ptr, ptr %signal_name, align 8
   %call41 = call i32 @g_signal_lookup(ptr noundef %7, i64 noundef %2) #12
   %call42 = call ptr @g_value_init(ptr noundef nonnull %return_value, i64 noundef 20) #12
@@ -20537,7 +20444,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -20549,7 +20456,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %call2, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -20580,15 +20487,15 @@ define internal ptr @qemu_dbus_display1_audio_out_listener_skeleton_get_interfac
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_out_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call ptr @g_value_get_boxed(ptr noundef %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1AudioOutListenerSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -20608,17 +20515,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_audio_in_listener_proxy_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_audio_in_listener_proxy_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_audio_in_listener_proxy_set_property, ptr %set_property.i, align 8
   %call1.i = tail call i64 @g_dbus_proxy_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %g_signal.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 2
+  %g_signal.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_audio_in_listener_proxy_g_signal, ptr %g_signal.i, align 8
-  %g_properties_changed.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 1
+  %g_properties_changed.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_audio_in_listener_proxy_g_properties_changed, ptr %g_properties_changed.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.3) #12
   ret void
@@ -20630,7 +20537,7 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1AudioInListenerProxy_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %proxy, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerProxy, ptr %proxy, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %proxy, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
   %call1 = tail call i64 @g_dbus_proxy_get_type() #13
   %call2 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call1) #12
@@ -20641,7 +20548,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_audio_in_listener_proxy_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerIface, ptr %iface, i64 0, i32 6
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 56
   store ptr @qemu_dbus_display1_audio_in_listener_proxy_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -20651,12 +20558,12 @@ define internal void @qemu_dbus_display1_audio_in_listener_proxy_finalize(ptr no
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_in_listener_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   tail call void @g_datalist_clear(ptr noundef %0) #12
   %1 = load ptr, ptr @qemu_dbus_display1_audio_in_listener_proxy_parent_class, align 8
   %call2 = tail call ptr @g_type_check_class_cast(ptr noundef %1, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call2, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load ptr, ptr %finalize, align 8
   tail call void %2(ptr noundef %object) #12
   ret void
@@ -20747,7 +20654,7 @@ qemu_dbus_display1_audio_in_listener_get_type.exit: ; preds = %if.end, %land.rhs
   br i1 %cmp8.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %qemu_dbus_display1_audio_in_listener_get_type.exit
-  %args = getelementptr inbounds %struct._GDBusSignalInfo, ptr %call, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -20755,9 +20662,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.023 = phi i64 [ 1, %while.body.lr.ph ], [ %n.1, %if.end16 ]
   %2 = load ptr, ptr %args, align 8
   %3 = getelementptr ptr, ptr %2, i64 %n.023
-  %arrayidx9 = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx9, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %4, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %use_gvariant, align 8
   %tobool.not = icmp eq i32 %5, 0
   %arrayidx15 = getelementptr %struct._GValue, ptr %call2, i64 %n.023
@@ -20780,7 +20687,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !104
 
 while.end:                                        ; preds = %if.end16, %qemu_dbus_display1_audio_in_listener_get_type.exit
-  %signal_name17 = getelementptr inbounds %struct._ExtendedGDBusSignalInfo, ptr %call, i64 0, i32 1
+  %signal_name17 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %signal_name17, align 8
   %call19 = call i32 @g_signal_lookup(ptr noundef %6, i64 noundef %1) #12
   call void @g_signal_emitv(ptr noundef %call2, i32 noundef %call19, i32 noundef 0, ptr noundef null) #12
@@ -20817,7 +20724,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -20832,7 +20739,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call3, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call3, i64 40
   %4 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_notify(ptr noundef %call5, ptr noundef %4) #12
   br label %if.end
@@ -20851,7 +20758,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp6.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %priv10 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerProxy, ptr %call1, i64 0, i32 1
+  %priv10 = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -20868,7 +20775,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then16:                                        ; preds = %for.body
   %call17 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name18 = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call9, i64 0, i32 1
+  %hyphen_name18 = getelementptr inbounds i8, ptr %call9, i64 40
   %11 = load ptr, ptr %hyphen_name18, align 8
   call void @g_object_notify(ptr noundef %call17, ptr noundef %11) #12
   br label %for.inc
@@ -20895,14 +20802,14 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %user_data, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load ptr, ptr %error, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %message, align 8
   %3 = load i32, ptr %1, align 8
   %call1 = call ptr @g_quark_to_string(i32 noundef %3) #13
-  %code = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %code, align 4
   call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.272, ptr noundef %0, ptr noundef %2, ptr noundef %call1, i32 noundef %4) #12
   %5 = load ptr, ptr %error, align 8
@@ -20922,7 +20829,7 @@ define internal ptr @qemu_dbus_display1_audio_in_listener_proxy_get_interfaces(p
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_in_listener_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %call2 = tail call ptr @g_datalist_get_data(ptr noundef %0, ptr noundef nonnull @.str.110) #12
   %cmp.not = icmp eq ptr %call2, null
@@ -20963,24 +20870,24 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_audio_in_listener_skeleton_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_audio_in_listener_skeleton_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_audio_in_listener_skeleton_set_property, ptr %set_property.i, align 8
-  %notify.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 8
+  %notify.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @qemu_dbus_display1_audio_in_listener_skeleton_notify, ptr %notify.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str.3) #12
   %call2.i = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call3.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call2.i) #12
-  %get_info.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 1
+  %get_info.i = getelementptr inbounds i8, ptr %call3.i, i64 136
   store ptr @qemu_dbus_display1_audio_in_listener_skeleton_dbus_interface_get_info, ptr %get_info.i, align 8
-  %get_properties.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 3
+  %get_properties.i = getelementptr inbounds i8, ptr %call3.i, i64 152
   store ptr @qemu_dbus_display1_audio_in_listener_skeleton_dbus_interface_get_properties, ptr %get_properties.i, align 8
-  %flush.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 4
+  %flush.i = getelementptr inbounds i8, ptr %call3.i, i64 160
   store ptr @qemu_dbus_display1_audio_in_listener_skeleton_dbus_interface_flush, ptr %flush.i, align 8
-  %get_vtable.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 2
+  %get_vtable.i = getelementptr inbounds i8, ptr %call3.i, i64 144
   store ptr @qemu_dbus_display1_audio_in_listener_skeleton_dbus_interface_get_vtable, ptr %get_vtable.i, align 8
   ret void
 }
@@ -20991,13 +20898,13 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1AudioInListenerSkeleton_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %skeleton, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeleton, ptr %skeleton, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %skeleton, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %add.ptr.i, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   tail call void @g_mutex_init(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_main_context_ref_thread_default() #12
   %1 = load ptr, ptr %priv, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %1, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call2, ptr %context, align 8
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #15
   %2 = load ptr, ptr %priv, align 8
@@ -21012,7 +20919,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_audio_in_listener_skeleton_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerIface, ptr %iface, i64 0, i32 6
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 56
   store ptr @qemu_dbus_display1_audio_in_listener_skeleton_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -21022,7 +20929,7 @@ define internal void @qemu_dbus_display1_audio_in_listener_skeleton_finalize(ptr
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_in_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @g_value_unset(ptr noundef %1) #12
@@ -21030,11 +20937,11 @@ entry:
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %4, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %changed_properties, align 8
   tail call void @g_list_free_full(ptr noundef %5, ptr noundef nonnull @_changed_property_free) #12
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %6, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp6.not = icmp eq ptr %7, null
   br i1 %cmp6.not, label %if.end, label %if.then
@@ -21046,15 +20953,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %8 = phi ptr [ %.pre, %if.then ], [ %6, %entry ]
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %8, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %context, align 8
   tail call void @g_main_context_unref(ptr noundef %9) #12
   %10 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %10, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %10, i64 32
   tail call void @g_mutex_clear(ptr noundef nonnull %lock) #12
   %11 = load ptr, ptr @qemu_dbus_display1_audio_in_listener_skeleton_parent_class, align 8
   %call11 = tail call ptr @g_type_check_class_cast(ptr noundef %11, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call11, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call11, i64 48
   %12 = load ptr, ptr %finalize, align 8
   tail call void %12(ptr noundef %object) #12
   ret void
@@ -21073,15 +20980,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   tail call void @g_value_copy(ptr noundef %2, ptr noundef %value) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock6 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }
@@ -21099,9 +21006,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   tail call void @g_object_freeze_notify(ptr noundef %object) #12
   %1 = load ptr, ptr %priv, align 8
@@ -21120,37 +21027,34 @@ if.then9:                                         ; preds = %do.end
 
 if.then16:                                        ; preds = %if.then9
   %3 = load ptr, ptr %.pre18, align 8
-  %changed_properties.i = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %.pre18, i64 0, i32 1
-  %l.01.i = load ptr, ptr %changed_properties.i, align 8
-  %cmp.not2.i = icmp eq ptr %l.01.i, null
-  br i1 %cmp.not2.i, label %if.then4.i, label %for.body.i
+  br label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct._GList, ptr %l.03.i, i64 0, i32 1
-  %l.0.i = load ptr, ptr %next.i, align 8
+for.cond.i:                                       ; preds = %for.body.i, %if.then16
+  %.pn.i = phi ptr [ %.pre18, %if.then16 ], [ %l.0.i, %for.body.i ]
+  %l.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %l.0.i = load ptr, ptr %l.0.in.i, align 8
   %cmp.not.i = icmp eq ptr %l.0.i, null
-  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !108
+  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i
 
-for.body.i:                                       ; preds = %if.then16, %for.cond.i
-  %l.03.i = phi ptr [ %l.0.i, %for.cond.i ], [ %l.01.i, %if.then16 ]
-  %4 = load ptr, ptr %l.03.i, align 8
+for.body.i:                                       ; preds = %for.cond.i
+  %4 = load ptr, ptr %l.0.i, align 8
   %5 = load ptr, ptr %4, align 8
   %cmp2.i = icmp eq ptr %5, @_qemu_dbus_display1_audio_in_listener_property_info_interfaces
-  br i1 %cmp2.i, label %if.end22, label %for.cond.i
+  br i1 %cmp2.i, label %if.end22, label %for.cond.i, !llvm.loop !108
 
-if.then4.i:                                       ; preds = %for.cond.i, %if.then16
+if.then4.i:                                       ; preds = %for.cond.i
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #15
-  %prop_id5.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 1
+  %prop_id5.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %prop_id5.i, align 8
   store ptr @_qemu_dbus_display1_audio_in_listener_property_info_interfaces, ptr %call.i, align 8
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties8.i = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %6, i64 0, i32 1
+  %changed_properties8.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %changed_properties8.i, align 8
   %call9.i = tail call ptr @g_list_prepend(ptr noundef %7, ptr noundef nonnull %call.i) #12
   %8 = load ptr, ptr %priv, align 8
-  %changed_properties11.i = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %8, i64 0, i32 1
+  %changed_properties11.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call9.i, ptr %changed_properties11.i, align 8
-  %orig_value12.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 2
+  %orig_value12.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %9 = load i64, ptr %3, align 8
   %call13.i = tail call ptr @g_value_init(ptr noundef nonnull %orig_value12.i, i64 noundef %9) #12
   tail call void @g_value_copy(ptr noundef nonnull %3, ptr noundef nonnull %orig_value12.i) #12
@@ -21166,7 +21070,7 @@ if.end22:                                         ; preds = %for.body.i, %if.the
 
 if.end28:                                         ; preds = %if.end22, %do.end
   %12 = load ptr, ptr %priv, align 8
-  %lock30 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %12, i64 0, i32 4
+  %lock30 = getelementptr inbounds i8, ptr %12, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock30) #12
   tail call void @g_object_thaw_notify(ptr noundef %object) #12
   ret void
@@ -21177,18 +21081,18 @@ define internal void @qemu_dbus_display1_audio_in_listener_skeleton_notify(ptr n
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_in_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %1, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %changed_properties, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.end
@@ -21196,29 +21100,29 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call ptr @g_idle_source_new() #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source7 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %4, i64 0, i32 2
+  %changed_properties_idle_source7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call5, ptr %changed_properties_idle_source7, align 8
   %5 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source9 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %5, i64 0, i32 2
+  %changed_properties_idle_source9 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %changed_properties_idle_source9, align 8
   tail call void @g_source_set_priority(ptr noundef %6, i32 noundef 0) #12
   %7 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source11 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %7, i64 0, i32 2
+  %changed_properties_idle_source11 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %changed_properties_idle_source11, align 8
   %call12 = tail call ptr @g_object_ref(ptr noundef nonnull %call1) #12
   tail call void @g_source_set_callback(ptr noundef %8, ptr noundef nonnull @_qemu_dbus_display1_audio_in_listener_emit_changed, ptr noundef %call12, ptr noundef nonnull @g_object_unref) #12
   %9 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source14 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %9, i64 0, i32 2
+  %changed_properties_idle_source14 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %changed_properties_idle_source14, align 8
   tail call void @g_source_set_name(ptr noundef %10, ptr noundef nonnull @.str.274) #12
   %11 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source16 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %11, i64 0, i32 2
+  %changed_properties_idle_source16 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %changed_properties_idle_source16, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %11, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %context, align 8
   %call18 = tail call i32 @g_source_attach(ptr noundef %12, ptr noundef %13) #12
   %14 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source20 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %14, i64 0, i32 2
+  %changed_properties_idle_source20 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %changed_properties_idle_source20, align 8
   tail call void @g_source_unref(ptr noundef %15) #12
   %.pre = load ptr, ptr %priv, align 8
@@ -21226,7 +21130,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %16 = phi ptr [ %.pre, %if.then ], [ %1, %land.lhs.true ], [ %1, %entry ]
-  %lock22 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock22 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock22) #12
   ret void
 }
@@ -21270,12 +21174,12 @@ define internal void @qemu_dbus_display1_audio_in_listener_skeleton_dbus_interfa
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_in_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %_skeleton, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end11.critedge, label %if.then
@@ -21283,16 +21187,16 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @g_source_destroy(ptr noundef nonnull %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source6 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %3, i64 0, i32 2
+  %changed_properties_idle_source6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %changed_properties_idle_source6, align 8
   %4 = load ptr, ptr %priv, align 8
-  %lock8 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock8 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8) #12
   %call10 = tail call i32 @_qemu_dbus_display1_audio_in_listener_emit_changed(ptr noundef nonnull %call1)
   br label %if.end11
 
 if.end11.critedge:                                ; preds = %entry
-  %lock8.c = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock8.c = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8.c) #12
   br label %if.end11
 
@@ -21313,54 +21217,54 @@ entry:
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
   %call = tail call i64 @qemu_dbus_display1_audio_in_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %user_data, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.118) #12
   call void @g_variant_builder_init(ptr noundef nonnull %builder, ptr noundef %call2) #12
   %call3 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.111) #12
   call void @g_variant_builder_init(ptr noundef nonnull %invalidated_builder, ptr noundef %call3) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %1, i64 0, i32 1
-  %l.021 = load ptr, ptr %changed_properties, align 8
-  %cmp.not22 = icmp eq ptr %l.021, null
-  br i1 %cmp.not22, label %if.else, label %for.body
+  %l.0.in21 = getelementptr inbounds i8, ptr %1, i64 8
+  %l.022 = load ptr, ptr %l.0.in21, align 8
+  %cmp.not23 = icmp eq ptr %l.022, null
+  br i1 %cmp.not23, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %l.024 = phi ptr [ %l.0, %for.inc ], [ %l.021, %entry ]
-  %num_changes.023 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
-  %2 = load ptr, ptr %l.024, align 8
+  %l.025 = phi ptr [ %l.0, %for.inc ], [ %l.022, %entry ]
+  %num_changes.024 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
+  %2 = load ptr, ptr %l.025, align 8
   %3 = load ptr, ptr %priv, align 8
   %4 = load ptr, ptr %3, align 8
-  %prop_id = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 1
+  %prop_id = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %prop_id, align 8
   %sub = add i32 %5, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr %struct._GValue, ptr %4, i64 %idxprom
-  %orig_value = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 2
+  %orig_value = getelementptr inbounds i8, ptr %2, i64 16
   %call6 = call fastcc i32 @_g_value_equal(ptr noundef %arrayidx, ptr noundef nonnull %orig_value)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %2, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %6, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %signature, align 8
   %call7 = call ptr @g_variant_type_checked_(ptr noundef %7) #12
   %call8 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %arrayidx, ptr noundef %call7) #12
   %8 = load ptr, ptr %2, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %8, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %name, align 8
   call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef nonnull %builder, ptr noundef nonnull @.str.124, ptr noundef %9, ptr noundef %call8) #12
   call void @g_variant_unref(ptr noundef %call8) #12
-  %inc = add i32 %num_changes.023, 1
+  %inc = add i32 %num_changes.024, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %num_changes.1 = phi i32 [ %num_changes.023, %for.body ], [ %inc, %if.then ]
-  %next = getelementptr inbounds %struct._GList, ptr %l.024, i64 0, i32 1
-  %l.0 = load ptr, ptr %next, align 8
+  %num_changes.1 = phi i32 [ %num_changes.024, %for.body ], [ %inc, %if.then ]
+  %l.0.in = getelementptr inbounds i8, ptr %l.025, i64 8
+  %l.0 = load ptr, ptr %l.0.in, align 8
   %cmp.not = icmp eq ptr %l.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !109
 
@@ -21374,16 +21278,16 @@ if.then12:                                        ; preds = %for.end
   %call15 = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call16 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef %call15) #12
   %call17 = call ptr @g_dbus_interface_skeleton_get_connections(ptr noundef %call16) #12
-  %cmp19.not25 = icmp eq ptr %call17, null
-  br i1 %cmp19.not25, label %for.end28, label %for.body20
+  %cmp19.not26 = icmp eq ptr %call17, null
+  br i1 %cmp19.not26, label %for.end28, label %for.body20
 
 for.body20:                                       ; preds = %if.then12, %for.body20
-  %ll.026 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
-  %11 = load ptr, ptr %ll.026, align 8
+  %ll.027 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
+  %11 = load ptr, ptr %ll.027, align 8
   %call23 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call15) #12
   %call24 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call23) #12
   %call25 = call i32 @g_dbus_connection_emit_signal(ptr noundef %11, ptr noundef null, ptr noundef %call24, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr noundef %call14, ptr noundef null) #12
-  %next27 = getelementptr inbounds %struct._GList, ptr %ll.026, i64 0, i32 1
+  %next27 = getelementptr inbounds i8, ptr %ll.027, i64 8
   %12 = load ptr, ptr %next27, align 8
   %cmp19.not = icmp eq ptr %12, null
   br i1 %cmp19.not, label %for.end28, label %for.body20, !llvm.loop !110
@@ -21400,17 +21304,17 @@ if.else:                                          ; preds = %entry, %for.end
 
 if.end29:                                         ; preds = %if.else, %for.end28
   %13 = load ptr, ptr %priv, align 8
-  %changed_properties31 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %13, i64 0, i32 1
+  %changed_properties31 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %changed_properties31, align 8
   call void @g_list_free_full(ptr noundef %14, ptr noundef nonnull @_changed_property_free) #12
   %15 = load ptr, ptr %priv, align 8
-  %changed_properties33 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %15, i64 0, i32 1
+  %changed_properties33 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %changed_properties33, align 8
   %16 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %16, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %changed_properties_idle_source, align 8
   %17 = load ptr, ptr %priv, align 8
-  %lock36 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %17, i64 0, i32 4
+  %lock36 = getelementptr inbounds i8, ptr %17, i64 32
   call void @g_mutex_unlock(ptr noundef nonnull %lock36) #12
   ret i32 0
 }
@@ -21432,7 +21336,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -21444,13 +21348,13 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %value_type = getelementptr inbounds %struct._GParamSpec, ptr %call3, i64 0, i32 3
+  %value_type = getelementptr inbounds i8, ptr %call3, i64 24
   %2 = load i64, ptr %value_type, align 8
   %call8 = call ptr @g_value_init(ptr noundef nonnull %value, i64 noundef %2) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
   %3 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_get_property(ptr noundef %call9, ptr noundef %3, ptr noundef nonnull %value) #12
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call11 = call ptr @g_variant_type_checked_(ptr noundef %4) #12
   %call12 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef nonnull %value, ptr noundef %call11) #12
@@ -21480,7 +21384,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @g_variant_n_children(ptr noundef %parameters) #12
-  %pass_fdlist = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %pass_fdlist = getelementptr inbounds i8, ptr %call2, i64 48
   %0 = load i32, ptr %pass_fdlist, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i64 2, i64 3
@@ -21506,7 +21410,7 @@ qemu_dbus_display1_audio_in_listener_get_type.exit: ; preds = %do.end, %land.rhs
   %2 = load i64, ptr @qemu_dbus_display1_audio_in_listener_get_type.static_g_define_type_id, align 8
   %call6 = tail call ptr @g_value_init(ptr noundef %call4, i64 noundef %2) #12
   tail call void @g_value_set_object(ptr noundef %call4, ptr noundef %call1) #12
-  %arrayidx8 = getelementptr %struct._GValue, ptr %call4, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call4, i64 24
   %call9 = tail call i64 @g_dbus_method_invocation_get_type() #13
   %call10 = tail call ptr @g_value_init(ptr noundef %arrayidx8, i64 noundef %call9) #12
   tail call void @g_value_set_object(ptr noundef %arrayidx8, ptr noundef %invocation) #12
@@ -21515,7 +21419,7 @@ qemu_dbus_display1_audio_in_listener_get_type.exit: ; preds = %do.end, %land.rhs
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %qemu_dbus_display1_audio_in_listener_get_type.exit
-  %arrayidx16 = getelementptr %struct._GValue, ptr %call4, i64 2
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 48
   %call17 = tail call i64 @g_unix_fd_list_get_type() #13
   %call18 = tail call ptr @g_value_init(ptr noundef %arrayidx16, i64 noundef %call17) #12
   %call21 = tail call ptr @g_dbus_method_invocation_get_message(ptr noundef %invocation) #12
@@ -21531,7 +21435,7 @@ if.end23:                                         ; preds = %if.then15, %qemu_db
   br i1 %cmp26.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %in_args = getelementptr inbounds %struct._GDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %in_args = getelementptr inbounds i8, ptr %call2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -21541,7 +21445,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i64 %n.140, %cond
   %arrayidx29 = getelementptr ptr, ptr %4, i64 %sub
   %5 = load ptr, ptr %arrayidx29, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %5, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i32, ptr %use_gvariant, align 8
   %tobool30.not = icmp eq i32 %6, 0
   %arrayidx38 = getelementptr %struct._GValue, ptr %call4, i64 %n.140
@@ -21564,7 +21468,7 @@ if.end39:                                         ; preds = %if.else36, %if.then
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !111
 
 while.end:                                        ; preds = %if.end39, %if.end23
-  %signal_name = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 1
+  %signal_name = getelementptr inbounds i8, ptr %call2, i64 40
   %7 = load ptr, ptr %signal_name, align 8
   %call41 = call i32 @g_signal_lookup(ptr noundef %7, i64 noundef %2) #12
   %call42 = call ptr @g_value_init(ptr noundef nonnull %return_value, i64 noundef 20) #12
@@ -21613,7 +21517,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -21625,7 +21529,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %call2, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -21656,15 +21560,15 @@ define internal ptr @qemu_dbus_display1_audio_in_listener_skeleton_get_interface
 entry:
   %call = tail call i64 @qemu_dbus_display1_audio_in_listener_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call ptr @g_value_get_boxed(ptr noundef %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1AudioInListenerSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -21684,17 +21588,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_chardev_proxy_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_chardev_proxy_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_chardev_proxy_set_property, ptr %set_property.i, align 8
   %call1.i = tail call i64 @g_dbus_proxy_get_type() #13
   %call2.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call1.i) #12
-  %g_signal.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 2
+  %g_signal.i = getelementptr inbounds i8, ptr %call2.i, i64 144
   store ptr @qemu_dbus_display1_chardev_proxy_g_signal, ptr %g_signal.i, align 8
-  %g_properties_changed.i = getelementptr inbounds %struct._GDBusProxyClass, ptr %call2.i, i64 0, i32 1
+  %g_properties_changed.i = getelementptr inbounds i8, ptr %call2.i, i64 136
   store ptr @qemu_dbus_display1_chardev_proxy_g_properties_changed, ptr %g_properties_changed.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str) #12
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 2, ptr noundef nonnull @.str.98) #12
@@ -21710,7 +21614,7 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1ChardevProxy_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %proxy, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevProxy, ptr %proxy, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %proxy, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
   %call1 = tail call i64 @g_dbus_proxy_get_type() #13
   %call2 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call1) #12
@@ -21721,15 +21625,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_chardev_proxy_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_name = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %iface, i64 0, i32 6
+  %get_name = getelementptr inbounds i8, ptr %iface, i64 56
   store ptr @qemu_dbus_display1_chardev_proxy_get_name, ptr %get_name, align 8
-  %get_feopened = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %iface, i64 0, i32 4
+  %get_feopened = getelementptr inbounds i8, ptr %iface, i64 40
   store ptr @qemu_dbus_display1_chardev_proxy_get_feopened, ptr %get_feopened, align 8
-  %get_echo = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %iface, i64 0, i32 3
+  %get_echo = getelementptr inbounds i8, ptr %iface, i64 32
   store ptr @qemu_dbus_display1_chardev_proxy_get_echo, ptr %get_echo, align 8
-  %get_owner = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %iface, i64 0, i32 7
+  %get_owner = getelementptr inbounds i8, ptr %iface, i64 64
   store ptr @qemu_dbus_display1_chardev_proxy_get_owner, ptr %get_owner, align 8
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %iface, i64 0, i32 5
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 48
   store ptr @qemu_dbus_display1_chardev_proxy_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -21739,12 +21643,12 @@ define internal void @qemu_dbus_display1_chardev_proxy_finalize(ptr noundef %obj
 entry:
   %call = tail call i64 @qemu_dbus_display1_chardev_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   tail call void @g_datalist_clear(ptr noundef %0) #12
   %1 = load ptr, ptr @qemu_dbus_display1_chardev_proxy_parent_class, align 8
   %call2 = tail call ptr @g_type_check_class_cast(ptr noundef %1, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call2, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load ptr, ptr %finalize, align 8
   tail call void %2(ptr noundef %object) #12
   ret void
@@ -21767,10 +21671,10 @@ do.end:                                           ; preds = %entry
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call3 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %name, align 8
   %call4 = tail call ptr @g_dbus_proxy_get_cached_property(ptr noundef %call3, ptr noundef %2) #12
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %1, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %1, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -21812,13 +21716,13 @@ do.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr [6 x ptr], ptr @_qemu_dbus_display1_chardev_property_info_pointers, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %1, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %signature, align 8
   %call = tail call ptr @g_variant_type_checked_(ptr noundef %2) #12
   %call3 = tail call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %value, ptr noundef %call) #12
   %call4 = tail call i64 @g_dbus_proxy_get_type() #13
   %call5 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call4) #12
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %name, align 8
   %call7 = tail call ptr (ptr, ...) @g_variant_new(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.103, ptr noundef %3, ptr noundef %call3) #12
   tail call void @g_dbus_proxy_call(ptr noundef %call5, ptr noundef nonnull @.str.115, ptr noundef %call7, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef nonnull @qemu_dbus_display1_chardev_proxy_set_property_cb, ptr noundef %1) #12
@@ -21864,7 +21768,7 @@ qemu_dbus_display1_chardev_get_type.exit:         ; preds = %if.end, %land.rhs.i
   br i1 %cmp8.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %qemu_dbus_display1_chardev_get_type.exit
-  %args = getelementptr inbounds %struct._GDBusSignalInfo, ptr %call, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -21872,9 +21776,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.023 = phi i64 [ 1, %while.body.lr.ph ], [ %n.1, %if.end16 ]
   %2 = load ptr, ptr %args, align 8
   %3 = getelementptr ptr, ptr %2, i64 %n.023
-  %arrayidx9 = getelementptr ptr, ptr %3, i64 -1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 -8
   %4 = load ptr, ptr %arrayidx9, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %4, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %use_gvariant, align 8
   %tobool.not = icmp eq i32 %5, 0
   %arrayidx15 = getelementptr %struct._GValue, ptr %call2, i64 %n.023
@@ -21897,7 +21801,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !113
 
 while.end:                                        ; preds = %if.end16, %qemu_dbus_display1_chardev_get_type.exit
-  %signal_name17 = getelementptr inbounds %struct._ExtendedGDBusSignalInfo, ptr %call, i64 0, i32 1
+  %signal_name17 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %signal_name17, align 8
   %call19 = call i32 @g_signal_lookup(ptr noundef %6, i64 noundef %1) #12
   call void @g_signal_emitv(ptr noundef %call2, i32 noundef %call19, i32 noundef 0, ptr noundef null) #12
@@ -21934,7 +21838,7 @@ entry:
   br i1 %tobool.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -21949,7 +21853,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %call5 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call3, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call3, i64 40
   %4 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_notify(ptr noundef %call5, ptr noundef %4) #12
   br label %if.end
@@ -21968,7 +21872,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp6.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %priv10 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevProxy, ptr %call1, i64 0, i32 1
+  %priv10 = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -21985,7 +21889,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then16:                                        ; preds = %for.body
   %call17 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
-  %hyphen_name18 = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call9, i64 0, i32 1
+  %hyphen_name18 = getelementptr inbounds i8, ptr %call9, i64 40
   %11 = load ptr, ptr %hyphen_name18, align 8
   call void @g_object_notify(ptr noundef %call17, ptr noundef %11) #12
   br label %for.inc
@@ -22012,14 +21916,14 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %user_data, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load ptr, ptr %error, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %message, align 8
   %3 = load i32, ptr %1, align 8
   %call1 = call ptr @g_quark_to_string(i32 noundef %3) #13
-  %code = getelementptr inbounds %struct._GError, ptr %1, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %code, align 4
   call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.283, ptr noundef %0, ptr noundef %2, ptr noundef %call1, i32 noundef %4) #12
   %5 = load ptr, ptr %error, align 8
@@ -22123,7 +22027,7 @@ define internal ptr @qemu_dbus_display1_chardev_proxy_get_interfaces(ptr noundef
 entry:
   %call = tail call i64 @qemu_dbus_display1_chardev_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevProxy, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
   %call2 = tail call ptr @g_datalist_get_data(ptr noundef %0, ptr noundef nonnull @.str.110) #12
   %cmp.not = icmp eq ptr %call2, null
@@ -22164,13 +22068,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #12
-  %finalize.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 6
+  %finalize.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qemu_dbus_display1_chardev_skeleton_finalize, ptr %finalize.i, align 8
-  %get_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 4
+  %get_property.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qemu_dbus_display1_chardev_skeleton_get_property, ptr %get_property.i, align 8
-  %set_property.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 3
+  %set_property.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qemu_dbus_display1_chardev_skeleton_set_property, ptr %set_property.i, align 8
-  %notify.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 8
+  %notify.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @qemu_dbus_display1_chardev_skeleton_notify, ptr %notify.i, align 8
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull @.str) #12
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 2, ptr noundef nonnull @.str.98) #12
@@ -22179,13 +22083,13 @@ if.end:                                           ; preds = %if.then, %entry
   tail call void @g_object_class_override_property(ptr noundef %call.i, i32 noundef 5, ptr noundef nonnull @.str.3) #12
   %call2.i = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call3.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef %call2.i) #12
-  %get_info.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 1
+  %get_info.i = getelementptr inbounds i8, ptr %call3.i, i64 136
   store ptr @qemu_dbus_display1_chardev_skeleton_dbus_interface_get_info, ptr %get_info.i, align 8
-  %get_properties.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 3
+  %get_properties.i = getelementptr inbounds i8, ptr %call3.i, i64 152
   store ptr @qemu_dbus_display1_chardev_skeleton_dbus_interface_get_properties, ptr %get_properties.i, align 8
-  %flush.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 4
+  %flush.i = getelementptr inbounds i8, ptr %call3.i, i64 160
   store ptr @qemu_dbus_display1_chardev_skeleton_dbus_interface_flush, ptr %flush.i, align 8
-  %get_vtable.i = getelementptr inbounds %struct._GDBusInterfaceSkeletonClass, ptr %call3.i, i64 0, i32 2
+  %get_vtable.i = getelementptr inbounds i8, ptr %call3.i, i64 144
   store ptr @qemu_dbus_display1_chardev_skeleton_dbus_interface_get_vtable, ptr %get_vtable.i, align 8
   ret void
 }
@@ -22196,13 +22100,13 @@ entry:
   %0 = load i32, ptr @QemuDBusDisplay1ChardevSkeleton_private_offset, align 4
   %conv.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %skeleton, i64 %conv.i
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeleton, ptr %skeleton, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %skeleton, i64 32
   store ptr %add.ptr.i, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %add.ptr.i, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   tail call void @g_mutex_init(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_main_context_ref_thread_default() #12
   %1 = load ptr, ptr %priv, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %1, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call2, ptr %context, align 8
   %call4 = tail call noalias dereferenceable_or_null(120) ptr @g_malloc0_n(i64 noundef 5, i64 noundef 24) #15
   %2 = load ptr, ptr %priv, align 8
@@ -22212,19 +22116,19 @@ entry:
   %call8 = tail call ptr @g_value_init(ptr noundef %4, i64 noundef 64) #12
   %5 = load ptr, ptr %priv, align 8
   %6 = load ptr, ptr %5, align 8
-  %arrayidx11 = getelementptr %struct._GValue, ptr %6, i64 1
+  %arrayidx11 = getelementptr i8, ptr %6, i64 24
   %call12 = tail call ptr @g_value_init(ptr noundef %arrayidx11, i64 noundef 20) #12
   %7 = load ptr, ptr %priv, align 8
   %8 = load ptr, ptr %7, align 8
-  %arrayidx15 = getelementptr %struct._GValue, ptr %8, i64 2
+  %arrayidx15 = getelementptr i8, ptr %8, i64 48
   %call16 = tail call ptr @g_value_init(ptr noundef %arrayidx15, i64 noundef 20) #12
   %9 = load ptr, ptr %priv, align 8
   %10 = load ptr, ptr %9, align 8
-  %arrayidx19 = getelementptr %struct._GValue, ptr %10, i64 3
+  %arrayidx19 = getelementptr i8, ptr %10, i64 72
   %call20 = tail call ptr @g_value_init(ptr noundef %arrayidx19, i64 noundef 64) #12
   %11 = load ptr, ptr %priv, align 8
   %12 = load ptr, ptr %11, align 8
-  %arrayidx23 = getelementptr %struct._GValue, ptr %12, i64 4
+  %arrayidx23 = getelementptr i8, ptr %12, i64 96
   %call24 = tail call i64 @g_strv_get_type() #13
   %call25 = tail call ptr @g_value_init(ptr noundef %arrayidx23, i64 noundef %call24) #12
   ret void
@@ -22233,15 +22137,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @qemu_dbus_display1_chardev_skeleton_iface_init(ptr nocapture noundef writeonly %iface) #5 {
 entry:
-  %get_name = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %iface, i64 0, i32 6
+  %get_name = getelementptr inbounds i8, ptr %iface, i64 56
   store ptr @qemu_dbus_display1_chardev_skeleton_get_name, ptr %get_name, align 8
-  %get_feopened = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %iface, i64 0, i32 4
+  %get_feopened = getelementptr inbounds i8, ptr %iface, i64 40
   store ptr @qemu_dbus_display1_chardev_skeleton_get_feopened, ptr %get_feopened, align 8
-  %get_echo = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %iface, i64 0, i32 3
+  %get_echo = getelementptr inbounds i8, ptr %iface, i64 32
   store ptr @qemu_dbus_display1_chardev_skeleton_get_echo, ptr %get_echo, align 8
-  %get_owner = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %iface, i64 0, i32 7
+  %get_owner = getelementptr inbounds i8, ptr %iface, i64 64
   store ptr @qemu_dbus_display1_chardev_skeleton_get_owner, ptr %get_owner, align 8
-  %get_interfaces = getelementptr inbounds %struct._QemuDBusDisplay1ChardevIface, ptr %iface, i64 0, i32 5
+  %get_interfaces = getelementptr inbounds i8, ptr %iface, i64 48
   store ptr @qemu_dbus_display1_chardev_skeleton_get_interfaces, ptr %get_interfaces, align 8
   ret void
 }
@@ -22251,7 +22155,7 @@ define internal void @qemu_dbus_display1_chardev_skeleton_finalize(ptr noundef %
 entry:
   %call = tail call i64 @qemu_dbus_display1_chardev_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -22269,11 +22173,11 @@ for.end:                                          ; preds = %for.body
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %4, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %changed_properties, align 8
   tail call void @g_list_free_full(ptr noundef %5, ptr noundef nonnull @_changed_property_free) #12
   %6 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %6, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp6.not = icmp eq ptr %7, null
   br i1 %cmp6.not, label %if.end, label %if.then
@@ -22285,15 +22189,15 @@ if.then:                                          ; preds = %for.end
 
 if.end:                                           ; preds = %if.then, %for.end
   %8 = phi ptr [ %.pre, %if.then ], [ %6, %for.end ]
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %8, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %context, align 8
   tail call void @g_main_context_unref(ptr noundef %9) #12
   %10 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %10, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %10, i64 32
   tail call void @g_mutex_clear(ptr noundef nonnull %lock) #12
   %11 = load ptr, ptr @qemu_dbus_display1_chardev_skeleton_parent_class, align 8
   %call11 = tail call ptr @g_type_check_class_cast(ptr noundef %11, i64 noundef 80) #12
-  %finalize = getelementptr inbounds %struct._GObjectClass, ptr %call11, i64 0, i32 6
+  %finalize = getelementptr inbounds i8, ptr %call11, i64 48
   %12 = load ptr, ptr %finalize, align 8
   tail call void %12(ptr noundef %object) #12
   ret void
@@ -22313,9 +22217,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %1 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %2 = load ptr, ptr %priv, align 8
   %3 = load ptr, ptr %2, align 8
@@ -22323,7 +22227,7 @@ do.end:                                           ; preds = %entry
   %arrayidx = getelementptr %struct._GValue, ptr %3, i64 %idxprom
   tail call void @g_value_copy(ptr noundef %arrayidx, ptr noundef %value) #12
   %4 = load ptr, ptr %priv, align 8
-  %lock6 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock6 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock6) #12
   ret void
 }
@@ -22345,9 +22249,9 @@ do.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr [6 x ptr], ptr @_qemu_dbus_display1_chardev_property_info_pointers, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %2 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %2, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %2, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   tail call void @g_object_freeze_notify(ptr noundef %object) #12
   %3 = load ptr, ptr %priv, align 8
@@ -22365,7 +22269,7 @@ if.then9:                                         ; preds = %do.end
   br i1 %cmp13.not, label %if.end22, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %if.then9
-  %emits_changed_signal = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %1, i64 0, i32 2
+  %emits_changed_signal = getelementptr inbounds i8, ptr %1, i64 48
   %bf.load = load i8, ptr %emits_changed_signal, align 8
   %5 = and i8 %bf.load, 2
   %tobool15.not = icmp eq i8 %5, 0
@@ -22375,37 +22279,34 @@ if.then16:                                        ; preds = %land.lhs.true14
   %6 = load ptr, ptr %priv, align 8
   %7 = load ptr, ptr %6, align 8
   %arrayidx21 = getelementptr %struct._GValue, ptr %7, i64 %idxprom
-  %changed_properties.i = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %6, i64 0, i32 1
-  %l.013.i = load ptr, ptr %changed_properties.i, align 8
-  %cmp.not14.i = icmp eq ptr %l.013.i, null
-  br i1 %cmp.not14.i, label %if.then4.i, label %for.body.i
+  br label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct._GList, ptr %l.015.i, i64 0, i32 1
-  %l.0.i = load ptr, ptr %next.i, align 8
+for.cond.i:                                       ; preds = %for.body.i, %if.then16
+  %.pn.i = phi ptr [ %6, %if.then16 ], [ %l.0.i, %for.body.i ]
+  %l.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %l.0.i = load ptr, ptr %l.0.in.i, align 8
   %cmp.not.i = icmp eq ptr %l.0.i, null
-  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i, !llvm.loop !118
+  br i1 %cmp.not.i, label %if.then4.i, label %for.body.i
 
-for.body.i:                                       ; preds = %if.then16, %for.cond.i
-  %l.015.i = phi ptr [ %l.0.i, %for.cond.i ], [ %l.013.i, %if.then16 ]
-  %8 = load ptr, ptr %l.015.i, align 8
+for.body.i:                                       ; preds = %for.cond.i
+  %8 = load ptr, ptr %l.0.i, align 8
   %9 = load ptr, ptr %8, align 8
   %cmp2.i = icmp eq ptr %9, %1
-  br i1 %cmp2.i, label %if.end22, label %for.cond.i
+  br i1 %cmp2.i, label %if.end22, label %for.cond.i, !llvm.loop !118
 
-if.then4.i:                                       ; preds = %for.cond.i, %if.then16
+if.then4.i:                                       ; preds = %for.cond.i
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #15
-  %prop_id5.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 1
+  %prop_id5.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %prop_id, ptr %prop_id5.i, align 8
   store ptr %1, ptr %call.i, align 8
   %10 = load ptr, ptr %priv, align 8
-  %changed_properties8.i = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %10, i64 0, i32 1
+  %changed_properties8.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %changed_properties8.i, align 8
   %call9.i = tail call ptr @g_list_prepend(ptr noundef %11, ptr noundef nonnull %call.i) #12
   %12 = load ptr, ptr %priv, align 8
-  %changed_properties11.i = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %12, i64 0, i32 1
+  %changed_properties11.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %call9.i, ptr %changed_properties11.i, align 8
-  %orig_value12.i = getelementptr inbounds %struct.ChangedProperty, ptr %call.i, i64 0, i32 2
+  %orig_value12.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %13 = load i64, ptr %arrayidx21, align 8
   %call13.i = tail call ptr @g_value_init(ptr noundef nonnull %orig_value12.i, i64 noundef %13) #12
   tail call void @g_value_copy(ptr noundef nonnull %arrayidx21, ptr noundef nonnull %orig_value12.i) #12
@@ -22421,7 +22322,7 @@ if.end22:                                         ; preds = %for.body.i, %if.the
 
 if.end28:                                         ; preds = %if.end22, %do.end
   %16 = load ptr, ptr %priv, align 8
-  %lock30 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock30 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock30) #12
   tail call void @g_object_thaw_notify(ptr noundef %object) #12
   ret void
@@ -22432,18 +22333,18 @@ define internal void @qemu_dbus_display1_chardev_skeleton_notify(ptr noundef %ob
 entry:
   %call = tail call i64 @qemu_dbus_display1_chardev_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %1, i64 0, i32 1
+  %changed_properties = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %changed_properties, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.end
@@ -22451,29 +22352,29 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %call5 = tail call ptr @g_idle_source_new() #12
   %4 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source7 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %4, i64 0, i32 2
+  %changed_properties_idle_source7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call5, ptr %changed_properties_idle_source7, align 8
   %5 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source9 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %5, i64 0, i32 2
+  %changed_properties_idle_source9 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %changed_properties_idle_source9, align 8
   tail call void @g_source_set_priority(ptr noundef %6, i32 noundef 0) #12
   %7 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source11 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %7, i64 0, i32 2
+  %changed_properties_idle_source11 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %changed_properties_idle_source11, align 8
   %call12 = tail call ptr @g_object_ref(ptr noundef nonnull %call1) #12
   tail call void @g_source_set_callback(ptr noundef %8, ptr noundef nonnull @_qemu_dbus_display1_chardev_emit_changed, ptr noundef %call12, ptr noundef nonnull @g_object_unref) #12
   %9 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source14 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %9, i64 0, i32 2
+  %changed_properties_idle_source14 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %changed_properties_idle_source14, align 8
   tail call void @g_source_set_name(ptr noundef %10, ptr noundef nonnull @.str.285) #12
   %11 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source16 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %11, i64 0, i32 2
+  %changed_properties_idle_source16 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %changed_properties_idle_source16, align 8
-  %context = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %11, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %context, align 8
   %call18 = tail call i32 @g_source_attach(ptr noundef %12, ptr noundef %13) #12
   %14 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source20 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %14, i64 0, i32 2
+  %changed_properties_idle_source20 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %changed_properties_idle_source20, align 8
   tail call void @g_source_unref(ptr noundef %15) #12
   %.pre = load ptr, ptr %priv, align 8
@@ -22481,7 +22382,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %16 = phi ptr [ %.pre, %if.then ], [ %1, %land.lhs.true ], [ %1, %entry ]
-  %lock22 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %16, i64 0, i32 4
+  %lock22 = getelementptr inbounds i8, ptr %16, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock22) #12
   ret void
 }
@@ -22505,7 +22406,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %0 = phi ptr [ @_qemu_dbus_display1_chardev_property_info_name, %entry ], [ %4, %for.inc ]
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %0, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -22517,7 +22418,7 @@ if.then:                                          ; preds = %for.body
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call5) #12
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9) #12
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %0, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %name, align 8
   %call11 = call ptr @_qemu_dbus_display1_chardev_skeleton_handle_get_property(ptr poison, ptr poison, ptr poison, ptr nonnull poison, ptr noundef %2, ptr noundef null, ptr noundef %call1)
   %cmp12.not = icmp eq ptr %call11, null
@@ -22547,12 +22448,12 @@ define internal void @qemu_dbus_display1_chardev_skeleton_dbus_interface_flush(p
 entry:
   %call = tail call i64 @qemu_dbus_display1_chardev_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %_skeleton, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %1, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %changed_properties_idle_source, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end11.critedge, label %if.then
@@ -22560,16 +22461,16 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @g_source_destroy(ptr noundef nonnull %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source6 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %3, i64 0, i32 2
+  %changed_properties_idle_source6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %changed_properties_idle_source6, align 8
   %4 = load ptr, ptr %priv, align 8
-  %lock8 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %4, i64 0, i32 4
+  %lock8 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8) #12
   %call10 = tail call i32 @_qemu_dbus_display1_chardev_emit_changed(ptr noundef nonnull %call1)
   br label %if.end11
 
 if.end11.critedge:                                ; preds = %entry
-  %lock8.c = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %1, i64 0, i32 4
+  %lock8.c = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock8.c) #12
   br label %if.end11
 
@@ -22590,54 +22491,54 @@ entry:
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
   %call = tail call i64 @qemu_dbus_display1_chardev_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %user_data, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %call2 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.118) #12
   call void @g_variant_builder_init(ptr noundef nonnull %builder, ptr noundef %call2) #12
   %call3 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.111) #12
   call void @g_variant_builder_init(ptr noundef nonnull %invalidated_builder, ptr noundef %call3) #12
   %1 = load ptr, ptr %priv, align 8
-  %changed_properties = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %1, i64 0, i32 1
-  %l.021 = load ptr, ptr %changed_properties, align 8
-  %cmp.not22 = icmp eq ptr %l.021, null
-  br i1 %cmp.not22, label %if.else, label %for.body
+  %l.0.in21 = getelementptr inbounds i8, ptr %1, i64 8
+  %l.022 = load ptr, ptr %l.0.in21, align 8
+  %cmp.not23 = icmp eq ptr %l.022, null
+  br i1 %cmp.not23, label %if.else, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %l.024 = phi ptr [ %l.0, %for.inc ], [ %l.021, %entry ]
-  %num_changes.023 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
-  %2 = load ptr, ptr %l.024, align 8
+  %l.025 = phi ptr [ %l.0, %for.inc ], [ %l.022, %entry ]
+  %num_changes.024 = phi i32 [ %num_changes.1, %for.inc ], [ 0, %entry ]
+  %2 = load ptr, ptr %l.025, align 8
   %3 = load ptr, ptr %priv, align 8
   %4 = load ptr, ptr %3, align 8
-  %prop_id = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 1
+  %prop_id = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %prop_id, align 8
   %sub = add i32 %5, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr %struct._GValue, ptr %4, i64 %idxprom
-  %orig_value = getelementptr inbounds %struct.ChangedProperty, ptr %2, i64 0, i32 2
+  %orig_value = getelementptr inbounds i8, ptr %2, i64 16
   %call6 = call fastcc i32 @_g_value_equal(ptr noundef %arrayidx, ptr noundef nonnull %orig_value)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %2, align 8
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %6, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %signature, align 8
   %call7 = call ptr @g_variant_type_checked_(ptr noundef %7) #12
   %call8 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef %arrayidx, ptr noundef %call7) #12
   %8 = load ptr, ptr %2, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %8, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %name, align 8
   call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef nonnull %builder, ptr noundef nonnull @.str.124, ptr noundef %9, ptr noundef %call8) #12
   call void @g_variant_unref(ptr noundef %call8) #12
-  %inc = add i32 %num_changes.023, 1
+  %inc = add i32 %num_changes.024, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %num_changes.1 = phi i32 [ %num_changes.023, %for.body ], [ %inc, %if.then ]
-  %next = getelementptr inbounds %struct._GList, ptr %l.024, i64 0, i32 1
-  %l.0 = load ptr, ptr %next, align 8
+  %num_changes.1 = phi i32 [ %num_changes.024, %for.body ], [ %inc, %if.then ]
+  %l.0.in = getelementptr inbounds i8, ptr %l.025, i64 8
+  %l.0 = load ptr, ptr %l.0.in, align 8
   %cmp.not = icmp eq ptr %l.0, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !120
 
@@ -22651,16 +22552,16 @@ if.then12:                                        ; preds = %for.end
   %call15 = tail call i64 @g_dbus_interface_skeleton_get_type() #13
   %call16 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef %call15) #12
   %call17 = call ptr @g_dbus_interface_skeleton_get_connections(ptr noundef %call16) #12
-  %cmp19.not25 = icmp eq ptr %call17, null
-  br i1 %cmp19.not25, label %for.end28, label %for.body20
+  %cmp19.not26 = icmp eq ptr %call17, null
+  br i1 %cmp19.not26, label %for.end28, label %for.body20
 
 for.body20:                                       ; preds = %if.then12, %for.body20
-  %ll.026 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
-  %11 = load ptr, ptr %ll.026, align 8
+  %ll.027 = phi ptr [ %12, %for.body20 ], [ %call17, %if.then12 ]
+  %11 = load ptr, ptr %ll.027, align 8
   %call23 = call ptr @g_type_check_instance_cast(ptr noundef %call1, i64 noundef %call15) #12
   %call24 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call23) #12
   %call25 = call i32 @g_dbus_connection_emit_signal(ptr noundef %11, ptr noundef null, ptr noundef %call24, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr noundef %call14, ptr noundef null) #12
-  %next27 = getelementptr inbounds %struct._GList, ptr %ll.026, i64 0, i32 1
+  %next27 = getelementptr inbounds i8, ptr %ll.027, i64 8
   %12 = load ptr, ptr %next27, align 8
   %cmp19.not = icmp eq ptr %12, null
   br i1 %cmp19.not, label %for.end28, label %for.body20, !llvm.loop !121
@@ -22677,17 +22578,17 @@ if.else:                                          ; preds = %entry, %for.end
 
 if.end29:                                         ; preds = %if.else, %for.end28
   %13 = load ptr, ptr %priv, align 8
-  %changed_properties31 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %13, i64 0, i32 1
+  %changed_properties31 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %changed_properties31, align 8
   call void @g_list_free_full(ptr noundef %14, ptr noundef nonnull @_changed_property_free) #12
   %15 = load ptr, ptr %priv, align 8
-  %changed_properties33 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %15, i64 0, i32 1
+  %changed_properties33 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr null, ptr %changed_properties33, align 8
   %16 = load ptr, ptr %priv, align 8
-  %changed_properties_idle_source = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %16, i64 0, i32 2
+  %changed_properties_idle_source = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %changed_properties_idle_source, align 8
   %17 = load ptr, ptr %priv, align 8
-  %lock36 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %17, i64 0, i32 4
+  %lock36 = getelementptr inbounds i8, ptr %17, i64 32
   call void @g_mutex_unlock(ptr noundef nonnull %lock36) #12
   ret i32 0
 }
@@ -22709,7 +22610,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -22721,13 +22622,13 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %value_type = getelementptr inbounds %struct._GParamSpec, ptr %call3, i64 0, i32 3
+  %value_type = getelementptr inbounds i8, ptr %call3, i64 24
   %2 = load i64, ptr %value_type, align 8
   %call8 = call ptr @g_value_init(ptr noundef nonnull %value, i64 noundef %2) #12
   %call9 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call1, i64 noundef 80) #12
   %3 = load ptr, ptr %hyphen_name, align 8
   call void @g_object_get_property(ptr noundef %call9, ptr noundef %3, ptr noundef nonnull %value) #12
-  %signature = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %call2, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call11 = call ptr @g_variant_type_checked_(ptr noundef %4) #12
   %call12 = call ptr @g_dbus_gvalue_to_gvariant(ptr noundef nonnull %value, ptr noundef %call11) #12
@@ -22757,7 +22658,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @g_variant_n_children(ptr noundef %parameters) #12
-  %pass_fdlist = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %pass_fdlist = getelementptr inbounds i8, ptr %call2, i64 48
   %0 = load i32, ptr %pass_fdlist, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i64 2, i64 3
@@ -22783,7 +22684,7 @@ qemu_dbus_display1_chardev_get_type.exit:         ; preds = %do.end, %land.rhs.i
   %2 = load i64, ptr @qemu_dbus_display1_chardev_get_type.static_g_define_type_id, align 8
   %call6 = tail call ptr @g_value_init(ptr noundef %call4, i64 noundef %2) #12
   tail call void @g_value_set_object(ptr noundef %call4, ptr noundef %call1) #12
-  %arrayidx8 = getelementptr %struct._GValue, ptr %call4, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call4, i64 24
   %call9 = tail call i64 @g_dbus_method_invocation_get_type() #13
   %call10 = tail call ptr @g_value_init(ptr noundef %arrayidx8, i64 noundef %call9) #12
   tail call void @g_value_set_object(ptr noundef %arrayidx8, ptr noundef %invocation) #12
@@ -22792,7 +22693,7 @@ qemu_dbus_display1_chardev_get_type.exit:         ; preds = %do.end, %land.rhs.i
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %qemu_dbus_display1_chardev_get_type.exit
-  %arrayidx16 = getelementptr %struct._GValue, ptr %call4, i64 2
+  %arrayidx16 = getelementptr i8, ptr %call4, i64 48
   %call17 = tail call i64 @g_unix_fd_list_get_type() #13
   %call18 = tail call ptr @g_value_init(ptr noundef %arrayidx16, i64 noundef %call17) #12
   %call21 = tail call ptr @g_dbus_method_invocation_get_message(ptr noundef %invocation) #12
@@ -22808,7 +22709,7 @@ if.end23:                                         ; preds = %if.then15, %qemu_db
   br i1 %cmp26.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %in_args = getelementptr inbounds %struct._GDBusMethodInfo, ptr %call2, i64 0, i32 2
+  %in_args = getelementptr inbounds i8, ptr %call2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -22818,7 +22719,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = sub i64 %n.140, %cond
   %arrayidx29 = getelementptr ptr, ptr %4, i64 %sub
   %5 = load ptr, ptr %arrayidx29, align 8
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusArgInfo, ptr %5, i64 0, i32 1
+  %use_gvariant = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i32, ptr %use_gvariant, align 8
   %tobool30.not = icmp eq i32 %6, 0
   %arrayidx38 = getelementptr %struct._GValue, ptr %call4, i64 %n.140
@@ -22841,7 +22742,7 @@ if.end39:                                         ; preds = %if.else36, %if.then
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !122
 
 while.end:                                        ; preds = %if.end39, %if.end23
-  %signal_name = getelementptr inbounds %struct._ExtendedGDBusMethodInfo, ptr %call2, i64 0, i32 1
+  %signal_name = getelementptr inbounds i8, ptr %call2, i64 40
   %7 = load ptr, ptr %signal_name, align 8
   %call41 = call i32 @g_signal_lookup(ptr noundef %7, i64 noundef %2) #12
   %call42 = call ptr @g_value_init(ptr noundef nonnull %return_value, i64 noundef 20) #12
@@ -22890,7 +22791,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call1, align 8
-  %hyphen_name = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 1
+  %hyphen_name = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load ptr, ptr %hyphen_name, align 8
   %call3 = tail call ptr @g_object_class_find_property(ptr noundef %0, ptr noundef %1) #12
   %cmp4 = icmp eq ptr %call3, null
@@ -22902,7 +22803,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end13
 
 if.else7:                                         ; preds = %do.end
-  %use_gvariant = getelementptr inbounds %struct._ExtendedGDBusPropertyInfo, ptr %call2, i64 0, i32 2
+  %use_gvariant = getelementptr inbounds i8, ptr %call2, i64 48
   %bf.load = load i8, ptr %use_gvariant, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -22933,15 +22834,15 @@ define internal ptr @qemu_dbus_display1_chardev_skeleton_get_name(ptr noundef %o
 entry:
   %call = tail call i64 @qemu_dbus_display1_chardev_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call ptr @g_value_get_string(ptr noundef %2) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -22951,16 +22852,16 @@ define internal i32 @qemu_dbus_display1_chardev_skeleton_get_feopened(ptr nounde
 entry:
   %call = tail call i64 @qemu_dbus_display1_chardev_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
-  %arrayidx = getelementptr %struct._GValue, ptr %2, i64 1
+  %arrayidx = getelementptr i8, ptr %2, i64 24
   %call3 = tail call i32 @g_value_get_boolean(ptr noundef %arrayidx) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret i32 %call3
 }
@@ -22970,16 +22871,16 @@ define internal i32 @qemu_dbus_display1_chardev_skeleton_get_echo(ptr noundef %o
 entry:
   %call = tail call i64 @qemu_dbus_display1_chardev_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
-  %arrayidx = getelementptr %struct._GValue, ptr %2, i64 2
+  %arrayidx = getelementptr i8, ptr %2, i64 48
   %call3 = tail call i32 @g_value_get_boolean(ptr noundef %arrayidx) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret i32 %call3
 }
@@ -22989,16 +22890,16 @@ define internal ptr @qemu_dbus_display1_chardev_skeleton_get_owner(ptr noundef %
 entry:
   %call = tail call i64 @qemu_dbus_display1_chardev_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
-  %arrayidx = getelementptr %struct._GValue, ptr %2, i64 3
+  %arrayidx = getelementptr i8, ptr %2, i64 72
   %call3 = tail call ptr @g_value_get_string(ptr noundef %arrayidx) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }
@@ -23008,16 +22909,16 @@ define internal ptr @qemu_dbus_display1_chardev_skeleton_get_interfaces(ptr noun
 entry:
   %call = tail call i64 @qemu_dbus_display1_chardev_skeleton_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %call) #12
-  %priv = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeleton, ptr %call1, i64 0, i32 1
+  %priv = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %priv, align 8
-  %lock = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @g_mutex_lock(ptr noundef nonnull %lock) #12
   %1 = load ptr, ptr %priv, align 8
   %2 = load ptr, ptr %1, align 8
-  %arrayidx = getelementptr %struct._GValue, ptr %2, i64 4
+  %arrayidx = getelementptr i8, ptr %2, i64 96
   %call3 = tail call ptr @g_value_get_boxed(ptr noundef %arrayidx) #12
   %3 = load ptr, ptr %priv, align 8
-  %lock5 = getelementptr inbounds %struct._QemuDBusDisplay1ChardevSkeletonPrivate, ptr %3, i64 0, i32 4
+  %lock5 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @g_mutex_unlock(ptr noundef nonnull %lock5) #12
   ret ptr %call3
 }

@@ -16,25 +16,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 %struct.sharedObjectsStruct = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [4 x ptr], [4 x ptr], [4 x ptr], [4 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [10 x ptr], [10000 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], ptr, ptr }
 %struct.scriptFlag = type { i64, ptr }
-%struct.functionInfo = type { ptr, ptr, ptr, ptr, i64 }
-%struct.functionLibInfo = type { ptr, ptr, ptr, ptr }
-%struct.engineInfo = type { ptr, ptr, ptr }
-%struct.engine = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.functionsLibCtx = type { ptr, ptr, i64, ptr }
-%struct.client = type { i64, i64, ptr, i32, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, ptr, i32, i32, ptr, i64, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, i64, ptr, i64, i64, i64, i32, ptr, i64, i64, i32, i32, i32, i32, i64, i64, ptr, i64, i64, i64, i64, i64, i64, i64, i64, [41 x i8], i32, ptr, i32, i32, %struct.multiState, %struct.blockingState, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, ptr, ptr, ptr, i64, %struct.listNode, i64, i64, i32, i64, ptr }
-%struct.multiState = type { ptr, i32, i32, i32, i64, i32 }
-%struct.blockingState = type { i32, i64, i32, ptr, i32, i32, i64, ptr, ptr }
-%struct.listNode = type { ptr, ptr, ptr }
-%struct.redisObject = type { i32, i32, ptr }
-%struct.dict = type { ptr, [2 x ptr], [2 x i64], i64, i16, [2 x i8], [0 x ptr] }
-%struct.functionsLibEngineStats = type { i64, i64 }
 %struct.scriptRunCtx = type { ptr, ptr, ptr, i32, i32, i64 }
-%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr, i32, [2 x %struct.dbDictState] }
-%struct.dbDictState = type { i32, i32, i64, i64, ptr }
 %struct._rio = type { ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, %union.anon }
 %union.anon = type { %struct.anon.2 }
 %struct.anon.2 = type { ptr, i64, ptr, i64, i64 }
-%struct.list = type { ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.functionsLibMataData = type { ptr, ptr, ptr }
 
 @engineDictType = dso_local global %struct.dictType { ptr @dictSdsCaseHash, ptr @dictSdsDup, ptr null, ptr @dictSdsKeyCaseCompare, ptr @dictSdsDestructor, ptr null, ptr null, ptr null, ptr null, ptr null, i8 0 }, align 8
@@ -170,7 +155,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %obj, align 8
   tail call void @sdsfree(ptr noundef %0) #11
-  %desc = getelementptr inbounds %struct.functionInfo, ptr %obj, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load ptr, ptr %desc, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end4, label %if.then2
@@ -180,16 +165,16 @@ if.then2:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %li = getelementptr inbounds %struct.functionInfo, ptr %obj, i64 0, i32 2
+  %li = getelementptr inbounds i8, ptr %obj, i64 16
   %2 = load ptr, ptr %li, align 8
-  %ei = getelementptr inbounds %struct.functionLibInfo, ptr %2, i64 0, i32 2
+  %ei = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %ei, align 8
-  %engine5 = getelementptr inbounds %struct.engineInfo, ptr %3, i64 0, i32 1
+  %engine5 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %engine5, align 8
-  %free_function = getelementptr inbounds %struct.engine, ptr %4, i64 0, i32 6
+  %free_function = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load ptr, ptr %free_function, align 8
   %6 = load ptr, ptr %4, align 8
-  %function = getelementptr inbounds %struct.functionInfo, ptr %obj, i64 0, i32 1
+  %function = getelementptr inbounds i8, ptr %obj, i64 8
   %7 = load ptr, ptr %function, align 8
   tail call void %5(ptr noundef %6, ptr noundef %7) #11
   tail call void @zfree(ptr noundef nonnull %obj) #11
@@ -206,12 +191,12 @@ entry:
   br i1 %tobool.not.i, label %engineLibraryFree.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %functions.i = getelementptr inbounds %struct.functionLibInfo, ptr %obj, i64 0, i32 1
+  %functions.i = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %functions.i, align 8
   tail call void @dictRelease(ptr noundef %0) #11
   %1 = load ptr, ptr %obj, align 8
   tail call void @sdsfree(ptr noundef %1) #11
-  %code.i = getelementptr inbounds %struct.functionLibInfo, ptr %obj, i64 0, i32 3
+  %code.i = getelementptr inbounds i8, ptr %obj, i64 24
   %2 = load ptr, ptr %code.i, align 8
   tail call void @sdsfree(ptr noundef %2) #11
   tail call void @zfree(ptr noundef nonnull %obj) #11
@@ -224,12 +209,12 @@ engineLibraryFree.exit:                           ; preds = %entry, %if.end.i
 ; Function Attrs: nounwind uwtable
 define dso_local void @functionsLibCtxClear(ptr nocapture noundef readonly %lib_ctx) local_unnamed_addr #1 {
 entry:
-  %functions = getelementptr inbounds %struct.functionsLibCtx, ptr %lib_ctx, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %lib_ctx, i64 8
   %0 = load ptr, ptr %functions, align 8
   tail call void @dictEmpty(ptr noundef %0, ptr noundef null) #11
   %1 = load ptr, ptr %lib_ctx, align 8
   tail call void @dictEmpty(ptr noundef %1, ptr noundef null) #11
-  %engines_stats = getelementptr inbounds %struct.functionsLibCtx, ptr %lib_ctx, i64 0, i32 3
+  %engines_stats = getelementptr inbounds i8, ptr %lib_ctx, i64 24
   %2 = load ptr, ptr %engines_stats, align 8
   %call = tail call ptr @dictGetIterator(ptr noundef %2) #11
   %call25 = tail call ptr @dictNext(ptr noundef %call) #11
@@ -247,7 +232,7 @@ while.body:                                       ; preds = %entry, %while.body
 while.end:                                        ; preds = %while.body, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #11
   %3 = load ptr, ptr @curr_functions_lib_ctx, align 8
-  %cache_memory = getelementptr inbounds %struct.functionsLibCtx, ptr %3, i64 0, i32 2
+  %cache_memory = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %cache_memory, align 8
   ret void
 }
@@ -290,10 +275,10 @@ entry:
   %call1 = tail call ptr @dictCreate(ptr noundef nonnull @librariesDictType) #11
   store ptr %call1, ptr %call, align 8
   %call2 = tail call ptr @dictCreate(ptr noundef nonnull @functionDictType) #11
-  %functions = getelementptr inbounds %struct.functionsLibCtx, ptr %call, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call2, ptr %functions, align 8
   %call3 = tail call ptr @dictCreate(ptr noundef nonnull @engineStatsDictType) #11
-  %engines_stats = getelementptr inbounds %struct.functionsLibCtx, ptr %call, i64 0, i32 3
+  %engines_stats = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call3, ptr %engines_stats, align 8
   %0 = load ptr, ptr @engines, align 8
   %call4 = tail call ptr @dictGetIterator(ptr noundef %0) #11
@@ -313,7 +298,7 @@ while.body:                                       ; preds = %entry, %while.body
 
 while.end:                                        ; preds = %while.body, %entry
   tail call void @dictReleaseIterator(ptr noundef %call4) #11
-  %cache_memory = getelementptr inbounds %struct.functionsLibCtx, ptr %call, i64 0, i32 2
+  %cache_memory = getelementptr inbounds i8, ptr %call, i64 16
   store i64 0, ptr %cache_memory, align 8
   ret ptr %call
 }
@@ -324,12 +309,12 @@ declare void @freeFunctionsAsync(ptr noundef) local_unnamed_addr #0
 define dso_local void @functionsLibCtxFree(ptr noundef %functions_lib_ctx) local_unnamed_addr #1 {
 entry:
   tail call void @functionsLibCtxClear(ptr noundef %functions_lib_ctx)
-  %functions = getelementptr inbounds %struct.functionsLibCtx, ptr %functions_lib_ctx, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %functions_lib_ctx, i64 8
   %0 = load ptr, ptr %functions, align 8
   tail call void @dictRelease(ptr noundef %0) #11
   %1 = load ptr, ptr %functions_lib_ctx, align 8
   tail call void @dictRelease(ptr noundef %1) #11
-  %engines_stats = getelementptr inbounds %struct.functionsLibCtx, ptr %functions_lib_ctx, i64 0, i32 3
+  %engines_stats = getelementptr inbounds i8, ptr %functions_lib_ctx, i64 24
   %2 = load ptr, ptr %engines_stats, align 8
   tail call void @dictRelease(ptr noundef %2) #11
   tail call void @zfree(ptr noundef nonnull %functions_lib_ctx) #11
@@ -345,12 +330,12 @@ define dso_local void @functionsLibCtxSwapWithCurrent(ptr noundef %new_lib_ctx) 
 entry:
   %0 = load ptr, ptr @curr_functions_lib_ctx, align 8
   tail call void @functionsLibCtxClear(ptr noundef %0)
-  %functions.i = getelementptr inbounds %struct.functionsLibCtx, ptr %0, i64 0, i32 1
+  %functions.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %functions.i, align 8
   tail call void @dictRelease(ptr noundef %1) #11
   %2 = load ptr, ptr %0, align 8
   tail call void @dictRelease(ptr noundef %2) #11
-  %engines_stats.i = getelementptr inbounds %struct.functionsLibCtx, ptr %0, i64 0, i32 3
+  %engines_stats.i = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %engines_stats.i, align 8
   tail call void @dictRelease(ptr noundef %3) #11
   tail call void @zfree(ptr noundef nonnull %0) #11
@@ -489,7 +474,7 @@ for.inc.i:                                        ; preds = %lor.lhs.false15.i, 
   br label %for.cond.i, !llvm.loop !8
 
 if.end:                                           ; preds = %sdslen.exit33.i
-  %functions = getelementptr inbounds %struct.functionLibInfo, ptr %li, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %li, i64 8
   %13 = load ptr, ptr %functions, align 8
   %call2 = tail call ptr @dictFetchValue(ptr noundef %13, ptr noundef nonnull %name) #11
   %tobool.not = icmp eq ptr %call2, null
@@ -563,7 +548,7 @@ do.end:                                           ; preds = %do.body, %if.end
 
 if.end3:                                          ; preds = %entry
   %call4 = tail call ptr @createClient(ptr noundef null) #11
-  %flags = getelementptr inbounds %struct.client, ptr %call4, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %call4, i64 8
   %2 = load i64, ptr %flags, align 8
   %or = or i64 %2, 2199023255808
   store i64 %or, ptr %flags, align 8
@@ -581,7 +566,7 @@ if.end3:                                          ; preds = %entry
   %add = add i64 %call11, %call9
   %call12 = tail call i64 @je_malloc_usable_size(ptr noundef %engine) #11
   %add13 = add i64 %add, %call12
-  %get_engine_memory_overhead = getelementptr inbounds %struct.engine, ptr %engine, i64 0, i32 5
+  %get_engine_memory_overhead = getelementptr inbounds i8, ptr %engine, i64 40
   %5 = load ptr, ptr %get_engine_memory_overhead, align 8
   %6 = load ptr, ptr %engine, align 8
   %call14 = tail call i64 %5(ptr noundef %6) #11
@@ -642,7 +627,7 @@ if.else:                                          ; preds = %if.end
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %call6) #11
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.7) #11
   %call7 = tail call ptr @scriptGetCaller() #11
-  %argc = getelementptr inbounds %struct.client, ptr %call7, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %call7, i64 88
   %1 = load i32, ptr %argc, align 8
   %conv = sext i32 %1 to i64
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef %conv) #11
@@ -651,7 +636,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp29, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.else
-  %argv = getelementptr inbounds %struct.client, ptr %call7, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %call7, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %sdslen.exit
@@ -659,7 +644,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %sd
   %3 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %4, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 -1
   %6 = load i8, ptr %arrayidx.i, align 1
@@ -719,9 +704,9 @@ for.end:                                          ; preds = %sdslen.exit, %if.el
 if.end16:                                         ; preds = %for.end, %if.then5
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.9) #11
   %13 = load ptr, ptr @engines, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %13, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load i64, ptr %ht_used, align 8
-  %arrayidx19 = getelementptr inbounds %struct.dict, ptr %13, i64 0, i32 2, i64 1
+  %arrayidx19 = getelementptr inbounds i8, ptr %13, i64 32
   %15 = load i64, ptr %arrayidx19, align 8
   %add = add i64 %15, %14
   tail call void @addReplyMapLen(ptr noundef %c, i64 noundef %add) #11
@@ -738,7 +723,7 @@ while.body:                                       ; preds = %if.end16, %while.bo
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %17) #11
   tail call void @addReplyMapLen(ptr noundef %c, i64 noundef 2) #11
   %18 = load ptr, ptr @curr_functions_lib_ctx, align 8
-  %engines_stats = getelementptr inbounds %struct.functionsLibCtx, ptr %18, i64 0, i32 3
+  %engines_stats = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load ptr, ptr %engines_stats, align 8
   %20 = load ptr, ptr %call24, align 8
   %call26 = tail call ptr @dictFetchValue(ptr noundef %19, ptr noundef %20) #11
@@ -746,7 +731,7 @@ while.body:                                       ; preds = %if.end16, %while.bo
   %21 = load i64, ptr %call26, align 8
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %21) #11
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.11) #11
-  %n_functions = getelementptr inbounds %struct.functionsLibEngineStats, ptr %call26, i64 0, i32 1
+  %n_functions = getelementptr inbounds i8, ptr %call26, i64 8
   %22 = load i64, ptr %n_functions, align 8
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %22) #11
   %call22 = tail call ptr @dictNext(ptr noundef %call20) #11
@@ -788,13 +773,13 @@ declare i64 @scriptRunDuration() local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define dso_local void @functionListCommand(ptr noundef %c) local_unnamed_addr #1 {
 entry:
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp177 = icmp sgt i32 %0, 2
   br i1 %cmp177, label %for.body.lr.ph, label %if.else
 
 for.body.lr.ph:                                   ; preds = %entry
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
   %sub = add nsw i32 %0, -1
   br label %for.body
@@ -810,7 +795,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %for.body
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.12) #14
   %tobool1.not = icmp eq i32 %call, 0
@@ -821,7 +806,7 @@ if.end:                                           ; preds = %land.lhs.true, %for
   br i1 %tobool2.not, label %land.lhs.true3, label %if.end16
 
 land.lhs.true3:                                   ; preds = %if.end
-  %ptr4 = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr4 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %ptr4, align 8
   %call5 = tail call i32 @strcasecmp(ptr noundef %4, ptr noundef nonnull @.str.13) #14
   %tobool6.not = icmp eq i32 %call5, 0
@@ -840,13 +825,13 @@ if.end11:                                         ; preds = %if.then7
   %idxprom13 = sext i32 %inc to i64
   %arrayidx14 = getelementptr inbounds ptr, ptr %1, i64 %idxprom13
   %5 = load ptr, ptr %arrayidx14, align 8
-  %ptr15 = getelementptr inbounds %struct.redisObject, ptr %5, i64 0, i32 2
+  %ptr15 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %ptr15, align 8
   br label %for.inc
 
 if.end16:                                         ; preds = %land.lhs.true3, %if.end
   %call17 = tail call ptr @sdsempty() #11
-  %ptr18 = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr18 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %ptr18, align 8
   %call19 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call17, ptr noundef nonnull @.str.15, ptr noundef %7) #11
   tail call void @addReplyErrorSds(ptr noundef nonnull %c, ptr noundef %call19) #11
@@ -873,9 +858,9 @@ if.else:                                          ; preds = %entry, %for.end
   %with_code.0.lcssa197 = phi i1 [ %8, %for.end ], [ true, %entry ]
   %9 = load ptr, ptr @curr_functions_lib_ctx, align 8
   %10 = load ptr, ptr %9, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %10, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load i64, ptr %ht_used, align 8
-  %arrayidx27 = getelementptr inbounds %struct.dict, ptr %10, i64 0, i32 2, i64 1
+  %arrayidx27 = getelementptr inbounds i8, ptr %10, i64 32
   %12 = load i64, ptr %arrayidx27, align 8
   %add = add i64 %12, %11
   tail call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %add) #11
@@ -1053,7 +1038,7 @@ sdslen.exit94:                                    ; preds = %if.end45, %sw.bb.i9
   %retval.0.i81 = phi i64 [ %31, %sw.bb13.i79 ], [ %conv12.i84, %sw.bb9.i82 ], [ %conv8.i87, %sw.bb5.i85 ], [ %conv4.i90, %sw.bb3.i88 ], [ %conv2.i93, %sw.bb.i91 ], [ 0, %if.end45 ]
   tail call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %26, i64 noundef %retval.0.i81) #11
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.17) #11
-  %ei = getelementptr inbounds %struct.functionLibInfo, ptr %.us-phi182, i64 0, i32 2
+  %ei = getelementptr inbounds i8, ptr %.us-phi182, i64 16
   %32 = load ptr, ptr %ei, align 8
   %33 = load ptr, ptr %32, align 8
   %arrayidx.i95 = getelementptr inbounds i8, ptr %33, i64 -1
@@ -1100,11 +1085,11 @@ sdslen.exit113:                                   ; preds = %sdslen.exit94, %sw.
   %retval.0.i100 = phi i64 [ %38, %sw.bb13.i98 ], [ %conv12.i103, %sw.bb9.i101 ], [ %conv8.i106, %sw.bb5.i104 ], [ %conv4.i109, %sw.bb3.i107 ], [ %conv2.i112, %sw.bb.i110 ], [ 0, %sdslen.exit94 ]
   tail call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %33, i64 noundef %retval.0.i100) #11
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.18) #11
-  %functions = getelementptr inbounds %struct.functionLibInfo, ptr %.us-phi182, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %.us-phi182, i64 8
   %39 = load ptr, ptr %functions, align 8
-  %ht_used56 = getelementptr inbounds %struct.dict, ptr %39, i64 0, i32 2
+  %ht_used56 = getelementptr inbounds i8, ptr %39, i64 24
   %40 = load i64, ptr %ht_used56, align 8
-  %arrayidx60 = getelementptr inbounds %struct.dict, ptr %39, i64 0, i32 2, i64 1
+  %arrayidx60 = getelementptr inbounds i8, ptr %39, i64 32
   %41 = load i64, ptr %arrayidx60, align 8
   %add61 = add i64 %41, %40
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef %add61) #11
@@ -1164,7 +1149,7 @@ sdslen.exit132:                                   ; preds = %while.body67, %sw.b
   %retval.0.i119 = phi i64 [ %48, %sw.bb13.i117 ], [ %conv12.i122, %sw.bb9.i120 ], [ %conv8.i125, %sw.bb5.i123 ], [ %conv4.i128, %sw.bb3.i126 ], [ %conv2.i131, %sw.bb.i129 ], [ 0, %while.body67 ]
   tail call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %43, i64 noundef %retval.0.i119) #11
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.19) #11
-  %desc = getelementptr inbounds %struct.functionInfo, ptr %call68, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call68, i64 24
   %49 = load ptr, ptr %desc, align 8
   %tobool72.not = icmp eq ptr %49, null
   br i1 %tobool72.not, label %if.else77, label %if.then73
@@ -1226,7 +1211,7 @@ if.end78:                                         ; preds = %if.else77, %sdslen.
   br i1 %tobool.not9.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end78
-  %f_flags.i = getelementptr inbounds %struct.functionInfo, ptr %call68, i64 0, i32 4
+  %f_flags.i = getelementptr inbounds i8, ptr %call68, i64 32
   %56 = load i64, ptr %f_flags.i, align 8
   br label %for.body.i
 
@@ -1238,8 +1223,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %tobool2.not.i = icmp ne i64 %and.i152, 0
   %inc.i = zext i1 %tobool2.not.i to i32
   %spec.select.i = add nuw nsw i32 %flagcount.010.i, %inc.i
-  %incdec.ptr.i = getelementptr inbounds %struct.scriptFlag, ptr %flag.011.i, i64 1
-  %str.i = getelementptr inbounds %struct.scriptFlag, ptr %flag.011.i, i64 1, i32 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %flag.011.i, i64 16
+  %str.i = getelementptr inbounds i8, ptr %flag.011.i, i64 24
   %58 = load ptr, ptr %str.i, align 8
   %tobool.not.i = icmp eq ptr %58, null
   br i1 %tobool.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !13
@@ -1256,7 +1241,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br i1 %tobool6.not12.i, label %functionListReplyFlags.exit, label %for.body7.lr.ph.i
 
 for.body7.lr.ph.i:                                ; preds = %for.end.i
-  %f_flags8.i = getelementptr inbounds %struct.functionInfo, ptr %call68, i64 0, i32 4
+  %f_flags8.i = getelementptr inbounds i8, ptr %call68, i64 32
   br label %for.body7.i
 
 for.body7.i:                                      ; preds = %for.inc15.i, %for.body7.lr.ph.i
@@ -1273,8 +1258,8 @@ if.then12.i:                                      ; preds = %for.body7.i
   br label %for.inc15.i
 
 for.inc15.i:                                      ; preds = %if.then12.i, %for.body7.i
-  %incdec.ptr16.i = getelementptr inbounds %struct.scriptFlag, ptr %flag3.013.i, i64 1
-  %str5.i = getelementptr inbounds %struct.scriptFlag, ptr %flag3.013.i, i64 1, i32 1
+  %incdec.ptr16.i = getelementptr inbounds i8, ptr %flag3.013.i, i64 16
+  %str5.i = getelementptr inbounds i8, ptr %flag3.013.i, i64 24
   %64 = load ptr, ptr %str5.i, align 8
   %tobool6.not.i = icmp eq ptr %64, null
   br i1 %tobool6.not.i, label %functionListReplyFlags.exit, label %for.body7.i, !llvm.loop !14
@@ -1290,7 +1275,7 @@ while.end:                                        ; preds = %functionListReplyFl
 
 if.then80:                                        ; preds = %while.end
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.21) #11
-  %code = getelementptr inbounds %struct.functionLibInfo, ptr %.us-phi182, i64 0, i32 3
+  %code = getelementptr inbounds i8, ptr %.us-phi182, i64 24
   %65 = load ptr, ptr %code, align 8
   %arrayidx.i153 = getelementptr inbounds i8, ptr %65, i64 -1
   %66 = load i8, ptr %arrayidx.i153, align 1
@@ -1373,13 +1358,13 @@ declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local void @functionDeleteCommand(ptr noundef %c) local_unnamed_addr #1 {
 entry:
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load ptr, ptr @curr_functions_lib_ctx, align 8
   %3 = load ptr, ptr %2, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %1, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %ptr, align 8
   %call = tail call ptr @dictFetchValue(ptr noundef %3, ptr noundef %4) #11
   %tobool.not = icmp eq ptr %call, null
@@ -1392,12 +1377,12 @@ if.then:                                          ; preds = %entry
 engineLibraryFree.exit:                           ; preds = %entry
   %5 = load ptr, ptr @curr_functions_lib_ctx, align 8
   tail call fastcc void @libraryUnlink(ptr noundef %5, ptr noundef nonnull %call)
-  %functions.i = getelementptr inbounds %struct.functionLibInfo, ptr %call, i64 0, i32 1
+  %functions.i = getelementptr inbounds i8, ptr %call, i64 8
   %6 = load ptr, ptr %functions.i, align 8
   tail call void @dictRelease(ptr noundef %6) #11
   %7 = load ptr, ptr %call, align 8
   tail call void @sdsfree(ptr noundef %7) #11
-  %code.i = getelementptr inbounds %struct.functionLibInfo, ptr %call, i64 0, i32 3
+  %code.i = getelementptr inbounds i8, ptr %call, i64 24
   %8 = load ptr, ptr %code.i, align 8
   tail call void @sdsfree(ptr noundef %8) #11
   tail call void @zfree(ptr noundef nonnull %call) #11
@@ -1415,7 +1400,7 @@ return:                                           ; preds = %engineLibraryFree.e
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @libraryUnlink(ptr nocapture noundef %lib_ctx, ptr noundef %li) unnamed_addr #1 {
 entry:
-  %functions = getelementptr inbounds %struct.functionLibInfo, ptr %li, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %li, i64 8
   %0 = load ptr, ptr %functions, align 8
   %call = tail call ptr @dictGetIterator(ptr noundef %0) #11
   %call222 = tail call ptr @dictNext(ptr noundef %call) #11
@@ -1423,8 +1408,8 @@ entry:
   br i1 %tobool.not23, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %functions4 = getelementptr inbounds %struct.functionsLibCtx, ptr %lib_ctx, i64 0, i32 1
-  %cache_memory = getelementptr inbounds %struct.functionsLibCtx, ptr %lib_ctx, i64 0, i32 2
+  %functions4 = getelementptr inbounds i8, ptr %lib_ctx, i64 8
+  %cache_memory = getelementptr inbounds i8, ptr %lib_ctx, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %functionMallocSize.exit
@@ -1445,7 +1430,7 @@ cond.end:                                         ; preds = %while.body
   %call.i = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %call3) #11
   %3 = load ptr, ptr %call3, align 8
   %call1.i = tail call i64 @sdsZmallocSize(ptr noundef %3) #11
-  %desc.i = getelementptr inbounds %struct.functionInfo, ptr %call3, i64 0, i32 3
+  %desc.i = getelementptr inbounds i8, ptr %call3, i64 24
   %4 = load ptr, ptr %desc.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %functionMallocSize.exit, label %cond.true.i
@@ -1456,15 +1441,15 @@ cond.true.i:                                      ; preds = %cond.end
 
 functionMallocSize.exit:                          ; preds = %cond.end, %cond.true.i
   %cond.i = phi i64 [ %call3.i, %cond.true.i ], [ 0, %cond.end ]
-  %li.i = getelementptr inbounds %struct.functionInfo, ptr %call3, i64 0, i32 2
+  %li.i = getelementptr inbounds i8, ptr %call3, i64 16
   %5 = load ptr, ptr %li.i, align 8
-  %ei.i = getelementptr inbounds %struct.functionLibInfo, ptr %5, i64 0, i32 2
+  %ei.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %ei.i, align 8
-  %engine.i = getelementptr inbounds %struct.engineInfo, ptr %6, i64 0, i32 1
+  %engine.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %engine.i, align 8
-  %get_function_memory_overhead.i = getelementptr inbounds %struct.engine, ptr %7, i64 0, i32 4
+  %get_function_memory_overhead.i = getelementptr inbounds i8, ptr %7, i64 32
   %8 = load ptr, ptr %get_function_memory_overhead.i, align 8
-  %function.i = getelementptr inbounds %struct.functionInfo, ptr %call3, i64 0, i32 1
+  %function.i = getelementptr inbounds i8, ptr %call3, i64 8
   %9 = load ptr, ptr %function.i, align 8
   %call5.i = tail call i64 %8(ptr noundef %9) #11
   %10 = load i64, ptr %cache_memory, align 8
@@ -1489,18 +1474,18 @@ while.end:                                        ; preds = %functionMallocSize.
   %call.i18 = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %li) #11
   %18 = load ptr, ptr %li, align 8
   %call1.i19 = tail call i64 @sdsZmallocSize(ptr noundef %18) #11
-  %code.i = getelementptr inbounds %struct.functionLibInfo, ptr %li, i64 0, i32 3
+  %code.i = getelementptr inbounds i8, ptr %li, i64 24
   %19 = load ptr, ptr %code.i, align 8
   %call2.i = tail call i64 @sdsZmallocSize(ptr noundef %19) #11
-  %cache_memory14 = getelementptr inbounds %struct.functionsLibCtx, ptr %lib_ctx, i64 0, i32 2
+  %cache_memory14 = getelementptr inbounds i8, ptr %lib_ctx, i64 16
   %20 = load i64, ptr %cache_memory14, align 8
   %21 = add i64 %call1.i19, %call.i18
   %22 = add i64 %21, %call2.i
   %sub15 = sub i64 %20, %22
   store i64 %sub15, ptr %cache_memory14, align 8
-  %engines_stats = getelementptr inbounds %struct.functionsLibCtx, ptr %lib_ctx, i64 0, i32 3
+  %engines_stats = getelementptr inbounds i8, ptr %lib_ctx, i64 24
   %23 = load ptr, ptr %engines_stats, align 8
-  %ei = getelementptr inbounds %struct.functionLibInfo, ptr %li, i64 0, i32 2
+  %ei = getelementptr inbounds i8, ptr %li, i64 16
   %24 = load ptr, ptr %ei, align 8
   %25 = load ptr, ptr %24, align 8
   %call17 = tail call ptr @dictFetchValue(ptr noundef %23, ptr noundef %25) #11
@@ -1517,11 +1502,11 @@ cond.end27:                                       ; preds = %while.end
   %dec = add i64 %26, -1
   store i64 %dec, ptr %call17, align 8
   %27 = load ptr, ptr %functions, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %27, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %27, i64 24
   %28 = load i64, ptr %ht_used, align 8
-  %arrayidx31 = getelementptr inbounds %struct.dict, ptr %27, i64 0, i32 2, i64 1
+  %arrayidx31 = getelementptr inbounds i8, ptr %27, i64 32
   %29 = load i64, ptr %arrayidx31, align 8
-  %n_functions = getelementptr inbounds %struct.functionsLibEngineStats, ptr %call17, i64 0, i32 1
+  %n_functions = getelementptr inbounds i8, ptr %call17, i64 8
   %30 = load i64, ptr %n_functions, align 8
   %31 = add i64 %29, %28
   %sub32 = sub i64 %30, %31
@@ -1536,12 +1521,12 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %functions = getelementptr inbounds %struct.functionLibInfo, ptr %li, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %li, i64 8
   %0 = load ptr, ptr %functions, align 8
   tail call void @dictRelease(ptr noundef %0) #11
   %1 = load ptr, ptr %li, align 8
   tail call void @sdsfree(ptr noundef %1) #11
-  %code = getelementptr inbounds %struct.functionLibInfo, ptr %li, i64 0, i32 3
+  %code = getelementptr inbounds i8, ptr %li, i64 24
   %2 = load ptr, ptr %code, align 8
   tail call void @sdsfree(ptr noundef %2) #11
   tail call void @zfree(ptr noundef nonnull %li) #11
@@ -1565,24 +1550,24 @@ declare void @scriptKill(ptr noundef, i32 noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @fcallGetCommandFlags(ptr nocapture noundef %c, i64 noundef %cmd_flags) local_unnamed_addr #1 {
 entry:
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load ptr, ptr @curr_functions_lib_ctx, align 8
-  %functions = getelementptr inbounds %struct.functionsLibCtx, ptr %2, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %functions, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %1, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %ptr, align 8
   %call = tail call ptr @dictFind(ptr noundef %3, ptr noundef %4) #11
-  %cur_script = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 31
+  %cur_script = getelementptr inbounds i8, ptr %c, i64 232
   store ptr %call, ptr %cur_script, align 8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call3 = tail call ptr @dictGetVal(ptr noundef nonnull %call) #11
-  %f_flags = getelementptr inbounds %struct.functionInfo, ptr %call3, i64 0, i32 4
+  %f_flags = getelementptr inbounds i8, ptr %call3, i64 32
   %5 = load i64, ptr %f_flags, align 8
   %call4 = tail call i64 @scriptFlagsToCmdFlags(i64 noundef %cmd_flags, i64 noundef %5) #11
   br label %return
@@ -1609,28 +1594,28 @@ entry:
   %numkeys = alloca i64, align 8
   %run_ctx = alloca %struct.scriptRunCtx, align 8
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 60), align 8
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %1 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %1, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load i32, ptr %id, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %3 = load ptr, ptr %argv, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %4 = load i32, ptr %argc, align 8
   tail call void @replicationFeedMonitors(ptr noundef %c, ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %4) #11
-  %cur_script = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 31
+  %cur_script = getelementptr inbounds i8, ptr %c, i64 232
   %5 = load ptr, ptr %cur_script, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.end, label %if.end4
 
 if.end:                                           ; preds = %entry
   %6 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %arrayidx, align 8
   %8 = load ptr, ptr @curr_functions_lib_ctx, align 8
-  %functions = getelementptr inbounds %struct.functionsLibCtx, ptr %8, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %functions, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %7, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load ptr, ptr %ptr, align 8
   %call = tail call ptr @dictFind(ptr noundef %9, ptr noundef %10) #11
   %tobool2.not = icmp eq ptr %call, null
@@ -1643,14 +1628,14 @@ if.then3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %entry, %if.end
   %de.026 = phi ptr [ %call, %if.end ], [ %5, %entry ]
   %call5 = tail call ptr @dictGetVal(ptr noundef nonnull %de.026) #11
-  %li = getelementptr inbounds %struct.functionInfo, ptr %call5, i64 0, i32 2
+  %li = getelementptr inbounds i8, ptr %call5, i64 16
   %11 = load ptr, ptr %li, align 8
-  %ei = getelementptr inbounds %struct.functionLibInfo, ptr %11, i64 0, i32 2
+  %ei = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %ei, align 8
-  %engine6 = getelementptr inbounds %struct.engineInfo, ptr %12, i64 0, i32 1
+  %engine6 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %engine6, align 8
   %14 = load ptr, ptr %argv, align 8
-  %arrayidx8 = getelementptr inbounds ptr, ptr %14, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %arrayidx8, align 8
   %call9 = call i32 @getLongLongFromObject(ptr noundef %15, ptr noundef nonnull %numkeys) #11
   %cmp.not = icmp eq i32 %call9, 0
@@ -1682,25 +1667,25 @@ if.then18:                                        ; preds = %if.else
 
 if.end20:                                         ; preds = %if.else
   %18 = load ptr, ptr %li, align 8
-  %ei22 = getelementptr inbounds %struct.functionLibInfo, ptr %18, i64 0, i32 2
+  %ei22 = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %ei22, align 8
-  %c23 = getelementptr inbounds %struct.engineInfo, ptr %19, i64 0, i32 2
+  %c23 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %c23, align 8
   %21 = load ptr, ptr %call5, align 8
-  %f_flags = getelementptr inbounds %struct.functionInfo, ptr %call5, i64 0, i32 4
+  %f_flags = getelementptr inbounds i8, ptr %call5, i64 32
   %22 = load i64, ptr %f_flags, align 8
   %call24 = call i32 @scriptPrepareForRun(ptr noundef nonnull %run_ctx, ptr noundef %20, ptr noundef nonnull %c, ptr noundef %21, i64 noundef %22, i32 noundef %ro) #11
   %cmp25.not = icmp eq i32 %call24, 0
   br i1 %cmp25.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end20
-  %call29 = getelementptr inbounds %struct.engine, ptr %13, i64 0, i32 2
+  %call29 = getelementptr inbounds i8, ptr %13, i64 16
   %23 = load ptr, ptr %call29, align 8
   %24 = load ptr, ptr %13, align 8
-  %function = getelementptr inbounds %struct.functionInfo, ptr %call5, i64 0, i32 1
+  %function = getelementptr inbounds i8, ptr %call5, i64 8
   %25 = load ptr, ptr %function, align 8
   %26 = load ptr, ptr %argv, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %26, i64 3
+  %add.ptr = getelementptr inbounds i8, ptr %26, i64 24
   %27 = load i64, ptr %numkeys, align 8
   %add.ptr33 = getelementptr inbounds ptr, ptr %add.ptr, i64 %27
   %28 = load i32, ptr %argc, align 8
@@ -1732,9 +1717,9 @@ entry:
   call void @rioInitWithBuffer(ptr noundef nonnull %payload, ptr noundef %call) #11
   %call1 = call i64 @rdbSaveFunctions(ptr noundef nonnull %payload) #11
   store i8 12, ptr %buf, align 1
-  %arrayidx2 = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %buf, i64 1
   store i8 0, ptr %arrayidx2, align 1
-  %io = getelementptr inbounds %struct._rio, ptr %payload, i64 0, i32 9
+  %io = getelementptr inbounds i8, ptr %payload, i64 72
   %0 = load ptr, ptr %io, align 8
   %call3 = call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull %buf, i64 noundef 2) #11
   store ptr %call3, ptr %io, align 8
@@ -1805,7 +1790,7 @@ entry:
   %payload = alloca %struct._rio, align 8
   %err = alloca ptr, align 8
   %rdbver = alloca i16, align 2
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp sgt i32 %0, 4
   br i1 %cmp, label %if.then, label %if.end
@@ -1815,11 +1800,11 @@ if.then:                                          ; preds = %entry
   br label %if.end67
 
 if.end:                                           ; preds = %entry
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 -1
   %4 = load i8, ptr %arrayidx.i, align 1
@@ -1868,9 +1853,9 @@ sdslen.exit:                                      ; preds = %if.end, %sw.bb.i, %
   br i1 %cmp2, label %if.then3, label %if.end20
 
 if.then3:                                         ; preds = %sdslen.exit
-  %arrayidx5 = getelementptr inbounds ptr, ptr %1, i64 3
+  %arrayidx5 = getelementptr inbounds i8, ptr %1, i64 24
   %9 = load ptr, ptr %arrayidx5, align 8
-  %ptr6 = getelementptr inbounds %struct.redisObject, ptr %9, i64 0, i32 2
+  %ptr6 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %ptr6, align 8
   %call7 = tail call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.23) #14
   %tobool.not = icmp eq i32 %call7, 0
@@ -1904,7 +1889,7 @@ if.then23:                                        ; preds = %if.end20
 if.end24:                                         ; preds = %if.end20
   %call25 = call ptr @functionsLibCtxCreate()
   call void @rioInitWithBuffer(ptr noundef nonnull %payload, ptr noundef nonnull %3) #11
-  %pos = getelementptr inbounds %struct._rio, ptr %payload, i64 0, i32 9, i32 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %payload, i64 80
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end39, %if.end24
@@ -2002,12 +1987,12 @@ if.end64:                                         ; preds = %if.else63, %if.then
 
 if.then66:                                        ; preds = %if.end64
   call void @functionsLibCtxClear(ptr noundef nonnull %functions_lib_ctx.122)
-  %functions.i = getelementptr inbounds %struct.functionsLibCtx, ptr %functions_lib_ctx.122, i64 0, i32 1
+  %functions.i = getelementptr inbounds i8, ptr %functions_lib_ctx.122, i64 8
   %19 = load ptr, ptr %functions.i, align 8
   call void @dictRelease(ptr noundef %19) #11
   %20 = load ptr, ptr %functions_lib_ctx.122, align 8
   call void @dictRelease(ptr noundef %20) #11
-  %engines_stats.i = getelementptr inbounds %struct.functionsLibCtx, ptr %functions_lib_ctx.122, i64 0, i32 3
+  %engines_stats.i = getelementptr inbounds i8, ptr %functions_lib_ctx.122, i64 24
   %21 = load ptr, ptr %engines_stats.i, align 8
   call void @dictRelease(ptr noundef %21) #11
   call void @zfree(ptr noundef nonnull %functions_lib_ctx.122) #11
@@ -2068,7 +2053,7 @@ if.then:                                          ; preds = %while.body
 
 if.then13:                                        ; preds = %if.then
   %call14 = tail call ptr @listCreate() #11
-  %free = getelementptr inbounds %struct.list, ptr %call14, i64 0, i32 3
+  %free = getelementptr inbounds i8, ptr %call14, i64 24
   store ptr @engineLibraryFree, ptr %free, align 8
   br label %if.end
 
@@ -2087,10 +2072,10 @@ if.end17:                                         ; preds = %if.end, %while.body
 while.end:                                        ; preds = %if.end17, %if.end17.us, %entry
   %old_libraries_list.0.lcssa = phi ptr [ null, %entry ], [ null, %if.end17.us ], [ %old_libraries_list.2, %if.end17 ]
   tail call void @dictReleaseIterator(ptr noundef %call) #11
-  %functions = getelementptr inbounds %struct.functionsLibCtx, ptr %functions_lib_ctx_src, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %functions_lib_ctx_src, i64 8
   %5 = load ptr, ptr %functions, align 8
   %call18 = tail call ptr @dictGetIterator(ptr noundef %5) #11
-  %functions24 = getelementptr inbounds %struct.functionsLibCtx, ptr %functions_lib_ctx_dst, i64 0, i32 1
+  %functions24 = getelementptr inbounds i8, ptr %functions_lib_ctx_dst, i64 8
   br label %while.cond19
 
 while.cond19:                                     ; preds = %while.body22, %while.end
@@ -2151,14 +2136,14 @@ if.end49:                                         ; preds = %if.then48, %done
   br i1 %tobool50.not, label %if.end58, label %while.cond52.preheader
 
 while.cond52.preheader:                           ; preds = %if.end49
-  %len = getelementptr inbounds %struct.list, ptr %old_libraries_list.046, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %old_libraries_list.046, i64 40
   %11 = load i64, ptr %len, align 8
   %cmp.not55 = icmp eq i64 %11, 0
   br i1 %cmp.not55, label %if.end58.sink.split, label %while.body53
 
 while.body53:                                     ; preds = %while.cond52.preheader, %while.body53
   %12 = load ptr, ptr %old_libraries_list.046, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %12, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %value, align 8
   store ptr null, ptr %value, align 8
   tail call fastcc void @libraryLink(ptr noundef %functions_lib_ctx_dst, ptr noundef %13)
@@ -2181,7 +2166,7 @@ if.end58:                                         ; preds = %if.end58.sink.split
 ; Function Attrs: nounwind uwtable
 define dso_local void @functionFlushCommand(ptr noundef %c) local_unnamed_addr #1 {
 entry:
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp sgt i32 %0, 3
   br i1 %cmp, label %if.then, label %if.end
@@ -2197,11 +2182,11 @@ if.end:                                           ; preds = %entry
   ]
 
 land.lhs.true:                                    ; preds = %if.end
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.32) #14
   %tobool.not = icmp eq i32 %call, 0
@@ -2355,7 +2340,7 @@ error.thread:                                     ; preds = %if.end12, %for.end
 
 if.end31:                                         ; preds = %for.end
   call void @sdsfreesplitres(ptr noundef nonnull %call8, i32 noundef %5) #11
-  %name32 = getelementptr inbounds %struct.functionsLibMataData, ptr %md, i64 0, i32 1
+  %name32 = getelementptr inbounds i8, ptr %md, i64 8
   store ptr %call24, ptr %name32, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %payload, i64 -1
   %7 = load i8, ptr %arrayidx.i, align 1
@@ -2401,7 +2386,7 @@ sdslen.exit:                                      ; preds = %if.end31, %sw.bb.i,
   %retval.0.i = phi i64 [ %11, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.end31 ]
   %sub = sub i64 %retval.0.i, %sub.ptr.sub
   %call34 = call ptr @sdsnewlen(ptr noundef nonnull %call2, i64 noundef %sub) #11
-  %code35 = getelementptr inbounds %struct.functionsLibMataData, ptr %md, i64 0, i32 2
+  %code35 = getelementptr inbounds i8, ptr %md, i64 16
   store ptr %call34, ptr %code35, align 8
   store ptr %call13, ptr %md, align 8
   br label %return
@@ -2457,7 +2442,7 @@ declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 nound
 ; Function Attrs: nounwind uwtable
 define dso_local void @functionFreeLibMetaData(ptr nocapture noundef readonly %md) local_unnamed_addr #1 {
 entry:
-  %code = getelementptr inbounds %struct.functionsLibMataData, ptr %md, i64 0, i32 2
+  %code = getelementptr inbounds i8, ptr %md, i64 16
   %0 = load ptr, ptr %code, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2467,7 +2452,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %name = getelementptr inbounds %struct.functionsLibMataData, ptr %md, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %md, i64 8
   %1 = load ptr, ptr %name, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -2499,7 +2484,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.functionsLibMataData, ptr %md, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %md, i64 8
   %0 = load ptr, ptr %name, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i.i, align 1
@@ -2630,7 +2615,7 @@ if.then8:                                         ; preds = %if.end5
   br label %if.end68
 
 if.end12:                                         ; preds = %if.end5
-  %engine14 = getelementptr inbounds %struct.engineInfo, ptr %call6, i64 0, i32 1
+  %engine14 = getelementptr inbounds i8, ptr %call6, i64 8
   %16 = load ptr, ptr %engine14, align 8
   %17 = load ptr, ptr %lib_ctx, align 8
   %call16 = tail call ptr @dictFetchValue(ptr noundef %17, ptr noundef nonnull %0) #11
@@ -2664,10 +2649,10 @@ if.end26:                                         ; preds = %if.then25, %if.end2
   store ptr %call6, ptr %.compoundliteral.sroa.3.0..sroa_idx.i, align 8
   %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call6.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %create = getelementptr inbounds %struct.engine, ptr %16, i64 0, i32 1
+  %create = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %create, align 8
   %19 = load ptr, ptr %16, align 8
-  %code29 = getelementptr inbounds %struct.functionsLibMataData, ptr %md, i64 0, i32 2
+  %code29 = getelementptr inbounds i8, ptr %md, i64 16
   %20 = load ptr, ptr %code29, align 8
   %call30 = tail call i32 %18(ptr noundef %19, ptr noundef nonnull %call.i, ptr noundef %20, i64 noundef %timeout, ptr noundef %err) #11
   %cmp31.not = icmp eq i32 %call30, 0
@@ -2675,9 +2660,9 @@ if.end26:                                         ; preds = %if.then25, %if.end2
 
 if.end33:                                         ; preds = %if.end26
   %21 = load ptr, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %21, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load i64, ptr %ht_used, align 8
-  %arrayidx36 = getelementptr inbounds %struct.dict, ptr %21, i64 0, i32 2, i64 1
+  %arrayidx36 = getelementptr inbounds i8, ptr %21, i64 32
   %23 = load i64, ptr %arrayidx36, align 8
   %add = sub i64 0, %23
   %cmp37 = icmp eq i64 %22, %add
@@ -2690,7 +2675,7 @@ if.then38:                                        ; preds = %if.end33
 
 if.end40:                                         ; preds = %if.end33
   %call42 = tail call ptr @dictGetIterator(ptr noundef nonnull %21) #11
-  %functions46 = getelementptr inbounds %struct.functionsLibCtx, ptr %lib_ctx, i64 0, i32 1
+  %functions46 = getelementptr inbounds i8, ptr %lib_ctx, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end40
@@ -2747,7 +2732,7 @@ if.then67:                                        ; preds = %engineLibraryFree.e
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then8, %if.then19, %if.then3, %if.then67, %engineLibraryFree.exit
-  %code.i31 = getelementptr inbounds %struct.functionsLibMataData, ptr %md, i64 0, i32 2
+  %code.i31 = getelementptr inbounds i8, ptr %md, i64 16
   %30 = load ptr, ptr %code.i31, align 8
   %tobool.not.i32 = icmp eq ptr %30, null
   br i1 %tobool.not.i32, label %if.end.i33, label %if.then.i
@@ -2784,7 +2769,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @libraryLink(ptr nocapture noundef %lib_ctx, ptr noundef %li) unnamed_addr #1 {
 entry:
-  %functions = getelementptr inbounds %struct.functionLibInfo, ptr %li, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %li, i64 8
   %0 = load ptr, ptr %functions, align 8
   %call = tail call ptr @dictGetIterator(ptr noundef %0) #11
   %call219 = tail call ptr @dictNext(ptr noundef %call) #11
@@ -2792,8 +2777,8 @@ entry:
   br i1 %tobool.not20, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %functions4 = getelementptr inbounds %struct.functionsLibCtx, ptr %lib_ctx, i64 0, i32 1
-  %cache_memory = getelementptr inbounds %struct.functionsLibCtx, ptr %lib_ctx, i64 0, i32 2
+  %functions4 = getelementptr inbounds i8, ptr %lib_ctx, i64 8
+  %cache_memory = getelementptr inbounds i8, ptr %lib_ctx, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %functionMallocSize.exit
@@ -2805,7 +2790,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call.i = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %call3) #11
   %3 = load ptr, ptr %call3, align 8
   %call1.i = tail call i64 @sdsZmallocSize(ptr noundef %3) #11
-  %desc.i = getelementptr inbounds %struct.functionInfo, ptr %call3, i64 0, i32 3
+  %desc.i = getelementptr inbounds i8, ptr %call3, i64 24
   %4 = load ptr, ptr %desc.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %functionMallocSize.exit, label %cond.true.i
@@ -2818,15 +2803,15 @@ functionMallocSize.exit:                          ; preds = %while.body, %cond.t
   %cond.i = phi i64 [ %call3.i, %cond.true.i ], [ 0, %while.body ]
   %add.i = add i64 %call1.i, %call.i
   %add4.i = add i64 %add.i, %cond.i
-  %li.i = getelementptr inbounds %struct.functionInfo, ptr %call3, i64 0, i32 2
+  %li.i = getelementptr inbounds i8, ptr %call3, i64 16
   %5 = load ptr, ptr %li.i, align 8
-  %ei.i = getelementptr inbounds %struct.functionLibInfo, ptr %5, i64 0, i32 2
+  %ei.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %ei.i, align 8
-  %engine.i = getelementptr inbounds %struct.engineInfo, ptr %6, i64 0, i32 1
+  %engine.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %engine.i, align 8
-  %get_function_memory_overhead.i = getelementptr inbounds %struct.engine, ptr %7, i64 0, i32 4
+  %get_function_memory_overhead.i = getelementptr inbounds i8, ptr %7, i64 32
   %8 = load ptr, ptr %get_function_memory_overhead.i, align 8
-  %function.i = getelementptr inbounds %struct.functionInfo, ptr %call3, i64 0, i32 1
+  %function.i = getelementptr inbounds i8, ptr %call3, i64 8
   %9 = load ptr, ptr %function.i, align 8
   %call5.i = tail call i64 %8(ptr noundef %9) #11
   %add6.i = add i64 %add4.i, %call5.i
@@ -2846,17 +2831,17 @@ while.end:                                        ; preds = %functionMallocSize.
   %13 = load ptr, ptr %li, align 8
   %call1.i17 = tail call i64 @sdsZmallocSize(ptr noundef %13) #11
   %add.i18 = add i64 %call1.i17, %call.i16
-  %code.i = getelementptr inbounds %struct.functionLibInfo, ptr %li, i64 0, i32 3
+  %code.i = getelementptr inbounds i8, ptr %li, i64 24
   %14 = load ptr, ptr %code.i, align 8
   %call2.i = tail call i64 @sdsZmallocSize(ptr noundef %14) #11
   %add3.i = add i64 %add.i18, %call2.i
-  %cache_memory10 = getelementptr inbounds %struct.functionsLibCtx, ptr %lib_ctx, i64 0, i32 2
+  %cache_memory10 = getelementptr inbounds i8, ptr %lib_ctx, i64 16
   %15 = load i64, ptr %cache_memory10, align 8
   %add11 = add i64 %add3.i, %15
   store i64 %add11, ptr %cache_memory10, align 8
-  %engines_stats = getelementptr inbounds %struct.functionsLibCtx, ptr %lib_ctx, i64 0, i32 3
+  %engines_stats = getelementptr inbounds i8, ptr %lib_ctx, i64 24
   %16 = load ptr, ptr %engines_stats, align 8
-  %ei = getelementptr inbounds %struct.functionLibInfo, ptr %li, i64 0, i32 2
+  %ei = getelementptr inbounds i8, ptr %li, i64 16
   %17 = load ptr, ptr %ei, align 8
   %18 = load ptr, ptr %17, align 8
   %call13 = tail call ptr @dictFetchValue(ptr noundef %16, ptr noundef %18) #11
@@ -2873,12 +2858,12 @@ cond.end:                                         ; preds = %while.end
   %inc = add i64 %19, 1
   store i64 %inc, ptr %call13, align 8
   %20 = load ptr, ptr %functions, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %20, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %20, i64 24
   %21 = load i64, ptr %ht_used, align 8
-  %arrayidx20 = getelementptr inbounds %struct.dict, ptr %20, i64 0, i32 2, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %20, i64 32
   %22 = load i64, ptr %arrayidx20, align 8
   %add21 = add i64 %22, %21
-  %n_functions = getelementptr inbounds %struct.functionsLibEngineStats, ptr %call13, i64 0, i32 1
+  %n_functions = getelementptr inbounds i8, ptr %call13, i64 8
   %23 = load i64, ptr %n_functions, align 8
   %add22 = add i64 %add21, %23
   store i64 %add22, ptr %n_functions, align 8
@@ -2889,14 +2874,14 @@ cond.end:                                         ; preds = %while.end
 define dso_local void @functionLoadCommand(ptr noundef %c) local_unnamed_addr #1 {
 entry:
   %err = alloca ptr, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp17 = icmp sgt i32 %0, 3
   br i1 %cmp17, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %sub = add nsw i32 %0, -1
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
   %2 = add nsw i32 %0, -1
   %wide.trip.count = zext nneg i32 %sub to i64
@@ -2906,7 +2891,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %indvars.iv = phi i64 [ 2, %while.body.lr.ph ], [ %indvars.iv.next, %if.then ]
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %3, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %4, ptr noundef nonnull @.str.24) #14
   %tobool.not = icmp eq i32 %call, 0
@@ -2936,7 +2921,7 @@ if.end5.loopexit:                                 ; preds = %if.then
 if.end5:                                          ; preds = %if.end5.loopexit, %while.end
   %replace.0.lcssa27 = phi i32 [ 0, %while.end ], [ 1, %if.end5.loopexit ]
   %argc_pos.0.lcssa26 = phi i64 [ 2, %while.end ], [ %5, %if.end5.loopexit ]
-  %argv6 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv6 = getelementptr inbounds i8, ptr %c, i64 96
   %6 = load ptr, ptr %argv6, align 8
   %arrayidx8 = getelementptr inbounds ptr, ptr %6, i64 %argc_pos.0.lcssa26
   %7 = load ptr, ptr %arrayidx8, align 8
@@ -2944,7 +2929,7 @@ if.end5:                                          ; preds = %if.end5.loopexit, %
   %call9 = tail call i32 @mustObeyClient(ptr noundef nonnull %c) #11
   %tobool10.not = icmp eq i32 %call9, 0
   %spec.select = select i1 %tobool10.not, i64 500, i64 0
-  %ptr13 = getelementptr inbounds %struct.redisObject, ptr %7, i64 0, i32 2
+  %ptr13 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %ptr13, align 8
   %9 = load ptr, ptr @curr_functions_lib_ctx, align 8
   %call14 = call ptr @functionsCreateWithLibraryCtx(ptr noundef %8, i32 noundef %replace.0.lcssa27, ptr noundef nonnull %err, ptr noundef %9, i64 noundef %spec.select)
@@ -2984,9 +2969,9 @@ while.body:                                       ; preds = %entry, %while.body
   %call27 = phi ptr [ %call2, %while.body ], [ %call24, %entry ]
   %engines_nemory.06 = phi i64 [ %add, %while.body ], [ 0, %entry ]
   %call3 = tail call ptr @dictGetVal(ptr noundef nonnull %call27) #11
-  %engine4 = getelementptr inbounds %struct.engineInfo, ptr %call3, i64 0, i32 1
+  %engine4 = getelementptr inbounds i8, ptr %call3, i64 8
   %1 = load ptr, ptr %engine4, align 8
-  %get_used_memory = getelementptr inbounds %struct.engine, ptr %1, i64 0, i32 3
+  %get_used_memory = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %get_used_memory, align 8
   %3 = load ptr, ptr %1, align 8
   %call5 = tail call i64 %2(ptr noundef %3) #11
@@ -3007,11 +2992,11 @@ entry:
   %0 = load ptr, ptr @engines, align 8
   %call = tail call i64 @dictMemUsage(ptr noundef %0) #11
   %1 = load ptr, ptr @curr_functions_lib_ctx, align 8
-  %functions = getelementptr inbounds %struct.functionsLibCtx, ptr %1, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %functions, align 8
   %call1 = tail call i64 @dictMemUsage(ptr noundef %2) #11
   %3 = load ptr, ptr @curr_functions_lib_ctx, align 8
-  %cache_memory = getelementptr inbounds %struct.functionsLibCtx, ptr %3, i64 0, i32 2
+  %cache_memory = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i64, ptr %cache_memory, align 8
   %5 = load i64, ptr @engine_cache_memory, align 8
   %add = add i64 %call, 32
@@ -3027,11 +3012,11 @@ declare i64 @dictMemUsage(ptr noundef) local_unnamed_addr #0
 define dso_local i64 @functionsNum() local_unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr @curr_functions_lib_ctx, align 8
-  %functions = getelementptr inbounds %struct.functionsLibCtx, ptr %0, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %functions, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %1, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i64, ptr %ht_used, align 8
-  %arrayidx3 = getelementptr inbounds %struct.dict, ptr %1, i64 0, i32 2, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i64, ptr %arrayidx3, align 8
   %add = add i64 %3, %2
   ret i64 %add
@@ -3042,9 +3027,9 @@ define dso_local i64 @functionsLibNum() local_unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr @curr_functions_lib_ctx, align 8
   %1 = load ptr, ptr %0, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %1, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i64, ptr %ht_used, align 8
-  %arrayidx3 = getelementptr inbounds %struct.dict, ptr %1, i64 0, i32 2, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i64, ptr %arrayidx3, align 8
   %add = add i64 %3, %2
   ret i64 %add
@@ -3061,11 +3046,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @functionsLibCtxfunctionsLen(ptr nocapture noundef readonly %functions_ctx) local_unnamed_addr #10 {
 entry:
-  %functions = getelementptr inbounds %struct.functionsLibCtx, ptr %functions_ctx, i64 0, i32 1
+  %functions = getelementptr inbounds i8, ptr %functions_ctx, i64 8
   %0 = load ptr, ptr %functions, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
-  %arrayidx3 = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx3, align 8
   %add = add i64 %2, %1
   ret i64 %add

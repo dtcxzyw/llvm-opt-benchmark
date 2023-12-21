@@ -57,9 +57,9 @@ UTF8Position.exit.i.i:                            ; preds = %if.else3.i.i.i, %if
   br i1 %exitcond.not.i.i, label %DecideMultiByteStatsLevel.exit.i, label %for.body.i.i, !llvm.loop !4
 
 DecideMultiByteStatsLevel.exit.i:                 ; preds = %UTF8Position.exit.i.i
-  %arrayidx3.phi.trans.insert.i.i = getelementptr inbounds [3 x i64], ptr %counts.i.i, i64 0, i64 2
+  %arrayidx3.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %counts.i.i, i64 16
   %.pre.i.i = load i64, ptr %arrayidx3.phi.trans.insert.i.i, align 16
-  %arrayidx6.phi.trans.insert.i.i = getelementptr inbounds [3 x i64], ptr %counts.i.i, i64 0, i64 1
+  %arrayidx6.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %counts.i.i, i64 8
   %.pre7.i.i = load i64, ptr %arrayidx6.phi.trans.insert.i.i, align 8
   %2 = add i64 %.pre7.i.i, %.pre.i.i
   %3 = icmp ugt i64 %2, 24

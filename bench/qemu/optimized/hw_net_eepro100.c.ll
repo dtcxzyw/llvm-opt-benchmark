@@ -16,41 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.InterfaceInfo = type { ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.EEPRO100State = type { %struct.PCIDevice, [8 x i8], %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, %struct.NICConf, i8, i8, [32 x i16], ptr, i32, i32, i32, i32, i32, i32, %struct.eepro100_tx_t, i32, %struct.eepro100_stats_t, [4 x i8], [4096 x i8], [22 x i8], ptr, i16, i8 }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.0, %union.anon.1 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.2, %union.anon.3, %union.anon.4, ptr, i32, ptr, ptr, i8 }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.NICConf = type { %struct.MACAddr, %struct.NICPeers, i32 }
-%struct.MACAddr = type { [6 x i8] }
-%struct.NICPeers = type { [1024 x ptr], i32 }
-%struct.eepro100_tx_t = type { i16, i16, i32, i32, i16, i8, i8 }
-%struct.eepro100_stats_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i16, i16, [4 x i32] }
-%struct.NetClientState = type { ptr, i32, %union.anon.6, ptr, ptr, ptr, ptr, [256 x i8], i8, ptr, i32, i8, i32, i32, i8, i8, i8, %union.anon.7 }
-%union.anon.6 = type { %struct.QTailQLink }
-%union.anon.7 = type { %struct.QTailQLink }
 %struct.eepro100_selftest_t = type { i32, i32 }
 %struct.eepro100_rx_t = type { i16, i16, i32, i32, i16, i16 }
 
@@ -193,12 +158,12 @@ define internal void @eepro100_register_types() #0 {
 entry:
   %type_info = alloca %struct.TypeInfo, align 8
   %.compoundliteral = alloca [2 x %struct.InterfaceInfo], align 8
-  %parent = getelementptr inbounds %struct.TypeInfo, ptr %type_info, i64 0, i32 1
-  %class_init = getelementptr inbounds %struct.TypeInfo, ptr %type_info, i64 0, i32 9
-  %instance_size = getelementptr inbounds %struct.TypeInfo, ptr %type_info, i64 0, i32 2
-  %instance_init = getelementptr inbounds %struct.TypeInfo, ptr %type_info, i64 0, i32 4
-  %arrayinit.element = getelementptr inbounds %struct.InterfaceInfo, ptr %.compoundliteral, i64 1
-  %interfaces = getelementptr inbounds %struct.TypeInfo, ptr %type_info, i64 0, i32 12
+  %parent = getelementptr inbounds i8, ptr %type_info, i64 8
+  %class_init = getelementptr inbounds i8, ptr %type_info, i64 72
+  %instance_size = getelementptr inbounds i8, ptr %type_info, i64 16
+  %instance_init = getelementptr inbounds i8, ptr %type_info, i64 32
+  %arrayinit.element = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
+  %interfaces = getelementptr inbounds i8, ptr %type_info, i64 96
   %0 = getelementptr inbounds i8, ptr %type_info, i64 24
   br label %for.body
 
@@ -253,35 +218,35 @@ if.else.i:                                        ; preds = %for.cond.i
   unreachable
 
 eepro100_get_class_by_name.exit:                  ; preds = %for.body.i
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %1 = load i64, ptr %categories, align 8
   %or.i = or i64 %1, 8
   store i64 %or.i, ptr %categories, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @e100_properties) #11
-  %desc = getelementptr [13 x %struct.E100PCIDeviceInfo], ptr @e100_devices, i64 0, i64 %indvars.iv.i, i32 1
+  %desc = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %2 = load ptr, ptr %desc, align 8
-  %desc4 = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc4 = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr %2, ptr %desc4, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i17, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i17, i64 208
   store i16 -32634, ptr %vendor_id, align 8
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i17, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i17, i64 214
   store i16 512, ptr %class_id, align 2
-  %romfile = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i17, i64 0, i32 11
+  %romfile = getelementptr inbounds i8, ptr %call.i17, i64 224
   store ptr @.str.28, ptr %romfile, align 8
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i17, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i17, i64 176
   store ptr @e100_nic_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i17, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i17, i64 184
   store ptr @pci_nic_uninit, ptr %exit, align 8
-  %device_id = getelementptr [13 x %struct.E100PCIDeviceInfo], ptr @e100_devices, i64 0, i64 %indvars.iv.i, i32 2
-  %3 = load i16, ptr %device_id, align 16
-  %device_id5 = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i17, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %3 = load i16, ptr %device_id, align 8
+  %device_id5 = getelementptr inbounds i8, ptr %call.i17, i64 210
   store i16 %3, ptr %device_id5, align 2
-  %revision = getelementptr [13 x %struct.E100PCIDeviceInfo], ptr @e100_devices, i64 0, i64 %indvars.iv.i, i32 3
+  %revision = getelementptr inbounds i8, ptr %arrayidx.i, i64 18
   %4 = load i8, ptr %revision, align 2
-  %revision6 = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i17, i64 0, i32 7
+  %revision6 = getelementptr inbounds i8, ptr %call.i17, i64 212
   store i8 %4, ptr %revision6, align 4
-  %subsystem_vendor_id = getelementptr [13 x %struct.E100PCIDeviceInfo], ptr @e100_devices, i64 0, i64 %indvars.iv.i, i32 4
-  %subsystem_vendor_id7 = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i17, i64 0, i32 9
+  %subsystem_vendor_id = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %subsystem_vendor_id7 = getelementptr inbounds i8, ptr %call.i17, i64 216
   %5 = load <2 x i16>, ptr %subsystem_vendor_id, align 4
   store <2 x i16> %5, ptr %subsystem_vendor_id7, align 8
   ret void
@@ -291,7 +256,7 @@ eepro100_get_class_by_name.exit:                  ; preds = %for.body.i
 define internal void @eepro100_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %bootindex = getelementptr inbounds %struct.EEPRO100State, ptr %call.i, i64 0, i32 6, i32 2
+  %bootindex = getelementptr inbounds i8, ptr %call.i, i64 11656
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
   tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef %call.i3) #11
   ret void
@@ -329,9 +294,9 @@ if.else.i.i:                                      ; preds = %for.cond.i.i
 
 eepro100_get_class.exit:                          ; preds = %for.body.i.i
   store ptr null, ptr %local_err, align 8
-  %device = getelementptr [13 x %struct.E100PCIDeviceInfo], ptr @e100_devices, i64 0, i64 %indvars.iv.i.i, i32 6
+  %device = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %1 = load i32, ptr %device, align 8
-  %device2 = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 11
+  %device2 = getelementptr inbounds i8, ptr %pci_dev, i64 11744
   store i32 %1, ptr %device2, align 16
   %call.i.i37 = tail call ptr @object_get_typename(ptr noundef %pci_dev) #11
   br label %for.body.i.i.i
@@ -354,7 +319,7 @@ if.else.i.i.i:                                    ; preds = %for.cond.i.i.i
   unreachable
 
 eepro100_get_class.exit.i:                        ; preds = %for.body.i.i.i
-  %config.i = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 3
+  %config.i = getelementptr inbounds i8, ptr %pci_dev, i64 168
   %3 = load ptr, ptr %config.i, align 8
   %add.ptr.i = getelementptr i8, ptr %3, i64 6
   store i16 640, ptr %add.ptr.i, align 1
@@ -366,25 +331,23 @@ eepro100_get_class.exit.i:                        ; preds = %for.body.i.i.i
   store i8 8, ptr %add.ptr4.i, align 1
   %add.ptr5.i = getelementptr i8, ptr %3, i64 63
   store i8 24, ptr %add.ptr5.i, align 1
-  %stats_size.i = getelementptr [13 x %struct.E100PCIDeviceInfo], ptr @e100_devices, i64 0, i64 %indvars.iv.i.i.i, i32 7
+  %stats_size.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 28
   %4 = load i8, ptr %stats_size.i, align 4
   %conv.i = zext i8 %4 to i16
-  %stats_size6.i = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 24
+  %stats_size6.i = getelementptr inbounds i8, ptr %pci_dev, i64 16016
   store i16 %conv.i, ptr %stats_size6.i, align 16
-  %has_extended_tcb_support.i = getelementptr [13 x %struct.E100PCIDeviceInfo], ptr @e100_devices, i64 0, i64 %indvars.iv.i.i.i, i32 8
+  %has_extended_tcb_support.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 29
   %5 = load i8, ptr %has_extended_tcb_support.i, align 1
   %6 = and i8 %5, 1
-  %has_extended_tcb_support7.i = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 25
+  %has_extended_tcb_support7.i = getelementptr inbounds i8, ptr %pci_dev, i64 16018
   store i8 %6, ptr %has_extended_tcb_support7.i, align 2
-  %arrayidx.i = getelementptr %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 22, i64 6
+  %arrayidx.i = getelementptr i8, ptr %pci_dev, i64 15990
   %7 = load i8, ptr %arrayidx.i, align 2
   %8 = or i8 %7, 48
   store i8 %8, ptr %arrayidx.i, align 2
-  %9 = and i64 %indvars.iv.i.i.i, 576460752303423487
-  %10 = add nsw i64 %9, -2
-  %cmp.i = icmp ult i64 %10, 5
-  %11 = and i8 %7, 4
-  %tobool21.not.i = icmp eq i8 %11, 0
+  %cmp.i = icmp ne i8 %4, 80
+  %9 = and i8 %7, 4
+  %tobool21.not.i = icmp eq i8 %9, 0
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %tobool21.not.i
   br i1 %or.cond.i, label %if.end61.sink.split.i, label %if.end61.i
 
@@ -393,9 +356,10 @@ if.end61.sink.split.i:                            ; preds = %eepro100_get_class.
   br label %if.end61.i
 
 if.end61.i:                                       ; preds = %if.end61.sink.split.i, %eepro100_get_class.exit.i
-  %12 = and i64 %indvars.iv.i.i.i, 576460752303423487
-  %13 = add nsw i64 %12, -2
-  %tobool62.not.i = icmp ult i64 %13, 3
+  %power_management.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 30
+  %10 = load i8, ptr %power_management.i, align 2
+  %11 = and i8 %10, 1
+  %tobool62.not.i = icmp eq i8 %11, 0
   br i1 %tobool62.not.i, label %e100_pci_reset.exit, label %if.then63.i
 
 if.then63.i:                                      ; preds = %if.end61.i
@@ -409,42 +373,42 @@ if.end70.i:                                       ; preds = %if.then63.i
   br label %e100_pci_reset.exit
 
 e100_pci_reset.exit:                              ; preds = %if.end61.i, %if.then63.i, %if.end70.i
-  %14 = load ptr, ptr %local_err, align 8
-  %tobool.not = icmp eq ptr %14, null
+  %12 = load ptr, ptr %local_err, align 8
+  %tobool.not = icmp eq ptr %12, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %e100_pci_reset.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %14) #11
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %12) #11
   br label %return
 
 if.end:                                           ; preds = %e100_pci_reset.exit
   %call3 = call ptr @eeprom93xx_new(ptr noundef nonnull %pci_dev, i16 noundef zeroext 64) #11
-  %eeprom = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 10
+  %eeprom = getelementptr inbounds i8, ptr %pci_dev, i64 11736
   store ptr %call3, ptr %eeprom, align 8
-  %mmio_bar = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 2
+  %mmio_bar = getelementptr inbounds i8, ptr %pci_dev, i64 2624
   call void @memory_region_init_io(ptr noundef nonnull %mmio_bar, ptr noundef nonnull %pci_dev, ptr noundef nonnull @eepro100_ops, ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str.36, i64 noundef 4096) #11
   call void @pci_register_bar(ptr noundef nonnull %pci_dev, i32 noundef 0, i8 noundef zeroext 8, ptr noundef nonnull %mmio_bar) #11
-  %io_bar = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 3
+  %io_bar = getelementptr inbounds i8, ptr %pci_dev, i64 2896
   call void @memory_region_init_io(ptr noundef nonnull %io_bar, ptr noundef nonnull %pci_dev, ptr noundef nonnull @eepro100_ops, ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str.37, i64 noundef 64) #11
   call void @pci_register_bar(ptr noundef nonnull %pci_dev, i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull %io_bar) #11
-  %flash_bar = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 4
+  %flash_bar = getelementptr inbounds i8, ptr %pci_dev, i64 3168
   call void @memory_region_init_io(ptr noundef nonnull %flash_bar, ptr noundef nonnull %pci_dev, ptr noundef nonnull @eepro100_ops, ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str.38, i64 noundef 131072) #11
   call void @pci_register_bar(ptr noundef nonnull %pci_dev, i32 noundef 2, i8 noundef zeroext 0, ptr noundef nonnull %flash_bar) #11
-  %conf = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 6
+  %conf = getelementptr inbounds i8, ptr %pci_dev, i64 3448
   call void @qemu_macaddr_default_if_unset(ptr noundef nonnull %conf) #11
-  %mult.i = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 1
+  %mult.i = getelementptr inbounds i8, ptr %pci_dev, i64 2608
   store i64 0, ptr %mult.i, align 16
-  %15 = load ptr, ptr %eeprom, align 8
-  %call.i.i38 = call ptr @eeprom93xx_data(ptr noundef %15) #11
+  %13 = load ptr, ptr %eeprom, align 8
+  %call.i.i38 = call ptr @eeprom93xx_data(ptr noundef %13) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %call.i.i38, ptr noundef nonnull align 8 dereferenceable(6) %conf, i64 6, i1 false)
-  %arrayidx.i.i39 = getelementptr i16, ptr %call.i.i38, i64 5
+  %arrayidx.i.i39 = getelementptr i8, ptr %call.i.i38, i64 10
   store i16 16384, ptr %arrayidx.i.i39, align 2
-  %16 = load i32, ptr %device2, align 16
-  %.off.i.i = add i32 %16, -8541563
+  %14 = load i32, ptr %device2, align 16
+  %.off.i.i = add i32 %14, -8541563
   %switch.i.i = icmp ult i32 %.off.i.i, 2
   %spec.store.select.i.i = select i1 %switch.i.i, i16 256, i16 16384
   store i16 %spec.store.select.i.i, ptr %arrayidx.i.i39, align 2
-  %arrayidx4.i.i = getelementptr i16, ptr %call.i.i38, i64 6
+  %arrayidx4.i.i = getelementptr i8, ptr %call.i.i38, i64 12
   store i16 1, ptr %arrayidx4.i.i, align 2
   br label %for.body.i.i40
 
@@ -452,21 +416,21 @@ for.body.i.i40:                                   ; preds = %for.body.i.i40, %if
   %sum.016.i.i = phi i16 [ 0, %if.end ], [ %add.i.i, %for.body.i.i40 ]
   %i.015.i.i = phi i64 [ 0, %if.end ], [ %inc.i.i, %for.body.i.i40 ]
   %arrayidx6.i.i = getelementptr i16, ptr %call.i.i38, i64 %i.015.i.i
-  %17 = load i16, ptr %arrayidx6.i.i, align 2
-  %add.i.i = add i16 %17, %sum.016.i.i
+  %15 = load i16, ptr %arrayidx6.i.i, align 2
+  %add.i.i = add i16 %15, %sum.016.i.i
   %inc.i.i = add nuw nsw i64 %i.015.i.i, 1
   %exitcond.not.i.i41 = icmp eq i64 %inc.i.i, 63
   br i1 %exitcond.not.i.i41, label %for.end.i.i, label %for.body.i.i40, !llvm.loop !8
 
 for.end.i.i:                                      ; preds = %for.body.i.i40
   %sub.i.i = sub i16 -17734, %add.i.i
-  %arrayidx11.i.i = getelementptr i16, ptr %call.i.i38, i64 63
+  %arrayidx11.i.i = getelementptr i8, ptr %call.i.i38, i64 126
   store i16 %sub.i.i, ptr %arrayidx11.i.i, align 2
-  %mem.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 21
+  %mem.i.i = getelementptr inbounds i8, ptr %pci_dev, i64 11888
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %mem.i.i, i8 0, i64 4096, i1 false)
-  %arrayidx.i.i.i42 = getelementptr %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 21, i64 16
-  %18 = ptrtoint ptr %arrayidx.i.i.i42 to i64
-  %and.i.i.i = and i64 %18, 3
+  %arrayidx.i.i.i42 = getelementptr i8, ptr %pci_dev, i64 11904
+  %16 = ptrtoint ptr %arrayidx.i.i.i42 to i64
+  %and.i.i.i = and i64 %16, 3
   %tobool.not.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %nic_reset.exit, label %if.else.i.i.i43
 
@@ -476,30 +440,30 @@ if.else.i.i.i43:                                  ; preds = %for.end.i.i
 
 nic_reset.exit:                                   ; preds = %for.end.i.i
   store i32 2097152, ptr %arrayidx.i.i.i42, align 1
-  %mdimem.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 9
+  %mdimem.i.i = getelementptr inbounds i8, ptr %pci_dev, i64 11666
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %mdimem.i.i, ptr noundef nonnull align 16 dereferenceable(64) @eepro100_mdi_default, i64 64, i1 false)
   %call10 = call ptr @object_get_typename(ptr noundef nonnull %pci_dev) #11
-  %id = getelementptr inbounds %struct.DeviceState, ptr %pci_dev, i64 0, i32 1
-  %19 = load ptr, ptr %id, align 8
-  %mem_reentrancy_guard = getelementptr inbounds %struct.DeviceState, ptr %pci_dev, i64 0, i32 18
-  %call13 = call ptr @qemu_new_nic(ptr noundef nonnull @net_eepro100_info, ptr noundef nonnull %conf, ptr noundef %call10, ptr noundef %19, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef nonnull %pci_dev) #11
-  %nic = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 5
+  %id = getelementptr inbounds i8, ptr %pci_dev, i64 40
+  %17 = load ptr, ptr %id, align 8
+  %mem_reentrancy_guard = getelementptr inbounds i8, ptr %pci_dev, i64 152
+  %call13 = call ptr @qemu_new_nic(ptr noundef nonnull @net_eepro100_info, ptr noundef nonnull %conf, ptr noundef %call10, ptr noundef %17, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef nonnull %pci_dev) #11
+  %nic = getelementptr inbounds i8, ptr %pci_dev, i64 3440
   store ptr %call13, ptr %nic, align 16
   %call15 = call ptr @qemu_get_queue(ptr noundef %call13) #11
   call void @qemu_format_nic_info_str(ptr noundef %call15, ptr noundef nonnull %conf) #11
   call void @qemu_register_reset(ptr noundef nonnull @nic_reset, ptr noundef nonnull %pci_dev) #11
   %call18 = call dereferenceable_or_null(88) ptr @g_memdup(ptr noundef nonnull @vmstate_eepro100, i32 noundef 88) #14
-  %vmstate = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 23
+  %vmstate = getelementptr inbounds i8, ptr %pci_dev, i64 16008
   store ptr %call18, ptr %vmstate, align 8
-  %20 = load ptr, ptr %nic, align 16
-  %call20 = call ptr @qemu_get_queue(ptr noundef %20) #11
-  %model = getelementptr inbounds %struct.NetClientState, ptr %call20, i64 0, i32 5
-  %21 = load ptr, ptr %model, align 8
-  %22 = load ptr, ptr %vmstate, align 8
-  store ptr %21, ptr %22, align 8
+  %18 = load ptr, ptr %nic, align 16
+  %call20 = call ptr @qemu_get_queue(ptr noundef %18) #11
+  %model = getelementptr inbounds i8, ptr %call20, i64 48
+  %19 = load ptr, ptr %model, align 8
+  %20 = load ptr, ptr %vmstate, align 8
+  store ptr %19, ptr %20, align 8
   %call23 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.33, i32 noundef 1888, ptr noundef nonnull @__func__.e100_nic_realize) #11
-  %23 = load ptr, ptr %vmstate, align 8
-  %call.i44 = call i32 @vmstate_register_with_alias_id(ptr noundef %call23, i32 noundef -1, ptr noundef %23, ptr noundef nonnull %pci_dev, i32 noundef -1, i32 noundef 0, ptr noundef null) #11
+  %21 = load ptr, ptr %vmstate, align 8
+  %call.i44 = call i32 @vmstate_register_with_alias_id(ptr noundef %call23, i32 noundef -1, ptr noundef %21, ptr noundef nonnull %pci_dev, i32 noundef -1, i32 noundef 0, ptr noundef null) #11
   br label %return
 
 return:                                           ; preds = %nic_reset.exit, %if.then
@@ -510,15 +474,15 @@ return:                                           ; preds = %nic_reset.exit, %if
 define internal void @pci_nic_uninit(ptr noundef %pci_dev) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.33, i32 noundef 1827, ptr noundef nonnull @__func__.pci_nic_uninit) #11
-  %vmstate = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 23
+  %vmstate = getelementptr inbounds i8, ptr %pci_dev, i64 16008
   %0 = load ptr, ptr %vmstate, align 8
   tail call void @vmstate_unregister(ptr noundef %call, ptr noundef %0, ptr noundef %pci_dev) #11
   %1 = load ptr, ptr %vmstate, align 8
   tail call void @g_free(ptr noundef %1) #11
-  %eeprom = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 10
+  %eeprom = getelementptr inbounds i8, ptr %pci_dev, i64 11736
   %2 = load ptr, ptr %eeprom, align 8
   tail call void @eeprom93xx_free(ptr noundef %pci_dev, ptr noundef %2) #11
-  %nic = getelementptr inbounds %struct.EEPRO100State, ptr %pci_dev, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %pci_dev, i64 3440
   %3 = load ptr, ptr %nic, align 16
   tail call void @qemu_del_nic(ptr noundef %3) #11
   ret void
@@ -545,22 +509,22 @@ declare void @qemu_macaddr_default_if_unset(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @nic_reset(ptr noundef %opaque) #0 {
 entry:
-  %mult = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 1
+  %mult = getelementptr inbounds i8, ptr %opaque, i64 2608
   store i64 0, ptr %mult, align 16
-  %eeprom.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 10
+  %eeprom.i = getelementptr inbounds i8, ptr %opaque, i64 11736
   %0 = load ptr, ptr %eeprom.i, align 8
   %call.i = tail call ptr @eeprom93xx_data(ptr noundef %0) #11
-  %conf.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 6
+  %conf.i = getelementptr inbounds i8, ptr %opaque, i64 3448
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %call.i, ptr noundef nonnull align 8 dereferenceable(6) %conf.i, i64 6, i1 false)
-  %arrayidx.i = getelementptr i16, ptr %call.i, i64 5
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 10
   store i16 16384, ptr %arrayidx.i, align 2
-  %device.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 11
+  %device.i = getelementptr inbounds i8, ptr %opaque, i64 11744
   %1 = load i32, ptr %device.i, align 16
   %.off.i = add i32 %1, -8541563
   %switch.i = icmp ult i32 %.off.i, 2
   %spec.store.select.i = select i1 %switch.i, i16 256, i16 16384
   store i16 %spec.store.select.i, ptr %arrayidx.i, align 2
-  %arrayidx4.i = getelementptr i16, ptr %call.i, i64 6
+  %arrayidx4.i = getelementptr i8, ptr %call.i, i64 12
   store i16 1, ptr %arrayidx4.i, align 2
   br label %for.body.i
 
@@ -576,11 +540,11 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 for.end.i:                                        ; preds = %for.body.i
   %sub.i = sub i16 -17734, %add.i
-  %arrayidx11.i = getelementptr i16, ptr %call.i, i64 63
+  %arrayidx11.i = getelementptr i8, ptr %call.i, i64 126
   store i16 %sub.i, ptr %arrayidx11.i, align 2
-  %mem.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 21
+  %mem.i = getelementptr inbounds i8, ptr %opaque, i64 11888
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %mem.i, i8 0, i64 4096, i1 false)
-  %arrayidx.i.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 16
+  %arrayidx.i.i = getelementptr i8, ptr %opaque, i64 11904
   %3 = ptrtoint ptr %arrayidx.i.i to i64
   %and.i.i = and i64 %3, 3
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
@@ -592,7 +556,7 @@ if.else.i.i:                                      ; preds = %for.end.i
 
 nic_selective_reset.exit:                         ; preds = %for.end.i
   store i32 2097152, ptr %arrayidx.i.i, align 1
-  %mdimem.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 9
+  %mdimem.i = getelementptr inbounds i8, ptr %opaque, i64 11666
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %mdimem.i, ptr noundef nonnull align 16 dereferenceable(64) @eepro100_mdi_default, i64 64, i1 false)
   ret void
 }
@@ -633,7 +597,8 @@ sw.bb:                                            ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.bb
   %conv.i = and i64 %addr, 4294967295
-  %arrayidx.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 %conv.i
+  %mem.i = getelementptr inbounds i8, ptr %opaque, i64 11888
+  %arrayidx.i = getelementptr [4096 x i8], ptr %mem.i, i64 0, i64 %conv.i
   %0 = load i8, ptr %arrayidx.i, align 1
   br label %if.end.i
 
@@ -656,7 +621,7 @@ if.end.i:                                         ; preds = %if.then.i, %sw.bb
   ]
 
 sw.bb5.i:                                         ; preds = %if.end.i
-  %arrayidx.i.i.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 14
+  %arrayidx.i.i.i = getelementptr i8, ptr %opaque, i64 11902
   %1 = ptrtoint ptr %arrayidx.i.i.i to i64
   %and.i.i.i = and i64 %1, 1
   %tobool.not.i.i.i = icmp eq i64 %and.i.i.i, 0
@@ -668,7 +633,7 @@ if.else.i.i.i:                                    ; preds = %sw.bb5.i
 
 eepro100_read_eeprom.exit.i:                      ; preds = %sw.bb5.i
   %arrayidx.val.i.i.i = load i16, ptr %arrayidx.i.i.i, align 1
-  %eeprom.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 10
+  %eeprom.i.i = getelementptr inbounds i8, ptr %opaque, i64 11736
   %2 = load ptr, ptr %eeprom.i.i, align 8
   %call1.i.i = tail call zeroext i16 @eeprom93xx_read(ptr noundef %2) #11
   %tobool.not.i.i = icmp eq i16 %call1.i.i, 0
@@ -679,7 +644,7 @@ eepro100_read_eeprom.exit.i:                      ; preds = %sw.bb5.i
   br label %eepro100_read1.exit
 
 sw.bb7.i:                                         ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i
-  %arrayidx.i.i6.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 16
+  %arrayidx.i.i6.i = getelementptr i8, ptr %opaque, i64 11904
   %4 = ptrtoint ptr %arrayidx.i.i6.i to i64
   %and.i.i7.i = and i64 %4, 3
   %tobool.not.i.i8.i = icmp eq i64 %and.i.i7.i, 0
@@ -720,8 +685,9 @@ sw.bb2:                                           ; preds = %entry
   br i1 %cmp.i5, label %if.then.i25, label %if.end.i6
 
 if.then.i25:                                      ; preds = %sw.bb2
+  %mem.i.i = getelementptr inbounds i8, ptr %opaque, i64 11888
   %idxprom.i.i = and i64 %addr, 4294967295
-  %arrayidx.i.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [4096 x i8], ptr %mem.i.i, i64 0, i64 %idxprom.i.i
   %8 = ptrtoint ptr %arrayidx.i.i to i64
   %and.i.i = and i64 %8, 1
   %tobool.not.i.i26 = icmp eq i64 %and.i.i, 0
@@ -747,7 +713,7 @@ if.end.i6:                                        ; preds = %e100_read_reg2.exit
   ]
 
 sw.bb2.i:                                         ; preds = %if.end.i6
-  %arrayidx.i.i.i14 = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 14
+  %arrayidx.i.i.i14 = getelementptr i8, ptr %opaque, i64 11902
   %10 = ptrtoint ptr %arrayidx.i.i.i14 to i64
   %and.i.i.i15 = and i64 %10, 1
   %tobool.not.i.i.i16 = icmp eq i64 %and.i.i.i15, 0
@@ -759,7 +725,7 @@ if.else.i.i.i17:                                  ; preds = %sw.bb2.i
 
 eepro100_read_eeprom.exit.i18:                    ; preds = %sw.bb2.i
   %arrayidx.val.i.i.i19 = load i16, ptr %arrayidx.i.i.i14, align 1
-  %eeprom.i.i20 = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 10
+  %eeprom.i.i20 = getelementptr inbounds i8, ptr %opaque, i64 11736
   %11 = load ptr, ptr %eeprom.i.i20, align 8
   %call1.i.i21 = tail call zeroext i16 @eeprom93xx_read(ptr noundef %11) #11
   %tobool.not.i6.i = icmp eq i16 %call1.i.i21, 0
@@ -769,7 +735,7 @@ eepro100_read_eeprom.exit.i18:                    ; preds = %sw.bb2.i
   br label %eepro100_read2.exit
 
 sw.bb4.i:                                         ; preds = %if.end.i6, %if.end.i6
-  %arrayidx.i.i7.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 16
+  %arrayidx.i.i7.i = getelementptr i8, ptr %opaque, i64 11904
   %13 = ptrtoint ptr %arrayidx.i.i7.i to i64
   %and.i.i8.i = and i64 %13, 3
   %tobool.not.i.i9.i = icmp eq i64 %and.i.i8.i, 0
@@ -804,23 +770,24 @@ sw.bb6:                                           ; preds = %entry
   br i1 %cmp.i27, label %if.then.i50, label %if.end.i28
 
 if.then.i50:                                      ; preds = %sw.bb6
-  %idxprom.i.i51 = and i64 %addr, 4294967295
-  %arrayidx.i.i52 = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 %idxprom.i.i51
-  %17 = ptrtoint ptr %arrayidx.i.i52 to i64
-  %and.i.i53 = and i64 %17, 3
-  %tobool.not.i.i54 = icmp eq i64 %and.i.i53, 0
-  br i1 %tobool.not.i.i54, label %e100_read_reg4.exit.i, label %if.else.i.i55
+  %mem.i.i51 = getelementptr inbounds i8, ptr %opaque, i64 11888
+  %idxprom.i.i52 = and i64 %addr, 4294967295
+  %arrayidx.i.i53 = getelementptr [4096 x i8], ptr %mem.i.i51, i64 0, i64 %idxprom.i.i52
+  %17 = ptrtoint ptr %arrayidx.i.i53 to i64
+  %and.i.i54 = and i64 %17, 3
+  %tobool.not.i.i55 = icmp eq i64 %and.i.i54, 0
+  br i1 %tobool.not.i.i55, label %e100_read_reg4.exit.i, label %if.else.i.i56
 
-if.else.i.i55:                                    ; preds = %if.then.i50
+if.else.i.i56:                                    ; preds = %if.then.i50
   tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.33, i32 noundef 341, ptr noundef nonnull @__PRETTY_FUNCTION__.e100_read_reg4) #13
   unreachable
 
 e100_read_reg4.exit.i:                            ; preds = %if.then.i50
-  %arrayidx.val.i.i56 = load i32, ptr %arrayidx.i.i52, align 1
+  %arrayidx.val.i.i57 = load i32, ptr %arrayidx.i.i53, align 1
   br label %if.end.i28
 
 if.end.i28:                                       ; preds = %e100_read_reg4.exit.i, %sw.bb6
-  %val.0.i29 = phi i32 [ %arrayidx.val.i.i56, %e100_read_reg4.exit.i ], [ 0, %sw.bb6 ]
+  %val.0.i29 = phi i32 [ %arrayidx.val.i.i57, %e100_read_reg4.exit.i ], [ 0, %sw.bb6 ]
   %18 = tail call i32 @llvm.fshl.i32(i32 %conv7, i32 %conv7, i32 30)
   switch i32 %18, label %sw.default.i49 [
     i32 0, label %eepro100_read4.exit
@@ -834,7 +801,7 @@ sw.bb3.i:                                         ; preds = %if.end.i28
   br label %eepro100_read4.exit
 
 sw.bb5.i37:                                       ; preds = %if.end.i28
-  %arrayidx.i.i.i38 = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 14
+  %arrayidx.i.i.i38 = getelementptr i8, ptr %opaque, i64 11902
   %19 = ptrtoint ptr %arrayidx.i.i.i38 to i64
   %and.i.i.i39 = and i64 %19, 1
   %tobool.not.i.i.i40 = icmp eq i64 %and.i.i.i39, 0
@@ -846,7 +813,7 @@ if.else.i.i.i41:                                  ; preds = %sw.bb5.i37
 
 eepro100_read_eeprom.exit.i42:                    ; preds = %sw.bb5.i37
   %arrayidx.val.i.i.i43 = load i16, ptr %arrayidx.i.i.i38, align 1
-  %eeprom.i.i44 = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 10
+  %eeprom.i.i44 = getelementptr inbounds i8, ptr %opaque, i64 11736
   %20 = load ptr, ptr %eeprom.i.i44, align 8
   %call1.i.i45 = tail call zeroext i16 @eeprom93xx_read(ptr noundef %20) #11
   %tobool.not.i6.i46 = icmp eq i16 %call1.i.i45, 0
@@ -857,7 +824,7 @@ eepro100_read_eeprom.exit.i42:                    ; preds = %sw.bb5.i37
   br label %eepro100_read4.exit
 
 sw.bb8.i:                                         ; preds = %if.end.i28
-  %arrayidx.i.i7.i30 = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 16
+  %arrayidx.i.i7.i30 = getelementptr i8, ptr %opaque, i64 11904
   %22 = ptrtoint ptr %arrayidx.i.i7.i30 to i64
   %and.i.i8.i31 = and i64 %22, 3
   %tobool.not.i.i9.i32 = icmp eq i64 %and.i.i8.i31, 0
@@ -909,7 +876,8 @@ sw.bb:                                            ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.bb
   %conv.i = and i64 %addr, 4294967295
-  %arrayidx.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 %conv.i
+  %mem.i = getelementptr inbounds i8, ptr %opaque, i64 11888
+  %arrayidx.i = getelementptr [4096 x i8], ptr %mem.i, i64 0, i64 %conv.i
   store i8 %conv1, ptr %arrayidx.i, align 1
   br label %if.end.i
 
@@ -939,10 +907,10 @@ if.end.i:                                         ; preds = %if.then.i, %sw.bb
   ]
 
 sw.bb3.i:                                         ; preds = %if.end.i
-  %arrayidx.i.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 1
+  %arrayidx.i.i = getelementptr i8, ptr %opaque, i64 11889
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %not.i.i = xor i8 %1, -1
-  %scb_stat.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 7
+  %scb_stat.i.i = getelementptr inbounds i8, ptr %opaque, i64 11664
   %2 = load i8, ptr %scb_stat.i.i, align 16
   %and.i.i = and i8 %2, %not.i.i
   store i8 %and.i.i, ptr %scb_stat.i.i, align 16
@@ -951,7 +919,7 @@ sw.bb3.i:                                         ; preds = %if.end.i
   br i1 %cmp.i.i, label %if.then.i.i, label %sw.epilog
 
 if.then.i.i:                                      ; preds = %sw.bb3.i
-  %int_stat.i.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 8
+  %int_stat.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11665
   %3 = load i8, ptr %int_stat.i.i.i, align 1
   %tobool.not.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i.i, label %sw.epilog, label %if.then.i.i.i
@@ -971,22 +939,22 @@ sw.bb5.i:                                         ; preds = %if.end.i
   br i1 %tobool.not.i, label %sw.bb5.if.end8_crit_edge.i, label %if.then7.i
 
 sw.bb5.if.end8_crit_edge.i:                       ; preds = %sw.bb5.i
-  %int_stat.i.phi.trans.insert.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 8
+  %int_stat.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %opaque, i64 11665
   %.pre.i = load i8, ptr %int_stat.i.phi.trans.insert.i, align 1
   br label %if.end8.i
 
 if.then7.i:                                       ; preds = %sw.bb5.i
-  %arrayidx.i.i.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 3
+  %arrayidx.i.i.i = getelementptr i8, ptr %opaque, i64 11891
   %5 = load i8, ptr %arrayidx.i.i.i, align 1
-  %arrayidx4.i.i.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 1
+  %arrayidx4.i.i.i = getelementptr i8, ptr %opaque, i64 11889
   %6 = load i8, ptr %arrayidx4.i.i.i, align 1
   %or11.i.i.i = or i8 %6, 4
   store i8 %or11.i.i.i, ptr %arrayidx4.i.i.i, align 1
-  %scb_stat.i.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 7
+  %scb_stat.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11664
   store i8 %or11.i.i.i, ptr %scb_stat.i.i.i, align 16
   %not.i.i.i = and i8 %5, 1
   %tobool16.not.i.not.i.i = icmp eq i8 %not.i.i.i, 0
-  %int_stat.i.i14.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 8
+  %int_stat.i.i14.i = getelementptr inbounds i8, ptr %opaque, i64 11665
   %7 = load i8, ptr %int_stat.i.i14.i, align 1
   %tobool17.not.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool16.not.i.not.i.i, label %if.then.i.i15.i, label %if.else.i.i.i
@@ -1006,12 +974,12 @@ if.end19.sink.split.i.i.i:                        ; preds = %if.else.i.i.i, %if.
 
 if.end8.i:                                        ; preds = %if.end19.sink.split.i.i.i, %if.else.i.i.i, %if.then.i.i15.i, %sw.bb5.if.end8_crit_edge.i
   %8 = phi i8 [ %.pre.i, %sw.bb5.if.end8_crit_edge.i ], [ %.sink.i.i.i, %if.end19.sink.split.i.i.i ], [ 0, %if.else.i.i.i ], [ %7, %if.then.i.i15.i ]
-  %arrayidx.i16.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 3
+  %arrayidx.i16.i = getelementptr i8, ptr %opaque, i64 11891
   %9 = load i8, ptr %arrayidx.i16.i, align 1
   %not.i17.i = xor i8 %9, -1
-  %arrayidx4.i.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 1
+  %arrayidx4.i.i = getelementptr i8, ptr %opaque, i64 11889
   %10 = load i8, ptr %arrayidx4.i.i, align 1
-  %scb_stat.i18.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 7
+  %scb_stat.i18.i = getelementptr inbounds i8, ptr %opaque, i64 11664
   store i8 %10, ptr %scb_stat.i18.i, align 16
   %or10.i.i = or i8 %not.i17.i, 15
   %and.i19.i = and i8 %10, %or10.i.i
@@ -1019,7 +987,7 @@ if.end8.i:                                        ; preds = %if.end19.sink.split
   %11 = and i8 %not.i17.i, 1
   %tobool16.not.i.i = icmp eq i8 %11, 0
   %or.cond.i.i = or i1 %tobool16.not.i.i, %tobool.not.i.i
-  %int_stat.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 8
+  %int_stat.i.i = getelementptr inbounds i8, ptr %opaque, i64 11665
   %tobool17.not.i.i = icmp eq i8 %8, 0
   br i1 %or.cond.i.i, label %if.else.i.i, label %if.then.i20.i
 
@@ -1041,7 +1009,7 @@ sw.bb11.i:                                        ; preds = %if.end.i
   br label %sw.epilog
 
 sw.bb13.i:                                        ; preds = %if.end.i
-  %eeprom.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 10
+  %eeprom.i = getelementptr inbounds i8, ptr %opaque, i64 11736
   %12 = load ptr, ptr %eeprom.i, align 8
   %13 = trunc i64 %data to i32
   %and.i21.i = lshr i32 %13, 1
@@ -1069,8 +1037,9 @@ sw.bb2:                                           ; preds = %entry
   br i1 %or.cond.i7, label %if.then.i33, label %if.end.i8
 
 if.then.i33:                                      ; preds = %sw.bb2
+  %mem.i.i = getelementptr inbounds i8, ptr %opaque, i64 11888
   %idxprom.i.i = and i64 %addr, 4294967295
-  %arrayidx.i.i34 = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 %idxprom.i.i
+  %arrayidx.i.i34 = getelementptr [4096 x i8], ptr %mem.i.i, i64 0, i64 %idxprom.i.i
   %17 = ptrtoint ptr %arrayidx.i.i34 to i64
   %and.i.i35 = and i64 %17, 1
   %tobool.not.i.i36 = icmp eq i64 %and.i.i35, 0
@@ -1100,9 +1069,9 @@ if.end.i8:                                        ; preds = %e100_write_reg2.exi
 sw.bb.i:                                          ; preds = %if.end.i8
   %18 = lshr i64 %data, 8
   %conv4.i = trunc i64 %18 to i8
-  %arrayidx.i24 = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 1
+  %arrayidx.i24 = getelementptr i8, ptr %opaque, i64 11889
   %not.i.i25 = xor i8 %conv4.i, -1
-  %scb_stat.i.i26 = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 7
+  %scb_stat.i.i26 = getelementptr inbounds i8, ptr %opaque, i64 11664
   %19 = load i8, ptr %scb_stat.i.i26, align 16
   %and.i16.i = and i8 %19, %not.i.i25
   store i8 %and.i16.i, ptr %scb_stat.i.i26, align 16
@@ -1111,7 +1080,7 @@ sw.bb.i:                                          ; preds = %if.end.i8
   br i1 %cmp.i.i27, label %if.then.i.i28, label %sw.epilog
 
 if.then.i.i28:                                    ; preds = %sw.bb.i
-  %int_stat.i.i.i29 = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 8
+  %int_stat.i.i.i29 = getelementptr inbounds i8, ptr %opaque, i64 11665
   %20 = load i8, ptr %int_stat.i.i.i29, align 1
   %tobool.not.i.i.i30 = icmp eq i8 %20, 0
   br i1 %tobool.not.i.i.i30, label %sw.epilog, label %if.then.i.i.i31
@@ -1126,27 +1095,27 @@ sw.bb5.i16:                                       ; preds = %if.end.i8
   tail call fastcc void @eepro100_write_command(ptr noundef %opaque, i8 noundef zeroext %conv6.i)
   %21 = lshr i64 %data, 8
   %conv9.i = trunc i64 %21 to i8
-  %arrayidx.i18.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 3
-  store i8 %conv9.i, ptr %arrayidx.i18.i, align 1
+  %arrayidx.i19.i = getelementptr i8, ptr %opaque, i64 11891
+  store i8 %conv9.i, ptr %arrayidx.i19.i, align 1
   %22 = and i8 %conv9.i, 2
-  %tobool.not.i19.i = icmp eq i8 %22, 0
-  br i1 %tobool.not.i19.i, label %sw.bb5.if.end8_crit_edge.i.i, label %if.then7.i.i
+  %tobool.not.i20.i = icmp eq i8 %22, 0
+  br i1 %tobool.not.i20.i, label %sw.bb5.if.end8_crit_edge.i.i, label %if.then7.i.i
 
 sw.bb5.if.end8_crit_edge.i.i:                     ; preds = %sw.bb5.i16
-  %int_stat.i.phi.trans.insert.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 8
+  %int_stat.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %opaque, i64 11665
   %.pre.i.i = load i8, ptr %int_stat.i.phi.trans.insert.i.i, align 1
   br label %if.end8.i.i
 
 if.then7.i.i:                                     ; preds = %sw.bb5.i16
-  %arrayidx4.i.i.i.i = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 1
+  %arrayidx4.i.i.i.i = getelementptr i8, ptr %opaque, i64 11889
   %23 = load i8, ptr %arrayidx4.i.i.i.i, align 1
   %or11.i.i.i.i = or i8 %23, 4
   store i8 %or11.i.i.i.i, ptr %arrayidx4.i.i.i.i, align 1
-  %scb_stat.i.i.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 7
+  %scb_stat.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11664
   store i8 %or11.i.i.i.i, ptr %scb_stat.i.i.i.i, align 16
   %not.i.i.i.i = and i8 %conv9.i, 1
   %tobool16.not.i.not.i.i.i = icmp eq i8 %not.i.i.i.i, 0
-  %int_stat.i.i14.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 8
+  %int_stat.i.i14.i.i = getelementptr inbounds i8, ptr %opaque, i64 11665
   %24 = load i8, ptr %int_stat.i.i14.i.i, align 1
   %tobool17.not.i.i.i.i = icmp eq i8 %24, 0
   br i1 %tobool16.not.i.not.i.i.i, label %if.then.i.i15.i.i, label %if.else.i.i.i.i
@@ -1162,24 +1131,24 @@ if.end19.sink.split.i.i.i.i:                      ; preds = %if.else.i.i.i.i, %i
   %.sink.i.i.i.i = phi i8 [ 1, %if.then.i.i15.i.i ], [ 0, %if.else.i.i.i.i ]
   tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef %.sink15.i.i.i.i) #11
   store i8 %.sink.i.i.i.i, ptr %int_stat.i.i14.i.i, align 1
-  %.pre.i17 = load i8, ptr %arrayidx.i18.i, align 1
+  %.pre.i17 = load i8, ptr %arrayidx.i19.i, align 1
   br label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end19.sink.split.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i15.i.i, %sw.bb5.if.end8_crit_edge.i.i
   %25 = phi i8 [ %conv9.i, %sw.bb5.if.end8_crit_edge.i.i ], [ %.pre.i17, %if.end19.sink.split.i.i.i.i ], [ %conv9.i, %if.else.i.i.i.i ], [ %conv9.i, %if.then.i.i15.i.i ]
   %26 = phi i8 [ %.pre.i.i, %sw.bb5.if.end8_crit_edge.i.i ], [ %.sink.i.i.i.i, %if.end19.sink.split.i.i.i.i ], [ 0, %if.else.i.i.i.i ], [ %24, %if.then.i.i15.i.i ]
   %not.i17.i.i = xor i8 %25, -1
-  %arrayidx4.i.i.i18 = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 1
+  %arrayidx4.i.i.i18 = getelementptr i8, ptr %opaque, i64 11889
   %27 = load i8, ptr %arrayidx4.i.i.i18, align 1
-  %scb_stat.i18.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 7
+  %scb_stat.i18.i.i = getelementptr inbounds i8, ptr %opaque, i64 11664
   store i8 %27, ptr %scb_stat.i18.i.i, align 16
   %or10.i.i.i = or i8 %not.i17.i.i, 15
   %and.i19.i.i = and i8 %27, %or10.i.i.i
-  %tobool.not.i.i20.i = icmp eq i8 %and.i19.i.i, 0
+  %tobool.not.i.i21.i = icmp eq i8 %and.i19.i.i, 0
   %28 = and i8 %not.i17.i.i, 1
   %tobool16.not.i.i.i = icmp eq i8 %28, 0
-  %or.cond.i.i.i = or i1 %tobool16.not.i.i.i, %tobool.not.i.i20.i
-  %int_stat.i.i21.i = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 8
+  %or.cond.i.i.i = or i1 %tobool16.not.i.i.i, %tobool.not.i.i21.i
+  %int_stat.i.i22.i = getelementptr inbounds i8, ptr %opaque, i64 11665
   %tobool17.not.i.i.i19 = icmp eq i8 %26, 0
   br i1 %or.cond.i.i.i, label %if.else.i.i.i23, label %if.then.i20.i.i
 
@@ -1193,7 +1162,7 @@ if.end19.sink.split.i.i.i20:                      ; preds = %if.else.i.i.i23, %i
   %.sink15.i.i.i21 = phi i32 [ 1, %if.then.i20.i.i ], [ 0, %if.else.i.i.i23 ]
   %.sink.i.i.i22 = phi i8 [ 1, %if.then.i20.i.i ], [ 0, %if.else.i.i.i23 ]
   tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef %.sink15.i.i.i21) #11
-  store i8 %.sink.i.i.i22, ptr %int_stat.i.i21.i, align 1
+  store i8 %.sink.i.i.i22, ptr %int_stat.i.i22.i, align 1
   br label %sw.epilog
 
 sw.bb12.i:                                        ; preds = %if.end.i8
@@ -1201,12 +1170,12 @@ sw.bb12.i:                                        ; preds = %if.end.i8
   br label %sw.epilog
 
 sw.bb13.i9:                                       ; preds = %if.end.i8
-  %eeprom.i10 = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 10
+  %eeprom.i10 = getelementptr inbounds i8, ptr %opaque, i64 11736
   %29 = load ptr, ptr %eeprom.i10, align 8
   %30 = and i16 %conv4, 255
   %conv.i.i11 = zext nneg i16 %30 to i32
-  %and.i22.i = lshr i32 %conv.i.i11, 1
-  %and.lobit.i.i12 = and i32 %and.i22.i, 1
+  %and.i23.i = lshr i32 %conv.i.i11, 1
+  %and.lobit.i.i12 = and i32 %and.i23.i, 1
   %and3.i.i13 = and i32 %conv.i.i11, 1
   %and7.i.i14 = lshr i32 %conv.i.i11, 2
   %and7.lobit.i.i15 = and i32 %and7.i.i14, 1
@@ -1229,19 +1198,20 @@ sw.bb5:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i47, label %if.end.i38
 
 if.then.i47:                                      ; preds = %sw.bb5
-  %idxprom.i.i48 = and i64 %addr, 4294967295
-  %arrayidx.i.i49 = getelementptr %struct.EEPRO100State, ptr %opaque, i64 0, i32 21, i64 %idxprom.i.i48
-  %33 = ptrtoint ptr %arrayidx.i.i49 to i64
-  %and.i.i50 = and i64 %33, 3
-  %tobool.not.i.i51 = icmp eq i64 %and.i.i50, 0
-  br i1 %tobool.not.i.i51, label %e100_write_reg4.exit.i, label %if.else.i.i52
+  %mem.i.i48 = getelementptr inbounds i8, ptr %opaque, i64 11888
+  %idxprom.i.i49 = and i64 %addr, 4294967295
+  %arrayidx.i.i50 = getelementptr [4096 x i8], ptr %mem.i.i48, i64 0, i64 %idxprom.i.i49
+  %33 = ptrtoint ptr %arrayidx.i.i50 to i64
+  %and.i.i51 = and i64 %33, 3
+  %tobool.not.i.i52 = icmp eq i64 %and.i.i51, 0
+  br i1 %tobool.not.i.i52, label %e100_write_reg4.exit.i, label %if.else.i.i53
 
-if.else.i.i52:                                    ; preds = %if.then.i47
+if.else.i.i53:                                    ; preds = %if.then.i47
   tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.33, i32 noundef 357, ptr noundef nonnull @__PRETTY_FUNCTION__.e100_write_reg4) #13
   unreachable
 
 e100_write_reg4.exit.i:                           ; preds = %if.then.i47
-  store i32 %conv7, ptr %arrayidx.i.i49, align 1
+  store i32 %conv7, ptr %arrayidx.i.i50, align 1
   br label %if.end.i38
 
 if.end.i38:                                       ; preds = %e100_write_reg4.exit.i, %sw.bb5
@@ -1260,7 +1230,7 @@ sw.bb2.i:                                         ; preds = %if.end.i38
 
 sw.bb3.i40:                                       ; preds = %if.end.i38
   %shr.i = lshr i32 %conv7, 16
-  %eeprom.i41 = getelementptr inbounds %struct.EEPRO100State, ptr %opaque, i64 0, i32 10
+  %eeprom.i41 = getelementptr inbounds i8, ptr %opaque, i64 11736
   %36 = load ptr, ptr %eeprom.i41, align 8
   %and.i8.i = lshr i32 %conv7, 17
   %and.lobit.i.i42 = and i32 %and.i8.i, 1
@@ -1295,7 +1265,7 @@ declare zeroext i16 @eeprom93xx_read(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @eepro100_write_command(ptr noundef %s, i8 noundef zeroext %val) unnamed_addr #0 {
 entry:
-  %val.addr.i.i47.i = alloca i32, align 4
+  %val.addr.i.i50.i = alloca i32, align 4
   %val.addr.i.i.i = alloca i32, align 4
   %and = and i8 %val, 15
   %conv.i = zext nneg i8 %and to i32
@@ -1313,7 +1283,7 @@ sw.bb1.i:                                         ; preds = %entry
   %1 = and i8 %s.val.i, -61
   %conv1.i.i = or disjoint i8 %1, 16
   store i8 %conv1.i.i, ptr %0, align 16
-  %arrayidx.i.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 4
+  %arrayidx.i.i = getelementptr i8, ptr %s, i64 11892
   %2 = ptrtoint ptr %arrayidx.i.i to i64
   %and.i.i = and i64 %2, 3
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
@@ -1325,9 +1295,9 @@ if.else.i.i:                                      ; preds = %sw.bb1.i
 
 e100_read_reg4.exit.i:                            ; preds = %sw.bb1.i
   %arrayidx.val.i.i = load i32, ptr %arrayidx.i.i, align 1
-  %ru_offset.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 15
+  %ru_offset.i = getelementptr inbounds i8, ptr %s, i64 11760
   store i32 %arrayidx.val.i.i, ptr %ru_offset.i, align 16
-  %nic.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 5
+  %nic.i = getelementptr inbounds i8, ptr %s, i64 3440
   %3 = load ptr, ptr %nic.i, align 16
   %call4.i = tail call ptr @qemu_get_queue(ptr noundef %3) #11
   tail call void @qemu_flush_queued_packets(ptr noundef %call4.i) #11
@@ -1337,8 +1307,8 @@ sw.bb5.i:                                         ; preds = %entry
   %4 = getelementptr i8, ptr %s, i64 11888
   %s.val12.i = load i8, ptr %4, align 16
   %5 = and i8 %s.val12.i, -61
-  %conv1.i16.i = or disjoint i8 %5, 16
-  store i8 %conv1.i16.i, ptr %4, align 16
+  %conv1.i17.i = or disjoint i8 %5, 16
+  store i8 %conv1.i17.i, ptr %4, align 16
   br label %eepro100_ru_command.exit
 
 sw.bb11.i:                                        ; preds = %entry
@@ -1349,14 +1319,14 @@ sw.bb11.i:                                        ; preds = %entry
   br i1 %cmp13.i, label %if.then15.i, label %if.end16.i
 
 if.then15.i:                                      ; preds = %sw.bb11.i
-  %arrayidx.i.i.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 3
+  %arrayidx.i.i.i = getelementptr i8, ptr %s, i64 11891
   %8 = load i8, ptr %arrayidx.i.i.i, align 1
   %not.i.i.i = xor i8 %8, -1
-  %arrayidx4.i.i.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 1
+  %arrayidx4.i.i.i = getelementptr i8, ptr %s, i64 11889
   %9 = load i8, ptr %arrayidx4.i.i.i, align 1
   %or11.i.i.i = or i8 %9, 16
   store i8 %or11.i.i.i, ptr %arrayidx4.i.i.i, align 1
-  %scb_stat.i.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 7
+  %scb_stat.i.i.i = getelementptr inbounds i8, ptr %s, i64 11664
   store i8 %or11.i.i.i, ptr %scb_stat.i.i.i, align 16
   %or10.i.i.i = or i8 %not.i.i.i, 15
   %and.i.i.i = and i8 %or11.i.i.i, %or10.i.i.i
@@ -1364,7 +1334,7 @@ if.then15.i:                                      ; preds = %sw.bb11.i
   %10 = and i8 %not.i.i.i, 1
   %tobool16.not.i.i.i = icmp eq i8 %10, 0
   %or.cond.i.i.i = or i1 %tobool16.not.i.i.i, %tobool.not.i.i.i
-  %int_stat.i.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 8
+  %int_stat.i.i.i = getelementptr inbounds i8, ptr %s, i64 11665
   %11 = load i8, ptr %int_stat.i.i.i, align 1
   %tobool17.not.i.i.i = icmp eq i8 %11, 0
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -1390,20 +1360,20 @@ if.end16.i:                                       ; preds = %if.end19.sink.split
   br label %eepro100_ru_command.exit
 
 sw.bb17.i:                                        ; preds = %entry
-  %arrayidx.i19.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 4
-  %14 = ptrtoint ptr %arrayidx.i19.i to i64
-  %and.i20.i = and i64 %14, 3
-  %tobool.not.i21.i = icmp eq i64 %and.i20.i, 0
-  br i1 %tobool.not.i21.i, label %e100_read_reg4.exit24.i, label %if.else.i22.i
+  %arrayidx.i21.i = getelementptr i8, ptr %s, i64 11892
+  %14 = ptrtoint ptr %arrayidx.i21.i to i64
+  %and.i22.i = and i64 %14, 3
+  %tobool.not.i23.i = icmp eq i64 %and.i22.i, 0
+  br i1 %tobool.not.i23.i, label %e100_read_reg4.exit26.i, label %if.else.i24.i
 
-if.else.i22.i:                                    ; preds = %sw.bb17.i
+if.else.i24.i:                                    ; preds = %sw.bb17.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.33, i32 noundef 341, ptr noundef nonnull @__PRETTY_FUNCTION__.e100_read_reg4) #13
   unreachable
 
-e100_read_reg4.exit24.i:                          ; preds = %sw.bb17.i
-  %arrayidx.val.i23.i = load i32, ptr %arrayidx.i19.i, align 1
-  %ru_base.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 14
-  store i32 %arrayidx.val.i23.i, ptr %ru_base.i, align 4
+e100_read_reg4.exit26.i:                          ; preds = %sw.bb17.i
+  %arrayidx.val.i25.i = load i32, ptr %arrayidx.i21.i, align 1
+  %ru_base.i = getelementptr inbounds i8, ptr %s, i64 11756
+  store i32 %arrayidx.val.i25.i, ptr %ru_base.i, align 4
   br label %eepro100_ru_command.exit
 
 sw.default.i:                                     ; preds = %entry
@@ -1411,7 +1381,7 @@ sw.default.i:                                     ; preds = %entry
   %16 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 69, i64 1, ptr %15) #15
   br label %eepro100_ru_command.exit
 
-eepro100_ru_command.exit:                         ; preds = %entry, %e100_read_reg4.exit.i, %sw.bb5.i, %if.end16.i, %e100_read_reg4.exit24.i, %sw.default.i
+eepro100_ru_command.exit:                         ; preds = %entry, %e100_read_reg4.exit.i, %sw.bb5.i, %if.end16.i, %e100_read_reg4.exit26.i, %sw.default.i
   %17 = lshr i8 %val, 4
   %18 = zext nneg i8 %17 to i32
   switch i32 %18, label %sw.default.i17 [
@@ -1431,7 +1401,7 @@ sw.bb1.i8:                                        ; preds = %eepro100_ru_command
   %20 = and i8 %s.val.i9, 63
   %conv1.i.i10 = or disjoint i8 %20, -128
   store i8 %conv1.i.i10, ptr %19, align 16
-  %arrayidx.i.i11 = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 4
+  %arrayidx.i.i11 = getelementptr i8, ptr %s, i64 11892
   %21 = ptrtoint ptr %arrayidx.i.i11 to i64
   %and.i.i12 = and i64 %21, 3
   %tobool.not.i.i13 = icmp eq i64 %and.i.i12, 0
@@ -1443,7 +1413,7 @@ if.else.i.i14:                                    ; preds = %sw.bb1.i8
 
 e100_read_reg4.exit.i15:                          ; preds = %sw.bb1.i8
   %arrayidx.val.i.i16 = load i32, ptr %arrayidx.i.i11, align 1
-  %cu_offset.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 13
+  %cu_offset.i = getelementptr inbounds i8, ptr %s, i64 11752
   store i32 %arrayidx.val.i.i16, ptr %cu_offset.i, align 8
   tail call fastcc void @action_command(ptr noundef nonnull %s)
   br label %eepro100_cu_command.exit
@@ -1452,45 +1422,45 @@ sw.bb6.i:                                         ; preds = %eepro100_ru_command
   %22 = getelementptr i8, ptr %s, i64 11888
   %s.val27.i = load i8, ptr %22, align 16
   %23 = and i8 %s.val27.i, 63
-  %conv1.i34.i = or disjoint i8 %23, -128
-  store i8 %conv1.i34.i, ptr %22, align 16
+  %conv1.i35.i = or disjoint i8 %23, -128
+  store i8 %conv1.i35.i, ptr %22, align 16
   tail call fastcc void @action_command(ptr noundef nonnull %s)
   br label %eepro100_cu_command.exit
 
 sw.bb17.i6:                                       ; preds = %eepro100_ru_command.exit
-  %arrayidx.i35.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 4
-  %24 = ptrtoint ptr %arrayidx.i35.i to i64
-  %and.i36.i = and i64 %24, 3
-  %tobool.not.i37.i = icmp eq i64 %and.i36.i, 0
-  br i1 %tobool.not.i37.i, label %e100_read_reg4.exit40.i, label %if.else.i38.i
+  %arrayidx.i37.i = getelementptr i8, ptr %s, i64 11892
+  %24 = ptrtoint ptr %arrayidx.i37.i to i64
+  %and.i38.i = and i64 %24, 3
+  %tobool.not.i39.i = icmp eq i64 %and.i38.i, 0
+  br i1 %tobool.not.i39.i, label %e100_read_reg4.exit42.i, label %if.else.i40.i
 
-if.else.i38.i:                                    ; preds = %sw.bb17.i6
+if.else.i40.i:                                    ; preds = %sw.bb17.i6
   tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.33, i32 noundef 341, ptr noundef nonnull @__PRETTY_FUNCTION__.e100_read_reg4) #13
   unreachable
 
-e100_read_reg4.exit40.i:                          ; preds = %sw.bb17.i6
-  %arrayidx.val.i39.i = load i32, ptr %arrayidx.i35.i, align 1
-  %statsaddr.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 16
-  store i32 %arrayidx.val.i39.i, ptr %statsaddr.i, align 4
-  %and.i = and i32 %arrayidx.val.i39.i, 3
+e100_read_reg4.exit42.i:                          ; preds = %sw.bb17.i6
+  %arrayidx.val.i41.i = load i32, ptr %arrayidx.i37.i, align 1
+  %statsaddr.i = getelementptr inbounds i8, ptr %s, i64 11764
+  store i32 %arrayidx.val.i41.i, ptr %statsaddr.i, align 4
+  %and.i = and i32 %arrayidx.val.i41.i, 3
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %eepro100_cu_command.exit, label %if.then20.i
 
-if.then20.i:                                      ; preds = %e100_read_reg4.exit40.i
-  %and22.i = and i32 %arrayidx.val.i39.i, -4
+if.then20.i:                                      ; preds = %e100_read_reg4.exit42.i
+  %and22.i = and i32 %arrayidx.val.i41.i, -4
   store i32 %and22.i, ptr %statsaddr.i, align 4
   br label %eepro100_cu_command.exit
 
 sw.bb24.i:                                        ; preds = %eepro100_ru_command.exit
   tail call fastcc void @dump_statistics(ptr noundef %s)
-  %statsaddr25.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 16
+  %statsaddr25.i = getelementptr inbounds i8, ptr %s, i64 11764
   %25 = load i32, ptr %statsaddr25.i, align 4
-  %stats_size.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 24
+  %stats_size.i = getelementptr inbounds i8, ptr %s, i64 16016
   %26 = load i16, ptr %stats_size.i, align 16
   %conv26.i = zext i16 %26 to i32
   %add.i = add i32 %25, %conv26.i
   %conv27.i = zext i32 %add.i to i64
-  %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
+  %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %s, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   store i32 40965, ptr %val.addr.i.i.i, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
@@ -1500,39 +1470,39 @@ sw.bb24.i:                                        ; preds = %eepro100_ru_command
   br label %eepro100_cu_command.exit
 
 sw.bb29.i:                                        ; preds = %eepro100_ru_command.exit
-  %arrayidx.i41.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 4
-  %27 = ptrtoint ptr %arrayidx.i41.i to i64
-  %and.i42.i = and i64 %27, 3
-  %tobool.not.i43.i = icmp eq i64 %and.i42.i, 0
-  br i1 %tobool.not.i43.i, label %e100_read_reg4.exit46.i, label %if.else.i44.i
+  %arrayidx.i44.i = getelementptr i8, ptr %s, i64 11892
+  %27 = ptrtoint ptr %arrayidx.i44.i to i64
+  %and.i45.i = and i64 %27, 3
+  %tobool.not.i46.i = icmp eq i64 %and.i45.i, 0
+  br i1 %tobool.not.i46.i, label %e100_read_reg4.exit49.i, label %if.else.i47.i
 
-if.else.i44.i:                                    ; preds = %sw.bb29.i
+if.else.i47.i:                                    ; preds = %sw.bb29.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.33, i32 noundef 341, ptr noundef nonnull @__PRETTY_FUNCTION__.e100_read_reg4) #13
   unreachable
 
-e100_read_reg4.exit46.i:                          ; preds = %sw.bb29.i
-  %arrayidx.val.i45.i = load i32, ptr %arrayidx.i41.i, align 1
-  %cu_base.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 12
-  store i32 %arrayidx.val.i45.i, ptr %cu_base.i, align 4
+e100_read_reg4.exit49.i:                          ; preds = %sw.bb29.i
+  %arrayidx.val.i48.i = load i32, ptr %arrayidx.i44.i, align 1
+  %cu_base.i = getelementptr inbounds i8, ptr %s, i64 11748
+  store i32 %arrayidx.val.i48.i, ptr %cu_base.i, align 4
   br label %eepro100_cu_command.exit
 
 sw.bb31.i:                                        ; preds = %eepro100_ru_command.exit
   tail call fastcc void @dump_statistics(ptr noundef %s)
-  %statsaddr33.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 16
+  %statsaddr33.i = getelementptr inbounds i8, ptr %s, i64 11764
   %28 = load i32, ptr %statsaddr33.i, align 4
-  %stats_size34.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 24
+  %stats_size34.i = getelementptr inbounds i8, ptr %s, i64 16016
   %29 = load i16, ptr %stats_size34.i, align 16
   %conv35.i = zext i16 %29 to i32
   %add36.i = add i32 %28, %conv35.i
   %conv37.i = zext i32 %add36.i to i64
-  %bus_master_as.i.i48.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i47.i)
-  store i32 40967, ptr %val.addr.i.i47.i, align 4
+  %bus_master_as.i.i51.i = getelementptr inbounds i8, ptr %s, i64 576
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i50.i)
+  store i32 40967, ptr %val.addr.i.i50.i, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i49.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i48.i, i64 noundef %conv37.i, i32 1, ptr noundef nonnull %val.addr.i.i47.i, i64 noundef 4, i1 noundef zeroext true) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i47.i)
-  %statistics.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 19
+  %call.i.i.i.i.i52.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i51.i, i64 noundef %conv37.i, i32 1, ptr noundef nonnull %val.addr.i.i50.i, i64 noundef 4, i1 noundef zeroext true) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i50.i)
+  %statistics.i = getelementptr inbounds i8, ptr %s, i64 11788
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %statistics.i, i8 0, i64 96, i1 false)
   br label %eepro100_cu_command.exit
 
@@ -1546,8 +1516,8 @@ sw.default.i17:                                   ; preds = %eepro100_ru_command
   %33 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 69, i64 1, ptr %32) #15
   br label %eepro100_cu_command.exit
 
-eepro100_cu_command.exit:                         ; preds = %eepro100_ru_command.exit, %e100_read_reg4.exit.i15, %sw.bb6.i, %e100_read_reg4.exit40.i, %if.then20.i, %sw.bb24.i, %e100_read_reg4.exit46.i, %sw.bb31.i, %sw.bb40.i, %sw.default.i17
-  %arrayidx = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 2
+eepro100_cu_command.exit:                         ; preds = %eepro100_ru_command.exit, %e100_read_reg4.exit.i15, %sw.bb6.i, %e100_read_reg4.exit42.i, %if.then20.i, %sw.bb24.i, %e100_read_reg4.exit49.i, %sw.bb31.i, %sw.bb40.i, %sw.default.i17
+  %arrayidx = getelementptr i8, ptr %s, i64 11890
   store i8 0, ptr %arrayidx, align 2
   ret void
 }
@@ -1556,7 +1526,8 @@ eepro100_cu_command.exit:                         ; preds = %eepro100_ru_command
 define internal fastcc void @eepro100_write_port(ptr noundef %s) unnamed_addr #0 {
 entry:
   %data = alloca %struct.eepro100_selftest_t, align 4
-  %arrayidx.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 8
+  %mem.i = getelementptr inbounds i8, ptr %s, i64 11888
+  %arrayidx.i = getelementptr i8, ptr %s, i64 11896
   %0 = ptrtoint ptr %arrayidx.i to i64
   %and.i = and i64 %0, 3
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -1576,22 +1547,22 @@ e100_read_reg4.exit:                              ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %e100_read_reg4.exit
-  %mult.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 1
+  %mult.i = getelementptr inbounds i8, ptr %s, i64 2608
   store i64 0, ptr %mult.i, align 16
-  %eeprom.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 10
+  %eeprom.i.i = getelementptr inbounds i8, ptr %s, i64 11736
   %1 = load ptr, ptr %eeprom.i.i, align 8
   %call.i.i = tail call ptr @eeprom93xx_data(ptr noundef %1) #11
-  %conf.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 6
+  %conf.i.i = getelementptr inbounds i8, ptr %s, i64 3448
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %call.i.i, ptr noundef nonnull align 8 dereferenceable(6) %conf.i.i, i64 6, i1 false)
-  %arrayidx.i.i = getelementptr i16, ptr %call.i.i, i64 5
+  %arrayidx.i.i = getelementptr i8, ptr %call.i.i, i64 10
   store i16 16384, ptr %arrayidx.i.i, align 2
-  %device.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 11
+  %device.i.i = getelementptr inbounds i8, ptr %s, i64 11744
   %2 = load i32, ptr %device.i.i, align 16
   %.off.i.i = add i32 %2, -8541563
   %switch.i.i = icmp ult i32 %.off.i.i, 2
   %spec.store.select.i.i = select i1 %switch.i.i, i16 256, i16 16384
   store i16 %spec.store.select.i.i, ptr %arrayidx.i.i, align 2
-  %arrayidx4.i.i = getelementptr i16, ptr %call.i.i, i64 6
+  %arrayidx4.i.i = getelementptr i8, ptr %call.i.i, i64 12
   store i16 1, ptr %arrayidx4.i.i, align 2
   br label %for.body.i.i
 
@@ -1607,11 +1578,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %sw.b
 
 for.end.i.i:                                      ; preds = %for.body.i.i
   %sub.i.i = sub i16 -17734, %add.i.i
-  %arrayidx11.i.i = getelementptr i16, ptr %call.i.i, i64 63
+  %arrayidx11.i.i = getelementptr i8, ptr %call.i.i, i64 126
   store i16 %sub.i.i, ptr %arrayidx11.i.i, align 2
-  %mem.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %mem.i.i, i8 0, i64 4096, i1 false)
-  %arrayidx.i.i.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %mem.i, i8 0, i64 4096, i1 false)
+  %arrayidx.i.i.i = getelementptr i8, ptr %s, i64 11904
   %4 = ptrtoint ptr %arrayidx.i.i.i to i64
   %and.i.i.i = and i64 %4, 3
   %tobool.not.i.i.i = icmp eq i64 %and.i.i.i, 0
@@ -1623,19 +1593,19 @@ if.else.i.i.i:                                    ; preds = %for.end.i.i
 
 nic_reset.exit:                                   ; preds = %for.end.i.i
   store i32 2097152, ptr %arrayidx.i.i.i, align 1
-  %mdimem.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 9
+  %mdimem.i.i = getelementptr inbounds i8, ptr %s, i64 11666
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %mdimem.i.i, ptr noundef nonnull align 16 dereferenceable(64) @eepro100_mdi_default, i64 64, i1 false)
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %e100_read_reg4.exit
   %and = and i32 %arrayidx.val.i, -4
   %conv4 = zext i32 %and to i64
-  %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
+  %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %s, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
   fence seq_cst
   %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %conv4, i32 1, ptr noundef nonnull %data, i64 noundef 8, i1 noundef zeroext false) #11
   store i32 -1, ptr %data, align 4
-  %st_result = getelementptr inbounds %struct.eepro100_selftest_t, ptr %data, i64 0, i32 1
+  %st_result = getelementptr inbounds i8, ptr %data, i64 4
   store i32 0, ptr %st_result, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
   fence seq_cst
@@ -1643,20 +1613,20 @@ sw.bb3:                                           ; preds = %e100_read_reg4.exit
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %e100_read_reg4.exit
-  %eeprom.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 10
+  %eeprom.i = getelementptr inbounds i8, ptr %s, i64 11736
   %5 = load ptr, ptr %eeprom.i, align 8
   %call.i = tail call ptr @eeprom93xx_data(ptr noundef %5) #11
-  %conf.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 6
+  %conf.i = getelementptr inbounds i8, ptr %s, i64 3448
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %call.i, ptr noundef nonnull align 8 dereferenceable(6) %conf.i, i64 6, i1 false)
-  %arrayidx.i9 = getelementptr i16, ptr %call.i, i64 5
+  %arrayidx.i9 = getelementptr i8, ptr %call.i, i64 10
   store i16 16384, ptr %arrayidx.i9, align 2
-  %device.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 11
+  %device.i = getelementptr inbounds i8, ptr %s, i64 11744
   %6 = load i32, ptr %device.i, align 16
   %.off.i = add i32 %6, -8541563
   %switch.i = icmp ult i32 %.off.i, 2
   %spec.store.select.i = select i1 %switch.i, i16 256, i16 16384
   store i16 %spec.store.select.i, ptr %arrayidx.i9, align 2
-  %arrayidx4.i = getelementptr i16, ptr %call.i, i64 6
+  %arrayidx4.i = getelementptr i8, ptr %call.i, i64 12
   store i16 1, ptr %arrayidx4.i, align 2
   br label %for.body.i
 
@@ -1672,12 +1642,11 @@ for.body.i:                                       ; preds = %for.body.i, %sw.bb9
 
 for.end.i:                                        ; preds = %for.body.i
   %sub.i = sub i16 -17734, %add.i
-  %arrayidx11.i = getelementptr i16, ptr %call.i, i64 63
+  %arrayidx11.i = getelementptr i8, ptr %call.i, i64 126
   store i16 %sub.i, ptr %arrayidx11.i, align 2
-  %mem.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %mem.i, i8 0, i64 4096, i1 false)
-  %arrayidx.i.i10 = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 16
-  %8 = ptrtoint ptr %arrayidx.i.i10 to i64
+  %arrayidx.i.i11 = getelementptr i8, ptr %s, i64 11904
+  %8 = ptrtoint ptr %arrayidx.i.i11 to i64
   %and.i.i = and i64 %8, 3
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %nic_selective_reset.exit, label %if.else.i.i
@@ -1687,8 +1656,8 @@ if.else.i.i:                                      ; preds = %for.end.i
   unreachable
 
 nic_selective_reset.exit:                         ; preds = %for.end.i
-  store i32 2097152, ptr %arrayidx.i.i10, align 1
-  %mdimem.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 9
+  store i32 2097152, ptr %arrayidx.i.i11, align 1
+  %mdimem.i = getelementptr inbounds i8, ptr %s, i64 11666
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %mdimem.i, ptr noundef nonnull align 16 dereferenceable(64) @eepro100_mdi_default, i64 64, i1 false)
   br label %sw.epilog
 
@@ -1704,7 +1673,7 @@ sw.epilog:                                        ; preds = %sw.default, %nic_se
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @eepro100_write_mdi(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %arrayidx.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 16
+  %arrayidx.i = getelementptr i8, ptr %s, i64 11904
   %0 = ptrtoint ptr %arrayidx.i to i64
   %and.i = and i64 %0, 3
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -1758,12 +1727,12 @@ sw.bb:                                            ; preds = %if.then31
   br i1 %tobool.not, label %if.else40, label %if.then35
 
 if.then35:                                        ; preds = %sw.bb
-  %mdimem = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 9
+  %mdimem = getelementptr inbounds i8, ptr %s, i64 11666
   store i16 12288, ptr %mdimem, align 2
-  %arrayidx37 = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 9, i64 1
+  %arrayidx37 = getelementptr i8, ptr %s, i64 11668
   store i16 30733, ptr %arrayidx37, align 2
   %idxprom = zext nneg i8 %conv10 to i64
-  %arrayidx39 = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 9, i64 %idxprom
+  %arrayidx39 = getelementptr [32 x i16], ptr %mdimem, i64 0, i64 %idxprom
   %4 = load i16, ptr %arrayidx39, align 2
   br label %sw.epilog
 
@@ -1791,7 +1760,8 @@ sw.epilog:                                        ; preds = %if.then31, %if.then
   %idxprom51 = zext nneg i8 %conv10 to i64
   %arrayidx52 = getelementptr [32 x i16], ptr @eepro100_mdi_mask, i64 0, i64 %idxprom51
   %11 = load i16, ptr %arrayidx52, align 2
-  %arrayidx56 = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 9, i64 %idxprom51
+  %mdimem54 = getelementptr inbounds i8, ptr %s, i64 11666
+  %arrayidx56 = getelementptr [32 x i16], ptr %mdimem54, i64 0, i64 %idxprom51
   %12 = load i16, ptr %arrayidx56, align 2
   %and5840 = and i16 %12, %11
   %not = xor i16 %11, -1
@@ -1814,41 +1784,45 @@ sw.bb76:                                          ; preds = %if.then74
   br i1 %tobool79.not, label %sw.epilog102, label %if.then80
 
 if.then80:                                        ; preds = %sw.bb76
-  %mdimem81 = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 9
+  %mdimem81 = getelementptr inbounds i8, ptr %s, i64 11666
   store i16 12288, ptr %mdimem81, align 2
-  %arrayidx84 = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 9, i64 1
+  %arrayidx84 = getelementptr i8, ptr %s, i64 11668
   store i16 30733, ptr %arrayidx84, align 2
   br label %sw.epilog102
 
 sw.bb86:                                          ; preds = %if.then74
+  %mdimem87 = getelementptr inbounds i8, ptr %s, i64 11666
   %idxprom88 = zext nneg i8 %conv10 to i64
-  %arrayidx89 = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 9, i64 %idxprom88
+  %arrayidx89 = getelementptr [32 x i16], ptr %mdimem87, i64 0, i64 %idxprom88
   %13 = load i16, ptr %arrayidx89, align 2
   %14 = or i16 %13, 32
   store i16 %14, ptr %arrayidx89, align 2
   br label %sw.epilog102
 
 sw.bb94:                                          ; preds = %if.then74
+  %mdimem95 = getelementptr inbounds i8, ptr %s, i64 11666
   %idxprom96 = zext nneg i8 %conv10 to i64
-  %arrayidx97 = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 9, i64 %idxprom96
+  %arrayidx97 = getelementptr [32 x i16], ptr %mdimem95, i64 0, i64 %idxprom96
   store i16 16894, ptr %arrayidx97, align 2
   br label %sw.epilog102
 
 sw.bb98:                                          ; preds = %if.then74
+  %mdimem99 = getelementptr inbounds i8, ptr %s, i64 11666
   %idxprom100 = zext nneg i8 %conv10 to i64
-  %arrayidx101 = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 9, i64 %idxprom100
+  %arrayidx101 = getelementptr [32 x i16], ptr %mdimem99, i64 0, i64 %idxprom100
   store i16 1, ptr %arrayidx101, align 2
   br label %sw.epilog102
 
 sw.epilog102:                                     ; preds = %sw.bb76, %if.then80, %sw.bb98, %sw.bb94, %sw.bb86, %if.then74
+  %mdimem103 = getelementptr inbounds i8, ptr %s, i64 11666
   %idxprom104 = zext nneg i8 %conv10 to i64
-  %arrayidx105 = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 9, i64 %idxprom104
+  %arrayidx105 = getelementptr [32 x i16], ptr %mdimem103, i64 0, i64 %idxprom104
   %15 = load i16, ptr %arrayidx105, align 2
   br label %if.end107
 
 if.end107:                                        ; preds = %if.else27, %sw.epilog102, %sw.epilog
   %data.1 = phi i16 [ %data.0, %sw.epilog ], [ %15, %sw.epilog102 ], [ %conv12, %if.else27 ]
-  %arrayidx108 = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 1
+  %arrayidx108 = getelementptr i8, ptr %s, i64 11889
   %16 = load i8, ptr %arrayidx108, align 1
   %17 = or i8 %16, 8
   store i8 %17, ptr %arrayidx108, align 1
@@ -1858,13 +1832,13 @@ if.end107:                                        ; preds = %if.else27, %sw.epil
   br i1 %tobool115.not, label %e100_write_reg4.exit, label %if.then116
 
 if.then116:                                       ; preds = %if.end107
-  %arrayidx.i.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 3
+  %arrayidx.i.i = getelementptr i8, ptr %s, i64 11891
   %19 = load i8, ptr %arrayidx.i.i, align 1
-  %scb_stat.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 7
+  %scb_stat.i.i = getelementptr inbounds i8, ptr %s, i64 11664
   store i8 %17, ptr %scb_stat.i.i, align 16
   %not.i.i = and i8 %19, 1
   %tobool16.not.i.not.i = icmp eq i8 %not.i.i, 0
-  %int_stat.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 8
+  %int_stat.i.i = getelementptr inbounds i8, ptr %s, i64 11665
   %20 = load i8, ptr %int_stat.i.i, align 1
   %tobool17.not.i.i = icmp eq i8 %20, 0
   br i1 %tobool16.not.i.not.i, label %if.then.i.i, label %if.else.i.i
@@ -1905,27 +1879,27 @@ entry:
   %tx_buffer_size.i = alloca i16, align 2
   %tx_buffer_el.i = alloca i16, align 2
   %multicast_addr.i = alloca [6 x i8], align 1
-  %cu_base = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 12
-  %cu_offset = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 13
-  %cb_address = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 18
-  %tx.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 17
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
-  %command = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 17, i32 1
-  %link = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 17, i32 2
-  %tbd_array_addr.i35 = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 17, i32 3
-  %tcb_bytes2.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 17, i32 4
-  %has_extended_tcb_support.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 25
-  %arrayidx33.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 22, i64 6
-  %tbd_count79.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 17, i32 6
-  %nic.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 5
-  %statistics.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 19
-  %mult.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 1
-  %configuration = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 22
-  %conf = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 6
-  %arrayidx.i.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 3
-  %arrayidx4.i.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 21, i64 1
-  %scb_stat.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 7
-  %int_stat.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 8
+  %cu_base = getelementptr inbounds i8, ptr %s, i64 11748
+  %cu_offset = getelementptr inbounds i8, ptr %s, i64 11752
+  %cb_address = getelementptr inbounds i8, ptr %s, i64 11784
+  %tx.i = getelementptr inbounds i8, ptr %s, i64 11768
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 576
+  %command = getelementptr inbounds i8, ptr %s, i64 11770
+  %link = getelementptr inbounds i8, ptr %s, i64 11772
+  %tbd_array_addr.i35 = getelementptr inbounds i8, ptr %s, i64 11776
+  %tcb_bytes2.i = getelementptr inbounds i8, ptr %s, i64 11780
+  %has_extended_tcb_support.i = getelementptr inbounds i8, ptr %s, i64 16018
+  %arrayidx33.i = getelementptr i8, ptr %s, i64 15990
+  %tbd_count79.i = getelementptr inbounds i8, ptr %s, i64 11783
+  %nic.i = getelementptr inbounds i8, ptr %s, i64 3440
+  %statistics.i = getelementptr inbounds i8, ptr %s, i64 11788
+  %mult.i = getelementptr inbounds i8, ptr %s, i64 2608
+  %configuration = getelementptr inbounds i8, ptr %s, i64 15984
+  %conf = getelementptr inbounds i8, ptr %s, i64 3448
+  %arrayidx.i.i = getelementptr i8, ptr %s, i64 11891
+  %arrayidx4.i.i = getelementptr i8, ptr %s, i64 11889
+  %scb_stat.i.i = getelementptr inbounds i8, ptr %s, i64 11664
+  %int_stat.i.i = getelementptr inbounds i8, ptr %s, i64 11665
   br label %for.cond
 
 for.cond:                                         ; preds = %if.else, %entry
@@ -2008,7 +1982,7 @@ for.body.i:                                       ; preds = %sw.bb48, %for.body.
   %shr.i = lshr i32 %call8.i, 5
   %shr14.i = and i32 %shr.i, 7
   %idxprom.i = zext nneg i32 %shr14.i to i64
-  %arrayidx15.i = getelementptr %struct.EEPRO100State, ptr %s, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx15.i = getelementptr [8 x i8], ptr %mult.i, i64 0, i64 %idxprom.i
   %9 = load i8, ptr %arrayidx15.i, align 1
   %10 = trunc i32 %shl.i to i8
   %conv17.i = or i8 %9, %10
@@ -2237,7 +2211,7 @@ if.end70:                                         ; preds = %if.end19.sink.split
   br i1 %cmp.not, label %if.else, label %if.then72
 
 if.then72:                                        ; preds = %if.end70
-  %mem.i = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 21
+  %mem.i = getelementptr inbounds i8, ptr %s, i64 11888
   %43 = load i8, ptr %mem.i, align 16
   %44 = and i8 %43, 63
   store i8 %44, ptr %mem.i, align 16
@@ -2267,7 +2241,7 @@ if.else:                                          ; preds = %if.end70
   br i1 %cmp6.not, label %for.cond, label %if.then74
 
 if.then74:                                        ; preds = %if.else
-  %mem.i60 = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 21
+  %mem.i60 = getelementptr inbounds i8, ptr %s, i64 11888
   %49 = load i8, ptr %mem.i60, align 16
   %50 = and i8 %49, 63
   %conv1.i61 = or disjoint i8 %50, 64
@@ -2312,14 +2286,14 @@ entry:
   %val.addr.i.i22 = alloca i32, align 4
   %val.addr.i.i19 = alloca i32, align 4
   %val.addr.i.i = alloca i32, align 4
-  %statsaddr = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 16
+  %statsaddr = getelementptr inbounds i8, ptr %s, i64 11764
   %0 = load i32, ptr %statsaddr, align 4
   %conv = zext i32 %0 to i64
-  %statistics = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 19
-  %stats_size = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 24
+  %statistics = getelementptr inbounds i8, ptr %s, i64 11788
+  %stats_size = getelementptr inbounds i8, ptr %s, i64 16016
   %1 = load i16, ptr %stats_size, align 16
   %conv1 = zext i16 %1 to i64
-  %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
+  %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %s, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
   fence seq_cst
   %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %conv, i32 1, ptr noundef nonnull %statistics, i64 noundef %conv1, i1 noundef zeroext true) #11
@@ -2335,7 +2309,7 @@ entry:
   %4 = load i32, ptr %statsaddr, align 4
   %add9 = add i32 %4, 36
   %conv10 = zext i32 %add9 to i64
-  %rx_good_frames = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 19, i32 9
+  %rx_good_frames = getelementptr inbounds i8, ptr %s, i64 11824
   %5 = load i32, ptr %rx_good_frames, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i19)
   store i32 %5, ptr %val.addr.i.i19, align 4
@@ -2346,7 +2320,7 @@ entry:
   %6 = load i32, ptr %statsaddr, align 4
   %add16 = add i32 %6, 48
   %conv17 = zext i32 %add16 to i64
-  %rx_resource_errors = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 19, i32 12
+  %rx_resource_errors = getelementptr inbounds i8, ptr %s, i64 11836
   %7 = load i32, ptr %rx_resource_errors, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i22)
   store i32 %7, ptr %val.addr.i.i22, align 4
@@ -2357,7 +2331,7 @@ entry:
   %8 = load i32, ptr %statsaddr, align 4
   %add23 = add i32 %8, 60
   %conv24 = zext i32 %add23 to i64
-  %rx_short_frame_errors = getelementptr inbounds %struct.EEPRO100State, ptr %s, i64 0, i32 19, i32 15
+  %rx_short_frame_errors = getelementptr inbounds i8, ptr %s, i64 11848
   %9 = load i32, ptr %rx_short_frame_errors, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i25)
   store i32 %9, ptr %val.addr.i.i25, align 4
@@ -2390,7 +2364,7 @@ entry:
   br i1 %cmp, label %if.end.thread, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arrayidx2 = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 22, i64 8
+  %arrayidx2 = getelementptr i8, ptr %call, i64 15992
   %0 = load i8, ptr %arrayidx2, align 8
   %tobool.not = icmp sgt i8 %0, -1
   br i1 %tobool.not, label %if.else, label %return
@@ -2400,7 +2374,7 @@ if.end.thread:                                    ; preds = %entry
   %arrayidx = getelementptr [60 x i8], ptr %min_buf, i64 0, i64 %size
   %sub = sub nuw nsw i64 60, %size
   call void @llvm.memset.p0.i64(ptr align 1 %arrayidx, i8 0, i64 %sub, i1 false)
-  %arrayidx2102 = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 22, i64 8
+  %arrayidx2102 = getelementptr i8, ptr %call, i64 15992
   %1 = load i8, ptr %arrayidx2102, align 8
   %tobool.not103 = icmp sgt i8 %1, -1
   br i1 %tobool.not103, label %if.else12, label %return
@@ -2410,7 +2384,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp4, label %land.lhs.true, label %if.else12
 
 land.lhs.true:                                    ; preds = %if.else
-  %arrayidx7 = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 22, i64 18
+  %arrayidx7 = getelementptr i8, ptr %call, i64 16002
   %2 = load i8, ptr %arrayidx7, align 2
   %3 = and i8 %2, 8
   %tobool10.not = icmp eq i8 %3, 0
@@ -2419,7 +2393,7 @@ land.lhs.true:                                    ; preds = %if.else
 if.else12:                                        ; preds = %if.end.thread, %land.lhs.true, %if.else
   %size.addr.0104110 = phi i64 [ %size, %land.lhs.true ], [ %size, %if.else ], [ 60, %if.end.thread ]
   %buf.addr.0105109 = phi ptr [ %buf, %land.lhs.true ], [ %buf, %if.else ], [ %min_buf, %if.end.thread ]
-  %conf = getelementptr inbounds %struct.EEPRO100State, ptr %call, i64 0, i32 6
+  %conf = getelementptr inbounds i8, ptr %call, i64 3448
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf.addr.0105109, ptr noundef nonnull dereferenceable(6) %conf, i64 6)
   %cmp15 = icmp eq i32 %bcmp, 0
   br i1 %cmp15, label %if.end113, label %if.else18
@@ -2436,7 +2410,7 @@ if.else25:                                        ; preds = %if.else18
   br i1 %tobool29.not, label %if.else69, label %if.then30
 
 if.then30:                                        ; preds = %if.else25
-  %arrayidx32 = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 22, i64 21
+  %arrayidx32 = getelementptr i8, ptr %call, i64 16005
   %6 = load i8, ptr %arrayidx32, align 1
   %7 = and i8 %6, 8
   %tobool35.not = icmp eq i8 %7, 0
@@ -2445,10 +2419,11 @@ if.then30:                                        ; preds = %if.else25
 if.else37:                                        ; preds = %if.then30
   %call38 = call i32 @net_crc32(ptr noundef nonnull %buf.addr.0105109, i32 noundef 6) #11
   %and39 = lshr i32 %call38, 2
+  %mult = getelementptr inbounds i8, ptr %call, i64 2608
   %shr = lshr i32 %call38, 5
   %shr45 = and i32 %shr, 7
   %idxprom = zext nneg i32 %shr45 to i64
-  %arrayidx46 = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 1, i64 %idxprom
+  %arrayidx46 = getelementptr [8 x i8], ptr %mult, i64 0, i64 %idxprom
   %8 = load i8, ptr %arrayidx46, align 1
   %conv47 = zext i8 %8 to i32
   %and48 = and i32 %and39, 7
@@ -2458,21 +2433,21 @@ if.else37:                                        ; preds = %if.then30
   br i1 %tobool50.not, label %if.else52, label %if.end113
 
 if.else52:                                        ; preds = %if.else37
-  %arrayidx54 = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 22, i64 15
+  %arrayidx54 = getelementptr i8, ptr %call, i64 15999
   %9 = load i8, ptr %arrayidx54, align 1
   %10 = and i8 %9, 1
   %tobool57.not = icmp eq i8 %10, 0
   br i1 %tobool57.not, label %return, label %if.end113
 
 if.else69:                                        ; preds = %if.else25
-  %arrayidx71 = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 22, i64 15
+  %arrayidx71 = getelementptr i8, ptr %call, i64 15999
   %11 = load i8, ptr %arrayidx71, align 1
   %12 = and i8 %11, 1
   %tobool74.not = icmp eq i8 %12, 0
   br i1 %tobool74.not, label %if.else79, label %if.end113
 
 if.else79:                                        ; preds = %if.else69
-  %arrayidx81 = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 22, i64 20
+  %arrayidx81 = getelementptr i8, ptr %call, i64 16004
   %13 = load i8, ptr %arrayidx81, align 4
   %14 = and i8 %13, 64
   %tobool84.not = icmp eq i8 %14, 0
@@ -2481,9 +2456,10 @@ if.else79:                                        ; preds = %if.else69
 if.then85:                                        ; preds = %if.else79
   %call87 = call i32 @net_crc32(ptr noundef nonnull %buf.addr.0105109, i32 noundef 6) #11
   %shr88 = lshr i32 %call87, 26
+  %mult94 = getelementptr inbounds i8, ptr %call, i64 2608
   %shr95 = lshr i32 %call87, 29
   %idxprom96 = zext nneg i32 %shr95 to i64
-  %arrayidx97 = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 1, i64 %idxprom96
+  %arrayidx97 = getelementptr [8 x i8], ptr %mult94, i64 0, i64 %idxprom96
   %15 = load i8, ptr %arrayidx97, align 1
   %conv98 = zext i8 %15 to i32
   %and99 = and i32 %shr88, 7
@@ -2501,14 +2477,14 @@ if.end113:                                        ; preds = %if.else69, %if.then
   br i1 %cmp115.not, label %if.end118, label %if.then117
 
 if.then117:                                       ; preds = %if.end113
-  %arrayidx.i.i = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 21, i64 3
+  %arrayidx.i.i = getelementptr i8, ptr %call, i64 11891
   %18 = load i8, ptr %arrayidx.i.i, align 1
   %not.i.i = xor i8 %18, -1
-  %arrayidx4.i.i = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 21, i64 1
+  %arrayidx4.i.i = getelementptr i8, ptr %call, i64 11889
   %19 = load i8, ptr %arrayidx4.i.i, align 1
   %or11.i.i = or i8 %19, 16
   store i8 %or11.i.i, ptr %arrayidx4.i.i, align 1
-  %scb_stat.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %call, i64 0, i32 7
+  %scb_stat.i.i = getelementptr inbounds i8, ptr %call, i64 11664
   store i8 %or11.i.i, ptr %scb_stat.i.i, align 16
   %or10.i.i = or i8 %not.i.i, 15
   %and.i.i = and i8 %or11.i.i, %or10.i.i
@@ -2516,7 +2492,7 @@ if.then117:                                       ; preds = %if.end113
   %20 = and i8 %not.i.i, 1
   %tobool16.not.i.i = icmp eq i8 %20, 0
   %or.cond.i.i = or i1 %tobool16.not.i.i, %tobool.not.i.i
-  %int_stat.i.i = getelementptr inbounds %struct.EEPRO100State, ptr %call, i64 0, i32 8
+  %int_stat.i.i = getelementptr inbounds i8, ptr %call, i64 11665
   %21 = load i8, ptr %int_stat.i.i, align 1
   %tobool17.not.i.i = icmp eq i8 %21, 0
   br i1 %or.cond.i.i, label %if.else.i.i, label %if.then.i.i
@@ -2535,26 +2511,26 @@ if.end19.sink.split.i.i:                          ; preds = %if.else.i.i, %if.th
   br label %eepro100_rnr_interrupt.exit
 
 eepro100_rnr_interrupt.exit:                      ; preds = %if.then.i.i, %if.else.i.i, %if.end19.sink.split.i.i
-  %rx_resource_errors = getelementptr inbounds %struct.EEPRO100State, ptr %call, i64 0, i32 19, i32 12
+  %rx_resource_errors = getelementptr inbounds i8, ptr %call, i64 11836
   %22 = load i32, ptr %rx_resource_errors, align 4
   %inc = add i32 %22, 1
   store i32 %inc, ptr %rx_resource_errors, align 4
   br label %return
 
 if.end118:                                        ; preds = %if.end113
-  %ru_base = getelementptr inbounds %struct.EEPRO100State, ptr %call, i64 0, i32 14
+  %ru_base = getelementptr inbounds i8, ptr %call, i64 11756
   %23 = load i32, ptr %ru_base, align 4
-  %ru_offset = getelementptr inbounds %struct.EEPRO100State, ptr %call, i64 0, i32 15
+  %ru_offset = getelementptr inbounds i8, ptr %call, i64 11760
   %24 = load i32, ptr %ru_offset, align 16
   %add = add i32 %24, %23
   %conv119 = zext i32 %add to i64
-  %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call, i64 0, i32 12
+  %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
   fence seq_cst
   %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %conv119, i32 1, ptr noundef nonnull %rx, i64 noundef 16, i1 noundef zeroext false) #11
-  %command = getelementptr inbounds %struct.eepro100_rx_t, ptr %rx, i64 0, i32 1
+  %command = getelementptr inbounds i8, ptr %rx, i64 2
   %25 = load i16, ptr %command, align 2
-  %size122 = getelementptr inbounds %struct.eepro100_rx_t, ptr %rx, i64 0, i32 5
+  %size122 = getelementptr inbounds i8, ptr %rx, i64 14
   %26 = load i16, ptr %size122, align 2
   %conv124 = zext i16 %26 to i64
   %spec.select = call i64 @llvm.umin.i64(i64 %size.addr.0104110, i64 %conv124)
@@ -2580,7 +2556,7 @@ if.end118:                                        ; preds = %if.end113
   fence seq_cst
   %call.i.i.i.i.i60 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %add142, i32 1, ptr noundef nonnull %val.addr.i.i58, i64 noundef 2, i1 noundef zeroext true) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %val.addr.i.i58)
-  %arrayidx147 = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 22, i64 18
+  %arrayidx147 = getelementptr i8, ptr %call, i64 16002
   %31 = load i8, ptr %arrayidx147, align 2
   %32 = and i8 %31, 4
   %tobool150.not = icmp eq i8 %32, 0
@@ -2600,18 +2576,18 @@ if.end153:                                        ; preds = %if.end118
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
   fence seq_cst
   %call.i.i.i.i62 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %add159, i32 1, ptr noundef %buf.addr.0105109, i64 noundef %spec.select, i1 noundef zeroext true) #11
-  %rx_good_frames = getelementptr inbounds %struct.EEPRO100State, ptr %call, i64 0, i32 19, i32 9
+  %rx_good_frames = getelementptr inbounds i8, ptr %call, i64 11824
   %37 = load i32, ptr %rx_good_frames, align 4
   %inc162 = add i32 %37, 1
   store i32 %inc162, ptr %rx_good_frames, align 4
-  %arrayidx.i.i63 = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 21, i64 3
+  %arrayidx.i.i63 = getelementptr i8, ptr %call, i64 11891
   %38 = load i8, ptr %arrayidx.i.i63, align 1
   %not.i.i64 = xor i8 %38, -1
-  %arrayidx4.i.i65 = getelementptr %struct.EEPRO100State, ptr %call, i64 0, i32 21, i64 1
+  %arrayidx4.i.i65 = getelementptr i8, ptr %call, i64 11889
   %39 = load i8, ptr %arrayidx4.i.i65, align 1
   %or11.i.i66 = or i8 %39, 64
   store i8 %or11.i.i66, ptr %arrayidx4.i.i65, align 1
-  %scb_stat.i.i67 = getelementptr inbounds %struct.EEPRO100State, ptr %call, i64 0, i32 7
+  %scb_stat.i.i67 = getelementptr inbounds i8, ptr %call, i64 11664
   store i8 %or11.i.i66, ptr %scb_stat.i.i67, align 16
   %or10.i.i68 = or i8 %not.i.i64, 15
   %and.i.i69 = and i8 %or11.i.i66, %or10.i.i68
@@ -2619,7 +2595,7 @@ if.end153:                                        ; preds = %if.end118
   %40 = and i8 %not.i.i64, 1
   %tobool16.not.i.i71 = icmp eq i8 %40, 0
   %or.cond.i.i72 = or i1 %tobool16.not.i.i71, %tobool.not.i.i70
-  %int_stat.i.i73 = getelementptr inbounds %struct.EEPRO100State, ptr %call, i64 0, i32 8
+  %int_stat.i.i73 = getelementptr inbounds i8, ptr %call, i64 11665
   %41 = load i8, ptr %int_stat.i.i73, align 1
   %tobool17.not.i.i74 = icmp eq i8 %41, 0
   br i1 %or.cond.i.i72, label %if.else.i.i79, label %if.then.i.i75
@@ -2638,7 +2614,7 @@ if.end19.sink.split.i.i76:                        ; preds = %if.else.i.i79, %if.
   br label %eepro100_fr_interrupt.exit
 
 eepro100_fr_interrupt.exit:                       ; preds = %if.then.i.i75, %if.else.i.i79, %if.end19.sink.split.i.i76
-  %link = getelementptr inbounds %struct.eepro100_rx_t, ptr %rx, i64 0, i32 2
+  %link = getelementptr inbounds i8, ptr %rx, i64 4
   %42 = load i32, ptr %link, align 4
   store i32 %42, ptr %ru_offset, align 16
   %tobool167.not = icmp sgt i16 %25, -1

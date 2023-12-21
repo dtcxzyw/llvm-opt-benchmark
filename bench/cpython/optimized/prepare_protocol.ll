@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
 %struct.PyType_Slot = type { i32, ptr }
-%struct.pysqlite_state = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct.PyVarObject = type { %struct._object, i64 }
-%struct._object = type { %union.anon, ptr }
-%union.anon = type { i64 }
 
 @type_spec = internal global %struct.PyType_Spec { ptr @.str, i32 16, i32 0, i32 16640, ptr @type_slots }, align 8
 @.str = private unnamed_addr constant [24 x i8] c"sqlite3.PrepareProtocol\00", align 1
@@ -25,7 +20,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #3
-  %PrepareProtocolType = getelementptr inbounds %struct.pysqlite_state, ptr %call.i, i64 0, i32 18
+  %PrepareProtocolType = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr %call, ptr %PrepareProtocolType, align 8
   br label %return
 
@@ -42,7 +37,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #3
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %1 = load ptr, ptr %tp_free, align 8
   tail call void %1(ptr noundef %self) #3
   %2 = load i64, ptr %self.val, align 8

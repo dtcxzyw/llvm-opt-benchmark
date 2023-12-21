@@ -4,188 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.SnapshotInfo = type { ptr, ptr, i64, i64, i64, i64, i64, i8, i64 }
-%struct.ImageInfoSpecificQCow2Encryption = type { i32, %union.anon }
-%union.anon = type { %struct.QCryptoBlockInfoLUKS }
-%struct.QCryptoBlockInfoLUKS = type { i32, i32, i32, i8, i32, i32, i64, i64, ptr, ptr }
-%struct.Qcow2BitmapInfoList = type { ptr, ptr }
-%struct.Qcow2BitmapInfo = type { ptr, i32, ptr }
-%struct.ImageInfoSpecificQCow2 = type { ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i64, ptr, i8, ptr, i32 }
-%struct.VmdkExtentInfoList = type { ptr, ptr }
-%struct.ImageInfoSpecificVmdk = type { ptr, i64, i64, ptr }
-%struct.VmdkExtentInfo = type { ptr, ptr, i64, i8, i64, i8, i8 }
-%struct.ImageInfoSpecificRbd = type { i8, i32 }
-%struct.ImageInfoSpecificFile = type { i8, i64 }
-%struct.ImageInfoSpecific = type { i32, %union.anon.0 }
-%union.anon.0 = type { %struct.ImageInfoSpecificQCow2Wrapper }
-%struct.ImageInfoSpecificQCow2Wrapper = type { ptr }
-%struct.SnapshotInfoList = type { ptr, ptr }
-%struct.BlockNodeInfo = type { ptr, ptr, i8, i8, i8, i64, i64, i8, i64, i8, i8, i8, i8, ptr, ptr, ptr, i8, ptr, ptr }
-%struct.ImageInfo = type { ptr, ptr, i8, i8, i8, i64, i64, i8, i64, i8, i8, i8, i8, ptr, ptr, ptr, i8, ptr, ptr, ptr }
-%struct.BlockChildInfo = type { ptr, ptr }
-%struct.BlockGraphInfo = type { ptr, ptr, i8, i8, i8, i64, i64, i8, i64, i8, i8, i8, i8, ptr, ptr, ptr, i8, ptr, ptr, ptr }
-%struct.BlockChildInfoList = type { ptr, ptr }
-%struct.ImageCheck = type { ptr, ptr, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
-%struct.MapEntry = type { i64, i64, i8, i8, i8, i64, i8, i8, i64, ptr }
-%struct.BlockdevCacheInfo = type { i8, i8, i8 }
-%struct.BlockDirtyInfoList = type { ptr, ptr }
-%struct.BlockDeviceInfo = type { ptr, ptr, i8, ptr, ptr, i64, i8, i32, i64, i64, i64, i64, i64, i64, ptr, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, ptr, ptr, i64, i8, ptr }
-%struct.BlockDirtyInfo = type { ptr, i64, i32, i8, i8, i8, i8, i8 }
-%struct.Qcow2BitmapInfoFlagsList = type { ptr, i32 }
-%struct.BlockLatencyHistogramInfo = type { ptr, ptr }
-%struct.BlockInfo = type { ptr, ptr, ptr, i8, i8, ptr, i8, i8, i8, i32 }
-%struct.BlockMeasureInfo = type { i64, i64, i8, i64 }
-%struct.BlockInfoList = type { ptr, ptr }
-%struct.BlockDeviceTimedStats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, double, double, double }
-%struct.BlockDeviceTimedStatsList = type { ptr, ptr }
-%struct.BlockDeviceStats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.BlockStatsSpecificFile = type { i64, i64, i64 }
-%struct.BlockStatsSpecificNvme = type { i64, i64, i64 }
-%struct.BlockStatsSpecific = type { i32, %union.anon.1 }
-%union.anon.1 = type { %struct.BlockStatsSpecificFile }
-%struct.BlockStats = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.q_obj_query_blockstats_arg = type { i8, i8 }
-%struct.BlockStatsList = type { ptr, ptr }
-%struct.q_obj_BlockJobInfo_base = type { i32, ptr, i64, i64, i8, i8, i64, i32, i8, i32, i8, i8, ptr }
-%struct.BlockJobInfo = type { i32, ptr, i64, i64, i8, i8, i64, i32, i8, i32, i8, i8, ptr, %union.anon.2 }
-%union.anon.2 = type { %struct.BlockJobInfoMirror }
-%struct.BlockJobInfoMirror = type { i8 }
-%struct.BlockJobInfoList = type { ptr, ptr }
-%struct.q_obj_block_resize_arg = type { ptr, ptr, i64 }
-%struct.BlockdevSnapshotSync = type { ptr, ptr, ptr, ptr, ptr, i8, i32 }
-%struct.BlockdevSnapshot = type { ptr, ptr }
-%struct.BackupPerf = type { i8, i8, i8, i64, i8, i64 }
-%struct.BackupCommon = type { ptr, ptr, i32, i8, i64, ptr, i8, i32, i8, i8, i8, i32, i8, i32, i8, i8, i8, i8, ptr, ptr }
-%struct.DriveBackup = type { ptr, ptr, i32, i8, i64, ptr, i8, i32, i8, i8, i8, i32, i8, i32, i8, i8, i8, i8, ptr, ptr, ptr, ptr, i8, i32 }
-%struct.BlockdevBackup = type { ptr, ptr, i32, i8, i64, ptr, i8, i32, i8, i8, i8, i32, i8, i32, i8, i8, i8, i8, ptr, ptr, ptr }
-%struct.q_obj_change_backing_file_arg = type { ptr, ptr, ptr }
-%struct.q_obj_block_commit_arg = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i64, i8, i32, ptr, i8, i8, i8, i8 }
-%struct.q_obj_query_named_block_nodes_arg = type { i8, i8 }
-%struct.BlockDeviceInfoList = type { ptr, ptr }
-%struct.XDbgBlockGraphNode = type { i64, i32, ptr }
-%struct.BlockPermissionList = type { ptr, i32 }
-%struct.XDbgBlockGraphEdge = type { i64, i64, ptr, ptr, ptr }
-%struct.XDbgBlockGraphNodeList = type { ptr, ptr }
-%struct.XDbgBlockGraphEdgeList = type { ptr, ptr }
-%struct.XDbgBlockGraph = type { ptr, ptr }
-%struct.DriveMirror = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i32, i8, i64, i8, i32, i8, i64, i8, i32, i8, i32, i8, i8, i8, i32, i8, i8, i8, i8 }
-%struct.BlockDirtyBitmap = type { ptr, ptr }
-%struct.BlockDirtyBitmapAdd = type { ptr, ptr, i8, i32, i8, i8, i8, i8 }
-%struct.BlockDirtyBitmapOrStr = type { i32, %union.anon.3 }
-%union.anon.3 = type { %struct.BlockDirtyBitmap }
-%struct.BlockDirtyBitmapOrStrList = type { ptr, ptr }
-%struct.BlockDirtyBitmapMerge = type { ptr, ptr, ptr }
-%struct.q_obj_blockdev_mirror_arg = type { ptr, ptr, ptr, ptr, i32, i8, i64, i8, i32, i8, i64, i8, i32, i8, i32, ptr, i8, i32, i8, i8, i8, i8 }
-%struct.BlockIOThrottle = type { ptr, ptr, i64, i64, i64, i64, i64, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, ptr }
-%struct.ThrottleLimits = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
-%struct.ThrottleGroupProperties = type { ptr, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
-%struct.q_obj_block_stream_arg = type { ptr, ptr, ptr, ptr, ptr, ptr, i8, i64, i8, i32, ptr, i8, i8, i8, i8 }
-%struct.q_obj_block_job_set_speed_arg = type { ptr, i64 }
-%struct.q_obj_block_job_cancel_arg = type { ptr, i8, i8 }
-%struct.q_obj_BlockJobChangeOptions_base = type { ptr, i32 }
-%struct.BlockJobChangeOptions = type { ptr, i32, %union.anon.4 }
-%union.anon.4 = type { %struct.BlockJobChangeOptionsMirror }
-%struct.BlockJobChangeOptionsMirror = type { i32 }
-%struct.BlockdevCacheOptions = type { i8, i8, i8, i8 }
-%struct.BlockdevOptionsFile = type { ptr, ptr, i8, i32, i8, i32, i8, i64, i8, i8, i8, i8 }
-%struct.BlockdevOptionsNull = type { i8, i64, i8, i64, i8, i8 }
-%struct.BlockdevOptionsNVMe = type { ptr, i64 }
-%struct.BlockdevOptionsVVFAT = type { ptr, i8, i64, i8, i8, ptr, i8, i8 }
-%struct.BlockdevRef = type { i32, %union.anon.12 }
-%union.anon.12 = type { %struct.BlockdevOptions }
-%struct.BlockdevOptions = type { i32, ptr, i8, i32, ptr, i8, i8, i8, i8, i8, i8, i8, i32, %union.anon.11 }
-%union.anon.11 = type { %struct.BlockdevOptionsBlkdebug }
-%struct.BlockdevOptionsBlkdebug = type { ptr, ptr, i8, i64, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32, i8, ptr, i8, ptr, i8, ptr, i8, ptr }
-%struct.BlockdevOptionsLUKS = type { ptr, ptr }
-%struct.BlockdevOptionsGenericCOWFormat = type { ptr, ptr }
-%struct.BlockdevRefOrNull = type { i32, %union.anon.13 }
-%union.anon.13 = type { %struct.BlockdevOptions }
-%struct.Qcow2OverlapCheckFlags = type { i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.Qcow2OverlapChecks = type { i32, %union.anon.5 }
-%union.anon.5 = type { %struct.Qcow2OverlapCheckFlags }
-%struct.BlockdevQcowEncryption = type { i32, %union.anon.6 }
-%union.anon.6 = type { %struct.QCryptoBlockOptionsQCow }
-%struct.QCryptoBlockOptionsQCow = type { ptr }
-%struct.BlockdevOptionsQcow = type { ptr, ptr, ptr }
-%struct.BlockdevQcow2Encryption = type { i32, %union.anon.7 }
-%union.anon.7 = type { %struct.QCryptoBlockOptionsQCow }
-%struct.BlockdevOptionsPreallocate = type { ptr, i8, i64, i8, i64 }
-%struct.BlockdevOptionsQcow2 = type { ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, ptr, ptr }
-%struct.SshHostKeyHash = type { i32, ptr }
-%struct.SshHostKeyCheck = type { i32, %union.anon.8 }
-%union.anon.8 = type { %struct.SshHostKeyHash }
-%struct.BlockdevOptionsSsh = type { ptr, ptr, ptr, ptr }
-%struct.BlkdebugInjectErrorOptions = type { i32, i8, i64, i8, i32, i8, i64, i8, i64, i8, i8, i8, i8 }
-%struct.BlkdebugSetStateOptions = type { i32, i8, i64, i64 }
-%struct.BlkdebugInjectErrorOptionsList = type { ptr, ptr }
-%struct.BlkdebugSetStateOptionsList = type { ptr, ptr }
-%struct.BlockdevOptionsBlklogwrites = type { ptr, ptr, i8, i32, i8, i8, i8, i64 }
-%struct.BlockdevOptionsBlkverify = type { ptr, ptr }
-%struct.BlockdevRefList = type { ptr, ptr }
-%struct.BlockdevOptionsQuorum = type { i8, i8, ptr, i64, i8, i8, i8, i32 }
-%struct.BlockdevOptionsGluster = type { ptr, ptr, ptr, i8, i64, ptr }
-%struct.BlockdevOptionsIscsi = type { i32, ptr, ptr, i8, i64, ptr, ptr, ptr, i8, i32, i8, i64 }
-%struct.RbdEncryptionCreateOptionsLUKSBase = type { ptr, i8, i32 }
-%struct.q_obj_RbdEncryptionOptions_base = type { i32, ptr }
-%struct.RbdEncryptionOptions = type { i32, ptr, %union.anon.9 }
-%union.anon.9 = type { %struct.RbdEncryptionOptionsLUKS }
-%struct.RbdEncryptionOptionsLUKS = type { ptr }
-%struct.RbdEncryptionCreateOptions = type { i32, %union.anon.10 }
-%union.anon.10 = type { %struct.RbdEncryptionCreateOptionsLUKS }
-%struct.RbdEncryptionCreateOptionsLUKS = type { ptr, i8, i32 }
-%struct.RbdAuthModeList = type { ptr, i32 }
-%struct.BlockdevOptionsRbd = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, i8, ptr }
-%struct.BlockdevOptionsReplication = type { ptr, i32, ptr }
-%struct.NFSServer = type { i32, ptr }
-%struct.BlockdevOptionsNfs = type { ptr, ptr, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
-%struct.BlockdevOptionsCurlBase = type { ptr, i8, i64, i8, i64, ptr, ptr, ptr, ptr }
-%struct.BlockdevOptionsCurlHttp = type { ptr, i8, i64, i8, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.BlockdevOptionsCurlHttps = type { ptr, i8, i64, i8, i64, ptr, ptr, ptr, ptr, ptr, i8, i8, ptr }
-%struct.BlockdevOptionsCurlFtps = type { ptr, i8, i64, i8, i64, ptr, ptr, ptr, ptr, i8, i8 }
-%struct.BlockdevOptionsNbd = type { ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i32 }
-%struct.BlockdevOptionsRaw = type { ptr, i8, i64, i8, i64 }
-%struct.BlockdevOptionsThrottle = type { ptr, ptr }
-%struct.BlockdevOptionsCor = type { ptr, ptr }
-%struct.BlockdevOptionsCbw = type { ptr, ptr, ptr, i8, i32, i8, i32 }
-%struct.q_obj_BlockdevOptions_base = type { i32, ptr, i8, i32, ptr, i8, i8, i8, i8, i8, i8, i8, i32 }
-%struct.BlockdevOptionsList = type { ptr, ptr }
-%struct.BlockdevCreateOptionsFile = type { ptr, i64, i8, i32, i8, i8, i8, i64 }
-%struct.BlockdevCreateOptionsGluster = type { ptr, i64, i8, i32 }
-%struct.BlockdevCreateOptionsLUKS = type { ptr, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32, i8, i64, ptr, i64, i8, i32 }
-%struct.BlockdevCreateOptionsNfs = type { ptr, i64 }
-%struct.BlockdevCreateOptionsParallels = type { ptr, i64, i8, i64 }
-%struct.BlockdevCreateOptionsQcow = type { ptr, i64, ptr, ptr }
-%struct.BlockdevCreateOptionsQcow2 = type { ptr, ptr, i8, i8, i8, i8, i64, i8, i32, ptr, i8, i32, ptr, i8, i64, i8, i32, i8, i8, i8, i64, i8, i32 }
-%struct.BlockdevCreateOptionsQed = type { ptr, i64, ptr, i8, i32, i8, i64, i8, i64 }
-%struct.BlockdevCreateOptionsRbd = type { ptr, i64, i8, i64, ptr }
-%struct.BlockdevCreateOptionsVmdk = type { ptr, i64, i8, ptr, i8, i32, ptr, i8, i32, ptr, ptr, i8, i8 }
-%struct.BlockdevCreateOptionsSsh = type { ptr, i64 }
-%struct.BlockdevCreateOptionsVdi = type { ptr, i64, i8, i32 }
-%struct.BlockdevCreateOptionsVhdx = type { ptr, i64, i8, i64, i8, i64, i8, i32, i8, i8 }
-%struct.BlockdevCreateOptionsVpc = type { ptr, i64, i8, i32, i8, i8 }
-%struct.BlockdevCreateOptions = type { i32, %union.anon.14 }
-%union.anon.14 = type { %struct.BlockdevCreateOptionsQcow2 }
-%struct.q_obj_blockdev_create_arg = type { ptr, ptr }
-%struct.BlockdevAmendOptions = type { i32, %union.anon.15 }
-%union.anon.15 = type { %struct.BlockdevAmendOptionsLUKS }
-%struct.BlockdevAmendOptionsLUKS = type { i32, ptr, ptr, i8, i64, i8, i64, ptr }
-%struct.q_obj_x_blockdev_amend_arg = type { ptr, ptr, ptr, i8, i8 }
-%struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg = type { ptr, ptr, ptr, i8, i64, i8, i64, i8 }
-%struct.q_obj_BLOCK_IO_ERROR_arg = type { ptr, ptr, i32, i32, i8, i8, ptr }
-%struct.q_obj_BLOCK_JOB_COMPLETED_arg = type { i32, ptr, i64, i64, i64, ptr }
-%struct.q_obj_BLOCK_JOB_CANCELLED_arg = type { i32, ptr, i64, i64, i64 }
-%struct.q_obj_BLOCK_JOB_ERROR_arg = type { ptr, i32, i32 }
-%struct.q_obj_BLOCK_JOB_READY_arg = type { i32, ptr, i64, i64, i64 }
-%struct.q_obj_BLOCK_JOB_PENDING_arg = type { i32, ptr }
-%struct.q_obj_BLOCK_WRITE_THRESHOLD_arg = type { ptr, i64, i64 }
-%struct.q_obj_block_set_write_threshold_arg = type { ptr, i64 }
-%struct.q_obj_x_blockdev_change_arg = type { ptr, ptr, ptr }
-%struct.q_obj_x_blockdev_set_iothread_arg = type { ptr, ptr, i8, i8 }
-%struct.q_obj_QUORUM_FAILURE_arg = type { ptr, i64, i64 }
-%struct.q_obj_QUORUM_REPORT_BAD_arg = type { i32, ptr, ptr, i64, i64 }
-%struct.BlockdevSnapshotInternal = type { ptr, ptr }
-%struct.q_obj_blockdev_snapshot_delete_internal_sync_arg = type { ptr, ptr, ptr }
-%struct.BlockGraphInfoList = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [3 x i8] c"id\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"name\00", align 1
@@ -780,42 +598,42 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.SnapshotInfo, ptr %obj, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %name, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %vm_state_size = getelementptr inbounds %struct.SnapshotInfo, ptr %obj, i64 0, i32 2
+  %vm_state_size = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %vm_state_size, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %date_sec = getelementptr inbounds %struct.SnapshotInfo, ptr %obj, i64 0, i32 3
+  %date_sec = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %date_sec, ptr noundef %errp) #4
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %date_nsec = getelementptr inbounds %struct.SnapshotInfo, ptr %obj, i64 0, i32 4
+  %date_nsec = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %date_nsec, ptr noundef %errp) #4
   br i1 %call10, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end9
-  %vm_clock_sec = getelementptr inbounds %struct.SnapshotInfo, ptr %obj, i64 0, i32 5
+  %vm_clock_sec = getelementptr inbounds i8, ptr %obj, i64 40
   %call13 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %vm_clock_sec, ptr noundef %errp) #4
   br i1 %call13, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end12
-  %vm_clock_nsec = getelementptr inbounds %struct.SnapshotInfo, ptr %obj, i64 0, i32 6
+  %vm_clock_nsec = getelementptr inbounds i8, ptr %obj, i64 48
   %call16 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %vm_clock_nsec, ptr noundef %errp) #4
   br i1 %call16, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end15
-  %has_icount = getelementptr inbounds %struct.SnapshotInfo, ptr %obj, i64 0, i32 7
+  %has_icount = getelementptr inbounds i8, ptr %obj, i64 56
   %call19 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_icount) #4
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
-  %icount = getelementptr inbounds %struct.SnapshotInfo, ptr %obj, i64 0, i32 8
+  %icount = getelementptr inbounds i8, ptr %obj, i64 64
   %call21 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %icount, ptr noundef %errp) #4
   br i1 %call21, label %if.end24, label %return
 
@@ -1005,7 +823,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.ImageInfoSpecificQCow2Encryption, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_QCryptoBlockInfoLUKS_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp) #4
   br label %return
 
@@ -1068,7 +886,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_ImageInfoSpecificQCow2Encryption_members.exit: ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.ImageInfoSpecificQCow2Encryption, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = call zeroext i1 @visit_type_QCryptoBlockInfoLUKS_members(ptr noundef %v, ptr noundef nonnull %u.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -1111,7 +929,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.Qcow2BitmapInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_Qcow2BitmapInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1174,12 +992,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %granularity.i = getelementptr inbounds %struct.Qcow2BitmapInfo, ptr %0, i64 0, i32 1
+  %granularity.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.95, ptr noundef nonnull %granularity.i, ptr noundef %errp) #4
   br i1 %call1.i, label %visit_type_Qcow2BitmapInfo_members.exit, label %out_obj.thread
 
 visit_type_Qcow2BitmapInfo_members.exit:          ; preds = %if.end.i
-  %flags.i = getelementptr inbounds %struct.Qcow2BitmapInfo, ptr %0, i64 0, i32 2
+  %flags.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_Qcow2BitmapInfoFlagsList(ptr noundef %v, ptr noundef nonnull @.str.100, ptr noundef nonnull %flags.i, ptr noundef %errp)
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -1221,12 +1039,12 @@ entry:
   %value.i = alloca i32, align 4
   %has_data_file = alloca i8, align 1
   %has_encrypt = alloca i8, align 1
-  %data_file = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 1
+  %data_file = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %data_file, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_data_file, align 1
-  %encrypt = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 11
+  %encrypt = getelementptr inbounds i8, ptr %obj, i64 32
   %1 = load ptr, ptr %encrypt, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1243,47 +1061,47 @@ if.then7:                                         ; preds = %if.end
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then7, %if.end
-  %has_data_file_raw = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 2
+  %has_data_file_raw = getelementptr inbounds i8, ptr %obj, i64 16
   %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %has_data_file_raw) #4
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  %data_file_raw = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 3
+  %data_file_raw = getelementptr inbounds i8, ptr %obj, i64 17
   %call15 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %data_file_raw, ptr noundef %errp) #4
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
-  %has_extended_l2 = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 4
+  %has_extended_l2 = getelementptr inbounds i8, ptr %obj, i64 18
   %call19 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %has_extended_l2) #4
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
-  %extended_l2 = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 5
+  %extended_l2 = getelementptr inbounds i8, ptr %obj, i64 19
   %call21 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %extended_l2, ptr noundef %errp) #4
   br i1 %call21, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then20, %if.end18
-  %has_lazy_refcounts = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 6
+  %has_lazy_refcounts = getelementptr inbounds i8, ptr %obj, i64 20
   %call25 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_lazy_refcounts) #4
   br i1 %call25, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.end24
-  %lazy_refcounts = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 7
+  %lazy_refcounts = getelementptr inbounds i8, ptr %obj, i64 21
   %call27 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %lazy_refcounts, ptr noundef %errp) #4
   br i1 %call27, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.then26, %if.end24
-  %has_corrupt = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 8
+  %has_corrupt = getelementptr inbounds i8, ptr %obj, i64 22
   %call31 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_corrupt) #4
   br i1 %call31, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.end30
-  %corrupt = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 9
+  %corrupt = getelementptr inbounds i8, ptr %obj, i64 23
   %call33 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %corrupt, ptr noundef %errp) #4
   br i1 %call33, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.then32, %if.end30
-  %refcount_bits = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 10
+  %refcount_bits = getelementptr inbounds i8, ptr %obj, i64 24
   %call37 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %refcount_bits, ptr noundef %errp) #4
   br i1 %call37, label %if.end39, label %return
 
@@ -1296,17 +1114,17 @@ if.then41:                                        ; preds = %if.end39
   br i1 %call43, label %if.end46, label %return
 
 if.end46:                                         ; preds = %if.then41, %if.end39
-  %has_bitmaps = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 12
+  %has_bitmaps = getelementptr inbounds i8, ptr %obj, i64 40
   %call47 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_bitmaps) #4
   br i1 %call47, label %if.then48, label %if.end52
 
 if.then48:                                        ; preds = %if.end46
-  %bitmaps = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 13
+  %bitmaps = getelementptr inbounds i8, ptr %obj, i64 48
   %call49 = call zeroext i1 @visit_type_Qcow2BitmapInfoList(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %bitmaps, ptr noundef %errp)
   br i1 %call49, label %if.end52, label %return
 
 if.end52:                                         ; preds = %if.then48, %if.end46
-  %compression_type = getelementptr inbounds %struct.ImageInfoSpecificQCow2, ptr %obj, i64 0, i32 14
+  %compression_type = getelementptr inbounds i8, ptr %obj, i64 56
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %2 = load i32, ptr %compression_type, align 4
   store i32 %2, ptr %value.i, align 4
@@ -1401,7 +1219,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.VmdkExtentInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_VmdkExtentInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1494,17 +1312,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cid = getelementptr inbounds %struct.ImageInfoSpecificVmdk, ptr %obj, i64 0, i32 1
+  %cid = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %cid, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %parent_cid = getelementptr inbounds %struct.ImageInfoSpecificVmdk, ptr %obj, i64 0, i32 2
+  %parent_cid = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %parent_cid, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %extents = getelementptr inbounds %struct.ImageInfoSpecificVmdk, ptr %obj, i64 0, i32 3
+  %extents = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_VmdkExtentInfoList(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %extents, ptr noundef %errp)
   br label %return
 
@@ -1541,17 +1359,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %cid.i = getelementptr inbounds %struct.ImageInfoSpecificVmdk, ptr %0, i64 0, i32 1
+  %cid.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %cid.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread
 
 if.end3.i:                                        ; preds = %if.end.i
-  %parent_cid.i = getelementptr inbounds %struct.ImageInfoSpecificVmdk, ptr %0, i64 0, i32 2
+  %parent_cid.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %parent_cid.i, ptr noundef %errp) #4
   br i1 %call4.i, label %visit_type_ImageInfoSpecificVmdk_members.exit, label %out_obj.thread
 
 visit_type_ImageInfoSpecificVmdk_members.exit:    ; preds = %if.end3.i
-  %extents.i = getelementptr inbounds %struct.ImageInfoSpecificVmdk, ptr %0, i64 0, i32 3
+  %extents.i = getelementptr inbounds i8, ptr %0, i64 24
   %call7.i = tail call zeroext i1 @visit_type_VmdkExtentInfoList(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %extents.i, ptr noundef %errp)
   br i1 %call7.i, label %out_obj, label %out_obj.thread
 
@@ -1588,32 +1406,32 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %format = getelementptr inbounds %struct.VmdkExtentInfo, ptr %obj, i64 0, i32 1
+  %format = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %format, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %virtual_size = getelementptr inbounds %struct.VmdkExtentInfo, ptr %obj, i64 0, i32 2
+  %virtual_size = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.26, ptr noundef nonnull %virtual_size, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %has_cluster_size = getelementptr inbounds %struct.VmdkExtentInfo, ptr %obj, i64 0, i32 3
+  %has_cluster_size = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %has_cluster_size) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %cluster_size = getelementptr inbounds %struct.VmdkExtentInfo, ptr %obj, i64 0, i32 4
+  %cluster_size = getelementptr inbounds i8, ptr %obj, i64 32
   %call9 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %cluster_size, ptr noundef %errp) #4
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
-  %has_compressed = getelementptr inbounds %struct.VmdkExtentInfo, ptr %obj, i64 0, i32 5
+  %has_compressed = getelementptr inbounds i8, ptr %obj, i64 40
   %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %has_compressed) #4
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  %compressed = getelementptr inbounds %struct.VmdkExtentInfo, ptr %obj, i64 0, i32 6
+  %compressed = getelementptr inbounds i8, ptr %obj, i64 41
   %call15 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %compressed, ptr noundef %errp) #4
   br i1 %call15, label %if.end18, label %return
 
@@ -1635,7 +1453,7 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %encryption_format = getelementptr inbounds %struct.ImageInfoSpecificRbd, ptr %obj, i64 0, i32 1
+  %encryption_format = getelementptr inbounds i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %encryption_format, align 4
   store i32 %0, ptr %value.i, align 4
@@ -1694,7 +1512,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.then.i, label %out_obj
 
 if.then.i:                                        ; preds = %if.end5
-  %encryption_format.i = getelementptr inbounds %struct.ImageInfoSpecificRbd, ptr %0, i64 0, i32 1
+  %encryption_format.i = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %encryption_format.i, align 4
   store i32 %1, ptr %value.i.i, align 4
@@ -1737,7 +1555,7 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %extent_size_hint = getelementptr inbounds %struct.ImageInfoSpecificFile, ptr %obj, i64 0, i32 1
+  %extent_size_hint = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %extent_size_hint, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
@@ -1779,7 +1597,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.then.i, label %out_obj
 
 if.then.i:                                        ; preds = %if.end5
-  %extent_size_hint.i = getelementptr inbounds %struct.ImageInfoSpecificFile, ptr %0, i64 0, i32 1
+  %extent_size_hint.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %extent_size_hint.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread16
 
@@ -2162,27 +1980,27 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.ImageInfoSpecific, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i = call zeroext i1 @visit_type_ImageInfoSpecificQCow2(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.ImageInfoSpecific, ptr %obj, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i17 = call zeroext i1 @visit_type_ImageInfoSpecificVmdk(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %u3, ptr noundef %errp)
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds %struct.ImageInfoSpecific, ptr %obj, i64 0, i32 1
+  %u6 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i18 = call zeroext i1 @visit_type_QCryptoBlockInfoLUKS(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %u6, ptr noundef %errp) #4
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %u9 = getelementptr inbounds %struct.ImageInfoSpecific, ptr %obj, i64 0, i32 1
+  %u9 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i19 = call zeroext i1 @visit_type_ImageInfoSpecificRbd(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %u9, ptr noundef %errp)
   br label %return
 
 sw.bb11:                                          ; preds = %if.end
-  %u12 = getelementptr inbounds %struct.ImageInfoSpecific, ptr %obj, i64 0, i32 1
+  %u12 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i20 = call zeroext i1 @visit_type_ImageInfoSpecificFile(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %u12, ptr noundef %errp)
   br label %return
 
@@ -2261,7 +2079,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.SnapshotInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_SnapshotInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -2303,22 +2121,22 @@ entry:
   %has_full_backing_filename = alloca i8, align 1
   %has_backing_filename_format = alloca i8, align 1
   %has_format_specific = alloca i8, align 1
-  %backing_filename = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 13
+  %backing_filename = getelementptr inbounds i8, ptr %obj, i64 64
   %0 = load ptr, ptr %backing_filename, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_backing_filename, align 1
-  %full_backing_filename = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 14
+  %full_backing_filename = getelementptr inbounds i8, ptr %obj, i64 72
   %1 = load ptr, ptr %full_backing_filename, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_full_backing_filename, align 1
-  %backing_filename_format = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 15
+  %backing_filename_format = getelementptr inbounds i8, ptr %obj, i64 80
   %2 = load ptr, ptr %backing_filename_format, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_backing_filename_format, align 1
-  %format_specific = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 18
+  %format_specific = getelementptr inbounds i8, ptr %obj, i64 104
   %3 = load ptr, ptr %format_specific, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
@@ -2327,62 +2145,62 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %format = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 1
+  %format = getelementptr inbounds i8, ptr %obj, i64 8
   %call14 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %format, ptr noundef %errp) #4
   br i1 %call14, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end
-  %has_dirty_flag = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 2
+  %has_dirty_flag = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %has_dirty_flag) #4
   br i1 %call17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.end16
-  %dirty_flag = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 3
+  %dirty_flag = getelementptr inbounds i8, ptr %obj, i64 17
   %call19 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %dirty_flag, ptr noundef %errp) #4
   br i1 %call19, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then18, %if.end16
-  %has_actual_size = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 4
+  %has_actual_size = getelementptr inbounds i8, ptr %obj, i64 18
   %call23 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %has_actual_size) #4
   br i1 %call23, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end22
-  %actual_size = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 5
+  %actual_size = getelementptr inbounds i8, ptr %obj, i64 24
   %call25 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %actual_size, ptr noundef %errp) #4
   br i1 %call25, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.then24, %if.end22
-  %virtual_size = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 6
+  %virtual_size = getelementptr inbounds i8, ptr %obj, i64 32
   %call29 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.26, ptr noundef nonnull %virtual_size, ptr noundef %errp) #4
   br i1 %call29, label %if.end31, label %return
 
 if.end31:                                         ; preds = %if.end28
-  %has_cluster_size = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 7
+  %has_cluster_size = getelementptr inbounds i8, ptr %obj, i64 40
   %call32 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %has_cluster_size) #4
   br i1 %call32, label %if.then33, label %if.end37
 
 if.then33:                                        ; preds = %if.end31
-  %cluster_size = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 8
+  %cluster_size = getelementptr inbounds i8, ptr %obj, i64 48
   %call34 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %cluster_size, ptr noundef %errp) #4
   br i1 %call34, label %if.end37, label %return
 
 if.end37:                                         ; preds = %if.then33, %if.end31
-  %has_encrypted = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 9
+  %has_encrypted = getelementptr inbounds i8, ptr %obj, i64 56
   %call38 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %has_encrypted) #4
   br i1 %call38, label %if.then39, label %if.end43
 
 if.then39:                                        ; preds = %if.end37
-  %encrypted = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 10
+  %encrypted = getelementptr inbounds i8, ptr %obj, i64 57
   %call40 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %encrypted, ptr noundef %errp) #4
   br i1 %call40, label %if.end43, label %return
 
 if.end43:                                         ; preds = %if.then39, %if.end37
-  %has_compressed = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 11
+  %has_compressed = getelementptr inbounds i8, ptr %obj, i64 58
   %call44 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %has_compressed) #4
   br i1 %call44, label %if.then45, label %if.end49
 
 if.then45:                                        ; preds = %if.end43
-  %compressed = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 12
+  %compressed = getelementptr inbounds i8, ptr %obj, i64 59
   %call46 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %compressed, ptr noundef %errp) #4
   br i1 %call46, label %if.end49, label %return
 
@@ -2411,12 +2229,12 @@ if.then65:                                        ; preds = %if.end63
   br i1 %call67, label %if.end70, label %return
 
 if.end70:                                         ; preds = %if.then65, %if.end63
-  %has_snapshots = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 16
+  %has_snapshots = getelementptr inbounds i8, ptr %obj, i64 88
   %call71 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.39, ptr noundef nonnull %has_snapshots) #4
   br i1 %call71, label %if.then72, label %if.end76
 
 if.then72:                                        ; preds = %if.end70
-  %snapshots = getelementptr inbounds %struct.BlockNodeInfo, ptr %obj, i64 0, i32 17
+  %snapshots = getelementptr inbounds i8, ptr %obj, i64 96
   %call73 = call zeroext i1 @visit_type_SnapshotInfoList(ptr noundef %v, ptr noundef nonnull @.str.39, ptr noundef nonnull %snapshots, ptr noundef %errp)
   br i1 %call73, label %if.end76, label %return
 
@@ -2493,7 +2311,7 @@ declare void @qapi_free_BlockNodeInfo(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @visit_type_ImageInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_backing_image = alloca i8, align 1
-  %backing_image = getelementptr inbounds %struct.ImageInfo, ptr %obj, i64 0, i32 19
+  %backing_image = getelementptr inbounds i8, ptr %obj, i64 112
   %0 = load ptr, ptr %backing_image, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -2543,7 +2361,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_backing_image.i)
-  %backing_image.i = getelementptr inbounds %struct.ImageInfo, ptr %0, i64 0, i32 19
+  %backing_image.i = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %backing_image.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -2594,7 +2412,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %info = getelementptr inbounds %struct.BlockChildInfo, ptr %obj, i64 0, i32 1
+  %info = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockGraphInfo(ptr noundef %v, ptr noundef nonnull @.str.42, ptr noundef nonnull %info, ptr noundef %errp)
   br label %return
 
@@ -2631,7 +2449,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_BlockGraphInfo_members.exit, label %out_obj.thread
 
 visit_type_BlockGraphInfo_members.exit:           ; preds = %if.end5
-  %children.i = getelementptr inbounds %struct.BlockGraphInfo, ptr %0, i64 0, i32 19
+  %children.i = getelementptr inbounds i8, ptr %0, i64 112
   %call1.i = tail call zeroext i1 @visit_type_BlockChildInfoList(ptr noundef %v, ptr noundef nonnull @.str.43, ptr noundef nonnull %children.i, ptr noundef %errp)
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -2687,7 +2505,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_BlockChildInfo_members.exit, label %out_obj.thread
 
 visit_type_BlockChildInfo_members.exit:           ; preds = %if.end5
-  %info.i = getelementptr inbounds %struct.BlockChildInfo, ptr %0, i64 0, i32 1
+  %info.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_BlockGraphInfo(ptr noundef %v, ptr noundef nonnull @.str.42, ptr noundef nonnull %info.i, ptr noundef %errp)
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -2730,7 +2548,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlockChildInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockChildInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -2772,7 +2590,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %children = getelementptr inbounds %struct.BlockGraphInfo, ptr %obj, i64 0, i32 19
+  %children = getelementptr inbounds i8, ptr %obj, i64 112
   %call1 = tail call zeroext i1 @visit_type_BlockChildInfoList(ptr noundef %v, ptr noundef nonnull @.str.43, ptr noundef nonnull %children, ptr noundef %errp)
   br label %return
 
@@ -2790,102 +2608,102 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %format = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 1
+  %format = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %format, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %check_errors = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 2
+  %check_errors = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %check_errors, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %has_image_end_offset = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 3
+  %has_image_end_offset = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef nonnull %has_image_end_offset) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %image_end_offset = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 4
+  %image_end_offset = getelementptr inbounds i8, ptr %obj, i64 32
   %call9 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef nonnull %image_end_offset, ptr noundef %errp) #4
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
-  %has_corruptions = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 5
+  %has_corruptions = getelementptr inbounds i8, ptr %obj, i64 40
   %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.46, ptr noundef nonnull %has_corruptions) #4
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  %corruptions = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 6
+  %corruptions = getelementptr inbounds i8, ptr %obj, i64 48
   %call15 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.46, ptr noundef nonnull %corruptions, ptr noundef %errp) #4
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
-  %has_leaks = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 7
+  %has_leaks = getelementptr inbounds i8, ptr %obj, i64 56
   %call19 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.47, ptr noundef nonnull %has_leaks) #4
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
-  %leaks = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 8
+  %leaks = getelementptr inbounds i8, ptr %obj, i64 64
   %call21 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.47, ptr noundef nonnull %leaks, ptr noundef %errp) #4
   br i1 %call21, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then20, %if.end18
-  %has_corruptions_fixed = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 9
+  %has_corruptions_fixed = getelementptr inbounds i8, ptr %obj, i64 72
   %call25 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.48, ptr noundef nonnull %has_corruptions_fixed) #4
   br i1 %call25, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.end24
-  %corruptions_fixed = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 10
+  %corruptions_fixed = getelementptr inbounds i8, ptr %obj, i64 80
   %call27 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.48, ptr noundef nonnull %corruptions_fixed, ptr noundef %errp) #4
   br i1 %call27, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.then26, %if.end24
-  %has_leaks_fixed = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 11
+  %has_leaks_fixed = getelementptr inbounds i8, ptr %obj, i64 88
   %call31 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.49, ptr noundef nonnull %has_leaks_fixed) #4
   br i1 %call31, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.end30
-  %leaks_fixed = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 12
+  %leaks_fixed = getelementptr inbounds i8, ptr %obj, i64 96
   %call33 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.49, ptr noundef nonnull %leaks_fixed, ptr noundef %errp) #4
   br i1 %call33, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.then32, %if.end30
-  %has_total_clusters = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 13
+  %has_total_clusters = getelementptr inbounds i8, ptr %obj, i64 104
   %call37 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.50, ptr noundef nonnull %has_total_clusters) #4
   br i1 %call37, label %if.then38, label %if.end42
 
 if.then38:                                        ; preds = %if.end36
-  %total_clusters = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 14
+  %total_clusters = getelementptr inbounds i8, ptr %obj, i64 112
   %call39 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.50, ptr noundef nonnull %total_clusters, ptr noundef %errp) #4
   br i1 %call39, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.then38, %if.end36
-  %has_allocated_clusters = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 15
+  %has_allocated_clusters = getelementptr inbounds i8, ptr %obj, i64 120
   %call43 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.51, ptr noundef nonnull %has_allocated_clusters) #4
   br i1 %call43, label %if.then44, label %if.end48
 
 if.then44:                                        ; preds = %if.end42
-  %allocated_clusters = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 16
+  %allocated_clusters = getelementptr inbounds i8, ptr %obj, i64 128
   %call45 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.51, ptr noundef nonnull %allocated_clusters, ptr noundef %errp) #4
   br i1 %call45, label %if.end48, label %return
 
 if.end48:                                         ; preds = %if.then44, %if.end42
-  %has_fragmented_clusters = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 17
+  %has_fragmented_clusters = getelementptr inbounds i8, ptr %obj, i64 136
   %call49 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.52, ptr noundef nonnull %has_fragmented_clusters) #4
   br i1 %call49, label %if.then50, label %if.end54
 
 if.then50:                                        ; preds = %if.end48
-  %fragmented_clusters = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 18
+  %fragmented_clusters = getelementptr inbounds i8, ptr %obj, i64 144
   %call51 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.52, ptr noundef nonnull %fragmented_clusters, ptr noundef %errp) #4
   br i1 %call51, label %if.end54, label %return
 
 if.end54:                                         ; preds = %if.then50, %if.end48
-  %has_compressed_clusters = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 19
+  %has_compressed_clusters = getelementptr inbounds i8, ptr %obj, i64 152
   %call55 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.53, ptr noundef nonnull %has_compressed_clusters) #4
   br i1 %call55, label %if.then56, label %if.end60
 
 if.then56:                                        ; preds = %if.end54
-  %compressed_clusters = getelementptr inbounds %struct.ImageCheck, ptr %obj, i64 0, i32 20
+  %compressed_clusters = getelementptr inbounds i8, ptr %obj, i64 160
   %call57 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.53, ptr noundef nonnull %compressed_clusters, ptr noundef %errp) #4
   br i1 %call57, label %if.end60, label %return
 
@@ -2954,7 +2772,7 @@ declare void @qapi_free_ImageCheck(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @visit_type_MapEntry_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_filename = alloca i8, align 1
-  %filename = getelementptr inbounds %struct.MapEntry, ptr %obj, i64 0, i32 9
+  %filename = getelementptr inbounds i8, ptr %obj, i64 48
   %0 = load ptr, ptr %filename, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -2963,42 +2781,42 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %length = getelementptr inbounds %struct.MapEntry, ptr %obj, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.55, ptr noundef nonnull %length, ptr noundef %errp) #4
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.MapEntry, ptr %obj, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %obj, i64 16
   %call5 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %data, ptr noundef %errp) #4
   br i1 %call5, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end4
-  %zero = getelementptr inbounds %struct.MapEntry, ptr %obj, i64 0, i32 3
+  %zero = getelementptr inbounds i8, ptr %obj, i64 17
   %call8 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.56, ptr noundef nonnull %zero, ptr noundef %errp) #4
   br i1 %call8, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end7
-  %compressed = getelementptr inbounds %struct.MapEntry, ptr %obj, i64 0, i32 4
+  %compressed = getelementptr inbounds i8, ptr %obj, i64 18
   %call11 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %compressed, ptr noundef %errp) #4
   br i1 %call11, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end10
-  %depth = getelementptr inbounds %struct.MapEntry, ptr %obj, i64 0, i32 5
+  %depth = getelementptr inbounds i8, ptr %obj, i64 24
   %call14 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %depth, ptr noundef %errp) #4
   br i1 %call14, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end13
-  %present = getelementptr inbounds %struct.MapEntry, ptr %obj, i64 0, i32 6
+  %present = getelementptr inbounds i8, ptr %obj, i64 32
   %call17 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %present, ptr noundef %errp) #4
   br i1 %call17, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end16
-  %has_offset = getelementptr inbounds %struct.MapEntry, ptr %obj, i64 0, i32 7
+  %has_offset = getelementptr inbounds i8, ptr %obj, i64 33
   %call20 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %has_offset) #4
   br i1 %call20, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %if.end19
-  %offset = getelementptr inbounds %struct.MapEntry, ptr %obj, i64 0, i32 8
+  %offset = getelementptr inbounds i8, ptr %obj, i64 40
   %call22 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %offset, ptr noundef %errp) #4
   br i1 %call22, label %if.end25, label %return
 
@@ -3078,12 +2896,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %direct = getelementptr inbounds %struct.BlockdevCacheInfo, ptr %obj, i64 0, i32 1
+  %direct = getelementptr inbounds i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.61, ptr noundef nonnull %direct, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %no_flush = getelementptr inbounds %struct.BlockdevCacheInfo, ptr %obj, i64 0, i32 2
+  %no_flush = getelementptr inbounds i8, ptr %obj, i64 2
   %call4 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %no_flush, ptr noundef %errp) #4
   br label %return
 
@@ -3120,12 +2938,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %direct.i = getelementptr inbounds %struct.BlockdevCacheInfo, ptr %0, i64 0, i32 1
+  %direct.i = getelementptr inbounds i8, ptr %0, i64 1
   %call1.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.61, ptr noundef nonnull %direct.i, ptr noundef %errp) #4
   br i1 %call1.i, label %visit_type_BlockdevCacheInfo_members.exit, label %out_obj.thread
 
 visit_type_BlockdevCacheInfo_members.exit:        ; preds = %if.end.i
-  %no_flush.i = getelementptr inbounds %struct.BlockdevCacheInfo, ptr %0, i64 0, i32 2
+  %no_flush.i = getelementptr inbounds i8, ptr %0, i64 2
   %call4.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %no_flush.i, ptr noundef %errp) #4
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -3168,7 +2986,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlockDirtyInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockDirtyInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -3261,17 +3079,17 @@ entry:
   %has_node_name = alloca i8, align 1
   %has_backing_file = alloca i8, align 1
   %has_group = alloca i8, align 1
-  %node_name = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 1
+  %node_name = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %node_name, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_node_name, align 1
-  %backing_file = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 4
+  %backing_file = getelementptr inbounds i8, ptr %obj, i64 32
   %1 = load ptr, ptr %backing_file, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_backing_file, align 1
-  %group = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 41
+  %group = getelementptr inbounds i8, ptr %obj, i64 320
   %2 = load ptr, ptr %group, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -3288,12 +3106,12 @@ if.then11:                                        ; preds = %if.end
   br i1 %call13, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.then11, %if.end
-  %ro = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 2
+  %ro = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.65, ptr noundef nonnull %ro, ptr noundef %errp) #4
   br i1 %call17, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end16
-  %drv = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 3
+  %drv = getelementptr inbounds i8, ptr %obj, i64 24
   %call20 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.66, ptr noundef nonnull %drv, ptr noundef %errp) #4
   br i1 %call20, label %if.end22, label %return
 
@@ -3306,17 +3124,17 @@ if.then24:                                        ; preds = %if.end22
   br i1 %call26, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.then24, %if.end22
-  %backing_file_depth = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 5
+  %backing_file_depth = getelementptr inbounds i8, ptr %obj, i64 40
   %call30 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.68, ptr noundef nonnull %backing_file_depth, ptr noundef %errp) #4
   br i1 %call30, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.end29
-  %encrypted = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 6
+  %encrypted = getelementptr inbounds i8, ptr %obj, i64 48
   %call33 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %encrypted, ptr noundef %errp) #4
   br i1 %call33, label %if.end35, label %return
 
 if.end35:                                         ; preds = %if.end32
-  %detect_zeroes = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 7
+  %detect_zeroes = getelementptr inbounds i8, ptr %obj, i64 52
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %3 = load i32, ptr %detect_zeroes, align 4
   store i32 %3, ptr %value.i, align 4
@@ -3327,167 +3145,167 @@ if.end35:                                         ; preds = %if.end32
   br i1 %call.i, label %if.end38, label %return
 
 if.end38:                                         ; preds = %if.end35
-  %bps = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 8
+  %bps = getelementptr inbounds i8, ptr %obj, i64 56
   %call39 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.70, ptr noundef nonnull %bps, ptr noundef %errp) #4
   br i1 %call39, label %if.end41, label %return
 
 if.end41:                                         ; preds = %if.end38
-  %bps_rd = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 9
+  %bps_rd = getelementptr inbounds i8, ptr %obj, i64 64
   %call42 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.71, ptr noundef nonnull %bps_rd, ptr noundef %errp) #4
   br i1 %call42, label %if.end44, label %return
 
 if.end44:                                         ; preds = %if.end41
-  %bps_wr = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 10
+  %bps_wr = getelementptr inbounds i8, ptr %obj, i64 72
   %call45 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.72, ptr noundef nonnull %bps_wr, ptr noundef %errp) #4
   br i1 %call45, label %if.end47, label %return
 
 if.end47:                                         ; preds = %if.end44
-  %iops = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 11
+  %iops = getelementptr inbounds i8, ptr %obj, i64 80
   %call48 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %iops, ptr noundef %errp) #4
   br i1 %call48, label %if.end50, label %return
 
 if.end50:                                         ; preds = %if.end47
-  %iops_rd = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 12
+  %iops_rd = getelementptr inbounds i8, ptr %obj, i64 88
   %call51 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.74, ptr noundef nonnull %iops_rd, ptr noundef %errp) #4
   br i1 %call51, label %if.end53, label %return
 
 if.end53:                                         ; preds = %if.end50
-  %iops_wr = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 13
+  %iops_wr = getelementptr inbounds i8, ptr %obj, i64 96
   %call54 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.75, ptr noundef nonnull %iops_wr, ptr noundef %errp) #4
   br i1 %call54, label %if.end56, label %return
 
 if.end56:                                         ; preds = %if.end53
-  %image = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 14
+  %image = getelementptr inbounds i8, ptr %obj, i64 104
   %call57 = call zeroext i1 @visit_type_ImageInfo(ptr noundef %v, ptr noundef nonnull @.str.76, ptr noundef nonnull %image, ptr noundef %errp)
   br i1 %call57, label %if.end59, label %return
 
 if.end59:                                         ; preds = %if.end56
-  %has_bps_max = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 15
+  %has_bps_max = getelementptr inbounds i8, ptr %obj, i64 112
   %call60 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.77, ptr noundef nonnull %has_bps_max) #4
   br i1 %call60, label %if.then61, label %if.end65
 
 if.then61:                                        ; preds = %if.end59
-  %bps_max = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 16
+  %bps_max = getelementptr inbounds i8, ptr %obj, i64 120
   %call62 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.77, ptr noundef nonnull %bps_max, ptr noundef %errp) #4
   br i1 %call62, label %if.end65, label %return
 
 if.end65:                                         ; preds = %if.then61, %if.end59
-  %has_bps_rd_max = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 17
+  %has_bps_rd_max = getelementptr inbounds i8, ptr %obj, i64 128
   %call66 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.78, ptr noundef nonnull %has_bps_rd_max) #4
   br i1 %call66, label %if.then67, label %if.end71
 
 if.then67:                                        ; preds = %if.end65
-  %bps_rd_max = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 18
+  %bps_rd_max = getelementptr inbounds i8, ptr %obj, i64 136
   %call68 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.78, ptr noundef nonnull %bps_rd_max, ptr noundef %errp) #4
   br i1 %call68, label %if.end71, label %return
 
 if.end71:                                         ; preds = %if.then67, %if.end65
-  %has_bps_wr_max = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 19
+  %has_bps_wr_max = getelementptr inbounds i8, ptr %obj, i64 144
   %call72 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %has_bps_wr_max) #4
   br i1 %call72, label %if.then73, label %if.end77
 
 if.then73:                                        ; preds = %if.end71
-  %bps_wr_max = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 20
+  %bps_wr_max = getelementptr inbounds i8, ptr %obj, i64 152
   %call74 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %bps_wr_max, ptr noundef %errp) #4
   br i1 %call74, label %if.end77, label %return
 
 if.end77:                                         ; preds = %if.then73, %if.end71
-  %has_iops_max = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 21
+  %has_iops_max = getelementptr inbounds i8, ptr %obj, i64 160
   %call78 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %has_iops_max) #4
   br i1 %call78, label %if.then79, label %if.end83
 
 if.then79:                                        ; preds = %if.end77
-  %iops_max = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 22
+  %iops_max = getelementptr inbounds i8, ptr %obj, i64 168
   %call80 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %iops_max, ptr noundef %errp) #4
   br i1 %call80, label %if.end83, label %return
 
 if.end83:                                         ; preds = %if.then79, %if.end77
-  %has_iops_rd_max = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 23
+  %has_iops_rd_max = getelementptr inbounds i8, ptr %obj, i64 176
   %call84 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %has_iops_rd_max) #4
   br i1 %call84, label %if.then85, label %if.end89
 
 if.then85:                                        ; preds = %if.end83
-  %iops_rd_max = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 24
+  %iops_rd_max = getelementptr inbounds i8, ptr %obj, i64 184
   %call86 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %iops_rd_max, ptr noundef %errp) #4
   br i1 %call86, label %if.end89, label %return
 
 if.end89:                                         ; preds = %if.then85, %if.end83
-  %has_iops_wr_max = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 25
+  %has_iops_wr_max = getelementptr inbounds i8, ptr %obj, i64 192
   %call90 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.82, ptr noundef nonnull %has_iops_wr_max) #4
   br i1 %call90, label %if.then91, label %if.end95
 
 if.then91:                                        ; preds = %if.end89
-  %iops_wr_max = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 26
+  %iops_wr_max = getelementptr inbounds i8, ptr %obj, i64 200
   %call92 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.82, ptr noundef nonnull %iops_wr_max, ptr noundef %errp) #4
   br i1 %call92, label %if.end95, label %return
 
 if.end95:                                         ; preds = %if.then91, %if.end89
-  %has_bps_max_length = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 27
+  %has_bps_max_length = getelementptr inbounds i8, ptr %obj, i64 208
   %call96 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %has_bps_max_length) #4
   br i1 %call96, label %if.then97, label %if.end101
 
 if.then97:                                        ; preds = %if.end95
-  %bps_max_length = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 28
+  %bps_max_length = getelementptr inbounds i8, ptr %obj, i64 216
   %call98 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %bps_max_length, ptr noundef %errp) #4
   br i1 %call98, label %if.end101, label %return
 
 if.end101:                                        ; preds = %if.then97, %if.end95
-  %has_bps_rd_max_length = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 29
+  %has_bps_rd_max_length = getelementptr inbounds i8, ptr %obj, i64 224
   %call102 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.84, ptr noundef nonnull %has_bps_rd_max_length) #4
   br i1 %call102, label %if.then103, label %if.end107
 
 if.then103:                                       ; preds = %if.end101
-  %bps_rd_max_length = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 30
+  %bps_rd_max_length = getelementptr inbounds i8, ptr %obj, i64 232
   %call104 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.84, ptr noundef nonnull %bps_rd_max_length, ptr noundef %errp) #4
   br i1 %call104, label %if.end107, label %return
 
 if.end107:                                        ; preds = %if.then103, %if.end101
-  %has_bps_wr_max_length = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 31
+  %has_bps_wr_max_length = getelementptr inbounds i8, ptr %obj, i64 240
   %call108 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.85, ptr noundef nonnull %has_bps_wr_max_length) #4
   br i1 %call108, label %if.then109, label %if.end113
 
 if.then109:                                       ; preds = %if.end107
-  %bps_wr_max_length = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 32
+  %bps_wr_max_length = getelementptr inbounds i8, ptr %obj, i64 248
   %call110 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.85, ptr noundef nonnull %bps_wr_max_length, ptr noundef %errp) #4
   br i1 %call110, label %if.end113, label %return
 
 if.end113:                                        ; preds = %if.then109, %if.end107
-  %has_iops_max_length = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 33
+  %has_iops_max_length = getelementptr inbounds i8, ptr %obj, i64 256
   %call114 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.86, ptr noundef nonnull %has_iops_max_length) #4
   br i1 %call114, label %if.then115, label %if.end119
 
 if.then115:                                       ; preds = %if.end113
-  %iops_max_length = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 34
+  %iops_max_length = getelementptr inbounds i8, ptr %obj, i64 264
   %call116 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.86, ptr noundef nonnull %iops_max_length, ptr noundef %errp) #4
   br i1 %call116, label %if.end119, label %return
 
 if.end119:                                        ; preds = %if.then115, %if.end113
-  %has_iops_rd_max_length = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 35
+  %has_iops_rd_max_length = getelementptr inbounds i8, ptr %obj, i64 272
   %call120 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.87, ptr noundef nonnull %has_iops_rd_max_length) #4
   br i1 %call120, label %if.then121, label %if.end125
 
 if.then121:                                       ; preds = %if.end119
-  %iops_rd_max_length = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 36
+  %iops_rd_max_length = getelementptr inbounds i8, ptr %obj, i64 280
   %call122 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.87, ptr noundef nonnull %iops_rd_max_length, ptr noundef %errp) #4
   br i1 %call122, label %if.end125, label %return
 
 if.end125:                                        ; preds = %if.then121, %if.end119
-  %has_iops_wr_max_length = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 37
+  %has_iops_wr_max_length = getelementptr inbounds i8, ptr %obj, i64 288
   %call126 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.88, ptr noundef nonnull %has_iops_wr_max_length) #4
   br i1 %call126, label %if.then127, label %if.end131
 
 if.then127:                                       ; preds = %if.end125
-  %iops_wr_max_length = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 38
+  %iops_wr_max_length = getelementptr inbounds i8, ptr %obj, i64 296
   %call128 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.88, ptr noundef nonnull %iops_wr_max_length, ptr noundef %errp) #4
   br i1 %call128, label %if.end131, label %return
 
 if.end131:                                        ; preds = %if.then127, %if.end125
-  %has_iops_size = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 39
+  %has_iops_size = getelementptr inbounds i8, ptr %obj, i64 304
   %call132 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef nonnull %has_iops_size) #4
   br i1 %call132, label %if.then133, label %if.end137
 
 if.then133:                                       ; preds = %if.end131
-  %iops_size = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 40
+  %iops_size = getelementptr inbounds i8, ptr %obj, i64 312
   %call134 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef nonnull %iops_size, ptr noundef %errp) #4
   br i1 %call134, label %if.end137, label %return
 
@@ -3500,22 +3318,22 @@ if.then139:                                       ; preds = %if.end137
   br i1 %call141, label %if.end144, label %return
 
 if.end144:                                        ; preds = %if.then139, %if.end137
-  %cache = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 42
+  %cache = getelementptr inbounds i8, ptr %obj, i64 328
   %call145 = call zeroext i1 @visit_type_BlockdevCacheInfo(ptr noundef %v, ptr noundef nonnull @.str.91, ptr noundef nonnull %cache, ptr noundef %errp)
   br i1 %call145, label %if.end147, label %return
 
 if.end147:                                        ; preds = %if.end144
-  %write_threshold = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 43
+  %write_threshold = getelementptr inbounds i8, ptr %obj, i64 336
   %call148 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.92, ptr noundef nonnull %write_threshold, ptr noundef %errp) #4
   br i1 %call148, label %if.end150, label %return
 
 if.end150:                                        ; preds = %if.end147
-  %has_dirty_bitmaps = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 44
+  %has_dirty_bitmaps = getelementptr inbounds i8, ptr %obj, i64 344
   %call151 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.93, ptr noundef nonnull %has_dirty_bitmaps) #4
   br i1 %call151, label %if.then152, label %if.end156
 
 if.then152:                                       ; preds = %if.end150
-  %dirty_bitmaps = getelementptr inbounds %struct.BlockDeviceInfo, ptr %obj, i64 0, i32 45
+  %dirty_bitmaps = getelementptr inbounds i8, ptr %obj, i64 352
   %call153 = call zeroext i1 @visit_type_BlockDirtyInfoList(ptr noundef %v, ptr noundef nonnull @.str.93, ptr noundef nonnull %dirty_bitmaps, ptr noundef %errp)
   br i1 %call153, label %if.end156, label %return
 
@@ -3620,37 +3438,37 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %count = getelementptr inbounds %struct.BlockDirtyInfo, ptr %obj, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.94, ptr noundef nonnull %count, ptr noundef %errp) #4
   br i1 %call6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end5
-  %granularity = getelementptr inbounds %struct.BlockDirtyInfo, ptr %obj, i64 0, i32 2
+  %granularity = getelementptr inbounds i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.95, ptr noundef nonnull %granularity, ptr noundef %errp) #4
   br i1 %call9, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end8
-  %recording = getelementptr inbounds %struct.BlockDirtyInfo, ptr %obj, i64 0, i32 3
+  %recording = getelementptr inbounds i8, ptr %obj, i64 20
   %call12 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.96, ptr noundef nonnull %recording, ptr noundef %errp) #4
   br i1 %call12, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end11
-  %busy = getelementptr inbounds %struct.BlockDirtyInfo, ptr %obj, i64 0, i32 4
+  %busy = getelementptr inbounds i8, ptr %obj, i64 21
   %call15 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.97, ptr noundef nonnull %busy, ptr noundef %errp) #4
   br i1 %call15, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.end14
-  %persistent = getelementptr inbounds %struct.BlockDirtyInfo, ptr %obj, i64 0, i32 5
+  %persistent = getelementptr inbounds i8, ptr %obj, i64 22
   %call18 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.98, ptr noundef nonnull %persistent, ptr noundef %errp) #4
   br i1 %call18, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end17
-  %has_inconsistent = getelementptr inbounds %struct.BlockDirtyInfo, ptr %obj, i64 0, i32 6
+  %has_inconsistent = getelementptr inbounds i8, ptr %obj, i64 23
   %call21 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.99, ptr noundef nonnull %has_inconsistent) #4
   br i1 %call21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.end20
-  %inconsistent = getelementptr inbounds %struct.BlockDirtyInfo, ptr %obj, i64 0, i32 7
+  %inconsistent = getelementptr inbounds i8, ptr %obj, i64 24
   %call23 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.99, ptr noundef nonnull %inconsistent, ptr noundef %errp) #4
   br i1 %call23, label %if.end26, label %return
 
@@ -3692,7 +3510,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.Qcow2BitmapInfoFlagsList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %value.i, align 4
@@ -3740,12 +3558,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %granularity = getelementptr inbounds %struct.Qcow2BitmapInfo, ptr %obj, i64 0, i32 1
+  %granularity = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.95, ptr noundef nonnull %granularity, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %flags = getelementptr inbounds %struct.Qcow2BitmapInfo, ptr %obj, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_Qcow2BitmapInfoFlagsList(ptr noundef %v, ptr noundef nonnull @.str.100, ptr noundef nonnull %flags, ptr noundef %errp)
   br label %return
 
@@ -3763,7 +3581,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %bins = getelementptr inbounds %struct.BlockLatencyHistogramInfo, ptr %obj, i64 0, i32 1
+  %bins = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_uint64List(ptr noundef %v, ptr noundef nonnull @.str.102, ptr noundef nonnull %bins, ptr noundef %errp) #4
   br label %return
 
@@ -3802,7 +3620,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_BlockLatencyHistogramInfo_members.exit, label %out_obj.thread
 
 visit_type_BlockLatencyHistogramInfo_members.exit: ; preds = %if.end5
-  %bins.i = getelementptr inbounds %struct.BlockLatencyHistogramInfo, ptr %0, i64 0, i32 1
+  %bins.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_uint64List(ptr noundef %v, ptr noundef nonnull @.str.102, ptr noundef nonnull %bins.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -3838,12 +3656,12 @@ entry:
   %value.i = alloca i32, align 4
   %has_qdev = alloca i8, align 1
   %has_inserted = alloca i8, align 1
-  %qdev = getelementptr inbounds %struct.BlockInfo, ptr %obj, i64 0, i32 1
+  %qdev = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %qdev, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_qdev, align 1
-  %inserted = getelementptr inbounds %struct.BlockInfo, ptr %obj, i64 0, i32 5
+  %inserted = getelementptr inbounds i8, ptr %obj, i64 32
   %1 = load ptr, ptr %inserted, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -3860,17 +3678,17 @@ if.then7:                                         ; preds = %if.end
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then7, %if.end
-  %type = getelementptr inbounds %struct.BlockInfo, ptr %obj, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %obj, i64 16
   %call13 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %type, ptr noundef %errp) #4
   br i1 %call13, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end12
-  %removable = getelementptr inbounds %struct.BlockInfo, ptr %obj, i64 0, i32 3
+  %removable = getelementptr inbounds i8, ptr %obj, i64 24
   %call16 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.105, ptr noundef nonnull %removable, ptr noundef %errp) #4
   br i1 %call16, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end15
-  %locked = getelementptr inbounds %struct.BlockInfo, ptr %obj, i64 0, i32 4
+  %locked = getelementptr inbounds i8, ptr %obj, i64 25
   %call19 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.106, ptr noundef nonnull %locked, ptr noundef %errp) #4
   br i1 %call19, label %if.end21, label %return
 
@@ -3883,22 +3701,22 @@ if.then23:                                        ; preds = %if.end21
   br i1 %call25, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.then23, %if.end21
-  %has_tray_open = getelementptr inbounds %struct.BlockInfo, ptr %obj, i64 0, i32 6
+  %has_tray_open = getelementptr inbounds i8, ptr %obj, i64 40
   %call29 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.108, ptr noundef nonnull %has_tray_open) #4
   br i1 %call29, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %if.end28
-  %tray_open = getelementptr inbounds %struct.BlockInfo, ptr %obj, i64 0, i32 7
+  %tray_open = getelementptr inbounds i8, ptr %obj, i64 41
   %call31 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.108, ptr noundef nonnull %tray_open, ptr noundef %errp) #4
   br i1 %call31, label %if.end34, label %return
 
 if.end34:                                         ; preds = %if.then30, %if.end28
-  %has_io_status = getelementptr inbounds %struct.BlockInfo, ptr %obj, i64 0, i32 8
+  %has_io_status = getelementptr inbounds i8, ptr %obj, i64 42
   %call35 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.109, ptr noundef nonnull %has_io_status) #4
   br i1 %call35, label %if.then36, label %if.end40
 
 if.then36:                                        ; preds = %if.end34
-  %io_status = getelementptr inbounds %struct.BlockInfo, ptr %obj, i64 0, i32 9
+  %io_status = getelementptr inbounds i8, ptr %obj, i64 44
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %2 = load i32, ptr %io_status, align 4
   store i32 %2, ptr %value.i, align 4
@@ -3976,17 +3794,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fully_allocated = getelementptr inbounds %struct.BlockMeasureInfo, ptr %obj, i64 0, i32 1
+  %fully_allocated = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.111, ptr noundef nonnull %fully_allocated, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_bitmaps = getelementptr inbounds %struct.BlockMeasureInfo, ptr %obj, i64 0, i32 2
+  %has_bitmaps = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_bitmaps) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %bitmaps = getelementptr inbounds %struct.BlockMeasureInfo, ptr %obj, i64 0, i32 3
+  %bitmaps = getelementptr inbounds i8, ptr %obj, i64 24
   %call6 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %bitmaps, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
@@ -4026,17 +3844,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %fully_allocated.i = getelementptr inbounds %struct.BlockMeasureInfo, ptr %0, i64 0, i32 1
+  %fully_allocated.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.111, ptr noundef nonnull %fully_allocated.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread16
 
 if.end3.i:                                        ; preds = %if.end.i
-  %has_bitmaps.i = getelementptr inbounds %struct.BlockMeasureInfo, ptr %0, i64 0, i32 2
+  %has_bitmaps.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_bitmaps.i) #4
   br i1 %call4.i, label %if.then5.i, label %out_obj
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %bitmaps.i = getelementptr inbounds %struct.BlockMeasureInfo, ptr %0, i64 0, i32 3
+  %bitmaps.i = getelementptr inbounds i8, ptr %0, i64 24
   %call6.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %bitmaps.i, ptr noundef %errp) #4
   br i1 %call6.i, label %out_obj, label %out_obj.thread16
 
@@ -4079,7 +3897,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlockInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -4121,77 +3939,77 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %min_rd_latency_ns = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 1
+  %min_rd_latency_ns = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.113, ptr noundef nonnull %min_rd_latency_ns, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %max_rd_latency_ns = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 2
+  %max_rd_latency_ns = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.114, ptr noundef nonnull %max_rd_latency_ns, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %avg_rd_latency_ns = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 3
+  %avg_rd_latency_ns = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.115, ptr noundef nonnull %avg_rd_latency_ns, ptr noundef %errp) #4
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %min_wr_latency_ns = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 4
+  %min_wr_latency_ns = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.116, ptr noundef nonnull %min_wr_latency_ns, ptr noundef %errp) #4
   br i1 %call10, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end9
-  %max_wr_latency_ns = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 5
+  %max_wr_latency_ns = getelementptr inbounds i8, ptr %obj, i64 40
   %call13 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.117, ptr noundef nonnull %max_wr_latency_ns, ptr noundef %errp) #4
   br i1 %call13, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end12
-  %avg_wr_latency_ns = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 6
+  %avg_wr_latency_ns = getelementptr inbounds i8, ptr %obj, i64 48
   %call16 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.118, ptr noundef nonnull %avg_wr_latency_ns, ptr noundef %errp) #4
   br i1 %call16, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end15
-  %min_zone_append_latency_ns = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 7
+  %min_zone_append_latency_ns = getelementptr inbounds i8, ptr %obj, i64 56
   %call19 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.119, ptr noundef nonnull %min_zone_append_latency_ns, ptr noundef %errp) #4
   br i1 %call19, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.end18
-  %max_zone_append_latency_ns = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 8
+  %max_zone_append_latency_ns = getelementptr inbounds i8, ptr %obj, i64 64
   %call22 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.120, ptr noundef nonnull %max_zone_append_latency_ns, ptr noundef %errp) #4
   br i1 %call22, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.end21
-  %avg_zone_append_latency_ns = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 9
+  %avg_zone_append_latency_ns = getelementptr inbounds i8, ptr %obj, i64 72
   %call25 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.121, ptr noundef nonnull %avg_zone_append_latency_ns, ptr noundef %errp) #4
   br i1 %call25, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.end24
-  %min_flush_latency_ns = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 10
+  %min_flush_latency_ns = getelementptr inbounds i8, ptr %obj, i64 80
   %call28 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.122, ptr noundef nonnull %min_flush_latency_ns, ptr noundef %errp) #4
   br i1 %call28, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.end27
-  %max_flush_latency_ns = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 11
+  %max_flush_latency_ns = getelementptr inbounds i8, ptr %obj, i64 88
   %call31 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.123, ptr noundef nonnull %max_flush_latency_ns, ptr noundef %errp) #4
   br i1 %call31, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.end30
-  %avg_flush_latency_ns = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 12
+  %avg_flush_latency_ns = getelementptr inbounds i8, ptr %obj, i64 96
   %call34 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.124, ptr noundef nonnull %avg_flush_latency_ns, ptr noundef %errp) #4
   br i1 %call34, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.end33
-  %avg_rd_queue_depth = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 13
+  %avg_rd_queue_depth = getelementptr inbounds i8, ptr %obj, i64 104
   %call37 = tail call zeroext i1 @visit_type_number(ptr noundef %v, ptr noundef nonnull @.str.125, ptr noundef nonnull %avg_rd_queue_depth, ptr noundef %errp) #4
   br i1 %call37, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.end36
-  %avg_wr_queue_depth = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 14
+  %avg_wr_queue_depth = getelementptr inbounds i8, ptr %obj, i64 112
   %call40 = tail call zeroext i1 @visit_type_number(ptr noundef %v, ptr noundef nonnull @.str.126, ptr noundef nonnull %avg_wr_queue_depth, ptr noundef %errp) #4
   br i1 %call40, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.end39
-  %avg_zone_append_queue_depth = getelementptr inbounds %struct.BlockDeviceTimedStats, ptr %obj, i64 0, i32 15
+  %avg_zone_append_queue_depth = getelementptr inbounds i8, ptr %obj, i64 120
   %call43 = tail call zeroext i1 @visit_type_number(ptr noundef %v, ptr noundef nonnull @.str.127, ptr noundef nonnull %avg_zone_append_queue_depth, ptr noundef %errp) #4
   br label %return
 
@@ -4268,7 +4086,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlockDeviceTimedStatsList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockDeviceTimedStats(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -4310,22 +4128,22 @@ entry:
   %has_wr_latency_histogram = alloca i8, align 1
   %has_zone_append_latency_histogram = alloca i8, align 1
   %has_flush_latency_histogram = alloca i8, align 1
-  %rd_latency_histogram = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 34
+  %rd_latency_histogram = getelementptr inbounds i8, ptr %obj, i64 264
   %0 = load ptr, ptr %rd_latency_histogram, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_rd_latency_histogram, align 1
-  %wr_latency_histogram = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 35
+  %wr_latency_histogram = getelementptr inbounds i8, ptr %obj, i64 272
   %1 = load ptr, ptr %wr_latency_histogram, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_wr_latency_histogram, align 1
-  %zone_append_latency_histogram = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 36
+  %zone_append_latency_histogram = getelementptr inbounds i8, ptr %obj, i64 280
   %2 = load ptr, ptr %zone_append_latency_histogram, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_zone_append_latency_histogram, align 1
-  %flush_latency_histogram = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 37
+  %flush_latency_histogram = getelementptr inbounds i8, ptr %obj, i64 288
   %3 = load ptr, ptr %flush_latency_histogram, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
@@ -4334,167 +4152,167 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %wr_bytes = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 1
+  %wr_bytes = getelementptr inbounds i8, ptr %obj, i64 8
   %call14 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.129, ptr noundef nonnull %wr_bytes, ptr noundef %errp) #4
   br i1 %call14, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end
-  %zone_append_bytes = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 2
+  %zone_append_bytes = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.130, ptr noundef nonnull %zone_append_bytes, ptr noundef %errp) #4
   br i1 %call17, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end16
-  %unmap_bytes = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 3
+  %unmap_bytes = getelementptr inbounds i8, ptr %obj, i64 24
   %call20 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.131, ptr noundef nonnull %unmap_bytes, ptr noundef %errp) #4
   br i1 %call20, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.end19
-  %rd_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 4
+  %rd_operations = getelementptr inbounds i8, ptr %obj, i64 32
   %call23 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.132, ptr noundef nonnull %rd_operations, ptr noundef %errp) #4
   br i1 %call23, label %if.end25, label %return
 
 if.end25:                                         ; preds = %if.end22
-  %wr_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 5
+  %wr_operations = getelementptr inbounds i8, ptr %obj, i64 40
   %call26 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.133, ptr noundef nonnull %wr_operations, ptr noundef %errp) #4
   br i1 %call26, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end25
-  %zone_append_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 6
+  %zone_append_operations = getelementptr inbounds i8, ptr %obj, i64 48
   %call29 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.134, ptr noundef nonnull %zone_append_operations, ptr noundef %errp) #4
   br i1 %call29, label %if.end31, label %return
 
 if.end31:                                         ; preds = %if.end28
-  %flush_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 7
+  %flush_operations = getelementptr inbounds i8, ptr %obj, i64 56
   %call32 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.135, ptr noundef nonnull %flush_operations, ptr noundef %errp) #4
   br i1 %call32, label %if.end34, label %return
 
 if.end34:                                         ; preds = %if.end31
-  %unmap_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 8
+  %unmap_operations = getelementptr inbounds i8, ptr %obj, i64 64
   %call35 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.136, ptr noundef nonnull %unmap_operations, ptr noundef %errp) #4
   br i1 %call35, label %if.end37, label %return
 
 if.end37:                                         ; preds = %if.end34
-  %rd_total_time_ns = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 9
+  %rd_total_time_ns = getelementptr inbounds i8, ptr %obj, i64 72
   %call38 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.137, ptr noundef nonnull %rd_total_time_ns, ptr noundef %errp) #4
   br i1 %call38, label %if.end40, label %return
 
 if.end40:                                         ; preds = %if.end37
-  %wr_total_time_ns = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 10
+  %wr_total_time_ns = getelementptr inbounds i8, ptr %obj, i64 80
   %call41 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.138, ptr noundef nonnull %wr_total_time_ns, ptr noundef %errp) #4
   br i1 %call41, label %if.end43, label %return
 
 if.end43:                                         ; preds = %if.end40
-  %zone_append_total_time_ns = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 11
+  %zone_append_total_time_ns = getelementptr inbounds i8, ptr %obj, i64 88
   %call44 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.139, ptr noundef nonnull %zone_append_total_time_ns, ptr noundef %errp) #4
   br i1 %call44, label %if.end46, label %return
 
 if.end46:                                         ; preds = %if.end43
-  %flush_total_time_ns = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 12
+  %flush_total_time_ns = getelementptr inbounds i8, ptr %obj, i64 96
   %call47 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.140, ptr noundef nonnull %flush_total_time_ns, ptr noundef %errp) #4
   br i1 %call47, label %if.end49, label %return
 
 if.end49:                                         ; preds = %if.end46
-  %unmap_total_time_ns = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 13
+  %unmap_total_time_ns = getelementptr inbounds i8, ptr %obj, i64 104
   %call50 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.141, ptr noundef nonnull %unmap_total_time_ns, ptr noundef %errp) #4
   br i1 %call50, label %if.end52, label %return
 
 if.end52:                                         ; preds = %if.end49
-  %wr_highest_offset = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 14
+  %wr_highest_offset = getelementptr inbounds i8, ptr %obj, i64 112
   %call53 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.142, ptr noundef nonnull %wr_highest_offset, ptr noundef %errp) #4
   br i1 %call53, label %if.end55, label %return
 
 if.end55:                                         ; preds = %if.end52
-  %rd_merged = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 15
+  %rd_merged = getelementptr inbounds i8, ptr %obj, i64 120
   %call56 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.143, ptr noundef nonnull %rd_merged, ptr noundef %errp) #4
   br i1 %call56, label %if.end58, label %return
 
 if.end58:                                         ; preds = %if.end55
-  %wr_merged = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 16
+  %wr_merged = getelementptr inbounds i8, ptr %obj, i64 128
   %call59 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.144, ptr noundef nonnull %wr_merged, ptr noundef %errp) #4
   br i1 %call59, label %if.end61, label %return
 
 if.end61:                                         ; preds = %if.end58
-  %zone_append_merged = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 17
+  %zone_append_merged = getelementptr inbounds i8, ptr %obj, i64 136
   %call62 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.145, ptr noundef nonnull %zone_append_merged, ptr noundef %errp) #4
   br i1 %call62, label %if.end64, label %return
 
 if.end64:                                         ; preds = %if.end61
-  %unmap_merged = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 18
+  %unmap_merged = getelementptr inbounds i8, ptr %obj, i64 144
   %call65 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.146, ptr noundef nonnull %unmap_merged, ptr noundef %errp) #4
   br i1 %call65, label %if.end67, label %return
 
 if.end67:                                         ; preds = %if.end64
-  %has_idle_time_ns = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 19
+  %has_idle_time_ns = getelementptr inbounds i8, ptr %obj, i64 152
   %call68 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.147, ptr noundef nonnull %has_idle_time_ns) #4
   br i1 %call68, label %if.then69, label %if.end73
 
 if.then69:                                        ; preds = %if.end67
-  %idle_time_ns = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 20
+  %idle_time_ns = getelementptr inbounds i8, ptr %obj, i64 160
   %call70 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.147, ptr noundef nonnull %idle_time_ns, ptr noundef %errp) #4
   br i1 %call70, label %if.end73, label %return
 
 if.end73:                                         ; preds = %if.then69, %if.end67
-  %failed_rd_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 21
+  %failed_rd_operations = getelementptr inbounds i8, ptr %obj, i64 168
   %call74 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.148, ptr noundef nonnull %failed_rd_operations, ptr noundef %errp) #4
   br i1 %call74, label %if.end76, label %return
 
 if.end76:                                         ; preds = %if.end73
-  %failed_wr_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 22
+  %failed_wr_operations = getelementptr inbounds i8, ptr %obj, i64 176
   %call77 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.149, ptr noundef nonnull %failed_wr_operations, ptr noundef %errp) #4
   br i1 %call77, label %if.end79, label %return
 
 if.end79:                                         ; preds = %if.end76
-  %failed_zone_append_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 23
+  %failed_zone_append_operations = getelementptr inbounds i8, ptr %obj, i64 184
   %call80 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.150, ptr noundef nonnull %failed_zone_append_operations, ptr noundef %errp) #4
   br i1 %call80, label %if.end82, label %return
 
 if.end82:                                         ; preds = %if.end79
-  %failed_flush_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 24
+  %failed_flush_operations = getelementptr inbounds i8, ptr %obj, i64 192
   %call83 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.151, ptr noundef nonnull %failed_flush_operations, ptr noundef %errp) #4
   br i1 %call83, label %if.end85, label %return
 
 if.end85:                                         ; preds = %if.end82
-  %failed_unmap_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 25
+  %failed_unmap_operations = getelementptr inbounds i8, ptr %obj, i64 200
   %call86 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.152, ptr noundef nonnull %failed_unmap_operations, ptr noundef %errp) #4
   br i1 %call86, label %if.end88, label %return
 
 if.end88:                                         ; preds = %if.end85
-  %invalid_rd_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 26
+  %invalid_rd_operations = getelementptr inbounds i8, ptr %obj, i64 208
   %call89 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.153, ptr noundef nonnull %invalid_rd_operations, ptr noundef %errp) #4
   br i1 %call89, label %if.end91, label %return
 
 if.end91:                                         ; preds = %if.end88
-  %invalid_wr_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 27
+  %invalid_wr_operations = getelementptr inbounds i8, ptr %obj, i64 216
   %call92 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.154, ptr noundef nonnull %invalid_wr_operations, ptr noundef %errp) #4
   br i1 %call92, label %if.end94, label %return
 
 if.end94:                                         ; preds = %if.end91
-  %invalid_zone_append_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 28
+  %invalid_zone_append_operations = getelementptr inbounds i8, ptr %obj, i64 224
   %call95 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.155, ptr noundef nonnull %invalid_zone_append_operations, ptr noundef %errp) #4
   br i1 %call95, label %if.end97, label %return
 
 if.end97:                                         ; preds = %if.end94
-  %invalid_flush_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 29
+  %invalid_flush_operations = getelementptr inbounds i8, ptr %obj, i64 232
   %call98 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.156, ptr noundef nonnull %invalid_flush_operations, ptr noundef %errp) #4
   br i1 %call98, label %if.end100, label %return
 
 if.end100:                                        ; preds = %if.end97
-  %invalid_unmap_operations = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 30
+  %invalid_unmap_operations = getelementptr inbounds i8, ptr %obj, i64 240
   %call101 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.157, ptr noundef nonnull %invalid_unmap_operations, ptr noundef %errp) #4
   br i1 %call101, label %if.end103, label %return
 
 if.end103:                                        ; preds = %if.end100
-  %account_invalid = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 31
+  %account_invalid = getelementptr inbounds i8, ptr %obj, i64 248
   %call104 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.158, ptr noundef nonnull %account_invalid, ptr noundef %errp) #4
   br i1 %call104, label %if.end106, label %return
 
 if.end106:                                        ; preds = %if.end103
-  %account_failed = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 32
+  %account_failed = getelementptr inbounds i8, ptr %obj, i64 249
   %call107 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.159, ptr noundef nonnull %account_failed, ptr noundef %errp) #4
   br i1 %call107, label %if.end109, label %return
 
 if.end109:                                        ; preds = %if.end106
-  %timed_stats = getelementptr inbounds %struct.BlockDeviceStats, ptr %obj, i64 0, i32 33
+  %timed_stats = getelementptr inbounds i8, ptr %obj, i64 256
   %call110 = tail call zeroext i1 @visit_type_BlockDeviceTimedStatsList(ptr noundef %v, ptr noundef nonnull @.str.160, ptr noundef nonnull %timed_stats, ptr noundef %errp)
   br i1 %call110, label %if.end112, label %return
 
@@ -4598,12 +4416,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %discard_nb_failed = getelementptr inbounds %struct.BlockStatsSpecificFile, ptr %obj, i64 0, i32 1
+  %discard_nb_failed = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.166, ptr noundef nonnull %discard_nb_failed, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %discard_bytes_ok = getelementptr inbounds %struct.BlockStatsSpecificFile, ptr %obj, i64 0, i32 2
+  %discard_bytes_ok = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.167, ptr noundef nonnull %discard_bytes_ok, ptr noundef %errp) #4
   br label %return
 
@@ -4642,12 +4460,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %discard_nb_failed.i = getelementptr inbounds %struct.BlockStatsSpecificFile, ptr %0, i64 0, i32 1
+  %discard_nb_failed.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.166, ptr noundef nonnull %discard_nb_failed.i, ptr noundef %errp) #4
   br i1 %call1.i, label %visit_type_BlockStatsSpecificFile_members.exit, label %out_obj.thread
 
 visit_type_BlockStatsSpecificFile_members.exit:   ; preds = %if.end.i
-  %discard_bytes_ok.i = getelementptr inbounds %struct.BlockStatsSpecificFile, ptr %0, i64 0, i32 2
+  %discard_bytes_ok.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.167, ptr noundef nonnull %discard_bytes_ok.i, ptr noundef %errp) #4
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -4684,12 +4502,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %aligned_accesses = getelementptr inbounds %struct.BlockStatsSpecificNvme, ptr %obj, i64 0, i32 1
+  %aligned_accesses = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.169, ptr noundef nonnull %aligned_accesses, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %unaligned_accesses = getelementptr inbounds %struct.BlockStatsSpecificNvme, ptr %obj, i64 0, i32 2
+  %unaligned_accesses = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.170, ptr noundef nonnull %unaligned_accesses, ptr noundef %errp) #4
   br label %return
 
@@ -4726,12 +4544,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %aligned_accesses.i = getelementptr inbounds %struct.BlockStatsSpecificNvme, ptr %0, i64 0, i32 1
+  %aligned_accesses.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.169, ptr noundef nonnull %aligned_accesses.i, ptr noundef %errp) #4
   br i1 %call1.i, label %visit_type_BlockStatsSpecificNvme_members.exit, label %out_obj.thread
 
 visit_type_BlockStatsSpecificNvme_members.exit:   ; preds = %if.end.i
-  %unaligned_accesses.i = getelementptr inbounds %struct.BlockStatsSpecificNvme, ptr %0, i64 0, i32 2
+  %unaligned_accesses.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.170, ptr noundef nonnull %unaligned_accesses.i, ptr noundef %errp) #4
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -4847,17 +4665,17 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.BlockStatsSpecific, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_BlockStatsSpecificFile_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.BlockStatsSpecific, ptr %obj, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
   %call4 = call zeroext i1 @visit_type_BlockStatsSpecificFile_members(ptr noundef %v, ptr noundef nonnull %u3, ptr noundef %errp)
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds %struct.BlockStatsSpecific, ptr %obj, i64 0, i32 1
+  %u6 = getelementptr inbounds i8, ptr %obj, i64 8
   %call7 = call zeroext i1 @visit_type_BlockStatsSpecificNvme_members(ptr noundef %v, ptr noundef nonnull %u6, ptr noundef %errp)
   br label %return
 
@@ -4936,27 +4754,27 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_device, align 1
-  %qdev = getelementptr inbounds %struct.BlockStats, ptr %obj, i64 0, i32 1
+  %qdev = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %qdev, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_qdev, align 1
-  %node_name = getelementptr inbounds %struct.BlockStats, ptr %obj, i64 0, i32 2
+  %node_name = getelementptr inbounds i8, ptr %obj, i64 16
   %2 = load ptr, ptr %node_name, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_node_name, align 1
-  %driver_specific = getelementptr inbounds %struct.BlockStats, ptr %obj, i64 0, i32 4
+  %driver_specific = getelementptr inbounds i8, ptr %obj, i64 32
   %3 = load ptr, ptr %driver_specific, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
   store i8 %frombool13, ptr %has_driver_specific, align 1
-  %parent = getelementptr inbounds %struct.BlockStats, ptr %obj, i64 0, i32 5
+  %parent = getelementptr inbounds i8, ptr %obj, i64 40
   %4 = load ptr, ptr %parent, align 8
   %tobool14 = icmp ne ptr %4, null
   %frombool17 = zext i1 %tobool14 to i8
   store i8 %frombool17, ptr %has_parent, align 1
-  %backing = getelementptr inbounds %struct.BlockStats, ptr %obj, i64 0, i32 6
+  %backing = getelementptr inbounds i8, ptr %obj, i64 48
   %5 = load ptr, ptr %backing, align 8
   %tobool18 = icmp ne ptr %5, null
   %frombool21 = zext i1 %tobool18 to i8
@@ -4985,7 +4803,7 @@ if.then34:                                        ; preds = %if.end32
   br i1 %call36, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.then34, %if.end32
-  %stats = getelementptr inbounds %struct.BlockStats, ptr %obj, i64 0, i32 3
+  %stats = getelementptr inbounds i8, ptr %obj, i64 24
   %call40 = call zeroext i1 @visit_type_BlockDeviceStats(ptr noundef %v, ptr noundef nonnull @.str.172, ptr noundef nonnull %stats, ptr noundef %errp)
   br i1 %call40, label %if.end42, label %return
 
@@ -5081,7 +4899,7 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %query_nodes = getelementptr inbounds %struct.q_obj_query_blockstats_arg, ptr %obj, i64 0, i32 1
+  %query_nodes = getelementptr inbounds i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.176, ptr noundef nonnull %query_nodes, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
@@ -5106,7 +4924,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlockStatsList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockStats(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -5254,7 +5072,7 @@ define dso_local zeroext i1 @visit_type_q_obj_BlockJobInfo_base_members(ptr noun
 entry:
   %value.i = alloca i32, align 4
   %has_error = alloca i8, align 1
-  %error = getelementptr inbounds %struct.q_obj_BlockJobInfo_base, ptr %obj, i64 0, i32 12
+  %error = getelementptr inbounds i8, ptr %obj, i64 64
   %0 = load ptr, ptr %error, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -5263,37 +5081,37 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %device = getelementptr inbounds %struct.q_obj_BlockJobInfo_base, ptr %obj, i64 0, i32 1
+  %device = getelementptr inbounds i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.103, ptr noundef nonnull %device, ptr noundef %errp) #4
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %len = getelementptr inbounds %struct.q_obj_BlockJobInfo_base, ptr %obj, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %obj, i64 16
   %call5 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.178, ptr noundef nonnull %len, ptr noundef %errp) #4
   br i1 %call5, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end4
-  %offset = getelementptr inbounds %struct.q_obj_BlockJobInfo_base, ptr %obj, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %obj, i64 24
   %call8 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %offset, ptr noundef %errp) #4
   br i1 %call8, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end7
-  %busy = getelementptr inbounds %struct.q_obj_BlockJobInfo_base, ptr %obj, i64 0, i32 4
+  %busy = getelementptr inbounds i8, ptr %obj, i64 32
   %call11 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.97, ptr noundef nonnull %busy, ptr noundef %errp) #4
   br i1 %call11, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end10
-  %paused = getelementptr inbounds %struct.q_obj_BlockJobInfo_base, ptr %obj, i64 0, i32 5
+  %paused = getelementptr inbounds i8, ptr %obj, i64 33
   %call14 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.179, ptr noundef nonnull %paused, ptr noundef %errp) #4
   br i1 %call14, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end13
-  %speed = getelementptr inbounds %struct.q_obj_BlockJobInfo_base, ptr %obj, i64 0, i32 6
+  %speed = getelementptr inbounds i8, ptr %obj, i64 40
   %call17 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %speed, ptr noundef %errp) #4
   br i1 %call17, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end16
-  %io_status = getelementptr inbounds %struct.q_obj_BlockJobInfo_base, ptr %obj, i64 0, i32 7
+  %io_status = getelementptr inbounds i8, ptr %obj, i64 48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %io_status, align 4
   store i32 %1, ptr %value.i, align 4
@@ -5304,22 +5122,22 @@ if.end19:                                         ; preds = %if.end16
   br i1 %call.i, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.end19
-  %ready = getelementptr inbounds %struct.q_obj_BlockJobInfo_base, ptr %obj, i64 0, i32 8
+  %ready = getelementptr inbounds i8, ptr %obj, i64 52
   %call23 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.181, ptr noundef nonnull %ready, ptr noundef %errp) #4
   br i1 %call23, label %if.end25, label %return
 
 if.end25:                                         ; preds = %if.end22
-  %status = getelementptr inbounds %struct.q_obj_BlockJobInfo_base, ptr %obj, i64 0, i32 9
+  %status = getelementptr inbounds i8, ptr %obj, i64 56
   %call26 = call zeroext i1 @visit_type_JobStatus(ptr noundef %v, ptr noundef nonnull @.str.182, ptr noundef nonnull %status, ptr noundef %errp) #4
   br i1 %call26, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end25
-  %auto_finalize = getelementptr inbounds %struct.q_obj_BlockJobInfo_base, ptr %obj, i64 0, i32 10
+  %auto_finalize = getelementptr inbounds i8, ptr %obj, i64 60
   %call29 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.183, ptr noundef nonnull %auto_finalize, ptr noundef %errp) #4
   br i1 %call29, label %if.end31, label %return
 
 if.end31:                                         ; preds = %if.end28
-  %auto_dismiss = getelementptr inbounds %struct.q_obj_BlockJobInfo_base, ptr %obj, i64 0, i32 11
+  %auto_dismiss = getelementptr inbounds i8, ptr %obj, i64 61
   %call32 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.184, ptr noundef nonnull %auto_dismiss, ptr noundef %errp) #4
   br i1 %call32, label %if.end34, label %return
 
@@ -5364,7 +5182,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.BlockJobInfo, ptr %obj, i64 0, i32 13
+  %u = getelementptr inbounds i8, ptr %obj, i64 72
   %call.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.177, ptr noundef nonnull %u, ptr noundef %errp) #4
   br label %return
 
@@ -5423,7 +5241,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_BlockJobInfo_members.exit:             ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.BlockJobInfo, ptr %0, i64 0, i32 13
+  %u.i = getelementptr inbounds i8, ptr %0, i64 72
   %call.i.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.177, ptr noundef nonnull %u.i, ptr noundef %errp) #4
   br i1 %call.i.i, label %out_obj, label %out_obj.thread
 
@@ -5466,7 +5284,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlockJobInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockJobInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -5510,7 +5328,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_device, align 1
-  %node_name = getelementptr inbounds %struct.q_obj_block_resize_arg, ptr %obj, i64 0, i32 1
+  %node_name = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %node_name, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -5531,7 +5349,7 @@ if.then11:                                        ; preds = %if.end9
   br i1 %call13, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.then11, %if.end9
-  %size = getelementptr inbounds %struct.q_obj_block_resize_arg, ptr %obj, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br label %return
 
@@ -5564,17 +5382,17 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_device, align 1
-  %node_name = getelementptr inbounds %struct.BlockdevSnapshotSync, ptr %obj, i64 0, i32 1
+  %node_name = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %node_name, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_node_name, align 1
-  %snapshot_node_name = getelementptr inbounds %struct.BlockdevSnapshotSync, ptr %obj, i64 0, i32 3
+  %snapshot_node_name = getelementptr inbounds i8, ptr %obj, i64 24
   %2 = load ptr, ptr %snapshot_node_name, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_snapshot_node_name, align 1
-  %format = getelementptr inbounds %struct.BlockdevSnapshotSync, ptr %obj, i64 0, i32 4
+  %format = getelementptr inbounds i8, ptr %obj, i64 32
   %3 = load ptr, ptr %format, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
@@ -5595,7 +5413,7 @@ if.then19:                                        ; preds = %if.end17
   br i1 %call21, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then19, %if.end17
-  %snapshot_file = getelementptr inbounds %struct.BlockdevSnapshotSync, ptr %obj, i64 0, i32 2
+  %snapshot_file = getelementptr inbounds i8, ptr %obj, i64 16
   %call25 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.187, ptr noundef nonnull %snapshot_file, ptr noundef %errp) #4
   br i1 %call25, label %if.end27, label %return
 
@@ -5616,12 +5434,12 @@ if.then36:                                        ; preds = %if.end34
   br i1 %call38, label %if.end41, label %return
 
 if.end41:                                         ; preds = %if.then36, %if.end34
-  %has_mode = getelementptr inbounds %struct.BlockdevSnapshotSync, ptr %obj, i64 0, i32 5
+  %has_mode = getelementptr inbounds i8, ptr %obj, i64 40
   %call42 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.189, ptr noundef nonnull %has_mode) #4
   br i1 %call42, label %if.then43, label %if.end47
 
 if.then43:                                        ; preds = %if.end41
-  %mode = getelementptr inbounds %struct.BlockdevSnapshotSync, ptr %obj, i64 0, i32 6
+  %mode = getelementptr inbounds i8, ptr %obj, i64 44
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %4 = load i32, ptr %mode, align 4
   store i32 %4, ptr %value.i, align 4
@@ -5699,7 +5517,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %overlay = getelementptr inbounds %struct.BlockdevSnapshot, ptr %obj, i64 0, i32 1
+  %overlay = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.191, ptr noundef nonnull %overlay, ptr noundef %errp) #4
   br label %return
 
@@ -5736,7 +5554,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_BlockdevSnapshot_members.exit, label %out_obj.thread
 
 visit_type_BlockdevSnapshot_members.exit:         ; preds = %if.end5
-  %overlay.i = getelementptr inbounds %struct.BlockdevSnapshot, ptr %0, i64 0, i32 1
+  %overlay.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.191, ptr noundef nonnull %overlay.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -5773,27 +5591,27 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %use_copy_range = getelementptr inbounds %struct.BackupPerf, ptr %obj, i64 0, i32 1
+  %use_copy_range = getelementptr inbounds i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.192, ptr noundef nonnull %use_copy_range, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_max_workers = getelementptr inbounds %struct.BackupPerf, ptr %obj, i64 0, i32 2
+  %has_max_workers = getelementptr inbounds i8, ptr %obj, i64 2
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.193, ptr noundef nonnull %has_max_workers) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %max_workers = getelementptr inbounds %struct.BackupPerf, ptr %obj, i64 0, i32 3
+  %max_workers = getelementptr inbounds i8, ptr %obj, i64 8
   %call6 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.193, ptr noundef nonnull %max_workers, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_max_chunk = getelementptr inbounds %struct.BackupPerf, ptr %obj, i64 0, i32 4
+  %has_max_chunk = getelementptr inbounds i8, ptr %obj, i64 16
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.194, ptr noundef nonnull %has_max_chunk) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %max_chunk = getelementptr inbounds %struct.BackupPerf, ptr %obj, i64 0, i32 5
+  %max_chunk = getelementptr inbounds i8, ptr %obj, i64 24
   %call12 = tail call zeroext i1 @visit_type_int64(ptr noundef %v, ptr noundef nonnull @.str.194, ptr noundef nonnull %max_chunk, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
@@ -5875,17 +5693,17 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_job_id, align 1
-  %bitmap = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 5
+  %bitmap = getelementptr inbounds i8, ptr %obj, i64 32
   %1 = load ptr, ptr %bitmap, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_bitmap, align 1
-  %filter_node_name = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 18
+  %filter_node_name = getelementptr inbounds i8, ptr %obj, i64 72
   %2 = load ptr, ptr %filter_node_name, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_filter_node_name, align 1
-  %x_perf = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 19
+  %x_perf = getelementptr inbounds i8, ptr %obj, i64 80
   %3 = load ptr, ptr %x_perf, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
@@ -5898,12 +5716,12 @@ if.then:                                          ; preds = %entry
   br i1 %call15, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.then, %entry
-  %device = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 1
+  %device = getelementptr inbounds i8, ptr %obj, i64 8
   %call18 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.103, ptr noundef nonnull %device, ptr noundef %errp) #4
   br i1 %call18, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end17
-  %sync = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 2
+  %sync = getelementptr inbounds i8, ptr %obj, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %4 = load i32, ptr %sync, align 4
   store i32 %4, ptr %value.i, align 4
@@ -5914,12 +5732,12 @@ if.end20:                                         ; preds = %if.end17
   br i1 %call.i, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.end20
-  %has_speed = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 3
+  %has_speed = getelementptr inbounds i8, ptr %obj, i64 20
   %call24 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %has_speed) #4
   br i1 %call24, label %if.then25, label %if.end29
 
 if.then25:                                        ; preds = %if.end23
-  %speed = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 4
+  %speed = getelementptr inbounds i8, ptr %obj, i64 24
   %call26 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %speed, ptr noundef %errp) #4
   br i1 %call26, label %if.end29, label %return
 
@@ -5932,12 +5750,12 @@ if.then31:                                        ; preds = %if.end29
   br i1 %call33, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.then31, %if.end29
-  %has_bitmap_mode = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 6
+  %has_bitmap_mode = getelementptr inbounds i8, ptr %obj, i64 40
   %call37 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.198, ptr noundef nonnull %has_bitmap_mode) #4
   br i1 %call37, label %if.then38, label %if.end42
 
 if.then38:                                        ; preds = %if.end36
-  %bitmap_mode = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 7
+  %bitmap_mode = getelementptr inbounds i8, ptr %obj, i64 44
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i62)
   %6 = load i32, ptr %bitmap_mode, align 4
   store i32 %6, ptr %value.i62, align 4
@@ -5948,22 +5766,22 @@ if.then38:                                        ; preds = %if.end36
   br i1 %call.i63, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.then38, %if.end36
-  %has_compress = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 8
+  %has_compress = getelementptr inbounds i8, ptr %obj, i64 48
   %call43 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.199, ptr noundef nonnull %has_compress) #4
   br i1 %call43, label %if.then44, label %if.end48
 
 if.then44:                                        ; preds = %if.end42
-  %compress = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 9
+  %compress = getelementptr inbounds i8, ptr %obj, i64 49
   %call45 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.199, ptr noundef nonnull %compress, ptr noundef %errp) #4
   br i1 %call45, label %if.end48, label %return
 
 if.end48:                                         ; preds = %if.then44, %if.end42
-  %has_on_source_error = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 10
+  %has_on_source_error = getelementptr inbounds i8, ptr %obj, i64 50
   %call49 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.200, ptr noundef nonnull %has_on_source_error) #4
   br i1 %call49, label %if.then50, label %if.end54
 
 if.then50:                                        ; preds = %if.end48
-  %on_source_error = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 11
+  %on_source_error = getelementptr inbounds i8, ptr %obj, i64 52
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i64)
   %8 = load i32, ptr %on_source_error, align 4
   store i32 %8, ptr %value.i64, align 4
@@ -5974,12 +5792,12 @@ if.then50:                                        ; preds = %if.end48
   br i1 %call.i65, label %if.end54, label %return
 
 if.end54:                                         ; preds = %if.then50, %if.end48
-  %has_on_target_error = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 12
+  %has_on_target_error = getelementptr inbounds i8, ptr %obj, i64 56
   %call55 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.201, ptr noundef nonnull %has_on_target_error) #4
   br i1 %call55, label %if.then56, label %if.end60
 
 if.then56:                                        ; preds = %if.end54
-  %on_target_error = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 13
+  %on_target_error = getelementptr inbounds i8, ptr %obj, i64 60
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i66)
   %10 = load i32, ptr %on_target_error, align 4
   store i32 %10, ptr %value.i66, align 4
@@ -5990,22 +5808,22 @@ if.then56:                                        ; preds = %if.end54
   br i1 %call.i67, label %if.end60, label %return
 
 if.end60:                                         ; preds = %if.then56, %if.end54
-  %has_auto_finalize = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 14
+  %has_auto_finalize = getelementptr inbounds i8, ptr %obj, i64 64
   %call61 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.183, ptr noundef nonnull %has_auto_finalize) #4
   br i1 %call61, label %if.then62, label %if.end66
 
 if.then62:                                        ; preds = %if.end60
-  %auto_finalize = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 15
+  %auto_finalize = getelementptr inbounds i8, ptr %obj, i64 65
   %call63 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.183, ptr noundef nonnull %auto_finalize, ptr noundef %errp) #4
   br i1 %call63, label %if.end66, label %return
 
 if.end66:                                         ; preds = %if.then62, %if.end60
-  %has_auto_dismiss = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 16
+  %has_auto_dismiss = getelementptr inbounds i8, ptr %obj, i64 66
   %call67 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.184, ptr noundef nonnull %has_auto_dismiss) #4
   br i1 %call67, label %if.then68, label %if.end72
 
 if.then68:                                        ; preds = %if.end66
-  %auto_dismiss = getelementptr inbounds %struct.BackupCommon, ptr %obj, i64 0, i32 17
+  %auto_dismiss = getelementptr inbounds i8, ptr %obj, i64 67
   %call69 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.184, ptr noundef nonnull %auto_dismiss, ptr noundef %errp) #4
   br i1 %call69, label %if.end72, label %return
 
@@ -6103,7 +5921,7 @@ define dso_local zeroext i1 @visit_type_DriveBackup_members(ptr noundef %v, ptr 
 entry:
   %value.i = alloca i32, align 4
   %has_format = alloca i8, align 1
-  %format = getelementptr inbounds %struct.DriveBackup, ptr %obj, i64 0, i32 21
+  %format = getelementptr inbounds i8, ptr %obj, i64 96
   %0 = load ptr, ptr %format, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -6112,7 +5930,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %target = getelementptr inbounds %struct.DriveBackup, ptr %obj, i64 0, i32 20
+  %target = getelementptr inbounds i8, ptr %obj, i64 88
   %call2 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.204, ptr noundef nonnull %target, ptr noundef %errp) #4
   br i1 %call2, label %if.end4, label %return
 
@@ -6125,12 +5943,12 @@ if.then6:                                         ; preds = %if.end4
   br i1 %call8, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.then6, %if.end4
-  %has_mode = getelementptr inbounds %struct.DriveBackup, ptr %obj, i64 0, i32 22
+  %has_mode = getelementptr inbounds i8, ptr %obj, i64 104
   %call12 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.189, ptr noundef nonnull %has_mode) #4
   br i1 %call12, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %if.end11
-  %mode = getelementptr inbounds %struct.DriveBackup, ptr %obj, i64 0, i32 23
+  %mode = getelementptr inbounds i8, ptr %obj, i64 108
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %mode, align 4
   store i32 %1, ptr %value.i, align 4
@@ -6208,7 +6026,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %target = getelementptr inbounds %struct.BlockdevBackup, ptr %obj, i64 0, i32 20
+  %target = getelementptr inbounds i8, ptr %obj, i64 88
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.204, ptr noundef nonnull %target, ptr noundef %errp) #4
   br label %return
 
@@ -6245,7 +6063,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_BlockdevBackup_members.exit, label %out_obj.thread
 
 visit_type_BlockdevBackup_members.exit:           ; preds = %if.end5
-  %target.i = getelementptr inbounds %struct.BlockdevBackup, ptr %0, i64 0, i32 20
+  %target.i = getelementptr inbounds i8, ptr %0, i64 88
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.204, ptr noundef nonnull %target.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -6282,12 +6100,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %image_node_name = getelementptr inbounds %struct.q_obj_change_backing_file_arg, ptr %obj, i64 0, i32 1
+  %image_node_name = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.205, ptr noundef nonnull %image_node_name, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %backing_file = getelementptr inbounds %struct.q_obj_change_backing_file_arg, ptr %obj, i64 0, i32 2
+  %backing_file = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.206, ptr noundef nonnull %backing_file, ptr noundef %errp) #4
   br label %return
 
@@ -6311,32 +6129,32 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_job_id, align 1
-  %base_node = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 2
+  %base_node = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %base_node, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_base_node, align 1
-  %base = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %obj, i64 24
   %2 = load ptr, ptr %base, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_base, align 1
-  %top_node = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 4
+  %top_node = getelementptr inbounds i8, ptr %obj, i64 32
   %3 = load ptr, ptr %top_node, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
   store i8 %frombool13, ptr %has_top_node, align 1
-  %top = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 5
+  %top = getelementptr inbounds i8, ptr %obj, i64 40
   %4 = load ptr, ptr %top, align 8
   %tobool14 = icmp ne ptr %4, null
   %frombool17 = zext i1 %tobool14 to i8
   store i8 %frombool17, ptr %has_top, align 1
-  %backing_file = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 6
+  %backing_file = getelementptr inbounds i8, ptr %obj, i64 48
   %5 = load ptr, ptr %backing_file, align 8
   %tobool18 = icmp ne ptr %5, null
   %frombool21 = zext i1 %tobool18 to i8
   store i8 %frombool21, ptr %has_backing_file, align 1
-  %filter_node_name = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 11
+  %filter_node_name = getelementptr inbounds i8, ptr %obj, i64 80
   %6 = load ptr, ptr %filter_node_name, align 8
   %tobool22 = icmp ne ptr %6, null
   %frombool25 = zext i1 %tobool22 to i8
@@ -6349,7 +6167,7 @@ if.then:                                          ; preds = %entry
   br i1 %call27, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.then, %entry
-  %device = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 1
+  %device = getelementptr inbounds i8, ptr %obj, i64 8
   %call30 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.103, ptr noundef nonnull %device, ptr noundef %errp) #4
   br i1 %call30, label %if.end32, label %return
 
@@ -6410,22 +6228,22 @@ if.then74:                                        ; preds = %if.end72
   br i1 %call76, label %if.end79, label %return
 
 if.end79:                                         ; preds = %if.then74, %if.end72
-  %has_speed = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 7
+  %has_speed = getelementptr inbounds i8, ptr %obj, i64 56
   %call80 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %has_speed) #4
   br i1 %call80, label %if.then81, label %if.end85
 
 if.then81:                                        ; preds = %if.end79
-  %speed = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 8
+  %speed = getelementptr inbounds i8, ptr %obj, i64 64
   %call82 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %speed, ptr noundef %errp) #4
   br i1 %call82, label %if.end85, label %return
 
 if.end85:                                         ; preds = %if.then81, %if.end79
-  %has_on_error = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 9
+  %has_on_error = getelementptr inbounds i8, ptr %obj, i64 72
   %call86 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.211, ptr noundef nonnull %has_on_error) #4
   br i1 %call86, label %if.then87, label %if.end91
 
 if.then87:                                        ; preds = %if.end85
-  %on_error = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 10
+  %on_error = getelementptr inbounds i8, ptr %obj, i64 76
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %7 = load i32, ptr %on_error, align 4
   store i32 %7, ptr %value.i, align 4
@@ -6444,22 +6262,22 @@ if.then93:                                        ; preds = %if.end91
   br i1 %call95, label %if.end98, label %return
 
 if.end98:                                         ; preds = %if.then93, %if.end91
-  %has_auto_finalize = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 12
+  %has_auto_finalize = getelementptr inbounds i8, ptr %obj, i64 88
   %call99 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.183, ptr noundef nonnull %has_auto_finalize) #4
   br i1 %call99, label %if.then100, label %if.end104
 
 if.then100:                                       ; preds = %if.end98
-  %auto_finalize = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 13
+  %auto_finalize = getelementptr inbounds i8, ptr %obj, i64 89
   %call101 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.183, ptr noundef nonnull %auto_finalize, ptr noundef %errp) #4
   br i1 %call101, label %if.end104, label %return
 
 if.end104:                                        ; preds = %if.then100, %if.end98
-  %has_auto_dismiss = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 14
+  %has_auto_dismiss = getelementptr inbounds i8, ptr %obj, i64 90
   %call105 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.184, ptr noundef nonnull %has_auto_dismiss) #4
   br i1 %call105, label %if.then106, label %if.end110
 
 if.then106:                                       ; preds = %if.end104
-  %auto_dismiss = getelementptr inbounds %struct.q_obj_block_commit_arg, ptr %obj, i64 0, i32 15
+  %auto_dismiss = getelementptr inbounds i8, ptr %obj, i64 91
   %call107 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.184, ptr noundef nonnull %auto_dismiss, ptr noundef %errp) #4
   br i1 %call107, label %if.end110, label %return
 
@@ -6478,7 +6296,7 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %flat = getelementptr inbounds %struct.q_obj_query_named_block_nodes_arg, ptr %obj, i64 0, i32 1
+  %flat = getelementptr inbounds i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.212, ptr noundef nonnull %flat, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
@@ -6503,7 +6321,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlockDeviceInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockDeviceInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -6558,7 +6376,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.XDbgBlockGraphNode, ptr %obj, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %type, align 4
   store i32 %0, ptr %value.i, align 4
@@ -6569,7 +6387,7 @@ if.end:                                           ; preds = %entry
   br i1 %call.i, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %name = getelementptr inbounds %struct.XDbgBlockGraphNode, ptr %obj, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %name, ptr noundef %errp) #4
   br label %return
 
@@ -6607,7 +6425,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %type.i = getelementptr inbounds %struct.XDbgBlockGraphNode, ptr %0, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %type.i, align 4
   store i32 %1, ptr %value.i.i, align 4
@@ -6618,7 +6436,7 @@ if.end.i:                                         ; preds = %if.end5
   br i1 %call.i.i, label %visit_type_XDbgBlockGraphNode_members.exit, label %out_obj.thread
 
 visit_type_XDbgBlockGraphNode_members.exit:       ; preds = %if.end.i
-  %name.i = getelementptr inbounds %struct.XDbgBlockGraphNode, ptr %0, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %name.i, ptr noundef %errp) #4
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -6674,7 +6492,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlockPermissionList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %value.i, align 4
@@ -6722,22 +6540,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %child = getelementptr inbounds %struct.XDbgBlockGraphEdge, ptr %obj, i64 0, i32 1
+  %child = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.213, ptr noundef nonnull %child, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %name = getelementptr inbounds %struct.XDbgBlockGraphEdge, ptr %obj, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %name, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %perm = getelementptr inbounds %struct.XDbgBlockGraphEdge, ptr %obj, i64 0, i32 3
+  %perm = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_BlockPermissionList(ptr noundef %v, ptr noundef nonnull @.str.214, ptr noundef nonnull %perm, ptr noundef %errp)
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %shared_perm = getelementptr inbounds %struct.XDbgBlockGraphEdge, ptr %obj, i64 0, i32 4
+  %shared_perm = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_type_BlockPermissionList(ptr noundef %v, ptr noundef nonnull @.str.215, ptr noundef nonnull %shared_perm, ptr noundef %errp)
   br label %return
 
@@ -6774,22 +6592,22 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %child.i = getelementptr inbounds %struct.XDbgBlockGraphEdge, ptr %0, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.213, ptr noundef nonnull %child.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread
 
 if.end3.i:                                        ; preds = %if.end.i
-  %name.i = getelementptr inbounds %struct.XDbgBlockGraphEdge, ptr %0, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %name.i, ptr noundef %errp) #4
   br i1 %call4.i, label %if.end6.i, label %out_obj.thread
 
 if.end6.i:                                        ; preds = %if.end3.i
-  %perm.i = getelementptr inbounds %struct.XDbgBlockGraphEdge, ptr %0, i64 0, i32 3
+  %perm.i = getelementptr inbounds i8, ptr %0, i64 24
   %call7.i = tail call zeroext i1 @visit_type_BlockPermissionList(ptr noundef %v, ptr noundef nonnull @.str.214, ptr noundef nonnull %perm.i, ptr noundef %errp)
   br i1 %call7.i, label %visit_type_XDbgBlockGraphEdge_members.exit, label %out_obj.thread
 
 visit_type_XDbgBlockGraphEdge_members.exit:       ; preds = %if.end6.i
-  %shared_perm.i = getelementptr inbounds %struct.XDbgBlockGraphEdge, ptr %0, i64 0, i32 4
+  %shared_perm.i = getelementptr inbounds i8, ptr %0, i64 32
   %call10.i = tail call zeroext i1 @visit_type_BlockPermissionList(ptr noundef %v, ptr noundef nonnull @.str.215, ptr noundef nonnull %shared_perm.i, ptr noundef %errp)
   br i1 %call10.i, label %out_obj, label %out_obj.thread
 
@@ -6832,7 +6650,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.XDbgBlockGraphNodeList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_XDbgBlockGraphNode(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -6880,7 +6698,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.XDbgBlockGraphEdgeList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_XDbgBlockGraphEdge(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -6922,7 +6740,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %edges = getelementptr inbounds %struct.XDbgBlockGraph, ptr %obj, i64 0, i32 1
+  %edges = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_XDbgBlockGraphEdgeList(ptr noundef %v, ptr noundef nonnull @.str.217, ptr noundef nonnull %edges, ptr noundef %errp)
   br label %return
 
@@ -6959,7 +6777,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_XDbgBlockGraph_members.exit, label %out_obj.thread
 
 visit_type_XDbgBlockGraph_members.exit:           ; preds = %if.end5
-  %edges.i = getelementptr inbounds %struct.XDbgBlockGraph, ptr %0, i64 0, i32 1
+  %edges.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_XDbgBlockGraphEdgeList(ptr noundef %v, ptr noundef nonnull @.str.217, ptr noundef nonnull %edges.i, ptr noundef %errp)
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -7005,17 +6823,17 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_job_id, align 1
-  %format = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 3
+  %format = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load ptr, ptr %format, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_format, align 1
-  %node_name = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 4
+  %node_name = getelementptr inbounds i8, ptr %obj, i64 32
   %2 = load ptr, ptr %node_name, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_node_name, align 1
-  %replaces = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 5
+  %replaces = getelementptr inbounds i8, ptr %obj, i64 40
   %3 = load ptr, ptr %replaces, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
@@ -7028,12 +6846,12 @@ if.then:                                          ; preds = %entry
   br i1 %call15, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.then, %entry
-  %device = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 1
+  %device = getelementptr inbounds i8, ptr %obj, i64 8
   %call18 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.103, ptr noundef nonnull %device, ptr noundef %errp) #4
   br i1 %call18, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end17
-  %target = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %obj, i64 16
   %call21 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.204, ptr noundef nonnull %target, ptr noundef %errp) #4
   br i1 %call21, label %if.end23, label %return
 
@@ -7062,7 +6880,7 @@ if.then39:                                        ; preds = %if.end37
   br i1 %call41, label %if.end44, label %return
 
 if.end44:                                         ; preds = %if.then39, %if.end37
-  %sync = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 6
+  %sync = getelementptr inbounds i8, ptr %obj, i64 48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %4 = load i32, ptr %sync, align 4
   store i32 %4, ptr %value.i, align 4
@@ -7073,12 +6891,12 @@ if.end44:                                         ; preds = %if.then39, %if.end3
   br i1 %call.i, label %if.end47, label %return
 
 if.end47:                                         ; preds = %if.end44
-  %has_mode = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 7
+  %has_mode = getelementptr inbounds i8, ptr %obj, i64 52
   %call48 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.189, ptr noundef nonnull %has_mode) #4
   br i1 %call48, label %if.then49, label %if.end53
 
 if.then49:                                        ; preds = %if.end47
-  %mode = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 8
+  %mode = getelementptr inbounds i8, ptr %obj, i64 56
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i77)
   %6 = load i32, ptr %mode, align 4
   store i32 %6, ptr %value.i77, align 4
@@ -7089,42 +6907,42 @@ if.then49:                                        ; preds = %if.end47
   br i1 %call.i78, label %if.end53, label %return
 
 if.end53:                                         ; preds = %if.then49, %if.end47
-  %has_speed = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 9
+  %has_speed = getelementptr inbounds i8, ptr %obj, i64 60
   %call54 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %has_speed) #4
   br i1 %call54, label %if.then55, label %if.end59
 
 if.then55:                                        ; preds = %if.end53
-  %speed = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 10
+  %speed = getelementptr inbounds i8, ptr %obj, i64 64
   %call56 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %speed, ptr noundef %errp) #4
   br i1 %call56, label %if.end59, label %return
 
 if.end59:                                         ; preds = %if.then55, %if.end53
-  %has_granularity = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 11
+  %has_granularity = getelementptr inbounds i8, ptr %obj, i64 72
   %call60 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.95, ptr noundef nonnull %has_granularity) #4
   br i1 %call60, label %if.then61, label %if.end65
 
 if.then61:                                        ; preds = %if.end59
-  %granularity = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 12
+  %granularity = getelementptr inbounds i8, ptr %obj, i64 76
   %call62 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.95, ptr noundef nonnull %granularity, ptr noundef %errp) #4
   br i1 %call62, label %if.end65, label %return
 
 if.end65:                                         ; preds = %if.then61, %if.end59
-  %has_buf_size = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 13
+  %has_buf_size = getelementptr inbounds i8, ptr %obj, i64 80
   %call66 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.219, ptr noundef nonnull %has_buf_size) #4
   br i1 %call66, label %if.then67, label %if.end71
 
 if.then67:                                        ; preds = %if.end65
-  %buf_size = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 14
+  %buf_size = getelementptr inbounds i8, ptr %obj, i64 88
   %call68 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.219, ptr noundef nonnull %buf_size, ptr noundef %errp) #4
   br i1 %call68, label %if.end71, label %return
 
 if.end71:                                         ; preds = %if.then67, %if.end65
-  %has_on_source_error = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 15
+  %has_on_source_error = getelementptr inbounds i8, ptr %obj, i64 96
   %call72 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.200, ptr noundef nonnull %has_on_source_error) #4
   br i1 %call72, label %if.then73, label %if.end77
 
 if.then73:                                        ; preds = %if.end71
-  %on_source_error = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 16
+  %on_source_error = getelementptr inbounds i8, ptr %obj, i64 100
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i79)
   %8 = load i32, ptr %on_source_error, align 4
   store i32 %8, ptr %value.i79, align 4
@@ -7135,12 +6953,12 @@ if.then73:                                        ; preds = %if.end71
   br i1 %call.i80, label %if.end77, label %return
 
 if.end77:                                         ; preds = %if.then73, %if.end71
-  %has_on_target_error = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 17
+  %has_on_target_error = getelementptr inbounds i8, ptr %obj, i64 104
   %call78 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.201, ptr noundef nonnull %has_on_target_error) #4
   br i1 %call78, label %if.then79, label %if.end83
 
 if.then79:                                        ; preds = %if.end77
-  %on_target_error = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 18
+  %on_target_error = getelementptr inbounds i8, ptr %obj, i64 108
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i81)
   %10 = load i32, ptr %on_target_error, align 4
   store i32 %10, ptr %value.i81, align 4
@@ -7151,22 +6969,22 @@ if.then79:                                        ; preds = %if.end77
   br i1 %call.i82, label %if.end83, label %return
 
 if.end83:                                         ; preds = %if.then79, %if.end77
-  %has_unmap = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 19
+  %has_unmap = getelementptr inbounds i8, ptr %obj, i64 112
   %call84 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.220, ptr noundef nonnull %has_unmap) #4
   br i1 %call84, label %if.then85, label %if.end89
 
 if.then85:                                        ; preds = %if.end83
-  %unmap = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 20
+  %unmap = getelementptr inbounds i8, ptr %obj, i64 113
   %call86 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.220, ptr noundef nonnull %unmap, ptr noundef %errp) #4
   br i1 %call86, label %if.end89, label %return
 
 if.end89:                                         ; preds = %if.then85, %if.end83
-  %has_copy_mode = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 21
+  %has_copy_mode = getelementptr inbounds i8, ptr %obj, i64 114
   %call90 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.221, ptr noundef nonnull %has_copy_mode) #4
   br i1 %call90, label %if.then91, label %if.end95
 
 if.then91:                                        ; preds = %if.end89
-  %copy_mode = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 22
+  %copy_mode = getelementptr inbounds i8, ptr %obj, i64 116
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i83)
   %12 = load i32, ptr %copy_mode, align 4
   store i32 %12, ptr %value.i83, align 4
@@ -7177,22 +6995,22 @@ if.then91:                                        ; preds = %if.end89
   br i1 %call.i84, label %if.end95, label %return
 
 if.end95:                                         ; preds = %if.then91, %if.end89
-  %has_auto_finalize = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 23
+  %has_auto_finalize = getelementptr inbounds i8, ptr %obj, i64 120
   %call96 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.183, ptr noundef nonnull %has_auto_finalize) #4
   br i1 %call96, label %if.then97, label %if.end101
 
 if.then97:                                        ; preds = %if.end95
-  %auto_finalize = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 24
+  %auto_finalize = getelementptr inbounds i8, ptr %obj, i64 121
   %call98 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.183, ptr noundef nonnull %auto_finalize, ptr noundef %errp) #4
   br i1 %call98, label %if.end101, label %return
 
 if.end101:                                        ; preds = %if.then97, %if.end95
-  %has_auto_dismiss = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 25
+  %has_auto_dismiss = getelementptr inbounds i8, ptr %obj, i64 122
   %call102 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.184, ptr noundef nonnull %has_auto_dismiss) #4
   br i1 %call102, label %if.then103, label %if.end107
 
 if.then103:                                       ; preds = %if.end101
-  %auto_dismiss = getelementptr inbounds %struct.DriveMirror, ptr %obj, i64 0, i32 26
+  %auto_dismiss = getelementptr inbounds i8, ptr %obj, i64 123
   %call104 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.184, ptr noundef nonnull %auto_dismiss, ptr noundef %errp) #4
   br i1 %call104, label %if.end107, label %return
 
@@ -7264,7 +7082,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.BlockDirtyBitmap, ptr %obj, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %name, ptr noundef %errp) #4
   br label %return
 
@@ -7301,7 +7119,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_BlockDirtyBitmap_members.exit, label %out_obj.thread
 
 visit_type_BlockDirtyBitmap_members.exit:         ; preds = %if.end5
-  %name.i = getelementptr inbounds %struct.BlockDirtyBitmap, ptr %0, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %name.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -7338,37 +7156,37 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.BlockDirtyBitmapAdd, ptr %obj, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %name, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_granularity = getelementptr inbounds %struct.BlockDirtyBitmapAdd, ptr %obj, i64 0, i32 2
+  %has_granularity = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.95, ptr noundef nonnull %has_granularity) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %granularity = getelementptr inbounds %struct.BlockDirtyBitmapAdd, ptr %obj, i64 0, i32 3
+  %granularity = getelementptr inbounds i8, ptr %obj, i64 20
   %call6 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.95, ptr noundef nonnull %granularity, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_persistent = getelementptr inbounds %struct.BlockDirtyBitmapAdd, ptr %obj, i64 0, i32 4
+  %has_persistent = getelementptr inbounds i8, ptr %obj, i64 24
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.98, ptr noundef nonnull %has_persistent) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %persistent = getelementptr inbounds %struct.BlockDirtyBitmapAdd, ptr %obj, i64 0, i32 5
+  %persistent = getelementptr inbounds i8, ptr %obj, i64 25
   %call12 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.98, ptr noundef nonnull %persistent, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_disabled = getelementptr inbounds %struct.BlockDirtyBitmapAdd, ptr %obj, i64 0, i32 6
+  %has_disabled = getelementptr inbounds i8, ptr %obj, i64 26
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.222, ptr noundef nonnull %has_disabled) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %disabled = getelementptr inbounds %struct.BlockDirtyBitmapAdd, ptr %obj, i64 0, i32 7
+  %disabled = getelementptr inbounds i8, ptr %obj, i64 27
   %call18 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.222, ptr noundef nonnull %disabled, ptr noundef %errp) #4
   br i1 %call18, label %if.end21, label %return
 
@@ -7470,12 +7288,12 @@ sw.bb7:                                           ; preds = %if.end5
 
 if.end10:                                         ; preds = %sw.bb7
   %2 = load ptr, ptr %obj, align 8
-  %u11 = getelementptr inbounds %struct.BlockDirtyBitmapOrStr, ptr %2, i64 0, i32 1
+  %u11 = getelementptr inbounds i8, ptr %2, i64 8
   %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.190, ptr noundef nonnull %u11, ptr noundef %errp) #4
   br i1 %call.i, label %visit_type_BlockDirtyBitmap_members.exit, label %land.lhs.true.critedge
 
 visit_type_BlockDirtyBitmap_members.exit:         ; preds = %if.end10
-  %name.i = getelementptr inbounds %struct.BlockDirtyBitmapOrStr, ptr %2, i64 0, i32 1, i32 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %2, i64 16
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %name.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.then13, label %land.lhs.true.critedge
 
@@ -7507,7 +7325,7 @@ if.end21:                                         ; preds = %sw.default
   br label %land.lhs.true.sink.split
 
 out_obj:                                          ; preds = %if.end5
-  %u = getelementptr inbounds %struct.BlockDirtyBitmapOrStr, ptr %0, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %0, i64 8
   %call6 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %u, ptr noundef %errp) #4
   tail call void @visit_end_alternate(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call6, label %return, label %land.lhs.true
@@ -7558,7 +7376,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlockDirtyBitmapOrStrList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockDirtyBitmapOrStr(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -7600,12 +7418,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %target = getelementptr inbounds %struct.BlockDirtyBitmapMerge, ptr %obj, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.204, ptr noundef nonnull %target, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %bitmaps = getelementptr inbounds %struct.BlockDirtyBitmapMerge, ptr %obj, i64 0, i32 2
+  %bitmaps = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_BlockDirtyBitmapOrStrList(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %bitmaps, ptr noundef %errp)
   br label %return
 
@@ -7642,12 +7460,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %target.i = getelementptr inbounds %struct.BlockDirtyBitmapMerge, ptr %0, i64 0, i32 1
+  %target.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.204, ptr noundef nonnull %target.i, ptr noundef %errp) #4
   br i1 %call1.i, label %visit_type_BlockDirtyBitmapMerge_members.exit, label %out_obj.thread
 
 visit_type_BlockDirtyBitmapMerge_members.exit:    ; preds = %if.end.i
-  %bitmaps.i = getelementptr inbounds %struct.BlockDirtyBitmapMerge, ptr %0, i64 0, i32 2
+  %bitmaps.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_BlockDirtyBitmapOrStrList(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %bitmaps.i, ptr noundef %errp)
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -7751,12 +7569,12 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_job_id, align 1
-  %replaces = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 3
+  %replaces = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load ptr, ptr %replaces, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_replaces, align 1
-  %filter_node_name = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 15
+  %filter_node_name = getelementptr inbounds i8, ptr %obj, i64 88
   %2 = load ptr, ptr %filter_node_name, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -7769,12 +7587,12 @@ if.then:                                          ; preds = %entry
   br i1 %call11, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.then, %entry
-  %device = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 1
+  %device = getelementptr inbounds i8, ptr %obj, i64 8
   %call14 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.103, ptr noundef nonnull %device, ptr noundef %errp) #4
   br i1 %call14, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end13
-  %target = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.204, ptr noundef nonnull %target, ptr noundef %errp) #4
   br i1 %call17, label %if.end19, label %return
 
@@ -7787,7 +7605,7 @@ if.then21:                                        ; preds = %if.end19
   br i1 %call23, label %if.end26, label %return
 
 if.end26:                                         ; preds = %if.then21, %if.end19
-  %sync = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 4
+  %sync = getelementptr inbounds i8, ptr %obj, i64 32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %3 = load i32, ptr %sync, align 4
   store i32 %3, ptr %value.i, align 4
@@ -7798,42 +7616,42 @@ if.end26:                                         ; preds = %if.then21, %if.end1
   br i1 %call.i, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.end26
-  %has_speed = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 5
+  %has_speed = getelementptr inbounds i8, ptr %obj, i64 36
   %call30 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %has_speed) #4
   br i1 %call30, label %if.then31, label %if.end35
 
 if.then31:                                        ; preds = %if.end29
-  %speed = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 6
+  %speed = getelementptr inbounds i8, ptr %obj, i64 40
   %call32 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %speed, ptr noundef %errp) #4
   br i1 %call32, label %if.end35, label %return
 
 if.end35:                                         ; preds = %if.then31, %if.end29
-  %has_granularity = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 7
+  %has_granularity = getelementptr inbounds i8, ptr %obj, i64 48
   %call36 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.95, ptr noundef nonnull %has_granularity) #4
   br i1 %call36, label %if.then37, label %if.end41
 
 if.then37:                                        ; preds = %if.end35
-  %granularity = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 8
+  %granularity = getelementptr inbounds i8, ptr %obj, i64 52
   %call38 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.95, ptr noundef nonnull %granularity, ptr noundef %errp) #4
   br i1 %call38, label %if.end41, label %return
 
 if.end41:                                         ; preds = %if.then37, %if.end35
-  %has_buf_size = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 9
+  %has_buf_size = getelementptr inbounds i8, ptr %obj, i64 56
   %call42 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.219, ptr noundef nonnull %has_buf_size) #4
   br i1 %call42, label %if.then43, label %if.end47
 
 if.then43:                                        ; preds = %if.end41
-  %buf_size = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 10
+  %buf_size = getelementptr inbounds i8, ptr %obj, i64 64
   %call44 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.219, ptr noundef nonnull %buf_size, ptr noundef %errp) #4
   br i1 %call44, label %if.end47, label %return
 
 if.end47:                                         ; preds = %if.then43, %if.end41
-  %has_on_source_error = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 11
+  %has_on_source_error = getelementptr inbounds i8, ptr %obj, i64 72
   %call48 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.200, ptr noundef nonnull %has_on_source_error) #4
   br i1 %call48, label %if.then49, label %if.end53
 
 if.then49:                                        ; preds = %if.end47
-  %on_source_error = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 12
+  %on_source_error = getelementptr inbounds i8, ptr %obj, i64 76
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i62)
   %5 = load i32, ptr %on_source_error, align 4
   store i32 %5, ptr %value.i62, align 4
@@ -7844,12 +7662,12 @@ if.then49:                                        ; preds = %if.end47
   br i1 %call.i63, label %if.end53, label %return
 
 if.end53:                                         ; preds = %if.then49, %if.end47
-  %has_on_target_error = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 13
+  %has_on_target_error = getelementptr inbounds i8, ptr %obj, i64 80
   %call54 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.201, ptr noundef nonnull %has_on_target_error) #4
   br i1 %call54, label %if.then55, label %if.end59
 
 if.then55:                                        ; preds = %if.end53
-  %on_target_error = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 14
+  %on_target_error = getelementptr inbounds i8, ptr %obj, i64 84
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i64)
   %7 = load i32, ptr %on_target_error, align 4
   store i32 %7, ptr %value.i64, align 4
@@ -7868,12 +7686,12 @@ if.then61:                                        ; preds = %if.end59
   br i1 %call63, label %if.end66, label %return
 
 if.end66:                                         ; preds = %if.then61, %if.end59
-  %has_copy_mode = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 16
+  %has_copy_mode = getelementptr inbounds i8, ptr %obj, i64 96
   %call67 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.221, ptr noundef nonnull %has_copy_mode) #4
   br i1 %call67, label %if.then68, label %if.end72
 
 if.then68:                                        ; preds = %if.end66
-  %copy_mode = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 17
+  %copy_mode = getelementptr inbounds i8, ptr %obj, i64 100
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i66)
   %9 = load i32, ptr %copy_mode, align 4
   store i32 %9, ptr %value.i66, align 4
@@ -7884,22 +7702,22 @@ if.then68:                                        ; preds = %if.end66
   br i1 %call.i67, label %if.end72, label %return
 
 if.end72:                                         ; preds = %if.then68, %if.end66
-  %has_auto_finalize = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 18
+  %has_auto_finalize = getelementptr inbounds i8, ptr %obj, i64 104
   %call73 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.183, ptr noundef nonnull %has_auto_finalize) #4
   br i1 %call73, label %if.then74, label %if.end78
 
 if.then74:                                        ; preds = %if.end72
-  %auto_finalize = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 19
+  %auto_finalize = getelementptr inbounds i8, ptr %obj, i64 105
   %call75 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.183, ptr noundef nonnull %auto_finalize, ptr noundef %errp) #4
   br i1 %call75, label %if.end78, label %return
 
 if.end78:                                         ; preds = %if.then74, %if.end72
-  %has_auto_dismiss = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 20
+  %has_auto_dismiss = getelementptr inbounds i8, ptr %obj, i64 106
   %call79 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.184, ptr noundef nonnull %has_auto_dismiss) #4
   br i1 %call79, label %if.then80, label %if.end84
 
 if.then80:                                        ; preds = %if.end78
-  %auto_dismiss = getelementptr inbounds %struct.q_obj_blockdev_mirror_arg, ptr %obj, i64 0, i32 21
+  %auto_dismiss = getelementptr inbounds i8, ptr %obj, i64 107
   %call81 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.184, ptr noundef nonnull %auto_dismiss, ptr noundef %errp) #4
   br i1 %call81, label %if.end84, label %return
 
@@ -7921,12 +7739,12 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_device, align 1
-  %id = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %id, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_id, align 1
-  %group = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 34
+  %group = getelementptr inbounds i8, ptr %obj, i64 272
   %2 = load ptr, ptr %group, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -7955,162 +7773,162 @@ if.then21:                                        ; preds = %if.end19
   br i1 %call23, label %if.end26, label %return
 
 if.end26:                                         ; preds = %if.then21, %if.end19
-  %bps = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 2
+  %bps = getelementptr inbounds i8, ptr %obj, i64 16
   %call27 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.70, ptr noundef nonnull %bps, ptr noundef %errp) #4
   br i1 %call27, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.end26
-  %bps_rd = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 3
+  %bps_rd = getelementptr inbounds i8, ptr %obj, i64 24
   %call30 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.71, ptr noundef nonnull %bps_rd, ptr noundef %errp) #4
   br i1 %call30, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.end29
-  %bps_wr = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 4
+  %bps_wr = getelementptr inbounds i8, ptr %obj, i64 32
   %call33 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.72, ptr noundef nonnull %bps_wr, ptr noundef %errp) #4
   br i1 %call33, label %if.end35, label %return
 
 if.end35:                                         ; preds = %if.end32
-  %iops = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 5
+  %iops = getelementptr inbounds i8, ptr %obj, i64 40
   %call36 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %iops, ptr noundef %errp) #4
   br i1 %call36, label %if.end38, label %return
 
 if.end38:                                         ; preds = %if.end35
-  %iops_rd = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 6
+  %iops_rd = getelementptr inbounds i8, ptr %obj, i64 48
   %call39 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.74, ptr noundef nonnull %iops_rd, ptr noundef %errp) #4
   br i1 %call39, label %if.end41, label %return
 
 if.end41:                                         ; preds = %if.end38
-  %iops_wr = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 7
+  %iops_wr = getelementptr inbounds i8, ptr %obj, i64 56
   %call42 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.75, ptr noundef nonnull %iops_wr, ptr noundef %errp) #4
   br i1 %call42, label %if.end44, label %return
 
 if.end44:                                         ; preds = %if.end41
-  %has_bps_max = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 8
+  %has_bps_max = getelementptr inbounds i8, ptr %obj, i64 64
   %call45 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.77, ptr noundef nonnull %has_bps_max) #4
   br i1 %call45, label %if.then46, label %if.end50
 
 if.then46:                                        ; preds = %if.end44
-  %bps_max = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 9
+  %bps_max = getelementptr inbounds i8, ptr %obj, i64 72
   %call47 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.77, ptr noundef nonnull %bps_max, ptr noundef %errp) #4
   br i1 %call47, label %if.end50, label %return
 
 if.end50:                                         ; preds = %if.then46, %if.end44
-  %has_bps_rd_max = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 10
+  %has_bps_rd_max = getelementptr inbounds i8, ptr %obj, i64 80
   %call51 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.78, ptr noundef nonnull %has_bps_rd_max) #4
   br i1 %call51, label %if.then52, label %if.end56
 
 if.then52:                                        ; preds = %if.end50
-  %bps_rd_max = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 11
+  %bps_rd_max = getelementptr inbounds i8, ptr %obj, i64 88
   %call53 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.78, ptr noundef nonnull %bps_rd_max, ptr noundef %errp) #4
   br i1 %call53, label %if.end56, label %return
 
 if.end56:                                         ; preds = %if.then52, %if.end50
-  %has_bps_wr_max = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 12
+  %has_bps_wr_max = getelementptr inbounds i8, ptr %obj, i64 96
   %call57 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %has_bps_wr_max) #4
   br i1 %call57, label %if.then58, label %if.end62
 
 if.then58:                                        ; preds = %if.end56
-  %bps_wr_max = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 13
+  %bps_wr_max = getelementptr inbounds i8, ptr %obj, i64 104
   %call59 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %bps_wr_max, ptr noundef %errp) #4
   br i1 %call59, label %if.end62, label %return
 
 if.end62:                                         ; preds = %if.then58, %if.end56
-  %has_iops_max = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 14
+  %has_iops_max = getelementptr inbounds i8, ptr %obj, i64 112
   %call63 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %has_iops_max) #4
   br i1 %call63, label %if.then64, label %if.end68
 
 if.then64:                                        ; preds = %if.end62
-  %iops_max = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 15
+  %iops_max = getelementptr inbounds i8, ptr %obj, i64 120
   %call65 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %iops_max, ptr noundef %errp) #4
   br i1 %call65, label %if.end68, label %return
 
 if.end68:                                         ; preds = %if.then64, %if.end62
-  %has_iops_rd_max = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 16
+  %has_iops_rd_max = getelementptr inbounds i8, ptr %obj, i64 128
   %call69 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %has_iops_rd_max) #4
   br i1 %call69, label %if.then70, label %if.end74
 
 if.then70:                                        ; preds = %if.end68
-  %iops_rd_max = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 17
+  %iops_rd_max = getelementptr inbounds i8, ptr %obj, i64 136
   %call71 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %iops_rd_max, ptr noundef %errp) #4
   br i1 %call71, label %if.end74, label %return
 
 if.end74:                                         ; preds = %if.then70, %if.end68
-  %has_iops_wr_max = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 18
+  %has_iops_wr_max = getelementptr inbounds i8, ptr %obj, i64 144
   %call75 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.82, ptr noundef nonnull %has_iops_wr_max) #4
   br i1 %call75, label %if.then76, label %if.end80
 
 if.then76:                                        ; preds = %if.end74
-  %iops_wr_max = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 19
+  %iops_wr_max = getelementptr inbounds i8, ptr %obj, i64 152
   %call77 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.82, ptr noundef nonnull %iops_wr_max, ptr noundef %errp) #4
   br i1 %call77, label %if.end80, label %return
 
 if.end80:                                         ; preds = %if.then76, %if.end74
-  %has_bps_max_length = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 20
+  %has_bps_max_length = getelementptr inbounds i8, ptr %obj, i64 160
   %call81 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %has_bps_max_length) #4
   br i1 %call81, label %if.then82, label %if.end86
 
 if.then82:                                        ; preds = %if.end80
-  %bps_max_length = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 21
+  %bps_max_length = getelementptr inbounds i8, ptr %obj, i64 168
   %call83 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %bps_max_length, ptr noundef %errp) #4
   br i1 %call83, label %if.end86, label %return
 
 if.end86:                                         ; preds = %if.then82, %if.end80
-  %has_bps_rd_max_length = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 22
+  %has_bps_rd_max_length = getelementptr inbounds i8, ptr %obj, i64 176
   %call87 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.84, ptr noundef nonnull %has_bps_rd_max_length) #4
   br i1 %call87, label %if.then88, label %if.end92
 
 if.then88:                                        ; preds = %if.end86
-  %bps_rd_max_length = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 23
+  %bps_rd_max_length = getelementptr inbounds i8, ptr %obj, i64 184
   %call89 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.84, ptr noundef nonnull %bps_rd_max_length, ptr noundef %errp) #4
   br i1 %call89, label %if.end92, label %return
 
 if.end92:                                         ; preds = %if.then88, %if.end86
-  %has_bps_wr_max_length = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 24
+  %has_bps_wr_max_length = getelementptr inbounds i8, ptr %obj, i64 192
   %call93 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.85, ptr noundef nonnull %has_bps_wr_max_length) #4
   br i1 %call93, label %if.then94, label %if.end98
 
 if.then94:                                        ; preds = %if.end92
-  %bps_wr_max_length = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 25
+  %bps_wr_max_length = getelementptr inbounds i8, ptr %obj, i64 200
   %call95 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.85, ptr noundef nonnull %bps_wr_max_length, ptr noundef %errp) #4
   br i1 %call95, label %if.end98, label %return
 
 if.end98:                                         ; preds = %if.then94, %if.end92
-  %has_iops_max_length = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 26
+  %has_iops_max_length = getelementptr inbounds i8, ptr %obj, i64 208
   %call99 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.86, ptr noundef nonnull %has_iops_max_length) #4
   br i1 %call99, label %if.then100, label %if.end104
 
 if.then100:                                       ; preds = %if.end98
-  %iops_max_length = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 27
+  %iops_max_length = getelementptr inbounds i8, ptr %obj, i64 216
   %call101 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.86, ptr noundef nonnull %iops_max_length, ptr noundef %errp) #4
   br i1 %call101, label %if.end104, label %return
 
 if.end104:                                        ; preds = %if.then100, %if.end98
-  %has_iops_rd_max_length = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 28
+  %has_iops_rd_max_length = getelementptr inbounds i8, ptr %obj, i64 224
   %call105 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.87, ptr noundef nonnull %has_iops_rd_max_length) #4
   br i1 %call105, label %if.then106, label %if.end110
 
 if.then106:                                       ; preds = %if.end104
-  %iops_rd_max_length = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 29
+  %iops_rd_max_length = getelementptr inbounds i8, ptr %obj, i64 232
   %call107 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.87, ptr noundef nonnull %iops_rd_max_length, ptr noundef %errp) #4
   br i1 %call107, label %if.end110, label %return
 
 if.end110:                                        ; preds = %if.then106, %if.end104
-  %has_iops_wr_max_length = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 30
+  %has_iops_wr_max_length = getelementptr inbounds i8, ptr %obj, i64 240
   %call111 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.88, ptr noundef nonnull %has_iops_wr_max_length) #4
   br i1 %call111, label %if.then112, label %if.end116
 
 if.then112:                                       ; preds = %if.end110
-  %iops_wr_max_length = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 31
+  %iops_wr_max_length = getelementptr inbounds i8, ptr %obj, i64 248
   %call113 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.88, ptr noundef nonnull %iops_wr_max_length, ptr noundef %errp) #4
   br i1 %call113, label %if.end116, label %return
 
 if.end116:                                        ; preds = %if.then112, %if.end110
-  %has_iops_size = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 32
+  %has_iops_size = getelementptr inbounds i8, ptr %obj, i64 256
   %call117 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef nonnull %has_iops_size) #4
   br i1 %call117, label %if.then118, label %if.end122
 
 if.then118:                                       ; preds = %if.end116
-  %iops_size = getelementptr inbounds %struct.BlockIOThrottle, ptr %obj, i64 0, i32 33
+  %iops_size = getelementptr inbounds i8, ptr %obj, i64 264
   %call119 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef nonnull %iops_size, ptr noundef %errp) #4
   br i1 %call119, label %if.end122, label %return
 
@@ -8190,187 +8008,187 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %iops_total = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 1
+  %iops_total = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.228, ptr noundef nonnull %iops_total, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_iops_total_max = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 2
+  %has_iops_total_max = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.229, ptr noundef nonnull %has_iops_total_max) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %iops_total_max = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 3
+  %iops_total_max = getelementptr inbounds i8, ptr %obj, i64 24
   %call6 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.229, ptr noundef nonnull %iops_total_max, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_iops_total_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 4
+  %has_iops_total_max_length = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.230, ptr noundef nonnull %has_iops_total_max_length) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %iops_total_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 5
+  %iops_total_max_length = getelementptr inbounds i8, ptr %obj, i64 40
   %call12 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.230, ptr noundef nonnull %iops_total_max_length, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_iops_read = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 6
+  %has_iops_read = getelementptr inbounds i8, ptr %obj, i64 48
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.231, ptr noundef nonnull %has_iops_read) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %iops_read = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 7
+  %iops_read = getelementptr inbounds i8, ptr %obj, i64 56
   %call18 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.231, ptr noundef nonnull %iops_read, ptr noundef %errp) #4
   br i1 %call18, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.then17, %if.end15
-  %has_iops_read_max = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 8
+  %has_iops_read_max = getelementptr inbounds i8, ptr %obj, i64 64
   %call22 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.232, ptr noundef nonnull %has_iops_read_max) #4
   br i1 %call22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end21
-  %iops_read_max = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 9
+  %iops_read_max = getelementptr inbounds i8, ptr %obj, i64 72
   %call24 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.232, ptr noundef nonnull %iops_read_max, ptr noundef %errp) #4
   br i1 %call24, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then23, %if.end21
-  %has_iops_read_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 10
+  %has_iops_read_max_length = getelementptr inbounds i8, ptr %obj, i64 80
   %call28 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.233, ptr noundef nonnull %has_iops_read_max_length) #4
   br i1 %call28, label %if.then29, label %if.end33
 
 if.then29:                                        ; preds = %if.end27
-  %iops_read_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 11
+  %iops_read_max_length = getelementptr inbounds i8, ptr %obj, i64 88
   %call30 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.233, ptr noundef nonnull %iops_read_max_length, ptr noundef %errp) #4
   br i1 %call30, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.then29, %if.end27
-  %has_iops_write = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 12
+  %has_iops_write = getelementptr inbounds i8, ptr %obj, i64 96
   %call34 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.234, ptr noundef nonnull %has_iops_write) #4
   br i1 %call34, label %if.then35, label %if.end39
 
 if.then35:                                        ; preds = %if.end33
-  %iops_write = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 13
+  %iops_write = getelementptr inbounds i8, ptr %obj, i64 104
   %call36 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.234, ptr noundef nonnull %iops_write, ptr noundef %errp) #4
   br i1 %call36, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.then35, %if.end33
-  %has_iops_write_max = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 14
+  %has_iops_write_max = getelementptr inbounds i8, ptr %obj, i64 112
   %call40 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.235, ptr noundef nonnull %has_iops_write_max) #4
   br i1 %call40, label %if.then41, label %if.end45
 
 if.then41:                                        ; preds = %if.end39
-  %iops_write_max = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 15
+  %iops_write_max = getelementptr inbounds i8, ptr %obj, i64 120
   %call42 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.235, ptr noundef nonnull %iops_write_max, ptr noundef %errp) #4
   br i1 %call42, label %if.end45, label %return
 
 if.end45:                                         ; preds = %if.then41, %if.end39
-  %has_iops_write_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 16
+  %has_iops_write_max_length = getelementptr inbounds i8, ptr %obj, i64 128
   %call46 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.236, ptr noundef nonnull %has_iops_write_max_length) #4
   br i1 %call46, label %if.then47, label %if.end51
 
 if.then47:                                        ; preds = %if.end45
-  %iops_write_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 17
+  %iops_write_max_length = getelementptr inbounds i8, ptr %obj, i64 136
   %call48 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.236, ptr noundef nonnull %iops_write_max_length, ptr noundef %errp) #4
   br i1 %call48, label %if.end51, label %return
 
 if.end51:                                         ; preds = %if.then47, %if.end45
-  %has_bps_total = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 18
+  %has_bps_total = getelementptr inbounds i8, ptr %obj, i64 144
   %call52 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.237, ptr noundef nonnull %has_bps_total) #4
   br i1 %call52, label %if.then53, label %if.end57
 
 if.then53:                                        ; preds = %if.end51
-  %bps_total = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 19
+  %bps_total = getelementptr inbounds i8, ptr %obj, i64 152
   %call54 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.237, ptr noundef nonnull %bps_total, ptr noundef %errp) #4
   br i1 %call54, label %if.end57, label %return
 
 if.end57:                                         ; preds = %if.then53, %if.end51
-  %has_bps_total_max = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 20
+  %has_bps_total_max = getelementptr inbounds i8, ptr %obj, i64 160
   %call58 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.238, ptr noundef nonnull %has_bps_total_max) #4
   br i1 %call58, label %if.then59, label %if.end63
 
 if.then59:                                        ; preds = %if.end57
-  %bps_total_max = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 21
+  %bps_total_max = getelementptr inbounds i8, ptr %obj, i64 168
   %call60 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.238, ptr noundef nonnull %bps_total_max, ptr noundef %errp) #4
   br i1 %call60, label %if.end63, label %return
 
 if.end63:                                         ; preds = %if.then59, %if.end57
-  %has_bps_total_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 22
+  %has_bps_total_max_length = getelementptr inbounds i8, ptr %obj, i64 176
   %call64 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.239, ptr noundef nonnull %has_bps_total_max_length) #4
   br i1 %call64, label %if.then65, label %if.end69
 
 if.then65:                                        ; preds = %if.end63
-  %bps_total_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 23
+  %bps_total_max_length = getelementptr inbounds i8, ptr %obj, i64 184
   %call66 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.239, ptr noundef nonnull %bps_total_max_length, ptr noundef %errp) #4
   br i1 %call66, label %if.end69, label %return
 
 if.end69:                                         ; preds = %if.then65, %if.end63
-  %has_bps_read = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 24
+  %has_bps_read = getelementptr inbounds i8, ptr %obj, i64 192
   %call70 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.240, ptr noundef nonnull %has_bps_read) #4
   br i1 %call70, label %if.then71, label %if.end75
 
 if.then71:                                        ; preds = %if.end69
-  %bps_read = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 25
+  %bps_read = getelementptr inbounds i8, ptr %obj, i64 200
   %call72 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.240, ptr noundef nonnull %bps_read, ptr noundef %errp) #4
   br i1 %call72, label %if.end75, label %return
 
 if.end75:                                         ; preds = %if.then71, %if.end69
-  %has_bps_read_max = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 26
+  %has_bps_read_max = getelementptr inbounds i8, ptr %obj, i64 208
   %call76 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.241, ptr noundef nonnull %has_bps_read_max) #4
   br i1 %call76, label %if.then77, label %if.end81
 
 if.then77:                                        ; preds = %if.end75
-  %bps_read_max = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 27
+  %bps_read_max = getelementptr inbounds i8, ptr %obj, i64 216
   %call78 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.241, ptr noundef nonnull %bps_read_max, ptr noundef %errp) #4
   br i1 %call78, label %if.end81, label %return
 
 if.end81:                                         ; preds = %if.then77, %if.end75
-  %has_bps_read_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 28
+  %has_bps_read_max_length = getelementptr inbounds i8, ptr %obj, i64 224
   %call82 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.242, ptr noundef nonnull %has_bps_read_max_length) #4
   br i1 %call82, label %if.then83, label %if.end87
 
 if.then83:                                        ; preds = %if.end81
-  %bps_read_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 29
+  %bps_read_max_length = getelementptr inbounds i8, ptr %obj, i64 232
   %call84 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.242, ptr noundef nonnull %bps_read_max_length, ptr noundef %errp) #4
   br i1 %call84, label %if.end87, label %return
 
 if.end87:                                         ; preds = %if.then83, %if.end81
-  %has_bps_write = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 30
+  %has_bps_write = getelementptr inbounds i8, ptr %obj, i64 240
   %call88 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.243, ptr noundef nonnull %has_bps_write) #4
   br i1 %call88, label %if.then89, label %if.end93
 
 if.then89:                                        ; preds = %if.end87
-  %bps_write = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 31
+  %bps_write = getelementptr inbounds i8, ptr %obj, i64 248
   %call90 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.243, ptr noundef nonnull %bps_write, ptr noundef %errp) #4
   br i1 %call90, label %if.end93, label %return
 
 if.end93:                                         ; preds = %if.then89, %if.end87
-  %has_bps_write_max = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 32
+  %has_bps_write_max = getelementptr inbounds i8, ptr %obj, i64 256
   %call94 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.244, ptr noundef nonnull %has_bps_write_max) #4
   br i1 %call94, label %if.then95, label %if.end99
 
 if.then95:                                        ; preds = %if.end93
-  %bps_write_max = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 33
+  %bps_write_max = getelementptr inbounds i8, ptr %obj, i64 264
   %call96 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.244, ptr noundef nonnull %bps_write_max, ptr noundef %errp) #4
   br i1 %call96, label %if.end99, label %return
 
 if.end99:                                         ; preds = %if.then95, %if.end93
-  %has_bps_write_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 34
+  %has_bps_write_max_length = getelementptr inbounds i8, ptr %obj, i64 272
   %call100 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.245, ptr noundef nonnull %has_bps_write_max_length) #4
   br i1 %call100, label %if.then101, label %if.end105
 
 if.then101:                                       ; preds = %if.end99
-  %bps_write_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 35
+  %bps_write_max_length = getelementptr inbounds i8, ptr %obj, i64 280
   %call102 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.245, ptr noundef nonnull %bps_write_max_length, ptr noundef %errp) #4
   br i1 %call102, label %if.end105, label %return
 
 if.end105:                                        ; preds = %if.then101, %if.end99
-  %has_iops_size = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 36
+  %has_iops_size = getelementptr inbounds i8, ptr %obj, i64 288
   %call106 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.246, ptr noundef nonnull %has_iops_size) #4
   br i1 %call106, label %if.then107, label %if.end111
 
 if.then107:                                       ; preds = %if.end105
-  %iops_size = getelementptr inbounds %struct.ThrottleLimits, ptr %obj, i64 0, i32 37
+  %iops_size = getelementptr inbounds i8, ptr %obj, i64 296
   %call108 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.246, ptr noundef nonnull %iops_size, ptr noundef %errp) #4
   br i1 %call108, label %if.end111, label %return
 
@@ -8451,7 +8269,7 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %has_x_iops_total = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 1
+  %has_x_iops_total = getelementptr inbounds i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.248, ptr noundef nonnull %has_x_iops_total) #4
   br i1 %call6, label %if.then7, label %if.end17
 
@@ -8464,12 +8282,12 @@ if.end10:                                         ; preds = %if.then7
   br i1 %call11, label %if.end17, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %x_iops_total = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 2
+  %x_iops_total = getelementptr inbounds i8, ptr %obj, i64 16
   %call13 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.248, ptr noundef nonnull %x_iops_total, ptr noundef %errp) #4
   br i1 %call13, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.end10, %if.then12, %if.end5
-  %has_x_iops_total_max = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 3
+  %has_x_iops_total_max = getelementptr inbounds i8, ptr %obj, i64 24
   %call18 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.249, ptr noundef nonnull %has_x_iops_total_max) #4
   br i1 %call18, label %if.then19, label %if.end29
 
@@ -8482,12 +8300,12 @@ if.end22:                                         ; preds = %if.then19
   br i1 %call23, label %if.end29, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %x_iops_total_max = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 4
+  %x_iops_total_max = getelementptr inbounds i8, ptr %obj, i64 32
   %call25 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.249, ptr noundef nonnull %x_iops_total_max, ptr noundef %errp) #4
   br i1 %call25, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.end22, %if.then24, %if.end17
-  %has_x_iops_total_max_length = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 5
+  %has_x_iops_total_max_length = getelementptr inbounds i8, ptr %obj, i64 40
   %call30 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.250, ptr noundef nonnull %has_x_iops_total_max_length) #4
   br i1 %call30, label %if.then31, label %if.end41
 
@@ -8500,12 +8318,12 @@ if.end34:                                         ; preds = %if.then31
   br i1 %call35, label %if.end41, label %if.then36
 
 if.then36:                                        ; preds = %if.end34
-  %x_iops_total_max_length = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 6
+  %x_iops_total_max_length = getelementptr inbounds i8, ptr %obj, i64 48
   %call37 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.250, ptr noundef nonnull %x_iops_total_max_length, ptr noundef %errp) #4
   br i1 %call37, label %if.end41, label %return
 
 if.end41:                                         ; preds = %if.end34, %if.then36, %if.end29
-  %has_x_iops_read = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 7
+  %has_x_iops_read = getelementptr inbounds i8, ptr %obj, i64 56
   %call42 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.251, ptr noundef nonnull %has_x_iops_read) #4
   br i1 %call42, label %if.then43, label %if.end53
 
@@ -8518,12 +8336,12 @@ if.end46:                                         ; preds = %if.then43
   br i1 %call47, label %if.end53, label %if.then48
 
 if.then48:                                        ; preds = %if.end46
-  %x_iops_read = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 8
+  %x_iops_read = getelementptr inbounds i8, ptr %obj, i64 64
   %call49 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.251, ptr noundef nonnull %x_iops_read, ptr noundef %errp) #4
   br i1 %call49, label %if.end53, label %return
 
 if.end53:                                         ; preds = %if.end46, %if.then48, %if.end41
-  %has_x_iops_read_max = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 9
+  %has_x_iops_read_max = getelementptr inbounds i8, ptr %obj, i64 72
   %call54 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.252, ptr noundef nonnull %has_x_iops_read_max) #4
   br i1 %call54, label %if.then55, label %if.end65
 
@@ -8536,12 +8354,12 @@ if.end58:                                         ; preds = %if.then55
   br i1 %call59, label %if.end65, label %if.then60
 
 if.then60:                                        ; preds = %if.end58
-  %x_iops_read_max = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 10
+  %x_iops_read_max = getelementptr inbounds i8, ptr %obj, i64 80
   %call61 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.252, ptr noundef nonnull %x_iops_read_max, ptr noundef %errp) #4
   br i1 %call61, label %if.end65, label %return
 
 if.end65:                                         ; preds = %if.end58, %if.then60, %if.end53
-  %has_x_iops_read_max_length = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 11
+  %has_x_iops_read_max_length = getelementptr inbounds i8, ptr %obj, i64 88
   %call66 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.253, ptr noundef nonnull %has_x_iops_read_max_length) #4
   br i1 %call66, label %if.then67, label %if.end77
 
@@ -8554,12 +8372,12 @@ if.end70:                                         ; preds = %if.then67
   br i1 %call71, label %if.end77, label %if.then72
 
 if.then72:                                        ; preds = %if.end70
-  %x_iops_read_max_length = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 12
+  %x_iops_read_max_length = getelementptr inbounds i8, ptr %obj, i64 96
   %call73 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.253, ptr noundef nonnull %x_iops_read_max_length, ptr noundef %errp) #4
   br i1 %call73, label %if.end77, label %return
 
 if.end77:                                         ; preds = %if.end70, %if.then72, %if.end65
-  %has_x_iops_write = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 13
+  %has_x_iops_write = getelementptr inbounds i8, ptr %obj, i64 104
   %call78 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.254, ptr noundef nonnull %has_x_iops_write) #4
   br i1 %call78, label %if.then79, label %if.end89
 
@@ -8572,12 +8390,12 @@ if.end82:                                         ; preds = %if.then79
   br i1 %call83, label %if.end89, label %if.then84
 
 if.then84:                                        ; preds = %if.end82
-  %x_iops_write = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 14
+  %x_iops_write = getelementptr inbounds i8, ptr %obj, i64 112
   %call85 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.254, ptr noundef nonnull %x_iops_write, ptr noundef %errp) #4
   br i1 %call85, label %if.end89, label %return
 
 if.end89:                                         ; preds = %if.end82, %if.then84, %if.end77
-  %has_x_iops_write_max = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 15
+  %has_x_iops_write_max = getelementptr inbounds i8, ptr %obj, i64 120
   %call90 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.255, ptr noundef nonnull %has_x_iops_write_max) #4
   br i1 %call90, label %if.then91, label %if.end101
 
@@ -8590,12 +8408,12 @@ if.end94:                                         ; preds = %if.then91
   br i1 %call95, label %if.end101, label %if.then96
 
 if.then96:                                        ; preds = %if.end94
-  %x_iops_write_max = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 16
+  %x_iops_write_max = getelementptr inbounds i8, ptr %obj, i64 128
   %call97 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.255, ptr noundef nonnull %x_iops_write_max, ptr noundef %errp) #4
   br i1 %call97, label %if.end101, label %return
 
 if.end101:                                        ; preds = %if.end94, %if.then96, %if.end89
-  %has_x_iops_write_max_length = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 17
+  %has_x_iops_write_max_length = getelementptr inbounds i8, ptr %obj, i64 136
   %call102 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.256, ptr noundef nonnull %has_x_iops_write_max_length) #4
   br i1 %call102, label %if.then103, label %if.end113
 
@@ -8608,12 +8426,12 @@ if.end106:                                        ; preds = %if.then103
   br i1 %call107, label %if.end113, label %if.then108
 
 if.then108:                                       ; preds = %if.end106
-  %x_iops_write_max_length = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 18
+  %x_iops_write_max_length = getelementptr inbounds i8, ptr %obj, i64 144
   %call109 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.256, ptr noundef nonnull %x_iops_write_max_length, ptr noundef %errp) #4
   br i1 %call109, label %if.end113, label %return
 
 if.end113:                                        ; preds = %if.end106, %if.then108, %if.end101
-  %has_x_bps_total = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 19
+  %has_x_bps_total = getelementptr inbounds i8, ptr %obj, i64 152
   %call114 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.257, ptr noundef nonnull %has_x_bps_total) #4
   br i1 %call114, label %if.then115, label %if.end125
 
@@ -8626,12 +8444,12 @@ if.end118:                                        ; preds = %if.then115
   br i1 %call119, label %if.end125, label %if.then120
 
 if.then120:                                       ; preds = %if.end118
-  %x_bps_total = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 20
+  %x_bps_total = getelementptr inbounds i8, ptr %obj, i64 160
   %call121 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.257, ptr noundef nonnull %x_bps_total, ptr noundef %errp) #4
   br i1 %call121, label %if.end125, label %return
 
 if.end125:                                        ; preds = %if.end118, %if.then120, %if.end113
-  %has_x_bps_total_max = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 21
+  %has_x_bps_total_max = getelementptr inbounds i8, ptr %obj, i64 168
   %call126 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.258, ptr noundef nonnull %has_x_bps_total_max) #4
   br i1 %call126, label %if.then127, label %if.end137
 
@@ -8644,12 +8462,12 @@ if.end130:                                        ; preds = %if.then127
   br i1 %call131, label %if.end137, label %if.then132
 
 if.then132:                                       ; preds = %if.end130
-  %x_bps_total_max = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 22
+  %x_bps_total_max = getelementptr inbounds i8, ptr %obj, i64 176
   %call133 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.258, ptr noundef nonnull %x_bps_total_max, ptr noundef %errp) #4
   br i1 %call133, label %if.end137, label %return
 
 if.end137:                                        ; preds = %if.end130, %if.then132, %if.end125
-  %has_x_bps_total_max_length = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 23
+  %has_x_bps_total_max_length = getelementptr inbounds i8, ptr %obj, i64 184
   %call138 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.259, ptr noundef nonnull %has_x_bps_total_max_length) #4
   br i1 %call138, label %if.then139, label %if.end149
 
@@ -8662,12 +8480,12 @@ if.end142:                                        ; preds = %if.then139
   br i1 %call143, label %if.end149, label %if.then144
 
 if.then144:                                       ; preds = %if.end142
-  %x_bps_total_max_length = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 24
+  %x_bps_total_max_length = getelementptr inbounds i8, ptr %obj, i64 192
   %call145 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.259, ptr noundef nonnull %x_bps_total_max_length, ptr noundef %errp) #4
   br i1 %call145, label %if.end149, label %return
 
 if.end149:                                        ; preds = %if.end142, %if.then144, %if.end137
-  %has_x_bps_read = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 25
+  %has_x_bps_read = getelementptr inbounds i8, ptr %obj, i64 200
   %call150 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.260, ptr noundef nonnull %has_x_bps_read) #4
   br i1 %call150, label %if.then151, label %if.end161
 
@@ -8680,12 +8498,12 @@ if.end154:                                        ; preds = %if.then151
   br i1 %call155, label %if.end161, label %if.then156
 
 if.then156:                                       ; preds = %if.end154
-  %x_bps_read = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 26
+  %x_bps_read = getelementptr inbounds i8, ptr %obj, i64 208
   %call157 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.260, ptr noundef nonnull %x_bps_read, ptr noundef %errp) #4
   br i1 %call157, label %if.end161, label %return
 
 if.end161:                                        ; preds = %if.end154, %if.then156, %if.end149
-  %has_x_bps_read_max = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 27
+  %has_x_bps_read_max = getelementptr inbounds i8, ptr %obj, i64 216
   %call162 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.261, ptr noundef nonnull %has_x_bps_read_max) #4
   br i1 %call162, label %if.then163, label %if.end173
 
@@ -8698,12 +8516,12 @@ if.end166:                                        ; preds = %if.then163
   br i1 %call167, label %if.end173, label %if.then168
 
 if.then168:                                       ; preds = %if.end166
-  %x_bps_read_max = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 28
+  %x_bps_read_max = getelementptr inbounds i8, ptr %obj, i64 224
   %call169 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.261, ptr noundef nonnull %x_bps_read_max, ptr noundef %errp) #4
   br i1 %call169, label %if.end173, label %return
 
 if.end173:                                        ; preds = %if.end166, %if.then168, %if.end161
-  %has_x_bps_read_max_length = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 29
+  %has_x_bps_read_max_length = getelementptr inbounds i8, ptr %obj, i64 232
   %call174 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.262, ptr noundef nonnull %has_x_bps_read_max_length) #4
   br i1 %call174, label %if.then175, label %if.end185
 
@@ -8716,12 +8534,12 @@ if.end178:                                        ; preds = %if.then175
   br i1 %call179, label %if.end185, label %if.then180
 
 if.then180:                                       ; preds = %if.end178
-  %x_bps_read_max_length = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 30
+  %x_bps_read_max_length = getelementptr inbounds i8, ptr %obj, i64 240
   %call181 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.262, ptr noundef nonnull %x_bps_read_max_length, ptr noundef %errp) #4
   br i1 %call181, label %if.end185, label %return
 
 if.end185:                                        ; preds = %if.end178, %if.then180, %if.end173
-  %has_x_bps_write = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 31
+  %has_x_bps_write = getelementptr inbounds i8, ptr %obj, i64 248
   %call186 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.263, ptr noundef nonnull %has_x_bps_write) #4
   br i1 %call186, label %if.then187, label %if.end197
 
@@ -8734,12 +8552,12 @@ if.end190:                                        ; preds = %if.then187
   br i1 %call191, label %if.end197, label %if.then192
 
 if.then192:                                       ; preds = %if.end190
-  %x_bps_write = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 32
+  %x_bps_write = getelementptr inbounds i8, ptr %obj, i64 256
   %call193 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.263, ptr noundef nonnull %x_bps_write, ptr noundef %errp) #4
   br i1 %call193, label %if.end197, label %return
 
 if.end197:                                        ; preds = %if.end190, %if.then192, %if.end185
-  %has_x_bps_write_max = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 33
+  %has_x_bps_write_max = getelementptr inbounds i8, ptr %obj, i64 264
   %call198 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.264, ptr noundef nonnull %has_x_bps_write_max) #4
   br i1 %call198, label %if.then199, label %if.end209
 
@@ -8752,12 +8570,12 @@ if.end202:                                        ; preds = %if.then199
   br i1 %call203, label %if.end209, label %if.then204
 
 if.then204:                                       ; preds = %if.end202
-  %x_bps_write_max = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 34
+  %x_bps_write_max = getelementptr inbounds i8, ptr %obj, i64 272
   %call205 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.264, ptr noundef nonnull %x_bps_write_max, ptr noundef %errp) #4
   br i1 %call205, label %if.end209, label %return
 
 if.end209:                                        ; preds = %if.end202, %if.then204, %if.end197
-  %has_x_bps_write_max_length = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 35
+  %has_x_bps_write_max_length = getelementptr inbounds i8, ptr %obj, i64 280
   %call210 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.265, ptr noundef nonnull %has_x_bps_write_max_length) #4
   br i1 %call210, label %if.then211, label %if.end221
 
@@ -8770,12 +8588,12 @@ if.end214:                                        ; preds = %if.then211
   br i1 %call215, label %if.end221, label %if.then216
 
 if.then216:                                       ; preds = %if.end214
-  %x_bps_write_max_length = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 36
+  %x_bps_write_max_length = getelementptr inbounds i8, ptr %obj, i64 288
   %call217 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.265, ptr noundef nonnull %x_bps_write_max_length, ptr noundef %errp) #4
   br i1 %call217, label %if.end221, label %return
 
 if.end221:                                        ; preds = %if.end214, %if.then216, %if.end209
-  %has_x_iops_size = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 37
+  %has_x_iops_size = getelementptr inbounds i8, ptr %obj, i64 296
   %call222 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.266, ptr noundef nonnull %has_x_iops_size) #4
   br i1 %call222, label %if.then223, label %if.end233
 
@@ -8788,7 +8606,7 @@ if.end226:                                        ; preds = %if.then223
   br i1 %call227, label %if.end233, label %if.then228
 
 if.then228:                                       ; preds = %if.end226
-  %x_iops_size = getelementptr inbounds %struct.ThrottleGroupProperties, ptr %obj, i64 0, i32 38
+  %x_iops_size = getelementptr inbounds i8, ptr %obj, i64 304
   %call229 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.266, ptr noundef nonnull %x_iops_size, ptr noundef %errp) #4
   br i1 %call229, label %if.end233, label %return
 
@@ -8867,27 +8685,27 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_job_id, align 1
-  %base = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 2
+  %base = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %base, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_base, align 1
-  %base_node = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 3
+  %base_node = getelementptr inbounds i8, ptr %obj, i64 24
   %2 = load ptr, ptr %base_node, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_base_node, align 1
-  %backing_file = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 4
+  %backing_file = getelementptr inbounds i8, ptr %obj, i64 32
   %3 = load ptr, ptr %backing_file, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
   store i8 %frombool13, ptr %has_backing_file, align 1
-  %bottom = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 5
+  %bottom = getelementptr inbounds i8, ptr %obj, i64 40
   %4 = load ptr, ptr %bottom, align 8
   %tobool14 = icmp ne ptr %4, null
   %frombool17 = zext i1 %tobool14 to i8
   store i8 %frombool17, ptr %has_bottom, align 1
-  %filter_node_name = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 10
+  %filter_node_name = getelementptr inbounds i8, ptr %obj, i64 72
   %5 = load ptr, ptr %filter_node_name, align 8
   %tobool18 = icmp ne ptr %5, null
   %frombool21 = zext i1 %tobool18 to i8
@@ -8900,7 +8718,7 @@ if.then:                                          ; preds = %entry
   br i1 %call23, label %if.end25, label %return
 
 if.end25:                                         ; preds = %if.then, %entry
-  %device = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 1
+  %device = getelementptr inbounds i8, ptr %obj, i64 8
   %call26 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.103, ptr noundef nonnull %device, ptr noundef %errp) #4
   br i1 %call26, label %if.end28, label %return
 
@@ -8937,22 +8755,22 @@ if.then51:                                        ; preds = %if.end49
   br i1 %call53, label %if.end56, label %return
 
 if.end56:                                         ; preds = %if.then51, %if.end49
-  %has_speed = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 6
+  %has_speed = getelementptr inbounds i8, ptr %obj, i64 48
   %call57 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %has_speed) #4
   br i1 %call57, label %if.then58, label %if.end62
 
 if.then58:                                        ; preds = %if.end56
-  %speed = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 7
+  %speed = getelementptr inbounds i8, ptr %obj, i64 56
   %call59 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %speed, ptr noundef %errp) #4
   br i1 %call59, label %if.end62, label %return
 
 if.end62:                                         ; preds = %if.then58, %if.end56
-  %has_on_error = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 8
+  %has_on_error = getelementptr inbounds i8, ptr %obj, i64 64
   %call63 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.211, ptr noundef nonnull %has_on_error) #4
   br i1 %call63, label %if.then64, label %if.end68
 
 if.then64:                                        ; preds = %if.end62
-  %on_error = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 9
+  %on_error = getelementptr inbounds i8, ptr %obj, i64 68
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %6 = load i32, ptr %on_error, align 4
   store i32 %6, ptr %value.i, align 4
@@ -8971,22 +8789,22 @@ if.then70:                                        ; preds = %if.end68
   br i1 %call72, label %if.end75, label %return
 
 if.end75:                                         ; preds = %if.then70, %if.end68
-  %has_auto_finalize = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 11
+  %has_auto_finalize = getelementptr inbounds i8, ptr %obj, i64 80
   %call76 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.183, ptr noundef nonnull %has_auto_finalize) #4
   br i1 %call76, label %if.then77, label %if.end81
 
 if.then77:                                        ; preds = %if.end75
-  %auto_finalize = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 12
+  %auto_finalize = getelementptr inbounds i8, ptr %obj, i64 81
   %call78 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.183, ptr noundef nonnull %auto_finalize, ptr noundef %errp) #4
   br i1 %call78, label %if.end81, label %return
 
 if.end81:                                         ; preds = %if.then77, %if.end75
-  %has_auto_dismiss = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 13
+  %has_auto_dismiss = getelementptr inbounds i8, ptr %obj, i64 82
   %call82 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.184, ptr noundef nonnull %has_auto_dismiss) #4
   br i1 %call82, label %if.then83, label %if.end87
 
 if.then83:                                        ; preds = %if.end81
-  %auto_dismiss = getelementptr inbounds %struct.q_obj_block_stream_arg, ptr %obj, i64 0, i32 14
+  %auto_dismiss = getelementptr inbounds i8, ptr %obj, i64 83
   %call84 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.184, ptr noundef nonnull %auto_dismiss, ptr noundef %errp) #4
   br i1 %call84, label %if.end87, label %return
 
@@ -9005,7 +8823,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %speed = getelementptr inbounds %struct.q_obj_block_job_set_speed_arg, ptr %obj, i64 0, i32 1
+  %speed = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %speed, ptr noundef %errp) #4
   br label %return
 
@@ -9021,12 +8839,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_force = getelementptr inbounds %struct.q_obj_block_job_cancel_arg, ptr %obj, i64 0, i32 1
+  %has_force = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.268, ptr noundef nonnull %has_force) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %force = getelementptr inbounds %struct.q_obj_block_job_cancel_arg, ptr %obj, i64 0, i32 2
+  %force = getelementptr inbounds i8, ptr %obj, i64 9
   %call3 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.268, ptr noundef nonnull %force, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
@@ -9154,7 +8972,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.q_obj_BlockJobChangeOptions_base, ptr %obj, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_JobType(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %type, ptr noundef %errp) #4
   br label %return
 
@@ -9171,7 +8989,7 @@ entry:
   br i1 %call.i, label %visit_type_q_obj_BlockJobChangeOptions_base_members.exit, label %return
 
 visit_type_q_obj_BlockJobChangeOptions_base_members.exit: ; preds = %entry
-  %type.i = getelementptr inbounds %struct.q_obj_BlockJobChangeOptions_base, ptr %obj, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call1.i = tail call zeroext i1 @visit_type_JobType(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %type.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end, label %return
 
@@ -9190,7 +9008,7 @@ if.end:                                           ; preds = %visit_type_q_obj_Bl
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.BlockJobChangeOptions, ptr %obj, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %obj, i64 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %u, align 4
   store i32 %1, ptr %value.i.i, align 4
@@ -9238,7 +9056,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %visit_type_q_obj_BlockJobChangeOptions_base_members.exit.i, label %out_obj.thread
 
 visit_type_q_obj_BlockJobChangeOptions_base_members.exit.i: ; preds = %if.end5
-  %type.i.i = getelementptr inbounds %struct.q_obj_BlockJobChangeOptions_base, ptr %0, i64 0, i32 1
+  %type.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i.i = tail call zeroext i1 @visit_type_JobType(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %type.i.i, ptr noundef %errp) #4
   br i1 %call1.i.i, label %if.end.i, label %out_obj.thread
 
@@ -9261,7 +9079,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_BlockJobChangeOptions_members.exit:    ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.BlockJobChangeOptions, ptr %0, i64 0, i32 2
+  %u.i = getelementptr inbounds i8, ptr %0, i64 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i.i)
   %2 = load i32, ptr %u.i, align 4
   store i32 %2, ptr %value.i.i.i, align 4
@@ -9328,17 +9146,17 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %direct = getelementptr inbounds %struct.BlockdevCacheOptions, ptr %obj, i64 0, i32 1
+  %direct = getelementptr inbounds i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.61, ptr noundef nonnull %direct, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_no_flush = getelementptr inbounds %struct.BlockdevCacheOptions, ptr %obj, i64 0, i32 2
+  %has_no_flush = getelementptr inbounds i8, ptr %obj, i64 2
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %has_no_flush) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %no_flush = getelementptr inbounds %struct.BlockdevCacheOptions, ptr %obj, i64 0, i32 3
+  %no_flush = getelementptr inbounds i8, ptr %obj, i64 3
   %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %no_flush, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
@@ -9378,17 +9196,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.then.i, label %if.end3.i
 
 if.then.i:                                        ; preds = %if.end5
-  %direct.i = getelementptr inbounds %struct.BlockdevCacheOptions, ptr %0, i64 0, i32 1
+  %direct.i = getelementptr inbounds i8, ptr %0, i64 1
   %call1.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.61, ptr noundef nonnull %direct.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread16
 
 if.end3.i:                                        ; preds = %if.then.i, %if.end5
-  %has_no_flush.i = getelementptr inbounds %struct.BlockdevCacheOptions, ptr %0, i64 0, i32 2
+  %has_no_flush.i = getelementptr inbounds i8, ptr %0, i64 2
   %call4.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %has_no_flush.i) #4
   br i1 %call4.i, label %if.then5.i, label %out_obj
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %no_flush.i = getelementptr inbounds %struct.BlockdevCacheOptions, ptr %0, i64 0, i32 3
+  %no_flush.i = getelementptr inbounds i8, ptr %0, i64 3
   %call6.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %no_flush.i, ptr noundef %errp) #4
   br i1 %call6.i, label %out_obj, label %out_obj.thread16
 
@@ -9423,7 +9241,7 @@ define dso_local zeroext i1 @visit_type_BlockdevOptionsFile_members(ptr noundef 
 entry:
   %value.i = alloca i32, align 4
   %has_pr_manager = alloca i8, align 1
-  %pr_manager = getelementptr inbounds %struct.BlockdevOptionsFile, ptr %obj, i64 0, i32 1
+  %pr_manager = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %pr_manager, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -9440,22 +9258,22 @@ if.then3:                                         ; preds = %if.end
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %has_locking = getelementptr inbounds %struct.BlockdevOptionsFile, ptr %obj, i64 0, i32 2
+  %has_locking = getelementptr inbounds i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.270, ptr noundef nonnull %has_locking) #4
   br i1 %call9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end8
-  %locking = getelementptr inbounds %struct.BlockdevOptionsFile, ptr %obj, i64 0, i32 3
+  %locking = getelementptr inbounds i8, ptr %obj, i64 20
   %call11 = call zeroext i1 @visit_type_OnOffAuto(ptr noundef %v, ptr noundef nonnull @.str.270, ptr noundef nonnull %locking, ptr noundef %errp) #4
   br i1 %call11, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.then10, %if.end8
-  %has_aio = getelementptr inbounds %struct.BlockdevOptionsFile, ptr %obj, i64 0, i32 4
+  %has_aio = getelementptr inbounds i8, ptr %obj, i64 24
   %call15 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.271, ptr noundef nonnull %has_aio) #4
   br i1 %call15, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.end14
-  %aio = getelementptr inbounds %struct.BlockdevOptionsFile, ptr %obj, i64 0, i32 5
+  %aio = getelementptr inbounds i8, ptr %obj, i64 28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %aio, align 4
   store i32 %1, ptr %value.i, align 4
@@ -9466,27 +9284,27 @@ if.then16:                                        ; preds = %if.end14
   br i1 %call.i, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then16, %if.end14
-  %has_aio_max_batch = getelementptr inbounds %struct.BlockdevOptionsFile, ptr %obj, i64 0, i32 6
+  %has_aio_max_batch = getelementptr inbounds i8, ptr %obj, i64 32
   %call21 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.272, ptr noundef nonnull %has_aio_max_batch) #4
   br i1 %call21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.end20
-  %aio_max_batch = getelementptr inbounds %struct.BlockdevOptionsFile, ptr %obj, i64 0, i32 7
+  %aio_max_batch = getelementptr inbounds i8, ptr %obj, i64 40
   %call23 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.272, ptr noundef nonnull %aio_max_batch, ptr noundef %errp) #4
   br i1 %call23, label %if.end26, label %return
 
 if.end26:                                         ; preds = %if.then22, %if.end20
-  %has_drop_cache = getelementptr inbounds %struct.BlockdevOptionsFile, ptr %obj, i64 0, i32 8
+  %has_drop_cache = getelementptr inbounds i8, ptr %obj, i64 48
   %call27 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.273, ptr noundef nonnull %has_drop_cache) #4
   br i1 %call27, label %if.then28, label %if.end32
 
 if.then28:                                        ; preds = %if.end26
-  %drop_cache = getelementptr inbounds %struct.BlockdevOptionsFile, ptr %obj, i64 0, i32 9
+  %drop_cache = getelementptr inbounds i8, ptr %obj, i64 49
   %call29 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.273, ptr noundef nonnull %drop_cache, ptr noundef %errp) #4
   br i1 %call29, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.then28, %if.end26
-  %has_x_check_cache_dropped = getelementptr inbounds %struct.BlockdevOptionsFile, ptr %obj, i64 0, i32 10
+  %has_x_check_cache_dropped = getelementptr inbounds i8, ptr %obj, i64 50
   %call33 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.274, ptr noundef nonnull %has_x_check_cache_dropped) #4
   br i1 %call33, label %if.then34, label %if.end44
 
@@ -9499,7 +9317,7 @@ if.end37:                                         ; preds = %if.then34
   br i1 %call38, label %if.end44, label %if.then39
 
 if.then39:                                        ; preds = %if.end37
-  %x_check_cache_dropped = getelementptr inbounds %struct.BlockdevOptionsFile, ptr %obj, i64 0, i32 11
+  %x_check_cache_dropped = getelementptr inbounds i8, ptr %obj, i64 51
   %call40 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.274, ptr noundef nonnull %x_check_cache_dropped, ptr noundef %errp) #4
   br i1 %call40, label %if.end44, label %return
 
@@ -9573,27 +9391,27 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %size = getelementptr inbounds %struct.BlockdevOptionsNull, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_latency_ns = getelementptr inbounds %struct.BlockdevOptionsNull, ptr %obj, i64 0, i32 2
+  %has_latency_ns = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.275, ptr noundef nonnull %has_latency_ns) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %latency_ns = getelementptr inbounds %struct.BlockdevOptionsNull, ptr %obj, i64 0, i32 3
+  %latency_ns = getelementptr inbounds i8, ptr %obj, i64 24
   %call6 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.275, ptr noundef nonnull %latency_ns, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_read_zeroes = getelementptr inbounds %struct.BlockdevOptionsNull, ptr %obj, i64 0, i32 4
+  %has_read_zeroes = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.276, ptr noundef nonnull %has_read_zeroes) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %read_zeroes = getelementptr inbounds %struct.BlockdevOptionsNull, ptr %obj, i64 0, i32 5
+  %read_zeroes = getelementptr inbounds i8, ptr %obj, i64 33
   %call12 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.276, ptr noundef nonnull %read_zeroes, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
@@ -9665,7 +9483,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %q_namespace = getelementptr inbounds %struct.BlockdevOptionsNVMe, ptr %obj, i64 0, i32 1
+  %q_namespace = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.277, ptr noundef nonnull %q_namespace, ptr noundef %errp) #4
   br label %return
 
@@ -9702,7 +9520,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_BlockdevOptionsNVMe_members.exit, label %out_obj.thread
 
 visit_type_BlockdevOptionsNVMe_members.exit:      ; preds = %if.end5
-  %q_namespace.i = getelementptr inbounds %struct.BlockdevOptionsNVMe, ptr %0, i64 0, i32 1
+  %q_namespace.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.277, ptr noundef nonnull %q_namespace.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -9736,7 +9554,7 @@ declare void @qapi_free_BlockdevOptionsNVMe(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @visit_type_BlockdevOptionsVVFAT_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_label = alloca i8, align 1
-  %label = getelementptr inbounds %struct.BlockdevOptionsVVFAT, ptr %obj, i64 0, i32 5
+  %label = getelementptr inbounds i8, ptr %obj, i64 32
   %0 = load ptr, ptr %label, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -9745,22 +9563,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_fat_type = getelementptr inbounds %struct.BlockdevOptionsVVFAT, ptr %obj, i64 0, i32 1
+  %has_fat_type = getelementptr inbounds i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.279, ptr noundef nonnull %has_fat_type) #4
   br i1 %call2, label %if.then3, label %if.end7
 
 if.then3:                                         ; preds = %if.end
-  %fat_type = getelementptr inbounds %struct.BlockdevOptionsVVFAT, ptr %obj, i64 0, i32 2
+  %fat_type = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.279, ptr noundef nonnull %fat_type, ptr noundef %errp) #4
   br i1 %call4, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.then3, %if.end
-  %has_floppy = getelementptr inbounds %struct.BlockdevOptionsVVFAT, ptr %obj, i64 0, i32 3
+  %has_floppy = getelementptr inbounds i8, ptr %obj, i64 24
   %call8 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.280, ptr noundef nonnull %has_floppy) #4
   br i1 %call8, label %if.then9, label %if.end13
 
 if.then9:                                         ; preds = %if.end7
-  %floppy = getelementptr inbounds %struct.BlockdevOptionsVVFAT, ptr %obj, i64 0, i32 4
+  %floppy = getelementptr inbounds i8, ptr %obj, i64 25
   %call10 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.280, ptr noundef nonnull %floppy, ptr noundef %errp) #4
   br i1 %call10, label %if.end13, label %return
 
@@ -9773,12 +9591,12 @@ if.then15:                                        ; preds = %if.end13
   br i1 %call17, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then15, %if.end13
-  %has_rw = getelementptr inbounds %struct.BlockdevOptionsVVFAT, ptr %obj, i64 0, i32 6
+  %has_rw = getelementptr inbounds i8, ptr %obj, i64 40
   %call21 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.282, ptr noundef nonnull %has_rw) #4
   br i1 %call21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.end20
-  %rw = getelementptr inbounds %struct.BlockdevOptionsVVFAT, ptr %obj, i64 0, i32 7
+  %rw = getelementptr inbounds i8, ptr %obj, i64 41
   %call23 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.282, ptr noundef nonnull %rw, ptr noundef %errp) #4
   br i1 %call23, label %if.end26, label %return
 
@@ -9887,7 +9705,7 @@ sw.bb:                                            ; preds = %if.end5
 
 if.end8:                                          ; preds = %sw.bb
   %2 = load ptr, ptr %obj, align 8
-  %u = getelementptr inbounds %struct.BlockdevRef, ptr %2, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %2, i64 8
   %call9 = tail call zeroext i1 @visit_type_BlockdevOptions_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp)
   br i1 %call9, label %if.then10, label %land.lhs.true.critedge
 
@@ -9898,7 +9716,7 @@ if.then10:                                        ; preds = %if.end8
   br i1 %call11, label %return, label %land.lhs.true
 
 sw.bb13:                                          ; preds = %if.end5
-  %u14 = getelementptr inbounds %struct.BlockdevRef, ptr %0, i64 0, i32 1
+  %u14 = getelementptr inbounds i8, ptr %0, i64 8
   %call15 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %u14, ptr noundef %errp) #4
   tail call void @visit_end_alternate(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call15, label %return, label %land.lhs.true
@@ -10004,7 +9822,7 @@ declare void @qapi_free_BlockdevOptionsGenericFormat(ptr noundef) local_unnamed_
 define dso_local zeroext i1 @visit_type_BlockdevOptionsLUKS_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_key_secret = alloca i8, align 1
-  %key_secret = getelementptr inbounds %struct.BlockdevOptionsLUKS, ptr %obj, i64 0, i32 1
+  %key_secret = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %key_secret, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -10054,7 +9872,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_key_secret.i)
-  %key_secret.i = getelementptr inbounds %struct.BlockdevOptionsLUKS, ptr %0, i64 0, i32 1
+  %key_secret.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %key_secret.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -10102,7 +9920,7 @@ declare void @qapi_free_BlockdevOptionsLUKS(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @visit_type_BlockdevOptionsGenericCOWFormat_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_backing = alloca i8, align 1
-  %backing = getelementptr inbounds %struct.BlockdevOptionsGenericCOWFormat, ptr %obj, i64 0, i32 1
+  %backing = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %backing, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -10164,7 +9982,7 @@ sw.bb:                                            ; preds = %if.end5
 
 if.end8:                                          ; preds = %sw.bb
   %2 = load ptr, ptr %obj, align 8
-  %u = getelementptr inbounds %struct.BlockdevRefOrNull, ptr %2, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %2, i64 8
   %call9 = tail call zeroext i1 @visit_type_BlockdevOptions_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp)
   br i1 %call9, label %if.then10, label %land.lhs.true.critedge
 
@@ -10175,13 +9993,13 @@ if.then10:                                        ; preds = %if.end8
   br i1 %call11, label %return, label %land.lhs.true
 
 sw.bb13:                                          ; preds = %if.end5
-  %u14 = getelementptr inbounds %struct.BlockdevRefOrNull, ptr %0, i64 0, i32 1
+  %u14 = getelementptr inbounds i8, ptr %0, i64 8
   %call15 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %u14, ptr noundef %errp) #4
   tail call void @visit_end_alternate(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call15, label %return, label %land.lhs.true
 
 sw.bb17:                                          ; preds = %if.end5
-  %u18 = getelementptr inbounds %struct.BlockdevRefOrNull, ptr %0, i64 0, i32 1
+  %u18 = getelementptr inbounds i8, ptr %0, i64 8
   %call19 = tail call zeroext i1 @visit_type_null(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %u18, ptr noundef %errp) #4
   tail call void @visit_end_alternate(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call19, label %return, label %land.lhs.true
@@ -10256,7 +10074,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_backing.i)
-  %backing.i = getelementptr inbounds %struct.BlockdevOptionsGenericCOWFormat, ptr %0, i64 0, i32 1
+  %backing.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %backing.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -10320,7 +10138,7 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %q_template = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 1
+  %q_template = getelementptr inbounds i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %q_template, align 4
   store i32 %0, ptr %value.i, align 4
@@ -10331,92 +10149,92 @@ if.then:                                          ; preds = %entry
   br i1 %call.i, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_main_header = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 2
+  %has_main_header = getelementptr inbounds i8, ptr %obj, i64 8
   %call4 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.285, ptr noundef nonnull %has_main_header) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %main_header = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 3
+  %main_header = getelementptr inbounds i8, ptr %obj, i64 9
   %call6 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.285, ptr noundef nonnull %main_header, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_active_l1 = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 4
+  %has_active_l1 = getelementptr inbounds i8, ptr %obj, i64 10
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.286, ptr noundef nonnull %has_active_l1) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %active_l1 = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 5
+  %active_l1 = getelementptr inbounds i8, ptr %obj, i64 11
   %call12 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.286, ptr noundef nonnull %active_l1, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_active_l2 = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 6
+  %has_active_l2 = getelementptr inbounds i8, ptr %obj, i64 12
   %call16 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.287, ptr noundef nonnull %has_active_l2) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %active_l2 = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 7
+  %active_l2 = getelementptr inbounds i8, ptr %obj, i64 13
   %call18 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.287, ptr noundef nonnull %active_l2, ptr noundef %errp) #4
   br i1 %call18, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.then17, %if.end15
-  %has_refcount_table = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 8
+  %has_refcount_table = getelementptr inbounds i8, ptr %obj, i64 14
   %call22 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.288, ptr noundef nonnull %has_refcount_table) #4
   br i1 %call22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end21
-  %refcount_table = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 9
+  %refcount_table = getelementptr inbounds i8, ptr %obj, i64 15
   %call24 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.288, ptr noundef nonnull %refcount_table, ptr noundef %errp) #4
   br i1 %call24, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then23, %if.end21
-  %has_refcount_block = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 10
+  %has_refcount_block = getelementptr inbounds i8, ptr %obj, i64 16
   %call28 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.289, ptr noundef nonnull %has_refcount_block) #4
   br i1 %call28, label %if.then29, label %if.end33
 
 if.then29:                                        ; preds = %if.end27
-  %refcount_block = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 11
+  %refcount_block = getelementptr inbounds i8, ptr %obj, i64 17
   %call30 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.289, ptr noundef nonnull %refcount_block, ptr noundef %errp) #4
   br i1 %call30, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.then29, %if.end27
-  %has_snapshot_table = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 12
+  %has_snapshot_table = getelementptr inbounds i8, ptr %obj, i64 18
   %call34 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.290, ptr noundef nonnull %has_snapshot_table) #4
   br i1 %call34, label %if.then35, label %if.end39
 
 if.then35:                                        ; preds = %if.end33
-  %snapshot_table = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 13
+  %snapshot_table = getelementptr inbounds i8, ptr %obj, i64 19
   %call36 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.290, ptr noundef nonnull %snapshot_table, ptr noundef %errp) #4
   br i1 %call36, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.then35, %if.end33
-  %has_inactive_l1 = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 14
+  %has_inactive_l1 = getelementptr inbounds i8, ptr %obj, i64 20
   %call40 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.291, ptr noundef nonnull %has_inactive_l1) #4
   br i1 %call40, label %if.then41, label %if.end45
 
 if.then41:                                        ; preds = %if.end39
-  %inactive_l1 = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 15
+  %inactive_l1 = getelementptr inbounds i8, ptr %obj, i64 21
   %call42 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.291, ptr noundef nonnull %inactive_l1, ptr noundef %errp) #4
   br i1 %call42, label %if.end45, label %return
 
 if.end45:                                         ; preds = %if.then41, %if.end39
-  %has_inactive_l2 = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 16
+  %has_inactive_l2 = getelementptr inbounds i8, ptr %obj, i64 22
   %call46 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.292, ptr noundef nonnull %has_inactive_l2) #4
   br i1 %call46, label %if.then47, label %if.end51
 
 if.then47:                                        ; preds = %if.end45
-  %inactive_l2 = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 17
+  %inactive_l2 = getelementptr inbounds i8, ptr %obj, i64 23
   %call48 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.292, ptr noundef nonnull %inactive_l2, ptr noundef %errp) #4
   br i1 %call48, label %if.end51, label %return
 
 if.end51:                                         ; preds = %if.then47, %if.end45
-  %has_bitmap_directory = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 18
+  %has_bitmap_directory = getelementptr inbounds i8, ptr %obj, i64 24
   %call52 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.293, ptr noundef nonnull %has_bitmap_directory) #4
   br i1 %call52, label %if.then53, label %if.end57
 
 if.then53:                                        ; preds = %if.end51
-  %bitmap_directory = getelementptr inbounds %struct.Qcow2OverlapCheckFlags, ptr %obj, i64 0, i32 19
+  %bitmap_directory = getelementptr inbounds i8, ptr %obj, i64 25
   %call54 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.293, ptr noundef nonnull %bitmap_directory, ptr noundef %errp) #4
   br i1 %call54, label %if.end57, label %return
 
@@ -10519,7 +10337,7 @@ sw.bb:                                            ; preds = %if.end5
 
 if.end8:                                          ; preds = %sw.bb
   %2 = load ptr, ptr %obj, align 8
-  %u = getelementptr inbounds %struct.Qcow2OverlapChecks, ptr %2, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %2, i64 4
   %call9 = tail call zeroext i1 @visit_type_Qcow2OverlapCheckFlags_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp)
   br i1 %call9, label %if.then10, label %land.lhs.true.critedge
 
@@ -10530,7 +10348,7 @@ if.then10:                                        ; preds = %if.end8
   br i1 %call11, label %return, label %land.lhs.true
 
 sw.bb13:                                          ; preds = %if.end5
-  %u14 = getelementptr inbounds %struct.Qcow2OverlapChecks, ptr %0, i64 0, i32 1
+  %u14 = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %3 = load i32, ptr %u14, align 4
   store i32 %3, ptr %value.i, align 4
@@ -10631,7 +10449,7 @@ if.end:                                           ; preds = %entry
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.BlockdevQcowEncryption, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_QCryptoBlockOptionsQCow_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp) #4
   br label %return
 
@@ -10689,7 +10507,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_BlockdevQcowEncryption_members.exit:   ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.BlockdevQcowEncryption, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = call zeroext i1 @visit_type_QCryptoBlockOptionsQCow_members(ptr noundef %v, ptr noundef nonnull %u.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -10724,13 +10542,13 @@ define dso_local zeroext i1 @visit_type_BlockdevOptionsQcow_members(ptr noundef 
 entry:
   %has_backing.i = alloca i8, align 1
   %has_encrypt = alloca i8, align 1
-  %encrypt = getelementptr inbounds %struct.BlockdevOptionsQcow, ptr %obj, i64 0, i32 2
+  %encrypt = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %encrypt, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_encrypt, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_backing.i)
-  %backing.i = getelementptr inbounds %struct.BlockdevOptionsGenericCOWFormat, ptr %obj, i64 0, i32 1
+  %backing.i = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %backing.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -10854,12 +10672,12 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.BlockdevQcow2Encryption, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_QCryptoBlockOptionsQCow_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp) #4
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.BlockdevQcow2Encryption, ptr %obj, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
   %call4 = call zeroext i1 @visit_type_QCryptoBlockOptionsLUKS_members(ptr noundef %v, ptr noundef nonnull %u3, ptr noundef %errp) #4
   br label %return
 
@@ -10915,7 +10733,7 @@ if.end.i:                                         ; preds = %if.end5
   ]
 
 sw.bb2.i:                                         ; preds = %if.end.i
-  %u3.i = getelementptr inbounds %struct.BlockdevQcow2Encryption, ptr %0, i64 0, i32 1
+  %u3.i = getelementptr inbounds i8, ptr %0, i64 8
   %call4.i = call zeroext i1 @visit_type_QCryptoBlockOptionsLUKS_members(ptr noundef %v, ptr noundef nonnull %u3.i, ptr noundef %errp) #4
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -10924,7 +10742,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_BlockdevQcow2Encryption_members.exit:  ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.BlockdevQcow2Encryption, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = call zeroext i1 @visit_type_QCryptoBlockOptionsQCow_members(ptr noundef %v, ptr noundef nonnull %u.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -10961,22 +10779,22 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_prealloc_align = getelementptr inbounds %struct.BlockdevOptionsPreallocate, ptr %obj, i64 0, i32 1
+  %has_prealloc_align = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.295, ptr noundef nonnull %has_prealloc_align) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %prealloc_align = getelementptr inbounds %struct.BlockdevOptionsPreallocate, ptr %obj, i64 0, i32 2
+  %prealloc_align = getelementptr inbounds i8, ptr %obj, i64 16
   %call3 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.295, ptr noundef nonnull %prealloc_align, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_prealloc_size = getelementptr inbounds %struct.BlockdevOptionsPreallocate, ptr %obj, i64 0, i32 3
+  %has_prealloc_size = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.296, ptr noundef nonnull %has_prealloc_size) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %prealloc_size = getelementptr inbounds %struct.BlockdevOptionsPreallocate, ptr %obj, i64 0, i32 4
+  %prealloc_size = getelementptr inbounds i8, ptr %obj, i64 32
   %call9 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.296, ptr noundef nonnull %prealloc_size, ptr noundef %errp) #4
   br i1 %call9, label %if.end12, label %return
 
@@ -11016,22 +10834,22 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %has_prealloc_align.i = getelementptr inbounds %struct.BlockdevOptionsPreallocate, ptr %0, i64 0, i32 1
+  %has_prealloc_align.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.295, ptr noundef nonnull %has_prealloc_align.i) #4
   br i1 %call1.i, label %if.then2.i, label %if.end6.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %prealloc_align.i = getelementptr inbounds %struct.BlockdevOptionsPreallocate, ptr %0, i64 0, i32 2
+  %prealloc_align.i = getelementptr inbounds i8, ptr %0, i64 16
   %call3.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.295, ptr noundef nonnull %prealloc_align.i, ptr noundef %errp) #4
   br i1 %call3.i, label %if.end6.i, label %out_obj.thread16
 
 if.end6.i:                                        ; preds = %if.then2.i, %if.end.i
-  %has_prealloc_size.i = getelementptr inbounds %struct.BlockdevOptionsPreallocate, ptr %0, i64 0, i32 3
+  %has_prealloc_size.i = getelementptr inbounds i8, ptr %0, i64 24
   %call7.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.296, ptr noundef nonnull %has_prealloc_size.i) #4
   br i1 %call7.i, label %if.then8.i, label %out_obj
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %prealloc_size.i = getelementptr inbounds %struct.BlockdevOptionsPreallocate, ptr %0, i64 0, i32 4
+  %prealloc_size.i = getelementptr inbounds i8, ptr %0, i64 32
   %call9.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.296, ptr noundef nonnull %prealloc_size.i, ptr noundef %errp) #4
   br i1 %call9.i, label %out_obj, label %out_obj.thread16
 
@@ -11068,23 +10886,23 @@ entry:
   %has_overlap_check = alloca i8, align 1
   %has_encrypt = alloca i8, align 1
   %has_data_file = alloca i8, align 1
-  %overlap_check = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 12
+  %overlap_check = getelementptr inbounds i8, ptr %obj, i64 32
   %0 = load ptr, ptr %overlap_check, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_overlap_check, align 1
-  %encrypt = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 23
+  %encrypt = getelementptr inbounds i8, ptr %obj, i64 120
   %1 = load ptr, ptr %encrypt, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_encrypt, align 1
-  %data_file = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 24
+  %data_file = getelementptr inbounds i8, ptr %obj, i64 128
   %2 = load ptr, ptr %data_file, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_data_file, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_backing.i)
-  %backing.i = getelementptr inbounds %struct.BlockdevOptionsGenericCOWFormat, ptr %obj, i64 0, i32 1
+  %backing.i = getelementptr inbounds i8, ptr %obj, i64 8
   %3 = load ptr, ptr %backing.i, align 8
   %tobool.i = icmp ne ptr %3, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -11106,52 +10924,52 @@ visit_type_BlockdevOptionsGenericCOWFormat_members.exit.thread: ; preds = %entry
 
 if.end:                                           ; preds = %if.then3.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_backing.i)
-  %has_lazy_refcounts = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 2
+  %has_lazy_refcounts = getelementptr inbounds i8, ptr %obj, i64 16
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_lazy_refcounts) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end
-  %lazy_refcounts = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 3
+  %lazy_refcounts = getelementptr inbounds i8, ptr %obj, i64 17
   %call12 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %lazy_refcounts, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end
-  %has_pass_discard_request = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 4
+  %has_pass_discard_request = getelementptr inbounds i8, ptr %obj, i64 18
   %call16 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.297, ptr noundef nonnull %has_pass_discard_request) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %pass_discard_request = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 5
+  %pass_discard_request = getelementptr inbounds i8, ptr %obj, i64 19
   %call18 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.297, ptr noundef nonnull %pass_discard_request, ptr noundef %errp) #4
   br i1 %call18, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.then17, %if.end15
-  %has_pass_discard_snapshot = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 6
+  %has_pass_discard_snapshot = getelementptr inbounds i8, ptr %obj, i64 20
   %call22 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.298, ptr noundef nonnull %has_pass_discard_snapshot) #4
   br i1 %call22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end21
-  %pass_discard_snapshot = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 7
+  %pass_discard_snapshot = getelementptr inbounds i8, ptr %obj, i64 21
   %call24 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.298, ptr noundef nonnull %pass_discard_snapshot, ptr noundef %errp) #4
   br i1 %call24, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then23, %if.end21
-  %has_pass_discard_other = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 8
+  %has_pass_discard_other = getelementptr inbounds i8, ptr %obj, i64 22
   %call28 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.299, ptr noundef nonnull %has_pass_discard_other) #4
   br i1 %call28, label %if.then29, label %if.end33
 
 if.then29:                                        ; preds = %if.end27
-  %pass_discard_other = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 9
+  %pass_discard_other = getelementptr inbounds i8, ptr %obj, i64 23
   %call30 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.299, ptr noundef nonnull %pass_discard_other, ptr noundef %errp) #4
   br i1 %call30, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.then29, %if.end27
-  %has_discard_no_unref = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 10
+  %has_discard_no_unref = getelementptr inbounds i8, ptr %obj, i64 24
   %call34 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.300, ptr noundef nonnull %has_discard_no_unref) #4
   br i1 %call34, label %if.then35, label %if.end39
 
 if.then35:                                        ; preds = %if.end33
-  %discard_no_unref = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 11
+  %discard_no_unref = getelementptr inbounds i8, ptr %obj, i64 25
   %call36 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.300, ptr noundef nonnull %discard_no_unref, ptr noundef %errp) #4
   br i1 %call36, label %if.end39, label %return
 
@@ -11164,52 +10982,52 @@ if.then41:                                        ; preds = %if.end39
   br i1 %call43, label %if.end46, label %return
 
 if.end46:                                         ; preds = %if.then41, %if.end39
-  %has_cache_size = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 13
+  %has_cache_size = getelementptr inbounds i8, ptr %obj, i64 40
   %call47 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.302, ptr noundef nonnull %has_cache_size) #4
   br i1 %call47, label %if.then48, label %if.end52
 
 if.then48:                                        ; preds = %if.end46
-  %cache_size = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 14
+  %cache_size = getelementptr inbounds i8, ptr %obj, i64 48
   %call49 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.302, ptr noundef nonnull %cache_size, ptr noundef %errp) #4
   br i1 %call49, label %if.end52, label %return
 
 if.end52:                                         ; preds = %if.then48, %if.end46
-  %has_l2_cache_size = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 15
+  %has_l2_cache_size = getelementptr inbounds i8, ptr %obj, i64 56
   %call53 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.303, ptr noundef nonnull %has_l2_cache_size) #4
   br i1 %call53, label %if.then54, label %if.end58
 
 if.then54:                                        ; preds = %if.end52
-  %l2_cache_size = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 16
+  %l2_cache_size = getelementptr inbounds i8, ptr %obj, i64 64
   %call55 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.303, ptr noundef nonnull %l2_cache_size, ptr noundef %errp) #4
   br i1 %call55, label %if.end58, label %return
 
 if.end58:                                         ; preds = %if.then54, %if.end52
-  %has_l2_cache_entry_size = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 17
+  %has_l2_cache_entry_size = getelementptr inbounds i8, ptr %obj, i64 72
   %call59 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.304, ptr noundef nonnull %has_l2_cache_entry_size) #4
   br i1 %call59, label %if.then60, label %if.end64
 
 if.then60:                                        ; preds = %if.end58
-  %l2_cache_entry_size = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 18
+  %l2_cache_entry_size = getelementptr inbounds i8, ptr %obj, i64 80
   %call61 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.304, ptr noundef nonnull %l2_cache_entry_size, ptr noundef %errp) #4
   br i1 %call61, label %if.end64, label %return
 
 if.end64:                                         ; preds = %if.then60, %if.end58
-  %has_refcount_cache_size = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 19
+  %has_refcount_cache_size = getelementptr inbounds i8, ptr %obj, i64 88
   %call65 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.305, ptr noundef nonnull %has_refcount_cache_size) #4
   br i1 %call65, label %if.then66, label %if.end70
 
 if.then66:                                        ; preds = %if.end64
-  %refcount_cache_size = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 20
+  %refcount_cache_size = getelementptr inbounds i8, ptr %obj, i64 96
   %call67 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.305, ptr noundef nonnull %refcount_cache_size, ptr noundef %errp) #4
   br i1 %call67, label %if.end70, label %return
 
 if.end70:                                         ; preds = %if.then66, %if.end64
-  %has_cache_clean_interval = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 21
+  %has_cache_clean_interval = getelementptr inbounds i8, ptr %obj, i64 104
   %call71 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.306, ptr noundef nonnull %has_cache_clean_interval) #4
   br i1 %call71, label %if.then72, label %if.end76
 
 if.then72:                                        ; preds = %if.end70
-  %cache_clean_interval = getelementptr inbounds %struct.BlockdevOptionsQcow2, ptr %obj, i64 0, i32 22
+  %cache_clean_interval = getelementptr inbounds i8, ptr %obj, i64 112
   %call73 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.306, ptr noundef nonnull %cache_clean_interval, ptr noundef %errp) #4
   br i1 %call73, label %if.end76, label %return
 
@@ -11328,7 +11146,7 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %hash = getelementptr inbounds %struct.SshHostKeyHash, ptr %obj, i64 0, i32 1
+  %hash = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.307, ptr noundef nonnull %hash, ptr noundef %errp) #4
   br label %return
 
@@ -11372,7 +11190,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %visit_type_SshHostKeyHash_members.exit, label %out_obj.thread
 
 visit_type_SshHostKeyHash_members.exit:           ; preds = %if.end5
-  %hash.i = getelementptr inbounds %struct.SshHostKeyHash, ptr %0, i64 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.307, ptr noundef nonnull %hash.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -11438,7 +11256,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.SshHostKeyCheck, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i5)
   %2 = load i32, ptr %u, align 4
   store i32 %2, ptr %value.i.i5, align 4
@@ -11449,7 +11267,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %call.i.i6, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %sw.bb
-  %hash.i = getelementptr inbounds %struct.SshHostKeyCheck, ptr %obj, i64 0, i32 1, i32 0, i32 1
+  %hash.i = getelementptr inbounds i8, ptr %obj, i64 16
   %call1.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.307, ptr noundef nonnull %hash.i, ptr noundef %errp) #4
   br label %return
 
@@ -11505,7 +11323,7 @@ if.end.i:                                         ; preds = %if.end5
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.SshHostKeyCheck, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i5.i)
   %3 = load i32, ptr %u.i, align 4
   store i32 %3, ptr %value.i.i5.i, align 4
@@ -11520,7 +11338,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_SshHostKeyCheck_members.exit:          ; preds = %sw.bb.i
-  %hash.i.i = getelementptr inbounds %struct.SshHostKeyCheck, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %hash.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %call1.i.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.307, ptr noundef nonnull %hash.i.i, ptr noundef %errp) #4
   br i1 %call1.i.i, label %out_obj, label %out_obj.thread
 
@@ -11555,12 +11373,12 @@ define dso_local zeroext i1 @visit_type_BlockdevOptionsSsh_members(ptr noundef %
 entry:
   %has_user = alloca i8, align 1
   %has_host_key_check = alloca i8, align 1
-  %user = getelementptr inbounds %struct.BlockdevOptionsSsh, ptr %obj, i64 0, i32 2
+  %user = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %user, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_user, align 1
-  %host_key_check = getelementptr inbounds %struct.BlockdevOptionsSsh, ptr %obj, i64 0, i32 3
+  %host_key_check = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load ptr, ptr %host_key_check, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -11569,7 +11387,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %path = getelementptr inbounds %struct.BlockdevOptionsSsh, ptr %obj, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %obj, i64 8
   %call6 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.309, ptr noundef nonnull %path, ptr noundef %errp) #4
   br i1 %call6, label %if.end8, label %return
 
@@ -11691,22 +11509,22 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_state = getelementptr inbounds %struct.BlkdebugInjectErrorOptions, ptr %obj, i64 0, i32 1
+  %has_state = getelementptr inbounds i8, ptr %obj, i64 4
   %call1 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.313, ptr noundef nonnull %has_state) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %state = getelementptr inbounds %struct.BlkdebugInjectErrorOptions, ptr %obj, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %obj, i64 8
   %call3 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.313, ptr noundef nonnull %state, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_iotype = getelementptr inbounds %struct.BlkdebugInjectErrorOptions, ptr %obj, i64 0, i32 3
+  %has_iotype = getelementptr inbounds i8, ptr %obj, i64 16
   %call7 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.314, ptr noundef nonnull %has_iotype) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %iotype = getelementptr inbounds %struct.BlkdebugInjectErrorOptions, ptr %obj, i64 0, i32 4
+  %iotype = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i31)
   %2 = load i32, ptr %iotype, align 4
   store i32 %2, ptr %value.i31, align 4
@@ -11717,42 +11535,42 @@ if.then8:                                         ; preds = %if.end6
   br i1 %call.i32, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
-  %has_q_errno = getelementptr inbounds %struct.BlkdebugInjectErrorOptions, ptr %obj, i64 0, i32 5
+  %has_q_errno = getelementptr inbounds i8, ptr %obj, i64 24
   %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.315, ptr noundef nonnull %has_q_errno) #4
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  %q_errno = getelementptr inbounds %struct.BlkdebugInjectErrorOptions, ptr %obj, i64 0, i32 6
+  %q_errno = getelementptr inbounds i8, ptr %obj, i64 32
   %call15 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.315, ptr noundef nonnull %q_errno, ptr noundef %errp) #4
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
-  %has_sector = getelementptr inbounds %struct.BlkdebugInjectErrorOptions, ptr %obj, i64 0, i32 7
+  %has_sector = getelementptr inbounds i8, ptr %obj, i64 40
   %call19 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.316, ptr noundef nonnull %has_sector) #4
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
-  %sector = getelementptr inbounds %struct.BlkdebugInjectErrorOptions, ptr %obj, i64 0, i32 8
+  %sector = getelementptr inbounds i8, ptr %obj, i64 48
   %call21 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.316, ptr noundef nonnull %sector, ptr noundef %errp) #4
   br i1 %call21, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then20, %if.end18
-  %has_once = getelementptr inbounds %struct.BlkdebugInjectErrorOptions, ptr %obj, i64 0, i32 9
+  %has_once = getelementptr inbounds i8, ptr %obj, i64 56
   %call25 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.317, ptr noundef nonnull %has_once) #4
   br i1 %call25, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.end24
-  %once = getelementptr inbounds %struct.BlkdebugInjectErrorOptions, ptr %obj, i64 0, i32 10
+  %once = getelementptr inbounds i8, ptr %obj, i64 57
   %call27 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.317, ptr noundef nonnull %once, ptr noundef %errp) #4
   br i1 %call27, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.then26, %if.end24
-  %has_immediately = getelementptr inbounds %struct.BlkdebugInjectErrorOptions, ptr %obj, i64 0, i32 11
+  %has_immediately = getelementptr inbounds i8, ptr %obj, i64 58
   %call31 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.318, ptr noundef nonnull %has_immediately) #4
   br i1 %call31, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.end30
-  %immediately = getelementptr inbounds %struct.BlkdebugInjectErrorOptions, ptr %obj, i64 0, i32 12
+  %immediately = getelementptr inbounds i8, ptr %obj, i64 59
   %call33 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.318, ptr noundef nonnull %immediately, ptr noundef %errp) #4
   br i1 %call33, label %if.end36, label %return
 
@@ -11831,17 +11649,17 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_state = getelementptr inbounds %struct.BlkdebugSetStateOptions, ptr %obj, i64 0, i32 1
+  %has_state = getelementptr inbounds i8, ptr %obj, i64 4
   %call1 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.313, ptr noundef nonnull %has_state) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %state = getelementptr inbounds %struct.BlkdebugSetStateOptions, ptr %obj, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %obj, i64 8
   %call3 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.313, ptr noundef nonnull %state, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %new_state = getelementptr inbounds %struct.BlkdebugSetStateOptions, ptr %obj, i64 0, i32 3
+  %new_state = getelementptr inbounds i8, ptr %obj, i64 16
   %call7 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.319, ptr noundef nonnull %new_state, ptr noundef %errp) #4
   br label %return
 
@@ -11885,17 +11703,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %has_state.i = getelementptr inbounds %struct.BlkdebugSetStateOptions, ptr %0, i64 0, i32 1
+  %has_state.i = getelementptr inbounds i8, ptr %0, i64 4
   %call1.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.313, ptr noundef nonnull %has_state.i) #4
   br i1 %call1.i, label %if.then2.i, label %visit_type_BlkdebugSetStateOptions_members.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %state.i = getelementptr inbounds %struct.BlkdebugSetStateOptions, ptr %0, i64 0, i32 2
+  %state.i = getelementptr inbounds i8, ptr %0, i64 8
   %call3.i = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.313, ptr noundef nonnull %state.i, ptr noundef %errp) #4
   br i1 %call3.i, label %visit_type_BlkdebugSetStateOptions_members.exit, label %out_obj.thread
 
 visit_type_BlkdebugSetStateOptions_members.exit:  ; preds = %if.end.i, %if.then2.i
-  %new_state.i = getelementptr inbounds %struct.BlkdebugSetStateOptions, ptr %0, i64 0, i32 3
+  %new_state.i = getelementptr inbounds i8, ptr %0, i64 16
   %call7.i = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.319, ptr noundef nonnull %new_state.i, ptr noundef %errp) #4
   br i1 %call7.i, label %out_obj, label %out_obj.thread
 
@@ -11938,7 +11756,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlkdebugInjectErrorOptionsList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlkdebugInjectErrorOptions(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -11986,7 +11804,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlkdebugSetStateOptionsList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlkdebugSetStateOptions(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -12025,7 +11843,7 @@ declare void @qapi_free_BlkdebugSetStateOptionsList(ptr noundef) local_unnamed_a
 define dso_local zeroext i1 @visit_type_BlockdevOptionsBlkdebug_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_config = alloca i8, align 1
-  %config = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 1
+  %config = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %config, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -12042,102 +11860,102 @@ if.then3:                                         ; preds = %if.end
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %has_align = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 2
+  %has_align = getelementptr inbounds i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.321, ptr noundef nonnull %has_align) #4
   br i1 %call9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end8
-  %align = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 3
+  %align = getelementptr inbounds i8, ptr %obj, i64 24
   %call11 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.321, ptr noundef nonnull %align, ptr noundef %errp) #4
   br i1 %call11, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.then10, %if.end8
-  %has_max_transfer = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 4
+  %has_max_transfer = getelementptr inbounds i8, ptr %obj, i64 32
   %call15 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.322, ptr noundef nonnull %has_max_transfer) #4
   br i1 %call15, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.end14
-  %max_transfer = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 5
+  %max_transfer = getelementptr inbounds i8, ptr %obj, i64 36
   %call17 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.322, ptr noundef nonnull %max_transfer, ptr noundef %errp) #4
   br i1 %call17, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then16, %if.end14
-  %has_opt_write_zero = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 6
+  %has_opt_write_zero = getelementptr inbounds i8, ptr %obj, i64 40
   %call21 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.323, ptr noundef nonnull %has_opt_write_zero) #4
   br i1 %call21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.end20
-  %opt_write_zero = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 7
+  %opt_write_zero = getelementptr inbounds i8, ptr %obj, i64 44
   %call23 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.323, ptr noundef nonnull %opt_write_zero, ptr noundef %errp) #4
   br i1 %call23, label %if.end26, label %return
 
 if.end26:                                         ; preds = %if.then22, %if.end20
-  %has_max_write_zero = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 8
+  %has_max_write_zero = getelementptr inbounds i8, ptr %obj, i64 48
   %call27 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.324, ptr noundef nonnull %has_max_write_zero) #4
   br i1 %call27, label %if.then28, label %if.end32
 
 if.then28:                                        ; preds = %if.end26
-  %max_write_zero = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 9
+  %max_write_zero = getelementptr inbounds i8, ptr %obj, i64 52
   %call29 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.324, ptr noundef nonnull %max_write_zero, ptr noundef %errp) #4
   br i1 %call29, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.then28, %if.end26
-  %has_opt_discard = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 10
+  %has_opt_discard = getelementptr inbounds i8, ptr %obj, i64 56
   %call33 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.325, ptr noundef nonnull %has_opt_discard) #4
   br i1 %call33, label %if.then34, label %if.end38
 
 if.then34:                                        ; preds = %if.end32
-  %opt_discard = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 11
+  %opt_discard = getelementptr inbounds i8, ptr %obj, i64 60
   %call35 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.325, ptr noundef nonnull %opt_discard, ptr noundef %errp) #4
   br i1 %call35, label %if.end38, label %return
 
 if.end38:                                         ; preds = %if.then34, %if.end32
-  %has_max_discard = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 12
+  %has_max_discard = getelementptr inbounds i8, ptr %obj, i64 64
   %call39 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.326, ptr noundef nonnull %has_max_discard) #4
   br i1 %call39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.end38
-  %max_discard = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 13
+  %max_discard = getelementptr inbounds i8, ptr %obj, i64 68
   %call41 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.326, ptr noundef nonnull %max_discard, ptr noundef %errp) #4
   br i1 %call41, label %if.end44, label %return
 
 if.end44:                                         ; preds = %if.then40, %if.end38
-  %has_inject_error = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 14
+  %has_inject_error = getelementptr inbounds i8, ptr %obj, i64 72
   %call45 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.327, ptr noundef nonnull %has_inject_error) #4
   br i1 %call45, label %if.then46, label %if.end50
 
 if.then46:                                        ; preds = %if.end44
-  %inject_error = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 15
+  %inject_error = getelementptr inbounds i8, ptr %obj, i64 80
   %call47 = call zeroext i1 @visit_type_BlkdebugInjectErrorOptionsList(ptr noundef %v, ptr noundef nonnull @.str.327, ptr noundef nonnull %inject_error, ptr noundef %errp)
   br i1 %call47, label %if.end50, label %return
 
 if.end50:                                         ; preds = %if.then46, %if.end44
-  %has_set_state = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 16
+  %has_set_state = getelementptr inbounds i8, ptr %obj, i64 88
   %call51 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.328, ptr noundef nonnull %has_set_state) #4
   br i1 %call51, label %if.then52, label %if.end56
 
 if.then52:                                        ; preds = %if.end50
-  %set_state = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 17
+  %set_state = getelementptr inbounds i8, ptr %obj, i64 96
   %call53 = call zeroext i1 @visit_type_BlkdebugSetStateOptionsList(ptr noundef %v, ptr noundef nonnull @.str.328, ptr noundef nonnull %set_state, ptr noundef %errp)
   br i1 %call53, label %if.end56, label %return
 
 if.end56:                                         ; preds = %if.then52, %if.end50
-  %has_take_child_perms = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 18
+  %has_take_child_perms = getelementptr inbounds i8, ptr %obj, i64 104
   %call57 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.329, ptr noundef nonnull %has_take_child_perms) #4
   br i1 %call57, label %if.then58, label %if.end62
 
 if.then58:                                        ; preds = %if.end56
-  %take_child_perms = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 19
+  %take_child_perms = getelementptr inbounds i8, ptr %obj, i64 112
   %call59 = call zeroext i1 @visit_type_BlockPermissionList(ptr noundef %v, ptr noundef nonnull @.str.329, ptr noundef nonnull %take_child_perms, ptr noundef %errp)
   br i1 %call59, label %if.end62, label %return
 
 if.end62:                                         ; preds = %if.then58, %if.end56
-  %has_unshare_child_perms = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 20
+  %has_unshare_child_perms = getelementptr inbounds i8, ptr %obj, i64 120
   %call63 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.330, ptr noundef nonnull %has_unshare_child_perms) #4
   br i1 %call63, label %if.then64, label %if.end68
 
 if.then64:                                        ; preds = %if.end62
-  %unshare_child_perms = getelementptr inbounds %struct.BlockdevOptionsBlkdebug, ptr %obj, i64 0, i32 21
+  %unshare_child_perms = getelementptr inbounds i8, ptr %obj, i64 128
   %call65 = call zeroext i1 @visit_type_BlockPermissionList(ptr noundef %v, ptr noundef nonnull @.str.330, ptr noundef nonnull %unshare_child_perms, ptr noundef %errp)
   br i1 %call65, label %if.end68, label %return
 
@@ -12211,37 +12029,37 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %log = getelementptr inbounds %struct.BlockdevOptionsBlklogwrites, ptr %obj, i64 0, i32 1
+  %log = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.331, ptr noundef nonnull %log, ptr noundef %errp)
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_log_sector_size = getelementptr inbounds %struct.BlockdevOptionsBlklogwrites, ptr %obj, i64 0, i32 2
+  %has_log_sector_size = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.332, ptr noundef nonnull %has_log_sector_size) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %log_sector_size = getelementptr inbounds %struct.BlockdevOptionsBlklogwrites, ptr %obj, i64 0, i32 3
+  %log_sector_size = getelementptr inbounds i8, ptr %obj, i64 20
   %call6 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.332, ptr noundef nonnull %log_sector_size, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_log_append = getelementptr inbounds %struct.BlockdevOptionsBlklogwrites, ptr %obj, i64 0, i32 4
+  %has_log_append = getelementptr inbounds i8, ptr %obj, i64 24
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.333, ptr noundef nonnull %has_log_append) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %log_append = getelementptr inbounds %struct.BlockdevOptionsBlklogwrites, ptr %obj, i64 0, i32 5
+  %log_append = getelementptr inbounds i8, ptr %obj, i64 25
   %call12 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.333, ptr noundef nonnull %log_append, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_log_super_update_interval = getelementptr inbounds %struct.BlockdevOptionsBlklogwrites, ptr %obj, i64 0, i32 6
+  %has_log_super_update_interval = getelementptr inbounds i8, ptr %obj, i64 26
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.334, ptr noundef nonnull %has_log_super_update_interval) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %log_super_update_interval = getelementptr inbounds %struct.BlockdevOptionsBlklogwrites, ptr %obj, i64 0, i32 7
+  %log_super_update_interval = getelementptr inbounds i8, ptr %obj, i64 32
   %call18 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.334, ptr noundef nonnull %log_super_update_interval, ptr noundef %errp) #4
   br i1 %call18, label %if.end21, label %return
 
@@ -12313,7 +12131,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %raw = getelementptr inbounds %struct.BlockdevOptionsBlkverify, ptr %obj, i64 0, i32 1
+  %raw = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.336, ptr noundef nonnull %raw, ptr noundef %errp)
   br label %return
 
@@ -12350,7 +12168,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_BlockdevOptionsBlkverify_members.exit, label %out_obj.thread
 
 visit_type_BlockdevOptionsBlkverify_members.exit: ; preds = %if.end5
-  %raw.i = getelementptr inbounds %struct.BlockdevOptionsBlkverify, ptr %0, i64 0, i32 1
+  %raw.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.336, ptr noundef nonnull %raw.i, ptr noundef %errp) #6
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -12465,7 +12283,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlockdevRefList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -12508,37 +12326,37 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %blkverify = getelementptr inbounds %struct.BlockdevOptionsQuorum, ptr %obj, i64 0, i32 1
+  %blkverify = getelementptr inbounds i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.337, ptr noundef nonnull %blkverify, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %children = getelementptr inbounds %struct.BlockdevOptionsQuorum, ptr %obj, i64 0, i32 2
+  %children = getelementptr inbounds i8, ptr %obj, i64 8
   %call4 = tail call zeroext i1 @visit_type_BlockdevRefList(ptr noundef %v, ptr noundef nonnull @.str.43, ptr noundef nonnull %children, ptr noundef %errp)
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %vote_threshold = getelementptr inbounds %struct.BlockdevOptionsQuorum, ptr %obj, i64 0, i32 3
+  %vote_threshold = getelementptr inbounds i8, ptr %obj, i64 16
   %call7 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.338, ptr noundef nonnull %vote_threshold, ptr noundef %errp) #4
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %has_rewrite_corrupted = getelementptr inbounds %struct.BlockdevOptionsQuorum, ptr %obj, i64 0, i32 4
+  %has_rewrite_corrupted = getelementptr inbounds i8, ptr %obj, i64 24
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.339, ptr noundef nonnull %has_rewrite_corrupted) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %rewrite_corrupted = getelementptr inbounds %struct.BlockdevOptionsQuorum, ptr %obj, i64 0, i32 5
+  %rewrite_corrupted = getelementptr inbounds i8, ptr %obj, i64 25
   %call12 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.339, ptr noundef nonnull %rewrite_corrupted, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_read_pattern = getelementptr inbounds %struct.BlockdevOptionsQuorum, ptr %obj, i64 0, i32 6
+  %has_read_pattern = getelementptr inbounds i8, ptr %obj, i64 26
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.340, ptr noundef nonnull %has_read_pattern) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %read_pattern = getelementptr inbounds %struct.BlockdevOptionsQuorum, ptr %obj, i64 0, i32 7
+  %read_pattern = getelementptr inbounds i8, ptr %obj, i64 28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %read_pattern, align 4
   store i32 %0, ptr %value.i, align 4
@@ -12613,7 +12431,7 @@ declare void @qapi_free_BlockdevOptionsQuorum(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @visit_type_BlockdevOptionsGluster_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_logfile = alloca i8, align 1
-  %logfile = getelementptr inbounds %struct.BlockdevOptionsGluster, ptr %obj, i64 0, i32 5
+  %logfile = getelementptr inbounds i8, ptr %obj, i64 40
   %0 = load ptr, ptr %logfile, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -12622,22 +12440,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %path = getelementptr inbounds %struct.BlockdevOptionsGluster, ptr %obj, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.309, ptr noundef nonnull %path, ptr noundef %errp) #4
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %server = getelementptr inbounds %struct.BlockdevOptionsGluster, ptr %obj, i64 0, i32 2
+  %server = getelementptr inbounds i8, ptr %obj, i64 16
   %call5 = tail call zeroext i1 @visit_type_SocketAddressList(ptr noundef %v, ptr noundef nonnull @.str.308, ptr noundef nonnull %server, ptr noundef %errp) #4
   br i1 %call5, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end4
-  %has_debug = getelementptr inbounds %struct.BlockdevOptionsGluster, ptr %obj, i64 0, i32 3
+  %has_debug = getelementptr inbounds i8, ptr %obj, i64 24
   %call8 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.342, ptr noundef nonnull %has_debug) #4
   br i1 %call8, label %if.then9, label %if.end13
 
 if.then9:                                         ; preds = %if.end7
-  %debug = getelementptr inbounds %struct.BlockdevOptionsGluster, ptr %obj, i64 0, i32 4
+  %debug = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.342, ptr noundef nonnull %debug, ptr noundef %errp) #4
   br i1 %call10, label %if.end13, label %return
 
@@ -12744,17 +12562,17 @@ entry:
   %has_user = alloca i8, align 1
   %has_password_secret = alloca i8, align 1
   %has_initiator_name = alloca i8, align 1
-  %user = getelementptr inbounds %struct.BlockdevOptionsIscsi, ptr %obj, i64 0, i32 5
+  %user = getelementptr inbounds i8, ptr %obj, i64 40
   %0 = load ptr, ptr %user, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_user, align 1
-  %password_secret = getelementptr inbounds %struct.BlockdevOptionsIscsi, ptr %obj, i64 0, i32 6
+  %password_secret = getelementptr inbounds i8, ptr %obj, i64 48
   %1 = load ptr, ptr %password_secret, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_password_secret, align 1
-  %initiator_name = getelementptr inbounds %struct.BlockdevOptionsIscsi, ptr %obj, i64 0, i32 7
+  %initiator_name = getelementptr inbounds i8, ptr %obj, i64 56
   %2 = load ptr, ptr %initiator_name, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -12769,22 +12587,22 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %portal = getelementptr inbounds %struct.BlockdevOptionsIscsi, ptr %obj, i64 0, i32 1
+  %portal = getelementptr inbounds i8, ptr %obj, i64 8
   %call10 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.345, ptr noundef nonnull %portal, ptr noundef %errp) #4
   br i1 %call10, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end
-  %target = getelementptr inbounds %struct.BlockdevOptionsIscsi, ptr %obj, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %obj, i64 16
   %call13 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.204, ptr noundef nonnull %target, ptr noundef %errp) #4
   br i1 %call13, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end12
-  %has_lun = getelementptr inbounds %struct.BlockdevOptionsIscsi, ptr %obj, i64 0, i32 3
+  %has_lun = getelementptr inbounds i8, ptr %obj, i64 24
   %call16 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.346, ptr noundef nonnull %has_lun) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %lun = getelementptr inbounds %struct.BlockdevOptionsIscsi, ptr %obj, i64 0, i32 4
+  %lun = getelementptr inbounds i8, ptr %obj, i64 32
   %call18 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.346, ptr noundef nonnull %lun, ptr noundef %errp) #4
   br i1 %call18, label %if.end21, label %return
 
@@ -12813,12 +12631,12 @@ if.then37:                                        ; preds = %if.end35
   br i1 %call39, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.then37, %if.end35
-  %has_header_digest = getelementptr inbounds %struct.BlockdevOptionsIscsi, ptr %obj, i64 0, i32 8
+  %has_header_digest = getelementptr inbounds i8, ptr %obj, i64 64
   %call43 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.349, ptr noundef nonnull %has_header_digest) #4
   br i1 %call43, label %if.then44, label %if.end48
 
 if.then44:                                        ; preds = %if.end42
-  %header_digest = getelementptr inbounds %struct.BlockdevOptionsIscsi, ptr %obj, i64 0, i32 9
+  %header_digest = getelementptr inbounds i8, ptr %obj, i64 68
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i37)
   %5 = load i32, ptr %header_digest, align 4
   store i32 %5, ptr %value.i37, align 4
@@ -12829,12 +12647,12 @@ if.then44:                                        ; preds = %if.end42
   br i1 %call.i38, label %if.end48, label %return
 
 if.end48:                                         ; preds = %if.then44, %if.end42
-  %has_timeout = getelementptr inbounds %struct.BlockdevOptionsIscsi, ptr %obj, i64 0, i32 10
+  %has_timeout = getelementptr inbounds i8, ptr %obj, i64 72
   %call49 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.350, ptr noundef nonnull %has_timeout) #4
   br i1 %call49, label %if.then50, label %if.end54
 
 if.then50:                                        ; preds = %if.end48
-  %timeout = getelementptr inbounds %struct.BlockdevOptionsIscsi, ptr %obj, i64 0, i32 11
+  %timeout = getelementptr inbounds i8, ptr %obj, i64 80
   %call51 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.350, ptr noundef nonnull %timeout, ptr noundef %errp) #4
   br i1 %call51, label %if.end54, label %return
 
@@ -12978,12 +12796,12 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_cipher_alg = getelementptr inbounds %struct.RbdEncryptionCreateOptionsLUKSBase, ptr %obj, i64 0, i32 1
+  %has_cipher_alg = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %has_cipher_alg) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %cipher_alg = getelementptr inbounds %struct.RbdEncryptionCreateOptionsLUKSBase, ptr %obj, i64 0, i32 2
+  %cipher_alg = getelementptr inbounds i8, ptr %obj, i64 12
   %call3 = tail call zeroext i1 @visit_type_QCryptoCipherAlgorithm(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %cipher_alg, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
@@ -13025,12 +12843,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %has_cipher_alg.i = getelementptr inbounds %struct.RbdEncryptionCreateOptionsLUKSBase, ptr %0, i64 0, i32 1
+  %has_cipher_alg.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %has_cipher_alg.i) #4
   br i1 %call1.i, label %if.then2.i, label %out_obj
 
 if.then2.i:                                       ; preds = %if.end.i
-  %cipher_alg.i = getelementptr inbounds %struct.RbdEncryptionCreateOptionsLUKSBase, ptr %0, i64 0, i32 2
+  %cipher_alg.i = getelementptr inbounds i8, ptr %0, i64 12
   %call3.i = tail call zeroext i1 @visit_type_QCryptoCipherAlgorithm(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %cipher_alg.i, ptr noundef %errp) #4
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
@@ -13247,12 +13065,12 @@ entry:
   br i1 %call.i.i, label %if.end.i, label %visit_type_RbdEncryptionCreateOptionsLUKSBase_members.exit
 
 if.end.i:                                         ; preds = %entry
-  %has_cipher_alg.i = getelementptr inbounds %struct.RbdEncryptionCreateOptionsLUKSBase, ptr %obj, i64 0, i32 1
+  %has_cipher_alg.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %has_cipher_alg.i) #4
   br i1 %call1.i, label %if.then2.i, label %if.end6.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %cipher_alg.i = getelementptr inbounds %struct.RbdEncryptionCreateOptionsLUKSBase, ptr %obj, i64 0, i32 2
+  %cipher_alg.i = getelementptr inbounds i8, ptr %obj, i64 12
   %call3.i = tail call zeroext i1 @visit_type_QCryptoCipherAlgorithm(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %cipher_alg.i, ptr noundef %errp) #4
   br i1 %call3.i, label %if.end6.i, label %visit_type_RbdEncryptionCreateOptionsLUKSBase_members.exit
 
@@ -13292,12 +13110,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i.i, label %if.end.i.i, label %out_obj.thread16
 
 if.end.i.i:                                       ; preds = %if.end5
-  %has_cipher_alg.i.i = getelementptr inbounds %struct.RbdEncryptionCreateOptionsLUKSBase, ptr %0, i64 0, i32 1
+  %has_cipher_alg.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %has_cipher_alg.i.i) #4
   br i1 %call1.i.i, label %if.then2.i.i, label %out_obj
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %cipher_alg.i.i = getelementptr inbounds %struct.RbdEncryptionCreateOptionsLUKSBase, ptr %0, i64 0, i32 2
+  %cipher_alg.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %call3.i.i = tail call zeroext i1 @visit_type_QCryptoCipherAlgorithm(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %cipher_alg.i.i, ptr noundef %errp) #4
   br i1 %call3.i.i, label %out_obj, label %out_obj.thread16
 
@@ -13334,12 +13152,12 @@ entry:
   br i1 %call.i.i, label %if.end.i, label %visit_type_RbdEncryptionCreateOptionsLUKSBase_members.exit
 
 if.end.i:                                         ; preds = %entry
-  %has_cipher_alg.i = getelementptr inbounds %struct.RbdEncryptionCreateOptionsLUKSBase, ptr %obj, i64 0, i32 1
+  %has_cipher_alg.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %has_cipher_alg.i) #4
   br i1 %call1.i, label %if.then2.i, label %if.end6.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %cipher_alg.i = getelementptr inbounds %struct.RbdEncryptionCreateOptionsLUKSBase, ptr %obj, i64 0, i32 2
+  %cipher_alg.i = getelementptr inbounds i8, ptr %obj, i64 12
   %call3.i = tail call zeroext i1 @visit_type_QCryptoCipherAlgorithm(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %cipher_alg.i, ptr noundef %errp) #4
   br i1 %call3.i, label %if.end6.i, label %visit_type_RbdEncryptionCreateOptionsLUKSBase_members.exit
 
@@ -13379,12 +13197,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i.i, label %if.end.i.i, label %out_obj.thread16
 
 if.end.i.i:                                       ; preds = %if.end5
-  %has_cipher_alg.i.i = getelementptr inbounds %struct.RbdEncryptionCreateOptionsLUKSBase, ptr %0, i64 0, i32 1
+  %has_cipher_alg.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %has_cipher_alg.i.i) #4
   br i1 %call1.i.i, label %if.then2.i.i, label %out_obj
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %cipher_alg.i.i = getelementptr inbounds %struct.RbdEncryptionCreateOptionsLUKSBase, ptr %0, i64 0, i32 2
+  %cipher_alg.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %call3.i.i = tail call zeroext i1 @visit_type_QCryptoCipherAlgorithm(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %cipher_alg.i.i, ptr noundef %errp) #4
   br i1 %call3.i.i, label %out_obj, label %out_obj.thread16
 
@@ -13419,7 +13237,7 @@ define dso_local zeroext i1 @visit_type_q_obj_RbdEncryptionOptions_base_members(
 entry:
   %value.i = alloca i32, align 4
   %has_parent = alloca i8, align 1
-  %parent = getelementptr inbounds %struct.q_obj_RbdEncryptionOptions_base, ptr %obj, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %parent, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -13476,7 +13294,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_parent.i)
-  %parent.i = getelementptr inbounds %struct.q_obj_RbdEncryptionOptions_base, ptr %0, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %parent.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -13512,12 +13330,12 @@ if.end.i:                                         ; preds = %if.then3.i, %if.end
   ]
 
 sw.bb2.i:                                         ; preds = %if.end.i
-  %u3.i = getelementptr inbounds %struct.RbdEncryptionOptions, ptr %0, i64 0, i32 2
+  %u3.i = getelementptr inbounds i8, ptr %0, i64 16
   %call.i.i14 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.283, ptr noundef nonnull %u3.i, ptr noundef %errp) #4
   br i1 %call.i.i14, label %out_obj, label %out_obj.thread
 
 sw.bb5.i:                                         ; preds = %if.end.i
-  %u6.i = getelementptr inbounds %struct.RbdEncryptionOptions, ptr %0, i64 0, i32 2
+  %u6.i = getelementptr inbounds i8, ptr %0, i64 16
   %call.i.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.283, ptr noundef nonnull %u6.i, ptr noundef %errp) #4
   br i1 %call.i.i, label %out_obj, label %out_obj.thread
 
@@ -13526,7 +13344,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_RbdEncryptionOptions_members.exit:     ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.RbdEncryptionOptions, ptr %0, i64 0, i32 2
+  %u.i = getelementptr inbounds i8, ptr %0, i64 16
   %call.i.i15 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.283, ptr noundef nonnull %u.i, ptr noundef %errp) #4
   br i1 %call.i.i15, label %out_obj, label %out_obj.thread
 
@@ -13560,7 +13378,7 @@ entry:
   %value.i.i = alloca i32, align 4
   %has_parent.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_parent.i)
-  %parent.i = getelementptr inbounds %struct.q_obj_RbdEncryptionOptions_base, ptr %obj, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %parent.i, align 8
   %tobool.i = icmp ne ptr %0, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -13596,17 +13414,17 @@ if.end:                                           ; preds = %if.then3.i, %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.RbdEncryptionOptions, ptr %obj, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %obj, i64 16
   %call.i.i11 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.283, ptr noundef nonnull %u, ptr noundef %errp) #4
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.RbdEncryptionOptions, ptr %obj, i64 0, i32 2
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 16
   %call.i.i12 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.283, ptr noundef nonnull %u3, ptr noundef %errp) #4
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds %struct.RbdEncryptionOptions, ptr %obj, i64 0, i32 2
+  %u6 = getelementptr inbounds i8, ptr %obj, i64 16
   %call.i.i13 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.283, ptr noundef nonnull %u6, ptr noundef %errp) #4
   br label %return
 
@@ -13656,17 +13474,17 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.RbdEncryptionCreateOptions, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i.i.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.283, ptr noundef nonnull %u, ptr noundef %errp) #4
   br i1 %call.i.i.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %sw.bb
-  %has_cipher_alg.i.i = getelementptr inbounds %struct.RbdEncryptionCreateOptions, ptr %obj, i64 0, i32 1, i32 0, i32 1
+  %has_cipher_alg.i.i = getelementptr inbounds i8, ptr %obj, i64 16
   %call1.i.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %has_cipher_alg.i.i) #4
   br i1 %call1.i.i, label %if.then2.i.i, label %if.end6.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %cipher_alg.i.i = getelementptr inbounds %struct.RbdEncryptionCreateOptions, ptr %obj, i64 0, i32 1, i32 0, i32 2
+  %cipher_alg.i.i = getelementptr inbounds i8, ptr %obj, i64 20
   %call3.i.i = call zeroext i1 @visit_type_QCryptoCipherAlgorithm(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %cipher_alg.i.i, ptr noundef %errp) #4
   br i1 %call3.i.i, label %if.end6.i.i, label %return
 
@@ -13674,17 +13492,17 @@ if.end6.i.i:                                      ; preds = %if.then2.i.i, %if.e
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.RbdEncryptionCreateOptions, ptr %obj, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i.i.i8 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.283, ptr noundef nonnull %u3, ptr noundef %errp) #4
   br i1 %call.i.i.i8, label %if.end.i.i10, label %return
 
 if.end.i.i10:                                     ; preds = %sw.bb2
-  %has_cipher_alg.i.i11 = getelementptr inbounds %struct.RbdEncryptionCreateOptions, ptr %obj, i64 0, i32 1, i32 0, i32 1
+  %has_cipher_alg.i.i11 = getelementptr inbounds i8, ptr %obj, i64 16
   %call1.i.i12 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %has_cipher_alg.i.i11) #4
   br i1 %call1.i.i12, label %if.then2.i.i14, label %if.end6.i.i13
 
 if.then2.i.i14:                                   ; preds = %if.end.i.i10
-  %cipher_alg.i.i15 = getelementptr inbounds %struct.RbdEncryptionCreateOptions, ptr %obj, i64 0, i32 1, i32 0, i32 2
+  %cipher_alg.i.i15 = getelementptr inbounds i8, ptr %obj, i64 20
   %call3.i.i16 = call zeroext i1 @visit_type_QCryptoCipherAlgorithm(ptr noundef %v, ptr noundef nonnull @.str.351, ptr noundef nonnull %cipher_alg.i.i15, ptr noundef %errp) #4
   br i1 %call3.i.i16, label %if.end6.i.i13, label %return
 
@@ -13767,7 +13585,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.RbdAuthModeList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %value.i, align 4
@@ -13817,32 +13635,32 @@ entry:
   %has_encrypt = alloca i8, align 1
   %has_user = alloca i8, align 1
   %has_key_secret = alloca i8, align 1
-  %q_namespace = getelementptr inbounds %struct.BlockdevOptionsRbd, ptr %obj, i64 0, i32 1
+  %q_namespace = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %q_namespace, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_q_namespace, align 1
-  %conf = getelementptr inbounds %struct.BlockdevOptionsRbd, ptr %obj, i64 0, i32 3
+  %conf = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load ptr, ptr %conf, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_conf, align 1
-  %snapshot = getelementptr inbounds %struct.BlockdevOptionsRbd, ptr %obj, i64 0, i32 4
+  %snapshot = getelementptr inbounds i8, ptr %obj, i64 32
   %2 = load ptr, ptr %snapshot, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_snapshot, align 1
-  %encrypt = getelementptr inbounds %struct.BlockdevOptionsRbd, ptr %obj, i64 0, i32 5
+  %encrypt = getelementptr inbounds i8, ptr %obj, i64 40
   %3 = load ptr, ptr %encrypt, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
   store i8 %frombool13, ptr %has_encrypt, align 1
-  %user = getelementptr inbounds %struct.BlockdevOptionsRbd, ptr %obj, i64 0, i32 6
+  %user = getelementptr inbounds i8, ptr %obj, i64 48
   %4 = load ptr, ptr %user, align 8
   %tobool14 = icmp ne ptr %4, null
   %frombool17 = zext i1 %tobool14 to i8
   store i8 %frombool17, ptr %has_user, align 1
-  %key_secret = getelementptr inbounds %struct.BlockdevOptionsRbd, ptr %obj, i64 0, i32 9
+  %key_secret = getelementptr inbounds i8, ptr %obj, i64 72
   %5 = load ptr, ptr %key_secret, align 8
   %tobool18 = icmp ne ptr %5, null
   %frombool21 = zext i1 %tobool18 to i8
@@ -13859,7 +13677,7 @@ if.then23:                                        ; preds = %if.end
   br i1 %call25, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.then23, %if.end
-  %image = getelementptr inbounds %struct.BlockdevOptionsRbd, ptr %obj, i64 0, i32 2
+  %image = getelementptr inbounds i8, ptr %obj, i64 16
   %call29 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.76, ptr noundef nonnull %image, ptr noundef %errp) #4
   br i1 %call29, label %if.end31, label %return
 
@@ -13896,12 +13714,12 @@ if.then54:                                        ; preds = %if.end52
   br i1 %call56, label %if.end59, label %return
 
 if.end59:                                         ; preds = %if.then54, %if.end52
-  %has_auth_client_required = getelementptr inbounds %struct.BlockdevOptionsRbd, ptr %obj, i64 0, i32 7
+  %has_auth_client_required = getelementptr inbounds i8, ptr %obj, i64 56
   %call60 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.355, ptr noundef nonnull %has_auth_client_required) #4
   br i1 %call60, label %if.then61, label %if.end65
 
 if.then61:                                        ; preds = %if.end59
-  %auth_client_required = getelementptr inbounds %struct.BlockdevOptionsRbd, ptr %obj, i64 0, i32 8
+  %auth_client_required = getelementptr inbounds i8, ptr %obj, i64 64
   %call62 = call zeroext i1 @visit_type_RbdAuthModeList(ptr noundef %v, ptr noundef nonnull @.str.355, ptr noundef nonnull %auth_client_required, ptr noundef %errp)
   br i1 %call62, label %if.end65, label %return
 
@@ -13914,12 +13732,12 @@ if.then67:                                        ; preds = %if.end65
   br i1 %call69, label %if.end72, label %return
 
 if.end72:                                         ; preds = %if.then67, %if.end65
-  %has_server = getelementptr inbounds %struct.BlockdevOptionsRbd, ptr %obj, i64 0, i32 10
+  %has_server = getelementptr inbounds i8, ptr %obj, i64 80
   %call73 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.308, ptr noundef nonnull %has_server) #4
   br i1 %call73, label %if.then74, label %if.end78
 
 if.then74:                                        ; preds = %if.end72
-  %server = getelementptr inbounds %struct.BlockdevOptionsRbd, ptr %obj, i64 0, i32 11
+  %server = getelementptr inbounds i8, ptr %obj, i64 88
   %call75 = call zeroext i1 @visit_type_InetSocketAddressBaseList(ptr noundef %v, ptr noundef nonnull @.str.308, ptr noundef nonnull %server, ptr noundef %errp) #4
   br i1 %call75, label %if.end78, label %return
 
@@ -14003,7 +13821,7 @@ define dso_local zeroext i1 @visit_type_BlockdevOptionsReplication_members(ptr n
 entry:
   %value.i = alloca i32, align 4
   %has_top_id = alloca i8, align 1
-  %top_id = getelementptr inbounds %struct.BlockdevOptionsReplication, ptr %obj, i64 0, i32 2
+  %top_id = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %top_id, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -14012,7 +13830,7 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %mode = getelementptr inbounds %struct.BlockdevOptionsReplication, ptr %obj, i64 0, i32 1
+  %mode = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %mode, align 4
   store i32 %1, ptr %value.i, align 4
@@ -14065,7 +13883,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_top_id.i)
-  %top_id.i = getelementptr inbounds %struct.BlockdevOptionsReplication, ptr %0, i64 0, i32 2
+  %top_id.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %top_id.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -14074,7 +13892,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %mode.i = getelementptr inbounds %struct.BlockdevOptionsReplication, ptr %0, i64 0, i32 1
+  %mode.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %2 = load i32, ptr %mode.i, align 4
   store i32 %2, ptr %value.i.i, align 4
@@ -14146,7 +13964,7 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %host = getelementptr inbounds %struct.NFSServer, ptr %obj, i64 0, i32 1
+  %host = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.357, ptr noundef nonnull %host, ptr noundef %errp) #4
   br label %return
 
@@ -14190,7 +14008,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %visit_type_NFSServer_members.exit, label %out_obj.thread
 
 visit_type_NFSServer_members.exit:                ; preds = %if.end5
-  %host.i = getelementptr inbounds %struct.NFSServer, ptr %0, i64 0, i32 1
+  %host.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.357, ptr noundef nonnull %host.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -14227,67 +14045,67 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %path = getelementptr inbounds %struct.BlockdevOptionsNfs, ptr %obj, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.309, ptr noundef nonnull %path, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_user = getelementptr inbounds %struct.BlockdevOptionsNfs, ptr %obj, i64 0, i32 2
+  %has_user = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.310, ptr noundef nonnull %has_user) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %user = getelementptr inbounds %struct.BlockdevOptionsNfs, ptr %obj, i64 0, i32 3
+  %user = getelementptr inbounds i8, ptr %obj, i64 24
   %call6 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.310, ptr noundef nonnull %user, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_group = getelementptr inbounds %struct.BlockdevOptionsNfs, ptr %obj, i64 0, i32 4
+  %has_group = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.90, ptr noundef nonnull %has_group) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %group = getelementptr inbounds %struct.BlockdevOptionsNfs, ptr %obj, i64 0, i32 5
+  %group = getelementptr inbounds i8, ptr %obj, i64 40
   %call12 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.90, ptr noundef nonnull %group, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_tcp_syn_count = getelementptr inbounds %struct.BlockdevOptionsNfs, ptr %obj, i64 0, i32 6
+  %has_tcp_syn_count = getelementptr inbounds i8, ptr %obj, i64 48
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.358, ptr noundef nonnull %has_tcp_syn_count) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %tcp_syn_count = getelementptr inbounds %struct.BlockdevOptionsNfs, ptr %obj, i64 0, i32 7
+  %tcp_syn_count = getelementptr inbounds i8, ptr %obj, i64 56
   %call18 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.358, ptr noundef nonnull %tcp_syn_count, ptr noundef %errp) #4
   br i1 %call18, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.then17, %if.end15
-  %has_readahead_size = getelementptr inbounds %struct.BlockdevOptionsNfs, ptr %obj, i64 0, i32 8
+  %has_readahead_size = getelementptr inbounds i8, ptr %obj, i64 64
   %call22 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.359, ptr noundef nonnull %has_readahead_size) #4
   br i1 %call22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end21
-  %readahead_size = getelementptr inbounds %struct.BlockdevOptionsNfs, ptr %obj, i64 0, i32 9
+  %readahead_size = getelementptr inbounds i8, ptr %obj, i64 72
   %call24 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.359, ptr noundef nonnull %readahead_size, ptr noundef %errp) #4
   br i1 %call24, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then23, %if.end21
-  %has_page_cache_size = getelementptr inbounds %struct.BlockdevOptionsNfs, ptr %obj, i64 0, i32 10
+  %has_page_cache_size = getelementptr inbounds i8, ptr %obj, i64 80
   %call28 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.360, ptr noundef nonnull %has_page_cache_size) #4
   br i1 %call28, label %if.then29, label %if.end33
 
 if.then29:                                        ; preds = %if.end27
-  %page_cache_size = getelementptr inbounds %struct.BlockdevOptionsNfs, ptr %obj, i64 0, i32 11
+  %page_cache_size = getelementptr inbounds i8, ptr %obj, i64 88
   %call30 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.360, ptr noundef nonnull %page_cache_size, ptr noundef %errp) #4
   br i1 %call30, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.then29, %if.end27
-  %has_debug = getelementptr inbounds %struct.BlockdevOptionsNfs, ptr %obj, i64 0, i32 12
+  %has_debug = getelementptr inbounds i8, ptr %obj, i64 96
   %call34 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.342, ptr noundef nonnull %has_debug) #4
   br i1 %call34, label %if.then35, label %if.end39
 
 if.then35:                                        ; preds = %if.end33
-  %debug = getelementptr inbounds %struct.BlockdevOptionsNfs, ptr %obj, i64 0, i32 13
+  %debug = getelementptr inbounds i8, ptr %obj, i64 104
   %call36 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.342, ptr noundef nonnull %debug, ptr noundef %errp) #4
   br i1 %call36, label %if.end39, label %return
 
@@ -14359,22 +14177,22 @@ entry:
   %has_password_secret = alloca i8, align 1
   %has_proxy_username = alloca i8, align 1
   %has_proxy_password_secret = alloca i8, align 1
-  %username = getelementptr inbounds %struct.BlockdevOptionsCurlBase, ptr %obj, i64 0, i32 5
+  %username = getelementptr inbounds i8, ptr %obj, i64 40
   %0 = load ptr, ptr %username, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_username, align 1
-  %password_secret = getelementptr inbounds %struct.BlockdevOptionsCurlBase, ptr %obj, i64 0, i32 6
+  %password_secret = getelementptr inbounds i8, ptr %obj, i64 48
   %1 = load ptr, ptr %password_secret, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_password_secret, align 1
-  %proxy_username = getelementptr inbounds %struct.BlockdevOptionsCurlBase, ptr %obj, i64 0, i32 7
+  %proxy_username = getelementptr inbounds i8, ptr %obj, i64 56
   %2 = load ptr, ptr %proxy_username, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_proxy_username, align 1
-  %proxy_password_secret = getelementptr inbounds %struct.BlockdevOptionsCurlBase, ptr %obj, i64 0, i32 8
+  %proxy_password_secret = getelementptr inbounds i8, ptr %obj, i64 64
   %3 = load ptr, ptr %proxy_password_secret, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
@@ -14383,22 +14201,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_readahead = getelementptr inbounds %struct.BlockdevOptionsCurlBase, ptr %obj, i64 0, i32 1
+  %has_readahead = getelementptr inbounds i8, ptr %obj, i64 8
   %call14 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.362, ptr noundef nonnull %has_readahead) #4
   br i1 %call14, label %if.then15, label %if.end19
 
 if.then15:                                        ; preds = %if.end
-  %readahead = getelementptr inbounds %struct.BlockdevOptionsCurlBase, ptr %obj, i64 0, i32 2
+  %readahead = getelementptr inbounds i8, ptr %obj, i64 16
   %call16 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.362, ptr noundef nonnull %readahead, ptr noundef %errp) #4
   br i1 %call16, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.then15, %if.end
-  %has_timeout = getelementptr inbounds %struct.BlockdevOptionsCurlBase, ptr %obj, i64 0, i32 3
+  %has_timeout = getelementptr inbounds i8, ptr %obj, i64 24
   %call20 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.350, ptr noundef nonnull %has_timeout) #4
   br i1 %call20, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %if.end19
-  %timeout = getelementptr inbounds %struct.BlockdevOptionsCurlBase, ptr %obj, i64 0, i32 4
+  %timeout = getelementptr inbounds i8, ptr %obj, i64 32
   %call22 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.350, ptr noundef nonnull %timeout, ptr noundef %errp) #4
   br i1 %call22, label %if.end25, label %return
 
@@ -14500,12 +14318,12 @@ define dso_local zeroext i1 @visit_type_BlockdevOptionsCurlHttp_members(ptr noun
 entry:
   %has_cookie = alloca i8, align 1
   %has_cookie_secret = alloca i8, align 1
-  %cookie = getelementptr inbounds %struct.BlockdevOptionsCurlHttp, ptr %obj, i64 0, i32 9
+  %cookie = getelementptr inbounds i8, ptr %obj, i64 72
   %0 = load ptr, ptr %cookie, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_cookie, align 1
-  %cookie_secret = getelementptr inbounds %struct.BlockdevOptionsCurlHttp, ptr %obj, i64 0, i32 10
+  %cookie_secret = getelementptr inbounds i8, ptr %obj, i64 80
   %1 = load ptr, ptr %cookie_secret, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -14595,12 +14413,12 @@ define dso_local zeroext i1 @visit_type_BlockdevOptionsCurlHttps_members(ptr nou
 entry:
   %has_cookie = alloca i8, align 1
   %has_cookie_secret = alloca i8, align 1
-  %cookie = getelementptr inbounds %struct.BlockdevOptionsCurlHttps, ptr %obj, i64 0, i32 9
+  %cookie = getelementptr inbounds i8, ptr %obj, i64 72
   %0 = load ptr, ptr %cookie, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_cookie, align 1
-  %cookie_secret = getelementptr inbounds %struct.BlockdevOptionsCurlHttps, ptr %obj, i64 0, i32 12
+  %cookie_secret = getelementptr inbounds i8, ptr %obj, i64 88
   %1 = load ptr, ptr %cookie_secret, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -14617,12 +14435,12 @@ if.then7:                                         ; preds = %if.end
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then7, %if.end
-  %has_sslverify = getelementptr inbounds %struct.BlockdevOptionsCurlHttps, ptr %obj, i64 0, i32 10
+  %has_sslverify = getelementptr inbounds i8, ptr %obj, i64 80
   %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.368, ptr noundef nonnull %has_sslverify) #4
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  %sslverify = getelementptr inbounds %struct.BlockdevOptionsCurlHttps, ptr %obj, i64 0, i32 11
+  %sslverify = getelementptr inbounds i8, ptr %obj, i64 81
   %call15 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.368, ptr noundef nonnull %sslverify, ptr noundef %errp) #4
   br i1 %call15, label %if.end18, label %return
 
@@ -14762,12 +14580,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_sslverify = getelementptr inbounds %struct.BlockdevOptionsCurlFtps, ptr %obj, i64 0, i32 9
+  %has_sslverify = getelementptr inbounds i8, ptr %obj, i64 72
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.368, ptr noundef nonnull %has_sslverify) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %sslverify = getelementptr inbounds %struct.BlockdevOptionsCurlFtps, ptr %obj, i64 0, i32 10
+  %sslverify = getelementptr inbounds i8, ptr %obj, i64 73
   %call3 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.368, ptr noundef nonnull %sslverify, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
@@ -14807,12 +14625,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %has_sslverify.i = getelementptr inbounds %struct.BlockdevOptionsCurlFtps, ptr %0, i64 0, i32 9
+  %has_sslverify.i = getelementptr inbounds i8, ptr %0, i64 72
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.368, ptr noundef nonnull %has_sslverify.i) #4
   br i1 %call1.i, label %if.then2.i, label %out_obj
 
 if.then2.i:                                       ; preds = %if.end.i
-  %sslverify.i = getelementptr inbounds %struct.BlockdevOptionsCurlFtps, ptr %0, i64 0, i32 10
+  %sslverify.i = getelementptr inbounds i8, ptr %0, i64 73
   %call3.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.368, ptr noundef nonnull %sslverify.i, ptr noundef %errp) #4
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
@@ -14849,22 +14667,22 @@ entry:
   %has_tls_creds = alloca i8, align 1
   %has_tls_hostname = alloca i8, align 1
   %has_x_dirty_bitmap = alloca i8, align 1
-  %export = getelementptr inbounds %struct.BlockdevOptionsNbd, ptr %obj, i64 0, i32 1
+  %export = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %export, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_export, align 1
-  %tls_creds = getelementptr inbounds %struct.BlockdevOptionsNbd, ptr %obj, i64 0, i32 2
+  %tls_creds = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %tls_creds, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_tls_creds, align 1
-  %tls_hostname = getelementptr inbounds %struct.BlockdevOptionsNbd, ptr %obj, i64 0, i32 3
+  %tls_hostname = getelementptr inbounds i8, ptr %obj, i64 24
   %2 = load ptr, ptr %tls_hostname, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_tls_hostname, align 1
-  %x_dirty_bitmap = getelementptr inbounds %struct.BlockdevOptionsNbd, ptr %obj, i64 0, i32 4
+  %x_dirty_bitmap = getelementptr inbounds i8, ptr %obj, i64 32
   %3 = load ptr, ptr %x_dirty_bitmap, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
@@ -14913,22 +14731,22 @@ if.then41:                                        ; preds = %if.end39
   br i1 %call43, label %if.end47, label %return
 
 if.end47:                                         ; preds = %if.end39, %if.then41, %if.end34
-  %has_reconnect_delay = getelementptr inbounds %struct.BlockdevOptionsNbd, ptr %obj, i64 0, i32 5
+  %has_reconnect_delay = getelementptr inbounds i8, ptr %obj, i64 40
   %call48 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.373, ptr noundef nonnull %has_reconnect_delay) #4
   br i1 %call48, label %if.then49, label %if.end53
 
 if.then49:                                        ; preds = %if.end47
-  %reconnect_delay = getelementptr inbounds %struct.BlockdevOptionsNbd, ptr %obj, i64 0, i32 6
+  %reconnect_delay = getelementptr inbounds i8, ptr %obj, i64 44
   %call50 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.373, ptr noundef nonnull %reconnect_delay, ptr noundef %errp) #4
   br i1 %call50, label %if.end53, label %return
 
 if.end53:                                         ; preds = %if.then49, %if.end47
-  %has_open_timeout = getelementptr inbounds %struct.BlockdevOptionsNbd, ptr %obj, i64 0, i32 7
+  %has_open_timeout = getelementptr inbounds i8, ptr %obj, i64 48
   %call54 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.374, ptr noundef nonnull %has_open_timeout) #4
   br i1 %call54, label %if.then55, label %if.end59
 
 if.then55:                                        ; preds = %if.end53
-  %open_timeout = getelementptr inbounds %struct.BlockdevOptionsNbd, ptr %obj, i64 0, i32 8
+  %open_timeout = getelementptr inbounds i8, ptr %obj, i64 52
   %call56 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.374, ptr noundef nonnull %open_timeout, ptr noundef %errp) #4
   br i1 %call56, label %if.end59, label %return
 
@@ -15002,22 +14820,22 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_offset = getelementptr inbounds %struct.BlockdevOptionsRaw, ptr %obj, i64 0, i32 1
+  %has_offset = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %has_offset) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %offset = getelementptr inbounds %struct.BlockdevOptionsRaw, ptr %obj, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %obj, i64 16
   %call3 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %offset, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_size = getelementptr inbounds %struct.BlockdevOptionsRaw, ptr %obj, i64 0, i32 3
+  %has_size = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %has_size) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %size = getelementptr inbounds %struct.BlockdevOptionsRaw, ptr %obj, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %obj, i64 32
   %call9 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call9, label %if.end12, label %return
 
@@ -15057,22 +14875,22 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %has_offset.i = getelementptr inbounds %struct.BlockdevOptionsRaw, ptr %0, i64 0, i32 1
+  %has_offset.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %has_offset.i) #4
   br i1 %call1.i, label %if.then2.i, label %if.end6.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %offset.i = getelementptr inbounds %struct.BlockdevOptionsRaw, ptr %0, i64 0, i32 2
+  %offset.i = getelementptr inbounds i8, ptr %0, i64 16
   %call3.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %offset.i, ptr noundef %errp) #4
   br i1 %call3.i, label %if.end6.i, label %out_obj.thread16
 
 if.end6.i:                                        ; preds = %if.then2.i, %if.end.i
-  %has_size.i = getelementptr inbounds %struct.BlockdevOptionsRaw, ptr %0, i64 0, i32 3
+  %has_size.i = getelementptr inbounds i8, ptr %0, i64 24
   %call7.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %has_size.i) #4
   br i1 %call7.i, label %if.then8.i, label %out_obj
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %size.i = getelementptr inbounds %struct.BlockdevOptionsRaw, ptr %0, i64 0, i32 4
+  %size.i = getelementptr inbounds i8, ptr %0, i64 32
   %call9.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size.i, ptr noundef %errp) #4
   br i1 %call9.i, label %out_obj, label %out_obj.thread16
 
@@ -15109,7 +14927,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockdevOptionsThrottle, ptr %obj, i64 0, i32 1
+  %file = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %file, ptr noundef %errp)
   br label %return
 
@@ -15146,7 +14964,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_BlockdevOptionsThrottle_members.exit, label %out_obj.thread
 
 visit_type_BlockdevOptionsThrottle_members.exit:  ; preds = %if.end5
-  %file.i = getelementptr inbounds %struct.BlockdevOptionsThrottle, ptr %0, i64 0, i32 1
+  %file.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %file.i, ptr noundef %errp) #6
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -15180,7 +14998,7 @@ declare void @qapi_free_BlockdevOptionsThrottle(ptr noundef) local_unnamed_addr 
 define dso_local zeroext i1 @visit_type_BlockdevOptionsCor_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_bottom = alloca i8, align 1
-  %bottom = getelementptr inbounds %struct.BlockdevOptionsCor, ptr %obj, i64 0, i32 1
+  %bottom = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %bottom, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -15230,7 +15048,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_bottom.i)
-  %bottom.i = getelementptr inbounds %struct.BlockdevOptionsCor, ptr %0, i64 0, i32 1
+  %bottom.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %bottom.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -15291,7 +15109,7 @@ define dso_local zeroext i1 @visit_type_BlockdevOptionsCbw_members(ptr noundef %
 entry:
   %value.i = alloca i32, align 4
   %has_bitmap = alloca i8, align 1
-  %bitmap = getelementptr inbounds %struct.BlockdevOptionsCbw, ptr %obj, i64 0, i32 2
+  %bitmap = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %bitmap, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -15300,7 +15118,7 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %target = getelementptr inbounds %struct.BlockdevOptionsCbw, ptr %obj, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.204, ptr noundef nonnull %target, ptr noundef %errp)
   br i1 %call2, label %if.end4, label %return
 
@@ -15313,12 +15131,12 @@ if.then6:                                         ; preds = %if.end4
   br i1 %call8, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.then6, %if.end4
-  %has_on_cbw_error = getelementptr inbounds %struct.BlockdevOptionsCbw, ptr %obj, i64 0, i32 3
+  %has_on_cbw_error = getelementptr inbounds i8, ptr %obj, i64 24
   %call12 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.376, ptr noundef nonnull %has_on_cbw_error) #4
   br i1 %call12, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %if.end11
-  %on_cbw_error = getelementptr inbounds %struct.BlockdevOptionsCbw, ptr %obj, i64 0, i32 4
+  %on_cbw_error = getelementptr inbounds i8, ptr %obj, i64 28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %on_cbw_error, align 4
   store i32 %1, ptr %value.i, align 4
@@ -15329,12 +15147,12 @@ if.then13:                                        ; preds = %if.end11
   br i1 %call.i19, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.then13, %if.end11
-  %has_cbw_timeout = getelementptr inbounds %struct.BlockdevOptionsCbw, ptr %obj, i64 0, i32 5
+  %has_cbw_timeout = getelementptr inbounds i8, ptr %obj, i64 32
   %call18 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.377, ptr noundef nonnull %has_cbw_timeout) #4
   br i1 %call18, label %if.then19, label %if.end23
 
 if.then19:                                        ; preds = %if.end17
-  %cbw_timeout = getelementptr inbounds %struct.BlockdevOptionsCbw, ptr %obj, i64 0, i32 6
+  %cbw_timeout = getelementptr inbounds i8, ptr %obj, i64 36
   %call20 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.377, ptr noundef nonnull %cbw_timeout, ptr noundef %errp) #4
   br i1 %call20, label %if.end23, label %return
 
@@ -15407,12 +15225,12 @@ entry:
   %value.i = alloca i32, align 4
   %has_node_name = alloca i8, align 1
   %has_cache = alloca i8, align 1
-  %node_name = getelementptr inbounds %struct.q_obj_BlockdevOptions_base, ptr %obj, i64 0, i32 1
+  %node_name = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %node_name, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_node_name, align 1
-  %cache = getelementptr inbounds %struct.q_obj_BlockdevOptions_base, ptr %obj, i64 0, i32 4
+  %cache = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load ptr, ptr %cache, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -15435,12 +15253,12 @@ if.then7:                                         ; preds = %if.end
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then7, %if.end
-  %has_discard = getelementptr inbounds %struct.q_obj_BlockdevOptions_base, ptr %obj, i64 0, i32 2
+  %has_discard = getelementptr inbounds i8, ptr %obj, i64 16
   %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.378, ptr noundef nonnull %has_discard) #4
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  %discard = getelementptr inbounds %struct.q_obj_BlockdevOptions_base, ptr %obj, i64 0, i32 3
+  %discard = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i36)
   %4 = load i32, ptr %discard, align 4
   store i32 %4, ptr %value.i36, align 4
@@ -15459,42 +15277,42 @@ if.then20:                                        ; preds = %if.end18
   br i1 %call22, label %if.end25, label %return
 
 if.end25:                                         ; preds = %if.then20, %if.end18
-  %has_read_only = getelementptr inbounds %struct.q_obj_BlockdevOptions_base, ptr %obj, i64 0, i32 5
+  %has_read_only = getelementptr inbounds i8, ptr %obj, i64 32
   %call26 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.379, ptr noundef nonnull %has_read_only) #4
   br i1 %call26, label %if.then27, label %if.end31
 
 if.then27:                                        ; preds = %if.end25
-  %read_only = getelementptr inbounds %struct.q_obj_BlockdevOptions_base, ptr %obj, i64 0, i32 6
+  %read_only = getelementptr inbounds i8, ptr %obj, i64 33
   %call28 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.379, ptr noundef nonnull %read_only, ptr noundef %errp) #4
   br i1 %call28, label %if.end31, label %return
 
 if.end31:                                         ; preds = %if.then27, %if.end25
-  %has_auto_read_only = getelementptr inbounds %struct.q_obj_BlockdevOptions_base, ptr %obj, i64 0, i32 7
+  %has_auto_read_only = getelementptr inbounds i8, ptr %obj, i64 34
   %call32 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.380, ptr noundef nonnull %has_auto_read_only) #4
   br i1 %call32, label %if.then33, label %if.end37
 
 if.then33:                                        ; preds = %if.end31
-  %auto_read_only = getelementptr inbounds %struct.q_obj_BlockdevOptions_base, ptr %obj, i64 0, i32 8
+  %auto_read_only = getelementptr inbounds i8, ptr %obj, i64 35
   %call34 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.380, ptr noundef nonnull %auto_read_only, ptr noundef %errp) #4
   br i1 %call34, label %if.end37, label %return
 
 if.end37:                                         ; preds = %if.then33, %if.end31
-  %has_force_share = getelementptr inbounds %struct.q_obj_BlockdevOptions_base, ptr %obj, i64 0, i32 9
+  %has_force_share = getelementptr inbounds i8, ptr %obj, i64 36
   %call38 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.381, ptr noundef nonnull %has_force_share) #4
   br i1 %call38, label %if.then39, label %if.end43
 
 if.then39:                                        ; preds = %if.end37
-  %force_share = getelementptr inbounds %struct.q_obj_BlockdevOptions_base, ptr %obj, i64 0, i32 10
+  %force_share = getelementptr inbounds i8, ptr %obj, i64 37
   %call40 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.381, ptr noundef nonnull %force_share, ptr noundef %errp) #4
   br i1 %call40, label %if.end43, label %return
 
 if.end43:                                         ; preds = %if.then39, %if.end37
-  %has_detect_zeroes = getelementptr inbounds %struct.q_obj_BlockdevOptions_base, ptr %obj, i64 0, i32 11
+  %has_detect_zeroes = getelementptr inbounds i8, ptr %obj, i64 38
   %call44 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.382, ptr noundef nonnull %has_detect_zeroes) #4
   br i1 %call44, label %if.then45, label %if.end49
 
 if.then45:                                        ; preds = %if.end43
-  %detect_zeroes = getelementptr inbounds %struct.q_obj_BlockdevOptions_base, ptr %obj, i64 0, i32 12
+  %detect_zeroes = getelementptr inbounds i8, ptr %obj, i64 40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i38)
   %6 = load i32, ptr %detect_zeroes, align 4
   store i32 %6, ptr %value.i38, align 4
@@ -15566,212 +15384,212 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u = getelementptr inbounds i8, ptr %obj, i64 48
   %call1 = tail call zeroext i1 @visit_type_BlockdevOptionsBlkdebug_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 48
   %call4 = tail call zeroext i1 @visit_type_BlockdevOptionsBlklogwrites_members(ptr noundef %v, ptr noundef nonnull %u3, ptr noundef %errp)
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u6 = getelementptr inbounds i8, ptr %obj, i64 48
   %call7 = tail call zeroext i1 @visit_type_BlockdevOptionsBlkverify_members(ptr noundef %v, ptr noundef nonnull %u6, ptr noundef %errp)
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %u9 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u9 = getelementptr inbounds i8, ptr %obj, i64 48
   %call.i = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.76, ptr noundef nonnull %u9, ptr noundef %errp)
   br label %return
 
 sw.bb11:                                          ; preds = %if.end
-  %u12 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u12 = getelementptr inbounds i8, ptr %obj, i64 48
   %call.i128 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %u12, ptr noundef %errp)
   br label %return
 
 sw.bb14:                                          ; preds = %if.end
-  %u15 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u15 = getelementptr inbounds i8, ptr %obj, i64 48
   %call.i129 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %u15, ptr noundef %errp)
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
-  %u18 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u18 = getelementptr inbounds i8, ptr %obj, i64 48
   %call.i130 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %u18, ptr noundef %errp)
   br label %return
 
 sw.bb20:                                          ; preds = %if.end
-  %u21 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u21 = getelementptr inbounds i8, ptr %obj, i64 48
   %call22 = tail call zeroext i1 @visit_type_BlockdevOptionsCbw_members(ptr noundef %v, ptr noundef nonnull %u21, ptr noundef %errp)
   br label %return
 
 sw.bb23:                                          ; preds = %if.end
-  %u24 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u24 = getelementptr inbounds i8, ptr %obj, i64 48
   %call25 = tail call zeroext i1 @visit_type_BlockdevOptionsCor_members(ptr noundef %v, ptr noundef nonnull %u24, ptr noundef %errp)
   br label %return
 
 sw.bb26:                                          ; preds = %if.end
-  %u27 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u27 = getelementptr inbounds i8, ptr %obj, i64 48
   %call.i131 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %u27, ptr noundef %errp)
   br label %return
 
 sw.bb29:                                          ; preds = %if.end
-  %u30 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u30 = getelementptr inbounds i8, ptr %obj, i64 48
   %call31 = tail call zeroext i1 @visit_type_BlockdevOptionsFile_members(ptr noundef %v, ptr noundef nonnull %u30, ptr noundef %errp)
   br label %return
 
 sw.bb32:                                          ; preds = %if.end
-  %u33 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u33 = getelementptr inbounds i8, ptr %obj, i64 48
   %call.i132 = tail call zeroext i1 @visit_type_BlockdevOptionsCurlBase_members(ptr noundef %v, ptr noundef nonnull %u33, ptr noundef %errp)
   br label %return
 
 sw.bb35:                                          ; preds = %if.end
-  %u36 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u36 = getelementptr inbounds i8, ptr %obj, i64 48
   %call37 = tail call zeroext i1 @visit_type_BlockdevOptionsCurlFtps_members(ptr noundef %v, ptr noundef nonnull %u36, ptr noundef %errp)
   br label %return
 
 sw.bb38:                                          ; preds = %if.end
-  %u39 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u39 = getelementptr inbounds i8, ptr %obj, i64 48
   %call40 = tail call zeroext i1 @visit_type_BlockdevOptionsGluster_members(ptr noundef %v, ptr noundef nonnull %u39, ptr noundef %errp)
   br label %return
 
 sw.bb41:                                          ; preds = %if.end
-  %u42 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u42 = getelementptr inbounds i8, ptr %obj, i64 48
   %call43 = tail call zeroext i1 @visit_type_BlockdevOptionsFile_members(ptr noundef %v, ptr noundef nonnull %u42, ptr noundef %errp)
   br label %return
 
 sw.bb44:                                          ; preds = %if.end
-  %u45 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u45 = getelementptr inbounds i8, ptr %obj, i64 48
   %call46 = tail call zeroext i1 @visit_type_BlockdevOptionsFile_members(ptr noundef %v, ptr noundef nonnull %u45, ptr noundef %errp)
   br label %return
 
 sw.bb47:                                          ; preds = %if.end
-  %u48 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u48 = getelementptr inbounds i8, ptr %obj, i64 48
   %call49 = tail call zeroext i1 @visit_type_BlockdevOptionsCurlHttp_members(ptr noundef %v, ptr noundef nonnull %u48, ptr noundef %errp)
   br label %return
 
 sw.bb50:                                          ; preds = %if.end
-  %u51 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u51 = getelementptr inbounds i8, ptr %obj, i64 48
   %call52 = tail call zeroext i1 @visit_type_BlockdevOptionsCurlHttps_members(ptr noundef %v, ptr noundef nonnull %u51, ptr noundef %errp)
   br label %return
 
 sw.bb53:                                          ; preds = %if.end
-  %u54 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u54 = getelementptr inbounds i8, ptr %obj, i64 48
   %call55 = tail call zeroext i1 @visit_type_BlockdevOptionsIscsi_members(ptr noundef %v, ptr noundef nonnull %u54, ptr noundef %errp)
   br label %return
 
 sw.bb56:                                          ; preds = %if.end
-  %u57 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u57 = getelementptr inbounds i8, ptr %obj, i64 48
   %call58 = tail call zeroext i1 @visit_type_BlockdevOptionsLUKS_members(ptr noundef %v, ptr noundef nonnull %u57, ptr noundef %errp)
   br label %return
 
 sw.bb59:                                          ; preds = %if.end
-  %u60 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u60 = getelementptr inbounds i8, ptr %obj, i64 48
   %call61 = tail call zeroext i1 @visit_type_BlockdevOptionsNbd_members(ptr noundef %v, ptr noundef nonnull %u60, ptr noundef %errp)
   br label %return
 
 sw.bb62:                                          ; preds = %if.end
-  %u63 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u63 = getelementptr inbounds i8, ptr %obj, i64 48
   %call64 = tail call zeroext i1 @visit_type_BlockdevOptionsNfs_members(ptr noundef %v, ptr noundef nonnull %u63, ptr noundef %errp)
   br label %return
 
 sw.bb65:                                          ; preds = %if.end
-  %u66 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u66 = getelementptr inbounds i8, ptr %obj, i64 48
   %call67 = tail call zeroext i1 @visit_type_BlockdevOptionsNull_members(ptr noundef %v, ptr noundef nonnull %u66, ptr noundef %errp)
   br label %return
 
 sw.bb68:                                          ; preds = %if.end
-  %u69 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u69 = getelementptr inbounds i8, ptr %obj, i64 48
   %call70 = tail call zeroext i1 @visit_type_BlockdevOptionsNull_members(ptr noundef %v, ptr noundef nonnull %u69, ptr noundef %errp)
   br label %return
 
 sw.bb71:                                          ; preds = %if.end
-  %u72 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u72 = getelementptr inbounds i8, ptr %obj, i64 48
   %call73 = tail call zeroext i1 @visit_type_BlockdevOptionsNVMe_members(ptr noundef %v, ptr noundef nonnull %u72, ptr noundef %errp)
   br label %return
 
 sw.bb74:                                          ; preds = %if.end
-  %u75 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u75 = getelementptr inbounds i8, ptr %obj, i64 48
   %call.i133 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %u75, ptr noundef %errp)
   br label %return
 
 sw.bb77:                                          ; preds = %if.end
-  %u78 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u78 = getelementptr inbounds i8, ptr %obj, i64 48
   %call79 = tail call zeroext i1 @visit_type_BlockdevOptionsPreallocate_members(ptr noundef %v, ptr noundef nonnull %u78, ptr noundef %errp)
   br label %return
 
 sw.bb80:                                          ; preds = %if.end
-  %u81 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u81 = getelementptr inbounds i8, ptr %obj, i64 48
   %call82 = tail call zeroext i1 @visit_type_BlockdevOptionsQcow2_members(ptr noundef %v, ptr noundef nonnull %u81, ptr noundef %errp)
   br label %return
 
 sw.bb83:                                          ; preds = %if.end
-  %u84 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u84 = getelementptr inbounds i8, ptr %obj, i64 48
   %call85 = tail call zeroext i1 @visit_type_BlockdevOptionsQcow_members(ptr noundef %v, ptr noundef nonnull %u84, ptr noundef %errp)
   br label %return
 
 sw.bb86:                                          ; preds = %if.end
-  %u87 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u87 = getelementptr inbounds i8, ptr %obj, i64 48
   %call88 = tail call zeroext i1 @visit_type_BlockdevOptionsGenericCOWFormat_members(ptr noundef %v, ptr noundef nonnull %u87, ptr noundef %errp)
   br label %return
 
 sw.bb89:                                          ; preds = %if.end
-  %u90 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u90 = getelementptr inbounds i8, ptr %obj, i64 48
   %call91 = tail call zeroext i1 @visit_type_BlockdevOptionsQuorum_members(ptr noundef %v, ptr noundef nonnull %u90, ptr noundef %errp)
   br label %return
 
 sw.bb92:                                          ; preds = %if.end
-  %u93 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u93 = getelementptr inbounds i8, ptr %obj, i64 48
   %call94 = tail call zeroext i1 @visit_type_BlockdevOptionsRaw_members(ptr noundef %v, ptr noundef nonnull %u93, ptr noundef %errp)
   br label %return
 
 sw.bb95:                                          ; preds = %if.end
-  %u96 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u96 = getelementptr inbounds i8, ptr %obj, i64 48
   %call97 = tail call zeroext i1 @visit_type_BlockdevOptionsRbd_members(ptr noundef %v, ptr noundef nonnull %u96, ptr noundef %errp)
   br label %return
 
 sw.bb98:                                          ; preds = %if.end
-  %u99 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u99 = getelementptr inbounds i8, ptr %obj, i64 48
   %call100 = tail call zeroext i1 @visit_type_BlockdevOptionsReplication_members(ptr noundef %v, ptr noundef nonnull %u99, ptr noundef %errp)
   br label %return
 
 sw.bb101:                                         ; preds = %if.end
-  %u102 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u102 = getelementptr inbounds i8, ptr %obj, i64 48
   %call.i134 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %u102, ptr noundef %errp)
   br label %return
 
 sw.bb104:                                         ; preds = %if.end
-  %u105 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u105 = getelementptr inbounds i8, ptr %obj, i64 48
   %call106 = tail call zeroext i1 @visit_type_BlockdevOptionsSsh_members(ptr noundef %v, ptr noundef nonnull %u105, ptr noundef %errp)
   br label %return
 
 sw.bb107:                                         ; preds = %if.end
-  %u108 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u108 = getelementptr inbounds i8, ptr %obj, i64 48
   %call109 = tail call zeroext i1 @visit_type_BlockdevOptionsThrottle_members(ptr noundef %v, ptr noundef nonnull %u108, ptr noundef %errp)
   br label %return
 
 sw.bb110:                                         ; preds = %if.end
-  %u111 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u111 = getelementptr inbounds i8, ptr %obj, i64 48
   %call.i135 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %u111, ptr noundef %errp)
   br label %return
 
 sw.bb113:                                         ; preds = %if.end
-  %u114 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u114 = getelementptr inbounds i8, ptr %obj, i64 48
   %call.i136 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %u114, ptr noundef %errp)
   br label %return
 
 sw.bb116:                                         ; preds = %if.end
-  %u117 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u117 = getelementptr inbounds i8, ptr %obj, i64 48
   %call118 = tail call zeroext i1 @visit_type_BlockdevOptionsGenericCOWFormat_members(ptr noundef %v, ptr noundef nonnull %u117, ptr noundef %errp)
   br label %return
 
 sw.bb119:                                         ; preds = %if.end
-  %u120 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u120 = getelementptr inbounds i8, ptr %obj, i64 48
   %call.i137 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %u120, ptr noundef %errp)
   br label %return
 
 sw.bb122:                                         ; preds = %if.end
-  %u123 = getelementptr inbounds %struct.BlockdevOptions, ptr %obj, i64 0, i32 13
+  %u123 = getelementptr inbounds i8, ptr %obj, i64 48
   %call124 = tail call zeroext i1 @visit_type_BlockdevOptionsVVFAT_members(ptr noundef %v, ptr noundef nonnull %u123, ptr noundef %errp)
   br label %return
 
@@ -15856,7 +15674,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlockdevOptionsList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockdevOptions(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -15913,17 +15731,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsFile, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_preallocation = getelementptr inbounds %struct.BlockdevCreateOptionsFile, ptr %obj, i64 0, i32 2
+  %has_preallocation = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.386, ptr noundef nonnull %has_preallocation) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %preallocation = getelementptr inbounds %struct.BlockdevCreateOptionsFile, ptr %obj, i64 0, i32 3
+  %preallocation = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %preallocation, align 4
   store i32 %0, ptr %value.i, align 4
@@ -15934,22 +15752,22 @@ if.then5:                                         ; preds = %if.end3
   br i1 %call.i, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_nocow = getelementptr inbounds %struct.BlockdevCreateOptionsFile, ptr %obj, i64 0, i32 4
+  %has_nocow = getelementptr inbounds i8, ptr %obj, i64 24
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.387, ptr noundef nonnull %has_nocow) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %nocow = getelementptr inbounds %struct.BlockdevCreateOptionsFile, ptr %obj, i64 0, i32 5
+  %nocow = getelementptr inbounds i8, ptr %obj, i64 25
   %call12 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.387, ptr noundef nonnull %nocow, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_extent_size_hint = getelementptr inbounds %struct.BlockdevCreateOptionsFile, ptr %obj, i64 0, i32 6
+  %has_extent_size_hint = getelementptr inbounds i8, ptr %obj, i64 26
   %call16 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %has_extent_size_hint) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %extent_size_hint = getelementptr inbounds %struct.BlockdevCreateOptionsFile, ptr %obj, i64 0, i32 7
+  %extent_size_hint = getelementptr inbounds i8, ptr %obj, i64 32
   %call18 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %extent_size_hint, ptr noundef %errp) #4
   br i1 %call18, label %if.end21, label %return
 
@@ -16034,17 +15852,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsGluster, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_preallocation = getelementptr inbounds %struct.BlockdevCreateOptionsGluster, ptr %obj, i64 0, i32 2
+  %has_preallocation = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.386, ptr noundef nonnull %has_preallocation) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %preallocation = getelementptr inbounds %struct.BlockdevCreateOptionsGluster, ptr %obj, i64 0, i32 3
+  %preallocation = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %preallocation, align 4
   store i32 %0, ptr %value.i, align 4
@@ -16091,17 +15909,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %size.i = getelementptr inbounds %struct.BlockdevCreateOptionsGluster, ptr %0, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread16
 
 if.end3.i:                                        ; preds = %if.end.i
-  %has_preallocation.i = getelementptr inbounds %struct.BlockdevCreateOptionsGluster, ptr %0, i64 0, i32 2
+  %has_preallocation.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.386, ptr noundef nonnull %has_preallocation.i) #4
   br i1 %call4.i, label %if.then5.i, label %out_obj
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %preallocation.i = getelementptr inbounds %struct.BlockdevCreateOptionsGluster, ptr %0, i64 0, i32 3
+  %preallocation.i = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %preallocation.i, align 4
   store i32 %1, ptr %value.i.i, align 4
@@ -16145,22 +15963,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockdevCreateOptionsLUKS, ptr %obj, i64 0, i32 13
+  %file = getelementptr inbounds i8, ptr %obj, i64 64
   %call1 = tail call zeroext i1 @visit_type_BlockdevRef(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %file, ptr noundef %errp)
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsLUKS, ptr %obj, i64 0, i32 14
+  %size = getelementptr inbounds i8, ptr %obj, i64 72
   %call4 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %has_preallocation = getelementptr inbounds %struct.BlockdevCreateOptionsLUKS, ptr %obj, i64 0, i32 15
+  %has_preallocation = getelementptr inbounds i8, ptr %obj, i64 80
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.386, ptr noundef nonnull %has_preallocation) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %preallocation = getelementptr inbounds %struct.BlockdevCreateOptionsLUKS, ptr %obj, i64 0, i32 16
+  %preallocation = getelementptr inbounds i8, ptr %obj, i64 84
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %preallocation, align 4
   store i32 %0, ptr %value.i, align 4
@@ -16240,7 +16058,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsNfs, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br label %return
 
@@ -16277,7 +16095,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_BlockdevCreateOptionsNfs_members.exit, label %out_obj.thread
 
 visit_type_BlockdevCreateOptionsNfs_members.exit: ; preds = %if.end5
-  %size.i = getelementptr inbounds %struct.BlockdevCreateOptionsNfs, ptr %0, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -16314,17 +16132,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsParallels, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_cluster_size = getelementptr inbounds %struct.BlockdevCreateOptionsParallels, ptr %obj, i64 0, i32 2
+  %has_cluster_size = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %has_cluster_size) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %cluster_size = getelementptr inbounds %struct.BlockdevCreateOptionsParallels, ptr %obj, i64 0, i32 3
+  %cluster_size = getelementptr inbounds i8, ptr %obj, i64 24
   %call6 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %cluster_size, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
@@ -16364,17 +16182,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %size.i = getelementptr inbounds %struct.BlockdevCreateOptionsParallels, ptr %0, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread16
 
 if.end3.i:                                        ; preds = %if.end.i
-  %has_cluster_size.i = getelementptr inbounds %struct.BlockdevCreateOptionsParallels, ptr %0, i64 0, i32 2
+  %has_cluster_size.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %has_cluster_size.i) #4
   br i1 %call4.i, label %if.then5.i, label %out_obj
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %cluster_size.i = getelementptr inbounds %struct.BlockdevCreateOptionsParallels, ptr %0, i64 0, i32 3
+  %cluster_size.i = getelementptr inbounds i8, ptr %0, i64 24
   %call6.i = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %cluster_size.i, ptr noundef %errp) #4
   br i1 %call6.i, label %out_obj, label %out_obj.thread16
 
@@ -16409,12 +16227,12 @@ define dso_local zeroext i1 @visit_type_BlockdevCreateOptionsQcow_members(ptr no
 entry:
   %has_backing_file = alloca i8, align 1
   %has_encrypt = alloca i8, align 1
-  %backing_file = getelementptr inbounds %struct.BlockdevCreateOptionsQcow, ptr %obj, i64 0, i32 2
+  %backing_file = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %backing_file, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_backing_file, align 1
-  %encrypt = getelementptr inbounds %struct.BlockdevCreateOptionsQcow, ptr %obj, i64 0, i32 3
+  %encrypt = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load ptr, ptr %encrypt, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -16423,7 +16241,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsQcow, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call6 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call6, label %if.end8, label %return
 
@@ -16528,17 +16346,17 @@ entry:
   %has_data_file = alloca i8, align 1
   %has_backing_file = alloca i8, align 1
   %has_encrypt = alloca i8, align 1
-  %data_file = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 1
+  %data_file = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %data_file, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_data_file, align 1
-  %backing_file = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 9
+  %backing_file = getelementptr inbounds i8, ptr %obj, i64 40
   %1 = load ptr, ptr %backing_file, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_backing_file, align 1
-  %encrypt = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 12
+  %encrypt = getelementptr inbounds i8, ptr %obj, i64 56
   %2 = load ptr, ptr %encrypt, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -16555,37 +16373,37 @@ if.then11:                                        ; preds = %if.end
   br i1 %call13, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.then11, %if.end
-  %has_data_file_raw = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 2
+  %has_data_file_raw = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %has_data_file_raw) #4
   br i1 %call17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.end16
-  %data_file_raw = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 3
+  %data_file_raw = getelementptr inbounds i8, ptr %obj, i64 17
   %call19 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %data_file_raw, ptr noundef %errp) #4
   br i1 %call19, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then18, %if.end16
-  %has_extended_l2 = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 4
+  %has_extended_l2 = getelementptr inbounds i8, ptr %obj, i64 18
   %call23 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %has_extended_l2) #4
   br i1 %call23, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end22
-  %extended_l2 = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 5
+  %extended_l2 = getelementptr inbounds i8, ptr %obj, i64 19
   %call25 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %extended_l2, ptr noundef %errp) #4
   br i1 %call25, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.then24, %if.end22
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 6
+  %size = getelementptr inbounds i8, ptr %obj, i64 24
   %call29 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call29, label %if.end31, label %return
 
 if.end31:                                         ; preds = %if.end28
-  %has_version = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 7
+  %has_version = getelementptr inbounds i8, ptr %obj, i64 32
   %call32 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.389, ptr noundef nonnull %has_version) #4
   br i1 %call32, label %if.then33, label %if.end37
 
 if.then33:                                        ; preds = %if.end31
-  %version = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 8
+  %version = getelementptr inbounds i8, ptr %obj, i64 36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %3 = load i32, ptr %version, align 4
   store i32 %3, ptr %value.i, align 4
@@ -16604,12 +16422,12 @@ if.then39:                                        ; preds = %if.end37
   br i1 %call41, label %if.end44, label %return
 
 if.end44:                                         ; preds = %if.then39, %if.end37
-  %has_backing_fmt = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 10
+  %has_backing_fmt = getelementptr inbounds i8, ptr %obj, i64 48
   %call45 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.390, ptr noundef nonnull %has_backing_fmt) #4
   br i1 %call45, label %if.then46, label %if.end50
 
 if.then46:                                        ; preds = %if.end44
-  %backing_fmt = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 11
+  %backing_fmt = getelementptr inbounds i8, ptr %obj, i64 52
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i64)
   %5 = load i32, ptr %backing_fmt, align 4
   store i32 %5, ptr %value.i64, align 4
@@ -16628,22 +16446,22 @@ if.then52:                                        ; preds = %if.end50
   br i1 %call54, label %if.end57, label %return
 
 if.end57:                                         ; preds = %if.then52, %if.end50
-  %has_cluster_size = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 13
+  %has_cluster_size = getelementptr inbounds i8, ptr %obj, i64 64
   %call58 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %has_cluster_size) #4
   br i1 %call58, label %if.then59, label %if.end63
 
 if.then59:                                        ; preds = %if.end57
-  %cluster_size = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 14
+  %cluster_size = getelementptr inbounds i8, ptr %obj, i64 72
   %call60 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %cluster_size, ptr noundef %errp) #4
   br i1 %call60, label %if.end63, label %return
 
 if.end63:                                         ; preds = %if.then59, %if.end57
-  %has_preallocation = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 15
+  %has_preallocation = getelementptr inbounds i8, ptr %obj, i64 80
   %call64 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.386, ptr noundef nonnull %has_preallocation) #4
   br i1 %call64, label %if.then65, label %if.end69
 
 if.then65:                                        ; preds = %if.end63
-  %preallocation = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 16
+  %preallocation = getelementptr inbounds i8, ptr %obj, i64 84
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i66)
   %7 = load i32, ptr %preallocation, align 4
   store i32 %7, ptr %value.i66, align 4
@@ -16654,32 +16472,32 @@ if.then65:                                        ; preds = %if.end63
   br i1 %call.i67, label %if.end69, label %return
 
 if.end69:                                         ; preds = %if.then65, %if.end63
-  %has_lazy_refcounts = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 17
+  %has_lazy_refcounts = getelementptr inbounds i8, ptr %obj, i64 88
   %call70 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_lazy_refcounts) #4
   br i1 %call70, label %if.then71, label %if.end75
 
 if.then71:                                        ; preds = %if.end69
-  %lazy_refcounts = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 18
+  %lazy_refcounts = getelementptr inbounds i8, ptr %obj, i64 89
   %call72 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %lazy_refcounts, ptr noundef %errp) #4
   br i1 %call72, label %if.end75, label %return
 
 if.end75:                                         ; preds = %if.then71, %if.end69
-  %has_refcount_bits = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 19
+  %has_refcount_bits = getelementptr inbounds i8, ptr %obj, i64 90
   %call76 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %has_refcount_bits) #4
   br i1 %call76, label %if.then77, label %if.end81
 
 if.then77:                                        ; preds = %if.end75
-  %refcount_bits = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 20
+  %refcount_bits = getelementptr inbounds i8, ptr %obj, i64 96
   %call78 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %refcount_bits, ptr noundef %errp) #4
   br i1 %call78, label %if.end81, label %return
 
 if.end81:                                         ; preds = %if.then77, %if.end75
-  %has_compression_type = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 21
+  %has_compression_type = getelementptr inbounds i8, ptr %obj, i64 104
   %call82 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %has_compression_type) #4
   br i1 %call82, label %if.then83, label %if.end87
 
 if.then83:                                        ; preds = %if.end81
-  %compression_type = getelementptr inbounds %struct.BlockdevCreateOptionsQcow2, ptr %obj, i64 0, i32 22
+  %compression_type = getelementptr inbounds i8, ptr %obj, i64 108
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i68)
   %9 = load i32, ptr %compression_type, align 4
   store i32 %9, ptr %value.i68, align 4
@@ -16755,7 +16573,7 @@ define dso_local zeroext i1 @visit_type_BlockdevCreateOptionsQed_members(ptr nou
 entry:
   %value.i = alloca i32, align 4
   %has_backing_file = alloca i8, align 1
-  %backing_file = getelementptr inbounds %struct.BlockdevCreateOptionsQed, ptr %obj, i64 0, i32 2
+  %backing_file = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %backing_file, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -16764,7 +16582,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsQed, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call2, label %if.end4, label %return
 
@@ -16777,12 +16595,12 @@ if.then6:                                         ; preds = %if.end4
   br i1 %call8, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.then6, %if.end4
-  %has_backing_fmt = getelementptr inbounds %struct.BlockdevCreateOptionsQed, ptr %obj, i64 0, i32 3
+  %has_backing_fmt = getelementptr inbounds i8, ptr %obj, i64 24
   %call12 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.390, ptr noundef nonnull %has_backing_fmt) #4
   br i1 %call12, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %if.end11
-  %backing_fmt = getelementptr inbounds %struct.BlockdevCreateOptionsQed, ptr %obj, i64 0, i32 4
+  %backing_fmt = getelementptr inbounds i8, ptr %obj, i64 28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %backing_fmt, align 4
   store i32 %1, ptr %value.i, align 4
@@ -16793,22 +16611,22 @@ if.then13:                                        ; preds = %if.end11
   br i1 %call.i, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.then13, %if.end11
-  %has_cluster_size = getelementptr inbounds %struct.BlockdevCreateOptionsQed, ptr %obj, i64 0, i32 5
+  %has_cluster_size = getelementptr inbounds i8, ptr %obj, i64 32
   %call18 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %has_cluster_size) #4
   br i1 %call18, label %if.then19, label %if.end23
 
 if.then19:                                        ; preds = %if.end17
-  %cluster_size = getelementptr inbounds %struct.BlockdevCreateOptionsQed, ptr %obj, i64 0, i32 6
+  %cluster_size = getelementptr inbounds i8, ptr %obj, i64 40
   %call20 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %cluster_size, ptr noundef %errp) #4
   br i1 %call20, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.then19, %if.end17
-  %has_table_size = getelementptr inbounds %struct.BlockdevCreateOptionsQed, ptr %obj, i64 0, i32 7
+  %has_table_size = getelementptr inbounds i8, ptr %obj, i64 48
   %call24 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.391, ptr noundef nonnull %has_table_size) #4
   br i1 %call24, label %if.then25, label %if.end29
 
 if.then25:                                        ; preds = %if.end23
-  %table_size = getelementptr inbounds %struct.BlockdevCreateOptionsQed, ptr %obj, i64 0, i32 8
+  %table_size = getelementptr inbounds i8, ptr %obj, i64 56
   %call26 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.391, ptr noundef nonnull %table_size, ptr noundef %errp) #4
   br i1 %call26, label %if.end29, label %return
 
@@ -16877,7 +16695,7 @@ declare void @qapi_free_BlockdevCreateOptionsQed(ptr noundef) local_unnamed_addr
 define dso_local zeroext i1 @visit_type_BlockdevCreateOptionsRbd_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_encrypt = alloca i8, align 1
-  %encrypt = getelementptr inbounds %struct.BlockdevCreateOptionsRbd, ptr %obj, i64 0, i32 4
+  %encrypt = getelementptr inbounds i8, ptr %obj, i64 32
   %0 = load ptr, ptr %encrypt, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -16886,17 +16704,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsRbd, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %has_cluster_size = getelementptr inbounds %struct.BlockdevCreateOptionsRbd, ptr %obj, i64 0, i32 2
+  %has_cluster_size = getelementptr inbounds i8, ptr %obj, i64 16
   %call5 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %has_cluster_size) #4
   br i1 %call5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.end4
-  %cluster_size = getelementptr inbounds %struct.BlockdevCreateOptionsRbd, ptr %obj, i64 0, i32 3
+  %cluster_size = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %cluster_size, ptr noundef %errp) #4
   br i1 %call7, label %if.end10, label %return
 
@@ -17001,17 +16819,17 @@ entry:
   %has_backing_file = alloca i8, align 1
   %has_hwversion = alloca i8, align 1
   %has_toolsversion = alloca i8, align 1
-  %backing_file = getelementptr inbounds %struct.BlockdevCreateOptionsVmdk, ptr %obj, i64 0, i32 6
+  %backing_file = getelementptr inbounds i8, ptr %obj, i64 40
   %0 = load ptr, ptr %backing_file, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_backing_file, align 1
-  %hwversion = getelementptr inbounds %struct.BlockdevCreateOptionsVmdk, ptr %obj, i64 0, i32 9
+  %hwversion = getelementptr inbounds i8, ptr %obj, i64 56
   %1 = load ptr, ptr %hwversion, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_hwversion, align 1
-  %toolsversion = getelementptr inbounds %struct.BlockdevCreateOptionsVmdk, ptr %obj, i64 0, i32 10
+  %toolsversion = getelementptr inbounds i8, ptr %obj, i64 64
   %2 = load ptr, ptr %toolsversion, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -17020,27 +16838,27 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsVmdk, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call10 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call10, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end
-  %has_extents = getelementptr inbounds %struct.BlockdevCreateOptionsVmdk, ptr %obj, i64 0, i32 2
+  %has_extents = getelementptr inbounds i8, ptr %obj, i64 16
   %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %has_extents) #4
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  %extents = getelementptr inbounds %struct.BlockdevCreateOptionsVmdk, ptr %obj, i64 0, i32 3
+  %extents = getelementptr inbounds i8, ptr %obj, i64 24
   %call15 = tail call zeroext i1 @visit_type_BlockdevRefList(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %extents, ptr noundef %errp)
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
-  %has_subformat = getelementptr inbounds %struct.BlockdevCreateOptionsVmdk, ptr %obj, i64 0, i32 4
+  %has_subformat = getelementptr inbounds i8, ptr %obj, i64 32
   %call19 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.392, ptr noundef nonnull %has_subformat) #4
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
-  %subformat = getelementptr inbounds %struct.BlockdevCreateOptionsVmdk, ptr %obj, i64 0, i32 5
+  %subformat = getelementptr inbounds i8, ptr %obj, i64 36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %3 = load i32, ptr %subformat, align 4
   store i32 %3, ptr %value.i, align 4
@@ -17059,12 +16877,12 @@ if.then26:                                        ; preds = %if.end24
   br i1 %call28, label %if.end31, label %return
 
 if.end31:                                         ; preds = %if.then26, %if.end24
-  %has_adapter_type = getelementptr inbounds %struct.BlockdevCreateOptionsVmdk, ptr %obj, i64 0, i32 7
+  %has_adapter_type = getelementptr inbounds i8, ptr %obj, i64 48
   %call32 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.393, ptr noundef nonnull %has_adapter_type) #4
   br i1 %call32, label %if.then33, label %if.end37
 
 if.then33:                                        ; preds = %if.end31
-  %adapter_type = getelementptr inbounds %struct.BlockdevCreateOptionsVmdk, ptr %obj, i64 0, i32 8
+  %adapter_type = getelementptr inbounds i8, ptr %obj, i64 52
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i39)
   %5 = load i32, ptr %adapter_type, align 4
   store i32 %5, ptr %value.i39, align 4
@@ -17091,12 +16909,12 @@ if.then46:                                        ; preds = %if.end44
   br i1 %call48, label %if.end51, label %return
 
 if.end51:                                         ; preds = %if.then46, %if.end44
-  %has_zeroed_grain = getelementptr inbounds %struct.BlockdevCreateOptionsVmdk, ptr %obj, i64 0, i32 11
+  %has_zeroed_grain = getelementptr inbounds i8, ptr %obj, i64 72
   %call52 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.396, ptr noundef nonnull %has_zeroed_grain) #4
   br i1 %call52, label %if.then53, label %if.end57
 
 if.then53:                                        ; preds = %if.end51
-  %zeroed_grain = getelementptr inbounds %struct.BlockdevCreateOptionsVmdk, ptr %obj, i64 0, i32 12
+  %zeroed_grain = getelementptr inbounds i8, ptr %obj, i64 73
   %call54 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.396, ptr noundef nonnull %zeroed_grain, ptr noundef %errp) #4
   br i1 %call54, label %if.end57, label %return
 
@@ -17168,7 +16986,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsSsh, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br label %return
 
@@ -17205,7 +17023,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_BlockdevCreateOptionsSsh_members.exit, label %out_obj.thread
 
 visit_type_BlockdevCreateOptionsSsh_members.exit: ; preds = %if.end5
-  %size.i = getelementptr inbounds %struct.BlockdevCreateOptionsSsh, ptr %0, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -17243,17 +17061,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsVdi, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_preallocation = getelementptr inbounds %struct.BlockdevCreateOptionsVdi, ptr %obj, i64 0, i32 2
+  %has_preallocation = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.386, ptr noundef nonnull %has_preallocation) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %preallocation = getelementptr inbounds %struct.BlockdevCreateOptionsVdi, ptr %obj, i64 0, i32 3
+  %preallocation = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %preallocation, align 4
   store i32 %0, ptr %value.i, align 4
@@ -17300,17 +17118,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %size.i = getelementptr inbounds %struct.BlockdevCreateOptionsVdi, ptr %0, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread16
 
 if.end3.i:                                        ; preds = %if.end.i
-  %has_preallocation.i = getelementptr inbounds %struct.BlockdevCreateOptionsVdi, ptr %0, i64 0, i32 2
+  %has_preallocation.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.386, ptr noundef nonnull %has_preallocation.i) #4
   br i1 %call4.i, label %if.then5.i, label %out_obj
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %preallocation.i = getelementptr inbounds %struct.BlockdevCreateOptionsVdi, ptr %0, i64 0, i32 3
+  %preallocation.i = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %preallocation.i, align 4
   store i32 %1, ptr %value.i.i, align 4
@@ -17366,37 +17184,37 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsVhdx, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_log_size = getelementptr inbounds %struct.BlockdevCreateOptionsVhdx, ptr %obj, i64 0, i32 2
+  %has_log_size = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.397, ptr noundef nonnull %has_log_size) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %log_size = getelementptr inbounds %struct.BlockdevCreateOptionsVhdx, ptr %obj, i64 0, i32 3
+  %log_size = getelementptr inbounds i8, ptr %obj, i64 24
   %call6 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.397, ptr noundef nonnull %log_size, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_block_size = getelementptr inbounds %struct.BlockdevCreateOptionsVhdx, ptr %obj, i64 0, i32 4
+  %has_block_size = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.398, ptr noundef nonnull %has_block_size) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %block_size = getelementptr inbounds %struct.BlockdevCreateOptionsVhdx, ptr %obj, i64 0, i32 5
+  %block_size = getelementptr inbounds i8, ptr %obj, i64 40
   %call12 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.398, ptr noundef nonnull %block_size, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_subformat = getelementptr inbounds %struct.BlockdevCreateOptionsVhdx, ptr %obj, i64 0, i32 6
+  %has_subformat = getelementptr inbounds i8, ptr %obj, i64 48
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.392, ptr noundef nonnull %has_subformat) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %subformat = getelementptr inbounds %struct.BlockdevCreateOptionsVhdx, ptr %obj, i64 0, i32 7
+  %subformat = getelementptr inbounds i8, ptr %obj, i64 52
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %subformat, align 4
   store i32 %0, ptr %value.i, align 4
@@ -17407,12 +17225,12 @@ if.then17:                                        ; preds = %if.end15
   br i1 %call.i, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.then17, %if.end15
-  %has_block_state_zero = getelementptr inbounds %struct.BlockdevCreateOptionsVhdx, ptr %obj, i64 0, i32 8
+  %has_block_state_zero = getelementptr inbounds i8, ptr %obj, i64 56
   %call22 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.399, ptr noundef nonnull %has_block_state_zero) #4
   br i1 %call22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end21
-  %block_state_zero = getelementptr inbounds %struct.BlockdevCreateOptionsVhdx, ptr %obj, i64 0, i32 9
+  %block_state_zero = getelementptr inbounds i8, ptr %obj, i64 57
   %call24 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.399, ptr noundef nonnull %block_state_zero, ptr noundef %errp) #4
   br i1 %call24, label %if.end27, label %return
 
@@ -17497,17 +17315,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.BlockdevCreateOptionsVpc, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_subformat = getelementptr inbounds %struct.BlockdevCreateOptionsVpc, ptr %obj, i64 0, i32 2
+  %has_subformat = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.392, ptr noundef nonnull %has_subformat) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %subformat = getelementptr inbounds %struct.BlockdevCreateOptionsVpc, ptr %obj, i64 0, i32 3
+  %subformat = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %subformat, align 4
   store i32 %0, ptr %value.i, align 4
@@ -17518,12 +17336,12 @@ if.then5:                                         ; preds = %if.end3
   br i1 %call.i, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_force_size = getelementptr inbounds %struct.BlockdevCreateOptionsVpc, ptr %obj, i64 0, i32 4
+  %has_force_size = getelementptr inbounds i8, ptr %obj, i64 24
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.400, ptr noundef nonnull %has_force_size) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %force_size = getelementptr inbounds %struct.BlockdevCreateOptionsVpc, ptr %obj, i64 0, i32 5
+  %force_size = getelementptr inbounds i8, ptr %obj, i64 25
   %call12 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.400, ptr noundef nonnull %force_size, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
@@ -17662,72 +17480,72 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_BlockdevCreateOptionsFile_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
   %call4 = call zeroext i1 @visit_type_BlockdevCreateOptionsGluster_members(ptr noundef %v, ptr noundef nonnull %u3, ptr noundef %errp)
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u6 = getelementptr inbounds i8, ptr %obj, i64 8
   %call7 = call zeroext i1 @visit_type_BlockdevCreateOptionsLUKS_members(ptr noundef %v, ptr noundef nonnull %u6, ptr noundef %errp)
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %u9 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u9 = getelementptr inbounds i8, ptr %obj, i64 8
   %call10 = call zeroext i1 @visit_type_BlockdevCreateOptionsNfs_members(ptr noundef %v, ptr noundef nonnull %u9, ptr noundef %errp)
   br label %return
 
 sw.bb11:                                          ; preds = %if.end
-  %u12 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u12 = getelementptr inbounds i8, ptr %obj, i64 8
   %call13 = call zeroext i1 @visit_type_BlockdevCreateOptionsParallels_members(ptr noundef %v, ptr noundef nonnull %u12, ptr noundef %errp)
   br label %return
 
 sw.bb14:                                          ; preds = %if.end
-  %u15 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u15 = getelementptr inbounds i8, ptr %obj, i64 8
   %call16 = call zeroext i1 @visit_type_BlockdevCreateOptionsQcow_members(ptr noundef %v, ptr noundef nonnull %u15, ptr noundef %errp)
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
-  %u18 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u18 = getelementptr inbounds i8, ptr %obj, i64 8
   %call19 = call zeroext i1 @visit_type_BlockdevCreateOptionsQcow2_members(ptr noundef %v, ptr noundef nonnull %u18, ptr noundef %errp)
   br label %return
 
 sw.bb20:                                          ; preds = %if.end
-  %u21 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u21 = getelementptr inbounds i8, ptr %obj, i64 8
   %call22 = call zeroext i1 @visit_type_BlockdevCreateOptionsQed_members(ptr noundef %v, ptr noundef nonnull %u21, ptr noundef %errp)
   br label %return
 
 sw.bb23:                                          ; preds = %if.end
-  %u24 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u24 = getelementptr inbounds i8, ptr %obj, i64 8
   %call25 = call zeroext i1 @visit_type_BlockdevCreateOptionsRbd_members(ptr noundef %v, ptr noundef nonnull %u24, ptr noundef %errp)
   br label %return
 
 sw.bb26:                                          ; preds = %if.end
-  %u27 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u27 = getelementptr inbounds i8, ptr %obj, i64 8
   %call28 = call zeroext i1 @visit_type_BlockdevCreateOptionsSsh_members(ptr noundef %v, ptr noundef nonnull %u27, ptr noundef %errp)
   br label %return
 
 sw.bb29:                                          ; preds = %if.end
-  %u30 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u30 = getelementptr inbounds i8, ptr %obj, i64 8
   %call31 = call zeroext i1 @visit_type_BlockdevCreateOptionsVdi_members(ptr noundef %v, ptr noundef nonnull %u30, ptr noundef %errp)
   br label %return
 
 sw.bb32:                                          ; preds = %if.end
-  %u33 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u33 = getelementptr inbounds i8, ptr %obj, i64 8
   %call34 = call zeroext i1 @visit_type_BlockdevCreateOptionsVhdx_members(ptr noundef %v, ptr noundef nonnull %u33, ptr noundef %errp)
   br label %return
 
 sw.bb35:                                          ; preds = %if.end
-  %u36 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u36 = getelementptr inbounds i8, ptr %obj, i64 8
   %call37 = call zeroext i1 @visit_type_BlockdevCreateOptionsVmdk_members(ptr noundef %v, ptr noundef nonnull %u36, ptr noundef %errp)
   br label %return
 
 sw.bb38:                                          ; preds = %if.end
-  %u39 = getelementptr inbounds %struct.BlockdevCreateOptions, ptr %obj, i64 0, i32 1
+  %u39 = getelementptr inbounds i8, ptr %obj, i64 8
   %call40 = call zeroext i1 @visit_type_BlockdevCreateOptionsVpc_members(ptr noundef %v, ptr noundef nonnull %u39, ptr noundef %errp)
   br label %return
 
@@ -17800,7 +17618,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %options = getelementptr inbounds %struct.q_obj_blockdev_create_arg, ptr %obj, i64 0, i32 1
+  %options = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockdevCreateOptions(ptr noundef %v, ptr noundef nonnull @.str.385, ptr noundef nonnull %options, ptr noundef %errp)
   br label %return
 
@@ -18035,12 +17853,12 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.BlockdevAmendOptions, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i = call zeroext i1 @visit_type_QCryptoBlockAmendOptionsLUKS_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp) #4
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.BlockdevAmendOptions, ptr %obj, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
   %call4 = call zeroext i1 @visit_type_BlockdevAmendOptionsQcow2_members(ptr noundef %v, ptr noundef nonnull %u3, ptr noundef %errp)
   br label %return
 
@@ -18134,7 +17952,7 @@ if.end.i:                                         ; preds = %if.end5
   ]
 
 sw.bb2.i:                                         ; preds = %if.end.i
-  %u3.i = getelementptr inbounds %struct.BlockdevAmendOptions, ptr %0, i64 0, i32 1
+  %u3.i = getelementptr inbounds i8, ptr %0, i64 8
   %call4.i = call zeroext i1 @visit_type_BlockdevAmendOptionsQcow2_members(ptr noundef %v, ptr noundef nonnull %u3.i, ptr noundef %errp)
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -18143,7 +17961,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_BlockdevAmendOptions_members.exit:     ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.BlockdevAmendOptions, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i.i = call zeroext i1 @visit_type_QCryptoBlockAmendOptionsLUKS_members(ptr noundef %v, ptr noundef nonnull %u.i, ptr noundef %errp) #4
   br i1 %call.i.i, label %out_obj, label %out_obj.thread
 
@@ -18180,22 +17998,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %node_name = getelementptr inbounds %struct.q_obj_x_blockdev_amend_arg, ptr %obj, i64 0, i32 1
+  %node_name = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.64, ptr noundef nonnull %node_name, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %options = getelementptr inbounds %struct.q_obj_x_blockdev_amend_arg, ptr %obj, i64 0, i32 2
+  %options = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_BlockdevAmendOptions(ptr noundef %v, ptr noundef nonnull @.str.385, ptr noundef nonnull %options, ptr noundef %errp)
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %has_force = getelementptr inbounds %struct.q_obj_x_blockdev_amend_arg, ptr %obj, i64 0, i32 3
+  %has_force = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.268, ptr noundef nonnull %has_force) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %force = getelementptr inbounds %struct.q_obj_x_blockdev_amend_arg, ptr %obj, i64 0, i32 4
+  %force = getelementptr inbounds i8, ptr %obj, i64 25
   %call9 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.268, ptr noundef nonnull %force, ptr noundef %errp) #4
   br i1 %call9, label %if.end12, label %return
 
@@ -18223,7 +18041,7 @@ entry:
 define dso_local zeroext i1 @visit_type_q_obj_BLOCK_IMAGE_CORRUPTED_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_node_name = alloca i8, align 1
-  %node_name = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %obj, i64 0, i32 1
+  %node_name = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %node_name, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -18240,32 +18058,32 @@ if.then3:                                         ; preds = %if.end
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %msg = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %obj, i64 0, i32 2
+  %msg = getelementptr inbounds i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.401, ptr noundef nonnull %msg, ptr noundef %errp) #4
   br i1 %call9, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end8
-  %has_offset = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %obj, i64 0, i32 3
+  %has_offset = getelementptr inbounds i8, ptr %obj, i64 24
   %call12 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %has_offset) #4
   br i1 %call12, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %if.end11
-  %offset = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %obj, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %obj, i64 32
   %call14 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %offset, ptr noundef %errp) #4
   br i1 %call14, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.then13, %if.end11
-  %has_size = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %obj, i64 0, i32 5
+  %has_size = getelementptr inbounds i8, ptr %obj, i64 40
   %call18 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %has_size) #4
   br i1 %call18, label %if.then19, label %if.end23
 
 if.then19:                                        ; preds = %if.end17
-  %size = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %obj, i64 0, i32 6
+  %size = getelementptr inbounds i8, ptr %obj, i64 48
   %call20 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.186, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call20, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.then19, %if.end17
-  %fatal = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %obj, i64 0, i32 7
+  %fatal = getelementptr inbounds i8, ptr %obj, i64 56
   %call24 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.402, ptr noundef nonnull %fatal, ptr noundef %errp) #4
   br label %return
 
@@ -18279,7 +18097,7 @@ define dso_local zeroext i1 @visit_type_q_obj_BLOCK_IO_ERROR_arg_members(ptr nou
 entry:
   %value.i = alloca i32, align 4
   %has_node_name = alloca i8, align 1
-  %node_name = getelementptr inbounds %struct.q_obj_BLOCK_IO_ERROR_arg, ptr %obj, i64 0, i32 1
+  %node_name = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %node_name, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -18296,12 +18114,12 @@ if.then3:                                         ; preds = %if.end
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %operation = getelementptr inbounds %struct.q_obj_BLOCK_IO_ERROR_arg, ptr %obj, i64 0, i32 2
+  %operation = getelementptr inbounds i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_type_IoOperationType(ptr noundef %v, ptr noundef nonnull @.str.403, ptr noundef nonnull %operation, ptr noundef %errp) #4
   br i1 %call9, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end8
-  %action = getelementptr inbounds %struct.q_obj_BLOCK_IO_ERROR_arg, ptr %obj, i64 0, i32 3
+  %action = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %action, align 4
   store i32 %1, ptr %value.i, align 4
@@ -18312,17 +18130,17 @@ if.end11:                                         ; preds = %if.end8
   br i1 %call.i, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end11
-  %has_nospace = getelementptr inbounds %struct.q_obj_BLOCK_IO_ERROR_arg, ptr %obj, i64 0, i32 4
+  %has_nospace = getelementptr inbounds i8, ptr %obj, i64 24
   %call15 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.405, ptr noundef nonnull %has_nospace) #4
   br i1 %call15, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.end14
-  %nospace = getelementptr inbounds %struct.q_obj_BLOCK_IO_ERROR_arg, ptr %obj, i64 0, i32 5
+  %nospace = getelementptr inbounds i8, ptr %obj, i64 25
   %call17 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.405, ptr noundef nonnull %nospace, ptr noundef %errp) #4
   br i1 %call17, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then16, %if.end14
-  %reason = getelementptr inbounds %struct.q_obj_BLOCK_IO_ERROR_arg, ptr %obj, i64 0, i32 6
+  %reason = getelementptr inbounds i8, ptr %obj, i64 32
   %call21 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.406, ptr noundef nonnull %reason, ptr noundef %errp) #4
   br label %return
 
@@ -18337,7 +18155,7 @@ declare zeroext i1 @visit_type_IoOperationType(ptr noundef, ptr noundef, ptr nou
 define dso_local zeroext i1 @visit_type_q_obj_BLOCK_JOB_COMPLETED_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_error = alloca i8, align 1
-  %error = getelementptr inbounds %struct.q_obj_BLOCK_JOB_COMPLETED_arg, ptr %obj, i64 0, i32 5
+  %error = getelementptr inbounds i8, ptr %obj, i64 40
   %0 = load ptr, ptr %error, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -18346,22 +18164,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %device = getelementptr inbounds %struct.q_obj_BLOCK_JOB_COMPLETED_arg, ptr %obj, i64 0, i32 1
+  %device = getelementptr inbounds i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.103, ptr noundef nonnull %device, ptr noundef %errp) #4
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %len = getelementptr inbounds %struct.q_obj_BLOCK_JOB_COMPLETED_arg, ptr %obj, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %obj, i64 16
   %call5 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.178, ptr noundef nonnull %len, ptr noundef %errp) #4
   br i1 %call5, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end4
-  %offset = getelementptr inbounds %struct.q_obj_BLOCK_JOB_COMPLETED_arg, ptr %obj, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %obj, i64 24
   %call8 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %offset, ptr noundef %errp) #4
   br i1 %call8, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end7
-  %speed = getelementptr inbounds %struct.q_obj_BLOCK_JOB_COMPLETED_arg, ptr %obj, i64 0, i32 4
+  %speed = getelementptr inbounds i8, ptr %obj, i64 32
   %call11 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %speed, ptr noundef %errp) #4
   br i1 %call11, label %if.end13, label %return
 
@@ -18388,22 +18206,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %device = getelementptr inbounds %struct.q_obj_BLOCK_JOB_CANCELLED_arg, ptr %obj, i64 0, i32 1
+  %device = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.103, ptr noundef nonnull %device, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %len = getelementptr inbounds %struct.q_obj_BLOCK_JOB_CANCELLED_arg, ptr %obj, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.178, ptr noundef nonnull %len, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %offset = getelementptr inbounds %struct.q_obj_BLOCK_JOB_CANCELLED_arg, ptr %obj, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %offset, ptr noundef %errp) #4
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %speed = getelementptr inbounds %struct.q_obj_BLOCK_JOB_CANCELLED_arg, ptr %obj, i64 0, i32 4
+  %speed = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %speed, ptr noundef %errp) #4
   br label %return
 
@@ -18420,12 +18238,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %operation = getelementptr inbounds %struct.q_obj_BLOCK_JOB_ERROR_arg, ptr %obj, i64 0, i32 1
+  %operation = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_IoOperationType(ptr noundef %v, ptr noundef nonnull @.str.403, ptr noundef nonnull %operation, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %action = getelementptr inbounds %struct.q_obj_BLOCK_JOB_ERROR_arg, ptr %obj, i64 0, i32 2
+  %action = getelementptr inbounds i8, ptr %obj, i64 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %action, align 4
   store i32 %0, ptr %value.i, align 4
@@ -18447,22 +18265,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %device = getelementptr inbounds %struct.q_obj_BLOCK_JOB_READY_arg, ptr %obj, i64 0, i32 1
+  %device = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.103, ptr noundef nonnull %device, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %len = getelementptr inbounds %struct.q_obj_BLOCK_JOB_READY_arg, ptr %obj, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.178, ptr noundef nonnull %len, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %offset = getelementptr inbounds %struct.q_obj_BLOCK_JOB_READY_arg, ptr %obj, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %offset, ptr noundef %errp) #4
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %speed = getelementptr inbounds %struct.q_obj_BLOCK_JOB_READY_arg, ptr %obj, i64 0, i32 4
+  %speed = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.180, ptr noundef nonnull %speed, ptr noundef %errp) #4
   br label %return
 
@@ -18478,7 +18296,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.q_obj_BLOCK_JOB_PENDING_arg, ptr %obj, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %id, ptr noundef %errp) #4
   br label %return
 
@@ -18494,12 +18312,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %amount_exceeded = getelementptr inbounds %struct.q_obj_BLOCK_WRITE_THRESHOLD_arg, ptr %obj, i64 0, i32 1
+  %amount_exceeded = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.407, ptr noundef nonnull %amount_exceeded, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %write_threshold = getelementptr inbounds %struct.q_obj_BLOCK_WRITE_THRESHOLD_arg, ptr %obj, i64 0, i32 2
+  %write_threshold = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.408, ptr noundef nonnull %write_threshold, ptr noundef %errp) #4
   br label %return
 
@@ -18515,7 +18333,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %write_threshold = getelementptr inbounds %struct.q_obj_block_set_write_threshold_arg, ptr %obj, i64 0, i32 1
+  %write_threshold = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.408, ptr noundef nonnull %write_threshold, ptr noundef %errp) #4
   br label %return
 
@@ -18529,12 +18347,12 @@ define dso_local zeroext i1 @visit_type_q_obj_x_blockdev_change_arg_members(ptr 
 entry:
   %has_child = alloca i8, align 1
   %has_node = alloca i8, align 1
-  %child = getelementptr inbounds %struct.q_obj_x_blockdev_change_arg, ptr %obj, i64 0, i32 1
+  %child = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %child, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_child, align 1
-  %node = getelementptr inbounds %struct.q_obj_x_blockdev_change_arg, ptr %obj, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %node, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -18573,17 +18391,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %iothread = getelementptr inbounds %struct.q_obj_x_blockdev_set_iothread_arg, ptr %obj, i64 0, i32 1
+  %iothread = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_StrOrNull(ptr noundef %v, ptr noundef nonnull @.str.409, ptr noundef nonnull %iothread, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_force = getelementptr inbounds %struct.q_obj_x_blockdev_set_iothread_arg, ptr %obj, i64 0, i32 2
+  %has_force = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.268, ptr noundef nonnull %has_force) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %force = getelementptr inbounds %struct.q_obj_x_blockdev_set_iothread_arg, ptr %obj, i64 0, i32 3
+  %force = getelementptr inbounds i8, ptr %obj, i64 17
   %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.268, ptr noundef nonnull %force, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
@@ -18616,12 +18434,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %sector_num = getelementptr inbounds %struct.q_obj_QUORUM_FAILURE_arg, ptr %obj, i64 0, i32 1
+  %sector_num = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.411, ptr noundef nonnull %sector_num, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %sectors_count = getelementptr inbounds %struct.q_obj_QUORUM_FAILURE_arg, ptr %obj, i64 0, i32 2
+  %sectors_count = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.412, ptr noundef nonnull %sectors_count, ptr noundef %errp) #4
   br label %return
 
@@ -18635,7 +18453,7 @@ define dso_local zeroext i1 @visit_type_q_obj_QUORUM_REPORT_BAD_arg_members(ptr 
 entry:
   %value.i = alloca i32, align 4
   %has_error = alloca i8, align 1
-  %error = getelementptr inbounds %struct.q_obj_QUORUM_REPORT_BAD_arg, ptr %obj, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %error, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -18658,17 +18476,17 @@ if.then3:                                         ; preds = %if.end
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %node_name = getelementptr inbounds %struct.q_obj_QUORUM_REPORT_BAD_arg, ptr %obj, i64 0, i32 2
+  %node_name = getelementptr inbounds i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.64, ptr noundef nonnull %node_name, ptr noundef %errp) #4
   br i1 %call9, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end8
-  %sector_num = getelementptr inbounds %struct.q_obj_QUORUM_REPORT_BAD_arg, ptr %obj, i64 0, i32 3
+  %sector_num = getelementptr inbounds i8, ptr %obj, i64 24
   %call12 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.411, ptr noundef nonnull %sector_num, ptr noundef %errp) #4
   br i1 %call12, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end11
-  %sectors_count = getelementptr inbounds %struct.q_obj_QUORUM_REPORT_BAD_arg, ptr %obj, i64 0, i32 4
+  %sectors_count = getelementptr inbounds i8, ptr %obj, i64 32
   %call15 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.412, ptr noundef nonnull %sectors_count, ptr noundef %errp) #4
   br label %return
 
@@ -18684,7 +18502,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.BlockdevSnapshotInternal, ptr %obj, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %name, ptr noundef %errp) #4
   br label %return
 
@@ -18721,7 +18539,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_BlockdevSnapshotInternal_members.exit, label %out_obj.thread
 
 visit_type_BlockdevSnapshotInternal_members.exit: ; preds = %if.end5
-  %name.i = getelementptr inbounds %struct.BlockdevSnapshotInternal, ptr %0, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %name.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -18756,12 +18574,12 @@ define dso_local zeroext i1 @visit_type_q_obj_blockdev_snapshot_delete_internal_
 entry:
   %has_id = alloca i8, align 1
   %has_name = alloca i8, align 1
-  %id = getelementptr inbounds %struct.q_obj_blockdev_snapshot_delete_internal_sync_arg, ptr %obj, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %id, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_id, align 1
-  %name = getelementptr inbounds %struct.q_obj_blockdev_snapshot_delete_internal_sync_arg, ptr %obj, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %name, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -18806,7 +18624,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.BlockGraphInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_BlockGraphInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 

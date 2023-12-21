@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
 
 @ossl_tdes_wrap_cbc_functions = local_unnamed_addr constant [14 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 2, ptr @ossl_tdes_einit }, %struct.ossl_dispatch_st { i32 3, ptr @ossl_tdes_dinit }, %struct.ossl_dispatch_st { i32 6, ptr @tdes_wrap_cipher }, %struct.ossl_dispatch_st { i32 1, ptr @tdes_wrap_newctx }, %struct.ossl_dispatch_st { i32 7, ptr @ossl_tdes_freectx }, %struct.ossl_dispatch_st { i32 4, ptr @tdes_wrap_update }, %struct.ossl_dispatch_st { i32 5, ptr @ossl_cipher_generic_stream_final }, %struct.ossl_dispatch_st { i32 9, ptr @tdes_wrap_get_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 10, ptr @ossl_tdes_get_ctx_params }, %struct.ossl_dispatch_st { i32 13, ptr @ossl_tdes_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @ossl_cipher_generic_set_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @ossl_cipher_generic_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [64 x i8] c"../openssl/providers/implementations/ciphers/cipher_tdes_wrap.c\00", align 1
@@ -45,7 +42,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %or.cond.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end2
-  %enc.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %enc.i = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load.i = load i8, ptr %enc.i, align 4
   %1 = and i8 %bf.load.i, 2
   %tobool1.not.i = icmp eq i8 %1, 0
@@ -75,9 +72,9 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   %2 = load i64, ptr %sha1tmp.i.i, align 16
   store i64 %2, ptr %add.ptr5.i.i, align 1
   call void @OPENSSL_cleanse(ptr noundef nonnull %sha1tmp.i.i, i64 noundef 20) #4
-  %libctx.i.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 21
+  %libctx.i.i = getelementptr inbounds i8, ptr %vctx, i64 184
   %3 = load ptr, ptr %libctx.i.i, align 8
-  %iv.i.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 2
+  %iv.i.i = getelementptr inbounds i8, ptr %vctx, i64 32
   %call9.i.i = call i32 @RAND_bytes_ex(ptr noundef %3, ptr noundef nonnull %iv.i.i, i64 noundef 8, i32 noundef 0) #4
   %cmp10.i.i = icmp slt i32 %call9.i.i, 1
   br i1 %cmp10.i.i, label %des_ede3_wrap.exit.i, label %if.end13.i.i
@@ -85,15 +82,15 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
 if.end13.i.i:                                     ; preds = %if.end3.i.i
   %4 = load i64, ptr %iv.i.i, align 8
   store i64 %4, ptr %out, align 1
-  %hw.i.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw.i.i = getelementptr inbounds i8, ptr %vctx, i64 168
   %5 = load ptr, ptr %hw.i.i, align 8
-  %cipher.i.i = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %5, i64 0, i32 1
+  %cipher.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %cipher.i.i, align 8
   %call19.i.i = call i32 %6(ptr noundef nonnull %vctx, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr.i.i, i64 noundef %add.i.i) #4
   call void @BUF_reverse(ptr noundef nonnull %out, ptr noundef null, i64 noundef %add1.i.i) #4
   store i64 369832251558649162, ptr %iv.i.i, align 8
   %7 = load ptr, ptr %hw.i.i, align 8
-  %cipher23.i.i = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %7, i64 0, i32 1
+  %cipher23.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %cipher23.i.i, align 8
   %call24.i.i = call i32 %8(ptr noundef nonnull %vctx, ptr noundef nonnull %out, ptr noundef nonnull %out, i64 noundef %add1.i.i) #4
   %conv25.i.i = trunc i64 %add1.i.i to i32
@@ -121,11 +118,11 @@ if.then2.i.i:                                     ; preds = %if.end.i11.i
   br label %des_ede3_unwrap.exit.i
 
 if.end3.i12.i:                                    ; preds = %if.end.i11.i
-  %iv4.i.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 2
+  %iv4.i.i = getelementptr inbounds i8, ptr %vctx, i64 32
   store i64 369832251558649162, ptr %iv4.i.i, align 8
-  %hw.i13.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw.i13.i = getelementptr inbounds i8, ptr %vctx, i64 168
   %10 = load ptr, ptr %hw.i13.i, align 8
-  %cipher.i14.i = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %10, i64 0, i32 1
+  %cipher.i14.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %cipher.i14.i, align 8
   %call.i15.i = call i32 %11(ptr noundef nonnull %vctx, ptr noundef nonnull %icv.i.i, ptr noundef %in, i64 noundef 8) #4
   %cmp6.i.i = icmp eq ptr %out, %in
@@ -141,13 +138,13 @@ if.then8.i.i:                                     ; preds = %if.end3.i12.i
 if.end11.i.i:                                     ; preds = %if.then8.i.i, %if.end3.i12.i
   %in.addr.0.i.i = phi ptr [ %add.ptr10.i.i, %if.then8.i.i ], [ %in, %if.end3.i12.i ]
   %12 = load ptr, ptr %hw.i13.i, align 8
-  %cipher13.i.i = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %12, i64 0, i32 1
+  %cipher13.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %cipher13.i.i, align 8
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %in.addr.0.i.i, i64 8
   %sub15.i.i = add nsw i64 %inl, -16
   %call16.i.i = call i32 %13(ptr noundef nonnull %vctx, ptr noundef nonnull %out, ptr noundef nonnull %add.ptr14.i.i, i64 noundef %sub15.i.i) #4
   %14 = load ptr, ptr %hw.i13.i, align 8
-  %cipher18.i.i = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %14, i64 0, i32 1
+  %cipher18.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %cipher18.i.i, align 8
   %add.ptr20.i.i = getelementptr inbounds i8, ptr %in.addr.0.i.i, i64 %inl
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %add.ptr20.i.i, i64 -8
@@ -156,11 +153,11 @@ if.end11.i.i:                                     ; preds = %if.then8.i.i, %if.e
   call void @BUF_reverse(ptr noundef nonnull %out, ptr noundef null, i64 noundef %sub15.i.i) #4
   call void @BUF_reverse(ptr noundef nonnull %iv4.i.i, ptr noundef nonnull %iv.i8.i, i64 noundef 8) #4
   %16 = load ptr, ptr %hw.i13.i, align 8
-  %cipher29.i.i = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %16, i64 0, i32 1
+  %cipher29.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %cipher29.i.i, align 8
   %call31.i.i = call i32 %17(ptr noundef nonnull %vctx, ptr noundef nonnull %out, ptr noundef nonnull %out, i64 noundef %sub15.i.i) #4
   %18 = load ptr, ptr %hw.i13.i, align 8
-  %cipher33.i.i = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %18, i64 0, i32 1
+  %cipher33.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %cipher33.i.i, align 8
   %call36.i.i = call i32 %19(ptr noundef nonnull %vctx, ptr noundef nonnull %icv.i.i, ptr noundef nonnull %icv.i.i, i64 noundef 8) #4
   %call39.i.i = call ptr @ossl_sha1(ptr noundef nonnull %out, i64 noundef %sub15.i.i, ptr noundef nonnull %sha1tmp.i9.i) #4

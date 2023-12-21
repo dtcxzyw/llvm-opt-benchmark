@@ -13,19 +13,19 @@ entry:
   %stream = alloca %struct.z_stream_s, align 8
   %0 = load i64, ptr %destLen, align 8
   store i64 0, ptr %destLen, align 8
-  %zalloc = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 8
+  %zalloc = getelementptr inbounds i8, ptr %stream, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %zalloc, i8 0, i64 24, i1 false)
   %call = call i32 @deflateInit_(ptr noundef nonnull %stream, i32 noundef %level, ptr noundef nonnull @.str, i32 noundef 112) #6
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %next_out = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 3
+  %next_out = getelementptr inbounds i8, ptr %stream, i64 24
   store ptr %dest, ptr %next_out, align 8
-  %avail_out = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 4
+  %avail_out = getelementptr inbounds i8, ptr %stream, i64 32
   store i32 0, ptr %avail_out, align 8
   store ptr %source, ptr %stream, align 8
-  %avail_in = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %stream, i64 8
   store i32 0, ptr %avail_in, align 8
   br label %do.body
 
@@ -69,7 +69,7 @@ if.end24:                                         ; preds = %if.then12, %if.end8
   br i1 %cmp27, label %do.bodythread-pre-split, label %do.end, !llvm.loop !4
 
 do.end:                                           ; preds = %if.end24
-  %total_out = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 5
+  %total_out = getelementptr inbounds i8, ptr %stream, i64 40
   %3 = load i64, ptr %total_out, align 8
   store i64 %3, ptr %destLen, align 8
   %call29 = call i32 @deflateEnd(ptr noundef nonnull %stream) #6
@@ -95,19 +95,19 @@ entry:
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %stream.i)
   %0 = load i64, ptr %destLen, align 8
   store i64 0, ptr %destLen, align 8
-  %zalloc.i = getelementptr inbounds %struct.z_stream_s, ptr %stream.i, i64 0, i32 8
+  %zalloc.i = getelementptr inbounds i8, ptr %stream.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %zalloc.i, i8 0, i64 24, i1 false)
   %call.i = call i32 @deflateInit_(ptr noundef nonnull %stream.i, i32 noundef -1, ptr noundef nonnull @.str, i32 noundef 112) #6
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %compress2.exit
 
 if.end.i:                                         ; preds = %entry
-  %next_out.i = getelementptr inbounds %struct.z_stream_s, ptr %stream.i, i64 0, i32 3
+  %next_out.i = getelementptr inbounds i8, ptr %stream.i, i64 24
   store ptr %dest, ptr %next_out.i, align 8
-  %avail_out.i = getelementptr inbounds %struct.z_stream_s, ptr %stream.i, i64 0, i32 4
+  %avail_out.i = getelementptr inbounds i8, ptr %stream.i, i64 32
   store i32 0, ptr %avail_out.i, align 8
   store ptr %source, ptr %stream.i, align 8
-  %avail_in.i = getelementptr inbounds %struct.z_stream_s, ptr %stream.i, i64 0, i32 1
+  %avail_in.i = getelementptr inbounds i8, ptr %stream.i, i64 8
   store i32 0, ptr %avail_in.i, align 8
   br label %do.body.i
 
@@ -151,7 +151,7 @@ if.end24.i:                                       ; preds = %if.then12.i, %if.en
   br i1 %cmp27.i, label %do.bodythread-pre-split.i, label %do.end.i, !llvm.loop !4
 
 do.end.i:                                         ; preds = %if.end24.i
-  %total_out.i = getelementptr inbounds %struct.z_stream_s, ptr %stream.i, i64 0, i32 5
+  %total_out.i = getelementptr inbounds i8, ptr %stream.i, i64 40
   %3 = load i64, ptr %total_out.i, align 8
   store i64 %3, ptr %destLen, align 8
   %call29.i = call i32 @deflateEnd(ptr noundef nonnull %stream.i) #6

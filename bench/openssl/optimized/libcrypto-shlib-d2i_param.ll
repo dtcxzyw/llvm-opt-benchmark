@@ -3,14 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-d2i_param.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon }
-%union.legacy_pkey_st = type { ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon = type { i32, i32, i32 }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
-
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/asn1/d2i_param.c\00", align 1
 @__func__.d2i_KeyParams = private unnamed_addr constant [14 x i8] c"d2i_KeyParams\00", align 1
 
@@ -42,13 +34,13 @@ land.lhs.true:                                    ; preds = %if.end4
   br i1 %tobool.not, label %err, label %if.end9
 
 if.end9:                                          ; preds = %land.lhs.true, %if.end4
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %ret.0, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %ret.0, i64 8
   %1 = load ptr, ptr %ameth, align 8
   %cmp10 = icmp eq ptr %1, null
   br i1 %cmp10, label %if.then14, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %if.end9
-  %param_decode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %1, i64 0, i32 15
+  %param_decode = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %param_decode, align 8
   %cmp13 = icmp eq ptr %2, null
   br i1 %cmp13, label %if.then14, label %if.end15
@@ -115,7 +107,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %b, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
   store ptr %1, ptr %p, align 8
   %conv = zext nneg i32 %call to i64

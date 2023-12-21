@@ -628,15 +628,15 @@ if.end20:                                         ; preds = %for.inc
 
 do.end.i:                                         ; preds = %if.end20
   store i32 1, ptr %emitter, align 8
-  %write_cb1.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 1
+  %write_cb1.i = getelementptr inbounds i8, ptr %emitter, i64 8
   store ptr %write_cb, ptr %write_cb1.i, align 8
-  %cbopaque2.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 2
+  %cbopaque2.i = getelementptr inbounds i8, ptr %emitter, i64 16
   store ptr %cbopaque, ptr %cbopaque2.i, align 8
-  %item_at_depth.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i, align 4
-  %emitted_key.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 5
+  %emitted_key.i = getelementptr inbounds i8, ptr %emitter, i64 29
   store i8 0, ptr %emitted_key.i, align 1
-  %nesting_depth.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i = getelementptr inbounds i8, ptr %emitter, i64 24
   store i32 0, ptr %nesting_depth.i, align 8
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.6)
   store i32 1, ptr %nesting_depth.i, align 8
@@ -654,15 +654,15 @@ if.else.i:                                        ; preds = %if.end20, %for.cond
   %merged.254.ph = phi i1 [ true, %if.end3 ], [ true, %for.cond.preheader ], [ %8, %if.end20 ]
   %general.252.ph = phi i1 [ false, %if.end3 ], [ false, %for.cond.preheader ], [ %6, %if.end20 ]
   store i32 2, ptr %emitter, align 8
-  %write_cb1.i80 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 1
+  %write_cb1.i80 = getelementptr inbounds i8, ptr %emitter, i64 8
   store ptr %write_cb, ptr %write_cb1.i80, align 8
-  %cbopaque2.i81 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 2
+  %cbopaque2.i81 = getelementptr inbounds i8, ptr %emitter, i64 16
   store ptr %cbopaque, ptr %cbopaque2.i81, align 8
-  %item_at_depth.i82 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i82 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i82, align 4
-  %emitted_key.i83 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 5
+  %emitted_key.i83 = getelementptr inbounds i8, ptr %emitter, i64 29
   store i8 0, ptr %emitted_key.i83, align 1
-  %nesting_depth.i84 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i84 = getelementptr inbounds i8, ptr %emitter, i64 24
   store i32 0, ptr %nesting_depth.i84, align 8
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   br label %emitter_begin.exit
@@ -766,9 +766,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.va_start(ptr nonnull %ap)
-  %write_cb = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 1
+  %write_cb = getelementptr inbounds i8, ptr %emitter, i64 8
   %1 = load ptr, ptr %write_cb, align 8
-  %cbopaque = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 2
+  %cbopaque = getelementptr inbounds i8, ptr %emitter, i64 16
   %2 = load ptr, ptr %cbopaque, align 8
   call void @malloc_vcprintf(ptr noundef %1, ptr noundef %2, ptr noundef %format, ptr noundef nonnull %ap) #13
   call void @llvm.va_end(ptr nonnull %ap)
@@ -873,7 +873,7 @@ if.else.i:                                        ; preds = %do.end2
   br i1 %cmp.i.i, label %if.then.i.i, label %emitter_dict_begin.exit
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %nesting_depth.i.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %0 = load i32, ptr %nesting_depth.i.i.i, align 8
   %cmp15.i.i.i = icmp sgt i32 %0, 0
   br i1 %cmp15.i.i.i, label %for.body.preheader.i.i.i, label %emitter_indent.exit.i.i
@@ -895,7 +895,7 @@ emitter_indent.exit.i.i:                          ; preds = %for.body.i.i.i, %if
   %1 = load i32, ptr %nesting_depth.i.i.i, align 8
   %inc.i5.i.i = add nsw i32 %1, 1
   store i32 %inc.i5.i.i, ptr %nesting_depth.i.i.i, align 8
-  %item_at_depth.i.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i.i.i, align 4
   br label %emitter_dict_begin.exit
 
@@ -1038,11 +1038,11 @@ do.end122:                                        ; preds = %do.end111
   br i1 %spec.select.i.i140, label %do.end.i.i, label %if.else.i141
 
 do.end.i.i:                                       ; preds = %do.end122
-  %nesting_depth.i.i.i144 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i.i144 = getelementptr inbounds i8, ptr %emitter, i64 24
   %2 = load i32, ptr %nesting_depth.i.i.i144, align 8
   %dec.i.i.i = add nsw i32 %2, -1
   store i32 %dec.i.i.i, ptr %nesting_depth.i.i.i144, align 8
-  %item_at_depth.i.i.i145 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i.i145 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i.i145, align 4
   %cmp.not.i.i = icmp eq i32 %emitter.val.i139, 1
   br i1 %cmp.not.i.i, label %emitter_dict_end.exit, label %if.then1.i.i
@@ -1074,11 +1074,11 @@ if.else.i141:                                     ; preds = %do.end122
   br i1 %cmp.i.i142, label %if.else.i156.thread, label %emitter_dict_begin.exit172
 
 if.else.i156.thread:                              ; preds = %if.else.i141
-  %nesting_depth.i.i4.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i4.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %5 = load i32, ptr %nesting_depth.i.i4.i, align 8
   %dec.i.i5.i = add nsw i32 %5, -1
   store i32 %dec.i.i5.i, ptr %nesting_depth.i.i4.i, align 8
-  %item_at_depth.i.i6.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i6.i = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i6.i, align 4
   br label %if.then.i.i158
 
@@ -1098,7 +1098,7 @@ if.else.i156:                                     ; preds = %emitter_dict_end.ex
   br i1 %cmp.i.i157, label %if.then.i.i158, label %emitter_dict_begin.exit172
 
 if.then.i.i158:                                   ; preds = %if.else.i156.thread, %if.else.i156
-  %nesting_depth.i.i.i159 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i.i159 = getelementptr inbounds i8, ptr %emitter, i64 24
   %6 = load i32, ptr %nesting_depth.i.i.i159, align 8
   %cmp15.i.i.i160 = icmp sgt i32 %6, 0
   br i1 %cmp15.i.i.i160, label %for.body.preheader.i.i.i164, label %emitter_indent.exit.i.i161
@@ -1120,7 +1120,7 @@ emitter_indent.exit.i.i161:                       ; preds = %for.body.i.i.i167, 
   %7 = load i32, ptr %nesting_depth.i.i.i159, align 8
   %inc.i5.i.i162 = add nsw i32 %7, 1
   store i32 %inc.i5.i.i162, ptr %nesting_depth.i.i.i159, align 8
-  %item_at_depth.i.i.i163 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i.i163 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i.i.i163, align 4
   br label %emitter_dict_begin.exit172
 
@@ -1733,11 +1733,11 @@ if.end392:                                        ; preds = %if.then391, %if.end
   br i1 %spec.select.i.i174, label %do.end.i.i181, label %if.else.i175
 
 do.end.i.i181:                                    ; preds = %if.end392
-  %nesting_depth.i.i.i182 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i.i182 = getelementptr inbounds i8, ptr %emitter, i64 24
   %9 = load i32, ptr %nesting_depth.i.i.i182, align 8
   %dec.i.i.i183 = add nsw i32 %9, -1
   store i32 %dec.i.i.i183, ptr %nesting_depth.i.i.i182, align 8
-  %item_at_depth.i.i.i184 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i.i184 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i.i184, align 4
   %cmp.not.i.i185 = icmp eq i32 %emitter.val.i173, 1
   br i1 %cmp.not.i.i185, label %emitter_json_object_end.exit.i190, label %if.then1.i.i186
@@ -1773,11 +1773,11 @@ if.else.i175:                                     ; preds = %if.end392
   br i1 %cmp.i.i176, label %if.then.i.i177, label %emitter_dict_end.exit199
 
 if.then.i.i177:                                   ; preds = %if.else.i175
-  %nesting_depth.i.i4.i178 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i4.i178 = getelementptr inbounds i8, ptr %emitter, i64 24
   %12 = load i32, ptr %nesting_depth.i.i4.i178, align 8
   %dec.i.i5.i179 = add nsw i32 %12, -1
   store i32 %dec.i.i5.i179, ptr %nesting_depth.i.i4.i178, align 8
-  %item_at_depth.i.i6.i180 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i6.i180 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i6.i180, align 4
   br label %emitter_dict_end.exit199
 
@@ -1887,7 +1887,7 @@ if.then461:                                       ; preds = %do.end459
   call fastcc void @emitter_json_array_kv_begin(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.184)
   store i64 7, ptr %miblen_new, align 8
   %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i777 = getelementptr inbounds %struct.tsd_s, ptr %13, i64 0, i32 30
+  %state.i777 = getelementptr inbounds i8, ptr %13, i64 824
   %14 = load i8, ptr %state.i777, align 8
   %cmp6.i.not = icmp eq i8 %14, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
@@ -1908,9 +1908,9 @@ for.cond.preheader:                               ; preds = %tsd_fetch_impl.exit
   br i1 %cmp476294.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %arrayidx = getelementptr inbounds [7 x i64], ptr %arenas_bin_mib, i64 0, i64 2
-  %nesting_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
-  %item_at_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %arrayidx = getelementptr inbounds i8, ptr %arenas_bin_mib, i64 16
+  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
   br label %for.body
 
 if.then470:                                       ; preds = %tsd_fetch_impl.exit
@@ -2069,11 +2069,11 @@ for.end:                                          ; preds = %emitter_json_object
   br i1 %spec.select.i.i204, label %do.end.i205, label %do.body546
 
 do.end.i205:                                      ; preds = %for.end
-  %nesting_depth.i.i206 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i206 = getelementptr inbounds i8, ptr %emitter, i64 24
   %25 = load i32, ptr %nesting_depth.i.i206, align 8
   %dec.i.i207 = add nsw i32 %25, -1
   store i32 %dec.i.i207, ptr %nesting_depth.i.i206, align 8
-  %item_at_depth.i.i208 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i208 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i208, align 4
   %cmp.not.i209 = icmp eq i32 %emitter.val.i203, 1
   br i1 %cmp.not.i209, label %if.end.i214, label %if.then1.i210
@@ -2125,7 +2125,7 @@ if.then557:                                       ; preds = %do.end555
   call fastcc void @emitter_json_array_kv_begin(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.195)
   store i64 7, ptr %miblen_new561, align 8
   %28 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i767 = getelementptr inbounds %struct.tsd_s, ptr %28, i64 0, i32 30
+  %state.i767 = getelementptr inbounds i8, ptr %28, i64 824
   %29 = load i8, ptr %state.i767, align 8
   %cmp6.i717.not = icmp eq i8 %29, 0
   br i1 %cmp6.i717.not, label %tsd_fetch_impl.exit728, label %if.then11.i722
@@ -2146,9 +2146,9 @@ for.cond575.preheader:                            ; preds = %tsd_fetch_impl.exit
   br i1 %cmp576296.not, label %for.end600, label %for.body578.lr.ph
 
 for.body578.lr.ph:                                ; preds = %for.cond575.preheader
-  %arrayidx580 = getelementptr inbounds [7 x i64], ptr %arenas_lextent_mib, i64 0, i64 2
-  %nesting_depth.i.i227 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
-  %item_at_depth.i.i229 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %arrayidx580 = getelementptr inbounds i8, ptr %arenas_lextent_mib, i64 16
+  %nesting_depth.i.i227 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %item_at_depth.i.i229 = getelementptr inbounds i8, ptr %emitter, i64 28
   br label %for.body578
 
 if.then568:                                       ; preds = %tsd_fetch_impl.exit728
@@ -2235,11 +2235,11 @@ for.end600:                                       ; preds = %emitter_json_object
   br i1 %spec.select.i.i246, label %do.end.i247, label %emitter_json_object_end.exit286
 
 do.end.i247:                                      ; preds = %for.end600
-  %nesting_depth.i.i248 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i248 = getelementptr inbounds i8, ptr %emitter, i64 24
   %37 = load i32, ptr %nesting_depth.i.i248, align 8
   %dec.i.i249 = add nsw i32 %37, -1
   store i32 %dec.i.i249, ptr %nesting_depth.i.i248, align 8
-  %item_at_depth.i.i250 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i250 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i250, align 4
   %cmp.not.i251 = icmp eq i32 %emitter.val.i245, 1
   br i1 %cmp.not.i251, label %if.end601, label %if.then1.i252
@@ -2561,11 +2561,11 @@ do.end117:                                        ; preds = %do.body109
   br i1 %spec.select.i.i, label %do.end.i, label %emitter_json_object_end.exit
 
 do.end.i:                                         ; preds = %do.end117
-  %nesting_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %10 = load i32, ptr %nesting_depth.i.i, align 8
   %dec.i.i = add nsw i32 %10, -1
   store i32 %dec.i.i, ptr %nesting_depth.i.i, align 8
-  %item_at_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i, align 4
   %cmp.not.i = icmp eq i32 %emitter.val.i, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then1.i
@@ -2618,13 +2618,13 @@ if.end.i76:                                       ; preds = %if.then118
 for.body.i:                                       ; preds = %if.end.i76, %for.body.i
   %col.011.i = phi ptr [ %22, %for.body.i ], [ %17, %if.end.i76 ]
   %18 = load i32, ptr %col.011.i, align 8
-  %width.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %col.011.i, i64 4
   %19 = load i32, ptr %width.i, align 4
-  %type.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
   %20 = load i32, ptr %type.i, align 8
-  %21 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 3
+  %21 = getelementptr inbounds i8, ptr %col.011.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef nonnull %21)
-  %link.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 4
+  %link.i = getelementptr inbounds i8, ptr %col.011.i, i64 24
   %22 = load ptr, ptr %link.i, align 8
   %23 = load ptr, ptr %row, align 8
   %cmp4.not.i = icmp eq ptr %22, %23
@@ -2651,7 +2651,7 @@ if.then126:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end128:                                        ; preds = %emitter_table_row.exit
-  %arrayidx = getelementptr inbounds [7 x i64], ptr %mib, i64 0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %mib, i64 16
   store i64 0, ptr %arrayidx, align 16
   %24 = load i64, ptr %miblen, align 8
   %call131 = call i32 @mallctlbymib(ptr noundef nonnull %mib, i64 noundef %24, ptr noundef nonnull %uptime, ptr noundef nonnull %sz121, ptr noundef null, i64 noundef 0) #13
@@ -2666,7 +2666,7 @@ if.then133:                                       ; preds = %do.end128
 do.end139:                                        ; preds = %do.end128
   store i64 7, ptr %miblen_new, align 8
   %25 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i = getelementptr inbounds %struct.tsd_s, ptr %25, i64 0, i32 30
+  %state.i = getelementptr inbounds i8, ptr %25, i64 824
   %26 = load i8, ptr %state.i, align 8
   %cmp6.i.not = icmp eq i8 %26, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
@@ -2682,33 +2682,33 @@ tsd_fetch_impl.exit:                              ; preds = %do.end139, %if.then
   br i1 %cmp144.not, label %for.cond.preheader, label %if.then145
 
 for.cond.preheader:                               ; preds = %tsd_fetch_impl.exit
-  %27 = getelementptr inbounds %struct.emitter_col_s, ptr %name, i64 0, i32 3
-  %type.i78 = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 0, i32 2
-  %28 = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 0, i32 3
-  %type23.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 1, i32 2
-  %29 = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 1, i32 3
-  %type27.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 2, i32 2
-  %30 = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 2, i32 3
-  %type44.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 3, i32 2
-  %31 = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 3, i32 3
-  %type49.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 4, i32 2
-  %32 = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 4, i32 3
-  %type66.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 5, i32 2
-  %33 = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 5, i32 3
-  %type71.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 6, i32 2
-  %34 = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 6, i32 3
-  %type88.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 7, i32 2
-  %35 = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 7, i32 3
-  %type93.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 8, i32 2
-  %36 = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 8, i32 3
-  %type110.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 9, i32 2
-  %37 = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 9, i32 3
-  %type115.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 10, i32 2
-  %38 = getelementptr inbounds %struct.emitter_col_s, ptr %col64, i64 10, i32 3
-  %type132.i = getelementptr inbounds %struct.emitter_col_s, ptr %col32, i64 0, i32 2
-  %39 = getelementptr inbounds %struct.emitter_col_s, ptr %col32, i64 0, i32 3
-  %nesting_depth.i.i83 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
-  %item_at_depth.i.i85 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %27 = getelementptr inbounds i8, ptr %name, i64 16
+  %type.i78 = getelementptr inbounds i8, ptr %col64, i64 8
+  %28 = getelementptr inbounds i8, ptr %col64, i64 16
+  %type23.i = getelementptr inbounds i8, ptr %col64, i64 48
+  %29 = getelementptr inbounds i8, ptr %col64, i64 56
+  %type27.i = getelementptr inbounds i8, ptr %col64, i64 88
+  %30 = getelementptr inbounds i8, ptr %col64, i64 96
+  %type44.i = getelementptr inbounds i8, ptr %col64, i64 128
+  %31 = getelementptr inbounds i8, ptr %col64, i64 136
+  %type49.i = getelementptr inbounds i8, ptr %col64, i64 168
+  %32 = getelementptr inbounds i8, ptr %col64, i64 176
+  %type66.i = getelementptr inbounds i8, ptr %col64, i64 208
+  %33 = getelementptr inbounds i8, ptr %col64, i64 216
+  %type71.i = getelementptr inbounds i8, ptr %col64, i64 248
+  %34 = getelementptr inbounds i8, ptr %col64, i64 256
+  %type88.i = getelementptr inbounds i8, ptr %col64, i64 288
+  %35 = getelementptr inbounds i8, ptr %col64, i64 296
+  %type93.i = getelementptr inbounds i8, ptr %col64, i64 328
+  %36 = getelementptr inbounds i8, ptr %col64, i64 336
+  %type110.i = getelementptr inbounds i8, ptr %col64, i64 368
+  %37 = getelementptr inbounds i8, ptr %col64, i64 376
+  %type115.i = getelementptr inbounds i8, ptr %col64, i64 408
+  %38 = getelementptr inbounds i8, ptr %col64, i64 416
+  %type132.i = getelementptr inbounds i8, ptr %col32, i64 8
+  %39 = getelementptr inbounds i8, ptr %col32, i64 16
+  %nesting_depth.i.i83 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %item_at_depth.i.i85 = getelementptr inbounds i8, ptr %emitter, i64 28
   br label %for.body
 
 if.then145:                                       ; preds = %tsd_fetch_impl.exit
@@ -3116,11 +3116,11 @@ if.end160:                                        ; preds = %if.end.i112, %emitt
   br i1 %spec.select.i.i123, label %do.end.i124, label %emitter_json_object_end.exit142
 
 do.end.i124:                                      ; preds = %if.end160
-  %nesting_depth.i.i125 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i125 = getelementptr inbounds i8, ptr %emitter, i64 24
   %61 = load i32, ptr %nesting_depth.i.i125, align 8
   %dec.i.i126 = add nsw i32 %61, -1
   store i32 %dec.i.i126, ptr %nesting_depth.i.i125, align 8
-  %item_at_depth.i.i127 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i127 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i127, align 4
   %cmp.not.i128 = icmp eq i32 %emitter.val.i122.pr, 1
   br i1 %cmp.not.i128, label %if.end.i133, label %if.then1.i129
@@ -3185,7 +3185,7 @@ for.cond186.preheader:                            ; preds = %do.end174
   br i1 %cmp187210.not, label %for.end209, label %for.body188.lr.ph
 
 for.body188.lr.ph:                                ; preds = %for.cond186.preheader
-  %arrayidx189 = getelementptr inbounds [3 x i64], ptr %mib175, i64 0, i64 1
+  %arrayidx189 = getelementptr inbounds i8, ptr %mib175, i64 8
   br label %for.body188
 
 if.then183:                                       ; preds = %do.end174
@@ -3226,7 +3226,7 @@ for.end209.loopexit:                              ; preds = %do.end200
 
 for.end209:                                       ; preds = %for.end209.loopexit, %for.cond186.preheader
   %ninitialized.0.lcssa = phi i1 [ true, %for.cond186.preheader ], [ %74, %for.end209.loopexit ]
-  %arrayidx210 = getelementptr inbounds [3 x i64], ptr %mib175, i64 0, i64 1
+  %arrayidx210 = getelementptr inbounds i8, ptr %mib175, i64 8
   store i64 4097, ptr %arrayidx210, align 8
   store i64 1, ptr %sz177, align 8
   %75 = load i64, ptr %miblen176, align 8
@@ -3270,11 +3270,11 @@ if.then238:                                       ; preds = %if.end232
   br i1 %spec.select.i.i144, label %do.end.i145, label %if.end244
 
 do.end.i145:                                      ; preds = %if.then238
-  %nesting_depth.i.i146 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i146 = getelementptr inbounds i8, ptr %emitter, i64 24
   %78 = load i32, ptr %nesting_depth.i.i146, align 8
   %dec.i.i147 = add nsw i32 %78, -1
   store i32 %dec.i.i147, ptr %nesting_depth.i.i146, align 8
-  %item_at_depth.i.i148 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i148 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i148, align 4
   %cmp.not.i149 = icmp eq i32 %emitter.val.i143, 1
   br i1 %cmp.not.i149, label %if.end.i154, label %if.then1.i150
@@ -3312,8 +3312,8 @@ if.end244:                                        ; preds = %if.end.i154, %if.th
   br i1 %or.cond215, label %for.body250.lr.ph, label %if.end268
 
 for.body250.lr.ph:                                ; preds = %if.end244
-  %nesting_depth.i.i167 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
-  %item_at_depth.i.i169 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %nesting_depth.i.i167 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %item_at_depth.i.i169 = getelementptr inbounds i8, ptr %emitter, i64 28
   br label %for.body250
 
 for.body250:                                      ; preds = %for.body250.lr.ph, %for.inc265
@@ -3382,11 +3382,11 @@ if.end268:                                        ; preds = %for.inc265, %if.end
   br i1 %spec.select.i.i186, label %do.end.i187, label %emitter_json_object_end.exit205
 
 do.end.i187:                                      ; preds = %if.end268
-  %nesting_depth.i.i188 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i188 = getelementptr inbounds i8, ptr %emitter, i64 24
   %90 = load i32, ptr %nesting_depth.i.i188, align 8
   %dec.i.i189 = add nsw i32 %90, -1
   store i32 %dec.i.i189, ptr %nesting_depth.i.i188, align 8
-  %item_at_depth.i.i190 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i190 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i190, align 4
   %cmp.not.i191 = icmp eq i32 %emitter.val.i185, 1
   br i1 %cmp.not.i191, label %if.end.i196, label %if.then1.i192
@@ -3433,11 +3433,11 @@ entry:
   br i1 %spec.select.i, label %do.end, label %if.end2
 
 do.end:                                           ; preds = %entry
-  %nesting_depth.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %0 = load i32, ptr %nesting_depth.i, align 8
   %dec.i = add nsw i32 %0, -1
   store i32 %dec.i, ptr %nesting_depth.i, align 8
-  %item_at_depth.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i, align 4
   %cmp.not = icmp eq i32 %emitter.val, 1
   br i1 %cmp.not, label %if.end, label %if.then1
@@ -3583,9 +3583,9 @@ define internal void @emitter_printf(ptr nocapture noundef readonly %emitter, pt
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
-  %write_cb = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 1
+  %write_cb = getelementptr inbounds i8, ptr %emitter, i64 8
   %0 = load ptr, ptr %write_cb, align 8
-  %cbopaque = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 2
+  %cbopaque = getelementptr inbounds i8, ptr %emitter, i64 16
   %1 = load ptr, ptr %cbopaque, align 8
   call void @malloc_vcprintf(ptr noundef %0, ptr noundef %1, ptr noundef %format, ptr noundef nonnull %ap) #13
   call void @llvm.va_end(ptr nonnull %ap)
@@ -3608,7 +3608,7 @@ entry:
   br i1 %spec.select.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %emitted_key.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 5
+  %emitted_key.i = getelementptr inbounds i8, ptr %emitter, i64 29
   %0 = load i8, ptr %emitted_key.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -3619,7 +3619,7 @@ if.then.i:                                        ; preds = %if.then
   br label %emitter_json_key_prefix.exit
 
 if.end.i:                                         ; preds = %if.then
-  %item_at_depth.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i = getelementptr inbounds i8, ptr %emitter, i64 28
   %2 = load i8, ptr %item_at_depth.i, align 4
   %3 = and i8 %2, 1
   %tobool2.not.i = icmp eq i8 %3, 0
@@ -3637,7 +3637,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
 
 if.then5.i:                                       ; preds = %if.end4.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %nesting_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %5 = load i32, ptr %nesting_depth.i.i, align 8
   %6 = load i32, ptr %emitter, align 8
   %cmp.i.i = icmp ne i32 %6, 0
@@ -3689,7 +3689,7 @@ entry:
   br i1 %spec.select.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %emitted_key.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 5
+  %emitted_key.i = getelementptr inbounds i8, ptr %emitter, i64 29
   %0 = load i8, ptr %emitted_key.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -3700,7 +3700,7 @@ if.then.i:                                        ; preds = %if.then
   br label %emitter_json_key_prefix.exit
 
 if.end.i:                                         ; preds = %if.then
-  %item_at_depth.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i = getelementptr inbounds i8, ptr %emitter, i64 28
   %2 = load i8, ptr %item_at_depth.i, align 4
   %3 = and i8 %2, 1
   %tobool2.not.i = icmp eq i8 %3, 0
@@ -3718,7 +3718,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
 
 if.then5.i:                                       ; preds = %if.end4.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %nesting_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %5 = load i32, ptr %nesting_depth.i.i, align 8
   %6 = load i32, ptr %emitter, align 8
   %cmp.i.i = icmp ne i32 %6, 0
@@ -3741,11 +3741,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 emitter_json_key_prefix.exit:                     ; preds = %for.body.i.i, %if.then.i, %if.end4.i, %if.then5.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.6)
-  %nesting_depth.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %7 = load i32, ptr %nesting_depth.i, align 8
   %inc.i = add nsw i32 %7, 1
   store i32 %inc.i, ptr %nesting_depth.i, align 8
-  %item_at_depth.i4 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i4 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i4, align 4
   br label %if.end
 
@@ -3774,7 +3774,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %if.else
-  %nesting_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %0 = load i32, ptr %nesting_depth.i.i, align 8
   %cmp15.i.i = icmp sgt i32 %0, 0
   br i1 %cmp15.i.i, label %for.body.preheader.i.i, label %emitter_indent.exit.i
@@ -3808,7 +3808,7 @@ if.end.i:                                         ; preds = %if.then2.i, %emitte
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %if.else, %if.then
-  %item_at_depth = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth, align 4
   ret void
 }
@@ -3822,7 +3822,7 @@ entry:
   br i1 %spec.select.i.i, label %if.then.i, label %emitter_json_array_begin.exit
 
 if.then.i:                                        ; preds = %entry
-  %emitted_key.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 5
+  %emitted_key.i.i = getelementptr inbounds i8, ptr %emitter, i64 29
   %0 = load i8, ptr %emitted_key.i.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
@@ -3833,7 +3833,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %emitter_json_key_prefix.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %item_at_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
   %2 = load i8, ptr %item_at_depth.i.i, align 4
   %3 = and i8 %2, 1
   %tobool2.not.i.i = icmp eq i8 %3, 0
@@ -3851,7 +3851,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
 
 if.then5.i.i:                                     ; preds = %if.end4.i.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %nesting_depth.i.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %5 = load i32, ptr %nesting_depth.i.i.i, align 8
   %6 = load i32, ptr %emitter, align 8
   %cmp.i.i.i = icmp ne i32 %6, 0
@@ -3874,11 +3874,11 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 emitter_json_key_prefix.exit.i:                   ; preds = %for.body.i.i.i, %if.then5.i.i, %if.end4.i.i, %if.then.i.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.213)
-  %nesting_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %7 = load i32, ptr %nesting_depth.i.i, align 8
   %inc.i.i = add nsw i32 %7, 1
   store i32 %inc.i.i, ptr %nesting_depth.i.i, align 8
-  %item_at_depth.i4.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i4.i = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i4.i, align 4
   br label %emitter_json_array_begin.exit
 
@@ -3898,7 +3898,7 @@ entry:
   br i1 %spec.select.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %emitted_key.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 5
+  %emitted_key.i = getelementptr inbounds i8, ptr %emitter, i64 29
   %0 = load i8, ptr %emitted_key.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -3909,7 +3909,7 @@ if.then.i:                                        ; preds = %if.then
   br label %emitter_json_key_prefix.exit
 
 if.end.i:                                         ; preds = %if.then
-  %item_at_depth.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i = getelementptr inbounds i8, ptr %emitter, i64 28
   %2 = load i8, ptr %item_at_depth.i, align 4
   %3 = and i8 %2, 1
   %tobool2.not.i = icmp eq i8 %3, 0
@@ -3927,7 +3927,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
 
 if.then5.i:                                       ; preds = %if.end4.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %nesting_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %5 = load i32, ptr %nesting_depth.i.i, align 8
   %6 = load i32, ptr %emitter, align 8
   %cmp.i.i = icmp ne i32 %6, 0
@@ -3950,7 +3950,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 emitter_json_key_prefix.exit:                     ; preds = %for.body.i.i, %if.then.i, %if.end4.i, %if.then5.i
   tail call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef 2, i32 noundef -1, i32 noundef %value_type, ptr noundef %value)
-  %item_at_depth = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth, align 4
   br label %if.end
 
@@ -4231,32 +4231,32 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %link.i = getelementptr inbounds %struct.emitter_col_s, ptr %name, i64 0, i32 4
+  %link.i = getelementptr inbounds i8, ptr %name, i64 24
   store ptr %name, ptr %link.i, align 8
-  %qre_prev.i = getelementptr inbounds %struct.emitter_col_s, ptr %name, i64 0, i32 4, i32 1
+  %qre_prev.i = getelementptr inbounds i8, ptr %name, i64 32
   store ptr %name, ptr %qre_prev.i, align 8
   %0 = load ptr, ptr %row, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %emitter_col_init.exit, label %do.body3.i
 
 do.body3.i:                                       ; preds = %if.then
-  %qre_prev7.i = getelementptr inbounds %struct.emitter_col_s, ptr %0, i64 0, i32 4, i32 1
+  %qre_prev7.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %qre_prev7.i, align 8
   store ptr %1, ptr %link.i, align 8
   %2 = load ptr, ptr %row, align 8
-  %qre_prev17.i = getelementptr inbounds %struct.emitter_col_s, ptr %2, i64 0, i32 4, i32 1
+  %qre_prev17.i = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %name, ptr %qre_prev17.i, align 8
   %3 = load ptr, ptr %qre_prev.i, align 8
-  %link20.i = getelementptr inbounds %struct.emitter_col_s, ptr %3, i64 0, i32 4
+  %link20.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %link20.i, align 8
   store ptr %4, ptr %qre_prev.i, align 8
   %5 = load ptr, ptr %row, align 8
-  %qre_prev29.i = getelementptr inbounds %struct.emitter_col_s, ptr %5, i64 0, i32 4, i32 1
+  %qre_prev29.i = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load ptr, ptr %qre_prev29.i, align 8
-  %link30.i = getelementptr inbounds %struct.emitter_col_s, ptr %6, i64 0, i32 4
+  %link30.i = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %5, ptr %link30.i, align 8
   %7 = load ptr, ptr %qre_prev.i, align 8
-  %link34.i = getelementptr inbounds %struct.emitter_col_s, ptr %7, i64 0, i32 4
+  %link34.i = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %name, ptr %link34.i, align 8
   %.pre.i = load ptr, ptr %link.i, align 8
   br label %emitter_col_init.exit
@@ -4265,41 +4265,41 @@ emitter_col_init.exit:                            ; preds = %if.then, %do.body3.
   %8 = phi ptr [ %.pre.i, %do.body3.i ], [ %name, %if.then ]
   store ptr %8, ptr %row, align 8
   store i32 0, ptr %name, align 8
-  %width = getelementptr inbounds %struct.emitter_col_s, ptr %name, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %name, i64 4
   store i32 21, ptr %width, align 4
-  %type = getelementptr inbounds %struct.emitter_col_s, ptr %name, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %name, i64 8
   store i32 9, ptr %type, align 8
-  %9 = getelementptr inbounds %struct.emitter_col_s, ptr %name, i64 0, i32 3
+  %9 = getelementptr inbounds i8, ptr %name, i64 16
   store ptr %table_name, ptr %9, align 8
   br label %if.end
 
 if.end:                                           ; preds = %emitter_col_init.exit, %entry
-  %link.i110 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 0, i32 4
+  %link.i110 = getelementptr inbounds i8, ptr %col_uint64_t, i64 24
   store ptr %col_uint64_t, ptr %link.i110, align 8
-  %qre_prev.i111 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 0, i32 4, i32 1
+  %qre_prev.i111 = getelementptr inbounds i8, ptr %col_uint64_t, i64 32
   store ptr %col_uint64_t, ptr %qre_prev.i111, align 8
   %10 = load ptr, ptr %row, align 8
   %cmp.i112 = icmp eq ptr %10, null
   br i1 %cmp.i112, label %emitter_col_init.exit121, label %do.body3.i113
 
 do.body3.i113:                                    ; preds = %if.end
-  %qre_prev7.i114 = getelementptr inbounds %struct.emitter_col_s, ptr %10, i64 0, i32 4, i32 1
+  %qre_prev7.i114 = getelementptr inbounds i8, ptr %10, i64 32
   %11 = load ptr, ptr %qre_prev7.i114, align 8
   store ptr %11, ptr %link.i110, align 8
   %12 = load ptr, ptr %row, align 8
-  %qre_prev17.i115 = getelementptr inbounds %struct.emitter_col_s, ptr %12, i64 0, i32 4, i32 1
+  %qre_prev17.i115 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %col_uint64_t, ptr %qre_prev17.i115, align 8
   %13 = load ptr, ptr %qre_prev.i111, align 8
-  %link20.i116 = getelementptr inbounds %struct.emitter_col_s, ptr %13, i64 0, i32 4
+  %link20.i116 = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %link20.i116, align 8
   store ptr %14, ptr %qre_prev.i111, align 8
   %15 = load ptr, ptr %row, align 8
-  %qre_prev29.i117 = getelementptr inbounds %struct.emitter_col_s, ptr %15, i64 0, i32 4, i32 1
+  %qre_prev29.i117 = getelementptr inbounds i8, ptr %15, i64 32
   %16 = load ptr, ptr %qre_prev29.i117, align 8
-  %link30.i118 = getelementptr inbounds %struct.emitter_col_s, ptr %16, i64 0, i32 4
+  %link30.i118 = getelementptr inbounds i8, ptr %16, i64 24
   store ptr %15, ptr %link30.i118, align 8
   %17 = load ptr, ptr %qre_prev.i111, align 8
-  %link34.i119 = getelementptr inbounds %struct.emitter_col_s, ptr %17, i64 0, i32 4
+  %link34.i119 = getelementptr inbounds i8, ptr %17, i64 24
   store ptr %col_uint64_t, ptr %link34.i119, align 8
   %.pre.i120 = load ptr, ptr %link.i110, align 8
   br label %emitter_col_init.exit121
@@ -4308,39 +4308,39 @@ emitter_col_init.exit121:                         ; preds = %if.end, %do.body3.i
   %18 = phi ptr [ %.pre.i120, %do.body3.i113 ], [ %col_uint64_t, %if.end ]
   store ptr %18, ptr %row, align 8
   store i32 1, ptr %col_uint64_t, align 8
-  %width2 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 0, i32 1
+  %width2 = getelementptr inbounds i8, ptr %col_uint64_t, i64 4
   store i32 16, ptr %width2, align 4
-  %type3 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 0, i32 2
+  %type3 = getelementptr inbounds i8, ptr %col_uint64_t, i64 8
   store i32 9, ptr %type3, align 8
-  %19 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 0, i32 3
+  %19 = getelementptr inbounds i8, ptr %col_uint64_t, i64 16
   store ptr @.str.255, ptr %19, align 8
-  %arrayidx5 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 1
-  %link.i122 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 1, i32 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %col_uint64_t, i64 40
+  %link.i122 = getelementptr inbounds i8, ptr %col_uint64_t, i64 64
   store ptr %arrayidx5, ptr %link.i122, align 8
-  %qre_prev.i123 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 1, i32 4, i32 1
+  %qre_prev.i123 = getelementptr inbounds i8, ptr %col_uint64_t, i64 72
   store ptr %arrayidx5, ptr %qre_prev.i123, align 8
   %20 = load ptr, ptr %row, align 8
   %cmp.i124 = icmp eq ptr %20, null
   br i1 %cmp.i124, label %emitter_col_init.exit133, label %do.body3.i125
 
 do.body3.i125:                                    ; preds = %emitter_col_init.exit121
-  %qre_prev7.i126 = getelementptr inbounds %struct.emitter_col_s, ptr %20, i64 0, i32 4, i32 1
+  %qre_prev7.i126 = getelementptr inbounds i8, ptr %20, i64 32
   %21 = load ptr, ptr %qre_prev7.i126, align 8
   store ptr %21, ptr %link.i122, align 8
   %22 = load ptr, ptr %row, align 8
-  %qre_prev17.i127 = getelementptr inbounds %struct.emitter_col_s, ptr %22, i64 0, i32 4, i32 1
+  %qre_prev17.i127 = getelementptr inbounds i8, ptr %22, i64 32
   store ptr %arrayidx5, ptr %qre_prev17.i127, align 8
   %23 = load ptr, ptr %qre_prev.i123, align 8
-  %link20.i128 = getelementptr inbounds %struct.emitter_col_s, ptr %23, i64 0, i32 4
+  %link20.i128 = getelementptr inbounds i8, ptr %23, i64 24
   %24 = load ptr, ptr %link20.i128, align 8
   store ptr %24, ptr %qre_prev.i123, align 8
   %25 = load ptr, ptr %row, align 8
-  %qre_prev29.i129 = getelementptr inbounds %struct.emitter_col_s, ptr %25, i64 0, i32 4, i32 1
+  %qre_prev29.i129 = getelementptr inbounds i8, ptr %25, i64 32
   %26 = load ptr, ptr %qre_prev29.i129, align 8
-  %link30.i130 = getelementptr inbounds %struct.emitter_col_s, ptr %26, i64 0, i32 4
+  %link30.i130 = getelementptr inbounds i8, ptr %26, i64 24
   store ptr %25, ptr %link30.i130, align 8
   %27 = load ptr, ptr %qre_prev.i123, align 8
-  %link34.i131 = getelementptr inbounds %struct.emitter_col_s, ptr %27, i64 0, i32 4
+  %link34.i131 = getelementptr inbounds i8, ptr %27, i64 24
   store ptr %arrayidx5, ptr %link34.i131, align 8
   %.pre.i132 = load ptr, ptr %link.i122, align 8
   br label %emitter_col_init.exit133
@@ -4349,39 +4349,39 @@ emitter_col_init.exit133:                         ; preds = %emitter_col_init.ex
   %28 = phi ptr [ %.pre.i132, %do.body3.i125 ], [ %arrayidx5, %emitter_col_init.exit121 ]
   store ptr %28, ptr %row, align 8
   store i32 1, ptr %arrayidx5, align 8
-  %width8 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 1, i32 1
+  %width8 = getelementptr inbounds i8, ptr %col_uint64_t, i64 44
   store i32 8, ptr %width8, align 4
-  %type9 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 1, i32 2
+  %type9 = getelementptr inbounds i8, ptr %col_uint64_t, i64 48
   store i32 9, ptr %type9, align 8
-  %29 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 1, i32 3
+  %29 = getelementptr inbounds i8, ptr %col_uint64_t, i64 56
   store ptr @.str.256, ptr %29, align 8
-  %arrayidx11 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 2
-  %link.i134 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 2, i32 4
+  %arrayidx11 = getelementptr inbounds i8, ptr %col_uint64_t, i64 80
+  %link.i134 = getelementptr inbounds i8, ptr %col_uint64_t, i64 104
   store ptr %arrayidx11, ptr %link.i134, align 8
-  %qre_prev.i135 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 2, i32 4, i32 1
+  %qre_prev.i135 = getelementptr inbounds i8, ptr %col_uint64_t, i64 112
   store ptr %arrayidx11, ptr %qre_prev.i135, align 8
   %30 = load ptr, ptr %row, align 8
   %cmp.i136 = icmp eq ptr %30, null
   br i1 %cmp.i136, label %emitter_col_init.exit145, label %do.body3.i137
 
 do.body3.i137:                                    ; preds = %emitter_col_init.exit133
-  %qre_prev7.i138 = getelementptr inbounds %struct.emitter_col_s, ptr %30, i64 0, i32 4, i32 1
+  %qre_prev7.i138 = getelementptr inbounds i8, ptr %30, i64 32
   %31 = load ptr, ptr %qre_prev7.i138, align 8
   store ptr %31, ptr %link.i134, align 8
   %32 = load ptr, ptr %row, align 8
-  %qre_prev17.i139 = getelementptr inbounds %struct.emitter_col_s, ptr %32, i64 0, i32 4, i32 1
+  %qre_prev17.i139 = getelementptr inbounds i8, ptr %32, i64 32
   store ptr %arrayidx11, ptr %qre_prev17.i139, align 8
   %33 = load ptr, ptr %qre_prev.i135, align 8
-  %link20.i140 = getelementptr inbounds %struct.emitter_col_s, ptr %33, i64 0, i32 4
+  %link20.i140 = getelementptr inbounds i8, ptr %33, i64 24
   %34 = load ptr, ptr %link20.i140, align 8
   store ptr %34, ptr %qre_prev.i135, align 8
   %35 = load ptr, ptr %row, align 8
-  %qre_prev29.i141 = getelementptr inbounds %struct.emitter_col_s, ptr %35, i64 0, i32 4, i32 1
+  %qre_prev29.i141 = getelementptr inbounds i8, ptr %35, i64 32
   %36 = load ptr, ptr %qre_prev29.i141, align 8
-  %link30.i142 = getelementptr inbounds %struct.emitter_col_s, ptr %36, i64 0, i32 4
+  %link30.i142 = getelementptr inbounds i8, ptr %36, i64 24
   store ptr %35, ptr %link30.i142, align 8
   %37 = load ptr, ptr %qre_prev.i135, align 8
-  %link34.i143 = getelementptr inbounds %struct.emitter_col_s, ptr %37, i64 0, i32 4
+  %link34.i143 = getelementptr inbounds i8, ptr %37, i64 24
   store ptr %arrayidx11, ptr %link34.i143, align 8
   %.pre.i144 = load ptr, ptr %link.i134, align 8
   br label %emitter_col_init.exit145
@@ -4390,39 +4390,39 @@ emitter_col_init.exit145:                         ; preds = %emitter_col_init.ex
   %38 = phi ptr [ %.pre.i144, %do.body3.i137 ], [ %arrayidx11, %emitter_col_init.exit133 ]
   store ptr %38, ptr %row, align 8
   store i32 1, ptr %arrayidx11, align 8
-  %width14 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 2, i32 1
+  %width14 = getelementptr inbounds i8, ptr %col_uint64_t, i64 84
   store i32 16, ptr %width14, align 4
-  %type15 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 2, i32 2
+  %type15 = getelementptr inbounds i8, ptr %col_uint64_t, i64 88
   store i32 9, ptr %type15, align 8
-  %39 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 2, i32 3
+  %39 = getelementptr inbounds i8, ptr %col_uint64_t, i64 96
   store ptr @.str.257, ptr %39, align 8
-  %arrayidx17 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 3
-  %link.i146 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 3, i32 4
+  %arrayidx17 = getelementptr inbounds i8, ptr %col_uint64_t, i64 120
+  %link.i146 = getelementptr inbounds i8, ptr %col_uint64_t, i64 144
   store ptr %arrayidx17, ptr %link.i146, align 8
-  %qre_prev.i147 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 3, i32 4, i32 1
+  %qre_prev.i147 = getelementptr inbounds i8, ptr %col_uint64_t, i64 152
   store ptr %arrayidx17, ptr %qre_prev.i147, align 8
   %40 = load ptr, ptr %row, align 8
   %cmp.i148 = icmp eq ptr %40, null
   br i1 %cmp.i148, label %emitter_col_init.exit157, label %do.body3.i149
 
 do.body3.i149:                                    ; preds = %emitter_col_init.exit145
-  %qre_prev7.i150 = getelementptr inbounds %struct.emitter_col_s, ptr %40, i64 0, i32 4, i32 1
+  %qre_prev7.i150 = getelementptr inbounds i8, ptr %40, i64 32
   %41 = load ptr, ptr %qre_prev7.i150, align 8
   store ptr %41, ptr %link.i146, align 8
   %42 = load ptr, ptr %row, align 8
-  %qre_prev17.i151 = getelementptr inbounds %struct.emitter_col_s, ptr %42, i64 0, i32 4, i32 1
+  %qre_prev17.i151 = getelementptr inbounds i8, ptr %42, i64 32
   store ptr %arrayidx17, ptr %qre_prev17.i151, align 8
   %43 = load ptr, ptr %qre_prev.i147, align 8
-  %link20.i152 = getelementptr inbounds %struct.emitter_col_s, ptr %43, i64 0, i32 4
+  %link20.i152 = getelementptr inbounds i8, ptr %43, i64 24
   %44 = load ptr, ptr %link20.i152, align 8
   store ptr %44, ptr %qre_prev.i147, align 8
   %45 = load ptr, ptr %row, align 8
-  %qre_prev29.i153 = getelementptr inbounds %struct.emitter_col_s, ptr %45, i64 0, i32 4, i32 1
+  %qre_prev29.i153 = getelementptr inbounds i8, ptr %45, i64 32
   %46 = load ptr, ptr %qre_prev29.i153, align 8
-  %link30.i154 = getelementptr inbounds %struct.emitter_col_s, ptr %46, i64 0, i32 4
+  %link30.i154 = getelementptr inbounds i8, ptr %46, i64 24
   store ptr %45, ptr %link30.i154, align 8
   %47 = load ptr, ptr %qre_prev.i147, align 8
-  %link34.i155 = getelementptr inbounds %struct.emitter_col_s, ptr %47, i64 0, i32 4
+  %link34.i155 = getelementptr inbounds i8, ptr %47, i64 24
   store ptr %arrayidx17, ptr %link34.i155, align 8
   %.pre.i156 = load ptr, ptr %link.i146, align 8
   br label %emitter_col_init.exit157
@@ -4431,39 +4431,39 @@ emitter_col_init.exit157:                         ; preds = %emitter_col_init.ex
   %48 = phi ptr [ %.pre.i156, %do.body3.i149 ], [ %arrayidx17, %emitter_col_init.exit145 ]
   store ptr %48, ptr %row, align 8
   store i32 1, ptr %arrayidx17, align 8
-  %width20 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 3, i32 1
+  %width20 = getelementptr inbounds i8, ptr %col_uint64_t, i64 124
   store i32 8, ptr %width20, align 4
-  %type21 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 3, i32 2
+  %type21 = getelementptr inbounds i8, ptr %col_uint64_t, i64 128
   store i32 9, ptr %type21, align 8
-  %49 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 3, i32 3
+  %49 = getelementptr inbounds i8, ptr %col_uint64_t, i64 136
   store ptr @.str.256, ptr %49, align 8
-  %arrayidx23 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 4
-  %link.i158 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 4, i32 4
+  %arrayidx23 = getelementptr inbounds i8, ptr %col_uint64_t, i64 160
+  %link.i158 = getelementptr inbounds i8, ptr %col_uint64_t, i64 184
   store ptr %arrayidx23, ptr %link.i158, align 8
-  %qre_prev.i159 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 4, i32 4, i32 1
+  %qre_prev.i159 = getelementptr inbounds i8, ptr %col_uint64_t, i64 192
   store ptr %arrayidx23, ptr %qre_prev.i159, align 8
   %50 = load ptr, ptr %row, align 8
   %cmp.i160 = icmp eq ptr %50, null
   br i1 %cmp.i160, label %emitter_col_init.exit169, label %do.body3.i161
 
 do.body3.i161:                                    ; preds = %emitter_col_init.exit157
-  %qre_prev7.i162 = getelementptr inbounds %struct.emitter_col_s, ptr %50, i64 0, i32 4, i32 1
+  %qre_prev7.i162 = getelementptr inbounds i8, ptr %50, i64 32
   %51 = load ptr, ptr %qre_prev7.i162, align 8
   store ptr %51, ptr %link.i158, align 8
   %52 = load ptr, ptr %row, align 8
-  %qre_prev17.i163 = getelementptr inbounds %struct.emitter_col_s, ptr %52, i64 0, i32 4, i32 1
+  %qre_prev17.i163 = getelementptr inbounds i8, ptr %52, i64 32
   store ptr %arrayidx23, ptr %qre_prev17.i163, align 8
   %53 = load ptr, ptr %qre_prev.i159, align 8
-  %link20.i164 = getelementptr inbounds %struct.emitter_col_s, ptr %53, i64 0, i32 4
+  %link20.i164 = getelementptr inbounds i8, ptr %53, i64 24
   %54 = load ptr, ptr %link20.i164, align 8
   store ptr %54, ptr %qre_prev.i159, align 8
   %55 = load ptr, ptr %row, align 8
-  %qre_prev29.i165 = getelementptr inbounds %struct.emitter_col_s, ptr %55, i64 0, i32 4, i32 1
+  %qre_prev29.i165 = getelementptr inbounds i8, ptr %55, i64 32
   %56 = load ptr, ptr %qre_prev29.i165, align 8
-  %link30.i166 = getelementptr inbounds %struct.emitter_col_s, ptr %56, i64 0, i32 4
+  %link30.i166 = getelementptr inbounds i8, ptr %56, i64 24
   store ptr %55, ptr %link30.i166, align 8
   %57 = load ptr, ptr %qre_prev.i159, align 8
-  %link34.i167 = getelementptr inbounds %struct.emitter_col_s, ptr %57, i64 0, i32 4
+  %link34.i167 = getelementptr inbounds i8, ptr %57, i64 24
   store ptr %arrayidx23, ptr %link34.i167, align 8
   %.pre.i168 = load ptr, ptr %link.i158, align 8
   br label %emitter_col_init.exit169
@@ -4472,39 +4472,39 @@ emitter_col_init.exit169:                         ; preds = %emitter_col_init.ex
   %58 = phi ptr [ %.pre.i168, %do.body3.i161 ], [ %arrayidx23, %emitter_col_init.exit157 ]
   store ptr %58, ptr %row, align 8
   store i32 1, ptr %arrayidx23, align 8
-  %width26 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 4, i32 1
+  %width26 = getelementptr inbounds i8, ptr %col_uint64_t, i64 164
   store i32 16, ptr %width26, align 4
-  %type27 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 4, i32 2
+  %type27 = getelementptr inbounds i8, ptr %col_uint64_t, i64 168
   store i32 9, ptr %type27, align 8
-  %59 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 4, i32 3
+  %59 = getelementptr inbounds i8, ptr %col_uint64_t, i64 176
   store ptr @.str.258, ptr %59, align 8
-  %arrayidx29 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 5
-  %link.i170 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 5, i32 4
+  %arrayidx29 = getelementptr inbounds i8, ptr %col_uint64_t, i64 200
+  %link.i170 = getelementptr inbounds i8, ptr %col_uint64_t, i64 224
   store ptr %arrayidx29, ptr %link.i170, align 8
-  %qre_prev.i171 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 5, i32 4, i32 1
+  %qre_prev.i171 = getelementptr inbounds i8, ptr %col_uint64_t, i64 232
   store ptr %arrayidx29, ptr %qre_prev.i171, align 8
   %60 = load ptr, ptr %row, align 8
   %cmp.i172 = icmp eq ptr %60, null
   br i1 %cmp.i172, label %emitter_col_init.exit181, label %do.body3.i173
 
 do.body3.i173:                                    ; preds = %emitter_col_init.exit169
-  %qre_prev7.i174 = getelementptr inbounds %struct.emitter_col_s, ptr %60, i64 0, i32 4, i32 1
+  %qre_prev7.i174 = getelementptr inbounds i8, ptr %60, i64 32
   %61 = load ptr, ptr %qre_prev7.i174, align 8
   store ptr %61, ptr %link.i170, align 8
   %62 = load ptr, ptr %row, align 8
-  %qre_prev17.i175 = getelementptr inbounds %struct.emitter_col_s, ptr %62, i64 0, i32 4, i32 1
+  %qre_prev17.i175 = getelementptr inbounds i8, ptr %62, i64 32
   store ptr %arrayidx29, ptr %qre_prev17.i175, align 8
   %63 = load ptr, ptr %qre_prev.i171, align 8
-  %link20.i176 = getelementptr inbounds %struct.emitter_col_s, ptr %63, i64 0, i32 4
+  %link20.i176 = getelementptr inbounds i8, ptr %63, i64 24
   %64 = load ptr, ptr %link20.i176, align 8
   store ptr %64, ptr %qre_prev.i171, align 8
   %65 = load ptr, ptr %row, align 8
-  %qre_prev29.i177 = getelementptr inbounds %struct.emitter_col_s, ptr %65, i64 0, i32 4, i32 1
+  %qre_prev29.i177 = getelementptr inbounds i8, ptr %65, i64 32
   %66 = load ptr, ptr %qre_prev29.i177, align 8
-  %link30.i178 = getelementptr inbounds %struct.emitter_col_s, ptr %66, i64 0, i32 4
+  %link30.i178 = getelementptr inbounds i8, ptr %66, i64 24
   store ptr %65, ptr %link30.i178, align 8
   %67 = load ptr, ptr %qre_prev.i171, align 8
-  %link34.i179 = getelementptr inbounds %struct.emitter_col_s, ptr %67, i64 0, i32 4
+  %link34.i179 = getelementptr inbounds i8, ptr %67, i64 24
   store ptr %arrayidx29, ptr %link34.i179, align 8
   %.pre.i180 = load ptr, ptr %link.i170, align 8
   br label %emitter_col_init.exit181
@@ -4513,39 +4513,39 @@ emitter_col_init.exit181:                         ; preds = %emitter_col_init.ex
   %68 = phi ptr [ %.pre.i180, %do.body3.i173 ], [ %arrayidx29, %emitter_col_init.exit169 ]
   store ptr %68, ptr %row, align 8
   store i32 1, ptr %arrayidx29, align 8
-  %width32 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 5, i32 1
+  %width32 = getelementptr inbounds i8, ptr %col_uint64_t, i64 204
   store i32 8, ptr %width32, align 4
-  %type33 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 5, i32 2
+  %type33 = getelementptr inbounds i8, ptr %col_uint64_t, i64 208
   store i32 9, ptr %type33, align 8
-  %69 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 5, i32 3
+  %69 = getelementptr inbounds i8, ptr %col_uint64_t, i64 216
   store ptr @.str.256, ptr %69, align 8
-  %arrayidx35 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 6
-  %link.i182 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 6, i32 4
+  %arrayidx35 = getelementptr inbounds i8, ptr %col_uint64_t, i64 240
+  %link.i182 = getelementptr inbounds i8, ptr %col_uint64_t, i64 264
   store ptr %arrayidx35, ptr %link.i182, align 8
-  %qre_prev.i183 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 6, i32 4, i32 1
+  %qre_prev.i183 = getelementptr inbounds i8, ptr %col_uint64_t, i64 272
   store ptr %arrayidx35, ptr %qre_prev.i183, align 8
   %70 = load ptr, ptr %row, align 8
   %cmp.i184 = icmp eq ptr %70, null
   br i1 %cmp.i184, label %emitter_col_init.exit193, label %do.body3.i185
 
 do.body3.i185:                                    ; preds = %emitter_col_init.exit181
-  %qre_prev7.i186 = getelementptr inbounds %struct.emitter_col_s, ptr %70, i64 0, i32 4, i32 1
+  %qre_prev7.i186 = getelementptr inbounds i8, ptr %70, i64 32
   %71 = load ptr, ptr %qre_prev7.i186, align 8
   store ptr %71, ptr %link.i182, align 8
   %72 = load ptr, ptr %row, align 8
-  %qre_prev17.i187 = getelementptr inbounds %struct.emitter_col_s, ptr %72, i64 0, i32 4, i32 1
+  %qre_prev17.i187 = getelementptr inbounds i8, ptr %72, i64 32
   store ptr %arrayidx35, ptr %qre_prev17.i187, align 8
   %73 = load ptr, ptr %qre_prev.i183, align 8
-  %link20.i188 = getelementptr inbounds %struct.emitter_col_s, ptr %73, i64 0, i32 4
+  %link20.i188 = getelementptr inbounds i8, ptr %73, i64 24
   %74 = load ptr, ptr %link20.i188, align 8
   store ptr %74, ptr %qre_prev.i183, align 8
   %75 = load ptr, ptr %row, align 8
-  %qre_prev29.i189 = getelementptr inbounds %struct.emitter_col_s, ptr %75, i64 0, i32 4, i32 1
+  %qre_prev29.i189 = getelementptr inbounds i8, ptr %75, i64 32
   %76 = load ptr, ptr %qre_prev29.i189, align 8
-  %link30.i190 = getelementptr inbounds %struct.emitter_col_s, ptr %76, i64 0, i32 4
+  %link30.i190 = getelementptr inbounds i8, ptr %76, i64 24
   store ptr %75, ptr %link30.i190, align 8
   %77 = load ptr, ptr %qre_prev.i183, align 8
-  %link34.i191 = getelementptr inbounds %struct.emitter_col_s, ptr %77, i64 0, i32 4
+  %link34.i191 = getelementptr inbounds i8, ptr %77, i64 24
   store ptr %arrayidx35, ptr %link34.i191, align 8
   %.pre.i192 = load ptr, ptr %link.i182, align 8
   br label %emitter_col_init.exit193
@@ -4554,39 +4554,39 @@ emitter_col_init.exit193:                         ; preds = %emitter_col_init.ex
   %78 = phi ptr [ %.pre.i192, %do.body3.i185 ], [ %arrayidx35, %emitter_col_init.exit181 ]
   store ptr %78, ptr %row, align 8
   store i32 1, ptr %arrayidx35, align 8
-  %width38 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 6, i32 1
+  %width38 = getelementptr inbounds i8, ptr %col_uint64_t, i64 244
   store i32 16, ptr %width38, align 4
-  %type39 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 6, i32 2
+  %type39 = getelementptr inbounds i8, ptr %col_uint64_t, i64 248
   store i32 9, ptr %type39, align 8
-  %79 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 6, i32 3
+  %79 = getelementptr inbounds i8, ptr %col_uint64_t, i64 256
   store ptr @.str.259, ptr %79, align 8
-  %arrayidx41 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 7
-  %link.i194 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 7, i32 4
+  %arrayidx41 = getelementptr inbounds i8, ptr %col_uint64_t, i64 280
+  %link.i194 = getelementptr inbounds i8, ptr %col_uint64_t, i64 304
   store ptr %arrayidx41, ptr %link.i194, align 8
-  %qre_prev.i195 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 7, i32 4, i32 1
+  %qre_prev.i195 = getelementptr inbounds i8, ptr %col_uint64_t, i64 312
   store ptr %arrayidx41, ptr %qre_prev.i195, align 8
   %80 = load ptr, ptr %row, align 8
   %cmp.i196 = icmp eq ptr %80, null
   br i1 %cmp.i196, label %emitter_col_init.exit205, label %do.body3.i197
 
 do.body3.i197:                                    ; preds = %emitter_col_init.exit193
-  %qre_prev7.i198 = getelementptr inbounds %struct.emitter_col_s, ptr %80, i64 0, i32 4, i32 1
+  %qre_prev7.i198 = getelementptr inbounds i8, ptr %80, i64 32
   %81 = load ptr, ptr %qre_prev7.i198, align 8
   store ptr %81, ptr %link.i194, align 8
   %82 = load ptr, ptr %row, align 8
-  %qre_prev17.i199 = getelementptr inbounds %struct.emitter_col_s, ptr %82, i64 0, i32 4, i32 1
+  %qre_prev17.i199 = getelementptr inbounds i8, ptr %82, i64 32
   store ptr %arrayidx41, ptr %qre_prev17.i199, align 8
   %83 = load ptr, ptr %qre_prev.i195, align 8
-  %link20.i200 = getelementptr inbounds %struct.emitter_col_s, ptr %83, i64 0, i32 4
+  %link20.i200 = getelementptr inbounds i8, ptr %83, i64 24
   %84 = load ptr, ptr %link20.i200, align 8
   store ptr %84, ptr %qre_prev.i195, align 8
   %85 = load ptr, ptr %row, align 8
-  %qre_prev29.i201 = getelementptr inbounds %struct.emitter_col_s, ptr %85, i64 0, i32 4, i32 1
+  %qre_prev29.i201 = getelementptr inbounds i8, ptr %85, i64 32
   %86 = load ptr, ptr %qre_prev29.i201, align 8
-  %link30.i202 = getelementptr inbounds %struct.emitter_col_s, ptr %86, i64 0, i32 4
+  %link30.i202 = getelementptr inbounds i8, ptr %86, i64 24
   store ptr %85, ptr %link30.i202, align 8
   %87 = load ptr, ptr %qre_prev.i195, align 8
-  %link34.i203 = getelementptr inbounds %struct.emitter_col_s, ptr %87, i64 0, i32 4
+  %link34.i203 = getelementptr inbounds i8, ptr %87, i64 24
   store ptr %arrayidx41, ptr %link34.i203, align 8
   %.pre.i204 = load ptr, ptr %link.i194, align 8
   br label %emitter_col_init.exit205
@@ -4595,39 +4595,39 @@ emitter_col_init.exit205:                         ; preds = %emitter_col_init.ex
   %88 = phi ptr [ %.pre.i204, %do.body3.i197 ], [ %arrayidx41, %emitter_col_init.exit193 ]
   store ptr %88, ptr %row, align 8
   store i32 1, ptr %arrayidx41, align 8
-  %width44 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 7, i32 1
+  %width44 = getelementptr inbounds i8, ptr %col_uint64_t, i64 284
   store i32 8, ptr %width44, align 4
-  %type45 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 7, i32 2
+  %type45 = getelementptr inbounds i8, ptr %col_uint64_t, i64 288
   store i32 9, ptr %type45, align 8
-  %89 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 7, i32 3
+  %89 = getelementptr inbounds i8, ptr %col_uint64_t, i64 296
   store ptr @.str.256, ptr %89, align 8
-  %arrayidx47 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 8
-  %link.i206 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 8, i32 4
+  %arrayidx47 = getelementptr inbounds i8, ptr %col_uint64_t, i64 320
+  %link.i206 = getelementptr inbounds i8, ptr %col_uint64_t, i64 344
   store ptr %arrayidx47, ptr %link.i206, align 8
-  %qre_prev.i207 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 8, i32 4, i32 1
+  %qre_prev.i207 = getelementptr inbounds i8, ptr %col_uint64_t, i64 352
   store ptr %arrayidx47, ptr %qre_prev.i207, align 8
   %90 = load ptr, ptr %row, align 8
   %cmp.i208 = icmp eq ptr %90, null
   br i1 %cmp.i208, label %emitter_col_init.exit217, label %do.body3.i209
 
 do.body3.i209:                                    ; preds = %emitter_col_init.exit205
-  %qre_prev7.i210 = getelementptr inbounds %struct.emitter_col_s, ptr %90, i64 0, i32 4, i32 1
+  %qre_prev7.i210 = getelementptr inbounds i8, ptr %90, i64 32
   %91 = load ptr, ptr %qre_prev7.i210, align 8
   store ptr %91, ptr %link.i206, align 8
   %92 = load ptr, ptr %row, align 8
-  %qre_prev17.i211 = getelementptr inbounds %struct.emitter_col_s, ptr %92, i64 0, i32 4, i32 1
+  %qre_prev17.i211 = getelementptr inbounds i8, ptr %92, i64 32
   store ptr %arrayidx47, ptr %qre_prev17.i211, align 8
   %93 = load ptr, ptr %qre_prev.i207, align 8
-  %link20.i212 = getelementptr inbounds %struct.emitter_col_s, ptr %93, i64 0, i32 4
+  %link20.i212 = getelementptr inbounds i8, ptr %93, i64 24
   %94 = load ptr, ptr %link20.i212, align 8
   store ptr %94, ptr %qre_prev.i207, align 8
   %95 = load ptr, ptr %row, align 8
-  %qre_prev29.i213 = getelementptr inbounds %struct.emitter_col_s, ptr %95, i64 0, i32 4, i32 1
+  %qre_prev29.i213 = getelementptr inbounds i8, ptr %95, i64 32
   %96 = load ptr, ptr %qre_prev29.i213, align 8
-  %link30.i214 = getelementptr inbounds %struct.emitter_col_s, ptr %96, i64 0, i32 4
+  %link30.i214 = getelementptr inbounds i8, ptr %96, i64 24
   store ptr %95, ptr %link30.i214, align 8
   %97 = load ptr, ptr %qre_prev.i207, align 8
-  %link34.i215 = getelementptr inbounds %struct.emitter_col_s, ptr %97, i64 0, i32 4
+  %link34.i215 = getelementptr inbounds i8, ptr %97, i64 24
   store ptr %arrayidx47, ptr %link34.i215, align 8
   %.pre.i216 = load ptr, ptr %link.i206, align 8
   br label %emitter_col_init.exit217
@@ -4636,39 +4636,39 @@ emitter_col_init.exit217:                         ; preds = %emitter_col_init.ex
   %98 = phi ptr [ %.pre.i216, %do.body3.i209 ], [ %arrayidx47, %emitter_col_init.exit205 ]
   store ptr %98, ptr %row, align 8
   store i32 1, ptr %arrayidx47, align 8
-  %width50 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 8, i32 1
+  %width50 = getelementptr inbounds i8, ptr %col_uint64_t, i64 324
   store i32 16, ptr %width50, align 4
-  %type51 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 8, i32 2
+  %type51 = getelementptr inbounds i8, ptr %col_uint64_t, i64 328
   store i32 9, ptr %type51, align 8
-  %99 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 8, i32 3
+  %99 = getelementptr inbounds i8, ptr %col_uint64_t, i64 336
   store ptr @.str.260, ptr %99, align 8
-  %arrayidx53 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 9
-  %link.i218 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 9, i32 4
+  %arrayidx53 = getelementptr inbounds i8, ptr %col_uint64_t, i64 360
+  %link.i218 = getelementptr inbounds i8, ptr %col_uint64_t, i64 384
   store ptr %arrayidx53, ptr %link.i218, align 8
-  %qre_prev.i219 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 9, i32 4, i32 1
+  %qre_prev.i219 = getelementptr inbounds i8, ptr %col_uint64_t, i64 392
   store ptr %arrayidx53, ptr %qre_prev.i219, align 8
   %100 = load ptr, ptr %row, align 8
   %cmp.i220 = icmp eq ptr %100, null
   br i1 %cmp.i220, label %emitter_col_init.exit229, label %do.body3.i221
 
 do.body3.i221:                                    ; preds = %emitter_col_init.exit217
-  %qre_prev7.i222 = getelementptr inbounds %struct.emitter_col_s, ptr %100, i64 0, i32 4, i32 1
+  %qre_prev7.i222 = getelementptr inbounds i8, ptr %100, i64 32
   %101 = load ptr, ptr %qre_prev7.i222, align 8
   store ptr %101, ptr %link.i218, align 8
   %102 = load ptr, ptr %row, align 8
-  %qre_prev17.i223 = getelementptr inbounds %struct.emitter_col_s, ptr %102, i64 0, i32 4, i32 1
+  %qre_prev17.i223 = getelementptr inbounds i8, ptr %102, i64 32
   store ptr %arrayidx53, ptr %qre_prev17.i223, align 8
   %103 = load ptr, ptr %qre_prev.i219, align 8
-  %link20.i224 = getelementptr inbounds %struct.emitter_col_s, ptr %103, i64 0, i32 4
+  %link20.i224 = getelementptr inbounds i8, ptr %103, i64 24
   %104 = load ptr, ptr %link20.i224, align 8
   store ptr %104, ptr %qre_prev.i219, align 8
   %105 = load ptr, ptr %row, align 8
-  %qre_prev29.i225 = getelementptr inbounds %struct.emitter_col_s, ptr %105, i64 0, i32 4, i32 1
+  %qre_prev29.i225 = getelementptr inbounds i8, ptr %105, i64 32
   %106 = load ptr, ptr %qre_prev29.i225, align 8
-  %link30.i226 = getelementptr inbounds %struct.emitter_col_s, ptr %106, i64 0, i32 4
+  %link30.i226 = getelementptr inbounds i8, ptr %106, i64 24
   store ptr %105, ptr %link30.i226, align 8
   %107 = load ptr, ptr %qre_prev.i219, align 8
-  %link34.i227 = getelementptr inbounds %struct.emitter_col_s, ptr %107, i64 0, i32 4
+  %link34.i227 = getelementptr inbounds i8, ptr %107, i64 24
   store ptr %arrayidx53, ptr %link34.i227, align 8
   %.pre.i228 = load ptr, ptr %link.i218, align 8
   br label %emitter_col_init.exit229
@@ -4677,39 +4677,39 @@ emitter_col_init.exit229:                         ; preds = %emitter_col_init.ex
   %108 = phi ptr [ %.pre.i228, %do.body3.i221 ], [ %arrayidx53, %emitter_col_init.exit217 ]
   store ptr %108, ptr %row, align 8
   store i32 1, ptr %arrayidx53, align 8
-  %width56 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 9, i32 1
+  %width56 = getelementptr inbounds i8, ptr %col_uint64_t, i64 364
   store i32 8, ptr %width56, align 4
-  %type57 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 9, i32 2
+  %type57 = getelementptr inbounds i8, ptr %col_uint64_t, i64 368
   store i32 9, ptr %type57, align 8
-  %109 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 9, i32 3
+  %109 = getelementptr inbounds i8, ptr %col_uint64_t, i64 376
   store ptr @.str.256, ptr %109, align 8
-  %arrayidx59 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 10
-  %link.i230 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 10, i32 4
+  %arrayidx59 = getelementptr inbounds i8, ptr %col_uint64_t, i64 400
+  %link.i230 = getelementptr inbounds i8, ptr %col_uint64_t, i64 424
   store ptr %arrayidx59, ptr %link.i230, align 8
-  %qre_prev.i231 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 10, i32 4, i32 1
+  %qre_prev.i231 = getelementptr inbounds i8, ptr %col_uint64_t, i64 432
   store ptr %arrayidx59, ptr %qre_prev.i231, align 8
   %110 = load ptr, ptr %row, align 8
   %cmp.i232 = icmp eq ptr %110, null
   br i1 %cmp.i232, label %emitter_col_init.exit241, label %do.body3.i233
 
 do.body3.i233:                                    ; preds = %emitter_col_init.exit229
-  %qre_prev7.i234 = getelementptr inbounds %struct.emitter_col_s, ptr %110, i64 0, i32 4, i32 1
+  %qre_prev7.i234 = getelementptr inbounds i8, ptr %110, i64 32
   %111 = load ptr, ptr %qre_prev7.i234, align 8
   store ptr %111, ptr %link.i230, align 8
   %112 = load ptr, ptr %row, align 8
-  %qre_prev17.i235 = getelementptr inbounds %struct.emitter_col_s, ptr %112, i64 0, i32 4, i32 1
+  %qre_prev17.i235 = getelementptr inbounds i8, ptr %112, i64 32
   store ptr %arrayidx59, ptr %qre_prev17.i235, align 8
   %113 = load ptr, ptr %qre_prev.i231, align 8
-  %link20.i236 = getelementptr inbounds %struct.emitter_col_s, ptr %113, i64 0, i32 4
+  %link20.i236 = getelementptr inbounds i8, ptr %113, i64 24
   %114 = load ptr, ptr %link20.i236, align 8
   store ptr %114, ptr %qre_prev.i231, align 8
   %115 = load ptr, ptr %row, align 8
-  %qre_prev29.i237 = getelementptr inbounds %struct.emitter_col_s, ptr %115, i64 0, i32 4, i32 1
+  %qre_prev29.i237 = getelementptr inbounds i8, ptr %115, i64 32
   %116 = load ptr, ptr %qre_prev29.i237, align 8
-  %link30.i238 = getelementptr inbounds %struct.emitter_col_s, ptr %116, i64 0, i32 4
+  %link30.i238 = getelementptr inbounds i8, ptr %116, i64 24
   store ptr %115, ptr %link30.i238, align 8
   %117 = load ptr, ptr %qre_prev.i231, align 8
-  %link34.i239 = getelementptr inbounds %struct.emitter_col_s, ptr %117, i64 0, i32 4
+  %link34.i239 = getelementptr inbounds i8, ptr %117, i64 24
   store ptr %arrayidx59, ptr %link34.i239, align 8
   %.pre.i240 = load ptr, ptr %link.i230, align 8
   br label %emitter_col_init.exit241
@@ -4718,38 +4718,38 @@ emitter_col_init.exit241:                         ; preds = %emitter_col_init.ex
   %118 = phi ptr [ %.pre.i240, %do.body3.i233 ], [ %arrayidx59, %emitter_col_init.exit229 ]
   store ptr %118, ptr %row, align 8
   store i32 1, ptr %arrayidx59, align 8
-  %width62 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 10, i32 1
+  %width62 = getelementptr inbounds i8, ptr %col_uint64_t, i64 404
   store i32 16, ptr %width62, align 4
-  %type63 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 10, i32 2
+  %type63 = getelementptr inbounds i8, ptr %col_uint64_t, i64 408
   store i32 9, ptr %type63, align 8
-  %119 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 10, i32 3
+  %119 = getelementptr inbounds i8, ptr %col_uint64_t, i64 416
   store ptr @.str.261, ptr %119, align 8
-  %link.i242 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint32_t, i64 0, i32 4
+  %link.i242 = getelementptr inbounds i8, ptr %col_uint32_t, i64 24
   store ptr %col_uint32_t, ptr %link.i242, align 8
-  %qre_prev.i243 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint32_t, i64 0, i32 4, i32 1
+  %qre_prev.i243 = getelementptr inbounds i8, ptr %col_uint32_t, i64 32
   store ptr %col_uint32_t, ptr %qre_prev.i243, align 8
   %120 = load ptr, ptr %row, align 8
   %cmp.i244 = icmp eq ptr %120, null
   br i1 %cmp.i244, label %emitter_col_init.exit253, label %do.body3.i245
 
 do.body3.i245:                                    ; preds = %emitter_col_init.exit241
-  %qre_prev7.i246 = getelementptr inbounds %struct.emitter_col_s, ptr %120, i64 0, i32 4, i32 1
+  %qre_prev7.i246 = getelementptr inbounds i8, ptr %120, i64 32
   %121 = load ptr, ptr %qre_prev7.i246, align 8
   store ptr %121, ptr %link.i242, align 8
   %122 = load ptr, ptr %row, align 8
-  %qre_prev17.i247 = getelementptr inbounds %struct.emitter_col_s, ptr %122, i64 0, i32 4, i32 1
+  %qre_prev17.i247 = getelementptr inbounds i8, ptr %122, i64 32
   store ptr %col_uint32_t, ptr %qre_prev17.i247, align 8
   %123 = load ptr, ptr %qre_prev.i243, align 8
-  %link20.i248 = getelementptr inbounds %struct.emitter_col_s, ptr %123, i64 0, i32 4
+  %link20.i248 = getelementptr inbounds i8, ptr %123, i64 24
   %124 = load ptr, ptr %link20.i248, align 8
   store ptr %124, ptr %qre_prev.i243, align 8
   %125 = load ptr, ptr %row, align 8
-  %qre_prev29.i249 = getelementptr inbounds %struct.emitter_col_s, ptr %125, i64 0, i32 4, i32 1
+  %qre_prev29.i249 = getelementptr inbounds i8, ptr %125, i64 32
   %126 = load ptr, ptr %qre_prev29.i249, align 8
-  %link30.i250 = getelementptr inbounds %struct.emitter_col_s, ptr %126, i64 0, i32 4
+  %link30.i250 = getelementptr inbounds i8, ptr %126, i64 24
   store ptr %125, ptr %link30.i250, align 8
   %127 = load ptr, ptr %qre_prev.i243, align 8
-  %link34.i251 = getelementptr inbounds %struct.emitter_col_s, ptr %127, i64 0, i32 4
+  %link34.i251 = getelementptr inbounds i8, ptr %127, i64 24
   store ptr %col_uint32_t, ptr %link34.i251, align 8
   %.pre.i252 = load ptr, ptr %link.i242, align 8
   br label %emitter_col_init.exit253
@@ -4758,11 +4758,11 @@ emitter_col_init.exit253:                         ; preds = %emitter_col_init.ex
   %128 = phi ptr [ %.pre.i252, %do.body3.i245 ], [ %col_uint32_t, %emitter_col_init.exit241 ]
   store ptr %128, ptr %row, align 8
   store i32 1, ptr %col_uint32_t, align 8
-  %width68 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint32_t, i64 0, i32 1
+  %width68 = getelementptr inbounds i8, ptr %col_uint32_t, i64 4
   store i32 12, ptr %width68, align 4
-  %type69 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint32_t, i64 0, i32 2
+  %type69 = getelementptr inbounds i8, ptr %col_uint32_t, i64 8
   store i32 9, ptr %type69, align 8
-  %129 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint32_t, i64 0, i32 3
+  %129 = getelementptr inbounds i8, ptr %col_uint32_t, i64 16
   store ptr @.str.262, ptr %129, align 8
   store i32 10, ptr %width56, align 4
   ret void
@@ -4793,13 +4793,13 @@ if.end.i:                                         ; preds = %if.then
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %col.011.i = phi ptr [ %6, %for.body.i ], [ %1, %if.end.i ]
   %2 = load i32, ptr %col.011.i, align 8
-  %width.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %col.011.i, i64 4
   %3 = load i32, ptr %width.i, align 4
-  %type.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
   %4 = load i32, ptr %type.i, align 8
-  %5 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 3
+  %5 = getelementptr inbounds i8, ptr %col.011.i, i64 16
   tail call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5)
-  %link.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 4
+  %link.i = getelementptr inbounds i8, ptr %col.011.i, i64 24
   %6 = load ptr, ptr %link.i, align 8
   %7 = load ptr, ptr %row, align 8
   %cmp4.not.i = icmp eq ptr %6, %7
@@ -4812,25 +4812,25 @@ for.end.i:                                        ; preds = %for.body.i, %if.end
   br label %if.end
 
 if.end:                                           ; preds = %for.end.i, %if.then, %entry
-  %8 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 0, i32 3
+  %8 = getelementptr inbounds i8, ptr %col_uint64_t, i64 16
   tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.263)
   tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull %8)
-  %9 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 1, i32 3
+  %9 = getelementptr inbounds i8, ptr %col_uint64_t, i64 56
   tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.264)
   tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull %9)
-  %10 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 2, i32 3
+  %10 = getelementptr inbounds i8, ptr %col_uint64_t, i64 96
   tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.265)
   tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull %10)
-  %11 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 3, i32 3
+  %11 = getelementptr inbounds i8, ptr %col_uint64_t, i64 136
   tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.266)
   tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull %11)
-  %12 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 4, i32 3
+  %12 = getelementptr inbounds i8, ptr %col_uint64_t, i64 176
   tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.267)
   tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull %12)
-  %13 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint64_t, i64 5, i32 3
+  %13 = getelementptr inbounds i8, ptr %col_uint64_t, i64 216
   tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.268)
   tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull %13)
-  %14 = getelementptr inbounds %struct.emitter_col_s, ptr %col_uint32_t, i64 0, i32 3
+  %14 = getelementptr inbounds i8, ptr %col_uint32_t, i64 16
   tail call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.269)
   tail call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 4, ptr noundef nonnull %14)
   ret void
@@ -4905,15 +4905,15 @@ entry:
   %miblen363.i = alloca i64, align 8
   %sz364.i = alloca i64, align 8
   %col_size.i = alloca %struct.emitter_col_s, align 8
-  %col_size.i.sroa.gep1127 = getelementptr inbounds %struct.emitter_col_s, ptr %col_size.i, i64 0, i32 4
-  %col_size.i.sroa.gep1124 = getelementptr inbounds %struct.emitter_col_s, ptr %col_size.i, i64 0, i32 3
-  %col_size.i.sroa.gep1121 = getelementptr inbounds %struct.emitter_col_s, ptr %col_size.i, i64 0, i32 2
-  %col_size.i.sroa.gep = getelementptr inbounds %struct.emitter_col_s, ptr %col_size.i, i64 0, i32 1
+  %col_size.i.sroa.gep1127 = getelementptr inbounds i8, ptr %col_size.i, i64 24
+  %col_size.i.sroa.gep1124 = getelementptr inbounds i8, ptr %col_size.i, i64 16
+  %col_size.i.sroa.gep1121 = getelementptr inbounds i8, ptr %col_size.i, i64 8
+  %col_size.i.sroa.gep = getelementptr inbounds i8, ptr %col_size.i, i64 4
   %header_size.i = alloca %struct.emitter_col_s, align 8
-  %header_size.i.sroa.gep1117 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size.i, i64 0, i32 4
-  %header_size.i.sroa.gep1114 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size.i, i64 0, i32 3
-  %header_size.i.sroa.gep1111 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size.i, i64 0, i32 2
-  %header_size.i.sroa.gep = getelementptr inbounds %struct.emitter_col_s, ptr %header_size.i, i64 0, i32 1
+  %header_size.i.sroa.gep1117 = getelementptr inbounds i8, ptr %header_size.i, i64 24
+  %header_size.i.sroa.gep1114 = getelementptr inbounds i8, ptr %header_size.i, i64 16
+  %header_size.i.sroa.gep1111 = getelementptr inbounds i8, ptr %header_size.i, i64 8
+  %header_size.i.sroa.gep = getelementptr inbounds i8, ptr %header_size.i, i64 4
   %col_ind.i = alloca %struct.emitter_col_s, align 8
   %header_ind.i = alloca %struct.emitter_col_s, align 8
   %col_npageslabs_huge.i = alloca %struct.emitter_col_s, align 8
@@ -5109,62 +5109,62 @@ entry:
   %miblen703 = alloca i64, align 8
   %sz704 = alloca i64, align 8
   %mem_count_title = alloca %struct.emitter_col_s, align 8
-  %mem_count_title.sroa.gep1107 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep1104 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep1101 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep1098 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
-  %mem_count_title.sroa.gep1096 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep1093 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep1090 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep1087 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
-  %mem_count_title.sroa.gep1085 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep1082 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep1079 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep1076 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
-  %mem_count_title.sroa.gep1074 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep1071 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep1068 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep1065 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
-  %mem_count_title.sroa.gep1063 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep1060 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep1057 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep1054 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
-  %mem_count_title.sroa.gep1052 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep1049 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep1046 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep1043 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
-  %mem_count_title.sroa.gep1041 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep1038 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep1035 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep1032 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
-  %mem_count_title.sroa.gep1030 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep1027 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep1024 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep1021 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
-  %mem_count_title.sroa.gep1019 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep1016 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep1013 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep1010 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
-  %mem_count_title.sroa.gep1008 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep1005 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep1002 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep999 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
-  %mem_count_title.sroa.gep997 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep994 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep991 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep988 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
-  %mem_count_title.sroa.gep986 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep983 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep980 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep977 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
-  %mem_count_title.sroa.gep975 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep972 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep969 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep966 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
-  %mem_count_title.sroa.gep964 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %mem_count_title.sroa.gep961 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
-  %mem_count_title.sroa.gep958 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
-  %mem_count_title.sroa.gep = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
+  %mem_count_title.sroa.gep1107 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep1104 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep1101 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep1098 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %mem_count_title.sroa.gep1096 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep1093 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep1090 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep1087 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %mem_count_title.sroa.gep1085 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep1082 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep1079 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep1076 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %mem_count_title.sroa.gep1074 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep1071 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep1068 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep1065 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %mem_count_title.sroa.gep1063 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep1060 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep1057 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep1054 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %mem_count_title.sroa.gep1052 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep1049 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep1046 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep1043 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %mem_count_title.sroa.gep1041 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep1038 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep1035 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep1032 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %mem_count_title.sroa.gep1030 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep1027 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep1024 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep1021 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %mem_count_title.sroa.gep1019 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep1016 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep1013 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep1010 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %mem_count_title.sroa.gep1008 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep1005 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep1002 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep999 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %mem_count_title.sroa.gep997 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep994 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep991 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep988 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %mem_count_title.sroa.gep986 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep983 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep980 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep977 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %mem_count_title.sroa.gep975 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep972 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep969 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep966 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %mem_count_title.sroa.gep964 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %mem_count_title.sroa.gep961 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %mem_count_title.sroa.gep958 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %mem_count_title.sroa.gep = getelementptr inbounds i8, ptr %mem_count_title, i64 4
   %mem_count_val = alloca %struct.emitter_col_s, align 8
   %mib744 = alloca [7 x i64], align 16
   %miblen745 = alloca i64, align 8
@@ -5232,7 +5232,7 @@ if.then16:                                        ; preds = %do.body10
 
 do.end18:                                         ; preds = %do.body10
   %conv = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds [7 x i64], ptr %mib, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %mib, i64 8
   store i64 %conv, ptr %arrayidx, align 8
   %1 = load i64, ptr %miblen, align 8
   %call21 = call i32 @mallctlbymib(ptr noundef nonnull %mib, i64 noundef %1, ptr noundef nonnull %namep, ptr noundef nonnull %sz11, ptr noundef null, i64 noundef 0) #13
@@ -5262,7 +5262,7 @@ if.then38:                                        ; preds = %do.body29
 
 do.end40:                                         ; preds = %do.body29
   %conv41 = zext i32 %i to i64
-  %arrayidx42 = getelementptr inbounds [7 x i64], ptr %mib30, i64 0, i64 2
+  %arrayidx42 = getelementptr inbounds i8, ptr %mib30, i64 16
   store i64 %conv41, ptr %arrayidx42, align 16
   %2 = load i64, ptr %miblen31, align 8
   %call45 = call i32 @mallctlbymib(ptr noundef nonnull %mib30, i64 noundef %2, ptr noundef nonnull %nthreads, ptr noundef nonnull %sz32, ptr noundef null, i64 noundef 0) #13
@@ -5288,7 +5288,7 @@ if.then61:                                        ; preds = %do.end51
   unreachable
 
 do.end63:                                         ; preds = %do.end51
-  %arrayidx65 = getelementptr inbounds [7 x i64], ptr %mib53, i64 0, i64 2
+  %arrayidx65 = getelementptr inbounds i8, ptr %mib53, i64 16
   store i64 %conv41, ptr %arrayidx65, align 16
   %3 = load i64, ptr %miblen54, align 8
   %call68 = call i32 @mallctlbymib(ptr noundef nonnull %mib53, i64 noundef %3, ptr noundef nonnull %uptime, ptr noundef nonnull %sz55, ptr noundef null, i64 noundef 0) #13
@@ -5314,7 +5314,7 @@ if.then84:                                        ; preds = %do.end74
   unreachable
 
 do.end86:                                         ; preds = %do.end74
-  %arrayidx88 = getelementptr inbounds [7 x i64], ptr %mib76, i64 0, i64 2
+  %arrayidx88 = getelementptr inbounds i8, ptr %mib76, i64 16
   store i64 %conv41, ptr %arrayidx88, align 16
   %4 = load i64, ptr %miblen77, align 8
   %call91 = call i32 @mallctlbymib(ptr noundef nonnull %mib76, i64 noundef %4, ptr noundef nonnull %dss, ptr noundef nonnull %sz78, ptr noundef null, i64 noundef 0) #13
@@ -5340,7 +5340,7 @@ if.then107:                                       ; preds = %do.end97
   unreachable
 
 do.end109:                                        ; preds = %do.end97
-  %arrayidx111 = getelementptr inbounds [7 x i64], ptr %mib99, i64 0, i64 2
+  %arrayidx111 = getelementptr inbounds i8, ptr %mib99, i64 16
   store i64 %conv41, ptr %arrayidx111, align 16
   %5 = load i64, ptr %miblen100, align 8
   %call114 = call i32 @mallctlbymib(ptr noundef nonnull %mib99, i64 noundef %5, ptr noundef nonnull %dirty_decay_ms, ptr noundef nonnull %sz101, ptr noundef null, i64 noundef 0) #13
@@ -5365,7 +5365,7 @@ if.then130:                                       ; preds = %do.body121
   unreachable
 
 do.end132:                                        ; preds = %do.body121
-  %arrayidx134 = getelementptr inbounds [7 x i64], ptr %mib122, i64 0, i64 2
+  %arrayidx134 = getelementptr inbounds i8, ptr %mib122, i64 16
   store i64 %conv41, ptr %arrayidx134, align 16
   %6 = load i64, ptr %miblen123, align 8
   %call137 = call i32 @mallctlbymib(ptr noundef nonnull %mib122, i64 noundef %6, ptr noundef nonnull %muzzy_decay_ms, ptr noundef nonnull %sz124, ptr noundef null, i64 noundef 0) #13
@@ -5390,7 +5390,7 @@ if.then153:                                       ; preds = %do.body144
   unreachable
 
 do.end155:                                        ; preds = %do.body144
-  %arrayidx157 = getelementptr inbounds [7 x i64], ptr %mib145, i64 0, i64 2
+  %arrayidx157 = getelementptr inbounds i8, ptr %mib145, i64 16
   store i64 %conv41, ptr %arrayidx157, align 16
   %7 = load i64, ptr %miblen146, align 8
   %call160 = call i32 @mallctlbymib(ptr noundef nonnull %mib145, i64 noundef %7, ptr noundef nonnull %pactive, ptr noundef nonnull %sz147, ptr noundef null, i64 noundef 0) #13
@@ -5415,7 +5415,7 @@ if.then176:                                       ; preds = %do.body167
   unreachable
 
 do.end178:                                        ; preds = %do.body167
-  %arrayidx180 = getelementptr inbounds [7 x i64], ptr %mib168, i64 0, i64 2
+  %arrayidx180 = getelementptr inbounds i8, ptr %mib168, i64 16
   store i64 %conv41, ptr %arrayidx180, align 16
   %8 = load i64, ptr %miblen169, align 8
   %call183 = call i32 @mallctlbymib(ptr noundef nonnull %mib168, i64 noundef %8, ptr noundef nonnull %pdirty, ptr noundef nonnull %sz170, ptr noundef null, i64 noundef 0) #13
@@ -5440,7 +5440,7 @@ if.then199:                                       ; preds = %do.body190
   unreachable
 
 do.end201:                                        ; preds = %do.body190
-  %arrayidx203 = getelementptr inbounds [7 x i64], ptr %mib191, i64 0, i64 2
+  %arrayidx203 = getelementptr inbounds i8, ptr %mib191, i64 16
   store i64 %conv41, ptr %arrayidx203, align 16
   %9 = load i64, ptr %miblen192, align 8
   %call206 = call i32 @mallctlbymib(ptr noundef nonnull %mib191, i64 noundef %9, ptr noundef nonnull %pmuzzy, ptr noundef nonnull %sz193, ptr noundef null, i64 noundef 0) #13
@@ -5465,7 +5465,7 @@ if.then222:                                       ; preds = %do.body213
   unreachable
 
 do.end224:                                        ; preds = %do.body213
-  %arrayidx226 = getelementptr inbounds [7 x i64], ptr %mib214, i64 0, i64 2
+  %arrayidx226 = getelementptr inbounds i8, ptr %mib214, i64 16
   store i64 %conv41, ptr %arrayidx226, align 16
   %10 = load i64, ptr %miblen215, align 8
   %call229 = call i32 @mallctlbymib(ptr noundef nonnull %mib214, i64 noundef %10, ptr noundef nonnull %dirty_npurge, ptr noundef nonnull %sz216, ptr noundef null, i64 noundef 0) #13
@@ -5490,7 +5490,7 @@ if.then245:                                       ; preds = %do.body236
   unreachable
 
 do.end247:                                        ; preds = %do.body236
-  %arrayidx249 = getelementptr inbounds [7 x i64], ptr %mib237, i64 0, i64 2
+  %arrayidx249 = getelementptr inbounds i8, ptr %mib237, i64 16
   store i64 %conv41, ptr %arrayidx249, align 16
   %11 = load i64, ptr %miblen238, align 8
   %call252 = call i32 @mallctlbymib(ptr noundef nonnull %mib237, i64 noundef %11, ptr noundef nonnull %dirty_nmadvise, ptr noundef nonnull %sz239, ptr noundef null, i64 noundef 0) #13
@@ -5515,7 +5515,7 @@ if.then268:                                       ; preds = %do.body259
   unreachable
 
 do.end270:                                        ; preds = %do.body259
-  %arrayidx272 = getelementptr inbounds [7 x i64], ptr %mib260, i64 0, i64 2
+  %arrayidx272 = getelementptr inbounds i8, ptr %mib260, i64 16
   store i64 %conv41, ptr %arrayidx272, align 16
   %12 = load i64, ptr %miblen261, align 8
   %call275 = call i32 @mallctlbymib(ptr noundef nonnull %mib260, i64 noundef %12, ptr noundef nonnull %dirty_purged, ptr noundef nonnull %sz262, ptr noundef null, i64 noundef 0) #13
@@ -5540,7 +5540,7 @@ if.then291:                                       ; preds = %do.body282
   unreachable
 
 do.end293:                                        ; preds = %do.body282
-  %arrayidx295 = getelementptr inbounds [7 x i64], ptr %mib283, i64 0, i64 2
+  %arrayidx295 = getelementptr inbounds i8, ptr %mib283, i64 16
   store i64 %conv41, ptr %arrayidx295, align 16
   %13 = load i64, ptr %miblen284, align 8
   %call298 = call i32 @mallctlbymib(ptr noundef nonnull %mib283, i64 noundef %13, ptr noundef nonnull %muzzy_npurge, ptr noundef nonnull %sz285, ptr noundef null, i64 noundef 0) #13
@@ -5565,7 +5565,7 @@ if.then314:                                       ; preds = %do.body305
   unreachable
 
 do.end316:                                        ; preds = %do.body305
-  %arrayidx318 = getelementptr inbounds [7 x i64], ptr %mib306, i64 0, i64 2
+  %arrayidx318 = getelementptr inbounds i8, ptr %mib306, i64 16
   store i64 %conv41, ptr %arrayidx318, align 16
   %14 = load i64, ptr %miblen307, align 8
   %call321 = call i32 @mallctlbymib(ptr noundef nonnull %mib306, i64 noundef %14, ptr noundef nonnull %muzzy_nmadvise, ptr noundef nonnull %sz308, ptr noundef null, i64 noundef 0) #13
@@ -5590,7 +5590,7 @@ if.then337:                                       ; preds = %do.body328
   unreachable
 
 do.end339:                                        ; preds = %do.body328
-  %arrayidx341 = getelementptr inbounds [7 x i64], ptr %mib329, i64 0, i64 2
+  %arrayidx341 = getelementptr inbounds i8, ptr %mib329, i64 16
   store i64 %conv41, ptr %arrayidx341, align 16
   %15 = load i64, ptr %miblen330, align 8
   %call344 = call i32 @mallctlbymib(ptr noundef nonnull %mib329, i64 noundef %15, ptr noundef nonnull %muzzy_purged, ptr noundef nonnull %sz331, ptr noundef null, i64 noundef 0) #13
@@ -5625,80 +5625,80 @@ emitter_col_init.exit175:                         ; preds = %do.end339
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull %muzzy_nmadvise)
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.305)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 5, ptr noundef nonnull %muzzy_purged)
-  %link.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_type, i64 0, i32 4
-  %qre_prev.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_type, i64 0, i32 4, i32 1
+  %link.i = getelementptr inbounds i8, ptr %col_decay_type, i64 24
+  %qre_prev.i = getelementptr inbounds i8, ptr %col_decay_type, i64 32
   store i32 1, ptr %col_decay_type, align 8
-  %width = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_type, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %col_decay_type, i64 4
   store i32 9, ptr %width, align 4
-  %type = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_type, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %col_decay_type, i64 8
   store i32 9, ptr %type, align 8
-  %16 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_type, i64 0, i32 3
+  %16 = getelementptr inbounds i8, ptr %col_decay_type, i64 16
   store ptr @.str.306, ptr %16, align 8
-  %link.i116 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_time, i64 0, i32 4
-  %qre_prev.i117 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_time, i64 0, i32 4, i32 1
+  %link.i116 = getelementptr inbounds i8, ptr %col_decay_time, i64 24
+  %qre_prev.i117 = getelementptr inbounds i8, ptr %col_decay_time, i64 32
   store ptr %col_decay_type, ptr %qre_prev.i117, align 8
   store ptr %col_decay_time, ptr %link.i, align 8
   store i32 1, ptr %col_decay_time, align 8
-  %width352 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_time, i64 0, i32 1
+  %width352 = getelementptr inbounds i8, ptr %col_decay_time, i64 4
   store i32 6, ptr %width352, align 4
-  %type353 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_time, i64 0, i32 2
+  %type353 = getelementptr inbounds i8, ptr %col_decay_time, i64 8
   store i32 9, ptr %type353, align 8
-  %17 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_time, i64 0, i32 3
+  %17 = getelementptr inbounds i8, ptr %col_decay_time, i64 16
   store ptr @.str.307, ptr %17, align 8
-  %qre_prev.i129 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_npages, i64 0, i32 4, i32 1
+  %qre_prev.i129 = getelementptr inbounds i8, ptr %col_decay_npages, i64 32
   store ptr %col_decay_time, ptr %qre_prev.i129, align 8
   store ptr %col_decay_npages, ptr %link.i116, align 8
   store i32 1, ptr %col_decay_npages, align 8
-  %width355 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_npages, i64 0, i32 1
+  %width355 = getelementptr inbounds i8, ptr %col_decay_npages, i64 4
   store i32 13, ptr %width355, align 4
-  %type356 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_npages, i64 0, i32 2
+  %type356 = getelementptr inbounds i8, ptr %col_decay_npages, i64 8
   store i32 9, ptr %type356, align 8
-  %18 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_npages, i64 0, i32 3
+  %18 = getelementptr inbounds i8, ptr %col_decay_npages, i64 16
   store ptr @.str.308, ptr %18, align 8
-  %qre_prev.i141 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_sweeps, i64 0, i32 4, i32 1
+  %qre_prev.i141 = getelementptr inbounds i8, ptr %col_decay_sweeps, i64 32
   store ptr %col_decay_npages, ptr %qre_prev.i141, align 8
-  %link34.i149 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_npages, i64 0, i32 4
+  %link34.i149 = getelementptr inbounds i8, ptr %col_decay_npages, i64 24
   store ptr %col_decay_sweeps, ptr %link34.i149, align 8
   store i32 1, ptr %col_decay_sweeps, align 8
-  %width358 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_sweeps, i64 0, i32 1
+  %width358 = getelementptr inbounds i8, ptr %col_decay_sweeps, i64 4
   store i32 13, ptr %width358, align 4
-  %type359 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_sweeps, i64 0, i32 2
+  %type359 = getelementptr inbounds i8, ptr %col_decay_sweeps, i64 8
   store i32 9, ptr %type359, align 8
-  %19 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_sweeps, i64 0, i32 3
+  %19 = getelementptr inbounds i8, ptr %col_decay_sweeps, i64 16
   store ptr @.str.309, ptr %19, align 8
-  %link.i152 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_madvises, i64 0, i32 4
-  %qre_prev.i153 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_madvises, i64 0, i32 4, i32 1
+  %link.i152 = getelementptr inbounds i8, ptr %col_decay_madvises, i64 24
+  %qre_prev.i153 = getelementptr inbounds i8, ptr %col_decay_madvises, i64 32
   store ptr %col_decay_madvises, ptr %qre_prev.i, align 8
   store ptr %col_decay_sweeps, ptr %qre_prev.i153, align 8
   store ptr %col_decay_type, ptr %link.i152, align 8
-  %link34.i161 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_sweeps, i64 0, i32 4
+  %link34.i161 = getelementptr inbounds i8, ptr %col_decay_sweeps, i64 24
   store ptr %col_decay_madvises, ptr %link34.i161, align 8
   store i32 1, ptr %col_decay_madvises, align 8
-  %width361 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_madvises, i64 0, i32 1
+  %width361 = getelementptr inbounds i8, ptr %col_decay_madvises, i64 4
   store i32 13, ptr %width361, align 4
-  %type362 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_madvises, i64 0, i32 2
+  %type362 = getelementptr inbounds i8, ptr %col_decay_madvises, i64 8
   store i32 9, ptr %type362, align 8
-  %20 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_madvises, i64 0, i32 3
+  %20 = getelementptr inbounds i8, ptr %col_decay_madvises, i64 16
   store ptr @.str.310, ptr %20, align 8
-  %link.i164 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_purged, i64 0, i32 4
-  %qre_prev.i165 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_purged, i64 0, i32 4, i32 1
+  %link.i164 = getelementptr inbounds i8, ptr %col_decay_purged, i64 24
+  %qre_prev.i165 = getelementptr inbounds i8, ptr %col_decay_purged, i64 32
   store ptr %col_decay_purged, ptr %qre_prev.i165, align 8
-  %qre_prev7.i168 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_type, i64 0, i32 4, i32 1
+  %qre_prev7.i168 = getelementptr inbounds i8, ptr %col_decay_type, i64 32
   %21 = load ptr, ptr %qre_prev7.i168, align 8
   store ptr %21, ptr %link.i164, align 8
   store ptr %col_decay_purged, ptr %qre_prev7.i168, align 8
   store ptr %21, ptr %qre_prev.i165, align 8
-  %link30.i172 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_purged, i64 0, i32 4
+  %link30.i172 = getelementptr inbounds i8, ptr %col_decay_purged, i64 24
   store ptr %col_decay_type, ptr %link30.i172, align 8
-  %link34.i173 = getelementptr inbounds %struct.emitter_col_s, ptr %21, i64 0, i32 4
+  %link34.i173 = getelementptr inbounds i8, ptr %21, i64 24
   store ptr %col_decay_purged, ptr %link34.i173, align 8
   %.pre.i174 = load ptr, ptr %link.i164, align 8
   store i32 1, ptr %col_decay_purged, align 8
-  %width364 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_purged, i64 0, i32 1
+  %width364 = getelementptr inbounds i8, ptr %col_decay_purged, i64 4
   store i32 13, ptr %width364, align 4
-  %type365 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_purged, i64 0, i32 2
+  %type365 = getelementptr inbounds i8, ptr %col_decay_purged, i64 8
   store i32 9, ptr %type365, align 8
-  %22 = getelementptr inbounds %struct.emitter_col_s, ptr %col_decay_purged, i64 0, i32 3
+  %22 = getelementptr inbounds i8, ptr %col_decay_purged, i64 16
   store ptr @.str.311, ptr %22, align 8
   %23 = load i32, ptr %emitter, align 8
   %cmp.not.i = icmp eq i32 %23, 2
@@ -5711,13 +5711,13 @@ if.end.i:                                         ; preds = %emitter_col_init.ex
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %col.011.i = phi ptr [ %28, %for.body.i ], [ %.pre.i174, %if.end.i ]
   %24 = load i32, ptr %col.011.i, align 8
-  %width.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %col.011.i, i64 4
   %25 = load i32, ptr %width.i, align 4
-  %type.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
   %26 = load i32, ptr %type.i, align 8
-  %27 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 3
+  %27 = getelementptr inbounds i8, ptr %col.011.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef nonnull %27)
-  %link.i176 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 4
+  %link.i176 = getelementptr inbounds i8, ptr %col.011.i, i64 24
   %28 = load ptr, ptr %link.i176, align 8
   %cmp4.not.i = icmp eq ptr %28, %.pre.i174
   %cmp1.not12.i = icmp eq ptr %28, null
@@ -5760,13 +5760,13 @@ if.end.i178:                                      ; preds = %emitter_table_row.e
 for.body.i180:                                    ; preds = %if.end.i178, %for.body.i180
   %col.011.i181 = phi ptr [ %40, %for.body.i180 ], [ %.pre.i174, %if.end.i178 ]
   %36 = load i32, ptr %col.011.i181, align 8
-  %width.i182 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i181, i64 0, i32 1
+  %width.i182 = getelementptr inbounds i8, ptr %col.011.i181, i64 4
   %37 = load i32, ptr %width.i182, align 4
-  %type.i183 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i181, i64 0, i32 2
+  %type.i183 = getelementptr inbounds i8, ptr %col.011.i181, i64 8
   %38 = load i32, ptr %type.i183, align 8
-  %39 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i181, i64 0, i32 3
+  %39 = getelementptr inbounds i8, ptr %col.011.i181, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %36, i32 noundef %37, i32 noundef %38, ptr noundef nonnull %39)
-  %link.i184 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i181, i64 0, i32 4
+  %link.i184 = getelementptr inbounds i8, ptr %col.011.i181, i64 24
   %40 = load ptr, ptr %link.i184, align 8
   %cmp4.not.i185 = icmp eq ptr %40, %.pre.i174
   %cmp1.not12.i186 = icmp eq ptr %40, null
@@ -5809,13 +5809,13 @@ if.end.i191:                                      ; preds = %emitter_table_row.e
 for.body.i193:                                    ; preds = %if.end.i191, %for.body.i193
   %col.011.i194 = phi ptr [ %52, %for.body.i193 ], [ %.pre.i174, %if.end.i191 ]
   %48 = load i32, ptr %col.011.i194, align 8
-  %width.i195 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i194, i64 0, i32 1
+  %width.i195 = getelementptr inbounds i8, ptr %col.011.i194, i64 4
   %49 = load i32, ptr %width.i195, align 4
-  %type.i196 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i194, i64 0, i32 2
+  %type.i196 = getelementptr inbounds i8, ptr %col.011.i194, i64 8
   %50 = load i32, ptr %type.i196, align 8
-  %51 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i194, i64 0, i32 3
+  %51 = getelementptr inbounds i8, ptr %col.011.i194, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %48, i32 noundef %49, i32 noundef %50, ptr noundef nonnull %51)
-  %link.i197 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i194, i64 0, i32 4
+  %link.i197 = getelementptr inbounds i8, ptr %col.011.i194, i64 24
   %52 = load ptr, ptr %link.i197, align 8
   %cmp4.not.i198 = icmp eq ptr %52, %.pre.i174
   %cmp1.not12.i199 = icmp eq ptr %52, null
@@ -5827,102 +5827,102 @@ for.end.i201:                                     ; preds = %for.body.i193, %if.
   br label %emitter_col_init.exit280
 
 emitter_col_init.exit280:                         ; preds = %for.end.i201, %emitter_table_row.exit189
-  %link.i203 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_title, i64 0, i32 4
-  %qre_prev.i204 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_title, i64 0, i32 4, i32 1
+  %link.i203 = getelementptr inbounds i8, ptr %col_count_title, i64 24
+  %qre_prev.i204 = getelementptr inbounds i8, ptr %col_count_title, i64 32
   store i32 0, ptr %col_count_title, align 8
-  %width388 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_title, i64 0, i32 1
+  %width388 = getelementptr inbounds i8, ptr %col_count_title, i64 4
   store i32 21, ptr %width388, align 4
-  %type389 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_title, i64 0, i32 2
+  %type389 = getelementptr inbounds i8, ptr %col_count_title, i64 8
   store i32 9, ptr %type389, align 8
-  %53 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_title, i64 0, i32 3
+  %53 = getelementptr inbounds i8, ptr %col_count_title, i64 16
   store ptr @.str.8, ptr %53, align 8
-  %link.i216 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_allocated, i64 0, i32 4
-  %qre_prev.i217 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_allocated, i64 0, i32 4, i32 1
+  %link.i216 = getelementptr inbounds i8, ptr %col_count_allocated, i64 24
+  %qre_prev.i217 = getelementptr inbounds i8, ptr %col_count_allocated, i64 32
   store ptr %col_count_title, ptr %qre_prev.i217, align 8
   store ptr %col_count_allocated, ptr %link.i203, align 8
   store i32 1, ptr %col_count_allocated, align 8
-  %width391 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_allocated, i64 0, i32 1
+  %width391 = getelementptr inbounds i8, ptr %col_count_allocated, i64 4
   store i32 16, ptr %width391, align 4
-  %type392 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_allocated, i64 0, i32 2
+  %type392 = getelementptr inbounds i8, ptr %col_count_allocated, i64 8
   store i32 9, ptr %type392, align 8
-  %54 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_allocated, i64 0, i32 3
+  %54 = getelementptr inbounds i8, ptr %col_count_allocated, i64 16
   store ptr @.str.228, ptr %54, align 8
-  %qre_prev.i230 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nmalloc, i64 0, i32 4, i32 1
+  %qre_prev.i230 = getelementptr inbounds i8, ptr %col_count_nmalloc, i64 32
   store ptr %col_count_allocated, ptr %qre_prev.i230, align 8
   store ptr %col_count_nmalloc, ptr %link.i216, align 8
   store i32 1, ptr %col_count_nmalloc, align 8
-  %width394 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nmalloc, i64 0, i32 1
+  %width394 = getelementptr inbounds i8, ptr %col_count_nmalloc, i64 4
   store i32 16, ptr %width394, align 4
-  %type395 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nmalloc, i64 0, i32 2
+  %type395 = getelementptr inbounds i8, ptr %col_count_nmalloc, i64 8
   store i32 9, ptr %type395, align 8
-  %55 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nmalloc, i64 0, i32 3
+  %55 = getelementptr inbounds i8, ptr %col_count_nmalloc, i64 16
   store ptr @.str.315, ptr %55, align 8
-  %qre_prev.i243 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nmalloc_ps, i64 0, i32 4, i32 1
+  %qre_prev.i243 = getelementptr inbounds i8, ptr %col_count_nmalloc_ps, i64 32
   store ptr %col_count_nmalloc, ptr %qre_prev.i243, align 8
-  %link34.i251 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nmalloc, i64 0, i32 4
+  %link34.i251 = getelementptr inbounds i8, ptr %col_count_nmalloc, i64 24
   store ptr %col_count_nmalloc_ps, ptr %link34.i251, align 8
   store i32 1, ptr %col_count_nmalloc_ps, align 8
-  %width397 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nmalloc_ps, i64 0, i32 1
+  %width397 = getelementptr inbounds i8, ptr %col_count_nmalloc_ps, i64 4
   store i32 10, ptr %width397, align 4
-  %type398 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nmalloc_ps, i64 0, i32 2
+  %type398 = getelementptr inbounds i8, ptr %col_count_nmalloc_ps, i64 8
   store i32 9, ptr %type398, align 8
-  %56 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nmalloc_ps, i64 0, i32 3
+  %56 = getelementptr inbounds i8, ptr %col_count_nmalloc_ps, i64 16
   store ptr @.str.256, ptr %56, align 8
-  %link.i255 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_ndalloc, i64 0, i32 4
-  %qre_prev.i256 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_ndalloc, i64 0, i32 4, i32 1
+  %link.i255 = getelementptr inbounds i8, ptr %col_count_ndalloc, i64 24
+  %qre_prev.i256 = getelementptr inbounds i8, ptr %col_count_ndalloc, i64 32
   store ptr %col_count_ndalloc, ptr %qre_prev.i204, align 8
   store ptr %col_count_nmalloc_ps, ptr %qre_prev.i256, align 8
   store ptr %col_count_title, ptr %link.i255, align 8
-  %link34.i264 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nmalloc_ps, i64 0, i32 4
+  %link34.i264 = getelementptr inbounds i8, ptr %col_count_nmalloc_ps, i64 24
   store ptr %col_count_ndalloc, ptr %link34.i264, align 8
   store i32 1, ptr %col_count_ndalloc, align 8
-  %width400 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_ndalloc, i64 0, i32 1
+  %width400 = getelementptr inbounds i8, ptr %col_count_ndalloc, i64 4
   store i32 16, ptr %width400, align 4
-  %type401 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_ndalloc, i64 0, i32 2
+  %type401 = getelementptr inbounds i8, ptr %col_count_ndalloc, i64 8
   store i32 9, ptr %type401, align 8
-  %57 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_ndalloc, i64 0, i32 3
+  %57 = getelementptr inbounds i8, ptr %col_count_ndalloc, i64 16
   store ptr @.str.316, ptr %57, align 8
-  %link.i268 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_ndalloc_ps, i64 0, i32 4
-  %qre_prev.i269 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_ndalloc_ps, i64 0, i32 4, i32 1
+  %link.i268 = getelementptr inbounds i8, ptr %col_count_ndalloc_ps, i64 24
+  %qre_prev.i269 = getelementptr inbounds i8, ptr %col_count_ndalloc_ps, i64 32
   store ptr %col_count_ndalloc_ps, ptr %qre_prev.i269, align 8
-  %qre_prev7.i272 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_title, i64 0, i32 4, i32 1
+  %qre_prev7.i272 = getelementptr inbounds i8, ptr %col_count_title, i64 32
   %58 = load ptr, ptr %qre_prev7.i272, align 8
   store ptr %58, ptr %link.i268, align 8
   store ptr %col_count_ndalloc_ps, ptr %qre_prev7.i272, align 8
   store ptr %58, ptr %qre_prev.i269, align 8
-  %link30.i276 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_ndalloc_ps, i64 0, i32 4
+  %link30.i276 = getelementptr inbounds i8, ptr %col_count_ndalloc_ps, i64 24
   store ptr %col_count_title, ptr %link30.i276, align 8
-  %link34.i277 = getelementptr inbounds %struct.emitter_col_s, ptr %58, i64 0, i32 4
+  %link34.i277 = getelementptr inbounds i8, ptr %58, i64 24
   store ptr %col_count_ndalloc_ps, ptr %link34.i277, align 8
   %.pre.i278 = load ptr, ptr %link.i268, align 8
   store i32 1, ptr %col_count_ndalloc_ps, align 8
-  %width403 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_ndalloc_ps, i64 0, i32 1
+  %width403 = getelementptr inbounds i8, ptr %col_count_ndalloc_ps, i64 4
   store i32 10, ptr %width403, align 4
-  %type404 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_ndalloc_ps, i64 0, i32 2
+  %type404 = getelementptr inbounds i8, ptr %col_count_ndalloc_ps, i64 8
   store i32 9, ptr %type404, align 8
-  %59 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_ndalloc_ps, i64 0, i32 3
+  %59 = getelementptr inbounds i8, ptr %col_count_ndalloc_ps, i64 16
   store ptr @.str.256, ptr %59, align 8
-  %link.i281 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nrequests, i64 0, i32 4
+  %link.i281 = getelementptr inbounds i8, ptr %col_count_nrequests, i64 24
   store ptr %col_count_nrequests, ptr %link.i281, align 8
-  %qre_prev.i282 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nrequests, i64 0, i32 4, i32 1
+  %qre_prev.i282 = getelementptr inbounds i8, ptr %col_count_nrequests, i64 32
   store ptr %col_count_nrequests, ptr %qre_prev.i282, align 8
   %cmp.i283 = icmp eq ptr %.pre.i278, null
   br i1 %cmp.i283, label %emitter_col_init.exit293, label %do.body3.i284
 
 do.body3.i284:                                    ; preds = %emitter_col_init.exit280
-  %qre_prev7.i285 = getelementptr inbounds %struct.emitter_col_s, ptr %.pre.i278, i64 0, i32 4, i32 1
+  %qre_prev7.i285 = getelementptr inbounds i8, ptr %.pre.i278, i64 32
   %60 = load ptr, ptr %qre_prev7.i285, align 8
   store ptr %60, ptr %link.i281, align 8
   store ptr %col_count_nrequests, ptr %qre_prev7.i285, align 8
   %61 = load ptr, ptr %qre_prev.i282, align 8
-  %link20.i287 = getelementptr inbounds %struct.emitter_col_s, ptr %61, i64 0, i32 4
+  %link20.i287 = getelementptr inbounds i8, ptr %61, i64 24
   %62 = load ptr, ptr %link20.i287, align 8
   store ptr %62, ptr %qre_prev.i282, align 8
   %63 = load ptr, ptr %qre_prev7.i285, align 8
-  %link30.i289 = getelementptr inbounds %struct.emitter_col_s, ptr %63, i64 0, i32 4
+  %link30.i289 = getelementptr inbounds i8, ptr %63, i64 24
   store ptr %.pre.i278, ptr %link30.i289, align 8
   %64 = load ptr, ptr %qre_prev.i282, align 8
-  %link34.i290 = getelementptr inbounds %struct.emitter_col_s, ptr %64, i64 0, i32 4
+  %link34.i290 = getelementptr inbounds i8, ptr %64, i64 24
   store ptr %col_count_nrequests, ptr %link34.i290, align 8
   %.pre.i291 = load ptr, ptr %link.i281, align 8
   br label %emitter_col_init.exit293
@@ -5930,33 +5930,33 @@ do.body3.i284:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit293:                         ; preds = %emitter_col_init.exit280, %do.body3.i284
   %65 = phi ptr [ %.pre.i291, %do.body3.i284 ], [ %col_count_nrequests, %emitter_col_init.exit280 ]
   store i32 1, ptr %col_count_nrequests, align 8
-  %width406 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nrequests, i64 0, i32 1
+  %width406 = getelementptr inbounds i8, ptr %col_count_nrequests, i64 4
   store i32 16, ptr %width406, align 4
-  %type407 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nrequests, i64 0, i32 2
+  %type407 = getelementptr inbounds i8, ptr %col_count_nrequests, i64 8
   store i32 9, ptr %type407, align 8
-  %66 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nrequests, i64 0, i32 3
+  %66 = getelementptr inbounds i8, ptr %col_count_nrequests, i64 16
   store ptr @.str.317, ptr %66, align 8
-  %link.i294 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nrequests_ps, i64 0, i32 4
+  %link.i294 = getelementptr inbounds i8, ptr %col_count_nrequests_ps, i64 24
   store ptr %col_count_nrequests_ps, ptr %link.i294, align 8
-  %qre_prev.i295 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nrequests_ps, i64 0, i32 4, i32 1
+  %qre_prev.i295 = getelementptr inbounds i8, ptr %col_count_nrequests_ps, i64 32
   store ptr %col_count_nrequests_ps, ptr %qre_prev.i295, align 8
   %cmp.i296 = icmp eq ptr %65, null
   br i1 %cmp.i296, label %emitter_col_init.exit306, label %do.body3.i297
 
 do.body3.i297:                                    ; preds = %emitter_col_init.exit293
-  %qre_prev7.i298 = getelementptr inbounds %struct.emitter_col_s, ptr %65, i64 0, i32 4, i32 1
+  %qre_prev7.i298 = getelementptr inbounds i8, ptr %65, i64 32
   %67 = load ptr, ptr %qre_prev7.i298, align 8
   store ptr %67, ptr %link.i294, align 8
   store ptr %col_count_nrequests_ps, ptr %qre_prev7.i298, align 8
   %68 = load ptr, ptr %qre_prev.i295, align 8
-  %link20.i300 = getelementptr inbounds %struct.emitter_col_s, ptr %68, i64 0, i32 4
+  %link20.i300 = getelementptr inbounds i8, ptr %68, i64 24
   %69 = load ptr, ptr %link20.i300, align 8
   store ptr %69, ptr %qre_prev.i295, align 8
   %70 = load ptr, ptr %qre_prev7.i298, align 8
-  %link30.i302 = getelementptr inbounds %struct.emitter_col_s, ptr %70, i64 0, i32 4
+  %link30.i302 = getelementptr inbounds i8, ptr %70, i64 24
   store ptr %65, ptr %link30.i302, align 8
   %71 = load ptr, ptr %qre_prev.i295, align 8
-  %link34.i303 = getelementptr inbounds %struct.emitter_col_s, ptr %71, i64 0, i32 4
+  %link34.i303 = getelementptr inbounds i8, ptr %71, i64 24
   store ptr %col_count_nrequests_ps, ptr %link34.i303, align 8
   %.pre.i304 = load ptr, ptr %link.i294, align 8
   br label %emitter_col_init.exit306
@@ -5964,33 +5964,33 @@ do.body3.i297:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit306:                         ; preds = %emitter_col_init.exit293, %do.body3.i297
   %72 = phi ptr [ %.pre.i304, %do.body3.i297 ], [ %col_count_nrequests_ps, %emitter_col_init.exit293 ]
   store i32 1, ptr %col_count_nrequests_ps, align 8
-  %width409 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nrequests_ps, i64 0, i32 1
+  %width409 = getelementptr inbounds i8, ptr %col_count_nrequests_ps, i64 4
   store i32 10, ptr %width409, align 4
-  %type410 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nrequests_ps, i64 0, i32 2
+  %type410 = getelementptr inbounds i8, ptr %col_count_nrequests_ps, i64 8
   store i32 9, ptr %type410, align 8
-  %73 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nrequests_ps, i64 0, i32 3
+  %73 = getelementptr inbounds i8, ptr %col_count_nrequests_ps, i64 16
   store ptr @.str.256, ptr %73, align 8
-  %link.i307 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nfills, i64 0, i32 4
+  %link.i307 = getelementptr inbounds i8, ptr %col_count_nfills, i64 24
   store ptr %col_count_nfills, ptr %link.i307, align 8
-  %qre_prev.i308 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nfills, i64 0, i32 4, i32 1
+  %qre_prev.i308 = getelementptr inbounds i8, ptr %col_count_nfills, i64 32
   store ptr %col_count_nfills, ptr %qre_prev.i308, align 8
   %cmp.i309 = icmp eq ptr %72, null
   br i1 %cmp.i309, label %emitter_col_init.exit319, label %do.body3.i310
 
 do.body3.i310:                                    ; preds = %emitter_col_init.exit306
-  %qre_prev7.i311 = getelementptr inbounds %struct.emitter_col_s, ptr %72, i64 0, i32 4, i32 1
+  %qre_prev7.i311 = getelementptr inbounds i8, ptr %72, i64 32
   %74 = load ptr, ptr %qre_prev7.i311, align 8
   store ptr %74, ptr %link.i307, align 8
   store ptr %col_count_nfills, ptr %qre_prev7.i311, align 8
   %75 = load ptr, ptr %qre_prev.i308, align 8
-  %link20.i313 = getelementptr inbounds %struct.emitter_col_s, ptr %75, i64 0, i32 4
+  %link20.i313 = getelementptr inbounds i8, ptr %75, i64 24
   %76 = load ptr, ptr %link20.i313, align 8
   store ptr %76, ptr %qre_prev.i308, align 8
   %77 = load ptr, ptr %qre_prev7.i311, align 8
-  %link30.i315 = getelementptr inbounds %struct.emitter_col_s, ptr %77, i64 0, i32 4
+  %link30.i315 = getelementptr inbounds i8, ptr %77, i64 24
   store ptr %72, ptr %link30.i315, align 8
   %78 = load ptr, ptr %qre_prev.i308, align 8
-  %link34.i316 = getelementptr inbounds %struct.emitter_col_s, ptr %78, i64 0, i32 4
+  %link34.i316 = getelementptr inbounds i8, ptr %78, i64 24
   store ptr %col_count_nfills, ptr %link34.i316, align 8
   %.pre.i317 = load ptr, ptr %link.i307, align 8
   br label %emitter_col_init.exit319
@@ -5998,33 +5998,33 @@ do.body3.i310:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit319:                         ; preds = %emitter_col_init.exit306, %do.body3.i310
   %79 = phi ptr [ %.pre.i317, %do.body3.i310 ], [ %col_count_nfills, %emitter_col_init.exit306 ]
   store i32 1, ptr %col_count_nfills, align 8
-  %width412 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nfills, i64 0, i32 1
+  %width412 = getelementptr inbounds i8, ptr %col_count_nfills, i64 4
   store i32 16, ptr %width412, align 4
-  %type413 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nfills, i64 0, i32 2
+  %type413 = getelementptr inbounds i8, ptr %col_count_nfills, i64 8
   store i32 9, ptr %type413, align 8
-  %80 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nfills, i64 0, i32 3
+  %80 = getelementptr inbounds i8, ptr %col_count_nfills, i64 16
   store ptr @.str.318, ptr %80, align 8
-  %link.i320 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nfills_ps, i64 0, i32 4
+  %link.i320 = getelementptr inbounds i8, ptr %col_count_nfills_ps, i64 24
   store ptr %col_count_nfills_ps, ptr %link.i320, align 8
-  %qre_prev.i321 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nfills_ps, i64 0, i32 4, i32 1
+  %qre_prev.i321 = getelementptr inbounds i8, ptr %col_count_nfills_ps, i64 32
   store ptr %col_count_nfills_ps, ptr %qre_prev.i321, align 8
   %cmp.i322 = icmp eq ptr %79, null
   br i1 %cmp.i322, label %emitter_col_init.exit332, label %do.body3.i323
 
 do.body3.i323:                                    ; preds = %emitter_col_init.exit319
-  %qre_prev7.i324 = getelementptr inbounds %struct.emitter_col_s, ptr %79, i64 0, i32 4, i32 1
+  %qre_prev7.i324 = getelementptr inbounds i8, ptr %79, i64 32
   %81 = load ptr, ptr %qre_prev7.i324, align 8
   store ptr %81, ptr %link.i320, align 8
   store ptr %col_count_nfills_ps, ptr %qre_prev7.i324, align 8
   %82 = load ptr, ptr %qre_prev.i321, align 8
-  %link20.i326 = getelementptr inbounds %struct.emitter_col_s, ptr %82, i64 0, i32 4
+  %link20.i326 = getelementptr inbounds i8, ptr %82, i64 24
   %83 = load ptr, ptr %link20.i326, align 8
   store ptr %83, ptr %qre_prev.i321, align 8
   %84 = load ptr, ptr %qre_prev7.i324, align 8
-  %link30.i328 = getelementptr inbounds %struct.emitter_col_s, ptr %84, i64 0, i32 4
+  %link30.i328 = getelementptr inbounds i8, ptr %84, i64 24
   store ptr %79, ptr %link30.i328, align 8
   %85 = load ptr, ptr %qre_prev.i321, align 8
-  %link34.i329 = getelementptr inbounds %struct.emitter_col_s, ptr %85, i64 0, i32 4
+  %link34.i329 = getelementptr inbounds i8, ptr %85, i64 24
   store ptr %col_count_nfills_ps, ptr %link34.i329, align 8
   %.pre.i330 = load ptr, ptr %link.i320, align 8
   br label %emitter_col_init.exit332
@@ -6032,33 +6032,33 @@ do.body3.i323:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit332:                         ; preds = %emitter_col_init.exit319, %do.body3.i323
   %86 = phi ptr [ %.pre.i330, %do.body3.i323 ], [ %col_count_nfills_ps, %emitter_col_init.exit319 ]
   store i32 1, ptr %col_count_nfills_ps, align 8
-  %width415 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nfills_ps, i64 0, i32 1
+  %width415 = getelementptr inbounds i8, ptr %col_count_nfills_ps, i64 4
   store i32 10, ptr %width415, align 4
-  %type416 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nfills_ps, i64 0, i32 2
+  %type416 = getelementptr inbounds i8, ptr %col_count_nfills_ps, i64 8
   store i32 9, ptr %type416, align 8
-  %87 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nfills_ps, i64 0, i32 3
+  %87 = getelementptr inbounds i8, ptr %col_count_nfills_ps, i64 16
   store ptr @.str.256, ptr %87, align 8
-  %link.i333 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nflushes, i64 0, i32 4
+  %link.i333 = getelementptr inbounds i8, ptr %col_count_nflushes, i64 24
   store ptr %col_count_nflushes, ptr %link.i333, align 8
-  %qre_prev.i334 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nflushes, i64 0, i32 4, i32 1
+  %qre_prev.i334 = getelementptr inbounds i8, ptr %col_count_nflushes, i64 32
   store ptr %col_count_nflushes, ptr %qre_prev.i334, align 8
   %cmp.i335 = icmp eq ptr %86, null
   br i1 %cmp.i335, label %emitter_col_init.exit345, label %do.body3.i336
 
 do.body3.i336:                                    ; preds = %emitter_col_init.exit332
-  %qre_prev7.i337 = getelementptr inbounds %struct.emitter_col_s, ptr %86, i64 0, i32 4, i32 1
+  %qre_prev7.i337 = getelementptr inbounds i8, ptr %86, i64 32
   %88 = load ptr, ptr %qre_prev7.i337, align 8
   store ptr %88, ptr %link.i333, align 8
   store ptr %col_count_nflushes, ptr %qre_prev7.i337, align 8
   %89 = load ptr, ptr %qre_prev.i334, align 8
-  %link20.i339 = getelementptr inbounds %struct.emitter_col_s, ptr %89, i64 0, i32 4
+  %link20.i339 = getelementptr inbounds i8, ptr %89, i64 24
   %90 = load ptr, ptr %link20.i339, align 8
   store ptr %90, ptr %qre_prev.i334, align 8
   %91 = load ptr, ptr %qre_prev7.i337, align 8
-  %link30.i341 = getelementptr inbounds %struct.emitter_col_s, ptr %91, i64 0, i32 4
+  %link30.i341 = getelementptr inbounds i8, ptr %91, i64 24
   store ptr %86, ptr %link30.i341, align 8
   %92 = load ptr, ptr %qre_prev.i334, align 8
-  %link34.i342 = getelementptr inbounds %struct.emitter_col_s, ptr %92, i64 0, i32 4
+  %link34.i342 = getelementptr inbounds i8, ptr %92, i64 24
   store ptr %col_count_nflushes, ptr %link34.i342, align 8
   %.pre.i343 = load ptr, ptr %link.i333, align 8
   br label %emitter_col_init.exit345
@@ -6066,33 +6066,33 @@ do.body3.i336:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit345:                         ; preds = %emitter_col_init.exit332, %do.body3.i336
   %93 = phi ptr [ %.pre.i343, %do.body3.i336 ], [ %col_count_nflushes, %emitter_col_init.exit332 ]
   store i32 1, ptr %col_count_nflushes, align 8
-  %width418 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nflushes, i64 0, i32 1
+  %width418 = getelementptr inbounds i8, ptr %col_count_nflushes, i64 4
   store i32 16, ptr %width418, align 4
-  %type419 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nflushes, i64 0, i32 2
+  %type419 = getelementptr inbounds i8, ptr %col_count_nflushes, i64 8
   store i32 9, ptr %type419, align 8
-  %94 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nflushes, i64 0, i32 3
+  %94 = getelementptr inbounds i8, ptr %col_count_nflushes, i64 16
   store ptr @.str.319, ptr %94, align 8
-  %link.i346 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nflushes_ps, i64 0, i32 4
+  %link.i346 = getelementptr inbounds i8, ptr %col_count_nflushes_ps, i64 24
   store ptr %col_count_nflushes_ps, ptr %link.i346, align 8
-  %qre_prev.i347 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nflushes_ps, i64 0, i32 4, i32 1
+  %qre_prev.i347 = getelementptr inbounds i8, ptr %col_count_nflushes_ps, i64 32
   store ptr %col_count_nflushes_ps, ptr %qre_prev.i347, align 8
   %cmp.i348 = icmp eq ptr %93, null
   br i1 %cmp.i348, label %emitter_col_init.exit358, label %do.body3.i349
 
 do.body3.i349:                                    ; preds = %emitter_col_init.exit345
-  %qre_prev7.i350 = getelementptr inbounds %struct.emitter_col_s, ptr %93, i64 0, i32 4, i32 1
+  %qre_prev7.i350 = getelementptr inbounds i8, ptr %93, i64 32
   %95 = load ptr, ptr %qre_prev7.i350, align 8
   store ptr %95, ptr %link.i346, align 8
   store ptr %col_count_nflushes_ps, ptr %qre_prev7.i350, align 8
   %96 = load ptr, ptr %qre_prev.i347, align 8
-  %link20.i352 = getelementptr inbounds %struct.emitter_col_s, ptr %96, i64 0, i32 4
+  %link20.i352 = getelementptr inbounds i8, ptr %96, i64 24
   %97 = load ptr, ptr %link20.i352, align 8
   store ptr %97, ptr %qre_prev.i347, align 8
   %98 = load ptr, ptr %qre_prev7.i350, align 8
-  %link30.i354 = getelementptr inbounds %struct.emitter_col_s, ptr %98, i64 0, i32 4
+  %link30.i354 = getelementptr inbounds i8, ptr %98, i64 24
   store ptr %93, ptr %link30.i354, align 8
   %99 = load ptr, ptr %qre_prev.i347, align 8
-  %link34.i355 = getelementptr inbounds %struct.emitter_col_s, ptr %99, i64 0, i32 4
+  %link34.i355 = getelementptr inbounds i8, ptr %99, i64 24
   store ptr %col_count_nflushes_ps, ptr %link34.i355, align 8
   %.pre.i356 = load ptr, ptr %link.i346, align 8
   br label %emitter_col_init.exit358
@@ -6100,11 +6100,11 @@ do.body3.i349:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit358:                         ; preds = %emitter_col_init.exit345, %do.body3.i349
   %100 = phi ptr [ %.pre.i356, %do.body3.i349 ], [ %col_count_nflushes_ps, %emitter_col_init.exit345 ]
   store i32 1, ptr %col_count_nflushes_ps, align 8
-  %width421 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nflushes_ps, i64 0, i32 1
+  %width421 = getelementptr inbounds i8, ptr %col_count_nflushes_ps, i64 4
   store i32 10, ptr %width421, align 4
-  %type422 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nflushes_ps, i64 0, i32 2
+  %type422 = getelementptr inbounds i8, ptr %col_count_nflushes_ps, i64 8
   store i32 9, ptr %type422, align 8
-  %101 = getelementptr inbounds %struct.emitter_col_s, ptr %col_count_nflushes_ps, i64 0, i32 3
+  %101 = getelementptr inbounds i8, ptr %col_count_nflushes_ps, i64 16
   store ptr @.str.256, ptr %101, align 8
   %102 = load i32, ptr %emitter, align 8
   %cmp.not.i359 = icmp eq i32 %102, 2
@@ -6117,13 +6117,13 @@ if.end.i360:                                      ; preds = %emitter_col_init.ex
 for.body.i362:                                    ; preds = %if.end.i360, %for.body.i362
   %col.011.i363 = phi ptr [ %107, %for.body.i362 ], [ %100, %if.end.i360 ]
   %103 = load i32, ptr %col.011.i363, align 8
-  %width.i364 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i363, i64 0, i32 1
+  %width.i364 = getelementptr inbounds i8, ptr %col.011.i363, i64 4
   %104 = load i32, ptr %width.i364, align 4
-  %type.i365 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i363, i64 0, i32 2
+  %type.i365 = getelementptr inbounds i8, ptr %col.011.i363, i64 8
   %105 = load i32, ptr %type.i365, align 8
-  %106 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i363, i64 0, i32 3
+  %106 = getelementptr inbounds i8, ptr %col.011.i363, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %103, i32 noundef %104, i32 noundef %105, ptr noundef nonnull %106)
-  %link.i366 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i363, i64 0, i32 4
+  %link.i366 = getelementptr inbounds i8, ptr %col.011.i363, i64 24
   %107 = load ptr, ptr %link.i366, align 8
   %cmp4.not.i367 = icmp eq ptr %107, %100
   %cmp1.not12.i368 = icmp eq ptr %107, null
@@ -6155,7 +6155,7 @@ if.then437:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end439:                                        ; preds = %emitter_table_row.exit371
-  %arrayidx441 = getelementptr inbounds [7 x i64], ptr %mib429, i64 0, i64 2
+  %arrayidx441 = getelementptr inbounds i8, ptr %mib429, i64 16
   store i64 %conv41, ptr %arrayidx441, align 16
   %108 = load i64, ptr %miblen430, align 8
   %call444 = call i32 @mallctlbymib(ptr noundef nonnull %mib429, i64 noundef %108, ptr noundef nonnull %small_allocated, ptr noundef nonnull %sz431, ptr noundef null, i64 noundef 0) #13
@@ -6185,7 +6185,7 @@ if.then461:                                       ; preds = %do.end450
   unreachable
 
 do.end463:                                        ; preds = %do.end450
-  %arrayidx465 = getelementptr inbounds [7 x i64], ptr %mib453, i64 0, i64 2
+  %arrayidx465 = getelementptr inbounds i8, ptr %mib453, i64 16
   store i64 %conv41, ptr %arrayidx465, align 16
   %110 = load i64, ptr %miblen454, align 8
   %call468 = call i32 @mallctlbymib(ptr noundef nonnull %mib453, i64 noundef %110, ptr noundef nonnull %small_nmalloc, ptr noundef nonnull %sz455, ptr noundef null, i64 noundef 0) #13
@@ -6233,7 +6233,7 @@ if.then486:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end488:                                        ; preds = %rate_per_second.exit
-  %arrayidx490 = getelementptr inbounds [7 x i64], ptr %mib478, i64 0, i64 2
+  %arrayidx490 = getelementptr inbounds i8, ptr %mib478, i64 16
   store i64 %conv41, ptr %arrayidx490, align 16
   %113 = load i64, ptr %miblen479, align 8
   %call493 = call i32 @mallctlbymib(ptr noundef nonnull %mib478, i64 noundef %113, ptr noundef nonnull %small_ndalloc, ptr noundef nonnull %sz480, ptr noundef null, i64 noundef 0) #13
@@ -6281,7 +6281,7 @@ if.then511:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end513:                                        ; preds = %rate_per_second.exit383
-  %arrayidx515 = getelementptr inbounds [7 x i64], ptr %mib503, i64 0, i64 2
+  %arrayidx515 = getelementptr inbounds i8, ptr %mib503, i64 16
   store i64 %conv41, ptr %arrayidx515, align 16
   %116 = load i64, ptr %miblen504, align 8
   %call518 = call i32 @mallctlbymib(ptr noundef nonnull %mib503, i64 noundef %116, ptr noundef nonnull %small_nrequests, ptr noundef nonnull %sz505, ptr noundef null, i64 noundef 0) #13
@@ -6329,7 +6329,7 @@ if.then536:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end538:                                        ; preds = %rate_per_second.exit393
-  %arrayidx540 = getelementptr inbounds [7 x i64], ptr %mib528, i64 0, i64 2
+  %arrayidx540 = getelementptr inbounds i8, ptr %mib528, i64 16
   store i64 %conv41, ptr %arrayidx540, align 16
   %119 = load i64, ptr %miblen529, align 8
   %call543 = call i32 @mallctlbymib(ptr noundef nonnull %mib528, i64 noundef %119, ptr noundef nonnull %small_nfills, ptr noundef nonnull %sz530, ptr noundef null, i64 noundef 0) #13
@@ -6377,7 +6377,7 @@ if.then561:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end563:                                        ; preds = %rate_per_second.exit403
-  %arrayidx565 = getelementptr inbounds [7 x i64], ptr %mib553, i64 0, i64 2
+  %arrayidx565 = getelementptr inbounds i8, ptr %mib553, i64 16
   store i64 %conv41, ptr %arrayidx565, align 16
   %122 = load i64, ptr %miblen554, align 8
   %call568 = call i32 @mallctlbymib(ptr noundef nonnull %mib553, i64 noundef %122, ptr noundef nonnull %small_nflushes, ptr noundef nonnull %sz555, ptr noundef null, i64 noundef 0) #13
@@ -6424,13 +6424,13 @@ if.end.i415:                                      ; preds = %rate_per_second.exi
 for.body.i417:                                    ; preds = %if.end.i415, %for.body.i417
   %col.011.i418 = phi ptr [ %130, %for.body.i417 ], [ %100, %if.end.i415 ]
   %126 = load i32, ptr %col.011.i418, align 8
-  %width.i419 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i418, i64 0, i32 1
+  %width.i419 = getelementptr inbounds i8, ptr %col.011.i418, i64 4
   %127 = load i32, ptr %width.i419, align 4
-  %type.i420 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i418, i64 0, i32 2
+  %type.i420 = getelementptr inbounds i8, ptr %col.011.i418, i64 8
   %128 = load i32, ptr %type.i420, align 8
-  %129 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i418, i64 0, i32 3
+  %129 = getelementptr inbounds i8, ptr %col.011.i418, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %126, i32 noundef %127, i32 noundef %128, ptr noundef nonnull %129)
-  %link.i421 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i418, i64 0, i32 4
+  %link.i421 = getelementptr inbounds i8, ptr %col.011.i418, i64 24
   %130 = load ptr, ptr %link.i421, align 8
   %cmp4.not.i422 = icmp eq ptr %130, %100
   %cmp1.not12.i423 = icmp eq ptr %130, null
@@ -6448,11 +6448,11 @@ emitter_table_row.exit426:                        ; preds = %rate_per_second.exi
   br i1 %spec.select.i.i, label %do.end.i, label %emitter_json_object_end.exit
 
 do.end.i:                                         ; preds = %emitter_table_row.exit426
-  %nesting_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %131 = load i32, ptr %nesting_depth.i.i, align 8
   %dec.i.i = add nsw i32 %131, -1
   store i32 %dec.i.i, ptr %nesting_depth.i.i, align 8
-  %item_at_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i, align 4
   %cmp.not.i427 = icmp eq i32 %emitter.val.i, 1
   br i1 %cmp.not.i427, label %if.end.i428, label %if.then1.i
@@ -6499,7 +6499,7 @@ if.then586:                                       ; preds = %emitter_json_object
   unreachable
 
 do.end588:                                        ; preds = %emitter_json_object_end.exit
-  %arrayidx590 = getelementptr inbounds [7 x i64], ptr %mib578, i64 0, i64 2
+  %arrayidx590 = getelementptr inbounds i8, ptr %mib578, i64 16
   store i64 %conv41, ptr %arrayidx590, align 16
   %134 = load i64, ptr %miblen579, align 8
   %call593 = call i32 @mallctlbymib(ptr noundef nonnull %mib578, i64 noundef %134, ptr noundef nonnull %large_allocated, ptr noundef nonnull %sz580, ptr noundef null, i64 noundef 0) #13
@@ -6529,7 +6529,7 @@ if.then610:                                       ; preds = %do.end599
   unreachable
 
 do.end612:                                        ; preds = %do.end599
-  %arrayidx614 = getelementptr inbounds [7 x i64], ptr %mib602, i64 0, i64 2
+  %arrayidx614 = getelementptr inbounds i8, ptr %mib602, i64 16
   store i64 %conv41, ptr %arrayidx614, align 16
   %136 = load i64, ptr %miblen603, align 8
   %call617 = call i32 @mallctlbymib(ptr noundef nonnull %mib602, i64 noundef %136, ptr noundef nonnull %large_nmalloc, ptr noundef nonnull %sz604, ptr noundef null, i64 noundef 0) #13
@@ -6577,7 +6577,7 @@ if.then635:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end637:                                        ; preds = %rate_per_second.exit438
-  %arrayidx639 = getelementptr inbounds [7 x i64], ptr %mib627, i64 0, i64 2
+  %arrayidx639 = getelementptr inbounds i8, ptr %mib627, i64 16
   store i64 %conv41, ptr %arrayidx639, align 16
   %139 = load i64, ptr %miblen628, align 8
   %call642 = call i32 @mallctlbymib(ptr noundef nonnull %mib627, i64 noundef %139, ptr noundef nonnull %large_ndalloc, ptr noundef nonnull %sz629, ptr noundef null, i64 noundef 0) #13
@@ -6625,7 +6625,7 @@ if.then660:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end662:                                        ; preds = %rate_per_second.exit448
-  %arrayidx664 = getelementptr inbounds [7 x i64], ptr %mib652, i64 0, i64 2
+  %arrayidx664 = getelementptr inbounds i8, ptr %mib652, i64 16
   store i64 %conv41, ptr %arrayidx664, align 16
   %142 = load i64, ptr %miblen653, align 8
   %call667 = call i32 @mallctlbymib(ptr noundef nonnull %mib652, i64 noundef %142, ptr noundef nonnull %large_nrequests, ptr noundef nonnull %sz654, ptr noundef null, i64 noundef 0) #13
@@ -6673,7 +6673,7 @@ if.then685:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end687:                                        ; preds = %rate_per_second.exit458
-  %arrayidx689 = getelementptr inbounds [7 x i64], ptr %mib677, i64 0, i64 2
+  %arrayidx689 = getelementptr inbounds i8, ptr %mib677, i64 16
   store i64 %conv41, ptr %arrayidx689, align 16
   %145 = load i64, ptr %miblen678, align 8
   %call692 = call i32 @mallctlbymib(ptr noundef nonnull %mib677, i64 noundef %145, ptr noundef nonnull %large_nfills, ptr noundef nonnull %sz679, ptr noundef null, i64 noundef 0) #13
@@ -6721,7 +6721,7 @@ if.then710:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end712:                                        ; preds = %rate_per_second.exit468
-  %arrayidx714 = getelementptr inbounds [7 x i64], ptr %mib702, i64 0, i64 2
+  %arrayidx714 = getelementptr inbounds i8, ptr %mib702, i64 16
   store i64 %conv41, ptr %arrayidx714, align 16
   %148 = load i64, ptr %miblen703, align 8
   %call717 = call i32 @mallctlbymib(ptr noundef nonnull %mib702, i64 noundef %148, ptr noundef nonnull %large_nflushes, ptr noundef nonnull %sz704, ptr noundef null, i64 noundef 0) #13
@@ -6768,13 +6768,13 @@ if.end.i480:                                      ; preds = %rate_per_second.exi
 for.body.i482:                                    ; preds = %if.end.i480, %for.body.i482
   %col.011.i483 = phi ptr [ %156, %for.body.i482 ], [ %100, %if.end.i480 ]
   %152 = load i32, ptr %col.011.i483, align 8
-  %width.i484 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i483, i64 0, i32 1
+  %width.i484 = getelementptr inbounds i8, ptr %col.011.i483, i64 4
   %153 = load i32, ptr %width.i484, align 4
-  %type.i485 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i483, i64 0, i32 2
+  %type.i485 = getelementptr inbounds i8, ptr %col.011.i483, i64 8
   %154 = load i32, ptr %type.i485, align 8
-  %155 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i483, i64 0, i32 3
+  %155 = getelementptr inbounds i8, ptr %col.011.i483, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %152, i32 noundef %153, i32 noundef %154, ptr noundef nonnull %155)
-  %link.i486 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i483, i64 0, i32 4
+  %link.i486 = getelementptr inbounds i8, ptr %col.011.i483, i64 24
   %156 = load ptr, ptr %link.i486, align 8
   %cmp4.not.i487 = icmp eq ptr %156, %100
   %cmp1.not12.i488 = icmp eq ptr %156, null
@@ -6792,11 +6792,11 @@ emitter_table_row.exit491:                        ; preds = %rate_per_second.exi
   br i1 %spec.select.i.i493, label %do.end.i494, label %emitter_json_object_end.exit512
 
 do.end.i494:                                      ; preds = %emitter_table_row.exit491
-  %nesting_depth.i.i495 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i495 = getelementptr inbounds i8, ptr %emitter, i64 24
   %157 = load i32, ptr %nesting_depth.i.i495, align 8
   %dec.i.i496 = add nsw i32 %157, -1
   store i32 %dec.i.i496, ptr %nesting_depth.i.i495, align 8
-  %item_at_depth.i.i497 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i497 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i497, align 4
   %cmp.not.i498 = icmp eq i32 %emitter.val.i492, 1
   br i1 %cmp.not.i498, label %if.end.i503, label %if.then1.i499
@@ -6946,13 +6946,13 @@ if.end.i564:                                      ; preds = %rate_per_second.exi
 for.body.i566:                                    ; preds = %if.end.i564, %for.body.i566
   %col.011.i567 = phi ptr [ %178, %for.body.i566 ], [ %100, %if.end.i564 ]
   %174 = load i32, ptr %col.011.i567, align 8
-  %width.i568 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i567, i64 0, i32 1
+  %width.i568 = getelementptr inbounds i8, ptr %col.011.i567, i64 4
   %175 = load i32, ptr %width.i568, align 4
-  %type.i569 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i567, i64 0, i32 2
+  %type.i569 = getelementptr inbounds i8, ptr %col.011.i567, i64 8
   %176 = load i32, ptr %type.i569, align 8
-  %177 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i567, i64 0, i32 3
+  %177 = getelementptr inbounds i8, ptr %col.011.i567, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %174, i32 noundef %175, i32 noundef %176, ptr noundef nonnull %177)
-  %link.i570 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i567, i64 0, i32 4
+  %link.i570 = getelementptr inbounds i8, ptr %col.011.i567, i64 24
   %178 = load ptr, ptr %link.i570, align 8
   %cmp4.not.i571 = icmp eq ptr %178, %100
   %cmp1.not12.i572 = icmp eq ptr %178, null
@@ -6966,27 +6966,27 @@ for.end.i574:                                     ; preds = %for.body.i566, %if.
 
 emitter_col_init.exit601:                         ; preds = %for.end.i574, %rate_per_second.exit562
   %179 = phi i32 [ %.pre, %for.end.i574 ], [ %173, %rate_per_second.exit562 ]
-  %link.i576 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4
-  %qre_prev.i577 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 4, i32 1
+  %link.i576 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
+  %qre_prev.i577 = getelementptr inbounds i8, ptr %mem_count_title, i64 32
   store i32 0, ptr %mem_count_title, align 8
-  %width737 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 1
+  %width737 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
   store i32 21, ptr %width737, align 4
-  %type738 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 2
+  %type738 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
   store i32 9, ptr %type738, align 8
-  %180 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_title, i64 0, i32 3
+  %180 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
   store ptr @.str.8, ptr %180, align 8
-  %link.i589 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_val, i64 0, i32 4
-  %qre_prev.i590 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_val, i64 0, i32 4, i32 1
+  %link.i589 = getelementptr inbounds i8, ptr %mem_count_val, i64 24
+  %qre_prev.i590 = getelementptr inbounds i8, ptr %mem_count_val, i64 32
   store ptr %mem_count_val, ptr %qre_prev.i577, align 8
   store ptr %mem_count_title, ptr %qre_prev.i590, align 8
   store ptr %mem_count_title, ptr %link.i589, align 8
   store ptr %mem_count_val, ptr %link.i576, align 8
   store i32 1, ptr %mem_count_val, align 8
-  %width740 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_val, i64 0, i32 1
+  %width740 = getelementptr inbounds i8, ptr %mem_count_val, i64 4
   store i32 16, ptr %width740, align 4
-  %type741 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_val, i64 0, i32 2
+  %type741 = getelementptr inbounds i8, ptr %mem_count_val, i64 8
   store i32 9, ptr %type741, align 8
-  %181 = getelementptr inbounds %struct.emitter_col_s, ptr %mem_count_val, i64 0, i32 3
+  %181 = getelementptr inbounds i8, ptr %mem_count_val, i64 16
   store ptr @.str.8, ptr %181, align 8
   %cmp.not.i602 = icmp eq i32 %179, 2
   br i1 %cmp.not.i602, label %for.body.i605, label %emitter_table_row.exit614
@@ -7002,10 +7002,10 @@ for.body.i605:                                    ; preds = %emitter_col_init.ex
   %184 = load i32, ptr %col.011.i606.sroa.phi1099, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %182, i32 noundef %183, i32 noundef %184, ptr noundef nonnull %col.011.i606.sroa.phi1102)
   %185 = load ptr, ptr %col.011.i606.sroa.phi1105, align 8
-  %.sroa.gep1106 = getelementptr inbounds %struct.emitter_col_s, ptr %185, i64 0, i32 4
-  %.sroa.gep1103 = getelementptr inbounds %struct.emitter_col_s, ptr %185, i64 0, i32 3
-  %.sroa.gep1100 = getelementptr inbounds %struct.emitter_col_s, ptr %185, i64 0, i32 2
-  %.sroa.gep1097 = getelementptr inbounds %struct.emitter_col_s, ptr %185, i64 0, i32 1
+  %.sroa.gep1106 = getelementptr inbounds i8, ptr %185, i64 24
+  %.sroa.gep1103 = getelementptr inbounds i8, ptr %185, i64 16
+  %.sroa.gep1100 = getelementptr inbounds i8, ptr %185, i64 8
+  %.sroa.gep1097 = getelementptr inbounds i8, ptr %185, i64 4
   %cmp4.not.i610 = icmp eq ptr %185, %mem_count_title
   %cmp1.not12.i611 = icmp eq ptr %185, null
   %cmp1.not.i612 = or i1 %cmp4.not.i610, %cmp1.not12.i611
@@ -7038,10 +7038,10 @@ for.body.i618:                                    ; preds = %emitter_table_row.e
   %191 = load i32, ptr %col.011.i619.sroa.phi1088, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %189, i32 noundef %190, i32 noundef %191, ptr noundef nonnull %col.011.i619.sroa.phi1091)
   %192 = load ptr, ptr %col.011.i619.sroa.phi1094, align 8
-  %.sroa.gep1095 = getelementptr inbounds %struct.emitter_col_s, ptr %192, i64 0, i32 4
-  %.sroa.gep1092 = getelementptr inbounds %struct.emitter_col_s, ptr %192, i64 0, i32 3
-  %.sroa.gep1089 = getelementptr inbounds %struct.emitter_col_s, ptr %192, i64 0, i32 2
-  %.sroa.gep1086 = getelementptr inbounds %struct.emitter_col_s, ptr %192, i64 0, i32 1
+  %.sroa.gep1095 = getelementptr inbounds i8, ptr %192, i64 24
+  %.sroa.gep1092 = getelementptr inbounds i8, ptr %192, i64 16
+  %.sroa.gep1089 = getelementptr inbounds i8, ptr %192, i64 8
+  %.sroa.gep1086 = getelementptr inbounds i8, ptr %192, i64 4
   %cmp4.not.i623 = icmp eq ptr %192, %mem_count_title
   %cmp1.not12.i624 = icmp eq ptr %192, null
   %cmp1.not.i625 = or i1 %cmp4.not.i623, %cmp1.not12.i624
@@ -7064,7 +7064,7 @@ if.then752:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end754:                                        ; preds = %emitter_table_row.exit627
-  %arrayidx756 = getelementptr inbounds [7 x i64], ptr %mib744, i64 0, i64 2
+  %arrayidx756 = getelementptr inbounds i8, ptr %mib744, i64 16
   store i64 %conv41, ptr %arrayidx756, align 16
   %193 = load i64, ptr %miblen745, align 8
   %call759 = call i32 @mallctlbymib(ptr noundef nonnull %mib744, i64 noundef %193, ptr noundef nonnull %mapped, ptr noundef nonnull %sz746, ptr noundef null, i64 noundef 0) #13
@@ -7097,10 +7097,10 @@ for.body.i631:                                    ; preds = %do.end765, %for.bod
   %198 = load i32, ptr %col.011.i632.sroa.phi1077, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %196, i32 noundef %197, i32 noundef %198, ptr noundef nonnull %col.011.i632.sroa.phi1080)
   %199 = load ptr, ptr %col.011.i632.sroa.phi1083, align 8
-  %.sroa.gep1084 = getelementptr inbounds %struct.emitter_col_s, ptr %199, i64 0, i32 4
-  %.sroa.gep1081 = getelementptr inbounds %struct.emitter_col_s, ptr %199, i64 0, i32 3
-  %.sroa.gep1078 = getelementptr inbounds %struct.emitter_col_s, ptr %199, i64 0, i32 2
-  %.sroa.gep1075 = getelementptr inbounds %struct.emitter_col_s, ptr %199, i64 0, i32 1
+  %.sroa.gep1084 = getelementptr inbounds i8, ptr %199, i64 24
+  %.sroa.gep1081 = getelementptr inbounds i8, ptr %199, i64 16
+  %.sroa.gep1078 = getelementptr inbounds i8, ptr %199, i64 8
+  %.sroa.gep1075 = getelementptr inbounds i8, ptr %199, i64 4
   %cmp4.not.i636 = icmp eq ptr %199, %mem_count_title
   %cmp1.not12.i637 = icmp eq ptr %199, null
   %cmp1.not.i638 = or i1 %cmp4.not.i636, %cmp1.not12.i637
@@ -7123,7 +7123,7 @@ if.then775:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end777:                                        ; preds = %emitter_table_row.exit640
-  %arrayidx779 = getelementptr inbounds [7 x i64], ptr %mib767, i64 0, i64 2
+  %arrayidx779 = getelementptr inbounds i8, ptr %mib767, i64 16
   store i64 %conv41, ptr %arrayidx779, align 16
   %200 = load i64, ptr %miblen768, align 8
   %call782 = call i32 @mallctlbymib(ptr noundef nonnull %mib767, i64 noundef %200, ptr noundef nonnull %retained, ptr noundef nonnull %sz769, ptr noundef null, i64 noundef 0) #13
@@ -7156,10 +7156,10 @@ for.body.i644:                                    ; preds = %do.end788, %for.bod
   %205 = load i32, ptr %col.011.i645.sroa.phi1066, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %203, i32 noundef %204, i32 noundef %205, ptr noundef nonnull %col.011.i645.sroa.phi1069)
   %206 = load ptr, ptr %col.011.i645.sroa.phi1072, align 8
-  %.sroa.gep1073 = getelementptr inbounds %struct.emitter_col_s, ptr %206, i64 0, i32 4
-  %.sroa.gep1070 = getelementptr inbounds %struct.emitter_col_s, ptr %206, i64 0, i32 3
-  %.sroa.gep1067 = getelementptr inbounds %struct.emitter_col_s, ptr %206, i64 0, i32 2
-  %.sroa.gep1064 = getelementptr inbounds %struct.emitter_col_s, ptr %206, i64 0, i32 1
+  %.sroa.gep1073 = getelementptr inbounds i8, ptr %206, i64 24
+  %.sroa.gep1070 = getelementptr inbounds i8, ptr %206, i64 16
+  %.sroa.gep1067 = getelementptr inbounds i8, ptr %206, i64 8
+  %.sroa.gep1064 = getelementptr inbounds i8, ptr %206, i64 4
   %cmp4.not.i649 = icmp eq ptr %206, %mem_count_title
   %cmp1.not12.i650 = icmp eq ptr %206, null
   %cmp1.not.i651 = or i1 %cmp4.not.i649, %cmp1.not12.i650
@@ -7182,7 +7182,7 @@ if.then798:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end800:                                        ; preds = %emitter_table_row.exit653
-  %arrayidx802 = getelementptr inbounds [7 x i64], ptr %mib790, i64 0, i64 2
+  %arrayidx802 = getelementptr inbounds i8, ptr %mib790, i64 16
   store i64 %conv41, ptr %arrayidx802, align 16
   %207 = load i64, ptr %miblen791, align 8
   %call805 = call i32 @mallctlbymib(ptr noundef nonnull %mib790, i64 noundef %207, ptr noundef nonnull %base, ptr noundef nonnull %sz792, ptr noundef null, i64 noundef 0) #13
@@ -7215,10 +7215,10 @@ for.body.i657:                                    ; preds = %do.end811, %for.bod
   %212 = load i32, ptr %col.011.i658.sroa.phi1055, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %210, i32 noundef %211, i32 noundef %212, ptr noundef nonnull %col.011.i658.sroa.phi1058)
   %213 = load ptr, ptr %col.011.i658.sroa.phi1061, align 8
-  %.sroa.gep1062 = getelementptr inbounds %struct.emitter_col_s, ptr %213, i64 0, i32 4
-  %.sroa.gep1059 = getelementptr inbounds %struct.emitter_col_s, ptr %213, i64 0, i32 3
-  %.sroa.gep1056 = getelementptr inbounds %struct.emitter_col_s, ptr %213, i64 0, i32 2
-  %.sroa.gep1053 = getelementptr inbounds %struct.emitter_col_s, ptr %213, i64 0, i32 1
+  %.sroa.gep1062 = getelementptr inbounds i8, ptr %213, i64 24
+  %.sroa.gep1059 = getelementptr inbounds i8, ptr %213, i64 16
+  %.sroa.gep1056 = getelementptr inbounds i8, ptr %213, i64 8
+  %.sroa.gep1053 = getelementptr inbounds i8, ptr %213, i64 4
   %cmp4.not.i662 = icmp eq ptr %213, %mem_count_title
   %cmp1.not12.i663 = icmp eq ptr %213, null
   %cmp1.not.i664 = or i1 %cmp4.not.i662, %cmp1.not12.i663
@@ -7241,7 +7241,7 @@ if.then821:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end823:                                        ; preds = %emitter_table_row.exit666
-  %arrayidx825 = getelementptr inbounds [7 x i64], ptr %mib813, i64 0, i64 2
+  %arrayidx825 = getelementptr inbounds i8, ptr %mib813, i64 16
   store i64 %conv41, ptr %arrayidx825, align 16
   %214 = load i64, ptr %miblen814, align 8
   %call828 = call i32 @mallctlbymib(ptr noundef nonnull %mib813, i64 noundef %214, ptr noundef nonnull %internal, ptr noundef nonnull %sz815, ptr noundef null, i64 noundef 0) #13
@@ -7274,10 +7274,10 @@ for.body.i670:                                    ; preds = %do.end834, %for.bod
   %219 = load i32, ptr %col.011.i671.sroa.phi1044, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %217, i32 noundef %218, i32 noundef %219, ptr noundef nonnull %col.011.i671.sroa.phi1047)
   %220 = load ptr, ptr %col.011.i671.sroa.phi1050, align 8
-  %.sroa.gep1051 = getelementptr inbounds %struct.emitter_col_s, ptr %220, i64 0, i32 4
-  %.sroa.gep1048 = getelementptr inbounds %struct.emitter_col_s, ptr %220, i64 0, i32 3
-  %.sroa.gep1045 = getelementptr inbounds %struct.emitter_col_s, ptr %220, i64 0, i32 2
-  %.sroa.gep1042 = getelementptr inbounds %struct.emitter_col_s, ptr %220, i64 0, i32 1
+  %.sroa.gep1051 = getelementptr inbounds i8, ptr %220, i64 24
+  %.sroa.gep1048 = getelementptr inbounds i8, ptr %220, i64 16
+  %.sroa.gep1045 = getelementptr inbounds i8, ptr %220, i64 8
+  %.sroa.gep1042 = getelementptr inbounds i8, ptr %220, i64 4
   %cmp4.not.i675 = icmp eq ptr %220, %mem_count_title
   %cmp1.not12.i676 = icmp eq ptr %220, null
   %cmp1.not.i677 = or i1 %cmp4.not.i675, %cmp1.not12.i676
@@ -7300,7 +7300,7 @@ if.then844:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end846:                                        ; preds = %emitter_table_row.exit679
-  %arrayidx848 = getelementptr inbounds [7 x i64], ptr %mib836, i64 0, i64 2
+  %arrayidx848 = getelementptr inbounds i8, ptr %mib836, i64 16
   store i64 %conv41, ptr %arrayidx848, align 16
   %221 = load i64, ptr %miblen837, align 8
   %call851 = call i32 @mallctlbymib(ptr noundef nonnull %mib836, i64 noundef %221, ptr noundef nonnull %metadata_edata, ptr noundef nonnull %sz838, ptr noundef null, i64 noundef 0) #13
@@ -7333,10 +7333,10 @@ for.body.i683:                                    ; preds = %do.end857, %for.bod
   %226 = load i32, ptr %col.011.i684.sroa.phi1033, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %224, i32 noundef %225, i32 noundef %226, ptr noundef nonnull %col.011.i684.sroa.phi1036)
   %227 = load ptr, ptr %col.011.i684.sroa.phi1039, align 8
-  %.sroa.gep1040 = getelementptr inbounds %struct.emitter_col_s, ptr %227, i64 0, i32 4
-  %.sroa.gep1037 = getelementptr inbounds %struct.emitter_col_s, ptr %227, i64 0, i32 3
-  %.sroa.gep1034 = getelementptr inbounds %struct.emitter_col_s, ptr %227, i64 0, i32 2
-  %.sroa.gep1031 = getelementptr inbounds %struct.emitter_col_s, ptr %227, i64 0, i32 1
+  %.sroa.gep1040 = getelementptr inbounds i8, ptr %227, i64 24
+  %.sroa.gep1037 = getelementptr inbounds i8, ptr %227, i64 16
+  %.sroa.gep1034 = getelementptr inbounds i8, ptr %227, i64 8
+  %.sroa.gep1031 = getelementptr inbounds i8, ptr %227, i64 4
   %cmp4.not.i688 = icmp eq ptr %227, %mem_count_title
   %cmp1.not12.i689 = icmp eq ptr %227, null
   %cmp1.not.i690 = or i1 %cmp4.not.i688, %cmp1.not12.i689
@@ -7359,7 +7359,7 @@ if.then867:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end869:                                        ; preds = %emitter_table_row.exit692
-  %arrayidx871 = getelementptr inbounds [7 x i64], ptr %mib859, i64 0, i64 2
+  %arrayidx871 = getelementptr inbounds i8, ptr %mib859, i64 16
   store i64 %conv41, ptr %arrayidx871, align 16
   %228 = load i64, ptr %miblen860, align 8
   %call874 = call i32 @mallctlbymib(ptr noundef nonnull %mib859, i64 noundef %228, ptr noundef nonnull %metadata_rtree, ptr noundef nonnull %sz861, ptr noundef null, i64 noundef 0) #13
@@ -7392,10 +7392,10 @@ for.body.i696:                                    ; preds = %do.end880, %for.bod
   %233 = load i32, ptr %col.011.i697.sroa.phi1022, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %231, i32 noundef %232, i32 noundef %233, ptr noundef nonnull %col.011.i697.sroa.phi1025)
   %234 = load ptr, ptr %col.011.i697.sroa.phi1028, align 8
-  %.sroa.gep1029 = getelementptr inbounds %struct.emitter_col_s, ptr %234, i64 0, i32 4
-  %.sroa.gep1026 = getelementptr inbounds %struct.emitter_col_s, ptr %234, i64 0, i32 3
-  %.sroa.gep1023 = getelementptr inbounds %struct.emitter_col_s, ptr %234, i64 0, i32 2
-  %.sroa.gep1020 = getelementptr inbounds %struct.emitter_col_s, ptr %234, i64 0, i32 1
+  %.sroa.gep1029 = getelementptr inbounds i8, ptr %234, i64 24
+  %.sroa.gep1026 = getelementptr inbounds i8, ptr %234, i64 16
+  %.sroa.gep1023 = getelementptr inbounds i8, ptr %234, i64 8
+  %.sroa.gep1020 = getelementptr inbounds i8, ptr %234, i64 4
   %cmp4.not.i701 = icmp eq ptr %234, %mem_count_title
   %cmp1.not12.i702 = icmp eq ptr %234, null
   %cmp1.not.i703 = or i1 %cmp4.not.i701, %cmp1.not12.i702
@@ -7418,7 +7418,7 @@ if.then890:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end892:                                        ; preds = %emitter_table_row.exit705
-  %arrayidx894 = getelementptr inbounds [7 x i64], ptr %mib882, i64 0, i64 2
+  %arrayidx894 = getelementptr inbounds i8, ptr %mib882, i64 16
   store i64 %conv41, ptr %arrayidx894, align 16
   %235 = load i64, ptr %miblen883, align 8
   %call897 = call i32 @mallctlbymib(ptr noundef nonnull %mib882, i64 noundef %235, ptr noundef nonnull %metadata_thp, ptr noundef nonnull %sz884, ptr noundef null, i64 noundef 0) #13
@@ -7451,10 +7451,10 @@ for.body.i709:                                    ; preds = %do.end903, %for.bod
   %240 = load i32, ptr %col.011.i710.sroa.phi1011, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %238, i32 noundef %239, i32 noundef %240, ptr noundef nonnull %col.011.i710.sroa.phi1014)
   %241 = load ptr, ptr %col.011.i710.sroa.phi1017, align 8
-  %.sroa.gep1018 = getelementptr inbounds %struct.emitter_col_s, ptr %241, i64 0, i32 4
-  %.sroa.gep1015 = getelementptr inbounds %struct.emitter_col_s, ptr %241, i64 0, i32 3
-  %.sroa.gep1012 = getelementptr inbounds %struct.emitter_col_s, ptr %241, i64 0, i32 2
-  %.sroa.gep1009 = getelementptr inbounds %struct.emitter_col_s, ptr %241, i64 0, i32 1
+  %.sroa.gep1018 = getelementptr inbounds i8, ptr %241, i64 24
+  %.sroa.gep1015 = getelementptr inbounds i8, ptr %241, i64 16
+  %.sroa.gep1012 = getelementptr inbounds i8, ptr %241, i64 8
+  %.sroa.gep1009 = getelementptr inbounds i8, ptr %241, i64 4
   %cmp4.not.i714 = icmp eq ptr %241, %mem_count_title
   %cmp1.not12.i715 = icmp eq ptr %241, null
   %cmp1.not.i716 = or i1 %cmp4.not.i714, %cmp1.not12.i715
@@ -7477,7 +7477,7 @@ if.then913:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end915:                                        ; preds = %emitter_table_row.exit718
-  %arrayidx917 = getelementptr inbounds [7 x i64], ptr %mib905, i64 0, i64 2
+  %arrayidx917 = getelementptr inbounds i8, ptr %mib905, i64 16
   store i64 %conv41, ptr %arrayidx917, align 16
   %242 = load i64, ptr %miblen906, align 8
   %call920 = call i32 @mallctlbymib(ptr noundef nonnull %mib905, i64 noundef %242, ptr noundef nonnull %tcache_bytes, ptr noundef nonnull %sz907, ptr noundef null, i64 noundef 0) #13
@@ -7510,10 +7510,10 @@ for.body.i722:                                    ; preds = %do.end926, %for.bod
   %247 = load i32, ptr %col.011.i723.sroa.phi1000, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %245, i32 noundef %246, i32 noundef %247, ptr noundef nonnull %col.011.i723.sroa.phi1003)
   %248 = load ptr, ptr %col.011.i723.sroa.phi1006, align 8
-  %.sroa.gep1007 = getelementptr inbounds %struct.emitter_col_s, ptr %248, i64 0, i32 4
-  %.sroa.gep1004 = getelementptr inbounds %struct.emitter_col_s, ptr %248, i64 0, i32 3
-  %.sroa.gep1001 = getelementptr inbounds %struct.emitter_col_s, ptr %248, i64 0, i32 2
-  %.sroa.gep998 = getelementptr inbounds %struct.emitter_col_s, ptr %248, i64 0, i32 1
+  %.sroa.gep1007 = getelementptr inbounds i8, ptr %248, i64 24
+  %.sroa.gep1004 = getelementptr inbounds i8, ptr %248, i64 16
+  %.sroa.gep1001 = getelementptr inbounds i8, ptr %248, i64 8
+  %.sroa.gep998 = getelementptr inbounds i8, ptr %248, i64 4
   %cmp4.not.i727 = icmp eq ptr %248, %mem_count_title
   %cmp1.not12.i728 = icmp eq ptr %248, null
   %cmp1.not.i729 = or i1 %cmp4.not.i727, %cmp1.not12.i728
@@ -7536,7 +7536,7 @@ if.then936:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end938:                                        ; preds = %emitter_table_row.exit731
-  %arrayidx940 = getelementptr inbounds [7 x i64], ptr %mib928, i64 0, i64 2
+  %arrayidx940 = getelementptr inbounds i8, ptr %mib928, i64 16
   store i64 %conv41, ptr %arrayidx940, align 16
   %249 = load i64, ptr %miblen929, align 8
   %call943 = call i32 @mallctlbymib(ptr noundef nonnull %mib928, i64 noundef %249, ptr noundef nonnull %tcache_stashed_bytes, ptr noundef nonnull %sz930, ptr noundef null, i64 noundef 0) #13
@@ -7569,10 +7569,10 @@ for.body.i735:                                    ; preds = %do.end949, %for.bod
   %254 = load i32, ptr %col.011.i736.sroa.phi989, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %252, i32 noundef %253, i32 noundef %254, ptr noundef nonnull %col.011.i736.sroa.phi992)
   %255 = load ptr, ptr %col.011.i736.sroa.phi995, align 8
-  %.sroa.gep996 = getelementptr inbounds %struct.emitter_col_s, ptr %255, i64 0, i32 4
-  %.sroa.gep993 = getelementptr inbounds %struct.emitter_col_s, ptr %255, i64 0, i32 3
-  %.sroa.gep990 = getelementptr inbounds %struct.emitter_col_s, ptr %255, i64 0, i32 2
-  %.sroa.gep987 = getelementptr inbounds %struct.emitter_col_s, ptr %255, i64 0, i32 1
+  %.sroa.gep996 = getelementptr inbounds i8, ptr %255, i64 24
+  %.sroa.gep993 = getelementptr inbounds i8, ptr %255, i64 16
+  %.sroa.gep990 = getelementptr inbounds i8, ptr %255, i64 8
+  %.sroa.gep987 = getelementptr inbounds i8, ptr %255, i64 4
   %cmp4.not.i740 = icmp eq ptr %255, %mem_count_title
   %cmp1.not12.i741 = icmp eq ptr %255, null
   %cmp1.not.i742 = or i1 %cmp4.not.i740, %cmp1.not12.i741
@@ -7595,7 +7595,7 @@ if.then959:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end961:                                        ; preds = %emitter_table_row.exit744
-  %arrayidx963 = getelementptr inbounds [7 x i64], ptr %mib951, i64 0, i64 2
+  %arrayidx963 = getelementptr inbounds i8, ptr %mib951, i64 16
   store i64 %conv41, ptr %arrayidx963, align 16
   %256 = load i64, ptr %miblen952, align 8
   %call966 = call i32 @mallctlbymib(ptr noundef nonnull %mib951, i64 noundef %256, ptr noundef nonnull %resident, ptr noundef nonnull %sz953, ptr noundef null, i64 noundef 0) #13
@@ -7628,10 +7628,10 @@ for.body.i748:                                    ; preds = %do.end972, %for.bod
   %261 = load i32, ptr %col.011.i749.sroa.phi978, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %259, i32 noundef %260, i32 noundef %261, ptr noundef nonnull %col.011.i749.sroa.phi981)
   %262 = load ptr, ptr %col.011.i749.sroa.phi984, align 8
-  %.sroa.gep985 = getelementptr inbounds %struct.emitter_col_s, ptr %262, i64 0, i32 4
-  %.sroa.gep982 = getelementptr inbounds %struct.emitter_col_s, ptr %262, i64 0, i32 3
-  %.sroa.gep979 = getelementptr inbounds %struct.emitter_col_s, ptr %262, i64 0, i32 2
-  %.sroa.gep976 = getelementptr inbounds %struct.emitter_col_s, ptr %262, i64 0, i32 1
+  %.sroa.gep985 = getelementptr inbounds i8, ptr %262, i64 24
+  %.sroa.gep982 = getelementptr inbounds i8, ptr %262, i64 16
+  %.sroa.gep979 = getelementptr inbounds i8, ptr %262, i64 8
+  %.sroa.gep976 = getelementptr inbounds i8, ptr %262, i64 4
   %cmp4.not.i753 = icmp eq ptr %262, %mem_count_title
   %cmp1.not12.i754 = icmp eq ptr %262, null
   %cmp1.not.i755 = or i1 %cmp4.not.i753, %cmp1.not12.i754
@@ -7654,7 +7654,7 @@ if.then982:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end984:                                        ; preds = %emitter_table_row.exit757
-  %arrayidx986 = getelementptr inbounds [7 x i64], ptr %mib974, i64 0, i64 2
+  %arrayidx986 = getelementptr inbounds i8, ptr %mib974, i64 16
   store i64 %conv41, ptr %arrayidx986, align 16
   %263 = load i64, ptr %miblen975, align 8
   %call989 = call i32 @mallctlbymib(ptr noundef nonnull %mib974, i64 noundef %263, ptr noundef nonnull %abandoned_vm, ptr noundef nonnull %sz976, ptr noundef null, i64 noundef 0) #13
@@ -7687,10 +7687,10 @@ for.body.i761:                                    ; preds = %do.end995, %for.bod
   %268 = load i32, ptr %col.011.i762.sroa.phi967, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %266, i32 noundef %267, i32 noundef %268, ptr noundef nonnull %col.011.i762.sroa.phi970)
   %269 = load ptr, ptr %col.011.i762.sroa.phi973, align 8
-  %.sroa.gep974 = getelementptr inbounds %struct.emitter_col_s, ptr %269, i64 0, i32 4
-  %.sroa.gep971 = getelementptr inbounds %struct.emitter_col_s, ptr %269, i64 0, i32 3
-  %.sroa.gep968 = getelementptr inbounds %struct.emitter_col_s, ptr %269, i64 0, i32 2
-  %.sroa.gep965 = getelementptr inbounds %struct.emitter_col_s, ptr %269, i64 0, i32 1
+  %.sroa.gep974 = getelementptr inbounds i8, ptr %269, i64 24
+  %.sroa.gep971 = getelementptr inbounds i8, ptr %269, i64 16
+  %.sroa.gep968 = getelementptr inbounds i8, ptr %269, i64 8
+  %.sroa.gep965 = getelementptr inbounds i8, ptr %269, i64 4
   %cmp4.not.i766 = icmp eq ptr %269, %mem_count_title
   %cmp1.not12.i767 = icmp eq ptr %269, null
   %cmp1.not.i768 = or i1 %cmp4.not.i766, %cmp1.not12.i767
@@ -7713,7 +7713,7 @@ if.then1005:                                      ; preds = %emitter_table_row.e
   unreachable
 
 do.end1007:                                       ; preds = %emitter_table_row.exit770
-  %arrayidx1009 = getelementptr inbounds [7 x i64], ptr %mib997, i64 0, i64 2
+  %arrayidx1009 = getelementptr inbounds i8, ptr %mib997, i64 16
   store i64 %conv41, ptr %arrayidx1009, align 16
   %270 = load i64, ptr %miblen998, align 8
   %call1012 = call i32 @mallctlbymib(ptr noundef nonnull %mib997, i64 noundef %270, ptr noundef nonnull %extent_avail, ptr noundef nonnull %sz999, ptr noundef null, i64 noundef 0) #13
@@ -7746,10 +7746,10 @@ for.body.i774:                                    ; preds = %do.end1018, %for.bo
   %275 = load i32, ptr %col.011.i775.sroa.phi956, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %273, i32 noundef %274, i32 noundef %275, ptr noundef nonnull %col.011.i775.sroa.phi959)
   %276 = load ptr, ptr %col.011.i775.sroa.phi962, align 8
-  %.sroa.gep963 = getelementptr inbounds %struct.emitter_col_s, ptr %276, i64 0, i32 4
-  %.sroa.gep960 = getelementptr inbounds %struct.emitter_col_s, ptr %276, i64 0, i32 3
-  %.sroa.gep957 = getelementptr inbounds %struct.emitter_col_s, ptr %276, i64 0, i32 2
-  %.sroa.gep = getelementptr inbounds %struct.emitter_col_s, ptr %276, i64 0, i32 1
+  %.sroa.gep963 = getelementptr inbounds i8, ptr %276, i64 24
+  %.sroa.gep960 = getelementptr inbounds i8, ptr %276, i64 16
+  %.sroa.gep957 = getelementptr inbounds i8, ptr %276, i64 8
+  %.sroa.gep = getelementptr inbounds i8, ptr %276, i64 4
   %cmp4.not.i779 = icmp eq ptr %276, %mem_count_title
   %cmp1.not12.i780 = icmp eq ptr %276, null
   %cmp1.not.i781 = or i1 %cmp4.not.i779, %cmp1.not12.i780
@@ -7787,13 +7787,13 @@ if.end.i.i:                                       ; preds = %if.then1019
 for.body.i.i787:                                  ; preds = %if.end.i.i, %for.body.i.i787
   %col.011.i.i = phi ptr [ %284, %for.body.i.i787 ], [ %279, %if.end.i.i ]
   %280 = load i32, ptr %col.011.i.i, align 8
-  %width.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i.i, i64 0, i32 1
+  %width.i.i = getelementptr inbounds i8, ptr %col.011.i.i, i64 4
   %281 = load i32, ptr %width.i.i, align 4
-  %type.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i.i, i64 0, i32 2
+  %type.i.i = getelementptr inbounds i8, ptr %col.011.i.i, i64 8
   %282 = load i32, ptr %type.i.i, align 8
-  %283 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i.i, i64 0, i32 3
+  %283 = getelementptr inbounds i8, ptr %col.011.i.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %280, i32 noundef %281, i32 noundef %282, ptr noundef nonnull %283)
-  %link.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i.i, i64 0, i32 4
+  %link.i.i = getelementptr inbounds i8, ptr %col.011.i.i, i64 24
   %284 = load ptr, ptr %link.i.i, align 8
   %285 = load ptr, ptr %row.i, align 8
   %cmp4.not.i.i = icmp eq ptr %284, %285
@@ -7808,7 +7808,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i787, %i
 emitter_table_row.exit.i:                         ; preds = %for.end.i.i, %if.then1019
   store i64 7, ptr %miblen_new.i, align 8
   %286 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i64.i = getelementptr inbounds %struct.tsd_s, ptr %286, i64 0, i32 30
+  %state.i64.i = getelementptr inbounds i8, ptr %286, i64 824
   %287 = load i8, ptr %state.i64.i, align 8
   %cmp6.i.not.i = icmp eq i8 %287, 0
   br i1 %cmp6.i.not.i, label %tsd_fetch_impl.exit.i, label %if.then11.i.i
@@ -7829,7 +7829,7 @@ if.then.i:                                        ; preds = %tsd_fetch_impl.exit
   unreachable
 
 do.end9.i:                                        ; preds = %tsd_fetch_impl.exit.i
-  %arrayidx.i = getelementptr inbounds [7 x i64], ptr %stats_arenas_mib.i, i64 0, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i, i64 16
   store i64 %conv41, ptr %arrayidx.i, align 16
   store i64 7, ptr %miblen_new13.i, align 8
   %288 = load i8, ptr %state.i64.i, align 8
@@ -7847,36 +7847,36 @@ tsd_fetch_impl.exit59.i:                          ; preds = %if.then11.i53.i, %d
   br i1 %cmp18.not.i, label %for.cond.preheader.i, label %if.then20.i
 
 for.cond.preheader.i:                             ; preds = %tsd_fetch_impl.exit59.i
-  %289 = getelementptr inbounds %struct.emitter_col_s, ptr %col_name.i, i64 0, i32 3
-  %type.i18.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 0, i32 2
-  %290 = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 0, i32 3
-  %type23.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 1, i32 2
+  %289 = getelementptr inbounds i8, ptr %col_name.i, i64 16
+  %type.i18.i = getelementptr inbounds i8, ptr %col64.i, i64 8
+  %290 = getelementptr inbounds i8, ptr %col64.i, i64 16
+  %type23.i.i = getelementptr inbounds i8, ptr %col64.i, i64 48
   %cmp.i.i.i = icmp eq i64 %277, 0
   %cmp2.i.i.i = icmp ult i64 %277, 1000000000
   %div.i.i.i = udiv i64 %277, 1000000000
-  %291 = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 1, i32 3
-  %type27.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 2, i32 2
-  %292 = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 2, i32 3
-  %type44.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 3, i32 2
-  %293 = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 3, i32 3
-  %type49.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 4, i32 2
-  %294 = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 4, i32 3
-  %type66.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 5, i32 2
-  %295 = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 5, i32 3
-  %type71.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 6, i32 2
-  %296 = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 6, i32 3
-  %type88.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 7, i32 2
-  %297 = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 7, i32 3
-  %type93.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 8, i32 2
-  %298 = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 8, i32 3
-  %type110.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 9, i32 2
-  %299 = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 9, i32 3
-  %type115.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 10, i32 2
-  %300 = getelementptr inbounds %struct.emitter_col_s, ptr %col64.i, i64 10, i32 3
-  %type132.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col32.i, i64 0, i32 2
-  %301 = getelementptr inbounds %struct.emitter_col_s, ptr %col32.i, i64 0, i32 3
-  %nesting_depth.i.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
-  %item_at_depth.i.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %291 = getelementptr inbounds i8, ptr %col64.i, i64 56
+  %type27.i.i = getelementptr inbounds i8, ptr %col64.i, i64 88
+  %292 = getelementptr inbounds i8, ptr %col64.i, i64 96
+  %type44.i.i = getelementptr inbounds i8, ptr %col64.i, i64 128
+  %293 = getelementptr inbounds i8, ptr %col64.i, i64 136
+  %type49.i.i = getelementptr inbounds i8, ptr %col64.i, i64 168
+  %294 = getelementptr inbounds i8, ptr %col64.i, i64 176
+  %type66.i.i = getelementptr inbounds i8, ptr %col64.i, i64 208
+  %295 = getelementptr inbounds i8, ptr %col64.i, i64 216
+  %type71.i.i = getelementptr inbounds i8, ptr %col64.i, i64 248
+  %296 = getelementptr inbounds i8, ptr %col64.i, i64 256
+  %type88.i.i = getelementptr inbounds i8, ptr %col64.i, i64 288
+  %297 = getelementptr inbounds i8, ptr %col64.i, i64 296
+  %type93.i.i = getelementptr inbounds i8, ptr %col64.i, i64 328
+  %298 = getelementptr inbounds i8, ptr %col64.i, i64 336
+  %type110.i.i = getelementptr inbounds i8, ptr %col64.i, i64 368
+  %299 = getelementptr inbounds i8, ptr %col64.i, i64 376
+  %type115.i.i = getelementptr inbounds i8, ptr %col64.i, i64 408
+  %300 = getelementptr inbounds i8, ptr %col64.i, i64 416
+  %type132.i.i = getelementptr inbounds i8, ptr %col32.i, i64 8
+  %301 = getelementptr inbounds i8, ptr %col32.i, i64 16
+  %nesting_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %item_at_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
   br label %for.body.i785
 
 if.then20.i:                                      ; preds = %tsd_fetch_impl.exit59.i
@@ -8406,7 +8406,7 @@ if.then.i791:                                     ; preds = %if.then1032
   unreachable
 
 do.end.i792:                                      ; preds = %if.then1032
-  %arrayidx.i794 = getelementptr inbounds [7 x i64], ptr %mib.i, i64 0, i64 2
+  %arrayidx.i794 = getelementptr inbounds i8, ptr %mib.i, i64 16
   store i64 %conv41, ptr %arrayidx.i794, align 16
   %325 = load i64, ptr %miblen.i, align 8
   %call4.i = call i32 @mallctlbymib(ptr noundef nonnull %mib.i, i64 noundef %325, ptr noundef nonnull %npurge_passes.i, ptr noundef nonnull %sz.i, ptr noundef null, i64 noundef 0) #13
@@ -8431,7 +8431,7 @@ if.then20.i797:                                   ; preds = %do.body11.i
   unreachable
 
 do.end22.i:                                       ; preds = %do.body11.i
-  %arrayidx24.i = getelementptr inbounds [7 x i64], ptr %mib12.i, i64 0, i64 2
+  %arrayidx24.i = getelementptr inbounds i8, ptr %mib12.i, i64 16
   store i64 %conv41, ptr %arrayidx24.i, align 16
   %326 = load i64, ptr %miblen13.i, align 8
   %call27.i = call i32 @mallctlbymib(ptr noundef nonnull %mib12.i, i64 noundef %326, ptr noundef nonnull %npurges.i, ptr noundef nonnull %sz14.i, ptr noundef null, i64 noundef 0) #13
@@ -8456,7 +8456,7 @@ if.then43.i:                                      ; preds = %do.body34.i
   unreachable
 
 do.end45.i:                                       ; preds = %do.body34.i
-  %arrayidx47.i = getelementptr inbounds [7 x i64], ptr %mib35.i, i64 0, i64 2
+  %arrayidx47.i = getelementptr inbounds i8, ptr %mib35.i, i64 16
   store i64 %conv41, ptr %arrayidx47.i, align 16
   %327 = load i64, ptr %miblen36.i, align 8
   %call50.i = call i32 @mallctlbymib(ptr noundef nonnull %mib35.i, i64 noundef %327, ptr noundef nonnull %nhugifies.i, ptr noundef nonnull %sz37.i, ptr noundef null, i64 noundef 0) #13
@@ -8481,7 +8481,7 @@ if.then66.i:                                      ; preds = %do.body57.i
   unreachable
 
 do.end68.i:                                       ; preds = %do.body57.i
-  %arrayidx70.i = getelementptr inbounds [7 x i64], ptr %mib58.i, i64 0, i64 2
+  %arrayidx70.i = getelementptr inbounds i8, ptr %mib58.i, i64 16
   store i64 %conv41, ptr %arrayidx70.i, align 16
   %328 = load i64, ptr %miblen59.i, align 8
   %call73.i = call i32 @mallctlbymib(ptr noundef nonnull %mib58.i, i64 noundef %328, ptr noundef nonnull %ndehugifies.i, ptr noundef nonnull %sz60.i, ptr noundef null, i64 noundef 0) #13
@@ -8506,7 +8506,7 @@ if.then89.i:                                      ; preds = %do.body80.i
   unreachable
 
 do.end91.i:                                       ; preds = %do.body80.i
-  %arrayidx93.i = getelementptr inbounds [7 x i64], ptr %mib81.i, i64 0, i64 2
+  %arrayidx93.i = getelementptr inbounds i8, ptr %mib81.i, i64 16
   store i64 %conv41, ptr %arrayidx93.i, align 16
   %329 = load i64, ptr %miblen82.i, align 8
   %call96.i = call i32 @mallctlbymib(ptr noundef nonnull %mib81.i, i64 noundef %329, ptr noundef nonnull %sec_bytes.i, ptr noundef nonnull %sz83.i, ptr noundef null, i64 noundef 0) #13
@@ -8608,7 +8608,7 @@ if.then116.i:                                     ; preds = %rate_per_second.exi
   unreachable
 
 do.end118.i:                                      ; preds = %rate_per_second.exit132.i
-  %arrayidx120.i = getelementptr inbounds [7 x i64], ptr %mib108.i, i64 0, i64 2
+  %arrayidx120.i = getelementptr inbounds i8, ptr %mib108.i, i64 16
   store i64 %conv41, ptr %arrayidx120.i, align 16
   %334 = load i64, ptr %miblen109.i, align 8
   %call123.i = call i32 @mallctlbymib(ptr noundef nonnull %mib108.i, i64 noundef %334, ptr noundef nonnull %npageslabs_huge.i, ptr noundef nonnull %sz110.i, ptr noundef null, i64 noundef 0) #13
@@ -8633,7 +8633,7 @@ if.then139.i:                                     ; preds = %do.body130.i
   unreachable
 
 do.end141.i:                                      ; preds = %do.body130.i
-  %arrayidx143.i = getelementptr inbounds [7 x i64], ptr %mib131.i, i64 0, i64 2
+  %arrayidx143.i = getelementptr inbounds i8, ptr %mib131.i, i64 16
   store i64 %conv41, ptr %arrayidx143.i, align 16
   %335 = load i64, ptr %miblen132.i, align 8
   %call146.i = call i32 @mallctlbymib(ptr noundef nonnull %mib131.i, i64 noundef %335, ptr noundef nonnull %nactive_huge.i, ptr noundef nonnull %sz133.i, ptr noundef null, i64 noundef 0) #13
@@ -8658,7 +8658,7 @@ if.then162.i:                                     ; preds = %do.body153.i
   unreachable
 
 do.end164.i:                                      ; preds = %do.body153.i
-  %arrayidx166.i = getelementptr inbounds [7 x i64], ptr %mib154.i, i64 0, i64 2
+  %arrayidx166.i = getelementptr inbounds i8, ptr %mib154.i, i64 16
   store i64 %conv41, ptr %arrayidx166.i, align 16
   %336 = load i64, ptr %miblen155.i, align 8
   %call169.i = call i32 @mallctlbymib(ptr noundef nonnull %mib154.i, i64 noundef %336, ptr noundef nonnull %ndirty_huge.i, ptr noundef nonnull %sz156.i, ptr noundef null, i64 noundef 0) #13
@@ -8683,7 +8683,7 @@ if.then185.i:                                     ; preds = %do.body176.i
   unreachable
 
 do.end187.i:                                      ; preds = %do.body176.i
-  %arrayidx189.i = getelementptr inbounds [7 x i64], ptr %mib177.i, i64 0, i64 2
+  %arrayidx189.i = getelementptr inbounds i8, ptr %mib177.i, i64 16
   store i64 %conv41, ptr %arrayidx189.i, align 16
   %337 = load i64, ptr %miblen178.i, align 8
   %call192.i = call i32 @mallctlbymib(ptr noundef nonnull %mib177.i, i64 noundef %337, ptr noundef nonnull %npageslabs_nonhuge.i, ptr noundef nonnull %sz179.i, ptr noundef null, i64 noundef 0) #13
@@ -8708,7 +8708,7 @@ if.then208.i:                                     ; preds = %do.body199.i
   unreachable
 
 do.end210.i:                                      ; preds = %do.body199.i
-  %arrayidx212.i = getelementptr inbounds [7 x i64], ptr %mib200.i, i64 0, i64 2
+  %arrayidx212.i = getelementptr inbounds i8, ptr %mib200.i, i64 16
   store i64 %conv41, ptr %arrayidx212.i, align 16
   %338 = load i64, ptr %miblen201.i, align 8
   %call215.i = call i32 @mallctlbymib(ptr noundef nonnull %mib200.i, i64 noundef %338, ptr noundef nonnull %nactive_nonhuge.i, ptr noundef nonnull %sz202.i, ptr noundef null, i64 noundef 0) #13
@@ -8733,7 +8733,7 @@ if.then231.i:                                     ; preds = %do.body222.i
   unreachable
 
 do.end233.i:                                      ; preds = %do.body222.i
-  %arrayidx235.i = getelementptr inbounds [7 x i64], ptr %mib223.i, i64 0, i64 2
+  %arrayidx235.i = getelementptr inbounds i8, ptr %mib223.i, i64 16
   store i64 %conv41, ptr %arrayidx235.i, align 16
   %339 = load i64, ptr %miblen224.i, align 8
   %call238.i = call i32 @mallctlbymib(ptr noundef nonnull %mib223.i, i64 noundef %339, ptr noundef nonnull %ndirty_nonhuge.i, ptr noundef nonnull %sz225.i, ptr noundef null, i64 noundef 0) #13
@@ -8775,11 +8775,11 @@ do.end244.i:                                      ; preds = %do.end233.i
   br i1 %spec.select.i.i.i801, label %do.end.i.i828, label %emitter_json_object_end.exit.i802
 
 do.end.i.i828:                                    ; preds = %do.end244.i
-  %nesting_depth.i.i.i829 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i.i829 = getelementptr inbounds i8, ptr %emitter, i64 24
   %347 = load i32, ptr %nesting_depth.i.i.i829, align 8
   %dec.i.i.i830 = add nsw i32 %347, -1
   store i32 %dec.i.i.i830, ptr %nesting_depth.i.i.i829, align 8
-  %item_at_depth.i.i.i831 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i.i831 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i.i831, align 4
   %cmp.not.i.i832 = icmp eq i32 %emitter.val.i.i800, 1
   br i1 %cmp.not.i.i832, label %if.end.i133.i, label %if.then1.i.i833
@@ -8823,7 +8823,7 @@ if.then255.i:                                     ; preds = %emitter_json_object
   unreachable
 
 do.end257.i:                                      ; preds = %emitter_json_object_end.exit.i802
-  %arrayidx259.i = getelementptr inbounds [7 x i64], ptr %mib247.i, i64 0, i64 2
+  %arrayidx259.i = getelementptr inbounds i8, ptr %mib247.i, i64 16
   store i64 %conv41, ptr %arrayidx259.i, align 16
   %350 = load i64, ptr %miblen248.i, align 8
   %call262.i = call i32 @mallctlbymib(ptr noundef nonnull %mib247.i, i64 noundef %350, ptr noundef nonnull %npageslabs_huge.i, ptr noundef nonnull %sz249.i, ptr noundef null, i64 noundef 0) #13
@@ -8848,7 +8848,7 @@ if.then278.i:                                     ; preds = %do.body269.i
   unreachable
 
 do.end280.i:                                      ; preds = %do.body269.i
-  %arrayidx282.i = getelementptr inbounds [7 x i64], ptr %mib270.i, i64 0, i64 2
+  %arrayidx282.i = getelementptr inbounds i8, ptr %mib270.i, i64 16
   store i64 %conv41, ptr %arrayidx282.i, align 16
   %351 = load i64, ptr %miblen271.i, align 8
   %call285.i = call i32 @mallctlbymib(ptr noundef nonnull %mib270.i, i64 noundef %351, ptr noundef nonnull %nactive_huge.i, ptr noundef nonnull %sz272.i, ptr noundef null, i64 noundef 0) #13
@@ -8873,7 +8873,7 @@ if.then301.i:                                     ; preds = %do.body292.i
   unreachable
 
 do.end303.i:                                      ; preds = %do.body292.i
-  %arrayidx305.i = getelementptr inbounds [7 x i64], ptr %mib293.i, i64 0, i64 2
+  %arrayidx305.i = getelementptr inbounds i8, ptr %mib293.i, i64 16
   store i64 %conv41, ptr %arrayidx305.i, align 16
   %352 = load i64, ptr %miblen294.i, align 8
   %call308.i = call i32 @mallctlbymib(ptr noundef nonnull %mib293.i, i64 noundef %352, ptr noundef nonnull %ndirty_huge.i, ptr noundef nonnull %sz295.i, ptr noundef null, i64 noundef 0) #13
@@ -8898,7 +8898,7 @@ if.then324.i:                                     ; preds = %do.body315.i
   unreachable
 
 do.end326.i:                                      ; preds = %do.body315.i
-  %arrayidx328.i = getelementptr inbounds [7 x i64], ptr %mib316.i, i64 0, i64 2
+  %arrayidx328.i = getelementptr inbounds i8, ptr %mib316.i, i64 16
   store i64 %conv41, ptr %arrayidx328.i, align 16
   %353 = load i64, ptr %miblen317.i, align 8
   %call331.i = call i32 @mallctlbymib(ptr noundef nonnull %mib316.i, i64 noundef %353, ptr noundef nonnull %npageslabs_nonhuge.i, ptr noundef nonnull %sz318.i, ptr noundef null, i64 noundef 0) #13
@@ -8923,7 +8923,7 @@ if.then347.i:                                     ; preds = %do.body338.i
   unreachable
 
 do.end349.i:                                      ; preds = %do.body338.i
-  %arrayidx351.i = getelementptr inbounds [7 x i64], ptr %mib339.i, i64 0, i64 2
+  %arrayidx351.i = getelementptr inbounds i8, ptr %mib339.i, i64 16
   store i64 %conv41, ptr %arrayidx351.i, align 16
   %354 = load i64, ptr %miblen340.i, align 8
   %call354.i = call i32 @mallctlbymib(ptr noundef nonnull %mib339.i, i64 noundef %354, ptr noundef nonnull %nactive_nonhuge.i, ptr noundef nonnull %sz341.i, ptr noundef null, i64 noundef 0) #13
@@ -8948,7 +8948,7 @@ if.then370.i:                                     ; preds = %do.body361.i
   unreachable
 
 do.end372.i:                                      ; preds = %do.body361.i
-  %arrayidx374.i = getelementptr inbounds [7 x i64], ptr %mib362.i, i64 0, i64 2
+  %arrayidx374.i = getelementptr inbounds i8, ptr %mib362.i, i64 16
   store i64 %conv41, ptr %arrayidx374.i, align 16
   %355 = load i64, ptr %miblen363.i, align 8
   %call377.i = call i32 @mallctlbymib(ptr noundef nonnull %mib362.i, i64 noundef %355, ptr noundef nonnull %ndirty_nonhuge.i, ptr noundef nonnull %sz364.i, ptr noundef null, i64 noundef 0) #13
@@ -8990,11 +8990,11 @@ do.end383.i:                                      ; preds = %do.end372.i
   br i1 %spec.select.i.i135.i, label %do.end.i136.i, label %emitter_col_init.exit377.i
 
 do.end.i136.i:                                    ; preds = %do.end383.i
-  %nesting_depth.i.i137.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i137.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %363 = load i32, ptr %nesting_depth.i.i137.i, align 8
   %dec.i.i138.i = add nsw i32 %363, -1
   store i32 %dec.i.i138.i, ptr %nesting_depth.i.i137.i, align 8
-  %item_at_depth.i.i139.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i139.i = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i139.i, align 4
   %cmp.not.i140.i = icmp eq i32 %emitter.val.i134.i, 1
   br i1 %cmp.not.i140.i, label %if.end.i145.i, label %if.then1.i141.i
@@ -9026,189 +9026,189 @@ if.end.i145.i:                                    ; preds = %for.body.i.i150.i, 
   br label %emitter_col_init.exit377.i
 
 emitter_col_init.exit377.i:                       ; preds = %if.end.i145.i, %do.end383.i
-  %link.i.i803 = getelementptr inbounds %struct.emitter_col_s, ptr %col_size.i, i64 0, i32 4
-  %qre_prev.i.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_size.i, i64 0, i32 4, i32 1
+  %link.i.i803 = getelementptr inbounds i8, ptr %col_size.i, i64 24
+  %qre_prev.i.i = getelementptr inbounds i8, ptr %col_size.i, i64 32
   store i32 1, ptr %col_size.i, align 8
-  %width.i804 = getelementptr inbounds %struct.emitter_col_s, ptr %col_size.i, i64 0, i32 1
+  %width.i804 = getelementptr inbounds i8, ptr %col_size.i, i64 4
   store i32 20, ptr %width.i804, align 4
-  %type.i805 = getelementptr inbounds %struct.emitter_col_s, ptr %col_size.i, i64 0, i32 2
+  %type.i805 = getelementptr inbounds i8, ptr %col_size.i, i64 8
   store i32 6, ptr %type.i805, align 8
-  %link.i157.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_size.i, i64 0, i32 4
-  %qre_prev.i158.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_size.i, i64 0, i32 4, i32 1
+  %link.i157.i = getelementptr inbounds i8, ptr %header_size.i, i64 24
+  %qre_prev.i158.i = getelementptr inbounds i8, ptr %header_size.i, i64 32
   store i32 1, ptr %header_size.i, align 8
-  %width388.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_size.i, i64 0, i32 1
+  %width388.i = getelementptr inbounds i8, ptr %header_size.i, i64 4
   store i32 20, ptr %width388.i, align 4
-  %type389.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_size.i, i64 0, i32 2
+  %type389.i = getelementptr inbounds i8, ptr %header_size.i, i64 8
   store i32 9, ptr %type389.i, align 8
-  %366 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size.i, i64 0, i32 3
+  %366 = getelementptr inbounds i8, ptr %header_size.i, i64 16
   store ptr @.str.187, ptr %366, align 8
-  %link.i170.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind.i, i64 0, i32 4
-  %qre_prev.i171.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind.i, i64 0, i32 4, i32 1
+  %link.i170.i = getelementptr inbounds i8, ptr %col_ind.i, i64 24
+  %qre_prev.i171.i = getelementptr inbounds i8, ptr %col_ind.i, i64 32
   store ptr %col_size.i, ptr %qre_prev.i171.i, align 8
   store ptr %col_ind.i, ptr %link.i.i803, align 8
   store i32 1, ptr %col_ind.i, align 8
-  %width391.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind.i, i64 0, i32 1
+  %width391.i = getelementptr inbounds i8, ptr %col_ind.i, i64 4
   store i32 4, ptr %width391.i, align 4
-  %type392.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind.i, i64 0, i32 2
+  %type392.i = getelementptr inbounds i8, ptr %col_ind.i, i64 8
   store i32 3, ptr %type392.i, align 8
-  %link.i183.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind.i, i64 0, i32 4
-  %qre_prev.i184.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind.i, i64 0, i32 4, i32 1
+  %link.i183.i = getelementptr inbounds i8, ptr %header_ind.i, i64 24
+  %qre_prev.i184.i = getelementptr inbounds i8, ptr %header_ind.i, i64 32
   store ptr %header_size.i, ptr %qre_prev.i184.i, align 8
   store ptr %header_ind.i, ptr %link.i157.i, align 8
   store i32 1, ptr %header_ind.i, align 8
-  %width394.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind.i, i64 0, i32 1
+  %width394.i = getelementptr inbounds i8, ptr %header_ind.i, i64 4
   store i32 4, ptr %width394.i, align 4
-  %type395.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind.i, i64 0, i32 2
+  %type395.i = getelementptr inbounds i8, ptr %header_ind.i, i64 8
   store i32 9, ptr %type395.i, align 8
-  %367 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind.i, i64 0, i32 3
+  %367 = getelementptr inbounds i8, ptr %header_ind.i, i64 16
   store ptr @.str.379, ptr %367, align 8
-  %qre_prev.i197.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_npageslabs_huge.i, i64 0, i32 4, i32 1
+  %qre_prev.i197.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 32
   store ptr %col_ind.i, ptr %qre_prev.i197.i, align 8
   store ptr %col_npageslabs_huge.i, ptr %link.i170.i, align 8
   store i32 1, ptr %col_npageslabs_huge.i, align 8
-  %width397.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_npageslabs_huge.i, i64 0, i32 1
+  %width397.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 4
   store i32 16, ptr %width397.i, align 4
-  %type398.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_npageslabs_huge.i, i64 0, i32 2
+  %type398.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 8
   store i32 6, ptr %type398.i, align 8
-  %qre_prev.i210.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_npageslabs_huge.i, i64 0, i32 4, i32 1
+  %qre_prev.i210.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 32
   store ptr %header_ind.i, ptr %qre_prev.i210.i, align 8
   store ptr %header_npageslabs_huge.i, ptr %link.i183.i, align 8
   store i32 1, ptr %header_npageslabs_huge.i, align 8
-  %width400.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_npageslabs_huge.i, i64 0, i32 1
+  %width400.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 4
   store i32 16, ptr %width400.i, align 4
-  %type401.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_npageslabs_huge.i, i64 0, i32 2
+  %type401.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 8
   store i32 9, ptr %type401.i, align 8
-  %368 = getelementptr inbounds %struct.emitter_col_s, ptr %header_npageslabs_huge.i, i64 0, i32 3
+  %368 = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 16
   store ptr @.str.446, ptr %368, align 8
-  %qre_prev.i223.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_nactive_huge.i, i64 0, i32 4, i32 1
+  %qre_prev.i223.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 32
   store ptr %col_npageslabs_huge.i, ptr %qre_prev.i223.i, align 8
-  %link34.i231.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_npageslabs_huge.i, i64 0, i32 4
+  %link34.i231.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 24
   store ptr %col_nactive_huge.i, ptr %link34.i231.i, align 8
   store i32 1, ptr %col_nactive_huge.i, align 8
-  %width403.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_nactive_huge.i, i64 0, i32 1
+  %width403.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 4
   store i32 16, ptr %width403.i, align 4
-  %type404.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_nactive_huge.i, i64 0, i32 2
+  %type404.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 8
   store i32 6, ptr %type404.i, align 8
-  %link.i235.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_nactive_huge.i, i64 0, i32 4
-  %qre_prev.i236.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_nactive_huge.i, i64 0, i32 4, i32 1
+  %link.i235.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 24
+  %qre_prev.i236.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 32
   store ptr %header_npageslabs_huge.i, ptr %qre_prev.i236.i, align 8
-  %link34.i244.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_npageslabs_huge.i, i64 0, i32 4
+  %link34.i244.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 24
   store ptr %header_nactive_huge.i, ptr %link34.i244.i, align 8
   store i32 1, ptr %header_nactive_huge.i, align 8
-  %width406.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_nactive_huge.i, i64 0, i32 1
+  %width406.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 4
   store i32 16, ptr %width406.i, align 4
-  %type407.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_nactive_huge.i, i64 0, i32 2
+  %type407.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 8
   store i32 9, ptr %type407.i, align 8
-  %369 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nactive_huge.i, i64 0, i32 3
+  %369 = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 16
   store ptr @.str.447, ptr %369, align 8
-  %link.i248.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty_huge.i, i64 0, i32 4
-  %qre_prev.i249.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty_huge.i, i64 0, i32 4, i32 1
+  %link.i248.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 24
+  %qre_prev.i249.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 32
   store ptr %col_nactive_huge.i, ptr %qre_prev.i249.i, align 8
-  %link34.i257.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_nactive_huge.i, i64 0, i32 4
+  %link34.i257.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 24
   store ptr %col_ndirty_huge.i, ptr %link34.i257.i, align 8
   store i32 1, ptr %col_ndirty_huge.i, align 8
-  %width409.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty_huge.i, i64 0, i32 1
+  %width409.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 4
   store i32 16, ptr %width409.i, align 4
-  %type410.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty_huge.i, i64 0, i32 2
+  %type410.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 8
   store i32 6, ptr %type410.i, align 8
-  %link.i261.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty_huge.i, i64 0, i32 4
-  %qre_prev.i262.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty_huge.i, i64 0, i32 4, i32 1
+  %link.i261.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 24
+  %qre_prev.i262.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 32
   store ptr %header_nactive_huge.i, ptr %qre_prev.i262.i, align 8
   store ptr %header_ndirty_huge.i, ptr %link.i235.i, align 8
   store i32 1, ptr %header_ndirty_huge.i, align 8
-  %width412.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty_huge.i, i64 0, i32 1
+  %width412.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 4
   store i32 16, ptr %width412.i, align 4
-  %type413.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty_huge.i, i64 0, i32 2
+  %type413.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 8
   store i32 9, ptr %type413.i, align 8
-  %370 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty_huge.i, i64 0, i32 3
+  %370 = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 16
   store ptr @.str.459, ptr %370, align 8
-  %link.i274.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_npageslabs_nonhuge.i, i64 0, i32 4
-  %qre_prev.i275.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_npageslabs_nonhuge.i, i64 0, i32 4, i32 1
+  %link.i274.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 24
+  %qre_prev.i275.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 32
   store ptr %col_ndirty_huge.i, ptr %qre_prev.i275.i, align 8
   store ptr %col_npageslabs_nonhuge.i, ptr %link.i248.i, align 8
   store i32 1, ptr %col_npageslabs_nonhuge.i, align 8
-  %width415.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_npageslabs_nonhuge.i, i64 0, i32 1
+  %width415.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 4
   store i32 20, ptr %width415.i, align 4
-  %type416.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_npageslabs_nonhuge.i, i64 0, i32 2
+  %type416.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 8
   store i32 6, ptr %type416.i, align 8
-  %link.i287.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_npageslabs_nonhuge.i, i64 0, i32 4
-  %qre_prev.i288.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_npageslabs_nonhuge.i, i64 0, i32 4, i32 1
+  %link.i287.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 24
+  %qre_prev.i288.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 32
   store ptr %header_ndirty_huge.i, ptr %qre_prev.i288.i, align 8
   store ptr %header_npageslabs_nonhuge.i, ptr %link.i261.i, align 8
   store i32 1, ptr %header_npageslabs_nonhuge.i, align 8
-  %width418.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_npageslabs_nonhuge.i, i64 0, i32 1
+  %width418.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 4
   store i32 20, ptr %width418.i, align 4
-  %type419.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_npageslabs_nonhuge.i, i64 0, i32 2
+  %type419.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 8
   store i32 9, ptr %type419.i, align 8
-  %371 = getelementptr inbounds %struct.emitter_col_s, ptr %header_npageslabs_nonhuge.i, i64 0, i32 3
+  %371 = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 16
   store ptr @.str.448, ptr %371, align 8
-  %link.i300.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_nactive_nonhuge.i, i64 0, i32 4
-  %qre_prev.i301.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_nactive_nonhuge.i, i64 0, i32 4, i32 1
+  %link.i300.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 24
+  %qre_prev.i301.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 32
   store ptr %col_npageslabs_nonhuge.i, ptr %qre_prev.i301.i, align 8
   store ptr %col_nactive_nonhuge.i, ptr %link.i274.i, align 8
   store i32 1, ptr %col_nactive_nonhuge.i, align 8
-  %width421.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_nactive_nonhuge.i, i64 0, i32 1
+  %width421.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 4
   store i32 20, ptr %width421.i, align 4
-  %type422.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_nactive_nonhuge.i, i64 0, i32 2
+  %type422.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 8
   store i32 6, ptr %type422.i, align 8
-  %link.i313.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_nactive_nonhuge.i, i64 0, i32 4
-  %qre_prev.i314.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_nactive_nonhuge.i, i64 0, i32 4, i32 1
+  %link.i313.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 24
+  %qre_prev.i314.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 32
   store ptr %header_npageslabs_nonhuge.i, ptr %qre_prev.i314.i, align 8
   store ptr %header_nactive_nonhuge.i, ptr %link.i287.i, align 8
   store i32 1, ptr %header_nactive_nonhuge.i, align 8
-  %width424.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_nactive_nonhuge.i, i64 0, i32 1
+  %width424.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 4
   store i32 20, ptr %width424.i, align 4
-  %type425.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_nactive_nonhuge.i, i64 0, i32 2
+  %type425.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 8
   store i32 9, ptr %type425.i, align 8
-  %372 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nactive_nonhuge.i, i64 0, i32 3
+  %372 = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 16
   store ptr @.str.449, ptr %372, align 8
-  %qre_prev.i327.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty_nonhuge.i, i64 0, i32 4, i32 1
+  %qre_prev.i327.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 32
   store ptr %col_nactive_nonhuge.i, ptr %qre_prev.i327.i, align 8
   store ptr %col_ndirty_nonhuge.i, ptr %link.i300.i, align 8
   store i32 1, ptr %col_ndirty_nonhuge.i, align 8
-  %width427.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty_nonhuge.i, i64 0, i32 1
+  %width427.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 4
   store i32 20, ptr %width427.i, align 4
-  %type428.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty_nonhuge.i, i64 0, i32 2
+  %type428.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 8
   store i32 6, ptr %type428.i, align 8
-  %qre_prev.i340.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty_nonhuge.i, i64 0, i32 4, i32 1
+  %qre_prev.i340.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 32
   store ptr %header_nactive_nonhuge.i, ptr %qre_prev.i340.i, align 8
   store ptr %header_ndirty_nonhuge.i, ptr %link.i313.i, align 8
   store i32 1, ptr %header_ndirty_nonhuge.i, align 8
-  %width430.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty_nonhuge.i, i64 0, i32 1
+  %width430.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 4
   store i32 20, ptr %width430.i, align 4
-  %type431.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty_nonhuge.i, i64 0, i32 2
+  %type431.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 8
   store i32 9, ptr %type431.i, align 8
-  %373 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty_nonhuge.i, i64 0, i32 3
+  %373 = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 16
   store ptr @.str.450, ptr %373, align 8
-  %link.i352.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_nretained_nonhuge.i, i64 0, i32 4
-  %qre_prev.i353.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_nretained_nonhuge.i, i64 0, i32 4, i32 1
+  %link.i352.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 24
+  %qre_prev.i353.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 32
   store ptr %col_nretained_nonhuge.i, ptr %qre_prev.i.i, align 8
   store ptr %col_ndirty_nonhuge.i, ptr %qre_prev.i353.i, align 8
   store ptr %col_size.i, ptr %link.i352.i, align 8
-  %link34.i361.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty_nonhuge.i, i64 0, i32 4
+  %link34.i361.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 24
   store ptr %col_nretained_nonhuge.i, ptr %link34.i361.i, align 8
   store i32 1, ptr %col_nretained_nonhuge.i, align 8
-  %width433.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_nretained_nonhuge.i, i64 0, i32 1
+  %width433.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 4
   store i32 20, ptr %width433.i, align 4
-  %type434.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_nretained_nonhuge.i, i64 0, i32 2
+  %type434.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 8
   store i32 6, ptr %type434.i, align 8
-  %link.i365.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_nretained_nonhuge.i, i64 0, i32 4
-  %qre_prev.i366.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_nretained_nonhuge.i, i64 0, i32 4, i32 1
+  %link.i365.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 24
+  %qre_prev.i366.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 32
   store ptr %header_nretained_nonhuge.i, ptr %qre_prev.i158.i, align 8
   store ptr %header_ndirty_nonhuge.i, ptr %qre_prev.i366.i, align 8
   store ptr %header_size.i, ptr %link.i365.i, align 8
-  %link34.i374.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty_nonhuge.i, i64 0, i32 4
+  %link34.i374.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 24
   store ptr %header_nretained_nonhuge.i, ptr %link34.i374.i, align 8
   store i32 1, ptr %header_nretained_nonhuge.i, align 8
-  %width436.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_nretained_nonhuge.i, i64 0, i32 1
+  %width436.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 4
   store i32 20, ptr %width436.i, align 4
-  %type437.i = getelementptr inbounds %struct.emitter_col_s, ptr %header_nretained_nonhuge.i, i64 0, i32 2
+  %type437.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 8
   store i32 9, ptr %type437.i, align 8
-  %374 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nretained_nonhuge.i, i64 0, i32 3
+  %374 = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 16
   store ptr @.str.460, ptr %374, align 8
   store i64 7, ptr %miblen_new.i789, align 8
   %375 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i807.i = getelementptr inbounds %struct.tsd_s, ptr %375, i64 0, i32 30
+  %state.i807.i = getelementptr inbounds i8, ptr %375, i64 824
   %376 = load i8, ptr %state.i807.i, align 8
   %cmp6.i.not.i806 = icmp eq i8 %376, 0
   br i1 %cmp6.i.not.i806, label %tsd_fetch_impl.exit.i809, label %if.then11.i.i807
@@ -9229,7 +9229,7 @@ if.then447.i:                                     ; preds = %tsd_fetch_impl.exit
   unreachable
 
 do.end452.i:                                      ; preds = %tsd_fetch_impl.exit.i809
-  %arrayidx454.i = getelementptr inbounds [7 x i64], ptr %stats_arenas_mib.i788, i64 0, i64 2
+  %arrayidx454.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i788, i64 16
   store i64 %conv41, ptr %arrayidx454.i, align 16
   store i64 7, ptr %miblen_new458.i, align 8
   %377 = load i8, ptr %state.i807.i, align 8
@@ -9268,10 +9268,10 @@ for.body.i.i820:                                  ; preds = %do.end470.i, %for.b
   %381 = load i32, ptr %col.011.i.i821.sroa.phi1109, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %379, i32 noundef %380, i32 noundef %381, ptr noundef nonnull %col.011.i.i821.sroa.phi1112)
   %382 = load ptr, ptr %col.011.i.i821.sroa.phi1115, align 8
-  %.sroa.gep1116 = getelementptr inbounds %struct.emitter_col_s, ptr %382, i64 0, i32 4
-  %.sroa.gep1113 = getelementptr inbounds %struct.emitter_col_s, ptr %382, i64 0, i32 3
-  %.sroa.gep1110 = getelementptr inbounds %struct.emitter_col_s, ptr %382, i64 0, i32 2
-  %.sroa.gep1108 = getelementptr inbounds %struct.emitter_col_s, ptr %382, i64 0, i32 1
+  %.sroa.gep1116 = getelementptr inbounds i8, ptr %382, i64 24
+  %.sroa.gep1113 = getelementptr inbounds i8, ptr %382, i64 16
+  %.sroa.gep1110 = getelementptr inbounds i8, ptr %382, i64 8
+  %.sroa.gep1108 = getelementptr inbounds i8, ptr %382, i64 4
   %cmp4.not.i.i824 = icmp eq ptr %382, %header_size.i
   %cmp1.not12.i.i825 = icmp eq ptr %382, null
   %cmp1.not.i.i826 = or i1 %cmp4.not.i.i824, %cmp1.not12.i.i825
@@ -9283,18 +9283,18 @@ for.end.i.i827:                                   ; preds = %for.body.i.i820
 
 emitter_table_row.exit.i811:                      ; preds = %for.end.i.i827, %do.end470.i
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %emitter, ptr noundef nonnull @.str.389)
-  %arrayidx477.i = getelementptr inbounds [7 x i64], ptr %stats_arenas_mib.i788, i64 0, i64 5
-  %383 = getelementptr inbounds %struct.emitter_col_s, ptr %col_size.i, i64 0, i32 3
-  %384 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind.i, i64 0, i32 3
-  %385 = getelementptr inbounds %struct.emitter_col_s, ptr %col_npageslabs_huge.i, i64 0, i32 3
-  %386 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nactive_huge.i, i64 0, i32 3
-  %387 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty_huge.i, i64 0, i32 3
-  %388 = getelementptr inbounds %struct.emitter_col_s, ptr %col_npageslabs_nonhuge.i, i64 0, i32 3
-  %389 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nactive_nonhuge.i, i64 0, i32 3
-  %390 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty_nonhuge.i, i64 0, i32 3
-  %391 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nretained_nonhuge.i, i64 0, i32 3
-  %nesting_depth.i.i397.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
-  %item_at_depth.i.i399.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %arrayidx477.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i788, i64 40
+  %383 = getelementptr inbounds i8, ptr %col_size.i, i64 16
+  %384 = getelementptr inbounds i8, ptr %col_ind.i, i64 16
+  %385 = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 16
+  %386 = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 16
+  %387 = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 16
+  %388 = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 16
+  %389 = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 16
+  %390 = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 16
+  %391 = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 16
+  %nesting_depth.i.i397.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %item_at_depth.i.i399.i = getelementptr inbounds i8, ptr %emitter, i64 28
   br label %for.body.i812
 
 for.body.i812:                                    ; preds = %emitter_json_object_end.exit414.i, %emitter_table_row.exit.i811
@@ -9491,10 +9491,10 @@ for.body.i384.i:                                  ; preds = %if.then598.i, %for.
   %414 = load i32, ptr %col.011.i385.i.sroa.phi1119, align 8
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %412, i32 noundef %413, i32 noundef %414, ptr noundef nonnull %col.011.i385.i.sroa.phi1122)
   %415 = load ptr, ptr %col.011.i385.i.sroa.phi1125, align 8
-  %.sroa.gep1126 = getelementptr inbounds %struct.emitter_col_s, ptr %415, i64 0, i32 4
-  %.sroa.gep1123 = getelementptr inbounds %struct.emitter_col_s, ptr %415, i64 0, i32 3
-  %.sroa.gep1120 = getelementptr inbounds %struct.emitter_col_s, ptr %415, i64 0, i32 2
-  %.sroa.gep1118 = getelementptr inbounds %struct.emitter_col_s, ptr %415, i64 0, i32 1
+  %.sroa.gep1126 = getelementptr inbounds i8, ptr %415, i64 24
+  %.sroa.gep1123 = getelementptr inbounds i8, ptr %415, i64 16
+  %.sroa.gep1120 = getelementptr inbounds i8, ptr %415, i64 8
+  %.sroa.gep1118 = getelementptr inbounds i8, ptr %415, i64 4
   %cmp4.not.i389.i = icmp eq ptr %415, %col_size.i
   %cmp1.not12.i390.i = icmp eq ptr %415, null
   %cmp1.not.i391.i = or i1 %cmp4.not.i389.i, %cmp1.not12.i390.i
@@ -9894,152 +9894,152 @@ if.then8:                                         ; preds = %do.body3
   unreachable
 
 emitter_col_init.exit248:                         ; preds = %do.body3
-  %link.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 4
-  %qre_prev.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 4, i32 1
+  %link.i = getelementptr inbounds i8, ptr %col_size, i64 24
+  %qre_prev.i = getelementptr inbounds i8, ptr %col_size, i64 32
   store i32 1, ptr %col_size, align 8
-  %width = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %col_size, i64 4
   store i32 20, ptr %width, align 4
-  %type = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %col_size, i64 8
   store i32 6, ptr %type, align 8
-  %link.i129 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 4
-  %qre_prev.i130 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 4, i32 1
+  %link.i129 = getelementptr inbounds i8, ptr %header_size, i64 24
+  %qre_prev.i130 = getelementptr inbounds i8, ptr %header_size, i64 32
   store i32 1, ptr %header_size, align 8
-  %width13 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 1
+  %width13 = getelementptr inbounds i8, ptr %header_size, i64 4
   store i32 20, ptr %width13, align 4
-  %type14 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 2
+  %type14 = getelementptr inbounds i8, ptr %header_size, i64 8
   store i32 9, ptr %type14, align 8
-  %0 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %header_size, i64 16
   store ptr @.str.187, ptr %0, align 8
-  %link.i141 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 4
-  %qre_prev.i142 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 4, i32 1
+  %link.i141 = getelementptr inbounds i8, ptr %col_ind, i64 24
+  %qre_prev.i142 = getelementptr inbounds i8, ptr %col_ind, i64 32
   store ptr %col_size, ptr %qre_prev.i142, align 8
   store ptr %col_ind, ptr %link.i, align 8
   store i32 1, ptr %col_ind, align 8
-  %width16 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 1
+  %width16 = getelementptr inbounds i8, ptr %col_ind, i64 4
   store i32 4, ptr %width16, align 4
-  %type17 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 2
+  %type17 = getelementptr inbounds i8, ptr %col_ind, i64 8
   store i32 3, ptr %type17, align 8
-  %link.i153 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 4
-  %qre_prev.i154 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 4, i32 1
+  %link.i153 = getelementptr inbounds i8, ptr %header_ind, i64 24
+  %qre_prev.i154 = getelementptr inbounds i8, ptr %header_ind, i64 32
   store ptr %header_size, ptr %qre_prev.i154, align 8
   store ptr %header_ind, ptr %link.i129, align 8
   store i32 1, ptr %header_ind, align 8
-  %width19 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 1
+  %width19 = getelementptr inbounds i8, ptr %header_ind, i64 4
   store i32 4, ptr %width19, align 4
-  %type20 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 2
+  %type20 = getelementptr inbounds i8, ptr %header_ind, i64 8
   store i32 9, ptr %type20, align 8
-  %1 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 3
+  %1 = getelementptr inbounds i8, ptr %header_ind, i64 16
   store ptr @.str.379, ptr %1, align 8
-  %qre_prev.i166 = getelementptr inbounds %struct.emitter_col_s, ptr %col_allocated, i64 0, i32 4, i32 1
+  %qre_prev.i166 = getelementptr inbounds i8, ptr %col_allocated, i64 32
   store ptr %col_ind, ptr %qre_prev.i166, align 8
   store ptr %col_allocated, ptr %link.i141, align 8
   store i32 1, ptr %col_allocated, align 8
-  %width22 = getelementptr inbounds %struct.emitter_col_s, ptr %col_allocated, i64 0, i32 1
+  %width22 = getelementptr inbounds i8, ptr %col_allocated, i64 4
   store i32 13, ptr %width22, align 4
-  %type23 = getelementptr inbounds %struct.emitter_col_s, ptr %col_allocated, i64 0, i32 2
+  %type23 = getelementptr inbounds i8, ptr %col_allocated, i64 8
   store i32 5, ptr %type23, align 8
-  %qre_prev.i178 = getelementptr inbounds %struct.emitter_col_s, ptr %header_allocated, i64 0, i32 4, i32 1
+  %qre_prev.i178 = getelementptr inbounds i8, ptr %header_allocated, i64 32
   store ptr %header_ind, ptr %qre_prev.i178, align 8
   store ptr %header_allocated, ptr %link.i153, align 8
   store i32 1, ptr %header_allocated, align 8
-  %width25 = getelementptr inbounds %struct.emitter_col_s, ptr %header_allocated, i64 0, i32 1
+  %width25 = getelementptr inbounds i8, ptr %header_allocated, i64 4
   store i32 13, ptr %width25, align 4
-  %type26 = getelementptr inbounds %struct.emitter_col_s, ptr %header_allocated, i64 0, i32 2
+  %type26 = getelementptr inbounds i8, ptr %header_allocated, i64 8
   store i32 9, ptr %type26, align 8
-  %2 = getelementptr inbounds %struct.emitter_col_s, ptr %header_allocated, i64 0, i32 3
+  %2 = getelementptr inbounds i8, ptr %header_allocated, i64 16
   store ptr @.str.228, ptr %2, align 8
-  %qre_prev.i190 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc, i64 0, i32 4, i32 1
+  %qre_prev.i190 = getelementptr inbounds i8, ptr %col_nmalloc, i64 32
   store ptr %col_allocated, ptr %qre_prev.i190, align 8
-  %link34.i198 = getelementptr inbounds %struct.emitter_col_s, ptr %col_allocated, i64 0, i32 4
+  %link34.i198 = getelementptr inbounds i8, ptr %col_allocated, i64 24
   store ptr %col_nmalloc, ptr %link34.i198, align 8
   store i32 1, ptr %col_nmalloc, align 8
-  %width28 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc, i64 0, i32 1
+  %width28 = getelementptr inbounds i8, ptr %col_nmalloc, i64 4
   store i32 13, ptr %width28, align 4
-  %type29 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc, i64 0, i32 2
+  %type29 = getelementptr inbounds i8, ptr %col_nmalloc, i64 8
   store i32 5, ptr %type29, align 8
-  %link.i201 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc, i64 0, i32 4
-  %qre_prev.i202 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc, i64 0, i32 4, i32 1
+  %link.i201 = getelementptr inbounds i8, ptr %header_nmalloc, i64 24
+  %qre_prev.i202 = getelementptr inbounds i8, ptr %header_nmalloc, i64 32
   store ptr %header_nmalloc, ptr %qre_prev.i130, align 8
   store ptr %header_allocated, ptr %qre_prev.i202, align 8
   store ptr %header_size, ptr %link.i201, align 8
-  %link34.i210 = getelementptr inbounds %struct.emitter_col_s, ptr %header_allocated, i64 0, i32 4
+  %link34.i210 = getelementptr inbounds i8, ptr %header_allocated, i64 24
   store ptr %header_nmalloc, ptr %link34.i210, align 8
   store i32 1, ptr %header_nmalloc, align 8
-  %width31 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc, i64 0, i32 1
+  %width31 = getelementptr inbounds i8, ptr %header_nmalloc, i64 4
   store i32 13, ptr %width31, align 4
-  %type32 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc, i64 0, i32 2
+  %type32 = getelementptr inbounds i8, ptr %header_nmalloc, i64 8
   store i32 9, ptr %type32, align 8
-  %3 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc, i64 0, i32 3
+  %3 = getelementptr inbounds i8, ptr %header_nmalloc, i64 16
   store ptr @.str.315, ptr %3, align 8
-  %link.i213 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc_ps, i64 0, i32 4
-  %qre_prev.i214 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc_ps, i64 0, i32 4, i32 1
+  %link.i213 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 24
+  %qre_prev.i214 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 32
   store ptr %col_nmalloc_ps, ptr %qre_prev.i, align 8
   store ptr %col_nmalloc, ptr %qre_prev.i214, align 8
   store ptr %col_size, ptr %link.i213, align 8
-  %link34.i222 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc, i64 0, i32 4
+  %link34.i222 = getelementptr inbounds i8, ptr %col_nmalloc, i64 24
   store ptr %col_nmalloc_ps, ptr %link34.i222, align 8
   store i32 1, ptr %col_nmalloc_ps, align 8
-  %width34 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc_ps, i64 0, i32 1
+  %width34 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 4
   store i32 8, ptr %width34, align 4
-  %type35 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc_ps, i64 0, i32 2
+  %type35 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 8
   store i32 5, ptr %type35, align 8
-  %link.i225 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc_ps, i64 0, i32 4
-  %qre_prev.i226 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc_ps, i64 0, i32 4, i32 1
+  %link.i225 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 24
+  %qre_prev.i226 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 32
   %4 = load ptr, ptr %qre_prev.i130, align 8
   store ptr %header_nmalloc_ps, ptr %qre_prev.i130, align 8
   store ptr %4, ptr %qre_prev.i226, align 8
   store ptr %header_size, ptr %link.i225, align 8
-  %link34.i234 = getelementptr inbounds %struct.emitter_col_s, ptr %4, i64 0, i32 4
+  %link34.i234 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %header_nmalloc_ps, ptr %link34.i234, align 8
   %.pre.i235 = load ptr, ptr %link.i225, align 8
   store ptr %.pre.i235, ptr %header_row, align 8
   store i32 1, ptr %header_nmalloc_ps, align 8
-  %width37 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc_ps, i64 0, i32 1
+  %width37 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 4
   store i32 8, ptr %width37, align 4
-  %type38 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc_ps, i64 0, i32 2
+  %type38 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 8
   store i32 9, ptr %type38, align 8
-  %5 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc_ps, i64 0, i32 3
+  %5 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 16
   store ptr @.str.256, ptr %5, align 8
-  %link.i237 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc, i64 0, i32 4
-  %qre_prev.i238 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc, i64 0, i32 4, i32 1
+  %link.i237 = getelementptr inbounds i8, ptr %col_ndalloc, i64 24
+  %qre_prev.i238 = getelementptr inbounds i8, ptr %col_ndalloc, i64 32
   store ptr %col_ndalloc, ptr %qre_prev.i238, align 8
-  %qre_prev7.i241 = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 4, i32 1
+  %qre_prev7.i241 = getelementptr inbounds i8, ptr %col_size, i64 32
   %6 = load ptr, ptr %qre_prev7.i241, align 8
   store ptr %6, ptr %link.i237, align 8
   store ptr %col_ndalloc, ptr %qre_prev7.i241, align 8
   store ptr %6, ptr %qre_prev.i238, align 8
-  %link30.i245 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc, i64 0, i32 4
+  %link30.i245 = getelementptr inbounds i8, ptr %col_ndalloc, i64 24
   store ptr %col_size, ptr %link30.i245, align 8
-  %link34.i246 = getelementptr inbounds %struct.emitter_col_s, ptr %6, i64 0, i32 4
+  %link34.i246 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %col_ndalloc, ptr %link34.i246, align 8
   %.pre.i247 = load ptr, ptr %link.i237, align 8
   store ptr %.pre.i247, ptr %row, align 8
   store i32 1, ptr %col_ndalloc, align 8
-  %width40 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc, i64 0, i32 1
+  %width40 = getelementptr inbounds i8, ptr %col_ndalloc, i64 4
   store i32 13, ptr %width40, align 4
-  %type41 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc, i64 0, i32 2
+  %type41 = getelementptr inbounds i8, ptr %col_ndalloc, i64 8
   store i32 5, ptr %type41, align 8
-  %link.i249 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc, i64 0, i32 4
+  %link.i249 = getelementptr inbounds i8, ptr %header_ndalloc, i64 24
   store ptr %header_ndalloc, ptr %link.i249, align 8
-  %qre_prev.i250 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc, i64 0, i32 4, i32 1
+  %qre_prev.i250 = getelementptr inbounds i8, ptr %header_ndalloc, i64 32
   store ptr %header_ndalloc, ptr %qre_prev.i250, align 8
   %cmp.i251 = icmp eq ptr %.pre.i235, null
   br i1 %cmp.i251, label %emitter_col_init.exit260, label %do.body3.i252
 
 do.body3.i252:                                    ; preds = %emitter_col_init.exit248
-  %qre_prev7.i253 = getelementptr inbounds %struct.emitter_col_s, ptr %.pre.i235, i64 0, i32 4, i32 1
+  %qre_prev7.i253 = getelementptr inbounds i8, ptr %.pre.i235, i64 32
   %7 = load ptr, ptr %qre_prev7.i253, align 8
   store ptr %7, ptr %link.i249, align 8
   store ptr %header_ndalloc, ptr %qre_prev7.i253, align 8
   %8 = load ptr, ptr %qre_prev.i250, align 8
-  %link20.i255 = getelementptr inbounds %struct.emitter_col_s, ptr %8, i64 0, i32 4
+  %link20.i255 = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %link20.i255, align 8
   store ptr %9, ptr %qre_prev.i250, align 8
   %10 = load ptr, ptr %qre_prev7.i253, align 8
-  %link30.i257 = getelementptr inbounds %struct.emitter_col_s, ptr %10, i64 0, i32 4
+  %link30.i257 = getelementptr inbounds i8, ptr %10, i64 24
   store ptr %.pre.i235, ptr %link30.i257, align 8
   %11 = load ptr, ptr %qre_prev.i250, align 8
-  %link34.i258 = getelementptr inbounds %struct.emitter_col_s, ptr %11, i64 0, i32 4
+  %link34.i258 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %header_ndalloc, ptr %link34.i258, align 8
   %.pre.i259 = load ptr, ptr %link.i249, align 8
   br label %emitter_col_init.exit260
@@ -10048,33 +10048,33 @@ emitter_col_init.exit260:                         ; preds = %emitter_col_init.ex
   %12 = phi ptr [ %.pre.i259, %do.body3.i252 ], [ %header_ndalloc, %emitter_col_init.exit248 ]
   store ptr %12, ptr %header_row, align 8
   store i32 1, ptr %header_ndalloc, align 8
-  %width43 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc, i64 0, i32 1
+  %width43 = getelementptr inbounds i8, ptr %header_ndalloc, i64 4
   store i32 13, ptr %width43, align 4
-  %type44 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc, i64 0, i32 2
+  %type44 = getelementptr inbounds i8, ptr %header_ndalloc, i64 8
   store i32 9, ptr %type44, align 8
-  %13 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc, i64 0, i32 3
+  %13 = getelementptr inbounds i8, ptr %header_ndalloc, i64 16
   store ptr @.str.316, ptr %13, align 8
-  %link.i261 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc_ps, i64 0, i32 4
+  %link.i261 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 24
   store ptr %col_ndalloc_ps, ptr %link.i261, align 8
-  %qre_prev.i262 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc_ps, i64 0, i32 4, i32 1
+  %qre_prev.i262 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 32
   store ptr %col_ndalloc_ps, ptr %qre_prev.i262, align 8
   %cmp.i263 = icmp eq ptr %.pre.i247, null
   br i1 %cmp.i263, label %emitter_col_init.exit272, label %do.body3.i264
 
 do.body3.i264:                                    ; preds = %emitter_col_init.exit260
-  %qre_prev7.i265 = getelementptr inbounds %struct.emitter_col_s, ptr %.pre.i247, i64 0, i32 4, i32 1
+  %qre_prev7.i265 = getelementptr inbounds i8, ptr %.pre.i247, i64 32
   %14 = load ptr, ptr %qre_prev7.i265, align 8
   store ptr %14, ptr %link.i261, align 8
   store ptr %col_ndalloc_ps, ptr %qre_prev7.i265, align 8
   %15 = load ptr, ptr %qre_prev.i262, align 8
-  %link20.i267 = getelementptr inbounds %struct.emitter_col_s, ptr %15, i64 0, i32 4
+  %link20.i267 = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %link20.i267, align 8
   store ptr %16, ptr %qre_prev.i262, align 8
   %17 = load ptr, ptr %qre_prev7.i265, align 8
-  %link30.i269 = getelementptr inbounds %struct.emitter_col_s, ptr %17, i64 0, i32 4
+  %link30.i269 = getelementptr inbounds i8, ptr %17, i64 24
   store ptr %.pre.i247, ptr %link30.i269, align 8
   %18 = load ptr, ptr %qre_prev.i262, align 8
-  %link34.i270 = getelementptr inbounds %struct.emitter_col_s, ptr %18, i64 0, i32 4
+  %link34.i270 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %col_ndalloc_ps, ptr %link34.i270, align 8
   %.pre.i271 = load ptr, ptr %link.i261, align 8
   br label %emitter_col_init.exit272
@@ -10083,31 +10083,31 @@ emitter_col_init.exit272:                         ; preds = %emitter_col_init.ex
   %19 = phi ptr [ %.pre.i271, %do.body3.i264 ], [ %col_ndalloc_ps, %emitter_col_init.exit260 ]
   store ptr %19, ptr %row, align 8
   store i32 1, ptr %col_ndalloc_ps, align 8
-  %width46 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc_ps, i64 0, i32 1
+  %width46 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 4
   store i32 8, ptr %width46, align 4
-  %type47 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc_ps, i64 0, i32 2
+  %type47 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 8
   store i32 5, ptr %type47, align 8
-  %link.i273 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc_ps, i64 0, i32 4
+  %link.i273 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 24
   store ptr %header_ndalloc_ps, ptr %link.i273, align 8
-  %qre_prev.i274 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc_ps, i64 0, i32 4, i32 1
+  %qre_prev.i274 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 32
   store ptr %header_ndalloc_ps, ptr %qre_prev.i274, align 8
   %cmp.i275 = icmp eq ptr %12, null
   br i1 %cmp.i275, label %emitter_col_init.exit284, label %do.body3.i276
 
 do.body3.i276:                                    ; preds = %emitter_col_init.exit272
-  %qre_prev7.i277 = getelementptr inbounds %struct.emitter_col_s, ptr %12, i64 0, i32 4, i32 1
+  %qre_prev7.i277 = getelementptr inbounds i8, ptr %12, i64 32
   %20 = load ptr, ptr %qre_prev7.i277, align 8
   store ptr %20, ptr %link.i273, align 8
   store ptr %header_ndalloc_ps, ptr %qre_prev7.i277, align 8
   %21 = load ptr, ptr %qre_prev.i274, align 8
-  %link20.i279 = getelementptr inbounds %struct.emitter_col_s, ptr %21, i64 0, i32 4
+  %link20.i279 = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %link20.i279, align 8
   store ptr %22, ptr %qre_prev.i274, align 8
   %23 = load ptr, ptr %qre_prev7.i277, align 8
-  %link30.i281 = getelementptr inbounds %struct.emitter_col_s, ptr %23, i64 0, i32 4
+  %link30.i281 = getelementptr inbounds i8, ptr %23, i64 24
   store ptr %12, ptr %link30.i281, align 8
   %24 = load ptr, ptr %qre_prev.i274, align 8
-  %link34.i282 = getelementptr inbounds %struct.emitter_col_s, ptr %24, i64 0, i32 4
+  %link34.i282 = getelementptr inbounds i8, ptr %24, i64 24
   store ptr %header_ndalloc_ps, ptr %link34.i282, align 8
   %.pre.i283 = load ptr, ptr %link.i273, align 8
   br label %emitter_col_init.exit284
@@ -10116,33 +10116,33 @@ emitter_col_init.exit284:                         ; preds = %emitter_col_init.ex
   %25 = phi ptr [ %.pre.i283, %do.body3.i276 ], [ %header_ndalloc_ps, %emitter_col_init.exit272 ]
   store ptr %25, ptr %header_row, align 8
   store i32 1, ptr %header_ndalloc_ps, align 8
-  %width49 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc_ps, i64 0, i32 1
+  %width49 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 4
   store i32 8, ptr %width49, align 4
-  %type50 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc_ps, i64 0, i32 2
+  %type50 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 8
   store i32 9, ptr %type50, align 8
-  %26 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc_ps, i64 0, i32 3
+  %26 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 16
   store ptr @.str.256, ptr %26, align 8
-  %link.i285 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests, i64 0, i32 4
+  %link.i285 = getelementptr inbounds i8, ptr %col_nrequests, i64 24
   store ptr %col_nrequests, ptr %link.i285, align 8
-  %qre_prev.i286 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests, i64 0, i32 4, i32 1
+  %qre_prev.i286 = getelementptr inbounds i8, ptr %col_nrequests, i64 32
   store ptr %col_nrequests, ptr %qre_prev.i286, align 8
   %cmp.i287 = icmp eq ptr %19, null
   br i1 %cmp.i287, label %emitter_col_init.exit296, label %do.body3.i288
 
 do.body3.i288:                                    ; preds = %emitter_col_init.exit284
-  %qre_prev7.i289 = getelementptr inbounds %struct.emitter_col_s, ptr %19, i64 0, i32 4, i32 1
+  %qre_prev7.i289 = getelementptr inbounds i8, ptr %19, i64 32
   %27 = load ptr, ptr %qre_prev7.i289, align 8
   store ptr %27, ptr %link.i285, align 8
   store ptr %col_nrequests, ptr %qre_prev7.i289, align 8
   %28 = load ptr, ptr %qre_prev.i286, align 8
-  %link20.i291 = getelementptr inbounds %struct.emitter_col_s, ptr %28, i64 0, i32 4
+  %link20.i291 = getelementptr inbounds i8, ptr %28, i64 24
   %29 = load ptr, ptr %link20.i291, align 8
   store ptr %29, ptr %qre_prev.i286, align 8
   %30 = load ptr, ptr %qre_prev7.i289, align 8
-  %link30.i293 = getelementptr inbounds %struct.emitter_col_s, ptr %30, i64 0, i32 4
+  %link30.i293 = getelementptr inbounds i8, ptr %30, i64 24
   store ptr %19, ptr %link30.i293, align 8
   %31 = load ptr, ptr %qre_prev.i286, align 8
-  %link34.i294 = getelementptr inbounds %struct.emitter_col_s, ptr %31, i64 0, i32 4
+  %link34.i294 = getelementptr inbounds i8, ptr %31, i64 24
   store ptr %col_nrequests, ptr %link34.i294, align 8
   %.pre.i295 = load ptr, ptr %link.i285, align 8
   br label %emitter_col_init.exit296
@@ -10151,31 +10151,31 @@ emitter_col_init.exit296:                         ; preds = %emitter_col_init.ex
   %32 = phi ptr [ %.pre.i295, %do.body3.i288 ], [ %col_nrequests, %emitter_col_init.exit284 ]
   store ptr %32, ptr %row, align 8
   store i32 1, ptr %col_nrequests, align 8
-  %width52 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests, i64 0, i32 1
+  %width52 = getelementptr inbounds i8, ptr %col_nrequests, i64 4
   store i32 13, ptr %width52, align 4
-  %type53 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests, i64 0, i32 2
+  %type53 = getelementptr inbounds i8, ptr %col_nrequests, i64 8
   store i32 5, ptr %type53, align 8
-  %link.i297 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests, i64 0, i32 4
+  %link.i297 = getelementptr inbounds i8, ptr %header_nrequests, i64 24
   store ptr %header_nrequests, ptr %link.i297, align 8
-  %qre_prev.i298 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests, i64 0, i32 4, i32 1
+  %qre_prev.i298 = getelementptr inbounds i8, ptr %header_nrequests, i64 32
   store ptr %header_nrequests, ptr %qre_prev.i298, align 8
   %cmp.i299 = icmp eq ptr %25, null
   br i1 %cmp.i299, label %emitter_col_init.exit308, label %do.body3.i300
 
 do.body3.i300:                                    ; preds = %emitter_col_init.exit296
-  %qre_prev7.i301 = getelementptr inbounds %struct.emitter_col_s, ptr %25, i64 0, i32 4, i32 1
+  %qre_prev7.i301 = getelementptr inbounds i8, ptr %25, i64 32
   %33 = load ptr, ptr %qre_prev7.i301, align 8
   store ptr %33, ptr %link.i297, align 8
   store ptr %header_nrequests, ptr %qre_prev7.i301, align 8
   %34 = load ptr, ptr %qre_prev.i298, align 8
-  %link20.i303 = getelementptr inbounds %struct.emitter_col_s, ptr %34, i64 0, i32 4
+  %link20.i303 = getelementptr inbounds i8, ptr %34, i64 24
   %35 = load ptr, ptr %link20.i303, align 8
   store ptr %35, ptr %qre_prev.i298, align 8
   %36 = load ptr, ptr %qre_prev7.i301, align 8
-  %link30.i305 = getelementptr inbounds %struct.emitter_col_s, ptr %36, i64 0, i32 4
+  %link30.i305 = getelementptr inbounds i8, ptr %36, i64 24
   store ptr %25, ptr %link30.i305, align 8
   %37 = load ptr, ptr %qre_prev.i298, align 8
-  %link34.i306 = getelementptr inbounds %struct.emitter_col_s, ptr %37, i64 0, i32 4
+  %link34.i306 = getelementptr inbounds i8, ptr %37, i64 24
   store ptr %header_nrequests, ptr %link34.i306, align 8
   %.pre.i307 = load ptr, ptr %link.i297, align 8
   br label %emitter_col_init.exit308
@@ -10184,33 +10184,33 @@ emitter_col_init.exit308:                         ; preds = %emitter_col_init.ex
   %38 = phi ptr [ %.pre.i307, %do.body3.i300 ], [ %header_nrequests, %emitter_col_init.exit296 ]
   store ptr %38, ptr %header_row, align 8
   store i32 1, ptr %header_nrequests, align 8
-  %width55 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests, i64 0, i32 1
+  %width55 = getelementptr inbounds i8, ptr %header_nrequests, i64 4
   store i32 13, ptr %width55, align 4
-  %type56 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests, i64 0, i32 2
+  %type56 = getelementptr inbounds i8, ptr %header_nrequests, i64 8
   store i32 9, ptr %type56, align 8
-  %39 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests, i64 0, i32 3
+  %39 = getelementptr inbounds i8, ptr %header_nrequests, i64 16
   store ptr @.str.317, ptr %39, align 8
-  %link.i309 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests_ps, i64 0, i32 4
+  %link.i309 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 24
   store ptr %col_nrequests_ps, ptr %link.i309, align 8
-  %qre_prev.i310 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests_ps, i64 0, i32 4, i32 1
+  %qre_prev.i310 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 32
   store ptr %col_nrequests_ps, ptr %qre_prev.i310, align 8
   %cmp.i311 = icmp eq ptr %32, null
   br i1 %cmp.i311, label %emitter_col_init.exit320, label %do.body3.i312
 
 do.body3.i312:                                    ; preds = %emitter_col_init.exit308
-  %qre_prev7.i313 = getelementptr inbounds %struct.emitter_col_s, ptr %32, i64 0, i32 4, i32 1
+  %qre_prev7.i313 = getelementptr inbounds i8, ptr %32, i64 32
   %40 = load ptr, ptr %qre_prev7.i313, align 8
   store ptr %40, ptr %link.i309, align 8
   store ptr %col_nrequests_ps, ptr %qre_prev7.i313, align 8
   %41 = load ptr, ptr %qre_prev.i310, align 8
-  %link20.i315 = getelementptr inbounds %struct.emitter_col_s, ptr %41, i64 0, i32 4
+  %link20.i315 = getelementptr inbounds i8, ptr %41, i64 24
   %42 = load ptr, ptr %link20.i315, align 8
   store ptr %42, ptr %qre_prev.i310, align 8
   %43 = load ptr, ptr %qre_prev7.i313, align 8
-  %link30.i317 = getelementptr inbounds %struct.emitter_col_s, ptr %43, i64 0, i32 4
+  %link30.i317 = getelementptr inbounds i8, ptr %43, i64 24
   store ptr %32, ptr %link30.i317, align 8
   %44 = load ptr, ptr %qre_prev.i310, align 8
-  %link34.i318 = getelementptr inbounds %struct.emitter_col_s, ptr %44, i64 0, i32 4
+  %link34.i318 = getelementptr inbounds i8, ptr %44, i64 24
   store ptr %col_nrequests_ps, ptr %link34.i318, align 8
   %.pre.i319 = load ptr, ptr %link.i309, align 8
   br label %emitter_col_init.exit320
@@ -10219,31 +10219,31 @@ emitter_col_init.exit320:                         ; preds = %emitter_col_init.ex
   %45 = phi ptr [ %.pre.i319, %do.body3.i312 ], [ %col_nrequests_ps, %emitter_col_init.exit308 ]
   store ptr %45, ptr %row, align 8
   store i32 1, ptr %col_nrequests_ps, align 8
-  %width58 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests_ps, i64 0, i32 1
+  %width58 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 4
   store i32 10, ptr %width58, align 4
-  %type59 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests_ps, i64 0, i32 2
+  %type59 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 8
   store i32 5, ptr %type59, align 8
-  %link.i321 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests_ps, i64 0, i32 4
+  %link.i321 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 24
   store ptr %header_nrequests_ps, ptr %link.i321, align 8
-  %qre_prev.i322 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests_ps, i64 0, i32 4, i32 1
+  %qre_prev.i322 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 32
   store ptr %header_nrequests_ps, ptr %qre_prev.i322, align 8
   %cmp.i323 = icmp eq ptr %38, null
   br i1 %cmp.i323, label %emitter_col_init.exit332, label %do.body3.i324
 
 do.body3.i324:                                    ; preds = %emitter_col_init.exit320
-  %qre_prev7.i325 = getelementptr inbounds %struct.emitter_col_s, ptr %38, i64 0, i32 4, i32 1
+  %qre_prev7.i325 = getelementptr inbounds i8, ptr %38, i64 32
   %46 = load ptr, ptr %qre_prev7.i325, align 8
   store ptr %46, ptr %link.i321, align 8
   store ptr %header_nrequests_ps, ptr %qre_prev7.i325, align 8
   %47 = load ptr, ptr %qre_prev.i322, align 8
-  %link20.i327 = getelementptr inbounds %struct.emitter_col_s, ptr %47, i64 0, i32 4
+  %link20.i327 = getelementptr inbounds i8, ptr %47, i64 24
   %48 = load ptr, ptr %link20.i327, align 8
   store ptr %48, ptr %qre_prev.i322, align 8
   %49 = load ptr, ptr %qre_prev7.i325, align 8
-  %link30.i329 = getelementptr inbounds %struct.emitter_col_s, ptr %49, i64 0, i32 4
+  %link30.i329 = getelementptr inbounds i8, ptr %49, i64 24
   store ptr %38, ptr %link30.i329, align 8
   %50 = load ptr, ptr %qre_prev.i322, align 8
-  %link34.i330 = getelementptr inbounds %struct.emitter_col_s, ptr %50, i64 0, i32 4
+  %link34.i330 = getelementptr inbounds i8, ptr %50, i64 24
   store ptr %header_nrequests_ps, ptr %link34.i330, align 8
   %.pre.i331 = load ptr, ptr %link.i321, align 8
   br label %emitter_col_init.exit332
@@ -10252,33 +10252,33 @@ emitter_col_init.exit332:                         ; preds = %emitter_col_init.ex
   %51 = phi ptr [ %.pre.i331, %do.body3.i324 ], [ %header_nrequests_ps, %emitter_col_init.exit320 ]
   store ptr %51, ptr %header_row, align 8
   store i32 1, ptr %header_nrequests_ps, align 8
-  %width61 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests_ps, i64 0, i32 1
+  %width61 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 4
   store i32 10, ptr %width61, align 4
-  %type62 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests_ps, i64 0, i32 2
+  %type62 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 8
   store i32 9, ptr %type62, align 8
-  %52 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests_ps, i64 0, i32 3
+  %52 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 16
   store ptr @.str.256, ptr %52, align 8
-  %link.i333 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nshards, i64 0, i32 4
+  %link.i333 = getelementptr inbounds i8, ptr %col_nshards, i64 24
   store ptr %col_nshards, ptr %link.i333, align 8
-  %qre_prev.i334 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nshards, i64 0, i32 4, i32 1
+  %qre_prev.i334 = getelementptr inbounds i8, ptr %col_nshards, i64 32
   store ptr %col_nshards, ptr %qre_prev.i334, align 8
   %cmp.i335 = icmp eq ptr %45, null
   br i1 %cmp.i335, label %emitter_col_init.exit344, label %do.body3.i336
 
 do.body3.i336:                                    ; preds = %emitter_col_init.exit332
-  %qre_prev7.i337 = getelementptr inbounds %struct.emitter_col_s, ptr %45, i64 0, i32 4, i32 1
+  %qre_prev7.i337 = getelementptr inbounds i8, ptr %45, i64 32
   %53 = load ptr, ptr %qre_prev7.i337, align 8
   store ptr %53, ptr %link.i333, align 8
   store ptr %col_nshards, ptr %qre_prev7.i337, align 8
   %54 = load ptr, ptr %qre_prev.i334, align 8
-  %link20.i339 = getelementptr inbounds %struct.emitter_col_s, ptr %54, i64 0, i32 4
+  %link20.i339 = getelementptr inbounds i8, ptr %54, i64 24
   %55 = load ptr, ptr %link20.i339, align 8
   store ptr %55, ptr %qre_prev.i334, align 8
   %56 = load ptr, ptr %qre_prev7.i337, align 8
-  %link30.i341 = getelementptr inbounds %struct.emitter_col_s, ptr %56, i64 0, i32 4
+  %link30.i341 = getelementptr inbounds i8, ptr %56, i64 24
   store ptr %45, ptr %link30.i341, align 8
   %57 = load ptr, ptr %qre_prev.i334, align 8
-  %link34.i342 = getelementptr inbounds %struct.emitter_col_s, ptr %57, i64 0, i32 4
+  %link34.i342 = getelementptr inbounds i8, ptr %57, i64 24
   store ptr %col_nshards, ptr %link34.i342, align 8
   %.pre.i343 = load ptr, ptr %link.i333, align 8
   br label %emitter_col_init.exit344
@@ -10287,31 +10287,31 @@ emitter_col_init.exit344:                         ; preds = %emitter_col_init.ex
   %58 = phi ptr [ %.pre.i343, %do.body3.i336 ], [ %col_nshards, %emitter_col_init.exit332 ]
   store ptr %58, ptr %row, align 8
   store i32 1, ptr %col_nshards, align 8
-  %width90 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nshards, i64 0, i32 1
+  %width90 = getelementptr inbounds i8, ptr %col_nshards, i64 4
   store i32 9, ptr %width90, align 4
-  %type91 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nshards, i64 0, i32 2
+  %type91 = getelementptr inbounds i8, ptr %col_nshards, i64 8
   store i32 3, ptr %type91, align 8
-  %link.i345 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nshards, i64 0, i32 4
+  %link.i345 = getelementptr inbounds i8, ptr %header_nshards, i64 24
   store ptr %header_nshards, ptr %link.i345, align 8
-  %qre_prev.i346 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nshards, i64 0, i32 4, i32 1
+  %qre_prev.i346 = getelementptr inbounds i8, ptr %header_nshards, i64 32
   store ptr %header_nshards, ptr %qre_prev.i346, align 8
   %cmp.i347 = icmp eq ptr %51, null
   br i1 %cmp.i347, label %emitter_col_init.exit356, label %do.body3.i348
 
 do.body3.i348:                                    ; preds = %emitter_col_init.exit344
-  %qre_prev7.i349 = getelementptr inbounds %struct.emitter_col_s, ptr %51, i64 0, i32 4, i32 1
+  %qre_prev7.i349 = getelementptr inbounds i8, ptr %51, i64 32
   %59 = load ptr, ptr %qre_prev7.i349, align 8
   store ptr %59, ptr %link.i345, align 8
   store ptr %header_nshards, ptr %qre_prev7.i349, align 8
   %60 = load ptr, ptr %qre_prev.i346, align 8
-  %link20.i351 = getelementptr inbounds %struct.emitter_col_s, ptr %60, i64 0, i32 4
+  %link20.i351 = getelementptr inbounds i8, ptr %60, i64 24
   %61 = load ptr, ptr %link20.i351, align 8
   store ptr %61, ptr %qre_prev.i346, align 8
   %62 = load ptr, ptr %qre_prev7.i349, align 8
-  %link30.i353 = getelementptr inbounds %struct.emitter_col_s, ptr %62, i64 0, i32 4
+  %link30.i353 = getelementptr inbounds i8, ptr %62, i64 24
   store ptr %51, ptr %link30.i353, align 8
   %63 = load ptr, ptr %qre_prev.i346, align 8
-  %link34.i354 = getelementptr inbounds %struct.emitter_col_s, ptr %63, i64 0, i32 4
+  %link34.i354 = getelementptr inbounds i8, ptr %63, i64 24
   store ptr %header_nshards, ptr %link34.i354, align 8
   %.pre.i355 = load ptr, ptr %link.i345, align 8
   br label %emitter_col_init.exit356
@@ -10320,33 +10320,33 @@ emitter_col_init.exit356:                         ; preds = %emitter_col_init.ex
   %64 = phi ptr [ %.pre.i355, %do.body3.i348 ], [ %header_nshards, %emitter_col_init.exit344 ]
   store ptr %64, ptr %header_row, align 8
   store i32 1, ptr %header_nshards, align 8
-  %width93 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nshards, i64 0, i32 1
+  %width93 = getelementptr inbounds i8, ptr %header_nshards, i64 4
   store i32 9, ptr %width93, align 4
-  %type94 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nshards, i64 0, i32 2
+  %type94 = getelementptr inbounds i8, ptr %header_nshards, i64 8
   store i32 9, ptr %type94, align 8
-  %65 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nshards, i64 0, i32 3
+  %65 = getelementptr inbounds i8, ptr %header_nshards, i64 16
   store ptr @.str.191, ptr %65, align 8
-  %link.i357 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curregs, i64 0, i32 4
+  %link.i357 = getelementptr inbounds i8, ptr %col_curregs, i64 24
   store ptr %col_curregs, ptr %link.i357, align 8
-  %qre_prev.i358 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curregs, i64 0, i32 4, i32 1
+  %qre_prev.i358 = getelementptr inbounds i8, ptr %col_curregs, i64 32
   store ptr %col_curregs, ptr %qre_prev.i358, align 8
   %cmp.i359 = icmp eq ptr %58, null
   br i1 %cmp.i359, label %emitter_col_init.exit368, label %do.body3.i360
 
 do.body3.i360:                                    ; preds = %emitter_col_init.exit356
-  %qre_prev7.i361 = getelementptr inbounds %struct.emitter_col_s, ptr %58, i64 0, i32 4, i32 1
+  %qre_prev7.i361 = getelementptr inbounds i8, ptr %58, i64 32
   %66 = load ptr, ptr %qre_prev7.i361, align 8
   store ptr %66, ptr %link.i357, align 8
   store ptr %col_curregs, ptr %qre_prev7.i361, align 8
   %67 = load ptr, ptr %qre_prev.i358, align 8
-  %link20.i363 = getelementptr inbounds %struct.emitter_col_s, ptr %67, i64 0, i32 4
+  %link20.i363 = getelementptr inbounds i8, ptr %67, i64 24
   %68 = load ptr, ptr %link20.i363, align 8
   store ptr %68, ptr %qre_prev.i358, align 8
   %69 = load ptr, ptr %qre_prev7.i361, align 8
-  %link30.i365 = getelementptr inbounds %struct.emitter_col_s, ptr %69, i64 0, i32 4
+  %link30.i365 = getelementptr inbounds i8, ptr %69, i64 24
   store ptr %58, ptr %link30.i365, align 8
   %70 = load ptr, ptr %qre_prev.i358, align 8
-  %link34.i366 = getelementptr inbounds %struct.emitter_col_s, ptr %70, i64 0, i32 4
+  %link34.i366 = getelementptr inbounds i8, ptr %70, i64 24
   store ptr %col_curregs, ptr %link34.i366, align 8
   %.pre.i367 = load ptr, ptr %link.i357, align 8
   br label %emitter_col_init.exit368
@@ -10355,31 +10355,31 @@ emitter_col_init.exit368:                         ; preds = %emitter_col_init.ex
   %71 = phi ptr [ %.pre.i367, %do.body3.i360 ], [ %col_curregs, %emitter_col_init.exit356 ]
   store ptr %71, ptr %row, align 8
   store i32 1, ptr %col_curregs, align 8
-  %width96 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curregs, i64 0, i32 1
+  %width96 = getelementptr inbounds i8, ptr %col_curregs, i64 4
   store i32 13, ptr %width96, align 4
-  %type97 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curregs, i64 0, i32 2
+  %type97 = getelementptr inbounds i8, ptr %col_curregs, i64 8
   store i32 6, ptr %type97, align 8
-  %link.i369 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curregs, i64 0, i32 4
+  %link.i369 = getelementptr inbounds i8, ptr %header_curregs, i64 24
   store ptr %header_curregs, ptr %link.i369, align 8
-  %qre_prev.i370 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curregs, i64 0, i32 4, i32 1
+  %qre_prev.i370 = getelementptr inbounds i8, ptr %header_curregs, i64 32
   store ptr %header_curregs, ptr %qre_prev.i370, align 8
   %cmp.i371 = icmp eq ptr %64, null
   br i1 %cmp.i371, label %emitter_col_init.exit380, label %do.body3.i372
 
 do.body3.i372:                                    ; preds = %emitter_col_init.exit368
-  %qre_prev7.i373 = getelementptr inbounds %struct.emitter_col_s, ptr %64, i64 0, i32 4, i32 1
+  %qre_prev7.i373 = getelementptr inbounds i8, ptr %64, i64 32
   %72 = load ptr, ptr %qre_prev7.i373, align 8
   store ptr %72, ptr %link.i369, align 8
   store ptr %header_curregs, ptr %qre_prev7.i373, align 8
   %73 = load ptr, ptr %qre_prev.i370, align 8
-  %link20.i375 = getelementptr inbounds %struct.emitter_col_s, ptr %73, i64 0, i32 4
+  %link20.i375 = getelementptr inbounds i8, ptr %73, i64 24
   %74 = load ptr, ptr %link20.i375, align 8
   store ptr %74, ptr %qre_prev.i370, align 8
   %75 = load ptr, ptr %qre_prev7.i373, align 8
-  %link30.i377 = getelementptr inbounds %struct.emitter_col_s, ptr %75, i64 0, i32 4
+  %link30.i377 = getelementptr inbounds i8, ptr %75, i64 24
   store ptr %64, ptr %link30.i377, align 8
   %76 = load ptr, ptr %qre_prev.i370, align 8
-  %link34.i378 = getelementptr inbounds %struct.emitter_col_s, ptr %76, i64 0, i32 4
+  %link34.i378 = getelementptr inbounds i8, ptr %76, i64 24
   store ptr %header_curregs, ptr %link34.i378, align 8
   %.pre.i379 = load ptr, ptr %link.i369, align 8
   br label %emitter_col_init.exit380
@@ -10388,33 +10388,33 @@ emitter_col_init.exit380:                         ; preds = %emitter_col_init.ex
   %77 = phi ptr [ %.pre.i379, %do.body3.i372 ], [ %header_curregs, %emitter_col_init.exit368 ]
   store ptr %77, ptr %header_row, align 8
   store i32 1, ptr %header_curregs, align 8
-  %width99 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curregs, i64 0, i32 1
+  %width99 = getelementptr inbounds i8, ptr %header_curregs, i64 4
   store i32 13, ptr %width99, align 4
-  %type100 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curregs, i64 0, i32 2
+  %type100 = getelementptr inbounds i8, ptr %header_curregs, i64 8
   store i32 9, ptr %type100, align 8
-  %78 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curregs, i64 0, i32 3
+  %78 = getelementptr inbounds i8, ptr %header_curregs, i64 16
   store ptr @.str.387, ptr %78, align 8
-  %link.i381 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curslabs, i64 0, i32 4
+  %link.i381 = getelementptr inbounds i8, ptr %col_curslabs, i64 24
   store ptr %col_curslabs, ptr %link.i381, align 8
-  %qre_prev.i382 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curslabs, i64 0, i32 4, i32 1
+  %qre_prev.i382 = getelementptr inbounds i8, ptr %col_curslabs, i64 32
   store ptr %col_curslabs, ptr %qre_prev.i382, align 8
   %cmp.i383 = icmp eq ptr %71, null
   br i1 %cmp.i383, label %emitter_col_init.exit392, label %do.body3.i384
 
 do.body3.i384:                                    ; preds = %emitter_col_init.exit380
-  %qre_prev7.i385 = getelementptr inbounds %struct.emitter_col_s, ptr %71, i64 0, i32 4, i32 1
+  %qre_prev7.i385 = getelementptr inbounds i8, ptr %71, i64 32
   %79 = load ptr, ptr %qre_prev7.i385, align 8
   store ptr %79, ptr %link.i381, align 8
   store ptr %col_curslabs, ptr %qre_prev7.i385, align 8
   %80 = load ptr, ptr %qre_prev.i382, align 8
-  %link20.i387 = getelementptr inbounds %struct.emitter_col_s, ptr %80, i64 0, i32 4
+  %link20.i387 = getelementptr inbounds i8, ptr %80, i64 24
   %81 = load ptr, ptr %link20.i387, align 8
   store ptr %81, ptr %qre_prev.i382, align 8
   %82 = load ptr, ptr %qre_prev7.i385, align 8
-  %link30.i389 = getelementptr inbounds %struct.emitter_col_s, ptr %82, i64 0, i32 4
+  %link30.i389 = getelementptr inbounds i8, ptr %82, i64 24
   store ptr %71, ptr %link30.i389, align 8
   %83 = load ptr, ptr %qre_prev.i382, align 8
-  %link34.i390 = getelementptr inbounds %struct.emitter_col_s, ptr %83, i64 0, i32 4
+  %link34.i390 = getelementptr inbounds i8, ptr %83, i64 24
   store ptr %col_curslabs, ptr %link34.i390, align 8
   %.pre.i391 = load ptr, ptr %link.i381, align 8
   br label %emitter_col_init.exit392
@@ -10423,31 +10423,31 @@ emitter_col_init.exit392:                         ; preds = %emitter_col_init.ex
   %84 = phi ptr [ %.pre.i391, %do.body3.i384 ], [ %col_curslabs, %emitter_col_init.exit380 ]
   store ptr %84, ptr %row, align 8
   store i32 1, ptr %col_curslabs, align 8
-  %width102 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curslabs, i64 0, i32 1
+  %width102 = getelementptr inbounds i8, ptr %col_curslabs, i64 4
   store i32 13, ptr %width102, align 4
-  %type103 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curslabs, i64 0, i32 2
+  %type103 = getelementptr inbounds i8, ptr %col_curslabs, i64 8
   store i32 6, ptr %type103, align 8
-  %link.i393 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curslabs, i64 0, i32 4
+  %link.i393 = getelementptr inbounds i8, ptr %header_curslabs, i64 24
   store ptr %header_curslabs, ptr %link.i393, align 8
-  %qre_prev.i394 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curslabs, i64 0, i32 4, i32 1
+  %qre_prev.i394 = getelementptr inbounds i8, ptr %header_curslabs, i64 32
   store ptr %header_curslabs, ptr %qre_prev.i394, align 8
   %cmp.i395 = icmp eq ptr %77, null
   br i1 %cmp.i395, label %emitter_col_init.exit404, label %do.body3.i396
 
 do.body3.i396:                                    ; preds = %emitter_col_init.exit392
-  %qre_prev7.i397 = getelementptr inbounds %struct.emitter_col_s, ptr %77, i64 0, i32 4, i32 1
+  %qre_prev7.i397 = getelementptr inbounds i8, ptr %77, i64 32
   %85 = load ptr, ptr %qre_prev7.i397, align 8
   store ptr %85, ptr %link.i393, align 8
   store ptr %header_curslabs, ptr %qre_prev7.i397, align 8
   %86 = load ptr, ptr %qre_prev.i394, align 8
-  %link20.i399 = getelementptr inbounds %struct.emitter_col_s, ptr %86, i64 0, i32 4
+  %link20.i399 = getelementptr inbounds i8, ptr %86, i64 24
   %87 = load ptr, ptr %link20.i399, align 8
   store ptr %87, ptr %qre_prev.i394, align 8
   %88 = load ptr, ptr %qre_prev7.i397, align 8
-  %link30.i401 = getelementptr inbounds %struct.emitter_col_s, ptr %88, i64 0, i32 4
+  %link30.i401 = getelementptr inbounds i8, ptr %88, i64 24
   store ptr %77, ptr %link30.i401, align 8
   %89 = load ptr, ptr %qre_prev.i394, align 8
-  %link34.i402 = getelementptr inbounds %struct.emitter_col_s, ptr %89, i64 0, i32 4
+  %link34.i402 = getelementptr inbounds i8, ptr %89, i64 24
   store ptr %header_curslabs, ptr %link34.i402, align 8
   %.pre.i403 = load ptr, ptr %link.i393, align 8
   br label %emitter_col_init.exit404
@@ -10456,33 +10456,33 @@ emitter_col_init.exit404:                         ; preds = %emitter_col_init.ex
   %90 = phi ptr [ %.pre.i403, %do.body3.i396 ], [ %header_curslabs, %emitter_col_init.exit392 ]
   store ptr %90, ptr %header_row, align 8
   store i32 1, ptr %header_curslabs, align 8
-  %width105 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curslabs, i64 0, i32 1
+  %width105 = getelementptr inbounds i8, ptr %header_curslabs, i64 4
   store i32 13, ptr %width105, align 4
-  %type106 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curslabs, i64 0, i32 2
+  %type106 = getelementptr inbounds i8, ptr %header_curslabs, i64 8
   store i32 9, ptr %type106, align 8
-  %91 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curslabs, i64 0, i32 3
+  %91 = getelementptr inbounds i8, ptr %header_curslabs, i64 16
   store ptr @.str.388, ptr %91, align 8
-  %link.i405 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nonfull_slabs, i64 0, i32 4
+  %link.i405 = getelementptr inbounds i8, ptr %col_nonfull_slabs, i64 24
   store ptr %col_nonfull_slabs, ptr %link.i405, align 8
-  %qre_prev.i406 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nonfull_slabs, i64 0, i32 4, i32 1
+  %qre_prev.i406 = getelementptr inbounds i8, ptr %col_nonfull_slabs, i64 32
   store ptr %col_nonfull_slabs, ptr %qre_prev.i406, align 8
   %cmp.i407 = icmp eq ptr %84, null
   br i1 %cmp.i407, label %emitter_col_init.exit416, label %do.body3.i408
 
 do.body3.i408:                                    ; preds = %emitter_col_init.exit404
-  %qre_prev7.i409 = getelementptr inbounds %struct.emitter_col_s, ptr %84, i64 0, i32 4, i32 1
+  %qre_prev7.i409 = getelementptr inbounds i8, ptr %84, i64 32
   %92 = load ptr, ptr %qre_prev7.i409, align 8
   store ptr %92, ptr %link.i405, align 8
   store ptr %col_nonfull_slabs, ptr %qre_prev7.i409, align 8
   %93 = load ptr, ptr %qre_prev.i406, align 8
-  %link20.i411 = getelementptr inbounds %struct.emitter_col_s, ptr %93, i64 0, i32 4
+  %link20.i411 = getelementptr inbounds i8, ptr %93, i64 24
   %94 = load ptr, ptr %link20.i411, align 8
   store ptr %94, ptr %qre_prev.i406, align 8
   %95 = load ptr, ptr %qre_prev7.i409, align 8
-  %link30.i413 = getelementptr inbounds %struct.emitter_col_s, ptr %95, i64 0, i32 4
+  %link30.i413 = getelementptr inbounds i8, ptr %95, i64 24
   store ptr %84, ptr %link30.i413, align 8
   %96 = load ptr, ptr %qre_prev.i406, align 8
-  %link34.i414 = getelementptr inbounds %struct.emitter_col_s, ptr %96, i64 0, i32 4
+  %link34.i414 = getelementptr inbounds i8, ptr %96, i64 24
   store ptr %col_nonfull_slabs, ptr %link34.i414, align 8
   %.pre.i415 = load ptr, ptr %link.i405, align 8
   br label %emitter_col_init.exit416
@@ -10491,31 +10491,31 @@ emitter_col_init.exit416:                         ; preds = %emitter_col_init.ex
   %97 = phi ptr [ %.pre.i415, %do.body3.i408 ], [ %col_nonfull_slabs, %emitter_col_init.exit404 ]
   store ptr %97, ptr %row, align 8
   store i32 1, ptr %col_nonfull_slabs, align 8
-  %width108 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nonfull_slabs, i64 0, i32 1
+  %width108 = getelementptr inbounds i8, ptr %col_nonfull_slabs, i64 4
   store i32 15, ptr %width108, align 4
-  %type109 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nonfull_slabs, i64 0, i32 2
+  %type109 = getelementptr inbounds i8, ptr %col_nonfull_slabs, i64 8
   store i32 6, ptr %type109, align 8
-  %link.i417 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nonfull_slabs, i64 0, i32 4
+  %link.i417 = getelementptr inbounds i8, ptr %header_nonfull_slabs, i64 24
   store ptr %header_nonfull_slabs, ptr %link.i417, align 8
-  %qre_prev.i418 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nonfull_slabs, i64 0, i32 4, i32 1
+  %qre_prev.i418 = getelementptr inbounds i8, ptr %header_nonfull_slabs, i64 32
   store ptr %header_nonfull_slabs, ptr %qre_prev.i418, align 8
   %cmp.i419 = icmp eq ptr %90, null
   br i1 %cmp.i419, label %emitter_col_init.exit428, label %do.body3.i420
 
 do.body3.i420:                                    ; preds = %emitter_col_init.exit416
-  %qre_prev7.i421 = getelementptr inbounds %struct.emitter_col_s, ptr %90, i64 0, i32 4, i32 1
+  %qre_prev7.i421 = getelementptr inbounds i8, ptr %90, i64 32
   %98 = load ptr, ptr %qre_prev7.i421, align 8
   store ptr %98, ptr %link.i417, align 8
   store ptr %header_nonfull_slabs, ptr %qre_prev7.i421, align 8
   %99 = load ptr, ptr %qre_prev.i418, align 8
-  %link20.i423 = getelementptr inbounds %struct.emitter_col_s, ptr %99, i64 0, i32 4
+  %link20.i423 = getelementptr inbounds i8, ptr %99, i64 24
   %100 = load ptr, ptr %link20.i423, align 8
   store ptr %100, ptr %qre_prev.i418, align 8
   %101 = load ptr, ptr %qre_prev7.i421, align 8
-  %link30.i425 = getelementptr inbounds %struct.emitter_col_s, ptr %101, i64 0, i32 4
+  %link30.i425 = getelementptr inbounds i8, ptr %101, i64 24
   store ptr %90, ptr %link30.i425, align 8
   %102 = load ptr, ptr %qre_prev.i418, align 8
-  %link34.i426 = getelementptr inbounds %struct.emitter_col_s, ptr %102, i64 0, i32 4
+  %link34.i426 = getelementptr inbounds i8, ptr %102, i64 24
   store ptr %header_nonfull_slabs, ptr %link34.i426, align 8
   %.pre.i427 = load ptr, ptr %link.i417, align 8
   br label %emitter_col_init.exit428
@@ -10524,33 +10524,33 @@ emitter_col_init.exit428:                         ; preds = %emitter_col_init.ex
   %103 = phi ptr [ %.pre.i427, %do.body3.i420 ], [ %header_nonfull_slabs, %emitter_col_init.exit416 ]
   store ptr %103, ptr %header_row, align 8
   store i32 1, ptr %header_nonfull_slabs, align 8
-  %width111 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nonfull_slabs, i64 0, i32 1
+  %width111 = getelementptr inbounds i8, ptr %header_nonfull_slabs, i64 4
   store i32 15, ptr %width111, align 4
-  %type112 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nonfull_slabs, i64 0, i32 2
+  %type112 = getelementptr inbounds i8, ptr %header_nonfull_slabs, i64 8
   store i32 9, ptr %type112, align 8
-  %104 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nonfull_slabs, i64 0, i32 3
+  %104 = getelementptr inbounds i8, ptr %header_nonfull_slabs, i64 16
   store ptr @.str.389, ptr %104, align 8
-  %link.i429 = getelementptr inbounds %struct.emitter_col_s, ptr %col_regs, i64 0, i32 4
+  %link.i429 = getelementptr inbounds i8, ptr %col_regs, i64 24
   store ptr %col_regs, ptr %link.i429, align 8
-  %qre_prev.i430 = getelementptr inbounds %struct.emitter_col_s, ptr %col_regs, i64 0, i32 4, i32 1
+  %qre_prev.i430 = getelementptr inbounds i8, ptr %col_regs, i64 32
   store ptr %col_regs, ptr %qre_prev.i430, align 8
   %cmp.i431 = icmp eq ptr %97, null
   br i1 %cmp.i431, label %emitter_col_init.exit440, label %do.body3.i432
 
 do.body3.i432:                                    ; preds = %emitter_col_init.exit428
-  %qre_prev7.i433 = getelementptr inbounds %struct.emitter_col_s, ptr %97, i64 0, i32 4, i32 1
+  %qre_prev7.i433 = getelementptr inbounds i8, ptr %97, i64 32
   %105 = load ptr, ptr %qre_prev7.i433, align 8
   store ptr %105, ptr %link.i429, align 8
   store ptr %col_regs, ptr %qre_prev7.i433, align 8
   %106 = load ptr, ptr %qre_prev.i430, align 8
-  %link20.i435 = getelementptr inbounds %struct.emitter_col_s, ptr %106, i64 0, i32 4
+  %link20.i435 = getelementptr inbounds i8, ptr %106, i64 24
   %107 = load ptr, ptr %link20.i435, align 8
   store ptr %107, ptr %qre_prev.i430, align 8
   %108 = load ptr, ptr %qre_prev7.i433, align 8
-  %link30.i437 = getelementptr inbounds %struct.emitter_col_s, ptr %108, i64 0, i32 4
+  %link30.i437 = getelementptr inbounds i8, ptr %108, i64 24
   store ptr %97, ptr %link30.i437, align 8
   %109 = load ptr, ptr %qre_prev.i430, align 8
-  %link34.i438 = getelementptr inbounds %struct.emitter_col_s, ptr %109, i64 0, i32 4
+  %link34.i438 = getelementptr inbounds i8, ptr %109, i64 24
   store ptr %col_regs, ptr %link34.i438, align 8
   %.pre.i439 = load ptr, ptr %link.i429, align 8
   br label %emitter_col_init.exit440
@@ -10559,31 +10559,31 @@ emitter_col_init.exit440:                         ; preds = %emitter_col_init.ex
   %110 = phi ptr [ %.pre.i439, %do.body3.i432 ], [ %col_regs, %emitter_col_init.exit428 ]
   store ptr %110, ptr %row, align 8
   store i32 1, ptr %col_regs, align 8
-  %width114 = getelementptr inbounds %struct.emitter_col_s, ptr %col_regs, i64 0, i32 1
+  %width114 = getelementptr inbounds i8, ptr %col_regs, i64 4
   store i32 5, ptr %width114, align 4
-  %type115 = getelementptr inbounds %struct.emitter_col_s, ptr %col_regs, i64 0, i32 2
+  %type115 = getelementptr inbounds i8, ptr %col_regs, i64 8
   store i32 3, ptr %type115, align 8
-  %link.i441 = getelementptr inbounds %struct.emitter_col_s, ptr %header_regs, i64 0, i32 4
+  %link.i441 = getelementptr inbounds i8, ptr %header_regs, i64 24
   store ptr %header_regs, ptr %link.i441, align 8
-  %qre_prev.i442 = getelementptr inbounds %struct.emitter_col_s, ptr %header_regs, i64 0, i32 4, i32 1
+  %qre_prev.i442 = getelementptr inbounds i8, ptr %header_regs, i64 32
   store ptr %header_regs, ptr %qre_prev.i442, align 8
   %cmp.i443 = icmp eq ptr %103, null
   br i1 %cmp.i443, label %emitter_col_init.exit452, label %do.body3.i444
 
 do.body3.i444:                                    ; preds = %emitter_col_init.exit440
-  %qre_prev7.i445 = getelementptr inbounds %struct.emitter_col_s, ptr %103, i64 0, i32 4, i32 1
+  %qre_prev7.i445 = getelementptr inbounds i8, ptr %103, i64 32
   %111 = load ptr, ptr %qre_prev7.i445, align 8
   store ptr %111, ptr %link.i441, align 8
   store ptr %header_regs, ptr %qre_prev7.i445, align 8
   %112 = load ptr, ptr %qre_prev.i442, align 8
-  %link20.i447 = getelementptr inbounds %struct.emitter_col_s, ptr %112, i64 0, i32 4
+  %link20.i447 = getelementptr inbounds i8, ptr %112, i64 24
   %113 = load ptr, ptr %link20.i447, align 8
   store ptr %113, ptr %qre_prev.i442, align 8
   %114 = load ptr, ptr %qre_prev7.i445, align 8
-  %link30.i449 = getelementptr inbounds %struct.emitter_col_s, ptr %114, i64 0, i32 4
+  %link30.i449 = getelementptr inbounds i8, ptr %114, i64 24
   store ptr %103, ptr %link30.i449, align 8
   %115 = load ptr, ptr %qre_prev.i442, align 8
-  %link34.i450 = getelementptr inbounds %struct.emitter_col_s, ptr %115, i64 0, i32 4
+  %link34.i450 = getelementptr inbounds i8, ptr %115, i64 24
   store ptr %header_regs, ptr %link34.i450, align 8
   %.pre.i451 = load ptr, ptr %link.i441, align 8
   br label %emitter_col_init.exit452
@@ -10592,33 +10592,33 @@ emitter_col_init.exit452:                         ; preds = %emitter_col_init.ex
   %116 = phi ptr [ %.pre.i451, %do.body3.i444 ], [ %header_regs, %emitter_col_init.exit440 ]
   store ptr %116, ptr %header_row, align 8
   store i32 1, ptr %header_regs, align 8
-  %width117 = getelementptr inbounds %struct.emitter_col_s, ptr %header_regs, i64 0, i32 1
+  %width117 = getelementptr inbounds i8, ptr %header_regs, i64 4
   store i32 5, ptr %width117, align 4
-  %type118 = getelementptr inbounds %struct.emitter_col_s, ptr %header_regs, i64 0, i32 2
+  %type118 = getelementptr inbounds i8, ptr %header_regs, i64 8
   store i32 9, ptr %type118, align 8
-  %117 = getelementptr inbounds %struct.emitter_col_s, ptr %header_regs, i64 0, i32 3
+  %117 = getelementptr inbounds i8, ptr %header_regs, i64 16
   store ptr @.str.390, ptr %117, align 8
-  %link.i453 = getelementptr inbounds %struct.emitter_col_s, ptr %col_pgs, i64 0, i32 4
+  %link.i453 = getelementptr inbounds i8, ptr %col_pgs, i64 24
   store ptr %col_pgs, ptr %link.i453, align 8
-  %qre_prev.i454 = getelementptr inbounds %struct.emitter_col_s, ptr %col_pgs, i64 0, i32 4, i32 1
+  %qre_prev.i454 = getelementptr inbounds i8, ptr %col_pgs, i64 32
   store ptr %col_pgs, ptr %qre_prev.i454, align 8
   %cmp.i455 = icmp eq ptr %110, null
   br i1 %cmp.i455, label %emitter_col_init.exit464, label %do.body3.i456
 
 do.body3.i456:                                    ; preds = %emitter_col_init.exit452
-  %qre_prev7.i457 = getelementptr inbounds %struct.emitter_col_s, ptr %110, i64 0, i32 4, i32 1
+  %qre_prev7.i457 = getelementptr inbounds i8, ptr %110, i64 32
   %118 = load ptr, ptr %qre_prev7.i457, align 8
   store ptr %118, ptr %link.i453, align 8
   store ptr %col_pgs, ptr %qre_prev7.i457, align 8
   %119 = load ptr, ptr %qre_prev.i454, align 8
-  %link20.i459 = getelementptr inbounds %struct.emitter_col_s, ptr %119, i64 0, i32 4
+  %link20.i459 = getelementptr inbounds i8, ptr %119, i64 24
   %120 = load ptr, ptr %link20.i459, align 8
   store ptr %120, ptr %qre_prev.i454, align 8
   %121 = load ptr, ptr %qre_prev7.i457, align 8
-  %link30.i461 = getelementptr inbounds %struct.emitter_col_s, ptr %121, i64 0, i32 4
+  %link30.i461 = getelementptr inbounds i8, ptr %121, i64 24
   store ptr %110, ptr %link30.i461, align 8
   %122 = load ptr, ptr %qre_prev.i454, align 8
-  %link34.i462 = getelementptr inbounds %struct.emitter_col_s, ptr %122, i64 0, i32 4
+  %link34.i462 = getelementptr inbounds i8, ptr %122, i64 24
   store ptr %col_pgs, ptr %link34.i462, align 8
   %.pre.i463 = load ptr, ptr %link.i453, align 8
   br label %emitter_col_init.exit464
@@ -10627,31 +10627,31 @@ emitter_col_init.exit464:                         ; preds = %emitter_col_init.ex
   %123 = phi ptr [ %.pre.i463, %do.body3.i456 ], [ %col_pgs, %emitter_col_init.exit452 ]
   store ptr %123, ptr %row, align 8
   store i32 1, ptr %col_pgs, align 8
-  %width120 = getelementptr inbounds %struct.emitter_col_s, ptr %col_pgs, i64 0, i32 1
+  %width120 = getelementptr inbounds i8, ptr %col_pgs, i64 4
   store i32 4, ptr %width120, align 4
-  %type121 = getelementptr inbounds %struct.emitter_col_s, ptr %col_pgs, i64 0, i32 2
+  %type121 = getelementptr inbounds i8, ptr %col_pgs, i64 8
   store i32 6, ptr %type121, align 8
-  %link.i465 = getelementptr inbounds %struct.emitter_col_s, ptr %header_pgs, i64 0, i32 4
+  %link.i465 = getelementptr inbounds i8, ptr %header_pgs, i64 24
   store ptr %header_pgs, ptr %link.i465, align 8
-  %qre_prev.i466 = getelementptr inbounds %struct.emitter_col_s, ptr %header_pgs, i64 0, i32 4, i32 1
+  %qre_prev.i466 = getelementptr inbounds i8, ptr %header_pgs, i64 32
   store ptr %header_pgs, ptr %qre_prev.i466, align 8
   %cmp.i467 = icmp eq ptr %116, null
   br i1 %cmp.i467, label %emitter_col_init.exit476, label %do.body3.i468
 
 do.body3.i468:                                    ; preds = %emitter_col_init.exit464
-  %qre_prev7.i469 = getelementptr inbounds %struct.emitter_col_s, ptr %116, i64 0, i32 4, i32 1
+  %qre_prev7.i469 = getelementptr inbounds i8, ptr %116, i64 32
   %124 = load ptr, ptr %qre_prev7.i469, align 8
   store ptr %124, ptr %link.i465, align 8
   store ptr %header_pgs, ptr %qre_prev7.i469, align 8
   %125 = load ptr, ptr %qre_prev.i466, align 8
-  %link20.i471 = getelementptr inbounds %struct.emitter_col_s, ptr %125, i64 0, i32 4
+  %link20.i471 = getelementptr inbounds i8, ptr %125, i64 24
   %126 = load ptr, ptr %link20.i471, align 8
   store ptr %126, ptr %qre_prev.i466, align 8
   %127 = load ptr, ptr %qre_prev7.i469, align 8
-  %link30.i473 = getelementptr inbounds %struct.emitter_col_s, ptr %127, i64 0, i32 4
+  %link30.i473 = getelementptr inbounds i8, ptr %127, i64 24
   store ptr %116, ptr %link30.i473, align 8
   %128 = load ptr, ptr %qre_prev.i466, align 8
-  %link34.i474 = getelementptr inbounds %struct.emitter_col_s, ptr %128, i64 0, i32 4
+  %link34.i474 = getelementptr inbounds i8, ptr %128, i64 24
   store ptr %header_pgs, ptr %link34.i474, align 8
   %.pre.i475 = load ptr, ptr %link.i465, align 8
   br label %emitter_col_init.exit476
@@ -10660,33 +10660,33 @@ emitter_col_init.exit476:                         ; preds = %emitter_col_init.ex
   %129 = phi ptr [ %.pre.i475, %do.body3.i468 ], [ %header_pgs, %emitter_col_init.exit464 ]
   store ptr %129, ptr %header_row, align 8
   store i32 1, ptr %header_pgs, align 8
-  %width123 = getelementptr inbounds %struct.emitter_col_s, ptr %header_pgs, i64 0, i32 1
+  %width123 = getelementptr inbounds i8, ptr %header_pgs, i64 4
   store i32 4, ptr %width123, align 4
-  %type124 = getelementptr inbounds %struct.emitter_col_s, ptr %header_pgs, i64 0, i32 2
+  %type124 = getelementptr inbounds i8, ptr %header_pgs, i64 8
   store i32 9, ptr %type124, align 8
-  %130 = getelementptr inbounds %struct.emitter_col_s, ptr %header_pgs, i64 0, i32 3
+  %130 = getelementptr inbounds i8, ptr %header_pgs, i64 16
   store ptr @.str.391, ptr %130, align 8
-  %link.i477 = getelementptr inbounds %struct.emitter_col_s, ptr %col_justify_spacer, i64 0, i32 4
+  %link.i477 = getelementptr inbounds i8, ptr %col_justify_spacer, i64 24
   store ptr %col_justify_spacer, ptr %link.i477, align 8
-  %qre_prev.i478 = getelementptr inbounds %struct.emitter_col_s, ptr %col_justify_spacer, i64 0, i32 4, i32 1
+  %qre_prev.i478 = getelementptr inbounds i8, ptr %col_justify_spacer, i64 32
   store ptr %col_justify_spacer, ptr %qre_prev.i478, align 8
   %cmp.i479 = icmp eq ptr %123, null
   br i1 %cmp.i479, label %emitter_col_init.exit488, label %do.body3.i480
 
 do.body3.i480:                                    ; preds = %emitter_col_init.exit476
-  %qre_prev7.i481 = getelementptr inbounds %struct.emitter_col_s, ptr %123, i64 0, i32 4, i32 1
+  %qre_prev7.i481 = getelementptr inbounds i8, ptr %123, i64 32
   %131 = load ptr, ptr %qre_prev7.i481, align 8
   store ptr %131, ptr %link.i477, align 8
   store ptr %col_justify_spacer, ptr %qre_prev7.i481, align 8
   %132 = load ptr, ptr %qre_prev.i478, align 8
-  %link20.i483 = getelementptr inbounds %struct.emitter_col_s, ptr %132, i64 0, i32 4
+  %link20.i483 = getelementptr inbounds i8, ptr %132, i64 24
   %133 = load ptr, ptr %link20.i483, align 8
   store ptr %133, ptr %qre_prev.i478, align 8
   %134 = load ptr, ptr %qre_prev7.i481, align 8
-  %link30.i485 = getelementptr inbounds %struct.emitter_col_s, ptr %134, i64 0, i32 4
+  %link30.i485 = getelementptr inbounds i8, ptr %134, i64 24
   store ptr %123, ptr %link30.i485, align 8
   %135 = load ptr, ptr %qre_prev.i478, align 8
-  %link34.i486 = getelementptr inbounds %struct.emitter_col_s, ptr %135, i64 0, i32 4
+  %link34.i486 = getelementptr inbounds i8, ptr %135, i64 24
   store ptr %col_justify_spacer, ptr %link34.i486, align 8
   %.pre.i487 = load ptr, ptr %link.i477, align 8
   br label %emitter_col_init.exit488
@@ -10695,31 +10695,31 @@ emitter_col_init.exit488:                         ; preds = %emitter_col_init.ex
   %136 = phi ptr [ %.pre.i487, %do.body3.i480 ], [ %col_justify_spacer, %emitter_col_init.exit476 ]
   store ptr %136, ptr %row, align 8
   store i32 1, ptr %col_justify_spacer, align 8
-  %width126 = getelementptr inbounds %struct.emitter_col_s, ptr %col_justify_spacer, i64 0, i32 1
+  %width126 = getelementptr inbounds i8, ptr %col_justify_spacer, i64 4
   store i32 1, ptr %width126, align 4
-  %type127 = getelementptr inbounds %struct.emitter_col_s, ptr %col_justify_spacer, i64 0, i32 2
+  %type127 = getelementptr inbounds i8, ptr %col_justify_spacer, i64 8
   store i32 9, ptr %type127, align 8
-  %link.i489 = getelementptr inbounds %struct.emitter_col_s, ptr %header_justify_spacer, i64 0, i32 4
+  %link.i489 = getelementptr inbounds i8, ptr %header_justify_spacer, i64 24
   store ptr %header_justify_spacer, ptr %link.i489, align 8
-  %qre_prev.i490 = getelementptr inbounds %struct.emitter_col_s, ptr %header_justify_spacer, i64 0, i32 4, i32 1
+  %qre_prev.i490 = getelementptr inbounds i8, ptr %header_justify_spacer, i64 32
   store ptr %header_justify_spacer, ptr %qre_prev.i490, align 8
   %cmp.i491 = icmp eq ptr %129, null
   br i1 %cmp.i491, label %emitter_col_init.exit500, label %do.body3.i492
 
 do.body3.i492:                                    ; preds = %emitter_col_init.exit488
-  %qre_prev7.i493 = getelementptr inbounds %struct.emitter_col_s, ptr %129, i64 0, i32 4, i32 1
+  %qre_prev7.i493 = getelementptr inbounds i8, ptr %129, i64 32
   %137 = load ptr, ptr %qre_prev7.i493, align 8
   store ptr %137, ptr %link.i489, align 8
   store ptr %header_justify_spacer, ptr %qre_prev7.i493, align 8
   %138 = load ptr, ptr %qre_prev.i490, align 8
-  %link20.i495 = getelementptr inbounds %struct.emitter_col_s, ptr %138, i64 0, i32 4
+  %link20.i495 = getelementptr inbounds i8, ptr %138, i64 24
   %139 = load ptr, ptr %link20.i495, align 8
   store ptr %139, ptr %qre_prev.i490, align 8
   %140 = load ptr, ptr %qre_prev7.i493, align 8
-  %link30.i497 = getelementptr inbounds %struct.emitter_col_s, ptr %140, i64 0, i32 4
+  %link30.i497 = getelementptr inbounds i8, ptr %140, i64 24
   store ptr %129, ptr %link30.i497, align 8
   %141 = load ptr, ptr %qre_prev.i490, align 8
-  %link34.i498 = getelementptr inbounds %struct.emitter_col_s, ptr %141, i64 0, i32 4
+  %link34.i498 = getelementptr inbounds i8, ptr %141, i64 24
   store ptr %header_justify_spacer, ptr %link34.i498, align 8
   %.pre.i499 = load ptr, ptr %link.i489, align 8
   br label %emitter_col_init.exit500
@@ -10728,33 +10728,33 @@ emitter_col_init.exit500:                         ; preds = %emitter_col_init.ex
   %142 = phi ptr [ %.pre.i499, %do.body3.i492 ], [ %header_justify_spacer, %emitter_col_init.exit488 ]
   store ptr %142, ptr %header_row, align 8
   store i32 1, ptr %header_justify_spacer, align 8
-  %width129 = getelementptr inbounds %struct.emitter_col_s, ptr %header_justify_spacer, i64 0, i32 1
+  %width129 = getelementptr inbounds i8, ptr %header_justify_spacer, i64 4
   store i32 1, ptr %width129, align 4
-  %type130 = getelementptr inbounds %struct.emitter_col_s, ptr %header_justify_spacer, i64 0, i32 2
+  %type130 = getelementptr inbounds i8, ptr %header_justify_spacer, i64 8
   store i32 9, ptr %type130, align 8
-  %143 = getelementptr inbounds %struct.emitter_col_s, ptr %header_justify_spacer, i64 0, i32 3
+  %143 = getelementptr inbounds i8, ptr %header_justify_spacer, i64 16
   store ptr @.str.392, ptr %143, align 8
-  %link.i501 = getelementptr inbounds %struct.emitter_col_s, ptr %col_util, i64 0, i32 4
+  %link.i501 = getelementptr inbounds i8, ptr %col_util, i64 24
   store ptr %col_util, ptr %link.i501, align 8
-  %qre_prev.i502 = getelementptr inbounds %struct.emitter_col_s, ptr %col_util, i64 0, i32 4, i32 1
+  %qre_prev.i502 = getelementptr inbounds i8, ptr %col_util, i64 32
   store ptr %col_util, ptr %qre_prev.i502, align 8
   %cmp.i503 = icmp eq ptr %136, null
   br i1 %cmp.i503, label %emitter_col_init.exit512, label %do.body3.i504
 
 do.body3.i504:                                    ; preds = %emitter_col_init.exit500
-  %qre_prev7.i505 = getelementptr inbounds %struct.emitter_col_s, ptr %136, i64 0, i32 4, i32 1
+  %qre_prev7.i505 = getelementptr inbounds i8, ptr %136, i64 32
   %144 = load ptr, ptr %qre_prev7.i505, align 8
   store ptr %144, ptr %link.i501, align 8
   store ptr %col_util, ptr %qre_prev7.i505, align 8
   %145 = load ptr, ptr %qre_prev.i502, align 8
-  %link20.i507 = getelementptr inbounds %struct.emitter_col_s, ptr %145, i64 0, i32 4
+  %link20.i507 = getelementptr inbounds i8, ptr %145, i64 24
   %146 = load ptr, ptr %link20.i507, align 8
   store ptr %146, ptr %qre_prev.i502, align 8
   %147 = load ptr, ptr %qre_prev7.i505, align 8
-  %link30.i509 = getelementptr inbounds %struct.emitter_col_s, ptr %147, i64 0, i32 4
+  %link30.i509 = getelementptr inbounds i8, ptr %147, i64 24
   store ptr %136, ptr %link30.i509, align 8
   %148 = load ptr, ptr %qre_prev.i502, align 8
-  %link34.i510 = getelementptr inbounds %struct.emitter_col_s, ptr %148, i64 0, i32 4
+  %link34.i510 = getelementptr inbounds i8, ptr %148, i64 24
   store ptr %col_util, ptr %link34.i510, align 8
   %.pre.i511 = load ptr, ptr %link.i501, align 8
   br label %emitter_col_init.exit512
@@ -10763,31 +10763,31 @@ emitter_col_init.exit512:                         ; preds = %emitter_col_init.ex
   %149 = phi ptr [ %.pre.i511, %do.body3.i504 ], [ %col_util, %emitter_col_init.exit500 ]
   store ptr %149, ptr %row, align 8
   store i32 1, ptr %col_util, align 8
-  %width132 = getelementptr inbounds %struct.emitter_col_s, ptr %col_util, i64 0, i32 1
+  %width132 = getelementptr inbounds i8, ptr %col_util, i64 4
   store i32 6, ptr %width132, align 4
-  %type133 = getelementptr inbounds %struct.emitter_col_s, ptr %col_util, i64 0, i32 2
+  %type133 = getelementptr inbounds i8, ptr %col_util, i64 8
   store i32 9, ptr %type133, align 8
-  %link.i513 = getelementptr inbounds %struct.emitter_col_s, ptr %header_util, i64 0, i32 4
+  %link.i513 = getelementptr inbounds i8, ptr %header_util, i64 24
   store ptr %header_util, ptr %link.i513, align 8
-  %qre_prev.i514 = getelementptr inbounds %struct.emitter_col_s, ptr %header_util, i64 0, i32 4, i32 1
+  %qre_prev.i514 = getelementptr inbounds i8, ptr %header_util, i64 32
   store ptr %header_util, ptr %qre_prev.i514, align 8
   %cmp.i515 = icmp eq ptr %142, null
   br i1 %cmp.i515, label %emitter_col_init.exit524, label %do.body3.i516
 
 do.body3.i516:                                    ; preds = %emitter_col_init.exit512
-  %qre_prev7.i517 = getelementptr inbounds %struct.emitter_col_s, ptr %142, i64 0, i32 4, i32 1
+  %qre_prev7.i517 = getelementptr inbounds i8, ptr %142, i64 32
   %150 = load ptr, ptr %qre_prev7.i517, align 8
   store ptr %150, ptr %link.i513, align 8
   store ptr %header_util, ptr %qre_prev7.i517, align 8
   %151 = load ptr, ptr %qre_prev.i514, align 8
-  %link20.i519 = getelementptr inbounds %struct.emitter_col_s, ptr %151, i64 0, i32 4
+  %link20.i519 = getelementptr inbounds i8, ptr %151, i64 24
   %152 = load ptr, ptr %link20.i519, align 8
   store ptr %152, ptr %qre_prev.i514, align 8
   %153 = load ptr, ptr %qre_prev7.i517, align 8
-  %link30.i521 = getelementptr inbounds %struct.emitter_col_s, ptr %153, i64 0, i32 4
+  %link30.i521 = getelementptr inbounds i8, ptr %153, i64 24
   store ptr %142, ptr %link30.i521, align 8
   %154 = load ptr, ptr %qre_prev.i514, align 8
-  %link34.i522 = getelementptr inbounds %struct.emitter_col_s, ptr %154, i64 0, i32 4
+  %link34.i522 = getelementptr inbounds i8, ptr %154, i64 24
   store ptr %header_util, ptr %link34.i522, align 8
   %.pre.i523 = load ptr, ptr %link.i513, align 8
   br label %emitter_col_init.exit524
@@ -10796,33 +10796,33 @@ emitter_col_init.exit524:                         ; preds = %emitter_col_init.ex
   %155 = phi ptr [ %.pre.i523, %do.body3.i516 ], [ %header_util, %emitter_col_init.exit512 ]
   store ptr %155, ptr %header_row, align 8
   store i32 1, ptr %header_util, align 8
-  %width135 = getelementptr inbounds %struct.emitter_col_s, ptr %header_util, i64 0, i32 1
+  %width135 = getelementptr inbounds i8, ptr %header_util, i64 4
   store i32 6, ptr %width135, align 4
-  %type136 = getelementptr inbounds %struct.emitter_col_s, ptr %header_util, i64 0, i32 2
+  %type136 = getelementptr inbounds i8, ptr %header_util, i64 8
   store i32 9, ptr %type136, align 8
-  %156 = getelementptr inbounds %struct.emitter_col_s, ptr %header_util, i64 0, i32 3
+  %156 = getelementptr inbounds i8, ptr %header_util, i64 16
   store ptr @.str.393, ptr %156, align 8
-  %link.i525 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nfills, i64 0, i32 4
+  %link.i525 = getelementptr inbounds i8, ptr %col_nfills, i64 24
   store ptr %col_nfills, ptr %link.i525, align 8
-  %qre_prev.i526 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nfills, i64 0, i32 4, i32 1
+  %qre_prev.i526 = getelementptr inbounds i8, ptr %col_nfills, i64 32
   store ptr %col_nfills, ptr %qre_prev.i526, align 8
   %cmp.i527 = icmp eq ptr %149, null
   br i1 %cmp.i527, label %emitter_col_init.exit536, label %do.body3.i528
 
 do.body3.i528:                                    ; preds = %emitter_col_init.exit524
-  %qre_prev7.i529 = getelementptr inbounds %struct.emitter_col_s, ptr %149, i64 0, i32 4, i32 1
+  %qre_prev7.i529 = getelementptr inbounds i8, ptr %149, i64 32
   %157 = load ptr, ptr %qre_prev7.i529, align 8
   store ptr %157, ptr %link.i525, align 8
   store ptr %col_nfills, ptr %qre_prev7.i529, align 8
   %158 = load ptr, ptr %qre_prev.i526, align 8
-  %link20.i531 = getelementptr inbounds %struct.emitter_col_s, ptr %158, i64 0, i32 4
+  %link20.i531 = getelementptr inbounds i8, ptr %158, i64 24
   %159 = load ptr, ptr %link20.i531, align 8
   store ptr %159, ptr %qre_prev.i526, align 8
   %160 = load ptr, ptr %qre_prev7.i529, align 8
-  %link30.i533 = getelementptr inbounds %struct.emitter_col_s, ptr %160, i64 0, i32 4
+  %link30.i533 = getelementptr inbounds i8, ptr %160, i64 24
   store ptr %149, ptr %link30.i533, align 8
   %161 = load ptr, ptr %qre_prev.i526, align 8
-  %link34.i534 = getelementptr inbounds %struct.emitter_col_s, ptr %161, i64 0, i32 4
+  %link34.i534 = getelementptr inbounds i8, ptr %161, i64 24
   store ptr %col_nfills, ptr %link34.i534, align 8
   %.pre.i535 = load ptr, ptr %link.i525, align 8
   br label %emitter_col_init.exit536
@@ -10831,31 +10831,31 @@ emitter_col_init.exit536:                         ; preds = %emitter_col_init.ex
   %162 = phi ptr [ %.pre.i535, %do.body3.i528 ], [ %col_nfills, %emitter_col_init.exit524 ]
   store ptr %162, ptr %row, align 8
   store i32 1, ptr %col_nfills, align 8
-  %width138 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nfills, i64 0, i32 1
+  %width138 = getelementptr inbounds i8, ptr %col_nfills, i64 4
   store i32 13, ptr %width138, align 4
-  %type139 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nfills, i64 0, i32 2
+  %type139 = getelementptr inbounds i8, ptr %col_nfills, i64 8
   store i32 5, ptr %type139, align 8
-  %link.i537 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nfills, i64 0, i32 4
+  %link.i537 = getelementptr inbounds i8, ptr %header_nfills, i64 24
   store ptr %header_nfills, ptr %link.i537, align 8
-  %qre_prev.i538 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nfills, i64 0, i32 4, i32 1
+  %qre_prev.i538 = getelementptr inbounds i8, ptr %header_nfills, i64 32
   store ptr %header_nfills, ptr %qre_prev.i538, align 8
   %cmp.i539 = icmp eq ptr %155, null
   br i1 %cmp.i539, label %emitter_col_init.exit548, label %do.body3.i540
 
 do.body3.i540:                                    ; preds = %emitter_col_init.exit536
-  %qre_prev7.i541 = getelementptr inbounds %struct.emitter_col_s, ptr %155, i64 0, i32 4, i32 1
+  %qre_prev7.i541 = getelementptr inbounds i8, ptr %155, i64 32
   %163 = load ptr, ptr %qre_prev7.i541, align 8
   store ptr %163, ptr %link.i537, align 8
   store ptr %header_nfills, ptr %qre_prev7.i541, align 8
   %164 = load ptr, ptr %qre_prev.i538, align 8
-  %link20.i543 = getelementptr inbounds %struct.emitter_col_s, ptr %164, i64 0, i32 4
+  %link20.i543 = getelementptr inbounds i8, ptr %164, i64 24
   %165 = load ptr, ptr %link20.i543, align 8
   store ptr %165, ptr %qre_prev.i538, align 8
   %166 = load ptr, ptr %qre_prev7.i541, align 8
-  %link30.i545 = getelementptr inbounds %struct.emitter_col_s, ptr %166, i64 0, i32 4
+  %link30.i545 = getelementptr inbounds i8, ptr %166, i64 24
   store ptr %155, ptr %link30.i545, align 8
   %167 = load ptr, ptr %qre_prev.i538, align 8
-  %link34.i546 = getelementptr inbounds %struct.emitter_col_s, ptr %167, i64 0, i32 4
+  %link34.i546 = getelementptr inbounds i8, ptr %167, i64 24
   store ptr %header_nfills, ptr %link34.i546, align 8
   %.pre.i547 = load ptr, ptr %link.i537, align 8
   br label %emitter_col_init.exit548
@@ -10864,33 +10864,33 @@ emitter_col_init.exit548:                         ; preds = %emitter_col_init.ex
   %168 = phi ptr [ %.pre.i547, %do.body3.i540 ], [ %header_nfills, %emitter_col_init.exit536 ]
   store ptr %168, ptr %header_row, align 8
   store i32 1, ptr %header_nfills, align 8
-  %width141 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nfills, i64 0, i32 1
+  %width141 = getelementptr inbounds i8, ptr %header_nfills, i64 4
   store i32 13, ptr %width141, align 4
-  %type142 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nfills, i64 0, i32 2
+  %type142 = getelementptr inbounds i8, ptr %header_nfills, i64 8
   store i32 9, ptr %type142, align 8
-  %169 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nfills, i64 0, i32 3
+  %169 = getelementptr inbounds i8, ptr %header_nfills, i64 16
   store ptr @.str.327, ptr %169, align 8
-  %link.i549 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nfills_ps, i64 0, i32 4
+  %link.i549 = getelementptr inbounds i8, ptr %col_nfills_ps, i64 24
   store ptr %col_nfills_ps, ptr %link.i549, align 8
-  %qre_prev.i550 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nfills_ps, i64 0, i32 4, i32 1
+  %qre_prev.i550 = getelementptr inbounds i8, ptr %col_nfills_ps, i64 32
   store ptr %col_nfills_ps, ptr %qre_prev.i550, align 8
   %cmp.i551 = icmp eq ptr %162, null
   br i1 %cmp.i551, label %emitter_col_init.exit560, label %do.body3.i552
 
 do.body3.i552:                                    ; preds = %emitter_col_init.exit548
-  %qre_prev7.i553 = getelementptr inbounds %struct.emitter_col_s, ptr %162, i64 0, i32 4, i32 1
+  %qre_prev7.i553 = getelementptr inbounds i8, ptr %162, i64 32
   %170 = load ptr, ptr %qre_prev7.i553, align 8
   store ptr %170, ptr %link.i549, align 8
   store ptr %col_nfills_ps, ptr %qre_prev7.i553, align 8
   %171 = load ptr, ptr %qre_prev.i550, align 8
-  %link20.i555 = getelementptr inbounds %struct.emitter_col_s, ptr %171, i64 0, i32 4
+  %link20.i555 = getelementptr inbounds i8, ptr %171, i64 24
   %172 = load ptr, ptr %link20.i555, align 8
   store ptr %172, ptr %qre_prev.i550, align 8
   %173 = load ptr, ptr %qre_prev7.i553, align 8
-  %link30.i557 = getelementptr inbounds %struct.emitter_col_s, ptr %173, i64 0, i32 4
+  %link30.i557 = getelementptr inbounds i8, ptr %173, i64 24
   store ptr %162, ptr %link30.i557, align 8
   %174 = load ptr, ptr %qre_prev.i550, align 8
-  %link34.i558 = getelementptr inbounds %struct.emitter_col_s, ptr %174, i64 0, i32 4
+  %link34.i558 = getelementptr inbounds i8, ptr %174, i64 24
   store ptr %col_nfills_ps, ptr %link34.i558, align 8
   %.pre.i559 = load ptr, ptr %link.i549, align 8
   br label %emitter_col_init.exit560
@@ -10899,31 +10899,31 @@ emitter_col_init.exit560:                         ; preds = %emitter_col_init.ex
   %175 = phi ptr [ %.pre.i559, %do.body3.i552 ], [ %col_nfills_ps, %emitter_col_init.exit548 ]
   store ptr %175, ptr %row, align 8
   store i32 1, ptr %col_nfills_ps, align 8
-  %width144 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nfills_ps, i64 0, i32 1
+  %width144 = getelementptr inbounds i8, ptr %col_nfills_ps, i64 4
   store i32 8, ptr %width144, align 4
-  %type145 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nfills_ps, i64 0, i32 2
+  %type145 = getelementptr inbounds i8, ptr %col_nfills_ps, i64 8
   store i32 5, ptr %type145, align 8
-  %link.i561 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nfills_ps, i64 0, i32 4
+  %link.i561 = getelementptr inbounds i8, ptr %header_nfills_ps, i64 24
   store ptr %header_nfills_ps, ptr %link.i561, align 8
-  %qre_prev.i562 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nfills_ps, i64 0, i32 4, i32 1
+  %qre_prev.i562 = getelementptr inbounds i8, ptr %header_nfills_ps, i64 32
   store ptr %header_nfills_ps, ptr %qre_prev.i562, align 8
   %cmp.i563 = icmp eq ptr %168, null
   br i1 %cmp.i563, label %emitter_col_init.exit572, label %do.body3.i564
 
 do.body3.i564:                                    ; preds = %emitter_col_init.exit560
-  %qre_prev7.i565 = getelementptr inbounds %struct.emitter_col_s, ptr %168, i64 0, i32 4, i32 1
+  %qre_prev7.i565 = getelementptr inbounds i8, ptr %168, i64 32
   %176 = load ptr, ptr %qre_prev7.i565, align 8
   store ptr %176, ptr %link.i561, align 8
   store ptr %header_nfills_ps, ptr %qre_prev7.i565, align 8
   %177 = load ptr, ptr %qre_prev.i562, align 8
-  %link20.i567 = getelementptr inbounds %struct.emitter_col_s, ptr %177, i64 0, i32 4
+  %link20.i567 = getelementptr inbounds i8, ptr %177, i64 24
   %178 = load ptr, ptr %link20.i567, align 8
   store ptr %178, ptr %qre_prev.i562, align 8
   %179 = load ptr, ptr %qre_prev7.i565, align 8
-  %link30.i569 = getelementptr inbounds %struct.emitter_col_s, ptr %179, i64 0, i32 4
+  %link30.i569 = getelementptr inbounds i8, ptr %179, i64 24
   store ptr %168, ptr %link30.i569, align 8
   %180 = load ptr, ptr %qre_prev.i562, align 8
-  %link34.i570 = getelementptr inbounds %struct.emitter_col_s, ptr %180, i64 0, i32 4
+  %link34.i570 = getelementptr inbounds i8, ptr %180, i64 24
   store ptr %header_nfills_ps, ptr %link34.i570, align 8
   %.pre.i571 = load ptr, ptr %link.i561, align 8
   br label %emitter_col_init.exit572
@@ -10932,33 +10932,33 @@ emitter_col_init.exit572:                         ; preds = %emitter_col_init.ex
   %181 = phi ptr [ %.pre.i571, %do.body3.i564 ], [ %header_nfills_ps, %emitter_col_init.exit560 ]
   store ptr %181, ptr %header_row, align 8
   store i32 1, ptr %header_nfills_ps, align 8
-  %width147 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nfills_ps, i64 0, i32 1
+  %width147 = getelementptr inbounds i8, ptr %header_nfills_ps, i64 4
   store i32 8, ptr %width147, align 4
-  %type148 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nfills_ps, i64 0, i32 2
+  %type148 = getelementptr inbounds i8, ptr %header_nfills_ps, i64 8
   store i32 9, ptr %type148, align 8
-  %182 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nfills_ps, i64 0, i32 3
+  %182 = getelementptr inbounds i8, ptr %header_nfills_ps, i64 16
   store ptr @.str.256, ptr %182, align 8
-  %link.i573 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nflushes, i64 0, i32 4
+  %link.i573 = getelementptr inbounds i8, ptr %col_nflushes, i64 24
   store ptr %col_nflushes, ptr %link.i573, align 8
-  %qre_prev.i574 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nflushes, i64 0, i32 4, i32 1
+  %qre_prev.i574 = getelementptr inbounds i8, ptr %col_nflushes, i64 32
   store ptr %col_nflushes, ptr %qre_prev.i574, align 8
   %cmp.i575 = icmp eq ptr %175, null
   br i1 %cmp.i575, label %emitter_col_init.exit584, label %do.body3.i576
 
 do.body3.i576:                                    ; preds = %emitter_col_init.exit572
-  %qre_prev7.i577 = getelementptr inbounds %struct.emitter_col_s, ptr %175, i64 0, i32 4, i32 1
+  %qre_prev7.i577 = getelementptr inbounds i8, ptr %175, i64 32
   %183 = load ptr, ptr %qre_prev7.i577, align 8
   store ptr %183, ptr %link.i573, align 8
   store ptr %col_nflushes, ptr %qre_prev7.i577, align 8
   %184 = load ptr, ptr %qre_prev.i574, align 8
-  %link20.i579 = getelementptr inbounds %struct.emitter_col_s, ptr %184, i64 0, i32 4
+  %link20.i579 = getelementptr inbounds i8, ptr %184, i64 24
   %185 = load ptr, ptr %link20.i579, align 8
   store ptr %185, ptr %qre_prev.i574, align 8
   %186 = load ptr, ptr %qre_prev7.i577, align 8
-  %link30.i581 = getelementptr inbounds %struct.emitter_col_s, ptr %186, i64 0, i32 4
+  %link30.i581 = getelementptr inbounds i8, ptr %186, i64 24
   store ptr %175, ptr %link30.i581, align 8
   %187 = load ptr, ptr %qre_prev.i574, align 8
-  %link34.i582 = getelementptr inbounds %struct.emitter_col_s, ptr %187, i64 0, i32 4
+  %link34.i582 = getelementptr inbounds i8, ptr %187, i64 24
   store ptr %col_nflushes, ptr %link34.i582, align 8
   %.pre.i583 = load ptr, ptr %link.i573, align 8
   br label %emitter_col_init.exit584
@@ -10967,31 +10967,31 @@ emitter_col_init.exit584:                         ; preds = %emitter_col_init.ex
   %188 = phi ptr [ %.pre.i583, %do.body3.i576 ], [ %col_nflushes, %emitter_col_init.exit572 ]
   store ptr %188, ptr %row, align 8
   store i32 1, ptr %col_nflushes, align 8
-  %width150 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nflushes, i64 0, i32 1
+  %width150 = getelementptr inbounds i8, ptr %col_nflushes, i64 4
   store i32 13, ptr %width150, align 4
-  %type151 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nflushes, i64 0, i32 2
+  %type151 = getelementptr inbounds i8, ptr %col_nflushes, i64 8
   store i32 5, ptr %type151, align 8
-  %link.i585 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nflushes, i64 0, i32 4
+  %link.i585 = getelementptr inbounds i8, ptr %header_nflushes, i64 24
   store ptr %header_nflushes, ptr %link.i585, align 8
-  %qre_prev.i586 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nflushes, i64 0, i32 4, i32 1
+  %qre_prev.i586 = getelementptr inbounds i8, ptr %header_nflushes, i64 32
   store ptr %header_nflushes, ptr %qre_prev.i586, align 8
   %cmp.i587 = icmp eq ptr %181, null
   br i1 %cmp.i587, label %emitter_col_init.exit596, label %do.body3.i588
 
 do.body3.i588:                                    ; preds = %emitter_col_init.exit584
-  %qre_prev7.i589 = getelementptr inbounds %struct.emitter_col_s, ptr %181, i64 0, i32 4, i32 1
+  %qre_prev7.i589 = getelementptr inbounds i8, ptr %181, i64 32
   %189 = load ptr, ptr %qre_prev7.i589, align 8
   store ptr %189, ptr %link.i585, align 8
   store ptr %header_nflushes, ptr %qre_prev7.i589, align 8
   %190 = load ptr, ptr %qre_prev.i586, align 8
-  %link20.i591 = getelementptr inbounds %struct.emitter_col_s, ptr %190, i64 0, i32 4
+  %link20.i591 = getelementptr inbounds i8, ptr %190, i64 24
   %191 = load ptr, ptr %link20.i591, align 8
   store ptr %191, ptr %qre_prev.i586, align 8
   %192 = load ptr, ptr %qre_prev7.i589, align 8
-  %link30.i593 = getelementptr inbounds %struct.emitter_col_s, ptr %192, i64 0, i32 4
+  %link30.i593 = getelementptr inbounds i8, ptr %192, i64 24
   store ptr %181, ptr %link30.i593, align 8
   %193 = load ptr, ptr %qre_prev.i586, align 8
-  %link34.i594 = getelementptr inbounds %struct.emitter_col_s, ptr %193, i64 0, i32 4
+  %link34.i594 = getelementptr inbounds i8, ptr %193, i64 24
   store ptr %header_nflushes, ptr %link34.i594, align 8
   %.pre.i595 = load ptr, ptr %link.i585, align 8
   br label %emitter_col_init.exit596
@@ -11000,33 +11000,33 @@ emitter_col_init.exit596:                         ; preds = %emitter_col_init.ex
   %194 = phi ptr [ %.pre.i595, %do.body3.i588 ], [ %header_nflushes, %emitter_col_init.exit584 ]
   store ptr %194, ptr %header_row, align 8
   store i32 1, ptr %header_nflushes, align 8
-  %width153 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nflushes, i64 0, i32 1
+  %width153 = getelementptr inbounds i8, ptr %header_nflushes, i64 4
   store i32 13, ptr %width153, align 4
-  %type154 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nflushes, i64 0, i32 2
+  %type154 = getelementptr inbounds i8, ptr %header_nflushes, i64 8
   store i32 9, ptr %type154, align 8
-  %195 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nflushes, i64 0, i32 3
+  %195 = getelementptr inbounds i8, ptr %header_nflushes, i64 16
   store ptr @.str.329, ptr %195, align 8
-  %link.i597 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nflushes_ps, i64 0, i32 4
+  %link.i597 = getelementptr inbounds i8, ptr %col_nflushes_ps, i64 24
   store ptr %col_nflushes_ps, ptr %link.i597, align 8
-  %qre_prev.i598 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nflushes_ps, i64 0, i32 4, i32 1
+  %qre_prev.i598 = getelementptr inbounds i8, ptr %col_nflushes_ps, i64 32
   store ptr %col_nflushes_ps, ptr %qre_prev.i598, align 8
   %cmp.i599 = icmp eq ptr %188, null
   br i1 %cmp.i599, label %emitter_col_init.exit608, label %do.body3.i600
 
 do.body3.i600:                                    ; preds = %emitter_col_init.exit596
-  %qre_prev7.i601 = getelementptr inbounds %struct.emitter_col_s, ptr %188, i64 0, i32 4, i32 1
+  %qre_prev7.i601 = getelementptr inbounds i8, ptr %188, i64 32
   %196 = load ptr, ptr %qre_prev7.i601, align 8
   store ptr %196, ptr %link.i597, align 8
   store ptr %col_nflushes_ps, ptr %qre_prev7.i601, align 8
   %197 = load ptr, ptr %qre_prev.i598, align 8
-  %link20.i603 = getelementptr inbounds %struct.emitter_col_s, ptr %197, i64 0, i32 4
+  %link20.i603 = getelementptr inbounds i8, ptr %197, i64 24
   %198 = load ptr, ptr %link20.i603, align 8
   store ptr %198, ptr %qre_prev.i598, align 8
   %199 = load ptr, ptr %qre_prev7.i601, align 8
-  %link30.i605 = getelementptr inbounds %struct.emitter_col_s, ptr %199, i64 0, i32 4
+  %link30.i605 = getelementptr inbounds i8, ptr %199, i64 24
   store ptr %188, ptr %link30.i605, align 8
   %200 = load ptr, ptr %qre_prev.i598, align 8
-  %link34.i606 = getelementptr inbounds %struct.emitter_col_s, ptr %200, i64 0, i32 4
+  %link34.i606 = getelementptr inbounds i8, ptr %200, i64 24
   store ptr %col_nflushes_ps, ptr %link34.i606, align 8
   %.pre.i607 = load ptr, ptr %link.i597, align 8
   br label %emitter_col_init.exit608
@@ -11035,31 +11035,31 @@ emitter_col_init.exit608:                         ; preds = %emitter_col_init.ex
   %201 = phi ptr [ %.pre.i607, %do.body3.i600 ], [ %col_nflushes_ps, %emitter_col_init.exit596 ]
   store ptr %201, ptr %row, align 8
   store i32 1, ptr %col_nflushes_ps, align 8
-  %width156 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nflushes_ps, i64 0, i32 1
+  %width156 = getelementptr inbounds i8, ptr %col_nflushes_ps, i64 4
   store i32 8, ptr %width156, align 4
-  %type157 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nflushes_ps, i64 0, i32 2
+  %type157 = getelementptr inbounds i8, ptr %col_nflushes_ps, i64 8
   store i32 5, ptr %type157, align 8
-  %link.i609 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nflushes_ps, i64 0, i32 4
+  %link.i609 = getelementptr inbounds i8, ptr %header_nflushes_ps, i64 24
   store ptr %header_nflushes_ps, ptr %link.i609, align 8
-  %qre_prev.i610 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nflushes_ps, i64 0, i32 4, i32 1
+  %qre_prev.i610 = getelementptr inbounds i8, ptr %header_nflushes_ps, i64 32
   store ptr %header_nflushes_ps, ptr %qre_prev.i610, align 8
   %cmp.i611 = icmp eq ptr %194, null
   br i1 %cmp.i611, label %emitter_col_init.exit620, label %do.body3.i612
 
 do.body3.i612:                                    ; preds = %emitter_col_init.exit608
-  %qre_prev7.i613 = getelementptr inbounds %struct.emitter_col_s, ptr %194, i64 0, i32 4, i32 1
+  %qre_prev7.i613 = getelementptr inbounds i8, ptr %194, i64 32
   %202 = load ptr, ptr %qre_prev7.i613, align 8
   store ptr %202, ptr %link.i609, align 8
   store ptr %header_nflushes_ps, ptr %qre_prev7.i613, align 8
   %203 = load ptr, ptr %qre_prev.i610, align 8
-  %link20.i615 = getelementptr inbounds %struct.emitter_col_s, ptr %203, i64 0, i32 4
+  %link20.i615 = getelementptr inbounds i8, ptr %203, i64 24
   %204 = load ptr, ptr %link20.i615, align 8
   store ptr %204, ptr %qre_prev.i610, align 8
   %205 = load ptr, ptr %qre_prev7.i613, align 8
-  %link30.i617 = getelementptr inbounds %struct.emitter_col_s, ptr %205, i64 0, i32 4
+  %link30.i617 = getelementptr inbounds i8, ptr %205, i64 24
   store ptr %194, ptr %link30.i617, align 8
   %206 = load ptr, ptr %qre_prev.i610, align 8
-  %link34.i618 = getelementptr inbounds %struct.emitter_col_s, ptr %206, i64 0, i32 4
+  %link34.i618 = getelementptr inbounds i8, ptr %206, i64 24
   store ptr %header_nflushes_ps, ptr %link34.i618, align 8
   %.pre.i619 = load ptr, ptr %link.i609, align 8
   br label %emitter_col_init.exit620
@@ -11068,33 +11068,33 @@ emitter_col_init.exit620:                         ; preds = %emitter_col_init.ex
   %207 = phi ptr [ %.pre.i619, %do.body3.i612 ], [ %header_nflushes_ps, %emitter_col_init.exit608 ]
   store ptr %207, ptr %header_row, align 8
   store i32 1, ptr %header_nflushes_ps, align 8
-  %width159 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nflushes_ps, i64 0, i32 1
+  %width159 = getelementptr inbounds i8, ptr %header_nflushes_ps, i64 4
   store i32 8, ptr %width159, align 4
-  %type160 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nflushes_ps, i64 0, i32 2
+  %type160 = getelementptr inbounds i8, ptr %header_nflushes_ps, i64 8
   store i32 9, ptr %type160, align 8
-  %208 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nflushes_ps, i64 0, i32 3
+  %208 = getelementptr inbounds i8, ptr %header_nflushes_ps, i64 16
   store ptr @.str.256, ptr %208, align 8
-  %link.i621 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nslabs, i64 0, i32 4
+  %link.i621 = getelementptr inbounds i8, ptr %col_nslabs, i64 24
   store ptr %col_nslabs, ptr %link.i621, align 8
-  %qre_prev.i622 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nslabs, i64 0, i32 4, i32 1
+  %qre_prev.i622 = getelementptr inbounds i8, ptr %col_nslabs, i64 32
   store ptr %col_nslabs, ptr %qre_prev.i622, align 8
   %cmp.i623 = icmp eq ptr %201, null
   br i1 %cmp.i623, label %emitter_col_init.exit632, label %do.body3.i624
 
 do.body3.i624:                                    ; preds = %emitter_col_init.exit620
-  %qre_prev7.i625 = getelementptr inbounds %struct.emitter_col_s, ptr %201, i64 0, i32 4, i32 1
+  %qre_prev7.i625 = getelementptr inbounds i8, ptr %201, i64 32
   %209 = load ptr, ptr %qre_prev7.i625, align 8
   store ptr %209, ptr %link.i621, align 8
   store ptr %col_nslabs, ptr %qre_prev7.i625, align 8
   %210 = load ptr, ptr %qre_prev.i622, align 8
-  %link20.i627 = getelementptr inbounds %struct.emitter_col_s, ptr %210, i64 0, i32 4
+  %link20.i627 = getelementptr inbounds i8, ptr %210, i64 24
   %211 = load ptr, ptr %link20.i627, align 8
   store ptr %211, ptr %qre_prev.i622, align 8
   %212 = load ptr, ptr %qre_prev7.i625, align 8
-  %link30.i629 = getelementptr inbounds %struct.emitter_col_s, ptr %212, i64 0, i32 4
+  %link30.i629 = getelementptr inbounds i8, ptr %212, i64 24
   store ptr %201, ptr %link30.i629, align 8
   %213 = load ptr, ptr %qre_prev.i622, align 8
-  %link34.i630 = getelementptr inbounds %struct.emitter_col_s, ptr %213, i64 0, i32 4
+  %link34.i630 = getelementptr inbounds i8, ptr %213, i64 24
   store ptr %col_nslabs, ptr %link34.i630, align 8
   %.pre.i631 = load ptr, ptr %link.i621, align 8
   br label %emitter_col_init.exit632
@@ -11103,31 +11103,31 @@ emitter_col_init.exit632:                         ; preds = %emitter_col_init.ex
   %214 = phi ptr [ %.pre.i631, %do.body3.i624 ], [ %col_nslabs, %emitter_col_init.exit620 ]
   store ptr %214, ptr %row, align 8
   store i32 1, ptr %col_nslabs, align 8
-  %width162 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nslabs, i64 0, i32 1
+  %width162 = getelementptr inbounds i8, ptr %col_nslabs, i64 4
   store i32 13, ptr %width162, align 4
-  %type163 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nslabs, i64 0, i32 2
+  %type163 = getelementptr inbounds i8, ptr %col_nslabs, i64 8
   store i32 5, ptr %type163, align 8
-  %link.i633 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nslabs, i64 0, i32 4
+  %link.i633 = getelementptr inbounds i8, ptr %header_nslabs, i64 24
   store ptr %header_nslabs, ptr %link.i633, align 8
-  %qre_prev.i634 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nslabs, i64 0, i32 4, i32 1
+  %qre_prev.i634 = getelementptr inbounds i8, ptr %header_nslabs, i64 32
   store ptr %header_nslabs, ptr %qre_prev.i634, align 8
   %cmp.i635 = icmp eq ptr %207, null
   br i1 %cmp.i635, label %emitter_col_init.exit644, label %do.body3.i636
 
 do.body3.i636:                                    ; preds = %emitter_col_init.exit632
-  %qre_prev7.i637 = getelementptr inbounds %struct.emitter_col_s, ptr %207, i64 0, i32 4, i32 1
+  %qre_prev7.i637 = getelementptr inbounds i8, ptr %207, i64 32
   %215 = load ptr, ptr %qre_prev7.i637, align 8
   store ptr %215, ptr %link.i633, align 8
   store ptr %header_nslabs, ptr %qre_prev7.i637, align 8
   %216 = load ptr, ptr %qre_prev.i634, align 8
-  %link20.i639 = getelementptr inbounds %struct.emitter_col_s, ptr %216, i64 0, i32 4
+  %link20.i639 = getelementptr inbounds i8, ptr %216, i64 24
   %217 = load ptr, ptr %link20.i639, align 8
   store ptr %217, ptr %qre_prev.i634, align 8
   %218 = load ptr, ptr %qre_prev7.i637, align 8
-  %link30.i641 = getelementptr inbounds %struct.emitter_col_s, ptr %218, i64 0, i32 4
+  %link30.i641 = getelementptr inbounds i8, ptr %218, i64 24
   store ptr %207, ptr %link30.i641, align 8
   %219 = load ptr, ptr %qre_prev.i634, align 8
-  %link34.i642 = getelementptr inbounds %struct.emitter_col_s, ptr %219, i64 0, i32 4
+  %link34.i642 = getelementptr inbounds i8, ptr %219, i64 24
   store ptr %header_nslabs, ptr %link34.i642, align 8
   %.pre.i643 = load ptr, ptr %link.i633, align 8
   br label %emitter_col_init.exit644
@@ -11136,33 +11136,33 @@ emitter_col_init.exit644:                         ; preds = %emitter_col_init.ex
   %220 = phi ptr [ %.pre.i643, %do.body3.i636 ], [ %header_nslabs, %emitter_col_init.exit632 ]
   store ptr %220, ptr %header_row, align 8
   store i32 1, ptr %header_nslabs, align 8
-  %width165 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nslabs, i64 0, i32 1
+  %width165 = getelementptr inbounds i8, ptr %header_nslabs, i64 4
   store i32 13, ptr %width165, align 4
-  %type166 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nslabs, i64 0, i32 2
+  %type166 = getelementptr inbounds i8, ptr %header_nslabs, i64 8
   store i32 9, ptr %type166, align 8
-  %221 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nslabs, i64 0, i32 3
+  %221 = getelementptr inbounds i8, ptr %header_nslabs, i64 16
   store ptr @.str.396, ptr %221, align 8
-  %link.i645 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nreslabs, i64 0, i32 4
+  %link.i645 = getelementptr inbounds i8, ptr %col_nreslabs, i64 24
   store ptr %col_nreslabs, ptr %link.i645, align 8
-  %qre_prev.i646 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nreslabs, i64 0, i32 4, i32 1
+  %qre_prev.i646 = getelementptr inbounds i8, ptr %col_nreslabs, i64 32
   store ptr %col_nreslabs, ptr %qre_prev.i646, align 8
   %cmp.i647 = icmp eq ptr %214, null
   br i1 %cmp.i647, label %emitter_col_init.exit656, label %do.body3.i648
 
 do.body3.i648:                                    ; preds = %emitter_col_init.exit644
-  %qre_prev7.i649 = getelementptr inbounds %struct.emitter_col_s, ptr %214, i64 0, i32 4, i32 1
+  %qre_prev7.i649 = getelementptr inbounds i8, ptr %214, i64 32
   %222 = load ptr, ptr %qre_prev7.i649, align 8
   store ptr %222, ptr %link.i645, align 8
   store ptr %col_nreslabs, ptr %qre_prev7.i649, align 8
   %223 = load ptr, ptr %qre_prev.i646, align 8
-  %link20.i651 = getelementptr inbounds %struct.emitter_col_s, ptr %223, i64 0, i32 4
+  %link20.i651 = getelementptr inbounds i8, ptr %223, i64 24
   %224 = load ptr, ptr %link20.i651, align 8
   store ptr %224, ptr %qre_prev.i646, align 8
   %225 = load ptr, ptr %qre_prev7.i649, align 8
-  %link30.i653 = getelementptr inbounds %struct.emitter_col_s, ptr %225, i64 0, i32 4
+  %link30.i653 = getelementptr inbounds i8, ptr %225, i64 24
   store ptr %214, ptr %link30.i653, align 8
   %226 = load ptr, ptr %qre_prev.i646, align 8
-  %link34.i654 = getelementptr inbounds %struct.emitter_col_s, ptr %226, i64 0, i32 4
+  %link34.i654 = getelementptr inbounds i8, ptr %226, i64 24
   store ptr %col_nreslabs, ptr %link34.i654, align 8
   %.pre.i655 = load ptr, ptr %link.i645, align 8
   br label %emitter_col_init.exit656
@@ -11171,31 +11171,31 @@ emitter_col_init.exit656:                         ; preds = %emitter_col_init.ex
   %227 = phi ptr [ %.pre.i655, %do.body3.i648 ], [ %col_nreslabs, %emitter_col_init.exit644 ]
   store ptr %227, ptr %row, align 8
   store i32 1, ptr %col_nreslabs, align 8
-  %width168 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nreslabs, i64 0, i32 1
+  %width168 = getelementptr inbounds i8, ptr %col_nreslabs, i64 4
   store i32 13, ptr %width168, align 4
-  %type169 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nreslabs, i64 0, i32 2
+  %type169 = getelementptr inbounds i8, ptr %col_nreslabs, i64 8
   store i32 5, ptr %type169, align 8
-  %link.i657 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nreslabs, i64 0, i32 4
+  %link.i657 = getelementptr inbounds i8, ptr %header_nreslabs, i64 24
   store ptr %header_nreslabs, ptr %link.i657, align 8
-  %qre_prev.i658 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nreslabs, i64 0, i32 4, i32 1
+  %qre_prev.i658 = getelementptr inbounds i8, ptr %header_nreslabs, i64 32
   store ptr %header_nreslabs, ptr %qre_prev.i658, align 8
   %cmp.i659 = icmp eq ptr %220, null
   br i1 %cmp.i659, label %emitter_col_init.exit668, label %do.body3.i660
 
 do.body3.i660:                                    ; preds = %emitter_col_init.exit656
-  %qre_prev7.i661 = getelementptr inbounds %struct.emitter_col_s, ptr %220, i64 0, i32 4, i32 1
+  %qre_prev7.i661 = getelementptr inbounds i8, ptr %220, i64 32
   %228 = load ptr, ptr %qre_prev7.i661, align 8
   store ptr %228, ptr %link.i657, align 8
   store ptr %header_nreslabs, ptr %qre_prev7.i661, align 8
   %229 = load ptr, ptr %qre_prev.i658, align 8
-  %link20.i663 = getelementptr inbounds %struct.emitter_col_s, ptr %229, i64 0, i32 4
+  %link20.i663 = getelementptr inbounds i8, ptr %229, i64 24
   %230 = load ptr, ptr %link20.i663, align 8
   store ptr %230, ptr %qre_prev.i658, align 8
   %231 = load ptr, ptr %qre_prev7.i661, align 8
-  %link30.i665 = getelementptr inbounds %struct.emitter_col_s, ptr %231, i64 0, i32 4
+  %link30.i665 = getelementptr inbounds i8, ptr %231, i64 24
   store ptr %220, ptr %link30.i665, align 8
   %232 = load ptr, ptr %qre_prev.i658, align 8
-  %link34.i666 = getelementptr inbounds %struct.emitter_col_s, ptr %232, i64 0, i32 4
+  %link34.i666 = getelementptr inbounds i8, ptr %232, i64 24
   store ptr %header_nreslabs, ptr %link34.i666, align 8
   %.pre.i667 = load ptr, ptr %link.i657, align 8
   br label %emitter_col_init.exit668
@@ -11204,33 +11204,33 @@ emitter_col_init.exit668:                         ; preds = %emitter_col_init.ex
   %233 = phi ptr [ %.pre.i667, %do.body3.i660 ], [ %header_nreslabs, %emitter_col_init.exit656 ]
   store ptr %233, ptr %header_row, align 8
   store i32 1, ptr %header_nreslabs, align 8
-  %width171 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nreslabs, i64 0, i32 1
+  %width171 = getelementptr inbounds i8, ptr %header_nreslabs, i64 4
   store i32 13, ptr %width171, align 4
-  %type172 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nreslabs, i64 0, i32 2
+  %type172 = getelementptr inbounds i8, ptr %header_nreslabs, i64 8
   store i32 9, ptr %type172, align 8
-  %234 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nreslabs, i64 0, i32 3
+  %234 = getelementptr inbounds i8, ptr %header_nreslabs, i64 16
   store ptr @.str.397, ptr %234, align 8
-  %link.i669 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nreslabs_ps, i64 0, i32 4
+  %link.i669 = getelementptr inbounds i8, ptr %col_nreslabs_ps, i64 24
   store ptr %col_nreslabs_ps, ptr %link.i669, align 8
-  %qre_prev.i670 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nreslabs_ps, i64 0, i32 4, i32 1
+  %qre_prev.i670 = getelementptr inbounds i8, ptr %col_nreslabs_ps, i64 32
   store ptr %col_nreslabs_ps, ptr %qre_prev.i670, align 8
   %cmp.i671 = icmp eq ptr %227, null
   br i1 %cmp.i671, label %emitter_col_init.exit680, label %do.body3.i672
 
 do.body3.i672:                                    ; preds = %emitter_col_init.exit668
-  %qre_prev7.i673 = getelementptr inbounds %struct.emitter_col_s, ptr %227, i64 0, i32 4, i32 1
+  %qre_prev7.i673 = getelementptr inbounds i8, ptr %227, i64 32
   %235 = load ptr, ptr %qre_prev7.i673, align 8
   store ptr %235, ptr %link.i669, align 8
   store ptr %col_nreslabs_ps, ptr %qre_prev7.i673, align 8
   %236 = load ptr, ptr %qre_prev.i670, align 8
-  %link20.i675 = getelementptr inbounds %struct.emitter_col_s, ptr %236, i64 0, i32 4
+  %link20.i675 = getelementptr inbounds i8, ptr %236, i64 24
   %237 = load ptr, ptr %link20.i675, align 8
   store ptr %237, ptr %qre_prev.i670, align 8
   %238 = load ptr, ptr %qre_prev7.i673, align 8
-  %link30.i677 = getelementptr inbounds %struct.emitter_col_s, ptr %238, i64 0, i32 4
+  %link30.i677 = getelementptr inbounds i8, ptr %238, i64 24
   store ptr %227, ptr %link30.i677, align 8
   %239 = load ptr, ptr %qre_prev.i670, align 8
-  %link34.i678 = getelementptr inbounds %struct.emitter_col_s, ptr %239, i64 0, i32 4
+  %link34.i678 = getelementptr inbounds i8, ptr %239, i64 24
   store ptr %col_nreslabs_ps, ptr %link34.i678, align 8
   %.pre.i679 = load ptr, ptr %link.i669, align 8
   br label %emitter_col_init.exit680
@@ -11239,31 +11239,31 @@ emitter_col_init.exit680:                         ; preds = %emitter_col_init.ex
   %240 = phi ptr [ %.pre.i679, %do.body3.i672 ], [ %col_nreslabs_ps, %emitter_col_init.exit668 ]
   store ptr %240, ptr %row, align 8
   store i32 1, ptr %col_nreslabs_ps, align 8
-  %width174 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nreslabs_ps, i64 0, i32 1
+  %width174 = getelementptr inbounds i8, ptr %col_nreslabs_ps, i64 4
   store i32 8, ptr %width174, align 4
-  %type175 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nreslabs_ps, i64 0, i32 2
+  %type175 = getelementptr inbounds i8, ptr %col_nreslabs_ps, i64 8
   store i32 5, ptr %type175, align 8
-  %link.i681 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nreslabs_ps, i64 0, i32 4
+  %link.i681 = getelementptr inbounds i8, ptr %header_nreslabs_ps, i64 24
   store ptr %header_nreslabs_ps, ptr %link.i681, align 8
-  %qre_prev.i682 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nreslabs_ps, i64 0, i32 4, i32 1
+  %qre_prev.i682 = getelementptr inbounds i8, ptr %header_nreslabs_ps, i64 32
   store ptr %header_nreslabs_ps, ptr %qre_prev.i682, align 8
   %cmp.i683 = icmp eq ptr %233, null
   br i1 %cmp.i683, label %emitter_col_init.exit692, label %do.body3.i684
 
 do.body3.i684:                                    ; preds = %emitter_col_init.exit680
-  %qre_prev7.i685 = getelementptr inbounds %struct.emitter_col_s, ptr %233, i64 0, i32 4, i32 1
+  %qre_prev7.i685 = getelementptr inbounds i8, ptr %233, i64 32
   %241 = load ptr, ptr %qre_prev7.i685, align 8
   store ptr %241, ptr %link.i681, align 8
   store ptr %header_nreslabs_ps, ptr %qre_prev7.i685, align 8
   %242 = load ptr, ptr %qre_prev.i682, align 8
-  %link20.i687 = getelementptr inbounds %struct.emitter_col_s, ptr %242, i64 0, i32 4
+  %link20.i687 = getelementptr inbounds i8, ptr %242, i64 24
   %243 = load ptr, ptr %link20.i687, align 8
   store ptr %243, ptr %qre_prev.i682, align 8
   %244 = load ptr, ptr %qre_prev7.i685, align 8
-  %link30.i689 = getelementptr inbounds %struct.emitter_col_s, ptr %244, i64 0, i32 4
+  %link30.i689 = getelementptr inbounds i8, ptr %244, i64 24
   store ptr %233, ptr %link30.i689, align 8
   %245 = load ptr, ptr %qre_prev.i682, align 8
-  %link34.i690 = getelementptr inbounds %struct.emitter_col_s, ptr %245, i64 0, i32 4
+  %link34.i690 = getelementptr inbounds i8, ptr %245, i64 24
   store ptr %header_nreslabs_ps, ptr %link34.i690, align 8
   %.pre.i691 = load ptr, ptr %link.i681, align 8
   br label %emitter_col_init.exit692
@@ -11272,14 +11272,14 @@ emitter_col_init.exit692:                         ; preds = %emitter_col_init.ex
   %246 = phi ptr [ %.pre.i691, %do.body3.i684 ], [ %header_nreslabs_ps, %emitter_col_init.exit680 ]
   store ptr %246, ptr %header_row, align 8
   store i32 1, ptr %header_nreslabs_ps, align 8
-  %width177 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nreslabs_ps, i64 0, i32 1
+  %width177 = getelementptr inbounds i8, ptr %header_nreslabs_ps, i64 4
   store i32 8, ptr %width177, align 4
-  %type178 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nreslabs_ps, i64 0, i32 2
+  %type178 = getelementptr inbounds i8, ptr %header_nreslabs_ps, i64 8
   store i32 9, ptr %type178, align 8
-  %247 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nreslabs_ps, i64 0, i32 3
+  %247 = getelementptr inbounds i8, ptr %header_nreslabs_ps, i64 16
   store ptr @.str.256, ptr %247, align 8
   store ptr @.str.10, ptr %143, align 8
-  %248 = getelementptr inbounds %struct.emitter_col_s, ptr %col_justify_spacer, i64 0, i32 3
+  %248 = getelementptr inbounds i8, ptr %col_justify_spacer, i64 16
   store ptr @.str.10, ptr %248, align 8
   br i1 %mutex, label %if.then180, label %if.end184
 
@@ -11306,13 +11306,13 @@ if.end.i:                                         ; preds = %if.end184
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %col.011.i = phi ptr [ %256, %for.body.i ], [ %251, %if.end.i ]
   %252 = load i32, ptr %col.011.i, align 8
-  %width.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %col.011.i, i64 4
   %253 = load i32, ptr %width.i, align 4
-  %type.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
   %254 = load i32, ptr %type.i, align 8
-  %255 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 3
+  %255 = getelementptr inbounds i8, ptr %col.011.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %252, i32 noundef %253, i32 noundef %254, ptr noundef nonnull %255)
-  %link.i693 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 4
+  %link.i693 = getelementptr inbounds i8, ptr %col.011.i, i64 24
   %256 = load ptr, ptr %link.i693, align 8
   %cmp4.not.i = icmp eq ptr %256, %251
   %cmp1.not12.i = icmp eq ptr %256, null
@@ -11327,7 +11327,7 @@ emitter_table_row.exit:                           ; preds = %if.end184, %for.end
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %emitter, ptr noundef nonnull @.str.400)
   store i64 7, ptr %miblen_new, align 8
   %257 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i1166 = getelementptr inbounds %struct.tsd_s, ptr %257, i64 0, i32 30
+  %state.i1166 = getelementptr inbounds i8, ptr %257, i64 824
   %258 = load i8, ptr %state.i1166, align 8
   %cmp6.i.not = icmp eq i8 %258, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
@@ -11349,7 +11349,7 @@ if.then194:                                       ; preds = %tsd_fetch_impl.exit
 
 do.end199:                                        ; preds = %tsd_fetch_impl.exit
   %conv = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds [7 x i64], ptr %stats_arenas_mib, i64 0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 16
   store i64 %conv, ptr %arrayidx, align 16
   store i64 7, ptr %miblen_new203, align 8
   %259 = load i8, ptr %state.i1166, align 8
@@ -11393,60 +11393,60 @@ for.cond.preheader:                               ; preds = %tsd_fetch_impl.exit
   br i1 %cmp251835.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %arrayidx254 = getelementptr inbounds [7 x i64], ptr %stats_arenas_mib, i64 0, i64 4
-  %arrayidx256 = getelementptr inbounds [7 x i64], ptr %arenas_bin_mib, i64 0, i64 2
-  %type.i695 = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 0, i32 2
-  %262 = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 0, i32 3
-  %type23.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 1, i32 2
+  %arrayidx254 = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 32
+  %arrayidx256 = getelementptr inbounds i8, ptr %arenas_bin_mib, i64 16
+  %type.i695 = getelementptr inbounds i8, ptr %col_mutex64, i64 8
+  %262 = getelementptr inbounds i8, ptr %col_mutex64, i64 16
+  %type23.i = getelementptr inbounds i8, ptr %col_mutex64, i64 48
   %cmp.i.i = icmp eq i64 %uptime, 0
   %cmp2.i.i = icmp ult i64 %uptime, 1000000000
   %div.i.i = udiv i64 %uptime, 1000000000
-  %263 = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 1, i32 3
-  %type27.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 2, i32 2
-  %264 = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 2, i32 3
-  %type44.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 3, i32 2
-  %265 = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 3, i32 3
-  %type49.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 4, i32 2
-  %266 = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 4, i32 3
-  %type66.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 5, i32 2
-  %267 = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 5, i32 3
-  %type71.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 6, i32 2
-  %268 = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 6, i32 3
-  %type88.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 7, i32 2
-  %269 = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 7, i32 3
-  %type93.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 8, i32 2
-  %270 = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 8, i32 3
-  %type110.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 9, i32 2
-  %271 = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 9, i32 3
-  %type115.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 10, i32 2
-  %272 = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex64, i64 10, i32 3
-  %type132.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex32, i64 0, i32 2
-  %273 = getelementptr inbounds %struct.emitter_col_s, ptr %col_mutex32, i64 0, i32 3
-  %nesting_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
-  %item_at_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
-  %274 = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 3
-  %275 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 3
-  %276 = getelementptr inbounds %struct.emitter_col_s, ptr %col_allocated, i64 0, i32 3
-  %277 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc, i64 0, i32 3
-  %278 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc_ps, i64 0, i32 3
-  %279 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc, i64 0, i32 3
-  %280 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc_ps, i64 0, i32 3
-  %281 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests, i64 0, i32 3
-  %282 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests_ps, i64 0, i32 3
-  %283 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nshards, i64 0, i32 3
-  %284 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curregs, i64 0, i32 3
-  %285 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curslabs, i64 0, i32 3
-  %286 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nonfull_slabs, i64 0, i32 3
-  %287 = getelementptr inbounds %struct.emitter_col_s, ptr %col_regs, i64 0, i32 3
-  %288 = getelementptr inbounds %struct.emitter_col_s, ptr %col_pgs, i64 0, i32 3
-  %289 = getelementptr inbounds %struct.emitter_col_s, ptr %col_util, i64 0, i32 3
-  %290 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nfills, i64 0, i32 3
-  %291 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nfills_ps, i64 0, i32 3
-  %292 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nflushes, i64 0, i32 3
-  %293 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nflushes_ps, i64 0, i32 3
-  %294 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nslabs, i64 0, i32 3
-  %295 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nreslabs, i64 0, i32 3
-  %296 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nreslabs_ps, i64 0, i32 3
+  %263 = getelementptr inbounds i8, ptr %col_mutex64, i64 56
+  %type27.i = getelementptr inbounds i8, ptr %col_mutex64, i64 88
+  %264 = getelementptr inbounds i8, ptr %col_mutex64, i64 96
+  %type44.i = getelementptr inbounds i8, ptr %col_mutex64, i64 128
+  %265 = getelementptr inbounds i8, ptr %col_mutex64, i64 136
+  %type49.i = getelementptr inbounds i8, ptr %col_mutex64, i64 168
+  %266 = getelementptr inbounds i8, ptr %col_mutex64, i64 176
+  %type66.i = getelementptr inbounds i8, ptr %col_mutex64, i64 208
+  %267 = getelementptr inbounds i8, ptr %col_mutex64, i64 216
+  %type71.i = getelementptr inbounds i8, ptr %col_mutex64, i64 248
+  %268 = getelementptr inbounds i8, ptr %col_mutex64, i64 256
+  %type88.i = getelementptr inbounds i8, ptr %col_mutex64, i64 288
+  %269 = getelementptr inbounds i8, ptr %col_mutex64, i64 296
+  %type93.i = getelementptr inbounds i8, ptr %col_mutex64, i64 328
+  %270 = getelementptr inbounds i8, ptr %col_mutex64, i64 336
+  %type110.i = getelementptr inbounds i8, ptr %col_mutex64, i64 368
+  %271 = getelementptr inbounds i8, ptr %col_mutex64, i64 376
+  %type115.i = getelementptr inbounds i8, ptr %col_mutex64, i64 408
+  %272 = getelementptr inbounds i8, ptr %col_mutex64, i64 416
+  %type132.i = getelementptr inbounds i8, ptr %col_mutex32, i64 8
+  %273 = getelementptr inbounds i8, ptr %col_mutex32, i64 16
+  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %274 = getelementptr inbounds i8, ptr %col_size, i64 16
+  %275 = getelementptr inbounds i8, ptr %col_ind, i64 16
+  %276 = getelementptr inbounds i8, ptr %col_allocated, i64 16
+  %277 = getelementptr inbounds i8, ptr %col_nmalloc, i64 16
+  %278 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 16
+  %279 = getelementptr inbounds i8, ptr %col_ndalloc, i64 16
+  %280 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 16
+  %281 = getelementptr inbounds i8, ptr %col_nrequests, i64 16
+  %282 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 16
+  %283 = getelementptr inbounds i8, ptr %col_nshards, i64 16
+  %284 = getelementptr inbounds i8, ptr %col_curregs, i64 16
+  %285 = getelementptr inbounds i8, ptr %col_curslabs, i64 16
+  %286 = getelementptr inbounds i8, ptr %col_nonfull_slabs, i64 16
+  %287 = getelementptr inbounds i8, ptr %col_regs, i64 16
+  %288 = getelementptr inbounds i8, ptr %col_pgs, i64 16
+  %289 = getelementptr inbounds i8, ptr %col_util, i64 16
+  %290 = getelementptr inbounds i8, ptr %col_nfills, i64 16
+  %291 = getelementptr inbounds i8, ptr %col_nfills_ps, i64 16
+  %292 = getelementptr inbounds i8, ptr %col_nflushes, i64 16
+  %293 = getelementptr inbounds i8, ptr %col_nflushes_ps, i64 16
+  %294 = getelementptr inbounds i8, ptr %col_nslabs, i64 16
+  %295 = getelementptr inbounds i8, ptr %col_nreslabs, i64 16
+  %296 = getelementptr inbounds i8, ptr %col_nreslabs_ps, i64 16
   br label %for.body
 
 if.then226:                                       ; preds = %tsd_fetch_impl.exit681
@@ -12377,13 +12377,13 @@ if.end.i779:                                      ; preds = %rate_per_second.exi
 for.body.i781:                                    ; preds = %if.end.i779, %for.body.i781
   %col.011.i782 = phi ptr [ %356, %for.body.i781 ], [ %351, %if.end.i779 ]
   %352 = load i32, ptr %col.011.i782, align 8
-  %width.i783 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i782, i64 0, i32 1
+  %width.i783 = getelementptr inbounds i8, ptr %col.011.i782, i64 4
   %353 = load i32, ptr %width.i783, align 4
-  %type.i784 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i782, i64 0, i32 2
+  %type.i784 = getelementptr inbounds i8, ptr %col.011.i782, i64 8
   %354 = load i32, ptr %type.i784, align 8
-  %355 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i782, i64 0, i32 3
+  %355 = getelementptr inbounds i8, ptr %col.011.i782, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %352, i32 noundef %353, i32 noundef %354, ptr noundef nonnull %355)
-  %link.i785 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i782, i64 0, i32 4
+  %link.i785 = getelementptr inbounds i8, ptr %col.011.i782, i64 24
   %356 = load ptr, ptr %link.i785, align 8
   %cmp4.not.i786 = icmp eq ptr %356, %351
   %cmp1.not12.i787 = icmp eq ptr %356, null
@@ -12408,11 +12408,11 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br i1 %spec.select.i.i792, label %do.end.i793, label %emitter_json_array_end.exit
 
 do.end.i793:                                      ; preds = %for.end
-  %nesting_depth.i.i794 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i794 = getelementptr inbounds i8, ptr %emitter, i64 24
   %359 = load i32, ptr %nesting_depth.i.i794, align 8
   %dec.i.i795 = add nsw i32 %359, -1
   store i32 %dec.i.i795, ptr %nesting_depth.i.i794, align 8
-  %item_at_depth.i.i796 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i796 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i796, align 4
   %cmp.not.i797 = icmp eq i32 %emitter.val.i791, 1
   br i1 %cmp.not.i797, label %if.end.i802, label %if.then1.i798
@@ -12523,150 +12523,150 @@ if.then8:                                         ; preds = %do.body3
   unreachable
 
 emitter_col_init.exit191:                         ; preds = %do.body3
-  %link.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 4
-  %qre_prev.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 4, i32 1
+  %link.i = getelementptr inbounds i8, ptr %col_size, i64 24
+  %qre_prev.i = getelementptr inbounds i8, ptr %col_size, i64 32
   store i32 1, ptr %col_size, align 8
-  %width = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %col_size, i64 4
   store i32 20, ptr %width, align 4
-  %type = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %col_size, i64 8
   store i32 6, ptr %type, align 8
-  %link.i72 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 4
-  %qre_prev.i73 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 4, i32 1
+  %link.i72 = getelementptr inbounds i8, ptr %header_size, i64 24
+  %qre_prev.i73 = getelementptr inbounds i8, ptr %header_size, i64 32
   store i32 1, ptr %header_size, align 8
-  %width13 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 1
+  %width13 = getelementptr inbounds i8, ptr %header_size, i64 4
   store i32 20, ptr %width13, align 4
-  %type14 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 2
+  %type14 = getelementptr inbounds i8, ptr %header_size, i64 8
   store i32 9, ptr %type14, align 8
-  %0 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %header_size, i64 16
   store ptr @.str.187, ptr %0, align 8
-  %link.i84 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 4
-  %qre_prev.i85 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 4, i32 1
+  %link.i84 = getelementptr inbounds i8, ptr %col_ind, i64 24
+  %qre_prev.i85 = getelementptr inbounds i8, ptr %col_ind, i64 32
   store ptr %col_size, ptr %qre_prev.i85, align 8
   store ptr %col_ind, ptr %link.i, align 8
   store i32 1, ptr %col_ind, align 8
-  %width16 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 1
+  %width16 = getelementptr inbounds i8, ptr %col_ind, i64 4
   store i32 4, ptr %width16, align 4
-  %type17 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 2
+  %type17 = getelementptr inbounds i8, ptr %col_ind, i64 8
   store i32 3, ptr %type17, align 8
-  %link.i96 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 4
-  %qre_prev.i97 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 4, i32 1
+  %link.i96 = getelementptr inbounds i8, ptr %header_ind, i64 24
+  %qre_prev.i97 = getelementptr inbounds i8, ptr %header_ind, i64 32
   store ptr %header_size, ptr %qre_prev.i97, align 8
   store ptr %header_ind, ptr %link.i72, align 8
   store i32 1, ptr %header_ind, align 8
-  %width19 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 1
+  %width19 = getelementptr inbounds i8, ptr %header_ind, i64 4
   store i32 4, ptr %width19, align 4
-  %type20 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 2
+  %type20 = getelementptr inbounds i8, ptr %header_ind, i64 8
   store i32 9, ptr %type20, align 8
-  %1 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 3
+  %1 = getelementptr inbounds i8, ptr %header_ind, i64 16
   store ptr @.str.379, ptr %1, align 8
-  %qre_prev.i109 = getelementptr inbounds %struct.emitter_col_s, ptr %col_allocated, i64 0, i32 4, i32 1
+  %qre_prev.i109 = getelementptr inbounds i8, ptr %col_allocated, i64 32
   store ptr %col_ind, ptr %qre_prev.i109, align 8
   store ptr %col_allocated, ptr %link.i84, align 8
   store i32 1, ptr %col_allocated, align 8
-  %width22 = getelementptr inbounds %struct.emitter_col_s, ptr %col_allocated, i64 0, i32 1
+  %width22 = getelementptr inbounds i8, ptr %col_allocated, i64 4
   store i32 13, ptr %width22, align 4
-  %type23 = getelementptr inbounds %struct.emitter_col_s, ptr %col_allocated, i64 0, i32 2
+  %type23 = getelementptr inbounds i8, ptr %col_allocated, i64 8
   store i32 6, ptr %type23, align 8
-  %qre_prev.i121 = getelementptr inbounds %struct.emitter_col_s, ptr %header_allocated, i64 0, i32 4, i32 1
+  %qre_prev.i121 = getelementptr inbounds i8, ptr %header_allocated, i64 32
   store ptr %header_ind, ptr %qre_prev.i121, align 8
   store ptr %header_allocated, ptr %link.i96, align 8
   store i32 1, ptr %header_allocated, align 8
-  %width25 = getelementptr inbounds %struct.emitter_col_s, ptr %header_allocated, i64 0, i32 1
+  %width25 = getelementptr inbounds i8, ptr %header_allocated, i64 4
   store i32 13, ptr %width25, align 4
-  %type26 = getelementptr inbounds %struct.emitter_col_s, ptr %header_allocated, i64 0, i32 2
+  %type26 = getelementptr inbounds i8, ptr %header_allocated, i64 8
   store i32 9, ptr %type26, align 8
-  %2 = getelementptr inbounds %struct.emitter_col_s, ptr %header_allocated, i64 0, i32 3
+  %2 = getelementptr inbounds i8, ptr %header_allocated, i64 16
   store ptr @.str.228, ptr %2, align 8
-  %qre_prev.i133 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc, i64 0, i32 4, i32 1
+  %qre_prev.i133 = getelementptr inbounds i8, ptr %col_nmalloc, i64 32
   store ptr %col_allocated, ptr %qre_prev.i133, align 8
-  %link34.i141 = getelementptr inbounds %struct.emitter_col_s, ptr %col_allocated, i64 0, i32 4
+  %link34.i141 = getelementptr inbounds i8, ptr %col_allocated, i64 24
   store ptr %col_nmalloc, ptr %link34.i141, align 8
   store i32 1, ptr %col_nmalloc, align 8
-  %width28 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc, i64 0, i32 1
+  %width28 = getelementptr inbounds i8, ptr %col_nmalloc, i64 4
   store i32 13, ptr %width28, align 4
-  %type29 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc, i64 0, i32 2
+  %type29 = getelementptr inbounds i8, ptr %col_nmalloc, i64 8
   store i32 5, ptr %type29, align 8
-  %link.i144 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc, i64 0, i32 4
-  %qre_prev.i145 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc, i64 0, i32 4, i32 1
+  %link.i144 = getelementptr inbounds i8, ptr %header_nmalloc, i64 24
+  %qre_prev.i145 = getelementptr inbounds i8, ptr %header_nmalloc, i64 32
   store ptr %header_nmalloc, ptr %qre_prev.i73, align 8
   store ptr %header_allocated, ptr %qre_prev.i145, align 8
   store ptr %header_size, ptr %link.i144, align 8
-  %link34.i153 = getelementptr inbounds %struct.emitter_col_s, ptr %header_allocated, i64 0, i32 4
+  %link34.i153 = getelementptr inbounds i8, ptr %header_allocated, i64 24
   store ptr %header_nmalloc, ptr %link34.i153, align 8
   store i32 1, ptr %header_nmalloc, align 8
-  %width31 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc, i64 0, i32 1
+  %width31 = getelementptr inbounds i8, ptr %header_nmalloc, i64 4
   store i32 13, ptr %width31, align 4
-  %type32 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc, i64 0, i32 2
+  %type32 = getelementptr inbounds i8, ptr %header_nmalloc, i64 8
   store i32 9, ptr %type32, align 8
-  %3 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc, i64 0, i32 3
+  %3 = getelementptr inbounds i8, ptr %header_nmalloc, i64 16
   store ptr @.str.315, ptr %3, align 8
-  %link.i156 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc_ps, i64 0, i32 4
-  %qre_prev.i157 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc_ps, i64 0, i32 4, i32 1
+  %link.i156 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 24
+  %qre_prev.i157 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 32
   store ptr %col_nmalloc_ps, ptr %qre_prev.i, align 8
   store ptr %col_nmalloc, ptr %qre_prev.i157, align 8
   store ptr %col_size, ptr %link.i156, align 8
-  %link34.i165 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc, i64 0, i32 4
+  %link34.i165 = getelementptr inbounds i8, ptr %col_nmalloc, i64 24
   store ptr %col_nmalloc_ps, ptr %link34.i165, align 8
   store i32 1, ptr %col_nmalloc_ps, align 8
-  %width34 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc_ps, i64 0, i32 1
+  %width34 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 4
   store i32 8, ptr %width34, align 4
-  %type35 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc_ps, i64 0, i32 2
+  %type35 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 8
   store i32 5, ptr %type35, align 8
-  %link.i168 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc_ps, i64 0, i32 4
-  %qre_prev.i169 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc_ps, i64 0, i32 4, i32 1
+  %link.i168 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 24
+  %qre_prev.i169 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 32
   %4 = load ptr, ptr %qre_prev.i73, align 8
   store ptr %header_nmalloc_ps, ptr %qre_prev.i73, align 8
   store ptr %4, ptr %qre_prev.i169, align 8
   store ptr %header_size, ptr %link.i168, align 8
-  %link34.i177 = getelementptr inbounds %struct.emitter_col_s, ptr %4, i64 0, i32 4
+  %link34.i177 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %header_nmalloc_ps, ptr %link34.i177, align 8
   %.pre.i178 = load ptr, ptr %link.i168, align 8
   store i32 1, ptr %header_nmalloc_ps, align 8
-  %width37 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc_ps, i64 0, i32 1
+  %width37 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 4
   store i32 8, ptr %width37, align 4
-  %type38 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc_ps, i64 0, i32 2
+  %type38 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 8
   store i32 9, ptr %type38, align 8
-  %5 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmalloc_ps, i64 0, i32 3
+  %5 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 16
   store ptr @.str.256, ptr %5, align 8
-  %link.i180 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc, i64 0, i32 4
-  %qre_prev.i181 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc, i64 0, i32 4, i32 1
+  %link.i180 = getelementptr inbounds i8, ptr %col_ndalloc, i64 24
+  %qre_prev.i181 = getelementptr inbounds i8, ptr %col_ndalloc, i64 32
   store ptr %col_ndalloc, ptr %qre_prev.i181, align 8
-  %qre_prev7.i184 = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 4, i32 1
+  %qre_prev7.i184 = getelementptr inbounds i8, ptr %col_size, i64 32
   %6 = load ptr, ptr %qre_prev7.i184, align 8
   store ptr %6, ptr %link.i180, align 8
   store ptr %col_ndalloc, ptr %qre_prev7.i184, align 8
   store ptr %6, ptr %qre_prev.i181, align 8
-  %link30.i188 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc, i64 0, i32 4
+  %link30.i188 = getelementptr inbounds i8, ptr %col_ndalloc, i64 24
   store ptr %col_size, ptr %link30.i188, align 8
-  %link34.i189 = getelementptr inbounds %struct.emitter_col_s, ptr %6, i64 0, i32 4
+  %link34.i189 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %col_ndalloc, ptr %link34.i189, align 8
   %.pre.i190 = load ptr, ptr %link.i180, align 8
   store i32 1, ptr %col_ndalloc, align 8
-  %width40 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc, i64 0, i32 1
+  %width40 = getelementptr inbounds i8, ptr %col_ndalloc, i64 4
   store i32 13, ptr %width40, align 4
-  %type41 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc, i64 0, i32 2
+  %type41 = getelementptr inbounds i8, ptr %col_ndalloc, i64 8
   store i32 5, ptr %type41, align 8
-  %link.i192 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc, i64 0, i32 4
+  %link.i192 = getelementptr inbounds i8, ptr %header_ndalloc, i64 24
   store ptr %header_ndalloc, ptr %link.i192, align 8
-  %qre_prev.i193 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc, i64 0, i32 4, i32 1
+  %qre_prev.i193 = getelementptr inbounds i8, ptr %header_ndalloc, i64 32
   store ptr %header_ndalloc, ptr %qre_prev.i193, align 8
   %cmp.i194 = icmp eq ptr %.pre.i178, null
   br i1 %cmp.i194, label %emitter_col_init.exit203, label %do.body3.i195
 
 do.body3.i195:                                    ; preds = %emitter_col_init.exit191
-  %qre_prev7.i196 = getelementptr inbounds %struct.emitter_col_s, ptr %.pre.i178, i64 0, i32 4, i32 1
+  %qre_prev7.i196 = getelementptr inbounds i8, ptr %.pre.i178, i64 32
   %7 = load ptr, ptr %qre_prev7.i196, align 8
   store ptr %7, ptr %link.i192, align 8
   store ptr %header_ndalloc, ptr %qre_prev7.i196, align 8
   %8 = load ptr, ptr %qre_prev.i193, align 8
-  %link20.i198 = getelementptr inbounds %struct.emitter_col_s, ptr %8, i64 0, i32 4
+  %link20.i198 = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %link20.i198, align 8
   store ptr %9, ptr %qre_prev.i193, align 8
   %10 = load ptr, ptr %qre_prev7.i196, align 8
-  %link30.i200 = getelementptr inbounds %struct.emitter_col_s, ptr %10, i64 0, i32 4
+  %link30.i200 = getelementptr inbounds i8, ptr %10, i64 24
   store ptr %.pre.i178, ptr %link30.i200, align 8
   %11 = load ptr, ptr %qre_prev.i193, align 8
-  %link34.i201 = getelementptr inbounds %struct.emitter_col_s, ptr %11, i64 0, i32 4
+  %link34.i201 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %header_ndalloc, ptr %link34.i201, align 8
   %.pre.i202 = load ptr, ptr %link.i192, align 8
   br label %emitter_col_init.exit203
@@ -12674,33 +12674,33 @@ do.body3.i195:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit203:                         ; preds = %emitter_col_init.exit191, %do.body3.i195
   %12 = phi ptr [ %.pre.i202, %do.body3.i195 ], [ %header_ndalloc, %emitter_col_init.exit191 ]
   store i32 1, ptr %header_ndalloc, align 8
-  %width43 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc, i64 0, i32 1
+  %width43 = getelementptr inbounds i8, ptr %header_ndalloc, i64 4
   store i32 13, ptr %width43, align 4
-  %type44 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc, i64 0, i32 2
+  %type44 = getelementptr inbounds i8, ptr %header_ndalloc, i64 8
   store i32 9, ptr %type44, align 8
-  %13 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc, i64 0, i32 3
+  %13 = getelementptr inbounds i8, ptr %header_ndalloc, i64 16
   store ptr @.str.316, ptr %13, align 8
-  %link.i204 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc_ps, i64 0, i32 4
+  %link.i204 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 24
   store ptr %col_ndalloc_ps, ptr %link.i204, align 8
-  %qre_prev.i205 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc_ps, i64 0, i32 4, i32 1
+  %qre_prev.i205 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 32
   store ptr %col_ndalloc_ps, ptr %qre_prev.i205, align 8
   %cmp.i206 = icmp eq ptr %.pre.i190, null
   br i1 %cmp.i206, label %emitter_col_init.exit215, label %do.body3.i207
 
 do.body3.i207:                                    ; preds = %emitter_col_init.exit203
-  %qre_prev7.i208 = getelementptr inbounds %struct.emitter_col_s, ptr %.pre.i190, i64 0, i32 4, i32 1
+  %qre_prev7.i208 = getelementptr inbounds i8, ptr %.pre.i190, i64 32
   %14 = load ptr, ptr %qre_prev7.i208, align 8
   store ptr %14, ptr %link.i204, align 8
   store ptr %col_ndalloc_ps, ptr %qre_prev7.i208, align 8
   %15 = load ptr, ptr %qre_prev.i205, align 8
-  %link20.i210 = getelementptr inbounds %struct.emitter_col_s, ptr %15, i64 0, i32 4
+  %link20.i210 = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %link20.i210, align 8
   store ptr %16, ptr %qre_prev.i205, align 8
   %17 = load ptr, ptr %qre_prev7.i208, align 8
-  %link30.i212 = getelementptr inbounds %struct.emitter_col_s, ptr %17, i64 0, i32 4
+  %link30.i212 = getelementptr inbounds i8, ptr %17, i64 24
   store ptr %.pre.i190, ptr %link30.i212, align 8
   %18 = load ptr, ptr %qre_prev.i205, align 8
-  %link34.i213 = getelementptr inbounds %struct.emitter_col_s, ptr %18, i64 0, i32 4
+  %link34.i213 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %col_ndalloc_ps, ptr %link34.i213, align 8
   %.pre.i214 = load ptr, ptr %link.i204, align 8
   br label %emitter_col_init.exit215
@@ -12708,31 +12708,31 @@ do.body3.i207:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit215:                         ; preds = %emitter_col_init.exit203, %do.body3.i207
   %19 = phi ptr [ %.pre.i214, %do.body3.i207 ], [ %col_ndalloc_ps, %emitter_col_init.exit203 ]
   store i32 1, ptr %col_ndalloc_ps, align 8
-  %width46 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc_ps, i64 0, i32 1
+  %width46 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 4
   store i32 8, ptr %width46, align 4
-  %type47 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc_ps, i64 0, i32 2
+  %type47 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 8
   store i32 5, ptr %type47, align 8
-  %link.i216 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc_ps, i64 0, i32 4
+  %link.i216 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 24
   store ptr %header_ndalloc_ps, ptr %link.i216, align 8
-  %qre_prev.i217 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc_ps, i64 0, i32 4, i32 1
+  %qre_prev.i217 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 32
   store ptr %header_ndalloc_ps, ptr %qre_prev.i217, align 8
   %cmp.i218 = icmp eq ptr %12, null
   br i1 %cmp.i218, label %emitter_col_init.exit227, label %do.body3.i219
 
 do.body3.i219:                                    ; preds = %emitter_col_init.exit215
-  %qre_prev7.i220 = getelementptr inbounds %struct.emitter_col_s, ptr %12, i64 0, i32 4, i32 1
+  %qre_prev7.i220 = getelementptr inbounds i8, ptr %12, i64 32
   %20 = load ptr, ptr %qre_prev7.i220, align 8
   store ptr %20, ptr %link.i216, align 8
   store ptr %header_ndalloc_ps, ptr %qre_prev7.i220, align 8
   %21 = load ptr, ptr %qre_prev.i217, align 8
-  %link20.i222 = getelementptr inbounds %struct.emitter_col_s, ptr %21, i64 0, i32 4
+  %link20.i222 = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %link20.i222, align 8
   store ptr %22, ptr %qre_prev.i217, align 8
   %23 = load ptr, ptr %qre_prev7.i220, align 8
-  %link30.i224 = getelementptr inbounds %struct.emitter_col_s, ptr %23, i64 0, i32 4
+  %link30.i224 = getelementptr inbounds i8, ptr %23, i64 24
   store ptr %12, ptr %link30.i224, align 8
   %24 = load ptr, ptr %qre_prev.i217, align 8
-  %link34.i225 = getelementptr inbounds %struct.emitter_col_s, ptr %24, i64 0, i32 4
+  %link34.i225 = getelementptr inbounds i8, ptr %24, i64 24
   store ptr %header_ndalloc_ps, ptr %link34.i225, align 8
   %.pre.i226 = load ptr, ptr %link.i216, align 8
   br label %emitter_col_init.exit227
@@ -12740,33 +12740,33 @@ do.body3.i219:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit227:                         ; preds = %emitter_col_init.exit215, %do.body3.i219
   %25 = phi ptr [ %.pre.i226, %do.body3.i219 ], [ %header_ndalloc_ps, %emitter_col_init.exit215 ]
   store i32 1, ptr %header_ndalloc_ps, align 8
-  %width49 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc_ps, i64 0, i32 1
+  %width49 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 4
   store i32 8, ptr %width49, align 4
-  %type50 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc_ps, i64 0, i32 2
+  %type50 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 8
   store i32 9, ptr %type50, align 8
-  %26 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndalloc_ps, i64 0, i32 3
+  %26 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 16
   store ptr @.str.256, ptr %26, align 8
-  %link.i228 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests, i64 0, i32 4
+  %link.i228 = getelementptr inbounds i8, ptr %col_nrequests, i64 24
   store ptr %col_nrequests, ptr %link.i228, align 8
-  %qre_prev.i229 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests, i64 0, i32 4, i32 1
+  %qre_prev.i229 = getelementptr inbounds i8, ptr %col_nrequests, i64 32
   store ptr %col_nrequests, ptr %qre_prev.i229, align 8
   %cmp.i230 = icmp eq ptr %19, null
   br i1 %cmp.i230, label %emitter_col_init.exit239, label %do.body3.i231
 
 do.body3.i231:                                    ; preds = %emitter_col_init.exit227
-  %qre_prev7.i232 = getelementptr inbounds %struct.emitter_col_s, ptr %19, i64 0, i32 4, i32 1
+  %qre_prev7.i232 = getelementptr inbounds i8, ptr %19, i64 32
   %27 = load ptr, ptr %qre_prev7.i232, align 8
   store ptr %27, ptr %link.i228, align 8
   store ptr %col_nrequests, ptr %qre_prev7.i232, align 8
   %28 = load ptr, ptr %qre_prev.i229, align 8
-  %link20.i234 = getelementptr inbounds %struct.emitter_col_s, ptr %28, i64 0, i32 4
+  %link20.i234 = getelementptr inbounds i8, ptr %28, i64 24
   %29 = load ptr, ptr %link20.i234, align 8
   store ptr %29, ptr %qre_prev.i229, align 8
   %30 = load ptr, ptr %qre_prev7.i232, align 8
-  %link30.i236 = getelementptr inbounds %struct.emitter_col_s, ptr %30, i64 0, i32 4
+  %link30.i236 = getelementptr inbounds i8, ptr %30, i64 24
   store ptr %19, ptr %link30.i236, align 8
   %31 = load ptr, ptr %qre_prev.i229, align 8
-  %link34.i237 = getelementptr inbounds %struct.emitter_col_s, ptr %31, i64 0, i32 4
+  %link34.i237 = getelementptr inbounds i8, ptr %31, i64 24
   store ptr %col_nrequests, ptr %link34.i237, align 8
   %.pre.i238 = load ptr, ptr %link.i228, align 8
   br label %emitter_col_init.exit239
@@ -12774,31 +12774,31 @@ do.body3.i231:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit239:                         ; preds = %emitter_col_init.exit227, %do.body3.i231
   %32 = phi ptr [ %.pre.i238, %do.body3.i231 ], [ %col_nrequests, %emitter_col_init.exit227 ]
   store i32 1, ptr %col_nrequests, align 8
-  %width52 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests, i64 0, i32 1
+  %width52 = getelementptr inbounds i8, ptr %col_nrequests, i64 4
   store i32 13, ptr %width52, align 4
-  %type53 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests, i64 0, i32 2
+  %type53 = getelementptr inbounds i8, ptr %col_nrequests, i64 8
   store i32 5, ptr %type53, align 8
-  %link.i240 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests, i64 0, i32 4
+  %link.i240 = getelementptr inbounds i8, ptr %header_nrequests, i64 24
   store ptr %header_nrequests, ptr %link.i240, align 8
-  %qre_prev.i241 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests, i64 0, i32 4, i32 1
+  %qre_prev.i241 = getelementptr inbounds i8, ptr %header_nrequests, i64 32
   store ptr %header_nrequests, ptr %qre_prev.i241, align 8
   %cmp.i242 = icmp eq ptr %25, null
   br i1 %cmp.i242, label %emitter_col_init.exit251, label %do.body3.i243
 
 do.body3.i243:                                    ; preds = %emitter_col_init.exit239
-  %qre_prev7.i244 = getelementptr inbounds %struct.emitter_col_s, ptr %25, i64 0, i32 4, i32 1
+  %qre_prev7.i244 = getelementptr inbounds i8, ptr %25, i64 32
   %33 = load ptr, ptr %qre_prev7.i244, align 8
   store ptr %33, ptr %link.i240, align 8
   store ptr %header_nrequests, ptr %qre_prev7.i244, align 8
   %34 = load ptr, ptr %qre_prev.i241, align 8
-  %link20.i246 = getelementptr inbounds %struct.emitter_col_s, ptr %34, i64 0, i32 4
+  %link20.i246 = getelementptr inbounds i8, ptr %34, i64 24
   %35 = load ptr, ptr %link20.i246, align 8
   store ptr %35, ptr %qre_prev.i241, align 8
   %36 = load ptr, ptr %qre_prev7.i244, align 8
-  %link30.i248 = getelementptr inbounds %struct.emitter_col_s, ptr %36, i64 0, i32 4
+  %link30.i248 = getelementptr inbounds i8, ptr %36, i64 24
   store ptr %25, ptr %link30.i248, align 8
   %37 = load ptr, ptr %qre_prev.i241, align 8
-  %link34.i249 = getelementptr inbounds %struct.emitter_col_s, ptr %37, i64 0, i32 4
+  %link34.i249 = getelementptr inbounds i8, ptr %37, i64 24
   store ptr %header_nrequests, ptr %link34.i249, align 8
   %.pre.i250 = load ptr, ptr %link.i240, align 8
   br label %emitter_col_init.exit251
@@ -12806,33 +12806,33 @@ do.body3.i243:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit251:                         ; preds = %emitter_col_init.exit239, %do.body3.i243
   %38 = phi ptr [ %.pre.i250, %do.body3.i243 ], [ %header_nrequests, %emitter_col_init.exit239 ]
   store i32 1, ptr %header_nrequests, align 8
-  %width55 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests, i64 0, i32 1
+  %width55 = getelementptr inbounds i8, ptr %header_nrequests, i64 4
   store i32 13, ptr %width55, align 4
-  %type56 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests, i64 0, i32 2
+  %type56 = getelementptr inbounds i8, ptr %header_nrequests, i64 8
   store i32 9, ptr %type56, align 8
-  %39 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests, i64 0, i32 3
+  %39 = getelementptr inbounds i8, ptr %header_nrequests, i64 16
   store ptr @.str.317, ptr %39, align 8
-  %link.i252 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests_ps, i64 0, i32 4
+  %link.i252 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 24
   store ptr %col_nrequests_ps, ptr %link.i252, align 8
-  %qre_prev.i253 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests_ps, i64 0, i32 4, i32 1
+  %qre_prev.i253 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 32
   store ptr %col_nrequests_ps, ptr %qre_prev.i253, align 8
   %cmp.i254 = icmp eq ptr %32, null
   br i1 %cmp.i254, label %emitter_col_init.exit263, label %do.body3.i255
 
 do.body3.i255:                                    ; preds = %emitter_col_init.exit251
-  %qre_prev7.i256 = getelementptr inbounds %struct.emitter_col_s, ptr %32, i64 0, i32 4, i32 1
+  %qre_prev7.i256 = getelementptr inbounds i8, ptr %32, i64 32
   %40 = load ptr, ptr %qre_prev7.i256, align 8
   store ptr %40, ptr %link.i252, align 8
   store ptr %col_nrequests_ps, ptr %qre_prev7.i256, align 8
   %41 = load ptr, ptr %qre_prev.i253, align 8
-  %link20.i258 = getelementptr inbounds %struct.emitter_col_s, ptr %41, i64 0, i32 4
+  %link20.i258 = getelementptr inbounds i8, ptr %41, i64 24
   %42 = load ptr, ptr %link20.i258, align 8
   store ptr %42, ptr %qre_prev.i253, align 8
   %43 = load ptr, ptr %qre_prev7.i256, align 8
-  %link30.i260 = getelementptr inbounds %struct.emitter_col_s, ptr %43, i64 0, i32 4
+  %link30.i260 = getelementptr inbounds i8, ptr %43, i64 24
   store ptr %32, ptr %link30.i260, align 8
   %44 = load ptr, ptr %qre_prev.i253, align 8
-  %link34.i261 = getelementptr inbounds %struct.emitter_col_s, ptr %44, i64 0, i32 4
+  %link34.i261 = getelementptr inbounds i8, ptr %44, i64 24
   store ptr %col_nrequests_ps, ptr %link34.i261, align 8
   %.pre.i262 = load ptr, ptr %link.i252, align 8
   br label %emitter_col_init.exit263
@@ -12840,31 +12840,31 @@ do.body3.i255:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit263:                         ; preds = %emitter_col_init.exit251, %do.body3.i255
   %45 = phi ptr [ %.pre.i262, %do.body3.i255 ], [ %col_nrequests_ps, %emitter_col_init.exit251 ]
   store i32 1, ptr %col_nrequests_ps, align 8
-  %width58 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests_ps, i64 0, i32 1
+  %width58 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 4
   store i32 8, ptr %width58, align 4
-  %type59 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests_ps, i64 0, i32 2
+  %type59 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 8
   store i32 5, ptr %type59, align 8
-  %link.i264 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests_ps, i64 0, i32 4
+  %link.i264 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 24
   store ptr %header_nrequests_ps, ptr %link.i264, align 8
-  %qre_prev.i265 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests_ps, i64 0, i32 4, i32 1
+  %qre_prev.i265 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 32
   store ptr %header_nrequests_ps, ptr %qre_prev.i265, align 8
   %cmp.i266 = icmp eq ptr %38, null
   br i1 %cmp.i266, label %emitter_col_init.exit275, label %do.body3.i267
 
 do.body3.i267:                                    ; preds = %emitter_col_init.exit263
-  %qre_prev7.i268 = getelementptr inbounds %struct.emitter_col_s, ptr %38, i64 0, i32 4, i32 1
+  %qre_prev7.i268 = getelementptr inbounds i8, ptr %38, i64 32
   %46 = load ptr, ptr %qre_prev7.i268, align 8
   store ptr %46, ptr %link.i264, align 8
   store ptr %header_nrequests_ps, ptr %qre_prev7.i268, align 8
   %47 = load ptr, ptr %qre_prev.i265, align 8
-  %link20.i270 = getelementptr inbounds %struct.emitter_col_s, ptr %47, i64 0, i32 4
+  %link20.i270 = getelementptr inbounds i8, ptr %47, i64 24
   %48 = load ptr, ptr %link20.i270, align 8
   store ptr %48, ptr %qre_prev.i265, align 8
   %49 = load ptr, ptr %qre_prev7.i268, align 8
-  %link30.i272 = getelementptr inbounds %struct.emitter_col_s, ptr %49, i64 0, i32 4
+  %link30.i272 = getelementptr inbounds i8, ptr %49, i64 24
   store ptr %38, ptr %link30.i272, align 8
   %50 = load ptr, ptr %qre_prev.i265, align 8
-  %link34.i273 = getelementptr inbounds %struct.emitter_col_s, ptr %50, i64 0, i32 4
+  %link34.i273 = getelementptr inbounds i8, ptr %50, i64 24
   store ptr %header_nrequests_ps, ptr %link34.i273, align 8
   %.pre.i274 = load ptr, ptr %link.i264, align 8
   br label %emitter_col_init.exit275
@@ -12872,33 +12872,33 @@ do.body3.i267:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit275:                         ; preds = %emitter_col_init.exit263, %do.body3.i267
   %51 = phi ptr [ %.pre.i274, %do.body3.i267 ], [ %header_nrequests_ps, %emitter_col_init.exit263 ]
   store i32 1, ptr %header_nrequests_ps, align 8
-  %width61 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests_ps, i64 0, i32 1
+  %width61 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 4
   store i32 8, ptr %width61, align 4
-  %type62 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests_ps, i64 0, i32 2
+  %type62 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 8
   store i32 9, ptr %type62, align 8
-  %52 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nrequests_ps, i64 0, i32 3
+  %52 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 16
   store ptr @.str.256, ptr %52, align 8
-  %link.i276 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curlextents, i64 0, i32 4
+  %link.i276 = getelementptr inbounds i8, ptr %col_curlextents, i64 24
   store ptr %col_curlextents, ptr %link.i276, align 8
-  %qre_prev.i277 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curlextents, i64 0, i32 4, i32 1
+  %qre_prev.i277 = getelementptr inbounds i8, ptr %col_curlextents, i64 32
   store ptr %col_curlextents, ptr %qre_prev.i277, align 8
   %cmp.i278 = icmp eq ptr %45, null
   br i1 %cmp.i278, label %emitter_col_init.exit287, label %do.body3.i279
 
 do.body3.i279:                                    ; preds = %emitter_col_init.exit275
-  %qre_prev7.i280 = getelementptr inbounds %struct.emitter_col_s, ptr %45, i64 0, i32 4, i32 1
+  %qre_prev7.i280 = getelementptr inbounds i8, ptr %45, i64 32
   %53 = load ptr, ptr %qre_prev7.i280, align 8
   store ptr %53, ptr %link.i276, align 8
   store ptr %col_curlextents, ptr %qre_prev7.i280, align 8
   %54 = load ptr, ptr %qre_prev.i277, align 8
-  %link20.i282 = getelementptr inbounds %struct.emitter_col_s, ptr %54, i64 0, i32 4
+  %link20.i282 = getelementptr inbounds i8, ptr %54, i64 24
   %55 = load ptr, ptr %link20.i282, align 8
   store ptr %55, ptr %qre_prev.i277, align 8
   %56 = load ptr, ptr %qre_prev7.i280, align 8
-  %link30.i284 = getelementptr inbounds %struct.emitter_col_s, ptr %56, i64 0, i32 4
+  %link30.i284 = getelementptr inbounds i8, ptr %56, i64 24
   store ptr %45, ptr %link30.i284, align 8
   %57 = load ptr, ptr %qre_prev.i277, align 8
-  %link34.i285 = getelementptr inbounds %struct.emitter_col_s, ptr %57, i64 0, i32 4
+  %link34.i285 = getelementptr inbounds i8, ptr %57, i64 24
   store ptr %col_curlextents, ptr %link34.i285, align 8
   %.pre.i286 = load ptr, ptr %link.i276, align 8
   br label %emitter_col_init.exit287
@@ -12906,31 +12906,31 @@ do.body3.i279:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit287:                         ; preds = %emitter_col_init.exit275, %do.body3.i279
   %58 = phi ptr [ %.pre.i286, %do.body3.i279 ], [ %col_curlextents, %emitter_col_init.exit275 ]
   store i32 1, ptr %col_curlextents, align 8
-  %width90 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curlextents, i64 0, i32 1
+  %width90 = getelementptr inbounds i8, ptr %col_curlextents, i64 4
   store i32 13, ptr %width90, align 4
-  %type91 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curlextents, i64 0, i32 2
+  %type91 = getelementptr inbounds i8, ptr %col_curlextents, i64 8
   store i32 6, ptr %type91, align 8
-  %link.i288 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curlextents, i64 0, i32 4
+  %link.i288 = getelementptr inbounds i8, ptr %header_curlextents, i64 24
   store ptr %header_curlextents, ptr %link.i288, align 8
-  %qre_prev.i289 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curlextents, i64 0, i32 4, i32 1
+  %qre_prev.i289 = getelementptr inbounds i8, ptr %header_curlextents, i64 32
   store ptr %header_curlextents, ptr %qre_prev.i289, align 8
   %cmp.i290 = icmp eq ptr %51, null
   br i1 %cmp.i290, label %emitter_col_init.exit299, label %do.body3.i291
 
 do.body3.i291:                                    ; preds = %emitter_col_init.exit287
-  %qre_prev7.i292 = getelementptr inbounds %struct.emitter_col_s, ptr %51, i64 0, i32 4, i32 1
+  %qre_prev7.i292 = getelementptr inbounds i8, ptr %51, i64 32
   %59 = load ptr, ptr %qre_prev7.i292, align 8
   store ptr %59, ptr %link.i288, align 8
   store ptr %header_curlextents, ptr %qre_prev7.i292, align 8
   %60 = load ptr, ptr %qre_prev.i289, align 8
-  %link20.i294 = getelementptr inbounds %struct.emitter_col_s, ptr %60, i64 0, i32 4
+  %link20.i294 = getelementptr inbounds i8, ptr %60, i64 24
   %61 = load ptr, ptr %link20.i294, align 8
   store ptr %61, ptr %qre_prev.i289, align 8
   %62 = load ptr, ptr %qre_prev7.i292, align 8
-  %link30.i296 = getelementptr inbounds %struct.emitter_col_s, ptr %62, i64 0, i32 4
+  %link30.i296 = getelementptr inbounds i8, ptr %62, i64 24
   store ptr %51, ptr %link30.i296, align 8
   %63 = load ptr, ptr %qre_prev.i289, align 8
-  %link34.i297 = getelementptr inbounds %struct.emitter_col_s, ptr %63, i64 0, i32 4
+  %link34.i297 = getelementptr inbounds i8, ptr %63, i64 24
   store ptr %header_curlextents, ptr %link34.i297, align 8
   %.pre.i298 = load ptr, ptr %link.i288, align 8
   br label %emitter_col_init.exit299
@@ -12938,11 +12938,11 @@ do.body3.i291:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit299:                         ; preds = %emitter_col_init.exit287, %do.body3.i291
   %64 = phi ptr [ %.pre.i298, %do.body3.i291 ], [ %header_curlextents, %emitter_col_init.exit287 ]
   store i32 1, ptr %header_curlextents, align 8
-  %width93 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curlextents, i64 0, i32 1
+  %width93 = getelementptr inbounds i8, ptr %header_curlextents, i64 4
   store i32 13, ptr %width93, align 4
-  %type94 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curlextents, i64 0, i32 2
+  %type94 = getelementptr inbounds i8, ptr %header_curlextents, i64 8
   store i32 9, ptr %type94, align 8
-  %65 = getelementptr inbounds %struct.emitter_col_s, ptr %header_curlextents, i64 0, i32 3
+  %65 = getelementptr inbounds i8, ptr %header_curlextents, i64 16
   store ptr @.str.411, ptr %65, align 8
   store i32 14, ptr %width13, align 4
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.331)
@@ -12957,13 +12957,13 @@ if.end.i:                                         ; preds = %emitter_col_init.ex
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %col.011.i = phi ptr [ %71, %for.body.i ], [ %64, %if.end.i ]
   %67 = load i32, ptr %col.011.i, align 8
-  %width.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %col.011.i, i64 4
   %68 = load i32, ptr %width.i, align 4
-  %type.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
   %69 = load i32, ptr %type.i, align 8
-  %70 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 3
+  %70 = getelementptr inbounds i8, ptr %col.011.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %67, i32 noundef %68, i32 noundef %69, ptr noundef nonnull %70)
-  %link.i300 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 4
+  %link.i300 = getelementptr inbounds i8, ptr %col.011.i, i64 24
   %71 = load ptr, ptr %link.i300, align 8
   %cmp4.not.i = icmp eq ptr %71, %64
   %cmp1.not12.i = icmp eq ptr %71, null
@@ -12978,7 +12978,7 @@ emitter_table_row.exit:                           ; preds = %emitter_col_init.ex
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %emitter, ptr noundef nonnull @.str.412)
   store i64 7, ptr %miblen_new, align 8
   %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i611 = getelementptr inbounds %struct.tsd_s, ptr %72, i64 0, i32 30
+  %state.i611 = getelementptr inbounds i8, ptr %72, i64 824
   %73 = load i8, ptr %state.i611, align 8
   %cmp6.i.not = icmp eq i8 %73, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
@@ -13000,7 +13000,7 @@ if.then103:                                       ; preds = %tsd_fetch_impl.exit
 
 do.end108:                                        ; preds = %tsd_fetch_impl.exit
   %conv = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds [7 x i64], ptr %stats_arenas_mib, i64 0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 16
   store i64 %conv, ptr %arrayidx, align 16
   store i64 7, ptr %miblen_new112, align 8
   %74 = load i8, ptr %state.i611, align 8
@@ -13044,23 +13044,23 @@ for.cond.preheader:                               ; preds = %tsd_fetch_impl.exit
   br i1 %cmp160425.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %arrayidx163 = getelementptr inbounds [7 x i64], ptr %stats_arenas_mib, i64 0, i64 4
-  %arrayidx165 = getelementptr inbounds [7 x i64], ptr %arenas_lextent_mib, i64 0, i64 2
-  %nesting_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
-  %item_at_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
-  %77 = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 3
-  %78 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 3
-  %79 = getelementptr inbounds %struct.emitter_col_s, ptr %col_allocated, i64 0, i32 3
-  %80 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc, i64 0, i32 3
+  %arrayidx163 = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 32
+  %arrayidx165 = getelementptr inbounds i8, ptr %arenas_lextent_mib, i64 16
+  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %77 = getelementptr inbounds i8, ptr %col_size, i64 16
+  %78 = getelementptr inbounds i8, ptr %col_ind, i64 16
+  %79 = getelementptr inbounds i8, ptr %col_allocated, i64 16
+  %80 = getelementptr inbounds i8, ptr %col_nmalloc, i64 16
   %cmp.i303 = icmp eq i64 %uptime, 0
   %cmp2.i = icmp ult i64 %uptime, 1000000000
   %div.i = udiv i64 %uptime, 1000000000
-  %81 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmalloc_ps, i64 0, i32 3
-  %82 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc, i64 0, i32 3
-  %83 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndalloc_ps, i64 0, i32 3
-  %84 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests, i64 0, i32 3
-  %85 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nrequests_ps, i64 0, i32 3
-  %86 = getelementptr inbounds %struct.emitter_col_s, ptr %col_curlextents, i64 0, i32 3
+  %81 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 16
+  %82 = getelementptr inbounds i8, ptr %col_ndalloc, i64 16
+  %83 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 16
+  %84 = getelementptr inbounds i8, ptr %col_nrequests, i64 16
+  %85 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 16
+  %86 = getelementptr inbounds i8, ptr %col_curlextents, i64 16
   %cmp1.not10.i327 = icmp eq ptr %58, null
   br label %for.body
 
@@ -13305,13 +13305,13 @@ if.end.i326:                                      ; preds = %if.then315
 for.body.i328:                                    ; preds = %if.end.i326, %for.body.i328
   %col.011.i329 = phi ptr [ %108, %for.body.i328 ], [ %58, %if.end.i326 ]
   %104 = load i32, ptr %col.011.i329, align 8
-  %width.i330 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i329, i64 0, i32 1
+  %width.i330 = getelementptr inbounds i8, ptr %col.011.i329, i64 4
   %105 = load i32, ptr %width.i330, align 4
-  %type.i331 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i329, i64 0, i32 2
+  %type.i331 = getelementptr inbounds i8, ptr %col.011.i329, i64 8
   %106 = load i32, ptr %type.i331, align 8
-  %107 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i329, i64 0, i32 3
+  %107 = getelementptr inbounds i8, ptr %col.011.i329, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %104, i32 noundef %105, i32 noundef %106, ptr noundef nonnull %107)
-  %link.i332 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i329, i64 0, i32 4
+  %link.i332 = getelementptr inbounds i8, ptr %col.011.i329, i64 24
   %108 = load ptr, ptr %link.i332, align 8
   %cmp4.not.i333 = icmp eq ptr %108, %58
   %cmp1.not12.i334 = icmp eq ptr %108, null
@@ -13336,11 +13336,11 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br i1 %spec.select.i.i339, label %do.end.i340, label %emitter_json_array_end.exit
 
 do.end.i340:                                      ; preds = %for.end
-  %nesting_depth.i.i341 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
+  %nesting_depth.i.i341 = getelementptr inbounds i8, ptr %emitter, i64 24
   %111 = load i32, ptr %nesting_depth.i.i341, align 8
   %dec.i.i342 = add nsw i32 %111, -1
   store i32 %dec.i.i342, ptr %nesting_depth.i.i341, align 8
-  %item_at_depth.i.i343 = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
+  %item_at_depth.i.i343 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i343, align 4
   %cmp.not.i344 = icmp eq i32 %emitter.val.i338, 1
   br i1 %cmp.not.i344, label %if.end.i349, label %if.then1.i345
@@ -13426,150 +13426,150 @@ emitter_col_init.exit174:
   %sz158 = alloca i64, align 8
   %miblen_new174 = alloca i64, align 8
   %sz175 = alloca i64, align 8
-  %link.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 4
-  %qre_prev.i = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 4, i32 1
+  %link.i = getelementptr inbounds i8, ptr %col_size, i64 24
+  %qre_prev.i = getelementptr inbounds i8, ptr %col_size, i64 32
   store i32 1, ptr %col_size, align 8
-  %width = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %col_size, i64 4
   store i32 20, ptr %width, align 4
-  %type = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %col_size, i64 8
   store i32 6, ptr %type, align 8
-  %link.i55 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 4
-  %qre_prev.i56 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 4, i32 1
+  %link.i55 = getelementptr inbounds i8, ptr %header_size, i64 24
+  %qre_prev.i56 = getelementptr inbounds i8, ptr %header_size, i64 32
   store i32 1, ptr %header_size, align 8
-  %width2 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 1
+  %width2 = getelementptr inbounds i8, ptr %header_size, i64 4
   store i32 20, ptr %width2, align 4
-  %type3 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 2
+  %type3 = getelementptr inbounds i8, ptr %header_size, i64 8
   store i32 9, ptr %type3, align 8
-  %0 = getelementptr inbounds %struct.emitter_col_s, ptr %header_size, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %header_size, i64 16
   store ptr @.str.187, ptr %0, align 8
-  %link.i67 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 4
-  %qre_prev.i68 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 4, i32 1
+  %link.i67 = getelementptr inbounds i8, ptr %col_ind, i64 24
+  %qre_prev.i68 = getelementptr inbounds i8, ptr %col_ind, i64 32
   store ptr %col_size, ptr %qre_prev.i68, align 8
   store ptr %col_ind, ptr %link.i, align 8
   store i32 1, ptr %col_ind, align 8
-  %width5 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 1
+  %width5 = getelementptr inbounds i8, ptr %col_ind, i64 4
   store i32 4, ptr %width5, align 4
-  %type6 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 2
+  %type6 = getelementptr inbounds i8, ptr %col_ind, i64 8
   store i32 3, ptr %type6, align 8
-  %link.i79 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 4
-  %qre_prev.i80 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 4, i32 1
+  %link.i79 = getelementptr inbounds i8, ptr %header_ind, i64 24
+  %qre_prev.i80 = getelementptr inbounds i8, ptr %header_ind, i64 32
   store ptr %header_size, ptr %qre_prev.i80, align 8
   store ptr %header_ind, ptr %link.i55, align 8
   store i32 1, ptr %header_ind, align 8
-  %width8 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 1
+  %width8 = getelementptr inbounds i8, ptr %header_ind, i64 4
   store i32 4, ptr %width8, align 4
-  %type9 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 2
+  %type9 = getelementptr inbounds i8, ptr %header_ind, i64 8
   store i32 9, ptr %type9, align 8
-  %1 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ind, i64 0, i32 3
+  %1 = getelementptr inbounds i8, ptr %header_ind, i64 16
   store ptr @.str.379, ptr %1, align 8
-  %qre_prev.i92 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty, i64 0, i32 4, i32 1
+  %qre_prev.i92 = getelementptr inbounds i8, ptr %col_ndirty, i64 32
   store ptr %col_ind, ptr %qre_prev.i92, align 8
   store ptr %col_ndirty, ptr %link.i67, align 8
   store i32 1, ptr %col_ndirty, align 8
-  %width11 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty, i64 0, i32 1
+  %width11 = getelementptr inbounds i8, ptr %col_ndirty, i64 4
   store i32 13, ptr %width11, align 4
-  %type12 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty, i64 0, i32 2
+  %type12 = getelementptr inbounds i8, ptr %col_ndirty, i64 8
   store i32 6, ptr %type12, align 8
-  %qre_prev.i104 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty, i64 0, i32 4, i32 1
+  %qre_prev.i104 = getelementptr inbounds i8, ptr %header_ndirty, i64 32
   store ptr %header_ind, ptr %qre_prev.i104, align 8
   store ptr %header_ndirty, ptr %link.i79, align 8
   store i32 1, ptr %header_ndirty, align 8
-  %width14 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty, i64 0, i32 1
+  %width14 = getelementptr inbounds i8, ptr %header_ndirty, i64 4
   store i32 13, ptr %width14, align 4
-  %type15 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty, i64 0, i32 2
+  %type15 = getelementptr inbounds i8, ptr %header_ndirty, i64 8
   store i32 9, ptr %type15, align 8
-  %2 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty, i64 0, i32 3
+  %2 = getelementptr inbounds i8, ptr %header_ndirty, i64 16
   store ptr @.str.414, ptr %2, align 8
-  %qre_prev.i116 = getelementptr inbounds %struct.emitter_col_s, ptr %col_dirty, i64 0, i32 4, i32 1
+  %qre_prev.i116 = getelementptr inbounds i8, ptr %col_dirty, i64 32
   store ptr %col_ndirty, ptr %qre_prev.i116, align 8
-  %link34.i124 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty, i64 0, i32 4
+  %link34.i124 = getelementptr inbounds i8, ptr %col_ndirty, i64 24
   store ptr %col_dirty, ptr %link34.i124, align 8
   store i32 1, ptr %col_dirty, align 8
-  %width17 = getelementptr inbounds %struct.emitter_col_s, ptr %col_dirty, i64 0, i32 1
+  %width17 = getelementptr inbounds i8, ptr %col_dirty, i64 4
   store i32 13, ptr %width17, align 4
-  %type18 = getelementptr inbounds %struct.emitter_col_s, ptr %col_dirty, i64 0, i32 2
+  %type18 = getelementptr inbounds i8, ptr %col_dirty, i64 8
   store i32 6, ptr %type18, align 8
-  %link.i127 = getelementptr inbounds %struct.emitter_col_s, ptr %header_dirty, i64 0, i32 4
-  %qre_prev.i128 = getelementptr inbounds %struct.emitter_col_s, ptr %header_dirty, i64 0, i32 4, i32 1
+  %link.i127 = getelementptr inbounds i8, ptr %header_dirty, i64 24
+  %qre_prev.i128 = getelementptr inbounds i8, ptr %header_dirty, i64 32
   store ptr %header_dirty, ptr %qre_prev.i56, align 8
   store ptr %header_ndirty, ptr %qre_prev.i128, align 8
   store ptr %header_size, ptr %link.i127, align 8
-  %link34.i136 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ndirty, i64 0, i32 4
+  %link34.i136 = getelementptr inbounds i8, ptr %header_ndirty, i64 24
   store ptr %header_dirty, ptr %link34.i136, align 8
   store i32 1, ptr %header_dirty, align 8
-  %width20 = getelementptr inbounds %struct.emitter_col_s, ptr %header_dirty, i64 0, i32 1
+  %width20 = getelementptr inbounds i8, ptr %header_dirty, i64 4
   store i32 13, ptr %width20, align 4
-  %type21 = getelementptr inbounds %struct.emitter_col_s, ptr %header_dirty, i64 0, i32 2
+  %type21 = getelementptr inbounds i8, ptr %header_dirty, i64 8
   store i32 9, ptr %type21, align 8
-  %3 = getelementptr inbounds %struct.emitter_col_s, ptr %header_dirty, i64 0, i32 3
+  %3 = getelementptr inbounds i8, ptr %header_dirty, i64 16
   store ptr @.str.415, ptr %3, align 8
-  %link.i139 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmuzzy, i64 0, i32 4
-  %qre_prev.i140 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmuzzy, i64 0, i32 4, i32 1
+  %link.i139 = getelementptr inbounds i8, ptr %col_nmuzzy, i64 24
+  %qre_prev.i140 = getelementptr inbounds i8, ptr %col_nmuzzy, i64 32
   store ptr %col_nmuzzy, ptr %qre_prev.i, align 8
   store ptr %col_dirty, ptr %qre_prev.i140, align 8
   store ptr %col_size, ptr %link.i139, align 8
-  %link34.i148 = getelementptr inbounds %struct.emitter_col_s, ptr %col_dirty, i64 0, i32 4
+  %link34.i148 = getelementptr inbounds i8, ptr %col_dirty, i64 24
   store ptr %col_nmuzzy, ptr %link34.i148, align 8
   store i32 1, ptr %col_nmuzzy, align 8
-  %width23 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmuzzy, i64 0, i32 1
+  %width23 = getelementptr inbounds i8, ptr %col_nmuzzy, i64 4
   store i32 13, ptr %width23, align 4
-  %type24 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmuzzy, i64 0, i32 2
+  %type24 = getelementptr inbounds i8, ptr %col_nmuzzy, i64 8
   store i32 6, ptr %type24, align 8
-  %link.i151 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmuzzy, i64 0, i32 4
-  %qre_prev.i152 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmuzzy, i64 0, i32 4, i32 1
+  %link.i151 = getelementptr inbounds i8, ptr %header_nmuzzy, i64 24
+  %qre_prev.i152 = getelementptr inbounds i8, ptr %header_nmuzzy, i64 32
   %4 = load ptr, ptr %qre_prev.i56, align 8
   store ptr %header_nmuzzy, ptr %qre_prev.i56, align 8
   store ptr %4, ptr %qre_prev.i152, align 8
   store ptr %header_size, ptr %link.i151, align 8
-  %link34.i160 = getelementptr inbounds %struct.emitter_col_s, ptr %4, i64 0, i32 4
+  %link34.i160 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %header_nmuzzy, ptr %link34.i160, align 8
   %.pre.i161 = load ptr, ptr %link.i151, align 8
   store i32 1, ptr %header_nmuzzy, align 8
-  %width26 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmuzzy, i64 0, i32 1
+  %width26 = getelementptr inbounds i8, ptr %header_nmuzzy, i64 4
   store i32 13, ptr %width26, align 4
-  %type27 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmuzzy, i64 0, i32 2
+  %type27 = getelementptr inbounds i8, ptr %header_nmuzzy, i64 8
   store i32 9, ptr %type27, align 8
-  %5 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nmuzzy, i64 0, i32 3
+  %5 = getelementptr inbounds i8, ptr %header_nmuzzy, i64 16
   store ptr @.str.416, ptr %5, align 8
-  %link.i163 = getelementptr inbounds %struct.emitter_col_s, ptr %col_muzzy, i64 0, i32 4
-  %qre_prev.i164 = getelementptr inbounds %struct.emitter_col_s, ptr %col_muzzy, i64 0, i32 4, i32 1
+  %link.i163 = getelementptr inbounds i8, ptr %col_muzzy, i64 24
+  %qre_prev.i164 = getelementptr inbounds i8, ptr %col_muzzy, i64 32
   store ptr %col_muzzy, ptr %qre_prev.i164, align 8
-  %qre_prev7.i167 = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 4, i32 1
+  %qre_prev7.i167 = getelementptr inbounds i8, ptr %col_size, i64 32
   %6 = load ptr, ptr %qre_prev7.i167, align 8
   store ptr %6, ptr %link.i163, align 8
   store ptr %col_muzzy, ptr %qre_prev7.i167, align 8
   store ptr %6, ptr %qre_prev.i164, align 8
-  %link30.i171 = getelementptr inbounds %struct.emitter_col_s, ptr %col_muzzy, i64 0, i32 4
+  %link30.i171 = getelementptr inbounds i8, ptr %col_muzzy, i64 24
   store ptr %col_size, ptr %link30.i171, align 8
-  %link34.i172 = getelementptr inbounds %struct.emitter_col_s, ptr %6, i64 0, i32 4
+  %link34.i172 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %col_muzzy, ptr %link34.i172, align 8
   %.pre.i173 = load ptr, ptr %link.i163, align 8
   store i32 1, ptr %col_muzzy, align 8
-  %width29 = getelementptr inbounds %struct.emitter_col_s, ptr %col_muzzy, i64 0, i32 1
+  %width29 = getelementptr inbounds i8, ptr %col_muzzy, i64 4
   store i32 13, ptr %width29, align 4
-  %type30 = getelementptr inbounds %struct.emitter_col_s, ptr %col_muzzy, i64 0, i32 2
+  %type30 = getelementptr inbounds i8, ptr %col_muzzy, i64 8
   store i32 6, ptr %type30, align 8
-  %link.i175 = getelementptr inbounds %struct.emitter_col_s, ptr %header_muzzy, i64 0, i32 4
+  %link.i175 = getelementptr inbounds i8, ptr %header_muzzy, i64 24
   store ptr %header_muzzy, ptr %link.i175, align 8
-  %qre_prev.i176 = getelementptr inbounds %struct.emitter_col_s, ptr %header_muzzy, i64 0, i32 4, i32 1
+  %qre_prev.i176 = getelementptr inbounds i8, ptr %header_muzzy, i64 32
   store ptr %header_muzzy, ptr %qre_prev.i176, align 8
   %cmp.i177 = icmp eq ptr %.pre.i161, null
   br i1 %cmp.i177, label %emitter_col_init.exit186, label %do.body3.i178
 
 do.body3.i178:                                    ; preds = %emitter_col_init.exit174
-  %qre_prev7.i179 = getelementptr inbounds %struct.emitter_col_s, ptr %.pre.i161, i64 0, i32 4, i32 1
+  %qre_prev7.i179 = getelementptr inbounds i8, ptr %.pre.i161, i64 32
   %7 = load ptr, ptr %qre_prev7.i179, align 8
   store ptr %7, ptr %link.i175, align 8
   store ptr %header_muzzy, ptr %qre_prev7.i179, align 8
   %8 = load ptr, ptr %qre_prev.i176, align 8
-  %link20.i181 = getelementptr inbounds %struct.emitter_col_s, ptr %8, i64 0, i32 4
+  %link20.i181 = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %link20.i181, align 8
   store ptr %9, ptr %qre_prev.i176, align 8
   %10 = load ptr, ptr %qre_prev7.i179, align 8
-  %link30.i183 = getelementptr inbounds %struct.emitter_col_s, ptr %10, i64 0, i32 4
+  %link30.i183 = getelementptr inbounds i8, ptr %10, i64 24
   store ptr %.pre.i161, ptr %link30.i183, align 8
   %11 = load ptr, ptr %qre_prev.i176, align 8
-  %link34.i184 = getelementptr inbounds %struct.emitter_col_s, ptr %11, i64 0, i32 4
+  %link34.i184 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %header_muzzy, ptr %link34.i184, align 8
   %.pre.i185 = load ptr, ptr %link.i175, align 8
   br label %emitter_col_init.exit186
@@ -13577,33 +13577,33 @@ do.body3.i178:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit186:                         ; preds = %emitter_col_init.exit174, %do.body3.i178
   %12 = phi ptr [ %.pre.i185, %do.body3.i178 ], [ %header_muzzy, %emitter_col_init.exit174 ]
   store i32 1, ptr %header_muzzy, align 8
-  %width32 = getelementptr inbounds %struct.emitter_col_s, ptr %header_muzzy, i64 0, i32 1
+  %width32 = getelementptr inbounds i8, ptr %header_muzzy, i64 4
   store i32 13, ptr %width32, align 4
-  %type33 = getelementptr inbounds %struct.emitter_col_s, ptr %header_muzzy, i64 0, i32 2
+  %type33 = getelementptr inbounds i8, ptr %header_muzzy, i64 8
   store i32 9, ptr %type33, align 8
-  %13 = getelementptr inbounds %struct.emitter_col_s, ptr %header_muzzy, i64 0, i32 3
+  %13 = getelementptr inbounds i8, ptr %header_muzzy, i64 16
   store ptr @.str.417, ptr %13, align 8
-  %link.i187 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nretained, i64 0, i32 4
+  %link.i187 = getelementptr inbounds i8, ptr %col_nretained, i64 24
   store ptr %col_nretained, ptr %link.i187, align 8
-  %qre_prev.i188 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nretained, i64 0, i32 4, i32 1
+  %qre_prev.i188 = getelementptr inbounds i8, ptr %col_nretained, i64 32
   store ptr %col_nretained, ptr %qre_prev.i188, align 8
   %cmp.i189 = icmp eq ptr %.pre.i173, null
   br i1 %cmp.i189, label %emitter_col_init.exit198, label %do.body3.i190
 
 do.body3.i190:                                    ; preds = %emitter_col_init.exit186
-  %qre_prev7.i191 = getelementptr inbounds %struct.emitter_col_s, ptr %.pre.i173, i64 0, i32 4, i32 1
+  %qre_prev7.i191 = getelementptr inbounds i8, ptr %.pre.i173, i64 32
   %14 = load ptr, ptr %qre_prev7.i191, align 8
   store ptr %14, ptr %link.i187, align 8
   store ptr %col_nretained, ptr %qre_prev7.i191, align 8
   %15 = load ptr, ptr %qre_prev.i188, align 8
-  %link20.i193 = getelementptr inbounds %struct.emitter_col_s, ptr %15, i64 0, i32 4
+  %link20.i193 = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %link20.i193, align 8
   store ptr %16, ptr %qre_prev.i188, align 8
   %17 = load ptr, ptr %qre_prev7.i191, align 8
-  %link30.i195 = getelementptr inbounds %struct.emitter_col_s, ptr %17, i64 0, i32 4
+  %link30.i195 = getelementptr inbounds i8, ptr %17, i64 24
   store ptr %.pre.i173, ptr %link30.i195, align 8
   %18 = load ptr, ptr %qre_prev.i188, align 8
-  %link34.i196 = getelementptr inbounds %struct.emitter_col_s, ptr %18, i64 0, i32 4
+  %link34.i196 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %col_nretained, ptr %link34.i196, align 8
   %.pre.i197 = load ptr, ptr %link.i187, align 8
   br label %emitter_col_init.exit198
@@ -13611,31 +13611,31 @@ do.body3.i190:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit198:                         ; preds = %emitter_col_init.exit186, %do.body3.i190
   %19 = phi ptr [ %.pre.i197, %do.body3.i190 ], [ %col_nretained, %emitter_col_init.exit186 ]
   store i32 1, ptr %col_nretained, align 8
-  %width35 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nretained, i64 0, i32 1
+  %width35 = getelementptr inbounds i8, ptr %col_nretained, i64 4
   store i32 13, ptr %width35, align 4
-  %type36 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nretained, i64 0, i32 2
+  %type36 = getelementptr inbounds i8, ptr %col_nretained, i64 8
   store i32 6, ptr %type36, align 8
-  %link.i199 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nretained, i64 0, i32 4
+  %link.i199 = getelementptr inbounds i8, ptr %header_nretained, i64 24
   store ptr %header_nretained, ptr %link.i199, align 8
-  %qre_prev.i200 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nretained, i64 0, i32 4, i32 1
+  %qre_prev.i200 = getelementptr inbounds i8, ptr %header_nretained, i64 32
   store ptr %header_nretained, ptr %qre_prev.i200, align 8
   %cmp.i201 = icmp eq ptr %12, null
   br i1 %cmp.i201, label %emitter_col_init.exit210, label %do.body3.i202
 
 do.body3.i202:                                    ; preds = %emitter_col_init.exit198
-  %qre_prev7.i203 = getelementptr inbounds %struct.emitter_col_s, ptr %12, i64 0, i32 4, i32 1
+  %qre_prev7.i203 = getelementptr inbounds i8, ptr %12, i64 32
   %20 = load ptr, ptr %qre_prev7.i203, align 8
   store ptr %20, ptr %link.i199, align 8
   store ptr %header_nretained, ptr %qre_prev7.i203, align 8
   %21 = load ptr, ptr %qre_prev.i200, align 8
-  %link20.i205 = getelementptr inbounds %struct.emitter_col_s, ptr %21, i64 0, i32 4
+  %link20.i205 = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %link20.i205, align 8
   store ptr %22, ptr %qre_prev.i200, align 8
   %23 = load ptr, ptr %qre_prev7.i203, align 8
-  %link30.i207 = getelementptr inbounds %struct.emitter_col_s, ptr %23, i64 0, i32 4
+  %link30.i207 = getelementptr inbounds i8, ptr %23, i64 24
   store ptr %12, ptr %link30.i207, align 8
   %24 = load ptr, ptr %qre_prev.i200, align 8
-  %link34.i208 = getelementptr inbounds %struct.emitter_col_s, ptr %24, i64 0, i32 4
+  %link34.i208 = getelementptr inbounds i8, ptr %24, i64 24
   store ptr %header_nretained, ptr %link34.i208, align 8
   %.pre.i209 = load ptr, ptr %link.i199, align 8
   br label %emitter_col_init.exit210
@@ -13643,33 +13643,33 @@ do.body3.i202:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit210:                         ; preds = %emitter_col_init.exit198, %do.body3.i202
   %25 = phi ptr [ %.pre.i209, %do.body3.i202 ], [ %header_nretained, %emitter_col_init.exit198 ]
   store i32 1, ptr %header_nretained, align 8
-  %width38 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nretained, i64 0, i32 1
+  %width38 = getelementptr inbounds i8, ptr %header_nretained, i64 4
   store i32 13, ptr %width38, align 4
-  %type39 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nretained, i64 0, i32 2
+  %type39 = getelementptr inbounds i8, ptr %header_nretained, i64 8
   store i32 9, ptr %type39, align 8
-  %26 = getelementptr inbounds %struct.emitter_col_s, ptr %header_nretained, i64 0, i32 3
+  %26 = getelementptr inbounds i8, ptr %header_nretained, i64 16
   store ptr @.str.418, ptr %26, align 8
-  %link.i211 = getelementptr inbounds %struct.emitter_col_s, ptr %col_retained, i64 0, i32 4
+  %link.i211 = getelementptr inbounds i8, ptr %col_retained, i64 24
   store ptr %col_retained, ptr %link.i211, align 8
-  %qre_prev.i212 = getelementptr inbounds %struct.emitter_col_s, ptr %col_retained, i64 0, i32 4, i32 1
+  %qre_prev.i212 = getelementptr inbounds i8, ptr %col_retained, i64 32
   store ptr %col_retained, ptr %qre_prev.i212, align 8
   %cmp.i213 = icmp eq ptr %19, null
   br i1 %cmp.i213, label %emitter_col_init.exit222, label %do.body3.i214
 
 do.body3.i214:                                    ; preds = %emitter_col_init.exit210
-  %qre_prev7.i215 = getelementptr inbounds %struct.emitter_col_s, ptr %19, i64 0, i32 4, i32 1
+  %qre_prev7.i215 = getelementptr inbounds i8, ptr %19, i64 32
   %27 = load ptr, ptr %qre_prev7.i215, align 8
   store ptr %27, ptr %link.i211, align 8
   store ptr %col_retained, ptr %qre_prev7.i215, align 8
   %28 = load ptr, ptr %qre_prev.i212, align 8
-  %link20.i217 = getelementptr inbounds %struct.emitter_col_s, ptr %28, i64 0, i32 4
+  %link20.i217 = getelementptr inbounds i8, ptr %28, i64 24
   %29 = load ptr, ptr %link20.i217, align 8
   store ptr %29, ptr %qre_prev.i212, align 8
   %30 = load ptr, ptr %qre_prev7.i215, align 8
-  %link30.i219 = getelementptr inbounds %struct.emitter_col_s, ptr %30, i64 0, i32 4
+  %link30.i219 = getelementptr inbounds i8, ptr %30, i64 24
   store ptr %19, ptr %link30.i219, align 8
   %31 = load ptr, ptr %qre_prev.i212, align 8
-  %link34.i220 = getelementptr inbounds %struct.emitter_col_s, ptr %31, i64 0, i32 4
+  %link34.i220 = getelementptr inbounds i8, ptr %31, i64 24
   store ptr %col_retained, ptr %link34.i220, align 8
   %.pre.i221 = load ptr, ptr %link.i211, align 8
   br label %emitter_col_init.exit222
@@ -13677,31 +13677,31 @@ do.body3.i214:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit222:                         ; preds = %emitter_col_init.exit210, %do.body3.i214
   %32 = phi ptr [ %.pre.i221, %do.body3.i214 ], [ %col_retained, %emitter_col_init.exit210 ]
   store i32 1, ptr %col_retained, align 8
-  %width41 = getelementptr inbounds %struct.emitter_col_s, ptr %col_retained, i64 0, i32 1
+  %width41 = getelementptr inbounds i8, ptr %col_retained, i64 4
   store i32 13, ptr %width41, align 4
-  %type42 = getelementptr inbounds %struct.emitter_col_s, ptr %col_retained, i64 0, i32 2
+  %type42 = getelementptr inbounds i8, ptr %col_retained, i64 8
   store i32 6, ptr %type42, align 8
-  %link.i223 = getelementptr inbounds %struct.emitter_col_s, ptr %header_retained, i64 0, i32 4
+  %link.i223 = getelementptr inbounds i8, ptr %header_retained, i64 24
   store ptr %header_retained, ptr %link.i223, align 8
-  %qre_prev.i224 = getelementptr inbounds %struct.emitter_col_s, ptr %header_retained, i64 0, i32 4, i32 1
+  %qre_prev.i224 = getelementptr inbounds i8, ptr %header_retained, i64 32
   store ptr %header_retained, ptr %qre_prev.i224, align 8
   %cmp.i225 = icmp eq ptr %25, null
   br i1 %cmp.i225, label %emitter_col_init.exit234, label %do.body3.i226
 
 do.body3.i226:                                    ; preds = %emitter_col_init.exit222
-  %qre_prev7.i227 = getelementptr inbounds %struct.emitter_col_s, ptr %25, i64 0, i32 4, i32 1
+  %qre_prev7.i227 = getelementptr inbounds i8, ptr %25, i64 32
   %33 = load ptr, ptr %qre_prev7.i227, align 8
   store ptr %33, ptr %link.i223, align 8
   store ptr %header_retained, ptr %qre_prev7.i227, align 8
   %34 = load ptr, ptr %qre_prev.i224, align 8
-  %link20.i229 = getelementptr inbounds %struct.emitter_col_s, ptr %34, i64 0, i32 4
+  %link20.i229 = getelementptr inbounds i8, ptr %34, i64 24
   %35 = load ptr, ptr %link20.i229, align 8
   store ptr %35, ptr %qre_prev.i224, align 8
   %36 = load ptr, ptr %qre_prev7.i227, align 8
-  %link30.i231 = getelementptr inbounds %struct.emitter_col_s, ptr %36, i64 0, i32 4
+  %link30.i231 = getelementptr inbounds i8, ptr %36, i64 24
   store ptr %25, ptr %link30.i231, align 8
   %37 = load ptr, ptr %qre_prev.i224, align 8
-  %link34.i232 = getelementptr inbounds %struct.emitter_col_s, ptr %37, i64 0, i32 4
+  %link34.i232 = getelementptr inbounds i8, ptr %37, i64 24
   store ptr %header_retained, ptr %link34.i232, align 8
   %.pre.i233 = load ptr, ptr %link.i223, align 8
   br label %emitter_col_init.exit234
@@ -13709,33 +13709,33 @@ do.body3.i226:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit234:                         ; preds = %emitter_col_init.exit222, %do.body3.i226
   %38 = phi ptr [ %.pre.i233, %do.body3.i226 ], [ %header_retained, %emitter_col_init.exit222 ]
   store i32 1, ptr %header_retained, align 8
-  %width44 = getelementptr inbounds %struct.emitter_col_s, ptr %header_retained, i64 0, i32 1
+  %width44 = getelementptr inbounds i8, ptr %header_retained, i64 4
   store i32 13, ptr %width44, align 4
-  %type45 = getelementptr inbounds %struct.emitter_col_s, ptr %header_retained, i64 0, i32 2
+  %type45 = getelementptr inbounds i8, ptr %header_retained, i64 8
   store i32 9, ptr %type45, align 8
-  %39 = getelementptr inbounds %struct.emitter_col_s, ptr %header_retained, i64 0, i32 3
+  %39 = getelementptr inbounds i8, ptr %header_retained, i64 16
   store ptr @.str.235, ptr %39, align 8
-  %link.i235 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ntotal, i64 0, i32 4
+  %link.i235 = getelementptr inbounds i8, ptr %col_ntotal, i64 24
   store ptr %col_ntotal, ptr %link.i235, align 8
-  %qre_prev.i236 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ntotal, i64 0, i32 4, i32 1
+  %qre_prev.i236 = getelementptr inbounds i8, ptr %col_ntotal, i64 32
   store ptr %col_ntotal, ptr %qre_prev.i236, align 8
   %cmp.i237 = icmp eq ptr %32, null
   br i1 %cmp.i237, label %emitter_col_init.exit246, label %do.body3.i238
 
 do.body3.i238:                                    ; preds = %emitter_col_init.exit234
-  %qre_prev7.i239 = getelementptr inbounds %struct.emitter_col_s, ptr %32, i64 0, i32 4, i32 1
+  %qre_prev7.i239 = getelementptr inbounds i8, ptr %32, i64 32
   %40 = load ptr, ptr %qre_prev7.i239, align 8
   store ptr %40, ptr %link.i235, align 8
   store ptr %col_ntotal, ptr %qre_prev7.i239, align 8
   %41 = load ptr, ptr %qre_prev.i236, align 8
-  %link20.i241 = getelementptr inbounds %struct.emitter_col_s, ptr %41, i64 0, i32 4
+  %link20.i241 = getelementptr inbounds i8, ptr %41, i64 24
   %42 = load ptr, ptr %link20.i241, align 8
   store ptr %42, ptr %qre_prev.i236, align 8
   %43 = load ptr, ptr %qre_prev7.i239, align 8
-  %link30.i243 = getelementptr inbounds %struct.emitter_col_s, ptr %43, i64 0, i32 4
+  %link30.i243 = getelementptr inbounds i8, ptr %43, i64 24
   store ptr %32, ptr %link30.i243, align 8
   %44 = load ptr, ptr %qre_prev.i236, align 8
-  %link34.i244 = getelementptr inbounds %struct.emitter_col_s, ptr %44, i64 0, i32 4
+  %link34.i244 = getelementptr inbounds i8, ptr %44, i64 24
   store ptr %col_ntotal, ptr %link34.i244, align 8
   %.pre.i245 = load ptr, ptr %link.i235, align 8
   br label %emitter_col_init.exit246
@@ -13743,31 +13743,31 @@ do.body3.i238:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit246:                         ; preds = %emitter_col_init.exit234, %do.body3.i238
   %45 = phi ptr [ %.pre.i245, %do.body3.i238 ], [ %col_ntotal, %emitter_col_init.exit234 ]
   store i32 1, ptr %col_ntotal, align 8
-  %width47 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ntotal, i64 0, i32 1
+  %width47 = getelementptr inbounds i8, ptr %col_ntotal, i64 4
   store i32 13, ptr %width47, align 4
-  %type48 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ntotal, i64 0, i32 2
+  %type48 = getelementptr inbounds i8, ptr %col_ntotal, i64 8
   store i32 6, ptr %type48, align 8
-  %link.i247 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ntotal, i64 0, i32 4
+  %link.i247 = getelementptr inbounds i8, ptr %header_ntotal, i64 24
   store ptr %header_ntotal, ptr %link.i247, align 8
-  %qre_prev.i248 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ntotal, i64 0, i32 4, i32 1
+  %qre_prev.i248 = getelementptr inbounds i8, ptr %header_ntotal, i64 32
   store ptr %header_ntotal, ptr %qre_prev.i248, align 8
   %cmp.i249 = icmp eq ptr %38, null
   br i1 %cmp.i249, label %emitter_col_init.exit258, label %do.body3.i250
 
 do.body3.i250:                                    ; preds = %emitter_col_init.exit246
-  %qre_prev7.i251 = getelementptr inbounds %struct.emitter_col_s, ptr %38, i64 0, i32 4, i32 1
+  %qre_prev7.i251 = getelementptr inbounds i8, ptr %38, i64 32
   %46 = load ptr, ptr %qre_prev7.i251, align 8
   store ptr %46, ptr %link.i247, align 8
   store ptr %header_ntotal, ptr %qre_prev7.i251, align 8
   %47 = load ptr, ptr %qre_prev.i248, align 8
-  %link20.i253 = getelementptr inbounds %struct.emitter_col_s, ptr %47, i64 0, i32 4
+  %link20.i253 = getelementptr inbounds i8, ptr %47, i64 24
   %48 = load ptr, ptr %link20.i253, align 8
   store ptr %48, ptr %qre_prev.i248, align 8
   %49 = load ptr, ptr %qre_prev7.i251, align 8
-  %link30.i255 = getelementptr inbounds %struct.emitter_col_s, ptr %49, i64 0, i32 4
+  %link30.i255 = getelementptr inbounds i8, ptr %49, i64 24
   store ptr %38, ptr %link30.i255, align 8
   %50 = load ptr, ptr %qre_prev.i248, align 8
-  %link34.i256 = getelementptr inbounds %struct.emitter_col_s, ptr %50, i64 0, i32 4
+  %link34.i256 = getelementptr inbounds i8, ptr %50, i64 24
   store ptr %header_ntotal, ptr %link34.i256, align 8
   %.pre.i257 = load ptr, ptr %link.i247, align 8
   br label %emitter_col_init.exit258
@@ -13775,33 +13775,33 @@ do.body3.i250:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit258:                         ; preds = %emitter_col_init.exit246, %do.body3.i250
   %51 = phi ptr [ %.pre.i257, %do.body3.i250 ], [ %header_ntotal, %emitter_col_init.exit246 ]
   store i32 1, ptr %header_ntotal, align 8
-  %width50 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ntotal, i64 0, i32 1
+  %width50 = getelementptr inbounds i8, ptr %header_ntotal, i64 4
   store i32 13, ptr %width50, align 4
-  %type51 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ntotal, i64 0, i32 2
+  %type51 = getelementptr inbounds i8, ptr %header_ntotal, i64 8
   store i32 9, ptr %type51, align 8
-  %52 = getelementptr inbounds %struct.emitter_col_s, ptr %header_ntotal, i64 0, i32 3
+  %52 = getelementptr inbounds i8, ptr %header_ntotal, i64 16
   store ptr @.str.419, ptr %52, align 8
-  %link.i259 = getelementptr inbounds %struct.emitter_col_s, ptr %col_total, i64 0, i32 4
+  %link.i259 = getelementptr inbounds i8, ptr %col_total, i64 24
   store ptr %col_total, ptr %link.i259, align 8
-  %qre_prev.i260 = getelementptr inbounds %struct.emitter_col_s, ptr %col_total, i64 0, i32 4, i32 1
+  %qre_prev.i260 = getelementptr inbounds i8, ptr %col_total, i64 32
   store ptr %col_total, ptr %qre_prev.i260, align 8
   %cmp.i261 = icmp eq ptr %45, null
   br i1 %cmp.i261, label %emitter_col_init.exit270, label %do.body3.i262
 
 do.body3.i262:                                    ; preds = %emitter_col_init.exit258
-  %qre_prev7.i263 = getelementptr inbounds %struct.emitter_col_s, ptr %45, i64 0, i32 4, i32 1
+  %qre_prev7.i263 = getelementptr inbounds i8, ptr %45, i64 32
   %53 = load ptr, ptr %qre_prev7.i263, align 8
   store ptr %53, ptr %link.i259, align 8
   store ptr %col_total, ptr %qre_prev7.i263, align 8
   %54 = load ptr, ptr %qre_prev.i260, align 8
-  %link20.i265 = getelementptr inbounds %struct.emitter_col_s, ptr %54, i64 0, i32 4
+  %link20.i265 = getelementptr inbounds i8, ptr %54, i64 24
   %55 = load ptr, ptr %link20.i265, align 8
   store ptr %55, ptr %qre_prev.i260, align 8
   %56 = load ptr, ptr %qre_prev7.i263, align 8
-  %link30.i267 = getelementptr inbounds %struct.emitter_col_s, ptr %56, i64 0, i32 4
+  %link30.i267 = getelementptr inbounds i8, ptr %56, i64 24
   store ptr %45, ptr %link30.i267, align 8
   %57 = load ptr, ptr %qre_prev.i260, align 8
-  %link34.i268 = getelementptr inbounds %struct.emitter_col_s, ptr %57, i64 0, i32 4
+  %link34.i268 = getelementptr inbounds i8, ptr %57, i64 24
   store ptr %col_total, ptr %link34.i268, align 8
   %.pre.i269 = load ptr, ptr %link.i259, align 8
   br label %emitter_col_init.exit270
@@ -13809,31 +13809,31 @@ do.body3.i262:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit270:                         ; preds = %emitter_col_init.exit258, %do.body3.i262
   %58 = phi ptr [ %.pre.i269, %do.body3.i262 ], [ %col_total, %emitter_col_init.exit258 ]
   store i32 1, ptr %col_total, align 8
-  %width53 = getelementptr inbounds %struct.emitter_col_s, ptr %col_total, i64 0, i32 1
+  %width53 = getelementptr inbounds i8, ptr %col_total, i64 4
   store i32 13, ptr %width53, align 4
-  %type54 = getelementptr inbounds %struct.emitter_col_s, ptr %col_total, i64 0, i32 2
+  %type54 = getelementptr inbounds i8, ptr %col_total, i64 8
   store i32 6, ptr %type54, align 8
-  %link.i271 = getelementptr inbounds %struct.emitter_col_s, ptr %header_total, i64 0, i32 4
+  %link.i271 = getelementptr inbounds i8, ptr %header_total, i64 24
   store ptr %header_total, ptr %link.i271, align 8
-  %qre_prev.i272 = getelementptr inbounds %struct.emitter_col_s, ptr %header_total, i64 0, i32 4, i32 1
+  %qre_prev.i272 = getelementptr inbounds i8, ptr %header_total, i64 32
   store ptr %header_total, ptr %qre_prev.i272, align 8
   %cmp.i273 = icmp eq ptr %51, null
   br i1 %cmp.i273, label %emitter_col_init.exit282, label %do.body3.i274
 
 do.body3.i274:                                    ; preds = %emitter_col_init.exit270
-  %qre_prev7.i275 = getelementptr inbounds %struct.emitter_col_s, ptr %51, i64 0, i32 4, i32 1
+  %qre_prev7.i275 = getelementptr inbounds i8, ptr %51, i64 32
   %59 = load ptr, ptr %qre_prev7.i275, align 8
   store ptr %59, ptr %link.i271, align 8
   store ptr %header_total, ptr %qre_prev7.i275, align 8
   %60 = load ptr, ptr %qre_prev.i272, align 8
-  %link20.i277 = getelementptr inbounds %struct.emitter_col_s, ptr %60, i64 0, i32 4
+  %link20.i277 = getelementptr inbounds i8, ptr %60, i64 24
   %61 = load ptr, ptr %link20.i277, align 8
   store ptr %61, ptr %qre_prev.i272, align 8
   %62 = load ptr, ptr %qre_prev7.i275, align 8
-  %link30.i279 = getelementptr inbounds %struct.emitter_col_s, ptr %62, i64 0, i32 4
+  %link30.i279 = getelementptr inbounds i8, ptr %62, i64 24
   store ptr %51, ptr %link30.i279, align 8
   %63 = load ptr, ptr %qre_prev.i272, align 8
-  %link34.i280 = getelementptr inbounds %struct.emitter_col_s, ptr %63, i64 0, i32 4
+  %link34.i280 = getelementptr inbounds i8, ptr %63, i64 24
   store ptr %header_total, ptr %link34.i280, align 8
   %.pre.i281 = load ptr, ptr %link.i271, align 8
   br label %emitter_col_init.exit282
@@ -13841,11 +13841,11 @@ do.body3.i274:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit282:                         ; preds = %emitter_col_init.exit270, %do.body3.i274
   %64 = phi ptr [ %.pre.i281, %do.body3.i274 ], [ %header_total, %emitter_col_init.exit270 ]
   store i32 1, ptr %header_total, align 8
-  %width56 = getelementptr inbounds %struct.emitter_col_s, ptr %header_total, i64 0, i32 1
+  %width56 = getelementptr inbounds i8, ptr %header_total, i64 4
   store i32 13, ptr %width56, align 4
-  %type57 = getelementptr inbounds %struct.emitter_col_s, ptr %header_total, i64 0, i32 2
+  %type57 = getelementptr inbounds i8, ptr %header_total, i64 8
   store i32 9, ptr %type57, align 8
-  %65 = getelementptr inbounds %struct.emitter_col_s, ptr %header_total, i64 0, i32 3
+  %65 = getelementptr inbounds i8, ptr %header_total, i64 16
   store ptr @.str.420, ptr %65, align 8
   store i32 12, ptr %width2, align 4
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.421)
@@ -13860,13 +13860,13 @@ if.end.i:                                         ; preds = %emitter_col_init.ex
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %col.011.i = phi ptr [ %71, %for.body.i ], [ %64, %if.end.i ]
   %67 = load i32, ptr %col.011.i, align 8
-  %width.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %col.011.i, i64 4
   %68 = load i32, ptr %width.i, align 4
-  %type.i = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
   %69 = load i32, ptr %type.i, align 8
-  %70 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 3
+  %70 = getelementptr inbounds i8, ptr %col.011.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %67, i32 noundef %68, i32 noundef %69, ptr noundef nonnull %70)
-  %link.i283 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i, i64 0, i32 4
+  %link.i283 = getelementptr inbounds i8, ptr %col.011.i, i64 24
   %71 = load ptr, ptr %link.i283, align 8
   %cmp4.not.i = icmp eq ptr %71, %64
   %cmp1.not12.i = icmp eq ptr %71, null
@@ -13881,7 +13881,7 @@ emitter_table_row.exit:                           ; preds = %emitter_col_init.ex
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %emitter, ptr noundef nonnull @.str.422)
   store i64 7, ptr %miblen_new, align 8
   %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i411 = getelementptr inbounds %struct.tsd_s, ptr %72, i64 0, i32 30
+  %state.i411 = getelementptr inbounds i8, ptr %72, i64 824
   %73 = load i8, ptr %state.i411, align 8
   %cmp6.i.not = icmp eq i8 %73, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
@@ -13903,7 +13903,7 @@ if.then:                                          ; preds = %tsd_fetch_impl.exit
 
 do.end65:                                         ; preds = %tsd_fetch_impl.exit
   %conv = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds [7 x i64], ptr %stats_arenas_mib, i64 0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 16
   store i64 %conv, ptr %arrayidx, align 16
   store i64 7, ptr %miblen_new69, align 8
   %74 = load i8, ptr %state.i411, align 8
@@ -13921,19 +13921,19 @@ tsd_fetch_impl.exit238:                           ; preds = %do.end65, %if.then1
   br i1 %cmp74.not, label %for.cond.preheader, label %if.then76
 
 for.cond.preheader:                               ; preds = %tsd_fetch_impl.exit238
-  %arrayidx86 = getelementptr inbounds [7 x i64], ptr %stats_arenas_mib, i64 0, i64 4
-  %nesting_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 3
-  %item_at_depth.i.i = getelementptr inbounds %struct.emitter_s, ptr %emitter, i64 0, i32 4
-  %75 = getelementptr inbounds %struct.emitter_col_s, ptr %col_size, i64 0, i32 3
-  %76 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ind, i64 0, i32 3
-  %77 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ndirty, i64 0, i32 3
-  %78 = getelementptr inbounds %struct.emitter_col_s, ptr %col_dirty, i64 0, i32 3
-  %79 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nmuzzy, i64 0, i32 3
-  %80 = getelementptr inbounds %struct.emitter_col_s, ptr %col_muzzy, i64 0, i32 3
-  %81 = getelementptr inbounds %struct.emitter_col_s, ptr %col_nretained, i64 0, i32 3
-  %82 = getelementptr inbounds %struct.emitter_col_s, ptr %col_retained, i64 0, i32 3
-  %83 = getelementptr inbounds %struct.emitter_col_s, ptr %col_ntotal, i64 0, i32 3
-  %84 = getelementptr inbounds %struct.emitter_col_s, ptr %col_total, i64 0, i32 3
+  %arrayidx86 = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 32
+  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %75 = getelementptr inbounds i8, ptr %col_size, i64 16
+  %76 = getelementptr inbounds i8, ptr %col_ind, i64 16
+  %77 = getelementptr inbounds i8, ptr %col_ndirty, i64 16
+  %78 = getelementptr inbounds i8, ptr %col_dirty, i64 16
+  %79 = getelementptr inbounds i8, ptr %col_nmuzzy, i64 16
+  %80 = getelementptr inbounds i8, ptr %col_muzzy, i64 16
+  %81 = getelementptr inbounds i8, ptr %col_nretained, i64 16
+  %82 = getelementptr inbounds i8, ptr %col_retained, i64 16
+  %83 = getelementptr inbounds i8, ptr %col_ntotal, i64 16
+  %84 = getelementptr inbounds i8, ptr %col_total, i64 16
   %cmp1.not10.i288 = icmp eq ptr %58, null
   br label %for.body
 
@@ -14181,13 +14181,13 @@ if.end.i287:                                      ; preds = %if.then202
 for.body.i289:                                    ; preds = %if.end.i287, %for.body.i289
   %col.011.i290 = phi ptr [ %112, %for.body.i289 ], [ %58, %if.end.i287 ]
   %108 = load i32, ptr %col.011.i290, align 8
-  %width.i291 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i290, i64 0, i32 1
+  %width.i291 = getelementptr inbounds i8, ptr %col.011.i290, i64 4
   %109 = load i32, ptr %width.i291, align 4
-  %type.i292 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i290, i64 0, i32 2
+  %type.i292 = getelementptr inbounds i8, ptr %col.011.i290, i64 8
   %110 = load i32, ptr %type.i292, align 8
-  %111 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i290, i64 0, i32 3
+  %111 = getelementptr inbounds i8, ptr %col.011.i290, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull %emitter, i32 noundef %108, i32 noundef %109, i32 noundef %110, ptr noundef nonnull %111)
-  %link.i293 = getelementptr inbounds %struct.emitter_col_s, ptr %col.011.i290, i64 0, i32 4
+  %link.i293 = getelementptr inbounds i8, ptr %col.011.i290, i64 24
   %112 = load ptr, ptr %link.i293, align 8
   %cmp4.not.i294 = icmp eq ptr %112, %58
   %cmp1.not12.i295 = icmp eq ptr %112, null

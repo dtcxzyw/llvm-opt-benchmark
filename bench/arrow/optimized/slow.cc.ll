@@ -7,21 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<arrow::io::LatencyGeneratorImpl, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<arrow::io::LatencyGeneratorImpl, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<88, 8>::type" }
-%"union.std::aligned_storage<88, 8>::type" = type { [88 x i8] }
-%"class.arrow::io::SlowInputStreamBase" = type { %"class.arrow::io::InputStream.base", %"class.std::shared_ptr.3", %"class.std::shared_ptr", %"class.arrow::io::FileInterface.base" }
-%"class.arrow::io::InputStream.base" = type { %"class.arrow::io::Readable" }
-%"class.arrow::io::Readable" = type { ptr }
-%"class.std::shared_ptr.3" = type { %"class.std::__shared_ptr.4" }
-%"class.std::__shared_ptr.4" = type { ptr, %"class.std::__shared_count" }
-%"class.arrow::io::FileInterface.base" = type <{ ptr, %"class.std::enable_shared_from_this", i32 }>
-%"class.std::enable_shared_from_this" = type { %"class.std::weak_ptr" }
-%"class.std::weak_ptr" = type { %"class.std::__weak_ptr" }
-%"class.std::__weak_ptr" = type { ptr, %"class.std::__weak_count" }
-%"class.std::__weak_count" = type { ptr }
 %"class.arrow::Status" = type { ptr }
 %"class.arrow::Result" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage" }
 %"class.arrow::internal::AlignedStorage" = type { %"union.std::aligned_storage<8, 8>::type" }
@@ -31,31 +16,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::aligned_storage<16, 8>::type" = type { [16 x i8] }
 %"class.arrow::Result.13" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage.16" }
 %"class.arrow::internal::AlignedStorage.16" = type { %"union.std::aligned_storage<16, 8>::type" }
-%"class.arrow::io::SlowInputStreamBase.17" = type { %"class.arrow::io::RandomAccessFile.base", %"class.std::shared_ptr.20", %"class.std::shared_ptr", %"class.arrow::io::FileInterface.base" }
-%"class.arrow::io::RandomAccessFile.base" = type { %"class.arrow::io::InputStream.base", %"class.arrow::io::Seekable", %"class.std::unique_ptr" }
-%"class.arrow::io::Seekable" = type { ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.19" }
-%"struct.std::_Head_base.19" = type { ptr }
-%"class.std::shared_ptr.20" = type { %"class.std::__shared_ptr.21" }
-%"class.std::__shared_ptr.21" = type { ptr, %"class.std::__shared_count" }
 %"class.arrow::Future" = type { %"class.std::shared_ptr.24" }
 %"class.std::shared_ptr.24" = type { %"class.std::__shared_ptr.25" }
 %"class.std::__shared_ptr.25" = type { ptr, %"class.std::__shared_count" }
-%"class.std::type_info" = type { ptr, ptr }
-%"class.arrow::io::LatencyGeneratorImpl" = type { %"class.arrow::io::LatencyGenerator", %"class.std::linear_congruential_engine", %"class.std::normal_distribution", %"class.std::mutex" }
-%"class.arrow::io::LatencyGenerator" = type { ptr }
-%"class.std::linear_congruential_engine" = type { i64 }
-%"class.std::normal_distribution" = type <{ %"struct.std::normal_distribution<>::param_type", double, i8, [7 x i8] }>
-%"struct.std::normal_distribution<>::param_type" = type { double, double }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -205,7 +168,7 @@ define void @_ZN5arrow2io16LatencyGenerator5SleepEv(ptr noundef nonnull align 8 
 entry:
   %__ts.i = alloca %struct.timespec, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i)
@@ -219,7 +182,7 @@ if.end.i:                                         ; preds = %entry
   %mul.i.i.i = fmul double %sub.i.i, 1.000000e+09
   %conv.i.i3.i = fptosi double %mul.i.i.i to i64
   store i64 %conv.i.i.i, ptr %__ts.i, align 8
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %__ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %__ts.i, i64 8
   store i64 %conv.i.i3.i, ptr %tv_nsec.i, align 8
   br label %while.cond.i
 
@@ -244,32 +207,32 @@ define void @_ZN5arrow2io16LatencyGenerator4MakeEd(ptr noalias nocapture writeon
 _ZNSt10shared_ptrIN5arrow2io20LatencyGeneratorImplEED2Ev.exit:
   %call = tail call noundef i64 @_ZN5arrow8internal13GetRandomSeedEv()
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22, !noalias !6
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !6
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !6
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io20LatencyGeneratorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !6
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow2io20LatencyGeneratorImplE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !6
-  %gen_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %gen_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %sext = shl i64 %call, 32
   %conv.i.i.i.i.i.i.i.i = ashr exact i64 %sext, 32
   %rem.i.i.i.i.i.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, 2147483647
   %storemerge.i.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i, i64 1)
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i, ptr %gen_.i.i.i.i.i.i.i.i, align 8, !noalias !6
-  %latency_dist_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %latency_dist_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
   %mul.i.i.i.i.i.i.i.i = fmul double %average_latency, 1.000000e-01
   store double %average_latency, ptr %latency_dist_.i.i.i.i.i.i.i.i, align 8, !noalias !6
-  %_M_stddev.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %_M_stddev.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 40
   store double %mul.i.i.i.i.i.i.i.i, ptr %_M_stddev.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !6
-  %_M_saved.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
+  %_M_saved.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 48
   store double 0.000000e+00, ptr %_M_saved.i.i.i.i.i.i.i.i.i, align 8, !noalias !6
-  %_M_saved_available.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
+  %_M_saved_available.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store i8 0, ptr %_M_saved_available.i.i.i.i.i.i.i.i.i, align 8, !noalias !6
-  %mutex_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %mutex_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i.i.i.i.i, i8 0, i64 40, i1 false), !noalias !6
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i, align 8
   ret void
 }
@@ -280,31 +243,31 @@ declare noundef i64 @_ZN5arrow8internal13GetRandomSeedEv() local_unnamed_addr #4
 define void @_ZN5arrow2io16LatencyGenerator4MakeEdi(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, double noundef %average_latency, i32 noundef %seed) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow2io20LatencyGeneratorImplEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22, !noalias !9
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !9
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !9
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io20LatencyGeneratorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !9
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow2io20LatencyGeneratorImplE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !9
-  %gen_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %gen_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %conv.i.i.i.i.i.i.i.i = sext i32 %seed to i64
   %rem.i.i.i.i.i.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, 2147483647
   %storemerge.i.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i, i64 1)
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i, ptr %gen_.i.i.i.i.i.i.i.i, align 8, !noalias !9
-  %latency_dist_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %latency_dist_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
   %mul.i.i.i.i.i.i.i.i = fmul double %average_latency, 1.000000e-01
   store double %average_latency, ptr %latency_dist_.i.i.i.i.i.i.i.i, align 8, !noalias !9
-  %_M_stddev.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %_M_stddev.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 40
   store double %mul.i.i.i.i.i.i.i.i, ptr %_M_stddev.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
-  %_M_saved.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
+  %_M_saved.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 48
   store double 0.000000e+00, ptr %_M_saved.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
-  %_M_saved_available.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
+  %_M_saved_available.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store i8 0, ptr %_M_saved_available.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
-  %mutex_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
+  %mutex_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i.i.i.i.i, i8 0, i64 40, i1 false), !noalias !9
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i, align 8
   ret void
 }
@@ -314,13 +277,13 @@ define void @_ZN5arrow2io15SlowInputStreamD2Ev(ptr noundef nonnull align 8 deref
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
-  %1 = getelementptr inbounds ptr, ptr %vtt, i64 7
+  %1 = getelementptr inbounds i8, ptr %vtt, i64 56
   %2 = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %0, i64 -56
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8
-  %3 = getelementptr inbounds ptr, ptr %vtt, i64 8
+  %3 = getelementptr inbounds i8, ptr %vtt, i64 64
   %4 = load ptr, ptr %3, align 8
   %vtable3 = load ptr, ptr %this, align 8
   %vbase.offset.ptr4 = getelementptr i8, ptr %vtable3, i64 -64
@@ -335,7 +298,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %5 = getelementptr inbounds ptr, ptr %vtt, i64 1
+  %5 = getelementptr inbounds i8, ptr %vtt, i64 8
   tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %5) #23
   ret void
 
@@ -367,26 +330,26 @@ define linkonce_odr void @_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
-  %1 = getelementptr inbounds ptr, ptr %vtt, i64 4
+  %1 = getelementptr inbounds i8, ptr %vtt, i64 32
   %2 = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %0, i64 -56
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8
-  %3 = getelementptr inbounds ptr, ptr %vtt, i64 5
+  %3 = getelementptr inbounds i8, ptr %vtt, i64 40
   %4 = load ptr, ptr %3, align 8
   %vtable3 = load ptr, ptr %this, align 8
   %vbase.offset.ptr4 = getelementptr i8, ptr %vtable3, i64 -64
   %vbase.offset5 = load i64, ptr %vbase.offset.ptr4, align 8
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5
   store ptr %4, ptr %add.ptr6, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow2io16LatencyGeneratorEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -394,10 +357,10 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   br label %if.end8.sink.split.i.i.i.i
@@ -423,10 +386,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -448,19 +411,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   br label %_ZNSt10shared_ptrIN5arrow2io16LatencyGeneratorEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow2io16LatencyGeneratorEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 16
   %16 = load ptr, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i2 = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN5arrow2io11InputStreamEED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN5arrow2io16LatencyGeneratorEED2Ev.exit
-  %_M_use_count.i.i.i.i4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 1
+  %_M_use_count.i.i.i.i4 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load atomic i64, ptr %_M_use_count.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i5 = icmp eq i64 %17, 4294967297
   %18 = trunc i64 %17 to i32
@@ -468,10 +431,10 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i28:                                ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i4, align 8
-  %_M_weak_count.i.i.i.i29 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 2
+  %_M_weak_count.i.i.i.i29 = getelementptr inbounds i8, ptr %16, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i29, align 4
   %vtable.i.i.i.i30 = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i31 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i30, i64 2
+  %vfn.i.i.i.i31 = getelementptr inbounds i8, ptr %vtable.i.i.i.i30, i64 16
   %19 = load ptr, ptr %vfn.i.i.i.i31, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %16) #23
   br label %if.end8.sink.split.i.i.i.i23
@@ -497,10 +460,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10: ; preds = %if.els
 
 if.then7.i.i.i.i13:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10
   %vtable.i.i.i.i.i.i14 = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i14, i64 2
+  %vfn.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i14, i64 16
   %22 = load ptr, ptr %vfn.i.i.i.i.i.i15, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %16) #23
-  %_M_weak_count.i.i.i.i.i.i16 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %16, i64 12
   %23 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i17 = icmp eq i8 %23, 0
   br i1 %tobool.i.not.i.i.i.i.i.i17, label %if.else.i.i.i.i.i.i.i26, label %if.then.i.i.i.i.i.i.i18
@@ -522,7 +485,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20: ; preds = %if
 
 if.end8.sink.split.i.i.i.i23:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20, %if.then.i.i.i.i28
   %vtable2.i.i.i.i.i.i24 = load ptr, ptr %16, align 8
-  %vfn3.i.i.i.i.i.i25 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i24, i64 3
+  %vfn3.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i24, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #23
   br label %_ZNSt10shared_ptrIN5arrow2io11InputStreamEED2Ev.exit
@@ -638,14 +601,14 @@ _ZN5arrow2io15SlowInputStreamD0Ev.exit:           ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io15SlowInputStream5CloseEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %0, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -56
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %vbase.offset
   %vtable2 = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable2, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable2, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %add.ptr)
   ret void
@@ -658,14 +621,14 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -32
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %stream_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %3, i64 0, i32 1
+  %stream_.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %stream_.i, align 8, !noalias !12
   %vtable.i = load ptr, ptr %4, align 8, !noalias !12
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -56
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !12
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset.i
   %vtable2.i = load ptr, ptr %add.ptr.i, align 8, !noalias !12
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8, !noalias !12
   tail call void %5(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i)
   ret void
@@ -674,14 +637,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io15SlowInputStream5AbortEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %0, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -56
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %vbase.offset
   %vtable2 = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable2, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable2, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %add.ptr)
   ret void
@@ -694,14 +657,14 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -48
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %stream_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %3, i64 0, i32 1
+  %stream_.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %stream_.i, align 8, !noalias !15
   %vtable.i = load ptr, ptr %4, align 8, !noalias !15
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -56
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !15
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset.i
   %vtable2.i = load ptr, ptr %add.ptr.i, align 8, !noalias !15
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable2.i, i64 32
   %5 = load ptr, ptr %vfn.i, align 8, !noalias !15
   tail call void %5(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i)
   ret void
@@ -710,14 +673,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK5arrow2io15SlowInputStream6closedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %0, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -56
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %vbase.offset
   %vtable2 = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable2, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable2, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr)
   ret i1 %call3
@@ -730,14 +693,14 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -64
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %stream_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %3, i64 0, i32 1
+  %stream_.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %stream_.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -56
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset.i
   %vtable2.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable2.i, i64 48
   %5 = load ptr, ptr %vfn.i, align 8
   %call3.i = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i)
   ret i1 %call3.i
@@ -746,14 +709,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5arrow2io15SlowInputStream4TellEv(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %0, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -56
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %vbase.offset
   %vtable2 = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable2, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable2, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %add.ptr)
   ret void
@@ -766,14 +729,14 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -56
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %stream_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %3, i64 0, i32 1
+  %stream_.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %stream_.i, align 8, !noalias !18
   %vtable.i = load ptr, ptr %4, align 8, !noalias !18
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -56
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !18
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset.i
   %vtable2.i = load ptr, ptr %add.ptr.i, align 8, !noalias !18
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %5 = load ptr, ptr %vfn.i, align 8, !noalias !18
   tail call void %5(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i)
   ret void
@@ -783,10 +746,10 @@ entry:
 define void @_ZN5arrow2io15SlowInputStream4ReadElPv(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %nbytes, ptr noundef %out) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__ts.i.i = alloca %struct.timespec, align 8
-  %latencies_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %this, i64 0, i32 2
+  %latencies_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %latencies_, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i)
@@ -800,7 +763,7 @@ if.end.i.i:                                       ; preds = %entry
   %mul.i.i.i.i = fmul double %sub.i.i.i, 1.000000e+09
   %conv.i.i3.i.i = fptosi double %mul.i.i.i.i to i64
   store i64 %conv.i.i.i.i, ptr %__ts.i.i, align 8
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   store i64 %conv.i.i3.i.i, ptr %tv_nsec.i.i, align 8
   br label %while.cond.i.i
 
@@ -817,14 +780,14 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
 
 _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %while.cond.i.i, %land.rhs.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i)
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %3, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -64
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %vbase.offset
   %vtable3 = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable3, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable3, i64 16
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i64 noundef %nbytes, ptr noundef %out)
   ret void
@@ -838,10 +801,10 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -32
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %latencies_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %3, i64 0, i32 2
+  %latencies_.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %latencies_.i, align 8, !noalias !21
   %vtable.i.i = load ptr, ptr %4, align 8, !noalias !21
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i, align 8, !noalias !21
   %call.i.i = tail call noundef double %5(ptr noundef nonnull align 8 dereferenceable(8) %4), !noalias !21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i), !noalias !21
@@ -855,7 +818,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %mul.i.i.i.i.i = fmul double %sub.i.i.i.i, 1.000000e+09
   %conv.i.i3.i.i.i = fptosi double %mul.i.i.i.i.i to i64
   store i64 %conv.i.i.i.i.i, ptr %__ts.i.i.i, align 8, !noalias !21
-  %tv_nsec.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i, i64 0, i32 1
+  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i, i64 8
   store i64 %conv.i.i3.i.i.i, ptr %tv_nsec.i.i.i, align 8, !noalias !21
   br label %while.cond.i.i.i
 
@@ -872,14 +835,14 @@ land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
 
 _ZN5arrow2io15SlowInputStream4ReadElPv.exit:      ; preds = %while.cond.i.i.i, %land.rhs.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i), !noalias !21
-  %stream_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %3, i64 0, i32 1
+  %stream_.i = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %stream_.i, align 8, !noalias !21
   %vtable.i = load ptr, ptr %7, align 8, !noalias !21
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -64
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !21
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %vbase.offset.i
   %vtable3.i = load ptr, ptr %add.ptr.i, align 8, !noalias !21
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable3.i, i64 16
   %8 = load ptr, ptr %vfn.i, align 8, !noalias !21
   call void %8(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 noundef %nbytes, ptr noundef %out)
   ret void
@@ -889,10 +852,10 @@ _ZN5arrow2io15SlowInputStream4ReadElPv.exit:      ; preds = %while.cond.i.i.i, %
 define void @_ZN5arrow2io15SlowInputStream4ReadEl(ptr noalias sret(%"class.arrow::Result.8") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %nbytes) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__ts.i.i = alloca %struct.timespec, align 8
-  %latencies_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %this, i64 0, i32 2
+  %latencies_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %latencies_, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i)
@@ -906,7 +869,7 @@ if.end.i.i:                                       ; preds = %entry
   %mul.i.i.i.i = fmul double %sub.i.i.i, 1.000000e+09
   %conv.i.i3.i.i = fptosi double %mul.i.i.i.i to i64
   store i64 %conv.i.i.i.i, ptr %__ts.i.i, align 8
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   store i64 %conv.i.i3.i.i, ptr %tv_nsec.i.i, align 8
   br label %while.cond.i.i
 
@@ -923,14 +886,14 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
 
 _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %while.cond.i.i, %land.rhs.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i)
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %3, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -64
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %vbase.offset
   %vtable3 = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable3, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable3, i64 24
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr sret(%"class.arrow::Result.8") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i64 noundef %nbytes)
   ret void
@@ -944,10 +907,10 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -40
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %latencies_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %3, i64 0, i32 2
+  %latencies_.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %latencies_.i, align 8, !noalias !24
   %vtable.i.i = load ptr, ptr %4, align 8, !noalias !24
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i, align 8, !noalias !24
   %call.i.i = tail call noundef double %5(ptr noundef nonnull align 8 dereferenceable(8) %4), !noalias !24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i), !noalias !24
@@ -961,7 +924,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %mul.i.i.i.i.i = fmul double %sub.i.i.i.i, 1.000000e+09
   %conv.i.i3.i.i.i = fptosi double %mul.i.i.i.i.i to i64
   store i64 %conv.i.i.i.i.i, ptr %__ts.i.i.i, align 8, !noalias !24
-  %tv_nsec.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i, i64 0, i32 1
+  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i, i64 8
   store i64 %conv.i.i3.i.i.i, ptr %tv_nsec.i.i.i, align 8, !noalias !24
   br label %while.cond.i.i.i
 
@@ -978,14 +941,14 @@ land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
 
 _ZN5arrow2io15SlowInputStream4ReadEl.exit:        ; preds = %while.cond.i.i.i, %land.rhs.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i), !noalias !24
-  %stream_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %3, i64 0, i32 1
+  %stream_.i = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %stream_.i, align 8, !noalias !24
   %vtable.i = load ptr, ptr %7, align 8, !noalias !24
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -64
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !24
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %vbase.offset.i
   %vtable3.i = load ptr, ptr %add.ptr.i, align 8, !noalias !24
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable3.i, i64 24
   %8 = load ptr, ptr %vfn.i, align 8, !noalias !24
   call void %8(ptr sret(%"class.arrow::Result.8") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 noundef %nbytes)
   ret void
@@ -994,10 +957,10 @@ _ZN5arrow2io15SlowInputStream4ReadEl.exit:        ; preds = %while.cond.i.i.i, %
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io15SlowInputStream4PeekEl(ptr noalias sret(%"class.arrow::Result.13") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %nbytes) unnamed_addr #3 align 2 {
 entry:
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.arrow::Result.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %nbytes)
   ret void
@@ -1008,13 +971,13 @@ define void @_ZN5arrow2io20SlowRandomAccessFileD2Ev(ptr noundef nonnull align 8 
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
-  %1 = getelementptr inbounds ptr, ptr %vtt, i64 10
+  %1 = getelementptr inbounds i8, ptr %vtt, i64 80
   %2 = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %0, i64 -56
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8
-  %3 = getelementptr inbounds ptr, ptr %vtt, i64 11
+  %3 = getelementptr inbounds i8, ptr %vtt, i64 88
   %4 = load ptr, ptr %3, align 8
   %vtable3 = load ptr, ptr %this, align 8
   %vbase.offset.ptr4 = getelementptr i8, ptr %vtable3, i64 -64
@@ -1031,7 +994,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %5 = getelementptr inbounds ptr, ptr %vtt, i64 1
+  %5 = getelementptr inbounds i8, ptr %vtt, i64 8
   tail call void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %5) #23
   ret void
 
@@ -1048,13 +1011,13 @@ define linkonce_odr void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFi
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
-  %1 = getelementptr inbounds ptr, ptr %vtt, i64 7
+  %1 = getelementptr inbounds i8, ptr %vtt, i64 56
   %2 = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %0, i64 -56
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8
-  %3 = getelementptr inbounds ptr, ptr %vtt, i64 8
+  %3 = getelementptr inbounds i8, ptr %vtt, i64 64
   %4 = load ptr, ptr %3, align 8
   %vtable3 = load ptr, ptr %this, align 8
   %vbase.offset.ptr4 = getelementptr i8, ptr %vtable3, i64 -64
@@ -1063,13 +1026,13 @@ entry:
   store ptr %4, ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow2io16LatencyGeneratorEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -1077,10 +1040,10 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   br label %if.end8.sink.split.i.i.i.i
@@ -1106,10 +1069,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1131,19 +1094,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   br label %_ZNSt10shared_ptrIN5arrow2io16LatencyGeneratorEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow2io16LatencyGeneratorEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load ptr, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i2 = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN5arrow2io16RandomAccessFileEED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN5arrow2io16LatencyGeneratorEED2Ev.exit
-  %_M_use_count.i.i.i.i4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 1
+  %_M_use_count.i.i.i.i4 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load atomic i64, ptr %_M_use_count.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i5 = icmp eq i64 %17, 4294967297
   %18 = trunc i64 %17 to i32
@@ -1151,10 +1114,10 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i28:                                ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i4, align 8
-  %_M_weak_count.i.i.i.i29 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 2
+  %_M_weak_count.i.i.i.i29 = getelementptr inbounds i8, ptr %16, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i29, align 4
   %vtable.i.i.i.i30 = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i31 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i30, i64 2
+  %vfn.i.i.i.i31 = getelementptr inbounds i8, ptr %vtable.i.i.i.i30, i64 16
   %19 = load ptr, ptr %vfn.i.i.i.i31, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %16) #23
   br label %if.end8.sink.split.i.i.i.i23
@@ -1180,10 +1143,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10: ; preds = %if.els
 
 if.then7.i.i.i.i13:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10
   %vtable.i.i.i.i.i.i14 = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i14, i64 2
+  %vfn.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i14, i64 16
   %22 = load ptr, ptr %vfn.i.i.i.i.i.i15, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %16) #23
-  %_M_weak_count.i.i.i.i.i.i16 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %16, i64 12
   %23 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i17 = icmp eq i8 %23, 0
   br i1 %tobool.i.not.i.i.i.i.i.i17, label %if.else.i.i.i.i.i.i.i26, label %if.then.i.i.i.i.i.i.i18
@@ -1205,13 +1168,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20: ; preds = %if
 
 if.end8.sink.split.i.i.i.i23:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20, %if.then.i.i.i.i28
   %vtable2.i.i.i.i.i.i24 = load ptr, ptr %16, align 8
-  %vfn3.i.i.i.i.i.i25 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i24, i64 3
+  %vfn3.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i24, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #23
   br label %_ZNSt10shared_ptrIN5arrow2io16RandomAccessFileEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow2io16RandomAccessFileEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN5arrow2io16LatencyGeneratorEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20, %if.end8.sink.split.i.i.i.i23
-  %27 = getelementptr inbounds ptr, ptr %vtt, i64 1
+  %27 = getelementptr inbounds i8, ptr %vtt, i64 8
   tail call void @_ZN5arrow2io16RandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %27) #23
   ret void
 }
@@ -1374,14 +1337,14 @@ _ZN5arrow2io20SlowRandomAccessFileD0Ev.exit:      ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io20SlowRandomAccessFile5CloseEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %0, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -56
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %vbase.offset
   %vtable2 = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable2, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable2, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %add.ptr)
   ret void
@@ -1394,14 +1357,14 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -32
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %stream_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %3, i64 0, i32 1
+  %stream_.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %stream_.i, align 8, !noalias !27
   %vtable.i = load ptr, ptr %4, align 8, !noalias !27
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -56
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !27
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset.i
   %vtable2.i = load ptr, ptr %add.ptr.i, align 8, !noalias !27
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8, !noalias !27
   tail call void %5(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i)
   ret void
@@ -1410,14 +1373,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io20SlowRandomAccessFile5AbortEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %0, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -56
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %vbase.offset
   %vtable2 = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable2, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable2, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %add.ptr)
   ret void
@@ -1430,14 +1393,14 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -48
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %stream_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %3, i64 0, i32 1
+  %stream_.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %stream_.i, align 8, !noalias !30
   %vtable.i = load ptr, ptr %4, align 8, !noalias !30
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -56
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !30
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset.i
   %vtable2.i = load ptr, ptr %add.ptr.i, align 8, !noalias !30
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable2.i, i64 32
   %5 = load ptr, ptr %vfn.i, align 8, !noalias !30
   tail call void %5(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i)
   ret void
@@ -1446,14 +1409,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK5arrow2io20SlowRandomAccessFile6closedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %0, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -56
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %vbase.offset
   %vtable2 = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable2, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable2, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr)
   ret i1 %call3
@@ -1466,14 +1429,14 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -64
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %stream_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %3, i64 0, i32 1
+  %stream_.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %stream_.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -56
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset.i
   %vtable2.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable2.i, i64 48
   %5 = load ptr, ptr %vfn.i, align 8
   %call3.i = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i)
   ret i1 %call3.i
@@ -1482,10 +1445,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io20SlowRandomAccessFile7GetSizeEv(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %0)
   ret void
@@ -1494,11 +1457,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io20SlowRandomAccessFile4SeekEl(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %position) unnamed_addr #3 align 2 {
 entry:
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %stream_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
   %vtable = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i64 noundef %position)
   ret void
@@ -1511,7 +1474,7 @@ entry:
   %0 = load ptr, ptr %stream_.i, align 8, !noalias !33
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
   %vtable.i = load ptr, ptr %add.ptr.i, align 8, !noalias !33
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !33
   tail call void %1(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 noundef %position)
   ret void
@@ -1520,14 +1483,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5arrow2io20SlowRandomAccessFile4TellEv(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %0, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -56
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %vbase.offset
   %vtable2 = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable2, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable2, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %add.ptr)
   ret void
@@ -1540,14 +1503,14 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -56
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %stream_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %3, i64 0, i32 1
+  %stream_.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %stream_.i, align 8, !noalias !36
   %vtable.i = load ptr, ptr %4, align 8, !noalias !36
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -56
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !36
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset.i
   %vtable2.i = load ptr, ptr %add.ptr.i, align 8, !noalias !36
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %5 = load ptr, ptr %vfn.i, align 8, !noalias !36
   tail call void %5(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i)
   ret void
@@ -1557,10 +1520,10 @@ entry:
 define void @_ZN5arrow2io20SlowRandomAccessFile4ReadElPv(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %nbytes, ptr noundef %out) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__ts.i.i = alloca %struct.timespec, align 8
-  %latencies_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 2
+  %latencies_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %latencies_, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i)
@@ -1574,7 +1537,7 @@ if.end.i.i:                                       ; preds = %entry
   %mul.i.i.i.i = fmul double %sub.i.i.i, 1.000000e+09
   %conv.i.i3.i.i = fptosi double %mul.i.i.i.i to i64
   store i64 %conv.i.i.i.i, ptr %__ts.i.i, align 8
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   store i64 %conv.i.i3.i.i, ptr %tv_nsec.i.i, align 8
   br label %while.cond.i.i
 
@@ -1591,14 +1554,14 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
 
 _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %while.cond.i.i, %land.rhs.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i)
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %3, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -64
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %vbase.offset
   %vtable3 = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable3, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable3, i64 16
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i64 noundef %nbytes, ptr noundef %out)
   ret void
@@ -1612,10 +1575,10 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -32
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %latencies_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %3, i64 0, i32 2
+  %latencies_.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %latencies_.i, align 8, !noalias !39
   %vtable.i.i = load ptr, ptr %4, align 8, !noalias !39
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i, align 8, !noalias !39
   %call.i.i = tail call noundef double %5(ptr noundef nonnull align 8 dereferenceable(8) %4), !noalias !39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i), !noalias !39
@@ -1629,7 +1592,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %mul.i.i.i.i.i = fmul double %sub.i.i.i.i, 1.000000e+09
   %conv.i.i3.i.i.i = fptosi double %mul.i.i.i.i.i to i64
   store i64 %conv.i.i.i.i.i, ptr %__ts.i.i.i, align 8, !noalias !39
-  %tv_nsec.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i, i64 0, i32 1
+  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i, i64 8
   store i64 %conv.i.i3.i.i.i, ptr %tv_nsec.i.i.i, align 8, !noalias !39
   br label %while.cond.i.i.i
 
@@ -1646,14 +1609,14 @@ land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
 
 _ZN5arrow2io20SlowRandomAccessFile4ReadElPv.exit: ; preds = %while.cond.i.i.i, %land.rhs.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i), !noalias !39
-  %stream_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %3, i64 0, i32 1
+  %stream_.i = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load ptr, ptr %stream_.i, align 8, !noalias !39
   %vtable.i = load ptr, ptr %7, align 8, !noalias !39
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -64
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !39
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %vbase.offset.i
   %vtable3.i = load ptr, ptr %add.ptr.i, align 8, !noalias !39
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable3.i, i64 16
   %8 = load ptr, ptr %vfn.i, align 8, !noalias !39
   call void %8(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 noundef %nbytes, ptr noundef %out)
   ret void
@@ -1663,10 +1626,10 @@ _ZN5arrow2io20SlowRandomAccessFile4ReadElPv.exit: ; preds = %while.cond.i.i.i, %
 define void @_ZN5arrow2io20SlowRandomAccessFile4ReadEl(ptr noalias sret(%"class.arrow::Result.8") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %nbytes) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__ts.i.i = alloca %struct.timespec, align 8
-  %latencies_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 2
+  %latencies_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %latencies_, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i)
@@ -1680,7 +1643,7 @@ if.end.i.i:                                       ; preds = %entry
   %mul.i.i.i.i = fmul double %sub.i.i.i, 1.000000e+09
   %conv.i.i3.i.i = fptosi double %mul.i.i.i.i to i64
   store i64 %conv.i.i.i.i, ptr %__ts.i.i, align 8
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   store i64 %conv.i.i3.i.i, ptr %tv_nsec.i.i, align 8
   br label %while.cond.i.i
 
@@ -1697,14 +1660,14 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
 
 _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %while.cond.i.i, %land.rhs.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i)
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %3, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -64
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %vbase.offset
   %vtable3 = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable3, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable3, i64 24
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr sret(%"class.arrow::Result.8") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i64 noundef %nbytes)
   ret void
@@ -1718,10 +1681,10 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -40
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %latencies_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %3, i64 0, i32 2
+  %latencies_.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %latencies_.i, align 8, !noalias !42
   %vtable.i.i = load ptr, ptr %4, align 8, !noalias !42
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i, align 8, !noalias !42
   %call.i.i = tail call noundef double %5(ptr noundef nonnull align 8 dereferenceable(8) %4), !noalias !42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i), !noalias !42
@@ -1735,7 +1698,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %mul.i.i.i.i.i = fmul double %sub.i.i.i.i, 1.000000e+09
   %conv.i.i3.i.i.i = fptosi double %mul.i.i.i.i.i to i64
   store i64 %conv.i.i.i.i.i, ptr %__ts.i.i.i, align 8, !noalias !42
-  %tv_nsec.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i, i64 0, i32 1
+  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i, i64 8
   store i64 %conv.i.i3.i.i.i, ptr %tv_nsec.i.i.i, align 8, !noalias !42
   br label %while.cond.i.i.i
 
@@ -1752,14 +1715,14 @@ land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
 
 _ZN5arrow2io20SlowRandomAccessFile4ReadEl.exit:   ; preds = %while.cond.i.i.i, %land.rhs.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i), !noalias !42
-  %stream_.i = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %3, i64 0, i32 1
+  %stream_.i = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load ptr, ptr %stream_.i, align 8, !noalias !42
   %vtable.i = load ptr, ptr %7, align 8, !noalias !42
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -64
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !42
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %vbase.offset.i
   %vtable3.i = load ptr, ptr %add.ptr.i, align 8, !noalias !42
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable3.i, i64 24
   %8 = load ptr, ptr %vfn.i, align 8, !noalias !42
   call void %8(ptr sret(%"class.arrow::Result.8") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 noundef %nbytes)
   ret void
@@ -1769,10 +1732,10 @@ _ZN5arrow2io20SlowRandomAccessFile4ReadEl.exit:   ; preds = %while.cond.i.i.i, %
 define void @_ZN5arrow2io20SlowRandomAccessFile6ReadAtEllPv(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %position, i64 noundef %nbytes, ptr noundef %out) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__ts.i.i = alloca %struct.timespec, align 8
-  %latencies_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 2
+  %latencies_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %latencies_, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i)
@@ -1786,7 +1749,7 @@ if.end.i.i:                                       ; preds = %entry
   %mul.i.i.i.i = fmul double %sub.i.i.i, 1.000000e+09
   %conv.i.i3.i.i = fptosi double %mul.i.i.i.i to i64
   store i64 %conv.i.i.i.i, ptr %__ts.i.i, align 8
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   store i64 %conv.i.i3.i.i, ptr %tv_nsec.i.i, align 8
   br label %while.cond.i.i
 
@@ -1803,10 +1766,10 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
 
 _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %while.cond.i.i, %land.rhs.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i)
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %position, i64 noundef %nbytes, ptr noundef %out)
   ret void
@@ -1816,10 +1779,10 @@ _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %while.cond.i.i, %la
 define void @_ZN5arrow2io20SlowRandomAccessFile6ReadAtEll(ptr noalias sret(%"class.arrow::Result.8") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %position, i64 noundef %nbytes) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__ts.i.i = alloca %struct.timespec, align 8
-  %latencies_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 2
+  %latencies_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %latencies_, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i)
@@ -1833,7 +1796,7 @@ if.end.i.i:                                       ; preds = %entry
   %mul.i.i.i.i = fmul double %sub.i.i.i, 1.000000e+09
   %conv.i.i3.i.i = fptosi double %mul.i.i.i.i to i64
   store i64 %conv.i.i.i.i, ptr %__ts.i.i, align 8
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   store i64 %conv.i.i3.i.i, ptr %tv_nsec.i.i, align 8
   br label %while.cond.i.i
 
@@ -1850,10 +1813,10 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
 
 _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %while.cond.i.i, %land.rhs.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i)
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr sret(%"class.arrow::Result.8") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %position, i64 noundef %nbytes)
   ret void
@@ -1862,10 +1825,10 @@ _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %while.cond.i.i, %la
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io20SlowRandomAccessFile4PeekEl(ptr noalias sret(%"class.arrow::Result.13") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %nbytes) unnamed_addr #3 align 2 {
 entry:
-  %stream_ = getelementptr inbounds %"class.arrow::io::SlowInputStreamBase.17", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.arrow::Result.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %nbytes)
   ret void
@@ -2034,7 +1997,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow2io20LatencyGeneratorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i) #23
@@ -2051,12 +2014,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow2io20LatencyGenerat
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow2io20LatencyGeneratorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #5 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -2096,7 +2059,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZN5arrow2io20LatencyGeneratorImpl11NextLatencyEv(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mutex_ = getelementptr inbounds %"class.arrow::io::LatencyGeneratorImpl", ptr %this, i64 0, i32 3
+  %mutex_ = getelementptr inbounds i8, ptr %this, i64 48
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #23
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -2106,8 +2069,8 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %latency_dist_ = getelementptr inbounds %"class.arrow::io::LatencyGeneratorImpl", ptr %this, i64 0, i32 2
-  %gen_ = getelementptr inbounds %"class.arrow::io::LatencyGeneratorImpl", ptr %this, i64 0, i32 1
+  %latency_dist_ = getelementptr inbounds i8, ptr %this, i64 16
+  %gen_ = getelementptr inbounds i8, ptr %this, i64 8
   %call.i1 = invoke noundef double @_ZNSt19normal_distributionIdEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(25) %latency_dist_, ptr noundef nonnull align 8 dereferenceable(8) %gen_, ptr noundef nonnull align 8 dereferenceable(16) %latency_dist_)
           to label %invoke.cont unwind label %lpad
 
@@ -2136,7 +2099,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZNSt19normal_distributionIdEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %__urng, ptr noundef nonnull align 8 dereferenceable(16) %__param) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_saved_available = getelementptr inbounds %"class.std::normal_distribution", ptr %this, i64 0, i32 2
+  %_M_saved_available = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %_M_saved_available, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2144,7 +2107,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %_M_saved_available, align 8
-  %_M_saved = getelementptr inbounds %"class.std::normal_distribution", ptr %this, i64 0, i32 1
+  %_M_saved = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load double, ptr %_M_saved, align 8
   br label %if.end
 
@@ -2242,7 +2205,7 @@ do.end:                                           ; preds = %_ZNSt8__detail8_Ada
   %div = fdiv double %mul, %7
   %call7 = tail call double @sqrt(double noundef %div) #23
   %mul8 = fmul double %5, %call7
-  %_M_saved9 = getelementptr inbounds %"class.std::normal_distribution", ptr %this, i64 0, i32 1
+  %_M_saved9 = getelementptr inbounds i8, ptr %this, i64 16
   store double %mul8, ptr %_M_saved9, align 8
   store i8 1, ptr %_M_saved_available, align 8
   %mul11 = fmul double %6, %call7
@@ -2250,7 +2213,7 @@ do.end:                                           ; preds = %_ZNSt8__detail8_Ada
 
 if.end:                                           ; preds = %do.end, %if.then
   %__ret.0 = phi double [ %2, %if.then ], [ %mul11, %do.end ]
-  %_M_stddev.i = getelementptr inbounds %"struct.std::normal_distribution<>::param_type", ptr %__param, i64 0, i32 1
+  %_M_stddev.i = getelementptr inbounds i8, ptr %__param, i64 8
   %9 = load double, ptr %_M_stddev.i, align 8
   %10 = load double, ptr %__param, align 8
   %11 = tail call double @llvm.fmuladd.f64(double %__ret.0, double %9, double %10)

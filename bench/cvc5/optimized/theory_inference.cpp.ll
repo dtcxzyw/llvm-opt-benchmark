@@ -5,13 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
-%"class.cvc5::internal::theory::TheoryInference" = type <{ ptr, i32, [4 x i8] }>
-%"class.cvc5::internal::theory::SimpleTheoryLemma" = type { %"class.cvc5::internal::theory::TheoryInference.base", %"class.cvc5::internal::NodeTemplate", i32, ptr }
-%"class.cvc5::internal::theory::TheoryInference.base" = type <{ ptr, i32 }>
 %"class.cvc5::internal::TrustNode" = type { i32, %"class.cvc5::internal::NodeTemplate", ptr }
-%"class.cvc5::internal::theory::SimpleTheoryInternalFact" = type { %"class.cvc5::internal::theory::TheoryInference.base", %"class.cvc5::internal::NodeTemplate", %"class.cvc5::internal::NodeTemplate", ptr }
-%"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
 
 $_ZN4cvc58internal12NodeTemplateILb1EED2Ev = comdat any
 
@@ -83,10 +77,10 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory17SimpleTheoryLemmaC2ENS1_11InferenceIdENS0_12NodeTemplateILb1EEENS1_13LemmaPropertyEPNS0_14ProofGeneratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i32 noundef %id, ptr nocapture noundef readonly %n, i32 noundef %p, ptr noundef %pg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_id.i = getelementptr inbounds %"class.cvc5::internal::theory::TheoryInference", ptr %this, i64 0, i32 1
+  %d_id.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %d_id.i, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory17SimpleTheoryLemmaE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_node = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryLemma", ptr %this, i64 0, i32 1
+  %d_node = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %n, align 8
   store ptr %0, ptr %d_node, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -115,9 +109,9 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then13.i.i, %if.else.i.i, %if.then.i.i
-  %d_property = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryLemma", ptr %this, i64 0, i32 2
+  %d_property = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %p, ptr %d_property, align 8
-  %d_pg = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryLemma", ptr %this, i64 0, i32 3
+  %d_pg = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %pg, ptr %d_pg, align 8
   ret void
 }
@@ -128,10 +122,10 @@ declare i32 @__gxx_personality_v0(...)
 define hidden void @_ZN4cvc58internal6theory17SimpleTheoryLemma12processLemmaERNS1_13LemmaPropertyE(ptr noalias sret(%"class.cvc5::internal::TrustNode") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %d_property = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryLemma", ptr %this, i64 0, i32 2
+  %d_property = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %d_property, align 8
   store i32 %0, ptr %p, align 4
-  %d_node = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryLemma", ptr %this, i64 0, i32 1
+  %d_node = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %d_node, align 8
   store ptr %1, ptr %agg.tmp, align 8
   %bf.load.i.i = load i64, ptr %1, align 8
@@ -160,7 +154,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
-  %d_pg = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryLemma", ptr %this, i64 0, i32 3
+  %d_pg = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %d_pg, align 8
   invoke void @_ZN4cvc58internal9TrustNode12mkTrustLemmaENS0_12NodeTemplateILb1EEEPNS0_14ProofGeneratorE(ptr sret(%"class.cvc5::internal::TrustNode") align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef %3)
           to label %invoke.cont unwind label %lpad
@@ -240,10 +234,10 @@ terminate.lpad:                                   ; preds = %if.then13.i
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory24SimpleTheoryInternalFactC2ENS1_11InferenceIdENS0_12NodeTemplateILb1EEES5_PNS0_14ProofGeneratorE(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %id, ptr nocapture noundef readonly %conc, ptr nocapture noundef readonly %exp, ptr noundef %pg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_id.i = getelementptr inbounds %"class.cvc5::internal::theory::TheoryInference", ptr %this, i64 0, i32 1
+  %d_id.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %d_id.i, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_conc = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this, i64 0, i32 1
+  %d_conc = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %conc, align 8
   store ptr %0, ptr %d_conc, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -272,7 +266,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then13.i.i, %if.else.i.i, %if.then.i.i
-  %d_exp = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this, i64 0, i32 2
+  %d_exp = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %exp, align 8
   store ptr %2, ptr %d_exp, align 8
   %bf.load.i.i2 = load i64, ptr %2, align 8
@@ -301,7 +295,7 @@ if.then13.i.i8:                                   ; preds = %if.else.i.i6
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %if.else.i.i6, %if.then.i.i10, %if.then13.i.i8
-  %d_pg = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this, i64 0, i32 3
+  %d_pg = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %pg, ptr %d_pg, align 8
   ret void
 
@@ -315,10 +309,10 @@ lpad2:                                            ; preds = %if.then13.i.i8
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory24SimpleTheoryInternalFact11processFactERSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EERPNS0_14ProofGeneratorE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %exp, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %pg) unnamed_addr #3 align 2 {
 entry:
-  %d_exp = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %exp, i64 0, i32 1
+  %d_exp = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i = getelementptr inbounds i8, ptr %exp, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %exp, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %exp, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -353,7 +347,7 @@ if.then13.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
 
 _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i: ; preds = %if.then13.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit
 
@@ -362,10 +356,10 @@ if.else.i:                                        ; preds = %entry
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %if.else.i
-  %d_pg = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this, i64 0, i32 3
+  %d_pg = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %d_pg, align 8
   store ptr %5, ptr %pg, align 8
-  %d_conc = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this, i64 0, i32 1
+  %d_conc = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %d_conc, align 8
   store ptr %6, ptr %agg.result, align 8
   %bf.load.i.i = load i64, ptr %6, align 8
@@ -401,7 +395,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 define linkonce_odr hidden void @_ZN4cvc58internal6theory17SimpleTheoryLemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory17SimpleTheoryLemmaE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_node = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryLemma", ptr %this, i64 0, i32 1
+  %d_node = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_node, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200
@@ -436,7 +430,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i
 define linkonce_odr hidden void @_ZN4cvc58internal6theory17SimpleTheoryLemmaD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory17SimpleTheoryLemmaE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_node.i = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryLemma", ptr %this, i64 0, i32 1
+  %d_node.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_node.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i.i, 1152920405095219200
@@ -507,7 +501,7 @@ _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %if.then.i.i.i, %if
 define linkonce_odr hidden void @_ZN4cvc58internal6theory24SimpleTheoryInternalFactD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_exp = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this, i64 0, i32 2
+  %d_exp = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_exp, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200
@@ -535,7 +529,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i, %if.then13.i.i
-  %d_conc = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this, i64 0, i32 1
+  %d_conc = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %d_conc, align 8
   %bf.load.i.i1 = load i64, ptr %4, align 8
   %5 = and i64 %bf.load.i.i1, 1152920405095219200
@@ -570,7 +564,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11: ; preds = %_ZN4cvc58internal12
 define linkonce_odr hidden void @_ZN4cvc58internal6theory24SimpleTheoryInternalFactD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_exp.i = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this, i64 0, i32 2
+  %d_exp.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_exp.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i.i, 1152920405095219200
@@ -598,7 +592,7 @@ terminate.lpad.i.i:                               ; preds = %if.then13.i.i.i
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i: ; preds = %if.then13.i.i.i, %if.then.i.i.i, %entry
-  %d_conc.i = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this, i64 0, i32 1
+  %d_conc.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %d_conc.i, align 8
   %bf.load.i.i1.i = load i64, ptr %4, align 8
   %5 = and i64 %bf.load.i.i1.i, 1152920405095219200
@@ -661,9 +655,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 1
+  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 2
+  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #13
@@ -746,7 +740,7 @@ declare void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -813,7 +807,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i, %i
           to label %invoke.cont10 unwind label %if.then
 
 invoke.cont10:                                    ; preds = %invoke.cont
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %call.i.i.i.i20, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call.i.i.i.i20, i64 8
   %call.i.i.i.i21 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal12NodeTemplateILb1EEEPS3_ET0_T_S8_S7_(ptr noundef %__position.coerce, ptr noundef %0, ptr noundef nonnull %incdec.ptr)
           to label %invoke.cont14 unwind label %if.else
 
@@ -850,7 +844,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then13.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i: ; preds = %if.then13.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !8
 
@@ -863,7 +857,7 @@ if.then.i23:                                      ; preds = %_ZSt8_DestroyIPN4cv
   br label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %if.then.i23
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %call.i.i.i.i21, ptr %_M_finish.i.i, align 8
   %add.ptr29 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %cond.i19, i64 %cond.i
@@ -980,7 +974,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then13.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i: ; preds = %if.then13.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.addr.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
   br i1 %cmp.not.i.i, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEEEvT_S5_.exit, label %for.body.i.i, !llvm.loop !8
 
@@ -1032,8 +1026,8 @@ if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
           to label %for.inc unwind label %lpad
 
 for.inc:                                          ; preds = %if.else.i.i.i, %if.then.i.i.i, %if.then13.i.i.i
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.addr.09, i64 1
-  %incdec.ptr1 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__cur.010, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.09, i64 8
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %__cur.010, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !10
 
@@ -1108,7 +1102,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then13.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i: ; preds = %if.then13.i.i.i.i, %if.then.i.i.i.i, %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal12NodeTemplateILb1EEEEEvT_S7_.exit, label %for.body.i, !llvm.loop !8
 

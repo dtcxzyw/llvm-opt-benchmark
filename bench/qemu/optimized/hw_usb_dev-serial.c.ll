@@ -14,39 +14,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.USBDescDevice = type { i16, i8, i8, i8, i8, i8, ptr }
 %struct.USBDescConfig = type { i8, i8, i8, i8, i8, i8, ptr, i8, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.USBDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.USBDevice = type { %struct.DeviceState, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i8, [32 x i8], i32, i8, i32, [8 x i8], [4096 x i8], i32, i32, i32, i32, %struct.USBEndpoint, [15 x %struct.USBEndpoint], [15 x %struct.USBEndpoint], %struct.anon, ptr, ptr, i32, i32, [16 x i32], ptr, [16 x ptr] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.USBEndpoint = type { i8, i8, i8, i8, i32, i32, i8, i8, ptr, %union.anon }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.USBSerialState = type { %struct.USBDevice, ptr, [496 x i8], i16, i16, i8, i8, i8, i8, i8, i8, i8, %struct.QEMUSerialSetParams, i32, %struct.CharBackend }
-%struct.QEMUSerialSetParams = type { i32, i32, i32, i32 }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.USBBus = type { %struct.BusState, ptr, i32, i32, i32, %union.anon.0, %union.anon.1, %union.anon.2 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.USBPacket = type { i32, i64, ptr, i32, %struct.QEMUIOVector, i64, i8, i8, i32, i32, i32, ptr, %union.anon.6, %union.anon.7 }
-%struct.QEMUIOVector = type { ptr, i32, %union.anon.3 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i32, %struct.iovec }
 %struct.iovec = type { ptr, i64 }
-%union.anon.6 = type { %struct.QTailQLink }
-%union.anon.7 = type { %struct.QTailQLink }
 
 @usb_serial_dev_type_info = internal constant %struct.TypeInfo { ptr @.str.2, ptr @.str.3, i64 6456, i64 0, ptr null, ptr null, ptr null, i8 1, i64 0, ptr @usb_serial_dev_class_init, ptr null, ptr null, ptr null }, align 8
 @serial_info = internal constant %struct.TypeInfo { ptr @.str.31, ptr @.str.2, i64 0, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @usb_serial_class_initfn, ptr null, ptr null, ptr null }, align 8
@@ -172,17 +141,17 @@ define internal void @usb_serial_dev_class_init(ptr noundef %klass, ptr nocaptur
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %call.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #7
-  %realize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i6, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i6, i64 176
   store ptr @usb_serial_realize, ptr %realize, align 8
-  %handle_reset = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i6, i64 0, i32 6
+  %handle_reset = getelementptr inbounds i8, ptr %call.i6, i64 216
   store ptr @usb_serial_handle_reset, ptr %handle_reset, align 8
-  %handle_control = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i6, i64 0, i32 7
+  %handle_control = getelementptr inbounds i8, ptr %call.i6, i64 224
   store ptr @usb_serial_handle_control, ptr %handle_control, align 8
-  %handle_data = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i6, i64 0, i32 8
+  %handle_data = getelementptr inbounds i8, ptr %call.i6, i64 232
   store ptr @usb_serial_handle_data, ptr %handle_data, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_usb_serial, ptr %vmsd, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
@@ -197,9 +166,9 @@ entry:
   store ptr null, ptr %local_err, align 8
   tail call void @usb_desc_create_serial(ptr noundef %dev) #7
   tail call void @usb_desc_init(ptr noundef %dev) #7
-  %auto_attach = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 12
+  %auto_attach = getelementptr inbounds i8, ptr %dev, i64 260
   store i32 0, ptr %auto_attach, align 4
-  %cs = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 14
+  %cs = getelementptr inbounds i8, ptr %call.i, i64 6400
   %call1 = tail call zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef nonnull %cs) #7
   br i1 %call1, label %if.end, label %if.then
 
@@ -220,7 +189,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %cs, ptr noundef nonnull @usb_serial_can_read, ptr noundef nonnull @usb_serial_read, ptr noundef nonnull @usb_serial_event, ptr noundef null, ptr noundef %call.i, ptr noundef null, i1 noundef zeroext true) #7
   call void @usb_serial_handle_reset(ptr noundef nonnull %dev)
-  %always_plugged = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 8
+  %always_plugged = getelementptr inbounds i8, ptr %call.i, i64 6375
   %1 = load i8, ptr %always_plugged, align 1
   %2 = and i8 %1, 1
   %tobool5.not = icmp eq i8 %2, 0
@@ -231,7 +200,7 @@ lor.lhs.false:                                    ; preds = %if.end3
   br i1 %call7, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.end3
-  %attached = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 13
+  %attached = getelementptr inbounds i8, ptr %dev, i64 264
   %3 = load i8, ptr %attached, align 8
   %4 = and i8 %3, 1
   %tobool8.not = icmp eq i8 %4, 0
@@ -243,7 +212,7 @@ if.then9:                                         ; preds = %land.lhs.true
 
 if.end10:                                         ; preds = %if.then9, %land.lhs.true, %lor.lhs.false
   %call11 = call ptr @usb_ep_get(ptr noundef nonnull %dev, i32 noundef 105, i32 noundef 1) #7
-  %intr = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 1
+  %intr = getelementptr inbounds i8, ptr %call.i, i64 5864
   store ptr %call11, ptr %intr, align 8
   br label %return
 
@@ -258,9 +227,9 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7, i32 noundef 112, ptr noundef nonnull @__func__.USB_SERIAL) #7
   %0 = getelementptr i8, ptr %dev, i64 88
   %dev.val = load ptr, ptr %0, align 8
-  %busnr = getelementptr inbounds %struct.USBBus, ptr %dev.val, i64 0, i32 2
+  %busnr = getelementptr inbounds i8, ptr %dev.val, i64 128
   %1 = load i32, ptr %busnr, align 8
-  %addr = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 10
+  %addr = getelementptr inbounds i8, ptr %dev, i64 224
   %2 = load i8, ptr %addr, align 8
   %conv = zext i8 %2 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -287,7 +256,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %1, i32 noundef %conv) #7
   br label %trace_usb_serial_reset.exit
@@ -298,13 +267,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_usb_serial_reset.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %event_chr.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 5
+  %event_chr.i = getelementptr inbounds i8, ptr %call.i, i64 6372
   store i8 13, ptr %event_chr.i, align 4
-  %event_trigger.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 7
+  %event_trigger.i = getelementptr inbounds i8, ptr %call.i, i64 6374
   store i8 0, ptr %event_trigger.i, align 2
-  %recv_ptr.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 3
+  %recv_ptr.i = getelementptr inbounds i8, ptr %call.i, i64 6368
   store i16 0, ptr %recv_ptr.i, align 8
-  %recv_used.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 4
+  %recv_used.i = getelementptr inbounds i8, ptr %call.i, i64 6370
   store i16 0, ptr %recv_used.i, align 2
   tail call fastcc void @usb_serial_set_flow_control(ptr noundef %call.i, i8 noundef zeroext 0)
   ret void
@@ -320,9 +289,9 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7, i32 noundef 112, ptr noundef nonnull @__func__.USB_SERIAL) #7
   %0 = getelementptr i8, ptr %dev, i64 88
   %dev.val = load ptr, ptr %0, align 8
-  %busnr = getelementptr inbounds %struct.USBBus, ptr %dev.val, i64 0, i32 2
+  %busnr = getelementptr inbounds i8, ptr %dev.val, i64 128
   %1 = load i32, ptr %busnr, align 8
-  %addr = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 10
+  %addr = getelementptr inbounds i8, ptr %dev, i64 224
   %2 = load i8, ptr %addr, align 8
   %conv = zext i8 %2 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -349,7 +318,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %1, i32 noundef %conv, i32 noundef %request, i32 noundef %value) #7
   br label %trace_usb_serial_handle_control.exit
@@ -386,26 +355,26 @@ sw.bb4:                                           ; preds = %if.end
   ]
 
 sw.bb5:                                           ; preds = %sw.bb4
-  %event_chr.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 5
+  %event_chr.i = getelementptr inbounds i8, ptr %call.i, i64 6372
   store i8 13, ptr %event_chr.i, align 4
-  %event_trigger.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 7
+  %event_trigger.i = getelementptr inbounds i8, ptr %call.i, i64 6374
   store i8 0, ptr %event_trigger.i, align 2
-  %recv_ptr.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 3
+  %recv_ptr.i = getelementptr inbounds i8, ptr %call.i, i64 6368
   store i16 0, ptr %recv_ptr.i, align 8
-  %recv_used.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 4
+  %recv_used.i = getelementptr inbounds i8, ptr %call.i, i64 6370
   store i16 0, ptr %recv_used.i, align 2
   tail call fastcc void @usb_serial_set_flow_control(ptr noundef %call.i, i8 noundef zeroext 0)
   br label %sw.epilog138
 
 sw.bb6:                                           ; preds = %sw.bb4
-  %recv_ptr = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 3
+  %recv_ptr = getelementptr inbounds i8, ptr %call.i, i64 6368
   store i16 0, ptr %recv_ptr, align 8
-  %recv_used = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 4
+  %recv_used = getelementptr inbounds i8, ptr %call.i, i64 6370
   store i16 0, ptr %recv_used, align 2
   br label %sw.epilog138
 
 sw.bb8:                                           ; preds = %if.end
-  %cs = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 14
+  %cs = getelementptr inbounds i8, ptr %call.i, i64 6400
   %call9 = tail call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %cs, i32 noundef 14, ptr noundef nonnull @usb_serial_handle_control.flags) #7
   %and = and i32 %value, 512
   %tobool.not = icmp eq i32 %and, 0
@@ -470,7 +439,7 @@ sw.bb37:                                          ; preds = %if.end
   %mul = select i1 %or.cond1, i32 8, i32 %15
   %add = add i32 %mul, %spec.store.select
   %div = sdiv i32 24000000, %add
-  %params = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 12
+  %params = getelementptr inbounds i8, ptr %call.i, i64 6380
   store i32 %div, ptr %params, align 4
   %16 = load i32, ptr %busnr, align 8
   %17 = load i8, ptr %addr, align 8
@@ -499,7 +468,7 @@ if.then8.i.i90:                                   ; preds = %if.then.i.i88
   %call9.i.i91 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i81, ptr noundef null) #7
   %call10.i.i92 = tail call i32 @qemu_get_thread_id() #7
   %23 = load i64, ptr %_now.i.i81, align 8
-  %tv_usec.i.i93 = getelementptr inbounds %struct.timeval, ptr %_now.i.i81, i64 0, i32 1
+  %tv_usec.i.i93 = getelementptr inbounds i8, ptr %_now.i.i81, i64 8
   %24 = load i64, ptr %tv_usec.i.i93, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i92, i64 noundef %23, i64 noundef %24, i32 noundef %16, i32 noundef %conv58, i32 noundef %div) #7
   br label %trace_usb_serial_set_baud.exit
@@ -510,7 +479,7 @@ if.else.i.i94:                                    ; preds = %if.then.i.i88
 
 trace_usb_serial_set_baud.exit:                   ; preds = %sw.bb37, %land.lhs.true5.i.i85, %if.then8.i.i90, %if.else.i.i94
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i81)
-  %cs61 = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 14
+  %cs61 = getelementptr inbounds i8, ptr %call.i, i64 6400
   %call63 = tail call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %cs61, i32 noundef 1, ptr noundef nonnull %params) #7
   br label %sw.epilog138
 
@@ -534,7 +503,7 @@ sw.default:                                       ; preds = %sw.bb64
 
 sw.epilog77:                                      ; preds = %sw.bb64, %sw.default, %sw.bb68
   %.sink = phi i32 [ 8, %sw.default ], [ 8, %sw.bb68 ], [ 7, %sw.bb64 ]
-  %data_bits76 = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 12, i32 2
+  %data_bits76 = getelementptr inbounds i8, ptr %call.i, i64 6388
   store i32 %.sink, ptr %data_bits76, align 4
   %and78 = and i32 %value, 1792
   switch i32 %and78, label %sw.default87 [
@@ -558,7 +527,7 @@ sw.default87:                                     ; preds = %sw.epilog77
 
 sw.epilog92:                                      ; preds = %sw.epilog77, %sw.bb84, %sw.bb81
   %.sink110 = phi i32 [ 69, %sw.bb84 ], [ 79, %sw.bb81 ], [ 78, %sw.epilog77 ]
-  %parity86 = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 12, i32 1
+  %parity86 = getelementptr inbounds i8, ptr %call.i, i64 6384
   store i32 %.sink110, ptr %parity86, align 4
   %and93 = and i32 %value, 6144
   switch i32 %and93, label %sw.default99 [
@@ -578,20 +547,20 @@ sw.default99:                                     ; preds = %sw.epilog92
 
 sw.epilog104:                                     ; preds = %sw.epilog92, %sw.bb96
   %.sink111 = phi i32 [ 2, %sw.bb96 ], [ 1, %sw.epilog92 ]
-  %stop_bits98 = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 12, i32 3
+  %stop_bits98 = getelementptr inbounds i8, ptr %call.i, i64 6392
   store i32 %.sink111, ptr %stop_bits98, align 4
   %31 = load i32, ptr %busnr, align 8
   %32 = load i8, ptr %addr, align 8
   %conv107 = zext i8 %32 to i32
-  %params108 = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 12
+  %params108 = getelementptr inbounds i8, ptr %call.i, i64 6380
   tail call fastcc void @trace_usb_serial_set_data(i32 noundef %31, i32 noundef %conv107, i32 noundef %.sink110, i32 noundef %.sink, i32 noundef %.sink111)
-  %cs114 = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 14
+  %cs114 = getelementptr inbounds i8, ptr %call.i, i64 6400
   %call116 = tail call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %cs114, i32 noundef 1, ptr noundef nonnull %params108) #7
   br label %sw.epilog138
 
 sw.bb117:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i)
-  %cs.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 14
+  %cs.i = getelementptr inbounds i8, ptr %call.i, i64 6400
   %call.i95 = call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %cs.i, i32 noundef 14, ptr noundef nonnull %flags.i) #7
   %cmp.i = icmp eq i32 %call.i95, -95
   br i1 %cmp.i, label %usb_get_modem_lines.exit, label %if.end.i
@@ -617,33 +586,33 @@ usb_get_modem_lines.exit:                         ; preds = %sw.bb117, %if.end.i
   store i8 %retval.0.i, ptr %data, align 1
   %arrayidx123 = getelementptr i8, ptr %data, i64 1
   store i8 96, ptr %arrayidx123, align 1
-  %actual_length = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length = getelementptr inbounds i8, ptr %p, i64 88
   store i32 2, ptr %actual_length, align 8
   br label %sw.epilog138
 
 sw.bb124:                                         ; preds = %if.end
   %conv125 = trunc i32 %value to i8
-  %event_chr = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 5
+  %event_chr = getelementptr inbounds i8, ptr %call.i, i64 6372
   store i8 %conv125, ptr %event_chr, align 4
   br label %sw.epilog138
 
 sw.bb126:                                         ; preds = %if.end
   %conv127 = trunc i32 %value to i8
-  %error_chr = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 6
+  %error_chr = getelementptr inbounds i8, ptr %call.i, i64 6373
   store i8 %conv127, ptr %error_chr, align 1
   br label %sw.epilog138
 
 sw.bb128:                                         ; preds = %if.end
-  %latency = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 13
+  %latency = getelementptr inbounds i8, ptr %call.i, i64 6396
   store i32 %value, ptr %latency, align 4
   br label %sw.epilog138
 
 sw.bb129:                                         ; preds = %if.end
-  %latency130 = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 13
+  %latency130 = getelementptr inbounds i8, ptr %call.i, i64 6396
   %42 = load i32, ptr %latency130, align 4
   %conv131 = trunc i32 %42 to i8
   store i8 %conv131, ptr %data, align 1
-  %actual_length133 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length133 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 1, ptr %actual_length133, align 8
   br label %sw.epilog138
 
@@ -675,7 +644,7 @@ if.then8.i.i105:                                  ; preds = %if.then.i.i103
   %call9.i.i106 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i96, ptr noundef null) #7
   %call10.i.i107 = tail call i32 @qemu_get_thread_id() #7
   %50 = load i64, ptr %_now.i.i96, align 8
-  %tv_usec.i.i108 = getelementptr inbounds %struct.timeval, ptr %_now.i.i96, i64 0, i32 1
+  %tv_usec.i.i108 = getelementptr inbounds i8, ptr %_now.i.i96, i64 8
   %51 = load i64, ptr %tv_usec.i.i108, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i107, i64 noundef %50, i64 noundef %51, i32 noundef %43, i32 noundef %conv137, i32 noundef %request, i32 noundef %value) #7
   br label %trace_usb_serial_unsupported_control.exit
@@ -686,7 +655,7 @@ if.else.i.i109:                                   ; preds = %if.then.i.i103
 
 trace_usb_serial_unsupported_control.exit:        ; preds = %fail, %land.lhs.true5.i.i100, %if.then8.i.i105, %if.else.i.i109
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i96)
-  %status = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status, align 4
   br label %sw.epilog138
 
@@ -701,7 +670,7 @@ entry:
   %flags.i.i = alloca i32, align 4
   %header.i = alloca [2 x i8], align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7, i32 noundef 112, ptr noundef nonnull @__func__.USB_SERIAL) #7
-  %ep = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 2
+  %ep = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load ptr, ptr %ep, align 8
   %1 = load i8, ptr %0, align 8
   %2 = load i32, ptr %p, align 8
@@ -715,14 +684,14 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.not, label %for.cond.preheader, label %fail
 
 for.cond.preheader:                               ; preds = %sw.bb
-  %niov = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 1
+  %niov = getelementptr inbounds i8, ptr %p, i64 40
   %3 = load i32, ptr %niov, align 8
   %cmp415 = icmp sgt i32 %3, 0
   br i1 %cmp415, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %iov3 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4
-  %cs = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 14
+  %iov3 = getelementptr inbounds i8, ptr %p, i64 32
+  %cs = getelementptr inbounds i8, ptr %call.i, i64 6400
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -730,7 +699,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load ptr, ptr %iov3, align 8
   %add.ptr = getelementptr %struct.iovec, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %add.ptr, align 8
-  %iov_len = getelementptr %struct.iovec, ptr %4, i64 %indvars.iv, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %6 = load i64, ptr %iov_len, align 8
   %conv8 = trunc i64 %6 to i32
   %call9 = tail call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %cs, ptr noundef %5, i32 noundef %conv8) #7
@@ -741,10 +710,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %size = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %p, i64 64
   %9 = load i64, ptr %size, align 8
   %conv11 = trunc i64 %9 to i32
-  %actual_length = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length = getelementptr inbounds i8, ptr %p, i64 88
   store i32 %conv11, ptr %actual_length, align 8
   br label %sw.epilog
 
@@ -756,20 +725,20 @@ if.end17:                                         ; preds = %sw.bb12
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %header.i)
   %10 = load i16, ptr getelementptr inbounds ([2 x %struct.USBDescEndpoint], ptr @.compoundliteral, i64 0, i64 0, i32 2), align 2
   %conv.i = zext i16 %10 to i32
-  %size.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %size.i = getelementptr inbounds i8, ptr %p, i64 64
   %11 = load i64, ptr %size.i, align 8
   %conv1.i = trunc i64 %11 to i32
   %cmp.i = icmp slt i32 %conv1.i, 3
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end17
-  %status.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status.i = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -2, ptr %status.i, align 4
   br label %usb_serial_token_in.exit
 
 if.end.i:                                         ; preds = %if.end17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i.i)
-  %cs.i.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 14
+  %cs.i.i = getelementptr inbounds i8, ptr %call.i, i64 6400
   %call.i.i = call i32 @qemu_chr_fe_ioctl(ptr noundef nonnull %cs.i.i, i32 noundef 14, ptr noundef nonnull %flags.i.i) #7
   %cmp.i.i = icmp eq i32 %call.i.i, -95
   br i1 %cmp.i.i, label %usb_get_modem_lines.exit.i, label %if.end.i.i
@@ -793,7 +762,7 @@ usb_get_modem_lines.exit.i:                       ; preds = %if.end.i.i, %if.end
   %retval.0.i.i = phi i8 [ %20, %if.end.i.i ], [ -79, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i.i)
   store i8 %retval.0.i.i, ptr %header.i, align 1
-  %event_trigger.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 7
+  %event_trigger.i = getelementptr inbounds i8, ptr %call.i, i64 6374
   %21 = load i8, ptr %event_trigger.i, align 2
   %22 = and i8 %21, 16
   %tobool9.not.i = icmp eq i8 %22, 0
@@ -802,27 +771,27 @@ usb_get_modem_lines.exit.i:                       ; preds = %if.end.i.i, %if.end
 if.then10.i:                                      ; preds = %usb_get_modem_lines.exit.i
   %and13.i = and i8 %21, -17
   store i8 %and13.i, ptr %event_trigger.i, align 2
-  %arrayidx15.i = getelementptr inbounds [2 x i8], ptr %header.i, i64 0, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %header.i, i64 1
   store i8 16, ptr %arrayidx15.i, align 1
   call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef nonnull %header.i, i64 noundef 2) #7
   br label %usb_serial_token_in.exit
 
 if.else.i:                                        ; preds = %usb_get_modem_lines.exit.i
-  %arrayidx16.i = getelementptr inbounds [2 x i8], ptr %header.i, i64 0, i64 1
+  %arrayidx16.i = getelementptr inbounds i8, ptr %header.i, i64 1
   store i8 0, ptr %arrayidx16.i, align 1
-  %recv_used.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 4
+  %recv_used.i = getelementptr inbounds i8, ptr %call.i, i64 6370
   %23 = load i16, ptr %recv_used.i, align 2
   %tobool18.not.i = icmp eq i16 %23, 0
   br i1 %tobool18.not.i, label %if.then19.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.else.i
-  %recv_ptr.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 3
-  %recv_buf.i = getelementptr inbounds %struct.USBSerialState, ptr %call.i, i64 0, i32 2
+  %recv_ptr.i = getelementptr inbounds i8, ptr %call.i, i64 6368
+  %recv_buf.i = getelementptr inbounds i8, ptr %call.i, i64 5872
   %.pre.i = load i16, ptr %recv_ptr.i, align 8
   br label %while.body.i
 
 if.then19.i:                                      ; preds = %if.else.i
-  %status20.i = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status20.i = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -2, ptr %status20.i, align 4
   br label %usb_serial_token_in.exit
 
@@ -877,9 +846,9 @@ usb_serial_token_in.exit:                         ; preds = %if.end55.i, %if.the
 sw.default:                                       ; preds = %entry
   %31 = getelementptr i8, ptr %dev, i64 88
   %dev.val = load ptr, ptr %31, align 8
-  %busnr = getelementptr inbounds %struct.USBBus, ptr %dev.val, i64 0, i32 2
+  %busnr = getelementptr inbounds i8, ptr %dev.val, i64 128
   %32 = load i32, ptr %busnr, align 8
-  %addr = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 10
+  %addr = getelementptr inbounds i8, ptr %dev, i64 224
   %33 = load i8, ptr %addr, align 8
   %conv18 = zext i8 %33 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -906,7 +875,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %39 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %40 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %39, i64 noundef %40, i32 noundef %32, i32 noundef %conv18) #7
   br label %trace_usb_serial_bad_token.exit
@@ -920,7 +889,7 @@ trace_usb_serial_bad_token.exit:                  ; preds = %sw.default, %land.l
   br label %fail
 
 fail:                                             ; preds = %sw.bb12, %sw.bb, %trace_usb_serial_bad_token.exit
-  %status = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status, align 4
   br label %sw.epilog
 
@@ -947,14 +916,14 @@ declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @usb_serial_can_read(ptr nocapture noundef readonly %opaque) #2 {
 entry:
-  %attached = getelementptr inbounds %struct.USBDevice, ptr %opaque, i64 0, i32 13
+  %attached = getelementptr inbounds i8, ptr %opaque, i64 264
   %0 = load i8, ptr %attached, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %recv_used = getelementptr inbounds %struct.USBSerialState, ptr %opaque, i64 0, i32 4
+  %recv_used = getelementptr inbounds i8, ptr %opaque, i64 6370
   %2 = load i16, ptr %recv_used, align 2
   %conv = zext i16 %2 to i32
   %sub = sub nsw i32 496, %conv
@@ -968,12 +937,12 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @usb_serial_read(ptr nocapture noundef %opaque, ptr nocapture noundef readonly %buf, i32 noundef %size) #0 {
 entry:
-  %recv_used = getelementptr inbounds %struct.USBSerialState, ptr %opaque, i64 0, i32 4
+  %recv_used = getelementptr inbounds i8, ptr %opaque, i64 6370
   %0 = load i16, ptr %recv_used, align 2
   %conv = zext i16 %0 to i32
   %sub = sub nsw i32 496, %conv
   %spec.select = tail call i32 @llvm.smin.i32(i32 %sub, i32 %size)
-  %recv_ptr = getelementptr inbounds %struct.USBSerialState, ptr %opaque, i64 0, i32 3
+  %recv_ptr = getelementptr inbounds i8, ptr %opaque, i64 6368
   %1 = load i16, ptr %recv_ptr, align 8
   %conv5 = zext i16 %1 to i32
   %add = add nuw nsw i32 %conv5, %conv
@@ -983,7 +952,7 @@ entry:
 if.then10:                                        ; preds = %entry
   %sub11 = sub nuw nsw i32 496, %add
   %spec.select25 = tail call i32 @llvm.smin.i32(i32 %sub11, i32 %spec.select)
-  %recv_buf = getelementptr inbounds %struct.USBSerialState, ptr %opaque, i64 0, i32 2
+  %recv_buf = getelementptr inbounds i8, ptr %opaque, i64 5872
   %idx.ext = zext nneg i32 %add to i64
   %add.ptr = getelementptr i8, ptr %recv_buf, i64 %idx.ext
   %conv16 = sext i32 %spec.select25 to i64
@@ -1000,7 +969,7 @@ if.then19:                                        ; preds = %if.then10
 
 if.else:                                          ; preds = %entry
   %sub27 = add nsw i32 %add, -496
-  %recv_buf28 = getelementptr inbounds %struct.USBSerialState, ptr %opaque, i64 0, i32 2
+  %recv_buf28 = getelementptr inbounds i8, ptr %opaque, i64 5872
   %idx.ext30 = zext nneg i32 %sub27 to i64
   %add.ptr31 = getelementptr i8, ptr %recv_buf28, i64 %idx.ext30
   %conv32 = sext i32 %spec.select to i64
@@ -1012,7 +981,7 @@ if.end33:                                         ; preds = %if.then10, %if.then
   %3 = trunc i32 %spec.select to i16
   %conv37 = add i16 %2, %3
   store i16 %conv37, ptr %recv_used, align 2
-  %intr = getelementptr inbounds %struct.USBSerialState, ptr %opaque, i64 0, i32 1
+  %intr = getelementptr inbounds i8, ptr %opaque, i64 5864
   %4 = load ptr, ptr %intr, align 8
   tail call void @usb_wakeup(ptr noundef %4, i32 noundef 0) #7
   ret void
@@ -1028,21 +997,21 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %event_trigger = getelementptr inbounds %struct.USBSerialState, ptr %opaque, i64 0, i32 7
+  %event_trigger = getelementptr inbounds i8, ptr %opaque, i64 6374
   %0 = load i8, ptr %event_trigger, align 2
   %1 = or i8 %0, 16
   store i8 %1, ptr %event_trigger, align 2
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %always_plugged = getelementptr inbounds %struct.USBSerialState, ptr %opaque, i64 0, i32 8
+  %always_plugged = getelementptr inbounds i8, ptr %opaque, i64 6375
   %2 = load i8, ptr %always_plugged, align 1
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %land.lhs.true, label %sw.epilog
 
 land.lhs.true:                                    ; preds = %sw.bb2
-  %attached = getelementptr inbounds %struct.USBDevice, ptr %opaque, i64 0, i32 13
+  %attached = getelementptr inbounds i8, ptr %opaque, i64 264
   %4 = load i8, ptr %attached, align 8
   %5 = and i8 %4, 1
   %tobool3.not = icmp eq i8 %5, 0
@@ -1053,14 +1022,14 @@ if.then:                                          ; preds = %land.lhs.true
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %always_plugged6 = getelementptr inbounds %struct.USBSerialState, ptr %opaque, i64 0, i32 8
+  %always_plugged6 = getelementptr inbounds i8, ptr %opaque, i64 6375
   %6 = load i8, ptr %always_plugged6, align 1
   %7 = and i8 %6, 1
   %tobool7.not = icmp eq i8 %7, 0
   br i1 %tobool7.not, label %land.lhs.true8, label %sw.epilog
 
 land.lhs.true8:                                   ; preds = %sw.bb5
-  %attached10 = getelementptr inbounds %struct.USBDevice, ptr %opaque, i64 0, i32 13
+  %attached10 = getelementptr inbounds i8, ptr %opaque, i64 264
   %8 = load i8, ptr %attached10, align 8
   %9 = and i8 %8, 1
   %tobool11.not = icmp eq i8 %9, 0
@@ -1103,11 +1072,11 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE) #7
   %0 = getelementptr i8, ptr %call.i, i64 88
   %call.val = load ptr, ptr %0, align 8
-  %flow_control2 = getelementptr inbounds %struct.USBSerialState, ptr %s, i64 0, i32 9
+  %flow_control2 = getelementptr inbounds i8, ptr %s, i64 6376
   store i8 %flow_control, ptr %flow_control2, align 8
-  %busnr = getelementptr inbounds %struct.USBBus, ptr %call.val, i64 0, i32 2
+  %busnr = getelementptr inbounds i8, ptr %call.val, i64 128
   %1 = load i32, ptr %busnr, align 8
-  %addr = getelementptr inbounds %struct.USBDevice, ptr %call.i, i64 0, i32 10
+  %addr = getelementptr inbounds i8, ptr %call.i, i64 224
   %2 = load i8, ptr %addr, align 8
   %conv = zext i8 %2 to i32
   %conv3 = zext i8 %flow_control to i32
@@ -1135,7 +1104,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %1, i32 noundef %conv, i32 noundef %conv3) #7
   br label %trace_usb_serial_set_flow_control.exit
@@ -1161,15 +1130,15 @@ entry:
   %0 = getelementptr i8, ptr %call.i, i64 88
   %call.val = load ptr, ptr %0, align 8
   %conv = trunc i32 %xonxoff to i8
-  %xon = getelementptr inbounds %struct.USBSerialState, ptr %s, i64 0, i32 10
+  %xon = getelementptr inbounds i8, ptr %s, i64 6377
   store i8 %conv, ptr %xon, align 1
   %shr = lshr i32 %xonxoff, 8
   %conv3 = trunc i32 %shr to i8
-  %xoff = getelementptr inbounds %struct.USBSerialState, ptr %s, i64 0, i32 11
+  %xoff = getelementptr inbounds i8, ptr %s, i64 6378
   store i8 %conv3, ptr %xoff, align 2
-  %busnr = getelementptr inbounds %struct.USBBus, ptr %call.val, i64 0, i32 2
+  %busnr = getelementptr inbounds i8, ptr %call.val, i64 128
   %1 = load i32, ptr %busnr, align 8
-  %addr = getelementptr inbounds %struct.USBDevice, ptr %call.i, i64 0, i32 10
+  %addr = getelementptr inbounds i8, ptr %call.i, i64 224
   %2 = load i8, ptr %addr, align 8
   %conv4 = zext i8 %2 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1196,7 +1165,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %xonxoff, 255
   %conv12.i.i = and i32 %shr, 255
@@ -1242,7 +1211,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #7
   %call10.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %bus, i32 noundef %addr, i32 noundef %value) #7
   br label %_nocheck__trace_usb_serial_unsupported_data_bits.exit
@@ -1284,7 +1253,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #7
   %call10.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %bus, i32 noundef %addr, i32 noundef %value) #7
   br label %_nocheck__trace_usb_serial_unsupported_parity.exit
@@ -1326,7 +1295,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #7
   %call10.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %bus, i32 noundef %addr, i32 noundef %value) #7
   br label %_nocheck__trace_usb_serial_unsupported_stopbits.exit
@@ -1368,7 +1337,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #7
   %call10.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %bus, i32 noundef %addr, i32 noundef %parity, i32 noundef %data, i32 noundef %stop) #7
   br label %_nocheck__trace_usb_serial_set_data.exit
@@ -1391,9 +1360,9 @@ define internal void @usb_serial_class_initfn(ptr noundef %klass, ptr nocapture 
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #7
-  %product_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i3, i64 0, i32 14
+  %product_desc = getelementptr inbounds i8, ptr %call.i3, i64 280
   store ptr @.str.32, ptr %product_desc, align 8
-  %usb_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i3, i64 0, i32 15
+  %usb_desc = getelementptr inbounds i8, ptr %call.i3, i64 288
   store ptr @desc_serial, ptr %usb_desc, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @serial_properties) #7
   ret void
@@ -1406,9 +1375,9 @@ define internal void @usb_braille_class_initfn(ptr noundef %klass, ptr nocapture
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #7
-  %product_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i3, i64 0, i32 14
+  %product_desc = getelementptr inbounds i8, ptr %call.i3, i64 280
   store ptr @.str.41, ptr %product_desc, align 8
-  %usb_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i3, i64 0, i32 15
+  %usb_desc = getelementptr inbounds i8, ptr %call.i3, i64 288
   store ptr @desc_braille, ptr %usb_desc, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @braille_properties) #7
   ret void

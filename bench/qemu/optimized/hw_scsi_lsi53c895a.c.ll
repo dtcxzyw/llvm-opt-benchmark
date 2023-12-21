@@ -12,47 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.SCSIBusInfo = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.LSIState = type { %struct.PCIDevice, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.AddressSpace, i32, i32, i32, i32, [8 x i8], i32, %struct.SCSIBus, i32, i32, i32, %union.anon.4, ptr, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [18 x i32], i8, i32, [8192 x i8] }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.SCSIBus = type { %struct.BusState, i32, %struct.SCSISense, ptr, i32 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.SCSISense = type { i8, i8, i8 }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.lsi_request = type { ptr, i32, i32, ptr, i32, i32, %union.anon.6 }
-%union.anon.6 = type { %struct.QTailQLink }
-%struct.SCSIRequest = type { ptr, ptr, ptr, i32, i32, i32, i16, i16, ptr, i64, %struct.SCSICommand, %struct.NotifierList, [252 x i8], i32, i8, i8, i8, i8, ptr, ptr, %union.anon.8 }
-%struct.SCSICommand = type { [16 x i8], i32, i64, i64, i32 }
-%struct.NotifierList = type { %struct.anon.7 }
-%struct.anon.7 = type { ptr }
-%union.anon.8 = type { %struct.QTailQLink }
 
 @lsi_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 12144, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @lsi_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
 @lsi53c810_info = internal constant %struct.TypeInfo { ptr @.str.362, ptr @.str, i64 0, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @lsi53c810_class_init, ptr null, ptr null, ptr null }, align 8
@@ -534,7 +494,7 @@ entry:
 define dso_local void @lsi53c8xx_handle_legacy_cmdline(ptr noundef %lsi_dev) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %lsi_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 312, ptr noundef nonnull @__func__.LSI53C895A) #11
-  %bus = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 12
+  %bus = getelementptr inbounds i8, ptr %call.i, i64 3560
   tail call void @scsi_bus_legacy_handle_cmdline(ptr noundef nonnull %bus) #11
   ret void
 }
@@ -548,23 +508,23 @@ define internal void @lsi_class_init(ptr noundef %klass, ptr nocapture readnone 
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
   %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #11
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i9, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i9, i64 176
   store ptr @lsi_scsi_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i9, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i9, i64 184
   store ptr @lsi_scsi_exit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i9, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i9, i64 208
   store i16 4096, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i9, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i9, i64 210
   store i16 18, ptr %device_id, align 2
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i9, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i9, i64 214
   store i16 256, ptr %class_id, align 2
-  %subsystem_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i9, i64 0, i32 10
+  %subsystem_id = getelementptr inbounds i8, ptr %call.i9, i64 218
   store i16 4096, ptr %subsystem_id, align 2
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @lsi_scsi_reset, ptr %reset, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_lsi_scsi, ptr %vmsd, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
@@ -576,35 +536,35 @@ define internal void @lsi_scsi_realize(ptr noundef %dev, ptr nocapture readnone 
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 312, ptr noundef nonnull @__func__.LSI53C895A) #11
   %call.i28 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 13
   store i8 -1, ptr %arrayidx, align 1
   %arrayidx2 = getelementptr i8, ptr %0, i64 61
   store i8 1, ptr %arrayidx2, align 1
-  %mmio_io = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 2
+  %mmio_io = getelementptr inbounds i8, ptr %call.i, i64 2624
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio_io, ptr noundef %call.i, ptr noundef nonnull @lsi_mmio_ops, ptr noundef %call.i, ptr noundef nonnull @.str.6, i64 noundef 1024) #11
-  %ram_io = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 3
+  %ram_io = getelementptr inbounds i8, ptr %call.i, i64 2896
   tail call void @memory_region_init_io(ptr noundef nonnull %ram_io, ptr noundef %call.i, ptr noundef nonnull @lsi_ram_ops, ptr noundef %call.i, ptr noundef nonnull @.str.7, i64 noundef 8192) #11
-  %io_io = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 4
+  %io_io = getelementptr inbounds i8, ptr %call.i, i64 3168
   tail call void @memory_region_init_io(ptr noundef nonnull %io_io, ptr noundef %call.i, ptr noundef nonnull @lsi_io_ops, ptr noundef %call.i, ptr noundef nonnull @.str.8, i64 noundef 256) #11
-  %disable_reentrancy_guard = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 3, i32 37
+  %disable_reentrancy_guard = getelementptr inbounds i8, ptr %call.i, i64 3160
   store i8 1, ptr %disable_reentrancy_guard, align 8
-  %disable_reentrancy_guard5 = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 2, i32 37
+  %disable_reentrancy_guard5 = getelementptr inbounds i8, ptr %call.i, i64 2888
   store i8 1, ptr %disable_reentrancy_guard5, align 8
-  %pci_io_as = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 5
+  %pci_io_as = getelementptr inbounds i8, ptr %call.i, i64 3440
   %call6 = tail call ptr @pci_address_space_io(ptr noundef %dev) #11
   tail call void @address_space_init(ptr noundef nonnull %pci_io_as, ptr noundef %call6, ptr noundef nonnull @.str.9) #11
-  %ext_irq = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 1
+  %ext_irq = getelementptr inbounds i8, ptr %call.i, i64 2608
   tail call void @qdev_init_gpio_out(ptr noundef %call.i28, ptr noundef nonnull %ext_irq, i32 noundef 1) #11
   tail call void @pci_register_bar(ptr noundef %dev, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %io_io) #11
   tail call void @pci_register_bar(ptr noundef %dev, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %mmio_io) #11
   tail call void @pci_register_bar(ptr noundef %dev, i32 noundef 2, i8 noundef zeroext 0, ptr noundef nonnull %ram_io) #11
-  %queue = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 16
+  %queue = getelementptr inbounds i8, ptr %call.i, i64 3720
   store ptr null, ptr %queue, align 8
-  %tql_prev = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 16, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call.i, i64 3728
   store ptr %queue, ptr %tql_prev, align 8
-  %bus = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 12
+  %bus = getelementptr inbounds i8, ptr %call.i, i64 3560
   tail call void @scsi_bus_init_named(ptr noundef nonnull %bus, i64 noundef 144, ptr noundef %call.i28, ptr noundef nonnull @lsi_scsi_info, ptr noundef null) #11
   ret void
 }
@@ -613,7 +573,7 @@ entry:
 define internal void @lsi_scsi_exit(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 312, ptr noundef nonnull @__func__.LSI53C895A) #11
-  %pci_io_as = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 5
+  %pci_io_as = getelementptr inbounds i8, ptr %call.i, i64 3440
   tail call void @address_space_destroy(ptr noundef nonnull %pci_io_as) #11
   ret void
 }
@@ -647,7 +607,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #11
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.287, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6) #11
   br label %trace_lsi_reset.exit.i
@@ -658,46 +618,46 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_lsi_reset.exit.i:                           ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %carry.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 6
+  %carry.i = getelementptr inbounds i8, ptr %call.i, i64 3528
   store i32 0, ptr %carry.i, align 8
-  %msg_action.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 8
+  %msg_action.i = getelementptr inbounds i8, ptr %call.i, i64 3536
   store i32 0, ptr %msg_action.i, align 16
-  %msg_len.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 9
+  %msg_len.i = getelementptr inbounds i8, ptr %call.i, i64 3540
   store i32 0, ptr %msg_len.i, align 4
-  %waiting.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 11
+  %waiting.i = getelementptr inbounds i8, ptr %call.i, i64 3552
   store i32 0, ptr %waiting.i, align 16
-  %dsa.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 18
-  %scratch.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 78
+  %dsa.i = getelementptr inbounds i8, ptr %call.i, i64 3744
+  %scratch.i = getelementptr inbounds i8, ptr %call.i, i64 3868
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %scratch.i, i8 0, i64 72, i1 false)
-  %dcmd.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 24
+  %dcmd.i = getelementptr inbounds i8, ptr %call.i, i64 3762
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %dsa.i, i8 0, i64 18, i1 false)
   store i8 64, ptr %dcmd.i, align 2
-  %dstat.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 25
-  %ctest2.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 34
+  %dstat.i = getelementptr inbounds i8, ptr %call.i, i64 3763
+  %ctest2.i = getelementptr inbounds i8, ptr %call.i, i64 3772
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %dstat.i, i8 0, i64 9, i1 false)
   store i8 1, ptr %ctest2.i, align 4
-  %ctest3.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 35
-  %dsp.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 40
-  %scntl0.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 44
+  %ctest3.i = getelementptr inbounds i8, ptr %call.i, i64 3773
+  %dsp.i = getelementptr inbounds i8, ptr %call.i, i64 3780
+  %scntl0.i = getelementptr inbounds i8, ptr %call.i, i64 3790
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %ctest3.i, i8 0, i64 5, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %dsp.i, i8 0, i64 10, i1 false)
   store i8 -64, ptr %scntl0.i, align 2
-  %scntl1.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 45
-  %scid.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 50
+  %scntl1.i = getelementptr inbounds i8, ptr %call.i, i64 3791
+  %scid.i = getelementptr inbounds i8, ptr %call.i, i64 3796
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %scntl1.i, i8 0, i64 5, i1 false)
   store i8 7, ptr %scid.i, align 4
-  %sxfer.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 51
-  %sbcl.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 56
-  %respid0.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 62
+  %sxfer.i = getelementptr inbounds i8, ptr %call.i, i64 3797
+  %sbcl.i = getelementptr inbounds i8, ptr %call.i, i64 3802
+  %respid0.i = getelementptr inbounds i8, ptr %call.i, i64 3808
   store i32 0, ptr %sxfer.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %sbcl.i, i8 0, i64 6, i1 false)
   store i8 -128, ptr %respid0.i, align 16
-  %respid1.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 63
+  %respid1.i = getelementptr inbounds i8, ptr %call.i, i64 3809
   store i8 0, ptr %respid1.i, align 1
-  %mmrs.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 64
-  %sbr.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 79
+  %mmrs.i = getelementptr inbounds i8, ptr %call.i, i64 3812
+  %sbr.i = getelementptr inbounds i8, ptr %call.i, i64 3940
   store i8 0, ptr %sbr.i, align 4
-  %queue.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 16
+  %queue.i = getelementptr inbounds i8, ptr %call.i, i64 3720
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %mmrs.i, i8 0, i64 56, i1 false)
   %7 = load ptr, ptr %queue.i, align 8
   %cmp.i = icmp eq ptr %7, null
@@ -708,7 +668,7 @@ if.else.i:                                        ; preds = %trace_lsi_reset.exi
   unreachable
 
 if.end.i:                                         ; preds = %trace_lsi_reset.exit.i
-  %current.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 17
+  %current.i = getelementptr inbounds i8, ptr %call.i, i64 3736
   %8 = load ptr, ptr %current.i, align 8
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %lsi_soft_reset.exit, label %if.else2.i
@@ -901,37 +861,37 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %scntl0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 44
+  %scntl0 = getelementptr inbounds i8, ptr %s, i64 3790
   %0 = load i8, ptr %scntl0, align 2
   br label %cond.true506
 
 sw.bb1:                                           ; preds = %entry
-  %scntl1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 45
+  %scntl1 = getelementptr inbounds i8, ptr %s, i64 3791
   %1 = load i8, ptr %scntl1, align 1
   br label %cond.true506
 
 sw.bb2:                                           ; preds = %entry
-  %scntl2 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 46
+  %scntl2 = getelementptr inbounds i8, ptr %s, i64 3792
   %2 = load i8, ptr %scntl2, align 16
   br label %cond.true506
 
 sw.bb3:                                           ; preds = %entry
-  %scntl3 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 47
+  %scntl3 = getelementptr inbounds i8, ptr %s, i64 3793
   %3 = load i8, ptr %scntl3, align 1
   br label %cond.true506
 
 sw.bb4:                                           ; preds = %entry
-  %scid = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 50
+  %scid = getelementptr inbounds i8, ptr %s, i64 3796
   %4 = load i8, ptr %scid, align 4
   br label %cond.true506
 
 sw.bb5:                                           ; preds = %entry
-  %sxfer = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 51
+  %sxfer = getelementptr inbounds i8, ptr %s, i64 3797
   %5 = load i8, ptr %sxfer, align 1
   br label %cond.true506
 
 sw.bb6:                                           ; preds = %entry
-  %sdid = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 53
+  %sdid = getelementptr inbounds i8, ptr %s, i64 3799
   %6 = load i8, ptr %sdid, align 1
   br label %cond.true506
 
@@ -939,25 +899,25 @@ sw.bb8:                                           ; preds = %entry
   br label %cond.true506
 
 sw.bb9:                                           ; preds = %entry
-  %socl = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 52
+  %socl = getelementptr inbounds i8, ptr %s, i64 3798
   %7 = load i8, ptr %socl, align 2
   br label %cond.true506
 
 sw.bb10:                                          ; preds = %entry
-  %ssid = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 54
+  %ssid = getelementptr inbounds i8, ptr %s, i64 3800
   %8 = load i8, ptr %ssid, align 8
   br label %cond.true506
 
 sw.bb11:                                          ; preds = %entry
-  %sbcl = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 56
+  %sbcl = getelementptr inbounds i8, ptr %s, i64 3802
   %9 = load i8, ptr %sbcl, align 2
   br label %cond.true506
 
 sw.bb12:                                          ; preds = %entry
-  %dstat = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 25
+  %dstat = getelementptr inbounds i8, ptr %s, i64 3763
   %10 = load i8, ptr %dstat, align 1
   %11 = or i8 %10, -128
-  %istat0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 22
+  %istat0 = getelementptr inbounds i8, ptr %s, i64 3760
   %12 = load i8, ptr %istat0, align 16
   %13 = and i8 %12, 4
   %cmp = icmp eq i8 %13, 0
@@ -972,17 +932,17 @@ if.end:                                           ; preds = %if.then, %sw.bb12
   br label %cond.true506
 
 sw.bb17:                                          ; preds = %entry
-  %sstat0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 48
+  %sstat0 = getelementptr inbounds i8, ptr %s, i64 3794
   %14 = load i8, ptr %sstat0, align 2
   br label %cond.true506
 
 sw.bb18:                                          ; preds = %entry
-  %sstat1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 49
+  %sstat1 = getelementptr inbounds i8, ptr %s, i64 3795
   %15 = load i8, ptr %sstat1, align 1
   br label %cond.true506
 
 sw.bb19:                                          ; preds = %entry
-  %scntl120 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 45
+  %scntl120 = getelementptr inbounds i8, ptr %s, i64 3791
   %16 = load i8, ptr %scntl120, align 1
   %17 = lshr i8 %16, 3
   %18 = and i8 %17, 2
@@ -990,49 +950,49 @@ sw.bb19:                                          ; preds = %entry
   br label %cond.true506
 
 sw.bb24:                                          ; preds = %entry
-  %dsa = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 18
+  %dsa = getelementptr inbounds i8, ptr %s, i64 3744
   %20 = load i32, ptr %dsa, align 16
   %conv26 = trunc i32 %20 to i8
   br label %cond.true506
 
 sw.bb27:                                          ; preds = %entry
-  %dsa28 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 18
+  %dsa28 = getelementptr inbounds i8, ptr %s, i64 3744
   %21 = load i32, ptr %dsa28, align 16
   %shr = lshr i32 %21, 8
   %conv30 = trunc i32 %shr to i8
   br label %cond.true506
 
 sw.bb31:                                          ; preds = %entry
-  %dsa32 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 18
+  %dsa32 = getelementptr inbounds i8, ptr %s, i64 3744
   %22 = load i32, ptr %dsa32, align 16
   %shr33 = lshr i32 %22, 16
   %conv35 = trunc i32 %shr33 to i8
   br label %cond.true506
 
 sw.bb36:                                          ; preds = %entry
-  %dsa37 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 18
+  %dsa37 = getelementptr inbounds i8, ptr %s, i64 3744
   %23 = load i32, ptr %dsa37, align 16
   %shr38 = lshr i32 %23, 24
   %conv40 = trunc i32 %shr38 to i8
   br label %cond.true506
 
 sw.bb41:                                          ; preds = %entry
-  %istat042 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 22
+  %istat042 = getelementptr inbounds i8, ptr %s, i64 3760
   %24 = load i8, ptr %istat042, align 16
   br label %cond.true506
 
 sw.bb43:                                          ; preds = %entry
-  %istat1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 23
+  %istat1 = getelementptr inbounds i8, ptr %s, i64 3761
   %25 = load i8, ptr %istat1, align 1
   br label %cond.true506
 
 sw.bb44:                                          ; preds = %entry
-  %mbox0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 31
+  %mbox0 = getelementptr inbounds i8, ptr %s, i64 3769
   %26 = load i8, ptr %mbox0, align 1
   br label %cond.true506
 
 sw.bb45:                                          ; preds = %entry
-  %mbox1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 32
+  %mbox1 = getelementptr inbounds i8, ptr %s, i64 3770
   %27 = load i8, ptr %mbox1, align 2
   br label %cond.true506
 
@@ -1043,10 +1003,10 @@ sw.bb47:                                          ; preds = %entry
   br label %cond.true506
 
 sw.bb48:                                          ; preds = %entry
-  %ctest2 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 34
+  %ctest2 = getelementptr inbounds i8, ptr %s, i64 3772
   %28 = load i8, ptr %ctest2, align 4
   %29 = or i8 %28, 17
-  %istat053 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 22
+  %istat053 = getelementptr inbounds i8, ptr %s, i64 3760
   %30 = load i8, ptr %istat053, align 16
   %31 = and i8 %30, 32
   %tobool56.not = icmp eq i8 %31, 0
@@ -1059,49 +1019,49 @@ if.then57:                                        ; preds = %sw.bb48
   br label %cond.true506
 
 sw.bb66:                                          ; preds = %entry
-  %ctest3 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 35
+  %ctest3 = getelementptr inbounds i8, ptr %s, i64 3773
   %33 = load i8, ptr %ctest3, align 1
   br label %cond.true506
 
 sw.bb67:                                          ; preds = %entry
-  %temp = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 19
+  %temp = getelementptr inbounds i8, ptr %s, i64 3748
   %34 = load i32, ptr %temp, align 4
   %conv69 = trunc i32 %34 to i8
   br label %cond.true506
 
 sw.bb70:                                          ; preds = %entry
-  %temp71 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 19
+  %temp71 = getelementptr inbounds i8, ptr %s, i64 3748
   %35 = load i32, ptr %temp71, align 4
   %shr72 = lshr i32 %35, 8
   %conv74 = trunc i32 %shr72 to i8
   br label %cond.true506
 
 sw.bb75:                                          ; preds = %entry
-  %temp76 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 19
+  %temp76 = getelementptr inbounds i8, ptr %s, i64 3748
   %36 = load i32, ptr %temp76, align 4
   %shr77 = lshr i32 %36, 16
   %conv79 = trunc i32 %shr77 to i8
   br label %cond.true506
 
 sw.bb80:                                          ; preds = %entry
-  %temp81 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 19
+  %temp81 = getelementptr inbounds i8, ptr %s, i64 3748
   %37 = load i32, ptr %temp81, align 4
   %shr82 = lshr i32 %37, 24
   %conv84 = trunc i32 %shr82 to i8
   br label %cond.true506
 
 sw.bb85:                                          ; preds = %entry
-  %dfifo = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 33
+  %dfifo = getelementptr inbounds i8, ptr %s, i64 3771
   %38 = load i8, ptr %dfifo, align 1
   br label %cond.true506
 
 sw.bb86:                                          ; preds = %entry
-  %ctest4 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 36
+  %ctest4 = getelementptr inbounds i8, ptr %s, i64 3774
   %39 = load i8, ptr %ctest4, align 2
   br label %cond.true506
 
 sw.bb87:                                          ; preds = %entry
-  %ctest5 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 37
+  %ctest5 = getelementptr inbounds i8, ptr %s, i64 3775
   %40 = load i8, ptr %ctest5, align 1
   br label %cond.true506
 
@@ -1109,204 +1069,204 @@ sw.bb88:                                          ; preds = %entry
   br label %cond.true506
 
 sw.bb89:                                          ; preds = %entry
-  %dbc = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 21
+  %dbc = getelementptr inbounds i8, ptr %s, i64 3756
   %41 = load i32, ptr %dbc, align 4
   %conv91 = trunc i32 %41 to i8
   br label %cond.true506
 
 sw.bb92:                                          ; preds = %entry
-  %dbc93 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 21
+  %dbc93 = getelementptr inbounds i8, ptr %s, i64 3756
   %42 = load i32, ptr %dbc93, align 4
   %shr94 = lshr i32 %42, 8
   %conv96 = trunc i32 %shr94 to i8
   br label %cond.true506
 
 sw.bb97:                                          ; preds = %entry
-  %dbc98 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 21
+  %dbc98 = getelementptr inbounds i8, ptr %s, i64 3756
   %43 = load i32, ptr %dbc98, align 4
   %shr99 = lshr i32 %43, 16
   %conv101 = trunc i32 %shr99 to i8
   br label %cond.true506
 
 sw.bb102:                                         ; preds = %entry
-  %dcmd = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 24
+  %dcmd = getelementptr inbounds i8, ptr %s, i64 3762
   %44 = load i8, ptr %dcmd, align 2
   br label %cond.true506
 
 sw.bb103:                                         ; preds = %entry
-  %dnad = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 20
+  %dnad = getelementptr inbounds i8, ptr %s, i64 3752
   %45 = load i32, ptr %dnad, align 8
   %conv105 = trunc i32 %45 to i8
   br label %cond.true506
 
 sw.bb106:                                         ; preds = %entry
-  %dnad107 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 20
+  %dnad107 = getelementptr inbounds i8, ptr %s, i64 3752
   %46 = load i32, ptr %dnad107, align 8
   %shr108 = lshr i32 %46, 8
   %conv110 = trunc i32 %shr108 to i8
   br label %cond.true506
 
 sw.bb111:                                         ; preds = %entry
-  %dnad112 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 20
+  %dnad112 = getelementptr inbounds i8, ptr %s, i64 3752
   %47 = load i32, ptr %dnad112, align 8
   %shr113 = lshr i32 %47, 16
   %conv115 = trunc i32 %shr113 to i8
   br label %cond.true506
 
 sw.bb116:                                         ; preds = %entry
-  %dnad117 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 20
+  %dnad117 = getelementptr inbounds i8, ptr %s, i64 3752
   %48 = load i32, ptr %dnad117, align 8
   %shr118 = lshr i32 %48, 24
   %conv120 = trunc i32 %shr118 to i8
   br label %cond.true506
 
 sw.bb121:                                         ; preds = %entry
-  %dsp = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 40
+  %dsp = getelementptr inbounds i8, ptr %s, i64 3780
   %49 = load i32, ptr %dsp, align 4
   %conv123 = trunc i32 %49 to i8
   br label %cond.true506
 
 sw.bb124:                                         ; preds = %entry
-  %dsp125 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 40
+  %dsp125 = getelementptr inbounds i8, ptr %s, i64 3780
   %50 = load i32, ptr %dsp125, align 4
   %shr126 = lshr i32 %50, 8
   %conv128 = trunc i32 %shr126 to i8
   br label %cond.true506
 
 sw.bb129:                                         ; preds = %entry
-  %dsp130 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 40
+  %dsp130 = getelementptr inbounds i8, ptr %s, i64 3780
   %51 = load i32, ptr %dsp130, align 4
   %shr131 = lshr i32 %51, 16
   %conv133 = trunc i32 %shr131 to i8
   br label %cond.true506
 
 sw.bb134:                                         ; preds = %entry
-  %dsp135 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 40
+  %dsp135 = getelementptr inbounds i8, ptr %s, i64 3780
   %52 = load i32, ptr %dsp135, align 4
   %shr136 = lshr i32 %52, 24
   %conv138 = trunc i32 %shr136 to i8
   br label %cond.true506
 
 sw.bb139:                                         ; preds = %entry
-  %dsps = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 41
+  %dsps = getelementptr inbounds i8, ptr %s, i64 3784
   %53 = load i32, ptr %dsps, align 8
   %conv141 = trunc i32 %53 to i8
   br label %cond.true506
 
 sw.bb142:                                         ; preds = %entry
-  %dsps143 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 41
+  %dsps143 = getelementptr inbounds i8, ptr %s, i64 3784
   %54 = load i32, ptr %dsps143, align 8
   %shr144 = lshr i32 %54, 8
   %conv146 = trunc i32 %shr144 to i8
   br label %cond.true506
 
 sw.bb147:                                         ; preds = %entry
-  %dsps148 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 41
+  %dsps148 = getelementptr inbounds i8, ptr %s, i64 3784
   %55 = load i32, ptr %dsps148, align 8
   %shr149 = lshr i32 %55, 16
   %conv151 = trunc i32 %shr149 to i8
   br label %cond.true506
 
 sw.bb152:                                         ; preds = %entry
-  %dsps153 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 41
+  %dsps153 = getelementptr inbounds i8, ptr %s, i64 3784
   %56 = load i32, ptr %dsps153, align 8
   %shr154 = lshr i32 %56, 24
   %conv156 = trunc i32 %shr154 to i8
   br label %cond.true506
 
 sw.bb157:                                         ; preds = %entry
-  %scratch = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 78
+  %scratch = getelementptr inbounds i8, ptr %s, i64 3868
   %57 = load i32, ptr %scratch, align 4
   %conv159 = trunc i32 %57 to i8
   br label %cond.true506
 
 sw.bb160:                                         ; preds = %entry
-  %scratch161 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 78
+  %scratch161 = getelementptr inbounds i8, ptr %s, i64 3868
   %58 = load i32, ptr %scratch161, align 4
   %shr163 = lshr i32 %58, 8
   %conv165 = trunc i32 %shr163 to i8
   br label %cond.true506
 
 sw.bb166:                                         ; preds = %entry
-  %scratch167 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 78
+  %scratch167 = getelementptr inbounds i8, ptr %s, i64 3868
   %59 = load i32, ptr %scratch167, align 4
   %shr169 = lshr i32 %59, 16
   %conv171 = trunc i32 %shr169 to i8
   br label %cond.true506
 
 sw.bb172:                                         ; preds = %entry
-  %scratch173 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 78
+  %scratch173 = getelementptr inbounds i8, ptr %s, i64 3868
   %60 = load i32, ptr %scratch173, align 4
   %shr175 = lshr i32 %60, 24
   %conv177 = trunc i32 %shr175 to i8
   br label %cond.true506
 
 sw.bb178:                                         ; preds = %entry
-  %dmode = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 42
+  %dmode = getelementptr inbounds i8, ptr %s, i64 3788
   %61 = load i8, ptr %dmode, align 4
   br label %cond.true506
 
 sw.bb179:                                         ; preds = %entry
-  %dien = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 26
+  %dien = getelementptr inbounds i8, ptr %s, i64 3764
   %62 = load i8, ptr %dien, align 4
   br label %cond.true506
 
 sw.bb180:                                         ; preds = %entry
-  %sbr = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 79
+  %sbr = getelementptr inbounds i8, ptr %s, i64 3940
   %63 = load i8, ptr %sbr, align 4
   br label %cond.true506
 
 sw.bb181:                                         ; preds = %entry
-  %dcntl = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 43
+  %dcntl = getelementptr inbounds i8, ptr %s, i64 3789
   %64 = load i8, ptr %dcntl, align 1
   br label %cond.true506
 
 sw.bb182:                                         ; preds = %entry
-  %adder = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 80
+  %adder = getelementptr inbounds i8, ptr %s, i64 3944
   %65 = load i32, ptr %adder, align 8
   %conv184 = trunc i32 %65 to i8
   br label %cond.true506
 
 sw.bb185:                                         ; preds = %entry
-  %adder186 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 80
+  %adder186 = getelementptr inbounds i8, ptr %s, i64 3944
   %66 = load i32, ptr %adder186, align 8
   %shr187 = lshr i32 %66, 8
   %conv189 = trunc i32 %shr187 to i8
   br label %cond.true506
 
 sw.bb190:                                         ; preds = %entry
-  %adder191 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 80
+  %adder191 = getelementptr inbounds i8, ptr %s, i64 3944
   %67 = load i32, ptr %adder191, align 8
   %shr192 = lshr i32 %67, 16
   %conv194 = trunc i32 %shr192 to i8
   br label %cond.true506
 
 sw.bb195:                                         ; preds = %entry
-  %adder196 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 80
+  %adder196 = getelementptr inbounds i8, ptr %s, i64 3944
   %68 = load i32, ptr %adder196, align 8
   %shr197 = lshr i32 %68, 24
   %conv199 = trunc i32 %shr197 to i8
   br label %cond.true506
 
 sw.bb200:                                         ; preds = %entry
-  %sien0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 29
+  %sien0 = getelementptr inbounds i8, ptr %s, i64 3767
   %69 = load i8, ptr %sien0, align 1
   br label %cond.true506
 
 sw.bb201:                                         ; preds = %entry
-  %sien1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 30
+  %sien1 = getelementptr inbounds i8, ptr %s, i64 3768
   %70 = load i8, ptr %sien1, align 8
   br label %cond.true506
 
 sw.bb202:                                         ; preds = %entry
-  %sist0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 27
+  %sist0 = getelementptr inbounds i8, ptr %s, i64 3765
   %71 = load i8, ptr %sist0, align 1
   store i8 0, ptr %sist0, align 1
   tail call fastcc void @lsi_update_irq(ptr noundef %s)
   br label %cond.true506
 
 sw.bb204:                                         ; preds = %entry
-  %sist1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 28
+  %sist1 = getelementptr inbounds i8, ptr %s, i64 3766
   %72 = load i8, ptr %sist1, align 2
   store i8 0, ptr %sist1, align 2
   tail call fastcc void @lsi_update_irq(ptr noundef %s)
@@ -1319,37 +1279,37 @@ sw.bb207:                                         ; preds = %entry
   br label %cond.true506
 
 sw.bb208:                                         ; preds = %entry
-  %stime0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 61
+  %stime0 = getelementptr inbounds i8, ptr %s, i64 3807
   %73 = load i8, ptr %stime0, align 1
   br label %cond.true506
 
 sw.bb209:                                         ; preds = %entry
-  %respid0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 62
+  %respid0 = getelementptr inbounds i8, ptr %s, i64 3808
   %74 = load i8, ptr %respid0, align 16
   br label %cond.true506
 
 sw.bb210:                                         ; preds = %entry
-  %respid1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 63
+  %respid1 = getelementptr inbounds i8, ptr %s, i64 3809
   %75 = load i8, ptr %respid1, align 1
   br label %cond.true506
 
 sw.bb211:                                         ; preds = %entry
-  %stest1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 57
+  %stest1 = getelementptr inbounds i8, ptr %s, i64 3803
   %76 = load i8, ptr %stest1, align 1
   br label %cond.true506
 
 sw.bb212:                                         ; preds = %entry
-  %stest2 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 58
+  %stest2 = getelementptr inbounds i8, ptr %s, i64 3804
   %77 = load i8, ptr %stest2, align 4
   br label %cond.true506
 
 sw.bb213:                                         ; preds = %entry
-  %stest3 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 59
+  %stest3 = getelementptr inbounds i8, ptr %s, i64 3805
   %78 = load i8, ptr %stest3, align 1
   br label %cond.true506
 
 sw.bb214:                                         ; preds = %entry
-  %sidl = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 60
+  %sidl = getelementptr inbounds i8, ptr %s, i64 3806
   %79 = load i8, ptr %sidl, align 2
   br label %cond.true506
 
@@ -1357,24 +1317,24 @@ sw.bb215:                                         ; preds = %entry
   br label %cond.true506
 
 sw.bb216:                                         ; preds = %entry
-  %ccntl0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 38
+  %ccntl0 = getelementptr inbounds i8, ptr %s, i64 3776
   %80 = load i8, ptr %ccntl0, align 16
   br label %cond.true506
 
 sw.bb217:                                         ; preds = %entry
-  %ccntl1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 39
+  %ccntl1 = getelementptr inbounds i8, ptr %s, i64 3777
   %81 = load i8, ptr %ccntl1, align 1
   br label %cond.true506
 
 sw.bb218:                                         ; preds = %entry
-  %sstat1219 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 49
+  %sstat1219 = getelementptr inbounds i8, ptr %s, i64 3795
   %82 = load i8, ptr %sstat1219, align 1
   %83 = and i8 %82, 7
   %cmp222 = icmp eq i8 %83, 7
   br i1 %cmp222, label %if.then224, label %cond.true506
 
 if.then224:                                       ; preds = %sw.bb218
-  %msg_len = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 9
+  %msg_len = getelementptr inbounds i8, ptr %s, i64 3540
   %84 = load i32, ptr %msg_len, align 4
   %cmp225 = icmp sgt i32 %84, 0
   br i1 %cmp225, label %if.end228, label %if.else
@@ -1384,7 +1344,7 @@ if.else:                                          ; preds = %if.then224
   unreachable
 
 if.end228:                                        ; preds = %if.then224
-  %msg = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 10
+  %msg = getelementptr inbounds i8, ptr %s, i64 3544
   %85 = load i8, ptr %msg, align 8
   br label %return
 
@@ -1392,378 +1352,378 @@ sw.bb231:                                         ; preds = %entry
   br label %cond.true506
 
 sw.bb232:                                         ; preds = %entry
-  %mmrs = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 64
+  %mmrs = getelementptr inbounds i8, ptr %s, i64 3812
   %86 = load i32, ptr %mmrs, align 4
   %conv234 = trunc i32 %86 to i8
   br label %cond.end510
 
 sw.bb235:                                         ; preds = %entry
-  %mmrs236 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 64
+  %mmrs236 = getelementptr inbounds i8, ptr %s, i64 3812
   %87 = load i32, ptr %mmrs236, align 4
   %shr237 = lshr i32 %87, 8
   %conv239 = trunc i32 %shr237 to i8
   br label %cond.end510
 
 sw.bb240:                                         ; preds = %entry
-  %mmrs241 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 64
+  %mmrs241 = getelementptr inbounds i8, ptr %s, i64 3812
   %88 = load i32, ptr %mmrs241, align 4
   %shr242 = lshr i32 %88, 16
   %conv244 = trunc i32 %shr242 to i8
   br label %cond.end510
 
 sw.bb245:                                         ; preds = %entry
-  %mmrs246 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 64
+  %mmrs246 = getelementptr inbounds i8, ptr %s, i64 3812
   %89 = load i32, ptr %mmrs246, align 4
   %shr247 = lshr i32 %89, 24
   %conv249 = trunc i32 %shr247 to i8
   br label %cond.end510
 
 sw.bb250:                                         ; preds = %entry
-  %mmws = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 65
+  %mmws = getelementptr inbounds i8, ptr %s, i64 3816
   %90 = load i32, ptr %mmws, align 8
   %conv252 = trunc i32 %90 to i8
   br label %cond.end510
 
 sw.bb253:                                         ; preds = %entry
-  %mmws254 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 65
+  %mmws254 = getelementptr inbounds i8, ptr %s, i64 3816
   %91 = load i32, ptr %mmws254, align 8
   %shr255 = lshr i32 %91, 8
   %conv257 = trunc i32 %shr255 to i8
   br label %cond.end510
 
 sw.bb258:                                         ; preds = %entry
-  %mmws259 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 65
+  %mmws259 = getelementptr inbounds i8, ptr %s, i64 3816
   %92 = load i32, ptr %mmws259, align 8
   %shr260 = lshr i32 %92, 16
   %conv262 = trunc i32 %shr260 to i8
   br label %cond.end510
 
 sw.bb263:                                         ; preds = %entry
-  %mmws264 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 65
+  %mmws264 = getelementptr inbounds i8, ptr %s, i64 3816
   %93 = load i32, ptr %mmws264, align 8
   %shr265 = lshr i32 %93, 24
   %conv267 = trunc i32 %shr265 to i8
   br label %cond.end510
 
 sw.bb268:                                         ; preds = %entry
-  %sfs = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 66
+  %sfs = getelementptr inbounds i8, ptr %s, i64 3820
   %94 = load i32, ptr %sfs, align 4
   %conv270 = trunc i32 %94 to i8
   br label %cond.end510
 
 sw.bb271:                                         ; preds = %entry
-  %sfs272 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 66
+  %sfs272 = getelementptr inbounds i8, ptr %s, i64 3820
   %95 = load i32, ptr %sfs272, align 4
   %shr273 = lshr i32 %95, 8
   %conv275 = trunc i32 %shr273 to i8
   br label %cond.end510
 
 sw.bb276:                                         ; preds = %entry
-  %sfs277 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 66
+  %sfs277 = getelementptr inbounds i8, ptr %s, i64 3820
   %96 = load i32, ptr %sfs277, align 4
   %shr278 = lshr i32 %96, 16
   %conv280 = trunc i32 %shr278 to i8
   br label %cond.end510
 
 sw.bb281:                                         ; preds = %entry
-  %sfs282 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 66
+  %sfs282 = getelementptr inbounds i8, ptr %s, i64 3820
   %97 = load i32, ptr %sfs282, align 4
   %shr283 = lshr i32 %97, 24
   %conv285 = trunc i32 %shr283 to i8
   br label %cond.end510
 
 sw.bb286:                                         ; preds = %entry
-  %drs = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 67
+  %drs = getelementptr inbounds i8, ptr %s, i64 3824
   %98 = load i32, ptr %drs, align 16
   %conv288 = trunc i32 %98 to i8
   br label %cond.end510
 
 sw.bb289:                                         ; preds = %entry
-  %drs290 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 67
+  %drs290 = getelementptr inbounds i8, ptr %s, i64 3824
   %99 = load i32, ptr %drs290, align 16
   %shr291 = lshr i32 %99, 8
   %conv293 = trunc i32 %shr291 to i8
   br label %cond.end510
 
 sw.bb294:                                         ; preds = %entry
-  %drs295 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 67
+  %drs295 = getelementptr inbounds i8, ptr %s, i64 3824
   %100 = load i32, ptr %drs295, align 16
   %shr296 = lshr i32 %100, 16
   %conv298 = trunc i32 %shr296 to i8
   br label %cond.end510
 
 sw.bb299:                                         ; preds = %entry
-  %drs300 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 67
+  %drs300 = getelementptr inbounds i8, ptr %s, i64 3824
   %101 = load i32, ptr %drs300, align 16
   %shr301 = lshr i32 %101, 24
   %conv303 = trunc i32 %shr301 to i8
   br label %cond.end510
 
 sw.bb304:                                         ; preds = %entry
-  %sbms = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 68
+  %sbms = getelementptr inbounds i8, ptr %s, i64 3828
   %102 = load i32, ptr %sbms, align 4
   %conv306 = trunc i32 %102 to i8
   br label %cond.end510
 
 sw.bb307:                                         ; preds = %entry
-  %sbms308 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 68
+  %sbms308 = getelementptr inbounds i8, ptr %s, i64 3828
   %103 = load i32, ptr %sbms308, align 4
   %shr309 = lshr i32 %103, 8
   %conv311 = trunc i32 %shr309 to i8
   br label %cond.end510
 
 sw.bb312:                                         ; preds = %entry
-  %sbms313 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 68
+  %sbms313 = getelementptr inbounds i8, ptr %s, i64 3828
   %104 = load i32, ptr %sbms313, align 4
   %shr314 = lshr i32 %104, 16
   %conv316 = trunc i32 %shr314 to i8
   br label %cond.end510
 
 sw.bb317:                                         ; preds = %entry
-  %sbms318 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 68
+  %sbms318 = getelementptr inbounds i8, ptr %s, i64 3828
   %105 = load i32, ptr %sbms318, align 4
   %shr319 = lshr i32 %105, 24
   %conv321 = trunc i32 %shr319 to i8
   br label %cond.end510
 
 sw.bb322:                                         ; preds = %entry
-  %dbms = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 69
+  %dbms = getelementptr inbounds i8, ptr %s, i64 3832
   %106 = load i32, ptr %dbms, align 8
   %conv324 = trunc i32 %106 to i8
   br label %cond.end510
 
 sw.bb325:                                         ; preds = %entry
-  %dbms326 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 69
+  %dbms326 = getelementptr inbounds i8, ptr %s, i64 3832
   %107 = load i32, ptr %dbms326, align 8
   %shr327 = lshr i32 %107, 8
   %conv329 = trunc i32 %shr327 to i8
   br label %cond.end510
 
 sw.bb330:                                         ; preds = %entry
-  %dbms331 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 69
+  %dbms331 = getelementptr inbounds i8, ptr %s, i64 3832
   %108 = load i32, ptr %dbms331, align 8
   %shr332 = lshr i32 %108, 16
   %conv334 = trunc i32 %shr332 to i8
   br label %cond.end510
 
 sw.bb335:                                         ; preds = %entry
-  %dbms336 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 69
+  %dbms336 = getelementptr inbounds i8, ptr %s, i64 3832
   %109 = load i32, ptr %dbms336, align 8
   %shr337 = lshr i32 %109, 24
   %conv339 = trunc i32 %shr337 to i8
   br label %cond.end510
 
 sw.bb340:                                         ; preds = %entry
-  %dnad64 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 70
+  %dnad64 = getelementptr inbounds i8, ptr %s, i64 3836
   %110 = load i32, ptr %dnad64, align 4
   %conv342 = trunc i32 %110 to i8
   br label %cond.end510
 
 sw.bb343:                                         ; preds = %entry
-  %dnad64344 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 70
+  %dnad64344 = getelementptr inbounds i8, ptr %s, i64 3836
   %111 = load i32, ptr %dnad64344, align 4
   %shr345 = lshr i32 %111, 8
   %conv347 = trunc i32 %shr345 to i8
   br label %cond.end510
 
 sw.bb348:                                         ; preds = %entry
-  %dnad64349 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 70
+  %dnad64349 = getelementptr inbounds i8, ptr %s, i64 3836
   %112 = load i32, ptr %dnad64349, align 4
   %shr350 = lshr i32 %112, 16
   %conv352 = trunc i32 %shr350 to i8
   br label %cond.end510
 
 sw.bb353:                                         ; preds = %entry
-  %dnad64354 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 70
+  %dnad64354 = getelementptr inbounds i8, ptr %s, i64 3836
   %113 = load i32, ptr %dnad64354, align 4
   %shr355 = lshr i32 %113, 24
   %conv357 = trunc i32 %shr355 to i8
   br label %cond.end510
 
 sw.bb358:                                         ; preds = %entry
-  %pmjad1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 71
+  %pmjad1 = getelementptr inbounds i8, ptr %s, i64 3840
   %114 = load i32, ptr %pmjad1, align 16
   %conv360 = trunc i32 %114 to i8
   br label %cond.end510
 
 sw.bb361:                                         ; preds = %entry
-  %pmjad1362 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 71
+  %pmjad1362 = getelementptr inbounds i8, ptr %s, i64 3840
   %115 = load i32, ptr %pmjad1362, align 16
   %shr363 = lshr i32 %115, 8
   %conv365 = trunc i32 %shr363 to i8
   br label %cond.end510
 
 sw.bb366:                                         ; preds = %entry
-  %pmjad1367 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 71
+  %pmjad1367 = getelementptr inbounds i8, ptr %s, i64 3840
   %116 = load i32, ptr %pmjad1367, align 16
   %shr368 = lshr i32 %116, 16
   %conv370 = trunc i32 %shr368 to i8
   br label %cond.end510
 
 sw.bb371:                                         ; preds = %entry
-  %pmjad1372 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 71
+  %pmjad1372 = getelementptr inbounds i8, ptr %s, i64 3840
   %117 = load i32, ptr %pmjad1372, align 16
   %shr373 = lshr i32 %117, 24
   %conv375 = trunc i32 %shr373 to i8
   br label %cond.end510
 
 sw.bb376:                                         ; preds = %entry
-  %pmjad2 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 72
+  %pmjad2 = getelementptr inbounds i8, ptr %s, i64 3844
   %118 = load i32, ptr %pmjad2, align 4
   %conv378 = trunc i32 %118 to i8
   br label %cond.end510
 
 sw.bb379:                                         ; preds = %entry
-  %pmjad2380 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 72
+  %pmjad2380 = getelementptr inbounds i8, ptr %s, i64 3844
   %119 = load i32, ptr %pmjad2380, align 4
   %shr381 = lshr i32 %119, 8
   %conv383 = trunc i32 %shr381 to i8
   br label %cond.end510
 
 sw.bb384:                                         ; preds = %entry
-  %pmjad2385 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 72
+  %pmjad2385 = getelementptr inbounds i8, ptr %s, i64 3844
   %120 = load i32, ptr %pmjad2385, align 4
   %shr386 = lshr i32 %120, 16
   %conv388 = trunc i32 %shr386 to i8
   br label %cond.end510
 
 sw.bb389:                                         ; preds = %entry
-  %pmjad2390 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 72
+  %pmjad2390 = getelementptr inbounds i8, ptr %s, i64 3844
   %121 = load i32, ptr %pmjad2390, align 4
   %shr391 = lshr i32 %121, 24
   %conv393 = trunc i32 %shr391 to i8
   br label %cond.end510
 
 sw.bb394:                                         ; preds = %entry
-  %rbc = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 73
+  %rbc = getelementptr inbounds i8, ptr %s, i64 3848
   %122 = load i32, ptr %rbc, align 8
   %conv396 = trunc i32 %122 to i8
   br label %cond.end510
 
 sw.bb397:                                         ; preds = %entry
-  %rbc398 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 73
+  %rbc398 = getelementptr inbounds i8, ptr %s, i64 3848
   %123 = load i32, ptr %rbc398, align 8
   %shr399 = lshr i32 %123, 8
   %conv401 = trunc i32 %shr399 to i8
   br label %cond.end510
 
 sw.bb402:                                         ; preds = %entry
-  %rbc403 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 73
+  %rbc403 = getelementptr inbounds i8, ptr %s, i64 3848
   %124 = load i32, ptr %rbc403, align 8
   %shr404 = lshr i32 %124, 16
   %conv406 = trunc i32 %shr404 to i8
   br label %cond.end510
 
 sw.bb407:                                         ; preds = %entry
-  %rbc408 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 73
+  %rbc408 = getelementptr inbounds i8, ptr %s, i64 3848
   %125 = load i32, ptr %rbc408, align 8
   %shr409 = lshr i32 %125, 24
   %conv411 = trunc i32 %shr409 to i8
   br label %cond.end510
 
 sw.bb412:                                         ; preds = %entry
-  %ua = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 74
+  %ua = getelementptr inbounds i8, ptr %s, i64 3852
   %126 = load i32, ptr %ua, align 4
   %conv414 = trunc i32 %126 to i8
   br label %cond.end510
 
 sw.bb415:                                         ; preds = %entry
-  %ua416 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 74
+  %ua416 = getelementptr inbounds i8, ptr %s, i64 3852
   %127 = load i32, ptr %ua416, align 4
   %shr417 = lshr i32 %127, 8
   %conv419 = trunc i32 %shr417 to i8
   br label %cond.end510
 
 sw.bb420:                                         ; preds = %entry
-  %ua421 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 74
+  %ua421 = getelementptr inbounds i8, ptr %s, i64 3852
   %128 = load i32, ptr %ua421, align 4
   %shr422 = lshr i32 %128, 16
   %conv424 = trunc i32 %shr422 to i8
   br label %cond.end510
 
 sw.bb425:                                         ; preds = %entry
-  %ua426 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 74
+  %ua426 = getelementptr inbounds i8, ptr %s, i64 3852
   %129 = load i32, ptr %ua426, align 4
   %shr427 = lshr i32 %129, 24
   %conv429 = trunc i32 %shr427 to i8
   br label %cond.end510
 
 sw.bb430:                                         ; preds = %entry
-  %ia = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 75
+  %ia = getelementptr inbounds i8, ptr %s, i64 3856
   %130 = load i32, ptr %ia, align 16
   %conv432 = trunc i32 %130 to i8
   br label %cond.end510
 
 sw.bb433:                                         ; preds = %entry
-  %ia434 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 75
+  %ia434 = getelementptr inbounds i8, ptr %s, i64 3856
   %131 = load i32, ptr %ia434, align 16
   %shr435 = lshr i32 %131, 8
   %conv437 = trunc i32 %shr435 to i8
   br label %cond.end510
 
 sw.bb438:                                         ; preds = %entry
-  %ia439 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 75
+  %ia439 = getelementptr inbounds i8, ptr %s, i64 3856
   %132 = load i32, ptr %ia439, align 16
   %shr440 = lshr i32 %132, 16
   %conv442 = trunc i32 %shr440 to i8
   br label %cond.end510
 
 sw.bb443:                                         ; preds = %entry
-  %ia444 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 75
+  %ia444 = getelementptr inbounds i8, ptr %s, i64 3856
   %133 = load i32, ptr %ia444, align 16
   %shr445 = lshr i32 %133, 24
   %conv447 = trunc i32 %shr445 to i8
   br label %cond.end510
 
 sw.bb448:                                         ; preds = %entry
-  %sbc = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 76
+  %sbc = getelementptr inbounds i8, ptr %s, i64 3860
   %134 = load i32, ptr %sbc, align 4
   %conv450 = trunc i32 %134 to i8
   br label %cond.end510
 
 sw.bb451:                                         ; preds = %entry
-  %sbc452 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 76
+  %sbc452 = getelementptr inbounds i8, ptr %s, i64 3860
   %135 = load i32, ptr %sbc452, align 4
   %shr453 = lshr i32 %135, 8
   %conv455 = trunc i32 %shr453 to i8
   br label %cond.end510
 
 sw.bb456:                                         ; preds = %entry
-  %sbc457 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 76
+  %sbc457 = getelementptr inbounds i8, ptr %s, i64 3860
   %136 = load i32, ptr %sbc457, align 4
   %shr458 = lshr i32 %136, 16
   %conv460 = trunc i32 %shr458 to i8
   br label %cond.end510
 
 sw.bb461:                                         ; preds = %entry
-  %sbc462 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 76
+  %sbc462 = getelementptr inbounds i8, ptr %s, i64 3860
   %137 = load i32, ptr %sbc462, align 4
   %shr463 = lshr i32 %137, 24
   %conv465 = trunc i32 %shr463 to i8
   br label %cond.end510
 
 sw.bb466:                                         ; preds = %entry
-  %csbc = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 77
+  %csbc = getelementptr inbounds i8, ptr %s, i64 3864
   %138 = load i32, ptr %csbc, align 8
   %conv468 = trunc i32 %138 to i8
   br label %cond.end510
 
 sw.bb469:                                         ; preds = %entry
-  %csbc470 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 77
+  %csbc470 = getelementptr inbounds i8, ptr %s, i64 3864
   %139 = load i32, ptr %csbc470, align 8
   %shr471 = lshr i32 %139, 8
   %conv473 = trunc i32 %shr471 to i8
   br label %cond.end510
 
 sw.bb474:                                         ; preds = %entry
-  %csbc475 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 77
+  %csbc475 = getelementptr inbounds i8, ptr %s, i64 3864
   %140 = load i32, ptr %csbc475, align 8
   %shr476 = lshr i32 %140, 16
   %conv478 = trunc i32 %shr476 to i8
   br label %cond.end510
 
 sw.bb479:                                         ; preds = %entry
-  %csbc480 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 77
+  %csbc480 = getelementptr inbounds i8, ptr %s, i64 3864
   %141 = load i32, ptr %csbc480, align 8
   %shr481 = lshr i32 %141, 24
   %conv483 = trunc i32 %shr481 to i8
@@ -1774,8 +1734,9 @@ sw.bb484:                                         ; preds = %sw.caserange
   %shr485 = lshr i32 %sub, 2
   %and486 = shl nuw nsw i32 %offset, 3
   %mul = and i32 %and486, 24
+  %scratch487 = getelementptr inbounds i8, ptr %s, i64 3868
   %idxprom = zext nneg i32 %shr485 to i64
-  %arrayidx488 = getelementptr %struct.LSIState, ptr %s, i64 0, i32 78, i64 %idxprom
+  %arrayidx488 = getelementptr [18 x i32], ptr %scratch487, i64 0, i64 %idxprom
   %142 = load i32, ptr %arrayidx488, align 4
   %shr489 = lshr i32 %142, %mul
   %conv491 = trunc i32 %shr489 to i8
@@ -1846,7 +1807,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %152 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %153 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %ret.0153 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.123, i32 noundef %call10.i.i, i64 noundef %152, i64 noundef %153, ptr noundef %cond511, i32 noundef %offset, i32 noundef %conv11.i.i) #11
@@ -1871,24 +1832,24 @@ define internal fastcc void @lsi_update_irq(ptr noundef %s) unnamed_addr #0 {
 entry:
   %_now.i.i33 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %dstat = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 25
+  %dstat = getelementptr inbounds i8, ptr %s, i64 3763
   %0 = load i8, ptr %dstat, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %dien = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 26
+  %dien = getelementptr inbounds i8, ptr %s, i64 3764
   %1 = load i8, ptr %dien, align 4
   %and28 = and i8 %1, %0
   %tobool3.not = icmp ne i8 %and28, 0
   %spec.select = zext i1 %tobool3.not to i32
-  %istat0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 22
+  %istat0 = getelementptr inbounds i8, ptr %s, i64 3760
   %2 = load i8, ptr %istat0, align 16
   %3 = or i8 %2, 1
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %istat07 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 22
+  %istat07 = getelementptr inbounds i8, ptr %s, i64 3760
   %4 = load i8, ptr %istat07, align 16
   %5 = and i8 %4, -2
   br label %if.end11
@@ -1896,28 +1857,28 @@ if.else:                                          ; preds = %entry
 if.end11:                                         ; preds = %if.else, %if.then
   %6 = phi i8 [ %3, %if.then ], [ %5, %if.else ]
   %level.1 = phi i32 [ %spec.select, %if.then ], [ 0, %if.else ]
-  %sist0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 27
+  %sist0 = getelementptr inbounds i8, ptr %s, i64 3765
   %7 = load i8, ptr %sist0, align 1
   %tobool13.not = icmp eq i8 %7, 0
   br i1 %tobool13.not, label %lor.lhs.false, label %if.then16
 
 lor.lhs.false:                                    ; preds = %if.end11
-  %sist1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 28
+  %sist1 = getelementptr inbounds i8, ptr %s, i64 3766
   %8 = load i8, ptr %sist1, align 2
   %tobool15.not = icmp eq i8 %8, 0
   br i1 %tobool15.not, label %if.else34, label %if.then16
 
 if.then16:                                        ; preds = %lor.lhs.false, %if.end11
-  %sien0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 29
+  %sien0 = getelementptr inbounds i8, ptr %s, i64 3767
   %9 = load i8, ptr %sien0, align 1
   %and2029 = and i8 %9, %7
   %tobool21.not = icmp eq i8 %and2029, 0
   br i1 %tobool21.not, label %lor.lhs.false22, label %if.then28
 
 lor.lhs.false22:                                  ; preds = %if.then16
-  %sist123 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 28
+  %sist123 = getelementptr inbounds i8, ptr %s, i64 3766
   %10 = load i8, ptr %sist123, align 2
-  %sien1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 30
+  %sien1 = getelementptr inbounds i8, ptr %s, i64 3768
   %11 = load i8, ptr %sien1, align 8
   %and2630 = and i8 %11, %10
   %tobool27.not = icmp eq i8 %and2630, 0
@@ -1928,13 +1889,13 @@ if.then28:                                        ; preds = %lor.lhs.false22, %i
 
 if.end29:                                         ; preds = %if.then28, %lor.lhs.false22
   %level.2 = phi i32 [ 1, %if.then28 ], [ %level.1, %lor.lhs.false22 ]
-  %istat030 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 22
+  %istat030 = getelementptr inbounds i8, ptr %s, i64 3760
   %12 = or i8 %6, 2
   store i8 %12, ptr %istat030, align 16
   br label %if.end39
 
 if.else34:                                        ; preds = %lor.lhs.false
-  %istat035 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 22
+  %istat035 = getelementptr inbounds i8, ptr %s, i64 3760
   %13 = and i8 %6, -3
   store i8 %13, ptr %istat035, align 16
   br label %if.end39
@@ -1950,7 +1911,7 @@ if.end39:                                         ; preds = %if.else34, %if.end2
   br i1 %cmp.not, label %if.end51, label %if.then47
 
 if.then47:                                        ; preds = %if.end39
-  %sist149 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 28
+  %sist149 = getelementptr inbounds i8, ptr %s, i64 3766
   %17 = load i8, ptr %sist149, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %18 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1976,7 +1937,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %23 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %24 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %0 to i32
   %conv12.i.i = zext i8 %17 to i32
@@ -1998,7 +1959,7 @@ trace_lsi_update_irq.exit:                        ; preds = %if.then47, %land.lh
 
 if.end51:                                         ; preds = %trace_lsi_update_irq.exit, %if.end39
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %ext_irq.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 1
+  %ext_irq.i = getelementptr inbounds i8, ptr %s, i64 2608
   %25 = load ptr, ptr %ext_irq.i, align 16
   %tobool.not.i = icmp eq ptr %25, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -2012,7 +1973,7 @@ if.else.i:                                        ; preds = %if.end51
   br label %lsi_set_irq.exit
 
 lsi_set_irq.exit:                                 ; preds = %if.then.i, %if.else.i
-  %current = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 17
+  %current = getelementptr inbounds i8, ptr %s, i64 3736
   %26 = load ptr, ptr %current, align 8
   %tobool52 = icmp ne ptr %26, null
   %tobool53 = icmp ne i32 %spec.select31, 0
@@ -2020,21 +1981,21 @@ lsi_set_irq.exit:                                 ; preds = %if.then.i, %if.else
   br i1 %or.cond, label %if.end65, label %land.lhs.true54
 
 land.lhs.true54:                                  ; preds = %lsi_set_irq.exit
-  %sien0.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 29
+  %sien0.i = getelementptr inbounds i8, ptr %s, i64 3767
   %27 = load i8, ptr %sien0.i, align 1
   %28 = and i8 %27, 16
   %tobool.not.i32 = icmp eq i8 %28, 0
   br i1 %tobool.not.i32, label %if.end65, label %lsi_irq_on_rsl.exit
 
 lsi_irq_on_rsl.exit:                              ; preds = %land.lhs.true54
-  %scid.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 50
+  %scid.i = getelementptr inbounds i8, ptr %s, i64 3796
   %29 = load i8, ptr %scid.i, align 4
   %30 = and i8 %29, 96
   %tobool3.i.not = icmp eq i8 %30, 0
   br i1 %tobool3.i.not, label %if.end65, label %land.lhs.true56
 
 land.lhs.true56:                                  ; preds = %lsi_irq_on_rsl.exit
-  %scntl1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 45
+  %scntl1 = getelementptr inbounds i8, ptr %s, i64 3791
   %31 = load i8, ptr %scntl1, align 1
   %32 = and i8 %31, 16
   %tobool59.not = icmp eq i8 %32, 0
@@ -2065,7 +2026,7 @@ if.then8.i.i42:                                   ; preds = %if.then.i.i40
   %call9.i.i43 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i33, ptr noundef null) #11
   %call10.i.i44 = tail call i32 @qemu_get_thread_id() #11
   %38 = load i64, ptr %_now.i.i33, align 8
-  %tv_usec.i.i45 = getelementptr inbounds %struct.timeval, ptr %_now.i.i33, i64 0, i32 1
+  %tv_usec.i.i45 = getelementptr inbounds i8, ptr %_now.i.i33, i64 8
   %39 = load i64, ptr %tv_usec.i.i45, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i44, i64 noundef %38, i64 noundef %39) #11
   br label %trace_lsi_update_irq_disconnected.exit
@@ -2076,20 +2037,20 @@ if.else.i.i46:                                    ; preds = %if.then.i.i40
 
 trace_lsi_update_irq_disconnected.exit:           ; preds = %if.then60, %land.lhs.true5.i.i37, %if.then8.i.i42, %if.else.i.i46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i33)
-  %queue.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 16
+  %queue.i = getelementptr inbounds i8, ptr %s, i64 3720
   %p.04.i = load ptr, ptr %queue.i, align 8
   %tobool.not5.i = icmp eq ptr %p.04.i, null
   br i1 %tobool.not5.i, label %if.end65, label %for.body.i
 
 for.body.i:                                       ; preds = %trace_lsi_update_irq_disconnected.exit, %for.inc.i
   %p.06.i = phi ptr [ %p.0.i, %for.inc.i ], [ %p.04.i, %trace_lsi_update_irq_disconnected.exit ]
-  %pending.i = getelementptr inbounds %struct.lsi_request, ptr %p.06.i, i64 0, i32 4
+  %pending.i = getelementptr inbounds i8, ptr %p.06.i, i64 24
   %40 = load i32, ptr %pending.i, align 8
   %tobool1.not.i = icmp eq i32 %40, 0
   br i1 %tobool1.not.i, label %for.inc.i, label %if.then63
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct.lsi_request, ptr %p.06.i, i64 0, i32 6
+  %next.i = getelementptr inbounds i8, ptr %p.06.i, i64 32
   %p.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i47 = icmp eq ptr %p.0.i, null
   br i1 %tobool.not.i47, label %if.end65, label %for.body.i, !llvm.loop !5
@@ -2111,7 +2072,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 define internal fastcc void @lsi_reselect(ptr noundef %s, ptr noundef %p) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %current = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 17
+  %current = getelementptr inbounds i8, ptr %s, i64 3736
   %0 = load ptr, ptr %current, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.body, label %if.else
@@ -2121,28 +2082,28 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body:                                          ; preds = %entry
-  %next = getelementptr inbounds %struct.lsi_request, ptr %p, i64 0, i32 6
+  %next = getelementptr inbounds i8, ptr %p, i64 32
   %1 = load ptr, ptr %next, align 8
   %cmp1.not = icmp eq ptr %1, null
-  %tql_prev9 = getelementptr inbounds %struct.lsi_request, ptr %p, i64 0, i32 6, i32 0, i32 1
+  %tql_prev9 = getelementptr inbounds i8, ptr %p, i64 40
   %2 = load ptr, ptr %tql_prev9, align 8
-  %tql_prev10 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 16, i32 0, i32 1
-  %tql_prev6 = getelementptr inbounds %struct.lsi_request, ptr %1, i64 0, i32 6, i32 0, i32 1
+  %tql_prev10 = getelementptr inbounds i8, ptr %s, i64 3728
+  %tql_prev6 = getelementptr inbounds i8, ptr %1, i64 40
   %tql_prev10.sink = select i1 %cmp1.not, ptr %tql_prev10, ptr %tql_prev6
   store ptr %2, ptr %tql_prev10.sink, align 8
   %3 = load ptr, ptr %next, align 8
   store ptr %3, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   store ptr %p, ptr %current, align 8
-  %tag = getelementptr inbounds %struct.lsi_request, ptr %p, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load i32, ptr %tag, align 8
   %shr = lshr i32 %4, 8
   %and = and i32 %shr, 15
   %5 = trunc i32 %and to i8
   %conv = or disjoint i8 %5, -128
-  %ssid = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 54
+  %ssid = getelementptr inbounds i8, ptr %s, i64 3800
   store i8 %conv, ptr %ssid, align 8
-  %dcntl = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 43
+  %dcntl = getelementptr inbounds i8, ptr %s, i64 3789
   %6 = load i8, ptr %dcntl, align 1
   %7 = and i8 %6, 1
   %tobool.not = icmp eq i8 %7, 0
@@ -2152,7 +2113,7 @@ if.then23:                                        ; preds = %do.body
   %and24 = and i32 %shr, 7
   %shl = shl nuw nsw i32 1, %and24
   %conv25 = trunc i32 %shl to i8
-  %sfbr = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 55
+  %sfbr = getelementptr inbounds i8, ptr %s, i64 3801
   store i8 %conv25, ptr %sfbr, align 1
   br label %if.end26
 
@@ -2181,7 +2142,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %and) #11
   br label %trace_lsi_reselect.exit
@@ -2192,32 +2153,32 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_lsi_reselect.exit:                          ; preds = %if.end26, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %scntl1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 45
+  %scntl1 = getelementptr inbounds i8, ptr %s, i64 3791
   %15 = load i8, ptr %scntl1, align 1
   %16 = or i8 %15, 16
   store i8 %16, ptr %scntl1, align 1
-  %sbcl.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 56
+  %sbcl.i = getelementptr inbounds i8, ptr %s, i64 3802
   %17 = load i8, ptr %sbcl.i, align 2
   %conv5.i = or i8 %17, -121
   store i8 %conv5.i, ptr %sbcl.i, align 2
-  %sstat1.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 49
+  %sstat1.i = getelementptr inbounds i8, ptr %s, i64 3795
   %18 = load i8, ptr %sstat1.i, align 1
   %conv9.i = or i8 %18, 7
   store i8 %conv9.i, ptr %sstat1.i, align 1
-  %out = getelementptr inbounds %struct.lsi_request, ptr %p, i64 0, i32 5
+  %out = getelementptr inbounds i8, ptr %p, i64 28
   %19 = load i32, ptr %out, align 4
   %tobool30.not = icmp eq i32 %19, 0
   %cond = select i1 %tobool30.not, i32 3, i32 2
-  %msg_action = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 8
+  %msg_action = getelementptr inbounds i8, ptr %s, i64 3536
   store i32 %cond, ptr %msg_action, align 16
-  %pending = getelementptr inbounds %struct.lsi_request, ptr %p, i64 0, i32 4
+  %pending = getelementptr inbounds i8, ptr %p, i64 24
   %20 = load i32, ptr %pending, align 8
   %21 = load ptr, ptr %current, align 8
-  %dma_len = getelementptr inbounds %struct.lsi_request, ptr %21, i64 0, i32 2
+  %dma_len = getelementptr inbounds i8, ptr %21, i64 12
   store i32 %20, ptr %dma_len, align 4
   tail call fastcc void @lsi_add_msg_byte(ptr noundef nonnull %s, i8 noundef zeroext -128)
   %22 = load ptr, ptr %current, align 8
-  %tag33 = getelementptr inbounds %struct.lsi_request, ptr %22, i64 0, i32 1
+  %tag33 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i32, ptr %tag33, align 8
   %and34 = and i32 %23, 65536
   %tobool35.not = icmp eq i32 %and34, 0
@@ -2231,14 +2192,14 @@ if.then36:                                        ; preds = %trace_lsi_reselect.
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then36, %trace_lsi_reselect.exit
-  %sien0.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 29
+  %sien0.i = getelementptr inbounds i8, ptr %s, i64 3767
   %25 = load i8, ptr %sien0.i, align 1
   %26 = and i8 %25, 16
   %tobool.not.i = icmp eq i8 %26, 0
   br i1 %tobool.not.i, label %if.end43, label %lsi_irq_on_rsl.exit
 
 lsi_irq_on_rsl.exit:                              ; preds = %if.end40
-  %scid.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 50
+  %scid.i = getelementptr inbounds i8, ptr %s, i64 3796
   %27 = load i8, ptr %scid.i, align 4
   %28 = and i8 %27, 96
   %tobool3.i.not = icmp eq i8 %28, 0
@@ -2266,7 +2227,7 @@ define internal fastcc void @lsi_add_msg_byte(ptr nocapture noundef %s, i8 nound
 entry:
   %_now.i.i4 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %msg_len = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 9
+  %msg_len = getelementptr inbounds i8, ptr %s, i64 3540
   %0 = load i32, ptr %msg_len, align 4
   %cmp = icmp sgt i32 %0, 7
   br i1 %cmp, label %if.then, label %if.else
@@ -2296,7 +2257,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #11
   br label %trace_lsi_add_msg_byte_error.exit
@@ -2334,7 +2295,7 @@ if.then8.i.i13:                                   ; preds = %if.then.i.i11
   %call9.i.i14 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i4, ptr noundef null) #11
   %call10.i.i15 = tail call i32 @qemu_get_thread_id() #11
   %13 = load i64, ptr %_now.i.i4, align 8
-  %tv_usec.i.i16 = getelementptr inbounds %struct.timeval, ptr %_now.i.i4, i64 0, i32 1
+  %tv_usec.i.i16 = getelementptr inbounds i8, ptr %_now.i.i4, i64 8
   %14 = load i64, ptr %tv_usec.i.i16, align 8
   %conv11.i.i = zext i8 %data to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i15, i64 noundef %13, i64 noundef %14, i32 noundef %conv11.i.i) #11
@@ -2347,11 +2308,12 @@ if.else.i.i17:                                    ; preds = %if.then.i.i11
 
 trace_lsi_add_msg_byte.exit:                      ; preds = %if.else, %land.lhs.true5.i.i8, %if.then8.i.i13, %if.else.i.i17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i4)
+  %msg = getelementptr inbounds i8, ptr %s, i64 3544
   %15 = load i32, ptr %msg_len, align 4
   %inc = add i32 %15, 1
   store i32 %inc, ptr %msg_len, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx = getelementptr %struct.LSIState, ptr %s, i64 0, i32 10, i64 %idxprom
+  %arrayidx = getelementptr [8 x i8], ptr %msg, i64 0, i64 %idxprom
   store i8 %data, ptr %arrayidx, align 1
   br label %if.end
 
@@ -2365,9 +2327,9 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %conv = trunc i32 %stat1 to i8
   %conv1 = trunc i32 %stat0 to i8
-  %sist1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 28
+  %sist1 = getelementptr inbounds i8, ptr %s, i64 3766
   %0 = load i8, ptr %sist1, align 2
-  %sist0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 27
+  %sist0 = getelementptr inbounds i8, ptr %s, i64 3765
   %1 = load i8, ptr %sist0, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2393,7 +2355,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %stat1, 255
   %conv12.i.i = and i32 %stat0, 255
@@ -2418,7 +2380,7 @@ trace_lsi_script_scsi_interrupt.exit:             ; preds = %entry, %land.lhs.tr
   %10 = load i8, ptr %sist1, align 2
   %conv8 = or i8 %10, %conv
   store i8 %conv8, ptr %sist1, align 2
-  %sien0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 29
+  %sien0 = getelementptr inbounds i8, ptr %s, i64 3767
   %11 = load i8, ptr %sien0, align 1
   %12 = or i8 %11, -113
   %and1513 = and i8 %12, %conv4
@@ -2426,7 +2388,7 @@ trace_lsi_script_scsi_interrupt.exit:             ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %trace_lsi_script_scsi_interrupt.exit
-  %sien1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 30
+  %sien1 = getelementptr inbounds i8, ptr %s, i64 3768
   %13 = load i8, ptr %sien1, align 8
   %14 = and i8 %13, 3
   %15 = or disjoint i8 %14, -8
@@ -2435,7 +2397,7 @@ lor.lhs.false:                                    ; preds = %trace_lsi_script_sc
   br i1 %tobool19.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %trace_lsi_script_scsi_interrupt.exit
-  %istat1.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 23
+  %istat1.i = getelementptr inbounds i8, ptr %s, i64 3761
   %16 = load i8, ptr %istat1.i, align 1
   %17 = and i8 %16, -3
   store i8 %17, ptr %istat1.i, align 1
@@ -2485,7 +2447,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %val to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %cond, i32 noundef %offset, i32 noundef %conv11.i.i) #11
@@ -2624,7 +2586,7 @@ trace_lsi_reg_write.exit:                         ; preds = %cond.end, %land.lhs
   ]
 
 sw.bb:                                            ; preds = %trace_lsi_reg_write.exit
-  %scntl0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 44
+  %scntl0 = getelementptr inbounds i8, ptr %s, i64 3790
   store i8 %val, ptr %scntl0, align 2
   %8 = and i8 %val, 32
   %tobool.not = icmp eq i8 %8, 0
@@ -2643,7 +2605,7 @@ if.then6:                                         ; preds = %do.body
 sw.bb8:                                           ; preds = %trace_lsi_reg_write.exit
   %conv9 = zext i8 %val to i32
   %and10 = and i8 %val, -2
-  %scntl1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 45
+  %scntl1 = getelementptr inbounds i8, ptr %s, i64 3791
   store i8 %and10, ptr %scntl1, align 1
   %and13 = and i32 %conv9, 2
   %tobool14.not = icmp eq i32 %and13, 0
@@ -2662,7 +2624,7 @@ if.then24:                                        ; preds = %do.body16
 if.end27:                                         ; preds = %if.then24, %do.body16, %sw.bb8
   %and29 = and i32 %conv9, 8
   %tobool30.not = icmp eq i32 %and29, 0
-  %sstat041 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 48
+  %sstat041 = getelementptr inbounds i8, ptr %s, i64 3794
   %11 = load i8, ptr %sstat041, align 2
   br i1 %tobool30.not, label %if.else, label %if.then31
 
@@ -2672,7 +2634,7 @@ if.then31:                                        ; preds = %if.end27
   br i1 %tobool34.not, label %if.then35, label %sw.epilog
 
 if.then35:                                        ; preds = %if.then31
-  %bus = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 12
+  %bus = getelementptr inbounds i8, ptr %s, i64 3560
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.4, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #11
   tail call void @bus_cold_reset(ptr noundef %call.i) #11
   %13 = load i8, ptr %sstat041, align 2
@@ -2688,27 +2650,27 @@ if.else:                                          ; preds = %if.end27
 
 sw.bb46:                                          ; preds = %trace_lsi_reg_write.exit
   %16 = and i8 %val, -10
-  %scntl2 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 46
+  %scntl2 = getelementptr inbounds i8, ptr %s, i64 3792
   store i8 %16, ptr %scntl2, align 16
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %trace_lsi_reg_write.exit
-  %scntl3 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 47
+  %scntl3 = getelementptr inbounds i8, ptr %s, i64 3793
   store i8 %val, ptr %scntl3, align 1
   br label %sw.epilog
 
 sw.bb51:                                          ; preds = %trace_lsi_reg_write.exit
-  %scid = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 50
+  %scid = getelementptr inbounds i8, ptr %s, i64 3796
   store i8 %val, ptr %scid, align 4
   br label %sw.epilog
 
 sw.bb52:                                          ; preds = %trace_lsi_reg_write.exit
-  %sxfer = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 51
+  %sxfer = getelementptr inbounds i8, ptr %s, i64 3797
   store i8 %val, ptr %sxfer, align 1
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %trace_lsi_reg_write.exit
-  %ssid = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 54
+  %ssid = getelementptr inbounds i8, ptr %s, i64 3800
   %17 = load i8, ptr %ssid, align 8
   %tobool56.not = icmp sgt i8 %17, -1
   br i1 %tobool56.not, label %if.end76, label %land.lhs.true
@@ -2731,17 +2693,17 @@ if.then73:                                        ; preds = %do.body65
 
 if.end76:                                         ; preds = %if.then73, %do.body65, %land.lhs.true, %sw.bb53
   %21 = and i8 %val, 15
-  %sdid = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 53
+  %sdid = getelementptr inbounds i8, ptr %s, i64 3799
   store i8 %21, ptr %sdid, align 1
   br label %sw.epilog
 
 sw.bb81:                                          ; preds = %trace_lsi_reg_write.exit
-  %sfbr = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 55
+  %sfbr = getelementptr inbounds i8, ptr %s, i64 3801
   store i8 %val, ptr %sfbr, align 1
   br label %sw.epilog
 
 sw.bb84:                                          ; preds = %trace_lsi_reg_write.exit
-  %dsa = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 18
+  %dsa = getelementptr inbounds i8, ptr %s, i64 3744
   %22 = load i32, ptr %dsa, align 16
   %and85 = and i32 %22, -256
   %conv86 = zext i8 %val to i32
@@ -2750,7 +2712,7 @@ sw.bb84:                                          ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb89:                                          ; preds = %trace_lsi_reg_write.exit
-  %dsa90 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 18
+  %dsa90 = getelementptr inbounds i8, ptr %s, i64 3744
   %23 = load i32, ptr %dsa90, align 16
   %and91 = and i32 %23, -65281
   %conv92 = zext i8 %val to i32
@@ -2760,7 +2722,7 @@ sw.bb89:                                          ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb95:                                          ; preds = %trace_lsi_reg_write.exit
-  %dsa96 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 18
+  %dsa96 = getelementptr inbounds i8, ptr %s, i64 3744
   %24 = load i32, ptr %dsa96, align 16
   %and97 = and i32 %24, -16711681
   %conv98 = zext i8 %val to i32
@@ -2770,7 +2732,7 @@ sw.bb95:                                          ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb102:                                         ; preds = %trace_lsi_reg_write.exit
-  %dsa103 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 18
+  %dsa103 = getelementptr inbounds i8, ptr %s, i64 3744
   %25 = load i32, ptr %dsa103, align 16
   %and104 = and i32 %25, 16777215
   %conv105 = zext i8 %val to i32
@@ -2780,7 +2742,7 @@ sw.bb102:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb109:                                         ; preds = %trace_lsi_reg_write.exit
-  %istat0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 22
+  %istat0 = getelementptr inbounds i8, ptr %s, i64 3760
   %26 = load i8, ptr %istat0, align 16
   %27 = and i8 %26, 15
   %conv112 = zext i8 %val to i32
@@ -2807,7 +2769,7 @@ if.then125:                                       ; preds = %if.end121
   br label %if.end130
 
 if.end130:                                        ; preds = %if.then125, %if.end121
-  %waiting = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 11
+  %waiting = getelementptr inbounds i8, ptr %s, i64 3552
   %30 = load i32, ptr %waiting, align 16
   %cmp131 = icmp ne i32 %30, 1
   %and135 = and i32 %conv112, 32
@@ -2818,9 +2780,9 @@ if.end130:                                        ; preds = %if.then125, %if.end
 if.then137:                                       ; preds = %if.end130
   tail call fastcc void @trace_lsi_awoken()
   store i32 0, ptr %waiting, align 16
-  %dnad = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 20
+  %dnad = getelementptr inbounds i8, ptr %s, i64 3752
   %31 = load i32, ptr %dnad, align 8
-  %dsp = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 40
+  %dsp = getelementptr inbounds i8, ptr %s, i64 3780
   store i32 %31, ptr %dsp, align 4
   tail call fastcc void @lsi_execute_script(ptr noundef nonnull %s)
   br label %if.end139
@@ -2836,29 +2798,29 @@ if.then143:                                       ; preds = %if.end139
   br label %sw.epilog
 
 sw.bb146:                                         ; preds = %trace_lsi_reg_write.exit
-  %mbox0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 31
+  %mbox0 = getelementptr inbounds i8, ptr %s, i64 3769
   store i8 %val, ptr %mbox0, align 1
   br label %sw.epilog
 
 sw.bb147:                                         ; preds = %trace_lsi_reg_write.exit
-  %mbox1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 32
+  %mbox1 = getelementptr inbounds i8, ptr %s, i64 3770
   store i8 %val, ptr %mbox1, align 2
   br label %sw.epilog
 
 sw.bb149:                                         ; preds = %trace_lsi_reg_write.exit
   %32 = and i8 %val, 8
-  %ctest2 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 34
+  %ctest2 = getelementptr inbounds i8, ptr %s, i64 3772
   store i8 %32, ptr %ctest2, align 4
   br label %sw.epilog
 
 sw.bb153:                                         ; preds = %trace_lsi_reg_write.exit
   %33 = and i8 %val, 15
-  %ctest3 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 35
+  %ctest3 = getelementptr inbounds i8, ptr %s, i64 3773
   store i8 %33, ptr %ctest3, align 1
   br label %sw.epilog
 
 sw.bb157:                                         ; preds = %trace_lsi_reg_write.exit
-  %temp = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 19
+  %temp = getelementptr inbounds i8, ptr %s, i64 3748
   %34 = load i32, ptr %temp, align 4
   %and158 = and i32 %34, -256
   %conv159 = zext i8 %val to i32
@@ -2867,7 +2829,7 @@ sw.bb157:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb162:                                         ; preds = %trace_lsi_reg_write.exit
-  %temp163 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 19
+  %temp163 = getelementptr inbounds i8, ptr %s, i64 3748
   %35 = load i32, ptr %temp163, align 4
   %and164 = and i32 %35, -65281
   %conv165 = zext i8 %val to i32
@@ -2877,7 +2839,7 @@ sw.bb162:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb169:                                         ; preds = %trace_lsi_reg_write.exit
-  %temp170 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 19
+  %temp170 = getelementptr inbounds i8, ptr %s, i64 3748
   %36 = load i32, ptr %temp170, align 4
   %and171 = and i32 %36, -16711681
   %conv172 = zext i8 %val to i32
@@ -2887,7 +2849,7 @@ sw.bb169:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb176:                                         ; preds = %trace_lsi_reg_write.exit
-  %temp177 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 19
+  %temp177 = getelementptr inbounds i8, ptr %s, i64 3748
   %37 = load i32, ptr %temp177, align 4
   %and178 = and i32 %37, 16777215
   %conv179 = zext i8 %val to i32
@@ -2913,7 +2875,7 @@ if.then196:                                       ; preds = %do.body188
   br label %if.end200
 
 if.end200:                                        ; preds = %if.then196, %do.body188, %sw.bb183
-  %ctest4 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 36
+  %ctest4 = getelementptr inbounds i8, ptr %s, i64 3774
   store i8 %val, ptr %ctest4, align 2
   br label %sw.epilog
 
@@ -2932,12 +2894,12 @@ if.then214:                                       ; preds = %do.body206
   br label %if.end217
 
 if.end217:                                        ; preds = %if.then214, %do.body206, %sw.bb201
-  %ctest5 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 37
+  %ctest5 = getelementptr inbounds i8, ptr %s, i64 3775
   store i8 %val, ptr %ctest5, align 1
   br label %sw.epilog
 
 sw.bb218:                                         ; preds = %trace_lsi_reg_write.exit
-  %dbc = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 21
+  %dbc = getelementptr inbounds i8, ptr %s, i64 3756
   %40 = load i32, ptr %dbc, align 4
   %and219 = and i32 %40, -256
   %conv220 = zext i8 %val to i32
@@ -2946,7 +2908,7 @@ sw.bb218:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb223:                                         ; preds = %trace_lsi_reg_write.exit
-  %dbc224 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 21
+  %dbc224 = getelementptr inbounds i8, ptr %s, i64 3756
   %41 = load i32, ptr %dbc224, align 4
   %and225 = and i32 %41, -65281
   %conv226 = zext i8 %val to i32
@@ -2956,7 +2918,7 @@ sw.bb223:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb230:                                         ; preds = %trace_lsi_reg_write.exit
-  %dbc231 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 21
+  %dbc231 = getelementptr inbounds i8, ptr %s, i64 3756
   %42 = load i32, ptr %dbc231, align 4
   %and232 = and i32 %42, -16711681
   %conv233 = zext i8 %val to i32
@@ -2966,7 +2928,7 @@ sw.bb230:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb237:                                         ; preds = %trace_lsi_reg_write.exit
-  %dnad238 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 20
+  %dnad238 = getelementptr inbounds i8, ptr %s, i64 3752
   %43 = load i32, ptr %dnad238, align 8
   %and239 = and i32 %43, -256
   %conv240 = zext i8 %val to i32
@@ -2975,7 +2937,7 @@ sw.bb237:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb243:                                         ; preds = %trace_lsi_reg_write.exit
-  %dnad244 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 20
+  %dnad244 = getelementptr inbounds i8, ptr %s, i64 3752
   %44 = load i32, ptr %dnad244, align 8
   %and245 = and i32 %44, -65281
   %conv246 = zext i8 %val to i32
@@ -2985,7 +2947,7 @@ sw.bb243:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb250:                                         ; preds = %trace_lsi_reg_write.exit
-  %dnad251 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 20
+  %dnad251 = getelementptr inbounds i8, ptr %s, i64 3752
   %45 = load i32, ptr %dnad251, align 8
   %and252 = and i32 %45, -16711681
   %conv253 = zext i8 %val to i32
@@ -2995,7 +2957,7 @@ sw.bb250:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb257:                                         ; preds = %trace_lsi_reg_write.exit
-  %dnad258 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 20
+  %dnad258 = getelementptr inbounds i8, ptr %s, i64 3752
   %46 = load i32, ptr %dnad258, align 8
   %and259 = and i32 %46, 16777215
   %conv260 = zext i8 %val to i32
@@ -3005,7 +2967,7 @@ sw.bb257:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb264:                                         ; preds = %trace_lsi_reg_write.exit
-  %dsp265 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 40
+  %dsp265 = getelementptr inbounds i8, ptr %s, i64 3780
   %47 = load i32, ptr %dsp265, align 4
   %and266 = and i32 %47, -256
   %conv267 = zext i8 %val to i32
@@ -3014,7 +2976,7 @@ sw.bb264:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb270:                                         ; preds = %trace_lsi_reg_write.exit
-  %dsp271 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 40
+  %dsp271 = getelementptr inbounds i8, ptr %s, i64 3780
   %48 = load i32, ptr %dsp271, align 4
   %and272 = and i32 %48, -65281
   %conv273 = zext i8 %val to i32
@@ -3024,7 +2986,7 @@ sw.bb270:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb277:                                         ; preds = %trace_lsi_reg_write.exit
-  %dsp278 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 40
+  %dsp278 = getelementptr inbounds i8, ptr %s, i64 3780
   %49 = load i32, ptr %dsp278, align 4
   %and279 = and i32 %49, -16711681
   %conv280 = zext i8 %val to i32
@@ -3034,21 +2996,21 @@ sw.bb277:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb284:                                         ; preds = %trace_lsi_reg_write.exit
-  %dsp285 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 40
+  %dsp285 = getelementptr inbounds i8, ptr %s, i64 3780
   %50 = load i32, ptr %dsp285, align 4
   %and286 = and i32 %50, 16777215
   %conv287 = zext i8 %val to i32
   %shl288 = shl nuw i32 %conv287, 24
   %or290 = or disjoint i32 %and286, %shl288
   store i32 %or290, ptr %dsp285, align 4
-  %dmode = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 42
+  %dmode = getelementptr inbounds i8, ptr %s, i64 3788
   %51 = load i8, ptr %dmode, align 4
   %52 = and i8 %51, 1
   %cmp293 = icmp eq i8 %52, 0
   br i1 %cmp293, label %land.lhs.true295, label %sw.epilog
 
 land.lhs.true295:                                 ; preds = %sw.bb284
-  %istat1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 23
+  %istat1 = getelementptr inbounds i8, ptr %s, i64 3761
   %53 = load i8, ptr %istat1, align 1
   %54 = and i8 %53, 2
   %cmp298 = icmp eq i8 %54, 0
@@ -3059,7 +3021,7 @@ if.then300:                                       ; preds = %land.lhs.true295
   br label %sw.epilog
 
 sw.bb302:                                         ; preds = %trace_lsi_reg_write.exit
-  %dsps = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 41
+  %dsps = getelementptr inbounds i8, ptr %s, i64 3784
   %55 = load i32, ptr %dsps, align 8
   %and303 = and i32 %55, -256
   %conv304 = zext i8 %val to i32
@@ -3068,7 +3030,7 @@ sw.bb302:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb307:                                         ; preds = %trace_lsi_reg_write.exit
-  %dsps308 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 41
+  %dsps308 = getelementptr inbounds i8, ptr %s, i64 3784
   %56 = load i32, ptr %dsps308, align 8
   %and309 = and i32 %56, -65281
   %conv310 = zext i8 %val to i32
@@ -3078,7 +3040,7 @@ sw.bb307:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb314:                                         ; preds = %trace_lsi_reg_write.exit
-  %dsps315 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 41
+  %dsps315 = getelementptr inbounds i8, ptr %s, i64 3784
   %57 = load i32, ptr %dsps315, align 8
   %and316 = and i32 %57, -16711681
   %conv317 = zext i8 %val to i32
@@ -3088,7 +3050,7 @@ sw.bb314:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb321:                                         ; preds = %trace_lsi_reg_write.exit
-  %dsps322 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 41
+  %dsps322 = getelementptr inbounds i8, ptr %s, i64 3784
   %58 = load i32, ptr %dsps322, align 8
   %and323 = and i32 %58, 16777215
   %conv324 = zext i8 %val to i32
@@ -3098,7 +3060,7 @@ sw.bb321:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb328:                                         ; preds = %trace_lsi_reg_write.exit
-  %scratch = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 78
+  %scratch = getelementptr inbounds i8, ptr %s, i64 3868
   %59 = load i32, ptr %scratch, align 4
   %and330 = and i32 %59, -256
   %conv331 = zext i8 %val to i32
@@ -3107,7 +3069,7 @@ sw.bb328:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb335:                                         ; preds = %trace_lsi_reg_write.exit
-  %scratch336 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 78
+  %scratch336 = getelementptr inbounds i8, ptr %s, i64 3868
   %60 = load i32, ptr %scratch336, align 4
   %and338 = and i32 %60, -65281
   %conv339 = zext i8 %val to i32
@@ -3117,7 +3079,7 @@ sw.bb335:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb344:                                         ; preds = %trace_lsi_reg_write.exit
-  %scratch345 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 78
+  %scratch345 = getelementptr inbounds i8, ptr %s, i64 3868
   %61 = load i32, ptr %scratch345, align 4
   %and347 = and i32 %61, -16711681
   %conv348 = zext i8 %val to i32
@@ -3127,7 +3089,7 @@ sw.bb344:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb353:                                         ; preds = %trace_lsi_reg_write.exit
-  %scratch354 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 78
+  %scratch354 = getelementptr inbounds i8, ptr %s, i64 3868
   %62 = load i32, ptr %scratch354, align 4
   %and356 = and i32 %62, 16777215
   %conv357 = zext i8 %val to i32
@@ -3137,31 +3099,31 @@ sw.bb353:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb362:                                         ; preds = %trace_lsi_reg_write.exit
-  %dmode363 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 42
+  %dmode363 = getelementptr inbounds i8, ptr %s, i64 3788
   store i8 %val, ptr %dmode363, align 4
   br label %sw.epilog
 
 sw.bb364:                                         ; preds = %trace_lsi_reg_write.exit
-  %dien = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 26
+  %dien = getelementptr inbounds i8, ptr %s, i64 3764
   store i8 %val, ptr %dien, align 4
   tail call fastcc void @lsi_update_irq(ptr noundef %s)
   br label %sw.epilog
 
 sw.bb365:                                         ; preds = %trace_lsi_reg_write.exit
-  %sbr = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 79
+  %sbr = getelementptr inbounds i8, ptr %s, i64 3940
   store i8 %val, ptr %sbr, align 4
   br label %sw.epilog
 
 sw.bb366:                                         ; preds = %trace_lsi_reg_write.exit
   %and368 = and i8 %val, -69
-  %dcntl = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 43
+  %dcntl = getelementptr inbounds i8, ptr %s, i64 3789
   store i8 %and368, ptr %dcntl, align 1
   %63 = and i8 %val, 4
   %tobool372.not = icmp eq i8 %63, 0
   br i1 %tobool372.not, label %sw.epilog, label %land.lhs.true373
 
 land.lhs.true373:                                 ; preds = %sw.bb366
-  %istat1374 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 23
+  %istat1374 = getelementptr inbounds i8, ptr %s, i64 3761
   %64 = load i8, ptr %istat1374, align 1
   %65 = and i8 %64, 2
   %cmp377 = icmp eq i8 %65, 0
@@ -3172,19 +3134,19 @@ if.then379:                                       ; preds = %land.lhs.true373
   br label %sw.epilog
 
 sw.bb381:                                         ; preds = %trace_lsi_reg_write.exit
-  %sien0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 29
+  %sien0 = getelementptr inbounds i8, ptr %s, i64 3767
   store i8 %val, ptr %sien0, align 1
   tail call fastcc void @lsi_update_irq(ptr noundef %s)
   br label %sw.epilog
 
 sw.bb382:                                         ; preds = %trace_lsi_reg_write.exit
-  %sien1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 30
+  %sien1 = getelementptr inbounds i8, ptr %s, i64 3768
   store i8 %val, ptr %sien1, align 8
   tail call fastcc void @lsi_update_irq(ptr noundef %s)
   br label %sw.epilog
 
 sw.bb384:                                         ; preds = %trace_lsi_reg_write.exit
-  %stime0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 61
+  %stime0 = getelementptr inbounds i8, ptr %s, i64 3807
   store i8 %val, ptr %stime0, align 1
   br label %sw.epilog
 
@@ -3208,17 +3170,17 @@ do.end400:                                        ; preds = %do.body390, %if.the
   br label %sw.epilog
 
 sw.bb402:                                         ; preds = %trace_lsi_reg_write.exit
-  %respid0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 62
+  %respid0 = getelementptr inbounds i8, ptr %s, i64 3808
   store i8 %val, ptr %respid0, align 16
   br label %sw.epilog
 
 sw.bb403:                                         ; preds = %trace_lsi_reg_write.exit
-  %respid1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 63
+  %respid1 = getelementptr inbounds i8, ptr %s, i64 3809
   store i8 %val, ptr %respid1, align 1
   br label %sw.epilog
 
 sw.bb404:                                         ; preds = %trace_lsi_reg_write.exit
-  %stest1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 57
+  %stest1 = getelementptr inbounds i8, ptr %s, i64 3803
   store i8 %val, ptr %stest1, align 1
   br label %sw.epilog
 
@@ -3238,7 +3200,7 @@ if.then418:                                       ; preds = %do.body410
   br label %if.end421
 
 if.end421:                                        ; preds = %if.then418, %do.body410, %sw.bb405
-  %stest2 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 58
+  %stest2 = getelementptr inbounds i8, ptr %s, i64 3804
   store i8 %val, ptr %stest2, align 4
   br label %sw.epilog
 
@@ -3258,22 +3220,22 @@ if.then435:                                       ; preds = %do.body427
   br label %if.end438
 
 if.end438:                                        ; preds = %if.then435, %do.body427, %sw.bb422
-  %stest3 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 59
+  %stest3 = getelementptr inbounds i8, ptr %s, i64 3805
   store i8 %val, ptr %stest3, align 1
   br label %sw.epilog
 
 sw.bb439:                                         ; preds = %trace_lsi_reg_write.exit
-  %ccntl0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 38
+  %ccntl0 = getelementptr inbounds i8, ptr %s, i64 3776
   store i8 %val, ptr %ccntl0, align 16
   br label %sw.epilog
 
 sw.bb440:                                         ; preds = %trace_lsi_reg_write.exit
-  %ccntl1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 39
+  %ccntl1 = getelementptr inbounds i8, ptr %s, i64 3777
   store i8 %val, ptr %ccntl1, align 1
   br label %sw.epilog
 
 sw.bb441:                                         ; preds = %trace_lsi_reg_write.exit
-  %mmrs = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 64
+  %mmrs = getelementptr inbounds i8, ptr %s, i64 3812
   %72 = load i32, ptr %mmrs, align 4
   %and442 = and i32 %72, -256
   %conv443 = zext i8 %val to i32
@@ -3282,7 +3244,7 @@ sw.bb441:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb446:                                         ; preds = %trace_lsi_reg_write.exit
-  %mmrs447 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 64
+  %mmrs447 = getelementptr inbounds i8, ptr %s, i64 3812
   %73 = load i32, ptr %mmrs447, align 4
   %and448 = and i32 %73, -65281
   %conv449 = zext i8 %val to i32
@@ -3292,7 +3254,7 @@ sw.bb446:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb453:                                         ; preds = %trace_lsi_reg_write.exit
-  %mmrs454 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 64
+  %mmrs454 = getelementptr inbounds i8, ptr %s, i64 3812
   %74 = load i32, ptr %mmrs454, align 4
   %and455 = and i32 %74, -16711681
   %conv456 = zext i8 %val to i32
@@ -3302,7 +3264,7 @@ sw.bb453:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb460:                                         ; preds = %trace_lsi_reg_write.exit
-  %mmrs461 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 64
+  %mmrs461 = getelementptr inbounds i8, ptr %s, i64 3812
   %75 = load i32, ptr %mmrs461, align 4
   %and462 = and i32 %75, 16777215
   %conv463 = zext i8 %val to i32
@@ -3312,7 +3274,7 @@ sw.bb460:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb467:                                         ; preds = %trace_lsi_reg_write.exit
-  %mmws = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 65
+  %mmws = getelementptr inbounds i8, ptr %s, i64 3816
   %76 = load i32, ptr %mmws, align 8
   %and468 = and i32 %76, -256
   %conv469 = zext i8 %val to i32
@@ -3321,7 +3283,7 @@ sw.bb467:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb472:                                         ; preds = %trace_lsi_reg_write.exit
-  %mmws473 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 65
+  %mmws473 = getelementptr inbounds i8, ptr %s, i64 3816
   %77 = load i32, ptr %mmws473, align 8
   %and474 = and i32 %77, -65281
   %conv475 = zext i8 %val to i32
@@ -3331,7 +3293,7 @@ sw.bb472:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb479:                                         ; preds = %trace_lsi_reg_write.exit
-  %mmws480 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 65
+  %mmws480 = getelementptr inbounds i8, ptr %s, i64 3816
   %78 = load i32, ptr %mmws480, align 8
   %and481 = and i32 %78, -16711681
   %conv482 = zext i8 %val to i32
@@ -3341,7 +3303,7 @@ sw.bb479:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb486:                                         ; preds = %trace_lsi_reg_write.exit
-  %mmws487 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 65
+  %mmws487 = getelementptr inbounds i8, ptr %s, i64 3816
   %79 = load i32, ptr %mmws487, align 8
   %and488 = and i32 %79, 16777215
   %conv489 = zext i8 %val to i32
@@ -3351,7 +3313,7 @@ sw.bb486:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb493:                                         ; preds = %trace_lsi_reg_write.exit
-  %sfs = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 66
+  %sfs = getelementptr inbounds i8, ptr %s, i64 3820
   %80 = load i32, ptr %sfs, align 4
   %and494 = and i32 %80, -256
   %conv495 = zext i8 %val to i32
@@ -3360,7 +3322,7 @@ sw.bb493:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb498:                                         ; preds = %trace_lsi_reg_write.exit
-  %sfs499 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 66
+  %sfs499 = getelementptr inbounds i8, ptr %s, i64 3820
   %81 = load i32, ptr %sfs499, align 4
   %and500 = and i32 %81, -65281
   %conv501 = zext i8 %val to i32
@@ -3370,7 +3332,7 @@ sw.bb498:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb505:                                         ; preds = %trace_lsi_reg_write.exit
-  %sfs506 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 66
+  %sfs506 = getelementptr inbounds i8, ptr %s, i64 3820
   %82 = load i32, ptr %sfs506, align 4
   %and507 = and i32 %82, -16711681
   %conv508 = zext i8 %val to i32
@@ -3380,7 +3342,7 @@ sw.bb505:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb512:                                         ; preds = %trace_lsi_reg_write.exit
-  %sfs513 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 66
+  %sfs513 = getelementptr inbounds i8, ptr %s, i64 3820
   %83 = load i32, ptr %sfs513, align 4
   %and514 = and i32 %83, 16777215
   %conv515 = zext i8 %val to i32
@@ -3390,7 +3352,7 @@ sw.bb512:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb519:                                         ; preds = %trace_lsi_reg_write.exit
-  %drs = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 67
+  %drs = getelementptr inbounds i8, ptr %s, i64 3824
   %84 = load i32, ptr %drs, align 16
   %and520 = and i32 %84, -256
   %conv521 = zext i8 %val to i32
@@ -3399,7 +3361,7 @@ sw.bb519:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb524:                                         ; preds = %trace_lsi_reg_write.exit
-  %drs525 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 67
+  %drs525 = getelementptr inbounds i8, ptr %s, i64 3824
   %85 = load i32, ptr %drs525, align 16
   %and526 = and i32 %85, -65281
   %conv527 = zext i8 %val to i32
@@ -3409,7 +3371,7 @@ sw.bb524:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb531:                                         ; preds = %trace_lsi_reg_write.exit
-  %drs532 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 67
+  %drs532 = getelementptr inbounds i8, ptr %s, i64 3824
   %86 = load i32, ptr %drs532, align 16
   %and533 = and i32 %86, -16711681
   %conv534 = zext i8 %val to i32
@@ -3419,7 +3381,7 @@ sw.bb531:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb538:                                         ; preds = %trace_lsi_reg_write.exit
-  %drs539 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 67
+  %drs539 = getelementptr inbounds i8, ptr %s, i64 3824
   %87 = load i32, ptr %drs539, align 16
   %and540 = and i32 %87, 16777215
   %conv541 = zext i8 %val to i32
@@ -3429,7 +3391,7 @@ sw.bb538:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb545:                                         ; preds = %trace_lsi_reg_write.exit
-  %sbms = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 68
+  %sbms = getelementptr inbounds i8, ptr %s, i64 3828
   %88 = load i32, ptr %sbms, align 4
   %and546 = and i32 %88, -256
   %conv547 = zext i8 %val to i32
@@ -3438,7 +3400,7 @@ sw.bb545:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb550:                                         ; preds = %trace_lsi_reg_write.exit
-  %sbms551 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 68
+  %sbms551 = getelementptr inbounds i8, ptr %s, i64 3828
   %89 = load i32, ptr %sbms551, align 4
   %and552 = and i32 %89, -65281
   %conv553 = zext i8 %val to i32
@@ -3448,7 +3410,7 @@ sw.bb550:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb557:                                         ; preds = %trace_lsi_reg_write.exit
-  %sbms558 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 68
+  %sbms558 = getelementptr inbounds i8, ptr %s, i64 3828
   %90 = load i32, ptr %sbms558, align 4
   %and559 = and i32 %90, -16711681
   %conv560 = zext i8 %val to i32
@@ -3458,7 +3420,7 @@ sw.bb557:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb564:                                         ; preds = %trace_lsi_reg_write.exit
-  %sbms565 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 68
+  %sbms565 = getelementptr inbounds i8, ptr %s, i64 3828
   %91 = load i32, ptr %sbms565, align 4
   %and566 = and i32 %91, 16777215
   %conv567 = zext i8 %val to i32
@@ -3468,7 +3430,7 @@ sw.bb564:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb571:                                         ; preds = %trace_lsi_reg_write.exit
-  %dbms = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 69
+  %dbms = getelementptr inbounds i8, ptr %s, i64 3832
   %92 = load i32, ptr %dbms, align 8
   %and572 = and i32 %92, -256
   %conv573 = zext i8 %val to i32
@@ -3477,7 +3439,7 @@ sw.bb571:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb576:                                         ; preds = %trace_lsi_reg_write.exit
-  %dbms577 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 69
+  %dbms577 = getelementptr inbounds i8, ptr %s, i64 3832
   %93 = load i32, ptr %dbms577, align 8
   %and578 = and i32 %93, -65281
   %conv579 = zext i8 %val to i32
@@ -3487,7 +3449,7 @@ sw.bb576:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb583:                                         ; preds = %trace_lsi_reg_write.exit
-  %dbms584 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 69
+  %dbms584 = getelementptr inbounds i8, ptr %s, i64 3832
   %94 = load i32, ptr %dbms584, align 8
   %and585 = and i32 %94, -16711681
   %conv586 = zext i8 %val to i32
@@ -3497,7 +3459,7 @@ sw.bb583:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb590:                                         ; preds = %trace_lsi_reg_write.exit
-  %dbms591 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 69
+  %dbms591 = getelementptr inbounds i8, ptr %s, i64 3832
   %95 = load i32, ptr %dbms591, align 8
   %and592 = and i32 %95, 16777215
   %conv593 = zext i8 %val to i32
@@ -3507,7 +3469,7 @@ sw.bb590:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb597:                                         ; preds = %trace_lsi_reg_write.exit
-  %dnad64 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 70
+  %dnad64 = getelementptr inbounds i8, ptr %s, i64 3836
   %96 = load i32, ptr %dnad64, align 4
   %and598 = and i32 %96, -256
   %conv599 = zext i8 %val to i32
@@ -3516,7 +3478,7 @@ sw.bb597:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb602:                                         ; preds = %trace_lsi_reg_write.exit
-  %dnad64603 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 70
+  %dnad64603 = getelementptr inbounds i8, ptr %s, i64 3836
   %97 = load i32, ptr %dnad64603, align 4
   %and604 = and i32 %97, -65281
   %conv605 = zext i8 %val to i32
@@ -3526,7 +3488,7 @@ sw.bb602:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb609:                                         ; preds = %trace_lsi_reg_write.exit
-  %dnad64610 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 70
+  %dnad64610 = getelementptr inbounds i8, ptr %s, i64 3836
   %98 = load i32, ptr %dnad64610, align 4
   %and611 = and i32 %98, -16711681
   %conv612 = zext i8 %val to i32
@@ -3536,7 +3498,7 @@ sw.bb609:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb616:                                         ; preds = %trace_lsi_reg_write.exit
-  %dnad64617 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 70
+  %dnad64617 = getelementptr inbounds i8, ptr %s, i64 3836
   %99 = load i32, ptr %dnad64617, align 4
   %and618 = and i32 %99, 16777215
   %conv619 = zext i8 %val to i32
@@ -3546,7 +3508,7 @@ sw.bb616:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb623:                                         ; preds = %trace_lsi_reg_write.exit
-  %pmjad1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 71
+  %pmjad1 = getelementptr inbounds i8, ptr %s, i64 3840
   %100 = load i32, ptr %pmjad1, align 16
   %and624 = and i32 %100, -256
   %conv625 = zext i8 %val to i32
@@ -3555,7 +3517,7 @@ sw.bb623:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb628:                                         ; preds = %trace_lsi_reg_write.exit
-  %pmjad1629 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 71
+  %pmjad1629 = getelementptr inbounds i8, ptr %s, i64 3840
   %101 = load i32, ptr %pmjad1629, align 16
   %and630 = and i32 %101, -65281
   %conv631 = zext i8 %val to i32
@@ -3565,7 +3527,7 @@ sw.bb628:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb635:                                         ; preds = %trace_lsi_reg_write.exit
-  %pmjad1636 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 71
+  %pmjad1636 = getelementptr inbounds i8, ptr %s, i64 3840
   %102 = load i32, ptr %pmjad1636, align 16
   %and637 = and i32 %102, -16711681
   %conv638 = zext i8 %val to i32
@@ -3575,7 +3537,7 @@ sw.bb635:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb642:                                         ; preds = %trace_lsi_reg_write.exit
-  %pmjad1643 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 71
+  %pmjad1643 = getelementptr inbounds i8, ptr %s, i64 3840
   %103 = load i32, ptr %pmjad1643, align 16
   %and644 = and i32 %103, 16777215
   %conv645 = zext i8 %val to i32
@@ -3585,7 +3547,7 @@ sw.bb642:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb649:                                         ; preds = %trace_lsi_reg_write.exit
-  %pmjad2 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 72
+  %pmjad2 = getelementptr inbounds i8, ptr %s, i64 3844
   %104 = load i32, ptr %pmjad2, align 4
   %and650 = and i32 %104, -256
   %conv651 = zext i8 %val to i32
@@ -3594,7 +3556,7 @@ sw.bb649:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb654:                                         ; preds = %trace_lsi_reg_write.exit
-  %pmjad2655 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 72
+  %pmjad2655 = getelementptr inbounds i8, ptr %s, i64 3844
   %105 = load i32, ptr %pmjad2655, align 4
   %and656 = and i32 %105, -65281
   %conv657 = zext i8 %val to i32
@@ -3604,7 +3566,7 @@ sw.bb654:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb661:                                         ; preds = %trace_lsi_reg_write.exit
-  %pmjad2662 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 72
+  %pmjad2662 = getelementptr inbounds i8, ptr %s, i64 3844
   %106 = load i32, ptr %pmjad2662, align 4
   %and663 = and i32 %106, -16711681
   %conv664 = zext i8 %val to i32
@@ -3614,7 +3576,7 @@ sw.bb661:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb668:                                         ; preds = %trace_lsi_reg_write.exit
-  %pmjad2669 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 72
+  %pmjad2669 = getelementptr inbounds i8, ptr %s, i64 3844
   %107 = load i32, ptr %pmjad2669, align 4
   %and670 = and i32 %107, 16777215
   %conv671 = zext i8 %val to i32
@@ -3624,7 +3586,7 @@ sw.bb668:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb675:                                         ; preds = %trace_lsi_reg_write.exit
-  %rbc = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 73
+  %rbc = getelementptr inbounds i8, ptr %s, i64 3848
   %108 = load i32, ptr %rbc, align 8
   %and676 = and i32 %108, -256
   %conv677 = zext i8 %val to i32
@@ -3633,7 +3595,7 @@ sw.bb675:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb680:                                         ; preds = %trace_lsi_reg_write.exit
-  %rbc681 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 73
+  %rbc681 = getelementptr inbounds i8, ptr %s, i64 3848
   %109 = load i32, ptr %rbc681, align 8
   %and682 = and i32 %109, -65281
   %conv683 = zext i8 %val to i32
@@ -3643,7 +3605,7 @@ sw.bb680:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb687:                                         ; preds = %trace_lsi_reg_write.exit
-  %rbc688 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 73
+  %rbc688 = getelementptr inbounds i8, ptr %s, i64 3848
   %110 = load i32, ptr %rbc688, align 8
   %and689 = and i32 %110, -16711681
   %conv690 = zext i8 %val to i32
@@ -3653,7 +3615,7 @@ sw.bb687:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb694:                                         ; preds = %trace_lsi_reg_write.exit
-  %rbc695 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 73
+  %rbc695 = getelementptr inbounds i8, ptr %s, i64 3848
   %111 = load i32, ptr %rbc695, align 8
   %and696 = and i32 %111, 16777215
   %conv697 = zext i8 %val to i32
@@ -3663,7 +3625,7 @@ sw.bb694:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb701:                                         ; preds = %trace_lsi_reg_write.exit
-  %ua = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 74
+  %ua = getelementptr inbounds i8, ptr %s, i64 3852
   %112 = load i32, ptr %ua, align 4
   %and702 = and i32 %112, -256
   %conv703 = zext i8 %val to i32
@@ -3672,7 +3634,7 @@ sw.bb701:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb706:                                         ; preds = %trace_lsi_reg_write.exit
-  %ua707 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 74
+  %ua707 = getelementptr inbounds i8, ptr %s, i64 3852
   %113 = load i32, ptr %ua707, align 4
   %and708 = and i32 %113, -65281
   %conv709 = zext i8 %val to i32
@@ -3682,7 +3644,7 @@ sw.bb706:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb713:                                         ; preds = %trace_lsi_reg_write.exit
-  %ua714 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 74
+  %ua714 = getelementptr inbounds i8, ptr %s, i64 3852
   %114 = load i32, ptr %ua714, align 4
   %and715 = and i32 %114, -16711681
   %conv716 = zext i8 %val to i32
@@ -3692,7 +3654,7 @@ sw.bb713:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb720:                                         ; preds = %trace_lsi_reg_write.exit
-  %ua721 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 74
+  %ua721 = getelementptr inbounds i8, ptr %s, i64 3852
   %115 = load i32, ptr %ua721, align 4
   %and722 = and i32 %115, 16777215
   %conv723 = zext i8 %val to i32
@@ -3702,7 +3664,7 @@ sw.bb720:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb727:                                         ; preds = %trace_lsi_reg_write.exit
-  %ia = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 75
+  %ia = getelementptr inbounds i8, ptr %s, i64 3856
   %116 = load i32, ptr %ia, align 16
   %and728 = and i32 %116, -256
   %conv729 = zext i8 %val to i32
@@ -3711,7 +3673,7 @@ sw.bb727:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb732:                                         ; preds = %trace_lsi_reg_write.exit
-  %ia733 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 75
+  %ia733 = getelementptr inbounds i8, ptr %s, i64 3856
   %117 = load i32, ptr %ia733, align 16
   %and734 = and i32 %117, -65281
   %conv735 = zext i8 %val to i32
@@ -3721,7 +3683,7 @@ sw.bb732:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb739:                                         ; preds = %trace_lsi_reg_write.exit
-  %ia740 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 75
+  %ia740 = getelementptr inbounds i8, ptr %s, i64 3856
   %118 = load i32, ptr %ia740, align 16
   %and741 = and i32 %118, -16711681
   %conv742 = zext i8 %val to i32
@@ -3731,7 +3693,7 @@ sw.bb739:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb746:                                         ; preds = %trace_lsi_reg_write.exit
-  %ia747 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 75
+  %ia747 = getelementptr inbounds i8, ptr %s, i64 3856
   %119 = load i32, ptr %ia747, align 16
   %and748 = and i32 %119, 16777215
   %conv749 = zext i8 %val to i32
@@ -3741,7 +3703,7 @@ sw.bb746:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb753:                                         ; preds = %trace_lsi_reg_write.exit
-  %sbc = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 76
+  %sbc = getelementptr inbounds i8, ptr %s, i64 3860
   %120 = load i32, ptr %sbc, align 4
   %and754 = and i32 %120, -256
   %conv755 = zext i8 %val to i32
@@ -3750,7 +3712,7 @@ sw.bb753:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb758:                                         ; preds = %trace_lsi_reg_write.exit
-  %sbc759 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 76
+  %sbc759 = getelementptr inbounds i8, ptr %s, i64 3860
   %121 = load i32, ptr %sbc759, align 4
   %and760 = and i32 %121, -65281
   %conv761 = zext i8 %val to i32
@@ -3760,7 +3722,7 @@ sw.bb758:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb765:                                         ; preds = %trace_lsi_reg_write.exit
-  %sbc766 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 76
+  %sbc766 = getelementptr inbounds i8, ptr %s, i64 3860
   %122 = load i32, ptr %sbc766, align 4
   %and767 = and i32 %122, -16711681
   %conv768 = zext i8 %val to i32
@@ -3770,7 +3732,7 @@ sw.bb765:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb772:                                         ; preds = %trace_lsi_reg_write.exit
-  %sbc773 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 76
+  %sbc773 = getelementptr inbounds i8, ptr %s, i64 3860
   %123 = load i32, ptr %sbc773, align 4
   %and774 = and i32 %123, 16777215
   %conv775 = zext i8 %val to i32
@@ -3780,7 +3742,7 @@ sw.bb772:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb779:                                         ; preds = %trace_lsi_reg_write.exit
-  %csbc = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 77
+  %csbc = getelementptr inbounds i8, ptr %s, i64 3864
   %124 = load i32, ptr %csbc, align 8
   %and780 = and i32 %124, -256
   %conv781 = zext i8 %val to i32
@@ -3789,7 +3751,7 @@ sw.bb779:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb784:                                         ; preds = %trace_lsi_reg_write.exit
-  %csbc785 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 77
+  %csbc785 = getelementptr inbounds i8, ptr %s, i64 3864
   %125 = load i32, ptr %csbc785, align 8
   %and786 = and i32 %125, -65281
   %conv787 = zext i8 %val to i32
@@ -3799,7 +3761,7 @@ sw.bb784:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb791:                                         ; preds = %trace_lsi_reg_write.exit
-  %csbc792 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 77
+  %csbc792 = getelementptr inbounds i8, ptr %s, i64 3864
   %126 = load i32, ptr %csbc792, align 8
   %and793 = and i32 %126, -16711681
   %conv794 = zext i8 %val to i32
@@ -3809,7 +3771,7 @@ sw.bb791:                                         ; preds = %trace_lsi_reg_write
   br label %sw.epilog
 
 sw.bb798:                                         ; preds = %trace_lsi_reg_write.exit
-  %csbc799 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 77
+  %csbc799 = getelementptr inbounds i8, ptr %s, i64 3864
   %127 = load i32, ptr %csbc799, align 8
   %and800 = and i32 %127, 16777215
   %conv801 = zext i8 %val to i32
@@ -3828,8 +3790,9 @@ if.then810:                                       ; preds = %sw.default
   %shr = lshr i32 %sub, 2
   %and811 = shl nuw nsw i32 %offset, 3
   %mul = and i32 %and811, 24
+  %scratch812 = getelementptr inbounds i8, ptr %s, i64 3868
   %idxprom813 = zext nneg i32 %shr to i64
-  %arrayidx814 = getelementptr %struct.LSIState, ptr %s, i64 0, i32 78, i64 %idxprom813
+  %arrayidx814 = getelementptr [18 x i32], ptr %scratch812, i64 0, i64 %idxprom813
   %129 = load i32, ptr %arrayidx814, align 4
   %conv815 = zext i8 %val to i32
   %shl.i = shl nuw i32 255, %mul
@@ -3870,7 +3833,7 @@ declare void @bus_cold_reset(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @lsi_script_dma_interrupt(ptr noundef %s, i32 noundef %stat) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %dstat = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 25
+  %dstat = getelementptr inbounds i8, ptr %s, i64 3763
   %0 = load i8, ptr %dstat, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3896,7 +3859,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %stat, 255
   %conv12.i.i = zext i8 %0 to i32
@@ -3916,7 +3879,7 @@ trace_lsi_script_dma_interrupt.exit:              ; preds = %entry, %land.lhs.tr
   %conv3 = or i8 %8, %conv
   store i8 %conv3, ptr %dstat, align 1
   tail call fastcc void @lsi_update_irq(ptr noundef nonnull %s)
-  %istat1.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 23
+  %istat1.i = getelementptr inbounds i8, ptr %s, i64 3761
   %9 = load i8, ptr %istat1.i, align 1
   %10 = and i8 %9, -3
   store i8 %10, ptr %istat1.i, align 1
@@ -3951,7 +3914,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #11
   %call10.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.139, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6) #11
   br label %_nocheck__trace_lsi_awoken.exit
@@ -4033,7 +3996,7 @@ entry:
   %0 = load i32, ptr @lsi_execute_script.reentrancy_level, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr @lsi_execute_script.reentrancy_level, align 4
-  %istat1 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 23
+  %istat1 = getelementptr inbounds i8, ptr %s, i64 3761
   %1 = load i8, ptr %istat1, align 1
   %2 = or i8 %1, 2
   store i8 %2, ptr %istat1, align 1
@@ -4041,104 +4004,105 @@ entry:
   br i1 %cmp4883, label %if.then, label %if.end14.lr.ph
 
 if.end14.lr.ph:                                   ; preds = %entry
-  %dsp = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 40
-  %tv_usec.i.i330 = getelementptr inbounds %struct.timeval, ptr %_now.i.i318, i64 0, i32 1
-  %dsps = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 41
-  %dcmd = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 24
-  %dsa597 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 18
-  %bus_master_as.i.i.i821 = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 12
-  %tv_usec.i.i835 = getelementptr inbounds %struct.timeval, ptr %_now.i.i823, i64 0, i32 1
-  %tv_usec.i.i849 = getelementptr inbounds %struct.timeval, ptr %_now.i.i837, i64 0, i32 1
-  %tv_usec.i.i.i817 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i789, i64 0, i32 1
-  %dmode.i.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 42
-  %pci_io_as.i.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 5
-  %sist1477 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 28
-  %tv_usec.i.i643 = getelementptr inbounds %struct.timeval, ptr %_now.i.i631, i64 0, i32 1
-  %carry491 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 6
-  %tv_usec.i.i658 = getelementptr inbounds %struct.timeval, ptr %_now.i.i646, i64 0, i32 1
-  %sstat1504 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 49
-  %tv_usec.i.i678 = getelementptr inbounds %struct.timeval, ptr %_now.i.i666, i64 0, i32 1
-  %sfbr529 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 55
-  %tv_usec.i.i694 = getelementptr inbounds %struct.timeval, ptr %_now.i.i682, i64 0, i32 1
-  %tv_usec.i.i782 = getelementptr inbounds %struct.timeval, ptr %_now.i.i770, i64 0, i32 1
-  %tv_usec.i.i754 = getelementptr inbounds %struct.timeval, ptr %_now.i.i742, i64 0, i32 1
-  %istat0572 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 22
-  %temp563 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 19
-  %tv_usec.i.i740 = getelementptr inbounds %struct.timeval, ptr %_now.i.i728, i64 0, i32 1
-  %tv_usec.i.i726 = getelementptr inbounds %struct.timeval, ptr %_now.i.i714, i64 0, i32 1
-  %tv_usec.i.i712 = getelementptr inbounds %struct.timeval, ptr %_now.i.i700, i64 0, i32 1
-  %adder = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 80
-  %tv_usec.i.i768 = getelementptr inbounds %struct.timeval, ptr %_now.i.i756, i64 0, i32 1
-  %tv_usec.i.i629 = getelementptr inbounds %struct.timeval, ptr %_now.i.i617, i64 0, i32 1
-  %tv_usec.i.i613 = getelementptr inbounds %struct.timeval, ptr %_now.i.i601, i64 0, i32 1
-  %dnad195 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 20
-  %tv_usec.i.i599 = getelementptr inbounds %struct.timeval, ptr %_now.i.i587, i64 0, i32 1
-  %socl331 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 52
-  %sbcl335 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 56
-  %tv_usec.i.i579 = getelementptr inbounds %struct.timeval, ptr %_now.i.i567, i64 0, i32 1
-  %sien0.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 29
-  %scid.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 50
-  %tv_usec.i.i.i565 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i540, i64 0, i32 1
-  %current.i544 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 17
-  %queue.i.i547 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 16
-  %waiting.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 11
-  %tv_usec.i.i532 = getelementptr inbounds %struct.timeval, ptr %_now.i.i520, i64 0, i32 1
-  %scntl1239 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 45
-  %sdid = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 53
-  %tv_usec.i.i502 = getelementptr inbounds %struct.timeval, ptr %_now.i.i490, i64 0, i32 1
-  %sstat0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 48
-  %bus = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 12
-  %tv_usec.i.i516 = getelementptr inbounds %struct.timeval, ptr %_now.i.i504, i64 0, i32 1
-  %select_tag = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 14
-  %tv_usec.i.i344 = getelementptr inbounds %struct.timeval, ptr %_now.i.i332, i64 0, i32 1
-  %dbc = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 21
-  %rbc = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 73
-  %ia = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 75
-  %arrayidx52 = getelementptr inbounds [2 x i32], ptr %buf, i64 0, i64 1
+  %dsp = getelementptr inbounds i8, ptr %s, i64 3780
+  %tv_usec.i.i330 = getelementptr inbounds i8, ptr %_now.i.i318, i64 8
+  %dsps = getelementptr inbounds i8, ptr %s, i64 3784
+  %dcmd = getelementptr inbounds i8, ptr %s, i64 3762
+  %dsa597 = getelementptr inbounds i8, ptr %s, i64 3744
+  %bus_master_as.i.i.i821 = getelementptr inbounds i8, ptr %call.i, i64 576
+  %tv_usec.i.i835 = getelementptr inbounds i8, ptr %_now.i.i823, i64 8
+  %tv_usec.i.i849 = getelementptr inbounds i8, ptr %_now.i.i837, i64 8
+  %tv_usec.i.i.i817 = getelementptr inbounds i8, ptr %_now.i.i.i789, i64 8
+  %dmode.i.i = getelementptr inbounds i8, ptr %s, i64 3788
+  %pci_io_as.i.i = getelementptr inbounds i8, ptr %s, i64 3440
+  %sist1477 = getelementptr inbounds i8, ptr %s, i64 3766
+  %tv_usec.i.i643 = getelementptr inbounds i8, ptr %_now.i.i631, i64 8
+  %carry491 = getelementptr inbounds i8, ptr %s, i64 3528
+  %tv_usec.i.i658 = getelementptr inbounds i8, ptr %_now.i.i646, i64 8
+  %sstat1504 = getelementptr inbounds i8, ptr %s, i64 3795
+  %tv_usec.i.i678 = getelementptr inbounds i8, ptr %_now.i.i666, i64 8
+  %sfbr529 = getelementptr inbounds i8, ptr %s, i64 3801
+  %tv_usec.i.i694 = getelementptr inbounds i8, ptr %_now.i.i682, i64 8
+  %tv_usec.i.i782 = getelementptr inbounds i8, ptr %_now.i.i770, i64 8
+  %tv_usec.i.i754 = getelementptr inbounds i8, ptr %_now.i.i742, i64 8
+  %istat0572 = getelementptr inbounds i8, ptr %s, i64 3760
+  %temp563 = getelementptr inbounds i8, ptr %s, i64 3748
+  %tv_usec.i.i740 = getelementptr inbounds i8, ptr %_now.i.i728, i64 8
+  %tv_usec.i.i726 = getelementptr inbounds i8, ptr %_now.i.i714, i64 8
+  %tv_usec.i.i712 = getelementptr inbounds i8, ptr %_now.i.i700, i64 8
+  %adder = getelementptr inbounds i8, ptr %s, i64 3944
+  %tv_usec.i.i768 = getelementptr inbounds i8, ptr %_now.i.i756, i64 8
+  %tv_usec.i.i629 = getelementptr inbounds i8, ptr %_now.i.i617, i64 8
+  %tv_usec.i.i613 = getelementptr inbounds i8, ptr %_now.i.i601, i64 8
+  %dnad195 = getelementptr inbounds i8, ptr %s, i64 3752
+  %tv_usec.i.i599 = getelementptr inbounds i8, ptr %_now.i.i587, i64 8
+  %socl331 = getelementptr inbounds i8, ptr %s, i64 3798
+  %sbcl335 = getelementptr inbounds i8, ptr %s, i64 3802
+  %tv_usec.i.i579 = getelementptr inbounds i8, ptr %_now.i.i567, i64 8
+  %sien0.i = getelementptr inbounds i8, ptr %s, i64 3767
+  %scid.i = getelementptr inbounds i8, ptr %s, i64 3796
+  %tv_usec.i.i.i565 = getelementptr inbounds i8, ptr %_now.i.i.i540, i64 8
+  %current.i544 = getelementptr inbounds i8, ptr %s, i64 3736
+  %queue.i.i547 = getelementptr inbounds i8, ptr %s, i64 3720
+  %waiting.i = getelementptr inbounds i8, ptr %s, i64 3552
+  %tv_usec.i.i532 = getelementptr inbounds i8, ptr %_now.i.i520, i64 8
+  %scntl1239 = getelementptr inbounds i8, ptr %s, i64 3791
+  %sdid = getelementptr inbounds i8, ptr %s, i64 3799
+  %tv_usec.i.i502 = getelementptr inbounds i8, ptr %_now.i.i490, i64 8
+  %sstat0 = getelementptr inbounds i8, ptr %s, i64 3794
+  %bus = getelementptr inbounds i8, ptr %s, i64 3560
+  %tv_usec.i.i516 = getelementptr inbounds i8, ptr %_now.i.i504, i64 8
+  %select_tag = getelementptr inbounds i8, ptr %s, i64 3708
+  %tv_usec.i.i344 = getelementptr inbounds i8, ptr %_now.i.i332, i64 8
+  %dbc = getelementptr inbounds i8, ptr %s, i64 3756
+  %rbc = getelementptr inbounds i8, ptr %s, i64 3848
+  %ia = getelementptr inbounds i8, ptr %s, i64 3856
+  %arrayidx52 = getelementptr inbounds i8, ptr %buf, i64 4
   %3 = getelementptr i8, ptr %s, i64 3777
-  %dbms = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 69
-  %sbms = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 68
-  %drs = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 67
-  %sfs = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 66
-  %mmws = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 65
-  %mmrs = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 64
-  %tv_usec.i.i377 = getelementptr inbounds %struct.timeval, ptr %_now.i.i365, i64 0, i32 1
-  %dnad64 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 70
-  %msg_len.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 9
-  %tv_usec.i.i.i474 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i445, i64 0, i32 1
-  %msg.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 10
-  %sidl.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 60
-  %msg_action.i460 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 8
-  %tv_usec.i.i.i440 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i415, i64 0, i32 1
-  %tv_usec.i.i275.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i263.i, i64 0, i32 1
-  %tv_usec.i.i261.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i249.i, i64 0, i32 1
-  %tv_usec.i.i246.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i234.i, i64 0, i32 1
-  %tv_usec.i.i229.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i217.i, i64 0, i32 1
-  %tv_usec.i.i192.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i180.i, i64 0, i32 1
-  %tv_usec.i.i115.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i103.i, i64 0, i32 1
-  %tv_usec.i.i164.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i152.i, i64 0, i32 1
-  %tv_usec.i.i145.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i133.i, i64 0, i32 1
-  %tv_usec.i.i129.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i117.i, i64 0, i32 1
-  %tv_usec.i.i81.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i69.i, i64 0, i32 1
-  %tv_usec.i.i67.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i55.i, i64 0, i32 1
-  %current_lun.i426 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 13
-  %tv_usec.i.i292.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i280.i, i64 0, i32 1
-  %status1.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 7
-  %tv_usec.i.i.i413 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i388, i64 0, i32 1
-  %tv_usec.i.i23.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i11.i, i64 0, i32 1
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %command_complete.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 15
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
-  %tql_prev.i.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 16, i32 0, i32 1
-  %dfifo = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 33
-  %ctest5 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 37
-  %sbc = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 76
-  %ua = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 74
-  %dcntl = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 43
+  %dbms = getelementptr inbounds i8, ptr %s, i64 3832
+  %sbms = getelementptr inbounds i8, ptr %s, i64 3828
+  %drs = getelementptr inbounds i8, ptr %s, i64 3824
+  %sfs = getelementptr inbounds i8, ptr %s, i64 3820
+  %mmws = getelementptr inbounds i8, ptr %s, i64 3816
+  %mmrs = getelementptr inbounds i8, ptr %s, i64 3812
+  %scratch = getelementptr inbounds i8, ptr %s, i64 3868
+  %tv_usec.i.i377 = getelementptr inbounds i8, ptr %_now.i.i365, i64 8
+  %dnad64 = getelementptr inbounds i8, ptr %s, i64 3836
+  %msg_len.i = getelementptr inbounds i8, ptr %s, i64 3540
+  %tv_usec.i.i.i474 = getelementptr inbounds i8, ptr %_now.i.i.i445, i64 8
+  %msg.i = getelementptr inbounds i8, ptr %s, i64 3544
+  %sidl.i = getelementptr inbounds i8, ptr %s, i64 3806
+  %msg_action.i460 = getelementptr inbounds i8, ptr %s, i64 3536
+  %tv_usec.i.i.i440 = getelementptr inbounds i8, ptr %_now.i.i.i415, i64 8
+  %tv_usec.i.i275.i = getelementptr inbounds i8, ptr %_now.i.i263.i, i64 8
+  %tv_usec.i.i261.i = getelementptr inbounds i8, ptr %_now.i.i249.i, i64 8
+  %tv_usec.i.i246.i = getelementptr inbounds i8, ptr %_now.i.i234.i, i64 8
+  %tv_usec.i.i229.i = getelementptr inbounds i8, ptr %_now.i.i217.i, i64 8
+  %tv_usec.i.i192.i = getelementptr inbounds i8, ptr %_now.i.i180.i, i64 8
+  %tv_usec.i.i115.i = getelementptr inbounds i8, ptr %_now.i.i103.i, i64 8
+  %tv_usec.i.i164.i = getelementptr inbounds i8, ptr %_now.i.i152.i, i64 8
+  %tv_usec.i.i145.i = getelementptr inbounds i8, ptr %_now.i.i133.i, i64 8
+  %tv_usec.i.i129.i = getelementptr inbounds i8, ptr %_now.i.i117.i, i64 8
+  %tv_usec.i.i81.i = getelementptr inbounds i8, ptr %_now.i.i69.i, i64 8
+  %tv_usec.i.i67.i = getelementptr inbounds i8, ptr %_now.i.i55.i, i64 8
+  %current_lun.i426 = getelementptr inbounds i8, ptr %s, i64 3704
+  %tv_usec.i.i292.i = getelementptr inbounds i8, ptr %_now.i.i280.i, i64 8
+  %status1.i = getelementptr inbounds i8, ptr %s, i64 3532
+  %tv_usec.i.i.i413 = getelementptr inbounds i8, ptr %_now.i.i.i388, i64 8
+  %tv_usec.i.i23.i = getelementptr inbounds i8, ptr %_now.i.i11.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %command_complete.i = getelementptr inbounds i8, ptr %s, i64 3712
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %s, i64 3728
+  %dfifo = getelementptr inbounds i8, ptr %s, i64 3771
+  %ctest5 = getelementptr inbounds i8, ptr %s, i64 3775
+  %sbc = getelementptr inbounds i8, ptr %s, i64 3860
+  %ua = getelementptr inbounds i8, ptr %s, i64 3852
+  %dcntl = getelementptr inbounds i8, ptr %s, i64 3789
   br label %if.end14
 
 if.then:                                          ; preds = %again.backedge, %entry
-  %sien0 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 29
+  %sien0 = getelementptr inbounds i8, ptr %s, i64 3767
   %4 = load i8, ptr %sien0, align 1
   %5 = and i8 %4, 4
   %tobool.not = icmp eq i8 %5, 0
@@ -4156,15 +4120,15 @@ if.then12:                                        ; preds = %do.body
 
 if.end13:                                         ; preds = %if.then12, %do.body, %if.then
   call fastcc void @lsi_script_scsi_interrupt(ptr noundef nonnull %s, i32 noundef 4, i32 noundef 0)
-  %scntl1.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 45
+  %scntl1.i = getelementptr inbounds i8, ptr %s, i64 3791
   %7 = load i8, ptr %scntl1.i, align 1
   %8 = and i8 %7, -17
   store i8 %8, ptr %scntl1.i, align 1
-  %sstat1.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 49
+  %sstat1.i = getelementptr inbounds i8, ptr %s, i64 3795
   %9 = load i8, ptr %sstat1.i, align 1
   %10 = and i8 %9, -8
   store i8 %10, ptr %sstat1.i, align 1
-  %sbcl.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 56
+  %sbcl.i = getelementptr inbounds i8, ptr %s, i64 3802
   store i8 0, ptr %sbcl.i, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %11 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4190,7 +4154,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = call i32 @qemu_get_thread_id() #11
   %16 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.162, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17) #11
   br label %trace_lsi_execute_script_stop.exit
@@ -4209,7 +4173,7 @@ if.end14:                                         ; preds = %if.end14.lr.ph, %ag
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i)
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %conv.i = zext i32 %18 to i64
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv.i, i32 1, ptr noundef nonnull %buf.i, i64 noundef 4, i1 noundef zeroext false) #11
@@ -4236,7 +4200,7 @@ if.end19:                                         ; preds = %if.end14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i313)
   %call.i.i314 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %conv.i315 = zext i32 %add to i64
-  %bus_master_as.i.i.i.i316 = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i314, i64 0, i32 12
+  %bus_master_as.i.i.i.i316 = getelementptr inbounds i8, ptr %call.i.i314, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i317 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i316, i64 noundef %conv.i315, i32 1, ptr noundef nonnull %buf.i313, i64 noundef 4, i1 noundef zeroext false) #11
@@ -4351,7 +4315,7 @@ if.then38:                                        ; preds = %if.end32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i346)
   %call.i.i347 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %conv.i348 = zext i32 %22 to i64
-  %bus_master_as.i.i.i.i349 = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i347, i64 0, i32 12
+  %bus_master_as.i.i.i.i349 = getelementptr inbounds i8, ptr %call.i.i347, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i350 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i349, i64 noundef %conv.i348, i32 1, ptr noundef nonnull %buf.i346, i64 noundef 4, i1 noundef zeroext false) #11
@@ -4423,7 +4387,7 @@ if.then63:                                        ; preds = %if.else60
 sw.bb68:                                          ; preds = %if.then63, %if.then63, %if.then63, %if.then63, %if.then63, %if.then63, %if.then63, %if.then63, %if.then63, %if.then63, %if.then63, %if.then63, %if.then63, %if.then63, %if.then63, %if.then63
   %add69 = add nuw nsw i32 %and67, 2
   %idxprom = zext nneg i32 %add69 to i64
-  %arrayidx70 = getelementptr %struct.LSIState, ptr %s, i64 0, i32 78, i64 %idxprom
+  %arrayidx70 = getelementptr [18 x i32], ptr %scratch, i64 0, i64 %idxprom
   %49 = load i32, ptr %arrayidx70, align 4
   br label %if.end104
 
@@ -4471,7 +4435,7 @@ if.then93:                                        ; preds = %if.else90
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i356)
   %call.i.i357 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %conv.i358 = zext i32 %add26 to i64
-  %bus_master_as.i.i.i.i359 = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i357, i64 0, i32 12
+  %bus_master_as.i.i.i.i359 = getelementptr inbounds i8, ptr %call.i.i357, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i360 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i359, i64 noundef %conv.i358, i32 1, ptr noundef nonnull %buf.i356, i64 noundef 4, i1 noundef zeroext false) #11
@@ -4628,7 +4592,7 @@ if.end.i:                                         ; preds = %if.then.i, %trace_l
   %conv.i382 = zext i32 %84 to i64
   %85 = load i32, ptr %dbc, align 4
   %conv4.i = zext i32 %85 to i64
-  %bus_master_as.i.i.i.i383 = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i381, i64 0, i32 12
+  %bus_master_as.i.i.i.i383 = getelementptr inbounds i8, ptr %call.i.i381, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i384 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i383, i64 noundef %conv.i382, i32 1, ptr noundef nonnull %buf.i379, i64 noundef %conv4.i, i1 noundef zeroext false) #11
@@ -4660,7 +4624,7 @@ if.end12.i:                                       ; preds = %if.end8.i
   %call13.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
   store ptr %call13.i, ptr %current.i544, align 8
   %90 = load i32, ptr %select_tag, align 4
-  %tag.i = getelementptr inbounds %struct.lsi_request, ptr %call13.i, i64 0, i32 1
+  %tag.i = getelementptr inbounds i8, ptr %call13.i, i64 8
   store i32 %90, ptr %tag.i, align 8
   %91 = load i32, ptr %current_lun.i426, align 8
   %92 = load i32, ptr %dbc, align 4
@@ -4709,7 +4673,7 @@ if.then47.i:                                      ; preds = %if.then30.i
   store i8 %conv9.i43.i, ptr %sstat1504, align 1
   store i32 1, ptr %msg_action.i460, align 16
   %106 = load ptr, ptr %current.i544, align 8
-  %tag.i.i = getelementptr inbounds %struct.lsi_request, ptr %106, i64 0, i32 1
+  %tag.i.i = getelementptr inbounds i8, ptr %106, i64 8
   %107 = load i32, ptr %tag.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %108 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4754,7 +4718,7 @@ if.else.i.i387:                                   ; preds = %trace_lsi_queue_com
   unreachable
 
 if.end.i.i:                                       ; preds = %trace_lsi_queue_command.exit.i.i
-  %dma_len.i.i = getelementptr inbounds %struct.lsi_request, ptr %115, i64 0, i32 2
+  %dma_len.i.i = getelementptr inbounds i8, ptr %115, i64 12
   %116 = load i32, ptr %dma_len.i.i, align 4
   %cmp3.i.i = icmp eq i32 %116, 0
   br i1 %cmp3.i.i, label %lsi_queue_command.exit.i, label %if.else5.i.i
@@ -4764,24 +4728,24 @@ if.else5.i.i:                                     ; preds = %if.end.i.i
   unreachable
 
 lsi_queue_command.exit.i:                         ; preds = %if.end.i.i
-  %next.i.i = getelementptr inbounds %struct.lsi_request, ptr %115, i64 0, i32 6
+  %next.i.i = getelementptr inbounds i8, ptr %115, i64 32
   store ptr null, ptr %next.i.i, align 8
   %117 = load ptr, ptr %tql_prev.i.i, align 8
   %118 = load ptr, ptr %current.i544, align 8
-  %tql_prev10.i.i = getelementptr inbounds %struct.lsi_request, ptr %118, i64 0, i32 6, i32 0, i32 1
+  %tql_prev10.i.i = getelementptr inbounds i8, ptr %118, i64 40
   store ptr %117, ptr %tql_prev10.i.i, align 8
   %119 = load ptr, ptr %current.i544, align 8
   store ptr %119, ptr %117, align 8
-  %next15.i.i = getelementptr inbounds %struct.lsi_request, ptr %119, i64 0, i32 6
+  %next15.i.i = getelementptr inbounds i8, ptr %119, i64 32
   store ptr %next15.i.i, ptr %tql_prev.i.i, align 8
   store ptr null, ptr %current.i544, align 8
-  %pending.i.i = getelementptr inbounds %struct.lsi_request, ptr %106, i64 0, i32 4
+  %pending.i.i = getelementptr inbounds i8, ptr %106, i64 24
   store i32 0, ptr %pending.i.i, align 8
   %120 = load i8, ptr %sstat1504, align 1
   %121 = and i8 %120, 7
   %cmp19.i.i = icmp eq i8 %121, 0
   %conv20.i.i = zext i1 %cmp19.i.i to i32
-  %out.i.i = getelementptr inbounds %struct.lsi_request, ptr %106, i64 0, i32 5
+  %out.i.i = getelementptr inbounds i8, ptr %106, i64 28
   store i32 %conv20.i.i, ptr %out.i.i, align 4
   br label %lsi_do_command.exit
 
@@ -4890,7 +4854,7 @@ lsi_do_status.exit:                               ; preds = %trace_lsi_do_status
   %call.i.i396 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %144 = load i32, ptr %dnad195, align 8
   %conv7.i = zext i32 %144 to i64
-  %bus_master_as.i.i.i.i398 = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i396, i64 0, i32 12
+  %bus_master_as.i.i.i.i398 = getelementptr inbounds i8, ptr %call.i.i396, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i399 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i398, i64 noundef %conv7.i, i32 1, ptr noundef nonnull %status.i, i64 noundef 1, i1 noundef zeroext true) #11
@@ -4911,7 +4875,7 @@ sw.bb136:                                         ; preds = %if.end117
   br i1 %tobool.not.i417, label %if.else.i442, label %if.then.i418
 
 if.then.i418:                                     ; preds = %sw.bb136
-  %tag.i419 = getelementptr inbounds %struct.lsi_request, ptr %147, i64 0, i32 1
+  %tag.i419 = getelementptr inbounds i8, ptr %147, i64 8
   %148 = load i32, ptr %tag.i419, align 8
   br label %if.end.i420
 
@@ -4923,13 +4887,13 @@ if.else.i442:                                     ; preds = %sw.bb136
 
 for.body.i.i:                                     ; preds = %if.else.i442, %for.inc.i.i
   %p.06.i.i = phi ptr [ %p.0.i.i, %for.inc.i.i ], [ %p.04.i.i, %if.else.i442 ]
-  %tag1.i.i = getelementptr inbounds %struct.lsi_request, ptr %p.06.i.i, i64 0, i32 1
+  %tag1.i.i = getelementptr inbounds i8, ptr %p.06.i.i, i64 8
   %150 = load i32, ptr %tag1.i.i, align 8
   %cmp.i.i = icmp eq i32 %150, %149
   br i1 %cmp.i.i, label %if.end.i420, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %next.i.i444 = getelementptr inbounds %struct.lsi_request, ptr %p.06.i.i, i64 0, i32 6
+  %next.i.i444 = getelementptr inbounds i8, ptr %p.06.i.i, i64 32
   %p.0.i.i = load ptr, ptr %next.i.i444, align 8
   %tobool.not.i.i = icmp eq ptr %p.0.i.i, null
   br i1 %tobool.not.i.i, label %if.end.i420, label %for.body.i.i, !llvm.loop !8
@@ -4982,7 +4946,7 @@ while.body.i:                                     ; preds = %trace_lsi_do_msgout
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %160 = load i32, ptr %dnad195, align 8
   %conv.i.i = zext i32 %160 to i64
-  %bus_master_as.i.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %conv.i.i, i32 1, ptr noundef nonnull %data.i.i, i64 noundef 1, i1 noundef zeroext false) #11
@@ -5099,7 +5063,7 @@ sw.bb7.i:                                         ; preds = %while.body.i
   %call.i.i86.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %186 = load i32, ptr %dnad195, align 8
   %conv.i88.i = zext i32 %186 to i64
-  %bus_master_as.i.i.i.i89.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i86.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i89.i = getelementptr inbounds i8, ptr %call.i.i86.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i90.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i89.i, i64 noundef %conv.i88.i, i32 1, ptr noundef nonnull %data.i85.i, i64 noundef 1, i1 noundef zeroext false) #11
@@ -5112,7 +5076,7 @@ sw.bb7.i:                                         ; preds = %while.body.i
   %call.i.i95.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %190 = load i32, ptr %dnad195, align 8
   %conv.i97.i = zext i32 %190 to i64
-  %bus_master_as.i.i.i.i98.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i95.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i98.i = getelementptr inbounds i8, ptr %call.i.i95.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i99.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i98.i, i64 noundef %conv.i97.i, i32 1, ptr noundef nonnull %data.i94.i, i64 noundef 1, i1 noundef zeroext false) #11
@@ -5293,7 +5257,7 @@ sw.bb16.i:                                        ; preds = %while.body.i
   %call.i.i172.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %231 = load i32, ptr %dnad195, align 8
   %conv.i174.i = zext i32 %231 to i64
-  %bus_master_as.i.i.i.i175.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i172.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i175.i = getelementptr inbounds i8, ptr %call.i.i172.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i176.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i175.i, i64 noundef %conv.i174.i, i32 1, ptr noundef nonnull %data.i171.i, i64 noundef 1, i1 noundef zeroext false) #11
@@ -5360,7 +5324,7 @@ do.end.i:                                         ; preds = %if.then28.i, %do.bo
   %call.i.i198.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %244 = load i32, ptr %dnad195, align 8
   %conv.i200.i = zext i32 %244 to i64
-  %bus_master_as.i.i.i.i201.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i198.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i201.i = getelementptr inbounds i8, ptr %call.i.i198.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i202.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i201.i, i64 noundef %conv.i200.i, i32 1, ptr noundef nonnull %data.i197.i, i64 noundef 1, i1 noundef zeroext false) #11
@@ -5391,7 +5355,7 @@ do.end46.i:                                       ; preds = %if.then44.i, %do.bo
   %call.i.i209.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %250 = load i32, ptr %dnad195, align 8
   %conv.i211.i = zext i32 %250 to i64
-  %bus_master_as.i.i.i.i212.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i209.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i212.i = getelementptr inbounds i8, ptr %call.i.i209.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i213.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i212.i, i64 noundef %conv.i211.i, i32 1, ptr noundef nonnull %data.i208.i, i64 noundef 1, i1 noundef zeroext false) #11
@@ -5594,9 +5558,9 @@ if.end78.i:                                       ; preds = %if.then75.i, %if.en
 
 land.rhs.i:                                       ; preds = %if.end78.i, %for.inc.i
   %p.0305.i = phi ptr [ %291, %for.inc.i ], [ %290, %if.end78.i ]
-  %next.i = getelementptr inbounds %struct.lsi_request, ptr %p.0305.i, i64 0, i32 6
+  %next.i = getelementptr inbounds i8, ptr %p.0305.i, i64 32
   %291 = load ptr, ptr %next.i, align 8
-  %tag80.i = getelementptr inbounds %struct.lsi_request, ptr %p.0305.i, i64 0, i32 1
+  %tag80.i = getelementptr inbounds i8, ptr %p.0305.i, i64 8
   %292 = load i32, ptr %tag80.i, align 8
   %293 = xor i32 %292, %current_tag.0.i
   %294 = and i32 %293, 65280
@@ -5766,13 +5730,13 @@ if.end.i452:                                      ; preds = %trace_lsi_do_msgin.
   %conv15.i = zext i32 %329 to i64
   %len.0.mask.i = and i32 %spec.select.i, 255
   %conv17.i = zext nneg i32 %len.0.mask.i to i64
-  %bus_master_as.i.i.i.i456 = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i454, i64 0, i32 12
+  %bus_master_as.i.i.i.i456 = getelementptr inbounds i8, ptr %call.i.i454, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i457 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i456, i64 noundef %conv15.i, i32 1, ptr noundef nonnull %msg.i, i64 noundef %conv17.i, i1 noundef zeroext true) #11
   %sub.i = add nsw i32 %len.0.mask.i, -1
   %idxprom.i458 = sext i32 %sub.i to i64
-  %arrayidx21.i = getelementptr %struct.LSIState, ptr %s, i64 0, i32 10, i64 %idxprom.i458
+  %arrayidx21.i = getelementptr [8 x i8], ptr %msg.i, i64 0, i64 %idxprom.i458
   %330 = load i8, ptr %arrayidx21.i, align 1
   store i8 %330, ptr %sidl.i, align 2
   %331 = load i32, ptr %msg_len.i, align 4
@@ -5894,7 +5858,7 @@ if.then179:                                       ; preds = %if.then176
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i483)
   %call.i.i484 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %conv.i485 = zext i32 %add182 to i64
-  %bus_master_as.i.i.i.i486 = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i484, i64 0, i32 12
+  %bus_master_as.i.i.i.i486 = getelementptr inbounds i8, ptr %call.i.i484, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i487 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i486, i64 noundef %conv.i485, i32 1, ptr noundef nonnull %buf.i483, i64 noundef 4, i1 noundef zeroext false) #11
@@ -6103,13 +6067,13 @@ if.then244:                                       ; preds = %trace_lsi_execute_s
 
 for.body.i:                                       ; preds = %if.then244, %for.inc.i535
   %p.06.i = phi ptr [ %p.0.i, %for.inc.i535 ], [ %p.04.i, %if.then244 ]
-  %pending.i = getelementptr inbounds %struct.lsi_request, ptr %p.06.i, i64 0, i32 4
+  %pending.i = getelementptr inbounds i8, ptr %p.06.i, i64 24
   %399 = load i32, ptr %pending.i, align 8
   %tobool1.not.i = icmp eq i32 %399, 0
   br i1 %tobool1.not.i, label %for.inc.i535, label %if.then247
 
 for.inc.i535:                                     ; preds = %for.body.i
-  %next.i536 = getelementptr inbounds %struct.lsi_request, ptr %p.06.i, i64 0, i32 6
+  %next.i536 = getelementptr inbounds i8, ptr %p.06.i, i64 32
   %p.0.i = load ptr, ptr %next.i536, align 8
   %tobool.not.i537 = icmp eq ptr %p.0.i, null
   br i1 %tobool.not.i537, label %sw.epilog636, label %for.body.i, !llvm.loop !5
@@ -6186,13 +6150,13 @@ if.end.i546:                                      ; preds = %trace_lsi_wait_rese
 
 for.body.i.i550:                                  ; preds = %if.end.i546, %for.inc.i.i553
   %p.06.i.i551 = phi ptr [ %p.0.i.i555, %for.inc.i.i553 ], [ %p.04.i.i548, %if.end.i546 ]
-  %pending.i.i552 = getelementptr inbounds %struct.lsi_request, ptr %p.06.i.i551, i64 0, i32 4
+  %pending.i.i552 = getelementptr inbounds i8, ptr %p.06.i.i551, i64 24
   %414 = load i32, ptr %pending.i.i552, align 8
   %tobool1.not.i.i = icmp eq i32 %414, 0
   br i1 %tobool1.not.i.i, label %for.inc.i.i553, label %if.end3.i
 
 for.inc.i.i553:                                   ; preds = %for.body.i.i550
-  %next.i.i554 = getelementptr inbounds %struct.lsi_request, ptr %p.06.i.i551, i64 0, i32 6
+  %next.i.i554 = getelementptr inbounds i8, ptr %p.06.i.i551, i64 32
   %p.0.i.i555 = load ptr, ptr %next.i.i554, align 8
   %tobool.not.i.i556 = icmp eq ptr %p.0.i.i555, null
   br i1 %tobool.not.i.i556, label %if.then5.i, label %for.body.i.i550, !llvm.loop !5
@@ -7100,7 +7064,7 @@ if.then586:                                       ; preds = %sw.bb582
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i784)
   %call.i.i785 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
   %conv.i786 = zext i32 %add26 to i64
-  %bus_master_as.i.i.i.i787 = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i785, i64 0, i32 12
+  %bus_master_as.i.i.i.i787 = getelementptr inbounds i8, ptr %call.i.i785, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i788 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i787, i64 noundef %conv.i786, i32 1, ptr noundef nonnull %buf.i784, i64 noundef 4, i1 noundef zeroext false) #11
@@ -7166,7 +7130,7 @@ if.else11.i.i.i:                                  ; preds = %while.body.i795
 
 if.else.i.i806:                                   ; preds = %while.body.i795
   %call.i.i.i807 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %bus_master_as.i.i.i.i.i808 = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i807, i64 0, i32 12
+  %bus_master_as.i.i.i.i.i808 = getelementptr inbounds i8, ptr %call.i.i.i807, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i34.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i808, i64 noundef %conv.i796, i32 1, ptr noundef nonnull %buf.i790, i64 noundef %conv1.i, i1 noundef zeroext false) #11
@@ -7185,7 +7149,7 @@ if.then.i19.i:                                    ; preds = %lsi_mem_read.exit.i
 
 if.else.i21.i:                                    ; preds = %lsi_mem_read.exit.i
   %call.i.i22.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %bus_master_as.i.i.i.i23.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i22.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i23.i = getelementptr inbounds i8, ptr %call.i.i22.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i24.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i23.i, i64 noundef %conv2.i799, i32 1, ptr noundef nonnull %buf.i790, i64 noundef %conv1.i, i1 noundef zeroext true) #11
@@ -7388,7 +7352,7 @@ if.then8.i.i862:                                  ; preds = %if.then.i.i860
   %call9.i.i863 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i853, ptr noundef null) #11
   %call10.i.i864 = call i32 @qemu_get_thread_id() #11
   %620 = load i64, ptr %_now.i.i853, align 8
-  %tv_usec.i.i865 = getelementptr inbounds %struct.timeval, ptr %_now.i.i853, i64 0, i32 1
+  %tv_usec.i.i865 = getelementptr inbounds i8, ptr %_now.i.i853, i64 8
   %621 = load i64, ptr %tv_usec.i.i865, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.162, i32 noundef %call10.i.i864, i64 noundef %620, i64 noundef %621) #11
   br label %trace_lsi_execute_script_stop.exit867
@@ -7415,13 +7379,13 @@ define internal fastcc void @lsi_do_dma(ptr noundef %s, i32 noundef %out) unname
 entry:
   %_now.i.i49 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %current = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 17
+  %current = getelementptr inbounds i8, ptr %s, i64 3736
   %0 = load ptr, ptr %current, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %dma_len = getelementptr inbounds %struct.lsi_request, ptr %0, i64 0, i32 2
+  %dma_len = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i32, ptr %dma_len, align 4
   %tobool2.not = icmp eq i32 %1, 0
   br i1 %tobool2.not, label %if.then, label %if.end
@@ -7451,7 +7415,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.181, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8) #11
   br label %trace_lsi_do_dma_unavailable.exit
@@ -7466,7 +7430,7 @@ trace_lsi_do_dma_unavailable.exit:                ; preds = %if.then, %land.lhs.
 
 if.end:                                           ; preds = %lor.lhs.false
   %9 = load ptr, ptr %0, align 8
-  %dev4 = getelementptr inbounds %struct.SCSIRequest, ptr %9, i64 0, i32 1
+  %dev4 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %dev4, align 8
   %tobool5.not = icmp eq ptr %10, null
   br i1 %tobool5.not, label %if.else, label %if.end7
@@ -7476,10 +7440,10 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end7:                                          ; preds = %if.end
-  %dbc = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 21
+  %dbc = getelementptr inbounds i8, ptr %s, i64 3756
   %11 = load i32, ptr %dbc, align 4
   %spec.select = tail call i32 @llvm.umin.i32(i32 %11, i32 %1)
-  %dnad = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 20
+  %dnad = getelementptr inbounds i8, ptr %s, i64 3752
   %12 = load i32, ptr %dnad, align 8
   %conv = zext i32 %12 to i64
   %13 = getelementptr i8, ptr %s, i64 3777
@@ -7489,7 +7453,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool17.not, label %if.else20, label %if.then18
 
 if.then18:                                        ; preds = %if.end7
-  %dnad64 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 70
+  %dnad64 = getelementptr inbounds i8, ptr %s, i64 3836
   %15 = load i32, ptr %dnad64, align 4
   %conv19 = zext i32 %15 to i64
   %shl = shl nuw i64 %conv19, 32
@@ -7497,7 +7461,7 @@ if.then18:                                        ; preds = %if.end7
   br label %if.end36
 
 if.else20:                                        ; preds = %if.end7
-  %dbms = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 69
+  %dbms = getelementptr inbounds i8, ptr %s, i64 3832
   %16 = load i32, ptr %dbms, align 8
   %tobool21.not = icmp eq i32 %16, 0
   br i1 %tobool21.not, label %if.else27, label %if.then22
@@ -7509,7 +7473,7 @@ if.then22:                                        ; preds = %if.else20
   br label %if.end36
 
 if.else27:                                        ; preds = %if.else20
-  %sbms = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 68
+  %sbms = getelementptr inbounds i8, ptr %s, i64 3828
   %17 = load i32, ptr %sbms, align 4
   %tobool28.not = icmp eq i32 %17, 0
   br i1 %tobool28.not, label %if.end36, label %if.then29
@@ -7546,7 +7510,7 @@ if.then8.i.i58:                                   ; preds = %if.then.i.i56
   %call9.i.i59 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i49, ptr noundef null) #11
   %call10.i.i60 = tail call i32 @qemu_get_thread_id() #11
   %23 = load i64, ptr %_now.i.i49, align 8
-  %tv_usec.i.i61 = getelementptr inbounds %struct.timeval, ptr %_now.i.i49, i64 0, i32 1
+  %tv_usec.i.i61 = getelementptr inbounds i8, ptr %_now.i.i49, i64 8
   %24 = load i64, ptr %tv_usec.i.i61, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.183, i32 noundef %call10.i.i60, i64 noundef %23, i64 noundef %24, i64 noundef %addr.0, i32 noundef %spec.select) #11
   br label %trace_lsi_do_dma.exit
@@ -7557,7 +7521,7 @@ if.else.i.i62:                                    ; preds = %if.then.i.i56
 
 trace_lsi_do_dma.exit:                            ; preds = %if.end36, %land.lhs.true5.i.i53, %if.then8.i.i58, %if.else.i.i62
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i49)
-  %csbc = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 77
+  %csbc = getelementptr inbounds i8, ptr %s, i64 3864
   %25 = load i32, ptr %csbc, align 8
   %add = add i32 %25, %spec.select
   store i32 %add, ptr %csbc, align 8
@@ -7568,7 +7532,7 @@ trace_lsi_do_dma.exit:                            ; preds = %if.end36, %land.lhs
   %sub = sub i32 %27, %spec.select
   store i32 %sub, ptr %dbc, align 4
   %28 = load ptr, ptr %current, align 8
-  %dma_buf = getelementptr inbounds %struct.lsi_request, ptr %28, i64 0, i32 3
+  %dma_buf = getelementptr inbounds i8, ptr %28, i64 16
   %29 = load ptr, ptr %dma_buf, align 8
   %cmp41 = icmp eq ptr %29, null
   br i1 %cmp41, label %if.then43, label %if.end49
@@ -7577,17 +7541,17 @@ if.then43:                                        ; preds = %trace_lsi_do_dma.ex
   %30 = load ptr, ptr %28, align 8
   %call46 = tail call ptr @scsi_req_get_buf(ptr noundef %30) #11
   %31 = load ptr, ptr %current, align 8
-  %dma_buf48 = getelementptr inbounds %struct.lsi_request, ptr %31, i64 0, i32 3
+  %dma_buf48 = getelementptr inbounds i8, ptr %31, i64 16
   store ptr %call46, ptr %dma_buf48, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then43, %trace_lsi_do_dma.exit
   %tobool50.not = icmp eq i32 %out, 0
   %32 = load ptr, ptr %current, align 8
-  %dma_buf57 = getelementptr inbounds %struct.lsi_request, ptr %32, i64 0, i32 3
+  %dma_buf57 = getelementptr inbounds i8, ptr %32, i64 16
   %33 = load ptr, ptr %dma_buf57, align 8
   %conv58 = zext i32 %spec.select to i64
-  %dmode.i66 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 42
+  %dmode.i66 = getelementptr inbounds i8, ptr %s, i64 3788
   %34 = load i8, ptr %dmode.i66, align 4
   br i1 %tobool50.not, label %if.else55, label %if.then51
 
@@ -7597,13 +7561,13 @@ if.then51:                                        ; preds = %if.end49
   br i1 %tobool.not.i, label %if.else.i, label %if.else11.i.i
 
 if.else11.i.i:                                    ; preds = %if.then51
-  %pci_io_as.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 5
+  %pci_io_as.i = getelementptr inbounds i8, ptr %s, i64 3440
   %call13.i.i = tail call i32 @address_space_read_full(ptr noundef nonnull %pci_io_as.i, i64 noundef %addr.0, i32 1, ptr noundef %33, i64 noundef %conv58) #11
   br label %if.end59
 
 if.else.i:                                        ; preds = %if.then51
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i34.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %addr.0, i32 1, ptr noundef %33, i64 noundef %conv58, i1 noundef zeroext false) #11
@@ -7615,13 +7579,13 @@ if.else55:                                        ; preds = %if.end49
   br i1 %tobool.not.i67, label %if.else.i70, label %if.then.i68
 
 if.then.i68:                                      ; preds = %if.else55
-  %pci_io_as.i69 = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 5
+  %pci_io_as.i69 = getelementptr inbounds i8, ptr %s, i64 3440
   %call.i = tail call i32 @address_space_write(ptr noundef nonnull %pci_io_as.i69, i64 noundef %addr.0, i32 1, ptr noundef %33, i64 noundef %conv58) #11
   br label %if.end59
 
 if.else.i70:                                      ; preds = %if.else55
   %call.i.i71 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %bus_master_as.i.i.i.i72 = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i71, i64 0, i32 12
+  %bus_master_as.i.i.i.i72 = getelementptr inbounds i8, ptr %call.i.i71, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i73 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i72, i64 noundef %addr.0, i32 1, ptr noundef %33, i64 noundef %conv58, i1 noundef zeroext true) #11
@@ -7629,15 +7593,15 @@ if.else.i70:                                      ; preds = %if.else55
 
 if.end59:                                         ; preds = %if.else.i, %if.else11.i.i, %if.else.i70, %if.then.i68
   %37 = load ptr, ptr %current, align 8
-  %dma_len61 = getelementptr inbounds %struct.lsi_request, ptr %37, i64 0, i32 2
+  %dma_len61 = getelementptr inbounds i8, ptr %37, i64 12
   %38 = load i32, ptr %dma_len61, align 4
   %sub62 = sub i32 %38, %spec.select
   store i32 %sub62, ptr %dma_len61, align 4
   %39 = load ptr, ptr %current, align 8
-  %dma_len64 = getelementptr inbounds %struct.lsi_request, ptr %39, i64 0, i32 2
+  %dma_len64 = getelementptr inbounds i8, ptr %39, i64 12
   %40 = load i32, ptr %dma_len64, align 4
   %cmp65 = icmp eq i32 %40, 0
-  %dma_buf69 = getelementptr inbounds %struct.lsi_request, ptr %39, i64 0, i32 3
+  %dma_buf69 = getelementptr inbounds i8, ptr %39, i64 16
   br i1 %cmp65, label %if.then67, label %if.else72
 
 if.then67:                                        ; preds = %if.end59
@@ -7652,7 +7616,7 @@ if.else72:                                        ; preds = %if.end59
   %idx.ext = zext i32 %spec.select to i64
   %add.ptr = getelementptr i8, ptr %43, i64 %idx.ext
   store ptr %add.ptr, ptr %dma_buf69, align 8
-  %waiting.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 11
+  %waiting.i = getelementptr inbounds i8, ptr %s, i64 3552
   %44 = load i32, ptr %waiting.i, align 16
   %cmp.not.i = icmp eq i32 %44, 2
   store i32 0, ptr %waiting.i, align 16
@@ -7696,7 +7660,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.229, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %id) #11
   br label %trace_lsi_bad_selection.exit
@@ -7708,15 +7672,15 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_lsi_bad_selection.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   tail call fastcc void @lsi_script_scsi_interrupt(ptr noundef %s, i32 noundef 0, i32 noundef 4)
-  %scntl1.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 45
+  %scntl1.i = getelementptr inbounds i8, ptr %s, i64 3791
   %7 = load i8, ptr %scntl1.i, align 1
   %8 = and i8 %7, -17
   store i8 %8, ptr %scntl1.i, align 1
-  %sstat1.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 49
+  %sstat1.i = getelementptr inbounds i8, ptr %s, i64 3795
   %9 = load i8, ptr %sstat1.i, align 1
   %10 = and i8 %9, -8
   store i8 %10, ptr %sstat1.i, align 1
-  %sbcl.i = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 56
+  %sbcl.i = getelementptr inbounds i8, ptr %s, i64 3802
   store i8 0, ptr %sbcl.i, align 2
   ret void
 }
@@ -7752,7 +7716,7 @@ declare void @abort() local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @lsi_ram_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
-  %script_ram = getelementptr inbounds %struct.LSIState, ptr %opaque, i64 0, i32 81
+  %script_ram = getelementptr inbounds i8, ptr %opaque, i64 3948
   %add.ptr = getelementptr i8, ptr %script_ram, i64 %addr
   switch i32 %size, label %do.body.i [
     i32 1, label %sw.bb.i
@@ -7792,7 +7756,7 @@ ldn_le_p.exit:                                    ; preds = %sw.bb.i, %sw.bb1.i,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @lsi_ram_write(ptr nocapture noundef writeonly %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #0 {
 entry:
-  %script_ram = getelementptr inbounds %struct.LSIState, ptr %opaque, i64 0, i32 81
+  %script_ram = getelementptr inbounds i8, ptr %opaque, i64 3948
   %add.ptr = getelementptr i8, ptr %script_ram, i64 %addr
   switch i32 %size, label %do.body.i [
     i32 1, label %sw.bb.i
@@ -7857,10 +7821,10 @@ entry:
   %_now.i.i11.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %req, align 8
-  %parent = getelementptr inbounds %struct.BusState, ptr %0, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 312, ptr noundef nonnull @__func__.LSI53C895A) #11
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %req, i64 40
   %2 = load ptr, ptr %hba_private, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -7870,40 +7834,40 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %waiting = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 11
+  %waiting = getelementptr inbounds i8, ptr %call.i, i64 3552
   %3 = load i32, ptr %waiting, align 16
   %cmp = icmp eq i32 %3, 1
   br i1 %cmp, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %current = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 17
+  %current = getelementptr inbounds i8, ptr %call.i, i64 3736
   %4 = load ptr, ptr %current, align 8
   %cmp2.not = icmp eq ptr %2, %4
   br i1 %cmp2.not, label %lor.lhs.false3, label %if.then7
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %sien0.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 29
+  %sien0.i = getelementptr inbounds i8, ptr %call.i, i64 3767
   %5 = load i8, ptr %sien0.i, align 1
   %6 = and i8 %5, 16
   %tobool.not.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i, label %if.end12, label %lsi_irq_on_rsl.exit
 
 lsi_irq_on_rsl.exit:                              ; preds = %lor.lhs.false3
-  %scid.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 50
+  %scid.i = getelementptr inbounds i8, ptr %call.i, i64 3796
   %7 = load i8, ptr %scid.i, align 4
   %8 = and i8 %7, 96
   %tobool3.i.not = icmp eq i8 %8, 0
   br i1 %tobool3.i.not, label %if.end12, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lsi_irq_on_rsl.exit
-  %scntl1 = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 45
+  %scntl1 = getelementptr inbounds i8, ptr %call.i, i64 3791
   %9 = load i8, ptr %scntl1, align 1
   %10 = and i8 %9, 16
   %tobool6.not = icmp eq i8 %10, 0
   br i1 %tobool6.not, label %if.then7, label %if.end12
 
 if.then7:                                         ; preds = %land.lhs.true, %lor.lhs.false, %if.end
-  %pending.i = getelementptr inbounds %struct.lsi_request, ptr %2, i64 0, i32 4
+  %pending.i = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load i32, ptr %pending.i, align 8
   %tobool.not.i20 = icmp eq i32 %11, 0
   br i1 %tobool.not.i20, label %if.end.i, label %if.then.i
@@ -7933,7 +7897,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #11
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #11
   %17 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.273, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18, ptr noundef nonnull %2) #11
   br label %trace_lsi_queue_req_error.exit.i
@@ -7953,28 +7917,28 @@ if.end.i:                                         ; preds = %trace_lsi_queue_req
   br i1 %cmp.i, label %lsi_queue_req.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %sien0.i.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 29
+  %sien0.i.i = getelementptr inbounds i8, ptr %call.i, i64 3767
   %20 = load i8, ptr %sien0.i.i, align 1
   %21 = and i8 %20, 16
   %tobool.not.i.i = icmp eq i8 %21, 0
   br i1 %tobool.not.i.i, label %if.else.i, label %lsi_irq_on_rsl.exit.i
 
 lsi_irq_on_rsl.exit.i:                            ; preds = %lor.lhs.false.i
-  %scid.i.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 50
+  %scid.i.i = getelementptr inbounds i8, ptr %call.i, i64 3796
   %22 = load i8, ptr %scid.i.i, align 4
   %23 = and i8 %22, 96
   %tobool3.i.not.i = icmp eq i8 %23, 0
   br i1 %tobool3.i.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lsi_irq_on_rsl.exit.i
-  %scntl1.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 45
+  %scntl1.i = getelementptr inbounds i8, ptr %call.i, i64 3791
   %24 = load i8, ptr %scntl1.i, align 1
   %25 = and i8 %24, 16
   %tobool3.not.i = icmp eq i8 %25, 0
   br i1 %tobool3.not.i, label %land.lhs.true4.i, label %if.else.i
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
-  %istat0.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 22
+  %istat0.i = getelementptr inbounds i8, ptr %call.i, i64 3760
   %26 = load i8, ptr %istat0.i, align 16
   %27 = and i8 %26, 3
   %tobool7.not.i = icmp eq i8 %27, 0
@@ -7985,7 +7949,7 @@ lsi_queue_req.exit.thread:                        ; preds = %if.end.i, %land.lhs
   br label %if.end12
 
 if.else.i:                                        ; preds = %land.lhs.true4.i, %land.lhs.true.i, %lsi_irq_on_rsl.exit.i, %lor.lhs.false.i
-  %tag.i = getelementptr inbounds %struct.lsi_request, ptr %2, i64 0, i32 1
+  %tag.i = getelementptr inbounds i8, ptr %2, i64 8
   %28 = load i32, ptr %tag.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i11.i)
   %29 = load i32, ptr @trace_events_enabled_count, align 4
@@ -8011,7 +7975,7 @@ if.then8.i.i20.i:                                 ; preds = %if.then.i.i18.i
   %call9.i.i21.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11.i, ptr noundef null) #11
   %call10.i.i22.i = tail call i32 @qemu_get_thread_id() #11
   %34 = load i64, ptr %_now.i.i11.i, align 8
-  %tv_usec.i.i23.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i11.i, i64 0, i32 1
+  %tv_usec.i.i23.i = getelementptr inbounds i8, ptr %_now.i.i11.i, i64 8
   %35 = load i64, ptr %tv_usec.i.i23.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.275, i32 noundef %call10.i.i22.i, i64 noundef %34, i64 noundef %35, i32 noundef %28) #11
   br label %lsi_queue_req.exit
@@ -8026,12 +7990,12 @@ lsi_queue_req.exit:                               ; preds = %if.else.i, %land.lh
   br label %if.end30
 
 if.end12:                                         ; preds = %lor.lhs.false3, %lsi_queue_req.exit.thread, %land.lhs.true, %lsi_irq_on_rsl.exit
-  %sstat1 = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 49
+  %sstat1 = getelementptr inbounds i8, ptr %call.i, i64 3795
   %36 = load i8, ptr %sstat1, align 1
   %37 = and i8 %36, 7
   %cmp15 = icmp eq i8 %37, 0
   %conv16 = zext i1 %cmp15 to i32
-  %tag = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 4
+  %tag = getelementptr inbounds i8, ptr %req, i64 28
   %38 = load i32, ptr %tag, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %39 = load i32, ptr @trace_events_enabled_count, align 4
@@ -8057,7 +8021,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %44 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %45 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.277, i32 noundef %call10.i.i, i64 noundef %44, i64 noundef %45, i32 noundef %38, i32 noundef %len) #11
   br label %trace_lsi_transfer_data.exit
@@ -8068,11 +8032,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_lsi_transfer_data.exit:                     ; preds = %if.end12, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %current17 = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 17
+  %current17 = getelementptr inbounds i8, ptr %call.i, i64 3736
   %46 = load ptr, ptr %current17, align 8
-  %dma_len = getelementptr inbounds %struct.lsi_request, ptr %46, i64 0, i32 2
+  %dma_len = getelementptr inbounds i8, ptr %46, i64 12
   store i32 %len, ptr %dma_len, align 4
-  %command_complete = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 15
+  %command_complete = getelementptr inbounds i8, ptr %call.i, i64 3712
   store i32 1, ptr %command_complete, align 16
   %47 = load i32, ptr %waiting, align 16
   switch i32 %47, label %lor.lhs.false24 [
@@ -8085,7 +8049,7 @@ if.then27.thread:                                 ; preds = %trace_lsi_transfer_
   br label %if.then.i22
 
 lor.lhs.false24:                                  ; preds = %trace_lsi_transfer_data.exit
-  %dbc = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 21
+  %dbc = getelementptr inbounds i8, ptr %call.i, i64 3756
   %48 = load i32, ptr %dbc, align 4
   %cmp25 = icmp eq i32 %48, 0
   br i1 %cmp25, label %if.then27, label %if.else28
@@ -8114,14 +8078,13 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %req, align 8
-  %parent = getelementptr inbounds %struct.BusState, ptr %0, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 312, ptr noundef nonnull @__func__.LSI53C895A) #11
-  %sstat1 = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 49
+  %sstat1 = getelementptr inbounds i8, ptr %call.i, i64 3795
   %2 = load i8, ptr %sstat1, align 1
   %3 = and i8 %2, 7
-  %cmp.not = icmp eq i8 %3, 0
-  %status = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 6
+  %status = getelementptr inbounds i8, ptr %req, i64 36
   %4 = load i16, ptr %status, align 4
   %conv2 = sext i16 %4 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -8148,7 +8111,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.279, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %conv2) #11
   br label %trace_lsi_command_complete.exit
@@ -8161,23 +8124,23 @@ trace_lsi_command_complete.exit:                  ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %12 = load i16, ptr %status, align 4
   %conv4 = sext i16 %12 to i32
-  %status5 = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 7
+  %status5 = getelementptr inbounds i8, ptr %call.i, i64 3532
   store i32 %conv4, ptr %status5, align 4
-  %command_complete = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 15
+  %command_complete = getelementptr inbounds i8, ptr %call.i, i64 3712
   store i32 2, ptr %command_complete, align 16
-  %waiting = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 11
+  %waiting = getelementptr inbounds i8, ptr %call.i, i64 3552
   %13 = load i32, ptr %waiting, align 16
   %tobool.not = icmp eq i32 %13, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %trace_lsi_command_complete.exit
-  %dbc = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 21
+  %dbc = getelementptr inbounds i8, ptr %call.i, i64 3756
   %14 = load i32, ptr %dbc, align 4
   %cmp6.not = icmp eq i32 %14, 0
   br i1 %cmp6.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %ccntl0.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 38
+  %ccntl0.i = getelementptr inbounds i8, ptr %call.i, i64 3776
   %15 = load i8, ptr %ccntl0.i, align 16
   %tobool.not.i = icmp sgt i8 %15, -1
   br i1 %tobool.not.i, label %if.else18.i, label %if.then.i
@@ -8185,28 +8148,21 @@ if.then:                                          ; preds = %land.lhs.true
 if.then.i:                                        ; preds = %if.then
   %16 = and i8 %15, 64
   %tobool4.not.i = icmp eq i8 %16, 0
-  br i1 %tobool4.not.i, label %if.else.i, label %if.then5.i
-
-if.then5.i:                                       ; preds = %if.then.i
-  %pmjad1.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 71
-  %pmjad2.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 72
-  %cond.in.i = select i1 %cmp.not, ptr %pmjad1.i, ptr %pmjad2.i
-  br label %if.end.i
+  br i1 %tobool4.not.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %scntl2.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 46
+  %scntl2.i = getelementptr inbounds i8, ptr %call.i, i64 3792
   %17 = load i8, ptr %scntl2.i, align 16
   %18 = and i8 %17, 1
-  %tobool9.not.i = icmp eq i8 %18, 0
-  %pmjad211.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 72
-  %pmjad113.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 71
-  %cond15.in.i = select i1 %tobool9.not.i, ptr %pmjad113.i, ptr %pmjad211.i
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.else.i, %if.then5.i
-  %cond.sink.in.i = phi ptr [ %cond15.in.i, %if.else.i ], [ %cond.in.i, %if.then5.i ]
+if.end.i:                                         ; preds = %if.then.i, %if.else.i
+  %tobool9.not.i.sink.in = phi i8 [ %18, %if.else.i ], [ %3, %if.then.i ]
+  %tobool9.not.i.sink = icmp eq i8 %tobool9.not.i.sink.in, 0
+  %cond15.in.v.i = select i1 %tobool9.not.i.sink, i64 3840, i64 3844
+  %cond.sink.in.i = getelementptr inbounds i8, ptr %call.i, i64 %cond15.in.v.i
   %cond.sink.i = load i32, ptr %cond.sink.in.i, align 4
-  %19 = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 40
+  %19 = getelementptr inbounds i8, ptr %call.i, i64 3780
   store i32 %cond.sink.i, ptr %19, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %20 = load i32, ptr @trace_events_enabled_count, align 4
@@ -8232,7 +8188,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #11
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #11
   %25 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %26 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.281, i32 noundef %call10.i.i.i, i64 noundef %25, i64 noundef %26, i32 noundef %cond.sink.i) #11
   br label %trace_lsi_bad_phase_jump.exit.i
@@ -8270,7 +8226,7 @@ if.then8.i.i22.i:                                 ; preds = %if.then.i.i20.i
   %call9.i.i23.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i13.i, ptr noundef null) #11
   %call10.i.i24.i = tail call i32 @qemu_get_thread_id() #11
   %32 = load i64, ptr %_now.i.i13.i, align 8
-  %tv_usec.i.i25.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i13.i, i64 0, i32 1
+  %tv_usec.i.i25.i = getelementptr inbounds i8, ptr %_now.i.i13.i, i64 8
   %33 = load i64, ptr %tv_usec.i.i25.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.283, i32 noundef %call10.i.i24.i, i64 noundef %32, i64 noundef %33) #11
   br label %trace_lsi_bad_phase_interrupt.exit.i
@@ -8282,14 +8238,14 @@ if.else.i.i26.i:                                  ; preds = %if.then.i.i20.i
 trace_lsi_bad_phase_interrupt.exit.i:             ; preds = %if.else.i.i26.i, %if.then8.i.i22.i, %land.lhs.true5.i.i17.i, %if.else18.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i13.i)
   tail call fastcc void @lsi_script_scsi_interrupt(ptr noundef nonnull %call.i, i32 noundef 128, i32 noundef 0)
-  %istat1.i.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 23
+  %istat1.i.i = getelementptr inbounds i8, ptr %call.i, i64 3761
   %34 = load i8, ptr %istat1.i.i, align 1
   %35 = and i8 %34, -3
   store i8 %35, ptr %istat1.i.i, align 1
   br label %if.end
 
 if.end:                                           ; preds = %trace_lsi_command_complete.exit, %land.lhs.true, %trace_lsi_bad_phase_interrupt.exit.i, %trace_lsi_bad_phase_jump.exit.i
-  %sbcl.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 56
+  %sbcl.i = getelementptr inbounds i8, ptr %call.i, i64 3802
   %36 = load i8, ptr %sbcl.i, align 2
   %37 = and i8 %36, 120
   %conv5.i = or disjoint i8 %37, -125
@@ -8298,9 +8254,9 @@ if.end:                                           ; preds = %trace_lsi_command_c
   %storemerge.in = and i8 %storemerge.in.in, -8
   %storemerge = or disjoint i8 %storemerge.in, 3
   store i8 %storemerge, ptr %sstat1, align 1
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %req, i64 40
   %38 = load ptr, ptr %hba_private, align 8
-  %current = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 17
+  %current = getelementptr inbounds i8, ptr %call.i, i64 3736
   %39 = load ptr, ptr %current, align 8
   %cmp8 = icmp eq ptr %38, %39
   br i1 %cmp8, label %lsi_request_free.exit, label %if.end13
@@ -8331,13 +8287,13 @@ lsi_resume_script.exit:                           ; preds = %if.end13, %if.then.
 define internal void @lsi_request_cancelled(ptr noundef %req) #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
-  %parent = getelementptr inbounds %struct.BusState, ptr %0, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 312, ptr noundef nonnull @__func__.LSI53C895A) #11
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %req, i64 40
   %2 = load ptr, ptr %hba_private, align 8
   store ptr null, ptr %hba_private, align 8
-  %current.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 17
+  %current.i = getelementptr inbounds i8, ptr %call.i, i64 3736
   %3 = load ptr, ptr %current.i, align 8
   %cmp.i = icmp eq ptr %3, %2
   br i1 %cmp.i, label %if.then.i, label %do.body.i
@@ -8347,13 +8303,13 @@ if.then.i:                                        ; preds = %entry
   br label %lsi_request_free.exit
 
 do.body.i:                                        ; preds = %entry
-  %next.i = getelementptr inbounds %struct.lsi_request, ptr %2, i64 0, i32 6
+  %next.i = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load ptr, ptr %next.i, align 8
   %cmp2.not.i = icmp eq ptr %4, null
-  %tql_prev10.i = getelementptr inbounds %struct.lsi_request, ptr %2, i64 0, i32 6, i32 0, i32 1
+  %tql_prev10.i = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load ptr, ptr %tql_prev10.i, align 8
-  %tql_prev11.i = getelementptr inbounds %struct.LSIState, ptr %call.i, i64 0, i32 16, i32 0, i32 1
-  %tql_prev7.i = getelementptr inbounds %struct.lsi_request, ptr %4, i64 0, i32 6, i32 0, i32 1
+  %tql_prev11.i = getelementptr inbounds i8, ptr %call.i, i64 3728
+  %tql_prev7.i = getelementptr inbounds i8, ptr %4, i64 40
   %tql_prev11.sink.i = select i1 %cmp2.not.i, ptr %tql_prev11.i, ptr %tql_prev7.i
   store ptr %5, ptr %tql_prev11.sink.i, align 8
   %6 = load ptr, ptr %next.i, align 8
@@ -8379,7 +8335,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @lsi_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #8 {
 entry:
-  %msg_len = getelementptr inbounds %struct.LSIState, ptr %opaque, i64 0, i32 9
+  %msg_len = getelementptr inbounds i8, ptr %opaque, i64 3540
   %0 = load i32, ptr %msg_len, align 4
   %or.cond = icmp ugt i32 %0, 8
   %retval.0 = select i1 %or.cond, i32 -22, i32 0
@@ -8389,13 +8345,13 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @lsi_pre_save(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %current = getelementptr inbounds %struct.LSIState, ptr %opaque, i64 0, i32 17
+  %current = getelementptr inbounds i8, ptr %opaque, i64 3736
   %0 = load ptr, ptr %current, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %dma_buf = getelementptr inbounds %struct.lsi_request, ptr %0, i64 0, i32 3
+  %dma_buf = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %dma_buf, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.end, label %if.else
@@ -8405,7 +8361,7 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %dma_len = getelementptr inbounds %struct.lsi_request, ptr %0, i64 0, i32 2
+  %dma_len = getelementptr inbounds i8, ptr %0, i64 12
   %2 = load i32, ptr %dma_len, align 4
   %cmp4 = icmp eq i32 %2, 0
   br i1 %cmp4, label %if.end8, label %if.else6
@@ -8415,7 +8371,7 @@ if.else6:                                         ; preds = %if.end
   unreachable
 
 if.end8:                                          ; preds = %if.end, %entry
-  %queue = getelementptr inbounds %struct.LSIState, ptr %opaque, i64 0, i32 16
+  %queue = getelementptr inbounds i8, ptr %opaque, i64 3720
   %3 = load ptr, ptr %queue, align 8
   %cmp9 = icmp eq ptr %3, null
   br i1 %cmp9, label %if.end12, label %if.else11
@@ -8432,7 +8388,7 @@ if.end12:                                         ; preds = %if.end8
 define internal void @lsi53c810_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #11
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i, i64 210
   store i16 1, ptr %device_id, align 2
   ret void
 }

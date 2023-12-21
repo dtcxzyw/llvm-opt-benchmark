@@ -16,25 +16,25 @@ define ptr @ossl_dh_gen_type_id2name(i32 noundef %id) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
-for.body:                                         ; preds = %entry, %for.inc
-  %i.05 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %id1 = getelementptr inbounds [4 x %struct.dh_name2id_st], ptr @dhtype2id, i64 0, i64 %i.05, i32 1
-  %0 = load i32, ptr %id1, align 8
-  %cmp2 = icmp eq i32 %0, %id
-  br i1 %cmp2, label %if.then, label %for.inc
-
-if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr inbounds [4 x %struct.dh_name2id_st], ptr @dhtype2id, i64 0, i64 %i.05
-  %1 = load ptr, ptr %arrayidx, align 16
-  br label %return
-
-for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i64 %i.05, 1
+for.cond:                                         ; preds = %for.body
+  %inc = add nuw nsw i64 %i.04, 1
   %exitcond.not = icmp eq i64 %inc, 4
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
-return:                                           ; preds = %for.inc, %if.then
-  %retval.0 = phi ptr [ %1, %if.then ], [ null, %for.inc ]
+for.body:                                         ; preds = %entry, %for.cond
+  %i.04 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [4 x %struct.dh_name2id_st], ptr @dhtype2id, i64 0, i64 %i.04
+  %id1 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %0 = load i32, ptr %id1, align 8
+  %cmp2 = icmp eq i32 %0, %id
+  br i1 %cmp2, label %if.then, label %for.cond
+
+if.then:                                          ; preds = %for.body
+  %1 = load ptr, ptr %arrayidx, align 16
+  br label %return
+
+return:                                           ; preds = %for.cond, %if.then
+  %retval.0 = phi ptr [ %1, %if.then ], [ null, %for.cond ]
   ret ptr %retval.0
 }
 
@@ -44,30 +44,28 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.07 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x %struct.dh_name2id_st], ptr @dhtype2id, i64 0, i64 %i.07
-  %cmp2 = icmp eq i64 %i.07, 0
-  br i1 %cmp2, label %land.lhs.true, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %for.body
-  %type1 = getelementptr inbounds [4 x %struct.dh_name2id_st], ptr @dhtype2id, i64 0, i64 %i.07, i32 2
+  %i.06 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr inbounds [4 x %struct.dh_name2id_st], ptr @dhtype2id, i64 0, i64 %i.06
+  %type1 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %0 = load i32, ptr %type1, align 4
+  %cmp2 = icmp eq i32 %0, -1
   %cmp5 = icmp eq i32 %0, %type
-  br i1 %cmp5, label %land.lhs.true, label %for.inc
+  %or.cond = or i1 %cmp2, %cmp5
+  br i1 %or.cond, label %land.lhs.true, label %for.inc
 
-land.lhs.true:                                    ; preds = %lor.lhs.false, %for.body
+land.lhs.true:                                    ; preds = %for.body
   %1 = load ptr, ptr %arrayidx, align 16
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %name) #3
   %cmp8 = icmp eq i32 %call, 0
   br i1 %cmp8, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true
-  %id = getelementptr inbounds [4 x %struct.dh_name2id_st], ptr @dhtype2id, i64 0, i64 %i.07, i32 1
+  %id = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i32, ptr %id, align 8
   br label %return
 
-for.inc:                                          ; preds = %lor.lhs.false, %land.lhs.true
-  %inc = add nuw nsw i64 %i.07, 1
+for.inc:                                          ; preds = %for.body, %land.lhs.true
+  %inc = add nuw nsw i64 %i.06, 1
   %exitcond.not = icmp eq i64 %inc, 4
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 

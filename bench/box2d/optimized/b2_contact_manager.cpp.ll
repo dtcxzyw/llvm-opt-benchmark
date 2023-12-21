@@ -5,25 +5,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %class.b2ContactFilter = type { ptr }
 %class.b2ContactListener = type { ptr }
-%class.b2ContactManager = type { %class.b2BroadPhase, ptr, i32, ptr, ptr, ptr }
-%class.b2BroadPhase = type <{ %class.b2DynamicTree, i32, [4 x i8], ptr, i32, i32, ptr, i32, i32, i32, [4 x i8] }>
-%class.b2DynamicTree = type { i32, ptr, i32, i32, i32, i32 }
-%class.b2Contact = type { ptr, i32, ptr, ptr, %struct.b2ContactEdge, %struct.b2ContactEdge, ptr, ptr, i32, i32, %struct.b2Manifold, i32, float, float, float, float, float }
-%struct.b2ContactEdge = type { ptr, ptr, ptr, ptr }
-%struct.b2Manifold = type { [2 x %struct.b2ManifoldPoint], %struct.b2Vec2, %struct.b2Vec2, i32, i32 }
-%struct.b2ManifoldPoint = type { %struct.b2Vec2, float, float, %union.b2ContactID }
-%union.b2ContactID = type { i32 }
-%struct.b2Vec2 = type { float, float }
-%class.b2Fixture = type { float, ptr, ptr, ptr, float, float, float, ptr, i32, %struct.b2Filter, i8, %struct.b2FixtureUserData }
-%struct.b2Filter = type { i16, i16, i16 }
-%struct.b2FixtureUserData = type { i64 }
-%class.b2Body = type { i32, i16, i32, %struct.b2Transform, %struct.b2Sweep, %struct.b2Vec2, float, %struct.b2Vec2, float, ptr, ptr, ptr, ptr, i32, ptr, ptr, float, float, float, float, float, float, float, float, %struct.b2BodyUserData }
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
-%struct.b2Rot = type { float, float }
-%struct.b2Sweep = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float }
-%struct.b2BodyUserData = type { i64 }
 %struct.b2FixtureProxy = type { %struct.b2AABB, ptr, i32, i32 }
 %struct.b2AABB = type { %struct.b2Vec2, %struct.b2Vec2 }
+%struct.b2Vec2 = type { float, float }
 %struct.b2TreeNode = type <{ %struct.b2AABB, ptr, %union.anon, i32, i32, i32, i8, [7 x i8] }>
 %union.anon = type { i32 }
 %struct.b2Pair = type { i32, i32 }
@@ -76,15 +60,15 @@ entry:
 define void @_ZN16b2ContactManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN12b2BroadPhaseC1Ev(ptr noundef nonnull align 8 dereferenceable(76) %this)
-  %m_contactList = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 1
+  %m_contactList = getelementptr inbounds i8, ptr %this, i64 80
   store ptr null, ptr %m_contactList, align 8
-  %m_contactCount = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 2
+  %m_contactCount = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %m_contactCount, align 8
-  %m_contactFilter = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 3
+  %m_contactFilter = getelementptr inbounds i8, ptr %this, i64 96
   store ptr @b2_defaultFilter, ptr %m_contactFilter, align 8
-  %m_contactListener = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 4
+  %m_contactListener = getelementptr inbounds i8, ptr %this, i64 104
   store ptr @b2_defaultListener, ptr %m_contactListener, align 8
-  %m_allocator = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 5
+  %m_allocator = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %m_allocator, align 8
   ret void
 }
@@ -94,21 +78,21 @@ declare void @_ZN12b2BroadPhaseC1Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16b2ContactManager7DestroyEP9b2Contact(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %c) local_unnamed_addr #1 align 2 {
 entry:
-  %m_fixtureA.i = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 6
+  %m_fixtureA.i = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %m_fixtureA.i, align 8
-  %m_fixtureB.i = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 7
+  %m_fixtureB.i = getelementptr inbounds i8, ptr %c, i64 104
   %1 = load ptr, ptr %m_fixtureB.i, align 8
-  %m_body.i = getelementptr inbounds %class.b2Fixture, ptr %0, i64 0, i32 2
+  %m_body.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %m_body.i, align 8
-  %m_body.i36 = getelementptr inbounds %class.b2Fixture, ptr %1, i64 0, i32 2
+  %m_body.i36 = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %m_body.i36, align 8
-  %m_contactListener = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 4
+  %m_contactListener = getelementptr inbounds i8, ptr %this, i64 104
   %4 = load ptr, ptr %m_contactListener, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %m_flags.i = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 1
+  %m_flags.i = getelementptr inbounds i8, ptr %c, i64 8
   %5 = load i32, ptr %m_flags.i, align 8
   %and.i = and i32 %5, 2
   %cmp.i.not = icmp eq i32 %and.i, 0
@@ -116,37 +100,37 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %c)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %m_prev = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 2
+  %m_prev = getelementptr inbounds i8, ptr %c, i64 16
   %7 = load ptr, ptr %m_prev, align 8
   %tobool7.not = icmp eq ptr %7, null
-  %m_next12.phi.trans.insert = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 3
+  %m_next12.phi.trans.insert = getelementptr inbounds i8, ptr %c, i64 24
   %.pre = load ptr, ptr %m_next12.phi.trans.insert, align 8
   br i1 %tobool7.not, label %if.end11, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %m_next10 = getelementptr inbounds %class.b2Contact, ptr %7, i64 0, i32 3
+  %m_next10 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %.pre, ptr %m_next10, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end, %if.then8
-  %m_next12 = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 3
+  %m_next12 = getelementptr inbounds i8, ptr %c, i64 24
   %tobool13.not = icmp eq ptr %.pre, null
   br i1 %tobool13.not, label %if.end18, label %if.then14
 
 if.then14:                                        ; preds = %if.end11
   %8 = load ptr, ptr %m_prev, align 8
-  %m_prev17 = getelementptr inbounds %class.b2Contact, ptr %.pre, i64 0, i32 2
+  %m_prev17 = getelementptr inbounds i8, ptr %.pre, i64 16
   store ptr %8, ptr %m_prev17, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then14, %if.end11
-  %m_contactList = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 1
+  %m_contactList = getelementptr inbounds i8, ptr %this, i64 80
   %9 = load ptr, ptr %m_contactList, align 8
   %cmp = icmp eq ptr %9, %c
   br i1 %cmp, label %if.then19, label %if.end22
@@ -157,32 +141,32 @@ if.then19:                                        ; preds = %if.end18
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %if.end18
-  %m_nodeA = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 4
-  %prev = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 4, i32 2
+  %m_nodeA = getelementptr inbounds i8, ptr %c, i64 32
+  %prev = getelementptr inbounds i8, ptr %c, i64 48
   %11 = load ptr, ptr %prev, align 8
   %tobool23.not = icmp eq ptr %11, null
-  %next31.phi.trans.insert = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 4, i32 3
+  %next31.phi.trans.insert = getelementptr inbounds i8, ptr %c, i64 56
   %.pre37 = load ptr, ptr %next31.phi.trans.insert, align 8
   br i1 %tobool23.not, label %if.end29, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %next28 = getelementptr inbounds %struct.b2ContactEdge, ptr %11, i64 0, i32 3
+  %next28 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %.pre37, ptr %next28, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end22, %if.then24
-  %next31 = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 4, i32 3
+  %next31 = getelementptr inbounds i8, ptr %c, i64 56
   %tobool32.not = icmp eq ptr %.pre37, null
   br i1 %tobool32.not, label %if.end39, label %if.then33
 
 if.then33:                                        ; preds = %if.end29
   %12 = load ptr, ptr %prev, align 8
-  %prev38 = getelementptr inbounds %struct.b2ContactEdge, ptr %.pre37, i64 0, i32 2
+  %prev38 = getelementptr inbounds i8, ptr %.pre37, i64 16
   store ptr %12, ptr %prev38, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then33, %if.end29
-  %m_contactList41 = getelementptr inbounds %class.b2Body, ptr %2, i64 0, i32 15
+  %m_contactList41 = getelementptr inbounds i8, ptr %2, i64 136
   %13 = load ptr, ptr %m_contactList41, align 8
   %cmp42 = icmp eq ptr %m_nodeA, %13
   br i1 %cmp42, label %if.then43, label %if.end47
@@ -193,32 +177,32 @@ if.then43:                                        ; preds = %if.end39
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then43, %if.end39
-  %m_nodeB = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 5
-  %prev48 = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 5, i32 2
+  %m_nodeB = getelementptr inbounds i8, ptr %c, i64 64
+  %prev48 = getelementptr inbounds i8, ptr %c, i64 80
   %15 = load ptr, ptr %prev48, align 8
   %tobool49.not = icmp eq ptr %15, null
-  %next58.phi.trans.insert = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 5, i32 3
+  %next58.phi.trans.insert = getelementptr inbounds i8, ptr %c, i64 88
   %.pre38 = load ptr, ptr %next58.phi.trans.insert, align 8
   br i1 %tobool49.not, label %if.end56, label %if.then50
 
 if.then50:                                        ; preds = %if.end47
-  %next55 = getelementptr inbounds %struct.b2ContactEdge, ptr %15, i64 0, i32 3
+  %next55 = getelementptr inbounds i8, ptr %15, i64 24
   store ptr %.pre38, ptr %next55, align 8
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end47, %if.then50
-  %next58 = getelementptr inbounds %class.b2Contact, ptr %c, i64 0, i32 5, i32 3
+  %next58 = getelementptr inbounds i8, ptr %c, i64 88
   %tobool59.not = icmp eq ptr %.pre38, null
   br i1 %tobool59.not, label %if.end66, label %if.then60
 
 if.then60:                                        ; preds = %if.end56
   %16 = load ptr, ptr %prev48, align 8
-  %prev65 = getelementptr inbounds %struct.b2ContactEdge, ptr %.pre38, i64 0, i32 2
+  %prev65 = getelementptr inbounds i8, ptr %.pre38, i64 16
   store ptr %16, ptr %prev65, align 8
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then60, %if.end56
-  %m_contactList68 = getelementptr inbounds %class.b2Body, ptr %3, i64 0, i32 15
+  %m_contactList68 = getelementptr inbounds i8, ptr %3, i64 136
   %17 = load ptr, ptr %m_contactList68, align 8
   %cmp69 = icmp eq ptr %m_nodeB, %17
   br i1 %cmp69, label %if.then70, label %if.end74
@@ -229,10 +213,10 @@ if.then70:                                        ; preds = %if.end66
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then70, %if.end66
-  %m_allocator = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 5
+  %m_allocator = getelementptr inbounds i8, ptr %this, i64 112
   %19 = load ptr, ptr %m_allocator, align 8
   tail call void @_ZN9b2Contact7DestroyEPS_P16b2BlockAllocator(ptr noundef nonnull %c, ptr noundef %19)
-  %m_contactCount = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 2
+  %m_contactCount = getelementptr inbounds i8, ptr %this, i64 88
   %20 = load i32, ptr %m_contactCount, align 8
   %dec = add nsw i32 %20, -1
   store i32 %dec, ptr %m_contactCount, align 8
@@ -244,32 +228,32 @@ declare void @_ZN9b2Contact7DestroyEPS_P16b2BlockAllocator(ptr noundef, ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16b2ContactManager7CollideEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_contactList = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 1
+  %m_contactList = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %m_contactList, align 8
   %tobool.not32 = icmp eq ptr %0, null
   br i1 %tobool.not32, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_contactFilter = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 3
-  %m_nodes.i.i = getelementptr inbounds %class.b2DynamicTree, ptr %this, i64 0, i32 1
-  %m_contactListener = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 4
+  %m_contactFilter = getelementptr inbounds i8, ptr %this, i64 96
+  %m_nodes.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_contactListener = getelementptr inbounds i8, ptr %this, i64 104
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %c.033 = phi ptr [ %0, %while.body.lr.ph ], [ %c.0.be, %while.cond.backedge ]
-  %m_fixtureA.i = getelementptr inbounds %class.b2Contact, ptr %c.033, i64 0, i32 6
+  %m_fixtureA.i = getelementptr inbounds i8, ptr %c.033, i64 96
   %1 = load ptr, ptr %m_fixtureA.i, align 8
-  %m_fixtureB.i = getelementptr inbounds %class.b2Contact, ptr %c.033, i64 0, i32 7
+  %m_fixtureB.i = getelementptr inbounds i8, ptr %c.033, i64 104
   %2 = load ptr, ptr %m_fixtureB.i, align 8
-  %m_indexA.i = getelementptr inbounds %class.b2Contact, ptr %c.033, i64 0, i32 8
+  %m_indexA.i = getelementptr inbounds i8, ptr %c.033, i64 112
   %3 = load i32, ptr %m_indexA.i, align 8
-  %m_indexB.i = getelementptr inbounds %class.b2Contact, ptr %c.033, i64 0, i32 9
+  %m_indexB.i = getelementptr inbounds i8, ptr %c.033, i64 116
   %4 = load i32, ptr %m_indexB.i, align 4
-  %m_body.i = getelementptr inbounds %class.b2Fixture, ptr %1, i64 0, i32 2
+  %m_body.i = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %m_body.i, align 8
-  %m_body.i24 = getelementptr inbounds %class.b2Fixture, ptr %2, i64 0, i32 2
+  %m_body.i24 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %m_body.i24, align 8
-  %m_flags = getelementptr inbounds %class.b2Contact, ptr %c.033, i64 0, i32 1
+  %m_flags = getelementptr inbounds i8, ptr %c.033, i64 8
   %7 = load i32, ptr %m_flags, align 8
   %and = and i32 %7, 8
   %tobool7.not = icmp eq i32 %and, 0
@@ -280,7 +264,7 @@ if.then:                                          ; preds = %while.body
   br i1 %call8, label %if.end, label %if.then9
 
 if.then9:                                         ; preds = %if.then
-  %m_next.i = getelementptr inbounds %class.b2Contact, ptr %c.033, i64 0, i32 3
+  %m_next.i = getelementptr inbounds i8, ptr %c.033, i64 24
   %8 = load ptr, ptr %m_next.i, align 8
   tail call void @_ZN16b2ContactManager7DestroyEP9b2Contact(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %c.033)
   br label %while.cond.backedge
@@ -297,13 +281,13 @@ if.end:                                           ; preds = %if.then
 
 land.lhs.true:                                    ; preds = %if.end
   %vtable = load ptr, ptr %9, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %10 = load ptr, ptr %vfn, align 8
   %call13 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %1, ptr noundef nonnull %2)
   br i1 %call13, label %if.end19, label %if.then16
 
 if.then16:                                        ; preds = %land.lhs.true
-  %m_next.i25 = getelementptr inbounds %class.b2Contact, ptr %c.033, i64 0, i32 3
+  %m_next.i25 = getelementptr inbounds i8, ptr %c.033, i64 24
   %11 = load ptr, ptr %m_next.i25, align 8
   tail call void @_ZN16b2ContactManager7DestroyEP9b2Contact(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %c.033)
   br label %while.cond.backedge
@@ -315,7 +299,7 @@ if.end19:                                         ; preds = %land.lhs.true, %if.
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end19, %while.body
-  %m_flags.i = getelementptr inbounds %class.b2Body, ptr %5, i64 0, i32 1
+  %m_flags.i = getelementptr inbounds i8, ptr %5, i64 4
   %13 = load i16, ptr %m_flags.i, align 4
   %14 = and i16 %13, 2
   %cmp.i.not = icmp eq i16 %14, 0
@@ -328,7 +312,7 @@ land.rhs:                                         ; preds = %if.end22
 
 land.end:                                         ; preds = %land.rhs, %if.end22
   %16 = phi i1 [ false, %if.end22 ], [ %cmp24, %land.rhs ]
-  %m_flags.i26 = getelementptr inbounds %class.b2Body, ptr %6, i64 0, i32 1
+  %m_flags.i26 = getelementptr inbounds i8, ptr %6, i64 4
   %17 = load i16, ptr %m_flags.i26, align 4
   %18 = and i16 %17, 2
   %cmp.i27.not = icmp eq i16 %18, 0
@@ -345,17 +329,17 @@ land.end29:                                       ; preds = %land.rhs26, %land.e
   br i1 %brmerge, label %if.end40, label %if.then38
 
 if.then38:                                        ; preds = %land.end29
-  %m_next.i28 = getelementptr inbounds %class.b2Contact, ptr %c.033, i64 0, i32 3
+  %m_next.i28 = getelementptr inbounds i8, ptr %c.033, i64 24
   %21 = load ptr, ptr %m_next.i28, align 8
   br label %while.cond.backedge
 
 if.end40:                                         ; preds = %land.end29
-  %m_proxies = getelementptr inbounds %class.b2Fixture, ptr %1, i64 0, i32 7
+  %m_proxies = getelementptr inbounds i8, ptr %1, i64 48
   %22 = load ptr, ptr %m_proxies, align 8
   %idxprom = sext i32 %3 to i64
   %proxyId = getelementptr inbounds %struct.b2FixtureProxy, ptr %22, i64 %idxprom, i32 3
   %23 = load i32, ptr %proxyId, align 4
-  %m_proxies41 = getelementptr inbounds %class.b2Fixture, ptr %2, i64 0, i32 7
+  %m_proxies41 = getelementptr inbounds i8, ptr %2, i64 48
   %24 = load ptr, ptr %m_proxies41, align 8
   %idxprom42 = sext i32 %4 to i64
   %proxyId44 = getelementptr inbounds %struct.b2FixtureProxy, ptr %24, i64 %idxprom42, i32 3
@@ -365,7 +349,7 @@ if.end40:                                         ; preds = %land.end29
   %arrayidx.i.i = getelementptr inbounds %struct.b2TreeNode, ptr %26, i64 %idxprom.i.i
   %idxprom.i2.i = sext i32 %25 to i64
   %arrayidx.i3.i = getelementptr inbounds %struct.b2TreeNode, ptr %26, i64 %idxprom.i2.i
-  %upperBound.i.i = getelementptr inbounds %struct.b2AABB, ptr %arrayidx.i.i, i64 0, i32 1
+  %upperBound.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %27 = load <2 x float>, ptr %arrayidx.i3.i, align 4
   %28 = load <2 x float>, ptr %upperBound.i.i, align 4
   %29 = fsub <2 x float> %27, %28
@@ -376,7 +360,7 @@ if.end40:                                         ; preds = %land.end29
   br i1 %or.cond.i.i, label %if.then50, label %_ZNK12b2BroadPhase11TestOverlapEii.exit
 
 _ZNK12b2BroadPhase11TestOverlapEii.exit:          ; preds = %if.end40
-  %upperBound3.i.i = getelementptr inbounds %struct.b2AABB, ptr %arrayidx.i3.i, i64 0, i32 1
+  %upperBound3.i.i = getelementptr inbounds i8, ptr %arrayidx.i3.i, i64 8
   %33 = load <2 x float>, ptr %arrayidx.i.i, align 4
   %34 = load <2 x float>, ptr %upperBound3.i.i, align 4
   %35 = fsub <2 x float> %33, %34
@@ -387,7 +371,7 @@ _ZNK12b2BroadPhase11TestOverlapEii.exit:          ; preds = %if.end40
   br i1 %or.cond1.not.i.i, label %if.end53, label %if.then50
 
 if.then50:                                        ; preds = %if.end40, %_ZNK12b2BroadPhase11TestOverlapEii.exit
-  %m_next.i29 = getelementptr inbounds %class.b2Contact, ptr %c.033, i64 0, i32 3
+  %m_next.i29 = getelementptr inbounds i8, ptr %c.033, i64 24
   %39 = load ptr, ptr %m_next.i29, align 8
   tail call void @_ZN16b2ContactManager7DestroyEP9b2Contact(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %c.033)
   br label %while.cond.backedge
@@ -395,7 +379,7 @@ if.then50:                                        ; preds = %if.end40, %_ZNK12b2
 if.end53:                                         ; preds = %_ZNK12b2BroadPhase11TestOverlapEii.exit
   %40 = load ptr, ptr %m_contactListener, align 8
   tail call void @_ZN9b2Contact6UpdateEP17b2ContactListener(ptr noundef nonnull align 8 dereferenceable(208) %c.033, ptr noundef %40)
-  %m_next.i30 = getelementptr inbounds %class.b2Contact, ptr %c.033, i64 0, i32 3
+  %m_next.i30 = getelementptr inbounds i8, ptr %c.033, i64 24
   %41 = load ptr, ptr %m_next.i30, align 8
   br label %while.cond.backedge
 
@@ -417,17 +401,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN12b2BroadPhase11UpdatePairsI16b2ContactManagerEEvPT_(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %callback) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %m_pairCount = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 8
+  %m_pairCount = getelementptr inbounds i8, ptr %this, i64 68
   store i32 0, ptr %m_pairCount, align 4
-  %m_moveCount = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 5
+  %m_moveCount = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %m_moveCount, align 4
   %cmp17 = icmp sgt i32 %0, 0
   br i1 %cmp17, label %for.body.lr.ph, label %for.end32
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_moveBuffer = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
-  %m_queryProxyId = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 9
-  %m_nodes.i = getelementptr inbounds %class.b2DynamicTree, ptr %this, i64 0, i32 1
+  %m_moveBuffer = getelementptr inbounds i8, ptr %this, i64 40
+  %m_queryProxyId = getelementptr inbounds i8, ptr %this, i64 72
+  %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.cond7.preheader:                              ; preds = %for.inc
@@ -436,8 +420,8 @@ for.cond7.preheader:                              ; preds = %for.inc
   br i1 %1, label %for.body10.lr.ph, label %for.cond19.preheader
 
 for.body10.lr.ph:                                 ; preds = %for.cond7.preheader
-  %m_pairBuffer = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 6
-  %m_nodes.i10 = getelementptr inbounds %class.b2DynamicTree, ptr %this, i64 0, i32 1
+  %m_pairBuffer = getelementptr inbounds i8, ptr %this, i64 56
+  %m_nodes.i10 = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body10
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -475,8 +459,8 @@ for.cond19.preheader:                             ; preds = %for.cond19.preheade
   br i1 %cmp2121, label %for.body22.lr.ph, label %for.end32
 
 for.body22.lr.ph:                                 ; preds = %for.cond19.preheader
-  %m_moveBuffer23 = getelementptr inbounds %class.b2BroadPhase, ptr %this, i64 0, i32 3
-  %m_nodes.i15 = getelementptr inbounds %class.b2DynamicTree, ptr %this, i64 0, i32 1
+  %m_moveBuffer23 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_nodes.i15 = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body22
 
 for.body10:                                       ; preds = %for.body10.lr.ph, %for.body10
@@ -488,7 +472,7 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
   %idxprom.i11 = sext i32 %10 to i64
   %userData.i = getelementptr inbounds %struct.b2TreeNode, ptr %11, i64 %idxprom.i11, i32 1
   %12 = load ptr, ptr %userData.i, align 8
-  %proxyIdB = getelementptr inbounds %struct.b2Pair, ptr %9, i64 %indvars.iv24, i32 1
+  %proxyIdB = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %13 = load i32, ptr %proxyIdB, align 4
   %idxprom.i13 = sext i32 %13 to i64
   %userData.i14 = getelementptr inbounds %struct.b2TreeNode, ptr %11, i64 %idxprom.i13, i32 1
@@ -532,23 +516,23 @@ for.end32:                                        ; preds = %for.inc30, %entry, 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16b2ContactManager7AddPairEPvS0_(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %proxyUserDataA, ptr nocapture noundef readonly %proxyUserDataB) local_unnamed_addr #1 align 2 {
 entry:
-  %fixture = getelementptr inbounds %struct.b2FixtureProxy, ptr %proxyUserDataA, i64 0, i32 1
+  %fixture = getelementptr inbounds i8, ptr %proxyUserDataA, i64 16
   %0 = load ptr, ptr %fixture, align 8
-  %fixture2 = getelementptr inbounds %struct.b2FixtureProxy, ptr %proxyUserDataB, i64 0, i32 1
+  %fixture2 = getelementptr inbounds i8, ptr %proxyUserDataB, i64 16
   %1 = load ptr, ptr %fixture2, align 8
-  %childIndex = getelementptr inbounds %struct.b2FixtureProxy, ptr %proxyUserDataA, i64 0, i32 2
+  %childIndex = getelementptr inbounds i8, ptr %proxyUserDataA, i64 24
   %2 = load i32, ptr %childIndex, align 8
-  %childIndex3 = getelementptr inbounds %struct.b2FixtureProxy, ptr %proxyUserDataB, i64 0, i32 2
+  %childIndex3 = getelementptr inbounds i8, ptr %proxyUserDataB, i64 24
   %3 = load i32, ptr %childIndex3, align 8
-  %m_body.i = getelementptr inbounds %class.b2Fixture, ptr %0, i64 0, i32 2
+  %m_body.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %m_body.i, align 8
-  %m_body.i71 = getelementptr inbounds %class.b2Fixture, ptr %1, i64 0, i32 2
+  %m_body.i71 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %m_body.i71, align 8
   %cmp = icmp eq ptr %4, %5
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_contactList.i = getelementptr inbounds %class.b2Body, ptr %5, i64 0, i32 15
+  %m_contactList.i = getelementptr inbounds i8, ptr %5, i64 136
   %edge.078 = load ptr, ptr %m_contactList.i, align 8
   %tobool.not79 = icmp eq ptr %edge.078, null
   br i1 %tobool.not79, label %while.end, label %while.body
@@ -560,15 +544,15 @@ while.body:                                       ; preds = %if.end, %if.end32
   br i1 %cmp6, label %if.then7, label %if.end32
 
 if.then7:                                         ; preds = %while.body
-  %contact = getelementptr inbounds %struct.b2ContactEdge, ptr %edge.080, i64 0, i32 1
+  %contact = getelementptr inbounds i8, ptr %edge.080, i64 8
   %7 = load ptr, ptr %contact, align 8
-  %m_fixtureA.i = getelementptr inbounds %class.b2Contact, ptr %7, i64 0, i32 6
+  %m_fixtureA.i = getelementptr inbounds i8, ptr %7, i64 96
   %8 = load ptr, ptr %m_fixtureA.i, align 8
-  %m_fixtureB.i = getelementptr inbounds %class.b2Contact, ptr %7, i64 0, i32 7
+  %m_fixtureB.i = getelementptr inbounds i8, ptr %7, i64 104
   %9 = load ptr, ptr %m_fixtureB.i, align 8
-  %m_indexA.i = getelementptr inbounds %class.b2Contact, ptr %7, i64 0, i32 8
+  %m_indexA.i = getelementptr inbounds i8, ptr %7, i64 112
   %10 = load i32, ptr %m_indexA.i, align 8
-  %m_indexB.i = getelementptr inbounds %class.b2Contact, ptr %7, i64 0, i32 9
+  %m_indexB.i = getelementptr inbounds i8, ptr %7, i64 116
   %11 = load i32, ptr %m_indexB.i, align 4
   %cmp15 = icmp eq ptr %8, %0
   %cmp16 = icmp eq ptr %9, %1
@@ -590,7 +574,7 @@ if.end22:                                         ; preds = %if.then7
   br i1 %or.cond70, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.end22, %while.body
-  %next = getelementptr inbounds %struct.b2ContactEdge, ptr %edge.080, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %edge.080, i64 24
   %edge.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %edge.0, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !9
@@ -600,91 +584,91 @@ while.end:                                        ; preds = %if.end32, %if.end
   br i1 %call33, label %if.end36, label %return
 
 if.end36:                                         ; preds = %while.end
-  %m_contactFilter = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 3
+  %m_contactFilter = getelementptr inbounds i8, ptr %this, i64 96
   %12 = load ptr, ptr %m_contactFilter, align 8
   %tobool37.not = icmp eq ptr %12, null
   br i1 %tobool37.not, label %if.end44, label %land.lhs.true38
 
 land.lhs.true38:                                  ; preds = %if.end36
   %vtable = load ptr, ptr %12, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   %call40 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %0, ptr noundef nonnull %1)
   br i1 %call40, label %if.end44, label %return
 
 if.end44:                                         ; preds = %land.lhs.true38, %if.end36
-  %m_allocator = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 5
+  %m_allocator = getelementptr inbounds i8, ptr %this, i64 112
   %14 = load ptr, ptr %m_allocator, align 8
   %call45 = tail call noundef ptr @_ZN9b2Contact6CreateEP9b2FixtureiS1_iP16b2BlockAllocator(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %1, i32 noundef %3, ptr noundef %14)
   %cmp46 = icmp eq ptr %call45, null
   br i1 %cmp46, label %return, label %if.end48
 
 if.end48:                                         ; preds = %if.end44
-  %m_fixtureA.i72 = getelementptr inbounds %class.b2Contact, ptr %call45, i64 0, i32 6
+  %m_fixtureA.i72 = getelementptr inbounds i8, ptr %call45, i64 96
   %15 = load ptr, ptr %m_fixtureA.i72, align 8
-  %m_fixtureB.i73 = getelementptr inbounds %class.b2Contact, ptr %call45, i64 0, i32 7
+  %m_fixtureB.i73 = getelementptr inbounds i8, ptr %call45, i64 104
   %16 = load ptr, ptr %m_fixtureB.i73, align 8
-  %m_body.i76 = getelementptr inbounds %class.b2Fixture, ptr %15, i64 0, i32 2
+  %m_body.i76 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load ptr, ptr %m_body.i76, align 8
-  %m_body.i77 = getelementptr inbounds %class.b2Fixture, ptr %16, i64 0, i32 2
+  %m_body.i77 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %m_body.i77, align 8
-  %m_prev = getelementptr inbounds %class.b2Contact, ptr %call45, i64 0, i32 2
+  %m_prev = getelementptr inbounds i8, ptr %call45, i64 16
   store ptr null, ptr %m_prev, align 8
-  %m_contactList = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 1
+  %m_contactList = getelementptr inbounds i8, ptr %this, i64 80
   %19 = load ptr, ptr %m_contactList, align 8
-  %m_next = getelementptr inbounds %class.b2Contact, ptr %call45, i64 0, i32 3
+  %m_next = getelementptr inbounds i8, ptr %call45, i64 24
   store ptr %19, ptr %m_next, align 8
   %cmp56.not = icmp eq ptr %19, null
   br i1 %cmp56.not, label %if.end60, label %if.then57
 
 if.then57:                                        ; preds = %if.end48
-  %m_prev59 = getelementptr inbounds %class.b2Contact, ptr %19, i64 0, i32 2
+  %m_prev59 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %call45, ptr %m_prev59, align 8
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then57, %if.end48
   store ptr %call45, ptr %m_contactList, align 8
-  %m_nodeA = getelementptr inbounds %class.b2Contact, ptr %call45, i64 0, i32 4
-  %contact62 = getelementptr inbounds %class.b2Contact, ptr %call45, i64 0, i32 4, i32 1
+  %m_nodeA = getelementptr inbounds i8, ptr %call45, i64 32
+  %contact62 = getelementptr inbounds i8, ptr %call45, i64 40
   store ptr %call45, ptr %contact62, align 8
   store ptr %18, ptr %m_nodeA, align 8
-  %prev = getelementptr inbounds %class.b2Contact, ptr %call45, i64 0, i32 4, i32 2
+  %prev = getelementptr inbounds i8, ptr %call45, i64 48
   store ptr null, ptr %prev, align 8
-  %m_contactList66 = getelementptr inbounds %class.b2Body, ptr %17, i64 0, i32 15
+  %m_contactList66 = getelementptr inbounds i8, ptr %17, i64 136
   %20 = load ptr, ptr %m_contactList66, align 8
-  %next68 = getelementptr inbounds %class.b2Contact, ptr %call45, i64 0, i32 4, i32 3
+  %next68 = getelementptr inbounds i8, ptr %call45, i64 56
   store ptr %20, ptr %next68, align 8
   %cmp70.not = icmp eq ptr %20, null
   br i1 %cmp70.not, label %if.end75, label %if.then71
 
 if.then71:                                        ; preds = %if.end60
-  %prev74 = getelementptr inbounds %struct.b2ContactEdge, ptr %20, i64 0, i32 2
+  %prev74 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %m_nodeA, ptr %prev74, align 8
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then71, %if.end60
   store ptr %m_nodeA, ptr %m_contactList66, align 8
-  %m_nodeB = getelementptr inbounds %class.b2Contact, ptr %call45, i64 0, i32 5
-  %contact78 = getelementptr inbounds %class.b2Contact, ptr %call45, i64 0, i32 5, i32 1
+  %m_nodeB = getelementptr inbounds i8, ptr %call45, i64 64
+  %contact78 = getelementptr inbounds i8, ptr %call45, i64 72
   store ptr %call45, ptr %contact78, align 8
   store ptr %17, ptr %m_nodeB, align 8
-  %prev82 = getelementptr inbounds %class.b2Contact, ptr %call45, i64 0, i32 5, i32 2
+  %prev82 = getelementptr inbounds i8, ptr %call45, i64 80
   store ptr null, ptr %prev82, align 8
-  %m_contactList83 = getelementptr inbounds %class.b2Body, ptr %18, i64 0, i32 15
+  %m_contactList83 = getelementptr inbounds i8, ptr %18, i64 136
   %21 = load ptr, ptr %m_contactList83, align 8
-  %next85 = getelementptr inbounds %class.b2Contact, ptr %call45, i64 0, i32 5, i32 3
+  %next85 = getelementptr inbounds i8, ptr %call45, i64 88
   store ptr %21, ptr %next85, align 8
   %cmp87.not = icmp eq ptr %21, null
   br i1 %cmp87.not, label %if.end92, label %if.then88
 
 if.then88:                                        ; preds = %if.end75
-  %prev91 = getelementptr inbounds %struct.b2ContactEdge, ptr %21, i64 0, i32 2
+  %prev91 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %m_nodeB, ptr %prev91, align 8
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then88, %if.end75
   store ptr %m_nodeB, ptr %m_contactList83, align 8
-  %m_contactCount = getelementptr inbounds %class.b2ContactManager, ptr %this, i64 0, i32 2
+  %m_contactCount = getelementptr inbounds i8, ptr %this, i64 88
   %22 = load i32, ptr %m_contactCount, align 8
   %inc = add nsw i32 %22, 1
   store i32 %inc, ptr %m_contactCount, align 8
@@ -734,15 +718,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define linkonce_odr hidden void @_ZNK13b2DynamicTree5QueryI12b2BroadPhaseEEvPT_RK6b2AABB(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %callback, ptr noundef nonnull align 4 dereferenceable(16) %aabb) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZN15b2GrowableStackIiLi256EE4PushERKi.exit:
   %stack = alloca %class.b2GrowableStack, align 8
-  %m_array.i = getelementptr inbounds %class.b2GrowableStack, ptr %stack, i64 0, i32 1
+  %m_array.i = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %m_array.i, ptr %stack, align 8
-  %m_count.i = getelementptr inbounds %class.b2GrowableStack, ptr %stack, i64 0, i32 2
-  %m_capacity.i = getelementptr inbounds %class.b2GrowableStack, ptr %stack, i64 0, i32 3
+  %m_count.i = getelementptr inbounds i8, ptr %stack, i64 1032
+  %m_capacity.i = getelementptr inbounds i8, ptr %stack, i64 1036
   store i32 256, ptr %m_capacity.i, align 4
   %0 = load i32, ptr %this, align 8
   store i32 %0, ptr %m_array.i, align 8
-  %m_nodes = getelementptr inbounds %class.b2DynamicTree, ptr %this, i64 0, i32 1
-  %upperBound3.i = getelementptr inbounds %struct.b2AABB, ptr %aabb, i64 0, i32 1
+  %m_nodes = getelementptr inbounds i8, ptr %this, i64 8
+  %upperBound3.i = getelementptr inbounds i8, ptr %aabb, i64 8
   br label %while.body
 
 while.condthread-pre-split:                       ; preds = %if.end, %invoke.cont7, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit51, %while.body
@@ -776,7 +760,7 @@ if.end:                                           ; preds = %while.body
   %5 = load ptr, ptr %m_nodes, align 8
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr inbounds %struct.b2TreeNode, ptr %5, i64 %idx.ext
-  %upperBound.i = getelementptr inbounds %struct.b2AABB, ptr %add.ptr, i64 0, i32 1
+  %upperBound.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %6 = load <2 x float>, ptr %aabb, align 4
   %7 = load <2 x float>, ptr %upperBound.i, align 4
   %8 = fsub <2 x float> %6, %7
@@ -797,7 +781,7 @@ invoke.cont7:                                     ; preds = %if.end
   br i1 %or.cond1.not.i, label %if.then9, label %while.condthread-pre-split, !llvm.loop !10
 
 if.then9:                                         ; preds = %invoke.cont7
-  %child1.i = getelementptr inbounds %struct.b2TreeNode, ptr %5, i64 %idx.ext, i32 3
+  %child1.i = getelementptr inbounds i8, ptr %add.ptr, i64 28
   %18 = load i32, ptr %child1.i, align 4
   %cmp.i15 = icmp eq i32 %18, -1
   br i1 %cmp.i15, label %if.then12, label %if.else
@@ -847,7 +831,7 @@ invoke.cont18:                                    ; preds = %call.i.i.noexc30, %
   %24 = load i32, ptr %m_count.i, align 8
   %inc.i21 = add nsw i32 %24, 1
   store i32 %inc.i21, ptr %m_count.i, align 8
-  %child2 = getelementptr inbounds %struct.b2TreeNode, ptr %5, i64 %idx.ext, i32 4
+  %child2 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %25 = load i32, ptr %m_capacity.i, align 4
   %cmp.i36 = icmp eq i32 %inc.i21, %25
   br i1 %cmp.i36, label %if.then.i40, label %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit51
@@ -913,7 +897,7 @@ declare noundef zeroext i1 @_ZN12b2BroadPhase13QueryCallbackEi(ptr noundef nonnu
 define linkonce_odr hidden void @_ZN15b2GrowableStackIiLi256EED2Ev(ptr noundef nonnull align 8 dereferenceable(1040) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_array = getelementptr inbounds %class.b2GrowableStack, ptr %this, i64 0, i32 1
+  %m_array = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not = icmp eq ptr %0, %m_array
   br i1 %cmp.not, label %if.end, label %if.then
 

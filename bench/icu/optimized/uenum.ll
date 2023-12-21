@@ -3,9 +3,6 @@ source_filename = "bench/icu/original/uenum.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UEnumeration = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._UEnumBuffer = type { i32, i8 }
-
 ; Function Attrs: mustprogress uwtable
 define void @uenum_close_75(ptr noundef %en) local_unnamed_addr #0 {
 entry:
@@ -13,7 +10,7 @@ entry:
   br i1 %tobool.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %close = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 2
+  %close = getelementptr inbounds i8, ptr %en, i64 16
   %0 = load ptr, ptr %close, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %if.then1
@@ -55,7 +52,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %count = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 3
+  %count = getelementptr inbounds i8, ptr %en, i64 24
   %1 = load ptr, ptr %count, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.then2
@@ -78,7 +75,7 @@ define ptr @uenum_unextDefault_75(ptr noundef %en, ptr noundef writeonly %result
 entry:
   %len = alloca i32, align 4
   store i32 0, ptr %len, align 4
-  %next = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 5
+  %next = getelementptr inbounds i8, ptr %en, i64 40
   %0 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else10, label %if.then
@@ -134,7 +131,7 @@ if.then7:                                         ; preds = %if.then3.i, %if.els
 
 if.else:                                          ; preds = %if.end21.i, %if.end.i, %if.then.i
   %6 = phi ptr [ %2, %if.then.i ], [ %.pre.i, %if.end.i ], [ %call16.i, %if.end21.i ]
-  %data.i = getelementptr inbounds %struct._UEnumBuffer, ptr %6, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %6, i64 4
   %7 = load i32, ptr %len, align 4
   %add8 = add nsw i32 %7, 1
   call void @u_charsToUChars_75(ptr noundef nonnull %call, ptr noundef nonnull %data.i, i32 noundef %add8)
@@ -163,7 +160,7 @@ declare void @u_charsToUChars_75(ptr noundef, ptr noundef, i32 noundef) local_un
 ; Function Attrs: mustprogress uwtable
 define ptr @uenum_nextDefault_75(ptr noundef %en, ptr noundef %resultLength, ptr noundef %status) local_unnamed_addr #0 {
 entry:
-  %uNext = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 4
+  %uNext = getelementptr inbounds i8, ptr %en, i64 32
   %0 = load ptr, ptr %uNext, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -217,7 +214,7 @@ if.then6:                                         ; preds = %if.then3.i, %if.els
 
 if.end7:                                          ; preds = %if.end21.i, %if.end.i, %if.then.i
   %6 = phi ptr [ %2, %if.then.i ], [ %.pre.i, %if.end.i ], [ %call16.i, %if.end21.i ]
-  %data.i = getelementptr inbounds %struct._UEnumBuffer, ptr %6, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %6, i64 4
   %7 = load i32, ptr %resultLength, align 4
   %add8 = add nsw i32 %7, 1
   tail call void @u_UCharsToChars_75(ptr noundef nonnull %call, ptr noundef nonnull %data.i, i32 noundef %add8)
@@ -246,7 +243,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %uNext = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 4
+  %uNext = getelementptr inbounds i8, ptr %en, i64 32
   %1 = load ptr, ptr %uNext, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.then2
@@ -277,7 +274,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %next = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 5
+  %next = getelementptr inbounds i8, ptr %en, i64 40
   %1 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else9, label %if.then2
@@ -316,7 +313,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %if.end4
 
 if.end:                                           ; preds = %lor.lhs.false
-  %reset = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 6
+  %reset = getelementptr inbounds i8, ptr %en, i64 48
   %1 = load ptr, ptr %reset, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.then2

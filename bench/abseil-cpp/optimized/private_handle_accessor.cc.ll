@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef ptr @_ZN4absl14flags_internal21PrivateHandleAccessor6TypeIdERKNS_15CommandLineFlagE(ptr noundef nonnull align 8 dereferenceable(8) %flag) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %flag, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %flag)
   ret ptr %call
@@ -24,7 +24,7 @@ entry:
 define dso_local void @_ZN4absl14flags_internal21PrivateHandleAccessor9SaveStateERNS_15CommandLineFlagE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %flag) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %flag, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %flag)
   ret void
@@ -34,7 +34,7 @@ entry:
 define dso_local noundef zeroext i1 @_ZN4absl14flags_internal21PrivateHandleAccessor24IsSpecifiedOnCommandLineERKNS_15CommandLineFlagE(ptr noundef nonnull align 8 dereferenceable(8) %flag) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %flag, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %flag)
   ret i1 %call
@@ -44,7 +44,7 @@ entry:
 define dso_local noundef zeroext i1 @_ZN4absl14flags_internal21PrivateHandleAccessor18ValidateInputValueERKNS_15CommandLineFlagESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %flag, i64 %value.coerce0, ptr %value.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %flag, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %flag, i64 %value.coerce0, ptr %value.coerce1)
   ret i1 %call
@@ -54,7 +54,7 @@ entry:
 define dso_local void @_ZN4absl14flags_internal21PrivateHandleAccessor33CheckDefaultValueParsingRoundtripERKNS_15CommandLineFlagE(ptr noundef nonnull align 8 dereferenceable(8) %flag) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %flag, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %flag)
   ret void
@@ -64,7 +64,7 @@ entry:
 define dso_local noundef zeroext i1 @_ZN4absl14flags_internal21PrivateHandleAccessor9ParseFromERNS_15CommandLineFlagESt17basic_string_viewIcSt11char_traitsIcEENS0_15FlagSettingModeENS0_11ValueSourceERNSt7__cxx1112basic_stringIcS6_SaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %flag, i64 %value.coerce0, ptr %value.coerce1, i32 noundef %set_mode, i32 noundef %source, ptr noundef nonnull align 8 dereferenceable(32) %error) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %flag, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %flag, i64 %value.coerce0, ptr %value.coerce1, i32 noundef %set_mode, i32 noundef %source, ptr noundef nonnull align 8 dereferenceable(32) %error)
   ret i1 %call

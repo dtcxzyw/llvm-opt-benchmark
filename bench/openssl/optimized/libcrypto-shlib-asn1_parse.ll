@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-asn1_parse.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @ASN1_tag2str.tag2str = internal unnamed_addr constant [31 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30], align 16
 @.str = private unnamed_addr constant [4 x i8] c"EOC\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"BOOLEAN\00", align 1
@@ -477,7 +475,7 @@ land.lhs.true185:                                 ; preds = %if.then179
   br i1 %cmp187, label %if.then189, label %if.end479.thread168
 
 if.then189:                                       ; preds = %land.lhs.true185
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call182, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call182, i64 8
   %35 = load ptr, ptr %data, align 8
   store ptr %35, ptr %opp, align 8
   %36 = load i32, ptr %call182, align 8
@@ -583,7 +581,7 @@ if.then300:                                       ; preds = %if.then293
   br i1 %cmp302, label %end, label %if.end305
 
 if.end305:                                        ; preds = %if.then300
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call297, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call297, i64 4
   %47 = load i32, ptr %type, align 4
   %cmp306 = icmp eq i32 %47, 258
   br i1 %cmp306, label %if.then308, label %if.end314
@@ -599,7 +597,7 @@ if.end314:                                        ; preds = %if.then308, %if.end
   br i1 %cmp317192, label %for.body319.lr.ph, label %for.end331
 
 for.body319.lr.ph:                                ; preds = %if.end314
-  %data320 = getelementptr inbounds %struct.asn1_string_st, ptr %call297, i64 0, i32 2
+  %data320 = getelementptr inbounds i8, ptr %call297, i64 8
   br label %for.body319
 
 for.cond315:                                      ; preds = %for.body319
@@ -653,7 +651,7 @@ if.then359:                                       ; preds = %if.then352
   br i1 %cmp361, label %end, label %if.end364
 
 if.end364:                                        ; preds = %if.then359
-  %type365 = getelementptr inbounds %struct.asn1_string_st, ptr %call356, i64 0, i32 1
+  %type365 = getelementptr inbounds i8, ptr %call356, i64 4
   %54 = load i32, ptr %type365, align 4
   %cmp366 = icmp eq i32 %54, 266
   br i1 %cmp366, label %if.then368, label %if.end374
@@ -669,7 +667,7 @@ if.end374:                                        ; preds = %if.then368, %if.end
   br i1 %cmp377190, label %for.body379.lr.ph, label %for.end391
 
 for.body379.lr.ph:                                ; preds = %if.end374
-  %data380 = getelementptr inbounds %struct.asn1_string_st, ptr %call356, i64 0, i32 2
+  %data380 = getelementptr inbounds i8, ptr %call356, i64 8
   br label %for.body379
 
 for.cond375:                                      ; preds = %for.body379

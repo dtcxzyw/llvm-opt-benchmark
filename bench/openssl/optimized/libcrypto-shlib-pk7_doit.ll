@@ -3,22 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-pk7_doit.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.pkcs7_st = type { ptr, i64, i32, i32, ptr, %union.anon, %struct.PKCS7_CTX_st }
-%union.anon = type { ptr }
-%struct.PKCS7_CTX_st = type { ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.pkcs7_signed_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.pkcs7_signedandenveloped_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.pkcs7_enc_content_st = type { ptr, ptr, ptr, ptr, ptr }
-%struct.pkcs7_enveloped_st = type { ptr, ptr, ptr }
-%struct.pkcs7_digest_st = type { ptr, ptr, ptr, ptr }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.pkcs7_recip_info_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.pkcs7_issuer_and_serial_st = type { ptr, ptr }
-%struct.pkcs7_signer_info_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/pkcs7/pk7_doit.c\00", align 1
 @__func__.PKCS7_dataInit = private unnamed_addr constant [15 x i8] c"PKCS7_dataInit\00", align 1
 @__func__.PKCS7_dataDecode = private unnamed_addr constant [17 x i8] c"PKCS7_dataDecode\00", align 1
@@ -36,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS7_type_is_other(ptr nocapture noundef readonly %p7) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #4
   %1 = add i32 %call, -27
@@ -50,14 +34,14 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS7_get_octet_string(ptr nocapture noundef readonly %p7) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #4
   %cmp = icmp eq i32 %call, 21
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %p7, i64 32
   br label %return.sink.split
 
 if.end:                                           ; preds = %entry
@@ -68,7 +52,7 @@ if.end:                                           ; preds = %entry
   br i1 %switch.i, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %d2 = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 5
+  %d2 = getelementptr inbounds i8, ptr %p7, i64 32
   %3 = load ptr, ptr %d2, align 8
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %return, label %land.lhs.true4
@@ -79,7 +63,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   br i1 %cmp7, label %if.then8, label %return
 
 if.then8:                                         ; preds = %land.lhs.true4
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %3, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %3, i64 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then, %if.then8
@@ -114,7 +98,7 @@ if.end:                                           ; preds = %entry
   %call = tail call ptr @ossl_pkcs7_get0_ctx(ptr noundef nonnull %p7) #4
   %call1 = tail call ptr @ossl_pkcs7_ctx_get0_libctx(ptr noundef %call) #4
   %call2 = tail call ptr @ossl_pkcs7_ctx_get0_propq(ptr noundef %call) #4
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %p7, i64 32
   %0 = load ptr, ptr %d, align 8
   %cmp3 = icmp eq ptr %0, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -126,10 +110,10 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %p7, i64 24
   %1 = load ptr, ptr %type, align 8
   %call6 = tail call i32 @OBJ_obj2nid(ptr noundef %1) #4
-  %state = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %p7, i64 16
   store i32 0, ptr %state, align 8
   switch i32 %call6, label %sw.default [
     i32 22, label %sw.bb
@@ -141,18 +125,18 @@ if.end5:                                          ; preds = %if.end
 
 sw.bb:                                            ; preds = %if.end5
   %2 = load ptr, ptr %d, align 8
-  %md_algs = getelementptr inbounds %struct.pkcs7_signed_st, ptr %2, i64 0, i32 1
+  %md_algs = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %md_algs, align 8
-  %contents = getelementptr inbounds %struct.pkcs7_signed_st, ptr %2, i64 0, i32 5
+  %contents = getelementptr inbounds i8, ptr %2, i64 40
   %4 = load ptr, ptr %contents, align 8
-  %type.i = getelementptr inbounds %struct.pkcs7_st, ptr %4, i64 0, i32 4
+  %type.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %type.i, align 8
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %5) #4
   %cmp.i = icmp eq i32 %call.i, 21
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %d.i = getelementptr inbounds %struct.pkcs7_st, ptr %4, i64 0, i32 5
+  %d.i = getelementptr inbounds i8, ptr %4, i64 32
   br label %sw.epilog.sink.split
 
 if.end.i:                                         ; preds = %sw.bb
@@ -163,7 +147,7 @@ if.end.i:                                         ; preds = %sw.bb
   br i1 %switch.i.i, label %sw.epilog, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %d2.i = getelementptr inbounds %struct.pkcs7_st, ptr %4, i64 0, i32 5
+  %d2.i = getelementptr inbounds i8, ptr %4, i64 32
   %8 = load ptr, ptr %d2.i, align 8
   %tobool3.not.i = icmp eq ptr %8, null
   br i1 %tobool3.not.i, label %sw.epilog, label %land.lhs.true4.i
@@ -174,20 +158,20 @@ land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp7.i, label %if.then8.i, label %sw.epilog
 
 if.then8.i:                                       ; preds = %land.lhs.true4.i
-  %value.i = getelementptr inbounds %struct.asn1_type_st, ptr %8, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %8, i64 8
   br label %sw.epilog.sink.split
 
 sw.bb10:                                          ; preds = %if.end5
   %10 = load ptr, ptr %d, align 8
-  %recipientinfo = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %10, i64 0, i32 6
+  %recipientinfo = getelementptr inbounds i8, ptr %10, i64 48
   %11 = load ptr, ptr %recipientinfo, align 8
-  %md_algs13 = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %10, i64 0, i32 1
+  %md_algs13 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %md_algs13, align 8
-  %enc_data = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %10, i64 0, i32 5
+  %enc_data = getelementptr inbounds i8, ptr %10, i64 40
   %13 = load ptr, ptr %enc_data, align 8
-  %algorithm = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %13, i64 0, i32 1
+  %algorithm = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %algorithm, align 8
-  %cipher17 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %13, i64 0, i32 3
+  %cipher17 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load ptr, ptr %cipher17, align 8
   %cmp18 = icmp eq ptr %15, null
   br i1 %cmp18, label %if.then19, label %sw.epilog
@@ -200,13 +184,13 @@ if.then19:                                        ; preds = %sw.bb10
 
 sw.bb21:                                          ; preds = %if.end5
   %16 = load ptr, ptr %d, align 8
-  %recipientinfo23 = getelementptr inbounds %struct.pkcs7_enveloped_st, ptr %16, i64 0, i32 1
+  %recipientinfo23 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %recipientinfo23, align 8
-  %enc_data25 = getelementptr inbounds %struct.pkcs7_enveloped_st, ptr %16, i64 0, i32 2
+  %enc_data25 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %enc_data25, align 8
-  %algorithm26 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %18, i64 0, i32 1
+  %algorithm26 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %algorithm26, align 8
-  %cipher29 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %18, i64 0, i32 3
+  %cipher29 = getelementptr inbounds i8, ptr %18, i64 24
   %20 = load ptr, ptr %cipher29, align 8
   %cmp30 = icmp eq ptr %20, null
   br i1 %cmp30, label %if.then31, label %sw.epilog
@@ -219,18 +203,18 @@ if.then31:                                        ; preds = %sw.bb21
 
 sw.bb33:                                          ; preds = %if.end5
   %21 = load ptr, ptr %d, align 8
-  %md = getelementptr inbounds %struct.pkcs7_digest_st, ptr %21, i64 0, i32 1
+  %md = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %md, align 8
-  %contents36 = getelementptr inbounds %struct.pkcs7_digest_st, ptr %21, i64 0, i32 2
+  %contents36 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %contents36, align 8
-  %type.i63 = getelementptr inbounds %struct.pkcs7_st, ptr %23, i64 0, i32 4
+  %type.i63 = getelementptr inbounds i8, ptr %23, i64 24
   %24 = load ptr, ptr %type.i63, align 8
   %call.i64 = tail call i32 @OBJ_obj2nid(ptr noundef %24) #4
   %cmp.i65 = icmp eq i32 %call.i64, 21
   br i1 %cmp.i65, label %if.then.i79, label %if.end.i66
 
 if.then.i79:                                      ; preds = %sw.bb33
-  %d.i80 = getelementptr inbounds %struct.pkcs7_st, ptr %23, i64 0, i32 5
+  %d.i80 = getelementptr inbounds i8, ptr %23, i64 32
   br label %sw.epilog.sink.split
 
 if.end.i66:                                       ; preds = %sw.bb33
@@ -241,7 +225,7 @@ if.end.i66:                                       ; preds = %sw.bb33
   br i1 %switch.i.i68, label %sw.epilog, label %land.lhs.true.i69
 
 land.lhs.true.i69:                                ; preds = %if.end.i66
-  %d2.i70 = getelementptr inbounds %struct.pkcs7_st, ptr %23, i64 0, i32 5
+  %d2.i70 = getelementptr inbounds i8, ptr %23, i64 32
   %27 = load ptr, ptr %d2.i70, align 8
   %tobool3.not.i71 = icmp eq ptr %27, null
   br i1 %tobool3.not.i71, label %sw.epilog, label %land.lhs.true4.i72
@@ -252,7 +236,7 @@ land.lhs.true4.i72:                               ; preds = %land.lhs.true.i69
   br i1 %cmp7.i73, label %if.then8.i75, label %sw.epilog
 
 if.then8.i75:                                     ; preds = %land.lhs.true4.i72
-  %value.i76 = getelementptr inbounds %struct.asn1_type_st, ptr %27, i64 0, i32 1
+  %value.i76 = getelementptr inbounds i8, ptr %27, i64 8
   br label %sw.epilog.sink.split
 
 sw.default:                                       ; preds = %if.end5
@@ -362,7 +346,7 @@ if.end98:                                         ; preds = %if.end91
   br i1 %cmp65, label %if.then101, label %if.end119
 
 if.then101:                                       ; preds = %if.end98
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %xalg.0, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %xalg.0, i64 8
   %33 = load ptr, ptr %parameter, align 8
   %cmp102 = icmp eq ptr %33, null
   br i1 %cmp102, label %if.then104, label %if.end112
@@ -390,9 +374,9 @@ for.body125:                                      ; preds = %if.end119, %if.end2
   %i.195 = phi i32 [ %inc135, %if.end27.i ], [ 0, %if.end119 ]
   %call127 = call ptr @OPENSSL_sk_value(ptr noundef %rsk.0, i32 noundef %i.195) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eklen.i)
-  %ctx1.i = getelementptr inbounds %struct.pkcs7_recip_info_st, ptr %call127, i64 0, i32 5
+  %ctx1.i = getelementptr inbounds i8, ptr %call127, i64 40
   %36 = load ptr, ptr %ctx1.i, align 8
-  %cert.i = getelementptr inbounds %struct.pkcs7_recip_info_st, ptr %call127, i64 0, i32 4
+  %cert.i = getelementptr inbounds i8, ptr %call127, i64 32
   %37 = load ptr, ptr %cert.i, align 8
   %call.i82 = call ptr @X509_get0_pubkey(ptr noundef %37) #4
   %cmp.i83 = icmp eq ptr %call.i82, null
@@ -427,7 +411,7 @@ if.end21.i:                                       ; preds = %if.end16.i
   br i1 %cmp24.i, label %err.critedge, label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end21.i
-  %enc_key.i = getelementptr inbounds %struct.pkcs7_recip_info_st, ptr %call127, i64 0, i32 3
+  %enc_key.i = getelementptr inbounds i8, ptr %call127, i64 24
   %39 = load ptr, ptr %enc_key.i, align 8
   %40 = load i64, ptr %eklen.i, align 8
   %conv28.i = trunc i64 %40 to i32
@@ -488,7 +472,7 @@ land.lhs.true161:                                 ; preds = %if.else159
   br i1 %cmp162, label %if.then164, label %if.else167
 
 if.then164:                                       ; preds = %land.lhs.true161
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %os.0, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %os.0, i64 8
   %44 = load ptr, ptr %data, align 8
   %call166 = call ptr @BIO_new_mem_buf(ptr noundef %44, i32 noundef %43) #4
   br label %if.end176
@@ -708,7 +692,7 @@ if.end:                                           ; preds = %entry
   %call = tail call ptr @ossl_pkcs7_get0_ctx(ptr noundef nonnull %p7) #4
   %call1 = tail call ptr @ossl_pkcs7_ctx_get0_libctx(ptr noundef %call) #4
   %call2 = tail call ptr @ossl_pkcs7_ctx_get0_propq(ptr noundef %call) #4
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %p7, i64 32
   %0 = load ptr, ptr %d, align 8
   %cmp3 = icmp eq ptr %0, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -720,10 +704,10 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %p7, i64 24
   %1 = load ptr, ptr %type, align 8
   %call6 = tail call i32 @OBJ_obj2nid(ptr noundef %1) #4
-  %state = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %p7, i64 16
   store i32 0, ptr %state, align 8
   switch i32 %call6, label %sw.default [
     i32 22, label %sw.bb
@@ -733,16 +717,16 @@ if.end5:                                          ; preds = %if.end
 
 sw.bb:                                            ; preds = %if.end5
   %2 = load ptr, ptr %d, align 8
-  %contents = getelementptr inbounds %struct.pkcs7_signed_st, ptr %2, i64 0, i32 5
+  %contents = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %contents, align 8
-  %type.i = getelementptr inbounds %struct.pkcs7_st, ptr %3, i64 0, i32 4
+  %type.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %type.i, align 8
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %4) #4
   %cmp.i = icmp eq i32 %call.i, 21
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %d.i = getelementptr inbounds %struct.pkcs7_st, ptr %3, i64 0, i32 5
+  %d.i = getelementptr inbounds i8, ptr %3, i64 32
   br label %return.sink.split.i
 
 if.end.i:                                         ; preds = %sw.bb
@@ -753,7 +737,7 @@ if.end.i:                                         ; preds = %sw.bb
   br i1 %switch.i.i, label %PKCS7_get_octet_string.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %d2.i = getelementptr inbounds %struct.pkcs7_st, ptr %3, i64 0, i32 5
+  %d2.i = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load ptr, ptr %d2.i, align 8
   %tobool3.not.i = icmp eq ptr %7, null
   br i1 %tobool3.not.i, label %PKCS7_get_octet_string.exit, label %land.lhs.true4.i
@@ -764,7 +748,7 @@ land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp7.i, label %if.then8.i, label %PKCS7_get_octet_string.exit
 
 if.then8.i:                                       ; preds = %land.lhs.true4.i
-  %value.i = getelementptr inbounds %struct.asn1_type_st, ptr %7, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %7, i64 8
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then8.i, %if.then.i
@@ -798,21 +782,21 @@ if.then15:                                        ; preds = %land.lhs.true, %lan
 
 if.end16:                                         ; preds = %land.lhs.true13, %land.lhs.true
   %11 = load ptr, ptr %d, align 8
-  %md_algs = getelementptr inbounds %struct.pkcs7_signed_st, ptr %11, i64 0, i32 1
+  %md_algs = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %md_algs, align 8
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %if.end5
   %13 = load ptr, ptr %d, align 8
-  %recipientinfo = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %13, i64 0, i32 6
+  %recipientinfo = getelementptr inbounds i8, ptr %13, i64 48
   %14 = load ptr, ptr %recipientinfo, align 8
-  %md_algs21 = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %13, i64 0, i32 1
+  %md_algs21 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %md_algs21, align 8
-  %enc_data = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %13, i64 0, i32 5
+  %enc_data = getelementptr inbounds i8, ptr %13, i64 40
   %16 = load ptr, ptr %enc_data, align 8
-  %enc_data23 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %16, i64 0, i32 2
+  %enc_data23 = getelementptr inbounds i8, ptr %16, i64 16
   %17 = load ptr, ptr %enc_data23, align 8
-  %algorithm = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %16, i64 0, i32 1
+  %algorithm = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %algorithm, align 8
   %19 = load ptr, ptr %18, align 8
   %call27 = call i32 @OBJ_obj2txt(ptr noundef nonnull %name, i32 noundef 50, ptr noundef %19, i32 noundef 0) #4
@@ -840,13 +824,13 @@ if.end39:                                         ; preds = %sw.bb18, %if.end35
 
 sw.bb41:                                          ; preds = %if.end5
   %20 = load ptr, ptr %d, align 8
-  %recipientinfo43 = getelementptr inbounds %struct.pkcs7_enveloped_st, ptr %20, i64 0, i32 1
+  %recipientinfo43 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %recipientinfo43, align 8
-  %enc_data45 = getelementptr inbounds %struct.pkcs7_enveloped_st, ptr %20, i64 0, i32 2
+  %enc_data45 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load ptr, ptr %enc_data45, align 8
-  %algorithm46 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %22, i64 0, i32 1
+  %algorithm46 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %algorithm46, align 8
-  %enc_data49 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %22, i64 0, i32 2
+  %enc_data49 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = load ptr, ptr %enc_data49, align 8
   %25 = load ptr, ptr %23, align 8
   %call52 = call i32 @OBJ_obj2txt(ptr noundef nonnull %name, i32 noundef 50, ptr noundef %25, i32 noundef 0) #4
@@ -1009,7 +993,7 @@ for.cond120.preheader:                            ; preds = %if.end117
 for.body124:                                      ; preds = %for.cond120.preheader, %if.end130
   %i.1180 = phi i32 [ %inc132, %if.end130 ], [ 0, %for.cond120.preheader ]
   %call126 = call ptr @OPENSSL_sk_value(ptr noundef %rsk.0118130152, i32 noundef %i.1180) #4
-  %issuer_and_serial.i = getelementptr inbounds %struct.pkcs7_recip_info_st, ptr %call126, i64 0, i32 1
+  %issuer_and_serial.i = getelementptr inbounds i8, ptr %call126, i64 8
   %27 = load ptr, ptr %issuer_and_serial.i, align 8
   %28 = load ptr, ptr %27, align 8
   %call.i94 = call ptr @X509_get_issuer_name(ptr noundef nonnull %pcert) #4
@@ -1020,7 +1004,7 @@ for.body124:                                      ; preds = %for.cond120.prehead
 pkcs7_cmp_ri.exit:                                ; preds = %for.body124
   %call2.i = call ptr @X509_get0_serialNumber(ptr noundef nonnull %pcert) #4
   %29 = load ptr, ptr %issuer_and_serial.i, align 8
-  %serial.i = getelementptr inbounds %struct.pkcs7_issuer_and_serial_st, ptr %29, i64 0, i32 1
+  %serial.i = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load ptr, ptr %serial.i, align 8
   %call4.i = call i32 @ASN1_INTEGER_cmp(ptr noundef %call2.i, ptr noundef %30) #4
   %tobool128.not = icmp eq i32 %call4.i, 0
@@ -1049,7 +1033,7 @@ for.cond140.preheader:                            ; preds = %if.end117, %if.end1
 for.body144:                                      ; preds = %for.cond140.preheader, %if.end152
   %i.2183 = phi i32 [ %inc154, %if.end152 ], [ 0, %for.cond140.preheader ]
   %call146 = call ptr @OPENSSL_sk_value(ptr noundef %rsk.0118130152, i32 noundef %i.2183) #4
-  %ctx = getelementptr inbounds %struct.pkcs7_recip_info_st, ptr %call146, i64 0, i32 5
+  %ctx = getelementptr inbounds i8, ptr %call146, i64 40
   store ptr %call, ptr %ctx, align 8
   %call147 = call i32 @EVP_CIPHER_get_key_length(ptr noundef nonnull %cipher.2115132150) #4
   %conv = sext i32 %call147 to i64
@@ -1065,7 +1049,7 @@ if.end152:                                        ; preds = %for.body144
   br i1 %cmp143, label %for.body144, label %if.end163, !llvm.loop !11
 
 if.else156:                                       ; preds = %if.end137
-  %ctx157 = getelementptr inbounds %struct.pkcs7_recip_info_st, ptr %call126, i64 0, i32 5
+  %ctx157 = getelementptr inbounds i8, ptr %call126, i64 40
   store ptr %call, ptr %ctx157, align 8
   %call158 = call fastcc i32 @pkcs7_decrypt_rinfo(ptr noundef nonnull %ek, ptr noundef nonnull %eklen, ptr noundef nonnull %call126, ptr noundef %pkey, i64 noundef 0), !range !10
   %cmp159 = icmp slt i32 %call158, 0
@@ -1085,7 +1069,7 @@ if.end163:                                        ; preds = %if.end152, %for.con
 
 if.end169:                                        ; preds = %if.end163
   %32 = load ptr, ptr %evp_ctx, align 8
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %enc_alg.0116131151, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %enc_alg.0116131151, i64 8
   %33 = load ptr, ptr %parameter, align 8
   %call170 = call i32 @EVP_CIPHER_asn1_to_param(ptr noundef %32, ptr noundef %33) #4
   %cmp171 = icmp slt i32 %call170, 1
@@ -1195,7 +1179,7 @@ if.end239.thread:                                 ; preds = %if.else231
   br label %if.end244
 
 if.end239:                                        ; preds = %if.else225
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %data_body.0112134147162, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %data_body.0112134147162, i64 8
   %45 = load ptr, ptr %data, align 8
   %call230 = call ptr @BIO_new_mem_buf(ptr noundef %45, i32 noundef %44) #4
   %cmp240 = icmp eq ptr %call230, null
@@ -1254,7 +1238,7 @@ entry:
   %ek = alloca ptr, align 8
   %eklen = alloca i64, align 8
   store ptr null, ptr %ek, align 8
-  %ctx1 = getelementptr inbounds %struct.pkcs7_recip_info_st, ptr %ri, i64 0, i32 5
+  %ctx1 = getelementptr inbounds i8, ptr %ri, i64 40
   %0 = load ptr, ptr %ctx1, align 8
   %call = tail call ptr @ossl_pkcs7_ctx_get0_libctx(ptr noundef %0) #4
   %call2 = tail call ptr @ossl_pkcs7_ctx_get0_propq(ptr noundef %0) #4
@@ -1277,9 +1261,9 @@ if.then9:                                         ; preds = %if.end7
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end7
-  %enc_key = getelementptr inbounds %struct.pkcs7_recip_info_st, ptr %ri, i64 0, i32 3
+  %enc_key = getelementptr inbounds i8, ptr %ri, i64 24
   %1 = load ptr, ptr %enc_key, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i32, ptr %1, align 8
   %conv = sext i32 %3 to i64
@@ -1352,7 +1336,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call = tail call ptr @ossl_pkcs7_get0_ctx(ptr noundef nonnull %p7) #4
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %p7, i64 32
   %0 = load ptr, ptr %d, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -1375,10 +1359,10 @@ if.then6:                                         ; preds = %if.end3
   br label %return
 
 if.end7:                                          ; preds = %if.end3
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %p7, i64 24
   %1 = load ptr, ptr %type, align 8
   %call8 = tail call i32 @OBJ_obj2nid(ptr noundef %1) #4
-  %state = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %p7, i64 16
   store i32 0, ptr %state, align 8
   switch i32 %call8, label %sw.default [
     i32 21, label %sw.bb
@@ -1394,11 +1378,11 @@ sw.bb:                                            ; preds = %if.end7
 
 sw.bb10:                                          ; preds = %if.end7
   %3 = load ptr, ptr %d, align 8
-  %signer_info = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %3, i64 0, i32 4
+  %signer_info = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %signer_info, align 8
-  %enc_data = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %3, i64 0, i32 5
+  %enc_data = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %enc_data, align 8
-  %enc_data13 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %5, i64 0, i32 2
+  %enc_data13 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %enc_data13, align 8
   %cmp14 = icmp eq ptr %6, null
   br i1 %cmp14, label %if.then15, label %sw.epilog
@@ -1406,7 +1390,7 @@ sw.bb10:                                          ; preds = %if.end7
 if.then15:                                        ; preds = %sw.bb10
   %call16 = tail call ptr @ASN1_OCTET_STRING_new() #4
   %cmp17 = icmp eq ptr %call16, null
-  br i1 %cmp17, label %if.then18, label %if.end19
+  br i1 %cmp17, label %if.then18, label %sw.epilog.sink.split
 
 if.then18:                                        ; preds = %if.then15
   tail call void @ERR_new() #4
@@ -1414,21 +1398,13 @@ if.then18:                                        ; preds = %if.then15
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef 524301, ptr noundef null) #4
   br label %err
 
-if.end19:                                         ; preds = %if.then15
-  %7 = load ptr, ptr %d, align 8
-  %enc_data21 = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %7, i64 0, i32 5
-  %8 = load ptr, ptr %enc_data21, align 8
-  %enc_data22 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %8, i64 0, i32 2
-  store ptr %call16, ptr %enc_data22, align 8
-  br label %sw.epilog
-
 sw.bb24:                                          ; preds = %if.end7
-  %9 = load ptr, ptr %d, align 8
-  %enc_data26 = getelementptr inbounds %struct.pkcs7_enveloped_st, ptr %9, i64 0, i32 2
-  %10 = load ptr, ptr %enc_data26, align 8
-  %enc_data27 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %10, i64 0, i32 2
-  %11 = load ptr, ptr %enc_data27, align 8
-  %cmp28 = icmp eq ptr %11, null
+  %7 = load ptr, ptr %d, align 8
+  %enc_data26 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = load ptr, ptr %enc_data26, align 8
+  %enc_data27 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = load ptr, ptr %enc_data27, align 8
+  %cmp28 = icmp eq ptr %9, null
   br i1 %cmp28, label %if.then29, label %if.end135
 
 if.then29:                                        ; preds = %sw.bb24
@@ -1443,146 +1419,141 @@ if.then32:                                        ; preds = %if.then29
   br label %err
 
 if.end33:                                         ; preds = %if.then29
-  %12 = load ptr, ptr %d, align 8
-  %enc_data35 = getelementptr inbounds %struct.pkcs7_enveloped_st, ptr %12, i64 0, i32 2
-  %13 = load ptr, ptr %enc_data35, align 8
-  %enc_data36 = getelementptr inbounds %struct.pkcs7_enc_content_st, ptr %13, i64 0, i32 2
+  %10 = load ptr, ptr %d, align 8
+  %enc_data35 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = load ptr, ptr %enc_data35, align 8
+  %enc_data36 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %call30, ptr %enc_data36, align 8
   br label %if.end135
 
 sw.bb38:                                          ; preds = %if.end7
-  %14 = load ptr, ptr %d, align 8
-  %signer_info40 = getelementptr inbounds %struct.pkcs7_signed_st, ptr %14, i64 0, i32 4
-  %15 = load ptr, ptr %signer_info40, align 8
-  %contents = getelementptr inbounds %struct.pkcs7_signed_st, ptr %14, i64 0, i32 5
-  %16 = load ptr, ptr %contents, align 8
-  %type.i = getelementptr inbounds %struct.pkcs7_st, ptr %16, i64 0, i32 4
-  %17 = load ptr, ptr %type.i, align 8
-  %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %17) #4
+  %12 = load ptr, ptr %d, align 8
+  %signer_info40 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = load ptr, ptr %signer_info40, align 8
+  %contents = getelementptr inbounds i8, ptr %12, i64 40
+  %14 = load ptr, ptr %contents, align 8
+  %type.i = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = load ptr, ptr %type.i, align 8
+  %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %15) #4
   %cmp.i = icmp eq i32 %call.i, 21
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.bb38
-  %d.i = getelementptr inbounds %struct.pkcs7_st, ptr %16, i64 0, i32 5
+  %d.i = getelementptr inbounds i8, ptr %14, i64 32
   br label %return.sink.split.i
 
 if.end.i:                                         ; preds = %sw.bb38
-  %18 = load ptr, ptr %type.i, align 8
-  %call.i.i = tail call i32 @OBJ_obj2nid(ptr noundef %18) #4
-  %19 = add i32 %call.i.i, -21
-  %switch.i.i = icmp ult i32 %19, 6
+  %16 = load ptr, ptr %type.i, align 8
+  %call.i.i = tail call i32 @OBJ_obj2nid(ptr noundef %16) #4
+  %17 = add i32 %call.i.i, -21
+  %switch.i.i = icmp ult i32 %17, 6
   br i1 %switch.i.i, label %PKCS7_get_octet_string.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %d2.i = getelementptr inbounds %struct.pkcs7_st, ptr %16, i64 0, i32 5
-  %20 = load ptr, ptr %d2.i, align 8
-  %tobool3.not.i = icmp eq ptr %20, null
+  %d2.i = getelementptr inbounds i8, ptr %14, i64 32
+  %18 = load ptr, ptr %d2.i, align 8
+  %tobool3.not.i = icmp eq ptr %18, null
   br i1 %tobool3.not.i, label %PKCS7_get_octet_string.exit, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
-  %21 = load i32, ptr %20, align 8
-  %cmp7.i = icmp eq i32 %21, 4
+  %19 = load i32, ptr %18, align 8
+  %cmp7.i = icmp eq i32 %19, 4
   br i1 %cmp7.i, label %if.then8.i, label %PKCS7_get_octet_string.exit
 
 if.then8.i:                                       ; preds = %land.lhs.true4.i
-  %value.i = getelementptr inbounds %struct.asn1_type_st, ptr %20, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %18, i64 8
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then8.i, %if.then.i
   %value.sink.i = phi ptr [ %value.i, %if.then8.i ], [ %d.i, %if.then.i ]
-  %22 = load ptr, ptr %value.sink.i, align 8
+  %20 = load ptr, ptr %value.sink.i, align 8
   br label %PKCS7_get_octet_string.exit
 
 PKCS7_get_octet_string.exit:                      ; preds = %if.end.i, %land.lhs.true.i, %land.lhs.true4.i, %return.sink.split.i
-  %retval.0.i = phi ptr [ null, %land.lhs.true4.i ], [ null, %land.lhs.true.i ], [ null, %if.end.i ], [ %22, %return.sink.split.i ]
-  %23 = load ptr, ptr %d, align 8
-  %contents44 = getelementptr inbounds %struct.pkcs7_signed_st, ptr %23, i64 0, i32 5
-  %24 = load ptr, ptr %contents44, align 8
-  %type45 = getelementptr inbounds %struct.pkcs7_st, ptr %24, i64 0, i32 4
-  %25 = load ptr, ptr %type45, align 8
-  %call46 = tail call i32 @OBJ_obj2nid(ptr noundef %25) #4
+  %retval.0.i = phi ptr [ null, %land.lhs.true4.i ], [ null, %land.lhs.true.i ], [ null, %if.end.i ], [ %20, %return.sink.split.i ]
+  %21 = load ptr, ptr %d, align 8
+  %contents44 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = load ptr, ptr %contents44, align 8
+  %type45 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = load ptr, ptr %type45, align 8
+  %call46 = tail call i32 @OBJ_obj2nid(ptr noundef %23) #4
   %cmp47 = icmp eq i32 %call46, 21
   br i1 %cmp47, label %land.lhs.true, label %sw.epilog
 
 land.lhs.true:                                    ; preds = %PKCS7_get_octet_string.exit
-  %detached = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 3
-  %26 = load i32, ptr %detached, align 4
-  %tobool.not = icmp eq i32 %26, 0
+  %detached = getelementptr inbounds i8, ptr %p7, i64 20
+  %24 = load i32, ptr %detached, align 4
+  %tobool.not = icmp eq i32 %24, 0
   br i1 %tobool.not, label %sw.epilog, label %if.then48
 
 if.then48:                                        ; preds = %land.lhs.true
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %retval.0.i) #4
-  %27 = load ptr, ptr %d, align 8
-  %contents50 = getelementptr inbounds %struct.pkcs7_signed_st, ptr %27, i64 0, i32 5
-  %28 = load ptr, ptr %contents50, align 8
-  %d51 = getelementptr inbounds %struct.pkcs7_st, ptr %28, i64 0, i32 5
-  store ptr null, ptr %d51, align 8
-  br label %sw.epilog
+  br label %sw.epilog.sink.split
 
 sw.bb53:                                          ; preds = %if.end7
-  %29 = load ptr, ptr %d, align 8
-  %contents55 = getelementptr inbounds %struct.pkcs7_digest_st, ptr %29, i64 0, i32 2
-  %30 = load ptr, ptr %contents55, align 8
-  %type.i61 = getelementptr inbounds %struct.pkcs7_st, ptr %30, i64 0, i32 4
-  %31 = load ptr, ptr %type.i61, align 8
-  %call.i62 = tail call i32 @OBJ_obj2nid(ptr noundef %31) #4
+  %25 = load ptr, ptr %d, align 8
+  %contents55 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = load ptr, ptr %contents55, align 8
+  %type.i61 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = load ptr, ptr %type.i61, align 8
+  %call.i62 = tail call i32 @OBJ_obj2nid(ptr noundef %27) #4
   %cmp.i63 = icmp eq i32 %call.i62, 21
   br i1 %cmp.i63, label %if.then.i77, label %if.end.i64
 
 if.then.i77:                                      ; preds = %sw.bb53
-  %d.i78 = getelementptr inbounds %struct.pkcs7_st, ptr %30, i64 0, i32 5
+  %d.i78 = getelementptr inbounds i8, ptr %26, i64 32
   br label %return.sink.split.i75
 
 if.end.i64:                                       ; preds = %sw.bb53
-  %32 = load ptr, ptr %type.i61, align 8
-  %call.i.i65 = tail call i32 @OBJ_obj2nid(ptr noundef %32) #4
-  %33 = add i32 %call.i.i65, -21
-  %switch.i.i66 = icmp ult i32 %33, 6
+  %28 = load ptr, ptr %type.i61, align 8
+  %call.i.i65 = tail call i32 @OBJ_obj2nid(ptr noundef %28) #4
+  %29 = add i32 %call.i.i65, -21
+  %switch.i.i66 = icmp ult i32 %29, 6
   br i1 %switch.i.i66, label %PKCS7_get_octet_string.exit79, label %land.lhs.true.i67
 
 land.lhs.true.i67:                                ; preds = %if.end.i64
-  %d2.i68 = getelementptr inbounds %struct.pkcs7_st, ptr %30, i64 0, i32 5
-  %34 = load ptr, ptr %d2.i68, align 8
-  %tobool3.not.i69 = icmp eq ptr %34, null
+  %d2.i68 = getelementptr inbounds i8, ptr %26, i64 32
+  %30 = load ptr, ptr %d2.i68, align 8
+  %tobool3.not.i69 = icmp eq ptr %30, null
   br i1 %tobool3.not.i69, label %PKCS7_get_octet_string.exit79, label %land.lhs.true4.i70
 
 land.lhs.true4.i70:                               ; preds = %land.lhs.true.i67
-  %35 = load i32, ptr %34, align 8
-  %cmp7.i71 = icmp eq i32 %35, 4
+  %31 = load i32, ptr %30, align 8
+  %cmp7.i71 = icmp eq i32 %31, 4
   br i1 %cmp7.i71, label %if.then8.i73, label %PKCS7_get_octet_string.exit79
 
 if.then8.i73:                                     ; preds = %land.lhs.true4.i70
-  %value.i74 = getelementptr inbounds %struct.asn1_type_st, ptr %34, i64 0, i32 1
+  %value.i74 = getelementptr inbounds i8, ptr %30, i64 8
   br label %return.sink.split.i75
 
 return.sink.split.i75:                            ; preds = %if.then8.i73, %if.then.i77
   %value.sink.i76 = phi ptr [ %value.i74, %if.then8.i73 ], [ %d.i78, %if.then.i77 ]
-  %36 = load ptr, ptr %value.sink.i76, align 8
+  %32 = load ptr, ptr %value.sink.i76, align 8
   br label %PKCS7_get_octet_string.exit79
 
 PKCS7_get_octet_string.exit79:                    ; preds = %if.end.i64, %land.lhs.true.i67, %land.lhs.true4.i70, %return.sink.split.i75
-  %retval.0.i72 = phi ptr [ null, %land.lhs.true4.i70 ], [ null, %land.lhs.true.i67 ], [ null, %if.end.i64 ], [ %36, %return.sink.split.i75 ]
-  %37 = load ptr, ptr %d, align 8
-  %contents58 = getelementptr inbounds %struct.pkcs7_digest_st, ptr %37, i64 0, i32 2
-  %38 = load ptr, ptr %contents58, align 8
-  %type59 = getelementptr inbounds %struct.pkcs7_st, ptr %38, i64 0, i32 4
-  %39 = load ptr, ptr %type59, align 8
-  %call60 = tail call i32 @OBJ_obj2nid(ptr noundef %39) #4
+  %retval.0.i72 = phi ptr [ null, %land.lhs.true4.i70 ], [ null, %land.lhs.true.i67 ], [ null, %if.end.i64 ], [ %32, %return.sink.split.i75 ]
+  %33 = load ptr, ptr %d, align 8
+  %contents58 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = load ptr, ptr %contents58, align 8
+  %type59 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = load ptr, ptr %type59, align 8
+  %call60 = tail call i32 @OBJ_obj2nid(ptr noundef %35) #4
   %cmp61 = icmp eq i32 %call60, 21
   br i1 %cmp61, label %land.lhs.true62, label %if.then116
 
 land.lhs.true62:                                  ; preds = %PKCS7_get_octet_string.exit79
-  %detached63 = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 3
-  %40 = load i32, ptr %detached63, align 4
-  %tobool64.not = icmp eq i32 %40, 0
+  %detached63 = getelementptr inbounds i8, ptr %p7, i64 20
+  %36 = load i32, ptr %detached63, align 4
+  %tobool64.not = icmp eq i32 %36, 0
   br i1 %tobool64.not, label %if.then116, label %if.then65
 
 if.then65:                                        ; preds = %land.lhs.true62
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %retval.0.i72) #4
-  %41 = load ptr, ptr %d, align 8
-  %contents67 = getelementptr inbounds %struct.pkcs7_digest_st, ptr %41, i64 0, i32 2
-  %42 = load ptr, ptr %contents67, align 8
-  %d68 = getelementptr inbounds %struct.pkcs7_st, ptr %42, i64 0, i32 5
+  %37 = load ptr, ptr %d, align 8
+  %contents67 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = load ptr, ptr %contents67, align 8
+  %d68 = getelementptr inbounds i8, ptr %38, i64 32
   store ptr null, ptr %d68, align 8
   br label %if.then116
 
@@ -1592,9 +1563,20 @@ sw.default:                                       ; preds = %if.end7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef 112, ptr noundef null) #4
   br label %err
 
-sw.epilog:                                        ; preds = %PKCS7_get_octet_string.exit, %land.lhs.true, %if.then48, %sw.bb10, %if.end19
-  %si_sk.0 = phi ptr [ %15, %if.then48 ], [ %15, %land.lhs.true ], [ %15, %PKCS7_get_octet_string.exit ], [ %4, %if.end19 ], [ %4, %sw.bb10 ]
-  %os.0 = phi ptr [ null, %if.then48 ], [ %retval.0.i, %land.lhs.true ], [ %retval.0.i, %PKCS7_get_octet_string.exit ], [ %call16, %if.end19 ], [ %6, %sw.bb10 ]
+sw.epilog.sink.split:                             ; preds = %if.then15, %if.then48
+  %.sink99 = phi i64 [ 32, %if.then48 ], [ 16, %if.then15 ]
+  %.sink = phi ptr [ null, %if.then48 ], [ %call16, %if.then15 ]
+  %si_sk.0.ph = phi ptr [ %13, %if.then48 ], [ %4, %if.then15 ]
+  %39 = load ptr, ptr %d, align 8
+  %contents50 = getelementptr inbounds i8, ptr %39, i64 40
+  %40 = load ptr, ptr %contents50, align 8
+  %d51 = getelementptr inbounds i8, ptr %40, i64 %.sink99
+  store ptr %.sink, ptr %d51, align 8
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %PKCS7_get_octet_string.exit, %land.lhs.true, %sw.bb10
+  %si_sk.0 = phi ptr [ %13, %land.lhs.true ], [ %13, %PKCS7_get_octet_string.exit ], [ %4, %sw.bb10 ], [ %si_sk.0.ph, %sw.epilog.sink.split ]
+  %os.0 = phi ptr [ %retval.0.i, %land.lhs.true ], [ %retval.0.i, %PKCS7_get_octet_string.exit ], [ %6, %sw.bb10 ], [ %.sink, %sw.epilog.sink.split ]
   %cmp70.not = icmp eq ptr %si_sk.0, null
   br i1 %cmp70.not, label %if.end135, label %for.cond.preheader
 
@@ -1606,43 +1588,43 @@ for.cond.preheader:                               ; preds = %sw.epilog
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.097 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call76 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %si_sk.0, i32 noundef %i.097) #4
-  %pkey = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %call76, i64 0, i32 7
-  %43 = load ptr, ptr %pkey, align 8
-  %cmp77 = icmp eq ptr %43, null
+  %pkey = getelementptr inbounds i8, ptr %call76, i64 56
+  %41 = load ptr, ptr %pkey, align 8
+  %cmp77 = icmp eq ptr %41, null
   br i1 %cmp77, label %for.inc, label %if.end79
 
 if.end79:                                         ; preds = %for.body
-  %digest_alg = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %call76, i64 0, i32 2
-  %44 = load ptr, ptr %digest_alg, align 8
-  %45 = load ptr, ptr %44, align 8
-  %call80 = call i32 @OBJ_obj2nid(ptr noundef %45) #4
+  %digest_alg = getelementptr inbounds i8, ptr %call76, i64 16
+  %42 = load ptr, ptr %digest_alg, align 8
+  %43 = load ptr, ptr %42, align 8
+  %call80 = call i32 @OBJ_obj2nid(ptr noundef %43) #4
   %call81 = call fastcc ptr @PKCS7_find_digest(ptr noundef nonnull %mdc, ptr noundef %bio, i32 noundef %call80)
   %cmp82 = icmp eq ptr %call81, null
   br i1 %cmp82, label %err, label %if.end84
 
 if.end84:                                         ; preds = %if.end79
-  %46 = load ptr, ptr %mdc, align 8
-  %call85 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %call4, ptr noundef %46) #4
+  %44 = load ptr, ptr %mdc, align 8
+  %call85 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %call4, ptr noundef %44) #4
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %err, label %if.end88
 
 if.end88:                                         ; preds = %if.end84
-  %auth_attr = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %call76, i64 0, i32 3
-  %47 = load ptr, ptr %auth_attr, align 8
-  %call90 = call i32 @OPENSSL_sk_num(ptr noundef %47) #4
+  %auth_attr = getelementptr inbounds i8, ptr %call76, i64 24
+  %45 = load ptr, ptr %auth_attr, align 8
+  %call90 = call i32 @OPENSSL_sk_num(ptr noundef %45) #4
   %cmp91 = icmp sgt i32 %call90, 0
   br i1 %cmp91, label %if.then92, label %if.else
 
 if.then92:                                        ; preds = %if.end88
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %md_data.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %md_len.i)
-  %48 = load ptr, ptr %auth_attr, align 8
-  %call.i.i.i = call i32 @X509at_get_attr_by_NID(ptr noundef %48, i32 noundef 52, i32 noundef -1) #4
+  %46 = load ptr, ptr %auth_attr, align 8
+  %call.i.i.i = call i32 @X509at_get_attr_by_NID(ptr noundef %46, i32 noundef 52, i32 noundef -1) #4
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i81, label %PKCS7_get_signed_attribute.exit.i
 
 PKCS7_get_signed_attribute.exit.i:                ; preds = %if.then92
-  %call1.i.i.i = call ptr @X509at_get_attr(ptr noundef %48, i32 noundef %call.i.i.i) #4
+  %call1.i.i.i = call ptr @X509at_get_attr(ptr noundef %46, i32 noundef %call.i.i.i) #4
   %call2.i.i.i = call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %call1.i.i.i, i32 noundef 0) #4
   %tobool.not.i = icmp eq ptr %call2.i.i.i, null
   br i1 %tobool.not.i, label %if.then.i81, label %if.end4.i
@@ -1658,17 +1640,17 @@ if.end4.i:                                        ; preds = %if.then.i81, %PKCS7
   br i1 %tobool6.not.i, label %do_pkcs7_signed_attrib.exit.thread, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end4.i
-  %49 = load i32, ptr %md_len.i, align 4
-  %call10.i = call i32 @PKCS7_add1_attrib_digest(ptr noundef nonnull %call76, ptr noundef nonnull %md_data.i, i32 noundef %49) #4
+  %47 = load i32, ptr %md_len.i, align 4
+  %call10.i = call i32 @PKCS7_add1_attrib_digest(ptr noundef nonnull %call76, ptr noundef nonnull %md_data.i, i32 noundef %47) #4
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %do_pkcs7_signed_attrib.exit.thread, label %do_pkcs7_signed_attrib.exit
 
 do_pkcs7_signed_attrib.exit.thread:               ; preds = %if.end8.i, %if.end4.i, %if.then.i81
-  %.sink98 = phi i32 [ 695, %if.then.i81 ], [ 702, %if.end4.i ], [ 706, %if.end8.i ]
-  %.sink = phi i32 [ 524321, %if.then.i81 ], [ 524294, %if.end4.i ], [ 524321, %if.end8.i ]
+  %.sink102 = phi i32 [ 695, %if.then.i81 ], [ 702, %if.end4.i ], [ 706, %if.end8.i ]
+  %.sink101 = phi i32 [ 524321, %if.then.i81 ], [ 524294, %if.end4.i ], [ 524321, %if.end8.i ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink98, ptr noundef nonnull @__func__.do_pkcs7_signed_attrib) #4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef %.sink, ptr noundef null) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink102, ptr noundef nonnull @__func__.do_pkcs7_signed_attrib) #4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef %.sink101, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %md_data.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %md_len.i)
   br label %err
@@ -1681,8 +1663,8 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %if.end8.i
   br i1 %tobool94.not, label %err, label %for.inc
 
 if.else:                                          ; preds = %if.end88
-  %50 = load ptr, ptr %pkey, align 8
-  %call98 = call i32 @EVP_PKEY_get_size(ptr noundef %50) #4
+  %48 = load ptr, ptr %pkey, align 8
+  %call98 = call i32 @EVP_PKEY_get_size(ptr noundef %48) #4
   store i32 %call98, ptr %abuflen, align 4
   %cmp99 = icmp eq i32 %call98, 0
   br i1 %cmp99, label %err, label %lor.lhs.false
@@ -1694,10 +1676,10 @@ lor.lhs.false:                                    ; preds = %if.else
   br i1 %cmp101, label %err, label %if.end104
 
 if.end104:                                        ; preds = %lor.lhs.false
-  %51 = load ptr, ptr %pkey, align 8
+  %49 = load ptr, ptr %pkey, align 8
   %call106 = call ptr @ossl_pkcs7_ctx_get0_libctx(ptr noundef %call) #4
   %call107 = call ptr @ossl_pkcs7_ctx_get0_propq(ptr noundef %call) #4
-  %call108 = call i32 @EVP_SignFinal_ex(ptr noundef nonnull %call4, ptr noundef nonnull %call100, ptr noundef nonnull %abuflen, ptr noundef %51, ptr noundef %call106, ptr noundef %call107) #4
+  %call108 = call i32 @EVP_SignFinal_ex(ptr noundef nonnull %call4, ptr noundef nonnull %call100, ptr noundef nonnull %abuflen, ptr noundef %49, ptr noundef %call106, ptr noundef %call107) #4
   %tobool109.not = icmp eq i32 %call108, 0
   br i1 %tobool109.not, label %if.then110, label %if.end111
 
@@ -1709,10 +1691,10 @@ if.then110:                                       ; preds = %if.end104
   br label %err
 
 if.end111:                                        ; preds = %if.end104
-  %enc_digest = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %call76, i64 0, i32 5
-  %52 = load ptr, ptr %enc_digest, align 8
-  %53 = load i32, ptr %abuflen, align 4
-  call void @ASN1_STRING_set0(ptr noundef %52, ptr noundef nonnull %call100, i32 noundef %53) #4
+  %enc_digest = getelementptr inbounds i8, ptr %call76, i64 40
+  %50 = load ptr, ptr %enc_digest, align 8
+  %51 = load i32, ptr %abuflen, align 4
+  call void @ASN1_STRING_set0(ptr noundef %50, ptr noundef nonnull %call100, i32 noundef %51) #4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end111, %do_pkcs7_signed_attrib.exit, %for.body
@@ -1723,34 +1705,34 @@ for.inc:                                          ; preds = %if.end111, %do_pkcs
 
 if.then116:                                       ; preds = %if.then65, %land.lhs.true62, %PKCS7_get_octet_string.exit79
   %os.0.ph.ph = phi ptr [ null, %if.then65 ], [ %retval.0.i72, %land.lhs.true62 ], [ %retval.0.i72, %PKCS7_get_octet_string.exit79 ]
-  %54 = load ptr, ptr %d, align 8
-  %md = getelementptr inbounds %struct.pkcs7_digest_st, ptr %54, i64 0, i32 1
-  %55 = load ptr, ptr %md, align 8
-  %56 = load ptr, ptr %55, align 8
-  %call119 = tail call i32 @OBJ_obj2nid(ptr noundef %56) #4
+  %52 = load ptr, ptr %d, align 8
+  %md = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = load ptr, ptr %md, align 8
+  %54 = load ptr, ptr %53, align 8
+  %call119 = tail call i32 @OBJ_obj2nid(ptr noundef %54) #4
   %call120 = call fastcc ptr @PKCS7_find_digest(ptr noundef nonnull %mdc, ptr noundef %bio, i32 noundef %call119)
   %tobool121.not = icmp eq ptr %call120, null
   br i1 %tobool121.not, label %err, label %if.end123
 
 if.end123:                                        ; preds = %if.then116
-  %57 = load ptr, ptr %mdc, align 8
-  %call124 = call i32 @EVP_DigestFinal_ex(ptr noundef %57, ptr noundef nonnull %md_data, ptr noundef nonnull %md_len) #4
+  %55 = load ptr, ptr %mdc, align 8
+  %call124 = call i32 @EVP_DigestFinal_ex(ptr noundef %55, ptr noundef nonnull %md_data, ptr noundef nonnull %md_len) #4
   %tobool125.not = icmp eq i32 %call124, 0
   br i1 %tobool125.not, label %err, label %if.end127
 
 if.end127:                                        ; preds = %if.end123
-  %58 = load ptr, ptr %d, align 8
-  %digest = getelementptr inbounds %struct.pkcs7_digest_st, ptr %58, i64 0, i32 3
-  %59 = load ptr, ptr %digest, align 8
-  %60 = load i32, ptr %md_len, align 4
-  %call130 = call i32 @ASN1_OCTET_STRING_set(ptr noundef %59, ptr noundef nonnull %md_data, i32 noundef %60) #4
+  %56 = load ptr, ptr %d, align 8
+  %digest = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = load ptr, ptr %digest, align 8
+  %58 = load i32, ptr %md_len, align 4
+  %call130 = call i32 @ASN1_OCTET_STRING_set(ptr noundef %57, ptr noundef nonnull %md_data, i32 noundef %58) #4
   %tobool131.not = icmp eq i32 %call130, 0
   br i1 %tobool131.not, label %err, label %if.end135
 
 if.end135:                                        ; preds = %for.inc, %for.cond.preheader, %sw.epilog, %sw.bb, %sw.bb24, %if.end33, %if.end127
-  %os.085 = phi ptr [ %os.0.ph.ph, %if.end127 ], [ %2, %sw.bb ], [ %11, %sw.bb24 ], [ %call30, %if.end33 ], [ %os.0, %sw.epilog ], [ %os.0, %for.cond.preheader ], [ %os.0, %for.inc ]
-  %61 = load ptr, ptr %type, align 8
-  %call137 = call i32 @OBJ_obj2nid(ptr noundef %61) #4
+  %os.085 = phi ptr [ %os.0.ph.ph, %if.end127 ], [ %2, %sw.bb ], [ %9, %sw.bb24 ], [ %call30, %if.end33 ], [ %os.0, %sw.epilog ], [ %os.0, %for.cond.preheader ], [ %os.0, %for.inc ]
+  %59 = load ptr, ptr %type, align 8
+  %call137 = call i32 @OBJ_obj2nid(ptr noundef %59) #4
   %cmp138 = icmp eq i32 %call137, 22
   br i1 %cmp138, label %land.lhs.true140, label %if.then143
 
@@ -1764,9 +1746,9 @@ if.then143:                                       ; preds = %land.lhs.true140, %
   br i1 %cmp144, label %err, label %if.end147
 
 if.end147:                                        ; preds = %if.then143
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %os.085, i64 0, i32 3
-  %62 = load i64, ptr %flags, align 8
-  %and = and i64 %62, 16
+  %flags = getelementptr inbounds i8, ptr %os.085, i64 16
+  %60 = load i64, ptr %flags, align 8
+  %and = and i64 %60, 16
   %tobool148.not = icmp eq i64 %and, 0
   br i1 %tobool148.not, label %if.then149, label %err
 
@@ -1785,9 +1767,9 @@ if.end154:                                        ; preds = %if.then149
   %call155 = call i64 @BIO_ctrl(ptr noundef nonnull %call150, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %cont) #4
   call void @BIO_set_flags(ptr noundef nonnull %call150, i32 noundef 512) #4
   %call156 = call i64 @BIO_ctrl(ptr noundef nonnull %call150, i32 noundef 130, i64 noundef 0, ptr noundef null) #4
-  %63 = load ptr, ptr %cont, align 8
+  %61 = load ptr, ptr %cont, align 8
   %conv157 = trunc i64 %call155 to i32
-  call void @ASN1_STRING_set0(ptr noundef nonnull %os.085, ptr noundef %63, i32 noundef %conv157) #4
+  call void @ASN1_STRING_set0(ptr noundef nonnull %os.085, ptr noundef %61, i32 noundef %conv157) #4
   br label %err
 
 err:                                              ; preds = %if.else, %lor.lhs.false, %do_pkcs7_signed_attrib.exit, %if.end84, %if.end79, %do_pkcs7_signed_attrib.exit.thread, %land.lhs.true140, %if.end154, %if.end147, %if.then143, %if.end127, %if.end123, %if.then116, %if.then153, %if.then110, %sw.default, %if.then32, %if.then18
@@ -1873,9 +1855,9 @@ entry:
   %siglen = alloca i64, align 8
   store ptr null, ptr %pctx, align 8
   store ptr null, ptr %abuf, align 8
-  %ctx1 = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %si, i64 0, i32 8
+  %ctx1 = getelementptr inbounds i8, ptr %si, i64 64
   %0 = load ptr, ptr %ctx1, align 8
-  %digest_alg = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %si, i64 0, i32 2
+  %digest_alg = getelementptr inbounds i8, ptr %si, i64 16
   %1 = load ptr, ptr %digest_alg, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %2) #4
@@ -1899,14 +1881,14 @@ if.end7:                                          ; preds = %if.end
   %call8 = tail call ptr @EVP_MD_get0_name(ptr noundef nonnull %call3) #4
   %call9 = tail call ptr @ossl_pkcs7_ctx_get0_libctx(ptr noundef %0) #4
   %call10 = tail call ptr @ossl_pkcs7_ctx_get0_propq(ptr noundef %0) #4
-  %pkey = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %si, i64 0, i32 7
+  %pkey = getelementptr inbounds i8, ptr %si, i64 56
   %3 = load ptr, ptr %pkey, align 8
   %call11 = call i32 @EVP_DigestSignInit_ex(ptr noundef nonnull %call4, ptr noundef nonnull %pctx, ptr noundef %call8, ptr noundef %call9, ptr noundef %call10, ptr noundef %3, ptr noundef null) #4
   %cmp12 = icmp slt i32 %call11, 1
   br i1 %cmp12, label %err, label %if.end14
 
 if.end14:                                         ; preds = %if.end7
-  %auth_attr = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %si, i64 0, i32 3
+  %auth_attr = getelementptr inbounds i8, ptr %si, i64 24
   %4 = load ptr, ptr %auth_attr, align 8
   %call15 = call ptr @PKCS7_ATTR_SIGN_it() #4
   %call16 = call i32 @ASN1_item_i2d(ptr noundef %4, ptr noundef nonnull %abuf, ptr noundef %call15) #4
@@ -1942,7 +1924,7 @@ if.end33:                                         ; preds = %if.end28
 
 if.end38:                                         ; preds = %if.end33
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call4) #4
-  %enc_digest = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %si, i64 0, i32 5
+  %enc_digest = getelementptr inbounds i8, ptr %si, i64 40
   %8 = load ptr, ptr %enc_digest, align 8
   %9 = load ptr, ptr %abuf, align 8
   %10 = load i64, ptr %siglen, align 8
@@ -1988,7 +1970,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %p7, i64 32
   %0 = load ptr, ptr %d, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -2000,29 +1982,17 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %p7, i64 24
   %1 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %1) #4
   %cmp4 = icmp eq i32 %call, 22
-  br i1 %cmp4, label %if.then5, label %if.else
-
-if.then5:                                         ; preds = %if.end3
-  %2 = load ptr, ptr %d, align 8
-  %cert = getelementptr inbounds %struct.pkcs7_signed_st, ptr %2, i64 0, i32 2
-  %crl = getelementptr inbounds %struct.pkcs7_signed_st, ptr %2, i64 0, i32 3
-  br label %if.end18
+  br i1 %cmp4, label %if.end18, label %if.else
 
 if.else:                                          ; preds = %if.end3
-  %3 = load ptr, ptr %type, align 8
-  %call9 = tail call i32 @OBJ_obj2nid(ptr noundef %3) #4
+  %2 = load ptr, ptr %type, align 8
+  %call9 = tail call i32 @OBJ_obj2nid(ptr noundef %2) #4
   %cmp10 = icmp eq i32 %call9, 24
-  br i1 %cmp10, label %if.then11, label %if.else16
-
-if.then11:                                        ; preds = %if.else
-  %4 = load ptr, ptr %d, align 8
-  %cert13 = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %4, i64 0, i32 2
-  %crl15 = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %4, i64 0, i32 3
-  br label %if.end18
+  br i1 %cmp10, label %if.end18, label %if.else16
 
 if.else16:                                        ; preds = %if.else
   tail call void @ERR_new() #4
@@ -2030,18 +2000,19 @@ if.else16:                                        ; preds = %if.else
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef 114, ptr noundef null) #4
   br label %return
 
-if.end18:                                         ; preds = %if.then11, %if.then5
-  %untrusted.0.in = phi ptr [ %cert, %if.then5 ], [ %cert13, %if.then11 ]
-  %crls.0.in = phi ptr [ %crl, %if.then5 ], [ %crl15, %if.then11 ]
+if.end18:                                         ; preds = %if.else, %if.end3
+  %.pn = load ptr, ptr %d, align 8
+  %crls.0.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %crls.0 = load ptr, ptr %crls.0.in, align 8
+  %untrusted.0.in = getelementptr inbounds i8, ptr %.pn, i64 16
   %untrusted.0 = load ptr, ptr %untrusted.0.in, align 8
   tail call void @X509_STORE_CTX_set0_crls(ptr noundef %ctx, ptr noundef %crls.0) #4
-  %issuer_and_serial = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %si, i64 0, i32 1
-  %5 = load ptr, ptr %issuer_and_serial, align 8
-  %6 = load ptr, ptr %5, align 8
-  %serial = getelementptr inbounds %struct.pkcs7_issuer_and_serial_st, ptr %5, i64 0, i32 1
-  %7 = load ptr, ptr %serial, align 8
-  %call19 = tail call ptr @X509_find_by_issuer_and_serial(ptr noundef %untrusted.0, ptr noundef %6, ptr noundef %7) #4
+  %issuer_and_serial = getelementptr inbounds i8, ptr %si, i64 8
+  %3 = load ptr, ptr %issuer_and_serial, align 8
+  %4 = load ptr, ptr %3, align 8
+  %serial = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = load ptr, ptr %serial, align 8
+  %call19 = tail call ptr @X509_find_by_issuer_and_serial(ptr noundef %untrusted.0, ptr noundef %4, ptr noundef %5) #4
   %cmp20 = icmp eq ptr %call19, null
   br i1 %cmp20, label %if.then21, label %if.end22
 
@@ -2114,7 +2085,7 @@ if.then:                                          ; preds = %entry
   br label %err
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
   %call4 = tail call i32 @OBJ_obj2nid(ptr noundef %0) #4
   %cmp5 = icmp eq i32 %call4, 22
@@ -2133,7 +2104,7 @@ if.then9:                                         ; preds = %land.lhs.true
   br label %err
 
 if.end10:                                         ; preds = %land.lhs.true, %if.end
-  %digest_alg = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %si, i64 0, i32 2
+  %digest_alg = getelementptr inbounds i8, ptr %si, i64 16
   %2 = load ptr, ptr %digest_alg, align 8
   %3 = load ptr, ptr %2, align 8
   %call11 = tail call i32 @OBJ_obj2nid(ptr noundef %3) #4
@@ -2189,7 +2160,7 @@ for.end:                                          ; preds = %if.end25, %if.end20
   br i1 %tobool.not, label %err, label %if.end34
 
 if.end34:                                         ; preds = %for.end
-  %auth_attr = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %si, i64 0, i32 3
+  %auth_attr = getelementptr inbounds i8, ptr %si, i64 24
   %7 = load ptr, ptr %auth_attr, align 8
   %cmp35.not = icmp eq ptr %7, null
   br i1 %cmp35.not, label %if.end85, label %land.lhs.true36
@@ -2217,7 +2188,7 @@ get_attribute.exit.i:                             ; preds = %if.end44
   br i1 %cmp.i, label %if.then47, label %PKCS7_digest_from_attributes.exit
 
 PKCS7_digest_from_attributes.exit:                ; preds = %get_attribute.exit.i
-  %value.i = getelementptr inbounds %struct.asn1_type_st, ptr %call2.i.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %call2.i.i, i64 8
   %8 = load ptr, ptr %value.i, align 8
   %tobool46.not = icmp eq ptr %8, null
   br i1 %tobool46.not, label %if.then47, label %if.end48
@@ -2235,7 +2206,7 @@ if.end48:                                         ; preds = %PKCS7_digest_from_a
   br i1 %cmp49.not, label %lor.lhs.false50, label %if.then54
 
 lor.lhs.false50:                                  ; preds = %if.end48
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %8, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %8, i64 8
   %11 = load ptr, ptr %data, align 8
   %conv = zext i32 %9 to i64
   %bcmp = call i32 @bcmp(ptr %11, ptr nonnull %md_dat, i64 %conv)
@@ -2298,14 +2269,14 @@ if.end84:                                         ; preds = %if.end79
 
 if.end85:                                         ; preds = %if.end84, %land.lhs.true36, %if.end34
   %fetched_md.0 = phi ptr [ %call58, %if.end84 ], [ null, %land.lhs.true36 ], [ null, %if.end34 ]
-  %enc_digest = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %si, i64 0, i32 5
+  %enc_digest = getelementptr inbounds i8, ptr %si, i64 40
   %14 = load ptr, ptr %enc_digest, align 8
   %call86 = call ptr @X509_get0_pubkey(ptr noundef %signer) #4
   %cmp87 = icmp eq ptr %call86, null
   br i1 %cmp87, label %err, label %if.end90
 
 if.end90:                                         ; preds = %if.end85
-  %data91 = getelementptr inbounds %struct.asn1_string_st, ptr %14, i64 0, i32 2
+  %data91 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %data91, align 8
   %16 = load i32, ptr %14, align 8
   %call93 = call i32 @EVP_VerifyFinal_ex(ptr noundef nonnull %call3, ptr noundef %15, i32 noundef %16, ptr noundef nonnull %call86, ptr noundef %call1, ptr noundef %call2) #4
@@ -2348,7 +2319,7 @@ get_attribute.exit:                               ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %get_attribute.exit
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %call2.i, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call2.i, i64 8
   %0 = load ptr, ptr %value, align 8
   br label %return
 
@@ -2370,20 +2341,20 @@ declare i32 @EVP_VerifyFinal_ex(ptr noundef, ptr noundef, i32 noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS7_get_issuer_and_serial(ptr nocapture noundef readonly %p7, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #4
   %cmp.not = icmp eq i32 %call, 24
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %p7, i64 32
   %1 = load ptr, ptr %d, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %recipientinfo = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %1, i64 0, i32 6
+  %recipientinfo = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load ptr, ptr %recipientinfo, align 8
   %cmp5 = icmp eq ptr %2, null
   br i1 %cmp5, label %return, label %if.end7
@@ -2395,7 +2366,7 @@ if.end7:                                          ; preds = %if.end3
 
 if.end12:                                         ; preds = %if.end7
   %call14 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %2, i32 noundef %idx) #4
-  %issuer_and_serial = getelementptr inbounds %struct.pkcs7_recip_info_st, ptr %call14, i64 0, i32 1
+  %issuer_and_serial = getelementptr inbounds i8, ptr %call14, i64 8
   %3 = load ptr, ptr %issuer_and_serial, align 8
   br label %return
 
@@ -2407,7 +2378,7 @@ return:                                           ; preds = %if.end7, %if.end3, 
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS7_get_signed_attribute(ptr nocapture noundef readonly %si, i32 noundef %nid) local_unnamed_addr #0 {
 entry:
-  %auth_attr = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %si, i64 0, i32 3
+  %auth_attr = getelementptr inbounds i8, ptr %si, i64 24
   %0 = load ptr, ptr %auth_attr, align 8
   %call.i = tail call i32 @X509at_get_attr_by_NID(ptr noundef %0, i32 noundef %nid, i32 noundef -1) #4
   %cmp.i = icmp slt i32 %call.i, 0
@@ -2426,7 +2397,7 @@ get_attribute.exit:                               ; preds = %entry, %if.end.i
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS7_get_attribute(ptr nocapture noundef readonly %si, i32 noundef %nid) local_unnamed_addr #0 {
 entry:
-  %unauth_attr = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %si, i64 0, i32 6
+  %unauth_attr = getelementptr inbounds i8, ptr %si, i64 48
   %0 = load ptr, ptr %unauth_attr, align 8
   %call.i = tail call i32 @X509at_get_attr_by_NID(ptr noundef %0, i32 noundef %nid, i32 noundef -1) #4
   %cmp.i = icmp slt i32 %call.i, 0
@@ -2445,7 +2416,7 @@ get_attribute.exit:                               ; preds = %entry, %if.end.i
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS7_set_signed_attributes(ptr nocapture noundef %p7si, ptr noundef %sk) local_unnamed_addr #0 {
 entry:
-  %auth_attr = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %p7si, i64 0, i32 3
+  %auth_attr = getelementptr inbounds i8, ptr %p7si, i64 24
   %0 = load ptr, ptr %auth_attr, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @X509_ATTRIBUTE_free) #4
   %call3 = tail call ptr @OPENSSL_sk_dup(ptr noundef %sk) #4
@@ -2491,7 +2462,7 @@ declare ptr @X509_ATTRIBUTE_dup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS7_set_attributes(ptr nocapture noundef %p7si, ptr noundef %sk) local_unnamed_addr #0 {
 entry:
-  %unauth_attr = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %p7si, i64 0, i32 6
+  %unauth_attr = getelementptr inbounds i8, ptr %p7si, i64 48
   %0 = load ptr, ptr %unauth_attr, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @X509_ATTRIBUTE_free) #4
   %call3 = tail call ptr @OPENSSL_sk_dup(ptr noundef %sk) #4
@@ -2527,7 +2498,7 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS7_add_signed_attribute(ptr nocapture noundef %p7si, i32 noundef %nid, i32 noundef %atrtype, ptr noundef %value) local_unnamed_addr #0 {
 entry:
-  %auth_attr = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %p7si, i64 0, i32 3
+  %auth_attr = getelementptr inbounds i8, ptr %p7si, i64 24
   %call = tail call fastcc i32 @add_attribute(ptr noundef nonnull %auth_attr, i32 noundef %nid, i32 noundef %atrtype, ptr noundef %value), !range !6
   ret i32 %call
 }
@@ -2602,7 +2573,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS7_add_attribute(ptr nocapture noundef %p7si, i32 noundef %nid, i32 noundef %atrtype, ptr noundef %value) local_unnamed_addr #0 {
 entry:
-  %unauth_attr = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %p7si, i64 0, i32 6
+  %unauth_attr = getelementptr inbounds i8, ptr %p7si, i64 48
   %call = tail call fastcc i32 @add_attribute(ptr noundef nonnull %unauth_attr, i32 noundef %nid, i32 noundef %atrtype, ptr noundef %value), !range !6
   ret i32 %call
 }

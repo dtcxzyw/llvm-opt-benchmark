@@ -9,11 +9,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.timezone = type { i32, i32 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.timeval = type { i64, i64 }
-%"class.EA::StdC::DateTime" = type <{ i64, i32, [4 x i8] }>
 %"class.EA::StdC::int128_t" = type { %"class.EA::StdC::int128_t_base" }
 %"class.EA::StdC::int128_t_base" = type { i64, i64 }
-%struct._FILETIME = type { i32, i32 }
-%struct._SYSTEMTIME = type { i16, i16, i16, i16, i16, i16, i16, i16 }
+%"class.EA::StdC::DateTime" = type <{ i64, i32, [4 x i8] }>
 
 @_ZZN2EA4StdC7GetTimeEvE10sStopwatch = internal global %"class.EA::StdC::Stopwatch" zeroinitializer, align 8
 @_ZGVZN2EA4StdC7GetTimeEvE10sStopwatch = internal global i64 0, align 8
@@ -115,7 +113,7 @@ if.then:                                          ; preds = %init.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nowtm.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tmResult.i)
   %mul = mul i64 %3, 1000000000
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %4 = load i64, ptr %tv_usec, align 8
   %mul2 = mul i64 %4, 1000
   %add = add i64 %mul2, %mul
@@ -170,12 +168,11 @@ entry:
   %call4 = call ptr @localtime_r(ptr noundef nonnull %nowtm, ptr noundef nonnull %tmResult) #20
   %cmp.not = icmp ne i32 %call, 0
   %cmp5 = icmp ne ptr %call4, %tmResult
-  %tm_isdst = getelementptr inbounds %struct.tm, ptr %tmResult, i64 0, i32 8
+  %tm_isdst = getelementptr inbounds i8, ptr %tmResult, i64 32
   %2 = load i32, ptr %tm_isdst, align 8
-  %tz.sroa.gep = getelementptr inbounds %struct.timezone, ptr %tz, i64 0, i32 1
-  %pTZ.sroa.gep = getelementptr inbounds %struct.timezone, ptr %pTZ, i64 0, i32 1
-  %spec.select.sroa.sel = select i1 %tobool.not, ptr %tz.sroa.gep, ptr %pTZ.sroa.gep
-  store i32 %2, ptr %spec.select.sroa.sel, align 4
+  %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %tz, ptr %pTZ
+  %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 4
+  store i32 %2, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %cmp7 = select i1 %cmp.not, i1 true, i1 %cmp5
   %brmerge = or i1 %cmp7, %bUTC
   br i1 %brmerge, label %if.end20, label %if.then11
@@ -418,7 +415,7 @@ sw.bb78:                                          ; preds = %entry
   br label %common.ret85
 
 sw.bb82:                                          ; preds = %entry
-  %mnNanosecond = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %this, i64 0, i32 1
+  %mnNanosecond = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load i32, ptr %mnNanosecond, align 8
   br label %common.ret85
 
@@ -674,7 +671,7 @@ if.then23:                                        ; preds = %if.end21
 
 if.end25:                                         ; preds = %if.then23, %if.end21
   %nSecond.addr.0 = phi i32 [ %conv81.i, %if.then23 ], [ %nSecond, %if.end21 ]
-  %mnNanosecond = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %this, i64 0, i32 1
+  %mnNanosecond = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i32, ptr %mnNanosecond, align 8
   %cmp29 = icmp ugt i32 %nMonth.addr.0, 12
   br i1 %cmp29, label %if.then30, label %if.end33
@@ -790,7 +787,7 @@ if.then:                                          ; preds = %cond.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tz.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nowtm.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tmResult.i)
-  %tv_usec7.phi.trans.insert = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec7.phi.trans.insert = getelementptr inbounds i8, ptr %tv, i64 8
   %.pre = load i64, ptr %tv_usec7.phi.trans.insert, align 8
   %1 = trunc i64 %.pre to i32
   %2 = mul i32 %1, 1000
@@ -842,10 +839,10 @@ if.end10:                                         ; preds = %if.else, %if.then8,
   %nValueB.0 = phi i64 [ %1, %if.else ], [ %rem9, %if.then8 ], [ %div4, %if.then ]
   %cmp = icmp eq i64 %nValueA.0, %nValueB.0
   %or.cond = select i1 %brmerge, i1 %cmp, i1 false
-  %mnNanosecond = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %this, i64 0, i32 1
+  %mnNanosecond = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %mnNanosecond, align 8
   %conv = zext i32 %2 to i64
-  %mnNanosecond14 = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %dateTime, i64 0, i32 1
+  %mnNanosecond14 = getelementptr inbounds i8, ptr %dateTime, i64 8
   %3 = load i32, ptr %mnNanosecond14, align 8
   %conv15 = zext i32 %3 to i64
   %nValueA.1 = select i1 %or.cond, i64 %conv, i64 %nValueA.0
@@ -974,7 +971,7 @@ sw.bb26:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %entry
-  %mnNanosecond.i = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %this, i64 0, i32 1
+  %mnNanosecond.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i32, ptr %mnNanosecond.i, align 8
   %conv31 = zext i32 %8 to i64
   %add32 = add nsw i64 %conv31, %nValue
@@ -1025,7 +1022,7 @@ define dso_local noundef i64 @_ZNK2EA4StdC8DateTime15GetMillisecondsEv(ptr nocap
 entry:
   %0 = load i64, ptr %this, align 8
   %mul = mul i64 %0, 1000
-  %mnNanosecond = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %this, i64 0, i32 1
+  %mnNanosecond = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %mnNanosecond, align 8
   %div = udiv i32 %1, 1000000
   %conv = zext nneg i32 %div to i64
@@ -1041,7 +1038,7 @@ entry:
   %rem = urem i64 %milliseconds, 1000
   %0 = trunc i64 %rem to i32
   %conv = mul nuw nsw i32 %0, 1000000
-  %mnNanosecond = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %this, i64 0, i32 1
+  %mnNanosecond = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %conv, ptr %mnNanosecond, align 8
   ret void
 }
@@ -1057,7 +1054,7 @@ entry:
   call void @_ZN2EA4StdC8int128_tC1El(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i64 noundef %0)
   call void @_ZN2EA4StdC8int128_tC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, i32 noundef 1000000000)
   call void @_ZN2EA4StdCmlERKNS0_8int128_tES3_(ptr nonnull sret(%"class.EA::StdC::int128_t") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3)
-  %mnNanosecond = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %this, i64 0, i32 1
+  %mnNanosecond = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %mnNanosecond, align 8
   call void @_ZN2EA4StdC8int128_tC1Ej(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, i32 noundef %1)
   call void @_ZN2EA4StdCplERKNS0_8int128_tES3_(ptr sret(%"class.EA::StdC::int128_t") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
@@ -1088,7 +1085,7 @@ entry:
   %call = call noundef i64 @_ZNK2EA4StdC8int128_t7AsInt64Ev(ptr noundef nonnull align 8 dereferenceable(16) %seconds)
   store i64 %call, ptr %this, align 8
   %call3 = call noundef i32 @_ZNK2EA4StdC13int128_t_base8AsUint32Ev(ptr noundef nonnull align 8 dereferenceable(16) %nanosecond)
-  %mnNanosecond = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %this, i64 0, i32 1
+  %mnNanosecond = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %call3, ptr %mnNanosecond, align 8
   ret void
 }
@@ -1154,7 +1151,7 @@ define dso_local noundef i32 @_ZN2EA4StdC12GetDayOfYearEjjj(i32 noundef %nMonth,
 entry:
   %sDateTime = alloca %"class.EA::StdC::DateTime", align 8
   store i64 0, ptr %sDateTime, align 8
-  %mnNanosecond.i = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %sDateTime, i64 0, i32 1
+  %mnNanosecond.i = getelementptr inbounds i8, ptr %sDateTime, i64 8
   store i32 0, ptr %mnNanosecond.i, align 8
   call void @_ZN2EA4StdC8DateTime3SetEjjjjjjj(ptr noundef nonnull align 8 dereferenceable(12) %sDateTime, i32 noundef %nYear, i32 noundef %nMonth, i32 noundef %nDayOfMonth, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %0 = load i64, ptr %sDateTime, align 8
@@ -1213,7 +1210,7 @@ define dso_local noundef i32 @_ZN2EA4StdC10GetCurrentENS0_9ParameterENS0_9TimeFr
 entry:
   %sDateTime = alloca %"class.EA::StdC::DateTime", align 8
   store i64 0, ptr %sDateTime, align 8
-  %mnNanosecond.i = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %sDateTime, i64 0, i32 1
+  %mnNanosecond.i = getelementptr inbounds i8, ptr %sDateTime, i64 8
   store i32 0, ptr %mnNanosecond.i, align 8
   call void @_ZN2EA4StdC8DateTime3SetENS0_9TimeFrameEb(ptr noundef nonnull align 8 dereferenceable(12) %sDateTime, i32 noundef %timeFrame, i1 noundef zeroext true)
   %call = call noundef i32 @_ZNK2EA4StdC8DateTime12GetParameterENS0_9ParameterE(ptr noundef nonnull align 8 dereferenceable(12) %sDateTime, i32 noundef %parameter)
@@ -1227,7 +1224,7 @@ entry:
   %call = tail call i64 @time(ptr noundef null) #20
   store i64 %call, ptr %nTime, align 8
   %call1 = call ptr @localtime(ptr noundef nonnull %nTime) #20
-  %tm_isdst = getelementptr inbounds %struct.tm, ptr %call1, i64 0, i32 8
+  %tm_isdst = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load i32, ptr %tm_isdst, align 8
   %cmp = icmp sgt i32 %0, 0
   ret i1 %cmp
@@ -1240,7 +1237,7 @@ entry:
   %sub.i = add nsw i64 %dateTimeSeconds, -62135683200
   store i64 %sub.i, ptr %time, align 8
   %call1 = call ptr @localtime(ptr noundef nonnull %time) #20
-  %tm_isdst = getelementptr inbounds %struct.tm, ptr %call1, i64 0, i32 8
+  %tm_isdst = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load i32, ptr %tm_isdst, align 8
   %cmp = icmp sgt i32 %0, 0
   ret i1 %cmp
@@ -1295,20 +1292,20 @@ entry:
   %div75.i = sdiv i64 %1, 60
   %rem76.i = srem i64 %div75.i, 60
   %conv77.i = trunc i64 %rem76.i to i32
-  %tm_min = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %time, i64 4
   store i32 %conv77.i, ptr %tm_min, align 4
   %2 = load i64, ptr %dateTime, align 8
   %div70.i = sdiv i64 %2, 3600
   %rem71.i = srem i64 %div70.i, 24
   %conv72.i = trunc i64 %rem71.i to i32
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %time, i64 8
   store i32 %conv72.i, ptr %tm_hour, align 8
   %call3 = tail call noundef i32 @_ZNK2EA4StdC8DateTime12GetParameterENS0_9ParameterE(ptr noundef nonnull align 8 dereferenceable(12) %dateTime, i32 noundef 6)
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %time, i64 12
   store i32 %call3, ptr %tm_mday, align 4
   %call4 = tail call noundef i32 @_ZNK2EA4StdC8DateTime12GetParameterENS0_9ParameterE(ptr noundef nonnull align 8 dereferenceable(12) %dateTime, i32 noundef 2)
   %sub = add nsw i32 %call4, -1
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %time, i64 16
   store i32 %sub, ptr %tm_mon, align 8
   %3 = load i64, ptr %dateTime, align 8
   %div.i = sdiv i64 %3, 86400
@@ -1324,13 +1321,13 @@ entry:
   %div13.i = sdiv i64 %sub12.i, 365
   %conv.i = trunc i64 %div13.i to i32
   %sub6 = add i32 %conv.i, -1899
-  %tm_year = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %time, i64 20
   store i32 %sub6, ptr %tm_year, align 4
   %4 = load i64, ptr %dateTime, align 8
   %div65.i = sdiv i64 %4, 86400
   %rem.i = srem i64 %div65.i, 7
   %conv66.i = trunc i64 %rem.i to i32
-  %tm_wday = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 6
+  %tm_wday = getelementptr inbounds i8, ptr %time, i64 24
   store i32 %conv66.i, ptr %tm_wday, align 8
   %5 = load i64, ptr %dateTime, align 8
   %div.i14.i = sdiv i64 %5, 86400
@@ -1357,9 +1354,9 @@ entry:
   %7 = xor i32 %add41.i, -1
   %8 = add i32 %7, %6
   %sub10 = select i1 %cmp45.i, i32 0, i32 %8
-  %tm_yday = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 7
+  %tm_yday = getelementptr inbounds i8, ptr %time, i64 28
   store i32 %sub10, ptr %tm_yday, align 4
-  %tm_isdst = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 8
+  %tm_isdst = getelementptr inbounds i8, ptr %time, i64 32
   store i32 0, ptr %tm_isdst, align 8
   ret void
 }
@@ -1367,17 +1364,17 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN2EA4StdC12TmToDateTimeERK2tmRNS0_8DateTimeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %time, ptr noundef nonnull align 8 dereferenceable(12) %dateTime) local_unnamed_addr #8 {
 entry:
-  %tm_year = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %time, i64 20
   %0 = load i32, ptr %tm_year, align 4
   %add = add nsw i32 %0, 1900
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %time, i64 16
   %1 = load i32, ptr %tm_mon, align 8
   %add1 = add nsw i32 %1, 1
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %time, i64 12
   %2 = load i32, ptr %tm_mday, align 4
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %time, i64 8
   %3 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %time, i64 4
   %4 = load i32, ptr %tm_min, align 4
   %5 = load i32, ptr %time, align 8
   tail call void @_ZN2EA4StdC8DateTime3SetEjjjjjjj(ptr noundef nonnull align 8 dereferenceable(12) %dateTime, i32 noundef %add, i32 noundef %add1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef -1)
@@ -1403,7 +1400,7 @@ entry:
   %call1.i = tail call noundef i32 @_ZNK2EA4StdC8DateTime12GetParameterENS0_9ParameterE(ptr noundef nonnull align 8 dereferenceable(12) %dateTime, i32 noundef 2)
   %conv2.i = trunc i32 %call1.i to i16
   %call5.i = tail call noundef i32 @_ZNK2EA4StdC8DateTime12GetParameterENS0_9ParameterE(ptr noundef nonnull align 8 dereferenceable(12) %dateTime, i32 noundef 6)
-  %mnNanosecond.i.i = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %dateTime, i64 0, i32 1
+  %mnNanosecond.i.i = getelementptr inbounds i8, ptr %dateTime, i64 8
   %1 = load i32, ptr %mnNanosecond.i.i, align 8
   %conv = and i32 %call1.i, 65535
   %cmp = icmp ult i16 %conv2.i, 3
@@ -1452,7 +1449,7 @@ entry:
   store i32 %conv36, ptr %time, align 4
   %shr = lshr i64 %mul35, 32
   %conv37 = trunc i64 %shr to i32
-  %dwHighDateTime = getelementptr inbounds %struct._FILETIME, ptr %time, i64 0, i32 1
+  %dwHighDateTime = getelementptr inbounds i8, ptr %time, i64 4
   store i32 %conv37, ptr %dwHighDateTime, align 4
   ret void
 }
@@ -1477,40 +1474,40 @@ entry:
   store i16 %add14.i, ptr %time, align 2
   %call1 = tail call noundef i32 @_ZNK2EA4StdC8DateTime12GetParameterENS0_9ParameterE(ptr noundef nonnull align 8 dereferenceable(12) %dateTime, i32 noundef 2)
   %conv2 = trunc i32 %call1 to i16
-  %wMonth = getelementptr inbounds %struct._SYSTEMTIME, ptr %time, i64 0, i32 1
+  %wMonth = getelementptr inbounds i8, ptr %time, i64 2
   store i16 %conv2, ptr %wMonth, align 2
   %1 = load i64, ptr %dateTime, align 8
   %div65.i = sdiv i64 %1, 86400
   %rem.i = srem i64 %div65.i, 7
   %conv66.i = trunc i64 %rem.i to i16
-  %wDayOfWeek = getelementptr inbounds %struct._SYSTEMTIME, ptr %time, i64 0, i32 2
+  %wDayOfWeek = getelementptr inbounds i8, ptr %time, i64 4
   store i16 %conv66.i, ptr %wDayOfWeek, align 2
   %call5 = tail call noundef i32 @_ZNK2EA4StdC8DateTime12GetParameterENS0_9ParameterE(ptr noundef nonnull align 8 dereferenceable(12) %dateTime, i32 noundef 6)
   %conv6 = trunc i32 %call5 to i16
-  %wDay = getelementptr inbounds %struct._SYSTEMTIME, ptr %time, i64 0, i32 3
+  %wDay = getelementptr inbounds i8, ptr %time, i64 6
   store i16 %conv6, ptr %wDay, align 2
   %2 = load i64, ptr %dateTime, align 8
   %div70.i = sdiv i64 %2, 3600
   %rem71.i = srem i64 %div70.i, 24
   %conv8 = trunc i64 %rem71.i to i16
-  %wHour = getelementptr inbounds %struct._SYSTEMTIME, ptr %time, i64 0, i32 4
+  %wHour = getelementptr inbounds i8, ptr %time, i64 8
   store i16 %conv8, ptr %wHour, align 2
   %3 = load i64, ptr %dateTime, align 8
   %div75.i = sdiv i64 %3, 60
   %rem76.i = srem i64 %div75.i, 60
   %conv10 = trunc i64 %rem76.i to i16
-  %wMinute = getelementptr inbounds %struct._SYSTEMTIME, ptr %time, i64 0, i32 5
+  %wMinute = getelementptr inbounds i8, ptr %time, i64 10
   store i16 %conv10, ptr %wMinute, align 2
   %4 = load i64, ptr %dateTime, align 8
   %rem80.i = srem i64 %4, 60
   %conv12 = trunc i64 %rem80.i to i16
-  %wSecond = getelementptr inbounds %struct._SYSTEMTIME, ptr %time, i64 0, i32 6
+  %wSecond = getelementptr inbounds i8, ptr %time, i64 12
   store i16 %conv12, ptr %wSecond, align 2
-  %mnNanosecond.i = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %dateTime, i64 0, i32 1
+  %mnNanosecond.i = getelementptr inbounds i8, ptr %dateTime, i64 8
   %5 = load i32, ptr %mnNanosecond.i, align 8
   %div = udiv i32 %5, 1000000
   %conv14 = trunc i32 %div to i16
-  %wMilliseconds = getelementptr inbounds %struct._SYSTEMTIME, ptr %time, i64 0, i32 7
+  %wMilliseconds = getelementptr inbounds i8, ptr %time, i64 14
   store i16 %conv14, ptr %wMilliseconds, align 2
   ret void
 }
@@ -1528,31 +1525,31 @@ entry:
   %ref.tmp = alloca %"class.EA::StdC::DateTime", align 8
   %0 = load i16, ptr %time, align 2
   %conv = zext i16 %0 to i32
-  %wMonth = getelementptr inbounds %struct._SYSTEMTIME, ptr %time, i64 0, i32 1
+  %wMonth = getelementptr inbounds i8, ptr %time, i64 2
   %1 = load i16, ptr %wMonth, align 2
   %conv1 = zext i16 %1 to i32
-  %wDay = getelementptr inbounds %struct._SYSTEMTIME, ptr %time, i64 0, i32 3
+  %wDay = getelementptr inbounds i8, ptr %time, i64 6
   %2 = load i16, ptr %wDay, align 2
   %conv2 = zext i16 %2 to i32
-  %wHour = getelementptr inbounds %struct._SYSTEMTIME, ptr %time, i64 0, i32 4
+  %wHour = getelementptr inbounds i8, ptr %time, i64 8
   %3 = load i16, ptr %wHour, align 2
   %conv3 = zext i16 %3 to i32
-  %wMinute = getelementptr inbounds %struct._SYSTEMTIME, ptr %time, i64 0, i32 5
+  %wMinute = getelementptr inbounds i8, ptr %time, i64 10
   %4 = load i16, ptr %wMinute, align 2
   %conv4 = zext i16 %4 to i32
-  %wSecond = getelementptr inbounds %struct._SYSTEMTIME, ptr %time, i64 0, i32 6
+  %wSecond = getelementptr inbounds i8, ptr %time, i64 12
   %5 = load i16, ptr %wSecond, align 2
   %conv5 = zext i16 %5 to i32
   store i64 0, ptr %ref.tmp, align 8
-  %mnNanosecond.i = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %ref.tmp, i64 0, i32 1
+  %mnNanosecond.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 0, ptr %mnNanosecond.i, align 8
   call void @_ZN2EA4StdC8DateTime3SetEjjjjjjj(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, i32 noundef %conv, i32 noundef %conv1, i32 noundef %conv2, i32 noundef %conv3, i32 noundef %conv4, i32 noundef %conv5, i32 noundef 0)
   %6 = load i64, ptr %ref.tmp, align 8
   store i64 %6, ptr %dateTime, align 8
   %7 = load i32, ptr %mnNanosecond.i, align 8
-  %mnNanosecond3.i = getelementptr inbounds %"class.EA::StdC::DateTime", ptr %dateTime, i64 0, i32 1
+  %mnNanosecond3.i = getelementptr inbounds i8, ptr %dateTime, i64 8
   store i32 %7, ptr %mnNanosecond3.i, align 8
-  %wMilliseconds = getelementptr inbounds %struct._SYSTEMTIME, ptr %time, i64 0, i32 7
+  %wMilliseconds = getelementptr inbounds i8, ptr %time, i64 14
   %8 = load i16, ptr %wMilliseconds, align 2
   %conv6 = zext i16 %8 to i32
   %mul = mul nsw i32 %conv6, 1000000
@@ -1615,7 +1612,7 @@ if.end27:                                         ; preds = %if.then13, %if.end
   %tvb.sroa.8.1 = phi i64 [ %add23, %if.then13 ], [ %tvb.sroa.8.0, %if.end ]
   %sub30 = sub nsw i64 %tva.sroa.0.0.copyload, %tvb.sroa.0.1
   store i64 %sub30, ptr %pTVResult, align 8
-  %tv_usec35 = getelementptr inbounds %struct.timeval, ptr %pTVResult, i64 0, i32 1
+  %tv_usec35 = getelementptr inbounds i8, ptr %pTVResult, i64 8
   store i64 %sub34.pre-phi, ptr %tv_usec35, align 8
   %cmp38 = icmp eq i64 %tva.sroa.0.0.copyload, %tvb.sroa.0.1
   br i1 %cmp38, label %if.then39, label %if.end48
@@ -1670,99 +1667,103 @@ entry:
   %formatBuffer335 = alloca [256 x i8], align 16
   %tobool.not = icmp eq ptr %pTimeLocale, null
   %spec.store.select = select i1 %tobool.not, ptr @_ZN2EA4StdC8InternalL18gDefaultTimeLocaleE, ptr %pTimeLocale
-  %arrayidx385 = getelementptr inbounds [256 x i8], ptr %buffer, i64 0, i64 5
-  %arrayidx389 = getelementptr inbounds [256 x i8], ptr %buffer, i64 0, i64 4
-  %arrayidx394 = getelementptr inbounds [256 x i8], ptr %buffer, i64 0, i64 3
-  %arrayidx398 = getelementptr inbounds [256 x i8], ptr %buffer, i64 0, i64 2
-  %arrayidx403 = getelementptr inbounds [256 x i8], ptr %buffer, i64 0, i64 1
-  %tm_year372 = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 5
+  %arrayidx385 = getelementptr inbounds i8, ptr %buffer, i64 5
+  %arrayidx389 = getelementptr inbounds i8, ptr %buffer, i64 4
+  %arrayidx394 = getelementptr inbounds i8, ptr %buffer, i64 3
+  %arrayidx398 = getelementptr inbounds i8, ptr %buffer, i64 2
+  %arrayidx403 = getelementptr inbounds i8, ptr %buffer, i64 1
+  %tm_year372 = getelementptr inbounds i8, ptr %pTM, i64 20
   %buffer27.i1061 = ptrtoint ptr %buffer.i1060 to i64
-  %arrayidx.i1062 = getelementptr inbounds [10 x i8], ptr %buffer.i1060, i64 0, i64 9
+  %arrayidx.i1062 = getelementptr inbounds i8, ptr %buffer.i1060, i64 9
   %add.ptr.i1063 = getelementptr inbounds i8, ptr %buffer.i1060, i64 8
   %0 = xor i64 %buffer27.i1061, -1
   %buffer27.i1012 = ptrtoint ptr %buffer.i1011 to i64
-  %arrayidx.i1013 = getelementptr inbounds [10 x i8], ptr %buffer.i1011, i64 0, i64 9
+  %arrayidx.i1013 = getelementptr inbounds i8, ptr %buffer.i1011, i64 9
   %add.ptr.i1014 = getelementptr inbounds i8, ptr %buffer.i1011, i64 8
   %1 = xor i64 %buffer27.i1012, -1
-  %arrayidx.i982 = getelementptr inbounds [10 x i8], ptr %buffer.i980, i64 0, i64 9
+  %arrayidx.i982 = getelementptr inbounds i8, ptr %buffer.i980, i64 9
   %add.ptr.i983 = getelementptr inbounds i8, ptr %buffer.i980, i64 8
   %scevgep29.i1009 = getelementptr inbounds i8, ptr %buffer.i980, i64 7
-  %mTimeFormat = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 7
-  %mDateFormat = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 6
-  %tm_yday290 = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 7
-  %tm_wday292 = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 6
+  %mTimeFormat = getelementptr inbounds i8, ptr %spec.store.select, i64 336
+  %mDateFormat = getelementptr inbounds i8, ptr %spec.store.select, i64 328
+  %tm_yday290 = getelementptr inbounds i8, ptr %pTM, i64 28
+  %tm_wday292 = getelementptr inbounds i8, ptr %pTM, i64 24
   %buffer27.i888 = ptrtoint ptr %buffer.i887 to i64
-  %arrayidx.i889 = getelementptr inbounds [10 x i8], ptr %buffer.i887, i64 0, i64 9
+  %arrayidx.i889 = getelementptr inbounds i8, ptr %buffer.i887, i64 9
   %add.ptr.i890 = getelementptr inbounds i8, ptr %buffer.i887, i64 8
   %2 = xor i64 %buffer27.i888, -1
-  %arrayidx.i858 = getelementptr inbounds [10 x i8], ptr %buffer.i856, i64 0, i64 9
+  %arrayidx.i858 = getelementptr inbounds i8, ptr %buffer.i856, i64 9
   %add.ptr.i859 = getelementptr inbounds i8, ptr %buffer.i856, i64 8
   %scevgep29.i885 = getelementptr inbounds i8, ptr %buffer.i856, i64 7
   %buffer27.i814 = ptrtoint ptr %buffer.i813 to i64
-  %arrayidx.i815 = getelementptr inbounds [10 x i8], ptr %buffer.i813, i64 0, i64 9
+  %arrayidx.i815 = getelementptr inbounds i8, ptr %buffer.i813, i64 9
   %add.ptr.i816 = getelementptr inbounds i8, ptr %buffer.i813, i64 8
   %3 = xor i64 %buffer27.i814, -1
   %buffer27.i765 = ptrtoint ptr %buffer.i764 to i64
-  %arrayidx.i766 = getelementptr inbounds [10 x i8], ptr %buffer.i764, i64 0, i64 9
+  %arrayidx.i766 = getelementptr inbounds i8, ptr %buffer.i764, i64 9
   %add.ptr.i767 = getelementptr inbounds i8, ptr %buffer.i764, i64 8
   %4 = xor i64 %buffer27.i765, -1
   %buffer27.i716 = ptrtoint ptr %buffer.i715 to i64
-  %arrayidx.i717 = getelementptr inbounds [10 x i8], ptr %buffer.i715, i64 0, i64 9
+  %arrayidx.i717 = getelementptr inbounds i8, ptr %buffer.i715, i64 9
   %add.ptr.i718 = getelementptr inbounds i8, ptr %buffer.i715, i64 8
   %5 = xor i64 %buffer27.i716, -1
-  %arrayidx.i686 = getelementptr inbounds [10 x i8], ptr %buffer.i684, i64 0, i64 9
+  %arrayidx.i686 = getelementptr inbounds i8, ptr %buffer.i684, i64 9
   %add.ptr.i687 = getelementptr inbounds i8, ptr %buffer.i684, i64 8
   %scevgep29.i713 = getelementptr inbounds i8, ptr %buffer.i684, i64 7
   %buffer27.i636 = ptrtoint ptr %buffer.i635 to i64
-  %arrayidx.i637 = getelementptr inbounds [10 x i8], ptr %buffer.i635, i64 0, i64 9
+  %arrayidx.i637 = getelementptr inbounds i8, ptr %buffer.i635, i64 9
   %add.ptr.i638 = getelementptr inbounds i8, ptr %buffer.i635, i64 8
   %6 = xor i64 %buffer27.i636, -1
   %buffer27.i575 = ptrtoint ptr %buffer.i574 to i64
-  %arrayidx.i576 = getelementptr inbounds [10 x i8], ptr %buffer.i574, i64 0, i64 9
+  %arrayidx.i576 = getelementptr inbounds i8, ptr %buffer.i574, i64 9
   %add.ptr.i577 = getelementptr inbounds i8, ptr %buffer.i574, i64 8
   %7 = xor i64 %buffer27.i575, -1
-  %mTimeFormatAmPm = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 8
-  %tm_hour168 = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 2
-  %tm_mon153 = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 4
+  %mTimeFormatAmPm = getelementptr inbounds i8, ptr %spec.store.select, i64 344
+  %mAmPm = getelementptr inbounds i8, ptr %spec.store.select, i64 304
+  %tm_hour168 = getelementptr inbounds i8, ptr %pTM, i64 8
+  %tm_mon153 = getelementptr inbounds i8, ptr %pTM, i64 16
   %buffer27.i502 = ptrtoint ptr %buffer.i501 to i64
-  %arrayidx.i503 = getelementptr inbounds [10 x i8], ptr %buffer.i501, i64 0, i64 9
+  %arrayidx.i503 = getelementptr inbounds i8, ptr %buffer.i501, i64 9
   %add.ptr.i504 = getelementptr inbounds i8, ptr %buffer.i501, i64 8
   %8 = xor i64 %buffer27.i502, -1
-  %tm_min = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %pTM, i64 4
   %buffer27.i453 = ptrtoint ptr %buffer.i452 to i64
-  %arrayidx.i454 = getelementptr inbounds [10 x i8], ptr %buffer.i452, i64 0, i64 9
+  %arrayidx.i454 = getelementptr inbounds i8, ptr %buffer.i452, i64 9
   %add.ptr.i455 = getelementptr inbounds i8, ptr %buffer.i452, i64 8
   %9 = xor i64 %buffer27.i453, -1
   %buffer27.i404 = ptrtoint ptr %buffer.i403 to i64
-  %arrayidx.i405 = getelementptr inbounds [10 x i8], ptr %buffer.i403, i64 0, i64 9
+  %arrayidx.i405 = getelementptr inbounds i8, ptr %buffer.i403, i64 9
   %add.ptr.i406 = getelementptr inbounds i8, ptr %buffer.i403, i64 8
   %10 = xor i64 %buffer27.i404, -1
   %buffer27.i355 = ptrtoint ptr %buffer.i354 to i64
-  %arrayidx.i356 = getelementptr inbounds [10 x i8], ptr %buffer.i354, i64 0, i64 9
+  %arrayidx.i356 = getelementptr inbounds i8, ptr %buffer.i354, i64 9
   %add.ptr.i357 = getelementptr inbounds i8, ptr %buffer.i354, i64 8
   %11 = xor i64 %buffer27.i355, -1
   %buffer27.i306 = ptrtoint ptr %buffer.i305 to i64
-  %arrayidx.i307 = getelementptr inbounds [10 x i8], ptr %buffer.i305, i64 0, i64 9
+  %arrayidx.i307 = getelementptr inbounds i8, ptr %buffer.i305, i64 9
   %add.ptr.i308 = getelementptr inbounds i8, ptr %buffer.i305, i64 8
   %12 = xor i64 %buffer27.i306, -1
-  %tm_mday107 = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 3
+  %tm_mday107 = getelementptr inbounds i8, ptr %pTM, i64 12
   %buffer27.i257 = ptrtoint ptr %buffer.i256 to i64
-  %arrayidx.i258 = getelementptr inbounds [10 x i8], ptr %buffer.i256, i64 0, i64 9
+  %arrayidx.i258 = getelementptr inbounds i8, ptr %buffer.i256, i64 9
   %add.ptr.i259 = getelementptr inbounds i8, ptr %buffer.i256, i64 8
   %13 = xor i64 %buffer27.i257, -1
   %buffer27.i208 = ptrtoint ptr %buffer.i207 to i64
-  %arrayidx.i209 = getelementptr inbounds [10 x i8], ptr %buffer.i207, i64 0, i64 9
+  %arrayidx.i209 = getelementptr inbounds i8, ptr %buffer.i207, i64 9
   %add.ptr.i210 = getelementptr inbounds i8, ptr %buffer.i207, i64 8
   %14 = xor i64 %buffer27.i208, -1
   %buffer27.i184 = ptrtoint ptr %buffer.i183 to i64
-  %arrayidx.i185 = getelementptr inbounds [10 x i8], ptr %buffer.i183, i64 0, i64 9
+  %arrayidx.i185 = getelementptr inbounds i8, ptr %buffer.i183, i64 9
   %add.ptr.i186 = getelementptr inbounds i8, ptr %buffer.i183, i64 8
   %15 = xor i64 %buffer27.i184, -1
-  %arrayidx.i = getelementptr inbounds [10 x i8], ptr %buffer.i, i64 0, i64 9
+  %arrayidx.i = getelementptr inbounds i8, ptr %buffer.i, i64 9
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer.i, i64 8
   %scevgep29.i = getelementptr inbounds i8, ptr %buffer.i, i64 7
-  %mDateTimeFormat = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 5
-  %tm_isdst = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 8
+  %mDateTimeFormat = getelementptr inbounds i8, ptr %spec.store.select, i64 320
+  %mMonth = getelementptr inbounds i8, ptr %spec.store.select, i64 208
+  %mAbbrevMonth = getelementptr inbounds i8, ptr %spec.store.select, i64 112
+  %mDay = getelementptr inbounds i8, ptr %spec.store.select, i64 56
+  %tm_isdst = getelementptr inbounds i8, ptr %pTM, i64 32
   %arrayidx1.i = getelementptr inbounds i8, ptr %buffer, i64 7
   br label %for.cond
 
@@ -1875,7 +1876,7 @@ sw.bb26:                                          ; preds = %if.end12
 
 if.end33:                                         ; preds = %sw.bb26
   %idxprom35 = zext nneg i32 %22 to i64
-  %arrayidx36 = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 1, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds [7 x ptr], ptr %mDay, i64 0, i64 %idxprom35
   %23 = load ptr, ptr %arrayidx36, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %tobool.not3.not.i146 = icmp eq i64 %capacity.0, 0
@@ -1904,7 +1905,7 @@ sw.bb40:                                          ; preds = %if.end12, %if.end12
 
 if.end46:                                         ; preds = %sw.bb40
   %idxprom48 = zext nneg i32 %25 to i64
-  %arrayidx49 = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 2, i64 %idxprom48
+  %arrayidx49 = getelementptr inbounds [12 x ptr], ptr %mAbbrevMonth, i64 0, i64 %idxprom48
   %26 = load ptr, ptr %arrayidx49, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %tobool.not3.not.i158 = icmp eq i64 %capacity.0, 0
@@ -1933,7 +1934,7 @@ sw.bb53:                                          ; preds = %if.end12
 
 if.end60:                                         ; preds = %sw.bb53
   %idxprom62 = zext nneg i32 %28 to i64
-  %arrayidx63 = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 3, i64 %idxprom62
+  %arrayidx63 = getelementptr inbounds [12 x ptr], ptr %mMonth, i64 0, i64 %idxprom62
   %29 = load ptr, ptr %arrayidx63, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %tobool.not3.not.i170 = icmp eq i64 %capacity.0, 0
@@ -2897,7 +2898,7 @@ sw.bb167:                                         ; preds = %if.end12
   %126 = load i32, ptr %tm_hour168, align 8
   %cmp169 = icmp sgt i32 %126, 11
   %idxprom170 = zext i1 %cmp169 to i64
-  %arrayidx171 = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 4, i64 %idxprom170
+  %arrayidx171 = getelementptr inbounds [2 x ptr], ptr %mAmPm, i64 0, i64 %idxprom170
   %127 = load ptr, ptr %arrayidx171, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %tobool.not3.not.i563 = icmp eq i64 %capacity.0, 0
@@ -4141,18 +4142,21 @@ entry:
   br i1 %cmp.not521528, label %return, label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %entry
-  %tm_year226 = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 5
-  %mTimeFormat.i = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 7
-  %mDateFormat.i = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 6
-  %tm_wday199 = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 6
-  %mAmPm = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 4
-  %arrayidx146 = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 4, i64 1
-  %tm_hour165 = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 2
-  %tm_mon134 = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 4
-  %tm_min = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 1
-  %tm_yday = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 7
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %pTM, i64 0, i32 3
-  %mDateTimeFormat = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 5
+  %tm_year226 = getelementptr inbounds i8, ptr %pTM, i64 20
+  %mTimeFormat.i = getelementptr inbounds i8, ptr %spec.store.select, i64 336
+  %mDateFormat.i = getelementptr inbounds i8, ptr %spec.store.select, i64 328
+  %tm_wday199 = getelementptr inbounds i8, ptr %pTM, i64 24
+  %mAmPm = getelementptr inbounds i8, ptr %spec.store.select, i64 304
+  %arrayidx146 = getelementptr inbounds i8, ptr %spec.store.select, i64 312
+  %tm_hour165 = getelementptr inbounds i8, ptr %pTM, i64 8
+  %tm_mon134 = getelementptr inbounds i8, ptr %pTM, i64 16
+  %tm_min = getelementptr inbounds i8, ptr %pTM, i64 4
+  %tm_yday = getelementptr inbounds i8, ptr %pTM, i64 28
+  %tm_mday = getelementptr inbounds i8, ptr %pTM, i64 12
+  %mDateTimeFormat = getelementptr inbounds i8, ptr %spec.store.select, i64 320
+  %mMonth = getelementptr inbounds i8, ptr %spec.store.select, i64 208
+  %mAbbrevMonth = getelementptr inbounds i8, ptr %spec.store.select, i64 112
+  %mDay = getelementptr inbounds i8, ptr %spec.store.select, i64 56
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %sw.epilog
@@ -4268,7 +4272,7 @@ sw.bb:                                            ; preds = %FormatBegin
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv604 = phi i64 [ %indvars.iv.next605, %for.inc ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 1, i64 %indvars.iv604
+  %arrayidx = getelementptr inbounds [7 x ptr], ptr %mDay, i64 0, i64 %indvars.iv604
   %12 = load ptr, ptr %arrayidx, align 8
   %call31 = tail call noundef i64 @_ZN2EA4StdC6StrlenEPKc(ptr noundef %12)
   %call35 = tail call noundef i32 @_ZN2EA4StdC8StrnicmpEPKcS2_m(ptr noundef %12, ptr noundef %p.0522, i64 noundef %call31)
@@ -4297,7 +4301,7 @@ if.end51:                                         ; preds = %for.body, %if.end38
 
 for.body55:                                       ; preds = %for.body55.preheader, %for.inc76
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc76 ], [ 0, %for.body55.preheader ]
-  %arrayidx57 = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 3, i64 %indvars.iv
+  %arrayidx57 = getelementptr inbounds [12 x ptr], ptr %mMonth, i64 0, i64 %indvars.iv
   %15 = load ptr, ptr %arrayidx57, align 8
   %call58 = tail call noundef i64 @_ZN2EA4StdC6StrlenEPKc(ptr noundef %15)
   %call62 = tail call noundef i32 @_ZN2EA4StdC8StrnicmpEPKcS2_m(ptr noundef %15, ptr noundef %p.0522, i64 noundef %call58)
@@ -4305,7 +4309,7 @@ for.body55:                                       ; preds = %for.body55.preheade
   br i1 %cmp63, label %if.end81, label %if.end65
 
 if.end65:                                         ; preds = %for.body55
-  %arrayidx67 = getelementptr inbounds %"struct.EA::StdC::TimeLocale", ptr %spec.store.select, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx67 = getelementptr inbounds [12 x ptr], ptr %mAbbrevMonth, i64 0, i64 %indvars.iv
   %16 = load ptr, ptr %arrayidx67, align 8
   %call68 = tail call noundef i64 @_ZN2EA4StdC6StrlenEPKc(ptr noundef %16)
   %call72 = tail call noundef i32 @_ZN2EA4StdC8StrnicmpEPKcS2_m(ptr noundef %16, ptr noundef %p.0522, i64 noundef %call68)

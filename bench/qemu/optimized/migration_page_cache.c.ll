@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.timeval = type { i64, i64 }
-%struct.PageCache = type { ptr, i64, i64, i64 }
 %struct.CacheItem = type { i64, i64, ptr }
 
 @.str = private unnamed_addr constant [31 x i8] c"../qemu/migration/page_cache.c\00", align 1
@@ -62,11 +61,11 @@ if.then4:                                         ; preds = %if.end2
   br label %return
 
 if.end5:                                          ; preds = %if.end2
-  %page_size6 = getelementptr inbounds %struct.PageCache, ptr %call3, i64 0, i32 1
+  %page_size6 = getelementptr inbounds i8, ptr %call3, i64 8
   store i64 %page_size, ptr %page_size6, align 8
-  %num_items = getelementptr inbounds %struct.PageCache, ptr %call3, i64 0, i32 3
+  %num_items = getelementptr inbounds i8, ptr %call3, i64 24
   store i64 0, ptr %num_items, align 8
-  %max_num_items = getelementptr inbounds %struct.PageCache, ptr %call3, i64 0, i32 2
+  %max_num_items = getelementptr inbounds i8, ptr %call3, i64 16
   store i64 %div, ptr %max_num_items, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -92,7 +91,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %div) #9
   br label %trace_migration_pagecache_init.exit
@@ -156,7 +155,7 @@ do.body1:                                         ; preds = %entry
   br i1 %tobool2.not, label %if.else4, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %do.body1
-  %max_num_items = getelementptr inbounds %struct.PageCache, ptr %cache, i64 0, i32 2
+  %max_num_items = getelementptr inbounds i8, ptr %cache, i64 16
   %1 = load i64, ptr %max_num_items, align 8
   %cmp9.not = icmp eq i64 %1, 0
   br i1 %cmp9.not, label %for.end, label %for.body
@@ -211,7 +210,7 @@ if.else4.i:                                       ; preds = %do.body1.i
   unreachable
 
 do.end6.i:                                        ; preds = %do.body1.i
-  %max_num_items.i.i = getelementptr inbounds %struct.PageCache, ptr %cache, i64 0, i32 2
+  %max_num_items.i.i = getelementptr inbounds i8, ptr %cache, i64 16
   %1 = load i64, ptr %max_num_items.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %cache_get_by_addr.exit
@@ -221,7 +220,7 @@ if.else.i.i:                                      ; preds = %do.end6.i
   unreachable
 
 cache_get_by_addr.exit:                           ; preds = %do.end6.i
-  %page_size.i.i = getelementptr inbounds %struct.PageCache, ptr %cache, i64 0, i32 1
+  %page_size.i.i = getelementptr inbounds i8, ptr %cache, i64 8
   %2 = load i64, ptr %page_size.i.i, align 8
   %div.i.i = udiv i64 %addr, %2
   %sub.i.i = add i64 %1, -1
@@ -251,7 +250,7 @@ if.else4.i:                                       ; preds = %do.body1.i
   unreachable
 
 do.end6.i:                                        ; preds = %do.body1.i
-  %max_num_items.i.i = getelementptr inbounds %struct.PageCache, ptr %cache, i64 0, i32 2
+  %max_num_items.i.i = getelementptr inbounds i8, ptr %cache, i64 16
   %1 = load i64, ptr %max_num_items.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %cache_get_by_addr.exit
@@ -261,7 +260,7 @@ if.else.i.i:                                      ; preds = %do.end6.i
   unreachable
 
 cache_get_by_addr.exit:                           ; preds = %do.end6.i
-  %page_size.i.i = getelementptr inbounds %struct.PageCache, ptr %cache, i64 0, i32 1
+  %page_size.i.i = getelementptr inbounds i8, ptr %cache, i64 8
   %2 = load i64, ptr %page_size.i.i, align 8
   %div.i.i = udiv i64 %addr, %2
   %sub.i.i = add i64 %1, -1
@@ -272,7 +271,7 @@ cache_get_by_addr.exit:                           ; preds = %do.end6.i
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %cache_get_by_addr.exit
-  %it_age = getelementptr %struct.CacheItem, ptr %0, i64 %and.i.i, i32 1
+  %it_age = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 %current_age, ptr %it_age, align 8
   br label %return
 
@@ -301,7 +300,7 @@ if.else4.i:                                       ; preds = %do.body1.i
   unreachable
 
 do.end6.i:                                        ; preds = %do.body1.i
-  %max_num_items.i.i = getelementptr inbounds %struct.PageCache, ptr %cache, i64 0, i32 2
+  %max_num_items.i.i = getelementptr inbounds i8, ptr %cache, i64 16
   %1 = load i64, ptr %max_num_items.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %cache_get_by_addr.exit
@@ -311,13 +310,13 @@ if.else.i.i:                                      ; preds = %do.end6.i
   unreachable
 
 cache_get_by_addr.exit:                           ; preds = %do.end6.i
-  %page_size.i.i = getelementptr inbounds %struct.PageCache, ptr %cache, i64 0, i32 1
+  %page_size.i.i = getelementptr inbounds i8, ptr %cache, i64 8
   %2 = load i64, ptr %page_size.i.i, align 8
   %div.i.i = udiv i64 %addr, %2
   %sub.i.i = add i64 %1, -1
   %and.i.i = and i64 %div.i.i, %sub.i.i
   %arrayidx.i = getelementptr %struct.CacheItem, ptr %0, i64 %and.i.i
-  %it_data = getelementptr %struct.CacheItem, ptr %0, i64 %and.i.i, i32 2
+  %it_data = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %3 = load ptr, ptr %it_data, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.then5, label %land.lhs.true
@@ -328,7 +327,7 @@ land.lhs.true:                                    ; preds = %cache_get_by_addr.e
   br i1 %cmp.not, label %if.end12, label %land.lhs.true1
 
 land.lhs.true1:                                   ; preds = %land.lhs.true
-  %it_age = getelementptr %struct.CacheItem, ptr %0, i64 %and.i.i, i32 1
+  %it_age = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %5 = load i64, ptr %it_age, align 8
   %add = add i64 %5, 2
   %cmp2 = icmp ugt i64 %add, %current_age
@@ -365,7 +364,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12) #9
   br label %trace_migration_pagecache_insert.exit
@@ -379,7 +378,7 @@ trace_migration_pagecache_insert.exit:            ; preds = %if.then10, %land.lh
   br label %return
 
 if.end11:                                         ; preds = %if.then5
-  %num_items = getelementptr inbounds %struct.PageCache, ptr %cache, i64 0, i32 3
+  %num_items = getelementptr inbounds i8, ptr %cache, i64 24
   %13 = load i64, ptr %num_items, align 8
   %inc = add i64 %13, 1
   store i64 %inc, ptr %num_items, align 8
@@ -391,7 +390,7 @@ if.end12:                                         ; preds = %land.lhs.true, %lan
   %14 = phi i64 [ %2, %land.lhs.true ], [ %2, %land.lhs.true1 ], [ %.pre16, %if.end11 ]
   %15 = phi ptr [ %3, %land.lhs.true ], [ %3, %land.lhs.true1 ], [ %.pre, %if.end11 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %pdata, i64 %14, i1 false)
-  %it_age15 = getelementptr %struct.CacheItem, ptr %0, i64 %and.i.i, i32 1
+  %it_age15 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 %current_age, ptr %it_age15, align 8
   store i64 %addr, ptr %arrayidx.i, align 8
   br label %return

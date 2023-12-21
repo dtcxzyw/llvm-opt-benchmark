@@ -24,67 +24,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::array.168" = type { [256 x i8] }
 %"struct.std::piecewise_construct_t" = type { i8 }
 %"class.std::allocator" = type { i8 }
-%"struct.proxygen::HTTPPriority" = type { ptr, i64 }
-%"class.proxygen::HTTPMessage" = type { %"class.std::chrono::time_point", %"class.folly::SocketAddress", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"struct.proxygen::HTTPMessage::Fields", %"class.std::map", %"class.std::map.8", %"class.proxygen::HTTPHeaders", %"class.std::unique_ptr.24", %"struct.proxygen::HTTPHeaderSize", i32, %"class.std::unique_ptr.24", i32, i32, ptr, ptr, %"class.std::unique_ptr", i8, [7 x i8], %"class.folly::Optional.32", %"struct.std::pair", i8, i32 }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
-%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
-%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
-%"struct.proxygen::HTTPMessage::Fields" = type { i8, %"union.proxygen::HTTPMessage::Fields::Data" }
-%"union.proxygen::HTTPMessage::Fields::Data" = type { %"struct.proxygen::HTTPMessage::Response", [136 x i8] }
-%"struct.proxygen::HTTPMessage::Response" = type { i16, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::map.8" = type { %"class.std::_Rb_tree.9" }
-%"class.std::_Rb_tree.9" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.13", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.13" = type { %"struct.std::less.14" }
-%"struct.std::less.14" = type { i8 }
-%"class.proxygen::HTTPHeaders" = type { %"class.std::unique_ptr.16", i64, i64, i64 }
-%"class.std::unique_ptr.16" = type { %"struct.std::__uniq_ptr_data.17" }
-%"struct.std::__uniq_ptr_data.17" = type { %"class.std::__uniq_ptr_impl.18" }
-%"class.std::__uniq_ptr_impl.18" = type { %"class.std::tuple.19" }
-%"class.std::tuple.19" = type { %"struct.std::_Tuple_impl.20" }
-%"struct.std::_Tuple_impl.20" = type { %"struct.std::_Head_base.23" }
-%"struct.std::_Head_base.23" = type { ptr }
-%"struct.proxygen::HTTPHeaderSize" = type { i32, i32, i32 }
-%"class.std::unique_ptr.24" = type { %"struct.std::__uniq_ptr_data.25" }
-%"struct.std::__uniq_ptr_data.25" = type { %"class.std::__uniq_ptr_impl.26" }
-%"class.std::__uniq_ptr_impl.26" = type { %"class.std::tuple.27" }
-%"class.std::tuple.27" = type { %"struct.std::_Tuple_impl.28" }
-%"struct.std::_Tuple_impl.28" = type { %"struct.std::_Head_base.31" }
-%"struct.std::_Head_base.31" = type { ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
-%"struct.std::_Head_base.4" = type { ptr }
-%"class.folly::Optional.32" = type { %"struct.folly::Optional<std::tuple<unsigned long, bool, unsigned char>>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<std::tuple<unsigned long, bool, unsigned char>>::StorageTriviallyDestructible" = type <{ %union.anon.33, i8, [7 x i8] }>
-%union.anon.33 = type { %"class.std::tuple.34" }
-%"class.std::tuple.34" = type { %"struct.std::_Tuple_impl.35" }
-%"struct.std::_Tuple_impl.35" = type { %"struct.std::_Tuple_impl.36", %"struct.std::_Head_base.40" }
-%"struct.std::_Tuple_impl.36" = type { %"struct.std::_Tuple_impl.37", %"struct.std::_Head_base.39" }
-%"struct.std::_Tuple_impl.37" = type { %"struct.std::_Head_base.38" }
-%"struct.std::_Head_base.38" = type { i8 }
-%"struct.std::_Head_base.39" = type { i8 }
-%"struct.std::_Head_base.40" = type { i64 }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 %"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Alloc_node" = type { ptr }
 %"class.proxygen::ParseURL" = type <{ %"class.folly::Range", %"class.folly::Range", %"class.std::__cxx11::basic_string", %"class.folly::Range", %"class.folly::Range", %"class.folly::Range", %"class.folly::Range", %"class.folly::Range", i16, i8, i8, [4 x i8] }>
 %"class.folly::Range" = type { ptr, ptr }
-%"struct.proxygen::HTTPMessage::Request" = type <{ %"class.folly::SocketAddress", %"class.folly::Optional", %"class.boost::variant", %"class.folly::Range", %"class.folly::Range", %"class.std::unique_ptr", %"class.std::unique_ptr", %"class.std::__cxx11::basic_string", i16, [6 x i8] }>
-%"class.folly::Optional" = type { %"struct.folly::Optional<proxygen::HTTPMessage::IPPort>::StorageNonTriviallyDestructible" }
-%"struct.folly::Optional<proxygen::HTTPMessage::IPPort>::StorageNonTriviallyDestructible" = type <{ %union.anon.2, i8, [7 x i8] }>
-%union.anon.2 = type { %"struct.proxygen::HTTPMessage::IPPort" }
-%"struct.proxygen::HTTPMessage::IPPort" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
+%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
+%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
 %"class.boost::variant" = type { i32, [4 x i8], %"class.boost::aligned_storage" }
 %"class.boost::aligned_storage" = type { %"struct.boost::detail::aligned_storage::aligned_storage_imp" }
 %"struct.boost::detail::aligned_storage::aligned_storage_imp" = type { %"union.boost::detail::aligned_storage::aligned_storage_imp<8, 8>::data_t" }
@@ -97,17 +42,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::Optional.41" = type { %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible" }
 %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible" = type <{ %union.anon.42, i8, [3 x i8] }>
 %union.anon.42 = type { i32 }
-%"struct.proxygen::(anonymous namespace)::FormattedDate" = type { i64, %"class.std::__cxx11::basic_string" }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
+%"struct.std::_Head_base.4" = type { ptr }
 %"class.std::function.52" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.std::_Rb_tree_node.68" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.69" }
-%"struct.__gnu_cxx::__aligned_membuf.69" = type { [32 x i8] }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"struct.boost::algorithm::detail::is_classifiedF" = type { i16, %"class.std::locale" }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [64 x i8] }
 %"class.folly::basic_fbstring" = type { %"class.folly::fbstring_core" }
 %"class.folly::fbstring_core" = type { %union.anon.50 }
 %union.anon.50 = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
@@ -116,7 +62,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::expected_detail::ExpectedStorage.base" = type { %"struct.folly::expected_detail::ExpectedUnion.base" }
 %"struct.folly::expected_detail::ExpectedUnion.base" = type { %union.anon.51, i8 }
 %union.anon.51 = type { %"class.proxygen::ParseURL" }
-%"struct.folly::expected_detail::ExpectedUnion" = type { %union.anon.51, i8, [7 x i8] }
 %"class.std::tuple.173" = type { %"struct.std::_Tuple_impl.174" }
 %"struct.std::_Tuple_impl.174" = type { %"struct.std::_Head_base.175" }
 %"struct.std::_Head_base.175" = type { ptr }
@@ -130,14 +75,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.180" = type { %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl" }
 %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.48" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
+%"struct.proxygen::HTTPPriority" = type { ptr, i64 }
 %"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
 %struct._Guard = type { ptr }
 %"class.boost::exception_detail::refcount_ptr" = type { ptr }
-%"class.boost::exception" = type { ptr, %"class.boost::exception_detail::refcount_ptr", ptr, ptr, i32, i32 }
 %"class.folly::Expected.84" = type { %"struct.folly::expected_detail::ExpectedStorage.base.87", [7 x i8] }
 %"struct.folly::expected_detail::ExpectedStorage.base.87" = type <{ %union.anon.86, i8 }>
 %union.anon.86 = type { %"class.folly::Range" }
@@ -151,34 +95,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cow_string" = type { %union.anon.71 }
 %union.anon.71 = type { ptr }
 %"class.folly::BadExpectedAccess.98" = type <{ %"class.folly::BadExpectedAccess", i8, [7 x i8] }>
-%"struct.folly::expected_detail::ExpectedStorage.85" = type <{ %union.anon.86, i8, [7 x i8] }>
 %"class.folly::SharedMutexImpl<false>::ReadHolder" = type <{ ptr, %"struct.folly::SharedMutexToken", [4 x i8] }>
 %"struct.folly::SharedMutexToken" = type { i16, i16 }
-%"struct.folly::threadlocal_detail::StaticMetaBase" = type <{ i32, [4 x i8], %"class.std::vector.133", %"class.std::mutex", %"class.folly::SharedMutexImpl", i32, %"struct.folly::threadlocal_detail::ThreadEntry", ptr, i8, [7 x i8] }>
-%"class.std::vector.133" = type { %"struct.std::_Vector_base.134" }
-%"struct.std::_Vector_base.134" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic.125" }
-%"struct.std::atomic.125" = type { %"struct.std::__atomic_base.126" }
-%"struct.std::__atomic_base.126" = type { i32 }
-%"struct.folly::threadlocal_detail::ThreadEntry" = type { ptr, %"struct.std::atomic", ptr, ptr, ptr, i8, i64, %"union.std::aligned_storage<8, 8>::type" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 %"struct.folly::threadlocal_detail::ElementWrapper" = type { ptr, %union.anon.132, i8, %"struct.folly::threadlocal_detail::ThreadEntryNode" }
 %union.anon.132 = type { ptr }
 %"struct.folly::threadlocal_detail::ThreadEntryNode" = type { i32, ptr, ptr, ptr }
-%"class.folly::ThreadLocal" = type { %"class.folly::ThreadLocalPtr", %"class.std::function.127" }
-%"class.folly::ThreadLocalPtr" = type { %"class.folly::threadlocal_detail::StaticMetaBase::EntryID" }
-%"class.folly::threadlocal_detail::StaticMetaBase::EntryID" = type { %"struct.std::atomic.125" }
-%"class.std::function.127" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.142" = type { %"class.std::_Function_base", ptr }
 %"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
 %"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
 %"class.folly::Function.139" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"struct.folly::threadlocal_detail::ThreadEntryList" = type { ptr, i64 }
 %"class.std::system_error" = type { %"class.std::runtime_error", %"class.std::error_code" }
 %"class.std::error_code" = type { i32, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
@@ -189,8 +113,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::BadExpectedAccess.169" = type <{ %"class.folly::BadExpectedAccess", %"struct.folly::Unit", [7 x i8] }>
 %"struct.folly::Unit" = type { i8 }
 %"class.std::out_of_range" = type { %"class.std::logic_error" }
-%"class.std::ctype" = type <{ %"class.std::locale::facet.base", [4 x i8], ptr, i8, [7 x i8], ptr, ptr, ptr, i8, [256 x i8], [256 x i8], i8, [6 x i8] }>
-%"class.std::locale::facet.base" = type <{ ptr, i32 }>
 
 $_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA3_chPKcS6_EEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISB_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSE_EEEE5valueESB_E4typeEDpRKSD_ = comdat any
 
@@ -724,7 +646,7 @@ entry:
   %ref.tmp10 = alloca i64, align 8
   %ref.tmp15 = alloca %"class.std::allocator", align 1
   store i8 7, ptr %ref.tmp, align 1
-  %urgency = getelementptr inbounds %"struct.proxygen::HTTPPriority", ptr %pri, i64 0, i32 1
+  %urgency = getelementptr inbounds i8, ptr %pri, i64 8
   %bf.load = load i64, ptr %urgency, align 8
   %0 = trunc i64 %bf.load to i8
   %bf.cast = and i8 %0, 7
@@ -822,7 +744,7 @@ entry:
   store ptr %agg.result, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %sizes.i.i.i)
   store i64 3, ptr %sizes.i.i.i, align 16
-  %arrayinit.element.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 1
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 8
   %0 = load i8, ptr %vs1, align 1
   %conv.i.i.i.i = zext i8 %0 to i64
   br label %for.body.i.i.i.i.i.i.i.i
@@ -848,7 +770,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
 _ZN5folly19estimateSpaceNeededIhEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i.i.i.i, ptr %arrayinit.element.i.i.i, align 8
-  %arrayinit.element11.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 2
+  %arrayinit.element11.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 16
   %2 = load ptr, ptr %vs3, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i, label %cond.true.i.i.i.i
@@ -860,10 +782,10 @@ cond.true.i.i.i.i:                                ; preds = %_ZN5folly19estimate
 _ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZN5folly19estimateSpaceNeededIhEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit.i.i.i
   %cond.i.i.i.i = phi i64 [ %call.i.i.i.i, %cond.true.i.i.i.i ], [ 0, %_ZN5folly19estimateSpaceNeededIhEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit.i.i.i ]
   store i64 %cond.i.i.i.i, ptr %arrayinit.element11.i.i.i, align 16
-  %arrayinit.element14.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 3
+  %arrayinit.element14.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 24
   %call.i5.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %vs5) #23
   store i64 %call.i5.i.i.i, ptr %arrayinit.element14.i.i.i, align 8
-  %arrayinit.element17.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 4
+  %arrayinit.element17.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 32
   store i64 0, ptr %arrayinit.element17.i.i.i, align 16
   br label %for.body.i.i.i
 
@@ -941,7 +863,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen11HTTPMessage18stripPerHopHeadersEbPKNS_11HTTPHeadersE(ptr noundef nonnull align 8 dereferenceable(616) %this, i1 noundef zeroext %stripPriority, ptr noundef %customPerHopHeaders) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %strippedPerHopHeaders_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 10
+  %strippedPerHopHeaders_ = getelementptr inbounds i8, ptr %this, i64 512
   %0 = load ptr, ptr %strippedPerHopHeaders_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %if.else
@@ -973,14 +895,14 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt11make_uniqueIN8proxygen11HTTPHeadersEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i.i.i.i, %if.else
-  %trailersAllowed_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %trailersAllowed_ = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load = load i8, ptr %trailersAllowed_, align 2
   %3 = and i8 %bf.load, 32
   %bf.cast.not = icmp eq i8 %3, 0
   br i1 %bf.cast.not, label %if.then6, label %if.end11
 
 if.then6:                                         ; preds = %if.end
-  %headers_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_.i = getelementptr inbounds i8, ptr %this, i64 480
   %call.i1 = tail call noundef zeroext i1 @_ZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %headers_.i, i8 noundef zeroext 60, ptr noundef nonnull @.str.4, i1 noundef zeroext false)
   %bf.load9 = load i8, ptr %trailersAllowed_, align 2
   %bf.shl = select i1 %call.i1, i8 32, i8 0
@@ -990,7 +912,7 @@ if.then6:                                         ; preds = %if.end
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then6, %if.end
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 480
   %4 = load ptr, ptr %strippedPerHopHeaders_, align 8
   tail call void @_ZN8proxygen11HTTPHeaders18stripPerHopHeadersERS0_bPKS0_(ptr noundef nonnull align 8 dereferenceable(32) %headers_, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %stripPriority, ptr noundef %customPerHopHeaders)
   ret void
@@ -1018,7 +940,7 @@ declare void @_ZN8proxygen11HTTPHeaders9removeAllEv(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK8proxygen11HTTPMessage19checkForHeaderTokenENS_14HTTPHeaderCodeEPKcb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, i8 noundef zeroext %headerCode, ptr nocapture noundef readonly %token, i1 noundef zeroext %caseSensitive) local_unnamed_addr #2 align 2 {
 entry:
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 480
   %call = tail call noundef zeroext i1 @_ZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %headers_, i8 noundef zeroext %headerCode, ptr noundef %token, i1 noundef zeroext %caseSensitive)
   ret i1 %call
 }
@@ -1031,19 +953,19 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
   store i64 %call.i, ptr %this, align 8
-  %dstAddress_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1
+  %dstAddress_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %dstAddress_)
-  %port_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i16 0, ptr %port_.i, align 8
-  %external_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 34
   store i8 0, ptr %external_.i, align 2
-  %dstIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 2
+  %dstIP_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dstIP_) #23
-  %dstPort_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 3
+  %dstPort_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dstPort_) #23
-  %localIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 4
+  %localIP_ = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %localIP_) #23
-  %versionStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 5
+  %versionStr_ = getelementptr inbounds i8, ptr %this, i64 136
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   %call.i34 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_)
           to label %call.i3.noexc unwind label %lpad
@@ -1064,55 +986,55 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont4:                                     ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
-  %fields_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
-  %1 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1
+  %fields_ = getelementptr inbounds i8, ptr %this, i64 168
+  %1 = getelementptr inbounds i8, ptr %this, i64 392
   store i32 0, ptr %1, align 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 400
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 408
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %fields_, i8 0, i64 216, i1 false)
   store ptr %1, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   store ptr %1, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  %2 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 440
   store i32 0, ptr %2, align 8
-  %_M_parent.i.i.i.i.i5 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 448
   store ptr null, ptr %_M_parent.i.i.i.i.i5, align 8
-  %_M_left.i.i.i.i.i6 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 456
   store ptr %2, ptr %_M_left.i.i.i.i.i6, align 8
-  %_M_right.i.i.i.i.i7 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 464
   store ptr %2, ptr %_M_right.i.i.i.i.i7, align 8
-  %_M_node_count.i.i.i.i.i8 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 472
   store i64 0, ptr %_M_node_count.i.i.i.i.i8, align 8
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 480
   invoke void @_ZN8proxygen11HTTPHeadersC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %headers_)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %strippedPerHopHeaders_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 10
-  %seqNo_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 14
+  %strippedPerHopHeaders_ = getelementptr inbounds i8, ptr %this, i64 512
+  %seqNo_ = getelementptr inbounds i8, ptr %this, i64 544
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %strippedPerHopHeaders_, i8 0, i64 32, i1 false)
   store i32 -1, ptr %seqNo_, align 8
-  %sslVersion_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 15
-  %pri_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 19
+  %sslVersion_ = getelementptr inbounds i8, ptr %this, i64 548
+  %pri_ = getelementptr inbounds i8, ptr %this, i64 576
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %sslVersion_, i8 0, i64 28, i1 false)
   store i8 3, ptr %pri_, align 8
-  %h2Pri_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21
+  %h2Pri_ = getelementptr inbounds i8, ptr %this, i64 584
   store i8 0, ptr %h2Pri_, align 8
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 600
   store i8 0, ptr %hasValue.i.i, align 8
-  %version_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22
+  %version_ = getelementptr inbounds i8, ptr %this, i64 608
   store i8 1, ptr %version_, align 8
-  %second.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22, i32 1
+  %second.i = getelementptr inbounds i8, ptr %this, i64 609
   store i8 0, ptr %second.i, align 1
-  %parsedCookies_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedCookies_ = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load = load i8, ptr %parsedCookies_, align 2
   %bf.clear21 = and i8 %bf.load, -64
   %bf.set22 = or disjoint i8 %bf.clear21, 16
   store i8 %bf.set22, ptr %parsedCookies_, align 2
-  %scheme_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 24
+  %scheme_ = getelementptr inbounds i8, ptr %this, i64 612
   store i32 0, ptr %scheme_, align 4
   ret void
 
@@ -1129,8 +1051,8 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 lpad5:                                            ; preds = %invoke.cont4
   %4 = landingpad { ptr, i32 }
           cleanup
-  %queryParams_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8
-  %cookies_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7
+  %queryParams_ = getelementptr inbounds i8, ptr %this, i64 432
+  %cookies_ = getelementptr inbounds i8, ptr %this, i64 384
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %queryParams_) #23
   call void @_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %cookies_) #23
   call void @_ZN8proxygen11HTTPMessage6FieldsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %fields_) #23
@@ -1236,14 +1158,14 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %data_.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN8proxygen11HTTPMessage7RequestD2Ev(ptr noundef nonnull align 8 dereferenceable(202) %data_.i) #23
   br label %_ZN8proxygen11HTTPMessage6Fields5clearEv.exit
 
 sw.bb2.i:                                         ; preds = %entry
-  %statusMsg_.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %statusMsg_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i) #23
-  %statusStr_.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %statusStr_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i) #23
   br label %_ZN8proxygen11HTTPMessage6Fields5clearEv.exit
 
@@ -1255,7 +1177,7 @@ _ZN8proxygen11HTTPMessage6Fields5clearEv.exit:    ; preds = %entry, %sw.bb.i, %s
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen11HTTPMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %upgradeProtocol_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 18
+  %upgradeProtocol_ = getelementptr inbounds i8, ptr %this, i64 568
   %0 = load ptr, ptr %upgradeProtocol_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
@@ -1267,7 +1189,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
   store ptr null, ptr %upgradeProtocol_, align 8
-  %trailers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 13
+  %trailers_ = getelementptr inbounds i8, ptr %this, i64 536
   %1 = load ptr, ptr %trailers_, align 8
   %cmp.not.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i
@@ -1279,7 +1201,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i: ; preds = %_ZNSt
 
 _ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i
   store ptr null, ptr %trailers_, align 8
-  %strippedPerHopHeaders_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 10
+  %strippedPerHopHeaders_ = getelementptr inbounds i8, ptr %this, i64 512
   %2 = load ptr, ptr %strippedPerHopHeaders_, align 8
   %cmp.not.i2 = icmp eq ptr %2, null
   br i1 %cmp.not.i2, label %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit4, label %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i3
@@ -1291,10 +1213,10 @@ _ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i3: ; preds = %_ZNS
 
 _ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit4: ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i3
   store ptr null, ptr %strippedPerHopHeaders_, align 8
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 480
   tail call void @_ZN8proxygen11HTTPHeadersD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %headers_) #23
-  %queryParams_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %queryParams_ = getelementptr inbounds i8, ptr %this, i64 432
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
   %3 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %queryParams_, ptr noundef %3)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1307,8 +1229,8 @@ terminate.lpad.i.i:                               ; preds = %_ZNSt10unique_ptrIN
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit4
-  %cookies_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7
-  %_M_parent.i.i.i.i5 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %cookies_ = getelementptr inbounds i8, ptr %this, i64 384
+  %_M_parent.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 400
   %6 = load ptr, ptr %_M_parent.i.i.i.i5, align 8
   invoke void @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %cookies_, ptr noundef %6)
           to label %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEED2Ev.exit unwind label %terminate.lpad.i.i6
@@ -1321,7 +1243,7 @@ terminate.lpad.i.i6:                              ; preds = %_ZNSt3mapINSt7__cxx
   unreachable
 
 _ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEED2Ev.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit
-  %fields_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %fields_ = getelementptr inbounds i8, ptr %this, i64 168
   %9 = load i8, ptr %fields_, align 8
   switch i8 %9, label %_ZN8proxygen11HTTPMessage6FieldsD2Ev.exit [
     i8 1, label %sw.bb.i.i
@@ -1329,35 +1251,35 @@ _ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEED2Ev.exit: ; pr
   ]
 
 sw.bb.i.i:                                        ; preds = %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEED2Ev.exit
-  %data_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @_ZN8proxygen11HTTPMessage7RequestD2Ev(ptr noundef nonnull align 8 dereferenceable(202) %data_.i.i) #23
   br label %_ZN8proxygen11HTTPMessage6FieldsD2Ev.exit
 
 sw.bb2.i.i:                                       ; preds = %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEED2Ev.exit
-  %statusMsg_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i.i) #23
-  %statusStr_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
+  %statusStr_.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i.i) #23
   br label %_ZN8proxygen11HTTPMessage6FieldsD2Ev.exit
 
 _ZN8proxygen11HTTPMessage6FieldsD2Ev.exit:        ; preds = %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEED2Ev.exit, %sw.bb.i.i, %sw.bb2.i.i
   store i8 0, ptr %fields_, align 8
-  %versionStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 5
+  %versionStr_ = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_) #23
-  %localIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 4
+  %localIP_ = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %localIP_) #23
-  %dstPort_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 3
+  %dstPort_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dstPort_) #23
-  %dstIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 2
+  %dstIP_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dstIP_) #23
-  %external_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 34
   %10 = load i8, ptr %external_.i, align 2
   %11 = and i8 %10, 1
   %tobool.not.i = icmp eq i8 %11, 0
   br i1 %tobool.not.i, label %_ZN5folly13SocketAddressD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN8proxygen11HTTPMessage6FieldsD2Ev.exit
-  %dstAddress_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1
+  %dstAddress_ = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load ptr, ptr %dstAddress_, align 8
   %isnull.i.i = icmp eq ptr %12, null
   br i1 %isnull.i.i, label %_ZN5folly13SocketAddressD2Ev.exit, label %delete.notnull.i.i
@@ -1378,21 +1300,21 @@ entry:
   %agg.tmp.ensured = alloca %"class.proxygen::ParseURL", align 8
   %0 = load i64, ptr %message, align 8
   store i64 %0, ptr %this, align 8
-  %dstAddress_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1
-  %dstAddress_3 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1
+  %dstAddress_ = getelementptr inbounds i8, ptr %this, i64 8
+  %dstAddress_3 = getelementptr inbounds i8, ptr %message, i64 8
   tail call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %dstAddress_)
-  %port_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i16 0, ptr %port_.i, align 8
-  %external_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 34
   store i8 0, ptr %external_.i, align 2
-  %port_2.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1, i32 1
+  %port_2.i = getelementptr inbounds i8, ptr %message, i64 32
   %1 = load i16, ptr %port_2.i, align 8
   store i16 %1, ptr %port_.i, align 8
-  %external_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1, i32 2
+  %external_.i.i = getelementptr inbounds i8, ptr %message, i64 34
   %2 = load i8, ptr %external_.i.i, align 2
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp ne i8 %3, 0
-  %family_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1, i32 0, i32 1, i64 4
+  %family_.i.i.i = getelementptr inbounds i8, ptr %message, i64 28
   %4 = load i16, ptr %family_.i.i.i, align 4
   %cmp5.i = icmp eq i16 %4, 1
   %cmp.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp5.i
@@ -1401,9 +1323,9 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(110) ptr @_Znwm(i64 noundef 110) #33
   store ptr %call.i.i, ptr %dstAddress_, align 8
-  %len.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1, i32 0, i32 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %message, i64 16
   %5 = load i32, ptr %len.i.i, align 8
-  %len2.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %5, ptr %len2.i.i, align 8
   %6 = load ptr, ptr %dstAddress_3, align 8
   %conv.i.i = zext i32 %5 to i64
@@ -1418,32 +1340,32 @@ _ZN5folly13SocketAddressC2ERKS0_.exit:            ; preds = %if.then.i, %if.else
   %7 = load i8, ptr %external_.i.i, align 2
   %8 = and i8 %7, 1
   store i8 %8, ptr %external_.i, align 2
-  %dstIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 2
-  %dstIP_4 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 2
+  %dstIP_ = getelementptr inbounds i8, ptr %this, i64 40
+  %dstIP_4 = getelementptr inbounds i8, ptr %message, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %dstIP_, ptr noundef nonnull align 8 dereferenceable(32) %dstIP_4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN5folly13SocketAddressC2ERKS0_.exit
-  %dstPort_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 3
-  %dstPort_5 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 3
+  %dstPort_ = getelementptr inbounds i8, ptr %this, i64 72
+  %dstPort_5 = getelementptr inbounds i8, ptr %message, i64 72
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %dstPort_, ptr noundef nonnull align 8 dereferenceable(32) %dstPort_5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %localIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 4
-  %localIP_8 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 4
+  %localIP_ = getelementptr inbounds i8, ptr %this, i64 104
+  %localIP_8 = getelementptr inbounds i8, ptr %message, i64 104
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %localIP_, ptr noundef nonnull align 8 dereferenceable(32) %localIP_8)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont7
-  %versionStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 5
-  %versionStr_11 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 5
+  %versionStr_ = getelementptr inbounds i8, ptr %this, i64 136
+  %versionStr_11 = getelementptr inbounds i8, ptr %message, i64 136
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_, ptr noundef nonnull align 8 dereferenceable(32) %versionStr_11)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  %fields_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
-  %fields_14 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 6
+  %fields_ = getelementptr inbounds i8, ptr %this, i64 168
+  %fields_14 = getelementptr inbounds i8, ptr %message, i64 168
   store i8 0, ptr %fields_, align 8
   %9 = load i8, ptr %fields_14, align 8
   store i8 %9, ptr %fields_, align 8
@@ -1453,24 +1375,24 @@ invoke.cont13:                                    ; preds = %invoke.cont10
   ]
 
 sw.bb.i.i:                                        ; preds = %invoke.cont13
-  %data_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
-  %data_4.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 6, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %data_4.i.i = getelementptr inbounds i8, ptr %message, i64 176
   invoke void @_ZN8proxygen11HTTPMessage7RequestC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(202) %data_.i.i, ptr noundef nonnull align 8 dereferenceable(202) %data_4.i.i)
           to label %invoke.cont16 unwind label %lpad15
 
 sw.bb5.i.i:                                       ; preds = %invoke.cont13
-  %data_6.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
-  %data_7.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 6, i32 1
+  %data_6.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %data_7.i.i = getelementptr inbounds i8, ptr %message, i64 176
   %10 = load i16, ptr %data_7.i.i, align 8
   store i16 %10, ptr %data_6.i.i, align 8
-  %statusStr_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
-  %statusStr_3.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 6, i32 1, i32 0, i32 1
+  %statusStr_.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
+  %statusStr_3.i.i.i = getelementptr inbounds i8, ptr %message, i64 184
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %statusStr_3.i.i.i)
           to label %.noexc41 unwind label %lpad15
 
 .noexc41:                                         ; preds = %sw.bb5.i.i
-  %statusMsg_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
-  %statusMsg_4.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
+  %statusMsg_4.i.i.i = getelementptr inbounds i8, ptr %message, i64 216
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_4.i.i.i)
           to label %invoke.cont16 unwind label %lpad.i.i.i
 
@@ -1481,18 +1403,18 @@ lpad.i.i.i:                                       ; preds = %.noexc41
   br label %ehcleanup107
 
 invoke.cont16:                                    ; preds = %.noexc41, %invoke.cont13, %sw.bb.i.i
-  %cookies_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7
-  %12 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1
+  %cookies_ = getelementptr inbounds i8, ptr %this, i64 384
+  %12 = getelementptr inbounds i8, ptr %this, i64 392
   store i32 0, ptr %12, align 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 400
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 408
   store ptr %12, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   store ptr %12, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  %_M_parent.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %message, i64 400
   %13 = load ptr, ptr %_M_parent.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i, label %invoke.cont19, label %if.then.i.i
@@ -1505,7 +1427,7 @@ if.then.i.i:                                      ; preds = %invoke.cont16
 
 while.cond.i.i.i.i.i.i:                           ; preds = %if.then.i.i, %while.cond.i.i.i.i.i.i
   %__x.addr.0.i.i.i.i.i.i = phi ptr [ %14, %while.cond.i.i.i.i.i.i ], [ %call3.i.i6.i.i42, %if.then.i.i ]
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i.i.i.i, i64 0, i32 2
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i.i.i.i.i, i64 16
   %14 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %while.cond.i.i.i.i.i.i, !llvm.loop !12
@@ -1516,14 +1438,14 @@ _ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_
 
 while.cond.i.i4.i.i.i.i:                          ; preds = %while.cond.i.i4.i.i.i.i, %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i
   %__x.addr.0.i.i5.i.i.i.i = phi ptr [ %call3.i.i6.i.i42, %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i ], [ %15, %while.cond.i.i4.i.i.i.i ]
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i5.i.i.i.i, i64 0, i32 3
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i5.i.i.i.i, i64 24
   %15 = load ptr, ptr %_M_right.i.i.i.i.i.i, align 8
   %cmp.not.i.i6.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i6.i.i.i.i, label %invoke.cont.i.i, label %while.cond.i.i4.i.i.i.i, !llvm.loop !13
 
 invoke.cont.i.i:                                  ; preds = %while.cond.i.i4.i.i.i.i
   store ptr %__x.addr.0.i.i5.i.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 424
   %16 = load i64, ptr %_M_node_count.i.i.i.i, align 8
   store i64 %16, ptr %_M_node_count.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i)
@@ -1531,18 +1453,18 @@ invoke.cont.i.i:                                  ; preds = %while.cond.i.i4.i.i
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %invoke.cont.i.i, %invoke.cont16
-  %queryParams_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8
-  %17 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1
+  %queryParams_ = getelementptr inbounds i8, ptr %this, i64 432
+  %17 = getelementptr inbounds i8, ptr %this, i64 440
   store i32 0, ptr %17, align 8
-  %_M_parent.i.i.i.i.i44 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i44 = getelementptr inbounds i8, ptr %this, i64 448
   store ptr null, ptr %_M_parent.i.i.i.i.i44, align 8
-  %_M_left.i.i.i.i.i45 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 456
   store ptr %17, ptr %_M_left.i.i.i.i.i45, align 8
-  %_M_right.i.i.i.i.i46 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i46 = getelementptr inbounds i8, ptr %this, i64 464
   store ptr %17, ptr %_M_right.i.i.i.i.i46, align 8
-  %_M_node_count.i.i.i.i.i47 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 472
   store i64 0, ptr %_M_node_count.i.i.i.i.i47, align 8
-  %_M_parent.i.i.i48 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i48 = getelementptr inbounds i8, ptr %message, i64 448
   %18 = load ptr, ptr %_M_parent.i.i.i48, align 8
   %cmp.not.i.i49 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i49, label %invoke.cont22, label %if.then.i.i50
@@ -1555,7 +1477,7 @@ if.then.i.i50:                                    ; preds = %invoke.cont19
 
 while.cond.i.i.i.i.i.i51:                         ; preds = %if.then.i.i50, %while.cond.i.i.i.i.i.i51
   %__x.addr.0.i.i.i.i.i.i52 = phi ptr [ %19, %while.cond.i.i.i.i.i.i51 ], [ %call3.i.i6.i.i62, %if.then.i.i50 ]
-  %_M_left.i.i.i.i.i.i53 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i.i.i.i52, i64 0, i32 2
+  %_M_left.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %__x.addr.0.i.i.i.i.i.i52, i64 16
   %19 = load ptr, ptr %_M_left.i.i.i.i.i.i53, align 8
   %cmp.not.i.i.i.i.i.i54 = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i.i.i.i54, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %while.cond.i.i.i.i.i.i51, !llvm.loop !12
@@ -1566,14 +1488,14 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 
 while.cond.i.i4.i.i.i.i55:                        ; preds = %while.cond.i.i4.i.i.i.i55, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i
   %__x.addr.0.i.i5.i.i.i.i56 = phi ptr [ %call3.i.i6.i.i62, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i ], [ %20, %while.cond.i.i4.i.i.i.i55 ]
-  %_M_right.i.i.i.i.i.i57 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i5.i.i.i.i56, i64 0, i32 3
+  %_M_right.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__x.addr.0.i.i5.i.i.i.i56, i64 24
   %20 = load ptr, ptr %_M_right.i.i.i.i.i.i57, align 8
   %cmp.not.i.i6.i.i.i.i58 = icmp eq ptr %20, null
   br i1 %cmp.not.i.i6.i.i.i.i58, label %invoke.cont.i.i59, label %while.cond.i.i4.i.i.i.i55, !llvm.loop !13
 
 invoke.cont.i.i59:                                ; preds = %while.cond.i.i4.i.i.i.i55
   store ptr %__x.addr.0.i.i5.i.i.i.i56, ptr %_M_right.i.i.i.i.i46, align 8
-  %_M_node_count.i.i.i.i60 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 8, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i60 = getelementptr inbounds i8, ptr %message, i64 472
   %21 = load i64, ptr %_M_node_count.i.i.i.i60, align 8
   store i64 %21, ptr %_M_node_count.i.i.i.i.i47, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i43)
@@ -1581,65 +1503,65 @@ invoke.cont.i.i59:                                ; preds = %while.cond.i.i4.i.i
   br label %invoke.cont22
 
 invoke.cont22:                                    ; preds = %invoke.cont.i.i59, %invoke.cont19
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
-  %headers_23 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 480
+  %headers_23 = getelementptr inbounds i8, ptr %message, i64 480
   invoke void @_ZN8proxygen11HTTPHeadersC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %headers_, ptr noundef nonnull align 8 dereferenceable(32) %headers_23)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont22
-  %strippedPerHopHeaders_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 10
-  %upgradeWebsocket_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 12
-  %upgradeWebsocket_26 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 12
+  %strippedPerHopHeaders_ = getelementptr inbounds i8, ptr %this, i64 512
+  %upgradeWebsocket_ = getelementptr inbounds i8, ptr %this, i64 532
+  %upgradeWebsocket_26 = getelementptr inbounds i8, ptr %message, i64 532
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %strippedPerHopHeaders_, i8 0, i64 20, i1 false)
   %22 = load i32, ptr %upgradeWebsocket_26, align 4
   store i32 %22, ptr %upgradeWebsocket_, align 4
-  %trailers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 13
+  %trailers_ = getelementptr inbounds i8, ptr %this, i64 536
   store ptr null, ptr %trailers_, align 8
-  %seqNo_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 14
-  %seqNo_27 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 14
+  %seqNo_ = getelementptr inbounds i8, ptr %this, i64 544
+  %seqNo_27 = getelementptr inbounds i8, ptr %message, i64 544
   %23 = load i32, ptr %seqNo_27, align 8
   store i32 %23, ptr %seqNo_, align 8
-  %sslVersion_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 15
-  %sslVersion_28 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 15
+  %sslVersion_ = getelementptr inbounds i8, ptr %this, i64 548
+  %sslVersion_28 = getelementptr inbounds i8, ptr %message, i64 548
   %24 = load i32, ptr %sslVersion_28, align 4
   store i32 %24, ptr %sslVersion_, align 4
-  %sslCipher_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 16
-  %sslCipher_29 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 16
+  %sslCipher_ = getelementptr inbounds i8, ptr %this, i64 552
+  %sslCipher_29 = getelementptr inbounds i8, ptr %message, i64 552
   %25 = load ptr, ptr %sslCipher_29, align 8
   store ptr %25, ptr %sslCipher_, align 8
-  %protoStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 17
-  %protoStr_30 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 17
+  %protoStr_ = getelementptr inbounds i8, ptr %this, i64 560
+  %protoStr_30 = getelementptr inbounds i8, ptr %message, i64 560
   %26 = load ptr, ptr %protoStr_30, align 8
   store ptr %26, ptr %protoStr_, align 8
-  %upgradeProtocol_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 18
+  %upgradeProtocol_ = getelementptr inbounds i8, ptr %this, i64 568
   store ptr null, ptr %upgradeProtocol_, align 8
-  %pri_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 19
-  %pri_31 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 19
+  %pri_ = getelementptr inbounds i8, ptr %this, i64 576
+  %pri_31 = getelementptr inbounds i8, ptr %message, i64 576
   %27 = load i8, ptr %pri_31, align 8
   store i8 %27, ptr %pri_, align 8
-  %h2Pri_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21
+  %h2Pri_ = getelementptr inbounds i8, ptr %this, i64 584
   store i8 0, ptr %h2Pri_, align 8
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 600
   store i8 0, ptr %hasValue.i.i, align 8
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 21, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %message, i64 600
   %28 = load i8, ptr %hasValue.i.i.i, align 8
   %29 = and i8 %28, 1
   %tobool.i.i.not.i = icmp eq i8 %29, 0
   br i1 %tobool.i.i.not.i, label %_ZN5folly8OptionalISt5tupleIJmbhEEEC2ERKS3_.exit, label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont25
-  %h2Pri_32 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 21
+  %h2Pri_32 = getelementptr inbounds i8, ptr %message, i64 584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %h2Pri_, ptr noundef nonnull align 8 dereferenceable(16) %h2Pri_32, i64 16, i1 false)
   store i8 1, ptr %hasValue.i.i, align 8
   br label %_ZN5folly8OptionalISt5tupleIJmbhEEEC2ERKS3_.exit
 
 _ZN5folly8OptionalISt5tupleIJmbhEEEC2ERKS3_.exit: ; preds = %invoke.cont25, %invoke.cont2.i
-  %version_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22
-  %version_33 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 22
+  %version_ = getelementptr inbounds i8, ptr %this, i64 608
+  %version_33 = getelementptr inbounds i8, ptr %message, i64 608
   %30 = load i16, ptr %version_33, align 8
   store i16 %30, ptr %version_, align 8
-  %parsedCookies_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
-  %parsedCookies_34 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 23
+  %parsedCookies_ = getelementptr inbounds i8, ptr %this, i64 610
+  %parsedCookies_34 = getelementptr inbounds i8, ptr %message, i64 610
   %bf.load = load i8, ptr %parsedCookies_34, align 2
   %31 = and i8 %bf.load, 1
   %bf.load35 = load i8, ptr %parsedCookies_, align 2
@@ -1671,8 +1593,8 @@ _ZN5folly8OptionalISt5tupleIJmbhEEEC2ERKS3_.exit: ; preds = %invoke.cont25, %inv
   %bf.clear78 = and i8 %bf.set70, -33
   %bf.set79 = or disjoint i8 %bf.clear78, %.lobit32
   store i8 %bf.set79, ptr %parsedCookies_, align 2
-  %scheme_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 24
-  %scheme_80 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 24
+  %scheme_ = getelementptr inbounds i8, ptr %this, i64 612
+  %scheme_80 = getelementptr inbounds i8, ptr %message, i64 612
   %32 = load i32, ptr %scheme_80, align 4
   store i32 %32, ptr %scheme_, align 4
   %33 = load i8, ptr %fields_, align 8
@@ -1688,8 +1610,8 @@ invoke.cont83:                                    ; preds = %if.then
           to label %call.i.i64.noexc unwind label %lpad81
 
 call.i.i64.noexc:                                 ; preds = %invoke.cont83
-  %url_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call84, i64 0, i32 7
-  %url_.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i.i6465, i64 0, i32 7
+  %url_ = getelementptr inbounds i8, ptr %call84, i64 168
+  %url_.i.i = getelementptr inbounds i8, ptr %call.i.i6465, i64 168
   %call3.i.i66 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %url_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %url_)
           to label %call3.i.i.noexc unwind label %lpad81
 
@@ -1698,7 +1620,7 @@ call3.i.i.noexc:                                  ; preds = %call.i.i64.noexc
           to label %invoke.cont85 unwind label %lpad81
 
 invoke.cont85:                                    ; preds = %call3.i.i.noexc
-  %authority_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.tmp.ensured, i64 0, i32 2
+  %authority_.i = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %authority_.i) #23
   br label %if.end
 
@@ -1756,7 +1678,7 @@ lpad81.body:                                      ; preds = %lpad81, %lpad.i72, 
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont85, %_ZN5folly8OptionalISt5tupleIJmbhEEEC2ERKS3_.exit
-  %strippedPerHopHeaders_86 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 10
+  %strippedPerHopHeaders_86 = getelementptr inbounds i8, ptr %message, i64 512
   %43 = load ptr, ptr %strippedPerHopHeaders_86, align 8
   %cmp.i68.not = icmp eq ptr %43, null
   br i1 %cmp.i68.not, label %if.end94, label %if.then88
@@ -1787,7 +1709,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i.i.i.i: ; preds = 
   br label %if.end94
 
 if.end94:                                         ; preds = %invoke.cont91, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i.i.i.i, %if.end
-  %trailers_95 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 13
+  %trailers_95 = getelementptr inbounds i8, ptr %message, i64 536
   %46 = load ptr, ptr %trailers_95, align 8
   %cmp.i71.not = icmp eq ptr %46, null
   br i1 %cmp.i71.not, label %if.end104, label %if.then97
@@ -1885,7 +1807,7 @@ declare void @_ZN8proxygen11HTTPHeadersC1ERKS0_(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fields_16 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %fields_16 = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i8, ptr %fields_16, align 8
   switch i8 %0, label %if.end28 [
     i8 0, label %if.then
@@ -1894,19 +1816,19 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 1, ptr %fields_16, align 8
-  %data_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %data_, i8 0, i64 208, i1 false)
   tail call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %data_)
-  %port_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1, i32 2
+  %port_.i.i = getelementptr inbounds i8, ptr %this, i64 200
   store i16 0, ptr %port_.i.i, align 8
   %external_.i.i = getelementptr inbounds i8, ptr %this, i64 202
   store i8 0, ptr %external_.i.i, align 2
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 1, i64 24
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i8 0, ptr %hasValue.i.i.i, align 8
-  %method_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 1, i64 32
+  %method_.i = getelementptr inbounds i8, ptr %this, i64 280
   store i32 0, ptr %method_.i, align 8
-  %path_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 1, i64 48
-  %url_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 1, i64 96
+  %path_.i = getelementptr inbounds i8, ptr %this, i64 296
+  %url_.i = getelementptr inbounds i8, ptr %this, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %path_.i, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %url_.i) #23
   br label %if.end28
@@ -1927,7 +1849,7 @@ lpad26:                                           ; preds = %if.then25
   resume { ptr, i32 } %1
 
 if.end28:                                         ; preds = %entry, %if.then
-  %data_30 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_30 = getelementptr inbounds i8, ptr %this, i64 176
   ret ptr %data_30
 }
 
@@ -1937,7 +1859,7 @@ entry:
   %agg.tmp.ensured = alloca %"class.proxygen::ParseURL", align 8
   %0 = load i64, ptr %message, align 8
   store i64 %0, ptr %this, align 8
-  %dstAddress_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1
+  %dstAddress_ = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %dstAddress_)
           to label %_ZN5folly13SocketAddressC2EOS0_.exit unwind label %terminate.lpad.i
 
@@ -1949,37 +1871,37 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZN5folly13SocketAddressC2EOS0_.exit:             ; preds = %entry
-  %dstAddress_3 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1
-  %port_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 1
+  %dstAddress_3 = getelementptr inbounds i8, ptr %message, i64 8
+  %port_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i16 0, ptr %port_.i, align 8
-  %external_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 34
   store i8 0, ptr %external_.i, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dstAddress_, ptr noundef nonnull align 8 dereferenceable(24) %dstAddress_3, i64 24, i1 false)
-  %port_4.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1, i32 1
+  %port_4.i = getelementptr inbounds i8, ptr %message, i64 32
   %3 = load i16, ptr %port_4.i, align 8
   store i16 %3, ptr %port_.i, align 8
-  %external_6.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1, i32 2
+  %external_6.i = getelementptr inbounds i8, ptr %message, i64 34
   %4 = load i8, ptr %external_6.i, align 2
   %5 = and i8 %4, 1
   store i8 %5, ptr %external_.i, align 2
   store i8 0, ptr %external_6.i, align 2
-  %dstIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 2
-  %dstIP_4 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 2
+  %dstIP_ = getelementptr inbounds i8, ptr %this, i64 40
+  %dstIP_4 = getelementptr inbounds i8, ptr %message, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %dstIP_, ptr noundef nonnull align 8 dereferenceable(32) %dstIP_4) #23
-  %dstPort_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 3
-  %dstPort_5 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 3
+  %dstPort_ = getelementptr inbounds i8, ptr %this, i64 72
+  %dstPort_5 = getelementptr inbounds i8, ptr %message, i64 72
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %dstPort_, ptr noundef nonnull align 8 dereferenceable(32) %dstPort_5)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %_ZN5folly13SocketAddressC2EOS0_.exit
-  %localIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 4
-  %localIP_6 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 4
+  %localIP_ = getelementptr inbounds i8, ptr %this, i64 104
+  %localIP_6 = getelementptr inbounds i8, ptr %message, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %localIP_, ptr noundef nonnull align 8 dereferenceable(32) %localIP_6) #23
-  %versionStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 5
-  %versionStr_7 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 5
+  %versionStr_ = getelementptr inbounds i8, ptr %this, i64 136
+  %versionStr_7 = getelementptr inbounds i8, ptr %message, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_, ptr noundef nonnull align 8 dereferenceable(32) %versionStr_7) #23
-  %fields_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
-  %fields_8 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 6
+  %fields_ = getelementptr inbounds i8, ptr %this, i64 168
+  %fields_8 = getelementptr inbounds i8, ptr %message, i64 168
   store i8 0, ptr %fields_, align 8
   %6 = load i8, ptr %fields_8, align 8
   store i8 %6, ptr %fields_, align 8
@@ -1989,51 +1911,51 @@ invoke.cont:                                      ; preds = %_ZN5folly13SocketAd
   ]
 
 sw.bb.i.i:                                        ; preds = %invoke.cont
-  %data_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
-  %data_4.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 6, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %data_4.i.i = getelementptr inbounds i8, ptr %message, i64 176
   invoke void @_ZN8proxygen11HTTPMessage7RequestC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(202) %data_.i.i, ptr noundef nonnull align 8 dereferenceable(202) %data_4.i.i)
           to label %invoke.cont9 unwind label %terminate.lpad
 
 sw.bb5.i.i:                                       ; preds = %invoke.cont
-  %data_6.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
-  %data_7.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 6, i32 1
+  %data_6.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %data_7.i.i = getelementptr inbounds i8, ptr %message, i64 176
   %7 = load i16, ptr %data_7.i.i, align 8
   store i16 %7, ptr %data_6.i.i, align 8
-  %statusStr_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
-  %statusStr_3.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 6, i32 1, i32 0, i32 1
+  %statusStr_.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
+  %statusStr_3.i.i.i = getelementptr inbounds i8, ptr %message, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %statusStr_3.i.i.i) #23
-  %statusMsg_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
-  %statusMsg_4.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
+  %statusMsg_4.i.i.i = getelementptr inbounds i8, ptr %message, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_4.i.i.i) #23
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %sw.bb5.i.i, %invoke.cont, %sw.bb.i.i
-  %8 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %this, i64 392
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 400
   %9 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont9
-  %add.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 7, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %message, i64 392
   %10 = load i32, ptr %add.ptr.i.i.i, align 8
   store i32 %10, ptr %8, align 8
   %11 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %_M_parent6.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent6.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 400
   store ptr %11, ptr %_M_parent6.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 408
   %12 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_left9.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left9.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 408
   store ptr %12, ptr %_M_left9.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 416
   %13 = load ptr, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_right12.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right12.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   store ptr %13, ptr %_M_right12.i.i.i.i.i, align 8
-  %_M_parent16.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %11, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %8, ptr %_M_parent16.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 424
   %14 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
-  %_M_node_count17.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count17.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
   store i64 %14, ptr %_M_node_count17.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
@@ -2042,44 +1964,44 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont9
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont9
   store i32 0, ptr %8, align 8
-  %_M_parent.i2.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i2.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 400
   store ptr null, ptr %_M_parent.i2.i.i.i.i, align 8
-  %_M_left.i3.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 408
   store ptr %8, ptr %_M_left.i3.i.i.i.i, align 8
-  %_M_right.i4.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   store ptr %8, ptr %_M_right.i4.i.i.i.i, align 8
-  %_M_node_count.i5.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
   br label %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEC2EOSB_.exit
 
 _ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEC2EOSB_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ]
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8
-  %15 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1
-  %_M_parent.i.i.i.i31 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %this, i64 440
+  %_M_parent.i.i.i.i31 = getelementptr inbounds i8, ptr %message, i64 448
   %16 = load ptr, ptr %_M_parent.i.i.i.i31, align 8
   %cmp.not.i.i.i.i32 = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i.i32, label %if.else.i.i.i.i44, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEC2EOSB_.exit
-  %add.ptr.i.i.i34 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 8, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i34 = getelementptr inbounds i8, ptr %message, i64 440
   %17 = load i32, ptr %add.ptr.i.i.i34, align 8
   store i32 %17, ptr %15, align 8
   %18 = load ptr, ptr %_M_parent.i.i.i.i31, align 8
-  %_M_parent6.i.i.i.i.i35 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent6.i.i.i.i.i35 = getelementptr inbounds i8, ptr %this, i64 448
   store ptr %18, ptr %_M_parent6.i.i.i.i.i35, align 8
-  %_M_left.i.i.i.i.i36 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i36 = getelementptr inbounds i8, ptr %message, i64 456
   %19 = load ptr, ptr %_M_left.i.i.i.i.i36, align 8
-  %_M_left9.i.i.i.i.i37 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left9.i.i.i.i.i37 = getelementptr inbounds i8, ptr %this, i64 456
   store ptr %19, ptr %_M_left9.i.i.i.i.i37, align 8
-  %_M_right.i.i.i.i.i38 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i38 = getelementptr inbounds i8, ptr %message, i64 464
   %20 = load ptr, ptr %_M_right.i.i.i.i.i38, align 8
-  %_M_right12.i.i.i.i.i39 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right12.i.i.i.i.i39 = getelementptr inbounds i8, ptr %this, i64 464
   store ptr %20, ptr %_M_right12.i.i.i.i.i39, align 8
-  %_M_parent16.i.i.i.i.i40 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %18, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i40 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %15, ptr %_M_parent16.i.i.i.i.i40, align 8
-  %_M_node_count.i.i.i.i.i41 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 8, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i41 = getelementptr inbounds i8, ptr %message, i64 472
   %21 = load i64, ptr %_M_node_count.i.i.i.i.i41, align 8
-  %_M_node_count17.i.i.i.i.i42 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count17.i.i.i.i.i42 = getelementptr inbounds i8, ptr %this, i64 472
   store i64 %21, ptr %_M_node_count17.i.i.i.i.i42, align 8
   store ptr null, ptr %_M_parent.i.i.i.i31, align 8
   store ptr %add.ptr.i.i.i34, ptr %_M_left.i.i.i.i.i36, align 8
@@ -2088,86 +2010,86 @@ if.then.i.i.i.i33:                                ; preds = %_ZNSt3mapIN5folly5R
 
 if.else.i.i.i.i44:                                ; preds = %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEC2EOSB_.exit
   store i32 0, ptr %15, align 8
-  %_M_parent.i2.i.i.i.i45 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i2.i.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 448
   store ptr null, ptr %_M_parent.i2.i.i.i.i45, align 8
-  %_M_left.i3.i.i.i.i46 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i3.i.i.i.i46 = getelementptr inbounds i8, ptr %this, i64 456
   store ptr %15, ptr %_M_left.i3.i.i.i.i46, align 8
-  %_M_right.i4.i.i.i.i47 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i4.i.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 464
   store ptr %15, ptr %_M_right.i4.i.i.i.i47, align 8
-  %_M_node_count.i5.i.i.i.i48 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i5.i.i.i.i48 = getelementptr inbounds i8, ptr %this, i64 472
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit: ; preds = %if.then.i.i.i.i33, %if.else.i.i.i.i44
   %_M_node_count.i5.sink.i.i.i.i43 = phi ptr [ %_M_node_count.i5.i.i.i.i48, %if.else.i.i.i.i44 ], [ %_M_node_count.i.i.i.i.i41, %if.then.i.i.i.i33 ]
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i43, align 8
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
-  %headers_12 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 480
+  %headers_12 = getelementptr inbounds i8, ptr %message, i64 480
   tail call void @_ZN8proxygen11HTTPHeadersC1EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %headers_, ptr noundef nonnull align 8 dereferenceable(32) %headers_12) #23
-  %strippedPerHopHeaders_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 10
-  %strippedPerHopHeaders_13 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 10
+  %strippedPerHopHeaders_ = getelementptr inbounds i8, ptr %this, i64 512
+  %strippedPerHopHeaders_13 = getelementptr inbounds i8, ptr %message, i64 512
   %22 = load i64, ptr %strippedPerHopHeaders_13, align 8
   store i64 %22, ptr %strippedPerHopHeaders_, align 8
   store ptr null, ptr %strippedPerHopHeaders_13, align 8
-  %size_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 11
+  %size_ = getelementptr inbounds i8, ptr %this, i64 520
   store i32 0, ptr %size_, align 8
-  %uncompressed.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 11, i32 1
+  %uncompressed.i = getelementptr inbounds i8, ptr %this, i64 524
   store i32 0, ptr %uncompressed.i, align 4
-  %compressedBlock.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 11, i32 2
+  %compressedBlock.i = getelementptr inbounds i8, ptr %this, i64 528
   store i32 0, ptr %compressedBlock.i, align 8
-  %upgradeWebsocket_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 12
-  %upgradeWebsocket_14 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 12
+  %upgradeWebsocket_ = getelementptr inbounds i8, ptr %this, i64 532
+  %upgradeWebsocket_14 = getelementptr inbounds i8, ptr %message, i64 532
   %23 = load i32, ptr %upgradeWebsocket_14, align 4
   store i32 %23, ptr %upgradeWebsocket_, align 4
-  %trailers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 13
-  %trailers_15 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 13
+  %trailers_ = getelementptr inbounds i8, ptr %this, i64 536
+  %trailers_15 = getelementptr inbounds i8, ptr %message, i64 536
   %24 = load i64, ptr %trailers_15, align 8
   store i64 %24, ptr %trailers_, align 8
   store ptr null, ptr %trailers_15, align 8
-  %seqNo_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 14
-  %seqNo_16 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 14
+  %seqNo_ = getelementptr inbounds i8, ptr %this, i64 544
+  %seqNo_16 = getelementptr inbounds i8, ptr %message, i64 544
   %25 = load i32, ptr %seqNo_16, align 8
   store i32 %25, ptr %seqNo_, align 8
-  %sslVersion_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 15
-  %sslVersion_17 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 15
+  %sslVersion_ = getelementptr inbounds i8, ptr %this, i64 548
+  %sslVersion_17 = getelementptr inbounds i8, ptr %message, i64 548
   %26 = load i32, ptr %sslVersion_17, align 4
   store i32 %26, ptr %sslVersion_, align 4
-  %sslCipher_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 16
-  %sslCipher_18 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 16
+  %sslCipher_ = getelementptr inbounds i8, ptr %this, i64 552
+  %sslCipher_18 = getelementptr inbounds i8, ptr %message, i64 552
   %27 = load ptr, ptr %sslCipher_18, align 8
   store ptr %27, ptr %sslCipher_, align 8
-  %protoStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 17
-  %protoStr_19 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 17
+  %protoStr_ = getelementptr inbounds i8, ptr %this, i64 560
+  %protoStr_19 = getelementptr inbounds i8, ptr %message, i64 560
   %28 = load ptr, ptr %protoStr_19, align 8
   store ptr %28, ptr %protoStr_, align 8
-  %upgradeProtocol_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 18
+  %upgradeProtocol_ = getelementptr inbounds i8, ptr %this, i64 568
   store ptr null, ptr %upgradeProtocol_, align 8
-  %pri_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 19
-  %pri_20 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 19
+  %pri_ = getelementptr inbounds i8, ptr %this, i64 576
+  %pri_20 = getelementptr inbounds i8, ptr %message, i64 576
   %29 = load i8, ptr %pri_20, align 8
   store i8 %29, ptr %pri_, align 8
-  %h2Pri_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21
+  %h2Pri_ = getelementptr inbounds i8, ptr %this, i64 584
   store i8 0, ptr %h2Pri_, align 8
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 600
   store i8 0, ptr %hasValue.i.i, align 8
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 21, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %message, i64 600
   %30 = load i8, ptr %hasValue.i.i.i, align 8
   %31 = and i8 %30, 1
   %tobool.i.i.not.i = icmp eq i8 %31, 0
   br i1 %tobool.i.i.not.i, label %_ZN5folly8OptionalISt5tupleIJmbhEEEC2ERKS3_.exit, label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit
-  %h2Pri_21 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 21
+  %h2Pri_21 = getelementptr inbounds i8, ptr %message, i64 584
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %h2Pri_, ptr noundef nonnull align 8 dereferenceable(16) %h2Pri_21, i64 16, i1 false)
   store i8 1, ptr %hasValue.i.i, align 8
   br label %_ZN5folly8OptionalISt5tupleIJmbhEEEC2ERKS3_.exit
 
 _ZN5folly8OptionalISt5tupleIJmbhEEEC2ERKS3_.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit, %invoke.cont2.i
-  %version_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22
-  %version_22 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 22
+  %version_ = getelementptr inbounds i8, ptr %this, i64 608
+  %version_22 = getelementptr inbounds i8, ptr %message, i64 608
   %32 = load i16, ptr %version_22, align 8
   store i16 %32, ptr %version_, align 8
-  %parsedCookies_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
-  %parsedCookies_23 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 23
+  %parsedCookies_ = getelementptr inbounds i8, ptr %this, i64 610
+  %parsedCookies_23 = getelementptr inbounds i8, ptr %message, i64 610
   %bf.load = load i8, ptr %parsedCookies_23, align 2
   %33 = and i8 %bf.load, 1
   %bf.load24 = load i8, ptr %parsedCookies_, align 2
@@ -2199,8 +2121,8 @@ _ZN5folly8OptionalISt5tupleIJmbhEEEC2ERKS3_.exit: ; preds = %_ZNSt3mapINSt7__cxx
   %bf.clear67 = and i8 %bf.set59, -33
   %bf.set68 = or disjoint i8 %bf.clear67, %.lobit30
   store i8 %bf.set68, ptr %parsedCookies_, align 2
-  %scheme_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 24
-  %scheme_69 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 24
+  %scheme_ = getelementptr inbounds i8, ptr %this, i64 612
+  %scheme_69 = getelementptr inbounds i8, ptr %message, i64 612
   %34 = load i32, ptr %scheme_69, align 4
   store i32 %34, ptr %scheme_, align 4
   %35 = load i8, ptr %fields_, align 8
@@ -2216,8 +2138,8 @@ invoke.cont71:                                    ; preds = %if.then
           to label %call.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.noexc:                                   ; preds = %invoke.cont71
-  %url_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call72, i64 0, i32 7
-  %url_.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i.i49, i64 0, i32 7
+  %url_ = getelementptr inbounds i8, ptr %call72, i64 168
+  %url_.i.i = getelementptr inbounds i8, ptr %call.i.i49, i64 168
   %call3.i.i50 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %url_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %url_)
           to label %call3.i.i.noexc unwind label %terminate.lpad
 
@@ -2226,7 +2148,7 @@ call3.i.i.noexc:                                  ; preds = %call.i.i.noexc
           to label %invoke.cont73 unwind label %terminate.lpad
 
 invoke.cont73:                                    ; preds = %call3.i.i.noexc
-  %authority_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.tmp.ensured, i64 0, i32 2
+  %authority_.i = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %authority_.i) #23
   br label %if.end
 
@@ -2268,21 +2190,21 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %message, align 8
   store i64 %0, ptr %this, align 8
-  %seqNo_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 14
+  %seqNo_ = getelementptr inbounds i8, ptr %message, i64 544
   %1 = load i32, ptr %seqNo_, align 8
-  %seqNo_3 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 14
+  %seqNo_3 = getelementptr inbounds i8, ptr %this, i64 544
   store i32 %1, ptr %seqNo_3, align 8
-  %dstAddress_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1
-  %dstAddress_4 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1
-  %external_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 2
+  %dstAddress_ = getelementptr inbounds i8, ptr %message, i64 8
+  %dstAddress_4 = getelementptr inbounds i8, ptr %this, i64 8
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 34
   %2 = load i8, ptr %external_.i, align 2
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
-  %external_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1, i32 2
+  %external_.i.i = getelementptr inbounds i8, ptr %message, i64 34
   %4 = load i8, ptr %external_.i.i, align 2
   %5 = and i8 %4, 1
   %tobool.not.i.i = icmp ne i8 %5, 0
-  %family_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1, i32 0, i32 1, i64 4
+  %family_.i.i.i = getelementptr inbounds i8, ptr %message, i64 28
   %6 = load i16, ptr %family_.i.i.i, align 4
   %cmp.not17.i = icmp eq i16 %6, 1
   %cmp.not.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not17.i
@@ -2295,9 +2217,9 @@ if.then.i:                                        ; preds = %if.end
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noalias noundef nonnull dereferenceable(110) ptr @_Znwm(i64 noundef 110) #33
   store ptr %call.i.i, ptr %dstAddress_4, align 8
-  %len.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1, i32 0, i32 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %message, i64 16
   %7 = load i32, ptr %len.i.i, align 8
-  %len2.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %7, ptr %len2.i.i, align 8
   %8 = load ptr, ptr %dstAddress_, align 8
   %conv.i.i = zext i32 %7 to i64
@@ -2308,9 +2230,9 @@ if.else8.i:                                       ; preds = %if.end
   br i1 %cmp.not.i, label %if.then12.i, label %if.else15.i
 
 if.then12.i:                                      ; preds = %if.else8.i
-  %len.i13.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1, i32 0, i32 0, i32 1
+  %len.i13.i = getelementptr inbounds i8, ptr %message, i64 16
   %9 = load i32, ptr %len.i13.i, align 8
-  %len2.i14.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %len2.i14.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %9, ptr %len2.i14.i, align 8
   %10 = load ptr, ptr %dstAddress_4, align 8
   %11 = load ptr, ptr %dstAddress_, align 8
@@ -2332,27 +2254,27 @@ _ZN5folly13SocketAddress16ExternalUnixAddr4freeEv.exit.i: ; preds = %delete.notn
   br label %_ZN5folly13SocketAddressaSERKS0_.exit
 
 _ZN5folly13SocketAddressaSERKS0_.exit:            ; preds = %if.then.i, %if.else.i, %if.then12.i, %_ZN5folly13SocketAddress16ExternalUnixAddr4freeEv.exit.i
-  %port_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %message, i64 32
   %13 = load i16, ptr %port_.i, align 8
-  %port_21.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 1
+  %port_21.i = getelementptr inbounds i8, ptr %this, i64 32
   store i16 %13, ptr %port_21.i, align 8
   %14 = load i8, ptr %external_.i.i, align 2
   %15 = and i8 %14, 1
   store i8 %15, ptr %external_.i, align 2
-  %dstIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 2
-  %dstIP_5 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 2
+  %dstIP_ = getelementptr inbounds i8, ptr %message, i64 40
+  %dstIP_5 = getelementptr inbounds i8, ptr %this, i64 40
   %call6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %dstIP_5, ptr noundef nonnull align 8 dereferenceable(32) %dstIP_)
-  %dstPort_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 3
-  %dstPort_7 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 3
+  %dstPort_ = getelementptr inbounds i8, ptr %message, i64 72
+  %dstPort_7 = getelementptr inbounds i8, ptr %this, i64 72
   %call8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %dstPort_7, ptr noundef nonnull align 8 dereferenceable(32) %dstPort_)
-  %localIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 4
-  %localIP_9 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 4
+  %localIP_ = getelementptr inbounds i8, ptr %message, i64 104
+  %localIP_9 = getelementptr inbounds i8, ptr %this, i64 104
   %call10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %localIP_9, ptr noundef nonnull align 8 dereferenceable(32) %localIP_)
-  %versionStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 5
-  %versionStr_11 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 5
+  %versionStr_ = getelementptr inbounds i8, ptr %message, i64 136
+  %versionStr_11 = getelementptr inbounds i8, ptr %this, i64 136
   %call12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_11, ptr noundef nonnull align 8 dereferenceable(32) %versionStr_)
-  %fields_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 6
-  %fields_13 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %fields_ = getelementptr inbounds i8, ptr %message, i64 168
+  %fields_13 = getelementptr inbounds i8, ptr %this, i64 168
   %call14 = tail call noundef nonnull align 8 dereferenceable(216) ptr @_ZN8proxygen11HTTPMessage6FieldsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(216) %fields_13, ptr noundef nonnull align 8 dereferenceable(216) %fields_)
   %16 = load i8, ptr %fields_13, align 8
   %cmp.i = icmp eq i8 %16, 1
@@ -2360,34 +2282,34 @@ _ZN5folly13SocketAddressaSERKS0_.exit:            ; preds = %if.then.i, %if.else
 
 if.then16:                                        ; preds = %_ZN5folly13SocketAddressaSERKS0_.exit
   %call17 = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
-  %url_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call17, i64 0, i32 7
+  %url_ = getelementptr inbounds i8, ptr %call17, i64 168
   %call.i.i34 = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this), !noalias !20
-  %url_.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i.i34, i64 0, i32 7
+  %url_.i.i = getelementptr inbounds i8, ptr %call.i.i34, i64 168
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %url_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %url_), !noalias !20
   call void @_ZN8proxygen11HTTPMessage18setURLImplInternalEbb(ptr nonnull sret(%"class.proxygen::ParseURL") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(616) %this, i1 noundef zeroext true, i1 noundef zeroext false)
-  %authority_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.tmp.ensured, i64 0, i32 2
+  %authority_.i = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %authority_.i) #23
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then16, %_ZN5folly13SocketAddressaSERKS0_.exit
-  %cookies_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 7
-  %cookies_19 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7
+  %cookies_ = getelementptr inbounds i8, ptr %message, i64 384
+  %cookies_19 = getelementptr inbounds i8, ptr %this, i64 384
   %call.i = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EEaSERKSD_(ptr noundef nonnull align 8 dereferenceable(48) %cookies_19, ptr noundef nonnull align 8 dereferenceable(48) %cookies_)
-  %queryParams_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 8
-  %queryParams_21 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8
+  %queryParams_ = getelementptr inbounds i8, ptr %message, i64 432
+  %queryParams_21 = getelementptr inbounds i8, ptr %this, i64 432
   %call.i35 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EEaSERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %queryParams_21, ptr noundef nonnull align 8 dereferenceable(48) %queryParams_)
-  %version_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 22
-  %version_23 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22
+  %version_ = getelementptr inbounds i8, ptr %message, i64 608
+  %version_23 = getelementptr inbounds i8, ptr %this, i64 608
   %17 = load i8, ptr %version_, align 8
   store i8 %17, ptr %version_23, align 8
-  %second.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 22, i32 1
+  %second.i = getelementptr inbounds i8, ptr %message, i64 609
   %18 = load i8, ptr %second.i, align 1
-  %second3.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22, i32 1
+  %second3.i = getelementptr inbounds i8, ptr %this, i64 609
   store i8 %18, ptr %second3.i, align 1
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 9
-  %headers_25 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %message, i64 480
+  %headers_25 = getelementptr inbounds i8, ptr %this, i64 480
   %call26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen11HTTPHeadersaSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %headers_25, ptr noundef nonnull align 8 dereferenceable(32) %headers_)
-  %strippedPerHopHeaders_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 10
+  %strippedPerHopHeaders_ = getelementptr inbounds i8, ptr %message, i64 512
   %19 = load ptr, ptr %strippedPerHopHeaders_, align 8
   %cmp.i36.not = icmp eq ptr %19, null
   br i1 %cmp.i36.not, label %if.else, label %if.then28
@@ -2409,14 +2331,14 @@ lpad.i:                                           ; preds = %if.then28
   br label %common.resume
 
 _ZSt11make_uniqueIN8proxygen11HTTPHeadersEJRS1_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %if.then28
-  %strippedPerHopHeaders_31 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 10
+  %strippedPerHopHeaders_31 = getelementptr inbounds i8, ptr %this, i64 512
   %21 = load ptr, ptr %strippedPerHopHeaders_31, align 8
   store ptr %call.i37, ptr %strippedPerHopHeaders_31, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i.i, label %if.end34, label %if.end34.sink.split
 
 if.else:                                          ; preds = %if.end18
-  %strippedPerHopHeaders_33 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 10
+  %strippedPerHopHeaders_33 = getelementptr inbounds i8, ptr %this, i64 512
   %22 = load ptr, ptr %strippedPerHopHeaders_33, align 8
   store ptr null, ptr %strippedPerHopHeaders_33, align 8
   %tobool.not.i.i39 = icmp eq ptr %22, null
@@ -2429,29 +2351,29 @@ if.end34.sink.split:                              ; preds = %if.else, %_ZSt11mak
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end34.sink.split, %if.else, %_ZSt11make_uniqueIN8proxygen11HTTPHeadersEJRS1_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %sslVersion_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 15
+  %sslVersion_ = getelementptr inbounds i8, ptr %message, i64 548
   %23 = load i32, ptr %sslVersion_, align 4
-  %sslVersion_35 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 15
+  %sslVersion_35 = getelementptr inbounds i8, ptr %this, i64 548
   store i32 %23, ptr %sslVersion_35, align 4
-  %sslCipher_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 16
+  %sslCipher_ = getelementptr inbounds i8, ptr %message, i64 552
   %24 = load ptr, ptr %sslCipher_, align 8
-  %sslCipher_36 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 16
+  %sslCipher_36 = getelementptr inbounds i8, ptr %this, i64 552
   store ptr %24, ptr %sslCipher_36, align 8
-  %protoStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 17
+  %protoStr_ = getelementptr inbounds i8, ptr %message, i64 560
   %25 = load ptr, ptr %protoStr_, align 8
-  %protoStr_37 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 17
+  %protoStr_37 = getelementptr inbounds i8, ptr %this, i64 560
   store ptr %25, ptr %protoStr_37, align 8
-  %pri_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 19
+  %pri_ = getelementptr inbounds i8, ptr %message, i64 576
   %26 = load i8, ptr %pri_, align 8
-  %pri_38 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 19
+  %pri_38 = getelementptr inbounds i8, ptr %this, i64 576
   store i8 %26, ptr %pri_38, align 8
-  %h2Pri_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 21
-  %h2Pri_39 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21
-  %hasValue.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 21, i32 0, i32 1
+  %h2Pri_ = getelementptr inbounds i8, ptr %message, i64 584
+  %h2Pri_39 = getelementptr inbounds i8, ptr %this, i64 584
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 600
   %27 = load i8, ptr %hasValue.i.i.i.i, align 8
   %28 = and i8 %27, 1
   %tobool.i.i.not.i.i = icmp eq i8 %28, 0
-  %hasValue.i.i3.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21, i32 0, i32 1
+  %hasValue.i.i3.i.i = getelementptr inbounds i8, ptr %this, i64 600
   br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %_ZNKR5folly8OptionalISt5tupleIJmbhEEE5valueEv.exit.i.i
 
 _ZNKR5folly8OptionalISt5tupleIJmbhEEE5valueEv.exit.i.i: ; preds = %if.end34
@@ -2461,14 +2383,14 @@ _ZNKR5folly8OptionalISt5tupleIJmbhEEE5valueEv.exit.i.i: ; preds = %if.end34
   br i1 %tobool.i.i.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNKR5folly8OptionalISt5tupleIJmbhEEE5valueEv.exit.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 592
   %31 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %add.ptr.i2.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 592
   store i64 %31, ptr %add.ptr.i2.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 585
   %32 = load i8, ptr %add.ptr.i.i.i.i.i.i.i, align 1
   %33 = and i8 %32, 1
-  %add.ptr.i2.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 585
   store i8 %33, ptr %add.ptr.i2.i.i.i.i.i.i, align 1
   %34 = load i8, ptr %h2Pri_, align 8
   store i8 %34, ptr %h2Pri_39, align 8
@@ -2484,10 +2406,10 @@ if.else.i.i:                                      ; preds = %if.end34
   br label %_ZN5folly8OptionalISt5tupleIJmbhEEEaSERKS3_.exit
 
 _ZN5folly8OptionalISt5tupleIJmbhEEEaSERKS3_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i, %if.else.i.i
-  %parsedCookies_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 23
+  %parsedCookies_ = getelementptr inbounds i8, ptr %message, i64 610
   %bf.load = load i8, ptr %parsedCookies_, align 2
   %35 = and i8 %bf.load, 1
-  %parsedCookies_41 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedCookies_41 = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load42 = load i8, ptr %parsedCookies_41, align 2
   %bf.clear43 = and i8 %bf.load42, -2
   %bf.set = or disjoint i8 %bf.clear43, %35
@@ -2517,15 +2439,15 @@ _ZN5folly8OptionalISt5tupleIJmbhEEEaSERKS3_.exit: ; preds = %if.then.i.i.i, %if.
   %bf.clear85 = and i8 %bf.set77, -33
   %bf.set86 = or disjoint i8 %bf.clear85, %.lobit33
   store i8 %bf.set86, ptr %parsedCookies_41, align 2
-  %scheme_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 24
+  %scheme_ = getelementptr inbounds i8, ptr %message, i64 612
   %36 = load i32, ptr %scheme_, align 4
-  %scheme_87 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 24
+  %scheme_87 = getelementptr inbounds i8, ptr %this, i64 612
   store i32 %36, ptr %scheme_87, align 4
-  %upgradeWebsocket_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 12
+  %upgradeWebsocket_ = getelementptr inbounds i8, ptr %message, i64 532
   %37 = load i32, ptr %upgradeWebsocket_, align 4
-  %upgradeWebsocket_88 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 12
+  %upgradeWebsocket_88 = getelementptr inbounds i8, ptr %this, i64 532
   store i32 %37, ptr %upgradeWebsocket_88, align 4
-  %trailers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 13
+  %trailers_ = getelementptr inbounds i8, ptr %message, i64 536
   %38 = load ptr, ptr %trailers_, align 8
   %cmp.i40.not = icmp eq ptr %38, null
   br i1 %cmp.i40.not, label %if.else96, label %if.then90
@@ -2541,14 +2463,14 @@ lpad.i42:                                         ; preds = %if.then90
   br label %common.resume
 
 _ZSt11make_uniqueIN8proxygen11HTTPHeadersEJRS1_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit43: ; preds = %if.then90
-  %trailers_94 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 13
+  %trailers_94 = getelementptr inbounds i8, ptr %this, i64 536
   %40 = load ptr, ptr %trailers_94, align 8
   store ptr %call.i41, ptr %trailers_94, align 8
   %tobool.not.i.i.i.i44 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i.i44, label %return, label %return.sink.split
 
 if.else96:                                        ; preds = %_ZN5folly8OptionalISt5tupleIJmbhEEEaSERKS3_.exit
-  %trailers_97 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 13
+  %trailers_97 = getelementptr inbounds i8, ptr %this, i64 536
   %41 = load ptr, ptr %trailers_97, align 8
   store ptr null, ptr %trailers_97, align 8
   %tobool.not.i.i50 = icmp eq ptr %41, null
@@ -2576,14 +2498,14 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %data_.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN8proxygen11HTTPMessage7RequestD2Ev(ptr noundef nonnull align 8 dereferenceable(202) %data_.i) #23
   br label %_ZN8proxygen11HTTPMessage6Fields5clearEv.exit
 
 sw.bb2.i:                                         ; preds = %entry
-  %statusMsg_.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %statusMsg_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i) #23
-  %statusStr_.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %statusStr_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i) #23
   br label %_ZN8proxygen11HTTPMessage6Fields5clearEv.exit
 
@@ -2597,21 +2519,21 @@ _ZN8proxygen11HTTPMessage6Fields5clearEv.exit:    ; preds = %entry, %sw.bb.i, %s
   ]
 
 sw.bb.i3:                                         ; preds = %_ZN8proxygen11HTTPMessage6Fields5clearEv.exit
-  %data_.i4 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1
-  %data_4.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %other, i64 0, i32 1
+  %data_.i4 = getelementptr inbounds i8, ptr %this, i64 8
+  %data_4.i = getelementptr inbounds i8, ptr %other, i64 8
   tail call void @_ZN8proxygen11HTTPMessage7RequestC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(202) %data_.i4, ptr noundef nonnull align 8 dereferenceable(202) %data_4.i)
   br label %_ZN8proxygen11HTTPMessage6Fields8copyFromERKS1_.exit
 
 sw.bb5.i:                                         ; preds = %_ZN8proxygen11HTTPMessage6Fields5clearEv.exit
-  %data_6.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1
-  %data_7.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %other, i64 0, i32 1
+  %data_6.i = getelementptr inbounds i8, ptr %this, i64 8
+  %data_7.i = getelementptr inbounds i8, ptr %other, i64 8
   %2 = load i16, ptr %data_7.i, align 8
   store i16 %2, ptr %data_6.i, align 8
-  %statusStr_.i.i1 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %statusStr_3.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %other, i64 0, i32 1, i32 0, i32 1
+  %statusStr_.i.i1 = getelementptr inbounds i8, ptr %this, i64 16
+  %statusStr_3.i.i = getelementptr inbounds i8, ptr %other, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i1, ptr noundef nonnull align 8 dereferenceable(32) %statusStr_3.i.i)
-  %statusMsg_.i.i2 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %statusMsg_4.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %other, i64 0, i32 1, i32 0, i32 2
+  %statusMsg_.i.i2 = getelementptr inbounds i8, ptr %this, i64 48
+  %statusMsg_4.i.i = getelementptr inbounds i8, ptr %other, i64 48
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_4.i.i)
           to label %_ZN8proxygen11HTTPMessage6Fields8copyFromERKS1_.exit unwind label %lpad.i.i
 
@@ -2638,45 +2560,45 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %message, align 8
   store i64 %0, ptr %this, align 8
-  %seqNo_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 14
+  %seqNo_ = getelementptr inbounds i8, ptr %message, i64 544
   %1 = load i32, ptr %seqNo_, align 8
-  %seqNo_3 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 14
+  %seqNo_3 = getelementptr inbounds i8, ptr %this, i64 544
   store i32 %1, ptr %seqNo_3, align 8
-  %dstAddress_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1
-  %dstAddress_4 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1
+  %dstAddress_ = getelementptr inbounds i8, ptr %message, i64 8
+  %dstAddress_4 = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %dstAddress_4, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dstAddress_4, ptr noundef nonnull align 8 dereferenceable(24) %dstAddress_, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dstAddress_, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.i.i)
-  %port_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 1
-  %port_3.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %port_3.i = getelementptr inbounds i8, ptr %message, i64 32
   %2 = load i16, ptr %port_.i, align 8
   %3 = load i16, ptr %port_3.i, align 8
   store i16 %3, ptr %port_.i, align 8
   store i16 %2, ptr %port_3.i, align 8
-  %external_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 2
-  %external_4.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 1, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 34
+  %external_4.i = getelementptr inbounds i8, ptr %message, i64 34
   %4 = load i8, ptr %external_.i, align 2
   %5 = and i8 %4, 1
   %6 = load i8, ptr %external_4.i, align 2
   %7 = and i8 %6, 1
   store i8 %7, ptr %external_.i, align 2
   store i8 %5, ptr %external_4.i, align 2
-  %dstIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 2
-  %dstIP_5 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 2
+  %dstIP_ = getelementptr inbounds i8, ptr %message, i64 40
+  %dstIP_5 = getelementptr inbounds i8, ptr %this, i64 40
   %call6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %dstIP_5, ptr noundef nonnull align 8 dereferenceable(32) %dstIP_) #23
-  %dstPort_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 3
-  %dstPort_7 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 3
+  %dstPort_ = getelementptr inbounds i8, ptr %message, i64 72
+  %dstPort_7 = getelementptr inbounds i8, ptr %this, i64 72
   %call8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %dstPort_7, ptr noundef nonnull align 8 dereferenceable(32) %dstPort_)
-  %localIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 4
-  %localIP_9 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 4
+  %localIP_ = getelementptr inbounds i8, ptr %message, i64 104
+  %localIP_9 = getelementptr inbounds i8, ptr %this, i64 104
   %call10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %localIP_9, ptr noundef nonnull align 8 dereferenceable(32) %localIP_) #23
-  %versionStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 5
-  %versionStr_11 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 5
+  %versionStr_ = getelementptr inbounds i8, ptr %message, i64 136
+  %versionStr_11 = getelementptr inbounds i8, ptr %this, i64 136
   %call12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_11, ptr noundef nonnull align 8 dereferenceable(32) %versionStr_) #23
-  %fields_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 6
-  %fields_13 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %fields_ = getelementptr inbounds i8, ptr %message, i64 168
+  %fields_13 = getelementptr inbounds i8, ptr %this, i64 168
   %call14 = tail call noundef nonnull align 8 dereferenceable(216) ptr @_ZN8proxygen11HTTPMessage6FieldsaSEOS1_(ptr noundef nonnull align 8 dereferenceable(216) %fields_13, ptr noundef nonnull align 8 dereferenceable(216) %fields_)
   %8 = load i8, ptr %fields_13, align 8
   %cmp.i = icmp eq i8 %8, 1
@@ -2684,18 +2606,18 @@ if.end:                                           ; preds = %entry
 
 if.then16:                                        ; preds = %if.end
   %call17 = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
-  %url_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call17, i64 0, i32 7
+  %url_ = getelementptr inbounds i8, ptr %call17, i64 168
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this), !noalias !32
-  %url_.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i.i, i64 0, i32 7
+  %url_.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %url_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %url_), !noalias !32
   call void @_ZN8proxygen11HTTPMessage18setURLImplInternalEbb(ptr nonnull sret(%"class.proxygen::ParseURL") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(616) %this, i1 noundef zeroext true, i1 noundef zeroext false)
-  %authority_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.tmp.ensured, i64 0, i32 2
+  %authority_.i = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %authority_.i) #23
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then16, %if.end
-  %cookies_19 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %cookies_19 = getelementptr inbounds i8, ptr %this, i64 384
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 400
   %9 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %cookies_19, ptr noundef %9)
           to label %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE5clearEv.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -2708,34 +2630,34 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end18
   unreachable
 
 _ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE5clearEv.exit.i.i.i: ; preds = %if.end18
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 392
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 408
   store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 400
   %12 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEaSEOSB_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE5clearEv.exit.i.i.i
-  %add.ptr3.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 7, i32 0, i32 0, i32 1
+  %add.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 392
   %13 = load i32, ptr %add.ptr3.i.i.i.i, align 8
   store i32 %13, ptr %add.ptr.i.i.i.i, align 8
   %14 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   store ptr %14, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i4.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i4.i.i.i = getelementptr inbounds i8, ptr %message, i64 408
   %15 = load ptr, ptr %_M_left.i.i4.i.i.i, align 8
   store ptr %15, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i.i5.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i5.i.i.i = getelementptr inbounds i8, ptr %message, i64 416
   %16 = load ptr, ptr %_M_right.i.i5.i.i.i, align 8
   store ptr %16, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_parent16.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %14, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_parent16.i.i.i.i.i, align 8
-  %_M_node_count.i.i6.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i6.i.i.i = getelementptr inbounds i8, ptr %message, i64 424
   %17 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
   store i64 %17, ptr %_M_node_count.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
@@ -2745,8 +2667,8 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeIN5fo
   br label %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEaSEOSB_.exit
 
 _ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEaSEOSB_.exit: ; preds = %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE5clearEv.exit.i.i.i, %if.then.i.i.i
-  %queryParams_21 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8
-  %_M_parent.i.i.i.i.i.i32 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %queryParams_21 = getelementptr inbounds i8, ptr %this, i64 432
+  %_M_parent.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %this, i64 448
   %18 = load ptr, ptr %_M_parent.i.i.i.i.i.i32, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %queryParams_21, ptr noundef %18)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE5clearEv.exit.i.i.i unwind label %terminate.lpad.i.i.i.i33
@@ -2759,34 +2681,34 @@ terminate.lpad.i.i.i.i33:                         ; preds = %_ZNSt3mapIN5folly5R
   unreachable
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE5clearEv.exit.i.i.i: ; preds = %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEEaSEOSB_.exit
-  %add.ptr.i.i.i.i34 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i34 = getelementptr inbounds i8, ptr %this, i64 440
   store ptr null, ptr %_M_parent.i.i.i.i.i.i32, align 8
-  %_M_left.i.i.i.i.i35 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i35 = getelementptr inbounds i8, ptr %this, i64 456
   store ptr %add.ptr.i.i.i.i34, ptr %_M_left.i.i.i.i.i35, align 8
-  %_M_right.i.i.i.i.i36 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i36 = getelementptr inbounds i8, ptr %this, i64 464
   store ptr %add.ptr.i.i.i.i34, ptr %_M_right.i.i.i.i.i36, align 8
-  %_M_node_count.i.i.i.i.i37 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i37 = getelementptr inbounds i8, ptr %this, i64 472
   store i64 0, ptr %_M_node_count.i.i.i.i.i37, align 8
-  %_M_parent.i.i.i.i38 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i38 = getelementptr inbounds i8, ptr %message, i64 448
   %21 = load ptr, ptr %_M_parent.i.i.i.i38, align 8
   %cmp.not.i.i.i39 = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i39, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEaSEOSC_.exit, label %if.then.i.i.i40
 
 if.then.i.i.i40:                                  ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE5clearEv.exit.i.i.i
-  %add.ptr3.i.i.i.i41 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 8, i32 0, i32 0, i32 1
+  %add.ptr3.i.i.i.i41 = getelementptr inbounds i8, ptr %message, i64 440
   %22 = load i32, ptr %add.ptr3.i.i.i.i41, align 8
   store i32 %22, ptr %add.ptr.i.i.i.i34, align 8
   %23 = load ptr, ptr %_M_parent.i.i.i.i38, align 8
   store ptr %23, ptr %_M_parent.i.i.i.i.i.i32, align 8
-  %_M_left.i.i4.i.i.i42 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i4.i.i.i42 = getelementptr inbounds i8, ptr %message, i64 456
   %24 = load ptr, ptr %_M_left.i.i4.i.i.i42, align 8
   store ptr %24, ptr %_M_left.i.i.i.i.i35, align 8
-  %_M_right.i.i5.i.i.i43 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i5.i.i.i43 = getelementptr inbounds i8, ptr %message, i64 464
   %25 = load ptr, ptr %_M_right.i.i5.i.i.i43, align 8
   store ptr %25, ptr %_M_right.i.i.i.i.i36, align 8
-  %_M_parent16.i.i.i.i.i44 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %23, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i44 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %add.ptr.i.i.i.i34, ptr %_M_parent16.i.i.i.i.i44, align 8
-  %_M_node_count.i.i6.i.i.i45 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 8, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i6.i.i.i45 = getelementptr inbounds i8, ptr %message, i64 472
   %26 = load i64, ptr %_M_node_count.i.i6.i.i.i45, align 8
   store i64 %26, ptr %_M_node_count.i.i.i.i.i37, align 8
   store ptr null, ptr %_M_parent.i.i.i.i38, align 8
@@ -2796,19 +2718,19 @@ if.then.i.i.i40:                                  ; preds = %_ZNSt8_Rb_treeINSt7
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEaSEOSC_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEaSEOSC_.exit: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE5clearEv.exit.i.i.i, %if.then.i.i.i40
-  %version_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 22
-  %version_23 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22
+  %version_ = getelementptr inbounds i8, ptr %message, i64 608
+  %version_23 = getelementptr inbounds i8, ptr %this, i64 608
   %27 = load i8, ptr %version_, align 8
   store i8 %27, ptr %version_23, align 8
-  %second.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 22, i32 1
+  %second.i = getelementptr inbounds i8, ptr %message, i64 609
   %28 = load i8, ptr %second.i, align 1
-  %second3.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22, i32 1
+  %second3.i = getelementptr inbounds i8, ptr %this, i64 609
   store i8 %28, ptr %second3.i, align 1
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 9
-  %headers_25 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %message, i64 480
+  %headers_25 = getelementptr inbounds i8, ptr %this, i64 480
   %call26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen11HTTPHeadersaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %headers_25, ptr noundef nonnull align 8 dereferenceable(32) %headers_)
-  %strippedPerHopHeaders_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 10
-  %strippedPerHopHeaders_27 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 10
+  %strippedPerHopHeaders_ = getelementptr inbounds i8, ptr %message, i64 512
+  %strippedPerHopHeaders_27 = getelementptr inbounds i8, ptr %this, i64 512
   %29 = load ptr, ptr %strippedPerHopHeaders_, align 8
   store ptr null, ptr %strippedPerHopHeaders_, align 8
   %30 = load ptr, ptr %strippedPerHopHeaders_27, align 8
@@ -2822,29 +2744,29 @@ _ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i.i.i.i: ; preds = 
   br label %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EEaSEOS4_.exit
 
 _ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEaSEOSC_.exit, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i.i.i.i
-  %sslVersion_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 15
+  %sslVersion_ = getelementptr inbounds i8, ptr %message, i64 548
   %31 = load i32, ptr %sslVersion_, align 4
-  %sslVersion_29 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 15
+  %sslVersion_29 = getelementptr inbounds i8, ptr %this, i64 548
   store i32 %31, ptr %sslVersion_29, align 4
-  %sslCipher_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 16
+  %sslCipher_ = getelementptr inbounds i8, ptr %message, i64 552
   %32 = load ptr, ptr %sslCipher_, align 8
-  %sslCipher_30 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 16
+  %sslCipher_30 = getelementptr inbounds i8, ptr %this, i64 552
   store ptr %32, ptr %sslCipher_30, align 8
-  %protoStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 17
+  %protoStr_ = getelementptr inbounds i8, ptr %message, i64 560
   %33 = load ptr, ptr %protoStr_, align 8
-  %protoStr_31 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 17
+  %protoStr_31 = getelementptr inbounds i8, ptr %this, i64 560
   store ptr %33, ptr %protoStr_31, align 8
-  %pri_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 19
+  %pri_ = getelementptr inbounds i8, ptr %message, i64 576
   %34 = load i8, ptr %pri_, align 8
-  %pri_32 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 19
+  %pri_32 = getelementptr inbounds i8, ptr %this, i64 576
   store i8 %34, ptr %pri_32, align 8
-  %h2Pri_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 21
-  %h2Pri_33 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21
-  %hasValue.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 21, i32 0, i32 1
+  %h2Pri_ = getelementptr inbounds i8, ptr %message, i64 584
+  %h2Pri_33 = getelementptr inbounds i8, ptr %this, i64 584
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 600
   %35 = load i8, ptr %hasValue.i.i.i.i, align 8
   %36 = and i8 %35, 1
   %tobool.i.i.not.i.i = icmp eq i8 %36, 0
-  %hasValue.i.i3.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21, i32 0, i32 1
+  %hasValue.i.i3.i.i = getelementptr inbounds i8, ptr %this, i64 600
   br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %_ZNKR5folly8OptionalISt5tupleIJmbhEEE5valueEv.exit.i.i
 
 _ZNKR5folly8OptionalISt5tupleIJmbhEEE5valueEv.exit.i.i: ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EEaSEOS4_.exit
@@ -2854,14 +2776,14 @@ _ZNKR5folly8OptionalISt5tupleIJmbhEEE5valueEv.exit.i.i: ; preds = %_ZNSt10unique
   br i1 %tobool.i.i.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i46
 
 if.then.i.i.i46:                                  ; preds = %_ZNKR5folly8OptionalISt5tupleIJmbhEEE5valueEv.exit.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 592
   %39 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %add.ptr.i2.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 592
   store i64 %39, ptr %add.ptr.i2.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 585
   %40 = load i8, ptr %add.ptr.i.i.i.i.i.i.i, align 1
   %41 = and i8 %40, 1
-  %add.ptr.i2.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 585
   store i8 %41, ptr %add.ptr.i2.i.i.i.i.i.i, align 1
   %42 = load i8, ptr %h2Pri_, align 8
   store i8 %42, ptr %h2Pri_33, align 8
@@ -2877,10 +2799,10 @@ if.else.i.i:                                      ; preds = %_ZNSt10unique_ptrIN
   br label %_ZN5folly8OptionalISt5tupleIJmbhEEEaSIRS3_EES5_OT_.exit
 
 _ZN5folly8OptionalISt5tupleIJmbhEEEaSIRS3_EES5_OT_.exit: ; preds = %if.then.i.i.i46, %if.else.i.i.i, %if.else.i.i
-  %parsedCookies_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 23
+  %parsedCookies_ = getelementptr inbounds i8, ptr %message, i64 610
   %bf.load = load i8, ptr %parsedCookies_, align 2
   %43 = and i8 %bf.load, 1
-  %parsedCookies_35 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedCookies_35 = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load36 = load i8, ptr %parsedCookies_35, align 2
   %bf.clear37 = and i8 %bf.load36, -2
   %bf.set = or disjoint i8 %bf.clear37, %43
@@ -2910,16 +2832,16 @@ _ZN5folly8OptionalISt5tupleIJmbhEEEaSIRS3_EES5_OT_.exit: ; preds = %if.then.i.i.
   %bf.clear79 = and i8 %bf.set71, -33
   %bf.set80 = or disjoint i8 %bf.clear79, %.lobit31
   store i8 %bf.set80, ptr %parsedCookies_35, align 2
-  %scheme_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 24
+  %scheme_ = getelementptr inbounds i8, ptr %message, i64 612
   %44 = load i32, ptr %scheme_, align 4
-  %scheme_81 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 24
+  %scheme_81 = getelementptr inbounds i8, ptr %this, i64 612
   store i32 %44, ptr %scheme_81, align 4
-  %upgradeWebsocket_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 12
+  %upgradeWebsocket_ = getelementptr inbounds i8, ptr %message, i64 532
   %45 = load i32, ptr %upgradeWebsocket_, align 4
-  %upgradeWebsocket_82 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 12
+  %upgradeWebsocket_82 = getelementptr inbounds i8, ptr %this, i64 532
   store i32 %45, ptr %upgradeWebsocket_82, align 4
-  %trailers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %message, i64 0, i32 13
-  %trailers_83 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 13
+  %trailers_ = getelementptr inbounds i8, ptr %message, i64 536
+  %trailers_83 = getelementptr inbounds i8, ptr %this, i64 536
   %46 = load ptr, ptr %trailers_, align 8
   store ptr null, ptr %trailers_, align 8
   %47 = load ptr, ptr %trailers_83, align 8
@@ -2949,14 +2871,14 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %data_.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN8proxygen11HTTPMessage7RequestD2Ev(ptr noundef nonnull align 8 dereferenceable(202) %data_.i) #23
   br label %_ZN8proxygen11HTTPMessage6Fields5clearEv.exit
 
 sw.bb2.i:                                         ; preds = %entry
-  %statusMsg_.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %statusMsg_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i) #23
-  %statusStr_.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %statusStr_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i) #23
   br label %_ZN8proxygen11HTTPMessage6Fields5clearEv.exit
 
@@ -2970,21 +2892,21 @@ _ZN8proxygen11HTTPMessage6Fields5clearEv.exit:    ; preds = %entry, %sw.bb.i, %s
   ]
 
 sw.bb.i3:                                         ; preds = %_ZN8proxygen11HTTPMessage6Fields5clearEv.exit
-  %data_.i4 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1
-  %data_4.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %other, i64 0, i32 1
+  %data_.i4 = getelementptr inbounds i8, ptr %this, i64 8
+  %data_4.i = getelementptr inbounds i8, ptr %other, i64 8
   tail call void @_ZN8proxygen11HTTPMessage7RequestC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(202) %data_.i4, ptr noundef nonnull align 8 dereferenceable(202) %data_4.i)
   br label %_ZN8proxygen11HTTPMessage6Fields8moveFromEOS1_.exit
 
 sw.bb5.i:                                         ; preds = %_ZN8proxygen11HTTPMessage6Fields5clearEv.exit
-  %data_6.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1
-  %data_7.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %other, i64 0, i32 1
+  %data_6.i = getelementptr inbounds i8, ptr %this, i64 8
+  %data_7.i = getelementptr inbounds i8, ptr %other, i64 8
   %2 = load i16, ptr %data_7.i, align 8
   store i16 %2, ptr %data_6.i, align 8
-  %statusStr_.i.i1 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %statusStr_3.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %other, i64 0, i32 1, i32 0, i32 1
+  %statusStr_.i.i1 = getelementptr inbounds i8, ptr %this, i64 16
+  %statusStr_3.i.i = getelementptr inbounds i8, ptr %other, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i1, ptr noundef nonnull align 8 dereferenceable(32) %statusStr_3.i.i) #23
-  %statusMsg_.i.i2 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %statusMsg_4.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Fields", ptr %other, i64 0, i32 1, i32 0, i32 2
+  %statusMsg_.i.i2 = getelementptr inbounds i8, ptr %this, i64 48
+  %statusMsg_4.i.i = getelementptr inbounds i8, ptr %other, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_4.i.i) #23
   br label %_ZN8proxygen11HTTPMessage6Fields8moveFromEOS1_.exit
 
@@ -2999,7 +2921,7 @@ define void @_ZN8proxygen11HTTPMessage9setMethodENS_10HTTPMethodE(ptr noundef no
 entry:
   %temp.i.i = alloca %"class.boost::variant", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
-  %method_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call, i64 0, i32 2
+  %method_ = getelementptr inbounds i8, ptr %call, i64 104
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i)
   %0 = load i32, ptr %method_, align 8
   %1 = add i32 %0, -2
@@ -3007,12 +2929,12 @@ entry:
   br i1 %switch.i.i.i, label %_ZNR5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEE13apply_visitorINS_6detail7variant15direct_assignerISD_EEEENT_11result_typeERSK_.exit.thread.i.i, label %if.then.i.i
 
 _ZNR5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEE13apply_visitorINS_6detail7variant15direct_assignerISD_EEEENT_11result_typeERSK_.exit.thread.i.i: ; preds = %entry
-  %storage_.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call, i64 0, i32 2, i32 2
+  %storage_.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 112
   store i32 %method, ptr %storage_.i.i.i.i, align 8
   br label %_ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEEaSISD_EENS_9enable_ifINS_3mpl3or_INS_7is_sameIT_SE_EENS_6detail7variant29is_variant_constructible_fromIRKSK_NSH_6l_itemIN4mpl_5long_ILl3EEES1_NSR_INST_ILl2EEESB_NSR_INST_ILl1EEESD_NSH_5l_endEEEEEEEEENSS_5bool_ILb0EEES13_S13_EERSE_E4typeESQ_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %storage_.i.i2.i.i = getelementptr inbounds %"class.boost::variant", ptr %temp.i.i, i64 0, i32 2
+  %storage_.i.i2.i.i = getelementptr inbounds i8, ptr %temp.i.i, i64 8
   store i32 %method, ptr %storage_.i.i2.i.i, align 8
   store i32 2, ptr %temp.i.i, align 8
   invoke void @_ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEE14variant_assignEOSE_(ptr noundef nonnull align 8 dereferenceable(16) %method_, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i)
@@ -3092,14 +3014,14 @@ cleanup.action:                                   ; preds = %invoke.cont7
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
   %call16 = call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
   call void @_ZN8proxygen14stringToMethodEN5folly5RangeIPKcEE(ptr nonnull sret(%"class.folly::Optional.41") align 4 %result, ptr %method.coerce0, ptr %method.coerce1)
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible", ptr %result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %result, i64 4
   %2 = load i8, ptr %hasValue.i.i, align 4
   %3 = and i8 %2, 1
   %tobool.i.i.not = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not, label %if.else, label %_ZNR5folly8OptionalIN8proxygen10HTTPMethodEEdeEv.exit
 
 _ZNR5folly8OptionalIN8proxygen10HTTPMethodEEdeEv.exit: ; preds = %cleanup.done
-  %method_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call16, i64 0, i32 2
+  %method_ = getelementptr inbounds i8, ptr %call16, i64 104
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i)
   %4 = load i32, ptr %method_, align 8
   %5 = add i32 %4, -2
@@ -3108,12 +3030,12 @@ _ZNR5folly8OptionalIN8proxygen10HTTPMethodEEdeEv.exit: ; preds = %cleanup.done
   br i1 %switch.i.i.i, label %_ZNR5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEE13apply_visitorINS_6detail7variant15direct_assignerISD_EEEENT_11result_typeERSK_.exit.thread.i.i, label %if.then.i.i
 
 _ZNR5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEE13apply_visitorINS_6detail7variant15direct_assignerISD_EEEENT_11result_typeERSK_.exit.thread.i.i: ; preds = %_ZNR5folly8OptionalIN8proxygen10HTTPMethodEEdeEv.exit
-  %storage_.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call16, i64 0, i32 2, i32 2
+  %storage_.i.i.i.i = getelementptr inbounds i8, ptr %call16, i64 112
   store i32 %6, ptr %storage_.i.i.i.i, align 8
   br label %_ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEEaSISD_EENS_9enable_ifINS_3mpl3or_INS_7is_sameIT_SE_EENS_6detail7variant29is_variant_constructible_fromIRKSK_NSH_6l_itemIN4mpl_5long_ILl3EEES1_NSR_INST_ILl2EEESB_NSR_INST_ILl1EEESD_NSH_5l_endEEEEEEEEENSS_5bool_ILb0EEES13_S13_EERSE_E4typeESQ_.exit
 
 if.then.i.i:                                      ; preds = %_ZNR5folly8OptionalIN8proxygen10HTTPMethodEEdeEv.exit
-  %storage_.i.i2.i.i = getelementptr inbounds %"class.boost::variant", ptr %temp.i.i, i64 0, i32 2
+  %storage_.i.i2.i.i = getelementptr inbounds i8, ptr %temp.i.i, i64 8
   store i32 %6, ptr %storage_.i.i2.i.i, align 8
   store i32 2, ptr %temp.i.i, align 8
   invoke void @_ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEE14variant_assignEOSE_(ptr noundef nonnull align 8 dereferenceable(16) %method_, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i)
@@ -3181,7 +3103,7 @@ _ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit:          ; preds = %if.else
 invoke.cont24:                                    ; preds = %_ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call.i10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #23, !noalias !43
   store ptr %call.i10, ptr %ref.tmp21, align 8, !alias.scope !43
-  %method_25 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call16, i64 0, i32 2
+  %method_25 = getelementptr inbounds i8, ptr %call16, i64 104
   invoke void @_ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEE11move_assignISB_EEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %method_25, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp21)
           to label %invoke.cont27 unwind label %lpad26
 
@@ -3220,7 +3142,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i11
   br label %common.resume
 
 _ZN5boost3getISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EENS_5blankEJSA_N8proxygen10HTTPMethodEEEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %storage_.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call16, i64 0, i32 2, i32 2
+  %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call16, i64 112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   %15 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
   %call33 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #23
@@ -3289,7 +3211,7 @@ define void @_ZNK8proxygen11HTTPMessage9getMethodEv(ptr noalias nocapture writeo
 entry:
   %ref.tmp.i.i.i = alloca %"class.boost::bad_get", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
-  %method_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i, i64 0, i32 2
+  %method_ = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load i32, ptr %method_, align 8
   %.lobit.i = ashr i32 %0, 31
   %retval.0.i = xor i32 %.lobit.i, %0
@@ -3317,9 +3239,9 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   resume { ptr, i32 } %2
 
 _ZN5boost3getIN8proxygen10HTTPMethodENS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EES2_EEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit: ; preds = %if.then
-  %storage_.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i, i64 0, i32 2, i32 2
+  %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   %3 = load i32, ptr %storage_.i.i.i.i.i.i, align 8
   store i32 %3, ptr %agg.result, align 4
   store i8 1, ptr %hasValue.i.i, align 4
@@ -3327,7 +3249,7 @@ _ZN5boost3getIN8proxygen10HTTPMethodENS_5blankEJSt10unique_ptrINSt7__cxx1112basi
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %agg.result, align 4
-  %hasValue.i.i2 = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i2 = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i8 0, ptr %hasValue.i.i2, align 4
   br label %return
 
@@ -3340,7 +3262,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8proxygen11HTTPMessa
 entry:
   %ref.tmp.i.i.i6 = alloca %"class.boost::bad_get", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
-  %method_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i, i64 0, i32 2
+  %method_ = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load i32, ptr %method_, align 8
   %.lobit.i = ashr i32 %0, 31
   %retval.0.i = xor i32 %.lobit.i, %0
@@ -3350,7 +3272,7 @@ entry:
   ]
 
 _ZN5boost3getISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EENS_5blankEJSA_N8proxygen10HTTPMethodEEEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit: ; preds = %entry
-  %storage_.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i, i64 0, i32 2, i32 2
+  %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %1 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
   br label %return
 
@@ -3375,7 +3297,7 @@ lpad.i.i.i9:                                      ; preds = %if.then.i.i.i8
   resume { ptr, i32 } %3
 
 _ZN5boost3getIN8proxygen10HTTPMethodENS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EES2_EEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit: ; preds = %if.then9
-  %storage_.i.i.i.i.i.i7 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i, i64 0, i32 2, i32 2
+  %storage_.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %call.i, i64 112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i6)
   %4 = load i32, ptr %storage_.i.i.i.i.i.i7, align 8
   %call12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen14methodToStringB5cxx11ENS_10HTTPMethodE(i32 noundef %4)
@@ -3397,9 +3319,9 @@ entry:
   %ref.tmp9 = alloca i8, align 1
   store i8 %maj, ptr %maj.addr, align 1
   store i8 %min, ptr %min.addr, align 1
-  %version_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22
+  %version_ = getelementptr inbounds i8, ptr %this, i64 608
   store i8 %maj, ptr %version_, align 8
-  %second = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22, i32 1
+  %second = getelementptr inbounds i8, ptr %this, i64 609
   store i8 %min, ptr %second, align 1
   %cmp = icmp ugt i8 %maj, 9
   %cmp8 = icmp ugt i8 %min, 9
@@ -3409,13 +3331,13 @@ entry:
 if.then:                                          ; preds = %entry
   store i8 46, ptr %ref.tmp9, align 1
   call void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJhchEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS8_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSB_EEEE5valueES8_E4typeEDpRKSA_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %maj.addr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9, ptr noundef nonnull align 1 dereferenceable(1) %min.addr)
-  %versionStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 5
+  %versionStr_ = getelementptr inbounds i8, ptr %this, i64 136
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %versionStr_10 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 5
+  %versionStr_10 = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_10, i64 noundef 3)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_10) #23
   %add = add nuw nsw i8 %maj, 48
@@ -3462,9 +3384,9 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
 _ZN5folly19estimateSpaceNeededIhEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i.i.i.i, ptr %sizes.i.i.i, align 16
-  %arrayinit.element.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 1
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 8
   store i64 1, ptr %arrayinit.element.i.i.i, align 8
-  %arrayinit.element9.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 2
+  %arrayinit.element9.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 16
   %2 = load i8, ptr %vs3, align 1
   %conv.i5.i.i.i = zext i8 %2 to i64
   br label %for.body.i.i.i.i.i6.i.i.i
@@ -3490,7 +3412,7 @@ if.end.i.i.i.i.i10.i.i.i:                         ; preds = %for.body.i.i.i.i.i6
 _ZN5folly19estimateSpaceNeededIhEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit18.i.i.i: ; preds = %if.end.i.i.i.i.i10.i.i.i, %if.then.i.i.i.i.i14.i.i.i
   %retval.i.0.i.i.i.i13.i.i.i = phi i64 [ %add.i.i.i.i.i17.i.i.i, %if.then.i.i.i.i.i14.i.i.i ], [ 20, %if.end.i.i.i.i.i10.i.i.i ]
   store i64 %retval.i.0.i.i.i.i13.i.i.i, ptr %arrayinit.element9.i.i.i, align 16
-  %arrayinit.element12.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 3
+  %arrayinit.element12.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 24
   store i64 0, ptr %arrayinit.element12.i.i.i, align 8
   br label %for.body.i.i.i
 
@@ -3533,7 +3455,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 1 dereferenceable(2) ptr @_ZNK8proxygen11HTTPMessage14getHTTPVersionEv(ptr noundef nonnull readnone align 8 dereferenceable(616) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %version_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22
+  %version_ = getelementptr inbounds i8, ptr %this, i64 608
   ret ptr %version_
 }
 
@@ -3569,7 +3491,7 @@ invoke.cont:                                      ; preds = %init
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
   %call.i.i = call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this), !noalias !48
-  %method_.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i.i, i64 0, i32 2
+  %method_.i = getelementptr inbounds i8, ptr %call.i.i, i64 104
   %3 = load i32, ptr %method_.i, align 8, !noalias !48
   %.lobit.i.i = ashr i32 %3, 31
   %retval.0.i.i = xor i32 %.lobit.i.i, %3
@@ -3601,7 +3523,7 @@ lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
   br label %common.resume
 
 _ZN5boost3getIN8proxygen10HTTPMethodENS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EES2_EEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit.i: ; preds = %if.then.i
-  %storage_.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i.i, i64 0, i32 2, i32 2
+  %storage_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i), !noalias !48
   %6 = load i32, ptr %storage_.i.i.i.i.i.i.i, align 8, !noalias !48
   %7 = icmp eq i32 %6, 8
@@ -3609,7 +3531,7 @@ _ZN5boost3getIN8proxygen10HTTPMethodENS_5blankEJSt10unique_ptrINSt7__cxx1112basi
 
 lor.rhs:                                          ; preds = %init.end, %_ZN5boost3getIN8proxygen10HTTPMethodENS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EES2_EEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit.i
   %call.i.i8 = call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this), !noalias !51
-  %method_.i9 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i.i8, i64 0, i32 2
+  %method_.i9 = getelementptr inbounds i8, ptr %call.i.i8, i64 104
   %8 = load i32, ptr %method_.i9, align 8, !noalias !51
   %.lobit.i.i10 = ashr i32 %8, 31
   %retval.0.i.i11 = xor i32 %.lobit.i.i10, %8
@@ -3637,14 +3559,14 @@ lpad.i.i.i.i21:                                   ; preds = %if.then.i.i.i.i20
   br label %common.resume
 
 _ZN5boost3getIN8proxygen10HTTPMethodENS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EES2_EEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit.i17: ; preds = %if.then.i15
-  %storage_.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i.i8, i64 0, i32 2, i32 2
+  %storage_.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i8, i64 112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i7), !noalias !51
   %11 = load i32, ptr %storage_.i.i.i.i.i.i.i18, align 8, !noalias !51
   %12 = icmp eq i32 %11, 2
   br i1 %12, label %if.then, label %return
 
 if.then:                                          ; preds = %_ZN5boost3getIN8proxygen10HTTPMethodENS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EES2_EEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit.i, %_ZN5boost3getIN8proxygen10HTTPMethodENS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EES2_EEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit.i17
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 480
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
   store ptr null, ptr %res.i, align 8
   %call.i.i27 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN8proxygen11HTTPMessage18processMaxForwardsEvE12kMaxForwardsB5cxx11) #23
@@ -3757,10 +3679,10 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK8proxygen11HTTPMessage9isHTTP1_0Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %version_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22
+  %version_ = getelementptr inbounds i8, ptr %this, i64 608
   %0 = load i8, ptr %version_, align 8
   %cmp.i = icmp eq i8 %0, 1
-  %second.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22, i32 1
+  %second.i = getelementptr inbounds i8, ptr %this, i64 609
   %1 = load i8, ptr %second.i, align 1
   %cmp6.i = icmp eq i8 %1, 0
   %2 = select i1 %cmp.i, i1 %cmp6.i, i1 false
@@ -3770,10 +3692,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK8proxygen11HTTPMessage9isHTTP1_1Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %version_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22
+  %version_ = getelementptr inbounds i8, ptr %this, i64 608
   %0 = load i8, ptr %version_, align 8
   %cmp.i = icmp eq i8 %0, 1
-  %second.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22, i32 1
+  %second.i = getelementptr inbounds i8, ptr %this, i64 609
   %1 = load i8, ptr %second.i, align 1
   %cmp6.i = icmp eq i8 %1, 1
   %2 = select i1 %cmp.i, i1 %cmp6.i, i1 false
@@ -3855,7 +3777,7 @@ lpad.i.i:                                         ; preds = %.noexc.i
   br label %lpad.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i
-  %date.i = getelementptr inbounds %"struct.proxygen::(anonymous namespace)::FormattedDate", ptr %cond-lvalue.i, i64 0, i32 1
+  %date.i = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 8
   %call9.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %date.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6.i) #23, !noalias !58
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6.i) #23, !noalias !58
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8.i) #23, !noalias !58
@@ -3874,7 +3796,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
   resume { ptr, i32 } %eh.lpad-body.i
 
 _ZN8proxygen12_GLOBAL__N_113FormattedDate10formatDateB5cxx11Ev.exit: ; preds = %_ZN5folly20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS1_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS3_EES5_E3getEv.exit, %invoke.cont.i
-  %date11.i = getelementptr inbounds %"struct.proxygen::(anonymous namespace)::FormattedDate", ptr %cond-lvalue.i, i64 0, i32 1
+  %date11.i = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %date11.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buff.i)
@@ -3891,21 +3813,21 @@ entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 480
   %call = tail call noundef zeroext i1 @_ZNK8proxygen11HTTPHeaders6existsENS_14HTTPHeaderCodeE(ptr noundef nonnull align 8 dereferenceable(32) %headers_, i8 noundef zeroext 38)
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %dstAddress_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1
-  %external_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 2
+  %dstAddress_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 34
   %0 = load i8, ptr %external_.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
-  %family_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 1, i32 0, i32 1, i64 4
+  %family_.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %2 = load i16, ptr %family_.i.i, align 4
   %cmp20 = icmp eq i16 %2, 10
   %cmp = select i1 %tobool.not.i, i1 %cmp20, i1 false
-  %dstIP_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 2
+  %dstIP_.i = getelementptr inbounds i8, ptr %this, i64 40
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then
@@ -3971,7 +3893,7 @@ cond.end:                                         ; preds = %_ZStplIcSt11char_tr
           to label %call.i.i.noexc unwind label %lpad10
 
 call.i.i.noexc:                                   ; preds = %cond.end
-  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i18, i64 38
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i18, i64 1216
   invoke void @_ZN8proxygen11HTTPHeaders17emplace_back_implIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS_14HTTPHeaderCodeEPS7_OT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_, i8 noundef zeroext 38, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -4050,7 +3972,7 @@ entry:
   %status.addr = alloca i16, align 2
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store i16 %status, ptr %status.addr, align 2
-  %fields_15.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %fields_15.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i8, ptr %fields_15.i, align 8
   switch i8 %0, label %_ZN8proxygen11HTTPMessage8responseEv.exit [
     i8 0, label %if.then.i
@@ -4059,11 +3981,11 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i8 2, ptr %fields_15.i, align 8
-  %data_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %data_.i, i8 0, i64 72, i1 false)
-  %statusStr_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
+  %statusStr_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i) #23
-  %statusMsg_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i) #23
   br label %_ZN8proxygen11HTTPMessage8responseEv.exit
 
@@ -4087,7 +4009,7 @@ lpad25.i:                                         ; preds = %if.then24.i
   br label %common.resume
 
 _ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
-  %data_29.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_29.i = getelementptr inbounds i8, ptr %this, i64 176
   store i16 %status, ptr %data_29.i, align 8
   call void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJtEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS8_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSB_EEEE5valueES8_E4typeEDpRKSA_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 2 dereferenceable(2) %status.addr)
   %2 = load i8, ptr %fields_15.i, align 8
@@ -4099,9 +4021,9 @@ _ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
 if.then.i6:                                       ; preds = %_ZN8proxygen11HTTPMessage8responseEv.exit
   store i8 2, ptr %fields_15.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %data_29.i, i8 0, i64 72, i1 false)
-  %statusStr_.i.i8 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
+  %statusStr_.i.i8 = getelementptr inbounds i8, ptr %this, i64 184
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i8) #23
-  %statusMsg_.i.i9 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_.i.i9 = getelementptr inbounds i8, ptr %this, i64 216
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i9) #23
   br label %invoke.cont
 
@@ -4124,7 +4046,7 @@ lpad25.i4:                                        ; preds = %if.then24.i2
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %if.then.i6, %_ZN8proxygen11HTTPMessage8responseEv.exit
-  %statusStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
+  %statusStr_ = getelementptr inbounds i8, ptr %this, i64 184
   %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   ret void
@@ -4251,7 +4173,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN5folly8toAppendI
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i16 @_ZNK8proxygen11HTTPMessage13getStatusCodeEv(ptr noundef nonnull align 8 dereferenceable(616) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fields_15.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %fields_15.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i8, ptr %fields_15.i.i, align 8
   switch i8 %0, label %_ZNK8proxygen11HTTPMessage8responseEv.exit [
     i8 0, label %if.then.i.i
@@ -4260,11 +4182,11 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   store i8 2, ptr %fields_15.i.i, align 8
-  %data_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %data_.i.i, i8 0, i64 72, i1 false)
-  %statusStr_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
+  %statusStr_.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i.i) #23
-  %statusMsg_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i.i) #23
   br label %_ZNK8proxygen11HTTPMessage8responseEv.exit
 
@@ -4284,7 +4206,7 @@ lpad25.i.i:                                       ; preds = %if.then24.i.i
   resume { ptr, i32 } %1
 
 _ZNK8proxygen11HTTPMessage8responseEv.exit:       ; preds = %entry, %if.then.i.i
-  %data_29.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_29.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %2 = load i16, ptr %data_29.i.i, align 8
   ret i16 %2
 }
@@ -4293,7 +4215,7 @@ _ZNK8proxygen11HTTPMessage8responseEv.exit:       ; preds = %entry, %if.then.i.i
 define void @_ZN8proxygen11HTTPMessage17setPushStatusCodeEt(ptr noundef nonnull align 8 dereferenceable(616) %this, i16 noundef zeroext %status) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
-  %pushStatus_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call, i64 0, i32 8
+  %pushStatus_ = getelementptr inbounds i8, ptr %call, i64 200
   store i16 %status, ptr %pushStatus_, align 8
   ret void
 }
@@ -4302,7 +4224,7 @@ entry:
 define void @_ZNK8proxygen11HTTPMessage16getPushStatusStrB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(616) %this) local_unnamed_addr #2 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
-  %pushStatus_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i, i64 0, i32 8
+  %pushStatus_ = getelementptr inbounds i8, ptr %call.i, i64 200
   tail call void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJtEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS8_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSB_EEEE5valueES8_E4typeEDpRKSA_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 2 dereferenceable(2) %pushStatus_)
   ret void
 }
@@ -4311,7 +4233,7 @@ entry:
 define noundef zeroext i16 @_ZNK8proxygen11HTTPMessage17getPushStatusCodeEv(ptr noundef nonnull align 8 dereferenceable(616) %this) local_unnamed_addr #2 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
-  %pushStatus_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i, i64 0, i32 8
+  %pushStatus_ = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i16, ptr %pushStatus_, align 8
   ret i16 %0
 }
@@ -4329,7 +4251,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen11HTTPMessage16setStatusMessageIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fields_15.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %fields_15.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i8, ptr %fields_15.i, align 8
   switch i8 %0, label %_ZN8proxygen11HTTPMessage8responseEv.exit [
     i8 0, label %if.then.i
@@ -4338,11 +4260,11 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i8 2, ptr %fields_15.i, align 8
-  %data_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %data_.i, i8 0, i64 72, i1 false)
-  %statusStr_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
+  %statusStr_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i) #23
-  %statusMsg_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i) #23
   br label %_ZN8proxygen11HTTPMessage8responseEv.exit
 
@@ -4362,7 +4284,7 @@ lpad25.i:                                         ; preds = %if.then24.i
   resume { ptr, i32 } %1
 
 _ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
-  %statusMsg_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_ = getelementptr inbounds i8, ptr %this, i64 216
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_, ptr noundef nonnull align 8 dereferenceable(32) %msg)
   ret void
 }
@@ -4376,10 +4298,10 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %contentLength, ptr %contentLength.addr, align 4
   %0 = load i8, ptr %version, align 1
-  %second = getelementptr inbounds %"struct.std::pair", ptr %version, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %version, i64 1
   %1 = load i8, ptr %second, align 1
   tail call void @_ZN8proxygen11HTTPMessage14setHTTPVersionEhh(ptr noundef nonnull align 8 dereferenceable(616) %this, i8 noundef zeroext %0, i8 noundef zeroext %1)
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 480
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   store ptr %ref.tmp, ptr %ref.tmp.i, align 8, !noalias !62
@@ -4413,10 +4335,10 @@ invoke.cont:                                      ; preds = %call.i.noexc
 if.then:                                          ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i3)
   store ptr @.str.9, ptr %ref.tmp.i3, align 8
-  %e_.i.i = getelementptr inbounds %"class.folly::Range", ptr %ref.tmp.i3, i64 0, i32 1
+  %e_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i3, i64 8
   store ptr getelementptr inbounds ([11 x i8], ptr @.str.9, i64 0, i64 10), ptr %e_.i.i, align 8
   %call.i.i.i = call noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 0)
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i.i, i64 31
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 992
   call void @_ZN8proxygen11HTTPHeaders17emplace_back_implIN5folly5RangeIPKcEEEEvNS_14HTTPHeaderCodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_, i8 noundef zeroext 31, ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i3)
   br label %if.end
@@ -4427,7 +4349,7 @@ lpad:                                             ; preds = %call.i.noexc, %_ZN5
   br label %common.resume
 
 if.end:                                           ; preds = %if.then, %invoke.cont
-  %chunked_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %chunked_.i = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load.i = load i8, ptr %chunked_.i, align 2
   %bf.clear.i5 = and i8 %bf.load.i, -13
   store i8 %bf.clear.i5, ptr %chunked_.i, align 2
@@ -4438,13 +4360,13 @@ if.end:                                           ; preds = %if.then, %invoke.co
 define void @_ZNK8proxygen11HTTPMessage12parseCookiesEv(ptr noundef nonnull align 8 dereferenceable(616) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp2.i.i = alloca %"class.std::function.52", align 8
-  %parsedCookies_10 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedCookies_10 = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load11 = load i8, ptr %parsedCookies_10, align 2
   %bf.set = or i8 %bf.load11, 1
   store i8 %bf.set, ptr %parsedCookies_10, align 2
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 480
   %0 = load ptr, ptr %headers_, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 496
   %tobool.not14.i = icmp eq ptr %0, null
   br i1 %tobool.not14.i, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage12parseCookiesEvE3$_0EEbNS_14HTTPHeaderCodeET_.exit", label %while.body.lr.ph.i
 
@@ -4452,9 +4374,9 @@ while.body.lr.ph.i:                               ; preds = %entry
   %1 = load i64, ptr %capacity_.i.i, align 8
   %mul.i.i.i = mul i64 %1, 40
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 %mul.i.i.i
-  %length_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9, i32 1
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp2.i.i, i64 0, i32 1
-  %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function.52", ptr %agg.tmp2.i.i, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 488
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i, i64 16
+  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp2.i.i, i64 8
   %3 = ptrtoint ptr %this to i64
   %4 = load i64, ptr %length_.i, align 8
@@ -4544,8 +4466,8 @@ _ZNSt8functionIFvN5folly5RangeIPKcEES4_EED2Ev.exit7.i.i: ; preds = %if.then.i.i4
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZNK8proxygen11HTTPMessage14unparseCookiesEv(ptr noundef nonnull align 8 dereferenceable(616) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cookies_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %cookies_ = getelementptr inbounds i8, ptr %this, i64 384
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 400
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %cookies_, ptr noundef %0)
           to label %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE5clearEv.exit unwind label %terminate.lpad.i.i
@@ -4558,15 +4480,15 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE5clearEv.exit: ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 392
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
-  %_M_left.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 408
   store ptr %add.ptr.i.i, ptr %_M_left.i.i.i, align 8
-  %_M_right.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   store ptr %add.ptr.i.i, ptr %_M_right.i.i.i, align 8
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
   store i64 0, ptr %_M_node_count.i.i.i, align 8
-  %parsedCookies_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedCookies_ = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load = load i8, ptr %parsedCookies_, align 2
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %parsedCookies_, align 2
@@ -4577,8 +4499,8 @@ _ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE5clearEv.exit: 
 define { ptr, ptr } @_ZNK8proxygen11HTTPMessage9getCookieERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::Range", align 8
-  %cookies_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %cookies_.i = getelementptr inbounds i8, ptr %this, i64 384
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 400
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %cookies_.i, ptr noundef %0)
           to label %if.end unwind label %terminate.lpad.i.i.i
@@ -4591,22 +4513,22 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %add.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 392
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 408
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i, align 8
-  %_M_right.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
   store i64 0, ptr %_M_node_count.i.i.i.i, align 8
-  %parsedCookies_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedCookies_.i = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load.i = load i8, ptr %parsedCookies_.i, align 2
   %bf.clear.i = and i8 %bf.load.i, -2
   store i8 %bf.clear.i, ptr %parsedCookies_.i, align 2
   tail call void @_ZNK8proxygen11HTTPMessage12parseCookiesEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #23
   store ptr %call.i, ptr %ref.tmp, align 8
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %ref.tmp, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %call3.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #23
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %call3.i
   store ptr %add.ptr.i, ptr %e_.i, align 8
@@ -4615,9 +4537,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %return, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %call.i1, i64 0, i32 1, i32 0, i64 16
+  %second = getelementptr inbounds i8, ptr %call.i1, i64 48
   %retval.sroa.0.0.copyload = load ptr, ptr %second, align 8
-  %retval.sroa.3.0.second.sroa_idx = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %call.i1, i64 0, i32 1, i32 0, i64 24
+  %retval.sroa.3.0.second.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 56
   %retval.sroa.3.0.copyload = load ptr, ptr %retval.sroa.3.0.second.sroa_idx, align 8
   br label %return
 
@@ -4634,20 +4556,20 @@ define void @_ZNK8proxygen11HTTPMessage16parseQueryParamsEv(ptr noundef nonnull 
 entry:
   %agg.tmp16 = alloca %"class.std::function", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
-  %parsedQueryParams_11 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedQueryParams_11 = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load12 = load i8, ptr %parsedQueryParams_11, align 2
   %bf.set = or i8 %bf.load12, 2
   store i8 %bf.set, ptr %parsedQueryParams_11, align 2
-  %query_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i, i64 0, i32 4
+  %query_ = getelementptr inbounds i8, ptr %call.i, i64 136
   %0 = load ptr, ptr %query_, align 8
-  %e_.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i, i64 0, i32 4, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %call.i, i64 144
   %1 = load ptr, ptr %e_.i, align 8
   %cmp.i = icmp eq ptr %0, %1
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp16, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp16, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp16, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp16, i64 24
   %2 = getelementptr inbounds i8, ptr %agg.tmp16, i64 8
   store i64 0, ptr %2, align 8
   %3 = ptrtoint ptr %this to i64
@@ -4718,11 +4640,11 @@ if.end.i.i.lr.ph:                                 ; preds = %entry
   %conv.i.i = sext i8 %pairDelim to i32
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %input.coerce1 to i64
   %conv.i.i31 = sext i8 %valueDelim to i32
-  %m_Locale.i.i.i81 = getelementptr inbounds %"struct.boost::algorithm::detail::is_classifiedF", ptr %agg.tmp.i80, i64 0, i32 1
-  %m_Locale.i.i.i86 = getelementptr inbounds %"struct.boost::algorithm::detail::is_classifiedF", ptr %agg.tmp.i85, i64 0, i32 1
-  %_M_manager.i.i91 = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
-  %_M_invoker.i94 = getelementptr inbounds %"class.std::function", ptr %callback, i64 0, i32 1
-  %m_Locale.i.i.i = getelementptr inbounds %"struct.boost::algorithm::detail::is_classifiedF", ptr %agg.tmp.i, i64 0, i32 1
+  %m_Locale.i.i.i81 = getelementptr inbounds i8, ptr %agg.tmp.i80, i64 8
+  %m_Locale.i.i.i86 = getelementptr inbounds i8, ptr %agg.tmp.i85, i64 8
+  %_M_manager.i.i91 = getelementptr inbounds i8, ptr %callback, i64 16
+  %_M_invoker.i94 = getelementptr inbounds i8, ptr %callback, i64 24
+  %m_Locale.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i.i.lr.ph, %while.cond.backedge
@@ -4975,8 +4897,8 @@ while.end:                                        ; preds = %while.cond.backedge
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen11HTTPMessage18unparseQueryParamsEv(ptr noundef nonnull align 8 dereferenceable(616) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %queryParams_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %queryParams_ = getelementptr inbounds i8, ptr %this, i64 432
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %queryParams_, ptr noundef %0)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE5clearEv.exit unwind label %terminate.lpad.i.i
@@ -4989,15 +4911,15 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE5clearEv.exit: ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 440
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
-  %_M_left.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 456
   store ptr %add.ptr.i.i, ptr %_M_left.i.i.i, align 8
-  %_M_right.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
   store ptr %add.ptr.i.i, ptr %_M_right.i.i.i, align 8
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 472
   store i64 0, ptr %_M_node_count.i.i.i, align 8
-  %parsedQueryParams_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedQueryParams_ = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load = load i8, ptr %parsedQueryParams_, align 2
   %bf.clear = and i8 %bf.load, -3
   store i8 %bf.clear, ptr %parsedQueryParams_, align 2
@@ -5007,7 +4929,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK8proxygen11HTTPMessage16getQueryParamPtrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %parsedQueryParams_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedQueryParams_ = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load = load i8, ptr %parsedQueryParams_, align 2
   %0 = and i8 %bf.load, 2
   %bf.cast.not = icmp eq i8 %0, 0
@@ -5018,16 +4940,16 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
   %1 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 440
   %cmp.not6.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not6.i.i.i, label %return, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %__x.addr.08.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %1, %if.end ]
   %__y.addr.07.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %add.ptr.i.i.i, %if.end ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 32
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -5040,10 +4962,9 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %while.body.i.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.07.i.i.i, ptr %__x.addr.08.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %while.body.i.i.i, !llvm.loop !93
@@ -5053,7 +4974,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br i1 %cmp.i.i.i, label %return, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %call.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i3.i.i)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -5066,7 +4987,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lor.lhs.false.i.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit: ; preds = %lor.lhs.false.i.i
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 32
+  %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 64
   %spec.select = select i1 %cmp.i.i.i.i, ptr null, ptr %second
   br label %return
 
@@ -5078,7 +4999,7 @@ return:                                           ; preds = %_ZNSt3mapINSt7__cxx
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK8proxygen11HTTPMessage13hasQueryParamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %parsedQueryParams_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedQueryParams_.i = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load.i = load i8, ptr %parsedQueryParams_.i, align 2
   %0 = and i8 %bf.load.i, 2
   %bf.cast.not.i = icmp eq i8 %0, 0
@@ -5089,16 +5010,16 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 440
   %cmp.not6.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not6.i.i.i.i, label %_ZNK8proxygen11HTTPMessage16getQueryParamPtrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
   %__x.addr.08.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %1, %if.end.i ]
   %__y.addr.07.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end.i ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 32
   %call.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
@@ -5111,10 +5032,9 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i, 0
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.07.i.i.i.i, ptr %__x.addr.08.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !93
@@ -5124,7 +5044,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br i1 %cmp.i.i.i.i, label %_ZNK8proxygen11HTTPMessage16getQueryParamPtrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i
-  %_M_storage.i.i.i3.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i3.i.i.i)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -5147,7 +5067,7 @@ _ZNK8proxygen11HTTPMessage16getQueryParamPtrERKNSt7__cxx1112basic_stringIcSt11ch
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8proxygen11HTTPMessage13getQueryParamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %parsedQueryParams_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedQueryParams_.i = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load.i = load i8, ptr %parsedQueryParams_.i, align 2
   %0 = and i8 %bf.load.i, 2
   %bf.cast.not.i = icmp eq i8 %0, 0
@@ -5158,16 +5078,16 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 440
   %cmp.not6.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not6.i.i.i.i, label %_ZNK8proxygen11HTTPMessage16getQueryParamPtrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
   %__x.addr.08.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %1, %if.end.i ]
   %__y.addr.07.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end.i ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 32
   %call.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
@@ -5180,10 +5100,9 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i, 0
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.07.i.i.i.i, ptr %__x.addr.08.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !93
@@ -5193,7 +5112,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br i1 %cmp.i.i.i.i, label %_ZNK8proxygen11HTTPMessage16getQueryParamPtrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i
-  %_M_storage.i.i.i3.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i3.i.i.i)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -5206,7 +5125,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.i: ; preds = %lor.lhs.false.i.i.i
   %cmp.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 32
+  %second.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 64
   %spec.select.i = select i1 %cmp.i.i.i.i.i, ptr null, ptr %second.i
   br label %_ZNK8proxygen11HTTPMessage16getQueryParamPtrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -5378,11 +5297,11 @@ terminate.lpad:                                   ; preds = %ehcleanup17
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5follylsIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEERSt13basic_ostreamINS_14basic_fbstringIT_T0_T1_T2_E10value_typeENSC_11traits_typeEESG_RKSC_(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(24) %str) local_unnamed_addr #2 comdat {
 entry:
   %0 = load ptr, ptr %str, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds [24 x i8], ptr %str, i64 0, i64 23
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 23
   %1 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %cmp.i.i.i = icmp ult i8 %1, 64
   %cond.i.i.i = select i1 %cmp.i.i.i, ptr %str, ptr %0
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %str, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %str, i64 8
   %2 = load i64, ptr %size_.i.i, align 8
   %conv.i.i = zext i8 %1 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
@@ -5399,7 +5318,7 @@ declare void @_ZN5folly12exceptionStrERKSt9exception(ptr sret(%"class.folly::bas
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 23
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %arrayidx.i.i, align 1
   %1 = and i8 %0, -64
   %cmp.i = icmp eq i8 %1, 0
@@ -5431,7 +5350,7 @@ _ZN5folly13fbstring_coreIcED2Ev.exit:             ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK8proxygen11HTTPMessage14getQueryParamsB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(616) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %parsedQueryParams_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedQueryParams_ = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load = load i8, ptr %parsedQueryParams_, align 2
   %0 = and i8 %bf.load, 2
   %bf.cast.not = icmp eq i8 %0, 0
@@ -5442,7 +5361,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %queryParams_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8
+  %queryParams_ = getelementptr inbounds i8, ptr %this, i64 432
   ret ptr %queryParams_
 }
 
@@ -5464,22 +5383,22 @@ entry:
   %agg.tmp20 = alloca %"class.folly::Range", align 8
   %agg.tmp22 = alloca %"class.folly::Range", align 16
   %call = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
-  %url_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call, i64 0, i32 7
+  %url_ = getelementptr inbounds i8, ptr %call, i64 168
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %url_) #23
   %call3.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %url_) #23
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %call3.i
   call void @_ZN8proxygen8ParseURL8parseURLEN5folly5RangeIPKcEEb(ptr nonnull sret(%"class.folly::Expected") align 8 %u, ptr %call.i, ptr %add.ptr.i, i1 noundef zeroext false) #23
-  %which_.i.i = getelementptr inbounds %"struct.folly::expected_detail::ExpectedUnion", ptr %u, i64 0, i32 1
+  %which_.i.i = getelementptr inbounds i8, ptr %u, i64 152
   %0 = load i8, ptr %which_.i.i, align 8
   %cmp.i.i = icmp eq i8 %0, 1
   br i1 %cmp.i.i, label %invoke.cont10, label %_ZN5folly8ExpectedIN8proxygen8ParseURLENS_4UnitEED2Ev.exit
 
 invoke.cont10:                                    ; preds = %entry
-  %scheme_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %u, i64 0, i32 1
+  %scheme_.i = getelementptr inbounds i8, ptr %u, i64 16
   %retval.sroa.0.0.copyload.i = load ptr, ptr %scheme_.i, align 8
-  %retval.sroa.2.0.scheme_.sroa_idx.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %u, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.scheme_.sroa_idx.i = getelementptr inbounds i8, ptr %u, i64 24
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.scheme_.sroa_idx.i, align 8
-  %authority_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %u, i64 0, i32 2
+  %authority_.i = getelementptr inbounds i8, ptr %u, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %authority_.i)
           to label %invoke.cont12 unwind label %lpad
 
@@ -5494,12 +5413,12 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   ]
 
 invoke.cont16:                                    ; preds = %invoke.cont12
-  %path_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %u, i64 0, i32 5
+  %path_.i = getelementptr inbounds i8, ptr %u, i64 96
   %2 = load <2 x ptr>, ptr %path_.i, align 8
   store <2 x ptr> %2, ptr %agg.tmp15, align 16
   %call.i26 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %query) #23
   store ptr %call.i26, ptr %agg.tmp20, align 8
-  %e_.i27 = getelementptr inbounds %"class.folly::Range", ptr %agg.tmp20, i64 0, i32 1
+  %e_.i27 = getelementptr inbounds i8, ptr %agg.tmp20, i64 8
   %call3.i28 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %query) #23
   %add.ptr.i29 = getelementptr inbounds i8, ptr %call.i26, i64 %call3.i28
   store ptr %add.ptr.i29, ptr %e_.i27, align 8
@@ -5524,7 +5443,7 @@ if.end.i.i.i32.cont:                              ; preds = %if.end.i.i.i32.invo
   unreachable
 
 invoke.cont23:                                    ; preds = %invoke.cont16
-  %fragment_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %u, i64 0, i32 7
+  %fragment_.i = getelementptr inbounds i8, ptr %u, i64 128
   %4 = load <2 x ptr>, ptr %fragment_.i, align 8
   store <2 x ptr> %4, ptr %agg.tmp22, align 16
   invoke void @_ZN8proxygen11HTTPMessage9createUrlB5cxx11EN5folly5RangeIPKcEES5_S5_S5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, ptr %call.i12, ptr %add.ptr.i15, ptr noundef nonnull byval(%"class.folly::Range") align 8 %agg.tmp15, ptr noundef nonnull byval(%"class.folly::Range") align 8 %agg.tmp20, ptr noundef nonnull byval(%"class.folly::Range") align 8 %agg.tmp22)
@@ -5535,7 +5454,7 @@ invoke.cont27:                                    ; preds = %invoke.cont23
           to label %call.i40.noexc unwind label %lpad29
 
 call.i40.noexc:                                   ; preds = %invoke.cont27
-  %url_.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i4042, i64 0, i32 7
+  %url_.i = getelementptr inbounds i8, ptr %call.i4042, i64 168
   %call3.i41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %url_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23, !noalias !94
   invoke void @_ZN8proxygen11HTTPMessage18setURLImplInternalEbb(ptr nonnull sret(%"class.proxygen::ParseURL") align 8 %res, ptr noundef nonnull align 8 dereferenceable(616) %this, i1 noundef zeroext %unparse, i1 noundef zeroext %strict)
           to label %invoke.cont30 unwind label %lpad29
@@ -5543,13 +5462,13 @@ call.i40.noexc:                                   ; preds = %invoke.cont27
 invoke.cont30:                                    ; preds = %call.i40.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #23
-  %valid_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %res, i64 0, i32 9
+  %valid_.i = getelementptr inbounds i8, ptr %res, i64 146
   %5 = load i8, ptr %valid_.i, align 2
   %6 = and i8 %5, 1
   %tobool.i = icmp ne i8 %6, 0
   %not.strict = xor i1 %strict, true
   %7 = select i1 %not.strict, i1 true, i1 %tobool.i
-  %authority_.i44 = getelementptr inbounds %"class.proxygen::ParseURL", ptr %res, i64 0, i32 2
+  %authority_.i44 = getelementptr inbounds i8, ptr %res, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %authority_.i44) #23
   %.pr = load i8, ptr %which_.i.i, align 8
   %cond.i.i.i = icmp eq i8 %.pr, 1
@@ -5602,18 +5521,18 @@ _ZN5folly8ExpectedIN8proxygen8ParseURLENS_4UnitEED2Ev.exit49: ; preds = %ehclean
 define linkonce_odr void @_ZN8proxygen8ParseURL8parseURLEN5folly5RangeIPKcEEb(ptr noalias sret(%"class.folly::Expected") align 8 %agg.result, ptr %urlVal.coerce0, ptr %urlVal.coerce1, i1 noundef zeroext %strict) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parseUrl = alloca %"class.proxygen::ParseURL", align 8
-  %authority_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %parseUrl, i64 0, i32 2
+  %authority_.i = getelementptr inbounds i8, ptr %parseUrl, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %parseUrl, i8 0, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %authority_.i) #23
-  %host_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %parseUrl, i64 0, i32 3
-  %initialized_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %parseUrl, i64 0, i32 10
+  %host_.i = getelementptr inbounds i8, ptr %parseUrl, i64 64
+  %initialized_.i = getelementptr inbounds i8, ptr %parseUrl, i64 147
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %host_.i, i8 0, i64 84, i1 false)
   store ptr %urlVal.coerce0, ptr %parseUrl, align 8
   %urlVal.sroa.2.0.url_.sroa_idx.i.i = getelementptr inbounds i8, ptr %parseUrl, i64 8
   store ptr %urlVal.coerce1, ptr %urlVal.sroa.2.0.url_.sroa_idx.i.i, align 8
   call void @_ZN8proxygen8ParseURL5parseEb(ptr noundef nonnull align 8 dereferenceable(148) %parseUrl, i1 noundef zeroext %strict) #23
   store i8 1, ptr %initialized_.i, align 1
-  %valid_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %parseUrl, i64 0, i32 9
+  %valid_.i = getelementptr inbounds i8, ptr %parseUrl, i64 146
   %0 = load i8, ptr %valid_.i, align 2
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -5621,31 +5540,31 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %parseUrl, i64 16, i1 false)
-  %scheme_.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 1
-  %scheme_3.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %parseUrl, i64 0, i32 1
+  %scheme_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %scheme_3.i.i.i.i = getelementptr inbounds i8, ptr %parseUrl, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scheme_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %scheme_3.i.i.i.i, i64 16, i1 false)
-  %authority_.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 2
+  %authority_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %authority_.i.i.i.i) #23
-  %host_.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 3
-  %path_.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 5
-  %path_5.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %parseUrl, i64 0, i32 5
+  %host_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
+  %path_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
+  %path_5.i.i.i.i = getelementptr inbounds i8, ptr %parseUrl, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %host_.i.i.i.i, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %path_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %path_5.i.i.i.i, i64 16, i1 false)
-  %query_.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 6
-  %query_6.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %parseUrl, i64 0, i32 6
+  %query_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 112
+  %query_6.i.i.i.i = getelementptr inbounds i8, ptr %parseUrl, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %query_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %query_6.i.i.i.i, i64 16, i1 false)
-  %fragment_.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 7
-  %fragment_7.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %parseUrl, i64 0, i32 7
+  %fragment_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 128
+  %fragment_7.i.i.i.i = getelementptr inbounds i8, ptr %parseUrl, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fragment_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %fragment_7.i.i.i.i, i64 16, i1 false)
-  %port_.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 8
-  %port_8.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %parseUrl, i64 0, i32 8
+  %port_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 144
+  %port_8.i.i.i.i = getelementptr inbounds i8, ptr %parseUrl, i64 144
   %2 = load i16, ptr %port_8.i.i.i.i, align 8
   store i16 %2, ptr %port_.i.i.i.i, align 8
-  %valid_.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 9
+  %valid_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 146
   %3 = load i8, ptr %valid_.i, align 2
   %4 = and i8 %3, 1
   store i8 %4, ptr %valid_.i.i.i.i, align 2
-  %initialized_.i.i.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 10
+  %initialized_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 147
   %5 = load i8, ptr %initialized_.i, align 1
   %6 = and i8 %5, 1
   store i8 %6, ptr %initialized_.i.i.i.i, align 1
@@ -5662,7 +5581,7 @@ lpad.i.i.i.i:                                     ; preds = %if.then
 
 cleanup:                                          ; preds = %entry, %if.then
   %.sink = phi i8 [ 1, %if.then ], [ 2, %entry ]
-  %which_.i.i.i1 = getelementptr inbounds %"struct.folly::expected_detail::ExpectedUnion", ptr %agg.result, i64 0, i32 1
+  %which_.i.i.i1 = getelementptr inbounds i8, ptr %agg.result, i64 152
   store i8 %.sink, ptr %which_.i.i.i1, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %authority_.i) #23
   ret void
@@ -5680,19 +5599,19 @@ entry:
   %sub.ptr.lhs.cast.i3 = ptrtoint ptr %authority.coerce1 to i64
   %sub.ptr.rhs.cast.i4 = ptrtoint ptr %authority.coerce0 to i64
   %sub.ptr.sub.i5 = sub i64 %sub.ptr.lhs.cast.i3, %sub.ptr.rhs.cast.i4
-  %e_.i6 = getelementptr inbounds %"class.folly::Range", ptr %path, i64 0, i32 1
+  %e_.i6 = getelementptr inbounds i8, ptr %path, i64 8
   %0 = load ptr, ptr %e_.i6, align 8
   %1 = load ptr, ptr %path, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i8
-  %e_.i10 = getelementptr inbounds %"class.folly::Range", ptr %query, i64 0, i32 1
+  %e_.i10 = getelementptr inbounds i8, ptr %query, i64 8
   %2 = load ptr, ptr %e_.i10, align 8
   %3 = load ptr, ptr %query, align 8
   %sub.ptr.lhs.cast.i11 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i12 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i11, %sub.ptr.rhs.cast.i12
-  %e_.i14 = getelementptr inbounds %"class.folly::Range", ptr %fragment, i64 0, i32 1
+  %e_.i14 = getelementptr inbounds i8, ptr %fragment, i64 8
   %4 = load ptr, ptr %e_.i14, align 8
   %5 = load ptr, ptr %fragment, align 8
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %4 to i64
@@ -5793,7 +5712,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i, %l
 define noundef zeroext i1 @_ZN8proxygen11HTTPMessage16removeQueryParamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %query = alloca %"class.std::__cxx11::basic_string", align 8
-  %parsedQueryParams_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedQueryParams_ = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load = load i8, ptr %parsedQueryParams_, align 2
   %0 = and i8 %bf.load, 2
   %bf.cast.not = icmp eq i8 %0, 0
@@ -5804,11 +5723,11 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %queryParams_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8
+  %queryParams_ = getelementptr inbounds i8, ptr %this, i64 432
   %call.i.i = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE11equal_rangeERS7_(ptr noundef nonnull align 8 dereferenceable(48) %queryParams_, ptr noundef nonnull align 8 dereferenceable(32) %name)
   %1 = extractvalue { ptr, ptr } %call.i.i, 0
   %2 = extractvalue { ptr, ptr } %call.i.i, 1
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 472
   %3 = load i64, ptr %_M_node_count.i.i.i, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_ESG_(ptr noundef nonnull align 8 dereferenceable(48) %queryParams_, ptr %1, ptr %2)
   %4 = load i64, ptr %_M_node_count.i.i.i, align 8
@@ -5817,8 +5736,8 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.end3:                                          ; preds = %if.end
   %call5 = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
-  %query_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call5, i64 0, i32 4
-  %e_.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call5, i64 0, i32 4, i32 1
+  %query_ = getelementptr inbounds i8, ptr %call5, i64 136
+  %e_.i = getelementptr inbounds i8, ptr %call5, i64 144
   %5 = load ptr, ptr %e_.i, align 8
   %6 = load ptr, ptr %query_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
@@ -5882,7 +5801,7 @@ lpad.loopexit.split-lp:                           ; preds = %entry
   br label %ehcleanup22
 
 if.end:                                           ; preds = %if.then, %for.body
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.017, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.017, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
           to label %.noexc unwind label %lpad.loopexit
 
@@ -5897,7 +5816,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup22
 
 invoke.cont13:                                    ; preds = %.noexc
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.017, i64 0, i32 1, i32 0, i64 32
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.017, i64 64
   %call.i89 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %second)
           to label %invoke.cont16 unwind label %lpad15
 
@@ -5943,7 +5862,7 @@ ehcleanup22:                                      ; preds = %lpad.loopexit, %lpa
 define noundef zeroext i1 @_ZN8proxygen11HTTPMessage13setQueryParamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %value, i1 noundef zeroext %strict) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %query = alloca %"class.std::__cxx11::basic_string", align 8
-  %parsedQueryParams_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedQueryParams_ = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load = load i8, ptr %parsedQueryParams_, align 2
   %0 = and i8 %bf.load, 2
   %bf.cast.not = icmp eq i8 %0, 0
@@ -5954,12 +5873,12 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %queryParams_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8
+  %queryParams_ = getelementptr inbounds i8, ptr %this, i64 432
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %queryParams_, ptr noundef nonnull align 8 dereferenceable(32) %name)
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %value)
   %call4 = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
-  %query_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call4, i64 0, i32 4
-  %e_.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call4, i64 0, i32 4, i32 1
+  %query_ = getelementptr inbounds i8, ptr %call4, i64 136
+  %e_.i = getelementptr inbounds i8, ptr %call4, i64 144
   %1 = load ptr, ptr %e_.i, align 8
   %2 = load ptr, ptr %query_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -5995,7 +5914,7 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %__x.addr.08.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %0, %entry ]
   %__y.addr.07.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 32
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -6008,10 +5927,9 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %while.body.i.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.07.i.i.i, ptr %__x.addr.08.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit, label %while.body.i.i.i, !llvm.loop !93
@@ -6021,7 +5939,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br i1 %cmp.i, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %call.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit unwind label %terminate.lpad.i.i
 
@@ -6044,7 +5962,7 @@ if.then:                                          ; preds = %entry, %_ZNSt3mapIN
 
 if.end:                                           ; preds = %if.then, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
   %__i.sroa.0.0 = phi ptr [ %call12, %if.then ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ]
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0, i64 0, i32 1, i32 0, i64 32
+  %second = getelementptr inbounds i8, ptr %__i.sroa.0.0, i64 64
   ret ptr %second
 }
 
@@ -6069,11 +5987,11 @@ if.end.i.i.lr.ph:                                 ; preds = %entry
   %conv.i.i = sext i8 %pairDelim to i32
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %sp.coerce1 to i64
   %conv.i.i28 = sext i8 %valueDelim to i32
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %__args.i118, i64 0, i32 1
-  %1 = getelementptr inbounds { ptr, ptr }, ptr %__args4.i119, i64 0, i32 1
-  %_M_manager.i.i120 = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
-  %_M_invoker.i122 = getelementptr inbounds %"class.std::function.52", ptr %callback, i64 0, i32 1
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %__args.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %__args.i118, i64 8
+  %1 = getelementptr inbounds i8, ptr %__args4.i119, i64 8
+  %_M_manager.i.i120 = getelementptr inbounds i8, ptr %callback, i64 16
+  %_M_invoker.i122 = getelementptr inbounds i8, ptr %callback, i64 24
+  %2 = getelementptr inbounds i8, ptr %__args.i, i64 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i.i.lr.ph, %while.cond.backedge
@@ -6369,7 +6287,7 @@ entry:
   %ref.tmp78 = alloca [2 x %"struct.std::pair.58"], align 8
   %ref.tmp107 = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.16)
-  %chunked_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %chunked_ = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load = load i8, ptr %chunked_, align 2
   %0 = and i8 %bf.load, 4
   %bf.cast = icmp ne i8 %0, 0
@@ -6380,7 +6298,7 @@ entry:
   %bf.cast7 = icmp ne i8 %1, 0
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call3, i1 noundef zeroext %bf.cast7)
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call8, ptr noundef nonnull @.str.18)
-  %scheme_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 24
+  %scheme_.i = getelementptr inbounds i8, ptr %this, i64 612
   %2 = load i32, ptr %scheme_.i, align 4
   %switch.selectcmp.i = icmp eq i32 %2, 1
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @_ZN8proxygen7headers6kHttpsB5cxx11E, ptr @_ZN8proxygen7headers5kHttpB5cxx11E
@@ -6389,16 +6307,16 @@ entry:
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(32) %switch.select2.i)
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.19)
   %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %localIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 4
+  %localIP_ = getelementptr inbounds i8, ptr %this, i64 104
   %call.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %localIP_) #23
   %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %localIP_) #23
-  %versionStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 5
+  %versionStr_ = getelementptr inbounds i8, ptr %this, i64 136
   %call.i.i20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_) #23
   %call3.i.i22 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_) #23
-  %dstIP_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 2
+  %dstIP_ = getelementptr inbounds i8, ptr %this, i64 40
   %call.i.i25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %dstIP_) #23
   %call3.i.i27 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %dstIP_) #23
-  %dstPort_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 3
+  %dstPort_ = getelementptr inbounds i8, ptr %this, i64 72
   %call.i.i30 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %dstPort_) #23
   %call3.i.i32 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %dstPort_) #23
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #33
@@ -6407,8 +6325,8 @@ entry:
   %add.ptr.i.i23 = getelementptr inbounds i8, ptr %call.i.i20, i64 %call3.i.i22
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %call3.i.i
   store ptr %call5.i.i.i.i2.i, ptr %fields, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"struct.std::pair.58", ptr %call5.i.i.i.i2.i, i64 4
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<const char *, folly::Range<const char *>>, std::allocator<std::pair<const char *, folly::Range<const char *>>>>::_Vector_impl_data", ptr %fields, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 96
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %fields, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store ptr @.str.20, ptr %call5.i.i.i.i2.i, align 8
   %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
@@ -6433,10 +6351,10 @@ entry:
   store ptr %call.i.i30, ptr %ref.tmp.sroa.11.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.12.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 88
   store ptr %add.ptr.i.i33, ptr %ref.tmp.sroa.12.0.call5.i.i.i.i2.i.sroa_idx, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<const char *, folly::Range<const char *>>, std::allocator<std::pair<const char *, folly::Range<const char *>>>>::_Vector_impl_data", ptr %fields, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %fields, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pushStatusMessage) #23
-  %fields_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %fields_.i = getelementptr inbounds i8, ptr %this, i64 168
   %3 = load i8, ptr %fields_.i, align 8
   switch i8 %3, label %if.end91 [
     i8 1, label %if.then
@@ -6452,7 +6370,7 @@ invoke.cont20:                                    ; preds = %if.then
           to label %call.i.i35.noexc unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i35.noexc:                                 ; preds = %invoke.cont20
-  %pushStatus_.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i.i3536, i64 0, i32 8
+  %pushStatus_.i = getelementptr inbounds i8, ptr %call.i.i3536, i64 200
   invoke void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJtEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS8_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSB_EEEE5valueES8_E4typeEDpRKSA_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp22, ptr noundef nonnull align 2 dereferenceable(2) %pushStatus_.i)
           to label %invoke.cont23 unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -6460,31 +6378,31 @@ invoke.cont23:                                    ; preds = %call.i.i35.noexc
   %call24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %pushStatusMessage, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #23
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %clientIPPort_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i34, i64 0, i32 1
-  %hasValue.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i34, i64 0, i32 1, i32 0, i32 1
+  %clientIPPort_ = getelementptr inbounds i8, ptr %call.i34, i64 32
+  %hasValue.i.i = getelementptr inbounds i8, ptr %call.i34, i64 96
   %5 = load i8, ptr %hasValue.i.i, align 8
   %6 = and i8 %5, 1
   %tobool.i.i.not = icmp eq i8 %6, 0
   %spec.select = select i1 %tobool.i.i.not, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %clientIPPort_
   store ptr @.str.24, ptr %ref.tmp29, align 8
-  %second.i38 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 0, i32 1
+  %second.i38 = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   %call.i.i39 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %spec.select) #23
   store ptr %call.i.i39, ptr %second.i38, align 8
-  %e_.i.i40 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 0, i32 1, i32 1
+  %e_.i.i40 = getelementptr inbounds i8, ptr %ref.tmp29, i64 16
   %call3.i.i41 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %spec.select) #23
   %add.ptr.i.i42 = getelementptr inbounds i8, ptr %call.i.i39, i64 %call3.i.i41
   store ptr %add.ptr.i.i42, ptr %e_.i.i40, align 8
-  %arrayinit.element36 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 1
+  %arrayinit.element36 = getelementptr inbounds i8, ptr %ref.tmp29, i64 24
   %7 = load i8, ptr %hasValue.i.i, align 8
   %8 = and i8 %7, 1
   %tobool.i.i44.not = icmp eq i8 %8, 0
-  %port = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i34, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %port = getelementptr inbounds i8, ptr %call.i34, i64 64
   %cond-lvalue45 = select i1 %tobool.i.i44.not, ptr @_ZN8proxygen12empty_stringB5cxx11E, ptr %port
   store ptr @.str.25, ptr %arrayinit.element36, align 8
-  %second.i50 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 1, i32 1
+  %second.i50 = getelementptr inbounds i8, ptr %ref.tmp29, i64 32
   %call.i.i51 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue45) #23
   store ptr %call.i.i51, ptr %second.i50, align 8
-  %e_.i.i52 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 1, i32 1, i32 1
+  %e_.i.i52 = getelementptr inbounds i8, ptr %ref.tmp29, i64 40
   %call3.i.i53 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue45) #23
   %add.ptr.i.i54 = getelementptr inbounds i8, ptr %call.i.i51, i64 %call3.i.i53
   store ptr %add.ptr.i.i54, ptr %e_.i.i52, align 8
@@ -6492,7 +6410,7 @@ invoke.cont23:                                    ; preds = %call.i.i35.noexc
           to label %call.i.i55.noexc unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i55.noexc:                                 ; preds = %invoke.cont23
-  %method_.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i.i5556, i64 0, i32 2
+  %method_.i = getelementptr inbounds i8, ptr %call.i.i5556, i64 104
   %9 = load i32, ptr %method_.i, align 8
   %.lobit.i.i = ashr i32 %9, 31
   %retval.0.i.i = xor i32 %.lobit.i.i, %9
@@ -6502,7 +6420,7 @@ call.i.i55.noexc:                                 ; preds = %invoke.cont23
   ]
 
 _ZN5boost3getISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EENS_5blankEJSA_N8proxygen10HTTPMethodEEEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit.i: ; preds = %call.i.i55.noexc
-  %storage_.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i.i5556, i64 0, i32 2, i32 2
+  %storage_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i5556, i64 112
   %10 = load ptr, ptr %storage_.i.i.i.i.i.i.i, align 8
   br label %invoke.cont60
 
@@ -6527,7 +6445,7 @@ lpad.i.i.i9.i:                                    ; preds = %if.then.i.i.i8.i
   br label %ehcleanup
 
 _ZN5boost3getIN8proxygen10HTTPMethodENS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EES2_EEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit.i: ; preds = %if.then9.i
-  %storage_.i.i.i.i.i.i7.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i.i5556, i64 0, i32 2, i32 2
+  %storage_.i.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %call.i.i5556, i64 112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i6.i)
   %13 = load i32, ptr %storage_.i.i.i.i.i.i7.i, align 8
   %call12.i58 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen14methodToStringB5cxx11ENS_10HTTPMethodE(i32 noundef %13)
@@ -6535,41 +6453,41 @@ _ZN5boost3getIN8proxygen10HTTPMethodENS_5blankEJSt10unique_ptrINSt7__cxx1112basi
 
 invoke.cont60:                                    ; preds = %_ZN5boost3getIN8proxygen10HTTPMethodENS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EES2_EEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit.i, %call.i.i55.noexc, %_ZN5boost3getISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EENS_5blankEJSA_N8proxygen10HTTPMethodEEEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit.i
   %retval.0.i = phi ptr [ %10, %_ZN5boost3getISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EENS_5blankEJSA_N8proxygen10HTTPMethodEEEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit.i ], [ @_ZN8proxygen12empty_stringB5cxx11E, %call.i.i55.noexc ], [ %call12.i58, %_ZN5boost3getIN8proxygen10HTTPMethodENS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EES2_EEENS_13add_referenceIT_E4typeERNS_7variantIT0_JDpT1_EEE.exit.i ]
-  %arrayinit.element47 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 2
+  %arrayinit.element47 = getelementptr inbounds i8, ptr %ref.tmp29, i64 48
   store ptr @.str.26, ptr %arrayinit.element47, align 8
-  %second.i59 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 2, i32 1
+  %second.i59 = getelementptr inbounds i8, ptr %ref.tmp29, i64 56
   %call.i.i60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i) #23
   store ptr %call.i.i60, ptr %second.i59, align 8
-  %e_.i.i61 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 2, i32 1, i32 1
+  %e_.i.i61 = getelementptr inbounds i8, ptr %ref.tmp29, i64 64
   %call3.i.i62 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i) #23
   %add.ptr.i.i63 = getelementptr inbounds i8, ptr %call.i.i60, i64 %call3.i.i62
   store ptr %add.ptr.i.i63, ptr %e_.i.i61, align 8
-  %arrayinit.element51 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 3
-  %path_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i34, i64 0, i32 3
+  %arrayinit.element51 = getelementptr inbounds i8, ptr %ref.tmp29, i64 72
+  %path_ = getelementptr inbounds i8, ptr %call.i34, i64 120
   store ptr @.str.27, ptr %arrayinit.element51, align 8
-  %second.i64 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 3, i32 1
+  %second.i64 = getelementptr inbounds i8, ptr %ref.tmp29, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i64, ptr noundef nonnull align 8 dereferenceable(16) %path_, i64 16, i1 false)
-  %arrayinit.element54 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 4
-  %query_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i34, i64 0, i32 4
+  %arrayinit.element54 = getelementptr inbounds i8, ptr %ref.tmp29, i64 96
+  %query_ = getelementptr inbounds i8, ptr %call.i34, i64 136
   store ptr @.str.28, ptr %arrayinit.element54, align 8
-  %second.i65 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 4, i32 1
+  %second.i65 = getelementptr inbounds i8, ptr %ref.tmp29, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i65, ptr noundef nonnull align 8 dereferenceable(16) %query_, i64 16, i1 false)
-  %arrayinit.element57 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 5
-  %url_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call.i34, i64 0, i32 7
+  %arrayinit.element57 = getelementptr inbounds i8, ptr %ref.tmp29, i64 120
+  %url_ = getelementptr inbounds i8, ptr %call.i34, i64 168
   store ptr @.str.29, ptr %arrayinit.element57, align 8
-  %second.i66 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 5, i32 1
+  %second.i66 = getelementptr inbounds i8, ptr %ref.tmp29, i64 128
   %call.i.i67 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %url_) #23
   store ptr %call.i.i67, ptr %second.i66, align 8
-  %e_.i.i68 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 5, i32 1, i32 1
+  %e_.i.i68 = getelementptr inbounds i8, ptr %ref.tmp29, i64 136
   %call3.i.i69 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %url_) #23
   %add.ptr.i.i70 = getelementptr inbounds i8, ptr %call.i.i67, i64 %call3.i.i69
   store ptr %add.ptr.i.i70, ptr %e_.i.i68, align 8
-  %arrayinit.element59 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 6
+  %arrayinit.element59 = getelementptr inbounds i8, ptr %ref.tmp29, i64 144
   store ptr @.str.30, ptr %arrayinit.element59, align 8
-  %second.i71 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 6, i32 1
+  %second.i71 = getelementptr inbounds i8, ptr %ref.tmp29, i64 152
   %call.i.i72 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %pushStatusMessage) #23
   store ptr %call.i.i72, ptr %second.i71, align 8
-  %e_.i.i73 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 6, i32 1, i32 1
+  %e_.i.i73 = getelementptr inbounds i8, ptr %ref.tmp29, i64 160
   %call3.i.i74 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %pushStatusMessage) #23
   %add.ptr.i.i75 = getelementptr inbounds i8, ptr %call.i.i72, i64 %call3.i.i74
   store ptr %add.ptr.i.i75, ptr %e_.i.i73, align 8
@@ -6579,7 +6497,7 @@ invoke.cont60:                                    ; preds = %_ZN5boost3getIN8pro
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %add.ptr.i.i76 = getelementptr inbounds %"struct.std::pair.58", ptr %14, i64 %sub.ptr.div.i.i
-  %add.ptr.i2.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp29, i64 7
+  %add.ptr.i2.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 168
   br label %invoke.cont60.invoke
 
 invoke.cont60.invoke:                             ; preds = %invoke.cont82, %invoke.cont60
@@ -6611,22 +6529,22 @@ lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.
 
 invoke.cont82:                                    ; preds = %entry
   %18 = load ptr, ptr %_M_finish.i.i, align 8
-  %statusStr_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
+  %statusStr_ = getelementptr inbounds i8, ptr %this, i64 184
   store ptr @.str.31, ptr %ref.tmp78, align 8
-  %second.i84 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp78, i64 0, i32 1
+  %second.i84 = getelementptr inbounds i8, ptr %ref.tmp78, i64 8
   %call.i.i85 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_) #23
   store ptr %call.i.i85, ptr %second.i84, align 8
-  %e_.i.i86 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp78, i64 0, i32 1, i32 1
+  %e_.i.i86 = getelementptr inbounds i8, ptr %ref.tmp78, i64 16
   %call3.i.i87 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_) #23
   %add.ptr.i.i88 = getelementptr inbounds i8, ptr %call.i.i85, i64 %call3.i.i87
   store ptr %add.ptr.i.i88, ptr %e_.i.i86, align 8
-  %arrayinit.element81 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp78, i64 1
-  %statusMsg_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %arrayinit.element81 = getelementptr inbounds i8, ptr %ref.tmp78, i64 24
+  %statusMsg_ = getelementptr inbounds i8, ptr %this, i64 216
   store ptr @.str.32, ptr %arrayinit.element81, align 8
-  %second.i89 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp78, i64 1, i32 1
+  %second.i89 = getelementptr inbounds i8, ptr %ref.tmp78, i64 32
   %call.i.i90 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_) #23
   store ptr %call.i.i90, ptr %second.i89, align 8
-  %e_.i.i91 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp78, i64 1, i32 1, i32 1
+  %e_.i.i91 = getelementptr inbounds i8, ptr %ref.tmp78, i64 40
   %call3.i.i92 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_) #23
   %add.ptr.i.i93 = getelementptr inbounds i8, ptr %call.i.i90, i64 %call3.i.i92
   store ptr %add.ptr.i.i93, ptr %e_.i.i91, align 8
@@ -6636,7 +6554,7 @@ invoke.cont82:                                    ; preds = %entry
   %sub.ptr.sub.i.i96 = sub i64 %sub.ptr.lhs.cast.i.i94, %sub.ptr.rhs.cast.i.i95
   %sub.ptr.div.i.i97 = sdiv exact i64 %sub.ptr.sub.i.i96, 24
   %add.ptr.i.i98 = getelementptr inbounds %"struct.std::pair.58", ptr %19, i64 %sub.ptr.div.i.i97
-  %add.ptr.i2.i99 = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp78, i64 2
+  %add.ptr.i2.i99 = getelementptr inbounds i8, ptr %ref.tmp78, i64 48
   br label %invoke.cont60.invoke
 
 if.end91:                                         ; preds = %invoke.cont60.invoke, %entry
@@ -6647,9 +6565,9 @@ if.end91:                                         ; preds = %invoke.cont60.invok
 
 for.body:                                         ; preds = %if.end91, %for.inc
   %__begin1.sroa.0.0151 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %20, %if.end91 ]
-  %second = getelementptr inbounds %"struct.std::pair.58", ptr %__begin1.sroa.0.0151, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.0151, i64 8
   %22 = load ptr, ptr %second, align 8
-  %e_.i = getelementptr inbounds %"struct.std::pair.58", ptr %__begin1.sroa.0.0151, i64 0, i32 1, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0151, i64 16
   %23 = load ptr, ptr %e_.i, align 8
   %cmp.i105 = icmp eq ptr %22, %23
   br i1 %cmp.i105, label %for.inc, label %if.then100
@@ -6746,13 +6664,13 @@ lpad110:                                          ; preds = %invoke.cont111, %in
   br label %ehcleanup
 
 for.inc:                                          ; preds = %for.body, %invoke.cont113
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair.58", ptr %__begin1.sroa.0.0151, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0151, i64 24
   %cmp.i104.not = icmp eq ptr %incdec.ptr.i, %21
   br i1 %cmp.i104.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end91
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
-  %strippedPerHopHeaders_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 10
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 480
+  %strippedPerHopHeaders_ = getelementptr inbounds i8, ptr %this, i64 512
   br label %while.body
 
 while.body:                                       ; preds = %for.end, %invoke.cont129
@@ -6780,13 +6698,13 @@ invoke.cont122:                                   ; preds = %if.then121
 
 if.end126:                                        ; preds = %invoke.cont122, %invoke.cont119, %while.body
   %37 = load ptr, ptr %hdrs.0153, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %hdrs.0153, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %hdrs.0153, i64 16
   %38 = load i64, ptr %capacity_.i.i, align 8
   %mul.i.i.i = mul i64 %38, 40
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %37, i64 %mul.i.i.i
   %mul.i.i6.i = shl i64 %38, 5
   %add.ptr.i.i7.i = getelementptr inbounds i8, ptr %37, i64 %mul.i.i6.i
-  %length_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %hdrs.0153, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %hdrs.0153, i64 8
   %39 = load i64, ptr %length_.i, align 8
   %cmp8.not.i = icmp eq i64 %39, 0
   br i1 %cmp8.not.i, label %invoke.cont129, label %for.body.i114
@@ -7006,13 +6924,13 @@ define noundef zeroext i1 @_ZNK8proxygen11HTTPMessage16computeKeepaliveEv(ptr no
 entry:
   %kKeepAliveConnToken = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %version_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22
+  %version_ = getelementptr inbounds i8, ptr %this, i64 608
   %0 = load i8, ptr %version_, align 8
   %cmp = icmp eq i8 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %headers_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_.i = getelementptr inbounds i8, ptr %this, i64 480
   %call.i = tail call noundef zeroext i1 @_ZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_11HTTPHeadersENS_14HTTPHeaderCodeEPKcb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %headers_.i, i8 noundef zeroext 25, ptr noundef nonnull @.str.36, i1 noundef zeroext false)
   br i1 %call.i, label %return, label %if.end3
 
@@ -7039,7 +6957,7 @@ invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   %2 = load i8, ptr %version_, align 8
   %cmp.i = icmp eq i8 %2, 1
-  %second.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 22, i32 1
+  %second.i = getelementptr inbounds i8, ptr %this, i64 609
   %3 = load i8, ptr %second.i, align 1
   %cmp6.i = icmp eq i8 %3, 0
   %4 = select i1 %cmp.i, i1 %cmp6.i, i1 false
@@ -7054,7 +6972,7 @@ invoke.cont10:                                    ; preds = %if.then8
   br i1 %call.i56, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont10
-  %strippedPerHopHeaders_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 10
+  %strippedPerHopHeaders_ = getelementptr inbounds i8, ptr %this, i64 512
   %5 = load ptr, ptr %strippedPerHopHeaders_, align 8
   %cmp.i7.not = icmp eq ptr %5, null
   br i1 %cmp.i7.not, label %if.end19, label %land.lhs.true
@@ -7108,7 +7026,7 @@ define noundef zeroext i1 @_ZNK8proxygen11HTTPMessage18doHeaderTokenCheckERKNS_1
 entry:
   %tokens.i.i = alloca %"class.std::vector.179", align 8
   %0 = load ptr, ptr %headers, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %headers, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %headers, i64 16
   %tobool.not18.i = icmp eq ptr %0, null
   br i1 %tobool.not18.i, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage18doHeaderTokenCheckERKS0_NS_14HTTPHeaderCodeEPKcbE3$_0EEbS5_T_.exit", label %while.body.lr.ph.i
 
@@ -7117,8 +7035,8 @@ while.body.lr.ph.i:                               ; preds = %entry
   %mul.i.i.i = mul i64 %1, 40
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 %mul.i.i.i
   %conv.i = zext i8 %headerCode to i32
-  %length_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %headers, i64 0, i32 1
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %tokens.i.i, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %headers, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %tokens.i.i, i64 8
   %2 = load i64, ptr %length_.i, align 8
   %call3.i13 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %conv.i, i64 noundef %2) #31
   %cmp.i.not14 = icmp eq ptr %call3.i13, null
@@ -7232,7 +7150,7 @@ land.rhs.i.i.i.i.us:                              ; preds = %invoke.cont7.i.i.us
   br i1 %cmp.i.i.i.i.i.us, label %cleanup.i.i.us, label %for.inc.i.i.us
 
 for.inc.i.i.us:                                   ; preds = %land.rhs.i.i.i.i.us, %invoke.cont7.i.i.us
-  %incdec.ptr.i.i.i.us = getelementptr inbounds %"class.folly::Range", ptr %__begin2.sroa.0.017.i.i.us, i64 1
+  %incdec.ptr.i.i.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.i.i.us, i64 16
   %cmp.i.not.i.i.us = icmp eq ptr %incdec.ptr.i.i.i.us, %8
   br i1 %cmp.i.not.i.i.us, label %cleanup.i.i.us, label %for.body.i.i.us
 
@@ -7288,7 +7206,7 @@ land.rhs4.i.us51.i.i.us:                          ; preds = %for.cond2.i.us48.i.
 invoke.cont7.us54.i.i.us:                         ; preds = %land.rhs4.i.us51.i.i.us, %for.cond2.i.us48.i.i.us
   %sp.sroa.7.0.lcssa.i.us55.i.i.us = phi ptr [ %scevgep18.i.us47.i.i.us, %for.cond2.i.us48.i.i.us ], [ %sp.sroa.7.0.i.us49.i.i.us, %land.rhs4.i.us51.i.i.us ]
   %cmp.i.i3.us.i.i.us = icmp eq ptr %sp.sroa.7.0.lcssa.i.us55.i.i.us, %sp.sroa.0.0.lcssa.i.us46.i.i.us
-  %incdec.ptr.i.us57.i.i.us = getelementptr inbounds %"class.folly::Range", ptr %__begin2.sroa.0.017.us26.i.i.us, i64 1
+  %incdec.ptr.i.us57.i.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.us26.i.i.us, i64 16
   %cmp.i.us58.not.i.i.us = icmp eq ptr %incdec.ptr.i.us57.i.i.us, %8
   %or.cond = select i1 %cmp.i.i3.us.i.i.us, i1 true, i1 %cmp.i.us58.not.i.i.us
   br i1 %or.cond, label %cleanup.i.i.us, label %for.body.us24.i.i.us
@@ -7436,7 +7354,7 @@ for.inc.i.i.us.i.i:                               ; preds = %_ZNK5folly20AsciiCa
   br i1 %cmp.not.i.i.us.i.i, label %cleanup.i.i, label %for.body.i.i.us.i.i, !llvm.loop !114
 
 for.inc.us.i.i:                                   ; preds = %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i.us.i.i, %for.body.i.i.us.i.i, %invoke.cont7.us.i.i
-  %incdec.ptr.i.us.i.i = getelementptr inbounds %"class.folly::Range", ptr %__begin2.sroa.0.017.us.i.i, i64 1
+  %incdec.ptr.i.us.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.us.i.i, i64 16
   %cmp.i.us.not.i.i = icmp eq ptr %incdec.ptr.i.us.i.i, %23
   br i1 %cmp.i.us.not.i.i, label %cleanup.i.i, label %for.body.us.i.i
 
@@ -7675,38 +7593,38 @@ return:                                           ; preds = %entry, %sw.epilog, 
 define void @_ZN8proxygen11HTTPMessage18setURLImplInternalEbb(ptr noalias sret(%"class.proxygen::ParseURL") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(616) %this, i1 noundef zeroext %unparse, i1 noundef zeroext %strict) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
-  %url_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call, i64 0, i32 7
+  %url_ = getelementptr inbounds i8, ptr %call, i64 168
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %url_) #23
   %call3.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %url_) #23
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %call3.i
-  %authority_.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 2
+  %authority_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !115
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %authority_.i.i) #23
-  %host_.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 3
-  %initialized_.i.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 10
+  %host_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
+  %initialized_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 147
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %host_.i.i, i8 0, i64 84, i1 false), !alias.scope !115
   store ptr %call.i, ptr %agg.result, align 8, !alias.scope !115
   %urlVal.sroa.2.0.url_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i, ptr %urlVal.sroa.2.0.url_.sroa_idx.i.i.i, align 8, !alias.scope !115
   tail call void @_ZN8proxygen8ParseURL5parseEb(ptr noundef nonnull align 8 dereferenceable(148) %agg.result, i1 noundef zeroext %strict) #23
   store i8 1, ptr %initialized_.i.i, align 1, !alias.scope !115
-  %valid_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 9
+  %valid_.i = getelementptr inbounds i8, ptr %agg.result, i64 146
   %0 = load i8, ptr %valid_.i, align 2
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %path_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 5
+  %path_.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   %retval.sroa.0.0.copyload.i = load ptr, ptr %path_.i, align 8
-  %retval.sroa.2.0.path_.sroa_idx.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 5, i32 1
+  %retval.sroa.2.0.path_.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 104
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.path_.sroa_idx.i, align 8
-  %path_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call, i64 0, i32 3
+  %path_ = getelementptr inbounds i8, ptr %call, i64 120
   store ptr %retval.sroa.0.0.copyload.i, ptr %path_, align 8
-  %ref.tmp.sroa.2.0.path_.sroa_idx = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call, i64 0, i32 3, i32 1
+  %ref.tmp.sroa.2.0.path_.sroa_idx = getelementptr inbounds i8, ptr %call, i64 128
   store ptr %retval.sroa.2.0.copyload.i, ptr %ref.tmp.sroa.2.0.path_.sroa_idx, align 8
-  %query_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %agg.result, i64 0, i32 6
-  %query_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call, i64 0, i32 4
+  %query_.i = getelementptr inbounds i8, ptr %agg.result, i64 112
+  %query_ = getelementptr inbounds i8, ptr %call, i64 136
   %2 = load <2 x ptr>, ptr %query_.i, align 8
   store <2 x ptr> %2, ptr %query_, align 8
   %cmp.i = icmp eq ptr %retval.sroa.0.0.copyload.i, %retval.sroa.2.0.copyload.i
@@ -7718,12 +7636,12 @@ if.then12:                                        ; preds = %if.then
   br label %if.end19
 
 if.else:                                          ; preds = %entry
-  %path_15 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call, i64 0, i32 3
+  %path_15 = getelementptr inbounds i8, ptr %call, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %path_15, i8 0, i64 32, i1 false)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then, %if.then12, %if.else
-  %pathStr_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call, i64 0, i32 5
+  %pathStr_ = getelementptr inbounds i8, ptr %call, i64 152
   %3 = load ptr, ptr %pathStr_, align 8
   store ptr null, ptr %pathStr_, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
@@ -7735,7 +7653,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE5resetEPS5_.exit
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE5resetEPS5_.exit: ; preds = %if.end19, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
-  %queryStr_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %call, i64 0, i32 6
+  %queryStr_ = getelementptr inbounds i8, ptr %call, i64 160
   %4 = load ptr, ptr %queryStr_, align 8
   store ptr null, ptr %queryStr_, align 8
   %tobool.not.i.i15 = icmp eq ptr %4, null
@@ -7750,8 +7668,8 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %unparse, label %if.then21, label %nrvo.skipdtor
 
 if.then21:                                        ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE5resetEPS5_.exit17
-  %queryParams_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %queryParams_.i = getelementptr inbounds i8, ptr %this, i64 432
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
   %5 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %queryParams_.i, ptr noundef %5)
           to label %_ZN8proxygen11HTTPMessage18unparseQueryParamsEv.exit unwind label %terminate.lpad.i.i.i
@@ -7764,15 +7682,15 @@ terminate.lpad.i.i.i:                             ; preds = %if.then21
   unreachable
 
 _ZN8proxygen11HTTPMessage18unparseQueryParamsEv.exit: ; preds = %if.then21
-  %add.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 440
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 456
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i, align 8
-  %_M_right.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 472
   store i64 0, ptr %_M_node_count.i.i.i.i, align 8
-  %parsedQueryParams_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 23
+  %parsedQueryParams_.i = getelementptr inbounds i8, ptr %this, i64 610
   %bf.load.i = load i8, ptr %parsedQueryParams_.i, align 2
   %bf.clear.i = and i8 %bf.load.i, -3
   store i8 %bf.clear.i, ptr %parsedQueryParams_.i, align 2
@@ -7788,14 +7706,14 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"struct.proxygen::HTTPPriority", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen12HTTPPriorityE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp2, align 8
-  %urgency.i = getelementptr inbounds %"struct.proxygen::HTTPPriority", ptr %ref.tmp2, i64 0, i32 1
+  %urgency.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %urgency, i8 7)
   %bf.value.i = zext nneg i8 %.sroa.speculated.i to i64
   %bf.shl.i = select i1 %incremental, i64 8, i64 0
   %bf.set.i = or disjoint i64 %bf.shl.i, %bf.value.i
   store i64 %bf.set.i, ptr %urgency.i, align 8
   call void @_ZN8proxygen20httpPriorityToStringB5cxx11ERKNS_12HTTPPriorityE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 480
   %call.i2 = invoke noundef zeroext i1 @_ZN8proxygen11HTTPHeaders6removeENS_14HTTPHeaderCodeE(ptr noundef nonnull align 8 dereferenceable(32) %headers_, i8 noundef zeroext 47)
           to label %call.i.noexc unwind label %lpad3
 
@@ -7824,7 +7742,7 @@ entry:
 define void @_ZN8proxygen11HTTPMessage15setHTTPPriorityENS_12HTTPPriorityE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr nocapture noundef nonnull readonly %httpPriority) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %headers_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 9
+  %headers_ = getelementptr inbounds i8, ptr %this, i64 480
   call void @_ZN8proxygen20httpPriorityToStringB5cxx11ERKNS_12HTTPPriorityE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %httpPriority)
   %call.i1 = invoke noundef zeroext i1 @_ZN8proxygen11HTTPHeaders6removeENS_14HTTPHeaderCodeE(ptr noundef nonnull align 8 dereferenceable(32) %headers_, i8 noundef zeroext 47)
           to label %call.i.noexc unwind label %lpad
@@ -7864,13 +7782,13 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #34
@@ -7889,10 +7807,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #34
   %cmp.not = icmp eq ptr %1, null
@@ -7905,9 +7823,9 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen11HTTPMessage7RequestD2Ev(ptr noundef nonnull align 8 dereferenceable(202) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %url_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 7
+  %url_ = getelementptr inbounds i8, ptr %this, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %url_) #23
-  %queryStr_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 6
+  %queryStr_ = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %queryStr_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
@@ -7919,7 +7837,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
   store ptr null, ptr %queryStr_, align 8
-  %pathStr_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 5
+  %pathStr_ = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load ptr, ptr %pathStr_, align 8
   %cmp.not.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit3, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i2
@@ -7931,11 +7849,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit3: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i2
   store ptr null, ptr %pathStr_, align 8
-  %method_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 2
+  %method_ = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load i32, ptr %method_, align 8
   %.lobit.i.i.i = ashr i32 %2, 31
   %retval.0.i.i.i = xor i32 %.lobit.i.i.i, %2
-  %storage_.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 2, i32 2
+  %storage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %switch.i.i = icmp eq i32 %retval.0.i.i.i, 1
   br i1 %switch.i.i, label %sw.bb3.i.i.i, label %_ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEED2Ev.exit
 
@@ -7954,22 +7872,22 @@ _ZN5boost6detail7variant22visitation_impl_invokeINS1_9destroyerEPvSt10unique_ptr
   br label %_ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEED2Ev.exit
 
 _ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit3, %_ZN5boost6detail7variant22visitation_impl_invokeINS1_9destroyerEPvSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EENS_7variantINS_5blankEJSE_N8proxygen10HTTPMethodEEE18has_fallback_type_EEENT_11result_typeEiRSL_T0_PT1_T2_i.exit.i.i
-  %hasValue.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %4 = load i8, ptr %hasValue.i.i.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i.i, label %_ZN5folly8OptionalIN8proxygen11HTTPMessage6IPPortEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEED2Ev.exit
-  %clientIPPort_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 1
+  %clientIPPort_ = getelementptr inbounds i8, ptr %this, i64 32
   store i8 0, ptr %hasValue.i.i.i, align 8
-  %port.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %port.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %port.i.i.i.i) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %clientIPPort_) #23
   br label %_ZN5folly8OptionalIN8proxygen11HTTPMessage6IPPortEED2Ev.exit
 
 _ZN5folly8OptionalIN8proxygen11HTTPMessage6IPPortEED2Ev.exit: ; preds = %_ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEED2Ev.exit, %if.then.i.i.i
-  %external_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %this, i64 0, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 26
   %6 = load i8, ptr %external_.i, align 2
   %7 = and i8 %6, 1
   %tobool.not.i = icmp eq i8 %7, 0
@@ -7994,7 +7912,7 @@ entry:
   %0 = load i32, ptr %this, align 8
   %.lobit.i.i = ashr i32 %0, 31
   %retval.0.i.i = xor i32 %.lobit.i.i, %0
-  %storage_.i.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2
+  %storage_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %switch.i = icmp eq i32 %retval.0.i.i, 1
   br i1 %switch.i, label %sw.bb3.i.i, label %_ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEE15destroy_contentEv.exit
 
@@ -8019,7 +7937,7 @@ _ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly8OptionalIN8proxygen11HTTPMessage6IPPortEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTPMessage::IPPort>::StorageNonTriviallyDestructible", ptr %this, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %hasValue.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
@@ -8027,7 +7945,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   store i8 0, ptr %hasValue.i.i, align 8
-  %port.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::IPPort", ptr %this, i64 0, i32 1
+  %port.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %port.i.i.i) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #23
   br label %_ZN5folly8OptionalIN8proxygen11HTTPMessage6IPPortEE31StorageNonTriviallyDestructibleD2Ev.exit
@@ -8039,7 +7957,7 @@ _ZN5folly8OptionalIN8proxygen11HTTPMessage6IPPortEE31StorageNonTriviallyDestruct
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly8OptionalIN8proxygen11HTTPMessage6IPPortEE31StorageNonTriviallyDestructibleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hasValue.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTPMessage::IPPort>::StorageNonTriviallyDestructible", ptr %this, i64 0, i32 1
+  %hasValue.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %hasValue.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -8047,7 +7965,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %hasValue.i, align 8
-  %port.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::IPPort", ptr %this, i64 0, i32 1
+  %port.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %port.i.i) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #23
   br label %_ZN5folly8OptionalIN8proxygen11HTTPMessage6IPPortEE31StorageNonTriviallyDestructible5clearEv.exit
@@ -8066,27 +7984,27 @@ entry:
   %ref.tmp.i.i.i21 = alloca %"class.boost::bad_get", align 8
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
   tail call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %this)
-  %port_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %this, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i16 0, ptr %port_.i, align 8
-  %external_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %this, i64 0, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 26
   store i8 0, ptr %external_.i, align 2
-  %clientIPPort_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 1
-  %hasValue.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %clientIPPort_ = getelementptr inbounds i8, ptr %this, i64 32
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store i8 0, ptr %hasValue.i.i, align 8
-  %hasValue.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %req, i64 0, i32 1, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %req, i64 96
   %0 = load i8, ptr %hasValue.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not.i = icmp eq i8 %1, 0
   br i1 %tobool.i.i.not.i, label %invoke.cont, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %clientIPPort_2 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %req, i64 0, i32 1
+  %clientIPPort_2 = getelementptr inbounds i8, ptr %req, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %clientIPPort_, ptr noundef nonnull align 8 dereferenceable(32) %clientIPPort_2)
           to label %.noexc4.i unwind label %lpad.i
 
 .noexc4.i:                                        ; preds = %invoke.cont.i
-  %port.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %port3.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %req, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %port.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %port3.i.i.i = getelementptr inbounds i8, ptr %req, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %port.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %port3.i.i.i)
           to label %_ZN5folly8OptionalIN8proxygen11HTTPMessage6IPPortEE9constructIJRKS3_EEEvDpOT_.exit.i unwind label %lpad.i.i.i
 
@@ -8111,28 +8029,28 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i.i
   br label %ehcleanup35
 
 invoke.cont:                                      ; preds = %_ZN5folly8OptionalIN8proxygen11HTTPMessage6IPPortEE9constructIJRKS3_EEEvDpOT_.exit.i, %entry
-  %method_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 2
+  %method_ = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %method_, align 8
-  %path_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 3
-  %path_3 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %req, i64 0, i32 3
+  %path_ = getelementptr inbounds i8, ptr %this, i64 120
+  %path_3 = getelementptr inbounds i8, ptr %req, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %path_, ptr noundef nonnull align 8 dereferenceable(16) %path_3, i64 16, i1 false)
-  %query_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 4
-  %query_4 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %req, i64 0, i32 4
+  %query_ = getelementptr inbounds i8, ptr %this, i64 136
+  %query_4 = getelementptr inbounds i8, ptr %req, i64 136
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %query_, ptr noundef nonnull align 8 dereferenceable(16) %query_4, i64 16, i1 false)
-  %pathStr_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 5
-  %queryStr_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 6
-  %url_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 7
-  %url_5 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %req, i64 0, i32 7
+  %pathStr_ = getelementptr inbounds i8, ptr %this, i64 152
+  %queryStr_ = getelementptr inbounds i8, ptr %this, i64 160
+  %url_ = getelementptr inbounds i8, ptr %this, i64 168
+  %url_5 = getelementptr inbounds i8, ptr %req, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pathStr_, i8 0, i64 16, i1 false)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %url_, ptr noundef nonnull align 8 dereferenceable(32) %url_5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %pushStatus_ = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 8
-  %pushStatus_8 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %req, i64 0, i32 8
+  %pushStatus_ = getelementptr inbounds i8, ptr %this, i64 200
+  %pushStatus_8 = getelementptr inbounds i8, ptr %req, i64 200
   %4 = load i16, ptr %pushStatus_8, align 8
   store i16 %4, ptr %pushStatus_, align 8
-  %method_9 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %req, i64 0, i32 2
+  %method_9 = getelementptr inbounds i8, ptr %req, i64 104
   %5 = load i32, ptr %method_9, align 8
   %.lobit.i = ashr i32 %5, 31
   %retval.0.i = xor i32 %.lobit.i, %5
@@ -8142,7 +8060,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
   ]
 
 invoke.cont12:                                    ; preds = %invoke.cont7
-  %storage_.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %req, i64 0, i32 2, i32 2
+  %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %req, i64 112
   %6 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %call.i16 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
@@ -8210,7 +8128,7 @@ lpad.i.i.i24:                                     ; preds = %if.then.i.i.i23
   br label %ehcleanup
 
 invoke.cont25:                                    ; preds = %if.then23
-  %storage_.i.i.i.i.i.i22 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %req, i64 0, i32 2, i32 2
+  %storage_.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %req, i64 112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i21)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i)
   %14 = load i32, ptr %method_, align 8
@@ -8220,12 +8138,12 @@ invoke.cont25:                                    ; preds = %if.then23
   br i1 %switch.i.i.i, label %_ZNR5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEE13apply_visitorINS_6detail7variant15direct_assignerISD_EEEENT_11result_typeERSK_.exit.thread.i.i, label %if.then.i.i
 
 _ZNR5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEE13apply_visitorINS_6detail7variant15direct_assignerISD_EEEENT_11result_typeERSK_.exit.thread.i.i: ; preds = %invoke.cont25
-  %storage_.i.i.i.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Request", ptr %this, i64 0, i32 2, i32 2
+  %storage_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 %16, ptr %storage_.i.i.i.i, align 8
   br label %_ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEEaSISD_EENS_9enable_ifINS_3mpl3or_INS_7is_sameIT_SE_EENS_6detail7variant29is_variant_constructible_fromIRKSK_NSH_6l_itemIN4mpl_5long_ILl3EEES1_NSR_INST_ILl2EEESB_NSR_INST_ILl1EEESD_NSH_5l_endEEEEEEEEENSS_5bool_ILb0EEES13_S13_EERSE_E4typeESQ_.exit
 
 if.then.i.i:                                      ; preds = %invoke.cont25
-  %storage_.i.i2.i.i = getelementptr inbounds %"class.boost::variant", ptr %temp.i.i, i64 0, i32 2
+  %storage_.i.i2.i.i = getelementptr inbounds i8, ptr %temp.i.i, i64 8
   store i32 %16, ptr %storage_.i.i2.i.i, align 8
   store i32 2, ptr %temp.i.i, align 8
   invoke void @_ZN5boost7variantINS_5blankEJSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS8_EEN8proxygen10HTTPMethodEEE14variant_assignEOSE_(ptr noundef nonnull align 8 dereferenceable(16) %method_, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i)
@@ -8307,17 +8225,17 @@ declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__x, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x, i64 32
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #33
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, i64 32, i1 false)
   %0 = load i32, ptr %__x, align 8
   store i32 %0, ptr %call5.i.i.i.i.i.i, align 8
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.i.i, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i, i8 0, i64 16, i1 false)
-  %_M_parent = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_parent = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 8
   store ptr %__p, ptr %_M_parent, align 8
-  %_M_right = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 3
+  %_M_right = getelementptr inbounds i8, ptr %__x, i64 24
   %1 = load ptr, ptr %_M_right, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -8327,7 +8245,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
-  %_M_right4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.i.i, i64 0, i32 3
+  %_M_right4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 24
   store ptr %call3, ptr %_M_right4, align 8
   br label %if.end
 
@@ -8353,7 +8271,7 @@ invoke.cont19:                                    ; preds = %lpad
           to label %unreachable unwind label %lpad18
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %__x.addr.0.in33 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 2
+  %__x.addr.0.in33 = getelementptr inbounds i8, ptr %__x, i64 16
   %__x.addr.034 = load ptr, ptr %__x.addr.0.in33, align 8
   %cmp.not35 = icmp eq ptr %__x.addr.034, null
   br i1 %cmp.not35, label %try.cont, label %while.body
@@ -8365,18 +8283,18 @@ while.body:                                       ; preds = %if.end, %if.end16
           to label %invoke.cont6 unwind label %lpad.loopexit
 
 invoke.cont6:                                     ; preds = %while.body
-  %_M_storage.i.i24 = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__x.addr.037, i64 0, i32 1
-  %_M_storage.i.i.i.i.i26 = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %call5.i.i.i.i.i.i2528, i64 0, i32 1
+  %_M_storage.i.i24 = getelementptr inbounds i8, ptr %__x.addr.037, i64 32
+  %_M_storage.i.i.i.i.i26 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i2528, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i26, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i24, i64 32, i1 false)
   %4 = load i32, ptr %__x.addr.037, align 8
   store i32 %4, ptr %call5.i.i.i.i.i.i2528, align 8
-  %_M_left.i27 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.i.i2528, i64 0, i32 2
+  %_M_left.i27 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i2528, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i27, i8 0, i64 16, i1 false)
-  %_M_left = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__p.addr.036, i64 0, i32 2
+  %_M_left = getelementptr inbounds i8, ptr %__p.addr.036, i64 16
   store ptr %call5.i.i.i.i.i.i2528, ptr %_M_left, align 8
-  %_M_parent8 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.i.i2528, i64 0, i32 1
+  %_M_parent8 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i2528, i64 8
   store ptr %__p.addr.036, ptr %_M_parent8, align 8
-  %_M_right9 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.037, i64 0, i32 3
+  %_M_right9 = getelementptr inbounds i8, ptr %__x.addr.037, i64 24
   %5 = load ptr, ptr %_M_right9, align 8
   %tobool10.not = icmp eq ptr %5, null
   br i1 %tobool10.not, label %if.end16, label %if.then11
@@ -8386,12 +8304,12 @@ if.then11:                                        ; preds = %invoke.cont6
           to label %invoke.cont13 unwind label %lpad.loopexit
 
 invoke.cont13:                                    ; preds = %if.then11
-  %_M_right15 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.i.i2528, i64 0, i32 3
+  %_M_right15 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i2528, i64 24
   store ptr %call14, ptr %_M_right15, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %invoke.cont13, %invoke.cont6
-  %__x.addr.0.in = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.037, i64 0, i32 2
+  %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.037, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8
   %cmp.not = icmp eq ptr %__x.addr.0, null
   br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !123
@@ -8424,17 +8342,17 @@ declare void @__cxa_rethrow() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE7_M_copyILb0ENSE_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x, i64 32
   %0 = load ptr, ptr %__node_gen, align 8
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #33
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i)
   %1 = load i32, ptr %__x, align 8
   store i32 %1, ptr %call5.i.i.i.i.i.i, align 8
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.i.i, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i, i8 0, i64 16, i1 false)
-  %_M_parent = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_parent = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 8
   store ptr %__p, ptr %_M_parent, align 8
-  %_M_right = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 3
+  %_M_right = getelementptr inbounds i8, ptr %__x, i64 24
   %2 = load ptr, ptr %_M_right, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -8444,7 +8362,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
-  %_M_right4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.i.i, i64 0, i32 3
+  %_M_right4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 24
   store ptr %call3, ptr %_M_right4, align 8
   br label %if.end
 
@@ -8470,7 +8388,7 @@ invoke.cont19:                                    ; preds = %lpad
           to label %unreachable unwind label %lpad18
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %__x.addr.0.in32 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 2
+  %__x.addr.0.in32 = getelementptr inbounds i8, ptr %__x, i64 16
   %__x.addr.033 = load ptr, ptr %__x.addr.0.in32, align 8
   %cmp.not34 = icmp eq ptr %__x.addr.033, null
   br i1 %cmp.not34, label %try.cont, label %while.body
@@ -8483,20 +8401,20 @@ while.body:                                       ; preds = %if.end, %if.end16
           to label %call5.i.i.i.i.i.i25.noexc unwind label %lpad.loopexit
 
 call5.i.i.i.i.i.i25.noexc:                        ; preds = %while.body
-  %_M_storage.i.i24 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.036, i64 0, i32 1
+  %_M_storage.i.i24 = getelementptr inbounds i8, ptr %__x.addr.036, i64 32
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %call5.i.i.i.i.i.i2527, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i24)
           to label %invoke.cont6 unwind label %lpad.loopexit
 
 invoke.cont6:                                     ; preds = %call5.i.i.i.i.i.i25.noexc
   %6 = load i32, ptr %__x.addr.036, align 8
   store i32 %6, ptr %call5.i.i.i.i.i.i2527, align 8
-  %_M_left.i26 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.i.i2527, i64 0, i32 2
+  %_M_left.i26 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i2527, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i26, i8 0, i64 16, i1 false)
-  %_M_left = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__p.addr.035, i64 0, i32 2
+  %_M_left = getelementptr inbounds i8, ptr %__p.addr.035, i64 16
   store ptr %call5.i.i.i.i.i.i2527, ptr %_M_left, align 8
-  %_M_parent8 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.i.i2527, i64 0, i32 1
+  %_M_parent8 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i2527, i64 8
   store ptr %__p.addr.035, ptr %_M_parent8, align 8
-  %_M_right9 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.036, i64 0, i32 3
+  %_M_right9 = getelementptr inbounds i8, ptr %__x.addr.036, i64 24
   %7 = load ptr, ptr %_M_right9, align 8
   %tobool10.not = icmp eq ptr %7, null
   br i1 %tobool10.not, label %if.end16, label %if.then11
@@ -8506,12 +8424,12 @@ if.then11:                                        ; preds = %invoke.cont6
           to label %invoke.cont13 unwind label %lpad.loopexit
 
 invoke.cont13:                                    ; preds = %if.then11
-  %_M_right15 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.i.i2527, i64 0, i32 3
+  %_M_right15 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i2527, i64 24
   store ptr %call14, ptr %_M_right15, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %invoke.cont13, %invoke.cont6
-  %__x.addr.0.in = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.036, i64 0, i32 2
+  %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.036, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8
   %cmp.not = icmp eq ptr %__x.addr.0, null
   br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !124
@@ -8542,13 +8460,13 @@ unreachable:                                      ; preds = %invoke.cont19
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__node, ptr noundef nonnull align 8 dereferenceable(64) %__args) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_storage.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1
+  %_M_storage.i = getelementptr inbounds i8, ptr %__node, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(32) %__args)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %second.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 32
-  %second3.i.i.i = getelementptr inbounds %"struct.std::pair.48", ptr %__args, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %__node, i64 64
+  %second3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i)
           to label %try.cont unwind label %lpad.i.i.i
 
@@ -8612,19 +8530,19 @@ if.then:                                          ; preds = %entry
   %_M_parent.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i, align 8
   store ptr %0, ptr %__roan, align 8
-  %_M_nodes.i = getelementptr inbounds %"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 1
+  %_M_nodes.i = getelementptr inbounds i8, ptr %__roan, i64 8
   %_M_right.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i.i, align 8
   store ptr %1, ptr %_M_nodes.i, align 8
-  %_M_t.i = getelementptr inbounds %"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 2
+  %_M_t.i = getelementptr inbounds i8, ptr %__roan, i64 16
   store ptr %this, ptr %_M_t.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end12.sink.split.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %_M_parent.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %_M_parent.i, align 8
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %_M_left.i, align 8
   %tobool6.not.i = icmp eq ptr %2, null
   br i1 %tobool6.not.i, label %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE20_Reuse_or_alloc_nodeC2ERSD_.exit, label %if.end12.sink.split.i
@@ -8653,7 +8571,7 @@ if.then6:                                         ; preds = %_ZNSt8_Rb_treeIN5fo
 
 while.cond.i.i.i:                                 ; preds = %if.then6, %while.cond.i.i.i
   %__x.addr.0.i.i.i = phi ptr [ %4, %while.cond.i.i.i ], [ %call3.i9, %if.then6 ]
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i, i64 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i.i, i64 16
   %4 = load ptr, ptr %_M_left.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i, label %while.cond.i.i.i, !llvm.loop !12
@@ -8664,7 +8582,7 @@ _ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_
 
 while.cond.i.i4.i:                                ; preds = %while.cond.i.i4.i, %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i
   %__x.addr.0.i.i5.i = phi ptr [ %call3.i9, %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i ], [ %5, %while.cond.i.i4.i ]
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i5.i, i64 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i5.i, i64 24
   %5 = load ptr, ptr %_M_right.i.i.i, align 8
   %cmp.not.i.i6.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i6.i, label %invoke.cont, label %while.cond.i.i4.i, !llvm.loop !13
@@ -8705,7 +8623,7 @@ if.end9:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE20_Reuse_or_alloc_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_t = getelementptr inbounds %"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Reuse_or_alloc_node", ptr %this, i64 0, i32 2
+  %_M_t = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_t, align 8
   %1 = load ptr, ptr %this, align 8
   invoke void @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
@@ -8725,20 +8643,20 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE7_M_copyILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(24) %__node_gen) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_nodes.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Reuse_or_alloc_node", ptr %__node_gen, i64 0, i32 1
+  %_M_nodes.i.i.i = getelementptr inbounds i8, ptr %__node_gen, i64 8
   %0 = load ptr, ptr %_M_nodes.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %_M_parent.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_parent.i.i.i, align 8
   store ptr %1, ptr %_M_nodes.i.i.i, align 8
   %tobool7.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool7.not.i.i.i, label %if.else37.i.i.i, label %if.then8.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %_M_right.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, %0
   br i1 %cmp.i.i.i, label %if.then10.i.i.i, label %if.else.i.i.i
@@ -8746,7 +8664,7 @@ if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
 if.then10.i.i.i:                                  ; preds = %if.then8.i.i.i
   store ptr null, ptr %_M_right.i.i.i, align 8
   %3 = load ptr, ptr %_M_nodes.i.i.i, align 8
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %3, i64 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %_M_left.i.i.i, align 8
   %tobool14.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool14.not.i.i.i, label %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE13_M_clone_nodeILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_RT0_.exit, label %while.cond.i.i.i
@@ -8754,13 +8672,13 @@ if.then10.i.i.i:                                  ; preds = %if.then8.i.i.i
 while.cond.i.i.i:                                 ; preds = %if.then10.i.i.i, %while.cond.i.i.i
   %storemerge.i.i.i = phi ptr [ %5, %while.cond.i.i.i ], [ %4, %if.then10.i.i.i ]
   store ptr %storemerge.i.i.i, ptr %_M_nodes.i.i.i, align 8
-  %_M_right20.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i, i64 0, i32 3
+  %_M_right20.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 24
   %5 = load ptr, ptr %_M_right20.i.i.i, align 8
   %tobool21.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool21.not.i.i.i, label %while.end.i.i.i, label %while.cond.i.i.i, !llvm.loop !125
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
-  %_M_left26.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i, i64 0, i32 2
+  %_M_left26.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 16
   %6 = load ptr, ptr %_M_left26.i.i.i, align 8
   %tobool27.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool27.not.i.i.i, label %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE13_M_clone_nodeILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_RT0_.exit, label %if.then28.i.i.i
@@ -8770,7 +8688,7 @@ if.then28.i.i.i:                                  ; preds = %while.end.i.i.i
   br label %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE13_M_clone_nodeILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_RT0_.exit
 
 if.else.i.i.i:                                    ; preds = %if.then8.i.i.i
-  %_M_left35.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left35.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %_M_left35.i.i.i, align 8
   br label %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE13_M_clone_nodeILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_RT0_.exit
 
@@ -8784,16 +8702,16 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE13_M_clone_nodeILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_RT0_.exit: ; preds = %if.then10.i.i.i, %while.end.i.i.i, %if.then28.i.i.i, %if.else.i.i.i, %if.else37.i.i.i, %if.end.i.i
   %call5.i.i.i.i.sink.i.i = phi ptr [ %call5.i.i.i.i.i.i, %if.end.i.i ], [ %0, %if.then28.i.i.i ], [ %0, %while.end.i.i.i ], [ %0, %if.else37.i.i.i ], [ %0, %if.else.i.i.i ], [ %0, %if.then10.i.i.i ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__x, i64 0, i32 1
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x, i64 32
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, i64 32, i1 false)
   %7 = load i32, ptr %__x, align 8
   store i32 %7, ptr %call5.i.i.i.i.sink.i.i, align 8
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i, i8 0, i64 16, i1 false)
-  %_M_parent = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 1
+  %_M_parent = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 8
   store ptr %__p, ptr %_M_parent, align 8
-  %_M_right = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 3
+  %_M_right = getelementptr inbounds i8, ptr %__x, i64 24
   %8 = load ptr, ptr %_M_right, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -8803,7 +8721,7 @@ if.then:                                          ; preds = %_ZNSt8_Rb_treeIN5fo
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
-  %_M_right4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 3
+  %_M_right4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 24
   store ptr %call3, ptr %_M_right4, align 8
   br label %if.end
 
@@ -8829,7 +8747,7 @@ invoke.cont19:                                    ; preds = %lpad
           to label %unreachable unwind label %lpad18
 
 if.end:                                           ; preds = %invoke.cont, %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE13_M_clone_nodeILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_RT0_.exit
-  %__x.addr.0.in58 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 2
+  %__x.addr.0.in58 = getelementptr inbounds i8, ptr %__x, i64 16
   %__x.addr.059 = load ptr, ptr %__x.addr.0.in58, align 8
   %cmp.not60 = icmp eq ptr %__x.addr.059, null
   br i1 %cmp.not60, label %try.cont, label %while.body
@@ -8842,14 +8760,14 @@ while.body:                                       ; preds = %if.end, %if.end16
   br i1 %tobool.not.i.i.i25, label %if.end.i.i50, label %if.end.i.i.i26
 
 if.end.i.i.i26:                                   ; preds = %while.body
-  %_M_parent.i.i.i27 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %11, i64 0, i32 1
+  %_M_parent.i.i.i27 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %_M_parent.i.i.i27, align 8
   store ptr %12, ptr %_M_nodes.i.i.i, align 8
   %tobool7.not.i.i.i28 = icmp eq ptr %12, null
   br i1 %tobool7.not.i.i.i28, label %if.else37.i.i.i49, label %if.then8.i.i.i29
 
 if.then8.i.i.i29:                                 ; preds = %if.end.i.i.i26
-  %_M_right.i.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %12, i64 0, i32 3
+  %_M_right.i.i.i30 = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %_M_right.i.i.i30, align 8
   %cmp.i.i.i31 = icmp eq ptr %13, %11
   br i1 %cmp.i.i.i31, label %if.then10.i.i.i38, label %if.else.i.i.i32
@@ -8857,7 +8775,7 @@ if.then8.i.i.i29:                                 ; preds = %if.end.i.i.i26
 if.then10.i.i.i38:                                ; preds = %if.then8.i.i.i29
   store ptr null, ptr %_M_right.i.i.i30, align 8
   %14 = load ptr, ptr %_M_nodes.i.i.i, align 8
-  %_M_left.i.i.i39 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %14, i64 0, i32 2
+  %_M_left.i.i.i39 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %_M_left.i.i.i39, align 8
   %tobool14.not.i.i.i40 = icmp eq ptr %15, null
   br i1 %tobool14.not.i.i.i40, label %invoke.cont6, label %while.cond.i.i.i41
@@ -8865,13 +8783,13 @@ if.then10.i.i.i38:                                ; preds = %if.then8.i.i.i29
 while.cond.i.i.i41:                               ; preds = %if.then10.i.i.i38, %while.cond.i.i.i41
   %storemerge.i.i.i42 = phi ptr [ %16, %while.cond.i.i.i41 ], [ %15, %if.then10.i.i.i38 ]
   store ptr %storemerge.i.i.i42, ptr %_M_nodes.i.i.i, align 8
-  %_M_right20.i.i.i43 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i42, i64 0, i32 3
+  %_M_right20.i.i.i43 = getelementptr inbounds i8, ptr %storemerge.i.i.i42, i64 24
   %16 = load ptr, ptr %_M_right20.i.i.i43, align 8
   %tobool21.not.i.i.i44 = icmp eq ptr %16, null
   br i1 %tobool21.not.i.i.i44, label %while.end.i.i.i45, label %while.cond.i.i.i41, !llvm.loop !125
 
 while.end.i.i.i45:                                ; preds = %while.cond.i.i.i41
-  %_M_left26.i.i.i46 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i42, i64 0, i32 2
+  %_M_left26.i.i.i46 = getelementptr inbounds i8, ptr %storemerge.i.i.i42, i64 16
   %17 = load ptr, ptr %_M_left26.i.i.i46, align 8
   %tobool27.not.i.i.i47 = icmp eq ptr %17, null
   br i1 %tobool27.not.i.i.i47, label %invoke.cont6, label %if.then28.i.i.i48
@@ -8881,7 +8799,7 @@ if.then28.i.i.i48:                                ; preds = %while.end.i.i.i45
   br label %invoke.cont6
 
 if.else.i.i.i32:                                  ; preds = %if.then8.i.i.i29
-  %_M_left35.i.i.i33 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %12, i64 0, i32 2
+  %_M_left35.i.i.i33 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr null, ptr %_M_left35.i.i.i33, align 8
   br label %invoke.cont6
 
@@ -8895,18 +8813,18 @@ if.end.i.i50:                                     ; preds = %while.body
 
 invoke.cont6:                                     ; preds = %if.else37.i.i.i49, %if.else.i.i.i32, %if.then28.i.i.i48, %while.end.i.i.i45, %if.then10.i.i.i38, %if.end.i.i50
   %call5.i.i.i.i.sink.i.i34 = phi ptr [ %11, %if.then28.i.i.i48 ], [ %11, %while.end.i.i.i45 ], [ %11, %if.else37.i.i.i49 ], [ %11, %if.else.i.i.i32 ], [ %11, %if.then10.i.i.i38 ], [ %call5.i.i.i.i.i.i5152, %if.end.i.i50 ]
-  %_M_storage.i.i35 = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__x.addr.062, i64 0, i32 1
-  %_M_storage.i.i.i.i.i36 = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 1
+  %_M_storage.i.i35 = getelementptr inbounds i8, ptr %__x.addr.062, i64 32
+  %_M_storage.i.i.i.i.i36 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i36, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i35, i64 32, i1 false)
   %18 = load i32, ptr %__x.addr.062, align 8
   store i32 %18, ptr %call5.i.i.i.i.sink.i.i34, align 8
-  %_M_left.i37 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 2
+  %_M_left.i37 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i37, i8 0, i64 16, i1 false)
-  %_M_left = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__p.addr.061, i64 0, i32 2
+  %_M_left = getelementptr inbounds i8, ptr %__p.addr.061, i64 16
   store ptr %call5.i.i.i.i.sink.i.i34, ptr %_M_left, align 8
-  %_M_parent8 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 1
+  %_M_parent8 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 8
   store ptr %__p.addr.061, ptr %_M_parent8, align 8
-  %_M_right9 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.062, i64 0, i32 3
+  %_M_right9 = getelementptr inbounds i8, ptr %__x.addr.062, i64 24
   %19 = load ptr, ptr %_M_right9, align 8
   %tobool10.not = icmp eq ptr %19, null
   br i1 %tobool10.not, label %if.end16, label %if.then11
@@ -8916,12 +8834,12 @@ if.then11:                                        ; preds = %invoke.cont6
           to label %invoke.cont13 unwind label %lpad.loopexit
 
 invoke.cont13:                                    ; preds = %if.then11
-  %_M_right15 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 3
+  %_M_right15 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 24
   store ptr %call14, ptr %_M_right15, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %invoke.cont13, %invoke.cont6
-  %__x.addr.0.in = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.062, i64 0, i32 2
+  %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.062, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8
   %cmp.not = icmp eq ptr %__x.addr.0, null
   br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !126
@@ -8960,19 +8878,19 @@ if.then:                                          ; preds = %entry
   %_M_parent.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i, align 8
   store ptr %0, ptr %__roan, align 8
-  %_M_nodes.i = getelementptr inbounds %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 1
+  %_M_nodes.i = getelementptr inbounds i8, ptr %__roan, i64 8
   %_M_right.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i.i, align 8
   store ptr %1, ptr %_M_nodes.i, align 8
-  %_M_t.i = getelementptr inbounds %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 2
+  %_M_t.i = getelementptr inbounds i8, ptr %__roan, i64 16
   store ptr %this, ptr %_M_t.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end12.sink.split.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %_M_parent.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %_M_parent.i, align 8
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %_M_left.i, align 8
   %tobool6.not.i = icmp eq ptr %2, null
   br i1 %tobool6.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE20_Reuse_or_alloc_nodeC2ERSE_.exit, label %if.end12.sink.split.i
@@ -9001,7 +8919,7 @@ if.then6:                                         ; preds = %_ZNSt8_Rb_treeINSt7
 
 while.cond.i.i.i:                                 ; preds = %if.then6, %while.cond.i.i.i
   %__x.addr.0.i.i.i = phi ptr [ %4, %while.cond.i.i.i ], [ %call3.i9, %if.then6 ]
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i, i64 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i.i, i64 16
   %4 = load ptr, ptr %_M_left.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i, label %while.cond.i.i.i, !llvm.loop !12
@@ -9012,7 +8930,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 
 while.cond.i.i4.i:                                ; preds = %while.cond.i.i4.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i
   %__x.addr.0.i.i5.i = phi ptr [ %call3.i9, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i ], [ %5, %while.cond.i.i4.i ]
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i5.i, i64 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i5.i, i64 24
   %5 = load ptr, ptr %_M_right.i.i.i, align 8
   %cmp.not.i.i6.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i6.i, label %invoke.cont, label %while.cond.i.i4.i, !llvm.loop !13
@@ -9053,7 +8971,7 @@ if.end9:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE20_Reuse_or_alloc_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_t = getelementptr inbounds %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node", ptr %this, i64 0, i32 2
+  %_M_t = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_t, align 8
   %1 = load ptr, ptr %this, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
@@ -9073,15 +8991,15 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE7_M_copyILb0ENSE_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(24) %__node_gen) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x, i64 32
   %call2.i = tail call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE20_Reuse_or_alloc_nodeclIRKS8_EEPSt13_Rb_tree_nodeIS8_EOT_(ptr noundef nonnull align 8 dereferenceable(24) %__node_gen, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i)
   %0 = load i32, ptr %__x, align 8
   store i32 %0, ptr %call2.i, align 8
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call2.i, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i, i8 0, i64 16, i1 false)
-  %_M_parent = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call2.i, i64 0, i32 1
+  %_M_parent = getelementptr inbounds i8, ptr %call2.i, i64 8
   store ptr %__p, ptr %_M_parent, align 8
-  %_M_right = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 3
+  %_M_right = getelementptr inbounds i8, ptr %__x, i64 24
   %1 = load ptr, ptr %_M_right, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -9091,7 +9009,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
-  %_M_right4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call2.i, i64 0, i32 3
+  %_M_right4 = getelementptr inbounds i8, ptr %call2.i, i64 24
   store ptr %call3, ptr %_M_right4, align 8
   br label %if.end
 
@@ -9117,7 +9035,7 @@ invoke.cont19:                                    ; preds = %lpad
           to label %unreachable unwind label %lpad18
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %__x.addr.0.in32 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 2
+  %__x.addr.0.in32 = getelementptr inbounds i8, ptr %__x, i64 16
   %__x.addr.033 = load ptr, ptr %__x.addr.0.in32, align 8
   %cmp.not34 = icmp eq ptr %__x.addr.033, null
   br i1 %cmp.not34, label %try.cont, label %while.body
@@ -9125,20 +9043,20 @@ if.end:                                           ; preds = %invoke.cont, %entry
 while.body:                                       ; preds = %if.end, %if.end16
   %__x.addr.036 = phi ptr [ %__x.addr.0, %if.end16 ], [ %__x.addr.033, %if.end ]
   %__p.addr.035 = phi ptr [ %call2.i2527, %if.end16 ], [ %call2.i, %if.end ]
-  %_M_storage.i.i24 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.036, i64 0, i32 1
+  %_M_storage.i.i24 = getelementptr inbounds i8, ptr %__x.addr.036, i64 32
   %call2.i2527 = invoke noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE20_Reuse_or_alloc_nodeclIRKS8_EEPSt13_Rb_tree_nodeIS8_EOT_(ptr noundef nonnull align 8 dereferenceable(24) %__node_gen, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i24)
           to label %invoke.cont6 unwind label %lpad.loopexit
 
 invoke.cont6:                                     ; preds = %while.body
   %4 = load i32, ptr %__x.addr.036, align 8
   store i32 %4, ptr %call2.i2527, align 8
-  %_M_left.i26 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call2.i2527, i64 0, i32 2
+  %_M_left.i26 = getelementptr inbounds i8, ptr %call2.i2527, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i26, i8 0, i64 16, i1 false)
-  %_M_left = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__p.addr.035, i64 0, i32 2
+  %_M_left = getelementptr inbounds i8, ptr %__p.addr.035, i64 16
   store ptr %call2.i2527, ptr %_M_left, align 8
-  %_M_parent8 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call2.i2527, i64 0, i32 1
+  %_M_parent8 = getelementptr inbounds i8, ptr %call2.i2527, i64 8
   store ptr %__p.addr.035, ptr %_M_parent8, align 8
-  %_M_right9 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.036, i64 0, i32 3
+  %_M_right9 = getelementptr inbounds i8, ptr %__x.addr.036, i64 24
   %5 = load ptr, ptr %_M_right9, align 8
   %tobool10.not = icmp eq ptr %5, null
   br i1 %tobool10.not, label %if.end16, label %if.then11
@@ -9148,12 +9066,12 @@ if.then11:                                        ; preds = %invoke.cont6
           to label %invoke.cont13 unwind label %lpad.loopexit
 
 invoke.cont13:                                    ; preds = %if.then11
-  %_M_right15 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call2.i2527, i64 0, i32 3
+  %_M_right15 = getelementptr inbounds i8, ptr %call2.i2527, i64 24
   store ptr %call14, ptr %_M_right15, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %invoke.cont13, %invoke.cont6
-  %__x.addr.0.in = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.036, i64 0, i32 2
+  %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.036, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8
   %cmp.not = icmp eq ptr %__x.addr.0, null
   br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !127
@@ -9184,20 +9102,20 @@ unreachable:                                      ; preds = %invoke.cont19
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE20_Reuse_or_alloc_nodeclIRKS8_EEPSt13_Rb_tree_nodeIS8_EOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(64) %__arg) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_nodes.i = getelementptr inbounds %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node", ptr %this, i64 0, i32 1
+  %_M_nodes.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_nodes.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %_M_parent.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_parent.i, align 8
   store ptr %1, ptr %_M_nodes.i, align 8
   %tobool7.not.i = icmp eq ptr %1, null
   br i1 %tobool7.not.i, label %if.else37.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %_M_right.i, align 8
   %cmp.i = icmp eq ptr %2, %0
   br i1 %cmp.i, label %if.then10.i, label %if.else.i
@@ -9205,7 +9123,7 @@ if.then8.i:                                       ; preds = %if.end.i
 if.then10.i:                                      ; preds = %if.then8.i
   store ptr null, ptr %_M_right.i, align 8
   %3 = load ptr, ptr %_M_nodes.i, align 8
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %3, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %_M_left.i, align 8
   %tobool14.not.i = icmp eq ptr %4, null
   br i1 %tobool14.not.i, label %if.then, label %while.cond.i
@@ -9213,13 +9131,13 @@ if.then10.i:                                      ; preds = %if.then8.i
 while.cond.i:                                     ; preds = %if.then10.i, %while.cond.i
   %storemerge.i = phi ptr [ %5, %while.cond.i ], [ %4, %if.then10.i ]
   store ptr %storemerge.i, ptr %_M_nodes.i, align 8
-  %_M_right20.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i, i64 0, i32 3
+  %_M_right20.i = getelementptr inbounds i8, ptr %storemerge.i, i64 24
   %5 = load ptr, ptr %_M_right20.i, align 8
   %tobool21.not.i = icmp eq ptr %5, null
   br i1 %tobool21.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !128
 
 while.end.i:                                      ; preds = %while.cond.i
-  %_M_left26.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i, i64 0, i32 2
+  %_M_left26.i = getelementptr inbounds i8, ptr %storemerge.i, i64 16
   %6 = load ptr, ptr %_M_left26.i, align 8
   %tobool27.not.i = icmp eq ptr %6, null
   br i1 %tobool27.not.i, label %if.then, label %if.then28.i
@@ -9229,7 +9147,7 @@ if.then28.i:                                      ; preds = %while.end.i
   br label %if.then
 
 if.else.i:                                        ; preds = %if.then8.i
-  %_M_left35.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left35.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %_M_left35.i, align 8
   br label %if.then
 
@@ -9238,9 +9156,9 @@ if.else37.i:                                      ; preds = %if.end.i
   br label %if.then
 
 if.then:                                          ; preds = %if.then28.i, %while.end.i, %if.else37.i, %if.else.i, %if.then10.i
-  %_M_t = getelementptr inbounds %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node", ptr %this, i64 0, i32 2
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 32
+  %_M_t = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #23
   %7 = load ptr, ptr %_M_t, align 8
@@ -9248,7 +9166,7 @@ if.then:                                          ; preds = %if.then28.i, %while
   br label %return
 
 if.end:                                           ; preds = %entry
-  %_M_t3 = getelementptr inbounds %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node", ptr %this, i64 0, i32 2
+  %_M_t3 = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %_M_t3, align 8
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #33
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %call5.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__arg)
@@ -9293,9 +9211,9 @@ cleanup.done:                                     ; preds = %cond.false, %cleanu
   %cond14 = phi ptr [ %call4, %cleanup.action ], [ %add.ptr.i, %cond.false ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %savedValue.i)
   %0 = load ptr, ptr %this, align 8
-  %length_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %length_.i, align 8
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp.i = icmp eq i64 %1, %2
   %cmp2.not.i = icmp ule ptr %0, %value
@@ -9351,10 +9269,10 @@ define linkonce_odr void @_ZN8proxygen11HTTPHeaders17emplace_back_implINSt7__cxx
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
   %add = add i64 %0, 1
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.not.i = icmp ult i64 %1, %add
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8proxygen11HTTPHeaders6ensureEm.exit
@@ -9464,7 +9382,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %18 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %17, ptr %18) #23
   %19 = load i64, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %21 = load ptr, ptr %20, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 %19, ptr %21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont unwind label %lpad
@@ -9486,10 +9404,10 @@ define linkonce_odr void @_ZN8proxygen11HTTPHeaders17emplace_back_implIRKNSt7__c
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
   %add = add i64 %0, 1
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.not.i = icmp ult i64 %1, %add
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8proxygen11HTTPHeaders6ensureEm.exit
@@ -9599,7 +9517,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %18 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %17, ptr %18) #23
   %19 = load i64, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %21 = load ptr, ptr %20, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 %19, ptr %21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont unwind label %lpad
@@ -9659,9 +9577,9 @@ entry:
   %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i, i64 %idx.ext.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %savedValue.i)
   %0 = load ptr, ptr %this, align 8
-  %length_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %length_.i, align 8
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp.i = icmp eq i64 %1, %2
   %cmp2.not.i = icmp ule ptr %0, %value
@@ -9700,10 +9618,10 @@ define linkonce_odr void @_ZN8proxygen11HTTPHeaders17emplace_back_implIN5folly5R
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
   %add = add i64 %0, 1
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.not.i = icmp ult i64 %1, %add
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8proxygen11HTTPHeaders6ensureEm.exit
@@ -9813,7 +9731,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %18 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %17, ptr %18) #23
   %19 = load i64, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %21 = load ptr, ptr %20, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 %19, ptr %21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont unwind label %lpad
@@ -9839,16 +9757,16 @@ declare void @_ZN8proxygen8ParseURL5parseEb(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen8ParseURL20moveHostAndAuthorityEOS0_(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr noundef nonnull align 8 dereferenceable(148) %goner) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %valid_ = getelementptr inbounds %"class.proxygen::ParseURL", ptr %this, i64 0, i32 9
+  %valid_ = getelementptr inbounds i8, ptr %this, i64 146
   %0 = load i8, ptr %valid_, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end61, label %if.end
 
 if.end:                                           ; preds = %entry
-  %host_ = getelementptr inbounds %"class.proxygen::ParseURL", ptr %goner, i64 0, i32 3
+  %host_ = getelementptr inbounds i8, ptr %goner, i64 64
   %2 = load ptr, ptr %host_, align 8
-  %e_.i = getelementptr inbounds %"class.proxygen::ParseURL", ptr %goner, i64 0, i32 3, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %goner, i64 72
   %3 = load ptr, ptr %e_.i, align 8
   %cmp.i = icmp eq ptr %2, %3
   br i1 %cmp.i, label %if.then10, label %lor.lhs.false
@@ -9856,19 +9774,19 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %4 = load ptr, ptr %goner, align 8
   %cmp.not = icmp uge ptr %2, %4
-  %e_.i21 = getelementptr inbounds %"class.folly::Range", ptr %goner, i64 0, i32 1
+  %e_.i21 = getelementptr inbounds i8, ptr %goner, i64 8
   %5 = load ptr, ptr %e_.i21, align 8
   %cmp9 = icmp ult ptr %2, %5
   %or.cond = select i1 %cmp.not, i1 %cmp9, i1 false
   br i1 %or.cond, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %lor.lhs.false, %if.end
-  %host_12 = getelementptr inbounds %"class.proxygen::ParseURL", ptr %this, i64 0, i32 3
+  %host_12 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %host_12, ptr noundef nonnull align 8 dereferenceable(16) %host_, i64 16, i1 false)
   br label %if.end16
 
 if.else:                                          ; preds = %lor.lhs.false
-  %authority_ = getelementptr inbounds %"class.proxygen::ParseURL", ptr %goner, i64 0, i32 2
+  %authority_ = getelementptr inbounds i8, ptr %goner, i64 32
   %call15 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %authority_) #23
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call15 to i64
@@ -9877,9 +9795,9 @@ if.else:                                          ; preds = %lor.lhs.false
 
 if.end16:                                         ; preds = %if.else, %if.then10
   %hostOff.0 = phi i64 [ -1, %if.then10 ], [ %sub.ptr.sub, %if.else ]
-  %hostNoBrackets_ = getelementptr inbounds %"class.proxygen::ParseURL", ptr %goner, i64 0, i32 4
+  %hostNoBrackets_ = getelementptr inbounds i8, ptr %goner, i64 80
   %6 = load ptr, ptr %hostNoBrackets_, align 8
-  %e_.i22 = getelementptr inbounds %"class.proxygen::ParseURL", ptr %goner, i64 0, i32 4, i32 1
+  %e_.i22 = getelementptr inbounds i8, ptr %goner, i64 88
   %7 = load ptr, ptr %e_.i22, align 8
   %cmp.i23 = icmp eq ptr %6, %7
   br i1 %cmp.i23, label %if.then30, label %lor.lhs.false18
@@ -9887,19 +9805,19 @@ if.end16:                                         ; preds = %if.else, %if.then10
 lor.lhs.false18:                                  ; preds = %if.end16
   %8 = load ptr, ptr %goner, align 8
   %cmp23.not = icmp uge ptr %6, %8
-  %e_.i24 = getelementptr inbounds %"class.folly::Range", ptr %goner, i64 0, i32 1
+  %e_.i24 = getelementptr inbounds i8, ptr %goner, i64 8
   %9 = load ptr, ptr %e_.i24, align 8
   %cmp29 = icmp ult ptr %6, %9
   %or.cond33 = select i1 %cmp23.not, i1 %cmp29, i1 false
   br i1 %or.cond33, label %if.then30, label %if.else33
 
 if.then30:                                        ; preds = %lor.lhs.false18, %if.end16
-  %hostNoBrackets_32 = getelementptr inbounds %"class.proxygen::ParseURL", ptr %this, i64 0, i32 4
+  %hostNoBrackets_32 = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hostNoBrackets_32, ptr noundef nonnull align 8 dereferenceable(16) %hostNoBrackets_, i64 16, i1 false)
   br label %if.end41
 
 if.else33:                                        ; preds = %lor.lhs.false18
-  %authority_36 = getelementptr inbounds %"class.proxygen::ParseURL", ptr %goner, i64 0, i32 2
+  %authority_36 = getelementptr inbounds i8, ptr %goner, i64 32
   %call37 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %authority_36) #23
   %sub.ptr.lhs.cast38 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast39 = ptrtoint ptr %call37 to i64
@@ -9908,14 +9826,14 @@ if.else33:                                        ; preds = %lor.lhs.false18
 
 if.end41:                                         ; preds = %if.else33, %if.then30
   %hostNoBracketsOff.0 = phi i64 [ -1, %if.then30 ], [ %sub.ptr.sub40, %if.else33 ]
-  %authority_42 = getelementptr inbounds %"class.proxygen::ParseURL", ptr %goner, i64 0, i32 2
-  %authority_43 = getelementptr inbounds %"class.proxygen::ParseURL", ptr %this, i64 0, i32 2
+  %authority_42 = getelementptr inbounds i8, ptr %goner, i64 32
+  %authority_43 = getelementptr inbounds i8, ptr %this, i64 32
   %call44 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %authority_43, ptr noundef nonnull align 8 dereferenceable(32) %authority_42) #23
   %cmp45 = icmp sgt i64 %hostOff.0, -1
   br i1 %cmp45, label %if.then46, label %if.end52
 
 if.then46:                                        ; preds = %if.end41
-  %host_47 = getelementptr inbounds %"class.proxygen::ParseURL", ptr %this, i64 0, i32 3
+  %host_47 = getelementptr inbounds i8, ptr %this, i64 64
   %call49 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %authority_43) #23
   %add.ptr = getelementptr inbounds i8, ptr %call49, i64 %hostOff.0
   %10 = load ptr, ptr %e_.i, align 8
@@ -9925,7 +9843,7 @@ if.then46:                                        ; preds = %if.end41
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store ptr %add.ptr, ptr %host_47, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %sub.ptr.sub.i
-  %e_.i26 = getelementptr inbounds %"class.proxygen::ParseURL", ptr %this, i64 0, i32 3, i32 1
+  %e_.i26 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr.i, ptr %e_.i26, align 8
   br label %if.end52
 
@@ -9934,7 +9852,7 @@ if.end52:                                         ; preds = %if.then46, %if.end4
   br i1 %cmp53, label %if.then54, label %if.end61
 
 if.then54:                                        ; preds = %if.end52
-  %hostNoBrackets_55 = getelementptr inbounds %"class.proxygen::ParseURL", ptr %this, i64 0, i32 4
+  %hostNoBrackets_55 = getelementptr inbounds i8, ptr %this, i64 80
   %call57 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %authority_43) #23
   %add.ptr58 = getelementptr inbounds i8, ptr %call57, i64 %hostNoBracketsOff.0
   %12 = load ptr, ptr %e_.i22, align 8
@@ -9944,7 +9862,7 @@ if.then54:                                        ; preds = %if.end52
   %sub.ptr.sub.i30 = sub i64 %sub.ptr.lhs.cast.i28, %sub.ptr.rhs.cast.i29
   store ptr %add.ptr58, ptr %hostNoBrackets_55, align 8
   %add.ptr.i31 = getelementptr inbounds i8, ptr %add.ptr58, i64 %sub.ptr.sub.i30
-  %e_.i32 = getelementptr inbounds %"class.proxygen::ParseURL", ptr %this, i64 0, i32 4, i32 1
+  %e_.i32 = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %add.ptr.i31, ptr %e_.i32, align 8
   br label %if.end61
 
@@ -10080,12 +9998,12 @@ entry:
   %call3 = tail call noundef zeroext i8 @_ZN8proxygen17HTTPCommonHeaders4hashEPKcm(ptr noundef %name.coerce0, i64 noundef %sub.ptr.sub.i)
   %cmp.not = icmp eq i8 %call3, 1
   %0 = load ptr, ptr %this, align 8
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %conv.i = zext i8 %call3 to i32
-  %length_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 8
   %tobool.not12.i = icmp eq ptr %0, null
   br i1 %tobool.not12.i, label %return, label %while.body.preheader.i
 
@@ -10135,7 +10053,7 @@ if.else:                                          ; preds = %entry
   %8 = load i64, ptr %capacity_.i, align 8
   %mul.i.i = mul i64 %8, 40
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %mul.i.i
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %tobool.not41 = icmp eq ptr %0, null
   br i1 %tobool.not41, label %return, label %while.body.lr.ph
 
@@ -10314,7 +10232,7 @@ entry:
 
 land.lhs.true.i.i.i:                              ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 4
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i1.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i unwind label %terminate.lpad.i.i
@@ -10357,7 +10275,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 3
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont unwind label %lpad.i
@@ -10387,7 +10305,7 @@ _ZN5boost10wrapexceptINS_7bad_getEE7deleterD2Ev.exit8: ; preds = %invoke.cont
   %5 = landingpad { ptr, i32 }
           cleanup
   %vtable.i6 = load ptr, ptr %call, align 8
-  %vfn.i7 = getelementptr inbounds ptr, ptr %vtable.i6, i64 3
+  %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 24
   %6 = load ptr, ptr %vfn.i7, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(56) %call) #23
   br label %eh.resume
@@ -10427,7 +10345,7 @@ entry:
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -10465,7 +10383,7 @@ entry:
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -10501,7 +10419,7 @@ entry:
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 4
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i1.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -10544,7 +10462,7 @@ entry:
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -10580,7 +10498,7 @@ entry:
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 4
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i1.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %call.i.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -10653,7 +10571,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont unwind label %lpad
@@ -10678,14 +10596,14 @@ lpad:                                             ; preds = %if.then.i.i.i
 define linkonce_odr void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef %a, ptr noundef %b) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::exception_detail::refcount_ptr", align 8
-  %data_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load ptr, ptr %data_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.boost::exception_detail::refcount_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %2 = load ptr, ptr %ref.tmp, align 8
@@ -10694,7 +10612,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i2.i.i:                                   ; preds = %if.then
   %vtable.i3.i.i = load ptr, ptr %2, align 8
-  %vfn.i4.i.i = getelementptr inbounds ptr, ptr %vtable.i3.i.i, i64 3
+  %vfn.i4.i.i = getelementptr inbounds i8, ptr %vtable.i3.i.i, i64 24
   %3 = load ptr, ptr %vfn.i4.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont3 unwind label %lpad2
@@ -10706,7 +10624,7 @@ invoke.cont3:                                     ; preds = %if.then.i2.i.i
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont3
   %vtable.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %4 = load ptr, ptr %vfn.i.i, align 8
   %call.i1.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %.pr)
           to label %call.i.noexc.i unwind label %terminate.lpad.i
@@ -10734,7 +10652,7 @@ lpad2:                                            ; preds = %if.then.i2.i.i
 
 land.lhs.true.i.i13:                              ; preds = %lpad2
   %vtable.i.i14 = load ptr, ptr %8, align 8
-  %vfn.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i14, i64 4
+  %vfn.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i14, i64 32
   %9 = load ptr, ptr %vfn.i.i15, align 8
   %call.i1.i16 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %call.i.noexc.i18 unwind label %terminate.lpad.i17
@@ -10755,30 +10673,30 @@ terminate.lpad.i17:                               ; preds = %land.lhs.true.i.i13
 
 if.end:                                           ; preds = %if.then, %if.then.i.i, %call.i.noexc.i, %invoke.cont3, %entry
   %data.sroa.0.2 = phi ptr [ null, %entry ], [ %2, %invoke.cont3 ], [ %2, %call.i.noexc.i ], [ %2, %if.then.i.i ], [ null, %if.then ]
-  %throw_file_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 3
+  %throw_file_ = getelementptr inbounds i8, ptr %b, i64 24
   %12 = load ptr, ptr %throw_file_, align 8
-  %throw_file_5 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 3
+  %throw_file_5 = getelementptr inbounds i8, ptr %a, i64 24
   store ptr %12, ptr %throw_file_5, align 8
-  %throw_line_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 4
+  %throw_line_ = getelementptr inbounds i8, ptr %b, i64 32
   %13 = load i32, ptr %throw_line_, align 8
-  %throw_line_6 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 4
+  %throw_line_6 = getelementptr inbounds i8, ptr %a, i64 32
   store i32 %13, ptr %throw_line_6, align 8
-  %throw_function_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 2
+  %throw_function_ = getelementptr inbounds i8, ptr %b, i64 16
   %14 = load ptr, ptr %throw_function_, align 8
-  %throw_function_7 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 2
+  %throw_function_7 = getelementptr inbounds i8, ptr %a, i64 16
   store ptr %14, ptr %throw_function_7, align 8
-  %throw_column_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 5
+  %throw_column_ = getelementptr inbounds i8, ptr %b, i64 36
   %15 = load i32, ptr %throw_column_, align 4
-  %throw_column_8 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 5
+  %throw_column_8 = getelementptr inbounds i8, ptr %a, i64 36
   store i32 %15, ptr %throw_column_8, align 4
-  %data_9 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 1
+  %data_9 = getelementptr inbounds i8, ptr %a, i64 8
   %16 = load ptr, ptr %data_9, align 8
   %tobool.not.i.i.i21 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i21, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i25, label %land.lhs.true.i.i.i22
 
 land.lhs.true.i.i.i22:                            ; preds = %if.end
   %vtable.i.i.i23 = load ptr, ptr %16, align 8
-  %vfn.i.i.i24 = getelementptr inbounds ptr, ptr %vtable.i.i.i23, i64 4
+  %vfn.i.i.i24 = getelementptr inbounds i8, ptr %vtable.i.i.i23, i64 32
   %17 = load ptr, ptr %vfn.i.i.i24, align 8
   %call.i.i.i31 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i25 unwind label %ehcleanup
@@ -10790,7 +10708,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 if.then.i2.i.i27:                                 ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i25
   %vtable.i3.i.i28 = load ptr, ptr %data.sroa.0.2, align 8
-  %vfn.i4.i.i29 = getelementptr inbounds ptr, ptr %vtable.i3.i.i28, i64 3
+  %vfn.i4.i.i29 = getelementptr inbounds i8, ptr %vtable.i3.i.i28, i64 24
   %18 = load ptr, ptr %vfn.i4.i.i29, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.2)
           to label %land.lhs.true.i.i35 unwind label %ehcleanup.thread65
@@ -10802,7 +10720,7 @@ ehcleanup.thread65:                               ; preds = %if.then.i2.i.i27
 
 land.lhs.true.i.i35:                              ; preds = %if.then.i2.i.i27
   %vtable.i.i36 = load ptr, ptr %data.sroa.0.2, align 8
-  %vfn.i.i37 = getelementptr inbounds ptr, ptr %vtable.i.i36, i64 4
+  %vfn.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i36, i64 32
   %20 = load ptr, ptr %vfn.i.i37, align 8
   %call.i1.i38 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.2)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit42 unwind label %terminate.lpad.i39
@@ -10827,7 +10745,7 @@ land.lhs.true.i.i44:                              ; preds = %if.then.i.i19, %cal
   %.pn60 = phi { ptr, i32 } [ %23, %ehcleanup ], [ %19, %ehcleanup.thread65 ], [ %7, %lpad2 ], [ %7, %call.i.noexc.i18 ], [ %7, %if.then.i.i19 ]
   %data.sroa.0.359 = phi ptr [ %data.sroa.0.2, %ehcleanup ], [ %data.sroa.0.2, %ehcleanup.thread65 ], [ %2, %lpad2 ], [ %2, %call.i.noexc.i18 ], [ %2, %if.then.i.i19 ]
   %vtable.i.i45 = load ptr, ptr %data.sroa.0.359, align 8
-  %vfn.i.i46 = getelementptr inbounds ptr, ptr %vtable.i.i45, i64 4
+  %vfn.i.i46 = getelementptr inbounds i8, ptr %vtable.i.i45, i64 32
   %24 = load ptr, ptr %vfn.i.i46, align 8
   %call.i1.i47 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.359)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit51 unwind label %terminate.lpad.i48
@@ -10855,7 +10773,7 @@ entry:
   br i1 %switch.i, label %sw.bb3.i.i, label %if.then
 
 sw.bb3.i.i:                                       ; preds = %entry
-  %storage_.i.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2
+  %storage_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %rhs, align 8
   store ptr null, ptr %rhs, align 8
   %2 = load ptr, ptr %storage_.i.i, align 8
@@ -10869,7 +10787,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %storage_.i.i2 = getelementptr inbounds %"class.boost::variant", ptr %temp, i64 0, i32 2
+  %storage_.i.i2 = getelementptr inbounds i8, ptr %temp, i64 8
   %3 = load i64, ptr %rhs, align 8
   store i64 %3, ptr %storage_.i.i2, align 8
   store ptr null, ptr %rhs, align 8
@@ -10913,10 +10831,10 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %storage_ = getelementptr inbounds %"class.boost::variant", ptr %rhs, i64 0, i32 2
+  %storage_ = getelementptr inbounds i8, ptr %rhs, i64 8
   %.lobit.i = ashr i32 %0, 31
   %retval.0.i = xor i32 %.lobit.i, %0
-  %storage_.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2
+  %storage_.i = getelementptr inbounds i8, ptr %this, i64 8
   switch i32 %retval.0.i, label %sw.default.i [
     i32 0, label %if.end
     i32 1, label %sw.bb3.i
@@ -10947,10 +10865,10 @@ sw.default.i:                                     ; preds = %if.then
 if.else:                                          ; preds = %entry
   %.lobit.i142 = ashr i32 %1, 31
   %retval.0.i143 = xor i32 %.lobit.i142, %1
-  %storage_.i9 = getelementptr inbounds %"class.boost::variant", ptr %rhs, i64 0, i32 2
+  %storage_.i9 = getelementptr inbounds i8, ptr %rhs, i64 8
   %.lobit.i.i.i.i.i.i = ashr i32 %0, 31
   %retval.0.i.i.i.i.i.i = xor i32 %.lobit.i.i.i.i.i.i, %0
-  %storage_.i.i.i.i.i.i = getelementptr inbounds %"class.boost::variant", ptr %this, i64 0, i32 2
+  %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %switch.i.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i.i, 1
   switch i32 %retval.0.i143, label %sw.default.i48 [
     i32 0, label %sw.bb.i47
@@ -11050,7 +10968,7 @@ entry:
   %0 = load ptr, ptr %vs3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i)
   store i64 4, ptr %sizes.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 8
   %1 = load i64, ptr %vs1, align 8
   br label %for.body.i.i.i.i.i.i
 
@@ -11075,7 +10993,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i.i, ptr %arrayinit.element.i.i, align 8
-  %arrayinit.element7.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 2
+  %arrayinit.element7.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i, align 16
   br label %for.body.i.i
 
@@ -11391,13 +11309,13 @@ entry:
   %ref.tmp2 = alloca %class.anon.91, align 8
   %ref.tmp4 = alloca %class.anon.93, align 8
   store ptr %src.coerce0, ptr %src, align 8
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %src, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %src, i64 8
   store ptr %src.coerce1, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %src.i.i), !noalias !140
   store ptr %src.coerce0, ptr %src.i.i, align 8, !noalias !146
-  %1 = getelementptr inbounds { ptr, ptr }, ptr %src.i.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %src.i.i, i64 8
   store ptr %src.coerce1, ptr %1, align 8, !noalias !146
   %call.i.i.i = call { i64, i64 } @_ZN5folly6detail15str_to_integralIlEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef nonnull %src.i.i) #23, !noalias !146
   %2 = extractvalue { i64, i64 } %call.i.i.i, 0
@@ -11413,8 +11331,8 @@ if.then.i.i:                                      ; preds = %entry
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %tmp, align 8, !alias.scope !153
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %tmp, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i.i.i.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !153
-  %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %tmp, i64 16
-  store i8 1, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !153
+  %4 = getelementptr inbounds i8, ptr %tmp, i64 16
+  store i8 1, ptr %4, align 8, !alias.scope !153
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %src.i.i), !noalias !140
   %cmp.not4.i.i.i.i = icmp eq ptr %retval.sroa.0.0.copyload.i.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i.i
   br i1 %cmp.not4.i.i.i.i, label %_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIlEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IlEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit, label %for.body.i.i.i.i
@@ -11426,8 +11344,8 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i, %for.cond.i.i.i.i
   %__begin2.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.cond.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i.i.i.i, %if.then.i.i ]
-  %4 = load i8, ptr %__begin2.05.i.i.i.i, align 1
-  %conv.i.i.i.i = sext i8 %4 to i32
+  %5 = load i8, ptr %__begin2.05.i.i.i.i, align 1
+  %conv.i.i.i.i = sext i8 %5 to i32
   %call2.i.i.i.i = call i32 @isspace(i32 noundef %conv.i.i.i.i) #31
   %tobool.not.i.i.i.i.not = icmp eq i32 %call2.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.not, label %if.end.i.i2, label %for.cond.i.i.i.i
@@ -11448,8 +11366,8 @@ if.end.i.i2:                                      ; preds = %for.body.i.i.i.i
   unreachable
 
 _ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIlEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IlEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit: ; preds = %for.cond.i.i.i.i, %if.then.i.i
-  %5 = extractvalue { i64, i64 } %call.i.i.i, 1
-  ret i64 %5
+  %6 = extractvalue { i64, i64 } %call.i.i.i, 1
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind
@@ -11551,8 +11469,8 @@ define linkonce_odr void @_ZN5folly15ConversionErrorC2EOS0_(ptr noundef nonnull 
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %code_ = getelementptr inbounds %"class.folly::ConversionError", ptr %this, i64 0, i32 1
-  %code_2 = getelementptr inbounds %"class.folly::ConversionError", ptr %0, i64 0, i32 1
+  %code_ = getelementptr inbounds i8, ptr %this, i64 16
+  %code_2 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %code_2, align 8
   store i8 %1, ptr %code_, align 8
   ret void
@@ -11574,7 +11492,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAcc
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess.98", align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %error_.i = getelementptr inbounds %"class.folly::BadExpectedAccess.98", ptr %ref.tmp, i64 0, i32 1
+  %error_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i8 %args, ptr %error_.i, align 8
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp) #36
           to label %invoke.cont unwind label %lpad
@@ -11594,8 +11512,8 @@ define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_1
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #23
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %error_.i = getelementptr inbounds %"class.folly::BadExpectedAccess.98", ptr %exception, i64 0, i32 1
-  %error_2.i = getelementptr inbounds %"class.folly::BadExpectedAccess.98", ptr %ex, i64 0, i32 1
+  %error_.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %error_2.i = getelementptr inbounds i8, ptr %ex, i64 8
   %0 = load i8, ptr %error_2.i, align 8
   store i8 %0, ptr %error_.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly17BadExpectedAccessINS_14ConversionCodeEEE, ptr nonnull @_ZN5folly17BadExpectedAccessINS_14ConversionCodeEED2Ev) #32
@@ -11622,7 +11540,7 @@ define linkonce_odr void @_ZZN5folly2toIlEENSt9enable_ifIXntsr3std7is_sameINS_5R
 entry:
   %ref.tmp = alloca %"class.folly::ConversionError", align 8
   %0 = load ptr, ptr %this, align 8
-  %which_.i.i.i = getelementptr inbounds %"struct.folly::expected_detail::ExpectedStorage.85", ptr %0, i64 0, i32 1
+  %which_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %which_.i.i.i, align 8
   switch i8 %1, label %if.end.i.i [
     i8 1, label %_ZNR5folly8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEE5valueEv.exit
@@ -11806,11 +11724,11 @@ cond.false.i.i.i.i.i:                             ; preds = %if.then.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i.i.i: ; preds = %cond.false.i.i.i.i.i, %if.then.i.i.i
   %cond.i.i.i.i.i = phi ptr [ %call2.i.i.i.i.i, %cond.false.i.i.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i, %if.then.i.i.i ]
-  %threadEntry_.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %cond.i.i.i.i.i, i64 0, i32 7
+  %threadEntry_.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 144
   %6 = load ptr, ptr %threadEntry_.i.i.i, align 8
   %call1.i.i.i = tail call noundef ptr %6()
   store ptr %call1.i.i.i, ptr %2, align 8
-  %elementsCapacity.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %call1.i.i.i, i64 0, i32 1
+  %elementsCapacity.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 8
   %7 = load atomic i64, ptr %elementsCapacity.i.i.i.i monotonic, align 8
   %cmp.not.i.i.i = icmp ugt i64 %7, %conv.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, label %if.then.i5.i.i
@@ -11825,7 +11743,7 @@ if.then.i5.i.i:                                   ; preds = %_ZN5folly18threadlo
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i: ; preds = %if.then.i5.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i.i.i
   %.pre.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i.i.i ], [ %.pre7.i.i, %if.then.i5.i.i ]
   %9 = phi ptr [ %call1.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i.i.i ], [ %.pre.i.i.i, %if.then.i5.i.i ]
-  %elementsCapacity.i6.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %9, i64 0, i32 1
+  %elementsCapacity.i6.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %elementsCapacity.i6.i.i.i monotonic, align 8
   store i64 %10, ptr %3, align 8
   br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE3getEv.exit.i
@@ -11840,7 +11758,7 @@ _ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113F
   br i1 %tobool.i.not.i, label %cond.false.i.i, label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vEdeEv.exit
 
 cond.false.i.i:                                   ; preds = %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE3getEv.exit.i
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.folly::ThreadLocal", ptr %cond.i, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 24
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i2.i, label %_ZNKSt8functionIFPvvEEclEv.exit.i.i
@@ -11850,8 +11768,8 @@ if.then.i.i2.i:                                   ; preds = %cond.false.i.i
   unreachable
 
 _ZNKSt8functionIFPvvEEclEv.exit.i.i:              ; preds = %cond.false.i.i
-  %constructor_.i.i = getelementptr inbounds %"class.folly::ThreadLocal", ptr %cond.i, i64 0, i32 1
-  %_M_invoker.i.i.i = getelementptr inbounds %"class.folly::ThreadLocal", ptr %cond.i, i64 0, i32 1, i32 1
+  %constructor_.i.i = getelementptr inbounds i8, ptr %cond.i, i64 8
+  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 32
   %15 = load ptr, ptr %_M_invoker.i.i.i, align 8
   %call2.i.i.i = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %constructor_.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %newPtr.addr.i.i.i)
@@ -11868,7 +11786,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %_ZNKSt8functionIFPv
 
 _ZN5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE42getAccessAllThreadsLockReadHolderIfEnabledEv.exit.i.i.i: ; preds = %cond.false.i.i.i.i.i.i, %_ZNKSt8functionIFPvvEEclEv.exit.i.i
   %cond.i.i.i.i.i.i = phi ptr [ %call2.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i.i, %_ZNKSt8functionIFPvvEEclEv.exit.i.i ]
-  %accessAllThreadsLock_.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %cond.i.i.i.i.i.i, i64 0, i32 4
+  %accessAllThreadsLock_.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 72
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC1EPKS3_(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i, ptr noundef nonnull %accessAllThreadsLock_.i.i.i.i)
   %17 = load atomic i32, ptr %cond.i acquire, align 4
   %18 = load i64, ptr %3, align 8
@@ -11888,14 +11806,14 @@ cond.false.i.i.i17.i.i.i:                         ; preds = %if.then.i21.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i.i.i.i: ; preds = %cond.false.i.i.i17.i.i.i, %if.then.i21.i.i.i
   %cond.i.i.i14.i.i.i = phi ptr [ %atomic-temp.i.0.i.i.i12.i.i.i, %if.then.i21.i.i.i ], [ %call2.i.i.i1819.i.i.i, %cond.false.i.i.i17.i.i.i ]
-  %threadEntry_.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %cond.i.i.i14.i.i.i, i64 0, i32 7
+  %threadEntry_.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i14.i.i.i, i64 144
   %20 = load ptr, ptr %threadEntry_.i.i.i.i, align 8
   %call1.i20.i.i.i = invoke noundef ptr %20()
           to label %call1.i.noexc.i.i.i unwind label %lpad.i.i.i
 
 call1.i.noexc.i.i.i:                              ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i.i.i.i
   store ptr %call1.i20.i.i.i, ptr %2, align 8
-  %elementsCapacity.i.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %call1.i20.i.i.i, i64 0, i32 1
+  %elementsCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %call1.i20.i.i.i, i64 8
   %21 = load atomic i64, ptr %elementsCapacity.i.i.i.i.i monotonic, align 8
   %cmp.not.i.i.i.i = icmp ugt i64 %21, %conv.i17.i.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, label %if.then.i16.i.i.i
@@ -11913,7 +11831,7 @@ if.then.i16.i.i.i:                                ; preds = %call1.i.noexc.i.i.i
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i: ; preds = %.noexc.i.i.i, %call1.i.noexc.i.i.i
   %.pre.pre-phi.i.i.i = phi i64 [ %conv.i17.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre59.i.i.i, %.noexc.i.i.i ]
   %23 = phi ptr [ %call1.i20.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre.i.i.i.i, %.noexc.i.i.i ]
-  %elementsCapacity.i6.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %23, i64 0, i32 1
+  %elementsCapacity.i6.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load atomic i64, ptr %elementsCapacity.i6.i.i.i.i monotonic, align 8
   store i64 %24, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23.i.i.i
@@ -11928,11 +11846,11 @@ _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHe
   br i1 %cmp.i.not56.i.i.i, label %invoke.cont2.i.i.i, label %while.end.i.i.i.i
 
 while.end.i.i.i.i:                                ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23.i.i.i
-  %ownsDeleter.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %26, i64 %idxprom.i19.pre-phi.i.i.i, i32 2
+  %ownsDeleter.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i20.i.i.i, i64 16
   %28 = load i8, ptr %ownsDeleter.i.i.i.i, align 8
   %29 = and i8 %28, 1
   %tobool.not.i.i2.i.i = icmp eq i8 %29, 0
-  %30 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %26, i64 %idxprom.i19.pre-phi.i.i.i, i32 1
+  %30 = getelementptr inbounds i8, ptr %arrayidx.i20.i.i.i, i64 8
   %31 = load ptr, ptr %30, align 8
   br i1 %tobool.not.i.i2.i.i, label %cond.false11.i.i.i.i, label %cond.true9.i.i.i.i
 
@@ -11941,7 +11859,7 @@ cond.true9.i.i.i.i:                               ; preds = %while.end.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i.i.i.i.i)
   store ptr %27, ptr %__args.addr.i.i.i.i.i, align 8
   store i32 0, ptr %__args.addr2.i.i.i.i.i, align 4
-  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %31, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i.i.i
@@ -11954,7 +11872,7 @@ if.then.i.i.i.i.i:                                ; preds = %cond.true9.i.i.i.i
   unreachable
 
 _ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i.i.i: ; preds = %cond.true9.i.i.i.i
-  %_M_invoker.i.i.i.i.i = getelementptr inbounds %"class.std::function.142", ptr %31, i64 0, i32 1
+  %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 24
   %33 = load ptr, ptr %_M_invoker.i.i.i.i.i, align 8
   invoke void %33(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i.i.i.i.i)
           to label %.noexc22.i.i.i unwind label %lpad.i.i.i
@@ -11987,14 +11905,14 @@ cond.false.i.i.i35.i.i.i:                         ; preds = %if.then.i.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i26.i.i.i: ; preds = %cond.false.i.i.i35.i.i.i, %if.then.i.i.i.i
   %cond.i.i.i27.i.i.i = phi ptr [ %atomic-temp.i.0.i.i.i24.i.i.i, %if.then.i.i.i.i ], [ %call2.i.i.i3637.i.i.i, %cond.false.i.i.i35.i.i.i ]
-  %threadEntry_.i28.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %cond.i.i.i27.i.i.i, i64 0, i32 7
+  %threadEntry_.i28.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i27.i.i.i, i64 144
   %37 = load ptr, ptr %threadEntry_.i28.i.i.i, align 8
   %call1.i39.i.i.i = invoke noundef ptr %37()
           to label %call1.i.noexc38.i.i.i unwind label %lpad.i.i.i
 
 call1.i.noexc38.i.i.i:                            ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i26.i.i.i
   store ptr %call1.i39.i.i.i, ptr %2, align 8
-  %elementsCapacity.i.i29.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %call1.i39.i.i.i, i64 0, i32 1
+  %elementsCapacity.i.i29.i.i.i = getelementptr inbounds i8, ptr %call1.i39.i.i.i, i64 8
   %38 = load atomic i64, ptr %elementsCapacity.i.i29.i.i.i monotonic, align 8
   %cmp.not.i31.i.i.i = icmp ugt i64 %38, %conv.i.i.i.i
   br i1 %cmp.not.i31.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit41.i.i.i, label %if.then.i32.i.i.i
@@ -12012,7 +11930,7 @@ if.then.i32.i.i.i:                                ; preds = %call1.i.noexc38.i.i
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit41.i.i.i: ; preds = %.noexc40.i.i.i, %call1.i.noexc38.i.i.i
   %.pre57.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc38.i.i.i ], [ %.pre58.i.i.i, %.noexc40.i.i.i ]
   %40 = phi ptr [ %call1.i39.i.i.i, %call1.i.noexc38.i.i.i ], [ %.pre.i33.i.i.i, %.noexc40.i.i.i ]
-  %elementsCapacity.i6.i34.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %40, i64 0, i32 1
+  %elementsCapacity.i6.i34.i.i.i = getelementptr inbounds i8, ptr %40, i64 8
   %41 = load atomic i64, ptr %elementsCapacity.i6.i34.i.i.i monotonic, align 8
   store i64 %41, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
@@ -12022,20 +11940,20 @@ _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHe
   %42 = load ptr, ptr %2, align 8
   %43 = load ptr, ptr %42, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %43, i64 %idxprom.i.pre-phi.i.i.i
-  %ownsDeleter.i42.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %43, i64 %idxprom.i.pre-phi.i.i.i, i32 2
+  %ownsDeleter.i42.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 16
   %44 = load i8, ptr %ownsDeleter.i42.i.i.i, align 8
   %45 = and i8 %44, 1
   %tobool.not.i43.i.i.i = icmp eq i8 %45, 0
   br i1 %tobool.not.i43.i.i.i, label %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i, label %if.then.i44.i.i.i
 
 if.then.i44.i.i.i:                                ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
-  %46 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %43, i64 %idxprom.i.pre-phi.i.i.i, i32 1
+  %46 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 8
   %47 = load ptr, ptr %46, align 8
   %isnull.i.i.i.i = icmp eq ptr %47, null
   br i1 %isnull.i.i.i.i, label %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i44.i.i.i
-  %_M_manager.i.i.i45.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %47, i64 0, i32 1
+  %_M_manager.i.i.i45.i.i.i = getelementptr inbounds i8, ptr %47, i64 16
   %48 = load ptr, ptr %_M_manager.i.i.i45.i.i.i, align 8
   %tobool.not.i.i.i46.i.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i.i46.i.i.i, label %_ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -12062,12 +11980,12 @@ _ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i: ; preds = %_
   br i1 %tobool.not.i47.i.i.i, label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE7makeTlpEv.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i
-  %node.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %43, i64 %idxprom.i.pre-phi.i.i.i, i32 3
+  %node.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 24
   invoke void @_ZN5folly18threadlocal_detail15ThreadEntryNode10initIfZeroEb(ptr noundef nonnull align 8 dereferenceable(32) %node.i.i.i.i, i1 noundef zeroext true)
           to label %.noexc49.i.i.i unwind label %lpad.i.i.i
 
 .noexc49.i.i.i:                                   ; preds = %if.end.i.i.i.i
-  %52 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %43, i64 %idxprom.i.pre-phi.i.i.i, i32 1
+  %52 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 8
   store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS4_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS6_EES8_E7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeESG_SH_, ptr %52, align 8
   store i8 0, ptr %ownsDeleter.i42.i.i.i, align 8
   store ptr %51, ptr %arrayidx.i.i.i.i, align 8
@@ -12124,9 +12042,9 @@ define internal noalias noundef nonnull ptr @_ZN5folly6detail5thunk4makeINS_11Th
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
   store i32 -1, ptr %call, align 4
-  %constructor_.i = getelementptr inbounds %"class.folly::ThreadLocal", ptr %call, i64 0, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.folly::ThreadLocal", ptr %call, i64 0, i32 1, i32 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.folly::ThreadLocal", ptr %call, i64 0, i32 1, i32 1
+  %constructor_.i = getelementptr inbounds i8, ptr %call, i64 8
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %constructor_.i, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalINS2_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS5_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS2_6detail11DefaultMakeIS7_EES9_E7WrapperES9_vEC1EvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalINS2_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS5_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS2_6detail11DefaultMakeIS7_EES9_E7WrapperES9_vEC1EvEUlvE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
@@ -12137,7 +12055,7 @@ invoke.cont:
 define internal noundef nonnull ptr @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalINS2_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS5_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS2_6detail11DefaultMakeIS7_EES9_E7WrapperES9_vEC1EvEUlvE_E9_M_invokeERKSt9_Any_data(ptr nocapture nonnull readnone align 8 %__functor) #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #33
-  %date.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::(anonymous namespace)::FormattedDate", ptr %call.i.i.i, i64 0, i32 1
+  %date.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %call.i.i.i, i8 0, i64 152, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %date.i.i.i.i.i.i.i) #23
   %0 = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
@@ -12186,18 +12104,18 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %call_.i.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp.i, i64 0, i32 1
-  %exec_.i.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp.i, i64 0, i32 2
+  %call_.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
+  %exec_.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 56
   store ptr @_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE7preForkEv, ptr %agg.tmp.i, align 16
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFbvEE9callSmallIPS3_EEbRNS1_4DataE, ptr %call_.i.i, align 16
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i.i, align 8
-  %call_.i1.i = getelementptr inbounds %"class.folly::Function.139", ptr %agg.tmp2.i, i64 0, i32 1
-  %exec_.i2.i = getelementptr inbounds %"class.folly::Function.139", ptr %agg.tmp2.i, i64 0, i32 2
+  %call_.i1.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 48
+  %exec_.i2.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 56
   store ptr @_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE12onForkParentEv, ptr %agg.tmp2.i, align 16
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIPS3_EEvRNS1_4DataE, ptr %call_.i1.i, align 16
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i2.i, align 8
-  %call_.i3.i = getelementptr inbounds %"class.folly::Function.139", ptr %agg.tmp3.i, i64 0, i32 1
-  %exec_.i4.i = getelementptr inbounds %"class.folly::Function.139", ptr %agg.tmp3.i, i64 0, i32 2
+  %call_.i3.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 48
+  %exec_.i4.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 56
   store ptr @_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE11onForkChildEv, ptr %agg.tmp3.i, align 16
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIPS3_EEvRNS1_4DataE, ptr %call_.i3.i, align 16
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i4.i, align 8
@@ -12295,7 +12213,7 @@ cond.false.i.i:                                   ; preds = %entry
 
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit: ; preds = %entry, %cond.false.i.i
   %cond.i.i = phi ptr [ %call2.i.i, %cond.false.i.i ], [ %atomic-temp.i.0.i.i, %entry ]
-  %pthreadKey_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %cond.i.i, i64 0, i32 5
+  %pthreadKey_ = getelementptr inbounds i8, ptr %cond.i.i, i64 76
   %1 = load i32, ptr %pthreadKey_, align 4
   %call1 = tail call ptr @pthread_getspecific(i32 noundef %1) #23
   %tobool.not = icmp eq ptr %call1, null
@@ -12304,7 +12222,7 @@ _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHe
 if.then:                                          ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit
   %call2 = tail call noundef ptr @_ZN5folly18threadlocal_detail14StaticMetaBase18getThreadEntryListEv()
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE18getThreadEntrySlowEvE20threadEntrySingleton)
-  %list = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %2, i64 0, i32 2
+  %list = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %list, align 8
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %if.then4, label %if.end
@@ -12312,23 +12230,23 @@ if.then:                                          ; preds = %_ZN5folly18threadlo
 if.then4:                                         ; preds = %if.then
   store ptr %call2, ptr %list, align 8
   %4 = load ptr, ptr %call2, align 8
-  %listNext = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %2, i64 0, i32 3
+  %listNext = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %4, ptr %listNext, align 8
   store ptr %2, ptr %call2, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
   %call.i = tail call i64 @pthread_self() #37
-  %tid_data.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %2, i64 0, i32 7
+  %tid_data.i = getelementptr inbounds i8, ptr %2, i64 56
   store i64 %call.i, ptr %tid_data.i, align 8
   %call9 = tail call noundef i64 @_ZN5folly13getOSThreadIDEv()
-  %tid_os = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %2, i64 0, i32 6
+  %tid_os = getelementptr inbounds i8, ptr %2, i64 48
   store i64 %call9, ptr %tid_os, align 8
-  %count = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntryList", ptr %call2, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %call2, i64 8
   %5 = load i64, ptr %count, align 8
   %inc = add i64 %5, 1
   store i64 %inc, ptr %count, align 8
-  %meta10 = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %2, i64 0, i32 4
+  %meta10 = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %cond.i.i, ptr %meta10, align 8
   %call11 = tail call i32 @pthread_setspecific(i32 noundef %1, ptr noundef nonnull %2) #23
   %cmp.not.i = icmp eq i32 %call11, 0
@@ -12361,7 +12279,7 @@ cond.false.i.i:                                   ; preds = %entry
 
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit: ; preds = %entry, %cond.false.i.i
   %cond.i.i = phi ptr [ %call2.i.i, %cond.false.i.i ], [ %atomic-temp.i.0.i.i, %entry ]
-  %lock_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %cond.i.i, i64 0, i32 3
+  %lock_ = getelementptr inbounds i8, ptr %cond.i.i, i64 32
   %call1.i.i = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %lock_) #23
   %tobool.not.i = icmp eq i32 %call1.i.i, 0
   ret i1 %tobool.not.i
@@ -12381,7 +12299,7 @@ cond.false.i.i:                                   ; preds = %entry
 
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit: ; preds = %entry, %cond.false.i.i
   %cond.i.i = phi ptr [ %call2.i.i, %cond.false.i.i ], [ %atomic-temp.i.0.i.i, %entry ]
-  %lock_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %cond.i.i, i64 0, i32 3
+  %lock_ = getelementptr inbounds i8, ptr %cond.i.i, i64 32
   %call1.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_) #23
   ret void
 }
@@ -12400,8 +12318,8 @@ cond.false.i.i:                                   ; preds = %entry
 
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit: ; preds = %entry, %cond.false.i.i
   %cond.i.i = phi ptr [ %call2.i.i, %cond.false.i.i ], [ %atomic-temp.i.0.i.i, %entry ]
-  %head_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %cond.i.i, i64 0, i32 6
-  %elementsCapacity.i = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %cond.i.i, i64 0, i32 6, i32 1
+  %head_ = getelementptr inbounds i8, ptr %cond.i.i, i64 80
+  %elementsCapacity.i = getelementptr inbounds i8, ptr %cond.i.i, i64 88
   %1 = load atomic i64, ptr %elementsCapacity.i monotonic, align 8
   %cmp31.not = icmp eq i64 %1, 0
   br i1 %cmp31.not, label %for.end, label %for.body
@@ -12413,11 +12331,11 @@ for.body:                                         ; preds = %_ZN5folly18threadlo
   %conv = trunc i64 %i.032 to i32
   %bf.value.i = and i32 %conv, 2147483647
   store i32 %bf.value.i, ptr %node, align 8
-  %next.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %2, i64 %i.032, i32 3, i32 3
+  %next.i = getelementptr inbounds i8, ptr %node, i64 24
   store ptr %head_, ptr %next.i, align 8
-  %prev.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %2, i64 %i.032, i32 3, i32 2
+  %prev.i = getelementptr inbounds i8, ptr %node, i64 16
   store ptr %head_, ptr %prev.i, align 8
-  %parent.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %2, i64 %i.032, i32 3, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %node, i64 8
   store ptr %head_, ptr %parent.i, align 8
   %inc = add nuw i64 %i.032, 1
   %exitcond.not = icmp eq i64 %inc, %1
@@ -12435,10 +12353,10 @@ cond.false.i.i19:                                 ; preds = %for.end
 
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit21: ; preds = %for.end, %cond.false.i.i19
   %cond.i.i18 = phi ptr [ %call2.i.i20, %cond.false.i.i19 ], [ %atomic-temp.i.0.i.i16, %for.end ]
-  %threadEntry_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %cond.i.i18, i64 0, i32 7
+  %threadEntry_ = getelementptr inbounds i8, ptr %cond.i.i18, i64 144
   %4 = load ptr, ptr %threadEntry_, align 8
   %call3 = tail call noundef ptr %4()
-  %elementsCapacity.i22 = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %call3, i64 0, i32 1
+  %elementsCapacity.i22 = getelementptr inbounds i8, ptr %call3, i64 8
   %5 = load atomic i64, ptr %elementsCapacity.i22 monotonic, align 8
   %cmp733.not = icmp eq i64 %5, 0
   br i1 %cmp733.not, label %for.end22, label %for.body8
@@ -12455,9 +12373,9 @@ if.then:                                          ; preds = %for.body8
   %conv16 = trunc i64 %i5.034 to i32
   %bf.set5.i = or i32 %conv16, -2147483648
   store i32 %bf.set5.i, ptr %node11, align 8
-  %parent.i23 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %6, i64 %i5.034, i32 3, i32 1
+  %parent.i23 = getelementptr inbounds i8, ptr %node11, i64 8
   store ptr %call3, ptr %parent.i23, align 8
-  %prev.i24 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %6, i64 %i5.034, i32 3, i32 2
+  %prev.i24 = getelementptr inbounds i8, ptr %node11, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev.i24, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %call3, align 8
   %node19 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %7, i64 %i5.034, i32 3
@@ -12481,7 +12399,7 @@ cond.false.i.i28:                                 ; preds = %for.end22
 
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit30: ; preds = %for.end22, %cond.false.i.i28
   %cond.i.i27 = phi ptr [ %call2.i.i29, %cond.false.i.i28 ], [ %atomic-temp.i.0.i.i25, %for.end22 ]
-  %lock_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %cond.i.i27, i64 0, i32 3
+  %lock_ = getelementptr inbounds i8, ptr %cond.i.i27, i64 32
   %call1.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_) #23
   ret void
 }
@@ -12489,9 +12407,9 @@ _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18threadlocal_detail14StaticMetaBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(153) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %accessAllThreadsLock_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 4
+  %accessAllThreadsLock_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED1Ev(ptr noundef nonnull align 4 dereferenceable(4) %accessAllThreadsLock_) #23
-  %freeIds_ = getelementptr inbounds %"struct.folly::threadlocal_detail::StaticMetaBase", ptr %this, i64 0, i32 2
+  %freeIds_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %freeIds_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i
@@ -12553,8 +12471,8 @@ define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1
-  %_M_code2 = getelementptr inbounds %"class.std::system_error", ptr %0, i64 0, i32 1
+  %_M_code = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_code2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false)
   ret void
 }
@@ -12572,7 +12490,7 @@ entry:
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %vtable.i = load ptr, ptr %__ec.coerce1, align 8, !noalias !159
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %0 = load ptr, ptr %vfn.i, align 8, !noalias !159
   call void %0(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %__ec.coerce1, i32 noundef %__ec.coerce0)
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i64 noundef 0, ptr noundef nonnull @.str.100)
@@ -12593,9 +12511,9 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #23
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1
+  %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8
-  %__ec.sroa.36.0._M_code.sroa_idx = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1, i32 1
+  %__ec.sroa.36.0._M_code.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %__ec.coerce1, ptr %__ec.sroa.36.0._M_code.sroa_idx, align 8
   ret void
 
@@ -12686,7 +12604,7 @@ if.then:                                          ; preds = %entry
 delete.notnull.i.i:                               ; preds = %if.then
   %1 = getelementptr inbounds i8, ptr %this.val.val, i64 40
   tail call void @_ZN5folly6detail25SingletonThreadLocalState7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %1) #23
-  %date.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::(anonymous namespace)::FormattedDate", ptr %this.val.val, i64 0, i32 1
+  %date.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %date.i.i.i.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.val) #34
   br label %if.end
@@ -12709,7 +12627,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %pt, i64 40
   tail call void @_ZN5folly6detail25SingletonThreadLocalState7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %1) #23
-  %date.i.i.i.i = getelementptr inbounds %"struct.proxygen::(anonymous namespace)::FormattedDate", ptr %pt, i64 0, i32 1
+  %date.i.i.i.i = getelementptr inbounds i8, ptr %pt, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %date.i.i.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %pt) #34
   br label %_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS4_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS6_EES8_E7WrapperEEEvT_ENKUlPvNS_18TLPDestructionModeEE_clESG_SH_.exit
@@ -12752,10 +12670,10 @@ define linkonce_odr void @_ZN8proxygen11HTTPHeaders17emplace_back_implIKNSt7__cx
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
   %add = add i64 %0, 1
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.not.i = icmp ult i64 %1, %add
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8proxygen11HTTPHeaders6ensureEm.exit
@@ -12865,7 +12783,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %18 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %17, ptr %18) #23
   %19 = load i64, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %21 = load ptr, ptr %20, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 %19, ptr %21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont unwind label %lpad
@@ -13004,7 +12922,7 @@ entry:
   store <2 x ptr> %0, ptr %cookieName.i.i.i, align 16
   %1 = load <2 x ptr>, ptr %__args1, align 8
   store <2 x ptr> %1, ptr %cookieValue.i.i.i, align 16
-  %cookies_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %call.val, i64 0, i32 7
+  %cookies_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 384
   %call.i.i.i = call { ptr, i8 } @_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE7emplaceIJRS4_SD_EEES7_ISt17_Rb_tree_iteratorIS9_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %cookies_.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %cookieName.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %cookieValue.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cookieName.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cookieValue.i.i.i)
@@ -13047,7 +12965,7 @@ entry:
   br i1 %cmp.not7.i.i.i, label %if.then, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %entry
-  %e_.i4.i.i.i.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %__args, i64 0, i32 1
+  %e_.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %1 = load ptr, ptr %e_.i4.i.i.i.i.i.i, align 8
   %2 = load ptr, ptr %__args, align 8
   %sub.ptr.lhs.cast.i5.i.i.i.i.i.i = ptrtoint ptr %1 to i64
@@ -13058,8 +12976,8 @@ while.body.lr.ph.i.i.i:                           ; preds = %entry
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.lr.ph.i.i.i
   %__x.addr.09.i.i.i = phi ptr [ %0, %while.body.lr.ph.i.i.i ], [ %__x.addr.1.i.i.i, %if.end.i.i.i ]
   %__y.addr.08.i.i.i = phi ptr [ %add.ptr.i.i.i, %while.body.lr.ph.i.i.i ], [ %__y.addr.1.i.i.i, %if.end.i.i.i ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__x.addr.09.i.i.i, i64 0, i32 1
-  %e_.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__x.addr.09.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.09.i.i.i, i64 32
+  %e_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.09.i.i.i, i64 40
   %3 = load ptr, ptr %e_.i.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %3 to i64
@@ -13076,7 +12994,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %while.body.i.
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %while.body.i.i.i
   %cmp7.not.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i.i, %sub.ptr.sub.i7.i.i.i.i.i.i
-  br i1 %cmp7.not.i.i.i.i.i.i, label %if.then.i.i.i, label %if.then.i.i.i.i.i.i
+  br i1 %cmp7.not.i.i.i.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
   %sub.i.i.i.i.i.i = sub i64 %sub.ptr.sub.i7.i.i.i.i.i.i, %sub.ptr.sub.i.i.i.i.i.i.i
@@ -13089,20 +13007,15 @@ if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i
 _ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
   %r.0.i.i.i.i.i.i = phi i32 [ %sub8.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp slt i32 %r.0.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit.i.i.i, %land.lhs.true.i.i.i.i.i.i
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.09.i.i.i, i64 0, i32 2
+  %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
+  %spec.select10.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.08.i.i.i, ptr %__x.addr.09.i.i.i
   br label %if.end.i.i.i
 
-if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit.i.i.i
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.09.i.i.i, i64 0, i32 3
-  br label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.08.i.i.i, %if.else.i.i.i ], [ %__x.addr.09.i.i.i, %if.then.i.i.i ]
-  %__x.addr.1.in.i.i.i = phi ptr [ %_M_right.i.i.i.i, %if.else.i.i.i ], [ %_M_left.i.i.i.i, %if.then.i.i.i ]
-  %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
+if.end.i.i.i:                                     ; preds = %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit.i.i.i, %land.lhs.true.i.i.i.i.i.i
+  %.sink.i.i.i = phi i64 [ 16, %land.lhs.true.i.i.i.i.i.i ], [ %spec.select.i.i.i, %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__x.addr.09.i.i.i, %land.lhs.true.i.i.i.i.i.i ], [ %spec.select10.i.i.i, %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit.i.i.i ]
+  %_M_right.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.09.i.i.i, i64 %.sink.i.i.i
+  %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE11lower_boundERS8_.exit, label %while.body.i.i.i, !llvm.loop !165
 
@@ -13111,8 +13024,8 @@ _ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE11lower_boundER
   br i1 %cmp.i, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE11lower_boundERS8_.exit
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__y.addr.1.i.i.i, i64 0, i32 1
-  %e_.i4.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
+  %e_.i4.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 40
   %5 = load ptr, ptr %e_.i4.i.i.i, align 8
   %6 = load ptr, ptr %_M_storage.i.i, align 8
   %sub.ptr.lhs.cast.i5.i.i.i = ptrtoint ptr %5 to i64
@@ -13129,9 +13042,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %lor.rhs
 
 land.lhs.true.i.i.i:                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %lor.rhs
   %cmp7.not.i.i.i = icmp eq i64 %sub.ptr.sub.i7.i.i.i.i.i.i, %sub.ptr.sub.i7.i.i.i
-  br i1 %cmp7.not.i.i.i, label %return, label %if.then.i.i.i5
+  br i1 %cmp7.not.i.i.i, label %return, label %if.then.i.i.i
 
-if.then.i.i.i5:                                   ; preds = %land.lhs.true.i.i.i
+if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %sub.i.i.i = sub i64 %sub.ptr.sub.i7.i.i.i, %sub.ptr.sub.i7.i.i.i.i.i.i
   %sh.diff.i.i.i = lshr i64 %sub.i.i.i, 62
   %tr.sh.diff.i.i.i = trunc i64 %sh.diff.i.i.i to i32
@@ -13139,14 +13052,14 @@ if.then.i.i.i5:                                   ; preds = %land.lhs.true.i.i.i
   %sub8.i.i.i = add nsw i32 %shl.i.i.i, -1
   br label %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit
 
-_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %if.then.i.i.i5
-  %r.0.i.i.i = phi i32 [ %sub8.i.i.i, %if.then.i.i.i5 ], [ %call.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %if.then.i.i.i
+  %r.0.i.i.i = phi i32 [ %sub8.i.i.i, %if.then.i.i.i ], [ %call.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   %cmp.i.i = icmp slt i32 %r.0.i.i.i, 0
   br i1 %cmp.i.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE11lower_boundERS8_.exit, %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit
-  %__y.addr.0.lcssa.i.i.i13 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE11lower_boundERS8_.exit ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit ], [ %add.ptr.i.i.i, %entry ]
-  %call.i = tail call ptr @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE22_M_emplace_hint_uniqueIJRS4_SF_EEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
+  %__y.addr.0.lcssa.i.i.i12 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE11lower_boundERS8_.exit ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit ], [ %add.ptr.i.i.i, %entry ]
+  %call.i = tail call ptr @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE22_M_emplace_hint_uniqueIJRS4_SF_EEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   br label %return
 
 return:                                           ; preds = %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit, %land.lhs.true.i.i.i, %if.then
@@ -13164,9 +13077,9 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 define linkonce_odr ptr @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE22_M_emplace_hint_uniqueIJRS4_SF_EEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #33
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %call5.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 16
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__args1, i64 16, i1 false)
   %call6 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i)
           to label %invoke.cont5 unwind label %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE10_Auto_nodeD2Ev.exit
@@ -13185,14 +13098,14 @@ if.then:                                          ; preds = %invoke.cont5
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %1, i64 0, i32 1
-  %e_.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %e_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 40
   %2 = load ptr, ptr %e_.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %_M_storage.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %e_.i4.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %1, i64 0, i32 1, i32 0, i64 8
+  %e_.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %e_.i4.i.i.i.i.i, align 8
   %5 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i5.i.i.i.i.i = ptrtoint ptr %4 to i64
@@ -13264,14 +13177,14 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %1, i64 0, i32 1
-  %e_.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %1, i64 0, i32 1, i32 0, i64 8
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %e_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %e_.i.i.i.i, align 8
   %3 = load ptr, ptr %_M_storage.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %e_.i4.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %__k, i64 0, i32 1
+  %e_.i4.i.i.i = getelementptr inbounds i8, ptr %__k, i64 8
   %4 = load ptr, ptr %e_.i4.i.i.i, align 8
   %5 = load ptr, ptr %__k, align 8
   %sub.ptr.lhs.cast.i5.i.i.i = ptrtoint ptr %4 to i64
@@ -13310,14 +13223,14 @@ if.else:                                          ; preds = %land.lhs.true.i.i.i
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__position.coerce, i64 0, i32 1
-  %e_.i.i.i.i11 = getelementptr inbounds %"class.folly::Range", ptr %__k, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
+  %e_.i.i.i.i11 = getelementptr inbounds i8, ptr %__k, i64 8
   %8 = load ptr, ptr %e_.i.i.i.i11, align 8
   %9 = load ptr, ptr %__k, align 8
   %sub.ptr.lhs.cast.i.i.i.i12 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i.i.i13 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i.i14 = sub i64 %sub.ptr.lhs.cast.i.i.i.i12, %sub.ptr.rhs.cast.i.i.i.i13
-  %e_.i4.i.i.i15 = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 8
+  %e_.i4.i.i.i15 = getelementptr inbounds i8, ptr %__position.coerce, i64 40
   %10 = load ptr, ptr %e_.i4.i.i.i15, align 8
   %11 = load ptr, ptr %_M_storage.i.i.i10, align 8
   %sub.ptr.lhs.cast.i5.i.i.i16 = ptrtoint ptr %10 to i64
@@ -13357,8 +13270,8 @@ if.then18:                                        ; preds = %_ZNKSt4lessIN5folly
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #31
-  %_M_storage.i.i.i38 = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %call.i, i64 0, i32 1
-  %e_.i.i.i.i39 = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %call.i, i64 0, i32 1, i32 0, i64 8
+  %_M_storage.i.i.i38 = getelementptr inbounds i8, ptr %call.i, i64 32
+  %e_.i.i.i.i39 = getelementptr inbounds i8, ptr %call.i, i64 40
   %13 = load ptr, ptr %e_.i.i.i.i39, align 8
   %14 = load ptr, ptr %_M_storage.i.i.i38, align 8
   %sub.ptr.lhs.cast.i.i.i.i40 = ptrtoint ptr %13 to i64
@@ -13391,7 +13304,7 @@ _ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit62: ; preds = %_ZNSt11char_trait
   br i1 %cmp.i.i53, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit62
-  %_M_right.i63 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i63 = getelementptr inbounds i8, ptr %call.i, i64 24
   %15 = load ptr, ptr %_M_right.i63, align 8
   %cmp35 = icmp eq ptr %15, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
@@ -13437,8 +13350,8 @@ if.then50:                                        ; preds = %_ZNKSt4lessIN5folly
 
 if.else57:                                        ; preds = %if.then50
   %call.i94 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #31
-  %_M_storage.i.i.i95 = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %call.i94, i64 0, i32 1
-  %e_.i4.i.i.i100 = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %call.i94, i64 0, i32 1, i32 0, i64 8
+  %_M_storage.i.i.i95 = getelementptr inbounds i8, ptr %call.i94, i64 32
+  %e_.i4.i.i.i100 = getelementptr inbounds i8, ptr %call.i94, i64 40
   %19 = load ptr, ptr %e_.i4.i.i.i100, align 8
   %20 = load ptr, ptr %_M_storage.i.i.i95, align 8
   %sub.ptr.lhs.cast.i5.i.i.i101 = ptrtoint ptr %19 to i64
@@ -13471,7 +13384,7 @@ _ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit119: ; preds = %_ZNSt11char_trai
   br i1 %cmp.i.i110, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit119
-  %_M_right.i120 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
+  %_M_right.i120 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
   %21 = load ptr, ptr %_M_right.i120, align 8
   %cmp67 = icmp eq ptr %21, null
   %spec.select148 = select i1 %cmp67, ptr null, ptr %call.i94
@@ -13502,7 +13415,7 @@ entry:
   br i1 %cmp.not47, label %if.then, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %e_.i.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %__k, i64 0, i32 1
+  %e_.i.i.i.i = getelementptr inbounds i8, ptr %__k, i64 8
   %0 = load ptr, ptr %e_.i.i.i.i, align 8
   %1 = load ptr, ptr %__k, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
@@ -13512,8 +13425,8 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %cond.end
   %__x.048 = phi ptr [ %__x.046, %while.body.lr.ph ], [ %__x.0, %cond.end ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__x.048, i64 0, i32 1
-  %e_.i4.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__x.048, i64 0, i32 1, i32 0, i64 8
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x.048, i64 32
+  %e_.i4.i.i.i = getelementptr inbounds i8, ptr %__x.048, i64 40
   %2 = load ptr, ptr %e_.i4.i.i.i, align 8
   %3 = load ptr, ptr %_M_storage.i.i, align 8
   %sub.ptr.lhs.cast.i5.i.i.i = ptrtoint ptr %2 to i64
@@ -13543,20 +13456,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 _ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %if.then.i.i.i
   %r.0.i.i.i = phi i32 [ %sub8.i.i.i, %if.then.i.i.i ], [ %call.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   %cmp.i.i = icmp slt i32 %r.0.i.i.i, 0
-  br i1 %cmp.i.i, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048, i64 0, i32 2
-  br label %cond.end
+  br i1 %cmp.i.i, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %land.lhs.true.i.i.i, %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048, i64 0, i32 3
   br label %cond.end
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cmp.i.i42 = phi i1 [ true, %cond.true ], [ false, %cond.false ]
-  %cond.in = phi ptr [ %_M_left.i, %cond.true ], [ %_M_right.i, %cond.false ]
-  %__x.0 = load ptr, ptr %cond.in, align 8
+cond.end:                                         ; preds = %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit, %cond.false
+  %.sink = phi i64 [ 24, %cond.false ], [ 16, %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit ]
+  %cmp.i.i42 = phi i1 [ false, %cond.false ], [ true, %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit ]
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.048, i64 %.sink
+  %__x.0 = load ptr, ptr %_M_right.i, align 8
   %cmp.not = icmp eq ptr %__x.0, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !166
 
@@ -13577,14 +13486,14 @@ if.else:                                          ; preds = %if.then
 if.end12:                                         ; preds = %if.else, %while.end
   %__y.0.lcssa52 = phi ptr [ %__y.0.lcssa53, %if.else ], [ %__x.048, %while.end ]
   %__j.sroa.0.0 = phi ptr [ %call.i, %if.else ], [ %__x.048, %while.end ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__j.sroa.0.0, i64 0, i32 1
-  %e_.i.i.i.i4 = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__j.sroa.0.0, i64 0, i32 1, i32 0, i64 8
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0, i64 32
+  %e_.i.i.i.i4 = getelementptr inbounds i8, ptr %__j.sroa.0.0, i64 40
   %5 = load ptr, ptr %e_.i.i.i.i4, align 8
   %6 = load ptr, ptr %_M_storage.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i5 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i6 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i7 = sub i64 %sub.ptr.lhs.cast.i.i.i.i5, %sub.ptr.rhs.cast.i.i.i.i6
-  %e_.i4.i.i.i8 = getelementptr inbounds %"class.folly::Range", ptr %__k, i64 0, i32 1
+  %e_.i4.i.i.i8 = getelementptr inbounds i8, ptr %__k, i64 8
   %7 = load ptr, ptr %e_.i4.i.i.i8, align 8
   %8 = load ptr, ptr %__k, align 8
   %sub.ptr.lhs.cast.i5.i.i.i9 = ptrtoint ptr %7 to i64
@@ -13646,7 +13555,7 @@ entry:
   br i1 %cmp.not7.i, label %cond.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %e_.i4.i.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %__k, i64 0, i32 1
+  %e_.i4.i.i.i.i = getelementptr inbounds i8, ptr %__k, i64 8
   %1 = load ptr, ptr %e_.i4.i.i.i.i, align 8
   %2 = load ptr, ptr %__k, align 8
   %sub.ptr.lhs.cast.i5.i.i.i.i = ptrtoint ptr %1 to i64
@@ -13657,8 +13566,8 @@ while.body.lr.ph.i:                               ; preds = %entry
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
   %__x.addr.09.i = phi ptr [ %0, %while.body.lr.ph.i ], [ %__x.addr.1.i, %if.end.i ]
   %__y.addr.08.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %__y.addr.1.i, %if.end.i ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__x.addr.09.i, i64 0, i32 1
-  %e_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__x.addr.09.i, i64 0, i32 1, i32 0, i64 8
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.09.i, i64 32
+  %e_.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.09.i, i64 40
   %3 = load ptr, ptr %e_.i.i.i.i.i, align 8
   %4 = load ptr, ptr %_M_storage.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %3 to i64
@@ -13675,7 +13584,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %while.body.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %while.body.i
   %cmp7.not.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, %sub.ptr.sub.i7.i.i.i.i
-  br i1 %cmp7.not.i.i.i.i, label %if.then.i, label %if.then.i.i.i.i
+  br i1 %cmp7.not.i.i.i.i, label %if.end.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
   %sub.i.i.i.i = sub i64 %sub.ptr.sub.i7.i.i.i.i, %sub.ptr.sub.i.i.i.i.i
@@ -13688,20 +13597,15 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
 _ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %r.0.i.i.i.i = phi i32 [ %sub8.i.i.i.i, %if.then.i.i.i.i ], [ %call.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   %cmp.i.i.i = icmp slt i32 %r.0.i.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit.i, %land.lhs.true.i.i.i.i
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.09.i, i64 0, i32 2
+  %spec.select.i = select i1 %cmp.i.i.i, i64 24, i64 16
+  %spec.select10.i = select i1 %cmp.i.i.i, ptr %__y.addr.08.i, ptr %__x.addr.09.i
   br label %if.end.i
 
-if.else.i:                                        ; preds = %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit.i
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.09.i, i64 0, i32 3
-  br label %if.end.i
-
-if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %__y.addr.1.i = phi ptr [ %__y.addr.08.i, %if.else.i ], [ %__x.addr.09.i, %if.then.i ]
-  %__x.addr.1.in.i = phi ptr [ %_M_right.i.i, %if.else.i ], [ %_M_left.i.i, %if.then.i ]
-  %__x.addr.1.i = load ptr, ptr %__x.addr.1.in.i, align 8
+if.end.i:                                         ; preds = %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit.i, %land.lhs.true.i.i.i.i
+  %.sink.i = phi i64 [ 16, %land.lhs.true.i.i.i.i ], [ %spec.select.i, %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit.i ]
+  %__y.addr.1.i = phi ptr [ %__x.addr.09.i, %land.lhs.true.i.i.i.i ], [ %spec.select10.i, %_ZNKSt4lessIN5folly5RangeIPKcEEEclERKS4_S7_.exit.i ]
+  %_M_right.i.i = getelementptr inbounds i8, ptr %__x.addr.09.i, i64 %.sink.i
+  %__x.addr.1.i = load ptr, ptr %_M_right.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.addr.1.i, null
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS6_.exit, label %while.body.i, !llvm.loop !165
 
@@ -13710,8 +13614,8 @@ _ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_
   br i1 %cmp.i, label %cond.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZNSt8_Rb_treeIN5folly5RangeIPKcEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS6_.exit
-  %_M_storage.i.i.i3 = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__y.addr.1.i, i64 0, i32 1
-  %e_.i4.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.68", ptr %__y.addr.1.i, i64 0, i32 1, i32 0, i64 8
+  %_M_storage.i.i.i3 = getelementptr inbounds i8, ptr %__y.addr.1.i, i64 32
+  %e_.i4.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i, i64 40
   %5 = load ptr, ptr %e_.i4.i.i.i, align 8
   %6 = load ptr, ptr %_M_storage.i.i.i3, align 8
   %sub.ptr.lhs.cast.i5.i.i.i = ptrtoint ptr %5 to i64
@@ -13757,17 +13661,17 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 define internal void @"_ZNSt17_Function_handlerIFvONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EZNK8proxygen11HTTPMessage16parseQueryParamsEvE3$_0E9_M_invokeERKSt9_Any_dataS6_S6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args1) #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
-  %queryParams_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %call.val, i64 0, i32 8
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %call.val, i64 0, i32 8, i32 0, i32 0, i32 1, i32 0, i32 1
+  %queryParams_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 432
+  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 448
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %call.val, i64 0, i32 8, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 440
   %cmp.not6.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not6.i.i.i.i.i.i, label %if.then.i.i.i.i, label %while.body.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %entry, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i
   %__x.addr.08.i.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i ], [ %0, %entry ]
   %__y.addr.07.i.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i.i.i, i64 32
   %call.i.i.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
@@ -13780,10 +13684,9 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %while.body.i.i.i.i.
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i.i.i, 0
-  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %__y.addr.07.i.i.i.i.i.i, ptr %__x.addr.08.i.i.i.i.i.i
-  %__x.addr.1.in.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i.i
   %__x.addr.1.i.i.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !93
@@ -13793,7 +13696,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i.i
-  %_M_storage.i.i.i3.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i.i, i64 32
   %call.i.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i3.i.i.i.i.i)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
@@ -13816,7 +13719,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt3mapINSt7__cxx
 while.body.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i.i
   %__x.addr.08.i.i.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i.i ], [ %.pr.i.i.i, %if.then.i.i.i ]
   %__y.addr.07.i.i.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i ]
-  %_M_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i.i.i.i, i64 32
   %call.i.i.i.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
@@ -13829,10 +13732,9 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %while.body.i.i.i.i.
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i.i.i.i, 0
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, ptr %__y.addr.07.i.i.i.i.i.i.i, ptr %__x.addr.08.i.i.i.i.i.i.i
-  %__x.addr.1.in.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i.i.i
   %__x.addr.1.i.i.i.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !93
@@ -13842,7 +13744,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i.i.i.i
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i.i.i, i64 32
   %call.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
@@ -13863,7 +13765,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNKSt4lessINSt7__c
   br label %"_ZSt10__invoke_rIvRZNK8proxygen11HTTPMessage16parseQueryParamsEvE3$_0JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 if.else.i.i.i:                                    ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.i.i.i
-  %second.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 32
+  %second.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i.i, i64 64
   %call9.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args1) #23
   br label %"_ZSt10__invoke_rIvRZNK8proxygen11HTTPMessage16parseQueryParamsEvE3$_0JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
@@ -13902,11 +13804,11 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 invoke.cont:
   %__z = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
   store ptr %this, ptr %__z, align 8
-  %_M_node.i = getelementptr inbounds %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", ptr %__z, i64 0, i32 1
+  %_M_node.i = getelementptr inbounds i8, ptr %__z, i64 8
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #33
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args) #23
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 32
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args1) #23
   store ptr %call5.i.i.i.i.i, ptr %_M_node.i, align 8
   %call6 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i)
@@ -13926,7 +13828,7 @@ if.then:                                          ; preds = %invoke.cont5
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %call.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i unwind label %terminate.lpad.i.i.i.i
 
@@ -13983,7 +13885,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %call.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit unwind label %terminate.lpad.i.i
 
@@ -14010,7 +13912,7 @@ if.else:                                          ; preds = %_ZNKSt4lessINSt7__c
 
 while.body.i:                                     ; preds = %if.else, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
   %__x.025.i = phi ptr [ %__x.0.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %__x.023.i, %if.else ]
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.025.i, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__x.025.i, i64 32
   %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i10)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i unwind label %terminate.lpad.i.i.i
 
@@ -14023,9 +13925,8 @@ terminate.lpad.i.i.i:                             ; preds = %while.body.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i: ; preds = %while.body.i
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.025.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.025.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.v.i = select i1 %cmp.i.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.025.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !167
@@ -14047,7 +13948,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
   %__y.0.lcssa31.i = phi ptr [ %__y.0.lcssa30.i, %if.else.i ], [ %__x.025.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i12, %if.else.i ], [ %__x.025.i, %while.end.i ]
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 32
   %call.i.i4.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i unwind label %terminate.lpad.i.i5.i
 
@@ -14065,7 +13966,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i13 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i13 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %call.i.i14 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i13)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit17 unwind label %terminate.lpad.i.i15
 
@@ -14088,7 +13989,7 @@ if.then18:                                        ; preds = %_ZNKSt4lessINSt7__c
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #31
-  %_M_storage.i.i.i21 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i21 = getelementptr inbounds i8, ptr %call.i, i64 32
   %call.i.i22 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i21, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit25 unwind label %terminate.lpad.i.i23
 
@@ -14104,22 +14005,22 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i24, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit25
-  %_M_right.i26 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i26 = getelementptr inbounds i8, ptr %call.i, i64 24
   %15 = load ptr, ptr %_M_right.i26, align 8
   %cmp35 = icmp eq ptr %15, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select136 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
+  %spec.select134 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %return
 
 if.else42:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit25
   %_M_parent.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 16
   %__x.023.i31 = load ptr, ptr %_M_parent.i.i.i29, align 8
   %cmp.not24.i32 = icmp eq ptr %__x.023.i31, null
-  br i1 %cmp.not24.i32, label %if.then.i60, label %while.body.i33
+  br i1 %cmp.not24.i32, label %if.then.i59, label %while.body.i33
 
 while.body.i33:                                   ; preds = %if.else42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i38
-  %__x.025.i34 = phi ptr [ %__x.0.i43, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i38 ], [ %__x.023.i31, %if.else42 ]
-  %_M_storage.i.i.i35 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.025.i34, i64 0, i32 1
+  %__x.025.i34 = phi ptr [ %__x.0.i42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i38 ], [ %__x.023.i31, %if.else42 ]
+  %_M_storage.i.i.i35 = getelementptr inbounds i8, ptr %__x.025.i34, i64 32
   %call.i.i.i36 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i35)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i38 unwind label %terminate.lpad.i.i.i37
 
@@ -14132,157 +14033,155 @@ terminate.lpad.i.i.i37:                           ; preds = %while.body.i33
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i38: ; preds = %while.body.i33
   %cmp.i.i.i39 = icmp slt i32 %call.i.i.i36, 0
-  %_M_left.i.i40 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.025.i34, i64 0, i32 2
-  %_M_right.i.i41 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.025.i34, i64 0, i32 3
-  %cond.in.i42 = select i1 %cmp.i.i.i39, ptr %_M_left.i.i40, ptr %_M_right.i.i41
-  %__x.0.i43 = load ptr, ptr %cond.in.i42, align 8
-  %cmp.not.i44 = icmp eq ptr %__x.0.i43, null
-  br i1 %cmp.not.i44, label %while.end.i45, label %while.body.i33, !llvm.loop !167
+  %cond.in.v.i40 = select i1 %cmp.i.i.i39, i64 16, i64 24
+  %cond.in.i41 = getelementptr inbounds i8, ptr %__x.025.i34, i64 %cond.in.v.i40
+  %__x.0.i42 = load ptr, ptr %cond.in.i41, align 8
+  %cmp.not.i43 = icmp eq ptr %__x.0.i42, null
+  br i1 %cmp.not.i43, label %while.end.i44, label %while.body.i33, !llvm.loop !167
 
-while.end.i45:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i38
-  br i1 %cmp.i.i.i39, label %if.then.i60, label %if.end12.i46
+while.end.i44:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i38
+  br i1 %cmp.i.i.i39, label %if.then.i59, label %if.end12.i45
 
-if.then.i60:                                      ; preds = %while.end.i45, %if.else42
-  %__y.0.lcssa30.i61 = phi ptr [ %__x.025.i34, %while.end.i45 ], [ %add.ptr.i, %if.else42 ]
+if.then.i59:                                      ; preds = %while.end.i44, %if.else42
+  %__y.0.lcssa30.i60 = phi ptr [ %__x.025.i34, %while.end.i44 ], [ %add.ptr.i, %if.else42 ]
   %18 = load ptr, ptr %_M_left.i, align 8
-  %cmp.i.i63 = icmp eq ptr %__y.0.lcssa30.i61, %18
-  br i1 %cmp.i.i63, label %return, label %if.else.i64
+  %cmp.i.i62 = icmp eq ptr %__y.0.lcssa30.i60, %18
+  br i1 %cmp.i.i62, label %return, label %if.else.i63
 
-if.else.i64:                                      ; preds = %if.then.i60
-  %call.i.i65 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa30.i61) #31
-  br label %if.end12.i46
+if.else.i63:                                      ; preds = %if.then.i59
+  %call.i.i64 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa30.i60) #31
+  br label %if.end12.i45
 
-if.end12.i46:                                     ; preds = %if.else.i64, %while.end.i45
-  %__y.0.lcssa31.i47 = phi ptr [ %__y.0.lcssa30.i61, %if.else.i64 ], [ %__x.025.i34, %while.end.i45 ]
-  %__j.sroa.0.0.i48 = phi ptr [ %call.i.i65, %if.else.i64 ], [ %__x.025.i34, %while.end.i45 ]
-  %_M_storage.i.i.i.i49 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0.i48, i64 0, i32 1
-  %call.i.i4.i50 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i49, ptr noundef nonnull align 8 dereferenceable(32) %__k)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i52 unwind label %terminate.lpad.i.i5.i51
+if.end12.i45:                                     ; preds = %if.else.i63, %while.end.i44
+  %__y.0.lcssa31.i46 = phi ptr [ %__y.0.lcssa30.i60, %if.else.i63 ], [ %__x.025.i34, %while.end.i44 ]
+  %__j.sroa.0.0.i47 = phi ptr [ %call.i.i64, %if.else.i63 ], [ %__x.025.i34, %while.end.i44 ]
+  %_M_storage.i.i.i.i48 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i47, i64 32
+  %call.i.i4.i49 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i48, ptr noundef nonnull align 8 dereferenceable(32) %__k)
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 unwind label %terminate.lpad.i.i5.i50
 
-terminate.lpad.i.i5.i51:                          ; preds = %if.end12.i46
+terminate.lpad.i.i5.i50:                          ; preds = %if.end12.i45
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   tail call void @__clang_call_terminate(ptr %20) #35
   unreachable
 
-_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i52: ; preds = %if.end12.i46
-  %cmp.i.i6.i53 = icmp slt i32 %call.i.i4.i50, 0
-  %spec.select.i54 = select i1 %cmp.i.i6.i53, ptr null, ptr %__j.sroa.0.0.i48
-  %spec.select20.i55 = select i1 %cmp.i.i6.i53, ptr %__y.0.lcssa31.i47, ptr null
+_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51: ; preds = %if.end12.i45
+  %cmp.i.i6.i52 = icmp slt i32 %call.i.i4.i49, 0
+  %spec.select.i53 = select i1 %cmp.i.i6.i52, ptr null, ptr %__j.sroa.0.0.i47
+  %spec.select20.i54 = select i1 %cmp.i.i6.i52, ptr %__y.0.lcssa31.i46, ptr null
   br label %return
 
 if.else44:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit17
-  %call.i.i68 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__k)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit71 unwind label %terminate.lpad.i.i69
+  %call.i.i67 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__k)
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 unwind label %terminate.lpad.i.i68
 
-terminate.lpad.i.i69:                             ; preds = %if.else44
+terminate.lpad.i.i68:                             ; preds = %if.else44
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   tail call void @__clang_call_terminate(ptr %22) #35
   unreachable
 
-_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit71: ; preds = %if.else44
-  %cmp.i.i70 = icmp slt i32 %call.i.i68, 0
-  br i1 %cmp.i.i70, label %if.then50, label %return
+_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70: ; preds = %if.else44
+  %cmp.i.i69 = icmp slt i32 %call.i.i67, 0
+  br i1 %cmp.i.i69, label %if.then50, label %return
 
-if.then50:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit71
-  %_M_right.i72 = getelementptr inbounds i8, ptr %this, i64 32
-  %23 = load ptr, ptr %_M_right.i72, align 8
+if.then50:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70
+  %_M_right.i71 = getelementptr inbounds i8, ptr %this, i64 32
+  %23 = load ptr, ptr %_M_right.i71, align 8
   %cmp53 = icmp eq ptr %23, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i75 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #31
-  %_M_storage.i.i.i76 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i75, i64 0, i32 1
-  %call.i.i77 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i76)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit80 unwind label %terminate.lpad.i.i78
+  %call.i74 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #31
+  %_M_storage.i.i.i75 = getelementptr inbounds i8, ptr %call.i74, i64 32
+  %call.i.i76 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i75)
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit79 unwind label %terminate.lpad.i.i77
 
-terminate.lpad.i.i78:                             ; preds = %if.else57
+terminate.lpad.i.i77:                             ; preds = %if.else57
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   tail call void @__clang_call_terminate(ptr %25) #35
   unreachable
 
-_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit80: ; preds = %if.else57
-  %cmp.i.i79 = icmp slt i32 %call.i.i77, 0
-  br i1 %cmp.i.i79, label %if.then64, label %if.else74
+_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit79: ; preds = %if.else57
+  %cmp.i.i78 = icmp slt i32 %call.i.i76, 0
+  br i1 %cmp.i.i78, label %if.then64, label %if.else74
 
-if.then64:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit80
-  %_M_right.i81 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
-  %26 = load ptr, ptr %_M_right.i81, align 8
+if.then64:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit79
+  %_M_right.i80 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %26 = load ptr, ptr %_M_right.i80, align 8
   %cmp67 = icmp eq ptr %26, null
-  %spec.select137 = select i1 %cmp67, ptr null, ptr %call.i75
-  %spec.select138 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i75
+  %spec.select135 = select i1 %cmp67, ptr null, ptr %call.i74
+  %spec.select136 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i74
   br label %return
 
-if.else74:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit80
-  %_M_parent.i.i.i84 = getelementptr inbounds i8, ptr %this, i64 16
-  %__x.023.i86 = load ptr, ptr %_M_parent.i.i.i84, align 8
-  %cmp.not24.i87 = icmp eq ptr %__x.023.i86, null
-  br i1 %cmp.not24.i87, label %if.then.i115, label %while.body.i88
+if.else74:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit79
+  %_M_parent.i.i.i83 = getelementptr inbounds i8, ptr %this, i64 16
+  %__x.023.i85 = load ptr, ptr %_M_parent.i.i.i83, align 8
+  %cmp.not24.i86 = icmp eq ptr %__x.023.i85, null
+  br i1 %cmp.not24.i86, label %if.then.i113, label %while.body.i87
 
-while.body.i88:                                   ; preds = %if.else74, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i93
-  %__x.025.i89 = phi ptr [ %__x.0.i98, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i93 ], [ %__x.023.i86, %if.else74 ]
-  %_M_storage.i.i.i90 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.025.i89, i64 0, i32 1
-  %call.i.i.i91 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i90)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i93 unwind label %terminate.lpad.i.i.i92
+while.body.i87:                                   ; preds = %if.else74, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i92
+  %__x.025.i88 = phi ptr [ %__x.0.i96, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i92 ], [ %__x.023.i85, %if.else74 ]
+  %_M_storage.i.i.i89 = getelementptr inbounds i8, ptr %__x.025.i88, i64 32
+  %call.i.i.i90 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i89)
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i92 unwind label %terminate.lpad.i.i.i91
 
-terminate.lpad.i.i.i92:                           ; preds = %while.body.i88
+terminate.lpad.i.i.i91:                           ; preds = %while.body.i87
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
   tail call void @__clang_call_terminate(ptr %28) #35
   unreachable
 
-_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i93: ; preds = %while.body.i88
-  %cmp.i.i.i94 = icmp slt i32 %call.i.i.i91, 0
-  %_M_left.i.i95 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.025.i89, i64 0, i32 2
-  %_M_right.i.i96 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.025.i89, i64 0, i32 3
-  %cond.in.i97 = select i1 %cmp.i.i.i94, ptr %_M_left.i.i95, ptr %_M_right.i.i96
-  %__x.0.i98 = load ptr, ptr %cond.in.i97, align 8
-  %cmp.not.i99 = icmp eq ptr %__x.0.i98, null
-  br i1 %cmp.not.i99, label %while.end.i100, label %while.body.i88, !llvm.loop !167
+_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i92: ; preds = %while.body.i87
+  %cmp.i.i.i93 = icmp slt i32 %call.i.i.i90, 0
+  %cond.in.v.i94 = select i1 %cmp.i.i.i93, i64 16, i64 24
+  %cond.in.i95 = getelementptr inbounds i8, ptr %__x.025.i88, i64 %cond.in.v.i94
+  %__x.0.i96 = load ptr, ptr %cond.in.i95, align 8
+  %cmp.not.i97 = icmp eq ptr %__x.0.i96, null
+  br i1 %cmp.not.i97, label %while.end.i98, label %while.body.i87, !llvm.loop !167
 
-while.end.i100:                                   ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i93
-  br i1 %cmp.i.i.i94, label %if.then.i115, label %if.end12.i101
+while.end.i98:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i92
+  br i1 %cmp.i.i.i93, label %if.then.i113, label %if.end12.i99
 
-if.then.i115:                                     ; preds = %while.end.i100, %if.else74
-  %__y.0.lcssa30.i116 = phi ptr [ %__x.025.i89, %while.end.i100 ], [ %add.ptr.i, %if.else74 ]
-  %_M_left.i3.i117 = getelementptr inbounds i8, ptr %this, i64 24
-  %29 = load ptr, ptr %_M_left.i3.i117, align 8
-  %cmp.i.i118 = icmp eq ptr %__y.0.lcssa30.i116, %29
-  br i1 %cmp.i.i118, label %return, label %if.else.i119
+if.then.i113:                                     ; preds = %while.end.i98, %if.else74
+  %__y.0.lcssa30.i114 = phi ptr [ %__x.025.i88, %while.end.i98 ], [ %add.ptr.i, %if.else74 ]
+  %_M_left.i3.i115 = getelementptr inbounds i8, ptr %this, i64 24
+  %29 = load ptr, ptr %_M_left.i3.i115, align 8
+  %cmp.i.i116 = icmp eq ptr %__y.0.lcssa30.i114, %29
+  br i1 %cmp.i.i116, label %return, label %if.else.i117
 
-if.else.i119:                                     ; preds = %if.then.i115
-  %call.i.i120 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa30.i116) #31
-  br label %if.end12.i101
+if.else.i117:                                     ; preds = %if.then.i113
+  %call.i.i118 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa30.i114) #31
+  br label %if.end12.i99
 
-if.end12.i101:                                    ; preds = %if.else.i119, %while.end.i100
-  %__y.0.lcssa31.i102 = phi ptr [ %__y.0.lcssa30.i116, %if.else.i119 ], [ %__x.025.i89, %while.end.i100 ]
-  %__j.sroa.0.0.i103 = phi ptr [ %call.i.i120, %if.else.i119 ], [ %__x.025.i89, %while.end.i100 ]
-  %_M_storage.i.i.i.i104 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0.i103, i64 0, i32 1
-  %call.i.i4.i105 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i104, ptr noundef nonnull align 8 dereferenceable(32) %__k)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i107 unwind label %terminate.lpad.i.i5.i106
+if.end12.i99:                                     ; preds = %if.else.i117, %while.end.i98
+  %__y.0.lcssa31.i100 = phi ptr [ %__y.0.lcssa30.i114, %if.else.i117 ], [ %__x.025.i88, %while.end.i98 ]
+  %__j.sroa.0.0.i101 = phi ptr [ %call.i.i118, %if.else.i117 ], [ %__x.025.i88, %while.end.i98 ]
+  %_M_storage.i.i.i.i102 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i101, i64 32
+  %call.i.i4.i103 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i102, ptr noundef nonnull align 8 dereferenceable(32) %__k)
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 unwind label %terminate.lpad.i.i5.i104
 
-terminate.lpad.i.i5.i106:                         ; preds = %if.end12.i101
+terminate.lpad.i.i5.i104:                         ; preds = %if.end12.i99
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   tail call void @__clang_call_terminate(ptr %31) #35
   unreachable
 
-_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i107: ; preds = %if.end12.i101
-  %cmp.i.i6.i108 = icmp slt i32 %call.i.i4.i105, 0
-  %spec.select.i109 = select i1 %cmp.i.i6.i108, ptr null, ptr %__j.sroa.0.0.i103
-  %spec.select20.i110 = select i1 %cmp.i.i6.i108, ptr %__y.0.lcssa31.i102, ptr null
+_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105: ; preds = %if.end12.i99
+  %cmp.i.i6.i106 = icmp slt i32 %call.i.i4.i103, 0
+  %spec.select.i107 = select i1 %cmp.i.i6.i106, ptr null, ptr %__j.sroa.0.0.i101
+  %spec.select20.i108 = select i1 %cmp.i.i6.i106, ptr %__y.0.lcssa31.i100, ptr null
   br label %return
 
-return:                                           ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i107, %if.then.i115, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i52, %if.then.i60, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i, %if.then.i, %if.then64, %if.then32, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit71, %if.then50, %if.then18, %if.then9
-  %retval.sroa.0.0 = phi ptr [ null, %if.then9 ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit71 ], [ %spec.select, %if.then32 ], [ %spec.select137, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ null, %if.then.i60 ], [ %spec.select.i54, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i52 ], [ null, %if.then.i115 ], [ %spec.select.i109, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i107 ]
-  %retval.sroa.12.0 = phi ptr [ %4, %if.then9 ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit71 ], [ %spec.select136, %if.then32 ], [ %spec.select138, %if.then64 ], [ %__y.0.lcssa30.i, %if.then.i ], [ %spec.select20.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ %__y.0.lcssa30.i61, %if.then.i60 ], [ %spec.select20.i55, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i52 ], [ %__y.0.lcssa30.i116, %if.then.i115 ], [ %spec.select20.i110, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i107 ]
+return:                                           ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105, %if.then.i113, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51, %if.then.i59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i, %if.then.i, %if.then64, %if.then32, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70, %if.then50, %if.then18, %if.then9
+  %retval.sroa.0.0 = phi ptr [ null, %if.then9 ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select, %if.then32 ], [ %spec.select135, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ null, %if.then.i59 ], [ %spec.select.i53, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ null, %if.then.i113 ], [ %spec.select.i107, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
+  %retval.sroa.12.0 = phi ptr [ %4, %if.then9 ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select134, %if.then32 ], [ %spec.select136, %if.then64 ], [ %__y.0.lcssa30.i, %if.then.i ], [ %spec.select20.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ %__y.0.lcssa30.i60, %if.then.i59 ], [ %spec.select20.i54, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ %__y.0.lcssa30.i114, %if.then.i113 ], [ %spec.select20.i108, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -14291,14 +14190,14 @@ return:                                           ; preds = %_ZNKSt4lessINSt7__c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", ptr %this, i64 0, i32 1
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #34
@@ -14317,13 +14216,13 @@ entry:
   %ref.tmp2 = alloca %class.anon.162, align 8
   %ref.tmp4 = alloca %class.anon.164, align 8
   store ptr %src.coerce0, ptr %src, align 8
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %src, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %src, i64 8
   store ptr %src.coerce1, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %src.i.i), !noalias !168
   store ptr %src.coerce0, ptr %src.i.i, align 8, !noalias !174
-  %1 = getelementptr inbounds { ptr, ptr }, ptr %src.i.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %src.i.i, i64 8
   store ptr %src.coerce1, ptr %1, align 8, !noalias !174
   %call.i.i.i = call i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef nonnull %src.i.i) #23, !noalias !174
   call void @llvm.experimental.noalias.scope.decl(metadata !175)
@@ -14338,8 +14237,8 @@ if.then.i.i:                                      ; preds = %entry
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %tmp, align 8, !alias.scope !181
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %tmp, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i.i.i.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !181
-  %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %tmp, i64 16
-  store i8 1, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !181
+  %3 = getelementptr inbounds i8, ptr %tmp, i64 16
+  store i8 1, ptr %3, align 8, !alias.scope !181
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %src.i.i), !noalias !168
   %cmp.not4.i.i.i.i = icmp eq ptr %retval.sroa.0.0.copyload.i.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i.i
   br i1 %cmp.not4.i.i.i.i, label %_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IiEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit, label %for.body.i.i.i.i
@@ -14351,8 +14250,8 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i, %for.cond.i.i.i.i
   %__begin2.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.cond.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i.i.i.i, %if.then.i.i ]
-  %3 = load i8, ptr %__begin2.05.i.i.i.i, align 1
-  %conv.i.i.i.i = sext i8 %3 to i32
+  %4 = load i8, ptr %__begin2.05.i.i.i.i, align 1
+  %conv.i.i.i.i = sext i8 %4 to i32
   %call2.i.i.i.i = call i32 @isspace(i32 noundef %conv.i.i.i.i) #31
   %tobool.not.i.i.i.i.not = icmp eq i32 %call2.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.not, label %if.end.i.i2, label %for.cond.i.i.i.i
@@ -14408,7 +14307,7 @@ define linkonce_odr void @_ZZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5R
 entry:
   %ref.tmp = alloca %"class.folly::ConversionError", align 8
   %0 = load ptr, ptr %this, align 8
-  %which_.i.i.i = getelementptr inbounds %"struct.folly::expected_detail::ExpectedStorage.85", ptr %0, i64 0, i32 1
+  %which_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %which_.i.i.i, align 8
   switch i8 %1, label %if.end.i.i [
     i8 1, label %_ZNR5folly8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEE5valueEv.exit
@@ -14672,14 +14571,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
 entry:
   %_M_parent.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %__x.048 = load ptr, ptr %_M_parent.i.i, align 8
-  %cmp.not49 = icmp eq ptr %__x.048, null
-  br i1 %cmp.not49, label %return, label %while.body
+  %__x.047 = load ptr, ptr %_M_parent.i.i, align 8
+  %cmp.not48 = icmp eq ptr %__x.047, null
+  br i1 %cmp.not48, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end19
-  %__x.051 = phi ptr [ %__x.0, %if.end19 ], [ %__x.048, %entry ]
-  %__y.050 = phi ptr [ %__y.1, %if.end19 ], [ %add.ptr.i, %entry ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.051, i64 0, i32 1
+  %__x.050 = phi ptr [ %__x.0, %if.end19 ], [ %__x.047, %entry ]
+  %__y.049 = phi ptr [ %__y.1, %if.end19 ], [ %add.ptr.i, %entry ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x.050, i64 32
   %call.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit unwind label %terminate.lpad.i.i
 
@@ -14692,11 +14591,7 @@ terminate.lpad.i.i:                               ; preds = %while.body
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit: ; preds = %while.body
   %cmp.i.i = icmp slt i32 %call.i.i, 0
-  br i1 %cmp.i.i, label %if.then, label %if.else
-
-if.then:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.051, i64 0, i32 3
-  br label %if.end19
+  br i1 %cmp.i.i, label %if.end19, label %if.else
 
 if.else:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
   %call.i.i18 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
@@ -14711,20 +14606,20 @@ terminate.lpad.i.i19:                             ; preds = %if.else
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21: ; preds = %if.else
   %cmp.i.i20 = icmp slt i32 %call.i.i18, 0
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.051, i64 0, i32 2
   br i1 %cmp.i.i20, label %if.end19, label %if.else12
 
 if.else12:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21
-  %4 = load ptr, ptr %_M_left.i, align 8
-  %_M_right.i23 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.051, i64 0, i32 3
+  %_M_left.i22 = getelementptr inbounds i8, ptr %__x.050, i64 16
+  %4 = load ptr, ptr %_M_left.i22, align 8
+  %_M_right.i23 = getelementptr inbounds i8, ptr %__x.050, i64 24
   %5 = load ptr, ptr %_M_right.i23, align 8
   %cmp.not6.i = icmp eq ptr %4, null
   br i1 %cmp.not6.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.else12, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
   %__x.addr.08.i = phi ptr [ %__x.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %4, %if.else12 ]
-  %__y.addr.07.i = phi ptr [ %__y.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %__x.051, %if.else12 ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i, i64 0, i32 1
+  %__y.addr.07.i = phi ptr [ %__y.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %__x.050, %if.else12 ]
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i, i64 32
   %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i unwind label %terminate.lpad.i.i.i
 
@@ -14737,23 +14632,22 @@ terminate.lpad.i.i.i:                             ; preds = %while.body.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i: ; preds = %while.body.i
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i, i64 0, i32 3
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i, i64 0, i32 2
   %__y.addr.1.i = select i1 %cmp.i.i.i, ptr %__y.addr.07.i, ptr %__x.addr.08.i
-  %__x.addr.1.in.i = select i1 %cmp.i.i.i, ptr %_M_right.i.i, ptr %_M_left.i.i
+  %__x.addr.1.in.v.i = select i1 %cmp.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i = getelementptr inbounds i8, ptr %__x.addr.08.i, i64 %__x.addr.1.in.v.i
   %__x.addr.1.i = load ptr, ptr %__x.addr.1.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.addr.1.i, null
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit, label %while.body.i, !llvm.loop !93
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %if.else12
-  %__y.addr.0.lcssa.i = phi ptr [ %__x.051, %if.else12 ], [ %__y.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ]
+  %__y.addr.0.lcssa.i = phi ptr [ %__x.050, %if.else12 ], [ %__y.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ]
   %cmp.not6.i24 = icmp eq ptr %5, null
   br i1 %cmp.not6.i24, label %return, label %while.body.i25
 
 while.body.i25:                                   ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31
-  %__x.addr.08.i26 = phi ptr [ %__x.addr.1.i37, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %5, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ]
-  %__y.addr.07.i27 = phi ptr [ %__y.addr.1.i35, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.050, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ]
-  %_M_storage.i.i.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i26, i64 0, i32 1
+  %__x.addr.08.i26 = phi ptr [ %__x.addr.1.i36, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %5, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ]
+  %__y.addr.07.i27 = phi ptr [ %__y.addr.1.i33, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.049, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ]
+  %_M_storage.i.i.i28 = getelementptr inbounds i8, ptr %__x.addr.08.i26, i64 32
   %call.i.i.i29 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i28)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 unwind label %terminate.lpad.i.i.i30
 
@@ -14766,24 +14660,24 @@ terminate.lpad.i.i.i30:                           ; preds = %while.body.i25
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31: ; preds = %while.body.i25
   %cmp.i.i.i32 = icmp slt i32 %call.i.i.i29, 0
-  %_M_left.i.i33 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i26, i64 0, i32 2
-  %_M_right.i.i34 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i26, i64 0, i32 3
-  %__y.addr.1.i35 = select i1 %cmp.i.i.i32, ptr %__x.addr.08.i26, ptr %__y.addr.07.i27
-  %__x.addr.1.in.i36 = select i1 %cmp.i.i.i32, ptr %_M_left.i.i33, ptr %_M_right.i.i34
-  %__x.addr.1.i37 = load ptr, ptr %__x.addr.1.in.i36, align 8
-  %cmp.not.i38 = icmp eq ptr %__x.addr.1.i37, null
-  br i1 %cmp.not.i38, label %return, label %while.body.i25, !llvm.loop !183
+  %__y.addr.1.i33 = select i1 %cmp.i.i.i32, ptr %__x.addr.08.i26, ptr %__y.addr.07.i27
+  %__x.addr.1.in.v.i34 = select i1 %cmp.i.i.i32, i64 16, i64 24
+  %__x.addr.1.in.i35 = getelementptr inbounds i8, ptr %__x.addr.08.i26, i64 %__x.addr.1.in.v.i34
+  %__x.addr.1.i36 = load ptr, ptr %__x.addr.1.in.i35, align 8
+  %cmp.not.i37 = icmp eq ptr %__x.addr.1.i36, null
+  br i1 %cmp.not.i37, label %return, label %while.body.i25, !llvm.loop !183
 
-if.end19:                                         ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21, %if.then
-  %__y.1 = phi ptr [ %__y.050, %if.then ], [ %__x.051, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21 ]
-  %__x.1.in = phi ptr [ %_M_right.i, %if.then ], [ %_M_left.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21 ]
-  %__x.0 = load ptr, ptr %__x.1.in, align 8
+if.end19:                                         ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
+  %.sink = phi i64 [ 24, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ 16, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21 ]
+  %__y.1 = phi ptr [ %__y.049, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %__x.050, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21 ]
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.050, i64 %.sink
+  %__x.0 = load ptr, ptr %_M_left.i, align 8
   %cmp.not = icmp eq ptr %__x.0, null
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !184
 
 return:                                           ; preds = %if.end19, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31, %entry, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit
   %retval.sroa.0.0 = phi ptr [ %__y.addr.0.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.0.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.1, %if.end19 ]
-  %retval.sroa.3.0 = phi ptr [ %__y.050, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.1.i35, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.1, %if.end19 ]
+  %retval.sroa.3.0 = phi ptr [ %__y.049, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.1.i33, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.1, %if.end19 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -14835,8 +14729,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %__first.sroa.0.09 = phi ptr [ %__first.coerce, %while.body.lr.ph ], [ %call.i, %while.body ]
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.09) #31
   %call.i5 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %__first.sroa.0.09, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i4) #23
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i5, i64 0, i32 1
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i5, i64 0, i32 1, i32 0, i64 32
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 32
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %call.i5) #34
@@ -14858,10 +14752,10 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 invoke.cont:
   %__z = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
   store ptr %this, ptr %__z, align 8
-  %_M_node.i = getelementptr inbounds %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", ptr %__z, i64 0, i32 1
+  %_M_node.i = getelementptr inbounds i8, ptr %__z, i64 8
   %call.i = tail call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_create_nodeIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESJ_IJEEEEEPSt13_Rb_tree_nodeIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3)
   store ptr %call.i, ptr %_M_node.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i)
           to label %invoke.cont7 unwind label %lpad
 
@@ -14879,7 +14773,7 @@ if.then:                                          ; preds = %invoke.cont7
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %call.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i unwind label %terminate.lpad.i.i.i.i
 
@@ -14914,7 +14808,7 @@ cleanup:                                          ; preds = %invoke.cont7
   br i1 %tobool.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_Auto_nodeD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1, i32 0, i64 32
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #34
@@ -14929,7 +14823,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_create_nodeIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESJ_IJEEEEEPSt13_Rb_tree_nodeIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #33
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -14964,7 +14858,7 @@ unreachable.i:                                    ; preds = %lpad.i
   unreachable
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESJ_IJEEEEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit: ; preds = %entry
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i, i64 0, i32 1, i32 0, i64 32
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #23
   ret ptr %call5.i.i.i
 }
@@ -15019,8 +14913,8 @@ entry:
   %agg.tmp1 = alloca %"struct.boost::algorithm::detail::is_classifiedF", align 8
   %0 = load i16, ptr %IsSpace, align 8
   store i16 %0, ptr %agg.tmp, align 8
-  %m_Locale.i = getelementptr inbounds %"struct.boost::algorithm::detail::is_classifiedF", ptr %agg.tmp, i64 0, i32 1
-  %m_Locale3.i = getelementptr inbounds %"struct.boost::algorithm::detail::is_classifiedF", ptr %IsSpace, i64 0, i32 1
+  %m_Locale.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %m_Locale3.i = getelementptr inbounds i8, ptr %IsSpace, i64 8
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %m_Locale.i, ptr noundef nonnull align 8 dereferenceable(8) %m_Locale3.i) #23
   invoke void @_ZN5boost9algorithm13trim_right_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6detail14is_classifiedFEEEvRT_T0_(ptr noundef nonnull align 8 dereferenceable(32) %Input, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -15029,7 +14923,7 @@ invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_Locale.i) #23
   %1 = load i16, ptr %IsSpace, align 8
   store i16 %1, ptr %agg.tmp1, align 8
-  %m_Locale.i4 = getelementptr inbounds %"struct.boost::algorithm::detail::is_classifiedF", ptr %agg.tmp1, i64 0, i32 1
+  %m_Locale.i4 = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %m_Locale.i4, ptr noundef nonnull align 8 dereferenceable(8) %m_Locale3.i) #23
   invoke void @_ZN5boost9algorithm12trim_left_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6detail14is_classifiedFEEEvRT_T0_(ptr noundef nonnull align 8 dereferenceable(32) %Input, ptr noundef nonnull %agg.tmp1)
           to label %invoke.cont3 unwind label %lpad2
@@ -15064,13 +14958,13 @@ entry:
   %call.i.i4 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %Input) #23
   %0 = load i16, ptr %IsSpace, align 8
   store i16 %0, ptr %agg.tmp5, align 8
-  %m_Locale.i = getelementptr inbounds %"struct.boost::algorithm::detail::is_classifiedF", ptr %agg.tmp5, i64 0, i32 1
-  %m_Locale3.i = getelementptr inbounds %"struct.boost::algorithm::detail::is_classifiedF", ptr %IsSpace, i64 0, i32 1
+  %m_Locale.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 8
+  %m_Locale3.i = getelementptr inbounds i8, ptr %IsSpace, i64 8
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %m_Locale.i, ptr noundef nonnull align 8 dereferenceable(8) %m_Locale3.i) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
   %1 = load i16, ptr %agg.tmp5, align 8
   store i16 %1, ptr %agg.tmp3.i, align 8
-  %m_Locale.i.i = getelementptr inbounds %"struct.boost::algorithm::detail::is_classifiedF", ptr %agg.tmp3.i, i64 0, i32 1
+  %m_Locale.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %m_Locale.i.i, ptr noundef nonnull align 8 dereferenceable(8) %m_Locale.i) #23
   br label %for.cond.i.i
 
@@ -15087,7 +14981,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 call.i.i.noexc.i:                                 ; preds = %for.body.i.i
   %3 = load i16, ptr %agg.tmp3.i, align 8
-  %_M_table.i.i.i.i = getelementptr inbounds %"class.std::ctype", ptr %call.i.i1.i, i64 0, i32 7
+  %_M_table.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 48
   %4 = load ptr, ptr %_M_table.i.i.i.i, align 8
   %idxprom.i.i.i.i = zext i8 %2 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i16, ptr %4, i64 %idxprom.i.i.i.i
@@ -15134,8 +15028,8 @@ entry:
   %call.i.i5 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %Input) #23
   %0 = load i16, ptr %IsSpace, align 8
   store i16 %0, ptr %agg.tmp9, align 8
-  %m_Locale.i = getelementptr inbounds %"struct.boost::algorithm::detail::is_classifiedF", ptr %agg.tmp9, i64 0, i32 1
-  %m_Locale3.i = getelementptr inbounds %"struct.boost::algorithm::detail::is_classifiedF", ptr %IsSpace, i64 0, i32 1
+  %m_Locale.i = getelementptr inbounds i8, ptr %agg.tmp9, i64 8
+  %m_Locale3.i = getelementptr inbounds i8, ptr %IsSpace, i64 8
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %m_Locale.i, ptr noundef nonnull align 8 dereferenceable(8) %m_Locale3.i) #23
   %cmp.i.not4.i = icmp eq ptr %call.i.i4, %call.i.i5
   br i1 %cmp.i.not4.i, label %invoke.cont, label %for.body.lr.ph.i
@@ -15155,7 +15049,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 call.i.i6.noexc:                                  ; preds = %for.body.i
   %3 = load i16, ptr %agg.tmp9, align 8
-  %_M_table.i.i.i = getelementptr inbounds %"class.std::ctype", ptr %call.i.i67, i64 0, i32 7
+  %_M_table.i.i.i = getelementptr inbounds i8, ptr %call.i.i67, i64 48
   %4 = load ptr, ptr %_M_table.i.i.i, align 8
   %idxprom.i.i.i = zext i8 %2 to i64
   %arrayidx.i.i.i = getelementptr inbounds i16, ptr %4, i64 %idxprom.i.i.i
@@ -15215,9 +15109,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::pair<const char *, folly::Range<const char *>>, std::allocator<std::pair<const char *, folly::Range<const char *>>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::pair<const char *, folly::Range<const char *>>, std::allocator<std::pair<const char *, folly::Range<const char *>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -15231,7 +15125,7 @@ if.then4:                                         ; preds = %if.then
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %cmp10 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i
-  br i1 %cmp10, label %for.body.i.i.i.i.i.preheader, label %_ZSt7advanceIPKSt4pairIPKcN5folly5RangeIS2_EEEmEvRT_T0_.exit
+  br i1 %cmp10, label %for.body.i.i.i.i.i.preheader, label %if.else5.i.i
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then4
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
@@ -15242,8 +15136,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %for.body.i.i.i.i.i.preheader ]
   %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr, %for.body.i.i.i.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.08.i.i.i.i.i, i64 24, i1 false)
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.58", ptr %__first.sroa.0.08.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.58", ptr %__cur.09.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 24
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 24
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPSt4pairIPKcN5folly5RangeIS2_EEES7_SaIS6_EET0_T_SA_S9_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !188
 
@@ -15264,12 +15158,12 @@ for.body.i.i.i.i.i35:                             ; preds = %for.body.i.i.i.i.i3
   %__n.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i35 ], [ %sub.ptr.div8.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %__result.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i35 ], [ %1, %for.body.preheader.i.i.i.i.i ]
   %__last.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i36, %for.body.i.i.i.i.i35 ], [ %add.ptr, %for.body.preheader.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i36 = getelementptr inbounds %"struct.std::pair.58", ptr %__last.addr.05.i.i.i.i.i, i64 -1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.58", ptr %__result.addr.06.i.i.i.i.i, i64 -1
+  %incdec.ptr.i.i.i.i.i36 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -24
   %2 = load ptr, ptr %incdec.ptr.i.i.i.i.i36, align 8
   store ptr %2, ptr %incdec.ptr1.i.i.i.i.i, align 8
-  %second.i.i.i.i.i.i = getelementptr %"struct.std::pair.58", ptr %__last.addr.05.i.i.i.i.i, i64 -1, i32 1
-  %second3.i.i.i.i.i.i = getelementptr %"struct.std::pair.58", ptr %__result.addr.06.i.i.i.i.i, i64 -1, i32 1
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -16
+  %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i, i64 16, i1 false)
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
@@ -15289,26 +15183,26 @@ for.body.i.i.i.i.i42:                             ; preds = %for.body.i.i.i.i.i4
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i45, %for.body.i.i.i.i.i42 ], [ %__first, %for.body.preheader.i.i.i.i.i41 ]
   %3 = load ptr, ptr %__first.addr.07.i.i.i.i.i, align 8
   store ptr %3, ptr %__result.addr.08.i.i.i.i.i, align 8
-  %second.i.i.i.i.i.i43 = getelementptr inbounds %"struct.std::pair.58", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 1
-  %second3.i.i.i.i.i.i44 = getelementptr inbounds %"struct.std::pair.58", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 8
+  %second3.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i43, i64 16, i1 false)
-  %incdec.ptr.i.i.i.i.i45 = getelementptr inbounds %"struct.std::pair.58", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i46 = getelementptr inbounds %"struct.std::pair.58", ptr %__result.addr.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i45 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i46 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i47 = add nsw i64 %__n.09.i.i.i.i.i, -1
   %cmp.i.i.i.i.i48 = icmp ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i48, label %for.body.i.i.i.i.i42, label %if.end87, !llvm.loop !190
 
-_ZSt7advanceIPKSt4pairIPKcN5folly5RangeIS2_EEEmEvRT_T0_.exit: ; preds = %if.then4
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair.58", ptr %__first, i64 %sub.ptr.div.i
-  %cmp.not5.i.i.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
+if.else5.i.i:                                     ; preds = %if.then4
+  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.58", ptr %__first, i64 %sub.ptr.div.i
+  %cmp.not5.i.i.i.i = icmp eq ptr %add.ptr.i.i, %__last
   br i1 %cmp.not5.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit, label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZSt7advanceIPKSt4pairIPKcN5folly5RangeIS2_EEEmEvRT_T0_.exit, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZSt7advanceIPKSt4pairIPKcN5folly5RangeIS2_EEEmEvRT_T0_.exit ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i, %_ZSt7advanceIPKSt4pairIPKcN5folly5RangeIS2_EEEmEvRT_T0_.exit ]
+for.body.i.i.i.i:                                 ; preds = %if.else5.i.i, %for.body.i.i.i.i
+  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %1, %if.else5.i.i ]
+  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %add.ptr.i.i, %if.else5.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i, i64 24, i1 false)
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair.58", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.std::pair.58", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__last
   br i1 %cmp.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit.loopexit, label %for.body.i.i.i.i, !llvm.loop !191
 
@@ -15316,8 +15210,8 @@ _ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA
   %.pre = load ptr, ptr %_M_finish, align 8
   br label %_ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit
 
-_ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKSt4pairIPKcN5folly5RangeIS2_EEEmEvRT_T0_.exit
-  %4 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPKSt4pairIPKcN5folly5RangeIS2_EEEmEvRT_T0_.exit ]
+_ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit.loopexit, %if.else5.i.i
+  %4 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit.loopexit ], [ %1, %if.else5.i.i ]
   %sub = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr %"struct.std::pair.58", ptr %4, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
@@ -15328,8 +15222,8 @@ for.body.i.i.i.i.i50:                             ; preds = %_ZSt22__uninitializ
   %__cur.09.i.i.i.i.i51 = phi ptr [ %incdec.ptr.i.i.i.i.i54, %for.body.i.i.i.i.i50 ], [ %add.ptr36, %_ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit ]
   %__first.sroa.0.08.i.i.i.i.i52 = phi ptr [ %incdec.ptr.i.i.i.i.i.i53, %for.body.i.i.i.i.i50 ], [ %__position.coerce, %_ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.09.i.i.i.i.i51, ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.08.i.i.i.i.i52, i64 24, i1 false)
-  %incdec.ptr.i.i.i.i.i.i53 = getelementptr inbounds %"struct.std::pair.58", ptr %__first.sroa.0.08.i.i.i.i.i52, i64 1
-  %incdec.ptr.i.i.i.i.i54 = getelementptr inbounds %"struct.std::pair.58", ptr %__cur.09.i.i.i.i.i51, i64 1
+  %incdec.ptr.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i52, i64 24
+  %incdec.ptr.i.i.i.i.i54 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i51, i64 24
   %cmp.i.i.not.i.i.i.i.i55 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i53, %1
   br i1 %cmp.i.i.not.i.i.i.i.i55, label %_ZSt22__uninitialized_move_aIPSt4pairIPKcN5folly5RangeIS2_EEES7_SaIS6_EET0_T_SA_S9_RT1_.exit57.loopexit, label %for.body.i.i.i.i.i50, !llvm.loop !188
 
@@ -15354,11 +15248,11 @@ for.body.i.i.i.i.i70:                             ; preds = %for.body.i.i.i.i.i7
   %__first.addr.07.i.i.i.i.i73 = phi ptr [ %incdec.ptr.i.i.i.i.i76, %for.body.i.i.i.i.i70 ], [ %__first, %for.body.preheader.i.i.i.i.i68 ]
   %6 = load ptr, ptr %__first.addr.07.i.i.i.i.i73, align 8
   store ptr %6, ptr %__result.addr.08.i.i.i.i.i72, align 8
-  %second.i.i.i.i.i.i74 = getelementptr inbounds %"struct.std::pair.58", ptr %__first.addr.07.i.i.i.i.i73, i64 0, i32 1
-  %second3.i.i.i.i.i.i75 = getelementptr inbounds %"struct.std::pair.58", ptr %__result.addr.08.i.i.i.i.i72, i64 0, i32 1
+  %second.i.i.i.i.i.i74 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i73, i64 8
+  %second3.i.i.i.i.i.i75 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i72, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i75, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i74, i64 16, i1 false)
-  %incdec.ptr.i.i.i.i.i76 = getelementptr inbounds %"struct.std::pair.58", ptr %__first.addr.07.i.i.i.i.i73, i64 1
-  %incdec.ptr1.i.i.i.i.i77 = getelementptr inbounds %"struct.std::pair.58", ptr %__result.addr.08.i.i.i.i.i72, i64 1
+  %incdec.ptr.i.i.i.i.i76 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i73, i64 24
+  %incdec.ptr1.i.i.i.i.i77 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i72, i64 24
   %dec.i.i.i.i.i78 = add nsw i64 %__n.09.i.i.i.i.i71, -1
   %cmp.i.i.i.i.i79 = icmp ugt i64 %__n.09.i.i.i.i.i71, 1
   br i1 %cmp.i.i.i.i.i79, label %for.body.i.i.i.i.i70, label %if.end87, !llvm.loop !190
@@ -15400,8 +15294,8 @@ for.body.i.i.i.i.i87:                             ; preds = %_ZNSt12_Vector_base
   %__cur.09.i.i.i.i.i88 = phi ptr [ %incdec.ptr.i.i.i.i.i91, %for.body.i.i.i.i.i87 ], [ %cond.i85, %_ZNSt12_Vector_baseISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE11_M_allocateEm.exit ]
   %__first.sroa.0.08.i.i.i.i.i89 = phi ptr [ %incdec.ptr.i.i.i.i.i.i90, %for.body.i.i.i.i.i87 ], [ %7, %_ZNSt12_Vector_baseISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE11_M_allocateEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.09.i.i.i.i.i88, ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.08.i.i.i.i.i89, i64 24, i1 false)
-  %incdec.ptr.i.i.i.i.i.i90 = getelementptr inbounds %"struct.std::pair.58", ptr %__first.sroa.0.08.i.i.i.i.i89, i64 1
-  %incdec.ptr.i.i.i.i.i91 = getelementptr inbounds %"struct.std::pair.58", ptr %__cur.09.i.i.i.i.i88, i64 1
+  %incdec.ptr.i.i.i.i.i.i90 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i89, i64 24
+  %incdec.ptr.i.i.i.i.i91 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i88, i64 24
   %cmp.i.i.not.i.i.i.i.i92 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i90, %__position.coerce
   br i1 %cmp.i.i.not.i.i.i.i.i92, label %for.body.i.i.i.i95.preheader, label %for.body.i.i.i.i.i87, !llvm.loop !188
 
@@ -15413,8 +15307,8 @@ for.body.i.i.i.i95:                               ; preds = %for.body.i.i.i.i95.
   %__cur.07.i.i.i.i96 = phi ptr [ %incdec.ptr1.i.i.i.i99, %for.body.i.i.i.i95 ], [ %__cur.07.i.i.i.i96.ph, %for.body.i.i.i.i95.preheader ]
   %__first.addr.06.i.i.i.i97 = phi ptr [ %incdec.ptr.i.i.i.i98, %for.body.i.i.i.i95 ], [ %__first, %for.body.i.i.i.i95.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i96, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i97, i64 24, i1 false)
-  %incdec.ptr.i.i.i.i98 = getelementptr inbounds %"struct.std::pair.58", ptr %__first.addr.06.i.i.i.i97, i64 1
-  %incdec.ptr1.i.i.i.i99 = getelementptr %"struct.std::pair.58", ptr %__cur.07.i.i.i.i96, i64 1
+  %incdec.ptr.i.i.i.i98 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i97, i64 24
+  %incdec.ptr1.i.i.i.i99 = getelementptr i8, ptr %__cur.07.i.i.i.i96, i64 24
   %cmp.not.i.i.i.i100 = icmp eq ptr %incdec.ptr.i.i.i.i98, %__last
   br i1 %cmp.not.i.i.i.i100, label %invoke.cont61, label %for.body.i.i.i.i95, !llvm.loop !191
 
@@ -15426,8 +15320,8 @@ for.body.i.i.i.i.i104:                            ; preds = %invoke.cont61, %for
   %__cur.09.i.i.i.i.i105 = phi ptr [ %incdec.ptr.i.i.i.i.i108, %for.body.i.i.i.i.i104 ], [ %incdec.ptr1.i.i.i.i99, %invoke.cont61 ]
   %__first.sroa.0.08.i.i.i.i.i106 = phi ptr [ %incdec.ptr.i.i.i.i.i.i107, %for.body.i.i.i.i.i104 ], [ %__position.coerce, %invoke.cont61 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.09.i.i.i.i.i105, ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.08.i.i.i.i.i106, i64 24, i1 false)
-  %incdec.ptr.i.i.i.i.i.i107 = getelementptr inbounds %"struct.std::pair.58", ptr %__first.sroa.0.08.i.i.i.i.i106, i64 1
-  %incdec.ptr.i.i.i.i.i108 = getelementptr inbounds %"struct.std::pair.58", ptr %__cur.09.i.i.i.i.i105, i64 1
+  %incdec.ptr.i.i.i.i.i.i107 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i106, i64 24
+  %incdec.ptr.i.i.i.i.i108 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i105, i64 24
   %cmp.i.i.not.i.i.i.i.i109 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i107, %1
   br i1 %cmp.i.i.not.i.i.i.i.i109, label %invoke.cont65, label %for.body.i.i.i.i.i104, !llvm.loop !188
 

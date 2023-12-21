@@ -4,17 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.Initializer = type { i8 }
-%"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::IOBufIovecBuilder" = type { %"struct.folly::IOBufIovecBuilder::Options", %"class.std::deque" }
-%"struct.folly::IOBufIovecBuilder::Options" = type { i64 }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl" }
-%"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl" = type { %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"struct.folly::IOBufIovecBuilder::RefCountMem" = type { %"struct.std::atomic", ptr, i64, i64 }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 %struct.iovec = type { ptr, i64 }
 %struct.Initializer.10 = type { i8 }
 %struct.Initializer.9 = type { i8 }
@@ -26,11 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.12" = type { ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr }
-%"class.folly::IOBuf" = type { i64, ptr, i64, ptr, ptr, ptr, i64 }
-%"struct.folly::IOBuf::SharedInfo" = type <{ ptr, ptr, ptr, %"struct.std::atomic.13", i8, i8, %"struct.folly::MicroSpinLock", i8 }>
-%"struct.std::atomic.13" = type { %"struct.std::__atomic_base.14" }
-%"struct.std::__atomic_base.14" = type { i32 }
-%"struct.folly::MicroSpinLock" = type { i8 }
 
 $__clang_call_terminate = comdat any
 
@@ -94,7 +78,7 @@ entry:
   %ref.tmp.i.i.i.i.i = alloca %struct.Initializer, align 1
   %ref.tmp17 = alloca ptr, align 8
   %0 = load ptr, ptr %iovs, align 8, !tbaa !7
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl_data", ptr %iovs, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %iovs, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !12
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %_ZNSt6vectorI5iovecSaIS0_EE5clearEv.exit, label %invoke.cont.i.i
@@ -108,16 +92,16 @@ _ZNSt6vectorI5iovecSaIS0_EE5clearEv.exit:         ; preds = %invoke.cont.i.i, %e
   br i1 %cmp2151.not, label %for.cond.cleanup, label %while.end12.lr.ph
 
 while.end12.lr.ph:                                ; preds = %_ZNSt6vectorI5iovecSaIS0_EE5clearEv.exit
-  %buffers_13 = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node1.i.i = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
-  %_M_first.i.i = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1
-  %_M_last.i.i = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
-  %_M_last.i.i63 = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl_data", ptr %iovs, i64 0, i32 2
+  %buffers_13 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_last.i.i63 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %iovs, i64 16
   %.pre = load ptr, ptr %_M_node1.i.i, align 8, !tbaa !13
   %.pre155 = load ptr, ptr %_M_start.i, align 8, !tbaa !15
   br label %while.end12
@@ -161,7 +145,7 @@ if.then:                                          ; preds = %while.end12
   %call18 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %8 = load i64, ptr %this, align 8, !tbaa !18
   store i64 1, ptr %call18, align 8, !tbaa !26
-  %mem_.i = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %call18, i64 0, i32 1
+  %mem_.i = getelementptr inbounds i8, ptr %call18, i64 8
   %cmp.i.i = icmp eq i64 %8, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mem_.i, i8 0, i64 24, i1 false)
   br i1 %cmp.i.i, label %_ZN5folly17IOBufIovecBuilder11RefCountMemC2Em.exit, label %if.end.i.i
@@ -199,21 +183,21 @@ if.end2.i.i:                                      ; preds = %_ZN5folly10canNallo
 
 _ZN5folly17IOBufIovecBuilder11RefCountMemC2Em.exit: ; preds = %if.end2.i.i, %_ZN5folly10canNallocxEv.exit.i.i, %if.then
   %retval.0.i.i = phi i64 [ %cond.i.i, %if.end2.i.i ], [ 0, %if.then ], [ %8, %_ZN5folly10canNallocxEv.exit.i.i ]
-  %len_.i = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %call18, i64 0, i32 2
+  %len_.i = getelementptr inbounds i8, ptr %call18, i64 16
   store i64 %retval.0.i.i, ptr %len_.i, align 8, !tbaa !33
   %call4.i = call noalias ptr @malloc(i64 noundef %retval.0.i.i) #22
   store ptr %call4.i, ptr %mem_.i, align 8, !tbaa !36
   store ptr %call18, ptr %ref.tmp17, align 8, !tbaa !37
   %13 = load ptr, ptr %_M_finish.i, align 8, !tbaa !38
   %14 = load ptr, ptr %_M_last.i.i63, align 8, !tbaa !39
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %14, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 -8
   %cmp.not.i.i = icmp eq ptr %13, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly17IOBufIovecBuilder11RefCountMemC2Em.exit
   store ptr %call18, ptr %13, align 8, !tbaa !37
   %15 = load ptr, ptr %_M_finish.i, align 8, !tbaa !38
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %15, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !38
   br label %_ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EE9push_backEOS3_.exit
 
@@ -247,9 +231,9 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end40
 if.then.i.i.i.i89:                                ; preds = %land.lhs.true.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %i.0152
   %19 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !37
-  %mem_.i66132 = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %19, i64 0, i32 1
+  %mem_.i66132 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %mem_.i66132, align 8, !tbaa !36
-  %used_.i133 = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %19, i64 0, i32 3
+  %used_.i133 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load i64, ptr %used_.i133, align 8, !tbaa !40
   %add.ptr.i134 = getelementptr inbounds i8, ptr %20, i64 %21
   br label %_ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EEixEm.exit91
@@ -269,16 +253,16 @@ cond.end.i.i.i.i78:                               ; preds = %cond.false.i.i.i.i7
   %sub14.i.i.i.i = and i64 %add.i.i.i.i, 63
   %add.ptr15.i.i.i.i = getelementptr inbounds ptr, ptr %.sink, i64 %sub14.i.i.i.i
   %22 = load ptr, ptr %add.ptr15.i.i.i.i, align 8, !tbaa !37
-  %mem_.i66 = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %22, i64 0, i32 1
+  %mem_.i66 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %mem_.i66, align 8, !tbaa !36
-  %used_.i = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %22, i64 0, i32 3
+  %used_.i = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load i64, ptr %used_.i, align 8, !tbaa !40
   %add.ptr.i = getelementptr inbounds i8, ptr %23, i64 %24
   %mul.i.i.i.i81 = shl nsw i64 %sub10.i.i.i.i.pn, 6
   %sub14.i.i.i.i82 = sub nsw i64 %add.i.i.i.i, %mul.i.i.i.i81
   %add.ptr15.i.i.i.i83 = getelementptr inbounds ptr, ptr %.sink, i64 %sub14.i.i.i.i82
   %.pre158 = load ptr, ptr %add.ptr15.i.i.i.i83, align 8, !tbaa !37
-  %used_.i93.phi.trans.insert = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %.pre158, i64 0, i32 3
+  %used_.i93.phi.trans.insert = getelementptr inbounds i8, ptr %.pre158, i64 24
   %.pre159 = load i64, ptr %used_.i93.phi.trans.insert, align 8, !tbaa !40
   br label %_ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EEixEm.exit91
 
@@ -286,7 +270,7 @@ _ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EEixEm.exit91: ; pred
   %25 = phi i64 [ %.pre159, %cond.end.i.i.i.i78 ], [ %21, %if.then.i.i.i.i89 ]
   %26 = phi ptr [ %.pre158, %cond.end.i.i.i.i78 ], [ %19, %if.then.i.i.i.i89 ]
   %add.ptr.i135 = phi ptr [ %add.ptr.i, %cond.end.i.i.i.i78 ], [ %add.ptr.i134, %if.then.i.i.i.i89 ]
-  %len_.i92 = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %26, i64 0, i32 2
+  %len_.i92 = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load i64, ptr %len_.i92, align 8, !tbaa !33
   %sub.i = sub i64 %27, %25
   %28 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !37
@@ -299,7 +283,7 @@ if.then.i:                                        ; preds = %_ZNSt5dequeIPN5foll
   %iov.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
   store i64 %sub.i, ptr %iov.sroa.5.0..sroa_idx, align 8, !tbaa.struct !44
   %30 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !12
-  %incdec.ptr.i = getelementptr inbounds %struct.iovec, ptr %30, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %30, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8, !tbaa !12
   br label %_ZNSt6vectorI5iovecSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit
 
@@ -345,7 +329,7 @@ if.then.i.i.i33.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit41.i.i
 
 _ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit41.i.i: ; preds = %if.then.i.i.i33.i.i, %_ZNSt12_Vector_baseI5iovecSaIS0_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i100 = getelementptr inbounds %struct.iovec, ptr %add.ptr.i.i99, i64 1
+  %incdec.ptr.i.i100 = getelementptr inbounds i8, ptr %add.ptr.i.i99, i64 16
   %tobool.not.i.i.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %if.then.i42.i.i
 
@@ -400,9 +384,9 @@ cond.end.i.i.i.i112:                              ; preds = %cond.false.i.i.i.i1
 _ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EEixEm.exit125: ; preds = %cond.end.i.i.i.i112, %if.then.i.i.i.i123
   %storemerge.i.i.i.i118 = phi ptr [ %add.ptr15.i.i.i.i117, %cond.end.i.i.i.i112 ], [ %add.ptr.i.i.i.i124, %if.then.i.i.i.i123 ]
   %36 = load ptr, ptr %storemerge.i.i.i.i118, align 8, !tbaa !37
-  %len_.i126 = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %36, i64 0, i32 2
+  %len_.i126 = getelementptr inbounds i8, ptr %36, i64 16
   %37 = load i64, ptr %len_.i126, align 8, !tbaa !33
-  %used_.i127 = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %36, i64 0, i32 3
+  %used_.i127 = getelementptr inbounds i8, ptr %36, i64 24
   %38 = load i64, ptr %used_.i127, align 8, !tbaa !40
   %sub.i128 = add i64 %37, %total.0154
   %add = sub i64 %sub.i128, %38
@@ -446,11 +430,11 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EE16_M_push_back_auxIJS3_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8, !tbaa !13
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8, !tbaa !13
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -461,14 +445,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 6
   %2 = load ptr, ptr %_M_finish.i, align 8, !tbaa !15
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8, !tbaa !16
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 3
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8, !tbaa !17
   %5 = load ptr, ptr %_M_start.i, align 8, !tbaa !15
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -484,7 +468,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8, !tbaa !50
   %7 = load ptr, ptr %this, align 8, !tbaa !51
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -502,18 +486,18 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.then.i, %if.end
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8, !tbaa !37
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !38
   %10 = load ptr, ptr %__args, align 8, !tbaa !37
   store ptr %10, ptr %9, align 8, !tbaa !37
   %11 = load ptr, ptr %_M_node.i.i, align 8, !tbaa !52
-  %add.ptr12 = getelementptr inbounds ptr, ptr %11, i64 1
+  %add.ptr12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8, !tbaa !13
   %12 = load ptr, ptr %add.ptr12, align 8, !tbaa !37
   store ptr %12, ptr %_M_first.i.i, align 8, !tbaa !16
-  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 64
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8, !tbaa !17
   store ptr %12, ptr %_M_finish.i, align 8, !tbaa !38
   ret void
@@ -525,9 +509,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8, !tbaa !52
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8, !tbaa !53
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -535,7 +519,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8, !tbaa !43
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -549,7 +533,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -602,7 +586,7 @@ _ZNSt11_Deque_baseIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EE15_M_allocat
   %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i4.i, i64 %div4187
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i99 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i99, label %_ZSt4copyIPPPN5folly17IOBufIovecBuilder11RefCountMemES5_ET0_T_S7_S6_.exit103, label %if.then.i.i.i.i.i100
 
@@ -623,19 +607,19 @@ if.end65:                                         ; preds = %_ZSt4copyIPPPN5foll
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN5folly17IOBufIovecBuilder11RefCountMemES5_ET0_T_S7_S6_.exit103 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i94 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8, !tbaa !13
   %5 = load ptr, ptr %__new_nstart.0, align 8, !tbaa !37
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8, !tbaa !16
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 64
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8, !tbaa !17
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8, !tbaa !13
   %6 = load ptr, ptr %add.ptr71, align 8, !tbaa !37
-  %_M_first.i105 = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i105 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i105, align 8, !tbaa !16
-  %add.ptr.i106 = getelementptr inbounds ptr, ptr %6, i64 64
-  %_M_last.i107 = getelementptr inbounds %"struct.std::_Deque_base<folly::IOBufIovecBuilder::RefCountMem *, std::allocator<folly::IOBufIovecBuilder::RefCountMem *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i106 = getelementptr inbounds i8, ptr %6, i64 512
+  %_M_last.i107 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i106, ptr %_M_last.i107, align 8, !tbaa !17
   ret void
 }
@@ -914,11 +898,11 @@ entry:
   br i1 %cmp.not145, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit139, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_last.i = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
-  %_M_first.i.i = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1
-  %_M_node.i.i = getelementptr inbounds %"class.folly::IOBufIovecBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %if.end89, %while.body.lr.ph
@@ -959,9 +943,9 @@ lpad7:                                            ; preds = %invoke.cont8, %invo
 
 cleanup.done18:                                   ; preds = %while.body
   %4 = load ptr, ptr %1, align 8, !tbaa !37
-  %len_.i = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %4, i64 0, i32 2
+  %len_.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load i64, ptr %len_.i, align 8, !tbaa !33
-  %used_.i = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %4, i64 0, i32 3
+  %used_.i = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load i64, ptr %used_.i, align 8, !tbaa !40
   %sub.i = sub i64 %5, %6
   %cmp26.not = icmp ult i64 %len.addr.0146, %sub.i
@@ -969,7 +953,7 @@ cleanup.done18:                                   ; preds = %while.body
 
 if.then:                                          ; preds = %cleanup.done18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp27) #19
-  %mem_.i = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %4, i64 0, i32 1
+  %mem_.i = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %mem_.i, align 8, !tbaa !36
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %6
   invoke void @_ZN5folly5IOBuf13takeOwnershipEPvmmmPFvS1_S1_ES1_bNS0_19TakeOwnershipOptionE(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp27, ptr noundef %add.ptr.i, i64 noundef %sub.i, i64 noundef 0, i64 noundef %sub.i, ptr noundef nonnull @_ZN5folly17IOBufIovecBuilder11RefCountMem7freeMemEPvS2_, ptr noundef nonnull %4, i1 noundef zeroext true, i32 noundef 0)
@@ -999,23 +983,23 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp27) #19
   %10 = load ptr, ptr %_M_start.i, align 8, !tbaa !57
   %11 = load ptr, ptr %_M_last.i, align 8, !tbaa !58
-  %add.ptr.i113 = getelementptr inbounds ptr, ptr %11, i64 -1
+  %add.ptr.i113 = getelementptr inbounds i8, ptr %11, i64 -8
   %cmp.not.i114 = icmp eq ptr %10, %add.ptr.i113
   br i1 %cmp.not.i114, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %10, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %10, i64 8
   br label %_ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EE9pop_frontEv.exit
 
 if.else.i:                                        ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
   %12 = load ptr, ptr %_M_first.i.i, align 8, !tbaa !59
   call void @_ZdlPv(ptr noundef %12) #24
   %13 = load ptr, ptr %_M_node.i.i, align 8, !tbaa !53
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %13, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %add.ptr.i.i, ptr %_M_node.i.i, align 8, !tbaa !13
   %14 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !37
   store ptr %14, ptr %_M_first.i.i, align 8, !tbaa !16
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %14, i64 64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 512
   store ptr %add.ptr.i.i.i, ptr %_M_last.i, align 8, !tbaa !17
   br label %_ZNSt5dequeIPN5folly17IOBufIovecBuilder11RefCountMemESaIS3_EE9pop_frontEv.exit
 
@@ -1034,7 +1018,7 @@ lpad29:                                           ; preds = %if.then
 if.else:                                          ; preds = %cleanup.done18
   %16 = atomicrmw add ptr %4, i64 1 acq_rel, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp36) #19
-  %mem_.i115 = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %4, i64 0, i32 1
+  %mem_.i115 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %mem_.i115, align 8, !tbaa !36
   %18 = load i64, ptr %used_.i, align 8, !tbaa !40
   %add.ptr.i117 = getelementptr inbounds i8, ptr %17, i64 %18
@@ -1086,7 +1070,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
 
 while.cond.i:                                     ; preds = %if.end.i, %if.end
   %current.0.i = phi ptr [ %24, %if.end ], [ %29, %if.end.i ]
-  %flagsAndSharedInfo_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %current.0.i, i64 0, i32 6
+  %flagsAndSharedInfo_.i.i.i = getelementptr inbounds i8, ptr %current.0.i, i64 48
   %25 = load i64, ptr %flagsAndSharedInfo_.i.i.i, align 8, !tbaa !60
   %and.i.i.i = and i64 %25, -4
   %26 = inttoptr i64 %and.i.i.i to ptr
@@ -1094,19 +1078,19 @@ while.cond.i:                                     ; preds = %if.end.i, %if.end
   br i1 %tobool.not.i.i, label %cond.false52, label %if.end.i.i, !prof !54
 
 if.end.i.i:                                       ; preds = %while.cond.i
-  %externallyShared.i.i = getelementptr inbounds %"struct.folly::IOBuf::SharedInfo", ptr %26, i64 0, i32 4
+  %externallyShared.i.i = getelementptr inbounds i8, ptr %26, i64 28
   %27 = load i8, ptr %externallyShared.i.i, align 4, !tbaa !62, !range !31, !noundef !32
   %tobool4.not.i.i = icmp eq i8 %27, 0
   br i1 %tobool4.not.i.i, label %_ZNK5folly5IOBuf11isSharedOneEv.exit.i, label %cond.false52, !prof !68
 
 _ZNK5folly5IOBuf11isSharedOneEv.exit.i:           ; preds = %if.end.i.i
-  %refcount.i.i = getelementptr inbounds %"struct.folly::IOBuf::SharedInfo", ptr %26, i64 0, i32 3
+  %refcount.i.i = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load atomic i32, ptr %refcount.i.i acquire, align 4
   %cmp.i.i126 = icmp ugt i32 %28, 1
   br i1 %cmp.i.i126, label %cond.false52, label %if.end.i, !prof !69
 
 if.end.i:                                         ; preds = %_ZNK5folly5IOBuf11isSharedOneEv.exit.i
-  %next_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %current.0.i, i64 0, i32 4
+  %next_.i = getelementptr inbounds i8, ptr %current.0.i, i64 32
   %29 = load ptr, ptr %next_.i, align 8, !tbaa !70
   %cmp.i = icmp eq ptr %29, %24
   br i1 %cmp.i, label %cleanup.done77, label %while.cond.i, !llvm.loop !71
@@ -1230,9 +1214,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp4.not.not, label %delete.notnull, label %delete.end
 
 delete.notnull:                                   ; preds = %if.then, %entry
-  %mem_.i = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %this, i64 0, i32 1
+  %mem_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %mem_.i, align 8, !tbaa !36
-  %len_.i = getelementptr inbounds %"struct.folly::IOBufIovecBuilder::RefCountMem", ptr %this, i64 0, i32 2
+  %len_.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %len_.i, align 8, !tbaa !33
   %4 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i.i.i.i = icmp eq i8 %4, 0

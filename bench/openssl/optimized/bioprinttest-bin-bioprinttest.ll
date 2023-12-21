@@ -382,7 +382,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %w = getelementptr inbounds [7 x %struct.pw_st], ptr @pw_params, i64 0, i64 %idxprom, i32 1
+  %w = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %w, align 8
   %1 = load i32, ptr %arrayidx, align 16
   %call1 = tail call fastcc i32 @dofptest(i32 noundef %i, i32 noundef 0, double noundef 0.000000e+00, ptr noundef %0, i32 noundef %1), !range !7
@@ -464,11 +464,11 @@ entry:
   %bio_buf = alloca [80 x i8], align 16
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [4 x %struct.z_data_st], ptr @zu_data, i64 0, i64 %idxprom
-  %format = getelementptr inbounds [4 x %struct.z_data_st], ptr @zu_data, i64 0, i64 %idxprom, i32 1
+  %format = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %format, align 8
   %1 = load i64, ptr %arrayidx, align 8
   %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %bio_buf, i64 noundef 79, ptr noundef %0, i64 noundef %1) #7
-  %expected = getelementptr inbounds [4 x %struct.z_data_st], ptr @zu_data, i64 0, i64 %idxprom, i32 2
+  %expected = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %expected, align 8
   %call2 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 137, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.277, ptr noundef nonnull %bio_buf, ptr noundef %2) #7
   %tobool.not = icmp ne i32 %call2, 0
@@ -482,11 +482,11 @@ entry:
   %bio_buf = alloca [80 x i8], align 16
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [4 x %struct.j_data_st], ptr @jf_data, i64 0, i64 %idxprom
-  %format = getelementptr inbounds [4 x %struct.j_data_st], ptr @jf_data, i64 0, i64 %idxprom, i32 1
+  %format = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %format, align 8
   %1 = load i64, ptr %arrayidx, align 8
   %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %bio_buf, i64 noundef 79, ptr noundef %0, i64 noundef %1) #7
-  %expected = getelementptr inbounds [4 x %struct.j_data_st], ptr @jf_data, i64 0, i64 %idxprom, i32 2
+  %expected = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %expected, align 8
   %call2 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 165, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.277, ptr noundef nonnull %bio_buf, ptr noundef %2) #7
   %tobool.not = icmp ne i32 %call2, 0

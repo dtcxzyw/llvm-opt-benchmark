@@ -384,7 +384,7 @@ entry:
   %29 = xor i32 %28, %or.i15.i
   %30 = xor i32 %29, %or.i.i
   %xor7 = xor i32 %30, %or20.i.i
-  %arrayidx11 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %ks, i64 4
   %31 = load i32, ptr %arrayidx11, align 4
   %32 = xor i32 %or18.i192, %31
   %33 = xor i32 %32, %or18.i206
@@ -429,7 +429,7 @@ entry:
   %45 = xor i32 %44, %or18.i178
   %xor14 = xor i32 %45, %or20.i.i226
   %xor15 = xor i32 %xor14, %xor7
-  %arrayidx18 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %ks, i64 8
   %46 = load i32, ptr %arrayidx18, align 4
   %47 = xor i32 %46, %or18.i206
   %xor19 = xor i32 %47, %xor15
@@ -472,7 +472,7 @@ entry:
   %58 = xor i32 %57, %or.i.i256
   %59 = xor i32 %58, %or18.i192
   %xor21 = xor i32 %59, %or20.i.i253
-  %arrayidx25 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 3
+  %arrayidx25 = getelementptr inbounds i8, ptr %ks, i64 12
   %60 = load i32, ptr %arrayidx25, align 4
   %61 = xor i32 %xor15, %60
   %xor26 = xor i32 %61, %xor21
@@ -515,7 +515,7 @@ entry:
   %72 = xor i32 %71, %or.i.i283
   %73 = xor i32 %72, %or18.i206
   %xor28 = xor i32 %73, %or20.i.i280
-  %arrayidx33 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 4
+  %arrayidx33 = getelementptr inbounds i8, ptr %ks, i64 16
   %74 = load i32, ptr %arrayidx33, align 4
   %75 = xor i32 %xor21, %74
   %76 = xor i32 %75, %xor28
@@ -542,7 +542,7 @@ entry:
   %85 = xor i32 %84, %81
   %86 = xor i32 %85, %83
   %xor36 = xor i32 %86, %xor7
-  %arrayidx40 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 5
+  %arrayidx40 = getelementptr inbounds i8, ptr %ks, i64 20
   %87 = load i32, ptr %arrayidx40, align 4
   %88 = xor i32 %xor21, %87
   %89 = xor i32 %88, %xor28
@@ -570,7 +570,7 @@ entry:
   %99 = xor i32 %98, %96
   %xor43 = xor i32 %99, %xor14
   %xor44 = xor i32 %xor43, %xor36
-  %arrayidx47 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 6
+  %arrayidx47 = getelementptr inbounds i8, ptr %ks, i64 24
   %100 = load i32, ptr %arrayidx47, align 4
   %101 = xor i32 %100, %xor28
   %xor48 = xor i32 %101, %xor44
@@ -596,7 +596,7 @@ entry:
   %110 = xor i32 %109, %106
   %111 = xor i32 %110, %108
   %xor50 = xor i32 %111, %xor21
-  %arrayidx54 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 7
+  %arrayidx54 = getelementptr inbounds i8, ptr %ks, i64 28
   %112 = load i32, ptr %arrayidx54, align 4
   %113 = xor i32 %112, %xor44
   %xor55 = xor i32 %113, %xor50
@@ -622,7 +622,7 @@ entry:
   %122 = xor i32 %121, %118
   %123 = xor i32 %122, %120
   %xor57 = xor i32 %123, %xor28
-  %arrayidx63 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 8
+  %arrayidx63 = getelementptr inbounds i8, ptr %ks, i64 32
   %124 = load i32, ptr %arrayidx63, align 4
   %125 = xor i32 %xor50, %124
   %126 = xor i32 %125, %xor57
@@ -649,7 +649,7 @@ entry:
   %135 = xor i32 %134, %131
   %136 = xor i32 %135, %133
   %xor66 = xor i32 %136, %xor36
-  %arrayidx70 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 9
+  %arrayidx70 = getelementptr inbounds i8, ptr %ks, i64 36
   %137 = load i32, ptr %arrayidx70, align 4
   %138 = xor i32 %xor50, %137
   %139 = xor i32 %138, %xor57
@@ -677,7 +677,7 @@ entry:
   %149 = xor i32 %148, %146
   %xor73 = xor i32 %149, %xor43
   %xor74 = xor i32 %xor73, %xor66
-  %arrayidx77 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 10
+  %arrayidx77 = getelementptr inbounds i8, ptr %ks, i64 40
   %150 = load i32, ptr %arrayidx77, align 4
   %151 = xor i32 %150, %xor57
   %xor78 = xor i32 %151, %xor74
@@ -703,7 +703,7 @@ entry:
   %160 = xor i32 %159, %156
   %161 = xor i32 %160, %158
   %xor80 = xor i32 %161, %xor50
-  %arrayidx84 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 11
+  %arrayidx84 = getelementptr inbounds i8, ptr %ks, i64 44
   %162 = load i32, ptr %arrayidx84, align 4
   %163 = xor i32 %162, %xor74
   %xor85 = xor i32 %163, %xor80
@@ -729,7 +729,7 @@ entry:
   %172 = xor i32 %171, %168
   %173 = xor i32 %172, %170
   %xor87 = xor i32 %173, %xor57
-  %arrayidx93 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 12
+  %arrayidx93 = getelementptr inbounds i8, ptr %ks, i64 48
   %174 = load i32, ptr %arrayidx93, align 4
   %175 = xor i32 %xor80, %174
   %176 = xor i32 %175, %xor87
@@ -756,7 +756,7 @@ entry:
   %185 = xor i32 %184, %181
   %186 = xor i32 %185, %183
   %xor96 = xor i32 %186, %xor66
-  %arrayidx100 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 13
+  %arrayidx100 = getelementptr inbounds i8, ptr %ks, i64 52
   %187 = load i32, ptr %arrayidx100, align 4
   %188 = xor i32 %xor80, %187
   %189 = xor i32 %188, %xor87
@@ -784,7 +784,7 @@ entry:
   %199 = xor i32 %198, %196
   %xor103 = xor i32 %199, %xor73
   %xor104 = xor i32 %xor103, %xor96
-  %arrayidx107 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 14
+  %arrayidx107 = getelementptr inbounds i8, ptr %ks, i64 56
   %200 = load i32, ptr %arrayidx107, align 4
   %201 = xor i32 %200, %xor87
   %xor108 = xor i32 %201, %xor104
@@ -810,7 +810,7 @@ entry:
   %210 = xor i32 %209, %206
   %211 = xor i32 %210, %208
   %xor110 = xor i32 %211, %xor80
-  %arrayidx114 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 15
+  %arrayidx114 = getelementptr inbounds i8, ptr %ks, i64 60
   %212 = load i32, ptr %arrayidx114, align 4
   %213 = xor i32 %212, %xor104
   %xor115 = xor i32 %213, %xor110
@@ -836,7 +836,7 @@ entry:
   %222 = xor i32 %221, %218
   %223 = xor i32 %222, %220
   %xor117 = xor i32 %223, %xor87
-  %arrayidx123 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 16
+  %arrayidx123 = getelementptr inbounds i8, ptr %ks, i64 64
   %224 = load i32, ptr %arrayidx123, align 4
   %225 = xor i32 %xor110, %224
   %226 = xor i32 %225, %xor117
@@ -863,7 +863,7 @@ entry:
   %235 = xor i32 %234, %231
   %236 = xor i32 %235, %233
   %xor126 = xor i32 %236, %xor96
-  %arrayidx130 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 17
+  %arrayidx130 = getelementptr inbounds i8, ptr %ks, i64 68
   %237 = load i32, ptr %arrayidx130, align 4
   %238 = xor i32 %xor110, %237
   %239 = xor i32 %238, %xor117
@@ -891,7 +891,7 @@ entry:
   %249 = xor i32 %248, %246
   %xor133 = xor i32 %249, %xor103
   %xor134 = xor i32 %xor133, %xor126
-  %arrayidx137 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 18
+  %arrayidx137 = getelementptr inbounds i8, ptr %ks, i64 72
   %250 = load i32, ptr %arrayidx137, align 4
   %251 = xor i32 %250, %xor117
   %xor138 = xor i32 %251, %xor134
@@ -917,7 +917,7 @@ entry:
   %260 = xor i32 %259, %256
   %261 = xor i32 %260, %258
   %xor140 = xor i32 %261, %xor110
-  %arrayidx144 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 19
+  %arrayidx144 = getelementptr inbounds i8, ptr %ks, i64 76
   %262 = load i32, ptr %arrayidx144, align 4
   %263 = xor i32 %262, %xor134
   %xor145 = xor i32 %263, %xor140
@@ -943,7 +943,7 @@ entry:
   %272 = xor i32 %271, %268
   %273 = xor i32 %272, %270
   %xor147 = xor i32 %273, %xor117
-  %arrayidx153 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 20
+  %arrayidx153 = getelementptr inbounds i8, ptr %ks, i64 80
   %274 = load i32, ptr %arrayidx153, align 4
   %275 = xor i32 %xor140, %274
   %276 = xor i32 %275, %xor147
@@ -970,7 +970,7 @@ entry:
   %285 = xor i32 %284, %281
   %286 = xor i32 %285, %283
   %xor156 = xor i32 %286, %xor126
-  %arrayidx160 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 21
+  %arrayidx160 = getelementptr inbounds i8, ptr %ks, i64 84
   %287 = load i32, ptr %arrayidx160, align 4
   %288 = xor i32 %xor140, %287
   %289 = xor i32 %288, %xor147
@@ -998,7 +998,7 @@ entry:
   %299 = xor i32 %298, %296
   %xor163 = xor i32 %299, %xor133
   %xor164 = xor i32 %xor163, %xor156
-  %arrayidx167 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 22
+  %arrayidx167 = getelementptr inbounds i8, ptr %ks, i64 88
   %300 = load i32, ptr %arrayidx167, align 4
   %301 = xor i32 %300, %xor147
   %xor168 = xor i32 %301, %xor164
@@ -1024,7 +1024,7 @@ entry:
   %310 = xor i32 %309, %306
   %311 = xor i32 %310, %308
   %xor170 = xor i32 %311, %xor140
-  %arrayidx174 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 23
+  %arrayidx174 = getelementptr inbounds i8, ptr %ks, i64 92
   %312 = load i32, ptr %arrayidx174, align 4
   %313 = xor i32 %312, %xor164
   %xor175 = xor i32 %313, %xor170
@@ -1050,7 +1050,7 @@ entry:
   %322 = xor i32 %321, %318
   %323 = xor i32 %322, %320
   %xor177 = xor i32 %323, %xor147
-  %arrayidx183 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 24
+  %arrayidx183 = getelementptr inbounds i8, ptr %ks, i64 96
   %324 = load i32, ptr %arrayidx183, align 4
   %325 = xor i32 %xor170, %324
   %326 = xor i32 %325, %xor177
@@ -1077,7 +1077,7 @@ entry:
   %335 = xor i32 %334, %331
   %336 = xor i32 %335, %333
   %xor186 = xor i32 %336, %xor156
-  %arrayidx190 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 25
+  %arrayidx190 = getelementptr inbounds i8, ptr %ks, i64 100
   %337 = load i32, ptr %arrayidx190, align 4
   %338 = xor i32 %xor170, %337
   %339 = xor i32 %338, %xor177
@@ -1105,7 +1105,7 @@ entry:
   %349 = xor i32 %348, %346
   %xor193 = xor i32 %349, %xor163
   %xor194 = xor i32 %xor193, %xor186
-  %arrayidx197 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 26
+  %arrayidx197 = getelementptr inbounds i8, ptr %ks, i64 104
   %350 = load i32, ptr %arrayidx197, align 4
   %351 = xor i32 %350, %xor177
   %xor198 = xor i32 %351, %xor194
@@ -1131,7 +1131,7 @@ entry:
   %360 = xor i32 %359, %356
   %361 = xor i32 %360, %358
   %xor200 = xor i32 %361, %xor170
-  %arrayidx204 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 27
+  %arrayidx204 = getelementptr inbounds i8, ptr %ks, i64 108
   %362 = load i32, ptr %arrayidx204, align 4
   %363 = xor i32 %362, %xor194
   %xor205 = xor i32 %363, %xor200
@@ -1157,7 +1157,7 @@ entry:
   %372 = xor i32 %371, %368
   %373 = xor i32 %372, %370
   %xor207 = xor i32 %373, %xor177
-  %arrayidx213 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 28
+  %arrayidx213 = getelementptr inbounds i8, ptr %ks, i64 112
   %374 = load i32, ptr %arrayidx213, align 4
   %375 = xor i32 %xor200, %374
   %376 = xor i32 %375, %xor207
@@ -1201,7 +1201,7 @@ entry:
   %387 = xor i32 %386, %or.i.i634
   %388 = xor i32 %387, %xor186
   %xor216 = xor i32 %388, %or20.i.i631
-  %arrayidx220 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 29
+  %arrayidx220 = getelementptr inbounds i8, ptr %ks, i64 116
   %389 = load i32, ptr %arrayidx220, align 4
   %390 = xor i32 %xor200, %389
   %391 = xor i32 %390, %xor207
@@ -1246,7 +1246,7 @@ entry:
   %403 = xor i32 %402, %xor193
   %xor223 = xor i32 %403, %or20.i.i658
   %xor224 = xor i32 %xor223, %xor216
-  %arrayidx227 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 30
+  %arrayidx227 = getelementptr inbounds i8, ptr %ks, i64 120
   %404 = load i32, ptr %arrayidx227, align 4
   %405 = xor i32 %404, %xor207
   %xor228 = xor i32 %405, %xor224
@@ -1289,7 +1289,7 @@ entry:
   %416 = xor i32 %415, %or.i.i688
   %417 = xor i32 %416, %xor200
   %xor230 = xor i32 %417, %or20.i.i685
-  %arrayidx234 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 31
+  %arrayidx234 = getelementptr inbounds i8, ptr %ks, i64 124
   %418 = load i32, ptr %arrayidx234, align 4
   %419 = xor i32 %xor224, %418
   %xor235 = xor i32 %419, %xor230
@@ -1468,7 +1468,7 @@ entry:
   %15 = load i8, ptr %arrayidx16.i204, align 1
   %conv17.i205 = zext i8 %15 to i32
   %or18.i206 = or disjoint i32 %or12.i203, %conv17.i205
-  %arrayidx = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 31
+  %arrayidx = getelementptr inbounds i8, ptr %ks, i64 124
   %16 = load i32, ptr %arrayidx, align 4
   %17 = xor i32 %or18.i192, %16
   %18 = xor i32 %17, %or18.i206
@@ -1512,7 +1512,7 @@ entry:
   %29 = xor i32 %28, %or.i15.i
   %30 = xor i32 %29, %or.i.i
   %xor7 = xor i32 %30, %or20.i.i
-  %arrayidx11 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 30
+  %arrayidx11 = getelementptr inbounds i8, ptr %ks, i64 120
   %31 = load i32, ptr %arrayidx11, align 4
   %32 = xor i32 %or18.i192, %31
   %33 = xor i32 %32, %or18.i206
@@ -1557,7 +1557,7 @@ entry:
   %45 = xor i32 %44, %or18.i178
   %xor14 = xor i32 %45, %or20.i.i226
   %xor15 = xor i32 %xor14, %xor7
-  %arrayidx18 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 29
+  %arrayidx18 = getelementptr inbounds i8, ptr %ks, i64 116
   %46 = load i32, ptr %arrayidx18, align 4
   %47 = xor i32 %46, %or18.i206
   %xor19 = xor i32 %47, %xor15
@@ -1600,7 +1600,7 @@ entry:
   %58 = xor i32 %57, %or.i.i256
   %59 = xor i32 %58, %or18.i192
   %xor21 = xor i32 %59, %or20.i.i253
-  %arrayidx25 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 28
+  %arrayidx25 = getelementptr inbounds i8, ptr %ks, i64 112
   %60 = load i32, ptr %arrayidx25, align 4
   %61 = xor i32 %xor15, %60
   %xor26 = xor i32 %61, %xor21
@@ -1643,7 +1643,7 @@ entry:
   %72 = xor i32 %71, %or.i.i283
   %73 = xor i32 %72, %or18.i206
   %xor28 = xor i32 %73, %or20.i.i280
-  %arrayidx33 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 27
+  %arrayidx33 = getelementptr inbounds i8, ptr %ks, i64 108
   %74 = load i32, ptr %arrayidx33, align 4
   %75 = xor i32 %xor21, %74
   %76 = xor i32 %75, %xor28
@@ -1670,7 +1670,7 @@ entry:
   %85 = xor i32 %84, %81
   %86 = xor i32 %85, %83
   %xor36 = xor i32 %86, %xor7
-  %arrayidx40 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 26
+  %arrayidx40 = getelementptr inbounds i8, ptr %ks, i64 104
   %87 = load i32, ptr %arrayidx40, align 4
   %88 = xor i32 %xor21, %87
   %89 = xor i32 %88, %xor28
@@ -1698,7 +1698,7 @@ entry:
   %99 = xor i32 %98, %96
   %xor43 = xor i32 %99, %xor14
   %xor44 = xor i32 %xor43, %xor36
-  %arrayidx47 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 25
+  %arrayidx47 = getelementptr inbounds i8, ptr %ks, i64 100
   %100 = load i32, ptr %arrayidx47, align 4
   %101 = xor i32 %100, %xor28
   %xor48 = xor i32 %101, %xor44
@@ -1724,7 +1724,7 @@ entry:
   %110 = xor i32 %109, %106
   %111 = xor i32 %110, %108
   %xor50 = xor i32 %111, %xor21
-  %arrayidx54 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 24
+  %arrayidx54 = getelementptr inbounds i8, ptr %ks, i64 96
   %112 = load i32, ptr %arrayidx54, align 4
   %113 = xor i32 %112, %xor44
   %xor55 = xor i32 %113, %xor50
@@ -1750,7 +1750,7 @@ entry:
   %122 = xor i32 %121, %118
   %123 = xor i32 %122, %120
   %xor57 = xor i32 %123, %xor28
-  %arrayidx63 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 23
+  %arrayidx63 = getelementptr inbounds i8, ptr %ks, i64 92
   %124 = load i32, ptr %arrayidx63, align 4
   %125 = xor i32 %xor50, %124
   %126 = xor i32 %125, %xor57
@@ -1777,7 +1777,7 @@ entry:
   %135 = xor i32 %134, %131
   %136 = xor i32 %135, %133
   %xor66 = xor i32 %136, %xor36
-  %arrayidx70 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 22
+  %arrayidx70 = getelementptr inbounds i8, ptr %ks, i64 88
   %137 = load i32, ptr %arrayidx70, align 4
   %138 = xor i32 %xor50, %137
   %139 = xor i32 %138, %xor57
@@ -1805,7 +1805,7 @@ entry:
   %149 = xor i32 %148, %146
   %xor73 = xor i32 %149, %xor43
   %xor74 = xor i32 %xor73, %xor66
-  %arrayidx77 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 21
+  %arrayidx77 = getelementptr inbounds i8, ptr %ks, i64 84
   %150 = load i32, ptr %arrayidx77, align 4
   %151 = xor i32 %150, %xor57
   %xor78 = xor i32 %151, %xor74
@@ -1831,7 +1831,7 @@ entry:
   %160 = xor i32 %159, %156
   %161 = xor i32 %160, %158
   %xor80 = xor i32 %161, %xor50
-  %arrayidx84 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 20
+  %arrayidx84 = getelementptr inbounds i8, ptr %ks, i64 80
   %162 = load i32, ptr %arrayidx84, align 4
   %163 = xor i32 %162, %xor74
   %xor85 = xor i32 %163, %xor80
@@ -1857,7 +1857,7 @@ entry:
   %172 = xor i32 %171, %168
   %173 = xor i32 %172, %170
   %xor87 = xor i32 %173, %xor57
-  %arrayidx93 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 19
+  %arrayidx93 = getelementptr inbounds i8, ptr %ks, i64 76
   %174 = load i32, ptr %arrayidx93, align 4
   %175 = xor i32 %xor80, %174
   %176 = xor i32 %175, %xor87
@@ -1884,7 +1884,7 @@ entry:
   %185 = xor i32 %184, %181
   %186 = xor i32 %185, %183
   %xor96 = xor i32 %186, %xor66
-  %arrayidx100 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 18
+  %arrayidx100 = getelementptr inbounds i8, ptr %ks, i64 72
   %187 = load i32, ptr %arrayidx100, align 4
   %188 = xor i32 %xor80, %187
   %189 = xor i32 %188, %xor87
@@ -1912,7 +1912,7 @@ entry:
   %199 = xor i32 %198, %196
   %xor103 = xor i32 %199, %xor73
   %xor104 = xor i32 %xor103, %xor96
-  %arrayidx107 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 17
+  %arrayidx107 = getelementptr inbounds i8, ptr %ks, i64 68
   %200 = load i32, ptr %arrayidx107, align 4
   %201 = xor i32 %200, %xor87
   %xor108 = xor i32 %201, %xor104
@@ -1938,7 +1938,7 @@ entry:
   %210 = xor i32 %209, %206
   %211 = xor i32 %210, %208
   %xor110 = xor i32 %211, %xor80
-  %arrayidx114 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 16
+  %arrayidx114 = getelementptr inbounds i8, ptr %ks, i64 64
   %212 = load i32, ptr %arrayidx114, align 4
   %213 = xor i32 %212, %xor104
   %xor115 = xor i32 %213, %xor110
@@ -1964,7 +1964,7 @@ entry:
   %222 = xor i32 %221, %218
   %223 = xor i32 %222, %220
   %xor117 = xor i32 %223, %xor87
-  %arrayidx123 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 15
+  %arrayidx123 = getelementptr inbounds i8, ptr %ks, i64 60
   %224 = load i32, ptr %arrayidx123, align 4
   %225 = xor i32 %xor110, %224
   %226 = xor i32 %225, %xor117
@@ -1991,7 +1991,7 @@ entry:
   %235 = xor i32 %234, %231
   %236 = xor i32 %235, %233
   %xor126 = xor i32 %236, %xor96
-  %arrayidx130 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 14
+  %arrayidx130 = getelementptr inbounds i8, ptr %ks, i64 56
   %237 = load i32, ptr %arrayidx130, align 4
   %238 = xor i32 %xor110, %237
   %239 = xor i32 %238, %xor117
@@ -2019,7 +2019,7 @@ entry:
   %249 = xor i32 %248, %246
   %xor133 = xor i32 %249, %xor103
   %xor134 = xor i32 %xor133, %xor126
-  %arrayidx137 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 13
+  %arrayidx137 = getelementptr inbounds i8, ptr %ks, i64 52
   %250 = load i32, ptr %arrayidx137, align 4
   %251 = xor i32 %250, %xor117
   %xor138 = xor i32 %251, %xor134
@@ -2045,7 +2045,7 @@ entry:
   %260 = xor i32 %259, %256
   %261 = xor i32 %260, %258
   %xor140 = xor i32 %261, %xor110
-  %arrayidx144 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 12
+  %arrayidx144 = getelementptr inbounds i8, ptr %ks, i64 48
   %262 = load i32, ptr %arrayidx144, align 4
   %263 = xor i32 %262, %xor134
   %xor145 = xor i32 %263, %xor140
@@ -2071,7 +2071,7 @@ entry:
   %272 = xor i32 %271, %268
   %273 = xor i32 %272, %270
   %xor147 = xor i32 %273, %xor117
-  %arrayidx153 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 11
+  %arrayidx153 = getelementptr inbounds i8, ptr %ks, i64 44
   %274 = load i32, ptr %arrayidx153, align 4
   %275 = xor i32 %xor140, %274
   %276 = xor i32 %275, %xor147
@@ -2098,7 +2098,7 @@ entry:
   %285 = xor i32 %284, %281
   %286 = xor i32 %285, %283
   %xor156 = xor i32 %286, %xor126
-  %arrayidx160 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 10
+  %arrayidx160 = getelementptr inbounds i8, ptr %ks, i64 40
   %287 = load i32, ptr %arrayidx160, align 4
   %288 = xor i32 %xor140, %287
   %289 = xor i32 %288, %xor147
@@ -2126,7 +2126,7 @@ entry:
   %299 = xor i32 %298, %296
   %xor163 = xor i32 %299, %xor133
   %xor164 = xor i32 %xor163, %xor156
-  %arrayidx167 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 9
+  %arrayidx167 = getelementptr inbounds i8, ptr %ks, i64 36
   %300 = load i32, ptr %arrayidx167, align 4
   %301 = xor i32 %300, %xor147
   %xor168 = xor i32 %301, %xor164
@@ -2152,7 +2152,7 @@ entry:
   %310 = xor i32 %309, %306
   %311 = xor i32 %310, %308
   %xor170 = xor i32 %311, %xor140
-  %arrayidx174 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 8
+  %arrayidx174 = getelementptr inbounds i8, ptr %ks, i64 32
   %312 = load i32, ptr %arrayidx174, align 4
   %313 = xor i32 %312, %xor164
   %xor175 = xor i32 %313, %xor170
@@ -2178,7 +2178,7 @@ entry:
   %322 = xor i32 %321, %318
   %323 = xor i32 %322, %320
   %xor177 = xor i32 %323, %xor147
-  %arrayidx183 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 7
+  %arrayidx183 = getelementptr inbounds i8, ptr %ks, i64 28
   %324 = load i32, ptr %arrayidx183, align 4
   %325 = xor i32 %xor170, %324
   %326 = xor i32 %325, %xor177
@@ -2205,7 +2205,7 @@ entry:
   %335 = xor i32 %334, %331
   %336 = xor i32 %335, %333
   %xor186 = xor i32 %336, %xor156
-  %arrayidx190 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 6
+  %arrayidx190 = getelementptr inbounds i8, ptr %ks, i64 24
   %337 = load i32, ptr %arrayidx190, align 4
   %338 = xor i32 %xor170, %337
   %339 = xor i32 %338, %xor177
@@ -2233,7 +2233,7 @@ entry:
   %349 = xor i32 %348, %346
   %xor193 = xor i32 %349, %xor163
   %xor194 = xor i32 %xor193, %xor186
-  %arrayidx197 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 5
+  %arrayidx197 = getelementptr inbounds i8, ptr %ks, i64 20
   %350 = load i32, ptr %arrayidx197, align 4
   %351 = xor i32 %350, %xor177
   %xor198 = xor i32 %351, %xor194
@@ -2259,7 +2259,7 @@ entry:
   %360 = xor i32 %359, %356
   %361 = xor i32 %360, %358
   %xor200 = xor i32 %361, %xor170
-  %arrayidx204 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 4
+  %arrayidx204 = getelementptr inbounds i8, ptr %ks, i64 16
   %362 = load i32, ptr %arrayidx204, align 4
   %363 = xor i32 %362, %xor194
   %xor205 = xor i32 %363, %xor200
@@ -2285,7 +2285,7 @@ entry:
   %372 = xor i32 %371, %368
   %373 = xor i32 %372, %370
   %xor207 = xor i32 %373, %xor177
-  %arrayidx213 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 3
+  %arrayidx213 = getelementptr inbounds i8, ptr %ks, i64 12
   %374 = load i32, ptr %arrayidx213, align 4
   %375 = xor i32 %xor200, %374
   %376 = xor i32 %375, %xor207
@@ -2329,7 +2329,7 @@ entry:
   %387 = xor i32 %386, %or.i.i634
   %388 = xor i32 %387, %xor186
   %xor216 = xor i32 %388, %or20.i.i631
-  %arrayidx220 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 2
+  %arrayidx220 = getelementptr inbounds i8, ptr %ks, i64 8
   %389 = load i32, ptr %arrayidx220, align 4
   %390 = xor i32 %xor200, %389
   %391 = xor i32 %390, %xor207
@@ -2374,7 +2374,7 @@ entry:
   %403 = xor i32 %402, %xor193
   %xor223 = xor i32 %403, %or20.i.i658
   %xor224 = xor i32 %xor223, %xor216
-  %arrayidx227 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 1
+  %arrayidx227 = getelementptr inbounds i8, ptr %ks, i64 4
   %404 = load i32, ptr %arrayidx227, align 4
   %405 = xor i32 %404, %xor207
   %xor228 = xor i32 %405, %xor224

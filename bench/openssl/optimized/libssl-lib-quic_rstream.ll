@@ -3,10 +3,7 @@ source_filename = "bench/openssl/original/libssl-lib-quic_rstream.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.quic_rstream_st = type { %struct.sframe_list_st, ptr, ptr, %struct.uint_range_st, %struct.ring_buf }
-%struct.sframe_list_st = type { ptr, ptr, i32, i64, i64, i32, i32 }
 %struct.uint_range_st = type { i64, i64 }
-%struct.ring_buf = type { ptr, i64, i64, i64 }
 %struct.ossl_rtt_info_st = type { %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME }
 %struct.OSSL_TIME = type { i64 }
 
@@ -22,7 +19,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rbuf = getelementptr inbounds %struct.quic_rstream_st, ptr %call, i64 0, i32 4
+  %rbuf = getelementptr inbounds i8, ptr %call, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %rbuf, i8 0, i64 32, i1 false)
   %call3 = tail call fastcc i32 @ring_buf_resize(ptr noundef nonnull %rbuf, i64 noundef %rbuf_size, i32 noundef 0), !range !4
   %tobool.not = icmp eq i32 %call3, 0
@@ -34,9 +31,9 @@ if.then4:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   tail call void @ossl_sframe_list_init(ptr noundef nonnull %call) #9
-  %rxfc6 = getelementptr inbounds %struct.quic_rstream_st, ptr %call, i64 0, i32 1
+  %rxfc6 = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %rxfc, ptr %rxfc6, align 8
-  %statm7 = getelementptr inbounds %struct.quic_rstream_st, ptr %call, i64 0, i32 2
+  %statm7 = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %statm, ptr %statm7, align 8
   br label %return
 
@@ -50,7 +47,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ring_buf_resize(ptr nocapture noundef %r, i64 noundef %num_bytes, i32 noundef %cleanse) unnamed_addr #0 {
 entry:
-  %alloc = getelementptr inbounds %struct.ring_buf, ptr %r, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %r, i64 8
   %0 = load i64, ptr %alloc, align 8
   %cmp = icmp eq i64 %0, %num_bytes
   br i1 %cmp, label %return, label %if.end
@@ -184,16 +181,16 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cleanse1 = getelementptr inbounds %struct.sframe_list_st, ptr %qrs, i64 0, i32 6
+  %cleanse1 = getelementptr inbounds i8, ptr %qrs, i64 44
   %0 = load i32, ptr %cleanse1, align 4
   tail call void @ossl_sframe_list_destroy(ptr noundef nonnull %qrs) #9
-  %rbuf = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4
+  %rbuf = getelementptr inbounds i8, ptr %qrs, i64 80
   %tobool.not.i = icmp eq i32 %0, 0
   %1 = load ptr, ptr %rbuf, align 8
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %alloc.i = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 1
+  %alloc.i = getelementptr inbounds i8, ptr %qrs, i64 88
   %2 = load i64, ptr %alloc.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.1, i32 noundef 58) #9
   br label %ring_buf_destroy.exit
@@ -237,7 +234,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end:                                           ; preds = %lor.lhs.false
   store i64 %offset, ptr %range, align 8
   %add = add i64 %data_len, %offset
-  %end = getelementptr inbounds %struct.uint_range_st, ptr %range, i64 0, i32 1
+  %end = getelementptr inbounds i8, ptr %range, i64 8
   store i64 %add, ptr %end, align 8
   %call = call i32 @ossl_sframe_list_insert(ptr noundef %qrs, ptr noundef nonnull %range, ptr noundef %pkt, ptr noundef %data, i32 noundef %fin) #9
   br label %return
@@ -278,7 +275,7 @@ get_rtt.exit:                                     ; preds = %entry, %if.then.i
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %get_rtt.exit
-  %rxfc = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 1
+  %rxfc = getelementptr inbounds i8, ptr %qrs, i64 48
   %1 = load ptr, ptr %rxfc, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end7, label %land.lhs.true
@@ -311,11 +308,11 @@ entry:
   br i1 %tobool.not58, label %if.then69, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %end = getelementptr inbounds %struct.uint_range_st, ptr %range, i64 0, i32 1
-  %rbuf = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4
-  %head_offset.i = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 2
-  %ctail_offset.i = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 3
-  %alloc.i = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 1
+  %end = getelementptr inbounds i8, ptr %range, i64 8
+  %rbuf = getelementptr inbounds i8, ptr %qrs, i64 80
+  %head_offset.i = getelementptr inbounds i8, ptr %qrs, i64 96
+  %ctail_offset.i = getelementptr inbounds i8, ptr %qrs, i64 104
+  %alloc.i = getelementptr inbounds i8, ptr %qrs, i64 88
   br label %while.body
 
 while.cond:                                       ; preds = %if.end50
@@ -425,21 +422,21 @@ while.end:                                        ; preds = %while.cond, %if.end
 
 if.then61:                                        ; preds = %while.end
   %call63 = call i32 @ossl_sframe_list_drop_frames(ptr noundef %qrs, i64 noundef %add.le) #9
-  %rbuf64 = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4
+  %rbuf64 = getelementptr inbounds i8, ptr %qrs, i64 80
   %sub65 = add i64 %add.le, -1
-  %ctail_offset.i39 = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 3
+  %ctail_offset.i39 = getelementptr inbounds i8, ptr %qrs, i64 104
   %13 = load i64, ptr %ctail_offset.i39, align 8
   %cmp1.i = icmp ugt i64 %sub65, 4611686018427387903
   br i1 %cmp1.i, label %if.end67, label %if.end.i40
 
 if.end.i40:                                       ; preds = %if.then61
-  %cleanse = getelementptr inbounds %struct.sframe_list_st, ptr %qrs, i64 0, i32 6
+  %cleanse = getelementptr inbounds i8, ptr %qrs, i64 44
   %14 = load i32, ptr %cleanse, align 4
   %tobool.not.i = icmp eq i32 %14, 0
   br i1 %tobool.not.i, label %if.end30.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i40
-  %alloc.i41 = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 1
+  %alloc.i41 = getelementptr inbounds i8, ptr %qrs, i64 88
   %15 = load i64, ptr %alloc.i41, align 8
   %cmp2.not.i = icmp ne i64 %15, 0
   %cmp5.i = icmp ult i64 %13, %sub65
@@ -448,7 +445,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i40
 
 if.then6.i:                                       ; preds = %land.lhs.true.i
   %rem.i42 = urem i64 %13, %15
-  %head_offset.i43 = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 2
+  %head_offset.i43 = getelementptr inbounds i8, ptr %qrs, i64 96
   %16 = load i64, ptr %head_offset.i43, align 8
   %cmp9.not.i = icmp ugt i64 %16, %sub65
   %spec.select.i = select i1 %cmp9.not.i, i64 %add.le, i64 %16
@@ -480,7 +477,7 @@ if.then26.i:                                      ; preds = %if.end24.i
 
 if.end30.i:                                       ; preds = %if.then26.i, %if.end24.i, %land.lhs.true.i, %if.end.i40
   store i64 %add.le, ptr %ctail_offset.i39, align 8
-  %head_offset33.i = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 2
+  %head_offset33.i = getelementptr inbounds i8, ptr %qrs, i64 96
   %20 = load i64, ptr %head_offset33.i, align 8
   %cmp35.not.i = icmp ugt i64 %20, %sub65
   br i1 %cmp35.not.i, label %if.end67, label %if.then36.i
@@ -527,7 +524,7 @@ entry:
   br i1 %tobool.not3, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %end = getelementptr inbounds %struct.uint_range_st, ptr %range, i64 0, i32 1
+  %end = getelementptr inbounds i8, ptr %range, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -553,7 +550,7 @@ define i32 @ossl_quic_rstream_get_record(ptr noundef %qrs, ptr nocapture noundef
 entry:
   %record_ = alloca ptr, align 8
   store ptr null, ptr %record_, align 8
-  %head_range = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 3
+  %head_range = getelementptr inbounds i8, ptr %qrs, i64 64
   %call = call i32 @ossl_sframe_list_lock_head(ptr noundef %qrs, ptr noundef nonnull %head_range, ptr noundef nonnull %record_, ptr noundef %fin) #9
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -564,7 +561,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %end = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 3, i32 1
+  %end = getelementptr inbounds i8, ptr %qrs, i64 72
   %0 = load i64, ptr %end, align 8
   %1 = load i64, ptr %head_range, align 8
   %cmp = icmp eq i64 %0, %1
@@ -596,21 +593,21 @@ if.end16:                                         ; preds = %if.end8.if.end16_cr
   br i1 %or.cond, label %if.then25, label %if.end49
 
 if.then25:                                        ; preds = %if.end16
-  %rbuf = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4
+  %rbuf = getelementptr inbounds i8, ptr %qrs, i64 80
   %6 = load ptr, ptr %rbuf, align 8
-  %head_offset.i = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 2
+  %head_offset.i = getelementptr inbounds i8, ptr %qrs, i64 96
   %7 = load i64, ptr %head_offset.i, align 8
   %cmp.not.i = icmp ugt i64 %7, %3
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %return
 
 lor.lhs.false.i:                                  ; preds = %if.then25
-  %ctail_offset.i = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 3
+  %ctail_offset.i = getelementptr inbounds i8, ptr %qrs, i64 104
   %8 = load i64, ptr %ctail_offset.i, align 8
   %cmp2.i = icmp ugt i64 %8, %3
   br i1 %cmp2.i, label %return, label %ring_buf_get_ptr.exit
 
 ring_buf_get_ptr.exit:                            ; preds = %lor.lhs.false.i
-  %alloc.i = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 1
+  %alloc.i = getelementptr inbounds i8, ptr %qrs, i64 88
   %9 = load i64, ptr %alloc.i, align 8
   %rem.i = urem i64 %3, %9
   %sub.i = sub i64 %9, %rem.i
@@ -652,8 +649,8 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %head_range = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 3
-  %end = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 3, i32 1
+  %head_range = getelementptr inbounds i8, ptr %qrs, i64 64
+  %end = getelementptr inbounds i8, ptr %qrs, i64 72
   %0 = load i64, ptr %end, align 8
   %1 = load i64, ptr %head_range, align 8
   %sub = sub i64 %0, %1
@@ -679,21 +676,21 @@ if.end15:                                         ; preds = %if.end10
   br i1 %cmp16.not, label %if.end20, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  %rbuf = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4
+  %rbuf = getelementptr inbounds i8, ptr %qrs, i64 80
   %sub18 = add i64 %offset.0, -1
-  %ctail_offset.i = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 3
+  %ctail_offset.i = getelementptr inbounds i8, ptr %qrs, i64 104
   %2 = load i64, ptr %ctail_offset.i, align 8
   %cmp1.i = icmp ugt i64 %sub18, 4611686018427387903
   br i1 %cmp1.i, label %if.end20, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then17
-  %cleanse = getelementptr inbounds %struct.sframe_list_st, ptr %qrs, i64 0, i32 6
+  %cleanse = getelementptr inbounds i8, ptr %qrs, i64 44
   %3 = load i32, ptr %cleanse, align 4
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %if.end30.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %alloc.i = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 1
+  %alloc.i = getelementptr inbounds i8, ptr %qrs, i64 88
   %4 = load i64, ptr %alloc.i, align 8
   %cmp2.not.i = icmp ne i64 %4, 0
   %cmp5.i = icmp ult i64 %2, %sub18
@@ -702,7 +699,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then6.i:                                       ; preds = %land.lhs.true.i
   %rem.i = urem i64 %2, %4
-  %head_offset.i = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 2
+  %head_offset.i = getelementptr inbounds i8, ptr %qrs, i64 96
   %5 = load i64, ptr %head_offset.i, align 8
   %cmp9.not.i = icmp ugt i64 %5, %sub18
   %spec.select.i = select i1 %cmp9.not.i, i64 %offset.0, i64 %5
@@ -734,7 +731,7 @@ if.then26.i:                                      ; preds = %if.end24.i
 
 if.end30.i:                                       ; preds = %if.then26.i, %if.end24.i, %land.lhs.true.i, %if.end.i
   store i64 %offset.0, ptr %ctail_offset.i, align 8
-  %head_offset33.i = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 2
+  %head_offset33.i = getelementptr inbounds i8, ptr %qrs, i64 96
   %9 = load i64, ptr %head_offset33.i, align 8
   %cmp35.not.i = icmp ugt i64 %9, %sub18
   br i1 %cmp35.not.i, label %if.end20, label %if.then36.i
@@ -744,7 +741,7 @@ if.then36.i:                                      ; preds = %if.end30.i
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then36.i, %if.end30.i, %if.then17, %if.end15
-  %rxfc = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 1
+  %rxfc = getelementptr inbounds i8, ptr %qrs, i64 48
   %10 = load ptr, ptr %rxfc, align 8
   %cmp21.not = icmp eq ptr %10, null
   br i1 %cmp21.not, label %if.end30, label %if.then22
@@ -783,11 +780,11 @@ declare i32 @ossl_sframe_list_is_head_locked(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_rstream_move_to_rbuf(ptr noundef %qrs) local_unnamed_addr #0 {
 entry:
-  %alloc.i = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 1
+  %alloc.i = getelementptr inbounds i8, ptr %qrs, i64 88
   %0 = load i64, ptr %alloc.i, align 8
-  %1 = getelementptr %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 2
+  %1 = getelementptr i8, ptr %qrs, i64 96
   %r.val.i = load i64, ptr %1, align 8
-  %2 = getelementptr %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4, i32 3
+  %2 = getelementptr i8, ptr %qrs, i64 104
   %r.val2.i = load i64, ptr %2, align 8
   %sub.i.neg.i = sub i64 %0, %r.val.i
   %sub.i = sub i64 0, %r.val2.i
@@ -795,7 +792,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rbuf = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4
+  %rbuf = getelementptr inbounds i8, ptr %qrs, i64 80
   %call2 = tail call i32 @ossl_sframe_list_move_data(ptr noundef nonnull %qrs, ptr noundef nonnull @write_at_ring_buf_cb, ptr noundef nonnull %rbuf) #9
   br label %return
 
@@ -810,7 +807,7 @@ declare i32 @ossl_sframe_list_move_data(ptr noundef, ptr noundef, ptr noundef) l
 define internal i32 @write_at_ring_buf_cb(i64 noundef %logical_offset, ptr nocapture noundef readonly %buf, i64 noundef %buf_len, ptr nocapture noundef %cb_arg) #2 {
 entry:
   %0 = load ptr, ptr %cb_arg, align 8
-  %alloc.i.i = getelementptr inbounds %struct.ring_buf, ptr %cb_arg, i64 0, i32 1
+  %alloc.i.i = getelementptr inbounds i8, ptr %cb_arg, i64 8
   %1 = getelementptr i8, ptr %cb_arg, i64 16
   %r.val.i.i = load i64, ptr %1, align 8
   %2 = getelementptr i8, ptr %cb_arg, i64 24
@@ -889,8 +886,8 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %rbuf = getelementptr inbounds %struct.quic_rstream_st, ptr %qrs, i64 0, i32 4
-  %cleanse = getelementptr inbounds %struct.sframe_list_st, ptr %qrs, i64 0, i32 6
+  %rbuf = getelementptr inbounds i8, ptr %qrs, i64 80
+  %cleanse = getelementptr inbounds i8, ptr %qrs, i64 44
   %0 = load i32, ptr %cleanse, align 4
   %call2 = tail call fastcc i32 @ring_buf_resize(ptr noundef nonnull %rbuf, i64 noundef %rbuf_size, i32 noundef %0), !range !4
   br label %return
@@ -903,7 +900,7 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_quic_rstream_set_cleanse(ptr nocapture noundef writeonly %qrs, i32 noundef %cleanse) local_unnamed_addr #3 {
 entry:
-  %cleanse1 = getelementptr inbounds %struct.sframe_list_st, ptr %qrs, i64 0, i32 6
+  %cleanse1 = getelementptr inbounds i8, ptr %qrs, i64 44
   store i32 %cleanse, ptr %cleanse1, align 4
   ret void
 }

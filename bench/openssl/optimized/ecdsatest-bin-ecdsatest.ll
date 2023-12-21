@@ -4572,18 +4572,18 @@ entry:
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr inbounds [724 x %struct.ecdsa_cavs_kat_t], ptr @ecdsa_cavs_kats, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
-  %md_nid4 = getelementptr inbounds [724 x %struct.ecdsa_cavs_kat_t], ptr @ecdsa_cavs_kats, i64 0, i64 %idxprom, i32 1
+  %md_nid4 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %md_nid4, align 4
-  %r7 = getelementptr inbounds [724 x %struct.ecdsa_cavs_kat_t], ptr @ecdsa_cavs_kats, i64 0, i64 %idxprom, i32 6
+  %r7 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %2 = load ptr, ptr %r7, align 8
-  %s10 = getelementptr inbounds [724 x %struct.ecdsa_cavs_kat_t], ptr @ecdsa_cavs_kats, i64 0, i64 %idxprom, i32 7
+  %s10 = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %3 = load ptr, ptr %s10, align 8
-  %msg = getelementptr inbounds [724 x %struct.ecdsa_cavs_kat_t], ptr @ecdsa_cavs_kats, i64 0, i64 %idxprom, i32 2
+  %msg = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load ptr, ptr %msg, align 8
-  %d = getelementptr inbounds [724 x %struct.ecdsa_cavs_kat_t], ptr @ecdsa_cavs_kats, i64 0, i64 %idxprom, i32 3
+  %d = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %5 = load ptr, ptr %d, align 8
   store ptr %5, ptr @numbers, align 16
-  %k = getelementptr inbounds [724 x %struct.ecdsa_cavs_kat_t], ptr @ecdsa_cavs_kats, i64 0, i64 %idxprom, i32 5
+  %k = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %6 = load ptr, ptr %k, align 8
   store ptr %6, ptr getelementptr inbounds ([2 x ptr], ptr @numbers, i64 0, i64 1), align 8
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %0) #4
@@ -4681,7 +4681,7 @@ lor.lhs.false70:                                  ; preds = %if.end
   br i1 %tobool75.not, label %err, label %lor.lhs.false76
 
 lor.lhs.false76:                                  ; preds = %lor.lhs.false70
-  %Q = getelementptr inbounds [724 x %struct.ecdsa_cavs_kat_t], ptr @ecdsa_cavs_kats, i64 0, i64 %idxprom, i32 4
+  %Q = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %8 = load ptr, ptr %Q, align 8
   %call79 = call ptr @OPENSSL_hexstr2buf(ptr noundef %8, ptr noundef nonnull %q_len) #4
   %call80 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull @.str.57, ptr noundef %call79) #4
@@ -5132,7 +5132,7 @@ if.end241:                                        ; preds = %lor.lhs.false234
   %conv243 = zext i8 %13 to i64
   %14 = load i64, ptr %sig_len, align 8
   %rem = urem i64 %conv243, %14
-  %arrayidx245 = getelementptr inbounds [128 x i8], ptr %tbs, i64 0, i64 1
+  %arrayidx245 = getelementptr inbounds i8, ptr %tbs, i64 1
   %15 = load i8, ptr %arrayidx245, align 1
   %narrow = call i8 @llvm.umax.i8(i8 %15, i8 1)
   %arrayidx254 = getelementptr inbounds i8, ptr %call83, i64 %rem

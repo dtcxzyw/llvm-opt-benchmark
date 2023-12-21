@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.anon = type { i32, i32, ptr, ptr }
-%struct.HexWave = type { float, float, %struct.HexWaveParameters, %struct.HexWaveParameters, i32, [64 x float] }
-%struct.HexWaveParameters = type { i32, float, float, float }
 %struct.hexvert = type { float, float, float }
 
 @hexblep = local_unnamed_addr global %struct.anon zeroinitializer, align 8
@@ -13,19 +11,19 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @hexwave_change(ptr nocapture noundef writeonly %hex, i32 noundef %reflect, float noundef %peak_time, float noundef %half_height, float noundef %zero_wait) local_unnamed_addr #0 {
 entry:
-  %pending = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 3
+  %pending = getelementptr inbounds i8, ptr %hex, i64 24
   store i32 %reflect, ptr %pending, align 4
   %0 = insertelement <2 x float> poison, float %peak_time, i64 0
   %1 = insertelement <2 x float> %0, float %zero_wait, i64 1
   %2 = fcmp olt <2 x float> %1, zeroinitializer
   %3 = fcmp ogt <2 x float> %1, <float 1.000000e+00, float 1.000000e+00>
-  %peak_time8 = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 3, i32 1
-  %half_height10 = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 3, i32 3
+  %peak_time8 = getelementptr inbounds i8, ptr %hex, i64 28
+  %half_height10 = getelementptr inbounds i8, ptr %hex, i64 36
   store float %half_height, ptr %half_height10, align 4
   %4 = select <2 x i1> %3, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %1
   %5 = select <2 x i1> %2, <2 x float> zeroinitializer, <2 x float> %4
   store <2 x float> %5, ptr %peak_time8, align 4
-  %have_pending = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 4
+  %have_pending = getelementptr inbounds i8, ptr %hex, i64 40
   store i32 1, ptr %have_pending, align 4
   ret void
 }
@@ -34,23 +32,23 @@ entry:
 define void @hexwave_create(ptr nocapture noundef %hex, i32 noundef %reflect, float noundef %peak_time, float noundef %half_height, float noundef %zero_wait) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(300) %hex, i8 0, i64 300, i1 false)
-  %pending.i = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 3
+  %pending.i = getelementptr inbounds i8, ptr %hex, i64 24
   store i32 %reflect, ptr %pending.i, align 4
   %0 = insertelement <2 x float> poison, float %peak_time, i64 0
   %1 = insertelement <2 x float> %0, float %zero_wait, i64 1
   %2 = fcmp olt <2 x float> %1, zeroinitializer
   %3 = fcmp ogt <2 x float> %1, <float 1.000000e+00, float 1.000000e+00>
-  %peak_time8.i = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 3, i32 1
-  %half_height10.i = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 3, i32 3
+  %peak_time8.i = getelementptr inbounds i8, ptr %hex, i64 28
+  %half_height10.i = getelementptr inbounds i8, ptr %hex, i64 36
   store float %half_height, ptr %half_height10.i, align 4
   %4 = select <2 x i1> %3, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %1
   %5 = select <2 x i1> %2, <2 x float> zeroinitializer, <2 x float> %4
   store <2 x float> %5, ptr %peak_time8.i, align 4
-  %have_pending.i = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 4
-  %current = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 2
+  %have_pending.i = getelementptr inbounds i8, ptr %hex, i64 40
+  %current = getelementptr inbounds i8, ptr %hex, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %current, ptr noundef nonnull align 4 dereferenceable(16) %pending.i, i64 16, i1 false)
   store i32 0, ptr %have_pending.i, align 4
-  %prev_dt = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 1
+  %prev_dt = getelementptr inbounds i8, ptr %hex, i64 4
   store float 0.000000e+00, ptr %prev_dt, align 4
   ret void
 }
@@ -215,28 +213,28 @@ define void @hexwave_generate_linesegs(ptr nocapture noundef %vert, ptr nocaptur
 entry:
   %div = fmul float %dt, 3.906250e-03
   store <2 x float> zeroinitializer, ptr %vert, align 4
-  %current = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 2
-  %zero_wait = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 2, i32 2
+  %current = getelementptr inbounds i8, ptr %hex, i64 8
+  %zero_wait = getelementptr inbounds i8, ptr %hex, i64 16
   %0 = load float, ptr %zero_wait, align 4
   %mul = fmul float %0, 5.000000e-01
-  %arrayidx2 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %vert, i64 12
   store float %mul, ptr %arrayidx2, align 4
-  %v5 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 1, i32 1
+  %v5 = getelementptr inbounds i8, ptr %vert, i64 16
   store float 0.000000e+00, ptr %v5, align 4
-  %peak_time = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 2, i32 1
+  %peak_time = getelementptr inbounds i8, ptr %hex, i64 12
   %1 = load float, ptr %peak_time, align 4
   %sub = fsub float 1.000000e+00, %1
   %mul12 = fmul float %mul, %sub
   %2 = tail call float @llvm.fmuladd.f32(float %1, float 5.000000e-01, float %mul12)
-  %arrayidx13 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 2
+  %arrayidx13 = getelementptr inbounds i8, ptr %vert, i64 24
   store float %2, ptr %arrayidx13, align 4
-  %v16 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 2, i32 1
+  %v16 = getelementptr inbounds i8, ptr %vert, i64 28
   store float 1.000000e+00, ptr %v16, align 4
-  %arrayidx17 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 3
+  %arrayidx17 = getelementptr inbounds i8, ptr %vert, i64 36
   store float 5.000000e-01, ptr %arrayidx17, align 4
-  %half_height = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 2, i32 3
+  %half_height = getelementptr inbounds i8, ptr %hex, i64 20
   %3 = load float, ptr %half_height, align 4
-  %v21 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 3, i32 1
+  %v21 = getelementptr inbounds i8, ptr %vert, i64 40
   store float %3, ptr %v21, align 4
   %4 = load i32, ptr %current, align 4
   %tobool.not = icmp eq i32 %4, 0
@@ -251,10 +249,10 @@ for.body:                                         ; preds = %entry, %for.body
   %sub26 = fsub float 1.000000e+00, %5
   %arrayidx28 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv
   store float %sub26, ptr %arrayidx28, align 4
-  %v33 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %idxprom, i32 1
+  %v33 = getelementptr inbounds i8, ptr %arrayidx24, i64 4
   %6 = load float, ptr %v33, align 4
   %fneg = fneg float %6
-  %v36 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv, i32 1
+  %v36 = getelementptr inbounds i8, ptr %arrayidx28, i64 4
   store float %fneg, ptr %v36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -263,14 +261,14 @@ for.body:                                         ; preds = %entry, %for.body
 for.body39:                                       ; preds = %entry, %for.body39
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %for.body39 ], [ 4, %entry ]
   %7 = getelementptr %struct.hexvert, ptr %vert, i64 %indvars.iv85
-  %arrayidx42 = getelementptr %struct.hexvert, ptr %7, i64 -4
+  %arrayidx42 = getelementptr i8, ptr %7, i64 -48
   %8 = load float, ptr %arrayidx42, align 4
   %add = fadd float %8, 5.000000e-01
   store float %add, ptr %7, align 4
-  %v50 = getelementptr %struct.hexvert, ptr %7, i64 -4, i32 1
+  %v50 = getelementptr i8, ptr %7, i64 -44
   %9 = load float, ptr %v50, align 4
   %fneg51 = fneg float %9
-  %v54 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv85, i32 1
+  %v54 = getelementptr inbounds i8, ptr %7, i64 4
   store float %fneg51, ptr %v54, align 4
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, 8
@@ -282,7 +280,7 @@ if.end.loopexit:                                  ; preds = %for.body39
 
 if.end:                                           ; preds = %for.body, %if.end.loopexit
   %.pre = phi float [ %.pre.pre, %if.end.loopexit ], [ 0.000000e+00, %for.body ]
-  %arrayidx58 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 8
+  %arrayidx58 = getelementptr inbounds i8, ptr %vert, i64 96
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %arrayidx58, align 4
   br label %for.body64
 
@@ -336,13 +334,14 @@ for.body111:                                      ; preds = %if.end108, %for.inc
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %arrayidx114 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv.next98
   %16 = load float, ptr %arrayidx114, align 4
+  %arrayidx117 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv97
   %cmp119 = fcmp oeq float %16, %15
   br i1 %cmp119, label %for.inc145, label %if.else123
 
 if.else123:                                       ; preds = %for.body111
-  %v127 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv.next98, i32 1
+  %v127 = getelementptr inbounds i8, ptr %arrayidx114, i64 4
   %17 = load float, ptr %v127, align 4
-  %v130 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv97, i32 1
+  %v130 = getelementptr inbounds i8, ptr %arrayidx117, i64 4
   %18 = load float, ptr %v130, align 4
   %sub131 = fsub float %17, %18
   %sub139 = fsub float %16, %15
@@ -351,16 +350,16 @@ if.else123:                                       ; preds = %for.body111
 
 for.inc145:                                       ; preds = %for.body111, %if.else123
   %div140.sink = phi float [ %div140, %if.else123 ], [ 0.000000e+00, %for.body111 ]
-  %19 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv97, i32 2
+  %19 = getelementptr inbounds i8, ptr %arrayidx117, i64 8
   store float %div140.sink, ptr %19, align 4
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 8
   br i1 %exitcond100.not, label %for.end147, label %for.body111, !llvm.loop !10
 
 for.end147:                                       ; preds = %for.inc145
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %arrayidx58, align 4
-  %s155 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 0, i32 2
+  %s155 = getelementptr inbounds i8, ptr %vert, i64 8
   %20 = load float, ptr %s155, align 4
-  %s157 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 8, i32 2
+  %s157 = getelementptr inbounds i8, ptr %vert, i64 104
   store float %20, ptr %s157, align 4
   ret void
 }
@@ -383,7 +382,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @hexwave_generate_linesegs(ptr noundef nonnull %vert, ptr noundef nonnull %hex, float noundef %2)
-  %prev_dt = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 1
+  %prev_dt = getelementptr inbounds i8, ptr %hex, i64 4
   %3 = load float, ptr %prev_dt, align 4
   %cmp9 = fcmp une float %3, %2
   br i1 %cmp9, label %for.body, label %if.end28
@@ -466,7 +465,7 @@ if.end28:                                         ; preds = %if.end26, %if.end
   %mul34 = shl nsw i64 %conv33, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %temp_output, i8 0, i64 %mul34, i1 false)
   %cmp35.not = icmp sgt i32 %14, %num_samples
-  %buffer41 = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 5
+  %buffer41 = getelementptr inbounds i8, ptr %hex, i64 44
   %conv43 = sext i32 %mul to i64
   br i1 %cmp35.not, label %if.else, label %if.then37
 
@@ -479,11 +478,11 @@ if.else:                                          ; preds = %if.end28
   br label %if.end44
 
 if.end44:                                         ; preds = %if.else, %if.then37
-  %have_pending = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 4
-  %s158 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 0, i32 2
-  %v161 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 0, i32 1
-  %current = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 2
-  %pending = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 3
+  %have_pending = getelementptr inbounds i8, ptr %hex, i64 40
+  %s158 = getelementptr inbounds i8, ptr %vert, i64 8
+  %v161 = getelementptr inbounds i8, ptr %vert, i64 4
+  %current = getelementptr inbounds i8, ptr %hex, i64 8
+  %pending = getelementptr inbounds i8, ptr %hex, i64 24
   %15 = sext i32 %div6 to i64
   br label %for.body48
 
@@ -549,8 +548,8 @@ for.cond79.while.end_crit_edge:                   ; preds = %for.cond79
   br label %while.end
 
 while.body.lr.ph:                                 ; preds = %for.cond79
-  %v = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom90, i32 1
-  %s94 = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom90, i32 2
+  %v = getelementptr inbounds i8, ptr %arrayidx91, i64 4
+  %s94 = getelementptr inbounds i8, ptr %arrayidx91, i64 8
   %20 = sext i32 %i.0 to i64
   br label %while.body
 
@@ -584,48 +583,49 @@ while.end:                                        ; preds = %for.cond79.while.en
   %29 = phi float [ %.pre, %for.cond79.while.end_crit_edge ], [ %24, %while.end.loopexit ]
   %t.2.lcssa = phi float [ %t.1, %for.cond79.while.end_crit_edge ], [ %add104, %while.end.loopexit ]
   %i.1.lcssa = phi i32 [ %i.0, %for.cond79.while.end_crit_edge ], [ %28, %while.end.loopexit ]
+  %arrayidx107 = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom90
   %cmp113 = fcmp oeq float %29, %19
-  %.pre260 = load i32, ptr @hexblep, align 8
-  %.pre262 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 1), align 4
+  %.pre259 = load i32, ptr @hexblep, align 8
+  %.pre261 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 1), align 4
   %idx.ext = sext i32 %i.1.lcssa to i64
   br i1 %cmp113, label %if.then115, label %while.end.if.end130_crit_edge
 
 while.end.if.end130_crit_edge:                    ; preds = %while.end
-  %.pre265 = fsub float %t.2.lcssa, %19
-  %.pre266 = fmul float %cond, %.pre265
+  %.pre264 = fsub float %t.2.lcssa, %19
+  %.pre265 = fmul float %cond, %.pre264
   br label %if.end130
 
 if.then115:                                       ; preds = %while.end
   %add.ptr = getelementptr inbounds float, ptr %out.0, i64 %idx.ext
   %sub120 = fsub float %t.2.lcssa, %19
   %mul121 = fmul float %cond, %sub120
-  %v125 = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom81, i32 1
+  %v125 = getelementptr inbounds i8, ptr %arrayidx82, i64 4
   %30 = load float, ptr %v125, align 4
-  %v128 = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom90, i32 1
+  %v128 = getelementptr inbounds i8, ptr %arrayidx107, i64 4
   %31 = load float, ptr %v128, align 4
   %sub129 = fsub float %30, %31
   %32 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 2), align 8
-  %conv.i.i112 = sitofp i32 %.pre262 to float
+  %conv.i.i112 = sitofp i32 %.pre261 to float
   %mul.i.i113 = fmul float %mul121, %conv.i.i112
   %conv1.i.i114 = fptosi float %mul.i.i113 to i32
-  %cmp.not.i.i115 = icmp sgt i32 %.pre262, %conv1.i.i114
-  %sub.i.i116 = add nsw i32 %.pre262, -1
+  %cmp.not.i.i115 = icmp sgt i32 %.pre261, %conv1.i.i114
+  %sub.i.i116 = add nsw i32 %.pre261, -1
   %spec.select.i.i117 = select i1 %cmp.not.i.i115, i32 %conv1.i.i114, i32 %sub.i.i116
-  %mul3.i.i118 = mul nsw i32 %spec.select.i.i117, %.pre260
+  %mul3.i.i118 = mul nsw i32 %spec.select.i.i117, %.pre259
   %idxprom.i.i119 = sext i32 %mul3.i.i118 to i64
   %arrayidx.i.i120 = getelementptr inbounds float, ptr %32, i64 %idxprom.i.i119
   %add.i.i121 = add nsw i32 %spec.select.i.i117, 1
-  %mul4.i.i122 = mul nsw i32 %add.i.i121, %.pre260
+  %mul4.i.i122 = mul nsw i32 %add.i.i121, %.pre259
   %idxprom5.i.i123 = sext i32 %mul4.i.i122 to i64
   %arrayidx6.i.i124 = getelementptr inbounds float, ptr %32, i64 %idxprom5.i.i123
   %conv9.i.i125 = sitofp i32 %spec.select.i.i117 to float
   %neg.i.i126 = fneg float %conv9.i.i125
   %33 = tail call float @llvm.fmuladd.f32(float %mul121, float %conv.i.i112, float %neg.i.i126)
-  %cmp1014.i.i127 = icmp sgt i32 %.pre260, 0
+  %cmp1014.i.i127 = icmp sgt i32 %.pre259, 0
   br i1 %cmp1014.i.i127, label %for.body.preheader.i.i128, label %if.end130
 
 for.body.preheader.i.i128:                        ; preds = %if.then115
-  %wide.trip.count.i.i129 = zext nneg i32 %.pre260 to i64
+  %wide.trip.count.i.i129 = zext nneg i32 %.pre259 to i64
   br label %for.body.i.i130
 
 for.body.i.i130:                                  ; preds = %for.body.i.i130, %for.body.preheader.i.i128
@@ -645,18 +645,18 @@ for.body.i.i130:                                  ; preds = %for.body.i.i130, %f
   br i1 %exitcond.not.i.i137, label %if.end130.loopexit, label %for.body.i.i130, !llvm.loop !4
 
 if.end130.loopexit:                               ; preds = %for.body.i.i130
-  %.pre259 = load i32, ptr @hexblep, align 8
-  %.pre261 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 1), align 4
+  %.pre258 = load i32, ptr @hexblep, align 8
+  %.pre260 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 1), align 4
   br label %if.end130
 
 if.end130:                                        ; preds = %while.end.if.end130_crit_edge, %if.end130.loopexit, %if.then115
-  %mul138.pre-phi = phi float [ %.pre266, %while.end.if.end130_crit_edge ], [ %mul121, %if.end130.loopexit ], [ %mul121, %if.then115 ]
-  %39 = phi i32 [ %.pre262, %while.end.if.end130_crit_edge ], [ %.pre261, %if.end130.loopexit ], [ %.pre262, %if.then115 ]
-  %40 = phi i32 [ %.pre260, %while.end.if.end130_crit_edge ], [ %.pre259, %if.end130.loopexit ], [ %.pre260, %if.then115 ]
+  %mul138.pre-phi = phi float [ %.pre265, %while.end.if.end130_crit_edge ], [ %mul121, %if.end130.loopexit ], [ %mul121, %if.then115 ]
+  %39 = phi i32 [ %.pre261, %while.end.if.end130_crit_edge ], [ %.pre260, %if.end130.loopexit ], [ %.pre261, %if.then115 ]
+  %40 = phi i32 [ %.pre259, %while.end.if.end130_crit_edge ], [ %.pre258, %if.end130.loopexit ], [ %.pre259, %if.then115 ]
   %add.ptr132 = getelementptr inbounds float, ptr %out.0, i64 %idx.ext
-  %s142 = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom81, i32 2
+  %s142 = getelementptr inbounds i8, ptr %arrayidx82, i64 8
   %41 = load float, ptr %s142, align 4
-  %s145 = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom90, i32 2
+  %s145 = getelementptr inbounds i8, ptr %arrayidx107, i64 8
   %42 = load float, ptr %s145, align 4
   %sub146 = fsub float %41, %42
   %mul147 = fmul float %2, %sub146
@@ -835,7 +835,7 @@ for.cond201.preheader:                            ; preds = %for.end197
   br i1 %cmp202235, label %for.body204, label %for.cond201.preheader.for.end214_crit_edge
 
 for.cond201.preheader.for.end214_crit_edge:       ; preds = %for.cond201.preheader
-  %.pre263 = sext i32 %73 to i64
+  %.pre262 = sext i32 %73 to i64
   br label %if.end239
 
 for.body204:                                      ; preds = %for.cond201.preheader, %for.body204
@@ -865,8 +865,8 @@ for.end232:                                       ; preds = %for.end197
   br label %if.end239
 
 if.end239:                                        ; preds = %for.body204, %for.cond201.preheader.for.end214_crit_edge, %for.end232
-  %conv29.sink = phi i64 [ %conv29, %for.end232 ], [ %.pre263, %for.cond201.preheader.for.end214_crit_edge ], [ %80, %for.body204 ]
-  %buffer233 = getelementptr inbounds %struct.HexWave, ptr %hex, i64 0, i32 5
+  %conv29.sink = phi i64 [ %conv29, %for.end232 ], [ %.pre262, %for.cond201.preheader.for.end214_crit_edge ], [ %80, %for.body204 ]
+  %buffer233 = getelementptr inbounds i8, ptr %hex, i64 44
   %add.ptr237 = getelementptr inbounds float, ptr %temp_output, i64 %conv29.sink
   %conv238 = sext i32 %mul to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %buffer233, ptr nonnull align 4 %add.ptr237, i64 %conv238, i1 false)

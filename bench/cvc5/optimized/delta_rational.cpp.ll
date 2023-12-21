@@ -3,14 +3,13 @@ source_filename = "bench/cvc5/original/delta_rational.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.cvc5::internal::DeltaRational" = type { %"class.cvc5::internal::Rational", %"class.cvc5::internal::Rational" }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.cvc5::internal::Rational" = type { %class.__gmp_expr }
 %class.__gmp_expr = type { [1 x %struct.__mpq_struct] }
 %struct.__mpq_struct = type { %struct.__mpz_struct, %struct.__mpz_struct }
 %struct.__mpz_struct = type { i32, i32, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -21,8 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.cvc5::internal::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string" }
-%"class.std::exception" = type { ptr }
 %"class.std::allocator" = type { i8 }
 %"class.cvc5::internal::Integer" = type { %class.__gmp_expr.0 }
 %class.__gmp_expr.0 = type { [1 x %struct.__mpz_struct] }
@@ -78,7 +75,7 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(32) %dq)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull @.str.1)
-  %k.i = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %dq, i64 0, i32 1
+  %k.i = getelementptr inbounds i8, ptr %dq, i64 32
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull align 8 dereferenceable(32) %k.i)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull @.str.2)
   ret ptr %call6
@@ -107,7 +104,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont6:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %call.i6) #10
-  %k.i = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %this, i64 0, i32 1
+  %k.i = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZNK10__gmp_exprIA1_12__mpq_structS1_E7get_strB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %k.i, i32 noundef 10)
           to label %invoke.cont11 unwind label %lpad8
 
@@ -211,8 +208,8 @@ entry:
   br i1 %cmp3.i, label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit, label %if.then
 
 _ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit: ; preds = %entry
-  %k.i = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %a, i64 0, i32 1
-  %k4.i = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %b, i64 0, i32 1
+  %k.i = getelementptr inbounds i8, ptr %a, i64 32
+  %k4.i = getelementptr inbounds i8, ptr %b, i64 32
   %call4.i3.i = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull %k.i, ptr noundef nonnull %k4.i) #11
   %cmp1.not = icmp eq i32 %call4.i3.i, 0
   br i1 %cmp1.not, label %if.end30, label %if.then
@@ -222,8 +219,8 @@ if.then:                                          ; preds = %entry, %_ZNK4cvc58i
   %cmp2 = icmp slt i32 %retval.0.i44, 0
   %cond-lvalue = select i1 %cmp2, ptr %a, ptr %b
   %cond-lvalue7 = select i1 %cmp2, ptr %b, ptr %a
-  %k.i17 = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %cond-lvalue, i64 0, i32 1
-  %k.i18 = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %cond-lvalue7, i64 0, i32 1
+  %k.i17 = getelementptr inbounds i8, ptr %cond-lvalue, i64 32
+  %k.i18 = getelementptr inbounds i8, ptr %cond-lvalue7, i64 32
   %call.i.i.i = tail call i32 @__gmpq_equal(ptr noundef nonnull %cond-lvalue, ptr noundef nonnull %cond-lvalue7) #11
   %cmp.i.i.i.not = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i.not, label %if.else, label %if.end30
@@ -235,7 +232,7 @@ if.else:                                          ; preds = %if.then
 
 if.else16:                                        ; preds = %if.else
   call void @_ZNK4cvc58internal8RationalmiERKS1_(ptr nonnull sret(%"class.cvc5::internal::Rational") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %k.i18, ptr noundef nonnull align 8 dereferenceable(32) %k.i17)
-  %_mp_size.i.i = getelementptr inbounds %struct.__mpz_struct, ptr %ref.tmp, i64 0, i32 1
+  %_mp_size.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %0 = load i32, ptr %_mp_size.i.i, align 4, !noalias !7
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %if.then.i21, label %if.else.i
@@ -249,8 +246,8 @@ if.else.i:                                        ; preds = %if.else16
           to label %.noexc22 unwind label %lpad
 
 .noexc22:                                         ; preds = %if.else.i
-  %_mp_den.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %denDiffAbs, i64 0, i32 1
-  %_mp_den10.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %ref.tmp, i64 0, i32 1
+  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %denDiffAbs, i64 16
+  %_mp_den10.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i)
           to label %.noexc23 unwind label %lpad
 
@@ -416,8 +413,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %agg.result, i64 0, i32 1
-  %_mp_den10.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %ref.tmp, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -462,8 +459,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %agg.result, i64 0, i32 1
-  %_mp_den10.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %ref.tmp, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -534,7 +531,7 @@ call2.i.noexc:                                    ; preds = %call.i.noexc
           to label %call3.i.noexc unwind label %lpad2
 
 call3.i.noexc:                                    ; preds = %call2.i.noexc
-  %k.i.i = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %a, i64 0, i32 1
+  %k.i.i = getelementptr inbounds i8, ptr %a, i64 32
   %call5.i6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(8) %call3.i5, ptr noundef nonnull align 8 dereferenceable(32) %k.i.i)
           to label %call5.i.noexc unwind label %lpad2
 
@@ -559,7 +556,7 @@ call2.i.noexc11:                                  ; preds = %call.i.noexc9
           to label %call3.i.noexc13 unwind label %lpad2
 
 call3.i.noexc13:                                  ; preds = %call2.i.noexc11
-  %k.i.i8 = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %b, i64 0, i32 1
+  %k.i.i8 = getelementptr inbounds i8, ptr %b, i64 32
   %call5.i16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(8) %call3.i14, ptr noundef nonnull align 8 dereferenceable(32) %k.i.i8)
           to label %call5.i.noexc15 unwind label %lpad2
 
@@ -576,7 +573,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %invoke.cont17 unwind label %lpad2
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %d_msg.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont19 unwind label %lpad18
 
@@ -609,7 +606,7 @@ ehcleanup:                                        ; preds = %lpad18, %lpad2
 ehcleanup20:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %0, %lpad ]
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i21 = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i21 = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i21) #10
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
   resume { ptr, i32 } %.pn.pn
@@ -620,7 +617,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9ExceptionC2Ev(ptr noundef non
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #10
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg)
           to label %call.i.noexc unwind label %lpad
@@ -666,7 +663,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 define hidden void @_ZN4cvc58internal22DeltaRationalExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #10
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
   ret void
@@ -676,7 +673,7 @@ entry:
 define hidden void @_ZN4cvc58internal22DeltaRationalExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #10
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
@@ -691,23 +688,23 @@ define hidden void @_ZNK4cvc58internal13DeltaRational23euclidianDivideQuotientER
 entry:
   %ti = alloca %"class.cvc5::internal::Integer", align 8
   %yi = alloca %"class.cvc5::internal::Integer", align 8
-  %_mp_size.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %this, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i32 1
+  %_mp_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i32, ptr %_mp_size.i.i.i.i, align 4
   %cmp6.i.not.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp6.i.not.i.i.i, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit, label %if.else
 
 _ZNK4cvc58internal13DeltaRational10isIntegralEv.exit: ; preds = %entry
-  %_mp_den.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %this, i64 0, i32 1
+  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call2.i.i = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %_mp_den.i.i.i, i64 noundef 1) #11
   %cmp.i.i = icmp eq i32 %call2.i.i, 0
-  %_mp_size.i.i.i.i5 = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %y, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i32 1
+  %_mp_size.i.i.i.i5 = getelementptr inbounds i8, ptr %y, i64 36
   %1 = load i32, ptr %_mp_size.i.i.i.i5, align 4
   %cmp6.i.not.i.i.i6 = icmp eq i32 %1, 0
   %or.cond = select i1 %cmp.i.i, i1 %cmp6.i.not.i.i.i6, i1 false
   br i1 %or.cond, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit12, label %if.else
 
 _ZNK4cvc58internal13DeltaRational10isIntegralEv.exit12: ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
-  %_mp_den.i.i.i9 = getelementptr inbounds %struct.__mpq_struct, ptr %y, i64 0, i32 1
+  %_mp_den.i.i.i9 = getelementptr inbounds i8, ptr %y, i64 16
   %call2.i.i10 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %_mp_den.i.i.i9, i64 noundef 1) #11
   %cmp.i.i11 = icmp eq i32 %call2.i.i10, 0
   br i1 %cmp.i.i11, label %if.then, label %if.else
@@ -802,13 +799,13 @@ entry:
   %q.i = alloca %class.__gmp_expr.0, align 8
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp8 = alloca %"class.cvc5::internal::Integer", align 8
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %this, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call2.i = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %_mp_den.i.i, i64 noundef 1) #11
   %cmp.i = icmp eq i32 %call2.i, 0
   br i1 %cmp.i, label %if.then, label %if.else11
 
 if.then:                                          ; preds = %entry
-  %_mp_size.i = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %this, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i32 1
+  %_mp_size.i = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i32, ptr %_mp_size.i, align 4
   %cmp.inv.i = icmp sgt i32 %0, -1
   br i1 %cmp.inv.i, label %if.then5, label %if.else
@@ -937,23 +934,23 @@ define hidden void @_ZNK4cvc58internal13DeltaRational24euclidianDivideRemainderE
 entry:
   %ti = alloca %"class.cvc5::internal::Integer", align 8
   %yi = alloca %"class.cvc5::internal::Integer", align 8
-  %_mp_size.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %this, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i32 1
+  %_mp_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i32, ptr %_mp_size.i.i.i.i, align 4
   %cmp6.i.not.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp6.i.not.i.i.i, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit, label %if.else
 
 _ZNK4cvc58internal13DeltaRational10isIntegralEv.exit: ; preds = %entry
-  %_mp_den.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %this, i64 0, i32 1
+  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call2.i.i = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %_mp_den.i.i.i, i64 noundef 1) #11
   %cmp.i.i = icmp eq i32 %call2.i.i, 0
-  %_mp_size.i.i.i.i5 = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %y, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i32 1
+  %_mp_size.i.i.i.i5 = getelementptr inbounds i8, ptr %y, i64 36
   %1 = load i32, ptr %_mp_size.i.i.i.i5, align 4
   %cmp6.i.not.i.i.i6 = icmp eq i32 %1, 0
   %or.cond = select i1 %cmp.i.i, i1 %cmp6.i.not.i.i.i6, i1 false
   br i1 %or.cond, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit12, label %if.else
 
 _ZNK4cvc58internal13DeltaRational10isIntegralEv.exit12: ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
-  %_mp_den.i.i.i9 = getelementptr inbounds %struct.__mpq_struct, ptr %y, i64 0, i32 1
+  %_mp_den.i.i.i9 = getelementptr inbounds i8, ptr %y, i64 16
   %call2.i.i10 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %_mp_den.i.i.i9, i64 noundef 1) #11
   %cmp.i.i11 = icmp eq i32 %call2.i.i10, 0
   br i1 %cmp.i.i11, label %if.then, label %if.else
@@ -1047,7 +1044,7 @@ declare void @_ZNK4cvc58internal7Integer24euclidianDivideRemainderERKS1_(ptr sre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4cvc58internal9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #10
   ret ptr %call
 }
@@ -1297,8 +1294,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %agg.result, i64 0, i32 1
-  %_mp_den10.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %ref.tmp, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
           to label %invoke.cont unwind label %lpad
 

@@ -869,9 +869,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.768 = type { i32 }
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
-%struct.rangeobject = type { %struct._object, ptr, ptr, ptr, ptr }
-%struct._PyRangeIterObject = type { %struct._object, i64, i64, i64 }
-%struct.longrangeiterobject = type { %struct._object, ptr, ptr, ptr }
 
 @PyType_Type = external global %struct._typeobject, align 8
 @.str = private unnamed_addr constant [6 x i8] c"range\00", align 1
@@ -928,7 +925,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @range_dealloc(ptr noundef %r) #0 {
 entry:
-  %start = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load ptr, ptr %start, align 8
   %1 = load i64, ptr %0, align 8
   %2 = and i64 %1, 2147483648
@@ -946,7 +943,7 @@ if.then1.i25:                                     ; preds = %if.end.i22
   br label %Py_DECREF.exit27
 
 Py_DECREF.exit27:                                 ; preds = %entry, %if.then1.i25, %if.end.i22
-  %stop = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 2
+  %stop = getelementptr inbounds i8, ptr %r, i64 24
   %3 = load ptr, ptr %stop, align 8
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 2147483648
@@ -964,7 +961,7 @@ if.then1.i16:                                     ; preds = %if.end.i13
   br label %Py_DECREF.exit18
 
 Py_DECREF.exit18:                                 ; preds = %Py_DECREF.exit27, %if.then1.i16, %if.end.i13
-  %step = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %r, i64 32
   %6 = load ptr, ptr %step, align 8
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 2147483648
@@ -982,7 +979,7 @@ if.then1.i7:                                      ; preds = %if.end.i4
   br label %Py_DECREF.exit9
 
 Py_DECREF.exit9:                                  ; preds = %Py_DECREF.exit18, %if.then1.i7, %if.end.i4
-  %length = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %r, i64 40
   %9 = load ptr, ptr %length, align 8
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 2147483648
@@ -1007,7 +1004,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit9, %i
 ; Function Attrs: nounwind uwtable
 define internal ptr @range_repr(ptr nocapture noundef readonly %r) #0 {
 entry:
-  %step = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %r, i64 32
   %0 = load ptr, ptr %step, align 8
   %call = tail call i64 @PyNumber_AsSsize_t(ptr noundef %0, ptr noundef null) #6
   switch i64 %call, label %if.else [
@@ -1021,17 +1018,17 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.else, label %return
 
 if.then3:                                         ; preds = %entry
-  %start = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %1 = load ptr, ptr %start, align 8
-  %stop = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 2
+  %stop = getelementptr inbounds i8, ptr %r, i64 24
   %2 = load ptr, ptr %stop, align 8
   %call4 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef %2) #6
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %start5 = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 1
+  %start5 = getelementptr inbounds i8, ptr %r, i64 16
   %3 = load ptr, ptr %start5, align 8
-  %stop6 = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 2
+  %stop6 = getelementptr inbounds i8, ptr %r, i64 24
   %4 = load ptr, ptr %stop6, align 8
   %5 = load ptr, ptr %step, align 8
   %call8 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.4, ptr noundef %3, ptr noundef %4, ptr noundef %5) #6
@@ -1050,7 +1047,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %length = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %length, align 8
   %1 = load i32, ptr %0, align 8
   %add.i.i = add i32 %1, 1
@@ -1062,8 +1059,8 @@ if.end.i.i:                                       ; preds = %if.end
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end, %if.end.i.i
-  %arrayidx.i = getelementptr %struct.PyTupleObject, ptr %call, i64 0, i32 1, i64 0
-  store ptr %0, ptr %arrayidx.i, align 8
+  %ob_item.i = getelementptr inbounds i8, ptr %call, i64 24
+  store ptr %0, ptr %ob_item.i, align 8
   %2 = load ptr, ptr %length, align 8
   %call3 = tail call i32 @PyObject_Not(ptr noundef %2) #6
   switch i32 %call3, label %if.else [
@@ -1082,8 +1079,8 @@ if.end.i.i20:                                     ; preds = %if.then7
   br label %_Py_NewRef.exit21
 
 _Py_NewRef.exit21:                                ; preds = %if.then7, %if.end.i.i20
-  %arrayidx.i22 = getelementptr %struct.PyTupleObject, ptr %call, i64 0, i32 1, i64 1
-  store ptr @_Py_NoneStruct, ptr %arrayidx.i22, align 8
+  %arrayidx.i = getelementptr i8, ptr %call, i64 32
+  store ptr @_Py_NoneStruct, ptr %arrayidx.i, align 8
   %4 = load i32, ptr @_Py_NoneStruct, align 8
   %add.i.i23 = add i32 %4, 1
   %cmp.i.i24 = icmp eq i32 %add.i.i23, 0
@@ -1094,20 +1091,20 @@ if.end.i.i25:                                     ; preds = %_Py_NewRef.exit21
   br label %if.end23
 
 if.else:                                          ; preds = %_Py_NewRef.exit
-  %start = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %5 = load ptr, ptr %start, align 8
   %6 = load i32, ptr %5, align 8
-  %add.i.i28 = add i32 %6, 1
-  %cmp.i.i29 = icmp eq i32 %add.i.i28, 0
-  br i1 %cmp.i.i29, label %_Py_NewRef.exit31, label %if.end.i.i30
+  %add.i.i29 = add i32 %6, 1
+  %cmp.i.i30 = icmp eq i32 %add.i.i29, 0
+  br i1 %cmp.i.i30, label %_Py_NewRef.exit32, label %if.end.i.i31
 
-if.end.i.i30:                                     ; preds = %if.else
-  store i32 %add.i.i28, ptr %5, align 8
-  br label %_Py_NewRef.exit31
+if.end.i.i31:                                     ; preds = %if.else
+  store i32 %add.i.i29, ptr %5, align 8
+  br label %_Py_NewRef.exit32
 
-_Py_NewRef.exit31:                                ; preds = %if.else, %if.end.i.i30
-  %arrayidx.i32 = getelementptr %struct.PyTupleObject, ptr %call, i64 0, i32 1, i64 1
-  store ptr %5, ptr %arrayidx.i32, align 8
+_Py_NewRef.exit32:                                ; preds = %if.else, %if.end.i.i31
+  %arrayidx.i34 = getelementptr i8, ptr %call, i64 32
+  store ptr %5, ptr %arrayidx.i34, align 8
   %7 = load ptr, ptr %length, align 8
   %call13 = tail call i32 @PyObject_RichCompareBool(ptr noundef %7, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6), i32 noundef 2) #6
   switch i32 %call13, label %if.else20 [
@@ -1115,37 +1112,37 @@ _Py_NewRef.exit31:                                ; preds = %if.else, %if.end.i.
     i32 1, label %if.then18
   ]
 
-if.then18:                                        ; preds = %_Py_NewRef.exit31
+if.then18:                                        ; preds = %_Py_NewRef.exit32
   %8 = load i32, ptr @_Py_NoneStruct, align 8
-  %add.i.i33 = add i32 %8, 1
-  %cmp.i.i34 = icmp eq i32 %add.i.i33, 0
-  br i1 %cmp.i.i34, label %if.end23, label %if.end.i.i35
+  %add.i.i35 = add i32 %8, 1
+  %cmp.i.i36 = icmp eq i32 %add.i.i35, 0
+  br i1 %cmp.i.i36, label %if.end23, label %if.end.i.i37
 
-if.end.i.i35:                                     ; preds = %if.then18
-  store i32 %add.i.i33, ptr @_Py_NoneStruct, align 8
+if.end.i.i37:                                     ; preds = %if.then18
+  store i32 %add.i.i35, ptr @_Py_NoneStruct, align 8
   br label %if.end23
 
-if.else20:                                        ; preds = %_Py_NewRef.exit31
-  %step = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 3
+if.else20:                                        ; preds = %_Py_NewRef.exit32
+  %step = getelementptr inbounds i8, ptr %r, i64 32
   %9 = load ptr, ptr %step, align 8
   %10 = load i32, ptr %9, align 8
-  %add.i.i38 = add i32 %10, 1
-  %cmp.i.i39 = icmp eq i32 %add.i.i38, 0
-  br i1 %cmp.i.i39, label %if.end23, label %if.end.i.i40
+  %add.i.i41 = add i32 %10, 1
+  %cmp.i.i42 = icmp eq i32 %add.i.i41, 0
+  br i1 %cmp.i.i42, label %if.end23, label %if.end.i.i43
 
-if.end.i.i40:                                     ; preds = %if.else20
-  store i32 %add.i.i38, ptr %9, align 8
+if.end.i.i43:                                     ; preds = %if.else20
+  store i32 %add.i.i41, ptr %9, align 8
   br label %if.end23
 
-if.end23:                                         ; preds = %if.end.i.i40, %if.else20, %if.end.i.i35, %if.then18, %if.end.i.i25, %_Py_NewRef.exit21
-  %_Py_NoneStruct.sink = phi ptr [ @_Py_NoneStruct, %_Py_NewRef.exit21 ], [ @_Py_NoneStruct, %if.end.i.i25 ], [ @_Py_NoneStruct, %if.then18 ], [ @_Py_NoneStruct, %if.end.i.i35 ], [ %9, %if.else20 ], [ %9, %if.end.i.i40 ]
-  %arrayidx.i37 = getelementptr %struct.PyTupleObject, ptr %call, i64 0, i32 1, i64 2
-  store ptr %_Py_NoneStruct.sink, ptr %arrayidx.i37, align 8
+if.end23:                                         ; preds = %if.end.i.i43, %if.else20, %if.end.i.i37, %if.then18, %if.end.i.i25, %_Py_NewRef.exit21
+  %_Py_NoneStruct.sink = phi ptr [ @_Py_NoneStruct, %_Py_NewRef.exit21 ], [ @_Py_NoneStruct, %if.end.i.i25 ], [ @_Py_NoneStruct, %if.then18 ], [ @_Py_NoneStruct, %if.end.i.i37 ], [ %9, %if.else20 ], [ %9, %if.end.i.i43 ]
+  %arrayidx.i40 = getelementptr i8, ptr %call, i64 40
+  store ptr %_Py_NoneStruct.sink, ptr %arrayidx.i40, align 8
   %call24 = tail call i64 @PyObject_Hash(ptr noundef nonnull %call) #6
   br label %end
 
-end:                                              ; preds = %_Py_NewRef.exit31, %_Py_NewRef.exit, %if.end23
-  %result.0 = phi i64 [ -1, %_Py_NewRef.exit ], [ %call24, %if.end23 ], [ -1, %_Py_NewRef.exit31 ]
+end:                                              ; preds = %_Py_NewRef.exit32, %_Py_NewRef.exit, %if.end23
+  %result.0 = phi i64 [ -1, %_Py_NewRef.exit ], [ %call24, %if.end23 ], [ -1, %_Py_NewRef.exit32 ]
   %11 = load i64, ptr %call, align 8
   %12 = and i64 %11, 2147483648
   %cmp.i26.not = icmp eq i64 %12, 0
@@ -1191,9 +1188,9 @@ sw.bb:                                            ; preds = %if.end, %if.end
   br i1 %cmp.i5, label %if.end3, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb
-  %length.i = getelementptr inbounds %struct.rangeobject, ptr %self, i64 0, i32 4
+  %length.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %length.i, align 8
-  %length1.i = getelementptr inbounds %struct.rangeobject, ptr %other, i64 0, i32 4
+  %length1.i = getelementptr inbounds i8, ptr %other, i64 40
   %2 = load ptr, ptr %length1.i, align 8
   %call.i = tail call i32 @PyObject_RichCompareBool(ptr noundef %1, ptr noundef %2, i32 noundef 2) #6
   %cmp2.not.i = icmp eq i32 %call.i, 1
@@ -1206,9 +1203,9 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp7.not.i, label %if.end9.i, label %range_equals.exit
 
 if.end9.i:                                        ; preds = %if.end4.i
-  %start.i = getelementptr inbounds %struct.rangeobject, ptr %self, i64 0, i32 1
+  %start.i = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load ptr, ptr %start.i, align 8
-  %start10.i = getelementptr inbounds %struct.rangeobject, ptr %other, i64 0, i32 1
+  %start10.i = getelementptr inbounds i8, ptr %other, i64 16
   %5 = load ptr, ptr %start10.i, align 8
   %call11.i = tail call i32 @PyObject_RichCompareBool(ptr noundef %4, ptr noundef %5, i32 noundef 2) #6
   %cmp12.not.i = icmp eq i32 %call11.i, 1
@@ -1221,9 +1218,9 @@ if.end14.i:                                       ; preds = %if.end9.i
   br i1 %cmp18.not.i, label %if.end20.i, label %range_equals.exit
 
 if.end20.i:                                       ; preds = %if.end14.i
-  %step.i = getelementptr inbounds %struct.rangeobject, ptr %self, i64 0, i32 3
+  %step.i = getelementptr inbounds i8, ptr %self, i64 32
   %7 = load ptr, ptr %step.i, align 8
-  %step21.i = getelementptr inbounds %struct.rangeobject, ptr %other, i64 0, i32 3
+  %step21.i = getelementptr inbounds i8, ptr %other, i64 32
   %8 = load ptr, ptr %step21.i, align 8
   %call22.i = tail call i32 @PyObject_RichCompareBool(ptr noundef %7, ptr noundef %8, i32 noundef 2) #6
   br label %range_equals.exit
@@ -1255,7 +1252,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @range_iter(ptr nocapture noundef readonly %seq) #0 {
 entry:
-  %start = getelementptr inbounds %struct.rangeobject, ptr %seq, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %seq, i64 16
   %0 = load ptr, ptr %start, align 8
   %call = tail call i64 @PyLong_AsLong(ptr noundef %0) #6
   %cmp = icmp eq i64 %call, -1
@@ -1267,7 +1264,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.end, label %long_range.sink.split
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %stop = getelementptr inbounds %struct.rangeobject, ptr %seq, i64 0, i32 2
+  %stop = getelementptr inbounds i8, ptr %seq, i64 24
   %1 = load ptr, ptr %stop, align 8
   %call2 = tail call i64 @PyLong_AsLong(ptr noundef %1) #6
   %cmp3 = icmp eq i64 %call2, -1
@@ -1279,7 +1276,7 @@ land.lhs.true4:                                   ; preds = %if.end
   br i1 %tobool6.not, label %if.end8, label %long_range.sink.split
 
 if.end8:                                          ; preds = %land.lhs.true4, %if.end
-  %step = getelementptr inbounds %struct.rangeobject, ptr %seq, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %seq, i64 32
   %2 = load ptr, ptr %step, align 8
   %call9 = tail call i64 @PyLong_AsLong(ptr noundef %2) #6
   %cmp10 = icmp eq i64 %call9, -1
@@ -1355,11 +1352,11 @@ if.end33:                                         ; preds = %if.else.i, %land.lh
   br i1 %cmp.i33, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end33
-  %start1.i = getelementptr inbounds %struct._PyRangeIterObject, ptr %call.i, i64 0, i32 1
+  %start1.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %call, ptr %start1.i, align 8
-  %step2.i = getelementptr inbounds %struct._PyRangeIterObject, ptr %call.i, i64 0, i32 2
+  %step2.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %call9, ptr %step2.i, align 8
-  %len3.i = getelementptr inbounds %struct._PyRangeIterObject, ptr %call.i, i64 0, i32 3
+  %len3.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %phi.call4447, ptr %len3.i, align 8
   br label %return
 
@@ -1384,9 +1381,9 @@ if.end.i.i:                                       ; preds = %if.end38
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end38, %if.end.i.i
-  %start41 = getelementptr inbounds %struct.longrangeiterobject, ptr %call35, i64 0, i32 1
+  %start41 = getelementptr inbounds i8, ptr %call35, i64 16
   store ptr %5, ptr %start41, align 8
-  %step42 = getelementptr inbounds %struct.rangeobject, ptr %seq, i64 0, i32 3
+  %step42 = getelementptr inbounds i8, ptr %seq, i64 32
   %7 = load ptr, ptr %step42, align 8
   %8 = load i32, ptr %7, align 8
   %add.i.i34 = add i32 %8, 1
@@ -1398,9 +1395,9 @@ if.end.i.i36:                                     ; preds = %_Py_NewRef.exit
   br label %_Py_NewRef.exit37
 
 _Py_NewRef.exit37:                                ; preds = %_Py_NewRef.exit, %if.end.i.i36
-  %step44 = getelementptr inbounds %struct.longrangeiterobject, ptr %call35, i64 0, i32 2
+  %step44 = getelementptr inbounds i8, ptr %call35, i64 24
   store ptr %7, ptr %step44, align 8
-  %length = getelementptr inbounds %struct.rangeobject, ptr %seq, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %seq, i64 40
   %9 = load ptr, ptr %length, align 8
   %10 = load i32, ptr %9, align 8
   %add.i.i38 = add i32 %10, 1
@@ -1412,7 +1409,7 @@ if.end.i.i40:                                     ; preds = %_Py_NewRef.exit37
   br label %_Py_NewRef.exit41
 
 _Py_NewRef.exit41:                                ; preds = %_Py_NewRef.exit37, %if.end.i.i40
-  %len = getelementptr inbounds %struct.longrangeiterobject, ptr %call35, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %call35, i64 32
   store ptr %9, ptr %len, align 8
   br label %return
 
@@ -1433,7 +1430,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false, %entry
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %0, align 8
   %call2 = tail call fastcc ptr @range_from_array(ptr noundef %type, ptr noundef nonnull %ob_item, i64 noundef %args.val)
@@ -1472,15 +1469,15 @@ declare ptr @PyObject_SelfIter(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @rangeiter_next(ptr nocapture noundef %r) #0 {
 entry:
-  %len = getelementptr inbounds %struct._PyRangeIterObject, ptr %r, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %r, i64 32
   %0 = load i64, ptr %len, align 8
   %cmp = icmp sgt i64 %0, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %start = getelementptr inbounds %struct._PyRangeIterObject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %1 = load i64, ptr %start, align 8
-  %step = getelementptr inbounds %struct._PyRangeIterObject, ptr %r, i64 0, i32 2
+  %step = getelementptr inbounds i8, ptr %r, i64 24
   %2 = load i64, ptr %step, align 8
   %add = add i64 %2, %1
   store i64 %add, ptr %start, align 8
@@ -1497,7 +1494,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal void @longrangeiter_dealloc(ptr noundef %r) #0 {
 entry:
-  %start = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load ptr, ptr %start, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -1519,7 +1516,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %step = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 2
+  %step = getelementptr inbounds i8, ptr %r, i64 24
   %3 = load ptr, ptr %step, align 8
   %cmp.not.i4 = icmp eq ptr %3, null
   br i1 %cmp.not.i4, label %Py_XDECREF.exit11, label %if.then.i5
@@ -1541,7 +1538,7 @@ if.then1.i.i10:                                   ; preds = %if.end.i.i7
   br label %Py_XDECREF.exit11
 
 Py_XDECREF.exit11:                                ; preds = %Py_XDECREF.exit, %if.then.i5, %if.end.i.i7, %if.then1.i.i10
-  %len = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %r, i64 32
   %6 = load ptr, ptr %len, align 8
   %cmp.not.i12 = icmp eq ptr %6, null
   br i1 %cmp.not.i12, label %Py_XDECREF.exit19, label %if.then.i13
@@ -1570,16 +1567,16 @@ Py_XDECREF.exit19:                                ; preds = %Py_XDECREF.exit11, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @longrangeiter_next(ptr nocapture noundef %r) #0 {
 entry:
-  %len = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %r, i64 32
   %0 = load ptr, ptr %len, align 8
   %call1 = tail call i32 @PyObject_RichCompareBool(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5), i32 noundef 4) #6
   %cmp.not = icmp eq i32 %call1, 1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %start = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %1 = load ptr, ptr %start, align 8
-  %step = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 2
+  %step = getelementptr inbounds i8, ptr %r, i64 24
   %2 = load ptr, ptr %step, align 8
   %call2 = tail call ptr @PyNumber_Add(ptr noundef %1, ptr noundef %2) #6
   %cmp3 = icmp eq ptr %call2, null
@@ -1641,7 +1638,7 @@ declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @range_bool(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %length = getelementptr inbounds %struct.rangeobject, ptr %self, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load ptr, ptr %length, align 8
   %call = tail call i32 @PyObject_IsTrue(ptr noundef %0) #6
   ret i32 %call
@@ -1652,7 +1649,7 @@ declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i64 @range_length(ptr nocapture noundef readonly %r) #0 {
 entry:
-  %length = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %length, align 8
   %call = tail call i64 @PyLong_AsSsize_t(ptr noundef %0) #6
   ret i64 %call
@@ -1725,7 +1722,7 @@ entry:
   ]
 
 if.then3:                                         ; preds = %entry
-  %length = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %length, align 8
   %call4 = tail call ptr @PyNumber_Add(ptr noundef %0, ptr noundef %arg) #6
   %tobool.not = icmp eq ptr %call4, null
@@ -1748,7 +1745,7 @@ if.end8:                                          ; preds = %if.end.i.i, %if.els
   br i1 %cmp10, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %if.end8
-  %length12 = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 4
+  %length12 = getelementptr inbounds i8, ptr %r, i64 40
   %2 = load ptr, ptr %length12, align 8
   %call13 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %i.0, ptr noundef %2, i32 noundef 5) #6
   br label %if.end14
@@ -1798,13 +1795,13 @@ Py_DECREF.exit30:                                 ; preds = %if.then19, %if.then
   br label %return
 
 if.end20:                                         ; preds = %if.end14
-  %step.i = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 3
+  %step.i = getelementptr inbounds i8, ptr %r, i64 32
   %8 = load ptr, ptr %step.i, align 8
   %cmp.i22 = icmp eq ptr %8, getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6)
   br i1 %cmp.i22, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end20
-  %start.i = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 1
+  %start.i = getelementptr inbounds i8, ptr %r, i64 16
   %9 = load ptr, ptr %start.i, align 8
   %call1.i = tail call ptr @PyNumber_Add(ptr noundef %9, ptr noundef nonnull %i.0) #6
   br label %compute_item.exit
@@ -1815,7 +1812,7 @@ if.else.i:                                        ; preds = %if.end20
   br i1 %tobool.not.i, label %compute_item.exit, label %if.end.i23
 
 if.end.i23:                                       ; preds = %if.else.i
-  %start5.i = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 1
+  %start5.i = getelementptr inbounds i8, ptr %r, i64 16
   %10 = load ptr, ptr %start5.i, align 8
   %call6.i = tail call ptr @PyNumber_Add(ptr noundef %10, ptr noundef nonnull %call3.i) #6
   %11 = load i64, ptr %call3.i, align 8
@@ -1866,7 +1863,7 @@ declare ptr @PyNumber_Multiply(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @range_contains_long(ptr nocapture noundef readonly %r, ptr noundef %ob) unnamed_addr #0 {
 entry:
-  %step = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %r, i64 32
   %0 = load ptr, ptr %step, align 8
   %call1 = tail call i32 @PyObject_RichCompareBool(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5), i32 noundef 4) #6
   switch i32 %call1, label %if.else [
@@ -1875,18 +1872,18 @@ entry:
   ]
 
 if.then5:                                         ; preds = %entry
-  %start = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %1 = load ptr, ptr %start, align 8
   %call6 = tail call i32 @PyObject_RichCompareBool(ptr noundef %1, ptr noundef %ob, i32 noundef 1) #6
-  %stop = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 2
+  %stop = getelementptr inbounds i8, ptr %r, i64 24
   %2 = load ptr, ptr %stop, align 8
   br label %if.end12
 
 if.else:                                          ; preds = %entry
-  %start8 = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 1
+  %start8 = getelementptr inbounds i8, ptr %r, i64 16
   %3 = load ptr, ptr %start8, align 8
   %call9 = tail call i32 @PyObject_RichCompareBool(ptr noundef %ob, ptr noundef %3, i32 noundef 1) #6
-  %stop10 = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 2
+  %stop10 = getelementptr inbounds i8, ptr %r, i64 24
   %4 = load ptr, ptr %stop10, align 8
   br label %if.end12
 
@@ -1907,7 +1904,7 @@ if.end16:                                         ; preds = %if.end12
   br i1 %or.cond1, label %Py_XDECREF.exit27, label %if.end21
 
 if.end21:                                         ; preds = %if.end16
-  %start22 = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 1
+  %start22 = getelementptr inbounds i8, ptr %r, i64 16
   %5 = load ptr, ptr %start22, align 8
   %call23 = tail call ptr @PyNumber_Subtract(ptr noundef %ob, ptr noundef %5) #6
   %cmp24 = icmp eq ptr %call23, null
@@ -1984,7 +1981,7 @@ entry:
   br i1 %cmp.not.i, label %if.end5, label %_PyIndex_Check.exit
 
 _PyIndex_Check.exit:                              ; preds = %entry
-  %nb_index.i = getelementptr inbounds %struct.PyNumberMethods, ptr %item.val11.val, i64 0, i32 33
+  %nb_index.i = getelementptr inbounds i8, ptr %item.val11.val, i64 264
   %2 = load ptr, ptr %nb_index.i, align 8
   %cmp2.i.not = icmp eq ptr %2, null
   br i1 %cmp2.i.not, label %if.end5, label %if.then
@@ -2022,14 +2019,14 @@ if.then8:                                         ; preds = %if.end5
   store ptr null, ptr %start.i, align 8
   store ptr null, ptr %stop.i, align 8
   store ptr null, ptr %step.i, align 8
-  %length.i = getelementptr inbounds %struct.rangeobject, ptr %self, i64 0, i32 4
+  %length.i = getelementptr inbounds i8, ptr %self, i64 40
   %5 = load ptr, ptr %length.i, align 8
   %call.i = call i32 @_PySlice_GetLongIndices(ptr noundef nonnull %item, ptr noundef %5, ptr noundef nonnull %start.i, ptr noundef nonnull %stop.i, ptr noundef nonnull %step.i) #6
   %cmp.i13 = icmp eq i32 %call.i, -1
   br i1 %cmp.i13, label %compute_slice.exit, label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.then8
-  %step1.i = getelementptr inbounds %struct.rangeobject, ptr %self, i64 0, i32 3
+  %step1.i = getelementptr inbounds i8, ptr %self, i64 32
   %6 = load ptr, ptr %step1.i, align 8
   %7 = load ptr, ptr %step.i, align 8
   %call2.i = call ptr @PyNumber_Multiply(ptr noundef %6, ptr noundef %7) #6
@@ -2065,7 +2062,7 @@ do.end.i:                                         ; preds = %if.then1.i51.i, %if
   br i1 %cmp.i26.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %do.end.i
-  %start.i.i = getelementptr inbounds %struct.rangeobject, ptr %self, i64 0, i32 1
+  %start.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %13 = load ptr, ptr %start.i.i, align 8
   %call1.i.i = call ptr @PyNumber_Add(ptr noundef %13, ptr noundef %11) #6
   br label %compute_item.exit.i
@@ -2076,7 +2073,7 @@ if.else.i.i:                                      ; preds = %do.end.i
   br i1 %tobool.not.i.i, label %fail.i, label %if.end.i27.i
 
 if.end.i27.i:                                     ; preds = %if.else.i.i
-  %start5.i.i = getelementptr inbounds %struct.rangeobject, ptr %self, i64 0, i32 1
+  %start5.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %14 = load ptr, ptr %start5.i.i, align 8
   %call6.i.i = call ptr @PyNumber_Add(ptr noundef %14, ptr noundef nonnull %call3.i.i) #6
   %15 = load i64, ptr %call3.i.i, align 8
@@ -2128,7 +2125,7 @@ do.end19.i:                                       ; preds = %if.then1.i42.i, %if
   br i1 %cmp.i29.i, label %if.then.i42.i, label %if.else.i30.i
 
 if.then.i42.i:                                    ; preds = %do.end19.i
-  %start.i43.i = getelementptr inbounds %struct.rangeobject, ptr %self, i64 0, i32 1
+  %start.i43.i = getelementptr inbounds i8, ptr %self, i64 16
   %22 = load ptr, ptr %start.i43.i, align 8
   %call1.i44.i = call ptr @PyNumber_Add(ptr noundef %22, ptr noundef %20) #6
   br label %compute_item.exit45.i
@@ -2139,7 +2136,7 @@ if.else.i30.i:                                    ; preds = %do.end19.i
   br i1 %tobool.not.i32.i, label %fail.i, label %if.end.i33.i
 
 if.end.i33.i:                                     ; preds = %if.else.i30.i
-  %start5.i34.i = getelementptr inbounds %struct.rangeobject, ptr %self, i64 0, i32 1
+  %start5.i34.i = getelementptr inbounds i8, ptr %self, i64 16
   %23 = load ptr, ptr %start5.i34.i, align 8
   %call6.i35.i = call ptr @PyNumber_Add(ptr noundef %23, ptr noundef nonnull %call3.i31.i) #6
   %24 = load i64, ptr %call3.i31.i, align 8
@@ -2324,7 +2321,7 @@ compute_slice.exit:                               ; preds = %if.then8, %do.end30
 
 if.end10:                                         ; preds = %if.end5
   %45 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %item.val11, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %item.val11, i64 24
   %46 = load ptr, ptr %tp_name, align 8
   %call12 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %45, ptr noundef nonnull @.str.6, ptr noundef %46) #6
   br label %return
@@ -2687,13 +2684,13 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %start5 = getelementptr inbounds %struct.rangeobject, ptr %call1, i64 0, i32 1
+  %start5 = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %start, ptr %start5, align 8
-  %stop6 = getelementptr inbounds %struct.rangeobject, ptr %call1, i64 0, i32 2
+  %stop6 = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %stop, ptr %stop6, align 8
-  %step7 = getelementptr inbounds %struct.rangeobject, ptr %call1, i64 0, i32 3
+  %step7 = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr %step, ptr %step7, align 8
-  %length8 = getelementptr inbounds %struct.rangeobject, ptr %call1, i64 0, i32 4
+  %length8 = getelementptr inbounds i8, ptr %call1, i64 40
   store ptr %retval.0.i19, ptr %length8, align 8
   br label %return
 
@@ -2723,7 +2720,7 @@ declare i32 @PyErr_BadArgument() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @range_reverse(ptr nocapture noundef readonly %seq, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %start = getelementptr inbounds %struct.rangeobject, ptr %seq, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %seq, i64 16
   %0 = load ptr, ptr %start, align 8
   %call = tail call i64 @PyLong_AsLong(ptr noundef %0) #6
   %cmp = icmp eq i64 %call, -1
@@ -2735,7 +2732,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.end, label %long_range.sink.split
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %stop = getelementptr inbounds %struct.rangeobject, ptr %seq, i64 0, i32 2
+  %stop = getelementptr inbounds i8, ptr %seq, i64 24
   %1 = load ptr, ptr %stop, align 8
   %call2 = tail call i64 @PyLong_AsLong(ptr noundef %1) #6
   %cmp3 = icmp eq i64 %call2, -1
@@ -2747,7 +2744,7 @@ land.lhs.true4:                                   ; preds = %if.end
   br i1 %tobool6.not, label %if.end8, label %long_range.sink.split
 
 if.end8:                                          ; preds = %land.lhs.true4, %if.end
-  %step = getelementptr inbounds %struct.rangeobject, ptr %seq, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %seq, i64 32
   %2 = load ptr, ptr %step, align 8
   %call9 = tail call i64 @PyLong_AsLong(ptr noundef %2) #6
   %sub9.i = sub i64 0, %call9
@@ -2806,11 +2803,11 @@ if.end.i45:                                       ; preds = %if.end33
   %sub34 = sub i64 %call, %call9
   %mul = mul i64 %retval.0.i51, %call9
   %add = add i64 %sub34, %mul
-  %start1.i = getelementptr inbounds %struct._PyRangeIterObject, ptr %call.i, i64 0, i32 1
+  %start1.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %add, ptr %start1.i, align 8
-  %step2.i = getelementptr inbounds %struct._PyRangeIterObject, ptr %call.i, i64 0, i32 2
+  %step2.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %sub9.i, ptr %step2.i, align 8
-  %len3.i = getelementptr inbounds %struct._PyRangeIterObject, ptr %call.i, i64 0, i32 3
+  %len3.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %retval.0.i51, ptr %len3.i, align 8
   br label %return
 
@@ -2824,9 +2821,9 @@ long_range:                                       ; preds = %long_range.sink.spl
   br i1 %cmp38, label %return, label %if.end40
 
 if.end40:                                         ; preds = %long_range
-  %step41 = getelementptr inbounds %struct.longrangeiterobject, ptr %call37, i64 0, i32 2
-  %start42 = getelementptr inbounds %struct.longrangeiterobject, ptr %call37, i64 0, i32 1
-  %length = getelementptr inbounds %struct.rangeobject, ptr %seq, i64 0, i32 4
+  %step41 = getelementptr inbounds i8, ptr %call37, i64 24
+  %start42 = getelementptr inbounds i8, ptr %call37, i64 16
+  %length = getelementptr inbounds i8, ptr %seq, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %start42, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %length, align 8
   %5 = load i32, ptr %4, align 8
@@ -2839,14 +2836,14 @@ if.end.i.i:                                       ; preds = %if.end40
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end40, %if.end.i.i
-  %len = getelementptr inbounds %struct.longrangeiterobject, ptr %call37, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %call37, i64 32
   store ptr %4, ptr %len, align 8
   %call46 = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6)) #6
   %tobool47.not = icmp eq ptr %call46, null
   br i1 %tobool47.not, label %create_failure, label %if.end49
 
 if.end49:                                         ; preds = %_Py_NewRef.exit
-  %step50 = getelementptr inbounds %struct.rangeobject, ptr %seq, i64 0, i32 3
+  %step50 = getelementptr inbounds i8, ptr %seq, i64 32
   %6 = load ptr, ptr %step50, align 8
   %call51 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %call46, ptr noundef %6) #6
   %7 = load i64, ptr %call46, align 8
@@ -2924,11 +2921,11 @@ define internal ptr @range_reduce(ptr nocapture noundef readonly %r, ptr nocaptu
 entry:
   %0 = getelementptr i8, ptr %r, i64 8
   %r.val = load ptr, ptr %0, align 8
-  %start = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %1 = load ptr, ptr %start, align 8
-  %stop = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 2
+  %stop = getelementptr inbounds i8, ptr %r, i64 24
   %2 = load ptr, ptr %stop, align 8
-  %step = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %r, i64 32
   %3 = load ptr, ptr %step, align 8
   %call1 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.11, ptr noundef %r.val, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6
   ret ptr %call1
@@ -2995,14 +2992,14 @@ if.end6:                                          ; preds = %entry
   ]
 
 if.then12:                                        ; preds = %if.end6
-  %start = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %1 = load ptr, ptr %start, align 8
   %call13 = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %ob, ptr noundef %1) #6
   %cmp14 = icmp eq ptr %call13, null
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.then12
-  %step = getelementptr inbounds %struct.rangeobject, ptr %r, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %r, i64 32
   %2 = load ptr, ptr %step, align 8
   %cmp18 = icmp eq ptr %2, getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6)
   br i1 %cmp18, label %return, label %if.end20
@@ -3053,7 +3050,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %arrayidx = getelementptr ptr, ptr %args, i64 2
+  %arrayidx = getelementptr i8, ptr %args, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
   br label %sw.bb1
 
@@ -3065,7 +3062,7 @@ sw.bb1:                                           ; preds = %sw.bb, %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb1
-  %arrayidx3 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx3 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx3, align 8
   %call4 = tail call ptr @PyNumber_Index(ptr noundef %2) #6
   %tobool5.not = icmp eq ptr %call4, null
@@ -3240,7 +3237,7 @@ declare i32 @_PyArg_NoKwnames(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @rangeiter_len(ptr nocapture noundef readonly %r, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %len = getelementptr inbounds %struct._PyRangeIterObject, ptr %r, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %r, i64 32
   %0 = load i64, ptr %len, align 8
   %call = tail call ptr @PyLong_FromLong(i64 noundef %0) #6
   ret ptr %call
@@ -3249,7 +3246,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @rangeiter_reduce(ptr nocapture noundef readonly %r, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %start1 = getelementptr inbounds %struct._PyRangeIterObject, ptr %r, i64 0, i32 1
+  %start1 = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load i64, ptr %start1, align 8
   %call = tail call ptr @PyLong_FromLong(i64 noundef %0) #6
   %cmp = icmp eq ptr %call, null
@@ -3257,9 +3254,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load i64, ptr %start1, align 8
-  %len = getelementptr inbounds %struct._PyRangeIterObject, ptr %r, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %r, i64 32
   %2 = load i64, ptr %len, align 8
-  %step3 = getelementptr inbounds %struct._PyRangeIterObject, ptr %r, i64 0, i32 2
+  %step3 = getelementptr inbounds i8, ptr %r, i64 24
   %3 = load i64, ptr %step3, align 8
   %mul = mul i64 %3, %2
   %add = add i64 %mul, %1
@@ -3361,21 +3358,21 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.end8, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %len = getelementptr inbounds %struct._PyRangeIterObject, ptr %r, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %r, i64 32
   %0 = load i64, ptr %len, align 8
   %spec.select = tail call i64 @llvm.smin.i64(i64 %call, i64 %0)
   br label %if.end8
 
 if.end8:                                          ; preds = %land.lhs.true, %if.else, %if.end
   %index.0 = phi i64 [ 0, %if.end ], [ %spec.select, %if.else ], [ 0, %land.lhs.true ]
-  %step = getelementptr inbounds %struct._PyRangeIterObject, ptr %r, i64 0, i32 2
+  %step = getelementptr inbounds i8, ptr %r, i64 24
   %1 = load i64, ptr %step, align 8
   %mul = mul i64 %1, %index.0
-  %start = getelementptr inbounds %struct._PyRangeIterObject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %2 = load i64, ptr %start, align 8
   %add = add i64 %2, %mul
   store i64 %add, ptr %start, align 8
-  %len9 = getelementptr inbounds %struct._PyRangeIterObject, ptr %r, i64 0, i32 3
+  %len9 = getelementptr inbounds i8, ptr %r, i64 32
   %3 = load i64, ptr %len9, align 8
   %sub = sub i64 %3, %index.0
   store i64 %sub, ptr %len9, align 8
@@ -3391,7 +3388,7 @@ declare ptr @_PyEval_GetBuiltin(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @longrangeiter_len(ptr nocapture noundef readonly %r, ptr nocapture readnone %no_args) #2 {
 entry:
-  %len = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %r, i64 32
   %0 = load ptr, ptr %len, align 8
   %1 = load i32, ptr %0, align 8
   %add.i = add i32 %1, 1
@@ -3411,16 +3408,16 @@ Py_INCREF.exit:                                   ; preds = %entry, %if.end.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @longrangeiter_reduce(ptr nocapture noundef readonly %r, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %len = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %r, i64 32
   %0 = load ptr, ptr %len, align 8
-  %step = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 2
+  %step = getelementptr inbounds i8, ptr %r, i64 24
   %1 = load ptr, ptr %step, align 8
   %call = tail call ptr @PyNumber_Multiply(ptr noundef %0, ptr noundef %1) #6
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %start = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %2 = load ptr, ptr %start, align 8
   %call1 = tail call ptr @PyNumber_Add(ptr noundef %2, ptr noundef nonnull %call) #6
   %3 = load i64, ptr %call, align 8
@@ -3541,7 +3538,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %if.else, label %if.end13
 
 if.else:                                          ; preds = %if.end
-  %len = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %r, i64 32
   %0 = load ptr, ptr %len, align 8
   %call5 = tail call i32 @PyObject_RichCompareBool(ptr noundef %0, ptr noundef %state, i32 noundef 0) #6
   %cmp6 = icmp slt i32 %call5, 0
@@ -3557,14 +3554,14 @@ if.then10:                                        ; preds = %if.end8
 
 if.end13:                                         ; preds = %if.end, %if.end8, %if.then10
   %state.addr.0 = phi ptr [ %1, %if.then10 ], [ %state, %if.end8 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5), %if.end ]
-  %step = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 2
+  %step = getelementptr inbounds i8, ptr %r, i64 24
   %2 = load ptr, ptr %step, align 8
   %call14 = tail call ptr @PyNumber_Multiply(ptr noundef %state.addr.0, ptr noundef %2) #6
   %cmp15 = icmp eq ptr %call14, null
   br i1 %cmp15, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.end13
-  %start = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %3 = load ptr, ptr %start, align 8
   %call18 = tail call ptr @PyNumber_Add(ptr noundef %3, ptr noundef nonnull %call14) #6
   %4 = load i64, ptr %call14, align 8
@@ -3587,7 +3584,7 @@ Py_DECREF.exit56:                                 ; preds = %if.end17, %if.then1
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %Py_DECREF.exit56
-  %len22 = getelementptr inbounds %struct.longrangeiterobject, ptr %r, i64 0, i32 3
+  %len22 = getelementptr inbounds i8, ptr %r, i64 32
   %6 = load ptr, ptr %len22, align 8
   %call23 = tail call ptr @PyNumber_Subtract(ptr noundef %6, ptr noundef %state.addr.0) #6
   %cmp24 = icmp eq ptr %call23, null

@@ -7,10 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %union.pthread_mutexattr_t = type { i32 }
-%"class.rocksdb::port::CondVar" = type { %union.pthread_cond_t, ptr }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %struct.timespec = type { i64, i64 }
 %struct.rlimit = type { i64, i64 }
 %struct.sched_param = type { i32 }
@@ -344,7 +340,7 @@ entry:
 define void @_ZN7rocksdb4port7CondVarC2EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %mu) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %mu_ = getelementptr inbounds %"class.rocksdb::port::CondVar", ptr %this, i64 0, i32 1
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %mu, ptr %mu_, align 8
   %call = tail call i32 @pthread_cond_init(ptr noundef nonnull %this, ptr noundef null) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -414,7 +410,7 @@ declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #1
 define void @_ZN7rocksdb4port7CondVar4WaitEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %mu_ = getelementptr inbounds %"class.rocksdb::port::CondVar", ptr %this, i64 0, i32 1
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %mu_, align 8
   %call = tail call i32 @pthread_cond_wait(ptr noundef nonnull %this, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -449,9 +445,9 @@ entry:
   store i64 %div, ptr %ts, align 8
   %rem = urem i64 %abs_time_us, 1000000
   %mul = mul nuw nsw i64 %rem, 1000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   store i64 %mul, ptr %tv_nsec, align 8
-  %mu_ = getelementptr inbounds %"class.rocksdb::port::CondVar", ptr %this, i64 0, i32 1
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %mu_, align 8
   %call = call i32 @pthread_cond_timedwait(ptr noundef nonnull %this, ptr noundef %0, ptr noundef nonnull %ts)
   switch i32 %call, label %if.then4 [

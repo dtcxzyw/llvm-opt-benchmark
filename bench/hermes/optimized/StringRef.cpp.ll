@@ -3,14 +3,13 @@ source_filename = "bench/hermes/original/StringRef.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.llvh::StringRef" = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %"class.std::bitset" = type { %"struct.std::_Base_bitset" }
 %"struct.std::_Base_bitset" = type { [4 x i64] }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
+%"class.llvh::StringRef" = type { ptr, i64 }
 %"class.llvh::APInt" = type <{ %union.anon.0, i32, [4 x i8] }>
 %union.anon.0 = type { i64 }
 %"class.llvh::detail::IEEEFloat" = type <{ ptr, %"union.llvh::detail::IEEEFloat::Significand", i16, i8, [5 x i8] }>
@@ -51,7 +50,7 @@ $_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed = comdat any
 define hidden noundef i32 @_ZNK4llvh9StringRef13compare_lowerES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %RHS.coerce0, i64 %RHS.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %Length, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %1, i64 %RHS.coerce1)
   %cmp8.not.i = icmp eq i64 %.sroa.speculated, 0
@@ -101,7 +100,7 @@ return:                                           ; preds = %_ZL17ascii_strncase
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh9StringRef16startswith_lowerES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %Prefix.coerce0, i64 %Prefix.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
   %cmp.not = icmp ult i64 %0, %Prefix.coerce1
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -139,7 +138,7 @@ land.end:                                         ; preds = %for.body.i, %land.r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh9StringRef14endswith_lowerES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %Suffix.coerce0, i64 %Suffix.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
   %cmp.not = icmp ult i64 %0, %Suffix.coerce1
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -184,7 +183,7 @@ entry:
   %or.cond.i = icmp ult i8 %0, 26
   %1 = or disjoint i8 %C, 32
   %retval.0.i = select i1 %or.cond.i, i8 %1, i8 %C
-  %Length.i.i21 = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length.i.i21 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %Length.i.i21, align 8
   %.sroa.speculated35 = tail call i64 @llvm.umin.i64(i64 %2, i64 %From)
   %sub.i.i25 = sub i64 %2, %.sroa.speculated35
@@ -225,7 +224,7 @@ _ZNK4llvh9StringRef7find_ifENS_12function_refIFbcEEEm.exit: ; preds = %if.end.i,
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4llvh9StringRef15compare_numericES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %RHS.coerce0, i64 %RHS.coerce1) local_unnamed_addr #2 align 2 {
 entry:
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %RHS.coerce1)
   %cmp.not60 = icmp eq i64 %.sroa.speculated, 0
@@ -357,7 +356,7 @@ return:                                           ; preds = %land.end.land.end22
 define hidden noundef i32 @_ZNK4llvh9StringRef13edit_distanceES0_bj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr %Other.coerce0, i64 %Other.coerce1, i1 noundef zeroext %AllowReplacements, i32 noundef %MaxEditDistance) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %Length.i15 = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length.i15 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %Length.i15, align 8
   %call8 = tail call noundef i32 @_ZN4llvh19ComputeEditDistanceIcEEjNS_8ArrayRefIT_EES3_bj(ptr %0, i64 %1, ptr %Other.coerce0, i64 %Other.coerce1, i1 noundef zeroext %AllowReplacements, i32 noundef %MaxEditDistance)
   ret i32 %call8
@@ -652,7 +651,7 @@ _ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit: ; preds = %cleanup, %_ZN
 define hidden void @_ZNK4llvh9StringRef5lowerB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %Length.i7 = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length.i7 = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length.i7, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
@@ -694,7 +693,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 define hidden void @_ZNK4llvh9StringRef5upperB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %Length.i7 = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length.i7 = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length.i7, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
@@ -728,7 +727,7 @@ nrvo.skipdtor:                                    ; preds = %for.body, %entry
 define hidden noundef i64 @_ZNK4llvh9StringRef4findES0_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %Str.coerce0, i64 %Str.coerce1, i64 noundef %From) local_unnamed_addr #2 align 2 {
 entry:
   %BadCharSkip = alloca [256 x i8], align 16
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
   %cmp = icmp ult i64 %0, %From
   br i1 %cmp, label %return, label %if.end
@@ -855,7 +854,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK4llvh9StringRef10find_lowerES0_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %Str.coerce0, i64 %Str.coerce1, i64 noundef %From) local_unnamed_addr #0 align 2 {
 entry:
-  %Length.i11 = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length.i11 = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length.i11, align 8
   %.sroa.speculated35 = tail call i64 @llvm.umin.i64(i64 %0, i64 %From)
   %sub.i = sub i64 %0, %.sroa.speculated35
@@ -917,7 +916,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK4llvh9StringRef11rfind_lowerEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i8 noundef signext %C, i64 noundef %From) local_unnamed_addr #0 align 2 {
 entry:
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %From)
   %1 = load ptr, ptr %this, align 8
@@ -952,7 +951,7 @@ return:                                           ; preds = %while.cond, %while.
 define hidden noundef i64 @_ZNK4llvh9StringRef5rfindES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %Str.coerce0, i64 %Str.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %Str.coerce1.fr = freeze i64 %Str.coerce1
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
   %cmp = icmp ult i64 %0, %Str.coerce1.fr
   br i1 %cmp, label %return, label %if.end
@@ -995,7 +994,7 @@ return:                                           ; preds = %land.rhs.i, %if.end
 define hidden noundef i64 @_ZNK4llvh9StringRef11rfind_lowerES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %Str.coerce0, i64 %Str.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %Str.coerce1.fr = freeze i64 %Str.coerce1
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
   %cmp = icmp ult i64 %0, %Str.coerce1.fr
   br i1 %cmp, label %return, label %if.end
@@ -1076,7 +1075,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body, %entry
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %Length, align 8
   %cmp8.not11.not = icmp ugt i64 %2, %From
   br i1 %cmp8.not11.not, label %for.body9.lr.ph, label %return
@@ -1112,7 +1111,7 @@ return:                                           ; preds = %for.body9, %for.inc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK4llvh9StringRef17find_first_not_ofEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i8 noundef signext %C, i64 noundef %From) local_unnamed_addr #1 align 2 {
 entry:
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
   %cmp.not5.not = icmp ugt i64 %0, %From
   br i1 %cmp.not5.not, label %for.body.lr.ph, label %return
@@ -1163,7 +1162,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !24
 
 for.end:                                          ; preds = %for.body, %entry
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %Length, align 8
   %cmp8.not11.not = icmp ugt i64 %2, %From
   br i1 %cmp8.not11.not, label %for.body9.lr.ph, label %return
@@ -1221,7 +1220,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %for.body, %entry
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %Length, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %2, i64 %From)
   %3 = load ptr, ptr %this, align 8
@@ -1254,7 +1253,7 @@ return:                                           ; preds = %for.cond6, %for.bod
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK4llvh9StringRef16find_last_not_ofEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i8 noundef signext %C, i64 noundef %From) local_unnamed_addr #0 align 2 {
 entry:
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %From)
   %1 = load ptr, ptr %this, align 8
@@ -1302,7 +1301,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.end:                                          ; preds = %for.body, %entry
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %Length, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %2, i64 %From)
   %3 = load ptr, ptr %this, align 8
@@ -1341,16 +1340,16 @@ entry:
   br i1 %cmp.not40, label %entry.while.end_crit_edge, label %while.body.lr.ph
 
 entry.while.end_crit_edge:                        ; preds = %entry
-  %Length.i32.phi.trans.insert = getelementptr inbounds %"class.llvh::StringRef", ptr %S, i64 0, i32 1
+  %Length.i32.phi.trans.insert = getelementptr inbounds i8, ptr %S, i64 8
   %.pre = load i64, ptr %Length.i32.phi.trans.insert, align 8
   br label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %dec39 = add nsw i32 %MaxSplit, -1
   %S.promoted = load ptr, ptr %S, align 8
-  %Length.i23 = getelementptr inbounds %"class.llvh::StringRef", ptr %S, i64 0, i32 1
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %A, i64 0, i32 1
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %A, i64 0, i32 2
+  %Length.i23 = getelementptr inbounds i8, ptr %S, i64 8
+  %Size.i.i = getelementptr inbounds i8, ptr %A, i64 8
+  %Capacity.i.i = getelementptr inbounds i8, ptr %A, i64 12
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %A, i64 16
   %Length.i23.promoted = load i64, ptr %Length.i23, align 8
   br i1 %KeepEmpty, label %while.body.us, label %while.body
@@ -1449,9 +1448,9 @@ while.end:                                        ; preds = %if.end6, %while.bod
   br i1 %or.cond13.not, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %while.end
-  %Size.i.i25 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %A, i64 0, i32 1
+  %Size.i.i25 = getelementptr inbounds i8, ptr %A, i64 8
   %19 = load i32, ptr %Size.i.i25, align 8
-  %Capacity.i.i26 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %A, i64 0, i32 2
+  %Capacity.i.i26 = getelementptr inbounds i8, ptr %A, i64 12
   %20 = load i32, ptr %Capacity.i.i26, align 4
   %cmp.not.i27 = icmp ult i32 %19, %20
   br i1 %cmp.not.i27, label %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit34, label %if.then.i28
@@ -1491,8 +1490,8 @@ entry:
 if.then.i.lr.ph:                                  ; preds = %entry
   %dec106 = add nsw i32 %MaxSplit, -1
   %conv.i = sext i8 %Separator to i32
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %A, i64 0, i32 1
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %A, i64 0, i32 2
+  %Size.i.i = getelementptr inbounds i8, ptr %A, i64 8
+  %Capacity.i.i = getelementptr inbounds i8, ptr %A, i64 12
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %A, i64 16
   br i1 %KeepEmpty, label %if.then.i.us, label %if.then.i
 
@@ -1611,9 +1610,9 @@ while.end:                                        ; preds = %if.end6, %_ZN4llvh2
 if.then12:                                        ; preds = %_ZNK4llvh9StringRef4findEcm.exit, %if.then.i, %_ZNK4llvh9StringRef4findEcm.exit.us, %if.then.i.us, %while.end
   %S.sroa.0.0105 = phi ptr [ %S.sroa.0.0.lcssa, %while.end ], [ %S.sroa.0.0110.us, %if.then.i.us ], [ %S.sroa.0.0110.us, %_ZNK4llvh9StringRef4findEcm.exit.us ], [ %S.sroa.0.0110, %if.then.i ], [ %S.sroa.0.0110, %_ZNK4llvh9StringRef4findEcm.exit ]
   %S.sroa.6.0103 = phi i64 [ %S.sroa.6.0.lcssa, %while.end ], [ %S.sroa.6.0111.us, %if.then.i.us ], [ %S.sroa.6.0111.us, %_ZNK4llvh9StringRef4findEcm.exit.us ], [ %S.sroa.6.0111, %if.then.i ], [ %S.sroa.6.0111, %_ZNK4llvh9StringRef4findEcm.exit ]
-  %Size.i.i31 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %A, i64 0, i32 1
+  %Size.i.i31 = getelementptr inbounds i8, ptr %A, i64 8
   %10 = load i32, ptr %Size.i.i31, align 8
-  %Capacity.i.i32 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %A, i64 0, i32 2
+  %Capacity.i.i32 = getelementptr inbounds i8, ptr %A, i64 12
   %11 = load i32, ptr %Capacity.i.i32, align 4
   %cmp.not.i33 = icmp ult i32 %10, %11
   br i1 %cmp.not.i33, label %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit40, label %if.then.i34
@@ -1645,7 +1644,7 @@ if.end13:                                         ; preds = %while.end, %_ZN4llv
 define hidden noundef i64 @_ZNK4llvh9StringRef5countES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %Str.coerce0, i64 %Str.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %Str.coerce1.fr = freeze i64 %Str.coerce1
-  %Length = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
   %cmp = icmp ult i64 %0, %Str.coerce1.fr
   br i1 %cmp, label %return, label %if.end
@@ -1708,7 +1707,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %Radix.addr.0 = phi i32 [ %call, %if.then ], [ %Radix, %entry ]
-  %Length.i68 = getelementptr inbounds %"class.llvh::StringRef", ptr %Str, i64 0, i32 1
+  %Length.i68 = getelementptr inbounds i8, ptr %Str, i64 8
   %0 = load i64, ptr %Length.i68, align 8
   %cmp.i69 = icmp eq i64 %0, 0
   br i1 %cmp.i69, label %return, label %if.end3
@@ -1786,7 +1785,7 @@ return:                                           ; preds = %if.end43, %while.en
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef i32 @_ZL17GetAutoSenseRadixRN4llvh9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %Str) unnamed_addr #10 {
 entry:
-  %Length.i73 = getelementptr inbounds %"class.llvh::StringRef", ptr %Str, i64 0, i32 1
+  %Length.i73 = getelementptr inbounds i8, ptr %Str, i64 8
   %0 = load i64, ptr %Length.i73, align 8
   %switch = icmp ult i64 %0, 2
   br i1 %switch, label %return, label %if.end.i.i167
@@ -1859,7 +1858,7 @@ return:                                           ; preds = %entry, %return.sink
 define hidden noundef zeroext i1 @_ZN4llvh20consumeSignedIntegerERNS_9StringRefEjRx(ptr nocapture noundef nonnull align 8 dereferenceable(16) %Str, i32 noundef %Radix, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %Result) local_unnamed_addr #9 {
 entry:
   %Str2 = alloca %"class.llvh::StringRef", align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %Str, i64 0, i32 1
+  %Length.i = getelementptr inbounds i8, ptr %Str, i64 8
   %0 = load i64, ptr %Length.i, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.then, label %lor.lhs.false
@@ -1954,7 +1953,7 @@ if.end6:                                          ; preds = %lor.lhs.false
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 1
   %sub.i.i = add i64 %0, -1
   store ptr %add.ptr.i.i, ptr %Str2, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %Str2, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %Str2, i64 8
   store i64 %sub.i.i, ptr %6, align 8
   %cmp.i16 = icmp eq i32 %Radix, 0
   br i1 %cmp.i16, label %if.then.i57, label %if.end.i17
@@ -2055,7 +2054,7 @@ define hidden noundef zeroext i1 @_ZN4llvh20getAsUnsignedIntegerENS_9StringRefEj
 entry:
   %Str = alloca %"class.llvh::StringRef", align 8
   store ptr %Str.coerce0, ptr %Str, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %Str, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %Str, i64 8
   store i64 %Str.coerce1, ptr %0, align 8
   %cmp.i1 = icmp eq i32 %Radix, 0
   br i1 %cmp.i1, label %if.then.i, label %if.end.i
@@ -2142,7 +2141,7 @@ define hidden noundef zeroext i1 @_ZN4llvh18getAsSignedIntegerENS_9StringRefEjRx
 entry:
   %Str = alloca %"class.llvh::StringRef", align 8
   store ptr %Str.coerce0, ptr %Str, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %Str, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %Str, i64 8
   store i64 %Str.coerce1, ptr %0, align 8
   %call = call noundef zeroext i1 @_ZN4llvh20consumeSignedIntegerERNS_9StringRefEjRx(ptr noundef nonnull align 8 dereferenceable(16) %Str, i32 noundef %Radix, ptr noundef nonnull align 8 dereferenceable(8) %Result)
   %1 = load i64, ptr %0, align 8
@@ -2170,7 +2169,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %Radix.addr.0 = phi i32 [ %call, %if.then ], [ %Radix, %entry ]
-  %Length.i129 = getelementptr inbounds %"class.llvh::StringRef", ptr %Str, i64 0, i32 1
+  %Length.i129 = getelementptr inbounds i8, ptr %Str, i64 8
   %0 = load i64, ptr %Length.i129, align 8
   %cmp.i130 = icmp eq i64 %0, 0
   br i1 %cmp.i130, label %return, label %while.cond.preheader
@@ -2193,7 +2192,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp.i126, label %if.then10, label %land.rhs, !llvm.loop !36
 
 if.then10:                                        ; preds = %while.body
-  %BitWidth.i.i = getelementptr inbounds %"class.llvh::APInt", ptr %Result, i64 0, i32 1
+  %BitWidth.i.i = getelementptr inbounds i8, ptr %Result, i64 8
   %2 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i = icmp ult i32 %2, 65
   br i1 %cmp.i.i, label %_ZN4llvh5APIntD2Ev.exit, label %if.then.i
@@ -2223,7 +2222,7 @@ while.end17:                                      ; preds = %while.cond14
   %cmp19 = icmp eq i32 %shl, %Radix.addr.0
   %4 = trunc i64 %.pr to i32
   %conv22 = mul i32 %Log2Radix.0, %4
-  %BitWidth.i38 = getelementptr inbounds %"class.llvh::APInt", ptr %Result, i64 0, i32 1
+  %BitWidth.i38 = getelementptr inbounds i8, ptr %Result, i64 8
   %5 = load i32, ptr %BitWidth.i38, align 8
   %cmp24 = icmp ult i32 %conv22, %5
   br i1 %cmp24, label %if.end33, label %if.else
@@ -2250,7 +2249,7 @@ delete.notnull.i45:                               ; preds = %if.then.i43
 _ZN4llvh5APIntD2Ev.exit53:                        ; preds = %delete.notnull.i45, %if.then.i43, %if.then29
   %8 = load i64, ptr %ref.tmp30, align 8
   store i64 %8, ptr %Result, align 8
-  %BitWidth.i46 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp30, i64 0, i32 1
+  %BitWidth.i46 = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
   %9 = load i32, ptr %BitWidth.i46, align 8
   store i32 %9, ptr %BitWidth.i38, align 8
   store i32 0, ptr %BitWidth.i46, align 8
@@ -2259,17 +2258,17 @@ _ZN4llvh5APIntD2Ev.exit53:                        ; preds = %delete.notnull.i45,
 if.end33:                                         ; preds = %while.end17, %if.else, %_ZN4llvh5APIntD2Ev.exit53
   %10 = phi i32 [ %9, %_ZN4llvh5APIntD2Ev.exit53 ], [ %5, %if.else ], [ %5, %while.end17 ]
   %BitWidth.0 = phi i32 [ %conv22, %_ZN4llvh5APIntD2Ev.exit53 ], [ %conv22, %if.else ], [ %5, %while.end17 ]
-  %BitWidth.i54 = getelementptr inbounds %"class.llvh::APInt", ptr %RadixAP, i64 0, i32 1
+  %BitWidth.i54 = getelementptr inbounds i8, ptr %RadixAP, i64 8
   store i32 1, ptr %BitWidth.i54, align 8
   store i64 0, ptr %RadixAP, align 8
-  %BitWidth.i55 = getelementptr inbounds %"class.llvh::APInt", ptr %CharAP, i64 0, i32 1
+  %BitWidth.i55 = getelementptr inbounds i8, ptr %CharAP, i64 8
   store i32 1, ptr %BitWidth.i55, align 8
   store i64 0, ptr %CharAP, align 8
   br i1 %cmp19, label %if.end40, label %if.then34
 
 if.then34:                                        ; preds = %if.end33
   %conv36 = zext i32 %Radix.addr.0 to i64
-  %BitWidth.i56 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp35, i64 0, i32 1
+  %BitWidth.i56 = getelementptr inbounds i8, ptr %ref.tmp35, i64 8
   store i32 %BitWidth.0, ptr %BitWidth.i56, align 8
   %cmp.i.i57 = icmp ult i32 %BitWidth.0, 65
   br i1 %cmp.i.i57, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i74, label %if.else.i73
@@ -2286,7 +2285,7 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i74:       ; preds = %if.then34
   %11 = load i32, ptr %BitWidth.i56, align 8
   store i32 %11, ptr %BitWidth.i54, align 8
   store i32 0, ptr %BitWidth.i56, align 8
-  %BitWidth.i71224 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp38, i64 0, i32 1
+  %BitWidth.i71224 = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
   store i32 %BitWidth.0, ptr %BitWidth.i71224, align 8
   store i64 0, ptr %ref.tmp38, align 8
   br label %_ZN4llvh5APIntD2Ev.exit93
@@ -2298,7 +2297,7 @@ if.else.i73:                                      ; preds = %if.then34
   %13 = load i32, ptr %BitWidth.i56, align 8
   store i32 %13, ptr %BitWidth.i54, align 8
   store i32 0, ptr %BitWidth.i56, align 8
-  %BitWidth.i71 = getelementptr inbounds %"class.llvh::APInt", ptr %ref.tmp38, i64 0, i32 1
+  %BitWidth.i71 = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
   store i32 %BitWidth.0, ptr %BitWidth.i71, align 8
   call void @_ZN4llvh5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp38, i64 noundef 0, i1 noundef zeroext false) #21
   br label %_ZN4llvh5APIntD2Ev.exit93
@@ -2327,7 +2326,7 @@ if.else.i96:                                      ; preds = %if.end40
   %18 = load ptr, ptr %Result, align 8
   store i64 0, ptr %18, align 8
   %19 = load ptr, ptr %Result, align 8
-  %add.ptr.i97 = getelementptr inbounds i64, ptr %19, i64 1
+  %add.ptr.i97 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i32, ptr %BitWidth.i38, align 8
   %conv.i.i.i = zext i32 %20 to i64
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 63
@@ -2478,7 +2477,7 @@ if.else.i126:                                     ; preds = %if.end85
   %34 = load ptr, ptr %CharAP, align 8
   store i64 %conv93, ptr %34, align 8
   %35 = load ptr, ptr %CharAP, align 8
-  %add.ptr.i127 = getelementptr inbounds i64, ptr %35, i64 1
+  %add.ptr.i127 = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load i32, ptr %BitWidth.i55, align 8
   %conv.i.i.i128 = zext i32 %36 to i64
   %sub.i.i.i129 = add nuw nsw i64 %conv.i.i.i128, 63
@@ -2546,7 +2545,7 @@ entry:
   %agg.tmp.i = alloca %"class.llvh::detail::IEEEFloat", align 8
   %F = alloca %"class.llvh::APFloat", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i)
-  %U.i = getelementptr inbounds %"class.llvh::APFloat", ptr %F, i64 0, i32 1
+  %U.i = getelementptr inbounds i8, ptr %F, i64 8
   call void @_ZN4llvh6detail9IEEEFloatC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i, double noundef 0.000000e+00) #21
   %call.i = tail call noundef nonnull align 1 ptr @_ZN4llvh11APFloatBase10IEEEdoubleEv() #22
   call void @_ZN4llvh7APFloat7StorageC1ENS_6detail9IEEEFloatERKNS_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull align 1 %call.i) #21
@@ -2573,9 +2572,9 @@ if.end4:                                          ; preds = %if.then, %entry
   %0 = load ptr, ptr %U.i, align 8
   %call.i.i.i = tail call noundef nonnull align 1 ptr @_ZN4llvh11APFloatBase15PPCDoubleDoubleEv() #22
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %0
-  %Floats.i.i.i = getelementptr inbounds %"class.llvh::APFloat", ptr %F, i64 0, i32 1, i32 0, i32 1
+  %Floats.i.i.i = getelementptr inbounds i8, ptr %F, i64 16
   %1 = load ptr, ptr %Floats.i.i.i, align 8
-  %U8.i.i = getelementptr inbounds %"class.llvh::APFloat", ptr %1, i64 0, i32 1
+  %U8.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %retval.0.i.i = select i1 %cmp.i.not.i.i, ptr %U8.i.i, ptr %U.i
   %call2.i = call noundef double @_ZNK4llvh6detail9IEEEFloat15convertToDoubleEv(ptr noundef nonnull align 8 dereferenceable(24) %retval.0.i.i) #21
   store double %call2.i, ptr %Result, align 8
@@ -2635,7 +2634,7 @@ declare noundef nonnull align 1 ptr @_ZN4llvh11APFloatBase15PPCDoubleDoubleEv() 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %Floats = getelementptr inbounds %"class.llvh::detail::DoubleAPFloat", ptr %this, i64 0, i32 1
+  %Floats = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Floats, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N4llvh7APFloatESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i
@@ -2653,8 +2652,8 @@ arraydestroy.body.i.preheader:                    ; preds = %delete.notnull.i
 
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i.preheader, %_ZN4llvh7APFloatD2Ev.exit.i
   %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %_ZN4llvh7APFloatD2Ev.exit.i ], [ %delete.end.i, %arraydestroy.body.i.preheader ]
-  %arraydestroy.element.i = getelementptr inbounds %"class.llvh::APFloat", ptr %arraydestroy.elementPast.i, i64 -1
-  %U.i.i = getelementptr %"class.llvh::APFloat", ptr %arraydestroy.elementPast.i, i64 -1, i32 1
+  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -32
+  %U.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -24
   %3 = load ptr, ptr %U.i.i, align 8
   %cmp.i2.not = icmp eq ptr %call.i1, %3
   br i1 %cmp.i2.not, label %if.end.i.i.i, label %if.then.i.i.i

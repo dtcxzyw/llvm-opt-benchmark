@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/hw_acpi_bios-linker-loader.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BIOSLinker = type { ptr, ptr }
-%struct._GArray = type { ptr, i32 }
 %struct.BiosLinkerFileEntry = type { ptr, ptr }
 %struct.BiosLinkerLoaderEntry = type { i32, %union.anon }
 %union.anon = type { %struct.anon.2 }
@@ -36,7 +34,7 @@ entry:
   %call1 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #10
   store ptr %call1, ptr %call, align 8
   %call2 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 16) #10
-  %file_list = getelementptr inbounds %struct.BIOSLinker, ptr %call, i64 0, i32 1
+  %file_list = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call2, ptr %file_list, align 8
   ret ptr %call
 }
@@ -51,9 +49,9 @@ define dso_local void @bios_linker_loader_cleanup(ptr noundef %linker) local_unn
 entry:
   %0 = load ptr, ptr %linker, align 8
   %call = tail call ptr @g_array_free(ptr noundef %0, i32 noundef 1) #10
-  %file_list = getelementptr inbounds %struct.BIOSLinker, ptr %linker, i64 0, i32 1
+  %file_list = getelementptr inbounds i8, ptr %linker, i64 8
   %1 = load ptr, ptr %file_list, align 8
-  %len7 = getelementptr inbounds %struct._GArray, ptr %1, i64 0, i32 1
+  %len7 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %len7, align 8
   %cmp8.not = icmp eq i32 %2, 0
   br i1 %cmp8.not, label %for.end, label %for.body
@@ -68,7 +66,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @g_free(ptr noundef %5) #10
   %inc = add nuw i32 %i.09, 1
   %6 = load ptr, ptr %file_list, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %6, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %len, align 8
   %cmp = icmp ult i32 %inc, %7
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
@@ -111,7 +109,7 @@ entry:
   %file = alloca %struct.BiosLinkerFileEntry, align 8
   %call = tail call noalias ptr @g_strdup(ptr noundef %file_name) #10
   store ptr %call, ptr %file, align 8
-  %blob = getelementptr inbounds %struct.BiosLinkerFileEntry, ptr %file, i64 0, i32 1
+  %blob = getelementptr inbounds i8, ptr %file, i64 8
   store ptr %file_blob, ptr %blob, align 8
   %0 = tail call i32 @llvm.ctpop.i32(i32 %alloc_align), !range !7
   %tobool.not = icmp ult i32 %0, 2
@@ -122,9 +120,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %file_list.i = getelementptr inbounds %struct.BIOSLinker, ptr %linker, i64 0, i32 1
+  %file_list.i = getelementptr inbounds i8, ptr %linker, i64 8
   %1 = load ptr, ptr %file_list.i, align 8
-  %len.i = getelementptr inbounds %struct._GArray, ptr %1, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %len.i, align 8
   %cmp5.not.i = icmp eq i32 %2, 0
   br i1 %cmp5.not.i, label %if.end6, label %for.body.lr.ph.i
@@ -155,13 +153,13 @@ if.end6:                                          ; preds = %for.cond.i, %if.end
   %call7 = call ptr @g_array_append_vals(ptr noundef %1, ptr noundef nonnull %file, i32 noundef 1) #10
   %5 = getelementptr inbounds i8, ptr %entry1, i64 59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %5, i8 0, i64 69, i1 false)
-  %6 = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %entry1, i64 4
   %call9 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %file_name, i64 noundef 55) #10
   store i32 1, ptr %entry1, align 4
-  %align = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1, i32 0, i32 1
+  %align = getelementptr inbounds i8, ptr %entry1, i64 60
   store i32 %alloc_align, ptr %align, align 4
   %conv = select i1 %alloc_fseg, i8 2, i8 1
-  %zone = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1, i32 0, i32 1, i64 4
+  %zone = getelementptr inbounds i8, ptr %entry1, i64 64
   store i8 %conv, ptr %zone, align 4
   %7 = load ptr, ptr %linker, align 8
   %call13 = call ptr @g_array_prepend_vals(ptr noundef %7, ptr noundef nonnull %entry1, i32 noundef 128) #10
@@ -187,9 +185,9 @@ declare ptr @g_array_prepend_vals(ptr noundef, ptr noundef, i32 noundef) local_u
 define dso_local void @bios_linker_loader_add_checksum(ptr nocapture noundef readonly %linker, ptr nocapture noundef readonly %file_name, i32 noundef %start_offset, i32 noundef %size, i32 noundef %checksum_offset) local_unnamed_addr #0 {
 entry:
   %entry1 = alloca %struct.BiosLinkerLoaderEntry, align 4
-  %file_list.i = getelementptr inbounds %struct.BIOSLinker, ptr %linker, i64 0, i32 1
+  %file_list.i = getelementptr inbounds i8, ptr %linker, i64 8
   %0 = load ptr, ptr %file_list.i, align 8
-  %len.i = getelementptr inbounds %struct._GArray, ptr %0, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len.i, align 8
   %cmp5.not.i = icmp eq i32 %1, 0
   br i1 %cmp5.not.i, label %if.else, label %for.body.lr.ph.i
@@ -217,9 +215,9 @@ if.else:                                          ; preds = %for.cond.i, %entry
   unreachable
 
 if.end:                                           ; preds = %for.body.i
-  %blob = getelementptr %struct.BiosLinkerFileEntry, ptr %2, i64 %idxprom.i, i32 1
+  %blob = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load ptr, ptr %blob, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %4, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %len, align 8
   %cmp = icmp ugt i32 %5, %start_offset
   br i1 %cmp, label %if.end4, label %if.else3
@@ -261,14 +259,14 @@ if.end20:                                         ; preds = %if.end14
   store i8 0, ptr %add.ptr, align 1
   %7 = getelementptr inbounds i8, ptr %entry1, i64 59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %7, i8 0, i64 69, i1 false)
-  %8 = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %entry1, i64 4
   %call23 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %file_name, i64 noundef 55) #10
   store i32 3, ptr %entry1, align 4
-  %offset = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1, i32 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %entry1, i64 60
   store i32 %checksum_offset, ptr %offset, align 4
-  %start = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1, i32 0, i32 1, i64 4
+  %start = getelementptr inbounds i8, ptr %entry1, i64 64
   store i32 %start_offset, ptr %start, align 4
-  %length = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1, i32 0, i32 1, i64 8
+  %length = getelementptr inbounds i8, ptr %entry1, i64 68
   store i32 %size, ptr %length, align 4
   %9 = load ptr, ptr %linker, align 8
   %call28 = call ptr @g_array_append_vals(ptr noundef %9, ptr noundef nonnull %entry1, i32 noundef 128) #10
@@ -280,9 +278,9 @@ define dso_local void @bios_linker_loader_add_pointer(ptr nocapture noundef read
 entry:
   %le_src_offset = alloca i64, align 8
   %entry1 = alloca %struct.BiosLinkerLoaderEntry, align 4
-  %file_list.i = getelementptr inbounds %struct.BIOSLinker, ptr %linker, i64 0, i32 1
+  %file_list.i = getelementptr inbounds i8, ptr %linker, i64 8
   %0 = load ptr, ptr %file_list.i, align 8
-  %len.i = getelementptr inbounds %struct._GArray, ptr %0, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len.i, align 8
   %cmp5.not.i = icmp eq i32 %1, 0
   br i1 %cmp5.not.i, label %if.else, label %for.body.lr.ph.i
@@ -340,9 +338,9 @@ if.else5:                                         ; preds = %bios_linker_find_fi
   unreachable
 
 if.end6:                                          ; preds = %bios_linker_find_file.exit35
-  %blob = getelementptr inbounds %struct.BiosLinkerFileEntry, ptr %retval.0.i, i64 0, i32 1
+  %blob = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %5 = load ptr, ptr %blob, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %5, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %len, align 8
   %cmp = icmp ugt i32 %6, %dst_patched_offset
   br i1 %cmp, label %if.end9, label %if.else8
@@ -362,9 +360,9 @@ if.else15:                                        ; preds = %if.end9
   unreachable
 
 if.end16:                                         ; preds = %if.end9
-  %blob17 = getelementptr %struct.BiosLinkerFileEntry, ptr %2, i64 %idxprom.i27, i32 1
+  %blob17 = getelementptr inbounds i8, ptr %arrayidx.i28, i64 8
   %7 = load ptr, ptr %blob17, align 8
-  %len18 = getelementptr inbounds %struct._GArray, ptr %7, i64 0, i32 1
+  %len18 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %len18, align 8
   %cmp19 = icmp ugt i32 %8, %src_offset
   br i1 %cmp19, label %if.end23, label %if.else22
@@ -376,14 +374,14 @@ if.else22:                                        ; preds = %if.end16
 if.end23:                                         ; preds = %if.end16
   %9 = getelementptr inbounds i8, ptr %entry1, i64 59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %9, i8 0, i64 69, i1 false)
-  %10 = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %entry1, i64 4
   %call25 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %dest_file, i64 noundef 55) #10
-  %src_file26 = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1, i32 0, i32 1
+  %src_file26 = getelementptr inbounds i8, ptr %entry1, i64 60
   %call28 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %src_file26, ptr noundef nonnull dereferenceable(1) %src_file, i64 noundef 55) #10
   store i32 2, ptr %entry1, align 4
-  %offset = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1, i32 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %entry1, i64 116
   store i32 %dst_patched_offset, ptr %offset, align 4
-  %size = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1, i32 0, i32 3
+  %size = getelementptr inbounds i8, ptr %entry1, i64 120
   store i8 %dst_patched_size, ptr %size, align 4
   switch i8 %dst_patched_size, label %if.else46 [
     i8 8, label %if.end47
@@ -416,9 +414,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @bios_linker_loader_write_pointer(ptr nocapture noundef readonly %linker, ptr nocapture noundef readonly %dest_file, i32 noundef %dst_patched_offset, i8 noundef zeroext %dst_patched_size, ptr nocapture noundef readonly %src_file, i32 noundef %src_offset) local_unnamed_addr #0 {
 entry:
   %entry1 = alloca %struct.BiosLinkerLoaderEntry, align 4
-  %file_list.i = getelementptr inbounds %struct.BIOSLinker, ptr %linker, i64 0, i32 1
+  %file_list.i = getelementptr inbounds i8, ptr %linker, i64 8
   %0 = load ptr, ptr %file_list.i, align 8
-  %len.i = getelementptr inbounds %struct._GArray, ptr %0, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len.i, align 8
   %cmp5.not.i = icmp eq i32 %1, 0
   br i1 %cmp5.not.i, label %if.else, label %for.body.lr.ph.i
@@ -446,9 +444,9 @@ if.else:                                          ; preds = %for.cond.i, %entry
   unreachable
 
 if.end:                                           ; preds = %for.body.i
-  %blob = getelementptr %struct.BiosLinkerFileEntry, ptr %2, i64 %idxprom.i, i32 1
+  %blob = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load ptr, ptr %blob, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %4, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %len, align 8
   %cmp = icmp ugt i32 %5, %src_offset
   br i1 %cmp, label %if.end4, label %if.else3
@@ -460,16 +458,16 @@ if.else3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   %6 = getelementptr inbounds i8, ptr %entry1, i64 59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %6, i8 0, i64 69, i1 false)
-  %7 = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %entry1, i64 4
   %call6 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %dest_file, i64 noundef 55) #10
-  %src_file7 = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1, i32 0, i32 1
+  %src_file7 = getelementptr inbounds i8, ptr %entry1, i64 60
   %call9 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %src_file7, ptr noundef nonnull dereferenceable(1) %src_file, i64 noundef 55) #10
   store i32 4, ptr %entry1, align 4
-  %dst_offset = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1, i32 0, i32 2
+  %dst_offset = getelementptr inbounds i8, ptr %entry1, i64 116
   store i32 %dst_patched_offset, ptr %dst_offset, align 4
-  %src_offset13 = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1, i32 0, i32 3
+  %src_offset13 = getelementptr inbounds i8, ptr %entry1, i64 120
   store i32 %src_offset, ptr %src_offset13, align 4
-  %size = getelementptr inbounds %struct.BiosLinkerLoaderEntry, ptr %entry1, i64 0, i32 1, i32 0, i32 4
+  %size = getelementptr inbounds i8, ptr %entry1, i64 124
   store i8 %dst_patched_size, ptr %size, align 4
   switch i8 %dst_patched_size, label %if.else28 [
     i8 8, label %if.end29

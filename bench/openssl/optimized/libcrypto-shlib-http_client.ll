@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-http_client.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_http_req_ctx_st = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, i64, i64, i64, i32, i64, i64, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [37 x i8] c"../openssl/crypto/http/http_client.c\00", align 1
 @__func__.OSSL_HTTP_REQ_CTX_new = private unnamed_addr constant [22 x i8] c"OSSL_HTTP_REQ_CTX_new\00", align 1
 @__func__.OSSL_HTTP_REQ_CTX_get0_mem_bio = private unnamed_addr constant [31 x i8] c"OSSL_HTTP_REQ_CTX_get0_mem_bio\00", align 1
@@ -106,15 +103,15 @@ if.end4:                                          ; preds = %if.end
   store i32 4096, ptr %call, align 8
   %cmp5 = icmp sgt i32 %buf_size, 0
   %cond = select i1 %cmp5, i32 %buf_size, i32 4096
-  %buf_size6 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %call, i64 0, i32 2
+  %buf_size6 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %cond, ptr %buf_size6, align 8
   %conv = zext nneg i32 %cond to i64
   %call8 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 106) #9
-  %buf = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %call, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call8, ptr %buf, align 8
-  %wbio9 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %call, i64 0, i32 4
+  %wbio9 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %wbio, ptr %wbio9, align 8
-  %rbio10 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %call, i64 0, i32 5
+  %rbio10 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %rbio, ptr %rbio10, align 8
   %cmp12 = icmp eq ptr %call8, null
   br i1 %cmp12, label %if.then14, label %if.end15
@@ -124,7 +121,7 @@ if.then14:                                        ; preds = %if.end4
   br label %return
 
 if.end15:                                         ; preds = %if.end4
-  %max_resp_len = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %call, i64 0, i32 21
+  %max_resp_len = getelementptr inbounds i8, ptr %call, i64 152
   store i64 102400, ptr %max_resp_len, align 8
   br label %return
 
@@ -152,37 +149,37 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %free_wbio = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 3
+  %free_wbio = getelementptr inbounds i8, ptr %rctx, i64 20
   %0 = load i32, ptr %free_wbio, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %wbio = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 4
+  %wbio = getelementptr inbounds i8, ptr %rctx, i64 24
   %1 = load ptr, ptr %wbio, align 8
   tail call void @BIO_free_all(ptr noundef %1) #9
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end
-  %mem = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 12
+  %mem = getelementptr inbounds i8, ptr %rctx, i64 88
   %2 = load ptr, ptr %mem, align 8
   %call = tail call i32 @BIO_free(ptr noundef %2) #9
-  %req = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 13
+  %req = getelementptr inbounds i8, ptr %rctx, i64 96
   %3 = load ptr, ptr %req, align 8
   %call3 = tail call i32 @BIO_free(ptr noundef %3) #9
-  %buf = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %rctx, i64 8
   %4 = load ptr, ptr %buf, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 132) #9
-  %proxy = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 9
+  %proxy = getelementptr inbounds i8, ptr %rctx, i64 64
   %5 = load ptr, ptr %proxy, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 133) #9
-  %server = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 10
+  %server = getelementptr inbounds i8, ptr %rctx, i64 72
   %6 = load ptr, ptr %server, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 134) #9
-  %port = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 11
+  %port = getelementptr inbounds i8, ptr %rctx, i64 80
   %7 = load ptr, ptr %port, align 8
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 135) #9
-  %expected_ct = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 16
+  %expected_ct = getelementptr inbounds i8, ptr %rctx, i64 112
   %8 = load ptr, ptr %expected_ct, align 8
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 136) #9
   tail call void @CRYPTO_free(ptr noundef nonnull %rctx, ptr noundef nonnull @.str, i32 noundef 137) #9
@@ -209,7 +206,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mem = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 12
+  %mem = getelementptr inbounds i8, ptr %rctx, i64 88
   %0 = load ptr, ptr %mem, align 8
   br label %return
 
@@ -231,7 +228,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %resp_len = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 20
+  %resp_len = getelementptr inbounds i8, ptr %rctx, i64 144
   %0 = load i64, ptr %resp_len, align 8
   br label %return
 
@@ -255,7 +252,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %cmp1.not = icmp eq i64 %len, 0
   %cond = select i1 %cmp1.not, i64 102400, i64 %len
-  %max_resp_len = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 21
+  %max_resp_len = getelementptr inbounds i8, ptr %rctx, i64 152
   store i64 %cond, ptr %max_resp_len, align 8
   br label %return
 
@@ -276,7 +273,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mem = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 12
+  %mem = getelementptr inbounds i8, ptr %rctx, i64 88
   %0 = load ptr, ptr %mem, align 8
   %call = tail call i32 @BIO_free(ptr noundef %0) #9
   %call1 = tail call ptr @BIO_s_mem() #9
@@ -288,7 +285,7 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %cmp7 = icmp ne i32 %method_POST, 0
   %conv = zext i1 %cmp7 to i32
-  %method_POST8 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 14
+  %method_POST8 = getelementptr inbounds i8, ptr %rctx, i64 104
   store i32 %conv, ptr %method_POST8, align 8
   %cond = select i1 %cmp7, ptr @.str.2, ptr @.str.3
   %call11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call2, ptr noundef nonnull @.str.1, ptr noundef nonnull %cond) #9
@@ -352,7 +349,7 @@ if.end57:                                         ; preds = %if.end33, %if.then4
   br i1 %cmp60, label %return, label %if.end63
 
 if.end63:                                         ; preds = %if.end57
-  %resp_len = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 20
+  %resp_len = getelementptr inbounds i8, ptr %rctx, i64 144
   store i64 0, ptr %resp_len, align 8
   store i32 4097, ptr %rctx, align 8
   br label %return
@@ -386,7 +383,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mem = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 12
+  %mem = getelementptr inbounds i8, ptr %rctx, i64 88
   %0 = load ptr, ptr %mem, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %if.then3, label %if.end4
@@ -463,7 +460,7 @@ if.then6:                                         ; preds = %land.lhs.true
   br label %return
 
 if.end7:                                          ; preds = %land.lhs.true, %if.end
-  %expected_ct = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 16
+  %expected_ct = getelementptr inbounds i8, ptr %rctx, i64 112
   %2 = load ptr, ptr %expected_ct, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 261) #9
   store ptr null, ptr %expected_ct, align 8
@@ -477,7 +474,7 @@ land.lhs.true10:                                  ; preds = %if.end7
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %land.lhs.true10, %if.end7
-  %expect_asn1 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 17
+  %expect_asn1 = getelementptr inbounds i8, ptr %rctx, i64 120
   store i32 %asn1, ptr %expect_asn1, align 8
   %cmp15 = icmp sgt i32 %timeout, -1
   br i1 %cmp15, label %if.then16, label %if.else
@@ -493,15 +490,15 @@ cond.true:                                        ; preds = %if.then16
   br label %if.end20
 
 if.else:                                          ; preds = %if.end14
-  %max_total_time = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 24
+  %max_total_time = getelementptr inbounds i8, ptr %rctx, i64 176
   %3 = load i64, ptr %max_total_time, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %cond.true, %if.then16, %if.else
   %.sink = phi i64 [ %3, %if.else ], [ %add, %cond.true ], [ 0, %if.then16 ]
-  %max_time19 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 23
+  %max_time19 = getelementptr inbounds i8, ptr %rctx, i64 168
   store i64 %.sink, ptr %max_time19, align 8
-  %keep_alive21 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 22
+  %keep_alive21 = getelementptr inbounds i8, ptr %rctx, i64 160
   store i32 %keep_alive, ptr %keep_alive21, align 8
   br label %return
 
@@ -561,7 +558,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %keep_alive = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 22
+  %keep_alive = getelementptr inbounds i8, ptr %rctx, i64 160
   %0 = load i32, ptr %keep_alive, align 8
   %cmp3.not = icmp eq i32 %0, 0
   br i1 %cmp3.not, label %if.end6, label %land.lhs.true4
@@ -572,14 +569,14 @@ land.lhs.true4:                                   ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %land.lhs.true4, %if.end
-  %req7 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 13
+  %req7 = getelementptr inbounds i8, ptr %rctx, i64 96
   %1 = load ptr, ptr %req7, align 8
   %call8 = tail call i32 @BIO_free(ptr noundef %1) #9
   store ptr null, ptr %req7, align 8
   br i1 %cmp1, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end6
-  %method_POST = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 14
+  %method_POST = getelementptr inbounds i8, ptr %rctx, i64 104
   %2 = load i32, ptr %method_POST, align 8
   %tobool13.not = icmp eq i32 %2, 0
   br i1 %tobool13.not, label %if.then14, label %if.end15
@@ -595,7 +592,7 @@ if.end15:                                         ; preds = %if.end12
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %if.end15
-  %text = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 15
+  %text = getelementptr inbounds i8, ptr %rctx, i64 108
   store i32 1, ptr %text, align 4
   br label %if.end27
 
@@ -605,12 +602,12 @@ if.else:                                          ; preds = %if.end15
   br i1 %cmp19, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %if.else
-  %text21 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 15
+  %text21 = getelementptr inbounds i8, ptr %rctx, i64 108
   store i32 1, ptr %text21, align 4
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %if.else
-  %mem = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 12
+  %mem = getelementptr inbounds i8, ptr %rctx, i64 88
   %3 = load ptr, ptr %mem, align 8
   %call23 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.46, ptr noundef nonnull %content_type) #9
   %cmp24 = icmp slt i32 %call23, 1
@@ -657,7 +654,7 @@ if.end43:                                         ; preds = %if.then36, %if.else
   br i1 %or.cond1, label %land.lhs.true47, label %if.end52
 
 land.lhs.true47:                                  ; preds = %if.end43
-  %mem48 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 12
+  %mem48 = getelementptr inbounds i8, ptr %rctx, i64 88
   %8 = load ptr, ptr %mem48, align 8
   %call49 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.47, i64 noundef %req_len.0) #9
   %cmp50 = icmp slt i32 %call49, 0
@@ -695,19 +692,19 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mem = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 12
+  %mem = getelementptr inbounds i8, ptr %rctx, i64 88
   %0 = load ptr, ptr %mem, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %wbio = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 4
+  %wbio = getelementptr inbounds i8, ptr %rctx, i64 24
   %1 = load ptr, ptr %wbio, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %if.then5, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %rbio = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 5
+  %rbio = getelementptr inbounds i8, ptr %rctx, i64 32
   %2 = load ptr, ptr %rbio, align 8
   %cmp4 = icmp eq ptr %2, null
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -719,18 +716,18 @@ if.then5:                                         ; preds = %lor.lhs.false3, %lo
   br label %return
 
 if.end6:                                          ; preds = %lor.lhs.false3
-  %redirection_url = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 25
+  %redirection_url = getelementptr inbounds i8, ptr %rctx, i64 184
   store ptr null, ptr %redirection_url, align 8
-  %buf7 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 1
-  %expect_asn1 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 17
-  %buf_size = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 2
-  %method_POST = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 14
-  %expected_ct = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 16
-  %keep_alive = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 22
-  %pos = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 18
-  %len_to_send = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 19
-  %req = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 13
-  %resp_len425 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 20
+  %buf7 = getelementptr inbounds i8, ptr %rctx, i64 8
+  %expect_asn1 = getelementptr inbounds i8, ptr %rctx, i64 120
+  %buf_size = getelementptr inbounds i8, ptr %rctx, i64 16
+  %method_POST = getelementptr inbounds i8, ptr %rctx, i64 104
+  %expected_ct = getelementptr inbounds i8, ptr %rctx, i64 112
+  %keep_alive = getelementptr inbounds i8, ptr %rctx, i64 160
+  %pos = getelementptr inbounds i8, ptr %rctx, i64 128
+  %len_to_send = getelementptr inbounds i8, ptr %rctx, i64 136
+  %req = getelementptr inbounds i8, ptr %rctx, i64 96
+  %resp_len425 = getelementptr inbounds i8, ptr %rctx, i64 144
   br label %next_io
 
 next_io:                                          ; preds = %next_io.backedge, %if.end6
@@ -1613,7 +1610,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @check_set_resp_len(ptr nocapture noundef %rctx, i64 noundef %len) unnamed_addr #0 {
 entry:
-  %max_resp_len = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 21
+  %max_resp_len = getelementptr inbounds i8, ptr %rctx, i64 152
   %0 = load i64, ptr %max_resp_len, align 8
   %cmp.not = icmp ne i64 %0, 0
   %cmp2 = icmp ult i64 %0, %len
@@ -1628,7 +1625,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %resp_len = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 20
+  %resp_len = getelementptr inbounds i8, ptr %rctx, i64 144
   %2 = load i64, ptr %resp_len, align 8
   %cmp4.not = icmp eq i64 %2, 0
   %cmp7.not = icmp eq i64 %2, %len
@@ -1661,7 +1658,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %mem = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 12
+  %mem = getelementptr inbounds i8, ptr %rctx, i64 88
   %0 = load ptr, ptr %mem, align 8
   %call1 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %p) #9
   %call2 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %p, i64 noundef %call1, ptr noundef %it) #9
@@ -1685,8 +1682,8 @@ entry:
 
 entry.split:                                      ; preds = %entry
   %call10 = tail call i32 @OSSL_HTTP_REQ_CTX_nbio(ptr noundef nonnull %rctx), !range !15
-  %rbio = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 5
-  %max_time = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 23
+  %rbio = getelementptr inbounds i8, ptr %rctx, i64 32
+  %max_time = getelementptr inbounds i8, ptr %rctx, i64 168
   br label %for.cond
 
 if.then:                                          ; preds = %entry
@@ -1714,13 +1711,13 @@ if.end3.split:                                    ; preds = %if.end3
   br label %for.cond
 
 if.then9:                                         ; preds = %for.cond
-  %redirection_url = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 25
+  %redirection_url = getelementptr inbounds i8, ptr %rctx, i64 184
   %2 = load ptr, ptr %redirection_url, align 8
   %cmp10 = icmp eq ptr %2, null
   br i1 %cmp10, label %if.then11, label %return
 
 if.then11:                                        ; preds = %if.then9
-  %len_to_send = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 19
+  %len_to_send = getelementptr inbounds i8, ptr %rctx, i64 136
   %3 = load i64, ptr %len_to_send, align 8
   %cmp12 = icmp sgt i64 %3, 0
   tail call void @ERR_new() #9
@@ -1739,8 +1736,8 @@ if.else:                                          ; preds = %if.then11
 if.end16:                                         ; preds = %for.cond
   %4 = load i32, ptr %rctx, align 8
   %cmp17 = icmp eq i32 %4, 4104
-  %mem = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 12
-  %cond.in = select i1 %cmp17, ptr %rbio, ptr %mem
+  %cond.in.v = select i1 %cmp17, i64 32, i64 88
+  %cond.in = getelementptr inbounds i8, ptr %rctx, i64 %cond.in.v
   %cond = load ptr, ptr %cond.in, align 8
   br label %return
 
@@ -1758,7 +1755,7 @@ entry:
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %keep_alive = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 22
+  %keep_alive = getelementptr inbounds i8, ptr %rctx, i64 160
   %0 = load i32, ptr %keep_alive, align 8
   %cmp1 = icmp ne i32 %0, 0
   %1 = zext i1 %cmp1 to i32
@@ -1979,20 +1976,20 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %free_wbio1 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %call, i64 0, i32 3
+  %free_wbio1 = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %free_wbio, ptr %free_wbio1, align 4
-  %upd_fn = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %call, i64 0, i32 6
+  %upd_fn = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %bio_update_fn, ptr %upd_fn, align 8
-  %upd_arg = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %call, i64 0, i32 7
+  %upd_arg = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %arg, ptr %upd_arg, align 8
-  %use_ssl2 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %call, i64 0, i32 8
+  %use_ssl2 = getelementptr inbounds i8, ptr %call, i64 56
   store i32 %use_ssl, ptr %use_ssl2, align 8
   %cmp3.not = icmp eq ptr %proxy, null
   br i1 %cmp3.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %call4 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %proxy, ptr noundef nonnull @.str, i32 noundef 395) #9
-  %proxy5 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %call, i64 0, i32 9
+  %proxy5 = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %call4, ptr %proxy5, align 8
   %cmp6 = icmp eq ptr %call4, null
   br i1 %cmp6, label %err, label %if.end8
@@ -2003,7 +2000,7 @@ if.end8:                                          ; preds = %land.lhs.true, %if.
 
 land.lhs.true10:                                  ; preds = %if.end8
   %call11 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %server, ptr noundef nonnull @.str, i32 noundef 398) #9
-  %server12 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %call, i64 0, i32 10
+  %server12 = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %call11, ptr %server12, align 8
   %cmp13 = icmp eq ptr %call11, null
   br i1 %cmp13, label %err, label %if.end15
@@ -2014,7 +2011,7 @@ if.end15:                                         ; preds = %land.lhs.true10, %i
 
 land.lhs.true17:                                  ; preds = %if.end15
   %call18 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %port, ptr noundef nonnull @.str, i32 noundef 401) #9
-  %port19 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %call, i64 0, i32 11
+  %port19 = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %call18, ptr %port19, align 8
   %cmp20 = icmp eq ptr %call18, null
   br i1 %cmp20, label %err, label %if.end22
@@ -2031,7 +2028,7 @@ cond.true:                                        ; preds = %if.end22
 
 cond.end:                                         ; preds = %if.end22, %cond.true
   %cond = phi i64 [ %add, %cond.true ], [ 0, %if.end22 ]
-  %max_total_time = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %call, i64 0, i32 24
+  %max_total_time = getelementptr inbounds i8, ptr %call, i64 176
   store i64 %cond, ptr %max_total_time, align 8
   br label %return
 
@@ -2057,19 +2054,19 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %proxy = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 9
+  %proxy = getelementptr inbounds i8, ptr %rctx, i64 64
   %0 = load ptr, ptr %proxy, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %cond.end, label %land.end
 
 land.end:                                         ; preds = %if.end
-  %use_ssl = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 8
+  %use_ssl = getelementptr inbounds i8, ptr %rctx, i64 56
   %1 = load i32, ptr %use_ssl, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %land.lhs.true, label %cond.end
 
 land.lhs.true:                                    ; preds = %land.end
-  %server = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 10
+  %server = getelementptr inbounds i8, ptr %rctx, i64 72
   %2 = load ptr, ptr %server, align 8
   %cmp3 = icmp eq ptr %2, null
   br i1 %cmp3, label %if.then4, label %cond.end
@@ -2082,18 +2079,18 @@ if.then4:                                         ; preds = %land.lhs.true
 
 cond.end:                                         ; preds = %land.lhs.true, %if.end, %land.end
   %cond = phi ptr [ null, %land.end ], [ null, %if.end ], [ %2, %land.lhs.true ]
-  %max_resp_len614 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 21
+  %max_resp_len614 = getelementptr inbounds i8, ptr %rctx, i64 152
   store i64 %max_resp_len, ptr %max_resp_len614, align 8
   %conv17.in = icmp ne ptr %req, null
   %conv17 = zext i1 %conv17.in to i32
-  %port = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 11
+  %port = getelementptr inbounds i8, ptr %rctx, i64 80
   %3 = load ptr, ptr %port, align 8
   %call = tail call i32 @OSSL_HTTP_REQ_CTX_set_request_line(ptr noundef nonnull %rctx, i32 noundef %conv17, ptr noundef %cond, ptr noundef %3, ptr noundef %path), !range !4
   %tobool10.not = icmp eq i32 %call, 0
   br i1 %tobool10.not, label %return, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %cond.end
-  %server12 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 10
+  %server12 = getelementptr inbounds i8, ptr %rctx, i64 72
   %4 = load ptr, ptr %server12, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %land.end.i, label %land.rhs.i
@@ -2124,7 +2121,7 @@ for.body.i:                                       ; preds = %land.end.i, %for.co
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %name.i = getelementptr inbounds %struct.CONF_VALUE, ptr %call7.i, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %call7.i, i64 8
   %7 = load ptr, ptr %name.i, align 8
   %call8.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull @.str.54, ptr noundef %7) #9
   %cmp9.i = icmp ne i32 %call8.i, 0
@@ -2133,9 +2130,9 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %for.body.i
   %add_host.1.i = phi i32 [ 0, %for.body.i ], [ %spec.select.i, %land.lhs.true.i ]
-  %name11.i = getelementptr inbounds %struct.CONF_VALUE, ptr %call7.i, i64 0, i32 1
+  %name11.i = getelementptr inbounds i8, ptr %call7.i, i64 8
   %8 = load ptr, ptr %name11.i, align 8
-  %value.i = getelementptr inbounds %struct.CONF_VALUE, ptr %call7.i, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %call7.i, i64 16
   %9 = load ptr, ptr %value.i, align 8
   %call12.i = tail call i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef nonnull %rctx, ptr noundef %8, ptr noundef %9), !range !4
   %tobool13.not.i = icmp eq i32 %call12.i, 0
@@ -2192,7 +2189,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cond35, label %if.then5, label %land.lhs.true61
 
 if.then5:                                         ; preds = %if.end3
-  %redirection_url6 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 25
+  %redirection_url6 = getelementptr inbounds i8, ptr %rctx, i64 184
   %0 = load ptr, ptr %redirection_url6, align 8
   %cmp7.not = icmp eq ptr %0, null
   br i1 %cmp7.not, label %if.else14, label %if.then8
@@ -2237,17 +2234,17 @@ lor.lhs.false20:                                  ; preds = %if.else14
   br i1 %or.cond33, label %if.then31, label %return
 
 if.then31:                                        ; preds = %if.else14, %if.else14, %lor.lhs.false20
-  %server = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 10
+  %server = getelementptr inbounds i8, ptr %rctx, i64 72
   %3 = load ptr, ptr %server, align 8
   %cmp32.not = icmp eq ptr %3, null
   br i1 %cmp32.not, label %if.end43, label %if.then33
 
 if.then33:                                        ; preds = %if.then31
-  %use_ssl = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 8
+  %use_ssl = getelementptr inbounds i8, ptr %rctx, i64 56
   %4 = load i32, ptr %use_ssl, align 8
   %tobool.not = icmp eq i32 %4, 0
   %cond = select i1 %tobool.not, ptr @.str.25, ptr @.str.24
-  %port = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 11
+  %port = getelementptr inbounds i8, ptr %rctx, i64 80
   %5 = load ptr, ptr %port, align 8
   %cmp35.not = icmp eq ptr %5, null
   %cond36 = select i1 %cmp35.not, ptr @.str.25, ptr @.str.26
@@ -2257,7 +2254,7 @@ if.then33:                                        ; preds = %if.then31
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then33, %if.then31
-  %proxy = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 9
+  %proxy = getelementptr inbounds i8, ptr %rctx, i64 64
   %6 = load ptr, ptr %proxy, align 8
   %cmp44.not = icmp eq ptr %6, null
   br i1 %cmp44.not, label %if.end47, label %if.then45
@@ -2271,7 +2268,7 @@ if.end47:                                         ; preds = %if.then45, %if.end4
   br i1 %cmp48, label %if.then49, label %return
 
 if.then49:                                        ; preds = %if.end47
-  %use_ssl51 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 8
+  %use_ssl51 = getelementptr inbounds i8, ptr %rctx, i64 56
   %7 = load i32, ptr %use_ssl51, align 8
   %tobool52.not = icmp eq i32 %7, 0
   %cond53 = select i1 %tobool52.not, ptr @.str.30, ptr @.str.29
@@ -2455,15 +2452,15 @@ if.then41:                                        ; preds = %if.then37
   br i1 %cmp.not.i21, label %OSSL_HTTP_close.exit, label %land.lhs.true.i22
 
 land.lhs.true.i22:                                ; preds = %if.then41
-  %upd_fn.i = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx.1, i64 0, i32 6
+  %upd_fn.i = getelementptr inbounds i8, ptr %rctx.1, i64 40
   %11 = load ptr, ptr %upd_fn.i, align 8
   %cmp1.not.i = icmp eq ptr %11, null
   br i1 %cmp1.not.i, label %OSSL_HTTP_close.exit, label %if.then.i23
 
 if.then.i23:                                      ; preds = %land.lhs.true.i22
-  %wbio3.i = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx.1, i64 0, i32 4
+  %wbio3.i = getelementptr inbounds i8, ptr %rctx.1, i64 24
   %12 = load ptr, ptr %wbio3.i, align 8
-  %upd_arg.i = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx.1, i64 0, i32 7
+  %upd_arg.i = getelementptr inbounds i8, ptr %rctx.1, i64 48
   %13 = load ptr, ptr %upd_arg.i, align 8
   %call.i24 = call ptr %11(ptr noundef %12, ptr noundef %13, i32 noundef 0, i32 noundef 1) #9
   %cmp4.not.i = icmp eq ptr %call.i24, null
@@ -2488,15 +2485,15 @@ if.end45:                                         ; preds = %if.then31
   br i1 %cmp.not.i25, label %OSSL_HTTP_close.exit36, label %land.lhs.true.i26
 
 land.lhs.true.i26:                                ; preds = %if.end45
-  %upd_fn.i27 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx.1, i64 0, i32 6
+  %upd_fn.i27 = getelementptr inbounds i8, ptr %rctx.1, i64 40
   %16 = load ptr, ptr %upd_fn.i27, align 8
   %cmp1.not.i28 = icmp eq ptr %16, null
   br i1 %cmp1.not.i28, label %OSSL_HTTP_close.exit36, label %if.then.i29
 
 if.then.i29:                                      ; preds = %land.lhs.true.i26
-  %wbio3.i30 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx.1, i64 0, i32 4
+  %wbio3.i30 = getelementptr inbounds i8, ptr %rctx.1, i64 24
   %17 = load ptr, ptr %wbio3.i30, align 8
-  %upd_arg.i31 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx.1, i64 0, i32 7
+  %upd_arg.i31 = getelementptr inbounds i8, ptr %rctx.1, i64 48
   %18 = load ptr, ptr %upd_arg.i31, align 8
   %call.i32 = call ptr %16(ptr noundef %17, ptr noundef %18, i32 noundef 0, i32 noundef 1) #9
   %cmp4.not.i33 = icmp eq ptr %call.i32, null
@@ -2531,15 +2528,15 @@ if.end48:                                         ; preds = %if.end20, %if.end47
   br i1 %cmp.not.i37, label %OSSL_HTTP_close.exit48.thread, label %land.lhs.true.i38
 
 land.lhs.true.i38:                                ; preds = %if.end48
-  %upd_fn.i39 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx.1, i64 0, i32 6
+  %upd_fn.i39 = getelementptr inbounds i8, ptr %rctx.1, i64 40
   %22 = load ptr, ptr %upd_fn.i39, align 8
   %cmp1.not.i40 = icmp eq ptr %22, null
   br i1 %cmp1.not.i40, label %OSSL_HTTP_close.exit48.thread, label %if.then.i41
 
 if.then.i41:                                      ; preds = %land.lhs.true.i38
-  %wbio3.i42 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx.1, i64 0, i32 4
+  %wbio3.i42 = getelementptr inbounds i8, ptr %rctx.1, i64 24
   %23 = load ptr, ptr %wbio3.i42, align 8
-  %upd_arg.i43 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx.1, i64 0, i32 7
+  %upd_arg.i43 = getelementptr inbounds i8, ptr %rctx.1, i64 48
   %24 = load ptr, ptr %upd_arg.i43, align 8
   %call.i44 = call ptr %22(ptr noundef %23, ptr noundef %24, i32 noundef 0, i32 noundef %conv50) #9
   %cmp4.not.i45 = icmp eq ptr %call.i44, null
@@ -2576,15 +2573,15 @@ entry:
   br i1 %cmp.not, label %if.end7, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %upd_fn = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 6
+  %upd_fn = getelementptr inbounds i8, ptr %rctx, i64 40
   %0 = load ptr, ptr %upd_fn, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %wbio3 = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 4
+  %wbio3 = getelementptr inbounds i8, ptr %rctx, i64 24
   %1 = load ptr, ptr %wbio3, align 8
-  %upd_arg = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx, i64 0, i32 7
+  %upd_arg = getelementptr inbounds i8, ptr %rctx, i64 48
   %2 = load ptr, ptr %upd_arg, align 8
   %call = tail call ptr %0(ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %ok) #9
   %cmp4.not = icmp eq ptr %call, null
@@ -2629,14 +2626,14 @@ if.end7:                                          ; preds = %if.then3
   br i1 %cmp8, label %land.lhs.true.i, label %OSSL_HTTP_is_alive.exit
 
 OSSL_HTTP_is_alive.exit:                          ; preds = %if.end7
-  %keep_alive.i = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx.021, i64 0, i32 22
+  %keep_alive.i = getelementptr inbounds i8, ptr %rctx.021, i64 160
   %1 = load i32, ptr %keep_alive.i, align 8
   %cmp1.i.not = icmp eq i32 %1, 0
   br i1 %cmp1.i.not, label %land.lhs.true.i, label %if.end19
 
 land.lhs.true.i:                                  ; preds = %if.then3, %if.end7, %OSSL_HTTP_is_alive.exit
   %resp.024 = phi ptr [ %call6, %OSSL_HTTP_is_alive.exit ], [ null, %if.end7 ], [ null, %if.then3 ]
-  %upd_fn.i = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx.021, i64 0, i32 6
+  %upd_fn.i = getelementptr inbounds i8, ptr %rctx.021, i64 40
   %2 = load ptr, ptr %upd_fn.i, align 8
   %cmp1.not.i = icmp eq ptr %2, null
   br i1 %cmp1.not.i, label %OSSL_HTTP_close.exit.thread, label %if.then.i
@@ -2644,9 +2641,9 @@ land.lhs.true.i:                                  ; preds = %if.then3, %if.end7,
 if.then.i:                                        ; preds = %land.lhs.true.i
   %cmp12 = icmp ne ptr %resp.024, null
   %conv = zext i1 %cmp12 to i32
-  %wbio3.i = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx.021, i64 0, i32 4
+  %wbio3.i = getelementptr inbounds i8, ptr %rctx.021, i64 24
   %3 = load ptr, ptr %wbio3.i, align 8
-  %upd_arg.i = getelementptr inbounds %struct.ossl_http_req_ctx_st, ptr %rctx.021, i64 0, i32 7
+  %upd_arg.i = getelementptr inbounds i8, ptr %rctx.021, i64 48
   %4 = load ptr, ptr %upd_arg.i, align 8
   %call.i = tail call ptr %2(ptr noundef %3, ptr noundef %4, i32 noundef 0, i32 noundef %conv) #9
   %cmp4.not.i = icmp eq ptr %call.i, null

@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.crypto_ex_data_st = type { ptr, ptr }
 %struct.st_dynamic_fns = type { ptr, %struct.st_dynamic_MEM_fns }
 %struct.st_dynamic_MEM_fns = type { ptr, ptr, ptr }
-%struct.st_dynamic_data_ctx = type { ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i32, ptr }
 
 @dynamic_cmd_defns = internal constant [8 x %struct.ENGINE_CMD_DEFN_st] [%struct.ENGINE_CMD_DEFN_st { i32 200, ptr @.str.6, ptr @.str.7, i32 2 }, %struct.ENGINE_CMD_DEFN_st { i32 201, ptr @.str.8, ptr @.str.9, i32 1 }, %struct.ENGINE_CMD_DEFN_st { i32 202, ptr @.str.10, ptr @.str.11, i32 2 }, %struct.ENGINE_CMD_DEFN_st { i32 203, ptr @.str.12, ptr @.str.13, i32 1 }, %struct.ENGINE_CMD_DEFN_st { i32 204, ptr @.str.14, ptr @.str.15, i32 1 }, %struct.ENGINE_CMD_DEFN_st { i32 205, ptr @.str.16, ptr @.str.17, i32 2 }, %struct.ENGINE_CMD_DEFN_st { i32 206, ptr @.str.18, ptr @.str.19, i32 4 }, %struct.ENGINE_CMD_DEFN_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [8 x i8] c"dynamic\00", align 1
@@ -182,7 +181,7 @@ land.lhs.true.i:                                  ; preds = %if.end10.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
   %call1.i.i = tail call ptr @OPENSSL_sk_new_null() #6
-  %dirs.i.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %call.i.i, i64 0, i32 10
+  %dirs.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store ptr %call1.i.i, ptr %dirs.i.i, align 8
   %cmp3.i.i = icmp eq ptr %call1.i.i, null
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end5.i.i
@@ -194,11 +193,11 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   br label %dynamic_get_data_ctx.exit
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %DYNAMIC_F1.i.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %call.i.i, i64 0, i32 7
+  %DYNAMIC_F1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
   store ptr @.str.3, ptr %DYNAMIC_F1.i.i, align 8
-  %DYNAMIC_F2.i.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %call.i.i, i64 0, i32 8
+  %DYNAMIC_F2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   store ptr @.str.4, ptr %DYNAMIC_F2.i.i, align 8
-  %dir_load.i.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %call.i.i, i64 0, i32 9
+  %dir_load.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 72
   store i32 1, ptr %dir_load.i.i, align 8
   %5 = load ptr, ptr @global_engine_lock, align 8
   %call6.i.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %5) #6
@@ -275,13 +274,13 @@ land.lhs.true:                                    ; preds = %sw.bb
   br i1 %cmp6, label %if.end8.thread, label %if.then10
 
 if.end8.thread:                                   ; preds = %sw.bb, %land.lhs.true
-  %DYNAMIC_LIBNAME61 = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 3
+  %DYNAMIC_LIBNAME61 = getelementptr inbounds i8, ptr %retval.0.i59, i64 24
   %12 = load ptr, ptr %DYNAMIC_LIBNAME61, align 8
   tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str.2, i32 noundef 315) #6
   br label %if.end14
 
 if.then10:                                        ; preds = %land.lhs.true
-  %DYNAMIC_LIBNAME = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 3
+  %DYNAMIC_LIBNAME = getelementptr inbounds i8, ptr %retval.0.i59, i64 24
   %13 = load ptr, ptr %DYNAMIC_LIBNAME, align 8
   tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 315) #6
   %call11 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %p, ptr noundef nonnull @.str.2, i32 noundef 317) #6
@@ -298,7 +297,7 @@ if.end14:                                         ; preds = %if.end8.thread, %if
 sw.bb18:                                          ; preds = %if.end3
   %cmp19 = icmp ne i64 %i, 0
   %cond20 = zext i1 %cmp19 to i32
-  %no_vcheck = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 4
+  %no_vcheck = getelementptr inbounds i8, ptr %retval.0.i59, i64 32
   store i32 %cond20, ptr %no_vcheck, align 8
   br label %return
 
@@ -312,13 +311,13 @@ land.lhs.true23:                                  ; preds = %sw.bb21
   br i1 %cmp25, label %if.end27.thread, label %if.then29
 
 if.end27.thread:                                  ; preds = %sw.bb21, %land.lhs.true23
-  %engine_id66 = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 5
+  %engine_id66 = getelementptr inbounds i8, ptr %retval.0.i59, i64 40
   %14 = load ptr, ptr %engine_id66, align 8
   tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str.2, i32 noundef 328) #6
   br label %if.end34
 
 if.then29:                                        ; preds = %land.lhs.true23
-  %engine_id = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 5
+  %engine_id = getelementptr inbounds i8, ptr %retval.0.i59, i64 40
   %15 = load ptr, ptr %engine_id, align 8
   tail call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.2, i32 noundef 328) #6
   %call30 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %p, ptr noundef nonnull @.str.2, i32 noundef 330) #6
@@ -344,7 +343,7 @@ if.then41:                                        ; preds = %sw.bb38
 
 if.end42:                                         ; preds = %sw.bb38
   %conv = trunc i64 %i to i32
-  %list_add_value = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 6
+  %list_add_value = getelementptr inbounds i8, ptr %retval.0.i59, i64 48
   store i32 %conv, ptr %list_add_value, align 8
   br label %return
 
@@ -357,13 +356,13 @@ if.end.i50:                                       ; preds = %if.end3
   br i1 %cmp3.i, label %dynamic_load.exit, label %if.end5.i40
 
 if.end5.i40:                                      ; preds = %if.end.i50
-  %DYNAMIC_LIBNAME.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 3
+  %DYNAMIC_LIBNAME.i = getelementptr inbounds i8, ptr %retval.0.i59, i64 24
   %16 = load ptr, ptr %DYNAMIC_LIBNAME.i, align 8
   %tobool.not.i41 = icmp eq ptr %16, null
   br i1 %tobool.not.i41, label %if.then6.i, label %if.end16.i
 
 if.then6.i:                                       ; preds = %if.end5.i40
-  %engine_id.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 5
+  %engine_id.i = getelementptr inbounds i8, ptr %retval.0.i59, i64 40
   %17 = load ptr, ptr %engine_id.i, align 8
   %tobool7.not.i = icmp eq ptr %17, null
   br i1 %tobool7.not.i, label %dynamic_load.exit, label %if.end9.i
@@ -378,7 +377,7 @@ if.end9.i:                                        ; preds = %if.then6.i
 
 if.end16.i:                                       ; preds = %if.end9.i, %if.end5.i40
   %20 = phi ptr [ %call14.i, %if.end9.i ], [ %16, %if.end5.i40 ]
-  %dir_load.i.i42 = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 9
+  %dir_load.i.i42 = getelementptr inbounds i8, ptr %retval.0.i59, i64 72
   %21 = load i32, ptr %dir_load.i.i42, align 8
   %cmp.not.i.i = icmp eq i32 %21, 2
   br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %land.lhs.true.i.i
@@ -395,7 +394,7 @@ if.end.i.i46:                                     ; preds = %land.lhs.true.i.i
   br i1 %tobool.not.i.i47, label %if.then19.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i46, %if.end16.i
-  %dirs.i.i48 = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 10
+  %dirs.i.i48 = getelementptr inbounds i8, ptr %retval.0.i59, i64 80
   %23 = load ptr, ptr %dirs.i.i48, align 8
   %call4.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %23) #6
   %cmp5.i.i = icmp slt i32 %call4.i.i, 1
@@ -438,10 +437,10 @@ if.then19.i:                                      ; preds = %if.end22.i.i, %for.
 
 if.end23.i:                                       ; preds = %if.then21.i.i, %land.lhs.true.i.i
   %29 = load ptr, ptr %retval.0.i59, align 8
-  %DYNAMIC_F2.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 8
+  %DYNAMIC_F2.i = getelementptr inbounds i8, ptr %retval.0.i59, i64 64
   %30 = load ptr, ptr %DYNAMIC_F2.i, align 8
   %call25.i = tail call ptr @DSO_bind_func(ptr noundef %29, ptr noundef %30) #6
-  %bind_engine.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 2
+  %bind_engine.i = getelementptr inbounds i8, ptr %retval.0.i59, i64 16
   store ptr %call25.i, ptr %bind_engine.i, align 8
   %tobool26.not.i = icmp eq ptr %call25.i, null
   br i1 %tobool26.not.i, label %if.then27.i, label %if.end32.i
@@ -457,17 +456,17 @@ if.then27.i:                                      ; preds = %if.end23.i
   br label %dynamic_load.exit
 
 if.end32.i:                                       ; preds = %if.end23.i
-  %no_vcheck.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 4
+  %no_vcheck.i = getelementptr inbounds i8, ptr %retval.0.i59, i64 32
   %32 = load i32, ptr %no_vcheck.i, align 8
   %tobool33.not.i = icmp eq i32 %32, 0
   br i1 %tobool33.not.i, label %if.then34.i, label %if.end53.i
 
 if.then34.i:                                      ; preds = %if.end32.i
   %33 = load ptr, ptr %retval.0.i59, align 8
-  %DYNAMIC_F1.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 7
+  %DYNAMIC_F1.i = getelementptr inbounds i8, ptr %retval.0.i59, i64 56
   %34 = load ptr, ptr %DYNAMIC_F1.i, align 8
   %call36.i = tail call ptr @DSO_bind_func(ptr noundef %33, ptr noundef %34) #6
-  %v_check.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 1
+  %v_check.i = getelementptr inbounds i8, ptr %retval.0.i59, i64 8
   store ptr %call36.i, ptr %v_check.i, align 8
   %tobool38.not.i = icmp eq ptr %call36.i, null
   br i1 %tobool38.not.i, label %if.then46.i, label %if.then39.i
@@ -499,9 +498,9 @@ if.end53.i:                                       ; preds = %lor.lhs.false.i, %i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %cpy.i, ptr noundef nonnull align 8 dereferenceable(224) %e, i64 224, i1 false)
   %call54.i = tail call ptr @ENGINE_get_static_state() #6
   store ptr %call54.i, ptr %fns.i, align 8
-  %mem_fns.i = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns.i, i64 0, i32 1
-  %realloc_fn.i = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns.i, i64 0, i32 1, i32 1
-  %free_fn.i = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns.i, i64 0, i32 1, i32 2
+  %mem_fns.i = getelementptr inbounds i8, ptr %fns.i, i64 8
+  %realloc_fn.i = getelementptr inbounds i8, ptr %fns.i, i64 16
+  %free_fn.i = getelementptr inbounds i8, ptr %fns.i, i64 24
   call void @CRYPTO_get_mem_functions(ptr noundef nonnull %mem_fns.i, ptr noundef nonnull %realloc_fn.i, ptr noundef nonnull %free_fn.i) #6
   call void @engine_set_all_null(ptr noundef %e) #6
   %38 = load ptr, ptr %bind_engine.i, align 8
@@ -511,7 +510,7 @@ if.end53.i:                                       ; preds = %lor.lhs.false.i, %i
 
 lor.lhs.false60.i:                                ; preds = %if.end53.i
   %39 = load ptr, ptr %bind_engine.i, align 8
-  %engine_id62.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 5
+  %engine_id62.i = getelementptr inbounds i8, ptr %retval.0.i59, i64 40
   %40 = load ptr, ptr %engine_id62.i, align 8
   %call63.i = call i32 %39(ptr noundef nonnull %e, ptr noundef %40, ptr noundef nonnull %fns.i) #6
   %tobool64.not.i = icmp eq i32 %call63.i, 0
@@ -519,7 +518,7 @@ lor.lhs.false60.i:                                ; preds = %if.end53.i
 
 if.then65.i:                                      ; preds = %lor.lhs.false60.i, %if.end53.i
   call void @engine_remove_dynamic_id(ptr noundef nonnull %e, i32 noundef 1) #6
-  %v_check67.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 1
+  %v_check67.i = getelementptr inbounds i8, ptr %retval.0.i59, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %v_check67.i, i8 0, i64 16, i1 false)
   %41 = load ptr, ptr %retval.0.i59, align 8
   %call69.i = call i32 @DSO_free(ptr noundef %41) #6
@@ -531,7 +530,7 @@ if.then65.i:                                      ; preds = %lor.lhs.false60.i, 
   br label %dynamic_load.exit
 
 if.end71.i:                                       ; preds = %lor.lhs.false60.i
-  %list_add_value.i = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 6
+  %list_add_value.i = getelementptr inbounds i8, ptr %retval.0.i59, i64 48
   %42 = load i32, ptr %list_add_value.i, align 8
   %cmp72.i = icmp sgt i32 %42, 0
   br i1 %cmp72.i, label %if.then73.i, label %dynamic_load.exit
@@ -574,7 +573,7 @@ if.then51:                                        ; preds = %sw.bb45
 
 if.end52:                                         ; preds = %sw.bb45
   %conv53 = trunc i64 %i to i32
-  %dir_load = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 9
+  %dir_load = getelementptr inbounds i8, ptr %retval.0.i59, i64 72
   store i32 %conv53, ptr %dir_load, align 8
   br label %return
 
@@ -599,7 +598,7 @@ if.end62:                                         ; preds = %lor.lhs.false57
   br i1 %cmp64, label %return, label %if.end67
 
 if.end67:                                         ; preds = %if.end62
-  %dirs = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %retval.0.i59, i64 0, i32 10
+  %dirs = getelementptr inbounds i8, ptr %retval.0.i59, i64 80
   %44 = load ptr, ptr %dirs, align 8
   %call70 = tail call i32 @OPENSSL_sk_push(ptr noundef %44, ptr noundef nonnull %call63) #6
   %tobool71.not = icmp eq i32 %call70, 0
@@ -650,13 +649,13 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @DSO_free(ptr noundef %0) #6
-  %DYNAMIC_LIBNAME = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %ptr, i64 0, i32 3
+  %DYNAMIC_LIBNAME = getelementptr inbounds i8, ptr %ptr, i64 24
   %1 = load ptr, ptr %DYNAMIC_LIBNAME, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 144) #6
-  %engine_id = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %ptr, i64 0, i32 5
+  %engine_id = getelementptr inbounds i8, ptr %ptr, i64 40
   %2 = load ptr, ptr %engine_id, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef 145) #6
-  %dirs = getelementptr inbounds %struct.st_dynamic_data_ctx, ptr %ptr, i64 0, i32 10
+  %dirs = getelementptr inbounds i8, ptr %ptr, i64 80
   %3 = load ptr, ptr %dirs, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %3, ptr noundef nonnull @int_free_str) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %ptr, ptr noundef nonnull @.str.2, i32 noundef 147) #6

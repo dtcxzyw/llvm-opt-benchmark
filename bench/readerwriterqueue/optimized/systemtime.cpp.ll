@@ -32,7 +32,7 @@ seqcst.i:                                         ; preds = %entry, %if.then
   fence syncscope("singlethread") seq_cst
   %.fca.0.load = load i64, ptr %retval, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -61,7 +61,7 @@ seqcst.i:                                         ; preds = %lor.lhs.false
   %0 = load i64, ptr %t, align 8
   %sub = sub nsw i64 %0, %start.coerce0
   %conv = sitofp i64 %sub to double
-  %tv_nsec5 = getelementptr inbounds %struct.timespec, ptr %t, i64 0, i32 1
+  %tv_nsec5 = getelementptr inbounds i8, ptr %t, i64 8
   %1 = load i64, ptr %tv_nsec5, align 8
   %sub7 = sub nsw i64 %1, %start.coerce1
   %conv8 = sitofp i64 %sub7 to double

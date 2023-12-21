@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ffc_params.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/ffc/ffc_params.c\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"p\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c"q\00", align 1
@@ -35,11 +33,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @ossl_ffc_params_init(ptr nocapture noundef writeonly %params) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %params, i8 0, i64 96, i1 false)
-  %pcounter = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 6
+  %pcounter = getelementptr inbounds i8, ptr %params, i64 48
   store i32 -1, ptr %pcounter, align 8
-  %gindex = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 8
+  %gindex = getelementptr inbounds i8, ptr %params, i64 56
   store i32 -1, ptr %gindex, align 8
-  %flags = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 10
+  %flags = getelementptr inbounds i8, ptr %params, i64 64
   store i32 3, ptr %flags, align 8
   ret void
 }
@@ -52,24 +50,24 @@ define void @ossl_ffc_params_cleanup(ptr nocapture noundef %params) local_unname
 entry:
   %0 = load ptr, ptr %params, align 8
   tail call void @BN_free(ptr noundef %0) #6
-  %q = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %params, i64 8
   %1 = load ptr, ptr %q, align 8
   tail call void @BN_free(ptr noundef %1) #6
-  %g = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 2
+  %g = getelementptr inbounds i8, ptr %params, i64 16
   %2 = load ptr, ptr %g, align 8
   tail call void @BN_free(ptr noundef %2) #6
-  %j = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 3
+  %j = getelementptr inbounds i8, ptr %params, i64 24
   %3 = load ptr, ptr %j, align 8
   tail call void @BN_free(ptr noundef %3) #6
-  %seed = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 4
+  %seed = getelementptr inbounds i8, ptr %params, i64 32
   %4 = load ptr, ptr %seed, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 34) #6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %params, i8 0, i64 96, i1 false)
-  %pcounter.i = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 6
+  %pcounter.i = getelementptr inbounds i8, ptr %params, i64 48
   store i32 -1, ptr %pcounter.i, align 8
-  %gindex.i = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 8
+  %gindex.i = getelementptr inbounds i8, ptr %params, i64 56
   store i32 -1, ptr %gindex.i, align 8
-  %flags.i = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 10
+  %flags.i = getelementptr inbounds i8, ptr %params, i64 64
   store i32 3, ptr %flags.i, align 8
   ret void
 }
@@ -99,7 +97,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br i1 %cmp5.not, label %if.end12, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %if.end
-  %q7 = getelementptr inbounds %struct.ffc_params_st, ptr %d, i64 0, i32 1
+  %q7 = getelementptr inbounds i8, ptr %d, i64 8
   %1 = load ptr, ptr %q7, align 8
   %cmp8.not = icmp eq ptr %1, %q
   br i1 %cmp8.not, label %if.end12, label %if.then9
@@ -114,7 +112,7 @@ if.end12:                                         ; preds = %if.then9, %land.lhs
   br i1 %cmp13.not, label %if.end20, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %if.end12
-  %g15 = getelementptr inbounds %struct.ffc_params_st, ptr %d, i64 0, i32 2
+  %g15 = getelementptr inbounds i8, ptr %d, i64 16
   %2 = load ptr, ptr %g15, align 8
   %cmp16.not = icmp eq ptr %2, %g
   br i1 %cmp16.not, label %if.end20, label %if.then17
@@ -144,7 +142,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %q4 = getelementptr inbounds %struct.ffc_params_st, ptr %d, i64 0, i32 1
+  %q4 = getelementptr inbounds i8, ptr %d, i64 8
   %1 = load ptr, ptr %q4, align 8
   store ptr %1, ptr %q, align 8
   br label %if.end5
@@ -154,7 +152,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
   br i1 %cmp6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %g8 = getelementptr inbounds %struct.ffc_params_st, ptr %d, i64 0, i32 2
+  %g8 = getelementptr inbounds i8, ptr %d, i64 16
   %2 = load ptr, ptr %g8, align 8
   store ptr %2, ptr %g, align 8
   br label %if.end9
@@ -166,7 +164,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 ; Function Attrs: nounwind uwtable
 define void @ossl_ffc_params_set0_j(ptr nocapture noundef %d, ptr noundef %j) local_unnamed_addr #2 {
 entry:
-  %j1 = getelementptr inbounds %struct.ffc_params_st, ptr %d, i64 0, i32 3
+  %j1 = getelementptr inbounds i8, ptr %d, i64 24
   %0 = load ptr, ptr %j1, align 8
   tail call void @BN_free(ptr noundef %0) #6
   store ptr %j, ptr %j1, align 8
@@ -176,7 +174,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ffc_params_set_seed(ptr nocapture noundef %params, ptr noundef %seed, i64 noundef %seedlen) local_unnamed_addr #2 {
 entry:
-  %seed1 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 4
+  %seed1 = getelementptr inbounds i8, ptr %params, i64 32
   %0 = load ptr, ptr %seed1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end6, label %if.then
@@ -202,7 +200,7 @@ if.then9:                                         ; preds = %if.end6
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.then9
-  %seedlen15 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 5
+  %seedlen15 = getelementptr inbounds i8, ptr %params, i64 40
   store i64 %seedlen, ptr %seedlen15, align 8
   br label %return
 
@@ -220,7 +218,7 @@ declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_ffc_params_set_gindex(ptr nocapture noundef writeonly %params, i32 noundef %index) local_unnamed_addr #5 {
 entry:
-  %gindex = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 8
+  %gindex = getelementptr inbounds i8, ptr %params, i64 56
   store i32 %index, ptr %gindex, align 8
   ret void
 }
@@ -228,7 +226,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_ffc_params_set_pcounter(ptr nocapture noundef writeonly %params, i32 noundef %index) local_unnamed_addr #5 {
 entry:
-  %pcounter = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 6
+  %pcounter = getelementptr inbounds i8, ptr %params, i64 48
   store i32 %index, ptr %pcounter, align 8
   ret void
 }
@@ -236,7 +234,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_ffc_params_set_h(ptr nocapture noundef writeonly %params, i32 noundef %index) local_unnamed_addr #5 {
 entry:
-  %h = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 9
+  %h = getelementptr inbounds i8, ptr %params, i64 60
   store i32 %index, ptr %h, align 4
   ret void
 }
@@ -244,7 +242,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_ffc_params_set_flags(ptr nocapture noundef writeonly %params, i32 noundef %flags) local_unnamed_addr #5 {
 entry:
-  %flags1 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 10
+  %flags1 = getelementptr inbounds i8, ptr %params, i64 64
   store i32 %flags, ptr %flags1, align 8
   ret void
 }
@@ -256,7 +254,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags1 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 10
+  %flags1 = getelementptr inbounds i8, ptr %params, i64 64
   %0 = load i32, ptr %flags1, align 8
   %or = or i32 %0, %flags
   store i32 %or, ptr %flags1, align 8
@@ -264,7 +262,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %not = xor i32 %flags, -1
-  %flags2 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 10
+  %flags2 = getelementptr inbounds i8, ptr %params, i64 64
   %1 = load i32, ptr %flags2, align 8
   %and = and i32 %1, %not
   store i32 %and, ptr %flags2, align 8
@@ -277,9 +275,9 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_ffc_set_digest(ptr nocapture noundef writeonly %params, ptr noundef %alg, ptr noundef %props) local_unnamed_addr #5 {
 entry:
-  %mdname = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 11
+  %mdname = getelementptr inbounds i8, ptr %params, i64 72
   store ptr %alg, ptr %mdname, align 8
-  %mdprops = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 12
+  %mdprops = getelementptr inbounds i8, ptr %params, i64 80
   store ptr %props, ptr %mdprops, align 8
   ret void
 }
@@ -287,7 +285,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ffc_params_set_validate_params(ptr nocapture noundef %params, ptr noundef %seed, i64 noundef %seedlen, i32 noundef %counter) local_unnamed_addr #2 {
 entry:
-  %seed1.i = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 4
+  %seed1.i = getelementptr inbounds i8, ptr %params, i64 32
   %0 = load ptr, ptr %seed1.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.end6.i, label %if.then.i
@@ -313,7 +311,7 @@ if.then9.i:                                       ; preds = %if.end6.i
   br i1 %cmp12.i, label %return, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then9.i
-  %seedlen15.i = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 5
+  %seedlen15.i = getelementptr inbounds i8, ptr %params, i64 40
   store i64 %seedlen, ptr %seedlen15.i, align 8
   br label %if.end
 
@@ -322,7 +320,7 @@ if.else.i:                                        ; preds = %if.end6.i
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i, %if.else.i, %if.end14.i
-  %pcounter = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 6
+  %pcounter = getelementptr inbounds i8, ptr %params, i64 48
   store i32 %counter, ptr %pcounter, align 8
   br label %return
 
@@ -338,7 +336,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %seed1 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 4
+  %seed1 = getelementptr inbounds i8, ptr %params, i64 32
   %0 = load ptr, ptr %seed1, align 8
   store ptr %0, ptr %seed, align 8
   br label %if.end
@@ -348,7 +346,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %seedlen4 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 5
+  %seedlen4 = getelementptr inbounds i8, ptr %params, i64 40
   %1 = load i64, ptr %seedlen4, align 8
   store i64 %1, ptr %seedlen, align 8
   br label %if.end5
@@ -358,7 +356,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
   br i1 %cmp6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %pcounter8 = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 6
+  %pcounter8 = getelementptr inbounds i8, ptr %params, i64 48
   %2 = load i32, ptr %pcounter8, align 8
   store i32 %2, ptr %pcounter, align 4
   br label %if.end9
@@ -394,8 +392,8 @@ lor.lhs.false:                                    ; preds = %if.else4.i, %land.l
   %1 = load ptr, ptr %dst, align 8
   tail call void @BN_clear_free(ptr noundef %1) #6
   store ptr %a.0.i, ptr %dst, align 8
-  %g = getelementptr inbounds %struct.ffc_params_st, ptr %dst, i64 0, i32 2
-  %g2 = getelementptr inbounds %struct.ffc_params_st, ptr %src, i64 0, i32 2
+  %g = getelementptr inbounds i8, ptr %dst, i64 16
+  %g2 = getelementptr inbounds i8, ptr %src, i64 16
   %2 = load ptr, ptr %g2, align 8
   %cmp.i32 = icmp eq ptr %2, null
   br i1 %cmp.i32, label %lor.lhs.false5, label %if.else.i33
@@ -420,8 +418,8 @@ lor.lhs.false5:                                   ; preds = %if.else4.i39, %land
   %3 = load ptr, ptr %g, align 8
   tail call void @BN_clear_free(ptr noundef %3) #6
   store ptr %a.0.i43, ptr %g, align 8
-  %q = getelementptr inbounds %struct.ffc_params_st, ptr %dst, i64 0, i32 1
-  %q6 = getelementptr inbounds %struct.ffc_params_st, ptr %src, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %dst, i64 8
+  %q6 = getelementptr inbounds i8, ptr %src, i64 8
   %4 = load ptr, ptr %q6, align 8
   %cmp.i46 = icmp eq ptr %4, null
   br i1 %cmp.i46, label %lor.lhs.false9, label %if.else.i47
@@ -446,8 +444,8 @@ lor.lhs.false9:                                   ; preds = %if.else4.i53, %land
   %5 = load ptr, ptr %q, align 8
   tail call void @BN_clear_free(ptr noundef %5) #6
   store ptr %a.0.i57, ptr %q, align 8
-  %j = getelementptr inbounds %struct.ffc_params_st, ptr %dst, i64 0, i32 3
-  %j10 = getelementptr inbounds %struct.ffc_params_st, ptr %src, i64 0, i32 3
+  %j = getelementptr inbounds i8, ptr %dst, i64 24
+  %j10 = getelementptr inbounds i8, ptr %src, i64 24
   %6 = load ptr, ptr %j10, align 8
   %cmp.i60 = icmp eq ptr %6, null
   br i1 %cmp.i60, label %if.end, label %if.else.i61
@@ -472,22 +470,22 @@ if.end:                                           ; preds = %if.else4.i67, %land
   %7 = load ptr, ptr %j, align 8
   tail call void @BN_clear_free(ptr noundef %7) #6
   store ptr %a.0.i71, ptr %j, align 8
-  %mdname = getelementptr inbounds %struct.ffc_params_st, ptr %src, i64 0, i32 11
+  %mdname = getelementptr inbounds i8, ptr %src, i64 72
   %8 = load ptr, ptr %mdname, align 8
-  %mdname13 = getelementptr inbounds %struct.ffc_params_st, ptr %dst, i64 0, i32 11
+  %mdname13 = getelementptr inbounds i8, ptr %dst, i64 72
   store ptr %8, ptr %mdname13, align 8
-  %mdprops = getelementptr inbounds %struct.ffc_params_st, ptr %src, i64 0, i32 12
+  %mdprops = getelementptr inbounds i8, ptr %src, i64 80
   %9 = load ptr, ptr %mdprops, align 8
-  %mdprops14 = getelementptr inbounds %struct.ffc_params_st, ptr %dst, i64 0, i32 12
+  %mdprops14 = getelementptr inbounds i8, ptr %dst, i64 80
   store ptr %9, ptr %mdprops14, align 8
-  %seed = getelementptr inbounds %struct.ffc_params_st, ptr %dst, i64 0, i32 4
+  %seed = getelementptr inbounds i8, ptr %dst, i64 32
   %10 = load ptr, ptr %seed, align 8
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 183) #6
-  %seedlen = getelementptr inbounds %struct.ffc_params_st, ptr %src, i64 0, i32 5
+  %seedlen = getelementptr inbounds i8, ptr %src, i64 40
   %11 = load i64, ptr %seedlen, align 8
-  %seedlen15 = getelementptr inbounds %struct.ffc_params_st, ptr %dst, i64 0, i32 5
+  %seedlen15 = getelementptr inbounds i8, ptr %dst, i64 40
   store i64 %11, ptr %seedlen15, align 8
-  %seed16 = getelementptr inbounds %struct.ffc_params_st, ptr %src, i64 0, i32 4
+  %seed16 = getelementptr inbounds i8, ptr %src, i64 32
   %12 = load ptr, ptr %seed16, align 8
   %cmp.not = icmp eq ptr %12, null
   br i1 %cmp.not, label %if.else, label %if.then17
@@ -503,29 +501,29 @@ if.else:                                          ; preds = %if.end
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then17, %if.else
-  %nid = getelementptr inbounds %struct.ffc_params_st, ptr %src, i64 0, i32 7
+  %nid = getelementptr inbounds i8, ptr %src, i64 52
   %13 = load i32, ptr %nid, align 4
-  %nid28 = getelementptr inbounds %struct.ffc_params_st, ptr %dst, i64 0, i32 7
+  %nid28 = getelementptr inbounds i8, ptr %dst, i64 52
   store i32 %13, ptr %nid28, align 4
-  %pcounter = getelementptr inbounds %struct.ffc_params_st, ptr %src, i64 0, i32 6
+  %pcounter = getelementptr inbounds i8, ptr %src, i64 48
   %14 = load i32, ptr %pcounter, align 8
-  %pcounter29 = getelementptr inbounds %struct.ffc_params_st, ptr %dst, i64 0, i32 6
+  %pcounter29 = getelementptr inbounds i8, ptr %dst, i64 48
   store i32 %14, ptr %pcounter29, align 8
-  %h = getelementptr inbounds %struct.ffc_params_st, ptr %src, i64 0, i32 9
+  %h = getelementptr inbounds i8, ptr %src, i64 60
   %15 = load i32, ptr %h, align 4
-  %h30 = getelementptr inbounds %struct.ffc_params_st, ptr %dst, i64 0, i32 9
+  %h30 = getelementptr inbounds i8, ptr %dst, i64 60
   store i32 %15, ptr %h30, align 4
-  %gindex = getelementptr inbounds %struct.ffc_params_st, ptr %src, i64 0, i32 8
+  %gindex = getelementptr inbounds i8, ptr %src, i64 56
   %16 = load i32, ptr %gindex, align 8
-  %gindex31 = getelementptr inbounds %struct.ffc_params_st, ptr %dst, i64 0, i32 8
+  %gindex31 = getelementptr inbounds i8, ptr %dst, i64 56
   store i32 %16, ptr %gindex31, align 8
-  %flags = getelementptr inbounds %struct.ffc_params_st, ptr %src, i64 0, i32 10
+  %flags = getelementptr inbounds i8, ptr %src, i64 64
   %17 = load i32, ptr %flags, align 8
-  %flags32 = getelementptr inbounds %struct.ffc_params_st, ptr %dst, i64 0, i32 10
+  %flags32 = getelementptr inbounds i8, ptr %dst, i64 64
   store i32 %17, ptr %flags32, align 8
-  %keylength = getelementptr inbounds %struct.ffc_params_st, ptr %src, i64 0, i32 13
+  %keylength = getelementptr inbounds i8, ptr %src, i64 88
   %18 = load i32, ptr %keylength, align 8
-  %keylength33 = getelementptr inbounds %struct.ffc_params_st, ptr %dst, i64 0, i32 13
+  %keylength33 = getelementptr inbounds i8, ptr %dst, i64 88
   store i32 %18, ptr %keylength33, align 8
   br label %return
 
@@ -544,9 +542,9 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %g = getelementptr inbounds %struct.ffc_params_st, ptr %a, i64 0, i32 2
+  %g = getelementptr inbounds i8, ptr %a, i64 16
   %2 = load ptr, ptr %g, align 8
-  %g2 = getelementptr inbounds %struct.ffc_params_st, ptr %b, i64 0, i32 2
+  %g2 = getelementptr inbounds i8, ptr %b, i64 16
   %3 = load ptr, ptr %g2, align 8
   %call3 = tail call i32 @BN_cmp(ptr noundef %2, ptr noundef %3) #6
   %cmp4 = icmp eq i32 %call3, 0
@@ -557,9 +555,9 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %tobool.not, label %lor.rhs, label %land.end
 
 lor.rhs:                                          ; preds = %land.rhs
-  %q = getelementptr inbounds %struct.ffc_params_st, ptr %a, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %a, i64 8
   %4 = load ptr, ptr %q, align 8
-  %q5 = getelementptr inbounds %struct.ffc_params_st, ptr %b, i64 0, i32 1
+  %q5 = getelementptr inbounds i8, ptr %b, i64 8
   %5 = load ptr, ptr %q5, align 8
   %call6 = tail call i32 @BN_cmp(ptr noundef %4, ptr noundef %5) #6
   %cmp7 = icmp eq i32 %call6, 0
@@ -586,7 +584,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %q = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %ffc, i64 8
   %1 = load ptr, ptr %q, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end8, label %land.lhs.true3
@@ -597,7 +595,7 @@ land.lhs.true3:                                   ; preds = %if.end
   br i1 %tobool6.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %land.lhs.true3, %if.end
-  %g = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 2
+  %g = getelementptr inbounds i8, ptr %ffc, i64 16
   %2 = load ptr, ptr %g, align 8
   %cmp9.not = icmp eq ptr %2, null
   br i1 %cmp9.not, label %if.end15, label %land.lhs.true10
@@ -608,7 +606,7 @@ land.lhs.true10:                                  ; preds = %if.end8
   br i1 %tobool13.not, label %return, label %if.end15
 
 if.end15:                                         ; preds = %land.lhs.true10, %if.end8
-  %j = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 3
+  %j = getelementptr inbounds i8, ptr %ffc, i64 24
   %3 = load ptr, ptr %j, align 8
   %cmp16.not = icmp eq ptr %3, null
   br i1 %cmp16.not, label %if.end22, label %land.lhs.true17
@@ -619,41 +617,41 @@ land.lhs.true17:                                  ; preds = %if.end15
   br i1 %tobool20.not, label %return, label %if.end22
 
 if.end22:                                         ; preds = %land.lhs.true17, %if.end15
-  %gindex = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 8
+  %gindex = getelementptr inbounds i8, ptr %ffc, i64 56
   %4 = load i32, ptr %gindex, align 8
   %call23 = tail call i32 @ossl_param_build_set_int(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str.5, i32 noundef %4) #6
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %return, label %if.end26
 
 if.end26:                                         ; preds = %if.end22
-  %pcounter = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 6
+  %pcounter = getelementptr inbounds i8, ptr %ffc, i64 48
   %5 = load i32, ptr %pcounter, align 8
   %call27 = tail call i32 @ossl_param_build_set_int(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str.6, i32 noundef %5) #6
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %return, label %if.end30
 
 if.end30:                                         ; preds = %if.end26
-  %h = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 9
+  %h = getelementptr inbounds i8, ptr %ffc, i64 60
   %6 = load i32, ptr %h, align 4
   %call31 = tail call i32 @ossl_param_build_set_int(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str.7, i32 noundef %6) #6
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.end30
-  %seed = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 4
+  %seed = getelementptr inbounds i8, ptr %ffc, i64 32
   %7 = load ptr, ptr %seed, align 8
   %cmp35.not = icmp eq ptr %7, null
   br i1 %cmp35.not, label %if.end41, label %land.lhs.true36
 
 land.lhs.true36:                                  ; preds = %if.end34
-  %seedlen = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 5
+  %seedlen = getelementptr inbounds i8, ptr %ffc, i64 40
   %8 = load i64, ptr %seedlen, align 8
   %call38 = tail call i32 @ossl_param_build_set_octet_string(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str.8, ptr noundef nonnull %7, i64 noundef %8) #6
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %return, label %if.end41
 
 if.end41:                                         ; preds = %land.lhs.true36, %if.end34
-  %nid = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 7
+  %nid = getelementptr inbounds i8, ptr %ffc, i64 52
   %9 = load i32, ptr %nid, align 4
   %cmp42.not = icmp eq i32 %9, 0
   br i1 %cmp42.not, label %if.end52, label %if.then43
@@ -670,7 +668,7 @@ lor.lhs.false:                                    ; preds = %if.then43
   br i1 %tobool49.not, label %return, label %if.end52
 
 if.end52:                                         ; preds = %lor.lhs.false, %if.end41
-  %flags = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 10
+  %flags = getelementptr inbounds i8, ptr %ffc, i64 64
   %10 = load i32, ptr %flags, align 8
   %and = and i32 %10, 1
   %call54 = tail call i32 @ossl_param_build_set_int(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str.10, i32 noundef %and) #6
@@ -694,7 +692,7 @@ if.end65:                                         ; preds = %if.end57
   br i1 %tobool71.not, label %return, label %if.end73
 
 if.end73:                                         ; preds = %if.end65
-  %mdname = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 11
+  %mdname = getelementptr inbounds i8, ptr %ffc, i64 72
   %13 = load ptr, ptr %mdname, align 8
   %cmp74.not = icmp eq ptr %13, null
   br i1 %cmp74.not, label %if.end81, label %land.lhs.true76
@@ -705,7 +703,7 @@ land.lhs.true76:                                  ; preds = %if.end73
   br i1 %tobool79.not, label %return, label %if.end81
 
 if.end81:                                         ; preds = %land.lhs.true76, %if.end73
-  %mdprops = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 12
+  %mdprops = getelementptr inbounds i8, ptr %ffc, i64 80
   %14 = load ptr, ptr %mdprops, align 8
   %cmp82.not = icmp eq ptr %14, null
   br i1 %cmp82.not, label %if.end89, label %land.lhs.true84
@@ -744,14 +742,14 @@ entry:
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %g = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 2
+  %g = getelementptr inbounds i8, ptr %ffc, i64 16
   %1 = load ptr, ptr %g, align 8
   %call1 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.16, ptr noundef %1, ptr noundef null, i32 noundef %indent) #6
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %err, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %q = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %ffc, i64 8
   %2 = load ptr, ptr %q, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end9, label %land.lhs.true
@@ -762,7 +760,7 @@ land.lhs.true:                                    ; preds = %if.end4
   br i1 %tobool7.not, label %err, label %if.end9
 
 if.end9:                                          ; preds = %land.lhs.true, %if.end4
-  %j = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 3
+  %j = getelementptr inbounds i8, ptr %ffc, i64 24
   %3 = load ptr, ptr %j, align 8
   %cmp10.not = icmp eq ptr %3, null
   br i1 %cmp10.not, label %if.end16, label %land.lhs.true11
@@ -773,7 +771,7 @@ land.lhs.true11:                                  ; preds = %if.end9
   br i1 %tobool14.not, label %err, label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true11, %if.end9
-  %seed = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 4
+  %seed = getelementptr inbounds i8, ptr %ffc, i64 32
   %4 = load ptr, ptr %seed, align 8
   %cmp17.not = icmp eq ptr %4, null
   br i1 %cmp17.not, label %if.end51, label %if.then18
@@ -789,7 +787,7 @@ lor.lhs.false:                                    ; preds = %if.then18
   br i1 %cmp22, label %err, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
-  %seedlen = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 5
+  %seedlen = getelementptr inbounds i8, ptr %ffc, i64 40
   %add = add nsw i32 %indent, 4
   br label %for.cond
 
@@ -837,7 +835,7 @@ for.end:                                          ; preds = %for.cond
   br i1 %cmp47, label %return, label %if.end51
 
 if.end51:                                         ; preds = %for.end, %if.end16
-  %pcounter = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 6
+  %pcounter = getelementptr inbounds i8, ptr %ffc, i64 48
   %9 = load i32, ptr %pcounter, align 8
   %cmp52.not = icmp eq i32 %9, -1
   br i1 %cmp52.not, label %return, label %if.then54

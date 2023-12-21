@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @OPT_SECTION_STR = external constant [0 x i8], align 1
 @.str = private unnamed_addr constant [18 x i8] c"General options:\0A\00", align 1
@@ -232,7 +227,7 @@ if.end55:                                         ; preds = %if.then47, %if.end5
   %call51122 = phi ptr [ %call51, %if.end55 ], [ %call51119, %if.then47 ]
   %tmp.0121 = phi i64 [ %inc, %if.end55 ], [ 0, %if.then47 ]
   %4 = load ptr, ptr @bio_err, align 8
-  %sname = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %call51122, i64 0, i32 6
+  %sname = getelementptr inbounds i8, ptr %call51122, i64 48
   %5 = load ptr, ptr %sname, align 8
   %call56 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %4, ptr noundef nonnull @.str.41, ptr noundef %5) #3
   %inc = add i64 %tmp.0121, 1
@@ -303,10 +298,10 @@ if.then101:                                       ; preds = %if.then97
 
 if.end103:                                        ; preds = %if.then97
   %10 = load ptr, ptr %str, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %call84, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call84, i64 8
   store ptr %10, ptr %data, align 8
   %11 = load i64, ptr %num, align 8
-  %max = getelementptr inbounds %struct.buf_mem_st, ptr %call84, i64 0, i32 2
+  %max = getelementptr inbounds i8, ptr %call84, i64 16
   store i64 %11, ptr %max, align 8
   store i64 %11, ptr %call84, align 8
   br label %if.end147
@@ -358,7 +353,7 @@ if.end130:                                        ; preds = %if.end128, %if.else
   br i1 %tobool133.not124, label %end, label %if.end135.lr.ph
 
 if.end135.lr.ph:                                  ; preds = %if.end130
-  %data136 = getelementptr inbounds %struct.buf_mem_st, ptr %call84, i64 0, i32 1
+  %data136 = getelementptr inbounds i8, ptr %call84, i64 8
   br label %if.end135
 
 if.end135:                                        ; preds = %if.end135.lr.ph, %if.end141
@@ -382,7 +377,7 @@ if.end141:                                        ; preds = %if.end135
 if.end145:                                        ; preds = %if.end135, %if.then111
   %b64.1 = phi ptr [ null, %if.then111 ], [ %b64.0, %if.end135 ]
   %in.1 = phi ptr [ %call73, %if.then111 ], [ %in.0, %if.end135 ]
-  %data146 = getelementptr inbounds %struct.buf_mem_st, ptr %call84, i64 0, i32 1
+  %data146 = getelementptr inbounds i8, ptr %call84, i64 8
   %17 = load ptr, ptr %data146, align 8
   store ptr %17, ptr %str, align 8
   br label %if.end147
@@ -456,9 +451,9 @@ if.then187:                                       ; preds = %if.end177, %if.end1
   br label %end
 
 if.end190:                                        ; preds = %if.end177
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %call173, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call173, i64 8
   %25 = load ptr, ptr %value, align 8
-  %data191 = getelementptr inbounds %struct.asn1_string_st, ptr %25, i64 0, i32 2
+  %data191 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %data191, align 8
   %27 = load i32, ptr %25, align 8
   %conv194 = sext i32 %27 to i64
@@ -541,7 +536,7 @@ if.then237:                                       ; preds = %if.then232
 
 if.then243:                                       ; preds = %if.then237
   %35 = load ptr, ptr @bio_err, align 8
-  %sname244 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it.0, i64 0, i32 6
+  %sname244 = getelementptr inbounds i8, ptr %it.0, i64 48
   %36 = load ptr, ptr %sname244, align 8
   %call245 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.48, ptr noundef %36) #3
   %37 = load ptr, ptr @bio_err, align 8
@@ -682,7 +677,7 @@ if.end19:                                         ; preds = %if.end15
   br i1 %tobool.not, label %err, label %if.end22
 
 if.end22:                                         ; preds = %if.end19
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %buf, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load ptr, ptr %data, align 8
   store ptr %1, ptr %p, align 8
   %call23 = call i32 @i2d_ASN1_TYPE(ptr noundef nonnull %call12, ptr noundef nonnull %p) #3

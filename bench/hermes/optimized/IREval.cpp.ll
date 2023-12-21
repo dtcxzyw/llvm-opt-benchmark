@@ -3,31 +3,16 @@ source_filename = "bench/hermes/original/IREval.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.hermes::LiteralNumber" = type { %"class.hermes::Literal", %"class.llvh::FoldingSetBase::Node", double }
-%"class.hermes::Literal" = type { %"class.hermes::Value" }
-%"class.hermes::Value" = type { i8, %"class.hermes::Type", %"class.llvh::SmallVector" }
-%"class.hermes::Type" = type { i16, i16 }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvh::SmallVectorStorage" = type { [2 x %"struct.llvh::AlignedCharArrayUnion"] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [8 x i8] }
-%"class.llvh::FoldingSetBase::Node" = type { ptr }
-%"class.hermes::LiteralBool" = type <{ %"class.hermes::Literal", i8, [7 x i8] }>
-%"class.hermes::LiteralString" = type { %"class.hermes::Literal", %"class.llvh::FoldingSetBase::Node", %"class.hermes::Identifier" }
-%"class.hermes::Identifier" = type { ptr }
-%"class.llvh::StringRef" = type { ptr, i64 }
 %"class.llvh::SmallString" = type { %"class.llvh::SmallVector.96" }
 %"class.llvh::SmallVector.96" = type { %"class.llvh::SmallVectorImpl.97", %"struct.llvh::SmallVectorStorage.100" }
 %"class.llvh::SmallVectorImpl.97" = type { %"class.llvh::SmallVectorTemplateBase.98" }
 %"class.llvh::SmallVectorTemplateBase.98" = type { %"class.llvh::SmallVectorTemplateCommon.99" }
 %"class.llvh::SmallVectorTemplateCommon.99" = type { %"class.llvh::SmallVectorBase" }
+%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvh::SmallVectorStorage.100" = type { [256 x %"struct.llvh::AlignedCharArrayUnion.101"] }
 %"struct.llvh::AlignedCharArrayUnion.101" = type { %"struct.llvh::AlignedCharArray.102" }
 %"struct.llvh::AlignedCharArray.102" = type { [1 x i8] }
+%"class.llvh::StringRef" = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [7 x i8] c"object\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"undefined\00", align 1
@@ -59,7 +44,7 @@ sw.bb:                                            ; preds = %entry
   ]
 
 if.then:                                          ; preds = %sw.bb
-  %value.i = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %operand, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %operand, i64 48
   %1 = load double, ptr %value.i, align 8
   %fneg = fneg double %1
   %call4 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %fneg) #6
@@ -70,7 +55,7 @@ sw.bb5:                                           ; preds = %sw.bb
   br label %return
 
 _ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i: ; preds = %sw.bb
-  %value.i.i.i = getelementptr inbounds %"class.hermes::LiteralBool", ptr %operand, i64 0, i32 1
+  %value.i.i.i = getelementptr inbounds i8, ptr %operand, i64 40
   %2 = load i8, ptr %value.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.i.i.i = icmp ne i8 %3, 0
@@ -79,7 +64,7 @@ _ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i: ; preds = %sw.bb
   br i1 %tobool.not.i, label %if.else, label %_ZN6hermes10evalIsTrueERNS_9IRBuilderEPNS_7LiteralE.exit
 
 _ZN6hermes10evalIsTrueERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i
-  %value.i.i = getelementptr inbounds %"class.hermes::LiteralBool", ptr %call15.i.i, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %call15.i.i, i64 40
   %4 = load i8, ptr %value.i.i, align 8
   %5 = and i8 %4, 1
   %tobool.i.i.not = icmp eq i8 %5, 0
@@ -139,22 +124,22 @@ sw.bb32:                                          ; preds = %entry
   ]
 
 sw.bb1.i.i55:                                     ; preds = %sw.bb32
-  %value.i.i.i56 = getelementptr inbounds %"class.hermes::LiteralBool", ptr %operand, i64 0, i32 1
+  %value.i.i.i56 = getelementptr inbounds i8, ptr %operand, i64 40
   %8 = load i8, ptr %value.i.i.i56, align 8
   %9 = and i8 %8, 1
   %tobool.i.i.i57 = icmp ne i8 %9, 0
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i45
 
 sw.bb4.i.i53:                                     ; preds = %sw.bb32
-  %value.i5.i.i54 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %operand, i64 0, i32 2
+  %value.i5.i.i54 = getelementptr inbounds i8, ptr %operand, i64 48
   %10 = load double, ptr %value.i5.i.i54, align 8
   %11 = fcmp one double %10, 0.000000e+00
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i45
 
 sw.bb9.i.i40:                                     ; preds = %sw.bb32
-  %value.i6.i.i41 = getelementptr inbounds %"class.hermes::LiteralString", ptr %operand, i64 0, i32 2
+  %value.i6.i.i41 = getelementptr inbounds i8, ptr %operand, i64 48
   %retval.sroa.0.0.copyload.i.i.i42 = load ptr, ptr %value.i6.i.i41, align 8
-  %Length.i.i.i43 = getelementptr inbounds %"class.llvh::StringRef", ptr %retval.sroa.0.0.copyload.i.i.i42, i64 0, i32 1
+  %Length.i.i.i43 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i.i42, i64 8
   %12 = load i64, ptr %Length.i.i.i43, align 8
   %cmp.i.i.i44 = icmp ne i64 %12, 0
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i45
@@ -166,7 +151,7 @@ _ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i45: ; preds = %sw.b
   br i1 %tobool.not.i48, label %if.end36thread-pre-split, label %_ZN6hermes10evalIsTrueERNS_9IRBuilderEPNS_7LiteralE.exit58
 
 _ZN6hermes10evalIsTrueERNS_9IRBuilderEPNS_7LiteralE.exit58: ; preds = %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i45
-  %value.i.i50 = getelementptr inbounds %"class.hermes::LiteralBool", ptr %call15.i.i47, i64 0, i32 1
+  %value.i.i50 = getelementptr inbounds i8, ptr %call15.i.i47, i64 40
   %13 = load i8, ptr %value.i.i50, align 8
   %14 = and i8 %13, 1
   %tobool.i.i51.not = icmp eq i8 %14, 0
@@ -191,22 +176,22 @@ if.end36:                                         ; preds = %if.end36thread-pre-
   ]
 
 sw.bb1.i.i73:                                     ; preds = %if.end36
-  %value.i.i.i74 = getelementptr inbounds %"class.hermes::LiteralBool", ptr %operand, i64 0, i32 1
+  %value.i.i.i74 = getelementptr inbounds i8, ptr %operand, i64 40
   %16 = load i8, ptr %value.i.i.i74, align 8
   %17 = and i8 %16, 1
   %tobool.i.i.i75 = icmp ne i8 %17, 0
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i64
 
 sw.bb4.i.i71:                                     ; preds = %if.end36
-  %value.i5.i.i72 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %operand, i64 0, i32 2
+  %value.i5.i.i72 = getelementptr inbounds i8, ptr %operand, i64 48
   %18 = load double, ptr %value.i5.i.i72, align 8
   %19 = fcmp one double %18, 0.000000e+00
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i64
 
 sw.bb9.i.i59:                                     ; preds = %if.end36
-  %value.i6.i.i60 = getelementptr inbounds %"class.hermes::LiteralString", ptr %operand, i64 0, i32 2
+  %value.i6.i.i60 = getelementptr inbounds i8, ptr %operand, i64 48
   %retval.sroa.0.0.copyload.i.i.i61 = load ptr, ptr %value.i6.i.i60, align 8
-  %Length.i.i.i62 = getelementptr inbounds %"class.llvh::StringRef", ptr %retval.sroa.0.0.copyload.i.i.i61, i64 0, i32 1
+  %Length.i.i.i62 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i.i61, i64 8
   %20 = load i64, ptr %Length.i.i.i62, align 8
   %cmp.i.i.i63 = icmp ne i64 %20, 0
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i64
@@ -218,7 +203,7 @@ _ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i64: ; preds = %sw.b
   br i1 %tobool.not.i67, label %return, label %_ZN6hermes11evalIsFalseERNS_9IRBuilderEPNS_7LiteralE.exit
 
 _ZN6hermes11evalIsFalseERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i64
-  %value.i.i69 = getelementptr inbounds %"class.hermes::LiteralBool", ptr %call15.i.i66, i64 0, i32 1
+  %value.i.i69 = getelementptr inbounds i8, ptr %call15.i.i66, i64 40
   %21 = load i8, ptr %value.i.i69, align 8
   %22 = and i8 %21, 1
   %tobool.i.not.i = icmp eq i8 %22, 0
@@ -240,7 +225,7 @@ sw.bb43:                                          ; preds = %entry
   ]
 
 if.then3.i:                                       ; preds = %sw.bb43
-  %value.i.i76 = getelementptr inbounds %"class.hermes::LiteralBool", ptr %operand, i64 0, i32 1
+  %value.i.i76 = getelementptr inbounds i8, ptr %operand, i64 40
   %24 = load i8, ptr %value.i.i76, align 8
   %25 = and i8 %24, 1
   %tobool.i.i77 = icmp ne i8 %25, 0
@@ -249,7 +234,7 @@ if.then3.i:                                       ; preds = %sw.bb43
   br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
 
 if.end6.i:                                        ; preds = %sw.bb43
-  %valueType.i.i = getelementptr inbounds %"class.hermes::Value", ptr %operand, i64 0, i32 1
+  %valueType.i.i = getelementptr inbounds i8, ptr %operand, i64 2
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %valueType.i.i, align 2
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i32 %retval.sroa.0.0.copyload.i.i to i16
   switch i16 %ref.tmp.sroa.0.0.extract.trunc.i, label %return [
@@ -272,7 +257,7 @@ _ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %if.then3.
 
 if.then47:                                        ; preds = %sw.bb43, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
   %retval.0.i78104 = phi ptr [ %retval.0.i78, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit ], [ %operand, %sw.bb43 ]
-  %value.i79 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %retval.0.i78104, i64 0, i32 2
+  %value.i79 = getelementptr inbounds i8, ptr %retval.0.i78104, i64 48
   %26 = load double, ptr %value.i79, align 8
   %add = fadd double %26, 1.000000e+00
   %call49 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %add) #6
@@ -286,7 +271,7 @@ sw.bb51:                                          ; preds = %entry
   ]
 
 if.then3.i80:                                     ; preds = %sw.bb51
-  %value.i.i81 = getelementptr inbounds %"class.hermes::LiteralBool", ptr %operand, i64 0, i32 1
+  %value.i.i81 = getelementptr inbounds i8, ptr %operand, i64 40
   %28 = load i8, ptr %value.i.i81, align 8
   %29 = and i8 %28, 1
   %tobool.i.i82 = icmp ne i8 %29, 0
@@ -295,7 +280,7 @@ if.then3.i80:                                     ; preds = %sw.bb51
   br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit94
 
 if.end6.i86:                                      ; preds = %sw.bb51
-  %valueType.i.i87 = getelementptr inbounds %"class.hermes::Value", ptr %operand, i64 0, i32 1
+  %valueType.i.i87 = getelementptr inbounds i8, ptr %operand, i64 2
   %retval.sroa.0.0.copyload.i.i88 = load i32, ptr %valueType.i.i87, align 2
   %ref.tmp.sroa.0.0.extract.trunc.i89 = trunc i32 %retval.sroa.0.0.copyload.i.i88 to i16
   switch i16 %ref.tmp.sroa.0.0.extract.trunc.i89, label %return [
@@ -318,7 +303,7 @@ _ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit94: ; preds = %if.then
 
 if.then55:                                        ; preds = %sw.bb51, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit94
   %retval.0.i85110 = phi ptr [ %retval.0.i85, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit94 ], [ %operand, %sw.bb51 ]
-  %value.i95 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %retval.0.i85110, i64 0, i32 2
+  %value.i95 = getelementptr inbounds i8, ptr %retval.0.i85110, i64 48
   %30 = load double, ptr %value.i95, align 8
   %sub = fadd double %30, -1.000000e+00
   %call57 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %sub) #6
@@ -346,22 +331,22 @@ entry:
   ]
 
 sw.bb1.i:                                         ; preds = %entry
-  %value.i.i = getelementptr inbounds %"class.hermes::LiteralBool", ptr %operand, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %operand, i64 40
   %1 = load i8, ptr %value.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i = icmp ne i8 %2, 0
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit
 
 sw.bb4.i:                                         ; preds = %entry
-  %value.i5.i = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %operand, i64 0, i32 2
+  %value.i5.i = getelementptr inbounds i8, ptr %operand, i64 48
   %3 = load double, ptr %value.i5.i, align 8
   %4 = fcmp one double %3, 0.000000e+00
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit
 
 sw.bb9.i:                                         ; preds = %entry
-  %value.i6.i = getelementptr inbounds %"class.hermes::LiteralString", ptr %operand, i64 0, i32 2
+  %value.i6.i = getelementptr inbounds i8, ptr %operand, i64 48
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %value.i6.i, align 8
-  %Length.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %retval.sroa.0.0.copyload.i.i, i64 0, i32 1
+  %Length.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i, i64 8
   %5 = load i64, ptr %Length.i.i, align 8
   %cmp.i.i = icmp ne i64 %5, 0
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit
@@ -373,7 +358,7 @@ _ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %entry, %
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit
-  %value.i = getelementptr inbounds %"class.hermes::LiteralBool", ptr %call15.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %call15.i, i64 40
   %6 = load i8, ptr %value.i, align 8
   %7 = and i8 %6, 1
   %tobool.i = icmp ne i8 %7, 0
@@ -403,22 +388,22 @@ entry:
   ]
 
 sw.bb1.i:                                         ; preds = %entry
-  %value.i.i = getelementptr inbounds %"class.hermes::LiteralBool", ptr %operand, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %operand, i64 40
   %1 = load i8, ptr %value.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i = icmp ne i8 %2, 0
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit
 
 sw.bb4.i:                                         ; preds = %entry
-  %value.i5.i = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %operand, i64 0, i32 2
+  %value.i5.i = getelementptr inbounds i8, ptr %operand, i64 48
   %3 = load double, ptr %value.i5.i, align 8
   %4 = fcmp one double %3, 0.000000e+00
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit
 
 sw.bb9.i:                                         ; preds = %entry
-  %value.i6.i = getelementptr inbounds %"class.hermes::LiteralString", ptr %operand, i64 0, i32 2
+  %value.i6.i = getelementptr inbounds i8, ptr %operand, i64 48
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %value.i6.i, align 8
-  %Length.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %retval.sroa.0.0.copyload.i.i, i64 0, i32 1
+  %Length.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i, i64 8
   %5 = load i64, ptr %Length.i.i, align 8
   %cmp.i.i = icmp ne i64 %5, 0
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit
@@ -430,7 +415,7 @@ _ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %entry, %
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit
-  %value.i = getelementptr inbounds %"class.hermes::LiteralBool", ptr %call15.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %call15.i, i64 40
   %6 = load i8, ptr %value.i, align 8
   %7 = and i8 %6, 1
   %tobool.i.not = icmp eq i8 %7, 0
@@ -453,7 +438,7 @@ entry:
   ]
 
 if.then3:                                         ; preds = %entry
-  %value.i = getelementptr inbounds %"class.hermes::LiteralBool", ptr %operand, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %operand, i64 40
   %1 = load i8, ptr %value.i, align 8
   %2 = and i8 %1, 1
   %tobool.i = icmp ne i8 %2, 0
@@ -462,7 +447,7 @@ if.then3:                                         ; preds = %entry
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %valueType.i = getelementptr inbounds %"class.hermes::Value", ptr %operand, i64 0, i32 1
+  %valueType.i = getelementptr inbounds i8, ptr %operand, i64 2
   %retval.sroa.0.0.copyload.i = load i32, ptr %valueType.i, align 2
   %ref.tmp.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.copyload.i to i16
   switch i16 %ref.tmp.sroa.0.0.extract.trunc, label %return [
@@ -500,10 +485,10 @@ entry:
   %ref.tmp400 = alloca %"class.llvh::StringRef", align 8
   %result420 = alloca %"class.llvh::SmallString", align 8
   %ref.tmp427 = alloca %"class.llvh::StringRef", align 8
-  %valueType.i = getelementptr inbounds %"class.hermes::Value", ptr %lhs, i64 0, i32 1
+  %valueType.i = getelementptr inbounds i8, ptr %lhs, i64 2
   %retval.sroa.0.0.copyload.i = load i32, ptr %valueType.i, align 2
   %leftTy.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.copyload.i to i16
-  %valueType.i262 = getelementptr inbounds %"class.hermes::Value", ptr %rhs, i64 0, i32 1
+  %valueType.i262 = getelementptr inbounds i8, ptr %rhs, i64 2
   %retval.sroa.0.0.copyload.i263 = load i32, ptr %valueType.i262, align 2
   %0 = load i8, ptr %lhs, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %0, 114
@@ -522,7 +507,7 @@ entry:
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i, label %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit
 
 if.then.i:                                        ; preds = %entry
-  %value.i.i = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %lhs, i64 0, i32 2
+  %value.i.i = getelementptr inbounds i8, ptr %lhs, i64 48
   %2 = load double, ptr %value.i.i, align 8
   %3 = fcmp uno double %2, 0.000000e+00
   br label %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit
@@ -532,7 +517,7 @@ _ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit:  ; preds = %entry, %if.then.i
   br i1 %cmp.i.i.i.i.i.i.i264, label %if.then.i280, label %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit282
 
 if.then.i280:                                     ; preds = %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit
-  %value.i.i281 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %rhs, i64 0, i32 2
+  %value.i.i281 = getelementptr inbounds i8, ptr %rhs, i64 48
   %4 = load double, ptr %value.i.i281, align 8
   %5 = fcmp uno double %4, 0.000000e+00
   br label %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit282
@@ -582,17 +567,17 @@ sw.bb28:                                          ; preds = %if.then
   br i1 %tobool29.not, label %if.end, label %if.then30
 
 if.then30:                                        ; preds = %sw.bb28
-  %value.i = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i275, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %spec.select.i275, i64 48
   %retval.sroa.0.0.copyload.i283 = load ptr, ptr %value.i, align 8
   %retval.sroa.0.0.copyload.i284 = load ptr, ptr %retval.sroa.0.0.copyload.i283, align 8
   %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i283, i64 8
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i, align 8
   store ptr @.str.5, ptr %ref.tmp34, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp34, i64 0, i32 1
+  %Length.i = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
   store i64 3, ptr %Length.i, align 8
   call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias nonnull align 8 %result, ptr %retval.sroa.0.0.copyload.i284, i64 %retval.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34)
   %10 = load ptr, ptr %result, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %result, i64 8
   %11 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %11 to i64
   %call37 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %10, i64 %conv.i.i) #6
@@ -610,17 +595,17 @@ if.end:                                           ; preds = %sw.bb28
   br i1 %tobool38.not, label %if.end51, label %if.then39
 
 if.then39:                                        ; preds = %if.end
-  %value.i287 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i277, i64 0, i32 2
+  %value.i287 = getelementptr inbounds i8, ptr %spec.select.i277, i64 48
   %retval.sroa.0.0.copyload.i288 = load ptr, ptr %value.i287, align 8
   %retval.sroa.0.0.copyload.i289 = load ptr, ptr %retval.sroa.0.0.copyload.i288, align 8
   %retval.sroa.2.0.call.sroa_idx.i290 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i288, i64 8
   %retval.sroa.2.0.copyload.i291 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i290, align 8
   store ptr %retval.sroa.0.0.copyload.i289, ptr %ref.tmp42, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp42, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
   store i64 %retval.sroa.2.0.copyload.i291, ptr %13, align 8
   call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias nonnull align 8 %result40, ptr nonnull @.str.5, i64 3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp42)
   %14 = load ptr, ptr %result40, align 8
-  %Size.i.i294 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result40, i64 0, i32 1
+  %Size.i.i294 = getelementptr inbounds i8, ptr %result40, i64 8
   %15 = load i32, ptr %Size.i.i294, align 8
   %conv.i.i295 = zext i32 %15 to i64
   %call50 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %14, i64 %conv.i.i295) #6
@@ -646,9 +631,9 @@ if.end56:                                         ; preds = %_ZN12_GLOBAL__N_15i
   br i1 %or.cond.i, label %if.end.i, label %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit
 
 if.end.i:                                         ; preds = %if.end56
-  %value.i.i302 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %lhs, i64 0, i32 2
+  %value.i.i302 = getelementptr inbounds i8, ptr %lhs, i64 48
   %17 = load double, ptr %value.i.i302, align 8
-  %value.i9.i = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %rhs, i64 0, i32 2
+  %value.i9.i = getelementptr inbounds i8, ptr %rhs, i64 48
   %18 = load double, ptr %value.i9.i, align 8
   %cmp.i = fcmp olt double %17, %18
   br i1 %cmp.i, label %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit, label %if.end6.i
@@ -731,9 +716,9 @@ if.end82:                                         ; preds = %if.end70
   br i1 %or.cond, label %if.then85, label %return
 
 if.then85:                                        ; preds = %if.end82
-  %value.i303 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i275, i64 0, i32 2
+  %value.i303 = getelementptr inbounds i8, ptr %spec.select.i275, i64 48
   %retval.sroa.0.0.copyload.i304 = load ptr, ptr %value.i303, align 8
-  %value.i305 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i277, i64 0, i32 2
+  %value.i305 = getelementptr inbounds i8, ptr %spec.select.i277, i64 48
   %retval.sroa.0.0.copyload.i306 = load ptr, ptr %value.i305, align 8
   %cmp.i307 = icmp eq ptr %retval.sroa.0.0.copyload.i304, %retval.sroa.0.0.copyload.i306
   %call94 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i307) #6
@@ -784,9 +769,9 @@ if.end122:                                        ; preds = %if.end110
   br i1 %or.cond1, label %if.then126, label %return
 
 if.then126:                                       ; preds = %if.end122
-  %value.i309 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i275, i64 0, i32 2
+  %value.i309 = getelementptr inbounds i8, ptr %spec.select.i275, i64 48
   %retval.sroa.0.0.copyload.i310 = load ptr, ptr %value.i309, align 8
-  %value.i311 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i277, i64 0, i32 2
+  %value.i311 = getelementptr inbounds i8, ptr %spec.select.i277, i64 48
   %retval.sroa.0.0.copyload.i312 = load ptr, ptr %value.i311, align 8
   %cmp.i.i = icmp ne ptr %retval.sroa.0.0.copyload.i310, %retval.sroa.0.0.copyload.i312
   %call135 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i.i) #6
@@ -852,9 +837,9 @@ if.end159:                                        ; preds = %if.end147
   br i1 %or.cond2, label %if.then163, label %return
 
 if.then163:                                       ; preds = %if.end159
-  %value.i317 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i275, i64 0, i32 2
+  %value.i317 = getelementptr inbounds i8, ptr %spec.select.i275, i64 48
   %retval.sroa.0.0.copyload.i318 = load ptr, ptr %value.i317, align 8
-  %value.i319 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i277, i64 0, i32 2
+  %value.i319 = getelementptr inbounds i8, ptr %spec.select.i277, i64 48
   %retval.sroa.0.0.copyload.i320 = load ptr, ptr %value.i319, align 8
   %cmp.i321 = icmp eq ptr %retval.sroa.0.0.copyload.i318, %retval.sroa.0.0.copyload.i320
   %call172 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i321) #6
@@ -895,9 +880,9 @@ if.end190:                                        ; preds = %if.end178
   br i1 %or.cond3, label %if.then194, label %return
 
 if.then194:                                       ; preds = %if.end190
-  %value.i323 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i275, i64 0, i32 2
+  %value.i323 = getelementptr inbounds i8, ptr %spec.select.i275, i64 48
   %retval.sroa.0.0.copyload.i324 = load ptr, ptr %value.i323, align 8
-  %value.i325 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i277, i64 0, i32 2
+  %value.i325 = getelementptr inbounds i8, ptr %spec.select.i277, i64 48
   %retval.sroa.0.0.copyload.i326 = load ptr, ptr %value.i325, align 8
   %cmp.i.i327 = icmp ne ptr %retval.sroa.0.0.copyload.i324, %retval.sroa.0.0.copyload.i326
   %call203 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i.i327) #6
@@ -1038,7 +1023,7 @@ sw.bb281:                                         ; preds = %_ZN12_GLOBAL__N_115
   ]
 
 if.then3.i:                                       ; preds = %sw.bb281
-  %value.i.i336 = getelementptr inbounds %"class.hermes::LiteralBool", ptr %lhs, i64 0, i32 1
+  %value.i.i336 = getelementptr inbounds i8, ptr %lhs, i64 40
   %27 = load i8, ptr %value.i.i336, align 8
   %28 = and i8 %27, 1
   %tobool.i.i = icmp ne i8 %28, 0
@@ -1069,7 +1054,7 @@ _ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %sw.bb281,
   ]
 
 if.then3.i339:                                    ; preds = %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
-  %value.i.i340 = getelementptr inbounds %"class.hermes::LiteralBool", ptr %rhs, i64 0, i32 1
+  %value.i.i340 = getelementptr inbounds i8, ptr %rhs, i64 40
   %30 = load i8, ptr %value.i.i340, align 8
   %31 = and i8 %30, 1
   %tobool.i.i341 = icmp ne i8 %31, 0
@@ -1101,7 +1086,7 @@ _ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit353: ; preds = %_ZN6he
   br i1 %or.cond4, label %if.end288, label %return
 
 if.end288:                                        ; preds = %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit353
-  %value.i354 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %retval.0.i344, i64 0, i32 2
+  %value.i354 = getelementptr inbounds i8, ptr %retval.0.i344, i64 48
   %32 = load double, ptr %value.i354, align 8
   %conv4.i.i.i = fptoui double %32 to i64
   %shl.i.i.i = shl i64 %conv4.i.i.i, 1
@@ -1121,7 +1106,7 @@ if.end11.i.i.i:                                   ; preds = %if.end288
 _ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit: ; preds = %if.then8.i.i.i, %if.end11.i.i.i
   %retval.0.i.i.i = phi i32 [ %call.i.i.i, %if.end11.i.i.i ], [ %conv9.i.i.i, %if.then8.i.i.i ]
   %and = and i32 %retval.0.i.i.i, 31
-  %value.i379 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %retval.0.i337, i64 0, i32 2
+  %value.i379 = getelementptr inbounds i8, ptr %retval.0.i337, i64 48
   %33 = load double, ptr %value.i379, align 8
   %conv4.i.i.i381 = fptoui double %33 to i64
   %shl.i.i.i382 = shl i64 %conv4.i.i.i381, 1
@@ -1194,9 +1179,9 @@ sw.bb306:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then310, label %if.end314
 
 if.then310:                                       ; preds = %sw.bb306
-  %value.i399 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i399 = getelementptr inbounds i8, ptr %spec.select.i, i64 48
   %34 = load double, ptr %value.i399, align 8
-  %value.i400 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i400 = getelementptr inbounds i8, ptr %spec.select.i265, i64 48
   %35 = load double, ptr %value.i400, align 8
   %add = fadd double %34, %35
   %call313 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %add) #6
@@ -1207,22 +1192,22 @@ if.end314:                                        ; preds = %sw.bb306
   br i1 %or.cond6, label %if.then318, label %if.end335
 
 if.then318:                                       ; preds = %if.end314
-  %value.i401 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i275, i64 0, i32 2
+  %value.i401 = getelementptr inbounds i8, ptr %spec.select.i275, i64 48
   %retval.sroa.0.0.copyload.i402 = load ptr, ptr %value.i401, align 8
   %retval.sroa.0.0.copyload.i403 = load ptr, ptr %retval.sroa.0.0.copyload.i402, align 8
   %retval.sroa.2.0.call.sroa_idx.i404 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i402, i64 8
   %retval.sroa.2.0.copyload.i405 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i404, align 8
-  %value.i408 = getelementptr inbounds %"class.hermes::LiteralString", ptr %spec.select.i277, i64 0, i32 2
+  %value.i408 = getelementptr inbounds i8, ptr %spec.select.i277, i64 48
   %retval.sroa.0.0.copyload.i409 = load ptr, ptr %value.i408, align 8
   %retval.sroa.0.0.copyload.i410 = load ptr, ptr %retval.sroa.0.0.copyload.i409, align 8
   %retval.sroa.2.0.call.sroa_idx.i411 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i409, i64 8
   %retval.sroa.2.0.copyload.i412 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i411, align 8
   store ptr %retval.sroa.0.0.copyload.i410, ptr %ref.tmp326, align 8
-  %36 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp326, i64 0, i32 1
+  %36 = getelementptr inbounds i8, ptr %ref.tmp326, i64 8
   store i64 %retval.sroa.2.0.copyload.i412, ptr %36, align 8
   call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias nonnull align 8 %result319, ptr %retval.sroa.0.0.copyload.i403, i64 %retval.sroa.2.0.copyload.i405, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp326)
   %37 = load ptr, ptr %result319, align 8
-  %Size.i.i415 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result319, i64 0, i32 1
+  %Size.i.i415 = getelementptr inbounds i8, ptr %result319, i64 8
   %38 = load i32, ptr %Size.i.i415, align 8
   %conv.i.i416 = zext i32 %38 to i64
   %call334 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %37, i64 %conv.i.i416) #6
@@ -1261,17 +1246,17 @@ if.else352:                                       ; preds = %if.then349
   br i1 %cmp.i.i.i.i.i.i.i276, label %if.then354, label %if.end368
 
 if.then354:                                       ; preds = %if.else352
-  %value.i423 = getelementptr inbounds %"class.hermes::LiteralString", ptr %rhs, i64 0, i32 2
+  %value.i423 = getelementptr inbounds i8, ptr %rhs, i64 48
   %retval.sroa.0.0.copyload.i424 = load ptr, ptr %value.i423, align 8
   %retval.sroa.0.0.copyload.i425 = load ptr, ptr %retval.sroa.0.0.copyload.i424, align 8
   %retval.sroa.2.0.call.sroa_idx.i426 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i424, i64 8
   %retval.sroa.2.0.copyload.i427 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i426, align 8
   store ptr %retval.sroa.0.0.copyload.i425, ptr %ref.tmp357, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp357, i64 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %ref.tmp357, i64 8
   store i64 %retval.sroa.2.0.copyload.i427, ptr %40, align 8
   call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias nonnull align 8 %result355, ptr nonnull @.str.6, i64 4, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp357)
   %41 = load ptr, ptr %result355, align 8
-  %Size.i.i430 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result355, i64 0, i32 1
+  %Size.i.i430 = getelementptr inbounds i8, ptr %result355, i64 8
   %42 = load i32, ptr %Size.i.i430, align 8
   %conv.i.i431 = zext i32 %42 to i64
   %call365 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %41, i64 %conv.i.i431) #6
@@ -1294,17 +1279,17 @@ if.else373:                                       ; preds = %if.then370
   br i1 %cmp.i.i.i.i.i.i.i274, label %if.then375, label %if.end389
 
 if.then375:                                       ; preds = %if.else373
-  %value.i438 = getelementptr inbounds %"class.hermes::LiteralString", ptr %lhs, i64 0, i32 2
+  %value.i438 = getelementptr inbounds i8, ptr %lhs, i64 48
   %retval.sroa.0.0.copyload.i439 = load ptr, ptr %value.i438, align 8
   %retval.sroa.0.0.copyload.i440 = load ptr, ptr %retval.sroa.0.0.copyload.i439, align 8
   %retval.sroa.2.0.call.sroa_idx.i441 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i439, i64 8
   %retval.sroa.2.0.copyload.i442 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i441, align 8
   store ptr @.str.6, ptr %ref.tmp383, align 8
-  %Length.i563 = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp383, i64 0, i32 1
+  %Length.i563 = getelementptr inbounds i8, ptr %ref.tmp383, i64 8
   store i64 4, ptr %Length.i563, align 8
   call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias nonnull align 8 %result376, ptr %retval.sroa.0.0.copyload.i440, i64 %retval.sroa.2.0.copyload.i442, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp383)
   %44 = load ptr, ptr %result376, align 8
-  %Size.i.i445 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result376, i64 0, i32 1
+  %Size.i.i445 = getelementptr inbounds i8, ptr %result376, i64 8
   %45 = load i32, ptr %Size.i.i445, align 8
   %conv.i.i446 = zext i32 %45 to i64
   %call386 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %44, i64 %conv.i.i446) #6
@@ -1331,17 +1316,17 @@ if.else395:                                       ; preds = %if.then391
   br i1 %cmp.i.i.i.i.i.i.i276, label %if.then397, label %if.end411
 
 if.then397:                                       ; preds = %if.else395
-  %value.i453 = getelementptr inbounds %"class.hermes::LiteralString", ptr %rhs, i64 0, i32 2
+  %value.i453 = getelementptr inbounds i8, ptr %rhs, i64 48
   %retval.sroa.0.0.copyload.i454 = load ptr, ptr %value.i453, align 8
   %retval.sroa.0.0.copyload.i455 = load ptr, ptr %retval.sroa.0.0.copyload.i454, align 8
   %retval.sroa.2.0.call.sroa_idx.i456 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i454, i64 8
   %retval.sroa.2.0.copyload.i457 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i456, align 8
   store ptr %retval.sroa.0.0.copyload.i455, ptr %ref.tmp400, align 8
-  %47 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp400, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %ref.tmp400, i64 8
   store i64 %retval.sroa.2.0.copyload.i457, ptr %47, align 8
   call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias nonnull align 8 %result398, ptr nonnull @.str.1, i64 9, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp400)
   %48 = load ptr, ptr %result398, align 8
-  %Size.i.i460 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result398, i64 0, i32 1
+  %Size.i.i460 = getelementptr inbounds i8, ptr %result398, i64 8
   %49 = load i32, ptr %Size.i.i460, align 8
   %conv.i.i461 = zext i32 %49 to i64
   %call408 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %48, i64 %conv.i.i461) #6
@@ -1368,17 +1353,17 @@ if.else417:                                       ; preds = %if.then413
   br i1 %cmp.i.i.i.i.i.i.i274, label %if.then419, label %return
 
 if.then419:                                       ; preds = %if.else417
-  %value.i468 = getelementptr inbounds %"class.hermes::LiteralString", ptr %lhs, i64 0, i32 2
+  %value.i468 = getelementptr inbounds i8, ptr %lhs, i64 48
   %retval.sroa.0.0.copyload.i469 = load ptr, ptr %value.i468, align 8
   %retval.sroa.0.0.copyload.i470 = load ptr, ptr %retval.sroa.0.0.copyload.i469, align 8
   %retval.sroa.2.0.call.sroa_idx.i471 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i469, i64 8
   %retval.sroa.2.0.copyload.i472 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i471, align 8
   store ptr @.str.1, ptr %ref.tmp427, align 8
-  %Length.i583 = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp427, i64 0, i32 1
+  %Length.i583 = getelementptr inbounds i8, ptr %ref.tmp427, i64 8
   store i64 9, ptr %Length.i583, align 8
   call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias nonnull align 8 %result420, ptr %retval.sroa.0.0.copyload.i470, i64 %retval.sroa.2.0.copyload.i472, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp427)
   %51 = load ptr, ptr %result420, align 8
-  %Size.i.i475 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result420, i64 0, i32 1
+  %Size.i.i475 = getelementptr inbounds i8, ptr %result420, i64 8
   %52 = load i32, ptr %Size.i.i475, align 8
   %conv.i.i476 = zext i32 %52 to i64
   %call430 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %51, i64 %conv.i.i476) #6
@@ -1395,9 +1380,9 @@ sw.bb434:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then438, label %return
 
 if.then438:                                       ; preds = %sw.bb434
-  %value.i483 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i483 = getelementptr inbounds i8, ptr %spec.select.i, i64 48
   %54 = load double, ptr %value.i483, align 8
-  %value.i484 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i484 = getelementptr inbounds i8, ptr %spec.select.i265, i64 48
   %55 = load double, ptr %value.i484, align 8
   %sub = fsub double %54, %55
   %call441 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %sub) #6
@@ -1407,9 +1392,9 @@ sw.bb443:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then447, label %if.end451
 
 if.then447:                                       ; preds = %sw.bb443
-  %value.i485 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i485 = getelementptr inbounds i8, ptr %spec.select.i, i64 48
   %56 = load double, ptr %value.i485, align 8
-  %value.i486 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i486 = getelementptr inbounds i8, ptr %spec.select.i265, i64 48
   %57 = load double, ptr %value.i486, align 8
   %mul = fmul double %56, %57
   %call450 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %mul) #6
@@ -1427,7 +1412,7 @@ if.then463:                                       ; preds = %if.end451
   br i1 %cmp.i.i.i.i.i.i.i, label %land.lhs.true465, label %lor.lhs.false468
 
 land.lhs.true465:                                 ; preds = %if.then463
-  %value.i487 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %lhs, i64 0, i32 2
+  %value.i487 = getelementptr inbounds i8, ptr %lhs, i64 48
   %61 = load i64, ptr %value.i487, align 8
   %62 = icmp slt i64 %61, 0
   br i1 %62, label %if.then473, label %lor.lhs.false468
@@ -1436,7 +1421,7 @@ lor.lhs.false468:                                 ; preds = %land.lhs.true465, %
   br i1 %cmp.i.i.i.i.i.i.i264, label %land.lhs.true470, label %if.end475
 
 land.lhs.true470:                                 ; preds = %lor.lhs.false468
-  %value.i488 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %rhs, i64 0, i32 2
+  %value.i488 = getelementptr inbounds i8, ptr %rhs, i64 48
   %63 = load i64, ptr %value.i488, align 8
   %64 = icmp slt i64 %63, 0
   br i1 %64, label %if.then473, label %if.end475
@@ -1453,9 +1438,9 @@ sw.bb478:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then482, label %return
 
 if.then482:                                       ; preds = %sw.bb478
-  %value.i489 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i489 = getelementptr inbounds i8, ptr %spec.select.i, i64 48
   %65 = load double, ptr %value.i489, align 8
-  %value.i490 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i490 = getelementptr inbounds i8, ptr %spec.select.i265, i64 48
   %66 = load double, ptr %value.i490, align 8
   %div = fdiv double %65, %66
   %call485 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %div) #6
@@ -1465,9 +1450,9 @@ sw.bb487:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then491, label %return
 
 if.then491:                                       ; preds = %sw.bb487
-  %value.i491 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i491 = getelementptr inbounds i8, ptr %spec.select.i, i64 48
   %67 = load double, ptr %value.i491, align 8
-  %value.i492 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i492 = getelementptr inbounds i8, ptr %spec.select.i265, i64 48
   %68 = load double, ptr %value.i492, align 8
   %call494 = tail call double @fmod(double noundef %67, double noundef %68) #6
   %call495 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %call494) #6
@@ -1477,9 +1462,9 @@ sw.bb497:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then501, label %return
 
 if.then501:                                       ; preds = %sw.bb497
-  %value.i493 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i493 = getelementptr inbounds i8, ptr %spec.select.i, i64 48
   %69 = load double, ptr %value.i493, align 8
-  %value.i494 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i494 = getelementptr inbounds i8, ptr %spec.select.i265, i64 48
   %70 = load double, ptr %value.i494, align 8
   %71 = fcmp uno double %70, 0.000000e+00
   br i1 %71, label %_ZN6hermes5expOpEdd.exit, label %if.else.i
@@ -1509,7 +1494,7 @@ sw.bb507:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then511, label %return
 
 if.then511:                                       ; preds = %sw.bb507
-  %value.i498 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i498 = getelementptr inbounds i8, ptr %spec.select.i, i64 48
   %75 = load double, ptr %value.i498, align 8
   %conv4.i.i500 = fptoui double %75 to i64
   %shl.i.i501 = shl i64 %conv4.i.i500, 1
@@ -1528,7 +1513,7 @@ if.end11.i.i505:                                  ; preds = %if.then511
 
 _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit517: ; preds = %if.then8.i.i508, %if.end11.i.i505
   %retval.0.i.i507 = phi i32 [ %call.i.i506, %if.end11.i.i505 ], [ %conv9.i.i509, %if.then8.i.i508 ]
-  %value.i518 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i518 = getelementptr inbounds i8, ptr %spec.select.i265, i64 48
   %76 = load double, ptr %value.i518, align 8
   %conv4.i.i520 = fptoui double %76 to i64
   %shl.i.i521 = shl i64 %conv4.i.i520, 1
@@ -1556,7 +1541,7 @@ sw.bb517:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then521, label %return
 
 if.then521:                                       ; preds = %sw.bb517
-  %value.i538 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i538 = getelementptr inbounds i8, ptr %spec.select.i, i64 48
   %77 = load double, ptr %value.i538, align 8
   %conv4.i.i540 = fptoui double %77 to i64
   %shl.i.i541 = shl i64 %conv4.i.i540, 1
@@ -1575,7 +1560,7 @@ if.end11.i.i545:                                  ; preds = %if.then521
 
 _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit557: ; preds = %if.then8.i.i548, %if.end11.i.i545
   %retval.0.i.i547 = phi i32 [ %call.i.i546, %if.end11.i.i545 ], [ %conv9.i.i549, %if.then8.i.i548 ]
-  %value.i558 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i558 = getelementptr inbounds i8, ptr %spec.select.i265, i64 48
   %78 = load double, ptr %value.i558, align 8
   %conv4.i.i560 = fptoui double %78 to i64
   %shl.i.i561 = shl i64 %conv4.i.i560, 1
@@ -1603,7 +1588,7 @@ sw.bb527:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then531, label %return
 
 if.then531:                                       ; preds = %sw.bb527
-  %value.i578 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %value.i578 = getelementptr inbounds i8, ptr %spec.select.i, i64 48
   %79 = load double, ptr %value.i578, align 8
   %conv4.i.i580 = fptoui double %79 to i64
   %shl.i.i581 = shl i64 %conv4.i.i580, 1
@@ -1622,7 +1607,7 @@ if.end11.i.i585:                                  ; preds = %if.then531
 
 _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit597: ; preds = %if.then8.i.i588, %if.end11.i.i585
   %retval.0.i.i587 = phi i32 [ %call.i.i586, %if.end11.i.i585 ], [ %conv9.i.i589, %if.then8.i.i588 ]
-  %value.i598 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %value.i598 = getelementptr inbounds i8, ptr %spec.select.i265, i64 48
   %80 = load double, ptr %value.i598, align 8
   %conv4.i.i600 = fptoui double %80 to i64
   %shl.i.i601 = shl i64 %conv4.i.i600, 1
@@ -1656,9 +1641,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES
 entry:
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %agg.result, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.result, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.result, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i, align 4
   %cmp.i.i = icmp ugt i64 %a.8.val, 256
   br i1 %cmp.i.i, label %if.end.i.thread.i, label %if.end.i.i
@@ -1746,22 +1731,22 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %value.i = getelementptr inbounds %"class.hermes::LiteralBool", ptr %operand, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %operand, i64 40
   %1 = load i8, ptr %value.i, align 8
   %2 = and i8 %1, 1
   %tobool.i = icmp ne i8 %2, 0
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
-  %value.i5 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %operand, i64 0, i32 2
+  %value.i5 = getelementptr inbounds i8, ptr %operand, i64 48
   %3 = load double, ptr %value.i5, align 8
   %4 = fcmp one double %3, 0.000000e+00
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
-  %value.i6 = getelementptr inbounds %"class.hermes::LiteralString", ptr %operand, i64 0, i32 2
+  %value.i6 = getelementptr inbounds i8, ptr %operand, i64 48
   %retval.sroa.0.0.copyload.i = load ptr, ptr %value.i6, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 1
+  %Length.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i, i64 8
   %5 = load i64, ptr %Length.i, align 8
   %cmp.i = icmp ne i64 %5, 0
   br label %sw.epilog
@@ -1787,7 +1772,7 @@ entry:
   ]
 
 if.then3:                                         ; preds = %entry
-  %value.i = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %operand, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %operand, i64 48
   %1 = load double, ptr %value.i, align 8
   %call5 = call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %1, ptr noundef nonnull %buf, i64 noundef 32) #6
   %call7 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr nonnull %buf, i64 %call5) #6
@@ -1813,7 +1798,7 @@ entry:
   ]
 
 if.then3.i:                                       ; preds = %entry
-  %value.i.i = getelementptr inbounds %"class.hermes::LiteralBool", ptr %operand, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %operand, i64 40
   %1 = load i8, ptr %value.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i = icmp ne i8 %2, 0
@@ -1822,7 +1807,7 @@ if.then3.i:                                       ; preds = %entry
   br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
 
 if.end6.i:                                        ; preds = %entry
-  %valueType.i.i = getelementptr inbounds %"class.hermes::Value", ptr %operand, i64 0, i32 1
+  %valueType.i.i = getelementptr inbounds i8, ptr %operand, i64 2
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %valueType.i.i, align 2
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i32 %retval.sroa.0.0.copyload.i.i to i16
   switch i16 %ref.tmp.sroa.0.0.extract.trunc.i, label %return [
@@ -1845,7 +1830,7 @@ _ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %if.then3.
 
 if.end:                                           ; preds = %entry, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
   %retval.0.i10 = phi ptr [ %retval.0.i, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit ], [ %operand, %entry ]
-  %value.i = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %retval.0.i10, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %retval.0.i10, i64 48
   %3 = load double, ptr %value.i, align 8
   %conv4.i = fptoui double %3 to i64
   %shl.i = shl i64 %conv4.i, 1
@@ -1891,28 +1876,28 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb1.i:                                         ; preds = %if.then
-  %value.i.i = getelementptr inbounds %"class.hermes::LiteralBool", ptr %operand, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %operand, i64 40
   %3 = load i8, ptr %value.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.i = icmp ne i8 %4, 0
   br label %return.sink.split
 
 sw.bb4.i:                                         ; preds = %if.then
-  %value.i5.i = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %operand, i64 0, i32 2
+  %value.i5.i = getelementptr inbounds i8, ptr %operand, i64 48
   %5 = load double, ptr %value.i5.i, align 8
   %6 = fcmp one double %5, 0.000000e+00
   br label %return.sink.split
 
 sw.bb9.i:                                         ; preds = %if.then
-  %value.i6.i = getelementptr inbounds %"class.hermes::LiteralString", ptr %operand, i64 0, i32 2
+  %value.i6.i = getelementptr inbounds i8, ptr %operand, i64 48
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %value.i6.i, align 8
-  %Length.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %retval.sroa.0.0.copyload.i.i, i64 0, i32 1
+  %Length.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i, i64 8
   %7 = load i64, ptr %Length.i.i, align 8
   %cmp.i.i = icmp ne i64 %7, 0
   br label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %valueType.i = getelementptr inbounds %"class.hermes::Value", ptr %operand, i64 0, i32 1
+  %valueType.i = getelementptr inbounds i8, ptr %operand, i64 2
   %retval.sroa.0.0.copyload.i = load i32, ptr %valueType.i, align 2
   %OpTY.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.copyload.i to i16
   %tobool.not.i = icmp ne i16 %OpTY.sroa.0.0.extract.trunc, 0

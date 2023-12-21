@@ -867,8 +867,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.3 = type { i32 }
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
-%struct.PyCMethodObject = type { %struct.PyCFunctionObject, ptr }
-%struct.PyCFunctionObject = type { %struct._object, ptr, ptr, ptr, ptr, ptr }
 
 @PyExc_SystemError = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [28 x i8] c"%s() method: bad call flags\00", align 1
@@ -926,7 +924,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyCMethod_New(ptr noundef %ml, ptr noundef %self, ptr noundef %module, ptr noundef %cls) local_unnamed_addr #0 {
 entry:
-  %ml_flags = getelementptr inbounds %struct.PyMethodDef, ptr %ml, i64 0, i32 2
+  %ml_flags = getelementptr inbounds i8, ptr %ml, i64 16
   %0 = load i32, ptr %ml_flags, align 8
   %and = and i32 %0, 655
   switch i32 %and, label %sw.default [
@@ -991,7 +989,7 @@ if.end.i.i:                                       ; preds = %if.end12
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end12, %if.end.i.i
-  %mm_class = getelementptr inbounds %struct.PyCMethodObject, ptr %call10, i64 0, i32 1
+  %mm_class = getelementptr inbounds i8, ptr %call10, i64 56
   store ptr %cls, ptr %mm_class, align 8
   br label %if.end21
 
@@ -1010,9 +1008,9 @@ if.end16:                                         ; preds = %if.else
 
 if.end21:                                         ; preds = %if.end16, %_Py_NewRef.exit
   %op.0 = phi ptr [ %call10, %_Py_NewRef.exit ], [ %call17, %if.end16 ]
-  %m_weakreflist = getelementptr inbounds %struct.PyCFunctionObject, ptr %op.0, i64 0, i32 4
+  %m_weakreflist = getelementptr inbounds i8, ptr %op.0, i64 40
   store ptr null, ptr %m_weakreflist, align 8
-  %m_ml = getelementptr inbounds %struct.PyCFunctionObject, ptr %op.0, i64 0, i32 1
+  %m_ml = getelementptr inbounds i8, ptr %op.0, i64 16
   store ptr %ml, ptr %m_ml, align 8
   %cmp.not.i.i = icmp eq ptr %self, null
   br i1 %cmp.not.i.i, label %_Py_XNewRef.exit, label %if.then.i.i
@@ -1028,7 +1026,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %if.end21, %if.then.i.i, %if.end.i.i.i
-  %m_self = getelementptr inbounds %struct.PyCFunctionObject, ptr %op.0, i64 0, i32 2
+  %m_self = getelementptr inbounds i8, ptr %op.0, i64 24
   store ptr %self, ptr %m_self, align 8
   %cmp.not.i.i15 = icmp eq ptr %module, null
   br i1 %cmp.not.i.i15, label %_Py_XNewRef.exit20, label %if.then.i.i16
@@ -1044,18 +1042,18 @@ if.end.i.i.i19:                                   ; preds = %if.then.i.i16
   br label %_Py_XNewRef.exit20
 
 _Py_XNewRef.exit20:                               ; preds = %_Py_XNewRef.exit, %if.then.i.i16, %if.end.i.i.i19
-  %m_module = getelementptr inbounds %struct.PyCFunctionObject, ptr %op.0, i64 0, i32 3
+  %m_module = getelementptr inbounds i8, ptr %op.0, i64 32
   store ptr %module, ptr %m_module, align 8
-  %vectorcall24 = getelementptr inbounds %struct.PyCFunctionObject, ptr %op.0, i64 0, i32 5
+  %vectorcall24 = getelementptr inbounds i8, ptr %op.0, i64 48
   store ptr %vectorcall.0, ptr %vectorcall24, align 8
   %add.ptr.i.i = getelementptr i8, ptr %op.0, i64 -16
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %9 = load ptr, ptr %8, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %9, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %10, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %10, i64 1096
   %11 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %11, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i64, ptr %_gc_prev.i, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = ptrtoint ptr %add.ptr.i.i to i64
@@ -1114,7 +1112,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 if.end:                                           ; preds = %land.lhs.true.i, %entry
   %and.i = and i64 %nargsf, 9223372036854775807
-  %c_recursion_remaining.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 8
+  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
   %6 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %6, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -1135,14 +1133,14 @@ cfunction_enter_call.exit:                        ; preds = %if.end, %_Py_EnterR
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %cfunction_enter_call.exit
-  %ml_flags.i = getelementptr inbounds %struct.PyMethodDef, ptr %func.val.i, i64 0, i32 2
+  %ml_flags.i = getelementptr inbounds i8, ptr %func.val.i, i64 16
   %9 = load i32, ptr %ml_flags.i, align 8
   %and.i7 = and i32 %9, 32
   %tobool.not.i8 = icmp eq i32 %and.i7, 0
   br i1 %tobool.not.i8, label %if.end.i10, label %PyCFunction_GET_SELF.exit
 
 if.end.i10:                                       ; preds = %if.end5
-  %m_self.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %func, i64 0, i32 2
+  %m_self.i = getelementptr inbounds i8, ptr %func, i64 24
   %10 = load ptr, ptr %m_self.i, align 8
   br label %PyCFunction_GET_SELF.exit
 
@@ -1165,7 +1163,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   %and.i = and i64 %nargsf, 9223372036854775807
-  %c_recursion_remaining.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 8
+  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
   %2 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %2, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -1186,14 +1184,14 @@ cfunction_enter_call.exit:                        ; preds = %entry, %_Py_EnterRe
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %cfunction_enter_call.exit
-  %ml_flags.i = getelementptr inbounds %struct.PyMethodDef, ptr %func.val.i, i64 0, i32 2
+  %ml_flags.i = getelementptr inbounds i8, ptr %func.val.i, i64 16
   %5 = load i32, ptr %ml_flags.i, align 8
   %and.i4 = and i32 %5, 32
   %tobool.not.i = icmp eq i32 %and.i4, 0
   br i1 %tobool.not.i, label %if.end.i6, label %PyCFunction_GET_SELF.exit
 
 if.end.i6:                                        ; preds = %if.end
-  %m_self.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %func, i64 0, i32 2
+  %m_self.i = getelementptr inbounds i8, ptr %func, i64 24
   %6 = load ptr, ptr %m_self.i, align 8
   br label %PyCFunction_GET_SELF.exit
 
@@ -1276,7 +1274,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %c_recursion_remaining.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 8
+  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
   %9 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %9, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -1297,14 +1295,14 @@ cfunction_enter_call.exit:                        ; preds = %if.end9, %_Py_Enter
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %cfunction_enter_call.exit
-  %ml_flags.i = getelementptr inbounds %struct.PyMethodDef, ptr %func.val.i, i64 0, i32 2
+  %ml_flags.i = getelementptr inbounds i8, ptr %func.val.i, i64 16
   %12 = load i32, ptr %ml_flags.i, align 8
   %and.i15 = and i32 %12, 32
   %tobool.not.i16 = icmp eq i32 %and.i15, 0
   br i1 %tobool.not.i16, label %if.end.i18, label %PyCFunction_GET_SELF.exit
 
 if.end.i18:                                       ; preds = %if.end13
-  %m_self.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %func, i64 0, i32 2
+  %m_self.i = getelementptr inbounds i8, ptr %func, i64 24
   %13 = load ptr, ptr %m_self.i, align 8
   br label %PyCFunction_GET_SELF.exit
 
@@ -1387,7 +1385,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %c_recursion_remaining.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 8
+  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
   %9 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %9, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -1408,14 +1406,14 @@ cfunction_enter_call.exit:                        ; preds = %if.end9, %_Py_Enter
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %cfunction_enter_call.exit
-  %ml_flags.i = getelementptr inbounds %struct.PyMethodDef, ptr %func.val.i, i64 0, i32 2
+  %ml_flags.i = getelementptr inbounds i8, ptr %func.val.i, i64 16
   %12 = load i32, ptr %ml_flags.i, align 8
   %and.i15 = and i32 %12, 32
   %tobool.not.i16 = icmp eq i32 %and.i15, 0
   br i1 %tobool.not.i16, label %if.end.i18, label %PyCFunction_GET_SELF.exit
 
 if.end.i18:                                       ; preds = %if.end13
-  %m_self.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %func, i64 0, i32 2
+  %m_self.i = getelementptr inbounds i8, ptr %func, i64 24
   %13 = load ptr, ptr %m_self.i, align 8
   br label %PyCFunction_GET_SELF.exit
 
@@ -1438,23 +1436,23 @@ define internal ptr @cfunction_vectorcall_FASTCALL_KEYWORDS_METHOD(ptr nocapture
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %m_ml.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %func, i64 0, i32 1
+  %m_ml.i = getelementptr inbounds i8, ptr %func, i64 16
   %2 = load ptr, ptr %m_ml.i, align 8
-  %ml_flags.i = getelementptr inbounds %struct.PyMethodDef, ptr %2, i64 0, i32 2
+  %ml_flags.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i32, ptr %ml_flags.i, align 8
   %and.i = and i32 %3, 512
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %PyCFunction_GET_CLASS.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mm_class.i = getelementptr inbounds %struct.PyCMethodObject, ptr %func, i64 0, i32 1
+  %mm_class.i = getelementptr inbounds i8, ptr %func, i64 56
   %4 = load ptr, ptr %mm_class.i, align 8
   br label %PyCFunction_GET_CLASS.exit
 
 PyCFunction_GET_CLASS.exit:                       ; preds = %entry, %if.then.i
   %retval.0.i = phi ptr [ %4, %if.then.i ], [ null, %entry ]
   %and.i5 = and i64 %nargsf, 9223372036854775807
-  %c_recursion_remaining.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 8
+  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
   %5 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %5, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -1474,14 +1472,14 @@ cfunction_enter_call.exit:                        ; preds = %PyCFunction_GET_CLA
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %cfunction_enter_call.exit
-  %ml_flags.i8 = getelementptr inbounds %struct.PyMethodDef, ptr %func.val.i, i64 0, i32 2
+  %ml_flags.i8 = getelementptr inbounds i8, ptr %func.val.i, i64 16
   %7 = load i32, ptr %ml_flags.i8, align 8
   %and.i9 = and i32 %7, 32
   %tobool.not.i10 = icmp eq i32 %and.i9, 0
   br i1 %tobool.not.i10, label %if.end.i12, label %PyCFunction_GET_SELF.exit
 
 if.end.i12:                                       ; preds = %if.end
-  %m_self.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %func, i64 0, i32 2
+  %m_self.i = getelementptr inbounds i8, ptr %func, i64 24
   %8 = load ptr, ptr %m_self.i, align 8
   br label %PyCFunction_GET_SELF.exit
 
@@ -1553,16 +1551,16 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
-  %m_ml.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %op, i64 0, i32 1
+  %m_ml.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %m_ml.i, align 8
-  %ml_flags.i = getelementptr inbounds %struct.PyMethodDef, ptr %1, i64 0, i32 2
+  %ml_flags.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i32, ptr %ml_flags.i, align 8
   %and.i = and i32 %2, 32
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end
-  %m_self.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %op, i64 0, i32 2
+  %m_self.i = getelementptr inbounds i8, ptr %op, i64 24
   %3 = load ptr, ptr %m_self.i, align 8
   br label %return
 
@@ -1618,16 +1616,16 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
-  %m_ml.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %op, i64 0, i32 1
+  %m_ml.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %m_ml.i, align 8
-  %ml_flags.i = getelementptr inbounds %struct.PyMethodDef, ptr %1, i64 0, i32 2
+  %ml_flags.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i32, ptr %ml_flags.i, align 8
   %and.i = and i32 %2, 512
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %mm_class.i = getelementptr inbounds %struct.PyCMethodObject, ptr %op, i64 0, i32 1
+  %mm_class.i = getelementptr inbounds i8, ptr %op, i64 56
   %3 = load ptr, ptr %mm_class.i, align 8
   br label %return
 
@@ -1652,7 +1650,7 @@ if.then:                                          ; preds = %entry
 
 if.end5:                                          ; preds = %if.then, %entry
   %_tstate.0 = phi ptr [ %call1, %if.then ], [ null, %entry ]
-  %m_weakreflist = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 4
+  %m_weakreflist = getelementptr inbounds i8, ptr %m, i64 40
   %0 = load ptr, ptr %m_weakreflist, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end7, label %if.then6
@@ -1662,16 +1660,16 @@ if.then6:                                         ; preds = %if.end5
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end5
-  %m_ml.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 1
+  %m_ml.i = getelementptr inbounds i8, ptr %m, i64 16
   %1 = load ptr, ptr %m_ml.i, align 8
-  %ml_flags.i = getelementptr inbounds %struct.PyMethodDef, ptr %1, i64 0, i32 2
+  %ml_flags.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i32, ptr %ml_flags.i, align 8
   %and.i = and i32 %2, 512
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %Py_XDECREF.exit, label %PyCFunction_GET_CLASS.exit
 
 PyCFunction_GET_CLASS.exit:                       ; preds = %if.end7
-  %mm_class.i = getelementptr inbounds %struct.PyCMethodObject, ptr %m, i64 0, i32 1
+  %mm_class.i = getelementptr inbounds i8, ptr %m, i64 56
   %3 = load ptr, ptr %mm_class.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i11
@@ -1693,7 +1691,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.end7, %PyCFunction_GET_CLASS.exit, %if.then.i11, %if.end.i.i, %if.then1.i.i
-  %m_self = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 2
+  %m_self = getelementptr inbounds i8, ptr %m, i64 24
   %6 = load ptr, ptr %m_self, align 8
   %cmp.not.i12 = icmp eq ptr %6, null
   br i1 %cmp.not.i12, label %Py_XDECREF.exit19, label %if.then.i13
@@ -1715,7 +1713,7 @@ if.then1.i.i18:                                   ; preds = %if.end.i.i15
   br label %Py_XDECREF.exit19
 
 Py_XDECREF.exit19:                                ; preds = %Py_XDECREF.exit, %if.then.i13, %if.end.i.i15, %if.then1.i.i18
-  %m_module = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 3
+  %m_module = getelementptr inbounds i8, ptr %m, i64 32
   %9 = load ptr, ptr %m_module, align 8
   %cmp.not.i20 = icmp eq ptr %9, null
   br i1 %cmp.not.i20, label %Py_XDECREF.exit27, label %if.then.i21
@@ -1752,7 +1750,7 @@ do.end:                                           ; preds = %Py_XDECREF.exit27, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @meth_repr(ptr nocapture noundef readonly %m) #0 {
 entry:
-  %m_self = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 2
+  %m_self = getelementptr inbounds i8, ptr %m, i64 24
   %0 = load ptr, ptr %m_self, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -1769,20 +1767,20 @@ PyObject_TypeCheck.exit:                          ; preds = %lor.lhs.false
   br i1 %tobool3.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %PyObject_TypeCheck.exit, %entry
-  %m_ml = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 1
+  %m_ml = getelementptr inbounds i8, ptr %m, i64 16
   %2 = load ptr, ptr %m_ml, align 8
   %3 = load ptr, ptr %2, align 8
   %call2 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.6, ptr noundef %3) #5
   br label %return
 
 if.end:                                           ; preds = %PyObject_TypeCheck.exit
-  %m_ml3 = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 1
+  %m_ml3 = getelementptr inbounds i8, ptr %m, i64 16
   %4 = load ptr, ptr %m_ml3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %m_self, align 8
   %7 = getelementptr i8, ptr %6, i64 8
   %.val = load ptr, ptr %7, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %.val, i64 24
   %8 = load ptr, ptr %tp_name, align 8
   %call8 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.7, ptr noundef %5, ptr noundef %8, ptr noundef %6) #5
   br label %return
@@ -1795,12 +1793,12 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i64 @meth_hash(ptr nocapture noundef readonly %a) #0 {
 entry:
-  %m_self = getelementptr inbounds %struct.PyCFunctionObject, ptr %a, i64 0, i32 2
+  %m_self = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load ptr, ptr %m_self, align 8
   %call = tail call i64 @Py_HashPointer(ptr noundef %0) #5
-  %m_ml = getelementptr inbounds %struct.PyCFunctionObject, ptr %a, i64 0, i32 1
+  %m_ml = getelementptr inbounds i8, ptr %a, i64 16
   %1 = load ptr, ptr %m_ml, align 8
-  %ml_meth = getelementptr inbounds %struct.PyMethodDef, ptr %1, i64 0, i32 1
+  %ml_meth = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %ml_meth, align 8
   %call1 = tail call i64 @Py_HashPointer(ptr noundef %2) #5
   %xor = xor i64 %call1, %call
@@ -1833,7 +1831,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %PyCFunction_GET_SELF.exit
 
 if.end.i:                                         ; preds = %if.end
-  %m_self.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %func, i64 0, i32 2
+  %m_self.i = getelementptr inbounds i8, ptr %func, i64 24
   %5 = load ptr, ptr %m_self.i, align 8
   br label %PyCFunction_GET_SELF.exit
 
@@ -1882,16 +1880,16 @@ declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @meth_traverse(ptr nocapture noundef readonly %m, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %m_ml.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 1
+  %m_ml.i = getelementptr inbounds i8, ptr %m, i64 16
   %0 = load ptr, ptr %m_ml.i, align 8
-  %ml_flags.i = getelementptr inbounds %struct.PyMethodDef, ptr %0, i64 0, i32 2
+  %ml_flags.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %ml_flags.i, align 8
   %and.i = and i32 %1, 512
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %do.body6, label %PyCFunction_GET_CLASS.exit
 
 PyCFunction_GET_CLASS.exit:                       ; preds = %entry
-  %mm_class.i = getelementptr inbounds %struct.PyCMethodObject, ptr %m, i64 0, i32 1
+  %mm_class.i = getelementptr inbounds i8, ptr %m, i64 56
   %2 = load ptr, ptr %mm_class.i, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %do.body6, label %PyCFunction_GET_CLASS.exit21
@@ -1902,7 +1900,7 @@ PyCFunction_GET_CLASS.exit21:                     ; preds = %PyCFunction_GET_CLA
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %entry, %PyCFunction_GET_CLASS.exit21, %PyCFunction_GET_CLASS.exit
-  %m_self = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 2
+  %m_self = getelementptr inbounds i8, ptr %m, i64 24
   %3 = load ptr, ptr %m_self, align 8
   %tobool7.not = icmp eq ptr %3, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -1913,7 +1911,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %m_module = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 3
+  %m_module = getelementptr inbounds i8, ptr %m, i64 32
   %4 = load ptr, ptr %m_module, align 8
   %tobool18.not = icmp eq ptr %4, null
   br i1 %tobool18.not, label %do.end27, label %if.then19
@@ -1961,21 +1959,21 @@ PyObject_TypeCheck.exit14:                        ; preds = %lor.lhs.false2
   br i1 %tobool3.i12.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false2, %PyObject_TypeCheck.exit14
-  %m_self = getelementptr inbounds %struct.PyCFunctionObject, ptr %self, i64 0, i32 2
+  %m_self = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load ptr, ptr %m_self, align 8
-  %m_self5 = getelementptr inbounds %struct.PyCFunctionObject, ptr %other, i64 0, i32 2
+  %m_self5 = getelementptr inbounds i8, ptr %other, i64 24
   %4 = load ptr, ptr %m_self5, align 8
   %cmp6 = icmp eq ptr %3, %4
   br i1 %cmp6, label %if.end13, label %.thread
 
 if.end13:                                         ; preds = %if.end
-  %m_ml = getelementptr inbounds %struct.PyCFunctionObject, ptr %self, i64 0, i32 1
+  %m_ml = getelementptr inbounds i8, ptr %self, i64 16
   %5 = load ptr, ptr %m_ml, align 8
-  %ml_meth = getelementptr inbounds %struct.PyMethodDef, ptr %5, i64 0, i32 1
+  %ml_meth = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %ml_meth, align 8
-  %m_ml9 = getelementptr inbounds %struct.PyCFunctionObject, ptr %other, i64 0, i32 1
+  %m_ml9 = getelementptr inbounds i8, ptr %other, i64 16
   %7 = load ptr, ptr %m_ml9, align 8
-  %ml_meth10 = getelementptr inbounds %struct.PyMethodDef, ptr %7, i64 0, i32 1
+  %ml_meth10 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %ml_meth10, align 8
   %cmp11 = icmp eq ptr %6, %8
   %cond.fr = freeze i1 %cmp11
@@ -2030,7 +2028,7 @@ declare i64 @Py_HashPointer(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @meth_reduce(ptr nocapture noundef readonly %m, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %m_self = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 2
+  %m_self = getelementptr inbounds i8, ptr %m, i64 24
   %0 = load ptr, ptr %m_self, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -2047,7 +2045,7 @@ PyObject_TypeCheck.exit:                          ; preds = %lor.lhs.false
   br i1 %tobool3.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %PyObject_TypeCheck.exit, %entry
-  %m_ml = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 1
+  %m_ml = getelementptr inbounds i8, ptr %m, i64 16
   %2 = load ptr, ptr %m_ml, align 8
   %3 = load ptr, ptr %2, align 8
   %call2 = tail call ptr @PyUnicode_FromString(ptr noundef %3) #5
@@ -2056,7 +2054,7 @@ if.then:                                          ; preds = %lor.lhs.false, %PyO
 if.end:                                           ; preds = %PyObject_TypeCheck.exit
   %call3 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 389)) #5
   %4 = load ptr, ptr %m_self, align 8
-  %m_ml5 = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 1
+  %m_ml5 = getelementptr inbounds i8, ptr %m, i64 16
   %5 = load ptr, ptr %m_ml5, align 8
   %6 = load ptr, ptr %5, align 8
   %call7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.9, ptr noundef %call3, ptr noundef %4, ptr noundef %6) #5
@@ -2076,10 +2074,10 @@ declare ptr @_PyEval_GetBuiltin(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @meth_get__doc__(ptr nocapture noundef readonly %m, ptr nocapture readnone %closure) #0 {
 entry:
-  %m_ml = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 1
+  %m_ml = getelementptr inbounds i8, ptr %m, i64 16
   %0 = load ptr, ptr %m_ml, align 8
   %1 = load ptr, ptr %0, align 8
-  %ml_doc = getelementptr inbounds %struct.PyMethodDef, ptr %0, i64 0, i32 3
+  %ml_doc = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %ml_doc, align 8
   %call = tail call ptr @_PyType_GetDocFromInternalDoc(ptr noundef %1, ptr noundef %2) #5
   ret ptr %call
@@ -2088,7 +2086,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @meth_get__name__(ptr nocapture noundef readonly %m, ptr nocapture readnone %closure) #0 {
 entry:
-  %m_ml = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 1
+  %m_ml = getelementptr inbounds i8, ptr %m, i64 16
   %0 = load ptr, ptr %m_ml, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %1) #5
@@ -2098,7 +2096,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @meth_get__qualname__(ptr nocapture noundef readonly %m, ptr nocapture readnone %closure) #0 {
 entry:
-  %m_self = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 2
+  %m_self = getelementptr inbounds i8, ptr %m, i64 24
   %0 = load ptr, ptr %m_self, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -2115,7 +2113,7 @@ PyObject_TypeCheck.exit:                          ; preds = %lor.lhs.false
   br i1 %tobool3.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %PyObject_TypeCheck.exit, %entry
-  %m_ml = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 1
+  %m_ml = getelementptr inbounds i8, ptr %m, i64 16
   %2 = load ptr, ptr %m_ml, align 8
   %3 = load ptr, ptr %2, align 8
   %call2 = tail call ptr @PyUnicode_FromString(ptr noundef %3) #5
@@ -2162,7 +2160,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.end17:                                         ; preds = %if.end12
-  %m_ml18 = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 1
+  %m_ml18 = getelementptr inbounds i8, ptr %m, i64 16
   %13 = load ptr, ptr %m_ml18, align 8
   %14 = load ptr, ptr %13, align 8
   %call20 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.17, ptr noundef nonnull %call9, ptr noundef %14) #5
@@ -2189,16 +2187,16 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal nonnull ptr @meth_get__self__(ptr nocapture noundef readonly %m, ptr nocapture readnone %closure) #3 {
 entry:
-  %m_ml.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 1
+  %m_ml.i = getelementptr inbounds i8, ptr %m, i64 16
   %0 = load ptr, ptr %m_ml.i, align 8
-  %ml_flags.i = getelementptr inbounds %struct.PyMethodDef, ptr %0, i64 0, i32 2
+  %ml_flags.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %ml_flags.i, align 8
   %and.i = and i32 %1, 32
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %PyCFunction_GET_SELF.exit
 
 if.end.i:                                         ; preds = %entry
-  %m_self.i = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 2
+  %m_self.i = getelementptr inbounds i8, ptr %m, i64 24
   %2 = load ptr, ptr %m_self.i, align 8
   br label %PyCFunction_GET_SELF.exit
 
@@ -2222,12 +2220,12 @@ _Py_NewRef.exit:                                  ; preds = %PyCFunction_GET_SEL
 ; Function Attrs: nounwind uwtable
 define internal ptr @meth_get__text_signature__(ptr nocapture noundef readonly %m, ptr nocapture readnone %closure) #0 {
 entry:
-  %m_ml = getelementptr inbounds %struct.PyCFunctionObject, ptr %m, i64 0, i32 1
+  %m_ml = getelementptr inbounds i8, ptr %m, i64 16
   %0 = load ptr, ptr %m_ml, align 8
   %1 = load ptr, ptr %0, align 8
-  %ml_doc = getelementptr inbounds %struct.PyMethodDef, ptr %0, i64 0, i32 3
+  %ml_doc = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %ml_doc, align 8
-  %ml_flags = getelementptr inbounds %struct.PyMethodDef, ptr %0, i64 0, i32 2
+  %ml_flags = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %ml_flags, align 8
   %call = tail call ptr @_PyType_GetTextSignatureFromInternalDoc(ptr noundef %1, ptr noundef %2, i32 noundef %3) #5
   ret ptr %call

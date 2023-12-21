@@ -14,9 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.tlsextctx_st = type { ptr, i32 }
 %struct.user_data_st = type { ptr, ptr, i64, i64, i64, i32, i32 }
 %union.BIO_sock_info_u = type { ptr }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @tls13_aes128gcmsha256_id = dso_local constant [2 x i8] c"\13\01", align 1
 @tls13_aes256gcmsha384_id = dso_local local_unnamed_addr constant [2 x i8] c"\13\02", align 1
@@ -794,9 +791,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp35.not2222, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %amp = getelementptr inbounds %struct.srp_arg_st, ptr %srp_arg, i64 0, i32 4
-  %strength = getelementptr inbounds %struct.srp_arg_st, ptr %srp_arg, i64 0, i32 5
-  %srplogin = getelementptr inbounds %struct.srp_arg_st, ptr %srp_arg, i64 0, i32 1
+  %amp = getelementptr inbounds i8, ptr %srp_arg, i64 24
+  %strength = getelementptr inbounds i8, ptr %srp_arg, i64 28
+  %srplogin = getelementptr inbounds i8, ptr %srp_arg, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog485
@@ -2842,7 +2839,7 @@ if.then974:                                       ; preds = %if.end972
   br label %if.end977
 
 if.end977:                                        ; preds = %if.then974, %if.end972
-  %srplogin978 = getelementptr inbounds %struct.srp_arg_st, ptr %srp_arg, i64 0, i32 1
+  %srplogin978 = getelementptr inbounds i8, ptr %srp_arg, i64 8
   %130 = load ptr, ptr %srplogin978, align 8
   %cmp979.not = icmp eq ptr %130, null
   br i1 %cmp979.not, label %if.end985, label %land.lhs.true981
@@ -3110,7 +3107,7 @@ if.end1135:                                       ; preds = %if.then1133, %if.en
   %162 = or i32 %isquic.0.lcssa, %c_nbio.0.lcssa
   %or.cond37.not = icmp eq i32 %162, 0
   %tobool1189.not = icmp eq i32 %enable_timeouts.0.lcssa, 0
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %timeout, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %timeout, i64 8
   %tobool1196.not = icmp eq i64 %socket_mtu.0.lcssa, 0
   %tobool1240.not = icmp eq i32 %nbio_test.0.lcssa, 0
   %tobool1262.not = icmp eq ptr %bio_c_msg.3, null
@@ -3123,18 +3120,18 @@ if.end1135:                                       ; preds = %if.then1133, %if.en
   %arrayidx1433 = getelementptr inbounds i8, ptr %call31, i64 1
   %arrayidx1442 = getelementptr inbounds i8, ptr %call31, i64 2
   %cmp1920.not = icmp eq ptr %early_data_file.0.lcssa, null
-  %buf2.i = getelementptr inbounds %struct.user_data_st, ptr %user_data, i64 0, i32 1
-  %bufmax3.i = getelementptr inbounds %struct.user_data_st, ptr %user_data, i64 0, i32 2
-  %buflen.i = getelementptr inbounds %struct.user_data_st, ptr %user_data, i64 0, i32 3
-  %mode4.i = getelementptr inbounds %struct.user_data_st, ptr %user_data, i64 0, i32 5
-  %isfin.i = getelementptr inbounds %struct.user_data_st, ptr %user_data, i64 0, i32 6
+  %buf2.i = getelementptr inbounds i8, ptr %user_data, i64 8
+  %bufmax3.i = getelementptr inbounds i8, ptr %user_data, i64 16
+  %buflen.i = getelementptr inbounds i8, ptr %user_data, i64 24
+  %mode4.i = getelementptr inbounds i8, ptr %user_data, i64 40
+  %isfin.i = getelementptr inbounds i8, ptr %user_data, i64 44
   %163 = or i32 %isquic.0.lcssa, %isdtls.0.lcssa
   %or.cond41.not = icmp eq i32 %163, 0
   %tobool2027.not = icmp eq i32 %c_brief.0.lcssa, 0
   %tobool2118 = icmp eq i32 %isquic.0.lcssa, 0
   %tobool2367.not = icmp eq i32 %nointeractive.0.lcssa, 0
   %tobool2383.not = icmp eq i32 %crlf.0.lcssa, 0
-  %bufoff.i = getelementptr inbounds %struct.user_data_st, ptr %user_data, i64 0, i32 4
+  %bufoff.i = getelementptr inbounds i8, ptr %user_data, i64 32
   %tobool2266 = icmp eq i32 %tfo.0.lcssa, 0
   br label %re_start.outer
 
@@ -4190,9 +4187,9 @@ if.then1893:                                      ; preds = %if.end1889
   br label %if.then2501
 
 if.end1895:                                       ; preds = %if.end1889
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %call1890, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call1890, i64 8
   %271 = load ptr, ptr %value, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %271, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %271, i64 8
   %272 = load ptr, ptr %data, align 8
   %273 = load i32, ptr %271, align 8
   %call1897 = call i32 @BIO_write(ptr noundef %sbio.1, ptr noundef %272, i32 noundef %273) #16
@@ -5524,11 +5521,11 @@ for.end:                                          ; preds = %if.end, %if.then
 
 if.end13:                                         ; preds = %for.end, %entry
   %6 = load ptr, ptr %arg, align 8
-  %len = getelementptr inbounds %struct.tlsextnextprotoctx_st, ptr %arg, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %arg, i64 8
   %7 = load i64, ptr %len, align 8
   %conv14 = trunc i64 %7 to i32
   %call15 = tail call i32 @SSL_select_next_proto(ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr noundef %6, i32 noundef %conv14) #16
-  %status = getelementptr inbounds %struct.tlsextnextprotoctx_st, ptr %arg, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %arg, i64 16
   store i32 %call15, ptr %status, align 8
   ret i32 0
 }
@@ -5547,14 +5544,14 @@ entry:
   %conv = trunc i32 %shr to i8
   store i8 %conv, ptr %ext_buf, align 16
   %conv1 = trunc i32 %ext_type to i8
-  %arrayidx2 = getelementptr inbounds [65540 x i8], ptr %ext_buf, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %ext_buf, i64 1
   store i8 %conv1, ptr %arrayidx2, align 1
   %shr3 = lshr i64 %inlen, 8
   %conv4 = trunc i64 %shr3 to i8
-  %arrayidx5 = getelementptr inbounds [65540 x i8], ptr %ext_buf, i64 0, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %ext_buf, i64 2
   store i8 %conv4, ptr %arrayidx5, align 2
   %conv6 = trunc i64 %inlen to i8
-  %arrayidx7 = getelementptr inbounds [65540 x i8], ptr %ext_buf, i64 0, i64 3
+  %arrayidx7 = getelementptr inbounds i8, ptr %ext_buf, i64 3
   store i8 %conv6, ptr %arrayidx7, align 1
   %add.ptr = getelementptr inbounds i8, ptr %ext_buf, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr, ptr align 1 %in, i64 %and, i1 false)
@@ -5601,7 +5598,7 @@ if.then:                                          ; preds = %entry
   %cmp3 = icmp ne ptr %call, null
   %0 = select i1 %tobool.not, i1 %cmp3, i1 false
   %land.ext = zext i1 %0 to i32
-  %ack = getelementptr inbounds %struct.tlsextctx_st, ptr %arg, i64 0, i32 1
+  %ack = getelementptr inbounds i8, ptr %arg, i64 8
   store i32 %land.ext, ptr %ack, align 8
   br label %if.end
 
@@ -5796,7 +5793,7 @@ for.body:                                         ; preds = %entry, %for.cond
 for.body.i:                                       ; preds = %for.inc.i, %for.body
   %0 = phi ptr [ @tlsa_import_rr.usage, %for.body ], [ %5, %for.inc.i ]
   %f.012.i = phi ptr [ @tlsa_import_rr.tlsa_fields, %for.body ], [ %incdec.ptr.i, %for.inc.i ]
-  %parser.i = getelementptr inbounds %struct.tlsa_field, ptr %f.012.i, i64 0, i32 2
+  %parser.i = getelementptr inbounds i8, ptr %f.012.i, i64 16
   %1 = load ptr, ptr %parser.i, align 8
   %call.i = call i64 %1(ptr noundef nonnull %cp.i, ptr noundef nonnull %0) #16
   %cmp.i = icmp slt i64 %call.i, 1
@@ -5805,13 +5802,13 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 if.then.i:                                        ; preds = %for.body.i
   %2 = load ptr, ptr @bio_err, align 8
   %3 = load ptr, ptr @prog, align 8
-  %name.i = getelementptr inbounds %struct.tlsa_field, ptr %f.012.i, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %f.012.i, i64 8
   %4 = load ptr, ptr %name.i, align 8
   %call2.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.575, ptr noundef %3, ptr noundef %4, ptr noundef %call3) #16
   br label %17
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %struct.tlsa_field, ptr %f.012.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %f.012.i, i64 24
   %5 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !27
@@ -6510,12 +6507,12 @@ declare void @do_ssl_shutdown(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @user_data_process(ptr nocapture noundef %user_data, ptr nocapture noundef writeonly %len, ptr nocapture noundef writeonly %off) unnamed_addr #0 {
 entry:
-  %buf = getelementptr inbounds %struct.user_data_st, ptr %user_data, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %buf, align 8
-  %bufoff = getelementptr inbounds %struct.user_data_st, ptr %user_data, i64 0, i32 4
+  %bufoff = getelementptr inbounds i8, ptr %user_data, i64 32
   %1 = load i64, ptr %bufoff, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
-  %buflen = getelementptr inbounds %struct.user_data_st, ptr %user_data, i64 0, i32 3
+  %buflen = getelementptr inbounds i8, ptr %user_data, i64 24
   %2 = load i64, ptr %buflen, align 8
   %cmp = icmp eq i64 %2, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -6526,7 +6523,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mode = getelementptr inbounds %struct.user_data_st, ptr %user_data, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %user_data, i64 40
   %3 = load i32, ptr %mode, align 8
   switch i32 %3, label %if.end154 [
     i32 1, label %if.then3
@@ -6788,7 +6785,7 @@ if.then147:                                       ; preds = %if.else144
 
 if.end154:                                        ; preds = %if.end, %if.else144, %if.then147, %if.then3
   %outlen.1 = phi i64 [ %2, %if.then3 ], [ %sub.ptr.sub150, %if.then147 ], [ %outlen.0.lcssa, %if.else144 ], [ %2, %if.end ]
-  %isfin = getelementptr inbounds %struct.user_data_st, ptr %user_data, i64 0, i32 6
+  %isfin = getelementptr inbounds i8, ptr %user_data, i64 44
   %32 = load i32, ptr %isfin, align 4
   %tobool155.not = icmp eq i32 %32, 0
   br i1 %tobool155.not, label %if.end159, label %if.then156
@@ -7295,7 +7292,7 @@ sw.bb53:                                          ; preds = %entry
   br i1 %tobool56.not, label %sw.epilog, label %if.end58
 
 if.end58:                                         ; preds = %sw.bb53
-  %isfin = getelementptr inbounds %struct.user_data_st, ptr %user_data, i64 0, i32 6
+  %isfin = getelementptr inbounds i8, ptr %user_data, i64 44
   store i32 1, ptr %isfin, align 4
   br label %return
 

@@ -3,11 +3,7 @@ source_filename = "bench/assimp/original/GenBoundingBoxesProcess.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.aiMesh = type { i32, i32, i32, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], [8 x i32], ptr, i32, ptr, i32, %struct.aiString, i32, ptr, i32, %struct.aiAABB, ptr }
-%struct.aiString = type { i32, [1024 x i8] }
-%struct.aiAABB = type { %class.aiVector3t, %class.aiVector3t }
 %class.aiVector3t = type { float, float, float }
-%struct.aiScene = type { i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, %struct.aiString, i32, ptr, ptr }
 
 $_ZN6Assimp23GenBoundingBoxesProcessD2Ev = comdat any
 
@@ -29,17 +25,17 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN6Assimp9checkMeshEP6aiMeshR10aiVector3tIfES4_(ptr nocapture noundef readonly %mesh, ptr nocapture noundef nonnull align 4 dereferenceable(12) %min, ptr nocapture noundef nonnull align 4 dereferenceable(12) %max) local_unnamed_addr #1 {
 entry:
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 1
+  %mNumVertices = getelementptr inbounds i8, ptr %mesh, i64 4
   %0 = load i32, ptr %mNumVertices, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 3
-  %y9 = getelementptr inbounds %class.aiVector3t, ptr %min, i64 0, i32 1
-  %z15 = getelementptr inbounds %class.aiVector3t, ptr %min, i64 0, i32 2
-  %y29 = getelementptr inbounds %class.aiVector3t, ptr %max, i64 0, i32 1
-  %z36 = getelementptr inbounds %class.aiVector3t, ptr %max, i64 0, i32 2
+  %mVertices = getelementptr inbounds i8, ptr %mesh, i64 16
+  %y9 = getelementptr inbounds i8, ptr %min, i64 4
+  %z15 = getelementptr inbounds i8, ptr %min, i64 8
+  %y29 = getelementptr inbounds i8, ptr %max, i64 4
+  %z36 = getelementptr inbounds i8, ptr %max, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -56,7 +52,7 @@ if.then5:                                         ; preds = %for.body
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %for.body
-  %y = getelementptr inbounds %class.aiVector3t, ptr %1, i64 %indvars.iv, i32 1
+  %y = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %4 = load float, ptr %y, align 4
   %5 = load float, ptr %y9, align 4
   %cmp10 = fcmp olt float %4, %5
@@ -67,7 +63,7 @@ if.then11:                                        ; preds = %if.end8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %if.end8
-  %z = getelementptr inbounds %class.aiVector3t, ptr %1, i64 %indvars.iv, i32 2
+  %z = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %6 = load float, ptr %z, align 4
   %7 = load float, ptr %z15, align 4
   %cmp16 = fcmp olt float %6, %7
@@ -125,13 +121,13 @@ entry:
   br i1 %cmp, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %mNumMeshes = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 2
+  %mNumMeshes = getelementptr inbounds i8, ptr %pScene, i64 16
   %0 = load i32, ptr %mNumMeshes, align 8
   %cmp212.not = icmp eq i32 %0, 0
   br i1 %cmp212.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mMeshes = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 3
+  %mMeshes = getelementptr inbounds i8, ptr %pScene, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -144,13 +140,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp3, label %for.inc, label %if.end5
 
 if.end5:                                          ; preds = %for.body
-  %mNumVertices.i = getelementptr inbounds %struct.aiMesh, ptr %3, i64 0, i32 1
+  %mNumVertices.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %mNumVertices.i, align 4
   %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %_ZN6Assimp9checkMeshEP6aiMeshR10aiVector3tIfES4_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end5
-  %mVertices.i = getelementptr inbounds %struct.aiMesh, ptr %3, i64 0, i32 3
+  %mVertices.i = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %mVertices.i, align 8
   %6 = zext i32 %4 to i64
   br label %for.body.i
@@ -161,7 +157,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %8 = phi <2 x float> [ <float -9.999990e+05, float -9.999990e+05>, %for.body.lr.ph.i ], [ %20, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %class.aiVector3t, ptr %5, i64 %indvars.iv.i
   %9 = load float, ptr %arrayidx.i, align 4
-  %y.i10 = getelementptr inbounds %class.aiVector3t, ptr %5, i64 %indvars.iv.i, i32 1
+  %y.i10 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %10 = insertelement <4 x float> poison, float %9, i64 0
   %11 = load <2 x float>, ptr %y.i10, align 4
   %12 = shufflevector <2 x float> %11, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -180,9 +176,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZN6Assimp9checkMeshEP6aiMeshR10aiVector3tIfES4_.exit: ; preds = %for.body.i, %if.end5
   %21 = phi <4 x float> [ <float 9.999990e+05, float 9.999990e+05, float 9.999990e+05, float -9.999990e+05>, %if.end5 ], [ %18, %for.body.i ]
   %22 = phi <2 x float> [ <float -9.999990e+05, float -9.999990e+05>, %if.end5 ], [ %20, %for.body.i ]
-  %mAABB = getelementptr inbounds %struct.aiMesh, ptr %3, i64 0, i32 18
+  %mAABB = getelementptr inbounds i8, ptr %3, i64 1284
   store <4 x float> %21, ptr %mAABB, align 4
-  %max.sroa.4.0.mMax.sroa_idx = getelementptr inbounds %struct.aiMesh, ptr %3, i64 0, i32 18, i32 1, i32 1
+  %max.sroa.4.0.mMax.sroa_idx = getelementptr inbounds i8, ptr %3, i64 1300
   store <2 x float> %22, ptr %max.sroa.4.0.mMax.sroa_idx, align 4
   %.pre = load i32, ptr %mNumMeshes, align 8
   br label %for.inc

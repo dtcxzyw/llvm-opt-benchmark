@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ecdsa_sign.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ec_key_method_st = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/ec/ecdsa_sign.c\00", align 1
 @__func__.ECDSA_do_sign_ex = private unnamed_addr constant [17 x i8] c"ECDSA_do_sign_ex\00", align 1
 @__func__.ECDSA_sign_ex = private unnamed_addr constant [14 x i8] c"ECDSA_sign_ex\00", align 1
@@ -14,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define ptr @ECDSA_do_sign(ptr noundef %dgst, i32 noundef %dlen, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %eckey, align 8
-  %sign_sig.i = getelementptr inbounds %struct.ec_key_method_st, ptr %0, i64 0, i32 12
+  %sign_sig.i = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %sign_sig.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -38,7 +36,7 @@ ECDSA_do_sign_ex.exit:                            ; preds = %if.then.i, %if.end.
 define ptr @ECDSA_do_sign_ex(ptr noundef %dgst, i32 noundef %dlen, ptr noundef %kinv, ptr noundef %rp, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %eckey, align 8
-  %sign_sig = getelementptr inbounds %struct.ec_key_method_st, ptr %0, i64 0, i32 12
+  %sign_sig = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %sign_sig, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -68,7 +66,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 define i32 @ECDSA_sign(i32 noundef %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr noundef %siglen, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %eckey, align 8
-  %sign.i = getelementptr inbounds %struct.ec_key_method_st, ptr %0, i64 0, i32 10
+  %sign.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %sign.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -92,7 +90,7 @@ ECDSA_sign_ex.exit:                               ; preds = %if.then.i, %if.end.
 define i32 @ECDSA_sign_ex(i32 noundef %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr noundef %siglen, ptr noundef %kinv, ptr noundef %r, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %eckey, align 8
-  %sign = getelementptr inbounds %struct.ec_key_method_st, ptr %0, i64 0, i32 10
+  %sign = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %sign, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -116,7 +114,7 @@ return:                                           ; preds = %if.end, %if.then
 define i32 @ECDSA_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr noundef %kinvp, ptr noundef %rp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %eckey, align 8
-  %sign_setup = getelementptr inbounds %struct.ec_key_method_st, ptr %0, i64 0, i32 11
+  %sign_setup = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %sign_setup, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then

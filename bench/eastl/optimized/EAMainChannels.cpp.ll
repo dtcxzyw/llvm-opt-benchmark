@@ -3,9 +3,6 @@ source_filename = "bench/eastl/original/EAMainChannels.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.EA::EAMain::FileChannel" = type { %"class.EA::EAMain::IChannel", ptr }
-%"class.EA::EAMain::IChannel" = type { ptr }
-
 $_ZN2EA6EAMain13PrintfChannelD2Ev = comdat any
 
 $_ZN2EA6EAMain13PrintfChannelD0Ev = comdat any
@@ -49,7 +46,7 @@ declare noundef ptr @_ZN2EA6EAMain24GetDefaultReportFunctionEv() local_unnamed_a
 define dso_local void @_ZN2EA6EAMain11FileChannel4InitEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1)
-  %mFileHandle = getelementptr inbounds %"class.EA::EAMain::FileChannel", ptr %this, i64 0, i32 1
+  %mFileHandle = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %mFileHandle, align 8
   ret void
 }
@@ -60,7 +57,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local void @_ZN2EA6EAMain11FileChannel4SendEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %pData) unnamed_addr #2 align 2 {
 entry:
-  %mFileHandle = getelementptr inbounds %"class.EA::EAMain::FileChannel", ptr %this, i64 0, i32 1
+  %mFileHandle = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFileHandle, align 8
   %call = tail call i32 @fputs(ptr noundef %pData, ptr noundef %0)
   ret void
@@ -72,7 +69,7 @@ declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local void @_ZN2EA6EAMain11FileChannel8ShutdownEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 {
 entry:
-  %mFileHandle = getelementptr inbounds %"class.EA::EAMain::FileChannel", ptr %this, i64 0, i32 1
+  %mFileHandle = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFileHandle, align 8
   %call = tail call i32 @fclose(ptr noundef %0)
   ret void

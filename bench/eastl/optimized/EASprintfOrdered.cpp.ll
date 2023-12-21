@@ -6,8 +6,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.EA::StdC::SprintfLocal::Span" = type <{ ptr, ptr, i32, [12 x i8], %"union.EA::StdC::SprintfLocal::AllTypes", [16 x i8], i8, [3 x i8], i32, i8, [7 x i8] }>
 %"union.EA::StdC::SprintfLocal::AllTypes" = type { x86_fp80 }
 %"struct.EA::StdC::SprintfLocal::FormatData" = type { i32, i32, i8, i32, i32, i32, i32, i32, i8, i32 }
-%struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %"struct.EA::StdC::SprintfLocal::SnprintfContext8" = type <{ ptr, i64, i64, i8, [7 x i8] }>
+%struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %"struct.EA::StdC::SprintfLocal::Span.0" = type <{ ptr, ptr, i32, [12 x i8], %"union.EA::StdC::SprintfLocal::AllTypes", [16 x i16], i16, [2 x i8], i32, i8, [7 x i8] }>
 %"struct.EA::StdC::SprintfLocal::SnprintfContext16" = type { ptr, i64, i64 }
 %"struct.EA::StdC::SprintfLocal::Span.2" = type <{ ptr, ptr, i32, [12 x i8], %"union.EA::StdC::SprintfLocal::AllTypes", [16 x i32], i32, i32, i8, [7 x i8] }>
@@ -40,12 +40,12 @@ entry:
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %entry
   %arrayctor.cur.idx.i = phi i64 [ 0, %entry ], [ %arrayctor.cur.add.i, %arrayctor.loop.i ]
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %spans.i, i64 %arrayctor.cur.idx.i
-  %mValue.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span", ptr %arrayctor.cur.ptr.i, i64 0, i32 4
-  %mFormatChar.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span", ptr %arrayctor.cur.ptr.i, i64 0, i32 6
+  %mValue.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 32
+  %mFormatChar.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 64
   store i8 0, ptr %mFormatChar.i.i, align 16, !noalias !8
-  %mUserIndex.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span", ptr %arrayctor.cur.ptr.i, i64 0, i32 8
+  %mUserIndex.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 68
   store i32 0, ptr %mUserIndex.i.i, align 4, !noalias !8
-  %mbEscapePresent.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span", ptr %arrayctor.cur.ptr.i, i64 0, i32 9
+  %mbEscapePresent.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 72
   store i8 0, ptr %mbEscapePresent.i.i, align 8, !noalias !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %arrayctor.cur.ptr.i, i8 0, i64 20, i1 false), !noalias !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %mValue.i.i, i8 0, i64 17, i1 false), !noalias !8
@@ -57,7 +57,7 @@ arrayctor.cont.i:                                 ; preds = %arrayctor.loop.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %spanArgOrder.i, i8 0, i64 40, i1 false), !noalias !8
   %call.i = tail call noundef i32 %pWriteFunction8(ptr noundef null, i64 noundef 0, ptr noundef %pWriteFunctionContext8, i32 noundef 0)
   store ptr %pFormat, ptr %spans.i, align 16, !noalias !8
-  %mUserIndex.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span", ptr %spans.i, i64 0, i32 8
+  %mUserIndex.i = getelementptr inbounds i8, ptr %spans.i, i64 68
   store i32 -1, ptr %mUserIndex.i, align 4, !noalias !8
   %scevgep.i = getelementptr inbounds i8, ptr %spanArgOrder.i, i64 4
   br label %for.cond.i
@@ -88,12 +88,14 @@ if.then5.i:                                       ; preds = %if.then.i
   br label %for.inc99.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %mpEnd.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 1
+  %arrayidx8.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom.i
+  %mpEnd.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 8
   store ptr %p.0.i, ptr %mpEnd.i, align 8, !noalias !8
+  %mFormat.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 48
   %idxprom11.i = sext i32 %nFormatLength.0.i to i64
-  %arrayidx12.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 5, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr inbounds [16 x i8], ptr %mFormat.i, i64 0, i64 %idxprom11.i
   store i8 0, ptr %arrayidx12.i, align 1, !noalias !8
-  %mFormatChar.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 6
+  %mFormatChar.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 64
   store i8 0, ptr %mFormatChar.i, align 16, !noalias !8
   %inc.i = add nsw i32 %spanIndex.0.i, 1
   %cmp15.i = icmp eq i32 %inc.i, 21
@@ -119,9 +121,9 @@ if.end38.i:                                       ; preds = %for.body32.preheade
   %idxprom39.i = sext i32 %inc.i to i64
   %arrayidx40.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom39.i
   store ptr %p.0.i, ptr %arrayidx40.i, align 16, !noalias !8
-  %mFormat44.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom39.i, i32 5
+  %mFormat44.i = getelementptr inbounds i8, ptr %arrayidx40.i, i64 48
   store i8 37, ptr %mFormat44.i, align 16, !noalias !8
-  %mUserIndex48.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom39.i, i32 8
+  %mUserIndex48.i = getelementptr inbounds i8, ptr %arrayidx40.i, i64 68
   store i32 %sub.i, ptr %mUserIndex48.i, align 4, !noalias !8
   %sub49.i = sub nsw i32 %sub.i, %startIndex.1.i
   %idxprom50.i = sext i32 %sub49.i to i64
@@ -147,9 +149,11 @@ if.then61.i:                                      ; preds = %if.else59.i
 
 if.then63.i:                                      ; preds = %if.then61.i
   %idxprom64.i = sext i32 %spanIndex.0.i to i64
+  %arrayidx65.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom64.i
+  %mFormat66.i = getelementptr inbounds i8, ptr %arrayidx65.i, i64 48
   %inc67.i = add nsw i32 %nFormatLength.0.i, 1
   %idxprom68.i = sext i32 %nFormatLength.0.i to i64
-  %arrayidx69.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom64.i, i32 5, i64 %idxprom68.i
+  %arrayidx69.i = getelementptr inbounds [16 x i8], ptr %mFormat66.i, i64 0, i64 %idxprom68.i
   store i8 %0, ptr %arrayidx69.i, align 1, !noalias !8
   %conv72.i = sext i8 %0 to i32
   switch i32 %conv72.i, label %for.inc99.i [
@@ -178,14 +182,14 @@ if.then63.i:                                      ; preds = %if.then61.i
 
 sw.bb.i:                                          ; preds = %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i
   %add.ptr73.i = getelementptr inbounds i8, ptr %p.0.i, i64 1
-  %mpEnd76.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom64.i, i32 1
+  %mpEnd76.i = getelementptr inbounds i8, ptr %arrayidx65.i, i64 8
   store ptr %add.ptr73.i, ptr %mpEnd76.i, align 8, !noalias !8
   %cmp80.not.i = icmp eq i32 %nFormatLength.0.i, 15
   %cond.i = select i1 %cmp80.not.i, i32 15, i32 %inc67.i
   %idxprom81.i = sext i32 %cond.i to i64
-  %arrayidx82.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom64.i, i32 5, i64 %idxprom81.i
+  %arrayidx82.i = getelementptr inbounds [16 x i8], ptr %mFormat66.i, i64 0, i64 %idxprom81.i
   store i8 0, ptr %arrayidx82.i, align 1, !noalias !8
-  %mFormatChar85.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom64.i, i32 6
+  %mFormatChar85.i = getelementptr inbounds i8, ptr %arrayidx65.i, i64 64
   store i8 %0, ptr %mFormatChar85.i, align 16, !noalias !8
   %inc86.i = add nsw i32 %spanIndex.0.i, 1
   %cmp87.i = icmp eq i32 %inc86.i, 21
@@ -195,7 +199,7 @@ if.end89.i:                                       ; preds = %sw.bb.i
   %idxprom91.i = sext i32 %inc86.i to i64
   %arrayidx92.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom91.i
   store ptr %add.ptr73.i, ptr %arrayidx92.i, align 16, !noalias !8
-  %mUserIndex96.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom91.i, i32 8
+  %mUserIndex96.i = getelementptr inbounds i8, ptr %arrayidx92.i, i64 68
   store i32 -1, ptr %mUserIndex96.i, align 4, !noalias !8
   br label %for.inc99.i
 
@@ -212,21 +216,23 @@ for.inc99.i:                                      ; preds = %if.end89.i, %sw.bb.
 if.end106.i:                                      ; preds = %for.cond.i
   %.pre.i = sext i32 %nFormatLength.0.i to i64
   %idxprom107.i = sext i32 %spanIndex.0.i to i64
-  %mpEnd109.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom107.i, i32 1
+  %arrayidx108.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom107.i
+  %mpEnd109.i = getelementptr inbounds i8, ptr %arrayidx108.i, i64 8
   store ptr %p.0.i, ptr %mpEnd109.i, align 8, !noalias !8
-  %arrayidx114.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom107.i, i32 5, i64 %.pre.i
+  %mFormat112.i = getelementptr inbounds i8, ptr %arrayidx108.i, i64 48
+  %arrayidx114.i = getelementptr inbounds [16 x i8], ptr %mFormat112.i, i64 0, i64 %.pre.i
   store i8 0, ptr %arrayidx114.i, align 1, !noalias !8
   %cmp118201.i = icmp sgt i32 %formattedSpanCount.0.i, 0
   br i1 %cmp118201.i, label %for.body119.lr.ph.i, label %for.cond335.preheader.i
 
 for.body119.lr.ph.i:                              ; preds = %if.end106.i
-  %mSign.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 1
-  %mbAlternativeForm.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 2
-  %mnWidth.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 3
-  %mModifier.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 5
-  %mDecimalPoint.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 7
-  %mbDisplayThousands.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 8
-  %mThousandsSeparator.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 9
+  %mSign.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 4
+  %mbAlternativeForm.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 8
+  %mnWidth.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 12
+  %mModifier.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 20
+  %mDecimalPoint.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 28
+  %mbDisplayThousands.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 32
+  %mThousandsSeparator.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 36
   %wide.trip.count.i = zext nneg i32 %formattedSpanCount.0.i to i64
   br label %for.body119.i
 
@@ -244,6 +250,7 @@ for.body119.i:                                    ; preds = %for.inc332.i, %for.
   %arrayidx121.i = getelementptr inbounds [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %indvars.iv.i
   %6 = load i32, ptr %arrayidx121.i, align 4, !noalias !8
   %idxprom122.i = sext i32 %6 to i64
+  %arrayidx123.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i
   store i32 1, ptr %formatData.i, align 4, !noalias !8
   store i32 1, ptr %mSign.i.i, align 4, !noalias !8
   store i8 0, ptr %mbAlternativeForm.i.i, align 4, !noalias !8
@@ -251,7 +258,7 @@ for.body119.i:                                    ; preds = %for.inc332.i, %for.
   store i32 46, ptr %mDecimalPoint.i.i, align 4, !noalias !8
   store i8 0, ptr %mbDisplayThousands.i.i, align 4, !noalias !8
   store i32 44, ptr %mThousandsSeparator.i.i, align 4, !noalias !8
-  %mFormat124.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 5
+  %mFormat124.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 48
   %call126.i = call noundef ptr @_ZN2EA4StdC12SprintfLocal10ReadFormatIcEEPKT_S5_PNS1_10FormatDataEPA1_13__va_list_tag(ptr noundef nonnull %mFormat124.i, ptr noundef nonnull %formatData.i, ptr noundef nonnull %arguments.addr.i)
   %7 = load i8, ptr %call126.i, align 1
   %cmp128.not.i = icmp eq i8 %7, 0
@@ -291,42 +298,42 @@ if.then132.i:                                     ; preds = %if.end130.i
   ]
 
 if.end147.thread233.i:                            ; preds = %if.then132.i
-  %mType234.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType234.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 0, ptr %mType234.i, align 16, !noalias !8
   br label %sw.default329.i
 
 if.end147.thread173.i:                            ; preds = %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i
   store i32 3, ptr %mModifier.i.i, align 4, !noalias !8
-  %mType174.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType174.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 3, ptr %mType174.i, align 16, !noalias !8
   br label %sw.bb166.i
 
 if.end147.thread177.i:                            ; preds = %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i
   store i32 9, ptr %mModifier.i.i, align 4, !noalias !8
-  %mType178.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType178.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 9, ptr %mType178.i, align 16, !noalias !8
   br label %sw.bb244.i
 
 if.end147.thread175.i:                            ; preds = %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i
   store i32 7, ptr %mModifier.i.i, align 4, !noalias !8
-  %mType176.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType176.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 7, ptr %mType176.i, align 16, !noalias !8
   br label %sw.bb218.i
 
 if.end147.thread.i:                               ; preds = %if.then132.i
   store i32 1, ptr %mModifier.i.i, align 4, !noalias !8
-  %mType172.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType172.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 1, ptr %mType172.i, align 16, !noalias !8
   br label %sw.bb150.i
 
 if.end147.thread179.i:                            ; preds = %if.then132.i
   store i32 11, ptr %mModifier.i.i, align 4, !noalias !8
-  %mType180.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType180.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 11, ptr %mType180.i, align 16, !noalias !8
   br label %sw.bb259.i
 
 if.end147.i:                                      ; preds = %if.end130.i
-  %mType.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 %8, ptr %mType.i, align 16, !noalias !8
   switch i32 %8, label %sw.default329.i [
     i32 1, label %sw.bb150.i
@@ -354,7 +361,7 @@ sw.bb150.i:                                       ; preds = %if.end147.i, %if.en
   br i1 %fits_in_gp.i, label %vaarg.in_reg.i, label %vaarg.in_mem.i
 
 vaarg.in_reg.i:                                   ; preds = %sw.bb150.i
-  %11 = getelementptr inbounds %struct.__va_list_tag, ptr %10, i64 0, i32 3
+  %11 = getelementptr inbounds i8, ptr %10, i64 16
   %reg_save_area.i = load ptr, ptr %11, align 8
   %12 = zext nneg i32 %gp_offset.i to i64
   %13 = getelementptr i8, ptr %reg_save_area.i, i64 %12
@@ -363,7 +370,7 @@ vaarg.in_reg.i:                                   ; preds = %sw.bb150.i
   br label %vaarg.end.i
 
 vaarg.in_mem.i:                                   ; preds = %sw.bb150.i
-  %overflow_arg_area_p.i = getelementptr inbounds %struct.__va_list_tag, ptr %10, i64 0, i32 2
+  %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %10, i64 8
   %overflow_arg_area.i = load ptr, ptr %overflow_arg_area_p.i, align 8
   %overflow_arg_area.next.i = getelementptr i8, ptr %overflow_arg_area.i, i64 8
   store ptr %overflow_arg_area.next.i, ptr %overflow_arg_area_p.i, align 8
@@ -373,7 +380,7 @@ vaarg.end.i:                                      ; preds = %vaarg.in_mem.i, %va
   %vaarg.addr.i = phi ptr [ %13, %vaarg.in_reg.i ], [ %overflow_arg_area.i, %vaarg.in_mem.i ]
   %15 = load i32, ptr %vaarg.addr.i, align 4
   %conv151.i = trunc i32 %15 to i8
-  %mValue.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i8 %conv151.i, ptr %mValue.i, align 16, !noalias !8
   br label %for.inc332.i
 
@@ -384,7 +391,7 @@ sw.bb152.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp155.i, label %vaarg.in_reg156.i, label %vaarg.in_mem158.i
 
 vaarg.in_reg156.i:                                ; preds = %sw.bb152.i
-  %17 = getelementptr inbounds %struct.__va_list_tag, ptr %16, i64 0, i32 3
+  %17 = getelementptr inbounds i8, ptr %16, i64 16
   %reg_save_area157.i = load ptr, ptr %17, align 8
   %18 = zext nneg i32 %gp_offset154.i to i64
   %19 = getelementptr i8, ptr %reg_save_area157.i, i64 %18
@@ -393,7 +400,7 @@ vaarg.in_reg156.i:                                ; preds = %sw.bb152.i
   br label %vaarg.end162.i
 
 vaarg.in_mem158.i:                                ; preds = %sw.bb152.i
-  %overflow_arg_area_p159.i = getelementptr inbounds %struct.__va_list_tag, ptr %16, i64 0, i32 2
+  %overflow_arg_area_p159.i = getelementptr inbounds i8, ptr %16, i64 8
   %overflow_arg_area160.i = load ptr, ptr %overflow_arg_area_p159.i, align 8
   %overflow_arg_area.next161.i = getelementptr i8, ptr %overflow_arg_area160.i, i64 8
   store ptr %overflow_arg_area.next161.i, ptr %overflow_arg_area_p159.i, align 8
@@ -403,7 +410,7 @@ vaarg.end162.i:                                   ; preds = %vaarg.in_mem158.i, 
   %vaarg.addr163.i = phi ptr [ %19, %vaarg.in_reg156.i ], [ %overflow_arg_area160.i, %vaarg.in_mem158.i ]
   %21 = load i32, ptr %vaarg.addr163.i, align 4
   %conv164.i = trunc i32 %21 to i16
-  %mValue165.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue165.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i16 %conv164.i, ptr %mValue165.i, align 16, !noalias !8
   br label %for.inc332.i
 
@@ -414,7 +421,7 @@ sw.bb166.i:                                       ; preds = %if.end147.i, %if.en
   br i1 %fits_in_gp169.i, label %vaarg.in_reg170.i, label %vaarg.in_mem172.i
 
 vaarg.in_reg170.i:                                ; preds = %sw.bb166.i
-  %23 = getelementptr inbounds %struct.__va_list_tag, ptr %22, i64 0, i32 3
+  %23 = getelementptr inbounds i8, ptr %22, i64 16
   %reg_save_area171.i = load ptr, ptr %23, align 8
   %24 = zext nneg i32 %gp_offset168.i to i64
   %25 = getelementptr i8, ptr %reg_save_area171.i, i64 %24
@@ -423,7 +430,7 @@ vaarg.in_reg170.i:                                ; preds = %sw.bb166.i
   br label %vaarg.end176.i
 
 vaarg.in_mem172.i:                                ; preds = %sw.bb166.i
-  %overflow_arg_area_p173.i = getelementptr inbounds %struct.__va_list_tag, ptr %22, i64 0, i32 2
+  %overflow_arg_area_p173.i = getelementptr inbounds i8, ptr %22, i64 8
   %overflow_arg_area174.i = load ptr, ptr %overflow_arg_area_p173.i, align 8
   %overflow_arg_area.next175.i = getelementptr i8, ptr %overflow_arg_area174.i, i64 8
   store ptr %overflow_arg_area.next175.i, ptr %overflow_arg_area_p173.i, align 8
@@ -432,7 +439,7 @@ vaarg.in_mem172.i:                                ; preds = %sw.bb166.i
 vaarg.end176.i:                                   ; preds = %vaarg.in_mem172.i, %vaarg.in_reg170.i
   %vaarg.addr177.i = phi ptr [ %25, %vaarg.in_reg170.i ], [ %overflow_arg_area174.i, %vaarg.in_mem172.i ]
   %27 = load i32, ptr %vaarg.addr177.i, align 4
-  %mValue178.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue178.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i32 %27, ptr %mValue178.i, align 16, !noalias !8
   br label %for.inc332.i
 
@@ -443,7 +450,7 @@ sw.bb179.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp182.i, label %vaarg.in_reg183.i, label %vaarg.in_mem185.i
 
 vaarg.in_reg183.i:                                ; preds = %sw.bb179.i
-  %29 = getelementptr inbounds %struct.__va_list_tag, ptr %28, i64 0, i32 3
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
   %reg_save_area184.i = load ptr, ptr %29, align 8
   %30 = zext nneg i32 %gp_offset181.i to i64
   %31 = getelementptr i8, ptr %reg_save_area184.i, i64 %30
@@ -452,7 +459,7 @@ vaarg.in_reg183.i:                                ; preds = %sw.bb179.i
   br label %vaarg.end189.i
 
 vaarg.in_mem185.i:                                ; preds = %sw.bb179.i
-  %overflow_arg_area_p186.i = getelementptr inbounds %struct.__va_list_tag, ptr %28, i64 0, i32 2
+  %overflow_arg_area_p186.i = getelementptr inbounds i8, ptr %28, i64 8
   %overflow_arg_area187.i = load ptr, ptr %overflow_arg_area_p186.i, align 8
   %overflow_arg_area.next188.i = getelementptr i8, ptr %overflow_arg_area187.i, i64 8
   store ptr %overflow_arg_area.next188.i, ptr %overflow_arg_area_p186.i, align 8
@@ -461,7 +468,7 @@ vaarg.in_mem185.i:                                ; preds = %sw.bb179.i
 vaarg.end189.i:                                   ; preds = %vaarg.in_mem185.i, %vaarg.in_reg183.i
   %vaarg.addr190.i = phi ptr [ %31, %vaarg.in_reg183.i ], [ %overflow_arg_area187.i, %vaarg.in_mem185.i ]
   %33 = load i64, ptr %vaarg.addr190.i, align 8
-  %mValue191.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue191.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 %33, ptr %mValue191.i, align 16, !noalias !8
   br label %for.inc332.i
 
@@ -472,7 +479,7 @@ sw.bb192.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp195.i, label %vaarg.in_reg196.i, label %vaarg.in_mem198.i
 
 vaarg.in_reg196.i:                                ; preds = %sw.bb192.i
-  %35 = getelementptr inbounds %struct.__va_list_tag, ptr %34, i64 0, i32 3
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
   %reg_save_area197.i = load ptr, ptr %35, align 8
   %36 = zext nneg i32 %gp_offset194.i to i64
   %37 = getelementptr i8, ptr %reg_save_area197.i, i64 %36
@@ -481,7 +488,7 @@ vaarg.in_reg196.i:                                ; preds = %sw.bb192.i
   br label %vaarg.end202.i
 
 vaarg.in_mem198.i:                                ; preds = %sw.bb192.i
-  %overflow_arg_area_p199.i = getelementptr inbounds %struct.__va_list_tag, ptr %34, i64 0, i32 2
+  %overflow_arg_area_p199.i = getelementptr inbounds i8, ptr %34, i64 8
   %overflow_arg_area200.i = load ptr, ptr %overflow_arg_area_p199.i, align 8
   %overflow_arg_area.next201.i = getelementptr i8, ptr %overflow_arg_area200.i, i64 8
   store ptr %overflow_arg_area.next201.i, ptr %overflow_arg_area_p199.i, align 8
@@ -490,7 +497,7 @@ vaarg.in_mem198.i:                                ; preds = %sw.bb192.i
 vaarg.end202.i:                                   ; preds = %vaarg.in_mem198.i, %vaarg.in_reg196.i
   %vaarg.addr203.i = phi ptr [ %37, %vaarg.in_reg196.i ], [ %overflow_arg_area200.i, %vaarg.in_mem198.i ]
   %39 = load i64, ptr %vaarg.addr203.i, align 8
-  %mValue204.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue204.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 %39, ptr %mValue204.i, align 16, !noalias !8
   br label %for.inc332.i
 
@@ -501,7 +508,7 @@ sw.bb205.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp208.i, label %vaarg.in_reg209.i, label %vaarg.in_mem211.i
 
 vaarg.in_reg209.i:                                ; preds = %sw.bb205.i
-  %41 = getelementptr inbounds %struct.__va_list_tag, ptr %40, i64 0, i32 3
+  %41 = getelementptr inbounds i8, ptr %40, i64 16
   %reg_save_area210.i = load ptr, ptr %41, align 8
   %42 = zext nneg i32 %gp_offset207.i to i64
   %43 = getelementptr i8, ptr %reg_save_area210.i, i64 %42
@@ -510,7 +517,7 @@ vaarg.in_reg209.i:                                ; preds = %sw.bb205.i
   br label %vaarg.end215.i
 
 vaarg.in_mem211.i:                                ; preds = %sw.bb205.i
-  %overflow_arg_area_p212.i = getelementptr inbounds %struct.__va_list_tag, ptr %40, i64 0, i32 2
+  %overflow_arg_area_p212.i = getelementptr inbounds i8, ptr %40, i64 8
   %overflow_arg_area213.i = load ptr, ptr %overflow_arg_area_p212.i, align 8
   %overflow_arg_area.next214.i = getelementptr i8, ptr %overflow_arg_area213.i, i64 8
   store ptr %overflow_arg_area.next214.i, ptr %overflow_arg_area_p212.i, align 8
@@ -519,7 +526,7 @@ vaarg.in_mem211.i:                                ; preds = %sw.bb205.i
 vaarg.end215.i:                                   ; preds = %vaarg.in_mem211.i, %vaarg.in_reg209.i
   %vaarg.addr216.i = phi ptr [ %43, %vaarg.in_reg209.i ], [ %overflow_arg_area213.i, %vaarg.in_mem211.i ]
   %45 = load i64, ptr %vaarg.addr216.i, align 8
-  %mValue217.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue217.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 %45, ptr %mValue217.i, align 16, !noalias !8
   br label %for.inc332.i
 
@@ -530,7 +537,7 @@ sw.bb218.i:                                       ; preds = %if.end147.i, %if.en
   br i1 %fits_in_gp221.i, label %vaarg.in_reg222.i, label %vaarg.in_mem224.i
 
 vaarg.in_reg222.i:                                ; preds = %sw.bb218.i
-  %47 = getelementptr inbounds %struct.__va_list_tag, ptr %46, i64 0, i32 3
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
   %reg_save_area223.i = load ptr, ptr %47, align 8
   %48 = zext nneg i32 %gp_offset220.i to i64
   %49 = getelementptr i8, ptr %reg_save_area223.i, i64 %48
@@ -539,7 +546,7 @@ vaarg.in_reg222.i:                                ; preds = %sw.bb218.i
   br label %vaarg.end228.i
 
 vaarg.in_mem224.i:                                ; preds = %sw.bb218.i
-  %overflow_arg_area_p225.i = getelementptr inbounds %struct.__va_list_tag, ptr %46, i64 0, i32 2
+  %overflow_arg_area_p225.i = getelementptr inbounds i8, ptr %46, i64 8
   %overflow_arg_area226.i = load ptr, ptr %overflow_arg_area_p225.i, align 8
   %overflow_arg_area.next227.i = getelementptr i8, ptr %overflow_arg_area226.i, i64 8
   store ptr %overflow_arg_area.next227.i, ptr %overflow_arg_area_p225.i, align 8
@@ -548,7 +555,7 @@ vaarg.in_mem224.i:                                ; preds = %sw.bb218.i
 vaarg.end228.i:                                   ; preds = %vaarg.in_mem224.i, %vaarg.in_reg222.i
   %vaarg.addr229.i = phi ptr [ %49, %vaarg.in_reg222.i ], [ %overflow_arg_area226.i, %vaarg.in_mem224.i ]
   %51 = load i64, ptr %vaarg.addr229.i, align 8
-  %mValue230.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue230.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 %51, ptr %mValue230.i, align 16, !noalias !8
   br label %for.inc332.i
 
@@ -559,7 +566,7 @@ sw.bb231.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp234.i, label %vaarg.in_reg235.i, label %vaarg.in_mem237.i
 
 vaarg.in_reg235.i:                                ; preds = %sw.bb231.i
-  %53 = getelementptr inbounds %struct.__va_list_tag, ptr %52, i64 0, i32 3
+  %53 = getelementptr inbounds i8, ptr %52, i64 16
   %reg_save_area236.i = load ptr, ptr %53, align 8
   %54 = zext nneg i32 %gp_offset233.i to i64
   %55 = getelementptr i8, ptr %reg_save_area236.i, i64 %54
@@ -568,7 +575,7 @@ vaarg.in_reg235.i:                                ; preds = %sw.bb231.i
   br label %vaarg.end241.i
 
 vaarg.in_mem237.i:                                ; preds = %sw.bb231.i
-  %overflow_arg_area_p238.i = getelementptr inbounds %struct.__va_list_tag, ptr %52, i64 0, i32 2
+  %overflow_arg_area_p238.i = getelementptr inbounds i8, ptr %52, i64 8
   %overflow_arg_area239.i = load ptr, ptr %overflow_arg_area_p238.i, align 8
   %overflow_arg_area.next240.i = getelementptr i8, ptr %overflow_arg_area239.i, i64 8
   store ptr %overflow_arg_area.next240.i, ptr %overflow_arg_area_p238.i, align 8
@@ -577,19 +584,19 @@ vaarg.in_mem237.i:                                ; preds = %sw.bb231.i
 vaarg.end241.i:                                   ; preds = %vaarg.in_mem237.i, %vaarg.in_reg235.i
   %vaarg.addr242.i = phi ptr [ %55, %vaarg.in_reg235.i ], [ %overflow_arg_area239.i, %vaarg.in_mem237.i ]
   %57 = load i64, ptr %vaarg.addr242.i, align 8
-  %mValue243.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue243.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 %57, ptr %mValue243.i, align 16, !noalias !8
   br label %for.inc332.i
 
 sw.bb244.i:                                       ; preds = %if.end147.i, %if.end147.thread177.i
   %58 = load ptr, ptr %arguments.addr.i, align 8, !noalias !8
-  %fp_offset_p.i = getelementptr inbounds %struct.__va_list_tag, ptr %58, i64 0, i32 1
+  %fp_offset_p.i = getelementptr inbounds i8, ptr %58, i64 4
   %fp_offset.i = load i32, ptr %fp_offset_p.i, align 4
   %fits_in_fp.i = icmp ult i32 %fp_offset.i, 161
   br i1 %fits_in_fp.i, label %vaarg.in_reg245.i, label %vaarg.in_mem247.i
 
 vaarg.in_reg245.i:                                ; preds = %sw.bb244.i
-  %59 = getelementptr inbounds %struct.__va_list_tag, ptr %58, i64 0, i32 3
+  %59 = getelementptr inbounds i8, ptr %58, i64 16
   %reg_save_area246.i = load ptr, ptr %59, align 8
   %60 = zext nneg i32 %fp_offset.i to i64
   %61 = getelementptr i8, ptr %reg_save_area246.i, i64 %60
@@ -598,7 +605,7 @@ vaarg.in_reg245.i:                                ; preds = %sw.bb244.i
   br label %vaarg.end251.i
 
 vaarg.in_mem247.i:                                ; preds = %sw.bb244.i
-  %overflow_arg_area_p248.i = getelementptr inbounds %struct.__va_list_tag, ptr %58, i64 0, i32 2
+  %overflow_arg_area_p248.i = getelementptr inbounds i8, ptr %58, i64 8
   %overflow_arg_area249.i = load ptr, ptr %overflow_arg_area_p248.i, align 8
   %overflow_arg_area.next250.i = getelementptr i8, ptr %overflow_arg_area249.i, i64 8
   store ptr %overflow_arg_area.next250.i, ptr %overflow_arg_area_p248.i, align 8
@@ -607,20 +614,20 @@ vaarg.in_mem247.i:                                ; preds = %sw.bb244.i
 vaarg.end251.i:                                   ; preds = %vaarg.in_mem247.i, %vaarg.in_reg245.i
   %vaarg.addr252.i = phi ptr [ %61, %vaarg.in_reg245.i ], [ %overflow_arg_area249.i, %vaarg.in_mem247.i ]
   %63 = load double, ptr %vaarg.addr252.i, align 8
-  %mValue253.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue253.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store double %63, ptr %mValue253.i, align 16, !noalias !8
   br label %for.inc332.i
 
 sw.bb254.i:                                       ; preds = %if.end147.i
   %64 = load ptr, ptr %arguments.addr.i, align 8, !noalias !8
-  %overflow_arg_area_p255.i = getelementptr inbounds %struct.__va_list_tag, ptr %64, i64 0, i32 2
+  %overflow_arg_area_p255.i = getelementptr inbounds i8, ptr %64, i64 8
   %overflow_arg_area256.i = load ptr, ptr %overflow_arg_area_p255.i, align 8
   %65 = getelementptr inbounds i8, ptr %overflow_arg_area256.i, i64 15
   %overflow_arg_area256.aligned.i = call align 16 ptr @llvm.ptrmask.p0.i64(ptr nonnull %65, i64 -16)
   %overflow_arg_area.next257.i = getelementptr i8, ptr %overflow_arg_area256.aligned.i, i64 16
   store ptr %overflow_arg_area.next257.i, ptr %overflow_arg_area_p255.i, align 8
   %66 = load x86_fp80, ptr %overflow_arg_area256.aligned.i, align 16
-  %mValue258.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue258.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store x86_fp80 %66, ptr %mValue258.i, align 16, !noalias !8
   br label %for.inc332.i
 
@@ -631,7 +638,7 @@ sw.bb259.i:                                       ; preds = %if.end147.i, %if.en
   br i1 %fits_in_gp262.i, label %vaarg.in_reg263.i, label %vaarg.in_mem265.i
 
 vaarg.in_reg263.i:                                ; preds = %sw.bb259.i
-  %68 = getelementptr inbounds %struct.__va_list_tag, ptr %67, i64 0, i32 3
+  %68 = getelementptr inbounds i8, ptr %67, i64 16
   %reg_save_area264.i = load ptr, ptr %68, align 8
   %69 = zext nneg i32 %gp_offset261.i to i64
   %70 = getelementptr i8, ptr %reg_save_area264.i, i64 %69
@@ -640,7 +647,7 @@ vaarg.in_reg263.i:                                ; preds = %sw.bb259.i
   br label %vaarg.end269.i
 
 vaarg.in_mem265.i:                                ; preds = %sw.bb259.i
-  %overflow_arg_area_p266.i = getelementptr inbounds %struct.__va_list_tag, ptr %67, i64 0, i32 2
+  %overflow_arg_area_p266.i = getelementptr inbounds i8, ptr %67, i64 8
   %overflow_arg_area267.i = load ptr, ptr %overflow_arg_area_p266.i, align 8
   %overflow_arg_area.next268.i = getelementptr i8, ptr %overflow_arg_area267.i, i64 8
   store ptr %overflow_arg_area.next268.i, ptr %overflow_arg_area_p266.i, align 8
@@ -649,7 +656,7 @@ vaarg.in_mem265.i:                                ; preds = %sw.bb259.i
 vaarg.end269.i:                                   ; preds = %vaarg.in_mem265.i, %vaarg.in_reg263.i
   %vaarg.addr270.i = phi ptr [ %70, %vaarg.in_reg263.i ], [ %overflow_arg_area267.i, %vaarg.in_mem265.i ]
   %72 = load i32, ptr %vaarg.addr270.i, align 4
-  %mValue271.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue271.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i32 %72, ptr %mValue271.i, align 16, !noalias !8
   br label %for.inc332.i
 
@@ -660,7 +667,7 @@ sw.bb272.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp275.i, label %vaarg.in_reg276.i, label %vaarg.in_mem278.i
 
 vaarg.in_reg276.i:                                ; preds = %sw.bb272.i
-  %74 = getelementptr inbounds %struct.__va_list_tag, ptr %73, i64 0, i32 3
+  %74 = getelementptr inbounds i8, ptr %73, i64 16
   %reg_save_area277.i = load ptr, ptr %74, align 8
   %75 = zext nneg i32 %gp_offset274.i to i64
   %76 = getelementptr i8, ptr %reg_save_area277.i, i64 %75
@@ -669,7 +676,7 @@ vaarg.in_reg276.i:                                ; preds = %sw.bb272.i
   br label %vaarg.end282.i
 
 vaarg.in_mem278.i:                                ; preds = %sw.bb272.i
-  %overflow_arg_area_p279.i = getelementptr inbounds %struct.__va_list_tag, ptr %73, i64 0, i32 2
+  %overflow_arg_area_p279.i = getelementptr inbounds i8, ptr %73, i64 8
   %overflow_arg_area280.i = load ptr, ptr %overflow_arg_area_p279.i, align 8
   %overflow_arg_area.next281.i = getelementptr i8, ptr %overflow_arg_area280.i, i64 8
   store ptr %overflow_arg_area.next281.i, ptr %overflow_arg_area_p279.i, align 8
@@ -679,7 +686,7 @@ vaarg.end282.i:                                   ; preds = %vaarg.in_mem278.i, 
   %vaarg.addr283.i = phi ptr [ %76, %vaarg.in_reg276.i ], [ %overflow_arg_area280.i, %vaarg.in_mem278.i ]
   %78 = load i32, ptr %vaarg.addr283.i, align 4
   %conv284.i = trunc i32 %78 to i8
-  %mValue285.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue285.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i8 %conv284.i, ptr %mValue285.i, align 16, !noalias !8
   br label %for.inc332.i
 
@@ -690,7 +697,7 @@ sw.bb286.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp289.i, label %vaarg.in_reg290.i, label %vaarg.in_mem292.i
 
 vaarg.in_reg290.i:                                ; preds = %sw.bb286.i
-  %80 = getelementptr inbounds %struct.__va_list_tag, ptr %79, i64 0, i32 3
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
   %reg_save_area291.i = load ptr, ptr %80, align 8
   %81 = zext nneg i32 %gp_offset288.i to i64
   %82 = getelementptr i8, ptr %reg_save_area291.i, i64 %81
@@ -699,7 +706,7 @@ vaarg.in_reg290.i:                                ; preds = %sw.bb286.i
   br label %vaarg.end296.i
 
 vaarg.in_mem292.i:                                ; preds = %sw.bb286.i
-  %overflow_arg_area_p293.i = getelementptr inbounds %struct.__va_list_tag, ptr %79, i64 0, i32 2
+  %overflow_arg_area_p293.i = getelementptr inbounds i8, ptr %79, i64 8
   %overflow_arg_area294.i = load ptr, ptr %overflow_arg_area_p293.i, align 8
   %overflow_arg_area.next295.i = getelementptr i8, ptr %overflow_arg_area294.i, i64 8
   store ptr %overflow_arg_area.next295.i, ptr %overflow_arg_area_p293.i, align 8
@@ -709,7 +716,7 @@ vaarg.end296.i:                                   ; preds = %vaarg.in_mem292.i, 
   %vaarg.addr297.i = phi ptr [ %82, %vaarg.in_reg290.i ], [ %overflow_arg_area294.i, %vaarg.in_mem292.i ]
   %84 = load i32, ptr %vaarg.addr297.i, align 4
   %conv298.i = trunc i32 %84 to i16
-  %mValue299.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue299.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i16 %conv298.i, ptr %mValue299.i, align 16, !noalias !8
   br label %for.inc332.i
 
@@ -720,7 +727,7 @@ sw.bb300.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp303.i, label %vaarg.in_reg304.i, label %vaarg.in_mem306.i
 
 vaarg.in_reg304.i:                                ; preds = %sw.bb300.i
-  %86 = getelementptr inbounds %struct.__va_list_tag, ptr %85, i64 0, i32 3
+  %86 = getelementptr inbounds i8, ptr %85, i64 16
   %reg_save_area305.i = load ptr, ptr %86, align 8
   %87 = zext nneg i32 %gp_offset302.i to i64
   %88 = getelementptr i8, ptr %reg_save_area305.i, i64 %87
@@ -729,7 +736,7 @@ vaarg.in_reg304.i:                                ; preds = %sw.bb300.i
   br label %vaarg.end310.i
 
 vaarg.in_mem306.i:                                ; preds = %sw.bb300.i
-  %overflow_arg_area_p307.i = getelementptr inbounds %struct.__va_list_tag, ptr %85, i64 0, i32 2
+  %overflow_arg_area_p307.i = getelementptr inbounds i8, ptr %85, i64 8
   %overflow_arg_area308.i = load ptr, ptr %overflow_arg_area_p307.i, align 8
   %overflow_arg_area.next309.i = getelementptr i8, ptr %overflow_arg_area308.i, i64 8
   store ptr %overflow_arg_area.next309.i, ptr %overflow_arg_area_p307.i, align 8
@@ -738,7 +745,7 @@ vaarg.in_mem306.i:                                ; preds = %sw.bb300.i
 vaarg.end310.i:                                   ; preds = %vaarg.in_mem306.i, %vaarg.in_reg304.i
   %vaarg.addr311.i = phi ptr [ %88, %vaarg.in_reg304.i ], [ %overflow_arg_area308.i, %vaarg.in_mem306.i ]
   %90 = load i32, ptr %vaarg.addr311.i, align 4
-  %mValue312.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue312.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i32 %90, ptr %mValue312.i, align 16, !noalias !8
   br label %for.inc332.i
 
@@ -749,7 +756,7 @@ sw.bb313.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp316.i, label %vaarg.in_reg317.i, label %vaarg.in_mem319.i
 
 vaarg.in_reg317.i:                                ; preds = %sw.bb313.i
-  %92 = getelementptr inbounds %struct.__va_list_tag, ptr %91, i64 0, i32 3
+  %92 = getelementptr inbounds i8, ptr %91, i64 16
   %reg_save_area318.i = load ptr, ptr %92, align 8
   %93 = zext nneg i32 %gp_offset315.i to i64
   %94 = getelementptr i8, ptr %reg_save_area318.i, i64 %93
@@ -758,7 +765,7 @@ vaarg.in_reg317.i:                                ; preds = %sw.bb313.i
   br label %vaarg.end323.i
 
 vaarg.in_mem319.i:                                ; preds = %sw.bb313.i
-  %overflow_arg_area_p320.i = getelementptr inbounds %struct.__va_list_tag, ptr %91, i64 0, i32 2
+  %overflow_arg_area_p320.i = getelementptr inbounds i8, ptr %91, i64 8
   %overflow_arg_area321.i = load ptr, ptr %overflow_arg_area_p320.i, align 8
   %overflow_arg_area.next322.i = getelementptr i8, ptr %overflow_arg_area321.i, i64 8
   store ptr %overflow_arg_area.next322.i, ptr %overflow_arg_area_p320.i, align 8
@@ -767,17 +774,17 @@ vaarg.in_mem319.i:                                ; preds = %sw.bb313.i
 vaarg.end323.i:                                   ; preds = %vaarg.in_mem319.i, %vaarg.in_reg317.i
   %vaarg.addr324.i = phi ptr [ %94, %vaarg.in_reg317.i ], [ %overflow_arg_area321.i, %vaarg.in_mem319.i ]
   %96 = load i64, ptr %vaarg.addr324.i, align 8
-  %mValue325.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue325.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 %96, ptr %mValue325.i, align 16, !noalias !8
   br label %for.inc332.i
 
 sw.bb326.i:                                       ; preds = %if.end147.i
-  %mValue327.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue327.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 0, ptr %mValue327.i, align 16, !noalias !8
   br label %for.inc332.i
 
 sw.default329.i:                                  ; preds = %if.end147.i, %if.end147.thread233.i
-  %mValue330.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue330.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 0, ptr %mValue330.i, align 16, !noalias !8
   br label %for.inc332.i
 
@@ -790,7 +797,7 @@ for.body337.i:                                    ; preds = %for.inc465.i, %for.
   %indvars.iv228.i = phi i64 [ 0, %for.body337.preheader.i ], [ %indvars.iv.next229.i, %for.inc465.i ]
   %nWriteCountSum.0207.i = phi i32 [ 0, %for.body337.preheader.i ], [ %nWriteCountSum.2.i, %for.inc465.i ]
   %arrayidx340.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i
-  %mpEnd341.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 1
+  %mpEnd341.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 8
   %97 = load ptr, ptr %mpEnd341.i, align 8, !noalias !8
   %98 = ptrtoint ptr %97 to i64
   %99 = load ptr, ptr %arrayidx340.i, align 16, !noalias !8
@@ -799,13 +806,13 @@ for.body337.i:                                    ; preds = %for.inc465.i, %for.
   br i1 %cmp343.not.i, label %for.inc465.i, label %if.then344.i
 
 if.then344.i:                                     ; preds = %for.body337.i
-  %mUserIndex345.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 8
+  %mUserIndex345.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 68
   %101 = load i32, ptr %mUserIndex345.i, align 4, !noalias !8
   %cmp346.i = icmp sgt i32 %101, -1
   br i1 %cmp346.i, label %if.then347.i, label %if.else435.i
 
 if.then347.i:                                     ; preds = %if.then344.i
-  %mType348.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 2
+  %mType348.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 16
   %102 = load i32, ptr %mType348.i, align 16, !noalias !8
   switch i32 %102, label %_ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIcEEPFiPKcmPvNS0_18WriteFunctionStateEEcEEiT0_S8_PKT1_P13__va_list_tag.exit [
     i32 1, label %sw.bb349.i
@@ -826,110 +833,110 @@ if.then347.i:                                     ; preds = %if.then344.i
   ]
 
 sw.bb349.i:                                       ; preds = %if.then347.i
-  %mFormat350.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue352.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat350.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue352.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %103 = load i8, ptr %mValue352.i, align 16, !noalias !8
   %conv353.i = sext i8 %103 to i32
   %call354.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat350.i, i32 noundef %conv353.i)
   br label %sw.epilog431.i
 
 sw.bb355.i:                                       ; preds = %if.then347.i
-  %mFormat356.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue358.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat356.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue358.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %104 = load i16, ptr %mValue358.i, align 16, !noalias !8
   %conv359.i = sext i16 %104 to i32
   %call360.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat356.i, i32 noundef %conv359.i)
   br label %sw.epilog431.i
 
 sw.bb361.i:                                       ; preds = %if.then347.i
-  %mFormat362.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue364.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat362.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue364.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %105 = load i32, ptr %mValue364.i, align 16, !noalias !8
   %call365.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat362.i, i32 noundef %105)
   br label %sw.epilog431.i
 
 sw.bb366.i:                                       ; preds = %if.then347.i
-  %mFormat367.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue369.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat367.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue369.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %106 = load i64, ptr %mValue369.i, align 16, !noalias !8
   %call370.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat367.i, i64 noundef %106)
   br label %sw.epilog431.i
 
 sw.bb371.i:                                       ; preds = %if.then347.i
-  %mFormat372.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue374.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat372.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue374.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %107 = load i64, ptr %mValue374.i, align 16, !noalias !8
   %call375.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat372.i, i64 noundef %107)
   br label %sw.epilog431.i
 
 sw.bb376.i:                                       ; preds = %if.then347.i
-  %mFormat377.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue379.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat377.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue379.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %108 = load i64, ptr %mValue379.i, align 16, !noalias !8
   %call380.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat377.i, i64 noundef %108)
   br label %sw.epilog431.i
 
 sw.bb381.i:                                       ; preds = %if.then347.i
-  %mFormat382.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue384.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat382.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue384.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %109 = load i64, ptr %mValue384.i, align 16, !noalias !8
   %call385.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat382.i, i64 noundef %109)
   br label %sw.epilog431.i
 
 sw.bb386.i:                                       ; preds = %if.then347.i
-  %mFormat387.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue389.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat387.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue389.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %110 = load i64, ptr %mValue389.i, align 16, !noalias !8
   %call390.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat387.i, i64 noundef %110)
   br label %sw.epilog431.i
 
 sw.bb391.i:                                       ; preds = %if.then347.i
-  %mFormat392.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue394.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat392.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue394.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %111 = load double, ptr %mValue394.i, align 16, !noalias !8
   %call395.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat392.i, double noundef %111)
   br label %sw.epilog431.i
 
 sw.bb396.i:                                       ; preds = %if.then347.i
-  %mFormat397.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue399.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat397.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue399.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %112 = load x86_fp80, ptr %mValue399.i, align 16, !noalias !8
   %call400.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat397.i, x86_fp80 noundef %112)
   br label %sw.epilog431.i
 
 sw.bb401.i:                                       ; preds = %if.then347.i
-  %mFormat402.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue404.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat402.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue404.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %113 = load i32, ptr %mValue404.i, align 16, !noalias !8
   %call405.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat402.i, i32 noundef %113)
   br label %sw.epilog431.i
 
 sw.bb406.i:                                       ; preds = %if.then347.i
-  %mFormat407.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue409.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat407.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue409.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %114 = load i8, ptr %mValue409.i, align 16, !noalias !8
   %conv410.i = sext i8 %114 to i32
   %call411.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat407.i, i32 noundef %conv410.i)
   br label %sw.epilog431.i
 
 sw.bb412.i:                                       ; preds = %if.then347.i
-  %mFormat413.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue415.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat413.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue415.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %115 = load i16, ptr %mValue415.i, align 16, !noalias !8
   %conv416.i = sext i16 %115 to i32
   %call417.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat413.i, i32 noundef %conv416.i)
   br label %sw.epilog431.i
 
 sw.bb418.i:                                       ; preds = %if.then347.i
-  %mFormat419.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue421.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat419.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue421.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %116 = load i32, ptr %mValue421.i, align 16, !noalias !8
   %call422.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat419.i, i32 noundef %116)
   br label %sw.epilog431.i
 
 sw.bb423.i:                                       ; preds = %if.then347.i
-  %mFormat424.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue426.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat424.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue426.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %117 = load i64, ptr %mValue426.i, align 16, !noalias !8
   %call427.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat424.i, i64 noundef %117)
   br label %sw.epilog431.i
@@ -944,7 +951,7 @@ if.end434.i:                                      ; preds = %sw.epilog431.i
   br label %for.inc465.i
 
 if.else435.i:                                     ; preds = %if.then344.i
-  %mbEscapePresent438.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 9
+  %mbEscapePresent438.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 72
   %118 = load i8, ptr %mbEscapePresent438.i, align 8, !noalias !8
   %119 = and i8 %118, 1
   %tobool439.not.i = icmp eq i8 %119, 0
@@ -1031,11 +1038,11 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = sext i1 %tobool.i to i64
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !19
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !19
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !19
-  %mbMaxCountReached.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 3
+  %mbMaxCountReached.i.i = getelementptr inbounds i8, ptr %sc.i, i64 24
   store i8 0, ptr %mbMaxCountReached.i.i, align 8, !noalias !19
   %call.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -1060,11 +1067,11 @@ entry:
   %tobool = icmp ne ptr %pDestination, null
   %cond = select i1 %tobool, i64 %n, i64 0
   store ptr %pDestination, ptr %sc, align 8
-  %mnCount.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc, i64 0, i32 1
+  %mnCount.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i64 0, ptr %mnCount.i, align 8
-  %mnMaxCount.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc, i64 0, i32 2
+  %mnMaxCount.i = getelementptr inbounds i8, ptr %sc, i64 16
   store i64 %cond, ptr %mnMaxCount.i, align 8
-  %mbMaxCountReached.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc, i64 0, i32 3
+  %mbMaxCountReached.i = getelementptr inbounds i8, ptr %sc, i64 24
   store i8 0, ptr %mbMaxCountReached.i, align 8
   %call = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp = icmp sgt i32 %call, -1
@@ -1153,11 +1160,11 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 2147483647, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !25
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !25
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !25
-  %mbMaxCountReached.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 3
+  %mbMaxCountReached.i.i = getelementptr inbounds i8, ptr %sc.i, i64 24
   store i8 0, ptr %mbMaxCountReached.i.i, align 8, !noalias !25
   %call.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -1187,11 +1194,11 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !31
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !31
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !31
-  %mbMaxCountReached.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext8", ptr %sc.i, i64 0, i32 3
+  %mbMaxCountReached.i.i = getelementptr inbounds i8, ptr %sc.i, i64 24
   store i8 0, ptr %mbMaxCountReached.i.i, align 8, !noalias !31
   %call.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -1251,12 +1258,12 @@ entry:
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %entry
   %arrayctor.cur.idx.i = phi i64 [ 0, %entry ], [ %arrayctor.cur.add.i, %arrayctor.loop.i ]
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %spans.i, i64 %arrayctor.cur.idx.i
-  %mValue.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.0", ptr %arrayctor.cur.ptr.i, i64 0, i32 4
-  %mFormatChar.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.0", ptr %arrayctor.cur.ptr.i, i64 0, i32 6
+  %mValue.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 32
+  %mFormatChar.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 80
   store i16 0, ptr %mFormatChar.i.i, align 16, !noalias !37
-  %mUserIndex.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.0", ptr %arrayctor.cur.ptr.i, i64 0, i32 8
+  %mUserIndex.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 84
   store i32 0, ptr %mUserIndex.i.i, align 4, !noalias !37
-  %mbEscapePresent.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.0", ptr %arrayctor.cur.ptr.i, i64 0, i32 9
+  %mbEscapePresent.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 88
   store i8 0, ptr %mbEscapePresent.i.i, align 8, !noalias !37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %arrayctor.cur.ptr.i, i8 0, i64 20, i1 false), !noalias !37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %mValue.i.i, i8 0, i64 18, i1 false), !noalias !37
@@ -1268,7 +1275,7 @@ arrayctor.cont.i:                                 ; preds = %arrayctor.loop.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %spanArgOrder.i, i8 0, i64 40, i1 false), !noalias !37
   %call.i = tail call noundef i32 %pWriteFunction16(ptr noundef null, i64 noundef 0, ptr noundef %pWriteFunctionContext16, i32 noundef 0)
   store ptr %pFormat, ptr %spans.i, align 16, !noalias !37
-  %mUserIndex.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.0", ptr %spans.i, i64 0, i32 8
+  %mUserIndex.i = getelementptr inbounds i8, ptr %spans.i, i64 84
   store i32 -1, ptr %mUserIndex.i, align 4, !noalias !37
   %scevgep.i = getelementptr inbounds i8, ptr %spanArgOrder.i, i64 4
   br label %for.cond.i
@@ -1287,7 +1294,7 @@ for.cond.i:                                       ; preds = %for.inc99.i, %array
   ]
 
 if.then.i:                                        ; preds = %for.cond.i
-  %arrayidx2.i = getelementptr inbounds i16, ptr %p.0.i, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %p.0.i, i64 2
   %1 = load i16, ptr %arrayidx2.i, align 2, !alias.scope !34, !noalias !39
   %cmp4.i = icmp eq i16 %1, 37
   %idxprom.i = sext i32 %spanIndex.0.i to i64
@@ -1299,12 +1306,14 @@ if.then5.i:                                       ; preds = %if.then.i
   br label %for.inc99.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %mpEnd.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 1
+  %arrayidx8.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom.i
+  %mpEnd.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 8
   store ptr %p.0.i, ptr %mpEnd.i, align 8, !noalias !37
+  %mFormat.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 48
   %idxprom11.i = sext i32 %nFormatLength.0.i to i64
-  %arrayidx12.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 5, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr inbounds [16 x i16], ptr %mFormat.i, i64 0, i64 %idxprom11.i
   store i16 0, ptr %arrayidx12.i, align 2, !noalias !37
-  %mFormatChar.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 6
+  %mFormatChar.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 80
   store i16 0, ptr %mFormatChar.i, align 16, !noalias !37
   %inc.i = add nsw i32 %spanIndex.0.i, 1
   %cmp15.i = icmp eq i32 %inc.i, 21
@@ -1330,15 +1339,15 @@ if.end38.i:                                       ; preds = %for.body32.preheade
   %idxprom39.i = sext i32 %inc.i to i64
   %arrayidx40.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom39.i
   store ptr %p.0.i, ptr %arrayidx40.i, align 16, !noalias !37
-  %mFormat44.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom39.i, i32 5
+  %mFormat44.i = getelementptr inbounds i8, ptr %arrayidx40.i, i64 48
   store i16 37, ptr %mFormat44.i, align 16, !noalias !37
-  %mUserIndex48.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom39.i, i32 8
+  %mUserIndex48.i = getelementptr inbounds i8, ptr %arrayidx40.i, i64 84
   store i32 %sub.i, ptr %mUserIndex48.i, align 4, !noalias !37
   %sub49.i = sub nsw i32 %sub.i, %startIndex.1.i
   %idxprom50.i = sext i32 %sub49.i to i64
   %arrayidx51.i = getelementptr inbounds [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %idxprom50.i
   store i32 %inc.i, ptr %arrayidx51.i, align 4, !noalias !37
-  %arrayidx53.i = getelementptr inbounds i16, ptr %p.0.i, i64 2
+  %arrayidx53.i = getelementptr inbounds i8, ptr %p.0.i, i64 4
   %3 = load i16, ptr %arrayidx53.i, align 2, !alias.scope !34, !noalias !39
   %cmp55.not.i = icmp eq i16 %3, 58
   br i1 %cmp55.not.i, label %if.end57.i, label %_ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIDsEEPFiPKDsmPvNS0_18WriteFunctionStateEEDsEEiT0_S8_PKT1_P13__va_list_tag.exit
@@ -1358,9 +1367,11 @@ if.then61.i:                                      ; preds = %if.else59.i
 
 if.then63.i:                                      ; preds = %if.then61.i
   %idxprom64.i = sext i32 %spanIndex.0.i to i64
+  %arrayidx65.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom64.i
+  %mFormat66.i = getelementptr inbounds i8, ptr %arrayidx65.i, i64 48
   %inc67.i = add nsw i32 %nFormatLength.0.i, 1
   %idxprom68.i = sext i32 %nFormatLength.0.i to i64
-  %arrayidx69.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom64.i, i32 5, i64 %idxprom68.i
+  %arrayidx69.i = getelementptr inbounds [16 x i16], ptr %mFormat66.i, i64 0, i64 %idxprom68.i
   store i16 %0, ptr %arrayidx69.i, align 2, !noalias !37
   switch i16 %0, label %for.inc99.i [
     i16 98, label %sw.bb.i
@@ -1387,15 +1398,15 @@ if.then63.i:                                      ; preds = %if.then61.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i, %if.then63.i
-  %add.ptr73.i = getelementptr inbounds i16, ptr %p.0.i, i64 1
-  %mpEnd76.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom64.i, i32 1
+  %add.ptr73.i = getelementptr inbounds i8, ptr %p.0.i, i64 2
+  %mpEnd76.i = getelementptr inbounds i8, ptr %arrayidx65.i, i64 8
   store ptr %add.ptr73.i, ptr %mpEnd76.i, align 8, !noalias !37
   %cmp80.not.i = icmp eq i32 %nFormatLength.0.i, 15
   %cond.i = select i1 %cmp80.not.i, i32 15, i32 %inc67.i
   %idxprom81.i = sext i32 %cond.i to i64
-  %arrayidx82.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom64.i, i32 5, i64 %idxprom81.i
+  %arrayidx82.i = getelementptr inbounds [16 x i16], ptr %mFormat66.i, i64 0, i64 %idxprom81.i
   store i16 0, ptr %arrayidx82.i, align 2, !noalias !37
-  %mFormatChar85.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom64.i, i32 6
+  %mFormatChar85.i = getelementptr inbounds i8, ptr %arrayidx65.i, i64 80
   store i16 %0, ptr %mFormatChar85.i, align 16, !noalias !37
   %inc86.i = add nsw i32 %spanIndex.0.i, 1
   %cmp87.i = icmp eq i32 %inc86.i, 21
@@ -1405,7 +1416,7 @@ if.end89.i:                                       ; preds = %sw.bb.i
   %idxprom91.i = sext i32 %inc86.i to i64
   %arrayidx92.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom91.i
   store ptr %add.ptr73.i, ptr %arrayidx92.i, align 16, !noalias !37
-  %mUserIndex96.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom91.i, i32 8
+  %mUserIndex96.i = getelementptr inbounds i8, ptr %arrayidx92.i, i64 84
   store i32 -1, ptr %mUserIndex96.i, align 4, !noalias !37
   br label %for.inc99.i
 
@@ -1416,27 +1427,29 @@ for.inc99.i:                                      ; preds = %if.end89.i, %sw.bb.
   %p.1.i = phi ptr [ %arrayidx2.i, %if.then5.i ], [ %arrayidx53.i, %if.end57.i ], [ %p.0.i, %if.then63.i ], [ %p.0.i, %sw.bb.i ], [ %p.0.i, %if.end89.i ], [ %p.0.i, %if.else59.i ]
   %formattedSpanCount.1.i = phi i32 [ %formattedSpanCount.0.i, %if.then5.i ], [ %inc52.i, %if.end57.i ], [ %formattedSpanCount.0.i, %if.then63.i ], [ %formattedSpanCount.0.i, %sw.bb.i ], [ %formattedSpanCount.0.i, %if.end89.i ], [ %formattedSpanCount.0.i, %if.else59.i ]
   %spanIndex.1.i = phi i32 [ %spanIndex.0.i, %if.then5.i ], [ %inc.i, %if.end57.i ], [ %spanIndex.0.i, %if.then63.i ], [ 21, %sw.bb.i ], [ %inc86.i, %if.end89.i ], [ %spanIndex.0.i, %if.else59.i ]
-  %incdec.ptr100.i = getelementptr inbounds i16, ptr %p.1.i, i64 1
+  %incdec.ptr100.i = getelementptr inbounds i8, ptr %p.1.i, i64 2
   br label %for.cond.i, !llvm.loop !40
 
 if.end106.i:                                      ; preds = %for.cond.i
   %.pre.i = sext i32 %nFormatLength.0.i to i64
   %idxprom107.i = sext i32 %spanIndex.0.i to i64
-  %mpEnd109.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom107.i, i32 1
+  %arrayidx108.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom107.i
+  %mpEnd109.i = getelementptr inbounds i8, ptr %arrayidx108.i, i64 8
   store ptr %p.0.i, ptr %mpEnd109.i, align 8, !noalias !37
-  %arrayidx114.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom107.i, i32 5, i64 %.pre.i
+  %mFormat112.i = getelementptr inbounds i8, ptr %arrayidx108.i, i64 48
+  %arrayidx114.i = getelementptr inbounds [16 x i16], ptr %mFormat112.i, i64 0, i64 %.pre.i
   store i16 0, ptr %arrayidx114.i, align 2, !noalias !37
   %cmp118202.i = icmp sgt i32 %formattedSpanCount.0.i, 0
   br i1 %cmp118202.i, label %for.body119.lr.ph.i, label %for.cond335.preheader.i
 
 for.body119.lr.ph.i:                              ; preds = %if.end106.i
-  %mSign.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 1
-  %mbAlternativeForm.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 2
-  %mnWidth.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 3
-  %mModifier.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 5
-  %mDecimalPoint.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 7
-  %mbDisplayThousands.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 8
-  %mThousandsSeparator.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 9
+  %mSign.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 4
+  %mbAlternativeForm.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 8
+  %mnWidth.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 12
+  %mModifier.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 20
+  %mDecimalPoint.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 28
+  %mbDisplayThousands.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 32
+  %mThousandsSeparator.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 36
   %wide.trip.count.i = zext nneg i32 %formattedSpanCount.0.i to i64
   br label %for.body119.i
 
@@ -1454,6 +1467,7 @@ for.body119.i:                                    ; preds = %for.inc332.i, %for.
   %arrayidx121.i = getelementptr inbounds [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %indvars.iv.i
   %6 = load i32, ptr %arrayidx121.i, align 4, !noalias !37
   %idxprom122.i = sext i32 %6 to i64
+  %arrayidx123.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i
   store i32 1, ptr %formatData.i, align 4, !noalias !37
   store i32 1, ptr %mSign.i.i, align 4, !noalias !37
   store i8 0, ptr %mbAlternativeForm.i.i, align 4, !noalias !37
@@ -1461,7 +1475,7 @@ for.body119.i:                                    ; preds = %for.inc332.i, %for.
   store i32 46, ptr %mDecimalPoint.i.i, align 4, !noalias !37
   store i8 0, ptr %mbDisplayThousands.i.i, align 4, !noalias !37
   store i32 44, ptr %mThousandsSeparator.i.i, align 4, !noalias !37
-  %mFormat124.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 5
+  %mFormat124.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 48
   %call126.i = call noundef ptr @_ZN2EA4StdC12SprintfLocal10ReadFormatIDsEEPKT_S5_PNS1_10FormatDataEPA1_13__va_list_tag(ptr noundef nonnull %mFormat124.i, ptr noundef nonnull %formatData.i, ptr noundef nonnull %arguments.addr.i)
   %7 = load i16, ptr %call126.i, align 2
   %cmp128.not.i = icmp eq i16 %7, 0
@@ -1473,7 +1487,7 @@ if.end130.i:                                      ; preds = %for.body119.i
   br i1 %cmp131.i, label %if.then132.i, label %if.end147.i
 
 if.then132.i:                                     ; preds = %if.end130.i
-  %arrayidx133.i = getelementptr inbounds i16, ptr %call126.i, i64 -1
+  %arrayidx133.i = getelementptr inbounds i8, ptr %call126.i, i64 -2
   %9 = load i16, ptr %arrayidx133.i, align 2
   switch i16 %9, label %if.end147.thread.i [
     i16 98, label %if.end147.thread174.i
@@ -1500,42 +1514,42 @@ if.then132.i:                                     ; preds = %if.end130.i
   ]
 
 if.end147.thread.i:                               ; preds = %if.then132.i
-  %mType171.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType171.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 0, ptr %mType171.i, align 16, !noalias !37
   br label %sw.default329.i
 
 if.end147.thread174.i:                            ; preds = %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i
   store i32 3, ptr %mModifier.i.i, align 4, !noalias !37
-  %mType175.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType175.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 3, ptr %mType175.i, align 16, !noalias !37
   br label %sw.bb166.i
 
 if.end147.thread178.i:                            ; preds = %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i
   store i32 9, ptr %mModifier.i.i, align 4, !noalias !37
-  %mType179.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType179.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 9, ptr %mType179.i, align 16, !noalias !37
   br label %sw.bb244.i
 
 if.end147.thread176.i:                            ; preds = %if.then132.i, %if.then132.i, %if.then132.i, %if.then132.i
   store i32 7, ptr %mModifier.i.i, align 4, !noalias !37
-  %mType177.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType177.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 7, ptr %mType177.i, align 16, !noalias !37
   br label %sw.bb218.i
 
 if.end147.thread172.i:                            ; preds = %if.then132.i
   store i32 1, ptr %mModifier.i.i, align 4, !noalias !37
-  %mType173.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType173.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 1, ptr %mType173.i, align 16, !noalias !37
   br label %sw.bb150.i
 
 if.end147.thread180.i:                            ; preds = %if.then132.i
   store i32 11, ptr %mModifier.i.i, align 4, !noalias !37
-  %mType181.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType181.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 11, ptr %mType181.i, align 16, !noalias !37
   br label %sw.bb259.i
 
 if.end147.i:                                      ; preds = %if.end130.i
-  %mType.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 2
+  %mType.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 16
   store i32 %8, ptr %mType.i, align 16, !noalias !37
   switch i32 %8, label %sw.default329.i [
     i32 1, label %sw.bb150.i
@@ -1563,7 +1577,7 @@ sw.bb150.i:                                       ; preds = %if.end147.i, %if.en
   br i1 %fits_in_gp.i, label %vaarg.in_reg.i, label %vaarg.in_mem.i
 
 vaarg.in_reg.i:                                   ; preds = %sw.bb150.i
-  %11 = getelementptr inbounds %struct.__va_list_tag, ptr %10, i64 0, i32 3
+  %11 = getelementptr inbounds i8, ptr %10, i64 16
   %reg_save_area.i = load ptr, ptr %11, align 8
   %12 = zext nneg i32 %gp_offset.i to i64
   %13 = getelementptr i8, ptr %reg_save_area.i, i64 %12
@@ -1572,7 +1586,7 @@ vaarg.in_reg.i:                                   ; preds = %sw.bb150.i
   br label %vaarg.end.i
 
 vaarg.in_mem.i:                                   ; preds = %sw.bb150.i
-  %overflow_arg_area_p.i = getelementptr inbounds %struct.__va_list_tag, ptr %10, i64 0, i32 2
+  %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %10, i64 8
   %overflow_arg_area.i = load ptr, ptr %overflow_arg_area_p.i, align 8
   %overflow_arg_area.next.i = getelementptr i8, ptr %overflow_arg_area.i, i64 8
   store ptr %overflow_arg_area.next.i, ptr %overflow_arg_area_p.i, align 8
@@ -1582,7 +1596,7 @@ vaarg.end.i:                                      ; preds = %vaarg.in_mem.i, %va
   %vaarg.addr.i = phi ptr [ %13, %vaarg.in_reg.i ], [ %overflow_arg_area.i, %vaarg.in_mem.i ]
   %15 = load i32, ptr %vaarg.addr.i, align 4
   %conv151.i = trunc i32 %15 to i8
-  %mValue.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i8 %conv151.i, ptr %mValue.i, align 16, !noalias !37
   br label %for.inc332.i
 
@@ -1593,7 +1607,7 @@ sw.bb152.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp155.i, label %vaarg.in_reg156.i, label %vaarg.in_mem158.i
 
 vaarg.in_reg156.i:                                ; preds = %sw.bb152.i
-  %17 = getelementptr inbounds %struct.__va_list_tag, ptr %16, i64 0, i32 3
+  %17 = getelementptr inbounds i8, ptr %16, i64 16
   %reg_save_area157.i = load ptr, ptr %17, align 8
   %18 = zext nneg i32 %gp_offset154.i to i64
   %19 = getelementptr i8, ptr %reg_save_area157.i, i64 %18
@@ -1602,7 +1616,7 @@ vaarg.in_reg156.i:                                ; preds = %sw.bb152.i
   br label %vaarg.end162.i
 
 vaarg.in_mem158.i:                                ; preds = %sw.bb152.i
-  %overflow_arg_area_p159.i = getelementptr inbounds %struct.__va_list_tag, ptr %16, i64 0, i32 2
+  %overflow_arg_area_p159.i = getelementptr inbounds i8, ptr %16, i64 8
   %overflow_arg_area160.i = load ptr, ptr %overflow_arg_area_p159.i, align 8
   %overflow_arg_area.next161.i = getelementptr i8, ptr %overflow_arg_area160.i, i64 8
   store ptr %overflow_arg_area.next161.i, ptr %overflow_arg_area_p159.i, align 8
@@ -1612,7 +1626,7 @@ vaarg.end162.i:                                   ; preds = %vaarg.in_mem158.i, 
   %vaarg.addr163.i = phi ptr [ %19, %vaarg.in_reg156.i ], [ %overflow_arg_area160.i, %vaarg.in_mem158.i ]
   %21 = load i32, ptr %vaarg.addr163.i, align 4
   %conv164.i = trunc i32 %21 to i16
-  %mValue165.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue165.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i16 %conv164.i, ptr %mValue165.i, align 16, !noalias !37
   br label %for.inc332.i
 
@@ -1623,7 +1637,7 @@ sw.bb166.i:                                       ; preds = %if.end147.i, %if.en
   br i1 %fits_in_gp169.i, label %vaarg.in_reg170.i, label %vaarg.in_mem172.i
 
 vaarg.in_reg170.i:                                ; preds = %sw.bb166.i
-  %23 = getelementptr inbounds %struct.__va_list_tag, ptr %22, i64 0, i32 3
+  %23 = getelementptr inbounds i8, ptr %22, i64 16
   %reg_save_area171.i = load ptr, ptr %23, align 8
   %24 = zext nneg i32 %gp_offset168.i to i64
   %25 = getelementptr i8, ptr %reg_save_area171.i, i64 %24
@@ -1632,7 +1646,7 @@ vaarg.in_reg170.i:                                ; preds = %sw.bb166.i
   br label %vaarg.end176.i
 
 vaarg.in_mem172.i:                                ; preds = %sw.bb166.i
-  %overflow_arg_area_p173.i = getelementptr inbounds %struct.__va_list_tag, ptr %22, i64 0, i32 2
+  %overflow_arg_area_p173.i = getelementptr inbounds i8, ptr %22, i64 8
   %overflow_arg_area174.i = load ptr, ptr %overflow_arg_area_p173.i, align 8
   %overflow_arg_area.next175.i = getelementptr i8, ptr %overflow_arg_area174.i, i64 8
   store ptr %overflow_arg_area.next175.i, ptr %overflow_arg_area_p173.i, align 8
@@ -1641,7 +1655,7 @@ vaarg.in_mem172.i:                                ; preds = %sw.bb166.i
 vaarg.end176.i:                                   ; preds = %vaarg.in_mem172.i, %vaarg.in_reg170.i
   %vaarg.addr177.i = phi ptr [ %25, %vaarg.in_reg170.i ], [ %overflow_arg_area174.i, %vaarg.in_mem172.i ]
   %27 = load i32, ptr %vaarg.addr177.i, align 4
-  %mValue178.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue178.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i32 %27, ptr %mValue178.i, align 16, !noalias !37
   br label %for.inc332.i
 
@@ -1652,7 +1666,7 @@ sw.bb179.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp182.i, label %vaarg.in_reg183.i, label %vaarg.in_mem185.i
 
 vaarg.in_reg183.i:                                ; preds = %sw.bb179.i
-  %29 = getelementptr inbounds %struct.__va_list_tag, ptr %28, i64 0, i32 3
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
   %reg_save_area184.i = load ptr, ptr %29, align 8
   %30 = zext nneg i32 %gp_offset181.i to i64
   %31 = getelementptr i8, ptr %reg_save_area184.i, i64 %30
@@ -1661,7 +1675,7 @@ vaarg.in_reg183.i:                                ; preds = %sw.bb179.i
   br label %vaarg.end189.i
 
 vaarg.in_mem185.i:                                ; preds = %sw.bb179.i
-  %overflow_arg_area_p186.i = getelementptr inbounds %struct.__va_list_tag, ptr %28, i64 0, i32 2
+  %overflow_arg_area_p186.i = getelementptr inbounds i8, ptr %28, i64 8
   %overflow_arg_area187.i = load ptr, ptr %overflow_arg_area_p186.i, align 8
   %overflow_arg_area.next188.i = getelementptr i8, ptr %overflow_arg_area187.i, i64 8
   store ptr %overflow_arg_area.next188.i, ptr %overflow_arg_area_p186.i, align 8
@@ -1670,7 +1684,7 @@ vaarg.in_mem185.i:                                ; preds = %sw.bb179.i
 vaarg.end189.i:                                   ; preds = %vaarg.in_mem185.i, %vaarg.in_reg183.i
   %vaarg.addr190.i = phi ptr [ %31, %vaarg.in_reg183.i ], [ %overflow_arg_area187.i, %vaarg.in_mem185.i ]
   %33 = load i64, ptr %vaarg.addr190.i, align 8
-  %mValue191.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue191.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 %33, ptr %mValue191.i, align 16, !noalias !37
   br label %for.inc332.i
 
@@ -1681,7 +1695,7 @@ sw.bb192.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp195.i, label %vaarg.in_reg196.i, label %vaarg.in_mem198.i
 
 vaarg.in_reg196.i:                                ; preds = %sw.bb192.i
-  %35 = getelementptr inbounds %struct.__va_list_tag, ptr %34, i64 0, i32 3
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
   %reg_save_area197.i = load ptr, ptr %35, align 8
   %36 = zext nneg i32 %gp_offset194.i to i64
   %37 = getelementptr i8, ptr %reg_save_area197.i, i64 %36
@@ -1690,7 +1704,7 @@ vaarg.in_reg196.i:                                ; preds = %sw.bb192.i
   br label %vaarg.end202.i
 
 vaarg.in_mem198.i:                                ; preds = %sw.bb192.i
-  %overflow_arg_area_p199.i = getelementptr inbounds %struct.__va_list_tag, ptr %34, i64 0, i32 2
+  %overflow_arg_area_p199.i = getelementptr inbounds i8, ptr %34, i64 8
   %overflow_arg_area200.i = load ptr, ptr %overflow_arg_area_p199.i, align 8
   %overflow_arg_area.next201.i = getelementptr i8, ptr %overflow_arg_area200.i, i64 8
   store ptr %overflow_arg_area.next201.i, ptr %overflow_arg_area_p199.i, align 8
@@ -1699,7 +1713,7 @@ vaarg.in_mem198.i:                                ; preds = %sw.bb192.i
 vaarg.end202.i:                                   ; preds = %vaarg.in_mem198.i, %vaarg.in_reg196.i
   %vaarg.addr203.i = phi ptr [ %37, %vaarg.in_reg196.i ], [ %overflow_arg_area200.i, %vaarg.in_mem198.i ]
   %39 = load i64, ptr %vaarg.addr203.i, align 8
-  %mValue204.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue204.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 %39, ptr %mValue204.i, align 16, !noalias !37
   br label %for.inc332.i
 
@@ -1710,7 +1724,7 @@ sw.bb205.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp208.i, label %vaarg.in_reg209.i, label %vaarg.in_mem211.i
 
 vaarg.in_reg209.i:                                ; preds = %sw.bb205.i
-  %41 = getelementptr inbounds %struct.__va_list_tag, ptr %40, i64 0, i32 3
+  %41 = getelementptr inbounds i8, ptr %40, i64 16
   %reg_save_area210.i = load ptr, ptr %41, align 8
   %42 = zext nneg i32 %gp_offset207.i to i64
   %43 = getelementptr i8, ptr %reg_save_area210.i, i64 %42
@@ -1719,7 +1733,7 @@ vaarg.in_reg209.i:                                ; preds = %sw.bb205.i
   br label %vaarg.end215.i
 
 vaarg.in_mem211.i:                                ; preds = %sw.bb205.i
-  %overflow_arg_area_p212.i = getelementptr inbounds %struct.__va_list_tag, ptr %40, i64 0, i32 2
+  %overflow_arg_area_p212.i = getelementptr inbounds i8, ptr %40, i64 8
   %overflow_arg_area213.i = load ptr, ptr %overflow_arg_area_p212.i, align 8
   %overflow_arg_area.next214.i = getelementptr i8, ptr %overflow_arg_area213.i, i64 8
   store ptr %overflow_arg_area.next214.i, ptr %overflow_arg_area_p212.i, align 8
@@ -1728,7 +1742,7 @@ vaarg.in_mem211.i:                                ; preds = %sw.bb205.i
 vaarg.end215.i:                                   ; preds = %vaarg.in_mem211.i, %vaarg.in_reg209.i
   %vaarg.addr216.i = phi ptr [ %43, %vaarg.in_reg209.i ], [ %overflow_arg_area213.i, %vaarg.in_mem211.i ]
   %45 = load i64, ptr %vaarg.addr216.i, align 8
-  %mValue217.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue217.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 %45, ptr %mValue217.i, align 16, !noalias !37
   br label %for.inc332.i
 
@@ -1739,7 +1753,7 @@ sw.bb218.i:                                       ; preds = %if.end147.i, %if.en
   br i1 %fits_in_gp221.i, label %vaarg.in_reg222.i, label %vaarg.in_mem224.i
 
 vaarg.in_reg222.i:                                ; preds = %sw.bb218.i
-  %47 = getelementptr inbounds %struct.__va_list_tag, ptr %46, i64 0, i32 3
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
   %reg_save_area223.i = load ptr, ptr %47, align 8
   %48 = zext nneg i32 %gp_offset220.i to i64
   %49 = getelementptr i8, ptr %reg_save_area223.i, i64 %48
@@ -1748,7 +1762,7 @@ vaarg.in_reg222.i:                                ; preds = %sw.bb218.i
   br label %vaarg.end228.i
 
 vaarg.in_mem224.i:                                ; preds = %sw.bb218.i
-  %overflow_arg_area_p225.i = getelementptr inbounds %struct.__va_list_tag, ptr %46, i64 0, i32 2
+  %overflow_arg_area_p225.i = getelementptr inbounds i8, ptr %46, i64 8
   %overflow_arg_area226.i = load ptr, ptr %overflow_arg_area_p225.i, align 8
   %overflow_arg_area.next227.i = getelementptr i8, ptr %overflow_arg_area226.i, i64 8
   store ptr %overflow_arg_area.next227.i, ptr %overflow_arg_area_p225.i, align 8
@@ -1757,7 +1771,7 @@ vaarg.in_mem224.i:                                ; preds = %sw.bb218.i
 vaarg.end228.i:                                   ; preds = %vaarg.in_mem224.i, %vaarg.in_reg222.i
   %vaarg.addr229.i = phi ptr [ %49, %vaarg.in_reg222.i ], [ %overflow_arg_area226.i, %vaarg.in_mem224.i ]
   %51 = load i64, ptr %vaarg.addr229.i, align 8
-  %mValue230.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue230.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 %51, ptr %mValue230.i, align 16, !noalias !37
   br label %for.inc332.i
 
@@ -1768,7 +1782,7 @@ sw.bb231.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp234.i, label %vaarg.in_reg235.i, label %vaarg.in_mem237.i
 
 vaarg.in_reg235.i:                                ; preds = %sw.bb231.i
-  %53 = getelementptr inbounds %struct.__va_list_tag, ptr %52, i64 0, i32 3
+  %53 = getelementptr inbounds i8, ptr %52, i64 16
   %reg_save_area236.i = load ptr, ptr %53, align 8
   %54 = zext nneg i32 %gp_offset233.i to i64
   %55 = getelementptr i8, ptr %reg_save_area236.i, i64 %54
@@ -1777,7 +1791,7 @@ vaarg.in_reg235.i:                                ; preds = %sw.bb231.i
   br label %vaarg.end241.i
 
 vaarg.in_mem237.i:                                ; preds = %sw.bb231.i
-  %overflow_arg_area_p238.i = getelementptr inbounds %struct.__va_list_tag, ptr %52, i64 0, i32 2
+  %overflow_arg_area_p238.i = getelementptr inbounds i8, ptr %52, i64 8
   %overflow_arg_area239.i = load ptr, ptr %overflow_arg_area_p238.i, align 8
   %overflow_arg_area.next240.i = getelementptr i8, ptr %overflow_arg_area239.i, i64 8
   store ptr %overflow_arg_area.next240.i, ptr %overflow_arg_area_p238.i, align 8
@@ -1786,19 +1800,19 @@ vaarg.in_mem237.i:                                ; preds = %sw.bb231.i
 vaarg.end241.i:                                   ; preds = %vaarg.in_mem237.i, %vaarg.in_reg235.i
   %vaarg.addr242.i = phi ptr [ %55, %vaarg.in_reg235.i ], [ %overflow_arg_area239.i, %vaarg.in_mem237.i ]
   %57 = load i64, ptr %vaarg.addr242.i, align 8
-  %mValue243.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue243.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 %57, ptr %mValue243.i, align 16, !noalias !37
   br label %for.inc332.i
 
 sw.bb244.i:                                       ; preds = %if.end147.i, %if.end147.thread178.i
   %58 = load ptr, ptr %arguments.addr.i, align 8, !noalias !37
-  %fp_offset_p.i = getelementptr inbounds %struct.__va_list_tag, ptr %58, i64 0, i32 1
+  %fp_offset_p.i = getelementptr inbounds i8, ptr %58, i64 4
   %fp_offset.i = load i32, ptr %fp_offset_p.i, align 4
   %fits_in_fp.i = icmp ult i32 %fp_offset.i, 161
   br i1 %fits_in_fp.i, label %vaarg.in_reg245.i, label %vaarg.in_mem247.i
 
 vaarg.in_reg245.i:                                ; preds = %sw.bb244.i
-  %59 = getelementptr inbounds %struct.__va_list_tag, ptr %58, i64 0, i32 3
+  %59 = getelementptr inbounds i8, ptr %58, i64 16
   %reg_save_area246.i = load ptr, ptr %59, align 8
   %60 = zext nneg i32 %fp_offset.i to i64
   %61 = getelementptr i8, ptr %reg_save_area246.i, i64 %60
@@ -1807,7 +1821,7 @@ vaarg.in_reg245.i:                                ; preds = %sw.bb244.i
   br label %vaarg.end251.i
 
 vaarg.in_mem247.i:                                ; preds = %sw.bb244.i
-  %overflow_arg_area_p248.i = getelementptr inbounds %struct.__va_list_tag, ptr %58, i64 0, i32 2
+  %overflow_arg_area_p248.i = getelementptr inbounds i8, ptr %58, i64 8
   %overflow_arg_area249.i = load ptr, ptr %overflow_arg_area_p248.i, align 8
   %overflow_arg_area.next250.i = getelementptr i8, ptr %overflow_arg_area249.i, i64 8
   store ptr %overflow_arg_area.next250.i, ptr %overflow_arg_area_p248.i, align 8
@@ -1816,20 +1830,20 @@ vaarg.in_mem247.i:                                ; preds = %sw.bb244.i
 vaarg.end251.i:                                   ; preds = %vaarg.in_mem247.i, %vaarg.in_reg245.i
   %vaarg.addr252.i = phi ptr [ %61, %vaarg.in_reg245.i ], [ %overflow_arg_area249.i, %vaarg.in_mem247.i ]
   %63 = load double, ptr %vaarg.addr252.i, align 8
-  %mValue253.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue253.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store double %63, ptr %mValue253.i, align 16, !noalias !37
   br label %for.inc332.i
 
 sw.bb254.i:                                       ; preds = %if.end147.i
   %64 = load ptr, ptr %arguments.addr.i, align 8, !noalias !37
-  %overflow_arg_area_p255.i = getelementptr inbounds %struct.__va_list_tag, ptr %64, i64 0, i32 2
+  %overflow_arg_area_p255.i = getelementptr inbounds i8, ptr %64, i64 8
   %overflow_arg_area256.i = load ptr, ptr %overflow_arg_area_p255.i, align 8
   %65 = getelementptr inbounds i8, ptr %overflow_arg_area256.i, i64 15
   %overflow_arg_area256.aligned.i = call align 16 ptr @llvm.ptrmask.p0.i64(ptr nonnull %65, i64 -16)
   %overflow_arg_area.next257.i = getelementptr i8, ptr %overflow_arg_area256.aligned.i, i64 16
   store ptr %overflow_arg_area.next257.i, ptr %overflow_arg_area_p255.i, align 8
   %66 = load x86_fp80, ptr %overflow_arg_area256.aligned.i, align 16
-  %mValue258.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue258.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store x86_fp80 %66, ptr %mValue258.i, align 16, !noalias !37
   br label %for.inc332.i
 
@@ -1840,7 +1854,7 @@ sw.bb259.i:                                       ; preds = %if.end147.i, %if.en
   br i1 %fits_in_gp262.i, label %vaarg.in_reg263.i, label %vaarg.in_mem265.i
 
 vaarg.in_reg263.i:                                ; preds = %sw.bb259.i
-  %68 = getelementptr inbounds %struct.__va_list_tag, ptr %67, i64 0, i32 3
+  %68 = getelementptr inbounds i8, ptr %67, i64 16
   %reg_save_area264.i = load ptr, ptr %68, align 8
   %69 = zext nneg i32 %gp_offset261.i to i64
   %70 = getelementptr i8, ptr %reg_save_area264.i, i64 %69
@@ -1849,7 +1863,7 @@ vaarg.in_reg263.i:                                ; preds = %sw.bb259.i
   br label %vaarg.end269.i
 
 vaarg.in_mem265.i:                                ; preds = %sw.bb259.i
-  %overflow_arg_area_p266.i = getelementptr inbounds %struct.__va_list_tag, ptr %67, i64 0, i32 2
+  %overflow_arg_area_p266.i = getelementptr inbounds i8, ptr %67, i64 8
   %overflow_arg_area267.i = load ptr, ptr %overflow_arg_area_p266.i, align 8
   %overflow_arg_area.next268.i = getelementptr i8, ptr %overflow_arg_area267.i, i64 8
   store ptr %overflow_arg_area.next268.i, ptr %overflow_arg_area_p266.i, align 8
@@ -1858,7 +1872,7 @@ vaarg.in_mem265.i:                                ; preds = %sw.bb259.i
 vaarg.end269.i:                                   ; preds = %vaarg.in_mem265.i, %vaarg.in_reg263.i
   %vaarg.addr270.i = phi ptr [ %70, %vaarg.in_reg263.i ], [ %overflow_arg_area267.i, %vaarg.in_mem265.i ]
   %72 = load i32, ptr %vaarg.addr270.i, align 4
-  %mValue271.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue271.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i32 %72, ptr %mValue271.i, align 16, !noalias !37
   br label %for.inc332.i
 
@@ -1869,7 +1883,7 @@ sw.bb272.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp275.i, label %vaarg.in_reg276.i, label %vaarg.in_mem278.i
 
 vaarg.in_reg276.i:                                ; preds = %sw.bb272.i
-  %74 = getelementptr inbounds %struct.__va_list_tag, ptr %73, i64 0, i32 3
+  %74 = getelementptr inbounds i8, ptr %73, i64 16
   %reg_save_area277.i = load ptr, ptr %74, align 8
   %75 = zext nneg i32 %gp_offset274.i to i64
   %76 = getelementptr i8, ptr %reg_save_area277.i, i64 %75
@@ -1878,7 +1892,7 @@ vaarg.in_reg276.i:                                ; preds = %sw.bb272.i
   br label %vaarg.end282.i
 
 vaarg.in_mem278.i:                                ; preds = %sw.bb272.i
-  %overflow_arg_area_p279.i = getelementptr inbounds %struct.__va_list_tag, ptr %73, i64 0, i32 2
+  %overflow_arg_area_p279.i = getelementptr inbounds i8, ptr %73, i64 8
   %overflow_arg_area280.i = load ptr, ptr %overflow_arg_area_p279.i, align 8
   %overflow_arg_area.next281.i = getelementptr i8, ptr %overflow_arg_area280.i, i64 8
   store ptr %overflow_arg_area.next281.i, ptr %overflow_arg_area_p279.i, align 8
@@ -1888,7 +1902,7 @@ vaarg.end282.i:                                   ; preds = %vaarg.in_mem278.i, 
   %vaarg.addr283.i = phi ptr [ %76, %vaarg.in_reg276.i ], [ %overflow_arg_area280.i, %vaarg.in_mem278.i ]
   %78 = load i32, ptr %vaarg.addr283.i, align 4
   %conv284.i = trunc i32 %78 to i8
-  %mValue285.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue285.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i8 %conv284.i, ptr %mValue285.i, align 16, !noalias !37
   br label %for.inc332.i
 
@@ -1899,7 +1913,7 @@ sw.bb286.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp289.i, label %vaarg.in_reg290.i, label %vaarg.in_mem292.i
 
 vaarg.in_reg290.i:                                ; preds = %sw.bb286.i
-  %80 = getelementptr inbounds %struct.__va_list_tag, ptr %79, i64 0, i32 3
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
   %reg_save_area291.i = load ptr, ptr %80, align 8
   %81 = zext nneg i32 %gp_offset288.i to i64
   %82 = getelementptr i8, ptr %reg_save_area291.i, i64 %81
@@ -1908,7 +1922,7 @@ vaarg.in_reg290.i:                                ; preds = %sw.bb286.i
   br label %vaarg.end296.i
 
 vaarg.in_mem292.i:                                ; preds = %sw.bb286.i
-  %overflow_arg_area_p293.i = getelementptr inbounds %struct.__va_list_tag, ptr %79, i64 0, i32 2
+  %overflow_arg_area_p293.i = getelementptr inbounds i8, ptr %79, i64 8
   %overflow_arg_area294.i = load ptr, ptr %overflow_arg_area_p293.i, align 8
   %overflow_arg_area.next295.i = getelementptr i8, ptr %overflow_arg_area294.i, i64 8
   store ptr %overflow_arg_area.next295.i, ptr %overflow_arg_area_p293.i, align 8
@@ -1918,7 +1932,7 @@ vaarg.end296.i:                                   ; preds = %vaarg.in_mem292.i, 
   %vaarg.addr297.i = phi ptr [ %82, %vaarg.in_reg290.i ], [ %overflow_arg_area294.i, %vaarg.in_mem292.i ]
   %84 = load i32, ptr %vaarg.addr297.i, align 4
   %conv298.i = trunc i32 %84 to i16
-  %mValue299.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue299.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i16 %conv298.i, ptr %mValue299.i, align 16, !noalias !37
   br label %for.inc332.i
 
@@ -1929,7 +1943,7 @@ sw.bb300.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp303.i, label %vaarg.in_reg304.i, label %vaarg.in_mem306.i
 
 vaarg.in_reg304.i:                                ; preds = %sw.bb300.i
-  %86 = getelementptr inbounds %struct.__va_list_tag, ptr %85, i64 0, i32 3
+  %86 = getelementptr inbounds i8, ptr %85, i64 16
   %reg_save_area305.i = load ptr, ptr %86, align 8
   %87 = zext nneg i32 %gp_offset302.i to i64
   %88 = getelementptr i8, ptr %reg_save_area305.i, i64 %87
@@ -1938,7 +1952,7 @@ vaarg.in_reg304.i:                                ; preds = %sw.bb300.i
   br label %vaarg.end310.i
 
 vaarg.in_mem306.i:                                ; preds = %sw.bb300.i
-  %overflow_arg_area_p307.i = getelementptr inbounds %struct.__va_list_tag, ptr %85, i64 0, i32 2
+  %overflow_arg_area_p307.i = getelementptr inbounds i8, ptr %85, i64 8
   %overflow_arg_area308.i = load ptr, ptr %overflow_arg_area_p307.i, align 8
   %overflow_arg_area.next309.i = getelementptr i8, ptr %overflow_arg_area308.i, i64 8
   store ptr %overflow_arg_area.next309.i, ptr %overflow_arg_area_p307.i, align 8
@@ -1947,7 +1961,7 @@ vaarg.in_mem306.i:                                ; preds = %sw.bb300.i
 vaarg.end310.i:                                   ; preds = %vaarg.in_mem306.i, %vaarg.in_reg304.i
   %vaarg.addr311.i = phi ptr [ %88, %vaarg.in_reg304.i ], [ %overflow_arg_area308.i, %vaarg.in_mem306.i ]
   %90 = load i32, ptr %vaarg.addr311.i, align 4
-  %mValue312.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue312.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i32 %90, ptr %mValue312.i, align 16, !noalias !37
   br label %for.inc332.i
 
@@ -1958,7 +1972,7 @@ sw.bb313.i:                                       ; preds = %if.end147.i
   br i1 %fits_in_gp316.i, label %vaarg.in_reg317.i, label %vaarg.in_mem319.i
 
 vaarg.in_reg317.i:                                ; preds = %sw.bb313.i
-  %92 = getelementptr inbounds %struct.__va_list_tag, ptr %91, i64 0, i32 3
+  %92 = getelementptr inbounds i8, ptr %91, i64 16
   %reg_save_area318.i = load ptr, ptr %92, align 8
   %93 = zext nneg i32 %gp_offset315.i to i64
   %94 = getelementptr i8, ptr %reg_save_area318.i, i64 %93
@@ -1967,7 +1981,7 @@ vaarg.in_reg317.i:                                ; preds = %sw.bb313.i
   br label %vaarg.end323.i
 
 vaarg.in_mem319.i:                                ; preds = %sw.bb313.i
-  %overflow_arg_area_p320.i = getelementptr inbounds %struct.__va_list_tag, ptr %91, i64 0, i32 2
+  %overflow_arg_area_p320.i = getelementptr inbounds i8, ptr %91, i64 8
   %overflow_arg_area321.i = load ptr, ptr %overflow_arg_area_p320.i, align 8
   %overflow_arg_area.next322.i = getelementptr i8, ptr %overflow_arg_area321.i, i64 8
   store ptr %overflow_arg_area.next322.i, ptr %overflow_arg_area_p320.i, align 8
@@ -1976,17 +1990,17 @@ vaarg.in_mem319.i:                                ; preds = %sw.bb313.i
 vaarg.end323.i:                                   ; preds = %vaarg.in_mem319.i, %vaarg.in_reg317.i
   %vaarg.addr324.i = phi ptr [ %94, %vaarg.in_reg317.i ], [ %overflow_arg_area321.i, %vaarg.in_mem319.i ]
   %96 = load i64, ptr %vaarg.addr324.i, align 8
-  %mValue325.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue325.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 %96, ptr %mValue325.i, align 16, !noalias !37
   br label %for.inc332.i
 
 sw.bb326.i:                                       ; preds = %if.end147.i
-  %mValue327.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue327.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 0, ptr %mValue327.i, align 16, !noalias !37
   br label %for.inc332.i
 
 sw.default329.i:                                  ; preds = %if.end147.i, %if.end147.thread.i
-  %mValue330.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %idxprom122.i, i32 4
+  %mValue330.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 32
   store i64 0, ptr %mValue330.i, align 16, !noalias !37
   br label %for.inc332.i
 
@@ -1999,20 +2013,20 @@ for.body337.i:                                    ; preds = %for.inc466.i, %for.
   %indvars.iv227.i = phi i64 [ 0, %for.body337.preheader.i ], [ %indvars.iv.next228.i, %for.inc466.i ]
   %nWriteCountSum.0208.i = phi i32 [ 0, %for.body337.preheader.i ], [ %nWriteCountSum.2.i, %for.inc466.i ]
   %arrayidx340.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i
-  %mpEnd341.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 1
+  %mpEnd341.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 8
   %97 = load ptr, ptr %mpEnd341.i, align 8, !noalias !37
   %98 = load ptr, ptr %arrayidx340.i, align 16, !noalias !37
   %cmp343.not.i = icmp eq ptr %97, %98
   br i1 %cmp343.not.i, label %for.inc466.i, label %if.then344.i
 
 if.then344.i:                                     ; preds = %for.body337.i
-  %mUserIndex345.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 8
+  %mUserIndex345.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 84
   %99 = load i32, ptr %mUserIndex345.i, align 4, !noalias !37
   %cmp346.i = icmp sgt i32 %99, -1
   br i1 %cmp346.i, label %if.then347.i, label %if.else435.i
 
 if.then347.i:                                     ; preds = %if.then344.i
-  %mType348.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 2
+  %mType348.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 16
   %100 = load i32, ptr %mType348.i, align 16, !noalias !37
   switch i32 %100, label %_ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIDsEEPFiPKDsmPvNS0_18WriteFunctionStateEEDsEEiT0_S8_PKT1_P13__va_list_tag.exit [
     i32 1, label %sw.bb349.i
@@ -2033,110 +2047,110 @@ if.then347.i:                                     ; preds = %if.then344.i
   ]
 
 sw.bb349.i:                                       ; preds = %if.then347.i
-  %mFormat350.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue352.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat350.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue352.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %101 = load i8, ptr %mValue352.i, align 16, !noalias !37
   %conv353.i = sext i8 %101 to i32
   %call354.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat350.i, i32 noundef %conv353.i)
   br label %sw.epilog431.i
 
 sw.bb355.i:                                       ; preds = %if.then347.i
-  %mFormat356.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue358.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat356.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue358.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %102 = load i16, ptr %mValue358.i, align 16, !noalias !37
   %conv359.i = sext i16 %102 to i32
   %call360.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat356.i, i32 noundef %conv359.i)
   br label %sw.epilog431.i
 
 sw.bb361.i:                                       ; preds = %if.then347.i
-  %mFormat362.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue364.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat362.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue364.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %103 = load i32, ptr %mValue364.i, align 16, !noalias !37
   %call365.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat362.i, i32 noundef %103)
   br label %sw.epilog431.i
 
 sw.bb366.i:                                       ; preds = %if.then347.i
-  %mFormat367.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue369.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat367.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue369.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %104 = load i64, ptr %mValue369.i, align 16, !noalias !37
   %call370.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat367.i, i64 noundef %104)
   br label %sw.epilog431.i
 
 sw.bb371.i:                                       ; preds = %if.then347.i
-  %mFormat372.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue374.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat372.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue374.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %105 = load i64, ptr %mValue374.i, align 16, !noalias !37
   %call375.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat372.i, i64 noundef %105)
   br label %sw.epilog431.i
 
 sw.bb376.i:                                       ; preds = %if.then347.i
-  %mFormat377.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue379.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat377.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue379.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %106 = load i64, ptr %mValue379.i, align 16, !noalias !37
   %call380.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat377.i, i64 noundef %106)
   br label %sw.epilog431.i
 
 sw.bb381.i:                                       ; preds = %if.then347.i
-  %mFormat382.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue384.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat382.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue384.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %107 = load i64, ptr %mValue384.i, align 16, !noalias !37
   %call385.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat382.i, i64 noundef %107)
   br label %sw.epilog431.i
 
 sw.bb386.i:                                       ; preds = %if.then347.i
-  %mFormat387.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue389.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat387.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue389.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %108 = load i64, ptr %mValue389.i, align 16, !noalias !37
   %call390.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat387.i, i64 noundef %108)
   br label %sw.epilog431.i
 
 sw.bb391.i:                                       ; preds = %if.then347.i
-  %mFormat392.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue394.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat392.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue394.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %109 = load double, ptr %mValue394.i, align 16, !noalias !37
   %call395.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat392.i, double noundef %109)
   br label %sw.epilog431.i
 
 sw.bb396.i:                                       ; preds = %if.then347.i
-  %mFormat397.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue399.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat397.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue399.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %110 = load x86_fp80, ptr %mValue399.i, align 16, !noalias !37
   %call400.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat397.i, x86_fp80 noundef %110)
   br label %sw.epilog431.i
 
 sw.bb401.i:                                       ; preds = %if.then347.i
-  %mFormat402.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue404.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat402.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue404.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %111 = load i32, ptr %mValue404.i, align 16, !noalias !37
   %call405.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat402.i, i32 noundef %111)
   br label %sw.epilog431.i
 
 sw.bb406.i:                                       ; preds = %if.then347.i
-  %mFormat407.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue409.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat407.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue409.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %112 = load i8, ptr %mValue409.i, align 16, !noalias !37
   %conv410.i = sext i8 %112 to i32
   %call411.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat407.i, i32 noundef %conv410.i)
   br label %sw.epilog431.i
 
 sw.bb412.i:                                       ; preds = %if.then347.i
-  %mFormat413.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue415.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat413.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue415.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %113 = load i16, ptr %mValue415.i, align 16, !noalias !37
   %conv416.i = sext i16 %113 to i32
   %call417.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat413.i, i32 noundef %conv416.i)
   br label %sw.epilog431.i
 
 sw.bb418.i:                                       ; preds = %if.then347.i
-  %mFormat419.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue421.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat419.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue421.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %114 = load i32, ptr %mValue421.i, align 16, !noalias !37
   %call422.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat419.i, i32 noundef %114)
   br label %sw.epilog431.i
 
 sw.bb423.i:                                       ; preds = %if.then347.i
-  %mFormat424.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 5
-  %mValue426.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 4
+  %mFormat424.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
+  %mValue426.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %115 = load i64, ptr %mValue426.i, align 16, !noalias !37
   %call427.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat424.i, i64 noundef %115)
   br label %sw.epilog431.i
@@ -2151,7 +2165,7 @@ if.end434.i:                                      ; preds = %sw.epilog431.i
   br label %for.inc466.i
 
 if.else435.i:                                     ; preds = %if.then344.i
-  %mbEscapePresent438.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.0"], ptr %spans.i, i64 0, i64 %indvars.iv227.i, i32 9
+  %mbEscapePresent438.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 88
   %116 = load i8, ptr %mbEscapePresent438.i, align 8, !noalias !37
   %117 = and i8 %116, 1
   %tobool439.not.i = icmp eq i8 %117, 0
@@ -2170,7 +2184,7 @@ for.body443.i:                                    ; preds = %for.cond441.prehead
 
 if.end447.i:                                      ; preds = %for.body443.i
   %add448.i = add nsw i32 %nWriteCountSum.1205.i, 1
-  %incdec.ptr450.i = getelementptr inbounds i16, ptr %p.2206.i, i64 1
+  %incdec.ptr450.i = getelementptr inbounds i8, ptr %p.2206.i, i64 2
   %cmp442.i = icmp ult ptr %incdec.ptr450.i, %97
   br i1 %cmp442.i, label %for.body443.i, label %for.inc466.i, !llvm.loop !42
 
@@ -2234,9 +2248,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = sext i1 %tobool.i to i64
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !47
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !47
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !47
   %call.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -2261,9 +2275,9 @@ entry:
   %tobool = icmp ne ptr %pDestination, null
   %cond = select i1 %tobool, i64 %n, i64 0
   store ptr %pDestination, ptr %sc, align 8
-  %mnCount.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc, i64 0, i32 1
+  %mnCount.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i64 0, ptr %mnCount.i, align 8
-  %mnMaxCount.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc, i64 0, i32 2
+  %mnMaxCount.i = getelementptr inbounds i8, ptr %sc, i64 16
   store i64 %cond, ptr %mnMaxCount.i, align 8
   %call = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp = icmp sgt i32 %call, -1
@@ -2285,7 +2299,7 @@ if.else:                                          ; preds = %if.then
 
 if.then5:                                         ; preds = %if.else
   %0 = getelementptr i16, ptr %pDestination, i64 %n
-  %arrayidx6 = getelementptr i16, ptr %0, i64 -1
+  %arrayidx6 = getelementptr i8, ptr %0, i64 -2
   br label %if.end8.sink.split
 
 if.end8.sink.split:                               ; preds = %if.then5, %if.then3
@@ -2349,9 +2363,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 2147483647, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !53
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !53
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !53
   %call.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -2359,9 +2373,11 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit
 
 if.then.i:                                        ; preds = %entry
-  %narrow = call i32 @llvm.smin.i32(i32 %call.i, i32 2147483646)
-  %arrayidx.sink.i.v = zext nneg i32 %narrow to i64
-  %arrayidx.sink.i = getelementptr i16, ptr %pDestination, i64 %arrayidx.sink.i.v
+  %conv.i = zext nneg i32 %call.i to i64
+  %cmp2.i.not = icmp eq i32 %call.i, 2147483647
+  %arrayidx.i = getelementptr inbounds i16, ptr %pDestination, i64 %conv.i
+  %arrayidx6.i = getelementptr i8, ptr %pDestination, i64 4294967292
+  %arrayidx.sink.i = select i1 %cmp2.i.not, ptr %arrayidx6.i, ptr %arrayidx.i
   store i16 0, ptr %arrayidx.sink.i, align 2, !alias.scope !50, !noalias !55
   br label %_ZN2EA4StdC10OVsnprintfEPDsmPKDsP13__va_list_tag.exit
 
@@ -2381,9 +2397,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !59
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !59
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !59
   %call.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -2405,7 +2421,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.then5.i:                                       ; preds = %if.else.i
   %0 = getelementptr i16, ptr %pDestination, i64 %n
-  %arrayidx6.i = getelementptr i16, ptr %0, i64 -1
+  %arrayidx6.i = getelementptr i8, ptr %0, i64 -2
   br label %if.end8.sink.split.i
 
 if.end8.sink.split.i:                             ; preds = %if.then5.i, %if.then3.i
@@ -2443,8 +2459,8 @@ entry:
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %entry
   %arrayctor.cur.idx.i = phi i64 [ 0, %entry ], [ %arrayctor.cur.add.i, %arrayctor.loop.i ]
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %spans.i, i64 %arrayctor.cur.idx.i
-  %mValue.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.2", ptr %arrayctor.cur.ptr.i, i64 0, i32 4
-  %mFormatChar.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.2", ptr %arrayctor.cur.ptr.i, i64 0, i32 6
+  %mValue.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 32
+  %mFormatChar.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %arrayctor.cur.ptr.i, i8 0, i64 20, i1 false), !noalias !65
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %mValue.i.i, i8 0, i64 20, i1 false), !noalias !65
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %mFormatChar.i.i, i8 0, i64 9, i1 false), !noalias !65
@@ -2456,7 +2472,7 @@ arrayctor.cont.i:                                 ; preds = %arrayctor.loop.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %spanArgOrder.i, i8 0, i64 40, i1 false), !noalias !65
   %call.i = tail call noundef i32 %pWriteFunction32(ptr noundef null, i64 noundef 0, ptr noundef %pWriteFunctionContext32, i32 noundef 0)
   store ptr %pFormat, ptr %spans.i, align 16, !noalias !65
-  %mUserIndex.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.2", ptr %spans.i, i64 0, i32 7
+  %mUserIndex.i = getelementptr inbounds i8, ptr %spans.i, i64 116
   store i32 -1, ptr %mUserIndex.i, align 4, !noalias !65
   %scevgep.i = getelementptr inbounds i8, ptr %spanArgOrder.i, i64 4
   br label %for.cond.i
@@ -2475,7 +2491,7 @@ for.cond.i:                                       ; preds = %for.inc93.i, %array
   ]
 
 if.then.i:                                        ; preds = %for.cond.i
-  %arrayidx2.i = getelementptr inbounds i32, ptr %p.0.i, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %p.0.i, i64 4
   %1 = load i32, ptr %arrayidx2.i, align 4, !alias.scope !62, !noalias !67
   %cmp3.i = icmp eq i32 %1, 37
   %idxprom.i = sext i32 %spanIndex.0.i to i64
@@ -2487,12 +2503,14 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %for.inc93.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %mpEnd.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 1
+  %arrayidx7.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom.i
+  %mpEnd.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 8
   store ptr %p.0.i, ptr %mpEnd.i, align 8, !noalias !65
+  %mFormat.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 48
   %idxprom10.i = sext i32 %nFormatLength.0.i to i64
-  %arrayidx11.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 5, i64 %idxprom10.i
+  %arrayidx11.i = getelementptr inbounds [16 x i32], ptr %mFormat.i, i64 0, i64 %idxprom10.i
   store i32 0, ptr %arrayidx11.i, align 4, !noalias !65
-  %mFormatChar.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom.i, i32 6
+  %mFormatChar.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 112
   store i32 0, ptr %mFormatChar.i, align 16, !noalias !65
   %inc.i = add nsw i32 %spanIndex.0.i, 1
   %cmp14.i = icmp eq i32 %inc.i, 21
@@ -2517,15 +2535,15 @@ if.end34.i:                                       ; preds = %for.body28.preheade
   %idxprom35.i = sext i32 %inc.i to i64
   %arrayidx36.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom35.i
   store ptr %p.0.i, ptr %arrayidx36.i, align 16, !noalias !65
-  %mFormat40.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom35.i, i32 5
+  %mFormat40.i = getelementptr inbounds i8, ptr %arrayidx36.i, i64 48
   store i32 37, ptr %mFormat40.i, align 16, !noalias !65
-  %mUserIndex44.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom35.i, i32 7
+  %mUserIndex44.i = getelementptr inbounds i8, ptr %arrayidx36.i, i64 116
   store i32 %sub.i, ptr %mUserIndex44.i, align 4, !noalias !65
   %sub45.i = sub nsw i32 %sub.i, %startIndex.1.i
   %idxprom46.i = sext i32 %sub45.i to i64
   %arrayidx47.i = getelementptr inbounds [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %idxprom46.i
   store i32 %inc.i, ptr %arrayidx47.i, align 4, !noalias !65
-  %arrayidx49.i = getelementptr inbounds i32, ptr %p.0.i, i64 2
+  %arrayidx49.i = getelementptr inbounds i8, ptr %p.0.i, i64 8
   %3 = load i32, ptr %arrayidx49.i, align 4, !alias.scope !62, !noalias !67
   %cmp50.not.i = icmp eq i32 %3, 58
   br i1 %cmp50.not.i, label %if.end52.i, label %_ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIDiEEPFiPKDimPvNS0_18WriteFunctionStateEEDiEEiT0_S8_PKT1_P13__va_list_tag.exit
@@ -2545,9 +2563,11 @@ if.then56.i:                                      ; preds = %if.else54.i
 
 if.then58.i:                                      ; preds = %if.then56.i
   %idxprom59.i = sext i32 %spanIndex.0.i to i64
+  %arrayidx60.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom59.i
+  %mFormat61.i = getelementptr inbounds i8, ptr %arrayidx60.i, i64 48
   %inc62.i = add nsw i32 %nFormatLength.0.i, 1
   %idxprom63.i = sext i32 %nFormatLength.0.i to i64
-  %arrayidx64.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom59.i, i32 5, i64 %idxprom63.i
+  %arrayidx64.i = getelementptr inbounds [16 x i32], ptr %mFormat61.i, i64 0, i64 %idxprom63.i
   store i32 %0, ptr %arrayidx64.i, align 4, !noalias !65
   switch i32 %0, label %for.inc93.i [
     i32 98, label %sw.bb.i
@@ -2574,15 +2594,15 @@ if.then58.i:                                      ; preds = %if.then56.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i, %if.then58.i
-  %add.ptr67.i = getelementptr inbounds i32, ptr %p.0.i, i64 1
-  %mpEnd70.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom59.i, i32 1
+  %add.ptr67.i = getelementptr inbounds i8, ptr %p.0.i, i64 4
+  %mpEnd70.i = getelementptr inbounds i8, ptr %arrayidx60.i, i64 8
   store ptr %add.ptr67.i, ptr %mpEnd70.i, align 8, !noalias !65
   %cmp74.not.i = icmp eq i32 %nFormatLength.0.i, 15
   %cond.i = select i1 %cmp74.not.i, i32 15, i32 %inc62.i
   %idxprom75.i = sext i32 %cond.i to i64
-  %arrayidx76.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom59.i, i32 5, i64 %idxprom75.i
+  %arrayidx76.i = getelementptr inbounds [16 x i32], ptr %mFormat61.i, i64 0, i64 %idxprom75.i
   store i32 0, ptr %arrayidx76.i, align 4, !noalias !65
-  %mFormatChar79.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom59.i, i32 6
+  %mFormatChar79.i = getelementptr inbounds i8, ptr %arrayidx60.i, i64 112
   store i32 %0, ptr %mFormatChar79.i, align 16, !noalias !65
   %inc80.i = add nsw i32 %spanIndex.0.i, 1
   %cmp81.i = icmp eq i32 %inc80.i, 21
@@ -2592,7 +2612,7 @@ if.end83.i:                                       ; preds = %sw.bb.i
   %idxprom85.i = sext i32 %inc80.i to i64
   %arrayidx86.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom85.i
   store ptr %add.ptr67.i, ptr %arrayidx86.i, align 16, !noalias !65
-  %mUserIndex90.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom85.i, i32 7
+  %mUserIndex90.i = getelementptr inbounds i8, ptr %arrayidx86.i, i64 116
   store i32 -1, ptr %mUserIndex90.i, align 4, !noalias !65
   br label %for.inc93.i
 
@@ -2603,27 +2623,29 @@ for.inc93.i:                                      ; preds = %if.end83.i, %sw.bb.
   %p.1.i = phi ptr [ %arrayidx2.i, %if.then4.i ], [ %arrayidx49.i, %if.end52.i ], [ %p.0.i, %if.then58.i ], [ %p.0.i, %sw.bb.i ], [ %p.0.i, %if.end83.i ], [ %p.0.i, %if.else54.i ]
   %formattedSpanCount.1.i = phi i32 [ %formattedSpanCount.0.i, %if.then4.i ], [ %inc48.i, %if.end52.i ], [ %formattedSpanCount.0.i, %if.then58.i ], [ %formattedSpanCount.0.i, %sw.bb.i ], [ %formattedSpanCount.0.i, %if.end83.i ], [ %formattedSpanCount.0.i, %if.else54.i ]
   %spanIndex.1.i = phi i32 [ %spanIndex.0.i, %if.then4.i ], [ %inc.i, %if.end52.i ], [ %spanIndex.0.i, %if.then58.i ], [ 21, %sw.bb.i ], [ %inc80.i, %if.end83.i ], [ %spanIndex.0.i, %if.else54.i ]
-  %incdec.ptr94.i = getelementptr inbounds i32, ptr %p.1.i, i64 1
+  %incdec.ptr94.i = getelementptr inbounds i8, ptr %p.1.i, i64 4
   br label %for.cond.i, !llvm.loop !68
 
 if.end100.i:                                      ; preds = %for.cond.i
   %.pre.i = sext i32 %nFormatLength.0.i to i64
   %idxprom101.i = sext i32 %spanIndex.0.i to i64
-  %mpEnd103.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom101.i, i32 1
+  %arrayidx102.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom101.i
+  %mpEnd103.i = getelementptr inbounds i8, ptr %arrayidx102.i, i64 8
   store ptr %p.0.i, ptr %mpEnd103.i, align 8, !noalias !65
-  %arrayidx108.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom101.i, i32 5, i64 %.pre.i
+  %mFormat106.i = getelementptr inbounds i8, ptr %arrayidx102.i, i64 48
+  %arrayidx108.i = getelementptr inbounds [16 x i32], ptr %mFormat106.i, i64 0, i64 %.pre.i
   store i32 0, ptr %arrayidx108.i, align 4, !noalias !65
   %cmp112203.i = icmp sgt i32 %formattedSpanCount.0.i, 0
   br i1 %cmp112203.i, label %for.body113.lr.ph.i, label %for.cond326.preheader.i
 
 for.body113.lr.ph.i:                              ; preds = %if.end100.i
-  %mSign.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 1
-  %mbAlternativeForm.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 2
-  %mnWidth.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 3
-  %mModifier.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 5
-  %mDecimalPoint.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 7
-  %mbDisplayThousands.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 8
-  %mThousandsSeparator.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::FormatData", ptr %formatData.i, i64 0, i32 9
+  %mSign.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 4
+  %mbAlternativeForm.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 8
+  %mnWidth.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 12
+  %mModifier.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 20
+  %mDecimalPoint.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 28
+  %mbDisplayThousands.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 32
+  %mThousandsSeparator.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 36
   %wide.trip.count.i = zext nneg i32 %formattedSpanCount.0.i to i64
   br label %for.body113.i
 
@@ -2641,6 +2663,7 @@ for.body113.i:                                    ; preds = %for.inc323.i, %for.
   %arrayidx115.i = getelementptr inbounds [10 x i32], ptr %spanArgOrder.i, i64 0, i64 %indvars.iv.i
   %6 = load i32, ptr %arrayidx115.i, align 4, !noalias !65
   %idxprom116.i = sext i32 %6 to i64
+  %arrayidx117.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i
   store i32 1, ptr %formatData.i, align 4, !noalias !65
   store i32 1, ptr %mSign.i.i, align 4, !noalias !65
   store i8 0, ptr %mbAlternativeForm.i.i, align 4, !noalias !65
@@ -2648,7 +2671,7 @@ for.body113.i:                                    ; preds = %for.inc323.i, %for.
   store i32 46, ptr %mDecimalPoint.i.i, align 4, !noalias !65
   store i8 0, ptr %mbDisplayThousands.i.i, align 4, !noalias !65
   store i32 44, ptr %mThousandsSeparator.i.i, align 4, !noalias !65
-  %mFormat118.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 5
+  %mFormat118.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 48
   %call120.i = call noundef ptr @_ZN2EA4StdC12SprintfLocal10ReadFormatIDiEEPKT_S5_PNS1_10FormatDataEPA1_13__va_list_tag(ptr noundef nonnull %mFormat118.i, ptr noundef nonnull %formatData.i, ptr noundef nonnull %arguments.addr.i)
   %7 = load i32, ptr %call120.i, align 4
   %cmp121.not.i = icmp eq i32 %7, 0
@@ -2660,7 +2683,7 @@ if.end123.i:                                      ; preds = %for.body113.i
   br i1 %cmp124.i, label %if.then125.i, label %if.end139.i
 
 if.then125.i:                                     ; preds = %if.end123.i
-  %arrayidx126.i = getelementptr inbounds i32, ptr %call120.i, i64 -1
+  %arrayidx126.i = getelementptr inbounds i8, ptr %call120.i, i64 -4
   %9 = load i32, ptr %arrayidx126.i, align 4
   switch i32 %9, label %if.end139.thread.i [
     i32 98, label %if.end139.thread175.i
@@ -2687,42 +2710,42 @@ if.then125.i:                                     ; preds = %if.end123.i
   ]
 
 if.end139.thread.i:                               ; preds = %if.then125.i
-  %mType172.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 2
+  %mType172.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 16
   store i32 0, ptr %mType172.i, align 16, !noalias !65
   br label %sw.default320.i
 
 if.end139.thread175.i:                            ; preds = %if.then125.i, %if.then125.i, %if.then125.i, %if.then125.i, %if.then125.i, %if.then125.i, %if.then125.i
   store i32 3, ptr %mModifier.i.i, align 4, !noalias !65
-  %mType176.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 2
+  %mType176.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 16
   store i32 3, ptr %mType176.i, align 16, !noalias !65
   br label %sw.bb157.i
 
 if.end139.thread179.i:                            ; preds = %if.then125.i, %if.then125.i, %if.then125.i, %if.then125.i, %if.then125.i, %if.then125.i, %if.then125.i, %if.then125.i
   store i32 9, ptr %mModifier.i.i, align 4, !noalias !65
-  %mType180.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 2
+  %mType180.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 16
   store i32 9, ptr %mType180.i, align 16, !noalias !65
   br label %sw.bb235.i
 
 if.end139.thread177.i:                            ; preds = %if.then125.i, %if.then125.i, %if.then125.i, %if.then125.i
   store i32 7, ptr %mModifier.i.i, align 4, !noalias !65
-  %mType178.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 2
+  %mType178.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 16
   store i32 7, ptr %mType178.i, align 16, !noalias !65
   br label %sw.bb209.i
 
 if.end139.thread173.i:                            ; preds = %if.then125.i
   store i32 1, ptr %mModifier.i.i, align 4, !noalias !65
-  %mType174.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 2
+  %mType174.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 16
   store i32 1, ptr %mType174.i, align 16, !noalias !65
   br label %sw.bb142.i
 
 if.end139.thread181.i:                            ; preds = %if.then125.i
   store i32 11, ptr %mModifier.i.i, align 4, !noalias !65
-  %mType182.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 2
+  %mType182.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 16
   store i32 11, ptr %mType182.i, align 16, !noalias !65
   br label %sw.bb250.i
 
 if.end139.i:                                      ; preds = %if.end123.i
-  %mType.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 2
+  %mType.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 16
   store i32 %8, ptr %mType.i, align 16, !noalias !65
   switch i32 %8, label %sw.default320.i [
     i32 1, label %sw.bb142.i
@@ -2750,7 +2773,7 @@ sw.bb142.i:                                       ; preds = %if.end139.i, %if.en
   br i1 %fits_in_gp.i, label %vaarg.in_reg.i, label %vaarg.in_mem.i
 
 vaarg.in_reg.i:                                   ; preds = %sw.bb142.i
-  %11 = getelementptr inbounds %struct.__va_list_tag, ptr %10, i64 0, i32 3
+  %11 = getelementptr inbounds i8, ptr %10, i64 16
   %reg_save_area.i = load ptr, ptr %11, align 8
   %12 = zext nneg i32 %gp_offset.i to i64
   %13 = getelementptr i8, ptr %reg_save_area.i, i64 %12
@@ -2759,7 +2782,7 @@ vaarg.in_reg.i:                                   ; preds = %sw.bb142.i
   br label %vaarg.end.i
 
 vaarg.in_mem.i:                                   ; preds = %sw.bb142.i
-  %overflow_arg_area_p.i = getelementptr inbounds %struct.__va_list_tag, ptr %10, i64 0, i32 2
+  %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %10, i64 8
   %overflow_arg_area.i = load ptr, ptr %overflow_arg_area_p.i, align 8
   %overflow_arg_area.next.i = getelementptr i8, ptr %overflow_arg_area.i, i64 8
   store ptr %overflow_arg_area.next.i, ptr %overflow_arg_area_p.i, align 8
@@ -2769,7 +2792,7 @@ vaarg.end.i:                                      ; preds = %vaarg.in_mem.i, %va
   %vaarg.addr.i = phi ptr [ %13, %vaarg.in_reg.i ], [ %overflow_arg_area.i, %vaarg.in_mem.i ]
   %15 = load i32, ptr %vaarg.addr.i, align 4
   %conv.i = trunc i32 %15 to i8
-  %mValue.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i8 %conv.i, ptr %mValue.i, align 16, !noalias !65
   br label %for.inc323.i
 
@@ -2780,7 +2803,7 @@ sw.bb143.i:                                       ; preds = %if.end139.i
   br i1 %fits_in_gp146.i, label %vaarg.in_reg147.i, label %vaarg.in_mem149.i
 
 vaarg.in_reg147.i:                                ; preds = %sw.bb143.i
-  %17 = getelementptr inbounds %struct.__va_list_tag, ptr %16, i64 0, i32 3
+  %17 = getelementptr inbounds i8, ptr %16, i64 16
   %reg_save_area148.i = load ptr, ptr %17, align 8
   %18 = zext nneg i32 %gp_offset145.i to i64
   %19 = getelementptr i8, ptr %reg_save_area148.i, i64 %18
@@ -2789,7 +2812,7 @@ vaarg.in_reg147.i:                                ; preds = %sw.bb143.i
   br label %vaarg.end153.i
 
 vaarg.in_mem149.i:                                ; preds = %sw.bb143.i
-  %overflow_arg_area_p150.i = getelementptr inbounds %struct.__va_list_tag, ptr %16, i64 0, i32 2
+  %overflow_arg_area_p150.i = getelementptr inbounds i8, ptr %16, i64 8
   %overflow_arg_area151.i = load ptr, ptr %overflow_arg_area_p150.i, align 8
   %overflow_arg_area.next152.i = getelementptr i8, ptr %overflow_arg_area151.i, i64 8
   store ptr %overflow_arg_area.next152.i, ptr %overflow_arg_area_p150.i, align 8
@@ -2799,7 +2822,7 @@ vaarg.end153.i:                                   ; preds = %vaarg.in_mem149.i, 
   %vaarg.addr154.i = phi ptr [ %19, %vaarg.in_reg147.i ], [ %overflow_arg_area151.i, %vaarg.in_mem149.i ]
   %21 = load i32, ptr %vaarg.addr154.i, align 4
   %conv155.i = trunc i32 %21 to i16
-  %mValue156.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue156.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i16 %conv155.i, ptr %mValue156.i, align 16, !noalias !65
   br label %for.inc323.i
 
@@ -2810,7 +2833,7 @@ sw.bb157.i:                                       ; preds = %if.end139.i, %if.en
   br i1 %fits_in_gp160.i, label %vaarg.in_reg161.i, label %vaarg.in_mem163.i
 
 vaarg.in_reg161.i:                                ; preds = %sw.bb157.i
-  %23 = getelementptr inbounds %struct.__va_list_tag, ptr %22, i64 0, i32 3
+  %23 = getelementptr inbounds i8, ptr %22, i64 16
   %reg_save_area162.i = load ptr, ptr %23, align 8
   %24 = zext nneg i32 %gp_offset159.i to i64
   %25 = getelementptr i8, ptr %reg_save_area162.i, i64 %24
@@ -2819,7 +2842,7 @@ vaarg.in_reg161.i:                                ; preds = %sw.bb157.i
   br label %vaarg.end167.i
 
 vaarg.in_mem163.i:                                ; preds = %sw.bb157.i
-  %overflow_arg_area_p164.i = getelementptr inbounds %struct.__va_list_tag, ptr %22, i64 0, i32 2
+  %overflow_arg_area_p164.i = getelementptr inbounds i8, ptr %22, i64 8
   %overflow_arg_area165.i = load ptr, ptr %overflow_arg_area_p164.i, align 8
   %overflow_arg_area.next166.i = getelementptr i8, ptr %overflow_arg_area165.i, i64 8
   store ptr %overflow_arg_area.next166.i, ptr %overflow_arg_area_p164.i, align 8
@@ -2828,7 +2851,7 @@ vaarg.in_mem163.i:                                ; preds = %sw.bb157.i
 vaarg.end167.i:                                   ; preds = %vaarg.in_mem163.i, %vaarg.in_reg161.i
   %vaarg.addr168.i = phi ptr [ %25, %vaarg.in_reg161.i ], [ %overflow_arg_area165.i, %vaarg.in_mem163.i ]
   %27 = load i32, ptr %vaarg.addr168.i, align 4
-  %mValue169.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue169.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i32 %27, ptr %mValue169.i, align 16, !noalias !65
   br label %for.inc323.i
 
@@ -2839,7 +2862,7 @@ sw.bb170.i:                                       ; preds = %if.end139.i
   br i1 %fits_in_gp173.i, label %vaarg.in_reg174.i, label %vaarg.in_mem176.i
 
 vaarg.in_reg174.i:                                ; preds = %sw.bb170.i
-  %29 = getelementptr inbounds %struct.__va_list_tag, ptr %28, i64 0, i32 3
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
   %reg_save_area175.i = load ptr, ptr %29, align 8
   %30 = zext nneg i32 %gp_offset172.i to i64
   %31 = getelementptr i8, ptr %reg_save_area175.i, i64 %30
@@ -2848,7 +2871,7 @@ vaarg.in_reg174.i:                                ; preds = %sw.bb170.i
   br label %vaarg.end180.i
 
 vaarg.in_mem176.i:                                ; preds = %sw.bb170.i
-  %overflow_arg_area_p177.i = getelementptr inbounds %struct.__va_list_tag, ptr %28, i64 0, i32 2
+  %overflow_arg_area_p177.i = getelementptr inbounds i8, ptr %28, i64 8
   %overflow_arg_area178.i = load ptr, ptr %overflow_arg_area_p177.i, align 8
   %overflow_arg_area.next179.i = getelementptr i8, ptr %overflow_arg_area178.i, i64 8
   store ptr %overflow_arg_area.next179.i, ptr %overflow_arg_area_p177.i, align 8
@@ -2857,7 +2880,7 @@ vaarg.in_mem176.i:                                ; preds = %sw.bb170.i
 vaarg.end180.i:                                   ; preds = %vaarg.in_mem176.i, %vaarg.in_reg174.i
   %vaarg.addr181.i = phi ptr [ %31, %vaarg.in_reg174.i ], [ %overflow_arg_area178.i, %vaarg.in_mem176.i ]
   %33 = load i64, ptr %vaarg.addr181.i, align 8
-  %mValue182.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue182.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i64 %33, ptr %mValue182.i, align 16, !noalias !65
   br label %for.inc323.i
 
@@ -2868,7 +2891,7 @@ sw.bb183.i:                                       ; preds = %if.end139.i
   br i1 %fits_in_gp186.i, label %vaarg.in_reg187.i, label %vaarg.in_mem189.i
 
 vaarg.in_reg187.i:                                ; preds = %sw.bb183.i
-  %35 = getelementptr inbounds %struct.__va_list_tag, ptr %34, i64 0, i32 3
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
   %reg_save_area188.i = load ptr, ptr %35, align 8
   %36 = zext nneg i32 %gp_offset185.i to i64
   %37 = getelementptr i8, ptr %reg_save_area188.i, i64 %36
@@ -2877,7 +2900,7 @@ vaarg.in_reg187.i:                                ; preds = %sw.bb183.i
   br label %vaarg.end193.i
 
 vaarg.in_mem189.i:                                ; preds = %sw.bb183.i
-  %overflow_arg_area_p190.i = getelementptr inbounds %struct.__va_list_tag, ptr %34, i64 0, i32 2
+  %overflow_arg_area_p190.i = getelementptr inbounds i8, ptr %34, i64 8
   %overflow_arg_area191.i = load ptr, ptr %overflow_arg_area_p190.i, align 8
   %overflow_arg_area.next192.i = getelementptr i8, ptr %overflow_arg_area191.i, i64 8
   store ptr %overflow_arg_area.next192.i, ptr %overflow_arg_area_p190.i, align 8
@@ -2886,7 +2909,7 @@ vaarg.in_mem189.i:                                ; preds = %sw.bb183.i
 vaarg.end193.i:                                   ; preds = %vaarg.in_mem189.i, %vaarg.in_reg187.i
   %vaarg.addr194.i = phi ptr [ %37, %vaarg.in_reg187.i ], [ %overflow_arg_area191.i, %vaarg.in_mem189.i ]
   %39 = load i64, ptr %vaarg.addr194.i, align 8
-  %mValue195.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue195.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i64 %39, ptr %mValue195.i, align 16, !noalias !65
   br label %for.inc323.i
 
@@ -2897,7 +2920,7 @@ sw.bb196.i:                                       ; preds = %if.end139.i
   br i1 %fits_in_gp199.i, label %vaarg.in_reg200.i, label %vaarg.in_mem202.i
 
 vaarg.in_reg200.i:                                ; preds = %sw.bb196.i
-  %41 = getelementptr inbounds %struct.__va_list_tag, ptr %40, i64 0, i32 3
+  %41 = getelementptr inbounds i8, ptr %40, i64 16
   %reg_save_area201.i = load ptr, ptr %41, align 8
   %42 = zext nneg i32 %gp_offset198.i to i64
   %43 = getelementptr i8, ptr %reg_save_area201.i, i64 %42
@@ -2906,7 +2929,7 @@ vaarg.in_reg200.i:                                ; preds = %sw.bb196.i
   br label %vaarg.end206.i
 
 vaarg.in_mem202.i:                                ; preds = %sw.bb196.i
-  %overflow_arg_area_p203.i = getelementptr inbounds %struct.__va_list_tag, ptr %40, i64 0, i32 2
+  %overflow_arg_area_p203.i = getelementptr inbounds i8, ptr %40, i64 8
   %overflow_arg_area204.i = load ptr, ptr %overflow_arg_area_p203.i, align 8
   %overflow_arg_area.next205.i = getelementptr i8, ptr %overflow_arg_area204.i, i64 8
   store ptr %overflow_arg_area.next205.i, ptr %overflow_arg_area_p203.i, align 8
@@ -2915,7 +2938,7 @@ vaarg.in_mem202.i:                                ; preds = %sw.bb196.i
 vaarg.end206.i:                                   ; preds = %vaarg.in_mem202.i, %vaarg.in_reg200.i
   %vaarg.addr207.i = phi ptr [ %43, %vaarg.in_reg200.i ], [ %overflow_arg_area204.i, %vaarg.in_mem202.i ]
   %45 = load i64, ptr %vaarg.addr207.i, align 8
-  %mValue208.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue208.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i64 %45, ptr %mValue208.i, align 16, !noalias !65
   br label %for.inc323.i
 
@@ -2926,7 +2949,7 @@ sw.bb209.i:                                       ; preds = %if.end139.i, %if.en
   br i1 %fits_in_gp212.i, label %vaarg.in_reg213.i, label %vaarg.in_mem215.i
 
 vaarg.in_reg213.i:                                ; preds = %sw.bb209.i
-  %47 = getelementptr inbounds %struct.__va_list_tag, ptr %46, i64 0, i32 3
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
   %reg_save_area214.i = load ptr, ptr %47, align 8
   %48 = zext nneg i32 %gp_offset211.i to i64
   %49 = getelementptr i8, ptr %reg_save_area214.i, i64 %48
@@ -2935,7 +2958,7 @@ vaarg.in_reg213.i:                                ; preds = %sw.bb209.i
   br label %vaarg.end219.i
 
 vaarg.in_mem215.i:                                ; preds = %sw.bb209.i
-  %overflow_arg_area_p216.i = getelementptr inbounds %struct.__va_list_tag, ptr %46, i64 0, i32 2
+  %overflow_arg_area_p216.i = getelementptr inbounds i8, ptr %46, i64 8
   %overflow_arg_area217.i = load ptr, ptr %overflow_arg_area_p216.i, align 8
   %overflow_arg_area.next218.i = getelementptr i8, ptr %overflow_arg_area217.i, i64 8
   store ptr %overflow_arg_area.next218.i, ptr %overflow_arg_area_p216.i, align 8
@@ -2944,7 +2967,7 @@ vaarg.in_mem215.i:                                ; preds = %sw.bb209.i
 vaarg.end219.i:                                   ; preds = %vaarg.in_mem215.i, %vaarg.in_reg213.i
   %vaarg.addr220.i = phi ptr [ %49, %vaarg.in_reg213.i ], [ %overflow_arg_area217.i, %vaarg.in_mem215.i ]
   %51 = load i64, ptr %vaarg.addr220.i, align 8
-  %mValue221.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue221.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i64 %51, ptr %mValue221.i, align 16, !noalias !65
   br label %for.inc323.i
 
@@ -2955,7 +2978,7 @@ sw.bb222.i:                                       ; preds = %if.end139.i
   br i1 %fits_in_gp225.i, label %vaarg.in_reg226.i, label %vaarg.in_mem228.i
 
 vaarg.in_reg226.i:                                ; preds = %sw.bb222.i
-  %53 = getelementptr inbounds %struct.__va_list_tag, ptr %52, i64 0, i32 3
+  %53 = getelementptr inbounds i8, ptr %52, i64 16
   %reg_save_area227.i = load ptr, ptr %53, align 8
   %54 = zext nneg i32 %gp_offset224.i to i64
   %55 = getelementptr i8, ptr %reg_save_area227.i, i64 %54
@@ -2964,7 +2987,7 @@ vaarg.in_reg226.i:                                ; preds = %sw.bb222.i
   br label %vaarg.end232.i
 
 vaarg.in_mem228.i:                                ; preds = %sw.bb222.i
-  %overflow_arg_area_p229.i = getelementptr inbounds %struct.__va_list_tag, ptr %52, i64 0, i32 2
+  %overflow_arg_area_p229.i = getelementptr inbounds i8, ptr %52, i64 8
   %overflow_arg_area230.i = load ptr, ptr %overflow_arg_area_p229.i, align 8
   %overflow_arg_area.next231.i = getelementptr i8, ptr %overflow_arg_area230.i, i64 8
   store ptr %overflow_arg_area.next231.i, ptr %overflow_arg_area_p229.i, align 8
@@ -2973,19 +2996,19 @@ vaarg.in_mem228.i:                                ; preds = %sw.bb222.i
 vaarg.end232.i:                                   ; preds = %vaarg.in_mem228.i, %vaarg.in_reg226.i
   %vaarg.addr233.i = phi ptr [ %55, %vaarg.in_reg226.i ], [ %overflow_arg_area230.i, %vaarg.in_mem228.i ]
   %57 = load i64, ptr %vaarg.addr233.i, align 8
-  %mValue234.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue234.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i64 %57, ptr %mValue234.i, align 16, !noalias !65
   br label %for.inc323.i
 
 sw.bb235.i:                                       ; preds = %if.end139.i, %if.end139.thread179.i
   %58 = load ptr, ptr %arguments.addr.i, align 8, !noalias !65
-  %fp_offset_p.i = getelementptr inbounds %struct.__va_list_tag, ptr %58, i64 0, i32 1
+  %fp_offset_p.i = getelementptr inbounds i8, ptr %58, i64 4
   %fp_offset.i = load i32, ptr %fp_offset_p.i, align 4
   %fits_in_fp.i = icmp ult i32 %fp_offset.i, 161
   br i1 %fits_in_fp.i, label %vaarg.in_reg236.i, label %vaarg.in_mem238.i
 
 vaarg.in_reg236.i:                                ; preds = %sw.bb235.i
-  %59 = getelementptr inbounds %struct.__va_list_tag, ptr %58, i64 0, i32 3
+  %59 = getelementptr inbounds i8, ptr %58, i64 16
   %reg_save_area237.i = load ptr, ptr %59, align 8
   %60 = zext nneg i32 %fp_offset.i to i64
   %61 = getelementptr i8, ptr %reg_save_area237.i, i64 %60
@@ -2994,7 +3017,7 @@ vaarg.in_reg236.i:                                ; preds = %sw.bb235.i
   br label %vaarg.end242.i
 
 vaarg.in_mem238.i:                                ; preds = %sw.bb235.i
-  %overflow_arg_area_p239.i = getelementptr inbounds %struct.__va_list_tag, ptr %58, i64 0, i32 2
+  %overflow_arg_area_p239.i = getelementptr inbounds i8, ptr %58, i64 8
   %overflow_arg_area240.i = load ptr, ptr %overflow_arg_area_p239.i, align 8
   %overflow_arg_area.next241.i = getelementptr i8, ptr %overflow_arg_area240.i, i64 8
   store ptr %overflow_arg_area.next241.i, ptr %overflow_arg_area_p239.i, align 8
@@ -3003,20 +3026,20 @@ vaarg.in_mem238.i:                                ; preds = %sw.bb235.i
 vaarg.end242.i:                                   ; preds = %vaarg.in_mem238.i, %vaarg.in_reg236.i
   %vaarg.addr243.i = phi ptr [ %61, %vaarg.in_reg236.i ], [ %overflow_arg_area240.i, %vaarg.in_mem238.i ]
   %63 = load double, ptr %vaarg.addr243.i, align 8
-  %mValue244.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue244.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store double %63, ptr %mValue244.i, align 16, !noalias !65
   br label %for.inc323.i
 
 sw.bb245.i:                                       ; preds = %if.end139.i
   %64 = load ptr, ptr %arguments.addr.i, align 8, !noalias !65
-  %overflow_arg_area_p246.i = getelementptr inbounds %struct.__va_list_tag, ptr %64, i64 0, i32 2
+  %overflow_arg_area_p246.i = getelementptr inbounds i8, ptr %64, i64 8
   %overflow_arg_area247.i = load ptr, ptr %overflow_arg_area_p246.i, align 8
   %65 = getelementptr inbounds i8, ptr %overflow_arg_area247.i, i64 15
   %overflow_arg_area247.aligned.i = call align 16 ptr @llvm.ptrmask.p0.i64(ptr nonnull %65, i64 -16)
   %overflow_arg_area.next248.i = getelementptr i8, ptr %overflow_arg_area247.aligned.i, i64 16
   store ptr %overflow_arg_area.next248.i, ptr %overflow_arg_area_p246.i, align 8
   %66 = load x86_fp80, ptr %overflow_arg_area247.aligned.i, align 16
-  %mValue249.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue249.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store x86_fp80 %66, ptr %mValue249.i, align 16, !noalias !65
   br label %for.inc323.i
 
@@ -3027,7 +3050,7 @@ sw.bb250.i:                                       ; preds = %if.end139.i, %if.en
   br i1 %fits_in_gp253.i, label %vaarg.in_reg254.i, label %vaarg.in_mem256.i
 
 vaarg.in_reg254.i:                                ; preds = %sw.bb250.i
-  %68 = getelementptr inbounds %struct.__va_list_tag, ptr %67, i64 0, i32 3
+  %68 = getelementptr inbounds i8, ptr %67, i64 16
   %reg_save_area255.i = load ptr, ptr %68, align 8
   %69 = zext nneg i32 %gp_offset252.i to i64
   %70 = getelementptr i8, ptr %reg_save_area255.i, i64 %69
@@ -3036,7 +3059,7 @@ vaarg.in_reg254.i:                                ; preds = %sw.bb250.i
   br label %vaarg.end260.i
 
 vaarg.in_mem256.i:                                ; preds = %sw.bb250.i
-  %overflow_arg_area_p257.i = getelementptr inbounds %struct.__va_list_tag, ptr %67, i64 0, i32 2
+  %overflow_arg_area_p257.i = getelementptr inbounds i8, ptr %67, i64 8
   %overflow_arg_area258.i = load ptr, ptr %overflow_arg_area_p257.i, align 8
   %overflow_arg_area.next259.i = getelementptr i8, ptr %overflow_arg_area258.i, i64 8
   store ptr %overflow_arg_area.next259.i, ptr %overflow_arg_area_p257.i, align 8
@@ -3045,7 +3068,7 @@ vaarg.in_mem256.i:                                ; preds = %sw.bb250.i
 vaarg.end260.i:                                   ; preds = %vaarg.in_mem256.i, %vaarg.in_reg254.i
   %vaarg.addr261.i = phi ptr [ %70, %vaarg.in_reg254.i ], [ %overflow_arg_area258.i, %vaarg.in_mem256.i ]
   %72 = load i32, ptr %vaarg.addr261.i, align 4
-  %mValue262.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue262.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i32 %72, ptr %mValue262.i, align 16, !noalias !65
   br label %for.inc323.i
 
@@ -3056,7 +3079,7 @@ sw.bb263.i:                                       ; preds = %if.end139.i
   br i1 %fits_in_gp266.i, label %vaarg.in_reg267.i, label %vaarg.in_mem269.i
 
 vaarg.in_reg267.i:                                ; preds = %sw.bb263.i
-  %74 = getelementptr inbounds %struct.__va_list_tag, ptr %73, i64 0, i32 3
+  %74 = getelementptr inbounds i8, ptr %73, i64 16
   %reg_save_area268.i = load ptr, ptr %74, align 8
   %75 = zext nneg i32 %gp_offset265.i to i64
   %76 = getelementptr i8, ptr %reg_save_area268.i, i64 %75
@@ -3065,7 +3088,7 @@ vaarg.in_reg267.i:                                ; preds = %sw.bb263.i
   br label %vaarg.end273.i
 
 vaarg.in_mem269.i:                                ; preds = %sw.bb263.i
-  %overflow_arg_area_p270.i = getelementptr inbounds %struct.__va_list_tag, ptr %73, i64 0, i32 2
+  %overflow_arg_area_p270.i = getelementptr inbounds i8, ptr %73, i64 8
   %overflow_arg_area271.i = load ptr, ptr %overflow_arg_area_p270.i, align 8
   %overflow_arg_area.next272.i = getelementptr i8, ptr %overflow_arg_area271.i, i64 8
   store ptr %overflow_arg_area.next272.i, ptr %overflow_arg_area_p270.i, align 8
@@ -3075,7 +3098,7 @@ vaarg.end273.i:                                   ; preds = %vaarg.in_mem269.i, 
   %vaarg.addr274.i = phi ptr [ %76, %vaarg.in_reg267.i ], [ %overflow_arg_area271.i, %vaarg.in_mem269.i ]
   %78 = load i32, ptr %vaarg.addr274.i, align 4
   %conv275.i = trunc i32 %78 to i8
-  %mValue276.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue276.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i8 %conv275.i, ptr %mValue276.i, align 16, !noalias !65
   br label %for.inc323.i
 
@@ -3086,7 +3109,7 @@ sw.bb277.i:                                       ; preds = %if.end139.i
   br i1 %fits_in_gp280.i, label %vaarg.in_reg281.i, label %vaarg.in_mem283.i
 
 vaarg.in_reg281.i:                                ; preds = %sw.bb277.i
-  %80 = getelementptr inbounds %struct.__va_list_tag, ptr %79, i64 0, i32 3
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
   %reg_save_area282.i = load ptr, ptr %80, align 8
   %81 = zext nneg i32 %gp_offset279.i to i64
   %82 = getelementptr i8, ptr %reg_save_area282.i, i64 %81
@@ -3095,7 +3118,7 @@ vaarg.in_reg281.i:                                ; preds = %sw.bb277.i
   br label %vaarg.end287.i
 
 vaarg.in_mem283.i:                                ; preds = %sw.bb277.i
-  %overflow_arg_area_p284.i = getelementptr inbounds %struct.__va_list_tag, ptr %79, i64 0, i32 2
+  %overflow_arg_area_p284.i = getelementptr inbounds i8, ptr %79, i64 8
   %overflow_arg_area285.i = load ptr, ptr %overflow_arg_area_p284.i, align 8
   %overflow_arg_area.next286.i = getelementptr i8, ptr %overflow_arg_area285.i, i64 8
   store ptr %overflow_arg_area.next286.i, ptr %overflow_arg_area_p284.i, align 8
@@ -3105,7 +3128,7 @@ vaarg.end287.i:                                   ; preds = %vaarg.in_mem283.i, 
   %vaarg.addr288.i = phi ptr [ %82, %vaarg.in_reg281.i ], [ %overflow_arg_area285.i, %vaarg.in_mem283.i ]
   %84 = load i32, ptr %vaarg.addr288.i, align 4
   %conv289.i = trunc i32 %84 to i16
-  %mValue290.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue290.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i16 %conv289.i, ptr %mValue290.i, align 16, !noalias !65
   br label %for.inc323.i
 
@@ -3116,7 +3139,7 @@ sw.bb291.i:                                       ; preds = %if.end139.i
   br i1 %fits_in_gp294.i, label %vaarg.in_reg295.i, label %vaarg.in_mem297.i
 
 vaarg.in_reg295.i:                                ; preds = %sw.bb291.i
-  %86 = getelementptr inbounds %struct.__va_list_tag, ptr %85, i64 0, i32 3
+  %86 = getelementptr inbounds i8, ptr %85, i64 16
   %reg_save_area296.i = load ptr, ptr %86, align 8
   %87 = zext nneg i32 %gp_offset293.i to i64
   %88 = getelementptr i8, ptr %reg_save_area296.i, i64 %87
@@ -3125,7 +3148,7 @@ vaarg.in_reg295.i:                                ; preds = %sw.bb291.i
   br label %vaarg.end301.i
 
 vaarg.in_mem297.i:                                ; preds = %sw.bb291.i
-  %overflow_arg_area_p298.i = getelementptr inbounds %struct.__va_list_tag, ptr %85, i64 0, i32 2
+  %overflow_arg_area_p298.i = getelementptr inbounds i8, ptr %85, i64 8
   %overflow_arg_area299.i = load ptr, ptr %overflow_arg_area_p298.i, align 8
   %overflow_arg_area.next300.i = getelementptr i8, ptr %overflow_arg_area299.i, i64 8
   store ptr %overflow_arg_area.next300.i, ptr %overflow_arg_area_p298.i, align 8
@@ -3134,7 +3157,7 @@ vaarg.in_mem297.i:                                ; preds = %sw.bb291.i
 vaarg.end301.i:                                   ; preds = %vaarg.in_mem297.i, %vaarg.in_reg295.i
   %vaarg.addr302.i = phi ptr [ %88, %vaarg.in_reg295.i ], [ %overflow_arg_area299.i, %vaarg.in_mem297.i ]
   %90 = load i32, ptr %vaarg.addr302.i, align 4
-  %mValue303.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue303.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i32 %90, ptr %mValue303.i, align 16, !noalias !65
   br label %for.inc323.i
 
@@ -3145,7 +3168,7 @@ sw.bb304.i:                                       ; preds = %if.end139.i
   br i1 %fits_in_gp307.i, label %vaarg.in_reg308.i, label %vaarg.in_mem310.i
 
 vaarg.in_reg308.i:                                ; preds = %sw.bb304.i
-  %92 = getelementptr inbounds %struct.__va_list_tag, ptr %91, i64 0, i32 3
+  %92 = getelementptr inbounds i8, ptr %91, i64 16
   %reg_save_area309.i = load ptr, ptr %92, align 8
   %93 = zext nneg i32 %gp_offset306.i to i64
   %94 = getelementptr i8, ptr %reg_save_area309.i, i64 %93
@@ -3154,7 +3177,7 @@ vaarg.in_reg308.i:                                ; preds = %sw.bb304.i
   br label %vaarg.end314.i
 
 vaarg.in_mem310.i:                                ; preds = %sw.bb304.i
-  %overflow_arg_area_p311.i = getelementptr inbounds %struct.__va_list_tag, ptr %91, i64 0, i32 2
+  %overflow_arg_area_p311.i = getelementptr inbounds i8, ptr %91, i64 8
   %overflow_arg_area312.i = load ptr, ptr %overflow_arg_area_p311.i, align 8
   %overflow_arg_area.next313.i = getelementptr i8, ptr %overflow_arg_area312.i, i64 8
   store ptr %overflow_arg_area.next313.i, ptr %overflow_arg_area_p311.i, align 8
@@ -3163,17 +3186,17 @@ vaarg.in_mem310.i:                                ; preds = %sw.bb304.i
 vaarg.end314.i:                                   ; preds = %vaarg.in_mem310.i, %vaarg.in_reg308.i
   %vaarg.addr315.i = phi ptr [ %94, %vaarg.in_reg308.i ], [ %overflow_arg_area312.i, %vaarg.in_mem310.i ]
   %96 = load i64, ptr %vaarg.addr315.i, align 8
-  %mValue316.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue316.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i64 %96, ptr %mValue316.i, align 16, !noalias !65
   br label %for.inc323.i
 
 sw.bb317.i:                                       ; preds = %if.end139.i
-  %mValue318.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue318.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i64 0, ptr %mValue318.i, align 16, !noalias !65
   br label %for.inc323.i
 
 sw.default320.i:                                  ; preds = %if.end139.i, %if.end139.thread.i
-  %mValue321.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %idxprom116.i, i32 4
+  %mValue321.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 32
   store i64 0, ptr %mValue321.i, align 16, !noalias !65
   br label %for.inc323.i
 
@@ -3186,20 +3209,20 @@ for.body328.i:                                    ; preds = %for.inc457.i, %for.
   %indvars.iv228.i = phi i64 [ 0, %for.body328.preheader.i ], [ %indvars.iv.next229.i, %for.inc457.i ]
   %nWriteCountSum.0209.i = phi i32 [ 0, %for.body328.preheader.i ], [ %nWriteCountSum.2.i, %for.inc457.i ]
   %arrayidx331.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i
-  %mpEnd332.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 1
+  %mpEnd332.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 8
   %97 = load ptr, ptr %mpEnd332.i, align 8, !noalias !65
   %98 = load ptr, ptr %arrayidx331.i, align 16, !noalias !65
   %cmp334.not.i = icmp eq ptr %97, %98
   br i1 %cmp334.not.i, label %for.inc457.i, label %if.then335.i
 
 if.then335.i:                                     ; preds = %for.body328.i
-  %mUserIndex336.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 7
+  %mUserIndex336.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 116
   %99 = load i32, ptr %mUserIndex336.i, align 4, !noalias !65
   %cmp337.i = icmp sgt i32 %99, -1
   br i1 %cmp337.i, label %if.then338.i, label %if.else426.i
 
 if.then338.i:                                     ; preds = %if.then335.i
-  %mType339.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 2
+  %mType339.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 16
   %100 = load i32, ptr %mType339.i, align 16, !noalias !65
   switch i32 %100, label %_ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIDiEEPFiPKDimPvNS0_18WriteFunctionStateEEDiEEiT0_S8_PKT1_P13__va_list_tag.exit [
     i32 1, label %sw.bb340.i
@@ -3220,110 +3243,110 @@ if.then338.i:                                     ; preds = %if.then335.i
   ]
 
 sw.bb340.i:                                       ; preds = %if.then338.i
-  %mFormat341.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue343.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat341.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue343.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %101 = load i8, ptr %mValue343.i, align 16, !noalias !65
   %conv344.i = sext i8 %101 to i32
   %call345.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat341.i, i32 noundef %conv344.i)
   br label %sw.epilog422.i
 
 sw.bb346.i:                                       ; preds = %if.then338.i
-  %mFormat347.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue349.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat347.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue349.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %102 = load i16, ptr %mValue349.i, align 16, !noalias !65
   %conv350.i = sext i16 %102 to i32
   %call351.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat347.i, i32 noundef %conv350.i)
   br label %sw.epilog422.i
 
 sw.bb352.i:                                       ; preds = %if.then338.i
-  %mFormat353.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue355.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat353.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue355.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %103 = load i32, ptr %mValue355.i, align 16, !noalias !65
   %call356.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat353.i, i32 noundef %103)
   br label %sw.epilog422.i
 
 sw.bb357.i:                                       ; preds = %if.then338.i
-  %mFormat358.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue360.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat358.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue360.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %104 = load i64, ptr %mValue360.i, align 16, !noalias !65
   %call361.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat358.i, i64 noundef %104)
   br label %sw.epilog422.i
 
 sw.bb362.i:                                       ; preds = %if.then338.i
-  %mFormat363.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue365.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat363.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue365.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %105 = load i64, ptr %mValue365.i, align 16, !noalias !65
   %call366.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat363.i, i64 noundef %105)
   br label %sw.epilog422.i
 
 sw.bb367.i:                                       ; preds = %if.then338.i
-  %mFormat368.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue370.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat368.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue370.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %106 = load i64, ptr %mValue370.i, align 16, !noalias !65
   %call371.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat368.i, i64 noundef %106)
   br label %sw.epilog422.i
 
 sw.bb372.i:                                       ; preds = %if.then338.i
-  %mFormat373.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue375.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat373.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue375.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %107 = load i64, ptr %mValue375.i, align 16, !noalias !65
   %call376.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat373.i, i64 noundef %107)
   br label %sw.epilog422.i
 
 sw.bb377.i:                                       ; preds = %if.then338.i
-  %mFormat378.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue380.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat378.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue380.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %108 = load i64, ptr %mValue380.i, align 16, !noalias !65
   %call381.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat378.i, i64 noundef %108)
   br label %sw.epilog422.i
 
 sw.bb382.i:                                       ; preds = %if.then338.i
-  %mFormat383.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue385.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat383.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue385.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %109 = load double, ptr %mValue385.i, align 16, !noalias !65
   %call386.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat383.i, double noundef %109)
   br label %sw.epilog422.i
 
 sw.bb387.i:                                       ; preds = %if.then338.i
-  %mFormat388.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue390.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat388.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue390.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %110 = load x86_fp80, ptr %mValue390.i, align 16, !noalias !65
   %call391.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat388.i, x86_fp80 noundef %110)
   br label %sw.epilog422.i
 
 sw.bb392.i:                                       ; preds = %if.then338.i
-  %mFormat393.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue395.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat393.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue395.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %111 = load i32, ptr %mValue395.i, align 16, !noalias !65
   %call396.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat393.i, i32 noundef %111)
   br label %sw.epilog422.i
 
 sw.bb397.i:                                       ; preds = %if.then338.i
-  %mFormat398.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue400.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat398.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue400.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %112 = load i8, ptr %mValue400.i, align 16, !noalias !65
   %conv401.i = sext i8 %112 to i32
   %call402.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat398.i, i32 noundef %conv401.i)
   br label %sw.epilog422.i
 
 sw.bb403.i:                                       ; preds = %if.then338.i
-  %mFormat404.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue406.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat404.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue406.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %113 = load i16, ptr %mValue406.i, align 16, !noalias !65
   %conv407.i = sext i16 %113 to i32
   %call408.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat404.i, i32 noundef %conv407.i)
   br label %sw.epilog422.i
 
 sw.bb409.i:                                       ; preds = %if.then338.i
-  %mFormat410.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue412.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat410.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue412.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %114 = load i32, ptr %mValue412.i, align 16, !noalias !65
   %call413.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat410.i, i32 noundef %114)
   br label %sw.epilog422.i
 
 sw.bb414.i:                                       ; preds = %if.then338.i
-  %mFormat415.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 5
-  %mValue417.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 4
+  %mFormat415.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
+  %mValue417.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %115 = load i64, ptr %mValue417.i, align 16, !noalias !65
   %call418.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat415.i, i64 noundef %115)
   br label %sw.epilog422.i
@@ -3338,7 +3361,7 @@ if.end425.i:                                      ; preds = %sw.epilog422.i
   br label %for.inc457.i
 
 if.else426.i:                                     ; preds = %if.then335.i
-  %mbEscapePresent429.i = getelementptr inbounds [21 x %"struct.EA::StdC::SprintfLocal::Span.2"], ptr %spans.i, i64 0, i64 %indvars.iv228.i, i32 8
+  %mbEscapePresent429.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 120
   %116 = load i8, ptr %mbEscapePresent429.i, align 8, !noalias !65
   %117 = and i8 %116, 1
   %tobool430.not.i = icmp eq i8 %117, 0
@@ -3357,7 +3380,7 @@ for.body434.i:                                    ; preds = %for.cond432.prehead
 
 if.end438.i:                                      ; preds = %for.body434.i
   %add439.i = add nsw i32 %nWriteCountSum.1206.i, 1
-  %incdec.ptr441.i = getelementptr inbounds i32, ptr %p.2207.i, i64 1
+  %incdec.ptr441.i = getelementptr inbounds i8, ptr %p.2207.i, i64 4
   %cmp433.i = icmp ult ptr %incdec.ptr441.i, %97
   br i1 %cmp433.i, label %for.body434.i, label %for.inc457.i, !llvm.loop !70
 
@@ -3421,9 +3444,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = sext i1 %tobool.i to i64
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !75
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !75
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !75
   %call.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -3448,9 +3471,9 @@ entry:
   %tobool = icmp ne ptr %pDestination, null
   %cond = select i1 %tobool, i64 %n, i64 0
   store ptr %pDestination, ptr %sc, align 8
-  %mnCount.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc, i64 0, i32 1
+  %mnCount.i = getelementptr inbounds i8, ptr %sc, i64 8
   store i64 0, ptr %mnCount.i, align 8
-  %mnMaxCount.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc, i64 0, i32 2
+  %mnMaxCount.i = getelementptr inbounds i8, ptr %sc, i64 16
   store i64 %cond, ptr %mnMaxCount.i, align 8
   %call = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp = icmp sgt i32 %call, -1
@@ -3472,7 +3495,7 @@ if.else:                                          ; preds = %if.then
 
 if.then5:                                         ; preds = %if.else
   %0 = getelementptr i32, ptr %pDestination, i64 %n
-  %arrayidx6 = getelementptr i32, ptr %0, i64 -1
+  %arrayidx6 = getelementptr i8, ptr %0, i64 -4
   br label %if.end8.sink.split
 
 if.end8.sink.split:                               ; preds = %if.then5, %if.then3
@@ -3536,9 +3559,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 2147483647, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !81
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !81
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !81
   %call.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -3546,9 +3569,11 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit
 
 if.then.i:                                        ; preds = %entry
-  %narrow = call i32 @llvm.smin.i32(i32 %call.i, i32 2147483646)
-  %arrayidx.sink.i.v = zext nneg i32 %narrow to i64
-  %arrayidx.sink.i = getelementptr i32, ptr %pDestination, i64 %arrayidx.sink.i.v
+  %conv.i = zext nneg i32 %call.i to i64
+  %cmp2.i.not = icmp eq i32 %call.i, 2147483647
+  %arrayidx.i = getelementptr inbounds i32, ptr %pDestination, i64 %conv.i
+  %arrayidx6.i = getelementptr i8, ptr %pDestination, i64 8589934584
+  %arrayidx.sink.i = select i1 %cmp2.i.not, ptr %arrayidx6.i, ptr %arrayidx.i
   store i32 0, ptr %arrayidx.sink.i, align 4, !alias.scope !78, !noalias !83
   br label %_ZN2EA4StdC10OVsnprintfEPDimPKDiP13__va_list_tag.exit
 
@@ -3568,9 +3593,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !87
-  %mnCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 1
+  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !87
-  %mnMaxCount.i.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %sc.i, i64 0, i32 2
+  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !87
   %call.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL12OVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -3592,7 +3617,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.then5.i:                                       ; preds = %if.else.i
   %0 = getelementptr i32, ptr %pDestination, i64 %n
-  %arrayidx6.i = getelementptr i32, ptr %0, i64 -1
+  %arrayidx6.i = getelementptr i8, ptr %0, i64 -4
   br label %if.end8.sink.split.i
 
 if.end8.sink.split.i:                             ; preds = %if.then5.i, %if.then3.i

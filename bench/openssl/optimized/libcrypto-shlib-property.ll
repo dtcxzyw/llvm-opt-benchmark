@@ -3,14 +3,10 @@ source_filename = "bench/openssl/original/libcrypto-shlib-property.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_global_properties_st = type { ptr, i8 }
-%struct.ossl_method_store_st = type { ptr, ptr, ptr, ptr, i64, i32 }
-%struct.ALGORITHM = type { i32, ptr, ptr }
-%struct.IMPLEMENTATION = type { ptr, ptr, %struct.METHOD }
-%struct.METHOD = type { ptr, ptr, ptr }
-%struct.QUERY = type { ptr, ptr, %struct.METHOD, [1 x i8] }
 %struct.alg_cleanup_by_provider_data_st = type { ptr, ptr }
 %struct.alg_do_each_data_st = type { ptr, ptr }
+%struct.QUERY = type { ptr, ptr, %struct.METHOD, [1 x i8] }
+%struct.METHOD = type { ptr, ptr, ptr }
 %struct.IMPL_CACHE_FLUSH = type { ptr, i64, i32, i8 }
 
 @.str = private unnamed_addr constant [38 x i8] c"../openssl/crypto/property/property.c\00", align 1
@@ -78,7 +74,7 @@ entry:
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %no_mirrored = getelementptr inbounds %struct.ossl_global_properties_st, ptr %call, i64 0, i32 1
+  %no_mirrored = getelementptr inbounds i8, ptr %call, i64 8
   %bf.load = load i8, ptr %no_mirrored, align 8
   %bf.clear = and i8 %bf.load, 1
   %0 = zext nneg i8 %bf.clear to i32
@@ -97,7 +93,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %no_mirrored = getelementptr inbounds %struct.ossl_global_properties_st, ptr %call, i64 0, i32 1
+  %no_mirrored = getelementptr inbounds i8, ptr %call, i64 8
   %bf.load = load i8, ptr %no_mirrored, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %no_mirrored, align 8
@@ -117,21 +113,21 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr %ctx, ptr %call, align 8
   %call.i = tail call ptr @ossl_sa_new() #6
-  %algs = getelementptr inbounds %struct.ossl_method_store_st, ptr %call, i64 0, i32 1
+  %algs = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call.i, ptr %algs, align 8
   %cmp3 = icmp eq ptr %call.i, null
   br i1 %cmp3, label %ossl_method_store_free.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
   %call4 = tail call ptr @CRYPTO_THREAD_lock_new() #6
-  %lock = getelementptr inbounds %struct.ossl_method_store_st, ptr %call, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call4, ptr %lock, align 8
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %if.then.i, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
   %call7 = tail call ptr @CRYPTO_THREAD_lock_new() #6
-  %biglock = getelementptr inbounds %struct.ossl_method_store_st, ptr %call, i64 0, i32 3
+  %biglock = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call7, ptr %biglock, align 8
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.then.i, label %return
@@ -149,10 +145,10 @@ if.then2.i:                                       ; preds = %if.then.i
 ossl_method_store_free.exit:                      ; preds = %if.then, %if.then.i, %if.then2.i
   %0 = phi ptr [ %.pre.i, %if.then2.i ], [ null, %if.then.i ], [ null, %if.then ]
   tail call void @ossl_sa_free(ptr noundef %0) #6
-  %lock.i = getelementptr inbounds %struct.ossl_method_store_st, ptr %call, i64 0, i32 2
+  %lock.i = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %lock.i, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %1) #6
-  %biglock.i = getelementptr inbounds %struct.ossl_method_store_st, ptr %call, i64 0, i32 3
+  %biglock.i = getelementptr inbounds i8, ptr %call, i64 24
   %2 = load ptr, ptr %biglock.i, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %2) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 265) #6
@@ -172,7 +168,7 @@ entry:
   br i1 %cmp.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
-  %algs = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 1
+  %algs = getelementptr inbounds i8, ptr %store, i64 8
   %0 = load ptr, ptr %algs, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %if.then2
@@ -185,10 +181,10 @@ if.then2:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then2, %if.then
   %1 = phi ptr [ %.pre, %if.then2 ], [ null, %if.then ]
   tail call void @ossl_sa_free(ptr noundef %1) #6
-  %lock = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %store, i64 16
   %2 = load ptr, ptr %lock, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %2) #6
-  %biglock = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 3
+  %biglock = getelementptr inbounds i8, ptr %store, i64 24
   %3 = load ptr, ptr %biglock, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %3) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %store, ptr noundef nonnull @.str, i32 noundef 265) #6
@@ -205,10 +201,10 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %impls = getelementptr inbounds %struct.ALGORITHM, ptr %a, i64 0, i32 1
+  %impls = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %impls, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @impl_free) #6
-  %cache = getelementptr inbounds %struct.ALGORITHM, ptr %a, i64 0, i32 2
+  %cache = getelementptr inbounds i8, ptr %a, i64 16
   %1 = load ptr, ptr %cache, align 8
   tail call void @OPENSSL_LH_doall(ptr noundef %1, ptr noundef nonnull @impl_cache_free) #6
   %2 = load ptr, ptr %cache, align 8
@@ -221,7 +217,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %algs = getelementptr inbounds %struct.ossl_method_store_st, ptr %arg, i64 0, i32 1
+  %algs = getelementptr inbounds i8, ptr %arg, i64 8
   %3 = load ptr, ptr %algs, align 8
   %call.i = tail call i32 @ossl_sa_set(ptr noundef %3, i64 noundef %idx, ptr noundef null) #6
   br label %if.end4
@@ -239,7 +235,7 @@ entry:
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %biglock = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 3
+  %biglock = getelementptr inbounds i8, ptr %store, i64 24
   %0 = load ptr, ptr %biglock, align 8
   %call = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #6
   br label %cond.end
@@ -258,7 +254,7 @@ entry:
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %biglock = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 3
+  %biglock = getelementptr inbounds i8, ptr %store, i64 24
   %0 = load ptr, ptr %biglock, align 8
   %call = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %0) #6
   br label %cond.end
@@ -292,11 +288,11 @@ if.end13:                                         ; preds = %if.end
   br i1 %cmp14, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.end13
-  %method18 = getelementptr inbounds %struct.IMPLEMENTATION, ptr %call, i64 0, i32 2
+  %method18 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %method, ptr %method18, align 8
-  %up_ref = getelementptr inbounds %struct.IMPLEMENTATION, ptr %call, i64 0, i32 2, i32 1
+  %up_ref = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %method_up_ref, ptr %up_ref, align 8
-  %free = getelementptr inbounds %struct.IMPLEMENTATION, ptr %call, i64 0, i32 2, i32 2
+  %free = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %method_destruct, ptr %free, align 8
   %call.i = tail call i32 %method_up_ref(ptr noundef nonnull %method) #6
   %tobool24.not = icmp eq i32 %call.i, 0
@@ -304,7 +300,7 @@ if.end17:                                         ; preds = %if.end13
 
 ossl_property_write_lock.exit:                    ; preds = %if.end17
   store ptr %prov, ptr %call, align 8
-  %lock.i = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 2
+  %lock.i = getelementptr inbounds i8, ptr %store, i64 16
   %0 = load ptr, ptr %lock.i, align 8
   %call.i54 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #6
   %tobool28.not = icmp eq i32 %call.i54, 0
@@ -319,10 +315,10 @@ if.end30:                                         ; preds = %ossl_property_write
   br i1 %cmp.not.i55, label %ossl_method_cache_flush.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end30
-  %cache.i.i = getelementptr inbounds %struct.ALGORITHM, ptr %call.i.i.i, i64 0, i32 2
+  %cache.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %2 = load ptr, ptr %cache.i.i, align 8
   %call.i.i3.i = tail call i64 @OPENSSL_LH_num_items(ptr noundef %2) #6
-  %cache_nelem.i.i = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 4
+  %cache_nelem.i.i = getelementptr inbounds i8, ptr %store, i64 32
   %3 = load i64, ptr %cache_nelem.i.i, align 8
   %sub.i.i = sub i64 %3, %call.i.i3.i
   store i64 %sub.i.i, ptr %cache_nelem.i.i, align 8
@@ -335,7 +331,7 @@ if.then.i:                                        ; preds = %if.end30
 ossl_method_cache_flush.exit:                     ; preds = %if.end30, %if.then.i
   %6 = load ptr, ptr %store, align 8
   %call31 = tail call ptr @ossl_prop_defn_get(ptr noundef %6, ptr noundef nonnull %spec.store.select) #6
-  %properties32 = getelementptr inbounds %struct.IMPLEMENTATION, ptr %call, i64 0, i32 1
+  %properties32 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call31, ptr %properties32, align 8
   %cmp33 = icmp eq ptr %call31, null
   br i1 %cmp33, label %if.then35, label %if.end52
@@ -372,14 +368,14 @@ if.then56:                                        ; preds = %if.end52
 
 lor.lhs.false60:                                  ; preds = %if.then56
   %call.i56 = tail call ptr @OPENSSL_sk_new_null() #6
-  %impls = getelementptr inbounds %struct.ALGORITHM, ptr %call57, i64 0, i32 1
+  %impls = getelementptr inbounds i8, ptr %call57, i64 8
   store ptr %call.i56, ptr %impls, align 8
   %cmp62 = icmp eq ptr %call.i56, null
   br i1 %cmp62, label %if.then.i78, label %lor.lhs.false64
 
 lor.lhs.false64:                                  ; preds = %lor.lhs.false60
   %call.i57 = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @query_hash, ptr noundef nonnull @query_cmp) #6
-  %cache = getelementptr inbounds %struct.ALGORITHM, ptr %call57, i64 0, i32 2
+  %cache = getelementptr inbounds i8, ptr %call57, i64 16
   store ptr %call.i57, ptr %cache, align 8
   %cmp66 = icmp eq ptr %call.i57, null
   br i1 %cmp66, label %if.then.i78, label %if.end69
@@ -393,7 +389,7 @@ if.end69:                                         ; preds = %lor.lhs.false64
 
 if.end75:                                         ; preds = %if.end69, %if.end52
   %alg.0 = phi ptr [ %call57, %if.end69 ], [ %call.i.i, %if.end52 ]
-  %impls76 = getelementptr inbounds %struct.ALGORITHM, ptr %alg.0, i64 0, i32 1
+  %impls76 = getelementptr inbounds i8, ptr %alg.0, i64 8
   %10 = load ptr, ptr %impls76, align 8
   %call.i6094 = tail call i32 @OPENSSL_sk_num(ptr noundef %10) #6
   %cmp7895 = icmp sgt i32 %call.i6094, 0
@@ -409,7 +405,7 @@ for.body:                                         ; preds = %if.end75, %for.inc
   br i1 %cmp84, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %properties86 = getelementptr inbounds %struct.IMPLEMENTATION, ptr %call.i61, i64 0, i32 1
+  %properties86 = getelementptr inbounds i8, ptr %call.i61, i64 8
   %14 = load ptr, ptr %properties86, align 8
   %15 = load ptr, ptr %properties32, align 8
   %cmp88 = icmp eq ptr %14, %15
@@ -452,7 +448,7 @@ if.then.i78:                                      ; preds = %lor.lhs.false64, %l
   %call.i74 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %22) #6
   %23 = load ptr, ptr %impls, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %23, ptr noundef nonnull @impl_free) #6
-  %cache.i = getelementptr inbounds %struct.ALGORITHM, ptr %call57, i64 0, i32 2
+  %cache.i = getelementptr inbounds i8, ptr %call57, i64 16
   %24 = load ptr, ptr %cache.i, align 8
   tail call void @OPENSSL_LH_doall(ptr noundef %24, ptr noundef nonnull @impl_cache_free) #6
   %25 = load ptr, ptr %cache.i, align 8
@@ -487,7 +483,7 @@ declare i32 @ossl_prop_defn_set(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i64 @query_hash(ptr nocapture noundef readonly %a) #0 {
 entry:
-  %query = getelementptr inbounds %struct.QUERY, ptr %a, i64 0, i32 1
+  %query = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %query, align 8
   %call = tail call i64 @OPENSSL_LH_strhash(ptr noundef %0) #6
   ret i64 %call
@@ -496,9 +492,9 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @query_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
 entry:
-  %query = getelementptr inbounds %struct.QUERY, ptr %a, i64 0, i32 1
+  %query = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %query, align 8
-  %query1 = getelementptr inbounds %struct.QUERY, ptr %b, i64 0, i32 1
+  %query1 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load ptr, ptr %query1, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #7
   %cmp = icmp eq i32 %call, 0
@@ -533,9 +529,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %method = getelementptr inbounds %struct.IMPLEMENTATION, ptr %impl, i64 0, i32 2
+  %method = getelementptr inbounds i8, ptr %impl, i64 16
   %method.val = load ptr, ptr %method, align 8
-  %0 = getelementptr %struct.IMPLEMENTATION, ptr %impl, i64 0, i32 2, i32 2
+  %0 = getelementptr i8, ptr %impl, i64 32
   %method.val3 = load ptr, ptr %0, align 8
   tail call void %method.val3(ptr noundef %method.val) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %impl, ptr noundef nonnull @.str, i32 noundef 204) #6
@@ -556,7 +552,7 @@ entry:
   br i1 %or.cond1, label %return, label %ossl_property_write_lock.exit
 
 ossl_property_write_lock.exit:                    ; preds = %entry
-  %lock.i = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 2
+  %lock.i = getelementptr inbounds i8, ptr %store, i64 16
   %0 = load ptr, ptr %lock.i, align 8
   %call.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #6
   %tobool.not = icmp eq i32 %call.i, 0
@@ -571,10 +567,10 @@ if.end5:                                          ; preds = %ossl_property_write
   br i1 %cmp.not.i18, label %ossl_method_cache_flush.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end5
-  %cache.i.i = getelementptr inbounds %struct.ALGORITHM, ptr %call.i.i.i, i64 0, i32 2
+  %cache.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %2 = load ptr, ptr %cache.i.i, align 8
   %call.i.i3.i = tail call i64 @OPENSSL_LH_num_items(ptr noundef %2) #6
-  %cache_nelem.i.i = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 4
+  %cache_nelem.i.i = getelementptr inbounds i8, ptr %store, i64 32
   %3 = load i64, ptr %cache_nelem.i.i, align 8
   %sub.i.i = sub i64 %3, %call.i.i3.i
   store i64 %sub.i.i, ptr %cache_nelem.i.i, align 8
@@ -591,7 +587,7 @@ ossl_method_cache_flush.exit:                     ; preds = %if.end5, %if.then.i
   br i1 %cmp7, label %return.sink.split, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %ossl_method_cache_flush.exit
-  %impls = getelementptr inbounds %struct.ALGORITHM, ptr %call.i.i, i64 0, i32 1
+  %impls = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %6 = load ptr, ptr %impls, align 8
   %call.i2443 = tail call i32 @OPENSSL_sk_num(ptr noundef %6) #6
   %cmp1244 = icmp sgt i32 %call.i2443, 0
@@ -601,13 +597,13 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.045 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %7 = load ptr, ptr %impls, align 8
   %call.i25 = tail call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %i.045) #6
-  %method15 = getelementptr inbounds %struct.IMPLEMENTATION, ptr %call.i25, i64 0, i32 2
+  %method15 = getelementptr inbounds i8, ptr %call.i25, i64 16
   %8 = load ptr, ptr %method15, align 8
   %cmp17 = icmp eq ptr %8, %method
   br i1 %cmp17, label %ossl_property_unlock.exit34, label %for.inc
 
 ossl_property_unlock.exit34:                      ; preds = %for.body
-  %9 = getelementptr %struct.IMPLEMENTATION, ptr %call.i25, i64 0, i32 2, i32 2
+  %9 = getelementptr i8, ptr %call.i25, i64 32
   %method.val3.i = load ptr, ptr %9, align 8
   tail call void %method.val3.i(ptr noundef %method) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i25, ptr noundef nonnull @.str, i32 noundef 204) #6
@@ -641,17 +637,17 @@ entry:
   br i1 %cmp.not.i, label %return, label %ossl_property_write_lock.exit
 
 ossl_property_write_lock.exit:                    ; preds = %entry
-  %lock.i = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 2
+  %lock.i = getelementptr inbounds i8, ptr %store, i64 16
   %0 = load ptr, ptr %lock.i, align 8
   %call.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #6
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %ossl_property_unlock.exit
 
 ossl_property_unlock.exit:                        ; preds = %ossl_property_write_lock.exit
-  %prov1 = getelementptr inbounds %struct.alg_cleanup_by_provider_data_st, ptr %data, i64 0, i32 1
+  %prov1 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %prov, ptr %prov1, align 8
   store ptr %store, ptr %data, align 8
-  %algs = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 1
+  %algs = getelementptr inbounds i8, ptr %store, i64 8
   %1 = load ptr, ptr %algs, align 8
   call void @ossl_sa_doall_arg(ptr noundef %1, ptr noundef nonnull @alg_cleanup_by_provider, ptr noundef nonnull %data) #6
   %2 = load ptr, ptr %lock.i, align 8
@@ -666,14 +662,14 @@ return:                                           ; preds = %entry, %ossl_proper
 ; Function Attrs: nounwind uwtable
 define internal void @alg_cleanup_by_provider(i64 %idx, ptr nocapture noundef readonly %alg, ptr nocapture noundef readonly %arg) #0 {
 entry:
-  %impls = getelementptr inbounds %struct.ALGORITHM, ptr %alg, i64 0, i32 1
+  %impls = getelementptr inbounds i8, ptr %alg, i64 8
   %0 = load ptr, ptr %impls, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #6
   %cmp12 = icmp sgt i32 %call.i, 0
   br i1 %cmp12, label %for.body.lr.ph, label %if.end8
 
 for.body.lr.ph:                                   ; preds = %entry
-  %prov = getelementptr inbounds %struct.alg_cleanup_by_provider_data_st, ptr %arg, i64 0, i32 1
+  %prov = getelementptr inbounds i8, ptr %arg, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -688,9 +684,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp3, label %impl_free.exit, label %if.end
 
 impl_free.exit:                                   ; preds = %for.body
-  %method.i = getelementptr inbounds %struct.IMPLEMENTATION, ptr %call.i9, i64 0, i32 2
+  %method.i = getelementptr inbounds i8, ptr %call.i9, i64 16
   %method.val.i = load ptr, ptr %method.i, align 8
-  %4 = getelementptr %struct.IMPLEMENTATION, ptr %call.i9, i64 0, i32 2, i32 2
+  %4 = getelementptr i8, ptr %call.i9, i64 32
   %method.val3.i = load ptr, ptr %4, align 8
   tail call void %method.val3.i(ptr noundef %method.val.i) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i9, ptr noundef nonnull @.str, i32 noundef 204) #6
@@ -710,10 +706,10 @@ for.end:                                          ; preds = %if.end
 
 if.then7:                                         ; preds = %for.end
   %7 = load ptr, ptr %arg, align 8
-  %cache.i = getelementptr inbounds %struct.ALGORITHM, ptr %alg, i64 0, i32 2
+  %cache.i = getelementptr inbounds i8, ptr %alg, i64 16
   %8 = load ptr, ptr %cache.i, align 8
   %call.i.i = tail call i64 @OPENSSL_LH_num_items(ptr noundef %8) #6
-  %cache_nelem.i = getelementptr inbounds %struct.ossl_method_store_st, ptr %7, i64 0, i32 4
+  %cache_nelem.i = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %cache_nelem.i, align 8
   %sub.i = sub i64 %9, %call.i.i
   store i64 %sub.i, ptr %cache_nelem.i, align 8
@@ -732,13 +728,13 @@ define void @ossl_method_store_do_all(ptr noundef readonly %store, ptr noundef %
 entry:
   %data = alloca %struct.alg_do_each_data_st, align 8
   store ptr %fn, ptr %data, align 8
-  %fnarg2 = getelementptr inbounds %struct.alg_do_each_data_st, ptr %data, i64 0, i32 1
+  %fnarg2 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %fnarg, ptr %fnarg2, align 8
   %cmp.not = icmp eq ptr %store, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %algs = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 1
+  %algs = getelementptr inbounds i8, ptr %store, i64 8
   %0 = load ptr, ptr %algs, align 8
   call void @ossl_sa_doall_arg(ptr noundef %0, ptr noundef nonnull @alg_do_each, ptr noundef nonnull %data) #6
   br label %if.end
@@ -750,14 +746,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal void @alg_do_each(i64 %idx, ptr nocapture noundef readonly %alg, ptr nocapture noundef readonly %arg) #0 {
 entry:
-  %impls = getelementptr inbounds %struct.ALGORITHM, ptr %alg, i64 0, i32 1
+  %impls = getelementptr inbounds i8, ptr %alg, i64 8
   %0 = load ptr, ptr %impls, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #6
   %cmp7 = icmp sgt i32 %call.i, 0
   br i1 %cmp7, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %fnarg = getelementptr inbounds %struct.alg_do_each_data_st, ptr %arg, i64 0, i32 1
+  %fnarg = getelementptr inbounds i8, ptr %arg, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -865,7 +861,7 @@ if.end36:                                         ; preds = %land.lhs.true26, %i
   br i1 %cmp37, label %for.cond.preheader, label %if.end50
 
 for.cond.preheader:                               ; preds = %if.end36
-  %impls = getelementptr inbounds %struct.ALGORITHM, ptr %call.i.i, i64 0, i32 1
+  %impls = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %9 = load ptr, ptr %impls, align 8
   %call.i48122 = tail call i32 @OPENSSL_sk_num(ptr noundef %9) #6
   %cmp40123 = icmp sgt i32 %call.i48122, 0
@@ -912,7 +908,7 @@ if.end50:                                         ; preds = %if.else, %if.then28
   %p2.163 = phi ptr [ %p2.0, %if.end36 ], [ %call31, %if.else ], [ null, %if.then28 ]
   %pq.162 = phi ptr [ %p2.0, %if.end36 ], [ %call31, %if.else ], [ %8, %if.then28 ]
   %call51 = tail call i32 @ossl_property_has_optional(ptr noundef nonnull %pq.162) #6
-  %impls53 = getelementptr inbounds %struct.ALGORITHM, ptr %call.i.i, i64 0, i32 1
+  %impls53 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %15 = load ptr, ptr %impls53, align 8
   %call.i5081 = tail call i32 @OPENSSL_sk_num(ptr noundef %15) #6
   %cmp5582 = icmp sgt i32 %call.i5081, 0
@@ -935,7 +931,7 @@ for.body56.us.us:                                 ; preds = %for.body56.lr.ph.sp
   br i1 %cmp59.not.us.us, label %for.inc74.us.us, label %land.lhs.true60.us.us
 
 land.lhs.true60.us.us:                            ; preds = %for.body56.us.us
-  %properties.us.us = getelementptr inbounds %struct.IMPLEMENTATION, ptr %call.i51.us.us, i64 0, i32 1
+  %properties.us.us = getelementptr inbounds i8, ptr %call.i51.us.us, i64 8
   %17 = load ptr, ptr %properties.us.us, align 8
   %call66.us.us = tail call i32 @ossl_property_match_count(ptr noundef nonnull %pq.162, ptr noundef %17) #6
   %cmp67.us.us = icmp sgt i32 %call66.us.us, -1
@@ -959,7 +955,7 @@ for.body56.us:                                    ; preds = %for.body56.lr.ph.sp
   br i1 %cmp59.not.us, label %for.inc74.us, label %land.lhs.true60.us
 
 land.lhs.true60.us:                               ; preds = %for.body56.us
-  %properties.us = getelementptr inbounds %struct.IMPLEMENTATION, ptr %call.i51.us, i64 0, i32 1
+  %properties.us = getelementptr inbounds i8, ptr %call.i51.us, i64 8
   %20 = load ptr, ptr %properties.us, align 8
   %call66.us = tail call i32 @ossl_property_match_count(ptr noundef nonnull %pq.162, ptr noundef %20) #6
   %cmp67.us = icmp sgt i32 %call66.us, %best.086.us
@@ -994,7 +990,7 @@ land.lhs.true60.us97:                             ; preds = %for.body56.us90
   br i1 %cmp64.us, label %if.then65.us98, label %for.inc74.us103
 
 if.then65.us98:                                   ; preds = %land.lhs.true60.us97
-  %properties.us99 = getelementptr inbounds %struct.IMPLEMENTATION, ptr %call.i51.us95, i64 0, i32 1
+  %properties.us99 = getelementptr inbounds i8, ptr %call.i51.us95, i64 8
   %24 = load ptr, ptr %properties.us99, align 8
   %call66.us100 = tail call i32 @ossl_property_match_count(ptr noundef nonnull %pq.162, ptr noundef %24) #6
   %cmp67.us101 = icmp sgt i32 %call66.us100, -1
@@ -1023,7 +1019,7 @@ land.lhs.true60:                                  ; preds = %for.body56
   br i1 %cmp64, label %if.then65, label %for.inc74
 
 if.then65:                                        ; preds = %land.lhs.true60
-  %properties = getelementptr inbounds %struct.IMPLEMENTATION, ptr %call.i51, i64 0, i32 1
+  %properties = getelementptr inbounds i8, ptr %call.i51, i64 8
   %28 = load ptr, ptr %properties, align 8
   %call66 = tail call i32 @ossl_property_match_count(ptr noundef nonnull %pq.162, ptr noundef %28) #6
   %cmp67 = icmp sgt i32 %call66, %best.086
@@ -1051,9 +1047,9 @@ fin:                                              ; preds = %for.inc74, %for.inc
 land.lhs.true78:                                  ; preds = %if.then65.us98, %land.lhs.true60.us.us, %land.lhs.true44, %for.body.us, %fin
   %best_impl.270 = phi ptr [ %best_impl.0.lcssa, %fin ], [ %call.i49.us, %for.body.us ], [ %call.i49, %land.lhs.true44 ], [ %call.i51.us.us, %land.lhs.true60.us.us ], [ %call.i51.us95, %if.then65.us98 ]
   %p2.268 = phi ptr [ %p2.163, %fin ], [ null, %for.body.us ], [ null, %land.lhs.true44 ], [ %p2.163, %land.lhs.true60.us.us ], [ %p2.163, %if.then65.us98 ]
-  %method79 = getelementptr inbounds %struct.IMPLEMENTATION, ptr %best_impl.270, i64 0, i32 2
+  %method79 = getelementptr inbounds i8, ptr %best_impl.270, i64 16
   %method79.val = load ptr, ptr %method79, align 8
-  %30 = getelementptr %struct.IMPLEMENTATION, ptr %best_impl.270, i64 0, i32 2, i32 1
+  %30 = getelementptr i8, ptr %best_impl.270, i64 24
   %method79.val45 = load ptr, ptr %30, align 8
   %call.i52 = tail call i32 %method79.val45(ptr noundef %method79.val) #6
   %tobool81.not = icmp eq i32 %call.i52, 0
@@ -1099,17 +1095,17 @@ entry:
   br i1 %cmp.not.i, label %return, label %ossl_property_write_lock.exit
 
 ossl_property_write_lock.exit:                    ; preds = %entry
-  %lock.i = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 2
+  %lock.i = getelementptr inbounds i8, ptr %store, i64 16
   %0 = load ptr, ptr %lock.i, align 8
   %call.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #6
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %ossl_property_unlock.exit
 
 ossl_property_unlock.exit:                        ; preds = %ossl_property_write_lock.exit
-  %algs = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 1
+  %algs = getelementptr inbounds i8, ptr %store, i64 8
   %1 = load ptr, ptr %algs, align 8
   tail call void @ossl_sa_doall(ptr noundef %1, ptr noundef nonnull @impl_cache_flush_alg) #6
-  %cache_nelem = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 4
+  %cache_nelem = getelementptr inbounds i8, ptr %store, i64 32
   store i64 0, ptr %cache_nelem, align 8
   %2 = load ptr, ptr %lock.i, align 8
   %call.i7 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %2) #6
@@ -1123,7 +1119,7 @@ return:                                           ; preds = %entry, %ossl_proper
 ; Function Attrs: nounwind uwtable
 define internal void @impl_cache_flush_alg(i64 %idx, ptr nocapture noundef readonly %alg) #0 {
 entry:
-  %cache = getelementptr inbounds %struct.ALGORITHM, ptr %alg, i64 0, i32 2
+  %cache = getelementptr inbounds i8, ptr %alg, i64 16
   %0 = load ptr, ptr %cache, align 8
   tail call void @OPENSSL_LH_doall(ptr noundef %0, ptr noundef nonnull @impl_cache_free) #6
   %1 = load ptr, ptr %cache, align 8
@@ -1158,19 +1154,19 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp7, label %ossl_property_unlock.exit, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %query = getelementptr inbounds %struct.QUERY, ptr %elem, i64 0, i32 1
+  %query = getelementptr inbounds i8, ptr %elem, i64 8
   store ptr %prop_query, ptr %query, align 8
   store ptr %prov, ptr %elem, align 8
-  %cache = getelementptr inbounds %struct.ALGORITHM, ptr %call.i.i, i64 0, i32 2
+  %cache = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %2 = load ptr, ptr %cache, align 8
   %call.i12 = call ptr @OPENSSL_LH_retrieve(ptr noundef %2, ptr noundef nonnull %elem) #6
   %cmp11 = icmp eq ptr %call.i12, null
   br i1 %cmp11, label %ossl_property_unlock.exit, label %if.end13
 
 if.end13:                                         ; preds = %if.end9
-  %method14 = getelementptr inbounds %struct.QUERY, ptr %call.i12, i64 0, i32 2
+  %method14 = getelementptr inbounds i8, ptr %call.i12, i64 16
   %method14.val = load ptr, ptr %method14, align 8
-  %3 = getelementptr %struct.QUERY, ptr %call.i12, i64 0, i32 2, i32 1
+  %3 = getelementptr i8, ptr %call.i12, i64 24
   %method14.val10 = load ptr, ptr %3, align 8
   %call.i13 = call i32 %method14.val10(ptr noundef %method14.val) #6
   %tobool16.not = icmp eq i32 %call.i13, 0
@@ -1207,26 +1203,26 @@ entry:
   br i1 %or.cond32, label %return, label %ossl_property_write_lock.exit
 
 ossl_property_write_lock.exit:                    ; preds = %entry
-  %lock.i = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 2
+  %lock.i = getelementptr inbounds i8, ptr %store, i64 16
   %0 = load ptr, ptr %lock.i, align 8
   %call.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #6
   %tobool11.not = icmp eq i32 %call.i, 0
   br i1 %tobool11.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %ossl_property_write_lock.exit
-  %cache_need_flush = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 5
+  %cache_need_flush = getelementptr inbounds i8, ptr %store, i64 40
   %1 = load i32, ptr %cache_need_flush, align 8
   %tobool14.not = icmp eq i32 %1, 0
   br i1 %tobool14.not, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %state.i)
-  %nelem.i = getelementptr inbounds %struct.IMPL_CACHE_FLUSH, ptr %state.i, i64 0, i32 1
+  %nelem.i = getelementptr inbounds i8, ptr %state.i, i64 8
   store i64 0, ptr %nelem.i, align 8
-  %using_global_seed.i = getelementptr inbounds %struct.IMPL_CACHE_FLUSH, ptr %state.i, i64 0, i32 3
+  %using_global_seed.i = getelementptr inbounds i8, ptr %state.i, i64 20
   store i8 0, ptr %using_global_seed.i, align 4
   %call.i36 = tail call i32 @OPENSSL_rdtsc() #6
-  %seed.i = getelementptr inbounds %struct.IMPL_CACHE_FLUSH, ptr %state.i, i64 0, i32 2
+  %seed.i = getelementptr inbounds i8, ptr %state.i, i64 16
   store i32 %call.i36, ptr %seed.i, align 8
   %cmp.i = icmp eq i32 %call.i36, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1239,11 +1235,11 @@ if.then.i:                                        ; preds = %if.then15
 
 if.end.i:                                         ; preds = %if.then.i, %if.then15
   store i32 0, ptr %cache_need_flush, align 8
-  %algs.i = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 1
+  %algs.i = getelementptr inbounds i8, ptr %store, i64 8
   %3 = load ptr, ptr %algs.i, align 8
   call void @ossl_sa_doall_arg(ptr noundef %3, ptr noundef nonnull @impl_cache_flush_one_alg, ptr noundef nonnull %state.i) #6
   %4 = load i64, ptr %nelem.i, align 8
-  %cache_nelem.i = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 4
+  %cache_nelem.i = getelementptr inbounds i8, ptr %store, i64 32
   store i64 %4, ptr %cache_nelem.i, align 8
   %5 = load i8, ptr %using_global_seed.i, align 4
   %tobool.not.i = icmp eq i8 %5, 0
@@ -1271,23 +1267,23 @@ if.end21:                                         ; preds = %if.end16
   br i1 %cmp22, label %if.then24, label %if.end30
 
 if.then24:                                        ; preds = %if.end21
-  %query = getelementptr inbounds %struct.QUERY, ptr %elem, i64 0, i32 1
+  %query = getelementptr inbounds i8, ptr %elem, i64 8
   store ptr %prop_query, ptr %query, align 8
   store ptr %prov, ptr %elem, align 8
-  %cache = getelementptr inbounds %struct.ALGORITHM, ptr %call.i.i, i64 0, i32 2
+  %cache = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %9 = load ptr, ptr %cache, align 8
   %call.i37 = call ptr @OPENSSL_LH_delete(ptr noundef %9, ptr noundef nonnull %elem) #6
   %cmp26.not = icmp eq ptr %call.i37, null
   br i1 %cmp26.not, label %ossl_property_unlock.exit, label %impl_cache_free.exit
 
 impl_cache_free.exit:                             ; preds = %if.then24
-  %method.i = getelementptr inbounds %struct.QUERY, ptr %call.i37, i64 0, i32 2
+  %method.i = getelementptr inbounds i8, ptr %call.i37, i64 16
   %method.val.i = load ptr, ptr %method.i, align 8
-  %10 = getelementptr %struct.QUERY, ptr %call.i37, i64 0, i32 2, i32 2
+  %10 = getelementptr i8, ptr %call.i37, i64 32
   %method.val3.i = load ptr, ptr %10, align 8
   call void %method.val3.i(ptr noundef %method.val.i) #6
   call void @CRYPTO_free(ptr noundef nonnull %call.i37, ptr noundef nonnull @.str, i32 noundef 212) #6
-  %cache_nelem = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 4
+  %cache_nelem = getelementptr inbounds i8, ptr %store, i64 32
   %11 = load i64, ptr %cache_nelem, align 8
   %dec = add i64 %11, -1
   store i64 %dec, ptr %cache_nelem, align 8
@@ -1301,15 +1297,15 @@ if.end30:                                         ; preds = %if.end21
   br i1 %cmp33.not, label %err, label %if.then35
 
 if.then35:                                        ; preds = %if.end30
-  %body = getelementptr inbounds %struct.QUERY, ptr %call32, i64 0, i32 3
-  %query36 = getelementptr inbounds %struct.QUERY, ptr %call32, i64 0, i32 1
+  %body = getelementptr inbounds i8, ptr %call32, i64 40
+  %query36 = getelementptr inbounds i8, ptr %call32, i64 8
   store ptr %body, ptr %query36, align 8
   store ptr %prov, ptr %call32, align 8
-  %method38 = getelementptr inbounds %struct.QUERY, ptr %call32, i64 0, i32 2
+  %method38 = getelementptr inbounds i8, ptr %call32, i64 16
   store ptr %method, ptr %method38, align 8
-  %up_ref = getelementptr inbounds %struct.QUERY, ptr %call32, i64 0, i32 2, i32 1
+  %up_ref = getelementptr inbounds i8, ptr %call32, i64 24
   store ptr %method_up_ref, ptr %up_ref, align 8
-  %free = getelementptr %struct.QUERY, ptr %call32, i64 0, i32 2, i32 2
+  %free = getelementptr i8, ptr %call32, i64 32
   store ptr %method_destruct, ptr %free, align 8
   %call.i41 = call i32 %method_up_ref(ptr noundef nonnull %method) #6
   %tobool44.not = icmp eq i32 %call.i41, 0
@@ -1319,16 +1315,16 @@ if.end46:                                         ; preds = %if.then35
   %12 = load ptr, ptr %query36, align 8
   %add48 = add i64 %call31, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr nonnull align 1 %prop_query, i64 %add48, i1 false)
-  %cache49 = getelementptr inbounds %struct.ALGORITHM, ptr %call.i.i, i64 0, i32 2
+  %cache49 = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %13 = load ptr, ptr %cache49, align 8
   %call.i42 = call ptr @OPENSSL_LH_insert(ptr noundef %13, ptr noundef nonnull %call32) #6
   %cmp51.not = icmp eq ptr %call.i42, null
   br i1 %cmp51.not, label %if.end54, label %impl_cache_free.exit49
 
 impl_cache_free.exit49:                           ; preds = %if.end46
-  %method.i45 = getelementptr inbounds %struct.QUERY, ptr %call.i42, i64 0, i32 2
+  %method.i45 = getelementptr inbounds i8, ptr %call.i42, i64 16
   %method.val.i46 = load ptr, ptr %method.i45, align 8
-  %14 = getelementptr %struct.QUERY, ptr %call.i42, i64 0, i32 2, i32 2
+  %14 = getelementptr i8, ptr %call.i42, i64 32
   %method.val3.i47 = load ptr, ptr %14, align 8
   call void %method.val3.i47(ptr noundef %method.val.i46) #6
   call void @CRYPTO_free(ptr noundef nonnull %call.i42, ptr noundef nonnull @.str, i32 noundef 212) #6
@@ -1341,7 +1337,7 @@ if.end54:                                         ; preds = %if.end46
   br i1 %tobool57.not, label %if.then58, label %if.end65
 
 if.then58:                                        ; preds = %if.end54
-  %cache_nelem59 = getelementptr inbounds %struct.ossl_method_store_st, ptr %store, i64 0, i32 4
+  %cache_nelem59 = getelementptr inbounds i8, ptr %store, i64 32
   %16 = load i64, ptr %cache_nelem59, align 8
   %inc = add i64 %16, 1
   store i64 %inc, ptr %cache_nelem59, align 8
@@ -1381,9 +1377,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %method = getelementptr inbounds %struct.QUERY, ptr %elem, i64 0, i32 2
+  %method = getelementptr inbounds i8, ptr %elem, i64 16
   %method.val = load ptr, ptr %method, align 8
-  %0 = getelementptr %struct.QUERY, ptr %elem, i64 0, i32 2, i32 2
+  %0 = getelementptr i8, ptr %elem, i64 32
   %method.val3 = load ptr, ptr %0, align 8
   tail call void %method.val3(ptr noundef %method.val) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %elem, ptr noundef nonnull @.str, i32 noundef 212) #6
@@ -1447,7 +1443,7 @@ declare i32 @OPENSSL_rdtsc() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @impl_cache_flush_one_alg(i64 %idx, ptr nocapture noundef readonly %alg, ptr noundef %v) #0 {
 entry:
-  %cache = getelementptr inbounds %struct.ALGORITHM, ptr %alg, i64 0, i32 2
+  %cache = getelementptr inbounds i8, ptr %alg, i64 16
   %0 = load ptr, ptr %cache, align 8
   store ptr %0, ptr %v, align 8
   tail call void @OPENSSL_LH_doall_arg(ptr noundef %0, ptr noundef nonnull @impl_cache_flush_cache, ptr noundef nonnull %v) #6
@@ -1457,7 +1453,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @impl_cache_flush_cache(ptr noundef %c, ptr nocapture noundef %state) #0 {
 entry:
-  %seed = getelementptr inbounds %struct.IMPL_CACHE_FLUSH, ptr %state, i64 0, i32 2
+  %seed = getelementptr inbounds i8, ptr %state, i64 16
   %0 = load i32, ptr %seed, align 8
   %shl = shl i32 %0, 13
   %xor = xor i32 %shl, %0
@@ -1477,16 +1473,16 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %method.i = getelementptr inbounds %struct.QUERY, ptr %call.i, i64 0, i32 2
+  %method.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %method.val.i = load ptr, ptr %method.i, align 8
-  %2 = getelementptr %struct.QUERY, ptr %call.i, i64 0, i32 2, i32 2
+  %2 = getelementptr i8, ptr %call.i, i64 32
   %method.val3.i = load ptr, ptr %2, align 8
   tail call void %method.val3.i(ptr noundef %method.val.i) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 212) #6
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %nelem = getelementptr inbounds %struct.IMPL_CACHE_FLUSH, ptr %state, i64 0, i32 1
+  %nelem = getelementptr inbounds i8, ptr %state, i64 8
   %3 = load i64, ptr %nelem, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %nelem, align 8

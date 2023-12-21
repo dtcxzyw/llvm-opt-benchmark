@@ -3,27 +3,24 @@ source_filename = "bench/folly/original/LineReader.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.folly::symbolizer::LineReader" = type <{ i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.folly::Range" = type { ptr, ptr }
-
 @_ZN5folly10symbolizer10LineReaderC1EiPcm = unnamed_addr alias void (ptr, i32, ptr, i64), ptr @_ZN5folly10symbolizer10LineReaderC2EiPcm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5folly10symbolizer10LineReaderC2EiPcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this, i32 noundef %fd, ptr noundef %buf, i64 noundef %bufSize) unnamed_addr #0 align 2 {
 entry:
   store i32 %fd, ptr %this, align 8, !tbaa !7
-  %buf_ = getelementptr inbounds %"class.folly::symbolizer::LineReader", ptr %this, i64 0, i32 2
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %buf, ptr %buf_, align 8, !tbaa !14
-  %bufEnd_ = getelementptr inbounds %"class.folly::symbolizer::LineReader", ptr %this, i64 0, i32 3
+  %bufEnd_ = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %bufSize
   store ptr %add.ptr, ptr %bufEnd_, align 8, !tbaa !15
-  %bol_ = getelementptr inbounds %"class.folly::symbolizer::LineReader", ptr %this, i64 0, i32 4
+  %bol_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %buf, ptr %bol_, align 8, !tbaa !16
-  %eol_ = getelementptr inbounds %"class.folly::symbolizer::LineReader", ptr %this, i64 0, i32 5
+  %eol_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %buf, ptr %eol_, align 8, !tbaa !17
-  %end_ = getelementptr inbounds %"class.folly::symbolizer::LineReader", ptr %this, i64 0, i32 6
+  %end_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %buf, ptr %end_, align 8, !tbaa !18
-  %state_ = getelementptr inbounds %"class.folly::symbolizer::LineReader", ptr %this, i64 0, i32 7
+  %state_ = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %state_, align 8, !tbaa !19
   ret void
 }
@@ -31,11 +28,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5folly10symbolizer10LineReader8readLineERNS_5RangeIPKcEE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %line) local_unnamed_addr #1 align 2 {
 entry:
-  %eol_ = getelementptr inbounds %"class.folly::symbolizer::LineReader", ptr %this, i64 0, i32 5
+  %eol_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %eol_, align 8, !tbaa !17
-  %bol_ = getelementptr inbounds %"class.folly::symbolizer::LineReader", ptr %this, i64 0, i32 4
+  %bol_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %bol_, align 8, !tbaa !16
-  %end_ = getelementptr inbounds %"class.folly::symbolizer::LineReader", ptr %this, i64 0, i32 6
+  %end_ = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %end_, align 8, !tbaa !18
   %sub.ptr.lhs.cast63 = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast64 = ptrtoint ptr %0 to i64
@@ -45,9 +42,9 @@ entry:
   br i1 %tobool.not67, label %if.else.lr.ph, label %if.then
 
 if.else.lr.ph:                                    ; preds = %entry
-  %state_ = getelementptr inbounds %"class.folly::symbolizer::LineReader", ptr %this, i64 0, i32 7
-  %buf_ = getelementptr inbounds %"class.folly::symbolizer::LineReader", ptr %this, i64 0, i32 2
-  %bufEnd_ = getelementptr inbounds %"class.folly::symbolizer::LineReader", ptr %this, i64 0, i32 3
+  %state_ = getelementptr inbounds i8, ptr %this, i64 48
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bufEnd_ = getelementptr inbounds i8, ptr %this, i64 16
   br label %if.else
 
 if.then:                                          ; preds = %cleanup, %entry
@@ -121,10 +118,10 @@ for.end:                                          ; preds = %lor.lhs.false, %if.
   store ptr %storemerge, ptr %eol_, align 8, !tbaa !17
   %15 = load ptr, ptr %bol_, align 8, !tbaa !16
   store ptr %15, ptr %line, align 8, !tbaa !20
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %line, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %line, i64 8
   store ptr %storemerge, ptr %e_.i, align 8, !tbaa !22
   %cmp53.not = icmp eq ptr %storemerge, %15
-  %state_54 = getelementptr inbounds %"class.folly::symbolizer::LineReader", ptr %this, i64 0, i32 7
+  %state_54 = getelementptr inbounds i8, ptr %this, i64 48
   %16 = load i32, ptr %state_54, align 8
   %cond = select i1 %cmp53.not, i32 %16, i32 0
   ret i32 %cond

@@ -19,25 +19,25 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool1.not, label %land.end, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %calloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc = getelementptr inbounds i8, ptr %memory, i64 8
   %1 = load ptr, ptr %calloc, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %land.end, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %land.lhs.true2
-  %realloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 2
+  %realloc = getelementptr inbounds i8, ptr %memory, i64 16
   %2 = load ptr, ptr %realloc, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %land.end, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %land.lhs.true4
-  %reallocarray = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 3
+  %reallocarray = getelementptr inbounds i8, ptr %memory, i64 24
   %3 = load ptr, ptr %reallocarray, align 8
   %tobool7.not = icmp eq ptr %3, null
   br i1 %tobool7.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true6
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %memory, i64 32
   %4 = load ptr, ptr %free, align 8
   %tobool8 = icmp ne ptr %4, null
   %5 = zext i1 %tobool8 to i32
@@ -114,7 +114,7 @@ if.then3:                                         ; preds = %do.body
   br label %return
 
 do.end:                                           ; preds = %do.body
-  %realloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 2
+  %realloc = getelementptr inbounds i8, ptr %memory, i64 16
   %0 = load ptr, ptr %realloc, align 8
   %call6 = tail call ptr %0(ptr noundef nonnull %memory, ptr noundef %ptr, i64 noundef %mul.val) #15
   br label %return
@@ -138,22 +138,22 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %if.end
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %backend, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %backend, i64 32
   %1 = load ptr, ptr %free, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %lor.lhs.false3
-  %calloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc = getelementptr inbounds i8, ptr %memory, i64 8
   store ptr @uriEmulateCalloc, ptr %calloc, align 8
-  %reallocarray = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 3
+  %reallocarray = getelementptr inbounds i8, ptr %memory, i64 24
   store ptr @uriEmulateReallocarray, ptr %reallocarray, align 8
   store ptr @uriDecorateMalloc, ptr %memory, align 8
-  %realloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 2
+  %realloc = getelementptr inbounds i8, ptr %memory, i64 16
   store ptr @uriDecorateRealloc, ptr %realloc, align 8
-  %free8 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free8 = getelementptr inbounds i8, ptr %memory, i64 32
   store ptr @uriDecorateFree, ptr %free8, align 8
-  %userData = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 5
+  %userData = getelementptr inbounds i8, ptr %memory, i64 40
   store ptr %backend, ptr %userData, align 8
   br label %return
 
@@ -183,7 +183,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %userData = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 5
+  %userData = getelementptr inbounds i8, ptr %memory, i64 40
   %0 = load ptr, ptr %userData, align 8
   %cmp5 = icmp eq ptr %0, null
   br i1 %cmp5, label %if.then6, label %if.end8
@@ -235,7 +235,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %memory, i64 32
   %1 = load ptr, ptr %free, align 8
   tail call void %1(ptr noundef nonnull %memory, ptr noundef nonnull %ptr) #15
   br label %return
@@ -254,7 +254,7 @@ if.end10:                                         ; preds = %if.end7
 
 if.end15:                                         ; preds = %if.end10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call12, ptr nonnull align 1 %ptr, i64 %2, i1 false)
-  %free16 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free16 = getelementptr inbounds i8, ptr %memory, i64 32
   %4 = load ptr, ptr %free16, align 8
   tail call void %4(ptr noundef nonnull %memory, ptr noundef nonnull %ptr) #15
   br label %return
@@ -273,13 +273,13 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %userData = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 5
+  %userData = getelementptr inbounds i8, ptr %memory, i64 40
   %0 = load ptr, ptr %userData, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %0, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %free, align 8
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 -8
   tail call void %1(ptr noundef nonnull %0, ptr noundef nonnull %add.ptr) #15
@@ -301,25 +301,25 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %return, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
-  %calloc.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 1
+  %calloc.i = getelementptr inbounds i8, ptr %memory, i64 8
   %1 = load ptr, ptr %calloc.i, align 8
   %tobool3.not.i = icmp eq ptr %1, null
   br i1 %tobool3.not.i, label %return, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true2.i
-  %realloc.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 2
+  %realloc.i = getelementptr inbounds i8, ptr %memory, i64 16
   %2 = load ptr, ptr %realloc.i, align 8
   %tobool5.not.i = icmp eq ptr %2, null
   br i1 %tobool5.not.i, label %return, label %land.lhs.true6.i
 
 land.lhs.true6.i:                                 ; preds = %land.lhs.true4.i
-  %reallocarray.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 3
+  %reallocarray.i = getelementptr inbounds i8, ptr %memory, i64 24
   %3 = load ptr, ptr %reallocarray.i, align 8
   %tobool7.not.i = icmp eq ptr %3, null
   br i1 %tobool7.not.i, label %return, label %uriMemoryManagerIsComplete.exit
 
 uriMemoryManagerIsComplete.exit:                  ; preds = %land.lhs.true6.i
-  %free.i = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %memory, i64 0, i32 4
+  %free.i = getelementptr inbounds i8, ptr %memory, i64 32
   %4 = load ptr, ptr %free.i, align 8
   %tobool8.i.not = icmp eq ptr %4, null
   br i1 %tobool8.i.not, label %return, label %if.end3

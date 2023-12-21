@@ -3,8 +3,6 @@ source_filename = "bench/folly/original/UncaughtExceptions.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.__cxxabiv1::__cxa_eh_globals" = type { ptr, i32 }
-
 $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14,7 +12,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %uncaught_exceptions_ = getelementptr inbounds %"struct.__cxxabiv1::__cxa_eh_globals", ptr %call, i64 0, i32 1
+  %uncaught_exceptions_ = getelementptr inbounds i8, ptr %call, i64 8
   ret ptr %uncaught_exceptions_
 
 terminate.lpad:                                   ; preds = %entry

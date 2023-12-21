@@ -3,8 +3,6 @@ source_filename = "bench/jemalloc/original/edata.pic.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ph_s = type { ptr, i64 }
-
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @edata_avail_new(ptr nocapture noundef writeonly %ph) local_unnamed_addr #0 {
 entry:
@@ -28,7 +26,7 @@ entry:
   br i1 %cmp1.i, label %ph_first.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %auxcount.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount.i = getelementptr inbounds i8, ptr %ph, i64 8
   store i64 0, ptr %auxcount.i, align 8
   %next.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %next.i, align 8
@@ -421,7 +419,7 @@ if.then5.i:                                       ; preds = %if.end.i
   %add.ptr.i45 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %phn, ptr %add.ptr.i45, align 8
   store ptr %phn, ptr %ph, align 8
-  %auxcount.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount.i = getelementptr inbounds i8, ptr %ph, i64 8
   store i64 0, ptr %auxcount.i, align 8
   br label %ph_insert.exit
 
@@ -447,7 +445,7 @@ if.end18.i:                                       ; preds = %if.then15.i, %if.en
   %9 = load ptr, ptr %ph, align 8
   %next1.i = getelementptr inbounds i8, ptr %9, i64 48
   store ptr %phn, ptr %next1.i, align 8
-  %auxcount21.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount21.i = getelementptr inbounds i8, ptr %ph, i64 8
   %10 = load i64, ptr %auxcount21.i, align 8
   %inc.i = add i64 %10, 1
   store i64 %inc.i, ptr %auxcount21.i, align 8
@@ -574,7 +572,7 @@ entry:
   br i1 %cmp1.i, label %ph_remove_first.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %auxcount.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount.i = getelementptr inbounds i8, ptr %ph, i64 8
   store i64 0, ptr %auxcount.i, align 8
   %next.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %next.i, align 8
@@ -1188,7 +1186,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %ph_remove.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %auxcount.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount.i = getelementptr inbounds i8, ptr %ph, i64 8
   store i64 0, ptr %auxcount.i, align 8
   %next.i13 = getelementptr inbounds i8, ptr %phn, i64 48
   %3 = load ptr, ptr %next.i13, align 8
@@ -2119,7 +2117,7 @@ entry:
   br i1 %cmp1.i, label %ph_first.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %auxcount.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount.i = getelementptr inbounds i8, ptr %ph, i64 8
   store i64 0, ptr %auxcount.i, align 8
   %next.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %next.i, align 8
@@ -2522,7 +2520,7 @@ if.then5.i:                                       ; preds = %if.end.i
   %add.ptr.i45 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %phn, ptr %add.ptr.i45, align 8
   store ptr %phn, ptr %ph, align 8
-  %auxcount.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount.i = getelementptr inbounds i8, ptr %ph, i64 8
   store i64 0, ptr %auxcount.i, align 8
   br label %ph_insert.exit
 
@@ -2548,7 +2546,7 @@ if.end18.i:                                       ; preds = %if.then15.i, %if.en
   %11 = load ptr, ptr %ph, align 8
   %next1.i = getelementptr inbounds i8, ptr %11, i64 48
   store ptr %phn, ptr %next1.i, align 8
-  %auxcount21.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount21.i = getelementptr inbounds i8, ptr %ph, i64 8
   %12 = load i64, ptr %auxcount21.i, align 8
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %auxcount21.i, align 8
@@ -2677,7 +2675,7 @@ entry:
   br i1 %cmp1.i, label %ph_remove_first.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %auxcount.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount.i = getelementptr inbounds i8, ptr %ph, i64 8
   store i64 0, ptr %auxcount.i, align 8
   %next.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %next.i, align 8
@@ -3305,7 +3303,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %ph_remove.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %auxcount.i = getelementptr inbounds %struct.ph_s, ptr %ph, i64 0, i32 1
+  %auxcount.i = getelementptr inbounds i8, ptr %ph, i64 8
   store i64 0, ptr %auxcount.i, align 8
   %next.i13 = getelementptr inbounds i8, ptr %phn, i64 48
   %3 = load ptr, ptr %next.i13, align 8

@@ -3,19 +3,6 @@ source_filename = "bench/icu/original/loadednormalizer2impl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::LoadedNormalizer2Impl" = type { %"class.icu_75::Normalizer2Impl", ptr, ptr }
-%"class.icu_75::Normalizer2Impl" = type { %"class.icu_75::UObject", i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, ptr, ptr, ptr, ptr, %"struct.icu_75::UInitOnce", ptr }
-%"class.icu_75::UObject" = type { ptr }
-%"struct.icu_75::UInitOnce" = type { %"struct.std::atomic", i32 }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
-%"struct.icu_75::Norm2AllModes" = type { ptr, %"class.icu_75::ComposeNormalizer2", %"class.icu_75::DecomposeNormalizer2", %"class.icu_75::FCDNormalizer2", %"class.icu_75::ComposeNormalizer2" }
-%"class.icu_75::DecomposeNormalizer2" = type { %"class.icu_75::Normalizer2WithImpl" }
-%"class.icu_75::Normalizer2WithImpl" = type { %"class.icu_75::Normalizer2", ptr }
-%"class.icu_75::Normalizer2" = type { %"class.icu_75::UObject" }
-%"class.icu_75::FCDNormalizer2" = type { %"class.icu_75::Normalizer2WithImpl" }
-%"class.icu_75::ComposeNormalizer2" = type <{ %"class.icu_75::Normalizer2WithImpl", i8, [7 x i8] }>
 %"class.icu_75::LocalPointer" = type { %"class.icu_75::LocalPointerBase" }
 %"class.icu_75::LocalPointerBase" = type { ptr }
 
@@ -47,13 +34,13 @@ $_ZN6icu_7512LocalPointerINS_13Norm2AllModesEED2Ev = comdat any
 define void @_ZN6icu_7521LoadedNormalizer2ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %memory = getelementptr inbounds %"class.icu_75::LoadedNormalizer2Impl", ptr %this, i64 0, i32 1
+  %memory = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %memory, align 8
   invoke void @udata_close_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %ownedTrie = getelementptr inbounds %"class.icu_75::LoadedNormalizer2Impl", ptr %this, i64 0, i32 2
+  %ownedTrie = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %ownedTrie, align 8
   invoke void @ucptrie_close_75(ptr noundef %1)
           to label %invoke.cont2 unwind label %terminate.lpad
@@ -109,43 +96,43 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %isBigEndian = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 2
+  %isBigEndian = getelementptr inbounds i8, ptr %pInfo, i64 4
   %4 = load i8, ptr %isBigEndian, align 2
   %cmp4 = icmp eq i8 %4, 0
   br i1 %cmp4, label %land.lhs.true5, label %if.else
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %charsetFamily = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 3
+  %charsetFamily = getelementptr inbounds i8, ptr %pInfo, i64 5
   %5 = load i8, ptr %charsetFamily, align 1
   %cmp7 = icmp eq i8 %5, 0
   br i1 %cmp7, label %land.lhs.true8, label %if.else
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %dataFormat = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6
+  %dataFormat = getelementptr inbounds i8, ptr %pInfo, i64 8
   %6 = load i8, ptr %dataFormat, align 2
   %cmp10 = icmp eq i8 %6, 78
   br i1 %cmp10, label %land.lhs.true11, label %if.else
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %arrayidx13 = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 1
+  %arrayidx13 = getelementptr inbounds i8, ptr %pInfo, i64 9
   %7 = load i8, ptr %arrayidx13, align 1
   %cmp15 = icmp eq i8 %7, 114
   br i1 %cmp15, label %land.lhs.true16, label %if.else
 
 land.lhs.true16:                                  ; preds = %land.lhs.true11
-  %arrayidx18 = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %pInfo, i64 10
   %8 = load i8, ptr %arrayidx18, align 2
   %cmp20 = icmp eq i8 %8, 109
   br i1 %cmp20, label %land.lhs.true21, label %if.else
 
 land.lhs.true21:                                  ; preds = %land.lhs.true16
-  %arrayidx23 = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 3
+  %arrayidx23 = getelementptr inbounds i8, ptr %pInfo, i64 11
   %9 = load i8, ptr %arrayidx23, align 1
   %cmp25 = icmp eq i8 %9, 50
   br i1 %cmp25, label %land.lhs.true26, label %if.else
 
 land.lhs.true26:                                  ; preds = %land.lhs.true21
-  %formatVersion = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 7
+  %formatVersion = getelementptr inbounds i8, ptr %pInfo, i64 12
   %10 = load i8, ptr %formatVersion, align 2
   %cmp29 = icmp eq i8 %10, 4
   br i1 %cmp29, label %return, label %if.else
@@ -167,7 +154,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @udata_openChoice_75(ptr noundef %packageName, ptr noundef nonnull @.str, ptr noundef %name, ptr noundef nonnull @_ZN6icu_7521LoadedNormalizer2Impl12isAcceptableEPvPKcS3_PK9UDataInfo, ptr noundef nonnull %this, ptr noundef nonnull %errorCode)
-  %memory = getelementptr inbounds %"class.icu_75::LoadedNormalizer2Impl", ptr %this, i64 0, i32 1
+  %memory = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %call2, ptr %memory, align 8
   %1 = load i32, ptr %errorCode, align 4
   %cmp.i18 = icmp slt i32 %1, 1
@@ -184,20 +171,20 @@ if.then9:                                         ; preds = %if.end6
   br label %return
 
 if.end10:                                         ; preds = %if.end6
-  %arrayidx12 = getelementptr inbounds i32, ptr %call8, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %call8, i64 4
   %3 = load i32, ptr %arrayidx12, align 4
   %idx.ext = zext nneg i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %call8, i64 %idx.ext
   %sub = sub nsw i32 %3, %2
   %call13 = tail call ptr @ucptrie_openFromBinary_75(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %add.ptr, i32 noundef %sub, ptr noundef null, ptr noundef nonnull %errorCode)
-  %ownedTrie = getelementptr inbounds %"class.icu_75::LoadedNormalizer2Impl", ptr %this, i64 0, i32 2
+  %ownedTrie = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %call13, ptr %ownedTrie, align 8
   %4 = load i32, ptr %errorCode, align 4
   %cmp.i20 = icmp slt i32 %4, 1
   br i1 %cmp.i20, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.end10
-  %arrayidx18 = getelementptr inbounds i32, ptr %call8, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %call8, i64 8
   %5 = load i32, ptr %arrayidx18, align 4
   %idx.ext19 = sext i32 %3 to i64
   %add.ptr20 = getelementptr inbounds i8, ptr %call8, i64 %idx.ext19
@@ -235,12 +222,12 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %normTrie.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %call1, i64 0, i32 13
+  %normTrie.i.i = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr null, ptr %normTrie.i.i, align 8
-  %fCanonIterDataInitOnce.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %call1, i64 0, i32 17
+  %fCanonIterDataInitOnce.i.i = getelementptr inbounds i8, ptr %call1, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fCanonIterDataInitOnce.i.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
-  %memory.i = getelementptr inbounds %"class.icu_75::LoadedNormalizer2Impl", ptr %call1, i64 0, i32 1
+  %memory.i = getelementptr inbounds i8, ptr %call1, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory.i, i8 0, i64 16, i1 false)
   tail call void @_ZN6icu_7521LoadedNormalizer2Impl4loadEPKcS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(96) %call1, ptr noundef %packageName, ptr noundef %name, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %call4 = tail call noundef ptr @_ZN6icu_7513Norm2AllModes14createInstanceEPNS_15Normalizer2ImplER10UErrorCode(ptr noundef nonnull %call1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -320,12 +307,12 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %_ZN6icu_7513Norm2AllModes14createInstanceEPKcS2_R10UErrorCode.exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %normTrie.i.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %call1.i, i64 0, i32 13
+  %normTrie.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   store ptr null, ptr %normTrie.i.i.i, align 8
-  %fCanonIterDataInitOnce.i.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %call1.i, i64 0, i32 17
+  %fCanonIterDataInitOnce.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fCanonIterDataInitOnce.i.i.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, inrange i32 0, i64 2), ptr %call1.i, align 8
-  %memory.i.i = getelementptr inbounds %"class.icu_75::LoadedNormalizer2Impl", ptr %call1.i, i64 0, i32 1
+  %memory.i.i = getelementptr inbounds i8, ptr %call1.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory.i.i, i8 0, i64 16, i1 false)
   tail call void @_ZN6icu_7521LoadedNormalizer2Impl4loadEPKcS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(96) %call1.i, ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %call4.i = tail call noundef ptr @_ZN6icu_7513Norm2AllModes14createInstanceEPNS_15Normalizer2ImplER10UErrorCode(ptr noundef nonnull %call1.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -356,12 +343,12 @@ if.then2.i15:                                     ; preds = %if.end.i7
   br label %_ZN6icu_7513Norm2AllModes14createInstanceEPKcS2_R10UErrorCode.exit16
 
 if.end3.i10:                                      ; preds = %if.end.i7
-  %normTrie.i.i.i11 = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %call1.i8, i64 0, i32 13
+  %normTrie.i.i.i11 = getelementptr inbounds i8, ptr %call1.i8, i64 32
   store ptr null, ptr %normTrie.i.i.i11, align 8
-  %fCanonIterDataInitOnce.i.i.i12 = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %call1.i8, i64 0, i32 17
+  %fCanonIterDataInitOnce.i.i.i12 = getelementptr inbounds i8, ptr %call1.i8, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fCanonIterDataInitOnce.i.i.i12, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, inrange i32 0, i64 2), ptr %call1.i8, align 8
-  %memory.i.i13 = getelementptr inbounds %"class.icu_75::LoadedNormalizer2Impl", ptr %call1.i8, i64 0, i32 1
+  %memory.i.i13 = getelementptr inbounds i8, ptr %call1.i8, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory.i.i13, i8 0, i64 16, i1 false)
   tail call void @_ZN6icu_7521LoadedNormalizer2Impl4loadEPKcS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(96) %call1.i8, ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %call4.i14 = tail call noundef ptr @_ZN6icu_7513Norm2AllModes14createInstanceEPNS_15Normalizer2ImplER10UErrorCode(ptr noundef nonnull %call1.i8, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -392,12 +379,12 @@ if.then2.i27:                                     ; preds = %if.end.i19
   br label %_ZN6icu_7513Norm2AllModes14createInstanceEPKcS2_R10UErrorCode.exit28
 
 if.end3.i22:                                      ; preds = %if.end.i19
-  %normTrie.i.i.i23 = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %call1.i20, i64 0, i32 13
+  %normTrie.i.i.i23 = getelementptr inbounds i8, ptr %call1.i20, i64 32
   store ptr null, ptr %normTrie.i.i.i23, align 8
-  %fCanonIterDataInitOnce.i.i.i24 = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %call1.i20, i64 0, i32 17
+  %fCanonIterDataInitOnce.i.i.i24 = getelementptr inbounds i8, ptr %call1.i20, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fCanonIterDataInitOnce.i.i.i24, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, inrange i32 0, i64 2), ptr %call1.i20, align 8
-  %memory.i.i25 = getelementptr inbounds %"class.icu_75::LoadedNormalizer2Impl", ptr %call1.i20, i64 0, i32 1
+  %memory.i.i25 = getelementptr inbounds i8, ptr %call1.i20, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory.i.i25, i8 0, i64 16, i1 false)
   tail call void @_ZN6icu_7521LoadedNormalizer2Impl4loadEPKcS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(96) %call1.i20, ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %call4.i26 = tail call noundef ptr @_ZN6icu_7513Norm2AllModes14createInstanceEPNS_15Normalizer2ImplER10UErrorCode(ptr noundef nonnull %call1.i20, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -541,7 +528,7 @@ _ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i:
 _ZN6icu_7513Norm2AllModes15getNFKCInstanceER10UErrorCode.exit: ; preds = %entry, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i
   %retval.0.i = phi ptr [ %4, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i ], [ null, %entry ]
   %cmp.not = icmp eq ptr %retval.0.i, null
-  %comp = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %retval.0.i, i64 0, i32 1
+  %comp = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %cond = select i1 %cmp.not, ptr null, ptr %comp
   ret ptr %cond
 }
@@ -586,7 +573,7 @@ _ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i:
 _ZN6icu_7513Norm2AllModes15getNFKCInstanceER10UErrorCode.exit: ; preds = %entry, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i
   %retval.0.i = phi ptr [ %4, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i ], [ null, %entry ]
   %cmp.not = icmp eq ptr %retval.0.i, null
-  %decomp = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %retval.0.i, i64 0, i32 2
+  %decomp = getelementptr inbounds i8, ptr %retval.0.i, i64 32
   %cond = select i1 %cmp.not, ptr null, ptr %decomp
   ret ptr %cond
 }
@@ -631,7 +618,7 @@ _ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i:
 _ZN6icu_7513Norm2AllModes18getNFKC_CFInstanceER10UErrorCode.exit: ; preds = %entry, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i
   %retval.0.i = phi ptr [ %4, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i ], [ null, %entry ]
   %cmp.not = icmp eq ptr %retval.0.i, null
-  %comp = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %retval.0.i, i64 0, i32 1
+  %comp = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %cond = select i1 %cmp.not, ptr null, ptr %comp
   ret ptr %cond
 }
@@ -676,7 +663,7 @@ _ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i:
 _ZN6icu_7513Norm2AllModes19getNFKC_SCFInstanceER10UErrorCode.exit: ; preds = %entry, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i
   %retval.0.i = phi ptr [ %4, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i ], [ null, %entry ]
   %cmp.not = icmp eq ptr %retval.0.i, null
-  %comp = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %retval.0.i, i64 0, i32 1
+  %comp = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %cond = select i1 %cmp.not, ptr null, ptr %comp
   ret ptr %cond
 }
@@ -925,19 +912,19 @@ if.then93:                                        ; preds = %land.lhs.true90
   ]
 
 sw.bb:                                            ; preds = %if.then93
-  %comp = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %allModes.661, i64 0, i32 1
+  %comp = getelementptr inbounds i8, ptr %allModes.661, i64 8
   br label %return
 
 sw.bb94:                                          ; preds = %if.then93
-  %decomp = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %allModes.661, i64 0, i32 2
+  %decomp = getelementptr inbounds i8, ptr %allModes.661, i64 32
   br label %return
 
 sw.bb95:                                          ; preds = %if.then93
-  %fcd = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %allModes.661, i64 0, i32 3
+  %fcd = getelementptr inbounds i8, ptr %allModes.661, i64 48
   br label %return
 
 sw.bb96:                                          ; preds = %if.then93
-  %fcc = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %allModes.661, i64 0, i32 4
+  %fcc = getelementptr inbounds i8, ptr %allModes.661, i64 64
   br label %return
 
 return:                                           ; preds = %_ZN6icu_755MutexD2Ev.exit49, %land.lhs.true, %if.end88.thread65, %land.lhs.true90, %if.then93, %entry, %sw.bb96, %sw.bb95, %sw.bb94, %sw.bb, %if.then2
@@ -1106,7 +1093,7 @@ if.then8.i.i.i:                                   ; preds = %if.else.i.i.i
 _ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i: ; preds = %if.then8.i.i.i, %if.else.i.i.i, %if.then4.i.i.i
   %4 = load ptr, ptr @_ZN6icu_75L13nfkcSingletonE, align 8
   %cmp.not.i = icmp eq ptr %4, null
-  %decomp.i = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %4, i64 0, i32 2
+  %decomp.i = getelementptr inbounds i8, ptr %4, i64 32
   %cond.i = select i1 %cmp.not.i, ptr null, ptr %decomp.i
   br label %return
 
@@ -1143,7 +1130,7 @@ if.then8.i.i.i20:                                 ; preds = %if.else.i.i.i18
 _ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i17: ; preds = %if.then8.i.i.i20, %if.else.i.i.i18, %if.then4.i.i.i16
   %8 = load ptr, ptr @_ZN6icu_75L13nfkcSingletonE, align 8
   %cmp.not.i9 = icmp eq ptr %8, null
-  %comp.i = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %8, i64 0, i32 1
+  %comp.i = getelementptr inbounds i8, ptr %8, i64 8
   %cond.i10 = select i1 %cmp.not.i9, ptr null, ptr %comp.i
   br label %return
 
@@ -1302,7 +1289,7 @@ _ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.
 _ZN6icu_7511Normalizer215getNFKCInstanceER10UErrorCode.exit: ; preds = %entry, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i
   %retval.0.i.i = phi ptr [ %4, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i ], [ null, %entry ]
   %cmp.not.i = icmp eq ptr %retval.0.i.i, null
-  %comp.i = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %retval.0.i.i, i64 0, i32 1
+  %comp.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %cond.i = select i1 %cmp.not.i, ptr null, ptr %comp.i
   ret ptr %cond.i
 }
@@ -1347,7 +1334,7 @@ _ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.
 _ZN6icu_7511Normalizer215getNFKDInstanceER10UErrorCode.exit: ; preds = %entry, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i
   %retval.0.i.i = phi ptr [ %4, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i ], [ null, %entry ]
   %cmp.not.i = icmp eq ptr %retval.0.i.i, null
-  %decomp.i = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %retval.0.i.i, i64 0, i32 2
+  %decomp.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
   %cond.i = select i1 %cmp.not.i, ptr null, ptr %decomp.i
   ret ptr %cond.i
 }
@@ -1392,7 +1379,7 @@ _ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.
 _ZN6icu_7511Normalizer223getNFKCCasefoldInstanceER10UErrorCode.exit: ; preds = %entry, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i
   %retval.0.i.i = phi ptr [ %4, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i ], [ null, %entry ]
   %cmp.not.i = icmp eq ptr %retval.0.i.i, null
-  %comp.i = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %retval.0.i.i, i64 0, i32 1
+  %comp.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %cond.i = select i1 %cmp.not.i, ptr null, ptr %comp.i
   ret ptr %cond.i
 }
@@ -1437,7 +1424,7 @@ _ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.
 _ZN6icu_7511Normalizer229getNFKCSimpleCasefoldInstanceER10UErrorCode.exit: ; preds = %entry, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i
   %retval.0.i.i = phi ptr [ %4, %_ZN6icu_7513umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i ], [ null, %entry ]
   %cmp.not.i = icmp eq ptr %retval.0.i.i, null
-  %comp.i = getelementptr inbounds %"struct.icu_75::Norm2AllModes", ptr %retval.0.i.i, i64 0, i32 1
+  %comp.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %cond.i = select i1 %cmp.not.i, ptr null, ptr %comp.i
   ret ptr %cond.i
 }
@@ -1466,7 +1453,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %2 = load ptr, ptr %vfn, align 8
   %call4 = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(16) %call, i32 noundef %c)
   br label %return

@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.GDBSyscallState = type { [256 x i8], ptr }
 %struct.GDBState = type { i8, ptr, ptr, ptr, i32, [4096 x i8], i32, i32, i32, ptr, i32, i8, ptr, i32, ptr, ptr, i32, i32, i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct._GArray = type { ptr, i32 }
-%union.GdbCmdVariant = type { ptr, [8 x i8] }
 
 @gdb_syscall_mode = internal unnamed_addr global i32 0, align 4
 @gdbserver_syscall_state = internal global %struct.GDBSyscallState zeroinitializer, align 8
@@ -106,8 +104,8 @@ if.end:                                           ; preds = %entry
   store ptr %cb, ptr getelementptr inbounds (%struct.GDBSyscallState, ptr @gdbserver_syscall_state, i64 0, i32 1), align 8
   call void @llvm.va_start(ptr nonnull %va)
   store i8 70, ptr @gdbserver_syscall_state, align 8
-  %overflow_arg_area_p42 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 2
-  %4 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 3
+  %overflow_arg_area_p42 = getelementptr inbounds i8, ptr %va, i64 8
+  %4 = getelementptr inbounds i8, ptr %va, i64 16
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %if.end
@@ -289,7 +287,7 @@ declare void @gdb_syscall_handling(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_handle_file_io(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %params, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp = icmp ne i32 %0, 0
   %1 = load ptr, ptr getelementptr inbounds (%struct.GDBSyscallState, ptr @gdbserver_syscall_state, i64 0, i32 1), align 8
@@ -304,7 +302,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.end, label %sw.epilog
 
 if.end:                                           ; preds = %if.then
-  %arrayidx5 = getelementptr %union.GdbCmdVariant, ptr %2, i64 1
+  %arrayidx5 = getelementptr i8, ptr %2, i64 16
   %4 = load i64, ptr %arrayidx5, align 8
   %conv = trunc i64 %4 to i32
   switch i32 %conv, label %sw.default [
@@ -351,7 +349,7 @@ if.end25:                                         ; preds = %sw.epilog, %entry
 
 land.lhs.true29:                                  ; preds = %if.end25
   %7 = load ptr, ptr %params, align 8
-  %arrayidx31 = getelementptr %union.GdbCmdVariant, ptr %7, i64 2
+  %arrayidx31 = getelementptr i8, ptr %7, i64 32
   %8 = load i8, ptr %arrayidx31, align 8
   %cmp33 = icmp eq i8 %8, 67
   br i1 %cmp33, label %if.then35, label %if.end36

@@ -6,19 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.absl::lts_20230802::base_internal::SpinLockWaitTransition" = type { i32, i32, i8 }
 %"struct.absl::lts_20230802::container_internal::PolicyFunctions" = type { i64, ptr, ptr, ptr }
-%"class.google::protobuf::util::SimpleFieldComparator" = type { %"class.google::protobuf::util::FieldComparator", i32, i8, i8, %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", %"class.absl::lts_20230802::flat_hash_map" }
-%"class.google::protobuf::util::FieldComparator" = type { ptr }
-%"struct.google::protobuf::util::SimpleFieldComparator::Tolerance" = type { double, double }
-%"class.absl::lts_20230802::flat_hash_map" = type { %"class.absl::lts_20230802::container_internal::raw_hash_map" }
-%"class.absl::lts_20230802::container_internal::raw_hash_map" = type { %"class.absl::lts_20230802::container_internal::raw_hash_set" }
-%"class.absl::lts_20230802::container_internal::raw_hash_set" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" = type { %"class.absl::lts_20230802::container_internal::CommonFields" }
-%"class.absl::lts_20230802::container_internal::CommonFields" = type { ptr, ptr, i64, %"class.absl::lts_20230802::container_internal::CompressedTuple.0" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple.0" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.1" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.1" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2" = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.14 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.14 = type { i64, [8 x i8] }
@@ -31,21 +18,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.16" }
 %"struct.std::_Head_base.16" = type { ptr }
-%"class.google::protobuf::FieldDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i8, i8, i32, ptr, ptr, ptr, ptr, %union.anon, %union.anon.7, ptr, ptr, ptr, %union.anon.8 }
-%"class.google::protobuf::internal::SymbolBase" = type { i8 }
-%union.anon = type { ptr }
-%union.anon.7 = type { ptr }
-%union.anon.8 = type { i64 }
-%"class.google::protobuf::EnumValueDescriptor" = type { %"class.google::protobuf::internal::SymbolBaseN", %"class.google::protobuf::internal::SymbolBaseN.81", i32, ptr, ptr, ptr, ptr, ptr }
-%"class.google::protobuf::internal::SymbolBaseN" = type { %"class.google::protobuf::internal::SymbolBase" }
-%"class.google::protobuf::internal::SymbolBaseN.81" = type { %"class.google::protobuf::internal::SymbolBase" }
 %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20230802::Span", %"class.absl::lts_20230802::Span", %"class.absl::lts_20230802::Span" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
 %"class.absl::lts_20230802::Span" = type { ptr, i64 }
 %"union.absl::lts_20230802::container_internal::map_slot_type" = type { %"struct.std::pair" }
 %"struct.std::pair" = type { ptr, %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance" }
-%"struct.std::pair.82" = type { ptr, %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance" }
+%"struct.google::protobuf::util::SimpleFieldComparator::Tolerance" = type { double, double }
 %"class.std::allocator.11" = type { i8 }
 
 $_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv = comdat any
@@ -130,17 +109,17 @@ declare void @llvm.trap() #6
 define void @_ZN6google8protobuf4util21SimpleFieldComparatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util21SimpleFieldComparatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %float_comparison_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 1
+  %float_comparison_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %float_comparison_, align 8
-  %treat_nan_as_equal_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 2
+  %treat_nan_as_equal_ = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %treat_nan_as_equal_, align 4
-  %has_default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 3
+  %has_default_tolerance_ = getelementptr inbounds i8, ptr %this, i64 13
   store i8 0, ptr %has_default_tolerance_, align 1
-  %default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 4
+  %default_tolerance_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %default_tolerance_, i8 0, i64 16, i1 false)
-  %map_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 5
+  %map_tolerance_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %map_tolerance_, align 8
-  %slots_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   ret void
 }
@@ -151,13 +130,13 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN6google8protobuf4util21SimpleFieldComparatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util21SimpleFieldComparatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %capacity_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %capacity_.i.i.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i.i.i, label %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorENS3_4util21SimpleFieldComparator9ToleranceENS0_18container_internal6HashEqIS6_vE4HashENSC_2EqESaISt4pairIKS6_S9_EEED2Ev.exit, label %invoke.cont15.i.i.i
 
 invoke.cont15.i.i.i:                              ; preds = %entry
-  %map_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 5
+  %map_tolerance_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %map_tolerance_, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i) #25
@@ -184,16 +163,16 @@ entry:
   %ref.tmp120 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp132 = alloca i32, align 4
   %vtable.i = load ptr, ptr %message_1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 10
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(16) %message_1)
   %2 = extractvalue { ptr, ptr } %call.i, 1
   %vtable.i153 = load ptr, ptr %message_2, align 8
-  %vfn.i154 = getelementptr inbounds ptr, ptr %vtable.i153, i64 10
+  %vfn.i154 = getelementptr inbounds i8, ptr %vtable.i153, i64 80
   %3 = load ptr, ptr %vfn.i154, align 8
   %call.i155 = tail call { ptr, ptr } %3(ptr noundef nonnull align 8 dereferenceable(16) %message_2)
   %4 = extractvalue { ptr, ptr } %call.i155, 1
-  %type_once_.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 7
+  %type_once_.i.i = getelementptr inbounds i8, ptr %field, i64 24
   %5 = load ptr, ptr %type_once_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %if.then.i.i
@@ -224,7 +203,7 @@ if.then5.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %entry, %if.then.i.i, %lor.lhs.false.i.i.i.i, %if.then.i.i.i.i, %if.then5.i.i.i.i
-  %type_.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 2
+  %type_.i.i = getelementptr inbounds i8, ptr %field, i64 2
   %10 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %10 to i64
   %arrayidx.i = getelementptr inbounds [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
@@ -243,7 +222,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %entry, %if.the
   ]
 
 sw.bb:                                            ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  %label_.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 1
+  %label_.i.i = getelementptr inbounds i8, ptr %field, i64 1
   %bf.load.i.i = load i8, ptr %label_.i.i, align 1
   %12 = and i8 %bf.load.i.i, 96
   %cmp.i = icmp eq i8 %12, 96
@@ -264,7 +243,7 @@ if.else:                                          ; preds = %sw.bb
   br label %return
 
 sw.bb13:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  %label_.i.i159 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 1
+  %label_.i.i159 = getelementptr inbounds i8, ptr %field, i64 1
   %bf.load.i.i160 = load i8, ptr %label_.i.i159, align 1
   %15 = and i8 %bf.load.i.i160, 96
   %cmp.i161 = icmp eq i8 %15, 96
@@ -287,7 +266,7 @@ if.else20:                                        ; preds = %sw.bb13
   br label %return
 
 sw.bb25:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  %label_.i.i167 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 1
+  %label_.i.i167 = getelementptr inbounds i8, ptr %field, i64 1
   %bf.load.i.i168 = load i8, ptr %label_.i.i167, align 1
   %16 = and i8 %bf.load.i.i168, 96
   %cmp.i169 = icmp eq i8 %16, 96
@@ -296,9 +275,9 @@ sw.bb25:                                          ; preds = %_ZNK6google8protobu
 if.then27:                                        ; preds = %sw.bb25
   %call28 = tail call noundef ptr @_ZNK6google8protobuf10Reflection15GetRepeatedEnumERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull align 8 dereferenceable(16) %message_1, ptr noundef nonnull %field, i32 noundef %index_1)
   %call29 = tail call noundef ptr @_ZNK6google8protobuf10Reflection15GetRepeatedEnumERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(16) %message_2, ptr noundef nonnull %field, i32 noundef %index_2)
-  %number_.i.i = getelementptr inbounds %"class.google::protobuf::EnumValueDescriptor", ptr %call28, i64 0, i32 2
+  %number_.i.i = getelementptr inbounds i8, ptr %call28, i64 4
   %17 = load i32, ptr %number_.i.i, align 4
-  %number_.i1.i = getelementptr inbounds %"class.google::protobuf::EnumValueDescriptor", ptr %call29, i64 0, i32 2
+  %number_.i1.i = getelementptr inbounds i8, ptr %call29, i64 4
   %18 = load i32, ptr %number_.i1.i, align 4
   %cmp.i170 = icmp ne i32 %17, %18
   %cond.i172 = zext i1 %cmp.i170 to i32
@@ -307,16 +286,16 @@ if.then27:                                        ; preds = %sw.bb25
 if.else32:                                        ; preds = %sw.bb25
   %call33 = tail call noundef ptr @_ZNK6google8protobuf10Reflection7GetEnumERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull align 8 dereferenceable(16) %message_1, ptr noundef nonnull %field)
   %call34 = tail call noundef ptr @_ZNK6google8protobuf10Reflection7GetEnumERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(16) %message_2, ptr noundef nonnull %field)
-  %number_.i.i173 = getelementptr inbounds %"class.google::protobuf::EnumValueDescriptor", ptr %call33, i64 0, i32 2
+  %number_.i.i173 = getelementptr inbounds i8, ptr %call33, i64 4
   %19 = load i32, ptr %number_.i.i173, align 4
-  %number_.i1.i174 = getelementptr inbounds %"class.google::protobuf::EnumValueDescriptor", ptr %call34, i64 0, i32 2
+  %number_.i1.i174 = getelementptr inbounds i8, ptr %call34, i64 4
   %20 = load i32, ptr %number_.i1.i174, align 4
   %cmp.i175 = icmp ne i32 %19, %20
   %cond.i177 = zext i1 %cmp.i175 to i32
   br label %return
 
 sw.bb37:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  %label_.i.i178 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 1
+  %label_.i.i178 = getelementptr inbounds i8, ptr %field, i64 1
   %bf.load.i.i179 = load i8, ptr %label_.i.i178, align 1
   %21 = and i8 %bf.load.i.i179, 96
   %cmp.i180 = icmp eq i8 %21, 96
@@ -339,7 +318,7 @@ if.else44:                                        ; preds = %sw.bb37
   br label %return
 
 sw.bb49:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  %label_.i.i187 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 1
+  %label_.i.i187 = getelementptr inbounds i8, ptr %field, i64 1
   %bf.load.i.i188 = load i8, ptr %label_.i.i187, align 1
   %22 = and i8 %bf.load.i.i188, 96
   %cmp.i189 = icmp eq i8 %22, 96
@@ -360,7 +339,7 @@ if.else56:                                        ; preds = %sw.bb49
   br label %return
 
 sw.bb61:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  %label_.i.i196 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 1
+  %label_.i.i196 = getelementptr inbounds i8, ptr %field, i64 1
   %bf.load.i.i197 = load i8, ptr %label_.i.i196, align 1
   %23 = and i8 %bf.load.i.i197, 96
   %cmp.i198 = icmp eq i8 %23, 96
@@ -381,7 +360,7 @@ if.else68:                                        ; preds = %sw.bb61
   br label %return
 
 sw.bb73:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  %label_.i.i205 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 1
+  %label_.i.i205 = getelementptr inbounds i8, ptr %field, i64 1
   %bf.load.i.i206 = load i8, ptr %label_.i.i205, align 1
   %24 = and i8 %bf.load.i.i206, 96
   %cmp.i207 = icmp eq i8 %24, 96
@@ -468,7 +447,7 @@ lpad86:                                           ; preds = %invoke.cont87, %if.
   br label %eh.resume
 
 sw.bb95:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  %label_.i.i223 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 1
+  %label_.i.i223 = getelementptr inbounds i8, ptr %field, i64 1
   %bf.load.i.i224 = load i8, ptr %label_.i.i223, align 1
   %31 = and i8 %bf.load.i.i224, 96
   %cmp.i225 = icmp eq i8 %31, 96
@@ -489,7 +468,7 @@ if.else102:                                       ; preds = %sw.bb95
   br label %return
 
 sw.bb107:                                         ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  %label_.i.i232 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 1
+  %label_.i.i232 = getelementptr inbounds i8, ptr %field, i64 1
   %bf.load.i.i233 = load i8, ptr %label_.i.i232, align 1
   %32 = and i8 %bf.load.i.i233, 96
   %cmp.i234 = icmp eq i8 %32, 96
@@ -515,9 +494,9 @@ sw.default:                                       ; preds = %_ZNK6google8protobu
           to label %invoke.cont124 unwind label %lpad121
 
 invoke.cont124:                                   ; preds = %sw.default
-  %all_names_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 5
+  %all_names_.i = getelementptr inbounds i8, ptr %field, i64 8
   %33 = load ptr, ptr %all_names_.i, align 8
-  %arrayidx.i241 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %33, i64 1
+  %arrayidx.i241 = getelementptr inbounds i8, ptr %33, i64 32
   %call129 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp120, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i241)
           to label %invoke.cont128 unwind label %lpad121
 
@@ -560,7 +539,7 @@ eh.resume:                                        ; preds = %lpad86, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %type_once_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %this, i64 0, i32 7
+  %type_once_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %type_once_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %if.then.i
@@ -591,7 +570,7 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %entry, %if.then.i, %lor.lhs.false.i.i.i, %if.then.i.i.i, %if.then5.i.i.i
-  %type_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %this, i64 0, i32 2
+  %type_.i = getelementptr inbounds i8, ptr %this, i64 2
   %5 = load i8, ptr %type_.i, align 2
   %idxprom = zext i8 %5 to i64
   %arrayidx = getelementptr inbounds [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom
@@ -625,9 +604,9 @@ declare noundef double @_ZNK6google8protobuf10Reflection9GetDoubleERKNS0_7Messag
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN6google8protobuf4util21SimpleFieldComparator11CompareEnumERKNS0_15FieldDescriptorEPKNS0_19EnumValueDescriptorES8_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %value_1, ptr nocapture noundef readonly %value_2) local_unnamed_addr #10 align 2 {
 entry:
-  %number_.i = getelementptr inbounds %"class.google::protobuf::EnumValueDescriptor", ptr %value_1, i64 0, i32 2
+  %number_.i = getelementptr inbounds i8, ptr %value_1, i64 4
   %1 = load i32, ptr %number_.i, align 4
-  %number_.i1 = getelementptr inbounds %"class.google::protobuf::EnumValueDescriptor", ptr %value_2, i64 0, i32 2
+  %number_.i1 = getelementptr inbounds i8, ptr %value_2, i64 4
   %2 = load i32, ptr %number_.i1, align 4
   %cmp = icmp eq i32 %1, %2
   ret i1 %cmp
@@ -683,7 +662,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_202308021
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIN6google8protobuf8internal19FieldDescriptorLite7CppTypeETnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKSA_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %v) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view = alloca %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView", align 8
-  %data_ = getelementptr inbounds %"class.absl::lts_20230802::log_internal::LogMessage", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view, ptr noundef nonnull align 1 %0)
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %view)
@@ -721,11 +700,11 @@ declare noundef zeroext i1 @_ZN6google8protobuf4util18MessageDifferencer7Compare
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf4util21SimpleFieldComparator27SetDefaultFractionAndMarginEdd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, double noundef %fraction, double noundef %margin) local_unnamed_addr #3 align 2 {
 entry:
-  %default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 4
+  %default_tolerance_ = getelementptr inbounds i8, ptr %this, i64 16
   store double %fraction, ptr %default_tolerance_, align 8
-  %ref.tmp.sroa.2.0.default_tolerance_.sroa_idx = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 4, i32 1
+  %ref.tmp.sroa.2.0.default_tolerance_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   store double %margin, ptr %ref.tmp.sroa.2.0.default_tolerance_.sroa_idx, align 8
-  %has_default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 3
+  %has_default_tolerance_ = getelementptr inbounds i8, ptr %this, i64 13
   store i8 1, ptr %has_default_tolerance_, align 1
   ret void
 }
@@ -737,7 +716,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN6google8protobuf4util21SimpleFieldComparator20SetFractionAndMarginEPKNS0_15FieldDescriptorEdd(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %field, double noundef %fraction, double noundef %margin) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %type_once_.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 7
+  %type_once_.i.i = getelementptr inbounds i8, ptr %field, i64 24
   %0 = load ptr, ptr %type_once_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %if.then.i.i
@@ -768,7 +747,7 @@ if.then5.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %entry, %if.then.i.i, %lor.lhs.false.i.i.i.i, %if.then.i.i.i.i, %if.then5.i.i.i.i
-  %type_.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 2
+  %type_.i.i = getelementptr inbounds i8, ptr %field, i64 2
   %5 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %5 to i64
   %arrayidx.i = getelementptr inbounds [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
@@ -820,9 +799,9 @@ cond.false:                                       ; preds = %lor.end
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %cond.false
-  %all_names_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %field, i64 0, i32 5
+  %all_names_.i = getelementptr inbounds i8, ptr %field, i64 8
   %14 = load ptr, ptr %all_names_.i, align 8
-  %arrayidx.i16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %14, i64 1
+  %arrayidx.i16 = getelementptr inbounds i8, ptr %14, i64 32
   %call11 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i16)
           to label %cleanup.action unwind label %lpad
 
@@ -837,7 +816,7 @@ lpad:                                             ; preds = %cond.false, %invoke
   unreachable
 
 cleanup.done:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %lor.end
-  %map_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 5
+  %map_tolerance_ = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load ptr, ptr %map_tolerance_, align 8, !noalias !4
   tail call void @llvm.prefetch.p0(ptr %16, i32 0, i32 1, i32 1), !noalias !4
   %17 = ptrtoint ptr %field to i64
@@ -853,7 +832,7 @@ cleanup.done:                                     ; preds = %_ZNK6google8protobu
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %18 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !7
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %19 = ptrtoint ptr %16 to i64
@@ -863,7 +842,7 @@ cleanup.done:                                     ; preds = %_ZNK6google8protobu
   %conv.i.i.i = and i8 %20, 127
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %slots_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load ptr, ptr %slots_.i.i.i.i, align 8, !noalias !4
   br label %while.body.i.i
 
@@ -915,7 +894,7 @@ if.then.i:                                        ; preds = %for.end.i.i
   %28 = load ptr, ptr %slots_.i.i.i.i, align 8, !noalias !4
   %add.ptr.i3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %28, i64 %call38.i.i
   store ptr %field, ptr %add.ptr.i3.i, align 8, !noalias !4
-  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.82", ptr %add.ptr.i3.i, i64 0, i32 1
+  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !4
   %.pre17.i = load ptr, ptr %slots_.i.i.i.i, align 8, !noalias !4
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16try_emplace_implIRSI_JEEESH_INS1_12raw_hash_setISC_SF_SG_SK_E8iteratorEbEOT_DpOT0_.exit
@@ -940,10 +919,10 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %float_comparison_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 1
+  %float_comparison_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %float_comparison_, align 8
   %cmp2 = icmp eq i32 %0, 0
-  %treat_nan_as_equal_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 2
+  %treat_nan_as_equal_ = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i8, ptr %treat_nan_as_equal_, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp ne i8 %2, 0
@@ -957,12 +936,12 @@ if.else:                                          ; preds = %entry
   br i1 %brmerge, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.else
-  %has_default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 3
+  %has_default_tolerance_ = getelementptr inbounds i8, ptr %this, i64 13
   %5 = load i8, ptr %has_default_tolerance_, align 1
   %6 = and i8 %5, 1
   %tobool16.not = icmp eq i8 %6, 0
-  %default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 4
-  %map_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 5
+  %default_tolerance_ = getelementptr inbounds i8, ptr %this, i64 16
+  %map_tolerance_ = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %map_tolerance_, align 8
   tail call void @llvm.prefetch.p0(ptr %7, i32 0, i32 1, i32 1)
   %8 = ptrtoint ptr %field to i64
@@ -978,13 +957,13 @@ if.end15:                                         ; preds = %if.else
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %9 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !13
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %10 = ptrtoint ptr %7 to i64
   %shr.i.i.i.i.i.i = lshr i64 %10, 12
   %xor.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i, %shr.i.i.i.i.i
-  %slots_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %11 = load ptr, ptr %slots_.i.i.i.i, align 8
   %12 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i = and i8 %12, 127
@@ -1049,7 +1028,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 
 if.end26.thread:                                  ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit
   %20 = extractvalue { ptr, ptr } %call25.pn.i.i, 1
-  %second = getelementptr inbounds %"struct.std::pair", ptr %20, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %20, i64 8
   br label %if.then28
 
 if.end26:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit
@@ -1058,7 +1037,7 @@ if.end26:                                         ; preds = %_ZN4absl12lts_20230
 if.then28:                                        ; preds = %if.end26.thread, %if.end26
   %tolerance.127 = phi ptr [ %second, %if.end26.thread ], [ %default_tolerance_, %if.end26 ]
   %21 = load double, ptr %tolerance.127, align 8
-  %margin = getelementptr inbounds %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", ptr %tolerance.127, i64 0, i32 1
+  %margin = getelementptr inbounds i8, ptr %tolerance.127, i64 8
   %22 = load double, ptr %margin, align 8
   %23 = tail call double @llvm.fabs.f64(double %value_1)
   %24 = fcmp ueq double %23, 0x7FF0000000000000
@@ -1117,10 +1096,10 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %float_comparison_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 1
+  %float_comparison_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %float_comparison_, align 8
   %cmp2 = icmp eq i32 %0, 0
-  %treat_nan_as_equal_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 2
+  %treat_nan_as_equal_ = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i8, ptr %treat_nan_as_equal_, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp ne i8 %2, 0
@@ -1134,12 +1113,12 @@ if.else:                                          ; preds = %entry
   br i1 %brmerge, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.else
-  %has_default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 3
+  %has_default_tolerance_ = getelementptr inbounds i8, ptr %this, i64 13
   %5 = load i8, ptr %has_default_tolerance_, align 1
   %6 = and i8 %5, 1
   %tobool16.not = icmp eq i8 %6, 0
-  %default_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 4
-  %map_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 5
+  %default_tolerance_ = getelementptr inbounds i8, ptr %this, i64 16
+  %map_tolerance_ = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %map_tolerance_, align 8
   tail call void @llvm.prefetch.p0(ptr %7, i32 0, i32 1, i32 1)
   %8 = ptrtoint ptr %field to i64
@@ -1155,13 +1134,13 @@ if.end15:                                         ; preds = %if.else
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %9 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !17
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %10 = ptrtoint ptr %7 to i64
   %shr.i.i.i.i.i.i = lshr i64 %10, 12
   %xor.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i, %shr.i.i.i.i.i
-  %slots_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %slots_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %11 = load ptr, ptr %slots_.i.i.i.i, align 8
   %12 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i = and i8 %12, 127
@@ -1226,7 +1205,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 
 if.end26.thread:                                  ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit
   %20 = extractvalue { ptr, ptr } %call25.pn.i.i, 1
-  %second = getelementptr inbounds %"struct.std::pair", ptr %20, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %20, i64 8
   br label %if.then28
 
 if.end26:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit
@@ -1242,7 +1221,7 @@ if.then28:                                        ; preds = %if.end26.thread, %i
   br i1 %or.cond.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then28
-  %margin = getelementptr inbounds %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", ptr %tolerance.127, i64 0, i32 1
+  %margin = getelementptr inbounds i8, ptr %tolerance.127, i64 8
   %25 = load double, ptr %margin, align 8
   %conv29 = fptrunc double %25 to float
   %26 = load double, ptr %tolerance.127, align 8
@@ -1337,13 +1316,13 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %cmp.i, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %land.rhs
-  %capacity_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %capacity_.i.i.i, align 8
   %cmp.i10 = icmp ugt i64 %4, 16
   br i1 %cmp.i10, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.then13
-  %compressed_tuple_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i64, ptr %compressed_tuple_.i.i.i, align 8
   %mul.i11 = shl i64 %5, 5
   %mul3.i = mul i64 %4, 25
@@ -1371,7 +1350,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
   %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
   %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
-  %compressed_tuple_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1
   store i64 %add, ptr %compressed_tuple_.i, align 8
@@ -1385,7 +1364,7 @@ if.end16:                                         ; preds = %land.lhs.true, %_ZN
   store i64 %sub, ptr %add.ptr.i.i.i13, align 8
   %11 = trunc i64 %hash to i8
   %conv.i = and i8 %11, 127
-  %capacity_.i.i.i16 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i64, ptr %capacity_.i.i.i16, align 8
   %13 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %13, i64 %target.sroa.0.0
@@ -1410,9 +1389,9 @@ define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw
 entry:
   %agg.tmp.i = alloca %"class.std::allocator.11", align 1
   %0 = load ptr, ptr %this, align 8
-  %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
+  %slots_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %slots_.i.i, align 8
-  %capacity_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   store i64 %new_capacity, ptr %capacity_.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %agg.tmp.i)
@@ -1451,7 +1430,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 %new_capacity
   store i8 -1, ptr %arrayidx.i.i.i, align 1
   %div2.i.i.i.i.i = lshr i64 %new_capacity, 3
-  %compressed_tuple_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i64, ptr %compressed_tuple_.i.i.i.i.i, align 8
   %5 = add i64 %div2.i.i.i.i.i, %4
   %sub.i.i20.i.i = sub i64 %new_capacity, %5

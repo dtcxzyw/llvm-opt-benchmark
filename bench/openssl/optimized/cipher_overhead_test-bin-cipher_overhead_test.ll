@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/cipher_overhead_test-bin-cipher_overhe
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ssl_cipher_st = type { i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [16 x i8] c"cipher_overhead\00", align 1
 @.str.1 = private unnamed_addr constant [39 x i8] c"../openssl/test/cipher_overhead_test.c\00", align 1
 @.str.2 = private unnamed_addr constant [28 x i8] c"Skipping disabled cipher %s\00", align 1
@@ -36,20 +34,20 @@ for.body:                                         ; preds = %entry, %for.inc
   %ret.015 = phi i32 [ %ret.1, %for.inc ], [ 1, %entry ]
   %i.014 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
   %call1 = call ptr @ssl3_get_cipher(i32 noundef %i.014) #2
-  %min_dtls = getelementptr inbounds %struct.ssl_cipher_st, ptr %call1, i64 0, i32 10
+  %min_dtls = getelementptr inbounds i8, ptr %call1, i64 52
   %0 = load i32, ptr %min_dtls, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %algorithm_mac.i = getelementptr inbounds %struct.ssl_cipher_st, ptr %call1, i64 0, i32 7
+  %algorithm_mac.i = getelementptr inbounds i8, ptr %call1, i64 40
   %1 = load i32, ptr %algorithm_mac.i, align 8
   %and.i = and i32 %1, 64
   %cmp.not.i = icmp eq i32 %and.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.end6
 
 if.end.i:                                         ; preds = %if.end
-  %algorithm_enc.i = getelementptr inbounds %struct.ssl_cipher_st, ptr %call1, i64 0, i32 6
+  %algorithm_enc.i = getelementptr inbounds i8, ptr %call1, i64 36
   %2 = load i32, ptr %algorithm_enc.i, align 4
   %cmp1.not.i = icmp eq i32 %2, 32
   br i1 %cmp1.not.i, label %cipher_enabled.exit, label %land.lhs.true.i
@@ -69,7 +67,7 @@ cipher_enabled.exit:                              ; preds = %if.end.i, %land.lhs
   br i1 %cmp10.i.not, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %land.lhs.true.i, %cipher_enabled.exit
-  %name = getelementptr inbounds %struct.ssl_cipher_st, ptr %call1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call1, i64 8
   %3 = load ptr, ptr %name, align 8
   %call5 = call i32 (ptr, i32, ptr, ...) @test_skip(ptr noundef nonnull @.str.1, i32 noundef 44, ptr noundef nonnull @.str.2, ptr noundef %3) #2
   br label %for.inc
@@ -80,7 +78,7 @@ if.end6:                                          ; preds = %if.end, %cipher_ena
   %conv = zext i1 %cmp8 to i32
   %call9 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @.str.3, i32 noundef %conv) #2
   %tobool10.not = icmp eq i32 %call9, 0
-  %name12 = getelementptr inbounds %struct.ssl_cipher_st, ptr %call1, i64 0, i32 1
+  %name12 = getelementptr inbounds i8, ptr %call1, i64 8
   %4 = load ptr, ptr %name12, align 8
   br i1 %tobool10.not, label %if.then11, label %if.else
 

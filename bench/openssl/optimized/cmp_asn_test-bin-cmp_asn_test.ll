@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/cmp_asn_test-bin-cmp_asn_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.test_fixture = type { ptr, i32, ptr, ptr }
-
 @rand_data = internal global [16 x i8] zeroinitializer, align 16
 @.str = private unnamed_addr constant [22 x i8] c"test_cmp_asn1_get_int\00", align 1
 @.str.1 = private unnamed_addr constant [27 x i8] c"test_ASN1_OCTET_STRING_set\00", align 1
@@ -55,7 +53,7 @@ entry:
 
 set_up.exit:                                      ; preds = %entry
   store ptr @.str, ptr %call.i, align 8
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 1
+  %expected = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %expected, align 8
   %call.i5 = tail call ptr @ASN1_INTEGER_new() #3
   %call1.i6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 50, ptr noundef nonnull @.str.5, ptr noundef %call.i5) #3
@@ -96,10 +94,10 @@ return.sink.split.i:                              ; preds = %if.end19.i, %if.end
 
 execute_cmp_asn1_get_int_test.exit:               ; preds = %set_up.exit, %return.sink.split.i
   %retval.0.i9 = phi i32 [ 0, %set_up.exit ], [ %retval.0.ph.i, %return.sink.split.i ]
-  %src_string.i = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 2
+  %src_string.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %0 = load ptr, ptr %src_string.i, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %0) #3
-  %tgt_string.i = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 3
+  %tgt_string.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %1 = load ptr, ptr %tgt_string.i, align 8
   %2 = load ptr, ptr %src_string.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
@@ -128,10 +126,10 @@ entry:
 
 set_up.exit:                                      ; preds = %entry
   store ptr @.str.1, ptr %call.i, align 8
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 1
+  %expected = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %expected, align 8
   %call1 = tail call ptr @ASN1_OCTET_STRING_new() #3
-  %tgt_string = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 3
+  %tgt_string = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call1, ptr %tgt_string, align 8
   %call2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 96, ptr noundef nonnull @.str.11, ptr noundef %call1) #3
   %tobool.not = icmp eq i32 %call2, 0
@@ -139,7 +137,7 @@ set_up.exit:                                      ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %set_up.exit
   %call3 = tail call ptr @ASN1_OCTET_STRING_new() #3
-  %src_string = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 2
+  %src_string = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call3, ptr %src_string, align 8
   %call4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 97, ptr noundef nonnull @.str.12, ptr noundef %call3) #3
   %tobool5.not = icmp eq i32 %call4, 0
@@ -155,7 +153,7 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false
   br i1 %tobool11.not, label %if.then12, label %if.then16
 
 if.then12:                                        ; preds = %lor.lhs.false6, %lor.lhs.false, %set_up.exit
-  %src_string.i = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 2
+  %src_string.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %src_string.i, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %1) #3
   %2 = load ptr, ptr %tgt_string, align 8
@@ -218,10 +216,10 @@ entry:
 
 set_up.exit:                                      ; preds = %entry
   store ptr @.str.2, ptr %call.i, align 8
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 1
+  %expected = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %expected, align 8
   %call1 = tail call ptr @ASN1_OCTET_STRING_new() #3
-  %src_string = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 2
+  %src_string = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call1, ptr %src_string, align 8
   %call2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 111, ptr noundef nonnull @.str.12, ptr noundef %call1) #3
   %tobool.not = icmp eq i32 %call2, 0
@@ -229,7 +227,7 @@ set_up.exit:                                      ; preds = %entry
   br i1 %tobool.not, label %if.then11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %set_up.exit
-  %tgt_string = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 3
+  %tgt_string = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %.pre29, ptr %tgt_string, align 8
   %tobool4.not = icmp eq ptr %.pre29, null
   br i1 %tobool4.not, label %if.then11, label %lor.lhs.false5
@@ -246,7 +244,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
 if.then11:                                        ; preds = %lor.lhs.false5, %lor.lhs.false, %set_up.exit
   %0 = phi ptr [ %.pre, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ %.pre29, %set_up.exit ]
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %0) #3
-  %tgt_string.i = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 3
+  %tgt_string.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %1 = load ptr, ptr %tgt_string.i, align 8
   %2 = load ptr, ptr %src_string, align 8
   %cmp.not.i = icmp eq ptr %1, %2

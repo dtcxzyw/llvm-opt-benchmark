@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
-%struct.prov_des_ctx_st = type { %struct.prov_cipher_ctx_st, %union.anon.0, %union.anon.2 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { double, [120 x i8] }
-%union.anon.2 = type { ptr }
 
 @des_ecb = internal constant %struct.prov_cipher_hw_st { ptr @cipher_hw_des_initkey, ptr @cipher_hw_des_ecb_cipher, ptr @cipher_hw_des_copyctx }, align 8
 @des_cbc = internal constant %struct.prov_cipher_hw_st { ptr @cipher_hw_des_initkey, ptr @cipher_hw_des_cbc_cipher, ptr @cipher_hw_des_copyctx }, align 8
@@ -56,8 +51,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_des_initkey(ptr noundef %ctx, ptr noundef %key, i64 %keylen) #1 {
 entry:
-  %dks = getelementptr inbounds %struct.prov_des_ctx_st, ptr %ctx, i64 0, i32 1
-  %dstream = getelementptr inbounds %struct.prov_des_ctx_st, ptr %ctx, i64 0, i32 2
+  %dks = getelementptr inbounds i8, ptr %ctx, i64 192
+  %dstream = getelementptr inbounds i8, ptr %ctx, i64 320
   store ptr null, ptr %dstream, align 8
   tail call void @DES_set_key_unchecked(ptr noundef %key, ptr noundef nonnull %dks) #6
   ret i32 1
@@ -66,15 +61,15 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_des_ecb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
-  %blocksize = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 8
+  %blocksize = getelementptr inbounds i8, ptr %ctx, i64 88
   %0 = load i64, ptr %blocksize, align 8
-  %dks = getelementptr inbounds %struct.prov_des_ctx_st, ptr %ctx, i64 0, i32 1
+  %dks = getelementptr inbounds i8, ptr %ctx, i64 192
   %cmp = icmp ugt i64 %0, %len
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %sub = sub i64 %len, %0
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -98,8 +93,8 @@ return:                                           ; preds = %for.body, %entry
 define internal void @cipher_hw_des_copyctx(ptr noundef %dst, ptr nocapture noundef readonly %src) #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %dst, ptr noundef nonnull align 8 dereferenceable(328) %src, i64 328, i1 false)
-  %dks = getelementptr inbounds %struct.prov_des_ctx_st, ptr %dst, i64 0, i32 1
-  %ks = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %dst, i64 0, i32 20
+  %dks = getelementptr inbounds i8, ptr %dst, i64 192
+  %ks = getelementptr inbounds i8, ptr %dst, i64 176
   store ptr %dks, ptr %ks, align 8
   ret void
 }
@@ -114,8 +109,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_des_cbc_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
-  %dks = getelementptr inbounds %struct.prov_des_ctx_st, ptr %ctx, i64 0, i32 1
-  %dstream = getelementptr inbounds %struct.prov_des_ctx_st, ptr %ctx, i64 0, i32 2
+  %dks = getelementptr inbounds i8, ptr %ctx, i64 192
+  %dstream = getelementptr inbounds i8, ptr %ctx, i64 320
   %0 = load ptr, ptr %dstream, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %while.cond.preheader, label %if.then
@@ -125,12 +120,12 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp220, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %iv3 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %iv3 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
   tail call void %0(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef nonnull %dks, ptr noundef nonnull %iv) #6
   br label %return
 
@@ -157,8 +152,8 @@ while.end:                                        ; preds = %while.body, %while.
   br i1 %cmp6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %while.end
-  %iv8 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc10 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %iv8 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc10 = getelementptr inbounds i8, ptr %ctx, i64 108
   %bf.load11 = load i8, ptr %enc10, align 4
   %bf.lshr12 = lshr i8 %bf.load11, 1
   %bf.clear13 = and i8 %bf.lshr12, 1
@@ -176,15 +171,15 @@ declare void @DES_ncbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 define internal i32 @cipher_hw_des_ofb64_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %num = alloca i32, align 4
-  %num1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 18
+  %num1 = getelementptr inbounds i8, ptr %ctx, i64 160
   %0 = load i32, ptr %num1, align 8
   store i32 %0, ptr %num, align 4
-  %dks = getelementptr inbounds %struct.prov_des_ctx_st, ptr %ctx, i64 0, i32 1
+  %dks = getelementptr inbounds i8, ptr %ctx, i64 192
   %cmp13 = icmp ugt i64 %len, 1073741823
   br i1 %cmp13, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -206,7 +201,7 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %cmp3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %iv4 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %iv4 = getelementptr inbounds i8, ptr %ctx, i64 32
   call void @DES_ofb64_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %len.addr.0.lcssa, ptr noundef nonnull %dks, ptr noundef nonnull %iv4, ptr noundef nonnull %num) #6
   br label %if.end
 
@@ -222,8 +217,8 @@ declare void @DES_ofb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nound
 define internal i32 @cipher_hw_des_cfb64_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %num = alloca i32, align 4
-  %dks = getelementptr inbounds %struct.prov_des_ctx_st, ptr %ctx, i64 0, i32 1
-  %num1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 18
+  %dks = getelementptr inbounds i8, ptr %ctx, i64 192
+  %num1 = getelementptr inbounds i8, ptr %ctx, i64 160
   %0 = load i32, ptr %num1, align 8
   store i32 %0, ptr %num, align 4
   %cmp220.not = icmp eq i64 %len, 0
@@ -231,8 +226,8 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %len, i64 1073741824)
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -269,15 +264,15 @@ define internal i32 @cipher_hw_des_cfb1_cipher(ptr noundef %ctx, ptr nocapture n
 entry:
   %c = alloca [1 x i8], align 1
   %d = alloca [1 x i8], align 1
-  %dks = getelementptr inbounds %struct.prov_des_ctx_st, ptr %ctx, i64 0, i32 1
+  %dks = getelementptr inbounds i8, ptr %ctx, i64 192
   store i8 0, ptr %d, align 1
   %tobool29.not = icmp eq i64 %inl, 0
   br i1 %tobool29.not, label %while.end, label %for.cond.preheader.lr.ph
 
 for.cond.preheader.lr.ph:                         ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %inl, i64 134217728)
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %for.cond.preheader.lr.ph, %for.end
@@ -345,13 +340,13 @@ declare void @DES_cfb_encrypt(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_des_cfb8_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
-  %dks = getelementptr inbounds %struct.prov_des_ctx_st, ptr %ctx, i64 0, i32 1
+  %dks = getelementptr inbounds i8, ptr %ctx, i64 192
   %cmp13 = icmp ugt i64 %inl, 1073741823
   br i1 %cmp13, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -377,8 +372,8 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %iv3 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc5 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %iv3 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc5 = getelementptr inbounds i8, ptr %ctx, i64 108
   %bf.load6 = load i8, ptr %enc5, align 4
   %bf.lshr7 = lshr i8 %bf.load6, 1
   %bf.clear8 = and i8 %bf.lshr7, 1

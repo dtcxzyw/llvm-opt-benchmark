@@ -8,20 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::ios_base::Init" = type { i8 }
 %"class.std::allocator" = type { i8 }
-%"class.cvc5::parser::Smt2Lexer" = type <{ %"class.cvc5::parser::Lexer.base", [4 x i8], %"class.std::vector.3", i8, i8, %"struct.std::array", [6 x i8] }>
-%"class.cvc5::parser::Lexer.base" = type <{ ptr, %"struct.cvc5::parser::Span", %"class.std::__cxx11::basic_string", %"class.std::vector", ptr, i8, [32768 x i8], [7 x i8], i64, i64, i32, i8, [3 x i8], i32 }>
-%"struct.cvc5::parser::Span" = type { %"struct.cvc5::parser::Location", %"struct.cvc5::parser::Location" }
-%"struct.cvc5::parser::Location" = type { i32, i32 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cvc5::parser::Token, std::allocator<cvc5::parser::Token>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::parser::Token, std::allocator<cvc5::parser::Token>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::parser::Token, std::allocator<cvc5::parser::Token>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::parser::Token, std::allocator<cvc5::parser::Token>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array" = type { [256 x i8] }
-%"class.cvc5::parser::Lexer" = type <{ ptr, %"struct.cvc5::parser::Span", %"class.std::__cxx11::basic_string", %"class.std::vector", ptr, i8, [32768 x i8], [7 x i8], i64, i64, i32, i8, [3 x i8], i32, [4 x i8] }>
 %struct._Guard = type { ptr }
 
 $_ZN4cvc56parser9Smt2Lexer18s_extraSymbolCharsB5cxx11E = comdat any
@@ -247,14 +233,14 @@ entry:
   %frombool1 = zext i1 %isSygus to i8
   tail call void @_ZN4cvc56parser5LexerC2Ev(ptr noundef nonnull align 8 dereferenceable(32892) %this)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2LexerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_token = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2
+  %d_token = getelementptr inbounds i8, ptr %this, i64 32896
   tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %d_token) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_token, i8 0, i64 24, i1 false)
-  %d_isStrict = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 3
+  %d_isStrict = getelementptr inbounds i8, ptr %this, i64 32920
   store i8 %frombool, ptr %d_isStrict, align 8
-  %d_isSygus = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 4
+  %d_isSygus = getelementptr inbounds i8, ptr %this, i64 32921
   store i8 %frombool1, ptr %d_isSygus, align 1
-  %d_charClass = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 5
+  %d_charClass = getelementptr inbounds i8, ptr %this, i64 32922
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %d_charClass, i8 0, i64 256, i1 false)
   br label %for.body
 
@@ -309,11 +295,11 @@ for.body63:                                       ; preds = %for.body50, %for.bo
   br i1 %exitcond64.not, label %for.end84, label %for.body63, !llvm.loop !9
 
 for.end84:                                        ; preds = %for.body63
-  %arrayidx.i.i24 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 5, i32 0, i64 48
+  %arrayidx.i.i24 = getelementptr inbounds i8, ptr %this, i64 32970
   %10 = load i8, ptr %arrayidx.i.i24, align 2
   %11 = or i8 %10, 8
   store i8 %11, ptr %arrayidx.i.i24, align 2
-  %arrayidx.i.i25 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 5, i32 0, i64 49
+  %arrayidx.i.i25 = getelementptr inbounds i8, ptr %this, i64 32971
   %12 = load i8, ptr %arrayidx.i.i25, align 1
   %13 = or i8 %12, 8
   store i8 %13, ptr %arrayidx.i.i25, align 1
@@ -353,19 +339,19 @@ for.body128:                                      ; preds = %for.end118, %for.bo
   br i1 %cmp.i28.not, label %for.end140, label %for.body128
 
 for.end140:                                       ; preds = %for.body128, %for.end118
-  %arrayidx.i.i31 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 5, i32 0, i64 32
+  %arrayidx.i.i31 = getelementptr inbounds i8, ptr %this, i64 32954
   %20 = load i8, ptr %arrayidx.i.i31, align 2
   %21 = or i8 %20, 1
   store i8 %21, ptr %arrayidx.i.i31, align 2
-  %arrayidx.i.i32 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 5, i32 0, i64 9
+  %arrayidx.i.i32 = getelementptr inbounds i8, ptr %this, i64 32931
   %22 = load i8, ptr %arrayidx.i.i32, align 1
   %23 = or i8 %22, 1
   store i8 %23, ptr %arrayidx.i.i32, align 1
-  %arrayidx.i.i33 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 5, i32 0, i64 13
+  %arrayidx.i.i33 = getelementptr inbounds i8, ptr %this, i64 32935
   %24 = load i8, ptr %arrayidx.i.i33, align 1
   %25 = or i8 %24, 1
   store i8 %25, ptr %arrayidx.i.i33, align 1
-  %arrayidx.i.i34 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 5, i32 0, i64 10
+  %arrayidx.i.i34 = getelementptr inbounds i8, ptr %this, i64 32932
   %26 = load i8, ptr %arrayidx.i.i34, align 4
   %27 = or i8 %26, 1
   store i8 %27, ptr %arrayidx.i.i34, align 4
@@ -386,7 +372,7 @@ declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK4cvc56parser9Smt2Lexer8tokenStrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33178) %this) unnamed_addr #6 align 2 {
 entry:
-  %d_token = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2
+  %d_token = getelementptr inbounds i8, ptr %this, i64 32896
   %0 = load ptr, ptr %d_token, align 8
   ret ptr %0
 }
@@ -394,7 +380,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc56parser9Smt2Lexer8isStrictEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33178) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_isStrict = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 3
+  %d_isStrict = getelementptr inbounds i8, ptr %this, i64 32920
   %0 = load i8, ptr %d_isStrict, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -404,7 +390,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc56parser9Smt2Lexer7isSygusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33178) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_isSygus = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 4
+  %d_isSygus = getelementptr inbounds i8, ptr %this, i64 32921
   %0 = load i8, ptr %d_isSygus, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -414,9 +400,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN4cvc56parser9Smt2Lexer17nextTokenInternalEv(ptr noundef nonnull align 8 dereferenceable(33178) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
-  %d_token = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2
+  %d_token = getelementptr inbounds i8, ptr %this, i64 32896
   %0 = load ptr, ptr %d_token, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 32904
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIcSaIcEE5clearEv.exit, label %invoke.cont.i.i
@@ -428,7 +414,7 @@ invoke.cont.i.i:                                  ; preds = %cond.end
 _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %cond.end, %invoke.cont.i.i
   %call5 = tail call noundef i32 @_ZN4cvc56parser9Smt2Lexer16computeNextTokenEv(ptr noundef nonnull align 8 dereferenceable(33178) %this), !range !10
   %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 32912
   %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -520,11 +506,11 @@ entry:
   %ref.tmp132 = alloca %"class.std::allocator", align 1
   %ref.tmp149 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp150 = alloca %"class.std::allocator", align 1
-  %d_span.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 1
-  %d_end.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 1, i32 1
+  %d_span.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_end.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <2 x i32>, ptr %d_end.i, align 8
   store <2 x i32> %0, ptr %d_span.i, align 8
-  %d_charClass.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 5
+  %d_charClass.i = getelementptr inbounds i8, ptr %this, i64 32922
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %entry
@@ -559,11 +545,11 @@ for.end:                                          ; preds = %do.end
   %arrayidx.i.i.i.le.le = getelementptr inbounds [256 x i8], ptr %d_charClass.i, i64 0, i64 %conv2.i
   %4 = load <2 x i32>, ptr %d_end.i, align 8
   store <2 x i32> %4, ptr %d_span.i, align 8
-  %d_token.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2
+  %d_token.i = getelementptr inbounds i8, ptr %this, i64 32896
   %conv.i = trunc i32 %call to i8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32904
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32912
   %6 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -967,9 +953,9 @@ if.then102:                                       ; preds = %if.else100
   br i1 %cmp104.not, label %if.end109, label %if.then105
 
 if.then105:                                       ; preds = %if.then102
-  %d_peekedChar.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 11
+  %d_peekedChar.i = getelementptr inbounds i8, ptr %this, i64 32884
   store i8 1, ptr %d_peekedChar.i, align 4
-  %d_chPeeked.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 13
+  %d_chPeeked.i = getelementptr inbounds i8, ptr %this, i64 32888
   store i32 %call103, ptr %d_chPeeked.i, align 8
   br label %return
 
@@ -1122,9 +1108,9 @@ lpad135:                                          ; preds = %invoke.cont134
   br label %eh.resume
 
 if.else140:                                       ; preds = %if.then125
-  %d_peekedChar.i131 = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 11
+  %d_peekedChar.i131 = getelementptr inbounds i8, ptr %this, i64 32884
   store i8 1, ptr %d_peekedChar.i131, align 4
-  %d_chPeeked.i132 = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 13
+  %d_chPeeked.i132 = getelementptr inbounds i8, ptr %this, i64 32888
   store i32 %call126, ptr %d_chPeeked.i132, align 8
   br label %return
 
@@ -1177,53 +1163,54 @@ eh.resume:                                        ; preds = %lpad151, %lpad153, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN4cvc56parser5Lexer8nextCharEv(ptr noundef nonnull align 8 dereferenceable(32892) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_peekedChar = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 11
+  %d_peekedChar = getelementptr inbounds i8, ptr %this, i64 32884
   %0 = load i8, ptr %d_peekedChar, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %d_chPeeked = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 13
+  %d_chPeeked = getelementptr inbounds i8, ptr %this, i64 32888
   %2 = load i32, ptr %d_chPeeked, align 8
   store i8 0, ptr %d_peekedChar, align 4
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %d_bufferPos.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 8
+  %d_bufferPos.i = getelementptr inbounds i8, ptr %this, i64 32864
   %3 = load i64, ptr %d_bufferPos.i, align 8
-  %d_bufferEnd.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 9
+  %d_bufferEnd.i = getelementptr inbounds i8, ptr %this, i64 32872
   %4 = load i64, ptr %d_bufferEnd.i, align 8
   %cmp.i = icmp ult i64 %3, %4
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
-  %arrayidx.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 6, i64 %3
+  %d_buffer.i = getelementptr inbounds i8, ptr %this, i64 89
+  %arrayidx.i = getelementptr inbounds [32768 x i8], ptr %d_buffer.i, i64 0, i64 %3
   %5 = load i8, ptr %arrayidx.i, align 1
   %conv.i = sext i8 %5 to i32
-  %d_ch.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 10
+  %d_ch.i = getelementptr inbounds i8, ptr %this, i64 32880
   store i32 %conv.i, ptr %d_ch.i, align 8
   %inc.i = add nuw i64 %3, 1
   store i64 %inc.i, ptr %d_bufferPos.i, align 8
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit
 
 if.else.i:                                        ; preds = %if.else
-  %d_isInteractive.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 5
+  %d_isInteractive.i = getelementptr inbounds i8, ptr %this, i64 88
   %6 = load i8, ptr %d_isInteractive.i, align 8
   %7 = and i8 %6, 1
   %tobool.not.i = icmp eq i8 %7, 0
-  %d_istream7.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 4
+  %d_istream7.i = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %d_istream7.i, align 8
   br i1 %tobool.not.i, label %if.else6.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.else.i
   %call.i = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %d_ch5.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 10
+  %d_ch5.i = getelementptr inbounds i8, ptr %this, i64 32880
   store i32 %call.i, ptr %d_ch5.i, align 8
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit
 
 if.else6.i:                                       ; preds = %if.else.i
-  %d_buffer8.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 6
+  %d_buffer8.i = getelementptr inbounds i8, ptr %this, i64 89
   %call9.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %d_buffer8.i, i64 noundef 32768)
   %9 = load ptr, ptr %d_istream7.i, align 8
   %call11.i = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
@@ -1232,7 +1219,7 @@ if.else6.i:                                       ; preds = %if.else.i
   br i1 %cmp14.i, label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread, label %if.else18.i
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.thread: ; preds = %if.else6.i
-  %d_ch16.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 10
+  %d_ch16.i = getelementptr inbounds i8, ptr %this, i64 32880
   store i32 -1, ptr %d_ch16.i, align 8
   store i64 0, ptr %d_bufferPos.i, align 8
   br label %if.else6
@@ -1240,7 +1227,7 @@ _ZN4cvc56parser5Lexer12readNextCharEv.exit.thread: ; preds = %if.else6.i
 if.else18.i:                                      ; preds = %if.else6.i
   %10 = load i8, ptr %d_buffer8.i, align 1
   %conv21.i = sext i8 %10 to i32
-  %d_ch22.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 10
+  %d_ch22.i = getelementptr inbounds i8, ptr %this, i64 32880
   store i32 %conv21.i, ptr %d_ch22.i, align 8
   store i64 1, ptr %d_bufferPos.i, align 8
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit
@@ -1251,17 +1238,17 @@ _ZN4cvc56parser5Lexer12readNextCharEv.exit:       ; preds = %if.then.i, %if.then
   br i1 %cmp, label %if.then3, label %if.else6
 
 if.then3:                                         ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit
-  %d_end = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 1, i32 1
+  %d_end = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i32, ptr %d_end, align 8
   %inc = add i32 %12, 1
   store i32 %inc, ptr %d_end, align 8
-  %d_column = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 1, i32 1, i32 1
+  %d_column = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %d_column, align 4
   br label %if.end11
 
 if.else6:                                         ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread, %_ZN4cvc56parser5Lexer12readNextCharEv.exit
   %13 = phi i32 [ -1, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread ], [ %11, %_ZN4cvc56parser5Lexer12readNextCharEv.exit ]
-  %d_column9 = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 1, i32 1, i32 1
+  %d_column9 = getelementptr inbounds i8, ptr %this, i64 20
   %14 = load i32, ptr %d_column9, align 4
   %inc10 = add i32 %14, 1
   store i32 %inc10, ptr %d_column9, align 4
@@ -1275,11 +1262,11 @@ if.end11:                                         ; preds = %if.then3, %if.else6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4cvc56parser9Smt2Lexer11pushToTokenEi(ptr noundef nonnull align 8 dereferenceable(33178) %this, i32 noundef %ch) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_token = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2
+  %d_token = getelementptr inbounds i8, ptr %this, i64 32896
   %conv = trunc i32 %ch to i8
-  %_M_finish.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 32904
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 32912
   %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -1352,7 +1339,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %if.then.i.i, %_ZNSt
 define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2Lexer21parseNonEmptyCharListENS1_14CharacterClassE(ptr noundef nonnull align 8 dereferenceable(33178) %this, i32 noundef %cc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef i32 @_ZN4cvc56parser5Lexer8nextCharEv(ptr noundef nonnull align 8 dereferenceable(32892) %this)
-  %d_charClass.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 5
+  %d_charClass.i = getelementptr inbounds i8, ptr %this, i64 32922
   %0 = and i32 %call, 255
   %conv2.i = zext nneg i32 %0 to i64
   %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr %d_charClass.i, i64 0, i64 %conv2.i
@@ -1363,11 +1350,11 @@ entry:
   br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %d_token.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2
+  %d_token.i = getelementptr inbounds i8, ptr %this, i64 32896
   %conv.i = trunc i32 %call to i8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32904
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32912
   %3 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -1450,11 +1437,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %d_token.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2
+  %d_token.i = getelementptr inbounds i8, ptr %this, i64 32896
   %conv.i = trunc i32 %chc to i8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32904
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32912
   %1 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -1527,7 +1514,7 @@ return:                                           ; preds = %_ZNSt6vectorIcSaIcE
 define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2Lexer9parseCharENS1_14CharacterClassE(ptr noundef nonnull align 8 dereferenceable(33178) %this, i32 noundef %cc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef i32 @_ZN4cvc56parser5Lexer8nextCharEv(ptr noundef nonnull align 8 dereferenceable(32892) %this)
-  %d_charClass.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 5
+  %d_charClass.i = getelementptr inbounds i8, ptr %this, i64 32922
   %0 = and i32 %call, 255
   %conv2.i = zext nneg i32 %0 to i64
   %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr %d_charClass.i, i64 0, i64 %conv2.i
@@ -1538,11 +1525,11 @@ entry:
   br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %d_token.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2
+  %d_token.i = getelementptr inbounds i8, ptr %this, i64 32896
   %conv.i = trunc i32 %call to i8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32904
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32912
   %3 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -1615,7 +1602,7 @@ return:                                           ; preds = %_ZNSt6vectorIcSaIcE
 define hidden void @_ZN4cvc56parser9Smt2Lexer13parseCharListENS1_14CharacterClassE(ptr noundef nonnull align 8 dereferenceable(33178) %this, i32 noundef %cc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call4 = tail call noundef i32 @_ZN4cvc56parser5Lexer8nextCharEv(ptr noundef nonnull align 8 dereferenceable(32892) %this)
-  %d_charClass.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 5
+  %d_charClass.i = getelementptr inbounds i8, ptr %this, i64 32922
   %0 = and i32 %call4, 255
   %conv2.i5 = zext nneg i32 %0 to i64
   %arrayidx.i.i.i6 = getelementptr inbounds [256 x i8], ptr %d_charClass.i, i64 0, i64 %conv2.i5
@@ -1626,16 +1613,16 @@ entry:
   br i1 %tobool.i.not9, label %if.then, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %d_token.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2
-  %_M_finish.i.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %d_token.i = getelementptr inbounds i8, ptr %this, i64 32896
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32904
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32912
   br label %if.end
 
 if.then:                                          ; preds = %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit, %entry
   %call.lcssa = phi i32 [ %call4, %entry ], [ %call, %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit ]
-  %d_peekedChar.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 11
+  %d_peekedChar.i = getelementptr inbounds i8, ptr %this, i64 32884
   store i8 1, ptr %d_peekedChar.i, align 4
-  %d_chPeeked.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 13
+  %d_chPeeked.i = getelementptr inbounds i8, ptr %this, i64 32888
   store i32 %call.lcssa, ptr %d_chPeeked.i, align 8
   ret void
 
@@ -1722,7 +1709,7 @@ _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %if.then.i.i.i, %_ZN
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4cvc56parser9Smt2Lexer21tokenizeCurrentSymbolEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33178) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %d_token = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2
+  %d_token = getelementptr inbounds i8, ptr %this, i64 32896
   %0 = load ptr, ptr %d_token, align 8
   %1 = load i8, ptr %0, align 1
   %conv = sext i8 %1 to i32
@@ -1735,7 +1722,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32904
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -1750,7 +1737,7 @@ land.lhs.true:                                    ; preds = %sw.bb
   br i1 %cmp7, label %return, label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
-  %_M_finish.i1 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i1 = getelementptr inbounds i8, ptr %this, i64 32904
   %4 = load ptr, ptr %_M_finish.i1, align 8
   %sub.ptr.lhs.cast.i2 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i3 = ptrtoint ptr %0 to i64
@@ -1771,7 +1758,7 @@ land.lhs.true17:                                  ; preds = %land.lhs.true12
   br i1 %cmp21, label %return, label %sw.epilog
 
 sw.bb24:                                          ; preds = %entry
-  %_M_finish.i7 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i7 = getelementptr inbounds i8, ptr %this, i64 32904
   %7 = load ptr, ptr %_M_finish.i7, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i9 = ptrtoint ptr %0 to i64
@@ -1792,7 +1779,7 @@ land.lhs.true33:                                  ; preds = %land.lhs.true28
   br i1 %cmp37, label %return, label %sw.epilog
 
 sw.bb40:                                          ; preds = %entry
-  %_M_finish.i13 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i13 = getelementptr inbounds i8, ptr %this, i64 32904
   %10 = load ptr, ptr %_M_finish.i13, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %0 to i64
@@ -1825,7 +1812,7 @@ land.lhs.true59:                                  ; preds = %land.lhs.true54
   br i1 %cmp63, label %return, label %sw.epilog
 
 sw.bb66:                                          ; preds = %entry
-  %_M_finish.i21 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i21 = getelementptr inbounds i8, ptr %this, i64 32904
   %15 = load ptr, ptr %_M_finish.i21, align 8
   %sub.ptr.lhs.cast.i22 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i23 = ptrtoint ptr %0 to i64
@@ -1845,7 +1832,7 @@ return:                                           ; preds = %sw.bb66, %land.lhs.
 define linkonce_odr hidden void @_ZN4cvc56parser9Smt2LexerD2Ev(ptr noundef nonnull align 8 dereferenceable(33178) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2LexerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_token = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2
+  %d_token = getelementptr inbounds i8, ptr %this, i64 32896
   %0 = load ptr, ptr %d_token, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i
@@ -1857,7 +1844,7 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %d_token) #16
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser5LexerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_peeked.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 3
+  %d_peeked.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %d_peeked.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4cvc56parser5LexerD2Ev.exit, label %if.then.i.i.i.i
@@ -1867,7 +1854,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIcSaIcE
   br label %_ZN4cvc56parser5LexerD2Ev.exit
 
 _ZN4cvc56parser5LexerD2Ev.exit:                   ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit, %if.then.i.i.i.i
-  %d_inputName.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 2
+  %d_inputName.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i) #16
   ret void
 }
@@ -1876,7 +1863,7 @@ _ZN4cvc56parser5LexerD2Ev.exit:                   ; preds = %_ZNSt6vectorIcSaIcE
 define linkonce_odr hidden void @_ZN4cvc56parser9Smt2LexerD0Ev(ptr noundef nonnull align 8 dereferenceable(33178) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2LexerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_token.i = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this, i64 0, i32 2
+  %d_token.i = getelementptr inbounds i8, ptr %this, i64 32896
   %0 = load ptr, ptr %d_token.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %if.then.i.i.i.i
@@ -1888,7 +1875,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %d_token.i) #16
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser5LexerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_peeked.i.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 3
+  %d_peeked.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %d_peeked.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4cvc56parser9Smt2LexerD2Ev.exit, label %if.then.i.i.i.i.i
@@ -1898,7 +1885,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIcSaIcE
   br label %_ZN4cvc56parser9Smt2LexerD2Ev.exit
 
 _ZN4cvc56parser9Smt2LexerD2Ev.exit:               ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit.i, %if.then.i.i.i.i.i
-  %d_inputName.i.i = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this, i64 0, i32 2
+  %d_inputName.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void

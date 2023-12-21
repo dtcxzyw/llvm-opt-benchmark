@@ -28,10 +28,10 @@ entry:
   br i1 %cmp57, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 3
-  %st_size.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 8
-  %st_mode.i19 = getelementptr inbounds %struct.stat, ptr %st.i15, i64 0, i32 3
-  %st_size.i28 = getelementptr inbounds %struct.stat, ptr %st.i15, i64 0, i32 8
+  %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
+  %st_size.i = getelementptr inbounds i8, ptr %st.i, i64 48
+  %st_mode.i19 = getelementptr inbounds i8, ptr %st.i15, i64 24
+  %st_size.i28 = getelementptr inbounds i8, ptr %st.i15, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end21

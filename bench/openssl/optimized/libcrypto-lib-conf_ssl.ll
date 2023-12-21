@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ssl_conf_name_st = type { ptr, ptr, i64 }
 %struct.ssl_conf_cmd_st = type { ptr, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
 
 @ssl_names = internal unnamed_addr global ptr null, align 8
 @ssl_names_count = internal unnamed_addr global i64 0, align 8
@@ -59,7 +58,7 @@ if.then4:                                         ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.07, 1
-  %incdec.ptr = getelementptr inbounds %struct.ssl_conf_name_st, ptr %nm.08, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %nm.08, i64 24
   %exitcond.not = icmp eq i64 %inc, %0
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
@@ -77,7 +76,7 @@ entry:
   %arrayidx = getelementptr inbounds %struct.ssl_conf_cmd_st, ptr %cmd, i64 %idx
   %0 = load ptr, ptr %arrayidx, align 8
   store ptr %0, ptr %cmdstr, align 8
-  %arg3 = getelementptr inbounds %struct.ssl_conf_cmd_st, ptr %cmd, i64 %idx, i32 1
+  %arg3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %arg3, align 8
   store ptr %1, ptr %arg, align 8
   ret void
@@ -127,9 +126,10 @@ if.end11:                                         ; preds = %if.end
 for.body:                                         ; preds = %if.end11, %for.inc77
   %i.052 = phi i64 [ %inc78, %for.inc77 ], [ 0, %if.end11 ]
   %0 = load ptr, ptr @ssl_names, align 8
+  %add.ptr = getelementptr inbounds %struct.ssl_conf_name_st, ptr %0, i64 %i.052
   %conv15 = trunc i64 %i.052 to i32
   %call16 = tail call ptr @OPENSSL_sk_value(ptr noundef %call1, i32 noundef %conv15) #7
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call16, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call16, i64 16
   %1 = load ptr, ptr %value, align 8
   %call17 = tail call ptr @NCONF_get_section(ptr noundef %cnf, ptr noundef %1) #7
   %call19 = tail call i32 @OPENSSL_sk_num(ptr noundef %call17) #7
@@ -137,20 +137,19 @@ for.body:                                         ; preds = %if.end11, %for.inc7
   br i1 %cmp20, label %if.then22, label %if.end28
 
 if.then22:                                        ; preds = %for.body
-  %value.le = getelementptr inbounds %struct.CONF_VALUE, ptr %call16, i64 0, i32 2
+  %value.le = getelementptr inbounds i8, ptr %call16, i64 16
   %cmp24 = icmp eq ptr %call17, null
   %cond26 = select i1 %cmp24, i32 118, i32 117
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 96, ptr noundef nonnull @__func__.ssl_module_init) #7
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call16, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call16, i64 8
   %2 = load ptr, ptr %name, align 8
   %3 = load ptr, ptr %value.le, align 8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 14, i32 noundef %cond26, ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %3) #7
   br label %if.then82
 
 if.end28:                                         ; preds = %for.body
-  %add.ptr = getelementptr inbounds %struct.ssl_conf_name_st, ptr %0, i64 %i.052
-  %name29 = getelementptr inbounds %struct.CONF_VALUE, ptr %call16, i64 0, i32 1
+  %name29 = getelementptr inbounds i8, ptr %call16, i64 8
   %4 = load ptr, ptr %name29, align 8
   %call30 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 100) #7
   store ptr %call30, ptr %add.ptr, align 8
@@ -162,13 +161,13 @@ if.end36:                                         ; preds = %if.end28
   %conv39 = sext i32 %call38 to i64
   %mul40 = shl nsw i64 %conv39, 4
   %call41 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %mul40, ptr noundef nonnull @.str.1, i32 noundef 104) #7
-  %cmds42 = getelementptr inbounds %struct.ssl_conf_name_st, ptr %0, i64 %i.052, i32 1
+  %cmds42 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %call41, ptr %cmds42, align 8
   %cmp44 = icmp eq ptr %call41, null
   br i1 %cmp44, label %if.then82, label %if.end47
 
 if.end47:                                         ; preds = %if.end36
-  %cmd_count = getelementptr inbounds %struct.ssl_conf_name_st, ptr %0, i64 %i.052, i32 2
+  %cmd_count = getelementptr inbounds i8, ptr %add.ptr, i64 16
   store i64 %conv39, ptr %cmd_count, align 8
   %cmp4948.not = icmp eq i32 %call38, 0
   br i1 %cmp4948.not, label %for.inc77, label %for.body51
@@ -184,7 +183,7 @@ for.body51:                                       ; preds = %if.end47, %for.cond
   %call55 = tail call ptr @OPENSSL_sk_value(ptr noundef %call17, i32 noundef %conv54) #7
   %5 = load ptr, ptr %cmds42, align 8
   %add.ptr57 = getelementptr inbounds %struct.ssl_conf_cmd_st, ptr %5, i64 %j.049
-  %name58 = getelementptr inbounds %struct.CONF_VALUE, ptr %call55, i64 0, i32 1
+  %name58 = getelementptr inbounds i8, ptr %call55, i64 8
   %6 = load ptr, ptr %name58, align 8
   %call59 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 46) #6
   %cmp60.not = icmp eq ptr %call59, null
@@ -192,10 +191,10 @@ for.body51:                                       ; preds = %if.end47, %for.cond
   %name52.0 = select i1 %cmp60.not, ptr %6, ptr %incdec.ptr
   %call65 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %name52.0, ptr noundef nonnull @.str.1, i32 noundef 119) #7
   store ptr %call65, ptr %add.ptr57, align 8
-  %value67 = getelementptr inbounds %struct.CONF_VALUE, ptr %call55, i64 0, i32 2
+  %value67 = getelementptr inbounds i8, ptr %call55, i64 16
   %7 = load ptr, ptr %value67, align 8
   %call68 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef 120) #7
-  %arg = getelementptr inbounds %struct.ssl_conf_cmd_st, ptr %5, i64 %j.049, i32 1
+  %arg = getelementptr inbounds i8, ptr %add.ptr57, i64 8
   store ptr %call68, ptr %arg, align 8
   %8 = load ptr, ptr %add.ptr57, align 8
   %cmp70 = icmp eq ptr %8, null
@@ -236,13 +235,13 @@ for.body:                                         ; preds = %for.cond.preheader,
   %add.ptr = getelementptr inbounds %struct.ssl_conf_name_st, ptr %2, i64 %i.013
   %3 = load ptr, ptr %add.ptr, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 49) #7
-  %cmd_count = getelementptr inbounds %struct.ssl_conf_name_st, ptr %2, i64 %i.013, i32 2
+  %cmd_count = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %4 = load i64, ptr %cmd_count, align 8
   %cmp310.not = icmp eq i64 %4, 0
   br i1 %cmp310.not, label %for.end, label %for.body4.lr.ph
 
 for.body4.lr.ph:                                  ; preds = %for.body
-  %cmds = getelementptr inbounds %struct.ssl_conf_name_st, ptr %2, i64 %i.013, i32 1
+  %cmds = getelementptr inbounds i8, ptr %add.ptr, i64 8
   br label %for.body4
 
 for.body4:                                        ; preds = %for.body4.lr.ph, %for.body4
@@ -261,7 +260,7 @@ for.body4:                                        ; preds = %for.body4.lr.ph, %f
   br i1 %cmp3, label %for.body4, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body4, %for.body
-  %cmds7 = getelementptr inbounds %struct.ssl_conf_name_st, ptr %2, i64 %i.013, i32 1
+  %cmds7 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %10 = load ptr, ptr %cmds7, align 8
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str.1, i32 noundef 54) #7
   %inc9 = add nuw i64 %i.013, 1

@@ -10,15 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ADB_TABLE_st = type { i64, %struct.ASN1_TEMPLATE_st }
 %struct.asn1_string_st = type { i32, i32, ptr, i64 }
 %struct.CMS_SharedInfo = type { ptr, ptr, ptr }
-%struct.CMS_SignerInfo_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CMS_RecipientEncryptedKey_st = type { ptr, ptr, ptr }
-%struct.CMS_KeyAgreeRecipientInfo_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CMS_RecipientInfo_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.CMS_KeyTransRecipientInfo_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CMS_KEKRecipientInfo_st = type { i32, ptr, ptr, ptr, ptr, i64, ptr }
-%struct.CMS_PasswordRecipientInfo_st = type { i32, ptr, ptr, ptr, ptr, i64, ptr }
-%struct.ASN1_STREAM_ARG_st = type { ptr, ptr, ptr }
 
 @CMS_IssuerAndSerialNumber_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @CMS_IssuerAndSerialNumber_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
 @CMS_IssuerAndSerialNumber_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.24, ptr @X509_NAME_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.25, ptr @ASN1_INTEGER_it }], align 16
@@ -400,26 +391,26 @@ entry:
   store i8 %conv, ptr %kl, align 1
   %shr1 = lshr i32 %shl, 16
   %conv3 = trunc i32 %shr1 to i8
-  %arrayidx4 = getelementptr inbounds [4 x i8], ptr %kl, i64 0, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %kl, i64 1
   store i8 %conv3, ptr %arrayidx4, align 1
   %shr5 = lshr i32 %shl, 8
   %conv7 = trunc i32 %shr5 to i8
-  %arrayidx8 = getelementptr inbounds [4 x i8], ptr %kl, i64 0, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %kl, i64 2
   store i8 %conv7, ptr %arrayidx8, align 1
   %conv10 = trunc i32 %shl to i8
-  %arrayidx11 = getelementptr inbounds [4 x i8], ptr %kl, i64 0, i64 3
+  %arrayidx11 = getelementptr inbounds i8, ptr %kl, i64 3
   store i8 %conv10, ptr %arrayidx11, align 1
   store i32 4, ptr %oklen, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %oklen, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %oklen, i64 8
   store ptr %kl, ptr %data, align 8
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %oklen, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %oklen, i64 4
   store i32 4, ptr %type, align 4
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %oklen, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %oklen, i64 16
   store i64 0, ptr %flags, align 8
   store ptr %kekalg, ptr %ecsi, align 8
-  %entityUInfo = getelementptr inbounds %struct.CMS_SharedInfo, ptr %ecsi, i64 0, i32 1
+  %entityUInfo = getelementptr inbounds i8, ptr %ecsi, i64 8
   store ptr %ukm, ptr %entityUInfo, align 8
-  %suppPubInfo = getelementptr inbounds %struct.CMS_SharedInfo, ptr %ecsi, i64 0, i32 2
+  %suppPubInfo = getelementptr inbounds i8, ptr %ecsi, i64 16
   store ptr %oklen, ptr %suppPubInfo, align 8
   %call12 = call i32 @ASN1_item_i2d(ptr noundef nonnull %ecsi, ptr noundef %pder, ptr noundef nonnull @CMS_SharedInfo_it.local_it) #3
   ret i32 %call12
@@ -467,13 +458,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pval, align 8
-  %pkey = getelementptr inbounds %struct.CMS_SignerInfo_st, ptr %0, i64 0, i32 8
+  %pkey = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef %1) #3
-  %signer = getelementptr inbounds %struct.CMS_SignerInfo_st, ptr %0, i64 0, i32 7
+  %signer = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load ptr, ptr %signer, align 8
   tail call void @X509_free(ptr noundef %2) #3
-  %mctx = getelementptr inbounds %struct.CMS_SignerInfo_st, ptr %0, i64 0, i32 9
+  %mctx = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %mctx, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %3) #3
   br label %if.end
@@ -520,7 +511,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pval, align 8
-  %pkey = getelementptr inbounds %struct.CMS_RecipientEncryptedKey_st, ptr %0, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef %1) #3
   br label %if.end
@@ -548,22 +539,22 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @EVP_CIPHER_CTX_new() #3
-  %ctx = getelementptr inbounds %struct.CMS_KeyAgreeRecipientInfo_st, ptr %0, i64 0, i32 6
+  %ctx = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %call, ptr %ctx, align 8
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
   tail call void @EVP_CIPHER_CTX_set_flags(ptr noundef nonnull %call, i32 noundef 1) #3
-  %pctx = getelementptr inbounds %struct.CMS_KeyAgreeRecipientInfo_st, ptr %0, i64 0, i32 5
+  %pctx = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %pctx, align 8
   br label %return
 
 if.then6:                                         ; preds = %entry
-  %pctx7 = getelementptr inbounds %struct.CMS_KeyAgreeRecipientInfo_st, ptr %0, i64 0, i32 5
+  %pctx7 = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %pctx7, align 8
   tail call void @EVP_PKEY_CTX_free(ptr noundef %1) #3
-  %ctx8 = getelementptr inbounds %struct.CMS_KeyAgreeRecipientInfo_st, ptr %0, i64 0, i32 6
+  %ctx8 = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %ctx8, align 8
   tail call void @EVP_CIPHER_CTX_free(ptr noundef %2) #3
   br label %return
@@ -609,35 +600,35 @@ if.then:                                          ; preds = %entry
   ]
 
 if.then2:                                         ; preds = %if.then
-  %d = getelementptr inbounds %struct.CMS_RecipientInfo_st, ptr %0, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %d, align 8
-  %pkey = getelementptr inbounds %struct.CMS_KeyTransRecipientInfo_st, ptr %2, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef %3) #3
-  %recip = getelementptr inbounds %struct.CMS_KeyTransRecipientInfo_st, ptr %2, i64 0, i32 4
+  %recip = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load ptr, ptr %recip, align 8
   tail call void @X509_free(ptr noundef %4) #3
-  %pctx = getelementptr inbounds %struct.CMS_KeyTransRecipientInfo_st, ptr %2, i64 0, i32 6
+  %pctx = getelementptr inbounds i8, ptr %2, i64 48
   %5 = load ptr, ptr %pctx, align 8
   tail call void @EVP_PKEY_CTX_free(ptr noundef %5) #3
   br label %if.end14
 
 if.then5:                                         ; preds = %if.then
-  %d6 = getelementptr inbounds %struct.CMS_RecipientInfo_st, ptr %0, i64 0, i32 1
+  %d6 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %d6, align 8
-  %key = getelementptr inbounds %struct.CMS_KEKRecipientInfo_st, ptr %6, i64 0, i32 4
+  %key = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load ptr, ptr %key, align 8
-  %keylen = getelementptr inbounds %struct.CMS_KEKRecipientInfo_st, ptr %6, i64 0, i32 5
+  %keylen = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load i64, ptr %keylen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %7, i64 noundef %8, ptr noundef nonnull @.str.85, i32 noundef 211) #3
   br label %if.end14
 
 if.then10:                                        ; preds = %if.then
-  %d11 = getelementptr inbounds %struct.CMS_RecipientInfo_st, ptr %0, i64 0, i32 1
+  %d11 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %d11, align 8
-  %pass = getelementptr inbounds %struct.CMS_PasswordRecipientInfo_st, ptr %9, i64 0, i32 4
+  %pass = getelementptr inbounds i8, ptr %9, i64 32
   %10 = load ptr, ptr %pass, align 8
-  %passlen = getelementptr inbounds %struct.CMS_PasswordRecipientInfo_st, ptr %9, i64 0, i32 5
+  %passlen = getelementptr inbounds i8, ptr %9, i64 40
   %11 = load i64, ptr %passlen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str.85, i32 noundef 214) #3
   br label %if.end14
@@ -688,7 +679,7 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.then
-  %boundary = getelementptr inbounds %struct.ASN1_STREAM_ARG_st, ptr %exarg, i64 0, i32 2
+  %boundary = getelementptr inbounds i8, ptr %exarg, i64 16
   %call = tail call i32 @CMS_stream(ptr noundef nonnull %boundary, ptr noundef %0) #3
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %sw.bb3
@@ -696,13 +687,13 @@ sw.bb:                                            ; preds = %if.then
 sw.bb3:                                           ; preds = %sw.bb, %if.then
   %1 = load ptr, ptr %exarg, align 8
   %call4 = tail call ptr @CMS_dataInit(ptr noundef %0, ptr noundef %1) #3
-  %ndef_bio = getelementptr inbounds %struct.ASN1_STREAM_ARG_st, ptr %exarg, i64 0, i32 1
+  %ndef_bio = getelementptr inbounds i8, ptr %exarg, i64 8
   store ptr %call4, ptr %ndef_bio, align 8
   %tobool6.not = icmp eq ptr %call4, null
   br i1 %tobool6.not, label %return, label %sw.epilog
 
 sw.bb9:                                           ; preds = %if.then, %if.then
-  %ndef_bio10 = getelementptr inbounds %struct.ASN1_STREAM_ARG_st, ptr %exarg, i64 0, i32 1
+  %ndef_bio10 = getelementptr inbounds i8, ptr %exarg, i64 8
   %2 = load ptr, ptr %ndef_bio10, align 8
   %call11 = tail call i32 @CMS_dataFinal(ptr noundef %0, ptr noundef %2) #3
   %cmp12 = icmp slt i32 %call11, 1

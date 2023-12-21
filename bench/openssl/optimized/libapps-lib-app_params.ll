@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libapps-lib-app_params.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-
 @bio_out = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [27 x i8] c"%*sEmpty list of %s (!!!)\0A\00", align 1
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -56,7 +54,7 @@ if.else3:                                         ; preds = %if.else
 for.body:                                         ; preds = %if.else3, %describe_param_type.exit
   %3 = phi ptr [ %8, %describe_param_type.exit ], [ %2, %if.else3 ]
   %pdefs.addr.09 = phi ptr [ %incdec.ptr, %describe_param_type.exit ], [ %pdefs, %if.else3 ]
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %pdefs.addr.09, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %pdefs.addr.09, i64 8
   %4 = load i32, ptr %data_type.i, align 8
   switch i32 %4, label %sw.default.i [
     i32 2, label %sw.bb.i
@@ -118,7 +116,7 @@ if.then20.i:                                      ; preds = %if.then15.i
 if.end26.i:                                       ; preds = %if.then20.i, %if.then15.i, %sw.epilog.i
   %bufsz.addr.2.i = phi i64 [ %sub24.i, %if.then20.i ], [ %bufsz.addr.1.i, %if.then15.i ], [ %bufsz.addr.1.i, %sw.epilog.i ]
   %buf.addr.2.i = phi ptr [ %add.ptr22.i, %if.then20.i ], [ %buf.addr.1.i, %if.then15.i ], [ %buf.addr.1.i, %sw.epilog.i ]
-  %data_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %pdefs.addr.09, i64 0, i32 3
+  %data_size.i = getelementptr inbounds i8, ptr %pdefs.addr.09, i64 24
   %6 = load i64, ptr %data_size.i, align 8
   %cmp27.i = icmp eq i64 %6, 0
   br i1 %cmp27.i, label %if.then29.i, label %if.else.i
@@ -139,7 +137,7 @@ describe_param_type.exit:                         ; preds = %if.then29.i, %if.el
   store i8 0, ptr %buf.addr.3.i, align 1
   %7 = load ptr, ptr @bio_out, align 8
   %call9 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef nonnull @.str.3, i32 noundef %indent, ptr noundef nonnull @.str.1, ptr noundef nonnull %buf) #4
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %pdefs.addr.09, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %pdefs.addr.09, i64 40
   %8 = load ptr, ptr %incdec.ptr, align 8
   %cmp6.not = icmp eq ptr %8, null
   br i1 %cmp6.not, label %return, label %for.body, !llvm.loop !4
@@ -157,7 +155,7 @@ entry:
   %u = alloca i64, align 8
   %0 = load ptr, ptr %p, align 8
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %indent, ptr noundef nonnull @.str.1, ptr noundef %0)
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %1 = load i32, ptr %data_type, align 8
   switch i32 %1, label %sw.default [
     i32 2, label %sw.bb
@@ -200,7 +198,7 @@ if.else9:                                         ; preds = %sw.bb4
 
 sw.bb12:                                          ; preds = %entry
   %6 = load ptr, ptr @bio_out, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %7 = load ptr, ptr %data, align 8
   %8 = load ptr, ptr %7, align 8
   %call13 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef %8) #4
@@ -208,21 +206,21 @@ sw.bb12:                                          ; preds = %entry
 
 sw.bb14:                                          ; preds = %entry
   %9 = load ptr, ptr @bio_out, align 8
-  %data15 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data15 = getelementptr inbounds i8, ptr %p, i64 16
   %10 = load ptr, ptr %data15, align 8
   %call16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.8, ptr noundef %10) #4
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %entry, %entry
   %11 = load ptr, ptr @bio_out, align 8
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %12 = load i64, ptr %data_size, align 8
   %call18 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %11, ptr noundef nonnull @.str.9, i64 noundef %12) #4
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
   %13 = load ptr, ptr @bio_out, align 8
-  %data_size20 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size20 = getelementptr inbounds i8, ptr %p, i64 24
   %14 = load i64, ptr %data_size20, align 8
   %call21 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %13, ptr noundef nonnull @.str.10, i32 noundef %1, i64 noundef %14) #4
   br label %sw.epilog

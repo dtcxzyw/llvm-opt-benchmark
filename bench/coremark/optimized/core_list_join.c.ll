@@ -3,12 +3,6 @@ source_filename = "bench/coremark/original/core_list_join.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.RESULTS_S = type { i16, i16, i16, [4 x ptr], i32, i32, i32, ptr, %struct.MAT_PARAMS_S, i16, i16, i16, i16, i16, %struct.CORE_PORTABLE_S }
-%struct.MAT_PARAMS_S = type { i32, ptr, ptr, ptr }
-%struct.CORE_PORTABLE_S = type { i8 }
-%struct.list_data_s = type { i16, i16 }
-%struct.list_head_s = type { ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define dso_local signext i16 @calc_func(ptr nocapture noundef %pdata, ptr noundef %res) local_unnamed_addr #0 {
 entry:
@@ -34,17 +28,17 @@ if.else:                                          ; preds = %entry
 
 sw.bb:                                            ; preds = %if.else
   %spec.store.select = tail call i16 @llvm.umax.i16(i16 %or, i16 34)
-  %size = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %res, i64 40
   %4 = load i32, ptr %size, align 8
-  %arrayidx = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 3, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %res, i64 32
   %5 = load ptr, ptr %arrayidx, align 8
   %6 = load i16, ptr %res, align 8
-  %seed2 = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 1
+  %seed2 = getelementptr inbounds i8, ptr %res, i64 2
   %7 = load i16, ptr %seed2, align 2
-  %crc = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 9
+  %crc = getelementptr inbounds i8, ptr %res, i64 96
   %8 = load i16, ptr %crc, align 8
   %call = tail call zeroext i16 @core_bench_state(i32 noundef %4, ptr noundef %5, i16 noundef signext %6, i16 noundef signext %7, i16 noundef signext %spec.store.select, i16 noundef zeroext %8) #9
-  %crcstate = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 12
+  %crcstate = getelementptr inbounds i8, ptr %res, i64 102
   %9 = load i16, ptr %crcstate, align 2
   %cmp21 = icmp eq i16 %9, 0
   br i1 %cmp21, label %if.then23, label %sw.epilog
@@ -54,11 +48,11 @@ if.then23:                                        ; preds = %sw.bb
   br label %sw.epilog
 
 sw.bb26:                                          ; preds = %if.else
-  %mat = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 8
-  %crc27 = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 9
+  %mat = getelementptr inbounds i8, ptr %res, i64 64
+  %crc27 = getelementptr inbounds i8, ptr %res, i64 96
   %10 = load i16, ptr %crc27, align 8
   %call28 = tail call zeroext i16 @core_bench_matrix(ptr noundef nonnull %mat, i16 noundef signext %or, i16 noundef zeroext %10) #9
-  %crcmatrix = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 11
+  %crcmatrix = getelementptr inbounds i8, ptr %res, i64 100
   %11 = load i16, ptr %crcmatrix, align 4
   %cmp30 = icmp eq i16 %11, 0
   br i1 %cmp30, label %if.then32, label %sw.epilog
@@ -69,7 +63,7 @@ if.then32:                                        ; preds = %sw.bb26
 
 sw.epilog:                                        ; preds = %if.else, %sw.bb26, %if.then32, %sw.bb, %if.then23
   %retval1.0 = phi i16 [ %call28, %if.then32 ], [ %call28, %sw.bb26 ], [ %call, %if.then23 ], [ %call, %sw.bb ], [ %0, %if.else ]
-  %crc35 = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 9
+  %crc35 = getelementptr inbounds i8, ptr %res, i64 96
   %12 = load i16, ptr %crc35, align 8
   %call36 = tail call zeroext i16 @crcu16(i16 noundef zeroext %retval1.0, i16 noundef zeroext %12) #9
   store i16 %call36, ptr %crc35, align 8
@@ -122,10 +116,10 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %idx = getelementptr inbounds %struct.list_data_s, ptr %a, i64 0, i32 1
+  %idx = getelementptr inbounds i8, ptr %a, i64 2
   %2 = load i16, ptr %idx, align 2
   %conv16 = sext i16 %2 to i32
-  %idx17 = getelementptr inbounds %struct.list_data_s, ptr %b, i64 0, i32 1
+  %idx17 = getelementptr inbounds i8, ptr %b, i64 2
   %3 = load i16, ptr %idx17, align 2
   %conv18 = sext i16 %3 to i32
   %sub = sub nsw i32 %conv16, %conv18
@@ -137,9 +131,9 @@ define dso_local void @copy_info(ptr nocapture noundef writeonly %to, ptr nocapt
 entry:
   %0 = load i16, ptr %from, align 2
   store i16 %0, ptr %to, align 2
-  %idx = getelementptr inbounds %struct.list_data_s, ptr %from, i64 0, i32 1
+  %idx = getelementptr inbounds i8, ptr %from, i64 2
   %1 = load i16, ptr %idx, align 2
-  %idx2 = getelementptr inbounds %struct.list_data_s, ptr %to, i64 0, i32 1
+  %idx2 = getelementptr inbounds i8, ptr %to, i64 2
   store i16 %1, ptr %idx2, align 2
   ret void
 }
@@ -147,9 +141,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i16 @core_bench_list(ptr noundef %res, i16 noundef signext %finder_idx) local_unnamed_addr #0 {
 entry:
-  %list2 = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 7
+  %list2 = getelementptr inbounds i8, ptr %res, i64 56
   %0 = load ptr, ptr %list2, align 8
-  %seed3 = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 2
+  %seed3 = getelementptr inbounds i8, ptr %res, i64 4
   %1 = load i16, ptr %seed3, align 4
   %cmp217 = icmp sgt i16 %1, 0
   br i1 %cmp217, label %for.body.preheader, label %for.end
@@ -177,9 +171,9 @@ while.cond.preheader.i:                           ; preds = %for.body
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i
   %list.addr.016.i = phi ptr [ %5, %while.body.i ], [ %list.0220, %while.cond.preheader.i ]
-  %info2.i = getelementptr inbounds %struct.list_head_s, ptr %list.addr.016.i, i64 0, i32 1
+  %info2.i = getelementptr inbounds i8, ptr %list.addr.016.i, i64 8
   %3 = load ptr, ptr %info2.i, align 8
-  %idx3.i = getelementptr inbounds %struct.list_data_s, ptr %3, i64 0, i32 1
+  %idx3.i = getelementptr inbounds i8, ptr %3, i64 2
   %4 = load i16, ptr %idx3.i, align 2
   %cmp7.not.i = icmp eq i16 %4, %info.sroa.4.0218
   br i1 %cmp7.not.i, label %core_list_find.exit, label %while.body.i
@@ -191,7 +185,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 land.rhs11.i:                                     ; preds = %while.cond9.preheader.i, %while.body19.i
   %list.addr.113.i = phi ptr [ %10, %while.body19.i ], [ %list.0220, %while.cond9.preheader.i ]
-  %info12.i = getelementptr inbounds %struct.list_head_s, ptr %list.addr.113.i, i64 0, i32 1
+  %info12.i = getelementptr inbounds i8, ptr %list.addr.113.i, i64 8
   %6 = load ptr, ptr %info12.i, align 8
   %7 = load i16, ptr %6, align 2
   %8 = xor i16 %7, %i.0223
@@ -225,7 +219,7 @@ if.then:                                          ; preds = %while.cond9.prehead
   %next.0.lcssa.i204 = phi ptr [ %next.0.lcssa.i, %core_list_reverse.exit ], [ null, %while.cond.preheader.i ], [ null, %while.cond9.preheader.i ]
   %inc = add i16 %missed.0219, 1
   %12 = load ptr, ptr %next.0.lcssa.i204, align 8
-  %info10 = getelementptr inbounds %struct.list_head_s, ptr %12, i64 0, i32 1
+  %info10 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %info10, align 8
   %14 = load i16, ptr %13, align 2
   %15 = lshr i16 %14, 8
@@ -234,7 +228,7 @@ if.then:                                          ; preds = %while.cond9.prehead
 
 if.else:                                          ; preds = %core_list_reverse.exit
   %inc16 = add i16 %found.0221, 1
-  %info17 = getelementptr inbounds %struct.list_head_s, ptr %retval.0.i, i64 0, i32 1
+  %info17 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %17 = load ptr, ptr %info17, align 8
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 1
@@ -282,13 +276,13 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp57, label %while.body.i41.preheader, label %if.end61
 
 while.body.i41.preheader:                         ; preds = %for.end
-  %mat.i172 = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 8
-  %crc27.i173 = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 9
-  %crcmatrix.i175 = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 11
-  %size.i187 = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 4
-  %arrayidx.i188 = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 3, i64 3
-  %seed2.i189 = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 1
-  %crcstate.i192 = getelementptr inbounds %struct.RESULTS_S, ptr %res, i64 0, i32 12
+  %mat.i172 = getelementptr inbounds i8, ptr %res, i64 64
+  %crc27.i173 = getelementptr inbounds i8, ptr %res, i64 96
+  %crcmatrix.i175 = getelementptr inbounds i8, ptr %res, i64 100
+  %size.i187 = getelementptr inbounds i8, ptr %res, i64 40
+  %arrayidx.i188 = getelementptr inbounds i8, ptr %res, i64 32
+  %seed2.i189 = getelementptr inbounds i8, ptr %res, i64 2
+  %crcstate.i192 = getelementptr inbounds i8, ptr %res, i64 102
   br label %while.body2.us.i.preheader
 
 while.body2.us.i.preheader:                       ; preds = %while.end37.i, %while.body.i41.preheader
@@ -367,9 +361,9 @@ if.then17.us.i:                                   ; preds = %if.else.us.i
   br label %if.end31.us.i
 
 if.else20.us.i:                                   ; preds = %if.else.us.i
-  %info.us.i = getelementptr inbounds %struct.list_head_s, ptr %p.1.us.i, i64 0, i32 1
+  %info.us.i = getelementptr inbounds i8, ptr %p.1.us.i, i64 8
   %33 = load ptr, ptr %info.us.i, align 8
-  %info21.us.i = getelementptr inbounds %struct.list_head_s, ptr %q.2.us.i, i64 0, i32 1
+  %info21.us.i = getelementptr inbounds i8, ptr %q.2.us.i, i64 8
   %34 = load ptr, ptr %info21.us.i, align 8
   %35 = load i16, ptr %33, align 2
   %36 = and i16 %35, 128
@@ -533,9 +527,9 @@ if.end61:                                         ; preds = %while.end37.i, %for
   %list.1 = phi ptr [ %list.0.lcssa, %for.end ], [ %list.addr.2.us.i.ph, %while.end37.i ]
   %65 = load ptr, ptr %list.1, align 8
   %66 = load ptr, ptr %65, align 8
-  %info.i = getelementptr inbounds %struct.list_head_s, ptr %65, i64 0, i32 1
+  %info.i = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load ptr, ptr %info.i, align 8
-  %info1.i = getelementptr inbounds %struct.list_head_s, ptr %66, i64 0, i32 1
+  %info1.i = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load ptr, ptr %info1.i, align 8
   store ptr %68, ptr %info.i, align 8
   store ptr %67, ptr %info1.i, align 8
@@ -548,9 +542,9 @@ if.end61:                                         ; preds = %while.end37.i, %for
 
 land.rhs.i56:                                     ; preds = %if.end61, %while.body.i61
   %list.addr.016.i57 = phi ptr [ %73, %while.body.i61 ], [ %list.1, %if.end61 ]
-  %info2.i58 = getelementptr inbounds %struct.list_head_s, ptr %list.addr.016.i57, i64 0, i32 1
+  %info2.i58 = getelementptr inbounds i8, ptr %list.addr.016.i57, i64 8
   %71 = load ptr, ptr %info2.i58, align 8
-  %idx3.i59 = getelementptr inbounds %struct.list_data_s, ptr %71, i64 0, i32 1
+  %idx3.i59 = getelementptr inbounds i8, ptr %71, i64 2
   %72 = load i16, ptr %idx3.i59, align 2
   %cmp7.not.i60 = icmp eq i16 %72, %info.sroa.4.0.lcssa
   br i1 %cmp7.not.i60, label %while.body.lr.ph, label %while.body.i61
@@ -562,7 +556,7 @@ while.body.i61:                                   ; preds = %land.rhs.i56
 
 land.rhs11.i48:                                   ; preds = %if.end61, %while.body19.i52
   %list.addr.113.i49 = phi ptr [ %77, %while.body19.i52 ], [ %list.1, %if.end61 ]
-  %info12.i50 = getelementptr inbounds %struct.list_head_s, ptr %list.addr.113.i49, i64 0, i32 1
+  %info12.i50 = getelementptr inbounds i8, ptr %list.addr.113.i49, i64 8
   %74 = load ptr, ptr %info12.i50, align 8
   %75 = load i16, ptr %74, align 2
   %76 = and i16 %75, 255
@@ -581,7 +575,7 @@ if.end68:                                         ; preds = %while.body19.i52, %
 
 while.body.lr.ph:                                 ; preds = %land.rhs11.i48, %land.rhs.i56, %if.end68
   %finder.0269 = phi ptr [ %78, %if.end68 ], [ %list.addr.016.i57, %land.rhs.i56 ], [ %list.addr.113.i49, %land.rhs11.i48 ]
-  %info70 = getelementptr inbounds %struct.list_head_s, ptr %list.1, i64 0, i32 1
+  %info70 = getelementptr inbounds i8, ptr %list.1, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -598,7 +592,7 @@ while.end:                                        ; preds = %while.body, %if.end
   %retval1.3.lcssa = phi i16 [ %add54, %if.end68 ], [ %call72, %while.body ]
   %82 = load ptr, ptr %list.1, align 8
   %83 = load ptr, ptr %info1.i, align 8
-  %info1.i65 = getelementptr inbounds %struct.list_head_s, ptr %82, i64 0, i32 1
+  %info1.i65 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %info1.i65, align 8
   store ptr %84, ptr %info1.i, align 8
   store ptr %83, ptr %info1.i65, align 8
@@ -683,9 +677,9 @@ if.then17.us.i132:                                ; preds = %if.else.us.i128
   br label %if.end31.us.i134
 
 if.else20.us.i144:                                ; preds = %if.else.us.i128
-  %info.us.i145 = getelementptr inbounds %struct.list_head_s, ptr %p.1.us.i115, i64 0, i32 1
+  %info.us.i145 = getelementptr inbounds i8, ptr %p.1.us.i115, i64 8
   %90 = load ptr, ptr %info.us.i145, align 8
-  %info21.us.i146 = getelementptr inbounds %struct.list_head_s, ptr %q.2.us.i116, i64 0, i32 1
+  %info21.us.i146 = getelementptr inbounds i8, ptr %q.2.us.i116, i64 8
   %91 = load ptr, ptr %info21.us.i146, align 8
   %92 = load i16, ptr %90, align 2
   %and.i = and i16 %92, -256
@@ -697,9 +691,9 @@ if.else20.us.i144:                                ; preds = %if.else.us.i128
   %shr11.i = lshr i16 %93, 8
   %or13.i = or disjoint i16 %shr11.i, %and8.i
   store i16 %or13.i, ptr %91, align 2
-  %idx.i156 = getelementptr inbounds %struct.list_data_s, ptr %90, i64 0, i32 1
+  %idx.i156 = getelementptr inbounds i8, ptr %90, i64 2
   %94 = load i16, ptr %idx.i156, align 2
-  %idx17.i = getelementptr inbounds %struct.list_data_s, ptr %91, i64 0, i32 1
+  %idx17.i = getelementptr inbounds i8, ptr %91, i64 2
   %95 = load i16, ptr %idx17.i, align 2
   %cmp22.us.i148.not = icmp sgt i16 %94, %95
   br i1 %cmp22.us.i148.not, label %if.else26.us.i149, label %if.then23.us.i151
@@ -743,7 +737,7 @@ while.cond78.preheader:                           ; preds = %while.end37.i86
   br i1 %tobool79.not255, label %while.end85, label %while.body80.lr.ph
 
 while.body80.lr.ph:                               ; preds = %while.cond78.preheader
-  %info81 = getelementptr inbounds %struct.list_head_s, ptr %list.addr.2.us.i114.ph, i64 0, i32 1
+  %info81 = getelementptr inbounds i8, ptr %list.addr.2.us.i114.ph, i64 8
   br label %while.body80
 
 while.body80:                                     ; preds = %while.body80.lr.ph, %while.body80
@@ -764,7 +758,7 @@ while.end85:                                      ; preds = %while.body80, %whil
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @core_list_find(ptr noundef readonly %list, ptr nocapture noundef readonly %info) local_unnamed_addr #3 {
 entry:
-  %idx = getelementptr inbounds %struct.list_data_s, ptr %info, i64 0, i32 1
+  %idx = getelementptr inbounds i8, ptr %info, i64 2
   %0 = load i16, ptr %idx, align 2
   %cmp = icmp sgt i16 %0, -1
   %tobool.not15 = icmp eq ptr %list, null
@@ -782,9 +776,9 @@ while.cond.preheader:                             ; preds = %entry
 
 land.rhs:                                         ; preds = %while.cond.preheader, %while.body
   %list.addr.016 = phi ptr [ %4, %while.body ], [ %list, %while.cond.preheader ]
-  %info2 = getelementptr inbounds %struct.list_head_s, ptr %list.addr.016, i64 0, i32 1
+  %info2 = getelementptr inbounds i8, ptr %list.addr.016, i64 8
   %2 = load ptr, ptr %info2, align 8
-  %idx3 = getelementptr inbounds %struct.list_data_s, ptr %2, i64 0, i32 1
+  %idx3 = getelementptr inbounds i8, ptr %2, i64 2
   %3 = load i16, ptr %idx3, align 2
   %cmp7.not = icmp eq i16 %3, %0
   br i1 %cmp7.not, label %return, label %while.body
@@ -796,7 +790,7 @@ while.body:                                       ; preds = %land.rhs
 
 land.rhs11:                                       ; preds = %land.rhs11.lr.ph, %while.body19
   %list.addr.113 = phi ptr [ %list, %land.rhs11.lr.ph ], [ %8, %while.body19 ]
-  %info12 = getelementptr inbounds %struct.list_head_s, ptr %list.addr.113, i64 0, i32 1
+  %info12 = getelementptr inbounds i8, ptr %list.addr.113, i64 8
   %5 = load ptr, ptr %info12, align 8
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 255
@@ -913,9 +907,9 @@ if.then17.us:                                     ; preds = %if.else.us
   br label %if.end31.us
 
 if.else20.us:                                     ; preds = %if.else.us
-  %info.us = getelementptr inbounds %struct.list_head_s, ptr %p.1.us, i64 0, i32 1
+  %info.us = getelementptr inbounds i8, ptr %p.1.us, i64 8
   %4 = load ptr, ptr %info.us, align 8
-  %info21.us = getelementptr inbounds %struct.list_head_s, ptr %q.2.us, i64 0, i32 1
+  %info21.us = getelementptr inbounds i8, ptr %q.2.us, i64 8
   %5 = load ptr, ptr %info21.us, align 8
   %call.us = tail call i32 %cmp(ptr noundef %4, ptr noundef %5, ptr noundef %res) #9
   %cmp22.us = icmp slt i32 %call.us, 1
@@ -962,9 +956,9 @@ if.then40:                                        ; preds = %while.end37
 define dso_local ptr @core_list_remove(ptr nocapture noundef %item) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %item, align 8
-  %info = getelementptr inbounds %struct.list_head_s, ptr %item, i64 0, i32 1
+  %info = getelementptr inbounds i8, ptr %item, i64 8
   %1 = load ptr, ptr %info, align 8
-  %info1 = getelementptr inbounds %struct.list_head_s, ptr %0, i64 0, i32 1
+  %info1 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %info1, align 8
   store ptr %2, ptr %info, align 8
   store ptr %1, ptr %info1, align 8
@@ -980,9 +974,9 @@ declare zeroext i16 @crc16(i16 noundef signext, i16 noundef zeroext) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local ptr @core_list_undo_remove(ptr noundef returned %item_removed, ptr nocapture noundef %item_modified) local_unnamed_addr #2 {
 entry:
-  %info = getelementptr inbounds %struct.list_head_s, ptr %item_removed, i64 0, i32 1
+  %info = getelementptr inbounds i8, ptr %item_removed, i64 8
   %0 = load ptr, ptr %info, align 8
-  %info1 = getelementptr inbounds %struct.list_head_s, ptr %item_modified, i64 0, i32 1
+  %info1 = getelementptr inbounds i8, ptr %item_modified, i64 8
   %1 = load ptr, ptr %info1, align 8
   store ptr %1, ptr %info, align 8
   store ptr %0, ptr %info1, align 8
@@ -998,29 +992,31 @@ entry:
   %div = udiv i32 %blksize, 20
   %sub = add nsw i32 %div, -2
   %idx.ext = zext i32 %sub to i64
-  %add.ptr = getelementptr inbounds %struct.list_head_s, ptr %memblock, i64 %idx.ext
-  %add.ptr2 = getelementptr inbounds %struct.list_data_s, ptr %add.ptr, i64 %idx.ext
+  %add.ptr.idx = shl nuw nsw i64 %idx.ext, 4
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %memblock, i64 %add.ptr.idx
+  %add.ptr2.idx = shl nuw nsw i64 %idx.ext, 2
+  %add.ptr2.ptr = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 %add.ptr2.idx
   store ptr null, ptr %memblock, align 8
-  %info3 = getelementptr inbounds %struct.list_head_s, ptr %memblock, i64 0, i32 1
-  store ptr %add.ptr, ptr %info3, align 8
-  %idx = getelementptr inbounds %struct.list_data_s, ptr %add.ptr, i64 0, i32 1
+  %info3 = getelementptr inbounds i8, ptr %memblock, i64 8
+  store ptr %add.ptr.ptr, ptr %info3, align 8
+  %idx = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 2
   store i16 0, ptr %idx, align 2
-  store i16 -32640, ptr %add.ptr, align 2
-  %incdec.ptr = getelementptr inbounds %struct.list_head_s, ptr %memblock, i64 1
-  %incdec.ptr6 = getelementptr inbounds %struct.list_data_s, ptr %add.ptr, i64 1
+  store i16 -32640, ptr %add.ptr.ptr, align 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %memblock, i64 16
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 4
   %cmp.not.i = icmp ugt i32 %sub, 2
   br i1 %cmp.not.i, label %if.end4.i, label %core_list_insert_new.exit
 
 if.end4.i:                                        ; preds = %entry
-  %add.ptr.i = getelementptr inbounds %struct.list_head_s, ptr %memblock, i64 2
-  %add.ptr1.i = getelementptr inbounds %struct.list_data_s, ptr %add.ptr, i64 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %memblock, i64 32
+  %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 8
   %0 = load ptr, ptr %memblock, align 8
   store ptr %0, ptr %incdec.ptr, align 8
   store ptr %incdec.ptr, ptr %memblock, align 8
-  %info7.i = getelementptr inbounds %struct.list_head_s, ptr %memblock, i64 1, i32 1
+  %info7.i = getelementptr inbounds i8, ptr %memblock, i64 24
   store ptr %incdec.ptr6, ptr %info7.i, align 8
   store i16 -1, ptr %incdec.ptr6, align 2
-  %idx2.i.i = getelementptr inbounds %struct.list_data_s, ptr %add.ptr, i64 1, i32 1
+  %idx2.i.i = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 6
   store i16 32767, ptr %idx2.i.i, align 2
   br label %core_list_insert_new.exit
 
@@ -1051,23 +1047,23 @@ for.body:                                         ; preds = %core_list_insert_ne
   %5 = and i16 %2, 7
   %conv14 = or disjoint i16 %4, %5
   %or18 = mul nuw nsw i16 %conv14, 257
-  %add.ptr.i27 = getelementptr inbounds %struct.list_head_s, ptr %memblock.addr.153, i64 1
-  %cmp.not.i28 = icmp ult ptr %add.ptr.i27, %add.ptr
+  %add.ptr.i27 = getelementptr inbounds i8, ptr %memblock.addr.153, i64 16
+  %cmp.not.i28 = icmp ult ptr %add.ptr.i27, %add.ptr.ptr
   br i1 %cmp.not.i28, label %if.end.i30, label %core_list_insert_new.exit38
 
 if.end.i30:                                       ; preds = %for.body
-  %add.ptr1.i31 = getelementptr inbounds %struct.list_data_s, ptr %datablock.152, i64 1
-  %cmp2.not.i32 = icmp ult ptr %add.ptr1.i31, %add.ptr2
+  %add.ptr1.i31 = getelementptr inbounds i8, ptr %datablock.152, i64 4
+  %cmp2.not.i32 = icmp ult ptr %add.ptr1.i31, %add.ptr2.ptr
   br i1 %cmp2.not.i32, label %if.end4.i33, label %core_list_insert_new.exit38
 
 if.end4.i33:                                      ; preds = %if.end.i30
   %6 = load ptr, ptr %memblock, align 8
   store ptr %6, ptr %memblock.addr.153, align 8
   store ptr %memblock.addr.153, ptr %memblock, align 8
-  %info7.i34 = getelementptr inbounds %struct.list_head_s, ptr %memblock.addr.153, i64 0, i32 1
+  %info7.i34 = getelementptr inbounds i8, ptr %memblock.addr.153, i64 8
   store ptr %datablock.152, ptr %info7.i34, align 8
   store i16 %or18, ptr %datablock.152, align 2
-  %idx2.i.i37 = getelementptr inbounds %struct.list_data_s, ptr %datablock.152, i64 0, i32 1
+  %idx2.i.i37 = getelementptr inbounds i8, ptr %datablock.152, i64 2
   store i16 32767, ptr %idx2.i.i37, align 2
   br label %core_list_insert_new.exit38
 
@@ -1097,9 +1093,9 @@ if.else:                                          ; preds = %while.body
 
 if.end:                                           ; preds = %while.body, %if.else
   %conv42.sink = phi i16 [ %conv42, %if.else ], [ %conv30, %while.body ]
-  %info43 = getelementptr inbounds %struct.list_head_s, ptr %finder.058, i64 0, i32 1
+  %info43 = getelementptr inbounds i8, ptr %finder.058, i64 8
   %10 = load ptr, ptr %info43, align 8
-  %idx44 = getelementptr inbounds %struct.list_data_s, ptr %10, i64 0, i32 1
+  %idx44 = getelementptr inbounds i8, ptr %10, i64 2
   store i16 %conv42.sink, ptr %idx44, align 2
   %finder.0 = load ptr, ptr %finder.058, align 8
   %11 = load ptr, ptr %finder.0, align 8
@@ -1185,9 +1181,9 @@ if.then17.us.i:                                   ; preds = %if.else.us.i
   br label %if.end31.us.i
 
 if.else20.us.i:                                   ; preds = %if.else.us.i
-  %info.us.i = getelementptr inbounds %struct.list_head_s, ptr %p.1.us.i, i64 0, i32 1
+  %info.us.i = getelementptr inbounds i8, ptr %p.1.us.i, i64 8
   %16 = load ptr, ptr %info.us.i, align 8
-  %info21.us.i = getelementptr inbounds %struct.list_head_s, ptr %q.2.us.i, i64 0, i32 1
+  %info21.us.i = getelementptr inbounds i8, ptr %q.2.us.i, i64 8
   %17 = load ptr, ptr %info21.us.i, align 8
   %18 = load i16, ptr %16, align 2
   %and.i = and i16 %18, -256
@@ -1199,9 +1195,9 @@ if.else20.us.i:                                   ; preds = %if.else.us.i
   %shr11.i = lshr i16 %19, 8
   %or13.i = or disjoint i16 %shr11.i, %and8.i
   store i16 %or13.i, ptr %17, align 2
-  %idx.i = getelementptr inbounds %struct.list_data_s, ptr %16, i64 0, i32 1
+  %idx.i = getelementptr inbounds i8, ptr %16, i64 2
   %20 = load i16, ptr %idx.i, align 2
-  %idx17.i = getelementptr inbounds %struct.list_data_s, ptr %17, i64 0, i32 1
+  %idx17.i = getelementptr inbounds i8, ptr %17, i64 2
   %21 = load i16, ptr %idx17.i, align 2
   %cmp22.us.i.not = icmp sgt i16 %20, %21
   br i1 %cmp22.us.i.not, label %if.else26.us.i, label %if.then23.us.i
@@ -1247,13 +1243,13 @@ core_list_mergesort.exit:                         ; preds = %while.end37.i
 define dso_local ptr @core_list_insert_new(ptr nocapture noundef %insert_point, ptr nocapture noundef readonly %info, ptr nocapture noundef %memblock, ptr nocapture noundef %datablock, ptr noundef readnone %memblock_end, ptr noundef readnone %datablock_end) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %memblock, align 8
-  %add.ptr = getelementptr inbounds %struct.list_head_s, ptr %0, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 16
   %cmp.not = icmp ult ptr %add.ptr, %memblock_end
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %datablock, align 8
-  %add.ptr1 = getelementptr inbounds %struct.list_data_s, ptr %1, i64 1
+  %add.ptr1 = getelementptr inbounds i8, ptr %1, i64 4
   %cmp2.not = icmp ult ptr %add.ptr1, %datablock_end
   br i1 %cmp2.not, label %if.end4, label %return
 
@@ -1263,16 +1259,16 @@ if.end4:                                          ; preds = %if.end
   store ptr %2, ptr %0, align 8
   store ptr %0, ptr %insert_point, align 8
   %3 = load ptr, ptr %datablock, align 8
-  %info7 = getelementptr inbounds %struct.list_head_s, ptr %0, i64 0, i32 1
+  %info7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %info7, align 8
-  %incdec.ptr8 = getelementptr inbounds %struct.list_data_s, ptr %3, i64 1
+  %incdec.ptr8 = getelementptr inbounds i8, ptr %3, i64 4
   store ptr %incdec.ptr8, ptr %datablock, align 8
   %4 = load ptr, ptr %info7, align 8
   %5 = load i16, ptr %info, align 2
   store i16 %5, ptr %4, align 2
-  %idx.i = getelementptr inbounds %struct.list_data_s, ptr %info, i64 0, i32 1
+  %idx.i = getelementptr inbounds i8, ptr %info, i64 2
   %6 = load i16, ptr %idx.i, align 2
-  %idx2.i = getelementptr inbounds %struct.list_data_s, ptr %4, i64 0, i32 1
+  %idx2.i = getelementptr inbounds i8, ptr %4, i64 2
   store i16 %6, ptr %idx2.i, align 2
   br label %return
 

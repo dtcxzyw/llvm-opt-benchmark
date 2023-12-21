@@ -4,27 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.SocketOutgoingArgs = type { ptr }
-%struct.SocketAddress = type { i32, %union.anon }
-%union.anon = type { %struct.InetSocketAddress }
-%struct.InetSocketAddress = type { ptr, ptr, i8, i8, i8, i16, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.SocketConnectData = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.MigrationIncomingState = type { ptr, [2 x ptr], ptr, ptr, %struct.QemuSemaphore, %struct.QemuEvent, %struct.AnnounceTimer, i64, i8, %struct.QemuThread, i8, i8, %struct.QemuThread, i32, i32, ptr, %struct.QemuMutex, ptr, i32, ptr, %struct.QemuSemaphore, %struct.QemuThread, i32, %struct.QemuMutex, ptr, ptr, ptr, ptr, i32, ptr, ptr, %struct.QemuSemaphore, ptr, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuSemaphore, ptr, ptr, i32, %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.QemuEvent = type { i32, i8 }
-%struct.AnnounceTimer = type { ptr, %struct.AnnounceParameters, i32, i32 }
-%struct.AnnounceParameters = type { i64, i64, i64, i64, i8, ptr, ptr }
-%struct.QemuThread = type { i64 }
-%struct.QemuSemaphore = type { %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%struct.QIONetListener = type { %struct.Object, ptr, ptr, ptr, i64, i8, ptr, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
 
 @outgoing_args = dso_local local_unnamed_addr global %struct.SocketOutgoingArgs zeroinitializer, align 8
 @.str = private unnamed_addr constant [27 x i8] c"../qemu/migration/socket.c\00", align 1
@@ -137,10 +117,10 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %u = getelementptr inbounds %struct.SocketAddress, ptr %saddr, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %saddr, i64 8
   %2 = load ptr, ptr %u, align 8
   %call4 = tail call noalias ptr @g_strdup(ptr noundef %2) #5
-  %hostname = getelementptr inbounds %struct.SocketConnectData, ptr %call1, i64 0, i32 1
+  %hostname = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %call4, ptr %hostname, align 8
   br label %if.end
 
@@ -201,7 +181,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = call i32 @qemu_get_thread_id() #5
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %call3) #5
   br label %trace_migration_socket_outgoing_error.exit
@@ -215,7 +195,7 @@ trace_migration_socket_outgoing_error.exit:       ; preds = %if.then, %land.lhs.
   br label %out
 
 if.end:                                           ; preds = %entry
-  %hostname = getelementptr inbounds %struct.SocketConnectData, ptr %opaque, i64 0, i32 1
+  %hostname = getelementptr inbounds i8, ptr %opaque, i64 8
   %8 = load ptr, ptr %hostname, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i6)
   %9 = load i32, ptr @trace_events_enabled_count, align 4
@@ -241,7 +221,7 @@ if.then8.i.i15:                                   ; preds = %if.then.i.i13
   %call9.i.i16 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i6, ptr noundef null) #5
   %call10.i.i17 = call i32 @qemu_get_thread_id() #5
   %14 = load i64, ptr %_now.i.i6, align 8
-  %tv_usec.i.i18 = getelementptr inbounds %struct.timeval, ptr %_now.i.i6, i64 0, i32 1
+  %tv_usec.i.i18 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
   %15 = load i64, ptr %tv_usec.i.i18, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i17, i64 noundef %14, i64 noundef %15, ptr noundef %8) #5
   br label %trace_migration_socket_outgoing_connected.exit
@@ -265,7 +245,7 @@ if.then6:                                         ; preds = %land.lhs.true
 
 out:                                              ; preds = %trace_migration_socket_outgoing_connected.exit, %land.lhs.true, %if.then6, %trace_migration_socket_outgoing_error.exit
   %16 = load ptr, ptr %opaque, align 8
-  %hostname8 = getelementptr inbounds %struct.SocketConnectData, ptr %opaque, i64 0, i32 1
+  %hostname8 = getelementptr inbounds i8, ptr %opaque, i64 8
   %17 = load ptr, ptr %hostname8, align 8
   %18 = load ptr, ptr %err, align 8
   call void @migration_channel_connect(ptr noundef %16, ptr noundef %call.i, ptr noundef %17, ptr noundef %18) #5
@@ -280,7 +260,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hostname = getelementptr inbounds %struct.SocketConnectData, ptr %opaque, i64 0, i32 1
+  %hostname = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %hostname, align 8
   tail call void @g_free(ptr noundef %0) #5
   tail call void @g_free(ptr noundef nonnull %opaque) #5
@@ -319,14 +299,14 @@ if.then8:                                         ; preds = %if.end6
   br label %for.end
 
 if.end9:                                          ; preds = %if.end6
-  %transport_data = getelementptr inbounds %struct.MigrationIncomingState, ptr %call1, i64 0, i32 2
+  %transport_data = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %call, ptr %transport_data, align 8
-  %transport_cleanup = getelementptr inbounds %struct.MigrationIncomingState, ptr %call1, i64 0, i32 3
+  %transport_cleanup = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr @socket_incoming_migration_end, ptr %transport_cleanup, align 8
   %call10 = tail call ptr @g_main_context_get_thread_default() #5
   tail call void @qio_net_listener_set_client_func_full(ptr noundef %call, ptr noundef nonnull @socket_accept_incoming_migration, ptr noundef null, ptr noundef null, ptr noundef %call10) #5
-  %sioc = getelementptr inbounds %struct.QIONetListener, ptr %call, i64 0, i32 2
-  %nsioc = getelementptr inbounds %struct.QIONetListener, ptr %call, i64 0, i32 4
+  %sioc = getelementptr inbounds i8, ptr %call, i64 48
+  %nsioc = getelementptr inbounds i8, ptr %call, i64 64
   %0 = load i64, ptr %nsioc, align 8
   %cmp1113.not = icmp eq i64 %0, 0
   br i1 %cmp1113.not, label %for.end, label %for.body
@@ -404,7 +384,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #5
   br label %trace_migration_socket_incoming_accepted.exit

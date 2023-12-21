@@ -7,70 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyVarObject = type { %struct._object, i64 }
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
-%struct.PyCapsule = type { %struct._object, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._ts = type { ptr, ptr, ptr, %struct.anon.3, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, %struct._py_trashcan, i64, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem }
-%struct.anon.3 = type { i32 }
-%struct._py_trashcan = type { i32, ptr }
-%struct._err_stackitem = type { ptr, ptr }
-%struct._is = type { %struct._ceval_state, ptr, i64, i64, i32, ptr, i32, i32, i64, %struct.pythreads, ptr, ptr, i64, %struct._gc_runtime_state, ptr, ptr, %struct._import_state, %struct._gil_runtime_state, ptr, ptr, ptr, i32, %struct.PyConfig, i64, ptr, ptr, ptr, ptr, [8 x ptr], i8, i64, [255 x ptr], %struct._xi_state, ptr, ptr, ptr, %struct._warnings_runtime_state, %struct.atexit_state, %struct._obmalloc_state, ptr, [8 x ptr], [8 x ptr], i8, %struct._py_object_state, %struct._Py_unicode_state, %struct._Py_float_state, %struct._Py_long_state, %struct._dtoa_state, %struct._py_func_state, ptr, %struct._Py_tuple_state, %struct._Py_list_state, %struct._Py_dict_state, %struct._Py_async_gen_state, %struct._Py_context_state, %struct._Py_exc_state, %struct.ast_state, %struct.types_state, %struct.callable_cache, ptr, ptr, i16, i16, i32, %struct._Py_GlobalMonitors, i8, i8, i64, i64, [8 x [17 x ptr]], [8 x ptr], %struct._Py_interp_cached_objects, %struct._Py_interp_static_objects, %struct._PyThreadStateImpl, i64 }
-%struct._ceval_state = type { i64, [7 x i64], i32, ptr, i32, %struct._pending_calls }
-%struct._pending_calls = type { i32, %struct._PyMutex, i32, [32 x %struct._pending_call], i32, i32 }
-%struct._PyMutex = type { i8 }
-%struct._pending_call = type { ptr, ptr, i32 }
-%struct.pythreads = type { i64, ptr, ptr, i64, i64 }
-%struct._gc_runtime_state = type { ptr, i32, i32, i32, [3 x %struct.gc_generation], ptr, %struct.gc_generation, [3 x %struct.gc_generation_stats], i32, ptr, ptr, i64, i64 }
-%struct.gc_generation = type { %struct.PyGC_Head, i32, i32 }
-%struct.PyGC_Head = type { i64, i64 }
-%struct.gc_generation_stats = type { i64, i64, i64 }
-%struct._import_state = type { ptr, ptr, ptr, i32, i32, i32, ptr, %struct.anon, %struct.anon.0 }
-%struct.anon = type { ptr, i64, i32 }
-%struct.anon.0 = type { i32, i64, i32 }
-%struct._gil_runtime_state = type { i64, ptr, i32, i64, %union.pthread_cond_t, %union.pthread_mutex_t, %union.pthread_cond_t, %union.pthread_mutex_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.PyConfig = type { i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, ptr, i32, %struct.PyWideStringList, %struct.PyWideStringList, %struct.PyWideStringList, %struct.PyWideStringList, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i32, %struct.PyWideStringList, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct.PyWideStringList = type { i64, ptr }
-%struct._xi_state = type { %struct._xidregistry, ptr }
-%struct._xidregistry = type { i32, i32, %struct._PyMutex, ptr }
-%struct._warnings_runtime_state = type { ptr, ptr, ptr, i64 }
-%struct.atexit_state = type { ptr, ptr, ptr, i32, i32 }
-%struct._obmalloc_state = type { %struct._obmalloc_pools, %struct._obmalloc_mgmt, %struct._obmalloc_usage }
-%struct._obmalloc_pools = type { [64 x ptr] }
-%struct._obmalloc_mgmt = type { ptr, i32, ptr, ptr, [65 x ptr], i64, i64, i64, i64 }
-%struct._obmalloc_usage = type { %struct.arena_map_top, i32, i32 }
-%struct.arena_map_top = type { [32768 x ptr] }
-%struct._py_object_state = type { i32 }
-%struct._Py_unicode_state = type { %struct._Py_unicode_fs_codec, ptr, %struct._Py_unicode_ids }
-%struct._Py_unicode_fs_codec = type { ptr, i32, ptr, i32 }
-%struct._Py_unicode_ids = type { i64, ptr }
-%struct._Py_float_state = type { i32, ptr }
-%struct._Py_long_state = type { i32 }
-%struct._dtoa_state = type { [8 x ptr], [8 x ptr], [288 x double], ptr }
-%struct._py_func_state = type { i32, [4096 x ptr] }
-%struct._Py_tuple_state = type { [20 x ptr], [20 x i32] }
-%struct._Py_list_state = type { [80 x ptr], i32 }
-%struct._Py_dict_state = type { i64, i32, [80 x ptr], [80 x ptr], i32, i32, [8 x ptr] }
-%struct._Py_async_gen_state = type { [80 x ptr], i32, [80 x ptr], i32 }
-%struct._Py_context_state = type { ptr, i32 }
-%struct._Py_exc_state = type { ptr, ptr, i32, ptr }
-%struct.ast_state = type { %struct._PyOnceFlag, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._PyOnceFlag = type { i8 }
-%struct.types_state = type { i32, %struct.type_cache, i64, [200 x %struct.static_builtin_state] }
-%struct.type_cache = type { [4096 x %struct.type_cache_entry] }
-%struct.type_cache_entry = type { i32, ptr, ptr }
-%struct.static_builtin_state = type { ptr, i32, i32, ptr, ptr, ptr }
-%struct.callable_cache = type { ptr, ptr, ptr, ptr }
-%struct._Py_GlobalMonitors = type { [15 x i8] }
-%struct._Py_interp_cached_objects = type { ptr, ptr, ptr, ptr, [10 x ptr], ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._Py_interp_static_objects = type { %struct.anon.2 }
-%struct.anon.2 = type { i32, %struct.PyGC_Head, %struct.PyHamtObject, %struct.PyBaseExceptionObject }
-%struct.PyHamtObject = type { %struct._object, ptr, ptr, i64 }
-%struct.PyBaseExceptionObject = type { %struct._object, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct._PyThreadStateImpl = type { %struct._ts }
 
 @PyExc_ValueError = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [39 x i8] c"PyCapsule_New called with null pointer\00", align 1
@@ -117,15 +53,15 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %pointer3 = getelementptr inbounds %struct.PyCapsule, ptr %call, i64 0, i32 1
+  %pointer3 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %pointer, ptr %pointer3, align 8
-  %name4 = getelementptr inbounds %struct.PyCapsule, ptr %call, i64 0, i32 2
+  %name4 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %name, ptr %name4, align 8
-  %context = getelementptr inbounds %struct.PyCapsule, ptr %call, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %context, align 8
-  %destructor5 = getelementptr inbounds %struct.PyCapsule, ptr %call, i64 0, i32 4
+  %destructor5 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %destructor, ptr %destructor5, align 8
-  %traverse_func = getelementptr inbounds %struct.PyCapsule, ptr %call, i64 0, i32 5
+  %traverse_func = getelementptr inbounds i8, ptr %call, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %traverse_func, i8 0, i64 16, i1 false)
   br label %return
 
@@ -151,13 +87,13 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.not, label %land.lhs.true1, label %land.end
 
 land.lhs.true1:                                   ; preds = %land.lhs.true
-  %pointer = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 1
+  %pointer = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true1
-  %name3 = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 2
+  %name3 = getelementptr inbounds i8, ptr %op, i64 24
   %2 = load ptr, ptr %name3, align 8
   %tobool.i = icmp ne ptr %2, null
   %tobool1.i = icmp ne ptr %name, null
@@ -196,13 +132,13 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %return.sink.split
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 1
+  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %if.end.i
-  %name1 = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 2
+  %name1 = getelementptr inbounds i8, ptr %op, i64 24
   %2 = load ptr, ptr %name1, align 8
   %tobool.i = icmp ne ptr %name, null
   %tobool1.i = icmp ne ptr %2, null
@@ -242,7 +178,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 1
+  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -253,7 +189,7 @@ _is_legal_capsule.exit.thread:                    ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %name = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %op, i64 24
   %3 = load ptr, ptr %name, align 8
   br label %return
 
@@ -275,7 +211,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 1
+  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -286,7 +222,7 @@ _is_legal_capsule.exit.thread:                    ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %destructor = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 4
+  %destructor = getelementptr inbounds i8, ptr %op, i64 40
   %3 = load ptr, ptr %destructor, align 8
   br label %return
 
@@ -308,7 +244,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 1
+  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -319,7 +255,7 @@ _is_legal_capsule.exit.thread:                    ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %context = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %op, i64 32
   %3 = load ptr, ptr %context, align 8
   br label %return
 
@@ -341,7 +277,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 1
+  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -382,7 +318,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 1
+  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -393,7 +329,7 @@ _is_legal_capsule.exit.thread:                    ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %name1 = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 2
+  %name1 = getelementptr inbounds i8, ptr %op, i64 24
   store ptr %name, ptr %name1, align 8
   br label %return
 
@@ -415,7 +351,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 1
+  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -426,7 +362,7 @@ _is_legal_capsule.exit.thread:                    ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %destructor1 = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 4
+  %destructor1 = getelementptr inbounds i8, ptr %op, i64 40
   store ptr %destructor, ptr %destructor1, align 8
   br label %return
 
@@ -448,7 +384,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 1
+  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -459,7 +395,7 @@ _is_legal_capsule.exit.thread:                    ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %context1 = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 3
+  %context1 = getelementptr inbounds i8, ptr %op, i64 32
   store ptr %context, ptr %context1, align 8
   br label %return
 
@@ -481,7 +417,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 1
+  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -511,11 +447,11 @@ if.end3:                                          ; preds = %if.end
 if.then6:                                         ; preds = %if.end3
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %6, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %7, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %7, i64 1096
   %8 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %8, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %_gc_prev.i, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = ptrtoint ptr %4 to i64
@@ -531,9 +467,9 @@ if.then6:                                         ; preds = %if.end3
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end3
-  %traverse_func8 = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 5
+  %traverse_func8 = getelementptr inbounds i8, ptr %op, i64 48
   store ptr %traverse_func, ptr %traverse_func8, align 8
-  %clear_func9 = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 6
+  %clear_func9 = getelementptr inbounds i8, ptr %op, i64 56
   store ptr %clear_func, ptr %clear_func9, align 8
   br label %return
 
@@ -623,13 +559,13 @@ land.lhs.true.i:                                  ; preds = %while.end
   br i1 %cmp.i.not.i, label %land.lhs.true1.i, label %if.then.i.sink.split
 
 land.lhs.true1.i:                                 ; preds = %land.lhs.true.i
-  %pointer.i = getelementptr inbounds %struct.PyCapsule, ptr %object.0, i64 0, i32 1
+  %pointer.i = getelementptr inbounds i8, ptr %object.0, i64 16
   %4 = load ptr, ptr %pointer.i, align 8
   %cmp2.not.i = icmp eq ptr %4, null
   br i1 %cmp2.not.i, label %if.then.i.sink.split, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true1.i
-  %name3.i = getelementptr inbounds %struct.PyCapsule, ptr %object.0, i64 0, i32 2
+  %name3.i = getelementptr inbounds i8, ptr %object.0, i64 24
   %5 = load ptr, ptr %name3.i, align 8
   %tobool.i.i = icmp ne ptr %5, null
   %tobool1.i.i = icmp ne ptr %name, null
@@ -707,7 +643,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 define internal void @capsule_dealloc(ptr noundef %op) #0 {
 entry:
   tail call void @PyObject_GC_UnTrack(ptr noundef %op) #7
-  %destructor = getelementptr inbounds %struct.PyCapsule, ptr %op, i64 0, i32 4
+  %destructor = getelementptr inbounds i8, ptr %op, i64 40
   %0 = load ptr, ptr %destructor, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -724,7 +660,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal ptr @capsule_repr(ptr noundef %o) #0 {
 entry:
-  %name1 = getelementptr inbounds %struct.PyCapsule, ptr %o, i64 0, i32 2
+  %name1 = getelementptr inbounds i8, ptr %o, i64 24
   %0 = load ptr, ptr %name1, align 8
   %tobool.not = icmp eq ptr %0, null
   %.str.18. = select i1 %tobool.not, ptr @.str.18, ptr %0
@@ -736,7 +672,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @capsule_traverse(ptr noundef %capsule, ptr noundef %visit, ptr noundef %arg) #0 {
 entry:
-  %traverse_func = getelementptr inbounds %struct.PyCapsule, ptr %capsule, i64 0, i32 5
+  %traverse_func = getelementptr inbounds i8, ptr %capsule, i64 48
   %0 = load ptr, ptr %traverse_func, align 8
   %call = tail call i32 %0(ptr noundef %capsule, ptr noundef %visit, ptr noundef %arg) #7
   ret i32 %call
@@ -745,7 +681,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @capsule_clear(ptr noundef %capsule) #0 {
 entry:
-  %clear_func = getelementptr inbounds %struct.PyCapsule, ptr %capsule, i64 0, i32 6
+  %clear_func = getelementptr inbounds i8, ptr %capsule, i64 56
   %0 = load ptr, ptr %clear_func, align 8
   %call = tail call i32 %0(ptr noundef %capsule) #7
   ret i32 %call

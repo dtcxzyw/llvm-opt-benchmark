@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %union.pthread_attr_t = type { i64, [48 x i8] }
-%struct.crypto_thread_st = type { i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, i32, ptr }
 %struct.timespec = type { i64, i64 }
 
 @.str = private unnamed_addr constant [45 x i8] c"../openssl/crypto/thread/arch/thread_posix.c\00", align 1
@@ -20,7 +19,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = call i32 @pthread_attr_init(ptr noundef nonnull %attr) #7
-  %joinable = getelementptr inbounds %struct.crypto_thread_st, ptr %thread, i64 0, i32 9
+  %joinable = getelementptr inbounds i8, ptr %thread, i64 72
   %0 = load i32, ptr %joinable, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then2, label %if.end4
@@ -36,12 +35,12 @@ if.end4:                                          ; preds = %if.then2, %if.end
   br i1 %cmp7.not, label %if.end9, label %fail
 
 if.end9:                                          ; preds = %if.end4
-  %handle10 = getelementptr inbounds %struct.crypto_thread_st, ptr %thread, i64 0, i32 4
+  %handle10 = getelementptr inbounds i8, ptr %thread, i64 32
   store ptr %call, ptr %handle10, align 8
   br label %return
 
 fail:                                             ; preds = %if.end4, %entry
-  %handle11 = getelementptr inbounds %struct.crypto_thread_st, ptr %thread, i64 0, i32 4
+  %handle11 = getelementptr inbounds i8, ptr %thread, i64 32
   store ptr null, ptr %handle11, align 8
   call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str, i32 noundef 59) #7
   br label %return
@@ -65,12 +64,12 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal ptr @thread_start_thunk(ptr nocapture noundef %vthread) #0 {
 entry:
-  %routine = getelementptr inbounds %struct.crypto_thread_st, ptr %vthread, i64 0, i32 2
+  %routine = getelementptr inbounds i8, ptr %vthread, i64 16
   %0 = load ptr, ptr %routine, align 8
-  %data = getelementptr inbounds %struct.crypto_thread_st, ptr %vthread, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %vthread, i64 8
   %1 = load ptr, ptr %data, align 8
   %call = tail call i32 %0(ptr noundef %1) #7
-  %statelock = getelementptr inbounds %struct.crypto_thread_st, ptr %vthread, i64 0, i32 6
+  %statelock = getelementptr inbounds i8, ptr %vthread, i64 48
   %2 = load ptr, ptr %statelock, align 8
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %2) #7
   %cmp.i = icmp eq i32 %call.i, 0
@@ -84,9 +83,9 @@ ossl_crypto_mutex_lock.exit:                      ; preds = %entry
   %3 = load i32, ptr %vthread, align 8
   %4 = or i32 %3, 1
   store i32 %4, ptr %vthread, align 8
-  %retval2 = getelementptr inbounds %struct.crypto_thread_st, ptr %vthread, i64 0, i32 3
+  %retval2 = getelementptr inbounds i8, ptr %vthread, i64 24
   store i32 %call, ptr %retval2, align 8
-  %condvar = getelementptr inbounds %struct.crypto_thread_st, ptr %vthread, i64 0, i32 7
+  %condvar = getelementptr inbounds i8, ptr %vthread, i64 56
   %5 = load ptr, ptr %condvar, align 8
   %call.i7 = tail call i32 @pthread_cond_broadcast(ptr noundef %5) #7
   %6 = load ptr, ptr %statelock, align 8
@@ -115,7 +114,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %handle2 = getelementptr inbounds %struct.crypto_thread_st, ptr %thread, i64 0, i32 4
+  %handle2 = getelementptr inbounds i8, ptr %thread, i64 32
   %0 = load ptr, ptr %handle2, align 8
   %cmp3 = icmp eq ptr %0, null
   br i1 %cmp3, label %return, label %if.end
@@ -152,7 +151,7 @@ declare void @pthread_exit(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @ossl_crypto_thread_native_is_self(ptr nocapture noundef readonly %thread) local_unnamed_addr #5 {
 entry:
-  %handle = getelementptr inbounds %struct.crypto_thread_st, ptr %thread, i64 0, i32 4
+  %handle = getelementptr inbounds i8, ptr %thread, i64 32
   %0 = load ptr, ptr %handle, align 8
   %1 = load i64, ptr %0, align 8
   %call = tail call i64 @pthread_self() #9
@@ -318,7 +317,7 @@ if.else:                                          ; preds = %entry
   %div = udiv i64 %deadline.coerce, 1000000000
   store i64 %div, ptr %deadline_ts, align 8
   %rem = urem i64 %deadline.coerce, 1000000000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %deadline_ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %deadline_ts, i64 8
   store i64 %rem, ptr %tv_nsec, align 8
   %call8 = call i32 @pthread_cond_timedwait(ptr noundef %cv, ptr noundef %mutex, ptr noundef nonnull %deadline_ts) #7
   br label %if.end

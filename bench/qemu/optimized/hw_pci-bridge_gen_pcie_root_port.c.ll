@@ -9,48 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64 }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.PCIERootPortClass = type { %struct.PCIDeviceClass, ptr, %struct.ResettablePhases, ptr, ptr, ptr, i32, i32, i32, i32, i32 }
-%struct.ResettablePhases = type { ptr, ptr, ptr }
-%struct.PCIESlot = type { %struct.PCIEPort, i8, i16, i32, i32, i8, i8, i8, %struct.anon.7 }
-%struct.PCIEPort = type { %struct.PCIBridge, i8 }
-%struct.PCIBridge = type { %struct.PCIDevice, %struct.PCIBus, %struct.MemoryRegion, %struct.MemoryRegion, %struct.PCIBridgeWindows, ptr, ptr, i8 }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.0, %union.anon.1 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.PCIBus = type { %struct.BusState, i32, ptr, ptr, i8, i32, ptr, ptr, ptr, ptr, [256 x ptr], ptr, ptr, ptr, %struct.anon, %struct.anon.5, i32, ptr, %struct.Notifier }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.anon.5 = type { ptr, ptr }
-%struct.Notifier = type { ptr, %struct.anon.6 }
-%struct.anon.6 = type { ptr, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.2, %union.anon.3, %union.anon.4, ptr, i32, ptr, ptr, i8 }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.PCIBridgeWindows = type { %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, [3 x %struct.MemoryRegion] }
-%struct.anon.7 = type { ptr, ptr }
-%struct.GenPCIERootPort = type { %struct.PCIESlot, i8, %struct.PCIResReserve }
 %struct.PCIResReserve = type { i32, i64, i64, i64, i64 }
 
 @gen_rp_dev_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 7232, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @gen_rp_dev_class_init, ptr null, ptr null, ptr null }, align 8
@@ -121,26 +79,26 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #5
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #5
   %call.i13 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 82, ptr noundef nonnull @__func__.PCIE_ROOT_PORT_CLASS) #5
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i12, i64 208
   store i16 6966, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i12, i64 210
   store i16 12, ptr %device_id, align 2
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_rp_dev, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @gen_rp_props) #5
-  %parent_realize = getelementptr inbounds %struct.PCIERootPortClass, ptr %call.i13, i64 0, i32 1
+  %parent_realize = getelementptr inbounds i8, ptr %call.i13, i64 232
   tail call void @device_class_set_parent_realize(ptr noundef %call.i, ptr noundef nonnull @gen_rp_realize, ptr noundef nonnull %parent_realize) #5
-  %aer_vector = getelementptr inbounds %struct.PCIERootPortClass, ptr %call.i13, i64 0, i32 3
+  %aer_vector = getelementptr inbounds i8, ptr %call.i13, i64 264
   store ptr @gen_rp_aer_vector, ptr %aer_vector, align 8
-  %interrupts_init = getelementptr inbounds %struct.PCIERootPortClass, ptr %call.i13, i64 0, i32 4
+  %interrupts_init = getelementptr inbounds i8, ptr %call.i13, i64 272
   store ptr @gen_rp_interrupts_init, ptr %interrupts_init, align 8
-  %interrupts_uninit = getelementptr inbounds %struct.PCIERootPortClass, ptr %call.i13, i64 0, i32 5
+  %interrupts_uninit = getelementptr inbounds i8, ptr %call.i13, i64 280
   store ptr @gen_rp_interrupts_uninit, ptr %interrupts_uninit, align 8
-  %aer_offset = getelementptr inbounds %struct.PCIERootPortClass, ptr %call.i13, i64 0, i32 7
+  %aer_offset = getelementptr inbounds i8, ptr %call.i13, i64 292
   store i32 256, ptr %aer_offset, align 4
-  %acs_offset = getelementptr inbounds %struct.PCIERootPortClass, ptr %call.i13, i64 0, i32 9
+  %acs_offset = getelementptr inbounds i8, ptr %call.i13, i64 300
   store i32 328, ptr %acs_offset, align 4
   ret void
 }
@@ -159,7 +117,7 @@ entry:
   %call.i17 = tail call ptr @object_get_class(ptr noundef %call.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 82, ptr noundef nonnull @__func__.PCIE_ROOT_PORT_GET_CLASS) #5
   store ptr null, ptr %local_err, align 8
-  %parent_realize = getelementptr inbounds %struct.PCIERootPortClass, ptr %call1.i, i64 0, i32 1
+  %parent_realize = getelementptr inbounds i8, ptr %call1.i, i64 232
   %0 = load ptr, ptr %parent_realize, align 8
   call void %0(ptr noundef %dev, ptr noundef nonnull %local_err) #5
   %1 = load ptr, ptr %local_err, align 8
@@ -171,20 +129,20 @@ if.then:                                          ; preds = %entry
   br label %if.end24
 
 if.end:                                           ; preds = %entry
-  %hide_native_hotplug_cap = getelementptr inbounds %struct.PCIESlot, ptr %call.i15, i64 0, i32 7
+  %hide_native_hotplug_cap = getelementptr inbounds i8, ptr %call.i15, i64 7166
   %2 = load i8, ptr %hide_native_hotplug_cap, align 2
   %3 = and i8 %2, 1
   %tobool4.not = icmp eq i8 %3, 0
   br i1 %tobool4.not, label %if.end10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %io = getelementptr inbounds %struct.GenPCIERootPort, ptr %call.i16, i64 0, i32 2, i32 1
+  %io = getelementptr inbounds i8, ptr %call.i16, i64 7200
   %4 = load i64, ptr %io, align 8
   %cmp = icmp eq i64 %4, -1
   br i1 %cmp, label %land.lhs.true5, label %if.end10
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %hotplug = getelementptr inbounds %struct.PCIESlot, ptr %call.i15, i64 0, i32 6
+  %hotplug = getelementptr inbounds i8, ptr %call.i15, i64 7165
   %5 = load i8, ptr %hotplug, align 1
   %6 = and i8 %5, 1
   %tobool6.not = icmp eq i8 %6, 0
@@ -195,25 +153,25 @@ if.then7:                                         ; preds = %land.lhs.true5
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %land.lhs.true5, %land.lhs.true, %if.end
-  %res_reserve11 = getelementptr inbounds %struct.GenPCIERootPort, ptr %call.i16, i64 0, i32 2
+  %res_reserve11 = getelementptr inbounds i8, ptr %call.i16, i64 7192
   %call12 = call i32 @pci_bridge_qemu_reserve_cap_init(ptr noundef %call.i, i32 noundef 0, ptr noundef nonnull byval(%struct.PCIResReserve) align 8 %res_reserve11, ptr noundef %errp) #5
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end10
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call1.i, i64 184
   %7 = load ptr, ptr %exit, align 8
   call void %7(ptr noundef %call.i) #5
   br label %if.end24
 
 if.end15:                                         ; preds = %if.end10
-  %io17 = getelementptr inbounds %struct.GenPCIERootPort, ptr %call.i16, i64 0, i32 2, i32 1
+  %io17 = getelementptr inbounds i8, ptr %call.i16, i64 7200
   %8 = load i64, ptr %io17, align 8
   %tobool18.not = icmp eq i64 %8, 0
   br i1 %tobool18.not, label %if.then19, label %if.end24
 
 if.then19:                                        ; preds = %if.end15
-  %wmask = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 5
+  %wmask = getelementptr inbounds i8, ptr %call.i, i64 184
   %9 = load ptr, ptr %wmask, align 8
   %add.ptr = getelementptr i8, ptr %9, i64 4
   %config.val.i = load i16, ptr %add.ptr, align 1
@@ -274,7 +232,7 @@ declare i32 @pcie_cap_slot_post_load(ptr noundef, i32 noundef) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @gen_rp_test_migrate_msix(ptr nocapture noundef readonly %opaque, i32 %version_id) #3 {
 entry:
-  %migrate_msix = getelementptr inbounds %struct.GenPCIERootPort, ptr %opaque, i64 0, i32 1
+  %migrate_msix = getelementptr inbounds i8, ptr %opaque, i64 7184
   %0 = load i8, ptr %migrate_msix, align 16
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0

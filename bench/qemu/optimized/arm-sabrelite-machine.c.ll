@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QSDHCIProperties = type { i8, i8, %struct.anon }
 %struct.anon = type { i8, i64 }
-%struct.QSabreliteMachine = type { %struct.QOSGraphObject, %struct.QGuestAllocator, %struct.QSDHCI_MemoryMapped }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QGuestAllocator = type { i32, i64, i64, i32, ptr, ptr }
-%struct.QSDHCI_MemoryMapped = type { %struct.QOSGraphObject, ptr, %struct.QSDHCI, i64 }
-%struct.QSDHCI = type { ptr, ptr, ptr, %struct.QSDHCIProperties }
 
 @.str = private unnamed_addr constant [14 x i8] c"arm/sabrelite\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"generic-sdhci\00", align 1
@@ -45,20 +40,20 @@ define internal ptr @qos_create_machine_arm_sabrelite(ptr noundef %qts) #0 {
 entry:
   %.compoundliteral = alloca %struct.QSDHCIProperties, align 8
   %call = tail call noalias dereferenceable_or_null(192) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 192) #6
-  %alloc = getelementptr inbounds %struct.QSabreliteMachine, ptr %call, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @alloc_init(ptr noundef nonnull %alloc, i32 noundef 0, i64 noundef 268435456, i64 noundef 805306368, i64 noundef 4096) #5
-  %get_device = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 1
+  %get_device = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @sabrelite_get_device, ptr %get_device, align 8
   store ptr @sabrelite_get_driver, ptr %call, align 8
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @sabrelite_destructor, ptr %destructor, align 8
-  %sdhci = getelementptr inbounds %struct.QSabreliteMachine, ptr %call, i64 0, i32 2
+  %sdhci = getelementptr inbounds i8, ptr %call, i64 88
   store i8 3, ptr %.compoundliteral, align 8
-  %baseclock = getelementptr inbounds %struct.QSDHCIProperties, ptr %.compoundliteral, i64 0, i32 1
+  %baseclock = getelementptr inbounds i8, ptr %.compoundliteral, i64 1
   store i8 0, ptr %baseclock, align 1
-  %capab = getelementptr inbounds %struct.QSDHCIProperties, ptr %.compoundliteral, i64 0, i32 2
+  %capab = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   store i8 1, ptr %capab, align 8
-  %reg = getelementptr inbounds %struct.QSDHCIProperties, ptr %.compoundliteral, i64 0, i32 2, i32 1
+  %reg = getelementptr inbounds i8, ptr %.compoundliteral, i64 16
   store i64 91763892, ptr %reg, align 8
   call void @qos_init_sdhci_mm(ptr noundef nonnull %sdhci, ptr noundef %qts, i32 noundef 35192832, ptr noundef nonnull %.compoundliteral) #5
   ret ptr %call
@@ -79,7 +74,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sdhci = getelementptr inbounds %struct.QSabreliteMachine, ptr %obj, i64 0, i32 2
+  %sdhci = getelementptr inbounds i8, ptr %obj, i64 88
   ret ptr %sdhci
 
 if.end:                                           ; preds = %entry
@@ -97,7 +92,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %alloc = getelementptr inbounds %struct.QSabreliteMachine, ptr %object, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %object, i64 40
   ret ptr %alloc
 
 if.end:                                           ; preds = %entry
@@ -110,7 +105,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sabrelite_destructor(ptr noundef %obj) #0 {
 entry:
-  %alloc = getelementptr inbounds %struct.QSabreliteMachine, ptr %obj, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %obj, i64 40
   tail call void @alloc_destroy(ptr noundef nonnull %alloc) #5
   ret void
 }

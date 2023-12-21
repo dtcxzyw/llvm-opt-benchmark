@@ -3,8 +3,6 @@ source_filename = "bench/bullet3/original/b3GeometryUtil.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.b3AlignedObjectArray = type <{ %class.b3AlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator = type { i8 }
 %class.b3Vector3 = type { %union.anon }
 %union.anon = type { [4 x float] }
 
@@ -21,30 +19,30 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN14b3GeometryUtil19isPointInsidePlanesERK20b3AlignedObjectArrayI9b3Vector3ERKS1_f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %planeEquations, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %point, float noundef %margin) local_unnamed_addr #1 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %planeEquations, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %planeEquations, i64 4
   %0 = load i32, ptr %m_size.i, align 4
   %cmp5 = icmp slt i32 %0, 1
   br i1 %cmp5, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %planeEquations, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %planeEquations, i64 16
   %1 = load ptr, ptr %m_data.i, align 8
   %2 = load float, ptr %point, align 16
-  %arrayidx4.i = getelementptr inbounds [4 x float], ptr %point, i64 0, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %point, i64 4
   %3 = load float, ptr %arrayidx4.i, align 4
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %point, i64 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %point, i64 8
   %4 = load float, ptr %arrayidx7.i, align 8
   %5 = zext nneg i32 %0 to i64
   %wide.trip.count = zext nneg i32 %0 to i64
   %6 = load float, ptr %1, align 16
-  %arrayidx3.i9 = getelementptr inbounds [4 x float], ptr %1, i64 0, i64 1
+  %arrayidx3.i9 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load float, ptr %arrayidx3.i9, align 4
   %mul5.i10 = fmul float %7, %3
   %8 = tail call float @llvm.fmuladd.f32(float %6, float %2, float %mul5.i10)
-  %arrayidx6.i11 = getelementptr inbounds [4 x float], ptr %1, i64 0, i64 2
+  %arrayidx6.i11 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load float, ptr %arrayidx6.i11, align 8
   %10 = tail call noundef float @llvm.fmuladd.f32(float %9, float %4, float %8)
-  %arrayidx12 = getelementptr inbounds float, ptr %1, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %1, i64 12
   %11 = load float, ptr %arrayidx12, align 4
   %add13 = fadd float %10, %11
   %sub14 = fsub float %add13, %margin
@@ -60,14 +58,14 @@ for.cond:                                         ; preds = %for.body.lr.ph, %fo
 for.body:                                         ; preds = %for.cond
   %arrayidx.i = getelementptr inbounds %class.b3Vector3, ptr %1, i64 %indvars.iv.next
   %12 = load float, ptr %arrayidx.i, align 16
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %13 = load float, ptr %arrayidx3.i, align 4
   %mul5.i = fmul float %13, %3
   %14 = tail call float @llvm.fmuladd.f32(float %12, float %2, float %mul5.i)
-  %arrayidx6.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %15 = load float, ptr %arrayidx6.i, align 8
   %16 = tail call noundef float @llvm.fmuladd.f32(float %15, float %4, float %14)
-  %arrayidx = getelementptr inbounds float, ptr %arrayidx.i, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   %17 = load float, ptr %arrayidx, align 4
   %add = fadd float %16, %17
   %sub = fsub float %add, %margin
@@ -86,29 +84,29 @@ return:                                           ; preds = %return.loopexit, %f
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN14b3GeometryUtil22areVerticesBehindPlaneERK9b3Vector3RK20b3AlignedObjectArrayIS0_Ef(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %planeNormal, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %vertices, float noundef %margin) local_unnamed_addr #1 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %vertices, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %vertices, i64 4
   %0 = load i32, ptr %m_size.i, align 4
   %cmp5 = icmp slt i32 %0, 1
   br i1 %cmp5, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %vertices, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %vertices, i64 16
   %1 = load ptr, ptr %m_data.i, align 8
   %2 = load float, ptr %planeNormal, align 16
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %planeNormal, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %planeNormal, i64 4
   %3 = load float, ptr %arrayidx3.i, align 4
-  %arrayidx6.i = getelementptr inbounds [4 x float], ptr %planeNormal, i64 0, i64 2
+  %arrayidx6.i = getelementptr inbounds i8, ptr %planeNormal, i64 8
   %4 = load float, ptr %arrayidx6.i, align 8
-  %arrayidx = getelementptr inbounds float, ptr %planeNormal, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %planeNormal, i64 12
   %5 = load float, ptr %arrayidx, align 4
   %6 = zext nneg i32 %0 to i64
   %wide.trip.count = zext nneg i32 %0 to i64
   %7 = load float, ptr %1, align 16
-  %arrayidx4.i9 = getelementptr inbounds [4 x float], ptr %1, i64 0, i64 1
+  %arrayidx4.i9 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load float, ptr %arrayidx4.i9, align 4
   %mul5.i10 = fmul float %3, %8
   %9 = tail call float @llvm.fmuladd.f32(float %2, float %7, float %mul5.i10)
-  %arrayidx7.i11 = getelementptr inbounds [4 x float], ptr %1, i64 0, i64 2
+  %arrayidx7.i11 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load float, ptr %arrayidx7.i11, align 8
   %11 = tail call noundef float @llvm.fmuladd.f32(float %4, float %10, float %9)
   %add12 = fadd float %11, %5
@@ -125,11 +123,11 @@ for.cond:                                         ; preds = %for.body.lr.ph, %fo
 for.body:                                         ; preds = %for.cond
   %arrayidx.i = getelementptr inbounds %class.b3Vector3, ptr %1, i64 %indvars.iv.next
   %12 = load float, ptr %arrayidx.i, align 16
-  %arrayidx4.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %13 = load float, ptr %arrayidx4.i, align 4
   %mul5.i = fmul float %3, %13
   %14 = tail call float @llvm.fmuladd.f32(float %2, float %12, float %mul5.i)
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %15 = load float, ptr %arrayidx7.i, align 8
   %16 = tail call noundef float @llvm.fmuladd.f32(float %4, float %15, float %14)
   %add = fadd float %16, %5
@@ -149,27 +147,27 @@ return:                                           ; preds = %return.loopexit, %f
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_Z8notExistRK9b3Vector3RK20b3AlignedObjectArrayIS_E(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %planeEquation, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %planeEquations) local_unnamed_addr #1 {
 entry:
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %planeEquations, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %planeEquations, i64 4
   %0 = load i32, ptr %m_size.i, align 4
   %cmp4 = icmp slt i32 %0, 1
   br i1 %cmp4, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %planeEquations, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %planeEquations, i64 16
   %1 = load ptr, ptr %m_data.i, align 8
   %2 = load float, ptr %planeEquation, align 16
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %planeEquation, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %planeEquation, i64 4
   %3 = load float, ptr %arrayidx3.i, align 4
-  %arrayidx6.i = getelementptr inbounds [4 x float], ptr %planeEquation, i64 0, i64 2
+  %arrayidx6.i = getelementptr inbounds i8, ptr %planeEquation, i64 8
   %4 = load float, ptr %arrayidx6.i, align 8
   %5 = zext nneg i32 %0 to i64
   %wide.trip.count = zext nneg i32 %0 to i64
   %6 = load float, ptr %1, align 16
-  %arrayidx4.i8 = getelementptr inbounds [4 x float], ptr %1, i64 0, i64 1
+  %arrayidx4.i8 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load float, ptr %arrayidx4.i8, align 4
   %mul5.i9 = fmul float %3, %7
   %8 = tail call float @llvm.fmuladd.f32(float %2, float %6, float %mul5.i9)
-  %arrayidx7.i10 = getelementptr inbounds [4 x float], ptr %1, i64 0, i64 2
+  %arrayidx7.i10 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load float, ptr %arrayidx7.i10, align 8
   %10 = tail call noundef float @llvm.fmuladd.f32(float %4, float %9, float %8)
   %cmp311 = fcmp ogt float %10, 0x3FEFF7CEE0000000
@@ -184,11 +182,11 @@ for.cond:                                         ; preds = %for.body.lr.ph, %fo
 for.body:                                         ; preds = %for.cond
   %arrayidx.i = getelementptr inbounds %class.b3Vector3, ptr %1, i64 %indvars.iv.next
   %11 = load float, ptr %arrayidx.i, align 16
-  %arrayidx4.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %12 = load float, ptr %arrayidx4.i, align 4
   %mul5.i = fmul float %3, %12
   %13 = tail call float @llvm.fmuladd.f32(float %2, float %11, float %mul5.i)
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %14 = load float, ptr %arrayidx7.i, align 8
   %15 = tail call noundef float @llvm.fmuladd.f32(float %4, float %14, float %13)
   %cmp3 = fcmp ogt float %15, 0x3FEFF7CEE0000000
@@ -206,17 +204,17 @@ return:                                           ; preds = %return.loopexit, %f
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN14b3GeometryUtil29getPlaneEquationsFromVerticesER20b3AlignedObjectArrayI9b3Vector3ES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %vertices, ptr nocapture noundef nonnull align 8 dereferenceable(25) %planeEquationsOut) local_unnamed_addr #2 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %vertices, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %vertices, i64 4
   %0 = load i32, ptr %m_size.i, align 4
   %cmp140 = icmp sgt i32 %0, 0
   br i1 %cmp140, label %for.body.lr.ph, label %for.end47
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %vertices, i64 0, i32 5
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %planeEquationsOut, i64 0, i32 2
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %planeEquationsOut, i64 0, i32 5
-  %m_capacity.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %planeEquationsOut, i64 0, i32 3
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %planeEquationsOut, i64 0, i32 6
+  %m_data.i = getelementptr inbounds i8, ptr %vertices, i64 16
+  %m_size.i.i = getelementptr inbounds i8, ptr %planeEquationsOut, i64 4
+  %m_data.i.i = getelementptr inbounds i8, ptr %planeEquationsOut, i64 16
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %planeEquationsOut, i64 8
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %planeEquationsOut, i64 24
   %1 = zext nneg i32 %0 to i64
   %wide.trip.count156 = zext nneg i32 %0 to i64
   br label %for.body
@@ -238,8 +236,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp3138, label %for.body4.lr.ph, label %for.cond.loopexit
 
 for.body4.lr.ph:                                  ; preds = %for.body
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
-  %arrayidx6.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   br label %for.body4
 
 for.cond2.loopexit:                               ; preds = %for.inc39, %for.body4
@@ -258,7 +256,7 @@ for.body4:                                        ; preds = %for.body4.lr.ph, %f
   br i1 %cmp8136, label %for.body9.lr.ph, label %for.cond2.loopexit
 
 for.body9.lr.ph:                                  ; preds = %for.body4
-  %arrayidx2.i = getelementptr inbounds [4 x float], ptr %arrayidx.i21, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %arrayidx.i21, i64 4
   br label %for.body9
 
 for.body9:                                        ; preds = %for.body9.lr.ph, %for.inc39
@@ -269,9 +267,9 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %f
   %7 = load float, ptr %arrayidx.i, align 16
   %sub.i = fsub float %6, %7
   %8 = load float, ptr %arrayidx.i24, align 16
-  %arrayidx2.i26 = getelementptr inbounds [4 x float], ptr %arrayidx.i24, i64 0, i64 1
+  %arrayidx2.i26 = getelementptr inbounds i8, ptr %arrayidx.i24, i64 4
   %9 = load float, ptr %arrayidx2.i26, align 4
-  %arrayidx5.i29 = getelementptr inbounds [4 x float], ptr %arrayidx.i24, i64 0, i64 2
+  %arrayidx5.i29 = getelementptr inbounds i8, ptr %arrayidx.i24, i64 8
   %10 = load float, ptr %arrayidx5.i29, align 8
   %11 = load <2 x float>, ptr %arrayidx2.i, align 4
   %12 = load <2 x float>, ptr %arrayidx3.i, align 4
@@ -327,13 +325,13 @@ for.body.lr.ph.i:                                 ; preds = %if.then
   %41 = load ptr, ptr %m_data.i.i, align 8
   %42 = zext nneg i32 %40 to i64
   %43 = load float, ptr %41, align 16
-  %arrayidx4.i.i119 = getelementptr inbounds [4 x float], ptr %41, i64 0, i64 1
+  %arrayidx4.i.i119 = getelementptr inbounds i8, ptr %41, i64 4
   %44 = load float, ptr %arrayidx4.i.i119, align 4
   %45 = extractelement <2 x float> %39, i64 1
   %mul5.i.i48120 = fmul float %45, %44
   %46 = extractelement <2 x float> %39, i64 0
   %47 = tail call float @llvm.fmuladd.f32(float %46, float %43, float %mul5.i.i48120)
-  %arrayidx7.i.i121 = getelementptr inbounds [4 x float], ptr %41, i64 0, i64 2
+  %arrayidx7.i.i121 = getelementptr inbounds i8, ptr %41, i64 8
   %48 = load float, ptr %arrayidx7.i.i121, align 8
   %49 = tail call noundef float @llvm.fmuladd.f32(float %mul5.i.i.i, float %48, float %47)
   %cmp3.i122 = fcmp ogt float %49, 0x3FEFF7CEE0000000
@@ -348,11 +346,11 @@ for.cond.i:                                       ; preds = %for.body.lr.ph.i, %
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i.i = getelementptr inbounds %class.b3Vector3, ptr %41, i64 %indvars.iv.next.i
   %50 = load float, ptr %arrayidx.i.i, align 16
-  %arrayidx4.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i.i, i64 0, i64 1
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %51 = load float, ptr %arrayidx4.i.i, align 4
   %mul5.i.i48 = fmul float %45, %51
   %52 = tail call float @llvm.fmuladd.f32(float %46, float %50, float %mul5.i.i48)
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i.i, i64 0, i64 2
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %53 = load float, ptr %arrayidx7.i.i, align 8
   %54 = tail call noundef float @llvm.fmuladd.f32(float %mul5.i.i.i, float %53, float %52)
   %cmp3.i = fcmp ogt float %54, 0x3FEFF7CEE0000000
@@ -381,11 +379,11 @@ for.body.lr.ph.i53:                               ; preds = %if.then32
   %63 = load ptr, ptr %m_data.i, align 8
   %64 = zext nneg i32 %62 to i64
   %65 = load float, ptr %63, align 16
-  %arrayidx4.i.i62125 = getelementptr inbounds [4 x float], ptr %63, i64 0, i64 1
+  %arrayidx4.i.i62125 = getelementptr inbounds i8, ptr %63, i64 4
   %66 = load float, ptr %arrayidx4.i.i62125, align 4
   %mul5.i.i63126 = fmul float %57, %66
   %67 = tail call float @llvm.fmuladd.f32(float %58, float %65, float %mul5.i.i63126)
-  %arrayidx7.i.i64127 = getelementptr inbounds [4 x float], ptr %63, i64 0, i64 2
+  %arrayidx7.i.i64127 = getelementptr inbounds i8, ptr %63, i64 8
   %68 = load float, ptr %arrayidx7.i.i64127, align 8
   %69 = tail call noundef float @llvm.fmuladd.f32(float %mul5.i.i.i, float %68, float %67)
   %add.i128 = fsub float %69, %61
@@ -402,11 +400,11 @@ for.cond.i67:                                     ; preds = %for.body.lr.ph.i53,
 for.body.i59:                                     ; preds = %for.cond.i67
   %arrayidx.i.i61 = getelementptr inbounds %class.b3Vector3, ptr %63, i64 %indvars.iv.next.i68
   %70 = load float, ptr %arrayidx.i.i61, align 16
-  %arrayidx4.i.i62 = getelementptr inbounds [4 x float], ptr %arrayidx.i.i61, i64 0, i64 1
+  %arrayidx4.i.i62 = getelementptr inbounds i8, ptr %arrayidx.i.i61, i64 4
   %71 = load float, ptr %arrayidx4.i.i62, align 4
   %mul5.i.i63 = fmul float %57, %71
   %72 = tail call float @llvm.fmuladd.f32(float %58, float %70, float %mul5.i.i63)
-  %arrayidx7.i.i64 = getelementptr inbounds [4 x float], ptr %arrayidx.i.i61, i64 0, i64 2
+  %arrayidx7.i.i64 = getelementptr inbounds i8, ptr %arrayidx.i.i61, i64 8
   %73 = load float, ptr %arrayidx7.i.i64, align 8
   %74 = tail call noundef float @llvm.fmuladd.f32(float %mul5.i.i.i, float %73, float %72)
   %add.i = fsub float %74, %61
@@ -522,17 +520,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN14b3GeometryUtil29getVerticesFromPlaneEquationsERK20b3AlignedObjectArrayI9b3Vector3ERS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %planeEquations, ptr nocapture noundef nonnull align 8 dereferenceable(25) %verticesOut) local_unnamed_addr #2 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %planeEquations, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %planeEquations, i64 4
   %0 = load i32, ptr %m_size.i, align 4
   %cmp190 = icmp sgt i32 %0, 0
   br i1 %cmp190, label %for.body.lr.ph, label %for.end52
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %planeEquations, i64 0, i32 5
-  %m_size.i.i95 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %verticesOut, i64 0, i32 2
-  %m_capacity.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %verticesOut, i64 0, i32 3
-  %m_data.i.i105 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %verticesOut, i64 0, i32 5
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %verticesOut, i64 0, i32 6
+  %m_data.i = getelementptr inbounds i8, ptr %planeEquations, i64 16
+  %m_size.i.i95 = getelementptr inbounds i8, ptr %verticesOut, i64 4
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %verticesOut, i64 8
+  %m_data.i.i105 = getelementptr inbounds i8, ptr %verticesOut, i64 16
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %verticesOut, i64 24
   %1 = zext nneg i32 %0 to i64
   %wide.trip.count205 = zext nneg i32 %0 to i64
   br label %for.body
@@ -554,8 +552,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp3188, label %for.body4.lr.ph, label %for.cond.loopexit
 
 for.body4.lr.ph:                                  ; preds = %for.body
-  %arrayidx4.i32 = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
-  %arrayidx = getelementptr inbounds float, ptr %arrayidx.i, i64 3
+  %arrayidx4.i32 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   br label %for.body4
 
 for.cond2.loopexit:                               ; preds = %for.inc, %for.body4
@@ -574,15 +572,15 @@ for.body4:                                        ; preds = %for.body4.lr.ph, %f
   br i1 %cmp8186, label %for.body9.lr.ph, label %for.cond2.loopexit
 
 for.body9.lr.ph:                                  ; preds = %for.body4
-  %arrayidx.i28 = getelementptr inbounds [4 x float], ptr %arrayidx.i24, i64 0, i64 1
-  %arrayidx35 = getelementptr inbounds float, ptr %arrayidx.i24, i64 3
+  %arrayidx.i28 = getelementptr inbounds i8, ptr %arrayidx.i24, i64 4
+  %arrayidx35 = getelementptr inbounds i8, ptr %arrayidx.i24, i64 12
   br label %for.body9
 
 for.body9:                                        ; preds = %for.body9.lr.ph, %for.inc
   %indvars.iv194 = phi i64 [ %indvars.iv192, %for.body9.lr.ph ], [ %indvars.iv.next195, %for.inc ]
   %5 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i27 = getelementptr inbounds %class.b3Vector3, ptr %5, i64 %indvars.iv194
-  %arrayidx4.i = getelementptr inbounds [4 x float], ptr %arrayidx.i27, i64 0, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %arrayidx.i27, i64 4
   %6 = load float, ptr %arrayidx.i27, align 16
   %7 = load float, ptr %arrayidx.i24, align 16
   %8 = load float, ptr %arrayidx.i, align 16
@@ -658,7 +656,7 @@ if.then31:                                        ; preds = %if.then
   %mul5.i63 = fmul float %21, %53
   %54 = load float, ptr %arrayidx35, align 4
   %mul5.i68 = fmul float %30, %54
-  %arrayidx38 = getelementptr inbounds float, ptr %arrayidx.i27, i64 3
+  %arrayidx38 = getelementptr inbounds i8, ptr %arrayidx.i27, i64 12
   %55 = load float, ptr %arrayidx38, align 4
   %mul5.i73 = fmul float %35, %55
   %add8.i = fadd float %mul5.i63, %mul5.i68
@@ -685,16 +683,16 @@ if.then31:                                        ; preds = %if.then
 for.body.lr.ph.i:                                 ; preds = %if.then31
   %71 = zext nneg i32 %70 to i64
   %72 = load float, ptr %5, align 16
-  %arrayidx3.i.i90177 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 1
+  %arrayidx3.i.i90177 = getelementptr inbounds i8, ptr %5, i64 4
   %73 = load float, ptr %arrayidx3.i.i90177, align 4
   %74 = extractelement <2 x float> %69, i64 0
   %mul5.i.i91178 = fmul float %74, %73
   %75 = extractelement <2 x float> %69, i64 1
   %76 = tail call float @llvm.fmuladd.f32(float %72, float %75, float %mul5.i.i91178)
-  %arrayidx6.i.i92179 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 2
+  %arrayidx6.i.i92179 = getelementptr inbounds i8, ptr %5, i64 8
   %77 = load float, ptr %arrayidx6.i.i92179, align 8
   %78 = tail call noundef float @llvm.fmuladd.f32(float %77, float %mul5.i89, float %76)
-  %arrayidx.i93180 = getelementptr inbounds float, ptr %5, i64 3
+  %arrayidx.i93180 = getelementptr inbounds i8, ptr %5, i64 12
   %79 = load float, ptr %arrayidx.i93180, align 4
   %add.i94181 = fadd float %79, %78
   %sub.i182 = fadd float %add.i94181, 0xBF847AE140000000
@@ -710,14 +708,14 @@ for.cond.i:                                       ; preds = %for.body.lr.ph.i, %
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i.i = getelementptr inbounds %class.b3Vector3, ptr %5, i64 %indvars.iv.next.i
   %80 = load float, ptr %arrayidx.i.i, align 16
-  %arrayidx3.i.i90 = getelementptr inbounds [4 x float], ptr %arrayidx.i.i, i64 0, i64 1
+  %arrayidx3.i.i90 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %81 = load float, ptr %arrayidx3.i.i90, align 4
   %mul5.i.i91 = fmul float %74, %81
   %82 = tail call float @llvm.fmuladd.f32(float %80, float %75, float %mul5.i.i91)
-  %arrayidx6.i.i92 = getelementptr inbounds [4 x float], ptr %arrayidx.i.i, i64 0, i64 2
+  %arrayidx6.i.i92 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %83 = load float, ptr %arrayidx6.i.i92, align 8
   %84 = tail call noundef float @llvm.fmuladd.f32(float %83, float %mul5.i89, float %82)
-  %arrayidx.i93 = getelementptr inbounds float, ptr %arrayidx.i.i, i64 3
+  %arrayidx.i93 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %85 = load float, ptr %arrayidx.i93, align 4
   %add.i94 = fadd float %85, %84
   %sub.i = fadd float %add.i94, 0xBF847AE140000000

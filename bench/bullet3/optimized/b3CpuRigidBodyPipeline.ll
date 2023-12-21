@@ -3,15 +3,6 @@ source_filename = "bench/bullet3/original/b3CpuRigidBodyPipeline.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.b3AlignedObjectArray = type <{ %class.b3AlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator = type { i8 }
-%struct.b3CpuRigidBodyPipelineInternalData = type { %class.b3AlignedObjectArray, %class.b3AlignedObjectArray.0, %class.b3AlignedObjectArray.4, ptr, ptr, %struct.b3Config }
-%class.b3AlignedObjectArray.0 = type <{ %class.b3AlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.1 = type { i8 }
-%class.b3AlignedObjectArray.4 = type <{ %class.b3AlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.5 = type { i8 }
-%struct.b3Config = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%class.b3CpuRigidBodyPipeline = type { ptr, ptr }
 %class.b3Vector3 = type { %union.anon }
 %union.anon = type { [4 x float] }
 %class.b3Quaternion = type { %class.b3QuadWord }
@@ -21,10 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.13 = type { [4 x float] }
 %union.anon.14 = type { [4 x float] }
 %struct.b3RigidBodyData = type { %class.b3Vector3, %class.b3Quaternion, %class.b3Vector3, %class.b3Vector3, i32, float, float, float }
-%struct.b3Collidable = type { %union.anon.10, %union.anon.11, i32, %union.anon.12 }
-%union.anon.10 = type { i32 }
-%union.anon.11 = type { float }
-%union.anon.12 = type { i32 }
 %class.b3AlignedObjectArray.31 = type <{ %class.b3AlignedAllocator.32, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.b3AlignedAllocator.32 = type { i8 }
 %struct.b3SolveTask = type <{ ptr, ptr, ptr, ptr, i32, i32, i32, i8, [3 x i8], i32, [4 x i8] }>
@@ -74,36 +61,36 @@ define dso_local void @_ZN22b3CpuRigidBodyPipelineC2EP16b3CpuNarrowPhaseP22b3Dyn
 invoke.cont:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22b3CpuRigidBodyPipeline, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #15
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %call, i64 0, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
-  %m_data.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %call, i64 0, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %m_data.i.i.i, align 8
-  %m_size.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %call, i64 0, i32 2
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %call, i64 0, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_ownsMemory.i.i2.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %call, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i2.i = getelementptr inbounds i8, ptr %call, i64 56
   store i8 1, ptr %m_ownsMemory.i.i2.i, align 8
-  %m_data.i.i3.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %call, i64 0, i32 1, i32 5
+  %m_data.i.i3.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr null, ptr %m_data.i.i3.i, align 8
-  %m_size.i.i4.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %call, i64 0, i32 1, i32 2
+  %m_size.i.i4.i = getelementptr inbounds i8, ptr %call, i64 36
   store i32 0, ptr %m_size.i.i4.i, align 4
-  %m_capacity.i.i5.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %call, i64 0, i32 1, i32 3
+  %m_capacity.i.i5.i = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %m_capacity.i.i5.i, align 8
-  %m_ownsMemory.i.i6.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %call, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i6.i = getelementptr inbounds i8, ptr %call, i64 88
   store i8 1, ptr %m_ownsMemory.i.i6.i, align 8
-  %m_data.i.i7.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %call, i64 0, i32 2, i32 5
+  %m_data.i.i7.i = getelementptr inbounds i8, ptr %call, i64 80
   store ptr null, ptr %m_data.i.i7.i, align 8
-  %m_size.i.i8.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %call, i64 0, i32 2, i32 2
+  %m_size.i.i8.i = getelementptr inbounds i8, ptr %call, i64 68
   store i32 0, ptr %m_size.i.i8.i, align 4
-  %m_capacity.i.i9.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %call, i64 0, i32 2, i32 3
+  %m_capacity.i.i9.i = getelementptr inbounds i8, ptr %call, i64 72
   store i32 0, ptr %m_capacity.i.i9.i, align 8
-  %m_config.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %call, i64 0, i32 5
-  %m_data = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this, i64 0, i32 1
+  %m_config.i = getelementptr inbounds i8, ptr %call, i64 112
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %m_data, align 8
-  %m_np = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %call, i64 0, i32 4
+  %m_np = getelementptr inbounds i8, ptr %call, i64 104
   store ptr %narrowphase, ptr %m_np, align 8
-  %m_bp = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %call, i64 0, i32 3
+  %m_bp = getelementptr inbounds i8, ptr %call, i64 96
   store ptr %broadphaseDbvt, ptr %m_bp, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_config.i, ptr noundef nonnull align 4 dereferenceable(48) %config, i64 48, i1 false)
   ret void
@@ -124,7 +111,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN22b3CpuRigidBodyPipelineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22b3CpuRigidBodyPipeline, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this, i64 0, i32 1
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -141,13 +128,13 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN34b3CpuRigidBodyPipelineInternalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i = icmp eq i8 %2, 0
@@ -165,20 +152,20 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit:      ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %this, i64 0, i32 2, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %this, i64 0, i32 2, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 68
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i1 = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %m_data.i.i.i1, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i2, label %_ZN20b3AlignedObjectArrayI9b3InertiaED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit
-  %m_ownsMemory.i.i.i4 = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i5 = icmp eq i8 %7, 0
@@ -196,20 +183,20 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3InertiaED2Ev.exit:   ; preds = %_ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
-  %m_size.i.i.i8 = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %this, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i9 = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %this, i64 0, i32 1, i32 6
+  %m_size.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 36
+  %m_ownsMemory.i1.i.i9 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i9, align 8
   store ptr null, ptr %m_data.i.i.i1, align 8
   store i32 0, ptr %m_size.i.i.i8, align 4
-  %m_capacity.i.i.i10 = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %m_capacity.i.i.i10, align 8
-  %m_data.i.i.i11 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %m_data.i.i.i11, align 8
   %tobool.not.i.i.i12 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i12, label %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataED2Ev.exit, label %if.then.i.i.i13
 
 if.then.i.i.i13:                                  ; preds = %_ZN20b3AlignedObjectArrayI9b3InertiaED2Ev.exit
-  %m_ownsMemory.i.i.i14 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load i8, ptr %m_ownsMemory.i.i.i14, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i.i.i15 = icmp eq i8 %12, 0
@@ -227,12 +214,12 @@ terminate.lpad.i17:                               ; preds = %if.then3.i.i.i16
   unreachable
 
 _ZN20b3AlignedObjectArrayI15b3RigidBodyDataED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI9b3InertiaED2Ev.exit, %if.then.i.i.i13, %if.then3.i.i.i16
-  %m_size.i.i.i18 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i.i19 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_size.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i.i19 = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i19, align 8
   store ptr null, ptr %m_data.i.i.i11, align 8
   store i32 0, ptr %m_size.i.i.i18, align 4
-  %m_capacity.i.i.i20 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i.i20, align 8
   ret void
 }
@@ -241,7 +228,7 @@ _ZN20b3AlignedObjectArrayI15b3RigidBodyDataED2Ev.exit: ; preds = %_ZN20b3Aligned
 define dso_local void @_ZN22b3CpuRigidBodyPipelineD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22b3CpuRigidBodyPipeline, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data.i = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data.i, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN22b3CpuRigidBodyPipelineD2Ev.exit, label %delete.notnull.i
@@ -262,53 +249,53 @@ entry:
   %position = alloca %class.b3Vector3, align 16
   %orientation = alloca %class.b3Quaternion, align 16
   %localAabb = alloca %struct.b3Aabb, align 16
-  %m_data.i = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data.i, align 8
-  %m_size.i.i15 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %0, i64 0, i32 2
+  %m_size.i.i15 = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %m_size.i.i15, align 4
   %cmp16 = icmp sgt i32 %1, 0
   br i1 %cmp16, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %2 = getelementptr inbounds %struct.b3Aabb, ptr %localAabb, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %localAabb, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %3 = phi ptr [ %0, %for.body.lr.ph ], [ %18, %for.inc ]
-  %m_data.i11 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %3, i64 0, i32 5
+  %m_data.i11 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %m_data.i11, align 8
   %arrayidx.i = getelementptr inbounds %struct.b3RigidBodyData, ptr %4, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %position, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
-  %m_quat = getelementptr inbounds %struct.b3RigidBodyData, ptr %4, i64 %indvars.iv, i32 1
+  %m_quat = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %orientation, ptr noundef nonnull align 16 dereferenceable(16) %m_quat, i64 16, i1 false)
-  %m_collidableIdx = getelementptr inbounds %struct.b3RigidBodyData, ptr %4, i64 %indvars.iv, i32 4
+  %m_collidableIdx = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
   %5 = load i32, ptr %m_collidableIdx, align 16
-  %m_np = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %3, i64 0, i32 4
+  %m_np = getelementptr inbounds i8, ptr %3, i64 104
   %6 = load ptr, ptr %m_np, align 8
   %call4 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN16b3CpuNarrowPhase16getCollidableCpuEi(ptr noundef nonnull align 8 dereferenceable(28) %6, i32 noundef %5)
-  %7 = getelementptr inbounds %struct.b3Collidable, ptr %call4, i64 0, i32 3
+  %7 = getelementptr inbounds i8, ptr %call4, i64 12
   %8 = load i32, ptr %7, align 4
   %cmp5 = icmp sgt i32 %8, -1
   br i1 %cmp5, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %9 = load ptr, ptr %m_data.i, align 8
-  %m_np7 = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %9, i64 0, i32 4
+  %m_np7 = getelementptr inbounds i8, ptr %9, i64 104
   %10 = load ptr, ptr %m_np7, align 8
   %call8 = call noundef nonnull align 16 dereferenceable(32) ptr @_ZNK16b3CpuNarrowPhase17getLocalSpaceAabbEi(ptr noundef nonnull align 8 dereferenceable(28) %10, i32 noundef %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %localAabb, ptr noundef nonnull align 16 dereferenceable(32) %call8, i64 32, i1 false)
   %11 = load ptr, ptr %m_data.i, align 8
-  %m_data.i12 = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %11, i64 0, i32 2, i32 5
+  %m_data.i12 = getelementptr inbounds i8, ptr %11, i64 80
   %12 = load ptr, ptr %m_data.i12, align 8
   %arrayidx.i14 = getelementptr inbounds %struct.b3Aabb, ptr %12, i64 %indvars.iv
-  %13 = getelementptr inbounds %struct.b3Aabb, ptr %12, i64 %indvars.iv, i32 1
+  %13 = getelementptr inbounds i8, ptr %arrayidx.i14, i64 16
   call void @_Z16b3TransformAabb2RK9b3Vector3S1_fS1_RK12b3QuaternionPS_S5_(ptr noundef nonnull align 16 dereferenceable(16) %localAabb, ptr noundef nonnull align 16 dereferenceable(16) %2, float noundef 0.000000e+00, ptr noundef nonnull align 16 dereferenceable(16) %position, ptr noundef nonnull align 16 dereferenceable(16) %orientation, ptr noundef nonnull %arrayidx.i14, ptr noundef nonnull %13)
   %14 = load ptr, ptr %m_data.i, align 8
-  %m_bp = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %14, i64 0, i32 3
+  %m_bp = getelementptr inbounds i8, ptr %14, i64 96
   %15 = load ptr, ptr %m_bp, align 8
   %vtable = load ptr, ptr %15, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %16 = load ptr, ptr %vfn, align 8
   %17 = trunc i64 %indvars.iv to i32
   call void %16(ptr noundef nonnull align 8 dereferenceable(315) %15, i32 noundef %17, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i14, ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef null)
@@ -317,7 +304,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load ptr, ptr %m_data.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %18, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %18, i64 4
   %19 = load i32, ptr %m_size.i.i, align 4
   %20 = sext i32 %19 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %20
@@ -330,9 +317,9 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK22b3CpuRigidBodyPipeline12getNumBodiesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %m_data = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this, i64 0, i32 1
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data, align 8
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %0, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   ret i32 %1
 }
@@ -347,14 +334,14 @@ entry:
   %0 = load float, ptr %localAabbMax, align 16
   %1 = load float, ptr %localAabbMin, align 16
   %sub.i = fsub float %0, %1
-  %arrayidx2.i = getelementptr inbounds [4 x float], ptr %localAabbMax, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %localAabbMax, i64 4
   %2 = load float, ptr %arrayidx2.i, align 4
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %localAabbMin, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %localAabbMin, i64 4
   %3 = load float, ptr %arrayidx3.i, align 4
   %sub4.i = fsub float %2, %3
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %localAabbMax, i64 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %localAabbMax, i64 8
   %4 = load float, ptr %arrayidx5.i, align 8
-  %arrayidx6.i = getelementptr inbounds [4 x float], ptr %localAabbMin, i64 0, i64 2
+  %arrayidx6.i = getelementptr inbounds i8, ptr %localAabbMin, i64 8
   %5 = load float, ptr %arrayidx6.i, align 8
   %sub7.i = fsub float %4, %5
   %mul.i.i = fmul float %sub.i, 5.000000e-01
@@ -369,9 +356,9 @@ entry:
   %mul.i.i18 = fmul float %add.i8, 5.000000e-01
   %mul2.i.i20 = fmul float %add4.i, 5.000000e-01
   %mul4.i.i22 = fmul float %add7.i, 5.000000e-01
-  %arrayidx5.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %orn, i64 0, i64 2
+  %arrayidx5.i.i.i.i.i = getelementptr inbounds i8, ptr %orn, i64 8
   %6 = load float, ptr %arrayidx5.i.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %orn, i64 0, i64 3
+  %arrayidx7.i.i.i.i.i = getelementptr inbounds i8, ptr %orn, i64 12
   %7 = load float, ptr %arrayidx7.i.i.i.i.i, align 4
   %tr.sroa.24.48.translation.sroa_idx.i = getelementptr inbounds i8, ptr %pos, i64 8
   %tr.sroa.24.48.copyload.i = load float, ptr %tr.sroa.24.48.translation.sroa_idx.i, align 8
@@ -476,34 +463,34 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN22b3CpuRigidBodyPipeline23computeOverlappingPairsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  %m_data = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this, i64 0, i32 1
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data, align 8
-  %m_bp = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %0, i64 0, i32 3
+  %m_bp = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %m_bp, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(315) %1)
   %vtable2 = load ptr, ptr %call, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 6
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 48
   %3 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %call)
   %4 = load ptr, ptr %m_data, align 8
-  %m_bp6 = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %4, i64 0, i32 3
+  %m_bp6 = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load ptr, ptr %m_bp6, align 8
   %vtable7 = load ptr, ptr %5, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 7
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 56
   %6 = load ptr, ptr %vfn8, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(315) %5, ptr noundef null)
   %7 = load ptr, ptr %m_data, align 8
-  %m_bp10 = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %7, i64 0, i32 3
+  %m_bp10 = getelementptr inbounds i8, ptr %7, i64 96
   %8 = load ptr, ptr %m_bp10, align 8
   %vtable11 = load ptr, ptr %8, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 8
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 64
   %9 = load ptr, ptr %vfn12, align 8
   %call13 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(315) %8)
   %vtable14 = load ptr, ptr %call13, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 6
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 48
   %10 = load ptr, ptr %vfn15, align 8
   %call16 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(8) %call13)
   %call17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %call16)
@@ -516,24 +503,24 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN22b3CpuRigidBodyPipeline20computeContactPointsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  %m_data = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this, i64 0, i32 1
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data, align 8
-  %m_bp = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %0, i64 0, i32 3
+  %m_bp = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %m_bp, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(315) %1)
   %vtable2 = load ptr, ptr %call, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 4
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 32
   %3 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(25) ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %call)
   %4 = load ptr, ptr %m_data, align 8
-  %m_np = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %4, i64 0, i32 4
+  %m_np = getelementptr inbounds i8, ptr %4, i64 104
   %5 = load ptr, ptr %m_np, align 8
-  %m_aabbWorldSpace = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %4, i64 0, i32 2
+  %m_aabbWorldSpace = getelementptr inbounds i8, ptr %4, i64 64
   %vtable8 = load ptr, ptr %5, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 2
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 16
   %6 = load ptr, ptr %vfn9, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef nonnull align 8 dereferenceable(25) %call4, ptr noundef nonnull align 8 dereferenceable(25) %m_aabbWorldSpace, ptr noundef nonnull align 8 dereferenceable(25) %4)
   ret void
@@ -543,19 +530,19 @@ entry:
 define dso_local void @_ZN22b3CpuRigidBodyPipeline14stepSimulationEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %deltaTime) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 5
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 40
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 6
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 48
   %2 = load ptr, ptr %vfn5, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 3
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 24
   %3 = load ptr, ptr %vfn7, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %deltaTime)
   ret void
@@ -567,34 +554,34 @@ entry:
   %contactConstraints = alloca %class.b3AlignedObjectArray.31, align 8
   %task = alloca %struct.b3SolveTask, align 8
   %task9 = alloca %struct.b3SolveTask, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3AlignedObjectArray.31, ptr %contactConstraints, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %contactConstraints, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray.31, ptr %contactConstraints, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %contactConstraints, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray.31, ptr %contactConstraints, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %contactConstraints, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.b3AlignedObjectArray.31, ptr %contactConstraints, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %contactConstraints, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_data = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this, i64 0, i32 1
-  %m_shapes.i = getelementptr inbounds %struct.b3SolveTask, ptr %task, i64 0, i32 1
-  %m_constraints.i = getelementptr inbounds %struct.b3SolveTask, ptr %task, i64 0, i32 2
-  %m_wgUsedBodies.i = getelementptr inbounds %struct.b3SolveTask, ptr %task, i64 0, i32 3
-  %m_solveFriction.i = getelementptr inbounds %struct.b3SolveTask, ptr %task, i64 0, i32 7
-  %m_maxNumBatches.i = getelementptr inbounds %struct.b3SolveTask, ptr %task, i64 0, i32 9
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
+  %m_shapes.i = getelementptr inbounds i8, ptr %task, i64 8
+  %m_constraints.i = getelementptr inbounds i8, ptr %task, i64 16
+  %m_wgUsedBodies.i = getelementptr inbounds i8, ptr %task, i64 24
+  %m_solveFriction.i = getelementptr inbounds i8, ptr %task, i64 44
+  %m_maxNumBatches.i = getelementptr inbounds i8, ptr %task, i64 48
   br label %for.body
 
 for.cond6.preheader:                              ; preds = %for.inc
-  %m_shapes.i6 = getelementptr inbounds %struct.b3SolveTask, ptr %task9, i64 0, i32 1
-  %m_constraints.i7 = getelementptr inbounds %struct.b3SolveTask, ptr %task9, i64 0, i32 2
-  %m_wgUsedBodies.i8 = getelementptr inbounds %struct.b3SolveTask, ptr %task9, i64 0, i32 3
-  %m_solveFriction.i12 = getelementptr inbounds %struct.b3SolveTask, ptr %task9, i64 0, i32 7
-  %m_maxNumBatches.i13 = getelementptr inbounds %struct.b3SolveTask, ptr %task9, i64 0, i32 9
+  %m_shapes.i6 = getelementptr inbounds i8, ptr %task9, i64 8
+  %m_constraints.i7 = getelementptr inbounds i8, ptr %task9, i64 16
+  %m_wgUsedBodies.i8 = getelementptr inbounds i8, ptr %task9, i64 24
+  %m_solveFriction.i12 = getelementptr inbounds i8, ptr %task9, i64 44
+  %m_maxNumBatches.i13 = getelementptr inbounds i8, ptr %task9, i64 48
   br label %for.body8
 
 for.body:                                         ; preds = %entry, %for.inc
   %iter.016 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
   %0 = load ptr, ptr %m_data, align 8
-  %m_inertias = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %0, i64 0, i32 1
+  %m_inertias = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %0, ptr %task, align 8
   store ptr %m_inertias, ptr %m_shapes.i, align 8
   store ptr %contactConstraints, ptr %m_constraints.i, align 8
@@ -627,7 +614,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 for.body8:                                        ; preds = %for.cond6.preheader, %for.inc17
   %iter5.017 = phi i32 [ 0, %for.cond6.preheader ], [ %inc18, %for.inc17 ]
   %1 = load ptr, ptr %m_data, align 8
-  %m_inertias13 = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %1, i64 0, i32 1
+  %m_inertias13 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %1, ptr %task9, align 8
   store ptr %m_inertias13, ptr %m_shapes.i6, align 8
   store ptr %contactConstraints, ptr %m_constraints.i7, align 8
@@ -676,32 +663,32 @@ entry:
   %minRambdaDt = alloca [4 x float], align 16
   %maxRambdaDt73 = alloca [4 x float], align 16
   %minRambdaDt74 = alloca [4 x float], align 16
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %usedBodies, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %usedBodies, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %usedBodies, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %usedBodies, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %usedBodies, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %usedBodies, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %usedBodies, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %usedBodies, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_maxNumBatches = getelementptr inbounds %struct.b3SolveTask, ptr %this, i64 0, i32 9
+  %m_maxNumBatches = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %m_maxNumBatches, align 8
   %cmp284 = icmp sgt i32 %0, 0
   br i1 %cmp284, label %for.body.lr.ph, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_nConstraints = getelementptr inbounds %struct.b3SolveTask, ptr %this, i64 0, i32 6
-  %m_start = getelementptr inbounds %struct.b3SolveTask, ptr %this, i64 0, i32 5
-  %m_constraints = getelementptr inbounds %struct.b3SolveTask, ptr %this, i64 0, i32 2
-  %m_solveFriction = getelementptr inbounds %struct.b3SolveTask, ptr %this, i64 0, i32 7
-  %m_shapes103 = getelementptr inbounds %struct.b3SolveTask, ptr %this, i64 0, i32 1
-  %arrayidx6.i = getelementptr inbounds [2 x %class.b3Vector3], ptr %tangent.i, i64 0, i64 1
-  %arrayidx22.i.i = getelementptr inbounds float, ptr %tangent.i, i64 2
-  %1 = getelementptr inbounds float, ptr %tangent.i, i64 1
-  %2 = getelementptr inbounds [2 x %class.b3Vector3], ptr %tangent.i, i64 0, i64 1, i32 0, i32 0, i64 1
-  %3 = getelementptr inbounds [2 x %class.b3Vector3], ptr %tangent.i, i64 0, i64 1, i32 0, i32 0, i64 2
-  %m_wgUsedBodies = getelementptr inbounds %struct.b3SolveTask, ptr %this, i64 0, i32 3
-  %m_curWgidx = getelementptr inbounds %struct.b3SolveTask, ptr %this, i64 0, i32 4
+  %m_nConstraints = getelementptr inbounds i8, ptr %this, i64 40
+  %m_start = getelementptr inbounds i8, ptr %this, i64 36
+  %m_constraints = getelementptr inbounds i8, ptr %this, i64 16
+  %m_solveFriction = getelementptr inbounds i8, ptr %this, i64 44
+  %m_shapes103 = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx6.i = getelementptr inbounds i8, ptr %tangent.i, i64 16
+  %arrayidx22.i.i = getelementptr inbounds i8, ptr %tangent.i, i64 8
+  %1 = getelementptr inbounds i8, ptr %tangent.i, i64 4
+  %2 = getelementptr inbounds i8, ptr %tangent.i, i64 20
+  %3 = getelementptr inbounds i8, ptr %tangent.i, i64 24
+  %m_wgUsedBodies = getelementptr inbounds i8, ptr %this, i64 24
+  %m_curWgidx = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc162
@@ -774,10 +761,11 @@ for.body4:                                        ; preds = %invoke.cont, %for.i
   %11 = load i32, ptr %m_start, align 4
   %add = add nsw i32 %11, %ic.0281
   %12 = load ptr, ptr %m_constraints, align 8
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray.31, ptr %12, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %add to i64
-  %m_batchIdx = getelementptr inbounds %struct.b3ContactConstraint4, ptr %13, i64 %idxprom.i, i32 10
+  %arrayidx.i = getelementptr inbounds %struct.b3ContactConstraint4, ptr %13, i64 %idxprom.i
+  %m_batchIdx = getelementptr inbounds i8, ptr %arrayidx.i, i64 168
   %14 = load i32, ptr %m_batchIdx, align 8
   %cmp6.not = icmp eq i32 %14, %bb.0285
   br i1 %cmp6.not, label %if.end, label %for.inc119
@@ -798,12 +786,12 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %for.body4
-  %m_bodyA = getelementptr inbounds %struct.b3ContactConstraint4, ptr %13, i64 %idxprom.i, i32 8
+  %m_bodyA = getelementptr inbounds i8, ptr %arrayidx.i, i64 160
   %15 = load i32, ptr %m_bodyA, align 16
-  %m_bodyB = getelementptr inbounds %struct.b3ContactConstraint4, ptr %13, i64 %idxprom.i, i32 9
+  %m_bodyB = getelementptr inbounds i8, ptr %arrayidx.i, i64 164
   %16 = load i32, ptr %m_bodyB, align 4
   %17 = load ptr, ptr %this, align 8
-  %m_data.i58 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %17, i64 0, i32 5
+  %m_data.i58 = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load ptr, ptr %m_data.i58, align 8
   %idxprom.i59 = sext i32 %15 to i64
   %arrayidx.i60 = getelementptr inbounds %struct.b3RigidBodyData, ptr %18, i64 %idxprom.i59
@@ -1023,7 +1011,7 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit89:  ; preds = %for.body9.i83
   br label %if.end43
 
 if.end43:                                         ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit89, %if.end34
-  %m_invMass = getelementptr inbounds %struct.b3RigidBodyData, ptr %18, i64 %idxprom.i59, i32 5
+  %m_invMass = getelementptr inbounds i8, ptr %arrayidx.i60, i64 68
   %35 = load float, ptr %m_invMass, align 4
   %tobool = fcmp une float %35, 0.000000e+00
   br i1 %tobool, label %if.then44, label %if.end47
@@ -1037,7 +1025,7 @@ if.then44:                                        ; preds = %if.end43
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then44, %if.end43
-  %m_invMass48 = getelementptr inbounds %struct.b3RigidBodyData, ptr %18, i64 %idxprom.i62, i32 5
+  %m_invMass48 = getelementptr inbounds i8, ptr %arrayidx.i63, i64 68
   %38 = load float, ptr %m_invMass48, align 4
   %tobool49 = fcmp une float %38, 0.000000e+00
   br i1 %tobool49, label %if.then50, label %if.end54
@@ -1059,49 +1047,53 @@ if.end54:                                         ; preds = %if.then50, %if.end4
 if.then56:                                        ; preds = %if.end54
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %minRambdaDt, i8 0, i64 16, i1 false)
   %43 = load ptr, ptr %m_constraints, align 8
-  %m_data.i96 = getelementptr inbounds %class.b3AlignedObjectArray.31, ptr %43, i64 0, i32 5
+  %m_data.i96 = getelementptr inbounds i8, ptr %43, i64 16
   %44 = load ptr, ptr %m_data.i96, align 8
   %arrayidx.i98 = getelementptr inbounds %struct.b3ContactConstraint4, ptr %44, i64 %idxprom.i
-  %m_linVel = getelementptr inbounds %struct.b3RigidBodyData, ptr %18, i64 %idxprom.i59, i32 2
-  %m_angVel = getelementptr inbounds %struct.b3RigidBodyData, ptr %18, i64 %idxprom.i59, i32 3
+  %m_linVel = getelementptr inbounds i8, ptr %arrayidx.i60, i64 32
+  %m_angVel = getelementptr inbounds i8, ptr %arrayidx.i60, i64 48
   %45 = load float, ptr %m_invMass, align 4
   %46 = load ptr, ptr %m_shapes103, align 8
-  %m_data.i99 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %46, i64 0, i32 5
+  %m_data.i99 = getelementptr inbounds i8, ptr %46, i64 16
   %47 = load ptr, ptr %m_data.i99, align 8
   %arrayidx.i101 = getelementptr inbounds %struct.b3Inertia, ptr %47, i64 %idxprom.i59
-  %m_linVel64 = getelementptr inbounds %struct.b3RigidBodyData, ptr %18, i64 %idxprom.i62, i32 2
-  %m_angVel65 = getelementptr inbounds %struct.b3RigidBodyData, ptr %18, i64 %idxprom.i62, i32 3
+  %m_linVel64 = getelementptr inbounds i8, ptr %arrayidx.i63, i64 32
+  %m_angVel65 = getelementptr inbounds i8, ptr %arrayidx.i63, i64 48
   %48 = load float, ptr %m_invMass48, align 4
   %arrayidx.i104 = getelementptr inbounds %struct.b3Inertia, ptr %47, i64 %idxprom.i62
-  %arrayidx3.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i60, i64 0, i64 1
-  %arrayidx6.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i60, i64 0, i64 2
-  %arrayidx3.i27.i = getelementptr inbounds [4 x float], ptr %arrayidx.i63, i64 0, i64 1
-  %arrayidx6.i30.i = getelementptr inbounds [4 x float], ptr %arrayidx.i63, i64 0, i64 2
-  %arrayidx3.i37.i = getelementptr inbounds [4 x float], ptr %arrayidx.i98, i64 0, i64 2
-  %arrayidx4.i.i.i.i = getelementptr inbounds [4 x float], ptr %m_linVel, i64 0, i64 1
-  %arrayidx7.i.i.i.i = getelementptr inbounds [4 x float], ptr %m_linVel, i64 0, i64 2
-  %arrayidx4.i.i2.i.i = getelementptr inbounds [4 x float], ptr %m_angVel, i64 0, i64 1
-  %arrayidx7.i.i5.i.i = getelementptr inbounds [4 x float], ptr %m_angVel, i64 0, i64 2
-  %arrayidx4.i.i7.i.i = getelementptr inbounds [4 x float], ptr %m_linVel64, i64 0, i64 1
-  %arrayidx7.i.i10.i.i = getelementptr inbounds [4 x float], ptr %m_linVel64, i64 0, i64 2
-  %arrayidx4.i.i12.i.i = getelementptr inbounds [4 x float], ptr %m_angVel65, i64 0, i64 1
-  %arrayidx7.i.i15.i.i = getelementptr inbounds [4 x float], ptr %m_angVel65, i64 0, i64 2
-  %arrayidx3.i.i98.i = getelementptr inbounds [4 x float], ptr %arrayidx.i101, i64 0, i64 1
-  %arrayidx6.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i101, i64 0, i64 2
-  %arrayidx.i.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i101, i64 0, i64 1
-  %arrayidx3.i5.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i101, i64 0, i64 1, i32 0, i32 0, i64 1
-  %arrayidx6.i8.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i101, i64 0, i64 1, i32 0, i32 0, i64 2
-  %arrayidx.i10.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i101, i64 0, i64 2
-  %arrayidx3.i11.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i101, i64 0, i64 2, i32 0, i32 0, i64 1
-  %arrayidx6.i14.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i101, i64 0, i64 2, i32 0, i32 0, i64 2
-  %arrayidx3.i.i114.i = getelementptr inbounds [4 x float], ptr %arrayidx.i104, i64 0, i64 1
-  %arrayidx6.i.i117.i = getelementptr inbounds [4 x float], ptr %arrayidx.i104, i64 0, i64 2
-  %arrayidx.i.i119.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i104, i64 0, i64 1
-  %arrayidx3.i5.i120.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i104, i64 0, i64 1, i32 0, i32 0, i64 1
-  %arrayidx6.i8.i122.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i104, i64 0, i64 1, i32 0, i32 0, i64 2
-  %arrayidx.i10.i123.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i104, i64 0, i64 2
-  %arrayidx3.i11.i124.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i104, i64 0, i64 2, i32 0, i32 0, i64 1
-  %arrayidx6.i14.i126.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i104, i64 0, i64 2, i32 0, i32 0, i64 2
+  %m_jacCoeffInv.i = getelementptr inbounds i8, ptr %arrayidx.i98, i64 96
+  %m_worldPos.i = getelementptr inbounds i8, ptr %arrayidx.i98, i64 16
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %arrayidx.i60, i64 4
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %arrayidx.i60, i64 8
+  %arrayidx3.i27.i = getelementptr inbounds i8, ptr %arrayidx.i63, i64 4
+  %arrayidx6.i30.i = getelementptr inbounds i8, ptr %arrayidx.i63, i64 8
+  %arrayidx3.i37.i = getelementptr inbounds i8, ptr %arrayidx.i98, i64 8
+  %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i60, i64 36
+  %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i60, i64 40
+  %arrayidx4.i.i2.i.i = getelementptr inbounds i8, ptr %arrayidx.i60, i64 52
+  %arrayidx7.i.i5.i.i = getelementptr inbounds i8, ptr %arrayidx.i60, i64 56
+  %arrayidx4.i.i7.i.i = getelementptr inbounds i8, ptr %arrayidx.i63, i64 36
+  %arrayidx7.i.i10.i.i = getelementptr inbounds i8, ptr %arrayidx.i63, i64 40
+  %arrayidx4.i.i12.i.i = getelementptr inbounds i8, ptr %arrayidx.i63, i64 52
+  %arrayidx7.i.i15.i.i = getelementptr inbounds i8, ptr %arrayidx.i63, i64 56
+  %m_b.i = getelementptr inbounds i8, ptr %arrayidx.i98, i64 112
+  %m_appliedRambdaDt.i = getelementptr inbounds i8, ptr %arrayidx.i98, i64 128
+  %arrayidx3.i.i98.i = getelementptr inbounds i8, ptr %arrayidx.i101, i64 4
+  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i101, i64 8
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i101, i64 16
+  %arrayidx3.i5.i.i = getelementptr inbounds i8, ptr %arrayidx.i101, i64 20
+  %arrayidx6.i8.i.i = getelementptr inbounds i8, ptr %arrayidx.i101, i64 24
+  %arrayidx.i10.i.i = getelementptr inbounds i8, ptr %arrayidx.i101, i64 32
+  %arrayidx3.i11.i.i = getelementptr inbounds i8, ptr %arrayidx.i101, i64 36
+  %arrayidx6.i14.i.i = getelementptr inbounds i8, ptr %arrayidx.i101, i64 40
+  %arrayidx3.i.i114.i = getelementptr inbounds i8, ptr %arrayidx.i104, i64 4
+  %arrayidx6.i.i117.i = getelementptr inbounds i8, ptr %arrayidx.i104, i64 8
+  %arrayidx.i.i119.i = getelementptr inbounds i8, ptr %arrayidx.i104, i64 16
+  %arrayidx3.i5.i120.i = getelementptr inbounds i8, ptr %arrayidx.i104, i64 20
+  %arrayidx6.i8.i122.i = getelementptr inbounds i8, ptr %arrayidx.i104, i64 24
+  %arrayidx.i10.i123.i = getelementptr inbounds i8, ptr %arrayidx.i104, i64 32
+  %arrayidx3.i11.i124.i = getelementptr inbounds i8, ptr %arrayidx.i104, i64 36
+  %arrayidx6.i14.i126.i = getelementptr inbounds i8, ptr %arrayidx.i104, i64 40
   %49 = insertelement <2 x float> poison, float %48, i64 0
   %50 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> zeroinitializer
   %51 = insertelement <2 x float> poison, float %45, i64 0
@@ -1110,21 +1102,21 @@ if.then56:                                        ; preds = %if.end54
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then56
   %indvars.iv.i105 = phi i64 [ 0, %if.then56 ], [ %indvars.iv.next.i107, %for.inc.i ]
-  %arrayidx.i106 = getelementptr inbounds %struct.b3ContactConstraint4, ptr %44, i64 %idxprom.i, i32 3, i64 %indvars.iv.i105
+  %arrayidx.i106 = getelementptr inbounds [4 x float], ptr %m_jacCoeffInv.i, i64 0, i64 %indvars.iv.i105
   %53 = load float, ptr %arrayidx.i106, align 4
   %cmp1.i = fcmp oeq float %53, 0.000000e+00
   br i1 %cmp1.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %arrayidx3.i = getelementptr inbounds %struct.b3ContactConstraint4, ptr %44, i64 %idxprom.i, i32 1, i64 %indvars.iv.i105
+  %arrayidx3.i = getelementptr inbounds [4 x %class.b3Vector3], ptr %m_worldPos.i, i64 0, i64 %indvars.iv.i105
   %54 = load float, ptr %arrayidx3.i, align 16
   %55 = load float, ptr %arrayidx.i60, align 16
   %sub.i.i = fsub float %54, %55
-  %arrayidx2.i.i = getelementptr inbounds [4 x float], ptr %arrayidx3.i, i64 0, i64 1
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 4
   %56 = load float, ptr %arrayidx2.i.i, align 4
   %57 = load float, ptr %arrayidx3.i.i, align 4
   %sub4.i.i = fsub float %56, %57
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %arrayidx3.i, i64 0, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 8
   %58 = load float, ptr %arrayidx5.i.i, align 8
   %59 = load float, ptr %arrayidx6.i.i, align 8
   %sub7.i.i = fsub float %58, %59
@@ -1150,9 +1142,9 @@ if.end.i:                                         ; preds = %for.body.i
   %73 = load float, ptr %m_angVel65, align 16
   %74 = load float, ptr %arrayidx4.i.i12.i.i, align 4
   %75 = load float, ptr %arrayidx7.i.i15.i.i, align 8
-  %arrayidx22.i = getelementptr inbounds %struct.b3ContactConstraint4, ptr %44, i64 %idxprom.i, i32 4, i64 %indvars.iv.i105
+  %arrayidx22.i = getelementptr inbounds [4 x float], ptr %m_b.i, i64 0, i64 %indvars.iv.i105
   %76 = load float, ptr %arrayidx22.i, align 4
-  %arrayidx27.i = getelementptr inbounds %struct.b3ContactConstraint4, ptr %44, i64 %idxprom.i, i32 5, i64 %indvars.iv.i105
+  %arrayidx27.i = getelementptr inbounds [4 x float], ptr %m_appliedRambdaDt.i, i64 0, i64 %indvars.iv.i105
   %77 = load float, ptr %arrayidx27.i, align 4
   %arrayidx30.i = getelementptr inbounds float, ptr %minRambdaDt, i64 %indvars.iv.i105
   %78 = load float, ptr %arrayidx30.i, align 4
@@ -1302,7 +1294,7 @@ if.else:                                          ; preds = %if.end54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %maxRambdaDt73, ptr noundef nonnull align 16 dereferenceable(16) @__const._ZN11b3SolveTask3runEi.maxRambdaDt.4, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %minRambdaDt74, i8 0, i64 16, i1 false)
   %171 = load ptr, ptr %m_constraints, align 8
-  %m_data.i109 = getelementptr inbounds %class.b3AlignedObjectArray.31, ptr %171, i64 0, i32 5
+  %m_data.i109 = getelementptr inbounds i8, ptr %171, i64 16
   %172 = load ptr, ptr %m_data.i109, align 8
   br label %for.body77
 
@@ -1332,32 +1324,32 @@ for.body86:                                       ; preds = %for.cond84.preheade
   br i1 %exitcond290.not, label %for.end95, label %for.body86, !llvm.loop !13
 
 for.end95:                                        ; preds = %for.body86
-  %m_linVel100 = getelementptr inbounds %struct.b3RigidBodyData, ptr %18, i64 %idxprom.i59, i32 2
-  %m_angVel101 = getelementptr inbounds %struct.b3RigidBodyData, ptr %18, i64 %idxprom.i59, i32 3
+  %arrayidx.i114 = getelementptr inbounds %struct.b3ContactConstraint4, ptr %172, i64 %idxprom.i
+  %m_linVel100 = getelementptr inbounds i8, ptr %arrayidx.i60, i64 32
+  %m_angVel101 = getelementptr inbounds i8, ptr %arrayidx.i60, i64 48
   %174 = load float, ptr %m_invMass, align 4
   %175 = load ptr, ptr %m_shapes103, align 8
-  %m_data.i115 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %175, i64 0, i32 5
+  %m_data.i115 = getelementptr inbounds i8, ptr %175, i64 16
   %176 = load ptr, ptr %m_data.i115, align 8
   %arrayidx.i117 = getelementptr inbounds %struct.b3Inertia, ptr %176, i64 %idxprom.i59
-  %m_linVel108 = getelementptr inbounds %struct.b3RigidBodyData, ptr %18, i64 %idxprom.i62, i32 2
-  %m_angVel109 = getelementptr inbounds %struct.b3RigidBodyData, ptr %18, i64 %idxprom.i62, i32 3
+  %m_linVel108 = getelementptr inbounds i8, ptr %arrayidx.i63, i64 32
+  %m_angVel109 = getelementptr inbounds i8, ptr %arrayidx.i63, i64 48
   %177 = load float, ptr %m_invMass48, align 4
   %arrayidx.i120 = getelementptr inbounds %struct.b3Inertia, ptr %176, i64 %idxprom.i62
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tangent.i)
-  %m_fJacCoeffInv.i = getelementptr inbounds %struct.b3ContactConstraint4, ptr %172, i64 %idxprom.i, i32 6
+  %m_fJacCoeffInv.i = getelementptr inbounds i8, ptr %arrayidx.i114, i64 144
   %178 = load float, ptr %m_fJacCoeffInv.i, align 16
   %cmp.i = fcmp oeq float %178, 0.000000e+00
   br i1 %cmp.i, label %_ZL15b3SolveFrictionR20b3ContactConstraint4RK9b3Vector3RS1_S4_fRK11b3Matrix3x3S3_S4_S4_fS7_PfS8_.exit, label %if.end.i121
 
 if.end.i121:                                      ; preds = %for.end95
-  %arrayidx.i114 = getelementptr inbounds %struct.b3ContactConstraint4, ptr %172, i64 %idxprom.i
-  %m_center.i = getelementptr inbounds %struct.b3ContactConstraint4, ptr %172, i64 %idxprom.i, i32 2
+  %m_center.i = getelementptr inbounds i8, ptr %arrayidx.i114, i64 80
   %179 = load <2 x float>, ptr %arrayidx.i114, align 16
   %180 = extractelement <2 x float> %179, i64 0
   %fneg.i.i122 = fneg float %180
   %181 = extractelement <2 x float> %179, i64 1
   %fneg2.i.i124 = fneg float %181
-  %arrayidx3.i.i125 = getelementptr inbounds [4 x float], ptr %arrayidx.i114, i64 0, i64 2
+  %arrayidx3.i.i125 = getelementptr inbounds i8, ptr %arrayidx.i114, i64 8
   %182 = load float, ptr %arrayidx3.i.i125, align 8
   %fneg4.i.i126 = fneg float %182
   %183 = tail call noundef float @llvm.fabs.f32(float %fneg4.i.i126)
@@ -1404,22 +1396,22 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i: ; preds = %if.else.i.i, %if.th
   %186 = load float, ptr %m_center.i, align 16
   %187 = load float, ptr %arrayidx.i60, align 16
   %sub.i.i128 = fsub float %186, %187
-  %arrayidx2.i.i129 = getelementptr inbounds %struct.b3ContactConstraint4, ptr %172, i64 %idxprom.i, i32 2, i32 0, i32 0, i64 1
+  %arrayidx2.i.i129 = getelementptr inbounds i8, ptr %arrayidx.i114, i64 84
   %188 = load float, ptr %arrayidx2.i.i129, align 4
-  %arrayidx3.i31.i = getelementptr inbounds [4 x float], ptr %arrayidx.i60, i64 0, i64 1
+  %arrayidx3.i31.i = getelementptr inbounds i8, ptr %arrayidx.i60, i64 4
   %189 = load float, ptr %arrayidx3.i31.i, align 4
   %sub4.i.i130 = fsub float %188, %189
-  %arrayidx5.i.i131 = getelementptr inbounds %struct.b3ContactConstraint4, ptr %172, i64 %idxprom.i, i32 2, i32 0, i32 0, i64 2
+  %arrayidx5.i.i131 = getelementptr inbounds i8, ptr %arrayidx.i114, i64 88
   %190 = load float, ptr %arrayidx5.i.i131, align 8
-  %arrayidx6.i.i132 = getelementptr inbounds [4 x float], ptr %arrayidx.i60, i64 0, i64 2
+  %arrayidx6.i.i132 = getelementptr inbounds i8, ptr %arrayidx.i60, i64 8
   %191 = load float, ptr %arrayidx6.i.i132, align 8
   %sub7.i.i133 = fsub float %190, %191
   %192 = load float, ptr %arrayidx.i63, align 16
   %sub.i37.i = fsub float %186, %192
-  %arrayidx3.i39.i = getelementptr inbounds [4 x float], ptr %arrayidx.i63, i64 0, i64 1
+  %arrayidx3.i39.i = getelementptr inbounds i8, ptr %arrayidx.i63, i64 4
   %193 = load float, ptr %arrayidx3.i39.i, align 4
   %sub4.i40.i = fsub float %188, %193
-  %arrayidx6.i42.i = getelementptr inbounds [4 x float], ptr %arrayidx.i63, i64 0, i64 2
+  %arrayidx6.i42.i = getelementptr inbounds i8, ptr %arrayidx.i63, i64 8
   %194 = load float, ptr %arrayidx6.i42.i, align 8
   %sub7.i43.i = fsub float %190, %194
   %195 = fneg float %sub7.i.i133
@@ -1428,30 +1420,31 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i: ; preds = %if.else.i.i, %if.th
   %198 = fneg float %sub7.i43.i
   %199 = fneg float %sub.i37.i
   %200 = fneg float %sub4.i40.i
-  %arrayidx4.i.i.i.i134 = getelementptr inbounds [4 x float], ptr %m_linVel100, i64 0, i64 1
-  %arrayidx7.i.i.i.i135 = getelementptr inbounds [4 x float], ptr %m_linVel100, i64 0, i64 2
-  %arrayidx4.i.i2.i.i136 = getelementptr inbounds [4 x float], ptr %m_angVel101, i64 0, i64 1
-  %arrayidx7.i.i5.i.i137 = getelementptr inbounds [4 x float], ptr %m_angVel101, i64 0, i64 2
-  %arrayidx4.i.i7.i.i138 = getelementptr inbounds [4 x float], ptr %m_linVel108, i64 0, i64 1
-  %arrayidx7.i.i10.i.i139 = getelementptr inbounds [4 x float], ptr %m_linVel108, i64 0, i64 2
-  %arrayidx4.i.i12.i.i140 = getelementptr inbounds [4 x float], ptr %m_angVel109, i64 0, i64 1
-  %arrayidx7.i.i15.i.i141 = getelementptr inbounds [4 x float], ptr %m_angVel109, i64 0, i64 2
-  %arrayidx3.i.i106.i = getelementptr inbounds [4 x float], ptr %arrayidx.i117, i64 0, i64 1
-  %arrayidx6.i.i.i142 = getelementptr inbounds [4 x float], ptr %arrayidx.i117, i64 0, i64 2
-  %arrayidx.i.i.i143 = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i117, i64 0, i64 1
-  %arrayidx3.i5.i.i144 = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i117, i64 0, i64 1, i32 0, i32 0, i64 1
-  %arrayidx6.i8.i.i145 = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i117, i64 0, i64 1, i32 0, i32 0, i64 2
-  %arrayidx.i10.i.i146 = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i117, i64 0, i64 2
-  %arrayidx3.i11.i.i147 = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i117, i64 0, i64 2, i32 0, i32 0, i64 1
-  %arrayidx6.i14.i.i148 = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i117, i64 0, i64 2, i32 0, i32 0, i64 2
-  %arrayidx3.i.i122.i = getelementptr inbounds [4 x float], ptr %arrayidx.i120, i64 0, i64 1
-  %arrayidx6.i.i125.i = getelementptr inbounds [4 x float], ptr %arrayidx.i120, i64 0, i64 2
-  %arrayidx.i.i127.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i120, i64 0, i64 1
-  %arrayidx3.i5.i128.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i120, i64 0, i64 1, i32 0, i32 0, i64 1
-  %arrayidx6.i8.i130.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i120, i64 0, i64 1, i32 0, i32 0, i64 2
-  %arrayidx.i10.i131.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i120, i64 0, i64 2
-  %arrayidx3.i11.i132.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i120, i64 0, i64 2, i32 0, i32 0, i64 1
-  %arrayidx6.i14.i134.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %arrayidx.i120, i64 0, i64 2, i32 0, i32 0, i64 2
+  %arrayidx4.i.i.i.i134 = getelementptr inbounds i8, ptr %arrayidx.i60, i64 36
+  %arrayidx7.i.i.i.i135 = getelementptr inbounds i8, ptr %arrayidx.i60, i64 40
+  %arrayidx4.i.i2.i.i136 = getelementptr inbounds i8, ptr %arrayidx.i60, i64 52
+  %arrayidx7.i.i5.i.i137 = getelementptr inbounds i8, ptr %arrayidx.i60, i64 56
+  %arrayidx4.i.i7.i.i138 = getelementptr inbounds i8, ptr %arrayidx.i63, i64 36
+  %arrayidx7.i.i10.i.i139 = getelementptr inbounds i8, ptr %arrayidx.i63, i64 40
+  %arrayidx4.i.i12.i.i140 = getelementptr inbounds i8, ptr %arrayidx.i63, i64 52
+  %arrayidx7.i.i15.i.i141 = getelementptr inbounds i8, ptr %arrayidx.i63, i64 56
+  %m_fAppliedRambdaDt.i = getelementptr inbounds i8, ptr %arrayidx.i114, i64 152
+  %arrayidx3.i.i106.i = getelementptr inbounds i8, ptr %arrayidx.i117, i64 4
+  %arrayidx6.i.i.i142 = getelementptr inbounds i8, ptr %arrayidx.i117, i64 8
+  %arrayidx.i.i.i143 = getelementptr inbounds i8, ptr %arrayidx.i117, i64 16
+  %arrayidx3.i5.i.i144 = getelementptr inbounds i8, ptr %arrayidx.i117, i64 20
+  %arrayidx6.i8.i.i145 = getelementptr inbounds i8, ptr %arrayidx.i117, i64 24
+  %arrayidx.i10.i.i146 = getelementptr inbounds i8, ptr %arrayidx.i117, i64 32
+  %arrayidx3.i11.i.i147 = getelementptr inbounds i8, ptr %arrayidx.i117, i64 36
+  %arrayidx6.i14.i.i148 = getelementptr inbounds i8, ptr %arrayidx.i117, i64 40
+  %arrayidx3.i.i122.i = getelementptr inbounds i8, ptr %arrayidx.i120, i64 4
+  %arrayidx6.i.i125.i = getelementptr inbounds i8, ptr %arrayidx.i120, i64 8
+  %arrayidx.i.i127.i = getelementptr inbounds i8, ptr %arrayidx.i120, i64 16
+  %arrayidx3.i5.i128.i = getelementptr inbounds i8, ptr %arrayidx.i120, i64 20
+  %arrayidx6.i8.i130.i = getelementptr inbounds i8, ptr %arrayidx.i120, i64 24
+  %arrayidx.i10.i131.i = getelementptr inbounds i8, ptr %arrayidx.i120, i64 32
+  %arrayidx3.i11.i132.i = getelementptr inbounds i8, ptr %arrayidx.i120, i64 36
+  %arrayidx6.i14.i134.i = getelementptr inbounds i8, ptr %arrayidx.i120, i64 40
   %.pre.i149 = load float, ptr %m_angVel109, align 16
   %.pre340.i = load float, ptr %arrayidx4.i.i12.i.i140, align 4
   %.pre341.i = load float, ptr %arrayidx7.i.i15.i.i141, align 8
@@ -1474,7 +1467,7 @@ for.body.i150:                                    ; preds = %for.body.i150, %_Z1
   %cmp13.i = phi i1 [ true, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i ], [ false, %for.body.i150 ]
   %indvars.iv.i151 = phi i64 [ 0, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i ], [ 1, %for.body.i150 ]
   %arrayidx14.i = getelementptr inbounds [2 x %class.b3Vector3], ptr %tangent.i, i64 0, i64 %indvars.iv.i151
-  %arrayidx3.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx14.i, i64 0, i64 2
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 8
   %211 = load float, ptr %arrayidx3.i.i.i, align 8
   %neg11.i.i.i.i153 = fmul float %211, %196
   %neg11.i.i18.i.i159 = fmul float %211, %199
@@ -1484,9 +1477,9 @@ for.body.i150:                                    ; preds = %for.body.i150, %_Z1
   %215 = load float, ptr %m_angVel101, align 16
   %216 = load float, ptr %arrayidx4.i.i2.i.i136, align 4
   %217 = load float, ptr %arrayidx7.i.i5.i.i137, align 8
-  %arrayidx21.i = getelementptr inbounds %struct.b3ContactConstraint4, ptr %172, i64 %idxprom.i, i32 6, i64 %indvars.iv.i151
+  %arrayidx21.i = getelementptr inbounds [2 x float], ptr %m_fJacCoeffInv.i, i64 0, i64 %indvars.iv.i151
   %218 = load float, ptr %arrayidx21.i, align 4
-  %arrayidx23.i = getelementptr inbounds %struct.b3ContactConstraint4, ptr %172, i64 %idxprom.i, i32 7, i64 %indvars.iv.i151
+  %arrayidx23.i = getelementptr inbounds [2 x float], ptr %m_fAppliedRambdaDt.i, i64 0, i64 %indvars.iv.i151
   %219 = load float, ptr %arrayidx23.i, align 4
   %arrayidx25.i = getelementptr inbounds float, ptr %minRambdaDt74, i64 %indvars.iv.i151
   %220 = load float, ptr %arrayidx25.i, align 4
@@ -1741,19 +1734,19 @@ for.end120:                                       ; preds = %for.inc119, %invoke
 if.then122:                                       ; preds = %for.end120
   %387 = load i32, ptr %m_curWgidx, align 8
   %idxprom124 = sext i32 %387 to i64
-  %m_size.i182 = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %386, i64 %idxprom124, i32 2
+  %arrayidx125 = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %386, i64 %idxprom124
+  %m_size.i182 = getelementptr inbounds i8, ptr %arrayidx125, i64 4
   %388 = load i32, ptr %m_size.i182, align 4
   %389 = load i32, ptr %m_size.i.i, align 4
   %cmp130 = icmp slt i32 %388, %389
   br i1 %cmp130, label %for.body9.lr.ph.i187, label %if.end140
 
 for.body9.lr.ph.i187:                             ; preds = %if.then122
-  %arrayidx125 = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %386, i64 %idxprom124
   invoke void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %arrayidx125, i32 noundef %389)
           to label %.noexc196 unwind label %lpad.loopexit.split-lp
 
 .noexc196:                                        ; preds = %for.body9.lr.ph.i187
-  %m_data10.i188 = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %386, i64 %idxprom124, i32 5
+  %m_data10.i188 = getelementptr inbounds i8, ptr %arrayidx125, i64 16
   %390 = sext i32 %388 to i64
   %wide.trip.count.i189 = sext i32 %389 to i64
   br label %for.body9.i191
@@ -1837,13 +1830,13 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %entry, %for.end164,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI20b3ContactConstraint4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray.31, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3AlignedObjectArray.31, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -1854,12 +1847,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray.31, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.b3AlignedObjectArray.31, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.b3AlignedObjectArray.31, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -1876,11 +1869,11 @@ define dso_local void @_ZN22b3CpuRigidBodyPipeline9integrateEf(ptr nocapture nou
 entry:
   %gravityAcceleration = alloca %class.b3Vector3, align 16
   store <2 x float> <float 0.000000e+00, float -9.000000e+00>, ptr %gravityAcceleration, align 16
-  %0 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %gravityAcceleration, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %gravityAcceleration, i64 8
   store <2 x float> zeroinitializer, ptr %0, align 8
-  %m_data = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this, i64 0, i32 1
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_data, align 8
-  %m_size.i3 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %1, i64 0, i32 2
+  %m_size.i3 = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %m_size.i3, align 4
   %cmp4 = icmp sgt i32 %2, 0
   br i1 %cmp4, label %for.body, label %for.end
@@ -1888,13 +1881,13 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %3 = phi ptr [ %5, %for.body ], [ %1, %entry ]
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %3, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.b3RigidBodyData, ptr %4, i64 %indvars.iv
   call void @_Z20b3IntegrateTransformP15b3RigidBodyDataffRK9b3Vector3(ptr noundef nonnull %arrayidx.i, float noundef %deltaTime, float noundef 0.000000e+00, ptr noundef nonnull align 16 dereferenceable(16) %gravityAcceleration)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load ptr, ptr %m_data, align 8
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %5, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %5, i64 4
   %6 = load i32, ptr %m_size.i, align 4
   %7 = sext i32 %6 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %7
@@ -1907,17 +1900,17 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_Z20b3IntegrateTransformP15b3RigidBodyDataffRK9b3Vector3(ptr noundef %body, float noundef %timeStep, float noundef %angularDamping, ptr noundef nonnull align 16 dereferenceable(16) %gravityAcceleration) local_unnamed_addr #7 comdat {
 entry:
-  %m_invMass = getelementptr inbounds %struct.b3RigidBodyData, ptr %body, i64 0, i32 5
+  %m_invMass = getelementptr inbounds i8, ptr %body, i64 68
   %0 = load float, ptr %m_invMass, align 4
   %cmp = fcmp une float %0, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end61
 
 if.then:                                          ; preds = %entry
-  %m_angVel = getelementptr inbounds %struct.b3RigidBodyData, ptr %body, i64 0, i32 3
+  %m_angVel = getelementptr inbounds i8, ptr %body, i64 48
   %1 = load float, ptr %m_angVel, align 16
   %mul = fmul float %1, %angularDamping
   store float %mul, ptr %m_angVel, align 16
-  %y = getelementptr inbounds %struct.b3RigidBodyData, ptr %body, i64 0, i32 3, i32 0, i32 0, i64 1
+  %y = getelementptr inbounds i8, ptr %body, i64 52
   %2 = load <2 x float>, ptr %y, align 4
   %3 = insertelement <2 x float> poison, float %angularDamping, i64 0
   %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> zeroinitializer
@@ -1961,8 +1954,8 @@ if.end30:                                         ; preds = %if.else, %if.then11
   %mul37 = fmul float %fAngle.0, %timeStep
   %mul38 = fmul float %mul37, 5.000000e-01
   %call.i31 = tail call noundef float @cosf(float noundef %mul38) #16
-  %m_quat = getelementptr inbounds %struct.b3RigidBodyData, ptr %body, i64 0, i32 1
-  %orn0.sroa.3.0.m_quat.sroa_idx = getelementptr inbounds %struct.b3RigidBodyData, ptr %body, i64 0, i32 1, i32 0, i32 0, i32 0, i64 2
+  %m_quat = getelementptr inbounds i8, ptr %body, i64 16
+  %orn0.sroa.3.0.m_quat.sroa_idx = getelementptr inbounds i8, ptr %body, i64 24
   %neg19.i.i = fneg float %mul.i21
   %16 = load <2 x float>, ptr %orn0.sroa.3.0.m_quat.sroa_idx, align 8
   %17 = fneg <2 x float> %15
@@ -2007,11 +2000,11 @@ if.end30:                                         ; preds = %if.else, %if.then11
   %53 = fmul <2 x float> %42, %51
   store <2 x float> %52, ptr %m_quat, align 16
   store <2 x float> %53, ptr %orn0.sroa.3.0.m_quat.sroa_idx, align 8
-  %arrayidx3.i40 = getelementptr inbounds [4 x float], ptr %gravityAcceleration, i64 0, i64 2
+  %arrayidx3.i40 = getelementptr inbounds i8, ptr %gravityAcceleration, i64 8
   %54 = load float, ptr %arrayidx3.i40, align 8
   %mul4.i41 = fmul float %54, %timeStep
-  %m_linVel = getelementptr inbounds %struct.b3RigidBodyData, ptr %body, i64 0, i32 2
-  %arrayidx7.i = getelementptr inbounds %struct.b3RigidBodyData, ptr %body, i64 0, i32 2, i32 0, i32 0, i64 2
+  %m_linVel = getelementptr inbounds i8, ptr %body, i64 32
+  %arrayidx7.i = getelementptr inbounds i8, ptr %body, i64 40
   %55 = load float, ptr %arrayidx7.i, align 8
   %add8.i = fadd float %mul4.i41, %55
   %mul4.i52 = fmul float %add8.i, %timeStep
@@ -2027,7 +2020,7 @@ if.end30:                                         ; preds = %if.else, %if.then11
   %63 = load <2 x float>, ptr %body, align 16
   %64 = fadd <2 x float> %62, %63
   store <2 x float> %64, ptr %body, align 16
-  %arrayidx7.i63 = getelementptr inbounds [4 x float], ptr %body, i64 0, i64 2
+  %arrayidx7.i63 = getelementptr inbounds i8, ptr %body, i64 8
   %65 = load float, ptr %arrayidx7.i63, align 8
   %add8.i64 = fadd float %mul4.i52, %65
   store float %add8.i64, ptr %arrayidx7.i63, align 8
@@ -2040,20 +2033,20 @@ if.end61:                                         ; preds = %if.end30, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN22b3CpuRigidBodyPipeline23registerPhysicsInstanceEfPKfS1_ii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, float noundef %mass, ptr nocapture noundef readonly %position, ptr nocapture noundef readonly %orientation, i32 noundef %collidableIndex, i32 noundef %userData) local_unnamed_addr #7 align 2 {
 entry:
-  %m_data = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this, i64 0, i32 1
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data, align 8
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %0, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %tobool = fcmp une float %mass, 0.000000e+00
   %div = fdiv float 1.000000e+00, %mass
   %cond = select i1 %tobool, float %div, float 0.000000e+00
-  %arrayidx8 = getelementptr inbounds float, ptr %position, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %position, i64 8
   %2 = load <2 x float>, ptr %position, align 4
   %3 = load float, ptr %arrayidx8, align 4
-  %arrayidx11 = getelementptr inbounds float, ptr %orientation, i64 2
-  %arrayidx12 = getelementptr inbounds float, ptr %orientation, i64 3
+  %arrayidx11 = getelementptr inbounds i8, ptr %orientation, i64 8
+  %arrayidx12 = getelementptr inbounds i8, ptr %orientation, i64 12
   %4 = load <4 x float>, ptr %orientation, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %0, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp eq i32 %1, %5
   br i1 %cmp.i, label %if.then.i, label %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataE9push_backERKS0_.exit
@@ -2068,7 +2061,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN20b3AlignedObjectArrayI15b3RigidBodyDataE9push_backERKS0_.exit: ; preds = %entry, %if.then.i
   %6 = phi i32 [ %.pre.i, %if.then.i ], [ %1, %entry ]
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %0, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %6 to i64
   %arrayidx.i = getelementptr inbounds %struct.b3RigidBodyData, ptr %7, i64 %idxprom.i
@@ -2095,15 +2088,15 @@ _ZN20b3AlignedObjectArrayI15b3RigidBodyDataE9push_backERKS0_.exit: ; preds = %en
 
 if.then:                                          ; preds = %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataE9push_backERKS0_.exit
   %9 = load ptr, ptr %m_data, align 8
-  %m_size.i.i30 = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %9, i64 0, i32 2, i32 2
+  %m_size.i.i30 = getelementptr inbounds i8, ptr %9, i64 68
   %10 = load i32, ptr %m_size.i.i30, align 4
-  %m_capacity.i.i31 = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %9, i64 0, i32 2, i32 3
+  %m_capacity.i.i31 = getelementptr inbounds i8, ptr %9, i64 72
   %11 = load i32, ptr %m_capacity.i.i31, align 8
   %cmp.i32 = icmp eq i32 %10, %11
   br i1 %cmp.i32, label %if.then.i37, label %_ZN20b3AlignedObjectArrayI6b3AabbE6expandERKS0_.exit
 
 if.then.i37:                                      ; preds = %if.then
-  %m_aabbWorldSpace = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %9, i64 0, i32 2
+  %m_aabbWorldSpace = getelementptr inbounds i8, ptr %9, i64 64
   %tobool.not.i.i38 = icmp eq i32 %10, 0
   %mul.i.i39 = shl nsw i32 %10, 1
   %cond.i.i40 = select i1 %tobool.not.i.i38, i32 1, i32 %mul.i.i39
@@ -2115,7 +2108,7 @@ _ZN20b3AlignedObjectArrayI6b3AabbE6expandERKS0_.exit: ; preds = %if.then, %if.th
   %12 = phi i32 [ %.pre.i41, %if.then.i37 ], [ %10, %if.then ]
   %inc.i33 = add nsw i32 %12, 1
   store i32 %inc.i33, ptr %m_size.i.i30, align 4
-  %m_data.i34 = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %9, i64 0, i32 2, i32 5
+  %m_data.i34 = getelementptr inbounds i8, ptr %9, i64 80
   %13 = load ptr, ptr %m_data.i34, align 8
   %idxprom.i35 = sext i32 %10 to i64
   %arrayidx.i36 = getelementptr inbounds %struct.b3Aabb, ptr %13, i64 %idxprom.i35
@@ -2123,7 +2116,7 @@ _ZN20b3AlignedObjectArrayI6b3AabbE6expandERKS0_.exit: ; preds = %if.then, %if.th
   %14 = load ptr, ptr %m_data.i34, align 8
   %arrayidx7.i = getelementptr inbounds %struct.b3Aabb, ptr %14, i64 %idxprom.i35
   %15 = load ptr, ptr %m_data, align 8
-  %m_np = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %15, i64 0, i32 4
+  %m_np = getelementptr inbounds i8, ptr %15, i64 104
   %16 = load ptr, ptr %m_np, align 8
   %call19 = tail call noundef nonnull align 16 dereferenceable(32) ptr @_ZNK16b3CpuNarrowPhase17getLocalSpaceAabbEi(ptr noundef nonnull align 8 dereferenceable(28) %16, i32 noundef %collidableIndex)
   %localAabb.sroa.0.0.copyload = load float, ptr %call19, align 16
@@ -2140,7 +2133,7 @@ _ZN20b3AlignedObjectArrayI6b3AabbE6expandERKS0_.exit: ; preds = %if.then, %if.th
   %17 = load float, ptr %arrayidx8, align 4
   %18 = load float, ptr %arrayidx11, align 4
   %19 = load float, ptr %arrayidx12, align 4
-  %20 = getelementptr inbounds %struct.b3Aabb, ptr %14, i64 %idxprom.i35, i32 1
+  %20 = getelementptr inbounds i8, ptr %arrayidx7.i, i64 16
   %sub.i.i58 = fsub float %localAabb.sroa.41.0.copyload, %localAabb.sroa.0.0.copyload
   %sub4.i.i = fsub float %localAabb.sroa.5.0.copyload, %localAabb.sroa.2.0.copyload
   %sub7.i.i = fsub float %localAabb.sroa.6.0.copyload, %localAabb.sroa.3.0.copyload
@@ -2249,10 +2242,10 @@ _ZN20b3AlignedObjectArrayI6b3AabbE6expandERKS0_.exit: ; preds = %if.then, %if.th
   %add7.i58.i = fadd float %90, %add7.i.i.i
   %retval.sroa.3.12.vec.insert.i.i61.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add7.i58.i, i64 0
   store <2 x float> %92, ptr %20, align 16
-  %ref.tmp33.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 8
+  %ref.tmp33.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i61.i, ptr %ref.tmp33.sroa.2.0..sroa_idx.i, align 8
   %93 = load ptr, ptr %m_data, align 8
-  %m_bp = getelementptr inbounds %struct.b3CpuRigidBodyPipelineInternalData, ptr %93, i64 0, i32 3
+  %m_bp = getelementptr inbounds i8, ptr %93, i64 96
   %94 = load ptr, ptr %m_bp, align 8
   %call44 = tail call noundef ptr @_ZN22b3DynamicBvhBroadphase11createProxyERK9b3Vector3S2_iPvii(ptr noundef nonnull align 8 dereferenceable(315) %94, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 16 dereferenceable(16) %20, i32 noundef %1, ptr noundef null, i32 noundef 1, i32 noundef 1)
   br label %if.end
@@ -2276,15 +2269,15 @@ declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unname
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK22b3CpuRigidBodyPipeline13getBodyBufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %m_data = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this, i64 0, i32 1
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data, align 8
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %0, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %0, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %m_data.i, align 8
   br label %cond.end
 
@@ -2315,13 +2308,13 @@ declare float @llvm.fabs.f32(float) #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -2332,12 +2325,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -2352,7 +2345,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -2369,13 +2362,13 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit:     ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -2393,20 +2386,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18:   ; preds = %if.then, %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.6)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
@@ -2417,7 +2410,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit:  ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.35, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8
@@ -2438,7 +2431,7 @@ declare float @cosf(float noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI15b3RigidBodyDataE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -2455,13 +2448,13 @@ _ZN20b3AlignedObjectArrayI15b3RigidBodyDataE8allocateEi.exit: ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayI15b3RigidBodyDataE4copyEiiPS0_.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -2478,20 +2471,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayI15b3RigidBodyDataE4copyEiiPS0_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.6)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayI15b3RigidBodyDataE4copyEiiPS0_.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayI15b3RigidBodyDataE4copyEiiPS0_.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayI15b3RigidBodyDataE4copyEiiPS0_.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %3, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
   %5 = and i8 %4, 1
   %tobool2.not.i = icmp eq i8 %5, 0
@@ -2502,7 +2495,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayI15b3RigidBodyDataE10deallocateEv.exit: ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8
@@ -2515,7 +2508,7 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI6b3AabbE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -2532,13 +2525,13 @@ _ZN20b3AlignedObjectArrayI6b3AabbE8allocateEi.exit: ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayI6b3AabbE4copyEiiPS0_.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayI6b3AabbE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -2555,20 +2548,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayI6b3AabbE4copyEiiPS0_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayI6b3AabbE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.6)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayI6b3AabbE4copyEiiPS0_.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayI6b3AabbE4copyEiiPS0_.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayI6b3AabbE4copyEiiPS0_.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %3, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayI6b3AabbE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
   %5 = and i8 %4, 1
   %tobool2.not.i = icmp eq i8 %5, 0
@@ -2579,7 +2572,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayI6b3AabbE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayI6b3AabbE10deallocateEv.exit: ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8

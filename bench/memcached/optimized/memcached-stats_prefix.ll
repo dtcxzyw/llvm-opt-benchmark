@@ -3,8 +3,6 @@ source_filename = "bench/memcached/original/memcached-stats_prefix.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._prefix_stats = type { ptr, i64, i64, i64, i64, i64, ptr }
-
 @prefix_delimiter = internal unnamed_addr global i8 0, align 1
 @prefix_stats = internal unnamed_addr global [256 x ptr] zeroinitializer, align 16
 @num_prefixes = internal unnamed_addr global i32 0, align 4
@@ -41,7 +39,7 @@ for.body:                                         ; preds = %entry, %for.end
 
 for.body3:                                        ; preds = %for.body, %for.body3
   %cur.08 = phi ptr [ %1, %for.body3 ], [ %0, %for.body ]
-  %next4 = getelementptr inbounds %struct._prefix_stats, ptr %cur.08, i64 0, i32 6
+  %next4 = getelementptr inbounds i8, ptr %cur.08, i64 48
   %1 = load ptr, ptr %next4, align 8
   %2 = load ptr, ptr %cur.08, align 8
   tail call void @free(ptr noundef %2) #11
@@ -108,7 +106,7 @@ for.body14:                                       ; preds = %if.end9, %for.inc20
   br i1 %cmp16, label %return, label %for.inc20
 
 for.inc20:                                        ; preds = %for.body14
-  %next = getelementptr inbounds %struct._prefix_stats, ptr %pfs.037, i64 0, i32 6
+  %next = getelementptr inbounds i8, ptr %pfs.037, i64 48
   %pfs.0 = load ptr, ptr %next, align 8
   %cmp12.not = icmp eq ptr %pfs.0, null
   br i1 %cmp12.not, label %for.end21, label %for.body14, !llvm.loop !9
@@ -138,9 +136,9 @@ if.end33:                                         ; preds = %if.end26
   %call35 = tail call ptr @strncpy(ptr noundef nonnull %call27, ptr noundef %key, i64 noundef %length.034) #11
   %arrayidx37 = getelementptr inbounds i8, ptr %call27, i64 %length.034
   store i8 0, ptr %arrayidx37, align 1
-  %prefix_len = getelementptr inbounds %struct._prefix_stats, ptr %call22, i64 0, i32 1
+  %prefix_len = getelementptr inbounds i8, ptr %call22, i64 8
   store i64 %length.034, ptr %prefix_len, align 8
-  %next40 = getelementptr inbounds %struct._prefix_stats, ptr %call22, i64 0, i32 6
+  %next40 = getelementptr inbounds i8, ptr %call22, i64 48
   store ptr %pfs.035, ptr %next40, align 8
   store ptr %call22, ptr %arrayidx10, align 8
   %4 = load i32, ptr @num_prefixes, align 4
@@ -181,14 +179,14 @@ entry:
   br i1 %cmp.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %num_gets = getelementptr inbounds %struct._prefix_stats, ptr %call, i64 0, i32 2
+  %num_gets = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load i64, ptr %num_gets, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %num_gets, align 8
   br i1 %is_hit, label %if.then1, label %if.end3
 
 if.then1:                                         ; preds = %if.then
-  %num_hits = getelementptr inbounds %struct._prefix_stats, ptr %call, i64 0, i32 5
+  %num_hits = getelementptr inbounds i8, ptr %call, i64 40
   %1 = load i64, ptr %num_hits, align 8
   %inc2 = add i64 %1, 1
   store i64 %inc2, ptr %num_hits, align 8
@@ -212,7 +210,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %num_deletes = getelementptr inbounds %struct._prefix_stats, ptr %call, i64 0, i32 4
+  %num_deletes = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load i64, ptr %num_deletes, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %num_deletes, align 8
@@ -232,7 +230,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %num_sets = getelementptr inbounds %struct._prefix_stats, ptr %call, i64 0, i32 3
+  %num_sets = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load i64, ptr %num_sets, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %num_sets, align 8
@@ -278,17 +276,17 @@ for.body13:                                       ; preds = %for.body, %for.body
   %add.ptr = getelementptr inbounds i8, ptr %call6, i64 %idx.ext
   %sub15 = sub nsw i64 %add5, %idx.ext
   %2 = load ptr, ptr %pfs.022, align 8
-  %num_gets = getelementptr inbounds %struct._prefix_stats, ptr %pfs.022, i64 0, i32 2
+  %num_gets = getelementptr inbounds i8, ptr %pfs.022, i64 16
   %3 = load i64, ptr %num_gets, align 8
-  %num_hits = getelementptr inbounds %struct._prefix_stats, ptr %pfs.022, i64 0, i32 5
+  %num_hits = getelementptr inbounds i8, ptr %pfs.022, i64 40
   %4 = load i64, ptr %num_hits, align 8
-  %num_sets = getelementptr inbounds %struct._prefix_stats, ptr %pfs.022, i64 0, i32 3
+  %num_sets = getelementptr inbounds i8, ptr %pfs.022, i64 24
   %5 = load i64, ptr %num_sets, align 8
-  %num_deletes = getelementptr inbounds %struct._prefix_stats, ptr %pfs.022, i64 0, i32 4
+  %num_deletes = getelementptr inbounds i8, ptr %pfs.022, i64 32
   %6 = load i64, ptr %num_deletes, align 8
   %call16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub15, ptr noundef nonnull @.str.2, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) #11
   %add19 = add i32 %call16, %pos.121
-  %next = getelementptr inbounds %struct._prefix_stats, ptr %pfs.022, i64 0, i32 6
+  %next = getelementptr inbounds i8, ptr %pfs.022, i64 48
   %pfs.0 = load ptr, ptr %next, align 8
   %cmp11.not = icmp eq ptr %pfs.0, null
   br i1 %cmp11.not, label %for.inc21, label %for.body13, !llvm.loop !10

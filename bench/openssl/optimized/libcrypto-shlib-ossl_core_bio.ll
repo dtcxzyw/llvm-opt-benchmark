@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ossl_core_bio.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_core_bio_st = type { %struct.CRYPTO_REF_COUNT, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-
 @.str = private unnamed_addr constant [38 x i8] c"../openssl/crypto/bio/ossl_core_bio.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
@@ -35,7 +32,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.then
   br i1 %cmp1, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  %bio = getelementptr inbounds %struct.ossl_core_bio_st, ptr %cb, i64 0, i32 1
+  %bio = getelementptr inbounds i8, ptr %cb, i64 8
   %1 = load ptr, ptr %bio, align 8
   %call3 = tail call i32 @BIO_free(ptr noundef %1) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %cb, ptr noundef nonnull @.str, i32 noundef 50) #3
@@ -81,14 +78,14 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.then.i7
   br i1 %cmp1.i, label %if.then2.i, label %return
 
 if.then2.i:                                       ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %bio.i = getelementptr inbounds %struct.ossl_core_bio_st, ptr %call.i, i64 0, i32 1
+  %bio.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %bio.i, align 8
   %call3.i = tail call i32 @BIO_free(ptr noundef %1) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 50) #3
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %bio3 = getelementptr inbounds %struct.ossl_core_bio_st, ptr %call.i, i64 0, i32 1
+  %bio3 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %bio, ptr %bio3, align 8
   br label %return
 
@@ -118,7 +115,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end4.i:                                        ; preds = %if.end.i
   store atomic i32 1, ptr %call.i.i seq_cst, align 4
-  %bio5.i = getelementptr inbounds %struct.ossl_core_bio_st, ptr %call.i.i, i64 0, i32 1
+  %bio5.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %call, ptr %bio5.i, align 8
   br label %core_bio_new_from_new_bio.exit
 
@@ -148,7 +145,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end4.i:                                        ; preds = %if.end.i
   store atomic i32 1, ptr %call.i.i seq_cst, align 4
-  %bio5.i = getelementptr inbounds %struct.ossl_core_bio_st, ptr %call.i.i, i64 0, i32 1
+  %bio5.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %call, ptr %bio5.i, align 8
   br label %core_bio_new_from_new_bio.exit
 
@@ -162,7 +159,7 @@ declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_core_bio_read_ex(ptr nocapture noundef readonly %cb, ptr noundef %data, i64 noundef %dlen, ptr noundef %readbytes) local_unnamed_addr #1 {
 entry:
-  %bio = getelementptr inbounds %struct.ossl_core_bio_st, ptr %cb, i64 0, i32 1
+  %bio = getelementptr inbounds i8, ptr %cb, i64 8
   %0 = load ptr, ptr %bio, align 8
   %call = tail call i32 @BIO_read_ex(ptr noundef %0, ptr noundef %data, i64 noundef %dlen, ptr noundef %readbytes) #3
   ret i32 %call
@@ -173,7 +170,7 @@ declare i32 @BIO_read_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) loc
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_core_bio_write_ex(ptr nocapture noundef readonly %cb, ptr noundef %data, i64 noundef %dlen, ptr noundef %written) local_unnamed_addr #1 {
 entry:
-  %bio = getelementptr inbounds %struct.ossl_core_bio_st, ptr %cb, i64 0, i32 1
+  %bio = getelementptr inbounds i8, ptr %cb, i64 8
   %0 = load ptr, ptr %bio, align 8
   %call = tail call i32 @BIO_write_ex(ptr noundef %0, ptr noundef %data, i64 noundef %dlen, ptr noundef %written) #3
   ret i32 %call
@@ -184,7 +181,7 @@ declare i32 @BIO_write_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) lo
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_core_bio_gets(ptr nocapture noundef readonly %cb, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #1 {
 entry:
-  %bio = getelementptr inbounds %struct.ossl_core_bio_st, ptr %cb, i64 0, i32 1
+  %bio = getelementptr inbounds i8, ptr %cb, i64 8
   %0 = load ptr, ptr %bio, align 8
   %call = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %buf, i32 noundef %size) #3
   ret i32 %call
@@ -195,7 +192,7 @@ declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_core_bio_puts(ptr nocapture noundef readonly %cb, ptr noundef %buf) local_unnamed_addr #1 {
 entry:
-  %bio = getelementptr inbounds %struct.ossl_core_bio_st, ptr %cb, i64 0, i32 1
+  %bio = getelementptr inbounds i8, ptr %cb, i64 8
   %0 = load ptr, ptr %bio, align 8
   %call = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef %buf) #3
   ret i32 %call
@@ -206,7 +203,7 @@ declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i64 @ossl_core_bio_ctrl(ptr nocapture noundef readonly %cb, i32 noundef %cmd, i64 noundef %larg, ptr noundef %parg) local_unnamed_addr #1 {
 entry:
-  %bio = getelementptr inbounds %struct.ossl_core_bio_st, ptr %cb, i64 0, i32 1
+  %bio = getelementptr inbounds i8, ptr %cb, i64 8
   %0 = load ptr, ptr %bio, align 8
   %call = tail call i64 @BIO_ctrl(ptr noundef %0, i32 noundef %cmd, i64 noundef %larg, ptr noundef %parg) #3
   ret i64 %call
@@ -217,7 +214,7 @@ declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_core_bio_vprintf(ptr nocapture noundef readonly %cb, ptr noundef %format, ptr noundef %args) local_unnamed_addr #1 {
 entry:
-  %bio = getelementptr inbounds %struct.ossl_core_bio_st, ptr %cb, i64 0, i32 1
+  %bio = getelementptr inbounds i8, ptr %cb, i64 8
   %0 = load ptr, ptr %bio, align 8
   %call = tail call i32 @BIO_vprintf(ptr noundef %0, ptr noundef %format, ptr noundef %args) #3
   ret i32 %call

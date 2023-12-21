@@ -3,8 +3,6 @@ source_filename = "bench/rocksdb/original/snapshot_impl.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.rocksdb::ManagedSnapshot" = type { ptr, ptr }
-
 $__clang_call_terminate = comdat any
 
 @_ZN7rocksdb15ManagedSnapshotC1EPNS_2DBE = unnamed_addr alias void (ptr, ptr), ptr @_ZN7rocksdb15ManagedSnapshotC2EPNS_2DBE
@@ -15,9 +13,9 @@ $__clang_call_terminate = comdat any
 define void @_ZN7rocksdb15ManagedSnapshotC2EPNS_2DBE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %db) unnamed_addr #0 align 2 {
 entry:
   store ptr %db, ptr %this, align 8
-  %snapshot_ = getelementptr inbounds %"class.rocksdb::ManagedSnapshot", ptr %this, i64 0, i32 1
+  %snapshot_ = getelementptr inbounds i8, ptr %this, i64 8
   %vtable = load ptr, ptr %db, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 59
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 472
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %db)
   store ptr %call, ptr %snapshot_, align 8
@@ -28,7 +26,7 @@ entry:
 define void @_ZN7rocksdb15ManagedSnapshotC2EPNS_2DBEPKNS_8SnapshotE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %db, ptr noundef %_snapshot) unnamed_addr #1 align 2 {
 entry:
   store ptr %db, ptr %this, align 8
-  %snapshot_ = getelementptr inbounds %"class.rocksdb::ManagedSnapshot", ptr %this, i64 0, i32 1
+  %snapshot_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %_snapshot, ptr %snapshot_, align 8
   ret void
 }
@@ -36,7 +34,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb15ManagedSnapshotD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %snapshot_ = getelementptr inbounds %"class.rocksdb::ManagedSnapshot", ptr %this, i64 0, i32 1
+  %snapshot_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %snapshot_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -44,7 +42,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 60
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 480
   %2 = load ptr, ptr %vfn, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0)
           to label %if.end unwind label %terminate.lpad
@@ -76,7 +74,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZN7rocksdb15ManagedSnapshot8snapshotEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %snapshot_ = getelementptr inbounds %"class.rocksdb::ManagedSnapshot", ptr %this, i64 0, i32 1
+  %snapshot_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %snapshot_, align 8
   ret ptr %0
 }

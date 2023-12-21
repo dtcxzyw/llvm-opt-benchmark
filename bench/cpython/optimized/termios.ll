@@ -12,8 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.constant = type { ptr, i64 }
 %struct.termios = type { i32, i32, i32, i32, i8, [32 x i8], i32, i32 }
 %struct.winsize = type { i16, i16, i16, i16 }
-%struct.PyListObject = type { %struct.PyVarObject, ptr, i64 }
-%struct.PyVarObject = type { %struct._object, i64 }
 
 @termiosmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @termios__doc__, i64 8, ptr @termios_methods, ptr @termios_slots, ptr @termiosmodule_traverse, ptr @termiosmodule_clear, ptr @termiosmodule_free }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"termios\00", align 1
@@ -405,12 +403,13 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp7.i, label %termios_tcgetattr_impl.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
+  %c_cc.i = getelementptr inbounds i8, ptr %mode.i, i64 17
   %2 = getelementptr i8, ptr %call6.i, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end14.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %if.end14.i ]
-  %arrayidx.i = getelementptr %struct.termios, ptr %mode.i, i64 0, i32 5, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr [32 x i8], ptr %c_cc.i, i64 0, i64 %indvars.iv.i
   %3 = load i8, ptr %arrayidx.i, align 1
   store i8 %3, ptr %ch.i, align 1
   %call11.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %ch.i, i64 noundef 1) #4
@@ -426,14 +425,14 @@ if.end14.i:                                       ; preds = %for.body.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %if.end14.i
-  %c_lflag.i = getelementptr inbounds %struct.termios, ptr %mode.i, i64 0, i32 3
+  %c_lflag.i = getelementptr inbounds i8, ptr %mode.i, i64 12
   %4 = load i32, ptr %c_lflag.i, align 4
   %and.i = and i32 %4, 2
   %cmp15.i = icmp eq i32 %and.i, 0
   br i1 %cmp15.i, label %if.then17.i, label %if.end44.i
 
 if.then17.i:                                      ; preds = %for.end.i
-  %arrayidx19.i = getelementptr inbounds %struct.termios, ptr %mode.i, i64 0, i32 5, i64 6
+  %arrayidx19.i = getelementptr inbounds i8, ptr %mode.i, i64 23
   %5 = load i8, ptr %arrayidx19.i, align 1
   %conv20.i = zext i8 %5 to i64
   %call21.i = call ptr @PyLong_FromLong(i64 noundef %conv20.i) #4
@@ -446,7 +445,7 @@ if.end25.i:                                       ; preds = %if.then17.i
   br i1 %cmp27.i, label %err.i, label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.end25.i
-  %arrayidx32.i = getelementptr inbounds %struct.termios, ptr %mode.i, i64 0, i32 5, i64 5
+  %arrayidx32.i = getelementptr inbounds i8, ptr %mode.i, i64 22
   %6 = load i8, ptr %arrayidx32.i, align 2
   %conv33.i = zext i8 %6 to i64
   %call34.i = call ptr @PyLong_FromLong(i64 noundef %conv33.i) #4
@@ -486,7 +485,7 @@ if.end53.i:                                       ; preds = %do.body.i
   %10 = getelementptr i8, ptr %call45.i, i64 24
   %call45.val.i = load ptr, ptr %10, align 8
   store ptr %call49.i, ptr %call45.val.i, align 8
-  %c_oflag.i = getelementptr inbounds %struct.termios, ptr %mode.i, i64 0, i32 1
+  %c_oflag.i = getelementptr inbounds i8, ptr %mode.i, i64 4
   %11 = load i32, ptr %c_oflag.i, align 4
   %conv56.i = zext i32 %11 to i64
   %call57.i = call ptr @PyLong_FromLong(i64 noundef %conv56.i) #4
@@ -507,9 +506,9 @@ if.end.i139.i:                                    ; preds = %if.then60.i
 
 if.end61.i:                                       ; preds = %if.end53.i
   %call45.val48.i = load ptr, ptr %10, align 8
-  %arrayidx.i54.i = getelementptr ptr, ptr %call45.val48.i, i64 1
+  %arrayidx.i54.i = getelementptr i8, ptr %call45.val48.i, i64 8
   store ptr %call57.i, ptr %arrayidx.i54.i, align 8
-  %c_cflag.i = getelementptr inbounds %struct.termios, ptr %mode.i, i64 0, i32 2
+  %c_cflag.i = getelementptr inbounds i8, ptr %mode.i, i64 8
   %14 = load i32, ptr %c_cflag.i, align 4
   %conv65.i = zext i32 %14 to i64
   %call66.i = call ptr @PyLong_FromLong(i64 noundef %conv65.i) #4
@@ -530,7 +529,7 @@ if.end.i130.i:                                    ; preds = %if.then69.i
 
 if.end70.i:                                       ; preds = %if.end61.i
   %call45.val49.i = load ptr, ptr %10, align 8
-  %arrayidx.i55.i = getelementptr ptr, ptr %call45.val49.i, i64 2
+  %arrayidx.i55.i = getelementptr i8, ptr %call45.val49.i, i64 16
   store ptr %call66.i, ptr %arrayidx.i55.i, align 8
   %17 = load i32, ptr %c_lflag.i, align 4
   %conv75.i = zext i32 %17 to i64
@@ -552,7 +551,7 @@ if.end.i121.i:                                    ; preds = %if.then79.i
 
 if.end80.i:                                       ; preds = %if.end70.i
   %call45.val50.i = load ptr, ptr %10, align 8
-  %arrayidx.i56.i = getelementptr ptr, ptr %call45.val50.i, i64 3
+  %arrayidx.i56.i = getelementptr i8, ptr %call45.val50.i, i64 24
   store ptr %call76.i, ptr %arrayidx.i56.i, align 8
   %conv84.i = zext i32 %call4.i to i64
   %call85.i = call ptr @PyLong_FromLong(i64 noundef %conv84.i) #4
@@ -573,7 +572,7 @@ if.end.i112.i:                                    ; preds = %if.then88.i
 
 if.end89.i:                                       ; preds = %if.end80.i
   %call45.val51.i = load ptr, ptr %10, align 8
-  %arrayidx.i57.i = getelementptr ptr, ptr %call45.val51.i, i64 4
+  %arrayidx.i57.i = getelementptr i8, ptr %call45.val51.i, i64 32
   store ptr %call85.i, ptr %arrayidx.i57.i, align 8
   %conv93.i = zext i32 %call5.i to i64
   %call94.i = call ptr @PyLong_FromLong(i64 noundef %conv93.i) #4
@@ -594,10 +593,10 @@ if.end.i103.i:                                    ; preds = %if.then97.i
 
 if.end98.i:                                       ; preds = %if.end89.i
   %call45.val52.i = load ptr, ptr %10, align 8
-  %arrayidx.i58.i = getelementptr ptr, ptr %call45.val52.i, i64 5
+  %arrayidx.i58.i = getelementptr i8, ptr %call45.val52.i, i64 40
   store ptr %call94.i, ptr %arrayidx.i58.i, align 8
   %call45.val53.i = load ptr, ptr %10, align 8
-  %arrayidx.i59.i = getelementptr ptr, ptr %call45.val53.i, i64 6
+  %arrayidx.i59.i = getelementptr i8, ptr %call45.val53.i, i64 48
   store ptr %call6.i, ptr %arrayidx.i59.i, align 8
   br label %termios_tcgetattr_impl.exit
 
@@ -651,14 +650,14 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @PyLong_AsInt(ptr noundef %1) #4
   %cmp8 = icmp eq i32 %call7, -1
   br i1 %cmp8, label %land.lhs.true9, label %if.end5.split
 
 if.end5.split:                                    ; preds = %if.end5
-  %arrayidx146 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx146 = getelementptr i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx146, align 8
   %3 = load i32, ptr %fd, align 4
   %call157 = call fastcc ptr @termios_tcsetattr_impl(ptr noundef %module, i32 noundef %3, i32 noundef %call7, ptr noundef %2)
@@ -670,7 +669,7 @@ land.lhs.true9:                                   ; preds = %if.end5
   br i1 %tobool11.not, label %land.lhs.true9.split, label %exit
 
 land.lhs.true9.split:                             ; preds = %land.lhs.true9
-  %arrayidx148 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx148 = getelementptr i8, ptr %args, i64 16
   %4 = load ptr, ptr %arrayidx148, align 8
   %5 = load i32, ptr %fd, align 4
   %call159 = call fastcc ptr @termios_tcsetattr_impl(ptr noundef %module, i32 noundef %5, i32 noundef -1, ptr noundef %4)
@@ -700,7 +699,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @PyLong_AsInt(ptr noundef %1) #4
   %cmp8 = icmp eq i32 %call7, -1
@@ -786,7 +785,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @PyLong_AsInt(ptr noundef %1) #4
   %cmp8 = icmp eq i32 %call7, -1
@@ -845,7 +844,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @PyLong_AsInt(ptr noundef %1) #4
   %cmp8 = icmp eq i32 %call7, -1
@@ -919,7 +918,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %conv.i = zext i16 %2 to i64
   %call7.i = call ptr @PyLong_FromLong(i64 noundef %conv.i) #4
   %call8.i = call i32 @PyTuple_SetItem(ptr noundef nonnull %call4.i, i64 noundef 0, ptr noundef %call7.i) #4
-  %ws_col.i = getelementptr inbounds %struct.winsize, ptr %w.i, i64 0, i32 1
+  %ws_col.i = getelementptr inbounds i8, ptr %w.i, i64 2
   %3 = load i16, ptr %ws_col.i, align 2
   %conv9.i = zext i16 %3 to i64
   %call10.i = call ptr @PyLong_FromLong(i64 noundef %conv9.i) #4
@@ -974,7 +973,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
   %2 = load i32, ptr %fd, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %w.i)
@@ -1109,7 +1108,7 @@ if.end22.i:                                       ; preds = %Py_XDECREF.exit38.i
   %conv.i = trunc i64 %call3.i to i16
   store i16 %conv.i, ptr %w.i, align 2
   %conv23.i = trunc i64 %call10.i to i16
-  %ws_col.i = getelementptr inbounds %struct.winsize, ptr %w.i, i64 0, i32 1
+  %ws_col.i = getelementptr inbounds i8, ptr %w.i, i64 2
   store i16 %conv23.i, ptr %ws_col.i, align 2
   %13 = or i64 %call10.i, %call3.i
   %or.cond.i = icmp ult i64 %13, 65536
@@ -1213,7 +1212,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 do.body:                                          ; preds = %if.end
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %term, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %term, i64 24
   %5 = load ptr, ptr %ob_item, align 8
   %6 = load ptr, ptr %5, align 8
   %call10 = call i64 @PyLong_AsLong(ptr noundef %6) #4
@@ -1229,7 +1228,7 @@ if.end15:                                         ; preds = %land.lhs.true, %do.
   %conv = trunc i64 %call10 to i32
   store i32 %conv, ptr %mode, align 4
   %7 = load ptr, ptr %ob_item, align 8
-  %arrayidx19 = getelementptr ptr, ptr %7, i64 1
+  %arrayidx19 = getelementptr i8, ptr %7, i64 8
   %8 = load ptr, ptr %arrayidx19, align 8
   %call21 = call i64 @PyLong_AsLong(ptr noundef %8) #4
   %cmp22 = icmp eq i64 %call21, -1
@@ -1242,10 +1241,10 @@ land.lhs.true24:                                  ; preds = %if.end15
 
 if.end28:                                         ; preds = %land.lhs.true24, %if.end15
   %conv29 = trunc i64 %call21 to i32
-  %c_oflag = getelementptr inbounds %struct.termios, ptr %mode, i64 0, i32 1
+  %c_oflag = getelementptr inbounds i8, ptr %mode, i64 4
   store i32 %conv29, ptr %c_oflag, align 4
   %9 = load ptr, ptr %ob_item, align 8
-  %arrayidx34 = getelementptr ptr, ptr %9, i64 2
+  %arrayidx34 = getelementptr i8, ptr %9, i64 16
   %10 = load ptr, ptr %arrayidx34, align 8
   %call36 = call i64 @PyLong_AsLong(ptr noundef %10) #4
   %cmp37 = icmp eq i64 %call36, -1
@@ -1258,10 +1257,10 @@ land.lhs.true39:                                  ; preds = %if.end28
 
 if.end43:                                         ; preds = %land.lhs.true39, %if.end28
   %conv44 = trunc i64 %call36 to i32
-  %c_cflag = getelementptr inbounds %struct.termios, ptr %mode, i64 0, i32 2
+  %c_cflag = getelementptr inbounds i8, ptr %mode, i64 8
   store i32 %conv44, ptr %c_cflag, align 4
   %11 = load ptr, ptr %ob_item, align 8
-  %arrayidx49 = getelementptr ptr, ptr %11, i64 3
+  %arrayidx49 = getelementptr i8, ptr %11, i64 24
   %12 = load ptr, ptr %arrayidx49, align 8
   %call51 = call i64 @PyLong_AsLong(ptr noundef %12) #4
   %cmp52 = icmp eq i64 %call51, -1
@@ -1274,10 +1273,10 @@ land.lhs.true54:                                  ; preds = %if.end43
 
 if.end58:                                         ; preds = %land.lhs.true54, %if.end43
   %conv59 = trunc i64 %call51 to i32
-  %c_lflag = getelementptr inbounds %struct.termios, ptr %mode, i64 0, i32 3
+  %c_lflag = getelementptr inbounds i8, ptr %mode, i64 12
   store i32 %conv59, ptr %c_lflag, align 4
   %13 = load ptr, ptr %ob_item, align 8
-  %arrayidx64 = getelementptr ptr, ptr %13, i64 4
+  %arrayidx64 = getelementptr i8, ptr %13, i64 32
   %14 = load ptr, ptr %arrayidx64, align 8
   %call66 = call i64 @PyLong_AsLong(ptr noundef %14) #4
   %cmp67 = icmp eq i64 %call66, -1
@@ -1291,7 +1290,7 @@ land.lhs.true69:                                  ; preds = %if.end58
 if.end73:                                         ; preds = %land.lhs.true69, %if.end58
   %conv74 = trunc i64 %call66 to i32
   %15 = load ptr, ptr %ob_item, align 8
-  %arrayidx79 = getelementptr ptr, ptr %15, i64 5
+  %arrayidx79 = getelementptr i8, ptr %15, i64 40
   %16 = load ptr, ptr %arrayidx79, align 8
   %call81 = call i64 @PyLong_AsLong(ptr noundef %16) #4
   %cmp82 = icmp eq i64 %call81, -1
@@ -1305,7 +1304,7 @@ land.lhs.true84:                                  ; preds = %if.end73
 if.end88:                                         ; preds = %land.lhs.true84, %if.end73
   %conv89 = trunc i64 %call81 to i32
   %17 = load ptr, ptr %ob_item, align 8
-  %arrayidx92 = getelementptr ptr, ptr %17, i64 6
+  %arrayidx92 = getelementptr i8, ptr %17, i64 48
   %18 = load ptr, ptr %arrayidx92, align 8
   %19 = getelementptr i8, ptr %18, i64 8
   %.val = load ptr, ptr %19, align 8
@@ -1318,15 +1317,19 @@ if.end88:                                         ; preds = %land.lhs.true84, %i
 lor.lhs.false96:                                  ; preds = %if.end88
   %call97 = call i64 @PyList_Size(ptr noundef nonnull %18) #4
   %cmp98.not = icmp eq i64 %call97, 32
-  br i1 %cmp98.not, label %for.body, label %if.then100
+  br i1 %cmp98.not, label %for.cond.preheader, label %if.then100
+
+for.cond.preheader:                               ; preds = %lor.lhs.false96
+  %c_cc = getelementptr inbounds i8, ptr %mode, i64 17
+  br label %for.body
 
 if.then100:                                       ; preds = %lor.lhs.false96, %if.end88
   %22 = load ptr, ptr @PyExc_TypeError, align 8
   %call101 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %22, ptr noundef nonnull @.str.10, i32 noundef 32) #4
   br label %return
 
-for.body:                                         ; preds = %lor.lhs.false96, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %lor.lhs.false96 ]
+for.body:                                         ; preds = %for.cond.preheader, %for.inc
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
   %call106 = call ptr @PyList_GetItem(ptr noundef %18, i64 noundef %indvars.iv) #4
   %23 = getelementptr i8, ptr %call106, i64 8
   %call106.val = load ptr, ptr %23, align 8
@@ -1379,7 +1382,7 @@ if.else134:                                       ; preds = %if.else
 
 for.inc:                                          ; preds = %if.then114, %if.end129
   %.sink = phi i8 [ %26, %if.then114 ], [ %conv130, %if.end129 ]
-  %arrayidx116 = getelementptr %struct.termios, ptr %mode, i64 0, i32 5, i64 %indvars.iv
+  %arrayidx116 = getelementptr [32 x i8], ptr %c_cc, i64 0, i64 %indvars.iv
   store i8 %.sink, ptr %arrayidx116, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -1480,7 +1483,7 @@ entry:
   br i1 %cmp, label %return, label %while.body
 
 while.cond:                                       ; preds = %while.body
-  %incdec.ptr = getelementptr %struct.constant, ptr %constant.07, i64 1
+  %incdec.ptr = getelementptr i8, ptr %constant.07, i64 16
   %0 = load ptr, ptr %incdec.ptr, align 8
   %cmp4.not = icmp eq ptr %0, null
   br i1 %cmp4.not, label %return, label %while.body, !llvm.loop !7
@@ -1488,7 +1491,7 @@ while.cond:                                       ; preds = %while.body
 while.body:                                       ; preds = %entry, %while.cond
   %1 = phi ptr [ %0, %while.cond ], [ @.str.16, %entry ]
   %constant.07 = phi ptr [ %incdec.ptr, %while.cond ], [ @termios_constants, %entry ]
-  %value = getelementptr inbounds %struct.constant, ptr %constant.07, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %constant.07, i64 8
   %2 = load i64, ptr %value, align 8
   %call6 = tail call i32 @PyModule_AddIntConstant(ptr noundef %mod, ptr noundef nonnull %1, i64 noundef %2) #4
   %cmp7 = icmp slt i32 %call6, 0

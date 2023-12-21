@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.grpc_core::Chttp2WriteSizePolicy" = type <{ i64, %"class.grpc_core::Timestamp", i8, [7 x i8] }>
-%"class.grpc_core::Timestamp" = type { i64 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -32,7 +30,7 @@ entry:
 ; Function Attrs: uwtable
 define void @_ZN9grpc_core21Chttp2WriteSizePolicy10BeginWriteEm(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this, i64 noundef %size) local_unnamed_addr #4 align 2 {
 entry:
-  %experiment_start_time_ = getelementptr inbounds %"class.grpc_core::Chttp2WriteSizePolicy", ptr %this, i64 0, i32 1
+  %experiment_start_time_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %experiment_start_time_, align 8
   %cmp.i = icmp eq i64 %0, 9223372036854775807
   br i1 %cmp.i, label %do.end, label %if.then
@@ -49,7 +47,7 @@ do.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %do.end
-  %state_ = getelementptr inbounds %"class.grpc_core::Chttp2WriteSizePolicy", ptr %this, i64 0, i32 2
+  %state_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i8, ptr %state_, align 8
   %cmp5 = icmp slt i8 %2, 0
   br i1 %cmp5, label %if.then6, label %return
@@ -84,7 +82,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 ; Function Attrs: uwtable
 define void @_ZN9grpc_core21Chttp2WriteSizePolicy8EndWriteEb(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
 entry:
-  %experiment_start_time_ = getelementptr inbounds %"class.grpc_core::Chttp2WriteSizePolicy", ptr %this, i64 0, i32 1
+  %experiment_start_time_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %experiment_start_time_, align 8
   %cmp.i = icmp eq i64 %0, 9223372036854775807
   br i1 %cmp.i, label %if.end56, label %if.end
@@ -143,7 +141,7 @@ if.end17:                                         ; preds = %_ZN9grpc_coremiENS_
   br i1 %cmp.i2, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %if.end17
-  %state_ = getelementptr inbounds %"class.grpc_core::Chttp2WriteSizePolicy", ptr %this, i64 0, i32 2
+  %state_ = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i8, ptr %state_, align 8
   %dec = add i8 %5, -1
   store i8 %dec, ptr %state_, align 8
@@ -161,7 +159,7 @@ if.then25:                                        ; preds = %if.then23
 
 if.else:                                          ; preds = %if.end17
   %cmp.i4 = icmp ugt i64 %retval.0.i.i, 1000
-  %state_39 = getelementptr inbounds %"class.grpc_core::Chttp2WriteSizePolicy", ptr %this, i64 0, i32 2
+  %state_39 = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp.i4, label %if.then38, label %if.else53
 
 if.then38:                                        ; preds = %if.else

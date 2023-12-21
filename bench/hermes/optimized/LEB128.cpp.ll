@@ -14,8 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::raw_svector_ostream" = type { %"class.llvh::raw_pwrite_stream.base", ptr }
 %"class.llvh::raw_pwrite_stream.base" = type { %"class.llvh::raw_ostream.base" }
 %"class.llvh::raw_ostream.base" = type <{ ptr, ptr, ptr, ptr, i32 }>
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN4llvh13encodeSLEB128ElRNS_11raw_ostreamEj = comdat any
 
@@ -29,16 +27,16 @@ entry:
   %OS = alloca %"class.llvh::raw_svector_ostream", align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %data, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %data, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %data, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %data, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %data, i64 12
   store i32 16, ptr %Capacity2.i.i.i.i.i, align 4
-  %BufferMode.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 4
+  %BufferMode.i.i.i = getelementptr inbounds i8, ptr %OS, i64 32
   store i32 1, ptr %BufferMode.i.i.i, align 8
-  %OutBufStart.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 1
+  %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS, align 8
-  %OS.i = getelementptr inbounds %"class.llvh::raw_svector_ostream", ptr %OS, i64 0, i32 1
+  %OS.i = getelementptr inbounds i8, ptr %OS, i64 40
   store ptr %data, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
   %call = call noundef i32 @_ZN4llvh13encodeSLEB128ElRNS_11raw_ostreamEj(i64 noundef %value, ptr noundef nonnull align 8 dereferenceable(36) %OS, i32 noundef 0)
@@ -47,8 +45,8 @@ entry:
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %vector, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %vector, i64 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %vector, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %vector, i64 16
   %wide.trip.count = zext nneg i32 %0 to i64
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
   br label %for.body
@@ -146,8 +144,8 @@ _ZN4llvh11SmallVectorIcLj16EED2Ev.exit:           ; preds = %for.end, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN4llvh13encodeSLEB128ElRNS_11raw_ostreamEj(i64 noundef %Value, ptr noundef nonnull align 8 dereferenceable(36) %OS, i32 noundef %PadTo) local_unnamed_addr #0 comdat {
 entry:
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufCur.i = getelementptr inbounds i8, ptr %OS, i64 24
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %OS, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %entry

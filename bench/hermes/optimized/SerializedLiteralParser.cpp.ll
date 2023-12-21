@@ -3,14 +3,10 @@ source_filename = "bench/hermes/original/SerializedLiteralParser.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.hermes::hbc::SerializedLiteralParserBase" = type { %"class.llvh::ArrayRef", i32, i8, i32, i32 }
-%"class.llvh::ArrayRef" = type { ptr, i64 }
-%"class.hermes::vm::SerializedLiteralParser" = type { %"class.hermes::hbc::SerializedLiteralParserBase", ptr }
-
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden i64 @_ZN6hermes2vm23SerializedLiteralParser3getERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readnone align 1 %0) local_unnamed_addr #0 align 2 {
 entry:
-  %leftInSeq_ = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %this, i64 0, i32 3
+  %leftInSeq_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %leftInSeq_, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -24,11 +20,11 @@ if.end:                                           ; preds = %if.then, %entry
   %2 = phi i32 [ %.pre, %if.then ], [ %1, %entry ]
   %dec = add nsw i32 %2, -1
   store i32 %dec, ptr %leftInSeq_, align 8
-  %elemsLeft_ = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %this, i64 0, i32 1
+  %elemsLeft_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %elemsLeft_, align 8
   %dec3 = add i32 %3, -1
   store i32 %dec3, ptr %elemsLeft_, align 8
-  %lastTag_ = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %this, i64 0, i32 2
+  %lastTag_ = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i8, ptr %lastTag_, align 4
   %conv = zext i8 %4 to i32
   %5 = tail call i32 @llvm.fshl.i32(i32 %conv, i32 %conv, i32 28)
@@ -45,7 +41,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 sw.bb:                                            ; preds = %if.end
   %6 = load ptr, ptr %this, align 8
-  %currIdx_ = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %this, i64 0, i32 4
+  %currIdx_ = getelementptr inbounds i8, ptr %this, i64 28
   %7 = load i32, ptr %currIdx_, align 4
   %idx.ext = sext i32 %7 to i64
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %idx.ext
@@ -53,7 +49,7 @@ sw.bb:                                            ; preds = %if.end
   %ret.0.copyload.i = load i8, ptr %add.ptr, align 1
   %add = add nsw i32 %7, 1
   store i32 %add, ptr %currIdx_, align 4
-  %runtimeModule_ = getelementptr inbounds %"class.hermes::vm::SerializedLiteralParser", ptr %this, i64 0, i32 1
+  %runtimeModule_ = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %runtimeModule_, align 8
   %cmp6 = icmp eq ptr %8, null
   br i1 %cmp6, label %cond.true, label %cond.false
@@ -72,7 +68,7 @@ cond.false:                                       ; preds = %sw.bb
 
 sw.bb17:                                          ; preds = %if.end
   %10 = load ptr, ptr %this, align 8
-  %currIdx_21 = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %this, i64 0, i32 4
+  %currIdx_21 = getelementptr inbounds i8, ptr %this, i64 28
   %11 = load i32, ptr %currIdx_21, align 4
   %idx.ext22 = sext i32 %11 to i64
   %add.ptr23 = getelementptr inbounds i8, ptr %10, i64 %idx.ext22
@@ -80,7 +76,7 @@ sw.bb17:                                          ; preds = %if.end
   %ret.0.copyload.i6 = load i16, ptr %add.ptr23, align 1
   %add26 = add nsw i32 %11, 2
   store i32 %add26, ptr %currIdx_21, align 4
-  %runtimeModule_27 = getelementptr inbounds %"class.hermes::vm::SerializedLiteralParser", ptr %this, i64 0, i32 1
+  %runtimeModule_27 = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %runtimeModule_27, align 8
   %cmp28 = icmp eq ptr %12, null
   br i1 %cmp28, label %cond.true29, label %cond.false37
@@ -99,7 +95,7 @@ cond.false37:                                     ; preds = %sw.bb17
 
 sw.bb44:                                          ; preds = %if.end
   %14 = load ptr, ptr %this, align 8
-  %currIdx_48 = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %this, i64 0, i32 4
+  %currIdx_48 = getelementptr inbounds i8, ptr %this, i64 28
   %15 = load i32, ptr %currIdx_48, align 4
   %idx.ext49 = sext i32 %15 to i64
   %add.ptr50 = getelementptr inbounds i8, ptr %14, i64 %idx.ext49
@@ -107,7 +103,7 @@ sw.bb44:                                          ; preds = %if.end
   %ret.0.copyload.i10 = load i32, ptr %add.ptr50, align 1
   %add53 = add nsw i32 %15, 4
   store i32 %add53, ptr %currIdx_48, align 4
-  %runtimeModule_54 = getelementptr inbounds %"class.hermes::vm::SerializedLiteralParser", ptr %this, i64 0, i32 1
+  %runtimeModule_54 = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load ptr, ptr %runtimeModule_54, align 8
   %cmp55 = icmp eq ptr %16, null
   br i1 %cmp55, label %cond.true56, label %cond.false63
@@ -125,7 +121,7 @@ cond.false63:                                     ; preds = %sw.bb44
 
 sw.bb69:                                          ; preds = %if.end
   %18 = load ptr, ptr %this, align 8
-  %currIdx_73 = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %this, i64 0, i32 4
+  %currIdx_73 = getelementptr inbounds i8, ptr %this, i64 28
   %19 = load i32, ptr %currIdx_73, align 4
   %idx.ext74 = sext i32 %19 to i64
   %add.ptr75 = getelementptr inbounds i8, ptr %18, i64 %idx.ext74
@@ -140,7 +136,7 @@ sw.bb69:                                          ; preds = %if.end
 
 sw.bb81:                                          ; preds = %if.end
   %22 = load ptr, ptr %this, align 8
-  %currIdx_85 = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %this, i64 0, i32 4
+  %currIdx_85 = getelementptr inbounds i8, ptr %this, i64 28
   %23 = load i32, ptr %currIdx_85, align 4
   %idx.ext86 = sext i32 %23 to i64
   %add.ptr87 = getelementptr inbounds i8, ptr %22, i64 %idx.ext86

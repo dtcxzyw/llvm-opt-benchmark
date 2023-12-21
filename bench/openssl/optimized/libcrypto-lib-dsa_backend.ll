@@ -3,12 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-dsa_backend.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dsa_st = type { i32, i32, %struct.ffc_params_st, ptr, ptr, i32, ptr, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i64 }
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [5 x i8] c"priv\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"pub\00", align 1
 @.str.2 = private unnamed_addr constant [36 x i8] c"../openssl/crypto/dsa/dsa_backend.c\00", align 1
@@ -93,7 +87,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_dsa_is_foreign(ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
-  %engine = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 10
+  %engine = getelementptr inbounds i8, ptr %dsa, i64 168
   %0 = load ptr, ptr %engine, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %lor.lhs.false, label %return
@@ -117,7 +111,7 @@ declare ptr @DSA_OpenSSL() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_dsa_dup(ptr noundef %dsa, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
-  %engine.i = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 10
+  %engine.i = getelementptr inbounds i8, ptr %dsa, i64 168
   %0 = load ptr, ptr %engine.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %ossl_dsa_is_foreign.exit, label %return
@@ -129,7 +123,7 @@ ossl_dsa_is_foreign.exit:                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %ossl_dsa_is_foreign.exit
-  %libctx = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 12
+  %libctx = getelementptr inbounds i8, ptr %dsa, i64 184
   %1 = load ptr, ptr %libctx, align 8
   %call1 = tail call ptr @ossl_dsa_new(ptr noundef %1) #2
   %cmp = icmp eq ptr %call1, null
@@ -141,38 +135,38 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
-  %params = getelementptr inbounds %struct.dsa_st, ptr %call1, i64 0, i32 2
-  %params5 = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %call1, i64 8
+  %params5 = getelementptr inbounds i8, ptr %dsa, i64 8
   %call6 = tail call i32 @ossl_ffc_params_copy(ptr noundef nonnull %params, ptr noundef nonnull %params5) #2
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %err, label %if.end9.thread
 
 if.end9:                                          ; preds = %if.end3
-  %flags = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %dsa, i64 120
   %2 = load i32, ptr %flags, align 8
-  %flags10 = getelementptr inbounds %struct.dsa_st, ptr %call1, i64 0, i32 5
+  %flags10 = getelementptr inbounds i8, ptr %call1, i64 120
   store i32 %2, ptr %flags10, align 8
   %3 = and i32 %selection, 3
   %or.cond = icmp eq i32 %3, 0
   br i1 %or.cond, label %if.end31, label %err
 
 if.end9.thread:                                   ; preds = %land.lhs.true
-  %flags29 = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 5
+  %flags29 = getelementptr inbounds i8, ptr %dsa, i64 120
   %4 = load i32, ptr %flags29, align 8
-  %flags1030 = getelementptr inbounds %struct.dsa_st, ptr %call1, i64 0, i32 5
+  %flags1030 = getelementptr inbounds i8, ptr %call1, i64 120
   store i32 %4, ptr %flags1030, align 8
   %and1131 = and i32 %selection, 2
   %cmp12.not32 = icmp eq i32 %and1131, 0
   br i1 %cmp12.not32, label %if.end20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end9.thread
-  %pub_key16 = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 3
+  %pub_key16 = getelementptr inbounds i8, ptr %dsa, i64 104
   %5 = load ptr, ptr %pub_key16, align 8
   %cmp.not.i17 = icmp eq ptr %5, null
   br i1 %cmp.not.i17, label %if.end20, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false
-  %pub_key = getelementptr inbounds %struct.dsa_st, ptr %call1, i64 0, i32 3
+  %pub_key = getelementptr inbounds i8, ptr %call1, i64 104
   %call.i18 = tail call ptr @BN_dup(ptr noundef nonnull %5) #2
   store ptr %call.i18, ptr %pub_key, align 8
   %cmp1.i = icmp eq ptr %call.i18, null
@@ -187,21 +181,21 @@ land.lhs.true23:                                  ; preds = %if.end20
   br i1 %cmp4.not, label %err, label %lor.lhs.false26
 
 lor.lhs.false26:                                  ; preds = %land.lhs.true23
-  %priv_key27 = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 4
+  %priv_key27 = getelementptr inbounds i8, ptr %dsa, i64 112
   %6 = load ptr, ptr %priv_key27, align 8
   %cmp.not.i20 = icmp eq ptr %6, null
   br i1 %cmp.not.i20, label %if.end31, label %land.lhs.true.i21
 
 land.lhs.true.i21:                                ; preds = %lor.lhs.false26
-  %priv_key = getelementptr inbounds %struct.dsa_st, ptr %call1, i64 0, i32 4
+  %priv_key = getelementptr inbounds i8, ptr %call1, i64 112
   %call.i22 = tail call ptr @BN_dup(ptr noundef nonnull %6) #2
   store ptr %call.i22, ptr %priv_key, align 8
   %cmp1.i23 = icmp eq ptr %call.i22, null
   br i1 %cmp1.i23, label %err, label %if.end31
 
 if.end31:                                         ; preds = %if.end9, %land.lhs.true.i21, %lor.lhs.false26, %if.end20
-  %ex_data = getelementptr inbounds %struct.dsa_st, ptr %call1, i64 0, i32 8
-  %ex_data32 = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 8
+  %ex_data = getelementptr inbounds i8, ptr %call1, i64 144
+  %ex_data32 = getelementptr inbounds i8, ptr %dsa, i64 144
   %call33 = tail call i32 @CRYPTO_dup_ex_data(i32 noundef 7, ptr noundef nonnull %ex_data, ptr noundef nonnull %ex_data32) #2
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %err, label %return
@@ -246,7 +240,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %dsaerr, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call1, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call1, i64 4
   %2 = load i32, ptr %type, align 4
   %cmp5 = icmp eq i32 %2, 258
   %3 = load i32, ptr %ptype, align 4
@@ -256,7 +250,7 @@ if.end4:                                          ; preds = %if.end
 
 if.end10:                                         ; preds = %if.end4
   %4 = load ptr, ptr %pval, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %data, align 8
   store ptr %5, ptr %pm, align 8
   %6 = load i32, ptr %4, align 8

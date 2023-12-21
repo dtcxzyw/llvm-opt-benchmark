@@ -3,11 +3,7 @@ source_filename = "bench/icu/original/ustdio.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UFILETranslitBuffer = type { ptr, i32, i32, i32, ptr }
 %struct.UTransPosition = type { i32, i32, i32, i32 }
-%struct.UFILE = type { ptr, ptr, ptr, %struct.u_localized_string, [1024 x i16], i8, i32 }
-%struct.u_localized_string = type { ptr, ptr, ptr, %struct.ULocaleBundle }
-%struct.ULocaleBundle = type { ptr, [5 x ptr], i8 }
 
 @_ZL10DELIMITERS = internal constant [2 x i16] [i16 10, i16 0], align 2
 
@@ -45,7 +41,7 @@ if.then7:                                         ; preds = %if.end6
   br i1 %cmp8.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %translit = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %1, i64 0, i32 4
+  %translit = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %translit, align 8
   %3 = load ptr, ptr %1, align 8
   tail call void @uprv_free_75(ptr noundef %3)
@@ -74,7 +70,7 @@ if.end25:                                         ; preds = %if.then19
   br label %if.end34
 
 _Z23ufile_flush_translit_75P5UFILE.exit:          ; preds = %if.else
-  %translit33 = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %1, i64 0, i32 4
+  %translit33 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %translit33, align 8
   %call.i = tail call i32 @u_file_write_flush_75(ptr noundef null, i32 noundef 0, ptr noundef nonnull %file, i8 noundef signext 0, i8 noundef signext 1)
   %.pre = load ptr, ptr %file, align 8
@@ -83,7 +79,7 @@ _Z23ufile_flush_translit_75P5UFILE.exit:          ; preds = %if.else
 if.end34:                                         ; preds = %_Z23ufile_flush_translit_75P5UFILE.exit, %if.end25
   %7 = phi ptr [ %call20, %if.end25 ], [ %.pre, %_Z23ufile_flush_translit_75P5UFILE.exit ]
   %old.0 = phi ptr [ null, %if.end25 ], [ %6, %_Z23ufile_flush_translit_75P5UFILE.exit ]
-  %translit36 = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %7, i64 0, i32 4
+  %translit36 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %adopt, ptr %translit36, align 8
   br label %return
 
@@ -144,7 +140,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not, label %if.end5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %translit = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %0, i64 0, i32 4
+  %translit = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %translit, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end5, label %if.end6.i
@@ -155,9 +151,9 @@ if.end6.i:                                        ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pos.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store i32 0, ptr %status.i, align 4
-  %length.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %0, i64 0, i32 3
+  %length.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i32, ptr %length.i, align 8
-  %pos9.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %0, i64 0, i32 2
+  %pos9.i = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %pos9.i, align 4
   %cmp10.i = icmp sgt i32 %2, %3
   br i1 %cmp10.i, label %if.then11.i, label %if.end21.i
@@ -171,9 +167,9 @@ if.then11.i:                                      ; preds = %if.end6.i
   %mul.i = shl nsw i64 %conv.i, 1
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %4, ptr align 2 %add.ptr.i, i64 %mul.i, i1 false)
   %.pre.i = load ptr, ptr %f, align 8
-  %pos23.phi.trans.insert.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %.pre.i, i64 0, i32 2
+  %pos23.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 12
   %.pre60.i = load i32, ptr %pos23.phi.trans.insert.i, align 4
-  %length25.phi.trans.insert.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %.pre.i, i64 0, i32 3
+  %length25.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %.pre61.i = load i32, ptr %length25.phi.trans.insert.i, align 8
   br label %if.end21.i
 
@@ -181,18 +177,18 @@ if.end21.i:                                       ; preds = %if.then11.i, %if.en
   %5 = phi i32 [ %.pre61.i, %if.then11.i ], [ %2, %if.end6.i ]
   %6 = phi i32 [ %.pre60.i, %if.then11.i ], [ %3, %if.end6.i ]
   %7 = phi ptr [ %.pre.i, %if.then11.i ], [ %0, %if.end6.i ]
-  %length25.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %7, i64 0, i32 3
+  %length25.i = getelementptr inbounds i8, ptr %7, i64 16
   %sub26.i = sub nsw i32 %5, %6
   store i32 %sub26.i, ptr %length25.i, align 8
   %8 = load ptr, ptr %f, align 8
-  %pos28.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %8, i64 0, i32 2
+  %pos28.i = getelementptr inbounds i8, ptr %8, i64 12
   store i32 0, ptr %pos28.i, align 4
   %9 = load ptr, ptr %f, align 8
-  %length30.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %9, i64 0, i32 3
+  %length30.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load i32, ptr %length30.i, align 8
   %add.i = add nsw i32 %10, %count.addr.0
   %mul31.i = shl nsw i32 %add.i, 2
-  %capacity.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %9, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %capacity.i, align 8
   %cmp33.i = icmp sgt i32 %mul31.i, %11
   br i1 %cmp33.i, label %if.then34.i, label %if.end58.i
@@ -222,10 +218,10 @@ if.end50.i:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp53.i, label %_ZL15u_file_translitP5UFILEPKDsPia.exit, label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.end50.i
-  %capacity57.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %14, i64 0, i32 1
+  %capacity57.i = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %mul31.i, ptr %capacity57.i, align 8
   %.pre62.i = load ptr, ptr %f, align 8
-  %length62.phi.trans.insert.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %.pre62.i, i64 0, i32 3
+  %length62.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre62.i, i64 16
   %.pre63.i = load i32, ptr %length62.phi.trans.insert.i, align 8
   br label %if.end58.i
 
@@ -237,49 +233,49 @@ if.end58.i:                                       ; preds = %if.end55.i, %if.end
   %add.ptr64.i = getelementptr inbounds i16, ptr %18, i64 %idx.ext63.i
   %call65.i = call ptr @u_strncpy_75(ptr noundef %add.ptr64.i, ptr noundef %chars, i32 noundef %count.addr.0)
   %19 = load ptr, ptr %f, align 8
-  %length67.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %19, i64 0, i32 3
+  %length67.i = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load i32, ptr %length67.i, align 8
   %add68.i = add nsw i32 %20, %count.addr.0
   store i32 %add68.i, ptr %length67.i, align 8
   %cmp70.i = icmp eq i8 %flushTranslit, 0
   %21 = load ptr, ptr %f, align 8
-  %length73.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %21, i64 0, i32 3
+  %length73.i = getelementptr inbounds i8, ptr %21, i64 16
   %22 = load i32, ptr %length73.i, align 8
   store i32 %22, ptr %textLength.i, align 4
   br i1 %cmp70.i, label %if.then71.i, label %if.else89.i
 
 if.then71.i:                                      ; preds = %if.end58.i
   store i32 0, ptr %pos.i, align 4
-  %contextLimit.i = getelementptr inbounds %struct.UTransPosition, ptr %pos.i, i64 0, i32 1
+  %contextLimit.i = getelementptr inbounds i8, ptr %pos.i, i64 4
   store i32 %22, ptr %contextLimit.i, align 4
-  %start.i = getelementptr inbounds %struct.UTransPosition, ptr %pos.i, i64 0, i32 2
+  %start.i = getelementptr inbounds i8, ptr %pos.i, i64 8
   store i32 0, ptr %start.i, align 4
-  %limit.i = getelementptr inbounds %struct.UTransPosition, ptr %pos.i, i64 0, i32 3
+  %limit.i = getelementptr inbounds i8, ptr %pos.i, i64 12
   store i32 %22, ptr %limit.i, align 4
-  %translit75.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %21, i64 0, i32 4
+  %translit75.i = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %translit75.i, align 8
   %24 = load ptr, ptr %21, align 8
-  %capacity79.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %21, i64 0, i32 1
+  %capacity79.i = getelementptr inbounds i8, ptr %21, i64 8
   %25 = load i32, ptr %capacity79.i, align 8
   call void @utrans_transIncrementalUChars_75(ptr noundef %23, ptr noundef %24, ptr noundef nonnull %textLength.i, i32 noundef %25, ptr noundef nonnull %pos.i, ptr noundef nonnull %status.i)
   %26 = load i32, ptr %start.i, align 4
   %27 = load ptr, ptr %f, align 8
-  %pos83.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %27, i64 0, i32 2
+  %pos83.i = getelementptr inbounds i8, ptr %27, i64 12
   store i32 %26, ptr %pos83.i, align 4
   %28 = load i32, ptr %limit.i, align 4
   br label %return.sink.split.i
 
 if.else89.i:                                      ; preds = %if.end58.i
   store i32 %22, ptr %textLimit.i, align 4
-  %translit95.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %21, i64 0, i32 4
+  %translit95.i = getelementptr inbounds i8, ptr %21, i64 24
   %29 = load ptr, ptr %translit95.i, align 8
   %30 = load ptr, ptr %21, align 8
-  %capacity99.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %21, i64 0, i32 1
+  %capacity99.i = getelementptr inbounds i8, ptr %21, i64 8
   %31 = load i32, ptr %capacity99.i, align 8
   call void @utrans_transUChars_75(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %textLength.i, i32 noundef %31, i32 noundef 0, ptr noundef nonnull %textLimit.i, ptr noundef nonnull %status.i)
   %32 = load i32, ptr %textLimit.i, align 4
   %33 = load ptr, ptr %f, align 8
-  %pos101.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %33, i64 0, i32 2
+  %pos101.i = getelementptr inbounds i8, ptr %33, i64 12
   store i32 0, ptr %pos101.i, align 4
   br label %return.sink.split.i
 
@@ -287,7 +283,7 @@ return.sink.split.i:                              ; preds = %if.else89.i, %if.th
   %count.addr.1 = phi i32 [ %26, %if.then71.i ], [ %32, %if.else89.i ]
   %.sink.i = phi i32 [ %28, %if.then71.i ], [ 0, %if.else89.i ]
   %34 = load ptr, ptr %f, align 8
-  %length103.i = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %34, i64 0, i32 3
+  %length103.i = getelementptr inbounds i8, ptr %34, i64 16
   store i32 %.sink.i, ptr %length103.i, align 8
   %35 = load ptr, ptr %f, align 8
   %36 = load ptr, ptr %35, align 8
@@ -306,14 +302,14 @@ _ZL15u_file_translitP5UFILEPKDsPia.exit:          ; preds = %if.end50.i, %return
 if.end5:                                          ; preds = %_ZL15u_file_translitP5UFILEPKDsPia.exit, %land.lhs.true, %if.end
   %37 = phi ptr [ %chars, %if.end ], [ %chars, %land.lhs.true ], [ %retval.0.i, %_ZL15u_file_translitP5UFILEPKDsPia.exit ]
   %count.addr.3 = phi i32 [ %count.addr.0, %if.end ], [ %count.addr.0, %land.lhs.true ], [ %count.addr.2, %_ZL15u_file_translitP5UFILEPKDsPia.exit ]
-  %fFile = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 1
+  %fFile = getelementptr inbounds i8, ptr %f, i64 8
   %38 = load ptr, ptr %fFile, align 8
   %tobool6.not = icmp eq ptr %38, null
   br i1 %tobool6.not, label %if.then7, label %if.end20
 
 if.then7:                                         ; preds = %if.end5
-  %str = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 1
+  %str = getelementptr inbounds i8, ptr %f, i64 24
+  %fLimit = getelementptr inbounds i8, ptr %f, i64 32
   %39 = load ptr, ptr %fLimit, align 8
   %40 = load ptr, ptr %str, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %39 to i64
@@ -337,7 +333,7 @@ if.then7:                                         ; preds = %if.end5
 if.end20:                                         ; preds = %if.end5
   %idx.ext21 = sext i32 %count.addr.3 to i64
   %add.ptr22 = getelementptr inbounds i16, ptr %37, i64 %idx.ext21
-  %fConverter = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 2
+  %fConverter = getelementptr inbounds i8, ptr %f, i64 16
   %add.ptr27 = getelementptr inbounds i8, ptr %charBuffer, i64 1024
   %sub.ptr.lhs.cast28 = ptrtoint ptr %add.ptr22 to i64
   %sub.ptr.rhs.cast43 = ptrtoint ptr %charBuffer to i64
@@ -420,7 +416,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %fFile = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 1
+  %fFile = getelementptr inbounds i8, ptr %f, i64 8
   %0 = load ptr, ptr %fFile, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -447,7 +443,7 @@ lor.lhs.false:                                    ; preds = %entry
 _Z23ufile_flush_translit_75P5UFILE.exit:          ; preds = %lor.lhs.false
   %call.i = tail call i32 @u_file_write_flush_75(ptr noundef null, i32 noundef 0, ptr noundef nonnull %f, i8 noundef signext 0, i8 noundef signext 1)
   %1 = load ptr, ptr %f, align 8
-  %translit = getelementptr inbounds %struct.UFILETranslitBuffer, ptr %1, i64 0, i32 4
+  %translit = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %translit, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end7, label %if.then4
@@ -523,7 +519,7 @@ if.then3:                                         ; preds = %if.else
   %1 = trunc i32 %uc to i16
   %2 = and i16 %1, 1023
   %conv9 = or disjoint i16 %2, -9216
-  %arrayidx12 = getelementptr inbounds [2 x i16], ptr %buf, i64 0, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %buf, i64 2
   store i16 %conv9, ptr %arrayidx12, align 2
   br label %if.end16
 
@@ -555,14 +551,14 @@ entry:
   %mySource = alloca ptr, align 8
   %myTarget = alloca ptr, align 8
   %charBuffer = alloca [1024 x i8], align 16
-  %fFile = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 1
+  %fFile = getelementptr inbounds i8, ptr %f, i64 8
   %0 = load ptr, ptr %fFile, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %str1 = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 1
+  %str1 = getelementptr inbounds i8, ptr %f, i64 24
+  %fLimit = getelementptr inbounds i8, ptr %f, i64 32
   %1 = load ptr, ptr %fLimit, align 8
   %2 = load ptr, ptr %str1, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
@@ -570,7 +566,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 1
   %conv = trunc i64 %sub.ptr.div to i32
-  %fFileno = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 6
+  %fFileno = getelementptr inbounds i8, ptr %f, i64 2156
   %3 = load i32, ptr %fFileno, align 4
   %cmp2 = icmp eq i32 %3, 0
   %cmp3 = icmp sgt i32 %conv, 0
@@ -582,13 +578,13 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %fUCBuffer = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 4
+  %fUCBuffer = getelementptr inbounds i8, ptr %f, i64 104
   %call = tail call ptr @u_memmove_75(ptr noundef nonnull %fUCBuffer, ptr noundef %2, i32 noundef %conv)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end5
   %sub = sub nsw i32 1024, %conv
-  %fConverter = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 2
+  %fConverter = getelementptr inbounds i8, ptr %f, i64 16
   %4 = load ptr, ptr %fConverter, align 8
   %cmp10.not = icmp eq ptr %4, null
   br i1 %cmp10.not, label %cond.end, label %cond.true
@@ -630,7 +626,7 @@ if.end42:                                         ; preds = %cond.true25, %if.th
   store i32 0, ptr %status, align 4
   store ptr %charBuffer, ptr %mySource, align 8
   %idx.ext = sext i32 %bytesRead.0 to i64
-  %fUCBuffer45 = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 4
+  %fUCBuffer45 = getelementptr inbounds i8, ptr %f, i64 104
   %sext = shl i64 %sub.ptr.sub, 31
   %idx.ext47 = ashr i64 %sext, 32
   %add.ptr48 = getelementptr inbounds i16, ptr %fUCBuffer45, i64 %idx.ext47
@@ -641,7 +637,7 @@ if.end42:                                         ; preds = %cond.true25, %if.th
 
 if.then51:                                        ; preds = %if.end42
   %add.ptr = getelementptr inbounds i8, ptr %charBuffer, i64 %idx.ext
-  %add.ptr56 = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 5
+  %add.ptr56 = getelementptr inbounds i8, ptr %f, i64 2152
   %10 = load ptr, ptr %fFile, align 8
   %call58 = call i32 @feof(ptr noundef %10) #14
   %cmp59 = icmp ne i32 %call58, 0
@@ -657,7 +653,7 @@ if.else61:                                        ; preds = %if.end42
 
 if.end64:                                         ; preds = %if.else61, %if.then51
   %11 = phi ptr [ %add.ptr63, %if.else61 ], [ %.pre, %if.then51 ]
-  %fBuffer = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 2
+  %fBuffer = getelementptr inbounds i8, ptr %f, i64 40
   %12 = load ptr, ptr %fBuffer, align 8
   store ptr %12, ptr %str1, align 8
   store ptr %11, ptr %fLimit, align 8
@@ -694,9 +690,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %str1 = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3
+  %str1 = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %str1, align 8
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 1
+  %fLimit = getelementptr inbounds i8, ptr %f, i64 32
   %1 = load ptr, ptr %fLimit, align 8
   %cmp2.not = icmp ult ptr %0, %1
   br i1 %cmp2.not, label %if.end4, label %if.then3
@@ -760,8 +756,8 @@ lor.lhs.false:                                    ; preds = %land.rhs21
 
 lor.rhs:                                          ; preds = %lor.lhs.false
   %inc = add nsw i32 %count.162, 1
-  %incdec.ptr = getelementptr inbounds i16, ptr %alias.063, i64 1
-  %incdec.ptr36 = getelementptr inbounds i16, ptr %sItr.164, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %alias.063, i64 2
+  %incdec.ptr36 = getelementptr inbounds i8, ptr %sItr.164, i64 2
   store i16 %7, ptr %sItr.164, align 2
   %cmp20 = icmp ult ptr %incdec.ptr, %limit.0
   br i1 %cmp20, label %land.rhs21, label %if.end83.thread100, !llvm.loop !6
@@ -770,8 +766,8 @@ if.then55:                                        ; preds = %lor.lhs.false, %lor
   %cmp57 = icmp eq i16 %7, 13
   %. = select i1 %cmp57, i16 13, i16 1
   %inc62 = add nsw i32 %count.162, 1
-  %incdec.ptr63 = getelementptr inbounds i16, ptr %alias.063, i64 1
-  %incdec.ptr64 = getelementptr inbounds i16, ptr %sItr.164, i64 1
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %alias.063, i64 2
+  %incdec.ptr64 = getelementptr inbounds i8, ptr %sItr.164, i64 2
   store i16 %7, ptr %sItr.164, align 2
   br label %if.end66
 
@@ -797,8 +793,8 @@ land.rhs73:                                       ; preds = %if.then68
   br i1 %cmp75, label %if.then78, label %if.end83.thread
 
 if.then78:                                        ; preds = %land.rhs73
-  %incdec.ptr80 = getelementptr inbounds i16, ptr %alias.1, i64 1
-  %incdec.ptr81 = getelementptr inbounds i16, ptr %sItr.2, i64 1
+  %incdec.ptr80 = getelementptr inbounds i8, ptr %alias.1, i64 2
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %sItr.2, i64 2
   store i16 10, ptr %sItr.2, align 2
   br label %if.end83.thread
 
@@ -844,9 +840,9 @@ return:                                           ; preds = %if.end4, %entry, %w
 define signext i8 @ufile_getch_75(ptr noundef %f, ptr nocapture noundef writeonly %ch) local_unnamed_addr #0 {
 entry:
   store i16 -1, ptr %ch, align 2
-  %str = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3
+  %str = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %str, align 8
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 1
+  %fLimit = getelementptr inbounds i8, ptr %f, i64 32
   %1 = load ptr, ptr %fLimit, align 8
   %cmp = icmp ult ptr %0, %1
   br i1 %cmp, label %if.end20.sink.split, label %if.then9
@@ -860,7 +856,7 @@ if.then9:                                         ; preds = %entry
 
 if.end20.sink.split:                              ; preds = %if.then9, %entry
   %.sink = phi ptr [ %0, %entry ], [ %2, %if.then9 ]
-  %incdec.ptr18 = getelementptr inbounds i16, ptr %.sink, i64 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %.sink, i64 2
   store ptr %incdec.ptr18, ptr %str, align 8
   %4 = load i16, ptr %.sink, align 2
   store i16 %4, ptr %ch, align 2
@@ -874,9 +870,9 @@ if.end20:                                         ; preds = %if.end20.sink.split
 ; Function Attrs: mustprogress uwtable
 define zeroext i16 @u_fgetc_75(ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %str.i = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3
+  %str.i = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %str.i, align 8
-  %fLimit.i = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 1
+  %fLimit.i = getelementptr inbounds i8, ptr %f, i64 32
   %1 = load ptr, ptr %fLimit.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %if.end20.sink.split.i, label %if.then9.i
@@ -890,7 +886,7 @@ if.then9.i:                                       ; preds = %entry
 
 if.end20.sink.split.i:                            ; preds = %if.then9.i, %entry
   %.sink.i = phi ptr [ %0, %entry ], [ %2, %if.then9.i ]
-  %incdec.ptr18.i = getelementptr inbounds i16, ptr %.sink.i, i64 1
+  %incdec.ptr18.i = getelementptr inbounds i8, ptr %.sink.i, i64 2
   store ptr %incdec.ptr18.i, ptr %str.i, align 8
   %4 = load i16, ptr %.sink.i, align 2
   br label %ufile_getch_75.exit
@@ -904,10 +900,10 @@ ufile_getch_75.exit:                              ; preds = %if.then9.i, %if.end
 define signext i8 @ufile_getch32_75(ptr noundef %f, ptr nocapture noundef %c32) local_unnamed_addr #0 {
 entry:
   store i32 65535, ptr %c32, align 4
-  %str1 = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3
+  %str1 = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %str1, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %0, i64 1
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 1
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 2
+  %fLimit = getelementptr inbounds i8, ptr %f, i64 32
   %1 = load ptr, ptr %fLimit, align 8
   %cmp.not = icmp ult ptr %add.ptr, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -925,7 +921,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp4, label %if.then5, label %if.end19
 
 if.then5:                                         ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds i16, ptr %3, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %3, i64 2
   store ptr %incdec.ptr, ptr %str1, align 8
   %4 = load i16, ptr %3, align 2
   %conv = zext i16 %4 to i32
@@ -941,7 +937,7 @@ if.then8:                                         ; preds = %if.then5
   br i1 %cmp11, label %if.then12, label %if.end19.sink.split
 
 if.then12:                                        ; preds = %if.then8
-  %incdec.ptr14 = getelementptr inbounds i16, ptr %5, i64 1
+  %incdec.ptr14 = getelementptr inbounds i8, ptr %5, i64 2
   store ptr %incdec.ptr14, ptr %str1, align 8
   %7 = load i16, ptr %5, align 2
   %8 = load i32, ptr %c32, align 4
@@ -965,10 +961,10 @@ if.end19:                                         ; preds = %if.end19.sink.split
 ; Function Attrs: mustprogress uwtable
 define i32 @u_fgetcx_75(ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %str1.i = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3
+  %str1.i = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %str1.i, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %0, i64 1
-  %fLimit.i = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 2
+  %fLimit.i = getelementptr inbounds i8, ptr %f, i64 32
   %1 = load ptr, ptr %fLimit.i, align 8
   %cmp.not.i = icmp ult ptr %add.ptr.i, %1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -986,7 +982,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   br i1 %cmp4.i, label %if.then5.i, label %ufile_getch32_75.exit
 
 if.then5.i:                                       ; preds = %if.end.i
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 2
   store ptr %incdec.ptr.i, ptr %str1.i, align 8
   %4 = load i16, ptr %3, align 2
   %conv.i = zext i16 %4 to i32
@@ -999,7 +995,7 @@ if.then8.i:                                       ; preds = %if.then5.i
   br i1 %cmp11.i, label %if.then12.i, label %ufile_getch32_75.exit
 
 if.then12.i:                                      ; preds = %if.then8.i
-  %incdec.ptr14.i = getelementptr inbounds i16, ptr %3, i64 2
+  %incdec.ptr14.i = getelementptr inbounds i8, ptr %3, i64 4
   store ptr %incdec.ptr14.i, ptr %str1.i, align 8
   %5 = load i16, ptr %incdec.ptr.i, align 2
   %shl.i = shl nuw nsw i32 %conv.i, 10
@@ -1016,9 +1012,9 @@ ufile_getch32_75.exit:                            ; preds = %if.then8.i, %if.the
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @u_fungetc_75(i32 noundef %ch, ptr nocapture noundef %f) local_unnamed_addr #5 {
 entry:
-  %str1 = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3
+  %str1 = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %str1, align 8
-  %fBuffer = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 2
+  %fBuffer = getelementptr inbounds i8, ptr %f, i64 40
   %1 = load ptr, ptr %fBuffer, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %if.end30, label %lor.lhs.false
@@ -1026,7 +1022,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %and = and i32 %ch, -1024
   %cmp2 = icmp eq i32 %and, 55296
-  %add.ptr = getelementptr inbounds i16, ptr %0, i64 -1
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 -2
   %cmp5 = icmp eq ptr %add.ptr, %1
   %or.cond = select i1 %cmp2, i1 %cmp5, i1 false
   br i1 %or.cond, label %if.end30, label %if.else
@@ -1043,7 +1039,7 @@ if.then8:                                         ; preds = %if.else
   br i1 %cmp13.not, label %lor.lhs.false14, label %if.then21
 
 lor.lhs.false14:                                  ; preds = %if.then8
-  %incdec.ptr16 = getelementptr inbounds i16, ptr %0, i64 -2
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %0, i64 -4
   store ptr %incdec.ptr16, ptr %str1, align 8
   %3 = load i16, ptr %incdec.ptr16, align 2
   %cmp20.not = icmp eq i16 %3, -10250
@@ -1065,8 +1061,8 @@ if.end30:                                         ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress uwtable
 define i32 @u_file_read_75(ptr nocapture noundef writeonly %chars, i32 noundef %count, ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %str1 = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 1
+  %str1 = getelementptr inbounds i8, ptr %f, i64 24
+  %fLimit = getelementptr inbounds i8, ptr %f, i64 32
   %.pre = load ptr, ptr %str1, align 8
   br label %do.body
 

@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-a_int.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/asn1/a_int.c\00", align 1
 @__func__.ossl_c2i_ASN1_INTEGER = private unnamed_addr constant [22 x i8] c"ossl_c2i_ASN1_INTEGER\00", align 1
 @__func__.d2i_ASN1_UINTEGER = private unnamed_addr constant [18 x i8] c"d2i_ASN1_UINTEGER\00", align 1
@@ -29,10 +27,10 @@ declare ptr @ASN1_STRING_dup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ASN1_INTEGER_cmp(ptr noundef %x, ptr noundef %y) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %x, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %x, i64 4
   %0 = load i32, ptr %type, align 4
   %and = and i32 %0, 256
-  %type1 = getelementptr inbounds %struct.asn1_string_st, ptr %y, i64 0, i32 1
+  %type1 = getelementptr inbounds i8, ptr %y, i64 4
   %1 = load i32, ptr %type1, align 4
   %and2 = and i32 %1, 256
   %cmp.not = icmp eq i32 %and, %and2
@@ -60,7 +58,7 @@ declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @ossl_i2c_ASN1_INTEGER(ptr nocapture noundef readonly %a, ptr noundef %pp) local_unnamed_addr #2 {
 entry:
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %data, align 8
   %1 = load i32, ptr %a, align 8
   %conv = sext i32 %1 to i64
@@ -70,7 +68,7 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %if.end28.i
 
 if.then.i:                                        ; preds = %entry
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %a, i64 4
   %2 = load i32, ptr %type, align 4
   %and = and i32 %2, 256
   %3 = load i8, ptr %0, align 1
@@ -196,7 +194,7 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.then3
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call4, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call4, i64 4
   store i32 2, ptr %type, align 4
   br label %if.end8
 
@@ -214,13 +212,13 @@ if.then12:                                        ; preds = %if.end8
   br i1 %cmp1, label %if.then31, label %lor.lhs.false28
 
 if.end13:                                         ; preds = %if.end8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %ret.0, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load ptr, ptr %pp, align 8
   %call14 = call fastcc i64 @c2i_ibuf(ptr noundef %2, ptr noundef nonnull %neg, ptr noundef %3, i64 noundef %len)
   %4 = load i32, ptr %neg, align 4
   %cmp15.not = icmp eq i32 %4, 0
-  %type20 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 1
+  %type20 = getelementptr inbounds i8, ptr %ret.0, i64 4
   %5 = load i32, ptr %type20, align 4
   %and = and i32 %5, -257
   %masksel = select i1 %cmp15.not, i32 0, i32 256
@@ -404,7 +402,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call, i64 4
   store i32 2, ptr %type, align 4
   br label %if.end4
 
@@ -436,7 +434,7 @@ if.end13:                                         ; preds = %if.end10
   br i1 %cmp16, label %if.end41, label %if.end19
 
 if.end19:                                         ; preds = %if.end13
-  %type20 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 1
+  %type20 = getelementptr inbounds i8, ptr %ret.0, i64 4
   store i32 2, ptr %type20, align 4
   %4 = load i64, ptr %len, align 8
   %tobool21.not = icmp eq i64 %4, 0
@@ -535,7 +533,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %type, align 4
   %and = and i32 %0, -257
   %cmp1.not = icmp eq i32 %and, %itype
@@ -548,7 +546,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %a, align 8
   %conv = sext i32 %2 to i64
@@ -670,7 +668,7 @@ do.body.i7.i:                                     ; preds = %entry, %do.body.i7.
 asn1_string_set_int64.exit:                       ; preds = %do.body.i7.i, %do.body.i.i
   %storemerge.i = phi i32 [ 258, %do.body.i.i ], [ 2, %do.body.i7.i ]
   %off.0.i = phi i64 [ %dec.i.i, %do.body.i.i ], [ %dec.i11.i, %do.body.i7.i ]
-  %type.i = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %a, i64 4
   store i32 %storemerge.i, ptr %type.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %tbuf.i, i64 %off.0.i
   %0 = trunc i64 %off.0.i to i32
@@ -693,7 +691,7 @@ if.then.i:                                        ; preds = %entry
   br label %asn1_string_get_uint64.exit
 
 if.end.i:                                         ; preds = %entry
-  %type.i = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %type.i, align 4
   %and.i = and i32 %0, -257
   %cmp1.not.i = icmp eq i32 %and.i, 2
@@ -716,7 +714,7 @@ if.then6.i:                                       ; preds = %if.end3.i
   br label %asn1_string_get_uint64.exit
 
 if.end7.i:                                        ; preds = %if.end3.i
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data.i, align 8
   %2 = load i32, ptr %a, align 8
   %conv.i = sext i32 %2 to i64
@@ -764,7 +762,7 @@ define i32 @ASN1_INTEGER_set_uint64(ptr noundef %a, i64 noundef %r) local_unname
 entry:
   %tbuf.i = alloca [8 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tbuf.i)
-  %type.i = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %a, i64 4
   store i32 2, ptr %type.i, align 4
   br label %do.body.i.i
 
@@ -825,7 +823,7 @@ do.body.i7.i.i:                                   ; preds = %entry, %do.body.i7.
 ASN1_INTEGER_set_int64.exit:                      ; preds = %do.body.i7.i.i, %do.body.i.i.i
   %storemerge.i.i = phi i32 [ 258, %do.body.i.i.i ], [ 2, %do.body.i7.i.i ]
   %off.0.i.i = phi i64 [ %dec.i.i.i, %do.body.i.i.i ], [ %dec.i11.i.i, %do.body.i7.i.i ]
-  %type.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type.i.i = getelementptr inbounds i8, ptr %a, i64 4
   store i32 %storemerge.i.i, ptr %type.i.i, align 4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %tbuf.i.i, i64 %off.0.i.i
   %0 = trunc i64 %off.0.i.i to i32
@@ -868,7 +866,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %entry
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %ai, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %ai, i64 4
   store i32 %atype, ptr %type, align 4
   br label %if.end3
 
@@ -889,7 +887,7 @@ land.lhs.true:                                    ; preds = %if.end3
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %land.lhs.true
-  %type8 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.022, i64 0, i32 1
+  %type8 = getelementptr inbounds i8, ptr %ret.022, i64 4
   %0 = load i32, ptr %type8, align 4
   %or = or i32 %0, 258
   store i32 %or, ptr %type8, align 4
@@ -909,7 +907,7 @@ if.end9:                                          ; preds = %if.then7, %land.lhs
 if.end17:                                         ; preds = %if.end9
   %call18 = tail call i32 @BN_is_zero(ptr noundef %bn) #6
   %tobool19.not = icmp eq i32 %call18, 0
-  %data22 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.022, i64 0, i32 2
+  %data22 = getelementptr inbounds i8, ptr %ret.022, i64 8
   %1 = load ptr, ptr %data22, align 8
   br i1 %tobool19.not, label %if.else21, label %if.then20
 
@@ -955,7 +953,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @asn1_string_to_bn(ptr nocapture noundef readonly %ai, ptr noundef %bn, i32 noundef %itype) unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %ai, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %ai, i64 4
   %0 = load i32, ptr %type, align 4
   %and = and i32 %0, -257
   %cmp.not = icmp eq i32 %and, %itype
@@ -968,7 +966,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %ai, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %ai, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %ai, align 8
   %call = tail call ptr @BN_bin2bn(ptr noundef %1, i32 noundef %2, ptr noundef %bn) #6
@@ -1040,7 +1038,7 @@ do.body.i7.i:                                     ; preds = %entry, %do.body.i7.
 asn1_string_set_int64.exit:                       ; preds = %do.body.i7.i, %do.body.i.i
   %storemerge.i = phi i32 [ 266, %do.body.i.i ], [ 10, %do.body.i7.i ]
   %off.0.i = phi i64 [ %dec.i.i, %do.body.i.i ], [ %dec.i11.i, %do.body.i7.i ]
-  %type.i = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %a, i64 4
   store i32 %storemerge.i, ptr %type.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %tbuf.i, i64 %off.0.i
   %0 = trunc i64 %off.0.i to i32
@@ -1087,7 +1085,7 @@ do.body.i7.i.i:                                   ; preds = %entry, %do.body.i7.
 ASN1_ENUMERATED_set_int64.exit:                   ; preds = %do.body.i7.i.i, %do.body.i.i.i
   %storemerge.i.i = phi i32 [ 266, %do.body.i.i.i ], [ 10, %do.body.i7.i.i ]
   %off.0.i.i = phi i64 [ %dec.i.i.i, %do.body.i.i.i ], [ %dec.i11.i.i, %do.body.i7.i.i ]
-  %type.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type.i.i = getelementptr inbounds i8, ptr %a, i64 4
   store i32 %storemerge.i.i, ptr %type.i.i, align 4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %tbuf.i.i, i64 %off.0.i.i
   %0 = trunc i64 %off.0.i.i to i32
@@ -1105,7 +1103,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %type, align 4
   %and = and i32 %0, -257
   %cmp1.not = icmp eq i32 %and, 10

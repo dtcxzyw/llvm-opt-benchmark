@@ -44,7 +44,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %1 = load i64, ptr %size, align 8
   %and = and i64 %1, 1
   %tobool.not = icmp eq i64 %and, 0
@@ -91,7 +91,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3
-  %size.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size.i = getelementptr inbounds i8, ptr %it, i64 40
   %3 = load i64, ptr %size.i, align 8
   %and.i = and i64 %3, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -224,7 +224,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %size.i.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size.i.i = getelementptr inbounds i8, ptr %it, i64 40
   %3 = load i64, ptr %size.i.i, align 8
   %and.i.i = and i64 %3, 1
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0

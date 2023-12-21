@@ -8,7 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { double }
-%"class.grpc_core::RandomEarlyDetection" = type { i64, i64 }
 
 $_ZN4absl12lts_202308029BitGenRef8NotAMockEmPKvPvS4_ = comdat any
 
@@ -37,7 +36,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %hard_limit_ = getelementptr inbounds %"class.grpc_core::RandomEarlyDetection", ptr %this, i64 0, i32 1
+  %hard_limit_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %hard_limit_, align 8
   %cmp2 = icmp ugt i64 %1, %size
   br i1 %cmp2, label %if.then3, label %return
@@ -51,7 +50,7 @@ if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arg_tuple.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i.i.i)
   store double %div, ptr %arg_tuple.i.i.i, align 8
-  %mock_call_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::BitGenRef", ptr %bitsrc, i64 0, i32 1
+  %mock_call_.i.i.i.i = getelementptr inbounds i8, ptr %bitsrc, i64 8
   %2 = load ptr, ptr %mock_call_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %2, @_ZN4absl12lts_202308029BitGenRef8NotAMockEmPKvPvS4_
   %.pre = load i64, ptr %bitsrc, align 8
@@ -71,7 +70,7 @@ _ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i.i, %if.then3
   %3 = phi double [ %.pre.i.i.i, %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i.i ], [ %div, %if.then3 ]
-  %generate_impl_fn_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::BitGenRef", ptr %bitsrc, i64 0, i32 2
+  %generate_impl_fn_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bitsrc, i64 16
   %4 = load ptr, ptr %generate_impl_fn_.i.i.i.i.i.i.i.i, align 8
   br label %while.body.i.i.i.i.i
 

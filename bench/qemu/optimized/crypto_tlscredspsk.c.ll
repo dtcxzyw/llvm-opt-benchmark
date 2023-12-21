@@ -5,16 +5,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.InterfaceInfo = type { ptr }
-%struct.QCryptoTLSCreds = type { %struct.Object, ptr, i32, ptr, i8, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QCryptoTLSCredsPSK = type { %struct.QCryptoTLSCreds, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.UserCreatableClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.gnutls_datum_t = type { ptr, i32 }
-%struct._GError = type { i32, i32, ptr }
 
 @qcrypto_tls_creds_psk_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 96, i64 0, ptr null, ptr null, ptr @qcrypto_tls_creds_psk_finalize, i8 0, i64 104, ptr @qcrypto_tls_creds_psk_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
 @.str = private unnamed_addr constant [14 x i8] c"tls-creds-psk\00", align 1
@@ -71,10 +63,10 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qcrypto_tls_creds_psk_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_PSK) #8
-  %endpoint.i = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 2
+  %endpoint.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load i32, ptr %endpoint.i, align 8
   %cmp.i = icmp eq i32 %0, 0
-  %data.i = getelementptr inbounds %struct.QCryptoTLSCredsPSK, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %1 = load ptr, ptr %data.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -98,7 +90,7 @@ if.end10.sink.split.i:                            ; preds = %if.then6.i, %if.the
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end10.sink.split.i, %if.else.i, %if.then.i
-  %dh_params.i = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 3
+  %dh_params.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %2 = load ptr, ptr %dh_params.i, align 8
   %tobool12.not.i = icmp eq ptr %2, null
   br i1 %tobool12.not.i, label %qcrypto_tls_creds_psk_unload.exit, label %if.then13.i
@@ -116,7 +108,7 @@ qcrypto_tls_creds_psk_unload.exit:                ; preds = %if.end10.i, %if.the
 define internal void @qcrypto_tls_creds_psk_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #8
-  %complete = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qcrypto_tls_creds_psk_complete, ptr %complete, align 8
   %call1 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @qcrypto_tls_creds_psk_prop_get_loaded, ptr noundef null) #8
   %call2 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @qcrypto_tls_creds_psk_prop_get_username, ptr noundef nonnull @qcrypto_tls_creds_psk_prop_set_username) #8
@@ -148,7 +140,7 @@ entry:
   store ptr null, ptr %pskfile.i, align 8
   store ptr null, ptr %dhparams.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key.i, i8 0, i64 16, i1 false)
-  %dir.i = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 1
+  %dir.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %dir.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   %spec.select.i = select i1 %tobool.not.i, ptr @.str.7, ptr %0
@@ -176,7 +168,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #8
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #8
   %6 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %call.i, ptr noundef nonnull %spec.select.i) #8
   br label %trace_qcrypto_tls_creds_psk_load.exit.i
@@ -187,13 +179,13 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_qcrypto_tls_creds_psk_load.exit.i:          ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %endpoint.i = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 2
+  %endpoint.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %8 = load i32, ptr %endpoint.i, align 8
   %cmp.i = icmp eq i32 %8, 1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %trace_qcrypto_tls_creds_psk_load.exit.i
-  %username4.i = getelementptr inbounds %struct.QCryptoTLSCredsPSK, ptr %call.i, i64 0, i32 1
+  %username4.i = getelementptr inbounds i8, ptr %call.i, i64 80
   %9 = load ptr, ptr %username4.i, align 8
   %tobool5.not.i = icmp eq ptr %9, null
   br i1 %tobool5.not.i, label %if.end.i, label %if.then6.i
@@ -213,7 +205,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   br i1 %cmp11.i, label %qcrypto_tls_creds_psk_load.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %lor.lhs.false.i
-  %data.i = getelementptr inbounds %struct.QCryptoTLSCredsPSK, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %call14.i = call i32 @gnutls_psk_allocate_server_credentials(ptr noundef nonnull %data.i) #8
   %cmp15.i = icmp slt i32 %call14.i, 0
   br i1 %cmp15.i, label %if.then16.i, label %if.end18.i
@@ -225,7 +217,7 @@ if.then16.i:                                      ; preds = %if.end13.i
 
 if.end18.i:                                       ; preds = %if.end13.i
   %10 = load ptr, ptr %dhparams.i, align 8
-  %dh_params.i = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 3
+  %dh_params.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %call21.i = call i32 @qcrypto_tls_creds_get_dh_params_file(ptr noundef nonnull %call.i, ptr noundef %10, ptr noundef nonnull %dh_params.i, ptr noundef %errp) #8
   %cmp22.i = icmp slt i32 %call21.i, 0
   br i1 %cmp22.i, label %qcrypto_tls_creds_psk_load.exit, label %if.end24.i
@@ -254,7 +246,7 @@ if.else.i:                                        ; preds = %trace_qcrypto_tls_c
   br i1 %cmp36.i, label %qcrypto_tls_creds_psk_load.exit, label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.else.i
-  %username39.i = getelementptr inbounds %struct.QCryptoTLSCredsPSK, ptr %call.i, i64 0, i32 1
+  %username39.i = getelementptr inbounds i8, ptr %call.i, i64 80
   %15 = load ptr, ptr %username39.i, align 8
   %tobool40.not.i = icmp eq ptr %15, null
   %.str.14..i = select i1 %tobool40.not.i, ptr @.str.14, ptr %15
@@ -272,7 +264,7 @@ if.end38.i:                                       ; preds = %if.else.i
 
 lookup_key.exit.thread.i:                         ; preds = %if.end38.i
   %17 = load ptr, ptr %gerr.i.i, align 8
-  %message.i.i = getelementptr inbounds %struct._GError, ptr %17, i64 0, i32 2
+  %message.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %message.i.i, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.8, i32 noundef 47, ptr noundef nonnull @__func__.lookup_key, ptr noundef nonnull @.str.18, ptr noundef %16, ptr noundef %18) #8
   %19 = load ptr, ptr %gerr.i.i, align 8
@@ -313,7 +305,7 @@ if.then10.i.i:                                    ; preds = %land.lhs.true.i.i
   %25 = xor i64 %call.i.i, -1
   %sub16.i.i = add i64 %call15.i.i, %25
   %conv17.i.i = trunc i64 %sub16.i.i to i32
-  %size.i.i = getelementptr inbounds %struct.gnutls_datum_t, ptr %key.i, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 %conv17.i.i, ptr %size.i.i, align 8
   %26 = load ptr, ptr %content.i.i, align 8
   call void @free(ptr noundef %26) #8
@@ -321,7 +313,7 @@ if.then10.i.i:                                    ; preds = %land.lhs.true.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %gerr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %content.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %clen.i.i)
-  %data49.i = getelementptr inbounds %struct.QCryptoTLSCredsPSK, ptr %call.i, i64 0, i32 2
+  %data49.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %call50.i = call i32 @gnutls_psk_allocate_client_credentials(ptr noundef nonnull %data49.i) #8
   %cmp51.i = icmp slt i32 %call50.i, 0
   br i1 %cmp51.i, label %if.then52.i, label %if.end54.i
@@ -378,7 +370,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @qcrypto_tls_creds_psk_prop_get_loaded(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_PSK) #8
-  %retval.0.in.in = getelementptr inbounds %struct.QCryptoTLSCredsPSK, ptr %call.i, i64 0, i32 2
+  %retval.0.in.in = getelementptr inbounds i8, ptr %call.i, i64 88
   %retval.0.in = load ptr, ptr %retval.0.in.in, align 8
   %retval.0 = icmp ne ptr %retval.0.in, null
   ret i1 %retval.0
@@ -390,7 +382,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @qcrypto_tls_creds_psk_prop_get_username(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_PSK) #8
-  %username = getelementptr inbounds %struct.QCryptoTLSCredsPSK, ptr %call.i, i64 0, i32 1
+  %username = getelementptr inbounds i8, ptr %call.i, i64 80
   %0 = load ptr, ptr %username, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #8
   ret ptr %call1
@@ -401,7 +393,7 @@ define internal void @qcrypto_tls_creds_psk_prop_set_username(ptr noundef %obj, 
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_PSK) #8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #8
-  %username = getelementptr inbounds %struct.QCryptoTLSCredsPSK, ptr %call.i, i64 0, i32 1
+  %username = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr %call1, ptr %username, align 8
   ret void
 }

@@ -3,17 +3,15 @@ source_filename = "bench/lua/original/lzio.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Zio = type { i64, ptr, ptr, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @luaZ_fill(ptr nocapture noundef %z) local_unnamed_addr #0 {
 entry:
   %size = alloca i64, align 8
-  %L1 = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 4
+  %L1 = getelementptr inbounds i8, ptr %z, i64 32
   %0 = load ptr, ptr %L1, align 8
-  %reader = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 2
+  %reader = getelementptr inbounds i8, ptr %z, i64 16
   %1 = load ptr, ptr %reader, align 8
-  %data = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %z, i64 24
   %2 = load ptr, ptr %data, align 8
   %call = call ptr %1(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %size) #6
   %cmp = icmp eq ptr %call, null
@@ -25,7 +23,7 @@ entry:
 if.end:                                           ; preds = %entry
   %sub = add i64 %3, -1
   store i64 %sub, ptr %z, align 8
-  %p = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %z, i64 8
   %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
   store ptr %incdec.ptr, ptr %p, align 8
   %4 = load i8, ptr %call, align 1
@@ -40,11 +38,11 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @luaZ_init(ptr noundef %L, ptr nocapture noundef writeonly %z, ptr noundef %reader, ptr noundef %data) local_unnamed_addr #1 {
 entry:
-  %L1 = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 4
+  %L1 = getelementptr inbounds i8, ptr %z, i64 32
   store ptr %L, ptr %L1, align 8
-  %reader2 = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 2
+  %reader2 = getelementptr inbounds i8, ptr %z, i64 16
   store ptr %reader, ptr %reader2, align 8
-  %data3 = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 3
+  %data3 = getelementptr inbounds i8, ptr %z, i64 24
   store ptr %data, ptr %data3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %z, i8 0, i64 16, i1 false)
   ret void
@@ -58,10 +56,10 @@ entry:
   br i1 %tobool.not22, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %L1.i = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 4
-  %reader.i = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 2
-  %data.i = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 3
-  %p.i = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 1
+  %L1.i = getelementptr inbounds i8, ptr %z, i64 32
+  %reader.i = getelementptr inbounds i8, ptr %z, i64 16
+  %data.i = getelementptr inbounds i8, ptr %z, i64 24
+  %p.i = getelementptr inbounds i8, ptr %z, i64 8
   %.pre = load i64, ptr %z, align 8
   br label %while.body
 

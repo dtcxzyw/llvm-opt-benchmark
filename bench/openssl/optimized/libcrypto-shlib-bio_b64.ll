@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.b64_struct = type { i32, i32, i32, i32, i32, i32, i32, ptr, [1502 x i8], [1024 x i8] }
 
 @methods_b64 = internal constant %struct.bio_method_st { i32 523, ptr @.str, ptr @bwrite_conv, ptr @b64_write, ptr @bread_conv, ptr @b64_read, ptr @b64_puts, ptr null, ptr @b64_ctrl, ptr @b64_new, ptr @b64_free, ptr @b64_callback_ctrl, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [16 x i8] c"base64 encoding\00", align 1
@@ -37,7 +36,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @BIO_clear_flags(ptr noundef %b, i32 noundef 15) #7
-  %encode = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 4
+  %encode = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load i32, ptr %encode, align 8
   %cmp3.not = icmp eq i32 %0, 1
   br i1 %cmp3.not, label %if.end6, label %if.then4
@@ -45,17 +44,17 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   store i32 1, ptr %encode, align 8
   store i32 0, ptr %call, align 8
-  %buf_off = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 1
+  %buf_off = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %buf_off, align 4
-  %tmp_len = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 2
+  %tmp_len = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %tmp_len, align 8
-  %base64 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 7
+  %base64 = getelementptr inbounds i8, ptr %call, i64 32
   %1 = load ptr, ptr %base64, align 8
   tail call void @EVP_EncodeInit(ptr noundef %1) #7
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %if.end
-  %buf_off7 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 1
+  %buf_off7 = getelementptr inbounds i8, ptr %call, i64 4
   %2 = load i32, ptr %buf_off7, align 4
   %cmp8 = icmp slt i32 %2, 1502
   br i1 %cmp8, label %cond.end, label %cond.false
@@ -84,18 +83,22 @@ cond.false19:                                     ; preds = %cond.end13
 cond.end20:                                       ; preds = %cond.end13
   %sub = sub nsw i32 %3, %2
   %cmp24174 = icmp sgt i32 %sub, 0
-  br i1 %cmp24174, label %while.body, label %while.end
+  br i1 %cmp24174, label %while.body.lr.ph, label %while.end
+
+while.body.lr.ph:                                 ; preds = %cond.end20
+  %buf = getelementptr inbounds i8, ptr %call, i64 40
+  br label %while.body
 
 while.cond:                                       ; preds = %cond.end40
   %sub49 = sub nsw i32 %n.0175, %call26
   %cmp24 = icmp sgt i32 %sub49, 0
   br i1 %cmp24, label %while.body, label %while.end, !llvm.loop !4
 
-while.body:                                       ; preds = %cond.end20, %while.cond
-  %4 = phi i32 [ %add, %while.cond ], [ %2, %cond.end20 ]
-  %n.0175 = phi i32 [ %sub49, %while.cond ], [ %sub, %cond.end20 ]
+while.body:                                       ; preds = %while.body.lr.ph, %while.cond
+  %4 = phi i32 [ %2, %while.body.lr.ph ], [ %add, %while.cond ]
+  %n.0175 = phi i32 [ %sub, %while.body.lr.ph ], [ %sub49, %while.cond ]
   %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 8, i64 %idxprom
+  %arrayidx = getelementptr inbounds [1502 x i8], ptr %buf, i64 0, i64 %idxprom
   %call26 = tail call i32 @BIO_write(ptr noundef %call1, ptr noundef nonnull %arrayidx, i32 noundef %n.0175) #7
   %cmp27 = icmp slt i32 %call26, 1
   br i1 %cmp27, label %if.then28, label %if.end29
@@ -141,10 +144,10 @@ while.end:                                        ; preds = %while.cond, %cond.e
   br i1 %or.cond1, label %return, label %while.cond57.preheader
 
 while.cond57.preheader:                           ; preds = %while.end
-  %tmp_len68 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 2
-  %buf125 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 8
-  %tmp = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 9
-  %base64147 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 7
+  %tmp_len68 = getelementptr inbounds i8, ptr %call, i64 8
+  %buf125 = getelementptr inbounds i8, ptr %call, i64 40
+  %tmp = getelementptr inbounds i8, ptr %call, i64 1542
+  %base64147 = getelementptr inbounds i8, ptr %call, i64 32
   br label %while.body59
 
 while.body59:                                     ; preds = %while.cond57.preheader, %while.end223
@@ -175,7 +178,7 @@ cond.end75:                                       ; preds = %if.then70
   %cmp79 = icmp ugt i32 %sub78, %inl.addr.0176
   %spec.select = select i1 %cmp79, i32 1, i32 %sub78
   %idxprom83 = zext nneg i32 %7 to i64
-  %arrayidx84 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 9, i64 %idxprom83
+  %arrayidx84 = getelementptr inbounds [1024 x i8], ptr %tmp, i64 0, i64 %idxprom83
   %conv = zext nneg i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx84, ptr align 1 %in.addr.0178, i64 %conv, i1 false)
   %8 = load i32, ptr %tmp_len68, align 8
@@ -297,7 +300,7 @@ while.cond180:                                    ; preds = %cond.end213, %if.en
 
 while.body183:                                    ; preds = %while.cond180
   %idxprom186 = sext i32 %15 to i64
-  %arrayidx187 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 8, i64 %idxprom186
+  %arrayidx187 = getelementptr inbounds [1502 x i8], ptr %buf125, i64 0, i64 %idxprom186
   %call188 = tail call i32 @BIO_write(ptr noundef %call1, ptr noundef nonnull %arrayidx187, i32 noundef %n.3) #7
   %cmp189 = icmp slt i32 %call188, 1
   br i1 %cmp189, label %if.then191, label %if.end198
@@ -367,7 +370,7 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   tail call void @BIO_clear_flags(ptr noundef %b, i32 noundef 15) #7
-  %encode = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 4
+  %encode = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load i32, ptr %encode, align 8
   %cmp6.not = icmp eq i32 %0, 2
   br i1 %cmp6.not, label %if.end9, label %if.then7
@@ -375,11 +378,11 @@ if.end5:                                          ; preds = %if.end
 if.then7:                                         ; preds = %if.end5
   store i32 2, ptr %encode, align 8
   store i32 0, ptr %call, align 8
-  %buf_off = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 1
+  %buf_off = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %buf_off, align 4
-  %tmp_len = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 2
+  %tmp_len = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %tmp_len, align 8
-  %base64 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 7
+  %base64 = getelementptr inbounds i8, ptr %call, i64 32
   %1 = load ptr, ptr %base64, align 8
   tail call void @EVP_DecodeInit(ptr noundef %1) #7
   br label %if.end9
@@ -390,7 +393,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
   br i1 %cmp11, label %if.then12, label %if.end39
 
 if.then12:                                        ; preds = %if.end9
-  %buf_off14 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 1
+  %buf_off14 = getelementptr inbounds i8, ptr %call, i64 4
   %3 = load i32, ptr %buf_off14, align 4
   %cmp15.not = icmp slt i32 %2, %3
   br i1 %cmp15.not, label %cond.false, label %cond.end
@@ -411,8 +414,9 @@ cond.false24:                                     ; preds = %cond.end
   unreachable
 
 cond.end25:                                       ; preds = %cond.end
+  %buf = getelementptr inbounds i8, ptr %call, i64 40
   %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 8, i64 %idxprom
+  %arrayidx = getelementptr inbounds [1502 x i8], ptr %buf, i64 0, i64 %idxprom
   %conv = sext i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %out, ptr nonnull align 1 %arrayidx, i64 %conv, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %conv
@@ -437,14 +441,14 @@ if.end39:                                         ; preds = %cond.end25, %if.the
   br i1 %cmp40213, label %while.body.lr.ph.lr.ph, label %while.end
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end39
-  %cont = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 6
+  %cont = getelementptr inbounds i8, ptr %call, i64 24
   %tmp.ptr = getelementptr i8, ptr %call, i64 1542
-  %tmp_len46 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 2
-  %start = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 5
-  %tmp_nl = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 3
-  %base6491 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 7
-  %buf92 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 8
-  %buf_off254 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 1
+  %tmp_len46 = getelementptr inbounds i8, ptr %call, i64 8
+  %start = getelementptr inbounds i8, ptr %call, i64 20
+  %tmp_nl = getelementptr inbounds i8, ptr %call, i64 12
+  %base6491 = getelementptr inbounds i8, ptr %call, i64 32
+  %buf92 = getelementptr inbounds i8, ptr %call, i64 40
+  %buf_off254 = getelementptr inbounds i8, ptr %call, i64 4
   %scevgep = getelementptr i8, ptr %call, i64 1543
   br label %while.body.lr.ph
 
@@ -461,7 +465,7 @@ if.end45:                                         ; preds = %while.body.lr.ph, %
   %ret_code.0202289 = phi i32 [ %ret_code.1, %while.cond.backedge ], [ %ret_code.0.ph216, %while.body.lr.ph ]
   %7 = load i32, ptr %tmp_len46, align 8
   %idxprom47 = sext i32 %7 to i64
-  %arrayidx48 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 9, i64 %idxprom47
+  %arrayidx48 = getelementptr inbounds [1024 x i8], ptr %tmp.ptr, i64 0, i64 %idxprom47
   %sub50 = sub nsw i32 1024, %7
   %call51 = call i32 @BIO_read(ptr noundef %call1, ptr noundef nonnull %arrayidx48, i32 noundef %sub50) #7
   %cmp52 = icmp slt i32 %call51, 1
@@ -812,26 +816,26 @@ if.end:                                           ; preds = %entry
   ]
 
 again.preheader:                                  ; preds = %if.end
-  %buf_off51 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 1
-  %tmp_len = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 2
-  %buf = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 8
-  %tmp = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 9
-  %encode73 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 4
-  %base6477 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 7
+  %buf_off51 = getelementptr inbounds i8, ptr %call, i64 4
+  %tmp_len = getelementptr inbounds i8, ptr %call, i64 8
+  %buf = getelementptr inbounds i8, ptr %call, i64 40
+  %tmp = getelementptr inbounds i8, ptr %call, i64 1542
+  %encode73 = getelementptr inbounds i8, ptr %call, i64 16
+  %base6477 = getelementptr inbounds i8, ptr %call, i64 32
   br label %while.cond
 
 sw.bb:                                            ; preds = %if.end
-  %cont = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 6
+  %cont = getelementptr inbounds i8, ptr %call, i64 24
   store i32 1, ptr %cont, align 8
-  %start = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 5
+  %start = getelementptr inbounds i8, ptr %call, i64 20
   store i32 1, ptr %start, align 4
-  %encode = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 4
+  %encode = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %encode, align 8
   %call3 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 1, i64 noundef %num, ptr noundef %ptr) #7
   br label %return
 
 sw.bb4:                                           ; preds = %if.end
-  %cont5 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 6
+  %cont5 = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load i32, ptr %cont5, align 8
   %cmp6 = icmp slt i32 %0, 1
   br i1 %cmp6, label %return, label %if.else
@@ -842,7 +846,7 @@ if.else:                                          ; preds = %sw.bb4
 
 sw.bb10:                                          ; preds = %if.end
   %1 = load i32, ptr %call, align 8
-  %buf_off = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 1
+  %buf_off = getelementptr inbounds i8, ptr %call, i64 4
   %2 = load i32, ptr %buf_off, align 4
   %cmp11.not = icmp slt i32 %1, %2
   br i1 %cmp11.not, label %cond.false, label %cond.end
@@ -858,13 +862,13 @@ cond.end:                                         ; preds = %sw.bb10
   br i1 %cmp14, label %land.lhs.true, label %if.else24
 
 land.lhs.true:                                    ; preds = %cond.end
-  %encode16 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 4
+  %encode16 = getelementptr inbounds i8, ptr %call, i64 16
   %3 = load i32, ptr %encode16, align 8
   %cmp17.not = icmp eq i32 %3, 0
   br i1 %cmp17.not, label %if.else24, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %land.lhs.true
-  %base64 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 7
+  %base64 = getelementptr inbounds i8, ptr %call, i64 32
   %4 = load ptr, ptr %base64, align 8
   %call20 = tail call i32 @EVP_ENCODE_CTX_num(ptr noundef %4) #7
   %cmp21.not = icmp eq i32 %call20, 0
@@ -880,7 +884,7 @@ if.then27:                                        ; preds = %if.else24
 
 sw.bb31:                                          ; preds = %if.end
   %5 = load i32, ptr %call, align 8
-  %buf_off33 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 1
+  %buf_off33 = getelementptr inbounds i8, ptr %call, i64 4
   %6 = load i32, ptr %buf_off33, align 4
   %cmp34.not = icmp slt i32 %5, %6
   br i1 %cmp34.not, label %cond.false37, label %cond.end38
@@ -980,12 +984,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cont = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 6
+  %cont = getelementptr inbounds i8, ptr %call, i64 24
   store i32 1, ptr %cont, align 8
-  %start = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 5
+  %start = getelementptr inbounds i8, ptr %call, i64 20
   store i32 1, ptr %start, align 4
   %call1 = tail call ptr @EVP_ENCODE_CTX_new() #7
-  %base64 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 7
+  %base64 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call1, ptr %base64, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -1016,7 +1020,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %base64 = getelementptr inbounds %struct.b64_struct, ptr %call, i64 0, i32 7
+  %base64 = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load ptr, ptr %base64, align 8
   tail call void @EVP_ENCODE_CTX_free(ptr noundef %0) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.2, i32 noundef 99) #7

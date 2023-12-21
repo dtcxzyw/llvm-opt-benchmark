@@ -7,11 +7,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::UMutex" = type { [40 x i8], %"struct.std::atomic", ptr }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %struct.UResourceBundle = type { ptr, ptr, ptr, ptr, ptr, [64 x i8], i32, i32, i8, i8, i32, i32, i32, i32 }
-%struct.UResourceDataEntry = type { ptr, ptr, ptr, ptr, ptr, %struct.ResourceData, [3 x i8], i32, i32 }
-%struct.ResourceData = type { ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i32, i8, i8, i8, i8 }
 %"class.icu_75::CharString" = type { %"class.icu_75::MaybeStackArray", i32, [4 x i8] }
+%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_75::StringPiece" = type <{ ptr, i32, [4 x i8] }>
 %"struct.(anonymous namespace)::GetAllChildrenSink" = type { %"class.icu_75::ResourceSink", ptr }
 %"class.icu_75::ResourceSink" = type { %"class.icu_75::UObject" }
@@ -25,9 +23,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::LocalUResourceBundlePointer" = type { %"class.icu_75::LocalPointerBase" }
 %"class.icu_75::LocalPointerBase" = type { ptr }
 %"class.icu_75::ResourceTable" = type <{ ptr, ptr, ptr, ptr, i32, %"class.icu_75::ResourceTracer", [3 x i8] }>
-%struct.UHashElement = type { i32, %union.UElement, %union.UElement }
-%union.UElement = type { ptr }
-%struct.ULocalesContext = type { %struct.UResourceBundle, %struct.UResourceBundle }
+%struct.UResourceDataEntry = type { ptr, ptr, ptr, ptr, ptr, %struct.ResourceData, [3 x i8], i32, i32 }
+%struct.ResourceData = type { ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i32, i8, i8, i8, i8 }
 
 $_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -109,11 +106,11 @@ $_ZN6icu_7527LocalUResourceBundlePointerD2Ev = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -121,11 +118,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -186,7 +183,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -196,7 +193,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -208,7 +205,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -221,7 +218,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -245,7 +242,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -275,21 +272,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
-  %capacity3 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
-  %needToRelease4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -312,11 +309,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -324,7 +321,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -335,20 +332,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -376,7 +373,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -392,7 +389,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -424,7 +421,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -436,7 +433,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -451,7 +448,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -465,7 +462,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
@@ -482,9 +479,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.1, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -502,7 +499,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -514,7 +511,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -530,7 +527,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -591,7 +588,7 @@ entry:
   br i1 %cmp.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fData = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %resB, i64 8
   %0 = load ptr, ptr %fData, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %if.then2
@@ -602,9 +599,9 @@ if.then2:                                         ; preds = %if.then
 
 while.body.i.i:                                   ; preds = %if.then2, %while.body.i.i
   %resB.addr.05.i.i = phi ptr [ %1, %while.body.i.i ], [ %0, %if.then2 ]
-  %fParent.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %resB.addr.05.i.i, i64 0, i32 2
+  %fParent.i.i = getelementptr inbounds i8, ptr %resB.addr.05.i.i, i64 16
   %1 = load ptr, ptr %fParent.i.i, align 8
-  %fCountExisting.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %resB.addr.05.i.i, i64 0, i32 7
+  %fCountExisting.i.i = getelementptr inbounds i8, ptr %resB.addr.05.i.i, i64 108
   %2 = load i32, ptr %fCountExisting.i.i, align 4
   %dec.i.i = add i32 %2, -1
   store i32 %dec.i.i, ptr %fCountExisting.i.i, align 4
@@ -623,7 +620,7 @@ terminate.lpad.i.i:                               ; preds = %_ZL13entryCloseIntP
   unreachable
 
 if.end:                                           ; preds = %_ZL13entryCloseIntP18UResourceDataEntry.exit.i, %if.then
-  %fVersion = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 2
+  %fVersion = getelementptr inbounds i8, ptr %resB, i64 16
   %5 = load ptr, ptr %fVersion, align 8
   %cmp4.not = icmp eq ptr %5, null
   br i1 %cmp4.not, label %if.end7, label %if.then5
@@ -633,10 +630,10 @@ if.then5:                                         ; preds = %if.end
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end
-  %fResPath.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 4
+  %fResPath.i = getelementptr inbounds i8, ptr %resB, i64 32
   %6 = load ptr, ptr %fResPath.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
-  %fResBuf.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 5
+  %fResBuf.i = getelementptr inbounds i8, ptr %resB, i64 40
   %cmp.not.i = icmp eq ptr %6, %fResBuf.i
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i
   br i1 %or.cond.i, label %_ZL16ures_freeResPathP15UResourceBundle.exit, label %if.then.i
@@ -647,15 +644,15 @@ if.then.i:                                        ; preds = %if.end7
 
 _ZL16ures_freeResPathP15UResourceBundle.exit:     ; preds = %if.end7, %if.then.i
   store ptr null, ptr %fResPath.i, align 8
-  %fResPathLen.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 6
+  %fResPathLen.i = getelementptr inbounds i8, ptr %resB, i64 104
   store i32 0, ptr %fResPathLen.i, align 8
-  %fMagic1.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 10
+  %fMagic1.i = getelementptr inbounds i8, ptr %resB, i64 116
   %7 = load i32, ptr %fMagic1.i, align 4
   %cmp.i = icmp eq i32 %7, 19700503
   br i1 %cmp.i, label %_ZL18ures_isStackObjectPK15UResourceBundle.exit, label %if.end11
 
 _ZL18ures_isStackObjectPK15UResourceBundle.exit:  ; preds = %_ZL16ures_freeResPathP15UResourceBundle.exit
-  %fMagic2.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 11
+  %fMagic2.i = getelementptr inbounds i8, ptr %resB, i64 120
   %8 = load i32, ptr %fMagic2.i, align 8
   %cmp1.i.not = icmp eq i32 %8, 19641227
   %tobool = icmp ne i8 %freeBundleObj, 0
@@ -695,13 +692,13 @@ if.then7:                                         ; preds = %if.then4
   br label %return
 
 if.else:                                          ; preds = %if.then2
-  %fMagic1.i = getelementptr inbounds %struct.UResourceBundle, ptr %r, i64 0, i32 10
+  %fMagic1.i = getelementptr inbounds i8, ptr %r, i64 116
   %1 = load i32, ptr %fMagic1.i, align 4
   %cmp.i23 = icmp eq i32 %1, 19700503
   br i1 %cmp.i23, label %land.rhs.i, label %_ZL18ures_isStackObjectPK15UResourceBundle.exit
 
 land.rhs.i:                                       ; preds = %if.else
-  %fMagic2.i = getelementptr inbounds %struct.UResourceBundle, ptr %r, i64 0, i32 11
+  %fMagic2.i = getelementptr inbounds i8, ptr %r, i64 120
   %2 = load i32, ptr %fMagic2.i, align 8
   %cmp1.i.not = icmp eq i32 %2, 19641227
   br label %_ZL18ures_isStackObjectPK15UResourceBundle.exit
@@ -715,19 +712,19 @@ do.body:                                          ; preds = %_ZL18ures_isStackOb
   %r.addr.0 = phi ptr [ %call5, %if.then4 ], [ %r, %_ZL18ures_isStackObjectPK15UResourceBundle.exit ]
   %isStackObject.0 = phi i1 [ true, %if.then4 ], [ %not..i, %_ZL18ures_isStackObjectPK15UResourceBundle.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %r.addr.0, ptr noundef nonnull align 8 dereferenceable(136) %original, i64 136, i1 false)
-  %fResPath = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.0, i64 0, i32 4
+  %fResPath = getelementptr inbounds i8, ptr %r.addr.0, i64 32
   store ptr null, ptr %fResPath, align 8
-  %fResPathLen = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.0, i64 0, i32 6
+  %fResPathLen = getelementptr inbounds i8, ptr %r.addr.0, i64 104
   store i32 0, ptr %fResPathLen, align 8
-  %fResPath11 = getelementptr inbounds %struct.UResourceBundle, ptr %original, i64 0, i32 4
+  %fResPath11 = getelementptr inbounds i8, ptr %original, i64 32
   %3 = load ptr, ptr %fResPath11, align 8
   %tobool12.not = icmp eq ptr %3, null
   br i1 %tobool12.not, label %if.end16, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body
-  %fResPathLen15 = getelementptr inbounds %struct.UResourceBundle, ptr %original, i64 0, i32 6
+  %fResPathLen15 = getelementptr inbounds i8, ptr %original, i64 104
   %4 = load i32, ptr %fResPathLen15, align 8
-  %fResBuf.i = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.0, i64 0, i32 5
+  %fResBuf.i = getelementptr inbounds i8, ptr %r.addr.0, i64 40
   store ptr %fResBuf.i, ptr %fResPath, align 8
   store i8 0, ptr %fResBuf.i, align 1
   store i32 %4, ptr %fResPathLen, align 8
@@ -758,33 +755,33 @@ if.end36.i:                                       ; preds = %if.end20.i, %if.end
 if.end16:                                         ; preds = %if.end36.i, %if.then19.i, %do.body
   %spec.select.i = select i1 %isStackObject.0, i32 19700503, i32 0
   %spec.select5.i = select i1 %isStackObject.0, i32 19641227, i32 0
-  %6 = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.0, i64 0, i32 10
+  %6 = getelementptr inbounds i8, ptr %r.addr.0, i64 116
   store i32 %spec.select.i, ptr %6, align 4
-  %7 = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.0, i64 0, i32 11
+  %7 = getelementptr inbounds i8, ptr %r.addr.0, i64 120
   store i32 %spec.select5.i, ptr %7, align 8
-  %fData = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.0, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %r.addr.0, i64 8
   %8 = load ptr, ptr %fData, align 8
   %cmp17.not = icmp eq ptr %8, null
   br i1 %cmp17.not, label %return, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZL9resbMutex)
-  %fCountExisting.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %8, i64 0, i32 7
+  %fCountExisting.i = getelementptr inbounds i8, ptr %8, i64 108
   %9 = load i32, ptr %fCountExisting.i, align 4
   %inc.i = add i32 %9, 1
   store i32 %inc.i, ptr %fCountExisting.i, align 4
-  %fParent4.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %8, i64 0, i32 2
+  %fParent4.i = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %fParent4.i, align 8
   %cmp.not5.i = icmp eq ptr %10, null
   br i1 %cmp.not5.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then18, %while.body.i
   %11 = phi ptr [ %13, %while.body.i ], [ %10, %if.then18 ]
-  %fCountExisting3.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %11, i64 0, i32 7
+  %fCountExisting3.i = getelementptr inbounds i8, ptr %11, i64 108
   %12 = load i32, ptr %fCountExisting3.i, align 4
   %inc4.i = add i32 %12, 1
   store i32 %inc4.i, ptr %fCountExisting3.i, align 4
-  %fParent.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %11, i64 0, i32 2
+  %fParent.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %fParent.i, align 8
   %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !6
@@ -808,15 +805,15 @@ return:                                           ; preds = %while.end.i, %if.en
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode(ptr noundef %resB, ptr nocapture noundef readonly %toAdd, i32 noundef %lenToAdd, ptr nocapture noundef writeonly %status) unnamed_addr #1 {
 entry:
-  %fResPathLen = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 6
+  %fResPathLen = getelementptr inbounds i8, ptr %resB, i64 104
   %0 = load i32, ptr %fResPathLen, align 8
-  %fResPath = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 4
+  %fResPath = getelementptr inbounds i8, ptr %resB, i64 32
   %1 = load ptr, ptr %fResPath, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %fResBuf = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 5
+  %fResBuf = getelementptr inbounds i8, ptr %resB, i64 40
   store ptr %fResBuf, ptr %fResPath, align 8
   store i8 0, ptr %fResBuf, align 1
   br label %if.end
@@ -831,7 +828,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then8:                                         ; preds = %if.end
   %add6 = add nuw nsw i32 %add, 1
-  %fResBuf10 = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 5
+  %fResBuf10 = getelementptr inbounds i8, ptr %resB, i64 40
   %cmp12 = icmp eq ptr %2, %fResBuf10
   %conv = zext nneg i32 %add6 to i64
   br i1 %cmp12, label %if.then13, label %if.else
@@ -890,10 +887,10 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp1, label %return.sink.split, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %resB, i64 8
   %1 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %1, i64 0, i32 5
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fData2.i = getelementptr inbounds i8, ptr %1, i64 40
+  %fRes = getelementptr inbounds i8, ptr %resB, i64 108
   %2 = load i32, ptr %fRes, align 4
   %call.i = tail call noundef ptr @res_getStringNoTrace_75(ptr noundef nonnull %fData2.i, i32 noundef %2, ptr noundef %len)
   %cmp6 = icmp eq ptr %call.i, null
@@ -926,10 +923,10 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %cmp1.i, label %return.sink.split.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %fData.i.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i.i = getelementptr inbounds i8, ptr %resB, i64 8
   %1 = load ptr, ptr %fData.i.i, align 8
-  %fData2.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %1, i64 0, i32 5
-  %fRes.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fData2.i.i = getelementptr inbounds i8, ptr %1, i64 40
+  %fRes.i = getelementptr inbounds i8, ptr %resB, i64 108
   %2 = load i32, ptr %fRes.i, align 4
   %call.i.i = call noundef ptr @res_getStringNoTrace_75(ptr noundef nonnull %fData2.i.i, i32 noundef %2, ptr noundef nonnull %length16)
   %cmp6.i = icmp eq ptr %call.i.i, null
@@ -1048,10 +1045,10 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp1, label %return.sink.split, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %resB, i64 8
   %1 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %1, i64 0, i32 5
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fData2.i = getelementptr inbounds i8, ptr %1, i64 40
+  %fRes = getelementptr inbounds i8, ptr %resB, i64 108
   %2 = load i32, ptr %fRes, align 4
   %call.i = tail call noundef ptr @res_getBinaryNoTrace_75(ptr noundef nonnull %fData2.i, i32 noundef %2, ptr noundef %len)
   %cmp6 = icmp eq ptr %call.i, null
@@ -1083,10 +1080,10 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp1, label %return.sink.split, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %resB, i64 8
   %1 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %1, i64 0, i32 5
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fData2.i = getelementptr inbounds i8, ptr %1, i64 40
+  %fRes = getelementptr inbounds i8, ptr %resB, i64 108
   %2 = load i32, ptr %fRes, align 4
   %call.i = tail call noundef ptr @res_getIntVectorNoTrace_75(ptr noundef nonnull %fData2.i, i32 noundef %2, ptr noundef %len)
   %cmp6 = icmp eq ptr %call.i, null
@@ -1122,7 +1119,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %resB, i64 108
   %1 = load i32, ptr %fRes, align 4
   %shr.mask = and i32 %1, -268435456
   %cmp4.not = icmp eq i32 %shr.mask, 1879048192
@@ -1162,7 +1159,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %resB, i64 108
   %1 = load i32, ptr %fRes, align 4
   %shr.mask = and i32 %1, -268435456
   %cmp4.not = icmp eq i32 %shr.mask, 1879048192
@@ -1188,7 +1185,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %resB, i64 108
   %0 = load i32, ptr %fRes, align 4
   %call = tail call i32 @res_getPublicType_75(i32 noundef %0)
   br label %return
@@ -1222,7 +1219,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fSize = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 13
+  %fSize = getelementptr inbounds i8, ptr %resB, i64 128
   %0 = load i32, ptr %fSize, align 8
   br label %return
 
@@ -1238,7 +1235,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fIndex = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 12
+  %fIndex = getelementptr inbounds i8, ptr %resB, i64 124
   store i32 -1, ptr %fIndex, align 4
   br label %return
 
@@ -1253,9 +1250,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fIndex = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 12
+  %fIndex = getelementptr inbounds i8, ptr %resB, i64 124
   %0 = load i32, ptr %fIndex, align 4
-  %fSize = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 13
+  %fSize = getelementptr inbounds i8, ptr %resB, i64 128
   %1 = load i32, ptr %fSize, align 8
   %sub = add nsw i32 %1, -1
   %cmp1 = icmp slt i32 %0, %sub
@@ -1287,9 +1284,9 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %fIndex = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 12
+  %fIndex = getelementptr inbounds i8, ptr %resB, i64 124
   %1 = load i32, ptr %fIndex, align 4
-  %fSize = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 13
+  %fSize = getelementptr inbounds i8, ptr %resB, i64 128
   %2 = load i32, ptr %fSize, align 8
   %sub = add nsw i32 %2, -1
   %cmp4 = icmp eq i32 %1, %sub
@@ -1302,7 +1299,7 @@ if.then5:                                         ; preds = %if.end3
 if.else:                                          ; preds = %if.end3
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %fIndex, align 4
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %resB, i64 108
   %3 = load i32, ptr %fRes, align 4
   %shr = lshr i32 %3, 28
   switch i32 %shr, label %return [
@@ -1320,25 +1317,25 @@ if.else:                                          ; preds = %if.end3
   ]
 
 sw.bb:                                            ; preds = %if.else, %if.else
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %resB, i64 8
   %4 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %4, i64 0, i32 5
+  %fData2.i = getelementptr inbounds i8, ptr %4, i64 40
   %call.i = tail call noundef ptr @res_getStringNoTrace_75(ptr noundef nonnull %fData2.i, i32 noundef %3, ptr noundef %len)
   br label %return
 
 sw.bb10:                                          ; preds = %if.else, %if.else, %if.else
-  %fData.i34 = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i34 = getelementptr inbounds i8, ptr %resB, i64 8
   %5 = load ptr, ptr %fData.i34, align 8
-  %fData2.i35 = getelementptr inbounds %struct.UResourceDataEntry, ptr %5, i64 0, i32 5
+  %fData2.i35 = getelementptr inbounds i8, ptr %5, i64 40
   %call14 = tail call i32 @res_getTableItemByIndex_75(ptr noundef nonnull %fData2.i35, i32 noundef %3, i32 noundef %inc, ptr noundef %key)
   %6 = load i32, ptr %fIndex, align 4
   %call20 = tail call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef nonnull %resB, i32 noundef %call14, i32 noundef %6, ptr noundef %len, ptr noundef nonnull %status)
   br label %return
 
 sw.bb21:                                          ; preds = %if.else, %if.else
-  %fData.i36 = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i36 = getelementptr inbounds i8, ptr %resB, i64 8
   %7 = load ptr, ptr %fData.i36, align 8
-  %fData2.i37 = getelementptr inbounds %struct.UResourceDataEntry, ptr %7, i64 0, i32 5
+  %fData2.i37 = getelementptr inbounds i8, ptr %7, i64 40
   %call25 = tail call i32 @res_getArrayItem_75(ptr noundef nonnull %fData2.i37, i32 noundef %3, i32 noundef %inc)
   %8 = load i32, ptr %fIndex, align 4
   %call33 = tail call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef nonnull %resB, i32 noundef %call25, i32 noundef %8, ptr noundef %len, ptr noundef nonnull %status)
@@ -1381,10 +1378,10 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %cmp1.i, label %return.sink.split.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %fData.i.i = getelementptr inbounds %struct.UResourceBundle, ptr %call, i64 0, i32 1
+  %fData.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %fData.i.i, align 8
-  %fData2.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %1, i64 0, i32 5
-  %fRes.i = getelementptr inbounds %struct.UResourceBundle, ptr %call, i64 0, i32 7
+  %fData2.i.i = getelementptr inbounds i8, ptr %1, i64 40
+  %fRes.i = getelementptr inbounds i8, ptr %call, i64 108
   %2 = load i32, ptr %fRes.i, align 4
   %call.i.i = tail call noundef ptr @res_getStringNoTrace_75(ptr noundef nonnull %fData2.i.i, i32 noundef %2, ptr noundef %len)
   %cmp6.i = icmp eq ptr %call.i.i, null
@@ -1401,9 +1398,9 @@ ures_getString_75.exit:                           ; preds = %if.then, %lor.lhs.f
   br label %return
 
 if.else:                                          ; preds = %entry
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %resB, i64 8
   %3 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 5
+  %fData2.i = getelementptr inbounds i8, ptr %3, i64 40
   %call.i = tail call noundef ptr @res_getStringNoTrace_75(ptr noundef nonnull %fData2.i, i32 noundef %r, ptr noundef %len)
   br label %return
 
@@ -1436,9 +1433,9 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %fIndex = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 12
+  %fIndex = getelementptr inbounds i8, ptr %resB, i64 124
   %1 = load i32, ptr %fIndex, align 4
-  %fSize = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 13
+  %fSize = getelementptr inbounds i8, ptr %resB, i64 128
   %2 = load i32, ptr %fSize, align 8
   %sub = add nsw i32 %2, -1
   %cmp4 = icmp eq i32 %1, %sub
@@ -1451,7 +1448,7 @@ if.then5:                                         ; preds = %if.end3
 if.else:                                          ; preds = %if.end3
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %fIndex, align 4
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %resB, i64 108
   %3 = load i32, ptr %fRes, align 4
   %shr = lshr i32 %3, 28
   switch i32 %shr, label %return [
@@ -1472,9 +1469,9 @@ sw.bb:                                            ; preds = %if.else, %if.else, 
   br label %return
 
 sw.bb8:                                           ; preds = %if.else, %if.else, %if.else
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %resB, i64 8
   %4 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %4, i64 0, i32 5
+  %fData2.i = getelementptr inbounds i8, ptr %4, i64 40
   %call12 = call i32 @res_getTableItemByIndex_75(ptr noundef nonnull %fData2.i, i32 noundef %3, i32 noundef %inc, ptr noundef nonnull %key)
   %5 = load ptr, ptr %fData.i, align 8
   %6 = load ptr, ptr %key, align 8
@@ -1487,9 +1484,9 @@ sw.bb8:                                           ; preds = %if.else, %if.else, 
   br label %return
 
 sw.bb19:                                          ; preds = %if.else, %if.else
-  %fData.i36 = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i36 = getelementptr inbounds i8, ptr %resB, i64 8
   %10 = load ptr, ptr %fData.i36, align 8
-  %fData2.i37 = getelementptr inbounds %struct.UResourceDataEntry, ptr %10, i64 0, i32 5
+  %fData2.i37 = getelementptr inbounds i8, ptr %10, i64 40
   %call23 = tail call i32 @res_getArrayItem_75(ptr noundef nonnull %fData2.i37, i32 noundef %3, i32 noundef %inc)
   %11 = load ptr, ptr %fData.i36, align 8
   %12 = load i32, ptr %fIndex, align 4
@@ -1531,13 +1528,13 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end3
-  %fSize = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 13
+  %fSize = getelementptr inbounds i8, ptr %resB, i64 128
   %1 = load i32, ptr %fSize, align 8
   %cmp5 = icmp sgt i32 %1, %indexR
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %land.lhs.true
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %resB, i64 108
   %2 = load i32, ptr %fRes, align 4
   %shr = lshr i32 %2, 28
   switch i32 %shr, label %return [
@@ -1558,9 +1555,9 @@ sw.bb:                                            ; preds = %if.then6, %if.then6
   br label %return
 
 sw.bb8:                                           ; preds = %if.then6, %if.then6, %if.then6
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %resB, i64 8
   %3 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 5
+  %fData2.i = getelementptr inbounds i8, ptr %3, i64 40
   %call11 = call i32 @res_getTableItemByIndex_75(ptr noundef nonnull %fData2.i, i32 noundef %2, i32 noundef %indexR, ptr noundef nonnull %key)
   %4 = load ptr, ptr %fData.i, align 8
   %5 = load ptr, ptr %key, align 8
@@ -1572,9 +1569,9 @@ sw.bb8:                                           ; preds = %if.then6, %if.then6
   br label %return
 
 sw.bb18:                                          ; preds = %if.then6, %if.then6
-  %fData.i35 = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i35 = getelementptr inbounds i8, ptr %resB, i64 8
   %8 = load ptr, ptr %fData.i35, align 8
-  %fData2.i36 = getelementptr inbounds %struct.UResourceDataEntry, ptr %8, i64 0, i32 5
+  %fData2.i36 = getelementptr inbounds i8, ptr %8, i64 40
   %call21 = tail call i32 @res_getArrayItem_75(ptr noundef nonnull %fData2.i36, i32 noundef %2, i32 noundef %indexR)
   %9 = load ptr, ptr %fData.i35, align 8
   %10 = getelementptr i8, ptr %resB, i64 24
@@ -1619,13 +1616,13 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end3
-  %fSize = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 13
+  %fSize = getelementptr inbounds i8, ptr %resB, i64 128
   %1 = load i32, ptr %fSize, align 8
   %cmp5 = icmp sgt i32 %1, %indexS
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %land.lhs.true
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %resB, i64 108
   %2 = load i32, ptr %fRes, align 4
   %shr = lshr i32 %2, 28
   switch i32 %shr, label %sw.default [
@@ -1643,24 +1640,24 @@ if.then6:                                         ; preds = %land.lhs.true
   ]
 
 sw.bb:                                            ; preds = %if.then6, %if.then6
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %resB, i64 8
   %3 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 5
+  %fData2.i = getelementptr inbounds i8, ptr %3, i64 40
   %call.i = tail call noundef ptr @res_getStringNoTrace_75(ptr noundef nonnull %fData2.i, i32 noundef %2, ptr noundef %len)
   br label %return
 
 sw.bb10:                                          ; preds = %if.then6, %if.then6, %if.then6
-  %fData.i34 = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i34 = getelementptr inbounds i8, ptr %resB, i64 8
   %4 = load ptr, ptr %fData.i34, align 8
-  %fData2.i35 = getelementptr inbounds %struct.UResourceDataEntry, ptr %4, i64 0, i32 5
+  %fData2.i35 = getelementptr inbounds i8, ptr %4, i64 40
   %call13 = call i32 @res_getTableItemByIndex_75(ptr noundef nonnull %fData2.i35, i32 noundef %2, i32 noundef %indexS, ptr noundef nonnull %key)
   %call19 = call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef nonnull %resB, i32 noundef %call13, i32 noundef %indexS, ptr noundef %len, ptr noundef nonnull %status)
   br label %return
 
 sw.bb20:                                          ; preds = %if.then6, %if.then6
-  %fData.i36 = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i36 = getelementptr inbounds i8, ptr %resB, i64 8
   %5 = load ptr, ptr %fData.i36, align 8
-  %fData2.i37 = getelementptr inbounds %struct.UResourceDataEntry, ptr %5, i64 0, i32 5
+  %fData2.i37 = getelementptr inbounds i8, ptr %5, i64 40
   %call23 = tail call i32 @res_getArrayItem_75(ptr noundef nonnull %fData2.i37, i32 noundef %2, i32 noundef %indexS)
   %call30 = tail call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef nonnull %resB, i32 noundef %call23, i32 noundef %indexS, ptr noundef %len, ptr noundef nonnull %status)
   br label %return
@@ -1768,20 +1765,20 @@ lor.lhs.false.i:                                  ; preds = %if.end19.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.i)
   store ptr %add.ptr26, ptr %path.addr.i, align 8
-  %fData.i13.i = getelementptr inbounds %struct.UResourceBundle, ptr %call.i34, i64 0, i32 1
+  %fData.i13.i = getelementptr inbounds i8, ptr %call.i34, i64 8
   %4 = load ptr, ptr %fData.i13.i, align 8
-  %fData2.i14.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %4, i64 0, i32 5
-  %fRes15.i = getelementptr inbounds %struct.UResourceBundle, ptr %call.i34, i64 0, i32 7
+  %fData2.i14.i = getelementptr inbounds i8, ptr %4, i64 40
+  %fRes15.i = getelementptr inbounds i8, ptr %call.i34, i64 108
   %5 = load i32, ptr %fRes15.i, align 4
   %call216.i = call i32 @res_findResource_75(ptr noundef nonnull %fData2.i14.i, i32 noundef %5, ptr noundef nonnull %path.addr.i, ptr noundef nonnull %key.i)
   %cmp3.not17.i = icmp eq i32 %call216.i, -1
   br i1 %cmp3.not17.i, label %if.else.i, label %if.then4.i
 
 do.body.i:                                        ; preds = %if.then4.i
-  %fData.i.i = getelementptr inbounds %struct.UResourceBundle, ptr %call.i.i, i64 0, i32 1
+  %fData.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %6 = load ptr, ptr %fData.i.i, align 8
-  %fData2.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %6, i64 0, i32 5
-  %fRes.i = getelementptr inbounds %struct.UResourceBundle, ptr %call.i.i, i64 0, i32 7
+  %fData2.i.i = getelementptr inbounds i8, ptr %6, i64 40
+  %fRes.i = getelementptr inbounds i8, ptr %call.i.i, i64 108
   %7 = load i32, ptr %fRes.i, align 4
   %call2.i = call i32 @res_findResource_75(ptr noundef nonnull %fData2.i.i, i32 noundef %7, ptr noundef nonnull %path.addr.i, ptr noundef nonnull %key.i)
   %cmp3.not.i = icmp eq i32 %call2.i, -1
@@ -1862,20 +1859,20 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %do.body.preheader, label %return
 
 do.body.preheader:                                ; preds = %lor.lhs.false
-  %fData.i13 = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i13 = getelementptr inbounds i8, ptr %resB, i64 8
   %1 = load ptr, ptr %fData.i13, align 8
-  %fData2.i14 = getelementptr inbounds %struct.UResourceDataEntry, ptr %1, i64 0, i32 5
-  %fRes15 = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fData2.i14 = getelementptr inbounds i8, ptr %1, i64 40
+  %fRes15 = getelementptr inbounds i8, ptr %resB, i64 108
   %2 = load i32, ptr %fRes15, align 4
   %call216 = call i32 @res_findResource_75(ptr noundef nonnull %fData2.i14, i32 noundef %2, ptr noundef nonnull %path.addr, ptr noundef nonnull %key)
   %cmp3.not17 = icmp eq i32 %call216, -1
   br i1 %cmp3.not17, label %if.else, label %if.then4
 
 do.body:                                          ; preds = %if.then4
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %call.i, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 5
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %call.i, i64 0, i32 7
+  %fData2.i = getelementptr inbounds i8, ptr %3, i64 40
+  %fRes = getelementptr inbounds i8, ptr %call.i, i64 108
   %4 = load i32, ptr %fRes, align 4
   %call2 = call i32 @res_findResource_75(ptr noundef nonnull %fData2.i, i32 noundef %4, ptr noundef nonnull %path.addr, ptr noundef nonnull %key)
   %cmp3.not = icmp eq i32 %call2, -1
@@ -1925,10 +1922,10 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.i, label %if.end.i, label %ures_getString_75.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %fData.i.i = getelementptr inbounds %struct.UResourceBundle, ptr %stack, i64 0, i32 1
+  %fData.i.i = getelementptr inbounds i8, ptr %stack, i64 8
   %1 = load ptr, ptr %fData.i.i, align 8
-  %fData2.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %1, i64 0, i32 5
-  %fRes.i = getelementptr inbounds %struct.UResourceBundle, ptr %stack, i64 0, i32 7
+  %fData2.i.i = getelementptr inbounds i8, ptr %1, i64 40
+  %fRes.i = getelementptr inbounds i8, ptr %stack, i64 108
   %2 = load i32, ptr %fRes.i, align 4
   %call.i.i = call noundef ptr @res_getStringNoTrace_75(ptr noundef nonnull %fData2.i.i, i32 noundef %2, ptr noundef nonnull %length)
   %cmp6.i = icmp eq ptr %call.i.i, null
@@ -1956,13 +1953,13 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp3, label %land.lhs.true4, label %if.end13
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %arrayidx5 = getelementptr inbounds i16, ptr %retval.0.i, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %retval.0.i, i64 2
   %6 = load i16, ptr %arrayidx5, align 2
   %cmp7 = icmp eq i16 %6, 8709
   br i1 %cmp7, label %land.lhs.true8, label %if.end13
 
 land.lhs.true8:                                   ; preds = %land.lhs.true4
-  %arrayidx9 = getelementptr inbounds i16, ptr %retval.0.i, i64 2
+  %arrayidx9 = getelementptr inbounds i8, ptr %retval.0.i, i64 4
   %7 = load i16, ptr %arrayidx9, align 2
   %cmp11 = icmp eq i16 %7, 8709
   br i1 %cmp11, label %if.then12, label %if.end13
@@ -2014,7 +2011,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %resB, i64 108
   %1 = load i32, ptr %fRes, align 4
   %shr.mask = and i32 %1, -268435456
   %cmp4 = icmp eq i32 %shr.mask, 536870912
@@ -2024,20 +2021,20 @@ if.end3:                                          ; preds = %if.end
   br i1 %or.cond1, label %if.then9, label %if.else119
 
 if.then9:                                         ; preds = %if.end3
-  %fResPath = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 4
+  %fResPath = getelementptr inbounds i8, ptr %resB, i64 32
   %4 = load ptr, ptr %fResPath, align 8
-  %fResPathLen = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 6
+  %fResPathLen = getelementptr inbounds i8, ptr %resB, i64 104
   %5 = load i32, ptr %fResPathLen, align 8
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %resB, i64 8
   %6 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %6, i64 0, i32 5
+  %fData2.i = getelementptr inbounds i8, ptr %6, i64 40
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %path.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorCode.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pathP.i)
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %path.i)
-  %len.i.i = getelementptr inbounds %"class.icu_75::CharString", ptr %path.i, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %path.i, i64 56
   store i32 0, ptr %len.i.i, align 8
   %7 = load ptr, ptr %path.i, align 8
   store i8 0, ptr %7, align 1
@@ -2047,7 +2044,7 @@ if.then9:                                         ; preds = %if.end3
 
 invoke.cont.i:                                    ; preds = %if.then9
   %8 = load ptr, ptr %agg.tmp.i, align 8
-  %9 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp.i, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %10 = load i32, ptr %9, align 8
   %call3.i20.i = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %path.i, ptr noundef %8, i32 noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
           to label %invoke.cont1.i unwind label %lpad.loopexit.split-lp.i
@@ -2148,7 +2145,7 @@ _ZL21getTableItemByKeyPathPK12ResourceDatajPKc.exit: ; preds = %while.end.i
 if.then14:                                        ; preds = %_ZL21getTableItemByKeyPathPK12ResourceDatajPKc.exit.thread, %_ZL21getTableItemByKeyPathPK12ResourceDatajPKc.exit
   %15 = load ptr, ptr %fData.i, align 8
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %path)
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %path, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %path, i64 56
   store i32 0, ptr %len.i, align 8
   %16 = load ptr, ptr %path, align 8
   store i8 0, ptr %16, align 1
@@ -2156,7 +2153,7 @@ if.then14:                                        ; preds = %_ZL21getTableItemBy
   %17 = load ptr, ptr %fResPath, align 8
   %18 = load i32, ptr %fResPathLen, align 8
   %19 = getelementptr i8, ptr %resB, i64 24
-  %fParent197 = getelementptr inbounds %struct.UResourceDataEntry, ptr %15, i64 0, i32 2
+  %fParent197 = getelementptr inbounds i8, ptr %15, i64 16
   %20 = load ptr, ptr %fParent197, align 8
   %cmp18198 = icmp ne ptr %20, null
   br label %while.body
@@ -2171,9 +2168,9 @@ while.body:                                       ; preds = %if.then14, %if.end6
   %len.0143199 = phi i32 [ %18, %if.then14 ], [ %len.3, %if.end60 ]
   %didRootOnce.0. = select i1 %cmp18204, i8 %didRootOnce.0140202, i8 1
   %.dataEntry.0 = select i1 %cmp18204, ptr %21, ptr %dataEntry.0141201
-  %rootRes26 = getelementptr inbounds %struct.UResourceDataEntry, ptr %.dataEntry.0, i64 0, i32 5, i32 4
+  %rootRes26 = getelementptr inbounds i8, ptr %.dataEntry.0, i64 72
   %22 = load i32, ptr %rootRes26, align 8
-  %fBogus = getelementptr inbounds %struct.UResourceDataEntry, ptr %.dataEntry.0, i64 0, i32 8
+  %fBogus = getelementptr inbounds i8, ptr %.dataEntry.0, i64 112
   %23 = load i32, ptr %fBogus, align 8
   %cmp27 = icmp eq i32 %23, 0
   br i1 %cmp27, label %if.then28, label %if.end60
@@ -2218,7 +2215,7 @@ do.body:                                          ; preds = %do.cond, %if.end34
   %dataEntry.2 = phi ptr [ %.dataEntry.0, %if.end34 ], [ %dataEntry.3, %do.cond ]
   %resPath.1 = phi ptr [ %resPath.0142200, %if.end34 ], [ %resPath.2, %do.cond ]
   %len.1 = phi i32 [ %len.0143199, %if.end34 ], [ %len.2, %do.cond ]
-  %fData37 = getelementptr inbounds %struct.UResourceDataEntry, ptr %dataEntry.2, i64 0, i32 5
+  %fData37 = getelementptr inbounds i8, ptr %dataEntry.2, i64 40
   %call39 = invoke i32 @res_findResource_75(ptr noundef nonnull %fData37, i32 noundef %rootRes.0, ptr noundef nonnull %myPath, ptr noundef nonnull %key)
           to label %invoke.cont38 unwind label %lpad.loopexit
 
@@ -2244,13 +2241,13 @@ invoke.cont44:                                    ; preds = %if.then43
   br i1 %tobool46.not, label %if.then62, label %if.then47
 
 if.then47:                                        ; preds = %invoke.cont44
-  %fData48 = getelementptr inbounds %struct.UResourceBundle, ptr %call.i94, i64 0, i32 1
+  %fData48 = getelementptr inbounds i8, ptr %call.i94, i64 8
   %28 = load ptr, ptr %fData48, align 8
-  %fRes49 = getelementptr inbounds %struct.UResourceBundle, ptr %call.i94, i64 0, i32 7
+  %fRes49 = getelementptr inbounds i8, ptr %call.i94, i64 108
   %29 = load i32, ptr %fRes49, align 4
-  %fResPath50 = getelementptr inbounds %struct.UResourceBundle, ptr %call.i94, i64 0, i32 4
+  %fResPath50 = getelementptr inbounds i8, ptr %call.i94, i64 32
   %30 = load ptr, ptr %fResPath50, align 8
-  %fResPathLen51 = getelementptr inbounds %struct.UResourceBundle, ptr %call.i94, i64 0, i32 6
+  %fResPathLen51 = getelementptr inbounds i8, ptr %call.i94, i64 104
   %31 = load i32, ptr %fResPathLen51, align 8
   br label %do.cond
 
@@ -2274,7 +2271,7 @@ if.end60:                                         ; preds = %if.else54, %while.b
   %dataEntry.4 = phi ptr [ %.dataEntry.0, %while.body ], [ %dataEntry.2, %if.else54 ]
   %resPath.3 = phi ptr [ %resPath.0142200, %while.body ], [ %resPath.1, %if.else54 ]
   %len.3 = phi i32 [ %len.0143199, %while.body ], [ %len.1, %if.else54 ]
-  %fParent = getelementptr inbounds %struct.UResourceDataEntry, ptr %dataEntry.4, i64 0, i32 2
+  %fParent = getelementptr inbounds i8, ptr %dataEntry.4, i64 16
   %34 = load ptr, ptr %fParent, align 8
   %cmp18 = icmp ne ptr %34, null
   %35 = and i8 %didRootOnce.0., 1
@@ -2317,7 +2314,7 @@ invoke.cont74:                                    ; preds = %if.end73
   br i1 %cmp76.not, label %if.else79, label %if.else95.invoke
 
 if.else79:                                        ; preds = %invoke.cont74
-  %fResPath80 = getelementptr inbounds %struct.UResourceBundle, ptr %call.i95, i64 0, i32 4
+  %fResPath80 = getelementptr inbounds i8, ptr %call.i95, i64 32
   %40 = load ptr, ptr %fResPath80, align 8
   %cmp81.not = icmp eq ptr %40, null
   br i1 %cmp81.not, label %if.else95.invoke, label %if.end85
@@ -2345,10 +2342,10 @@ if.else95.invoke:                                 ; preds = %if.end85, %land.lhs
           to label %if.end98 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 if.end98:                                         ; preds = %if.else95.invoke
-  %fResPath.i = getelementptr inbounds %struct.UResourceBundle, ptr %call.i95, i64 0, i32 4
+  %fResPath.i = getelementptr inbounds i8, ptr %call.i95, i64 32
   %44 = load ptr, ptr %fResPath.i, align 8
   %tobool.not.i = icmp eq ptr %44, null
-  %fResBuf.i = getelementptr inbounds %struct.UResourceBundle, ptr %call.i95, i64 0, i32 5
+  %fResBuf.i = getelementptr inbounds i8, ptr %call.i95, i64 40
   %cmp.not.i = icmp eq ptr %44, %fResBuf.i
   %or.cond.i97 = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i
   br i1 %or.cond.i97, label %invoke.cont99, label %if.then.i
@@ -2359,7 +2356,7 @@ if.then.i:                                        ; preds = %if.end98
 
 invoke.cont99:                                    ; preds = %if.end98, %if.then.i
   store ptr null, ptr %fResPath.i, align 8
-  %fResPathLen.i = getelementptr inbounds %struct.UResourceBundle, ptr %call.i95, i64 0, i32 6
+  %fResPathLen.i = getelementptr inbounds i8, ptr %call.i95, i64 104
   store i32 0, ptr %fResPathLen.i, align 8
   %45 = load ptr, ptr %path, align 8
   %46 = load i32, ptr %len.i, align 8
@@ -2421,9 +2418,9 @@ return:                                           ; preds = %cleanup, %entry, %l
 define internal fastcc void @_ZL10createPathPKciS0_iS0_RN6icu_7510CharStringEP10UErrorCode(ptr noundef readonly %origResPath, i32 noundef %origResPathLen, ptr noundef %resPath, i32 noundef %resPathLen, ptr noundef %inKey, ptr noundef nonnull align 8 dereferenceable(60) %path, ptr noundef %status) unnamed_addr #1 {
 entry:
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
-  %agg.tmp.sroa.gep = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %agg.tmp.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %agg.tmp77 = alloca %"class.icu_75::StringPiece", align 8
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %path, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %path, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %path, align 8
   store i8 0, ptr %0, align 1
@@ -2533,7 +2530,7 @@ if.end75:                                         ; preds = %while.end68, %land.
   br label %if.end79
 
 if.else:                                          ; preds = %entry
-  %agg.tmp77.sroa.gep = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp77, i64 0, i32 1
+  %agg.tmp77.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp77, i64 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp77, ptr noundef %inKey)
   br label %if.end79
 
@@ -2556,7 +2553,7 @@ define void @ures_getAllChildrenWithFallback_75(ptr noundef %bundle, ptr noundef
 entry:
   %allChildrenSink = alloca %"struct.(anonymous namespace)::GetAllChildrenSink", align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118GetAllChildrenSinkE, i64 0, inrange i32 0, i64 2), ptr %allChildrenSink, align 8
-  %dest2.i = getelementptr inbounds %"struct.(anonymous namespace)::GetAllChildrenSink", ptr %allChildrenSink, i64 0, i32 1
+  %dest2.i = getelementptr inbounds i8, ptr %allChildrenSink, i64 8
   store ptr %sink, ptr %dest2.i, align 8
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %bundle, ptr noundef %path, ptr noundef nonnull align 8 dereferenceable(8) %allChildrenSink, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont unwind label %lpad
@@ -2612,8 +2609,8 @@ lpad:                                             ; preds = %if.else
 invoke.cont14:                                    ; preds = %invoke.cont6, %if.end2
   %rb.0 = phi ptr [ %call7, %invoke.cont6 ], [ %bundle, %if.end2 ]
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 0, inrange i32 0, i64 2), ptr %value, align 8
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 1
-  %res.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 3
+  %pResData.i = getelementptr inbounds i8, ptr %value, i64 8
+  %res.i = getelementptr inbounds i8, ptr %value, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pResData.i, i8 0, i64 16, i1 false)
   store i32 -1, ptr %res.i, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_123getAllItemsWithFallbackEPK15UResourceBundleRN6icu_7517ResourceDataValueERNS3_12ResourceSinkER10UErrorCode(ptr noundef %rb.0, ptr noundef nonnull align 8 dereferenceable(29) %value, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -2677,18 +2674,18 @@ if.else:                                          ; preds = %if.end2
 
 if.end10:                                         ; preds = %if.end2, %if.else
   %rb.0 = phi ptr [ %call5, %if.else ], [ %bundle, %if.end2 ]
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %rb.0, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %rb.0, i64 8
   %3 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 5
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 1
+  %fData2.i = getelementptr inbounds i8, ptr %3, i64 40
+  %pResData.i = getelementptr inbounds i8, ptr %value, i64 8
   store ptr %fData2.i, ptr %pResData.i, align 8
-  %fValidLocaleDataEntry = getelementptr inbounds %struct.UResourceBundle, ptr %rb.0, i64 0, i32 3
+  %fValidLocaleDataEntry = getelementptr inbounds i8, ptr %rb.0, i64 24
   %4 = load ptr, ptr %fValidLocaleDataEntry, align 8
-  %validLocaleDataEntry.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 2
+  %validLocaleDataEntry.i = getelementptr inbounds i8, ptr %value, i64 16
   store ptr %4, ptr %validLocaleDataEntry.i, align 8
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %rb.0, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %rb.0, i64 108
   %5 = load i32, ptr %fRes, align 4
-  %res.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 3
+  %res.i = getelementptr inbounds i8, ptr %value, i64 24
   store i32 %5, ptr %res.i, align 8
   br label %return
 
@@ -2707,90 +2704,90 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end42
 
 if.end:                                           ; preds = %entry
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %bundle, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %bundle, i64 8
   %1 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %1, i64 0, i32 5
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 1
+  %fData2.i = getelementptr inbounds i8, ptr %1, i64 40
+  %pResData.i = getelementptr inbounds i8, ptr %value, i64 8
   store ptr %fData2.i, ptr %pResData.i, align 8
-  %fValidLocaleDataEntry = getelementptr inbounds %struct.UResourceBundle, ptr %bundle, i64 0, i32 3
+  %fValidLocaleDataEntry = getelementptr inbounds i8, ptr %bundle, i64 24
   %2 = load ptr, ptr %fValidLocaleDataEntry, align 8
-  %validLocaleDataEntry.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 2
+  %validLocaleDataEntry.i = getelementptr inbounds i8, ptr %value, i64 16
   store ptr %2, ptr %validLocaleDataEntry.i, align 8
   %3 = load ptr, ptr %fData.i, align 8
-  %fParent = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 2
+  %fParent = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %fParent, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
-  %fBogus = getelementptr inbounds %struct.UResourceDataEntry, ptr %4, i64 0, i32 8
+  %fBogus = getelementptr inbounds i8, ptr %4, i64 112
   %5 = load i32, ptr %fBogus, align 8
   %cmp.i33 = icmp slt i32 %5, 1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end
   %6 = phi i1 [ false, %if.end ], [ %cmp.i33, %land.rhs ]
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %bundle, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %bundle, i64 108
   %7 = load i32, ptr %fRes, align 4
-  %res.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 3
+  %res.i = getelementptr inbounds i8, ptr %value, i64 24
   store i32 %7, ptr %res.i, align 8
   %8 = load ptr, ptr %bundle, align 8
   %lnot = xor i1 %6, true
   %conv5 = zext i1 %lnot to i8
   %vtable = load ptr, ptr %sink, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 noundef signext %conv5, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br i1 %6, label %if.then7, label %if.end42
 
 if.then7:                                         ; preds = %land.end
   call void @_ZN6icu_7520StackUResourceBundleC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %parentBundle)
-  %fData9 = getelementptr inbounds %struct.UResourceBundle, ptr %parentBundle, i64 0, i32 1
+  %fData9 = getelementptr inbounds i8, ptr %parentBundle, i64 8
   store ptr %4, ptr %fData9, align 8
   %10 = load ptr, ptr %fValidLocaleDataEntry, align 8
-  %fValidLocaleDataEntry11 = getelementptr inbounds %struct.UResourceBundle, ptr %parentBundle, i64 0, i32 3
+  %fValidLocaleDataEntry11 = getelementptr inbounds i8, ptr %parentBundle, i64 24
   store ptr %10, ptr %fValidLocaleDataEntry11, align 8
-  %fData2.i36 = getelementptr inbounds %struct.UResourceDataEntry, ptr %4, i64 0, i32 5
-  %noFallback = getelementptr inbounds %struct.UResourceDataEntry, ptr %4, i64 0, i32 5, i32 9
+  %fData2.i36 = getelementptr inbounds i8, ptr %4, i64 40
+  %noFallback = getelementptr inbounds i8, ptr %4, i64 96
   %11 = load i8, ptr %noFallback, align 8
   %tobool13.not = icmp eq i8 %11, 0
   %conv15 = zext i1 %tobool13.not to i8
-  %fHasFallback = getelementptr inbounds %struct.UResourceBundle, ptr %parentBundle, i64 0, i32 8
+  %fHasFallback = getelementptr inbounds i8, ptr %parentBundle, i64 112
   store i8 %conv15, ptr %fHasFallback, align 8
-  %fIsTopLevel = getelementptr inbounds %struct.UResourceBundle, ptr %parentBundle, i64 0, i32 9
+  %fIsTopLevel = getelementptr inbounds i8, ptr %parentBundle, i64 113
   store i8 1, ptr %fIsTopLevel, align 1
-  %rootRes = getelementptr inbounds %struct.UResourceDataEntry, ptr %4, i64 0, i32 5, i32 4
+  %rootRes = getelementptr inbounds i8, ptr %4, i64 72
   %12 = load i32, ptr %rootRes, align 8
-  %fRes17 = getelementptr inbounds %struct.UResourceBundle, ptr %parentBundle, i64 0, i32 7
+  %fRes17 = getelementptr inbounds i8, ptr %parentBundle, i64 108
   store i32 %12, ptr %fRes17, align 4
   %call21 = invoke i32 @res_countArrayItems_75(ptr noundef nonnull %fData2.i36, i32 noundef %12)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %if.then7
-  %fSize = getelementptr inbounds %struct.UResourceBundle, ptr %parentBundle, i64 0, i32 13
+  %fSize = getelementptr inbounds i8, ptr %parentBundle, i64 128
   store i32 %call21, ptr %fSize, align 8
-  %fIndex = getelementptr inbounds %struct.UResourceBundle, ptr %parentBundle, i64 0, i32 12
+  %fIndex = getelementptr inbounds i8, ptr %parentBundle, i64 124
   store i32 -1, ptr %fIndex, align 4
   invoke void @umtx_lock_75(ptr noundef nonnull @_ZL9resbMutex)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont20
-  %fCountExisting.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %4, i64 0, i32 7
+  %fCountExisting.i = getelementptr inbounds i8, ptr %4, i64 108
   %13 = load i32, ptr %fCountExisting.i, align 4
   %inc.i = add i32 %13, 1
   store i32 %inc.i, ptr %fCountExisting.i, align 4
-  %fParent4.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %4, i64 0, i32 2
+  %fParent4.i = getelementptr inbounds i8, ptr %4, i64 16
   %14 = load ptr, ptr %fParent4.i, align 8
   %cmp.not5.i = icmp eq ptr %14, null
   br i1 %cmp.not5.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %.noexc, %while.body.i
   %15 = phi ptr [ %17, %while.body.i ], [ %14, %.noexc ]
-  %fCountExisting3.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %15, i64 0, i32 7
+  %fCountExisting3.i = getelementptr inbounds i8, ptr %15, i64 108
   %16 = load i32, ptr %fCountExisting3.i, align 4
   %inc4.i = add i32 %16, 1
   store i32 %inc4.i, ptr %fCountExisting3.i, align 4
-  %fParent.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %15, i64 0, i32 2
+  %fParent.i = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load ptr, ptr %fParent.i, align 8
   %cmp.not.i = icmp eq ptr %17, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !6
@@ -2812,7 +2809,7 @@ invoke.cont22:                                    ; preds = %while.end.i
 
 invoke.cont23:                                    ; preds = %invoke.cont22
   store i32 0, ptr %pathErrorCode, align 4
-  %fResPath = getelementptr inbounds %struct.UResourceBundle, ptr %bundle, i64 0, i32 4
+  %fResPath = getelementptr inbounds i8, ptr %bundle, i64 32
   %20 = load ptr, ptr %fResPath, align 8
   %cmp24 = icmp eq ptr %20, null
   br i1 %cmp24, label %if.then39, label %lor.lhs.false
@@ -2888,7 +2885,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %resB, i64 108
   %1 = load i32, ptr %fRes, align 4
   %shr.mask = and i32 %1, -268435456
   %cmp4 = icmp eq i32 %shr.mask, 536870912
@@ -2898,9 +2895,9 @@ if.end3:                                          ; preds = %if.end
   br i1 %or.cond1, label %if.then9, label %if.else28
 
 if.then9:                                         ; preds = %if.end3
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %resB, i64 8
   %4 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %4, i64 0, i32 5
+  %fData2.i = getelementptr inbounds i8, ptr %4, i64 40
   %call12 = call i32 @res_getTableItemByKey_75(ptr noundef nonnull %fData2.i, i32 noundef %1, ptr noundef nonnull %t, ptr noundef nonnull %key)
   store i32 %call12, ptr %res, align 4
   %cmp13 = icmp eq i32 %call12, -1
@@ -2908,7 +2905,7 @@ if.then9:                                         ; preds = %if.end3
 
 if.then14:                                        ; preds = %if.then9
   store ptr %inKey, ptr %key, align 8
-  %fHasFallback = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 8
+  %fHasFallback = getelementptr inbounds i8, ptr %resB, i64 112
   %5 = load i8, ptr %fHasFallback, align 8
   %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.else23, label %if.then16
@@ -2962,7 +2959,7 @@ declare i32 @res_getTableItemByKey_75(ptr noundef, i32 noundef, ptr noundef, ptr
 define internal fastcc noundef ptr @_ZL15getFallbackDataPK15UResourceBundlePPKcPjP10UErrorCode(ptr nocapture noundef readonly %resBundle, ptr noundef %resTag, ptr nocapture noundef writeonly %res, ptr nocapture noundef writeonly %status) unnamed_addr #1 {
 entry:
   %indexR = alloca i32, align 4
-  %fData = getelementptr inbounds %struct.UResourceBundle, ptr %resBundle, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %resBundle, i64 8
   %0 = load ptr, ptr %fData, align 8
   store i32 -1, ptr %indexR, align 4
   store i32 -1, ptr %res, align 4
@@ -2970,24 +2967,24 @@ entry:
   br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fBogus = getelementptr inbounds %struct.UResourceDataEntry, ptr %0, i64 0, i32 8
+  %fBogus = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load i32, ptr %fBogus, align 8
   %cmp1 = icmp eq i32 %1, 0
   br i1 %cmp1, label %if.end5, label %if.end5.thread
 
 if.end5:                                          ; preds = %if.end
-  %fData3 = getelementptr inbounds %struct.UResourceDataEntry, ptr %0, i64 0, i32 5
-  %rootRes = getelementptr inbounds %struct.UResourceDataEntry, ptr %0, i64 0, i32 5, i32 4
+  %fData3 = getelementptr inbounds i8, ptr %0, i64 40
+  %rootRes = getelementptr inbounds i8, ptr %0, i64 72
   %2 = load i32, ptr %rootRes, align 8
   %call = call i32 @res_getTableItemByKey_75(ptr noundef nonnull %fData3, i32 noundef %2, ptr noundef nonnull %indexR, ptr noundef %resTag)
   store i32 %call, ptr %res, align 4
-  %fHasFallback = getelementptr inbounds %struct.UResourceBundle, ptr %resBundle, i64 0, i32 8
+  %fHasFallback = getelementptr inbounds i8, ptr %resBundle, i64 112
   %3 = load i8, ptr %fHasFallback, align 8
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end19, label %while.cond.preheader
 
 if.end5.thread:                                   ; preds = %if.end
-  %fHasFallback42 = getelementptr inbounds %struct.UResourceBundle, ptr %resBundle, i64 0, i32 8
+  %fHasFallback42 = getelementptr inbounds i8, ptr %resBundle, i64 112
   %4 = load i8, ptr %fHasFallback42, align 8
   %tobool.not43 = icmp eq i8 %4, 0
   br i1 %tobool.not43, label %return.sink.split, label %land.rhs.preheader
@@ -3004,21 +3001,21 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %.pr39 = phi i32 [ %.pr40, %if.end18 ], [ -1, %land.rhs.preheader ]
   %i.133 = phi i32 [ %i.2, %if.end18 ], [ %i.133.ph, %land.rhs.preheader ]
   %dataEntry.032 = phi ptr [ %5, %if.end18 ], [ %0, %land.rhs.preheader ]
-  %fParent = getelementptr inbounds %struct.UResourceDataEntry, ptr %dataEntry.032, i64 0, i32 2
+  %fParent = getelementptr inbounds i8, ptr %dataEntry.032, i64 16
   %5 = load ptr, ptr %fParent, align 8
   %cmp8.not = icmp eq ptr %5, null
   br i1 %cmp8.not, label %if.end19, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %fBogus10 = getelementptr inbounds %struct.UResourceDataEntry, ptr %5, i64 0, i32 8
+  %fBogus10 = getelementptr inbounds i8, ptr %5, i64 112
   %6 = load i32, ptr %fBogus10, align 8
   %cmp11 = icmp eq i32 %6, 0
   br i1 %cmp11, label %if.then12, label %if.end18
 
 if.then12:                                        ; preds = %while.body
   %inc13 = add nsw i32 %i.133, 1
-  %fData14 = getelementptr inbounds %struct.UResourceDataEntry, ptr %5, i64 0, i32 5
-  %rootRes16 = getelementptr inbounds %struct.UResourceDataEntry, ptr %5, i64 0, i32 5, i32 4
+  %fData14 = getelementptr inbounds i8, ptr %5, i64 40
+  %rootRes16 = getelementptr inbounds i8, ptr %5, i64 72
   %7 = load i32, ptr %rootRes16, align 8
   %call17 = call i32 @res_getTableItemByKey_75(ptr noundef nonnull %fData14, i32 noundef %7, ptr noundef nonnull %indexR, ptr noundef %resTag)
   store i32 %call17, ptr %res, align 4
@@ -3093,7 +3090,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %resB, i64 108
   %1 = load i32, ptr %fRes, align 4
   %shr.mask = and i32 %1, -268435456
   %cmp4 = icmp eq i32 %shr.mask, 536870912
@@ -3104,9 +3101,9 @@ if.end3:                                          ; preds = %if.end
 
 if.then9:                                         ; preds = %if.end3
   store i32 0, ptr %t, align 4
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %resB, i64 8
   %4 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %4, i64 0, i32 5
+  %fData2.i = getelementptr inbounds i8, ptr %4, i64 40
   %call12 = call i32 @res_getTableItemByKey_75(ptr noundef nonnull %fData2.i, i32 noundef %1, ptr noundef nonnull %t, ptr noundef nonnull %key)
   store i32 %call12, ptr %res, align 4
   %cmp13 = icmp eq i32 %call12, -1
@@ -3114,7 +3111,7 @@ if.then9:                                         ; preds = %if.end3
 
 if.then14:                                        ; preds = %if.then9
   store ptr %inKey, ptr %key, align 8
-  %fHasFallback = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 8
+  %fHasFallback = getelementptr inbounds i8, ptr %resB, i64 112
   %5 = load i8, ptr %fHasFallback, align 8
   %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.else27, label %if.then16
@@ -3135,7 +3132,7 @@ if.then20:                                        ; preds = %if.then16
   ]
 
 sw.bb:                                            ; preds = %if.then20, %if.then20
-  %fData = getelementptr inbounds %struct.UResourceDataEntry, ptr %call17, i64 0, i32 5
+  %fData = getelementptr inbounds i8, ptr %call17, i64 40
   %call.i = call noundef ptr @res_getStringNoTrace_75(ptr noundef nonnull %fData, i32 noundef %7, ptr noundef %len)
   br label %return
 
@@ -3167,7 +3164,7 @@ if.else29:                                        ; preds = %if.then9
 
 sw.bb31:                                          ; preds = %if.else29, %if.else29
   %8 = load ptr, ptr %fData.i, align 8
-  %fData2.i38 = getelementptr inbounds %struct.UResourceDataEntry, ptr %8, i64 0, i32 5
+  %fData2.i38 = getelementptr inbounds i8, ptr %8, i64 40
   %call.i39 = call noundef ptr @res_getStringNoTrace_75(ptr noundef nonnull %fData2.i38, i32 noundef %call12, ptr noundef %len)
   br label %return
 
@@ -3220,7 +3217,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %fData = getelementptr inbounds %struct.UResourceBundle, ptr %resourceBundle, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %resourceBundle, i64 8
   %1 = load ptr, ptr %fData, align 8
   %2 = load ptr, ptr %1, align 8
   br label %return
@@ -3250,7 +3247,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %ures_getLocaleInternal_75.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %resourceBundle, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %resourceBundle, i64 8
   %1 = load ptr, ptr %fData.i, align 8
   %2 = load ptr, ptr %1, align 8
   br label %ures_getLocaleInternal_75.exit
@@ -3286,13 +3283,13 @@ if.else:                                          ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.else
-  %fData = getelementptr inbounds %struct.UResourceBundle, ptr %resourceBundle, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %resourceBundle, i64 8
   %1 = load ptr, ptr %fData, align 8
   %2 = load ptr, ptr %1, align 8
   br label %return
 
 sw.bb3:                                           ; preds = %if.else
-  %fValidLocaleDataEntry = getelementptr inbounds %struct.UResourceBundle, ptr %resourceBundle, i64 0, i32 3
+  %fValidLocaleDataEntry = getelementptr inbounds i8, ptr %resourceBundle, i64 24
   %3 = load ptr, ptr %fValidLocaleDataEntry, align 8
   %4 = load ptr, ptr %3, align 8
   br label %return
@@ -3313,7 +3310,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %resB, i64 8
   %0 = load ptr, ptr %fData, align 8
   %1 = load ptr, ptr %0, align 8
   br label %return
@@ -3346,7 +3343,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %canonLocaleID)
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %canonLocaleID, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %canonLocaleID, i64 56
   store i32 0, ptr %len.i, align 8
   %1 = load ptr, ptr %canonLocaleID, align 8
   store i8 0, ptr %1, align 1
@@ -3435,7 +3432,7 @@ _ZL9initCacheP10UErrorCode.exit.i:                ; preds = %.noexc, %if.else.i.
 
 if.end.i:                                         ; preds = %_ZL9initCacheP10UErrorCode.exit.i
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %5, i64 noundef 156) #21
-  %arrayidx.i = getelementptr inbounds [157 x i8], ptr %name.i, i64 0, i64 156
+  %arrayidx.i = getelementptr inbounds i8, ptr %name.i, i64 156
   store i8 0, ptr %arrayidx.i, align 4
   %call15.i39 = invoke ptr @uloc_getDefault_75()
           to label %call15.i.noexc unwind label %lpad
@@ -3606,13 +3603,13 @@ land.lhs.true108.i:                               ; preds = %if.else106.i
   br i1 %cmp111.not.i, label %if.end128.thread.i, label %land.lhs.true112.i
 
 land.lhs.true112.i:                               ; preds = %land.lhs.true108.i
-  %fParent113.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %23, i64 0, i32 2
+  %fParent113.i = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %fParent113.i, align 8
   %cmp114.i = icmp eq ptr %25, null
   br i1 %cmp114.i, label %land.lhs.true115.i, label %if.end128.thread.i
 
 land.lhs.true115.i:                               ; preds = %land.lhs.true112.i
-  %noFallback.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %r.279.i, i64 0, i32 5, i32 9
+  %noFallback.i = getelementptr inbounds i8, ptr %r.279.i, i64 96
   %26 = load i8, ptr %noFallback.i, align 8
   %tobool116.not.i = icmp eq i8 %26, 0
   br i1 %tobool116.not.i, label %if.then117.i, label %if.end128.thread.i
@@ -3629,7 +3626,7 @@ if.end122.i:                                      ; preds = %invoke.cont118.i
   br i1 %hasRealData.178.i, label %if.then124.i, label %if.end128.thread.i
 
 if.then124.i:                                     ; preds = %if.end122.i
-  %fBogus125.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %r.279.i, i64 0, i32 8
+  %fBogus125.i = getelementptr inbounds i8, ptr %r.279.i, i64 112
   store i32 -127, ptr %fBogus125.i, align 8
   br label %if.end128.thread.i
 
@@ -3646,7 +3643,7 @@ if.end128.i:                                      ; preds = %if.end101.i
 land.rhs.lr.ph.split.us.i:                        ; preds = %if.end128.i, %if.end128.thread.i
   %t1.promoted104.i = phi ptr [ %t1.promoted101.i, %if.end128.thread.i ], [ %call98.i, %if.end128.i ]
   %r.3103.i = phi ptr [ %r.279.i, %if.end128.thread.i ], [ %call98.i, %if.end128.i ]
-  %fParent132.us88.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %t1.promoted104.i, i64 0, i32 2
+  %fParent132.us88.i = getelementptr inbounds i8, ptr %t1.promoted104.i, i64 16
   %28 = load ptr, ptr %fParent132.us88.i, align 8
   %cmp133.not.us89.i = icmp eq ptr %28, null
   br i1 %cmp133.not.us89.i, label %finish.loopexit.i, label %while.body.us.i
@@ -3654,12 +3651,12 @@ land.rhs.lr.ph.split.us.i:                        ; preds = %if.end128.i, %if.en
 while.body.us.i:                                  ; preds = %land.rhs.lr.ph.split.us.i, %while.body.us.i
   %29 = phi ptr [ %32, %while.body.us.i ], [ %28, %land.rhs.lr.ph.split.us.i ]
   %fParent132.us90.i = phi ptr [ %fParent132.us.i, %while.body.us.i ], [ %fParent132.us88.i, %land.rhs.lr.ph.split.us.i ]
-  %fCountExisting135.us.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %29, i64 0, i32 7
+  %fCountExisting135.us.i = getelementptr inbounds i8, ptr %29, i64 108
   %30 = load i32, ptr %fCountExisting135.us.i, align 4
   %inc.us.i = add i32 %30, 1
   store i32 %inc.us.i, ptr %fCountExisting135.us.i, align 4
   %31 = load ptr, ptr %fParent132.us90.i, align 8
-  %fParent132.us.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %31, i64 0, i32 2
+  %fParent132.us.i = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load ptr, ptr %fParent132.us.i, align 8
   %cmp133.not.us.i = icmp eq ptr %32, null
   br i1 %cmp133.not.us.i, label %finish.loopexit.i, label %while.body.us.i
@@ -3779,13 +3776,13 @@ invoke.cont.i58:                                  ; preds = %if.end6.i
   br i1 %cmp.i19.i, label %if.end15.thread.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %invoke.cont.i58
-  %fBogus.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %call7.i, i64 0, i32 8
+  %fBogus.i = getelementptr inbounds i8, ptr %call7.i, i64 112
   %41 = load i32, ptr %fBogus.i, align 8
   %cmp11.not.i = icmp eq i32 %41, 0
   br i1 %cmp11.not.i, label %land.lhs.true.i59, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.then10.i
-  %fCountExisting.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %call7.i, i64 0, i32 7
+  %fCountExisting.i = getelementptr inbounds i8, ptr %call7.i, i64 108
   %42 = load i32, ptr %fCountExisting.i, align 4
   %dec.i = add i32 %42, -1
   store i32 %dec.i, ptr %fCountExisting.i, align 4
@@ -3815,13 +3812,13 @@ land.lhs.true.i59:                                ; preds = %if.then10.i
   br i1 %cmp18.not.i, label %if.end54.i61, label %land.lhs.true19.i
 
 land.lhs.true19.i:                                ; preds = %land.lhs.true.i59
-  %fParent.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %call7.i, i64 0, i32 2
+  %fParent.i = getelementptr inbounds i8, ptr %call7.i, i64 16
   %46 = load ptr, ptr %fParent.i, align 8
   %cmp20.i = icmp eq ptr %46, null
   br i1 %cmp20.i, label %land.lhs.true21.i, label %if.end54.i61
 
 land.lhs.true21.i:                                ; preds = %land.lhs.true19.i
-  %noFallback.i63 = getelementptr inbounds %struct.UResourceDataEntry, ptr %call7.i, i64 0, i32 5, i32 9
+  %noFallback.i63 = getelementptr inbounds i8, ptr %call7.i, i64 96
   %47 = load i8, ptr %noFallback.i63, align 8
   %tobool22.not.i = icmp eq i8 %47, 0
   br i1 %tobool22.not.i, label %land.lhs.true23.i, label %if.end54.i61
@@ -3863,7 +3860,7 @@ if.then39.i:                                      ; preds = %invoke.cont36.if.th
   br i1 %cmp41.not.i, label %if.end49.i, label %land.lhs.true42.i
 
 land.lhs.true42.i:                                ; preds = %if.then39.i
-  %fParent43.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %48, i64 0, i32 2
+  %fParent43.i = getelementptr inbounds i8, ptr %48, i64 16
   %50 = load ptr, ptr %fParent43.i, align 8
   %cmp44.i = icmp eq ptr %50, null
   br i1 %cmp44.i, label %if.then45.i68, label %if.end49.i
@@ -3883,7 +3880,7 @@ if.end49.if.end54_crit_edge.i:                    ; preds = %if.end49.i
 
 if.end54.i61:                                     ; preds = %if.end49.if.end54_crit_edge.i, %land.lhs.true23.i, %land.lhs.true21.i, %land.lhs.true19.i, %land.lhs.true.i59
   %t1.promoted.i = phi ptr [ %t1.promoted.pre.i, %if.end49.if.end54_crit_edge.i ], [ %call7.i, %land.lhs.true23.i ], [ %call7.i, %land.lhs.true21.i ], [ %call7.i, %land.lhs.true19.i ], [ %call7.i, %land.lhs.true.i59 ]
-  %fParent5733.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %t1.promoted.i, i64 0, i32 2
+  %fParent5733.i = getelementptr inbounds i8, ptr %t1.promoted.i, i64 16
   %52 = load ptr, ptr %fParent5733.i, align 8
   %cmp58.not34.i = icmp eq ptr %52, null
   br i1 %cmp58.not34.i, label %if.end62.loopexit.i, label %while.body.i
@@ -3891,12 +3888,12 @@ if.end54.i61:                                     ; preds = %if.end49.if.end54_c
 while.body.i:                                     ; preds = %if.end54.i61, %while.body.i
   %53 = phi ptr [ %56, %while.body.i ], [ %52, %if.end54.i61 ]
   %fParent5735.i = phi ptr [ %fParent57.i, %while.body.i ], [ %fParent5733.i, %if.end54.i61 ]
-  %fCountExisting60.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %53, i64 0, i32 7
+  %fCountExisting60.i = getelementptr inbounds i8, ptr %53, i64 108
   %54 = load i32, ptr %fCountExisting60.i, align 4
   %inc.i = add i32 %54, 1
   store i32 %inc.i, ptr %fCountExisting60.i, align 4
   %55 = load ptr, ptr %fParent5735.i, align 8
-  %fParent57.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %55, i64 0, i32 2
+  %fParent57.i = getelementptr inbounds i8, ptr %55, i64 16
   %56 = load ptr, ptr %fParent57.i, align 8
   %cmp58.not.i = icmp eq ptr %56, null
   br i1 %cmp58.not.i, label %if.end62.loopexit.i, label %while.body.i, !llvm.loop !19
@@ -3965,7 +3962,7 @@ if.then25:                                        ; preds = %if.then22
   br label %return
 
 if.else27:                                        ; preds = %if.end20
-  %fMagic1.i = getelementptr inbounds %struct.UResourceBundle, ptr %r, i64 0, i32 10
+  %fMagic1.i = getelementptr inbounds i8, ptr %r, i64 116
   %61 = load i32, ptr %fMagic1.i, align 4
   %cmp.i74 = icmp eq i32 %61, 19700503
   br i1 %cmp.i74, label %if.end29, label %.thread110
@@ -3975,7 +3972,7 @@ if.else27:                                        ; preds = %if.end20
   br label %.sink.split
 
 if.end29:                                         ; preds = %if.else27
-  %fMagic2.i = getelementptr inbounds %struct.UResourceBundle, ptr %r, i64 0, i32 11
+  %fMagic2.i = getelementptr inbounds i8, ptr %r, i64 120
   %62 = load i32, ptr %fMagic2.i, align 8
   %.fr = freeze i32 %62
   %cmp1.i.not = icmp eq i32 %.fr, 19641227
@@ -3996,18 +3993,18 @@ if.end29:                                         ; preds = %if.else27
   %64 = phi i32 [ %.ph, %.sink.split ], [ %spec.select, %if.end29 ]
   %r.addr.097108 = phi ptr [ %call23.sink, %.sink.split ], [ %r, %if.end29 ]
   %65 = phi i32 [ %.ph116, %.sink.split ], [ %spec.select118, %if.end29 ]
-  %66 = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.097108, i64 0, i32 10
+  %66 = getelementptr inbounds i8, ptr %r.addr.097108, i64 116
   store i32 %64, ptr %66, align 4
-  %67 = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.097108, i64 0, i32 11
+  %67 = getelementptr inbounds i8, ptr %r.addr.097108, i64 120
   store i32 %65, ptr %67, align 8
-  %fData = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.097108, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %r.addr.097108, i64 8
   store ptr %entry1.1, ptr %fData, align 8
-  %fValidLocaleDataEntry = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.097108, i64 0, i32 3
+  %fValidLocaleDataEntry = getelementptr inbounds i8, ptr %r.addr.097108, i64 24
   store ptr %entry1.1, ptr %fValidLocaleDataEntry, align 8
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %63
-  %noFallback = getelementptr inbounds %struct.UResourceDataEntry, ptr %entry1.1, i64 0, i32 5, i32 9
+  %noFallback = getelementptr inbounds i8, ptr %entry1.1, i64 96
   %68 = load i8, ptr %noFallback, align 8
   %tobool32.not = icmp eq i8 %68, 0
   %69 = zext i1 %tobool32.not to i8
@@ -4015,19 +4012,19 @@ land.rhs:                                         ; preds = %63
 
 land.end:                                         ; preds = %land.rhs, %63
   %conv = phi i8 [ 0, %63 ], [ %69, %land.rhs ]
-  %fHasFallback = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.097108, i64 0, i32 8
+  %fHasFallback = getelementptr inbounds i8, ptr %r.addr.097108, i64 112
   store i8 %conv, ptr %fHasFallback, align 8
-  %fIsTopLevel = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.097108, i64 0, i32 9
+  %fIsTopLevel = getelementptr inbounds i8, ptr %r.addr.097108, i64 113
   store i8 1, ptr %fIsTopLevel, align 1
-  %fData2.i76 = getelementptr inbounds %struct.UResourceDataEntry, ptr %entry1.1, i64 0, i32 5
-  %rootRes = getelementptr inbounds %struct.UResourceDataEntry, ptr %entry1.1, i64 0, i32 5, i32 4
+  %fData2.i76 = getelementptr inbounds i8, ptr %entry1.1, i64 40
+  %rootRes = getelementptr inbounds i8, ptr %entry1.1, i64 72
   %70 = load i32, ptr %rootRes, align 8
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.097108, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %r.addr.097108, i64 108
   store i32 %70, ptr %fRes, align 4
   %call36 = call i32 @res_countArrayItems_75(ptr noundef nonnull %fData2.i76, i32 noundef %70)
-  %fSize = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.097108, i64 0, i32 13
+  %fSize = getelementptr inbounds i8, ptr %r.addr.097108, i64 128
   store i32 %call36, ptr %fSize, align 8
-  %fIndex = getelementptr inbounds %struct.UResourceBundle, ptr %r.addr.097108, i64 0, i32 12
+  %fIndex = getelementptr inbounds i8, ptr %r.addr.097108, i64 124
   store i32 -1, ptr %fIndex, align 4
   br label %return
 
@@ -4115,15 +4112,15 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %call4 = call ptr @ures_getByKey_75(ptr noundef nonnull %resourceBundle, ptr noundef %resourceKey, ptr noundef nonnull %resData, ptr noundef nonnull %status)
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %resData, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %resData, i64 8
   %1 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %1, i64 0, i32 5
+  %fData2.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %fData2.i, align 8
   %cmp6.not = icmp eq ptr %2, null
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %if.end3
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resData, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %resData, i64 108
   %3 = load i32, ptr %fRes, align 4
   %call9 = call i32 @res_countArrayItems_75(ptr noundef nonnull %fData2.i, i32 noundef %3)
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %resData, i8 noundef signext 1)
@@ -4150,7 +4147,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fVersion = getelementptr inbounds %struct.UResourceBundle, ptr %resourceBundle, i64 0, i32 2
+  %fVersion = getelementptr inbounds i8, ptr %resourceBundle, i64 16
   %0 = load ptr, ptr %fVersion, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then1, label %return
@@ -4207,7 +4204,7 @@ entry:
   br i1 %tobool.not.i, label %ures_getVersionNumberInternal_75.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %fVersion.i = getelementptr inbounds %struct.UResourceBundle, ptr %resourceBundle, i64 0, i32 2
+  %fVersion.i = getelementptr inbounds i8, ptr %resourceBundle, i64 16
   %0 = load ptr, ptr %fVersion.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then1.i, label %ures_getVersionNumberInternal_75.exit
@@ -4261,7 +4258,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %minor_len.i)
-  %fVersion.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 2
+  %fVersion.i = getelementptr inbounds i8, ptr %resB, i64 16
   %0 = load ptr, ptr %fVersion.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then1.i, label %ures_getVersionNumberInternal_75.exit
@@ -4341,7 +4338,7 @@ do.body:                                          ; preds = %if.end
   br i1 %cmp.i18, label %if.else, label %if.then12
 
 if.then12:                                        ; preds = %do.body
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %call2, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %call1, ptr %context, align 8
   br label %if.end14
 
@@ -4388,7 +4385,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %defVal, i8 0, i64 1024, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %defLoc, i8 0, i64 1024, i1 false)
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %base)
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %base, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %base, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %base, align 8
   store i8 0, ptr %0, align 1
@@ -4410,7 +4407,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %if.end
-  %len.i75 = getelementptr inbounds %"class.icu_75::CharString", ptr %kwVal, i64 0, i32 1
+  %len.i75 = getelementptr inbounds i8, ptr %kwVal, i64 56
   store i32 0, ptr %len.i75, align 8
   %3 = load ptr, ptr %kwVal, align 8
   store i8 0, ptr %3, align 1
@@ -4428,7 +4425,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 
 invoke.cont6:                                     ; preds = %invoke.cont5
   %4 = load ptr, ptr %agg.tmp, align 8
-  %5 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = load i32, ptr %len.i75, align 8
   %cmp.i77 = icmp eq i32 %7, %6
@@ -4627,7 +4624,7 @@ if.end86:                                         ; preds = %if.else.thread, %if
   br i1 %cmp87.not, label %if.end93, label %invoke.cont90
 
 invoke.cont90:                                    ; preds = %if.end86
-  %fValidLocaleDataEntry.i = getelementptr inbounds %struct.UResourceBundle, ptr %call.i86, i64 0, i32 3
+  %fValidLocaleDataEntry.i = getelementptr inbounds i8, ptr %call.i86, i64 24
   %19 = load ptr, ptr %fValidLocaleDataEntry.i, align 8
   %20 = load ptr, ptr %19, align 8
   %call92 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %found, ptr noundef nonnull dereferenceable(1) %20) #21
@@ -4763,7 +4760,7 @@ land.lhs.true191:                                 ; preds = %if.end189
 
 invoke.cont195:                                   ; preds = %land.lhs.true191
   store i32 0, ptr %subStatus, align 4
-  %fValidLocaleDataEntry.i109 = getelementptr inbounds %struct.UResourceBundle, ptr %call.i98, i64 0, i32 3
+  %fValidLocaleDataEntry.i109 = getelementptr inbounds i8, ptr %call.i98, i64 24
   %31 = load ptr, ptr %fValidLocaleDataEntry.i109, align 8
   %32 = load ptr, ptr %31, align 8
   %cmp201.not = icmp eq ptr %32, null
@@ -4841,7 +4838,7 @@ land.lhs.true256:                                 ; preds = %land.rhs247, %do.en
 
 invoke.cont259:                                   ; preds = %land.lhs.true256
   %38 = load ptr, ptr %agg.tmp257, align 8
-  %39 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp257, i64 0, i32 1
+  %39 = getelementptr inbounds i8, ptr %agg.tmp257, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = load i32, ptr %len.i75, align 8
   %cmp.i.i119 = icmp eq i32 %41, %40
@@ -4871,7 +4868,7 @@ if.then262:                                       ; preds = %invoke.cont259.if.t
 
 invoke.cont267:                                   ; preds = %if.then262
   %44 = load ptr, ptr %agg.tmp265, align 8
-  %45 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp265, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %agg.tmp265, i64 8
   %46 = load i32, ptr %45, align 8
   %call3.i121 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %kwVal, ptr noundef %44, i32 noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %subStatus)
           to label %invoke.cont268 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -5013,7 +5010,7 @@ if.then376:                                       ; preds = %if.then370
 
 invoke.cont379:                                   ; preds = %if.then376
   %58 = load ptr, ptr %agg.tmp377, align 8
-  %59 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp377, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %agg.tmp377, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = load i32, ptr %len.i75, align 8
   %cmp.i135 = icmp eq i32 %61, %60
@@ -5184,10 +5181,10 @@ if.then2:                                         ; preds = %if.then
   br i1 %cmp1.i.i, label %if.end4.thread14, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then2
-  %fData.i.i.i = getelementptr inbounds %struct.UResourceBundle, ptr %bund1, i64 0, i32 1
+  %fData.i.i.i = getelementptr inbounds i8, ptr %bund1, i64 8
   %1 = load ptr, ptr %fData.i.i.i, align 8
-  %fData2.i.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %1, i64 0, i32 5
-  %fRes.i.i = getelementptr inbounds %struct.UResourceBundle, ptr %bund1, i64 0, i32 7
+  %fData2.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
+  %fRes.i.i = getelementptr inbounds i8, ptr %bund1, i64 108
   %2 = load i32, ptr %fRes.i.i, align 4
   %call.i.i.i = call noundef ptr @res_getStringNoTrace_75(ptr noundef nonnull %fData2.i.i.i, i32 noundef %2, ptr noundef nonnull %length16.i)
   %cmp6.i.i = icmp eq ptr %call.i.i.i, null
@@ -5281,7 +5278,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %valuesBuf, align 16
-  %arrayidx2 = getelementptr inbounds [2048 x i8], ptr %valuesBuf, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %valuesBuf, i64 1
   store i8 0, ptr %arrayidx2, align 1
   %call33559 = call ptr @uenum_next_75(ptr noundef %call, ptr noundef nonnull %locLen, ptr noundef nonnull %status)
   %cmp.not3660 = icmp eq ptr %call33559, null
@@ -5478,9 +5475,9 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %resB.addr.05.i = phi ptr [ %0, %while.body.i ], [ %resB, %entry ]
-  %fParent.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %resB.addr.05.i, i64 0, i32 2
+  %fParent.i = getelementptr inbounds i8, ptr %resB.addr.05.i, i64 16
   %0 = load ptr, ptr %fParent.i, align 8
-  %fCountExisting.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %resB.addr.05.i, i64 0, i32 7
+  %fCountExisting.i = getelementptr inbounds i8, ptr %resB.addr.05.i, i64 108
   %1 = load i32, ptr %fCountExisting.i, align 4
   %dec.i = add i32 %1, -1
   store i32 %dec.i, ptr %fCountExisting.i, align 4
@@ -5551,7 +5548,7 @@ if.then7:                                         ; preds = %if.then5
   br label %return
 
 if.end8:                                          ; preds = %if.then5
-  %fData = getelementptr inbounds %struct.UResourceDataEntry, ptr %dataEntry, i64 0, i32 5
+  %fData = getelementptr inbounds i8, ptr %dataEntry, i64 40
   %call9 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_130getAliasTargetAsResourceBundleERK12ResourceDatajPKciP18UResourceDataEntryS4_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %fData, i32 noundef %r, ptr noundef %key, i32 noundef %idx, ptr noundef nonnull %validLocaleDataEntry, ptr noundef %containerResPath, i32 noundef %recursionDepth, ptr noundef %resB, ptr noundef nonnull %status)
   br label %return
 
@@ -5569,15 +5566,15 @@ if.then15:                                        ; preds = %if.then12
   br label %return
 
 if.end16:                                         ; preds = %if.then12
-  %1 = getelementptr inbounds %struct.UResourceBundle, ptr %call13, i64 0, i32 10
+  %1 = getelementptr inbounds i8, ptr %call13, i64 116
   store i32 19700503, ptr %1, align 4
-  %2 = getelementptr inbounds %struct.UResourceBundle, ptr %call13, i64 0, i32 11
+  %2 = getelementptr inbounds i8, ptr %call13, i64 120
   store i32 19641227, ptr %2, align 8
-  %fResPath = getelementptr inbounds %struct.UResourceBundle, ptr %call13, i64 0, i32 4
+  %fResPath = getelementptr inbounds i8, ptr %call13, i64 32
   br label %if.end30.sink.split
 
 if.else:                                          ; preds = %if.end10
-  %fData17 = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 1
+  %fData17 = getelementptr inbounds i8, ptr %resB, i64 8
   %3 = load ptr, ptr %fData17, align 8
   %cmp18.not = icmp eq ptr %3, null
   br i1 %cmp18.not, label %if.end21, label %if.then19
@@ -5588,9 +5585,9 @@ if.then19:                                        ; preds = %if.else
 
 while.body.i.i:                                   ; preds = %if.then19, %while.body.i.i
   %resB.addr.05.i.i = phi ptr [ %4, %while.body.i.i ], [ %3, %if.then19 ]
-  %fParent.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %resB.addr.05.i.i, i64 0, i32 2
+  %fParent.i.i = getelementptr inbounds i8, ptr %resB.addr.05.i.i, i64 16
   %4 = load ptr, ptr %fParent.i.i, align 8
-  %fCountExisting.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %resB.addr.05.i.i, i64 0, i32 7
+  %fCountExisting.i.i = getelementptr inbounds i8, ptr %resB.addr.05.i.i, i64 108
   %5 = load i32, ptr %fCountExisting.i.i, align 4
   %dec.i.i = add i32 %5, -1
   store i32 %dec.i.i, ptr %fCountExisting.i.i, align 4
@@ -5609,7 +5606,7 @@ terminate.lpad.i.i:                               ; preds = %_ZL13entryCloseIntP
   unreachable
 
 if.end21:                                         ; preds = %_ZL13entryCloseIntP18UResourceDataEntry.exit.i, %if.else
-  %fVersion = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 2
+  %fVersion = getelementptr inbounds i8, ptr %resB, i64 16
   %8 = load ptr, ptr %fVersion, align 8
   %cmp22.not = icmp eq ptr %8, null
   br i1 %cmp22.not, label %if.end25, label %if.then23
@@ -5619,14 +5616,14 @@ if.then23:                                        ; preds = %if.end21
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then23, %if.end21
-  %fResPath26 = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 4
+  %fResPath26 = getelementptr inbounds i8, ptr %resB, i64 32
   %9 = load ptr, ptr %fResPath26, align 8
   %cmp27.not = icmp eq ptr %9, %containerResPath
   br i1 %cmp27.not, label %if.end30, label %if.then28
 
 if.then28:                                        ; preds = %if.end25
   %tobool.not.i = icmp eq ptr %9, null
-  %fResBuf.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB, i64 0, i32 5
+  %fResBuf.i = getelementptr inbounds i8, ptr %resB, i64 40
   %cmp.not.i = icmp eq ptr %9, %fResBuf.i
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i
   br i1 %or.cond.i, label %if.end30.sink.split, label %if.then.i
@@ -5639,31 +5636,31 @@ if.end30.sink.split:                              ; preds = %if.then.i, %if.then
   %fResPath26.sink = phi ptr [ %fResPath, %if.end16 ], [ %fResPath26, %if.then28 ], [ %fResPath26, %if.then.i ]
   %resB.sink = phi ptr [ %call13, %if.end16 ], [ %resB, %if.then28 ], [ %resB, %if.then.i ]
   store ptr null, ptr %fResPath26.sink, align 8
-  %fResPathLen.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB.sink, i64 0, i32 6
+  %fResPathLen.i = getelementptr inbounds i8, ptr %resB.sink, i64 104
   store i32 0, ptr %fResPathLen.i, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end30.sink.split, %if.end25
   %resB.addr.0 = phi ptr [ %resB, %if.end25 ], [ %resB.sink, %if.end30.sink.split ]
-  %fData31 = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 1
+  %fData31 = getelementptr inbounds i8, ptr %resB.addr.0, i64 8
   store ptr %dataEntry, ptr %fData31, align 8
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZL9resbMutex)
-  %fCountExisting.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %dataEntry, i64 0, i32 7
+  %fCountExisting.i = getelementptr inbounds i8, ptr %dataEntry, i64 108
   %10 = load i32, ptr %fCountExisting.i, align 4
   %inc.i = add i32 %10, 1
   store i32 %inc.i, ptr %fCountExisting.i, align 4
-  %fParent4.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %dataEntry, i64 0, i32 2
+  %fParent4.i = getelementptr inbounds i8, ptr %dataEntry, i64 16
   %11 = load ptr, ptr %fParent4.i, align 8
   %cmp.not5.i = icmp eq ptr %11, null
   br i1 %cmp.not5.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end30, %while.body.i
   %12 = phi ptr [ %14, %while.body.i ], [ %11, %if.end30 ]
-  %fCountExisting3.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %12, i64 0, i32 7
+  %fCountExisting3.i = getelementptr inbounds i8, ptr %12, i64 108
   %13 = load i32, ptr %fCountExisting3.i, align 4
   %inc4.i = add i32 %13, 1
   store i32 %inc4.i, ptr %fCountExisting3.i, align 4
-  %fParent.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %12, i64 0, i32 2
+  %fParent.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %fParent.i, align 8
   %cmp.not.i70 = icmp eq ptr %14, null
   br i1 %cmp.not.i70, label %while.end.i, label %while.body.i, !llvm.loop !6
@@ -5680,16 +5677,16 @@ terminate.lpad.i.i71:                             ; preds = %while.end.i
   unreachable
 
 _ZL13entryIncreaseP18UResourceDataEntry.exit:     ; preds = %while.end.i
-  %fHasFallback = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 8
+  %fHasFallback = getelementptr inbounds i8, ptr %resB.addr.0, i64 112
   store i8 0, ptr %fHasFallback, align 8
-  %fIsTopLevel = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 9
+  %fIsTopLevel = getelementptr inbounds i8, ptr %resB.addr.0, i64 113
   store i8 0, ptr %fIsTopLevel, align 1
-  %fIndex = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 12
+  %fIndex = getelementptr inbounds i8, ptr %resB.addr.0, i64 124
   store i32 -1, ptr %fIndex, align 4
   store ptr %key, ptr %resB.addr.0, align 8
-  %fValidLocaleDataEntry = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 3
+  %fValidLocaleDataEntry = getelementptr inbounds i8, ptr %resB.addr.0, i64 24
   store ptr %validLocaleDataEntry, ptr %fValidLocaleDataEntry, align 8
-  %fResPath33 = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 4
+  %fResPath33 = getelementptr inbounds i8, ptr %resB.addr.0, i64 32
   %17 = load ptr, ptr %fResPath33, align 8
   %cmp34.not = icmp eq ptr %17, %containerResPath
   br i1 %cmp34.not, label %if.end37, label %if.then35
@@ -5697,13 +5694,13 @@ _ZL13entryIncreaseP18UResourceDataEntry.exit:     ; preds = %while.end.i
 if.then35:                                        ; preds = %_ZL13entryIncreaseP18UResourceDataEntry.exit
   %call36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %containerResPath) #25
   %conv = trunc i64 %call36 to i32
-  %fResPathLen.i72 = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 6
+  %fResPathLen.i72 = getelementptr inbounds i8, ptr %resB.addr.0, i64 104
   %18 = load i32, ptr %fResPathLen.i72, align 8
   %cmp.i74 = icmp eq ptr %17, null
   br i1 %cmp.i74, label %if.then.i76, label %if.end.i
 
 if.then.i76:                                      ; preds = %if.then35
-  %fResBuf.i77 = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 5
+  %fResBuf.i77 = getelementptr inbounds i8, ptr %resB.addr.0, i64 40
   store ptr %fResBuf.i77, ptr %fResPath33, align 8
   store i8 0, ptr %fResBuf.i77, align 1
   br label %if.end.i
@@ -5718,7 +5715,7 @@ if.end.i:                                         ; preds = %if.then.i76, %if.th
 
 if.then8.i:                                       ; preds = %if.end.i
   %add6.i = add nuw nsw i32 %add.i, 1
-  %fResBuf10.i = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 5
+  %fResBuf10.i = getelementptr inbounds i8, ptr %resB.addr.0, i64 40
   %cmp12.i = icmp eq ptr %19, %fResBuf10.i
   %conv.i75 = zext nneg i32 %add6.i to i64
   br i1 %cmp12.i, label %if.then13.i, label %if.else.i
@@ -5764,14 +5761,14 @@ if.end37:                                         ; preds = %if.end36.i, %if.the
 if.then39:                                        ; preds = %if.end37
   %call40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #25
   %conv41 = trunc i64 %call40 to i32
-  %fResPathLen.i78 = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 6
+  %fResPathLen.i78 = getelementptr inbounds i8, ptr %resB.addr.0, i64 104
   %22 = load i32, ptr %fResPathLen.i78, align 8
   %23 = load ptr, ptr %fResPath33, align 8
   %cmp.i80 = icmp eq ptr %23, null
   br i1 %cmp.i80, label %if.then.i104, label %if.end.i81
 
 if.then.i104:                                     ; preds = %if.then39
-  %fResBuf.i105 = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 5
+  %fResBuf.i105 = getelementptr inbounds i8, ptr %resB.addr.0, i64 40
   store ptr %fResBuf.i105, ptr %fResPath33, align 8
   store i8 0, ptr %fResBuf.i105, align 1
   br label %if.end.i81
@@ -5786,7 +5783,7 @@ if.end.i81:                                       ; preds = %if.then.i104, %if.t
 
 if.then8.i88:                                     ; preds = %if.end.i81
   %add6.i89 = add nuw nsw i32 %add.i82, 1
-  %fResBuf10.i90 = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 5
+  %fResBuf10.i90 = getelementptr inbounds i8, ptr %resB.addr.0, i64 40
   %cmp12.i91 = icmp eq ptr %24, %fResBuf10.i90
   %conv.i92 = zext nneg i32 %add6.i89 to i64
   br i1 %cmp12.i91, label %if.then13.i98, label %if.else.i93
@@ -5847,7 +5844,7 @@ if.then50:                                        ; preds = %if.else48
   %call51 = call i32 @T_CString_integerToString_75(ptr noundef nonnull %buf, i32 noundef %idx, i32 noundef 10)
   call fastcc void @_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode(ptr noundef nonnull %resB.addr.0, ptr noundef nonnull %buf, i32 noundef %call51, ptr noundef nonnull %status)
   %32 = load ptr, ptr %fResPath33, align 8
-  %fResPathLen54 = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 6
+  %fResPathLen54 = getelementptr inbounds i8, ptr %resB.addr.0, i64 104
   %33 = load i32, ptr %fResPathLen54, align 8
   %34 = sext i32 %33 to i64
   %35 = getelementptr i8, ptr %32, i64 %34
@@ -5861,13 +5858,13 @@ if.then60:                                        ; preds = %if.then50
   br label %if.end63
 
 if.end63:                                         ; preds = %if.else48, %if.then60, %if.then50, %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit106, %if.then46
-  %fResBuf = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 5
+  %fResBuf = getelementptr inbounds i8, ptr %resB.addr.0, i64 40
   %37 = load ptr, ptr %fResPath33, align 8
   %cmp66 = icmp eq ptr %fResBuf, %37
   br i1 %cmp66, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end63
-  %fResPathLen67 = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 6
+  %fResPathLen67 = getelementptr inbounds i8, ptr %resB.addr.0, i64 104
   %38 = load i32, ptr %fResPathLen67, align 8
   %39 = sext i32 %38 to i64
   br label %cond.end
@@ -5877,14 +5874,14 @@ cond.end:                                         ; preds = %if.end63, %cond.tru
   %add.ptr = getelementptr inbounds i8, ptr %fResBuf, i64 %cond
   %sub71 = sub nsw i64 64, %cond
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 0, i64 %sub71, i1 false)
-  %fVersion72 = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 2
+  %fVersion72 = getelementptr inbounds i8, ptr %resB.addr.0, i64 16
   store ptr null, ptr %fVersion72, align 8
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %resB.addr.0, i64 108
   store i32 %r, ptr %fRes, align 4
   %40 = load ptr, ptr %fData31, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %40, i64 0, i32 5
+  %fData2.i = getelementptr inbounds i8, ptr %40, i64 40
   %call75 = call i32 @res_countArrayItems_75(ptr noundef nonnull %fData2.i, i32 noundef %r)
-  %fSize = getelementptr inbounds %struct.UResourceBundle, ptr %resB.addr.0, i64 0, i32 13
+  %fSize = getelementptr inbounds i8, ptr %resB.addr.0, i64 128
   store i32 %call75, ptr %fSize, align 8
   br label %return
 
@@ -5926,7 +5923,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %chAlias)
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %chAlias, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %chAlias, i64 56
   store i32 0, ptr %len.i, align 8
   %2 = load ptr, ptr %chAlias, align 8
   store i8 0, ptr %2, align 1
@@ -5996,7 +5993,7 @@ if.then42:                                        ; preds = %if.else36
 
 if.end44:                                         ; preds = %if.then42, %if.else36
   %sep37.0 = phi ptr [ %incdec.ptr43, %if.then42 ], [ null, %if.else36 ]
-  %fPath = getelementptr inbounds %struct.UResourceDataEntry, ptr %validLocaleDataEntry, i64 0, i32 1
+  %fPath = getelementptr inbounds i8, ptr %validLocaleDataEntry, i64 8
   %8 = load ptr, ptr %fPath, align 8
   br label %if.else49
 
@@ -6038,7 +6035,7 @@ lpad50:                                           ; preds = %invoke.cont126, %in
   br label %ehcleanup
 
 if.end57:                                         ; preds = %invoke.cont53
-  %fData = getelementptr inbounds %struct.UResourceBundle, ptr %call.i97, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %call.i97, i64 8
   %12 = load ptr, ptr %fData, align 8
   br label %if.end60
 
@@ -6050,8 +6047,8 @@ if.end60:                                         ; preds = %invoke.cont46, %if.
   br i1 %cmp61, label %if.then62, label %if.else124
 
 if.then62:                                        ; preds = %if.end60
-  %fData63 = getelementptr inbounds %struct.UResourceDataEntry, ptr %dataEntry.0, i64 0, i32 5
-  %rootRes = getelementptr inbounds %struct.UResourceDataEntry, ptr %dataEntry.0, i64 0, i32 5, i32 4
+  %fData63 = getelementptr inbounds i8, ptr %dataEntry.0, i64 40
+  %rootRes = getelementptr inbounds i8, ptr %dataEntry.0, i64 72
   %13 = load i32, ptr %rootRes, align 8
   %tobool64.not = icmp eq ptr %containerResPath, null
   br i1 %tobool64.not, label %if.end80, label %if.then65
@@ -6065,7 +6062,7 @@ if.then65:                                        ; preds = %if.then62
 
 invoke.cont68:                                    ; preds = %if.then65
   %15 = load ptr, ptr %agg.tmp, align 8
-  %16 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %17 = load i32, ptr %16, align 8
   %call3.i101 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %chAlias, ptr noundef %15, i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont69 unwind label %lpad50
@@ -6095,7 +6092,7 @@ if.then82:                                        ; preds = %if.end80
 
 invoke.cont86:                                    ; preds = %if.then82
   %21 = load ptr, ptr %agg.tmp85, align 8
-  %22 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp85, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %agg.tmp85, i64 8
   %23 = load i32, ptr %22, align 8
   %call3.i105 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %chAlias, ptr noundef %21, i32 noundef %23, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont87 unwind label %lpad50
@@ -6152,13 +6149,13 @@ if.else124:                                       ; preds = %if.end60
 
 invoke.cont126:                                   ; preds = %if.else124
   %29 = load ptr, ptr %agg.tmp125, align 8
-  %30 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp125, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %agg.tmp125, i64 8
   %31 = load i32, ptr %30, align 8
   invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %pathBuf)
           to label %.noexc110 unwind label %lpad50
 
 .noexc110:                                        ; preds = %invoke.cont126
-  %len.i109 = getelementptr inbounds %"class.icu_75::CharString", ptr %pathBuf, i64 0, i32 1
+  %len.i109 = getelementptr inbounds i8, ptr %pathBuf, i64 56
   store i32 0, ptr %len.i109, align 8
   %32 = load ptr, ptr %pathBuf, align 8
   store i8 0, ptr %32, align 1
@@ -6192,7 +6189,7 @@ for.cond:                                         ; preds = %if.end183, %if.end1
   %resB.addr.0 = phi ptr [ %resB, %if.end131 ], [ %resB.addr.1.lcssa, %if.end183 ]
   %containerResPath.addr.0 = phi ptr [ null, %if.end131 ], [ %containerResPath.addr.1.lcssa, %if.end183 ]
   %dataEntry.1 = phi ptr [ %dataEntry.0, %if.end131 ], [ %57, %if.end183 ]
-  %rootRes136 = getelementptr inbounds %struct.UResourceDataEntry, ptr %dataEntry.1, i64 0, i32 5, i32 4
+  %rootRes136 = getelementptr inbounds i8, ptr %dataEntry.1, i64 72
   %r.addr.2192 = load i32, ptr %rootRes136, align 4
   %37 = load i8, ptr %36, align 1
   %tobool137.not193 = icmp eq i8 %37, 0
@@ -6208,7 +6205,7 @@ land.rhs:                                         ; preds = %for.cond, %if.end17
   br i1 %cmp.i113, label %cleanup, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %fData141 = getelementptr inbounds %struct.UResourceDataEntry, ptr %dataEntry.2196, i64 0, i32 5
+  %fData141 = getelementptr inbounds i8, ptr %dataEntry.2196, i64 40
   %call143 = invoke i32 @res_findResource_75(ptr noundef nonnull %fData141, i32 noundef %r.addr.2197, ptr noundef nonnull %myPath, ptr noundef nonnull %temp)
           to label %invoke.cont142 unwind label %lpad132
 
@@ -6247,10 +6244,10 @@ lor.lhs.false155:                                 ; preds = %if.end153
   br i1 %cmp157.not, label %if.end172, label %if.then158
 
 if.then158:                                       ; preds = %lor.lhs.false155, %if.end153
-  %fResPath.i = getelementptr inbounds %struct.UResourceBundle, ptr %call149, i64 0, i32 4
+  %fResPath.i = getelementptr inbounds i8, ptr %call149, i64 32
   %43 = load ptr, ptr %fResPath.i, align 8
   %tobool.not.i = icmp eq ptr %43, null
-  %fResBuf.i = getelementptr inbounds %struct.UResourceBundle, ptr %call149, i64 0, i32 5
+  %fResBuf.i = getelementptr inbounds i8, ptr %call149, i64 40
   %cmp.not.i117 = icmp eq ptr %43, %fResBuf.i
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i117
   br i1 %or.cond.i, label %if.end.i, label %if.then.i118
@@ -6261,7 +6258,7 @@ if.then.i118:                                     ; preds = %if.then158
 
 if.end.i:                                         ; preds = %if.then158, %if.then.i118
   store ptr null, ptr %fResPath.i, align 8
-  %fResPathLen.i = getelementptr inbounds %struct.UResourceBundle, ptr %call149, i64 0, i32 6
+  %fResPathLen.i = getelementptr inbounds i8, ptr %call149, i64 104
   store i32 0, ptr %fResPathLen.i, align 8
   %call160 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %keyPath.0173) #25
   %conv161 = trunc i64 %call160 to i32
@@ -6355,10 +6352,10 @@ if.end167:                                        ; preds = %if.end36.i134, %inv
 
 if.end172:                                        ; preds = %if.end167, %lor.lhs.false155
   %51 = phi i32 [ %.pr217, %if.end167 ], [ %41, %lor.lhs.false155 ]
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %call149, i64 0, i32 7
-  %fData173 = getelementptr inbounds %struct.UResourceBundle, ptr %call149, i64 0, i32 1
+  %fRes = getelementptr inbounds i8, ptr %call149, i64 108
+  %fData173 = getelementptr inbounds i8, ptr %call149, i64 8
   %52 = load ptr, ptr %fData173, align 8
-  %fResPath174 = getelementptr inbounds %struct.UResourceBundle, ptr %call149, i64 0, i32 4
+  %fResPath174 = getelementptr inbounds i8, ptr %call149, i64 32
   %53 = load ptr, ptr %fResPath174, align 8
   %r.addr.2 = load i32, ptr %fRes, align 4
   %54 = load ptr, ptr %myPath, align 8
@@ -6378,7 +6375,7 @@ while.end:                                        ; preds = %if.end172, %invoke.
   br i1 %or.cond2, label %cleanup, label %if.end180
 
 if.end180:                                        ; preds = %while.end
-  %fParent = getelementptr inbounds %struct.UResourceDataEntry, ptr %dataEntry.2.lcssa, i64 0, i32 2
+  %fParent = getelementptr inbounds i8, ptr %dataEntry.2.lcssa, i64 16
   %57 = load ptr, ptr %fParent, align 8
   %cmp181 = icmp eq ptr %57, null
   br i1 %cmp181, label %cleanup.sink.split, label %if.end183
@@ -6503,7 +6500,7 @@ entry:
   %agg.tmp80 = alloca %"class.icu_75::StringPiece", align 8
   store ptr %key, ptr %key.addr, align 8
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %itemsTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %1 = load i32, ptr %errorCode, align 4
@@ -6516,17 +6513,17 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %tobool3.not90, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %dest118 = getelementptr inbounds %"struct.(anonymous namespace)::GetAllChildrenSink", ptr %this, i64 0, i32 1
-  %pResData.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 1
-  %res.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 3
-  %validLocaleDataEntry.i = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %value, i64 0, i32 2
-  %pResData.i59 = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %aliasedValue, i64 0, i32 1
-  %res.i60 = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %aliasedValue, i64 0, i32 3
-  %validLocaleDataEntry.i62 = getelementptr inbounds %"class.icu_75::ResourceDataValue", ptr %aliasedValue, i64 0, i32 2
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %tablePath, i64 0, i32 1
-  %2 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
-  %len.i65 = getelementptr inbounds %"class.icu_75::CharString", ptr %localPath, i64 0, i32 1
-  %3 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp80, i64 0, i32 1
+  %dest118 = getelementptr inbounds i8, ptr %this, i64 8
+  %pResData.i = getelementptr inbounds i8, ptr %value, i64 8
+  %res.i = getelementptr inbounds i8, ptr %value, i64 24
+  %validLocaleDataEntry.i = getelementptr inbounds i8, ptr %value, i64 16
+  %pResData.i59 = getelementptr inbounds i8, ptr %aliasedValue, i64 8
+  %res.i60 = getelementptr inbounds i8, ptr %aliasedValue, i64 24
+  %validLocaleDataEntry.i62 = getelementptr inbounds i8, ptr %aliasedValue, i64 16
+  %len.i = getelementptr inbounds i8, ptr %tablePath, i64 56
+  %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %len.i65 = getelementptr inbounds i8, ptr %localPath, i64 56
+  %3 = getelementptr inbounds i8, ptr %agg.tmp80, i64 8
   br label %for.body
 
 for.cond:                                         ; preds = %if.end121
@@ -6538,7 +6535,7 @@ for.cond:                                         ; preds = %if.end121
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.091 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   %vtable4 = load ptr, ptr %value, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 3
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 24
   %4 = load ptr, ptr %vfn5, align 8
   %call6 = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(8) %value)
   %cmp = icmp eq i32 %call6, 3
@@ -6561,14 +6558,14 @@ invoke.cont20:                                    ; preds = %invoke.cont15
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 0, inrange i32 0, i64 2), ptr %aliasedValue, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pResData.i59, i8 0, i64 16, i1 false)
   store i32 -1, ptr %res.i60, align 8
-  %fData.i = getelementptr inbounds %struct.UResourceBundle, ptr %call16, i64 0, i32 1
+  %fData.i = getelementptr inbounds i8, ptr %call16, i64 8
   %9 = load ptr, ptr %fData.i, align 8
-  %fData2.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %9, i64 0, i32 5
+  %fData2.i = getelementptr inbounds i8, ptr %9, i64 40
   store ptr %fData2.i, ptr %pResData.i59, align 8
-  %fValidLocaleDataEntry = getelementptr inbounds %struct.UResourceBundle, ptr %call16, i64 0, i32 3
+  %fValidLocaleDataEntry = getelementptr inbounds i8, ptr %call16, i64 24
   %10 = load ptr, ptr %fValidLocaleDataEntry, align 8
   store ptr %10, ptr %validLocaleDataEntry.i62, align 8
-  %fRes = getelementptr inbounds %struct.UResourceBundle, ptr %call16, i64 0, i32 7
+  %fRes = getelementptr inbounds i8, ptr %call16, i64 108
   %11 = load i32, ptr %fRes, align 4
   store i32 %11, ptr %res.i60, align 8
   %call28 = invoke noundef i32 @_ZNK6icu_7517ResourceDataValue7getTypeEv(ptr noundef nonnull align 8 dereferenceable(29) %aliasedValue)
@@ -6582,7 +6579,7 @@ if.then30:                                        ; preds = %invoke.cont27
   %12 = load ptr, ptr %dest118, align 8
   %13 = load ptr, ptr %key.addr, align 8
   %vtable31 = load ptr, ptr %12, align 8
-  %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 3
+  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 24
   %14 = load ptr, ptr %vfn32, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %aliasedValue, i8 noundef signext %isRoot, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %cleanup108 unwind label %lpad22
@@ -6605,7 +6602,7 @@ invoke.cont34:                                    ; preds = %if.else
   store i32 0, ptr %len.i, align 8
   %17 = load ptr, ptr %tablePath, align 8
   store i8 0, ptr %17, align 1
-  %fResPath = getelementptr inbounds %struct.UResourceBundle, ptr %call16, i64 0, i32 4
+  %fResPath = getelementptr inbounds i8, ptr %call16, i64 32
   %18 = load ptr, ptr %fResPath, align 8
   invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %18)
           to label %invoke.cont36 unwind label %lpad35.loopexit.split-lp
@@ -6620,14 +6617,14 @@ invoke.cont37:                                    ; preds = %invoke.cont36
   %21 = load ptr, ptr %key.addr, align 8
   %22 = load ptr, ptr %dest118, align 8
   %vtable40 = load ptr, ptr %22, align 8
-  %vfn41 = getelementptr inbounds ptr, ptr %vtable40, i64 3
+  %vfn41 = getelementptr inbounds i8, ptr %vtable40, i64 24
   %23 = load ptr, ptr %vfn41, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(8) %aliasedValue, i8 noundef signext %isRoot, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont42 unwind label %lpad35.loopexit.split-lp
 
 invoke.cont42:                                    ; preds = %invoke.cont37
   %24 = load ptr, ptr %fData.i, align 8
-  %fParent85 = getelementptr inbounds %struct.UResourceDataEntry, ptr %24, i64 0, i32 2
+  %fParent85 = getelementptr inbounds i8, ptr %24, i64 16
   %25 = load ptr, ptr %fParent85, align 8
   %cmp46.not86 = icmp eq ptr %25, null
   br i1 %cmp46.not86, label %cleanup104, label %while.body
@@ -6648,8 +6645,8 @@ invoke.cont49:                                    ; preds = %invoke.cont47
   %27 = load ptr, ptr %localPath, align 8
   store ptr %27, ptr %localPathAsCharPtr, align 8
   %28 = load ptr, ptr %fParent88, align 8
-  %fData53 = getelementptr inbounds %struct.UResourceDataEntry, ptr %28, i64 0, i32 5
-  %rootRes = getelementptr inbounds %struct.UResourceDataEntry, ptr %28, i64 0, i32 5, i32 4
+  %fData53 = getelementptr inbounds i8, ptr %28, i64 40
+  %rootRes = getelementptr inbounds i8, ptr %28, i64 72
   %29 = load i32, ptr %rootRes, align 8
   %call56 = invoke i32 @res_findResource_75(ptr noundef nonnull %fData53, i32 noundef %29, ptr noundef nonnull %localPathAsCharPtr, ptr noundef nonnull %childKey)
           to label %invoke.cont55 unwind label %lpad48
@@ -6679,7 +6676,7 @@ invoke.cont76:                                    ; preds = %if.then67
   store i32 0, ptr %len.i, align 8
   %33 = load ptr, ptr %tablePath, align 8
   store i8 0, ptr %33, align 1
-  %fResPath81 = getelementptr inbounds %struct.UResourceBundle, ptr %call77, i64 0, i32 4
+  %fResPath81 = getelementptr inbounds i8, ptr %call77, i64 32
   %34 = load ptr, ptr %fResPath81, align 8
   invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp80, ptr noundef %34)
           to label %invoke.cont82 unwind label %lpad48
@@ -6691,11 +6688,11 @@ invoke.cont82:                                    ; preds = %invoke.cont76
           to label %invoke.cont83 unwind label %lpad48
 
 invoke.cont83:                                    ; preds = %invoke.cont82
-  %fData85 = getelementptr inbounds %struct.UResourceBundle, ptr %call77, i64 0, i32 1
+  %fData85 = getelementptr inbounds i8, ptr %call77, i64 8
   %37 = load ptr, ptr %fData85, align 8
-  %fRes86 = getelementptr inbounds %struct.UResourceBundle, ptr %call77, i64 0, i32 7
+  %fRes86 = getelementptr inbounds i8, ptr %call77, i64 108
   %38 = load i32, ptr %fRes86, align 4
-  %fData87 = getelementptr inbounds %struct.UResourceDataEntry, ptr %37, i64 0, i32 5
+  %fData87 = getelementptr inbounds i8, ptr %37, i64 40
   store ptr %fData87, ptr %pResData.i59, align 8
   store i32 %38, ptr %res.i60, align 8
   %call93 = invoke noundef i32 @_ZNK6icu_7517ResourceDataValue7getTypeEv(ptr noundef nonnull align 8 dereferenceable(29) %aliasedValue)
@@ -6726,7 +6723,7 @@ if.end94:                                         ; preds = %invoke.cont83, %inv
 if.then96:                                        ; preds = %if.end94
   %40 = load ptr, ptr %dest118, align 8
   %vtable98 = load ptr, ptr %40, align 8
-  %vfn99 = getelementptr inbounds ptr, ptr %vtable98, i64 3
+  %vfn99 = getelementptr inbounds i8, ptr %vtable98, i64 24
   %41 = load ptr, ptr %vfn99, align 8
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(8) %aliasedValue, i8 noundef signext %isRoot, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %cleanup unwind label %lpad48
@@ -6734,7 +6731,7 @@ if.then96:                                        ; preds = %if.end94
 cleanup:                                          ; preds = %invoke.cont55, %if.then96
   %entry43.3 = phi ptr [ %entry43.1, %if.then96 ], [ %28, %invoke.cont55 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %localPath) #21
-  %fParent = getelementptr inbounds %struct.UResourceDataEntry, ptr %entry43.3, i64 0, i32 2
+  %fParent = getelementptr inbounds i8, ptr %entry43.3, i64 16
   %42 = load ptr, ptr %fParent, align 8
   %cmp46.not = icmp eq ptr %42, null
   br i1 %cmp46.not, label %cleanup104, label %while.body, !llvm.loop !30
@@ -6778,7 +6775,7 @@ if.else117:                                       ; preds = %for.body
   %43 = load ptr, ptr %dest118, align 8
   %44 = load ptr, ptr %key.addr, align 8
   %vtable119 = load ptr, ptr %43, align 8
-  %vfn120 = getelementptr inbounds ptr, ptr %vtable119, i64 3
+  %vfn120 = getelementptr inbounds i8, ptr %vtable119, i64 24
   %45 = load ptr, ptr %vfn120, align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 noundef signext %isRoot, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %if.end121
@@ -6829,20 +6826,20 @@ while.body.lr.ph:
   store i8 1, ptr %foundParent, align 1
   %call = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %origName, ptr noundef nonnull dereferenceable(1) %name) #21
   %invariant.gep = getelementptr i8, ptr %name, i64 -1
-  %len.i.i = getelementptr inbounds %"class.icu_75::CharString", ptr %workingLocale.i, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %workingLocale.i, i64 56
   %cmp27.i = icmp eq i32 %openType, 0
-  %len.i30.i = getelementptr inbounds %"class.icu_75::CharString", ptr %script.i, i64 0, i32 1
-  %len.i53101.i = getelementptr inbounds %"class.icu_75::CharString", ptr %region.i, i64 0, i32 1
-  %len.i37.i = getelementptr inbounds %"class.icu_75::CharString", ptr %ref.tmp.i, i64 0, i32 1
-  %len.i.i45.i = getelementptr inbounds %"class.icu_75::CharString", ptr %language.i, i64 0, i32 1
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp60.i, i64 0, i32 1
-  %1 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp52.i, i64 0, i32 1
-  %len.i78.i = getelementptr inbounds %"class.icu_75::CharString", ptr %ref.tmp115.i, i64 0, i32 1
-  %len.i83.i = getelementptr inbounds %"class.icu_75::CharString", ptr %ref.tmp114.i, i64 0, i32 1
-  %len.i56.i = getelementptr inbounds %"class.icu_75::CharString", ptr %origNameScript.i, i64 0, i32 1
-  %2 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp88.i, i64 0, i32 1
-  %3 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp97.i, i64 0, i32 1
-  %len.i.i72.i = getelementptr inbounds %"class.icu_75::CharString", ptr %ref.tmp101.i, i64 0, i32 1
+  %len.i30.i = getelementptr inbounds i8, ptr %script.i, i64 56
+  %len.i53101.i = getelementptr inbounds i8, ptr %region.i, i64 56
+  %len.i37.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
+  %len.i.i45.i = getelementptr inbounds i8, ptr %language.i, i64 56
+  %0 = getelementptr inbounds i8, ptr %agg.tmp60.i, i64 8
+  %1 = getelementptr inbounds i8, ptr %agg.tmp52.i, i64 8
+  %len.i78.i = getelementptr inbounds i8, ptr %ref.tmp115.i, i64 56
+  %len.i83.i = getelementptr inbounds i8, ptr %ref.tmp114.i, i64 56
+  %len.i56.i = getelementptr inbounds i8, ptr %origNameScript.i, i64 56
+  %2 = getelementptr inbounds i8, ptr %agg.tmp88.i, i64 8
+  %3 = getelementptr inbounds i8, ptr %agg.tmp97.i, i64 8
+  %len.i.i72.i = getelementptr inbounds i8, ptr %ref.tmp101.i, i64 56
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end29
@@ -6857,13 +6854,13 @@ if.end:                                           ; preds = %while.body
   %cmp = icmp eq i32 %call6, 0
   %conv = zext i1 %cmp to i8
   store i8 %conv, ptr %isDefault, align 1
-  %fBogus = getelementptr inbounds %struct.UResourceDataEntry, ptr %call2, i64 0, i32 8
+  %fBogus = getelementptr inbounds i8, ptr %call2, i64 112
   %5 = load i32, ptr %fBogus, align 8
   %cmp7 = icmp ne i32 %5, 0
   br i1 %cmp7, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.end
-  %fCountExisting = getelementptr inbounds %struct.UResourceDataEntry, ptr %call2, i64 0, i32 7
+  %fCountExisting = getelementptr inbounds i8, ptr %call2, i64 108
   %6 = load i32, ptr %fCountExisting, align 4
   %dec = add i32 %6, -1
   store i32 %dec, ptr %fCountExisting, align 4
@@ -7063,14 +7060,14 @@ while.body.i:                                     ; preds = %if.end26.i, %if.els
 
 if.else.i27:                                      ; preds = %while.body.i
   %cmp6.i = icmp slt i32 %call.i26, 0
-  %add.ptr9.i = getelementptr inbounds i32, ptr %add.ptr1.i, i64 2
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 8
   %top.1.i = select i1 %cmp6.i, ptr %add.ptr1.i, ptr %top.010.i
   %bottom.1.i = select i1 %cmp6.i, ptr %bottom.011.i, ptr %add.ptr9.i
   %cmp.i28 = icmp ult ptr %bottom.1.i, %top.1.i
   br i1 %cmp.i28, label %while.body.i, label %if.end35.i, !llvm.loop !31
 
 if.then32.i:                                      ; preds = %while.body.i
-  %arrayidx3.i = getelementptr inbounds i32, ptr %add.ptr1.i, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 4
   %22 = load i32, ptr %arrayidx3.i, align 4
   %idxprom4.i = sext i32 %22 to i64
   %arrayidx5.i = getelementptr inbounds i8, ptr @_ZL17parentLocaleChars, i64 %idxprom4.i
@@ -7448,7 +7445,7 @@ if.else:                                          ; preds = %if.end
 if.end7:                                          ; preds = %if.else, %if.then1
   %name.0 = phi ptr [ %call2, %if.then1 ], [ %.str.localeID, %if.else ]
   store ptr %name.0, ptr %find, align 8
-  %fPath = getelementptr inbounds %struct.UResourceDataEntry, ptr %find, i64 0, i32 1
+  %fPath = getelementptr inbounds i8, ptr %find, i64 8
   store ptr %path, ptr %fPath, align 8
   %2 = load ptr, ptr @_ZL5cache, align 8
   %call8 = call ptr @uhash_get_75(ptr noundef %2, ptr noundef nonnull %find)
@@ -7472,7 +7469,7 @@ if.end14:                                         ; preds = %if.then10
   br i1 %cmp4.i, label %if.end12.thread.i, label %if.end12.i
 
 if.end12.thread.i:                                ; preds = %if.end14
-  %fNameBuffer.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 6
+  %fNameBuffer.i = getelementptr inbounds i8, ptr %call11, i64 104
   store ptr %fNameBuffer.i, ptr %call11, align 8
   br label %_ZL12setEntryNameP18UResourceDataEntryPKcP10UErrorCode.exit
 
@@ -7504,13 +7501,13 @@ if.end18:                                         ; preds = %_ZL12setEntryNameP1
   br i1 %cmp19.not, label %if.end18.if.end27_crit_edge, label %if.then20
 
 if.end18.if.end27_crit_edge:                      ; preds = %if.end18
-  %fPath28.phi.trans.insert = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 1
+  %fPath28.phi.trans.insert = getelementptr inbounds i8, ptr %call11, i64 8
   %.pre81 = load ptr, ptr %fPath28.phi.trans.insert, align 8
   br label %if.end27
 
 if.then20:                                        ; preds = %if.end18
   %call21 = call ptr @uprv_strdup_75(ptr noundef nonnull %path)
-  %fPath22 = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 1
+  %fPath22 = getelementptr inbounds i8, ptr %call11, i64 8
   store ptr %call21, ptr %fPath22, align 8
   %cmp24 = icmp eq ptr %call21, null
   br i1 %cmp24, label %if.then25, label %if.end27
@@ -7522,8 +7519,8 @@ if.then25:                                        ; preds = %if.then20
 
 if.end27:                                         ; preds = %if.end18.if.end27_crit_edge, %if.then20
   %4 = phi ptr [ %.pre81, %if.end18.if.end27_crit_edge ], [ %call21, %if.then20 ]
-  %fData = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 5
-  %fPath28 = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %call11, i64 40
+  %fPath28 = getelementptr inbounds i8, ptr %call11, i64 8
   %5 = load ptr, ptr %call11, align 8
   call void @res_load_75(ptr noundef nonnull %fData, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %status)
   %6 = load i32, ptr %status, align 4
@@ -7540,12 +7537,12 @@ if.then34:                                        ; preds = %if.then32
 
 if.end35:                                         ; preds = %if.then32
   store i32 -128, ptr %status, align 4
-  %fBogus = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 8
+  %fBogus = getelementptr inbounds i8, ptr %call11, i64 112
   store i32 -128, ptr %fBogus, align 8
   br label %if.end82
 
 if.else36:                                        ; preds = %if.end27
-  %usesPoolBundle = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 5, i32 11
+  %usesPoolBundle = getelementptr inbounds i8, ptr %call11, i64 98
   %7 = load i8, ptr %usesPoolBundle, align 2
   %tobool38.not = icmp eq i8 %7, 0
   br i1 %tobool38.not, label %if.then67, label %if.then39
@@ -7553,46 +7550,46 @@ if.else36:                                        ; preds = %if.end27
 if.then39:                                        ; preds = %if.else36
   %8 = load ptr, ptr %fPath28, align 8
   %call41 = call fastcc noundef ptr @_ZL12getPoolEntryPKcP10UErrorCode(ptr noundef %8, ptr noundef nonnull %status)
-  %fPool = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 4
+  %fPool = getelementptr inbounds i8, ptr %call11, i64 32
   store ptr %call41, ptr %fPool, align 8
   %9 = load i32, ptr %status, align 4
   %cmp.i71 = icmp sgt i32 %9, 0
   br i1 %cmp.i71, label %if.else61, label %if.then44
 
 if.then44:                                        ; preds = %if.then39
-  %pRoot = getelementptr inbounds %struct.UResourceDataEntry, ptr %call41, i64 0, i32 5, i32 1
+  %pRoot = getelementptr inbounds i8, ptr %call41, i64 48
   %10 = load ptr, ptr %pRoot, align 8
-  %pRoot48 = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 5, i32 1
+  %pRoot48 = getelementptr inbounds i8, ptr %call11, i64 48
   %11 = load ptr, ptr %pRoot48, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %11, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load i32, ptr %arrayidx, align 4
-  %arrayidx49 = getelementptr inbounds i32, ptr %10, i64 8
+  %arrayidx49 = getelementptr inbounds i8, ptr %10, i64 32
   %13 = load i32, ptr %arrayidx49, align 4
   %cmp50 = icmp eq i32 %12, %13
   br i1 %cmp50, label %if.then51, label %if.else58
 
 if.then51:                                        ; preds = %if.then44
-  %add.ptr = getelementptr inbounds i32, ptr %10, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %10, i64 4
   %14 = load i32, ptr %add.ptr, align 4
   %and = and i32 %14, 255
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr53 = getelementptr inbounds i32, ptr %add.ptr, i64 %idx.ext
-  %poolBundleKeys = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 5, i32 3
+  %poolBundleKeys = getelementptr inbounds i8, ptr %call11, i64 64
   store ptr %add.ptr53, ptr %poolBundleKeys, align 8
-  %p16BitUnits = getelementptr inbounds %struct.UResourceDataEntry, ptr %call41, i64 0, i32 5, i32 2
+  %p16BitUnits = getelementptr inbounds i8, ptr %call41, i64 56
   %15 = load ptr, ptr %p16BitUnits, align 8
-  %poolBundleStrings = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 5, i32 6
+  %poolBundleStrings = getelementptr inbounds i8, ptr %call11, i64 80
   store ptr %15, ptr %poolBundleStrings, align 8
   br label %if.then67
 
 if.else58:                                        ; preds = %if.then44
   store i32 3, ptr %status, align 4
-  %fBogus59 = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 8
+  %fBogus59 = getelementptr inbounds i8, ptr %call11, i64 112
   store i32 3, ptr %fBogus59, align 8
   br label %if.end82
 
 if.else61:                                        ; preds = %if.then39
-  %fBogus62 = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 8
+  %fBogus62 = getelementptr inbounds i8, ptr %call11, i64 112
   store i32 %9, ptr %fBogus62, align 8
   br label %if.end82
 
@@ -7613,7 +7610,7 @@ if.then76:                                        ; preds = %if.then71
   %add = add nuw nsw i32 %16, 1
   call void @u_UCharsToChars_75(ptr noundef nonnull %call73, ptr noundef nonnull %aliasName, i32 noundef %add)
   %call78 = call fastcc noundef ptr @_ZL10init_entryPKcS0_P10UErrorCode(ptr noundef nonnull %aliasName, ptr noundef %path, ptr noundef nonnull %status)
-  %fAlias = getelementptr inbounds %struct.UResourceDataEntry, ptr %call11, i64 0, i32 3
+  %fAlias = getelementptr inbounds i8, ptr %call11, i64 24
   store ptr %call78, ptr %fAlias, align 8
   br label %if.end82
 
@@ -7646,17 +7643,17 @@ while.cond.preheader:                             ; preds = %if.else91, %if.then
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.cond
   %r.1 = phi ptr [ %20, %while.cond ], [ %r.1.ph, %while.cond.preheader ]
-  %fAlias96 = getelementptr inbounds %struct.UResourceDataEntry, ptr %r.1, i64 0, i32 3
+  %fAlias96 = getelementptr inbounds i8, ptr %r.1, i64 24
   %20 = load ptr, ptr %fAlias96, align 8
   %cmp97.not = icmp eq ptr %20, null
   br i1 %cmp97.not, label %while.end, label %while.cond, !llvm.loop !33
 
 while.end:                                        ; preds = %while.cond
-  %fCountExisting = getelementptr inbounds %struct.UResourceDataEntry, ptr %r.1, i64 0, i32 7
+  %fCountExisting = getelementptr inbounds i8, ptr %r.1, i64 108
   %21 = load i32, ptr %fCountExisting, align 4
   %inc = add i32 %21, 1
   store i32 %inc, ptr %fCountExisting, align 4
-  %fBogus99 = getelementptr inbounds %struct.UResourceDataEntry, ptr %r.1, i64 0, i32 8
+  %fBogus99 = getelementptr inbounds i8, ptr %r.1, i64 112
   %22 = load i32, ptr %fBogus99, align 8
   %cmp100.not = icmp eq i32 %22, 0
   br i1 %cmp100.not, label %return, label %land.lhs.true101
@@ -7686,27 +7683,27 @@ entry:
 
 land.lhs.true.preheader:                          ; preds = %entry
   %1 = load ptr, ptr %t1, align 8
-  %fParent1 = getelementptr inbounds %struct.UResourceDataEntry, ptr %1, i64 0, i32 2
+  %fParent1 = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %fParent1, align 8
   %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %land.lhs.true2, label %return
 
 land.lhs.true2:                                   ; preds = %land.lhs.true.preheader, %land.lhs.true.backedge
   %3 = phi ptr [ %13, %land.lhs.true.backedge ], [ %1, %land.lhs.true.preheader ]
-  %noFallback = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 5, i32 9
+  %noFallback = getelementptr inbounds i8, ptr %3, i64 96
   %4 = load i8, ptr %noFallback, align 8
   %tobool3.not = icmp eq i8 %4, 0
   br i1 %tobool3.not, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true2
-  %fData = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 5
+  %fData = getelementptr inbounds i8, ptr %3, i64 40
   %call5 = call i32 @res_getResource_75(ptr noundef nonnull %fData, ptr noundef nonnull @.str.29)
   %cmp6 = icmp eq i32 %call5, -1
   br i1 %cmp6, label %while.body, label %return
 
 while.body:                                       ; preds = %land.rhs
   %5 = load ptr, ptr %t1, align 8
-  %fData7 = getelementptr inbounds %struct.UResourceDataEntry, ptr %5, i64 0, i32 5
+  %fData7 = getelementptr inbounds i8, ptr %5, i64 40
   %call8 = call i32 @res_getResource_75(ptr noundef nonnull %fData7, ptr noundef nonnull @.str.30)
   %cmp9.not = icmp eq i32 %call8, -1
   br i1 %cmp9.not, label %if.end24, label %if.then10
@@ -7714,7 +7711,7 @@ while.body:                                       ; preds = %land.rhs
 if.then10:                                        ; preds = %while.body
   store i32 0, ptr %parentLocaleLen, align 4
   %6 = load ptr, ptr %t1, align 8
-  %fData11 = getelementptr inbounds %struct.UResourceDataEntry, ptr %6, i64 0, i32 5
+  %fData11 = getelementptr inbounds i8, ptr %6, i64 40
   %call12 = call ptr @res_getStringNoTrace_75(ptr noundef nonnull %fData11, i32 noundef %call8, ptr noundef nonnull %parentLocaleLen)
   %cmp13 = icmp ne ptr %call12, null
   %7 = load i32, ptr %parentLocaleLen, align 4
@@ -7734,7 +7731,7 @@ if.then18:                                        ; preds = %if.then10
 if.end24:                                         ; preds = %if.then10, %if.then18, %while.body
   store i32 0, ptr %parentStatus, align 4
   %8 = load ptr, ptr %t1, align 8
-  %fPath = getelementptr inbounds %struct.UResourceDataEntry, ptr %8, i64 0, i32 1
+  %fPath = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %fPath, align 8
   %call25 = call fastcc noundef ptr @_ZL10init_entryPKcS0_P10UErrorCode(ptr noundef %name, ptr noundef %9, ptr noundef nonnull %parentStatus)
   %10 = load i32, ptr %parentStatus, align 4
@@ -7747,7 +7744,7 @@ if.then28:                                        ; preds = %if.end24
 
 if.else:                                          ; preds = %if.end24
   %11 = load ptr, ptr %t1, align 8
-  %fParent46 = getelementptr inbounds %struct.UResourceDataEntry, ptr %11, i64 0, i32 2
+  %fParent46 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %call25, ptr %fParent46, align 8
   store ptr %call25, ptr %t1, align 8
   %call.i = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %name, i32 noundef 95) #25
@@ -7770,7 +7767,7 @@ lor.end:                                          ; preds = %lor.rhs
 
 land.lhs.true.backedge:                           ; preds = %lor.end, %_ZL10chopLocalePc.exit
   %13 = load ptr, ptr %t1, align 8
-  %fParent = getelementptr inbounds %struct.UResourceDataEntry, ptr %13, i64 0, i32 2
+  %fParent = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load ptr, ptr %fParent, align 8
   %cmp = icmp eq ptr %14, null
   br i1 %cmp, label %land.lhs.true2, label %return, !llvm.loop !34
@@ -7791,7 +7788,7 @@ entry:
 if.end:                                           ; preds = %entry
   store i32 0, ptr %parentStatus, align 4
   %1 = load ptr, ptr %t1, align 8
-  %fPath = getelementptr inbounds %struct.UResourceDataEntry, ptr %1, i64 0, i32 1
+  %fPath = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %fPath, align 8
   %call1 = call fastcc noundef ptr @_ZL10init_entryPKcS0_P10UErrorCode(ptr noundef nonnull @.str, ptr noundef %2, ptr noundef nonnull %parentStatus)
   %3 = load i32, ptr %parentStatus, align 4
@@ -7804,7 +7801,7 @@ if.then4:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %4 = load ptr, ptr %t1, align 8
-  %fParent = getelementptr inbounds %struct.UResourceDataEntry, ptr %4, i64 0, i32 2
+  %fParent = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %call1, ptr %fParent, align 8
   store ptr %call1, ptr %t1, align 8
   br label %return
@@ -7824,7 +7821,7 @@ declare ptr @uhash_open_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 define internal noundef i32 @_ZL9hashEntry8UElement(ptr nocapture readonly %parm.coerce) #1 {
 entry:
   %0 = load ptr, ptr %parm.coerce, align 8
-  %fPath = getelementptr inbounds %struct.UResourceDataEntry, ptr %parm.coerce, i64 0, i32 1
+  %fPath = getelementptr inbounds i8, ptr %parm.coerce, i64 8
   %1 = load ptr, ptr %fPath, align 8
   %call = tail call i32 @uhash_hashChars_75(ptr %0)
   %call4 = tail call i32 @uhash_hashChars_75(ptr %1)
@@ -7838,9 +7835,9 @@ define internal noundef signext i8 @_ZL14compareEntries8UElementS_(ptr nocapture
 entry:
   %0 = load ptr, ptr %p1.coerce, align 8
   %1 = load ptr, ptr %p2.coerce, align 8
-  %fPath = getelementptr inbounds %struct.UResourceDataEntry, ptr %p1.coerce, i64 0, i32 1
+  %fPath = getelementptr inbounds i8, ptr %p1.coerce, i64 8
   %2 = load ptr, ptr %fPath, align 8
-  %fPath3 = getelementptr inbounds %struct.UResourceDataEntry, ptr %p2.coerce, i64 0, i32 1
+  %fPath3 = getelementptr inbounds i8, ptr %p2.coerce, i64 8
   %3 = load ptr, ptr %fPath3, align 8
   %call = tail call signext i8 @uhash_compareChars_75(ptr %0, ptr %1)
   %tobool.not = icmp eq i8 %call, 0
@@ -7892,9 +7889,9 @@ invoke.cont.i:                                    ; preds = %while.cond.i
   br i1 %cmp1.not.i, label %do.cond.i, label %while.body.i
 
 while.body.i:                                     ; preds = %invoke.cont.i
-  %value.i = getelementptr inbounds %struct.UHashElement, ptr %call.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %value.i, align 8
-  %fCountExisting.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 7
+  %fCountExisting.i = getelementptr inbounds i8, ptr %3, i64 108
   %4 = load i32, ptr %fCountExisting.i, align 4
   %cmp2.i = icmp eq i32 %4, 0
   br i1 %cmp2.i, label %if.then3.i, label %while.cond.i, !llvm.loop !35
@@ -7905,14 +7902,14 @@ if.then3.i:                                       ; preds = %while.body.i
           to label %invoke.cont4.i unwind label %lpad.i.loopexit.split-lp
 
 invoke.cont4.i:                                   ; preds = %if.then3.i
-  %fData.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 5
+  %fData.i.i = getelementptr inbounds i8, ptr %3, i64 40
   invoke void @res_unload_75(ptr noundef nonnull %fData.i.i)
           to label %.noexc.i unwind label %lpad.i.loopexit.split-lp
 
 .noexc.i:                                         ; preds = %invoke.cont4.i
   %6 = load ptr, ptr %3, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
-  %fNameBuffer.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 6
+  %fNameBuffer.i.i = getelementptr inbounds i8, ptr %3, i64 104
   %cmp3.not.i.i = icmp eq ptr %6, %fNameBuffer.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp3.not.i.i
   br i1 %or.cond.i.i, label %if.end.i.i, label %if.then.i.i
@@ -7922,7 +7919,7 @@ if.then.i.i:                                      ; preds = %.noexc.i
           to label %if.end.i.i unwind label %lpad.i.loopexit.split-lp
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %.noexc.i
-  %fPath.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 1
+  %fPath.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %fPath.i.i, align 8
   %cmp5.not.i.i = icmp eq ptr %7, null
   br i1 %cmp5.not.i.i, label %if.end8.i.i, label %if.then6.i.i
@@ -7932,33 +7929,33 @@ if.then6.i.i:                                     ; preds = %if.end.i.i
           to label %if.end8.i.i unwind label %lpad.i.loopexit.split-lp
 
 if.end8.i.i:                                      ; preds = %if.then6.i.i, %if.end.i.i
-  %fPool.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 4
+  %fPool.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %8 = load ptr, ptr %fPool.i.i, align 8
   %cmp9.not.i.i = icmp eq ptr %8, null
   br i1 %cmp9.not.i.i, label %if.end12.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %if.end8.i.i
-  %fCountExisting.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %8, i64 0, i32 7
+  %fCountExisting.i.i = getelementptr inbounds i8, ptr %8, i64 108
   %9 = load i32, ptr %fCountExisting.i.i, align 4
   %dec.i.i = add i32 %9, -1
   store i32 %dec.i.i, ptr %fCountExisting.i.i, align 4
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.then10.i.i, %if.end8.i.i
-  %fAlias.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %3, i64 0, i32 3
+  %fAlias.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %10 = load ptr, ptr %fAlias.i.i, align 8
   %cmp13.not.i.i = icmp eq ptr %10, null
   br i1 %cmp13.not.i.i, label %if.end20.i.i, label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %if.end12.i.i, %while.cond.i.i
   %alias.0.i.i = phi ptr [ %11, %while.cond.i.i ], [ %10, %if.end12.i.i ]
-  %fAlias15.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %alias.0.i.i, i64 0, i32 3
+  %fAlias15.i.i = getelementptr inbounds i8, ptr %alias.0.i.i, i64 24
   %11 = load ptr, ptr %fAlias15.i.i, align 8
   %cmp16.not.i.i = icmp eq ptr %11, null
   br i1 %cmp16.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !36
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
-  %fCountExisting18.i.i = getelementptr inbounds %struct.UResourceDataEntry, ptr %alias.0.i.i, i64 0, i32 7
+  %fCountExisting18.i.i = getelementptr inbounds i8, ptr %alias.0.i.i, i64 108
   %12 = load i32, ptr %fCountExisting18.i.i, align 4
   %dec19.i.i = add i32 %12, -1
   store i32 %dec19.i.i, ptr %fCountExisting18.i.i, align 4
@@ -8032,11 +8029,11 @@ declare ptr @uhash_removeElement_75(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL10free_entryP18UResourceDataEntry(ptr noundef %entry1) unnamed_addr #1 {
 entry:
-  %fData = getelementptr inbounds %struct.UResourceDataEntry, ptr %entry1, i64 0, i32 5
+  %fData = getelementptr inbounds i8, ptr %entry1, i64 40
   tail call void @res_unload_75(ptr noundef nonnull %fData)
   %0 = load ptr, ptr %entry1, align 8
   %cmp.not = icmp eq ptr %0, null
-  %fNameBuffer = getelementptr inbounds %struct.UResourceDataEntry, ptr %entry1, i64 0, i32 6
+  %fNameBuffer = getelementptr inbounds i8, ptr %entry1, i64 104
   %cmp3.not = icmp eq ptr %0, %fNameBuffer
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp3.not
   br i1 %or.cond, label %if.end, label %if.then
@@ -8046,7 +8043,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %fPath = getelementptr inbounds %struct.UResourceDataEntry, ptr %entry1, i64 0, i32 1
+  %fPath = getelementptr inbounds i8, ptr %entry1, i64 8
   %1 = load ptr, ptr %fPath, align 8
   %cmp5.not = icmp eq ptr %1, null
   br i1 %cmp5.not, label %if.end8, label %if.then6
@@ -8056,33 +8053,33 @@ if.then6:                                         ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end
-  %fPool = getelementptr inbounds %struct.UResourceDataEntry, ptr %entry1, i64 0, i32 4
+  %fPool = getelementptr inbounds i8, ptr %entry1, i64 32
   %2 = load ptr, ptr %fPool, align 8
   %cmp9.not = icmp eq ptr %2, null
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  %fCountExisting = getelementptr inbounds %struct.UResourceDataEntry, ptr %2, i64 0, i32 7
+  %fCountExisting = getelementptr inbounds i8, ptr %2, i64 108
   %3 = load i32, ptr %fCountExisting, align 4
   %dec = add i32 %3, -1
   store i32 %dec, ptr %fCountExisting, align 4
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end8
-  %fAlias = getelementptr inbounds %struct.UResourceDataEntry, ptr %entry1, i64 0, i32 3
+  %fAlias = getelementptr inbounds i8, ptr %entry1, i64 24
   %4 = load ptr, ptr %fAlias, align 8
   %cmp13.not = icmp eq ptr %4, null
   br i1 %cmp13.not, label %if.end20, label %while.cond
 
 while.cond:                                       ; preds = %if.end12, %while.cond
   %alias.0 = phi ptr [ %5, %while.cond ], [ %4, %if.end12 ]
-  %fAlias15 = getelementptr inbounds %struct.UResourceDataEntry, ptr %alias.0, i64 0, i32 3
+  %fAlias15 = getelementptr inbounds i8, ptr %alias.0, i64 24
   %5 = load ptr, ptr %fAlias15, align 8
   %cmp16.not = icmp eq ptr %5, null
   br i1 %cmp16.not, label %while.end, label %while.cond, !llvm.loop !36
 
 while.end:                                        ; preds = %while.cond
-  %fCountExisting18 = getelementptr inbounds %struct.UResourceDataEntry, ptr %alias.0, i64 0, i32 7
+  %fCountExisting18 = getelementptr inbounds i8, ptr %alias.0, i64 108
   %6 = load i32, ptr %fCountExisting18, align 4
   %dec19 = add i32 %6, -1
   store i32 %dec19, ptr %fCountExisting18, align 4
@@ -8112,10 +8109,10 @@ entry:
   store i32 0, ptr %err, align 4
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef nonnull @.str.25)
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i32, ptr %1, align 8
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %agg.result)
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %agg.result, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   store i32 0, ptr %len.i, align 8
   %3 = load ptr, ptr %agg.result, align 8
   store i8 0, ptr %3, align 1
@@ -8133,7 +8130,7 @@ lpad.i:                                           ; preds = %entry
   br label %common.resume
 
 _ZN6icu_7510CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %entry
-  %len.i7 = getelementptr inbounds %"class.icu_75::CharString", ptr %region, i64 0, i32 1
+  %len.i7 = getelementptr inbounds i8, ptr %region, i64 56
   %5 = load i32, ptr %len.i7, align 8
   %cmp.i.not = icmp eq i32 %5, 0
   br i1 %cmp.i.not, label %if.then17, label %if.then
@@ -8143,12 +8140,12 @@ if.then:                                          ; preds = %_ZN6icu_7510CharStr
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %if.then
-  %len.i8 = getelementptr inbounds %"class.icu_75::CharString", ptr %localeID, i64 0, i32 1
+  %len.i8 = getelementptr inbounds i8, ptr %localeID, i64 56
   store i32 0, ptr %len.i8, align 8
   %6 = load ptr, ptr %localeID, align 8
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr %language, align 8
-  %len.i.i = getelementptr inbounds %"class.icu_75::CharString", ptr %language, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %language, i64 56
   %8 = load i32, ptr %len.i.i, align 8
   %call3.i9 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %localeID, ptr noundef %7, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont3 unwind label %lpad2
@@ -8159,7 +8156,7 @@ invoke.cont3:                                     ; preds = %invoke.cont1
 
 invoke.cont6:                                     ; preds = %invoke.cont3
   %9 = load ptr, ptr %agg.tmp5, align 8
-  %10 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp5, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %agg.tmp5, i64 8
   %11 = load i32, ptr %10, align 8
   %call3.i10 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call3.i9, ptr noundef %9, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont7 unwind label %lpad2
@@ -8213,7 +8210,7 @@ while.body.i:                                     ; preds = %if.else.i, %if.end
 
 if.else.i:                                        ; preds = %while.body.i
   %cmp6.i = icmp slt i32 %call.i, 0
-  %add.ptr9.i = getelementptr inbounds i32, ptr %add.ptr1.i, i64 2
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 8
   %top.1.i = select i1 %cmp6.i, ptr %add.ptr1.i, ptr %top.010.i
   %bottom.1.i = select i1 %cmp6.i, ptr %bottom.011.i, ptr %add.ptr9.i
   %cmp.i16 = icmp ult ptr %bottom.1.i, %top.1.i
@@ -8224,7 +8221,7 @@ cleanup.thread56:                                 ; preds = %if.else.i
   br label %if.then17
 
 cleanup:                                          ; preds = %while.body.i
-  %arrayidx3.i = getelementptr inbounds i32, ptr %add.ptr1.i, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 4
   %19 = load i32, ptr %arrayidx3.i, align 4
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %localeID) #21
   br label %if.then23
@@ -8251,13 +8248,13 @@ while.body.i17:                                   ; preds = %if.else.i31, %if.th
   br i1 %cmp2.i30, label %if.then.i38, label %if.else.i31
 
 if.then.i38:                                      ; preds = %while.body.i17
-  %arrayidx3.i39 = getelementptr inbounds i32, ptr %add.ptr1.i26, i64 1
+  %arrayidx3.i39 = getelementptr inbounds i8, ptr %add.ptr1.i26, i64 4
   %22 = load i32, ptr %arrayidx3.i39, align 4
   br label %if.then23
 
 if.else.i31:                                      ; preds = %while.body.i17
   %cmp6.i32 = icmp slt i32 %call.i29, 0
-  %add.ptr9.i33 = getelementptr inbounds i32, ptr %add.ptr1.i26, i64 2
+  %add.ptr9.i33 = getelementptr inbounds i8, ptr %add.ptr1.i26, i64 8
   %top.1.i34 = select i1 %cmp6.i32, ptr %add.ptr1.i26, ptr %top.010.i19
   %bottom.1.i35 = select i1 %cmp6.i32, ptr %bottom.011.i18, ptr %add.ptr9.i33
   %cmp.i36 = icmp ult ptr %bottom.1.i35, %top.1.i34
@@ -8275,7 +8272,7 @@ if.then23:                                        ; preds = %cleanup, %if.then.i
 
 invoke.cont27:                                    ; preds = %if.then23
   %24 = load ptr, ptr %agg.tmp26, align 8
-  %25 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp26, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %agg.tmp26, i64 8
   %26 = load i32, ptr %25, align 8
   %call3.i44 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, ptr noundef %24, i32 noundef %26, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %nrvo.skipdtor unwind label %lpad
@@ -8308,13 +8305,13 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %fBogus = getelementptr inbounds %struct.UResourceDataEntry, ptr %call, i64 0, i32 8
+  %fBogus = getelementptr inbounds i8, ptr %call, i64 112
   %1 = load i32, ptr %fBogus, align 8
   %cmp2.not = icmp eq i32 %1, 0
   br i1 %cmp2.not, label %lor.lhs.false3, label %if.then
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %isPoolBundle = getelementptr inbounds %struct.UResourceDataEntry, ptr %call, i64 0, i32 5, i32 10
+  %isPoolBundle = getelementptr inbounds i8, ptr %call, i64 97
   %2 = load i8, ptr %isPoolBundle, align 1
   %tobool4.not = icmp eq i8 %2, 0
   br i1 %tobool4.not, label %if.then, label %if.end
@@ -8337,9 +8334,9 @@ declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_ad
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL21ures_loc_closeLocalesP12UEnumeration(ptr noundef %enumerator) #1 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %enumerator, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %enumerator, i64 8
   %0 = load ptr, ptr %context, align 8
-  %curr = getelementptr inbounds %struct.ULocalesContext, ptr %0, i64 0, i32 1
+  %curr = getelementptr inbounds i8, ptr %0, i64 136
   tail call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %curr, i8 noundef signext 1)
   tail call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef %0, i8 noundef signext 1)
   tail call void @uprv_free_75(ptr noundef %0)
@@ -8350,13 +8347,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL21ures_loc_countLocalesP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %en, ptr nocapture readnone %0) #14 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %ures_getSize_75.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %fSize.i = getelementptr inbounds %struct.UResourceBundle, ptr %1, i64 0, i32 13
+  %fSize.i = getelementptr inbounds i8, ptr %1, i64 128
   %2 = load i32, ptr %fSize.i, align 8
   br label %ures_getSize_75.exit
 
@@ -8370,22 +8367,22 @@ declare ptr @uenum_unextDefault_75(ptr noundef, ptr noundef, ptr noundef) #5
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZL19ures_loc_nextLocaleP12UEnumerationPiP10UErrorCode(ptr nocapture noundef readonly %en, ptr noundef writeonly %resultLength, ptr noundef %status) #1 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %0 = load ptr, ptr %context, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.end, label %ures_hasNext_75.exit
 
 ures_hasNext_75.exit:                             ; preds = %entry
-  %fIndex.i = getelementptr inbounds %struct.UResourceBundle, ptr %0, i64 0, i32 12
+  %fIndex.i = getelementptr inbounds i8, ptr %0, i64 124
   %1 = load i32, ptr %fIndex.i, align 4
-  %fSize.i = getelementptr inbounds %struct.UResourceBundle, ptr %0, i64 0, i32 13
+  %fSize.i = getelementptr inbounds i8, ptr %0, i64 128
   %2 = load i32, ptr %fSize.i, align 8
   %sub.i = add nsw i32 %2, -1
   %cmp1.i.not = icmp slt i32 %1, %sub.i
   br i1 %cmp1.i.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %ures_hasNext_75.exit
-  %curr = getelementptr inbounds %struct.ULocalesContext, ptr %0, i64 0, i32 1
+  %curr = getelementptr inbounds i8, ptr %0, i64 136
   %call1 = tail call ptr @ures_getNextResource_75(ptr noundef nonnull %0, ptr noundef nonnull %curr, ptr noundef %status)
   %cmp.not = icmp eq ptr %call1, null
   br i1 %cmp.not, label %if.end, label %ures_getKey_75.exit
@@ -8413,13 +8410,13 @@ if.end6:                                          ; preds = %if.then5, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL21ures_loc_resetLocalesP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %en, ptr nocapture readnone %0) #17 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %ures_resetIterator_75.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %fIndex.i = getelementptr inbounds %struct.UResourceBundle, ptr %1, i64 0, i32 12
+  %fIndex.i = getelementptr inbounds i8, ptr %1, i64 124
   store i32 -1, ptr %fIndex.i, align 4
   br label %ures_resetIterator_75.exit
 

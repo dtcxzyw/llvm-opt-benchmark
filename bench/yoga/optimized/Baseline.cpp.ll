@@ -6,24 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.facebook::yoga::Event::Data" = type { ptr }
 %"struct.facebook::yoga::Event::TypedData" = type { i8 }
 %"struct.facebook::yoga::Event::TypedData.6" = type { i8 }
-%"class.facebook::yoga::Node" = type { i8, ptr, ptr, ptr, ptr, ptr, %"class.facebook::yoga::Style", %"struct.facebook::yoga::LayoutResults", i64, ptr, %"class.std::vector", ptr, %"struct.std::array.5" }
-%"class.facebook::yoga::Style" = type { i8, [3 x i8], %"struct.facebook::yoga::FloatOptional", %"struct.facebook::yoga::FloatOptional", %"struct.facebook::yoga::FloatOptional", %"class.facebook::yoga::CompactValue", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array.0", %"struct.std::array.1", %"struct.std::array.1", %"struct.std::array.1", %"struct.facebook::yoga::FloatOptional" }
-%"class.facebook::yoga::CompactValue" = type { i32 }
-%"struct.std::array" = type { [9 x %"class.facebook::yoga::CompactValue"] }
-%"struct.std::array.0" = type { [3 x %"class.facebook::yoga::CompactValue"] }
-%"struct.std::array.1" = type { [2 x %"class.facebook::yoga::CompactValue"] }
-%"struct.facebook::yoga::FloatOptional" = type { float }
-%"struct.facebook::yoga::LayoutResults" = type { i32, %"struct.facebook::yoga::FloatOptional", i32, i8, i32, %"struct.std::array.2", %"struct.facebook::yoga::CachedMeasurement", i8, %"struct.std::array.3", %"struct.std::array.3", %"struct.std::array.4", %"struct.std::array.4", %"struct.std::array.4", %"struct.std::array.4" }
-%"struct.std::array.2" = type { [8 x %"struct.facebook::yoga::CachedMeasurement"] }
-%"struct.facebook::yoga::CachedMeasurement" = type { float, float, i32, i32, float, float }
-%"struct.std::array.3" = type { [2 x float] }
-%"struct.std::array.4" = type { [4 x float] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array.5" = type { [2 x %struct.YGValue] }
-%struct.YGValue = type { float, i32 }
 
 @.str = private unnamed_addr constant [50 x i8] c"Expect custom baseline function to not return NaN\00", align 1
 @.str.2 = private unnamed_addr constant [35 x i8] c"Edge must be top/left/bottom/right\00", align 1
@@ -35,7 +17,7 @@ entry:
   %ref.tmp.i = alloca %"class.facebook::yoga::Event::Data", align 8
   %ref.tmp = alloca %"struct.facebook::yoga::Event::TypedData", align 1
   %ref.tmp6 = alloca %"struct.facebook::yoga::Event::TypedData.6", align 1
-  %baselineFunc_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 3
+  %baselineFunc_.i = getelementptr inbounds i8, ptr %node, i64 24
   %0 = load ptr, ptr %baselineFunc_.i, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.end, label %if.then
@@ -45,9 +27,9 @@ if.then:                                          ; preds = %entry
   store ptr %ref.tmp, ptr %ref.tmp.i, align 8
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef nonnull %node, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %measuredDimensions_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 7, i32 9
+  %measuredDimensions_.i = getelementptr inbounds i8, ptr %node, i64 500
   %1 = load float, ptr %measuredDimensions_.i, align 4
-  %arrayidx.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 7, i32 9, i32 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %node, i64 504
   %2 = load float, ptr %arrayidx.i.i.i, align 4
   %call5 = call noundef float @_ZNK8facebook4yoga4Node8baselineEff(ptr noundef nonnull align 8 dereferenceable(640) %node, float noundef %1, float noundef %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i24)
@@ -59,8 +41,8 @@ if.then:                                          ; preds = %entry
   br label %common.ret54
 
 if.end:                                           ; preds = %entry
-  %children_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %children_.i = getelementptr inbounds i8, ptr %node, i64 592
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %node, i64 600
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %5 = load ptr, ptr %children_.i, align 8
   %cmp43.not = icmp eq ptr %4, %5
@@ -71,8 +53,8 @@ _ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph:    ; preds = %if.end
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %alignItems_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
-  %style_.i11.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6
+  %alignItems_.i.i = getelementptr inbounds i8, ptr %node, i64 49
+  %style_.i11.i = getelementptr inbounds i8, ptr %node, i64 48
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %_ZNK8facebook4yoga4Node8getChildEm.exit
 
@@ -81,13 +63,13 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4
   %i.044 = phi i64 [ 0, %_ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph ], [ %inc, %for.inc ]
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %i.044
   %6 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %lineIndex_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %6, i64 0, i32 8
+  %lineIndex_.i = getelementptr inbounds i8, ptr %6, i64 576
   %7 = load i64, ptr %lineIndex_.i, align 8
   %cmp11.not = icmp eq i64 %7, 0
   br i1 %cmp11.not, label %if.end13, label %for.end
 
 if.end13:                                         ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit
-  %positionType_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %6, i64 0, i32 6, i32 1
+  %positionType_.i = getelementptr inbounds i8, ptr %6, i64 49
   %bf.load.i = load i24, ptr %positionType_.i, align 1
   %8 = and i24 %bf.load.i, 12288
   %cmp16 = icmp eq i24 %8, 8192
@@ -140,7 +122,7 @@ for.end:                                          ; preds = %for.inc, %_ZNK8face
   br i1 %cmp27, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.end, %for.end
-  %arrayidx.i.i.i31 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 7, i32 9, i32 0, i64 1
+  %arrayidx.i.i.i31 = getelementptr inbounds i8, ptr %node, i64 504
   %14 = load float, ptr %arrayidx.i.i.i31, align 4
   br label %common.ret54
 
@@ -152,7 +134,7 @@ if.end31:                                         ; preds = %land.lhs.true.i, %l
   %baselineChild.240 = phi ptr [ %baselineChild.0.lcssa, %for.end ], [ %6, %lor.lhs.false ], [ %6, %land.lhs.true.i ]
   %call33 = tail call noundef float @_ZN8facebook4yoga17calculateBaselineEPKNS0_4NodeE(ptr noundef nonnull %baselineChild.240)
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.2)
-  %arrayidx.i.i.i33 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %baselineChild.240, i64 0, i32 7, i32 10, i32 0, i64 1
+  %arrayidx.i.i.i33 = getelementptr inbounds i8, ptr %baselineChild.240, i64 512
   %15 = load float, ptr %arrayidx.i.i.i33, align 4
   %add = fadd float %call33, %15
   br label %common.ret54
@@ -165,22 +147,22 @@ declare void @_ZN8facebook4yoga19assertFatalWithNodeEPKNS0_4NodeEbPKc(ptr nounde
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN8facebook4yoga16isBaselineLayoutEPKNS0_4NodeE(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
 entry:
-  %style_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6
+  %style_.i = getelementptr inbounds i8, ptr %node, i64 48
   %bf.load.i = load i8, ptr %style_.i, align 4
   %0 = and i8 %bf.load.i, 8
   %.not.not = icmp eq i8 %0, 0
   br i1 %.not.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %alignItems_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %alignItems_.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i8 = load i24, ptr %alignItems_.i, align 1
   %.mask17 = and i24 %bf.load.i8, 240
   %cmp = icmp eq i24 %.mask17, 80
   br i1 %cmp, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %children_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 10
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %children_.i = getelementptr inbounds i8, ptr %node, i64 592
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %node, i64 600
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %children_.i, align 8
   %cmp820.not = icmp eq ptr %1, %2
@@ -198,7 +180,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4
   %i.021 = phi i64 [ 0, %_ZNK8facebook4yoga4Node8getChildEm.exit.preheader ], [ %inc, %_ZNK8facebook4yoga4Node8getChildEm.exit ]
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %i.021
   %3 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %positionType_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %3, i64 0, i32 6, i32 1
+  %positionType_.i = getelementptr inbounds i8, ptr %3, i64 49
   %bf.load.i11 = load i24, ptr %positionType_.i, align 1
   %4 = and i24 %bf.load.i11, 12288
   %cmp12.not = icmp ne i24 %4, 8192

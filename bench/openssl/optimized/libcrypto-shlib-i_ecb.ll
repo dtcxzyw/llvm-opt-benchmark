@@ -51,7 +51,7 @@ entry:
   %7 = load i8, ptr %incdec.ptr18, align 1
   %conv23 = zext i8 %7 to i64
   %or24 = or disjoint i64 %or21, %conv23
-  %arrayidx25 = getelementptr inbounds [2 x i64], ptr %d, i64 0, i64 1
+  %arrayidx25 = getelementptr inbounds i8, ptr %d, i64 8
   store i64 %or24, ptr %arrayidx25, align 8
   call void @IDEA_encrypt(ptr noundef nonnull %d, ptr noundef %ks) #3
   %8 = load i64, ptr %d, align 16

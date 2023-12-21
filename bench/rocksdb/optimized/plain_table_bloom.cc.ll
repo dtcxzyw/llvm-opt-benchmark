@@ -10,8 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.rocksdb::PlainTableBloomV1" = type { i32, i32, i32, ptr }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct._Guard = type { ptr }
 %"class.std::allocator.5" = type { i8 }
 
@@ -51,11 +49,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 define void @_ZN7rocksdb17PlainTableBloomV1C2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %num_probes) unnamed_addr #2 align 2 {
 entry:
   store i32 0, ptr %this, align 8
-  %kNumBlocks = getelementptr inbounds %"class.rocksdb::PlainTableBloomV1", ptr %this, i64 0, i32 1
+  %kNumBlocks = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %kNumBlocks, align 4
-  %kNumProbes = getelementptr inbounds %"class.rocksdb::PlainTableBloomV1", ptr %this, i64 0, i32 2
+  %kNumProbes = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %num_probes, ptr %kNumProbes, align 8
-  %data_ = getelementptr inbounds %"class.rocksdb::PlainTableBloomV1", ptr %this, i64 0, i32 3
+  %data_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %data_, align 8
   ret void
 }
@@ -63,10 +61,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7rocksdb17PlainTableBloomV110SetRawDataEPcjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %raw_data, i32 noundef %total_bits, i32 noundef %num_blocks) local_unnamed_addr #2 align 2 {
 entry:
-  %data_ = getelementptr inbounds %"class.rocksdb::PlainTableBloomV1", ptr %this, i64 0, i32 3
+  %data_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %raw_data, ptr %data_, align 8
   store i32 %total_bits, ptr %this, align 8
-  %kNumBlocks = getelementptr inbounds %"class.rocksdb::PlainTableBloomV1", ptr %this, i64 0, i32 1
+  %kNumBlocks = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %num_blocks, ptr %kNumBlocks, align 4
   ret void
 }
@@ -95,7 +93,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   store i32 %cond, ptr %this, align 8
   %div510 = lshr i32 %cond, 9
   %spec.select = select i1 %cmp.not, i32 0, i32 %div510
-  %kNumBlocks = getelementptr inbounds %"class.rocksdb::PlainTableBloomV1", ptr %this, i64 0, i32 1
+  %kNumBlocks = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %spec.select, ptr %kNumBlocks, align 4
   %div1011 = lshr i32 %cond, 3
   %cmp12.not = icmp eq i32 %spec.select, 0
@@ -103,7 +101,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %sz.0 = select i1 %cmp12.not, i32 %div1011, i32 %add13
   %conv = zext nneg i32 %sz.0 to i64
   %vtable = load ptr, ptr %allocator, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   %call14 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %allocator, i64 noundef %conv, i64 noundef %huge_page_tlb_size, ptr noundef %logger)
   tail call void @llvm.memset.p0.i64(ptr align 1 %call14, i8 0, i64 %conv, i1 false)
@@ -116,7 +114,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %sub = sub nuw nsw i64 64, %rem
   %raw.0.idx = select i1 %or.cond, i64 %sub, i64 0
   %raw.0 = getelementptr inbounds i8, ptr %call14, i64 %raw.0.idx
-  %data_ = getelementptr inbounds %"class.rocksdb::PlainTableBloomV1", ptr %this, i64 0, i32 3
+  %data_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %raw.0, ptr %data_, align 8
   ret void
 }
@@ -128,15 +126,15 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 define void @_ZN7rocksdb17BloomBlockBuilder13AddKeysHashesERKSt6vectorIjSaIjEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %keys_hashes) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %keys_hashes, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %keys_hashes, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %keys_hashes, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not5 = icmp eq ptr %0, %1
   br i1 %cmp.i.not5, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %kNumBlocks.i = getelementptr inbounds %"class.rocksdb::PlainTableBloomV1", ptr %this, i64 0, i32 1
-  %kNumProbes.i = getelementptr inbounds %"class.rocksdb::PlainTableBloomV1", ptr %this, i64 0, i32 2
-  %data_.i = getelementptr inbounds %"class.rocksdb::PlainTableBloomV1", ptr %this, i64 0, i32 3
+  %kNumBlocks.i = getelementptr inbounds i8, ptr %this, i64 4
+  %kNumProbes.i = getelementptr inbounds i8, ptr %this, i64 8
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit
@@ -204,7 +202,7 @@ for.body.i3.i:                                    ; preds = %if.else.i, %for.bod
   br i1 %exitcond.not.i8.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit, label %for.body.i3.i, !llvm.loop !6
 
 _ZN7rocksdb17PlainTableBloomV17AddHashEj.exit:    ; preds = %for.body.i.i, %for.body.i3.i, %if.then.i, %if.else.i
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %__begin1.sroa.0.06, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -215,7 +213,7 @@ for.end:                                          ; preds = %_ZN7rocksdb17PlainT
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN7rocksdb17BloomBlockBuilder6FinishEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %data_.i = getelementptr inbounds %"class.rocksdb::PlainTableBloomV1", ptr %this, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_.i, align 8
   %1 = load i32, ptr %this, align 8
   %div1.i = lshr i32 %1, 3

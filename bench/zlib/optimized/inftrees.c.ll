@@ -61,7 +61,7 @@ for.end20:                                        ; preds = %for.body14
 
 if.then27:                                        ; preds = %for.inc19
   %4 = load ptr, ptr %table, align 8
-  %incdec.ptr = getelementptr inbounds %struct.code, ptr %4, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %4, i64 4
   store ptr %incdec.ptr, ptr %table, align 8
   store i8 64, ptr %4, align 2
   %here.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 1
@@ -69,7 +69,7 @@ if.then27:                                        ; preds = %for.inc19
   %here.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 2
   store i16 0, ptr %here.sroa.12.0..sroa_idx, align 2
   %5 = load ptr, ptr %table, align 8
-  %incdec.ptr29 = getelementptr inbounds %struct.code, ptr %5, i64 1
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %5, i64 4
   store ptr %incdec.ptr29, ptr %table, align 8
   store i8 64, ptr %5, align 2
   %here.sroa.9.0..sroa_idx14 = getelementptr inbounds i8, ptr %5, i64 1
@@ -126,7 +126,7 @@ land.lhs.true:                                    ; preds = %for.end62
   br i1 %or.cond, label %return, label %if.end70
 
 if.end70:                                         ; preds = %land.lhs.true, %for.end62
-  %arrayidx71 = getelementptr inbounds [16 x i16], ptr %offs, i64 0, i64 1
+  %arrayidx71 = getelementptr inbounds i8, ptr %offs, i64 2
   store i16 0, ptr %arrayidx71, align 2
   br label %for.body75
 

@@ -3,13 +3,8 @@ source_filename = "bench/icu/original/charstr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_75::CharString" = type { %"class.icu_75::MaybeStackArray", i32, [4 x i8] }
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
-%struct.anon.0 = type { i16, i32, i32, ptr }
+%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 
 $_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -58,11 +53,11 @@ $_ZN6icu_7510CharStringC2EPKciR10UErrorCode = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -70,11 +65,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -135,7 +130,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -145,7 +140,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -157,7 +152,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -170,7 +165,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -194,7 +189,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -224,21 +219,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
-  %capacity3 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
-  %needToRelease4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -261,11 +256,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -273,7 +268,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -284,20 +279,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -325,7 +320,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -341,7 +336,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -373,7 +368,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -385,7 +380,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -400,7 +395,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -414,7 +409,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
@@ -431,9 +426,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.1, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -451,7 +446,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -463,7 +458,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -479,7 +474,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -496,8 +491,8 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 define void @_ZN6icu_7510CharStringC2EOS0_(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(60) %src) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1EOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) #14
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
-  %len3 = getelementptr inbounds %"class.icu_75::CharString", ptr %src, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
+  %len3 = getelementptr inbounds i8, ptr %src, i64 56
   %0 = load i32, ptr %len3, align 8
   store i32 %0, ptr %len, align 8
   store i32 0, ptr %len3, align 8
@@ -507,7 +502,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharStringaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(60) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i, label %invoke.cont.i, label %if.then.i.i
@@ -518,20 +513,20 @@ if.then.i.i:                                      ; preds = %entry
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i.i, %entry
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity.i, align 8
-  %capacity2.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity2.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease.i, align 4
   store i8 %3, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %src, i64 13
   %cmp.i = icmp eq ptr %4, %stackArray.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
-  %stackArray4.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray4.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray4.i, ptr %this, align 8
   %5 = load i32, ptr %capacity.i, align 8
   %conv.i = sext i32 %5 to i64
@@ -553,9 +548,9 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   unreachable
 
 _ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_.exit:  ; preds = %if.then.i, %if.else.i
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %src, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %src, i64 56
   %8 = load i32, ptr %len, align 8
-  %len3 = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len3 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %8, ptr %len3, align 8
   store i32 0, ptr %len, align 8
   ret ptr %this
@@ -569,7 +564,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i32, ptr %len, align 8
   %add = add nsw i32 %1, 1
   %conv = sext i32 %add to i64
@@ -602,7 +597,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i32, ptr %len, align 8
   br label %return
 
@@ -618,13 +613,13 @@ lor.lhs.false:                                    ; preds = %if.end
 
 if.then4:                                         ; preds = %lor.lhs.false, %if.end
   store i32 1, ptr %errorCode, align 4
-  %len5 = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len5 = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i32, ptr %len5, align 8
   br label %return
 
 if.end6:                                          ; preds = %lor.lhs.false
   %3 = load ptr, ptr %this, align 8
-  %len8 = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len8 = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i32, ptr %len8, align 8
   %cmp9 = icmp slt i32 %4, 1
   %cmp12.not = icmp sgt i32 %4, %capacity
@@ -661,7 +656,7 @@ entry:
   br i1 %or.cond, label %land.lhs.true2, label %if.end
 
 land.lhs.true2:                                   ; preds = %entry
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %s, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %s, i64 56
   %1 = load i32, ptr %len, align 8
   %add = add nsw i32 %1, 1
   %call3 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !4
@@ -670,7 +665,7 @@ land.lhs.true2:                                   ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true2
   %2 = load i32, ptr %len, align 8
-  %len6 = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len6 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %2, ptr %len6, align 8
   %3 = load ptr, ptr %this, align 8
   %4 = load ptr, ptr %s, align 8
@@ -691,7 +686,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity.i, align 8
   %cmp = icmp slt i32 %1, %capacity
   br i1 %cmp, label %if.then3, label %return
@@ -704,7 +699,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp9.not, label %lor.lhs.false, label %land.lhs.true
 
 lor.lhs.false:                                    ; preds = %if.then3
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i32, ptr %len, align 8
   %add11 = add nsw i32 %2, 1
   %cmp.i8 = icmp sgt i32 %spec.select, 0
@@ -730,7 +725,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then5.i, %if.then3.i
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %5 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE6resizeEii.exit, label %if.then.i.i
@@ -747,7 +742,7 @@ _ZN6icu_7515MaybeStackArrayIcLi40EE6resizeEii.exit: ; preds = %if.end14.i, %if.t
   br label %return
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.then.i, %if.then3
-  %len15 = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len15 = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load i32, ptr %len15, align 8
   %add16 = add nsw i32 %7, 1
   %cmp.i11 = icmp sgt i32 %capacity, 0
@@ -773,7 +768,7 @@ if.then5.i25:                                     ; preds = %if.then3.i17
   br label %if.end14.i19
 
 if.end14.i19:                                     ; preds = %if.then5.i25, %if.then3.i17
-  %needToRelease.i.i20 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i20 = getelementptr inbounds i8, ptr %this, i64 12
   %10 = load i8, ptr %needToRelease.i.i20, align 4
   %tobool.not.i.i21 = icmp eq i8 %10, 0
   br i1 %tobool.not.i.i21, label %_ZN6icu_7515MaybeStackArrayIcLi40EE6resizeEii.exit30, label %if.then.i.i22
@@ -801,7 +796,7 @@ return:                                           ; preds = %_ZN6icu_7515MaybeSt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7510CharString11lastIndexOfEc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this, i8 noundef signext %c) local_unnamed_addr #6 align 2 {
 entry:
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %len, align 8
   %1 = load ptr, ptr %this, align 8
   %2 = zext i32 %0 to i64
@@ -838,7 +833,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %this, align 8
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i32, ptr %len, align 8
   %cmp.not7 = icmp slt i32 %1, %s.coerce1
   br i1 %cmp.not7, label %return, label %for.body.lr.ph
@@ -869,7 +864,7 @@ return:                                           ; preds = %for.body, %if.end, 
 define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8truncateEi(ptr noundef nonnull returned align 8 dereferenceable(60) %this, i32 noundef %newLength) local_unnamed_addr #8 align 2 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %newLength, i32 0)
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %len, align 8
   %cmp2 = icmp slt i32 %spec.store.select, %0
   br i1 %cmp2, label %if.then3, label %if.end5
@@ -889,7 +884,7 @@ if.end5:                                          ; preds = %if.then3, %entry
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, i8 noundef signext %c, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %len, align 8
   %add = add nsw i32 %0, 2
   %call = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !4
@@ -953,7 +948,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 
 if.then11:                                        ; preds = %if.end9
   %1 = load ptr, ptr %this, align 8
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i32, ptr %len, align 8
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
@@ -961,7 +956,7 @@ if.then11:                                        ; preds = %if.end9
   br i1 %cmp13, label %if.then14, label %if.else25
 
 if.then14:                                        ; preds = %if.then11
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %capacity.i, align 8
   %sub = sub nsw i32 %3, %2
   %cmp18.not = icmp slt i32 %sLength.addr.0, %sub
@@ -986,7 +981,7 @@ if.else25:                                        ; preds = %if.then11
   br i1 %or.cond24, label %land.lhs.true36, label %if.else44
 
 land.lhs.true36:                                  ; preds = %if.else25
-  %capacity.i22 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i22 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %capacity.i22, align 8
   %sub40 = sub nsw i32 %4, %2
   %cmp41.not = icmp slt i32 %sLength.addr.0, %sub40
@@ -1042,7 +1037,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 define linkonce_odr noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(60) %s, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
 entry:
   %0 = load ptr, ptr %s, align 8
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %s, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %s, i64 56
   %1 = load i32, ptr %len.i, align 8
   %call3 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret ptr %call3
@@ -1052,7 +1047,7 @@ entry:
 define linkonce_odr void @_ZN6icu_7510CharStringC2EPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %s, i32 noundef %sLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %this)
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %len, align 8
   %0 = load ptr, ptr %this, align 8
   store i8 0, ptr %0, align 1
@@ -1076,7 +1071,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %len.i, align 8
   %add.i = add nsw i32 %0, 2
   %call.i = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !4
@@ -1108,11 +1103,11 @@ if.end4:                                          ; preds = %entry
   br i1 %cmp5, label %if.then6, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %_ZN6icu_7510CharString6appendEcR10UErrorCode.exit, %if.end4
-  %len.i24 = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len.i24 = getelementptr inbounds i8, ptr %this, i64 56
   br label %while.cond
 
 if.then6:                                         ; preds = %if.end4
-  %len.i13 = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len.i13 = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load i32, ptr %len.i13, align 8
   %add.i14 = add nsw i32 %6, 2
   %call.i15 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add.i14, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !4
@@ -1222,9 +1217,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity.i, align 8
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i32, ptr %len, align 8
   %3 = xor i32 %2, -1
   %sub3 = add i32 %1, %3
@@ -1272,7 +1267,7 @@ return:                                           ; preds = %if.end27, %if.then1
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %0 to i32
   %and.i = and i32 %conv1.i, 17
@@ -1289,7 +1284,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
   %1 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -1298,7 +1293,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
   %cmp.i.i = icmp slt i16 %0, 0
   %2 = ashr i16 %0, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   %4 = load i32, ptr %errorCode, align 4
@@ -1315,7 +1310,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i32, ptr %len.i, align 8
   %add.i = add i32 %cond.i, 1
   %add6.i = add i32 %add.i, %5
@@ -1359,7 +1354,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i32, ptr %len, align 8
   %add = add i32 %ucharsLen, 1
   %add6 = add i32 %add, %1
@@ -1400,7 +1395,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i32, ptr %len, align 8
   %cmp5 = icmp sgt i32 %1, 0
   br i1 %cmp5, label %land.lhs.true, label %if.end16
@@ -1457,7 +1452,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i32, ptr %len, align 8
   %cmp = icmp sgt i32 %1, 0
   br i1 %cmp, label %land.lhs.true2, label %if.end

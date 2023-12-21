@@ -4,9 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.rand_meth_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.rand_global_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
 
 @default_RAND_meth = internal unnamed_addr global ptr null, align 8
 @rand_inited = internal unnamed_addr global i1 false, align 4
@@ -56,7 +54,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %cleanup = getelementptr inbounds %struct.rand_meth_st, ptr %0, i64 0, i32 2
+  %cleanup = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %cleanup, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end4, label %if.then2
@@ -227,7 +225,7 @@ if.end9:                                          ; preds = %if.then4
   br i1 %cmp11, label %err, label %if.end14
 
 if.end14:                                         ; preds = %if.end9
-  %add = getelementptr inbounds %struct.rand_meth_st, ptr %call, i64 0, i32 3
+  %add = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load ptr, ptr %add, align 8
   %cmp15 = icmp eq ptr %0, null
   br i1 %cmp15, label %err, label %lor.lhs.false
@@ -491,7 +489,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %primary = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 2
+  %primary = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %primary, align 8
   %2 = load ptr, ptr %call.i, align 8
   %call5 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %2) #4
@@ -510,7 +508,7 @@ if.end13:                                         ; preds = %if.end8
   br i1 %cmp15.not, label %if.end19, label %return.sink.split
 
 if.end19:                                         ; preds = %if.end13
-  %seed = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 1
+  %seed = getelementptr inbounds i8, ptr %call.i, i64 8
   %5 = load ptr, ptr %seed, align 8
   %cmp20 = icmp eq ptr %5, null
   br i1 %cmp20, label %if.then21, label %if.end26
@@ -564,7 +562,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %add = getelementptr inbounds %struct.rand_meth_st, ptr %call, i64 0, i32 3
+  %add = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load ptr, ptr %add, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %if.then
@@ -597,7 +595,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %pseudorand = getelementptr inbounds %struct.rand_meth_st, ptr %call, i64 0, i32 4
+  %pseudorand = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load ptr, ptr %pseudorand, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %if.then
@@ -636,7 +634,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %status = getelementptr inbounds %struct.rand_meth_st, ptr %call, i64 0, i32 5
+  %status = getelementptr inbounds i8, ptr %call, i64 40
   %0 = load ptr, ptr %status, align 8
   %cmp3.not = icmp eq ptr %0, null
   br i1 %cmp3.not, label %return, label %cond.true
@@ -676,7 +674,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp2.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %bytes = getelementptr inbounds %struct.rand_meth_st, ptr %call, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %bytes, align 8
   %cmp3.not = icmp eq ptr %0, null
   br i1 %cmp3.not, label %if.end, label %if.then4
@@ -714,7 +712,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %private = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 4
+  %private = getelementptr inbounds i8, ptr %call.i, i64 28
   %call1 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull %private) #4
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then3, label %return
@@ -726,7 +724,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.then3
   %call8 = tail call ptr @ossl_lib_ctx_get_concrete(ptr noundef %ctx) #4
-  %public = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 3
+  %public = getelementptr inbounds i8, ptr %call.i, i64 24
   %call9 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull %public) #4
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %land.lhs.true, label %if.end13
@@ -777,7 +775,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp2.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %bytes = getelementptr inbounds %struct.rand_meth_st, ptr %call, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %bytes, align 8
   %cmp3.not = icmp eq ptr %0, null
   br i1 %cmp3.not, label %if.end, label %if.then4
@@ -815,7 +813,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %public = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 3
+  %public = getelementptr inbounds i8, ptr %call.i, i64 24
   %call1 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull %public) #4
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then3, label %return
@@ -827,7 +825,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.then3
   %call8 = tail call ptr @ossl_lib_ctx_get_concrete(ptr noundef %ctx) #4
-  %private = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 4
+  %private = getelementptr inbounds i8, ptr %call.i, i64 28
   %call9 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull %private) #4
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %land.lhs.true, label %if.end13
@@ -878,13 +876,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %err1, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %private = getelementptr inbounds %struct.rand_global_st, ptr %call, i64 0, i32 4
+  %private = getelementptr inbounds i8, ptr %call, i64 28
   %call7 = tail call i32 @CRYPTO_THREAD_init_local(ptr noundef nonnull %private, ptr noundef null) #4
   %tobool.not = icmp eq i32 %call7, 0
   br i1 %tobool.not, label %err1, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
-  %public = getelementptr inbounds %struct.rand_global_st, ptr %call, i64 0, i32 3
+  %public = getelementptr inbounds i8, ptr %call, i64 24
   %call10 = tail call i32 @CRYPTO_THREAD_init_local(ptr noundef nonnull %public, ptr noundef null) #4
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %err2, label %return
@@ -925,32 +923,32 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %vdgbl, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #4
-  %private = getelementptr inbounds %struct.rand_global_st, ptr %vdgbl, i64 0, i32 4
+  %private = getelementptr inbounds i8, ptr %vdgbl, i64 28
   %call = tail call i32 @CRYPTO_THREAD_cleanup_local(ptr noundef nonnull %private) #4
-  %public = getelementptr inbounds %struct.rand_global_st, ptr %vdgbl, i64 0, i32 3
+  %public = getelementptr inbounds i8, ptr %vdgbl, i64 24
   %call1 = tail call i32 @CRYPTO_THREAD_cleanup_local(ptr noundef nonnull %public) #4
-  %primary = getelementptr inbounds %struct.rand_global_st, ptr %vdgbl, i64 0, i32 2
+  %primary = getelementptr inbounds i8, ptr %vdgbl, i64 16
   %1 = load ptr, ptr %primary, align 8
   tail call void @EVP_RAND_CTX_free(ptr noundef %1) #4
-  %seed = getelementptr inbounds %struct.rand_global_st, ptr %vdgbl, i64 0, i32 1
+  %seed = getelementptr inbounds i8, ptr %vdgbl, i64 8
   %2 = load ptr, ptr %seed, align 8
   tail call void @EVP_RAND_CTX_free(ptr noundef %2) #4
-  %rng_name = getelementptr inbounds %struct.rand_global_st, ptr %vdgbl, i64 0, i32 5
+  %rng_name = getelementptr inbounds i8, ptr %vdgbl, i64 32
   %3 = load ptr, ptr %rng_name, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 500) #4
-  %rng_cipher = getelementptr inbounds %struct.rand_global_st, ptr %vdgbl, i64 0, i32 6
+  %rng_cipher = getelementptr inbounds i8, ptr %vdgbl, i64 40
   %4 = load ptr, ptr %rng_cipher, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 501) #4
-  %rng_digest = getelementptr inbounds %struct.rand_global_st, ptr %vdgbl, i64 0, i32 7
+  %rng_digest = getelementptr inbounds i8, ptr %vdgbl, i64 48
   %5 = load ptr, ptr %rng_digest, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 502) #4
-  %rng_propq = getelementptr inbounds %struct.rand_global_st, ptr %vdgbl, i64 0, i32 8
+  %rng_propq = getelementptr inbounds i8, ptr %vdgbl, i64 56
   %6 = load ptr, ptr %rng_propq, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 503) #4
-  %seed_name = getelementptr inbounds %struct.rand_global_st, ptr %vdgbl, i64 0, i32 9
+  %seed_name = getelementptr inbounds i8, ptr %vdgbl, i64 64
   %7 = load ptr, ptr %seed_name, align 8
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 504) #4
-  %seed_propq = getelementptr inbounds %struct.rand_global_st, ptr %vdgbl, i64 0, i32 10
+  %seed_propq = getelementptr inbounds i8, ptr %vdgbl, i64 72
   %8 = load ptr, ptr %seed_propq, align 8
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 505) #4
   tail call void @CRYPTO_free(ptr noundef nonnull %vdgbl, ptr noundef nonnull @.str, i32 noundef 507) #4
@@ -976,7 +974,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %seed = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 1
+  %seed = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %seed, align 8
   %2 = load ptr, ptr %call.i, align 8
   %call5 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %2) #4
@@ -997,9 +995,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %seed_propq = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 10
+  %seed_propq = getelementptr inbounds i8, ptr %call.i, i64 72
   %0 = load ptr, ptr %seed_propq, align 8
-  %seed_name = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 9
+  %seed_name = getelementptr inbounds i8, ptr %call.i, i64 64
   %1 = load ptr, ptr %seed_name, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.else, label %if.end41
@@ -1135,11 +1133,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rng_name = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 5
+  %rng_name = getelementptr inbounds i8, ptr %call.i, i64 32
   %0 = load ptr, ptr %rng_name, align 8
   %cmp1.not = icmp eq ptr %0, null
   %spec.select = select i1 %cmp1.not, ptr @.str.4, ptr %0
-  %rng_propq = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 8
+  %rng_propq = getelementptr inbounds i8, ptr %call.i, i64 56
   %1 = load ptr, ptr %rng_propq, align 8
   %call3 = tail call ptr @EVP_RAND_fetch(ptr noundef %libctx, ptr noundef nonnull %spec.select, ptr noundef %1) #4
   %cmp4 = icmp eq ptr %call3, null
@@ -1170,18 +1168,18 @@ if.end10:                                         ; preds = %if.end6
   br i1 %tobool.not, label %if.end20, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  %rng_cipher = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 6
+  %rng_cipher = getelementptr inbounds i8, ptr %call.i, i64 40
   %2 = load ptr, ptr %rng_cipher, align 8
   %cmp14.not = icmp eq ptr %2, null
   %spec.select29 = select i1 %cmp14.not, ptr @.str.6, ptr %2
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.5, ptr noundef nonnull %spec.select29, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then13, %if.end10
   %p.0 = phi ptr [ %incdec.ptr, %if.then13 ], [ %params, %if.end10 ]
-  %rng_digest = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 7
+  %rng_digest = getelementptr inbounds i8, ptr %call.i, i64 48
   %3 = load ptr, ptr %rng_digest, align 8
   %cmp21.not = icmp eq ptr %3, null
   br i1 %cmp21.not, label %if.end28, label %land.lhs.true
@@ -1192,7 +1190,7 @@ land.lhs.true:                                    ; preds = %if.end20
   br i1 %tobool23.not, label %if.end28, label %if.then24
 
 if.then24:                                        ; preds = %land.lhs.true
-  %incdec.ptr25 = getelementptr inbounds %struct.ossl_param_st, ptr %p.0, i64 1
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %p.0, i64 40
   %4 = load ptr, ptr %rng_digest, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp26, ptr noundef nonnull @.str.7, ptr noundef %4, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %p.0, ptr noundef nonnull align 8 dereferenceable(40) %tmp26, i64 40, i1 false)
@@ -1205,7 +1203,7 @@ if.end28:                                         ; preds = %if.then24, %land.lh
   br i1 %cmp30.not, label %if.end35, label %if.then31
 
 if.then31:                                        ; preds = %if.end28
-  %incdec.ptr32 = getelementptr inbounds %struct.ossl_param_st, ptr %p.1, i64 1
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %p.1, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp33, ptr noundef nonnull @.str.8, ptr noundef nonnull %5, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %p.1, ptr noundef nonnull align 8 dereferenceable(40) %tmp33, i64 40, i1 false)
   br label %if.end35
@@ -1217,7 +1215,7 @@ if.end35:                                         ; preds = %if.then31, %if.end2
   br i1 %tobool37.not, label %if.end41, label %if.then38
 
 if.then38:                                        ; preds = %if.end35
-  %incdec.ptr39 = getelementptr inbounds %struct.ossl_param_st, ptr %p.2, i64 1
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %p.2, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp40, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %p.2, ptr noundef nonnull align 8 dereferenceable(40) %tmp40, i64 40, i1 false)
   br label %if.end41
@@ -1229,17 +1227,17 @@ if.end41:                                         ; preds = %if.then38, %if.end3
   br i1 %tobool43.not, label %if.end47, label %if.then44
 
 if.then44:                                        ; preds = %if.end41
-  %incdec.ptr45 = getelementptr inbounds %struct.ossl_param_st, ptr %p.3, i64 1
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %p.3, i64 40
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp46, ptr noundef nonnull @.str.11, ptr noundef nonnull %use_df.addr) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %p.3, ptr noundef nonnull align 8 dereferenceable(40) %tmp46, i64 40, i1 false)
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then44, %if.end41
   %p.4 = phi ptr [ %incdec.ptr45, %if.then44 ], [ %p.3, %if.end41 ]
-  %incdec.ptr48 = getelementptr inbounds %struct.ossl_param_st, ptr %p.4, i64 1
+  %incdec.ptr48 = getelementptr inbounds i8, ptr %p.4, i64 40
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp49, ptr noundef nonnull @.str.12, ptr noundef nonnull %reseed_interval.addr) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %p.4, ptr noundef nonnull align 8 dereferenceable(40) %tmp49, i64 40, i1 false)
-  %incdec.ptr50 = getelementptr inbounds %struct.ossl_param_st, ptr %p.4, i64 2
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %p.4, i64 80
   call void @OSSL_PARAM_construct_time_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp51, ptr noundef nonnull @.str.13, ptr noundef nonnull %reseed_time_interval.addr) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr48, ptr noundef nonnull align 8 dereferenceable(40) %tmp51, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp52) #4
@@ -1276,11 +1274,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %public = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 3
+  %public = getelementptr inbounds i8, ptr %call.i, i64 24
   %call1 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull %public) #4
   %call3 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull %public, ptr noundef null) #4
   tail call void @EVP_RAND_CTX_free(ptr noundef %call1) #4
-  %private = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 4
+  %private = getelementptr inbounds i8, ptr %call.i, i64 28
   %call4 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull %private) #4
   %call6 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull %private, ptr noundef null) #4
   tail call void @EVP_RAND_CTX_free(ptr noundef %call4) #4
@@ -1300,7 +1298,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %public = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 3
+  %public = getelementptr inbounds i8, ptr %call.i, i64 24
   %call1 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull %public) #4
   %call3 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull %public, ptr noundef %rand) #4
   %cmp4 = icmp sgt i32 %call3, 0
@@ -1323,7 +1321,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %private = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 4
+  %private = getelementptr inbounds i8, ptr %call.i, i64 28
   %call1 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull %private) #4
   %call3 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull %private, ptr noundef %rand) #4
   %cmp4 = icmp sgt i32 %call3, 0
@@ -1373,26 +1371,26 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp979, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %seed_propq = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 10
-  %seed_name = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 9
-  %rng_propq = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 8
-  %rng_digest = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 7
-  %rng_cipher = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 6
-  %rng_name = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 5
+  %seed_propq = getelementptr inbounds i8, ptr %call.i, i64 72
+  %seed_name = getelementptr inbounds i8, ptr %call.i, i64 64
+  %rng_propq = getelementptr inbounds i8, ptr %call.i, i64 56
+  %rng_digest = getelementptr inbounds i8, ptr %call.i, i64 48
+  %rng_cipher = getelementptr inbounds i8, ptr %call.i, i64 40
+  %rng_name = getelementptr inbounds i8, ptr %call.i, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %r.081 = phi i32 [ 1, %for.body.lr.ph ], [ %r.1, %for.inc ]
   %i.080 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call11 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call3, i32 noundef %i.080) #4
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call11, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call11, i64 8
   %0 = load ptr, ptr %name, align 8
   %call12 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.1) #4
   %cmp13 = icmp eq i32 %call12, 0
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %for.body
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call11, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call11, i64 16
   %1 = load ptr, ptr %value, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %random_set_string.exit, label %if.then.i
@@ -1416,7 +1414,7 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp20, label %if.then21, label %if.else27
 
 if.then21:                                        ; preds = %if.else
-  %value22 = getelementptr inbounds %struct.CONF_VALUE, ptr %call11, i64 0, i32 2
+  %value22 = getelementptr inbounds i8, ptr %call11, i64 16
   %4 = load ptr, ptr %value22, align 8
   %cmp.not.i26 = icmp eq ptr %4, null
   br i1 %cmp.not.i26, label %random_set_string.exit33, label %if.then.i27
@@ -1440,7 +1438,7 @@ if.else27:                                        ; preds = %if.else
   br i1 %cmp30, label %if.then31, label %if.else37
 
 if.then31:                                        ; preds = %if.else27
-  %value32 = getelementptr inbounds %struct.CONF_VALUE, ptr %call11, i64 0, i32 2
+  %value32 = getelementptr inbounds i8, ptr %call11, i64 16
   %7 = load ptr, ptr %value32, align 8
   %cmp.not.i34 = icmp eq ptr %7, null
   br i1 %cmp.not.i34, label %random_set_string.exit41, label %if.then.i35
@@ -1464,7 +1462,7 @@ if.else37:                                        ; preds = %if.else27
   br i1 %cmp40, label %if.then41, label %if.else47
 
 if.then41:                                        ; preds = %if.else37
-  %value42 = getelementptr inbounds %struct.CONF_VALUE, ptr %call11, i64 0, i32 2
+  %value42 = getelementptr inbounds i8, ptr %call11, i64 16
   %10 = load ptr, ptr %value42, align 8
   %cmp.not.i42 = icmp eq ptr %10, null
   br i1 %cmp.not.i42, label %random_set_string.exit49, label %if.then.i43
@@ -1488,7 +1486,7 @@ if.else47:                                        ; preds = %if.else37
   br i1 %cmp50, label %if.then51, label %if.else57
 
 if.then51:                                        ; preds = %if.else47
-  %value52 = getelementptr inbounds %struct.CONF_VALUE, ptr %call11, i64 0, i32 2
+  %value52 = getelementptr inbounds i8, ptr %call11, i64 16
   %13 = load ptr, ptr %value52, align 8
   %cmp.not.i50 = icmp eq ptr %13, null
   br i1 %cmp.not.i50, label %random_set_string.exit57, label %if.then.i51
@@ -1512,7 +1510,7 @@ if.else57:                                        ; preds = %if.else47
   br i1 %cmp60, label %if.then61, label %if.else67
 
 if.then61:                                        ; preds = %if.else57
-  %value62 = getelementptr inbounds %struct.CONF_VALUE, ptr %call11, i64 0, i32 2
+  %value62 = getelementptr inbounds i8, ptr %call11, i64 16
   %16 = load ptr, ptr %value62, align 8
   %cmp.not.i58 = icmp eq ptr %16, null
   br i1 %cmp.not.i58, label %random_set_string.exit65, label %if.then.i59
@@ -1533,7 +1531,7 @@ if.else67:                                        ; preds = %if.else57
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 916, ptr noundef nonnull @__func__.random_conf_init) #4
   %18 = load ptr, ptr %name, align 8
-  %value69 = getelementptr inbounds %struct.CONF_VALUE, ptr %call11, i64 0, i32 2
+  %value69 = getelementptr inbounds i8, ptr %call11, i64 16
   %19 = load ptr, ptr %value69, align 8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 120, ptr noundef nonnull @.str.16, ptr noundef %18, ptr noundef %19) #4
   br label %for.inc
@@ -1564,7 +1562,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %primary = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 2
+  %primary = getelementptr inbounds i8, ptr %call.i, i64 16
   %0 = load ptr, ptr %primary, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end3, label %if.then2
@@ -1576,7 +1574,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %rng_name = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 5
+  %rng_name = getelementptr inbounds i8, ptr %call.i, i64 32
   %cmp.not.i = icmp eq ptr %drbg, null
   br i1 %cmp.not.i, label %land.lhs.true, label %if.then.i
 
@@ -1590,7 +1588,7 @@ land.lhs.true:                                    ; preds = %if.then.i, %if.end3
   %1 = load ptr, ptr %rng_name, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 867) #4
   store ptr %d.0.i, ptr %rng_name, align 8
-  %rng_propq = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 8
+  %rng_propq = getelementptr inbounds i8, ptr %call.i, i64 56
   %cmp.not.i7 = icmp eq ptr %propq, null
   br i1 %cmp.not.i7, label %land.lhs.true7, label %if.then.i8
 
@@ -1604,7 +1602,7 @@ land.lhs.true7:                                   ; preds = %if.then.i8, %land.l
   %2 = load ptr, ptr %rng_propq, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 867) #4
   store ptr %d.0.i12, ptr %rng_propq, align 8
-  %rng_cipher = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 6
+  %rng_cipher = getelementptr inbounds i8, ptr %call.i, i64 40
   %cmp.not.i15 = icmp eq ptr %cipher, null
   br i1 %cmp.not.i15, label %land.rhs, label %if.then.i16
 
@@ -1618,7 +1616,7 @@ land.rhs:                                         ; preds = %if.then.i16, %land.
   %3 = load ptr, ptr %rng_cipher, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 867) #4
   store ptr %d.0.i20, ptr %rng_cipher, align 8
-  %rng_digest = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 7
+  %rng_digest = getelementptr inbounds i8, ptr %call.i, i64 48
   %cmp.not.i23 = icmp eq ptr %digest, null
   br i1 %cmp.not.i23, label %if.end3.i27, label %if.then.i24
 
@@ -1647,7 +1645,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %seed1 = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 1
+  %seed1 = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %seed1, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %if.end4, label %if.then3
@@ -1659,7 +1657,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %seed_name = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 9
+  %seed_name = getelementptr inbounds i8, ptr %call.i, i64 64
   %cmp.not.i = icmp eq ptr %seed, null
   br i1 %cmp.not.i, label %land.rhs, label %if.then.i
 
@@ -1673,7 +1671,7 @@ land.rhs:                                         ; preds = %if.then.i, %if.end4
   %1 = load ptr, ptr %seed_name, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 867) #4
   store ptr %d.0.i, ptr %seed_name, align 8
-  %seed_propq = getelementptr inbounds %struct.rand_global_st, ptr %call.i, i64 0, i32 10
+  %seed_propq = getelementptr inbounds i8, ptr %call.i, i64 72
   %cmp.not.i5 = icmp eq ptr %propq, null
   br i1 %cmp.not.i5, label %if.end3.i9, label %if.then.i6
 

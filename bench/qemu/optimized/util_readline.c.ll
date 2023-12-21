@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/util_readline.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ReadLineState = type { [4096 x i8], i32, i32, [4096 x i8], i32, i32, i32, i32, [64 x ptr], i32, ptr, [256 x ptr], i32, i32, ptr, ptr, i32, [256 x i8], ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"%-*s\00", align 1
@@ -17,21 +15,21 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @readline_show_prompt(ptr noundef %rs) local_unnamed_addr #0 {
 entry:
-  %printf_func = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 18
+  %printf_func = getelementptr inbounds i8, ptr %rs, i64 11080
   %0 = load ptr, ptr %printf_func, align 8
-  %opaque = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 20
+  %opaque = getelementptr inbounds i8, ptr %rs, i64 11096
   %1 = load ptr, ptr %opaque, align 8
-  %prompt = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 17
+  %prompt = getelementptr inbounds i8, ptr %rs, i64 10820
   tail call void (ptr, ptr, ...) %0(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %prompt) #13
-  %flush_func = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 19
+  %flush_func = getelementptr inbounds i8, ptr %rs, i64 11088
   %2 = load ptr, ptr %flush_func, align 8
   %3 = load ptr, ptr %opaque, align 8
   tail call void %2(ptr noundef %3) #13
-  %last_cmd_buf_index = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 4
+  %last_cmd_buf_index = getelementptr inbounds i8, ptr %rs, i64 8200
   store i32 0, ptr %last_cmd_buf_index, align 8
-  %last_cmd_buf_size = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 5
+  %last_cmd_buf_size = getelementptr inbounds i8, ptr %rs, i64 8204
   store i32 0, ptr %last_cmd_buf_size, align 4
-  %esc_state = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 6
+  %esc_state = getelementptr inbounds i8, ptr %rs, i64 8208
   store i32 0, ptr %esc_state, align 8
   ret void
 }
@@ -39,16 +37,17 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @readline_add_completion(ptr nocapture noundef %rs, ptr noundef %str) local_unnamed_addr #0 {
 entry:
-  %nb_completions = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 12
+  %nb_completions = getelementptr inbounds i8, ptr %rs, i64 10792
   %0 = load i32, ptr %nb_completions, align 8
   %cmp = icmp slt i32 %0, 256
   br i1 %cmp, label %for.cond.preheader, label %if.end10
 
 for.cond.preheader:                               ; preds = %entry
   %cmp28 = icmp sgt i32 %0, 0
-  br i1 %cmp28, label %for.body.preheader, label %for.end
+  br i1 %cmp28, label %for.body.lr.ph, label %for.end
 
-for.body.preheader:                               ; preds = %for.cond.preheader
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %completions = getelementptr inbounds i8, ptr %rs, i64 8744
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
 
@@ -57,9 +56,9 @@ for.cond:                                         ; preds = %for.body
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
-for.body:                                         ; preds = %for.body.preheader, %for.cond
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 11, i64 %indvars.iv
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
+  %arrayidx = getelementptr [256 x ptr], ptr %completions, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %str) #14
   %tobool.not = icmp eq i32 %call, 0
@@ -67,11 +66,12 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
   %call4 = tail call noalias ptr @g_strdup(ptr noundef %str) #13
+  %completions5 = getelementptr inbounds i8, ptr %rs, i64 8744
   %2 = load i32, ptr %nb_completions, align 8
   %inc7 = add i32 %2, 1
   store i32 %inc7, ptr %nb_completions, align 8
   %idxprom8 = sext i32 %2 to i64
-  %arrayidx9 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 11, i64 %idxprom8
+  %arrayidx9 = getelementptr [256 x ptr], ptr %completions5, i64 0, i64 %idxprom8
   store ptr %call4, ptr %arrayidx9, align 8
   br label %if.end10
 
@@ -93,16 +93,17 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %nb_completions.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 12
+  %nb_completions.i = getelementptr inbounds i8, ptr %rs, i64 10792
   %0 = load i32, ptr %nb_completions.i, align 8
   %cmp.i = icmp slt i32 %0, 256
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.end
 
 for.cond.preheader.i:                             ; preds = %if.then
   %cmp28.i = icmp sgt i32 %0, 0
-  br i1 %cmp28.i, label %for.body.preheader.i, label %for.end.i
+  br i1 %cmp28.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.preheader.i:                             ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+  %completions.i = getelementptr inbounds i8, ptr %rs, i64 8744
   %wide.trip.count.i = zext nneg i32 %0 to i64
   br label %for.body.i
 
@@ -111,9 +112,9 @@ for.cond.i:                                       ; preds = %for.body.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
-for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx.i = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 11, i64 %indvars.iv.i
+for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
+  %arrayidx.i = getelementptr [256 x ptr], ptr %completions.i, i64 0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %str) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -121,11 +122,12 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
 
 for.end.i:                                        ; preds = %for.cond.i, %for.cond.preheader.i
   %call4.i = tail call noalias ptr @g_strdup(ptr noundef %str) #13
+  %completions5.i = getelementptr inbounds i8, ptr %rs, i64 8744
   %2 = load i32, ptr %nb_completions.i, align 8
   %inc7.i = add i32 %2, 1
   store i32 %inc7.i, ptr %nb_completions.i, align 8
   %idxprom8.i = sext i32 %2 to i64
-  %arrayidx9.i = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 11, i64 %idxprom8.i
+  %arrayidx9.i = getelementptr [256 x ptr], ptr %completions5.i, i64 0, i64 %idxprom8.i
   store ptr %call4.i, ptr %arrayidx9.i, align 8
   br label %if.end
 
@@ -142,7 +144,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @readline_set_completion_index(ptr nocapture noundef writeonly %rs, i32 noundef %index) local_unnamed_addr #3 {
 entry:
-  %completion_index = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 13
+  %completion_index = getelementptr inbounds i8, ptr %rs, i64 10796
   store i32 %index, ptr %completion_index, align 4
   ret void
 }
@@ -150,7 +152,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @readline_handle_byte(ptr noundef %rs, i32 noundef %ch) local_unnamed_addr #0 {
 entry:
-  %esc_state = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 6
+  %esc_state = getelementptr inbounds i8, ptr %rs, i64 8208
   %0 = load i32, ptr %esc_state, align 8
   switch i32 %0, label %sw.epilog54 [
     i32 0, label %sw.bb
@@ -176,14 +178,14 @@ sw.bb:                                            ; preds = %entry
   ]
 
 sw.bb1:                                           ; preds = %sw.bb
-  %cmd_buf_index.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
+  %cmd_buf_index.i = getelementptr inbounds i8, ptr %rs, i64 4096
   store i32 0, ptr %cmd_buf_index.i, align 8
   br label %sw.epilog54
 
 sw.bb2:                                           ; preds = %sw.bb
-  %cmd_buf_index.i53 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
+  %cmd_buf_index.i53 = getelementptr inbounds i8, ptr %rs, i64 4096
   %1 = load i32, ptr %cmd_buf_index.i53, align 8
-  %cmd_buf_size.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
+  %cmd_buf_size.i = getelementptr inbounds i8, ptr %rs, i64 4100
   %2 = load i32, ptr %cmd_buf_size.i, align 4
   %cmp.i = icmp slt i32 %1, %2
   br i1 %cmp.i, label %if.then.i, label %sw.epilog54
@@ -202,9 +204,9 @@ if.then.i:                                        ; preds = %sw.bb2
   br label %sw.epilog54
 
 sw.bb3:                                           ; preds = %sw.bb
-  %cmd_buf_size.i54 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
+  %cmd_buf_size.i54 = getelementptr inbounds i8, ptr %rs, i64 4100
   %5 = load i32, ptr %cmd_buf_size.i54, align 4
-  %cmd_buf_index.i55 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
+  %cmd_buf_index.i55 = getelementptr inbounds i8, ptr %rs, i64 4096
   store i32 %5, ptr %cmd_buf_index.i55, align 8
   br label %sw.epilog54
 
@@ -217,12 +219,12 @@ sw.bb5:                                           ; preds = %sw.bb
   br label %sw.epilog54
 
 sw.bb6:                                           ; preds = %sw.bb, %sw.bb
-  %cmd_buf_size = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
+  %cmd_buf_size = getelementptr inbounds i8, ptr %rs, i64 4100
   %6 = load i32, ptr %cmd_buf_size, align 4
   %idxprom = sext i32 %6 to i64
   %arrayidx = getelementptr [4096 x i8], ptr %rs, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
-  %read_password = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 16
+  %read_password = getelementptr inbounds i8, ptr %rs, i64 10816
   %7 = load i32, ptr %read_password, align 8
   %tobool.not = icmp eq i32 %7, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -232,22 +234,22 @@ if.then:                                          ; preds = %sw.bb6
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %sw.bb6
-  %printf_func = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 18
+  %printf_func = getelementptr inbounds i8, ptr %rs, i64 11080
   %8 = load ptr, ptr %printf_func, align 8
-  %opaque = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 20
+  %opaque = getelementptr inbounds i8, ptr %rs, i64 11096
   %9 = load ptr, ptr %opaque, align 8
   tail call void (ptr, ptr, ...) %8(ptr noundef %9, ptr noundef nonnull @.str.1) #13
-  %cmd_buf_index = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
+  %cmd_buf_index = getelementptr inbounds i8, ptr %rs, i64 4096
   store i32 0, ptr %cmd_buf_index, align 8
   store i32 0, ptr %cmd_buf_size, align 4
-  %last_cmd_buf_index = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 4
+  %last_cmd_buf_index = getelementptr inbounds i8, ptr %rs, i64 8200
   store i32 0, ptr %last_cmd_buf_index, align 8
-  %last_cmd_buf_size = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 5
+  %last_cmd_buf_size = getelementptr inbounds i8, ptr %rs, i64 8204
   store i32 0, ptr %last_cmd_buf_size, align 4
-  %readline_func = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 14
+  %readline_func = getelementptr inbounds i8, ptr %rs, i64 10800
   %10 = load ptr, ptr %readline_func, align 8
   %11 = load ptr, ptr %opaque, align 8
-  %readline_opaque = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 15
+  %readline_opaque = getelementptr inbounds i8, ptr %rs, i64 10808
   %12 = load ptr, ptr %readline_opaque, align 8
   tail call void %10(ptr noundef %11, ptr noundef nonnull %rs, ptr noundef %12) #13
   br label %sw.epilog54
@@ -261,7 +263,7 @@ sw.bb13:                                          ; preds = %sw.bb
   br label %sw.epilog54
 
 sw.bb15:                                          ; preds = %sw.bb, %sw.bb
-  %cmd_buf_index.i56 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
+  %cmd_buf_index.i56 = getelementptr inbounds i8, ptr %rs, i64 4096
   %13 = load i32, ptr %cmd_buf_index.i56, align 8
   %cmp.i57 = icmp sgt i32 %13, 0
   br i1 %cmp.i57, label %readline_backward_char.exit.i, label %sw.epilog54
@@ -269,7 +271,7 @@ sw.bb15:                                          ; preds = %sw.bb, %sw.bb
 readline_backward_char.exit.i:                    ; preds = %sw.bb15
   %dec.i.i = add nsw i32 %13, -1
   store i32 %dec.i.i, ptr %cmd_buf_index.i56, align 8
-  %cmd_buf_size.i.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
+  %cmd_buf_size.i.i = getelementptr inbounds i8, ptr %rs, i64 4100
   %14 = load i32, ptr %cmd_buf_size.i.i, align 4
   %cmp.i4.not.i = icmp sgt i32 %13, %14
   br i1 %cmp.i4.not.i, label %sw.epilog54, label %if.then.i5.i
@@ -295,7 +297,7 @@ sw.default:                                       ; preds = %sw.bb
   br i1 %cmp, label %if.then18, label %sw.epilog54
 
 if.then18:                                        ; preds = %sw.default
-  %cmd_buf_index.i58 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
+  %cmd_buf_index.i58 = getelementptr inbounds i8, ptr %rs, i64 4096
   %16 = load i32, ptr %cmd_buf_index.i58, align 8
   %cmp.i59 = icmp slt i32 %16, 4095
   br i1 %cmp.i59, label %if.then.i60, label %sw.epilog54
@@ -304,7 +306,7 @@ if.then.i60:                                      ; preds = %if.then18
   %idx.ext.i61 = sext i32 %16 to i64
   %add.ptr.i62 = getelementptr i8, ptr %rs, i64 %idx.ext.i61
   %add.ptr2.i = getelementptr i8, ptr %add.ptr.i62, i64 1
-  %cmd_buf_size.i63 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
+  %cmd_buf_size.i63 = getelementptr inbounds i8, ptr %rs, i64 4100
   %17 = load i32, ptr %cmd_buf_size.i63, align 4
   %sub.i = sub i32 %17, %16
   %conv.i64 = sext i32 %sub.i to i64
@@ -327,13 +329,13 @@ sw.bb20:                                          ; preds = %entry
 
 if.then22:                                        ; preds = %sw.bb20
   store i32 2, ptr %esc_state, align 8
-  %esc_param = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 7
+  %esc_param = getelementptr inbounds i8, ptr %rs, i64 8212
   store i32 0, ptr %esc_param, align 4
   br label %sw.epilog54
 
 if.then25:                                        ; preds = %sw.bb20
   store i32 3, ptr %esc_state, align 8
-  %esc_param27 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 7
+  %esc_param27 = getelementptr inbounds i8, ptr %rs, i64 8212
   store i32 0, ptr %esc_param27, align 4
   br label %sw.epilog54
 
@@ -363,16 +365,20 @@ sw.bb32:                                          ; preds = %entry
   ]
 
 sw.bb33:                                          ; preds = %sw.bb32, %sw.bb32
-  %hist_entry.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 9
+  %hist_entry.i = getelementptr inbounds i8, ptr %rs, i64 8728
   %21 = load i32, ptr %hist_entry.i, align 8
   switch i32 %21, label %if.end9.i [
     i32 0, label %sw.epilog47
-    i32 -1, label %for.body.i
+    i32 -1, label %for.cond.preheader.i
   ]
 
-for.body.i:                                       ; preds = %sw.bb33, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %sw.bb33 ]
-  %arrayidx.i65 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 %indvars.iv.i
+for.cond.preheader.i:                             ; preds = %sw.bb33
+  %history.i = getelementptr inbounds i8, ptr %rs, i64 8216
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %arrayidx.i65 = getelementptr [64 x ptr], ptr %history.i, i64 0, i64 %indvars.iv.i
   %22 = load ptr, ptr %arrayidx.i65, align 8
   %cmp5.i = icmp eq ptr %22, null
   br i1 %cmp5.i, label %for.end.split.loop.exit.i, label %for.inc.i
@@ -398,21 +404,22 @@ if.end9.i:                                        ; preds = %for.end.split.loop.
   br i1 %cmp12.i, label %if.then13.i, label %sw.epilog47
 
 if.then13.i:                                      ; preds = %if.end9.i.thread, %if.end9.i
-  %dec.i66123 = phi i32 [ 63, %if.end9.i.thread ], [ %dec.i66, %if.end9.i ]
-  %idxprom16.i = zext nneg i32 %dec.i66123 to i64
-  %arrayidx17.i = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 %idxprom16.i
+  %dec.i66124 = phi i32 [ 63, %if.end9.i.thread ], [ %dec.i66, %if.end9.i ]
+  %history14.i = getelementptr inbounds i8, ptr %rs, i64 8216
+  %idxprom16.i = zext nneg i32 %dec.i66124 to i64
+  %arrayidx17.i = getelementptr [64 x ptr], ptr %history14.i, i64 0, i64 %idxprom16.i
   %25 = load ptr, ptr %arrayidx17.i, align 8
   tail call void @pstrcpy(ptr noundef nonnull %rs, i32 noundef 4096, ptr noundef %25) #13
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %rs) #14
   %conv.i67 = trunc i64 %call.i to i32
-  %cmd_buf_size.i68 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
+  %cmd_buf_size.i68 = getelementptr inbounds i8, ptr %rs, i64 4100
   store i32 %conv.i67, ptr %cmd_buf_size.i68, align 4
-  %cmd_buf_index.i69 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
+  %cmd_buf_index.i69 = getelementptr inbounds i8, ptr %rs, i64 4096
   store i32 %conv.i67, ptr %cmd_buf_index.i69, align 8
   br label %sw.epilog47
 
 sw.bb34:                                          ; preds = %sw.bb32, %sw.bb32
-  %hist_entry.i70 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 9
+  %hist_entry.i70 = getelementptr inbounds i8, ptr %rs, i64 8728
   %26 = load i32, ptr %hist_entry.i70, align 8
   %cmp.i71 = icmp eq i32 %26, -1
   br i1 %cmp.i71, label %sw.epilog47, label %if.end.i
@@ -422,11 +429,12 @@ if.end.i:                                         ; preds = %sw.bb34
   br i1 %cmp2.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %inc.i76 = add nuw nsw i32 %26, 1
-  store i32 %inc.i76, ptr %hist_entry.i70, align 8
-  %idxprom.i77 = sext i32 %inc.i76 to i64
-  %arrayidx.i78 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 %idxprom.i77
-  %27 = load ptr, ptr %arrayidx.i78, align 8
+  %history.i76 = getelementptr inbounds i8, ptr %rs, i64 8216
+  %inc.i77 = add nuw nsw i32 %26, 1
+  store i32 %inc.i77, ptr %hist_entry.i70, align 8
+  %idxprom.i78 = sext i32 %inc.i77 to i64
+  %arrayidx.i79 = getelementptr [64 x ptr], ptr %history.i76, i64 0, i64 %idxprom.i78
+  %27 = load ptr, ptr %arrayidx.i79, align 8
   %cmp4.not.i = icmp eq ptr %27, null
   br i1 %cmp4.not.i, label %if.else.i, label %if.then5.i
 
@@ -442,38 +450,38 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
 if.end13.i:                                       ; preds = %if.else.i, %if.then5.i
   %call.i72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %rs) #14
   %conv.i73 = trunc i64 %call.i72 to i32
-  %cmd_buf_size.i74 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
+  %cmd_buf_size.i74 = getelementptr inbounds i8, ptr %rs, i64 4100
   store i32 %conv.i73, ptr %cmd_buf_size.i74, align 4
-  %cmd_buf_index.i75 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
+  %cmd_buf_index.i75 = getelementptr inbounds i8, ptr %rs, i64 4096
   store i32 %conv.i73, ptr %cmd_buf_index.i75, align 8
   br label %sw.epilog47
 
 sw.bb35:                                          ; preds = %sw.bb32
-  %cmd_buf_index.i79 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
-  %28 = load i32, ptr %cmd_buf_index.i79, align 8
-  %cmp.i80 = icmp sgt i32 %28, 0
-  br i1 %cmp.i80, label %if.then.i82, label %sw.epilog47
+  %cmd_buf_index.i80 = getelementptr inbounds i8, ptr %rs, i64 4096
+  %28 = load i32, ptr %cmd_buf_index.i80, align 8
+  %cmp.i81 = icmp sgt i32 %28, 0
+  br i1 %cmp.i81, label %if.then.i83, label %sw.epilog47
 
-if.then.i82:                                      ; preds = %sw.bb35
-  %dec.i83 = add nsw i32 %28, -1
-  store i32 %dec.i83, ptr %cmd_buf_index.i79, align 8
+if.then.i83:                                      ; preds = %sw.bb35
+  %dec.i84 = add nsw i32 %28, -1
+  store i32 %dec.i84, ptr %cmd_buf_index.i80, align 8
   br label %sw.epilog47
 
 sw.bb36:                                          ; preds = %sw.bb32
-  %cmd_buf_index.i84 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
-  %29 = load i32, ptr %cmd_buf_index.i84, align 8
-  %cmd_buf_size.i85 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
-  %30 = load i32, ptr %cmd_buf_size.i85, align 4
-  %cmp.i86 = icmp slt i32 %29, %30
-  br i1 %cmp.i86, label %if.then.i88, label %sw.epilog47
+  %cmd_buf_index.i85 = getelementptr inbounds i8, ptr %rs, i64 4096
+  %29 = load i32, ptr %cmd_buf_index.i85, align 8
+  %cmd_buf_size.i86 = getelementptr inbounds i8, ptr %rs, i64 4100
+  %30 = load i32, ptr %cmd_buf_size.i86, align 4
+  %cmp.i87 = icmp slt i32 %29, %30
+  br i1 %cmp.i87, label %if.then.i89, label %sw.epilog47
 
-if.then.i88:                                      ; preds = %sw.bb36
-  %inc.i89 = add nsw i32 %29, 1
-  store i32 %inc.i89, ptr %cmd_buf_index.i84, align 8
+if.then.i89:                                      ; preds = %sw.bb36
+  %inc.i90 = add nsw i32 %29, 1
+  store i32 %inc.i90, ptr %cmd_buf_index.i85, align 8
   br label %sw.epilog47
 
 sw.bb37:                                          ; preds = %sw.bb32, %sw.bb32, %sw.bb32, %sw.bb32, %sw.bb32, %sw.bb32, %sw.bb32, %sw.bb32, %sw.bb32, %sw.bb32
-  %esc_param38 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 7
+  %esc_param38 = getelementptr inbounds i8, ptr %rs, i64 8212
   %31 = load i32, ptr %esc_param38, align 4
   %mul = mul i32 %31, 10
   %sub = add nsw i32 %ch, -48
@@ -482,7 +490,7 @@ sw.bb37:                                          ; preds = %sw.bb32, %sw.bb32, 
   br label %sw.epilog54
 
 sw.bb40:                                          ; preds = %sw.bb32
-  %esc_param41 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 7
+  %esc_param41 = getelementptr inbounds i8, ptr %rs, i64 8212
   %32 = load i32, ptr %esc_param41, align 4
   switch i32 %32, label %sw.epilog47 [
     i32 1, label %sw.bb42
@@ -491,39 +499,39 @@ sw.bb40:                                          ; preds = %sw.bb32
   ]
 
 sw.bb42:                                          ; preds = %sw.bb40
-  %cmd_buf_index.i90 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
-  store i32 0, ptr %cmd_buf_index.i90, align 8
+  %cmd_buf_index.i91 = getelementptr inbounds i8, ptr %rs, i64 4096
+  store i32 0, ptr %cmd_buf_index.i91, align 8
   br label %sw.epilog47
 
 sw.bb43:                                          ; preds = %sw.bb40
-  %cmd_buf_index.i91 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
-  %33 = load i32, ptr %cmd_buf_index.i91, align 8
-  %cmd_buf_size.i92 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
-  %34 = load i32, ptr %cmd_buf_size.i92, align 4
-  %cmp.i93 = icmp slt i32 %33, %34
-  br i1 %cmp.i93, label %if.then.i95, label %sw.epilog47
+  %cmd_buf_index.i92 = getelementptr inbounds i8, ptr %rs, i64 4096
+  %33 = load i32, ptr %cmd_buf_index.i92, align 8
+  %cmd_buf_size.i93 = getelementptr inbounds i8, ptr %rs, i64 4100
+  %34 = load i32, ptr %cmd_buf_size.i93, align 4
+  %cmp.i94 = icmp slt i32 %33, %34
+  br i1 %cmp.i94, label %if.then.i96, label %sw.epilog47
 
-if.then.i95:                                      ; preds = %sw.bb43
-  %idx.ext.i96 = sext i32 %33 to i64
-  %add.ptr.i97 = getelementptr i8, ptr %rs, i64 %idx.ext.i96
-  %add.ptr7.i98 = getelementptr i8, ptr %add.ptr.i97, i64 1
+if.then.i96:                                      ; preds = %sw.bb43
+  %idx.ext.i97 = sext i32 %33 to i64
+  %add.ptr.i98 = getelementptr i8, ptr %rs, i64 %idx.ext.i97
+  %add.ptr7.i99 = getelementptr i8, ptr %add.ptr.i98, i64 1
   %35 = xor i32 %33, -1
-  %sub10.i99 = add i32 %34, %35
-  %conv.i100 = sext i32 %sub10.i99 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i97, ptr align 1 %add.ptr7.i98, i64 %conv.i100, i1 false)
-  %36 = load i32, ptr %cmd_buf_size.i92, align 4
-  %dec.i101 = add i32 %36, -1
-  store i32 %dec.i101, ptr %cmd_buf_size.i92, align 4
+  %sub10.i100 = add i32 %34, %35
+  %conv.i101 = sext i32 %sub10.i100 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i98, ptr align 1 %add.ptr7.i99, i64 %conv.i101, i1 false)
+  %36 = load i32, ptr %cmd_buf_size.i93, align 4
+  %dec.i102 = add i32 %36, -1
+  store i32 %dec.i102, ptr %cmd_buf_size.i93, align 4
   br label %sw.epilog47
 
 sw.bb44:                                          ; preds = %sw.bb40
-  %cmd_buf_size.i103 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
-  %37 = load i32, ptr %cmd_buf_size.i103, align 4
-  %cmd_buf_index.i104 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
-  store i32 %37, ptr %cmd_buf_index.i104, align 8
+  %cmd_buf_size.i104 = getelementptr inbounds i8, ptr %rs, i64 4100
+  %37 = load i32, ptr %cmd_buf_size.i104, align 4
+  %cmd_buf_index.i105 = getelementptr inbounds i8, ptr %rs, i64 4096
+  store i32 %37, ptr %cmd_buf_index.i105, align 8
   br label %sw.epilog47
 
-sw.epilog47:                                      ; preds = %if.then.i95, %sw.bb43, %if.then.i88, %sw.bb36, %if.then.i82, %sw.bb35, %if.end13.i, %sw.bb34, %if.then13.i, %if.end9.i, %sw.bb33, %sw.bb32, %sw.bb40, %sw.bb42, %sw.bb44
+sw.epilog47:                                      ; preds = %if.then.i96, %sw.bb43, %if.then.i89, %sw.bb36, %if.then.i83, %sw.bb35, %if.end13.i, %sw.bb34, %if.then13.i, %if.end9.i, %sw.bb33, %sw.bb32, %sw.bb40, %sw.bb42, %sw.bb44
   store i32 0, ptr %esc_state, align 8
   br label %sw.epilog54
 
@@ -534,14 +542,14 @@ sw.bb49:                                          ; preds = %entry
   ]
 
 sw.bb50:                                          ; preds = %sw.bb49
-  %cmd_buf_size.i105 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
-  %38 = load i32, ptr %cmd_buf_size.i105, align 4
+  %cmd_buf_size.i106 = getelementptr inbounds i8, ptr %rs, i64 4100
+  %38 = load i32, ptr %cmd_buf_size.i106, align 4
   br label %sw.epilog52.sink.split
 
 sw.epilog52.sink.split:                           ; preds = %sw.bb49, %sw.bb50
   %.sink = phi i32 [ %38, %sw.bb50 ], [ 0, %sw.bb49 ]
-  %cmd_buf_index.i107 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
-  store i32 %.sink, ptr %cmd_buf_index.i107, align 8
+  %cmd_buf_index.i108 = getelementptr inbounds i8, ptr %rs, i64 4096
+  store i32 %.sink, ptr %cmd_buf_index.i108, align 8
   br label %sw.epilog52
 
 sw.epilog52:                                      ; preds = %sw.epilog52.sink.split, %sw.bb49
@@ -549,69 +557,69 @@ sw.epilog52:                                      ; preds = %sw.epilog52.sink.sp
   br label %sw.epilog54
 
 sw.epilog54:                                      ; preds = %if.then.i60, %if.then18, %if.then.i5.i, %readline_backward_char.exit.i, %sw.bb15, %if.then.i, %sw.bb2, %sw.bb37, %sw.epilog47, %if.then22, %if.else28, %if.then25, %sw.bb1, %sw.bb3, %sw.bb4, %sw.bb5, %if.end, %sw.bb12, %sw.bb13, %sw.bb16, %sw.default, %sw.epilog52, %entry
-  %cmd_buf_size.i108 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
-  %39 = load i32, ptr %cmd_buf_size.i108, align 4
-  %last_cmd_buf_size.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 5
+  %cmd_buf_size.i109 = getelementptr inbounds i8, ptr %rs, i64 4100
+  %39 = load i32, ptr %cmd_buf_size.i109, align 4
+  %last_cmd_buf_size.i = getelementptr inbounds i8, ptr %rs, i64 8204
   %40 = load i32, ptr %last_cmd_buf_size.i, align 4
   %cmp.not.i = icmp eq i32 %39, %40
-  br i1 %cmp.not.i, label %lor.lhs.false.i, label %if.then.i109
+  br i1 %cmp.not.i, label %lor.lhs.false.i, label %if.then.i110
 
 lor.lhs.false.i:                                  ; preds = %sw.epilog54
-  %last_cmd_buf.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 3
-  %conv.i120 = sext i32 %39 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %rs, ptr nonnull %last_cmd_buf.i, i64 %conv.i120)
+  %last_cmd_buf.i = getelementptr inbounds i8, ptr %rs, i64 4104
+  %conv.i121 = sext i32 %39 to i64
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %rs, ptr nonnull %last_cmd_buf.i, i64 %conv.i121)
   %cmp3.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp3.not.i, label %lor.lhs.false.if.end39_crit_edge.i, label %if.then.i109
+  br i1 %cmp3.not.i, label %lor.lhs.false.if.end39_crit_edge.i, label %if.then.i110
 
 lor.lhs.false.if.end39_crit_edge.i:               ; preds = %lor.lhs.false.i
-  %last_cmd_buf_index40.phi.trans.insert.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 4
+  %last_cmd_buf_index40.phi.trans.insert.i = getelementptr inbounds i8, ptr %rs, i64 8200
   %.pre61.i = load i32, ptr %last_cmd_buf_index40.phi.trans.insert.i, align 8
   br label %if.end39.i
 
-if.then.i109:                                     ; preds = %lor.lhs.false.i, %sw.epilog54
-  %last_cmd_buf_index.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 4
+if.then.i110:                                     ; preds = %lor.lhs.false.i, %sw.epilog54
+  %last_cmd_buf_index.i = getelementptr inbounds i8, ptr %rs, i64 8200
   %41 = load i32, ptr %last_cmd_buf_index.i, align 8
   %cmp551.i = icmp sgt i32 %41, 0
   br i1 %cmp551.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %if.then.i109
-  %printf_func.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 18
-  %opaque.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 20
-  br label %for.body.i117
+for.body.lr.ph.i:                                 ; preds = %if.then.i110
+  %printf_func.i = getelementptr inbounds i8, ptr %rs, i64 11080
+  %opaque.i = getelementptr inbounds i8, ptr %rs, i64 11096
+  br label %for.body.i118
 
-for.body.i117:                                    ; preds = %for.body.i117, %for.body.lr.ph.i
-  %i.052.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i118, %for.body.i117 ]
+for.body.i118:                                    ; preds = %for.body.i118, %for.body.lr.ph.i
+  %i.052.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i119, %for.body.i118 ]
   %42 = load ptr, ptr %printf_func.i, align 8
   %43 = load ptr, ptr %opaque.i, align 8
   tail call void (ptr, ptr, ...) %42(ptr noundef %43, ptr noundef nonnull @.str.4) #13
-  %inc.i118 = add nuw nsw i32 %i.052.i, 1
+  %inc.i119 = add nuw nsw i32 %i.052.i, 1
   %44 = load i32, ptr %last_cmd_buf_index.i, align 8
-  %cmp5.i119 = icmp slt i32 %inc.i118, %44
-  br i1 %cmp5.i119, label %for.body.i117, label %for.end.loopexit.i, !llvm.loop !8
+  %cmp5.i120 = icmp slt i32 %inc.i119, %44
+  br i1 %cmp5.i120, label %for.body.i118, label %for.end.loopexit.i, !llvm.loop !8
 
-for.end.loopexit.i:                               ; preds = %for.body.i117
-  %.pre.i = load i32, ptr %cmd_buf_size.i108, align 4
+for.end.loopexit.i:                               ; preds = %for.body.i118
+  %.pre.i = load i32, ptr %cmd_buf_size.i109, align 4
   br label %for.end.i
 
-for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then.i109
-  %45 = phi i32 [ %.pre.i, %for.end.loopexit.i ], [ %39, %if.then.i109 ]
-  %idxprom.i110 = sext i32 %45 to i64
-  %arrayidx.i111 = getelementptr [4096 x i8], ptr %rs, i64 0, i64 %idxprom.i110
-  store i8 0, ptr %arrayidx.i111, align 1
-  %read_password.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 16
+for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then.i110
+  %45 = phi i32 [ %.pre.i, %for.end.loopexit.i ], [ %39, %if.then.i110 ]
+  %idxprom.i111 = sext i32 %45 to i64
+  %arrayidx.i112 = getelementptr [4096 x i8], ptr %rs, i64 0, i64 %idxprom.i111
+  store i8 0, ptr %arrayidx.i112, align 1
+  %read_password.i = getelementptr inbounds i8, ptr %rs, i64 10816
   %46 = load i32, ptr %read_password.i, align 8
   %tobool.not.i = icmp eq i32 %46, 0
-  br i1 %tobool.not.i, label %if.else.i116, label %if.then9.i
+  br i1 %tobool.not.i, label %if.else.i117, label %if.then9.i
 
 if.then9.i:                                       ; preds = %for.end.i
   %call12.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %rs) #14
   %conv13.i = trunc i64 %call12.i to i32
   %cmp1553.i = icmp sgt i32 %conv13.i, 0
-  br i1 %cmp1553.i, label %for.body17.lr.ph.i, label %if.end.i112
+  br i1 %cmp1553.i, label %for.body17.lr.ph.i, label %if.end.i113
 
 for.body17.lr.ph.i:                               ; preds = %if.then9.i
-  %printf_func18.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 18
-  %opaque19.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 20
+  %printf_func18.i = getelementptr inbounds i8, ptr %rs, i64 11080
+  %opaque19.i = getelementptr inbounds i8, ptr %rs, i64 11096
   br label %for.body17.i
 
 for.body17.i:                                     ; preds = %for.body17.i, %for.body17.lr.ph.i
@@ -620,47 +628,47 @@ for.body17.i:                                     ; preds = %for.body17.i, %for.
   %48 = load ptr, ptr %opaque19.i, align 8
   tail call void (ptr, ptr, ...) %47(ptr noundef %48, ptr noundef nonnull @.str.5) #13
   %inc21.i = add nuw nsw i32 %i.154.i, 1
-  %exitcond.not.i115 = icmp eq i32 %inc21.i, %conv13.i
-  br i1 %exitcond.not.i115, label %if.end.i112, label %for.body17.i, !llvm.loop !9
+  %exitcond.not.i116 = icmp eq i32 %inc21.i, %conv13.i
+  br i1 %exitcond.not.i116, label %if.end.i113, label %for.body17.i, !llvm.loop !9
 
-if.else.i116:                                     ; preds = %for.end.i
-  %printf_func23.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 18
+if.else.i117:                                     ; preds = %for.end.i
+  %printf_func23.i = getelementptr inbounds i8, ptr %rs, i64 11080
   %49 = load ptr, ptr %printf_func23.i, align 8
-  %opaque24.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 20
+  %opaque24.i = getelementptr inbounds i8, ptr %rs, i64 11096
   %50 = load ptr, ptr %opaque24.i, align 8
   tail call void (ptr, ptr, ...) %49(ptr noundef %50, ptr noundef nonnull @.str, ptr noundef nonnull %rs) #13
-  br label %if.end.i112
+  br label %if.end.i113
 
-if.end.i112:                                      ; preds = %for.body17.i, %if.else.i116, %if.then9.i
-  %printf_func27.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 18
+if.end.i113:                                      ; preds = %for.body17.i, %if.else.i117, %if.then9.i
+  %printf_func27.i = getelementptr inbounds i8, ptr %rs, i64 11080
   %51 = load ptr, ptr %printf_func27.i, align 8
-  %opaque28.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 20
+  %opaque28.i = getelementptr inbounds i8, ptr %rs, i64 11096
   %52 = load ptr, ptr %opaque28.i, align 8
   tail call void (ptr, ptr, ...) %51(ptr noundef %52, ptr noundef nonnull @.str.6) #13
-  %last_cmd_buf29.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 3
-  %53 = load i32, ptr %cmd_buf_size.i108, align 4
+  %last_cmd_buf29.i = getelementptr inbounds i8, ptr %rs, i64 4104
+  %53 = load i32, ptr %cmd_buf_size.i109, align 4
   %conv34.i = sext i32 %53 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %last_cmd_buf29.i, ptr nonnull align 8 %rs, i64 %conv34.i, i1 false)
   store i32 %53, ptr %last_cmd_buf_size.i, align 4
   store i32 %53, ptr %last_cmd_buf_index.i, align 8
   br label %if.end39.i
 
-if.end39.i:                                       ; preds = %if.end.i112, %lor.lhs.false.if.end39_crit_edge.i
-  %54 = phi i32 [ %.pre61.i, %lor.lhs.false.if.end39_crit_edge.i ], [ %53, %if.end.i112 ]
-  %cmd_buf_index.i113 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
-  %55 = load i32, ptr %cmd_buf_index.i113, align 8
-  %last_cmd_buf_index40.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 4
+if.end39.i:                                       ; preds = %if.end.i113, %lor.lhs.false.if.end39_crit_edge.i
+  %54 = phi i32 [ %.pre61.i, %lor.lhs.false.if.end39_crit_edge.i ], [ %53, %if.end.i113 ]
+  %cmd_buf_index.i114 = getelementptr inbounds i8, ptr %rs, i64 4096
+  %55 = load i32, ptr %cmd_buf_index.i114, align 8
+  %last_cmd_buf_index40.i = getelementptr inbounds i8, ptr %rs, i64 8200
   %cmp41.not.i = icmp eq i32 %55, %54
   br i1 %cmp41.not.i, label %readline_update.exit, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end39.i
-  %sub.i114 = sub i32 %55, %54
-  %cmp46.i = icmp sgt i32 %sub.i114, 0
+  %sub.i115 = sub i32 %55, %54
+  %cmp46.i = icmp sgt i32 %sub.i115, 0
   br i1 %cmp46.i, label %for.cond49.preheader.i, label %if.else58.i
 
 for.cond49.preheader.i:                           ; preds = %if.then43.i
-  %printf_func53.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 18
-  %opaque54.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 20
+  %printf_func53.i = getelementptr inbounds i8, ptr %rs, i64 11080
+  %opaque54.i = getelementptr inbounds i8, ptr %rs, i64 11096
   br label %for.body52.i
 
 for.body52.i:                                     ; preds = %for.body52.i, %for.cond49.preheader.i
@@ -669,17 +677,17 @@ for.body52.i:                                     ; preds = %for.body52.i, %for.
   %57 = load ptr, ptr %opaque54.i, align 8
   tail call void (ptr, ptr, ...) %56(ptr noundef %57, ptr noundef nonnull @.str.7) #13
   %inc56.i = add nuw nsw i32 %i.257.i, 1
-  %exitcond60.not.i = icmp eq i32 %inc56.i, %sub.i114
+  %exitcond60.not.i = icmp eq i32 %inc56.i, %sub.i115
   br i1 %exitcond60.not.i, label %if.end69.i, label %for.body52.i, !llvm.loop !10
 
 if.else58.i:                                      ; preds = %if.then43.i
-  %sub59.i = sub i32 0, %sub.i114
+  %sub59.i = sub i32 0, %sub.i115
   %cmp6155.i = icmp sgt i32 %sub59.i, 0
   br i1 %cmp6155.i, label %for.body63.lr.ph.i, label %if.end69.i
 
 for.body63.lr.ph.i:                               ; preds = %if.else58.i
-  %printf_func64.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 18
-  %opaque65.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 20
+  %printf_func64.i = getelementptr inbounds i8, ptr %rs, i64 11080
+  %opaque65.i = getelementptr inbounds i8, ptr %rs, i64 11096
   br label %for.body63.i
 
 for.body63.i:                                     ; preds = %for.body63.i, %for.body63.lr.ph.i
@@ -692,14 +700,14 @@ for.body63.i:                                     ; preds = %for.body63.i, %for.
   br i1 %exitcond59.not.i, label %if.end69.i, label %for.body63.i, !llvm.loop !11
 
 if.end69.i:                                       ; preds = %for.body63.i, %for.body52.i, %if.else58.i
-  %60 = load i32, ptr %cmd_buf_index.i113, align 8
+  %60 = load i32, ptr %cmd_buf_index.i114, align 8
   store i32 %60, ptr %last_cmd_buf_index40.i, align 8
   br label %readline_update.exit
 
 readline_update.exit:                             ; preds = %if.end39.i, %if.end69.i
-  %flush_func.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 19
+  %flush_func.i = getelementptr inbounds i8, ptr %rs, i64 11088
   %61 = load ptr, ptr %flush_func.i, align 8
-  %opaque73.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 20
+  %opaque73.i = getelementptr inbounds i8, ptr %rs, i64 11096
   %62 = load ptr, ptr %opaque73.i, align 8
   tail call void %61(ptr noundef %62) #13
   ret void
@@ -708,15 +716,15 @@ readline_update.exit:                             ; preds = %if.end39.i, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @readline_completion(ptr noundef %rs) unnamed_addr #0 {
 entry:
-  %nb_completions = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 12
+  %nb_completions = getelementptr inbounds i8, ptr %rs, i64 10792
   store i32 0, ptr %nb_completions, align 8
-  %cmd_buf_index = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
+  %cmd_buf_index = getelementptr inbounds i8, ptr %rs, i64 4096
   %0 = load i32, ptr %cmd_buf_index, align 8
   %conv = sext i32 %0 to i64
   %call = tail call noalias ptr @g_strndup(ptr noundef %rs, i64 noundef %conv) #13
-  %completion_finder = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 10
+  %completion_finder = getelementptr inbounds i8, ptr %rs, i64 8736
   %1 = load ptr, ptr %completion_finder, align 8
-  %opaque = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 20
+  %opaque = getelementptr inbounds i8, ptr %rs, i64 11096
   %2 = load ptr, ptr %opaque, align 8
   tail call void %1(ptr noundef %2, ptr noundef %call) #13
   tail call void @g_free(ptr noundef %call) #13
@@ -726,20 +734,20 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp4 = icmp eq i32 %3, 1
-  %completions = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 11
+  %completions = getelementptr inbounds i8, ptr %rs, i64 8744
   br i1 %cmp4, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
   %4 = load ptr, ptr %completions, align 8
   %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #14
   %conv8 = trunc i64 %call7 to i32
-  %completion_index = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 13
+  %completion_index = getelementptr inbounds i8, ptr %rs, i64 10796
   %5 = load i32, ptr %completion_index, align 4
   %cmp9117 = icmp slt i32 %5, %conv8
   br i1 %cmp9117, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then6
-  %cmd_buf_size.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
+  %cmd_buf_size.i = getelementptr inbounds i8, ptr %rs, i64 4100
   %6 = load i32, ptr %cmd_buf_index, align 8
   %7 = icmp slt i32 %6, 4095
   br i1 %7, label %for.body.preheader, label %for.end
@@ -805,7 +813,7 @@ if.then.i76:                                      ; preds = %if.then24
   %idx.ext.i77 = sext i32 %20 to i64
   %add.ptr.i78 = getelementptr i8, ptr %rs, i64 %idx.ext.i77
   %add.ptr2.i79 = getelementptr i8, ptr %add.ptr.i78, i64 1
-  %cmd_buf_size.i80 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
+  %cmd_buf_size.i80 = getelementptr inbounds i8, ptr %rs, i64 4100
   %21 = load i32, ptr %cmd_buf_size.i80, align 4
   %sub.i81 = sub i32 %21, %20
   %conv.i82 = sext i32 %sub.i81 to i64
@@ -822,7 +830,7 @@ if.then.i76:                                      ; preds = %if.then24
 if.else:                                          ; preds = %if.end
   %conv29 = zext nneg i32 %3 to i64
   tail call void @qsort(ptr noundef nonnull %completions, i64 noundef %conv29, i64 noundef 8, ptr noundef nonnull @completion_comp) #13
-  %printf_func = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 18
+  %printf_func = getelementptr inbounds i8, ptr %rs, i64 11080
   %25 = load ptr, ptr %printf_func, align 8
   %26 = load ptr, ptr %opaque, align 8
   tail call void (ptr, ptr, ...) %25(ptr noundef %26, ptr noundef nonnull @.str.1) #13
@@ -838,7 +846,7 @@ for.body35:                                       ; preds = %for.body35.preheade
   %indvars.iv124 = phi i64 [ 0, %for.body35.preheader ], [ %indvars.iv.next125, %if.end71 ]
   %max_prefix.0109 = phi i32 [ 0, %for.body35.preheader ], [ %max_prefix.4, %if.end71 ]
   %max_width.0107 = phi i32 [ 0, %for.body35.preheader ], [ %spec.select73, %if.end71 ]
-  %arrayidx38 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 11, i64 %indvars.iv124
+  %arrayidx38 = getelementptr [256 x ptr], ptr %completions, i64 0, i64 %indvars.iv124
   %28 = load ptr, ptr %arrayidx38, align 8
   %call39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #14
   %conv40 = trunc i64 %call39 to i32
@@ -882,13 +890,13 @@ for.end78:                                        ; preds = %if.end71
   br i1 %cmp79, label %if.then81, label %if.end95
 
 if.then81:                                        ; preds = %for.end78
-  %completion_index82 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 13
+  %completion_index82 = getelementptr inbounds i8, ptr %rs, i64 10796
   %35 = load i32, ptr %completion_index82, align 4
   %cmp84112 = icmp slt i32 %35, %max_prefix.4
   br i1 %cmp84112, label %for.body86.lr.ph, label %if.end95
 
 for.body86.lr.ph:                                 ; preds = %if.then81
-  %cmd_buf_size.i94 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
+  %cmd_buf_size.i94 = getelementptr inbounds i8, ptr %rs, i64 4100
   %36 = load i32, ptr %cmd_buf_index, align 8
   %37 = icmp slt i32 %36, 4095
   br i1 %37, label %for.body86.preheader, label %if.end95
@@ -951,7 +959,7 @@ for.body109:                                      ; preds = %if.end95, %for.inc1
   %j.1115 = phi i32 [ %j.2, %for.inc126 ], [ 0, %if.end95 ]
   %49 = load ptr, ptr %printf_func, align 8
   %50 = load ptr, ptr %opaque, align 8
-  %arrayidx114 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 11, i64 %indvars.iv132
+  %arrayidx114 = getelementptr [256 x ptr], ptr %completions, i64 0, i64 %indvars.iv132
   %51 = load ptr, ptr %arrayidx114, align 8
   tail call void (ptr, ptr, ...) %49(ptr noundef %50, ptr noundef nonnull @.str.2, i32 noundef %max_width.2, ptr noundef %51) #13
   %inc115 = add i32 %j.1115, 1
@@ -983,28 +991,32 @@ for.inc126:                                       ; preds = %lor.lhs.false, %if.
 for.end128:                                       ; preds = %for.inc126, %if.end95
   %58 = load ptr, ptr %printf_func, align 8
   %59 = load ptr, ptr %opaque, align 8
-  %prompt.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 17
+  %prompt.i = getelementptr inbounds i8, ptr %rs, i64 10820
   tail call void (ptr, ptr, ...) %58(ptr noundef %59, ptr noundef nonnull @.str, ptr noundef nonnull %prompt.i) #13
-  %flush_func.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 19
+  %flush_func.i = getelementptr inbounds i8, ptr %rs, i64 11088
   %60 = load ptr, ptr %flush_func.i, align 8
   %61 = load ptr, ptr %opaque, align 8
   tail call void %60(ptr noundef %61) #13
-  %last_cmd_buf_index.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 4
+  %last_cmd_buf_index.i = getelementptr inbounds i8, ptr %rs, i64 8200
   store i32 0, ptr %last_cmd_buf_index.i, align 8
-  %last_cmd_buf_size.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 5
+  %last_cmd_buf_size.i = getelementptr inbounds i8, ptr %rs, i64 8204
   store i32 0, ptr %last_cmd_buf_size.i, align 4
-  %esc_state.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 6
+  %esc_state.i = getelementptr inbounds i8, ptr %rs, i64 8208
   store i32 0, ptr %esc_state.i, align 8
   br label %if.end129
 
 if.end129:                                        ; preds = %if.then.i76, %if.then24, %for.end, %land.lhs.true, %for.end128
   %62 = load i32, ptr %nb_completions, align 8
   %cmp132119 = icmp sgt i32 %62, 0
-  br i1 %cmp132119, label %for.body134, label %for.end140
+  br i1 %cmp132119, label %for.body134.lr.ph, label %for.end140
 
-for.body134:                                      ; preds = %if.end129, %for.body134
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %for.body134 ], [ 0, %if.end129 ]
-  %arrayidx137 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 11, i64 %indvars.iv140
+for.body134.lr.ph:                                ; preds = %if.end129
+  %completions135 = getelementptr inbounds i8, ptr %rs, i64 8744
+  br label %for.body134
+
+for.body134:                                      ; preds = %for.body134.lr.ph, %for.body134
+  %indvars.iv140 = phi i64 [ 0, %for.body134.lr.ph ], [ %indvars.iv.next141, %for.body134 ]
+  %arrayidx137 = getelementptr [256 x ptr], ptr %completions135, i64 0, i64 %indvars.iv140
   %63 = load ptr, ptr %arrayidx137, align 8
   tail call void @g_free(ptr noundef %63) #13
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
@@ -1020,24 +1032,24 @@ for.end140:                                       ; preds = %for.body134, %if.en
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @readline_clear_screen(ptr noundef %rs) unnamed_addr #0 {
 entry:
-  %printf_func = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 18
+  %printf_func = getelementptr inbounds i8, ptr %rs, i64 11080
   %0 = load ptr, ptr %printf_func, align 8
-  %opaque = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 20
+  %opaque = getelementptr inbounds i8, ptr %rs, i64 11096
   %1 = load ptr, ptr %opaque, align 8
   tail call void (ptr, ptr, ...) %0(ptr noundef %1, ptr noundef nonnull @.str.3) #13
   %2 = load ptr, ptr %printf_func, align 8
   %3 = load ptr, ptr %opaque, align 8
-  %prompt.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 17
+  %prompt.i = getelementptr inbounds i8, ptr %rs, i64 10820
   tail call void (ptr, ptr, ...) %2(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull %prompt.i) #13
-  %flush_func.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 19
+  %flush_func.i = getelementptr inbounds i8, ptr %rs, i64 11088
   %4 = load ptr, ptr %flush_func.i, align 8
   %5 = load ptr, ptr %opaque, align 8
   tail call void %4(ptr noundef %5) #13
-  %last_cmd_buf_index.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 4
+  %last_cmd_buf_index.i = getelementptr inbounds i8, ptr %rs, i64 8200
   store i32 0, ptr %last_cmd_buf_index.i, align 8
-  %last_cmd_buf_size.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 5
+  %last_cmd_buf_size.i = getelementptr inbounds i8, ptr %rs, i64 8204
   store i32 0, ptr %last_cmd_buf_size.i, align 4
-  %esc_state.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 6
+  %esc_state.i = getelementptr inbounds i8, ptr %rs, i64 8208
   store i32 0, ptr %esc_state.i, align 8
   ret void
 }
@@ -1050,25 +1062,27 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hist_entry2 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 9
+  %hist_entry2 = getelementptr inbounds i8, ptr %rs, i64 8728
   %1 = load i32, ptr %hist_entry2, align 8
   %cmp3.not = icmp eq i32 %1, -1
-  br i1 %cmp3.not, label %for.body.preheader, label %if.then5
+  br i1 %cmp3.not, label %if.end13, label %if.then5
 
 if.then5:                                         ; preds = %if.end
+  %history = getelementptr inbounds i8, ptr %rs, i64 8216
   %idxprom = sext i32 %1 to i64
-  %arrayidx7 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 %idxprom
+  %arrayidx7 = getelementptr [64 x ptr], ptr %history, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx7, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %cmdline) #14
   %cmp9 = icmp eq i32 %call, 0
-  br i1 %cmp9, label %same_entry, label %for.body.preheader
+  br i1 %cmp9, label %same_entry, label %if.end13
 
-for.body.preheader:                               ; preds = %if.then5, %if.end
+if.end13:                                         ; preds = %if.then5, %if.end
+  %history16 = getelementptr inbounds i8, ptr %rs, i64 8216
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc53
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc53 ], [ 0, %for.body.preheader ]
-  %arrayidx18 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 %indvars.iv
+for.body:                                         ; preds = %if.end13, %for.inc53
+  %indvars.iv = phi i64 [ 0, %if.end13 ], [ %indvars.iv.next, %for.inc53 ]
+  %arrayidx18 = getelementptr [64 x ptr], ptr %history16, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx18, align 8
   %cmp19 = icmp eq ptr %3, null
   br i1 %cmp19, label %if.then69.loopexit, label %if.end22
@@ -1089,16 +1103,17 @@ same_entry:                                       ; preds = %same_entry.loopexit
   br i1 %cmp27, label %return, label %if.end30
 
 if.end30:                                         ; preds = %same_entry
+  %history31 = getelementptr inbounds i8, ptr %rs, i64 8216
   %idxprom32 = sext i32 %idx.1 to i64
-  %arrayidx33 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 %idxprom32
+  %arrayidx33 = getelementptr [64 x ptr], ptr %history31, i64 0, i64 %idxprom32
   %add = add nuw i32 %idx.1, 1
   %idxprom35 = sext i32 %add to i64
-  %arrayidx36 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 %idxprom35
+  %arrayidx36 = getelementptr [64 x ptr], ptr %history31, i64 0, i64 %idxprom35
   %sub = sub i32 63, %idx.1
   %conv38 = sext i32 %sub to i64
   %mul = shl nsw i64 %conv38, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %arrayidx33, ptr align 8 %arrayidx36, i64 %mul, i1 false)
-  %arrayidx40 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 63
+  %arrayidx40 = getelementptr i8, ptr %rs, i64 8720
   store ptr null, ptr %arrayidx40, align 8
   %cmp4249 = icmp slt i32 %idx.1, 64
   br i1 %cmp4249, label %for.body44, label %for.end55
@@ -1106,7 +1121,7 @@ if.end30:                                         ; preds = %same_entry
 for.body44:                                       ; preds = %if.end30, %for.inc
   %idx.250 = phi i32 [ %inc, %for.inc ], [ %idx.1, %if.end30 ]
   %idxprom46 = sext i32 %idx.250 to i64
-  %arrayidx47 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 %idxprom46
+  %arrayidx47 = getelementptr [64 x ptr], ptr %history31, i64 0, i64 %idxprom46
   %5 = load ptr, ptr %arrayidx47, align 8
   %cmp48 = icmp eq ptr %5, null
   br i1 %cmp48, label %if.end66, label %for.inc
@@ -1127,12 +1142,12 @@ for.end55:                                        ; preds = %if.end30
 
 if.then58:                                        ; preds = %for.inc53, %for.inc, %for.end55
   %new_entry.062 = phi ptr [ %hist_entry.0, %for.end55 ], [ %hist_entry.0, %for.inc ], [ null, %for.inc53 ]
-  %history59 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 8
+  %history59 = getelementptr inbounds i8, ptr %rs, i64 8216
   %6 = load ptr, ptr %history59, align 8
   tail call void @g_free(ptr noundef %6) #13
-  %arrayidx63 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 1
+  %arrayidx63 = getelementptr i8, ptr %rs, i64 8224
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) %history59, ptr noundef nonnull align 8 dereferenceable(504) %arrayidx63, i64 504, i1 false)
-  %arrayidx65 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 63
+  %arrayidx65 = getelementptr i8, ptr %rs, i64 8720
   store ptr null, ptr %arrayidx65, align 8
   br label %if.end66
 
@@ -1154,8 +1169,9 @@ if.then69:                                        ; preds = %if.then69.loopexit,
 if.end71:                                         ; preds = %if.then69, %if.end66
   %idx.441 = phi i32 [ %idx.442, %if.then69 ], [ %idx.4, %if.end66 ]
   %new_entry.1 = phi ptr [ %call70, %if.then69 ], [ %new_entry.037, %if.end66 ]
+  %history72 = getelementptr inbounds i8, ptr %rs, i64 8216
   %idxprom73 = sext i32 %idx.441 to i64
-  %arrayidx74 = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 %idxprom73
+  %arrayidx74 = getelementptr [64 x ptr], ptr %history72, i64 0, i64 %idxprom73
   store ptr %new_entry.1, ptr %arrayidx74, align 8
   store i32 -1, ptr %hist_entry2, align 8
   br label %return
@@ -1167,13 +1183,13 @@ return:                                           ; preds = %same_entry, %entry,
 ; Function Attrs: nofree nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @readline_backword(ptr nocapture noundef %rs) unnamed_addr #4 {
 entry:
-  %cmd_buf_index = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
+  %cmd_buf_index = getelementptr inbounds i8, ptr %rs, i64 4096
   %0 = load i32, ptr %cmd_buf_index, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end47, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %cmd_buf_size = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
+  %cmd_buf_size = getelementptr inbounds i8, ptr %rs, i64 4100
   %1 = load i32, ptr %cmd_buf_size, align 4
   %cmp2 = icmp sgt i32 %0, %1
   br i1 %cmp2, label %if.end47, label %while.cond.preheader
@@ -1258,17 +1274,17 @@ if.end47:                                         ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @readline_start(ptr noundef %rs, ptr noundef %prompt, i32 noundef %read_password, ptr noundef %readline_func, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
-  %prompt1 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 17
+  %prompt1 = getelementptr inbounds i8, ptr %rs, i64 10820
   tail call void @pstrcpy(ptr noundef nonnull %prompt1, i32 noundef 256, ptr noundef %prompt) #13
-  %readline_func2 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 14
+  %readline_func2 = getelementptr inbounds i8, ptr %rs, i64 10800
   store ptr %readline_func, ptr %readline_func2, align 8
-  %readline_opaque = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 15
+  %readline_opaque = getelementptr inbounds i8, ptr %rs, i64 10808
   store ptr %opaque, ptr %readline_opaque, align 8
-  %read_password3 = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 16
+  %read_password3 = getelementptr inbounds i8, ptr %rs, i64 10816
   store i32 %read_password, ptr %read_password3, align 8
-  %cmd_buf_index.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
+  %cmd_buf_index.i = getelementptr inbounds i8, ptr %rs, i64 4096
   store i32 0, ptr %cmd_buf_index.i, align 8
-  %cmd_buf_size.i = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
+  %cmd_buf_size.i = getelementptr inbounds i8, ptr %rs, i64 4100
   store i32 0, ptr %cmd_buf_size.i, align 4
   ret void
 }
@@ -1278,9 +1294,9 @@ declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @readline_restart(ptr nocapture noundef writeonly %rs) local_unnamed_addr #3 {
 entry:
-  %cmd_buf_index = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 1
+  %cmd_buf_index = getelementptr inbounds i8, ptr %rs, i64 4096
   store i32 0, ptr %cmd_buf_index, align 8
-  %cmd_buf_size = getelementptr inbounds %struct.ReadLineState, ptr %rs, i64 0, i32 2
+  %cmd_buf_size = getelementptr inbounds i8, ptr %rs, i64 4100
   store i32 0, ptr %cmd_buf_size, align 4
   ret void
 }
@@ -1292,8 +1308,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %history = getelementptr inbounds i8, ptr %rs, i64 8216
   %idxprom = zext nneg i32 %index to i64
-  %arrayidx = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 %idxprom
+  %arrayidx = getelementptr [64 x ptr], ptr %history, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -1306,11 +1323,15 @@ return:                                           ; preds = %entry, %if.end
 define dso_local void @readline_free(ptr noundef %rs) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %rs, null
-  br i1 %tobool.not, label %return, label %for.body
+  br i1 %tobool.not, label %return, label %for.cond.preheader
 
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr %struct.ReadLineState, ptr %rs, i64 0, i32 8, i64 %indvars.iv
+for.cond.preheader:                               ; preds = %entry
+  %history = getelementptr inbounds i8, ptr %rs, i64 8216
+  br label %for.body
+
+for.body:                                         ; preds = %for.cond.preheader, %for.body
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr [64 x ptr], ptr %history, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   tail call void @g_free(ptr noundef %0) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1331,15 +1352,15 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 define dso_local noalias ptr @readline_init(ptr noundef %printf_func, ptr noundef %flush_func, ptr noundef %opaque, ptr noundef %completion_finder) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(11104) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 11104) #16
-  %hist_entry = getelementptr inbounds %struct.ReadLineState, ptr %call, i64 0, i32 9
+  %hist_entry = getelementptr inbounds i8, ptr %call, i64 8728
   store i32 -1, ptr %hist_entry, align 8
-  %opaque1 = getelementptr inbounds %struct.ReadLineState, ptr %call, i64 0, i32 20
+  %opaque1 = getelementptr inbounds i8, ptr %call, i64 11096
   store ptr %opaque, ptr %opaque1, align 8
-  %printf_func2 = getelementptr inbounds %struct.ReadLineState, ptr %call, i64 0, i32 18
+  %printf_func2 = getelementptr inbounds i8, ptr %call, i64 11080
   store ptr %printf_func, ptr %printf_func2, align 8
-  %flush_func3 = getelementptr inbounds %struct.ReadLineState, ptr %call, i64 0, i32 19
+  %flush_func3 = getelementptr inbounds i8, ptr %call, i64 11088
   store ptr %flush_func, ptr %flush_func3, align 8
-  %completion_finder4 = getelementptr inbounds %struct.ReadLineState, ptr %call, i64 0, i32 10
+  %completion_finder4 = getelementptr inbounds i8, ptr %call, i64 8736
   store ptr %completion_finder, ptr %completion_finder4, align 8
   ret ptr %call
 }

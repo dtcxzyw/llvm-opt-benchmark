@@ -34,7 +34,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %count.i = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i26, ptr %allocator, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %minv.i)
@@ -77,10 +77,10 @@ for.inc22.i:                                      ; preds = %for.body3.i
 for.end24.loopexit.i:                             ; preds = %for.inc22.i
   %.pre.i = load float, ptr %maxv.i, align 4
   %.pre62.i = load float, ptr %minv.i, align 4
-  %arrayidx35.phi.trans.insert.i = getelementptr inbounds [3 x float], ptr %maxv.i, i64 0, i64 1
+  %arrayidx35.phi.trans.insert.i = getelementptr inbounds i8, ptr %maxv.i, i64 4
   %.pre63.i = load float, ptr %arrayidx35.phi.trans.insert.i, align 4
-  %arrayidx36.phi.trans.insert.i = getelementptr inbounds [3 x float], ptr %minv.i, i64 0, i64 1
-  %arrayidx46.phi.trans.insert.i = getelementptr inbounds [3 x float], ptr %maxv.i, i64 0, i64 2
+  %arrayidx36.phi.trans.insert.i = getelementptr inbounds i8, ptr %minv.i, i64 4
+  %arrayidx46.phi.trans.insert.i = getelementptr inbounds i8, ptr %maxv.i, i64 8
   %.pre65.i = load float, ptr %arrayidx46.phi.trans.insert.i, align 4
   %4 = load <2 x float>, ptr %arrayidx36.phi.trans.insert.i, align 4
   br label %for.end24.i
@@ -127,7 +127,7 @@ for.body66.i:                                     ; preds = %for.body66.i.prehea
   %mul73.i = fmul float %cond62.i, %sub72.i
   %15 = tail call float @llvm.fmuladd.f32(float %mul73.i, float 1.023000e+03, float 5.000000e-01)
   %conv.i = fptosi float %15 to i32
-  %arrayidx75.i = getelementptr inbounds float, ptr %add.ptr69.i, i64 1
+  %arrayidx75.i = getelementptr inbounds i8, ptr %add.ptr69.i, i64 4
   %16 = load <2 x float>, ptr %arrayidx75.i, align 4
   %17 = fsub <2 x float> %16, %9
   %and.i.i = and i32 %conv.i, 1023
@@ -207,7 +207,7 @@ for.body19.i:                                     ; preds = %for.body19.i.prehea
   %sumz.026.i = phi i32 [ %add39.i, %for.body19.i ], [ 0, %for.body19.i.preheader ]
   %39 = phi <2 x i32> [ %42, %for.body19.i ], [ zeroinitializer, %for.body19.i.preheader ]
   %arrayidx21.i = getelementptr inbounds [1024 x [3 x i32]], ptr %hist, i64 0, i64 %indvars.iv.i33
-  %arrayidx28.i = getelementptr inbounds [1024 x [3 x i32]], ptr %hist, i64 0, i64 %indvars.iv.i33, i64 2
+  %arrayidx28.i = getelementptr inbounds i8, ptr %arrayidx21.i, i64 8
   %40 = load i32, ptr %arrayidx28.i, align 4
   %41 = load <2 x i32>, ptr %arrayidx21.i, align 4
   store <2 x i32> %39, ptr %arrayidx21.i, align 4
@@ -225,7 +225,7 @@ _ZN7meshoptL16computeHistogramERA1024_A3_jPKjm.exit: ; preds = %for.body19.i
 
 _ZN17meshopt_Allocator8allocateIjEEPT_m.exit42:   ; preds = %_ZN7meshoptL16computeHistogramERA1024_A3_jPKjm.exit
   store i64 2, ptr %count.i, align 8
-  %arrayidx.i40 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 1
+  %arrayidx.i40 = getelementptr inbounds i8, ptr %allocator, i64 8
   store ptr %call.i41, ptr %arrayidx.i40, align 8
   br i1 %cmp55.not.i, label %for.cond.i.preheader, label %for.body
 
@@ -356,7 +356,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %count = getelementptr inbounds %class.meshopt_Allocator, ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load i64, ptr %count, align 8
   br label %for.cond
 
@@ -399,7 +399,7 @@ entry:
           to label %_ZN17meshopt_Allocator8allocateIfEEPT_m.exit unwind label %lpad
 
 _ZN17meshopt_Allocator8allocateIfEEPT_m.exit:     ; preds = %entry
-  %count.i = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i47, ptr %allocator, align 8
   %cmp65.not = icmp ult i64 %index_count, 3
@@ -433,23 +433,23 @@ for.body:                                         ; preds = %_ZN17meshopt_Alloca
   %div21 = fdiv float %add20, 3.000000e+00
   %arrayidx24 = getelementptr inbounds float, ptr %call.i47, i64 %mul2
   store float %div21, ptr %arrayidx24, align 4
-  %arrayidx25 = getelementptr inbounds float, ptr %add.ptr, i64 1
+  %arrayidx25 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %7 = load float, ptr %arrayidx25, align 4
-  %arrayidx26 = getelementptr inbounds float, ptr %add.ptr12, i64 1
+  %arrayidx26 = getelementptr inbounds i8, ptr %add.ptr12, i64 4
   %8 = load float, ptr %arrayidx26, align 4
   %add27 = fadd float %7, %8
-  %arrayidx28 = getelementptr inbounds float, ptr %add.ptr15, i64 1
+  %arrayidx28 = getelementptr inbounds i8, ptr %add.ptr15, i64 4
   %9 = load float, ptr %arrayidx28, align 4
   %add29 = fadd float %add27, %9
   %div30 = fdiv float %add29, 3.000000e+00
   %arrayidx33 = getelementptr inbounds float, ptr %call.i47, i64 %add4
   store float %div30, ptr %arrayidx33, align 4
-  %arrayidx34 = getelementptr inbounds float, ptr %add.ptr, i64 2
+  %arrayidx34 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %10 = load float, ptr %arrayidx34, align 4
-  %arrayidx35 = getelementptr inbounds float, ptr %add.ptr12, i64 2
+  %arrayidx35 = getelementptr inbounds i8, ptr %add.ptr12, i64 8
   %11 = load float, ptr %arrayidx35, align 4
   %add36 = fadd float %10, %11
-  %arrayidx37 = getelementptr inbounds float, ptr %add.ptr15, i64 2
+  %arrayidx37 = getelementptr inbounds i8, ptr %add.ptr15, i64 8
   %12 = load float, ptr %arrayidx37, align 4
   %add38 = fadd float %add36, %12
   %div39 = fdiv float %add38, 3.000000e+00
@@ -475,7 +475,7 @@ for.end:                                          ; preds = %for.body, %_ZN17mes
 
 invoke.cont43:                                    ; preds = %for.end
   store i64 2, ptr %count.i, align 8
-  %arrayidx.i53 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 1
+  %arrayidx.i53 = getelementptr inbounds i8, ptr %allocator, i64 8
   store ptr %call.i54, ptr %arrayidx.i53, align 8
   invoke void @meshopt_spatialSortRemap(ptr noundef %call.i54, ptr noundef %call.i47, i64 noundef %div, i64 noundef 12)
           to label %invoke.cont45 unwind label %lpad
@@ -494,7 +494,7 @@ if.then:                                          ; preds = %invoke.cont45
 
 invoke.cont47:                                    ; preds = %if.then
   store i64 3, ptr %count.i, align 8
-  %arrayidx.i60 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 2
+  %arrayidx.i60 = getelementptr inbounds i8, ptr %allocator, i64 16
   store ptr %call.i61, ptr %arrayidx.i60, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i61, ptr align 4 %indices, i64 %mul.i56, i1 false)
   br label %if.end

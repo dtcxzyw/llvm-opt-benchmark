@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%class.stack = type { ptr, ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -26,9 +25,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5stackC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_curr_ptr = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 1
-  %m_curr_end_ptr = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 2
-  %m_free_pages = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 3
+  %m_curr_ptr = getelementptr inbounds i8, ptr %this, i64 8
+  %m_curr_end_ptr = getelementptr inbounds i8, ptr %this, i64 16
+  %m_free_pages = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   %call.i = tail call noundef ptr @_Z21allocate_default_pagePcRS_(ptr noundef null, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages)
   store ptr %call.i, ptr %this, align 8
@@ -45,16 +44,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5stackD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_curr_ptr.i.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 1
+  %m_curr_ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_curr_ptr.i.i, align 8
-  %arrayidx.i2.i = getelementptr inbounds i64, ptr %0, i64 -1
+  %arrayidx.i2.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %arrayidx.i2.i, align 8
   %cmp.i3.i = icmp eq i64 %1, 0
   br i1 %cmp.i3.i, label %invoke.cont, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %m_free_pages.i.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 3
-  %m_curr_end_ptr.i.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 2
+  %m_free_pages.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_curr_end_ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5stack10deallocateEv.exit.i, %while.body.lr.ph.i
@@ -66,7 +65,7 @@ while.body.i:                                     ; preds = %_ZN5stack10dealloca
   br i1 %cmp.i1.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i
-  %arrayidx.i3.i.i = getelementptr inbounds i64, ptr %4, i64 -1
+  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load i64, ptr %arrayidx.i3.i.i, align 8
   invoke void @_Z12recycle_pagePcRS_(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages.i.i)
           to label %.noexc unwind label %terminate.lpad.loopexit
@@ -102,7 +101,7 @@ if.end.i.i.i:                                     ; preds = %if.then13.i.i
 
 _ZN5stack10deallocateEv.exit.i:                   ; preds = %.noexc1, %if.then13.i.i, %if.end.i.i
   %9 = phi ptr [ %7, %if.end.i.i ], [ %7, %if.then13.i.i ], [ %.pre.i, %.noexc1 ]
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %9, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %9, i64 -8
   %10 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i.i = icmp eq i64 %10, 0
   br i1 %cmp.i.i, label %invoke.cont, label %while.body.i, !llvm.loop !4
@@ -113,7 +112,7 @@ invoke.cont:                                      ; preds = %_ZN5stack10dealloca
           to label %invoke.cont2 unwind label %terminate.lpad.loopexit.split-lp
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %m_free_pages = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 3
+  %m_free_pages = getelementptr inbounds i8, ptr %this, i64 24
   %12 = load ptr, ptr %m_free_pages, align 8
   invoke void @_Z9del_pagesPc(ptr noundef %12)
           to label %invoke.cont3 unwind label %terminate.lpad.loopexit.split-lp
@@ -141,16 +140,16 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5stack5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_curr_ptr.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 1
+  %m_curr_ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_curr_ptr.i, align 8
-  %arrayidx.i2 = getelementptr inbounds i64, ptr %0, i64 -1
+  %arrayidx.i2 = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %arrayidx.i2, align 8
   %cmp.i3 = icmp eq i64 %1, 0
   br i1 %cmp.i3, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_free_pages.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 3
-  %m_curr_end_ptr.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 2
+  %m_free_pages.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_curr_end_ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN5stack10deallocateEv.exit
@@ -162,7 +161,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i1, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body
-  %arrayidx.i3.i = getelementptr inbounds i64, ptr %4, i64 -1
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load i64, ptr %arrayidx.i3.i, align 8
   %and.i.i = and i64 %5, -2
   %6 = inttoptr i64 %and.i.i to ptr
@@ -192,7 +191,7 @@ if.end.i.i:                                       ; preds = %if.then13.i
 
 _ZN5stack10deallocateEv.exit:                     ; preds = %if.end.i, %if.then13.i, %if.end.i.i
   %9 = phi ptr [ %7, %if.end.i ], [ %7, %if.then13.i ], [ %.pre, %if.end.i.i ]
-  %arrayidx.i = getelementptr inbounds i64, ptr %9, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 -8
   %10 = load i64, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i64 %10, 0
   br i1 %cmp.i, label %while.end, label %while.body, !llvm.loop !4
@@ -219,9 +218,9 @@ declare void @_Z9del_pagesPc(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5stack10deallocateEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_curr_ptr.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 1
+  %m_curr_ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_curr_ptr.i, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %0, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %arrayidx.i, align 8
   %2 = load ptr, ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 8
@@ -229,15 +228,15 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i3 = getelementptr inbounds i64, ptr %2, i64 -1
+  %arrayidx.i3 = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx.i3, align 8
   %and.i = and i64 %3, -2
   %4 = inttoptr i64 %and.i to ptr
-  %m_free_pages = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 3
+  %m_free_pages = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_Z12recycle_pagePcRS_(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages)
   store ptr %4, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 8184
-  %m_curr_end_ptr = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 2
+  %m_curr_end_ptr = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i, ptr %m_curr_end_ptr, align 8
   br label %if.end
 
@@ -265,9 +264,9 @@ if.end15:                                         ; preds = %if.end.i, %if.then1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK5stack3topEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_curr_ptr.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 1
+  %m_curr_ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_curr_ptr.i, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %0, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
@@ -287,10 +286,10 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN5stack14allocate_smallEmb(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %size, i1 noundef zeroext %external) local_unnamed_addr #3 align 2 {
 entry:
-  %m_curr_ptr = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 1
+  %m_curr_ptr = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_curr_ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %size
-  %m_curr_end_ptr = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 2
+  %m_curr_end_ptr = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_curr_end_ptr, align 8
   %cmp = icmp ult ptr %add.ptr, %1
   br i1 %cmp, label %if.then, label %if.else
@@ -304,10 +303,10 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i64, ptr %0, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -8
   %3 = load i64, ptr %arrayidx.i, align 8
   %4 = load ptr, ptr %this, align 8
-  %m_free_pages.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 3
+  %m_free_pages.i = getelementptr inbounds i8, ptr %this, i64 24
   %call.i = tail call noundef ptr @_Z21allocate_default_pagePcRS_(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages.i)
   store ptr %call.i, ptr %this, align 8
   store ptr %call.i, ptr %m_curr_ptr, align 8
@@ -338,7 +337,7 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then.i:                                        ; preds = %if.end
   %8 = load ptr, ptr %this, align 8
-  %m_free_pages.i.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 3
+  %m_free_pages.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %call.i.i = tail call noundef ptr @_Z21allocate_default_pagePcRS_(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages.i.i)
   store ptr %call.i.i, ptr %this, align 8
   store ptr %call.i.i, ptr %m_curr_ptr, align 8
@@ -362,10 +361,10 @@ _ZN5stack10store_markEPvb.exit:                   ; preds = %if.end, %if.then.i
 define hidden noundef ptr @_ZN5stack12allocate_bigEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %size) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %size)
-  %m_curr_ptr.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 1
+  %m_curr_ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_curr_ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  %m_curr_end_ptr.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 2
+  %m_curr_end_ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_curr_end_ptr.i, align 8
   %cmp.i = icmp ult ptr %add.ptr.i, %1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -379,10 +378,10 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %0, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   %3 = load i64, ptr %arrayidx.i.i, align 8
   %4 = load ptr, ptr %this, align 8
-  %m_free_pages.i.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 3
+  %m_free_pages.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %call.i.i = tail call noundef ptr @_Z21allocate_default_pagePcRS_(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages.i.i)
   store ptr %call.i.i, ptr %this, align 8
   store ptr %call.i.i, ptr %m_curr_ptr.i, align 8
@@ -413,7 +412,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 
 if.then.i.i:                                      ; preds = %if.end.i
   %8 = load ptr, ptr %this, align 8
-  %m_free_pages.i.i.i = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 3
+  %m_free_pages.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %call.i.i.i = tail call noundef ptr @_Z21allocate_default_pagePcRS_(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages.i.i.i)
   store ptr %call.i.i.i, ptr %this, align 8
   store ptr %call.i.i.i, ptr %m_curr_ptr.i, align 8

@@ -3,7 +3,6 @@ source_filename = "bench/hermes/original/StringKind.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::_Vector_base<hermes::StringKind::Entry, std::allocator<hermes::StringKind::Entry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.hermes::StringKind::Entry" = type { i32 }
 
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -31,13 +30,13 @@ entry:
 define hidden void @_ZN6hermes10StringKind11Accumulator9push_backENS0_4KindE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %k) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::StringKind::Entry, std::allocator<hermes::StringKind::Entry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::StringKind::Entry, std::allocator<hermes::StringKind::Entry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %2
   br i1 %cmp.not.i, label %_ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %if.then.i
@@ -46,7 +45,7 @@ if.then.i:                                        ; preds = %if.then
   %or.i.i.i.i = or i32 %k, 1
   store i32 %or.i.i.i.i, ptr %0, align 4
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.hermes::StringKind::Entry", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 4
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %if.end13
 
@@ -54,7 +53,7 @@ _ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #8
   %or.i.i.i.i.i = or i32 %k, 1
   store i32 %or.i.i.i.i.i, ptr %call5.i.i.i.i.i, align 4
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.hermes::StringKind::Entry", ptr %call5.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 4
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE17_M_realloc_insertIJRNS1_4KindEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -69,7 +68,7 @@ _ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE17_M_realloc_insertIJRNS1_4KindE
   br label %if.end13
 
 if.end:                                           ; preds = %entry
-  %add.ptr.i.i4 = getelementptr inbounds %"struct.hermes::StringKind::Entry", ptr %1, i64 -1
+  %add.ptr.i.i4 = getelementptr inbounds i8, ptr %1, i64 -4
   %4 = load i32, ptr %add.ptr.i.i4, align 4
   %and.i = and i32 %4, -2147483648
   %cmp.not = icmp ne i32 %and.i, %k
@@ -79,7 +78,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end
-  %_M_end_of_storage.i7 = getelementptr inbounds %"struct.std::_Vector_base<hermes::StringKind::Entry, std::allocator<hermes::StringKind::Entry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i7 = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_end_of_storage.i7, align 8
   %cmp.not.i8 = icmp eq ptr %1, %5
   br i1 %cmp.not.i8, label %if.else.i12, label %if.then.i9
@@ -88,7 +87,7 @@ if.then.i9:                                       ; preds = %if.then9
   %or.i.i.i.i10 = or i32 %k, 1
   store i32 %or.i.i.i.i10, ptr %1, align 4
   %6 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i11 = getelementptr inbounds %"struct.hermes::StringKind::Entry", ptr %6, i64 1
+  %incdec.ptr.i11 = getelementptr inbounds i8, ptr %6, i64 4
   store ptr %incdec.ptr.i11, ptr %_M_finish.i.i, align 8
   br label %if.end13
 
@@ -133,13 +132,13 @@ for.body.i.i.i.i.i34:                             ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %7 = load i32, ptr %__first.addr.06.i.i.i.i.i36, align 4, !alias.scope !7, !noalias !4
   store i32 %7, ptr %__cur.07.i.i.i.i.i35, align 4, !alias.scope !4, !noalias !7
-  %incdec.ptr.i.i.i.i.i37 = getelementptr inbounds %"struct.hermes::StringKind::Entry", ptr %__first.addr.06.i.i.i.i.i36, i64 1
-  %incdec.ptr1.i.i.i.i.i38 = getelementptr inbounds %"struct.hermes::StringKind::Entry", ptr %__cur.07.i.i.i.i.i35, i64 1
+  %incdec.ptr.i.i.i.i.i37 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i36, i64 4
+  %incdec.ptr1.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i35, i64 4
   %cmp.not.i.i.i.i.i39 = icmp eq ptr %incdec.ptr.i.i.i.i.i37, %1
   br i1 %cmp.not.i.i.i.i.i39, label %_ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i40, label %for.body.i.i.i.i.i34, !llvm.loop !9
 
 _ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i40: ; preds = %for.body.i.i.i.i.i34
-  %incdec.ptr.i.i42 = getelementptr %"struct.hermes::StringKind::Entry", ptr %__cur.07.i.i.i.i.i35, i64 2
+  %incdec.ptr.i.i42 = getelementptr i8, ptr %__cur.07.i.i.i.i.i35, i64 8
   %tobool.not.i.i.i43 = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i43, label %_ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE17_M_realloc_insertIJRNS1_4KindEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i45, label %if.then.i20.i.i44
 

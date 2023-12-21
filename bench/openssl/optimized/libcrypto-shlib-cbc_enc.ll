@@ -18,7 +18,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp194188, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %arrayidx56 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx56 = getelementptr inbounds i8, ptr %tin, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -166,7 +166,7 @@ sw.epilog:                                        ; preds = %sw.bb123, %if.then9
   %xor127 = xor i32 %tin0.3, %tout0.0.lcssa
   store i32 %xor127, ptr %tin, align 8
   %xor129 = xor i32 %tin1.7, %tout1.0.lcssa
-  %arrayidx130 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx130 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %xor129, ptr %arrayidx130, align 4
   call void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %_schedule, i32 noundef 1) #2
   %13 = load i32, ptr %tin, align 8
@@ -206,7 +206,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp194188, label %for.body196.lr.ph, label %for.end264
 
 for.body196.lr.ph:                                ; preds = %if.else
-  %arrayidx226 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx226 = getelementptr inbounds i8, ptr %tin, i64 4
   br label %for.body196
 
 for.body196:                                      ; preds = %for.body196.lr.ph, %for.body196
@@ -292,7 +292,7 @@ for.end264:                                       ; preds = %for.body196, %if.el
   br i1 %cmp265.not, label %if.end346, label %if.then267
 
 if.then267:                                       ; preds = %for.end264
-  %arrayidx297 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx297 = getelementptr inbounds i8, ptr %tin, i64 4
   %25 = load <2 x i32>, ptr %in.addr.8.lcssa, align 1
   store <2 x i32> %25, ptr %tin, align 8
   call void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %_schedule, i32 noundef 0) #2

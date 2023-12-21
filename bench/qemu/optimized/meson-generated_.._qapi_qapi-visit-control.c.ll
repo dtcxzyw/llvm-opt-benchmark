@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.QMPCapabilityList = type { ptr, i32 }
-%struct.q_obj_qmp_capabilities_arg = type { i8, ptr }
-%struct.VersionTriple = type { i64, i64, i64 }
-%struct.VersionInfo = type { ptr, ptr }
-%struct.CommandInfoList = type { ptr, ptr }
-%struct.MonitorOptions = type { ptr, i8, i32, i8, i8, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"enable\00", align 1
 @QMPCapability_lookup = external constant %struct.QEnumLookup, align 8
@@ -46,7 +40,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.QMPCapabilityList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %value.i, align 4
@@ -116,7 +110,7 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %enable = getelementptr inbounds %struct.q_obj_qmp_capabilities_arg, ptr %obj, i64 0, i32 1
+  %enable = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_QMPCapabilityList(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %enable, ptr noundef %errp)
   br i1 %call1, label %if.end3, label %return
 
@@ -139,12 +133,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %minor = getelementptr inbounds %struct.VersionTriple, ptr %obj, i64 0, i32 1
+  %minor = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %minor, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %micro = getelementptr inbounds %struct.VersionTriple, ptr %obj, i64 0, i32 2
+  %micro = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %micro, ptr noundef %errp) #4
   br label %return
 
@@ -183,12 +177,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %minor.i = getelementptr inbounds %struct.VersionTriple, ptr %0, i64 0, i32 1
+  %minor.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %minor.i, ptr noundef %errp) #4
   br i1 %call1.i, label %visit_type_VersionTriple_members.exit, label %out_obj.thread
 
 visit_type_VersionTriple_members.exit:            ; preds = %if.end.i
-  %micro.i = getelementptr inbounds %struct.VersionTriple, ptr %0, i64 0, i32 2
+  %micro.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %micro.i, ptr noundef %errp) #4
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -236,7 +230,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %package = getelementptr inbounds %struct.VersionInfo, ptr %obj, i64 0, i32 1
+  %package = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %package, ptr noundef %errp) #4
   br label %return
 
@@ -275,7 +269,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_VersionInfo_members.exit, label %out_obj.thread
 
 visit_type_VersionInfo_members.exit:              ; preds = %if.end5
-  %package.i = getelementptr inbounds %struct.VersionInfo, ptr %0, i64 0, i32 1
+  %package.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %package.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -378,7 +372,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.CommandInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_CommandInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -442,12 +436,12 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %has_mode = getelementptr inbounds %struct.MonitorOptions, ptr %obj, i64 0, i32 1
+  %has_mode = getelementptr inbounds i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_mode) #4
   br i1 %call6, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %if.end5
-  %mode = getelementptr inbounds %struct.MonitorOptions, ptr %obj, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %obj, i64 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %mode, align 4
   store i32 %1, ptr %value.i, align 4
@@ -458,17 +452,17 @@ if.then7:                                         ; preds = %if.end5
   br i1 %call.i, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.then7, %if.end5
-  %has_pretty = getelementptr inbounds %struct.MonitorOptions, ptr %obj, i64 0, i32 3
+  %has_pretty = getelementptr inbounds i8, ptr %obj, i64 16
   %call12 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_pretty) #4
   br i1 %call12, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %if.end11
-  %pretty = getelementptr inbounds %struct.MonitorOptions, ptr %obj, i64 0, i32 4
+  %pretty = getelementptr inbounds i8, ptr %obj, i64 17
   %call14 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %pretty, ptr noundef %errp) #4
   br i1 %call14, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.then13, %if.end11
-  %chardev = getelementptr inbounds %struct.MonitorOptions, ptr %obj, i64 0, i32 5
+  %chardev = getelementptr inbounds i8, ptr %obj, i64 24
   %call18 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %chardev, ptr noundef %errp) #4
   br label %return
 

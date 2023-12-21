@@ -252,7 +252,7 @@ if.end:                                           ; preds = %entry
   %conv8 = zext i1 %cmp1 to i8
   store i8 %conv8, ptr %dom, align 1
   %conv9 = trunc i64 %context_len to i8
-  %arrayidx10 = getelementptr inbounds [2 x i8], ptr %dom, i64 0, i64 1
+  %arrayidx10 = getelementptr inbounds i8, ptr %dom, i64 1
   store i8 %conv9, ptr %arrayidx10, align 1
   %call = tail call ptr @EVP_MD_fetch(ptr noundef %ctx, ptr noundef nonnull @.str, ptr noundef %propq) #4
   %cmp11 = icmp eq ptr %call, null

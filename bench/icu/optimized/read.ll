@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/read.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UString = type { ptr, i32, i32 }
-
 @lineCount = internal unnamed_addr global i32 0, align 4
 @.str = private unnamed_addr constant [35 x i8] c"Mixing quoted and unquoted strings\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"unterminated comment detected\00", align 1
@@ -71,8 +69,8 @@ if.end.i:                                         ; preds = %sw.default
   br i1 %cmp1.i, label %getStringToken.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %fLength71.i = getelementptr inbounds %struct.UString, ptr %token, i64 0, i32 1
-  %arrayidx115.i = getelementptr inbounds i16, ptr %target.i, i64 1
+  %fLength71.i = getelementptr inbounds i8, ptr %token, i64 8
+  %arrayidx115.i = getelementptr inbounds i8, ptr %target.i, i64 2
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end193.i, %for.cond.preheader.i

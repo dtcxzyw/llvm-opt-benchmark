@@ -3,15 +3,6 @@ source_filename = "bench/velox/original/ThreadDebugInfo.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.facebook::velox::process::ThreadDebugInfo" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::function" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-
 $_ZTWN8facebook5velox7process15threadDebugInfoE = comdat any
 
 $_ZTWN8facebook5velox7process20fatalSignalProcessedE = comdat any
@@ -93,7 +84,7 @@ if.else:                                          ; preds = %entry
   %call7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #10
   %call8 = tail call i64 @write(i32 noundef 2, ptr noundef %call5, i64 noundef %call7)
   %call10 = tail call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.2, i64 noundef 10)
-  %taskId_ = getelementptr inbounds %"struct.facebook::velox::process::ThreadDebugInfo", ptr %1, i64 0, i32 1
+  %taskId_ = getelementptr inbounds i8, ptr %1, i64 32
   %call11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %taskId_) #10
   %call13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %taskId_) #10
   %call14 = tail call i64 @write(i32 noundef 2, ptr noundef %call11, i64 noundef %call13)
@@ -104,8 +95,8 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.not, label %land.lhs.true, label %if.end18
 
 land.lhs.true:                                    ; preds = %if.else
-  %callback_ = getelementptr inbounds %"struct.facebook::velox::process::ThreadDebugInfo", ptr %1, i64 0, i32 2
-  %_M_manager.i.i = getelementptr inbounds %"struct.facebook::velox::process::ThreadDebugInfo", ptr %1, i64 0, i32 2, i32 0, i32 1
+  %callback_ = getelementptr inbounds i8, ptr %1, i64 64
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %1, i64 80
   %5 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i.not = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.not, label %if.end18, label %if.then16
@@ -121,7 +112,7 @@ if.then.i:                                        ; preds = %if.then16
   unreachable
 
 _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %if.then16
-  %_M_invoker.i = getelementptr inbounds %"struct.facebook::velox::process::ThreadDebugInfo", ptr %1, i64 0, i32 2, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %1, i64 88
   %7 = load ptr, ptr %_M_invoker.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %callback_)
   br label %if.end18

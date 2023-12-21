@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.rpolynomial::manager::imp" = type <{ ptr, ptr, ptr, i8, [7 x i8] }>
 
 $__clang_call_terminate = comdat any
 
@@ -71,11 +70,11 @@ define hidden void @_ZN11rpolynomial7managerC2ER11mpz_managerILb0EEP22small_obje
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   store ptr %this, ptr %call, align 8
-  %m_manager.i = getelementptr inbounds %"struct.rpolynomial::manager::imp", ptr %call, i64 0, i32 1
+  %m_manager.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %m, ptr %m_manager.i, align 8
-  %m_allocator.i = getelementptr inbounds %"struct.rpolynomial::manager::imp", ptr %call, i64 0, i32 2
+  %m_allocator.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %a, ptr %m_allocator.i, align 8
-  %m_own_allocator.i = getelementptr inbounds %"struct.rpolynomial::manager::imp", ptr %call, i64 0, i32 3
+  %m_own_allocator.i = getelementptr inbounds i8, ptr %call, i64 24
   %cmp.i = icmp eq ptr %a, null
   %frombool.i = zext i1 %cmp.i to i8
   store i8 %frombool.i, ptr %m_own_allocator.i, align 8
@@ -102,14 +101,14 @@ entry:
   br i1 %cmp.i, label %invoke.cont, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %m_own_allocator.i.i = getelementptr inbounds %"struct.rpolynomial::manager::imp", ptr %0, i64 0, i32 3
+  %m_own_allocator.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i8, ptr %m_own_allocator.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %_ZN11rpolynomial7manager3impD2Ev.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %m_allocator.i.i = getelementptr inbounds %"struct.rpolynomial::manager::imp", ptr %0, i64 0, i32 2
+  %m_allocator.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %m_allocator.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %_ZN11rpolynomial7manager3impD2Ev.exit.i, label %if.end.i.i.i

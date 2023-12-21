@@ -4,22 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.NAME_EX_TBL = type { ptr, i64, i64 }
-%struct.args_st = type { i32, i32, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
 %struct.pw_cb_data = type { ptr, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.ca_db_st = type { %struct.db_attr_st, ptr, ptr, %struct.stat }
-%struct.db_attr_st = type { i32 }
-%struct.txt_db_st = type { i32, ptr, ptr, ptr, i64, i64, i64, ptr }
 %struct.app_http_tls_info_st = type { ptr, ptr, i32, i64, ptr }
 %struct.tms = type { i64, i64, i64, i64 }
 %struct.fd_set = type { [16 x i64] }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.DIST_POINT_NAME_st = type { i32, %union.anon, ptr }
-%union.anon = type { ptr }
 
 @.str = private unnamed_addr constant [11 x i8] c"argv space\00", align 1
 @.str.1 = private unnamed_addr constant [27 x i8] c"../openssl/apps/lib/apps.c\00", align 1
@@ -258,7 +250,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @chopup_args(ptr nocapture noundef %arg, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
-  %argc = getelementptr inbounds %struct.args_st, ptr %arg, i64 0, i32 1
+  %argc = getelementptr inbounds i8, ptr %arg, i64 4
   store i32 0, ptr %argc, align 4
   %0 = load i32, ptr %arg, align 8
   %cmp = icmp eq i32 %0, 0
@@ -276,7 +268,7 @@ if.then.i:                                        ; preds = %if.then
   unreachable
 
 app_malloc.exit:                                  ; preds = %if.then
-  %argv = getelementptr inbounds %struct.args_st, ptr %arg, i64 0, i32 2
+  %argv = getelementptr inbounds i8, ptr %arg, i64 8
   store ptr %call.i, ptr %argv, align 8
   br label %if.end
 
@@ -287,7 +279,7 @@ if.end:                                           ; preds = %app_malloc.exit, %e
 
 land.rhs.lr.ph.lr.ph:                             ; preds = %if.end
   %call4 = tail call ptr @__ctype_b_loc() #29
-  %argv19 = getelementptr inbounds %struct.args_st, ptr %arg, i64 0, i32 2
+  %argv19 = getelementptr inbounds i8, ptr %arg, i64 8
   br label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %land.rhs.lr.ph.lr.ph, %if.end78
@@ -406,7 +398,7 @@ if.end78:                                         ; preds = %while.cond46, %land
   br i1 %tobool.not35, label %for.end, label %land.rhs.lr.ph
 
 for.end:                                          ; preds = %while.cond59.preheader, %if.end78, %while.body, %while.body71, %if.end
-  %argv79 = getelementptr inbounds %struct.args_st, ptr %arg, i64 0, i32 2
+  %argv79 = getelementptr inbounds i8, ptr %arg, i64 8
   %21 = load ptr, ptr %argv79, align 8
   %22 = load i32, ptr %argc, align 4
   %idxprom81 = sext i32 %22 to i64
@@ -1451,17 +1443,17 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.013 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
   %call10 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1, i32 noundef %i.013) #28
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call10, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call10, i64 16
   %1 = load ptr, ptr %value, align 8
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call10, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call10, i64 8
   %2 = load ptr, ptr %name, align 8
   %call12 = tail call i32 @OBJ_create(ptr noundef %1, ptr noundef %2, ptr noundef %2) #28
   %cmp13 = icmp eq i32 %call12, 0
   br i1 %cmp13, label %if.then14, label %for.cond
 
 if.then14:                                        ; preds = %for.body
-  %value.le = getelementptr inbounds %struct.CONF_VALUE, ptr %call10, i64 0, i32 2
-  %name.le = getelementptr inbounds %struct.CONF_VALUE, ptr %call10, i64 0, i32 1
+  %value.le = getelementptr inbounds i8, ptr %call10, i64 16
+  %name.le = getelementptr inbounds i8, ptr %call10, i64 8
   %3 = load ptr, ptr @bio_err, align 8
   %4 = load ptr, ptr %name.le, align 8
   %5 = load ptr, ptr %value.le, align 8
@@ -1754,7 +1746,7 @@ if.end127:                                        ; preds = %if.end119, %if.end1
   %cond28130133140144148152159231 = phi ptr [ %cond28130133140144148152159232, %if.end119 ], [ %cond28130133, %if.end107 ]
   %expect.6 = phi i32 [ %cond126, %if.end119 ], [ %expect.5, %if.end107 ]
   store ptr %pass, ptr %uidata, align 8
-  %prompt_info = getelementptr inbounds %struct.pw_cb_data, ptr %uidata, i64 0, i32 1
+  %prompt_info = getelementptr inbounds i8, ptr %uidata, i64 8
   store ptr %uri, ptr %prompt_info, align 8
   %switch.selectcmp.i = icmp eq i32 %format, 4
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.196, ptr null
@@ -1766,7 +1758,7 @@ if.end127:                                        ; preds = %if.end119, %if.end1
 if.then130:                                       ; preds = %if.end127
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.40, ptr noundef nonnull %switch.select2.i, i64 noundef 0) #28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %itp, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx131 = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %itp, i64 0, i64 1
+  %arrayidx131 = getelementptr inbounds i8, ptr %itp, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp132) #28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx131, ptr noundef nonnull align 8 dereferenceable(40) %tmp132, i64 40, i1 false)
   br label %if.end133
@@ -3123,7 +3115,7 @@ for.body:                                         ; preds = %if.end, %for.cond
   %ret.012 = phi i32 [ %9, %for.cond ], [ 1, %if.end ]
   %i.011 = phi i32 [ %inc, %for.cond ], [ 0, %if.end ]
   %call4 = tail call ptr @OPENSSL_sk_value(ptr noundef %call, i32 noundef %i.011) #28
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call4, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call4, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load i8, ptr %0, align 1
   %cmp.i = icmp eq i8 %1, 45
@@ -3143,19 +3135,19 @@ for.body.i:                                       ; preds = %for.body, %for.inc.
   br i1 %cmp10.i, label %set_table_opts.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr21.i = getelementptr inbounds %struct.NAME_EX_TBL, ptr %ptbl.015.i, i64 1
+  %incdec.ptr21.i = getelementptr inbounds i8, ptr %ptbl.015.i, i64 24
   %5 = load ptr, ptr %incdec.ptr21.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %for.cond, label %for.body.i, !llvm.loop !18
 
 set_table_opts.exit:                              ; preds = %for.body.i
-  %mask.i = getelementptr inbounds %struct.NAME_EX_TBL, ptr %ptbl.015.i, i64 0, i32 2
+  %mask.i = getelementptr inbounds i8, ptr %ptbl.015.i, i64 16
   %6 = load i64, ptr %mask.i, align 8
   %not.i = xor i64 %6, -1
   %7 = load i64, ptr %flags, align 8
   %and.i = and i64 %7, %not.i
   store i64 %and.i, ptr %flags, align 8
-  %flag16.i = getelementptr inbounds %struct.NAME_EX_TBL, ptr %ptbl.015.i, i64 0, i32 1
+  %flag16.i = getelementptr inbounds i8, ptr %ptbl.015.i, i64 8
   %8 = load i64, ptr %flag16.i, align 8
   %not17.i = xor i64 %8, -1
   %and18.i = and i64 %and.i, %not17.i
@@ -3545,9 +3537,9 @@ declare ptr @X509_LOOKUP_store() local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @index_name_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #13 {
 entry:
-  %arrayidx = getelementptr inbounds ptr, ptr %a, i64 5
+  %arrayidx = getelementptr inbounds i8, ptr %a, i64 40
   %0 = load ptr, ptr %arrayidx, align 8
-  %arrayidx1 = getelementptr inbounds ptr, ptr %b, i64 5
+  %arrayidx1 = getelementptr inbounds i8, ptr %b, i64 40
   %1 = load ptr, ptr %arrayidx1, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #30
   ret i32 %call
@@ -3821,7 +3813,7 @@ if.then10:                                        ; preds = %entry
 
 if.end12:                                         ; preds = %entry
   %call13 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef 256, ptr noundef nonnull @.str.122, ptr noundef %serialfile, ptr noundef %new_suffix) #28
-  %arrayidx14 = getelementptr inbounds [2 x [256 x i8]], ptr %buf, i64 0, i64 1
+  %arrayidx14 = getelementptr inbounds i8, ptr %buf, i64 256
   %call16 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %arrayidx14, i64 noundef 256, ptr noundef nonnull @.str.122, ptr noundef %serialfile, ptr noundef %old_suffix) #28
   %call19 = call i32 @rename(ptr noundef %serialfile, ptr noundef nonnull %arrayidx14) #28
   %cmp20 = icmp slt i32 %call19, 0
@@ -3956,7 +3948,7 @@ if.then.i:                                        ; preds = %app_load_config_int
   unreachable
 
 app_malloc.exit:                                  ; preds = %app_load_config_internal.exit
-  %db = getelementptr inbounds %struct.ca_db_st, ptr %call.i, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call8, ptr %db, align 8
   %tobool.not = icmp eq ptr %db_attr, null
   br i1 %tobool.not, label %if.end18, label %if.then16
@@ -3989,9 +3981,9 @@ if.then23:                                        ; preds = %if.then20
 
 if.end28:                                         ; preds = %app_conf_try_string.exit.thread, %if.then23, %if.end18
   %call29 = call noalias ptr @CRYPTO_strdup(ptr noundef %dbfile, ptr noundef nonnull @.str.1, i32 noundef 1720) #28
-  %dbfname = getelementptr inbounds %struct.ca_db_st, ptr %call.i, i64 0, i32 2
+  %dbfname = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call29, ptr %dbfname, align 8
-  %dbst30 = getelementptr inbounds %struct.ca_db_st, ptr %call.i, i64 0, i32 3
+  %dbst30 = getelementptr inbounds i8, ptr %call.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %dbst30, ptr noundef nonnull align 8 dereferenceable(144) %dbst, i64 144, i1 false)
   br label %err
 
@@ -4060,7 +4052,7 @@ declare void @TXT_DB_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @index_index(ptr nocapture noundef readonly %db) local_unnamed_addr #0 {
 entry:
-  %db1 = getelementptr inbounds %struct.ca_db_st, ptr %db, i64 0, i32 1
+  %db1 = getelementptr inbounds i8, ptr %db, i64 8
   %0 = load ptr, ptr %db1, align 8
   %call = tail call i32 @TXT_DB_create_index(ptr noundef %0, i32 noundef 3, ptr noundef null, ptr noundef nonnull @index_serial_LHASH_HASH, ptr noundef nonnull @index_serial_LHASH_COMP) #28
   %tobool.not = icmp eq i32 %call, 0
@@ -4069,11 +4061,11 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @bio_err, align 8
   %2 = load ptr, ptr %db1, align 8
-  %error = getelementptr inbounds %struct.txt_db_st, ptr %2, i64 0, i32 4
+  %error = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load i64, ptr %error, align 8
-  %arg1 = getelementptr inbounds %struct.txt_db_st, ptr %2, i64 0, i32 5
+  %arg1 = getelementptr inbounds i8, ptr %2, i64 40
   %4 = load i64, ptr %arg1, align 8
-  %arg2 = getelementptr inbounds %struct.txt_db_st, ptr %2, i64 0, i32 6
+  %arg2 = getelementptr inbounds i8, ptr %2, i64 48
   %5 = load i64, ptr %arg2, align 8
   %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.131, i64 noundef %3, i64 noundef %4, i64 noundef %5) #28
   br label %err
@@ -4092,11 +4084,11 @@ land.lhs.true:                                    ; preds = %if.end
 if.then10:                                        ; preds = %land.lhs.true
   %8 = load ptr, ptr @bio_err, align 8
   %9 = load ptr, ptr %db1, align 8
-  %error12 = getelementptr inbounds %struct.txt_db_st, ptr %9, i64 0, i32 4
+  %error12 = getelementptr inbounds i8, ptr %9, i64 32
   %10 = load i64, ptr %error12, align 8
-  %arg114 = getelementptr inbounds %struct.txt_db_st, ptr %9, i64 0, i32 5
+  %arg114 = getelementptr inbounds i8, ptr %9, i64 40
   %11 = load i64, ptr %arg114, align 8
-  %arg216 = getelementptr inbounds %struct.txt_db_st, ptr %9, i64 0, i32 6
+  %arg216 = getelementptr inbounds i8, ptr %9, i64 48
   %12 = load i64, ptr %arg216, align 8
   %call17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.132, i64 noundef %10, i64 noundef %11, i64 noundef %12) #28
   br label %err
@@ -4147,7 +4139,7 @@ for.cond.i:                                       ; preds = %for.cond.i, %entry
   br i1 %cmp.i, label %for.cond.i, label %for.end.i, !llvm.loop !25
 
 for.end.i:                                        ; preds = %for.cond.i
-  %arrayidx2.i = getelementptr inbounds ptr, ptr %arg2, i64 3
+  %arrayidx2.i = getelementptr inbounds i8, ptr %arg2, i64 24
   %2 = load ptr, ptr %arrayidx2.i, align 8
   br label %for.cond3.i
 
@@ -4185,9 +4177,9 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @index_name_LHASH_COMP(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) #13 {
 entry:
-  %arrayidx.i = getelementptr inbounds ptr, ptr %arg1, i64 5
+  %arrayidx.i = getelementptr inbounds i8, ptr %arg1, i64 40
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx1.i = getelementptr inbounds ptr, ptr %arg2, i64 5
+  %arrayidx1.i = getelementptr inbounds i8, ptr %arg2, i64 40
   %1 = load ptr, ptr %arrayidx1.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #30
   ret i32 %call.i
@@ -4210,9 +4202,9 @@ if.then:                                          ; preds = %entry
   br label %err
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds [3 x [256 x i8]], ptr %buf, i64 0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 512
   %call5 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %arrayidx, i64 noundef 256, ptr noundef nonnull @.str.128, ptr noundef %dbfile) #28
-  %arrayidx6 = getelementptr inbounds [3 x [256 x i8]], ptr %buf, i64 0, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %buf, i64 256
   %call8 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %arrayidx6, i64 noundef 256, ptr noundef nonnull @.str.133, ptr noundef %dbfile, ptr noundef %suffix) #28
   %call11 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef 256, ptr noundef nonnull @.str.122, ptr noundef %dbfile, ptr noundef %suffix) #28
   %call14 = call ptr @BIO_new_file(ptr noundef nonnull %buf, ptr noundef nonnull @.str.123) #28
@@ -4226,7 +4218,7 @@ if.then17:                                        ; preds = %if.end
   br label %err
 
 if.end19:                                         ; preds = %if.end
-  %db20 = getelementptr inbounds %struct.ca_db_st, ptr %db, i64 0, i32 1
+  %db20 = getelementptr inbounds i8, ptr %db, i64 8
   %2 = load ptr, ptr %db20, align 8
   %call21 = call i64 @TXT_DB_write(ptr noundef nonnull %call14, ptr noundef %2) #28
   %conv22 = trunc i64 %call21 to i32
@@ -4286,13 +4278,13 @@ if.then10:                                        ; preds = %entry
   br label %err
 
 if.end12:                                         ; preds = %entry
-  %arrayidx = getelementptr inbounds [5 x [256 x i8]], ptr %buf, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 1024
   %call13 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %arrayidx, i64 noundef 256, ptr noundef nonnull @.str.128, ptr noundef %dbfile) #28
-  %arrayidx14 = getelementptr inbounds [5 x [256 x i8]], ptr %buf, i64 0, i64 3
+  %arrayidx14 = getelementptr inbounds i8, ptr %buf, i64 768
   %call16 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %arrayidx14, i64 noundef 256, ptr noundef nonnull @.str.133, ptr noundef %dbfile, ptr noundef %old_suffix) #28
-  %arrayidx17 = getelementptr inbounds [5 x [256 x i8]], ptr %buf, i64 0, i64 2
+  %arrayidx17 = getelementptr inbounds i8, ptr %buf, i64 512
   %call19 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %arrayidx17, i64 noundef 256, ptr noundef nonnull @.str.133, ptr noundef %dbfile, ptr noundef %new_suffix) #28
-  %arrayidx20 = getelementptr inbounds [5 x [256 x i8]], ptr %buf, i64 0, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %buf, i64 256
   %call22 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %arrayidx20, i64 noundef 256, ptr noundef nonnull @.str.122, ptr noundef %dbfile, ptr noundef %old_suffix) #28
   %call25 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef 256, ptr noundef nonnull @.str.122, ptr noundef %dbfile, ptr noundef %new_suffix) #28
   %call28 = call i32 @rename(ptr noundef %dbfile, ptr noundef nonnull %arrayidx20) #28
@@ -4377,10 +4369,10 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %db1 = getelementptr inbounds %struct.ca_db_st, ptr %db, i64 0, i32 1
+  %db1 = getelementptr inbounds i8, ptr %db, i64 8
   %0 = load ptr, ptr %db1, align 8
   tail call void @TXT_DB_free(ptr noundef %0) #28
-  %dbfname = getelementptr inbounds %struct.ca_db_st, ptr %db, i64 0, i32 2
+  %dbfname = getelementptr inbounds i8, ptr %db, i64 16
   %1 = load ptr, ptr %dbfname, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 1879) #28
   tail call void @CRYPTO_free(ptr noundef nonnull %db, ptr noundef nonnull @.str.1, i32 noundef 1880) #28
@@ -5268,7 +5260,7 @@ return:                                           ; preds = %if.end9, %if.then18
 ; Function Attrs: nounwind uwtable
 define ptr @app_http_tls_cb(ptr noundef %bio, ptr nocapture noundef readonly %arg, i32 noundef %connect, i32 %detail) #0 {
 entry:
-  %ssl_ctx1 = getelementptr inbounds %struct.app_http_tls_info_st, ptr %arg, i64 0, i32 4
+  %ssl_ctx1 = getelementptr inbounds i8, ptr %arg, i64 32
   %0 = load ptr, ptr %ssl_ctx1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -5289,16 +5281,16 @@ cond.false:                                       ; preds = %if.then2
 
 cond.end:                                         ; preds = %if.then2, %cond.false
   %cond = phi ptr [ %call5, %cond.false ], [ null, %if.then2 ]
-  %use_proxy = getelementptr inbounds %struct.app_http_tls_info_st, ptr %arg, i64 0, i32 2
+  %use_proxy = getelementptr inbounds i8, ptr %arg, i64 16
   %1 = load i32, ptr %use_proxy, align 8
   %tobool6.not = icmp eq i32 %1, 0
   br i1 %tobool6.not, label %lor.lhs.false, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cond.end
   %2 = load ptr, ptr %arg, align 8
-  %port = getelementptr inbounds %struct.app_http_tls_info_st, ptr %arg, i64 0, i32 1
+  %port = getelementptr inbounds i8, ptr %arg, i64 8
   %3 = load ptr, ptr %port, align 8
-  %timeout = getelementptr inbounds %struct.app_http_tls_info_st, ptr %arg, i64 0, i32 3
+  %timeout = getelementptr inbounds i8, ptr %arg, i64 24
   %4 = load i64, ptr %timeout, align 8
   %conv = trunc i64 %4 to i32
   %5 = load ptr, ptr @bio_err, align 8
@@ -5425,7 +5417,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ssl_ctx = getelementptr inbounds %struct.app_http_tls_info_st, ptr %info, i64 0, i32 4
+  %ssl_ctx = getelementptr inbounds i8, ptr %info, i64 32
   %0 = load ptr, ptr %ssl_ctx, align 8
   tail call void @SSL_CTX_free(ptr noundef %0) #28
   tail call void @CRYPTO_free(ptr noundef nonnull %info, ptr noundef nonnull @.str.1, i32 noundef 2595) #28
@@ -5489,16 +5481,16 @@ if.end12:                                         ; preds = %if.end7
   %1 = load ptr, ptr %server, align 8
   store ptr %1, ptr %info, align 8
   %2 = load ptr, ptr %port, align 8
-  %port14 = getelementptr inbounds %struct.app_http_tls_info_st, ptr %info, i64 0, i32 1
+  %port14 = getelementptr inbounds i8, ptr %info, i64 8
   store ptr %2, ptr %port14, align 8
   %call15 = call ptr @OSSL_HTTP_adapt_proxy(ptr noundef %proxy, ptr noundef %no_proxy, ptr noundef %1, i32 noundef %0) #28
   %cmp16 = icmp ne ptr %call15, null
   %conv = zext i1 %cmp16 to i32
-  %use_proxy = getelementptr inbounds %struct.app_http_tls_info_st, ptr %info, i64 0, i32 2
+  %use_proxy = getelementptr inbounds i8, ptr %info, i64 16
   store i32 %conv, ptr %use_proxy, align 8
-  %timeout17 = getelementptr inbounds %struct.app_http_tls_info_st, ptr %info, i64 0, i32 3
+  %timeout17 = getelementptr inbounds i8, ptr %info, i64 24
   store i64 %timeout, ptr %timeout17, align 8
-  %ssl_ctx18 = getelementptr inbounds %struct.app_http_tls_info_st, ptr %info, i64 0, i32 4
+  %ssl_ctx18 = getelementptr inbounds i8, ptr %info, i64 32
   store ptr %ssl_ctx, ptr %ssl_ctx18, align 8
   %conv19 = trunc i64 %timeout to i32
   %call20 = call ptr @OSSL_HTTP_get(ptr noundef nonnull %url, ptr noundef %proxy, ptr noundef %no_proxy, ptr noundef null, ptr noundef null, ptr noundef nonnull @app_http_tls_cb, ptr noundef nonnull %info, i32 noundef 0, ptr noundef %headers, ptr noundef %expected_content_type, i32 noundef 1, i64 noundef 102400, i32 noundef %conv19) #28
@@ -5539,16 +5531,16 @@ if.end:                                           ; preds = %entry
   %cmp = icmp ne ptr %ssl_ctx, null
   %conv = zext i1 %cmp to i32
   store ptr %host, ptr %info, align 8
-  %port3 = getelementptr inbounds %struct.app_http_tls_info_st, ptr %info, i64 0, i32 1
+  %port3 = getelementptr inbounds i8, ptr %info, i64 8
   store ptr %port, ptr %port3, align 8
   %call4 = tail call ptr @OSSL_HTTP_adapt_proxy(ptr noundef %proxy, ptr noundef %no_proxy, ptr noundef %host, i32 noundef %conv) #28
   %cmp5 = icmp ne ptr %call4, null
   %conv6 = zext i1 %cmp5 to i32
-  %use_proxy = getelementptr inbounds %struct.app_http_tls_info_st, ptr %info, i64 0, i32 2
+  %use_proxy = getelementptr inbounds i8, ptr %info, i64 16
   store i32 %conv6, ptr %use_proxy, align 8
-  %timeout7 = getelementptr inbounds %struct.app_http_tls_info_st, ptr %info, i64 0, i32 3
+  %timeout7 = getelementptr inbounds i8, ptr %info, i64 24
   store i64 %timeout, ptr %timeout7, align 8
-  %ssl_ctx8 = getelementptr inbounds %struct.app_http_tls_info_st, ptr %info, i64 0, i32 4
+  %ssl_ctx8 = getelementptr inbounds i8, ptr %info, i64 32
   store ptr %ssl_ctx, ptr %ssl_ctx8, align 8
   %conv9 = trunc i64 %timeout to i32
   %call10 = call ptr @OSSL_HTTP_transfer(ptr noundef null, ptr noundef %host, ptr noundef %port, ptr noundef %path, i32 noundef %conv, ptr noundef %proxy, ptr noundef %no_proxy, ptr noundef null, ptr noundef null, ptr noundef nonnull @app_http_tls_cb, ptr noundef nonnull %info, i32 noundef 0, ptr noundef %headers, ptr noundef %content_type, ptr noundef nonnull %call, ptr noundef %expected_content_type, i32 noundef 1, i64 noundef 102400, i32 noundef %conv9, i32 noundef 0) #28
@@ -5891,7 +5883,7 @@ declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @corrupt_signature(ptr nocapture noundef readonly %signature) local_unnamed_addr #20 {
 entry:
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %signature, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %signature, i64 8
   %0 = load ptr, ptr %data, align 8
   %1 = load i32, ptr %signature, align 8
   %2 = sext i32 %1 to i64
@@ -6135,7 +6127,8 @@ for.cond.preheader.i:                             ; preds = %lor.lhs.false, %for
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %call3, i64 %indvars.iv.i, i32 2
+  %arrayidx8.i = phi ptr [ %arrayidx.i, %for.body.i ], [ %call3, %for.cond.preheader.i ]
+  %data.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 16
   %5 = load ptr, ptr %data.i, align 8
   call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 3404) #28
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
@@ -6170,7 +6163,8 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 %indvars.iv, i32 2
+  %arrayidx8 = phi ptr [ %arrayidx, %for.body ], [ %params, %for.cond.preheader ]
+  %data = getelementptr inbounds i8, ptr %arrayidx8, i64 16
   %1 = load ptr, ptr %data, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 3404) #28
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
@@ -6374,7 +6368,7 @@ lor.lhs.false.i:                                  ; preds = %for.body
   br i1 %cmp.not.i, label %if.end.i, label %for.inc
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %name.i = getelementptr inbounds %struct.DIST_POINT_NAME_st, ptr %call3.val, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %call3.val, i64 8
   %1 = load ptr, ptr %name.i, align 8
   %call31.i = call i32 @OPENSSL_sk_num(ptr noundef %1) #28
   %cmp42.i = icmp sgt i32 %call31.i, 0

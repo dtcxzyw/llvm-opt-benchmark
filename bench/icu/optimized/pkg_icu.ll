@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.anon = type { ptr, i32 }
-%"class.icu_75::Package" = type <{ [64 x i8], [64 x i8], ptr, [1024 x i8], i32, i32, i8, i8, i8, i8, i32, i32, [4 x i8], ptr, i32, i32, [100000 x i8], [100000 x i8], i32, [4 x i8], ptr, ptr, i32, i32, i32, i8, [3 x i8] }>
 %"class.icu_75::LocalPointer" = type { %"class.icu_75::LocalPointerBase" }
 %"class.icu_75::LocalPointerBase" = type { ptr }
 
@@ -268,7 +267,7 @@ land.lhs.true78:                                  ; preds = %for.inc.us.i
   br i1 %cmp81, label %if.then82, label %if.else83
 
 if.then82:                                        ; preds = %land.lhs.true78
-  %doAutoPrefix.i = getelementptr inbounds %"class.icu_75::Package", ptr %listPkg.0, i64 0, i32 8
+  %doAutoPrefix.i = getelementptr inbounds i8, ptr %listPkg.0, i64 1170
   store i8 1, ptr %doAutoPrefix.i, align 2
   tail call void @_ZN6icu_757Package11readPackageEPKc(ptr noundef nonnull align 8 dereferenceable(201237) %listPkg.0, ptr noundef nonnull %listname)
   br label %return

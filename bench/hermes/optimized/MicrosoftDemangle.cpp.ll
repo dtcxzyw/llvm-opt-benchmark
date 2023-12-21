@@ -8,41 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::ms_demangle::ArenaAllocator" = type { ptr }
 %"struct.(anonymous namespace)::BackrefContext" = type { [10 x ptr], i64, [10 x ptr], i64 }
 %class.StringView = type { ptr, ptr }
-%"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode" = type { ptr, i64, i64, ptr }
-%"struct.llvh::ms_demangle::NamedIdentifierNode" = type { %"struct.llvh::ms_demangle::IdentifierNode", %class.StringView }
-%"struct.llvh::ms_demangle::IdentifierNode" = type { %"struct.llvh::ms_demangle::Node.base", ptr }
-%"struct.llvh::ms_demangle::Node.base" = type <{ ptr, i32 }>
-%"struct.llvh::ms_demangle::Node" = type <{ ptr, i32, [4 x i8] }>
-%"struct.llvh::ms_demangle::SymbolNode" = type { %"struct.llvh::ms_demangle::Node.base", ptr }
-%"struct.llvh::ms_demangle::SpecialTableSymbolNode" = type <{ %"struct.llvh::ms_demangle::SymbolNode", ptr, i8, [7 x i8] }>
-%"struct.llvh::ms_demangle::QualifiedNameNode" = type { %"struct.llvh::ms_demangle::Node.base", ptr }
-%"struct.llvh::ms_demangle::NodeArrayNode" = type { %"struct.llvh::ms_demangle::Node.base", ptr, i64 }
-%"struct.llvh::ms_demangle::StructorIdentifierNode" = type <{ %"struct.llvh::ms_demangle::IdentifierNode", ptr, i8, [7 x i8] }>
-%"struct.llvh::ms_demangle::FunctionSymbolNode" = type { %"struct.llvh::ms_demangle::SymbolNode", ptr }
-%"struct.llvh::ms_demangle::FunctionSignatureNode" = type { %"struct.llvh::ms_demangle::TypeNode.base", i32, i8, i16, i32, ptr, i8, ptr }
-%"struct.llvh::ms_demangle::TypeNode.base" = type { %"struct.llvh::ms_demangle::Node.base", i8 }
-%"struct.llvh::ms_demangle::ConversionOperatorIdentifierNode" = type { %"struct.llvh::ms_demangle::IdentifierNode", ptr }
-%"struct.llvh::ms_demangle::EncodedStringLiteralNode" = type { %"struct.llvh::ms_demangle::SymbolNode", %class.StringView, i8, i32 }
-%"struct.llvh::ms_demangle::VcallThunkIdentifierNode" = type { %"struct.llvh::ms_demangle::IdentifierNode", i64 }
-%"struct.llvh::ms_demangle::TypeNode" = type { %"struct.llvh::ms_demangle::Node.base", i8, [3 x i8] }
-%"struct.llvh::ms_demangle::ThunkSignatureNode" = type { %"struct.llvh::ms_demangle::FunctionSignatureNode", %"struct.llvh::ms_demangle::ThunkSignatureNode::ThisAdjustor" }
-%"struct.llvh::ms_demangle::ThunkSignatureNode::ThisAdjustor" = type { i32, i32, i32, i32 }
-%"struct.llvh::ms_demangle::LocalStaticGuardIdentifierNode" = type <{ %"struct.llvh::ms_demangle::IdentifierNode", i32, [4 x i8] }>
-%"struct.llvh::ms_demangle::LocalStaticGuardVariableNode" = type <{ %"struct.llvh::ms_demangle::SymbolNode", i8, [7 x i8] }>
-%"struct.llvh::ms_demangle::TagTypeNode" = type <{ %"struct.llvh::ms_demangle::TypeNode.base", [3 x i8], ptr, i32, [4 x i8] }>
-%"struct.llvh::ms_demangle::PointerTypeNode" = type { %"struct.llvh::ms_demangle::TypeNode.base", i32, ptr, ptr }
-%"struct.llvh::ms_demangle::ArrayTypeNode" = type { %"struct.llvh::ms_demangle::TypeNode.base", ptr, ptr }
-%"struct.llvh::ms_demangle::IntegerLiteralNode" = type <{ %"struct.llvh::ms_demangle::Node.base", [4 x i8], i64, i8, [7 x i8] }>
-%struct.NodeList = type { ptr, ptr }
-%"struct.llvh::ms_demangle::CustomTypeNode" = type { %"struct.llvh::ms_demangle::TypeNode.base", ptr }
-%"struct.llvh::ms_demangle::PrimitiveTypeNode" = type { %"struct.llvh::ms_demangle::TypeNode.base", i32, [4 x i8] }
-%"struct.llvh::ms_demangle::VariableSymbolNode" = type { %"struct.llvh::ms_demangle::SymbolNode", i8, ptr }
-%"struct.llvh::ms_demangle::RttiBaseClassDescriptorNode" = type { %"struct.llvh::ms_demangle::IdentifierNode", i32, i32, i32, i32 }
-%"struct.llvh::ms_demangle::DynamicStructorIdentifierNode" = type <{ %"struct.llvh::ms_demangle::IdentifierNode", ptr, ptr, i8, [7 x i8] }>
-%"struct.llvh::ms_demangle::TemplateParameterReferenceNode" = type <{ %"struct.llvh::ms_demangle::Node.base", [4 x i8], ptr, i32, [4 x i8], %"struct.std::array", i32, i8, [3 x i8] }>
-%"struct.std::array" = type { [3 x i64] }
-%"struct.llvh::ms_demangle::IntrinsicFunctionIdentifierNode" = type <{ %"struct.llvh::ms_demangle::IdentifierNode", i8, [7 x i8] }>
-%"struct.llvh::ms_demangle::LiteralOperatorIdentifierNode" = type { %"struct.llvh::ms_demangle::IdentifierNode", %class.StringView }
 
 $_ZN10StringView12consumeFrontES_ = comdat any
 
@@ -305,29 +270,29 @@ entry:
   %S = alloca %class.OutputStream, align 8
   %Name = alloca %class.StringView, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i64 0, inrange i32 0, i64 2), ptr %D, align 8
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %D, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %D, i64 8
   store i8 0, ptr %Error.i, align 8
-  %Arena.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %D, i64 0, i32 2
+  %Arena.i = getelementptr inbounds i8, ptr %D, i64 16
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i.i, ptr %call.i.i.i, align 8
-  %Next.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 3
+  %Next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   store ptr null, ptr %Next.i.i.i, align 8
-  %Capacity3.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 2
+  %Capacity3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i.i, align 8
   store ptr %call.i.i.i, ptr %Arena.i, align 8
-  %Used.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 1
+  %Used.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 0, ptr %Used.i.i.i, align 8
-  %FunctionParamCount.i.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %D, i64 0, i32 3, i32 1
+  %FunctionParamCount.i.i = getelementptr inbounds i8, ptr %D, i64 104
   store i64 0, ptr %FunctionParamCount.i.i, align 8
-  %NamesCount.i.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %D, i64 0, i32 3, i32 3
+  %NamesCount.i.i = getelementptr inbounds i8, ptr %D, i64 192
   store i64 0, ptr %NamesCount.i.i, align 8
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %S, i64 24
   store i32 -1, ptr %CurrentPackIndex.i, align 8
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %S, i64 28
   store i32 -1, ptr %CurrentPackMax.i, align 4
   store ptr %MangledName, ptr %Name, align 8
-  %Last.i = getelementptr inbounds %class.StringView, ptr %Name, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %Name, i64 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %MangledName) #21
   %add.ptr.i = getelementptr inbounds i8, ptr %MangledName, i64 %call.i
   store ptr %add.ptr.i, ptr %Last.i, align 8
@@ -338,23 +303,23 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %OS.i)
-  %Backrefs.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %D, i64 0, i32 3
+  %Backrefs.i = getelementptr inbounds i8, ptr %D, i64 24
   %0 = load i64, ptr %FunctionParamCount.i.i, align 8
   %conv.i = trunc i64 %0 to i32
   %call.i6 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef %conv.i)
-  %CurrentPackIndex.i.i = getelementptr inbounds %class.OutputStream, ptr %OS.i, i64 0, i32 3
+  %CurrentPackIndex.i.i = getelementptr inbounds i8, ptr %OS.i, i64 24
   store i32 -1, ptr %CurrentPackIndex.i.i, align 8
-  %CurrentPackMax.i.i = getelementptr inbounds %class.OutputStream, ptr %OS.i, i64 0, i32 4
+  %CurrentPackMax.i.i = getelementptr inbounds i8, ptr %OS.i, i64 28
   store i32 -1, ptr %CurrentPackMax.i.i, align 4
   %call.i.i = call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #22
   %cmp1.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.i.i, label %if.then.i, label %_Z22initializeOutputStreamPcPmR12OutputStreamm.exit.i
 
 _Z22initializeOutputStreamPcPmR12OutputStreamm.exit.i: ; preds = %if.then
-  %CurrentPosition.i.i.i = getelementptr inbounds %class.OutputStream, ptr %OS.i, i64 0, i32 1
+  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   store i64 0, ptr %CurrentPosition.i.i.i, align 8
   store ptr %call.i.i, ptr %OS.i, align 8
-  %BufferCapacity.i.i.i = getelementptr inbounds %class.OutputStream, ptr %OS.i, i64 0, i32 2
+  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 16
   store i64 1024, ptr %BufferCapacity.i.i.i, align 8
   %1 = load i64, ptr %FunctionParamCount.i.i, align 8
   %cmp11.not.i = icmp eq i64 %1, 0
@@ -370,7 +335,7 @@ for.body.i:                                       ; preds = %_Z22initializeOutpu
   %arrayidx.i = getelementptr inbounds [10 x ptr], ptr %Backrefs.i, i64 0, i64 %I.012.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %3 = load ptr, ptr %vfn.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(13) %2, ptr noundef nonnull align 8 dereferenceable(32) %OS.i, i32 noundef 0) #24
   %conv6.i = trunc i64 %I.012.i to i32
@@ -404,15 +369,19 @@ if.end17.i:                                       ; preds = %if.then15.i, %for.e
   %call20.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, i32 noundef %conv19.i)
   %10 = load i64, ptr %NamesCount.i.i, align 8
   %cmp2513.not.i = icmp eq i64 %10, 0
-  br i1 %cmp2513.not.i, label %_ZN12_GLOBAL__N_19Demangler18dumpBackReferencesEv.exit, label %for.body26.i
+  br i1 %cmp2513.not.i, label %_ZN12_GLOBAL__N_19Demangler18dumpBackReferencesEv.exit, label %for.body26.lr.ph.i
 
-for.body26.i:                                     ; preds = %if.end17.i, %for.body26.i
-  %I21.014.i = phi i64 [ %inc39.i, %for.body26.i ], [ 0, %if.end17.i ]
+for.body26.lr.ph.i:                               ; preds = %if.end17.i
+  %Names.i = getelementptr inbounds i8, ptr %D, i64 112
+  br label %for.body26.i
+
+for.body26.i:                                     ; preds = %for.body26.i, %for.body26.lr.ph.i
+  %I21.014.i = phi i64 [ 0, %for.body26.lr.ph.i ], [ %inc39.i, %for.body26.i ]
   %conv27.i = trunc i64 %I21.014.i to i32
-  %arrayidx29.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %D, i64 0, i32 3, i32 2, i64 %I21.014.i
+  %arrayidx29.i = getelementptr inbounds [10 x ptr], ptr %Names.i, i64 0, i64 %I21.014.i
   %11 = load ptr, ptr %arrayidx29.i, align 8
-  %Name.i = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %11, i64 0, i32 1
-  %Last.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %11, i64 0, i32 1, i32 1
+  %Name.i = getelementptr inbounds i8, ptr %11, i64 24
+  %Last.i.i = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load ptr, ptr %Last.i.i, align 8
   %13 = load ptr, ptr %Name.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
@@ -459,13 +428,13 @@ if.else.i:                                        ; preds = %if.else
 if.else5:                                         ; preds = %if.else.i, %if.then.i8
   %Buf.addr.0.i = phi ptr [ %Buf, %if.else.i ], [ %call.i9, %if.then.i8 ]
   %BufferSize.0.i = phi i64 [ %18, %if.else.i ], [ 1024, %if.then.i8 ]
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   store i64 0, ptr %CurrentPosition.i.i, align 8
   store ptr %Buf.addr.0.i, ptr %S, align 8
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   store i64 %BufferSize.0.i, ptr %BufferCapacity.i.i, align 8
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %19 = load ptr, ptr %vfn, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull align 8 dereferenceable(32) %S, i32 noundef 0) #24
   %20 = load i64, ptr %CurrentPosition.i.i, align 8
@@ -541,7 +510,7 @@ delete.notnull.i.i:                               ; preds = %while.body.i.i
 
 delete.end8.i.i:                                  ; preds = %delete.notnull.i.i, %while.body.i.i
   %28 = phi ptr [ %.pre.i.i, %delete.notnull.i.i ], [ %26, %while.body.i.i ]
-  %Next4.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %28, i64 0, i32 3
+  %Next4.i.i = getelementptr inbounds i8, ptr %28, i64 24
   %29 = load ptr, ptr %Next4.i.i, align 8
   call void @_ZdlPv(ptr noundef %28) #26
   store ptr %29, ptr %Arena.i, align 8
@@ -555,7 +524,7 @@ _ZN12_GLOBAL__N_19DemanglerD2Ev.exit:             ; preds = %delete.end8.i.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler5parseER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName) unnamed_addr #2 align 2 {
 entry:
-  %Last.i1.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i1.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %0 = load ptr, ptr %Last.i1.i, align 8
   %1 = load ptr, ptr %MangledName, align 8
   %sub.ptr.lhs.cast.i2.i = ptrtoint ptr %0 to i64
@@ -570,11 +539,11 @@ _ZNK10StringView10startsWithES_.exit:             ; preds = %entry
   br i1 %tobool1.not.i.i.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK10StringView10startsWithES_.exit
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %Arena, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %2, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %5, %4
   %sub.i = add i64 %add.i, 7
@@ -584,9 +553,9 @@ if.then:                                          ; preds = %_ZNK10StringView10s
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %6 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %6, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %6, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i64, ptr %Capacity.i, align 8
   %cmp.i12 = icmp ult i64 %7, %8
   br i1 %cmp.i12, label %if.then.i, label %if.end.i13
@@ -599,27 +568,27 @@ if.end.i13:                                       ; preds = %if.then
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %6, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 24, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_10SymbolNodeEJNS0_8NodeKindEEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_10SymbolNodeEJNS0_8NodeKindEEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i13
   %call2.i.sink8.i = phi ptr [ %call2.i.i, %if.end.i13 ], [ %9, %if.then.i ]
-  %Kind.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink8.i, i64 0, i32 1
+  %Kind.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink8.i, i64 8
   store i32 1, ptr %Kind.i.i5.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle10SymbolNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink8.i, align 8
-  %Name.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %call2.i.sink8.i, i64 0, i32 1
+  %Name.i6.i = getelementptr inbounds i8, ptr %call2.i.sink8.i, i64 16
   store ptr null, ptr %Name.i6.i, align 8
   %10 = load <2 x ptr>, ptr %MangledName, align 8
   %11 = load ptr, ptr %Arena, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
-  %Used.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %11, i64 0, i32 1
+  %Used.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load i64, ptr %Used.i.i.i, align 8
   %add.i.i.i = add i64 %14, %13
   %sub.i.i.i = add i64 %add.i.i.i, 7
@@ -629,9 +598,9 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_10SymbolNodeEJNS0_8NodeKindEEEEP
   %add8.i.i.i = add i64 %add5.i.i.i, %and.i.i.i
   store i64 %add8.i.i.i, ptr %Used.i.i.i, align 8
   %15 = load ptr, ptr %Arena, align 8
-  %Used10.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %15, i64 0, i32 1
+  %Used10.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i64, ptr %Used10.i.i.i, align 8
-  %Capacity.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %15, i64 0, i32 2
+  %Capacity.i.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load i64, ptr %Capacity.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %16, %17
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -644,23 +613,23 @@ if.end.i.i.i:                                     ; preds = %_ZN4llvh11ms_demang
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %Next.i.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i.i, i64 0, i32 3
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   store ptr %15, ptr %Next.i.i.i.i, align 8
-  %Capacity3.i.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i.i, i64 0, i32 2
+  %Capacity3.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %Arena, align 8
-  %Used.i.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i.i, i64 0, i32 1
+  %Used.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store i64 40, ptr %Used.i.i.i.i, align 8
   br label %_ZL23synthesizeQualifiedNameRN4llvh11ms_demangle14ArenaAllocatorE10StringView.exit
 
 _ZL23synthesizeQualifiedNameRN4llvh11ms_demangle14ArenaAllocatorE10StringView.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
   %call2.i.sink9.i.i.i = phi ptr [ %call2.i.i.i.i, %if.end.i.i.i ], [ %18, %if.then.i.i.i ]
-  %Kind.i.i.i4.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i.i.i, i64 0, i32 1
+  %Kind.i.i.i4.i.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i.i, i64 8
   store i32 5, ptr %Kind.i.i.i4.i.i.i, align 8
-  %TemplateParams.i.i5.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i.i.i, i64 0, i32 1
+  %TemplateParams.i.i5.i.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i.i.i, align 8
-  %Name.i6.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i.i.i, i64 0, i32 1
+  %Name.i6.i.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i.i, i64 24
   store <2 x ptr> %10, ptr %Name.i6.i.i.i, align 8
   %call1.i = tail call fastcc noundef ptr @_ZL23synthesizeQualifiedNameRN4llvh11ms_demangle14ArenaAllocatorEPNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(8) %Arena, ptr noundef nonnull %call2.i.sink9.i.i.i)
   store ptr %call1.i, ptr %Name.i6.i, align 8
@@ -676,7 +645,7 @@ _ZNK10StringView10startsWithEc.exit:              ; preds = %if.end
   br i1 %cmp.i14, label %_ZN10StringView12consumeFrontEc.exit, label %if.then7
 
 if.then7:                                         ; preds = %if.end, %_ZNK10StringView10startsWithEc.exit
-  %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error, align 8
   br label %return
 
@@ -793,11 +762,11 @@ sw.bb3.i.sink.split217:                           ; preds = %sw.bb3.i.sink.split
 
 sw.bb3.i:                                         ; preds = %sw.bb3.i.sink.split217, %if.end44.i
   %retval.0.i67.ph = phi i32 [ 16, %if.end44.i ], [ %retval.0.i67.ph.ph218, %sw.bb3.i.sink.split217 ]
-  %Arena.i50 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i50 = getelementptr inbounds i8, ptr %this, i64 16
   %20 = load ptr, ptr %Arena.i50, align 8
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
-  %Used.i.i51 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %20, i64 0, i32 1
+  %Used.i.i51 = getelementptr inbounds i8, ptr %20, i64 8
   %23 = load i64, ptr %Used.i.i51, align 8
   %add.i.i = add i64 %23, %22
   %sub.i.i = add i64 %add.i.i, 7
@@ -807,9 +776,9 @@ sw.bb3.i:                                         ; preds = %sw.bb3.i.sink.split
   %add8.i.i = add i64 %add5.i.i, %and.i.i
   store i64 %add8.i.i, ptr %Used.i.i51, align 8
   %24 = load ptr, ptr %Arena.i50, align 8
-  %Used10.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %24, i64 0, i32 1
+  %Used10.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i64, ptr %Used10.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %24, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load i64, ptr %Capacity.i.i, align 8
   %cmp.i.i52 = icmp ult i64 %25, %26
   br i1 %cmp.i.i52, label %if.then.i.i, label %if.end.i.i
@@ -822,25 +791,25 @@ if.end.i.i:                                       ; preds = %sw.bb3.i
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i.i, ptr %call.i.i.i, align 8
-  %Next.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 3
+  %Next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   store ptr %24, ptr %Next.i.i.i, align 8
-  %Capacity3.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 2
+  %Capacity3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i.i, align 8
   store ptr %call.i.i.i, ptr %Arena.i50, align 8
-  %Used.i.i.i53 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 1
+  %Used.i.i.i53 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 40, ptr %Used.i.i.i53, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit.i
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit.i: ; preds = %if.end.i.i, %if.then.i.i
   %call2.i.sink9.i.i = phi ptr [ %call2.i.i.i, %if.end.i.i ], [ %27, %if.then.i.i ]
-  %Kind.i.i.i4.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i.i, i64 0, i32 1
+  %Kind.i.i.i4.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 8
   store i32 5, ptr %Kind.i.i.i4.i.i, align 8
-  %TemplateParams.i.i5.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i.i, i64 0, i32 1
+  %TemplateParams.i.i5.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i.i, align 8
-  %Name.i6.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i.i, i64 0, i32 1
+  %Name.i6.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Name.i6.i.i, i8 0, i64 16, i1 false)
-  %ref.tmp.i.sroa.4.0.Name.i.sroa_idx = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i.i, i64 0, i32 1, i32 1
+  %ref.tmp.i.sroa.4.0.Name.i.sroa_idx = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 32
   switch i32 %retval.0.i67.ph, label %sw.default.i [
     i32 1, label %sw.epilog.i54
     i32 2, label %sw.bb2.i
@@ -869,7 +838,7 @@ sw.epilog.i54:                                    ; preds = %_ZN4llvh11ms_demang
   %28 = load ptr, ptr %Arena.i50, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
-  %Used.i22.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %28, i64 0, i32 1
+  %Used.i22.i = getelementptr inbounds i8, ptr %28, i64 8
   %31 = load i64, ptr %Used.i22.i, align 8
   %add.i23.i = add i64 %31, %30
   %sub.i24.i = add i64 %add.i23.i, 7
@@ -879,9 +848,9 @@ sw.epilog.i54:                                    ; preds = %_ZN4llvh11ms_demang
   %add8.i28.i = add i64 %add5.i27.i, %and.i25.i
   store i64 %add8.i28.i, ptr %Used.i22.i, align 8
   %32 = load ptr, ptr %Arena.i50, align 8
-  %Used10.i29.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %32, i64 0, i32 1
+  %Used10.i29.i = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i64, ptr %Used10.i29.i, align 8
-  %Capacity.i30.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %32, i64 0, i32 2
+  %Capacity.i30.i = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load i64, ptr %Capacity.i30.i, align 8
   %cmp.i31.i = icmp ult i64 %33, %34
   br i1 %cmp.i31.i, label %if.then.i40.i, label %if.end.i32.i
@@ -894,22 +863,22 @@ if.end.i32.i:                                     ; preds = %sw.epilog.i54
   %call.i.i33.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i34.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i34.i, ptr %call.i.i33.i, align 8
-  %Next.i.i35.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i33.i, i64 0, i32 3
+  %Next.i.i35.i = getelementptr inbounds i8, ptr %call.i.i33.i, i64 24
   store ptr %32, ptr %Next.i.i35.i, align 8
-  %Capacity3.i.i36.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i33.i, i64 0, i32 2
+  %Capacity3.i.i36.i = getelementptr inbounds i8, ptr %call.i.i33.i, i64 16
   store i64 4096, ptr %Capacity3.i.i36.i, align 8
   store ptr %call.i.i33.i, ptr %Arena.i50, align 8
-  %Used.i.i37.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i33.i, i64 0, i32 1
+  %Used.i.i37.i = getelementptr inbounds i8, ptr %call.i.i33.i, i64 8
   store i64 40, ptr %Used.i.i37.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_22SpecialTableSymbolNodeEJEEEPT_DpOT0_.exit.i
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_22SpecialTableSymbolNodeEJEEEPT_DpOT0_.exit.i: ; preds = %if.end.i32.i, %if.then.i40.i
   %call2.i.sink9.i38.i = phi ptr [ %call2.i.i34.i, %if.end.i32.i ], [ %35, %if.then.i40.i ]
-  %Kind.i.i.i4.i39.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i38.i, i64 0, i32 1
+  %Kind.i.i.i4.i39.i = getelementptr inbounds i8, ptr %call2.i.sink9.i38.i, i64 8
   store i32 28, ptr %Kind.i.i.i4.i39.i, align 8
-  %Name.i.i5.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %call2.i.sink9.i38.i, i64 0, i32 1
+  %Name.i.i5.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i38.i, i64 16
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle22SpecialTableSymbolNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i38.i, align 8
-  %TargetName.i6.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::SpecialTableSymbolNode", ptr %call2.i.sink9.i38.i, i64 0, i32 1
+  %TargetName.i6.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i38.i, i64 24
   store ptr null, ptr %TargetName.i6.i.i, align 8
   store ptr %call11.i, ptr %Name.i.i5.i.i, align 8
   %36 = load ptr, ptr %MangledName, align 8
@@ -930,7 +899,7 @@ if.end.i55:                                       ; preds = %_ZN4llvh11ms_demang
   br i1 %40, label %switch.hole_check, label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %switch.hole_check, %if.end.i55
-  %Error.i.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit.i
 
@@ -948,7 +917,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 _ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit.i: ; preds = %switch.lookup, %sw.epilog.i.i
   %retval.sroa.0.0.i.i = phi i8 [ 0, %sw.epilog.i.i ], [ %switch.load, %switch.lookup ]
-  %Quals.i = getelementptr inbounds %"struct.llvh::ms_demangle::SpecialTableSymbolNode", ptr %call2.i.sink9.i38.i, i64 0, i32 2
+  %Quals.i = getelementptr inbounds i8, ptr %call2.i.sink9.i38.i, i64 32
   store i8 %retval.sroa.0.0.i.i, ptr %Quals.i, align 1
   %43 = load ptr, ptr %MangledName, align 8
   %44 = load ptr, ptr %Last.i1.i, align 8
@@ -974,20 +943,21 @@ _ZL15startsWithDigit10StringView.exit.i:          ; preds = %_ZNK10StringView10s
 if.then.i203:                                     ; preds = %_ZL15startsWithDigit10StringView.exit.i
   %conv.i5.i = sext i8 %45 to i64
   %sub.i.i204 = add nsw i64 %conv.i5.i, -48
-  %NamesCount.i.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 3
+  %NamesCount.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %46 = load i64, ptr %NamesCount.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %sub.i.i204, %46
   br i1 %cmp.not.i.i, label %if.end.i.i207, label %if.then.i.i205
 
 if.then.i.i205:                                   ; preds = %if.then.i203
-  %Error.i.i206 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i206 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i206, align 8
   br label %_ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb.exit
 
 if.end.i.i207:                                    ; preds = %if.then.i203
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %43, i64 1
   store ptr %add.ptr.i.i.i, ptr %MangledName, align 8
-  %arrayidx.i.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 2, i64 %sub.i.i204
+  %Names.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %arrayidx.i.i = getelementptr inbounds [10 x ptr], ptr %Names.i.i, i64 0, i64 %sub.i.i204
   %47 = load ptr, ptr %arrayidx.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb.exit
 
@@ -1013,7 +983,7 @@ if.end7.i:                                        ; preds = %_ZNK10StringView10s
 
 _ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb.exit: ; preds = %if.then.i.i205, %if.end.i.i207, %if.then5.i, %if.end7.i
   %retval.0.i = phi ptr [ %call6.i202, %if.then5.i ], [ %call8.i201, %if.end7.i ], [ null, %if.then.i.i205 ], [ %47, %if.end.i.i207 ]
-  %Error.i44.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i44.i = getelementptr inbounds i8, ptr %this, i64 8
   %48 = load i8, ptr %Error.i44.i, align 8
   %49 = and i8 %48, 1
   %tobool.not.i.i = icmp eq i8 %49, 0
@@ -1051,7 +1021,7 @@ sw.bb9.i:                                         ; preds = %if.end.i.i91
   %add.ptr.i.i97 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %spec.select.i.i96
   store ptr %add.ptr.i.i97, ptr %MangledName, align 8
   %call10.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler12demangleTypeER10StringView19QualifierMangleMode(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, i32 noundef 2)
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %this, i64 8
   %52 = load i8, ptr %Error.i, align 8
   %53 = and i8 %52, 1
   %tobool.not.i = icmp eq i8 %53, 0
@@ -1068,7 +1038,7 @@ if.end15.i:                                       ; preds = %if.end12.i
   br i1 %cmp.i46, label %if.end18.i, label %if.end12.sink.split
 
 if.end18.i:                                       ; preds = %if.end15.i
-  %Arena.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i = getelementptr inbounds i8, ptr %this, i64 16
   %call20.i = tail call fastcc noundef ptr @_ZL18synthesizeVariableRN4llvh11ms_demangle14ArenaAllocatorEPNS0_8TypeNodeE10StringView(ptr noundef nonnull align 8 dereferenceable(8) %Arena.i, ptr noundef %call10.i, ptr nonnull @.str.2, ptr nonnull getelementptr inbounds ([23 x i8], ptr @.str.2, i64 0, i64 22))
   br label %_ZN12_GLOBAL__N_19Demangler24demangleSpecialIntrinsicER10StringView.exit
 
@@ -1076,7 +1046,7 @@ sw.bb21.i:                                        ; preds = %if.end.i.i161
   %spec.select.i.i164 = tail call i64 @llvm.umin.i64(i64 %.pre156, i64 4)
   %add.ptr.i.i165 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %spec.select.i.i164
   store ptr %add.ptr.i.i165, ptr %MangledName, align 8
-  %Arena22.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena22.i = getelementptr inbounds i8, ptr %this, i64 16
   %call24.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler23demangleUntypedVariableERN4llvh11ms_demangle14ArenaAllocatorER10StringViewS5_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(8) %Arena22.i, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, ptr nonnull @.str.3, ptr nonnull getelementptr inbounds ([24 x i8], ptr @.str.3, i64 0, i64 23))
   br label %_ZN12_GLOBAL__N_19Demangler24demangleSpecialIntrinsicER10StringView.exit
 
@@ -1084,7 +1054,7 @@ sw.bb25.i:                                        ; preds = %if.end.i.i171
   %spec.select.i.i176 = tail call i64 @llvm.umin.i64(i64 %.pre156, i64 4)
   %add.ptr.i.i177 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %spec.select.i.i176
   store ptr %add.ptr.i.i177, ptr %MangledName, align 8
-  %Arena26.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena26.i = getelementptr inbounds i8, ptr %this, i64 16
   %call28.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler23demangleUntypedVariableERN4llvh11ms_demangle14ArenaAllocatorER10StringViewS5_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(8) %Arena26.i, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, ptr nonnull @.str.4, ptr nonnull getelementptr inbounds ([34 x i8], ptr @.str.4, i64 0, i64 33))
   br label %_ZN12_GLOBAL__N_19Demangler24demangleSpecialIntrinsicER10StringView.exit
 
@@ -1092,7 +1062,7 @@ sw.bb29.i:                                        ; preds = %if.end.i.i83
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %.pre156, i64 4)
   %add.ptr.i.i85 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %spec.select.i.i
   store ptr %add.ptr.i.i85, ptr %MangledName, align 8
-  %Arena30.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena30.i = getelementptr inbounds i8, ptr %this, i64 16
   %call31.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler35demangleRttiBaseClassDescriptorNodeERN4llvh11ms_demangle14ArenaAllocatorER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(8) %Arena30.i, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
   br label %_ZN12_GLOBAL__N_19Demangler24demangleSpecialIntrinsicER10StringView.exit
 
@@ -1116,13 +1086,13 @@ _ZN12_GLOBAL__N_19Demangler24demangleSpecialIntrinsicER10StringView.exit: ; pred
   br i1 %tobool.not, label %if.end12, label %return
 
 if.end12.sink.split:                              ; preds = %sw.bb9.i, %if.end12.i, %if.end15.i, %if.end56.i, %sw.epilog.i.sink.split, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_22SpecialTableSymbolNodeEJEEEPT_DpOT0_.exit.i
-  %Error.i60 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i60 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i60, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end12.sink.split, %if.end56.i, %_ZN12_GLOBAL__N_19Demangler24demangleSpecialIntrinsicER10StringView.exit
   %call.i20 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler29demangleUnqualifiedSymbolNameER10StringView19NameBackrefBehavior(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
-  %Error.i21 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i21 = getelementptr inbounds i8, ptr %this, i64 8
   %56 = load i8, ptr %Error.i21, align 8
   %57 = and i8 %56, 1
   %tobool.not.i22 = icmp eq i8 %57, 0
@@ -1136,22 +1106,22 @@ if.end.i24:                                       ; preds = %if.end12
   br i1 %tobool4.not.i, label %if.end6.i, label %_ZN12_GLOBAL__N_19Demangler32demangleFullyQualifiedSymbolNameER10StringView.exit
 
 if.end6.i:                                        ; preds = %if.end.i24
-  %Kind.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call.i20, i64 0, i32 1
+  %Kind.i = getelementptr inbounds i8, ptr %call.i20, i64 8
   %60 = load i32, ptr %Kind.i, align 8
   %cmp.i26 = icmp eq i32 %60, 11
   br i1 %cmp.i26, label %if.then8.i, label %_ZN12_GLOBAL__N_19Demangler32demangleFullyQualifiedSymbolNameER10StringView.exit
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %Components.i = getelementptr inbounds %"struct.llvh::ms_demangle::QualifiedNameNode", ptr %call2.i25, i64 0, i32 1
+  %Components.i = getelementptr inbounds i8, ptr %call2.i25, i64 16
   %61 = load ptr, ptr %Components.i, align 8
-  %Nodes.i = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %61, i64 0, i32 1
+  %Nodes.i = getelementptr inbounds i8, ptr %61, i64 16
   %62 = load ptr, ptr %Nodes.i, align 8
-  %Count.i = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %61, i64 0, i32 2
+  %Count.i = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load i64, ptr %Count.i, align 8
   %64 = getelementptr ptr, ptr %62, i64 %63
-  %arrayidx.i = getelementptr ptr, ptr %64, i64 -2
+  %arrayidx.i = getelementptr i8, ptr %64, i64 -16
   %65 = load ptr, ptr %arrayidx.i, align 8
-  %Class.i = getelementptr inbounds %"struct.llvh::ms_demangle::StructorIdentifierNode", ptr %call.i20, i64 0, i32 1
+  %Class.i = getelementptr inbounds i8, ptr %call.i20, i64 24
   store ptr %65, ptr %Class.i, align 8
   %.pre = load i8, ptr %Error.i21, align 8
   br label %_ZN12_GLOBAL__N_19Demangler32demangleFullyQualifiedSymbolNameER10StringView.exit
@@ -1201,26 +1171,26 @@ _ZN12_GLOBAL__N_19Demangler28demangleVariableStorageClassER10StringView.exit: ; 
 
 sw.epilog.i31:                                    ; preds = %if.end17
   %call5.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler24demangleFunctionEncodingER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
-  %Components.i70 = getelementptr inbounds %"struct.llvh::ms_demangle::QualifiedNameNode", ptr %retval.0.i23, i64 0, i32 1
+  %Components.i70 = getelementptr inbounds i8, ptr %retval.0.i23, i64 16
   %72 = load ptr, ptr %Components.i70, align 8
-  %Nodes.i71 = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %72, i64 0, i32 1
+  %Nodes.i71 = getelementptr inbounds i8, ptr %72, i64 16
   %73 = load ptr, ptr %Nodes.i71, align 8
-  %Count.i72 = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %72, i64 0, i32 2
+  %Count.i72 = getelementptr inbounds i8, ptr %72, i64 24
   %74 = load i64, ptr %Count.i72, align 8
   %75 = getelementptr ptr, ptr %73, i64 %74
-  %arrayidx.i73 = getelementptr ptr, ptr %75, i64 -1
+  %arrayidx.i73 = getelementptr i8, ptr %75, i64 -8
   %76 = load ptr, ptr %arrayidx.i73, align 8
-  %Kind.i69 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %76, i64 0, i32 1
+  %Kind.i69 = getelementptr inbounds i8, ptr %76, i64 8
   %77 = load i32, ptr %Kind.i69, align 8
   %cmp.i34 = icmp eq i32 %77, 9
   br i1 %cmp.i34, label %_ZN12_GLOBAL__N_19Demangler21demangleEncodedSymbolER10StringViewPN4llvh11ms_demangle17QualifiedNameNodeE.exit.thread151, label %_ZN12_GLOBAL__N_19Demangler21demangleEncodedSymbolER10StringViewPN4llvh11ms_demangle17QualifiedNameNodeE.exit
 
 _ZN12_GLOBAL__N_19Demangler21demangleEncodedSymbolER10StringViewPN4llvh11ms_demangle17QualifiedNameNodeE.exit.thread151: ; preds = %sw.epilog.i31
-  %Signature.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSymbolNode", ptr %call5.i, i64 0, i32 1
+  %Signature.i = getelementptr inbounds i8, ptr %call5.i, i64 24
   %78 = load ptr, ptr %Signature.i, align 8
-  %ReturnType.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %78, i64 0, i32 5
+  %ReturnType.i = getelementptr inbounds i8, ptr %78, i64 32
   %79 = load ptr, ptr %ReturnType.i, align 8
-  %TargetType.i = getelementptr inbounds %"struct.llvh::ms_demangle::ConversionOperatorIdentifierNode", ptr %76, i64 0, i32 1
+  %TargetType.i = getelementptr inbounds i8, ptr %76, i64 24
   store ptr %79, ptr %TargetType.i, align 8
   br label %if.then20
 
@@ -1231,7 +1201,7 @@ _ZN12_GLOBAL__N_19Demangler21demangleEncodedSymbolER10StringViewPN4llvh11ms_dema
 
 if.then20:                                        ; preds = %_ZN12_GLOBAL__N_19Demangler21demangleEncodedSymbolER10StringViewPN4llvh11ms_demangle17QualifiedNameNodeE.exit.thread151, %_ZN12_GLOBAL__N_19Demangler21demangleEncodedSymbolER10StringViewPN4llvh11ms_demangle17QualifiedNameNodeE.exit
   %retval.0.i28154 = phi ptr [ %call5.i, %_ZN12_GLOBAL__N_19Demangler21demangleEncodedSymbolER10StringViewPN4llvh11ms_demangle17QualifiedNameNodeE.exit.thread151 ], [ %retval.0.i28, %_ZN12_GLOBAL__N_19Demangler21demangleEncodedSymbolER10StringViewPN4llvh11ms_demangle17QualifiedNameNodeE.exit ]
-  %Name21 = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %retval.0.i28154, i64 0, i32 1
+  %Name21 = getelementptr inbounds i8, ptr %retval.0.i28154, i64 16
   store ptr %retval.0.i23, ptr %Name21, align 8
   br label %if.end22
 
@@ -1252,7 +1222,7 @@ return:                                           ; preds = %_ZN10StringView12co
 define internal void @_ZN12_GLOBAL__N_19DemanglerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %.pr.i = load ptr, ptr %Arena, align 8
   %tobool.not3.i = icmp eq ptr %.pr.i, null
   br i1 %tobool.not3.i, label %_ZN4llvh11ms_demangle14ArenaAllocatorD2Ev.exit, label %while.body.i
@@ -1270,7 +1240,7 @@ delete.notnull.i:                                 ; preds = %while.body.i
 
 delete.end8.i:                                    ; preds = %delete.notnull.i, %while.body.i
   %2 = phi ptr [ %.pre.i, %delete.notnull.i ], [ %0, %while.body.i ]
-  %Next4.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %2, i64 0, i32 3
+  %Next4.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %Next4.i, align 8
   tail call void @_ZdlPv(ptr noundef %2) #26
   store ptr %3, ptr %Arena, align 8
@@ -1285,7 +1255,7 @@ _ZN4llvh11ms_demangle14ArenaAllocatorD2Ev.exit:   ; preds = %delete.end8.i, %ent
 define internal void @_ZN12_GLOBAL__N_19DemanglerD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Arena.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i = getelementptr inbounds i8, ptr %this, i64 16
   %.pr.i.i = load ptr, ptr %Arena.i, align 8
   %tobool.not3.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %tobool.not3.i.i, label %_ZN12_GLOBAL__N_19DemanglerD2Ev.exit, label %while.body.i.i
@@ -1303,7 +1273,7 @@ delete.notnull.i.i:                               ; preds = %while.body.i.i
 
 delete.end8.i.i:                                  ; preds = %delete.notnull.i.i, %while.body.i.i
   %2 = phi ptr [ %.pre.i.i, %delete.notnull.i.i ], [ %0, %while.body.i.i ]
-  %Next4.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %2, i64 0, i32 3
+  %Next4.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %Next4.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %2) #26
   store ptr %3, ptr %Arena.i, align 8
@@ -1336,7 +1306,7 @@ entry:
   %0 = load ptr, ptr %Arena, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %3, %2
   %sub.i = add i64 %add.i, 7
@@ -1346,9 +1316,9 @@ entry:
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %4 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %5, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1361,26 +1331,26 @@ if.end.i:                                         ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %4, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 24, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17QualifiedNameNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17QualifiedNameNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i
   %call2.i.sink7.i = phi ptr [ %call2.i.i, %if.end.i ], [ %7, %if.then.i ]
-  %Kind.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink7.i, i64 0, i32 1
+  %Kind.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink7.i, i64 8
   store i32 20, ptr %Kind.i.i4.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle17QualifiedNameNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink7.i, align 8
-  %Components.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::QualifiedNameNode", ptr %call2.i.sink7.i, i64 0, i32 1
+  %Components.i5.i = getelementptr inbounds i8, ptr %call2.i.sink7.i, i64 16
   store ptr null, ptr %Components.i5.i, align 8
   %8 = load ptr, ptr %Arena, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
-  %Used.i7 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %8, i64 0, i32 1
+  %Used.i7 = getelementptr inbounds i8, ptr %8, i64 8
   %11 = load i64, ptr %Used.i7, align 8
   %add.i8 = add i64 %11, %10
   %sub.i9 = add i64 %add.i8, 7
@@ -1390,9 +1360,9 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17QualifiedNameNodeEJEEEPT_DpOT0
   %add8.i13 = add i64 %add5.i12, %and.i10
   store i64 %add8.i13, ptr %Used.i7, align 8
   %12 = load ptr, ptr %Arena, align 8
-  %Used10.i14 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %12, i64 0, i32 1
+  %Used10.i14 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %Used10.i14, align 8
-  %Capacity.i15 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %12, i64 0, i32 2
+  %Capacity.i15 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load i64, ptr %Capacity.i15, align 8
   %cmp.i16 = icmp ult i64 %13, %14
   br i1 %cmp.i16, label %if.then.i25, label %if.end.i17
@@ -1405,29 +1375,29 @@ if.end.i17:                                       ; preds = %_ZN4llvh11ms_demang
   %call.i.i18 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i19 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i19, ptr %call.i.i18, align 8
-  %Next.i.i20 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i18, i64 0, i32 3
+  %Next.i.i20 = getelementptr inbounds i8, ptr %call.i.i18, i64 24
   store ptr %12, ptr %Next.i.i20, align 8
-  %Capacity3.i.i21 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i18, i64 0, i32 2
+  %Capacity3.i.i21 = getelementptr inbounds i8, ptr %call.i.i18, i64 16
   store i64 4096, ptr %Capacity3.i.i21, align 8
   store ptr %call.i.i18, ptr %Arena, align 8
-  %Used.i.i22 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i18, i64 0, i32 1
+  %Used.i.i22 = getelementptr inbounds i8, ptr %call.i.i18, i64 8
   store i64 32, ptr %Used.i.i22, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13NodeArrayNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13NodeArrayNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i25, %if.end.i17
   %call2.i.sink7.i23 = phi ptr [ %call2.i.i19, %if.end.i17 ], [ %15, %if.then.i25 ]
-  %Kind.i.i4.i24 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink7.i23, i64 0, i32 1
+  %Kind.i.i4.i24 = getelementptr inbounds i8, ptr %call2.i.sink7.i23, i64 8
   store i32 19, ptr %Kind.i.i4.i24, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle13NodeArrayNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink7.i23, align 8
-  %Nodes.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %call2.i.sink7.i23, i64 0, i32 1
+  %Nodes.i5.i = getelementptr inbounds i8, ptr %call2.i.sink7.i23, i64 16
   store i64 0, ptr %Nodes.i5.i, align 8
   store ptr %call2.i.sink7.i23, ptr %Components.i5.i, align 8
-  %Count = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %call2.i.sink7.i23, i64 0, i32 2
+  %Count = getelementptr inbounds i8, ptr %call2.i.sink7.i23, i64 24
   store i64 1, ptr %Count, align 8
   %16 = load ptr, ptr %Arena, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
-  %Used.i26 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %16, i64 0, i32 1
+  %Used.i26 = getelementptr inbounds i8, ptr %16, i64 8
   %19 = load i64, ptr %Used.i26, align 8
   %add.i27 = add i64 %19, %18
   %sub.i28 = add i64 %add.i27, 7
@@ -1437,9 +1407,9 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13NodeArrayNodeEJEEEPT_DpOT0_.ex
   %add8.i32 = add i64 %add5.i31, %and.i29
   store i64 %add8.i32, ptr %Used.i26, align 8
   %20 = load ptr, ptr %Arena, align 8
-  %Used10.i33 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %20, i64 0, i32 1
+  %Used10.i33 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i64, ptr %Used10.i33, align 8
-  %Capacity.i34 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %20, i64 0, i32 2
+  %Capacity.i34 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load i64, ptr %Capacity.i34, align 8
   %cmp.i35 = icmp ult i64 %21, %22
   br i1 %cmp.i35, label %if.then.i42, label %if.end.i36
@@ -1452,12 +1422,12 @@ if.end.i36:                                       ; preds = %_ZN4llvh11ms_demang
   %call.i.i37 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i38 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i38, ptr %call.i.i37, align 8
-  %Next.i.i39 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i37, i64 0, i32 3
+  %Next.i.i39 = getelementptr inbounds i8, ptr %call.i.i37, i64 24
   store ptr %20, ptr %Next.i.i39, align 8
-  %Capacity3.i.i40 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i37, i64 0, i32 2
+  %Capacity3.i.i40 = getelementptr inbounds i8, ptr %call.i.i37, i64 16
   store i64 4096, ptr %Capacity3.i.i40, align 8
   store ptr %call.i.i37, ptr %Arena, align 8
-  %Used.i.i41 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i37, i64 0, i32 1
+  %Used.i.i41 = getelementptr inbounds i8, ptr %call.i.i37, i64 8
   store i64 8, ptr %Used.i.i41, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit
 
@@ -1465,10 +1435,10 @@ _ZN4llvh11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit: ; pr
   %.sink = phi ptr [ %23, %if.then.i42 ], [ %call2.i.i38, %if.end.i36 ]
   store i64 0, ptr %.sink, align 8
   %24 = load ptr, ptr %Components.i5.i, align 8
-  %Nodes = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %24, i64 0, i32 1
+  %Nodes = getelementptr inbounds i8, ptr %24, i64 16
   store ptr %.sink, ptr %Nodes, align 8
   %25 = load ptr, ptr %Components.i5.i, align 8
-  %Nodes6 = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %25, i64 0, i32 1
+  %Nodes6 = getelementptr inbounds i8, ptr %25, i64 16
   %26 = load ptr, ptr %Nodes6, align 8
   store ptr %Identifier, ptr %26, align 8
   ret ptr %call2.i.sink7.i
@@ -1482,15 +1452,15 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler21demangleStringL
 entry:
   %OS = alloca %class.OutputStream, align 8
   %StringBytes = alloca [128 x i8], align 16
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %OS, i64 24
   store i32 -1, ptr %CurrentPackIndex.i, align 8
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %OS, i64 28
   store i32 -1, ptr %CurrentPackMax.i, align 4
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Arena, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %3, %2
   %sub.i = add i64 %add.i, 7
@@ -1500,9 +1470,9 @@ entry:
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %4 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %5, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1515,27 +1485,27 @@ if.end.i:                                         ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %4, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 48, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_24EncodedStringLiteralNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_24EncodedStringLiteralNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i
   %call2.i.sink11.i = phi ptr [ %call2.i.i, %if.end.i ], [ %7, %if.then.i ]
-  %Kind.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink11.i, i64 0, i32 1
+  %Kind.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 8
   store i32 22, ptr %Kind.i.i.i4.i, align 8
-  %Name.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %call2.i.sink11.i, i64 0, i32 1
+  %Name.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 16
   store ptr null, ptr %Name.i.i5.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle24EncodedStringLiteralNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink11.i, align 8
-  %DecodedString.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::EncodedStringLiteralNode", ptr %call2.i.sink11.i, i64 0, i32 1
-  %Char.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::EncodedStringLiteralNode", ptr %call2.i.sink11.i, i64 0, i32 3
+  %DecodedString.i6.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 24
+  %Char.i7.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 44
   store i32 0, ptr %Char.i7.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %DecodedString.i6.i, i8 0, i64 17, i1 false)
-  %Last.i1.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i1.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %8 = load ptr, ptr %Last.i1.i.i, align 8
   %9 = load ptr, ptr %MangledName, align 8
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %8 to i64
@@ -1638,14 +1608,14 @@ if.then20.i:                                      ; preds = %if.end15.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %if.then20.i, %if.end15.i, %sw.epilog, %_ZN10StringView12consumeFrontEc.exit.i
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit
 
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit: ; preds = %if.then.i38, %if.then11.i, %for.end.i
   %retval.sroa.0.0.i = phi i64 [ %add.i39, %if.then.i38 ], [ %Ret6.033.i, %if.then11.i ], [ 0, %for.end.i ]
   %retval.sroa.4.0.i = phi i8 [ %frombool.i, %if.then.i38 ], [ %frombool.i, %if.then11.i ], [ 0, %for.end.i ]
-  %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i8, ptr %Error, align 8
   %16 = or i8 %15, %retval.sroa.4.0.i
   %17 = and i8 %16, 1
@@ -1690,10 +1660,10 @@ if.then25:                                        ; preds = %if.end23
   unreachable
 
 if.end26:                                         ; preds = %if.end23
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %OS, i64 8
   store i64 0, ptr %CurrentPosition.i.i, align 8
   store ptr %call.i67, ptr %OS, align 8
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %OS, i64 16
   store i64 1024, ptr %BufferCapacity.i.i, align 8
   br i1 %IsWcharT.0, label %if.then28, label %while.cond44
 
@@ -1703,12 +1673,12 @@ if.then28:                                        ; preds = %if.end26
   br i1 %cmp29, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.then28
-  %IsTruncated = getelementptr inbounds %"struct.llvh::ms_demangle::EncodedStringLiteralNode", ptr %call2.i.sink11.i, i64 0, i32 2
+  %IsTruncated = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 40
   store i8 1, ptr %IsTruncated, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then30, %if.then28
-  %IsTruncated36 = getelementptr inbounds %"struct.llvh::ms_demangle::EncodedStringLiteralNode", ptr %call2.i.sink11.i, i64 0, i32 2
+  %IsTruncated36 = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 40
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end39, %if.end31
@@ -2118,7 +2088,7 @@ while.end49:                                      ; preds = %_ZNK10StringView10s
   br i1 %cmp51, label %if.then52, label %if.end54
 
 if.then52:                                        ; preds = %while.end49
-  %IsTruncated53 = getelementptr inbounds %"struct.llvh::ms_demangle::EncodedStringLiteralNode", ptr %call2.i.sink11.i, i64 0, i32 2
+  %IsTruncated53 = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 40
   store i8 1, ptr %IsTruncated53, align 8
   br label %if.end54
 
@@ -2149,7 +2119,7 @@ sw.epilog64:                                      ; preds = %if.end54, %sw.bb61,
 for.body.lr.ph:                                   ; preds = %sw.epilog64
   %div = udiv i32 %BytesDecoded.0, %call56
   %wide.trip.count.i = zext nneg i32 %call56 to i64
-  %IsTruncated71 = getelementptr inbounds %"struct.llvh::ms_demangle::EncodedStringLiteralNode", ptr %call2.i.sink11.i, i64 0, i32 2
+  %IsTruncated71 = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 40
   %75 = zext i32 %div to i64
   %umax = tail call i32 @llvm.umax.i32(i32 %div, i32 1)
   %wide.trip.count = zext i32 %umax to i64
@@ -2205,13 +2175,13 @@ if.end76:                                         ; preds = %for.inc, %sw.epilog
   %82 = extractvalue { ptr, ptr } %call81, 0
   %83 = extractvalue { ptr, ptr } %call81, 1
   store ptr %82, ptr %DecodedString.i6.i, align 8
-  %ref.tmp79.sroa.2.0.DecodedString.sroa_idx = getelementptr inbounds %"struct.llvh::ms_demangle::EncodedStringLiteralNode", ptr %call2.i.sink11.i, i64 0, i32 1, i32 1
+  %ref.tmp79.sroa.2.0.DecodedString.sroa_idx = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 32
   store ptr %83, ptr %ref.tmp79.sroa.2.0.DecodedString.sroa_idx, align 8
   call void @free(ptr noundef %81) #24
   br label %return
 
 StringLiteralError:                               ; preds = %if.end39, %if.end13, %if.then.i47, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_24EncodedStringLiteralNodeEJEEEPT_DpOT0_.exit, %_ZNK10StringView10startsWithES_.exit.i, %if.end16, %_ZNK10StringView4findEcm.exit, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit, %if.end5, %if.end
-  %Error82 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error82 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error82, align 8
   br label %return
 
@@ -2223,11 +2193,11 @@ return:                                           ; preds = %StringLiteralError,
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler22demangleVcallThunkNodeER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName) unnamed_addr #2 align 2 {
 entry:
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Arena, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %3, %2
   %sub.i = add i64 %add.i, 7
@@ -2237,9 +2207,9 @@ entry:
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %4 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %5, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2252,28 +2222,28 @@ if.end.i:                                         ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %4, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 32, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i
   %call2.i.sink9.i = phi ptr [ %call2.i.i, %if.end.i ], [ %7, %if.then.i ]
-  %Kind.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Kind.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 8
   store i32 26, ptr %Kind.i.i.i4.i, align 8
-  %Name.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Name.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %Name.i.i5.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18FunctionSymbolNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i, align 8
-  %Signature.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSymbolNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Signature.i6.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 24
   store ptr null, ptr %Signature.i6.i, align 8
   %8 = load ptr, ptr %Arena, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
-  %Used.i10 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %8, i64 0, i32 1
+  %Used.i10 = getelementptr inbounds i8, ptr %8, i64 8
   %11 = load i64, ptr %Used.i10, align 8
   %add.i11 = add i64 %11, %10
   %sub.i12 = add i64 %add.i11, 7
@@ -2283,9 +2253,9 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT
   %add8.i16 = add i64 %add5.i15, %and.i13
   store i64 %add8.i16, ptr %Used.i10, align 8
   %12 = load ptr, ptr %Arena, align 8
-  %Used10.i17 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %12, i64 0, i32 1
+  %Used10.i17 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %Used10.i17, align 8
-  %Capacity.i18 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %12, i64 0, i32 2
+  %Capacity.i18 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load i64, ptr %Capacity.i18, align 8
   %cmp.i19 = icmp ult i64 %13, %14
   br i1 %cmp.i19, label %if.then.i28, label %if.end.i20
@@ -2298,28 +2268,28 @@ if.end.i20:                                       ; preds = %_ZN4llvh11ms_demang
   %call.i.i21 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i22 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i22, ptr %call.i.i21, align 8
-  %Next.i.i23 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i21, i64 0, i32 3
+  %Next.i.i23 = getelementptr inbounds i8, ptr %call.i.i21, i64 24
   store ptr %12, ptr %Next.i.i23, align 8
-  %Capacity3.i.i24 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i21, i64 0, i32 2
+  %Capacity3.i.i24 = getelementptr inbounds i8, ptr %call.i.i21, i64 16
   store i64 4096, ptr %Capacity3.i.i24, align 8
   store ptr %call.i.i21, ptr %Arena, align 8
-  %Used.i.i25 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i21, i64 0, i32 1
+  %Used.i.i25 = getelementptr inbounds i8, ptr %call.i.i21, i64 8
   store i64 32, ptr %Used.i.i25, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_24VcallThunkIdentifierNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_24VcallThunkIdentifierNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i28, %if.end.i20
   %call2.i.sink9.i26 = phi ptr [ %call2.i.i22, %if.end.i20 ], [ %15, %if.then.i28 ]
-  %Kind.i.i.i4.i27 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i26, i64 0, i32 1
+  %Kind.i.i.i4.i27 = getelementptr inbounds i8, ptr %call2.i.sink9.i26, i64 8
   store i32 6, ptr %Kind.i.i.i4.i27, align 8
-  %TemplateParams.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i26, i64 0, i32 1
+  %TemplateParams.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink9.i26, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle24VcallThunkIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i26, align 8
-  %OffsetInVTable.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::VcallThunkIdentifierNode", ptr %call2.i.sink9.i26, i64 0, i32 1
+  %OffsetInVTable.i6.i = getelementptr inbounds i8, ptr %call2.i.sink9.i26, i64 24
   store i64 0, ptr %OffsetInVTable.i6.i, align 8
   %16 = load ptr, ptr %Arena, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
-  %Used.i29 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %16, i64 0, i32 1
+  %Used.i29 = getelementptr inbounds i8, ptr %16, i64 8
   %19 = load i64, ptr %Used.i29, align 8
   %add.i30 = add i64 %19, %18
   %sub.i31 = add i64 %add.i30, 7
@@ -2329,9 +2299,9 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_24VcallThunkIdentifierNodeEJEEEP
   %add8.i35 = add i64 %add5.i34, %and.i32
   store i64 %add8.i35, ptr %Used.i29, align 8
   %20 = load ptr, ptr %Arena, align 8
-  %Used10.i36 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %20, i64 0, i32 1
+  %Used10.i36 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i64, ptr %Used10.i36, align 8
-  %Capacity.i37 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %20, i64 0, i32 2
+  %Capacity.i37 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load i64, ptr %Capacity.i37, align 8
   %cmp.i38 = icmp ult i64 %21, %22
   br i1 %cmp.i38, label %if.then.i45, label %if.end.i39
@@ -2344,49 +2314,49 @@ if.end.i39:                                       ; preds = %_ZN4llvh11ms_demang
   %call.i.i40 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i41 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i41, ptr %call.i.i40, align 8
-  %Next.i.i42 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i40, i64 0, i32 3
+  %Next.i.i42 = getelementptr inbounds i8, ptr %call.i.i40, i64 24
   store ptr %20, ptr %Next.i.i42, align 8
-  %Capacity3.i.i43 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i40, i64 0, i32 2
+  %Capacity3.i.i43 = getelementptr inbounds i8, ptr %call.i.i40, i64 16
   store i64 4096, ptr %Capacity3.i.i43, align 8
   store ptr %call.i.i40, ptr %Arena, align 8
-  %Used.i.i44 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i40, i64 0, i32 1
+  %Used.i.i44 = getelementptr inbounds i8, ptr %call.i.i40, i64 8
   store i64 72, ptr %Used.i.i44, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i45, %if.end.i39
   %call2.i.sink23.i = phi ptr [ %call2.i.i41, %if.end.i39 ], [ %23, %if.then.i45 ]
-  %Kind.i.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink23.i, i64 0, i32 1
+  %Kind.i.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 8
   store i32 13, ptr %Kind.i.i.i.i4.i, align 8
-  %Quals.i.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2.i.sink23.i, i64 0, i32 1
+  %Quals.i.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 12
   store i8 0, ptr %Quals.i.i.i5.i, align 4
-  %Affinity.i.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 1
+  %Affinity.i.i6.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 16
   store i32 0, ptr %Affinity.i.i6.i, align 8
-  %CallConvention.i.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 2
+  %CallConvention.i.i7.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 20
   store i8 0, ptr %CallConvention.i.i7.i, align 4
-  %FunctionClass.i.i8.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 3
-  %RefQualifier.i.i9.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 4
+  %FunctionClass.i.i8.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 22
+  %RefQualifier.i.i9.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 24
   store i32 0, ptr %RefQualifier.i.i9.i, align 8
-  %ReturnType.i.i10.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 5
+  %ReturnType.i.i10.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 32
   store ptr null, ptr %ReturnType.i.i10.i, align 8
-  %IsVariadic.i.i11.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 6
+  %IsVariadic.i.i11.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 40
   store i8 0, ptr %IsVariadic.i.i11.i, align 8
-  %Params.i.i12.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 7
+  %Params.i.i12.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 48
   store ptr null, ptr %Params.i.i12.i, align 8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18ThunkSignatureNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink23.i, align 8
-  %ThisAdjust.i13.i = getelementptr inbounds %"struct.llvh::ms_demangle::ThunkSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 1
+  %ThisAdjust.i13.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ThisAdjust.i13.i, i8 0, i64 16, i1 false)
   store ptr %call2.i.sink23.i, ptr %Signature.i6.i, align 8
   store i16 256, ptr %FunctionClass.i.i8.i, align 2
   %call7 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler22demangleNameScopeChainER10StringViewPN4llvh11ms_demangle14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, ptr noundef nonnull %call2.i.sink9.i26)
   store ptr %call7, ptr %Name.i.i5.i, align 8
-  %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error = getelementptr inbounds i8, ptr %this, i64 8
   %24 = load i8, ptr %Error, align 8
   %25 = and i8 %24, 1
   %tobool.not = icmp eq i8 %25, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit
-  %Last.i1.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i1.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %26 = load ptr, ptr %Last.i1.i.i, align 8
   %27 = load ptr, ptr %MangledName, align 8
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %26 to i64
@@ -2419,7 +2389,7 @@ if.end:                                           ; preds = %_ZN10StringView12co
 
 if.then12:                                        ; preds = %if.end
   %30 = load ptr, ptr %MangledName, align 8
-  %Last.i.i.i.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i.i.i.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %31 = load ptr, ptr %Last.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %30, %31
   br i1 %cmp.i.i.i.i.i, label %_ZN10StringView12consumeFrontEc.exit.i.i, label %_ZNK10StringView10startsWithEc.exit.i.i.i
@@ -2510,7 +2480,7 @@ if.end14:                                         ; preds = %_ZN12_GLOBAL__N_19D
 
 if.then17:                                        ; preds = %if.end14
   %38 = load ptr, ptr %MangledName, align 8
-  %Last.i.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %39 = load ptr, ptr %Last.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %38, %39
   br i1 %cmp.i.i.i, label %_ZN10StringView12consumeFrontEc.exit, label %_ZNK10StringView10startsWithEc.exit.i
@@ -2555,7 +2525,7 @@ switch.lookup:                                    ; preds = %if.then25
 _ZN12_GLOBAL__N_19Demangler25demangleCallingConventionER10StringView.exit: ; preds = %if.then25, %switch.lookup
   %retval.0.i = phi i8 [ %switch.load, %switch.lookup ], [ 0, %if.then25 ]
   %47 = load ptr, ptr %Signature.i6.i, align 8
-  %CallConvention = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %47, i64 0, i32 2
+  %CallConvention = getelementptr inbounds i8, ptr %47, i64 20
   store i8 %retval.0.i, ptr %CallConvention, align 4
   %.pre59 = load i8, ptr %Error, align 8
   %.pre60 = and i8 %.pre59, 1
@@ -2571,11 +2541,11 @@ if.end28:                                         ; preds = %_ZN12_GLOBAL__N_19D
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler24demangleLocalStaticGuardER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName) unnamed_addr #2 align 2 {
 entry:
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Arena, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %3, %2
   %sub.i = add i64 %add.i, 7
@@ -2585,9 +2555,9 @@ entry:
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %4 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %5, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2600,29 +2570,29 @@ if.end.i:                                         ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %4, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 32, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30LocalStaticGuardIdentifierNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30LocalStaticGuardIdentifierNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i
   %call2.i.sink9.i = phi ptr [ %call2.i.i, %if.end.i ], [ %7, %if.then.i ]
-  %Kind.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Kind.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 8
   store i32 7, ptr %Kind.i.i.i4.i, align 8
-  %TemplateParams.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %TemplateParams.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle30LocalStaticGuardIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i, align 8
-  %ScopeIndex.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::LocalStaticGuardIdentifierNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %ScopeIndex.i6.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 24
   store i32 0, ptr %ScopeIndex.i6.i, align 8
   %call2 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler22demangleNameScopeChainER10StringViewPN4llvh11ms_demangle14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, ptr noundef nonnull %call2.i.sink9.i)
   %8 = load ptr, ptr %Arena, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
-  %Used.i9 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %8, i64 0, i32 1
+  %Used.i9 = getelementptr inbounds i8, ptr %8, i64 8
   %11 = load i64, ptr %Used.i9, align 8
   %add.i10 = add i64 %11, %10
   %sub.i11 = add i64 %add.i10, 7
@@ -2632,9 +2602,9 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30LocalStaticGuardIdentifierNode
   %add8.i15 = add i64 %add5.i14, %and.i12
   store i64 %add8.i15, ptr %Used.i9, align 8
   %12 = load ptr, ptr %Arena, align 8
-  %Used10.i16 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %12, i64 0, i32 1
+  %Used10.i16 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %Used10.i16, align 8
-  %Capacity.i17 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %12, i64 0, i32 2
+  %Capacity.i17 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load i64, ptr %Capacity.i17, align 8
   %cmp.i18 = icmp ult i64 %13, %14
   br i1 %cmp.i18, label %if.then.i27, label %if.end.i19
@@ -2647,25 +2617,25 @@ if.end.i19:                                       ; preds = %_ZN4llvh11ms_demang
   %call.i.i20 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i21 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i21, ptr %call.i.i20, align 8
-  %Next.i.i22 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i20, i64 0, i32 3
+  %Next.i.i22 = getelementptr inbounds i8, ptr %call.i.i20, i64 24
   store ptr %12, ptr %Next.i.i22, align 8
-  %Capacity3.i.i23 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i20, i64 0, i32 2
+  %Capacity3.i.i23 = getelementptr inbounds i8, ptr %call.i.i20, i64 16
   store i64 4096, ptr %Capacity3.i.i23, align 8
   store ptr %call.i.i20, ptr %Arena, align 8
-  %Used.i.i24 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i20, i64 0, i32 1
+  %Used.i.i24 = getelementptr inbounds i8, ptr %call.i.i20, i64 8
   store i64 32, ptr %Used.i.i24, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_28LocalStaticGuardVariableNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_28LocalStaticGuardVariableNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i27, %if.end.i19
   %call2.i.sink9.i25 = phi ptr [ %call2.i.i21, %if.end.i19 ], [ %15, %if.then.i27 ]
-  %Kind.i.i.i4.i26 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i25, i64 0, i32 1
+  %Kind.i.i.i4.i26 = getelementptr inbounds i8, ptr %call2.i.sink9.i25, i64 8
   store i32 25, ptr %Kind.i.i.i4.i26, align 8
-  %Name.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %call2.i.sink9.i25, i64 0, i32 1
+  %Name.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink9.i25, i64 16
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle28LocalStaticGuardVariableNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i25, align 8
-  %IsVisible.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::LocalStaticGuardVariableNode", ptr %call2.i.sink9.i25, i64 0, i32 1
+  %IsVisible.i6.i = getelementptr inbounds i8, ptr %call2.i.sink9.i25, i64 24
   store i8 0, ptr %IsVisible.i6.i, align 8
   store ptr %call2, ptr %Name.i.i5.i, align 8
-  %Last.i1.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i1.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %16 = load ptr, ptr %Last.i1.i.i, align 8
   %17 = load ptr, ptr %MangledName, align 8
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %16 to i64
@@ -2693,7 +2663,7 @@ _ZNK10StringView10startsWithES_.exit.i42:         ; preds = %if.else
   br i1 %tobool1.not.i.i.i.i.i.i44, label %if.end11, label %if.else10
 
 if.else10:                                        ; preds = %_ZNK10StringView10startsWithES_.exit.i42, %if.else
-  %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error, align 8
   br label %return
 
@@ -2775,7 +2745,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i: ; preds = %if.
 
 if.end.sink.split.i:                              ; preds = %if.then20.i.i, %if.end15.i.i, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i, %_ZN10StringView12consumeFrontEc.exit.i.i
   %retval.sroa.0.0.i10.ph.i = phi i32 [ 0, %_ZN10StringView12consumeFrontEc.exit.i.i ], [ %retval.sroa.0.0.i.i, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i ], [ 0, %if.end15.i.i ], [ 0, %if.then20.i.i ]
-  %Error.i.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler16demangleUnsignedER10StringView.exit
 
@@ -2814,13 +2784,13 @@ if.then:                                          ; preds = %entry
   br i1 %2, label %switch.hole_check, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %switch.hole_check, %if.then
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i, align 8
   br label %if.end13
 
 if.then5:                                         ; preds = %entry
   %3 = load ptr, ptr %MangledName, align 8
-  %Last.i.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %4 = load ptr, ptr %Last.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %if.end13, label %_ZNK10StringView10startsWithEc.exit.i
@@ -2841,7 +2811,7 @@ if.then7:                                         ; preds = %_ZNK10StringView10s
   br i1 %7, label %switch.hole_check718, label %sw.epilog.i36
 
 sw.epilog.i36:                                    ; preds = %switch.hole_check718, %if.then7
-  %Error.i37 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i37 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i37, align 8
   br label %if.end13
 
@@ -2891,11 +2861,11 @@ if.then15:                                        ; preds = %if.end13
   ]
 
 sw.bb.i:                                          ; preds = %if.then15
-  %Arena.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load ptr, ptr %Arena.i, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
-  %Used.i221 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %15, i64 0, i32 1
+  %Used.i221 = getelementptr inbounds i8, ptr %15, i64 8
   %18 = load i64, ptr %Used.i221, align 8
   %add.i222 = add i64 %18, %17
   %sub.i223 = add i64 %add.i222, 7
@@ -2905,9 +2875,9 @@ sw.bb.i:                                          ; preds = %if.then15
   %add8.i227 = add i64 %add5.i226, %and.i224
   store i64 %add8.i227, ptr %Used.i221, align 8
   %19 = load ptr, ptr %Arena.i, align 8
-  %Used10.i228 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %19, i64 0, i32 1
+  %Used10.i228 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i64, ptr %Used10.i228, align 8
-  %Capacity.i229 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %19, i64 0, i32 2
+  %Capacity.i229 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load i64, ptr %Capacity.i229, align 8
   %cmp.i230 = icmp ult i64 %20, %21
   br i1 %cmp.i230, label %if.then.i242, label %if.end.i231
@@ -2920,21 +2890,21 @@ if.end.i231:                                      ; preds = %sw.bb.i
   %call.i.i232 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i233 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i233, ptr %call.i.i232, align 8
-  %Next.i.i234 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i232, i64 0, i32 3
+  %Next.i.i234 = getelementptr inbounds i8, ptr %call.i.i232, i64 24
   store ptr %19, ptr %Next.i.i234, align 8
-  %Capacity3.i.i235 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i232, i64 0, i32 2
+  %Capacity3.i.i235 = getelementptr inbounds i8, ptr %call.i.i232, i64 16
   store i64 4096, ptr %Capacity3.i.i235, align 8
   store ptr %call.i.i232, ptr %Arena.i, align 8
-  %Used.i.i236 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i232, i64 0, i32 1
+  %Used.i.i236 = getelementptr inbounds i8, ptr %call.i.i232, i64 8
   store i64 32, ptr %Used.i.i236, align 8
   br label %sw.epilog.i44.sink.split
 
 sw.bb3.i:                                         ; preds = %if.then15
-  %Arena4.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena4.i = getelementptr inbounds i8, ptr %this, i64 16
   %23 = load ptr, ptr %Arena4.i, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
-  %Used.i198 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %23, i64 0, i32 1
+  %Used.i198 = getelementptr inbounds i8, ptr %23, i64 8
   %26 = load i64, ptr %Used.i198, align 8
   %add.i199 = add i64 %26, %25
   %sub.i200 = add i64 %add.i199, 7
@@ -2944,9 +2914,9 @@ sw.bb3.i:                                         ; preds = %if.then15
   %add8.i204 = add i64 %add5.i203, %and.i201
   store i64 %add8.i204, ptr %Used.i198, align 8
   %27 = load ptr, ptr %Arena4.i, align 8
-  %Used10.i205 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %27, i64 0, i32 1
+  %Used10.i205 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load i64, ptr %Used10.i205, align 8
-  %Capacity.i206 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %27, i64 0, i32 2
+  %Capacity.i206 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load i64, ptr %Capacity.i206, align 8
   %cmp.i207 = icmp ult i64 %28, %29
   br i1 %cmp.i207, label %if.then.i219, label %if.end.i208
@@ -2959,21 +2929,21 @@ if.end.i208:                                      ; preds = %sw.bb3.i
   %call.i.i209 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i210 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i210, ptr %call.i.i209, align 8
-  %Next.i.i211 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i209, i64 0, i32 3
+  %Next.i.i211 = getelementptr inbounds i8, ptr %call.i.i209, i64 24
   store ptr %27, ptr %Next.i.i211, align 8
-  %Capacity3.i.i212 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i209, i64 0, i32 2
+  %Capacity3.i.i212 = getelementptr inbounds i8, ptr %call.i.i209, i64 16
   store i64 4096, ptr %Capacity3.i.i212, align 8
   store ptr %call.i.i209, ptr %Arena4.i, align 8
-  %Used.i.i213 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i209, i64 0, i32 1
+  %Used.i.i213 = getelementptr inbounds i8, ptr %call.i.i209, i64 8
   store i64 32, ptr %Used.i.i213, align 8
   br label %sw.epilog.i44.sink.split
 
 sw.bb7.i:                                         ; preds = %if.then15
-  %Arena8.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena8.i = getelementptr inbounds i8, ptr %this, i64 16
   %31 = load ptr, ptr %Arena8.i, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
-  %Used.i175 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %31, i64 0, i32 1
+  %Used.i175 = getelementptr inbounds i8, ptr %31, i64 8
   %34 = load i64, ptr %Used.i175, align 8
   %add.i176 = add i64 %34, %33
   %sub.i177 = add i64 %add.i176, 7
@@ -2983,9 +2953,9 @@ sw.bb7.i:                                         ; preds = %if.then15
   %add8.i181 = add i64 %add5.i180, %and.i178
   store i64 %add8.i181, ptr %Used.i175, align 8
   %35 = load ptr, ptr %Arena8.i, align 8
-  %Used10.i182 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %35, i64 0, i32 1
+  %Used10.i182 = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load i64, ptr %Used10.i182, align 8
-  %Capacity.i183 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %35, i64 0, i32 2
+  %Capacity.i183 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %Capacity.i183, align 8
   %cmp.i184 = icmp ult i64 %36, %37
   br i1 %cmp.i184, label %if.then.i196, label %if.end.i185
@@ -2998,12 +2968,12 @@ if.end.i185:                                      ; preds = %sw.bb7.i
   %call.i.i186 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i187 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i187, ptr %call.i.i186, align 8
-  %Next.i.i188 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i186, i64 0, i32 3
+  %Next.i.i188 = getelementptr inbounds i8, ptr %call.i.i186, i64 24
   store ptr %35, ptr %Next.i.i188, align 8
-  %Capacity3.i.i189 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i186, i64 0, i32 2
+  %Capacity3.i.i189 = getelementptr inbounds i8, ptr %call.i.i186, i64 16
   store i64 4096, ptr %Capacity3.i.i189, align 8
   store ptr %call.i.i186, ptr %Arena8.i, align 8
-  %Used.i.i190 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i186, i64 0, i32 1
+  %Used.i.i190 = getelementptr inbounds i8, ptr %call.i.i186, i64 8
   store i64 32, ptr %Used.i.i190, align 8
   br label %sw.epilog.i44.sink.split
 
@@ -3015,16 +2985,16 @@ sw.bb11.i:                                        ; preds = %if.then15
   br i1 %cmp.not.i, label %if.end.i43, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb11.i
-  %Error.i42 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i42 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i42, align 8
   br label %if.end60
 
 if.end.i43:                                       ; preds = %sw.bb11.i
-  %Arena14.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena14.i = getelementptr inbounds i8, ptr %this, i64 16
   %40 = load ptr, ptr %Arena14.i, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %40, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %40, i64 8
   %43 = load i64, ptr %Used.i, align 8
   %add.i170 = add i64 %43, %42
   %sub.i = add i64 %add.i170, 7
@@ -3034,9 +3004,9 @@ if.end.i43:                                       ; preds = %sw.bb11.i
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %44 = load ptr, ptr %Arena14.i, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %44, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %44, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load i64, ptr %Capacity.i, align 8
   %cmp.i171 = icmp ult i64 %45, %46
   br i1 %cmp.i171, label %if.then.i174, label %if.end.i172
@@ -3049,33 +3019,33 @@ if.end.i172:                                      ; preds = %if.end.i43
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %44, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena14.i, align 8
-  %Used.i.i173 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i173 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 32, ptr %Used.i.i173, align 8
   br label %sw.epilog.i44.sink.split
 
 sw.epilog.i44.sink.split:                         ; preds = %if.end.i172, %if.then.i174, %if.end.i185, %if.then.i196, %if.end.i208, %if.then.i219, %if.end.i231, %if.then.i242
   %call2.i.sink12.i.sink705 = phi ptr [ %call2.i.i233, %if.end.i231 ], [ %22, %if.then.i242 ], [ %call2.i.i210, %if.end.i208 ], [ %30, %if.then.i219 ], [ %call2.i.i187, %if.end.i185 ], [ %38, %if.then.i196 ], [ %call2.i.i, %if.end.i172 ], [ %47, %if.then.i174 ]
   %.sink = phi i32 [ 2, %if.end.i231 ], [ 2, %if.then.i242 ], [ 1, %if.end.i208 ], [ 1, %if.then.i219 ], [ 0, %if.end.i185 ], [ 0, %if.then.i196 ], [ 3, %if.end.i172 ], [ 3, %if.then.i174 ]
-  %Kind.i.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink12.i.sink705, i64 0, i32 1
+  %Kind.i.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink12.i.sink705, i64 8
   store i32 15, ptr %Kind.i.i.i5.i, align 8
-  %Quals.i.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2.i.sink12.i.sink705, i64 0, i32 1
+  %Quals.i.i6.i = getelementptr inbounds i8, ptr %call2.i.sink12.i.sink705, i64 12
   store i8 0, ptr %Quals.i.i6.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle11TagTypeNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink12.i.sink705, align 8
-  %QualifiedName.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::TagTypeNode", ptr %call2.i.sink12.i.sink705, i64 0, i32 2
+  %QualifiedName.i7.i = getelementptr inbounds i8, ptr %call2.i.sink12.i.sink705, i64 16
   store ptr null, ptr %QualifiedName.i7.i, align 8
-  %Tag2.i8.i = getelementptr inbounds %"struct.llvh::ms_demangle::TagTypeNode", ptr %call2.i.sink12.i.sink705, i64 0, i32 3
+  %Tag2.i8.i = getelementptr inbounds i8, ptr %call2.i.sink12.i.sink705, i64 24
   store i32 %.sink, ptr %Tag2.i8.i, align 8
   br label %sw.epilog.i44
 
 sw.epilog.i44:                                    ; preds = %sw.epilog.i44.sink.split, %if.then15
   %TT.0.i = phi ptr [ null, %if.then15 ], [ %call2.i.sink12.i.sink705, %sw.epilog.i44.sink.split ]
   %call17.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler30demangleFullyQualifiedTypeNameER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
-  %QualifiedName.i = getelementptr inbounds %"struct.llvh::ms_demangle::TagTypeNode", ptr %TT.0.i, i64 0, i32 2
+  %QualifiedName.i = getelementptr inbounds i8, ptr %TT.0.i, i64 16
   store ptr %call17.i, ptr %QualifiedName.i, align 8
   br label %if.end60
 
@@ -3160,11 +3130,11 @@ _ZL15isMemberPointer10StringView.exit:            ; preds = %sw.epilog.i53, %_ZN
   br i1 %switch.i55, label %if.then23, label %if.else25
 
 if.then23:                                        ; preds = %if.then.i56, %_ZL15isMemberPointer10StringView.exit
-  %Arena.i59 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i59 = getelementptr inbounds i8, ptr %this, i64 16
   %52 = load ptr, ptr %Arena.i59, align 8
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
-  %Used.i304 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %52, i64 0, i32 1
+  %Used.i304 = getelementptr inbounds i8, ptr %52, i64 8
   %55 = load i64, ptr %Used.i304, align 8
   %add.i305 = add i64 %55, %54
   %sub.i306 = add i64 %add.i305, 7
@@ -3174,9 +3144,9 @@ if.then23:                                        ; preds = %if.then.i56, %_ZL15
   %add8.i310 = add i64 %add5.i309, %and.i307
   store i64 %add8.i310, ptr %Used.i304, align 8
   %56 = load ptr, ptr %Arena.i59, align 8
-  %Used10.i311 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %56, i64 0, i32 1
+  %Used10.i311 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load i64, ptr %Used10.i311, align 8
-  %Capacity.i312 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %56, i64 0, i32 2
+  %Capacity.i312 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load i64, ptr %Capacity.i312, align 8
   %cmp.i313 = icmp ult i64 %57, %58
   br i1 %cmp.i313, label %if.then.i320, label %if.end.i314
@@ -3189,25 +3159,25 @@ if.end.i314:                                      ; preds = %if.then23
   %call.i.i315 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i316 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i316, ptr %call.i.i315, align 8
-  %Next.i.i317 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i315, i64 0, i32 3
+  %Next.i.i317 = getelementptr inbounds i8, ptr %call.i.i315, i64 24
   store ptr %56, ptr %Next.i.i317, align 8
-  %Capacity3.i.i318 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i315, i64 0, i32 2
+  %Capacity3.i.i318 = getelementptr inbounds i8, ptr %call.i.i315, i64 16
   store i64 4096, ptr %Capacity3.i.i318, align 8
   store ptr %call.i.i315, ptr %Arena.i59, align 8
-  %Used.i.i319 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i315, i64 0, i32 1
+  %Used.i.i319 = getelementptr inbounds i8, ptr %call.i.i315, i64 8
   store i64 40, ptr %Used.i.i319, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_15PointerTypeNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_15PointerTypeNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i320, %if.end.i314
   %call2.i.sink11.i = phi ptr [ %call2.i.i316, %if.end.i314 ], [ %59, %if.then.i320 ]
-  %Kind.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink11.i, i64 0, i32 1
+  %Kind.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 8
   store i32 14, ptr %Kind.i.i.i4.i, align 8
-  %Quals.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2.i.sink11.i, i64 0, i32 1
+  %Quals.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 12
   store i8 0, ptr %Quals.i.i5.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle15PointerTypeNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink11.i, align 8
-  %Affinity.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::PointerTypeNode", ptr %call2.i.sink11.i, i64 0, i32 1
+  %Affinity.i6.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 16
   store i32 0, ptr %Affinity.i6.i, align 8
-  %ClassParent.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::PointerTypeNode", ptr %call2.i.sink11.i, i64 0, i32 2
+  %ClassParent.i7.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClassParent.i7.i, i8 0, i64 16, i1 false)
   %60 = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
   %61 = load ptr, ptr %MangledName, align 8
@@ -3333,7 +3303,7 @@ if.then.i66:                                      ; preds = %_ZNK10StringView10s
   %call11.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler30demangleFullyQualifiedTypeNameER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
   store ptr %call11.i, ptr %ClassParent.i7.i, align 8
   %call12.i67 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, i1 noundef zeroext true)
-  %Pointee.i = getelementptr inbounds %"struct.llvh::ms_demangle::PointerTypeNode", ptr %call2.i.sink11.i, i64 0, i32 3
+  %Pointee.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 32
   store ptr %call12.i67, ptr %Pointee.i, align 8
   br label %if.end60
 
@@ -3347,7 +3317,7 @@ if.else.i:                                        ; preds = %_ZNK10StringView10s
   br i1 %82, label %switch.hole_check726, label %sw.epilog.i257
 
 sw.epilog.i257:                                   ; preds = %switch.hole_check726, %if.else.i
-  %Error.i258 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i258 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i258, align 8
   br label %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit259
 
@@ -3368,18 +3338,18 @@ _ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit259: ; preds =
   %call17.i64 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler30demangleFullyQualifiedTypeNameER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
   store ptr %call17.i64, ptr %ClassParent.i7.i, align 8
   %call19.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler12demangleTypeER10StringView19QualifierMangleMode(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, i32 noundef 0)
-  %Pointee20.i = getelementptr inbounds %"struct.llvh::ms_demangle::PointerTypeNode", ptr %call2.i.sink11.i, i64 0, i32 3
+  %Pointee20.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 32
   store ptr %call19.i, ptr %Pointee20.i, align 8
-  %Quals22.i = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call19.i, i64 0, i32 1
+  %Quals22.i = getelementptr inbounds i8, ptr %call19.i, i64 12
   store i8 %retval.sroa.0.0.i250, ptr %Quals22.i, align 4
   br label %if.end60
 
 if.else25:                                        ; preds = %if.then20, %if.then20, %if.then.i56, %_ZL15isMemberPointer10StringView.exit
-  %Arena.i71 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i71 = getelementptr inbounds i8, ptr %this, i64 16
   %85 = load ptr, ptr %Arena.i71, align 8
   %86 = load ptr, ptr %85, align 8
   %87 = ptrtoint ptr %86 to i64
-  %Used.i381 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %85, i64 0, i32 1
+  %Used.i381 = getelementptr inbounds i8, ptr %85, i64 8
   %88 = load i64, ptr %Used.i381, align 8
   %add.i382 = add i64 %88, %87
   %sub.i383 = add i64 %add.i382, 7
@@ -3389,9 +3359,9 @@ if.else25:                                        ; preds = %if.then20, %if.then
   %add8.i387 = add i64 %add5.i386, %and.i384
   store i64 %add8.i387, ptr %Used.i381, align 8
   %89 = load ptr, ptr %Arena.i71, align 8
-  %Used10.i388 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %89, i64 0, i32 1
+  %Used10.i388 = getelementptr inbounds i8, ptr %89, i64 8
   %90 = load i64, ptr %Used10.i388, align 8
-  %Capacity.i389 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %89, i64 0, i32 2
+  %Capacity.i389 = getelementptr inbounds i8, ptr %89, i64 16
   %91 = load i64, ptr %Capacity.i389, align 8
   %cmp.i390 = icmp ult i64 %90, %91
   br i1 %cmp.i390, label %if.then.i402, label %if.end.i391
@@ -3404,25 +3374,25 @@ if.end.i391:                                      ; preds = %if.else25
   %call.i.i392 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i393 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i393, ptr %call.i.i392, align 8
-  %Next.i.i394 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i392, i64 0, i32 3
+  %Next.i.i394 = getelementptr inbounds i8, ptr %call.i.i392, i64 24
   store ptr %89, ptr %Next.i.i394, align 8
-  %Capacity3.i.i395 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i392, i64 0, i32 2
+  %Capacity3.i.i395 = getelementptr inbounds i8, ptr %call.i.i392, i64 16
   store i64 4096, ptr %Capacity3.i.i395, align 8
   store ptr %call.i.i392, ptr %Arena.i71, align 8
-  %Used.i.i396 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i392, i64 0, i32 1
+  %Used.i.i396 = getelementptr inbounds i8, ptr %call.i.i392, i64 8
   store i64 40, ptr %Used.i.i396, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_15PointerTypeNodeEJEEEPT_DpOT0_.exit403
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_15PointerTypeNodeEJEEEPT_DpOT0_.exit403: ; preds = %if.then.i402, %if.end.i391
   %call2.i.sink11.i397 = phi ptr [ %call2.i.i393, %if.end.i391 ], [ %92, %if.then.i402 ]
-  %Kind.i.i.i4.i398 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink11.i397, i64 0, i32 1
+  %Kind.i.i.i4.i398 = getelementptr inbounds i8, ptr %call2.i.sink11.i397, i64 8
   store i32 14, ptr %Kind.i.i.i4.i398, align 8
-  %Quals.i.i5.i399 = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2.i.sink11.i397, i64 0, i32 1
+  %Quals.i.i5.i399 = getelementptr inbounds i8, ptr %call2.i.sink11.i397, i64 12
   store i8 0, ptr %Quals.i.i5.i399, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle15PointerTypeNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink11.i397, align 8
-  %Affinity.i6.i400 = getelementptr inbounds %"struct.llvh::ms_demangle::PointerTypeNode", ptr %call2.i.sink11.i397, i64 0, i32 1
+  %Affinity.i6.i400 = getelementptr inbounds i8, ptr %call2.i.sink11.i397, i64 16
   store i32 0, ptr %Affinity.i6.i400, align 8
-  %ClassParent.i7.i401 = getelementptr inbounds %"struct.llvh::ms_demangle::PointerTypeNode", ptr %call2.i.sink11.i397, i64 0, i32 2
+  %ClassParent.i7.i401 = getelementptr inbounds i8, ptr %call2.i.sink11.i397, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ClassParent.i7.i401, i8 0, i64 16, i1 false)
   %93 = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
   %94 = load ptr, ptr %MangledName, align 8
@@ -3492,7 +3462,7 @@ if.then.i80:                                      ; preds = %_ZNK10StringView10s
   %add.ptr.i.i353 = getelementptr inbounds i8, ptr %97, i64 1
   store ptr %add.ptr.i.i353, ptr %MangledName, align 8
   %call6.i81 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, i1 noundef zeroext false)
-  %Pointee.i82 = getelementptr inbounds %"struct.llvh::ms_demangle::PointerTypeNode", ptr %call2.i.sink11.i397, i64 0, i32 3
+  %Pointee.i82 = getelementptr inbounds i8, ptr %call2.i.sink11.i397, i64 32
   store ptr %call6.i81, ptr %Pointee.i82, align 8
   br label %if.end60
 
@@ -3546,7 +3516,7 @@ _ZN12_GLOBAL__N_19Demangler28demanglePointerExtQualifiersER10StringView.exit336:
   %or12.i = or i8 %111, %110
   store i8 %or12.i, ptr %Quals.i.i5.i399, align 4
   %call12.i79 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler12demangleTypeER10StringView19QualifierMangleMode(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, i32 noundef 1)
-  %Pointee13.i = getelementptr inbounds %"struct.llvh::ms_demangle::PointerTypeNode", ptr %call2.i.sink11.i397, i64 0, i32 3
+  %Pointee13.i = getelementptr inbounds i8, ptr %call2.i.sink11.i397, i64 32
   store ptr %call12.i79, ptr %Pointee13.i, align 8
   br label %if.end60
 
@@ -3628,16 +3598,16 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit567: ; preds = %if
   br i1 %or.cond.i, label %if.then.i101, label %if.end.i93
 
 if.then.i101:                                     ; preds = %if.then20.i551, %if.end15.i543, %_ZN10StringView12consumeFrontEc.exit.i525, %if.then31, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit567
-  %Error.i102 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i102 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i102, align 8
   br label %if.end60
 
 if.end.i93:                                       ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit567
-  %Arena.i94 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i94 = getelementptr inbounds i8, ptr %this, i64 16
   %116 = load ptr, ptr %Arena.i94, align 8
   %117 = load ptr, ptr %116, align 8
   %118 = ptrtoint ptr %117 to i64
-  %Used.i500 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %116, i64 0, i32 1
+  %Used.i500 = getelementptr inbounds i8, ptr %116, i64 8
   %119 = load i64, ptr %Used.i500, align 8
   %add.i501 = add i64 %119, %118
   %sub.i502 = add i64 %add.i501, 7
@@ -3647,9 +3617,9 @@ if.end.i93:                                       ; preds = %_ZN12_GLOBAL__N_19D
   %add8.i506 = add i64 %add5.i505, %and.i503
   store i64 %add8.i506, ptr %Used.i500, align 8
   %120 = load ptr, ptr %Arena.i94, align 8
-  %Used10.i507 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %120, i64 0, i32 1
+  %Used10.i507 = getelementptr inbounds i8, ptr %120, i64 8
   %121 = load i64, ptr %Used10.i507, align 8
-  %Capacity.i508 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %120, i64 0, i32 2
+  %Capacity.i508 = getelementptr inbounds i8, ptr %120, i64 16
   %122 = load i64, ptr %Capacity.i508, align 8
   %cmp.i509 = icmp ult i64 %121, %122
   br i1 %cmp.i509, label %if.then.i518, label %if.end.i510
@@ -3662,28 +3632,28 @@ if.end.i510:                                      ; preds = %if.end.i93
   %call.i.i511 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i512 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i512, ptr %call.i.i511, align 8
-  %Next.i.i513 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i511, i64 0, i32 3
+  %Next.i.i513 = getelementptr inbounds i8, ptr %call.i.i511, i64 24
   store ptr %120, ptr %Next.i.i513, align 8
-  %Capacity3.i.i514 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i511, i64 0, i32 2
+  %Capacity3.i.i514 = getelementptr inbounds i8, ptr %call.i.i511, i64 16
   store i64 4096, ptr %Capacity3.i.i514, align 8
   store ptr %call.i.i511, ptr %Arena.i94, align 8
-  %Used.i.i515 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i511, i64 0, i32 1
+  %Used.i.i515 = getelementptr inbounds i8, ptr %call.i.i511, i64 8
   store i64 32, ptr %Used.i.i515, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13ArrayTypeNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13ArrayTypeNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i518, %if.end.i510
   %call2.i.sink9.i = phi ptr [ %call2.i.i512, %if.end.i510 ], [ %123, %if.then.i518 ]
-  %Kind.i.i.i4.i516 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Kind.i.i.i4.i516 = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 8
   store i32 16, ptr %Kind.i.i.i4.i516, align 8
-  %Quals.i.i5.i517 = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Quals.i.i5.i517 = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 12
   store i8 0, ptr %Quals.i.i5.i517, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle13ArrayTypeNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i, align 8
-  %Dimensions.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArrayTypeNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Dimensions.i6.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Dimensions.i6.i, i8 0, i64 16, i1 false)
   %124 = load ptr, ptr %Arena.i94, align 8
   %125 = load ptr, ptr %124, align 8
   %126 = ptrtoint ptr %125 to i64
-  %Used.i481 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %124, i64 0, i32 1
+  %Used.i481 = getelementptr inbounds i8, ptr %124, i64 8
   %127 = load i64, ptr %Used.i481, align 8
   %add.i482 = add i64 %127, %126
   %sub.i483 = add i64 %add.i482, 7
@@ -3693,9 +3663,9 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13ArrayTypeNodeEJEEEPT_DpOT0_.ex
   %add8.i487 = add i64 %add5.i486, %and.i484
   store i64 %add8.i487, ptr %Used.i481, align 8
   %128 = load ptr, ptr %Arena.i94, align 8
-  %Used10.i488 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %128, i64 0, i32 1
+  %Used10.i488 = getelementptr inbounds i8, ptr %128, i64 8
   %129 = load i64, ptr %Used10.i488, align 8
-  %Capacity.i489 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %128, i64 0, i32 2
+  %Capacity.i489 = getelementptr inbounds i8, ptr %128, i64 16
   %130 = load i64, ptr %Capacity.i489, align 8
   %cmp.i490 = icmp ult i64 %129, %130
   br i1 %cmp.i490, label %if.then.i498, label %if.end.i491
@@ -3708,19 +3678,19 @@ if.end.i491:                                      ; preds = %_ZN4llvh11ms_demang
   %call.i.i492 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i493 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i493, ptr %call.i.i492, align 8
-  %Next.i.i494 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i492, i64 0, i32 3
+  %Next.i.i494 = getelementptr inbounds i8, ptr %call.i.i492, i64 24
   store ptr %128, ptr %Next.i.i494, align 8
-  %Capacity3.i.i495 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i492, i64 0, i32 2
+  %Capacity3.i.i495 = getelementptr inbounds i8, ptr %call.i.i492, i64 16
   store i64 4096, ptr %Capacity3.i.i495, align 8
   store ptr %call.i.i492, ptr %Arena.i94, align 8
-  %Used.i.i496 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i492, i64 0, i32 1
+  %Used.i.i496 = getelementptr inbounds i8, ptr %call.i.i492, i64 8
   store i64 16, ptr %Used.i.i496, align 8
   br label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %if.end.i491, %if.then.i498
   %call2.i.sink.i497 = phi ptr [ %call2.i.i493, %if.end.i491 ], [ %131, %if.then.i498 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2.i.sink.i497, i8 0, i64 16, i1 false)
-  %Error.i472 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i472 = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.inc.i
@@ -3811,7 +3781,7 @@ if.end16.i:                                       ; preds = %_ZN12_GLOBAL__N_19D
   %138 = load ptr, ptr %Arena.i94, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = ptrtoint ptr %139 to i64
-  %Used.i444 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %138, i64 0, i32 1
+  %Used.i444 = getelementptr inbounds i8, ptr %138, i64 8
   %141 = load i64, ptr %Used.i444, align 8
   %add.i445 = add i64 %141, %140
   %sub.i446 = add i64 %add.i445, 7
@@ -3821,9 +3791,9 @@ if.end16.i:                                       ; preds = %_ZN12_GLOBAL__N_19D
   %add10.i = add i64 %add7.i, %and.i447
   store i64 %add10.i, ptr %Used.i444, align 8
   %142 = load ptr, ptr %Arena.i94, align 8
-  %Used12.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %142, i64 0, i32 1
+  %Used12.i = getelementptr inbounds i8, ptr %142, i64 8
   %143 = load i64, ptr %Used12.i, align 8
-  %Capacity.i448 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %142, i64 0, i32 2
+  %Capacity.i448 = getelementptr inbounds i8, ptr %142, i64 16
   %144 = load i64, ptr %Capacity.i448, align 8
   %cmp.i449 = icmp ult i64 %143, %144
   br i1 %cmp.i449, label %if.then.i456, label %if.end.i450
@@ -3836,23 +3806,23 @@ if.end.i450:                                      ; preds = %if.end16.i
   %call.i.i451 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i452 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i452, ptr %call.i.i451, align 8
-  %Next.i.i453 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i451, i64 0, i32 3
+  %Next.i.i453 = getelementptr inbounds i8, ptr %call.i.i451, i64 24
   store ptr %142, ptr %Next.i.i453, align 8
-  %Capacity3.i.i454 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i451, i64 0, i32 2
+  %Capacity3.i.i454 = getelementptr inbounds i8, ptr %call.i.i451, i64 16
   store i64 4096, ptr %Capacity3.i.i454, align 8
   store ptr %call.i.i451, ptr %Arena.i94, align 8
-  %Used.i.i455 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i451, i64 0, i32 1
+  %Used.i.i455 = getelementptr inbounds i8, ptr %call.i.i451, i64 8
   store i64 32, ptr %Used.i.i455, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18IntegerLiteralNodeEJRmRbEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18IntegerLiteralNodeEJRmRbEEEPT_DpOT0_.exit: ; preds = %if.then.i456, %if.end.i450
   %call2.i.sink13.i = phi ptr [ %call2.i.i452, %if.end.i450 ], [ %145, %if.then.i456 ]
-  %Kind.i.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink13.i, i64 0, i32 1
+  %Kind.i.i7.i = getelementptr inbounds i8, ptr %call2.i.sink13.i, i64 8
   store i32 23, ptr %Kind.i.i7.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18IntegerLiteralNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink13.i, align 8
-  %Value2.i8.i = getelementptr inbounds %"struct.llvh::ms_demangle::IntegerLiteralNode", ptr %call2.i.sink13.i, i64 0, i32 2
+  %Value2.i8.i = getelementptr inbounds i8, ptr %call2.i.sink13.i, i64 16
   store i64 %retval.sroa.0.0.i473666, ptr %Value2.i8.i, align 8
-  %IsNegative3.i9.i = getelementptr inbounds %"struct.llvh::ms_demangle::IntegerLiteralNode", ptr %call2.i.sink13.i, i64 0, i32 3
+  %IsNegative3.i9.i = getelementptr inbounds i8, ptr %call2.i.sink13.i, i64 24
   store i8 0, ptr %IsNegative3.i9.i, align 8
   store ptr %call2.i.sink13.i, ptr %Tail.0.i684, align 8
   %add.i = add nuw i64 %I.0.i685, 1
@@ -3863,7 +3833,7 @@ if.then20.i:                                      ; preds = %_ZN4llvh11ms_demang
   %146 = load ptr, ptr %Arena.i94, align 8
   %147 = load ptr, ptr %146, align 8
   %148 = ptrtoint ptr %147 to i64
-  %Used.i427 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %146, i64 0, i32 1
+  %Used.i427 = getelementptr inbounds i8, ptr %146, i64 8
   %149 = load i64, ptr %Used.i427, align 8
   %add.i428 = add i64 %149, %148
   %sub.i429 = add i64 %add.i428, 7
@@ -3873,9 +3843,9 @@ if.then20.i:                                      ; preds = %_ZN4llvh11ms_demang
   %add8.i433 = add i64 %add5.i432, %and.i430
   store i64 %add8.i433, ptr %Used.i427, align 8
   %150 = load ptr, ptr %Arena.i94, align 8
-  %Used10.i434 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %150, i64 0, i32 1
+  %Used10.i434 = getelementptr inbounds i8, ptr %150, i64 8
   %151 = load i64, ptr %Used10.i434, align 8
-  %Capacity.i435 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %150, i64 0, i32 2
+  %Capacity.i435 = getelementptr inbounds i8, ptr %150, i64 16
   %152 = load i64, ptr %Capacity.i435, align 8
   %cmp.i436 = icmp ult i64 %151, %152
   br i1 %cmp.i436, label %if.then.i443, label %if.end.i437
@@ -3888,19 +3858,19 @@ if.end.i437:                                      ; preds = %if.then20.i
   %call.i.i438 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i439 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i439, ptr %call.i.i438, align 8
-  %Next.i.i440 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i438, i64 0, i32 3
+  %Next.i.i440 = getelementptr inbounds i8, ptr %call.i.i438, i64 24
   store ptr %150, ptr %Next.i.i440, align 8
-  %Capacity3.i.i441 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i438, i64 0, i32 2
+  %Capacity3.i.i441 = getelementptr inbounds i8, ptr %call.i.i438, i64 16
   store i64 4096, ptr %Capacity3.i.i441, align 8
   store ptr %call.i.i438, ptr %Arena.i94, align 8
-  %Used.i.i442 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i438, i64 0, i32 1
+  %Used.i.i442 = getelementptr inbounds i8, ptr %call.i.i438, i64 8
   store i64 16, ptr %Used.i.i442, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit: ; preds = %if.then.i443, %if.end.i437
   %call2.i.sink.i = phi ptr [ %call2.i.i439, %if.end.i437 ], [ %153, %if.then.i443 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2.i.sink.i, i8 0, i64 16, i1 false)
-  %Next.i = getelementptr inbounds %struct.NodeList, ptr %Tail.0.i684, i64 0, i32 1
+  %Next.i = getelementptr inbounds i8, ptr %Tail.0.i684, i64 8
   store ptr %call2.i.sink.i, ptr %Next.i, align 8
   br label %for.inc.i
 
@@ -3937,13 +3907,13 @@ if.then28.i:                                      ; preds = %_ZNK10StringView10s
   br i1 %tobool33.not.i, label %if.end37.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.then28.i
-  %Error35.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error35.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error35.i, align 8
   br label %if.end60
 
 if.end37.i:                                       ; preds = %for.end.i, %_ZNK10StringView10startsWithES_.exit.i416, %if.then28.i
   %call38.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler12demangleTypeER10StringView19QualifierMangleMode(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, i32 noundef 0)
-  %ElementType.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArrayTypeNode", ptr %call2.i.sink9.i, i64 0, i32 2
+  %ElementType.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 24
   store ptr %call38.i, ptr %ElementType.i, align 8
   br label %if.end60
 
@@ -3994,11 +3964,11 @@ if.end.i137:                                      ; preds = %_ZNK10StringView10s
   br label %_ZN10StringView12consumeFrontES_.exit140
 
 _ZN10StringView12consumeFrontES_.exit140:         ; preds = %_ZNK10StringView10startsWithES_.exit.i133, %if.end.i137
-  %Arena.i141 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i141 = getelementptr inbounds i8, ptr %this, i64 16
   %157 = load ptr, ptr %Arena.i141, align 8
   %158 = load ptr, ptr %157, align 8
   %159 = ptrtoint ptr %158 to i64
-  %Used.i592 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %157, i64 0, i32 1
+  %Used.i592 = getelementptr inbounds i8, ptr %157, i64 8
   %160 = load i64, ptr %Used.i592, align 8
   %add.i593 = add i64 %160, %159
   %sub.i594 = add i64 %add.i593, 7
@@ -4008,9 +3978,9 @@ _ZN10StringView12consumeFrontES_.exit140:         ; preds = %_ZNK10StringView10s
   %add8.i598 = add i64 %add5.i597, %and.i595
   store i64 %add8.i598, ptr %Used.i592, align 8
   %161 = load ptr, ptr %Arena.i141, align 8
-  %Used10.i599 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %161, i64 0, i32 1
+  %Used10.i599 = getelementptr inbounds i8, ptr %161, i64 8
   %162 = load i64, ptr %Used10.i599, align 8
-  %Capacity.i600 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %161, i64 0, i32 2
+  %Capacity.i600 = getelementptr inbounds i8, ptr %161, i64 16
   %163 = load i64, ptr %Capacity.i600, align 8
   %cmp.i601 = icmp ult i64 %162, %163
   br i1 %cmp.i601, label %if.then.i611, label %if.end.i602
@@ -4023,35 +3993,35 @@ if.end.i602:                                      ; preds = %_ZN10StringView12co
   %call.i.i603 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i604 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i604, ptr %call.i.i603, align 8
-  %Next.i.i605 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i603, i64 0, i32 3
+  %Next.i.i605 = getelementptr inbounds i8, ptr %call.i.i603, i64 24
   store ptr %161, ptr %Next.i.i605, align 8
-  %Capacity3.i.i606 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i603, i64 0, i32 2
+  %Capacity3.i.i606 = getelementptr inbounds i8, ptr %call.i.i603, i64 16
   store i64 4096, ptr %Capacity3.i.i606, align 8
   store ptr %call.i.i603, ptr %Arena.i141, align 8
-  %Used.i.i607 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i603, i64 0, i32 1
+  %Used.i.i607 = getelementptr inbounds i8, ptr %call.i.i603, i64 8
   store i64 56, ptr %Used.i.i607, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i611, %if.end.i602
   %call2.i.sink21.i = phi ptr [ %call2.i.i604, %if.end.i602 ], [ %164, %if.then.i611 ]
-  %Kind.i.i.i4.i608 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink21.i, i64 0, i32 1
+  %Kind.i.i.i4.i608 = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 8
   store i32 3, ptr %Kind.i.i.i4.i608, align 8
-  %Quals.i.i5.i609 = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2.i.sink21.i, i64 0, i32 1
+  %Quals.i.i5.i609 = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 12
   store i8 0, ptr %Quals.i.i5.i609, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle21FunctionSignatureNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink21.i, align 8
-  %Affinity.i6.i610 = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 1
+  %Affinity.i6.i610 = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 16
   store i32 0, ptr %Affinity.i6.i610, align 8
-  %CallConvention.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 2
+  %CallConvention.i7.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 20
   store i8 0, ptr %CallConvention.i7.i, align 4
-  %FunctionClass.i8.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 3
+  %FunctionClass.i8.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 22
   store i16 8, ptr %FunctionClass.i8.i, align 2
-  %RefQualifier.i9.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 4
+  %RefQualifier.i9.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 24
   store i32 0, ptr %RefQualifier.i9.i, align 8
-  %ReturnType.i10.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 5
+  %ReturnType.i10.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 32
   store ptr null, ptr %ReturnType.i10.i, align 8
-  %IsVariadic.i11.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 6
+  %IsVariadic.i11.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 40
   store i8 0, ptr %IsVariadic.i11.i, align 8
-  %Params.i12.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 7
+  %Params.i12.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 48
   store ptr null, ptr %Params.i12.i, align 8
   %165 = load ptr, ptr %MangledName, align 8
   %incdec.ptr.i.i584 = getelementptr inbounds i8, ptr %165, i64 1
@@ -4110,7 +4080,7 @@ _ZN10StringView12consumeFrontEc.exit.i575:        ; preds = %_ZNK10StringView10s
   br label %if.end60
 
 if.end.i573:                                      ; preds = %_ZNK10StringView10startsWithEc.exit.i.i571, %_ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb.exit
-  %Error.i574 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i574 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i574, align 8
   br label %if.end60
 
@@ -4121,11 +4091,11 @@ if.else46:                                        ; preds = %_ZL14isFunctionType
 if.then49:                                        ; preds = %if.else46
   %incdec.ptr.i638 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 1
   store ptr %incdec.ptr.i638, ptr %MangledName, align 8
-  %Arena.i149 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i149 = getelementptr inbounds i8, ptr %this, i64 16
   %175 = load ptr, ptr %Arena.i149, align 8
   %176 = load ptr, ptr %175, align 8
   %177 = ptrtoint ptr %176 to i64
-  %Used.i619 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %175, i64 0, i32 1
+  %Used.i619 = getelementptr inbounds i8, ptr %175, i64 8
   %178 = load i64, ptr %Used.i619, align 8
   %add.i620 = add i64 %178, %177
   %sub.i621 = add i64 %add.i620, 7
@@ -4135,9 +4105,9 @@ if.then49:                                        ; preds = %if.else46
   %add8.i625 = add i64 %add5.i624, %and.i622
   store i64 %add8.i625, ptr %Used.i619, align 8
   %179 = load ptr, ptr %Arena.i149, align 8
-  %Used10.i626 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %179, i64 0, i32 1
+  %Used10.i626 = getelementptr inbounds i8, ptr %179, i64 8
   %180 = load i64, ptr %Used10.i626, align 8
-  %Capacity.i627 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %179, i64 0, i32 2
+  %Capacity.i627 = getelementptr inbounds i8, ptr %179, i64 16
   %181 = load i64, ptr %Capacity.i627, align 8
   %cmp.i628 = icmp ult i64 %180, %181
   br i1 %cmp.i628, label %if.then.i637, label %if.end.i629
@@ -4150,24 +4120,24 @@ if.end.i629:                                      ; preds = %if.then49
   %call.i.i630 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i631 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i631, ptr %call.i.i630, align 8
-  %Next.i.i632 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i630, i64 0, i32 3
+  %Next.i.i632 = getelementptr inbounds i8, ptr %call.i.i630, i64 24
   store ptr %179, ptr %Next.i.i632, align 8
-  %Capacity3.i.i633 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i630, i64 0, i32 2
+  %Capacity3.i.i633 = getelementptr inbounds i8, ptr %call.i.i630, i64 16
   store i64 4096, ptr %Capacity3.i.i633, align 8
   store ptr %call.i.i630, ptr %Arena.i149, align 8
-  %Used.i.i634 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i630, i64 0, i32 1
+  %Used.i.i634 = getelementptr inbounds i8, ptr %call.i.i630, i64 8
   store i64 24, ptr %Used.i.i634, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_14CustomTypeNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_14CustomTypeNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i637, %if.end.i629
   %call2.i.sink7.i = phi ptr [ %call2.i.i631, %if.end.i629 ], [ %182, %if.then.i637 ]
-  %Kind.i.i.i4.i635 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink7.i, i64 0, i32 1
+  %Kind.i.i.i4.i635 = getelementptr inbounds i8, ptr %call2.i.sink7.i, i64 8
   store i32 17, ptr %Kind.i.i.i4.i635, align 8
-  %Quals.i.i5.i636 = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2.i.sink7.i, i64 0, i32 1
+  %Quals.i.i5.i636 = getelementptr inbounds i8, ptr %call2.i.sink7.i, i64 12
   store i8 0, ptr %Quals.i.i5.i636, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle14CustomTypeNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink7.i, align 8
   %call3.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
-  %Identifier.i = getelementptr inbounds %"struct.llvh::ms_demangle::CustomTypeNode", ptr %call2.i.sink7.i, i64 0, i32 1
+  %Identifier.i = getelementptr inbounds i8, ptr %call2.i.sink7.i, i64 16
   store ptr %call3.i, ptr %Identifier.i, align 8
   %183 = load ptr, ptr %MangledName, align 8
   %184 = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
@@ -4182,7 +4152,7 @@ _ZNK10StringView10startsWithEc.exit.i614:         ; preds = %_ZN4llvh11ms_demang
 _ZN10StringView12consumeFrontEc.exit618:          ; preds = %_ZNK10StringView10startsWithEc.exit.i614
   %add.ptr.i.i617 = getelementptr inbounds i8, ptr %183, i64 1
   store ptr %add.ptr.i.i617, ptr %MangledName, align 8
-  %Error5.i.phi.trans.insert = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error5.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8
   %.pre = load i8, ptr %Error5.i.phi.trans.insert, align 8
   %186 = and i8 %.pre, 1
   %187 = icmp eq i8 %186, 0
@@ -4190,7 +4160,7 @@ _ZN10StringView12consumeFrontEc.exit618:          ; preds = %_ZNK10StringView10s
   br label %if.end60
 
 if.then.i152:                                     ; preds = %_ZNK10StringView10startsWithEc.exit.i614, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_14CustomTypeNodeEJEEEPT_DpOT0_.exit
-  %Error.i153 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i153 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i153, align 8
   br label %if.end60
 
@@ -4212,11 +4182,11 @@ if.then.i166:                                     ; preds = %_ZNK10StringView10s
   %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i4.i.i, i64 3)
   %add.ptr.i.i.i167 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 %spec.select.i.i.i
   store ptr %add.ptr.i.i.i167, ptr %MangledName, align 8
-  %Arena.i168 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i168 = getelementptr inbounds i8, ptr %this, i64 16
   %189 = load ptr, ptr %Arena.i168, align 8
   %190 = load ptr, ptr %189, align 8
   %191 = ptrtoint ptr %190 to i64
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %189, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %189, i64 8
   %192 = load i64, ptr %Used.i.i, align 8
   %add.i.i = add i64 %192, %191
   %sub.i.i = add i64 %add.i.i, 7
@@ -4226,9 +4196,9 @@ if.then.i166:                                     ; preds = %_ZNK10StringView10s
   %add8.i.i = add i64 %add5.i.i, %and.i.i
   store i64 %add8.i.i, ptr %Used.i.i, align 8
   %193 = load ptr, ptr %Arena.i168, align 8
-  %Used10.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %193, i64 0, i32 1
+  %Used10.i.i = getelementptr inbounds i8, ptr %193, i64 8
   %194 = load i64, ptr %Used10.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %193, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %193, i64 16
   %195 = load i64, ptr %Capacity.i.i, align 8
   %cmp.i.i169 = icmp ult i64 %194, %195
   br i1 %cmp.i.i169, label %if.then.i.i, label %if.end.i4.i
@@ -4241,12 +4211,12 @@ if.end.i4.i:                                      ; preds = %if.then.i166
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i.i, ptr %call.i.i.i, align 8
-  %Next.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 3
+  %Next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   store ptr %193, ptr %Next.i.i.i, align 8
-  %Capacity3.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 2
+  %Capacity3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i.i, align 8
   store ptr %call.i.i.i, ptr %Arena.i168, align 8
-  %Used.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 1
+  %Used.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 24, ptr %Used.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
@@ -4273,11 +4243,11 @@ if.end.i156:                                      ; preds = %_ZNK10StringView10s
   ]
 
 sw.bb.i164:                                       ; preds = %if.end.i156
-  %Arena4.i165 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena4.i165 = getelementptr inbounds i8, ptr %this, i64 16
   %198 = load ptr, ptr %Arena4.i165, align 8
   %199 = load ptr, ptr %198, align 8
   %200 = ptrtoint ptr %199 to i64
-  %Used.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %198, i64 0, i32 1
+  %Used.i5.i = getelementptr inbounds i8, ptr %198, i64 8
   %201 = load i64, ptr %Used.i5.i, align 8
   %add.i6.i = add i64 %201, %200
   %sub.i7.i = add i64 %add.i6.i, 7
@@ -4287,9 +4257,9 @@ sw.bb.i164:                                       ; preds = %if.end.i156
   %add8.i11.i = add i64 %add5.i10.i, %and.i8.i
   store i64 %add8.i11.i, ptr %Used.i5.i, align 8
   %202 = load ptr, ptr %Arena4.i165, align 8
-  %Used10.i12.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %202, i64 0, i32 1
+  %Used10.i12.i = getelementptr inbounds i8, ptr %202, i64 8
   %203 = load i64, ptr %Used10.i12.i, align 8
-  %Capacity.i13.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %202, i64 0, i32 2
+  %Capacity.i13.i = getelementptr inbounds i8, ptr %202, i64 16
   %204 = load i64, ptr %Capacity.i13.i, align 8
   %cmp.i14.i = icmp ult i64 %203, %204
   br i1 %cmp.i14.i, label %if.then.i25.i, label %if.end.i15.i
@@ -4302,21 +4272,21 @@ if.end.i15.i:                                     ; preds = %sw.bb.i164
   %call.i.i16.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i17.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i17.i, ptr %call.i.i16.i, align 8
-  %Next.i.i18.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i16.i, i64 0, i32 3
+  %Next.i.i18.i = getelementptr inbounds i8, ptr %call.i.i16.i, i64 24
   store ptr %202, ptr %Next.i.i18.i, align 8
-  %Capacity3.i.i19.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i16.i, i64 0, i32 2
+  %Capacity3.i.i19.i = getelementptr inbounds i8, ptr %call.i.i16.i, i64 16
   store i64 4096, ptr %Capacity3.i.i19.i, align 8
   store ptr %call.i.i16.i, ptr %Arena4.i165, align 8
-  %Used.i.i20.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i16.i, i64 0, i32 1
+  %Used.i.i20.i = getelementptr inbounds i8, ptr %call.i.i16.i, i64 8
   store i64 24, ptr %Used.i.i20.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
 sw.bb7.i162:                                      ; preds = %if.end.i156
-  %Arena8.i163 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena8.i163 = getelementptr inbounds i8, ptr %this, i64 16
   %206 = load ptr, ptr %Arena8.i163, align 8
   %207 = load ptr, ptr %206, align 8
   %208 = ptrtoint ptr %207 to i64
-  %Used.i27.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %206, i64 0, i32 1
+  %Used.i27.i = getelementptr inbounds i8, ptr %206, i64 8
   %209 = load i64, ptr %Used.i27.i, align 8
   %add.i28.i = add i64 %209, %208
   %sub.i29.i = add i64 %add.i28.i, 7
@@ -4326,9 +4296,9 @@ sw.bb7.i162:                                      ; preds = %if.end.i156
   %add8.i33.i = add i64 %add5.i32.i, %and.i30.i
   store i64 %add8.i33.i, ptr %Used.i27.i, align 8
   %210 = load ptr, ptr %Arena8.i163, align 8
-  %Used10.i34.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %210, i64 0, i32 1
+  %Used10.i34.i = getelementptr inbounds i8, ptr %210, i64 8
   %211 = load i64, ptr %Used10.i34.i, align 8
-  %Capacity.i35.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %210, i64 0, i32 2
+  %Capacity.i35.i = getelementptr inbounds i8, ptr %210, i64 16
   %212 = load i64, ptr %Capacity.i35.i, align 8
   %cmp.i36.i = icmp ult i64 %211, %212
   br i1 %cmp.i36.i, label %if.then.i47.i, label %if.end.i37.i
@@ -4341,21 +4311,21 @@ if.end.i37.i:                                     ; preds = %sw.bb7.i162
   %call.i.i38.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i39.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i39.i, ptr %call.i.i38.i, align 8
-  %Next.i.i40.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i38.i, i64 0, i32 3
+  %Next.i.i40.i = getelementptr inbounds i8, ptr %call.i.i38.i, i64 24
   store ptr %210, ptr %Next.i.i40.i, align 8
-  %Capacity3.i.i41.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i38.i, i64 0, i32 2
+  %Capacity3.i.i41.i = getelementptr inbounds i8, ptr %call.i.i38.i, i64 16
   store i64 4096, ptr %Capacity3.i.i41.i, align 8
   store ptr %call.i.i38.i, ptr %Arena8.i163, align 8
-  %Used.i.i42.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i38.i, i64 0, i32 1
+  %Used.i.i42.i = getelementptr inbounds i8, ptr %call.i.i38.i, i64 8
   store i64 24, ptr %Used.i.i42.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
 sw.bb11.i161:                                     ; preds = %if.end.i156
-  %Arena12.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena12.i = getelementptr inbounds i8, ptr %this, i64 16
   %214 = load ptr, ptr %Arena12.i, align 8
   %215 = load ptr, ptr %214, align 8
   %216 = ptrtoint ptr %215 to i64
-  %Used.i49.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %214, i64 0, i32 1
+  %Used.i49.i = getelementptr inbounds i8, ptr %214, i64 8
   %217 = load i64, ptr %Used.i49.i, align 8
   %add.i50.i = add i64 %217, %216
   %sub.i51.i = add i64 %add.i50.i, 7
@@ -4365,9 +4335,9 @@ sw.bb11.i161:                                     ; preds = %if.end.i156
   %add8.i55.i = add i64 %add5.i54.i, %and.i52.i
   store i64 %add8.i55.i, ptr %Used.i49.i, align 8
   %218 = load ptr, ptr %Arena12.i, align 8
-  %Used10.i56.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %218, i64 0, i32 1
+  %Used10.i56.i = getelementptr inbounds i8, ptr %218, i64 8
   %219 = load i64, ptr %Used10.i56.i, align 8
-  %Capacity.i57.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %218, i64 0, i32 2
+  %Capacity.i57.i = getelementptr inbounds i8, ptr %218, i64 16
   %220 = load i64, ptr %Capacity.i57.i, align 8
   %cmp.i58.i = icmp ult i64 %219, %220
   br i1 %cmp.i58.i, label %if.then.i69.i, label %if.end.i59.i
@@ -4380,21 +4350,21 @@ if.end.i59.i:                                     ; preds = %sw.bb11.i161
   %call.i.i60.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i61.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i61.i, ptr %call.i.i60.i, align 8
-  %Next.i.i62.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i60.i, i64 0, i32 3
+  %Next.i.i62.i = getelementptr inbounds i8, ptr %call.i.i60.i, i64 24
   store ptr %218, ptr %Next.i.i62.i, align 8
-  %Capacity3.i.i63.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i60.i, i64 0, i32 2
+  %Capacity3.i.i63.i = getelementptr inbounds i8, ptr %call.i.i60.i, i64 16
   store i64 4096, ptr %Capacity3.i.i63.i, align 8
   store ptr %call.i.i60.i, ptr %Arena12.i, align 8
-  %Used.i.i64.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i60.i, i64 0, i32 1
+  %Used.i.i64.i = getelementptr inbounds i8, ptr %call.i.i60.i, i64 8
   store i64 24, ptr %Used.i.i64.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
 sw.bb15.i:                                        ; preds = %if.end.i156
-  %Arena16.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena16.i = getelementptr inbounds i8, ptr %this, i64 16
   %222 = load ptr, ptr %Arena16.i, align 8
   %223 = load ptr, ptr %222, align 8
   %224 = ptrtoint ptr %223 to i64
-  %Used.i71.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %222, i64 0, i32 1
+  %Used.i71.i = getelementptr inbounds i8, ptr %222, i64 8
   %225 = load i64, ptr %Used.i71.i, align 8
   %add.i72.i = add i64 %225, %224
   %sub.i73.i = add i64 %add.i72.i, 7
@@ -4404,9 +4374,9 @@ sw.bb15.i:                                        ; preds = %if.end.i156
   %add8.i77.i = add i64 %add5.i76.i, %and.i74.i
   store i64 %add8.i77.i, ptr %Used.i71.i, align 8
   %226 = load ptr, ptr %Arena16.i, align 8
-  %Used10.i78.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %226, i64 0, i32 1
+  %Used10.i78.i = getelementptr inbounds i8, ptr %226, i64 8
   %227 = load i64, ptr %Used10.i78.i, align 8
-  %Capacity.i79.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %226, i64 0, i32 2
+  %Capacity.i79.i = getelementptr inbounds i8, ptr %226, i64 16
   %228 = load i64, ptr %Capacity.i79.i, align 8
   %cmp.i80.i = icmp ult i64 %227, %228
   br i1 %cmp.i80.i, label %if.then.i91.i, label %if.end.i81.i
@@ -4419,21 +4389,21 @@ if.end.i81.i:                                     ; preds = %sw.bb15.i
   %call.i.i82.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i83.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i83.i, ptr %call.i.i82.i, align 8
-  %Next.i.i84.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i82.i, i64 0, i32 3
+  %Next.i.i84.i = getelementptr inbounds i8, ptr %call.i.i82.i, i64 24
   store ptr %226, ptr %Next.i.i84.i, align 8
-  %Capacity3.i.i85.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i82.i, i64 0, i32 2
+  %Capacity3.i.i85.i = getelementptr inbounds i8, ptr %call.i.i82.i, i64 16
   store i64 4096, ptr %Capacity3.i.i85.i, align 8
   store ptr %call.i.i82.i, ptr %Arena16.i, align 8
-  %Used.i.i86.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i82.i, i64 0, i32 1
+  %Used.i.i86.i = getelementptr inbounds i8, ptr %call.i.i82.i, i64 8
   store i64 24, ptr %Used.i.i86.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
 sw.bb19.i:                                        ; preds = %if.end.i156
-  %Arena20.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena20.i = getelementptr inbounds i8, ptr %this, i64 16
   %230 = load ptr, ptr %Arena20.i, align 8
   %231 = load ptr, ptr %230, align 8
   %232 = ptrtoint ptr %231 to i64
-  %Used.i93.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %230, i64 0, i32 1
+  %Used.i93.i = getelementptr inbounds i8, ptr %230, i64 8
   %233 = load i64, ptr %Used.i93.i, align 8
   %add.i94.i = add i64 %233, %232
   %sub.i95.i = add i64 %add.i94.i, 7
@@ -4443,9 +4413,9 @@ sw.bb19.i:                                        ; preds = %if.end.i156
   %add8.i99.i = add i64 %add5.i98.i, %and.i96.i
   store i64 %add8.i99.i, ptr %Used.i93.i, align 8
   %234 = load ptr, ptr %Arena20.i, align 8
-  %Used10.i100.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %234, i64 0, i32 1
+  %Used10.i100.i = getelementptr inbounds i8, ptr %234, i64 8
   %235 = load i64, ptr %Used10.i100.i, align 8
-  %Capacity.i101.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %234, i64 0, i32 2
+  %Capacity.i101.i = getelementptr inbounds i8, ptr %234, i64 16
   %236 = load i64, ptr %Capacity.i101.i, align 8
   %cmp.i102.i = icmp ult i64 %235, %236
   br i1 %cmp.i102.i, label %if.then.i113.i, label %if.end.i103.i
@@ -4458,21 +4428,21 @@ if.end.i103.i:                                    ; preds = %sw.bb19.i
   %call.i.i104.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i105.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i105.i, ptr %call.i.i104.i, align 8
-  %Next.i.i106.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i104.i, i64 0, i32 3
+  %Next.i.i106.i = getelementptr inbounds i8, ptr %call.i.i104.i, i64 24
   store ptr %234, ptr %Next.i.i106.i, align 8
-  %Capacity3.i.i107.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i104.i, i64 0, i32 2
+  %Capacity3.i.i107.i = getelementptr inbounds i8, ptr %call.i.i104.i, i64 16
   store i64 4096, ptr %Capacity3.i.i107.i, align 8
   store ptr %call.i.i104.i, ptr %Arena20.i, align 8
-  %Used.i.i108.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i104.i, i64 0, i32 1
+  %Used.i.i108.i = getelementptr inbounds i8, ptr %call.i.i104.i, i64 8
   store i64 24, ptr %Used.i.i108.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
 sw.bb23.i:                                        ; preds = %if.end.i156
-  %Arena24.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena24.i = getelementptr inbounds i8, ptr %this, i64 16
   %238 = load ptr, ptr %Arena24.i, align 8
   %239 = load ptr, ptr %238, align 8
   %240 = ptrtoint ptr %239 to i64
-  %Used.i115.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %238, i64 0, i32 1
+  %Used.i115.i = getelementptr inbounds i8, ptr %238, i64 8
   %241 = load i64, ptr %Used.i115.i, align 8
   %add.i116.i = add i64 %241, %240
   %sub.i117.i = add i64 %add.i116.i, 7
@@ -4482,9 +4452,9 @@ sw.bb23.i:                                        ; preds = %if.end.i156
   %add8.i121.i = add i64 %add5.i120.i, %and.i118.i
   store i64 %add8.i121.i, ptr %Used.i115.i, align 8
   %242 = load ptr, ptr %Arena24.i, align 8
-  %Used10.i122.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %242, i64 0, i32 1
+  %Used10.i122.i = getelementptr inbounds i8, ptr %242, i64 8
   %243 = load i64, ptr %Used10.i122.i, align 8
-  %Capacity.i123.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %242, i64 0, i32 2
+  %Capacity.i123.i = getelementptr inbounds i8, ptr %242, i64 16
   %244 = load i64, ptr %Capacity.i123.i, align 8
   %cmp.i124.i = icmp ult i64 %243, %244
   br i1 %cmp.i124.i, label %if.then.i135.i, label %if.end.i125.i
@@ -4497,21 +4467,21 @@ if.end.i125.i:                                    ; preds = %sw.bb23.i
   %call.i.i126.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i127.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i127.i, ptr %call.i.i126.i, align 8
-  %Next.i.i128.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i126.i, i64 0, i32 3
+  %Next.i.i128.i = getelementptr inbounds i8, ptr %call.i.i126.i, i64 24
   store ptr %242, ptr %Next.i.i128.i, align 8
-  %Capacity3.i.i129.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i126.i, i64 0, i32 2
+  %Capacity3.i.i129.i = getelementptr inbounds i8, ptr %call.i.i126.i, i64 16
   store i64 4096, ptr %Capacity3.i.i129.i, align 8
   store ptr %call.i.i126.i, ptr %Arena24.i, align 8
-  %Used.i.i130.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i126.i, i64 0, i32 1
+  %Used.i.i130.i = getelementptr inbounds i8, ptr %call.i.i126.i, i64 8
   store i64 24, ptr %Used.i.i130.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
 sw.bb27.i:                                        ; preds = %if.end.i156
-  %Arena28.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena28.i = getelementptr inbounds i8, ptr %this, i64 16
   %246 = load ptr, ptr %Arena28.i, align 8
   %247 = load ptr, ptr %246, align 8
   %248 = ptrtoint ptr %247 to i64
-  %Used.i137.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %246, i64 0, i32 1
+  %Used.i137.i = getelementptr inbounds i8, ptr %246, i64 8
   %249 = load i64, ptr %Used.i137.i, align 8
   %add.i138.i = add i64 %249, %248
   %sub.i139.i = add i64 %add.i138.i, 7
@@ -4521,9 +4491,9 @@ sw.bb27.i:                                        ; preds = %if.end.i156
   %add8.i143.i = add i64 %add5.i142.i, %and.i140.i
   store i64 %add8.i143.i, ptr %Used.i137.i, align 8
   %250 = load ptr, ptr %Arena28.i, align 8
-  %Used10.i144.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %250, i64 0, i32 1
+  %Used10.i144.i = getelementptr inbounds i8, ptr %250, i64 8
   %251 = load i64, ptr %Used10.i144.i, align 8
-  %Capacity.i145.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %250, i64 0, i32 2
+  %Capacity.i145.i = getelementptr inbounds i8, ptr %250, i64 16
   %252 = load i64, ptr %Capacity.i145.i, align 8
   %cmp.i146.i = icmp ult i64 %251, %252
   br i1 %cmp.i146.i, label %if.then.i157.i, label %if.end.i147.i
@@ -4536,21 +4506,21 @@ if.end.i147.i:                                    ; preds = %sw.bb27.i
   %call.i.i148.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i149.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i149.i, ptr %call.i.i148.i, align 8
-  %Next.i.i150.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i148.i, i64 0, i32 3
+  %Next.i.i150.i = getelementptr inbounds i8, ptr %call.i.i148.i, i64 24
   store ptr %250, ptr %Next.i.i150.i, align 8
-  %Capacity3.i.i151.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i148.i, i64 0, i32 2
+  %Capacity3.i.i151.i = getelementptr inbounds i8, ptr %call.i.i148.i, i64 16
   store i64 4096, ptr %Capacity3.i.i151.i, align 8
   store ptr %call.i.i148.i, ptr %Arena28.i, align 8
-  %Used.i.i152.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i148.i, i64 0, i32 1
+  %Used.i.i152.i = getelementptr inbounds i8, ptr %call.i.i148.i, i64 8
   store i64 24, ptr %Used.i.i152.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
 sw.bb31.i:                                        ; preds = %if.end.i156
-  %Arena32.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena32.i = getelementptr inbounds i8, ptr %this, i64 16
   %254 = load ptr, ptr %Arena32.i, align 8
   %255 = load ptr, ptr %254, align 8
   %256 = ptrtoint ptr %255 to i64
-  %Used.i159.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %254, i64 0, i32 1
+  %Used.i159.i = getelementptr inbounds i8, ptr %254, i64 8
   %257 = load i64, ptr %Used.i159.i, align 8
   %add.i160.i = add i64 %257, %256
   %sub.i161.i = add i64 %add.i160.i, 7
@@ -4560,9 +4530,9 @@ sw.bb31.i:                                        ; preds = %if.end.i156
   %add8.i165.i = add i64 %add5.i164.i, %and.i162.i
   store i64 %add8.i165.i, ptr %Used.i159.i, align 8
   %258 = load ptr, ptr %Arena32.i, align 8
-  %Used10.i166.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %258, i64 0, i32 1
+  %Used10.i166.i = getelementptr inbounds i8, ptr %258, i64 8
   %259 = load i64, ptr %Used10.i166.i, align 8
-  %Capacity.i167.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %258, i64 0, i32 2
+  %Capacity.i167.i = getelementptr inbounds i8, ptr %258, i64 16
   %260 = load i64, ptr %Capacity.i167.i, align 8
   %cmp.i168.i = icmp ult i64 %259, %260
   br i1 %cmp.i168.i, label %if.then.i179.i, label %if.end.i169.i
@@ -4575,21 +4545,21 @@ if.end.i169.i:                                    ; preds = %sw.bb31.i
   %call.i.i170.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i171.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i171.i, ptr %call.i.i170.i, align 8
-  %Next.i.i172.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i170.i, i64 0, i32 3
+  %Next.i.i172.i = getelementptr inbounds i8, ptr %call.i.i170.i, i64 24
   store ptr %258, ptr %Next.i.i172.i, align 8
-  %Capacity3.i.i173.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i170.i, i64 0, i32 2
+  %Capacity3.i.i173.i = getelementptr inbounds i8, ptr %call.i.i170.i, i64 16
   store i64 4096, ptr %Capacity3.i.i173.i, align 8
   store ptr %call.i.i170.i, ptr %Arena32.i, align 8
-  %Used.i.i174.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i170.i, i64 0, i32 1
+  %Used.i.i174.i = getelementptr inbounds i8, ptr %call.i.i170.i, i64 8
   store i64 24, ptr %Used.i.i174.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
 sw.bb35.i:                                        ; preds = %if.end.i156
-  %Arena36.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena36.i = getelementptr inbounds i8, ptr %this, i64 16
   %262 = load ptr, ptr %Arena36.i, align 8
   %263 = load ptr, ptr %262, align 8
   %264 = ptrtoint ptr %263 to i64
-  %Used.i181.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %262, i64 0, i32 1
+  %Used.i181.i = getelementptr inbounds i8, ptr %262, i64 8
   %265 = load i64, ptr %Used.i181.i, align 8
   %add.i182.i = add i64 %265, %264
   %sub.i183.i = add i64 %add.i182.i, 7
@@ -4599,9 +4569,9 @@ sw.bb35.i:                                        ; preds = %if.end.i156
   %add8.i187.i = add i64 %add5.i186.i, %and.i184.i
   store i64 %add8.i187.i, ptr %Used.i181.i, align 8
   %266 = load ptr, ptr %Arena36.i, align 8
-  %Used10.i188.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %266, i64 0, i32 1
+  %Used10.i188.i = getelementptr inbounds i8, ptr %266, i64 8
   %267 = load i64, ptr %Used10.i188.i, align 8
-  %Capacity.i189.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %266, i64 0, i32 2
+  %Capacity.i189.i = getelementptr inbounds i8, ptr %266, i64 16
   %268 = load i64, ptr %Capacity.i189.i, align 8
   %cmp.i190.i = icmp ult i64 %267, %268
   br i1 %cmp.i190.i, label %if.then.i201.i, label %if.end.i191.i
@@ -4614,21 +4584,21 @@ if.end.i191.i:                                    ; preds = %sw.bb35.i
   %call.i.i192.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i193.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i193.i, ptr %call.i.i192.i, align 8
-  %Next.i.i194.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i192.i, i64 0, i32 3
+  %Next.i.i194.i = getelementptr inbounds i8, ptr %call.i.i192.i, i64 24
   store ptr %266, ptr %Next.i.i194.i, align 8
-  %Capacity3.i.i195.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i192.i, i64 0, i32 2
+  %Capacity3.i.i195.i = getelementptr inbounds i8, ptr %call.i.i192.i, i64 16
   store i64 4096, ptr %Capacity3.i.i195.i, align 8
   store ptr %call.i.i192.i, ptr %Arena36.i, align 8
-  %Used.i.i196.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i192.i, i64 0, i32 1
+  %Used.i.i196.i = getelementptr inbounds i8, ptr %call.i.i192.i, i64 8
   store i64 24, ptr %Used.i.i196.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
 sw.bb39.i:                                        ; preds = %if.end.i156
-  %Arena40.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena40.i = getelementptr inbounds i8, ptr %this, i64 16
   %270 = load ptr, ptr %Arena40.i, align 8
   %271 = load ptr, ptr %270, align 8
   %272 = ptrtoint ptr %271 to i64
-  %Used.i203.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %270, i64 0, i32 1
+  %Used.i203.i = getelementptr inbounds i8, ptr %270, i64 8
   %273 = load i64, ptr %Used.i203.i, align 8
   %add.i204.i = add i64 %273, %272
   %sub.i205.i = add i64 %add.i204.i, 7
@@ -4638,9 +4608,9 @@ sw.bb39.i:                                        ; preds = %if.end.i156
   %add8.i209.i = add i64 %add5.i208.i, %and.i206.i
   store i64 %add8.i209.i, ptr %Used.i203.i, align 8
   %274 = load ptr, ptr %Arena40.i, align 8
-  %Used10.i210.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %274, i64 0, i32 1
+  %Used10.i210.i = getelementptr inbounds i8, ptr %274, i64 8
   %275 = load i64, ptr %Used10.i210.i, align 8
-  %Capacity.i211.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %274, i64 0, i32 2
+  %Capacity.i211.i = getelementptr inbounds i8, ptr %274, i64 16
   %276 = load i64, ptr %Capacity.i211.i, align 8
   %cmp.i212.i = icmp ult i64 %275, %276
   br i1 %cmp.i212.i, label %if.then.i223.i, label %if.end.i213.i
@@ -4653,21 +4623,21 @@ if.end.i213.i:                                    ; preds = %sw.bb39.i
   %call.i.i214.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i215.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i215.i, ptr %call.i.i214.i, align 8
-  %Next.i.i216.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i214.i, i64 0, i32 3
+  %Next.i.i216.i = getelementptr inbounds i8, ptr %call.i.i214.i, i64 24
   store ptr %274, ptr %Next.i.i216.i, align 8
-  %Capacity3.i.i217.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i214.i, i64 0, i32 2
+  %Capacity3.i.i217.i = getelementptr inbounds i8, ptr %call.i.i214.i, i64 16
   store i64 4096, ptr %Capacity3.i.i217.i, align 8
   store ptr %call.i.i214.i, ptr %Arena40.i, align 8
-  %Used.i.i218.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i214.i, i64 0, i32 1
+  %Used.i.i218.i = getelementptr inbounds i8, ptr %call.i.i214.i, i64 8
   store i64 24, ptr %Used.i.i218.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
 sw.bb43.i:                                        ; preds = %if.end.i156
-  %Arena44.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena44.i = getelementptr inbounds i8, ptr %this, i64 16
   %278 = load ptr, ptr %Arena44.i, align 8
   %279 = load ptr, ptr %278, align 8
   %280 = ptrtoint ptr %279 to i64
-  %Used.i225.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %278, i64 0, i32 1
+  %Used.i225.i = getelementptr inbounds i8, ptr %278, i64 8
   %281 = load i64, ptr %Used.i225.i, align 8
   %add.i226.i = add i64 %281, %280
   %sub.i227.i = add i64 %add.i226.i, 7
@@ -4677,9 +4647,9 @@ sw.bb43.i:                                        ; preds = %if.end.i156
   %add8.i231.i = add i64 %add5.i230.i, %and.i228.i
   store i64 %add8.i231.i, ptr %Used.i225.i, align 8
   %282 = load ptr, ptr %Arena44.i, align 8
-  %Used10.i232.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %282, i64 0, i32 1
+  %Used10.i232.i = getelementptr inbounds i8, ptr %282, i64 8
   %283 = load i64, ptr %Used10.i232.i, align 8
-  %Capacity.i233.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %282, i64 0, i32 2
+  %Capacity.i233.i = getelementptr inbounds i8, ptr %282, i64 16
   %284 = load i64, ptr %Capacity.i233.i, align 8
   %cmp.i234.i = icmp ult i64 %283, %284
   br i1 %cmp.i234.i, label %if.then.i245.i, label %if.end.i235.i
@@ -4692,21 +4662,21 @@ if.end.i235.i:                                    ; preds = %sw.bb43.i
   %call.i.i236.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i237.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i237.i, ptr %call.i.i236.i, align 8
-  %Next.i.i238.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i236.i, i64 0, i32 3
+  %Next.i.i238.i = getelementptr inbounds i8, ptr %call.i.i236.i, i64 24
   store ptr %282, ptr %Next.i.i238.i, align 8
-  %Capacity3.i.i239.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i236.i, i64 0, i32 2
+  %Capacity3.i.i239.i = getelementptr inbounds i8, ptr %call.i.i236.i, i64 16
   store i64 4096, ptr %Capacity3.i.i239.i, align 8
   store ptr %call.i.i236.i, ptr %Arena44.i, align 8
-  %Used.i.i240.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i236.i, i64 0, i32 1
+  %Used.i.i240.i = getelementptr inbounds i8, ptr %call.i.i236.i, i64 8
   store i64 24, ptr %Used.i.i240.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
 sw.bb47.i:                                        ; preds = %if.end.i156
-  %Arena48.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena48.i = getelementptr inbounds i8, ptr %this, i64 16
   %286 = load ptr, ptr %Arena48.i, align 8
   %287 = load ptr, ptr %286, align 8
   %288 = ptrtoint ptr %287 to i64
-  %Used.i247.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %286, i64 0, i32 1
+  %Used.i247.i = getelementptr inbounds i8, ptr %286, i64 8
   %289 = load i64, ptr %Used.i247.i, align 8
   %add.i248.i = add i64 %289, %288
   %sub.i249.i = add i64 %add.i248.i, 7
@@ -4716,9 +4686,9 @@ sw.bb47.i:                                        ; preds = %if.end.i156
   %add8.i253.i = add i64 %add5.i252.i, %and.i250.i
   store i64 %add8.i253.i, ptr %Used.i247.i, align 8
   %290 = load ptr, ptr %Arena48.i, align 8
-  %Used10.i254.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %290, i64 0, i32 1
+  %Used10.i254.i = getelementptr inbounds i8, ptr %290, i64 8
   %291 = load i64, ptr %Used10.i254.i, align 8
-  %Capacity.i255.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %290, i64 0, i32 2
+  %Capacity.i255.i = getelementptr inbounds i8, ptr %290, i64 16
   %292 = load i64, ptr %Capacity.i255.i, align 8
   %cmp.i256.i = icmp ult i64 %291, %292
   br i1 %cmp.i256.i, label %if.then.i267.i, label %if.end.i257.i
@@ -4731,21 +4701,21 @@ if.end.i257.i:                                    ; preds = %sw.bb47.i
   %call.i.i258.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i259.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i259.i, ptr %call.i.i258.i, align 8
-  %Next.i.i260.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i258.i, i64 0, i32 3
+  %Next.i.i260.i = getelementptr inbounds i8, ptr %call.i.i258.i, i64 24
   store ptr %290, ptr %Next.i.i260.i, align 8
-  %Capacity3.i.i261.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i258.i, i64 0, i32 2
+  %Capacity3.i.i261.i = getelementptr inbounds i8, ptr %call.i.i258.i, i64 16
   store i64 4096, ptr %Capacity3.i.i261.i, align 8
   store ptr %call.i.i258.i, ptr %Arena48.i, align 8
-  %Used.i.i262.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i258.i, i64 0, i32 1
+  %Used.i.i262.i = getelementptr inbounds i8, ptr %call.i.i258.i, i64 8
   store i64 24, ptr %Used.i.i262.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
 sw.bb51.i:                                        ; preds = %if.end.i156
-  %Arena52.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena52.i = getelementptr inbounds i8, ptr %this, i64 16
   %294 = load ptr, ptr %Arena52.i, align 8
   %295 = load ptr, ptr %294, align 8
   %296 = ptrtoint ptr %295 to i64
-  %Used.i269.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %294, i64 0, i32 1
+  %Used.i269.i = getelementptr inbounds i8, ptr %294, i64 8
   %297 = load i64, ptr %Used.i269.i, align 8
   %add.i270.i = add i64 %297, %296
   %sub.i271.i = add i64 %add.i270.i, 7
@@ -4755,9 +4725,9 @@ sw.bb51.i:                                        ; preds = %if.end.i156
   %add8.i275.i = add i64 %add5.i274.i, %and.i272.i
   store i64 %add8.i275.i, ptr %Used.i269.i, align 8
   %298 = load ptr, ptr %Arena52.i, align 8
-  %Used10.i276.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %298, i64 0, i32 1
+  %Used10.i276.i = getelementptr inbounds i8, ptr %298, i64 8
   %299 = load i64, ptr %Used10.i276.i, align 8
-  %Capacity.i277.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %298, i64 0, i32 2
+  %Capacity.i277.i = getelementptr inbounds i8, ptr %298, i64 16
   %300 = load i64, ptr %Capacity.i277.i, align 8
   %cmp.i278.i = icmp ult i64 %299, %300
   br i1 %cmp.i278.i, label %if.then.i289.i, label %if.end.i279.i
@@ -4770,12 +4740,12 @@ if.end.i279.i:                                    ; preds = %sw.bb51.i
   %call.i.i280.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i281.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i281.i, ptr %call.i.i280.i, align 8
-  %Next.i.i282.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i280.i, i64 0, i32 3
+  %Next.i.i282.i = getelementptr inbounds i8, ptr %call.i.i280.i, i64 24
   store ptr %298, ptr %Next.i.i282.i, align 8
-  %Capacity3.i.i283.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i280.i, i64 0, i32 2
+  %Capacity3.i.i283.i = getelementptr inbounds i8, ptr %call.i.i280.i, i64 16
   store i64 4096, ptr %Capacity3.i.i283.i, align 8
   store ptr %call.i.i280.i, ptr %Arena52.i, align 8
-  %Used.i.i284.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i280.i, i64 0, i32 1
+  %Used.i.i284.i = getelementptr inbounds i8, ptr %call.i.i280.i, i64 8
   store i64 24, ptr %Used.i.i284.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread
 
@@ -4798,37 +4768,37 @@ if.end58.i:                                       ; preds = %sw.bb55.i
   ]
 
 sw.bb61.i:                                        ; preds = %if.end58.i
-  %Arena62.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena62.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 1, ptr %ref.tmp63.i, align 4
   %call64.i = call noundef ptr @_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %Arena62.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp63.i)
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit
 
 sw.bb65.i:                                        ; preds = %if.end58.i
-  %Arena66.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena66.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 13, ptr %ref.tmp67.i, align 4
   %call68.i = call noundef ptr @_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %Arena66.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp67.i)
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit
 
 sw.bb69.i:                                        ; preds = %if.end58.i
-  %Arena70.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena70.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 14, ptr %ref.tmp71.i, align 4
   %call72.i = call noundef ptr @_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %Arena70.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp71.i)
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit
 
 sw.bb73.i:                                        ; preds = %if.end58.i
-  %Arena74.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena74.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 15, ptr %ref.tmp75.i, align 4
   %call76.i = call noundef ptr @_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %Arena74.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp75.i)
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit
 
 sw.bb77.i:                                        ; preds = %if.end58.i
-  %Arena78.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena78.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 5, ptr %ref.tmp79.i, align 4
   %call80.i = call noundef ptr @_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %Arena78.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp79.i)
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit
 
 sw.bb81.i:                                        ; preds = %if.end58.i
-  %Arena82.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena82.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 6, ptr %ref.tmp83.i, align 4
   %call84.i = call noundef ptr @_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %Arena82.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp83.i)
   br label %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit
@@ -4836,12 +4806,12 @@ sw.bb81.i:                                        ; preds = %if.end58.i
 _ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread: ; preds = %if.then.i289.i, %if.end.i279.i, %if.then.i267.i, %if.end.i257.i, %if.then.i245.i, %if.end.i235.i, %if.then.i223.i, %if.end.i213.i, %if.then.i201.i, %if.end.i191.i, %if.then.i179.i, %if.end.i169.i, %if.then.i157.i, %if.end.i147.i, %if.then.i135.i, %if.end.i125.i, %if.then.i113.i, %if.end.i103.i, %if.then.i91.i, %if.end.i81.i, %if.then.i69.i, %if.end.i59.i, %if.then.i47.i, %if.end.i37.i, %if.then.i25.i, %if.end.i15.i, %if.then.i.i, %if.end.i4.i
   %call2.i.sink10.i.i.sink711 = phi ptr [ %call2.i.i.i, %if.end.i4.i ], [ %196, %if.then.i.i ], [ %call2.i.i17.i, %if.end.i15.i ], [ %205, %if.then.i25.i ], [ %call2.i.i39.i, %if.end.i37.i ], [ %213, %if.then.i47.i ], [ %call2.i.i61.i, %if.end.i59.i ], [ %221, %if.then.i69.i ], [ %call2.i.i83.i, %if.end.i81.i ], [ %229, %if.then.i91.i ], [ %call2.i.i105.i, %if.end.i103.i ], [ %237, %if.then.i113.i ], [ %call2.i.i127.i, %if.end.i125.i ], [ %245, %if.then.i135.i ], [ %call2.i.i149.i, %if.end.i147.i ], [ %253, %if.then.i157.i ], [ %call2.i.i171.i, %if.end.i169.i ], [ %261, %if.then.i179.i ], [ %call2.i.i193.i, %if.end.i191.i ], [ %269, %if.then.i201.i ], [ %call2.i.i215.i, %if.end.i213.i ], [ %277, %if.then.i223.i ], [ %call2.i.i237.i, %if.end.i235.i ], [ %285, %if.then.i245.i ], [ %call2.i.i259.i, %if.end.i257.i ], [ %293, %if.then.i267.i ], [ %call2.i.i281.i, %if.end.i279.i ], [ %301, %if.then.i289.i ]
   %.sink708 = phi i32 [ 19, %if.end.i4.i ], [ 19, %if.then.i.i ], [ 0, %if.end.i15.i ], [ 0, %if.then.i25.i ], [ 2, %if.end.i37.i ], [ 2, %if.then.i47.i ], [ 3, %if.end.i59.i ], [ 3, %if.then.i69.i ], [ 4, %if.end.i81.i ], [ 4, %if.then.i91.i ], [ 7, %if.end.i103.i ], [ 7, %if.then.i113.i ], [ 8, %if.end.i125.i ], [ 8, %if.then.i135.i ], [ 9, %if.end.i147.i ], [ 9, %if.then.i157.i ], [ 10, %if.end.i169.i ], [ 10, %if.then.i179.i ], [ 11, %if.end.i191.i ], [ 11, %if.then.i201.i ], [ 12, %if.end.i213.i ], [ 12, %if.then.i223.i ], [ 16, %if.end.i235.i ], [ 16, %if.then.i245.i ], [ 17, %if.end.i257.i ], [ 17, %if.then.i267.i ], [ 18, %if.end.i279.i ], [ 18, %if.then.i289.i ]
-  %Kind.i.i.i5.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink10.i.i.sink711, i64 0, i32 1
+  %Kind.i.i.i5.i.i = getelementptr inbounds i8, ptr %call2.i.sink10.i.i.sink711, i64 8
   store i32 2, ptr %Kind.i.i.i5.i.i, align 8
-  %Quals.i.i6.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2.i.sink10.i.i.sink711, i64 0, i32 1
+  %Quals.i.i6.i.i = getelementptr inbounds i8, ptr %call2.i.sink10.i.i.sink711, i64 12
   store i8 0, ptr %Quals.i.i6.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle17PrimitiveTypeNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink10.i.i.sink711, align 8
-  %PrimKind.i7.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::PrimitiveTypeNode", ptr %call2.i.sink10.i.i.sink711, i64 0, i32 1
+  %PrimKind.i7.i.i = getelementptr inbounds i8, ptr %call2.i.sink10.i.i.sink711, i64 16
   store i32 %.sink708, ptr %PrimKind.i7.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp63.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp67.i)
@@ -4852,7 +4822,7 @@ _ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread: ; 
   br label %lor.lhs.false
 
 _ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread674: ; preds = %if.end.i156, %if.end58.i, %sw.bb55.i
-  %Error86.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error86.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error86.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp63.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp67.i)
@@ -4875,7 +4845,7 @@ _ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit: ; preds =
 
 lor.lhs.false:                                    ; preds = %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread, %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit
   %retval.0.i159672 = phi ptr [ %call2.i.sink10.i.i.sink711, %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread ], [ %retval.0.i159, %_ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit ]
-  %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error = getelementptr inbounds i8, ptr %this, i64 8
   %303 = load i8, ptr %Error, align 8
   %304 = and i8 %303, 1
   %tobool53.not = icmp eq i8 %304, 0
@@ -4883,7 +4853,7 @@ lor.lhs.false:                                    ; preds = %_ZN12_GLOBAL__N_19D
 
 if.end60:                                         ; preds = %if.then.i152, %_ZN10StringView12consumeFrontEc.exit618, %if.end.i573, %_ZN10StringView12consumeFrontEc.exit.i575, %if.end37.i, %if.then34.i, %if.then14.i, %if.then.i101, %_ZN12_GLOBAL__N_19Demangler28demanglePointerExtQualifiersER10StringView.exit336, %if.then.i80, %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit259, %if.then.i66, %sw.epilog.i44, %if.then.i, %if.then39, %lor.lhs.false
   %Ty.0 = phi ptr [ %call40, %if.then39 ], [ %retval.0.i159672, %lor.lhs.false ], [ %TT.0.i, %sw.epilog.i44 ], [ null, %if.then.i ], [ %call2.i.sink11.i, %if.then.i66 ], [ %call2.i.sink11.i, %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit259 ], [ %call2.i.sink11.i397, %if.then.i80 ], [ %call2.i.sink11.i397, %_ZN12_GLOBAL__N_19Demangler28demanglePointerExtQualifiersER10StringView.exit336 ], [ null, %if.then.i101 ], [ null, %if.then14.i ], [ null, %if.then34.i ], [ %call2.i.sink9.i, %if.end37.i ], [ %call2.i.sink21.i, %_ZN10StringView12consumeFrontEc.exit.i575 ], [ %call2.i.sink21.i, %if.end.i573 ], [ %188, %_ZN10StringView12consumeFrontEc.exit618 ], [ null, %if.then.i152 ]
-  %Quals61 = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %Ty.0, i64 0, i32 1
+  %Quals61 = getelementptr inbounds i8, ptr %Ty.0, i64 12
   %305 = load i8, ptr %Quals61, align 4
   %or24 = or i8 %305, %Quals.0
   store i8 %or24, ptr %Quals61, align 4
@@ -4900,7 +4870,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %S.coerce1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %S.coerce0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %Last.i1.i = getelementptr inbounds %class.StringView, ptr %this, i64 0, i32 1
+  %Last.i1.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Last.i1.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i2.i = ptrtoint ptr %0 to i64
@@ -4935,7 +4905,7 @@ entry:
   %0 = load ptr, ptr %Arena, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %3, %2
   %sub.i = add i64 %add.i, 7
@@ -4945,9 +4915,9 @@ entry:
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %4 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %5, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -4960,30 +4930,30 @@ if.end.i:                                         ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %4, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 40, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i
   %call2.i.sink11.i = phi ptr [ %call2.i.i, %if.end.i ], [ %7, %if.then.i ]
-  %Kind.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink11.i, i64 0, i32 1
+  %Kind.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 8
   store i32 27, ptr %Kind.i.i.i4.i, align 8
-  %Name.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %call2.i.sink11.i, i64 0, i32 1
+  %Name.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 16
   store ptr null, ptr %Name.i.i5.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink11.i, align 8
-  %SC.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::VariableSymbolNode", ptr %call2.i.sink11.i, i64 0, i32 1
+  %SC.i6.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 24
   store i8 0, ptr %SC.i6.i, align 8
-  %Type.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::VariableSymbolNode", ptr %call2.i.sink11.i, i64 0, i32 2
+  %Type.i7.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 32
   store ptr %Type, ptr %Type.i7.i, align 8
   %8 = load ptr, ptr %Arena, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
-  %Used.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %8, i64 0, i32 1
+  %Used.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %11 = load i64, ptr %Used.i.i.i, align 8
   %add.i.i.i = add i64 %11, %10
   %sub.i.i.i = add i64 %add.i.i.i, 7
@@ -4993,9 +4963,9 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT
   %add8.i.i.i = add i64 %add5.i.i.i, %and.i.i.i
   store i64 %add8.i.i.i, ptr %Used.i.i.i, align 8
   %12 = load ptr, ptr %Arena, align 8
-  %Used10.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %12, i64 0, i32 1
+  %Used10.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %Used10.i.i.i, align 8
-  %Capacity.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %12, i64 0, i32 2
+  %Capacity.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load i64, ptr %Capacity.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %13, %14
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -5008,25 +4978,25 @@ if.end.i.i.i:                                     ; preds = %_ZN4llvh11ms_demang
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %Next.i.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i.i, i64 0, i32 3
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   store ptr %12, ptr %Next.i.i.i.i, align 8
-  %Capacity3.i.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i.i, i64 0, i32 2
+  %Capacity3.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %Arena, align 8
-  %Used.i.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i.i, i64 0, i32 1
+  %Used.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store i64 40, ptr %Used.i.i.i.i, align 8
   br label %_ZL23synthesizeQualifiedNameRN4llvh11ms_demangle14ArenaAllocatorE10StringView.exit
 
 _ZL23synthesizeQualifiedNameRN4llvh11ms_demangle14ArenaAllocatorE10StringView.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
   %call2.i.sink9.i.i.i = phi ptr [ %call2.i.i.i.i, %if.end.i.i.i ], [ %15, %if.then.i.i.i ]
-  %Kind.i.i.i4.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i.i.i, i64 0, i32 1
+  %Kind.i.i.i4.i.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i.i, i64 8
   store i32 5, ptr %Kind.i.i.i4.i.i.i, align 8
-  %TemplateParams.i.i5.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i.i.i, i64 0, i32 1
+  %TemplateParams.i.i5.i.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i.i.i, align 8
-  %Name.i6.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i.i.i, i64 0, i32 1
+  %Name.i6.i.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i.i, i64 24
   store ptr %VariableName.coerce0, ptr %Name.i6.i.i.i, align 8
-  %Name.sroa.2.0.Name1.sroa_idx.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i.i.i, i64 0, i32 1, i32 1
+  %Name.sroa.2.0.Name1.sroa_idx.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i.i, i64 32
   store ptr %VariableName.coerce1, ptr %Name.sroa.2.0.Name1.sroa_idx.i.i, align 8
   %call1.i = tail call fastcc noundef ptr @_ZL23synthesizeQualifiedNameRN4llvh11ms_demangle14ArenaAllocatorEPNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(8) %Arena, ptr noundef nonnull %call2.i.sink9.i.i.i)
   store ptr %call1.i, ptr %Name.i.i5.i, align 8
@@ -5039,7 +5009,7 @@ entry:
   %0 = load ptr, ptr %Arena, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used.i.i, align 8
   %add.i.i = add i64 %3, %2
   %sub.i.i = add i64 %add.i.i, 7
@@ -5049,9 +5019,9 @@ entry:
   %add8.i.i = add i64 %add5.i.i, %and.i.i
   store i64 %add8.i.i, ptr %Used.i.i, align 8
   %4 = load ptr, ptr %Arena, align 8
-  %Used10.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used10.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used10.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity.i.i, align 8
   %cmp.i.i = icmp ult i64 %5, %6
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
@@ -5064,31 +5034,31 @@ if.end.i.i:                                       ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i.i, ptr %call.i.i.i, align 8
-  %Next.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 3
+  %Next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   store ptr %4, ptr %Next.i.i.i, align 8
-  %Capacity3.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 2
+  %Capacity3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i.i, align 8
   store ptr %call.i.i.i, ptr %Arena, align 8
-  %Used.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 1
+  %Used.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 40, ptr %Used.i.i.i, align 8
   br label %_ZL25synthesizeNamedIdentifierRN4llvh11ms_demangle14ArenaAllocatorE10StringView.exit
 
 _ZL25synthesizeNamedIdentifierRN4llvh11ms_demangle14ArenaAllocatorE10StringView.exit: ; preds = %if.then.i.i, %if.end.i.i
   %call2.i.sink9.i.i = phi ptr [ %call2.i.i.i, %if.end.i.i ], [ %7, %if.then.i.i ]
-  %Kind.i.i.i4.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i.i, i64 0, i32 1
+  %Kind.i.i.i4.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 8
   store i32 5, ptr %Kind.i.i.i4.i.i, align 8
-  %TemplateParams.i.i5.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i.i, i64 0, i32 1
+  %TemplateParams.i.i5.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i.i, align 8
-  %Name.i6.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i.i, i64 0, i32 1
+  %Name.i6.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 24
   store ptr %VariableName.coerce0, ptr %Name.i6.i.i, align 8
-  %Name.sroa.2.0.Name1.sroa_idx.i = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i.i, i64 0, i32 1, i32 1
+  %Name.sroa.2.0.Name1.sroa_idx.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 32
   store ptr %VariableName.coerce1, ptr %Name.sroa.2.0.Name1.sroa_idx.i, align 8
   %call2 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler22demangleNameScopeChainER10StringViewPN4llvh11ms_demangle14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, ptr noundef nonnull %call2.i.sink9.i.i)
   %8 = load ptr, ptr %Arena, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %8, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %8, i64 8
   %11 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %11, %10
   %sub.i = add i64 %add.i, 7
@@ -5098,9 +5068,9 @@ _ZL25synthesizeNamedIdentifierRN4llvh11ms_demangle14ArenaAllocatorE10StringView.
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %12 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %12, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %12, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %13, %14
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -5113,27 +5083,27 @@ if.end.i:                                         ; preds = %_ZL25synthesizeName
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %12, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i4 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i4 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 40, ptr %Used.i.i4, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i
   %call2.i.sink11.i = phi ptr [ %call2.i.i, %if.end.i ], [ %15, %if.then.i ]
-  %Kind.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink11.i, i64 0, i32 1
+  %Kind.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 8
   store i32 27, ptr %Kind.i.i.i4.i, align 8
-  %Name.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %call2.i.sink11.i, i64 0, i32 1
+  %Name.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 16
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink11.i, align 8
-  %SC.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::VariableSymbolNode", ptr %call2.i.sink11.i, i64 0, i32 1
+  %SC.i6.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 24
   store i8 0, ptr %SC.i6.i, align 8
-  %Type.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::VariableSymbolNode", ptr %call2.i.sink11.i, i64 0, i32 2
+  %Type.i7.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 32
   store ptr null, ptr %Type.i7.i, align 8
   store ptr %call2, ptr %Name.i.i5.i, align 8
-  %Last.i1.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i1.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %16 = load ptr, ptr %Last.i1.i.i, align 8
   %17 = load ptr, ptr %MangledName, align 8
   %cmp.i.i5 = icmp eq ptr %16, %17
@@ -5150,7 +5120,7 @@ _ZN10StringView12consumeFrontES_.exit:            ; preds = %_ZNK10StringView10s
   br label %return
 
 if.end:                                           ; preds = %_ZNK10StringView10startsWithES_.exit.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT0_.exit
-  %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error, align 8
   br label %return
 
@@ -5165,7 +5135,7 @@ entry:
   %0 = load ptr, ptr %Arena, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %3, %2
   %sub.i = add i64 %add.i, 7
@@ -5175,9 +5145,9 @@ entry:
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %4 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %5, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -5190,26 +5160,26 @@ if.end.i:                                         ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %4, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 40, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_27RttiBaseClassDescriptorNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_27RttiBaseClassDescriptorNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i
   %call2.i.sink9.i = phi ptr [ %call2.i.i, %if.end.i ], [ %7, %if.then.i ]
-  %Kind.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Kind.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 8
   store i32 24, ptr %Kind.i.i.i4.i, align 8
-  %TemplateParams.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %TemplateParams.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle27RttiBaseClassDescriptorNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i, align 8
-  %NVOffset.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::RttiBaseClassDescriptorNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %NVOffset.i6.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %NVOffset.i6.i, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %MangledName, align 8
-  %Last.i.i.i.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i.i.i.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %9 = load ptr, ptr %Last.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i.i, label %_ZN10StringView12consumeFrontEc.exit.i.i, label %_ZNK10StringView10startsWithEc.exit.i.i.i
@@ -5282,7 +5252,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i: ; preds = %if.
 
 if.end.sink.split.i:                              ; preds = %if.then20.i.i, %if.end15.i.i, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i, %_ZN10StringView12consumeFrontEc.exit.i.i
   %retval.sroa.0.0.i10.ph.i = phi i32 [ 0, %_ZN10StringView12consumeFrontEc.exit.i.i ], [ %retval.sroa.0.0.i.i, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i ], [ 0, %if.end15.i.i ], [ 0, %if.then20.i.i ]
-  %Error.i.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler16demangleUnsignedER10StringView.exit
 
@@ -5355,7 +5325,7 @@ if.then20.i.i37:                                  ; preds = %if.end15.i.i34
   br i1 %exitcond.not.i.i42, label %if.end.thread.i, label %for.body.i.i29, !llvm.loop !10
 
 if.end.thread.i:                                  ; preds = %if.then20.i.i37, %if.end15.i.i34, %_ZN10StringView12consumeFrontEc.exit.i.i17
-  %Error.i.i36 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i36 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i36, align 8
   br label %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit
 
@@ -5368,7 +5338,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i46: ; preds = %i
   br i1 %cmp.i50, label %if.then.i53, label %if.end.i51
 
 if.then.i53:                                      ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i46
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i, align 8
   br label %if.end.i51
 
@@ -5380,7 +5350,7 @@ if.end.i51:                                       ; preds = %if.then.i53, %_ZN12
 
 _ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit: ; preds = %if.end.thread.i, %if.end.i51
   %conv4 = phi i32 [ 0, %if.end.thread.i ], [ %20, %if.end.i51 ]
-  %VBPtrOffset = getelementptr inbounds %"struct.llvh::ms_demangle::RttiBaseClassDescriptorNode", ptr %call2.i.sink9.i, i64 0, i32 2
+  %VBPtrOffset = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 28
   store i32 %conv4, ptr %VBPtrOffset, align 4
   %21 = load ptr, ptr %MangledName, align 8
   %22 = load ptr, ptr %Last.i.i.i.i.i, align 8
@@ -5455,13 +5425,13 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i96: ; preds = %i
 
 if.end.sink.split.i82:                            ; preds = %if.then20.i.i87, %if.end15.i.i80, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i96, %_ZN10StringView12consumeFrontEc.exit.i.i63
   %retval.sroa.0.0.i10.ph.i83 = phi i32 [ 0, %_ZN10StringView12consumeFrontEc.exit.i.i63 ], [ %retval.sroa.0.0.i.i98, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i96 ], [ 0, %if.end15.i.i80 ], [ 0, %if.then20.i.i87 ]
-  %Error.i.i84 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i84 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i84, align 8
   br label %_ZN12_GLOBAL__N_19Demangler16demangleUnsignedER10StringView.exit105
 
 _ZN12_GLOBAL__N_19Demangler16demangleUnsignedER10StringView.exit105: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i96, %if.end.sink.split.i82
   %retval.sroa.0.0.i10.i86 = phi i32 [ %retval.sroa.0.0.i.i98, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i96 ], [ %retval.sroa.0.0.i10.ph.i83, %if.end.sink.split.i82 ]
-  %VBTableOffset = getelementptr inbounds %"struct.llvh::ms_demangle::RttiBaseClassDescriptorNode", ptr %call2.i.sink9.i, i64 0, i32 3
+  %VBTableOffset = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 32
   store i32 %retval.sroa.0.0.i10.i86, ptr %VBTableOffset, align 8
   %27 = load ptr, ptr %MangledName, align 8
   %28 = load ptr, ptr %Last.i.i.i.i.i, align 8
@@ -5536,15 +5506,15 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i143: ; preds = %
 
 if.end.sink.split.i129:                           ; preds = %if.then20.i.i134, %if.end15.i.i127, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i143, %_ZN10StringView12consumeFrontEc.exit.i.i110
   %retval.sroa.0.0.i10.ph.i130 = phi i32 [ 0, %_ZN10StringView12consumeFrontEc.exit.i.i110 ], [ %retval.sroa.0.0.i.i145, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i143 ], [ 0, %if.end15.i.i127 ], [ 0, %if.then20.i.i134 ]
-  %Error.i.i131 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i131 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i131, align 8
   br label %_ZN12_GLOBAL__N_19Demangler16demangleUnsignedER10StringView.exit152
 
 _ZN12_GLOBAL__N_19Demangler16demangleUnsignedER10StringView.exit152: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i143, %if.end.sink.split.i129
   %retval.sroa.0.0.i10.i133 = phi i32 [ %retval.sroa.0.0.i.i145, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i143 ], [ %retval.sroa.0.0.i10.ph.i130, %if.end.sink.split.i129 ]
-  %Flags = getelementptr inbounds %"struct.llvh::ms_demangle::RttiBaseClassDescriptorNode", ptr %call2.i.sink9.i, i64 0, i32 4
+  %Flags = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 36
   store i32 %retval.sroa.0.0.i10.i133, ptr %Flags, align 4
-  %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error = getelementptr inbounds i8, ptr %this, i64 8
   %33 = load i8, ptr %Error, align 8
   %34 = and i8 %33, 1
   %tobool.not = icmp eq i8 %34, 0
@@ -5554,7 +5524,7 @@ if.end:                                           ; preds = %_ZN12_GLOBAL__N_19D
   %35 = load ptr, ptr %Arena, align 8
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
-  %Used.i153 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %35, i64 0, i32 1
+  %Used.i153 = getelementptr inbounds i8, ptr %35, i64 8
   %38 = load i64, ptr %Used.i153, align 8
   %add.i154 = add i64 %38, %37
   %sub.i155 = add i64 %add.i154, 7
@@ -5564,9 +5534,9 @@ if.end:                                           ; preds = %_ZN12_GLOBAL__N_19D
   %add8.i159 = add i64 %add5.i158, %and.i156
   store i64 %add8.i159, ptr %Used.i153, align 8
   %39 = load ptr, ptr %Arena, align 8
-  %Used10.i160 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %39, i64 0, i32 1
+  %Used10.i160 = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load i64, ptr %Used10.i160, align 8
-  %Capacity.i161 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %39, i64 0, i32 2
+  %Capacity.i161 = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load i64, ptr %Capacity.i161, align 8
   %cmp.i162 = icmp ult i64 %40, %41
   br i1 %cmp.i162, label %if.then.i170, label %if.end.i163
@@ -5579,25 +5549,25 @@ if.end.i163:                                      ; preds = %if.end
   %call.i.i164 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i165 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i165, ptr %call.i.i164, align 8
-  %Next.i.i166 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i164, i64 0, i32 3
+  %Next.i.i166 = getelementptr inbounds i8, ptr %call.i.i164, i64 24
   store ptr %39, ptr %Next.i.i166, align 8
-  %Capacity3.i.i167 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i164, i64 0, i32 2
+  %Capacity3.i.i167 = getelementptr inbounds i8, ptr %call.i.i164, i64 16
   store i64 4096, ptr %Capacity3.i.i167, align 8
   store ptr %call.i.i164, ptr %Arena, align 8
-  %Used.i.i168 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i164, i64 0, i32 1
+  %Used.i.i168 = getelementptr inbounds i8, ptr %call.i.i164, i64 8
   store i64 40, ptr %Used.i.i168, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i170, %if.end.i163
   %call2.i.sink11.i = phi ptr [ %call2.i.i165, %if.end.i163 ], [ %42, %if.then.i170 ]
-  %Kind.i.i.i4.i169 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink11.i, i64 0, i32 1
+  %Kind.i.i.i4.i169 = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 8
   store i32 27, ptr %Kind.i.i.i4.i169, align 8
-  %Name.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %call2.i.sink11.i, i64 0, i32 1
+  %Name.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 16
   store ptr null, ptr %Name.i.i5.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink11.i, align 8
-  %SC.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::VariableSymbolNode", ptr %call2.i.sink11.i, i64 0, i32 1
+  %SC.i6.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 24
   store i8 0, ptr %SC.i6.i, align 8
-  %Type.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::VariableSymbolNode", ptr %call2.i.sink11.i, i64 0, i32 2
+  %Type.i7.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 32
   store ptr null, ptr %Type.i7.i, align 8
   %call10 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler22demangleNameScopeChainER10StringViewPN4llvh11ms_demangle14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, ptr noundef nonnull %call2.i.sink9.i)
   store ptr %call10, ptr %Name.i.i5.i, align 8
@@ -5625,11 +5595,11 @@ return:                                           ; preds = %if.end.i171, %_ZNK1
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler20demangleInitFiniStubER10StringViewb(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, i1 noundef zeroext %IsDestructor) unnamed_addr #2 align 2 {
 entry:
   %frombool = zext i1 %IsDestructor to i8
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Arena, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %3, %2
   %sub.i = add i64 %add.i, 7
@@ -5639,9 +5609,9 @@ entry:
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %4 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %5, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -5654,28 +5624,28 @@ if.end.i:                                         ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %4, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 48, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_29DynamicStructorIdentifierNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_29DynamicStructorIdentifierNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i
   %call2.i.sink9.i = phi ptr [ %call2.i.i, %if.end.i ], [ %7, %if.then.i ]
-  %Kind.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Kind.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 8
   store i32 10, ptr %Kind.i.i.i4.i, align 8
-  %TemplateParams.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %TemplateParams.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle29DynamicStructorIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i, align 8
-  %Variable.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::DynamicStructorIdentifierNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Variable.i6.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %Variable.i6.i, i8 0, i64 16, i1 false)
-  %IsDestructor2 = getelementptr inbounds %"struct.llvh::ms_demangle::DynamicStructorIdentifierNode", ptr %call2.i.sink9.i, i64 0, i32 3
+  %IsDestructor2 = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 40
   store i8 %frombool, ptr %IsDestructor2, align 8
   %8 = load ptr, ptr %MangledName, align 8
-  %Last.i.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %9 = load ptr, ptr %Last.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i, label %_ZN10StringView12consumeFrontEc.exit, label %_ZNK10StringView10startsWithEc.exit.i
@@ -5693,7 +5663,7 @@ if.end.i18:                                       ; preds = %_ZNK10StringView10s
 _ZN10StringView12consumeFrontEc.exit:             ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_29DynamicStructorIdentifierNodeEJEEEPT_DpOT0_.exit, %_ZNK10StringView10startsWithEc.exit.i, %if.end.i18
   %11 = phi i1 [ false, %_ZNK10StringView10startsWithEc.exit.i ], [ true, %if.end.i18 ], [ false, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_29DynamicStructorIdentifierNodeEJEEEPT_DpOT0_.exit ]
   %call.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler29demangleUnqualifiedSymbolNameER10StringView19NameBackrefBehavior(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load i8, ptr %Error.i, align 8
   %13 = and i8 %12, 1
   %tobool.not.i = icmp eq i8 %13, 0
@@ -5707,22 +5677,22 @@ if.end.i19:                                       ; preds = %_ZN10StringView12co
   br i1 %tobool4.not.i, label %if.end6.i, label %_ZN12_GLOBAL__N_19Demangler32demangleFullyQualifiedSymbolNameER10StringView.exit
 
 if.end6.i:                                        ; preds = %if.end.i19
-  %Kind.i34 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call.i, i64 0, i32 1
+  %Kind.i34 = getelementptr inbounds i8, ptr %call.i, i64 8
   %16 = load i32, ptr %Kind.i34, align 8
   %cmp.i20 = icmp eq i32 %16, 11
   br i1 %cmp.i20, label %if.then8.i, label %_ZN12_GLOBAL__N_19Demangler32demangleFullyQualifiedSymbolNameER10StringView.exit
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %Components.i = getelementptr inbounds %"struct.llvh::ms_demangle::QualifiedNameNode", ptr %call2.i, i64 0, i32 1
+  %Components.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   %17 = load ptr, ptr %Components.i, align 8
-  %Nodes.i = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %17, i64 0, i32 1
+  %Nodes.i = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load ptr, ptr %Nodes.i, align 8
-  %Count.i = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %17, i64 0, i32 2
+  %Count.i = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load i64, ptr %Count.i, align 8
   %20 = getelementptr ptr, ptr %18, i64 %19
-  %arrayidx.i = getelementptr ptr, ptr %20, i64 -2
+  %arrayidx.i = getelementptr i8, ptr %20, i64 -16
   %21 = load ptr, ptr %arrayidx.i, align 8
-  %Class.i = getelementptr inbounds %"struct.llvh::ms_demangle::StructorIdentifierNode", ptr %call.i, i64 0, i32 1
+  %Class.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %21, ptr %Class.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler32demangleFullyQualifiedSymbolNameER10StringView.exit
 
@@ -5760,34 +5730,34 @@ _ZN12_GLOBAL__N_19Demangler28demangleVariableStorageClassER10StringView.exit: ; 
 
 sw.epilog.i:                                      ; preds = %_ZN12_GLOBAL__N_19Demangler32demangleFullyQualifiedSymbolNameER10StringView.exit
   %call5.i = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler24demangleFunctionEncodingER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
-  %Components.i36 = getelementptr inbounds %"struct.llvh::ms_demangle::QualifiedNameNode", ptr %retval.0.i, i64 0, i32 1
+  %Components.i36 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %26 = load ptr, ptr %Components.i36, align 8
-  %Nodes.i37 = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %26, i64 0, i32 1
+  %Nodes.i37 = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load ptr, ptr %Nodes.i37, align 8
-  %Count.i38 = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %26, i64 0, i32 2
+  %Count.i38 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load i64, ptr %Count.i38, align 8
   %29 = getelementptr ptr, ptr %27, i64 %28
-  %arrayidx.i39 = getelementptr ptr, ptr %29, i64 -1
+  %arrayidx.i39 = getelementptr i8, ptr %29, i64 -8
   %30 = load ptr, ptr %arrayidx.i39, align 8
-  %Kind.i35 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %30, i64 0, i32 1
+  %Kind.i35 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load i32, ptr %Kind.i35, align 8
   %cmp.i25 = icmp eq i32 %31, 9
   br i1 %cmp.i25, label %if.then.i26, label %_ZN12_GLOBAL__N_19Demangler21demangleEncodedSymbolER10StringViewPN4llvh11ms_demangle17QualifiedNameNodeE.exit
 
 if.then.i26:                                      ; preds = %sw.epilog.i
-  %Signature.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSymbolNode", ptr %call5.i, i64 0, i32 1
+  %Signature.i = getelementptr inbounds i8, ptr %call5.i, i64 24
   %32 = load ptr, ptr %Signature.i, align 8
-  %ReturnType.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %32, i64 0, i32 5
+  %ReturnType.i = getelementptr inbounds i8, ptr %32, i64 32
   %33 = load ptr, ptr %ReturnType.i, align 8
-  %TargetType.i = getelementptr inbounds %"struct.llvh::ms_demangle::ConversionOperatorIdentifierNode", ptr %30, i64 0, i32 1
+  %TargetType.i = getelementptr inbounds i8, ptr %30, i64 24
   store ptr %33, ptr %TargetType.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demangleEncodedSymbolER10StringViewPN4llvh11ms_demangle17QualifiedNameNodeE.exit
 
 _ZN12_GLOBAL__N_19Demangler21demangleEncodedSymbolER10StringViewPN4llvh11ms_demangle17QualifiedNameNodeE.exit: ; preds = %_ZN12_GLOBAL__N_19Demangler28demangleVariableStorageClassER10StringView.exit, %sw.epilog.i, %if.then.i26
   %retval.0.i22 = phi ptr [ %call3.i, %_ZN12_GLOBAL__N_19Demangler28demangleVariableStorageClassER10StringView.exit ], [ %call5.i, %if.then.i26 ], [ %call5.i, %sw.epilog.i ]
-  %Name = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %retval.0.i22, i64 0, i32 1
+  %Name = getelementptr inbounds i8, ptr %retval.0.i22, i64 16
   store ptr %retval.0.i, ptr %Name, align 8
-  %Kind.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %retval.0.i22, i64 0, i32 1
+  %Kind.i = getelementptr inbounds i8, ptr %retval.0.i22, i64 8
   %34 = load i32, ptr %Kind.i, align 8
   %cmp = icmp eq i32 %34, 27
   br i1 %cmp, label %if.then8, label %if.else
@@ -5822,7 +5792,7 @@ for.inc:                                          ; preds = %_ZNK10StringView10s
 for.end:                                          ; preds = %for.inc
   %call14 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler24demangleFunctionEncodingER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
   %call16 = tail call fastcc noundef ptr @_ZL23synthesizeQualifiedNameRN4llvh11ms_demangle14ArenaAllocatorEPNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(8) %Arena, ptr noundef nonnull %call2.i.sink9.i)
-  %Name17 = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %call14, i64 0, i32 1
+  %Name17 = getelementptr inbounds i8, ptr %call14, i64 16
   store ptr %call16, ptr %Name17, align 8
   br label %return
 
@@ -5834,7 +5804,7 @@ if.then19:                                        ; preds = %if.else
   br label %return
 
 if.end21:                                         ; preds = %if.else
-  %Name23 = getelementptr inbounds %"struct.llvh::ms_demangle::DynamicStructorIdentifierNode", ptr %call2.i.sink9.i, i64 0, i32 2
+  %Name23 = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 32
   store ptr %retval.0.i, ptr %Name23, align 8
   %call25 = tail call fastcc noundef ptr @_ZL23synthesizeQualifiedNameRN4llvh11ms_demangle14ArenaAllocatorEPNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(8) %Arena, ptr noundef nonnull %call2.i.sink9.i)
   store ptr %call25, ptr %Name, align 8
@@ -5849,7 +5819,7 @@ return:                                           ; preds = %for.end, %if.end21,
 define internal fastcc { i64, i8 } @_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %MangledName) unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %MangledName, align 8
-  %Last.i.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %1 = load ptr, ptr %Last.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN10StringView12consumeFrontEc.exit, label %_ZNK10StringView10startsWithEc.exit.i
@@ -5920,7 +5890,7 @@ if.then20:                                        ; preds = %if.end15
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %if.then20, %if.end15, %if.end
-  %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error, align 8
   br label %return
 
@@ -5953,10 +5923,10 @@ entry:
   ]
 
 if.end.i.i:                                       ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %0, 2
-  %BufferCapacity.i.i.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %1
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -5990,10 +5960,10 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   br label %return
 
 if.end.i.i23:                                     ; preds = %entry
-  %CurrentPosition.i.i.i24 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i.i24 = getelementptr inbounds i8, ptr %OS, i64 8
   %5 = load i64, ptr %CurrentPosition.i.i.i24, align 8
   %add.i.i.i25 = add i64 %5, 2
-  %BufferCapacity.i.i.i26 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i.i26 = getelementptr inbounds i8, ptr %OS, i64 16
   %6 = load i64, ptr %BufferCapacity.i.i.i26, align 8
   %cmp.not.i.i.i27 = icmp ult i64 %add.i.i.i25, %6
   %.pre.i.i28 = load ptr, ptr %OS, align 8
@@ -6027,10 +5997,10 @@ _ZN12OutputStream4growEm.exit.i.i36:              ; preds = %if.then.i._ZN12Outp
   br label %return
 
 if.end.i.i48:                                     ; preds = %entry
-  %CurrentPosition.i.i.i49 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i.i49 = getelementptr inbounds i8, ptr %OS, i64 8
   %10 = load i64, ptr %CurrentPosition.i.i.i49, align 8
   %add.i.i.i50 = add i64 %10, 2
-  %BufferCapacity.i.i.i51 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i.i51 = getelementptr inbounds i8, ptr %OS, i64 16
   %11 = load i64, ptr %BufferCapacity.i.i.i51, align 8
   %cmp.not.i.i.i52 = icmp ult i64 %add.i.i.i50, %11
   %.pre.i.i53 = load ptr, ptr %OS, align 8
@@ -6064,10 +6034,10 @@ _ZN12OutputStream4growEm.exit.i.i61:              ; preds = %if.then.i._ZN12Outp
   br label %return
 
 if.end.i.i73:                                     ; preds = %entry
-  %CurrentPosition.i.i.i74 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i.i74 = getelementptr inbounds i8, ptr %OS, i64 8
   %15 = load i64, ptr %CurrentPosition.i.i.i74, align 8
   %add.i.i.i75 = add i64 %15, 2
-  %BufferCapacity.i.i.i76 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i.i76 = getelementptr inbounds i8, ptr %OS, i64 16
   %16 = load i64, ptr %BufferCapacity.i.i.i76, align 8
   %cmp.not.i.i.i77 = icmp ult i64 %add.i.i.i75, %16
   %.pre.i.i78 = load ptr, ptr %OS, align 8
@@ -6101,10 +6071,10 @@ _ZN12OutputStream4growEm.exit.i.i86:              ; preds = %if.then.i._ZN12Outp
   br label %return
 
 if.end.i.i98:                                     ; preds = %entry
-  %CurrentPosition.i.i.i99 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i.i99 = getelementptr inbounds i8, ptr %OS, i64 8
   %20 = load i64, ptr %CurrentPosition.i.i.i99, align 8
   %add.i.i.i100 = add i64 %20, 2
-  %BufferCapacity.i.i.i101 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i.i101 = getelementptr inbounds i8, ptr %OS, i64 16
   %21 = load i64, ptr %BufferCapacity.i.i.i101, align 8
   %cmp.not.i.i.i102 = icmp ult i64 %add.i.i.i100, %21
   %.pre.i.i103 = load ptr, ptr %OS, align 8
@@ -6138,10 +6108,10 @@ _ZN12OutputStream4growEm.exit.i.i111:             ; preds = %if.then.i._ZN12Outp
   br label %return
 
 if.end.i.i123:                                    ; preds = %entry
-  %CurrentPosition.i.i.i124 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i.i124 = getelementptr inbounds i8, ptr %OS, i64 8
   %25 = load i64, ptr %CurrentPosition.i.i.i124, align 8
   %add.i.i.i125 = add i64 %25, 2
-  %BufferCapacity.i.i.i126 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i.i126 = getelementptr inbounds i8, ptr %OS, i64 16
   %26 = load i64, ptr %BufferCapacity.i.i.i126, align 8
   %cmp.not.i.i.i127 = icmp ult i64 %add.i.i.i125, %26
   %.pre.i.i128 = load ptr, ptr %OS, align 8
@@ -6175,10 +6145,10 @@ _ZN12OutputStream4growEm.exit.i.i136:             ; preds = %if.then.i._ZN12Outp
   br label %return
 
 if.end.i.i148:                                    ; preds = %entry
-  %CurrentPosition.i.i.i149 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i.i149 = getelementptr inbounds i8, ptr %OS, i64 8
   %30 = load i64, ptr %CurrentPosition.i.i.i149, align 8
   %add.i.i.i150 = add i64 %30, 2
-  %BufferCapacity.i.i.i151 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i.i151 = getelementptr inbounds i8, ptr %OS, i64 16
   %31 = load i64, ptr %BufferCapacity.i.i.i151, align 8
   %cmp.not.i.i.i152 = icmp ult i64 %add.i.i.i150, %31
   %.pre.i.i153 = load ptr, ptr %OS, align 8
@@ -6212,10 +6182,10 @@ _ZN12OutputStream4growEm.exit.i.i161:             ; preds = %if.then.i._ZN12Outp
   br label %return
 
 if.end.i.i173:                                    ; preds = %entry
-  %CurrentPosition.i.i.i174 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i.i174 = getelementptr inbounds i8, ptr %OS, i64 8
   %35 = load i64, ptr %CurrentPosition.i.i.i174, align 8
   %add.i.i.i175 = add i64 %35, 2
-  %BufferCapacity.i.i.i176 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i.i176 = getelementptr inbounds i8, ptr %OS, i64 16
   %36 = load i64, ptr %BufferCapacity.i.i.i176, align 8
   %cmp.not.i.i.i177 = icmp ult i64 %add.i.i.i175, %36
   %.pre.i.i178 = load ptr, ptr %OS, align 8
@@ -6249,10 +6219,10 @@ _ZN12OutputStream4growEm.exit.i.i186:             ; preds = %if.then.i._ZN12Outp
   br label %return
 
 if.end.i.i198:                                    ; preds = %entry
-  %CurrentPosition.i.i.i199 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i.i199 = getelementptr inbounds i8, ptr %OS, i64 8
   %40 = load i64, ptr %CurrentPosition.i.i.i199, align 8
   %add.i.i.i200 = add i64 %40, 2
-  %BufferCapacity.i.i.i201 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i.i201 = getelementptr inbounds i8, ptr %OS, i64 16
   %41 = load i64, ptr %BufferCapacity.i.i.i201, align 8
   %cmp.not.i.i.i202 = icmp ult i64 %add.i.i.i200, %41
   %.pre.i.i203 = load ptr, ptr %OS, align 8
@@ -6286,10 +6256,10 @@ _ZN12OutputStream4growEm.exit.i.i211:             ; preds = %if.then.i._ZN12Outp
   br label %return
 
 if.end.i.i223:                                    ; preds = %entry
-  %CurrentPosition.i.i.i224 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i.i224 = getelementptr inbounds i8, ptr %OS, i64 8
   %45 = load i64, ptr %CurrentPosition.i.i.i224, align 8
   %add.i.i.i225 = add i64 %45, 2
-  %BufferCapacity.i.i.i226 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i.i226 = getelementptr inbounds i8, ptr %OS, i64 16
   %46 = load i64, ptr %BufferCapacity.i.i.i226, align 8
   %cmp.not.i.i.i227 = icmp ult i64 %add.i.i.i225, %46
   %.pre.i.i228 = load ptr, ptr %OS, align 8
@@ -6329,10 +6299,10 @@ sw.epilog:                                        ; preds = %entry
 
 if.then:                                          ; preds = %sw.epilog
   %conv = trunc i32 %C to i8
-  %CurrentPosition.i.i.i241 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i.i241 = getelementptr inbounds i8, ptr %OS, i64 8
   %51 = load i64, ptr %CurrentPosition.i.i.i241, align 8
   %add.i.i.i242 = add i64 %51, 1
-  %BufferCapacity.i.i.i243 = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i.i243 = getelementptr inbounds i8, ptr %OS, i64 16
   %52 = load i64, ptr %BufferCapacity.i.i.i243, align 8
   %cmp.not.i.i.i244 = icmp ult i64 %add.i.i.i242, %52
   %.pre.i.i245 = load ptr, ptr %OS, align 8
@@ -6371,10 +6341,10 @@ if.end:                                           ; preds = %sw.epilog
   br i1 %cmp.i, label %if.end.i.i.i, label %if.end.i
 
 if.end.i.i.i:                                     ; preds = %if.end
-  %CurrentPosition.i.i.i.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
   %55 = load i64, ptr %CurrentPosition.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %55, 4
-  %BufferCapacity.i.i.i.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
   %56 = load i64, ptr %BufferCapacity.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp ult i64 %add.i.i.i.i, %56
   %.pre.i.i.i = load ptr, ptr %OS, align 8
@@ -6452,10 +6422,10 @@ while.end.i:                                      ; preds = %for.end.i
   br i1 %cmp.i.i16.i, label %_ZL9outputHexR12OutputStreamj.exit, label %if.end.i.i17.i
 
 if.end.i.i17.i:                                   ; preds = %while.end.i
-  %CurrentPosition.i.i.i18.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i.i18.i = getelementptr inbounds i8, ptr %OS, i64 8
   %61 = load i64, ptr %CurrentPosition.i.i.i18.i, align 8
   %add.i.i.i19.i = add i64 %61, %call.i11.i
-  %BufferCapacity.i.i.i20.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i.i20.i = getelementptr inbounds i8, ptr %OS, i64 16
   %62 = load i64, ptr %BufferCapacity.i.i.i20.i, align 8
   %cmp.not.i.i.i21.i = icmp ult i64 %add.i.i.i19.i, %62
   %.pre.i.i22.i = load ptr, ptr %OS, align 8
@@ -6504,10 +6474,10 @@ return:                                           ; preds = %_ZN12OutputStream4g
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12OutputStreamlsEc(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 noundef signext %C) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %this, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %this, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %this, align 8
@@ -6544,22 +6514,22 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_19Demangler10copyStringE10StringView(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr %Borrowed.coerce0, ptr %Borrowed.coerce1) unnamed_addr #2 align 2 {
 entry:
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %Borrowed.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %Borrowed.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add = add i64 %sub.ptr.sub.i, 1
   %0 = load ptr, ptr %Arena, align 8
   %1 = load ptr, ptr %0, align 8
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i64, ptr %Used.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %2
   %add.i = add i64 %2, %add
   store i64 %add.i, ptr %Used.i, align 8
   %3 = load ptr, ptr %Arena, align 8
-  %Used7.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %3, i64 0, i32 1
+  %Used7.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %Used7.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %3, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ugt i64 %4, %5
   br i1 %cmp.i, label %if.then.i, label %_ZN4llvh11ms_demangle14ArenaAllocator20allocUnalignedBufferEm.exit
@@ -6569,12 +6539,12 @@ if.then.i:                                        ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %3, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 %.sroa.speculated.i, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %add, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator20allocUnalignedBufferEm.exit
 
@@ -6603,11 +6573,11 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler22demangleNameScopeChainER10StringViewPN4llvh11ms_demangle14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, ptr noundef %UnqualifiedName) unnamed_addr #2 align 2 {
 entry:
   %OS.i = alloca %class.OutputStream, align 8
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Arena, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %3, %2
   %sub.i = add i64 %add.i, 7
@@ -6617,9 +6587,9 @@ entry:
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %4 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %5, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -6632,12 +6602,12 @@ if.end.i:                                         ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %4, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 16, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit
 
@@ -6646,13 +6616,14 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit: ; preds
   %8 = getelementptr inbounds i8, ptr %call2.i.sink.i, i64 8
   store i64 0, ptr %8, align 8
   store ptr %UnqualifiedName, ptr %call2.i.sink.i, align 8
-  %Last.i1.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
-  %Error.i109 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
-  %CurrentPackIndex.i.i = getelementptr inbounds %class.OutputStream, ptr %OS.i, i64 0, i32 3
-  %CurrentPackMax.i.i = getelementptr inbounds %class.OutputStream, ptr %OS.i, i64 0, i32 4
-  %CurrentPosition.i.i.i = getelementptr inbounds %class.OutputStream, ptr %OS.i, i64 0, i32 1
-  %BufferCapacity.i.i.i = getelementptr inbounds %class.OutputStream, ptr %OS.i, i64 0, i32 2
-  %NamesCount.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 3
+  %Last.i1.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
+  %Error.i109 = getelementptr inbounds i8, ptr %this, i64 8
+  %CurrentPackIndex.i.i = getelementptr inbounds i8, ptr %OS.i, i64 24
+  %CurrentPackMax.i.i = getelementptr inbounds i8, ptr %OS.i, i64 28
+  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
+  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 16
+  %NamesCount.i = getelementptr inbounds i8, ptr %this, i64 192
+  %Names.i = getelementptr inbounds i8, ptr %this, i64 112
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end9, %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit
@@ -6673,7 +6644,7 @@ while.body:                                       ; preds = %_ZNK10StringView10s
   %11 = load ptr, ptr %Arena, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
-  %Used.i10 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %11, i64 0, i32 1
+  %Used.i10 = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load i64, ptr %Used.i10, align 8
   %add.i11 = add i64 %14, %13
   %sub.i12 = add i64 %add.i11, 7
@@ -6683,9 +6654,9 @@ while.body:                                       ; preds = %_ZNK10StringView10s
   %add8.i16 = add i64 %add5.i15, %and.i13
   store i64 %add8.i16, ptr %Used.i10, align 8
   %15 = load ptr, ptr %Arena, align 8
-  %Used10.i17 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %15, i64 0, i32 1
+  %Used10.i17 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i64, ptr %Used10.i17, align 8
-  %Capacity.i18 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %15, i64 0, i32 2
+  %Capacity.i18 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load i64, ptr %Capacity.i18, align 8
   %cmp.i19 = icmp ult i64 %16, %17
   br i1 %cmp.i19, label %if.then.i27, label %if.end.i20
@@ -6698,19 +6669,19 @@ if.end.i20:                                       ; preds = %while.body
   %call.i.i21 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i22 = call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i22, ptr %call.i.i21, align 8
-  %Next.i.i23 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i21, i64 0, i32 3
+  %Next.i.i23 = getelementptr inbounds i8, ptr %call.i.i21, i64 24
   store ptr %15, ptr %Next.i.i23, align 8
-  %Capacity3.i.i24 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i21, i64 0, i32 2
+  %Capacity3.i.i24 = getelementptr inbounds i8, ptr %call.i.i21, i64 16
   store i64 4096, ptr %Capacity3.i.i24, align 8
   store ptr %call.i.i21, ptr %Arena, align 8
-  %Used.i.i25 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i21, i64 0, i32 1
+  %Used.i.i25 = getelementptr inbounds i8, ptr %call.i.i21, i64 8
   store i64 16, ptr %Used.i.i25, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit28
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit28: ; preds = %if.then.i27, %if.end.i20
   %call2.i.sink.i26 = phi ptr [ %call2.i.i22, %if.end.i20 ], [ %18, %if.then.i27 ]
   store i64 0, ptr %call2.i.sink.i26, align 8
-  %Next = getelementptr inbounds %struct.NodeList, ptr %call2.i.sink.i26, i64 0, i32 1
+  %Next = getelementptr inbounds i8, ptr %call2.i.sink.i26, i64 8
   store ptr %Head.0, ptr %Next, align 8
   %19 = load ptr, ptr %MangledName, align 8
   %20 = load ptr, ptr %Last.i1.i.i, align 8
@@ -6742,7 +6713,7 @@ if.then.i141:                                     ; preds = %if.then.i33
 if.end.i144:                                      ; preds = %if.then.i33
   %add.ptr.i.i146 = getelementptr inbounds i8, ptr %19, i64 1
   store ptr %add.ptr.i.i146, ptr %MangledName, align 8
-  %arrayidx.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 2, i64 %sub.i140
+  %arrayidx.i = getelementptr inbounds [10 x ptr], ptr %Names.i, i64 0, i64 %sub.i140
   %23 = load ptr, ptr %arrayidx.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler22demangleNameScopePieceER10StringView.exit
 
@@ -6774,7 +6745,7 @@ _ZN10StringView12consumeFrontES_.exit.i:          ; preds = %_ZNK10StringView10s
   %24 = load ptr, ptr %Arena, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
-  %Used.i.i73 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %24, i64 0, i32 1
+  %Used.i.i73 = getelementptr inbounds i8, ptr %24, i64 8
   %27 = load i64, ptr %Used.i.i73, align 8
   %add.i.i74 = add i64 %27, %26
   %sub.i.i75 = add i64 %add.i.i74, 7
@@ -6784,9 +6755,9 @@ _ZN10StringView12consumeFrontES_.exit.i:          ; preds = %_ZNK10StringView10s
   %add8.i.i79 = add i64 %add5.i.i78, %and.i.i76
   store i64 %add8.i.i79, ptr %Used.i.i73, align 8
   %28 = load ptr, ptr %Arena, align 8
-  %Used10.i.i80 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %28, i64 0, i32 1
+  %Used10.i.i80 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load i64, ptr %Used10.i.i80, align 8
-  %Capacity.i.i81 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %28, i64 0, i32 2
+  %Capacity.i.i81 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load i64, ptr %Capacity.i.i81, align 8
   %cmp.i.i82 = icmp ult i64 %29, %30
   br i1 %cmp.i.i82, label %if.then.i.i110, label %if.end.i8.i83
@@ -6799,25 +6770,25 @@ if.end.i8.i83:                                    ; preds = %_ZN10StringView12co
   %call.i.i.i84 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i.i85 = call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i.i85, ptr %call.i.i.i84, align 8
-  %Next.i.i.i86 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i84, i64 0, i32 3
+  %Next.i.i.i86 = getelementptr inbounds i8, ptr %call.i.i.i84, i64 24
   store ptr %28, ptr %Next.i.i.i86, align 8
-  %Capacity3.i.i.i87 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i84, i64 0, i32 2
+  %Capacity3.i.i.i87 = getelementptr inbounds i8, ptr %call.i.i.i84, i64 16
   store i64 4096, ptr %Capacity3.i.i.i87, align 8
   store ptr %call.i.i.i84, ptr %Arena, align 8
-  %Used.i.i.i88 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i84, i64 0, i32 1
+  %Used.i.i.i88 = getelementptr inbounds i8, ptr %call.i.i.i84, i64 8
   store i64 40, ptr %Used.i.i.i88, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit.i89
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit.i89: ; preds = %if.end.i8.i83, %if.then.i.i110
   %call2.i.sink9.i.i90 = phi ptr [ %call2.i.i.i85, %if.end.i8.i83 ], [ %31, %if.then.i.i110 ]
-  %Kind.i.i.i4.i.i91 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i.i90, i64 0, i32 1
+  %Kind.i.i.i4.i.i91 = getelementptr inbounds i8, ptr %call2.i.sink9.i.i90, i64 8
   store i32 5, ptr %Kind.i.i.i4.i.i91, align 8
-  %TemplateParams.i.i5.i.i92 = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i.i90, i64 0, i32 1
+  %TemplateParams.i.i5.i.i92 = getelementptr inbounds i8, ptr %call2.i.sink9.i.i90, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i92, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i.i90, align 8
-  %Name.i6.i.i93 = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i.i90, i64 0, i32 1
+  %Name.i6.i.i93 = getelementptr inbounds i8, ptr %call2.i.sink9.i.i90, i64 24
   store ptr @.str.60, ptr %Name.i6.i.i93, align 8
-  %ref.tmp.sroa.2.0.Name.sroa_idx.i94 = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i.i90, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.2.0.Name.sroa_idx.i94 = getelementptr inbounds i8, ptr %call2.i.sink9.i.i90, i64 32
   store ptr getelementptr inbounds ([22 x i8], ptr @.str.60, i64 0, i64 21), ptr %ref.tmp.sroa.2.0.Name.sroa_idx.i94, align 8
   %32 = load ptr, ptr %Last.i1.i.i, align 8
   %33 = load ptr, ptr %MangledName, align 8
@@ -6944,7 +6915,7 @@ if.then15.i:                                      ; preds = %if.end49.i, %if.end
   %48 = load ptr, ptr %Arena, align 8
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
-  %Used.i.i51 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %48, i64 0, i32 1
+  %Used.i.i51 = getelementptr inbounds i8, ptr %48, i64 8
   %51 = load i64, ptr %Used.i.i51, align 8
   %add.i.i = add i64 %51, %50
   %sub.i.i = add i64 %add.i.i, 7
@@ -6954,9 +6925,9 @@ if.then15.i:                                      ; preds = %if.end49.i, %if.end
   %add8.i.i = add i64 %add5.i.i, %and.i.i
   store i64 %add8.i.i, ptr %Used.i.i51, align 8
   %52 = load ptr, ptr %Arena, align 8
-  %Used10.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %52, i64 0, i32 1
+  %Used10.i.i = getelementptr inbounds i8, ptr %52, i64 8
   %53 = load i64, ptr %Used10.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %52, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %52, i64 16
   %54 = load i64, ptr %Capacity.i.i, align 8
   %cmp.i.i52 = icmp ult i64 %53, %54
   br i1 %cmp.i.i52, label %if.then.i.i, label %if.end.i.i53
@@ -6969,23 +6940,23 @@ if.end.i.i53:                                     ; preds = %if.then15.i
   %call.i.i.i = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i.i = call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i.i, ptr %call.i.i.i, align 8
-  %Next.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 3
+  %Next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   store ptr %52, ptr %Next.i.i.i, align 8
-  %Capacity3.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 2
+  %Capacity3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i.i, align 8
   store ptr %call.i.i.i, ptr %Arena, align 8
-  %Used.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 1
+  %Used.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 40, ptr %Used.i.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit.i
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit.i: ; preds = %if.end.i.i53, %if.then.i.i
   %call2.i.sink9.i.i = phi ptr [ %call2.i.i.i, %if.end.i.i53 ], [ %55, %if.then.i.i ]
-  %Kind.i.i.i4.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i.i, i64 0, i32 1
+  %Kind.i.i.i4.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 8
   store i32 5, ptr %Kind.i.i.i4.i.i, align 8
-  %TemplateParams.i.i5.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i.i, i64 0, i32 1
+  %TemplateParams.i.i5.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i.i, align 8
-  %Name.i6.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i.i, i64 0, i32 1
+  %Name.i6.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Name.i6.i.i, i8 0, i64 16, i1 false)
   %56 = load ptr, ptr %MangledName, align 8
   %57 = load ptr, ptr %Last.i1.i.i, align 8
@@ -7117,7 +7088,7 @@ if.end8.i:                                        ; preds = %if.end.i58
   store i64 1, ptr %CurrentPosition.i.i.i, align 8
   store i8 96, ptr %call.i.i59, align 1
   %vtable.i = load ptr, ptr %call5.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %69 = load ptr, ptr %vfn.i, align 8
   call void %69(ptr noundef nonnull align 8 dereferenceable(12) %call5.i, ptr noundef nonnull align 8 dereferenceable(32) %OS.i, i32 noundef 0) #24
   %70 = load i64, ptr %CurrentPosition.i.i.i, align 8
@@ -7253,15 +7224,15 @@ _ZN12OutputStreamlsEc.exit94.i:                   ; preds = %if.then.i._ZN12Outp
   %add.i101.i = add i64 %call.i96.i, 1
   %88 = load ptr, ptr %Arena, align 8
   %89 = load ptr, ptr %88, align 8
-  %Used.i.i102.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %88, i64 0, i32 1
+  %Used.i.i102.i = getelementptr inbounds i8, ptr %88, i64 8
   %90 = load i64, ptr %Used.i.i102.i, align 8
   %add.ptr.i.i103.i = getelementptr inbounds i8, ptr %89, i64 %90
   %add.i.i104.i = add i64 %90, %add.i101.i
   store i64 %add.i.i104.i, ptr %Used.i.i102.i, align 8
   %91 = load ptr, ptr %Arena, align 8
-  %Used7.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %91, i64 0, i32 1
+  %Used7.i.i.i = getelementptr inbounds i8, ptr %91, i64 8
   %92 = load i64, ptr %Used7.i.i.i, align 8
-  %Capacity.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %91, i64 0, i32 2
+  %Capacity.i.i.i = getelementptr inbounds i8, ptr %91, i64 16
   %93 = load i64, ptr %Capacity.i.i.i, align 8
   %cmp.i.i105.i = icmp ugt i64 %92, %93
   br i1 %cmp.i.i105.i, label %if.then.i.i.i, label %_ZN12_GLOBAL__N_19Demangler10copyStringE10StringView.exit.i
@@ -7271,12 +7242,12 @@ if.then.i.i.i:                                    ; preds = %_ZN12OutputStreamls
   %call.i.i.i108.i = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i.i.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i.i.i) #20
   store ptr %call2.i.i.i.i, ptr %call.i.i.i108.i, align 8
-  %Next.i.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i108.i, i64 0, i32 3
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i108.i, i64 24
   store ptr %91, ptr %Next.i.i.i.i, align 8
-  %Capacity3.i.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i108.i, i64 0, i32 2
+  %Capacity3.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i108.i, i64 16
   store i64 %.sroa.speculated.i.i.i, ptr %Capacity3.i.i.i.i, align 8
   store ptr %call.i.i.i108.i, ptr %Arena, align 8
-  %Used.i.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i108.i, i64 0, i32 1
+  %Used.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i108.i, i64 8
   store i64 %add.i101.i, ptr %Used.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler10copyStringE10StringView.exit.i
 
@@ -7285,7 +7256,7 @@ _ZN12_GLOBAL__N_19Demangler10copyStringE10StringView.exit.i: ; preds = %if.then.
   %call4.i.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %Buf.0.i.i.i, ptr noundef nonnull dereferenceable(1) %87) #24
   %add.ptr.i7.i.i = getelementptr inbounds i8, ptr %Buf.0.i.i.i, i64 %call.i96.i
   store ptr %Buf.0.i.i.i, ptr %Name.i6.i.i, align 8
-  %ref.tmp.sroa.2.0.Name.sroa_idx.i = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i.i, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.2.0.Name.sroa_idx.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 32
   store ptr %add.ptr.i7.i.i, ptr %ref.tmp.sroa.2.0.Name.sroa_idx.i, align 8
   call void @free(ptr noundef %87) #24
   br label %_ZN12_GLOBAL__N_19Demangler30demangleLocallyScopedNamePieceER10StringView.exit
@@ -7316,7 +7287,7 @@ while.end:                                        ; preds = %_ZNK10StringView10s
   %96 = load ptr, ptr %Arena, align 8
   %97 = load ptr, ptr %96, align 8
   %98 = ptrtoint ptr %97 to i64
-  %Used.i34 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %96, i64 0, i32 1
+  %Used.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %99 = load i64, ptr %Used.i34, align 8
   %add.i35 = add i64 %99, %98
   %sub.i36 = add i64 %add.i35, 7
@@ -7326,9 +7297,9 @@ while.end:                                        ; preds = %_ZNK10StringView10s
   %add8.i40 = add i64 %add5.i39, %and.i37
   store i64 %add8.i40, ptr %Used.i34, align 8
   %100 = load ptr, ptr %Arena, align 8
-  %Used10.i41 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %100, i64 0, i32 1
+  %Used10.i41 = getelementptr inbounds i8, ptr %100, i64 8
   %101 = load i64, ptr %Used10.i41, align 8
-  %Capacity.i42 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %100, i64 0, i32 2
+  %Capacity.i42 = getelementptr inbounds i8, ptr %100, i64 16
   %102 = load i64, ptr %Capacity.i42, align 8
   %cmp.i43 = icmp ult i64 %101, %102
   br i1 %cmp.i43, label %if.then.i50, label %if.end.i44
@@ -7341,21 +7312,21 @@ if.end.i44:                                       ; preds = %while.end
   %call.i.i45 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i46 = call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i46, ptr %call.i.i45, align 8
-  %Next.i.i47 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i45, i64 0, i32 3
+  %Next.i.i47 = getelementptr inbounds i8, ptr %call.i.i45, i64 24
   store ptr %100, ptr %Next.i.i47, align 8
-  %Capacity3.i.i48 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i45, i64 0, i32 2
+  %Capacity3.i.i48 = getelementptr inbounds i8, ptr %call.i.i45, i64 16
   store i64 4096, ptr %Capacity3.i.i48, align 8
   store ptr %call.i.i45, ptr %Arena, align 8
-  %Used.i.i49 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i45, i64 0, i32 1
+  %Used.i.i49 = getelementptr inbounds i8, ptr %call.i.i45, i64 8
   store i64 24, ptr %Used.i.i49, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17QualifiedNameNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17QualifiedNameNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i50, %if.end.i44
   %call2.i.sink7.i = phi ptr [ %call2.i.i46, %if.end.i44 ], [ %103, %if.then.i50 ]
-  %Kind.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink7.i, i64 0, i32 1
+  %Kind.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink7.i, i64 8
   store i32 20, ptr %Kind.i.i4.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle17QualifiedNameNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink7.i, align 8
-  %Components.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::QualifiedNameNode", ptr %call2.i.sink7.i, i64 0, i32 1
+  %Components.i5.i = getelementptr inbounds i8, ptr %call2.i.sink7.i, i64 16
   store ptr null, ptr %Components.i5.i, align 8
   %call14 = call fastcc noundef ptr @_ZL19nodeListToNodeArrayRN4llvh11ms_demangle14ArenaAllocatorEP8NodeListm(ptr noundef nonnull align 8 dereferenceable(8) %Arena, ptr noundef nonnull %Head.0, i64 noundef %Count.0)
   store ptr %call14, ptr %Components.i5.i, align 8
@@ -7379,7 +7350,7 @@ entry:
   br i1 %2, label %switch.hole_check, label %sw.epilog
 
 sw.epilog:                                        ; preds = %switch.hole_check, %entry
-  %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error, align 8
   br label %return
 
@@ -7419,20 +7390,21 @@ _ZL15startsWithDigit10StringView.exit:            ; preds = %entry
 if.then.i:                                        ; preds = %_ZL15startsWithDigit10StringView.exit
   %conv.i = sext i8 %0 to i64
   %sub.i = add nsw i64 %conv.i, -48
-  %NamesCount.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 3
+  %NamesCount.i = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load i64, ptr %NamesCount.i, align 8
   %cmp.not.i = icmp ult i64 %sub.i, %1
   br i1 %cmp.not.i, label %if.end.i7, label %if.then.i5
 
 if.then.i5:                                       ; preds = %if.then.i
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb.exit
 
 if.end.i7:                                        ; preds = %if.then.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i, i64 1
   store ptr %add.ptr.i.i, ptr %MangledName, align 8
-  %arrayidx.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 2, i64 %sub.i
+  %Names.i = getelementptr inbounds i8, ptr %this, i64 112
+  %arrayidx.i = getelementptr inbounds [10 x ptr], ptr %Names.i, i64 0, i64 %sub.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb.exit
 
@@ -7458,7 +7430,7 @@ if.end7.i:                                        ; preds = %if.end.i, %_ZNK10St
 
 _ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb.exit: ; preds = %if.end.i7, %if.then.i5, %if.then5.i, %if.end7.i
   %retval.0.i = phi ptr [ %call6.i, %if.then5.i ], [ %call8.i, %if.end7.i ], [ null, %if.then.i5 ], [ %2, %if.end.i7 ]
-  %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i8, ptr %Error, align 8
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -7483,7 +7455,7 @@ entry:
   %0 = load ptr, ptr %Arena, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %3, %2
   %sub.i = add i64 %add.i, 7
@@ -7493,9 +7465,9 @@ entry:
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %4 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %5, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -7508,29 +7480,29 @@ if.end.i:                                         ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %4, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 32, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13NodeArrayNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13NodeArrayNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i
   %call2.i.sink7.i = phi ptr [ %call2.i.i, %if.end.i ], [ %7, %if.then.i ]
-  %Kind.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink7.i, i64 0, i32 1
+  %Kind.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink7.i, i64 8
   store i32 19, ptr %Kind.i.i4.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle13NodeArrayNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink7.i, align 8
-  %Nodes.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %call2.i.sink7.i, i64 0, i32 1
+  %Nodes.i5.i = getelementptr inbounds i8, ptr %call2.i.sink7.i, i64 16
   store i64 0, ptr %Nodes.i5.i, align 8
-  %Count1 = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %call2.i.sink7.i, i64 0, i32 2
+  %Count1 = getelementptr inbounds i8, ptr %call2.i.sink7.i, i64 24
   store i64 %Count, ptr %Count1, align 8
   %mul.i = shl i64 %Count, 3
   %8 = load ptr, ptr %Arena, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
-  %Used.i10 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %8, i64 0, i32 1
+  %Used.i10 = getelementptr inbounds i8, ptr %8, i64 8
   %11 = load i64, ptr %Used.i10, align 8
   %add.i11 = add i64 %11, %10
   %sub.i12 = add i64 %add.i11, 7
@@ -7540,9 +7512,9 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13NodeArrayNodeEJEEEPT_DpOT0_.ex
   %add8.i16 = add i64 %add5.i15, %and.i13
   store i64 %add8.i16, ptr %Used.i10, align 8
   %12 = load ptr, ptr %Arena, align 8
-  %Used10.i17 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %12, i64 0, i32 1
+  %Used10.i17 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %Used10.i17, align 8
-  %Capacity.i18 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %12, i64 0, i32 2
+  %Capacity.i18 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load i64, ptr %Capacity.i18, align 8
   %cmp.i19 = icmp ult i64 %13, %14
   br i1 %cmp.i19, label %if.then.i26, label %if.end.i20
@@ -7558,12 +7530,12 @@ if.end.i20:                                       ; preds = %_ZN4llvh11ms_demang
   %call.i.i21 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i22 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i22, ptr %call.i.i21, align 8
-  %Next.i.i23 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i21, i64 0, i32 3
+  %Next.i.i23 = getelementptr inbounds i8, ptr %call.i.i21, i64 24
   store ptr %12, ptr %Next.i.i23, align 8
-  %Capacity3.i.i24 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i21, i64 0, i32 2
+  %Capacity3.i.i24 = getelementptr inbounds i8, ptr %call.i.i21, i64 16
   store i64 4096, ptr %Capacity3.i.i24, align 8
   store ptr %call.i.i21, ptr %Arena, align 8
-  %Used.i.i25 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i21, i64 0, i32 1
+  %Used.i.i25 = getelementptr inbounds i8, ptr %call.i.i21, i64 8
   store i64 %mul.i, ptr %Used.i.i25, align 8
   %18 = icmp ugt i64 %Count, 2305843009213693951
   %19 = select i1 %18, i64 -1, i64 %mul.i
@@ -7583,7 +7555,7 @@ for.body:                                         ; preds = %_ZN4llvh11ms_demang
   %21 = load ptr, ptr %Nodes.i5.i, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %21, i64 %I.029
   store ptr %20, ptr %arrayidx, align 8
-  %Next = getelementptr inbounds %struct.NodeList, ptr %Head.addr.028, i64 0, i32 1
+  %Next = getelementptr inbounds i8, ptr %Head.addr.028, i64 8
   %22 = load ptr, ptr %Next, align 8
   %inc = add nuw i64 %I.029, 1
   %exitcond.not = icmp eq i64 %inc, %Count
@@ -7601,7 +7573,7 @@ entry:
   %Value.i = alloca i64, align 8
   %OuterContext.sroa.0 = alloca [10 x ptr], align 8
   %OuterContext.sroa.5 = alloca [10 x ptr], align 8
-  %Last.i1.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i1.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %0 = load ptr, ptr %Last.i1.i.i, align 8
   %1 = load ptr, ptr %MangledName, align 8
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %0 to i64
@@ -7622,18 +7594,18 @@ if.end.i:                                         ; preds = %_ZNK10StringView10s
   br label %_ZN10StringView12consumeFrontES_.exit
 
 _ZN10StringView12consumeFrontES_.exit:            ; preds = %entry, %_ZNK10StringView10startsWithES_.exit.i, %if.end.i
-  %Backrefs = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3
+  %Backrefs = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %OuterContext.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %Backrefs, i64 80, i1 false)
-  %OuterContext.sroa.4.0.Backrefs.sroa_idx = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 1
+  %OuterContext.sroa.4.0.Backrefs.sroa_idx = getelementptr inbounds i8, ptr %this, i64 104
   %OuterContext.sroa.4.0.copyload311 = load i64, ptr %OuterContext.sroa.4.0.Backrefs.sroa_idx, align 8
-  %OuterContext.sroa.5.0.Backrefs.sroa_idx = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 2
+  %OuterContext.sroa.5.0.Backrefs.sroa_idx = getelementptr inbounds i8, ptr %this, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %OuterContext.sroa.5, ptr noundef nonnull align 8 dereferenceable(80) %OuterContext.sroa.5.0.Backrefs.sroa_idx, i64 80, i1 false)
-  %OuterContext.sroa.5316.0.Backrefs.sroa_idx = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 3
+  %OuterContext.sroa.5316.0.Backrefs.sroa_idx = getelementptr inbounds i8, ptr %this, i64 192
   %OuterContext.sroa.5316.0.copyload317 = load i64, ptr %OuterContext.sroa.5316.0.Backrefs.sroa_idx, align 8
   store i64 0, ptr %OuterContext.sroa.4.0.Backrefs.sroa_idx, align 8
   store i64 0, ptr %OuterContext.sroa.5316.0.Backrefs.sroa_idx, align 8
   %call2 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler29demangleUnqualifiedSymbolNameER10StringView19NameBackrefBehavior(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
-  %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %Error, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -7643,7 +7615,7 @@ land.rhs.i.lr.ph.lr.ph:                           ; preds = %_ZN10StringView12co
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %Head.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %IsNegative.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %Value.i)
-  %Arena.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %land.rhs.i.lr.ph
 
 land.rhs.i.lr.ph:                                 ; preds = %if.end142.i, %land.rhs.i.lr.ph.lr.ph
@@ -7712,7 +7684,7 @@ if.end.i6:                                        ; preds = %while.body.i, %lor.
   %9 = load ptr, ptr %Arena.i, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
-  %Used.i205 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %9, i64 0, i32 1
+  %Used.i205 = getelementptr inbounds i8, ptr %9, i64 8
   %12 = load i64, ptr %Used.i205, align 8
   %add.i206 = add i64 %12, %11
   %sub.i207 = add i64 %add.i206, 7
@@ -7722,9 +7694,9 @@ if.end.i6:                                        ; preds = %while.body.i, %lor.
   %add8.i211 = add i64 %add5.i210, %and.i208
   store i64 %add8.i211, ptr %Used.i205, align 8
   %13 = load ptr, ptr %Arena.i, align 8
-  %Used10.i212 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %13, i64 0, i32 1
+  %Used10.i212 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i64, ptr %Used10.i212, align 8
-  %Capacity.i213 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %13, i64 0, i32 2
+  %Capacity.i213 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %Capacity.i213, align 8
   %cmp.i214 = icmp ult i64 %14, %15
   br i1 %cmp.i214, label %if.then.i221, label %if.end.i215
@@ -7737,12 +7709,12 @@ if.end.i215:                                      ; preds = %if.end.i6
   %call.i.i216 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i217 = call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i217, ptr %call.i.i216, align 8
-  %Next.i.i218 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i216, i64 0, i32 3
+  %Next.i.i218 = getelementptr inbounds i8, ptr %call.i.i216, i64 24
   store ptr %13, ptr %Next.i.i218, align 8
-  %Capacity3.i.i219 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i216, i64 0, i32 2
+  %Capacity3.i.i219 = getelementptr inbounds i8, ptr %call.i.i216, i64 16
   store i64 4096, ptr %Capacity3.i.i219, align 8
   store ptr %call.i.i216, ptr %Arena.i, align 8
-  %Used.i.i220 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i216, i64 0, i32 1
+  %Used.i.i220 = getelementptr inbounds i8, ptr %call.i.i216, i64 8
   store i64 16, ptr %Used.i.i220, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit
 
@@ -7825,7 +7797,7 @@ if.then39.i:                                      ; preds = %_ZNK10StringView10s
   %19 = load ptr, ptr %Arena.i, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %19, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %19, i64 8
   %22 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %22, %21
   %sub.i105 = add i64 %add.i, 7
@@ -7835,9 +7807,9 @@ if.then39.i:                                      ; preds = %_ZNK10StringView10s
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %23 = load ptr, ptr %Arena.i, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %23, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %23, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load i64, ptr %Capacity.i, align 8
   %cmp.i106 = icmp ult i64 %24, %25
   br i1 %cmp.i106, label %if.then.i108, label %if.end.i107
@@ -7850,27 +7822,27 @@ if.end.i107:                                      ; preds = %if.then39.i
   %call.i.i = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %23, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena.i, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 64, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i108, %if.end.i107
   %call2.i.sink13.i = phi ptr [ %call2.i.i, %if.end.i107 ], [ %26, %if.then.i108 ]
-  %Kind.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink13.i, i64 0, i32 1
+  %Kind.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink13.i, i64 8
   store i32 21, ptr %Kind.i.i4.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle30TemplateParameterReferenceNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink13.i, align 8
-  %Symbol.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i, i64 0, i32 2
+  %Symbol.i5.i = getelementptr inbounds i8, ptr %call2.i.sink13.i, i64 16
   store ptr null, ptr %Symbol.i5.i, align 8
-  %ThunkOffsetCount.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i, i64 0, i32 3
+  %ThunkOffsetCount.i6.i = getelementptr inbounds i8, ptr %call2.i.sink13.i, i64 24
   store i32 0, ptr %ThunkOffsetCount.i6.i, align 8
-  %Affinity.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i, i64 0, i32 6
+  %Affinity.i7.i = getelementptr inbounds i8, ptr %call2.i.sink13.i, i64 56
   store i32 0, ptr %Affinity.i7.i, align 8
-  %IsMemberPointer.i8.i = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i, i64 0, i32 7
+  %IsMemberPointer.i8.i = getelementptr inbounds i8, ptr %call2.i.sink13.i, i64 60
   store ptr %call2.i.sink13.i, ptr %call2.i.sink.i, align 8
   store i8 1, ptr %IsMemberPointer.i8.i, align 4
   %27 = load ptr, ptr %Last.i1.i.i, align 8
@@ -7891,16 +7863,16 @@ _ZNK10StringView10startsWithEc.exit:              ; preds = %_ZN4llvh11ms_demang
 
 if.then46.i:                                      ; preds = %_ZNK10StringView10startsWithEc.exit
   %call47.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler5parseER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
-  %Name.i = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %call47.i, i64 0, i32 1
+  %Name.i = getelementptr inbounds i8, ptr %call47.i, i64 16
   %32 = load ptr, ptr %Name.i, align 8
-  %Components.i = getelementptr inbounds %"struct.llvh::ms_demangle::QualifiedNameNode", ptr %32, i64 0, i32 1
+  %Components.i = getelementptr inbounds i8, ptr %32, i64 16
   %33 = load ptr, ptr %Components.i, align 8
-  %Nodes.i = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %33, i64 0, i32 1
+  %Nodes.i = getelementptr inbounds i8, ptr %33, i64 16
   %34 = load ptr, ptr %Nodes.i, align 8
-  %Count.i = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %33, i64 0, i32 2
+  %Count.i = getelementptr inbounds i8, ptr %33, i64 24
   %35 = load i64, ptr %Count.i, align 8
   %36 = getelementptr ptr, ptr %34, i64 %35
-  %arrayidx.i = getelementptr ptr, ptr %36, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %36, i64 -8
   %37 = load ptr, ptr %arrayidx.i, align 8
   call fastcc void @_ZN12_GLOBAL__N_19Demangler18memorizeIdentifierEPN4llvh11ms_demangle14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %37)
   br label %if.end49.i
@@ -8004,7 +7976,7 @@ if.end.i421:                                      ; preds = %if.then.i424, %_ZN1
 
 _ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit430: ; preds = %if.end.thread.i406, %if.end.i421
   %44 = phi i64 [ 0, %if.end.thread.i406 ], [ %spec.select.i423, %if.end.i421 ]
-  %ThunkOffsets.i = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i, i64 0, i32 5
+  %ThunkOffsets.i = getelementptr inbounds i8, ptr %call2.i.sink13.i, i64 32
   %45 = load i32, ptr %ThunkOffsetCount.i6.i, align 8
   %inc51.i = add nsw i32 %45, 1
   store i32 %inc51.i, ptr %ThunkOffsetCount.i6.i, align 8
@@ -8102,7 +8074,7 @@ if.end.i80:                                       ; preds = %if.then.i83, %_ZN12
 
 _ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit90: ; preds = %if.end.thread.i64, %if.end.i80
   %52 = phi i64 [ 0, %if.end.thread.i64 ], [ %spec.select.i82, %if.end.i80 ]
-  %ThunkOffsets56.i = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i, i64 0, i32 5
+  %ThunkOffsets56.i = getelementptr inbounds i8, ptr %call2.i.sink13.i, i64 32
   %53 = load i32, ptr %ThunkOffsetCount.i6.i, align 8
   %inc58.i = add nsw i32 %53, 1
   store i32 %inc58.i, ptr %ThunkOffsetCount.i6.i, align 8
@@ -8200,7 +8172,7 @@ if.end.i36:                                       ; preds = %if.then.i38, %_ZN12
 
 _ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit: ; preds = %if.end.thread.i, %if.end.i36
   %60 = phi i64 [ 0, %if.end.thread.i ], [ %spec.select.i37, %if.end.i36 ]
-  %ThunkOffsets63.i = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i, i64 0, i32 5
+  %ThunkOffsets63.i = getelementptr inbounds i8, ptr %call2.i.sink13.i, i64 32
   %61 = load i32, ptr %ThunkOffsetCount.i6.i, align 8
   %inc65.i = add nsw i32 %61, 1
   store i32 %inc65.i, ptr %ThunkOffsetCount.i6.i, align 8
@@ -8240,7 +8212,7 @@ _ZN10StringView12consumeFrontES_.exit453:         ; preds = %if.end.i.i446, %if.
   %62 = load ptr, ptr %Arena.i, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = ptrtoint ptr %63 to i64
-  %Used.i454 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %62, i64 0, i32 1
+  %Used.i454 = getelementptr inbounds i8, ptr %62, i64 8
   %65 = load i64, ptr %Used.i454, align 8
   %add.i455 = add i64 %65, %64
   %sub.i456 = add i64 %add.i455, 7
@@ -8250,9 +8222,9 @@ _ZN10StringView12consumeFrontES_.exit453:         ; preds = %if.end.i.i446, %if.
   %add8.i460 = add i64 %add5.i459, %and.i457
   store i64 %add8.i460, ptr %Used.i454, align 8
   %66 = load ptr, ptr %Arena.i, align 8
-  %Used10.i461 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %66, i64 0, i32 1
+  %Used10.i461 = getelementptr inbounds i8, ptr %66, i64 8
   %67 = load i64, ptr %Used10.i461, align 8
-  %Capacity.i462 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %66, i64 0, i32 2
+  %Capacity.i462 = getelementptr inbounds i8, ptr %66, i64 16
   %68 = load i64, ptr %Capacity.i462, align 8
   %cmp.i463 = icmp ult i64 %67, %68
   br i1 %cmp.i463, label %if.then.i476, label %if.end.i464
@@ -8265,27 +8237,27 @@ if.end.i464:                                      ; preds = %_ZN10StringView12co
   %call.i.i465 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i466 = call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i466, ptr %call.i.i465, align 8
-  %Next.i.i467 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i465, i64 0, i32 3
+  %Next.i.i467 = getelementptr inbounds i8, ptr %call.i.i465, i64 24
   store ptr %66, ptr %Next.i.i467, align 8
-  %Capacity3.i.i468 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i465, i64 0, i32 2
+  %Capacity3.i.i468 = getelementptr inbounds i8, ptr %call.i.i465, i64 16
   store i64 4096, ptr %Capacity3.i.i468, align 8
   store ptr %call.i.i465, ptr %Arena.i, align 8
-  %Used.i.i469 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i465, i64 0, i32 1
+  %Used.i.i469 = getelementptr inbounds i8, ptr %call.i.i465, i64 8
   store i64 64, ptr %Used.i.i469, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit477
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit477: ; preds = %if.then.i476, %if.end.i464
   %call2.i.sink13.i470 = phi ptr [ %call2.i.i466, %if.end.i464 ], [ %69, %if.then.i476 ]
-  %Kind.i.i4.i471 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink13.i470, i64 0, i32 1
+  %Kind.i.i4.i471 = getelementptr inbounds i8, ptr %call2.i.sink13.i470, i64 8
   store i32 21, ptr %Kind.i.i4.i471, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle30TemplateParameterReferenceNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink13.i470, align 8
-  %Symbol.i5.i472 = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i470, i64 0, i32 2
+  %Symbol.i5.i472 = getelementptr inbounds i8, ptr %call2.i.sink13.i470, i64 16
   store ptr null, ptr %Symbol.i5.i472, align 8
-  %ThunkOffsetCount.i6.i473 = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i470, i64 0, i32 3
+  %ThunkOffsetCount.i6.i473 = getelementptr inbounds i8, ptr %call2.i.sink13.i470, i64 24
   store i32 0, ptr %ThunkOffsetCount.i6.i473, align 8
-  %Affinity.i7.i474 = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i470, i64 0, i32 6
+  %Affinity.i7.i474 = getelementptr inbounds i8, ptr %call2.i.sink13.i470, i64 56
   store i32 0, ptr %Affinity.i7.i474, align 8
-  %IsMemberPointer.i8.i475 = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i470, i64 0, i32 7
+  %IsMemberPointer.i8.i475 = getelementptr inbounds i8, ptr %call2.i.sink13.i470, i64 60
   store i8 0, ptr %IsMemberPointer.i8.i475, align 4
   store ptr %call2.i.sink13.i470, ptr %call2.i.sink.i, align 8
   %call79.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler5parseER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
@@ -8307,7 +8279,7 @@ if.then88.i:                                      ; preds = %_ZNK10StringView10s
   %70 = load ptr, ptr %Arena.i, align 8
   %71 = load ptr, ptr %70, align 8
   %72 = ptrtoint ptr %71 to i64
-  %Used.i498 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %70, i64 0, i32 1
+  %Used.i498 = getelementptr inbounds i8, ptr %70, i64 8
   %73 = load i64, ptr %Used.i498, align 8
   %add.i499 = add i64 %73, %72
   %sub.i500 = add i64 %add.i499, 7
@@ -8317,9 +8289,9 @@ if.then88.i:                                      ; preds = %_ZNK10StringView10s
   %add8.i504 = add i64 %add5.i503, %and.i501
   store i64 %add8.i504, ptr %Used.i498, align 8
   %74 = load ptr, ptr %Arena.i, align 8
-  %Used10.i505 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %74, i64 0, i32 1
+  %Used10.i505 = getelementptr inbounds i8, ptr %74, i64 8
   %75 = load i64, ptr %Used10.i505, align 8
-  %Capacity.i506 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %74, i64 0, i32 2
+  %Capacity.i506 = getelementptr inbounds i8, ptr %74, i64 16
   %76 = load i64, ptr %Capacity.i506, align 8
   %cmp.i507 = icmp ult i64 %75, %76
   br i1 %cmp.i507, label %if.then.i520, label %if.end.i508
@@ -8332,27 +8304,27 @@ if.end.i508:                                      ; preds = %if.then88.i
   %call.i.i509 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i510 = call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i510, ptr %call.i.i509, align 8
-  %Next.i.i511 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i509, i64 0, i32 3
+  %Next.i.i511 = getelementptr inbounds i8, ptr %call.i.i509, i64 24
   store ptr %74, ptr %Next.i.i511, align 8
-  %Capacity3.i.i512 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i509, i64 0, i32 2
+  %Capacity3.i.i512 = getelementptr inbounds i8, ptr %call.i.i509, i64 16
   store i64 4096, ptr %Capacity3.i.i512, align 8
   store ptr %call.i.i509, ptr %Arena.i, align 8
-  %Used.i.i513 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i509, i64 0, i32 1
+  %Used.i.i513 = getelementptr inbounds i8, ptr %call.i.i509, i64 8
   store i64 64, ptr %Used.i.i513, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit521
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit521: ; preds = %if.then.i520, %if.end.i508
   %call2.i.sink13.i514 = phi ptr [ %call2.i.i510, %if.end.i508 ], [ %77, %if.then.i520 ]
-  %Kind.i.i4.i515 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink13.i514, i64 0, i32 1
+  %Kind.i.i4.i515 = getelementptr inbounds i8, ptr %call2.i.sink13.i514, i64 8
   store i32 21, ptr %Kind.i.i4.i515, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle30TemplateParameterReferenceNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink13.i514, align 8
-  %Symbol.i5.i516 = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i514, i64 0, i32 2
+  %Symbol.i5.i516 = getelementptr inbounds i8, ptr %call2.i.sink13.i514, i64 16
   store ptr null, ptr %Symbol.i5.i516, align 8
-  %ThunkOffsetCount.i6.i517 = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i514, i64 0, i32 3
+  %ThunkOffsetCount.i6.i517 = getelementptr inbounds i8, ptr %call2.i.sink13.i514, i64 24
   store i32 0, ptr %ThunkOffsetCount.i6.i517, align 8
-  %Affinity.i7.i518 = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i514, i64 0, i32 6
+  %Affinity.i7.i518 = getelementptr inbounds i8, ptr %call2.i.sink13.i514, i64 56
   store i32 0, ptr %Affinity.i7.i518, align 8
-  %IsMemberPointer.i8.i519 = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i514, i64 0, i32 7
+  %IsMemberPointer.i8.i519 = getelementptr inbounds i8, ptr %call2.i.sink13.i514, i64 60
   store i8 0, ptr %IsMemberPointer.i8.i519, align 4
   store ptr %call2.i.sink13.i514, ptr %call2.i.sink.i, align 8
   %78 = load ptr, ptr %Last.i1.i.i, align 8
@@ -8372,7 +8344,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNode
 
 sw.bb97.i:                                        ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit521
   %call98.i = call fastcc noundef i64 @_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
-  %ThunkOffsets99.i = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i514, i64 0, i32 5
+  %ThunkOffsets99.i = getelementptr inbounds i8, ptr %call2.i.sink13.i514, i64 32
   %82 = load i32, ptr %ThunkOffsetCount.i6.i517, align 8
   %inc101.i = add nsw i32 %82, 1
   store i32 %inc101.i, ptr %ThunkOffsetCount.i6.i517, align 8
@@ -8383,7 +8355,7 @@ sw.bb97.i:                                        ; preds = %_ZN4llvh11ms_demang
 
 sw.bb104.i:                                       ; preds = %sw.bb97.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit521
   %call105.i = call fastcc noundef i64 @_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
-  %ThunkOffsets106.i = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %call2.i.sink13.i514, i64 0, i32 5
+  %ThunkOffsets106.i = getelementptr inbounds i8, ptr %call2.i.sink13.i514, i64 32
   %83 = load i32, ptr %ThunkOffsetCount.i6.i517, align 8
   %inc108.i = add nsw i32 %83, 1
   store i32 %inc108.i, ptr %ThunkOffsetCount.i6.i517, align 8
@@ -8433,7 +8405,7 @@ if.end142.i:                                      ; preds = %if.else133.i, %if.t
   %88 = load i8, ptr %Error, align 8
   %89 = and i8 %88, 1
   %tobool144.not.i = icmp eq i8 %89, 0
-  %Next.i = getelementptr inbounds %struct.NodeList, ptr %call2.i.sink.i, i64 0, i32 1
+  %Next.i = getelementptr inbounds i8, ptr %call2.i.sink.i, i64 8
   br i1 %tobool144.not.i, label %land.rhs.i.lr.ph, label %_ZN12_GLOBAL__N_19Demangler29demangleTemplateParameterListER10StringView.exit
 
 if.then152.i:                                     ; preds = %_ZNK10StringView10startsWithEc.exit310
@@ -8448,7 +8420,7 @@ _ZN12_GLOBAL__N_19Demangler29demangleTemplateParameterListER10StringView.exit: ;
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %Head.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %IsNegative.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %Value.i)
-  %TemplateParams = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2, i64 0, i32 1
+  %TemplateParams = getelementptr inbounds i8, ptr %call2, i64 16
   store ptr %retval.0.i, ptr %TemplateParams, align 8
   %.pre352 = load i8, ptr %Error, align 8
   br label %if.end
@@ -8480,7 +8452,7 @@ return:                                           ; preds = %if.end8, %if.then10
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler18demangleSimpleNameER10StringViewb(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %MangledName) unnamed_addr #2 align 2 {
 entry:
-  %Last.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %0 = load ptr, ptr %Last.i.i, align 8
   %1 = load ptr, ptr %MangledName, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -8502,7 +8474,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_19Demangler20demangleSimpleStringER10StringViewb.exit.thread, label %for.body.i, !llvm.loop !24
 
 _ZN12_GLOBAL__N_19Demangler20demangleSimpleStringER10StringViewb.exit.thread: ; preds = %for.inc.i, %entry
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i, align 8
   br label %return
 
@@ -8513,18 +8485,18 @@ _ZN12_GLOBAL__N_19Demangler20demangleSimpleStringER10StringViewb.exit: ; preds =
   %add.ptr.i15.i = getelementptr inbounds i8, ptr %1, i64 %spec.select.i14.i
   store ptr %add.ptr.i15.i, ptr %MangledName, align 8
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler14memorizeStringE10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nonnull %1, ptr nonnull %add.ptr.i.i.le)
-  %Error.phi.trans.insert = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8
   %.pre = load i8, ptr %Error.phi.trans.insert, align 8
   %3 = and i8 %.pre, 1
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN12_GLOBAL__N_19Demangler20demangleSimpleStringER10StringViewb.exit
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Arena, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %5, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load i64, ptr %Used.i, align 8
   %add.i2 = add i64 %8, %7
   %sub.i = add i64 %add.i2, 7
@@ -8534,9 +8506,9 @@ if.end:                                           ; preds = %_ZN12_GLOBAL__N_19D
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %9 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %9, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %9, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %10, %11
   br i1 %cmp.i, label %if.then.i, label %if.end.i3
@@ -8549,25 +8521,25 @@ if.end.i3:                                        ; preds = %if.end
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %9, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 40, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i3
   %call2.i.sink9.i = phi ptr [ %call2.i.i, %if.end.i3 ], [ %12, %if.then.i ]
-  %Kind.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Kind.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 8
   store i32 5, ptr %Kind.i.i.i4.i, align 8
-  %TemplateParams.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %TemplateParams.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i, align 8
-  %Name.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Name.i6.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 24
   store ptr %1, ptr %Name.i6.i, align 8
-  %S.sroa.2.0.Name4.sroa_idx = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i, i64 0, i32 1, i32 1
+  %S.sroa.2.0.Name4.sroa_idx = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 32
   store ptr %add.ptr.i.i.le, ptr %S.sroa.2.0.Name4.sroa_idx, align 8
   br label %return
 
@@ -8595,20 +8567,21 @@ _ZL15startsWithDigit10StringView.exit:            ; preds = %entry
 if.then:                                          ; preds = %_ZL15startsWithDigit10StringView.exit
   %conv.i8 = sext i8 %0 to i64
   %sub.i = add nsw i64 %conv.i8, -48
-  %NamesCount.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 3
+  %NamesCount.i = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load i64, ptr %NamesCount.i, align 8
   %cmp.not.i = icmp ult i64 %sub.i, %1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i, align 8
   br label %return
 
 if.end.i:                                         ; preds = %if.then
   %add.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 1
   store ptr %add.ptr.i.i, ptr %MangledName, align 8
-  %arrayidx.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 2, i64 %sub.i
+  %Names.i = getelementptr inbounds i8, ptr %this, i64 112
+  %arrayidx.i = getelementptr inbounds [10 x ptr], ptr %Names.i, i64 0, i64 %sub.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   br label %return
 
@@ -8667,7 +8640,7 @@ _ZNK10StringView10startsWithES_.exit.i21.i:       ; preds = %if.else.i
 
 if.then6.i:                                       ; preds = %_ZNK10StringView10startsWithES_.exit.i21.i
   %add.ptr.i.i27.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 2
-  %Arena10.i.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena10.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %incdec.ptr.i33.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 3
   store ptr %incdec.ptr.i33.i.i, ptr %MangledName, align 8
   %4 = load i8, ptr %add.ptr.i.i27.i, align 1
@@ -8681,7 +8654,7 @@ if.then6.i:                                       ; preds = %_ZNK10StringView10s
   %6 = load ptr, ptr %Arena10.i.i, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
-  %Used.i40.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %6, i64 0, i32 1
+  %Used.i40.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load i64, ptr %Used.i40.i.i, align 8
   %add.i41.i.i = add i64 %9, %8
   %sub.i42.i.i = add i64 %add.i41.i.i, 7
@@ -8691,9 +8664,9 @@ if.then6.i:                                       ; preds = %_ZNK10StringView10s
   %add8.i46.i.i = add i64 %add5.i45.i.i, %and.i43.i.i
   store i64 %add8.i46.i.i, ptr %Used.i40.i.i, align 8
   %10 = load ptr, ptr %Arena10.i.i, align 8
-  %Used10.i47.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %10, i64 0, i32 1
+  %Used10.i47.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i64, ptr %Used10.i47.i.i, align 8
-  %Capacity.i48.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %10, i64 0, i32 2
+  %Capacity.i48.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load i64, ptr %Capacity.i48.i.i, align 8
   %cmp.i49.i.i = icmp ult i64 %11, %12
   br i1 %cmp.i49.i.i, label %if.then.i60.i.i, label %if.end.i50.i.i
@@ -8706,23 +8679,23 @@ if.end.i50.i.i:                                   ; preds = %if.then6.i
   %call.i.i51.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i52.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i52.i.i, ptr %call.i.i51.i.i, align 8
-  %Next.i.i53.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i51.i.i, i64 0, i32 3
+  %Next.i.i53.i.i = getelementptr inbounds i8, ptr %call.i.i51.i.i, i64 24
   store ptr %10, ptr %Next.i.i53.i.i, align 8
-  %Capacity3.i.i54.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i51.i.i, i64 0, i32 2
+  %Capacity3.i.i54.i.i = getelementptr inbounds i8, ptr %call.i.i51.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i54.i.i, align 8
   store ptr %call.i.i51.i.i, ptr %Arena10.i.i, align 8
-  %Used.i.i55.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i51.i.i, i64 0, i32 1
+  %Used.i.i55.i.i = getelementptr inbounds i8, ptr %call.i.i51.i.i, i64 8
   store i64 32, ptr %Used.i.i55.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler30demangleFunctionIdentifierCodeER10StringView27FunctionIdentifierCodeGroup.exit.i
 
 _ZN12_GLOBAL__N_19Demangler30demangleFunctionIdentifierCodeER10StringView27FunctionIdentifierCodeGroup.exit.i: ; preds = %if.end.i50.i.i, %if.then.i60.i.i
   %call2.i.sink10.i56.i.i = phi ptr [ %call2.i.i52.i.i, %if.end.i50.i.i ], [ %13, %if.then.i60.i.i ]
-  %Kind.i.i.i5.i57.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink10.i56.i.i, i64 0, i32 1
+  %Kind.i.i.i5.i57.i.i = getelementptr inbounds i8, ptr %call2.i.sink10.i56.i.i, i64 8
   store i32 8, ptr %Kind.i.i.i5.i57.i.i, align 8
-  %TemplateParams.i.i6.i58.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink10.i56.i.i, i64 0, i32 1
+  %TemplateParams.i.i6.i58.i.i = getelementptr inbounds i8, ptr %call2.i.sink10.i56.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i6.i58.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink10.i56.i.i, align 8
-  %Operator2.i7.i59.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::IntrinsicFunctionIdentifierNode", ptr %call2.i.sink10.i56.i.i, i64 0, i32 1
+  %Operator2.i7.i59.i.i = getelementptr inbounds i8, ptr %call2.i.sink10.i56.i.i, i64 24
   store i8 %retval.0.i39.i.i, ptr %Operator2.i7.i59.i.i, align 8
   br label %return
 
@@ -8743,9 +8716,9 @@ return:                                           ; preds = %if.end8.i, %_ZN12_G
 define internal fastcc void @_ZN12_GLOBAL__N_19Demangler18memorizeIdentifierEPN4llvh11ms_demangle14IdentifierNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %Identifier) unnamed_addr #2 align 2 {
 entry:
   %OS = alloca %class.OutputStream, align 8
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %OS, i64 24
   store i32 -1, ptr %CurrentPackIndex.i, align 8
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %OS, i64 28
   store i32 -1, ptr %CurrentPackMax.i, align 4
   %call.i = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #22
   %cmp1.i = icmp eq ptr %call.i, null
@@ -8756,13 +8729,13 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %OS, i64 8
   store i64 0, ptr %CurrentPosition.i.i, align 8
   store ptr %call.i, ptr %OS, align 8
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %OS, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %OS, i64 16
   store i64 1024, ptr %BufferCapacity.i.i, align 8
   %vtable = load ptr, ptr %Identifier, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(12) %Identifier, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef 0) #24
   %1 = load i64, ptr %CurrentPosition.i.i, align 8
@@ -8799,19 +8772,19 @@ _ZN12OutputStreamlsEc.exit:                       ; preds = %if.end, %if.then.i.
   store i8 0, ptr %arrayidx.i.i, align 1
   %5 = load ptr, ptr %OS, align 8
   %call.i2 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
-  %Arena.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.i = add i64 %call.i2, 1
   %6 = load ptr, ptr %Arena.i, align 8
   %7 = load ptr, ptr %6, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %6, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i64, ptr %Used.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %8
   %add.i.i = add i64 %8, %add.i
   store i64 %add.i.i, ptr %Used.i.i, align 8
   %9 = load ptr, ptr %Arena.i, align 8
-  %Used7.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %9, i64 0, i32 1
+  %Used7.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %Used7.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %9, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load i64, ptr %Capacity.i.i, align 8
   %cmp.i.i = icmp ugt i64 %10, %11
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_19Demangler10copyStringE10StringView.exit
@@ -8821,12 +8794,12 @@ if.then.i.i:                                      ; preds = %_ZN12OutputStreamls
   %call.i.i.i3 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i.i) #20
   store ptr %call2.i.i.i, ptr %call.i.i.i3, align 8
-  %Next.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i3, i64 0, i32 3
+  %Next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i3, i64 24
   store ptr %9, ptr %Next.i.i.i, align 8
-  %Capacity3.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i3, i64 0, i32 2
+  %Capacity3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i3, i64 16
   store i64 %.sroa.speculated.i.i, ptr %Capacity3.i.i.i, align 8
   store ptr %call.i.i.i3, ptr %Arena.i, align 8
-  %Used.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i3, i64 0, i32 1
+  %Used.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i3, i64 8
   store i64 %add.i, ptr %Used.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler10copyStringE10StringView.exit
 
@@ -8862,11 +8835,11 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb2:                                           ; preds = %sw.bb, %sw.bb
   %cmp = icmp eq i8 %1, 49
-  %Arena.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %Arena.i, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %2, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i64, ptr %Used.i.i, align 8
   %add.i.i = add i64 %5, %4
   %sub.i.i = add i64 %add.i.i, 7
@@ -8876,9 +8849,9 @@ sw.bb2:                                           ; preds = %sw.bb, %sw.bb
   %add8.i.i = add i64 %add5.i.i, %and.i.i
   store i64 %add8.i.i, ptr %Used.i.i, align 8
   %6 = load ptr, ptr %Arena.i, align 8
-  %Used10.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %6, i64 0, i32 1
+  %Used10.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %Used10.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %6, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i64, ptr %Capacity.i.i, align 8
   %cmp.i.i = icmp ult i64 %7, %8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
@@ -8891,35 +8864,35 @@ if.end.i.i:                                       ; preds = %sw.bb2
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i.i, ptr %call.i.i.i, align 8
-  %Next.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 3
+  %Next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   store ptr %6, ptr %Next.i.i.i, align 8
-  %Capacity3.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 2
+  %Capacity3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i.i, align 8
   store ptr %call.i.i.i, ptr %Arena.i, align 8
-  %Used.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i, i64 0, i32 1
+  %Used.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 40, ptr %Used.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler26demangleStructorIdentifierER10StringViewb.exit
 
 _ZN12_GLOBAL__N_19Demangler26demangleStructorIdentifierER10StringViewb.exit: ; preds = %if.then.i.i, %if.end.i.i
   %call2.i.sink11.i.i = phi ptr [ %call2.i.i.i, %if.end.i.i ], [ %9, %if.then.i.i ]
   %frombool.i = zext i1 %cmp to i8
-  %Kind.i.i.i4.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink11.i.i, i64 0, i32 1
+  %Kind.i.i.i4.i.i = getelementptr inbounds i8, ptr %call2.i.sink11.i.i, i64 8
   store i32 11, ptr %Kind.i.i.i4.i.i, align 8
-  %TemplateParams.i.i5.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink11.i.i, i64 0, i32 1
+  %TemplateParams.i.i5.i.i = getelementptr inbounds i8, ptr %call2.i.sink11.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle22StructorIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink11.i.i, align 8
-  %Class.i6.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::StructorIdentifierNode", ptr %call2.i.sink11.i.i, i64 0, i32 1
+  %Class.i6.i.i = getelementptr inbounds i8, ptr %call2.i.sink11.i.i, i64 24
   store ptr null, ptr %Class.i6.i.i, align 8
-  %IsDestructor.i7.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::StructorIdentifierNode", ptr %call2.i.sink11.i.i, i64 0, i32 2
+  %IsDestructor.i7.i.i = getelementptr inbounds i8, ptr %call2.i.sink11.i.i, i64 32
   store i8 %frombool.i, ptr %IsDestructor.i7.i.i, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %sw.bb
-  %Arena.i12 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i12 = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %Arena.i12, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
-  %Used.i.i13 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %10, i64 0, i32 1
+  %Used.i.i13 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load i64, ptr %Used.i.i13, align 8
   %add.i.i14 = add i64 %13, %12
   %sub.i.i15 = add i64 %add.i.i14, 7
@@ -8929,9 +8902,9 @@ sw.bb5:                                           ; preds = %sw.bb
   %add8.i.i19 = add i64 %add5.i.i18, %and.i.i16
   store i64 %add8.i.i19, ptr %Used.i.i13, align 8
   %14 = load ptr, ptr %Arena.i12, align 8
-  %Used10.i.i20 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %14, i64 0, i32 1
+  %Used10.i.i20 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i64, ptr %Used10.i.i20, align 8
-  %Capacity.i.i21 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %14, i64 0, i32 2
+  %Capacity.i.i21 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load i64, ptr %Capacity.i.i21, align 8
   %cmp.i.i22 = icmp ult i64 %15, %16
   br i1 %cmp.i.i22, label %if.then.i.i31, label %if.end.i.i23
@@ -8944,28 +8917,28 @@ if.end.i.i23:                                     ; preds = %sw.bb5
   %call.i.i.i24 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i.i25 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i.i25, ptr %call.i.i.i24, align 8
-  %Next.i.i.i26 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i24, i64 0, i32 3
+  %Next.i.i.i26 = getelementptr inbounds i8, ptr %call.i.i.i24, i64 24
   store ptr %14, ptr %Next.i.i.i26, align 8
-  %Capacity3.i.i.i27 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i24, i64 0, i32 2
+  %Capacity3.i.i.i27 = getelementptr inbounds i8, ptr %call.i.i.i24, i64 16
   store i64 4096, ptr %Capacity3.i.i.i27, align 8
   store ptr %call.i.i.i24, ptr %Arena.i12, align 8
-  %Used.i.i.i28 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i24, i64 0, i32 1
+  %Used.i.i.i28 = getelementptr inbounds i8, ptr %call.i.i.i24, i64 8
   store i64 32, ptr %Used.i.i.i28, align 8
   br label %_ZN12_GLOBAL__N_19Demangler36demangleConversionOperatorIdentifierER10StringView.exit
 
 _ZN12_GLOBAL__N_19Demangler36demangleConversionOperatorIdentifierER10StringView.exit: ; preds = %if.then.i.i31, %if.end.i.i23
   %call2.i.sink9.i.i = phi ptr [ %call2.i.i.i25, %if.end.i.i23 ], [ %17, %if.then.i.i31 ]
-  %Kind.i.i.i4.i.i29 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i.i, i64 0, i32 1
+  %Kind.i.i.i4.i.i29 = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 8
   store i32 9, ptr %Kind.i.i.i4.i.i29, align 8
-  %TemplateParams.i.i5.i.i30 = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i.i, i64 0, i32 1
+  %TemplateParams.i.i5.i.i30 = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i30, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle32ConversionOperatorIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i.i, align 8
-  %TargetType.i6.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ConversionOperatorIdentifierNode", ptr %call2.i.sink9.i.i, i64 0, i32 1
+  %TargetType.i6.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i, i64 24
   store ptr null, ptr %TargetType.i6.i.i, align 8
   br label %return
 
 sw.default:                                       ; preds = %sw.bb
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %18 = add i8 %1, -48
   %or.cond.i = icmp ult i8 %18, 10
   %cond.v.i = select i1 %or.cond.i, i64 -48, i64 -55
@@ -8976,7 +8949,7 @@ sw.default:                                       ; preds = %sw.bb
   %19 = load ptr, ptr %Arena, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %19, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %19, i64 8
   %22 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %22, %21
   %sub.i = add i64 %add.i, 7
@@ -8986,9 +8959,9 @@ sw.default:                                       ; preds = %sw.bb
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %23 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %23, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %23, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %24, %25
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -9001,28 +8974,28 @@ if.end.i:                                         ; preds = %sw.default
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %23, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i32 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i32 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 32, ptr %Used.i.i32, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i
   %call2.i.sink10.i = phi ptr [ %call2.i.i, %if.end.i ], [ %26, %if.then.i ]
-  %Kind.i.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink10.i, i64 0, i32 1
+  %Kind.i.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink10.i, i64 8
   store i32 8, ptr %Kind.i.i.i5.i, align 8
-  %TemplateParams.i.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink10.i, i64 0, i32 1
+  %TemplateParams.i.i6.i = getelementptr inbounds i8, ptr %call2.i.sink10.i, i64 16
   store ptr null, ptr %TemplateParams.i.i6.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink10.i, align 8
-  %Operator2.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::IntrinsicFunctionIdentifierNode", ptr %call2.i.sink10.i, i64 0, i32 1
+  %Operator2.i7.i = getelementptr inbounds i8, ptr %call2.i.sink10.i, i64 24
   store i8 %retval.0.i, ptr %Operator2.i7.i, align 8
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  %Arena10 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena10 = getelementptr inbounds i8, ptr %this, i64 16
   %27 = load ptr, ptr %MangledName, align 8
   %incdec.ptr.i33 = getelementptr inbounds i8, ptr %27, i64 1
   store ptr %incdec.ptr.i33, ptr %MangledName, align 8
@@ -9037,7 +9010,7 @@ sw.bb9:                                           ; preds = %entry
   %30 = load ptr, ptr %Arena10, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
-  %Used.i40 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %30, i64 0, i32 1
+  %Used.i40 = getelementptr inbounds i8, ptr %30, i64 8
   %33 = load i64, ptr %Used.i40, align 8
   %add.i41 = add i64 %33, %32
   %sub.i42 = add i64 %add.i41, 7
@@ -9047,9 +9020,9 @@ sw.bb9:                                           ; preds = %entry
   %add8.i46 = add i64 %add5.i45, %and.i43
   store i64 %add8.i46, ptr %Used.i40, align 8
   %34 = load ptr, ptr %Arena10, align 8
-  %Used10.i47 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %34, i64 0, i32 1
+  %Used10.i47 = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load i64, ptr %Used10.i47, align 8
-  %Capacity.i48 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %34, i64 0, i32 2
+  %Capacity.i48 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = load i64, ptr %Capacity.i48, align 8
   %cmp.i49 = icmp ult i64 %35, %36
   br i1 %cmp.i49, label %if.then.i60, label %if.end.i50
@@ -9062,23 +9035,23 @@ if.end.i50:                                       ; preds = %sw.bb9
   %call.i.i51 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i52 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i52, ptr %call.i.i51, align 8
-  %Next.i.i53 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i51, i64 0, i32 3
+  %Next.i.i53 = getelementptr inbounds i8, ptr %call.i.i51, i64 24
   store ptr %34, ptr %Next.i.i53, align 8
-  %Capacity3.i.i54 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i51, i64 0, i32 2
+  %Capacity3.i.i54 = getelementptr inbounds i8, ptr %call.i.i51, i64 16
   store i64 4096, ptr %Capacity3.i.i54, align 8
   store ptr %call.i.i51, ptr %Arena10, align 8
-  %Used.i.i55 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i51, i64 0, i32 1
+  %Used.i.i55 = getelementptr inbounds i8, ptr %call.i.i51, i64 8
   store i64 32, ptr %Used.i.i55, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit61
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit61: ; preds = %if.then.i60, %if.end.i50
   %call2.i.sink10.i56 = phi ptr [ %call2.i.i52, %if.end.i50 ], [ %37, %if.then.i60 ]
-  %Kind.i.i.i5.i57 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink10.i56, i64 0, i32 1
+  %Kind.i.i.i5.i57 = getelementptr inbounds i8, ptr %call2.i.sink10.i56, i64 8
   store i32 8, ptr %Kind.i.i.i5.i57, align 8
-  %TemplateParams.i.i6.i58 = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink10.i56, i64 0, i32 1
+  %TemplateParams.i.i6.i58 = getelementptr inbounds i8, ptr %call2.i.sink10.i56, i64 16
   store ptr null, ptr %TemplateParams.i.i6.i58, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink10.i56, align 8
-  %Operator2.i7.i59 = getelementptr inbounds %"struct.llvh::ms_demangle::IntrinsicFunctionIdentifierNode", ptr %call2.i.sink10.i56, i64 0, i32 1
+  %Operator2.i7.i59 = getelementptr inbounds i8, ptr %call2.i.sink10.i56, i64 24
   store i8 %retval.0.i39, ptr %Operator2.i7.i59, align 8
   br label %return
 
@@ -9088,14 +9061,14 @@ sw.bb15:                                          ; preds = %entry
   store ptr %incdec.ptr.i62, ptr %MangledName, align 8
   %39 = load i8, ptr %38, align 1
   %cond = icmp eq i8 %39, 75
-  %Arena.i63 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena.i63 = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cond, label %sw.bb19, label %sw.default21
 
 sw.bb19:                                          ; preds = %sw.bb15
   %40 = load ptr, ptr %Arena.i63, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
-  %Used.i.i64 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %40, i64 0, i32 1
+  %Used.i.i64 = getelementptr inbounds i8, ptr %40, i64 8
   %43 = load i64, ptr %Used.i.i64, align 8
   %add.i.i65 = add i64 %43, %42
   %sub.i.i66 = add i64 %add.i.i65, 7
@@ -9105,9 +9078,9 @@ sw.bb19:                                          ; preds = %sw.bb15
   %add8.i.i70 = add i64 %add5.i.i69, %and.i.i67
   store i64 %add8.i.i70, ptr %Used.i.i64, align 8
   %44 = load ptr, ptr %Arena.i63, align 8
-  %Used10.i.i71 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %44, i64 0, i32 1
+  %Used10.i.i71 = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load i64, ptr %Used10.i.i71, align 8
-  %Capacity.i.i72 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %44, i64 0, i32 2
+  %Capacity.i.i72 = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load i64, ptr %Capacity.i.i72, align 8
   %cmp.i.i73 = icmp ult i64 %45, %46
   br i1 %cmp.i.i73, label %if.then.i.i83, label %if.end.i.i74
@@ -9120,25 +9093,25 @@ if.end.i.i74:                                     ; preds = %sw.bb19
   %call.i.i.i75 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i.i76 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i.i76, ptr %call.i.i.i75, align 8
-  %Next.i.i.i77 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i75, i64 0, i32 3
+  %Next.i.i.i77 = getelementptr inbounds i8, ptr %call.i.i.i75, i64 24
   store ptr %44, ptr %Next.i.i.i77, align 8
-  %Capacity3.i.i.i78 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i75, i64 0, i32 2
+  %Capacity3.i.i.i78 = getelementptr inbounds i8, ptr %call.i.i.i75, i64 16
   store i64 4096, ptr %Capacity3.i.i.i78, align 8
   store ptr %call.i.i.i75, ptr %Arena.i63, align 8
-  %Used.i.i.i79 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i.i75, i64 0, i32 1
+  %Used.i.i.i79 = getelementptr inbounds i8, ptr %call.i.i.i75, i64 8
   store i64 40, ptr %Used.i.i.i79, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_29LiteralOperatorIdentifierNodeEJEEEPT_DpOT0_.exit.i
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_29LiteralOperatorIdentifierNodeEJEEEPT_DpOT0_.exit.i: ; preds = %if.end.i.i74, %if.then.i.i83
   %call2.i.sink9.i.i80 = phi ptr [ %call2.i.i.i76, %if.end.i.i74 ], [ %47, %if.then.i.i83 ]
-  %Kind.i.i.i4.i.i81 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i.i80, i64 0, i32 1
+  %Kind.i.i.i4.i.i81 = getelementptr inbounds i8, ptr %call2.i.sink9.i.i80, i64 8
   store i32 12, ptr %Kind.i.i.i4.i.i81, align 8
-  %TemplateParams.i.i5.i.i82 = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i.i80, i64 0, i32 1
+  %TemplateParams.i.i5.i.i82 = getelementptr inbounds i8, ptr %call2.i.sink9.i.i80, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i.i82, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle29LiteralOperatorIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i.i80, align 8
-  %Name.i6.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::LiteralOperatorIdentifierNode", ptr %call2.i.sink9.i.i80, i64 0, i32 1
+  %Name.i6.i.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i80, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Name.i6.i.i, i8 0, i64 16, i1 false)
-  %Last.i.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %48 = load ptr, ptr %Last.i.i.i, align 8
   %49 = load ptr, ptr %MangledName, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %48 to i64
@@ -9168,7 +9141,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !24
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_29LiteralOperatorIdentifierNodeEJEEEPT_DpOT0_.exit.i
-  %Error.i.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler33demangleLiteralOperatorIdentifierER10StringView.exit
 
@@ -9176,7 +9149,7 @@ _ZN12_GLOBAL__N_19Demangler33demangleLiteralOperatorIdentifierER10StringView.exi
   %retval.sroa.0.0.i.i = phi ptr [ null, %for.end.i.i ], [ %49, %if.end.i2.i ]
   %retval.sroa.3.0.i.i = phi ptr [ null, %for.end.i.i ], [ %add.ptr.i.i.i.le, %if.end.i2.i ]
   store ptr %retval.sroa.0.0.i.i, ptr %Name.i6.i.i, align 8
-  %ref.tmp.sroa.2.0.Name.sroa_idx.i = getelementptr inbounds %"struct.llvh::ms_demangle::LiteralOperatorIdentifierNode", ptr %call2.i.sink9.i.i80, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.2.0.Name.sroa_idx.i = getelementptr inbounds i8, ptr %call2.i.sink9.i.i80, i64 32
   store ptr %retval.sroa.3.0.i.i, ptr %ref.tmp.sroa.2.0.Name.sroa_idx.i, align 8
   br label %return
 
@@ -9191,7 +9164,7 @@ sw.default21:                                     ; preds = %sw.bb15
   %52 = load ptr, ptr %Arena.i63, align 8
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
-  %Used.i90 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %52, i64 0, i32 1
+  %Used.i90 = getelementptr inbounds i8, ptr %52, i64 8
   %55 = load i64, ptr %Used.i90, align 8
   %add.i91 = add i64 %55, %54
   %sub.i92 = add i64 %add.i91, 7
@@ -9201,9 +9174,9 @@ sw.default21:                                     ; preds = %sw.bb15
   %add8.i96 = add i64 %add5.i95, %and.i93
   store i64 %add8.i96, ptr %Used.i90, align 8
   %56 = load ptr, ptr %Arena.i63, align 8
-  %Used10.i97 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %56, i64 0, i32 1
+  %Used10.i97 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load i64, ptr %Used10.i97, align 8
-  %Capacity.i98 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %56, i64 0, i32 2
+  %Capacity.i98 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load i64, ptr %Capacity.i98, align 8
   %cmp.i99 = icmp ult i64 %57, %58
   br i1 %cmp.i99, label %if.then.i110, label %if.end.i100
@@ -9216,23 +9189,23 @@ if.end.i100:                                      ; preds = %sw.default21
   %call.i.i101 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i102 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i102, ptr %call.i.i101, align 8
-  %Next.i.i103 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i101, i64 0, i32 3
+  %Next.i.i103 = getelementptr inbounds i8, ptr %call.i.i101, i64 24
   store ptr %56, ptr %Next.i.i103, align 8
-  %Capacity3.i.i104 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i101, i64 0, i32 2
+  %Capacity3.i.i104 = getelementptr inbounds i8, ptr %call.i.i101, i64 16
   store i64 4096, ptr %Capacity3.i.i104, align 8
   store ptr %call.i.i101, ptr %Arena.i63, align 8
-  %Used.i.i105 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i101, i64 0, i32 1
+  %Used.i.i105 = getelementptr inbounds i8, ptr %call.i.i101, i64 8
   store i64 32, ptr %Used.i.i105, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit111
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit111: ; preds = %if.then.i110, %if.end.i100
   %call2.i.sink10.i106 = phi ptr [ %call2.i.i102, %if.end.i100 ], [ %59, %if.then.i110 ]
-  %Kind.i.i.i5.i107 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink10.i106, i64 0, i32 1
+  %Kind.i.i.i5.i107 = getelementptr inbounds i8, ptr %call2.i.sink10.i106, i64 8
   store i32 8, ptr %Kind.i.i.i5.i107, align 8
-  %TemplateParams.i.i6.i108 = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink10.i106, i64 0, i32 1
+  %TemplateParams.i.i6.i108 = getelementptr inbounds i8, ptr %call2.i.sink10.i106, i64 16
   store ptr null, ptr %TemplateParams.i.i6.i108, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink10.i106, align 8
-  %Operator2.i7.i109 = getelementptr inbounds %"struct.llvh::ms_demangle::IntrinsicFunctionIdentifierNode", ptr %call2.i.sink10.i106, i64 0, i32 1
+  %Operator2.i7.i109 = getelementptr inbounds i8, ptr %call2.i.sink10.i106, i64 24
   store i8 %retval.0.i89, ptr %Operator2.i7.i109, align 8
   br label %return
 
@@ -9244,7 +9217,7 @@ return:                                           ; preds = %entry, %_ZN4llvh11m
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_19Demangler14memorizeStringE10StringView(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr %S.coerce0, ptr %S.coerce1) unnamed_addr #2 align 2 {
 entry:
-  %NamesCount = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 3
+  %NamesCount = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load i64, ptr %NamesCount, align 8
   %cmp = icmp ugt i64 %0, 9
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -9254,6 +9227,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp46.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %Names = getelementptr inbounds i8, ptr %this, i64 112
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %S.coerce1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %S.coerce0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -9263,10 +9237,10 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %i.07.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %arrayidx.us = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 2, i64 %i.07.us
+  %arrayidx.us = getelementptr inbounds [10 x ptr], ptr %Names, i64 0, i64 %i.07.us
   %1 = load ptr, ptr %arrayidx.us, align 8
-  %Name.us = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %1, i64 0, i32 1
-  %Last.i4.i.us = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %1, i64 0, i32 1, i32 1
+  %Name.us = getelementptr inbounds i8, ptr %1, i64 24
+  %Last.i4.i.us = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %Last.i4.i.us, align 8
   %3 = load ptr, ptr %Name.us, align 8
   %sub.ptr.lhs.cast.i5.i.us = ptrtoint ptr %2 to i64
@@ -9282,10 +9256,10 @@ for.inc.us:                                       ; preds = %for.body.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.07 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %arrayidx = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 2, i64 %i.07
+  %arrayidx = getelementptr inbounds [10 x ptr], ptr %Names, i64 0, i64 %i.07
   %4 = load ptr, ptr %arrayidx, align 8
-  %Name = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %4, i64 0, i32 1
-  %Last.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %4, i64 0, i32 1, i32 1
+  %Name = getelementptr inbounds i8, ptr %4, i64 24
+  %Last.i4.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load ptr, ptr %Last.i4.i, align 8
   %6 = load ptr, ptr %Name, align 8
   %sub.ptr.lhs.cast.i5.i = ptrtoint ptr %5 to i64
@@ -9305,11 +9279,11 @@ for.inc:                                          ; preds = %for.body, %land.rhs
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %for.cond.preheader
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %Arena, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %7, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %10, %9
   %sub.i = add i64 %add.i, 7
@@ -9319,9 +9293,9 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %11 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %11, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %11, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i64, ptr %Capacity.i, align 8
   %cmp.i4 = icmp ult i64 %12, %13
   br i1 %cmp.i4, label %if.then.i, label %if.end.i
@@ -9334,30 +9308,31 @@ if.end.i:                                         ; preds = %for.end
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %11, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 40, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i
   %call2.i.sink9.i = phi ptr [ %call2.i.i, %if.end.i ], [ %14, %if.then.i ]
-  %Kind.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Kind.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 8
   store i32 5, ptr %Kind.i.i.i4.i, align 8
-  %TemplateParams.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %TemplateParams.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %TemplateParams.i.i5.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i, align 8
-  %Name.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Name.i6.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 24
   store ptr %S.coerce0, ptr %Name.i6.i, align 8
-  %S.sroa.3.0.Name9.sroa_idx = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %call2.i.sink9.i, i64 0, i32 1, i32 1
+  %S.sroa.3.0.Name9.sroa_idx = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 32
   store ptr %S.coerce1, ptr %S.sroa.3.0.Name9.sroa_idx, align 8
+  %Names11 = getelementptr inbounds i8, ptr %this, i64 112
   %15 = load i64, ptr %NamesCount, align 8
   %inc14 = add i64 %15, 1
   store i64 %inc14, ptr %NamesCount, align 8
-  %arrayidx15 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 2, i64 %15
+  %arrayidx15 = getelementptr inbounds [10 x ptr], ptr %Names11, i64 0, i64 %15
   store ptr %call2.i.sink9.i, ptr %arrayidx15, align 8
   br label %return
 
@@ -9369,7 +9344,7 @@ return:                                           ; preds = %land.rhs.i, %for.bo
 define internal fastcc noundef i64 @_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %MangledName) unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %MangledName, align 8
-  %Last.i.i.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i.i.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %1 = load ptr, ptr %Last.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZN10StringView12consumeFrontEc.exit.i, label %_ZNK10StringView10startsWithEc.exit.i.i
@@ -9435,7 +9410,7 @@ if.then20.i:                                      ; preds = %if.end15.i
   br i1 %exitcond.not.i, label %if.end.thread, label %for.body.i, !llvm.loop !10
 
 if.end.thread:                                    ; preds = %if.then20.i, %if.end15.i, %_ZN10StringView12consumeFrontEc.exit.i
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i, align 8
   br label %6
 
@@ -9448,7 +9423,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit: ; preds = %if.th
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit
-  %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error, align 8
   br label %if.end
 
@@ -9468,7 +9443,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used, align 8
   %add = add i64 %3, %2
   %sub = add i64 %add, 7
@@ -9478,9 +9453,9 @@ entry:
   %add10 = add i64 %add7, %and
   store i64 %add10, ptr %Used, align 8
   %4 = load ptr, ptr %this, align 8
-  %Used12 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used12 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used12, align 8
-  %Capacity = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity, align 8
   %cmp = icmp ult i64 %5, %6
   br i1 %cmp, label %if.then, label %if.end
@@ -9493,12 +9468,12 @@ if.end:                                           ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i, ptr %call.i, align 8
-  %Next.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i, i64 0, i32 3
+  %Next.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %4, ptr %Next.i, align 8
-  %Capacity3.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i, i64 0, i32 2
+  %Capacity3.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 4096, ptr %Capacity3.i, align 8
   store ptr %call.i, ptr %this, align 8
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 32, ptr %Used.i, align 8
   br label %return
 
@@ -9507,12 +9482,12 @@ return:                                           ; preds = %if.end, %if.then
   %8 = load i64, ptr %ConstructorArgs, align 8
   %9 = load i8, ptr %ConstructorArgs1, align 1
   %10 = and i8 %9, 1
-  %Kind.i.i7 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink13, i64 0, i32 1
+  %Kind.i.i7 = getelementptr inbounds i8, ptr %call2.i.sink13, i64 8
   store i32 23, ptr %Kind.i.i7, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18IntegerLiteralNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink13, align 8
-  %Value2.i8 = getelementptr inbounds %"struct.llvh::ms_demangle::IntegerLiteralNode", ptr %call2.i.sink13, i64 0, i32 2
+  %Value2.i8 = getelementptr inbounds i8, ptr %call2.i.sink13, i64 16
   store i64 %8, ptr %Value2.i8, align 8
-  %IsNegative3.i9 = getelementptr inbounds %"struct.llvh::ms_demangle::IntegerLiteralNode", ptr %call2.i.sink13, i64 0, i32 3
+  %IsNegative3.i9 = getelementptr inbounds i8, ptr %call2.i.sink13, i64 24
   store i8 %10, ptr %IsNegative3.i9, align 8
   ret ptr %call2.i.sink13
 }
@@ -9525,10 +9500,10 @@ entry:
   br i1 %cmp, label %if.then, label %while.body
 
 if.then:                                          ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds %class.OutputStream, ptr %this, i64 0, i32 1
+  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %0, 1
-  %BufferCapacity.i.i.i = getelementptr inbounds %class.OutputStream, ptr %this, i64 0, i32 2
+  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %1
   %.pre.i.i = load ptr, ptr %this, align 8
@@ -9591,10 +9566,10 @@ if.end8:                                          ; preds = %if.then6, %while.en
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end8
-  %CurrentPosition.i.i.i7 = getelementptr inbounds %class.OutputStream, ptr %this, i64 0, i32 1
+  %CurrentPosition.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %CurrentPosition.i.i.i7, align 8
   %add.i.i.i8 = add i64 %4, %gepdiff
-  %BufferCapacity.i.i.i9 = getelementptr inbounds %class.OutputStream, ptr %this, i64 0, i32 2
+  %BufferCapacity.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i.i9, align 8
   %cmp.not.i.i.i10 = icmp ult i64 %add.i.i.i8, %5
   %.pre.i.i11 = load ptr, ptr %this, align 8
@@ -9650,20 +9625,21 @@ _ZL15startsWithDigit10StringView.exit:            ; preds = %entry
 if.then:                                          ; preds = %_ZL15startsWithDigit10StringView.exit
   %conv.i5 = sext i8 %0 to i64
   %sub.i = add nsw i64 %conv.i5, -48
-  %NamesCount.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 3
+  %NamesCount.i = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load i64, ptr %NamesCount.i, align 8
   %cmp.not.i = icmp ult i64 %sub.i, %1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i, align 8
   br label %return
 
 if.end.i:                                         ; preds = %if.then
   %add.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 1
   store ptr %add.ptr.i.i, ptr %MangledName, align 8
-  %arrayidx.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 2, i64 %sub.i
+  %Names.i = getelementptr inbounds i8, ptr %this, i64 112
+  %arrayidx.i = getelementptr inbounds [10 x ptr], ptr %Names.i, i64 0, i64 %sub.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   br label %return
 
@@ -9695,11 +9671,11 @@ return:                                           ; preds = %if.end.i, %if.then.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, i1 noundef zeroext %HasThisQuals) unnamed_addr #2 align 2 {
 entry:
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Arena, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %3, %2
   %sub.i = add i64 %add.i, 7
@@ -9709,9 +9685,9 @@ entry:
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %4 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %5, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -9724,41 +9700,41 @@ if.end.i:                                         ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %4, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 56, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i
   %call2.i.sink21.i = phi ptr [ %call2.i.i, %if.end.i ], [ %7, %if.then.i ]
-  %Kind.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink21.i, i64 0, i32 1
+  %Kind.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 8
   store i32 3, ptr %Kind.i.i.i4.i, align 8
-  %Quals.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2.i.sink21.i, i64 0, i32 1
+  %Quals.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 12
   store i8 0, ptr %Quals.i.i5.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle21FunctionSignatureNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink21.i, align 8
-  %Affinity.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 1
+  %Affinity.i6.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 16
   store i32 0, ptr %Affinity.i6.i, align 8
-  %CallConvention.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 2
+  %CallConvention.i7.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 20
   store i8 0, ptr %CallConvention.i7.i, align 4
-  %FunctionClass.i8.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 3
+  %FunctionClass.i8.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 22
   store i16 8, ptr %FunctionClass.i8.i, align 2
-  %RefQualifier.i9.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 4
+  %RefQualifier.i9.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 24
   store i32 0, ptr %RefQualifier.i9.i, align 8
-  %ReturnType.i10.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 5
+  %ReturnType.i10.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 32
   store ptr null, ptr %ReturnType.i10.i, align 8
-  %IsVariadic.i11.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 6
+  %IsVariadic.i11.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 40
   store i8 0, ptr %IsVariadic.i11.i, align 8
-  %Params.i12.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 7
+  %Params.i12.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 48
   store ptr null, ptr %Params.i12.i, align 8
   br i1 %HasThisQuals, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit
   %8 = load ptr, ptr %MangledName, align 8
-  %Last.i.i.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i.i.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %9 = load ptr, ptr %Last.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i, label %_ZN10StringView12consumeFrontEc.exit.thread.i, label %_ZNK10StringView10startsWithEc.exit.i.i
@@ -9846,7 +9822,7 @@ _ZL28demangleFunctionRefQualifierR10StringView.exit: ; preds = %_ZNK10StringView
   br i1 %29, label %switch.hole_check, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %switch.hole_check, %_ZL28demangleFunctionRefQualifierR10StringView.exit
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit
 
@@ -9888,7 +9864,7 @@ _ZN12_GLOBAL__N_19Demangler25demangleCallingConventionER10StringView.exit: ; pre
   %retval.0.i22 = phi i8 [ %switch.load37, %switch.lookup34 ], [ 0, %if.end ]
   store i8 %retval.0.i22, ptr %CallConvention.i7.i, align 4
   %36 = load ptr, ptr %MangledName, align 8
-  %Last.i.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %37 = load ptr, ptr %Last.i.i.i, align 8
   %cmp.i.i.i25 = icmp eq ptr %36, %37
   br i1 %cmp.i.i.i25, label %if.then13, label %_ZNK10StringView10startsWithEc.exit.i
@@ -9927,7 +9903,7 @@ _ZN10StringView12consumeFrontEc.exit.i:           ; preds = %_ZNK10StringView10s
   br label %_ZN12_GLOBAL__N_19Demangler26demangleThrowSpecificationER10StringView.exit
 
 if.end.i31:                                       ; preds = %_ZNK10StringView10startsWithEc.exit.i.i29, %if.end15
-  %Error.i32 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i32 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i32, align 8
   br label %_ZN12_GLOBAL__N_19Demangler26demangleThrowSpecificationER10StringView.exit
 
@@ -9940,7 +9916,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler29demangleFunctio
 entry:
   %Head = alloca ptr, align 8
   %0 = load ptr, ptr %MangledName, align 8
-  %Last.i.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %1 = load ptr, ptr %Last.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %if.end, label %_ZNK10StringView10startsWithEc.exit.i
@@ -9956,11 +9932,11 @@ _ZN10StringView12consumeFrontEc.exit:             ; preds = %_ZNK10StringView10s
   br label %return
 
 if.end:                                           ; preds = %_ZNK10StringView10startsWithEc.exit.i, %entry
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %Arena, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %3, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %6, %5
   %sub.i = add i64 %add.i, 7
@@ -9970,9 +9946,9 @@ if.end:                                           ; preds = %_ZNK10StringView10s
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %7 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %7, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %7, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %8, %9
   br i1 %cmp.i, label %if.then.i, label %if.end.i21
@@ -9985,12 +9961,12 @@ if.end.i21:                                       ; preds = %if.end
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %7, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 16, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit
 
@@ -9998,15 +9974,15 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit: ; preds
   %call2.i.sink.i = phi ptr [ %call2.i.i, %if.end.i21 ], [ %10, %if.then.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2.i.sink.i, i8 0, i64 16, i1 false)
   store ptr %call2.i.sink.i, ptr %Head, align 8
-  %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load i8, ptr %Error, align 8
   %12 = and i8 %11, 1
   %tobool.not97 = icmp eq i8 %12, 0
   br i1 %tobool.not97, label %land.lhs.true.lr.ph, label %return
 
 land.lhs.true.lr.ph:                              ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit
-  %FunctionParamCount = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 1
-  %Backrefs = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3
+  %FunctionParamCount = getelementptr inbounds i8, ptr %this, i64 104
+  %Backrefs = getelementptr inbounds i8, ptr %this, i64 24
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph, %while.cond.backedge
@@ -10052,7 +10028,7 @@ if.end11:                                         ; preds = %if.then6
   %17 = load ptr, ptr %Arena, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
-  %Used.i32 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %17, i64 0, i32 1
+  %Used.i32 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i64, ptr %Used.i32, align 8
   %add.i33 = add i64 %20, %19
   %sub.i34 = add i64 %add.i33, 7
@@ -10062,9 +10038,9 @@ if.end11:                                         ; preds = %if.then6
   %add8.i38 = add i64 %add5.i37, %and.i35
   store i64 %add8.i38, ptr %Used.i32, align 8
   %21 = load ptr, ptr %Arena, align 8
-  %Used10.i39 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %21, i64 0, i32 1
+  %Used10.i39 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i64, ptr %Used10.i39, align 8
-  %Capacity.i40 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %21, i64 0, i32 2
+  %Capacity.i40 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load i64, ptr %Capacity.i40, align 8
   %cmp.i41 = icmp ult i64 %22, %23
   br i1 %cmp.i41, label %if.then.i49, label %if.end.i42
@@ -10077,12 +10053,12 @@ if.end.i42:                                       ; preds = %if.end11
   %call.i.i43 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i44 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i44, ptr %call.i.i43, align 8
-  %Next.i.i45 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i43, i64 0, i32 3
+  %Next.i.i45 = getelementptr inbounds i8, ptr %call.i.i43, i64 24
   store ptr %21, ptr %Next.i.i45, align 8
-  %Capacity3.i.i46 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i43, i64 0, i32 2
+  %Capacity3.i.i46 = getelementptr inbounds i8, ptr %call.i.i43, i64 16
   store i64 4096, ptr %Capacity3.i.i46, align 8
   store ptr %call.i.i43, ptr %Arena, align 8
-  %Used.i.i47 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i43, i64 0, i32 1
+  %Used.i.i47 = getelementptr inbounds i8, ptr %call.i.i43, i64 8
   store i64 16, ptr %Used.i.i47, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit50
 
@@ -10098,7 +10074,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit50: ; pre
 while.cond.backedge:                              ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit69, %if.then30, %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit50
   %Count.0.be = phi i64 [ %inc, %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit50 ], [ %inc8991, %if.then30 ], [ %inc8991, %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit69 ]
   %.pn = load ptr, ptr %Current.099, align 8
-  %Current.0.be = getelementptr inbounds %struct.NodeList, ptr %.pn, i64 0, i32 1
+  %Current.0.be = getelementptr inbounds i8, ptr %.pn, i64 8
   %26 = load i8, ptr %Error, align 8
   %27 = and i8 %26, 1
   %tobool.not = icmp eq i8 %27, 0
@@ -10111,7 +10087,7 @@ if.end17:                                         ; preds = %_ZL15startsWithDigi
   %28 = load ptr, ptr %Arena, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
-  %Used.i51 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %28, i64 0, i32 1
+  %Used.i51 = getelementptr inbounds i8, ptr %28, i64 8
   %31 = load i64, ptr %Used.i51, align 8
   %add.i52 = add i64 %31, %30
   %sub.i53 = add i64 %add.i52, 7
@@ -10121,9 +10097,9 @@ if.end17:                                         ; preds = %_ZL15startsWithDigi
   %add8.i57 = add i64 %add5.i56, %and.i54
   store i64 %add8.i57, ptr %Used.i51, align 8
   %32 = load ptr, ptr %Arena, align 8
-  %Used10.i58 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %32, i64 0, i32 1
+  %Used10.i58 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i64, ptr %Used10.i58, align 8
-  %Capacity.i59 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %32, i64 0, i32 2
+  %Capacity.i59 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load i64, ptr %Capacity.i59, align 8
   %cmp.i60 = icmp ult i64 %33, %34
   br i1 %cmp.i60, label %if.then.i68, label %if.end.i61
@@ -10136,12 +10112,12 @@ if.end.i61:                                       ; preds = %if.end17
   %call.i.i62 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i63 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i63, ptr %call.i.i62, align 8
-  %Next.i.i64 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i62, i64 0, i32 3
+  %Next.i.i64 = getelementptr inbounds i8, ptr %call.i.i62, i64 24
   store ptr %32, ptr %Next.i.i64, align 8
-  %Capacity3.i.i65 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i62, i64 0, i32 2
+  %Capacity3.i.i65 = getelementptr inbounds i8, ptr %call.i.i62, i64 16
   store i64 4096, ptr %Capacity3.i.i65, align 8
   store ptr %call.i.i62, ptr %Arena, align 8
-  %Used.i.i66 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i62, i64 0, i32 1
+  %Used.i.i66 = getelementptr inbounds i8, ptr %call.i.i62, i64 8
   store i64 16, ptr %Used.i.i66, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit69
 
@@ -10215,7 +10191,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used, align 8
   %add = add i64 %3, %2
   %sub = add i64 %add, 7
@@ -10225,9 +10201,9 @@ entry:
   %add8 = add i64 %add5, %and
   store i64 %add8, ptr %Used, align 8
   %4 = load ptr, ptr %this, align 8
-  %Used10 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used10 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used10, align 8
-  %Capacity = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity, align 8
   %cmp = icmp ult i64 %5, %6
   br i1 %cmp, label %if.then, label %if.end
@@ -10240,24 +10216,24 @@ if.end:                                           ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i, ptr %call.i, align 8
-  %Next.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i, i64 0, i32 3
+  %Next.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %4, ptr %Next.i, align 8
-  %Capacity3.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i, i64 0, i32 2
+  %Capacity3.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 4096, ptr %Capacity3.i, align 8
   store ptr %call.i, ptr %this, align 8
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 24, ptr %Used.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
   %call2.i.sink10 = phi ptr [ %call2.i, %if.end ], [ %7, %if.then ]
   %8 = load i32, ptr %ConstructorArgs, align 4
-  %Kind.i.i.i5 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink10, i64 0, i32 1
+  %Kind.i.i.i5 = getelementptr inbounds i8, ptr %call2.i.sink10, i64 8
   store i32 2, ptr %Kind.i.i.i5, align 8
-  %Quals.i.i6 = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2.i.sink10, i64 0, i32 1
+  %Quals.i.i6 = getelementptr inbounds i8, ptr %call2.i.sink10, i64 12
   store i8 0, ptr %Quals.i.i6, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle17PrimitiveTypeNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink10, align 8
-  %PrimKind.i7 = getelementptr inbounds %"struct.llvh::ms_demangle::PrimitiveTypeNode", ptr %call2.i.sink10, i64 0, i32 1
+  %PrimKind.i7 = getelementptr inbounds i8, ptr %call2.i.sink10, i64 16
   store i32 %8, ptr %PrimKind.i7, align 8
   ret ptr %call2.i.sink10
 }
@@ -10265,7 +10241,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler24demangleFunctionEncodingER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName) unnamed_addr #2 align 2 {
 entry:
-  %Last.i1.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i1.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %0 = load ptr, ptr %Last.i1.i.i, align 8
   %1 = load ptr, ptr %MangledName, align 8
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %0 to i64
@@ -10453,7 +10429,7 @@ sw.bb56.i:                                        ; preds = %_ZN10StringView12co
   br label %_ZN12_GLOBAL__N_19Demangler21demangleFunctionClassER10StringView.exit
 
 sw.epilog61.i:                                    ; preds = %_ZN10StringView12consumeFrontEc.exit.thread.i, %_ZN10StringView12consumeFrontES_.exit.thread
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler21demangleFunctionClassER10StringView.exit
 
@@ -10465,11 +10441,11 @@ _ZN12_GLOBAL__N_19Demangler21demangleFunctionClassER10StringView.exit: ; preds =
   br i1 %tobool.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %_ZN12_GLOBAL__N_19Demangler21demangleFunctionClassER10StringView.exit
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %Arena, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %10, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %13, %12
   %sub.i = add i64 %add.i, 7
@@ -10479,9 +10455,9 @@ if.then6:                                         ; preds = %_ZN12_GLOBAL__N_19D
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %14 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %14, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %14, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %15, %16
   br i1 %cmp.i, label %if.then.i, label %if.end.i24
@@ -10494,37 +10470,37 @@ if.end.i24:                                       ; preds = %if.then6
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %14, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 72, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i24
   %call2.i.sink23.i = phi ptr [ %call2.i.i, %if.end.i24 ], [ %17, %if.then.i ]
-  %Kind.i.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink23.i, i64 0, i32 1
+  %Kind.i.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 8
   store i32 13, ptr %Kind.i.i.i.i4.i, align 8
-  %Quals.i.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2.i.sink23.i, i64 0, i32 1
+  %Quals.i.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 12
   store i8 0, ptr %Quals.i.i.i5.i, align 4
-  %Affinity.i.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 1
+  %Affinity.i.i6.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 16
   store i32 0, ptr %Affinity.i.i6.i, align 8
-  %CallConvention.i.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 2
+  %CallConvention.i.i7.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 20
   store i8 0, ptr %CallConvention.i.i7.i, align 4
-  %FunctionClass.i.i8.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 3
+  %FunctionClass.i.i8.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 22
   store i16 8, ptr %FunctionClass.i.i8.i, align 2
-  %RefQualifier.i.i9.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 4
+  %RefQualifier.i.i9.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 24
   store i32 0, ptr %RefQualifier.i.i9.i, align 8
-  %ReturnType.i.i10.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 5
+  %ReturnType.i.i10.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 32
   store ptr null, ptr %ReturnType.i.i10.i, align 8
-  %IsVariadic.i.i11.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 6
+  %IsVariadic.i.i11.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 40
   store i8 0, ptr %IsVariadic.i.i11.i, align 8
-  %Params.i.i12.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 7
+  %Params.i.i12.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 48
   store ptr null, ptr %Params.i.i12.i, align 8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18ThunkSignatureNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink23.i, align 8
-  %ThisAdjust.i13.i = getelementptr inbounds %"struct.llvh::ms_demangle::ThunkSignatureNode", ptr %call2.i.sink23.i, i64 0, i32 1
+  %ThisAdjust.i13.i = getelementptr inbounds i8, ptr %call2.i.sink23.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ThisAdjust.i13.i, i8 0, i64 16, i1 false)
   %18 = load ptr, ptr %MangledName, align 8
   %19 = load ptr, ptr %Last.i1.i.i, align 8
@@ -10592,7 +10568,7 @@ if.then20.i.i:                                    ; preds = %if.end15.i.i
   br i1 %exitcond.not.i.i, label %if.end.thread.i, label %for.body.i.i, !llvm.loop !10
 
 if.end.thread.i:                                  ; preds = %if.then20.i.i, %if.end15.i.i, %_ZN10StringView12consumeFrontEc.exit.i.i
-  %Error.i.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit
 
@@ -10605,7 +10581,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i: ; preds = %if.
   br i1 %cmp.i31, label %if.then.i35, label %if.end.i32
 
 if.then.i35:                                      ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i
-  %Error.i36 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i36 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i36, align 8
   br label %if.end.i32
 
@@ -10626,11 +10602,11 @@ if.else:                                          ; preds = %_ZN12_GLOBAL__N_19D
   br i1 %tobool12.not, label %if.end35, label %if.then13
 
 if.then13:                                        ; preds = %if.else
-  %Arena14 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena14 = getelementptr inbounds i8, ptr %this, i64 16
   %25 = load ptr, ptr %Arena14, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
-  %Used.i37 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %25, i64 0, i32 1
+  %Used.i37 = getelementptr inbounds i8, ptr %25, i64 8
   %28 = load i64, ptr %Used.i37, align 8
   %add.i38 = add i64 %28, %27
   %sub.i39 = add i64 %add.i38, 7
@@ -10640,9 +10616,9 @@ if.then13:                                        ; preds = %if.else
   %add8.i43 = add i64 %add5.i42, %and.i40
   store i64 %add8.i43, ptr %Used.i37, align 8
   %29 = load ptr, ptr %Arena14, align 8
-  %Used10.i44 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %29, i64 0, i32 1
+  %Used10.i44 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load i64, ptr %Used10.i44, align 8
-  %Capacity.i45 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %29, i64 0, i32 2
+  %Capacity.i45 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load i64, ptr %Capacity.i45, align 8
   %cmp.i46 = icmp ult i64 %30, %31
   br i1 %cmp.i46, label %if.then.i64, label %if.end.i47
@@ -10655,37 +10631,37 @@ if.end.i47:                                       ; preds = %if.then13
   %call.i.i48 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i49 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i49, ptr %call.i.i48, align 8
-  %Next.i.i50 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i48, i64 0, i32 3
+  %Next.i.i50 = getelementptr inbounds i8, ptr %call.i.i48, i64 24
   store ptr %29, ptr %Next.i.i50, align 8
-  %Capacity3.i.i51 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i48, i64 0, i32 2
+  %Capacity3.i.i51 = getelementptr inbounds i8, ptr %call.i.i48, i64 16
   store i64 4096, ptr %Capacity3.i.i51, align 8
   store ptr %call.i.i48, ptr %Arena14, align 8
-  %Used.i.i52 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i48, i64 0, i32 1
+  %Used.i.i52 = getelementptr inbounds i8, ptr %call.i.i48, i64 8
   store i64 72, ptr %Used.i.i52, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit65
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit65: ; preds = %if.then.i64, %if.end.i47
   %call2.i.sink23.i53 = phi ptr [ %call2.i.i49, %if.end.i47 ], [ %32, %if.then.i64 ]
-  %Kind.i.i.i.i4.i54 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink23.i53, i64 0, i32 1
+  %Kind.i.i.i.i4.i54 = getelementptr inbounds i8, ptr %call2.i.sink23.i53, i64 8
   store i32 13, ptr %Kind.i.i.i.i4.i54, align 8
-  %Quals.i.i.i5.i55 = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2.i.sink23.i53, i64 0, i32 1
+  %Quals.i.i.i5.i55 = getelementptr inbounds i8, ptr %call2.i.sink23.i53, i64 12
   store i8 0, ptr %Quals.i.i.i5.i55, align 4
-  %Affinity.i.i6.i56 = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i53, i64 0, i32 1
+  %Affinity.i.i6.i56 = getelementptr inbounds i8, ptr %call2.i.sink23.i53, i64 16
   store i32 0, ptr %Affinity.i.i6.i56, align 8
-  %CallConvention.i.i7.i57 = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i53, i64 0, i32 2
+  %CallConvention.i.i7.i57 = getelementptr inbounds i8, ptr %call2.i.sink23.i53, i64 20
   store i8 0, ptr %CallConvention.i.i7.i57, align 4
-  %FunctionClass.i.i8.i58 = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i53, i64 0, i32 3
+  %FunctionClass.i.i8.i58 = getelementptr inbounds i8, ptr %call2.i.sink23.i53, i64 22
   store i16 8, ptr %FunctionClass.i.i8.i58, align 2
-  %RefQualifier.i.i9.i59 = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i53, i64 0, i32 4
+  %RefQualifier.i.i9.i59 = getelementptr inbounds i8, ptr %call2.i.sink23.i53, i64 24
   store i32 0, ptr %RefQualifier.i.i9.i59, align 8
-  %ReturnType.i.i10.i60 = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i53, i64 0, i32 5
+  %ReturnType.i.i10.i60 = getelementptr inbounds i8, ptr %call2.i.sink23.i53, i64 32
   store ptr null, ptr %ReturnType.i.i10.i60, align 8
-  %IsVariadic.i.i11.i61 = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i53, i64 0, i32 6
+  %IsVariadic.i.i11.i61 = getelementptr inbounds i8, ptr %call2.i.sink23.i53, i64 40
   store i8 0, ptr %IsVariadic.i.i11.i61, align 8
-  %Params.i.i12.i62 = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink23.i53, i64 0, i32 7
+  %Params.i.i12.i62 = getelementptr inbounds i8, ptr %call2.i.sink23.i53, i64 48
   store ptr null, ptr %Params.i.i12.i62, align 8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18ThunkSignatureNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink23.i53, align 8
-  %ThisAdjust.i13.i63 = getelementptr inbounds %"struct.llvh::ms_demangle::ThunkSignatureNode", ptr %call2.i.sink23.i53, i64 0, i32 1
+  %ThisAdjust.i13.i63 = getelementptr inbounds i8, ptr %call2.i.sink23.i53, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ThisAdjust.i13.i63, i8 0, i64 16, i1 false)
   %tobool18.not = icmp ult i16 %or, 1024
   br i1 %tobool18.not, label %if.end26, label %if.then19
@@ -10757,7 +10733,7 @@ if.then20.i.i91:                                  ; preds = %if.end15.i.i87
   br i1 %exitcond.not.i.i96, label %if.end.thread.i89, label %for.body.i.i82, !llvm.loop !10
 
 if.end.thread.i89:                                ; preds = %if.then20.i.i91, %if.end15.i.i87, %_ZN10StringView12consumeFrontEc.exit.i.i70
-  %Error.i.i90 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i90 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i90, align 8
   br label %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit115
 
@@ -10770,7 +10746,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i100: ; preds = %
   br i1 %cmp.i104, label %if.then.i108, label %if.end.i105
 
 if.then.i108:                                     ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i100
-  %Error.i109 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i109 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i109, align 8
   br label %if.end.i105
 
@@ -10782,7 +10758,7 @@ if.end.i105:                                      ; preds = %if.then.i108, %_ZN1
 _ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit115: ; preds = %if.end.thread.i89, %if.end.i105
   %39 = phi i64 [ 0, %if.end.thread.i89 ], [ %spec.select.i107, %if.end.i105 ]
   %conv21 = trunc i64 %39 to i32
-  %VBPtrOffset = getelementptr inbounds %"struct.llvh::ms_demangle::ThunkSignatureNode", ptr %call2.i.sink23.i53, i64 0, i32 1, i32 1
+  %VBPtrOffset = getelementptr inbounds i8, ptr %call2.i.sink23.i53, i64 60
   store i32 %conv21, ptr %VBPtrOffset, align 4
   %40 = load ptr, ptr %MangledName, align 8
   %41 = load ptr, ptr %Last.i1.i.i, align 8
@@ -10850,7 +10826,7 @@ if.then20.i.i141:                                 ; preds = %if.end15.i.i137
   br i1 %exitcond.not.i.i146, label %if.end.thread.i139, label %for.body.i.i132, !llvm.loop !10
 
 if.end.thread.i139:                               ; preds = %if.then20.i.i141, %if.end15.i.i137, %_ZN10StringView12consumeFrontEc.exit.i.i120
-  %Error.i.i140 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i140 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i140, align 8
   br label %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit165
 
@@ -10863,7 +10839,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i150: ; preds = %
   br i1 %cmp.i154, label %if.then.i158, label %if.end.i155
 
 if.then.i158:                                     ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i150
-  %Error.i159 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i159 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i159, align 8
   br label %if.end.i155
 
@@ -10875,7 +10851,7 @@ if.end.i155:                                      ; preds = %if.then.i158, %_ZN1
 _ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit165: ; preds = %if.end.thread.i139, %if.end.i155
   %46 = phi i64 [ 0, %if.end.thread.i139 ], [ %spec.select.i157, %if.end.i155 ]
   %conv24 = trunc i64 %46 to i32
-  %VBOffsetOffset = getelementptr inbounds %"struct.llvh::ms_demangle::ThunkSignatureNode", ptr %call2.i.sink23.i53, i64 0, i32 1, i32 2
+  %VBOffsetOffset = getelementptr inbounds i8, ptr %call2.i.sink23.i53, i64 64
   store i32 %conv24, ptr %VBOffsetOffset, align 8
   br label %if.end26
 
@@ -10946,7 +10922,7 @@ if.then20.i.i191:                                 ; preds = %if.end15.i.i187
   br i1 %exitcond.not.i.i196, label %if.end.thread.i189, label %for.body.i.i182, !llvm.loop !10
 
 if.end.thread.i189:                               ; preds = %if.then20.i.i191, %if.end15.i.i187, %_ZN10StringView12consumeFrontEc.exit.i.i170
-  %Error.i.i190 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i190 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i190, align 8
   br label %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit215
 
@@ -10959,7 +10935,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i200: ; preds = %
   br i1 %cmp.i204, label %if.then.i208, label %if.end.i205
 
 if.then.i208:                                     ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i200
-  %Error.i209 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i209 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i209, align 8
   br label %if.end.i205
 
@@ -10971,7 +10947,7 @@ if.end.i205:                                      ; preds = %if.then.i208, %_ZN1
 
 _ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit215: ; preds = %if.end.thread.i189, %if.end.i205
   %conv28 = phi i32 [ 0, %if.end.thread.i189 ], [ %53, %if.end.i205 ]
-  %VtordispOffset = getelementptr inbounds %"struct.llvh::ms_demangle::ThunkSignatureNode", ptr %call2.i.sink23.i53, i64 0, i32 1, i32 3
+  %VtordispOffset = getelementptr inbounds i8, ptr %call2.i.sink23.i53, i64 68
   store i32 %conv28, ptr %VtordispOffset, align 4
   %54 = load ptr, ptr %MangledName, align 8
   %55 = load ptr, ptr %Last.i1.i.i, align 8
@@ -11039,7 +11015,7 @@ if.then20.i.i241:                                 ; preds = %if.end15.i.i237
   br i1 %exitcond.not.i.i246, label %if.end.thread.i239, label %for.body.i.i232, !llvm.loop !10
 
 if.end.thread.i239:                               ; preds = %if.then20.i.i241, %if.end15.i.i237, %_ZN10StringView12consumeFrontEc.exit.i.i220
-  %Error.i.i240 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i240 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i240, align 8
   br label %_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit265
 
@@ -11052,7 +11028,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i250: ; preds = %
   br i1 %cmp.i254, label %if.then.i258, label %if.end.i255
 
 if.then.i258:                                     ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i250
-  %Error.i259 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i259 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i259, align 8
   br label %if.end.i255
 
@@ -11074,11 +11050,11 @@ if.end35:                                         ; preds = %if.else, %_ZN12_GLO
   br i1 %tobool38.not, label %if.else42, label %if.then39
 
 if.then39:                                        ; preds = %if.end35
-  %Arena40 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena40 = getelementptr inbounds i8, ptr %this, i64 16
   %61 = load ptr, ptr %Arena40, align 8
   %62 = load ptr, ptr %61, align 8
   %63 = ptrtoint ptr %62 to i64
-  %Used.i266 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %61, i64 0, i32 1
+  %Used.i266 = getelementptr inbounds i8, ptr %61, i64 8
   %64 = load i64, ptr %Used.i266, align 8
   %add.i267 = add i64 %64, %63
   %sub.i268 = add i64 %add.i267, 7
@@ -11088,9 +11064,9 @@ if.then39:                                        ; preds = %if.end35
   %add8.i272 = add i64 %add5.i271, %and.i269
   store i64 %add8.i272, ptr %Used.i266, align 8
   %65 = load ptr, ptr %Arena40, align 8
-  %Used10.i273 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %65, i64 0, i32 1
+  %Used10.i273 = getelementptr inbounds i8, ptr %65, i64 8
   %66 = load i64, ptr %Used10.i273, align 8
-  %Capacity.i274 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %65, i64 0, i32 2
+  %Capacity.i274 = getelementptr inbounds i8, ptr %65, i64 16
   %67 = load i64, ptr %Capacity.i274, align 8
   %cmp.i275 = icmp ult i64 %66, %67
   br i1 %cmp.i275, label %if.then.i282, label %if.end.i276
@@ -11103,35 +11079,35 @@ if.end.i276:                                      ; preds = %if.then39
   %call.i.i277 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i278 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i278, ptr %call.i.i277, align 8
-  %Next.i.i279 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i277, i64 0, i32 3
+  %Next.i.i279 = getelementptr inbounds i8, ptr %call.i.i277, i64 24
   store ptr %65, ptr %Next.i.i279, align 8
-  %Capacity3.i.i280 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i277, i64 0, i32 2
+  %Capacity3.i.i280 = getelementptr inbounds i8, ptr %call.i.i277, i64 16
   store i64 4096, ptr %Capacity3.i.i280, align 8
   store ptr %call.i.i277, ptr %Arena40, align 8
-  %Used.i.i281 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i277, i64 0, i32 1
+  %Used.i.i281 = getelementptr inbounds i8, ptr %call.i.i277, i64 8
   store i64 56, ptr %Used.i.i281, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i282, %if.end.i276
   %call2.i.sink21.i = phi ptr [ %call2.i.i278, %if.end.i276 ], [ %68, %if.then.i282 ]
-  %Kind.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink21.i, i64 0, i32 1
+  %Kind.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 8
   store i32 3, ptr %Kind.i.i.i4.i, align 8
-  %Quals.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2.i.sink21.i, i64 0, i32 1
+  %Quals.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 12
   store i8 0, ptr %Quals.i.i5.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle21FunctionSignatureNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink21.i, align 8
-  %Affinity.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 1
+  %Affinity.i6.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 16
   store i32 0, ptr %Affinity.i6.i, align 8
-  %CallConvention.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 2
+  %CallConvention.i7.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 20
   store i8 0, ptr %CallConvention.i7.i, align 4
-  %FunctionClass.i8.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 3
+  %FunctionClass.i8.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 22
   store i16 8, ptr %FunctionClass.i8.i, align 2
-  %RefQualifier.i9.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 4
+  %RefQualifier.i9.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 24
   store i32 0, ptr %RefQualifier.i9.i, align 8
-  %ReturnType.i10.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 5
+  %ReturnType.i10.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 32
   store ptr null, ptr %ReturnType.i10.i, align 8
-  %IsVariadic.i11.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 6
+  %IsVariadic.i11.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 40
   store i8 0, ptr %IsVariadic.i11.i, align 8
-  %Params.i12.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %call2.i.sink21.i, i64 0, i32 7
+  %Params.i12.i = getelementptr inbounds i8, ptr %call2.i.sink21.i, i64 48
   store ptr null, ptr %Params.i12.i, align 8
   br label %if.end48
 
@@ -11147,28 +11123,28 @@ if.end48:                                         ; preds = %if.else42, %_ZN4llv
   br i1 %tobool49.not, label %if.end52, label %if.then50
 
 if.then50:                                        ; preds = %if.end48
-  %Kind.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %FSN.0, i64 0, i32 1
+  %Kind.i.i.i = getelementptr inbounds i8, ptr %FSN.0, i64 8
   %69 = load i32, ptr %Kind.i.i.i, align 8
-  %Kind2.i.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %TTN.0, i64 0, i32 1
+  %Kind2.i.i.i = getelementptr inbounds i8, ptr %TTN.0, i64 8
   store i32 %69, ptr %Kind2.i.i.i, align 8
-  %Quals.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %FSN.0, i64 0, i32 1
+  %Quals.i.i = getelementptr inbounds i8, ptr %FSN.0, i64 12
   %70 = load i8, ptr %Quals.i.i, align 4
-  %Quals2.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %TTN.0, i64 0, i32 1
+  %Quals2.i.i = getelementptr inbounds i8, ptr %TTN.0, i64 12
   store i8 %70, ptr %Quals2.i.i, align 4
-  %Affinity.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %TTN.0, i64 0, i32 1
-  %Affinity2.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %FSN.0, i64 0, i32 1
+  %Affinity.i = getelementptr inbounds i8, ptr %TTN.0, i64 16
+  %Affinity2.i = getelementptr inbounds i8, ptr %FSN.0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Affinity.i, ptr noundef nonnull align 8 dereferenceable(40) %Affinity2.i, i64 40, i1 false)
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then50, %if.end48
   %FSN.1 = phi ptr [ %TTN.0, %if.then50 ], [ %FSN.0, %if.end48 ]
-  %FunctionClass = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %FSN.1, i64 0, i32 3
+  %FunctionClass = getelementptr inbounds i8, ptr %FSN.1, i64 22
   store i16 %or, ptr %FunctionClass, align 2
-  %Arena53 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena53 = getelementptr inbounds i8, ptr %this, i64 16
   %71 = load ptr, ptr %Arena53, align 8
   %72 = load ptr, ptr %71, align 8
   %73 = ptrtoint ptr %72 to i64
-  %Used.i283 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %71, i64 0, i32 1
+  %Used.i283 = getelementptr inbounds i8, ptr %71, i64 8
   %74 = load i64, ptr %Used.i283, align 8
   %add.i284 = add i64 %74, %73
   %sub.i285 = add i64 %add.i284, 7
@@ -11178,9 +11154,9 @@ if.end52:                                         ; preds = %if.then50, %if.end4
   %add8.i289 = add i64 %add5.i288, %and.i286
   store i64 %add8.i289, ptr %Used.i283, align 8
   %75 = load ptr, ptr %Arena53, align 8
-  %Used10.i290 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %75, i64 0, i32 1
+  %Used10.i290 = getelementptr inbounds i8, ptr %75, i64 8
   %76 = load i64, ptr %Used10.i290, align 8
-  %Capacity.i291 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %75, i64 0, i32 2
+  %Capacity.i291 = getelementptr inbounds i8, ptr %75, i64 16
   %77 = load i64, ptr %Capacity.i291, align 8
   %cmp.i292 = icmp ult i64 %76, %77
   br i1 %cmp.i292, label %if.then.i300, label %if.end.i293
@@ -11193,23 +11169,23 @@ if.end.i293:                                      ; preds = %if.end52
   %call.i.i294 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i295 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i295, ptr %call.i.i294, align 8
-  %Next.i.i296 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i294, i64 0, i32 3
+  %Next.i.i296 = getelementptr inbounds i8, ptr %call.i.i294, i64 24
   store ptr %75, ptr %Next.i.i296, align 8
-  %Capacity3.i.i297 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i294, i64 0, i32 2
+  %Capacity3.i.i297 = getelementptr inbounds i8, ptr %call.i.i294, i64 16
   store i64 4096, ptr %Capacity3.i.i297, align 8
   store ptr %call.i.i294, ptr %Arena53, align 8
-  %Used.i.i298 = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i294, i64 0, i32 1
+  %Used.i.i298 = getelementptr inbounds i8, ptr %call.i.i294, i64 8
   store i64 32, ptr %Used.i.i298, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i300, %if.end.i293
   %call2.i.sink9.i = phi ptr [ %call2.i.i295, %if.end.i293 ], [ %78, %if.then.i300 ]
-  %Kind.i.i.i4.i299 = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Kind.i.i.i4.i299 = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 8
   store i32 26, ptr %Kind.i.i.i4.i299, align 8
-  %Name.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Name.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 16
   store ptr null, ptr %Name.i.i5.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18FunctionSymbolNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink9.i, align 8
-  %Signature.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSymbolNode", ptr %call2.i.sink9.i, i64 0, i32 1
+  %Signature.i6.i = getelementptr inbounds i8, ptr %call2.i.sink9.i, i64 24
   store ptr %FSN.1, ptr %Signature.i6.i, align 8
   ret ptr %call2.i.sink9.i
 }
@@ -11217,11 +11193,11 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18FunctionSymbolNodeEJEEEPT_DpOT
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler24demangleVariableEncodingER10StringViewN4llvh11ms_demangle12StorageClassE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, i8 noundef zeroext %SC) unnamed_addr #2 align 2 {
 entry:
-  %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 2
+  %Arena = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Arena, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %Used.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %0, i64 0, i32 1
+  %Used.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %Used.i, align 8
   %add.i = add i64 %3, %2
   %sub.i = add i64 %add.i, 7
@@ -11231,9 +11207,9 @@ entry:
   %add8.i = add i64 %add5.i, %and.i
   store i64 %add8.i, ptr %Used.i, align 8
   %4 = load ptr, ptr %Arena, align 8
-  %Used10.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 1
+  %Used10.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Used10.i, align 8
-  %Capacity.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %4, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %Capacity.i, align 8
   %cmp.i = icmp ult i64 %5, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -11246,39 +11222,39 @@ if.end.i:                                         ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #20
   store ptr %call2.i.i, ptr %call.i.i, align 8
-  %Next.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 3
+  %Next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %4, ptr %Next.i.i, align 8
-  %Capacity3.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 2
+  %Capacity3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 4096, ptr %Capacity3.i.i, align 8
   store ptr %call.i.i, ptr %Arena, align 8
-  %Used.i.i = getelementptr inbounds %"struct.llvh::ms_demangle::ArenaAllocator::AllocatorNode", ptr %call.i.i, i64 0, i32 1
+  %Used.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 40, ptr %Used.i.i, align 8
   br label %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT0_.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT0_.exit: ; preds = %if.then.i, %if.end.i
   %call2.i.sink11.i = phi ptr [ %call2.i.i, %if.end.i ], [ %7, %if.then.i ]
-  %Kind.i.i.i4.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2.i.sink11.i, i64 0, i32 1
+  %Kind.i.i.i4.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 8
   store i32 27, ptr %Kind.i.i.i4.i, align 8
-  %Name.i.i5.i = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %call2.i.sink11.i, i64 0, i32 1
+  %Name.i.i5.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 16
   store ptr null, ptr %Name.i.i5.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i64 0, inrange i32 0, i64 2), ptr %call2.i.sink11.i, align 8
-  %SC.i6.i = getelementptr inbounds %"struct.llvh::ms_demangle::VariableSymbolNode", ptr %call2.i.sink11.i, i64 0, i32 1
+  %SC.i6.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 24
   store i8 0, ptr %SC.i6.i, align 8
-  %Type.i7.i = getelementptr inbounds %"struct.llvh::ms_demangle::VariableSymbolNode", ptr %call2.i.sink11.i, i64 0, i32 2
+  %Type.i7.i = getelementptr inbounds i8, ptr %call2.i.sink11.i, i64 32
   store ptr null, ptr %Type.i7.i, align 8
   %call2 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler12demangleTypeER10StringView19QualifierMangleMode(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName, i32 noundef 0)
   store ptr %call2, ptr %Type.i7.i, align 8
   store i8 %SC, ptr %SC.i6.i, align 8
-  %Kind.i = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %call2, i64 0, i32 1
+  %Kind.i = getelementptr inbounds i8, ptr %call2, i64 8
   %8 = load i32, ptr %Kind.i, align 8
   %cond = icmp eq i32 %8, 14
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT0_.exit
-  %Quals = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %call2, i64 0, i32 1
+  %Quals = getelementptr inbounds i8, ptr %call2, i64 12
   %9 = load i8, ptr %Quals, align 4
   %10 = load ptr, ptr %MangledName, align 8
-  %Last.i.i.i.i = getelementptr inbounds %class.StringView, ptr %MangledName, i64 0, i32 1
+  %Last.i.i.i.i = getelementptr inbounds i8, ptr %MangledName, i64 8
   %11 = load ptr, ptr %Last.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i.i, label %_ZN10StringView12consumeFrontEc.exit.thread.i, label %_ZNK10StringView10startsWithEc.exit.i.i
@@ -11341,7 +11317,7 @@ _ZN12_GLOBAL__N_19Demangler28demanglePointerExtQualifiersER10StringView.exit: ; 
   br i1 %27, label %switch.hole_check, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %switch.hole_check, %_ZN12_GLOBAL__N_19Demangler28demanglePointerExtQualifiersER10StringView.exit
-  %Error.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit
 
@@ -11359,7 +11335,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 _ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit: ; preds = %switch.lookup, %sw.epilog.i
   %retval.sroa.0.0.i = phi i8 [ 0, %sw.epilog.i ], [ %switch.load, %switch.lookup ]
-  %ClassParent = getelementptr inbounds %"struct.llvh::ms_demangle::PointerTypeNode", ptr %call2, i64 0, i32 2
+  %ClassParent = getelementptr inbounds i8, ptr %call2, i64 24
   %30 = load ptr, ptr %ClassParent, align 8
   %tobool.not = icmp eq ptr %30, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -11380,20 +11356,21 @@ _ZL15startsWithDigit10StringView.exit.i:          ; preds = %if.then
 if.then.i33:                                      ; preds = %_ZL15startsWithDigit10StringView.exit.i
   %conv.i5.i = sext i8 %31 to i64
   %sub.i.i = add nsw i64 %conv.i5.i, -48
-  %NamesCount.i.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 3
+  %NamesCount.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %32 = load i64, ptr %NamesCount.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %sub.i.i, %32
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i33
-  %Error.i.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb.exit
 
 if.end.i.i:                                       ; preds = %if.then.i33
   %add.ptr.i.i.i34 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i, i64 1
   store ptr %add.ptr.i.i.i34, ptr %MangledName, align 8
-  %arrayidx.i.i = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 3, i32 2, i64 %sub.i.i
+  %Names.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %arrayidx.i.i = getelementptr inbounds [10 x ptr], ptr %Names.i.i, i64 0, i64 %sub.i.i
   %33 = load ptr, ptr %arrayidx.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb.exit
 
@@ -11419,7 +11396,7 @@ if.end7.i:                                        ; preds = %_ZNK10StringView10s
 
 _ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb.exit: ; preds = %if.then.i.i, %if.end.i.i, %if.then5.i, %if.end7.i
   %retval.0.i = phi ptr [ %call6.i, %if.then5.i ], [ %call8.i, %if.end7.i ], [ null, %if.then.i.i ], [ %33, %if.end.i.i ]
-  %Error.i16 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i16 = getelementptr inbounds i8, ptr %this, i64 8
   %34 = load i8, ptr %Error.i16, align 8
   %35 = and i8 %34, 1
   %tobool.not.i = icmp eq i8 %35, 0
@@ -11430,9 +11407,9 @@ if.end.i17:                                       ; preds = %_ZN12_GLOBAL__N_19D
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i17, %_ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb.exit, %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit
-  %Pointee = getelementptr inbounds %"struct.llvh::ms_demangle::PointerTypeNode", ptr %call2, i64 0, i32 3
+  %Pointee = getelementptr inbounds i8, ptr %call2, i64 32
   %36 = load ptr, ptr %Pointee, align 8
-  %Quals16 = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %36, i64 0, i32 1
+  %Quals16 = getelementptr inbounds i8, ptr %36, i64 12
   %37 = load i8, ptr %Quals16, align 4
   %or1915 = or i8 %37, %retval.sroa.0.0.i
   store i8 %or1915, ptr %Quals16, align 4
@@ -11449,7 +11426,7 @@ sw.default:                                       ; preds = %_ZN4llvh11ms_demang
   br i1 %40, label %switch.hole_check37, label %sw.epilog.i28
 
 sw.epilog.i28:                                    ; preds = %switch.hole_check37, %sw.default
-  %Error.i29 = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this, i64 0, i32 1
+  %Error.i29 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %Error.i29, align 8
   br label %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit30
 
@@ -11468,7 +11445,7 @@ switch.lookup38:                                  ; preds = %switch.hole_check37
 _ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit30: ; preds = %switch.lookup38, %sw.epilog.i28
   %retval.sroa.0.0.i21 = phi i8 [ 0, %sw.epilog.i28 ], [ %switch.load42, %switch.lookup38 ]
   %43 = load ptr, ptr %Type.i7.i, align 8
-  %Quals26 = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %43, i64 0, i32 1
+  %Quals26 = getelementptr inbounds i8, ptr %43, i64 12
   store i8 %retval.sroa.0.0.i21, ptr %Quals26, align 4
   br label %sw.epilog
 

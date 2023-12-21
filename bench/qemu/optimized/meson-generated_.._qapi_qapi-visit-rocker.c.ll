@@ -4,18 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.RockerSwitch = type { ptr, i64, i32 }
-%struct.RockerPort = type { ptr, i8, i8, i32, i32, i32 }
-%struct.RockerPortList = type { ptr, ptr }
-%struct.RockerOfDpaFlowKey = type { i32, i32, i8, i32, i8, i32, i8, i16, i8, i16, ptr, ptr, i8, i8, i8, i8, ptr }
-%struct.RockerOfDpaFlowMask = type { i8, i32, i8, i32, i8, i16, ptr, ptr, i8, i8, i8, i8 }
-%struct.RockerOfDpaFlowAction = type { i8, i32, i8, i32, i8, i32, i8, i16, i8, i16, i8, i32 }
-%struct.RockerOfDpaFlow = type { i64, i64, ptr, ptr, ptr }
-%struct.q_obj_query_rocker_of_dpa_flows_arg = type { ptr, i8, i32 }
-%struct.RockerOfDpaFlowList = type { ptr, ptr }
-%struct.RockerOfDpaGroup = type { i32, i8, i8, i16, i8, i32, i8, i32, i8, i32, i8, i32, i8, i16, i8, i8, i8, ptr, ptr, ptr, i8, i8 }
-%struct.q_obj_query_rocker_of_dpa_groups_arg = type { ptr, i8, i8 }
-%struct.RockerOfDpaGroupList = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"name\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"id\00", align 1
@@ -75,12 +63,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.RockerSwitch, ptr %obj, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %id, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %ports = getelementptr inbounds %struct.RockerSwitch, ptr %obj, i64 0, i32 2
+  %ports = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %ports, ptr noundef %errp) #4
   br label %return
 
@@ -123,12 +111,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %id.i = getelementptr inbounds %struct.RockerSwitch, ptr %0, i64 0, i32 1
+  %id.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %id.i, ptr noundef %errp) #4
   br i1 %call1.i, label %visit_type_RockerSwitch_members.exit, label %out_obj.thread
 
 visit_type_RockerSwitch_members.exit:             ; preds = %if.end.i
-  %ports.i = getelementptr inbounds %struct.RockerSwitch, ptr %0, i64 0, i32 2
+  %ports.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %ports.i, ptr noundef %errp) #4
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -213,22 +201,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %enabled = getelementptr inbounds %struct.RockerPort, ptr %obj, i64 0, i32 1
+  %enabled = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %enabled, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %link_up = getelementptr inbounds %struct.RockerPort, ptr %obj, i64 0, i32 2
+  %link_up = getelementptr inbounds i8, ptr %obj, i64 9
   %call4 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %link_up, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %speed = getelementptr inbounds %struct.RockerPort, ptr %obj, i64 0, i32 3
+  %speed = getelementptr inbounds i8, ptr %obj, i64 12
   %call7 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %speed, ptr noundef %errp) #4
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %duplex = getelementptr inbounds %struct.RockerPort, ptr %obj, i64 0, i32 4
+  %duplex = getelementptr inbounds i8, ptr %obj, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %duplex, align 4
   store i32 %0, ptr %value.i, align 4
@@ -239,7 +227,7 @@ if.end9:                                          ; preds = %if.end6
   br i1 %call.i, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end9
-  %autoneg = getelementptr inbounds %struct.RockerPort, ptr %obj, i64 0, i32 5
+  %autoneg = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i16)
   %2 = load i32, ptr %autoneg, align 4
   store i32 %2, ptr %value.i16, align 4
@@ -329,7 +317,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.RockerPortList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_RockerPort(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -378,17 +366,17 @@ entry:
   %has_eth_src = alloca i8, align 1
   %has_eth_dst = alloca i8, align 1
   %has_ip_dst = alloca i8, align 1
-  %eth_src = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 10
+  %eth_src = getelementptr inbounds i8, ptr %obj, i64 32
   %0 = load ptr, ptr %eth_src, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_eth_src, align 1
-  %eth_dst = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 11
+  %eth_dst = getelementptr inbounds i8, ptr %obj, i64 40
   %1 = load ptr, ptr %eth_dst, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_eth_dst, align 1
-  %ip_dst = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 16
+  %ip_dst = getelementptr inbounds i8, ptr %obj, i64 56
   %2 = load ptr, ptr %ip_dst, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -397,47 +385,47 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %tbl_id = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 1
+  %tbl_id = getelementptr inbounds i8, ptr %obj, i64 4
   %call10 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %tbl_id, ptr noundef %errp) #4
   br i1 %call10, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end
-  %has_in_pport = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 2
+  %has_in_pport = getelementptr inbounds i8, ptr %obj, i64 8
   %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_in_pport) #4
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  %in_pport = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 3
+  %in_pport = getelementptr inbounds i8, ptr %obj, i64 12
   %call15 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %in_pport, ptr noundef %errp) #4
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
-  %has_tunnel_id = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 4
+  %has_tunnel_id = getelementptr inbounds i8, ptr %obj, i64 16
   %call19 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %has_tunnel_id) #4
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
-  %tunnel_id = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 5
+  %tunnel_id = getelementptr inbounds i8, ptr %obj, i64 20
   %call21 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %tunnel_id, ptr noundef %errp) #4
   br i1 %call21, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then20, %if.end18
-  %has_vlan_id = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 6
+  %has_vlan_id = getelementptr inbounds i8, ptr %obj, i64 24
   %call25 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %has_vlan_id) #4
   br i1 %call25, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.end24
-  %vlan_id = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 7
+  %vlan_id = getelementptr inbounds i8, ptr %obj, i64 26
   %call27 = tail call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %vlan_id, ptr noundef %errp) #4
   br i1 %call27, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.then26, %if.end24
-  %has_eth_type = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 8
+  %has_eth_type = getelementptr inbounds i8, ptr %obj, i64 28
   %call31 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_eth_type) #4
   br i1 %call31, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.end30
-  %eth_type = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 9
+  %eth_type = getelementptr inbounds i8, ptr %obj, i64 30
   %call33 = tail call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %eth_type, ptr noundef %errp) #4
   br i1 %call33, label %if.end36, label %return
 
@@ -458,22 +446,22 @@ if.then45:                                        ; preds = %if.end43
   br i1 %call47, label %if.end50, label %return
 
 if.end50:                                         ; preds = %if.then45, %if.end43
-  %has_ip_proto = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 12
+  %has_ip_proto = getelementptr inbounds i8, ptr %obj, i64 48
   %call51 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %has_ip_proto) #4
   br i1 %call51, label %if.then52, label %if.end56
 
 if.then52:                                        ; preds = %if.end50
-  %ip_proto = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 13
+  %ip_proto = getelementptr inbounds i8, ptr %obj, i64 49
   %call53 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %ip_proto, ptr noundef %errp) #4
   br i1 %call53, label %if.end56, label %return
 
 if.end56:                                         ; preds = %if.then52, %if.end50
-  %has_ip_tos = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 14
+  %has_ip_tos = getelementptr inbounds i8, ptr %obj, i64 50
   %call57 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_ip_tos) #4
   br i1 %call57, label %if.then58, label %if.end62
 
 if.then58:                                        ; preds = %if.end56
-  %ip_tos = getelementptr inbounds %struct.RockerOfDpaFlowKey, ptr %obj, i64 0, i32 15
+  %ip_tos = getelementptr inbounds i8, ptr %obj, i64 51
   %call59 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %ip_tos, ptr noundef %errp) #4
   br i1 %call59, label %if.end62, label %return
 
@@ -557,12 +545,12 @@ define dso_local zeroext i1 @visit_type_RockerOfDpaFlowMask_members(ptr noundef 
 entry:
   %has_eth_src = alloca i8, align 1
   %has_eth_dst = alloca i8, align 1
-  %eth_src = getelementptr inbounds %struct.RockerOfDpaFlowMask, ptr %obj, i64 0, i32 6
+  %eth_src = getelementptr inbounds i8, ptr %obj, i64 24
   %0 = load ptr, ptr %eth_src, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_eth_src, align 1
-  %eth_dst = getelementptr inbounds %struct.RockerOfDpaFlowMask, ptr %obj, i64 0, i32 7
+  %eth_dst = getelementptr inbounds i8, ptr %obj, i64 32
   %1 = load ptr, ptr %eth_dst, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -571,27 +559,27 @@ entry:
   br i1 %call, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %entry
-  %in_pport = getelementptr inbounds %struct.RockerOfDpaFlowMask, ptr %obj, i64 0, i32 1
+  %in_pport = getelementptr inbounds i8, ptr %obj, i64 4
   %call6 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %in_pport, ptr noundef %errp) #4
   br i1 %call6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then, %entry
-  %has_tunnel_id = getelementptr inbounds %struct.RockerOfDpaFlowMask, ptr %obj, i64 0, i32 2
+  %has_tunnel_id = getelementptr inbounds i8, ptr %obj, i64 8
   %call9 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %has_tunnel_id) #4
   br i1 %call9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end8
-  %tunnel_id = getelementptr inbounds %struct.RockerOfDpaFlowMask, ptr %obj, i64 0, i32 3
+  %tunnel_id = getelementptr inbounds i8, ptr %obj, i64 12
   %call11 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %tunnel_id, ptr noundef %errp) #4
   br i1 %call11, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.then10, %if.end8
-  %has_vlan_id = getelementptr inbounds %struct.RockerOfDpaFlowMask, ptr %obj, i64 0, i32 4
+  %has_vlan_id = getelementptr inbounds i8, ptr %obj, i64 16
   %call15 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %has_vlan_id) #4
   br i1 %call15, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.end14
-  %vlan_id = getelementptr inbounds %struct.RockerOfDpaFlowMask, ptr %obj, i64 0, i32 5
+  %vlan_id = getelementptr inbounds i8, ptr %obj, i64 18
   %call17 = tail call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %vlan_id, ptr noundef %errp) #4
   br i1 %call17, label %if.end20, label %return
 
@@ -612,22 +600,22 @@ if.then29:                                        ; preds = %if.end27
   br i1 %call31, label %if.end34, label %return
 
 if.end34:                                         ; preds = %if.then29, %if.end27
-  %has_ip_proto = getelementptr inbounds %struct.RockerOfDpaFlowMask, ptr %obj, i64 0, i32 8
+  %has_ip_proto = getelementptr inbounds i8, ptr %obj, i64 40
   %call35 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %has_ip_proto) #4
   br i1 %call35, label %if.then36, label %if.end40
 
 if.then36:                                        ; preds = %if.end34
-  %ip_proto = getelementptr inbounds %struct.RockerOfDpaFlowMask, ptr %obj, i64 0, i32 9
+  %ip_proto = getelementptr inbounds i8, ptr %obj, i64 41
   %call37 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %ip_proto, ptr noundef %errp) #4
   br i1 %call37, label %if.end40, label %return
 
 if.end40:                                         ; preds = %if.then36, %if.end34
-  %has_ip_tos = getelementptr inbounds %struct.RockerOfDpaFlowMask, ptr %obj, i64 0, i32 10
+  %has_ip_tos = getelementptr inbounds i8, ptr %obj, i64 42
   %call41 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_ip_tos) #4
   br i1 %call41, label %if.then42, label %if.end46
 
 if.then42:                                        ; preds = %if.end40
-  %ip_tos = getelementptr inbounds %struct.RockerOfDpaFlowMask, ptr %obj, i64 0, i32 11
+  %ip_tos = getelementptr inbounds i8, ptr %obj, i64 43
   %call43 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %ip_tos, ptr noundef %errp) #4
   br i1 %call43, label %if.end46, label %return
 
@@ -699,57 +687,57 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %goto_tbl = getelementptr inbounds %struct.RockerOfDpaFlowAction, ptr %obj, i64 0, i32 1
+  %goto_tbl = getelementptr inbounds i8, ptr %obj, i64 4
   %call1 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %goto_tbl, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_group_id = getelementptr inbounds %struct.RockerOfDpaFlowAction, ptr %obj, i64 0, i32 2
+  %has_group_id = getelementptr inbounds i8, ptr %obj, i64 8
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %has_group_id) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %group_id = getelementptr inbounds %struct.RockerOfDpaFlowAction, ptr %obj, i64 0, i32 3
+  %group_id = getelementptr inbounds i8, ptr %obj, i64 12
   %call6 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %group_id, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_tunnel_lport = getelementptr inbounds %struct.RockerOfDpaFlowAction, ptr %obj, i64 0, i32 4
+  %has_tunnel_lport = getelementptr inbounds i8, ptr %obj, i64 16
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_tunnel_lport) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %tunnel_lport = getelementptr inbounds %struct.RockerOfDpaFlowAction, ptr %obj, i64 0, i32 5
+  %tunnel_lport = getelementptr inbounds i8, ptr %obj, i64 20
   %call12 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %tunnel_lport, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_vlan_id = getelementptr inbounds %struct.RockerOfDpaFlowAction, ptr %obj, i64 0, i32 6
+  %has_vlan_id = getelementptr inbounds i8, ptr %obj, i64 24
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %has_vlan_id) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %vlan_id = getelementptr inbounds %struct.RockerOfDpaFlowAction, ptr %obj, i64 0, i32 7
+  %vlan_id = getelementptr inbounds i8, ptr %obj, i64 26
   %call18 = tail call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %vlan_id, ptr noundef %errp) #4
   br i1 %call18, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.then17, %if.end15
-  %has_new_vlan_id = getelementptr inbounds %struct.RockerOfDpaFlowAction, ptr %obj, i64 0, i32 8
+  %has_new_vlan_id = getelementptr inbounds i8, ptr %obj, i64 28
   %call22 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %has_new_vlan_id) #4
   br i1 %call22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end21
-  %new_vlan_id = getelementptr inbounds %struct.RockerOfDpaFlowAction, ptr %obj, i64 0, i32 9
+  %new_vlan_id = getelementptr inbounds i8, ptr %obj, i64 30
   %call24 = tail call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %new_vlan_id, ptr noundef %errp) #4
   br i1 %call24, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then23, %if.end21
-  %has_out_pport = getelementptr inbounds %struct.RockerOfDpaFlowAction, ptr %obj, i64 0, i32 10
+  %has_out_pport = getelementptr inbounds i8, ptr %obj, i64 32
   %call28 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %has_out_pport) #4
   br i1 %call28, label %if.then29, label %if.end33
 
 if.then29:                                        ; preds = %if.end27
-  %out_pport = getelementptr inbounds %struct.RockerOfDpaFlowAction, ptr %obj, i64 0, i32 11
+  %out_pport = getelementptr inbounds i8, ptr %obj, i64 36
   %call30 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %out_pport, ptr noundef %errp) #4
   br i1 %call30, label %if.end33, label %return
 
@@ -821,22 +809,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %hits = getelementptr inbounds %struct.RockerOfDpaFlow, ptr %obj, i64 0, i32 1
+  %hits = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %hits, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %key = getelementptr inbounds %struct.RockerOfDpaFlow, ptr %obj, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_RockerOfDpaFlowKey(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %key, ptr noundef %errp)
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %mask = getelementptr inbounds %struct.RockerOfDpaFlow, ptr %obj, i64 0, i32 3
+  %mask = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_RockerOfDpaFlowMask(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %mask, ptr noundef %errp)
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %action = getelementptr inbounds %struct.RockerOfDpaFlow, ptr %obj, i64 0, i32 4
+  %action = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_type_RockerOfDpaFlowAction(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %action, ptr noundef %errp)
   br label %return
 
@@ -873,22 +861,22 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %hits.i = getelementptr inbounds %struct.RockerOfDpaFlow, ptr %0, i64 0, i32 1
+  %hits.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %hits.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread
 
 if.end3.i:                                        ; preds = %if.end.i
-  %key.i = getelementptr inbounds %struct.RockerOfDpaFlow, ptr %0, i64 0, i32 2
+  %key.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_RockerOfDpaFlowKey(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %key.i, ptr noundef %errp)
   br i1 %call4.i, label %if.end6.i, label %out_obj.thread
 
 if.end6.i:                                        ; preds = %if.end3.i
-  %mask.i = getelementptr inbounds %struct.RockerOfDpaFlow, ptr %0, i64 0, i32 3
+  %mask.i = getelementptr inbounds i8, ptr %0, i64 24
   %call7.i = tail call zeroext i1 @visit_type_RockerOfDpaFlowMask(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %mask.i, ptr noundef %errp)
   br i1 %call7.i, label %visit_type_RockerOfDpaFlow_members.exit, label %out_obj.thread
 
 visit_type_RockerOfDpaFlow_members.exit:          ; preds = %if.end6.i
-  %action.i = getelementptr inbounds %struct.RockerOfDpaFlow, ptr %0, i64 0, i32 4
+  %action.i = getelementptr inbounds i8, ptr %0, i64 32
   %call10.i = tail call zeroext i1 @visit_type_RockerOfDpaFlowAction(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %action.i, ptr noundef %errp)
   br i1 %call10.i, label %out_obj, label %out_obj.thread
 
@@ -925,12 +913,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_tbl_id = getelementptr inbounds %struct.q_obj_query_rocker_of_dpa_flows_arg, ptr %obj, i64 0, i32 1
+  %has_tbl_id = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_tbl_id) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %tbl_id = getelementptr inbounds %struct.q_obj_query_rocker_of_dpa_flows_arg, ptr %obj, i64 0, i32 2
+  %tbl_id = getelementptr inbounds i8, ptr %obj, i64 12
   %call3 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %tbl_id, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
@@ -955,7 +943,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.RockerOfDpaFlowList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_RockerOfDpaFlow(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -995,12 +983,12 @@ define dso_local zeroext i1 @visit_type_RockerOfDpaGroup_members(ptr noundef %v,
 entry:
   %has_set_eth_src = alloca i8, align 1
   %has_set_eth_dst = alloca i8, align 1
-  %set_eth_src = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 18
+  %set_eth_src = getelementptr inbounds i8, ptr %obj, i64 56
   %0 = load ptr, ptr %set_eth_src, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_set_eth_src, align 1
-  %set_eth_dst = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 19
+  %set_eth_dst = getelementptr inbounds i8, ptr %obj, i64 64
   %1 = load ptr, ptr %set_eth_dst, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1009,87 +997,87 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %obj, i64 4
   %call6 = tail call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %type, ptr noundef %errp) #4
   br i1 %call6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end
-  %has_vlan_id = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 2
+  %has_vlan_id = getelementptr inbounds i8, ptr %obj, i64 5
   %call9 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %has_vlan_id) #4
   br i1 %call9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end8
-  %vlan_id = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 3
+  %vlan_id = getelementptr inbounds i8, ptr %obj, i64 6
   %call11 = tail call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %vlan_id, ptr noundef %errp) #4
   br i1 %call11, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.then10, %if.end8
-  %has_pport = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 4
+  %has_pport = getelementptr inbounds i8, ptr %obj, i64 8
   %call15 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %has_pport) #4
   br i1 %call15, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.end14
-  %pport = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 5
+  %pport = getelementptr inbounds i8, ptr %obj, i64 12
   %call17 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %pport, ptr noundef %errp) #4
   br i1 %call17, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then16, %if.end14
-  %has_index = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 6
+  %has_index = getelementptr inbounds i8, ptr %obj, i64 16
   %call21 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %has_index) #4
   br i1 %call21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.end20
-  %index = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 7
+  %index = getelementptr inbounds i8, ptr %obj, i64 20
   %call23 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %index, ptr noundef %errp) #4
   br i1 %call23, label %if.end26, label %return
 
 if.end26:                                         ; preds = %if.then22, %if.end20
-  %has_out_pport = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 8
+  %has_out_pport = getelementptr inbounds i8, ptr %obj, i64 24
   %call27 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %has_out_pport) #4
   br i1 %call27, label %if.then28, label %if.end32
 
 if.then28:                                        ; preds = %if.end26
-  %out_pport = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 9
+  %out_pport = getelementptr inbounds i8, ptr %obj, i64 28
   %call29 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %out_pport, ptr noundef %errp) #4
   br i1 %call29, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.then28, %if.end26
-  %has_group_id = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 10
+  %has_group_id = getelementptr inbounds i8, ptr %obj, i64 32
   %call33 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %has_group_id) #4
   br i1 %call33, label %if.then34, label %if.end38
 
 if.then34:                                        ; preds = %if.end32
-  %group_id = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 11
+  %group_id = getelementptr inbounds i8, ptr %obj, i64 36
   %call35 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %group_id, ptr noundef %errp) #4
   br i1 %call35, label %if.end38, label %return
 
 if.end38:                                         ; preds = %if.then34, %if.end32
-  %has_set_vlan_id = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 12
+  %has_set_vlan_id = getelementptr inbounds i8, ptr %obj, i64 40
   %call39 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %has_set_vlan_id) #4
   br i1 %call39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.end38
-  %set_vlan_id = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 13
+  %set_vlan_id = getelementptr inbounds i8, ptr %obj, i64 42
   %call41 = tail call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %set_vlan_id, ptr noundef %errp) #4
   br i1 %call41, label %if.end44, label %return
 
 if.end44:                                         ; preds = %if.then40, %if.end38
-  %has_pop_vlan = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 14
+  %has_pop_vlan = getelementptr inbounds i8, ptr %obj, i64 44
   %call45 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %has_pop_vlan) #4
   br i1 %call45, label %if.then46, label %if.end50
 
 if.then46:                                        ; preds = %if.end44
-  %pop_vlan = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 15
+  %pop_vlan = getelementptr inbounds i8, ptr %obj, i64 45
   %call47 = tail call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %pop_vlan, ptr noundef %errp) #4
   br i1 %call47, label %if.end50, label %return
 
 if.end50:                                         ; preds = %if.then46, %if.end44
-  %has_group_ids = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 16
+  %has_group_ids = getelementptr inbounds i8, ptr %obj, i64 46
   %call51 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %has_group_ids) #4
   br i1 %call51, label %if.then52, label %if.end56
 
 if.then52:                                        ; preds = %if.end50
-  %group_ids = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 17
+  %group_ids = getelementptr inbounds i8, ptr %obj, i64 48
   %call53 = tail call zeroext i1 @visit_type_uint32List(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %group_ids, ptr noundef %errp) #4
   br i1 %call53, label %if.end56, label %return
 
@@ -1110,12 +1098,12 @@ if.then65:                                        ; preds = %if.end63
   br i1 %call67, label %if.end70, label %return
 
 if.end70:                                         ; preds = %if.then65, %if.end63
-  %has_ttl_check = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 20
+  %has_ttl_check = getelementptr inbounds i8, ptr %obj, i64 72
   %call71 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.39, ptr noundef nonnull %has_ttl_check) #4
   br i1 %call71, label %if.then72, label %if.end76
 
 if.then72:                                        ; preds = %if.end70
-  %ttl_check = getelementptr inbounds %struct.RockerOfDpaGroup, ptr %obj, i64 0, i32 21
+  %ttl_check = getelementptr inbounds i8, ptr %obj, i64 73
   %call73 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.39, ptr noundef nonnull %ttl_check, ptr noundef %errp) #4
   br i1 %call73, label %if.end76, label %return
 
@@ -1189,12 +1177,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_type = getelementptr inbounds %struct.q_obj_query_rocker_of_dpa_groups_arg, ptr %obj, i64 0, i32 1
+  %has_type = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_type) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %type = getelementptr inbounds %struct.q_obj_query_rocker_of_dpa_groups_arg, ptr %obj, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %obj, i64 9
   %call3 = tail call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %type, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
@@ -1219,7 +1207,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.RockerOfDpaGroupList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_RockerOfDpaGroup(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 

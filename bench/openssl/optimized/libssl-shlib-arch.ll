@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libssl-shlib-arch.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.crypto_thread_st = type { i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, i32, ptr }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/thread/arch.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -20,40 +18,40 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr @ossl_crypto_mutex_new() #2
-  %lock = getelementptr inbounds %struct.crypto_thread_st, ptr %call, i64 0, i32 5
+  %lock = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call4, ptr %lock, align 8
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %fail, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
   %call8 = tail call ptr @ossl_crypto_mutex_new() #2
-  %statelock = getelementptr inbounds %struct.crypto_thread_st, ptr %call, i64 0, i32 6
+  %statelock = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call8, ptr %statelock, align 8
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %fail, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
   %call12 = tail call ptr @ossl_crypto_condvar_new() #2
-  %condvar = getelementptr inbounds %struct.crypto_thread_st, ptr %call, i64 0, i32 7
+  %condvar = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %call12, ptr %condvar, align 8
   %cmp13 = icmp eq ptr %call12, null
   br i1 %cmp13, label %fail, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
-  %data16 = getelementptr inbounds %struct.crypto_thread_st, ptr %call, i64 0, i32 1
+  %data16 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %data, ptr %data16, align 8
-  %routine17 = getelementptr inbounds %struct.crypto_thread_st, ptr %call, i64 0, i32 2
+  %routine17 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %routine, ptr %routine17, align 8
-  %joinable18 = getelementptr inbounds %struct.crypto_thread_st, ptr %call, i64 0, i32 9
+  %joinable18 = getelementptr inbounds i8, ptr %call, i64 72
   store i32 %joinable, ptr %joinable18, align 8
   %call19 = tail call i32 @ossl_crypto_thread_native_spawn(ptr noundef nonnull %call) #2
   %cmp20 = icmp eq i32 %call19, 1
   br i1 %cmp20, label %return, label %fail
 
 fail:                                             ; preds = %if.end15, %if.end11, %if.end7, %if.end3
-  %condvar23 = getelementptr inbounds %struct.crypto_thread_st, ptr %call, i64 0, i32 7
+  %condvar23 = getelementptr inbounds i8, ptr %call, i64 56
   tail call void @ossl_crypto_condvar_free(ptr noundef nonnull %condvar23) #2
-  %statelock24 = getelementptr inbounds %struct.crypto_thread_st, ptr %call, i64 0, i32 6
+  %statelock24 = getelementptr inbounds i8, ptr %call, i64 48
   tail call void @ossl_crypto_mutex_free(ptr noundef nonnull %statelock24) #2
   tail call void @ossl_crypto_mutex_free(ptr noundef nonnull %lock) #2
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 43) #2
@@ -85,7 +83,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %statelock = getelementptr inbounds %struct.crypto_thread_st, ptr %thread, i64 0, i32 6
+  %statelock = getelementptr inbounds i8, ptr %thread, i64 48
   %0 = load ptr, ptr %statelock, align 8
   tail call void @ossl_crypto_mutex_lock(ptr noundef %0) #2
   %1 = load i32, ptr %thread, align 8
@@ -95,7 +93,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not30, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %condvar = getelementptr inbounds %struct.crypto_thread_st, ptr %thread, i64 0, i32 7
+  %condvar = getelementptr inbounds i8, ptr %thread, i64 56
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -116,7 +114,7 @@ while.end:                                        ; preds = %while.body, %if.end
   br i1 %tobool6.not, label %while.cond9.preheader, label %do.body39
 
 while.cond9.preheader:                            ; preds = %while.end
-  %condvar20 = getelementptr inbounds %struct.crypto_thread_st, ptr %thread, i64 0, i32 7
+  %condvar20 = getelementptr inbounds i8, ptr %thread, i64 56
   br label %while.cond9
 
 while.cond9:                                      ; preds = %while.cond9.preheader, %if.end22
@@ -161,7 +159,7 @@ do.body39:                                        ; preds = %if.end22, %do.body,
   %15 = and i32 %14, -262149
   %16 = or disjoint i32 %15, 4
   store i32 %16, ptr %thread, align 8
-  %condvar51 = getelementptr inbounds %struct.crypto_thread_st, ptr %thread, i64 0, i32 7
+  %condvar51 = getelementptr inbounds i8, ptr %thread, i64 56
   %17 = load ptr, ptr %condvar51, align 8
   tail call void @ossl_crypto_condvar_signal(ptr noundef %17) #2
   %18 = load ptr, ptr %statelock, align 8
@@ -170,7 +168,7 @@ do.body39:                                        ; preds = %if.end22, %do.body,
   br i1 %cmp53.not, label %return, label %if.then55
 
 if.then55:                                        ; preds = %do.body39
-  %retval56 = getelementptr inbounds %struct.crypto_thread_st, ptr %thread, i64 0, i32 3
+  %retval56 = getelementptr inbounds i8, ptr %thread, i64 24
   %19 = load i32, ptr %retval56, align 8
   store i32 %19, ptr %retval1, align 4
   br label %return
@@ -207,7 +205,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %statelock = getelementptr inbounds %struct.crypto_thread_st, ptr %handle, i64 0, i32 6
+  %statelock = getelementptr inbounds i8, ptr %handle, i64 48
   %0 = load ptr, ptr %statelock, align 8
   tail call void @ossl_crypto_mutex_lock(ptr noundef %0) #2
   %1 = load i32, ptr %handle, align 8
@@ -218,12 +216,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %lock = getelementptr inbounds %struct.crypto_thread_st, ptr %handle, i64 0, i32 5
+  %lock = getelementptr inbounds i8, ptr %handle, i64 40
   tail call void @ossl_crypto_mutex_free(ptr noundef nonnull %lock) #2
   tail call void @ossl_crypto_mutex_free(ptr noundef nonnull %statelock) #2
-  %condvar = getelementptr inbounds %struct.crypto_thread_st, ptr %handle, i64 0, i32 7
+  %condvar = getelementptr inbounds i8, ptr %handle, i64 56
   tail call void @ossl_crypto_condvar_free(ptr noundef nonnull %condvar) #2
-  %handle9 = getelementptr inbounds %struct.crypto_thread_st, ptr %handle, i64 0, i32 4
+  %handle9 = getelementptr inbounds i8, ptr %handle, i64 32
   %4 = load ptr, ptr %handle9, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 128) #2
   tail call void @CRYPTO_free(ptr noundef nonnull %handle, ptr noundef nonnull @.str, i32 noundef 129) #2

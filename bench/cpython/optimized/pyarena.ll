@@ -3,9 +3,6 @@ source_filename = "bench/cpython/original/pyarena.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._block = type { i64, i64, ptr, ptr }
-%struct._arena = type { ptr, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_PyArena_New() local_unnamed_addr #0 {
 entry:
@@ -24,22 +21,22 @@ if.then6:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end
   store i64 8192, ptr %call.i, align 8
-  %add.ptr.i = getelementptr %struct._block, ptr %call.i, i64 1
-  %ab_mem.i = getelementptr inbounds %struct._block, ptr %call.i, i64 0, i32 3
+  %add.ptr.i = getelementptr i8, ptr %call.i, i64 32
+  %ab_mem.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %add.ptr.i, ptr %ab_mem.i, align 8
-  %ab_next.i = getelementptr inbounds %struct._block, ptr %call.i, i64 0, i32 2
+  %ab_next.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr null, ptr %ab_next.i, align 8
   %0 = ptrtoint ptr %add.ptr.i to i64
   %add2.i = add i64 %0, 7
   %and.i = and i64 %add2.i, -8
   %sub.ptr.sub.i = sub i64 %and.i, %0
-  %ab_offset.i = getelementptr inbounds %struct._block, ptr %call.i, i64 0, i32 1
+  %ab_offset.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %sub.ptr.sub.i, ptr %ab_offset.i, align 8
   store ptr %call.i, ptr %call, align 8
-  %a_cur = getelementptr inbounds %struct._arena, ptr %call, i64 0, i32 1
+  %a_cur = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call.i, ptr %a_cur, align 8
   %call9 = tail call ptr @PyList_New(i64 noundef 0) #4
-  %a_objects = getelementptr inbounds %struct._arena, ptr %call, i64 0, i32 2
+  %a_objects = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call9, ptr %a_objects, align 8
   %tobool11.not = icmp eq ptr %call9, null
   br i1 %tobool11.not, label %if.then12, label %return
@@ -51,7 +48,7 @@ if.then12:                                        ; preds = %if.end8
 
 while.body.i:                                     ; preds = %if.then12, %while.body.i
   %b.addr.04.i = phi ptr [ %2, %while.body.i ], [ %1, %if.then12 ]
-  %ab_next.i11 = getelementptr inbounds %struct._block, ptr %b.addr.04.i, i64 0, i32 2
+  %ab_next.i11 = getelementptr inbounds i8, ptr %b.addr.04.i, i64 16
   %2 = load ptr, ptr %ab_next.i11, align 8
   tail call void @PyMem_Free(ptr noundef nonnull %b.addr.04.i) #4
   %tobool.not.i12 = icmp eq ptr %2, null
@@ -87,14 +84,14 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %b.addr.04.i = phi ptr [ %1, %while.body.i ], [ %0, %entry ]
-  %ab_next.i = getelementptr inbounds %struct._block, ptr %b.addr.04.i, i64 0, i32 2
+  %ab_next.i = getelementptr inbounds i8, ptr %b.addr.04.i, i64 16
   %1 = load ptr, ptr %ab_next.i, align 8
   tail call void @PyMem_Free(ptr noundef nonnull %b.addr.04.i) #4
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %block_free.exit, label %while.body.i, !llvm.loop !5
 
 block_free.exit:                                  ; preds = %while.body.i, %entry
-  %a_objects = getelementptr inbounds %struct._arena, ptr %arena, i64 0, i32 2
+  %a_objects = getelementptr inbounds i8, ptr %arena, i64 16
   %2 = load ptr, ptr %a_objects, align 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 2147483648
@@ -119,11 +116,11 @@ Py_DECREF.exit:                                   ; preds = %block_free.exit, %i
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_PyArena_Malloc(ptr nocapture noundef %arena, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %a_cur = getelementptr inbounds %struct._arena, ptr %arena, i64 0, i32 1
+  %a_cur = getelementptr inbounds i8, ptr %arena, i64 8
   %0 = load ptr, ptr %a_cur, align 8
   %add.i = add i64 %size, 7
   %and.i = and i64 %add.i, -8
-  %ab_offset.i = getelementptr inbounds %struct._block, ptr %0, i64 0, i32 1
+  %ab_offset.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %ab_offset.i, align 8
   %add1.i = add i64 %1, %and.i
   %2 = load i64, ptr %0, align 8
@@ -139,18 +136,18 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i
   store i64 %cond.i, ptr %call.i.i, align 8
-  %add.ptr.i.i = getelementptr %struct._block, ptr %call.i.i, i64 1
-  %ab_mem.i.i = getelementptr inbounds %struct._block, ptr %call.i.i, i64 0, i32 3
+  %add.ptr.i.i = getelementptr i8, ptr %call.i.i, i64 32
+  %ab_mem.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %add.ptr.i.i, ptr %ab_mem.i.i, align 8
-  %ab_next.i.i = getelementptr inbounds %struct._block, ptr %call.i.i, i64 0, i32 2
+  %ab_next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr null, ptr %ab_next.i.i, align 8
   %3 = ptrtoint ptr %add.ptr.i.i to i64
   %add2.i.i = add i64 %3, 7
   %and.i.i = and i64 %add2.i.i, -8
   %sub.ptr.sub.i.i = sub i64 %and.i.i, %3
-  %ab_offset.i.i = getelementptr inbounds %struct._block, ptr %call.i.i, i64 0, i32 1
+  %ab_offset.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %sub.ptr.sub.i.i, ptr %ab_offset.i.i, align 8
-  %ab_next.i = getelementptr inbounds %struct._block, ptr %0, i64 0, i32 2
+  %ab_next.i = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %call.i.i, ptr %ab_next.i, align 8
   %.pre.i = load i64, ptr %ab_offset.i.i, align 8
   %.pre12.i = add i64 %.pre.i, %and.i
@@ -160,9 +157,9 @@ block_alloc.exit:                                 ; preds = %entry, %if.end.i
   %add7.pre-phi.i = phi i64 [ %.pre12.i, %if.end.i ], [ %add1.i, %entry ]
   %4 = phi i64 [ %.pre.i, %if.end.i ], [ %1, %entry ]
   %b.addr.0.i = phi ptr [ %call.i.i, %if.end.i ], [ %0, %entry ]
-  %ab_mem.i = getelementptr inbounds %struct._block, ptr %b.addr.0.i, i64 0, i32 3
+  %ab_mem.i = getelementptr inbounds i8, ptr %b.addr.0.i, i64 24
   %5 = load ptr, ptr %ab_mem.i, align 8
-  %ab_offset5.i = getelementptr inbounds %struct._block, ptr %b.addr.0.i, i64 0, i32 1
+  %ab_offset5.i = getelementptr inbounds i8, ptr %b.addr.0.i, i64 8
   %add.ptr.i = getelementptr i8, ptr %5, i64 %4
   store i64 %add7.pre-phi.i, ptr %ab_offset5.i, align 8
   %tobool.not = icmp eq ptr %add.ptr.i, null
@@ -174,7 +171,7 @@ if.then:                                          ; preds = %if.then.i, %block_a
 
 if.end:                                           ; preds = %block_alloc.exit
   %6 = load ptr, ptr %a_cur, align 8
-  %ab_next = getelementptr inbounds %struct._block, ptr %6, i64 0, i32 2
+  %ab_next = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %ab_next, align 8
   %tobool3.not = icmp eq ptr %7, null
   br i1 %tobool3.not, label %return, label %if.then4
@@ -191,7 +188,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @_PyArena_AddPyObject(ptr nocapture noundef readonly %arena, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
-  %a_objects = getelementptr inbounds %struct._arena, ptr %arena, i64 0, i32 2
+  %a_objects = getelementptr inbounds i8, ptr %arena, i64 16
   %0 = load ptr, ptr %a_objects, align 8
   %call = tail call i32 @PyList_Append(ptr noundef %0, ptr noundef %obj) #4
   %cmp = icmp sgt i32 %call, -1

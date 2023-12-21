@@ -3,10 +3,6 @@ source_filename = "bench/icu/original/ulist.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UListNode = type { ptr, ptr, ptr, i8 }
-%struct.UList = type { ptr, ptr, ptr, i32 }
-%struct.UEnumeration = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 ; Function Attrs: mustprogress uwtable
 define noalias ptr @ulist_createEmptyList_75(ptr nocapture noundef %status) local_unnamed_addr #0 {
 entry:
@@ -73,29 +69,29 @@ if.end11:                                         ; preds = %if.then10, %if.then
 
 if.end12:                                         ; preds = %if.end5
   store ptr %data, ptr %call6, align 8
-  %forceDelete14 = getelementptr inbounds %struct.UListNode, ptr %call6, i64 0, i32 3
+  %forceDelete14 = getelementptr inbounds i8, ptr %call6, i64 24
   store i8 %forceDelete, ptr %forceDelete14, align 8
-  %size = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %list, i64 24
   %1 = load i32, ptr %size, align 8
   %cmp15 = icmp eq i32 %1, 0
-  %next.i = getelementptr inbounds %struct.UListNode, ptr %call6, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %call6, i64 8
   br i1 %cmp15, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.end12
-  %head.i = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 1
+  %head.i = getelementptr inbounds i8, ptr %list, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   store ptr %call6, ptr %head.i, align 8
-  %tail.i = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 2
+  %tail.i = getelementptr inbounds i8, ptr %list, i64 16
   store ptr %call6, ptr %tail.i, align 8
   br label %if.end20
 
 if.else:                                          ; preds = %if.end12
   store ptr null, ptr %next.i, align 8
-  %tail = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 2
+  %tail = getelementptr inbounds i8, ptr %list, i64 16
   %2 = load ptr, ptr %tail, align 8
-  %previous = getelementptr inbounds %struct.UListNode, ptr %call6, i64 0, i32 2
+  %previous = getelementptr inbounds i8, ptr %call6, i64 16
   store ptr %2, ptr %previous, align 8
-  %next18 = getelementptr inbounds %struct.UListNode, ptr %2, i64 0, i32 1
+  %next18 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %call6, ptr %next18, align 8
   store ptr %call6, ptr %tail, align 8
   %.pre = load i32, ptr %size, align 8
@@ -151,30 +147,30 @@ if.end11:                                         ; preds = %if.then10, %if.then
 
 if.end12:                                         ; preds = %if.end5
   store ptr %data, ptr %call6, align 8
-  %forceDelete14 = getelementptr inbounds %struct.UListNode, ptr %call6, i64 0, i32 3
+  %forceDelete14 = getelementptr inbounds i8, ptr %call6, i64 24
   store i8 %forceDelete, ptr %forceDelete14, align 8
-  %size = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %list, i64 24
   %1 = load i32, ptr %size, align 8
   %cmp15 = icmp eq i32 %1, 0
   br i1 %cmp15, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.end12
-  %next.i = getelementptr inbounds %struct.UListNode, ptr %call6, i64 0, i32 1
-  %head.i = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %call6, i64 8
+  %head.i = getelementptr inbounds i8, ptr %list, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   store ptr %call6, ptr %head.i, align 8
-  %tail.i = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 2
+  %tail.i = getelementptr inbounds i8, ptr %list, i64 16
   store ptr %call6, ptr %tail.i, align 8
   br label %if.end20
 
 if.else:                                          ; preds = %if.end12
-  %previous = getelementptr inbounds %struct.UListNode, ptr %call6, i64 0, i32 2
+  %previous = getelementptr inbounds i8, ptr %call6, i64 16
   store ptr null, ptr %previous, align 8
-  %head = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %list, i64 8
   %2 = load ptr, ptr %head, align 8
-  %next = getelementptr inbounds %struct.UListNode, ptr %call6, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %2, ptr %next, align 8
-  %previous18 = getelementptr inbounds %struct.UListNode, ptr %2, i64 0, i32 2
+  %previous18 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %call6, ptr %previous18, align 8
   store ptr %call6, ptr %head, align 8
   %.pre = load i32, ptr %size, align 8
@@ -194,18 +190,18 @@ return:                                           ; preds = %if.then, %if.then4,
 define signext i8 @ulist_containsString_75(ptr noundef readonly %list, ptr nocapture noundef readonly %data, i32 noundef %length) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %list, null
-  br i1 %cmp.not, label %return, label %if.then
+  br i1 %cmp.not, label %return, label %for.cond.preheader
 
-if.then:                                          ; preds = %entry
-  %head = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 1
+for.cond.preheader:                               ; preds = %entry
   %conv6 = sext i32 %length to i64
-  %pointer.06 = load ptr, ptr %head, align 8
-  %cmp1.not7 = icmp eq ptr %pointer.06, null
-  br i1 %cmp1.not7, label %return, label %for.body
+  %pointer.0.in6 = getelementptr inbounds i8, ptr %list, i64 8
+  %pointer.07 = load ptr, ptr %pointer.0.in6, align 8
+  %cmp1.not8 = icmp eq ptr %pointer.07, null
+  br i1 %cmp1.not8, label %return, label %for.body
 
-for.body:                                         ; preds = %if.then, %for.inc
-  %pointer.08 = phi ptr [ %pointer.0, %for.inc ], [ %pointer.06, %if.then ]
-  %0 = load ptr, ptr %pointer.08, align 8
+for.body:                                         ; preds = %for.cond.preheader, %for.inc
+  %pointer.09 = phi ptr [ %pointer.0, %for.inc ], [ %pointer.07, %for.cond.preheader ]
+  %0 = load ptr, ptr %pointer.09, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %conv = trunc i64 %call to i32
   %cmp3 = icmp eq i32 %conv, %length
@@ -217,13 +213,13 @@ if.then4:                                         ; preds = %for.body
   br i1 %cmp8, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then4
-  %next = getelementptr inbounds %struct.UListNode, ptr %pointer.08, i64 0, i32 1
-  %pointer.0 = load ptr, ptr %next, align 8
+  %pointer.0.in = getelementptr inbounds i8, ptr %pointer.09, i64 8
+  %pointer.0 = load ptr, ptr %pointer.0.in, align 8
   %cmp1.not = icmp eq ptr %pointer.0, null
   br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !4
 
-return:                                           ; preds = %if.then4, %for.inc, %if.then, %entry
-  %retval.0 = phi i8 [ 0, %entry ], [ 0, %if.then ], [ 1, %if.then4 ], [ 0, %for.inc ]
+return:                                           ; preds = %if.then4, %for.inc, %for.cond.preheader, %entry
+  %retval.0 = phi i8 [ 0, %entry ], [ 0, %for.cond.preheader ], [ 1, %if.then4 ], [ 0, %for.inc ]
   ret i8 %retval.0
 }
 
@@ -234,38 +230,37 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 define signext i8 @ulist_removeString_75(ptr noundef %list, ptr nocapture noundef readonly %data) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %list, null
-  br i1 %cmp.not, label %return, label %if.then
+  br i1 %cmp.not, label %return, label %for.cond
 
-if.then:                                          ; preds = %entry
-  %head = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 1
-  %pointer.07 = load ptr, ptr %head, align 8
-  %cmp1.not8 = icmp eq ptr %pointer.07, null
-  br i1 %cmp1.not8, label %return, label %for.body
+for.cond:                                         ; preds = %entry, %for.body
+  %list.pn = phi ptr [ %pointer.0, %for.body ], [ %list, %entry ]
+  %pointer.0.in = getelementptr inbounds i8, ptr %list.pn, i64 8
+  %pointer.0 = load ptr, ptr %pointer.0.in, align 8
+  %cmp1.not = icmp eq ptr %pointer.0, null
+  br i1 %cmp1.not, label %return, label %for.body
 
-for.body:                                         ; preds = %if.then, %for.inc
-  %pointer.09 = phi ptr [ %pointer.0, %for.inc ], [ %pointer.07, %if.then ]
-  %0 = load ptr, ptr %pointer.09, align 8
+for.body:                                         ; preds = %for.cond
+  %0 = load ptr, ptr %pointer.0, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data, ptr noundef nonnull dereferenceable(1) %0) #14
   %cmp3 = icmp eq i32 %call, 0
-  br i1 %cmp3, label %if.then4, label %for.inc
+  br i1 %cmp3, label %if.then4, label %for.cond, !llvm.loop !6
 
 if.then4:                                         ; preds = %for.body
-  %previous.i = getelementptr inbounds %struct.UListNode, ptr %pointer.09, i64 0, i32 2
+  %previous.i = getelementptr inbounds i8, ptr %pointer.0, i64 16
   %1 = load ptr, ptr %previous.i, align 8
   %cmp.i = icmp eq ptr %1, null
-  %next.i = getelementptr inbounds %struct.UListNode, ptr %pointer.09, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %pointer.0, i64 8
   %2 = load ptr, ptr %next.i, align 8
-  %next3.i = getelementptr inbounds %struct.UListNode, ptr %1, i64 0, i32 1
-  %next3.sink.i = select i1 %cmp.i, ptr %head, ptr %next3.i
-  store ptr %2, ptr %next3.sink.i, align 8
+  %list..i = select i1 %cmp.i, ptr %list, ptr %1
+  %next3.i = getelementptr inbounds i8, ptr %list..i, i64 8
+  store ptr %2, ptr %next3.i, align 8
   %cmp5.i = icmp eq ptr %2, null
+  %.sink19.i = select i1 %cmp5.i, ptr %list, ptr %2
   %3 = load ptr, ptr %previous.i, align 8
-  %previous11.i = getelementptr inbounds %struct.UListNode, ptr %2, i64 0, i32 2
-  %tail.i = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 2
-  %previous11.sink.i = select i1 %cmp5.i, ptr %tail.i, ptr %previous11.i
-  store ptr %3, ptr %previous11.sink.i, align 8
+  %previous11.i = getelementptr inbounds i8, ptr %.sink19.i, i64 16
+  store ptr %3, ptr %previous11.i, align 8
   %4 = load ptr, ptr %list, align 8
-  %cmp13.i = icmp eq ptr %4, %pointer.09
+  %cmp13.i = icmp eq ptr %4, %pointer.0
   br i1 %cmp13.i, label %if.then14.i, label %if.end17.i
 
 if.then14.i:                                      ; preds = %if.then4
@@ -274,32 +269,26 @@ if.then14.i:                                      ; preds = %if.then4
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then14.i, %if.then4
-  %size.i = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 3
+  %size.i = getelementptr inbounds i8, ptr %list, i64 24
   %6 = load i32, ptr %size.i, align 8
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %size.i, align 8
-  %forceDelete.i = getelementptr inbounds %struct.UListNode, ptr %pointer.09, i64 0, i32 3
+  %forceDelete.i = getelementptr inbounds i8, ptr %pointer.0, i64 24
   %7 = load i8, ptr %forceDelete.i, align 8
   %tobool.not.i = icmp eq i8 %7, 0
   br i1 %tobool.not.i, label %_ZL16ulist_removeItemP5UListP9UListNode.exit, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end17.i
-  %8 = load ptr, ptr %pointer.09, align 8
+  %8 = load ptr, ptr %pointer.0, align 8
   tail call void @uprv_free_75(ptr noundef %8)
   br label %_ZL16ulist_removeItemP5UListP9UListNode.exit
 
 _ZL16ulist_removeItemP5UListP9UListNode.exit:     ; preds = %if.end17.i, %if.then18.i
-  tail call void @uprv_free_75(ptr noundef nonnull %pointer.09)
+  tail call void @uprv_free_75(ptr noundef nonnull %pointer.0)
   br label %return
 
-for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds %struct.UListNode, ptr %pointer.09, i64 0, i32 1
-  %pointer.0 = load ptr, ptr %next, align 8
-  %cmp1.not = icmp eq ptr %pointer.0, null
-  br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !6
-
-return:                                           ; preds = %for.inc, %if.then, %entry, %_ZL16ulist_removeItemP5UListP9UListNode.exit
-  %retval.0 = phi i8 [ 1, %_ZL16ulist_removeItemP5UListP9UListNode.exit ], [ 0, %entry ], [ 0, %if.then ], [ 0, %for.inc ]
+return:                                           ; preds = %for.cond, %entry, %_ZL16ulist_removeItemP5UListP9UListNode.exit
+  %retval.0 = phi i8 [ 1, %_ZL16ulist_removeItemP5UListP9UListNode.exit ], [ 0, %entry ], [ 0, %for.cond ]
   ret i8 %retval.0
 }
 
@@ -318,7 +307,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %next = getelementptr inbounds %struct.UListNode, ptr %0, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %next, align 8
   store ptr %1, ptr %list, align 8
   %2 = load ptr, ptr %0, align 8
@@ -336,7 +325,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %size = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %list, i64 24
   %0 = load i32, ptr %size, align 8
   br label %return
 
@@ -352,7 +341,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %head = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %list, i64 8
   %0 = load ptr, ptr %head, align 8
   store ptr %0, ptr %list, align 8
   br label %if.end
@@ -368,16 +357,16 @@ entry:
   br i1 %cmp.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %head = getelementptr inbounds %struct.UList, ptr %list, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %list, i64 8
   %0 = load ptr, ptr %head, align 8
   %cmp1.not7 = icmp eq ptr %0, null
   br i1 %cmp1.not7, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.then, %if.end
   %listHead.08 = phi ptr [ %1, %if.end ], [ %0, %if.then ]
-  %next = getelementptr inbounds %struct.UListNode, ptr %listHead.08, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %listHead.08, i64 8
   %1 = load ptr, ptr %next, align 8
-  %forceDelete = getelementptr inbounds %struct.UListNode, ptr %listHead.08, i64 0, i32 3
+  %forceDelete = getelementptr inbounds i8, ptr %listHead.08, i64 24
   %2 = load i8, ptr %forceDelete, align 8
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then2
@@ -407,22 +396,22 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %0 = load ptr, ptr %context, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %ulist_deleteList_75.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %head.i = getelementptr inbounds %struct.UList, ptr %0, i64 0, i32 1
+  %head.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %head.i, align 8
   %cmp1.not7.i = icmp eq ptr %1, null
   br i1 %cmp1.not7.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then.i, %if.end.i
   %listHead.08.i = phi ptr [ %2, %if.end.i ], [ %1, %if.then.i ]
-  %next.i = getelementptr inbounds %struct.UListNode, ptr %listHead.08.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %listHead.08.i, i64 8
   %2 = load ptr, ptr %next.i, align 8
-  %forceDelete.i = getelementptr inbounds %struct.UListNode, ptr %listHead.08.i, i64 0, i32 3
+  %forceDelete.i = getelementptr inbounds i8, ptr %listHead.08.i, i64 24
   %3 = load i8, ptr %forceDelete.i, align 8
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then2.i
@@ -457,13 +446,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %size.i = getelementptr inbounds %struct.UList, ptr %1, i64 0, i32 3
+  %size.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i32, ptr %size.i, align 8
   br label %return
 
@@ -480,7 +469,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8
   %cmp.i4 = icmp eq ptr %1, null
   br i1 %cmp.i4, label %return, label %lor.lhs.false.i
@@ -491,7 +480,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp2.i, label %return, label %ulist_getNext_75.exit
 
 ulist_getNext_75.exit:                            ; preds = %lor.lhs.false.i
-  %next.i = getelementptr inbounds %struct.UListNode, ptr %2, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %next.i, align 8
   store ptr %3, ptr %1, align 8
   %4 = load ptr, ptr %2, align 8
@@ -519,13 +508,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %head.i = getelementptr inbounds %struct.UList, ptr %1, i64 0, i32 1
+  %head.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %head.i, align 8
   store ptr %2, ptr %1, align 8
   br label %return
@@ -537,7 +526,7 @@ return:                                           ; preds = %if.then.i, %if.end,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ulist_getListFromEnum_75(ptr nocapture noundef readonly %en) local_unnamed_addr #6 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %0 = load ptr, ptr %context, align 8
   ret ptr %0
 }

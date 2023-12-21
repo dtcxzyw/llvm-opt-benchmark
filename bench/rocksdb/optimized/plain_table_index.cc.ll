@@ -14,76 +14,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
 %"class.rocksdb::Slice" = type { ptr, i64 }
-%"class.rocksdb::PlainTableIndex" = type { i32, i32, i32, ptr, ptr }
-%"class.rocksdb::PlainTableIndexBuilder::IndexRecordList" = type { i64, ptr, %"class.std::vector", i64 }
+%"struct.rocksdb::PlainTableIndexBuilder::IndexRecord" = type { i32, i32, ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<rocksdb::PlainTableIndexBuilder::IndexRecord *, std::allocator<rocksdb::PlainTableIndexBuilder::IndexRecord *>>::_Vector_impl" }
 %"struct.std::_Vector_base<rocksdb::PlainTableIndexBuilder::IndexRecord *, std::allocator<rocksdb::PlainTableIndexBuilder::IndexRecord *>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::PlainTableIndexBuilder::IndexRecord *, std::allocator<rocksdb::PlainTableIndexBuilder::IndexRecord *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<rocksdb::PlainTableIndexBuilder::IndexRecord *, std::allocator<rocksdb::PlainTableIndexBuilder::IndexRecord *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.rocksdb::PlainTableIndexBuilder::IndexRecord" = type { i32, i32, ptr }
-%"class.rocksdb::PlainTableIndexBuilder" = type { ptr, %"struct.rocksdb::ImmutableOptions", %"class.rocksdb::HistogramImpl", %"class.rocksdb::PlainTableIndexBuilder::IndexRecordList", i8, i8, i32, i32, i32, i64, i32, i32, ptr, double, i64, %"class.std::__cxx11::basic_string" }
-%"struct.rocksdb::ImmutableOptions" = type { %"struct.rocksdb::ImmutableDBOptions.base", [7 x i8], %"struct.rocksdb::ImmutableCFOptions.base", [7 x i8] }
-%"struct.rocksdb::ImmutableDBOptions.base" = type <{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, %"class.std::shared_ptr", %"class.std::shared_ptr.2", %"class.std::shared_ptr.5", i8, [3 x i8], i32, %"class.std::shared_ptr.8", i8, [7 x i8], %"class.std::vector.11", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, i64, i64, i64, i64, i32, [4 x i8], i64, i64, i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i64, %"class.std::shared_ptr.19", i32, [4 x i8], i64, i8, [7 x i8], %"class.std::vector.22", i8, i8, i8, i8, i8, [3 x i8], i64, i64, i8, i8, i8, i8, [4 x i8], %"class.std::shared_ptr.27", ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8], i64, %"class.std::shared_ptr.30", i8, [3 x i8], i32, i64, i8, [7 x i8], %"class.std::__cxx11::basic_string", %"class.rocksdb::SmallEnumSet", i8, [7 x i8], %"class.std::shared_ptr.33", ptr, ptr, ptr, %"class.std::shared_ptr.36", i8 }>
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::shared_ptr.2" = type { %"class.std::__shared_ptr.3" }
-%"class.std::__shared_ptr.3" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.5" = type { %"class.std::__shared_ptr.6" }
-%"class.std::__shared_ptr.6" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.8" = type { %"class.std::__shared_ptr.9" }
-%"class.std::__shared_ptr.9" = type { ptr, %"class.std::__shared_count" }
-%"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
-%"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<rocksdb::DbPath, std::allocator<rocksdb::DbPath>>::_Vector_impl" }
-%"struct.std::_Vector_base<rocksdb::DbPath, std::allocator<rocksdb::DbPath>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::DbPath, std::allocator<rocksdb::DbPath>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<rocksdb::DbPath, std::allocator<rocksdb::DbPath>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.19" = type { %"class.std::__shared_ptr.20" }
-%"class.std::__shared_ptr.20" = type { ptr, %"class.std::__shared_count" }
-%"class.std::vector.22" = type { %"struct.std::_Vector_base.23" }
-%"struct.std::_Vector_base.23" = type { %"struct.std::_Vector_base<std::shared_ptr<rocksdb::EventListener>, std::allocator<std::shared_ptr<rocksdb::EventListener>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<rocksdb::EventListener>, std::allocator<std::shared_ptr<rocksdb::EventListener>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<rocksdb::EventListener>, std::allocator<std::shared_ptr<rocksdb::EventListener>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<rocksdb::EventListener>, std::allocator<std::shared_ptr<rocksdb::EventListener>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.27" = type { %"class.std::__shared_ptr.28" }
-%"class.std::__shared_ptr.28" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.30" = type { %"class.std::__shared_ptr.31" }
-%"class.std::__shared_ptr.31" = type { ptr, %"class.std::__shared_count" }
-%"class.rocksdb::SmallEnumSet" = type { i64 }
-%"class.std::shared_ptr.33" = type { %"class.std::__shared_ptr.34" }
-%"class.std::__shared_ptr.34" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.36" = type { %"class.std::__shared_ptr.37" }
-%"class.std::__shared_ptr.37" = type { ptr, %"class.std::__shared_count" }
-%"struct.rocksdb::ImmutableCFOptions.base" = type <{ i8, i8, [6 x i8], ptr, %"class.rocksdb::InternalKeyComparator", %"class.std::shared_ptr.39", ptr, %"class.std::shared_ptr.42", i32, i32, i64, i8, [7 x i8], ptr, %"class.std::shared_ptr.45", %"class.std::shared_ptr.48", %"class.std::vector.51", i32, i8, i8, [2 x i8], i32, i8, i8, i8, i8, i64, i64, %"class.std::shared_ptr.56", %"class.std::vector.11", %"class.std::shared_ptr.59", %"class.std::shared_ptr.62", %"class.std::shared_ptr.27", i8 }>
-%"class.rocksdb::InternalKeyComparator" = type { %"class.rocksdb::CompareInterface", %"class.rocksdb::UserComparatorWrapper" }
-%"class.rocksdb::CompareInterface" = type { ptr }
-%"class.rocksdb::UserComparatorWrapper" = type { ptr }
-%"class.std::shared_ptr.39" = type { %"class.std::__shared_ptr.40" }
-%"class.std::__shared_ptr.40" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.42" = type { %"class.std::__shared_ptr.43" }
-%"class.std::__shared_ptr.43" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.45" = type { %"class.std::__shared_ptr.46" }
-%"class.std::__shared_ptr.46" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.48" = type { %"class.std::__shared_ptr.49" }
-%"class.std::__shared_ptr.49" = type { ptr, %"class.std::__shared_count" }
-%"class.std::vector.51" = type { %"struct.std::_Vector_base.52" }
-%"struct.std::_Vector_base.52" = type { %"struct.std::_Vector_base<std::shared_ptr<rocksdb::TablePropertiesCollectorFactory>, std::allocator<std::shared_ptr<rocksdb::TablePropertiesCollectorFactory>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<rocksdb::TablePropertiesCollectorFactory>, std::allocator<std::shared_ptr<rocksdb::TablePropertiesCollectorFactory>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<rocksdb::TablePropertiesCollectorFactory>, std::allocator<std::shared_ptr<rocksdb::TablePropertiesCollectorFactory>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<rocksdb::TablePropertiesCollectorFactory>, std::allocator<std::shared_ptr<rocksdb::TablePropertiesCollectorFactory>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.56" = type { %"class.std::__shared_ptr.57" }
-%"class.std::__shared_ptr.57" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.59" = type { %"class.std::__shared_ptr.60" }
-%"class.std::__shared_ptr.60" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.62" = type { %"class.std::__shared_ptr.63" }
-%"class.std::__shared_ptr.63" = type { ptr, %"class.std::__shared_count" }
-%"class.rocksdb::HistogramImpl" = type { %"class.rocksdb::Histogram", %"struct.rocksdb::HistogramStat", %"class.std::mutex" }
-%"class.rocksdb::Histogram" = type { ptr }
-%"struct.rocksdb::HistogramStat" = type { %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", [109 x %"struct.std::atomic"], i64 }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %"class.std::vector.65" = type { %"struct.std::_Vector_base.66" }
 %"struct.std::_Vector_base.66" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
@@ -140,10 +75,10 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i:      ; preds = %if.then.i.i, %entry
 
 if.then:                                          ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i
   store ptr @.str, ptr %ref.tmp, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 29, ptr %size_.i, align 8
   store ptr @.str.6, ptr %ref.tmp2, align 8
-  %size_.i1 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp2, i64 0, i32 1
+  %size_.i1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i64 0, ptr %size_.i1, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i8 noundef zeroext 0)
   br label %return
@@ -153,7 +88,7 @@ if.end:                                           ; preds = %_ZN7rocksdb14GetVar
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %retval.0.i10.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %num_prefixes_ = getelementptr inbounds %"class.rocksdb::PlainTableIndex", ptr %this, i64 0, i32 2
+  %num_prefixes_ = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr.i3 = getelementptr inbounds i8, ptr %retval.0.i10.i, i64 %sub.ptr.sub.i
   %cmp.i.i4 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i4, label %if.then.i.i14, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i5
@@ -176,10 +111,10 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i5:     ; preds = %if.then.i.i14, %if.
 
 if.then4:                                         ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i5
   store ptr @.str, ptr %ref.tmp5, align 8
-  %size_.i21 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp5, i64 0, i32 1
+  %size_.i21 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store i64 29, ptr %size_.i21, align 8
   store ptr @.str.6, ptr %ref.tmp6, align 8
-  %size_.i22 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp6, i64 0, i32 1
+  %size_.i22 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store i64 0, ptr %size_.i22, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6, i8 noundef zeroext 0)
   br label %return
@@ -194,14 +129,14 @@ if.end7:                                          ; preds = %_ZN7rocksdb14GetVar
   %4 = add i64 %3, %sub.ptr.rhs.cast.i11
   %sub = sub i64 %sub.ptr.lhs.cast.i10, %4
   %conv12 = trunc i64 %sub to i32
-  %sub_index_size_ = getelementptr inbounds %"class.rocksdb::PlainTableIndex", ptr %this, i64 0, i32 1
+  %sub_index_size_ = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %conv12, ptr %sub_index_size_, align 4
-  %index_ = getelementptr inbounds %"class.rocksdb::PlainTableIndex", ptr %this, i64 0, i32 3
+  %index_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %retval.0.i10.i9, ptr %index_, align 8
   %add.ptr = getelementptr inbounds i32, ptr %retval.0.i10.i9, i64 %conv11
-  %sub_index_ = getelementptr inbounds %"class.rocksdb::PlainTableIndex", ptr %this, i64 0, i32 4
+  %sub_index_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr, ptr %sub_index_, align 8
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !4
   br label %return
@@ -215,7 +150,7 @@ define noundef i32 @_ZNK7rocksdb15PlainTableIndex9GetOffsetEjPj(ptr nocapture no
 entry:
   %0 = load i32, ptr %this, align 8
   %rem.i = urem i32 %prefix_hash, %0
-  %index_ = getelementptr inbounds %"class.rocksdb::PlainTableIndex", ptr %this, i64 0, i32 3
+  %index_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %index_, align 8
   %idx.ext = sext i32 %rem.i to i64
   %add.ptr = getelementptr inbounds i32, ptr %1, i64 %idx.ext
@@ -242,20 +177,20 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb22PlainTableIndexBuilder15IndexRecordList9AddRecordEjj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %hash, i32 noundef %offset) local_unnamed_addr #0 align 2 {
 entry:
-  %num_records_in_current_group_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder::IndexRecordList", ptr %this, i64 0, i32 3
+  %num_records_in_current_group_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %num_records_in_current_group_, align 8
   %1 = load i64, ptr %this, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %current_group_3.phi.trans.insert = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder::IndexRecordList", ptr %this, i64 0, i32 1
+  %current_group_3.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8
   %.pre = load ptr, ptr %current_group_3.phi.trans.insert, align 8
   br label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call noundef ptr @_ZN7rocksdb22PlainTableIndexBuilder15IndexRecordList16AllocateNewGroupEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
-  %current_group_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder::IndexRecordList", ptr %this, i64 0, i32 1
+  %current_group_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %current_group_, align 8
   br label %if.end
 
@@ -266,9 +201,9 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   store i64 %inc, ptr %num_records_in_current_group_, align 8
   %arrayidx = getelementptr inbounds %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %3, i64 %2
   store i32 %hash, ptr %arrayidx, align 8
-  %offset6 = getelementptr inbounds %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %3, i64 %2, i32 1
+  %offset6 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i32 %offset, ptr %offset6, align 4
-  %next = getelementptr inbounds %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %3, i64 %2, i32 2
+  %next = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr null, ptr %next, align 8
   ret void
 }
@@ -281,10 +216,10 @@ entry:
   %2 = shl i64 %0, 4
   %3 = select i1 %1, i64 -1, i64 %2
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #18
-  %groups_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder::IndexRecordList", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder::IndexRecordList", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %groups_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder::IndexRecordList", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -292,7 +227,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %4, align 8
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %6, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN7rocksdb22PlainTableIndexBuilder11IndexRecordESaIS3_EE9push_backERKS3_.exit
 
@@ -336,7 +271,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN7rocksdb22PlainTableIndexBuilder11IndexRecordESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i
 
 _ZNSt6vectorIPN7rocksdb22PlainTableIndexBuilder11IndexRecordESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN7rocksdb22PlainTableIndexBuilder11IndexRecordESaIS3_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN7rocksdb22PlainTableIndexBuilder11IndexRecordESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -362,16 +297,16 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %key_prefix_slice.coerce0, ptr %key_prefix_slice, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %key_prefix_slice, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %key_prefix_slice, i64 8
   store i64 %key_prefix_slice.coerce1, ptr %0, align 8
-  %is_first_record_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 4
+  %is_first_record_ = getelementptr inbounds i8, ptr %this, i64 1888
   %1 = load i8, ptr %is_first_record_, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %lor.rhs, label %if.then
 
 lor.rhs:                                          ; preds = %entry
-  %prev_key_prefix_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 15
+  %prev_key_prefix_ = getelementptr inbounds i8, ptr %this, i64 1944
   call void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %key_prefix_slice, i1 noundef zeroext false)
   %call.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %prev_key_prefix_) #21
   %call1.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
@@ -400,7 +335,7 @@ cleanup.done:                                     ; preds = %land.rhs.i.i
   br i1 %.not, label %if.end10, label %if.then
 
 if.then:                                          ; preds = %entry, %cleanup.done.thread1, %cleanup.done
-  %num_prefixes_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 6
+  %num_prefixes_ = getelementptr inbounds i8, ptr %this, i64 1892
   %3 = load i32, ptr %num_prefixes_, align 4
   %inc = add i32 %3, 1
   store i32 %inc, ptr %num_prefixes_, align 4
@@ -410,54 +345,54 @@ if.then:                                          ; preds = %entry, %cleanup.don
   br i1 %tobool3.not, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  %keys_per_prefix_hist_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 2
-  %num_keys_per_prefix_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 7
+  %keys_per_prefix_hist_ = getelementptr inbounds i8, ptr %this, i64 872
+  %num_keys_per_prefix_ = getelementptr inbounds i8, ptr %this, i64 1896
   %6 = load i32, ptr %num_keys_per_prefix_, align 8
   %conv = zext i32 %6 to i64
   call void @_ZN7rocksdb13HistogramImpl3AddEm(ptr noundef nonnull align 8 dereferenceable(968) %keys_per_prefix_hist_, i64 noundef %conv)
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %num_keys_per_prefix_5 = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 7
+  %num_keys_per_prefix_5 = getelementptr inbounds i8, ptr %this, i64 1896
   store i32 0, ptr %num_keys_per_prefix_5, align 8
   call void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(16) %key_prefix_slice, i1 noundef zeroext false)
-  %prev_key_prefix_7 = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 15
+  %prev_key_prefix_7 = getelementptr inbounds i8, ptr %this, i64 1944
   %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %prev_key_prefix_7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #21
   %7 = load ptr, ptr %key_prefix_slice, align 8
   %8 = load i64, ptr %0, align 8
   %call2.i = call noundef i32 @_ZN7rocksdb4HashEPKcmj(ptr noundef %7, i64 noundef %8, i32 noundef 397)
-  %prev_key_prefix_hash_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 8
+  %prev_key_prefix_hash_ = getelementptr inbounds i8, ptr %this, i64 1900
   store i32 %call2.i, ptr %prev_key_prefix_hash_, align 4
-  %due_index_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 5
+  %due_index_ = getelementptr inbounds i8, ptr %this, i64 1889
   store i8 1, ptr %due_index_, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %cleanup.done.thread3, %if.end, %cleanup.done
-  %due_index_11 = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 5
+  %due_index_11 = getelementptr inbounds i8, ptr %this, i64 1889
   %9 = load i8, ptr %due_index_11, align 1
   %10 = and i8 %9, 1
   %tobool12.not = icmp eq i8 %10, 0
   br i1 %tobool12.not, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  %record_list_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 3
-  %prev_key_prefix_hash_14 = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 8
+  %record_list_ = getelementptr inbounds i8, ptr %this, i64 1840
+  %prev_key_prefix_hash_14 = getelementptr inbounds i8, ptr %this, i64 1900
   %11 = load i32, ptr %prev_key_prefix_hash_14, align 4
-  %num_records_in_current_group_.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 3, i32 3
+  %num_records_in_current_group_.i = getelementptr inbounds i8, ptr %this, i64 1880
   %12 = load i64, ptr %num_records_in_current_group_.i, align 8
   %13 = load i64, ptr %record_list_, align 8
   %cmp.i = icmp eq i64 %12, %13
   br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
 
 entry.if.end_crit_edge.i:                         ; preds = %if.then13
-  %current_group_3.phi.trans.insert.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 3, i32 1
+  %current_group_3.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 1848
   %.pre.i = load ptr, ptr %current_group_3.phi.trans.insert.i, align 8
   br label %_ZN7rocksdb22PlainTableIndexBuilder15IndexRecordList9AddRecordEjj.exit
 
 if.then.i:                                        ; preds = %if.then13
   %call.i = call noundef ptr @_ZN7rocksdb22PlainTableIndexBuilder15IndexRecordList16AllocateNewGroupEv(ptr noundef nonnull align 8 dereferenceable(48) %record_list_)
-  %current_group_.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 3, i32 1
+  %current_group_.i = getelementptr inbounds i8, ptr %this, i64 1848
   store ptr %call.i, ptr %current_group_.i, align 8
   br label %_ZN7rocksdb22PlainTableIndexBuilder15IndexRecordList9AddRecordEjj.exit
 
@@ -468,19 +403,19 @@ _ZN7rocksdb22PlainTableIndexBuilder15IndexRecordList9AddRecordEjj.exit: ; preds 
   store i64 %inc.i, ptr %num_records_in_current_group_.i, align 8
   %arrayidx.i = getelementptr inbounds %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %15, i64 %14
   store i32 %11, ptr %arrayidx.i, align 8
-  %offset6.i = getelementptr inbounds %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %15, i64 %14, i32 1
+  %offset6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i32 %key_offset, ptr %offset6.i, align 4
-  %next.i = getelementptr inbounds %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %15, i64 %14, i32 2
+  %next.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store ptr null, ptr %next.i, align 8
   store i8 0, ptr %due_index_11, align 1
   br label %if.end16
 
 if.end16:                                         ; preds = %_ZN7rocksdb22PlainTableIndexBuilder15IndexRecordList9AddRecordEjj.exit, %if.end10
-  %num_keys_per_prefix_17 = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 7
+  %num_keys_per_prefix_17 = getelementptr inbounds i8, ptr %this, i64 1896
   %16 = load i32, ptr %num_keys_per_prefix_17, align 8
   %inc18 = add i32 %16, 1
   store i32 %inc18, ptr %num_keys_per_prefix_17, align 8
-  %index_sparseness_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 9
+  %index_sparseness_ = getelementptr inbounds i8, ptr %this, i64 1904
   %17 = load i64, ptr %index_sparseness_, align 8
   %cmp = icmp eq i64 %17, 0
   br i1 %cmp, label %if.then23, label %lor.lhs.false
@@ -516,31 +451,31 @@ entry:
   %hash_to_offsets = alloca %"class.std::vector", align 8
   %entries_per_bucket = alloca %"class.std::vector.65", align 8
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
-  %prefix_extractor_.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 12
+  %prefix_extractor_.i = getelementptr inbounds i8, ptr %this, i64 1920
   %0 = load ptr, ptr %prefix_extractor_.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %_ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %hash_table_ratio_.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 13
+  %hash_table_ratio_.i = getelementptr inbounds i8, ptr %this, i64 1928
   %1 = load double, ptr %hash_table_ratio_.i, align 8
   %cmp2.i = fcmp ugt double %1, 0.000000e+00
   br i1 %cmp2.i, label %_ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit, label %_ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit.thread
 
 _ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit.thread: ; preds = %lor.lhs.false.i, %entry
-  %index_size_5.i34 = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 10
+  %index_size_5.i34 = getelementptr inbounds i8, ptr %this, i64 1912
   store i32 1, ptr %index_size_5.i34, align 8
   br label %if.end.i.i.i.i.i.i.i
 
 _ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit: ; preds = %lor.lhs.false.i
   %div.i = fdiv double 1.000000e+00, %1
-  %num_prefixes_.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 6
+  %num_prefixes_.i = getelementptr inbounds i8, ptr %this, i64 1892
   %2 = load i32, ptr %num_prefixes_.i, align 4
   %conv.i = uitofp i32 %2 to double
   %mul.i = fmul double %div.i, %conv.i
   %conv4.i = fptoui double %mul.i to i32
   %add.i = add i32 %conv4.i, 1
-  %index_size_5.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 10
+  %index_size_5.i = getelementptr inbounds i8, ptr %this, i64 1912
   store i32 %add.i, ptr %index_size_5.i, align 8
   %conv = zext i32 %add.i to i64
   %cmp.not.i.i.i.i = icmp eq i32 %add.i, 0
@@ -548,7 +483,7 @@ _ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit: ; preds = %lor.lhs.fa
 
 invoke.cont.thread:                               ; preds = %_ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %hash_to_offsets, i8 0, i64 24, i1 false)
-  %_M_finish.i.i4.i17 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %entries_per_bucket, i64 0, i32 1
+  %_M_finish.i.i4.i17 = getelementptr inbounds i8, ptr %entries_per_bucket, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %entries_per_bucket, i8 0, i64 24, i1 false)
   br label %invoke.cont8
 
@@ -558,9 +493,9 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN7rocksdb22PlainT
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv39, 3
   %call5.i.i.i.i2.i.i4 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #18
   store ptr %call5.i.i.i.i2.i.i4, ptr %hash_to_offsets, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PlainTableIndexBuilder::IndexRecord *, std::allocator<rocksdb::PlainTableIndexBuilder::IndexRecord *>>::_Vector_impl_data", ptr %hash_to_offsets, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %hash_to_offsets, i64 8
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i2.i.i4, i64 %conv39
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PlainTableIndexBuilder::IndexRecord *, std::allocator<rocksdb::PlainTableIndexBuilder::IndexRecord *>>::_Vector_impl_data", ptr %hash_to_offsets, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %hash_to_offsets, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i4, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -571,10 +506,10 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN7rocksdb22PlainT
 
 call5.i.i.i.i2.i.i.noexc18:                       ; preds = %if.end.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i19, ptr %entries_per_bucket, align 8
-  %_M_finish.i.i.i8 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %entries_per_bucket, i64 0, i32 1
+  %_M_finish.i.i.i8 = getelementptr inbounds i8, ptr %entries_per_bucket, i64 8
   store ptr %call5.i.i.i.i2.i.i19, ptr %_M_finish.i.i.i8, align 8
   %add.ptr.i.i.i9 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i19, i64 %conv39
-  %_M_end_of_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %entries_per_bucket, i64 0, i32 2
+  %_M_end_of_storage.i.i.i10 = getelementptr inbounds i8, ptr %entries_per_bucket, i64 16
   store ptr %add.ptr.i.i.i9, ptr %_M_end_of_storage.i.i.i10, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i19, i8 0, i64 %mul.i.i.i.i.i.i7, i1 false)
   br label %invoke.cont8
@@ -586,9 +521,9 @@ invoke.cont8:                                     ; preds = %call5.i.i.i.i2.i.i.
   %_M_finish.i.i7.i15 = phi ptr [ %_M_finish.i.i4.i17, %invoke.cont.thread ], [ %_M_finish.i.i.i8, %call5.i.i.i.i2.i.i.noexc18 ]
   %5 = phi ptr [ null, %invoke.cont.thread ], [ %add.ptr.i.i.i9, %call5.i.i.i.i2.i.i.noexc18 ]
   store ptr %5, ptr %_M_finish.i.i7.i15, align 8
-  %record_list_.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 3
-  %groups_.i.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 3, i32 2
-  %_M_finish.i.i.i20 = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 3, i32 2, i32 0, i32 0, i32 0, i32 1
+  %record_list_.i = getelementptr inbounds i8, ptr %this, i64 1840
+  %groups_.i.i = getelementptr inbounds i8, ptr %this, i64 1856
+  %_M_finish.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 1864
   %6 = load ptr, ptr %_M_finish.i.i.i20, align 8
   %7 = load ptr, ptr %groups_.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %6 to i64
@@ -598,7 +533,7 @@ invoke.cont8:                                     ; preds = %call5.i.i.i.i2.i.i.
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %8 = load i64, ptr %record_list_.i, align 8
   %mul.i.i = mul i64 %sub.i.i, %8
-  %num_records_in_current_group_.i.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 3, i32 3
+  %num_records_in_current_group_.i.i = getelementptr inbounds i8, ptr %this, i64 1880
   %9 = load i64, ptr %num_records_in_current_group_.i.i, align 8
   %add.i.i = add i64 %mul.i.i, %9
   %cmp21.not.i = icmp eq i64 %add.i.i, 0
@@ -619,7 +554,7 @@ for.body.i:                                       ; preds = %invoke.cont8, %for.
   %conv.i22 = zext i32 %rem.i15.i to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %4, i64 %conv.i22
   %15 = load ptr, ptr %add.ptr.i.i, align 8
-  %next.i = getelementptr inbounds %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %12, i64 %rem.i.i, i32 2
+  %next.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   store ptr %15, ptr %next.i, align 8
   store ptr %arrayidx.i.i, ptr %add.ptr.i.i, align 8
   %add.ptr.i17.i = getelementptr inbounds i32, ptr %3, i64 %conv.i22
@@ -631,24 +566,24 @@ for.body.i:                                       ; preds = %invoke.cont8, %for.
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.body.i, %invoke.cont8
-  %sub_index_size_.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 11
+  %sub_index_size_.i = getelementptr inbounds i8, ptr %this, i64 1916
   store i32 0, ptr %sub_index_size_.i, align 4
-  %cmp.i.not27.i = icmp eq ptr %3, %5
-  br i1 %cmp.i.not27.i, label %invoke.cont10, label %for.body17.i
+  %cmp.i.not25.i = icmp eq ptr %3, %5
+  br i1 %cmp.i.not25.i, label %invoke.cont10, label %for.body17.i
 
 for.body17.i:                                     ; preds = %for.end.i, %for.inc30.i
-  %__begin1.sroa.0.029.i = phi ptr [ %incdec.ptr.i.i, %for.inc30.i ], [ %3, %for.end.i ]
-  %add282628.i = phi i32 [ %add2825.i, %for.inc30.i ], [ 0, %for.end.i ]
-  %17 = load i32, ptr %__begin1.sroa.0.029.i, align 4
-  %cmp19.i = icmp ult i32 %17, 2
+  %__begin1.sroa.0.026.i = phi ptr [ %incdec.ptr.i.i, %for.inc30.i ], [ %3, %for.end.i ]
+  %17 = phi i32 [ %19, %for.inc30.i ], [ 0, %for.end.i ]
+  %18 = load i32, ptr %__begin1.sroa.0.026.i, align 4
+  %cmp19.i = icmp ult i32 %18, 2
   br i1 %cmp19.i, label %for.inc30.i, label %if.end21.i
 
 if.end21.i:                                       ; preds = %for.body17.i
-  %cmp3.i.i = icmp ugt i32 %17, 127
+  %cmp3.i.i = icmp ugt i32 %18, 127
   br i1 %cmp3.i.i, label %while.body.i.preheader.i, label %_ZN7rocksdb12VarintLengthEm.exit.i
 
 while.body.i.preheader.i:                         ; preds = %if.end21.i
-  %conv22.i = zext i32 %17 to i64
+  %conv22.i = zext i32 %18 to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.i.preheader.i
@@ -661,35 +596,35 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 _ZN7rocksdb12VarintLengthEm.exit.i:               ; preds = %while.body.i.i, %if.end21.i
   %len.0.lcssa.i.i = phi i32 [ 1, %if.end21.i ], [ %inc.i.i, %while.body.i.i ]
-  %mul.i23 = shl i32 %17, 2
-  %add.i24 = add i32 %mul.i23, %add282628.i
+  %mul.i23 = shl i32 %18, 2
+  %add.i24 = add i32 %mul.i23, %17
   %add28.i = add i32 %add.i24, %len.0.lcssa.i.i
   store i32 %add28.i, ptr %sub_index_size_.i, align 4
   br label %for.inc30.i
 
 for.inc30.i:                                      ; preds = %_ZN7rocksdb12VarintLengthEm.exit.i, %for.body17.i
-  %add2825.i = phi i32 [ %add282628.i, %for.body17.i ], [ %add28.i, %_ZN7rocksdb12VarintLengthEm.exit.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %__begin1.sroa.0.029.i, i64 1
+  %19 = phi i32 [ %17, %for.body17.i ], [ %add28.i, %_ZN7rocksdb12VarintLengthEm.exit.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.026.i, i64 4
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %5
   br i1 %cmp.i.not.i, label %invoke.cont10, label %for.body17.i
 
 invoke.cont10:                                    ; preds = %for.inc30.i, %for.end.i
-  %keys_per_prefix_hist_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 2
-  %num_keys_per_prefix_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 7
-  %18 = load i32, ptr %num_keys_per_prefix_, align 8
-  %conv11 = zext i32 %18 to i64
+  %keys_per_prefix_hist_ = getelementptr inbounds i8, ptr %this, i64 872
+  %num_keys_per_prefix_ = getelementptr inbounds i8, ptr %this, i64 1896
+  %20 = load i32, ptr %num_keys_per_prefix_, align 8
+  %conv11 = zext i32 %20 to i64
   invoke void @_ZN7rocksdb13HistogramImpl3AddEm(ptr noundef nonnull align 8 dereferenceable(968) %keys_per_prefix_hist_, i64 noundef %conv11)
           to label %invoke.cont12 unwind label %lpad9
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %logger = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 1, i32 0, i32 90
-  %19 = load ptr, ptr %logger, align 8
+  %logger = getelementptr inbounds i8, ptr %this, i64 552
+  %21 = load ptr, ptr %logger, align 8
   invoke void @_ZNK7rocksdb13HistogramImpl8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(968) %keys_per_prefix_hist_)
           to label %invoke.cont16 unwind label %lpad9
 
 invoke.cont16:                                    ; preds = %invoke.cont12
   %call17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #21
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %19, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([126 x i8], ptr @.str.2, i64 0, i64 93), ptr noundef %call17)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %21, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([126 x i8], ptr @.str.2, i64 0, i64 93), ptr noundef %call17)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont16
@@ -717,23 +652,23 @@ _ZNSt6vectorIPN7rocksdb22PlainTableIndexBuilder11IndexRecordESaIS3_EED2Ev.exit: 
   ret { ptr, i64 } %call21
 
 ehcleanup22.thread:                               ; preds = %if.end.i.i.i.i.i.i.i
-  %20 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i31
 
 lpad9:                                            ; preds = %invoke.cont19, %invoke.cont12, %invoke.cont10
-  %21 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad18:                                           ; preds = %invoke.cont16
-  %22 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad18, %lpad9
-  %.pn = phi { ptr, i32 } [ %21, %lpad9 ], [ %22, %lpad18 ]
+  %.pn = phi { ptr, i32 } [ %23, %lpad9 ], [ %24, %lpad18 ]
   %tobool.not.i.i.i27 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i27, label %ehcleanup22, label %if.then.i.i.i28
 
@@ -746,9 +681,9 @@ ehcleanup22:                                      ; preds = %if.then.i.i.i28, %e
   br i1 %tobool.not.i.i.i30, label %eh.resume, label %if.then.i.i.i31
 
 if.then.i.i.i31:                                  ; preds = %ehcleanup22.thread, %ehcleanup22
-  %.pn.pn52 = phi { ptr, i32 } [ %20, %ehcleanup22.thread ], [ %.pn, %ehcleanup22 ]
-  %23 = phi ptr [ %call5.i.i.i.i2.i.i4, %ehcleanup22.thread ], [ %4, %ehcleanup22 ]
-  call void @_ZdlPv(ptr noundef nonnull %23) #20
+  %.pn.pn52 = phi { ptr, i32 } [ %22, %ehcleanup22.thread ], [ %.pn, %ehcleanup22 ]
+  %25 = phi ptr [ %call5.i.i.i.i2.i.i4, %ehcleanup22.thread ], [ %4, %ehcleanup22 ]
+  call void @_ZdlPv(ptr noundef nonnull %25) #20
   br label %eh.resume
 
 eh.resume:                                        ; preds = %if.then.i.i.i31, %ehcleanup22
@@ -759,20 +694,20 @@ eh.resume:                                        ; preds = %if.then.i.i.i31, %e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv(ptr nocapture noundef nonnull align 8 dereferenceable(1976) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %prefix_extractor_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 12
+  %prefix_extractor_ = getelementptr inbounds i8, ptr %this, i64 1920
   %0 = load ptr, ptr %prefix_extractor_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %hash_table_ratio_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 13
+  %hash_table_ratio_ = getelementptr inbounds i8, ptr %this, i64 1928
   %1 = load double, ptr %hash_table_ratio_, align 8
   %cmp2 = fcmp ugt double %1, 0.000000e+00
   br i1 %cmp2, label %if.else, label %if.end
 
 if.else:                                          ; preds = %lor.lhs.false
   %div = fdiv double 1.000000e+00, %1
-  %num_prefixes_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 6
+  %num_prefixes_ = getelementptr inbounds i8, ptr %this, i64 1892
   %2 = load i32, ptr %num_prefixes_, align 4
   %conv = uitofp i32 %2 to double
   %mul = fmul double %div, %conv
@@ -782,7 +717,7 @@ if.else:                                          ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %entry, %lor.lhs.false, %if.else
   %add.sink = phi i32 [ %add, %if.else ], [ 1, %lor.lhs.false ], [ 1, %entry ]
-  %index_size_5 = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 10
+  %index_size_5 = getelementptr inbounds i8, ptr %this, i64 1912
   store i32 %add.sink, ptr %index_size_5, align 8
   ret void
 }
@@ -792,9 +727,9 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7rocksdb22PlainTableIndexBuilder16BucketizeIndexesEPSt6vectorIPNS0_11IndexRecordESaIS3_EEPS1_IjSaIjEE(ptr nocapture noundef nonnull align 8 dereferenceable(1976) %this, ptr nocapture noundef readonly %hash_to_offsets, ptr nocapture noundef readonly %entries_per_bucket) local_unnamed_addr #5 align 2 {
 entry:
-  %record_list_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 3
-  %groups_.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 3, i32 2
-  %_M_finish.i.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 3, i32 2, i32 0, i32 0, i32 0, i32 1
+  %record_list_ = getelementptr inbounds i8, ptr %this, i64 1840
+  %groups_.i = getelementptr inbounds i8, ptr %this, i64 1856
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 1864
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %groups_.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -804,14 +739,14 @@ entry:
   %sub.i = add nsw i64 %sub.ptr.div.i.i, -1
   %2 = load i64, ptr %record_list_, align 8
   %mul.i = mul i64 %sub.i, %2
-  %num_records_in_current_group_.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 3, i32 3
+  %num_records_in_current_group_.i = getelementptr inbounds i8, ptr %this, i64 1880
   %3 = load i64, ptr %num_records_in_current_group_.i, align 8
   %add.i = add i64 %mul.i, %3
   %cmp21.not = icmp eq i64 %add.i, 0
   br i1 %cmp21.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %index_size_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 10
+  %index_size_ = getelementptr inbounds i8, ptr %this, i64 1912
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -830,7 +765,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = load ptr, ptr %hash_to_offsets, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %conv
   %10 = load ptr, ptr %add.ptr.i, align 8
-  %next = getelementptr inbounds %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %6, i64 %rem.i, i32 2
+  %next = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store ptr %10, ptr %next, align 8
   %11 = load ptr, ptr %hash_to_offsets, align 8
   %add.ptr.i16 = getelementptr inbounds ptr, ptr %11, i64 %conv
@@ -845,27 +780,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry
-  %sub_index_size_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 11
+  %sub_index_size_ = getelementptr inbounds i8, ptr %this, i64 1916
   store i32 0, ptr %sub_index_size_, align 4
   %14 = load ptr, ptr %entries_per_bucket, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %entries_per_bucket, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %entries_per_bucket, i64 8
   %15 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not27 = icmp eq ptr %14, %15
-  br i1 %cmp.i.not27, label %for.end32, label %for.body17
+  %cmp.i.not25 = icmp eq ptr %14, %15
+  br i1 %cmp.i.not25, label %for.end32, label %for.body17
 
 for.body17:                                       ; preds = %for.end, %for.inc30
-  %__begin1.sroa.0.029 = phi ptr [ %incdec.ptr.i, %for.inc30 ], [ %14, %for.end ]
-  %add282628 = phi i32 [ %add2825, %for.inc30 ], [ 0, %for.end ]
-  %16 = load i32, ptr %__begin1.sroa.0.029, align 4
-  %cmp19 = icmp ult i32 %16, 2
+  %__begin1.sroa.0.026 = phi ptr [ %incdec.ptr.i, %for.inc30 ], [ %14, %for.end ]
+  %16 = phi i32 [ %18, %for.inc30 ], [ 0, %for.end ]
+  %17 = load i32, ptr %__begin1.sroa.0.026, align 4
+  %cmp19 = icmp ult i32 %17, 2
   br i1 %cmp19, label %for.inc30, label %if.end21
 
 if.end21:                                         ; preds = %for.body17
-  %cmp3.i = icmp ugt i32 %16, 127
+  %cmp3.i = icmp ugt i32 %17, 127
   br i1 %cmp3.i, label %while.body.i.preheader, label %_ZN7rocksdb12VarintLengthEm.exit
 
 while.body.i.preheader:                           ; preds = %if.end21
-  %conv22 = zext i32 %16 to i64
+  %conv22 = zext i32 %17 to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i
@@ -878,15 +813,15 @@ while.body.i:                                     ; preds = %while.body.i.prehea
 
 _ZN7rocksdb12VarintLengthEm.exit:                 ; preds = %while.body.i, %if.end21
   %len.0.lcssa.i = phi i32 [ 1, %if.end21 ], [ %inc.i, %while.body.i ]
-  %mul = shl i32 %16, 2
+  %mul = shl i32 %17, 2
   %add = add i32 %len.0.lcssa.i, %mul
-  %add28 = add i32 %add, %add282628
+  %add28 = add i32 %add, %16
   store i32 %add28, ptr %sub_index_size_, align 4
   br label %for.inc30
 
 for.inc30:                                        ; preds = %for.body17, %_ZN7rocksdb12VarintLengthEm.exit
-  %add2825 = phi i32 [ %add282628, %for.body17 ], [ %add28, %_ZN7rocksdb12VarintLengthEm.exit ]
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %__begin1.sroa.0.029, i64 1
+  %18 = phi i32 [ %16, %for.body17 ], [ %add28, %_ZN7rocksdb12VarintLengthEm.exit ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.026, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %15
   br i1 %cmp.i.not, label %for.end32, label %for.body17
 
@@ -904,12 +839,12 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress uwtable
 define { ptr, i64 } @_ZN7rocksdb22PlainTableIndexBuilder11FillIndexesERKSt6vectorIPNS0_11IndexRecordESaIS3_EERKS1_IjSaIjEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1976) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %hash_to_offsets, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %entries_per_bucket) local_unnamed_addr #0 align 2 {
 entry:
-  %logger = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 1, i32 0, i32 90
+  %logger = getelementptr inbounds i8, ptr %this, i64 552
   %0 = load ptr, ptr %logger, align 8
-  %sub_index_size_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 11
+  %sub_index_size_ = getelementptr inbounds i8, ptr %this, i64 1916
   %1 = load i32, ptr %sub_index_size_, align 4
   tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 0, ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds ([126 x i8], ptr @.str.2, i64 0, i64 93), i32 noundef %1)
-  %index_size_.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 10
+  %index_size_.i = getelementptr inbounds i8, ptr %this, i64 1912
   %2 = load i32, ptr %index_size_.i, align 8
   %cmp3.i.i = icmp ugt i32 %2, 127
   br i1 %cmp3.i.i, label %while.body.i.preheader.i, label %_ZN7rocksdb12VarintLengthEm.exit.i
@@ -928,7 +863,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 _ZN7rocksdb12VarintLengthEm.exit.i:               ; preds = %while.body.i.i, %entry
   %len.0.lcssa.i.i = phi i32 [ 1, %entry ], [ %inc.i.i, %while.body.i.i ]
-  %num_prefixes_.i = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 6
+  %num_prefixes_.i = getelementptr inbounds i8, ptr %this, i64 1892
   %3 = load i32, ptr %num_prefixes_.i, align 4
   %cmp3.i1.i = icmp ugt i32 %3, 127
   br i1 %cmp3.i1.i, label %while.body.i3.preheader.i, label %_ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit
@@ -954,11 +889,11 @@ _ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit: ; preds = %while.body
   %add9.i = add i32 %add7.i, %4
   %5 = load ptr, ptr %this, align 8
   %conv = zext i32 %add9.i to i64
-  %huge_page_tlb_size_ = getelementptr inbounds %"class.rocksdb::PlainTableIndexBuilder", ptr %this, i64 0, i32 14
+  %huge_page_tlb_size_ = getelementptr inbounds i8, ptr %this, i64 1936
   %6 = load i64, ptr %huge_page_tlb_size_, align 8
   %7 = load ptr, ptr %logger, align 8
   %vtable = load ptr, ptr %5, align 16
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %8 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef ptr %8(ptr noundef nonnull align 16 dereferenceable(2288) %5, i64 noundef %conv, i64 noundef %6, ptr noundef %7)
   %9 = load i32, ptr %index_size_.i, align 8
@@ -991,7 +926,7 @@ sw.bb14:                                          ; preds = %for.body
   %14 = load ptr, ptr %hash_to_offsets, align 8
   %add.ptr.i26 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv68
   %15 = load ptr, ptr %add.ptr.i26, align 8
-  %offset = getelementptr inbounds %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %15, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %15, i64 4
   %16 = load i32, ptr %offset, align 4
   store i32 %16, ptr %add.ptr20, align 4
   br label %for.inc39
@@ -1027,10 +962,10 @@ for.body30:                                       ; preds = %for.body30.preheade
   %record.062 = phi ptr [ %record.058, %for.body30.preheader ], [ %record.0, %for.body30 ]
   %mul = shl nuw nsw i64 %indvars.iv, 2
   %add.ptr32 = getelementptr inbounds i8, ptr %arrayidx25, i64 %mul
-  %offset33 = getelementptr inbounds %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %record.062, i64 0, i32 1
+  %offset33 = getelementptr inbounds i8, ptr %record.062, i64 4
   %20 = load i32, ptr %offset33, align 4
   store i32 %20, ptr %add.ptr32, align 1
-  %next = getelementptr inbounds %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %record.062, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %record.062, i64 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %record.0 = load ptr, ptr %next, align 8
   %cmp29 = icmp ne i64 %indvars.iv, 0

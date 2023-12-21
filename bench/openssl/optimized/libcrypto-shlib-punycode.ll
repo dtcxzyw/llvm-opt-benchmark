@@ -209,7 +209,7 @@ if.end112:                                        ; preds = %adapt.exit
   %8 = trunc i64 %div92 to i32
   %conv104 = add i32 %n.092, %8
   %add.ptr = getelementptr inbounds i32, ptr %pDecoded, i64 %rem
-  %add.ptr113 = getelementptr inbounds i32, ptr %add.ptr, i64 1
+  %add.ptr113 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %sub117 = sub nsw i64 %written_out.288, %rem
   %mul118 = shl nsw i64 %sub117, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr113, ptr align 4 %add.ptr, i64 %mul118, i1 false)

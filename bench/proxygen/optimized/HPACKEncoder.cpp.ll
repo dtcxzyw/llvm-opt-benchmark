@@ -15,22 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::Optional" = type { %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible" }
 %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible" = type <{ %union.anon.11, i8, [3 x i8] }>
 %union.anon.11 = type { i32 }
-%"class.proxygen::HPACKEncoderBase" = type <{ ptr, %"class.proxygen::HPACKEncodeBuffer", i8, [7 x i8] }>
-%"class.proxygen::HPACKEncodeBuffer" = type <{ %"class.folly::IOBufQueue", ptr, %"class.folly::io::QueueAppender", i32, i32, i32, [4 x i8] }>
-%"class.folly::IOBufQueue" = type { %"struct.folly::IOBufQueue::Options", i64, %"class.std::unique_ptr", ptr, ptr, %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr }
-%"struct.folly::IOBufQueue::Options" = type { i8 }
-%"struct.folly::IOBufQueue::WritableRangeCacheData" = type <{ %"struct.std::pair", i8, [7 x i8] }>
-%"struct.std::pair" = type { ptr, ptr }
-%"class.folly::io::QueueAppender" = type { %"class.folly::IOBufQueue::WritableRangeCache", i64 }
-%"class.folly::IOBufQueue::WritableRangeCache" = type { %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr }
-%"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.proxygen::HPACKHeader" = type { %"class.proxygen::HPACKHeaderName", %"class.folly::basic_fbstring" }
 %"class.proxygen::HPACKHeaderName" = type { ptr }
-%"class.folly::basic_fbstring" = type { %"class.folly::fbstring_core" }
-%"class.folly::fbstring_core" = type { %union.anon }
-%union.anon = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
-%"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
-%"class.folly::IOBuf" = type { i64, ptr, i64, ptr, ptr, ptr, i64 }
 %"class.google::base::CheckOpMessageBuilder" = type { ptr }
 %"struct.google::CheckOpString" = type { ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
@@ -40,10 +25,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.10 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.10 = type { i64, [8 x i8] }
+%"class.proxygen::HPACKHeader" = type { %"class.proxygen::HPACKHeaderName", %"class.folly::basic_fbstring" }
+%"class.folly::basic_fbstring" = type { %"class.folly::fbstring_core" }
+%"class.folly::fbstring_core" = type { %union.anon }
+%union.anon = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
+%"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
 %"class.std::allocator.7" = type { i8 }
-%"struct.folly::fbstring_core<char>::RefCounted" = type <{ %"struct.std::atomic.21", [1 x i8], [7 x i8] }>
-%"struct.std::atomic.21" = type { %"struct.std::__atomic_base.22" }
-%"struct.std::__atomic_base.22" = type { i64 }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
 %struct.Initializer = type { i8 }
@@ -161,34 +148,34 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %streamBuffer_ = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN8proxygen17HPACKEncodeBuffer11addHeadroomEj(ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_, i32 noundef %headroom)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %streamBuffer_2 = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_2 = getelementptr inbounds i8, ptr %this, i64 8
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load i32, ptr %capacity_.i, align 8
   %call3 = tail call noundef i32 @_ZN8proxygen16HPACKEncoderBase26handlePendingContextUpdateERNS_17HPACKEncodeBufferEj(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_2, i32 noundef %0)
   %1 = load ptr, ptr %headers, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data", ptr %headers, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %headers, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not6 = icmp eq ptr %1, %2
   br i1 %cmp.i.not6, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible", ptr %nameIndex.i, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %nameIndex.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8proxygen12HPACKEncoder12encodeHeaderERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit
   %__begin1.sroa.0.07 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZN8proxygen12HPACKEncoder12encodeHeaderERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit ]
-  %value = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__begin1.sroa.0.07, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 8
   %3 = load ptr, ptr %value, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 31
   %4 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.i.i.i = icmp ult i8 %4, 64
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, ptr %value, ptr %3
-  %size_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__begin1.sroa.0.07, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 16
   %5 = load i64, ptr %size_.i.i.i, align 8
   %conv.i.i.i = zext i8 %4 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
@@ -215,27 +202,27 @@ _ZNR5folly8OptionalIjEdeEv.exit.i:                ; preds = %for.body
 _ZN8proxygen12HPACKEncoder12encodeHeaderERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit: ; preds = %for.body, %_ZNR5folly8OptionalIjEdeEv.exit.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %indexable.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nameIndex.i)
-  %incdec.ptr.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__begin1.sroa.0.07, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN8proxygen12HPACKEncoder12encodeHeaderERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit, %if.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %bufQueuePtr_.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 1
+  %bufQueuePtr_.i = getelementptr inbounds i8, ptr %this, i64 80
   %11 = load ptr, ptr %bufQueuePtr_.i, align 8, !noalias !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %tailStart_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %11, i64 0, i32 3
+  %tailStart_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %tailStart_.i.i.i.i, align 8, !noalias !10
-  %cachePtr_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %11, i64 0, i32 4
+  %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !13
   %14 = load ptr, ptr %13, align 8, !noalias !10
   %cmp.not.i.i.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i.i.i, label %_ZN8proxygen17HPACKEncodeBuffer7releaseEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.end
-  %head_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %11, i64 0, i32 2
+  %head_.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %15 = load ptr, ptr %head_.i.i.i.i, align 8, !noalias !10
-  %prev_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %15, i64 0, i32 5
+  %prev_.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %16 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !noalias !10
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %12 to i64
@@ -248,11 +235,11 @@ if.then.i.i.i.i:                                  ; preds = %for.end
 
 _ZN8proxygen17HPACKEncodeBuffer7releaseEv.exit:   ; preds = %for.end, %if.then.i.i.i.i
   %18 = phi ptr [ %13, %for.end ], [ %.pre.i.i, %if.then.i.i.i.i ]
-  %head_.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %11, i64 0, i32 2
+  %head_.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %19 = load i64, ptr %head_.i.i, align 8, !noalias !13
   store i64 %19, ptr %agg.result, align 8, !alias.scope !13
-  %chainLength_.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %11, i64 0, i32 1
-  %reusableTail_5.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %11, i64 0, i32 6
+  %chainLength_.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %reusableTail_5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 64
   store ptr null, ptr %reusableTail_5.i.i.i.i.i.i, align 8, !noalias !13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i, i8 0, i64 24, i1 false), !noalias !13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false), !noalias !13
@@ -270,7 +257,7 @@ entry:
   %nameIndex = alloca %"class.folly::Optional", align 4
   store i8 0, ptr %indexable, align 1
   call void @_ZN8proxygen12HPACKEncoder16encodeHeaderImplERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEERb(ptr nonnull sret(%"class.folly::Optional") align 4 %nameIndex, ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %indexable)
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible", ptr %nameIndex, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %nameIndex, i64 4
   %0 = load i8, ptr %hasValue.i.i, align 4
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0
@@ -293,33 +280,33 @@ define void @_ZN8proxygen12HPACKEncoder6encodeERKSt6vectorINS_11HPACKHeaderESaIS
 entry:
   %indexable.i = alloca i8, align 1
   %nameIndex.i = alloca %"class.folly::Optional", align 4
-  %streamBuffer_ = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 1
+  %streamBuffer_ = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %writeBuf, ptr %0, align 8
-  %buf_.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2
-  %growthSize_.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 3
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %growthSize_.i = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load i32, ptr %growthSize_.i, align 8
-  %attached.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 0, i32 1
+  %attached.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load i8, ptr %attached.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i.i, label %if.then5.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %queue_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 1
+  %queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %4 = load ptr, ptr %queue_.i.i.i, align 8
-  %tailStart_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 3
+  %tailStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %tailStart_.i.i.i.i.i, align 8
-  %cachePtr_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 4
+  %cachePtr_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %6 = load ptr, ptr %cachePtr_.i.i.i.i.i, align 8
   %7 = load ptr, ptr %6, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %5, %7
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %head_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 2
+  %head_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load ptr, ptr %head_.i.i.i.i.i, align 8
-  %prev_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %8, i64 0, i32 5
+  %prev_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load ptr, ptr %prev_.i.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %5 to i64
@@ -327,7 +314,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %10 = load i64, ptr %9, align 8
   %add.i.i.i.i.i.i = add i64 %10, %sub.ptr.sub.i.i.i.i.i
   store i64 %add.i.i.i.i.i.i, ptr %9, align 8
-  %chainLength_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 1
+  %chainLength_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i64, ptr %chainLength_.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %11, %sub.ptr.sub.i.i.i.i.i
   store i64 %add.i.i.i.i.i, ptr %chainLength_.i.i.i.i.i, align 8
@@ -339,30 +326,30 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i
   %13 = phi ptr [ %6, %if.then.i.i.i ], [ %.pre.i.i.i.i, %if.then.i.i.i.i.i ]
-  %localCache_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 5
+  %localCache_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %13, %localCache_.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.then5.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %localCache_.i.i.i.i, align 8
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %13, i64 0, i32 1
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %second.i.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 5, i32 0, i32 1
+  %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 48
   store ptr %15, ptr %second3.i.i.i.i.i.i, align 8
-  %attached.i.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %13, i64 0, i32 1
+  %attached.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load i8, ptr %attached.i.i.i.i.i, align 8
   %17 = and i8 %16, 1
-  %attached3.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 5, i32 1
+  %attached3.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 56
   store i8 %17, ptr %attached3.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %13, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i, ptr %cachePtr_.i.i.i.i.i, align 8
   br label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %entry
-  %queue_2.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 1
+  %queue_2.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %writeBuf, ptr %queue_2.i.i.i, align 8
-  %cachePtr_.i.i1.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %writeBuf, i64 0, i32 4
+  %cachePtr_.i.i1.i.i.i = getelementptr inbounds i8, ptr %writeBuf, i64 32
   %18 = load ptr, ptr %cachePtr_.i.i1.i.i.i, align 8
   %cmp.not.i.i2.i.i.i = icmp eq ptr %18, %buf_.i
   br i1 %cmp.not.i.i2.i.i.i, label %_ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit, label %if.then.i.i3.i.i.i
@@ -370,11 +357,11 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i.i, %_
 if.then.i.i3.i.i.i:                               ; preds = %if.then5.i.i.i
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %buf_.i, align 8
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %18, i64 0, i32 1
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %second.i.i.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 0, i32 0, i32 1
+  %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %20, ptr %second3.i.i.i.i.i.i.i, align 8
-  %attached.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %18, i64 0, i32 1
+  %attached.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
   %21 = load i8, ptr %attached.i.i.i.i.i.i, align 8
   %22 = and i8 %21, 1
   store i8 %22, ptr %attached.i.i.i, align 8
@@ -384,30 +371,30 @@ if.then.i.i3.i.i.i:                               ; preds = %if.then5.i.i.i
 
 _ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit: ; preds = %if.then5.i.i.i, %if.then.i.i3.i.i.i
   %conv.i = zext i32 %1 to i64
-  %growth_.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 1
+  %growth_.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %conv.i, ptr %growth_.i.i, align 8
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 160
   %23 = load i32, ptr %capacity_.i, align 8
   %call3 = tail call noundef i32 @_ZN8proxygen16HPACKEncoderBase26handlePendingContextUpdateERNS_17HPACKEncodeBufferEj(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_, i32 noundef %23)
   %24 = load ptr, ptr %headers, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data", ptr %headers, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %headers, i64 8
   %25 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not44 = icmp eq ptr %24, %25
   br i1 %cmp.i.not44, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible", ptr %nameIndex.i, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %nameIndex.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8proxygen12HPACKEncoder12encodeHeaderERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit
   %__begin1.sroa.0.045 = phi ptr [ %24, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZN8proxygen12HPACKEncoder12encodeHeaderERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit ]
-  %value = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__begin1.sroa.0.045, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %__begin1.sroa.0.045, i64 8
   %26 = load ptr, ptr %value, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.045, i64 31
   %27 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.i.i.i = icmp ult i8 %27, 64
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, ptr %value, ptr %26
-  %size_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__begin1.sroa.0.045, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.045, i64 16
   %28 = load i64, ptr %size_.i.i.i, align 8
   %conv.i.i.i = zext i8 %27 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
@@ -434,7 +421,7 @@ _ZNR5folly8OptionalIjEdeEv.exit.i:                ; preds = %for.body
 _ZN8proxygen12HPACKEncoder12encodeHeaderERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit: ; preds = %for.body, %_ZNR5folly8OptionalIjEdeEv.exit.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %indexable.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nameIndex.i)
-  %incdec.ptr.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__begin1.sroa.0.045, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.045, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %25
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -448,18 +435,18 @@ for.end:                                          ; preds = %_ZN8proxygen12HPACK
 
 if.then.i.i.i7:                                   ; preds = %for.end
   %37 = load ptr, ptr %queue_2.i.i.i, align 8
-  %tailStart_.i.i.i.i.i9 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %37, i64 0, i32 3
+  %tailStart_.i.i.i.i.i9 = getelementptr inbounds i8, ptr %37, i64 24
   %38 = load ptr, ptr %tailStart_.i.i.i.i.i9, align 8
-  %cachePtr_.i.i.i.i.i10 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %37, i64 0, i32 4
+  %cachePtr_.i.i.i.i.i10 = getelementptr inbounds i8, ptr %37, i64 32
   %39 = load ptr, ptr %cachePtr_.i.i.i.i.i10, align 8
   %40 = load ptr, ptr %39, align 8
   %cmp.not.i.i.i.i.i11 = icmp eq ptr %38, %40
   br i1 %cmp.not.i.i.i.i.i11, label %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i23, label %if.then.i.i.i.i.i12
 
 if.then.i.i.i.i.i12:                              ; preds = %if.then.i.i.i7
-  %head_.i.i.i.i.i13 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %37, i64 0, i32 2
+  %head_.i.i.i.i.i13 = getelementptr inbounds i8, ptr %37, i64 16
   %41 = load ptr, ptr %head_.i.i.i.i.i13, align 8
-  %prev_.i.i.i.i.i.i14 = getelementptr inbounds %"class.folly::IOBuf", ptr %41, i64 0, i32 5
+  %prev_.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %41, i64 40
   %42 = load ptr, ptr %prev_.i.i.i.i.i.i14, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i15 = ptrtoint ptr %40 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i16 = ptrtoint ptr %38 to i64
@@ -467,7 +454,7 @@ if.then.i.i.i.i.i12:                              ; preds = %if.then.i.i.i7
   %43 = load i64, ptr %42, align 8
   %add.i.i.i.i.i.i18 = add i64 %43, %sub.ptr.sub.i.i.i.i.i17
   store i64 %add.i.i.i.i.i.i18, ptr %42, align 8
-  %chainLength_.i.i.i.i.i19 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %37, i64 0, i32 1
+  %chainLength_.i.i.i.i.i19 = getelementptr inbounds i8, ptr %37, i64 8
   %44 = load i64, ptr %chainLength_.i.i.i.i.i19, align 8
   %add.i.i.i.i.i20 = add i64 %44, %sub.ptr.sub.i.i.i.i.i17
   store i64 %add.i.i.i.i.i20, ptr %chainLength_.i.i.i.i.i19, align 8
@@ -479,21 +466,21 @@ if.then.i.i.i.i.i12:                              ; preds = %if.then.i.i.i7
 
 _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i23: ; preds = %if.then.i.i.i.i.i12, %if.then.i.i.i7
   %46 = phi ptr [ %39, %if.then.i.i.i7 ], [ %.pre.i.i.i.i22, %if.then.i.i.i.i.i12 ]
-  %localCache_.i.i.i.i24 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %37, i64 0, i32 5
+  %localCache_.i.i.i.i24 = getelementptr inbounds i8, ptr %37, i64 40
   %cmp.not.i.i.i.i25 = icmp eq ptr %46, %localCache_.i.i.i.i24
   br i1 %cmp.not.i.i.i.i25, label %if.then5.i.i.i31, label %if.then.i.i.i.i26
 
 if.then.i.i.i.i26:                                ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i23
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %localCache_.i.i.i.i24, align 8
-  %second.i.i.i.i.i.i27 = getelementptr inbounds %"struct.std::pair", ptr %46, i64 0, i32 1
+  %second.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load ptr, ptr %second.i.i.i.i.i.i27, align 8
-  %second3.i.i.i.i.i.i28 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %37, i64 0, i32 5, i32 0, i32 1
+  %second3.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %37, i64 48
   store ptr %48, ptr %second3.i.i.i.i.i.i28, align 8
-  %attached.i.i.i.i.i29 = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %46, i64 0, i32 1
+  %attached.i.i.i.i.i29 = getelementptr inbounds i8, ptr %46, i64 16
   %49 = load i8, ptr %attached.i.i.i.i.i29, align 8
   %50 = and i8 %49, 1
-  %attached3.i.i.i.i.i30 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %37, i64 0, i32 5, i32 1
+  %attached3.i.i.i.i.i30 = getelementptr inbounds i8, ptr %37, i64 56
   store i8 %50, ptr %attached3.i.i.i.i.i30, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %46, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i24, ptr %cachePtr_.i.i.i.i.i10, align 8
@@ -501,7 +488,7 @@ if.then.i.i.i.i26:                                ; preds = %_ZNK5folly10IOBufQu
 
 if.then5.i.i.i31:                                 ; preds = %if.then.i.i.i.i26, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i23, %for.end
   store ptr %streamBuffer_, ptr %queue_2.i.i.i, align 8
-  %cachePtr_.i.i1.i.i.i33 = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 0, i32 4
+  %cachePtr_.i.i1.i.i.i33 = getelementptr inbounds i8, ptr %this, i64 40
   %51 = load ptr, ptr %cachePtr_.i.i1.i.i.i33, align 8
   %cmp.not.i.i2.i.i.i34 = icmp eq ptr %51, %buf_.i
   br i1 %cmp.not.i.i2.i.i.i34, label %_ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit41, label %if.then.i.i3.i.i.i35
@@ -509,11 +496,11 @@ if.then5.i.i.i31:                                 ; preds = %if.then.i.i.i.i26, 
 if.then.i.i3.i.i.i35:                             ; preds = %if.then5.i.i.i31
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %buf_.i, align 8
-  %second.i.i.i.i.i.i.i36 = getelementptr inbounds %"struct.std::pair", ptr %51, i64 0, i32 1
+  %second.i.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %second.i.i.i.i.i.i.i36, align 8
-  %second3.i.i.i.i.i.i.i37 = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 0, i32 0, i32 1
+  %second3.i.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %53, ptr %second3.i.i.i.i.i.i.i37, align 8
-  %attached.i.i.i.i.i.i38 = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %51, i64 0, i32 1
+  %attached.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %51, i64 16
   %54 = load i8, ptr %attached.i.i.i.i.i.i38, align 8
   %55 = and i8 %54, 1
   store i8 %55, ptr %attached.i.i.i, align 8
@@ -530,32 +517,32 @@ _ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit41: ; pre
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen12HPACKEncoder11startEncodeERN5folly10IOBufQueueE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %writeBuf, ptr %0, align 8
-  %buf_.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2
-  %growthSize_.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 3
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %growthSize_.i = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load i32, ptr %growthSize_.i, align 8
-  %attached.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 0, i32 1
+  %attached.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load i8, ptr %attached.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i.i, label %if.then5.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %queue_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 1
+  %queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %4 = load ptr, ptr %queue_.i.i.i, align 8
-  %tailStart_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 3
+  %tailStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %tailStart_.i.i.i.i.i, align 8
-  %cachePtr_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 4
+  %cachePtr_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %6 = load ptr, ptr %cachePtr_.i.i.i.i.i, align 8
   %7 = load ptr, ptr %6, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %5, %7
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %head_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 2
+  %head_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load ptr, ptr %head_.i.i.i.i.i, align 8
-  %prev_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %8, i64 0, i32 5
+  %prev_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load ptr, ptr %prev_.i.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %5 to i64
@@ -563,7 +550,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %10 = load i64, ptr %9, align 8
   %add.i.i.i.i.i.i = add i64 %10, %sub.ptr.sub.i.i.i.i.i
   store i64 %add.i.i.i.i.i.i, ptr %9, align 8
-  %chainLength_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 1
+  %chainLength_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i64, ptr %chainLength_.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %11, %sub.ptr.sub.i.i.i.i.i
   store i64 %add.i.i.i.i.i, ptr %chainLength_.i.i.i.i.i, align 8
@@ -575,30 +562,30 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i
   %13 = phi ptr [ %6, %if.then.i.i.i ], [ %.pre.i.i.i.i, %if.then.i.i.i.i.i ]
-  %localCache_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 5
+  %localCache_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %13, %localCache_.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.then5.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %localCache_.i.i.i.i, align 8
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %13, i64 0, i32 1
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %second.i.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 5, i32 0, i32 1
+  %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 48
   store ptr %15, ptr %second3.i.i.i.i.i.i, align 8
-  %attached.i.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %13, i64 0, i32 1
+  %attached.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load i8, ptr %attached.i.i.i.i.i, align 8
   %17 = and i8 %16, 1
-  %attached3.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 5, i32 1
+  %attached3.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 56
   store i8 %17, ptr %attached3.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %13, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i, ptr %cachePtr_.i.i.i.i.i, align 8
   br label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %entry
-  %queue_2.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 1
+  %queue_2.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %writeBuf, ptr %queue_2.i.i.i, align 8
-  %cachePtr_.i.i1.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %writeBuf, i64 0, i32 4
+  %cachePtr_.i.i1.i.i.i = getelementptr inbounds i8, ptr %writeBuf, i64 32
   %18 = load ptr, ptr %cachePtr_.i.i1.i.i.i, align 8
   %cmp.not.i.i2.i.i.i = icmp eq ptr %18, %buf_.i
   br i1 %cmp.not.i.i2.i.i.i, label %_ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit, label %if.then.i.i3.i.i.i
@@ -606,11 +593,11 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i.i, %_
 if.then.i.i3.i.i.i:                               ; preds = %if.then5.i.i.i
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %buf_.i, align 8
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %18, i64 0, i32 1
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %second.i.i.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 0, i32 0, i32 1
+  %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %20, ptr %second3.i.i.i.i.i.i.i, align 8
-  %attached.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %18, i64 0, i32 1
+  %attached.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
   %21 = load i8, ptr %attached.i.i.i.i.i.i, align 8
   %22 = and i8 %21, 1
   store i8 %22, ptr %attached.i.i.i, align 8
@@ -619,9 +606,9 @@ if.then.i.i3.i.i.i:                               ; preds = %if.then5.i.i.i
   br label %_ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit
 
 _ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit: ; preds = %if.then5.i.i.i, %if.then.i.i3.i.i.i
-  %streamBuffer_ = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_ = getelementptr inbounds i8, ptr %this, i64 8
   %conv.i = zext i32 %1 to i64
-  %growth_.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 1
+  %growth_.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %conv.i, ptr %growth_.i.i, align 8
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 160
   %23 = load i32, ptr %capacity_.i, align 8
@@ -632,33 +619,33 @@ _ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit: ; preds
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN8proxygen12HPACKEncoder14completeEncodeEv(ptr noundef nonnull align 8 dereferenceable(236) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %streamBuffer_ = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 1
+  %streamBuffer_ = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %streamBuffer_, ptr %0, align 8
-  %buf_.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2
-  %growthSize_.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 3
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %growthSize_.i = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load i32, ptr %growthSize_.i, align 8
-  %attached.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 0, i32 1
+  %attached.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load i8, ptr %attached.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i.i, label %if.then5.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %queue_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 1
+  %queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %4 = load ptr, ptr %queue_.i.i.i, align 8
-  %tailStart_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 3
+  %tailStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %tailStart_.i.i.i.i.i, align 8
-  %cachePtr_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 4
+  %cachePtr_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %6 = load ptr, ptr %cachePtr_.i.i.i.i.i, align 8
   %7 = load ptr, ptr %6, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %5, %7
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %head_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 2
+  %head_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load ptr, ptr %head_.i.i.i.i.i, align 8
-  %prev_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %8, i64 0, i32 5
+  %prev_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load ptr, ptr %prev_.i.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %5 to i64
@@ -666,7 +653,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %10 = load i64, ptr %9, align 8
   %add.i.i.i.i.i.i = add i64 %10, %sub.ptr.sub.i.i.i.i.i
   store i64 %add.i.i.i.i.i.i, ptr %9, align 8
-  %chainLength_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 1
+  %chainLength_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i64, ptr %chainLength_.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %11, %sub.ptr.sub.i.i.i.i.i
   store i64 %add.i.i.i.i.i, ptr %chainLength_.i.i.i.i.i, align 8
@@ -678,30 +665,30 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i
   %13 = phi ptr [ %6, %if.then.i.i.i ], [ %.pre.i.i.i.i, %if.then.i.i.i.i.i ]
-  %localCache_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 5
+  %localCache_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %13, %localCache_.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.then5.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %localCache_.i.i.i.i, align 8
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %13, i64 0, i32 1
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %second.i.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 5, i32 0, i32 1
+  %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 48
   store ptr %15, ptr %second3.i.i.i.i.i.i, align 8
-  %attached.i.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %13, i64 0, i32 1
+  %attached.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load i8, ptr %attached.i.i.i.i.i, align 8
   %17 = and i8 %16, 1
-  %attached3.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 5, i32 1
+  %attached3.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 56
   store i8 %17, ptr %attached3.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %13, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i, ptr %cachePtr_.i.i.i.i.i, align 8
   br label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %entry
-  %queue_2.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 1
+  %queue_2.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %streamBuffer_, ptr %queue_2.i.i.i, align 8
-  %cachePtr_.i.i1.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 0, i32 4
+  %cachePtr_.i.i1.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load ptr, ptr %cachePtr_.i.i1.i.i.i, align 8
   %cmp.not.i.i2.i.i.i = icmp eq ptr %18, %buf_.i
   br i1 %cmp.not.i.i2.i.i.i, label %_ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit, label %if.then.i.i3.i.i.i
@@ -709,11 +696,11 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i.i, %_
 if.then.i.i3.i.i.i:                               ; preds = %if.then5.i.i.i
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %buf_.i, align 8
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %18, i64 0, i32 1
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %second.i.i.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 0, i32 0, i32 1
+  %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %20, ptr %second3.i.i.i.i.i.i.i, align 8
-  %attached.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %18, i64 0, i32 1
+  %attached.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
   %21 = load i8, ptr %attached.i.i.i.i.i.i, align 8
   %22 = and i8 %21, 1
   store i8 %22, ptr %attached.i.i.i, align 8
@@ -723,7 +710,7 @@ if.then.i.i3.i.i.i:                               ; preds = %if.then5.i.i.i
 
 _ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit: ; preds = %if.then5.i.i.i, %if.then.i.i3.i.i.i
   %conv.i = zext i32 %1 to i64
-  %growth_.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 1
+  %growth_.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %conv.i, ptr %growth_.i.i, align 8
   ret void
 }
@@ -748,7 +735,7 @@ entry:
           to label %.noexc unwind label %lpad10
 
 .noexc:                                           ; preds = %entry
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible", ptr %nameIndex.i, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %nameIndex.i, i64 4
   %1 = load i8, ptr %hasValue.i.i.i, align 4
   %2 = and i8 %1, 1
   %tobool.i.i.not.i = icmp eq i8 %2, 0
@@ -1002,9 +989,9 @@ invoke.cont13:
   call void @_ZN8proxygen15HPACKHeaderNameC2ENS_14HTTPHeaderCodeE(ptr noundef nonnull align 8 dereferenceable(8) %name, i8 noundef zeroext %code)
   %0 = load ptr, ptr %name, align 8
   %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %value, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load i64, ptr %size_.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds [24 x i8], ptr %value, i64 0, i64 23
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %value, i64 23
   %2 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %2 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
@@ -1021,7 +1008,7 @@ invoke.cont13:
           to label %.noexc unwind label %lpad10
 
 .noexc:                                           ; preds = %invoke.cont13
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible", ptr %nameIndex.i, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %nameIndex.i, i64 4
   %4 = load i8, ptr %hasValue.i.i.i, align 4
   %5 = and i8 %4, 1
   %tobool.i.i.not.i = icmp eq i8 %5, 0
@@ -1095,11 +1082,11 @@ entry:
   %nameIndex = alloca %"class.folly::Optional", align 4
   store i8 0, ptr %indexable, align 1
   %0 = load ptr, ptr %value, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [24 x i8], ptr %value, i64 0, i64 23
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 23
   %1 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.i.i.i = icmp ult i8 %1, 64
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, ptr %value, ptr %0
-  %size_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %value, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %2 = load i64, ptr %size_.i.i.i, align 8
   %conv.i.i.i = zext i8 %1 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
@@ -1107,7 +1094,7 @@ entry:
   %cond.i.i.i = select i1 %cmp.i.i.i, i64 %sub.i.i.i, i64 %2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %cond.i.i.i
   call void @_ZN8proxygen12HPACKEncoder16encodeHeaderImplERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEERb(ptr nonnull sret(%"class.folly::Optional") align 4 %nameIndex, ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %cond.i.i.i.i, ptr %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(1) %indexable)
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible", ptr %nameIndex, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %nameIndex, i64 4
   %3 = load i8, ptr %hasValue.i.i, align 4
   %4 = and i8 %3, 1
   %tobool.i.i.not = icmp eq i8 %4, 0
@@ -1149,7 +1136,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible", ptr %nameIndex.i, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %nameIndex.i, i64 4
   %1 = load i8, ptr %hasValue.i.i.i, align 4
   %2 = and i8 %1, 1
   %tobool.i.i.not.i = icmp eq i8 %2, 0
@@ -1223,7 +1210,7 @@ entry:
   %nameIndex = alloca %"class.folly::Optional", align 4
   store i8 0, ptr %indexable, align 1
   call void @_ZN8proxygen12HPACKEncoder16encodeHeaderImplERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEERb(ptr nonnull sret(%"class.folly::Optional") align 4 %nameIndex, ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %indexable)
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible", ptr %nameIndex, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %nameIndex, i64 4
   %0 = load i8, ptr %hasValue.i.i, align 4
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0
@@ -1327,7 +1314,7 @@ cleanup.action:                                   ; preds = %invoke.cont8
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
-  %streamBuffer_ = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_ = getelementptr inbounds i8, ptr %this, i64 8
   %conv = zext i32 %nameIndex to i64
   %call17 = call noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_, i64 noundef %conv, ptr noundef nonnull align 1 dereferenceable(2) %instruction)
   br label %if.end
@@ -1339,7 +1326,7 @@ lpad:                                             ; preds = %invoke.cont8, %invo
   resume { ptr, i32 } %2
 
 if.else:                                          ; preds = %entry
-  %streamBuffer_18 = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_18 = getelementptr inbounds i8, ptr %this, i64 8
   %call19 = tail call noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_18, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(2) %instruction)
   %3 = load ptr, ptr %name, align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
@@ -1349,7 +1336,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %cleanup.done
-  %streamBuffer_23 = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_23 = getelementptr inbounds i8, ptr %this, i64 8
   %call25 = call noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeLiteralEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_23, ptr %value.coerce0, ptr %value.coerce1)
   ret void
 }
@@ -1481,7 +1468,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
 _ZN8proxygen15HPACKHeaderNameC2ERKS0_.exit:       ; preds = %entry, %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.if.else_crit_edge.i.i, %if.then.i.i
   %storemerge.i.i = phi ptr [ %call2.i.i, %if.then.i.i ], [ %.pre.i.i, %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.if.else_crit_edge.i.i ], [ null, %entry ]
   store ptr %storemerge.i.i, ptr %this, align 8
-  %value = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %this, i64 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %value_.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %value_.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1504,16 +1491,16 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i1
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %value_.coerce0, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %value_.coerce0, i64 16
   %6 = load i64, ptr %arrayidx.i.i.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %6, ptr %capacity_.i.i.i, align 8
   br label %sw.bb2.i.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %sw.bb.i.i.i, %if.then.i.i.i
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %value_.coerce0, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %value_.coerce0, i64 8
   %7 = load i64, ptr %arrayidx3.i.i.i, align 8
-  %size_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %7, ptr %size_.i.i.i, align 8
   br label %sw.bb4.i.i.i
 
@@ -1554,14 +1541,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i.i: ; preds = %if.else.i.i
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i.i
-  %data_.i.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i.i3, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i.i, ptr align 1 %value_.coerce0, i64 %sub.ptr.sub.i, i1 false)
   store ptr %data_.i.i.i.i, ptr %value, align 8
-  %size_.i7.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %size_.i7.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %sub.ptr.sub.i, ptr %size_.i7.i.i, align 8
   %10 = load i64, ptr %effectiveCapacity.i.i.i, align 8
   %or.i.i.i.i = or i64 %10, 4611686018427387904
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %or.i.i.i.i, ptr %capacity_.i.i.i.i, align 8
   %arrayidx.i8.i.i = getelementptr inbounds i8, ptr %data_.i.i.i.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx.i8.i.i, align 1
@@ -1594,7 +1581,7 @@ entry:
   br i1 %cmp.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %value = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i.i.i = icmp eq i8 %1, -128
   %2 = load ptr, ptr %value, align 8
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -1663,11 +1650,11 @@ entry:
   %agg.tmp2 = alloca %"class.proxygen::HPACKHeader", align 8
   %ref.tmp4 = alloca %"class.google::LogMessageFatal", align 8
   %0 = load ptr, ptr %value, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [24 x i8], ptr %value, i64 0, i64 23
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 23
   %1 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.i.i.i = icmp ult i8 %1, 64
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, ptr %value, ptr %0
-  %size_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %value, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %2 = load i64, ptr %size_.i.i.i, align 8
   %conv.i.i.i = zext i8 %1 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
@@ -1704,7 +1691,7 @@ if.then:                                          ; preds = %entry
   %9 = load ptr, ptr %name, align 8
   store ptr %9, ptr %agg.tmp2, align 8
   store ptr null, ptr %name, align 8
-  %value.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %agg.tmp2, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value.i, ptr noundef nonnull align 8 dereferenceable(24) %value, i64 24, i1 false)
   store i8 23, ptr %arrayidx.i.i.i.i.i, align 1
   store i8 0, ptr %value, align 8
@@ -1838,7 +1825,7 @@ entry:
   %0 = load ptr, ptr %name_, align 8
   store ptr %0, ptr %this, align 8
   store ptr null, ptr %name_, align 8
-  %value = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %this, i64 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %value_.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %value_.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1861,16 +1848,16 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %value_.coerce0, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %value_.coerce0, i64 16
   %1 = load i64, ptr %arrayidx.i.i.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %1, ptr %capacity_.i.i.i, align 8
   br label %sw.bb2.i.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %sw.bb.i.i.i, %if.then.i.i.i
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %value_.coerce0, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %value_.coerce0, i64 8
   %2 = load i64, ptr %arrayidx3.i.i.i, align 8
-  %size_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %2, ptr %size_.i.i.i, align 8
   br label %sw.bb4.i.i.i
 
@@ -1911,14 +1898,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i.i: ; preds = %if.else.i.i
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i.i
-  %data_.i.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i.i1, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i.i, ptr align 1 %value_.coerce0, i64 %sub.ptr.sub.i, i1 false)
   store ptr %data_.i.i.i.i, ptr %value, align 8
-  %size_.i7.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %size_.i7.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %sub.ptr.sub.i, ptr %size_.i7.i.i, align 8
   %5 = load i64, ptr %effectiveCapacity.i.i.i, align 8
   %or.i.i.i.i = or i64 %5, 4611686018427387904
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %or.i.i.i.i, ptr %capacity_.i.i.i.i, align 8
   %arrayidx.i8.i.i = getelementptr inbounds i8, ptr %data_.i.i.i.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx.i8.i.i, align 1
@@ -1985,7 +1972,7 @@ cleanup.action:                                   ; preds = %invoke.cont7
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
-  %streamBuffer_ = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_ = getelementptr inbounds i8, ptr %this, i64 8
   %conv = zext i32 %index to i64
   %call16 = call noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_, i64 noundef %conv, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL9INDEX_REFE)
   ret void
@@ -2011,7 +1998,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @_ZN8proxygen12HPACKEncoder13encodeAsIndexEj(ptr noundef nonnull align 8 dereferenceable(236) %this, i32 noundef %ref.tmp.sroa.0.0.extract.trunc)
   store i8 0, ptr %agg.result, align 4
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i8 0, ptr %hasValue.i.i, align 4
   br label %return
 
@@ -2055,7 +2042,7 @@ land.rhs13:                                       ; preds = %lor.rhs
 land.end:                                         ; preds = %land.rhs13, %lor.rhs
   %7 = phi i1 [ false, %lor.rhs ], [ %lnot, %land.rhs13 ]
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %8 = load ptr, ptr %vfn, align 8
   %call16 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %7)
   %9 = zext i1 %call16 to i8
@@ -2064,7 +2051,7 @@ land.end:                                         ; preds = %land.rhs13, %lor.rh
 land.end17:                                       ; preds = %land.rhs, %land.end, %if.else
   %frombool = phi i8 [ 0, %if.else ], [ 1, %land.rhs ], [ %9, %land.end ]
   store i8 %frombool, ptr %indexable, align 1
-  %hasValue.i.i5 = getelementptr inbounds %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %hasValue.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 %ref.tmp.sroa.2.0.extract.trunc, ptr %agg.result, align 4
   store i8 1, ptr %hasValue.i.i5, align 4
   br label %return
@@ -2126,7 +2113,7 @@ if.then:                                          ; preds = %entry
   %1 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #22
   %2 = load i64, ptr %agg.tmp.i, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call6, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2242,11 +2229,11 @@ if.then:                                          ; preds = %_ZN5folly13checkedM
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN5folly13checkedMallocEm.exit
-  %size_ = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %size, ptr %size_, align 8
   %sub = add i64 %retval.0.i, 9223372036854775807
   %or.i = or i64 %sub, -9223372036854775808
-  %capacity_.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %or.i, ptr %capacity_.i, align 8
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %size
   store i8 0, ptr %arrayidx, align 1

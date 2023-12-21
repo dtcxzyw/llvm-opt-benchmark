@@ -3,16 +3,7 @@ source_filename = "bench/bullet3/original/btConvexPointCloudShape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btConvexInternalShape = type { %class.btConvexShape, %class.btVector3, %class.btVector3, float, float }
-%class.btConvexShape = type { %class.btCollisionShape }
-%class.btCollisionShape = type { ptr, i32, ptr, i32, i32 }
 %class.btVector3 = type { [4 x float] }
-%class.btConvexPointCloudShape = type <{ %class.btPolyhedralConvexAabbCachingShape.base, [7 x i8], ptr, i32, [4 x i8] }>
-%class.btPolyhedralConvexAabbCachingShape.base = type <{ %class.btPolyhedralConvexShape, %class.btVector3, %class.btVector3, i8 }>
-%class.btPolyhedralConvexShape = type { %class.btConvexInternalShape, ptr }
-%struct.btConvexInternalShapeData = type { %struct.btCollisionShapeData, %struct.btVector3FloatData, %struct.btVector3FloatData, float, i32 }
-%struct.btCollisionShapeData = type { ptr, i32, [4 x i8] }
-%struct.btVector3FloatData = type { [4 x float] }
 
 $_ZN23btConvexPointCloudShapeD2Ev = comdat any
 
@@ -50,7 +41,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btConvexPointCloudShape15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %scaling) unnamed_addr #0 align 2 {
 entry:
-  %m_localScaling = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_localScaling, ptr noundef nonnull align 4 dereferenceable(16) %scaling, i64 16, i1 false)
   tail call void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %this)
   ret void
@@ -87,13 +78,13 @@ if.end:                                           ; preds = %entry, %if.else
   %vec.sroa.11.0 = phi float [ %mul7.i, %if.else ], [ 0.000000e+00, %entry ]
   %vec.sroa.6.0 = phi float [ %mul4.i, %if.else ], [ 0.000000e+00, %entry ]
   %vec.sroa.0.0 = phi float [ %mul.i, %if.else ], [ 1.000000e+00, %entry ]
-  %m_numPoints = getelementptr inbounds %class.btConvexPointCloudShape, ptr %this, i64 0, i32 3
+  %m_numPoints = getelementptr inbounds i8, ptr %this, i64 128
   %2 = load i32, ptr %m_numPoints, align 8
   %cmp9 = icmp sgt i32 %2, 0
   br i1 %cmp9, label %for.body.lr.ph.i, label %return
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %m_unscaledPoints = getelementptr inbounds %class.btConvexPointCloudShape, ptr %this, i64 0, i32 2
+  %m_unscaledPoints = getelementptr inbounds i8, ptr %this, i64 120
   %3 = load ptr, ptr %m_unscaledPoints, align 8
   %conv = zext nneg i32 %2 to i64
   br label %for.body.i
@@ -104,11 +95,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %ptIndex.08.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %ptIndex.1.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %3, i64 %indvars.iv.i
   %4 = load float, ptr %arrayidx.i, align 4
-  %arrayidx5.i.i6 = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx5.i.i6 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %5 = load float, ptr %arrayidx5.i.i6, align 4
   %mul8.i.i7 = fmul float %vec.sroa.6.0, %5
   %6 = tail call float @llvm.fmuladd.f32(float %4, float %vec.sroa.0.0, float %mul8.i.i7)
-  %arrayidx10.i.i8 = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx10.i.i8 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %7 = load float, ptr %arrayidx10.i.i8, align 4
   %8 = tail call noundef float @llvm.fmuladd.f32(float %7, float %vec.sroa.11.0, float %6)
   %cmp2.i = fcmp ogt float %8, %maxDot1.09.i
@@ -122,13 +113,13 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK9btVector36maxDotEPKS_lRf.exit:               ; preds = %for.body.i
   %idxprom.i = sext i32 %ptIndex.1.i to i64
   %arrayidx.i9 = getelementptr inbounds %class.btVector3, ptr %3, i64 %idxprom.i
-  %m_localScaling.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1
+  %m_localScaling.i = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load <2 x float>, ptr %arrayidx.i9, align 4
   %11 = load <2 x float>, ptr %m_localScaling.i, align 8
   %12 = fmul <2 x float> %10, %11
-  %arrayidx11.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i9, i64 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i9, i64 8
   %13 = load float, ptr %arrayidx11.i.i, align 4
-  %arrayidx13.i.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %14 = load float, ptr %arrayidx13.i.i, align 8
   %mul14.i.i = fmul float %13, %14
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul14.i.i, i64 0
@@ -149,11 +140,11 @@ entry:
   br i1 %cmp19, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_localScaling = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1
-  %arrayidx7.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1, i32 0, i64 1
-  %arrayidx13.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1, i32 0, i64 2
-  %m_unscaledPoints = getelementptr inbounds %class.btConvexPointCloudShape, ptr %this, i64 0, i32 2
-  %m_numPoints = getelementptr inbounds %class.btConvexPointCloudShape, ptr %this, i64 0, i32 3
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 36
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_unscaledPoints = getelementptr inbounds i8, ptr %this, i64 120
+  %m_numPoints = getelementptr inbounds i8, ptr %this, i64 128
   %wide.trip.count = zext nneg i32 %numVectors to i64
   br label %for.body
 
@@ -163,11 +154,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %0 = load float, ptr %arrayidx, align 4
   %1 = load float, ptr %m_localScaling, align 8
   %mul.i = fmul float %0, %1
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %2 = load float, ptr %arrayidx5.i, align 4
   %3 = load float, ptr %arrayidx7.i, align 4
   %mul8.i = fmul float %2, %3
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load float, ptr %arrayidx11.i, align 4
   %5 = load float, ptr %arrayidx13.i, align 8
   %mul14.i = fmul float %4, %5
@@ -188,11 +179,11 @@ for.body.i:                                       ; preds = %for.body, %for.body
   %ptIndex.08.i = phi i32 [ %ptIndex.1.i, %for.body.i ], [ -1, %for.body ]
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %6, i64 %indvars.iv.i
   %8 = load float, ptr %arrayidx.i, align 4
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %9 = load float, ptr %arrayidx5.i.i, align 4
   %mul8.i.i = fmul float %mul8.i, %9
   %10 = tail call float @llvm.fmuladd.f32(float %8, float %mul.i, float %mul8.i.i)
-  %arrayidx10.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %11 = load float, ptr %arrayidx10.i.i, align 4
   %12 = tail call noundef float @llvm.fmuladd.f32(float %11, float %mul14.i, float %10)
   %cmp2.i = fcmp ogt float %12, %maxDot1.09.i
@@ -205,7 +196,7 @@ for.body.i:                                       ; preds = %for.body, %for.body
 
 _ZNK9btVector36maxDotEPKS_lRf.exit:               ; preds = %for.body.i
   %arrayidx6 = getelementptr inbounds %class.btVector3, ptr %supportVerticesOut, i64 %indvars.iv
-  %arrayidx8 = getelementptr inbounds float, ptr %arrayidx6, i64 3
+  %arrayidx8 = getelementptr inbounds i8, ptr %arrayidx6, i64 12
   store float 0xC3ABC16D60000000, ptr %arrayidx8, align 4
   %cmp9 = icmp sgt i32 %ptIndex.1.i, -1
   br i1 %cmp9, label %if.then, label %for.inc
@@ -217,7 +208,7 @@ if.then:                                          ; preds = %_ZNK9btVector36maxD
   %15 = load <2 x float>, ptr %arrayidx.i9, align 4
   %16 = load <2 x float>, ptr %m_localScaling, align 8
   %17 = fmul <2 x float> %15, %16
-  %arrayidx11.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i9, i64 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i9, i64 8
   %18 = load float, ptr %arrayidx11.i.i, align 4
   %19 = load float, ptr %arrayidx13.i, align 8
   %mul14.i.i = fmul float %18, %19
@@ -241,13 +232,13 @@ for.end:                                          ; preds = %for.inc, %entry
 define dso_local { <2 x float>, <2 x float> } @_ZNK23btConvexPointCloudShape24localGetSupportingVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 4 dereferenceable(16) %vec) unnamed_addr #5 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call { <2 x float>, <2 x float> } %0(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 4 dereferenceable(16) %vec)
   %1 = extractvalue { <2 x float>, <2 x float> } %call, 0
   %2 = extractvalue { <2 x float>, <2 x float> } %call, 1
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 12
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 96
   %3 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef float %3(ptr noundef nonnull align 8 dereferenceable(72) %this)
   %cmp = fcmp une float %call4, 0.000000e+00
@@ -257,7 +248,7 @@ if.then:                                          ; preds = %entry
   %vecnorm.sroa.11.0.vec.sroa_idx = getelementptr inbounds i8, ptr %vec, i64 8
   %vecnorm.sroa.11.0.copyload = load float, ptr %vecnorm.sroa.11.0.vec.sroa_idx, align 4
   %vtable13 = load ptr, ptr %this, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 12
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 96
   %4 = load ptr, ptr %vfn14, align 8
   %5 = load <2 x float>, ptr %vec, align 4
   %6 = fmul <2 x float> %5, %5
@@ -303,7 +294,7 @@ if.end19:                                         ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK23btConvexPointCloudShape14getNumVerticesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #6 align 2 {
 entry:
-  %m_numPoints = getelementptr inbounds %class.btConvexPointCloudShape, ptr %this, i64 0, i32 3
+  %m_numPoints = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i32, ptr %m_numPoints, align 8
   ret i32 %0
 }
@@ -323,17 +314,17 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZNK23btConvexPointCloudShape9getVertexEiR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %vtx) unnamed_addr #8 align 2 {
 entry:
-  %m_unscaledPoints = getelementptr inbounds %class.btConvexPointCloudShape, ptr %this, i64 0, i32 2
+  %m_unscaledPoints = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_unscaledPoints, align 8
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds %class.btVector3, ptr %0, i64 %idxprom
-  %m_localScaling = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load <2 x float>, ptr %arrayidx, align 4
   %2 = load <2 x float>, ptr %m_localScaling, align 8
   %3 = fmul <2 x float> %1, %2
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load float, ptr %arrayidx13.i, align 8
   %mul14.i = fmul float %4, %5
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul14.i, i64 0
@@ -397,7 +388,7 @@ declare noundef float @_ZNK16btCollisionShape27getContactBreakingThresholdEf(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK21btConvexInternalShape15getLocalScalingEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_localScaling = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
   ret ptr %m_localScaling
 }
 
@@ -418,7 +409,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN21btConvexInternalShape9setMarginEf(ptr noundef nonnull align 8 dereferenceable(72) %this, float noundef %margin) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 3
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 64
   store float %margin, ptr %m_collisionMargin, align 8
   ret void
 }
@@ -426,7 +417,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK21btConvexInternalShape9getMarginEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 3
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load float, ptr %m_collisionMargin, align 8
   ret float %0
 }
@@ -441,8 +432,8 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK21btConvexInternalShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #0 comdat align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
-  %m_implicitShapeDimensions = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 2
-  %m_implicitShapeDimensions2 = getelementptr inbounds %struct.btConvexInternalShapeData, ptr %dataBuffer, i64 0, i32 2
+  %m_implicitShapeDimensions = getelementptr inbounds i8, ptr %this, i64 48
+  %m_implicitShapeDimensions2 = getelementptr inbounds i8, ptr %dataBuffer, i64 32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -456,8 +447,8 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %for.body.i, !llvm.loop !8
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %for.body.i
-  %m_localScaling = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 1
-  %m_localScaling3 = getelementptr inbounds %struct.btConvexInternalShapeData, ptr %dataBuffer, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
+  %m_localScaling3 = getelementptr inbounds i8, ptr %dataBuffer, i64 16
   br label %for.body.i5
 
 for.body.i5:                                      ; preds = %for.body.i5, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit
@@ -471,11 +462,11 @@ for.body.i5:                                      ; preds = %for.body.i5, %_ZNK9
   br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %for.body.i5, !llvm.loop !8
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit11: ; preds = %for.body.i5
-  %m_collisionMargin = getelementptr inbounds %class.btConvexInternalShape, ptr %this, i64 0, i32 3
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load float, ptr %m_collisionMargin, align 8
-  %m_collisionMargin4 = getelementptr inbounds %struct.btConvexInternalShapeData, ptr %dataBuffer, i64 0, i32 3
+  %m_collisionMargin4 = getelementptr inbounds i8, ptr %dataBuffer, i64 48
   store float %2, ptr %m_collisionMargin4, align 8
-  %m_padding = getelementptr inbounds %struct.btConvexInternalShapeData, ptr %dataBuffer, i64 0, i32 4
+  %m_padding = getelementptr inbounds i8, ptr %dataBuffer, i64 52
   store i32 0, ptr %m_padding, align 4
   ret ptr @.str.1
 }

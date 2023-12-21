@@ -491,7 +491,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds [1024 x i8], ptr %buf, i64 0, i64 1023
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 1023
   store i8 0, ptr %arrayidx, align 1
   br label %if.end
 

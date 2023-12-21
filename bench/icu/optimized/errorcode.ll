@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/errorcode.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::ErrorCode" = type <{ ptr, i32, [4 x i8] }>
-
 $_ZNK6icu_759ErrorCode13handleFailureEv = comdat any
 
 $_ZTSN6icu_757UMemoryE = comdat any
@@ -41,7 +39,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @_ZN6icu_759ErrorCode5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %errorCode = getelementptr inbounds %"class.icu_75::ErrorCode", ptr %this, i64 0, i32 1
+  %errorCode = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %errorCode, align 8
   store i32 0, ptr %errorCode, align 8
   ret i32 %0
@@ -50,14 +48,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_759ErrorCode13assertSuccessEv(ptr noundef nonnull align 8 dereferenceable(12) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %errorCode.i = getelementptr inbounds %"class.icu_75::ErrorCode", ptr %this, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %errorCode.i, align 8
   %cmp.i.i = icmp slt i32 %0, 1
   br i1 %cmp.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %this)
   br label %if.end
@@ -69,7 +67,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_759ErrorCode9errorNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %errorCode = getelementptr inbounds %"class.icu_75::ErrorCode", ptr %this, i64 0, i32 1
+  %errorCode = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %errorCode, align 8
   %call = tail call ptr @u_errorName_75(i32 noundef %0)
   ret ptr %call

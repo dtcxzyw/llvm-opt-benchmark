@@ -3,19 +3,9 @@ source_filename = "bench/qemu/original/block_accounting.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BlockAcctStats = type { %struct.QemuMutex, [6 x i64], [6 x i64], [6 x i64], [6 x i64], [6 x i64], [6 x i64], i64, %struct.anon, i8, i8, [6 x %struct.BlockLatencyHistogram] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.BlockLatencyHistogram = type { i32, ptr, ptr }
-%struct.BlockAcctTimedStats = type { ptr, [6 x %struct.TimedAverage], i32, %struct.anon.0 }
 %struct.TimedAverage = type { i64, [2 x %struct.TimedAverageWindow], i32, i32 }
 %struct.TimedAverageWindow = type { i64, i64, i64, i64, i64 }
-%struct.anon.0 = type { ptr }
-%struct.BlockAcctCookie = type { i64, i64, i32 }
-%struct.uint64List = type { ptr, i64 }
+%struct.BlockLatencyHistogram = type { i32, ptr, ptr }
 
 @clock_type = internal unnamed_addr global i1 false, align 4
 @.str = private unnamed_addr constant [27 x i8] c"../qemu/block/accounting.c\00", align 1
@@ -46,9 +36,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %account_invalid = getelementptr inbounds %struct.BlockAcctStats, ptr %stats, i64 0, i32 9
+  %account_invalid = getelementptr inbounds i8, ptr %stats, i64 352
   store i8 1, ptr %account_invalid, align 8
-  %account_failed = getelementptr inbounds %struct.BlockAcctStats, ptr %stats, i64 0, i32 10
+  %account_failed = getelementptr inbounds i8, ptr %stats, i64 353
   store i8 1, ptr %account_failed, align 1
   ret void
 }
@@ -58,7 +48,7 @@ declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_acct_setup(ptr nocapture noundef %stats, i32 noundef %account_invalid, i32 noundef %account_failed) local_unnamed_addr #0 {
 entry:
-  %account_invalid1 = getelementptr inbounds %struct.BlockAcctStats, ptr %stats, i64 0, i32 9
+  %account_invalid1 = getelementptr inbounds i8, ptr %stats, i64 352
   %0 = load i8, ptr %account_invalid1, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -82,7 +72,7 @@ bool_from_onoffauto.exit:                         ; preds = %entry, %sw.bb1.i, %
   %retval.0.i = phi i1 [ false, %sw.bb2.i ], [ true, %sw.bb1.i ], [ %tobool, %entry ]
   %frombool = zext i1 %retval.0.i to i8
   store i8 %frombool, ptr %account_invalid1, align 8
-  %account_failed3 = getelementptr inbounds %struct.BlockAcctStats, ptr %stats, i64 0, i32 10
+  %account_failed3 = getelementptr inbounds i8, ptr %stats, i64 353
   %2 = load i8, ptr %account_failed3, align 1
   %3 = and i8 %2, 1
   %tobool4 = icmp ne i8 %3, 0
@@ -112,14 +102,14 @@ bool_from_onoffauto.exit8:                        ; preds = %bool_from_onoffauto
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_acct_cleanup(ptr noundef %stats) local_unnamed_addr #0 {
 entry:
-  %intervals = getelementptr inbounds %struct.BlockAcctStats, ptr %stats, i64 0, i32 8
+  %intervals = getelementptr inbounds i8, ptr %stats, i64 344
   %0 = load ptr, ptr %intervals, align 8
   %tobool.not4 = icmp eq ptr %0, null
   br i1 %tobool.not4, label %for.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry, %land.rhs
   %s.05 = phi ptr [ %1, %land.rhs ], [ %0, %entry ]
-  %entries = getelementptr inbounds %struct.BlockAcctTimedStats, ptr %s.05, i64 0, i32 3
+  %entries = getelementptr inbounds i8, ptr %s.05, i64 592
   %1 = load ptr, ptr %entries, align 8
   tail call void @g_free(ptr noundef nonnull %s.05) #8
   %tobool.not = icmp eq ptr %1, null
@@ -138,24 +128,25 @@ declare void @qemu_mutex_destroy(ptr noundef) local_unnamed_addr #1
 define dso_local void @block_acct_add_interval(ptr noundef %stats, i32 noundef %interval_length) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(600) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 600) #10
-  %interval_length1 = getelementptr inbounds %struct.BlockAcctTimedStats, ptr %call, i64 0, i32 2
+  %interval_length1 = getelementptr inbounds i8, ptr %call, i64 584
   store i32 %interval_length, ptr %interval_length1, align 8
   store ptr %stats, ptr %call, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 85) #8
-  %intervals = getelementptr inbounds %struct.BlockAcctStats, ptr %stats, i64 0, i32 8
+  %intervals = getelementptr inbounds i8, ptr %stats, i64 344
   %2 = load ptr, ptr %intervals, align 8
-  %entries = getelementptr inbounds %struct.BlockAcctTimedStats, ptr %call, i64 0, i32 3
+  %entries = getelementptr inbounds i8, ptr %call, i64 592
   store ptr %2, ptr %entries, align 8
   store ptr %call, ptr %intervals, align 8
+  %latency = getelementptr inbounds i8, ptr %call, i64 8
   %conv = zext i32 %interval_length to i64
   %mul = mul nuw nsw i64 %conv, 1000000000
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr %struct.BlockAcctTimedStats, ptr %call, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx = getelementptr [6 x %struct.TimedAverage], ptr %latency, i64 0, i64 %indvars.iv
   %.b = load i1, ptr @clock_type, align 4
   %3 = zext i1 %.b to i32
   tail call void @timed_average_init(ptr noundef %arrayidx, i32 noundef %3, i64 noundef %mul) #8
@@ -179,8 +170,8 @@ declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) loca
 define dso_local ptr @block_acct_interval_next(ptr nocapture noundef readonly %stats, ptr noundef readonly %s) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %s, null
-  %intervals = getelementptr inbounds %struct.BlockAcctStats, ptr %stats, i64 0, i32 8
-  %entries = getelementptr inbounds %struct.BlockAcctTimedStats, ptr %s, i64 0, i32 3
+  %intervals = getelementptr inbounds i8, ptr %stats, i64 344
+  %entries = getelementptr inbounds i8, ptr %s, i64 592
   %retval.0.in = select i1 %cmp, ptr %intervals, ptr %entries
   %retval.0 = load ptr, ptr %retval.0.in, align 8
   ret ptr %retval.0
@@ -201,9 +192,9 @@ if.end:                                           ; preds = %entry
   %.b = load i1, ptr @clock_type, align 4
   %0 = zext i1 %.b to i32
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #8
-  %start_time_ns = getelementptr inbounds %struct.BlockAcctCookie, ptr %cookie, i64 0, i32 1
+  %start_time_ns = getelementptr inbounds i8, ptr %cookie, i64 8
   store i64 %call, ptr %start_time_ns, align 8
-  %type2 = getelementptr inbounds %struct.BlockAcctCookie, ptr %cookie, i64 0, i32 2
+  %type2 = getelementptr inbounds i8, ptr %cookie, i64 16
   store i32 %type, ptr %type2, align 8
   ret void
 }
@@ -216,8 +207,9 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @block_latency_histogram_set(ptr nocapture noundef %stats, i32 noundef %type, ptr noundef readonly %boundaries) local_unnamed_addr #0 {
 entry:
+  %latency_histogram = getelementptr inbounds i8, ptr %stats, i64 360
   %idxprom = zext i32 %type to i64
-  %arrayidx = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 11, i64 %idxprom
+  %arrayidx = getelementptr [6 x %struct.BlockLatencyHistogram], ptr %latency_histogram, i64 0, i64 %idxprom
   %tobool.not18 = icmp eq ptr %boundaries, null
   br i1 %tobool.not18, label %for.end, label %for.body
 
@@ -225,7 +217,7 @@ for.body:                                         ; preds = %entry, %if.end
   %new_nbins.021 = phi i32 [ %inc, %if.end ], [ 1, %entry ]
   %prev.020 = phi i64 [ %0, %if.end ], [ 0, %entry ]
   %entry1.019 = phi ptr [ %1, %if.end ], [ %boundaries, %entry ]
-  %value = getelementptr inbounds %struct.uint64List, ptr %entry1.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %entry1.019, i64 8
   %0 = load i64, ptr %value, align 8
   %cmp.not = icmp ugt i64 %0, %prev.020
   br i1 %cmp.not, label %if.end, label %return
@@ -239,7 +231,7 @@ if.end:                                           ; preds = %for.body
 for.end:                                          ; preds = %if.end, %entry
   %new_nbins.0.lcssa = phi i32 [ 1, %entry ], [ %inc, %if.end ]
   store i32 %new_nbins.0.lcssa, ptr %arrayidx, align 8
-  %boundaries3 = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 11, i64 %idxprom, i32 1
+  %boundaries3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %boundaries3, align 8
   tail call void @g_free(ptr noundef %2) #8
   %3 = load i32, ptr %arrayidx, align 8
@@ -252,16 +244,16 @@ for.end:                                          ; preds = %if.end, %entry
 for.body9:                                        ; preds = %for.end, %for.body9
   %ptr.024 = phi ptr [ %incdec.ptr, %for.body9 ], [ %call, %for.end ]
   %entry1.123 = phi ptr [ %5, %for.body9 ], [ %boundaries, %for.end ]
-  %value10 = getelementptr inbounds %struct.uint64List, ptr %entry1.123, i64 0, i32 1
+  %value10 = getelementptr inbounds i8, ptr %entry1.123, i64 8
   %4 = load i64, ptr %value10, align 8
   store i64 %4, ptr %ptr.024, align 8
   %5 = load ptr, ptr %entry1.123, align 8
-  %incdec.ptr = getelementptr i64, ptr %ptr.024, i64 1
+  %incdec.ptr = getelementptr i8, ptr %ptr.024, i64 8
   %tobool8.not = icmp eq ptr %5, null
   br i1 %tobool8.not, label %for.end13, label %for.body9, !llvm.loop !9
 
 for.end13:                                        ; preds = %for.body9, %for.end
-  %bins = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 11, i64 %idxprom, i32 2
+  %bins = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %6 = load ptr, ptr %bins, align 8
   tail call void @g_free(ptr noundef %6) #8
   %7 = load i32, ptr %arrayidx, align 8
@@ -281,15 +273,16 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_latency_histograms_clear(ptr nocapture noundef %stats) local_unnamed_addr #0 {
 entry:
+  %latency_histogram = getelementptr inbounds i8, ptr %stats, i64 360
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 11, i64 %indvars.iv
-  %bins = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 11, i64 %indvars.iv, i32 2
+  %arrayidx = getelementptr [6 x %struct.BlockLatencyHistogram], ptr %latency_histogram, i64 0, i64 %indvars.iv
+  %bins = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %0 = load ptr, ptr %bins, align 8
   tail call void @g_free(ptr noundef %0) #8
-  %boundaries = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 11, i64 %indvars.iv, i32 1
+  %boundaries = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %boundaries, align 8
   tail call void @g_free(ptr noundef %1) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i8 0, i64 24, i1 false)
@@ -318,14 +311,14 @@ entry:
   %.b = load i1, ptr @clock_type, align 4
   %0 = zext i1 %.b to i32
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #8
-  %start_time_ns = getelementptr inbounds %struct.BlockAcctCookie, ptr %cookie, i64 0, i32 1
+  %start_time_ns = getelementptr inbounds i8, ptr %cookie, i64 8
   %1 = load i64, ptr %start_time_ns, align 8
   %sub = sub i64 %call, %1
   %2 = load i8, ptr @qtest_allowed, align 1
   %3 = and i8 %2, 1
   %tobool.i.not = icmp eq i8 %3, 0
   %spec.select = select i1 %tobool.i.not, i64 %sub, i64 1000000
-  %type = getelementptr inbounds %struct.BlockAcctCookie, ptr %cookie, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %cookie, i64 16
   %4 = load i32, ptr %type, align 8
   %cmp = icmp ult i32 %4, 6
   br i1 %cmp, label %if.end3, label %if.else
@@ -342,69 +335,67 @@ if.end7:                                          ; preds = %if.end3
   %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
   tail call void %6(ptr noundef %stats, ptr noundef nonnull @.str.3, i32 noundef 122) #8
-  %account_failed = getelementptr inbounds %struct.BlockAcctStats, ptr %stats, i64 0, i32 10
-  %last_access_time_ns = getelementptr inbounds %struct.BlockAcctStats, ptr %stats, i64 0, i32 7
-  %intervals = getelementptr inbounds %struct.BlockAcctStats, ptr %stats, i64 0, i32 8
-  br i1 %failed, label %if.then11, label %if.else13
-
-if.then11:                                        ; preds = %if.end7
-  %7 = load i32, ptr %type, align 8
-  %idxprom = zext i32 %7 to i64
-  %arrayidx = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 4, i64 %idxprom
-  br label %if.end21
+  %latency_histogram = getelementptr inbounds i8, ptr %stats, i64 360
+  %account_failed = getelementptr inbounds i8, ptr %stats, i64 353
+  %total_time_ns = getelementptr inbounds i8, ptr %stats, i64 240
+  %last_access_time_ns = getelementptr inbounds i8, ptr %stats, i64 336
+  %intervals = getelementptr inbounds i8, ptr %stats, i64 344
+  br i1 %failed, label %if.end21, label %if.else13
 
 if.else13:                                        ; preds = %if.end7
-  %8 = load i64, ptr %cookie, align 8
-  %9 = load i32, ptr %type, align 8
-  %idxprom15 = zext i32 %9 to i64
-  %arrayidx16 = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 1, i64 %idxprom15
-  %10 = load i64, ptr %arrayidx16, align 8
-  %add = add i64 %10, %8
+  %nr_bytes = getelementptr inbounds i8, ptr %stats, i64 48
+  %7 = load i64, ptr %cookie, align 8
+  %8 = load i32, ptr %type, align 8
+  %idxprom15 = zext i32 %8 to i64
+  %arrayidx16 = getelementptr [6 x i64], ptr %nr_bytes, i64 0, i64 %idxprom15
+  %9 = load i64, ptr %arrayidx16, align 8
+  %add = add i64 %9, %7
   store i64 %add, ptr %arrayidx16, align 8
-  %11 = load i32, ptr %type, align 8
-  %idxprom18 = zext i32 %11 to i64
-  %arrayidx19 = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 2, i64 %idxprom18
   br label %if.end21
 
-if.end21:                                         ; preds = %if.else13, %if.then11
-  %arrayidx19.sink32 = phi ptr [ %arrayidx19, %if.else13 ], [ %arrayidx, %if.then11 ]
-  %12 = load i64, ptr %arrayidx19.sink32, align 8
-  %inc20 = add i64 %12, 1
-  store i64 %inc20, ptr %arrayidx19.sink32, align 8
-  %13 = load i32, ptr %type, align 8
-  %idxprom23 = zext i32 %13 to i64
-  %arrayidx24 = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 11, i64 %idxprom23
+if.end21:                                         ; preds = %if.end7, %if.else13
+  %10 = phi i64 [ 96, %if.else13 ], [ 192, %if.end7 ]
+  %11 = getelementptr inbounds i8, ptr %stats, i64 %10
+  %12 = load i32, ptr %type, align 8
+  %idxprom18 = zext i32 %12 to i64
+  %arrayidx19 = getelementptr [6 x i64], ptr %11, i64 0, i64 %idxprom18
+  %13 = load i64, ptr %arrayidx19, align 8
+  %inc20 = add i64 %13, 1
+  store i64 %inc20, ptr %arrayidx19, align 8
+  %14 = load i32, ptr %type, align 8
+  %idxprom23 = zext i32 %14 to i64
+  %arrayidx24 = getelementptr [6 x %struct.BlockLatencyHistogram], ptr %latency_histogram, i64 0, i64 %idxprom23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %latency_ns.addr.i)
   store i64 %spec.select, ptr %latency_ns.addr.i, align 8
-  %bins.i = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 11, i64 %idxprom23, i32 2
-  %14 = load ptr, ptr %bins.i, align 8
-  %cmp.i = icmp eq ptr %14, null
+  %bins.i = getelementptr inbounds i8, ptr %arrayidx24, i64 16
+  %15 = load ptr, ptr %bins.i, align 8
+  %cmp.i = icmp eq ptr %15, null
   br i1 %cmp.i, label %block_latency_histogram_account.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end21
-  %boundaries.i = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 11, i64 %idxprom23, i32 1
-  %15 = load ptr, ptr %boundaries.i, align 8
-  %16 = load i64, ptr %15, align 8
-  %cmp1.i = icmp ugt i64 %16, %spec.select
+  %boundaries.i = getelementptr inbounds i8, ptr %arrayidx24, i64 8
+  %16 = load ptr, ptr %boundaries.i, align 8
+  %17 = load i64, ptr %16, align 8
+  %cmp1.i = icmp ugt i64 %17, %spec.select
   br i1 %cmp1.i, label %return.sink.split.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %17 = load i32, ptr %arrayidx24, align 8
-  %sub.i = add i32 %17, -2
+  %18 = load i32, ptr %arrayidx24, align 8
+  %sub.i = add i32 %18, -2
   %idxprom.i = sext i32 %sub.i to i64
-  %arrayidx7.i = getelementptr i64, ptr %15, i64 %idxprom.i
-  %18 = load i64, ptr %arrayidx7.i, align 8
-  %cmp8.not.i = icmp ugt i64 %18, %spec.select
+  %arrayidx7.i = getelementptr i64, ptr %16, i64 %idxprom.i
+  %19 = load i64, ptr %arrayidx7.i, align 8
+  %cmp8.not.i = icmp ugt i64 %19, %spec.select
   br i1 %cmp8.not.i, label %if.end16.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end5.i
-  %sub12.i = add i32 %17, -1
+  %sub12.i = add i32 %18, -1
   %idxprom13.i = sext i32 %sub12.i to i64
-  %arrayidx14.i = getelementptr i64, ptr %14, i64 %idxprom13.i
+  %arrayidx14.i = getelementptr i64, ptr %15, i64 %idxprom13.i
   br label %return.sink.split.i
 
 if.end16.i:                                       ; preds = %if.end5.i
-  %call.i = call ptr @bsearch(ptr noundef nonnull %latency_ns.addr.i, ptr noundef nonnull %15, i64 noundef %idxprom.i, i64 noundef 8, ptr noundef nonnull @block_latency_histogram_compare_func) #8
+  %call.i = call ptr @bsearch(ptr noundef nonnull %latency_ns.addr.i, ptr noundef nonnull %16, i64 noundef %idxprom.i, i64 noundef 8, ptr noundef nonnull @block_latency_histogram_compare_func) #8
   %cmp20.not.i = icmp eq ptr %call.i, null
   br i1 %cmp20.not.i, label %if.else.i, label %if.end23.i
 
@@ -413,20 +404,20 @@ if.else.i:                                        ; preds = %if.end16.i
   unreachable
 
 if.end23.i:                                       ; preds = %if.end16.i
-  %19 = load ptr, ptr %bins.i, align 8
-  %20 = load ptr, ptr %boundaries.i, align 8
+  %20 = load ptr, ptr %bins.i, align 8
+  %21 = load ptr, ptr %boundaries.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %20 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %21 = getelementptr i64, ptr %19, i64 %sub.ptr.div.i
-  %arrayidx26.i = getelementptr i64, ptr %21, i64 1
+  %22 = getelementptr i64, ptr %20, i64 %sub.ptr.div.i
+  %arrayidx26.i = getelementptr i8, ptr %22, i64 8
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end23.i, %if.then9.i, %if.end.i
-  %arrayidx26.sink12.i = phi ptr [ %arrayidx26.i, %if.end23.i ], [ %arrayidx14.i, %if.then9.i ], [ %14, %if.end.i ]
-  %22 = load i64, ptr %arrayidx26.sink12.i, align 8
-  %inc27.i = add i64 %22, 1
+  %arrayidx26.sink12.i = phi ptr [ %arrayidx26.i, %if.end23.i ], [ %arrayidx14.i, %if.then9.i ], [ %15, %if.end.i ]
+  %23 = load i64, ptr %arrayidx26.sink12.i, align 8
+  %inc27.i = add i64 %23, 1
   store i64 %inc27.i, ptr %arrayidx26.sink12.i, align 8
   br label %block_latency_histogram_account.exit
 
@@ -435,17 +426,17 @@ block_latency_histogram_account.exit:             ; preds = %if.end21, %return.s
   br i1 %failed, label %lor.lhs.false, label %if.then27
 
 lor.lhs.false:                                    ; preds = %block_latency_histogram_account.exit
-  %23 = load i8, ptr %account_failed, align 1
-  %24 = and i8 %23, 1
-  %tobool26.not = icmp eq i8 %24, 0
+  %24 = load i8, ptr %account_failed, align 1
+  %25 = and i8 %24, 1
+  %tobool26.not = icmp eq i8 %25, 0
   br i1 %tobool26.not, label %qemu_lockable_auto_unlock.exit, label %if.then27
 
 if.then27:                                        ; preds = %lor.lhs.false, %block_latency_histogram_account.exit
-  %25 = load i32, ptr %type, align 8
-  %idxprom29 = zext i32 %25 to i64
-  %arrayidx30 = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 5, i64 %idxprom29
-  %26 = load i64, ptr %arrayidx30, align 8
-  %add31 = add i64 %26, %spec.select
+  %26 = load i32, ptr %type, align 8
+  %idxprom29 = zext i32 %26 to i64
+  %arrayidx30 = getelementptr [6 x i64], ptr %total_time_ns, i64 0, i64 %idxprom29
+  %27 = load i64, ptr %arrayidx30, align 8
+  %add31 = add i64 %27, %spec.select
   store i64 %add31, ptr %arrayidx30, align 8
   store i64 %call, ptr %last_access_time_ns, align 8
   %s.028 = load ptr, ptr %intervals, align 8
@@ -454,11 +445,12 @@ if.then27:                                        ; preds = %lor.lhs.false, %blo
 
 for.body34:                                       ; preds = %if.then27, %for.body34
   %s.030 = phi ptr [ %s.0, %for.body34 ], [ %s.028, %if.then27 ]
-  %27 = load i32, ptr %type, align 8
-  %idxprom36 = zext i32 %27 to i64
-  %arrayidx37 = getelementptr %struct.BlockAcctTimedStats, ptr %s.030, i64 0, i32 1, i64 %idxprom36
+  %latency = getelementptr inbounds i8, ptr %s.030, i64 8
+  %28 = load i32, ptr %type, align 8
+  %idxprom36 = zext i32 %28 to i64
+  %arrayidx37 = getelementptr [6 x %struct.TimedAverage], ptr %latency, i64 0, i64 %idxprom36
   call void @timed_average_account(ptr noundef %arrayidx37, i64 noundef %spec.select) #8
-  %entries = getelementptr inbounds %struct.BlockAcctTimedStats, ptr %s.030, i64 0, i32 3
+  %entries = getelementptr inbounds i8, ptr %s.030, i64 592
   %s.0 = load ptr, ptr %entries, align 8
   %tobool33.not = icmp eq ptr %s.0, null
   br i1 %tobool33.not, label %qemu_lockable_auto_unlock.exit, label %for.body34, !llvm.loop !11
@@ -493,12 +485,13 @@ while.end:                                        ; preds = %entry
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 262) #8
+  %invalid_ops = getelementptr inbounds i8, ptr %stats, i64 144
   %idxprom = zext nneg i32 %type to i64
-  %arrayidx = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 3, i64 %idxprom
+  %arrayidx = getelementptr [6 x i64], ptr %invalid_ops, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %arrayidx, align 8
-  %account_invalid = getelementptr inbounds %struct.BlockAcctStats, ptr %stats, i64 0, i32 9
+  %account_invalid = getelementptr inbounds i8, ptr %stats, i64 352
   %3 = load i8, ptr %account_invalid, align 8
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -508,7 +501,7 @@ if.then1:                                         ; preds = %while.end
   %.b = load i1, ptr @clock_type, align 4
   %5 = zext i1 %.b to i32
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %5) #8
-  %last_access_time_ns = getelementptr inbounds %struct.BlockAcctStats, ptr %stats, i64 0, i32 7
+  %last_access_time_ns = getelementptr inbounds i8, ptr %stats, i64 336
   store i64 %call, ptr %last_access_time_ns, align 8
   br label %if.end2
 
@@ -532,8 +525,9 @@ while.end:                                        ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 276) #8
   %conv = sext i32 %num_requests to i64
+  %merged = getelementptr inbounds i8, ptr %stats, i64 288
   %idxprom = zext nneg i32 %type to i64
-  %arrayidx = getelementptr %struct.BlockAcctStats, ptr %stats, i64 0, i32 6, i64 %idxprom
+  %arrayidx = getelementptr [6 x i64], ptr %merged, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx, align 8
   %add = add i64 %2, %conv
   store i64 %add, ptr %arrayidx, align 8
@@ -547,7 +541,7 @@ entry:
   %.b = load i1, ptr @clock_type, align 4
   %0 = zext i1 %.b to i32
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #8
-  %last_access_time_ns = getelementptr inbounds %struct.BlockAcctStats, ptr %stats, i64 0, i32 7
+  %last_access_time_ns = getelementptr inbounds i8, ptr %stats, i64 336
   %1 = load i64, ptr %last_access_time_ns, align 8
   %sub = sub i64 %call, %1
   ret i64 %sub
@@ -569,8 +563,9 @@ while.end:                                        ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   %2 = load ptr, ptr %stats, align 8
   tail call void %1(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 293) #8
+  %latency = getelementptr inbounds i8, ptr %stats, i64 8
   %idxprom = zext nneg i32 %type to i64
-  %arrayidx = getelementptr %struct.BlockAcctTimedStats, ptr %stats, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr [6 x %struct.TimedAverage], ptr %latency, i64 0, i64 %idxprom
   %call = call i64 @timed_average_sum(ptr noundef %arrayidx, ptr noundef nonnull %elapsed) #8
   %3 = load ptr, ptr %stats, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 295) #8
@@ -595,7 +590,7 @@ define internal i32 @block_latency_histogram_compare_func(ptr nocapture noundef 
 entry:
   %0 = load i64, ptr %key, align 8
   %1 = load i64, ptr %it, align 8
-  %arrayidx1 = getelementptr i64, ptr %it, i64 1
+  %arrayidx1 = getelementptr i8, ptr %it, i64 8
   %2 = load i64, ptr %arrayidx1, align 8
   %cmp = icmp ult i64 %0, %1
   %cmp2 = icmp uge i64 %0, %2

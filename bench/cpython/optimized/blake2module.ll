@@ -10,9 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct.PyModuleDef_Slot = type { i32, ptr }
 %struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
-%struct.Blake2State = type { ptr, ptr }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct.PyVarObject = type { %struct._object, i64 }
 
 @blake2_module = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @blake2mod__doc__, i64 16, ptr @blake2mod_functions, ptr @_blake2_slots, ptr @_blake2_traverse, ptr @_blake2_clear, ptr @_blake2_free }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"_blake2\00", align 1
@@ -57,7 +54,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %blake2s_type = getelementptr inbounds %struct.Blake2State, ptr %call.i, i64 0, i32 1
+  %blake2s_type = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %blake2s_type, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -101,7 +98,7 @@ if.then1.i14:                                     ; preds = %if.end.i11
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i11, %if.then1.i14, %if.then, %entry
-  %blake2s_type = getelementptr inbounds %struct.Blake2State, ptr %call.i, i64 0, i32 1
+  %blake2s_type = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %blake2s_type, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.end7, label %if.then5
@@ -153,7 +150,7 @@ if.then1.i14.i:                                   ; preds = %if.end.i11.i
   br label %do.body1.i
 
 do.body1.i:                                       ; preds = %if.then1.i14.i, %if.end.i11.i, %if.then.i, %entry
-  %blake2s_type.i = getelementptr inbounds %struct.Blake2State, ptr %call.i.i, i64 0, i32 1
+  %blake2s_type.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %3 = load ptr, ptr %blake2s_type.i, align 8
   %cmp4.not.i = icmp eq ptr %3, null
   br i1 %cmp4.not.i, label %_blake2_clear.exit, label %if.then5.i
@@ -195,7 +192,7 @@ if.end:                                           ; preds = %entry
 
 if.end7:                                          ; preds = %if.end
   %0 = load ptr, ptr %call.i, align 8
-  %tp_dict = getelementptr inbounds %struct._typeobject, ptr %0, i64 0, i32 31
+  %tp_dict = getelementptr inbounds i8, ptr %0, i64 264
   %1 = load ptr, ptr %tp_dict, align 8
   %call9 = tail call ptr @PyLong_FromLong(i64 noundef 16) #2
   %tobool.not = icmp eq ptr %call9, null
@@ -374,7 +371,7 @@ do.body67:                                        ; preds = %do.body61
 
 do.end72:                                         ; preds = %do.body67
   %call73 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %m, ptr noundef nonnull @blake2s_type_spec, ptr noundef null) #2
-  %blake2s_type = getelementptr inbounds %struct.Blake2State, ptr %call.i, i64 0, i32 1
+  %blake2s_type = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call73, ptr %blake2s_type, align 8
   %cmp75 = icmp eq ptr %call73, null
   br i1 %cmp75, label %return, label %if.end77
@@ -386,7 +383,7 @@ if.end77:                                         ; preds = %do.end72
 
 if.end82:                                         ; preds = %if.end77
   %10 = load ptr, ptr %blake2s_type, align 8
-  %tp_dict84 = getelementptr inbounds %struct._typeobject, ptr %10, i64 0, i32 31
+  %tp_dict84 = getelementptr inbounds i8, ptr %10, i64 264
   %11 = load ptr, ptr %tp_dict84, align 8
   %call87 = tail call ptr @PyLong_FromLong(i64 noundef 8) #2
   %tobool88.not = icmp eq ptr %call87, null

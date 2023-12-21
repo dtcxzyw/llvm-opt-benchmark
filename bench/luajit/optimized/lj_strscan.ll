@@ -3,9 +3,6 @@ source_filename = "bench/luajit/original/lj_strscan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.GCstr = type { %struct.GCRef, i8, i8, i8, i8, i32, i32, i32 }
-%struct.GCRef = type { i64 }
-
 @lj_char_bits = external hidden local_unnamed_addr constant [257 x i8], align 16
 
 ; Function Attrs: nofree nounwind uwtable
@@ -1703,8 +1700,8 @@ return:                                           ; preds = %if.else186, %if.the
 ; Function Attrs: nofree nounwind uwtable
 define hidden i32 @lj_strscan_num(ptr noundef %str, ptr nocapture noundef %o) local_unnamed_addr #0 {
 entry:
-  %add.ptr = getelementptr inbounds %struct.GCstr, ptr %str, i64 1
-  %len = getelementptr inbounds %struct.GCstr, ptr %str, i64 0, i32 7
+  %add.ptr = getelementptr inbounds i8, ptr %str, i64 24
+  %len = getelementptr inbounds i8, ptr %str, i64 20
   %0 = load i32, ptr %len, align 4
   %call = tail call i32 @lj_strscan_scan(ptr noundef nonnull %add.ptr, i32 noundef %0, ptr noundef %o, i32 noundef 2)
   %cmp = icmp ne i32 %call, 0

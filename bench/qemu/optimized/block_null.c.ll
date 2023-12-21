@@ -9,45 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QTailQLink = type { ptr, ptr }
 %struct.QemuOptDesc = type { ptr, i32, ptr, ptr }
 %struct.AIOCBInfo = type { ptr, i64 }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.0, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.1, %union.anon.2, i32, [16 x %struct.anon.3], ptr, %struct.anon.4, ptr, ptr, %struct.anon.5, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.6, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.7, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.0 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.7 = type { ptr }
-%struct.CoQueue = type { %struct.anon.8 }
-%struct.anon.8 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.9, %struct.anon.9, i32, i32, ptr }
-%struct.anon.9 = type { ptr }
-%struct.BDRVNullState = type { i64, i64, i8 }
 %struct.QemuCoSleep = type { ptr }
-%struct.NullAIOCB = type { %struct.BlockAIOCB, %struct.QEMUTimer }
-%struct.BlockAIOCB = type { ptr, ptr, ptr, ptr, i32 }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.AioContext = type { %struct._GSource, %struct.QemuRecMutex, ptr, %struct.AioHandlerList, %struct.AioHandlerList, i32, %struct.QemuLockCnt, %struct.BHList, %struct.anon.11, i8, %struct.EventNotifier, %struct.anon.12, ptr, i32, i32, ptr, ptr, %struct.io_uring, %struct.AioHandlerSList, %struct.QEMUTimerListGroup, i32, i64, i64, i64, i64, i64, %struct.AioHandlerList, i8, i32, ptr }
-%struct._GSource = type { ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.QemuRecMutex = type { %struct.QemuMutex }
-%struct.QemuLockCnt = type { i32 }
-%struct.BHList = type { ptr }
-%struct.anon.11 = type { ptr, ptr }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.anon.12 = type { ptr }
-%struct.io_uring = type { %struct.io_uring_sq, %struct.io_uring_cq, i32, i32, i32, [3 x i32] }
-%struct.io_uring_sq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, [4 x i32] }
-%struct.io_uring_cq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, [4 x i32] }
-%struct.AioHandlerSList = type { ptr }
-%struct.QEMUTimerListGroup = type { [4 x ptr] }
-%struct.AioHandlerList = type { ptr }
 
 @bdrv_null_co = internal global %struct.BlockDriver { ptr @.str, i32 24, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, ptr @.str, ptr null, ptr null, ptr null, ptr @null_strong_runtime_opts, ptr null, ptr null, ptr null, ptr null, ptr @null_co_parse_filename, ptr @null_reopen_prepare, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @null_file_open, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @null_refresh_filename, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, %struct.anon zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @null_co_preadv, ptr null, ptr null, ptr @null_co_pwritev, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @null_co_block_status, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @null_co_flush, ptr null, ptr null, ptr @null_co_getlength, ptr @null_co_get_allocated_file_size, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @bdrv_null_aio = internal global %struct.BlockDriver { ptr @.str.16, i32 24, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, ptr @.str.16, ptr null, ptr null, ptr null, ptr @null_strong_runtime_opts, ptr null, ptr null, ptr null, ptr null, ptr @null_aio_parse_filename, ptr @null_reopen_prepare, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @null_file_open, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @null_refresh_filename, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, %struct.anon zeroinitializer, ptr null, ptr null, ptr @null_aio_preadv, ptr @null_aio_pwritev, ptr @null_aio_flush, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @null_co_block_status, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @null_co_getlength, ptr @null_co_get_allocated_file_size, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -125,14 +87,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @null_file_open(ptr nocapture noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call ptr @qemu_opts_create(ptr noundef nonnull @runtime_opts, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #8
   %call1 = tail call zeroext i1 @qemu_opts_absorb_qdict(ptr noundef %call, ptr noundef %options, ptr noundef nonnull @error_abort) #8
   %call2 = tail call i64 @qemu_opt_get_size(ptr noundef %call, ptr noundef nonnull @.str.1, i64 noundef 1073741824) #8
   store i64 %call2, ptr %0, align 8
   %call3 = tail call i64 @qemu_opt_get_number(ptr noundef %call, ptr noundef nonnull @.str.6, i64 noundef 0) #8
-  %latency_ns = getelementptr inbounds %struct.BDRVNullState, ptr %0, i64 0, i32 1
+  %latency_ns = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %call3, ptr %latency_ns, align 8
   %cmp = icmp slt i64 %call3, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -144,11 +106,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %ret.0 = phi i32 [ -22, %if.then ], [ 0, %entry ]
   %call5 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %call, ptr noundef nonnull @.str.2, i1 noundef zeroext false) #8
-  %read_zeroes = getelementptr inbounds %struct.BDRVNullState, ptr %0, i64 0, i32 2
+  %read_zeroes = getelementptr inbounds i8, ptr %0, i64 16
   %frombool = zext i1 %call5 to i8
   store i8 %frombool, ptr %read_zeroes, align 8
   tail call void @qemu_opts_del(ptr noundef %call) #8
-  %supported_write_flags = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 19
+  %supported_write_flags = getelementptr inbounds i8, ptr %bs, i64 16588
   store i32 16, ptr %supported_write_flags, align 4
   ret i32 %ret.0
 }
@@ -156,7 +118,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @null_refresh_filename(ptr nocapture noundef %bs) #0 {
 entry:
-  %full_open_options = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 15
+  %full_open_options = getelementptr inbounds i8, ptr %bs, i64 12360
   %0 = load ptr, ptr %full_open_options, align 8
   %call = tail call ptr @qdict_first(ptr noundef %0) #8
   %tobool.not8 = icmp eq ptr %call, null
@@ -188,8 +150,8 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %entry
-  %exact_filename = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 16
-  %drv = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 6
+  %exact_filename = getelementptr inbounds i8, ptr %bs, i64 12368
+  %drv = getelementptr inbounds i8, ptr %bs, i64 16
   %2 = load ptr, ptr %drv, align 8
   %3 = load ptr, ptr %2, align 8
   %call13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %exact_filename, i64 noundef 4096, ptr noundef nonnull @.str.15, ptr noundef %3) #8
@@ -203,9 +165,9 @@ return:                                           ; preds = %land.lhs.true7, %fo
 define internal i32 @null_co_preadv(ptr nocapture noundef readonly %bs, i64 %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %w.i.i = alloca %struct.QemuCoSleep, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %read_zeroes = getelementptr inbounds %struct.BDRVNullState, ptr %0, i64 0, i32 2
+  %read_zeroes = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %read_zeroes, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -218,7 +180,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %3 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
-  %latency_ns.i = getelementptr inbounds %struct.BDRVNullState, ptr %3, i64 0, i32 1
+  %latency_ns.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %latency_ns.i, align 8
   %tobool.not.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i, label %null_co_common.exit, label %if.then.i
@@ -238,9 +200,9 @@ null_co_common.exit:                              ; preds = %if.end, %if.then.i
 define internal i32 @null_co_pwritev(ptr nocapture noundef readonly %bs, i64 %offset, i64 %bytes, ptr nocapture readnone %qiov, i32 %flags) #0 {
 entry:
   %w.i.i = alloca %struct.QemuCoSleep, align 8
-  %opaque.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque.i, align 8
-  %latency_ns.i = getelementptr inbounds %struct.BDRVNullState, ptr %0, i64 0, i32 1
+  %latency_ns.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %latency_ns.i, align 8
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %null_co_common.exit, label %if.then.i
@@ -259,12 +221,12 @@ null_co_common.exit:                              ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal i32 @null_co_block_status(ptr noundef %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #3 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   store i64 %bytes, ptr %pnum, align 8
   store i64 %offset, ptr %map, align 8
   store ptr %bs, ptr %file, align 8
-  %read_zeroes = getelementptr inbounds %struct.BDRVNullState, ptr %0, i64 0, i32 2
+  %read_zeroes = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %read_zeroes, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -276,9 +238,9 @@ entry:
 define internal i32 @null_co_flush(ptr nocapture noundef readonly %bs) #0 {
 entry:
   %w.i.i = alloca %struct.QemuCoSleep, align 8
-  %opaque.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque.i, align 8
-  %latency_ns.i = getelementptr inbounds %struct.BDRVNullState, ptr %0, i64 0, i32 1
+  %latency_ns.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %latency_ns.i, align 8
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %null_co_common.exit, label %if.then.i
@@ -297,7 +259,7 @@ null_co_common.exit:                              ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i64 @null_co_getlength(ptr nocapture noundef readonly %bs) #4 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load i64, ptr %0, align 8
   ret i64 %1
@@ -341,9 +303,9 @@ declare i64 @qemu_iovec_memset(ptr noundef, i64 noundef, i32 noundef, i64 nounde
 define internal i32 @null_co_common(ptr nocapture noundef readonly %bs) #0 {
 entry:
   %w.i = alloca %struct.QemuCoSleep, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %latency_ns = getelementptr inbounds %struct.BDRVNullState, ptr %0, i64 0, i32 1
+  %latency_ns = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %latency_ns, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -388,9 +350,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @null_aio_preadv(ptr noundef %bs, i64 %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags, ptr noundef %cb, ptr noundef %opaque) #0 {
 entry:
-  %opaque1 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque1 = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque1, align 8
-  %read_zeroes = getelementptr inbounds %struct.BDRVNullState, ptr %0, i64 0, i32 2
+  %read_zeroes = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %read_zeroes, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -422,18 +384,18 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @null_aio_common(ptr noundef %bs, ptr noundef %cb, ptr noundef %opaque) unnamed_addr #0 {
 entry:
-  %opaque1 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque1 = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque1, align 8
   %call = tail call ptr @qemu_aio_get(ptr noundef nonnull @null_aiocb_info, ptr noundef %bs, ptr noundef %cb, ptr noundef %opaque) #8
-  %latency_ns = getelementptr inbounds %struct.BDRVNullState, ptr %0, i64 0, i32 1
+  %latency_ns = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %latency_ns, align 8
   %tobool.not = icmp eq i64 %1, 0
   %call6 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %timer = getelementptr inbounds %struct.NullAIOCB, ptr %call, i64 0, i32 1
-  %tlg.i = getelementptr inbounds %struct.AioContext, ptr %call6, i64 0, i32 19
+  %timer = getelementptr inbounds i8, ptr %call, i64 40
+  %tlg.i = getelementptr inbounds i8, ptr %call6, i64 480
   tail call void @timer_init_full(ptr noundef nonnull %timer, ptr noundef nonnull %tlg.i, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @null_timer_cb, ptr noundef %call) #8
   %call4 = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #8
   %2 = load i64, ptr %latency_ns, align 8
@@ -456,12 +418,12 @@ declare ptr @bdrv_get_aio_context(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @null_timer_cb(ptr noundef %opaque) #0 {
 entry:
-  %cb = getelementptr inbounds %struct.BlockAIOCB, ptr %opaque, i64 0, i32 2
+  %cb = getelementptr inbounds i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %cb, align 8
-  %opaque2 = getelementptr inbounds %struct.BlockAIOCB, ptr %opaque, i64 0, i32 3
+  %opaque2 = getelementptr inbounds i8, ptr %opaque, i64 24
   %1 = load ptr, ptr %opaque2, align 8
   tail call void %0(ptr noundef %1, i32 noundef 0) #8
-  %timer = getelementptr inbounds %struct.NullAIOCB, ptr %opaque, i64 0, i32 1
+  %timer = getelementptr inbounds i8, ptr %opaque, i64 40
   tail call void @timer_deinit(ptr noundef nonnull %timer) #8
   tail call void @qemu_aio_unref(ptr noundef %opaque) #8
   ret void
@@ -476,9 +438,9 @@ declare void @replay_bh_schedule_oneshot_event(ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @null_bh_cb(ptr noundef %opaque) #0 {
 entry:
-  %cb = getelementptr inbounds %struct.BlockAIOCB, ptr %opaque, i64 0, i32 2
+  %cb = getelementptr inbounds i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %cb, align 8
-  %opaque2 = getelementptr inbounds %struct.BlockAIOCB, ptr %opaque, i64 0, i32 3
+  %opaque2 = getelementptr inbounds i8, ptr %opaque, i64 24
   %1 = load ptr, ptr %opaque2, align 8
   tail call void %0(ptr noundef %1, i32 noundef 0) #8
   tail call void @qemu_aio_unref(ptr noundef %opaque) #8

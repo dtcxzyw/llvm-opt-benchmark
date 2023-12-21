@@ -13,13 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.fielddesc = type { i8, ptr, ptr, ptr, ptr, ptr }
 %struct._ffi_type = type { i64, i16, i16, ptr }
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
-%struct.StgDictObject = type { %struct.PyDictObject, i64, i64, i64, %struct._ffi_type, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr }
-%struct.PyDictObject = type { %struct._object, i64, i64, ptr, ptr }
-%struct.CFieldObject = type { %struct._object, i64, i64, i64, ptr, ptr, ptr, i32 }
-%struct.tagCDataObject = type { %struct._object, ptr, i32, ptr, i64, i64, i64, ptr, %union.value }
-%union.value = type { x86_fp80 }
-%struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
-%struct.PyByteArrayObject = type { %struct.PyVarObject, i64, ptr, ptr, i64 }
 
 @global_state = external local_unnamed_addr global %struct.ctypes_state, align 8
 @PyExc_TypeError = external local_unnamed_addr global ptr, align 8
@@ -72,7 +65,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden ptr @PyCField_FromDesc(ptr noundef %desc, i64 noundef %index, ptr nocapture noundef %pfield_size, i32 noundef %bitsize, ptr nocapture noundef %pbitofs, ptr nocapture noundef %psize, ptr nocapture noundef %poffset, ptr nocapture noundef writeonly %palign, i32 noundef %pack, i32 noundef %big_endian) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.ctypes_state, ptr @global_state, i64 0, i32 2), align 8
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %0, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %0, i64 304
   %1 = load ptr, ptr %tp_alloc, align 8
   %call = tail call ptr %1(ptr noundef %0, i64 noundef 0) #9
   %cmp = icmp eq ptr %call, null
@@ -111,7 +104,7 @@ land.lhs.true:                                    ; preds = %if.end3
   br i1 %tobool5.not, label %if.then31, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
-  %size7 = getelementptr inbounds %struct.StgDictObject, ptr %call1, i64 0, i32 1
+  %size7 = getelementptr inbounds i8, ptr %call1, i64 48
   %6 = load i64, ptr %size7, align 8
   %mul = shl i64 %6, 3
   %cmp8.not = icmp sgt i64 %mul, %5
@@ -137,7 +130,7 @@ land.lhs.true21:                                  ; preds = %land.lhs.true16
 
 if.then31:                                        ; preds = %land.lhs.true16, %land.lhs.true21, %land.lhs.true
   store i32 0, ptr %pbitofs, align 4
-  %size32 = getelementptr inbounds %struct.StgDictObject, ptr %call1, i64 0, i32 1
+  %size32 = getelementptr inbounds i8, ptr %call1, i64 48
   %9 = load i64, ptr %size32, align 8
   %mul33 = shl i64 %9, 3
   br label %if.end37.sink.split
@@ -154,7 +147,7 @@ if.end37.sink.split:                              ; preds = %if.then31, %if.else
 
 if.end37:                                         ; preds = %if.end37.sink.split, %land.lhs.true21, %land.lhs.true9
   %fieldtype.0 = phi i32 [ 2, %land.lhs.true9 ], [ 3, %land.lhs.true21 ], [ %fieldtype.0.ph, %if.end37.sink.split ]
-  %size38 = getelementptr inbounds %struct.StgDictObject, ptr %call1, i64 0, i32 1
+  %size38 = getelementptr inbounds i8, ptr %call1, i64 48
   %10 = load i64, ptr %size38, align 8
   %11 = getelementptr i8, ptr %desc, i64 8
   %desc.val = load ptr, ptr %11, align 8
@@ -172,7 +165,7 @@ if.then41:                                        ; preds = %if.end37, %PyObject
   br i1 %tobool43.not, label %if.end75, label %land.lhs.true44
 
 land.lhs.true44:                                  ; preds = %if.then41
-  %proto45 = getelementptr inbounds %struct.StgDictObject, ptr %call42, i64 0, i32 5
+  %proto45 = getelementptr inbounds i8, ptr %call42, i64 96
   %12 = load ptr, ptr %proto45, align 8
   %tobool46.not = icmp eq ptr %12, null
   br i1 %tobool46.not, label %if.end75, label %if.then47
@@ -201,7 +194,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end52:                                         ; preds = %if.then47
-  %getfunc53 = getelementptr inbounds %struct.StgDictObject, ptr %call49, i64 0, i32 7
+  %getfunc53 = getelementptr inbounds i8, ptr %call49, i64 112
   %16 = load ptr, ptr %getfunc53, align 8
   %.b.i = load i1, ptr @_ctypes_get_fielddesc.initialized, align 4
   br i1 %.b.i, label %if.end.i109, label %if.then.i
@@ -220,7 +213,7 @@ if.end.i109:                                      ; preds = %if.then.i, %if.end5
 
 for.inc.i:                                        ; preds = %if.end.i109, %for.inc.i
   %table.05.i155 = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @formattable, %if.end.i109 ]
-  %incdec.ptr.i = getelementptr %struct.fielddesc, ptr %table.05.i155, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %table.05.i155, i64 48
   %18 = load i8, ptr %incdec.ptr.i, align 8
   %tobool1.not.i = icmp ne i8 %18, 0
   tail call void @llvm.assume(i1 %tobool1.not.i)
@@ -228,7 +221,7 @@ for.inc.i:                                        ; preds = %if.end.i109, %for.i
   br i1 %cmp.i110, label %_ctypes_get_fielddesc.exit, label %for.inc.i
 
 _ctypes_get_fielddesc.exit:                       ; preds = %for.inc.i
-  %getfunc55 = getelementptr %struct.fielddesc, ptr %table.05.i155, i64 1, i32 2
+  %getfunc55 = getelementptr i8, ptr %table.05.i155, i64 64
   %19 = load ptr, ptr %getfunc55, align 8
   %cmp56 = icmp eq ptr %16, %19
   br i1 %cmp56, label %if.end.i113, label %if.end.i126
@@ -251,7 +244,7 @@ for.inc.i119.preheader:                           ; preds = %_ctypes_get_fieldde
 
 for.inc.i119:                                     ; preds = %for.inc.i119.preheader, %for.inc.i119
   %table.05.i117157 = phi ptr [ %incdec.ptr.i120, %for.inc.i119 ], [ @formattable, %for.inc.i119.preheader ]
-  %incdec.ptr.i120 = getelementptr %struct.fielddesc, ptr %table.05.i117157, i64 1
+  %incdec.ptr.i120 = getelementptr i8, ptr %table.05.i117157, i64 48
   %22 = load i8, ptr %incdec.ptr.i120, align 8
   %tobool1.not.i121 = icmp ne i8 %22, 0
   tail call void @llvm.assume(i1 %tobool1.not.i121)
@@ -260,7 +253,7 @@ for.inc.i119:                                     ; preds = %for.inc.i119.prehea
 
 _ctypes_get_fielddesc.exit123:                    ; preds = %for.inc.i119, %if.end.i113
   %table.05.i117.lcssa = phi ptr [ @formattable, %if.end.i113 ], [ %incdec.ptr.i120, %for.inc.i119 ]
-  %setfunc61 = getelementptr inbounds %struct.fielddesc, ptr %table.05.i117.lcssa, i64 0, i32 1
+  %setfunc61 = getelementptr inbounds i8, ptr %table.05.i117.lcssa, i64 8
   %23 = load <2 x ptr>, ptr %setfunc61, align 8
   br label %if.end.i126
 
@@ -277,7 +270,7 @@ for.inc.i132.preheader:                           ; preds = %if.end.i126.thread,
 
 for.inc.i132:                                     ; preds = %for.inc.i132.preheader, %for.inc.i132
   %table.05.i130160 = phi ptr [ %incdec.ptr.i133, %for.inc.i132 ], [ @formattable, %for.inc.i132.preheader ]
-  %incdec.ptr.i133 = getelementptr %struct.fielddesc, ptr %table.05.i130160, i64 1
+  %incdec.ptr.i133 = getelementptr i8, ptr %table.05.i130160, i64 48
   %28 = load i8, ptr %incdec.ptr.i133, align 8
   %tobool1.not.i134 = icmp ne i8 %28, 0
   tail call void @llvm.assume(i1 %tobool1.not.i134)
@@ -285,7 +278,7 @@ for.inc.i132:                                     ; preds = %for.inc.i132.prehea
   br i1 %cmp.i131, label %_ctypes_get_fielddesc.exit136, label %for.inc.i132
 
 _ctypes_get_fielddesc.exit136:                    ; preds = %for.inc.i132
-  %getfunc65 = getelementptr %struct.fielddesc, ptr %table.05.i130160, i64 1, i32 2
+  %getfunc65 = getelementptr i8, ptr %table.05.i130160, i64 64
   %29 = load ptr, ptr %getfunc65, align 8
   %cmp66 = icmp eq ptr %26, %29
   br i1 %cmp66, label %if.end.i139, label %if.end75
@@ -304,7 +297,7 @@ for.inc.i145.preheader:                           ; preds = %_ctypes_get_fieldde
 
 for.inc.i145:                                     ; preds = %for.inc.i145.preheader, %for.inc.i145
   %table.05.i143163 = phi ptr [ %incdec.ptr.i146, %for.inc.i145 ], [ @formattable, %for.inc.i145.preheader ]
-  %incdec.ptr.i146 = getelementptr %struct.fielddesc, ptr %table.05.i143163, i64 1
+  %incdec.ptr.i146 = getelementptr i8, ptr %table.05.i143163, i64 48
   %31 = load i8, ptr %incdec.ptr.i146, align 8
   %tobool1.not.i147 = icmp ne i8 %31, 0
   tail call void @llvm.assume(i1 %tobool1.not.i147)
@@ -313,16 +306,16 @@ for.inc.i145:                                     ; preds = %for.inc.i145.prehea
 
 _ctypes_get_fielddesc.exit149:                    ; preds = %for.inc.i145, %if.end.i139
   %table.05.i143.lcssa = phi ptr [ @formattable, %if.end.i139 ], [ %incdec.ptr.i146, %for.inc.i145 ]
-  %setfunc72 = getelementptr inbounds %struct.fielddesc, ptr %table.05.i143.lcssa, i64 0, i32 1
+  %setfunc72 = getelementptr inbounds i8, ptr %table.05.i143.lcssa, i64 8
   %32 = load <2 x ptr>, ptr %setfunc72, align 8
   br label %if.end75
 
 if.end75:                                         ; preds = %_ctypes_get_fielddesc.exit136.thread, %if.then41, %land.lhs.true44, %_ctypes_get_fielddesc.exit149, %_ctypes_get_fielddesc.exit136, %PyObject_TypeCheck.exit
   %33 = phi <2 x ptr> [ %32, %_ctypes_get_fielddesc.exit149 ], [ %27, %_ctypes_get_fielddesc.exit136 ], [ zeroinitializer, %land.lhs.true44 ], [ zeroinitializer, %if.then41 ], [ zeroinitializer, %PyObject_TypeCheck.exit ], [ %24, %_ctypes_get_fielddesc.exit136.thread ]
-  %getfunc77 = getelementptr inbounds %struct.CFieldObject, ptr %call, i64 0, i32 5
+  %getfunc77 = getelementptr inbounds i8, ptr %call, i64 48
   %34 = shufflevector <2 x ptr> %33, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
   store <2 x ptr> %34, ptr %getfunc77, align 8
-  %index78 = getelementptr inbounds %struct.CFieldObject, ptr %call, i64 0, i32 3
+  %index78 = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %index, ptr %index78, align 8
   %35 = load i32, ptr %desc, align 8
   %add.i.i = add i32 %35, 1
@@ -334,7 +327,7 @@ if.end.i.i:                                       ; preds = %if.end75
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end75, %if.end.i.i
-  %proto80 = getelementptr inbounds %struct.CFieldObject, ptr %call, i64 0, i32 4
+  %proto80 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %desc, ptr %proto80, align 8
   switch i32 %fieldtype.0, label %if.end75.unreachabledefault [
     i32 1, label %sw.bb
@@ -367,7 +360,7 @@ if.else89:                                        ; preds = %sw.bb
 
 if.end94:                                         ; preds = %if.else89, %if.then82
   %sub87.sink = phi i64 [ %conv92, %if.else89 ], [ %sub87, %if.then82 ]
-  %41 = getelementptr inbounds %struct.CFieldObject, ptr %call, i64 0, i32 2
+  %41 = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %sub87.sink, ptr %41, align 8
   store i32 %bitsize, ptr %pbitofs, align 4
   br label %sw.bb95
@@ -378,13 +371,13 @@ sw.bb95:                                          ; preds = %if.end94, %_Py_NewR
 
 if.then97:                                        ; preds = %sw.bb95
   %conv98 = sext i32 %pack to i64
-  %align99 = getelementptr inbounds %struct.StgDictObject, ptr %call1, i64 0, i32 2
+  %align99 = getelementptr inbounds i8, ptr %call1, i64 56
   %42 = load i64, ptr %align99, align 8
   %conv98. = tail call i64 @llvm.smin.i64(i64 %42, i64 %conv98)
   br label %if.end106
 
 if.else104:                                       ; preds = %sw.bb95
-  %align105 = getelementptr inbounds %struct.StgDictObject, ptr %call1, i64 0, i32 2
+  %align105 = getelementptr inbounds i8, ptr %call1, i64 56
   %43 = load i64, ptr %align105, align 8
   br label %if.end106
 
@@ -413,7 +406,7 @@ if.end115:                                        ; preds = %if.then110, %land.l
   br i1 %tobool4.not, label %if.then118, label %if.end120
 
 if.then118:                                       ; preds = %if.end115
-  %size119 = getelementptr inbounds %struct.CFieldObject, ptr %call, i64 0, i32 2
+  %size119 = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %10, ptr %size119, align 8
   br label %if.end120
 
@@ -422,7 +415,7 @@ if.end120:                                        ; preds = %if.then118, %if.end
   %add121 = add i64 %47, %10
   store i64 %add121, ptr %psize, align 8
   %48 = load i64, ptr %poffset, align 8
-  %offset = getelementptr inbounds %struct.CFieldObject, ptr %call, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %48, ptr %offset, align 8
   %add122 = add i64 %48, %10
   store i64 %add122, ptr %poffset, align 8
@@ -469,11 +462,11 @@ if.else143:                                       ; preds = %sw.bb123
 
 if.end148:                                        ; preds = %if.else143, %if.then134
   %sub141.sink = phi i64 [ %conv146, %if.else143 ], [ %sub141, %if.then134 ]
-  %60 = getelementptr inbounds %struct.CFieldObject, ptr %call, i64 0, i32 2
+  %60 = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %sub141.sink, ptr %60, align 8
   %61 = load i64, ptr %poffset, align 8
   %sub149 = sub i64 %61, %10
-  %offset150 = getelementptr inbounds %struct.CFieldObject, ptr %call, i64 0, i32 1
+  %offset150 = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %sub149, ptr %offset150, align 8
   %62 = load i32, ptr %pbitofs, align 4
   %add151 = add i32 %62, %bitsize
@@ -504,11 +497,11 @@ if.else163:                                       ; preds = %sw.bb152
 
 if.end168:                                        ; preds = %if.else163, %if.then154
   %sub161.sink = phi i64 [ %conv166, %if.else163 ], [ %sub161, %if.then154 ]
-  %68 = getelementptr inbounds %struct.CFieldObject, ptr %call, i64 0, i32 2
+  %68 = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %sub161.sink, ptr %68, align 8
   %69 = load i64, ptr %poffset, align 8
   %sub169 = sub i64 %69, %10
-  %offset170 = getelementptr inbounds %struct.CFieldObject, ptr %call, i64 0, i32 1
+  %offset170 = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %sub169, ptr %offset170, align 8
   %70 = load i32, ptr %pbitofs, align 4
   %add171 = add i32 %70, %bitsize
@@ -554,7 +547,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr = getelementptr %struct.fielddesc, ptr %table.05, i64 1
+  %incdec.ptr = getelementptr i8, ptr %table.05, i64 48
   %3 = load i8, ptr %incdec.ptr, align 8
   %tobool1.not = icmp eq i8 %3, 0
   br i1 %tobool1.not, label %return, label %for.body, !llvm.loop !4
@@ -575,7 +568,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %1 = phi i8 [ %2, %for.inc ], [ %0, %entry ]
   %fd.027 = phi ptr [ %incdec.ptr, %for.inc ], [ @formattable, %entry ]
   %conv = sext i8 %1 to i32
-  %pffi_type = getelementptr inbounds %struct.fielddesc, ptr %fd.027, i64 0, i32 3
+  %pffi_type = getelementptr inbounds i8, ptr %fd.027, i64 24
   switch i32 %conv, label %sw.default [
     i32 115, label %for.inc
     i32 98, label %sw.bb2
@@ -659,7 +652,7 @@ sw.default:                                       ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %sw.bb2, %sw.bb4, %sw.bb6, %sw.bb8, %sw.bb10, %sw.bb12, %sw.bb14, %sw.bb16, %sw.bb18, %sw.bb20, %sw.bb22, %sw.bb24, %sw.bb26, %sw.bb28, %sw.bb34, %sw.bb40, %sw.bb42
   %ffi_type_pointer.sink = phi ptr [ @ffi_type_sint8, %sw.bb2 ], [ @ffi_type_uint8, %sw.bb4 ], [ @ffi_type_sint8, %sw.bb6 ], [ @ffi_type_double, %sw.bb8 ], [ @ffi_type_longdouble, %sw.bb10 ], [ @ffi_type_float, %sw.bb12 ], [ @ffi_type_sint16, %sw.bb14 ], [ @ffi_type_uint16, %sw.bb16 ], [ @ffi_type_sint32, %sw.bb18 ], [ @ffi_type_uint32, %sw.bb20 ], [ @ffi_type_sint64, %sw.bb22 ], [ @ffi_type_uint64, %sw.bb24 ], [ @ffi_type_sint64, %sw.bb26 ], [ @ffi_type_uint64, %sw.bb28 ], [ @ffi_type_sint32, %sw.bb34 ], [ @ffi_type_sint16, %sw.bb40 ], [ @ffi_type_uint8, %sw.bb42 ], [ @ffi_type_pointer, %for.body ], [ @ffi_type_pointer, %for.body ], [ @ffi_type_pointer, %for.body ], [ @ffi_type_pointer, %for.body ], [ @ffi_type_pointer, %for.body ], [ @ffi_type_pointer, %for.body ]
   store ptr %ffi_type_pointer.sink, ptr %pffi_type, align 8
-  %incdec.ptr = getelementptr %struct.fielddesc, ptr %fd.027, i64 1
+  %incdec.ptr = getelementptr i8, ptr %fd.027, i64 48
   %2 = load i8, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !6
@@ -678,7 +671,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val7 = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #9
-  %proto.i = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 4
+  %proto.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %proto.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %PyCField_clear.exit, label %if.then.i
@@ -702,7 +695,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 PyCField_clear.exit:                              ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
   %self.val = load ptr, ptr %0, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %4 = load ptr, ptr %tp_free, align 8
   tail call void %4(ptr noundef nonnull %self) #9
   %5 = load i64, ptr %self.val7, align 8
@@ -727,25 +720,25 @@ Py_DECREF.exit:                                   ; preds = %PyCField_clear.exit
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyCField_repr(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %size = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i64, ptr %size, align 8
   %and = and i64 %0, 65535
-  %proto = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 4
+  %proto = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %proto, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %1, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %tp_name, align 8
   %tobool.not = icmp ult i64 %0, 65536
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %shr = ashr i64 %0, 16
-  %offset = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load i64, ptr %offset, align 8
   %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.7, ptr noundef %2, i64 noundef %3, i64 noundef %and, i64 noundef %shr) #9
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %offset3 = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 1
+  %offset3 = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load i64, ptr %offset3, align 8
   %call4 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.8, ptr noundef %2, i64 noundef %4, i64 noundef %and) #9
   br label %if.end
@@ -769,7 +762,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %proto = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 4
+  %proto = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %proto, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -790,7 +783,7 @@ return:                                           ; preds = %if.then8, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal i32 @PyCField_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %proto = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 4
+  %proto = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load ptr, ptr %proto, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -849,17 +842,17 @@ if.then2:                                         ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end3:                                          ; preds = %if.end, %PyObject_TypeCheck.exit
-  %proto = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 4
+  %proto = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load ptr, ptr %proto, align 8
-  %getfunc = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 5
+  %getfunc = getelementptr inbounds i8, ptr %self, i64 48
   %4 = load ptr, ptr %getfunc, align 8
-  %index = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %self, i64 32
   %5 = load i64, ptr %index, align 8
-  %size = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %6 = load i64, ptr %size, align 8
-  %b_ptr = getelementptr inbounds %struct.tagCDataObject, ptr %inst, i64 0, i32 1
+  %b_ptr = getelementptr inbounds i8, ptr %inst, i64 16
   %7 = load ptr, ptr %b_ptr, align 16
-  %offset = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %self, i64 16
   %8 = load i64, ptr %offset, align 8
   %add.ptr = getelementptr i8, ptr %7, i64 %8
   %call4 = tail call ptr @PyCData_get(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %inst, i64 noundef %5, i64 noundef %6, ptr noundef %add.ptr) #9
@@ -898,18 +891,18 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %b_ptr = getelementptr inbounds %struct.tagCDataObject, ptr %inst, i64 0, i32 1
+  %b_ptr = getelementptr inbounds i8, ptr %inst, i64 16
   %3 = load ptr, ptr %b_ptr, align 16
-  %offset = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load i64, ptr %offset, align 8
   %add.ptr = getelementptr i8, ptr %3, i64 %4
-  %proto = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 4
+  %proto = getelementptr inbounds i8, ptr %self, i64 40
   %5 = load ptr, ptr %proto, align 8
-  %setfunc = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 6
+  %setfunc = getelementptr inbounds i8, ptr %self, i64 56
   %6 = load ptr, ptr %setfunc, align 8
-  %index = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %self, i64 32
   %7 = load i64, ptr %index, align 8
-  %size = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %8 = load i64, ptr %size, align 8
   %call3 = tail call i32 @PyCData_set(ptr noundef nonnull %inst, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %value, i64 noundef %7, i64 noundef %8, ptr noundef %add.ptr) #9
   br label %return
@@ -926,7 +919,7 @@ declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyCField_get_offset(ptr nocapture noundef readonly %self, ptr nocapture readnone %data) #0 {
 entry:
-  %offset = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i64, ptr %offset, align 8
   %call = tail call ptr @PyLong_FromSsize_t(i64 noundef %0) #9
   ret ptr %call
@@ -935,7 +928,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyCField_get_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %data) #0 {
 entry:
-  %size = getelementptr inbounds %struct.CFieldObject, ptr %self, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i64, ptr %size, align 8
   %call = tail call ptr @PyLong_FromSsize_t(i64 noundef %0) #9
   ret ptr %call
@@ -960,13 +953,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %value.val10, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %value.val10, i64 24
   %4 = load ptr, ptr %tp_name, align 8
   %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.15, ptr noundef %4) #9
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %value, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %value, i64 32
   %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %ob_sval.i) #10
   %cmp = icmp slt i64 %call5, %length
   br i1 %cmp, label %if.then6, label %if.else
@@ -1206,7 +1199,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %value, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %value, i64 32
   %4 = load i8, ptr %ob_sval.i, align 1
   store i8 %4, ptr %ptr, align 1
   br label %return
@@ -1227,7 +1220,7 @@ land.lhs.true6:                                   ; preds = %if.end, %PyObject_T
   br i1 %cmp8, label %PyByteArray_AS_STRING.exit, label %if.end12
 
 PyByteArray_AS_STRING.exit:                       ; preds = %land.lhs.true6
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %value, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %value, i64 40
   %6 = load ptr, ptr %ob_start.i, align 8
   %7 = load i8, ptr %6, align 1
   store i8 %7, ptr %ptr, align 1
@@ -2724,7 +2717,7 @@ if.then9:                                         ; preds = %if.else
 
 if.end12:                                         ; preds = %if.else
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %value.val11, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %value.val11, i64 24
   %8 = load ptr, ptr %tp_name, align 8
   %call14 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.19, ptr noundef %8) #9
   br label %return
@@ -2765,7 +2758,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %value.val12, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %value.val12, i64 24
   %4 = load ptr, ptr %tp_name, align 8
   %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.20, ptr noundef %4) #9
   br label %return
@@ -2850,7 +2843,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %value.val12, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %value.val12, i64 24
   %4 = load ptr, ptr %tp_name, align 8
   %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.20, ptr noundef %4) #9
   br label %return
@@ -2955,7 +2948,7 @@ if.end5:                                          ; preds = %if.end
 
 if.then9:                                         ; preds = %if.end5
   %6 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %value.val14, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %value.val14, i64 24
   %7 = load ptr, ptr %tp_name, align 8
   %call11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.23, ptr noundef %7) #9
   br label %return

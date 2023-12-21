@@ -4,19 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.PtyChardev = type { %struct.Chardev, ptr, i32, i32, ptr }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.ChardevClass = type { %struct.ObjectClass, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.termios = type { i32, i32, i32, i32, i8, [32 x i8], i32, i32 }
 %struct._GPollFD = type { i32, i16, i16 }
-%struct.QIOChannelFile = type { %struct.QIOChannel, i32 }
-%struct.QIOChannel = type { %struct.Object, i32, ptr, ptr, ptr, ptr, ptr, i8 }
 
 @char_pty_type_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 176, i64 0, ptr null, ptr null, ptr @char_pty_finalize, i8 0, i64 0, ptr @char_pty_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [12 x i8] c"chardev-pty\00", align 1
@@ -68,10 +57,10 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__func__.PTY_CHARDEV) #9
   tail call fastcc void @pty_chr_state(ptr noundef %call.i, i32 noundef 0)
-  %ioc = getelementptr inbounds %struct.PtyChardev, ptr %call.i4, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i4, i64 152
   %0 = load ptr, ptr %ioc, align 8
   tail call void @object_unref(ptr noundef %0) #9
-  %timer_src.i = getelementptr inbounds %struct.PtyChardev, ptr %call.i4, i64 0, i32 4
+  %timer_src.i = getelementptr inbounds i8, ptr %call.i4, i64 168
   %1 = load ptr, ptr %timer_src.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %pty_chr_timer_cancel.exit, label %if.then.i
@@ -92,13 +81,13 @@ pty_chr_timer_cancel.exit:                        ; preds = %entry, %if.then.i
 define internal void @char_pty_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #9
-  %open = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 4
+  %open = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @char_pty_open, ptr %open, align 8
-  %chr_write = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 5
+  %chr_write = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @char_pty_chr_write, ptr %chr_write, align 8
-  %chr_update_read_handler = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 8
+  %chr_update_read_handler = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @pty_chr_update_read_handler, ptr %chr_update_read_handler, align 8
-  %chr_add_watch = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 7
+  %chr_add_watch = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @pty_chr_add_watch, ptr %chr_add_watch, align 8
   ret void
 }
@@ -112,10 +101,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @remove_fd_in_watch(ptr noundef %chr) #9
-  %connected1 = getelementptr inbounds %struct.PtyChardev, ptr %call.i, i64 0, i32 3
+  %connected1 = getelementptr inbounds i8, ptr %call.i, i64 164
   store i32 0, ptr %connected1, align 4
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__func__.PTY_CHARDEV) #9
-  %timer_src.i.i = getelementptr inbounds %struct.PtyChardev, ptr %call.i.i, i64 0, i32 4
+  %timer_src.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   %0 = load ptr, ptr %timer_src.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %pty_chr_rearm_timer.exit, label %if.then.i.i
@@ -128,7 +117,7 @@ if.then.i.i:                                      ; preds = %if.then
   br label %pty_chr_rearm_timer.exit
 
 pty_chr_rearm_timer.exit:                         ; preds = %if.then, %if.then.i.i
-  %label.i = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %label.i = getelementptr inbounds i8, ptr %chr, i64 96
   %2 = load ptr, ptr %label.i, align 8
   %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.4, ptr noundef %2) #9
   %call2.i = tail call ptr @qemu_chr_timeout_add_ms(ptr noundef %chr, i32 noundef 1000, ptr noundef nonnull @pty_chr_timer, ptr noundef %chr) #9
@@ -138,7 +127,7 @@ pty_chr_rearm_timer.exit:                         ; preds = %if.then, %if.then.i
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %timer_src.i = getelementptr inbounds %struct.PtyChardev, ptr %call.i, i64 0, i32 4
+  %timer_src.i = getelementptr inbounds i8, ptr %call.i, i64 168
   %3 = load ptr, ptr %timer_src.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %pty_chr_timer_cancel.exit, label %if.then.i
@@ -151,7 +140,7 @@ if.then.i:                                        ; preds = %if.else
   br label %pty_chr_timer_cancel.exit
 
 pty_chr_timer_cancel.exit:                        ; preds = %if.else, %if.then.i
-  %connected2 = getelementptr inbounds %struct.PtyChardev, ptr %call.i, i64 0, i32 3
+  %connected2 = getelementptr inbounds i8, ptr %call.i, i64 164
   %5 = load i32, ptr %connected2, align 4
   %tobool3.not = icmp eq i32 %5, 0
   br i1 %tobool3.not, label %if.then4, label %if.end
@@ -162,15 +151,15 @@ if.then4:                                         ; preds = %pty_chr_timer_cance
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %pty_chr_timer_cancel.exit
-  %gsource = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 8
+  %gsource = getelementptr inbounds i8, ptr %chr, i64 128
   %6 = load ptr, ptr %gsource, align 8
   %tobool6.not = icmp eq ptr %6, null
   br i1 %tobool6.not, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %if.end
-  %ioc = getelementptr inbounds %struct.PtyChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %7 = load ptr, ptr %ioc, align 8
-  %gcontext = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 9
+  %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %8 = load ptr, ptr %gcontext, align 8
   %call8 = tail call ptr @io_add_watch_poll(ptr noundef nonnull %chr, ptr noundef %7, ptr noundef nonnull @pty_chr_read_poll, ptr noundef nonnull @pty_chr_read, ptr noundef nonnull %chr, ptr noundef %8) #9
   store ptr %call8, ptr %gsource, align 8
@@ -196,7 +185,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__func__.PTY_CHARDEV) #9
   %call2 = tail call i32 @qemu_chr_be_can_write(ptr noundef %call.i) #9
-  %read_bytes = getelementptr inbounds %struct.PtyChardev, ptr %call.i3, i64 0, i32 2
+  %read_bytes = getelementptr inbounds i8, ptr %call.i3, i64 160
   store i32 %call2, ptr %read_bytes, align 8
   ret i32 %call2
 }
@@ -207,7 +196,7 @@ entry:
   %buf = alloca [4096 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
   %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__func__.PTY_CHARDEV) #9
-  %read_bytes = getelementptr inbounds %struct.PtyChardev, ptr %call.i9, i64 0, i32 2
+  %read_bytes = getelementptr inbounds i8, ptr %call.i9, i64 160
   %0 = load i32, ptr %read_bytes, align 8
   %cmp5 = icmp eq i32 %0, 0
   br i1 %cmp5, label %return, label %if.end8
@@ -215,7 +204,7 @@ entry:
 if.end8:                                          ; preds = %entry
   %narrow = tail call i32 @llvm.umin.i32(i32 %0, i32 4096)
   %spec.select = zext nneg i32 %narrow to i64
-  %ioc = getelementptr inbounds %struct.PtyChardev, ptr %call.i9, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i9, i64 152
   %1 = load ptr, ptr %ioc, align 8
   %call9 = call i64 @qio_channel_read(ptr noundef %1, ptr noundef nonnull %buf, i64 noundef %spec.select, ptr noundef null) #9
   %cmp10 = icmp slt i64 %call9, 1
@@ -245,7 +234,7 @@ define internal i32 @pty_chr_timer(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__func__.PTY_CHARDEV) #9
-  %timer_src.i = getelementptr inbounds %struct.PtyChardev, ptr %call.i4, i64 0, i32 4
+  %timer_src.i = getelementptr inbounds i8, ptr %call.i4, i64 168
   %0 = load ptr, ptr %timer_src.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %pty_chr_timer_cancel.exit, label %if.then.i
@@ -258,13 +247,13 @@ if.then.i:                                        ; preds = %entry
   br label %pty_chr_timer_cancel.exit
 
 pty_chr_timer_cancel.exit:                        ; preds = %entry, %if.then.i
-  %connected = getelementptr inbounds %struct.PtyChardev, ptr %call.i4, i64 0, i32 3
+  %connected = getelementptr inbounds i8, ptr %call.i4, i64 164
   %2 = load i32, ptr %connected, align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %pty_chr_timer_cancel.exit
-  %gcontext = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 9
+  %gcontext = getelementptr inbounds i8, ptr %call.i, i64 136
   %3 = load ptr, ptr %gcontext, align 8
   tail call void @qemu_chr_be_update_read_handlers(ptr noundef %call.i, ptr noundef %3) #9
   br label %if.end
@@ -343,22 +332,22 @@ if.then4:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %call8 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %pty_name) #9
-  %filename = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 4
+  %filename = getelementptr inbounds i8, ptr %chr, i64 104
   store ptr %call8, ptr %filename, align 8
-  %label = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %chr, i64 96
   %7 = load ptr, ptr %label, align 8
   %call10 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.8, ptr noundef nonnull %pty_name, ptr noundef %7) #9
   %call.i10 = call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__func__.PTY_CHARDEV) #9
   %call12 = call ptr @qio_channel_file_new_fd(i32 noundef %3) #9
   %call.i11 = call ptr @object_dynamic_cast_assert(ptr noundef %call12, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  %ioc = getelementptr inbounds %struct.PtyChardev, ptr %call.i10, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i10, i64 152
   store ptr %call.i11, ptr %ioc, align 8
   %8 = load ptr, ptr %label, align 8
   %call15 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.9, ptr noundef %8) #9
   %9 = load ptr, ptr %ioc, align 8
   call void @qio_channel_set_name(ptr noundef %9, ptr noundef %call15) #9
   call void @g_free(ptr noundef %call15) #9
-  %timer_src = getelementptr inbounds %struct.PtyChardev, ptr %call.i10, i64 0, i32 4
+  %timer_src = getelementptr inbounds i8, ptr %call.i10, i64 168
   store ptr null, ptr %timer_src, align 8
   store i8 0, ptr %be_opened, align 1
   br label %return
@@ -372,10 +361,10 @@ define internal i32 @char_pty_chr_write(ptr noundef %chr, ptr noundef %buf, i32 
 entry:
   %pfd = alloca %struct._GPollFD, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__func__.PTY_CHARDEV) #9
-  %connected = getelementptr inbounds %struct.PtyChardev, ptr %call.i, i64 0, i32 3
+  %connected = getelementptr inbounds i8, ptr %call.i, i64 164
   %0 = load i32, ptr %connected, align 4
   %tobool.not = icmp eq i32 %0, 0
-  %ioc2 = getelementptr inbounds %struct.PtyChardev, ptr %call.i, i64 0, i32 1
+  %ioc2 = getelementptr inbounds i8, ptr %call.i, i64 152
   %1 = load ptr, ptr %ioc2, align 8
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -386,12 +375,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_FILE) #9
-  %fd = getelementptr inbounds %struct.QIOChannelFile, ptr %call.i8, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call.i8, i64 96
   %2 = load i32, ptr %fd, align 8
   store i32 %2, ptr %pfd, align 4
-  %events = getelementptr inbounds %struct._GPollFD, ptr %pfd, i64 0, i32 1
+  %events = getelementptr inbounds i8, ptr %pfd, i64 4
   store i16 4, ptr %events, align 4
-  %revents = getelementptr inbounds %struct._GPollFD, ptr %pfd, i64 0, i32 2
+  %revents = getelementptr inbounds i8, ptr %pfd, i64 6
   store i16 0, ptr %revents, align 2
   br label %do.body
 
@@ -436,15 +425,15 @@ define internal void @pty_chr_update_read_handler(ptr noundef %chr) #0 {
 entry:
   %pfd = alloca %struct._GPollFD, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__func__.PTY_CHARDEV) #9
-  %ioc = getelementptr inbounds %struct.PtyChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %ioc, align 8
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_FILE) #9
-  %fd = getelementptr inbounds %struct.QIOChannelFile, ptr %call.i4, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call.i4, i64 96
   %1 = load i32, ptr %fd, align 8
   store i32 %1, ptr %pfd, align 4
-  %events = getelementptr inbounds %struct._GPollFD, ptr %pfd, i64 0, i32 1
+  %events = getelementptr inbounds i8, ptr %pfd, i64 4
   store i16 4, ptr %events, align 4
-  %revents = getelementptr inbounds %struct._GPollFD, ptr %pfd, i64 0, i32 2
+  %revents = getelementptr inbounds i8, ptr %pfd, i64 6
   store i16 0, ptr %revents, align 2
   br label %do.body
 
@@ -480,13 +469,13 @@ if.end:                                           ; preds = %do.end
 define internal ptr @pty_chr_add_watch(ptr noundef %chr, i32 noundef %cond) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__func__.PTY_CHARDEV) #9
-  %connected = getelementptr inbounds %struct.PtyChardev, ptr %call.i, i64 0, i32 3
+  %connected = getelementptr inbounds i8, ptr %call.i, i64 164
   %0 = load i32, ptr %connected, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ioc = getelementptr inbounds %struct.PtyChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %1 = load ptr, ptr %ioc, align 8
   %call1 = tail call ptr @qio_channel_create_watch(ptr noundef %1, i32 noundef %cond) #9
   br label %return

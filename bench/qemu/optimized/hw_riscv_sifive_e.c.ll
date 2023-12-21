@@ -9,31 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.2 = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %union.anon.3 = type { %struct.QTailQLink }
-%struct.SiFiveEState = type { %struct.MachineState, %struct.SiFiveESoCState, i8 }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.SiFiveESoCState = type { %struct.DeviceState, %struct.RISCVHartArrayState, ptr, %struct.SiFiveEAONState, %struct.SIFIVEGPIOState, %struct.MemoryRegion, %struct.MemoryRegion }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.RISCVHartArrayState = type { %struct.SysBusDevice, i32, i32, ptr, i64, ptr }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.anon = type { i64, ptr }
-%struct.SiFiveEAONState = type { %struct.SysBusDevice, %struct.MemoryRegion, ptr, ptr, i64, i64, i32, i16, i32, i8 }
-%struct.SIFIVEGPIOState = type { %struct.SysBusDevice, %struct.MemoryRegion, [32 x ptr], [32 x ptr], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.MachineClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i8, i8, i8, i32, i8, i8, i32, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, %struct.SMPCompatProps, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SMPCompatProps = type { i8, i8, i8, i8, i8, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
 
 @sifive_e_machine_typeinfo = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 4752, i64 0, ptr @sifive_e_machine_instance_init, ptr null, ptr null, i8 0, i64 0, ptr @sifive_e_machine_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [17 x i8] c"sifive_e-machine\00", align 1
@@ -127,7 +102,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @sifive_e_machine_instance_init(ptr noundef %obj) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 140, ptr noundef nonnull @__func__.sifive_e_machine_instance_init) #3
-  %revb = getelementptr inbounds %struct.SiFiveEState, ptr %call, i64 0, i32 2
+  %revb = getelementptr inbounds i8, ptr %call, i64 4736
   store i8 0, ptr %revb, align 16
   ret void
 }
@@ -136,17 +111,17 @@ entry:
 define internal void @sifive_e_machine_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_CLASS) #3
-  %desc = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 4
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @.str.3, ptr %desc, align 8
-  %init = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 6
+  %init = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @sifive_e_machine_init, ptr %init, align 8
-  %max_cpus = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 12
+  %max_cpus = getelementptr inbounds i8, ptr %call.i, i64 176
   store i32 1, ptr %max_cpus, align 8
-  %default_cpu_type = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 24
+  %default_cpu_type = getelementptr inbounds i8, ptr %call.i, i64 248
   store ptr @.str.4, ptr %default_cpu_type, align 8
-  %default_ram_id = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 43
+  %default_ram_id = getelementptr inbounds i8, ptr %call.i, i64 304
   store ptr @.str.5, ptr %default_ram_id, align 8
-  %default_ram_size = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 23
+  %default_ram_size = getelementptr inbounds i8, ptr %call.i, i64 240
   store i64 16384, ptr %default_ram_size, align 8
   %call1 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @sifive_e_machine_get_revb, ptr noundef nonnull @sifive_e_machine_set_revb) #3
   tail call void @object_class_property_set_description(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #3
@@ -163,9 +138,9 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #3
   %call1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %machine, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 79, ptr noundef nonnull @__func__.sifive_e_machine_init) #3
   %call2 = tail call ptr @get_system_memory() #3
-  %ram_size = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 19
+  %ram_size = getelementptr inbounds i8, ptr %machine, i64 144
   %0 = load i64, ptr %ram_size, align 8
-  %default_ram_size = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 23
+  %default_ram_size = getelementptr inbounds i8, ptr %call1.i, i64 240
   %1 = load i64, ptr %default_ram_size, align 8
   %cmp.not = icmp eq i64 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -178,33 +153,33 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %soc = getelementptr inbounds %struct.SiFiveEState, ptr %call1, i64 0, i32 1
+  %soc = getelementptr inbounds i8, ptr %call1, i64 352
   tail call void @object_initialize_child_internal(ptr noundef nonnull %machine, ptr noundef nonnull @.str.10, ptr noundef nonnull %soc, i64 noundef 4384, ptr noundef nonnull @.str.11) #3
   %call.i17 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %soc, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #3
   %call7 = tail call zeroext i1 @qdev_realize(ptr noundef %call.i17, ptr noundef null, ptr noundef nonnull @error_fatal) #3
-  %ram = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 16
+  %ram = getelementptr inbounds i8, ptr %machine, i64 120
   %2 = load ptr, ptr %ram, align 8
   tail call void @memory_region_add_subregion(ptr noundef %call2, i64 noundef 2147483648, ptr noundef %2) #3
-  %revb = getelementptr inbounds %struct.SiFiveEState, ptr %call1, i64 0, i32 2
+  %revb = getelementptr inbounds i8, ptr %call1, i64 4736
   %3 = load i8, ptr %revb, align 16
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
   %spec.select = select i1 %tobool.not, i32 541065911, i32 536937143
-  %5 = getelementptr inbounds [4 x i32], ptr %reset_vec, i64 0, i64 1
+  %5 = getelementptr inbounds i8, ptr %reset_vec, i64 4
   store i32 %spec.select, ptr %5, align 4
-  %arrayidx12 = getelementptr inbounds [4 x i32], ptr %reset_vec, i64 0, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %reset_vec, i64 8
   store i32 163943, ptr %arrayidx12, align 8
-  %arrayidx13 = getelementptr inbounds [4 x i32], ptr %reset_vec, i64 0, i64 3
+  %arrayidx13 = getelementptr inbounds i8, ptr %reset_vec, i64 12
   store i32 0, ptr %arrayidx13, align 4
   store i32 0, ptr %reset_vec, align 16
   %call23 = call ptr @rom_add_blob(ptr noundef nonnull @.str.12, ptr noundef nonnull %reset_vec, i64 noundef 16, i64 noundef 16, i64 noundef 4096, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @address_space_memory, i1 noundef zeroext true) #3
-  %kernel_filename = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 23
+  %kernel_filename = getelementptr inbounds i8, ptr %machine, i64 240
   %6 = load ptr, ptr %kernel_filename, align 8
   %tobool24.not = icmp eq ptr %6, null
   br i1 %tobool24.not, label %if.end30, label %if.then25
 
 if.then25:                                        ; preds = %if.end
-  %cpus = getelementptr inbounds %struct.SiFiveEState, ptr %call1, i64 0, i32 1, i32 1
+  %cpus = getelementptr inbounds i8, ptr %call1, i64 512
   %call29 = call i64 @riscv_load_kernel(ptr noundef nonnull %machine, ptr noundef nonnull %cpus, i64 noundef 2147483648, i1 noundef zeroext false, ptr noundef null) #3
   br label %if.end30
 
@@ -218,7 +193,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @sifive_e_machine_get_revb(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 126, ptr noundef nonnull @__func__.sifive_e_machine_get_revb) #3
-  %revb = getelementptr inbounds %struct.SiFiveEState, ptr %call, i64 0, i32 2
+  %revb = getelementptr inbounds i8, ptr %call, i64 4736
   %0 = load i8, ptr %revb, align 16
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -230,7 +205,7 @@ define internal void @sifive_e_machine_set_revb(ptr noundef %obj, i1 noundef zer
 entry:
   %frombool = zext i1 %value to i8
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 133, ptr noundef nonnull @__func__.sifive_e_machine_set_revb) #3
-  %revb = getelementptr inbounds %struct.SiFiveEState, ptr %call, i64 0, i32 2
+  %revb = getelementptr inbounds i8, ptr %call, i64 4736
   store i8 %frombool, ptr %revb, align 16
   ret void
 }
@@ -268,16 +243,16 @@ entry:
   %call = tail call ptr @qdev_get_machine() #3
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #3
   %call2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.2, i32 noundef 181, ptr noundef nonnull @__func__.sifive_e_soc_init) #3
-  %cpus = getelementptr inbounds %struct.SiFiveESoCState, ptr %call2, i64 0, i32 1
+  %cpus = getelementptr inbounds i8, ptr %call2, i64 160
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull %cpus, i64 noundef 848, ptr noundef nonnull @.str.16) #3
-  %smp = getelementptr inbounds %struct.MachineState, ptr %call.i, i64 0, i32 29
+  %smp = getelementptr inbounds i8, ptr %call.i, i64 288
   %0 = load i32, ptr %smp, align 8
   %conv = zext i32 %0 to i64
   %call5 = tail call zeroext i1 @object_property_set_int(ptr noundef nonnull %cpus, ptr noundef nonnull @.str.17, i64 noundef %conv, ptr noundef nonnull @error_abort) #3
   %call7 = tail call zeroext i1 @object_property_set_int(ptr noundef nonnull %cpus, ptr noundef nonnull @.str.18, i64 noundef 4100, ptr noundef nonnull @error_abort) #3
-  %gpio = getelementptr inbounds %struct.SiFiveESoCState, ptr %call2, i64 0, i32 4
+  %gpio = getelementptr inbounds i8, ptr %call2, i64 2160
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.19, ptr noundef nonnull %gpio, i64 noundef 1680, ptr noundef nonnull @.str.20) #3
-  %aon = getelementptr inbounds %struct.SiFiveESoCState, ptr %call2, i64 0, i32 3
+  %aon = getelementptr inbounds i8, ptr %call2, i64 1024
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.21, ptr noundef nonnull %aon, i64 noundef 1136, ptr noundef nonnull @.str.21) #3
   ret void
 }
@@ -286,9 +261,9 @@ entry:
 define internal void @sifive_e_soc_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #3
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @sifive_e_soc_realize, ptr %realize, align 8
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 0, ptr %user_creatable, align 8
   ret void
 }
@@ -304,26 +279,26 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #3
   %call2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.2, i32 noundef 197, ptr noundef nonnull @__func__.sifive_e_soc_realize) #3
   %call3 = tail call ptr @get_system_memory() #3
-  %cpus = getelementptr inbounds %struct.SiFiveESoCState, ptr %call2, i64 0, i32 1
-  %cpu_type = getelementptr inbounds %struct.MachineState, ptr %call.i, i64 0, i32 26
+  %cpus = getelementptr inbounds i8, ptr %call2, i64 160
+  %cpu_type = getelementptr inbounds i8, ptr %call.i, i64 264
   %0 = load ptr, ptr %cpu_type, align 8
   %call4 = tail call zeroext i1 @object_property_set_str(ptr noundef nonnull %cpus, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull @error_abort) #3
   %call.i55 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %cpus, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #3
   %call7 = tail call zeroext i1 @sysbus_realize(ptr noundef %call.i55, ptr noundef nonnull @error_fatal) #3
-  %mask_rom = getelementptr inbounds %struct.SiFiveESoCState, ptr %call2, i64 0, i32 6
+  %mask_rom = getelementptr inbounds i8, ptr %call2, i64 4112
   tail call void @memory_region_init_rom(ptr noundef nonnull %mask_rom, ptr noundef %dev, ptr noundef nonnull @.str.23, i64 noundef 8192, ptr noundef nonnull @error_fatal) #3
   tail call void @memory_region_add_subregion(ptr noundef %call3, i64 noundef 4096, ptr noundef nonnull %mask_rom) #3
-  %smp = getelementptr inbounds %struct.MachineState, ptr %call.i, i64 0, i32 29
+  %smp = getelementptr inbounds i8, ptr %call.i, i64 288
   %1 = load i32, ptr %smp, align 8
   %call15 = tail call ptr @sifive_plic_create(i64 noundef 201326592, ptr noundef nonnull @.str.24, i32 noundef %1, i32 noundef 0, i32 noundef 53, i32 noundef 7, i32 noundef 0, i32 noundef 4096, i32 noundef 8192, i32 noundef 128, i32 noundef 2097152, i32 noundef 4096, i32 noundef 67108864) #3
-  %plic = getelementptr inbounds %struct.SiFiveESoCState, ptr %call2, i64 0, i32 2
+  %plic = getelementptr inbounds i8, ptr %call2, i64 1008
   store ptr %call15, ptr %plic, align 16
   %2 = load i32, ptr %smp, align 8
   %call20 = tail call ptr @riscv_aclint_swi_create(i64 noundef 33554432, i32 noundef 0, i32 noundef %2, i1 noundef zeroext false) #3
   %3 = load i32, ptr %smp, align 8
   %call25 = tail call ptr @riscv_aclint_mtimer_create(i64 noundef 33570816, i64 noundef 32768, i32 noundef 0, i32 noundef %3, i32 noundef 0, i32 noundef 32760, i32 noundef 32768, i1 noundef zeroext false) #3
   %call28 = tail call ptr @sifive_e_prci_create(i64 noundef 268468224) #3
-  %aon = getelementptr inbounds %struct.SiFiveESoCState, ptr %call2, i64 0, i32 3
+  %aon = getelementptr inbounds i8, ptr %call2, i64 1024
   %call.i56 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %aon, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #3
   %call30 = tail call zeroext i1 @sysbus_realize(ptr noundef %call.i56, ptr noundef %errp) #3
   br i1 %call30, label %if.end, label %return
@@ -331,7 +306,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call.i57 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %aon, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #3
   tail call void @sysbus_mmio_map(ptr noundef %call.i57, i32 noundef 0, i64 noundef 268435456) #3
-  %gpio = getelementptr inbounds %struct.SiFiveESoCState, ptr %call2, i64 0, i32 4
+  %gpio = getelementptr inbounds i8, ptr %call2, i64 2160
   %call.i58 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %gpio, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #3
   %call36 = tail call zeroext i1 @sysbus_realize(ptr noundef %call.i58, ptr noundef %errp) #3
   br i1 %call36, label %if.end38, label %return
@@ -413,7 +388,7 @@ for.end:                                          ; preds = %for.body
   %call2.i86 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i.i85, ptr noundef nonnull @error_fatal) #3
   %call.i4.i87 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i84, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #3
   tail call void @sysbus_mmio_map_overlap(ptr noundef %call.i4.i87, i32 noundef 0, i64 noundef 268652544, i32 noundef -1000) #3
-  %xip_mem = getelementptr inbounds %struct.SiFiveESoCState, ptr %call2, i64 0, i32 5
+  %xip_mem = getelementptr inbounds i8, ptr %call2, i64 3840
   tail call void @memory_region_init_rom(ptr noundef nonnull %xip_mem, ptr noundef %dev, ptr noundef nonnull @.str.31, i64 noundef 536870912, ptr noundef nonnull @error_fatal) #3
   tail call void @memory_region_add_subregion(ptr noundef %call3, i64 noundef 536870912, ptr noundef nonnull %xip_mem) #3
   br label %return

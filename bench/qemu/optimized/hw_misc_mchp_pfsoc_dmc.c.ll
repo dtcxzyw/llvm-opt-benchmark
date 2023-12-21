@@ -7,24 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon.2, %struct.anon.3 }
 %struct.anon.2 = type { i32, i32, i8, ptr }
 %struct.anon.3 = type { i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.MchpPfSoCDdrSgmiiPhyState = type { %struct.SysBusDevice, %struct.MemoryRegion }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.MchpPfSoCDdrCfgState = type { %struct.SysBusDevice, %struct.MemoryRegion }
 
 @mchp_pfsoc_ddr_sgmii_phy_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 1088, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @mchp_pfsoc_ddr_sgmii_phy_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [25 x i8] c"mchp.pfsoc.ddr_sgmii_phy\00", align 1
@@ -89,9 +71,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @mchp_pfsoc_ddr_sgmii_phy_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #2
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @mchp_pfsoc_ddr_sgmii_phy_realize, ptr %realize, align 8
   ret void
 }
@@ -100,7 +82,7 @@ entry:
 define internal void @mchp_pfsoc_ddr_sgmii_phy_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 104, ptr noundef nonnull @__func__.mchp_pfsoc_ddr_sgmii_phy_realize) #2
-  %sgmii_phy = getelementptr inbounds %struct.MchpPfSoCDdrSgmiiPhyState, ptr %call, i64 0, i32 1
+  %sgmii_phy = getelementptr inbounds i8, ptr %call, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %sgmii_phy, ptr noundef %dev, ptr noundef nonnull @mchp_pfsoc_ddr_sgmii_phy_ops, ptr noundef %call, ptr noundef nonnull @.str, i64 noundef 4096) #2
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #2
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %sgmii_phy) #2
@@ -181,9 +163,9 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 define internal void @mchp_pfsoc_ddr_cfg_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #2
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.10, ptr %desc, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @mchp_pfsoc_ddr_cfg_realize, ptr %realize, align 8
   ret void
 }
@@ -192,7 +174,7 @@ entry:
 define internal void @mchp_pfsoc_ddr_cfg_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 186, ptr noundef nonnull @__func__.mchp_pfsoc_ddr_cfg_realize) #2
-  %cfg = getelementptr inbounds %struct.MchpPfSoCDdrCfgState, ptr %call, i64 0, i32 1
+  %cfg = getelementptr inbounds i8, ptr %call, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %cfg, ptr noundef %dev, ptr noundef nonnull @mchp_pfsoc_ddr_cfg_ops, ptr noundef %call, ptr noundef nonnull @.str.9, i64 noundef 262144) #2
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #2
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %cfg) #2

@@ -3,12 +3,8 @@ source_filename = "bench/assimp/original/o3dgcTriangleFans.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.o3dgc::Vector" = type { ptr, i64, i64 }
-%"class.o3dgc::Vector.0" = type { ptr, i64, i64 }
 %"class.o3dgc::Arithmetic_Codec" = type <{ ptr, ptr, ptr, i32, i32, i32, i32, i32, [4 x i8] }>
 %"class.o3dgc::Adaptive_Data_Model" = type <{ ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [4 x i8] }>
-%"class.o3dgc::CompressedTriangleFans" = type <{ %"class.o3dgc::Vector.0", %"class.o3dgc::Vector.0", %"class.o3dgc::Vector.0", %"class.o3dgc::Vector.0", %"class.o3dgc::Vector.0", %"class.o3dgc::Vector.0", ptr, i64, i32, [4 x i8] }>
-%"class.o3dgc::BinaryStream" = type <{ %"class.o3dgc::Vector", i32, [4 x i8] }>
 %"class.o3dgc::Adaptive_Bit_Model" = type { i32, i32, i32, i32, i32 }
 %"class.o3dgc::Static_Bit_Model" = type { i32 }
 
@@ -19,9 +15,9 @@ $_ZN5o3dgc12BinaryStream14WriteUInt32BinEm = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN5o3dgc12SaveUIntDataERKNS_6VectorIlEERNS_12BinaryStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 {
 entry:
-  %m_size.i.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %bstream, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %bstream, i64 16
   %0 = load i64, ptr %m_size.i.i, align 8
-  %m_allocated.i.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %bstream, i64 0, i32 1
+  %m_allocated.i.i = getelementptr inbounds i8, ptr %bstream, i64 8
   br label %for.body.i
 
 for.body.ithread-pre-split:                       ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i
@@ -75,7 +71,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i:          ; preds = %if.end14.i.i, %entr
   br i1 %exitcond.not.i, label %_ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit, label %for.body.ithread-pre-split, !llvm.loop !4
 
 _ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
   %6 = load i64, ptr %m_size.i, align 8
   br label %for.body.i14
 
@@ -174,9 +170,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %m_size.i, align 8
-  %m_allocated.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %this, i64 0, i32 1
+  %m_allocated.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %m_allocated.i, align 8
   %cmp.i = icmp eq i64 %0, %1
   br i1 %cmp.i, label %if.then.i, label %entry.if.end16_crit_edge.i
@@ -272,9 +268,9 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit24:          ; preds = %entry.if.end16_crit
 
 if.else:                                          ; preds = %entry
   %conv10 = trunc i64 %value to i8
-  %m_size.i25 = getelementptr inbounds %"class.o3dgc::Vector", ptr %this, i64 0, i32 2
+  %m_size.i25 = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load i64, ptr %m_size.i25, align 8
-  %m_allocated.i26 = getelementptr inbounds %"class.o3dgc::Vector", ptr %this, i64 0, i32 1
+  %m_allocated.i26 = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load i64, ptr %m_allocated.i26, align 8
   %cmp.i27 = icmp eq i64 %11, %12
   br i1 %cmp.i27, label %if.then.i32, label %entry.if.end16_crit_edge.i28
@@ -323,9 +319,9 @@ if.end:                                           ; preds = %_ZN5o3dgc6VectorIhE
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN5o3dgc11SaveIntDataERKNS_6VectorIlEERNS_12BinaryStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 {
 entry:
-  %m_size.i.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %bstream, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %bstream, i64 16
   %0 = load i64, ptr %m_size.i.i, align 8
-  %m_allocated.i.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %bstream, i64 0, i32 1
+  %m_allocated.i.i = getelementptr inbounds i8, ptr %bstream, i64 8
   br label %for.body.i
 
 for.body.ithread-pre-split:                       ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i
@@ -379,7 +375,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i:          ; preds = %if.end14.i.i, %entr
   br i1 %exitcond.not.i, label %_ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit, label %for.body.ithread-pre-split, !llvm.loop !4
 
 _ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
   %6 = load i64, ptr %m_size.i, align 8
   br label %for.body.i14
 
@@ -477,9 +473,9 @@ _ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEmm.exit: ; preds = %for.body.i41
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN5o3dgc11SaveBinDataERKNS_6VectorIlEERNS_12BinaryStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, ptr nocapture noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #0 {
 entry:
-  %m_size.i.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %bstream, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %bstream, i64 16
   %0 = load i64, ptr %m_size.i.i, align 8
-  %m_allocated.i.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %bstream, i64 0, i32 1
+  %m_allocated.i.i = getelementptr inbounds i8, ptr %bstream, i64 8
   br label %for.body.i
 
 for.body.ithread-pre-split:                       ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i
@@ -533,7 +529,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i:          ; preds = %if.end14.i.i, %entr
   br i1 %exitcond.not.i, label %_ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit, label %for.body.ithread-pre-split, !llvm.loop !4
 
 _ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
   %6 = load i64, ptr %m_size.i, align 8
   br label %for.body.i19
 
@@ -684,9 +680,9 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans10SaveUIntACERKNS_6V
 entry:
   %ace = alloca %"class.o3dgc::Arithmetic_Codec", align 8
   %mModelValues = alloca %"class.o3dgc::Adaptive_Data_Model", align 8
-  %m_size.i.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %bstream, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %bstream, i64 16
   %0 = load i64, ptr %m_size.i.i, align 8
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
   %1 = load i64, ptr %m_size.i, align 8
   %call2.tr = trunc i64 %1 to i32
   %2 = shl i32 %call2.tr, 3
@@ -712,14 +708,14 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 for.end:                                          ; preds = %for.body
   tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %bstream, i64 noundef %spec.select)
-  %m_sizeBufferAC = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 7
+  %m_sizeBufferAC = getelementptr inbounds i8, ptr %this, i64 152
   %5 = load i64, ptr %m_sizeBufferAC, align 8
   %conv9 = zext i32 %conv to i64
   %cmp10 = icmp ult i64 %5, %conv9
   br i1 %cmp10, label %if.then11, label %if.end17
 
 if.then11:                                        ; preds = %for.end
-  %m_bufferAC = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 6
+  %m_bufferAC = getelementptr inbounds i8, ptr %this, i64 144
   %6 = load ptr, ptr %m_bufferAC, align 8
   %isnull = icmp eq ptr %6, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -736,7 +732,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
 
 if.end17:                                         ; preds = %delete.end, %for.end
   call void @_ZN5o3dgc16Arithmetic_CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(44) %ace)
-  %m_bufferAC18 = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 6
+  %m_bufferAC18 = getelementptr inbounds i8, ptr %this, i64 144
   %7 = load ptr, ptr %m_bufferAC18, align 8
   invoke void @_ZN5o3dgc16Arithmetic_Codec10set_bufferEjPh(ptr noundef nonnull align 8 dereferenceable(44) %ace, i32 noundef %conv, ptr noundef %7)
           to label %invoke.cont unwind label %lpad
@@ -805,7 +801,7 @@ invoke.cont35:                                    ; preds = %for.end34
   br i1 %cmp4040.not, label %for.end46, label %for.body41.lr.ph
 
 for.body41.lr.ph:                                 ; preds = %invoke.cont35
-  %m_allocated.i.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %bstream, i64 0, i32 1
+  %m_allocated.i.i = getelementptr inbounds i8, ptr %bstream, i64 8
   br label %for.body41
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %for.inc44
@@ -880,7 +876,7 @@ if.end47:                                         ; preds = %for.end46, %entry
   %value.addr.sroa.5.0.extract.trunc.i = trunc i64 %value.addr.sroa.5.0.extract.shift.i to i8
   %value.addr.sroa.7.0.extract.shift.i = lshr i64 %sub49, 24
   %value.addr.sroa.7.0.extract.trunc.i = trunc i64 %value.addr.sroa.7.0.extract.shift.i to i8
-  %m_endianness.i = getelementptr inbounds %"class.o3dgc::BinaryStream", ptr %bstream, i64 0, i32 1
+  %m_endianness.i = getelementptr inbounds i8, ptr %bstream, i64 24
   %20 = load i32, ptr %m_endianness.i, align 8
   %cmp.i = icmp eq i32 %20, 0
   %21 = load ptr, ptr %bstream, align 8
@@ -915,12 +911,12 @@ entry:
   %value.addr.sroa.5.0.extract.trunc = trunc i64 %value.addr.sroa.5.0.extract.shift to i8
   %value.addr.sroa.7.0.extract.shift = lshr i64 %value, 24
   %value.addr.sroa.7.0.extract.trunc = trunc i64 %value.addr.sroa.7.0.extract.shift to i8
-  %m_endianness = getelementptr inbounds %"class.o3dgc::BinaryStream", ptr %this, i64 0, i32 1
+  %m_endianness = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %m_endianness, align 8
   %cmp = icmp eq i32 %0, 0
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %m_size.i, align 8
-  %m_allocated.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %this, i64 0, i32 1
+  %m_allocated.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %m_allocated.i, align 8
   %cmp.i = icmp eq i64 %1, %2
   br i1 %cmp, label %if.then, label %if.else
@@ -1280,9 +1276,9 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans9SaveBinACERKNS_6Vec
 entry:
   %ace = alloca %"class.o3dgc::Arithmetic_Codec", align 8
   %bModel = alloca %"class.o3dgc::Adaptive_Bit_Model", align 4
-  %m_size.i.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %bstream, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %bstream, i64 16
   %0 = load i64, ptr %m_size.i.i, align 8
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
   %1 = load i64, ptr %m_size.i, align 8
   %call2.tr = trunc i64 %1 to i32
   %2 = shl i32 %call2.tr, 3
@@ -1293,14 +1289,14 @@ entry:
   br i1 %cmp.not, label %if.end32, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_sizeBufferAC = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 7
+  %m_sizeBufferAC = getelementptr inbounds i8, ptr %this, i64 152
   %3 = load i64, ptr %m_sizeBufferAC, align 8
   %conv4 = zext i32 %conv to i64
   %cmp5 = icmp ult i64 %3, %conv4
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  %m_bufferAC = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 6
+  %m_bufferAC = getelementptr inbounds i8, ptr %this, i64 144
   %4 = load ptr, ptr %m_bufferAC, align 8
   %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1317,7 +1313,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
 
 if.end:                                           ; preds = %delete.end, %if.then
   call void @_ZN5o3dgc16Arithmetic_CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(44) %ace)
-  %m_bufferAC12 = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 6
+  %m_bufferAC12 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load ptr, ptr %m_bufferAC12, align 8
   invoke void @_ZN5o3dgc16Arithmetic_Codec10set_bufferEjPh(ptr noundef nonnull align 8 dereferenceable(44) %ace, i32 noundef %conv, ptr noundef %5)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -1374,7 +1370,7 @@ invoke.cont20:                                    ; preds = %for.end
   br i1 %cmp2528.not, label %for.end31, label %for.body26.lr.ph
 
 for.body26.lr.ph:                                 ; preds = %invoke.cont20
-  %m_allocated.i.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %bstream, i64 0, i32 1
+  %m_allocated.i.i = getelementptr inbounds i8, ptr %bstream, i64 8
   br label %for.body26
 
 for.body26:                                       ; preds = %for.body26.lr.ph, %for.inc29
@@ -1443,7 +1439,7 @@ if.end32:                                         ; preds = %for.end31, %entry
   %value.addr.sroa.5.0.extract.trunc.i = trunc i64 %value.addr.sroa.5.0.extract.shift.i to i8
   %value.addr.sroa.7.0.extract.shift.i = lshr i64 %sub, 24
   %value.addr.sroa.7.0.extract.trunc.i = trunc i64 %value.addr.sroa.7.0.extract.shift.i to i8
-  %m_endianness.i = getelementptr inbounds %"class.o3dgc::BinaryStream", ptr %bstream, i64 0, i32 1
+  %m_endianness.i = getelementptr inbounds i8, ptr %bstream, i64 24
   %16 = load i32, ptr %m_endianness.i, align 8
   %cmp.i = icmp eq i32 %16, 0
   %17 = load ptr, ptr %bstream, align 8
@@ -1479,9 +1475,9 @@ entry:
   %mModelValues = alloca %"class.o3dgc::Adaptive_Data_Model", align 8
   %bModel0 = alloca %"class.o3dgc::Static_Bit_Model", align 4
   %bModel1 = alloca %"class.o3dgc::Adaptive_Bit_Model", align 4
-  %m_size.i.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %bstream, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %bstream, i64 16
   %0 = load i64, ptr %m_size.i.i, align 8
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
   %1 = load i64, ptr %m_size.i, align 8
   %call2.tr = trunc i64 %1 to i32
   %2 = shl i32 %call2.tr, 3
@@ -1508,14 +1504,14 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.end:                                          ; preds = %for.body
   %add9 = add nsw i64 %spec.select, 2147483647
   tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %bstream, i64 noundef %add9)
-  %m_sizeBufferAC = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 7
+  %m_sizeBufferAC = getelementptr inbounds i8, ptr %this, i64 152
   %5 = load i64, ptr %m_sizeBufferAC, align 8
   %conv10 = zext i32 %conv to i64
   %cmp11 = icmp ult i64 %5, %conv10
   br i1 %cmp11, label %if.then12, label %if.end18
 
 if.then12:                                        ; preds = %for.end
-  %m_bufferAC = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 6
+  %m_bufferAC = getelementptr inbounds i8, ptr %this, i64 144
   %6 = load ptr, ptr %m_bufferAC, align 8
   %isnull = icmp eq ptr %6, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1532,7 +1528,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
 
 if.end18:                                         ; preds = %delete.end, %for.end
   call void @_ZN5o3dgc16Arithmetic_CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(44) %ace)
-  %m_bufferAC19 = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 6
+  %m_bufferAC19 = getelementptr inbounds i8, ptr %this, i64 144
   %7 = load ptr, ptr %m_bufferAC19, align 8
   invoke void @_ZN5o3dgc16Arithmetic_Codec10set_bufferEjPh(ptr noundef nonnull align 8 dereferenceable(44) %ace, i32 noundef %conv, ptr noundef %7)
           to label %invoke.cont unwind label %lpad
@@ -1669,7 +1665,7 @@ invoke.cont46:                                    ; preds = %for.end45
   br i1 %cmp5152.not, label %for.end57, label %for.body52.lr.ph
 
 for.body52.lr.ph:                                 ; preds = %invoke.cont46
-  %m_allocated.i.i = getelementptr inbounds %"class.o3dgc::Vector", ptr %bstream, i64 0, i32 1
+  %m_allocated.i.i = getelementptr inbounds i8, ptr %bstream, i64 8
   br label %for.body52
 
 for.body52:                                       ; preds = %for.body52.lr.ph, %for.inc55
@@ -1744,7 +1740,7 @@ if.end58:                                         ; preds = %for.end57, %entry
   %value.addr.sroa.5.0.extract.trunc.i = trunc i64 %value.addr.sroa.5.0.extract.shift.i to i8
   %value.addr.sroa.7.0.extract.shift.i = lshr i64 %sub60, 24
   %value.addr.sroa.7.0.extract.trunc.i = trunc i64 %value.addr.sroa.7.0.extract.shift.i to i8
-  %m_endianness.i = getelementptr inbounds %"class.o3dgc::BinaryStream", ptr %bstream, i64 0, i32 1
+  %m_endianness.i = getelementptr inbounds i8, ptr %bstream, i64 24
   %20 = load i32, ptr %m_endianness.i, align 8
   %cmp.i = icmp eq i32 %20, 0
   %21 = load ptr, ptr %bstream, align 8
@@ -1775,10 +1771,10 @@ declare void @_ZN5o3dgc16Static_Bit_ModelC1Ev(ptr noundef nonnull align 4 derefe
 define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans4SaveERNS_12BinaryStreamEbNS_15O3DGCStreamTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(164) %this, ptr noundef nonnull align 8 dereferenceable(28) %bstream, i1 noundef zeroext %encodeTrianglesOrder, i32 noundef %streamType) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %streamType, 1
-  %m_degrees = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 1
-  %m_configs = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 2
-  %m_operations = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 3
-  %m_indices = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 4
+  %m_degrees = getelementptr inbounds i8, ptr %this, i64 24
+  %m_configs = getelementptr inbounds i8, ptr %this, i64 48
+  %m_operations = getelementptr inbounds i8, ptr %this, i64 72
+  %m_indices = getelementptr inbounds i8, ptr %this, i64 96
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1790,7 +1786,7 @@ if.then:                                          ; preds = %entry
   br i1 %encodeTrianglesOrder, label %if.then6, label %if.end23
 
 if.then6:                                         ; preds = %if.then
-  %m_trianglesOrder = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 5
+  %m_trianglesOrder = getelementptr inbounds i8, ptr %this, i64 120
   %call7 = tail call noundef i32 @_ZN5o3dgc12SaveUIntDataERKNS_6VectorIlEERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(24) %m_trianglesOrder, ptr noundef nonnull align 8 dereferenceable(28) %bstream)
   br label %if.end23
 
@@ -1803,7 +1799,7 @@ if.else:                                          ; preds = %entry
   br i1 %encodeTrianglesOrder, label %if.then19, label %if.end23
 
 if.then19:                                        ; preds = %if.else
-  %m_trianglesOrder20 = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 5
+  %m_trianglesOrder20 = getelementptr inbounds i8, ptr %this, i64 120
   %call21 = tail call noundef i32 @_ZN5o3dgc22CompressedTriangleFans12SaveIntACEGCERKNS_6VectorIlEEmRNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(164) %this, ptr noundef nonnull align 8 dereferenceable(24) %m_trianglesOrder20, i64 noundef 16, ptr noundef nonnull align 8 dereferenceable(28) %bstream)
   br label %if.end23
 
@@ -1838,7 +1834,7 @@ for.body.i10:                                     ; preds = %entry, %for.body.i1
   br i1 %exitcond.not.i22, label %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23, label %for.body.i10, !llvm.loop !22
 
 _ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23: ; preds = %for.body.i10
-  %m_allocated.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 1
+  %m_allocated.i = getelementptr inbounds i8, ptr %data, i64 8
   %4 = load i64, ptr %m_allocated.i, align 8
   %cmp.i = icmp ult i64 %4, %add.i19
   br i1 %cmp.i, label %if.then.i, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
@@ -1849,7 +1845,7 @@ if.then.i:                                        ; preds = %_ZNK5o3dgc12BinaryS
   %6 = shl i64 %add.i19, 3
   %7 = select i1 %5, i64 -1, i64 %6
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #7
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
   %8 = load i64, ptr %m_size.i, align 8
   %cmp4.not.i = icmp eq i64 %8, 0
   br i1 %cmp4.not.i, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit.thread, label %if.then5.i
@@ -1867,12 +1863,12 @@ delete.notnull.i:                                 ; preds = %if.then5.i
 
 _ZN5o3dgc6VectorIlE8AllocateEm.exit.thread:       ; preds = %if.then.i, %if.then5.i, %delete.notnull.i
   store ptr %call.i, ptr %data, align 8
-  %m_size.i2445 = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i2445 = getelementptr inbounds i8, ptr %data, i64 16
   store i64 0, ptr %m_size.i2445, align 8
   br label %for.body.preheader
 
 _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23
-  %m_size.i24 = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i24 = getelementptr inbounds i8, ptr %data, i64 16
   store i64 0, ptr %m_size.i24, align 8
   %cmp43.not = icmp eq i64 %add.i19, 0
   br i1 %cmp43.not, label %for.end, label %for.body.preheader
@@ -1992,7 +1988,7 @@ for.body.i10:                                     ; preds = %entry, %for.body.i1
   br i1 %exitcond.not.i22, label %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23, label %for.body.i10, !llvm.loop !22
 
 _ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23: ; preds = %for.body.i10
-  %m_allocated.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 1
+  %m_allocated.i = getelementptr inbounds i8, ptr %data, i64 8
   %4 = load i64, ptr %m_allocated.i, align 8
   %cmp.i = icmp ult i64 %4, %add.i19
   br i1 %cmp.i, label %if.then.i, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
@@ -2003,7 +1999,7 @@ if.then.i:                                        ; preds = %_ZNK5o3dgc12BinaryS
   %6 = shl i64 %add.i19, 3
   %7 = select i1 %5, i64 -1, i64 %6
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #7
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
   %8 = load i64, ptr %m_size.i, align 8
   %cmp4.not.i = icmp eq i64 %8, 0
   br i1 %cmp4.not.i, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit.thread, label %if.then5.i
@@ -2021,12 +2017,12 @@ delete.notnull.i:                                 ; preds = %if.then5.i
 
 _ZN5o3dgc6VectorIlE8AllocateEm.exit.thread:       ; preds = %if.then.i, %if.then5.i, %delete.notnull.i
   store ptr %call.i, ptr %data, align 8
-  %m_size.i2438 = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i2438 = getelementptr inbounds i8, ptr %data, i64 16
   store i64 0, ptr %m_size.i2438, align 8
   br label %for.body.preheader
 
 _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23
-  %m_size.i24 = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i24 = getelementptr inbounds i8, ptr %data, i64 16
   store i64 0, ptr %m_size.i24, align 8
   %cmp36.not = icmp eq i64 %add.i19, 0
   br i1 %cmp36.not, label %for.end, label %for.body.preheader
@@ -2154,7 +2150,7 @@ for.body.i12:                                     ; preds = %entry, %for.body.i1
 
 _ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit25: ; preds = %for.body.i12
   %mul = mul i64 %add.i21, 7
-  %m_allocated.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 1
+  %m_allocated.i = getelementptr inbounds i8, ptr %data, i64 8
   %4 = load i64, ptr %m_allocated.i, align 8
   %cmp.i = icmp ult i64 %4, %mul
   br i1 %cmp.i, label %if.then.i, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
@@ -2165,7 +2161,7 @@ if.then.i:                                        ; preds = %_ZNK5o3dgc12BinaryS
   %6 = mul i64 %add.i21, 56
   %7 = select i1 %5, i64 -1, i64 %6
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #7
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
   %8 = load i64, ptr %m_size.i, align 8
   %cmp4.not.i = icmp eq i64 %8, 0
   br i1 %cmp4.not.i, label %if.end.i, label %if.then5.i
@@ -2186,7 +2182,7 @@ if.end.i:                                         ; preds = %delete.notnull.i, %
   br label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
 
 _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit25, %if.end.i
-  %m_size.i26 = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i26 = getelementptr inbounds i8, ptr %data, i64 16
   store i64 0, ptr %m_size.i26, align 8
   %cmp43.not = icmp eq i64 %add.i21, 0
   br i1 %cmp43.not, label %for.end7, label %for.body
@@ -2271,7 +2267,7 @@ define hidden noundef i32 @_ZN5o3dgc10LoadUIntACERNS_6VectorIlEEmRKNS_12BinarySt
 entry:
   %acd = alloca %"class.o3dgc::Arithmetic_Codec", align 8
   %mModelValues = alloca %"class.o3dgc::Adaptive_Data_Model", align 8
-  %m_endianness.i = getelementptr inbounds %"class.o3dgc::BinaryStream", ptr %bstream, i64 0, i32 1
+  %m_endianness.i = getelementptr inbounds i8, ptr %bstream, i64 24
   %0 = load i32, ptr %m_endianness.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   %1 = load i64, ptr %iterator, align 8
@@ -2492,7 +2488,7 @@ _ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit97: ; preds = %if.then.i79, %if.e
   %add.ptr.i = getelementptr inbounds i8, ptr %48, i64 %49
   %add = add i64 %49, %sub
   store i64 %add, ptr %iterator, align 8
-  %m_allocated.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 1
+  %m_allocated.i = getelementptr inbounds i8, ptr %data, i64 8
   %50 = load i64, ptr %m_allocated.i, align 8
   %cmp.i98 = icmp ult i64 %50, %value.0.i36
   br i1 %cmp.i98, label %if.then.i99, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
@@ -2503,7 +2499,7 @@ if.then.i99:                                      ; preds = %_ZNK5o3dgc12BinaryS
   %52 = shl nsw i64 %value.0.i36, 3
   %53 = select i1 %51, i64 -1, i64 %52
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %53) #7
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
   %54 = load i64, ptr %m_size.i, align 8
   %cmp4.not.i = icmp eq i64 %54, 0
   br i1 %cmp4.not.i, label %if.end.i, label %if.then5.i
@@ -2540,7 +2536,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %for.cond.preheader unwind label %lpad
 
 for.cond.preheader:                               ; preds = %invoke.cont3
-  %m_size.i100 = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i100 = getelementptr inbounds i8, ptr %data, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -2638,7 +2634,7 @@ entry:
   %mModelValues = alloca %"class.o3dgc::Adaptive_Data_Model", align 8
   %bModel0 = alloca %"class.o3dgc::Static_Bit_Model", align 4
   %bModel1 = alloca %"class.o3dgc::Adaptive_Bit_Model", align 4
-  %m_endianness.i = getelementptr inbounds %"class.o3dgc::BinaryStream", ptr %bstream, i64 0, i32 1
+  %m_endianness.i = getelementptr inbounds i8, ptr %bstream, i64 24
   %0 = load i32, ptr %m_endianness.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   %1 = load i64, ptr %iterator, align 8
@@ -2860,7 +2856,7 @@ _ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit100: ; preds = %if.then.i82, %if.
   %add.ptr.i = getelementptr inbounds i8, ptr %48, i64 %49
   %add = add i64 %49, %sub
   store i64 %add, ptr %iterator, align 8
-  %m_allocated.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 1
+  %m_allocated.i = getelementptr inbounds i8, ptr %data, i64 8
   %50 = load i64, ptr %m_allocated.i, align 8
   %cmp.i101 = icmp ult i64 %50, %value.0.i39
   br i1 %cmp.i101, label %if.then.i102, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
@@ -2871,7 +2867,7 @@ if.then.i102:                                     ; preds = %_ZNK5o3dgc12BinaryS
   %52 = shl nsw i64 %value.0.i39, 3
   %53 = select i1 %51, i64 -1, i64 %52
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %53) #7
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
   %54 = load i64, ptr %m_size.i, align 8
   %cmp4.not.i = icmp eq i64 %54, 0
   br i1 %cmp4.not.i, label %if.end.i, label %if.then5.i
@@ -2916,7 +2912,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %for.cond.preheader unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %invoke.cont9
-  %m_size.i109 = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i109 = getelementptr inbounds i8, ptr %data, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -3074,7 +3070,7 @@ define hidden noundef i32 @_ZN5o3dgc9LoadBinACERNS_6VectorIlEERKNS_12BinaryStrea
 entry:
   %acd = alloca %"class.o3dgc::Arithmetic_Codec", align 8
   %bModel = alloca %"class.o3dgc::Adaptive_Bit_Model", align 4
-  %m_endianness.i = getelementptr inbounds %"class.o3dgc::BinaryStream", ptr %bstream, i64 0, i32 1
+  %m_endianness.i = getelementptr inbounds i8, ptr %bstream, i64 24
   %0 = load i32, ptr %m_endianness.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   %1 = load i64, ptr %iterator, align 8
@@ -3225,7 +3221,7 @@ if.end:                                           ; preds = %_ZNK5o3dgc12BinaryS
   %add.ptr.i = getelementptr inbounds i8, ptr %32, i64 %33
   %add = add i64 %33, %sub
   store i64 %add, ptr %iterator, align 8
-  %m_allocated.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 1
+  %m_allocated.i = getelementptr inbounds i8, ptr %data, i64 8
   %34 = load i64, ptr %m_allocated.i, align 8
   %cmp.i53 = icmp ult i64 %34, %value.0.i33
   br i1 %cmp.i53, label %if.then.i54, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
@@ -3236,7 +3232,7 @@ if.then.i54:                                      ; preds = %if.end
   %36 = shl nsw i64 %value.0.i33, 3
   %37 = select i1 %35, i64 -1, i64 %36
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %37) #7
-  %m_size.i = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
   %38 = load i64, ptr %m_size.i, align 8
   %cmp4.not.i = icmp eq i64 %38, 0
   br i1 %cmp4.not.i, label %if.end.i, label %if.then5.i
@@ -3271,7 +3267,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %for.cond.preheader unwind label %lpad.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %invoke.cont2
-  %m_size.i55 = getelementptr inbounds %"class.o3dgc::Vector.0", ptr %data, i64 0, i32 2
+  %m_size.i55 = getelementptr inbounds i8, ptr %data, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -3361,10 +3357,10 @@ declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_18Adaptive_Bit_Model
 define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans4LoadERKNS_12BinaryStreamERmbNS_15O3DGCStreamTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(164) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %bstream, ptr nocapture noundef nonnull align 8 dereferenceable(8) %iterator, i1 noundef zeroext %decodeTrianglesOrder, i32 noundef %streamType) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %streamType, 1
-  %m_degrees = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 1
-  %m_configs = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 2
-  %m_operations = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 3
-  %m_indices = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 4
+  %m_degrees = getelementptr inbounds i8, ptr %this, i64 24
+  %m_configs = getelementptr inbounds i8, ptr %this, i64 48
+  %m_operations = getelementptr inbounds i8, ptr %this, i64 72
+  %m_indices = getelementptr inbounds i8, ptr %this, i64 96
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -3376,7 +3372,7 @@ if.then:                                          ; preds = %entry
   br i1 %decodeTrianglesOrder, label %if.then6, label %if.end23
 
 if.then6:                                         ; preds = %if.then
-  %m_trianglesOrder = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 5
+  %m_trianglesOrder = getelementptr inbounds i8, ptr %this, i64 120
   %call7 = tail call noundef i32 @_ZN5o3dgc12LoadUIntDataERNS_6VectorIlEERKNS_12BinaryStreamERm(ptr noundef nonnull align 8 dereferenceable(24) %m_trianglesOrder, ptr noundef nonnull align 8 dereferenceable(28) %bstream, ptr noundef nonnull align 8 dereferenceable(8) %iterator)
   br label %if.end23
 
@@ -3389,7 +3385,7 @@ if.else:                                          ; preds = %entry
   br i1 %decodeTrianglesOrder, label %if.then19, label %if.end23
 
 if.then19:                                        ; preds = %if.else
-  %m_trianglesOrder20 = getelementptr inbounds %"class.o3dgc::CompressedTriangleFans", ptr %this, i64 0, i32 5
+  %m_trianglesOrder20 = getelementptr inbounds i8, ptr %this, i64 120
   %call21 = tail call noundef i32 @_ZN5o3dgc12LoadIntACEGCERNS_6VectorIlEEmRKNS_12BinaryStreamERm(ptr noundef nonnull align 8 dereferenceable(24) %m_trianglesOrder20, i64 noundef 16, ptr noundef nonnull align 8 dereferenceable(28) %bstream, ptr noundef nonnull align 8 dereferenceable(8) %iterator)
   br label %if.end23
 

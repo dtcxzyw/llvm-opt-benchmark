@@ -7,10 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon, i32, ptr, i32, ptr }
 %union.anon = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.RISCVHartArrayState = type { %struct.SysBusDevice, i32, i32, ptr, i64, ptr }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
+%struct.ArchCPU = type { %struct.CPUState, %struct.CPUArchState, ptr, ptr, %struct.RISCVCPUConfig, ptr, i32, ptr, [8 x i8] }
+%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon.0, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
 %struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
 %struct.Object = type { ptr, ptr, ptr, i32, ptr }
 %struct.NamedGPIOListHead = type { ptr }
@@ -18,9 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.BusStateHead = type { ptr }
 %struct.ResettableState = type { i32, i8, i8 }
 %struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.ArchCPU = type { %struct.CPUState, %struct.CPUArchState, ptr, ptr, %struct.RISCVCPUConfig, ptr, i32, ptr, [8 x i8] }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon.0, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
@@ -98,7 +93,7 @@ define internal void @riscv_harts_class_init(ptr noundef %klass, ptr nocapture r
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #3
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @riscv_harts_props) #3
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @riscv_harts_realize, ptr %realize, align 8
   ret void
 }
@@ -109,20 +104,20 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @riscv_harts_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, i32 noundef 30, ptr noundef nonnull @__func__.RISCV_HART_ARRAY) #3
-  %num_harts = getelementptr inbounds %struct.RISCVHartArrayState, ptr %call.i, i64 0, i32 1
+  %num_harts = getelementptr inbounds i8, ptr %call.i, i64 816
   %0 = load i32, ptr %num_harts, align 8
   %conv = zext i32 %0 to i64
   %call1 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 19200) #4
-  %harts = getelementptr inbounds %struct.RISCVHartArrayState, ptr %call.i, i64 0, i32 5
+  %harts = getelementptr inbounds i8, ptr %call.i, i64 840
   store ptr %call1, ptr %harts, align 8
   %1 = load i32, ptr %num_harts, align 8
   %cmp7.not = icmp eq i32 %1, 0
   br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cpu_type = getelementptr inbounds %struct.RISCVHartArrayState, ptr %call.i, i64 0, i32 3
-  %resetvec.i = getelementptr inbounds %struct.RISCVHartArrayState, ptr %call.i, i64 0, i32 4
-  %hartid_base.i = getelementptr inbounds %struct.RISCVHartArrayState, ptr %call.i, i64 0, i32 2
+  %cpu_type = getelementptr inbounds i8, ptr %call.i, i64 824
+  %resetvec.i = getelementptr inbounds i8, ptr %call.i, i64 832
+  %hartid_base.i = getelementptr inbounds i8, ptr %call.i, i64 820
   br label %for.body
 
 for.cond:                                         ; preds = %for.body

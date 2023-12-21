@@ -215,7 +215,7 @@ lpad41.body:                                      ; preds = %lpad.i31, %lpad41
 _ZNSt10unique_ptrISt13basic_fstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit: ; preds = %lpad41.body, %lpad36
   %.pn19 = phi { ptr, i32 } [ %eh.lpad-body35, %lpad41.body ], [ %7, %lpad36 ]
   %vtable.i.i = load ptr, ptr %call30, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(264) %call30) #10
   store ptr null, ptr %agg.result, align 8

@@ -869,16 +869,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct.PyModuleDef_Slot = type { i32, ptr }
 %struct.WFILE = type { ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct._Py_hashtable_t = type { i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, %struct._Py_hashtable_allocator_t }
-%struct._Py_hashtable_allocator_t = type { ptr, ptr }
-%struct._Py_hashtable_entry_t = type { %struct._Py_slist_item_s, i64, ptr, ptr }
-%struct._Py_slist_item_s = type { ptr }
 %struct.RFILE = type { ptr, i32, ptr, ptr, ptr, ptr, i64, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.PyListObject = type { %struct.PyVarObject, ptr, i64 }
-%struct.PyCodeObject = type { %struct.PyVarObject, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i32, ptr, [1 x i8] }
 %struct._PyCodeConstructor = type { ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"marshal.dumps\00", align 1
@@ -961,14 +955,14 @@ entry:
   %0 = getelementptr inbounds i8, ptr %wf, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 56, i1 false)
   store ptr %fp, ptr %wf, align 8
-  %buf2 = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 6
+  %buf2 = getelementptr inbounds i8, ptr %wf, i64 40
   store ptr %buf, ptr %buf2, align 8
-  %ptr = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 4
+  %ptr = getelementptr inbounds i8, ptr %wf, i64 24
   store ptr %buf, ptr %ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 4
-  %end = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 5
+  %end = getelementptr inbounds i8, ptr %wf, i64 32
   store ptr %add.ptr, ptr %end, align 8
-  %version4 = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 8
+  %version4 = getelementptr inbounds i8, ptr %wf, i64 56
   store i32 %version, ptr %version4, align 8
   call fastcc void @w_long(i64 noundef %x, ptr noundef nonnull %wf)
   %1 = load ptr, ptr %buf2, align 8
@@ -987,9 +981,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @w_long(i64 noundef %x, ptr noundef %p) unnamed_addr #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load ptr, ptr %ptr, align 8
-  %end = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end = getelementptr inbounds i8, ptr %p, i64 32
   %1 = load ptr, ptr %end, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
@@ -1001,7 +995,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end.i:                                         ; preds = %lor.lhs.false
   %2 = load ptr, ptr %p, align 8
   %cmp1.not.i = icmp eq ptr %2, null
-  %buf.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i = getelementptr inbounds i8, ptr %p, i64 40
   %3 = load ptr, ptr %buf.i, align 8
   %sub.ptr.lhs.cast7.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast8.i = ptrtoint ptr %3 to i64
@@ -1009,7 +1003,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp1.not.i, label %if.end5.i, label %w_reserve.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %str.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i = getelementptr inbounds i8, ptr %p, i64 16
   %4 = load ptr, ptr %str.i, align 8
   %5 = getelementptr i8, ptr %4, i64 16
   %.val.i = load i64, ptr %5, align 8
@@ -1023,7 +1017,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp16.i, label %lor.lhs.false7.thread178, label %if.end19.i
 
 lor.lhs.false7.thread178:                         ; preds = %if.end5.i
-  %error.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i, align 8
   br label %if.end.i21
 
@@ -1039,7 +1033,7 @@ if.then25.i:                                      ; preds = %if.end19.i
 
 w_reserve.exit.thread141:                         ; preds = %if.end19.i
   %6 = load ptr, ptr %str.i, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %6, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %ob_sval.i.i, ptr %buf.i, align 8
   %add.ptr.i = getelementptr i8, ptr %ob_sval.i.i, i64 %sub.ptr.sub9.i
   %add.ptr36.i = getelementptr i8, ptr %ob_sval.i.i, i64 %add20.i
@@ -1081,7 +1075,7 @@ if.end.i21:                                       ; preds = %lor.lhs.false7.thre
   %12 = phi ptr [ %0, %lor.lhs.false7.thread178 ], [ %10, %lor.lhs.false7 ]
   %13 = load ptr, ptr %p, align 8
   %cmp1.not.i22 = icmp eq ptr %13, null
-  %buf.i23 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i23 = getelementptr inbounds i8, ptr %p, i64 40
   %14 = load ptr, ptr %buf.i23, align 8
   %sub.ptr.lhs.cast7.i24 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast8.i25 = ptrtoint ptr %14 to i64
@@ -1089,7 +1083,7 @@ if.end.i21:                                       ; preds = %lor.lhs.false7.thre
   br i1 %cmp1.not.i22, label %if.end5.i36, label %w_reserve.exit58
 
 if.end5.i36:                                      ; preds = %if.end.i21
-  %str.i37 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i37 = getelementptr inbounds i8, ptr %p, i64 16
   %15 = load ptr, ptr %str.i37, align 8
   %16 = getelementptr i8, ptr %15, i64 16
   %.val.i38 = load i64, ptr %16, align 8
@@ -1103,7 +1097,7 @@ if.end5.i36:                                      ; preds = %if.end.i21
   br i1 %cmp16.i45, label %lor.lhs.false22.thread181, label %if.end19.i46
 
 lor.lhs.false22.thread181:                        ; preds = %if.end5.i36
-  %error.i57 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i57 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i57, align 8
   br label %if.end.i61
 
@@ -1119,7 +1113,7 @@ if.then25.i50:                                    ; preds = %if.end19.i46
 
 w_reserve.exit58.thread146:                       ; preds = %if.end19.i46
   %17 = load ptr, ptr %str.i37, align 8
-  %ob_sval.i.i52 = getelementptr inbounds %struct.PyBytesObject, ptr %17, i64 0, i32 2
+  %ob_sval.i.i52 = getelementptr inbounds i8, ptr %17, i64 32
   store ptr %ob_sval.i.i52, ptr %buf.i23, align 8
   %add.ptr.i53 = getelementptr i8, ptr %ob_sval.i.i52, i64 %sub.ptr.sub9.i26
   %add.ptr36.i54 = getelementptr i8, ptr %ob_sval.i.i52, i64 %add20.i47
@@ -1162,7 +1156,7 @@ if.end.i61:                                       ; preds = %lor.lhs.false22.thr
   %23 = phi ptr [ %12, %lor.lhs.false22.thread181 ], [ %21, %lor.lhs.false22 ]
   %24 = load ptr, ptr %p, align 8
   %cmp1.not.i62 = icmp eq ptr %24, null
-  %buf.i63 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i63 = getelementptr inbounds i8, ptr %p, i64 40
   %25 = load ptr, ptr %buf.i63, align 8
   %sub.ptr.lhs.cast7.i64 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast8.i65 = ptrtoint ptr %25 to i64
@@ -1170,7 +1164,7 @@ if.end.i61:                                       ; preds = %lor.lhs.false22.thr
   br i1 %cmp1.not.i62, label %if.end5.i76, label %w_reserve.exit98
 
 if.end5.i76:                                      ; preds = %if.end.i61
-  %str.i77 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i77 = getelementptr inbounds i8, ptr %p, i64 16
   %26 = load ptr, ptr %str.i77, align 8
   %27 = getelementptr i8, ptr %26, i64 16
   %.val.i78 = load i64, ptr %27, align 8
@@ -1184,7 +1178,7 @@ if.end5.i76:                                      ; preds = %if.end.i61
   br i1 %cmp16.i85, label %lor.lhs.false38.thread184, label %if.end19.i86
 
 lor.lhs.false38.thread184:                        ; preds = %if.end5.i76
-  %error.i97 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i97 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i97, align 8
   br label %if.end.i101
 
@@ -1200,7 +1194,7 @@ if.then25.i90:                                    ; preds = %if.end19.i86
 
 w_reserve.exit98.thread151:                       ; preds = %if.end19.i86
   %28 = load ptr, ptr %str.i77, align 8
-  %ob_sval.i.i92 = getelementptr inbounds %struct.PyBytesObject, ptr %28, i64 0, i32 2
+  %ob_sval.i.i92 = getelementptr inbounds i8, ptr %28, i64 32
   store ptr %ob_sval.i.i92, ptr %buf.i63, align 8
   %add.ptr.i93 = getelementptr i8, ptr %ob_sval.i.i92, i64 %sub.ptr.sub9.i66
   %add.ptr36.i94 = getelementptr i8, ptr %ob_sval.i.i92, i64 %add20.i87
@@ -1243,7 +1237,7 @@ if.end.i101:                                      ; preds = %lor.lhs.false38.thr
   %34 = phi ptr [ %23, %lor.lhs.false38.thread184 ], [ %32, %lor.lhs.false38 ]
   %35 = load ptr, ptr %p, align 8
   %cmp1.not.i102 = icmp eq ptr %35, null
-  %buf.i103 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i103 = getelementptr inbounds i8, ptr %p, i64 40
   %36 = load ptr, ptr %buf.i103, align 8
   %sub.ptr.lhs.cast7.i104 = ptrtoint ptr %34 to i64
   %sub.ptr.rhs.cast8.i105 = ptrtoint ptr %36 to i64
@@ -1251,7 +1245,7 @@ if.end.i101:                                      ; preds = %lor.lhs.false38.thr
   br i1 %cmp1.not.i102, label %if.end5.i116, label %w_reserve.exit138
 
 if.end5.i116:                                     ; preds = %if.end.i101
-  %str.i117 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i117 = getelementptr inbounds i8, ptr %p, i64 16
   %37 = load ptr, ptr %str.i117, align 8
   %38 = getelementptr i8, ptr %37, i64 16
   %.val.i118 = load i64, ptr %38, align 8
@@ -1265,7 +1259,7 @@ if.end5.i116:                                     ; preds = %if.end.i101
   br i1 %cmp16.i125, label %if.then18.i136, label %if.end19.i126
 
 if.then18.i136:                                   ; preds = %if.end5.i116
-  %error.i137 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i137 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i137, align 8
   br label %do.end48
 
@@ -1281,7 +1275,7 @@ if.then25.i130:                                   ; preds = %if.end19.i126
 
 w_reserve.exit138.thread156:                      ; preds = %if.end19.i126
   %39 = load ptr, ptr %str.i117, align 8
-  %ob_sval.i.i132 = getelementptr inbounds %struct.PyBytesObject, ptr %39, i64 0, i32 2
+  %ob_sval.i.i132 = getelementptr inbounds i8, ptr %39, i64 32
   store ptr %ob_sval.i.i132, ptr %buf.i103, align 8
   %add.ptr.i133 = getelementptr i8, ptr %ob_sval.i.i132, i64 %sub.ptr.sub9.i106
   %add.ptr36.i134 = getelementptr i8, ptr %ob_sval.i.i132, i64 %add20.i127
@@ -1325,21 +1319,21 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %wf, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 56, i1 false)
   store ptr %fp, ptr %wf, align 8
-  %buf2 = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 6
+  %buf2 = getelementptr inbounds i8, ptr %wf, i64 40
   store ptr %buf, ptr %buf2, align 8
-  %ptr = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 4
+  %ptr = getelementptr inbounds i8, ptr %wf, i64 24
   store ptr %buf, ptr %ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 8192
-  %end = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 5
+  %end = getelementptr inbounds i8, ptr %wf, i64 32
   store ptr %add.ptr, ptr %end, align 8
-  %version4 = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 8
+  %version4 = getelementptr inbounds i8, ptr %wf, i64 56
   store i32 %version, ptr %version4, align 8
   %cmp.i = icmp sgt i32 %version, 2
   br i1 %cmp.i, label %if.then.i, label %if.end7
 
 if.then.i:                                        ; preds = %if.end
   %call.i = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @_Py_hashtable_hash_ptr, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef nonnull @w_decref_entry, ptr noundef null, ptr noundef null) #9
-  %hashtable.i = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 7
+  %hashtable.i = getelementptr inbounds i8, ptr %wf, i64 48
   store ptr %call.i, ptr %hashtable.i, align 8
   %cmp2.i = icmp eq ptr %call.i, null
   br i1 %cmp2.i, label %w_init_refs.exit, label %if.end7
@@ -1378,7 +1372,7 @@ declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @w_object(ptr noundef %v, ptr noundef %p) unnamed_addr #0 {
 entry:
-  %depth = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 2
+  %depth = getelementptr inbounds i8, ptr %p, i64 12
   %0 = load i32, ptr %depth, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr %depth, align 4
@@ -1386,7 +1380,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %error = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %p, i64 8
   store i32 2, ptr %error, align 8
   br label %if.end93
 
@@ -1395,9 +1389,9 @@ if.else:                                          ; preds = %entry
   br i1 %cmp2, label %do.body, label %if.else7
 
 do.body:                                          ; preds = %if.else
-  %ptr = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr = getelementptr inbounds i8, ptr %p, i64 24
   %1 = load ptr, ptr %ptr, align 8
-  %end = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end = getelementptr inbounds i8, ptr %p, i64 32
   %2 = load ptr, ptr %end, align 8
   %cmp4.not = icmp eq ptr %1, %2
   br i1 %cmp4.not, label %lor.lhs.false, label %if.then5
@@ -1409,7 +1403,7 @@ lor.lhs.false:                                    ; preds = %do.body
 if.end.i:                                         ; preds = %lor.lhs.false
   %3 = load ptr, ptr %p, align 8
   %cmp1.not.i = icmp eq ptr %3, null
-  %buf.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i = getelementptr inbounds i8, ptr %p, i64 40
   %4 = load ptr, ptr %buf.i, align 8
   %sub.ptr.lhs.cast7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast8.i = ptrtoint ptr %4 to i64
@@ -1417,7 +1411,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp1.not.i, label %if.end5.i, label %w_reserve.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %str.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load ptr, ptr %str.i, align 8
   %6 = getelementptr i8, ptr %5, i64 16
   %.val.i = load i64, ptr %6, align 8
@@ -1431,7 +1425,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp16.i, label %if.then18.i, label %if.end19.i
 
 if.then18.i:                                      ; preds = %if.end5.i
-  %error.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i, align 8
   br label %if.end93
 
@@ -1447,7 +1441,7 @@ if.then25.i:                                      ; preds = %if.end19.i
 
 w_reserve.exit.thread127:                         ; preds = %if.end19.i
   %7 = load ptr, ptr %str.i, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %7, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %ob_sval.i.i, ptr %buf.i, align 8
   %add.ptr.i = getelementptr i8, ptr %ob_sval.i.i, i64 %sub.ptr.sub9.i
   %add.ptr36.i = getelementptr i8, ptr %ob_sval.i.i, i64 %add20.i
@@ -1477,9 +1471,9 @@ if.else7:                                         ; preds = %if.else
   br i1 %cmp8, label %do.body10, label %if.else22
 
 do.body10:                                        ; preds = %if.else7
-  %ptr11 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr11 = getelementptr inbounds i8, ptr %p, i64 24
   %11 = load ptr, ptr %ptr11, align 8
-  %end12 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end12 = getelementptr inbounds i8, ptr %p, i64 32
   %12 = load ptr, ptr %end12, align 8
   %cmp13.not = icmp eq ptr %11, %12
   br i1 %cmp13.not, label %lor.lhs.false14, label %if.then17
@@ -1491,7 +1485,7 @@ lor.lhs.false14:                                  ; preds = %do.body10
 if.end.i39:                                       ; preds = %lor.lhs.false14
   %13 = load ptr, ptr %p, align 8
   %cmp1.not.i40 = icmp eq ptr %13, null
-  %buf.i41 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i41 = getelementptr inbounds i8, ptr %p, i64 40
   %14 = load ptr, ptr %buf.i41, align 8
   %sub.ptr.lhs.cast7.i42 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast8.i43 = ptrtoint ptr %14 to i64
@@ -1499,7 +1493,7 @@ if.end.i39:                                       ; preds = %lor.lhs.false14
   br i1 %cmp1.not.i40, label %if.end5.i54, label %w_reserve.exit76
 
 if.end5.i54:                                      ; preds = %if.end.i39
-  %str.i55 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i55 = getelementptr inbounds i8, ptr %p, i64 16
   %15 = load ptr, ptr %str.i55, align 8
   %16 = getelementptr i8, ptr %15, i64 16
   %.val.i56 = load i64, ptr %16, align 8
@@ -1513,7 +1507,7 @@ if.end5.i54:                                      ; preds = %if.end.i39
   br i1 %cmp16.i63, label %if.then18.i74, label %if.end19.i64
 
 if.then18.i74:                                    ; preds = %if.end5.i54
-  %error.i75 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i75 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i75, align 8
   br label %if.end93
 
@@ -1529,7 +1523,7 @@ if.then25.i68:                                    ; preds = %if.end19.i64
 
 w_reserve.exit76.thread132:                       ; preds = %if.end19.i64
   %17 = load ptr, ptr %str.i55, align 8
-  %ob_sval.i.i70 = getelementptr inbounds %struct.PyBytesObject, ptr %17, i64 0, i32 2
+  %ob_sval.i.i70 = getelementptr inbounds i8, ptr %17, i64 32
   store ptr %ob_sval.i.i70, ptr %buf.i41, align 8
   %add.ptr.i71 = getelementptr i8, ptr %ob_sval.i.i70, i64 %sub.ptr.sub9.i44
   %add.ptr36.i72 = getelementptr i8, ptr %ob_sval.i.i70, i64 %add20.i65
@@ -1560,9 +1554,9 @@ if.else22:                                        ; preds = %if.else7
   br i1 %cmp23, label %do.body25, label %if.else37
 
 do.body25:                                        ; preds = %if.else22
-  %ptr26 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr26 = getelementptr inbounds i8, ptr %p, i64 24
   %22 = load ptr, ptr %ptr26, align 8
-  %end27 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end27 = getelementptr inbounds i8, ptr %p, i64 32
   %23 = load ptr, ptr %end27, align 8
   %cmp28.not = icmp eq ptr %22, %23
   br i1 %cmp28.not, label %lor.lhs.false29, label %if.then32
@@ -1574,7 +1568,7 @@ lor.lhs.false29:                                  ; preds = %do.body25
 if.end.i79:                                       ; preds = %lor.lhs.false29
   %24 = load ptr, ptr %p, align 8
   %cmp1.not.i80 = icmp eq ptr %24, null
-  %buf.i81 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i81 = getelementptr inbounds i8, ptr %p, i64 40
   %25 = load ptr, ptr %buf.i81, align 8
   %sub.ptr.lhs.cast7.i82 = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast8.i83 = ptrtoint ptr %25 to i64
@@ -1582,7 +1576,7 @@ if.end.i79:                                       ; preds = %lor.lhs.false29
   br i1 %cmp1.not.i80, label %if.end5.i94, label %w_reserve.exit116
 
 if.end5.i94:                                      ; preds = %if.end.i79
-  %str.i95 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i95 = getelementptr inbounds i8, ptr %p, i64 16
   %26 = load ptr, ptr %str.i95, align 8
   %27 = getelementptr i8, ptr %26, i64 16
   %.val.i96 = load i64, ptr %27, align 8
@@ -1596,7 +1590,7 @@ if.end5.i94:                                      ; preds = %if.end.i79
   br i1 %cmp16.i103, label %if.then18.i114, label %if.end19.i104
 
 if.then18.i114:                                   ; preds = %if.end5.i94
-  %error.i115 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i115 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i115, align 8
   br label %if.end93
 
@@ -1612,7 +1606,7 @@ if.then25.i108:                                   ; preds = %if.end19.i104
 
 w_reserve.exit116.thread137:                      ; preds = %if.end19.i104
   %28 = load ptr, ptr %str.i95, align 8
-  %ob_sval.i.i110 = getelementptr inbounds %struct.PyBytesObject, ptr %28, i64 0, i32 2
+  %ob_sval.i.i110 = getelementptr inbounds i8, ptr %28, i64 32
   store ptr %ob_sval.i.i110, ptr %buf.i81, align 8
   %add.ptr.i111 = getelementptr i8, ptr %ob_sval.i.i110, i64 %sub.ptr.sub9.i84
   %add.ptr36.i112 = getelementptr i8, ptr %ob_sval.i.i110, i64 %add20.i105
@@ -1642,9 +1636,9 @@ if.else37:                                        ; preds = %if.else22
   br i1 %cmp38, label %do.body40, label %if.else52
 
 do.body40:                                        ; preds = %if.else37
-  %ptr41 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr41 = getelementptr inbounds i8, ptr %p, i64 24
   %32 = load ptr, ptr %ptr41, align 8
-  %end42 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end42 = getelementptr inbounds i8, ptr %p, i64 32
   %33 = load ptr, ptr %end42, align 8
   %cmp43.not = icmp eq ptr %32, %33
   br i1 %cmp43.not, label %lor.lhs.false44, label %if.then47
@@ -1670,9 +1664,9 @@ if.else52:                                        ; preds = %if.else37
   br i1 %cmp53, label %do.body55, label %if.else67
 
 do.body55:                                        ; preds = %if.else52
-  %ptr56 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr56 = getelementptr inbounds i8, ptr %p, i64 24
   %35 = load ptr, ptr %ptr56, align 8
-  %end57 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end57 = getelementptr inbounds i8, ptr %p, i64 32
   %36 = load ptr, ptr %end57, align 8
   %cmp58.not = icmp eq ptr %35, %36
   br i1 %cmp58.not, label %lor.lhs.false59, label %if.then62
@@ -1698,9 +1692,9 @@ if.else67:                                        ; preds = %if.else52
   br i1 %cmp68, label %do.body70, label %if.else82
 
 do.body70:                                        ; preds = %if.else67
-  %ptr71 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr71 = getelementptr inbounds i8, ptr %p, i64 24
   %38 = load ptr, ptr %ptr71, align 8
-  %end72 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end72 = getelementptr inbounds i8, ptr %p, i64 32
   %39 = load ptr, ptr %end72, align 8
   %cmp73.not = icmp eq ptr %38, %39
   br i1 %cmp73.not, label %lor.lhs.false74, label %if.then77
@@ -1722,13 +1716,13 @@ if.then77:                                        ; preds = %lor.lhs.false74.if.
   br label %if.end93
 
 if.else82:                                        ; preds = %if.else67
-  %version.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 8
+  %version.i = getelementptr inbounds i8, ptr %p, i64 56
   %41 = load i32, ptr %version.i, align 8
   %cmp.i117 = icmp slt i32 %41, 3
   br i1 %cmp.i117, label %if.then85, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else82
-  %hashtable.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 7
+  %hashtable.i = getelementptr inbounds i8, ptr %p, i64 48
   %42 = load ptr, ptr %hashtable.i, align 8
   %cmp2.i = icmp eq ptr %42, null
   br i1 %cmp2.i, label %if.then85, label %if.end.i118
@@ -1752,19 +1746,19 @@ land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
   br i1 %tobool7.not.i, label %if.then85, label %if.end9.i
 
 if.end9.i:                                        ; preds = %land.lhs.true5.i, %if.end.i118
-  %get_entry_func.i.i = getelementptr inbounds %struct._Py_hashtable_t, ptr %42, i64 0, i32 3
+  %get_entry_func.i.i = getelementptr inbounds i8, ptr %42, i64 24
   %45 = load ptr, ptr %get_entry_func.i.i, align 8
   %call.i.i119 = tail call ptr %45(ptr noundef nonnull %42, ptr noundef nonnull %v) #9
   %cmp12.not.i = icmp eq ptr %call.i.i119, null
   br i1 %cmp12.not.i, label %if.else.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end9.i
-  %value.i = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %call.i.i119, i64 0, i32 3
+  %value.i = getelementptr inbounds i8, ptr %call.i.i119, i64 24
   %46 = load ptr, ptr %value.i, align 8
   %47 = ptrtoint ptr %46 to i64
-  %ptr.i120 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr.i120 = getelementptr inbounds i8, ptr %p, i64 24
   %48 = load ptr, ptr %ptr.i120, align 8
-  %end.i121 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end.i121 = getelementptr inbounds i8, ptr %p, i64 32
   %49 = load ptr, ptr %end.i121, align 8
   %cmp14.not.i = icmp eq ptr %48, %49
   br i1 %cmp14.not.i, label %lor.lhs.false16.i, label %if.then19.i
@@ -1776,7 +1770,7 @@ lor.lhs.false16.i:                                ; preds = %if.then13.i
 if.end.i25.i:                                     ; preds = %lor.lhs.false16.i
   %50 = load ptr, ptr %p, align 8
   %cmp1.not.i.i = icmp eq ptr %50, null
-  %buf.i.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i.i = getelementptr inbounds i8, ptr %p, i64 40
   %51 = load ptr, ptr %buf.i.i, align 8
   %sub.ptr.lhs.cast7.i.i = ptrtoint ptr %48 to i64
   %sub.ptr.rhs.cast8.i.i = ptrtoint ptr %51 to i64
@@ -1784,7 +1778,7 @@ if.end.i25.i:                                     ; preds = %lor.lhs.false16.i
   br i1 %cmp1.not.i.i, label %if.end5.i.i, label %w_reserve.exit.i
 
 if.end5.i.i:                                      ; preds = %if.end.i25.i
-  %str.i.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i.i = getelementptr inbounds i8, ptr %p, i64 16
   %52 = load ptr, ptr %str.i.i, align 8
   %53 = getelementptr i8, ptr %52, i64 16
   %.val.i.i = load i64, ptr %53, align 8
@@ -1798,7 +1792,7 @@ if.end5.i.i:                                      ; preds = %if.end.i25.i
   br i1 %cmp16.i.i, label %if.then18.i.i, label %if.end19.i.i
 
 if.then18.i.i:                                    ; preds = %if.end5.i.i
-  %error.i.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i.i = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i.i, align 8
   br label %do.end.i
 
@@ -1814,7 +1808,7 @@ if.then25.i.i:                                    ; preds = %if.end19.i.i
 
 w_reserve.exit.thread29.i:                        ; preds = %if.end19.i.i
   %54 = load ptr, ptr %str.i.i, align 8
-  %ob_sval.i.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %54, i64 0, i32 2
+  %ob_sval.i.i.i = getelementptr inbounds i8, ptr %54, i64 32
   store ptr %ob_sval.i.i.i, ptr %buf.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %ob_sval.i.i.i, i64 %sub.ptr.sub9.i.i
   %add.ptr36.i.i = getelementptr i8, ptr %ob_sval.i.i.i, i64 %add20.i.i
@@ -1889,7 +1883,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %err.i
 
 err.i:                                            ; preds = %if.then1.i.i, %if.end.i.i, %if.then35.i, %if.then26.i
-  %error.i123 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i123 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error.i123, align 8
   br label %if.end93
 
@@ -1909,11 +1903,11 @@ if.end93:                                         ; preds = %lor.lhs.false29, %i
 define dso_local i32 @PyMarshal_ReadShortFromFile(ptr noundef %fp) local_unnamed_addr #0 {
 entry:
   %rf = alloca %struct.RFILE, align 8
-  %readable = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 2
+  %readable = getelementptr inbounds i8, ptr %rf, i64 16
   store ptr null, ptr %readable, align 8
   store ptr %fp, ptr %rf, align 8
-  %ptr = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 3
-  %buf = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 5
+  %ptr = getelementptr inbounds i8, ptr %rf, i64 24
+  %buf = getelementptr inbounds i8, ptr %rf, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr, i8 0, i64 24, i1 false)
   %call.i = call fastcc ptr @r_string(i64 noundef 2, ptr noundef nonnull %rf)
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -1945,8 +1939,8 @@ define dso_local i64 @PyMarshal_ReadLongFromFile(ptr noundef %fp) local_unnamed_
 entry:
   %rf = alloca %struct.RFILE, align 8
   store ptr %fp, ptr %rf, align 8
-  %readable = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 2
-  %buf = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 5
+  %readable = getelementptr inbounds i8, ptr %rf, i64 16
+  %buf = getelementptr inbounds i8, ptr %rf, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %readable, i8 0, i64 32, i1 false)
   %call.i = call fastcc ptr @r_string(i64 noundef 4, ptr noundef nonnull %rf)
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -2022,7 +2016,7 @@ entry:
   %call.i = tail call i32 @fileno(ptr noundef %fp) #9
   %call1.i = call i32 @_Py_fstat_noraise(i32 noundef %call.i, ptr noundef nonnull %st.i) #9
   %cmp.not.i = icmp eq i32 %call1.i, 0
-  %st_size.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 8
+  %st_size.i = getelementptr inbounds i8, ptr %st.i, i64 48
   %0 = load i64, ptr %st_size.i, align 8
   %retval.0.i = select i1 %cmp.not.i, i64 %0, i64 -1
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
@@ -2039,19 +2033,19 @@ if.then4:                                         ; preds = %if.then
   %call5 = call i64 @fread(ptr noundef nonnull %call2, i64 noundef 1, i64 noundef %retval.0.i, ptr noundef %fp)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %rf.i)
   store ptr null, ptr %rf.i, align 8
-  %readable.i = getelementptr inbounds %struct.RFILE, ptr %rf.i, i64 0, i32 2
+  %readable.i = getelementptr inbounds i8, ptr %rf.i, i64 16
   store ptr null, ptr %readable.i, align 8
-  %ptr.i = getelementptr inbounds %struct.RFILE, ptr %rf.i, i64 0, i32 3
+  %ptr.i = getelementptr inbounds i8, ptr %rf.i, i64 24
   store ptr %call2, ptr %ptr.i, align 8
   %add.ptr.i = getelementptr i8, ptr %call2, i64 %call5
-  %end.i = getelementptr inbounds %struct.RFILE, ptr %rf.i, i64 0, i32 4
+  %end.i = getelementptr inbounds i8, ptr %rf.i, i64 32
   store ptr %add.ptr.i, ptr %end.i, align 8
-  %buf.i = getelementptr inbounds %struct.RFILE, ptr %rf.i, i64 0, i32 5
+  %buf.i = getelementptr inbounds i8, ptr %rf.i, i64 40
   store ptr null, ptr %buf.i, align 8
-  %depth.i = getelementptr inbounds %struct.RFILE, ptr %rf.i, i64 0, i32 1
+  %depth.i = getelementptr inbounds i8, ptr %rf.i, i64 8
   store i32 0, ptr %depth.i, align 8
   %call.i9 = call ptr @PyList_New(i64 noundef 0) #9
-  %refs.i = getelementptr inbounds %struct.RFILE, ptr %rf.i, i64 0, i32 7
+  %refs.i = getelementptr inbounds i8, ptr %rf.i, i64 56
   store ptr %call.i9, ptr %refs.i, align 8
   %cmp.i = icmp eq ptr %call.i9, null
   br i1 %cmp.i, label %PyMarshal_ReadObjectFromString.exit, label %if.end.i
@@ -2092,13 +2086,13 @@ PyMarshal_ReadObjectFromString.exit:              ; preds = %if.then4, %Py_DECRE
 if.end7:                                          ; preds = %if.then, %entry
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %rf.i11)
   store ptr %fp, ptr %rf.i11, align 8
-  %readable.i12 = getelementptr inbounds %struct.RFILE, ptr %rf.i11, i64 0, i32 2
-  %depth.i13 = getelementptr inbounds %struct.RFILE, ptr %rf.i11, i64 0, i32 1
+  %readable.i12 = getelementptr inbounds i8, ptr %rf.i11, i64 16
+  %depth.i13 = getelementptr inbounds i8, ptr %rf.i11, i64 8
   store i32 0, ptr %depth.i13, align 8
-  %buf.i14 = getelementptr inbounds %struct.RFILE, ptr %rf.i11, i64 0, i32 5
+  %buf.i14 = getelementptr inbounds i8, ptr %rf.i11, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %readable.i12, i8 0, i64 32, i1 false)
   %call.i15 = call ptr @PyList_New(i64 noundef 0) #9
-  %refs.i16 = getelementptr inbounds %struct.RFILE, ptr %rf.i11, i64 0, i32 7
+  %refs.i16 = getelementptr inbounds i8, ptr %rf.i11, i64 56
   store ptr %call.i15, ptr %refs.i16, align 8
   %cmp.i17 = icmp eq ptr %call.i15, null
   br i1 %cmp.i17, label %PyMarshal_ReadObjectFromFile.exit, label %if.end.i18
@@ -2150,19 +2144,19 @@ define dso_local ptr @PyMarshal_ReadObjectFromString(ptr noundef %str, i64 nound
 entry:
   %rf = alloca %struct.RFILE, align 8
   store ptr null, ptr %rf, align 8
-  %readable = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 2
+  %readable = getelementptr inbounds i8, ptr %rf, i64 16
   store ptr null, ptr %readable, align 8
-  %ptr = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 3
+  %ptr = getelementptr inbounds i8, ptr %rf, i64 24
   store ptr %str, ptr %ptr, align 8
   %add.ptr = getelementptr i8, ptr %str, i64 %len
-  %end = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 4
+  %end = getelementptr inbounds i8, ptr %rf, i64 32
   store ptr %add.ptr, ptr %end, align 8
-  %buf = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 5
+  %buf = getelementptr inbounds i8, ptr %rf, i64 40
   store ptr null, ptr %buf, align 8
-  %depth = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %rf, i64 8
   store i32 0, ptr %depth, align 8
   %call = tail call ptr @PyList_New(i64 noundef 0) #9
-  %refs = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 7
+  %refs = getelementptr inbounds i8, ptr %rf, i64 56
   store ptr %call, ptr %refs, align 8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
@@ -2204,13 +2198,13 @@ define dso_local ptr @PyMarshal_ReadObjectFromFile(ptr noundef %fp) local_unname
 entry:
   %rf = alloca %struct.RFILE, align 8
   store ptr %fp, ptr %rf, align 8
-  %readable = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 2
-  %depth = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 1
+  %readable = getelementptr inbounds i8, ptr %rf, i64 16
+  %depth = getelementptr inbounds i8, ptr %rf, i64 8
   store i32 0, ptr %depth, align 8
-  %buf = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 5
+  %buf = getelementptr inbounds i8, ptr %rf, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %readable, i8 0, i64 32, i1 false)
   %call = tail call ptr @PyList_New(i64 noundef 0) #9
-  %refs = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 7
+  %refs = getelementptr inbounds i8, ptr %rf, i64 56
   store ptr %call, ptr %refs, align 8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
@@ -2262,13 +2256,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 3
+  %ptr = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load ptr, ptr %ptr, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %end = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 4
+  %end = getelementptr inbounds i8, ptr %p, i64 32
   %3 = load ptr, ptr %end, align 8
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %if.else, label %if.then4
@@ -2287,7 +2281,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br i1 %tobool11.not, label %lor.lhs.false, label %if.then13
 
 lor.lhs.false:                                    ; preds = %if.else
-  %readable = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 2
+  %readable = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load ptr, ptr %readable, align 8
   %tobool12.not = icmp eq ptr %5, null
   br i1 %tobool12.not, label %if.end19, label %if.then13
@@ -2328,32 +2322,32 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %wf, i8 0, i64 64, i1 false)
   %call1 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef 50) #9
-  %str = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 3
+  %str = getelementptr inbounds i8, ptr %wf, i64 16
   store ptr %call1, ptr %str, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call1, i64 0, i32 2
-  %buf = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 6
+  %ob_sval.i = getelementptr inbounds i8, ptr %call1, i64 32
+  %buf = getelementptr inbounds i8, ptr %wf, i64 40
   store ptr %ob_sval.i, ptr %buf, align 8
-  %ptr = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 4
+  %ptr = getelementptr inbounds i8, ptr %wf, i64 24
   store ptr %ob_sval.i, ptr %ptr, align 8
   %0 = getelementptr i8, ptr %call1, i64 16
   %.val = load i64, ptr %0, align 8
   %add.ptr = getelementptr i8, ptr %ob_sval.i, i64 %.val
-  %end = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 5
+  %end = getelementptr inbounds i8, ptr %wf, i64 32
   store ptr %add.ptr, ptr %end, align 8
-  %error = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %wf, i64 8
   store i32 0, ptr %error, align 8
-  %version11 = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 8
+  %version11 = getelementptr inbounds i8, ptr %wf, i64 56
   store i32 %version, ptr %version11, align 8
   %cmp.i7 = icmp sgt i32 %version, 2
   br i1 %cmp.i7, label %if.then.i, label %if.end15
 
 if.then.i:                                        ; preds = %if.end5
   %call.i = tail call ptr @_Py_hashtable_new_full(ptr noundef nonnull @_Py_hashtable_hash_ptr, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef nonnull @w_decref_entry, ptr noundef null, ptr noundef null) #9
-  %hashtable.i = getelementptr inbounds %struct.WFILE, ptr %wf, i64 0, i32 7
+  %hashtable.i = getelementptr inbounds i8, ptr %wf, i64 48
   store ptr %call.i, ptr %hashtable.i, align 8
   %cmp2.i = icmp eq ptr %call.i, null
   br i1 %cmp2.i, label %if.then13, label %if.end15
@@ -2392,7 +2386,7 @@ w_clear_refs.exit:                                ; preds = %if.end15, %if.then.
   br i1 %cmp17.not, label %if.end27, label %if.then18
 
 if.then18:                                        ; preds = %w_clear_refs.exit
-  %ob_sval.i10 = getelementptr inbounds %struct.PyBytesObject, ptr %4, i64 0, i32 2
+  %ob_sval.i10 = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load ptr, ptr %ptr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ob_sval.i10 to i64
@@ -2498,7 +2492,7 @@ declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @w_reserve(ptr noundef %p, i64 noundef %needed) unnamed_addr #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load ptr, ptr %ptr, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -2506,7 +2500,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %p, align 8
   %cmp1.not = icmp eq ptr %1, null
-  %buf = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf = getelementptr inbounds i8, ptr %p, i64 40
   %2 = load ptr, ptr %buf, align 8
   %sub.ptr.lhs.cast7 = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast8 = ptrtoint ptr %2 to i64
@@ -2517,7 +2511,7 @@ if.then2:                                         ; preds = %if.end
   %call.i = tail call i64 @fwrite(ptr noundef %2, i64 noundef 1, i64 noundef %sub.ptr.sub9, ptr noundef nonnull %1)
   %3 = load ptr, ptr %buf, align 8
   store ptr %3, ptr %ptr, align 8
-  %end = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end = getelementptr inbounds i8, ptr %p, i64 32
   %4 = load ptr, ptr %end, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
@@ -2527,7 +2521,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %str = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load ptr, ptr %str, align 8
   %6 = getelementptr i8, ptr %5, i64 16
   %.val = load i64, ptr %6, align 8
@@ -2541,7 +2535,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp16, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end5
-  %error = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error, align 8
   br label %return
 
@@ -2557,12 +2551,12 @@ if.then25:                                        ; preds = %if.end19
 
 if.else29:                                        ; preds = %if.end19
   %7 = load ptr, ptr %str, align 8
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %7, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %ob_sval.i, ptr %buf, align 8
   %add.ptr = getelementptr i8, ptr %ob_sval.i, i64 %sub.ptr.sub9
   store ptr %add.ptr, ptr %ptr, align 8
   %add.ptr36 = getelementptr i8, ptr %ob_sval.i, i64 %add20
-  %end37 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end37 = getelementptr inbounds i8, ptr %p, i64 32
   store ptr %add.ptr36, ptr %end37, align 8
   br label %return
 
@@ -2645,9 +2639,9 @@ if.then5:                                         ; preds = %if.else
   br label %if.end647
 
 do.body7:                                         ; preds = %if.else
-  %ptr = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr = getelementptr inbounds i8, ptr %p, i64 24
   %3 = load ptr, ptr %ptr, align 8
-  %end = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end = getelementptr inbounds i8, ptr %p, i64 32
   %4 = load ptr, ptr %end, align 8
   %cmp8.not = icmp eq ptr %3, %4
   br i1 %cmp8.not, label %lor.lhs.false, label %if.then11
@@ -2659,7 +2653,7 @@ lor.lhs.false:                                    ; preds = %do.body7
 if.end.i308:                                      ; preds = %lor.lhs.false
   %5 = load ptr, ptr %p, align 8
   %cmp1.not.i = icmp eq ptr %5, null
-  %buf.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i = getelementptr inbounds i8, ptr %p, i64 40
   %6 = load ptr, ptr %buf.i, align 8
   %sub.ptr.lhs.cast7.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast8.i = ptrtoint ptr %6 to i64
@@ -2667,7 +2661,7 @@ if.end.i308:                                      ; preds = %lor.lhs.false
   br i1 %cmp1.not.i, label %if.end5.i, label %w_reserve.exit
 
 if.end5.i:                                        ; preds = %if.end.i308
-  %str.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i = getelementptr inbounds i8, ptr %p, i64 16
   %7 = load ptr, ptr %str.i, align 8
   %8 = getelementptr i8, ptr %7, i64 16
   %.val.i = load i64, ptr %8, align 8
@@ -2681,7 +2675,7 @@ if.end5.i:                                        ; preds = %if.end.i308
   br i1 %cmp16.i, label %if.then18.i, label %if.end19.i
 
 if.then18.i:                                      ; preds = %if.end5.i
-  %error.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i, align 8
   br label %do.end14
 
@@ -2689,15 +2683,15 @@ if.end19.i:                                       ; preds = %if.end5.i
   %add20.i = add i64 %cond.i, %.val.i
   %call22.i = call i32 @_PyBytes_Resize(ptr noundef nonnull %str.i, i64 noundef %add20.i) #9
   %cmp23.not.i = icmp eq i32 %call22.i, 0
-  br i1 %cmp23.not.i, label %w_reserve.exit.thread474, label %if.then25.i
+  br i1 %cmp23.not.i, label %w_reserve.exit.thread473, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end19.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr, i8 0, i64 24, i1 false)
   br label %do.end14
 
-w_reserve.exit.thread474:                         ; preds = %if.end19.i
+w_reserve.exit.thread473:                         ; preds = %if.end19.i
   %9 = load ptr, ptr %str.i, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %9, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %9, i64 32
   store ptr %ob_sval.i.i, ptr %buf.i, align 8
   %add.ptr.i = getelementptr i8, ptr %ob_sval.i.i, i64 %sub.ptr.sub9.i
   %add.ptr36.i = getelementptr i8, ptr %ob_sval.i.i, i64 %add20.i
@@ -2715,8 +2709,8 @@ w_reserve.exit:                                   ; preds = %if.end.i308
   %cmp4.i = icmp slt i64 %sub.ptr.sub.i, 1
   br i1 %cmp4.i, label %do.end14, label %if.then11
 
-if.then11:                                        ; preds = %w_reserve.exit.thread474, %w_reserve.exit, %do.body7
-  %12 = phi ptr [ %add.ptr.i, %w_reserve.exit.thread474 ], [ %10, %w_reserve.exit ], [ %3, %do.body7 ]
+if.then11:                                        ; preds = %w_reserve.exit.thread473, %w_reserve.exit, %do.body7
+  %12 = phi ptr [ %add.ptr.i, %w_reserve.exit.thread473 ], [ %10, %w_reserve.exit ], [ %3, %do.body7 ]
   %13 = or i8 %flag, 105
   %incdec.ptr = getelementptr i8, ptr %12, i64 1
   store ptr %incdec.ptr, ptr %ptr, align 8
@@ -2732,12 +2726,12 @@ if.else17:                                        ; preds = %entry
   br i1 %cmp.i310.not, label %if.then20, label %if.else64
 
 if.then20:                                        ; preds = %if.else17
-  %version = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 8
+  %version = getelementptr inbounds i8, ptr %p, i64 56
   %14 = load i32, ptr %version, align 8
   %cmp21 = icmp sgt i32 %14, 1
-  %ptr26 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr26 = getelementptr inbounds i8, ptr %p, i64 24
   %15 = load ptr, ptr %ptr26, align 8
-  %end27 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end27 = getelementptr inbounds i8, ptr %p, i64 32
   %16 = load ptr, ptr %end27, align 8
   %cmp28.not = icmp eq ptr %15, %16
   br i1 %cmp21, label %do.body25, label %do.body45
@@ -2752,7 +2746,7 @@ lor.lhs.false30:                                  ; preds = %do.body25
 if.end.i314:                                      ; preds = %lor.lhs.false30
   %17 = load ptr, ptr %p, align 8
   %cmp1.not.i315 = icmp eq ptr %17, null
-  %buf.i316 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i316 = getelementptr inbounds i8, ptr %p, i64 40
   %18 = load ptr, ptr %buf.i316, align 8
   %sub.ptr.lhs.cast7.i317 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast8.i318 = ptrtoint ptr %18 to i64
@@ -2760,7 +2754,7 @@ if.end.i314:                                      ; preds = %lor.lhs.false30
   br i1 %cmp1.not.i315, label %if.end5.i329, label %w_reserve.exit351
 
 if.end5.i329:                                     ; preds = %if.end.i314
-  %str.i330 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i330 = getelementptr inbounds i8, ptr %p, i64 16
   %19 = load ptr, ptr %str.i330, align 8
   %20 = getelementptr i8, ptr %19, i64 16
   %.val.i331 = load i64, ptr %20, align 8
@@ -2774,7 +2768,7 @@ if.end5.i329:                                     ; preds = %if.end.i314
   br i1 %cmp16.i338, label %if.then18.i349, label %if.end19.i339
 
 if.then18.i349:                                   ; preds = %if.end5.i329
-  %error.i350 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i350 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i350, align 8
   br label %do.end41
 
@@ -2782,15 +2776,15 @@ if.end19.i339:                                    ; preds = %if.end5.i329
   %add20.i340 = add i64 %cond.i336, %.val.i331
   %call22.i341 = tail call i32 @_PyBytes_Resize(ptr noundef nonnull %str.i330, i64 noundef %add20.i340) #9
   %cmp23.not.i342 = icmp eq i32 %call22.i341, 0
-  br i1 %cmp23.not.i342, label %w_reserve.exit351.thread479, label %if.then25.i343
+  br i1 %cmp23.not.i342, label %w_reserve.exit351.thread478, label %if.then25.i343
 
 if.then25.i343:                                   ; preds = %if.end19.i339
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr26, i8 0, i64 24, i1 false)
   br label %do.end41
 
-w_reserve.exit351.thread479:                      ; preds = %if.end19.i339
+w_reserve.exit351.thread478:                      ; preds = %if.end19.i339
   %21 = load ptr, ptr %str.i330, align 8
-  %ob_sval.i.i345 = getelementptr inbounds %struct.PyBytesObject, ptr %21, i64 0, i32 2
+  %ob_sval.i.i345 = getelementptr inbounds i8, ptr %21, i64 32
   store ptr %ob_sval.i.i345, ptr %buf.i316, align 8
   %add.ptr.i346 = getelementptr i8, ptr %ob_sval.i.i345, i64 %sub.ptr.sub9.i319
   %add.ptr36.i347 = getelementptr i8, ptr %ob_sval.i.i345, i64 %add20.i340
@@ -2808,8 +2802,8 @@ w_reserve.exit351:                                ; preds = %if.end.i314
   %cmp4.i326 = icmp slt i64 %sub.ptr.sub.i325, 1
   br i1 %cmp4.i326, label %do.end41, label %if.then33
 
-if.then33:                                        ; preds = %w_reserve.exit351.thread479, %w_reserve.exit351, %do.body25
-  %24 = phi ptr [ %add.ptr.i346, %w_reserve.exit351.thread479 ], [ %22, %w_reserve.exit351 ], [ %15, %do.body25 ]
+if.then33:                                        ; preds = %w_reserve.exit351.thread478, %w_reserve.exit351, %do.body25
+  %24 = phi ptr [ %add.ptr.i346, %w_reserve.exit351.thread478 ], [ %22, %w_reserve.exit351 ], [ %15, %do.body25 ]
   %25 = or i8 %flag, 103
   %incdec.ptr38 = getelementptr i8, ptr %24, i64 1
   store ptr %incdec.ptr38, ptr %ptr26, align 8
@@ -2825,7 +2819,7 @@ do.end41:                                         ; preds = %lor.lhs.false30, %i
   br i1 %cmp.i353, label %if.then.i, label %if.end.i354
 
 if.then.i:                                        ; preds = %do.end41
-  %error.i355 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i355 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error.i355, align 8
   br label %w_float_bin.exit
 
@@ -2847,7 +2841,7 @@ lor.lhs.false50:                                  ; preds = %do.body45
 if.end.i358:                                      ; preds = %lor.lhs.false50
   %27 = load ptr, ptr %p, align 8
   %cmp1.not.i359 = icmp eq ptr %27, null
-  %buf.i360 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i360 = getelementptr inbounds i8, ptr %p, i64 40
   %28 = load ptr, ptr %buf.i360, align 8
   %sub.ptr.lhs.cast7.i361 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast8.i362 = ptrtoint ptr %28 to i64
@@ -2855,7 +2849,7 @@ if.end.i358:                                      ; preds = %lor.lhs.false50
   br i1 %cmp1.not.i359, label %if.end5.i373, label %w_reserve.exit395
 
 if.end5.i373:                                     ; preds = %if.end.i358
-  %str.i374 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i374 = getelementptr inbounds i8, ptr %p, i64 16
   %29 = load ptr, ptr %str.i374, align 8
   %30 = getelementptr i8, ptr %29, i64 16
   %.val.i375 = load i64, ptr %30, align 8
@@ -2869,7 +2863,7 @@ if.end5.i373:                                     ; preds = %if.end.i358
   br i1 %cmp16.i382, label %if.then18.i393, label %if.end19.i383
 
 if.then18.i393:                                   ; preds = %if.end5.i373
-  %error.i394 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i394 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i394, align 8
   br label %do.end61
 
@@ -2877,15 +2871,15 @@ if.end19.i383:                                    ; preds = %if.end5.i373
   %add20.i384 = add i64 %cond.i380, %.val.i375
   %call22.i385 = tail call i32 @_PyBytes_Resize(ptr noundef nonnull %str.i374, i64 noundef %add20.i384) #9
   %cmp23.not.i386 = icmp eq i32 %call22.i385, 0
-  br i1 %cmp23.not.i386, label %w_reserve.exit395.thread484, label %if.then25.i387
+  br i1 %cmp23.not.i386, label %w_reserve.exit395.thread483, label %if.then25.i387
 
 if.then25.i387:                                   ; preds = %if.end19.i383
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr26, i8 0, i64 24, i1 false)
   br label %do.end61
 
-w_reserve.exit395.thread484:                      ; preds = %if.end19.i383
+w_reserve.exit395.thread483:                      ; preds = %if.end19.i383
   %31 = load ptr, ptr %str.i374, align 8
-  %ob_sval.i.i389 = getelementptr inbounds %struct.PyBytesObject, ptr %31, i64 0, i32 2
+  %ob_sval.i.i389 = getelementptr inbounds i8, ptr %31, i64 32
   store ptr %ob_sval.i.i389, ptr %buf.i360, align 8
   %add.ptr.i390 = getelementptr i8, ptr %ob_sval.i.i389, i64 %sub.ptr.sub9.i363
   %add.ptr36.i391 = getelementptr i8, ptr %ob_sval.i.i389, i64 %add20.i384
@@ -2903,8 +2897,8 @@ w_reserve.exit395:                                ; preds = %if.end.i358
   %cmp4.i370 = icmp slt i64 %sub.ptr.sub.i369, 1
   br i1 %cmp4.i370, label %do.end61, label %if.then53
 
-if.then53:                                        ; preds = %w_reserve.exit395.thread484, %w_reserve.exit395, %do.body45
-  %34 = phi ptr [ %add.ptr.i390, %w_reserve.exit395.thread484 ], [ %32, %w_reserve.exit395 ], [ %15, %do.body45 ]
+if.then53:                                        ; preds = %w_reserve.exit395.thread483, %w_reserve.exit395, %do.body45
+  %34 = phi ptr [ %add.ptr.i390, %w_reserve.exit395.thread483 ], [ %32, %w_reserve.exit395 ], [ %15, %do.body45 ]
   %35 = or i8 %flag, 102
   %incdec.ptr58 = getelementptr i8, ptr %34, i64 1
   store ptr %incdec.ptr58, ptr %ptr26, align 8
@@ -2919,7 +2913,7 @@ do.end61:                                         ; preds = %lor.lhs.false50, %i
   br i1 %tobool.not.i, label %if.then.i398, label %if.end.i397
 
 if.then.i398:                                     ; preds = %do.end61
-  %error.i399 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i399 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i399, align 8
   br label %if.end647
 
@@ -2934,12 +2928,12 @@ if.else64:                                        ; preds = %if.else17
   br i1 %cmp.i400.not, label %if.then67, label %if.else114
 
 if.then67:                                        ; preds = %if.else64
-  %version68 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 8
+  %version68 = getelementptr inbounds i8, ptr %p, i64 56
   %37 = load i32, ptr %version68, align 8
   %cmp69 = icmp sgt i32 %37, 1
-  %ptr74 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr74 = getelementptr inbounds i8, ptr %p, i64 24
   %38 = load ptr, ptr %ptr74, align 8
-  %end75 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end75 = getelementptr inbounds i8, ptr %p, i64 32
   %39 = load ptr, ptr %end75, align 8
   %cmp76.not = icmp eq ptr %38, %39
   br i1 %cmp69, label %do.body73, label %do.body94
@@ -2953,11 +2947,11 @@ lor.lhs.false78:                                  ; preds = %do.body73
   br i1 %tobool80.not, label %do.end89, label %lor.lhs.false78.if.then81_crit_edge
 
 lor.lhs.false78.if.then81_crit_edge:              ; preds = %lor.lhs.false78
-  %.pre521 = load ptr, ptr %ptr74, align 8
+  %.pre520 = load ptr, ptr %ptr74, align 8
   br label %if.then81
 
 if.then81:                                        ; preds = %lor.lhs.false78.if.then81_crit_edge, %do.body73
-  %40 = phi ptr [ %.pre521, %lor.lhs.false78.if.then81_crit_edge ], [ %38, %do.body73 ]
+  %40 = phi ptr [ %.pre520, %lor.lhs.false78.if.then81_crit_edge ], [ %38, %do.body73 ]
   %41 = or i8 %flag, 121
   %incdec.ptr86 = getelementptr i8, ptr %40, i64 1
   store ptr %incdec.ptr86, ptr %ptr74, align 8
@@ -2972,7 +2966,7 @@ do.end89:                                         ; preds = %if.then81, %lor.lhs
   br i1 %cmp.i404, label %if.then.i406, label %if.end.i405
 
 if.then.i406:                                     ; preds = %do.end89
-  %error.i407 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i407 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error.i407, align 8
   br label %w_float_bin.exit408
 
@@ -2989,7 +2983,7 @@ w_float_bin.exit408:                              ; preds = %if.then.i406, %if.e
   br i1 %cmp.i411, label %if.then.i413, label %if.end.i412
 
 if.then.i413:                                     ; preds = %w_float_bin.exit408
-  %error.i414 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i414 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error.i414, align 8
   br label %w_float_bin.exit415
 
@@ -3010,11 +3004,11 @@ lor.lhs.false99:                                  ; preds = %do.body94
   br i1 %tobool101.not, label %do.end110, label %lor.lhs.false99.if.then102_crit_edge
 
 lor.lhs.false99.if.then102_crit_edge:             ; preds = %lor.lhs.false99
-  %.pre520 = load ptr, ptr %ptr74, align 8
+  %.pre519 = load ptr, ptr %ptr74, align 8
   br label %if.then102
 
 if.then102:                                       ; preds = %lor.lhs.false99.if.then102_crit_edge, %do.body94
-  %42 = phi ptr [ %.pre520, %lor.lhs.false99.if.then102_crit_edge ], [ %38, %do.body94 ]
+  %42 = phi ptr [ %.pre519, %lor.lhs.false99.if.then102_crit_edge ], [ %38, %do.body94 ]
   %43 = or i8 %flag, 120
   %incdec.ptr107 = getelementptr i8, ptr %42, i64 1
   store ptr %incdec.ptr107, ptr %ptr74, align 8
@@ -3028,7 +3022,7 @@ do.end110:                                        ; preds = %if.then102, %lor.lh
   br i1 %tobool.not.i417, label %if.then.i420, label %if.end.i418
 
 if.then.i420:                                     ; preds = %do.end110
-  %error.i421 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i421 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i421, align 8
   br label %w_float_str.exit422
 
@@ -3045,7 +3039,7 @@ w_float_str.exit422:                              ; preds = %if.then.i420, %if.e
   br i1 %tobool.not.i424, label %if.then.i427, label %if.end.i425
 
 if.then.i427:                                     ; preds = %w_float_str.exit422
-  %error.i428 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i428 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i428, align 8
   br label %if.end647
 
@@ -3060,9 +3054,9 @@ if.else114:                                       ; preds = %if.else64
   br i1 %cmp.i430.not, label %do.body119, label %if.else138
 
 do.body119:                                       ; preds = %if.else114
-  %ptr120 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr120 = getelementptr inbounds i8, ptr %p, i64 24
   %44 = load ptr, ptr %ptr120, align 8
-  %end121 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end121 = getelementptr inbounds i8, ptr %p, i64 32
   %45 = load ptr, ptr %end121, align 8
   %cmp122.not = icmp eq ptr %44, %45
   br i1 %cmp122.not, label %lor.lhs.false124, label %if.then127
@@ -3073,11 +3067,11 @@ lor.lhs.false124:                                 ; preds = %do.body119
   br i1 %tobool126.not, label %do.end135, label %lor.lhs.false124.if.then127_crit_edge
 
 lor.lhs.false124.if.then127_crit_edge:            ; preds = %lor.lhs.false124
-  %.pre519 = load ptr, ptr %ptr120, align 8
+  %.pre518 = load ptr, ptr %ptr120, align 8
   br label %if.then127
 
 if.then127:                                       ; preds = %lor.lhs.false124.if.then127_crit_edge, %do.body119
-  %46 = phi ptr [ %.pre519, %lor.lhs.false124.if.then127_crit_edge ], [ %44, %do.body119 ]
+  %46 = phi ptr [ %.pre518, %lor.lhs.false124.if.then127_crit_edge ], [ %44, %do.body119 ]
   %47 = or i8 %flag, 115
   %incdec.ptr132 = getelementptr i8, ptr %46, i64 1
   store ptr %incdec.ptr132, ptr %ptr120, align 8
@@ -3091,16 +3085,16 @@ do.end135:                                        ; preds = %if.then127, %lor.lh
   br i1 %cmp.i432, label %if.then.i434, label %if.end.i433
 
 if.then.i434:                                     ; preds = %do.end135
-  %depth.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %p, i64 12
   %49 = load i32, ptr %depth.i, align 4
   %dec.i435 = add i32 %49, -1
   store i32 %dec.i435, ptr %depth.i, align 4
-  %error.i436 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i436 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error.i436, align 8
   br label %if.end647
 
 if.end.i433:                                      ; preds = %do.end135
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %v, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %v, i64 32
   tail call fastcc void @w_long(i64 noundef %v.val, ptr noundef nonnull %p)
   tail call fastcc void @w_string(ptr noundef nonnull %ob_sval.i, i64 noundef %v.val, ptr noundef nonnull %p)
   br label %if.end647
@@ -3110,7 +3104,7 @@ if.else138:                                       ; preds = %if.else114
   br i1 %cmp.i437.not, label %if.then141, label %if.else296
 
 if.then141:                                       ; preds = %if.else138
-  %version142 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 8
+  %version142 = getelementptr inbounds i8, ptr %p, i64 56
   %50 = load i32, ptr %version142, align 8
   %cmp143 = icmp sgt i32 %50, 3
   br i1 %cmp143, label %land.lhs.true145, label %if.else242
@@ -3128,9 +3122,9 @@ if.then148:                                       ; preds = %land.lhs.true145
   %cmp150 = icmp slt i64 %v.val300, 256
   %bf.clear.i439 = and i32 %v.val299, 3
   %tobool155.not = icmp eq i32 %bf.clear.i439, 0
-  %ptr178 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr178 = getelementptr inbounds i8, ptr %p, i64 24
   %54 = load ptr, ptr %ptr178, align 8
-  %end179 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end179 = getelementptr inbounds i8, ptr %p, i64 32
   %55 = load ptr, ptr %end179, align 8
   %cmp180.not = icmp eq ptr %54, %55
   br i1 %cmp150, label %if.then153, label %if.else197
@@ -3155,17 +3149,17 @@ lor.lhs.false182:                                 ; preds = %do.body177
   br i1 %tobool184.not, label %if.end194, label %if.end194.sink.split.sink.split
 
 if.end194.sink.split.sink.split:                  ; preds = %lor.lhs.false182, %lor.lhs.false163
-  %.sink525.ph = phi i8 [ 90, %lor.lhs.false163 ], [ 122, %lor.lhs.false182 ]
-  %.pre516 = load ptr, ptr %ptr178, align 8
+  %.sink524.ph = phi i8 [ 90, %lor.lhs.false163 ], [ 122, %lor.lhs.false182 ]
+  %.pre515 = load ptr, ptr %ptr178, align 8
   br label %if.end194.sink.split
 
 if.end194.sink.split:                             ; preds = %if.end194.sink.split.sink.split, %do.body177, %do.body158
-  %.sink525 = phi i8 [ 90, %do.body158 ], [ 122, %do.body177 ], [ %.sink525.ph, %if.end194.sink.split.sink.split ]
-  %.sink524 = phi ptr [ %54, %do.body158 ], [ %54, %do.body177 ], [ %.pre516, %if.end194.sink.split.sink.split ]
-  %56 = or i8 %.sink525, %flag
-  %incdec.ptr190 = getelementptr i8, ptr %.sink524, i64 1
+  %.sink524 = phi i8 [ 90, %do.body158 ], [ 122, %do.body177 ], [ %.sink524.ph, %if.end194.sink.split.sink.split ]
+  %.sink523 = phi ptr [ %54, %do.body158 ], [ %54, %do.body177 ], [ %.pre515, %if.end194.sink.split.sink.split ]
+  %56 = or i8 %.sink524, %flag
+  %incdec.ptr190 = getelementptr i8, ptr %.sink523, i64 1
   store ptr %incdec.ptr190, ptr %ptr178, align 8
-  store i8 %56, ptr %.sink524, align 1
+  store i8 %56, ptr %.sink523, align 1
   br label %if.end194
 
 if.end194:                                        ; preds = %if.end194.sink.split, %lor.lhs.false182, %lor.lhs.false163
@@ -3177,9 +3171,8 @@ if.end194:                                        ; preds = %if.end194.sink.spli
 if.then.i441:                                     ; preds = %if.end194
   %58 = and i32 %op.val.i, 64
   %tobool.not.i.i = icmp eq i32 %58, 0
-  %add.ptr.i.i = getelementptr %struct.PyASCIIObject, ptr %v, i64 1
-  %add.ptr1.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %v, i64 1
-  %retval.0.i.i = select i1 %tobool.not.i.i, ptr %add.ptr1.i.i, ptr %add.ptr.i.i
+  %retval.0.v.i.i = select i1 %tobool.not.i.i, i64 56, i64 40
+  %retval.0.i.i = getelementptr i8, ptr %v, i64 %retval.0.v.i.i
   br label %PyUnicode_DATA.exit
 
 if.end.i443:                                      ; preds = %if.end194
@@ -3213,42 +3206,41 @@ lor.lhs.false226:                                 ; preds = %do.body221
   br i1 %tobool228.not, label %if.end238, label %if.end238.sink.split.sink.split
 
 if.end238.sink.split.sink.split:                  ; preds = %lor.lhs.false226, %lor.lhs.false207
-  %.sink528.ph = phi i8 [ 65, %lor.lhs.false207 ], [ 97, %lor.lhs.false226 ]
-  %.pre514 = load ptr, ptr %ptr178, align 8
+  %.sink527.ph = phi i8 [ 65, %lor.lhs.false207 ], [ 97, %lor.lhs.false226 ]
+  %.pre513 = load ptr, ptr %ptr178, align 8
   br label %if.end238.sink.split
 
 if.end238.sink.split:                             ; preds = %if.end238.sink.split.sink.split, %do.body221, %do.body202
-  %.sink528 = phi i8 [ 65, %do.body202 ], [ 97, %do.body221 ], [ %.sink528.ph, %if.end238.sink.split.sink.split ]
-  %.sink527 = phi ptr [ %54, %do.body202 ], [ %54, %do.body221 ], [ %.pre514, %if.end238.sink.split.sink.split ]
-  %60 = or i8 %.sink528, %flag
-  %incdec.ptr234 = getelementptr i8, ptr %.sink527, i64 1
+  %.sink527 = phi i8 [ 65, %do.body202 ], [ 97, %do.body221 ], [ %.sink527.ph, %if.end238.sink.split.sink.split ]
+  %.sink526 = phi ptr [ %54, %do.body202 ], [ %54, %do.body221 ], [ %.pre513, %if.end238.sink.split.sink.split ]
+  %60 = or i8 %.sink527, %flag
+  %incdec.ptr234 = getelementptr i8, ptr %.sink526, i64 1
   store ptr %incdec.ptr234, ptr %ptr178, align 8
-  store i8 %60, ptr %.sink527, align 1
+  store i8 %60, ptr %.sink526, align 1
   br label %if.end238
 
 if.end238:                                        ; preds = %if.end238.sink.split, %lor.lhs.false226, %lor.lhs.false207
   %op.val.i445 = load i32, ptr %51, align 8
   %61 = and i32 %op.val.i445, 32
   %tobool.not.i446 = icmp eq i32 %61, 0
-  br i1 %tobool.not.i446, label %if.end.i453, label %if.then.i447
+  br i1 %tobool.not.i446, label %if.end.i452, label %if.then.i447
 
 if.then.i447:                                     ; preds = %if.end238
   %62 = and i32 %op.val.i445, 64
   %tobool.not.i.i448 = icmp eq i32 %62, 0
-  %add.ptr.i.i449 = getelementptr %struct.PyASCIIObject, ptr %v, i64 1
-  %add.ptr1.i.i450 = getelementptr %struct.PyCompactUnicodeObject, ptr %v, i64 1
-  %retval.0.i.i451 = select i1 %tobool.not.i.i448, ptr %add.ptr1.i.i450, ptr %add.ptr.i.i449
-  br label %PyUnicode_DATA.exit455
+  %retval.0.v.i.i449 = select i1 %tobool.not.i.i448, i64 56, i64 40
+  %retval.0.i.i450 = getelementptr i8, ptr %v, i64 %retval.0.v.i.i449
+  br label %PyUnicode_DATA.exit454
 
-if.end.i453:                                      ; preds = %if.end238
+if.end.i452:                                      ; preds = %if.end238
   %63 = getelementptr i8, ptr %v, i64 56
-  %op.val3.i454 = load ptr, ptr %63, align 8
-  br label %PyUnicode_DATA.exit455
+  %op.val3.i453 = load ptr, ptr %63, align 8
+  br label %PyUnicode_DATA.exit454
 
-PyUnicode_DATA.exit455:                           ; preds = %if.then.i447, %if.end.i453
-  %retval.0.i452 = phi ptr [ %retval.0.i.i451, %if.then.i447 ], [ %op.val3.i454, %if.end.i453 ]
+PyUnicode_DATA.exit454:                           ; preds = %if.then.i447, %if.end.i452
+  %retval.0.i451 = phi ptr [ %retval.0.i.i450, %if.then.i447 ], [ %op.val3.i453, %if.end.i452 ]
   %v.val302 = load i64, ptr %53, align 8
-  tail call fastcc void @w_pstring(ptr noundef %retval.0.i452, i64 noundef %v.val302, ptr noundef nonnull %p)
+  tail call fastcc void @w_pstring(ptr noundef %retval.0.i451, i64 noundef %v.val302, ptr noundef nonnull %p)
   br label %if.end647
 
 if.else242:                                       ; preds = %land.lhs.true145, %if.then141
@@ -3257,11 +3249,11 @@ if.else242:                                       ; preds = %land.lhs.true145, %
   br i1 %cmp244, label %if.then246, label %if.end247
 
 if.then246:                                       ; preds = %if.else242
-  %depth = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 2
+  %depth = getelementptr inbounds i8, ptr %p, i64 12
   %64 = load i32, ptr %depth, align 4
   %dec = add i32 %64, -1
   store i32 %dec, ptr %depth, align 4
-  %error = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error, align 8
   br label %if.end647
 
@@ -3273,14 +3265,14 @@ if.end247:                                        ; preds = %if.else242
 land.lhs.true251:                                 ; preds = %if.end247
   %66 = getelementptr i8, ptr %v, i64 32
   %v.val296 = load i32, ptr %66, align 8
-  %bf.clear.i456 = and i32 %v.val296, 3
-  %tobool253.not = icmp eq i32 %bf.clear.i456, 0
+  %bf.clear.i455 = and i32 %v.val296, 3
+  %tobool253.not = icmp eq i32 %bf.clear.i455, 0
   br i1 %tobool253.not, label %do.body275, label %do.body256
 
 do.body256:                                       ; preds = %land.lhs.true251
-  %ptr257 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr257 = getelementptr inbounds i8, ptr %p, i64 24
   %67 = load ptr, ptr %ptr257, align 8
-  %end258 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end258 = getelementptr inbounds i8, ptr %p, i64 32
   %68 = load ptr, ptr %end258, align 8
   %cmp259.not = icmp eq ptr %67, %68
   br i1 %cmp259.not, label %lor.lhs.false261, label %if.end292.sink.split
@@ -3291,9 +3283,9 @@ lor.lhs.false261:                                 ; preds = %do.body256
   br i1 %tobool263.not, label %if.end292, label %if.end292.sink.split.sink.split
 
 do.body275:                                       ; preds = %land.lhs.true251, %if.end247
-  %ptr276 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr276 = getelementptr inbounds i8, ptr %p, i64 24
   %69 = load ptr, ptr %ptr276, align 8
-  %end277 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end277 = getelementptr inbounds i8, ptr %p, i64 32
   %70 = load ptr, ptr %end277, align 8
   %cmp278.not = icmp eq ptr %69, %70
   br i1 %cmp278.not, label %lor.lhs.false280, label %if.end292.sink.split
@@ -3304,26 +3296,26 @@ lor.lhs.false280:                                 ; preds = %do.body275
   br i1 %tobool282.not, label %if.end292, label %if.end292.sink.split.sink.split
 
 if.end292.sink.split.sink.split:                  ; preds = %lor.lhs.false280, %lor.lhs.false261
-  %ptr276.sink535 = phi ptr [ %ptr257, %lor.lhs.false261 ], [ %ptr276, %lor.lhs.false280 ]
-  %.sink531.ph = phi i8 [ 116, %lor.lhs.false261 ], [ 117, %lor.lhs.false280 ]
-  %.pre518 = load ptr, ptr %ptr276.sink535, align 8
+  %ptr276.sink534 = phi ptr [ %ptr257, %lor.lhs.false261 ], [ %ptr276, %lor.lhs.false280 ]
+  %.sink530.ph = phi i8 [ 116, %lor.lhs.false261 ], [ 117, %lor.lhs.false280 ]
+  %.pre517 = load ptr, ptr %ptr276.sink534, align 8
   br label %if.end292.sink.split
 
 if.end292.sink.split:                             ; preds = %if.end292.sink.split.sink.split, %do.body275, %do.body256
-  %.sink531 = phi i8 [ 116, %do.body256 ], [ 117, %do.body275 ], [ %.sink531.ph, %if.end292.sink.split.sink.split ]
-  %.sink530 = phi ptr [ %67, %do.body256 ], [ %69, %do.body275 ], [ %.pre518, %if.end292.sink.split.sink.split ]
-  %ptr276.sink = phi ptr [ %ptr257, %do.body256 ], [ %ptr276, %do.body275 ], [ %ptr276.sink535, %if.end292.sink.split.sink.split ]
-  %71 = or i8 %.sink531, %flag
-  %incdec.ptr288 = getelementptr i8, ptr %.sink530, i64 1
+  %.sink530 = phi i8 [ 116, %do.body256 ], [ 117, %do.body275 ], [ %.sink530.ph, %if.end292.sink.split.sink.split ]
+  %.sink529 = phi ptr [ %67, %do.body256 ], [ %69, %do.body275 ], [ %.pre517, %if.end292.sink.split.sink.split ]
+  %ptr276.sink = phi ptr [ %ptr257, %do.body256 ], [ %ptr276, %do.body275 ], [ %ptr276.sink534, %if.end292.sink.split.sink.split ]
+  %71 = or i8 %.sink530, %flag
+  %incdec.ptr288 = getelementptr i8, ptr %.sink529, i64 1
   store ptr %incdec.ptr288, ptr %ptr276.sink, align 8
-  store i8 %71, ptr %.sink530, align 1
+  store i8 %71, ptr %.sink529, align 1
   br label %if.end292
 
 if.end292:                                        ; preds = %if.end292.sink.split, %lor.lhs.false280, %lor.lhs.false261
-  %ob_sval.i457 = getelementptr inbounds %struct.PyBytesObject, ptr %call243, i64 0, i32 2
+  %ob_sval.i456 = getelementptr inbounds i8, ptr %call243, i64 32
   %72 = getelementptr i8, ptr %call243, i64 16
   %call243.val = load i64, ptr %72, align 8
-  tail call fastcc void @w_pstring(ptr noundef nonnull %ob_sval.i457, i64 noundef %call243.val, ptr noundef nonnull %p)
+  tail call fastcc void @w_pstring(ptr noundef nonnull %ob_sval.i456, i64 noundef %call243.val, ptr noundef nonnull %p)
   %73 = load i64, ptr %call243, align 8
   %74 = and i64 %73, 2147483648
   %cmp.i703.not = icmp eq i64 %74, 0
@@ -3340,20 +3332,20 @@ if.then1.i699:                                    ; preds = %if.end.i696
   br label %if.end647
 
 if.else296:                                       ; preds = %if.else138
-  %cmp.i458.not = icmp eq ptr %v.val282, @PyTuple_Type
-  br i1 %cmp.i458.not, label %if.then299, label %if.else371
+  %cmp.i457.not = icmp eq ptr %v.val282, @PyTuple_Type
+  br i1 %cmp.i457.not, label %if.then299, label %if.else371
 
 if.then299:                                       ; preds = %if.else296
   %75 = getelementptr i8, ptr %v, i64 16
   %v.val303 = load i64, ptr %75, align 8
-  %version301 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 8
+  %version301 = getelementptr inbounds i8, ptr %p, i64 56
   %76 = load i32, ptr %version301, align 8
   %cmp302 = icmp sgt i32 %76, 3
   %cmp305 = icmp slt i64 %v.val303, 256
   %or.cond1 = select i1 %cmp302, i1 %cmp305, i1 false
-  %ptr310 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr310 = getelementptr inbounds i8, ptr %p, i64 24
   %77 = load ptr, ptr %ptr310, align 8
-  %end311 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end311 = getelementptr inbounds i8, ptr %p, i64 32
   %78 = load ptr, ptr %end311, align 8
   %cmp312.not = icmp eq ptr %77, %78
   br i1 %or.cond1, label %do.body309, label %do.body342
@@ -3367,11 +3359,11 @@ lor.lhs.false314:                                 ; preds = %do.body309
   br i1 %tobool316.not, label %do.body326, label %lor.lhs.false314.if.then317_crit_edge
 
 lor.lhs.false314.if.then317_crit_edge:            ; preds = %lor.lhs.false314
-  %.pre511 = load ptr, ptr %ptr310, align 8
+  %.pre510 = load ptr, ptr %ptr310, align 8
   br label %if.then317
 
 if.then317:                                       ; preds = %lor.lhs.false314.if.then317_crit_edge, %do.body309
-  %79 = phi ptr [ %.pre511, %lor.lhs.false314.if.then317_crit_edge ], [ %77, %do.body309 ]
+  %79 = phi ptr [ %.pre510, %lor.lhs.false314.if.then317_crit_edge ], [ %77, %do.body309 ]
   %80 = or i8 %flag, 41
   %incdec.ptr322 = getelementptr i8, ptr %79, i64 1
   store ptr %incdec.ptr322, ptr %ptr310, align 8
@@ -3390,11 +3382,11 @@ lor.lhs.false331:                                 ; preds = %do.body326
   br i1 %tobool333.not, label %if.end368, label %lor.lhs.false331.if.then334_crit_edge
 
 lor.lhs.false331.if.then334_crit_edge:            ; preds = %lor.lhs.false331
-  %.pre512 = load ptr, ptr %ptr310, align 8
+  %.pre511 = load ptr, ptr %ptr310, align 8
   br label %if.then334
 
 if.then334:                                       ; preds = %lor.lhs.false331.if.then334_crit_edge, %do.body326
-  %83 = phi ptr [ %.pre512, %lor.lhs.false331.if.then334_crit_edge ], [ %81, %do.body326 ]
+  %83 = phi ptr [ %.pre511, %lor.lhs.false331.if.then334_crit_edge ], [ %81, %do.body326 ]
   %conv335 = trunc i64 %v.val303 to i8
   %incdec.ptr337 = getelementptr i8, ptr %83, i64 1
   store ptr %incdec.ptr337, ptr %ptr310, align 8
@@ -3410,11 +3402,11 @@ lor.lhs.false347:                                 ; preds = %do.body342
   br i1 %tobool349.not, label %do.body359, label %lor.lhs.false347.if.then350_crit_edge
 
 lor.lhs.false347.if.then350_crit_edge:            ; preds = %lor.lhs.false347
-  %.pre510 = load ptr, ptr %ptr310, align 8
+  %.pre509 = load ptr, ptr %ptr310, align 8
   br label %if.then350
 
 if.then350:                                       ; preds = %lor.lhs.false347.if.then350_crit_edge, %do.body342
-  %84 = phi ptr [ %.pre510, %lor.lhs.false347.if.then350_crit_edge ], [ %77, %do.body342 ]
+  %84 = phi ptr [ %.pre509, %lor.lhs.false347.if.then350_crit_edge ], [ %77, %do.body342 ]
   %85 = or i8 %flag, 40
   %incdec.ptr355 = getelementptr i8, ptr %84, i64 1
   store ptr %incdec.ptr355, ptr %ptr310, align 8
@@ -3426,11 +3418,11 @@ do.body359:                                       ; preds = %lor.lhs.false347, %
   br i1 %cmp360, label %if.then362, label %if.end366
 
 if.then362:                                       ; preds = %do.body359
-  %depth363 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 2
+  %depth363 = getelementptr inbounds i8, ptr %p, i64 12
   %86 = load i32, ptr %depth363, align 4
   %dec364 = add i32 %86, -1
   store i32 %dec364, ptr %depth363, align 4
-  %error365 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error365 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error365, align 8
   br label %if.end647
 
@@ -3439,26 +3431,30 @@ if.end366:                                        ; preds = %do.body359
   br label %if.end368
 
 if.end368:                                        ; preds = %if.then334, %lor.lhs.false331, %if.end366
-  %cmp369498 = icmp sgt i64 %v.val303, 0
-  br i1 %cmp369498, label %for.body, label %if.end647
+  %cmp369497 = icmp sgt i64 %v.val303, 0
+  br i1 %cmp369497, label %for.body.lr.ph, label %if.end647
 
-for.body:                                         ; preds = %if.end368, %for.body
-  %i.0499 = phi i64 [ %inc, %for.body ], [ 0, %if.end368 ]
-  %arrayidx = getelementptr %struct.PyTupleObject, ptr %v, i64 0, i32 1, i64 %i.0499
+for.body.lr.ph:                                   ; preds = %if.end368
+  %ob_item = getelementptr inbounds i8, ptr %v, i64 24
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %i.0498 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.0498
   %87 = load ptr, ptr %arrayidx, align 8
   tail call fastcc void @w_object(ptr noundef %87, ptr noundef %p)
-  %inc = add nuw nsw i64 %i.0499, 1
-  %exitcond502.not = icmp eq i64 %inc, %v.val303
-  br i1 %exitcond502.not, label %if.end647, label %for.body, !llvm.loop !6
+  %inc = add nuw nsw i64 %i.0498, 1
+  %exitcond501.not = icmp eq i64 %inc, %v.val303
+  br i1 %exitcond501.not, label %if.end647, label %for.body, !llvm.loop !6
 
 if.else371:                                       ; preds = %if.else296
-  %cmp.i460.not = icmp eq ptr %v.val282, @PyList_Type
-  br i1 %cmp.i460.not, label %do.body376, label %if.else412
+  %cmp.i459.not = icmp eq ptr %v.val282, @PyList_Type
+  br i1 %cmp.i459.not, label %do.body376, label %if.else412
 
 do.body376:                                       ; preds = %if.else371
-  %ptr377 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr377 = getelementptr inbounds i8, ptr %p, i64 24
   %88 = load ptr, ptr %ptr377, align 8
-  %end378 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end378 = getelementptr inbounds i8, ptr %p, i64 32
   %89 = load ptr, ptr %end378, align 8
   %cmp379.not = icmp eq ptr %88, %89
   br i1 %cmp379.not, label %lor.lhs.false381, label %if.then384
@@ -3469,11 +3465,11 @@ lor.lhs.false381:                                 ; preds = %do.body376
   br i1 %tobool383.not, label %do.end392, label %lor.lhs.false381.if.then384_crit_edge
 
 lor.lhs.false381.if.then384_crit_edge:            ; preds = %lor.lhs.false381
-  %.pre509 = load ptr, ptr %ptr377, align 8
+  %.pre508 = load ptr, ptr %ptr377, align 8
   br label %if.then384
 
 if.then384:                                       ; preds = %lor.lhs.false381.if.then384_crit_edge, %do.body376
-  %90 = phi ptr [ %.pre509, %lor.lhs.false381.if.then384_crit_edge ], [ %88, %do.body376 ]
+  %90 = phi ptr [ %.pre508, %lor.lhs.false381.if.then384_crit_edge ], [ %88, %do.body376 ]
   %91 = or i8 %flag, 91
   %incdec.ptr389 = getelementptr i8, ptr %90, i64 1
   store ptr %incdec.ptr389, ptr %ptr377, align 8
@@ -3487,41 +3483,41 @@ do.end392:                                        ; preds = %if.then384, %lor.lh
   br i1 %cmp395, label %if.then397, label %if.end401
 
 if.then397:                                       ; preds = %do.end392
-  %depth398 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 2
+  %depth398 = getelementptr inbounds i8, ptr %p, i64 12
   %93 = load i32, ptr %depth398, align 4
   %dec399 = add i32 %93, -1
   store i32 %dec399, ptr %depth398, align 4
-  %error400 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error400 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error400, align 8
   br label %if.end647
 
 if.end401:                                        ; preds = %do.end392
   tail call fastcc void @w_long(i64 noundef %v.val304, ptr noundef nonnull %p)
-  %cmp404496 = icmp sgt i64 %v.val304, 0
-  br i1 %cmp404496, label %for.body406.lr.ph, label %if.end647
+  %cmp404495 = icmp sgt i64 %v.val304, 0
+  br i1 %cmp404495, label %for.body406.lr.ph, label %if.end647
 
 for.body406.lr.ph:                                ; preds = %if.end401
-  %ob_item407 = getelementptr inbounds %struct.PyListObject, ptr %v, i64 0, i32 1
+  %ob_item407 = getelementptr inbounds i8, ptr %v, i64 24
   br label %for.body406
 
 for.body406:                                      ; preds = %for.body406.lr.ph, %for.body406
-  %i.1497 = phi i64 [ 0, %for.body406.lr.ph ], [ %inc410, %for.body406 ]
+  %i.1496 = phi i64 [ 0, %for.body406.lr.ph ], [ %inc410, %for.body406 ]
   %94 = load ptr, ptr %ob_item407, align 8
-  %arrayidx408 = getelementptr ptr, ptr %94, i64 %i.1497
+  %arrayidx408 = getelementptr ptr, ptr %94, i64 %i.1496
   %95 = load ptr, ptr %arrayidx408, align 8
   tail call fastcc void @w_object(ptr noundef %95, ptr noundef %p)
-  %inc410 = add nuw nsw i64 %i.1497, 1
-  %exitcond501.not = icmp eq i64 %inc410, %v.val304
-  br i1 %exitcond501.not, label %if.end647, label %for.body406, !llvm.loop !8
+  %inc410 = add nuw nsw i64 %i.1496, 1
+  %exitcond500.not = icmp eq i64 %inc410, %v.val304
+  br i1 %exitcond500.not, label %if.end647, label %for.body406, !llvm.loop !8
 
 if.else412:                                       ; preds = %if.else371
-  %cmp.i462.not = icmp eq ptr %v.val282, @PyDict_Type
-  br i1 %cmp.i462.not, label %do.body417, label %if.else436
+  %cmp.i461.not = icmp eq ptr %v.val282, @PyDict_Type
+  br i1 %cmp.i461.not, label %do.body417, label %if.else436
 
 do.body417:                                       ; preds = %if.else412
-  %ptr418 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr418 = getelementptr inbounds i8, ptr %p, i64 24
   %96 = load ptr, ptr %ptr418, align 8
-  %end419 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end419 = getelementptr inbounds i8, ptr %p, i64 32
   %97 = load ptr, ptr %end419, align 8
   %cmp420.not = icmp eq ptr %96, %97
   br i1 %cmp420.not, label %lor.lhs.false422, label %if.then425
@@ -3532,11 +3528,11 @@ lor.lhs.false422:                                 ; preds = %do.body417
   br i1 %tobool424.not, label %do.end433, label %lor.lhs.false422.if.then425_crit_edge
 
 lor.lhs.false422.if.then425_crit_edge:            ; preds = %lor.lhs.false422
-  %.pre508 = load ptr, ptr %ptr418, align 8
+  %.pre507 = load ptr, ptr %ptr418, align 8
   br label %if.then425
 
 if.then425:                                       ; preds = %lor.lhs.false422.if.then425_crit_edge, %do.body417
-  %98 = phi ptr [ %.pre508, %lor.lhs.false422.if.then425_crit_edge ], [ %96, %do.body417 ]
+  %98 = phi ptr [ %.pre507, %lor.lhs.false422.if.then425_crit_edge ], [ %96, %do.body417 ]
   %99 = or i8 %flag, 123
   %incdec.ptr430 = getelementptr i8, ptr %98, i64 1
   store ptr %incdec.ptr430, ptr %ptr418, align 8
@@ -3545,9 +3541,9 @@ if.then425:                                       ; preds = %lor.lhs.false422.if
 
 do.end433:                                        ; preds = %if.then425, %lor.lhs.false422
   store i64 0, ptr %pos, align 8
-  %call434494 = call i32 @PyDict_Next(ptr noundef nonnull %v, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %value) #9
-  %tobool435.not495 = icmp eq i32 %call434494, 0
-  br i1 %tobool435.not495, label %while.end, label %while.body
+  %call434493 = call i32 @PyDict_Next(ptr noundef nonnull %v, ptr noundef nonnull %pos, ptr noundef nonnull %key, ptr noundef nonnull %value) #9
+  %tobool435.not494 = icmp eq i32 %call434493, 0
+  br i1 %tobool435.not494, label %while.end, label %while.body
 
 while.body:                                       ; preds = %do.end433, %while.body
   %100 = load ptr, ptr %key, align 8
@@ -3563,19 +3559,19 @@ while.end:                                        ; preds = %while.body, %do.end
   br label %if.end647
 
 if.else436:                                       ; preds = %if.else412
-  %cmp.i464.not = icmp eq ptr %v.val282, @PySet_Type
-  %cmp.i466.not = icmp eq ptr %v.val282, @PyFrozenSet_Type
-  %or.cond487 = or i1 %cmp.i464.not, %cmp.i466.not
-  br i1 %or.cond487, label %if.then442, label %if.else540
+  %cmp.i463.not = icmp eq ptr %v.val282, @PySet_Type
+  %cmp.i465.not = icmp eq ptr %v.val282, @PyFrozenSet_Type
+  %or.cond486 = or i1 %cmp.i463.not, %cmp.i465.not
+  br i1 %or.cond486, label %if.then442, label %if.else540
 
 if.then442:                                       ; preds = %if.else436
   store i64 0, ptr %pos444, align 8
-  %ptr450 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr450 = getelementptr inbounds i8, ptr %p, i64 24
   %102 = load ptr, ptr %ptr450, align 8
-  %end451 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end451 = getelementptr inbounds i8, ptr %p, i64 32
   %103 = load ptr, ptr %end451, align 8
   %cmp452.not = icmp eq ptr %102, %103
-  br i1 %cmp.i466.not, label %do.body449, label %do.body468
+  br i1 %cmp.i465.not, label %do.body449, label %do.body468
 
 do.body449:                                       ; preds = %if.then442
   br i1 %cmp452.not, label %lor.lhs.false454, label %if.end485.sink.split
@@ -3594,17 +3590,17 @@ lor.lhs.false473:                                 ; preds = %do.body468
   br i1 %tobool475.not, label %if.end485, label %if.end485.sink.split.sink.split
 
 if.end485.sink.split.sink.split:                  ; preds = %lor.lhs.false473, %lor.lhs.false454
-  %.sink534.ph = phi i8 [ 62, %lor.lhs.false454 ], [ 60, %lor.lhs.false473 ]
-  %.pre506 = load ptr, ptr %ptr450, align 8
+  %.sink533.ph = phi i8 [ 62, %lor.lhs.false454 ], [ 60, %lor.lhs.false473 ]
+  %.pre505 = load ptr, ptr %ptr450, align 8
   br label %if.end485.sink.split
 
 if.end485.sink.split:                             ; preds = %if.end485.sink.split.sink.split, %do.body468, %do.body449
-  %.sink534 = phi i8 [ 62, %do.body449 ], [ 60, %do.body468 ], [ %.sink534.ph, %if.end485.sink.split.sink.split ]
-  %.sink533 = phi ptr [ %102, %do.body449 ], [ %102, %do.body468 ], [ %.pre506, %if.end485.sink.split.sink.split ]
-  %104 = or i8 %.sink534, %flag
-  %incdec.ptr481 = getelementptr i8, ptr %.sink533, i64 1
+  %.sink533 = phi i8 [ 62, %do.body449 ], [ 60, %do.body468 ], [ %.sink533.ph, %if.end485.sink.split.sink.split ]
+  %.sink532 = phi ptr [ %102, %do.body449 ], [ %102, %do.body468 ], [ %.pre505, %if.end485.sink.split.sink.split ]
+  %104 = or i8 %.sink533, %flag
+  %incdec.ptr481 = getelementptr i8, ptr %.sink532, i64 1
   store ptr %incdec.ptr481, ptr %ptr450, align 8
-  store i8 %104, ptr %.sink533, align 1
+  store i8 %104, ptr %.sink532, align 1
   br label %if.end485
 
 if.end485:                                        ; preds = %if.end485.sink.split, %lor.lhs.false473, %lor.lhs.false454
@@ -3614,11 +3610,11 @@ if.end485:                                        ; preds = %if.end485.sink.spli
   br i1 %cmp488, label %if.then490, label %if.end494
 
 if.then490:                                       ; preds = %if.end485
-  %depth491 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 2
+  %depth491 = getelementptr inbounds i8, ptr %p, i64 12
   %106 = load i32, ptr %depth491, align 4
   %dec492 = add i32 %106, -1
   store i32 %dec492, ptr %depth491, align 4
-  %error493 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error493 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error493, align 8
   br label %if.end647
 
@@ -3629,22 +3625,22 @@ if.end494:                                        ; preds = %if.end485
   br i1 %cmp497, label %if.then499, label %while.cond503.preheader
 
 while.cond503.preheader:                          ; preds = %if.end494
-  %call504489 = call i32 @_PySet_NextEntry(ptr noundef nonnull %v, ptr noundef nonnull %pos444, ptr noundef nonnull %value443, ptr noundef nonnull %hash) #9
-  %tobool505.not490 = icmp eq i32 %call504489, 0
-  br i1 %tobool505.not490, label %while.end521, label %while.body506.lr.ph
+  %call504488 = call i32 @_PySet_NextEntry(ptr noundef nonnull %v, ptr noundef nonnull %pos444, ptr noundef nonnull %value443, ptr noundef nonnull %hash) #9
+  %tobool505.not489 = icmp eq i32 %call504488, 0
+  br i1 %tobool505.not489, label %while.end521, label %while.body506.lr.ph
 
 while.body506.lr.ph:                              ; preds = %while.cond503.preheader
-  %version507 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 8
+  %version507 = getelementptr inbounds i8, ptr %p, i64 56
   %107 = getelementptr i8, ptr %call496, i64 24
   br label %while.body506
 
 if.then499:                                       ; preds = %if.end494
-  %error500 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error500 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error500, align 8
   br label %if.end647
 
 while.body506:                                    ; preds = %while.body506.lr.ph, %if.end519
-  %i502.0491 = phi i64 [ 0, %while.body506.lr.ph ], [ %inc520, %if.end519 ]
+  %i502.0490 = phi i64 [ 0, %while.body506.lr.ph ], [ %inc520, %if.end519 ]
   %108 = load ptr, ptr %value443, align 8
   %109 = load i32, ptr %version507, align 8
   %call508 = call ptr @PyMarshal_WriteObjectToString(ptr noundef %108, i32 noundef %109)
@@ -3652,7 +3648,7 @@ while.body506:                                    ; preds = %while.body506.lr.ph
   br i1 %cmp509, label %if.then511, label %if.end513
 
 if.then511:                                       ; preds = %while.body506
-  %error512 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error512 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error512, align 8
   %110 = load i64, ptr %call496, align 8
   %111 = and i64 %110, 2147483648
@@ -3692,7 +3688,7 @@ Py_DECREF.exit683:                                ; preds = %if.end513, %if.then
   br i1 %cmp515, label %if.then517, label %if.end519
 
 if.then517:                                       ; preds = %Py_DECREF.exit683
-  %error518 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error518 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error518, align 8
   %115 = load i64, ptr %call496, align 8
   %116 = and i64 %115, 2147483648
@@ -3710,9 +3706,9 @@ if.then1.i672:                                    ; preds = %if.end.i669
   br label %if.end647
 
 if.end519:                                        ; preds = %Py_DECREF.exit683
-  %inc520 = add i64 %i502.0491, 1
+  %inc520 = add i64 %i502.0490, 1
   %call496.val = load ptr, ptr %107, align 8
-  %arrayidx.i = getelementptr ptr, ptr %call496.val, i64 %i502.0491
+  %arrayidx.i = getelementptr ptr, ptr %call496.val, i64 %i502.0490
   store ptr %call514, ptr %arrayidx.i, align 8
   %call504 = call i32 @_PySet_NextEntry(ptr noundef %v, ptr noundef nonnull %pos444, ptr noundef nonnull %value443, ptr noundef nonnull %hash) #9
   %tobool505.not = icmp eq i32 %call504, 0
@@ -3724,15 +3720,15 @@ while.end521:                                     ; preds = %if.end519, %while.c
   br i1 %tobool523.not, label %for.cond528.preheader, label %if.then524
 
 for.cond528.preheader:                            ; preds = %while.end521
-  %cmp529492 = icmp sgt i64 %v.val305, 0
-  br i1 %cmp529492, label %for.body531.lr.ph, label %for.end539
+  %cmp529491 = icmp sgt i64 %v.val305, 0
+  br i1 %cmp529491, label %for.body531.lr.ph, label %for.end539
 
 for.body531.lr.ph:                                ; preds = %for.cond528.preheader
-  %ob_item533 = getelementptr inbounds %struct.PyListObject, ptr %call496, i64 0, i32 1
+  %ob_item533 = getelementptr inbounds i8, ptr %call496, i64 24
   br label %for.body531
 
 if.then524:                                       ; preds = %while.end521
-  %error525 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error525 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error525, align 8
   %117 = load i64, ptr %call496, align 8
   %118 = and i64 %117, 2147483648
@@ -3750,15 +3746,15 @@ if.then1.i663:                                    ; preds = %if.end.i660
   br label %if.end647
 
 for.body531:                                      ; preds = %for.body531.lr.ph, %for.body531
-  %i527.0493 = phi i64 [ 0, %for.body531.lr.ph ], [ %inc538, %for.body531 ]
+  %i527.0492 = phi i64 [ 0, %for.body531.lr.ph ], [ %inc538, %for.body531 ]
   %119 = load ptr, ptr %ob_item533, align 8
-  %arrayidx534 = getelementptr ptr, ptr %119, i64 %i527.0493
+  %arrayidx534 = getelementptr ptr, ptr %119, i64 %i527.0492
   %120 = load ptr, ptr %arrayidx534, align 8
-  %arrayidx536 = getelementptr %struct.PyTupleObject, ptr %120, i64 1
+  %arrayidx536 = getelementptr i8, ptr %120, i64 32
   %121 = load ptr, ptr %arrayidx536, align 8
   store ptr %121, ptr %value443, align 8
   call fastcc void @w_object(ptr noundef %121, ptr noundef %p)
-  %inc538 = add nuw nsw i64 %i527.0493, 1
+  %inc538 = add nuw nsw i64 %i527.0492, 1
   %exitcond.not = icmp eq i64 %inc538, %v.val305
   br i1 %exitcond.not, label %for.end539, label %for.body531, !llvm.loop !11
 
@@ -3779,8 +3775,8 @@ if.then1.i654:                                    ; preds = %if.end.i651
   br label %if.end647
 
 if.else540:                                       ; preds = %if.else436
-  %cmp.i470.not = icmp eq ptr %v.val282, @PyCode_Type
-  br i1 %cmp.i470.not, label %if.then543, label %if.else574
+  %cmp.i469.not = icmp eq ptr %v.val282, @PyCode_Type
+  br i1 %cmp.i469.not, label %if.then543, label %if.else574
 
 if.then543:                                       ; preds = %if.else540
   %call544 = tail call ptr @_PyCode_GetCode(ptr noundef nonnull %v) #9
@@ -3788,14 +3784,14 @@ if.then543:                                       ; preds = %if.else540
   br i1 %cmp545, label %if.then547, label %do.body551
 
 if.then547:                                       ; preds = %if.then543
-  %error548 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error548 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error548, align 8
   br label %if.end647
 
 do.body551:                                       ; preds = %if.then543
-  %ptr552 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr552 = getelementptr inbounds i8, ptr %p, i64 24
   %124 = load ptr, ptr %ptr552, align 8
-  %end553 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end553 = getelementptr inbounds i8, ptr %p, i64 32
   %125 = load ptr, ptr %end553, align 8
   %cmp554.not = icmp eq ptr %124, %125
   br i1 %cmp554.not, label %lor.lhs.false556, label %if.then559
@@ -3806,11 +3802,11 @@ lor.lhs.false556:                                 ; preds = %do.body551
   br i1 %tobool558.not, label %do.end567, label %lor.lhs.false556.if.then559_crit_edge
 
 lor.lhs.false556.if.then559_crit_edge:            ; preds = %lor.lhs.false556
-  %.pre505 = load ptr, ptr %ptr552, align 8
+  %.pre504 = load ptr, ptr %ptr552, align 8
   br label %if.then559
 
 if.then559:                                       ; preds = %lor.lhs.false556.if.then559_crit_edge, %do.body551
-  %126 = phi ptr [ %.pre505, %lor.lhs.false556.if.then559_crit_edge ], [ %124, %do.body551 ]
+  %126 = phi ptr [ %.pre504, %lor.lhs.false556.if.then559_crit_edge ], [ %124, %do.body551 ]
   %127 = or i8 %flag, 99
   %incdec.ptr564 = getelementptr i8, ptr %126, i64 1
   store ptr %incdec.ptr564, ptr %ptr552, align 8
@@ -3818,56 +3814,56 @@ if.then559:                                       ; preds = %lor.lhs.false556.if
   br label %do.end567
 
 do.end567:                                        ; preds = %if.then559, %lor.lhs.false556
-  %co_argcount = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 5
+  %co_argcount = getelementptr inbounds i8, ptr %v, i64 52
   %128 = load i32, ptr %co_argcount, align 4
   %conv568 = sext i32 %128 to i64
   tail call fastcc void @w_long(i64 noundef %conv568, ptr noundef nonnull %p)
-  %co_posonlyargcount = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 6
+  %co_posonlyargcount = getelementptr inbounds i8, ptr %v, i64 56
   %129 = load i32, ptr %co_posonlyargcount, align 8
   %conv569 = sext i32 %129 to i64
   tail call fastcc void @w_long(i64 noundef %conv569, ptr noundef nonnull %p)
-  %co_kwonlyargcount = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 7
+  %co_kwonlyargcount = getelementptr inbounds i8, ptr %v, i64 60
   %130 = load i32, ptr %co_kwonlyargcount, align 4
   %conv570 = sext i32 %130 to i64
   tail call fastcc void @w_long(i64 noundef %conv570, ptr noundef nonnull %p)
-  %co_stacksize = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 8
+  %co_stacksize = getelementptr inbounds i8, ptr %v, i64 64
   %131 = load i32, ptr %co_stacksize, align 8
   %conv571 = sext i32 %131 to i64
   tail call fastcc void @w_long(i64 noundef %conv571, ptr noundef nonnull %p)
-  %co_flags = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 4
+  %co_flags = getelementptr inbounds i8, ptr %v, i64 48
   %132 = load i32, ptr %co_flags, align 8
   %conv572 = sext i32 %132 to i64
   tail call fastcc void @w_long(i64 noundef %conv572, ptr noundef nonnull %p)
   tail call fastcc void @w_object(ptr noundef nonnull %call544, ptr noundef nonnull %p)
-  %co_consts = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 1
+  %co_consts = getelementptr inbounds i8, ptr %v, i64 24
   %133 = load ptr, ptr %co_consts, align 8
   tail call fastcc void @w_object(ptr noundef %133, ptr noundef nonnull %p)
-  %co_names = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 2
+  %co_names = getelementptr inbounds i8, ptr %v, i64 32
   %134 = load ptr, ptr %co_names, align 8
   tail call fastcc void @w_object(ptr noundef %134, ptr noundef nonnull %p)
-  %co_localsplusnames = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 16
+  %co_localsplusnames = getelementptr inbounds i8, ptr %v, i64 96
   %135 = load ptr, ptr %co_localsplusnames, align 8
   tail call fastcc void @w_object(ptr noundef %135, ptr noundef nonnull %p)
-  %co_localspluskinds = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 17
+  %co_localspluskinds = getelementptr inbounds i8, ptr %v, i64 104
   %136 = load ptr, ptr %co_localspluskinds, align 8
   tail call fastcc void @w_object(ptr noundef %136, ptr noundef nonnull %p)
-  %co_filename = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 18
+  %co_filename = getelementptr inbounds i8, ptr %v, i64 112
   %137 = load ptr, ptr %co_filename, align 8
   tail call fastcc void @w_object(ptr noundef %137, ptr noundef nonnull %p)
-  %co_name = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 19
+  %co_name = getelementptr inbounds i8, ptr %v, i64 120
   %138 = load ptr, ptr %co_name, align 8
   tail call fastcc void @w_object(ptr noundef %138, ptr noundef nonnull %p)
-  %co_qualname = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 20
+  %co_qualname = getelementptr inbounds i8, ptr %v, i64 128
   %139 = load ptr, ptr %co_qualname, align 8
   tail call fastcc void @w_object(ptr noundef %139, ptr noundef nonnull %p)
-  %co_firstlineno = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 9
+  %co_firstlineno = getelementptr inbounds i8, ptr %v, i64 68
   %140 = load i32, ptr %co_firstlineno, align 4
   %conv573 = sext i32 %140 to i64
   tail call fastcc void @w_long(i64 noundef %conv573, ptr noundef nonnull %p)
-  %co_linetable = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 21
+  %co_linetable = getelementptr inbounds i8, ptr %v, i64 136
   %141 = load ptr, ptr %co_linetable, align 8
   tail call fastcc void @w_object(ptr noundef %141, ptr noundef nonnull %p)
-  %co_exceptiontable = getelementptr inbounds %struct.PyCodeObject, ptr %v, i64 0, i32 3
+  %co_exceptiontable = getelementptr inbounds i8, ptr %v, i64 40
   %142 = load ptr, ptr %co_exceptiontable, align 8
   tail call fastcc void @w_object(ptr noundef %142, ptr noundef nonnull %p)
   %143 = load i64, ptr %call544, align 8
@@ -3893,9 +3889,9 @@ if.else574:                                       ; preds = %if.else540
 if.then577:                                       ; preds = %if.else574
   %call578 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %v, ptr noundef nonnull %view, i32 noundef 0) #9
   %cmp579.not = icmp eq i32 %call578, 0
-  %ptr601 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr601 = getelementptr inbounds i8, ptr %p, i64 24
   %145 = load ptr, ptr %ptr601, align 8
-  %end602 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end602 = getelementptr inbounds i8, ptr %p, i64 32
   %146 = load ptr, ptr %end602, align 8
   %cmp603.not = icmp eq ptr %145, %146
   br i1 %cmp579.not, label %do.body600, label %do.body582
@@ -3920,11 +3916,11 @@ if.then590:                                       ; preds = %lor.lhs.false587.if
   br label %do.end594
 
 do.end594:                                        ; preds = %lor.lhs.false587, %if.then590
-  %depth595 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 2
+  %depth595 = getelementptr inbounds i8, ptr %p, i64 12
   %148 = load i32, ptr %depth595, align 4
   %dec596 = add i32 %148, -1
   store i32 %dec596, ptr %depth595, align 4
-  %error597 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error597 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error597, align 8
   br label %if.end647
 
@@ -3937,11 +3933,11 @@ lor.lhs.false605:                                 ; preds = %do.body600
   br i1 %tobool607.not, label %do.end616, label %lor.lhs.false605.if.then608_crit_edge
 
 lor.lhs.false605.if.then608_crit_edge:            ; preds = %lor.lhs.false605
-  %.pre503 = load ptr, ptr %ptr601, align 8
+  %.pre502 = load ptr, ptr %ptr601, align 8
   br label %if.then608
 
 if.then608:                                       ; preds = %lor.lhs.false605.if.then608_crit_edge, %do.body600
-  %149 = phi ptr [ %.pre503, %lor.lhs.false605.if.then608_crit_edge ], [ %145, %do.body600 ]
+  %149 = phi ptr [ %.pre502, %lor.lhs.false605.if.then608_crit_edge ], [ %145, %do.body600 ]
   %150 = or i8 %flag, 115
   %incdec.ptr613 = getelementptr i8, ptr %149, i64 1
   store ptr %incdec.ptr613, ptr %ptr601, align 8
@@ -3950,16 +3946,16 @@ if.then608:                                       ; preds = %lor.lhs.false605.if
 
 do.end616:                                        ; preds = %if.then608, %lor.lhs.false605
   %151 = load ptr, ptr %view, align 8
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %view, i64 16
   %152 = load i64, ptr %len, align 8
   call fastcc void @w_pstring(ptr noundef %151, i64 noundef %152, ptr noundef nonnull %p)
   call void @PyBuffer_Release(ptr noundef nonnull %view) #9
   br label %if.end647
 
 do.body619:                                       ; preds = %if.else574
-  %ptr620 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr620 = getelementptr inbounds i8, ptr %p, i64 24
   %153 = load ptr, ptr %ptr620, align 8
-  %end621 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end621 = getelementptr inbounds i8, ptr %p, i64 32
   %154 = load ptr, ptr %end621, align 8
   %cmp622.not = icmp eq ptr %153, %154
   br i1 %cmp622.not, label %lor.lhs.false624, label %if.then627
@@ -3970,11 +3966,11 @@ lor.lhs.false624:                                 ; preds = %do.body619
   br i1 %tobool626.not, label %do.end635, label %lor.lhs.false624.if.then627_crit_edge
 
 lor.lhs.false624.if.then627_crit_edge:            ; preds = %lor.lhs.false624
-  %.pre504 = load ptr, ptr %ptr620, align 8
+  %.pre503 = load ptr, ptr %ptr620, align 8
   br label %if.then627
 
 if.then627:                                       ; preds = %lor.lhs.false624.if.then627_crit_edge, %do.body619
-  %155 = phi ptr [ %.pre504, %lor.lhs.false624.if.then627_crit_edge ], [ %153, %do.body619 ]
+  %155 = phi ptr [ %.pre503, %lor.lhs.false624.if.then627_crit_edge ], [ %153, %do.body619 ]
   %156 = or i8 %flag, 63
   %incdec.ptr632 = getelementptr i8, ptr %155, i64 1
   store ptr %incdec.ptr632, ptr %ptr620, align 8
@@ -3982,11 +3978,11 @@ if.then627:                                       ; preds = %lor.lhs.false624.if
   br label %do.end635
 
 do.end635:                                        ; preds = %if.then627, %lor.lhs.false624
-  %error636 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error636 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error636, align 8
   br label %if.end647
 
-if.end647:                                        ; preds = %for.body406, %for.body, %if.end401, %if.end368, %if.end.i433, %if.then.i434, %if.end.i425, %if.then.i427, %if.end.i397, %if.then.i398, %w_float_bin.exit, %while.end, %do.end567, %if.then1.i, %if.end.i, %do.end635, %do.end616, %if.end.i651, %if.then1.i654, %for.end539, %PyUnicode_DATA.exit455, %PyUnicode_DATA.exit, %if.end292, %if.then1.i699, %if.end.i696, %w_float_bin.exit415, %if.end.i660, %if.then1.i663, %if.then524, %if.end.i669, %if.then1.i672, %if.then517, %if.end.i687, %if.then1.i690, %if.then511, %if.then3, %do.end14, %if.then5, %do.end594, %if.then547, %if.then499, %if.then490, %if.then397, %if.then362, %if.then246
+if.end647:                                        ; preds = %for.body406, %for.body, %if.end401, %if.end368, %if.end.i433, %if.then.i434, %if.end.i425, %if.then.i427, %if.end.i397, %if.then.i398, %w_float_bin.exit, %while.end, %do.end567, %if.then1.i, %if.end.i, %do.end635, %do.end616, %if.end.i651, %if.then1.i654, %for.end539, %PyUnicode_DATA.exit454, %PyUnicode_DATA.exit, %if.end292, %if.then1.i699, %if.end.i696, %w_float_bin.exit415, %if.end.i660, %if.then1.i663, %if.then524, %if.end.i669, %if.then1.i672, %if.then517, %if.end.i687, %if.then1.i690, %if.then511, %if.then3, %do.end14, %if.then5, %do.end594, %if.then547, %if.then499, %if.then490, %if.then397, %if.then362, %if.then246
   ret void
 }
 
@@ -3997,9 +3993,9 @@ declare i64 @PyLong_AsLongAndOverflow(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @w_PyLong(ptr nocapture noundef readonly %ob, i8 noundef signext %flag, ptr noundef %p) unnamed_addr #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load ptr, ptr %ptr, align 8
-  %end = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end = getelementptr inbounds i8, ptr %p, i64 32
   %1 = load ptr, ptr %end, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
@@ -4011,7 +4007,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end.i:                                         ; preds = %lor.lhs.false
   %2 = load ptr, ptr %p, align 8
   %cmp1.not.i = icmp eq ptr %2, null
-  %buf.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i = getelementptr inbounds i8, ptr %p, i64 40
   %3 = load ptr, ptr %buf.i, align 8
   %sub.ptr.lhs.cast7.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast8.i = ptrtoint ptr %3 to i64
@@ -4019,7 +4015,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp1.not.i, label %if.end5.i, label %w_reserve.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %str.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i = getelementptr inbounds i8, ptr %p, i64 16
   %4 = load ptr, ptr %str.i, align 8
   %5 = getelementptr i8, ptr %4, i64 16
   %.val.i = load i64, ptr %5, align 8
@@ -4033,7 +4029,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp16.i, label %if.then18.i, label %if.end19.i
 
 if.then18.i:                                      ; preds = %if.end5.i
-  %error.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i, align 8
   br label %do.end4
 
@@ -4049,7 +4045,7 @@ if.then25.i:                                      ; preds = %if.end19.i
 
 w_reserve.exit.thread127:                         ; preds = %if.end19.i
   %6 = load ptr, ptr %str.i, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %6, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %ob_sval.i.i, ptr %buf.i, align 8
   %add.ptr.i = getelementptr i8, ptr %ob_sval.i.i, i64 %sub.ptr.sub9.i
   %add.ptr36.i = getelementptr i8, ptr %ob_sval.i.i, i64 %add20.i
@@ -4090,7 +4086,8 @@ if.end7:                                          ; preds = %do.end4
   %shr.i33 = lshr i64 %ob.val, 3
   %sub = add nsw i64 %shr.i33, -1
   %mul = shl nsw i64 %sub, 1
-  %arrayidx = getelementptr %struct._longobject, ptr %ob, i64 0, i32 1, i32 1, i64 %sub
+  %ob_digit = getelementptr inbounds i8, ptr %ob, i64 24
+  %arrayidx = getelementptr [1 x i32], ptr %ob_digit, i64 0, i64 %sub
   %12 = load i32, ptr %arrayidx, align 4
   br label %do.body10
 
@@ -4107,11 +4104,11 @@ do.end13:                                         ; preds = %do.body10
   br i1 %cmp14, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end13
-  %depth = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 2
+  %depth = getelementptr inbounds i8, ptr %p, i64 12
   %13 = load i32, ptr %depth, align 4
   %dec = add i32 %13, -1
   store i32 %dec, ptr %depth, align 4
-  %error = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error, align 8
   br label %do.end46
 
@@ -4124,14 +4121,14 @@ if.end17:                                         ; preds = %do.end13
   br i1 %cmp22132, label %for.body.lr.ph, label %for.end35
 
 for.body.lr.ph:                                   ; preds = %if.end17
-  %buf.i.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
-  %str.i.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
-  %error.i.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %buf.i.i = getelementptr inbounds i8, ptr %p, i64 40
+  %str.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %error.i.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc33
   %i.0133 = phi i64 [ 0, %for.body.lr.ph ], [ %inc34, %for.inc33 ]
-  %arrayidx26 = getelementptr %struct._longobject, ptr %ob, i64 0, i32 1, i32 1, i64 %i.0133
+  %arrayidx26 = getelementptr [1 x i32], ptr %ob_digit, i64 0, i64 %i.0133
   %14 = load i32, ptr %arrayidx26, align 4
   br label %for.body30
 
@@ -4185,7 +4182,7 @@ if.then25.i.i:                                    ; preds = %if.end19.i.i
 
 w_reserve.exit.thread51.i:                        ; preds = %if.end19.i.i
   %21 = load ptr, ptr %str.i.i, align 8
-  %ob_sval.i.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %21, i64 0, i32 2
+  %ob_sval.i.i.i = getelementptr inbounds i8, ptr %21, i64 32
   store ptr %ob_sval.i.i.i, ptr %buf.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %ob_sval.i.i.i, i64 %sub.ptr.sub9.i.i
   %add.ptr36.i.i = getelementptr i8, ptr %ob_sval.i.i.i, i64 %add20.i.i
@@ -4262,7 +4259,7 @@ if.then25.i40.i:                                  ; preds = %if.end19.i36.i
 
 w_reserve.exit48.thread56.i:                      ; preds = %if.end19.i36.i
   %29 = load ptr, ptr %str.i.i, align 8
-  %ob_sval.i.i42.i = getelementptr inbounds %struct.PyBytesObject, ptr %29, i64 0, i32 2
+  %ob_sval.i.i42.i = getelementptr inbounds i8, ptr %29, i64 32
   store ptr %ob_sval.i.i42.i, ptr %buf.i.i, align 8
   %add.ptr.i43.i = getelementptr i8, ptr %ob_sval.i.i42.i, i64 %sub.ptr.sub9.i16.i.pre-phi145
   %add.ptr36.i44.i = getelementptr i8, ptr %ob_sval.i.i42.i, i64 %add20.i37.i
@@ -4301,9 +4298,9 @@ for.inc33:                                        ; preds = %w_short.exit
 
 for.end35:                                        ; preds = %for.inc33, %if.end17
   %34 = load i32, ptr %arrayidx, align 4
-  %buf.i.i93 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
-  %str.i.i104 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
-  %error.i.i123 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %buf.i.i93 = getelementptr inbounds i8, ptr %p, i64 40
+  %str.i.i104 = getelementptr inbounds i8, ptr %p, i64 16
+  %error.i.i123 = getelementptr inbounds i8, ptr %p, i64 8
   br label %do.body40
 
 do.body40:                                        ; preds = %w_short.exit124, %for.end35
@@ -4355,7 +4352,7 @@ if.then25.i.i117:                                 ; preds = %if.end19.i.i113
 
 w_reserve.exit.thread51.i118:                     ; preds = %if.end19.i.i113
   %41 = load ptr, ptr %str.i.i104, align 8
-  %ob_sval.i.i.i119 = getelementptr inbounds %struct.PyBytesObject, ptr %41, i64 0, i32 2
+  %ob_sval.i.i.i119 = getelementptr inbounds i8, ptr %41, i64 32
   store ptr %ob_sval.i.i.i119, ptr %buf.i.i93, align 8
   %add.ptr.i.i120 = getelementptr i8, ptr %ob_sval.i.i.i119, i64 %sub.ptr.sub9.i.i96
   %add.ptr36.i.i121 = getelementptr i8, ptr %ob_sval.i.i.i119, i64 %add20.i.i114
@@ -4432,7 +4429,7 @@ if.then25.i40.i82:                                ; preds = %if.end19.i36.i78
 
 w_reserve.exit48.thread56.i83:                    ; preds = %if.end19.i36.i78
   %49 = load ptr, ptr %str.i.i104, align 8
-  %ob_sval.i.i42.i84 = getelementptr inbounds %struct.PyBytesObject, ptr %49, i64 0, i32 2
+  %ob_sval.i.i42.i84 = getelementptr inbounds i8, ptr %49, i64 32
   store ptr %ob_sval.i.i42.i84, ptr %buf.i.i93, align 8
   %add.ptr.i43.i85 = getelementptr i8, ptr %ob_sval.i.i42.i84, i64 %sub.ptr.sub9.i16.i61.pre-phi148
   %add.ptr36.i44.i86 = getelementptr i8, ptr %ob_sval.i.i42.i84, i64 %add20.i37.i79
@@ -4480,11 +4477,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %depth = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 2
+  %depth = getelementptr inbounds i8, ptr %p, i64 12
   %0 = load i32, ptr %depth, align 4
   %dec = add i32 %0, -1
   store i32 %dec, ptr %depth, align 4
-  %error = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %p, i64 8
   store i32 1, ptr %error, align 8
   br label %return
 
@@ -4500,9 +4497,9 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @w_short_pstring(ptr nocapture noundef %s, i64 noundef %n, ptr noundef %p) unnamed_addr #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load ptr, ptr %ptr, align 8
-  %end = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end = getelementptr inbounds i8, ptr %p, i64 32
   %1 = load ptr, ptr %end, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
@@ -4514,7 +4511,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end.i:                                         ; preds = %lor.lhs.false
   %2 = load ptr, ptr %p, align 8
   %cmp1.not.i = icmp eq ptr %2, null
-  %buf.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i = getelementptr inbounds i8, ptr %p, i64 40
   %3 = load ptr, ptr %buf.i, align 8
   %sub.ptr.lhs.cast7.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast8.i = ptrtoint ptr %3 to i64
@@ -4522,7 +4519,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp1.not.i, label %if.end5.i, label %w_reserve.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %str.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i = getelementptr inbounds i8, ptr %p, i64 16
   %4 = load ptr, ptr %str.i, align 8
   %5 = getelementptr i8, ptr %4, i64 16
   %.val.i = load i64, ptr %5, align 8
@@ -4536,7 +4533,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp16.i, label %if.then18.i, label %if.end19.i
 
 if.then18.i:                                      ; preds = %if.end5.i
-  %error.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i, align 8
   br label %do.end
 
@@ -4552,7 +4549,7 @@ if.then25.i:                                      ; preds = %if.end19.i
 
 w_reserve.exit.thread8:                           ; preds = %if.end19.i
   %6 = load ptr, ptr %str.i, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %6, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %ob_sval.i.i, ptr %buf.i, align 8
   %add.ptr.i = getelementptr i8, ptr %ob_sval.i.i, i64 %sub.ptr.sub9.i
   %add.ptr36.i = getelementptr i8, ptr %ob_sval.i.i, i64 %add20.i
@@ -4610,13 +4607,13 @@ entry:
   br i1 %tobool.not, label %if.end20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %ptr = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 4
+  %ptr = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load ptr, ptr %ptr, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end20, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %end = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 5
+  %end = getelementptr inbounds i8, ptr %p, i64 32
   %1 = load ptr, ptr %end, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
@@ -4637,7 +4634,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end20
 
 if.else:                                          ; preds = %if.then3
-  %buf.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i = getelementptr inbounds i8, ptr %p, i64 40
   %4 = load ptr, ptr %buf.i, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
@@ -4653,11 +4650,11 @@ if.else10:                                        ; preds = %if.end
 
 if.end5.i:                                        ; preds = %if.else10
   %sub = sub i64 %n, %sub.ptr.sub
-  %buf.i24 = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 6
+  %buf.i24 = getelementptr inbounds i8, ptr %p, i64 40
   %7 = load ptr, ptr %buf.i24, align 8
   %sub.ptr.rhs.cast8.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub9.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast8.i
-  %str.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 3
+  %str.i = getelementptr inbounds i8, ptr %p, i64 16
   %8 = load ptr, ptr %str.i, align 8
   %9 = getelementptr i8, ptr %8, i64 16
   %.val.i = load i64, ptr %9, align 8
@@ -4671,7 +4668,7 @@ if.end5.i:                                        ; preds = %if.else10
   br i1 %cmp16.i, label %if.then18.i, label %if.end19.i
 
 if.then18.i:                                      ; preds = %if.end5.i
-  %error.i = getelementptr inbounds %struct.WFILE, ptr %p, i64 0, i32 1
+  %error.i = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i, align 8
   br label %if.end20
 
@@ -4687,7 +4684,7 @@ if.then25.i:                                      ; preds = %if.end19.i
 
 w_reserve.exit:                                   ; preds = %if.end19.i
   %10 = load ptr, ptr %str.i, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %10, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %10, i64 32
   store ptr %ob_sval.i.i, ptr %buf.i24, align 8
   %add.ptr.i = getelementptr i8, ptr %ob_sval.i.i, i64 %sub.ptr.sub9.i
   store ptr %add.ptr.i, ptr %ptr, align 8
@@ -4721,13 +4718,13 @@ declare void @_Py_hashtable_destroy(ptr noundef) local_unnamed_addr #2
 define internal fastcc ptr @r_string(i64 noundef %n, ptr nocapture noundef %p) unnamed_addr #0 {
 entry:
   %buf33 = alloca %struct.Py_buffer, align 8
-  %ptr = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 3
+  %ptr = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load ptr, ptr %ptr, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %end = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 4
+  %end = getelementptr inbounds i8, ptr %p, i64 32
   %1 = load ptr, ptr %end, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
@@ -4746,7 +4743,7 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %buf = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 5
+  %buf = getelementptr inbounds i8, ptr %p, i64 40
   %3 = load ptr, ptr %buf, align 8
   %cmp7 = icmp eq ptr %3, null
   br i1 %cmp7, label %if.then8, label %if.else
@@ -4762,11 +4759,11 @@ if.then12:                                        ; preds = %if.then8
   br label %return
 
 if.end14:                                         ; preds = %if.then8
-  %buf_size = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 6
+  %buf_size = getelementptr inbounds i8, ptr %p, i64 48
   br label %if.end27.sink.split
 
 if.else:                                          ; preds = %if.end6
-  %buf_size15 = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 6
+  %buf_size15 = getelementptr inbounds i8, ptr %p, i64 48
   %4 = load i64, ptr %buf_size15, align 8
   %cmp16 = icmp slt i64 %4, %n
   br i1 %cmp16, label %if.then17, label %if.end27
@@ -4792,7 +4789,7 @@ if.end27.sink.split:                              ; preds = %if.end14, %if.end23
 
 if.end27:                                         ; preds = %if.end27.sink.split, %if.else
   %5 = phi ptr [ %3, %if.else ], [ %.ph, %if.end27.sink.split ]
-  %readable = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 2
+  %readable = getelementptr inbounds i8, ptr %p, i64 16
   %6 = load ptr, ptr %readable, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.then28, label %if.else31
@@ -4893,13 +4890,13 @@ define internal fastcc ptr @r_object(ptr noundef %p) unnamed_addr #0 {
 entry:
   %v = alloca ptr, align 8
   %con = alloca %struct._PyCodeConstructor, align 8
-  %ptr.i = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 3
+  %ptr.i = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load ptr, ptr %ptr.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %end.i = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 4
+  %end.i = getelementptr inbounds i8, ptr %p, i64 32
   %1 = load ptr, ptr %end.i, align 8
   %cmp2.i = icmp ult ptr %0, %1
   br i1 %cmp2.i, label %if.then3.i, label %if.end19.i
@@ -4910,7 +4907,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %if.end4.sink.split
 
 if.else.i:                                        ; preds = %entry
-  %readable.i = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 2
+  %readable.i = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %readable.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.then5.i, label %if.else10.i
@@ -4950,7 +4947,7 @@ if.end4.sink.split:                               ; preds = %if.else10.i, %if.th
 
 if.end4:                                          ; preds = %if.end4.sink.split, %if.then5.i
   %retval.0.i.ph = phi i32 [ %call.i, %if.then5.i ], [ %conv.i, %if.end4.sink.split ]
-  %depth = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load i32, ptr %depth, align 8
   %inc = add i32 %8, 1
   store i32 %inc, ptr %depth, align 8
@@ -5196,7 +5193,7 @@ if.then1.i728:                                    ; preds = %if.end.i725
   br label %sw.epilog
 
 if.end144:                                        ; preds = %if.end140
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call137, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call137, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %ob_sval.i, ptr nonnull align 1 %call141, i64 %call128, i1 false)
   %tobool147.not = icmp eq i32 %and, 0
   br i1 %tobool147.not, label %sw.epilog, label %if.then148
@@ -5252,7 +5249,7 @@ sw.bb165:                                         ; preds = %sw.bb164, %if.end9
   br i1 %cmp.not.i256, label %if.else.i265, label %if.then.i257
 
 if.then.i257:                                     ; preds = %sw.bb165
-  %end.i258 = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 4
+  %end.i258 = getelementptr inbounds i8, ptr %p, i64 32
   %22 = load ptr, ptr %end.i258, align 8
   %cmp2.i259 = icmp ult ptr %21, %22
   br i1 %cmp2.i259, label %if.then3.i262, label %if.end19.i260
@@ -5263,7 +5260,7 @@ if.then3.i262:                                    ; preds = %if.then.i257
   br label %r_byte.exit276.thread.sink.split
 
 if.else.i265:                                     ; preds = %sw.bb165
-  %readable.i266 = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 2
+  %readable.i266 = getelementptr inbounds i8, ptr %p, i64 16
   %23 = load ptr, ptr %readable.i266, align 8
   %tobool.not.i267 = icmp eq ptr %23, null
   br i1 %tobool.not.i267, label %if.then5.i273, label %if.else10.i268
@@ -5481,7 +5478,8 @@ if.then1.i719:                                    ; preds = %if.end.i716
 
 if.end272:                                        ; preds = %for.body
   %41 = load ptr, ptr %v, align 8
-  %arrayidx.i = getelementptr %struct.PyTupleObject, ptr %41, i64 0, i32 1, i64 %i.0340
+  %ob_item.i = getelementptr inbounds i8, ptr %41, i64 24
+  %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %i.0340
   store ptr %call262, ptr %arrayidx.i, align 8
   %inc273 = add nuw nsw i64 %i.0340, 1
   %exitcond349.not = icmp eq i64 %inc273, %n.1
@@ -6050,35 +6048,35 @@ if.end552:                                        ; preds = %if.end547
 
 if.end557:                                        ; preds = %if.end552
   store ptr %call524, ptr %con, align 8
-  %name559 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 1
+  %name559 = getelementptr inbounds i8, ptr %con, i64 8
   store ptr %call529, ptr %name559, align 8
-  %qualname560 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 2
+  %qualname560 = getelementptr inbounds i8, ptr %con, i64 16
   store ptr %call534, ptr %qualname560, align 8
-  %flags561 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 3
+  %flags561 = getelementptr inbounds i8, ptr %con, i64 24
   store i32 %conv491, ptr %flags561, align 8
-  %code562 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 4
+  %code562 = getelementptr inbounds i8, ptr %con, i64 32
   store ptr %call499, ptr %code562, align 8
-  %firstlineno563 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 5
+  %firstlineno563 = getelementptr inbounds i8, ptr %con, i64 40
   store i32 %conv540, ptr %firstlineno563, align 8
-  %linetable564 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 6
+  %linetable564 = getelementptr inbounds i8, ptr %con, i64 48
   store ptr %call548, ptr %linetable564, align 8
-  %consts565 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 7
+  %consts565 = getelementptr inbounds i8, ptr %con, i64 56
   store ptr %call504, ptr %consts565, align 8
-  %names566 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 8
+  %names566 = getelementptr inbounds i8, ptr %con, i64 64
   store ptr %call509, ptr %names566, align 8
-  %localsplusnames567 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 9
+  %localsplusnames567 = getelementptr inbounds i8, ptr %con, i64 72
   store ptr %call514, ptr %localsplusnames567, align 8
-  %localspluskinds568 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 10
+  %localspluskinds568 = getelementptr inbounds i8, ptr %con, i64 80
   store ptr %call519, ptr %localspluskinds568, align 8
-  %argcount569 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 11
+  %argcount569 = getelementptr inbounds i8, ptr %con, i64 88
   store i32 %conv455, ptr %argcount569, align 8
-  %posonlyargcount570 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 12
+  %posonlyargcount570 = getelementptr inbounds i8, ptr %con, i64 92
   store i32 %conv464, ptr %posonlyargcount570, align 4
-  %kwonlyargcount571 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 13
+  %kwonlyargcount571 = getelementptr inbounds i8, ptr %con, i64 96
   store i32 %conv473, ptr %kwonlyargcount571, align 8
-  %stacksize572 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 14
+  %stacksize572 = getelementptr inbounds i8, ptr %con, i64 100
   store i32 %conv482, ptr %stacksize572, align 4
-  %exceptiontable573 = getelementptr inbounds %struct._PyCodeConstructor, ptr %con, i64 0, i32 15
+  %exceptiontable573 = getelementptr inbounds i8, ptr %con, i64 104
   store ptr %call553, ptr %exceptiontable573, align 8
   %call574 = call i32 @_PyCode_Validate(ptr noundef nonnull %con) #9
   %cmp575 = icmp slt i32 %call574, 0
@@ -6150,7 +6148,7 @@ sw.bb592:                                         ; preds = %if.end9
   br i1 %cmp594, label %if.then600, label %lor.lhs.false596
 
 lor.lhs.false596:                                 ; preds = %sw.bb592
-  %refs = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 7
+  %refs = getelementptr inbounds i8, ptr %p, i64 56
   %89 = load ptr, ptr %refs, align 8
   %90 = getelementptr i8, ptr %89, i64 16
   %.val = load i64, ptr %90, align 8
@@ -6168,7 +6166,7 @@ if.then603:                                       ; preds = %if.then600
   br label %sw.epilog
 
 if.end605:                                        ; preds = %lor.lhs.false596
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %89, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %89, i64 24
   %92 = load ptr, ptr %ob_item, align 8
   %arrayidx = getelementptr ptr, ptr %92, i64 %call593
   %93 = load ptr, ptr %arrayidx, align 8
@@ -6211,13 +6209,13 @@ return:                                           ; preds = %if.then, %if.then3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @r_byte(ptr nocapture noundef %p) unnamed_addr #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 3
+  %ptr = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load ptr, ptr %ptr, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %end = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 4
+  %end = getelementptr inbounds i8, ptr %p, i64 32
   %1 = load ptr, ptr %end, align 8
   %cmp2 = icmp ult ptr %0, %1
   br i1 %cmp2, label %if.then3, label %if.end19
@@ -6230,7 +6228,7 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %readable = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 2
+  %readable = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load ptr, ptr %readable, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.then5, label %if.else10
@@ -6272,7 +6270,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refs = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 7
+  %refs = getelementptr inbounds i8, ptr %p, i64 56
   %0 = load ptr, ptr %refs, align 8
   %call = tail call i32 @PyList_Append(ptr noundef %0, ptr noundef nonnull %o) #9
   %cmp1 = icmp slt i32 %call, 0
@@ -6379,13 +6377,17 @@ if.end24:                                         ; preds = %if.end9
   %sub.i = and i64 %8, 2
   %shl.i = shl nuw nsw i64 %add, 3
   %or.i = or disjoint i64 %shl.i, %sub.i
-  %long_value.i = getelementptr inbounds %struct._longobject, ptr %call20, i64 0, i32 1
+  %long_value.i = getelementptr inbounds i8, ptr %call20, i64 16
   store i64 %or.i, ptr %long_value.i, align 8
   %cmp2977 = icmp sgt i32 %7, 2
-  br i1 %cmp2977, label %for.cond31.preheader, label %for.cond47.preheader
+  br i1 %cmp2977, label %for.cond31.preheader.lr.ph, label %for.cond47.preheader
 
-for.cond31.preheader:                             ; preds = %if.end24, %for.end
-  %i.078 = phi i64 [ %inc45, %for.end ], [ 0, %if.end24 ]
+for.cond31.preheader.lr.ph:                       ; preds = %if.end24
+  %ob_digit = getelementptr inbounds i8, ptr %call20, i64 24
+  br label %for.cond31.preheader
+
+for.cond31.preheader:                             ; preds = %for.cond31.preheader.lr.ph, %for.end
+  %i.078 = phi i64 [ 0, %for.cond31.preheader.lr.ph ], [ %inc45, %for.end ]
   br label %for.body34
 
 for.cond47.preheader:                             ; preds = %for.end, %if.end24
@@ -6412,7 +6414,7 @@ if.end42:                                         ; preds = %r_short.exit
   br i1 %cmp32, label %for.body34, label %for.end, !llvm.loop !20
 
 for.end:                                          ; preds = %if.end42
-  %arrayidx = getelementptr %struct._longobject, ptr %call20, i64 0, i32 1, i32 1, i64 %i.078
+  %arrayidx = getelementptr [1 x i32], ptr %ob_digit, i64 0, i64 %i.078
   store i32 %add43, ptr %arrayidx, align 4
   %inc45 = add nuw nsw i64 %i.078, 1
   %exitcond.not = icmp eq i64 %inc45, %div.sext
@@ -6468,7 +6470,8 @@ if.end66:                                         ; preds = %if.end58
 
 for.end72:                                        ; preds = %if.end66, %for.cond47.preheader
   %d.1.lcssa = phi i32 [ 0, %for.cond47.preheader ], [ %add69, %if.end66 ]
-  %arrayidx76 = getelementptr %struct._longobject, ptr %call20, i64 0, i32 1, i32 1, i64 %div.sext
+  %ob_digit74 = getelementptr inbounds i8, ptr %call20, i64 24
+  %arrayidx76 = getelementptr [1 x i32], ptr %ob_digit74, i64 0, i64 %div.sext
   store i32 %d.1.lcssa, ptr %arrayidx76, align 4
   br label %return
 
@@ -6507,13 +6510,13 @@ return:                                           ; preds = %Py_DECREF.exit, %if
 define internal fastcc double @r_float_str(ptr nocapture noundef %p) unnamed_addr #0 {
 entry:
   %buf = alloca [256 x i8], align 16
-  %ptr.i = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 3
+  %ptr.i = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load ptr, ptr %ptr.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %end.i = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 4
+  %end.i = getelementptr inbounds i8, ptr %p, i64 32
   %1 = load ptr, ptr %end.i, align 8
   %cmp2.i = icmp ult ptr %0, %1
   br i1 %cmp2.i, label %if.then3.i, label %if.end19.i
@@ -6524,7 +6527,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %if.end.sink.split
 
 if.else.i:                                        ; preds = %entry
-  %readable.i = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 2
+  %readable.i = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %readable.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.then5.i, label %if.else10.i
@@ -6617,7 +6620,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i, label %_PyVectorcall_FunctionInline.exit.i
 
 _PyVectorcall_FunctionInline.exit.i:              ; preds = %entry
-  %tp_vectorcall_offset.i.i = getelementptr inbounds %struct._typeobject, ptr %PyFrozenSet_Type.val.i.i, i64 0, i32 5
+  %tp_vectorcall_offset.i.i = getelementptr inbounds i8, ptr %PyFrozenSet_Type.val.i.i, i64 56
   %4 = load i64, ptr %tp_vectorcall_offset.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr @PyFrozenSet_Type, i64 %4
   %ptr.0.copyload.i.i = load ptr, ptr %add.ptr.i.i, align 1
@@ -6649,7 +6652,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %refs = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 7
+  %refs = getelementptr inbounds i8, ptr %p, i64 56
   %0 = load ptr, ptr %refs, align 8
   %1 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %1, align 8
@@ -6683,9 +6686,9 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %refs = getelementptr inbounds %struct.RFILE, ptr %p, i64 0, i32 7
+  %refs = getelementptr inbounds i8, ptr %p, i64 56
   %0 = load ptr, ptr %refs, align 8
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %0, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %ob_item, align 8
   %arrayidx = getelementptr ptr, ptr %1, i64 %idx
   %2 = load ptr, ptr %arrayidx, align 8
@@ -6763,13 +6766,13 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %1 = load ptr, ptr %args, align 8
-  %arrayidx2 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx2 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx2, align 8
   %cmp3 = icmp slt i64 %nargs, 3
   br i1 %cmp3, label %skip_optional, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx6 = getelementptr i8, ptr %args, i64 16
   %3 = load ptr, ptr %arrayidx6, align 8
   %call7 = tail call i32 @PyLong_AsInt(ptr noundef %3) #9
   %cmp8 = icmp eq i32 %call7, -1
@@ -6789,7 +6792,7 @@ skip_optional:                                    ; preds = %if.end5, %land.lhs.
 if.end.i:                                         ; preds = %skip_optional
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %2, ptr %args.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds ptr, ptr %args.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %call.i, ptr %arrayinit.element.i.i, align 8
   %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 687), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
@@ -6832,22 +6835,22 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %3 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %call.val9, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %call.val9, i64 24
   %4 = load ptr, ptr %tp_name, align 8
   %call5 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.39, ptr noundef %4) #9
   br label %if.end18
 
 if.else:                                          ; preds = %if.end
-  %depth = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %rf, i64 8
   store i32 0, ptr %depth, align 8
   store ptr null, ptr %rf, align 8
-  %readable = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 2
+  %readable = getelementptr inbounds i8, ptr %rf, i64 16
   store ptr %file, ptr %readable, align 8
-  %ptr = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 3
-  %buf = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 5
+  %ptr = getelementptr inbounds i8, ptr %rf, i64 24
+  %buf = getelementptr inbounds i8, ptr %rf, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr, i8 0, i64 24, i1 false)
   %call6 = tail call ptr @PyList_New(i64 noundef 0) #9
-  %refs = getelementptr inbounds %struct.RFILE, ptr %rf, i64 0, i32 7
+  %refs = getelementptr inbounds i8, ptr %rf, i64 56
   store ptr %call6, ptr %refs, align 8
   %cmp7.not = icmp eq ptr %call6, null
   br i1 %cmp7.not, label %if.end18, label %if.then8
@@ -6919,7 +6922,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %cmp2, label %skip_optional, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %arrayidx5 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx5 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx5, align 8
   %call6 = tail call i32 @PyLong_AsInt(ptr noundef %2) #9
   %cmp7 = icmp eq i32 %call6, -1
@@ -6956,17 +6959,17 @@ if.end:                                           ; preds = %entry
   %bytes.val1 = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %rf.i)
   store ptr null, ptr %rf.i, align 8
-  %readable.i = getelementptr inbounds %struct.RFILE, ptr %rf.i, i64 0, i32 2
+  %readable.i = getelementptr inbounds i8, ptr %rf.i, i64 16
   store ptr null, ptr %readable.i, align 8
-  %ptr.i = getelementptr inbounds %struct.RFILE, ptr %rf.i, i64 0, i32 3
+  %ptr.i = getelementptr inbounds i8, ptr %rf.i, i64 24
   store ptr %bytes.val, ptr %ptr.i, align 8
   %add.ptr.i = getelementptr i8, ptr %bytes.val, i64 %bytes.val1
-  %end.i = getelementptr inbounds %struct.RFILE, ptr %rf.i, i64 0, i32 4
+  %end.i = getelementptr inbounds i8, ptr %rf.i, i64 32
   store ptr %add.ptr.i, ptr %end.i, align 8
-  %depth.i = getelementptr inbounds %struct.RFILE, ptr %rf.i, i64 0, i32 1
+  %depth.i = getelementptr inbounds i8, ptr %rf.i, i64 8
   store i32 0, ptr %depth.i, align 8
   %call.i = call ptr @PyList_New(i64 noundef 0) #9
-  %refs.i = getelementptr inbounds %struct.RFILE, ptr %rf.i, i64 0, i32 7
+  %refs.i = getelementptr inbounds i8, ptr %rf.i, i64 56
   store ptr %call.i, ptr %refs.i, align 8
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %marshal_loads_impl.exit, label %if.end.i
@@ -6996,7 +6999,7 @@ marshal_loads_impl.exit:                          ; preds = %if.end, %if.end.i, 
 
 exit:                                             ; preds = %entry, %marshal_loads_impl.exit
   %return_value.0 = phi ptr [ null, %entry ], [ %retval.0.i, %marshal_loads_impl.exit ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %bytes, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %bytes, i64 8
   %4 = load ptr, ptr %obj, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end3, label %if.then2

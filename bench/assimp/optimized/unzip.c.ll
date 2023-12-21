@@ -10,11 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.unz_file_info64_s = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.tm_unz_s }
 %struct.tm_unz_s = type { i32, i32, i32, i32, i32, i32 }
 %struct.unz_file_info64_internal_s = type { i64 }
-%struct.file_in_zip64_read_info_s = type { ptr, %struct.z_stream_s, i64, i64, i64, i32, i64, i64, i64, i64, i64, i64, %struct.zlib_filefunc64_32_def_s, ptr, i64, i64, i32 }
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%struct.unz_global_info_s = type { i64, i64 }
-%struct.unz_file_info_s = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.tm_unz_s }
-%struct.unz64_file_pos_s = type { i64, i64 }
 
 @unz_copyright = local_unnamed_addr constant [81 x i8] c" unzip 1.01 Copyright 1998-2004 Gilles Vollant - http://www.winimage.com/zLibDll\00", align 16
 @.str = private unnamed_addr constant [7 x i8] c"1.2.13\00", align 1
@@ -120,7 +115,7 @@ entry:
   %number_disk_with_CD = alloca i64, align 8
   %number_entry_CD = alloca i64, align 8
   %uL64 = alloca i64, align 8
-  %ztell32_file = getelementptr inbounds %struct.zlib_filefunc64_32_def_s, ptr %us, i64 0, i32 2
+  %ztell32_file = getelementptr inbounds i8, ptr %us, i64 72
   %cmp = icmp eq ptr %pzlib_filefunc64_32_def, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ztell32_file, i8 0, i64 16, i1 false)
   br i1 %cmp, label %if.then, label %if.else
@@ -134,10 +129,10 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %is64bitOpenFunction4 = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 1
+  %is64bitOpenFunction4 = getelementptr inbounds i8, ptr %us, i64 88
   store i32 %is64bitOpenFunction, ptr %is64bitOpenFunction4, align 8
   %call = call ptr @call_zopen64(ptr noundef nonnull %us, ptr noundef %path, i32 noundef 5) #15
-  %filestream = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 2
+  %filestream = getelementptr inbounds i8, ptr %us, i64 96
   store ptr %call, ptr %filestream, align 8
   %cmp7 = icmp eq ptr %call, null
   br i1 %cmp7, label %return, label %if.end9
@@ -158,8 +153,8 @@ if.end.i:                                         ; preds = %if.end9
   br i1 %cmp6.i, label %unz64local_SearchCentralDir64.exit.thread, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.end.i
-  %zread_file.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 1
-  %opaque.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 7
+  %zread_file.i = getelementptr inbounds i8, ptr %us, i64 8
+  %opaque.i = getelementptr inbounds i8, ptr %us, i64 56
   %cmp2757.not.i = icmp ult i64 %call1.i.fr, 4
   br i1 %cmp2757.not.i, label %while.end.thread.i, label %while.cond.i
 
@@ -291,7 +286,7 @@ unz64local_SearchCentralDir64.exit:               ; preds = %if.end101.i
   br i1 %tobool.not, label %if.else89, label %if.then13
 
 if.then13:                                        ; preds = %unz64local_SearchCentralDir64.exit
-  %isZip64 = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 15
+  %isZip64 = getelementptr inbounds i8, ptr %us, i64 332
   store i32 1, ptr %isZip64, align 4
   %11 = load ptr, ptr %filestream, align 8
   %call16 = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef %11, i64 noundef %9, i32 noundef 0) #15
@@ -319,7 +314,7 @@ unz64local_getByte.exit.thread.i:                 ; preds = %if.then13
   br label %if.then.i
 
 unz64local_getByte.exit.i:                        ; preds = %if.then13
-  %zerror_file.i.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i.i = getelementptr inbounds i8, ptr %us, i64 48
   %19 = load ptr, ptr %zerror_file.i.i, align 8
   %20 = load ptr, ptr %opaque.i, align 8
   %call7.i.i = call i32 %19(ptr noundef %20, ptr noundef %15) #15
@@ -341,7 +336,7 @@ unz64local_getShort.exit.thread:                  ; preds = %if.then.i
   br label %26
 
 unz64local_getShort.exit:                         ; preds = %if.then.i
-  %zerror_file.i13.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i13.i = getelementptr inbounds i8, ptr %us, i64 48
   %24 = load ptr, ptr %zerror_file.i13.i, align 8
   %25 = load ptr, ptr %opaque.i, align 8
   %call7.i14.i = call i32 %24(ptr noundef %25, ptr noundef %15) #15
@@ -369,7 +364,7 @@ unz64local_getByte.exit.thread.i49:               ; preds = %unz64local_getShort
   br label %if.then.i32
 
 unz64local_getByte.exit.i27:                      ; preds = %unz64local_getShort.exit.thread262
-  %zerror_file.i.i28 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i.i28 = getelementptr inbounds i8, ptr %us, i64 48
   %32 = load ptr, ptr %zerror_file.i.i28, align 8
   %33 = load ptr, ptr %opaque.i, align 8
   %call7.i.i29 = call i32 %32(ptr noundef %33, ptr noundef %28) #15
@@ -391,7 +386,7 @@ unz64local_getShort.exit51.thread:                ; preds = %if.then.i32
   br label %39
 
 unz64local_getShort.exit51:                       ; preds = %if.then.i32
-  %zerror_file.i13.i38 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i13.i38 = getelementptr inbounds i8, ptr %us, i64 48
   %37 = load ptr, ptr %zerror_file.i13.i38, align 8
   %38 = load ptr, ptr %opaque.i, align 8
   %call7.i14.i39 = call i32 %37(ptr noundef %38, ptr noundef %28) #15
@@ -412,7 +407,7 @@ unz64local_getShort.exit51.thread267:             ; preds = %unz64local_getByte.
   %call52 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %42, ptr noundef nonnull %number_disk_with_CD)
   %cmp53.not = icmp eq i32 %call52, 0
   %43 = load ptr, ptr %filestream, align 8
-  %gi = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 3
+  %gi = getelementptr inbounds i8, ptr %us, i64 104
   %call58 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %43, ptr noundef nonnull %gi), !range !4
   %cmp59.not = icmp eq i32 %call58, 0
   %44 = load ptr, ptr %filestream, align 8
@@ -433,16 +428,16 @@ unz64local_getShort.exit51.thread267:             ; preds = %unz64local_getByte.
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp73
   %err.9 = select i1 %or.cond1, i32 -103, i32 %err.8
   %52 = load ptr, ptr %filestream, align 8
-  %size_central_dir = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 9
+  %size_central_dir = getelementptr inbounds i8, ptr %us, i64 160
   %call78 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %52, ptr noundef nonnull %size_central_dir), !range !4
   %cmp79.not = icmp eq i32 %call78, 0
   %53 = load ptr, ptr %filestream, align 8
-  %offset_central_dir = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 10
+  %offset_central_dir = getelementptr inbounds i8, ptr %us, i64 168
   %call84 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %53, ptr noundef nonnull %offset_central_dir), !range !4
   %cmp85.not = icmp eq i32 %call84, 0
   %54 = select i1 %cmp85.not, i1 %cmp79.not, i1 false
   %err.11 = select i1 %54, i32 %err.9, i32 -1
-  %size_comment = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 3, i32 1
+  %size_comment = getelementptr inbounds i8, ptr %us, i64 112
   store i64 0, ptr %size_comment, align 8
   br label %if.end166
 
@@ -461,8 +456,8 @@ if.end.i55:                                       ; preds = %if.else89
   br i1 %cmp6.i59, label %unz64local_SearchCentralDir.exit.thread, label %while.cond.preheader.i60
 
 while.cond.preheader.i60:                         ; preds = %if.end.i55
-  %zread_file.i61 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 1
-  %opaque.i62 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 7
+  %zread_file.i61 = getelementptr inbounds i8, ptr %us, i64 8
+  %opaque.i62 = getelementptr inbounds i8, ptr %us, i64 56
   %cmp2737.not.i = icmp ult i64 %call1.i56.fr, 4
   br i1 %cmp2737.not.i, label %unz64local_SearchCentralDir.exit.thread.sink.split, label %while.cond.i63
 
@@ -541,7 +536,7 @@ unz64local_SearchCentralDir.exit.thread.sink.split: ; preds = %for.end.i85, %whi
 unz64local_SearchCentralDir.exit.thread:          ; preds = %unz64local_SearchCentralDir.exit.thread.sink.split, %if.end.i55, %if.else89
   %retval.0.i54272 = phi i64 [ 0, %if.else89 ], [ 0, %if.end.i55 ], [ %retval.0.i54272.ph, %unz64local_SearchCentralDir.exit.thread.sink.split ]
   %63 = phi i32 [ -1, %if.else89 ], [ -1, %if.end.i55 ], [ %.ph, %unz64local_SearchCentralDir.exit.thread.sink.split ]
-  %isZip6496 = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 15
+  %isZip6496 = getelementptr inbounds i8, ptr %us, i64 332
   store i32 0, ptr %isZip6496, align 4
   %64 = load ptr, ptr %filestream, align 8
   %call99 = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef %64, i64 noundef %retval.0.i54272, i32 noundef 0) #15
@@ -553,9 +548,9 @@ unz64local_SearchCentralDir.exit.thread:          ; preds = %unz64local_SearchCe
   %err.14 = select i1 %66, i32 %63, i32 -1
   %67 = load ptr, ptr %filestream, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i101)
-  %zread_file.i.i102 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 1
+  %zread_file.i.i102 = getelementptr inbounds i8, ptr %us, i64 8
   %68 = load ptr, ptr %zread_file.i.i102, align 8
-  %opaque.i.i103 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 7
+  %opaque.i.i103 = getelementptr inbounds i8, ptr %us, i64 56
   %69 = load ptr, ptr %opaque.i.i103, align 8
   %call.i.i104 = call i64 %68(ptr noundef %69, ptr noundef %67, ptr noundef nonnull %c.i.i101, i64 noundef 1) #15
   %70 = and i64 %call.i.i104, 4294967295
@@ -570,7 +565,7 @@ unz64local_getByte.exit.thread.i128:              ; preds = %unz64local_SearchCe
   br label %if.then.i111
 
 unz64local_getByte.exit.i106:                     ; preds = %unz64local_SearchCentralDir.exit.thread
-  %zerror_file.i.i107 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i.i107 = getelementptr inbounds i8, ptr %us, i64 48
   %73 = load ptr, ptr %zerror_file.i.i107, align 8
   %74 = load ptr, ptr %opaque.i.i103, align 8
   %call7.i.i108 = call i32 %73(ptr noundef %74, ptr noundef %67) #15
@@ -598,7 +593,7 @@ unz64local_getShort.exit130.thread:               ; preds = %if.then.i111
   br label %unz64local_getShort.exit130.thread280
 
 unz64local_getShort.exit130:                      ; preds = %if.then.i111
-  %zerror_file.i13.i117 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i13.i117 = getelementptr inbounds i8, ptr %us, i64 48
   %79 = load ptr, ptr %zerror_file.i13.i117, align 8
   %80 = load ptr, ptr %opaque.i.i103, align 8
   %call7.i14.i118 = call i32 %79(ptr noundef %80, ptr noundef %67) #15
@@ -630,7 +625,7 @@ unz64local_getByte.exit.thread.i159:              ; preds = %unz64local_getShort
   br label %if.then.i142
 
 unz64local_getByte.exit.i137:                     ; preds = %unz64local_getShort.exit130.thread280
-  %zerror_file.i.i138 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i.i138 = getelementptr inbounds i8, ptr %us, i64 48
   %89 = load ptr, ptr %zerror_file.i.i138, align 8
   %90 = load ptr, ptr %opaque.i.i103, align 8
   %call7.i.i139 = call i32 %89(ptr noundef %90, ptr noundef %83) #15
@@ -658,7 +653,7 @@ unz64local_getShort.exit161.thread:               ; preds = %if.then.i142
   br label %unz64local_getShort.exit161.thread285
 
 unz64local_getShort.exit161:                      ; preds = %if.then.i142
-  %zerror_file.i13.i148 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i13.i148 = getelementptr inbounds i8, ptr %us, i64 48
   %95 = load ptr, ptr %zerror_file.i13.i148, align 8
   %96 = load ptr, ptr %opaque.i.i103, align 8
   %call7.i14.i149 = call i32 %95(ptr noundef %96, ptr noundef %83) #15
@@ -690,7 +685,7 @@ unz64local_getByte.exit.thread.i190:              ; preds = %unz64local_getShort
   br label %if.then.i173
 
 unz64local_getByte.exit.i168:                     ; preds = %unz64local_getShort.exit161.thread285
-  %zerror_file.i.i169 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i.i169 = getelementptr inbounds i8, ptr %us, i64 48
   %105 = load ptr, ptr %zerror_file.i.i169, align 8
   %106 = load ptr, ptr %opaque.i.i103, align 8
   %call7.i.i170 = call i32 %105(ptr noundef %106, ptr noundef %99) #15
@@ -718,7 +713,7 @@ unz64local_getShort.exit192.thread:               ; preds = %if.then.i173
   br label %unz64local_getShort.exit192.thread290
 
 unz64local_getShort.exit192:                      ; preds = %if.then.i173
-  %zerror_file.i13.i179 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i13.i179 = getelementptr inbounds i8, ptr %us, i64 48
   %111 = load ptr, ptr %zerror_file.i13.i179, align 8
   %112 = load ptr, ptr %opaque.i.i103, align 8
   %call7.i14.i180 = call i32 %111(ptr noundef %112, ptr noundef %99) #15
@@ -733,7 +728,7 @@ unz64local_getShort.exit192:                      ; preds = %if.then.i173
 unz64local_getShort.exit192.thread290:            ; preds = %unz64local_getByte.exit.i168, %unz64local_getShort.exit192, %unz64local_getShort.exit192.thread
   %113 = phi i64 [ %or44.i189, %unz64local_getShort.exit192.thread ], [ %spec.select.i185, %unz64local_getShort.exit192 ], [ 0, %unz64local_getByte.exit.i168 ]
   %114 = phi i32 [ %98, %unz64local_getShort.exit192.thread ], [ %spec.select313, %unz64local_getShort.exit192 ], [ -1, %unz64local_getByte.exit.i168 ]
-  %gi127 = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 3
+  %gi127 = getelementptr inbounds i8, ptr %us, i64 104
   store i64 %113, ptr %gi127, align 8
   %115 = load ptr, ptr %filestream, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i194)
@@ -752,7 +747,7 @@ unz64local_getByte.exit.thread.i221:              ; preds = %unz64local_getShort
   br label %if.then.i204
 
 unz64local_getByte.exit.i199:                     ; preds = %unz64local_getShort.exit192.thread290
-  %zerror_file.i.i200 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i.i200 = getelementptr inbounds i8, ptr %us, i64 48
   %121 = load ptr, ptr %zerror_file.i.i200, align 8
   %122 = load ptr, ptr %opaque.i.i103, align 8
   %call7.i.i201 = call i32 %121(ptr noundef %122, ptr noundef %115) #15
@@ -785,7 +780,7 @@ unz64local_getShort.exit223.thread:               ; preds = %if.then.i204
   br label %129
 
 unz64local_getShort.exit223:                      ; preds = %if.then.i204
-  %zerror_file.i13.i210 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i13.i210 = getelementptr inbounds i8, ptr %us, i64 48
   %127 = load ptr, ptr %zerror_file.i13.i210, align 8
   %128 = load ptr, ptr %opaque.i.i103, align 8
   %call7.i14.i211 = call i32 %127(ptr noundef %128, ptr noundef %115) #15
@@ -812,7 +807,7 @@ unz64local_getShort.exit223:                      ; preds = %if.then.i204
   %call146 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %133, ptr noundef nonnull %uL)
   %cmp147.not = icmp eq i32 %call146, 0
   %134 = load i64, ptr %uL, align 8
-  %size_central_dir150 = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 9
+  %size_central_dir150 = getelementptr inbounds i8, ptr %us, i64 160
   store i64 %134, ptr %size_central_dir150, align 8
   %135 = load ptr, ptr %filestream, align 8
   %call153 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %135, ptr noundef nonnull %uL)
@@ -820,10 +815,10 @@ unz64local_getShort.exit223:                      ; preds = %if.then.i204
   %136 = select i1 %cmp154.not, i1 %cmp147.not, i1 false
   %err.21 = select i1 %136, i32 %err.19, i32 -1
   %137 = load i64, ptr %uL, align 8
-  %offset_central_dir157 = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 10
+  %offset_central_dir157 = getelementptr inbounds i8, ptr %us, i64 168
   store i64 %137, ptr %offset_central_dir157, align 8
   %138 = load ptr, ptr %filestream, align 8
-  %size_comment161 = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 3, i32 1
+  %size_comment161 = getelementptr inbounds i8, ptr %us, i64 112
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i225)
   %139 = load ptr, ptr %zread_file.i.i102, align 8
   %140 = load ptr, ptr %opaque.i.i103, align 8
@@ -840,7 +835,7 @@ unz64local_getByte.exit.thread.i252:              ; preds = %129
   br label %if.then.i235
 
 unz64local_getByte.exit.i230:                     ; preds = %129
-  %zerror_file.i.i231 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i.i231 = getelementptr inbounds i8, ptr %us, i64 48
   %144 = load ptr, ptr %zerror_file.i.i231, align 8
   %145 = load ptr, ptr %opaque.i.i103, align 8
   %call7.i.i232 = call i32 %144(ptr noundef %145, ptr noundef %138) #15
@@ -873,7 +868,7 @@ unz64local_getShort.exit254.thread:               ; preds = %if.then.i235
   br label %if.end166
 
 unz64local_getShort.exit254:                      ; preds = %if.then.i235
-  %zerror_file.i13.i241 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 6
+  %zerror_file.i13.i241 = getelementptr inbounds i8, ptr %us, i64 48
   %150 = load ptr, ptr %zerror_file.i13.i241, align 8
   %151 = load ptr, ptr %opaque.i.i103, align 8
   %call7.i14.i242 = call i32 %150(ptr noundef %151, ptr noundef %138) #15
@@ -888,9 +883,9 @@ unz64local_getShort.exit254:                      ; preds = %if.then.i235
 if.end166:                                        ; preds = %unz64local_getShort.exit254, %unz64local_getShort.exit254.thread, %unz64local_getShort.exit51.thread267
   %central_pos.0 = phi i64 [ %9, %unz64local_getShort.exit51.thread267 ], [ %retval.0.i54272, %unz64local_getShort.exit254.thread ], [ %retval.0.i54272, %unz64local_getShort.exit254 ]
   %err.22 = phi i32 [ %err.11, %unz64local_getShort.exit51.thread267 ], [ %err.21, %unz64local_getShort.exit254.thread ], [ %err.21, %unz64local_getShort.exit254 ]
-  %offset_central_dir167 = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 10
+  %offset_central_dir167 = getelementptr inbounds i8, ptr %us, i64 168
   %152 = load i64, ptr %offset_central_dir167, align 8
-  %size_central_dir168 = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 9
+  %size_central_dir168 = getelementptr inbounds i8, ptr %us, i64 160
   %153 = load i64, ptr %size_central_dir168, align 8
   %add = add i64 %153, %152
   %cmp169 = icmp uge i64 %central_pos.0, %add
@@ -899,9 +894,9 @@ if.end166:                                        ; preds = %unz64local_getShort
   br i1 %cmp173.not, label %if.end181, label %if.then174
 
 if.then174:                                       ; preds = %unz64local_getShort.exit254.thread300, %unz64local_getShort.exit254, %if.end166
-  %zclose_file = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 5
+  %zclose_file = getelementptr inbounds i8, ptr %us, i64 40
   %154 = load ptr, ptr %zclose_file, align 8
-  %opaque = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %us, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %us, i64 56
   %155 = load ptr, ptr %opaque, align 8
   %156 = load ptr, ptr %filestream, align 8
   %call180 = call i32 %154(ptr noundef %155, ptr noundef %156) #15
@@ -909,13 +904,13 @@ if.then174:                                       ; preds = %unz64local_getShort
 
 if.end181:                                        ; preds = %if.end166
   %sub = sub i64 %central_pos.0, %add
-  %byte_before_the_zipfile = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 4
+  %byte_before_the_zipfile = getelementptr inbounds i8, ptr %us, i64 120
   store i64 %sub, ptr %byte_before_the_zipfile, align 8
-  %central_pos185 = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 8
+  %central_pos185 = getelementptr inbounds i8, ptr %us, i64 152
   store i64 %central_pos.0, ptr %central_pos185, align 8
-  %pfile_in_zip_read = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 13
+  %pfile_in_zip_read = getelementptr inbounds i8, ptr %us, i64 320
   store ptr null, ptr %pfile_in_zip_read, align 8
-  %encrypted = getelementptr inbounds %struct.unz64_s, ptr %us, i64 0, i32 14
+  %encrypted = getelementptr inbounds i8, ptr %us, i64 328
   store i32 0, ptr %encrypted, align 8
   %call186 = call noalias dereferenceable_or_null(336) ptr @malloc(i64 noundef 336) #16
   %cmp187.not = icmp eq ptr %call186, null
@@ -923,18 +918,18 @@ if.end181:                                        ; preds = %if.end166
 
 unzGoToFirstFile.exit:                            ; preds = %if.end181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %call186, ptr noundef nonnull align 8 dereferenceable(336) %us, i64 336, i1 false)
-  %offset_central_dir.i = getelementptr inbounds %struct.unz64_s, ptr %call186, i64 0, i32 10
+  %offset_central_dir.i = getelementptr inbounds i8, ptr %call186, i64 168
   %157 = load i64, ptr %offset_central_dir.i, align 8
-  %pos_in_central_dir.i = getelementptr inbounds %struct.unz64_s, ptr %call186, i64 0, i32 6
+  %pos_in_central_dir.i = getelementptr inbounds i8, ptr %call186, i64 136
   store i64 %157, ptr %pos_in_central_dir.i, align 8
-  %num_file.i = getelementptr inbounds %struct.unz64_s, ptr %call186, i64 0, i32 5
+  %num_file.i = getelementptr inbounds i8, ptr %call186, i64 128
   store i64 0, ptr %num_file.i, align 8
-  %cur_file_info.i = getelementptr inbounds %struct.unz64_s, ptr %call186, i64 0, i32 11
-  %cur_file_info_internal.i = getelementptr inbounds %struct.unz64_s, ptr %call186, i64 0, i32 12
+  %cur_file_info.i = getelementptr inbounds i8, ptr %call186, i64 176
+  %cur_file_info_internal.i = getelementptr inbounds i8, ptr %call186, i64 312
   %call.i256 = call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef nonnull %call186, ptr noundef nonnull %cur_file_info.i, ptr noundef nonnull %cur_file_info_internal.i, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0), !range !5
   %cmp1.i = icmp eq i32 %call.i256, 0
   %conv2.i = zext i1 %cmp1.i to i64
-  %current_file_ok.i = getelementptr inbounds %struct.unz64_s, ptr %call186, i64 0, i32 7
+  %current_file_ok.i = getelementptr inbounds i8, ptr %call186, i64 144
   store i64 %conv2.i, ptr %current_file_ok.i, align 8
   br label %return
 
@@ -952,7 +947,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %zlib_filefunc64_32_def_fill, ptr noundef nonnull align 8 dereferenceable(64) %pzlib_filefunc_def, i64 64, i1 false)
-  %ztell32_file = getelementptr inbounds %struct.zlib_filefunc64_32_def_s, ptr %zlib_filefunc64_32_def_fill, i64 0, i32 2
+  %ztell32_file = getelementptr inbounds i8, ptr %zlib_filefunc64_32_def_fill, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ztell32_file, i8 0, i64 16, i1 false)
   %call = call fastcc ptr @unzOpenInternal(ptr noundef %path, ptr noundef nonnull %zlib_filefunc64_32_def_fill, i32 noundef 1)
   br label %return
@@ -990,7 +985,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pfile_in_zip_read = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 13
+  %pfile_in_zip_read = getelementptr inbounds i8, ptr %file, i64 320
   %0 = load ptr, ptr %pfile_in_zip_read, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end3, label %if.end3.i
@@ -999,13 +994,13 @@ if.end3.i:                                        ; preds = %if.end
   %1 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %1) #15
   store ptr null, ptr %0, align 8
-  %stream_initialised.i = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 3
+  %stream_initialised.i = getelementptr inbounds i8, ptr %0, i64 128
   %2 = load i64, ptr %stream_initialised.i, align 8
   %cmp11.i = icmp eq i64 %2, 8
   br i1 %cmp11.i, label %if.then12.i, label %unzCloseCurrentFile.exit
 
 if.then12.i:                                      ; preds = %if.end3.i
-  %stream.i = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 1
+  %stream.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i = tail call i32 @inflateEnd(ptr noundef nonnull %stream.i) #15
   br label %unzCloseCurrentFile.exit
 
@@ -1015,11 +1010,11 @@ unzCloseCurrentFile.exit:                         ; preds = %if.end3.i, %if.then
   br label %if.end3
 
 if.end3:                                          ; preds = %unzCloseCurrentFile.exit, %if.end
-  %zclose_file = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 5
+  %zclose_file = getelementptr inbounds i8, ptr %file, i64 40
   %3 = load ptr, ptr %zclose_file, align 8
-  %opaque = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %file, i64 56
   %4 = load ptr, ptr %opaque, align 8
-  %filestream = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 2
+  %filestream = getelementptr inbounds i8, ptr %file, i64 96
   %5 = load ptr, ptr %filestream, align 8
   %call6 = tail call i32 %3(ptr noundef %4, ptr noundef %5) #15
   tail call void @free(ptr noundef nonnull %file) #15
@@ -1037,27 +1032,27 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pfile_in_zip_read = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 13
+  %pfile_in_zip_read = getelementptr inbounds i8, ptr %file, i64 320
   %0 = load ptr, ptr %pfile_in_zip_read, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %rest_read_uncompressed = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 11
+  %rest_read_uncompressed = getelementptr inbounds i8, ptr %0, i64 192
   %1 = load i64, ptr %rest_read_uncompressed, align 8
   %cmp4 = icmp eq i64 %1, 0
   br i1 %cmp4, label %land.lhs.true, label %if.end9
 
 land.lhs.true:                                    ; preds = %if.end3
-  %raw = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 16
+  %raw = getelementptr inbounds i8, ptr %0, i64 312
   %2 = load i32, ptr %raw, align 8
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %land.lhs.true
-  %crc32 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 8
+  %crc32 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load i64, ptr %crc32, align 8
-  %crc32_wait = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 9
+  %crc32_wait = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load i64, ptr %crc32_wait, align 8
   %cmp6.not = icmp eq i64 %3, %4
   %spec.select = select i1 %cmp6.not, i32 0, i32 -105
@@ -1068,13 +1063,13 @@ if.end9:                                          ; preds = %if.then5, %land.lhs
   %5 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %5) #15
   store ptr null, ptr %0, align 8
-  %stream_initialised = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 3
+  %stream_initialised = getelementptr inbounds i8, ptr %0, i64 128
   %6 = load i64, ptr %stream_initialised, align 8
   %cmp11 = icmp eq i64 %6, 8
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end9
-  %stream = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 1
+  %stream = getelementptr inbounds i8, ptr %0, i64 8
   %call = tail call i32 @inflateEnd(ptr noundef nonnull %stream) #15
   br label %if.end13
 
@@ -1098,7 +1093,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %gi = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 3
+  %gi = getelementptr inbounds i8, ptr %file, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pglobal_info, ptr noundef nonnull align 8 dereferenceable(16) %gi, i64 16, i1 false)
   br label %return
 
@@ -1114,12 +1109,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %gi = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 3
+  %gi = getelementptr inbounds i8, ptr %file, i64 104
   %0 = load i64, ptr %gi, align 8
   store i64 %0, ptr %pglobal_info32, align 8
-  %size_comment = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 3, i32 1
+  %size_comment = getelementptr inbounds i8, ptr %file, i64 112
   %1 = load i64, ptr %size_comment, align 8
-  %size_comment3 = getelementptr inbounds %struct.unz_global_info_s, ptr %pglobal_info32, i64 0, i32 1
+  %size_comment3 = getelementptr inbounds i8, ptr %pglobal_info32, i64 8
   store i64 %1, ptr %size_comment3, align 8
   br label %return
 
@@ -1169,11 +1164,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %filestream = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 2
+  %filestream = getelementptr inbounds i8, ptr %file, i64 96
   %0 = load ptr, ptr %filestream, align 8
-  %pos_in_central_dir = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 6
+  %pos_in_central_dir = getelementptr inbounds i8, ptr %file, i64 136
   %1 = load i64, ptr %pos_in_central_dir, align 8
-  %byte_before_the_zipfile = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 4
+  %byte_before_the_zipfile = getelementptr inbounds i8, ptr %file, i64 120
   %2 = load i64, ptr %byte_before_the_zipfile, align 8
   %add = add i64 %2, %1
   %call = tail call i64 @call_zseek64(ptr noundef nonnull %file, ptr noundef %0, i64 noundef %add, i32 noundef 0) #15
@@ -1196,9 +1191,9 @@ if.end15:                                         ; preds = %if.else, %if.then5,
   %err.1 = phi i32 [ -1, %if.end ], [ -1, %if.then5 ], [ %spec.select, %if.else ]
   %5 = load ptr, ptr %filestream, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i)
-  %zread_file.i.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 1
+  %zread_file.i.i = getelementptr inbounds i8, ptr %file, i64 8
   %6 = load ptr, ptr %zread_file.i.i, align 8
-  %opaque.i.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 7
+  %opaque.i.i = getelementptr inbounds i8, ptr %file, i64 56
   %7 = load ptr, ptr %opaque.i.i, align 8
   %call.i.i = call i64 %6(ptr noundef %7, ptr noundef %5, ptr noundef nonnull %c.i.i, i64 noundef 1) #15
   %8 = and i64 %call.i.i, 4294967295
@@ -1213,7 +1208,7 @@ unz64local_getByte.exit.thread.i:                 ; preds = %if.end15
   br label %if.then.i
 
 unz64local_getByte.exit.i:                        ; preds = %if.end15
-  %zerror_file.i.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i = getelementptr inbounds i8, ptr %file, i64 48
   %11 = load ptr, ptr %zerror_file.i.i, align 8
   %12 = load ptr, ptr %opaque.i.i, align 8
   %call7.i.i = call i32 %11(ptr noundef %12, ptr noundef %5) #15
@@ -1246,7 +1241,7 @@ unz64local_getShort.exit.thread:                  ; preds = %if.then.i
   br label %19
 
 unz64local_getShort.exit:                         ; preds = %if.then.i
-  %zerror_file.i13.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i = getelementptr inbounds i8, ptr %file, i64 48
   %17 = load ptr, ptr %zerror_file.i13.i, align 8
   %18 = load ptr, ptr %opaque.i.i, align 8
   %call7.i14.i = call i32 %17(ptr noundef %18, ptr noundef %5) #15
@@ -1264,7 +1259,7 @@ unz64local_getShort.exit:                         ; preds = %if.then.i
 20:                                               ; preds = %unz64local_getShort.exit.thread441, %unz64local_getShort.exit, %19
   %21 = phi i32 [ %err.1, %19 ], [ -1, %unz64local_getShort.exit ], [ -1, %unz64local_getShort.exit.thread441 ]
   %22 = load ptr, ptr %filestream, align 8
-  %version_needed = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 1
+  %version_needed = getelementptr inbounds i8, ptr %file_info, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i129)
   %23 = load ptr, ptr %zread_file.i.i, align 8
   %24 = load ptr, ptr %opaque.i.i, align 8
@@ -1281,7 +1276,7 @@ unz64local_getByte.exit.thread.i156:              ; preds = %20
   br label %if.then.i139
 
 unz64local_getByte.exit.i134:                     ; preds = %20
-  %zerror_file.i.i135 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i135 = getelementptr inbounds i8, ptr %file, i64 48
   %28 = load ptr, ptr %zerror_file.i.i135, align 8
   %29 = load ptr, ptr %opaque.i.i, align 8
   %call7.i.i136 = call i32 %28(ptr noundef %29, ptr noundef %22) #15
@@ -1314,7 +1309,7 @@ unz64local_getShort.exit158.thread:               ; preds = %if.then.i139
   br label %36
 
 unz64local_getShort.exit158:                      ; preds = %if.then.i139
-  %zerror_file.i13.i145 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i145 = getelementptr inbounds i8, ptr %file, i64 48
   %34 = load ptr, ptr %zerror_file.i13.i145, align 8
   %35 = load ptr, ptr %opaque.i.i, align 8
   %call7.i14.i146 = call i32 %34(ptr noundef %35, ptr noundef %22) #15
@@ -1332,7 +1327,7 @@ unz64local_getShort.exit158:                      ; preds = %if.then.i139
 37:                                               ; preds = %unz64local_getShort.exit158.thread446, %unz64local_getShort.exit158, %36
   %38 = phi i32 [ %21, %36 ], [ -1, %unz64local_getShort.exit158 ], [ -1, %unz64local_getShort.exit158.thread446 ]
   %39 = load ptr, ptr %filestream, align 8
-  %flag = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 2
+  %flag = getelementptr inbounds i8, ptr %file_info, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i160)
   %40 = load ptr, ptr %zread_file.i.i, align 8
   %41 = load ptr, ptr %opaque.i.i, align 8
@@ -1349,7 +1344,7 @@ unz64local_getByte.exit.thread.i187:              ; preds = %37
   br label %if.then.i170
 
 unz64local_getByte.exit.i165:                     ; preds = %37
-  %zerror_file.i.i166 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i166 = getelementptr inbounds i8, ptr %file, i64 48
   %45 = load ptr, ptr %zerror_file.i.i166, align 8
   %46 = load ptr, ptr %opaque.i.i, align 8
   %call7.i.i167 = call i32 %45(ptr noundef %46, ptr noundef %39) #15
@@ -1382,7 +1377,7 @@ unz64local_getShort.exit189.thread:               ; preds = %if.then.i170
   br label %53
 
 unz64local_getShort.exit189:                      ; preds = %if.then.i170
-  %zerror_file.i13.i176 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i176 = getelementptr inbounds i8, ptr %file, i64 48
   %51 = load ptr, ptr %zerror_file.i13.i176, align 8
   %52 = load ptr, ptr %opaque.i.i, align 8
   %call7.i14.i177 = call i32 %51(ptr noundef %52, ptr noundef %39) #15
@@ -1400,7 +1395,7 @@ unz64local_getShort.exit189:                      ; preds = %if.then.i170
 54:                                               ; preds = %unz64local_getShort.exit189.thread451, %unz64local_getShort.exit189, %53
   %55 = phi i32 [ %38, %53 ], [ -1, %unz64local_getShort.exit189 ], [ -1, %unz64local_getShort.exit189.thread451 ]
   %56 = load ptr, ptr %filestream, align 8
-  %compression_method = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 3
+  %compression_method = getelementptr inbounds i8, ptr %file_info, i64 24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i191)
   %57 = load ptr, ptr %zread_file.i.i, align 8
   %58 = load ptr, ptr %opaque.i.i, align 8
@@ -1417,7 +1412,7 @@ unz64local_getByte.exit.thread.i218:              ; preds = %54
   br label %if.then.i201
 
 unz64local_getByte.exit.i196:                     ; preds = %54
-  %zerror_file.i.i197 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i197 = getelementptr inbounds i8, ptr %file, i64 48
   %62 = load ptr, ptr %zerror_file.i.i197, align 8
   %63 = load ptr, ptr %opaque.i.i, align 8
   %call7.i.i198 = call i32 %62(ptr noundef %63, ptr noundef %56) #15
@@ -1450,7 +1445,7 @@ unz64local_getShort.exit220.thread:               ; preds = %if.then.i201
   br label %70
 
 unz64local_getShort.exit220:                      ; preds = %if.then.i201
-  %zerror_file.i13.i207 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i207 = getelementptr inbounds i8, ptr %file, i64 48
   %68 = load ptr, ptr %zerror_file.i13.i207, align 8
   %69 = load ptr, ptr %opaque.i.i, align 8
   %call7.i14.i208 = call i32 %68(ptr noundef %69, ptr noundef %56) #15
@@ -1468,45 +1463,45 @@ unz64local_getShort.exit220:                      ; preds = %if.then.i201
 71:                                               ; preds = %unz64local_getShort.exit220.thread456, %unz64local_getShort.exit220, %70
   %72 = phi i32 [ %55, %70 ], [ -1, %unz64local_getShort.exit220 ], [ -1, %unz64local_getShort.exit220.thread456 ]
   %73 = load ptr, ptr %filestream, align 8
-  %dosDate = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 4
+  %dosDate = getelementptr inbounds i8, ptr %file_info, i64 32
   %call42 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %73, ptr noundef nonnull %dosDate)
   %cmp43.not = icmp eq i32 %call42, 0
   %74 = load i64, ptr %dosDate, align 8
-  %tmu_date = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 14
+  %tmu_date = getelementptr inbounds i8, ptr %file_info, i64 112
   %75 = trunc i64 %74 to i32
   %76 = lshr i32 %75, 16
   %conv.i = and i32 %76, 31
-  %tm_mday.i = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 14, i32 3
+  %tm_mday.i = getelementptr inbounds i8, ptr %file_info, i64 124
   store i32 %conv.i, ptr %tm_mday.i, align 4
   %77 = lshr i32 %75, 21
   %78 = and i32 %77, 15
   %conv2.i = add nsw i32 %78, -1
-  %tm_mon.i = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 14, i32 4
+  %tm_mon.i = getelementptr inbounds i8, ptr %file_info, i64 128
   store i32 %conv2.i, ptr %tm_mon.i, align 8
   %79 = lshr i32 %75, 25
   %conv5.i = add nuw nsw i32 %79, 1980
-  %tm_year.i = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 14, i32 5
+  %tm_year.i = getelementptr inbounds i8, ptr %file_info, i64 132
   store i32 %conv5.i, ptr %tm_year.i, align 4
   %80 = lshr i32 %75, 11
   %conv8.i = and i32 %80, 31
-  %tm_hour.i = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 14, i32 2
+  %tm_hour.i = getelementptr inbounds i8, ptr %file_info, i64 120
   store i32 %conv8.i, ptr %tm_hour.i, align 8
   %81 = lshr i32 %75, 5
   %conv11.i = and i32 %81, 63
-  %tm_min.i = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 14, i32 1
+  %tm_min.i = getelementptr inbounds i8, ptr %file_info, i64 116
   store i32 %conv11.i, ptr %tm_min.i, align 4
   %82 = shl i32 %75, 1
   %conv13.i = and i32 %82, 62
   store i32 %conv13.i, ptr %tmu_date, align 8
   %83 = load ptr, ptr %filestream, align 8
-  %crc = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 5
+  %crc = getelementptr inbounds i8, ptr %file_info, i64 40
   %call49 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %83, ptr noundef nonnull %crc)
   %cmp50.not = icmp eq i32 %call49, 0
   %84 = load ptr, ptr %filestream, align 8
   %call55 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %84, ptr noundef nonnull %uL)
   %cmp56.not = icmp eq i32 %call55, 0
   %85 = load i64, ptr %uL, align 8
-  %compressed_size = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 6
+  %compressed_size = getelementptr inbounds i8, ptr %file_info, i64 48
   store i64 %85, ptr %compressed_size, align 8
   %86 = load ptr, ptr %filestream, align 8
   %call61 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %86, ptr noundef nonnull %uL)
@@ -1516,10 +1511,10 @@ unz64local_getShort.exit220:                      ; preds = %if.then.i201
   %89 = select i1 %88, i1 %cmp43.not, i1 false
   %err.9 = select i1 %89, i32 %72, i32 -1
   %90 = load i64, ptr %uL, align 8
-  %uncompressed_size = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 7
+  %uncompressed_size = getelementptr inbounds i8, ptr %file_info, i64 56
   store i64 %90, ptr %uncompressed_size, align 8
   %91 = load ptr, ptr %filestream, align 8
-  %size_filename = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 8
+  %size_filename = getelementptr inbounds i8, ptr %file_info, i64 64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i222)
   %92 = load ptr, ptr %zread_file.i.i, align 8
   %93 = load ptr, ptr %opaque.i.i, align 8
@@ -1536,7 +1531,7 @@ unz64local_getByte.exit.thread.i249:              ; preds = %71
   br label %if.then.i232
 
 unz64local_getByte.exit.i227:                     ; preds = %71
-  %zerror_file.i.i228 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i228 = getelementptr inbounds i8, ptr %file, i64 48
   %97 = load ptr, ptr %zerror_file.i.i228, align 8
   %98 = load ptr, ptr %opaque.i.i, align 8
   %call7.i.i229 = call i32 %97(ptr noundef %98, ptr noundef %91) #15
@@ -1569,7 +1564,7 @@ unz64local_getShort.exit251.thread:               ; preds = %if.then.i232
   br label %105
 
 unz64local_getShort.exit251:                      ; preds = %if.then.i232
-  %zerror_file.i13.i238 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i238 = getelementptr inbounds i8, ptr %file, i64 48
   %103 = load ptr, ptr %zerror_file.i13.i238, align 8
   %104 = load ptr, ptr %opaque.i.i, align 8
   %call7.i14.i239 = call i32 %103(ptr noundef %104, ptr noundef %91) #15
@@ -1587,7 +1582,7 @@ unz64local_getShort.exit251:                      ; preds = %if.then.i232
 106:                                              ; preds = %unz64local_getShort.exit251.thread461, %unz64local_getShort.exit251, %105
   %107 = phi i32 [ %err.9, %105 ], [ -1, %unz64local_getShort.exit251 ], [ -1, %unz64local_getShort.exit251.thread461 ]
   %108 = load ptr, ptr %filestream, align 8
-  %size_file_extra = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 9
+  %size_file_extra = getelementptr inbounds i8, ptr %file_info, i64 72
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i253)
   %109 = load ptr, ptr %zread_file.i.i, align 8
   %110 = load ptr, ptr %opaque.i.i, align 8
@@ -1604,7 +1599,7 @@ unz64local_getByte.exit.thread.i280:              ; preds = %106
   br label %if.then.i263
 
 unz64local_getByte.exit.i258:                     ; preds = %106
-  %zerror_file.i.i259 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i259 = getelementptr inbounds i8, ptr %file, i64 48
   %114 = load ptr, ptr %zerror_file.i.i259, align 8
   %115 = load ptr, ptr %opaque.i.i, align 8
   %call7.i.i260 = call i32 %114(ptr noundef %115, ptr noundef %108) #15
@@ -1637,7 +1632,7 @@ unz64local_getShort.exit282.thread:               ; preds = %if.then.i263
   br label %122
 
 unz64local_getShort.exit282:                      ; preds = %if.then.i263
-  %zerror_file.i13.i269 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i269 = getelementptr inbounds i8, ptr %file, i64 48
   %120 = load ptr, ptr %zerror_file.i13.i269, align 8
   %121 = load ptr, ptr %opaque.i.i, align 8
   %call7.i14.i270 = call i32 %120(ptr noundef %121, ptr noundef %108) #15
@@ -1655,7 +1650,7 @@ unz64local_getShort.exit282:                      ; preds = %if.then.i263
 123:                                              ; preds = %unz64local_getShort.exit282.thread466, %unz64local_getShort.exit282, %122
   %124 = phi i32 [ %107, %122 ], [ -1, %unz64local_getShort.exit282 ], [ -1, %unz64local_getShort.exit282.thread466 ]
   %125 = load ptr, ptr %filestream, align 8
-  %size_file_comment = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 10
+  %size_file_comment = getelementptr inbounds i8, ptr %file_info, i64 80
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i284)
   %126 = load ptr, ptr %zread_file.i.i, align 8
   %127 = load ptr, ptr %opaque.i.i, align 8
@@ -1672,7 +1667,7 @@ unz64local_getByte.exit.thread.i311:              ; preds = %123
   br label %if.then.i294
 
 unz64local_getByte.exit.i289:                     ; preds = %123
-  %zerror_file.i.i290 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i290 = getelementptr inbounds i8, ptr %file, i64 48
   %131 = load ptr, ptr %zerror_file.i.i290, align 8
   %132 = load ptr, ptr %opaque.i.i, align 8
   %call7.i.i291 = call i32 %131(ptr noundef %132, ptr noundef %125) #15
@@ -1705,7 +1700,7 @@ unz64local_getShort.exit313.thread:               ; preds = %if.then.i294
   br label %139
 
 unz64local_getShort.exit313:                      ; preds = %if.then.i294
-  %zerror_file.i13.i300 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i300 = getelementptr inbounds i8, ptr %file, i64 48
   %137 = load ptr, ptr %zerror_file.i13.i300, align 8
   %138 = load ptr, ptr %opaque.i.i, align 8
   %call7.i14.i301 = call i32 %137(ptr noundef %138, ptr noundef %125) #15
@@ -1723,7 +1718,7 @@ unz64local_getShort.exit313:                      ; preds = %if.then.i294
 140:                                              ; preds = %unz64local_getShort.exit313.thread471, %unz64local_getShort.exit313, %139
   %141 = phi i32 [ %124, %139 ], [ -1, %unz64local_getShort.exit313 ], [ -1, %unz64local_getShort.exit313.thread471 ]
   %142 = load ptr, ptr %filestream, align 8
-  %disk_num_start = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 11
+  %disk_num_start = getelementptr inbounds i8, ptr %file_info, i64 88
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i315)
   %143 = load ptr, ptr %zread_file.i.i, align 8
   %144 = load ptr, ptr %opaque.i.i, align 8
@@ -1740,7 +1735,7 @@ unz64local_getByte.exit.thread.i342:              ; preds = %140
   br label %if.then.i325
 
 unz64local_getByte.exit.i320:                     ; preds = %140
-  %zerror_file.i.i321 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i321 = getelementptr inbounds i8, ptr %file, i64 48
   %148 = load ptr, ptr %zerror_file.i.i321, align 8
   %149 = load ptr, ptr %opaque.i.i, align 8
   %call7.i.i322 = call i32 %148(ptr noundef %149, ptr noundef %142) #15
@@ -1773,7 +1768,7 @@ unz64local_getShort.exit344.thread:               ; preds = %if.then.i325
   br label %156
 
 unz64local_getShort.exit344:                      ; preds = %if.then.i325
-  %zerror_file.i13.i331 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i331 = getelementptr inbounds i8, ptr %file, i64 48
   %154 = load ptr, ptr %zerror_file.i13.i331, align 8
   %155 = load ptr, ptr %opaque.i.i, align 8
   %call7.i14.i332 = call i32 %154(ptr noundef %155, ptr noundef %142) #15
@@ -1791,7 +1786,7 @@ unz64local_getShort.exit344:                      ; preds = %if.then.i325
 157:                                              ; preds = %unz64local_getShort.exit344.thread476, %unz64local_getShort.exit344, %156
   %158 = phi i32 [ %141, %156 ], [ -1, %unz64local_getShort.exit344 ], [ -1, %unz64local_getShort.exit344.thread476 ]
   %159 = load ptr, ptr %filestream, align 8
-  %internal_fa = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 12
+  %internal_fa = getelementptr inbounds i8, ptr %file_info, i64 96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i346)
   %160 = load ptr, ptr %zread_file.i.i, align 8
   %161 = load ptr, ptr %opaque.i.i, align 8
@@ -1808,7 +1803,7 @@ unz64local_getByte.exit.thread.i373:              ; preds = %157
   br label %if.then.i356
 
 unz64local_getByte.exit.i351:                     ; preds = %157
-  %zerror_file.i.i352 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i352 = getelementptr inbounds i8, ptr %file, i64 48
   %165 = load ptr, ptr %zerror_file.i.i352, align 8
   %166 = load ptr, ptr %opaque.i.i, align 8
   %call7.i.i353 = call i32 %165(ptr noundef %166, ptr noundef %159) #15
@@ -1841,7 +1836,7 @@ unz64local_getShort.exit375.thread:               ; preds = %if.then.i356
   br label %173
 
 unz64local_getShort.exit375:                      ; preds = %if.then.i356
-  %zerror_file.i13.i362 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i362 = getelementptr inbounds i8, ptr %file, i64 48
   %171 = load ptr, ptr %zerror_file.i13.i362, align 8
   %172 = load ptr, ptr %opaque.i.i, align 8
   %call7.i14.i363 = call i32 %171(ptr noundef %172, ptr noundef %159) #15
@@ -1859,7 +1854,7 @@ unz64local_getShort.exit375:                      ; preds = %if.then.i356
 174:                                              ; preds = %unz64local_getShort.exit375.thread481, %unz64local_getShort.exit375, %173
   %175 = phi i32 [ %158, %173 ], [ -1, %unz64local_getShort.exit375 ], [ -1, %unz64local_getShort.exit375.thread481 ]
   %176 = load ptr, ptr %filestream, align 8
-  %external_fa = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info, i64 0, i32 13
+  %external_fa = getelementptr inbounds i8, ptr %file_info, i64 104
   %call97 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %file, ptr noundef %176, ptr noundef nonnull %external_fa)
   %cmp98.not = icmp eq i32 %call97, 0
   %177 = load ptr, ptr %filestream, align 8
@@ -1978,7 +1973,7 @@ if.then187:                                       ; preds = %if.then183
 while.body.lr.ph:                                 ; preds = %if.then183, %if.then187
   %err.22 = phi i32 [ 0, %if.then183 ], [ %.119, %if.then187 ]
   %lSeek.3 = phi i64 [ 0, %if.then183 ], [ %.sub185, %if.then187 ]
-  %zerror_file.i.i383 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i383 = getelementptr inbounds i8, ptr %file, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end262
@@ -2254,31 +2249,31 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load <2 x i64>, ptr %file_info64, align 16
   store <2 x i64> %0, ptr %pfile_info, align 8
-  %flag = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info64, i64 0, i32 2
-  %flag4 = getelementptr inbounds %struct.unz_file_info_s, ptr %pfile_info, i64 0, i32 2
+  %flag = getelementptr inbounds i8, ptr %file_info64, i64 16
+  %flag4 = getelementptr inbounds i8, ptr %pfile_info, i64 16
   %1 = load <2 x i64>, ptr %flag, align 16
   store <2 x i64> %1, ptr %flag4, align 8
-  %dosDate = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info64, i64 0, i32 4
-  %dosDate6 = getelementptr inbounds %struct.unz_file_info_s, ptr %pfile_info, i64 0, i32 4
+  %dosDate = getelementptr inbounds i8, ptr %file_info64, i64 32
+  %dosDate6 = getelementptr inbounds i8, ptr %pfile_info, i64 32
   %2 = load <2 x i64>, ptr %dosDate, align 16
   store <2 x i64> %2, ptr %dosDate6, align 8
-  %size_filename = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info64, i64 0, i32 8
-  %size_filename8 = getelementptr inbounds %struct.unz_file_info_s, ptr %pfile_info, i64 0, i32 8
+  %size_filename = getelementptr inbounds i8, ptr %file_info64, i64 64
+  %size_filename8 = getelementptr inbounds i8, ptr %pfile_info, i64 64
   %3 = load <2 x i64>, ptr %size_filename, align 16
   store <2 x i64> %3, ptr %size_filename8, align 8
-  %size_file_comment = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info64, i64 0, i32 10
-  %size_file_comment10 = getelementptr inbounds %struct.unz_file_info_s, ptr %pfile_info, i64 0, i32 10
+  %size_file_comment = getelementptr inbounds i8, ptr %file_info64, i64 80
+  %size_file_comment10 = getelementptr inbounds i8, ptr %pfile_info, i64 80
   %4 = load <2 x i64>, ptr %size_file_comment, align 16
   store <2 x i64> %4, ptr %size_file_comment10, align 8
-  %internal_fa = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info64, i64 0, i32 12
-  %internal_fa12 = getelementptr inbounds %struct.unz_file_info_s, ptr %pfile_info, i64 0, i32 12
+  %internal_fa = getelementptr inbounds i8, ptr %file_info64, i64 96
+  %internal_fa12 = getelementptr inbounds i8, ptr %pfile_info, i64 96
   %5 = load <2 x i64>, ptr %internal_fa, align 16
   store <2 x i64> %5, ptr %internal_fa12, align 8
-  %tmu_date = getelementptr inbounds %struct.unz_file_info_s, ptr %pfile_info, i64 0, i32 14
-  %tmu_date14 = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info64, i64 0, i32 14
+  %tmu_date = getelementptr inbounds i8, ptr %pfile_info, i64 112
+  %tmu_date14 = getelementptr inbounds i8, ptr %file_info64, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tmu_date, ptr noundef nonnull align 16 dereferenceable(24) %tmu_date14, i64 24, i1 false)
-  %compressed_size = getelementptr inbounds %struct.unz_file_info64_s, ptr %file_info64, i64 0, i32 6
-  %compressed_size15 = getelementptr inbounds %struct.unz_file_info_s, ptr %pfile_info, i64 0, i32 6
+  %compressed_size = getelementptr inbounds i8, ptr %file_info64, i64 48
+  %compressed_size15 = getelementptr inbounds i8, ptr %pfile_info, i64 48
   %6 = load <2 x i64>, ptr %compressed_size, align 16
   store <2 x i64> %6, ptr %compressed_size15, align 8
   br label %if.end
@@ -2294,18 +2289,18 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %offset_central_dir = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 10
+  %offset_central_dir = getelementptr inbounds i8, ptr %file, i64 168
   %0 = load i64, ptr %offset_central_dir, align 8
-  %pos_in_central_dir = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 6
+  %pos_in_central_dir = getelementptr inbounds i8, ptr %file, i64 136
   store i64 %0, ptr %pos_in_central_dir, align 8
-  %num_file = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 5
+  %num_file = getelementptr inbounds i8, ptr %file, i64 128
   store i64 0, ptr %num_file, align 8
-  %cur_file_info = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11
-  %cur_file_info_internal = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 12
+  %cur_file_info = getelementptr inbounds i8, ptr %file, i64 176
+  %cur_file_info_internal = getelementptr inbounds i8, ptr %file, i64 312
   %call = tail call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef nonnull %file, ptr noundef nonnull %cur_file_info, ptr noundef nonnull %cur_file_info_internal, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0), !range !5
   %cmp1 = icmp eq i32 %call, 0
   %conv2 = zext i1 %cmp1 to i64
-  %current_file_ok = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 7
+  %current_file_ok = getelementptr inbounds i8, ptr %file, i64 144
   store i64 %conv2, ptr %current_file_ok, align 8
   br label %return
 
@@ -2321,16 +2316,16 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %current_file_ok = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 7
+  %current_file_ok = getelementptr inbounds i8, ptr %file, i64 144
   %0 = load i64, ptr %current_file_ok, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %gi = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 3
+  %gi = getelementptr inbounds i8, ptr %file, i64 104
   %1 = load i64, ptr %gi, align 8
   %cmp3.not = icmp ne i64 %1, 65535
-  %num_file17.phi.trans.insert = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 5
+  %num_file17.phi.trans.insert = getelementptr inbounds i8, ptr %file, i64 128
   %.pre = load i64, ptr %num_file17.phi.trans.insert, align 8
   %.pre15 = add i64 %.pre, 1
   %cmp7 = icmp eq i64 %.pre15, %1
@@ -2338,23 +2333,23 @@ if.end2:                                          ; preds = %if.end
   br i1 %or.cond, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end2
-  %cur_file_info = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11
-  %size_filename = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 8
+  %cur_file_info = getelementptr inbounds i8, ptr %file, i64 176
+  %size_filename = getelementptr inbounds i8, ptr %file, i64 240
   %2 = load i64, ptr %size_filename, align 8
   %add11 = add i64 %2, 46
-  %size_file_extra = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 9
+  %size_file_extra = getelementptr inbounds i8, ptr %file, i64 248
   %3 = load i64, ptr %size_file_extra, align 8
   %add13 = add i64 %add11, %3
-  %size_file_comment = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 10
+  %size_file_comment = getelementptr inbounds i8, ptr %file, i64 256
   %4 = load i64, ptr %size_file_comment, align 8
   %add15 = add i64 %add13, %4
-  %pos_in_central_dir = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 6
+  %pos_in_central_dir = getelementptr inbounds i8, ptr %file, i64 136
   %5 = load i64, ptr %pos_in_central_dir, align 8
   %add16 = add i64 %add15, %5
   store i64 %add16, ptr %pos_in_central_dir, align 8
-  %num_file17 = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 5
+  %num_file17 = getelementptr inbounds i8, ptr %file, i64 128
   store i64 %.pre15, ptr %num_file17, align 8
-  %cur_file_info_internal = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 12
+  %cur_file_info_internal = getelementptr inbounds i8, ptr %file, i64 312
   %call = tail call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef nonnull %file, ptr noundef nonnull %cur_file_info, ptr noundef nonnull %cur_file_info_internal, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0), !range !5
   %cmp19 = icmp eq i32 %call, 0
   %conv20 = zext i1 %cmp19 to i64
@@ -2380,20 +2375,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %current_file_ok = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 7
+  %current_file_ok = getelementptr inbounds i8, ptr %file, i64 144
   %0 = load i64, ptr %current_file_ok, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %unzGoToFirstFile.exit
 
 unzGoToFirstFile.exit:                            ; preds = %if.end3
-  %num_file = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 5
-  %pos_in_central_dir = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 6
+  %num_file = getelementptr inbounds i8, ptr %file, i64 128
+  %pos_in_central_dir = getelementptr inbounds i8, ptr %file, i64 136
   %1 = load <2 x i64>, ptr %num_file, align 8
-  %cur_file_info = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11
+  %cur_file_info = getelementptr inbounds i8, ptr %file, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %cur_file_infoSaved, ptr noundef nonnull align 8 dereferenceable(136) %cur_file_info, i64 136, i1 false)
-  %cur_file_info_internal = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 12
+  %cur_file_info_internal = getelementptr inbounds i8, ptr %file, i64 312
   %cur_file_info_internalSaved.sroa.0.0.copyload = load i64, ptr %cur_file_info_internal, align 8
-  %offset_central_dir.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 10
+  %offset_central_dir.i = getelementptr inbounds i8, ptr %file, i64 168
   %2 = load i64, ptr %offset_central_dir.i, align 8
   store i64 %2, ptr %pos_in_central_dir, align 8
   store i64 0, ptr %num_file, align 8
@@ -2405,10 +2400,10 @@ unzGoToFirstFile.exit:                            ; preds = %if.end3
 
 while.body.lr.ph:                                 ; preds = %unzGoToFirstFile.exit
   %cmp1.i18 = icmp ult i32 %iCaseSensitivity, 2
-  %gi.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 3
-  %size_filename.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 8
-  %size_file_extra.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 9
-  %size_file_comment.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 10
+  %gi.i = getelementptr inbounds i8, ptr %file, i64 104
+  %size_filename.i = getelementptr inbounds i8, ptr %file, i64 240
+  %size_file_extra.i = getelementptr inbounds i8, ptr %file, i64 248
+  %size_file_comment.i = getelementptr inbounds i8, ptr %file, i64 256
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end17
@@ -2511,18 +2506,18 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %current_file_ok = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 7
+  %current_file_ok = getelementptr inbounds i8, ptr %file, i64 144
   %0 = load i64, ptr %current_file_ok, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %pos_in_central_dir = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 6
+  %pos_in_central_dir = getelementptr inbounds i8, ptr %file, i64 136
   %1 = load i64, ptr %pos_in_central_dir, align 8
   store i64 %1, ptr %file_pos, align 8
-  %num_file = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 5
+  %num_file = getelementptr inbounds i8, ptr %file, i64 128
   %2 = load i64, ptr %num_file, align 8
-  %num_of_file = getelementptr inbounds %struct.unz64_file_pos_s, ptr %file_pos, i64 0, i32 1
+  %num_of_file = getelementptr inbounds i8, ptr %file_pos, i64 8
   store i64 %2, ptr %num_of_file, align 8
   br label %return
 
@@ -2538,13 +2533,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %current_file_ok.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 7
+  %current_file_ok.i = getelementptr inbounds i8, ptr %file, i64 144
   %0 = load i64, ptr %current_file_ok.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %if.end.i
-  %num_file.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 5
+  %num_file.i = getelementptr inbounds i8, ptr %file, i64 128
   %1 = load <2 x i64>, ptr %num_file.i, align 8
   %2 = shufflevector <2 x i64> %1, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i64> %2, ptr %file_pos, align 8
@@ -2565,18 +2560,18 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %file_pos, align 8
-  %pos_in_central_dir = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 6
+  %pos_in_central_dir = getelementptr inbounds i8, ptr %file, i64 136
   store i64 %0, ptr %pos_in_central_dir, align 8
-  %num_of_file = getelementptr inbounds %struct.unz64_file_pos_s, ptr %file_pos, i64 0, i32 1
+  %num_of_file = getelementptr inbounds i8, ptr %file_pos, i64 8
   %1 = load i64, ptr %num_of_file, align 8
-  %num_file = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 5
+  %num_file = getelementptr inbounds i8, ptr %file, i64 128
   store i64 %1, ptr %num_file, align 8
-  %cur_file_info = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11
-  %cur_file_info_internal = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 12
+  %cur_file_info = getelementptr inbounds i8, ptr %file, i64 176
+  %cur_file_info_internal = getelementptr inbounds i8, ptr %file, i64 312
   %call = tail call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef nonnull %file, ptr noundef nonnull %cur_file_info, ptr noundef nonnull %cur_file_info_internal, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0), !range !5
   %cmp2 = icmp eq i32 %call, 0
   %conv3 = zext i1 %cmp2 to i64
-  %current_file_ok = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 7
+  %current_file_ok = getelementptr inbounds i8, ptr %file, i64 144
   store i64 %conv3, ptr %current_file_ok, align 8
   br label %return
 
@@ -2594,16 +2589,16 @@ entry:
   br i1 %or.cond, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %num_file.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 5
+  %num_file.i = getelementptr inbounds i8, ptr %file, i64 128
   %0 = load <2 x i64>, ptr %file_pos, align 8
   %1 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i64> %1, ptr %num_file.i, align 8
-  %cur_file_info.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11
-  %cur_file_info_internal.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 12
+  %cur_file_info.i = getelementptr inbounds i8, ptr %file, i64 176
+  %cur_file_info_internal.i = getelementptr inbounds i8, ptr %file, i64 312
   %call.i = tail call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef nonnull %file, ptr noundef nonnull %cur_file_info.i, ptr noundef nonnull %cur_file_info_internal.i, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0), !range !5
   %cmp2.i = icmp eq i32 %call.i, 0
   %conv3.i = zext i1 %cmp2.i to i64
-  %current_file_ok.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 7
+  %current_file_ok.i = getelementptr inbounds i8, ptr %file, i64 144
   store i64 %conv3.i, ptr %current_file_ok.i, align 8
   br label %return
 
@@ -2633,13 +2628,13 @@ entry:
   br i1 %or.cond62, label %return, label %if.end3
 
 if.end3:                                          ; preds = %entry
-  %current_file_ok = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 7
+  %current_file_ok = getelementptr inbounds i8, ptr %file, i64 144
   %0 = load i64, ptr %current_file_ok, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end3
-  %pfile_in_zip_read = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 13
+  %pfile_in_zip_read = getelementptr inbounds i8, ptr %file, i64 320
   %1 = load ptr, ptr %pfile_in_zip_read, align 8
   %cmp6.not = icmp eq ptr %1, null
   br i1 %cmp6.not, label %if.end8, label %if.end3.i
@@ -2648,13 +2643,13 @@ if.end3.i:                                        ; preds = %if.end5
   %2 = load ptr, ptr %1, align 8
   tail call void @free(ptr noundef %2) #15
   store ptr null, ptr %1, align 8
-  %stream_initialised.i = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %1, i64 0, i32 3
+  %stream_initialised.i = getelementptr inbounds i8, ptr %1, i64 128
   %3 = load i64, ptr %stream_initialised.i, align 8
   %cmp11.i = icmp eq i64 %3, 8
   br i1 %cmp11.i, label %if.then12.i, label %unzCloseCurrentFile.exit
 
 if.then12.i:                                      ; preds = %if.end3.i
-  %stream.i = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %1, i64 0, i32 1
+  %stream.i = getelementptr inbounds i8, ptr %1, i64 8
   %call.i = tail call i32 @inflateEnd(ptr noundef nonnull %stream.i) #15
   br label %unzCloseCurrentFile.exit
 
@@ -2666,11 +2661,11 @@ unzCloseCurrentFile.exit:                         ; preds = %if.end3.i, %if.then
 if.end8:                                          ; preds = %unzCloseCurrentFile.exit, %if.end5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %uMagic.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %uData.i)
-  %filestream.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 2
+  %filestream.i = getelementptr inbounds i8, ptr %file, i64 96
   %4 = load ptr, ptr %filestream.i, align 8
-  %cur_file_info_internal.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 12
+  %cur_file_info_internal.i = getelementptr inbounds i8, ptr %file, i64 312
   %5 = load i64, ptr %cur_file_info_internal.i, align 8
-  %byte_before_the_zipfile.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 4
+  %byte_before_the_zipfile.i = getelementptr inbounds i8, ptr %file, i64 120
   %6 = load i64, ptr %byte_before_the_zipfile.i, align 8
   %add.i = add i64 %6, %5
   %call.i63 = tail call i64 @call_zseek64(ptr noundef nonnull %file, ptr noundef %4, i64 noundef %add.i, i32 noundef 0) #15
@@ -2692,9 +2687,9 @@ if.then2.i:                                       ; preds = %if.end8
   %err.0.i67 = select i1 %cmp6.not.i65, i32 %spec.select.i66, i32 -1
   %9 = load ptr, ptr %filestream.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i.i)
-  %zread_file.i.i.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 1
+  %zread_file.i.i.i = getelementptr inbounds i8, ptr %file, i64 8
   %10 = load ptr, ptr %zread_file.i.i.i, align 8
-  %opaque.i.i.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 7
+  %opaque.i.i.i = getelementptr inbounds i8, ptr %file, i64 56
   %11 = load ptr, ptr %opaque.i.i.i, align 8
   %call.i.i.i = call i64 %10(ptr noundef %11, ptr noundef %9, ptr noundef nonnull %c.i.i.i, i64 noundef 1) #15
   %12 = and i64 %call.i.i.i, 4294967295
@@ -2709,7 +2704,7 @@ unz64local_getByte.exit.thread.i.i:               ; preds = %if.then2.i
   br label %if.then.i.i
 
 unz64local_getByte.exit.i.i:                      ; preds = %if.then2.i
-  %zerror_file.i.i.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i.i = getelementptr inbounds i8, ptr %file, i64 48
   %15 = load ptr, ptr %zerror_file.i.i.i, align 8
   %16 = load ptr, ptr %opaque.i.i.i, align 8
   %call7.i.i.i = call i32 %15(ptr noundef %16, ptr noundef %9) #15
@@ -2742,7 +2737,7 @@ unz64local_getShort.exit.thread.i:                ; preds = %if.then.i.i
   br label %23
 
 unz64local_getShort.exit.i:                       ; preds = %if.then.i.i
-  %zerror_file.i13.i.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i.i = getelementptr inbounds i8, ptr %file, i64 48
   %21 = load ptr, ptr %zerror_file.i13.i.i, align 8
   %22 = load ptr, ptr %opaque.i.i.i, align 8
   %call7.i14.i.i = call i32 %21(ptr noundef %22, ptr noundef %9) #15
@@ -2776,7 +2771,7 @@ unz64local_getByte.exit.thread.i83.i:             ; preds = %24
   br label %if.then.i66.i
 
 unz64local_getByte.exit.i61.i:                    ; preds = %24
-  %zerror_file.i.i62.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i62.i = getelementptr inbounds i8, ptr %file, i64 48
   %32 = load ptr, ptr %zerror_file.i.i62.i, align 8
   %33 = load ptr, ptr %opaque.i.i.i, align 8
   %call7.i.i63.i = call i32 %32(ptr noundef %33, ptr noundef %26) #15
@@ -2800,7 +2795,7 @@ unz64local_getShort.exit85.thread.i:              ; preds = %if.then.i66.i
   br label %unz64local_getShort.exit85.thread190.i
 
 unz64local_getShort.exit85.i:                     ; preds = %if.then.i66.i
-  %zerror_file.i13.i72.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i72.i = getelementptr inbounds i8, ptr %file, i64 48
   %37 = load ptr, ptr %zerror_file.i13.i72.i, align 8
   %38 = load ptr, ptr %opaque.i.i.i, align 8
   %call7.i14.i73.i = call i32 %37(ptr noundef %38, ptr noundef %26) #15
@@ -2832,7 +2827,7 @@ unz64local_getByte.exit.thread.i114.i:            ; preds = %unz64local_getShort
   br label %if.then.i97.i
 
 unz64local_getByte.exit.i92.i:                    ; preds = %unz64local_getShort.exit85.thread190.i
-  %zerror_file.i.i93.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i93.i = getelementptr inbounds i8, ptr %file, i64 48
   %47 = load ptr, ptr %zerror_file.i.i93.i, align 8
   %48 = load ptr, ptr %opaque.i.i.i, align 8
   %call7.i.i94.i = call i32 %47(ptr noundef %48, ptr noundef %41) #15
@@ -2865,7 +2860,7 @@ unz64local_getShort.exit116.thread.i:             ; preds = %if.then.i97.i
   br label %if.else30.i
 
 unz64local_getShort.exit116.i:                    ; preds = %if.then.i97.i
-  %zerror_file.i13.i103.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i103.i = getelementptr inbounds i8, ptr %file, i64 48
   %53 = load ptr, ptr %zerror_file.i13.i103.i, align 8
   %54 = load ptr, ptr %opaque.i.i.i, align 8
   %call7.i14.i104.i = call i32 %53(ptr noundef %54, ptr noundef %41) #15
@@ -2883,7 +2878,7 @@ if.else30.i:                                      ; preds = %unz64local_getShort
   br i1 %cmp31.i, label %land.lhs.true.i68, label %if.end50.i
 
 land.lhs.true.i68:                                ; preds = %if.else30.i
-  %compression_method.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 3
+  %compression_method.i = getelementptr inbounds i8, ptr %file, i64 200
   %56 = load i64, ptr %compression_method.i, align 8
   %cmp32.not.i = icmp eq i64 %55, %56
   br i1 %cmp32.not.i, label %land.lhs.true37.i, label %if.end50.i
@@ -2915,7 +2910,7 @@ if.else62.i:                                      ; preds = %if.end50.i
 
 land.lhs.true64.i:                                ; preds = %if.else62.i
   %59 = load i64, ptr %uData.i, align 8
-  %crc.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 5
+  %crc.i = getelementptr inbounds i8, ptr %file, i64 216
   %60 = load i64, ptr %crc.i, align 8
   %cmp66.not.i = icmp eq i64 %59, %60
   br i1 %cmp66.not.i, label %if.end71.i, label %land.lhs.true67.i
@@ -2941,7 +2936,7 @@ if.else77.i:                                      ; preds = %if.end71.i
   br i1 %or.cond.i, label %land.lhs.true81.i, label %if.end89.i
 
 land.lhs.true81.i:                                ; preds = %if.else77.i
-  %compressed_size.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 6
+  %compressed_size.i = getelementptr inbounds i8, ptr %file, i64 224
   %63 = load i64, ptr %compressed_size.i, align 8
   %cmp83.not.i = icmp eq i64 %62, %63
   br i1 %cmp83.not.i, label %if.end89.i, label %land.lhs.true84.i
@@ -2967,7 +2962,7 @@ if.else95.i:                                      ; preds = %if.end89.i
   br i1 %or.cond1.i, label %land.lhs.true99.i, label %if.end107.i
 
 land.lhs.true99.i:                                ; preds = %if.else95.i
-  %uncompressed_size.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 7
+  %uncompressed_size.i = getelementptr inbounds i8, ptr %file, i64 232
   %66 = load i64, ptr %uncompressed_size.i, align 8
   %cmp101.not.i = icmp eq i64 %65, %66
   br i1 %cmp101.not.i, label %if.end107.i, label %land.lhs.true102.i
@@ -2997,7 +2992,7 @@ unz64local_getByte.exit.thread.i145.i:            ; preds = %if.end107.i
   br label %if.then.i128.i
 
 unz64local_getByte.exit.i123.i:                   ; preds = %if.end107.i
-  %zerror_file.i.i124.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i124.i = getelementptr inbounds i8, ptr %file, i64 48
   %73 = load ptr, ptr %zerror_file.i.i124.i, align 8
   %74 = load ptr, ptr %opaque.i.i.i, align 8
   %call7.i.i125.i = call i32 %73(ptr noundef %74, ptr noundef %67) #15
@@ -3024,7 +3019,7 @@ unz64local_getShort.exit147.thread.i:             ; preds = %if.then.i128.i
   br label %if.else113.i
 
 unz64local_getShort.exit147.i:                    ; preds = %if.then.i128.i
-  %zerror_file.i13.i134.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i134.i = getelementptr inbounds i8, ptr %file, i64 48
   %79 = load ptr, ptr %zerror_file.i13.i134.i, align 8
   %80 = load ptr, ptr %opaque.i.i.i, align 8
   %call7.i14.i135.i = call i32 %79(ptr noundef %80, ptr noundef %67) #15
@@ -3040,7 +3035,7 @@ if.else113.i:                                     ; preds = %unz64local_getShort
   br i1 %cmp114.i, label %land.lhs.true115.i, label %if.end121.i
 
 land.lhs.true115.i:                               ; preds = %if.else113.i
-  %size_filename117.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 8
+  %size_filename117.i = getelementptr inbounds i8, ptr %file, i64 240
   %82 = load i64, ptr %size_filename117.i, align 8
   %cmp118.not.i = icmp eq i64 %81, %82
   br label %if.end121.i
@@ -3066,7 +3061,7 @@ unz64local_getByte.exit.thread.i176.i:            ; preds = %if.end121.i
   br label %if.then.i159.i
 
 unz64local_getByte.exit.i154.i:                   ; preds = %if.end121.i
-  %zerror_file.i.i155.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i.i155.i = getelementptr inbounds i8, ptr %file, i64 48
   %90 = load ptr, ptr %zerror_file.i.i155.i, align 8
   %91 = load ptr, ptr %opaque.i.i.i, align 8
   %call7.i.i156.i = call i32 %90(ptr noundef %91, ptr noundef %84) #15
@@ -3093,7 +3088,7 @@ unz64local_getShort.exit178.thread.i:             ; preds = %if.then.i159.i
   br label %unz64local_CheckCurrentFileCoherencyHeader.exit
 
 unz64local_getShort.exit178.i:                    ; preds = %if.then.i159.i
-  %zerror_file.i13.i165.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 6
+  %zerror_file.i13.i165.i = getelementptr inbounds i8, ptr %file, i64 48
   %96 = load ptr, ptr %zerror_file.i13.i165.i, align 8
   %97 = load ptr, ptr %opaque.i.i.i, align 8
   %call7.i14.i166.i = call i32 %96(ptr noundef %97, ptr noundef %84) #15
@@ -3126,13 +3121,13 @@ if.end12:                                         ; preds = %unz64local_CheckCur
 if.end16:                                         ; preds = %if.end12
   %call17 = call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #16
   store ptr %call17, ptr %call13, align 8
-  %offset_local_extrafield18 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 4
+  %offset_local_extrafield18 = getelementptr inbounds i8, ptr %call13, i64 136
   store i64 %add133.i, ptr %offset_local_extrafield18, align 8
-  %size_local_extrafield19 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 5
+  %size_local_extrafield19 = getelementptr inbounds i8, ptr %call13, i64 144
   store i32 %98, ptr %size_local_extrafield19, align 8
-  %pos_local_extrafield = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 6
+  %pos_local_extrafield = getelementptr inbounds i8, ptr %call13, i64 152
   store i64 0, ptr %pos_local_extrafield, align 8
-  %raw20 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 16
+  %raw20 = getelementptr inbounds i8, ptr %call13, i64 312
   store i32 %raw, ptr %raw20, align 8
   %cmp22 = icmp eq ptr %call17, null
   br i1 %cmp22, label %if.then23, label %if.end24
@@ -3142,13 +3137,13 @@ if.then23:                                        ; preds = %if.end16
   br label %return
 
 if.end24:                                         ; preds = %if.end16
-  %stream_initialised = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 3
+  %stream_initialised = getelementptr inbounds i8, ptr %call13, i64 128
   store i64 0, ptr %stream_initialised, align 8
   %cmp25.not = icmp eq ptr %method, null
   br i1 %cmp25.not, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %compression_method = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 3
+  %compression_method = getelementptr inbounds i8, ptr %file, i64 200
   %100 = load i64, ptr %compression_method, align 8
   %conv = trunc i64 %100 to i32
   store i32 %conv, ptr %method, align 4
@@ -3160,7 +3155,7 @@ if.end27:                                         ; preds = %if.then26, %if.end2
 
 if.then30:                                        ; preds = %if.end27
   store i32 6, ptr %level, align 4
-  %flag = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 2
+  %flag = getelementptr inbounds i8, ptr %file, i64 192
   %101 = load i64, ptr %flag, align 8
   %and = and i64 %101, 6
   switch i64 %and, label %if.end34 [
@@ -3181,26 +3176,26 @@ if.end34.sink.split:                              ; preds = %if.then30, %sw.bb33
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end34.sink.split, %if.then30, %if.end27
-  %compression_method36 = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 3
-  %crc = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 5
+  %compression_method36 = getelementptr inbounds i8, ptr %file, i64 200
+  %crc = getelementptr inbounds i8, ptr %file, i64 216
   %102 = load i64, ptr %crc, align 8
-  %crc32_wait = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 9
+  %crc32_wait = getelementptr inbounds i8, ptr %call13, i64 176
   store i64 %102, ptr %crc32_wait, align 8
-  %total_out_64 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 7
+  %total_out_64 = getelementptr inbounds i8, ptr %call13, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_out_64, i8 0, i64 16, i1 false)
   %103 = load i64, ptr %compression_method36, align 8
-  %compression_method53 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 14
+  %compression_method53 = getelementptr inbounds i8, ptr %call13, i64 296
   store i64 %103, ptr %compression_method53, align 8
   %104 = load ptr, ptr %filestream.i, align 8
-  %filestream54 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 13
+  %filestream54 = getelementptr inbounds i8, ptr %call13, i64 288
   store ptr %104, ptr %filestream54, align 8
-  %z_filefunc = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 12
+  %z_filefunc = getelementptr inbounds i8, ptr %call13, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %z_filefunc, ptr noundef nonnull align 8 dereferenceable(88) %file, i64 88, i1 false)
   %105 = load i64, ptr %byte_before_the_zipfile.i, align 8
-  %byte_before_the_zipfile56 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 15
+  %byte_before_the_zipfile56 = getelementptr inbounds i8, ptr %call13, i64 304
   store i64 %105, ptr %byte_before_the_zipfile56, align 8
-  %stream = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 1
-  %total_out = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 1, i32 5
+  %stream = getelementptr inbounds i8, ptr %call13, i64 8
+  %total_out = getelementptr inbounds i8, ptr %call13, i64 48
   store i64 0, ptr %total_out, align 8
   %cmp59 = icmp ne i64 %103, 12
   %tobool62 = icmp ne i32 %raw, 0
@@ -3217,9 +3212,9 @@ if.else:                                          ; preds = %if.end34
   br i1 %or.cond1, label %if.end87, label %if.then71
 
 if.then71:                                        ; preds = %if.else
-  %zalloc = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 1, i32 8
+  %zalloc = getelementptr inbounds i8, ptr %call13, i64 72
   store ptr null, ptr %stream, align 8
-  %avail_in = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 1, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %call13, i64 16
   store i32 0, ptr %avail_in, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %zalloc, i8 0, i64 24, i1 false)
   %call78 = call i32 @inflateInit2_(ptr noundef nonnull %stream, i32 noundef -15, ptr noundef nonnull @.str, i32 noundef 112) #15
@@ -3237,20 +3232,20 @@ if.else83:                                        ; preds = %if.then71
   br label %return
 
 if.end87:                                         ; preds = %if.else, %if.then81, %if.then63
-  %compressed_size = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11, i32 6
-  %rest_read_compressed = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 10
+  %compressed_size = getelementptr inbounds i8, ptr %file, i64 224
+  %rest_read_compressed = getelementptr inbounds i8, ptr %call13, i64 184
   %107 = load <2 x i64>, ptr %compressed_size, align 8
   store <2 x i64> %107, ptr %rest_read_compressed, align 8
   %108 = load i64, ptr %cur_file_info_internal.i, align 8
   %conv90 = zext nneg i32 %add136.i to i64
   %add = add nuw nsw i64 %conv90, 30
   %add91 = add i64 %add, %108
-  %pos_in_zipfile = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 2
+  %pos_in_zipfile = getelementptr inbounds i8, ptr %call13, i64 120
   store i64 %add91, ptr %pos_in_zipfile, align 8
-  %avail_in93 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %call13, i64 0, i32 1, i32 1
+  %avail_in93 = getelementptr inbounds i8, ptr %call13, i64 16
   store i32 0, ptr %avail_in93, align 8
   store ptr %call13, ptr %pfile_in_zip_read, align 8
-  %encrypted = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 14
+  %encrypted = getelementptr inbounds i8, ptr %file, i64 328
   store i32 0, ptr %encrypted, align 8
   br label %return
 
@@ -3292,15 +3287,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pfile_in_zip_read = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 13
+  %pfile_in_zip_read = getelementptr inbounds i8, ptr %file, i64 320
   %0 = load ptr, ptr %pfile_in_zip_read, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %pos_in_zipfile = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 2
+  %pos_in_zipfile = getelementptr inbounds i8, ptr %0, i64 120
   %1 = load i64, ptr %pos_in_zipfile, align 8
-  %byte_before_the_zipfile = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 15
+  %byte_before_the_zipfile = getelementptr inbounds i8, ptr %0, i64 304
   %2 = load i64, ptr %byte_before_the_zipfile, align 8
   %add = add i64 %2, %1
   br label %return
@@ -3317,7 +3312,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pfile_in_zip_read = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 13
+  %pfile_in_zip_read = getelementptr inbounds i8, ptr %file, i64 320
   %0 = load ptr, ptr %pfile_in_zip_read, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
@@ -3332,19 +3327,19 @@ if.end6:                                          ; preds = %if.end3
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
-  %stream = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 1
-  %next_out = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 1, i32 3
+  %stream = getelementptr inbounds i8, ptr %0, i64 8
+  %next_out = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %buf, ptr %next_out, align 8
-  %avail_out = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 1, i32 4
+  %avail_out = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %len, ptr %avail_out, align 8
   %conv = zext i32 %len to i64
-  %rest_read_uncompressed = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 11
+  %rest_read_uncompressed = getelementptr inbounds i8, ptr %0, i64 192
   %2 = load i64, ptr %rest_read_uncompressed, align 8
   %cmp11 = icmp ult i64 %2, %conv
   br i1 %cmp11, label %land.lhs.true, label %if.end18
 
 land.lhs.true:                                    ; preds = %if.end9
-  %raw = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 16
+  %raw = getelementptr inbounds i8, ptr %0, i64 312
   %3 = load i32, ptr %raw, align 8
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %if.then13, label %if.end18
@@ -3356,9 +3351,9 @@ if.then13:                                        ; preds = %land.lhs.true
 
 if.end18:                                         ; preds = %if.then13, %land.lhs.true, %if.end9
   %4 = phi i32 [ %conv15, %if.then13 ], [ %len, %land.lhs.true ], [ %len, %if.end9 ]
-  %rest_read_compressed = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 10
+  %rest_read_compressed = getelementptr inbounds i8, ptr %0, i64 184
   %5 = load i64, ptr %rest_read_compressed, align 8
-  %avail_in = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 1, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %avail_in, align 8
   %conv21 = zext i32 %6 to i64
   %add = add i64 %5, %conv21
@@ -3366,7 +3361,7 @@ if.end18:                                         ; preds = %if.then13, %land.lh
   br i1 %cmp22, label %land.lhs.true24, label %if.end35
 
 land.lhs.true24:                                  ; preds = %if.end18
-  %raw25 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 16
+  %raw25 = getelementptr inbounds i8, ptr %0, i64 312
   %7 = load i32, ptr %raw25, align 8
   %tobool26.not = icmp eq i32 %7, 0
   br i1 %tobool26.not, label %if.end35, label %if.then27
@@ -3383,18 +3378,18 @@ if.end35:                                         ; preds = %if.then27, %land.lh
   br i1 %cmp38.not120, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end35
-  %z_filefunc = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 12
-  %filestream = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 13
-  %pos_in_zipfile = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 2
-  %byte_before_the_zipfile = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 15
-  %zread_file = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 12, i32 0, i32 1
-  %opaque = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 12, i32 0, i32 7
-  %compression_method = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 14
-  %raw90 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 16
-  %total_out160 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 1, i32 5
-  %msg = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 1, i32 6
-  %total_out_64181 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 7
-  %crc32184 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 8
+  %z_filefunc = getelementptr inbounds i8, ptr %0, i64 200
+  %filestream = getelementptr inbounds i8, ptr %0, i64 288
+  %pos_in_zipfile = getelementptr inbounds i8, ptr %0, i64 120
+  %byte_before_the_zipfile = getelementptr inbounds i8, ptr %0, i64 304
+  %zread_file = getelementptr inbounds i8, ptr %0, i64 208
+  %opaque = getelementptr inbounds i8, ptr %0, i64 256
+  %compression_method = getelementptr inbounds i8, ptr %0, i64 296
+  %raw90 = getelementptr inbounds i8, ptr %0, i64 312
+  %total_out160 = getelementptr inbounds i8, ptr %0, i64 48
+  %msg = getelementptr inbounds i8, ptr %0, i64 56
+  %total_out_64181 = getelementptr inbounds i8, ptr %0, i64 160
+  %crc32184 = getelementptr inbounds i8, ptr %0, i64 168
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end208
@@ -3579,13 +3574,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pfile_in_zip_read = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 13
+  %pfile_in_zip_read = getelementptr inbounds i8, ptr %file, i64 320
   %0 = load ptr, ptr %pfile_in_zip_read, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %total_out = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 1, i32 5
+  %total_out = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i64, ptr %total_out, align 8
   br label %return
 
@@ -3601,13 +3596,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pfile_in_zip_read = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 13
+  %pfile_in_zip_read = getelementptr inbounds i8, ptr %file, i64 320
   %0 = load ptr, ptr %pfile_in_zip_read, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %total_out_64 = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 7
+  %total_out_64 = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load i64, ptr %total_out_64, align 8
   br label %return
 
@@ -3623,13 +3618,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pfile_in_zip_read = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 13
+  %pfile_in_zip_read = getelementptr inbounds i8, ptr %file, i64 320
   %0 = load ptr, ptr %pfile_in_zip_read, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %rest_read_uncompressed = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 11
+  %rest_read_uncompressed = getelementptr inbounds i8, ptr %0, i64 192
   %1 = load i64, ptr %rest_read_uncompressed, align 8
   %cmp4 = icmp eq i64 %1, 0
   %. = zext i1 %cmp4 to i32
@@ -3647,16 +3642,16 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pfile_in_zip_read = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 13
+  %pfile_in_zip_read = getelementptr inbounds i8, ptr %file, i64 320
   %0 = load ptr, ptr %pfile_in_zip_read, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %size_local_extrafield = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 5
+  %size_local_extrafield = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load i32, ptr %size_local_extrafield, align 8
   %conv = zext i32 %1 to i64
-  %pos_local_extrafield = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 6
+  %pos_local_extrafield = getelementptr inbounds i8, ptr %0, i64 152
   %2 = load i64, ptr %pos_local_extrafield, align 8
   %sub = sub i64 %conv, %2
   %cmp4 = icmp eq ptr %buf, null
@@ -3675,10 +3670,10 @@ if.end8:                                          ; preds = %if.end3
   br i1 %cmp15, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end8
-  %z_filefunc = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 12
-  %filestream = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 13
+  %z_filefunc = getelementptr inbounds i8, ptr %0, i64 200
+  %filestream = getelementptr inbounds i8, ptr %0, i64 288
   %3 = load ptr, ptr %filestream, align 8
-  %offset_local_extrafield = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 4
+  %offset_local_extrafield = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i64, ptr %offset_local_extrafield, align 8
   %add = add i64 %4, %2
   %call = tail call i64 @call_zseek64(ptr noundef nonnull %z_filefunc, ptr noundef %3, i64 noundef %add, i32 noundef 0) #15
@@ -3686,9 +3681,9 @@ if.end18:                                         ; preds = %if.end8
   br i1 %cmp20.not, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.end18
-  %zread_file = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 12, i32 0, i32 1
+  %zread_file = getelementptr inbounds i8, ptr %0, i64 208
   %5 = load ptr, ptr %zread_file, align 8
-  %opaque = getelementptr inbounds %struct.file_in_zip64_read_info_s, ptr %0, i64 0, i32 12, i32 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %0, i64 256
   %6 = load ptr, ptr %opaque, align 8
   %7 = load ptr, ptr %filestream, align 8
   %conv28 = zext i32 %read_now.0 to i64
@@ -3711,12 +3706,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %size_comment = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 3, i32 1
+  %size_comment = getelementptr inbounds i8, ptr %file, i64 112
   %0 = load i64, ptr %size_comment, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %0, i64 %uSizeBuf)
-  %filestream = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 2
+  %filestream = getelementptr inbounds i8, ptr %file, i64 96
   %1 = load ptr, ptr %filestream, align 8
-  %central_pos = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 8
+  %central_pos = getelementptr inbounds i8, ptr %file, i64 152
   %2 = load i64, ptr %central_pos, align 8
   %add = add i64 %2, 22
   %call = tail call i64 @call_zseek64(ptr noundef nonnull %file, ptr noundef %1, i64 noundef %add, i32 noundef 0) #15
@@ -3729,9 +3724,9 @@ if.end8:                                          ; preds = %if.end
 
 if.then10:                                        ; preds = %if.end8
   store i8 0, ptr %szComment, align 1
-  %zread_file = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 1
+  %zread_file = getelementptr inbounds i8, ptr %file, i64 8
   %3 = load ptr, ptr %zread_file, align 8
-  %opaque = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %file, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %file, i64 56
   %4 = load ptr, ptr %opaque, align 8
   %5 = load ptr, ptr %filestream, align 8
   %call15 = tail call i64 %3(ptr noundef %4, ptr noundef %5, ptr noundef nonnull %szComment, i64 noundef %spec.select) #15
@@ -3768,13 +3763,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %current_file_ok = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 7
+  %current_file_ok = getelementptr inbounds i8, ptr %file, i64 144
   %0 = load i64, ptr %current_file_ok, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %gi = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 3
+  %gi = getelementptr inbounds i8, ptr %file, i64 104
   %1 = load i64, ptr %gi, align 8
   switch i64 %1, label %if.then7 [
     i64 0, label %if.end13
@@ -3782,13 +3777,13 @@ if.end2:                                          ; preds = %if.end
   ]
 
 if.then7:                                         ; preds = %if.end2
-  %num_file = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 5
+  %num_file = getelementptr inbounds i8, ptr %file, i64 128
   %2 = load i64, ptr %num_file, align 8
   %cmp10 = icmp eq i64 %2, %1
   br i1 %cmp10, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end2, %if.end2, %if.then7
-  %pos_in_central_dir = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 6
+  %pos_in_central_dir = getelementptr inbounds i8, ptr %file, i64 136
   %3 = load i64, ptr %pos_in_central_dir, align 8
   br label %return
 
@@ -3804,13 +3799,13 @@ entry:
   br i1 %cmp, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %current_file_ok.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 7
+  %current_file_ok.i = getelementptr inbounds i8, ptr %file, i64 144
   %0 = load i64, ptr %current_file_ok.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %return, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i
-  %gi.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 3
+  %gi.i = getelementptr inbounds i8, ptr %file, i64 104
   %1 = load i64, ptr %gi.i, align 8
   switch i64 %1, label %if.then7.i [
     i64 0, label %if.end13.i
@@ -3818,13 +3813,13 @@ if.end2.i:                                        ; preds = %if.end.i
   ]
 
 if.then7.i:                                       ; preds = %if.end2.i
-  %num_file.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 5
+  %num_file.i = getelementptr inbounds i8, ptr %file, i64 128
   %2 = load i64, ptr %num_file.i, align 8
   %cmp10.i = icmp eq i64 %2, %1
   br i1 %cmp10.i, label %return, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then7.i, %if.end2.i, %if.end2.i
-  %pos_in_central_dir.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 6
+  %pos_in_central_dir.i = getelementptr inbounds i8, ptr %file, i64 136
   %3 = load i64, ptr %pos_in_central_dir.i, align 8
   br label %return
 
@@ -3840,18 +3835,18 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pos_in_central_dir = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 6
+  %pos_in_central_dir = getelementptr inbounds i8, ptr %file, i64 136
   store i64 %pos, ptr %pos_in_central_dir, align 8
-  %gi = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 3
+  %gi = getelementptr inbounds i8, ptr %file, i64 104
   %0 = load i64, ptr %gi, align 8
-  %num_file = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 5
+  %num_file = getelementptr inbounds i8, ptr %file, i64 128
   store i64 %0, ptr %num_file, align 8
-  %cur_file_info = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11
-  %cur_file_info_internal = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 12
+  %cur_file_info = getelementptr inbounds i8, ptr %file, i64 176
+  %cur_file_info_internal = getelementptr inbounds i8, ptr %file, i64 312
   %call = tail call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef nonnull %file, ptr noundef nonnull %cur_file_info, ptr noundef nonnull %cur_file_info_internal, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0), !range !5
   %cmp1 = icmp eq i32 %call, 0
   %conv2 = zext i1 %cmp1 to i64
-  %current_file_ok = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 7
+  %current_file_ok = getelementptr inbounds i8, ptr %file, i64 144
   store i64 %conv2, ptr %current_file_ok, align 8
   br label %return
 
@@ -3867,18 +3862,18 @@ entry:
   br i1 %cmp.i, label %unzSetOffset64.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %pos_in_central_dir.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 6
+  %pos_in_central_dir.i = getelementptr inbounds i8, ptr %file, i64 136
   store i64 %pos, ptr %pos_in_central_dir.i, align 8
-  %gi.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 3
+  %gi.i = getelementptr inbounds i8, ptr %file, i64 104
   %0 = load i64, ptr %gi.i, align 8
-  %num_file.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 5
+  %num_file.i = getelementptr inbounds i8, ptr %file, i64 128
   store i64 %0, ptr %num_file.i, align 8
-  %cur_file_info.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 11
-  %cur_file_info_internal.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 12
+  %cur_file_info.i = getelementptr inbounds i8, ptr %file, i64 176
+  %cur_file_info_internal.i = getelementptr inbounds i8, ptr %file, i64 312
   %call.i = tail call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef nonnull %file, ptr noundef nonnull %cur_file_info.i, ptr noundef nonnull %cur_file_info_internal.i, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0), !range !5
   %cmp1.i = icmp eq i32 %call.i, 0
   %conv2.i = zext i1 %cmp1.i to i64
-  %current_file_ok.i = getelementptr inbounds %struct.unz64_s, ptr %file, i64 0, i32 7
+  %current_file_ok.i = getelementptr inbounds i8, ptr %file, i64 144
   store i64 %conv2.i, ptr %current_file_ok.i, align 8
   br label %unzSetOffset64.exit
 
@@ -3899,9 +3894,9 @@ entry:
   %c.i15 = alloca i8, align 1
   %c.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i)
-  %zread_file.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 1
+  %zread_file.i = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 8
   %0 = load ptr, ptr %zread_file.i, align 8
-  %opaque.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 56
   %1 = load ptr, ptr %opaque.i, align 8
   %call.i = call i64 %0(ptr noundef %1, ptr noundef %filestream, ptr noundef nonnull %c.i, i64 noundef 1) #15
   %2 = and i64 %call.i, 4294967295
@@ -3916,7 +3911,7 @@ unz64local_getByte.exit.thread:                   ; preds = %entry
   br label %if.then
 
 unz64local_getByte.exit:                          ; preds = %entry
-  %zerror_file.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file.i = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   %4 = load ptr, ptr %zerror_file.i, align 8
   %5 = load ptr, ptr %opaque.i, align 8
   %call7.i = call i32 %4(ptr noundef %5, ptr noundef %filestream) #15
@@ -3945,7 +3940,7 @@ if.end.thread75:                                  ; preds = %if.then
   br label %if.then6
 
 if.end:                                           ; preds = %if.then
-  %zerror_file.i21 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file.i21 = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   %10 = load ptr, ptr %zerror_file.i21, align 8
   %11 = load ptr, ptr %opaque.i, align 8
   %call7.i22 = call i32 %10(ptr noundef %11, ptr noundef %filestream) #15
@@ -3975,7 +3970,7 @@ if.end8.thread92:                                 ; preds = %if.then6
   br label %if.then14
 
 if.end8:                                          ; preds = %if.then6
-  %zerror_file.i35 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file.i35 = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   %17 = load ptr, ptr %zerror_file.i35, align 8
   %18 = load ptr, ptr %opaque.i, align 8
   %call7.i36 = call i32 %17(ptr noundef %18, ptr noundef %filestream) #15
@@ -4006,7 +4001,7 @@ if.end16.thread109:                               ; preds = %if.then14
   br label %if.end16.thread
 
 if.end16:                                         ; preds = %if.then14
-  %zerror_file.i49 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file.i49 = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   %23 = load ptr, ptr %zerror_file.i49, align 8
   %24 = load ptr, ptr %opaque.i, align 8
   %call7.i50 = call i32 %23(ptr noundef %24, ptr noundef %filestream) #15
@@ -4039,9 +4034,9 @@ entry:
   %c.i31 = alloca i8, align 1
   %c.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i)
-  %zread_file.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 1
+  %zread_file.i = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 8
   %0 = load ptr, ptr %zread_file.i, align 8
-  %opaque.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 56
   %1 = load ptr, ptr %opaque.i, align 8
   %call.i = call i64 %0(ptr noundef %1, ptr noundef %filestream, ptr noundef nonnull %c.i, i64 noundef 1) #15
   %2 = and i64 %call.i, 4294967295
@@ -4056,7 +4051,7 @@ unz64local_getByte.exit.thread:                   ; preds = %entry
   br label %if.then
 
 unz64local_getByte.exit:                          ; preds = %entry
-  %zerror_file.i = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file.i = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   %4 = load ptr, ptr %zerror_file.i, align 8
   %5 = load ptr, ptr %opaque.i, align 8
   %call7.i = call i32 %4(ptr noundef %5, ptr noundef %filestream) #15
@@ -4085,7 +4080,7 @@ if.end.thread150:                                 ; preds = %if.then
   br label %if.then6
 
 if.end:                                           ; preds = %if.then
-  %zerror_file.i37 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file.i37 = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   %10 = load ptr, ptr %zerror_file.i37, align 8
   %11 = load ptr, ptr %opaque.i, align 8
   %call7.i38 = call i32 %10(ptr noundef %11, ptr noundef %filestream) #15
@@ -4115,7 +4110,7 @@ if.end8.thread165:                                ; preds = %if.then6
   br label %if.then14
 
 if.end8:                                          ; preds = %if.then6
-  %zerror_file.i51 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file.i51 = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   %17 = load ptr, ptr %zerror_file.i51, align 8
   %18 = load ptr, ptr %opaque.i, align 8
   %call7.i52 = call i32 %17(ptr noundef %18, ptr noundef %filestream) #15
@@ -4145,7 +4140,7 @@ if.end16.thread180:                               ; preds = %if.then14
   br label %if.then22
 
 if.end16:                                         ; preds = %if.then14
-  %zerror_file.i65 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file.i65 = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   %23 = load ptr, ptr %zerror_file.i65, align 8
   %24 = load ptr, ptr %opaque.i, align 8
   %call7.i66 = call i32 %23(ptr noundef %24, ptr noundef %filestream) #15
@@ -4175,7 +4170,7 @@ if.end24.thread195:                               ; preds = %if.then22
   br label %if.then30
 
 if.end24:                                         ; preds = %if.then22
-  %zerror_file.i79 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file.i79 = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   %29 = load ptr, ptr %zerror_file.i79, align 8
   %30 = load ptr, ptr %opaque.i, align 8
   %call7.i80 = call i32 %29(ptr noundef %30, ptr noundef %filestream) #15
@@ -4205,7 +4200,7 @@ if.end32.thread210:                               ; preds = %if.then30
   br label %if.then38
 
 if.end32:                                         ; preds = %if.then30
-  %zerror_file.i93 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file.i93 = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   %35 = load ptr, ptr %zerror_file.i93, align 8
   %36 = load ptr, ptr %opaque.i, align 8
   %call7.i94 = call i32 %35(ptr noundef %36, ptr noundef %filestream) #15
@@ -4235,7 +4230,7 @@ if.end40.thread225:                               ; preds = %if.then38
   br label %if.then46
 
 if.end40:                                         ; preds = %if.then38
-  %zerror_file.i107 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file.i107 = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   %41 = load ptr, ptr %zerror_file.i107, align 8
   %42 = load ptr, ptr %opaque.i, align 8
   %call7.i108 = call i32 %41(ptr noundef %42, ptr noundef %filestream) #15
@@ -4266,7 +4261,7 @@ if.end48.thread242:                               ; preds = %if.then46
   br label %if.end48.thread
 
 if.end48:                                         ; preds = %if.then46
-  %zerror_file.i121 = getelementptr inbounds %struct.zlib_filefunc64_def_s, ptr %pzlib_filefunc_def, i64 0, i32 6
+  %zerror_file.i121 = getelementptr inbounds i8, ptr %pzlib_filefunc_def, i64 48
   %47 = load ptr, ptr %zerror_file.i121, align 8
   %48 = load ptr, ptr %opaque.i, align 8
   %call7.i122 = call i32 %47(ptr noundef %48, ptr noundef %filestream) #15

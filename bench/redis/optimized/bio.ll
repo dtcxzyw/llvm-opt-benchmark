@@ -21,10 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 %union.pthread_attr_t = type { i64, [48 x i8] }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.list = type { ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.listNode = type { ptr, ptr, ptr }
-%struct.anon.2 = type { i32, i32, i64, i8 }
-%struct.anon.3 = type { i32, ptr, [0 x ptr] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @bio_mutex = internal global [3 x %union.pthread_mutex_t] zeroinitializer, align 16
@@ -200,7 +196,7 @@ if.end14:                                         ; preds = %if.end, %cond.end
 
 while.body:                                       ; preds = %while.body.backedge, %if.end14
   %5 = load ptr, ptr %arrayidx15, align 8
-  %len = getelementptr inbounds %struct.list, ptr %5, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load i64, ptr %len, align 8
   %cmp16 = icmp eq i64 %6, 0
   br i1 %cmp16, label %if.then18, label %if.end22
@@ -214,7 +210,7 @@ while.body.backedge:                              ; preds = %if.then18, %if.end1
 
 if.end22:                                         ; preds = %while.body
   %7 = load ptr, ptr %5, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %7, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %value, align 8
   %call25 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx3) #8
   %9 = load i32, ptr %8, align 8
@@ -222,14 +218,14 @@ if.end22:                                         ; preds = %while.body
   br i1 %cmp26, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %if.end22
-  %need_fsync = getelementptr inbounds %struct.anon.2, ptr %8, i64 0, i32 3
+  %need_fsync = getelementptr inbounds i8, ptr %8, i64 16
   %bf.load = load i8, ptr %need_fsync, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool29.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool29.not, label %if.end50, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then28
-  %fd = getelementptr inbounds %struct.anon.2, ptr %8, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %8, i64 4
   %10 = load i32, ptr %fd, align 4
   %call30 = call i32 @fdatasync(i32 noundef %10) #8
   %cmp31 = icmp eq i32 %call30, -1
@@ -260,7 +256,7 @@ if.end50:                                         ; preds = %if.end46, %land.lhs
   br i1 %tobool54.not, label %if.end70, label %if.then55
 
 if.then55:                                        ; preds = %if.end50
-  %fd56 = getelementptr inbounds %struct.anon.2, ptr %8, i64 0, i32 1
+  %fd56 = getelementptr inbounds i8, ptr %8, i64 4
   %14 = load i32, ptr %fd56, align 4
   %call57 = call i32 @reclaimFilePageCache(i32 noundef %14, i64 noundef 0, i64 noundef 0) #8
   %cmp58 = icmp ne i32 %call57, -1
@@ -277,7 +273,7 @@ if.end65:                                         ; preds = %if.then55
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then55, %if.end65, %if.end50
-  %fd71 = getelementptr inbounds %struct.anon.2, ptr %8, i64 0, i32 1
+  %fd71 = getelementptr inbounds i8, ptr %8, i64 4
   %17 = load i32, ptr %fd71, align 4
   %call72 = call i32 @close(i32 noundef %17) #8
   br label %if.end146
@@ -291,7 +287,7 @@ if.else:                                          ; preds = %if.end22
   ]
 
 if.then77:                                        ; preds = %if.else, %if.else
-  %fd78 = getelementptr inbounds %struct.anon.2, ptr %8, i64 0, i32 1
+  %fd78 = getelementptr inbounds i8, ptr %8, i64 4
   %18 = load i32, ptr %fd78, align 4
   %call79 = call i32 @fdatasync(i32 noundef %18) #8
   %cmp80 = icmp eq i32 %call79, -1
@@ -323,13 +319,13 @@ if.end102:                                        ; preds = %do.body91
 
 if.else107:                                       ; preds = %land.lhs.true82, %land.lhs.true82, %if.then77
   store atomic i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 215) monotonic, align 8
-  %offset = getelementptr inbounds %struct.anon.2, ptr %8, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %8, i64 8
   %23 = load i64, ptr %offset, align 8
   store atomic i64 %23, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 264) monotonic, align 8
   br label %if.end110
 
 if.end110:                                        ; preds = %do.body91, %if.end102, %if.else107
-  %need_reclaim_cache111 = getelementptr inbounds %struct.anon.2, ptr %8, i64 0, i32 3
+  %need_reclaim_cache111 = getelementptr inbounds i8, ptr %8, i64 16
   %bf.load112 = load i8, ptr %need_reclaim_cache111, align 8
   %24 = and i8 %bf.load112, 2
   %tobool116.not = icmp eq i8 %24, 0
@@ -360,9 +356,9 @@ if.then135:                                       ; preds = %if.end132
   br label %if.end146
 
 if.then142:                                       ; preds = %if.else
-  %free_fn = getelementptr inbounds %struct.anon.3, ptr %8, i64 0, i32 1
+  %free_fn = getelementptr inbounds i8, ptr %8, i64 8
   %29 = load ptr, ptr %free_fn, align 8
-  %free_args = getelementptr inbounds %struct.anon.3, ptr %8, i64 0, i32 2
+  %free_args = getelementptr inbounds i8, ptr %8, i64 16
   call void %29(ptr noundef nonnull %free_args) #8
   br label %if.end146
 
@@ -438,7 +434,7 @@ entry:
   %mul = shl nsw i64 %conv, 3
   %add = add nsw i64 %mul, 24
   %call = tail call noalias ptr @zmalloc(i64 noundef %add) #11
-  %free_fn1 = getelementptr inbounds %struct.anon.3, ptr %call, i64 0, i32 1
+  %free_fn1 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %free_fn, ptr %free_fn1, align 8
   call void @llvm.va_start(ptr nonnull %valist)
   %cmp8 = icmp sgt i32 %arg_count, 0
@@ -446,16 +442,17 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %valist.promoted = load i32, ptr %valist, align 16
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %valist, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %valist, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %valist, i64 8
+  %0 = getelementptr inbounds i8, ptr %valist, i64 16
   %reg_save_area = load ptr, ptr %0, align 16
+  %free_args = getelementptr inbounds i8, ptr %call, i64 16
   %overflow_arg_area_p.promoted = load ptr, ptr %overflow_arg_area_p, align 8
   %wide.trip.count = zext nneg i32 %arg_count to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %vaarg.end
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %vaarg.end ]
-  %overflow_arg_area.next12 = phi ptr [ %overflow_arg_area_p.promoted, %for.body.lr.ph ], [ %overflow_arg_area.next11, %vaarg.end ]
+  %overflow_arg_area12 = phi ptr [ %overflow_arg_area_p.promoted, %for.body.lr.ph ], [ %overflow_arg_area11, %vaarg.end ]
   %gp_offset79 = phi i32 [ %valist.promoted, %for.body.lr.ph ], [ %gp_offset6, %vaarg.end ]
   %fits_in_gp = icmp ult i32 %gp_offset79, 41
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
@@ -468,16 +465,16 @@ vaarg.in_reg:                                     ; preds = %for.body
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %for.body
-  %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area.next12, i64 8
+  %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area12, i64 8
   store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p, align 8
   br label %vaarg.end
 
 vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
-  %overflow_arg_area.next11 = phi ptr [ %overflow_arg_area.next12, %vaarg.in_reg ], [ %overflow_arg_area.next, %vaarg.in_mem ]
+  %overflow_arg_area11 = phi ptr [ %overflow_arg_area12, %vaarg.in_reg ], [ %overflow_arg_area.next, %vaarg.in_mem ]
   %gp_offset6 = phi i32 [ %3, %vaarg.in_reg ], [ %gp_offset79, %vaarg.in_mem ]
-  %vaarg.addr = phi ptr [ %2, %vaarg.in_reg ], [ %overflow_arg_area.next12, %vaarg.in_mem ]
+  %vaarg.addr = phi ptr [ %2, %vaarg.in_reg ], [ %overflow_arg_area12, %vaarg.in_mem ]
   %4 = load ptr, ptr %vaarg.addr, align 8
-  %arrayidx = getelementptr inbounds %struct.anon.3, ptr %call, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [0 x ptr], ptr %free_args, i64 0, i64 %indvars.iv
   store ptr %4, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -510,9 +507,9 @@ declare void @llvm.va_end(ptr) #7
 define dso_local void @bioCreateCloseJob(i32 noundef %fd, i32 noundef %need_fsync, i32 noundef %need_reclaim_cache) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #11
-  %fd1 = getelementptr inbounds %struct.anon.2, ptr %call, i64 0, i32 1
+  %fd1 = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %fd, ptr %fd1, align 4
-  %need_fsync2 = getelementptr inbounds %struct.anon.2, ptr %call, i64 0, i32 3
+  %need_fsync2 = getelementptr inbounds i8, ptr %call, i64 16
   %0 = trunc i32 %need_fsync to i8
   %bf.load = load i8, ptr %need_fsync2, align 8
   %bf.value = and i8 %0, 1
@@ -539,11 +536,11 @@ entry:
 define dso_local void @bioCreateCloseAofJob(i32 noundef %fd, i64 noundef %offset, i32 noundef %need_reclaim_cache) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #11
-  %fd1 = getelementptr inbounds %struct.anon.2, ptr %call, i64 0, i32 1
+  %fd1 = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %fd, ptr %fd1, align 4
-  %offset2 = getelementptr inbounds %struct.anon.2, ptr %call, i64 0, i32 2
+  %offset2 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %offset, ptr %offset2, align 8
-  %need_fsync = getelementptr inbounds %struct.anon.2, ptr %call, i64 0, i32 3
+  %need_fsync = getelementptr inbounds i8, ptr %call, i64 16
   %bf.load = load i8, ptr %need_fsync, align 8
   %0 = trunc i32 %need_reclaim_cache to i8
   %bf.value = shl i8 %0, 1
@@ -568,11 +565,11 @@ entry:
 define dso_local void @bioCreateFsyncJob(i32 noundef %fd, i64 noundef %offset, i32 noundef %need_reclaim_cache) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #11
-  %fd1 = getelementptr inbounds %struct.anon.2, ptr %call, i64 0, i32 1
+  %fd1 = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %fd, ptr %fd1, align 4
-  %offset2 = getelementptr inbounds %struct.anon.2, ptr %call, i64 0, i32 2
+  %offset2 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %offset, ptr %offset2, align 8
-  %need_reclaim_cache3 = getelementptr inbounds %struct.anon.2, ptr %call, i64 0, i32 3
+  %need_reclaim_cache3 = getelementptr inbounds i8, ptr %call, i64 16
   %0 = trunc i32 %need_reclaim_cache to i8
   %bf.load = load i8, ptr %need_reclaim_cache3, align 8
   %bf.value = shl i8 %0, 1
@@ -656,7 +653,7 @@ entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %arrayidx1) #8
   %arrayidx2 = getelementptr inbounds [3 x ptr], ptr @bio_jobs, i64 0, i64 %conv
   %1 = load ptr, ptr %arrayidx2, align 8
-  %len5 = getelementptr inbounds %struct.list, ptr %1, i64 0, i32 5
+  %len5 = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load i64, ptr %len5, align 8
   %cmp.not6 = icmp eq i64 %2, 0
   br i1 %cmp.not6, label %while.end, label %while.body.lr.ph
@@ -668,7 +665,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %call6 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %arrayidx4, ptr noundef nonnull %arrayidx1) #8
   %3 = load ptr, ptr %arrayidx2, align 8
-  %len = getelementptr inbounds %struct.list, ptr %3, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load i64, ptr %len, align 8
   %cmp.not = icmp eq i64 %4, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !10

@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.anon = type { i32, [10 x i8], i32 }
-%struct.bio_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, i64, i64, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
 
 @methods_slg = internal constant %struct.bio_method_st { i32 1025, ptr @.str, ptr @bwrite_conv, ptr @slg_write, ptr null, ptr null, ptr @slg_puts, ptr null, ptr @slg_ctrl, ptr @slg_new, ptr @slg_free, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [7 x i8] c"syslog\00", align 1
@@ -47,7 +44,7 @@ if.end4:                                          ; preds = %if.end
 while.cond:                                       ; preds = %while.cond, %if.end4
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.cond ], [ 0, %if.end4 ]
   %arrayidx7 = getelementptr inbounds [20 x %struct.anon], ptr @slg_write.mapping, i64 0, i64 %indvars.iv
-  %str = getelementptr inbounds [20 x %struct.anon], ptr @slg_write.mapping, i64 0, i64 %indvars.iv, i32 1
+  %str = getelementptr inbounds i8, ptr %arrayidx7, i64 4
   %0 = load i32, ptr %arrayidx7, align 4
   %conv10 = sext i32 %0 to i64
   %call11 = tail call i32 @strncmp(ptr noundef nonnull %call, ptr noundef nonnull %str, i64 noundef %conv10) #6
@@ -56,7 +53,7 @@ while.cond:                                       ; preds = %while.cond, %if.end
   br i1 %cmp12.not, label %while.end, label %while.cond, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond
-  %log_level = getelementptr inbounds [20 x %struct.anon], ptr @slg_write.mapping, i64 0, i64 %indvars.iv, i32 2
+  %log_level = getelementptr inbounds i8, ptr %arrayidx7, i64 16
   %1 = load i32, ptr %log_level, align 4
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %conv10
   tail call void (i32, ptr, ...) @syslog(i32 noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull %add.ptr) #5
@@ -93,7 +90,7 @@ if.end4.i:                                        ; preds = %if.end.i
 while.cond.i:                                     ; preds = %while.cond.i, %if.end4.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.cond.i ], [ 0, %if.end4.i ]
   %arrayidx7.i = getelementptr inbounds [20 x %struct.anon], ptr @slg_write.mapping, i64 0, i64 %indvars.iv.i
-  %str.i = getelementptr inbounds [20 x %struct.anon], ptr @slg_write.mapping, i64 0, i64 %indvars.iv.i, i32 1
+  %str.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 4
   %0 = load i32, ptr %arrayidx7.i, align 4
   %conv10.i = sext i32 %0 to i64
   %call11.i = tail call i32 @strncmp(ptr noundef nonnull %call.i, ptr noundef nonnull %str.i, i64 noundef %conv10.i) #6
@@ -102,7 +99,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.e
   br i1 %cmp12.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.cond.i
-  %log_level.i = getelementptr inbounds [20 x %struct.anon], ptr @slg_write.mapping, i64 0, i64 %indvars.iv.i, i32 2
+  %log_level.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 16
   %1 = load i32, ptr %log_level.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %conv10.i
   tail call void (i32, ptr, ...) @syslog(i32 noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull %add.ptr.i) #5
@@ -133,11 +130,11 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 ; Function Attrs: nounwind uwtable
 define internal i32 @slg_new(ptr nocapture noundef writeonly %bi) #2 {
 entry:
-  %init = getelementptr inbounds %struct.bio_st, ptr %bi, i64 0, i32 5
+  %init = getelementptr inbounds i8, ptr %bi, i64 40
   store i32 1, ptr %init, align 8
-  %num = getelementptr inbounds %struct.bio_st, ptr %bi, i64 0, i32 9
+  %num = getelementptr inbounds i8, ptr %bi, i64 56
   store i32 0, ptr %num, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %bi, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %bi, i64 64
   store ptr null, ptr %ptr, align 8
   tail call void @openlog(ptr noundef nonnull @.str.3, i32 noundef 3, i32 noundef 24) #5
   ret i32 1

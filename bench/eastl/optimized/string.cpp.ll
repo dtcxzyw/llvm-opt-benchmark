@@ -46,7 +46,7 @@ land.rhs:                                         ; preds = %entry, %while.body
   br i1 %cmp1, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds i16, ptr %1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 2
   store ptr %incdec.ptr, ptr %pDest, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %u32.i)
   %call.i = call noundef zeroext i1 @_ZN5eastl10UTF8ToUCS4ERPKcS1_Rj(ptr noundef nonnull align 8 dereferenceable(8) %pSrc, ptr noundef nonnull %pSrcEnd, ptr noundef nonnull align 4 dereferenceable(4) %u32.i)
@@ -80,7 +80,7 @@ land.rhs:                                         ; preds = %entry, %while.body
   br i1 %cmp1, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds i32, ptr %1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 4
   store ptr %incdec.ptr, ptr %pDest, align 8
   %call = tail call noundef zeroext i1 @_ZN5eastl10UTF8ToUCS4ERPKcS1_Rj(ptr noundef nonnull align 8 dereferenceable(8) %pSrc, ptr noundef nonnull %pSrcEnd, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %2 = load ptr, ptr %pSrc, align 8
@@ -263,7 +263,7 @@ land.lhs.true:                                    ; preds = %entry, %while.body
   br i1 %or.cond.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.lhs.true
-  %incdec.ptr = getelementptr inbounds i16, ptr %0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 2
   store ptr %incdec.ptr, ptr %pSrc, align 8
   %2 = load i16, ptr %0, align 2
   %conv.i = zext i16 %2 to i32
@@ -320,12 +320,12 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %2 = phi ptr [ %5, %while.body ], [ %0, %entry ]
-  %incdec.ptr = getelementptr inbounds i16, ptr %2, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %2, i64 2
   store ptr %incdec.ptr, ptr %pSrc, align 8
   %3 = load i16, ptr %2, align 2
   %conv = zext i16 %3 to i32
   %4 = load ptr, ptr %pDest, align 8
-  %incdec.ptr6 = getelementptr inbounds i32, ptr %4, i64 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %4, i64 4
   store ptr %incdec.ptr6, ptr %pDest, align 8
   store i32 %conv, ptr %4, align 4
   %5 = load ptr, ptr %pSrc, align 8
@@ -351,7 +351,7 @@ land.lhs.true:                                    ; preds = %entry, %while.body
   br i1 %or.cond.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.lhs.true
-  %incdec.ptr = getelementptr inbounds i32, ptr %0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 4
   store ptr %incdec.ptr, ptr %pSrc, align 8
   %2 = load i32, ptr %0, align 4
   %call = tail call noundef zeroext i1 @_ZN5eastl10UCS4ToUTF8EjRPc(i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %pDest)
@@ -592,12 +592,12 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %2 = phi ptr [ %5, %while.body ], [ %0, %entry ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %2, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %2, i64 4
   store ptr %incdec.ptr, ptr %pSrc, align 8
   %3 = load i32, ptr %2, align 4
   %conv = trunc i32 %3 to i16
   %4 = load ptr, ptr %pDest, align 8
-  %incdec.ptr6 = getelementptr inbounds i16, ptr %4, i64 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %4, i64 2
   store ptr %incdec.ptr6, ptr %pDest, align 8
   store i16 %conv, ptr %4, align 2
   %5 = load ptr, ptr %pSrc, align 8
@@ -648,7 +648,7 @@ land.lhs.true:                                    ; preds = %entry, %while.body
   br i1 %or.cond.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.lhs.true
-  %incdec.ptr = getelementptr inbounds i32, ptr %0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 4
   store ptr %incdec.ptr, ptr %pSrc, align 8
   %2 = load i32, ptr %0, align 4
   %call = tail call noundef zeroext i1 @_ZN5eastl10UCS4ToUTF8EjRPc(i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %pDest)
@@ -679,12 +679,12 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %2 = phi ptr [ %5, %while.body ], [ %0, %entry ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %2, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %2, i64 4
   store ptr %incdec.ptr, ptr %pSrc, align 8
   %3 = load i32, ptr %2, align 4
   %conv = trunc i32 %3 to i16
   %4 = load ptr, ptr %pDest, align 8
-  %incdec.ptr6 = getelementptr inbounds i16, ptr %4, i64 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %4, i64 2
   store ptr %incdec.ptr6, ptr %pDest, align 8
   store i16 %conv, ptr %4, align 2
   %5 = load ptr, ptr %pSrc, align 8
@@ -716,11 +716,11 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %2 = phi ptr [ %5, %while.body ], [ %0, %entry ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %2, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %2, i64 4
   store ptr %incdec.ptr, ptr %pSrc, align 8
   %3 = load i32, ptr %2, align 4
   %4 = load ptr, ptr %pDest, align 8
-  %incdec.ptr6 = getelementptr inbounds i32, ptr %4, i64 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %4, i64 4
   store ptr %incdec.ptr6, ptr %pDest, align 8
   store i32 %3, ptr %4, align 4
   %5 = load ptr, ptr %pSrc, align 8

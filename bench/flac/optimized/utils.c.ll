@@ -5,14 +5,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.winsize = type { i16, i16, i16, i16 }
-%struct.utils__SkipUntilSpecification = type { i32, i32, %union.anon }
-%union.anon = type { double }
-%struct.utils__CueSpecification = type { i32, i32, i32, i32, i32, i32 }
-%struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
 %struct.FLAC__StreamMetadata_CueSheet_Track = type { i64, i8, [13 x i8], i8, i8, ptr }
 %struct.FLAC__StreamMetadata_CueSheet_Index = type { i64, i8 }
-%struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon.0 }
-%union.anon.0 = type { %struct.FLAC__StreamMetadata_CueSheet }
 %struct.FLAC__StreamMetadata_VorbisComment_Entry = type { i32, ptr }
 
 @.str = private unnamed_addr constant [34 x i8] c"WAVEFORMATEXTENSIBLE_CHANNEL_MASK\00", align 1
@@ -63,7 +57,7 @@ entry:
   %w = alloca %struct.winsize, align 2
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %w) #17
   %cmp.not = icmp eq i32 %call, -1
-  %ws_col = getelementptr inbounds %struct.winsize, ptr %w, i64 0, i32 1
+  %ws_col = getelementptr inbounds i8, ptr %w, i64 2
   %0 = load i16, ptr %ws_col, align 2
   %conv = zext i16 %0 to i32
   %width.0 = select i1 %cmp.not, i32 0, i32 %conv
@@ -174,7 +168,7 @@ if.end:                                           ; preds = %stats_clear.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %w.i)
   %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %w.i) #17
   %cmp.not.i = icmp eq i32 %call.i, -1
-  %ws_col.i = getelementptr inbounds %struct.winsize, ptr %w.i, i64 0, i32 1
+  %ws_col.i = getelementptr inbounds i8, ptr %w.i, i64 2
   %5 = load i16, ptr %ws_col.i, align 2
   %conv.i = zext i16 %5 to i32
   %width.0.i = select i1 %cmp.not.i, i32 0, i32 %conv.i
@@ -287,9 +281,9 @@ define dso_local i32 @flac__utils_parse_skip_until_specification(ptr noundef %s,
 entry:
   %endptr.i = alloca ptr, align 8
   store i32 0, ptr %spec, align 8
-  %value_is_samples = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %spec, i64 0, i32 1
+  %value_is_samples = getelementptr inbounds i8, ptr %spec, i64 4
   store i32 1, ptr %value_is_samples, align 4
-  %value = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %spec, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %spec, i64 8
   store i64 0, ptr %value, align 8
   %cmp.not = icmp eq ptr %s, null
   br i1 %cmp.not, label %return, label %if.then
@@ -445,13 +439,13 @@ return:                                           ; preds = %local__parse_timeco
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local i32 @flac__utils_canonicalize_skip_until_specification(ptr nocapture noundef %spec, i32 noundef %sample_rate) local_unnamed_addr #10 {
 entry:
-  %value_is_samples = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %spec, i64 0, i32 1
+  %value_is_samples = getelementptr inbounds i8, ptr %spec, i64 4
   %0 = load i32, ptr %value_is_samples, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %spec, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %spec, i64 8
   %1 = load double, ptr %value, align 8
   %conv = uitofp i32 %sample_rate to double
   %mul = fmul double %1, %conv
@@ -474,7 +468,7 @@ return:                                           ; preds = %entry, %if.end, %if
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @flac__utils_parse_cue_specification(ptr noundef %s, ptr nocapture noundef writeonly %spec) local_unnamed_addr #11 {
 entry:
-  %has_end_point = getelementptr inbounds %struct.utils__CueSpecification, ptr %spec, i64 0, i32 1
+  %has_end_point = getelementptr inbounds i8, ptr %spec, i64 4
   store i32 0, ptr %has_end_point, align 4
   store i32 0, ptr %spec, align 4
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %s, i32 noundef 45) #18
@@ -496,8 +490,8 @@ if.end7:                                          ; preds = %entry
   br i1 %tobool.not, label %return, label %entry.split.us.i
 
 entry.split.us.i:                                 ; preds = %if.end7
-  %start_track = getelementptr inbounds %struct.utils__CueSpecification, ptr %spec, i64 0, i32 2
-  %start_index = getelementptr inbounds %struct.utils__CueSpecification, ptr %spec, i64 0, i32 3
+  %start_track = getelementptr inbounds i8, ptr %spec, i64 8
+  %start_index = getelementptr inbounds i8, ptr %spec, i64 12
   %1 = load i8, ptr %s, align 1
   %cmp2.not.us44.i = icmp eq i8 %1, 0
   br i1 %cmp2.not.us44.i, label %local__parse_cue_.exit, label %while.body.us.i.preheader
@@ -527,8 +521,8 @@ if.then.us.i:                                     ; preds = %while.body.us.i.pre
   br i1 %cmp2.not.us.i, label %local__parse_cue_.exit, label %while.body.us.i, !llvm.loop !10
 
 entry.split.i:                                    ; preds = %if.then
-  %start_track73 = getelementptr inbounds %struct.utils__CueSpecification, ptr %spec, i64 0, i32 2
-  %start_index74 = getelementptr inbounds %struct.utils__CueSpecification, ptr %spec, i64 0, i32 3
+  %start_track73 = getelementptr inbounds i8, ptr %spec, i64 8
+  %start_index74 = getelementptr inbounds i8, ptr %spec, i64 12
   %end80.i75 = ptrtoint ptr %call to i64
   %cmp38.i = icmp ugt ptr %call, %s
   br i1 %cmp38.i, label %while.bodythread-pre-split.preheader.i, label %while.end.split.i
@@ -670,8 +664,8 @@ if.end14:                                         ; preds = %if.then, %if.end12
   br i1 %tobool15.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %end_track = getelementptr inbounds %struct.utils__CueSpecification, ptr %spec, i64 0, i32 4
-  %end_index = getelementptr inbounds %struct.utils__CueSpecification, ptr %spec, i64 0, i32 5
+  %end_track = getelementptr inbounds i8, ptr %spec, i64 16
+  %end_index = getelementptr inbounds i8, ptr %spec, i64 20
   %15 = load i8, ptr %end.065, align 1
   %cmp2.not.us44.i20 = icmp eq i8 %15, 0
   br i1 %cmp2.not.us44.i20, label %local__parse_cue_.exit61, label %while.body.us.i21.preheader
@@ -758,52 +752,53 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 define dso_local void @flac__utils_canonicalize_cue_specification(ptr nocapture noundef readonly %cue_spec, ptr nocapture noundef readonly %cuesheet, i64 noundef %total_samples, ptr nocapture noundef writeonly %skip_spec, ptr nocapture noundef writeonly %until_spec) local_unnamed_addr #12 {
 entry:
   store i32 0, ptr %skip_spec, align 8
-  %value_is_samples = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %skip_spec, i64 0, i32 1
+  %value_is_samples = getelementptr inbounds i8, ptr %skip_spec, i64 4
   store i32 1, ptr %value_is_samples, align 4
   store i32 0, ptr %until_spec, align 8
-  %value_is_samples2 = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %until_spec, i64 0, i32 1
+  %value_is_samples2 = getelementptr inbounds i8, ptr %until_spec, i64 4
   store i32 1, ptr %value_is_samples2, align 4
   %0 = load i32, ptr %cue_spec, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %start_track = getelementptr inbounds %struct.utils__CueSpecification, ptr %cue_spec, i64 0, i32 2
+  %start_track = getelementptr inbounds i8, ptr %cue_spec, i64 8
   %1 = load i32, ptr %start_track, align 4
-  %start_index = getelementptr inbounds %struct.utils__CueSpecification, ptr %cue_spec, i64 0, i32 3
+  %start_index = getelementptr inbounds i8, ptr %cue_spec, i64 12
   %2 = load i32, ptr %start_index, align 4
-  %num_tracks41.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %cuesheet, i64 0, i32 3
+  %num_tracks41.i = getelementptr inbounds i8, ptr %cuesheet, i64 148
   %3 = load i32, ptr %num_tracks41.i, align 4
-  %cmp4384.i = icmp sgt i32 %3, 0
-  br i1 %cmp4384.i, label %for.body45.lr.ph.i, label %if.end
+  %cmp4371.i = icmp sgt i32 %3, 0
+  br i1 %cmp4371.i, label %for.body45.lr.ph.i, label %if.end
 
 for.body45.lr.ph.i:                               ; preds = %if.then
-  %tracks46.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %cuesheet, i64 0, i32 4
+  %tracks46.i = getelementptr inbounds i8, ptr %cuesheet, i64 152
   %4 = load ptr, ptr %tracks46.i, align 8
   %5 = zext nneg i32 %3 to i64
   br label %for.body45.i
 
 for.cond42.loopexit.i:                            ; preds = %for.inc96.us.i, %for.body55.lr.ph.split.i, %for.body45.i
-  %cmp43.i = icmp sgt i64 %indvars.iv107.i, 1
+  %cmp43.i = icmp sgt i64 %indvars.iv93.i, 1
   br i1 %cmp43.i, label %for.body45.i, label %if.end, !llvm.loop !12
 
 for.body45.i:                                     ; preds = %for.cond42.loopexit.i, %for.body45.lr.ph.i
-  %indvars.iv107.i = phi i64 [ %5, %for.body45.lr.ph.i ], [ %indvars.iv.next108.i, %for.cond42.loopexit.i ]
-  %indvars.iv.next108.i = add nsw i64 %indvars.iv107.i, -1
-  %num_indices49.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %4, i64 %indvars.iv.next108.i, i32 4
+  %indvars.iv93.i = phi i64 [ %5, %for.body45.lr.ph.i ], [ %indvars.iv.next94.i, %for.cond42.loopexit.i ]
+  %indvars.iv.next94.i = add nsw i64 %indvars.iv93.i, -1
+  %num_indices49.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %4, i64 %indvars.iv.next94.i, i32 4
   %6 = load i8, ptr %num_indices49.i, align 1
   %conv50.i = zext i8 %6 to i32
-  %i.164.i = add nsw i32 %conv50.i, -1
-  %cmp5365.not.i = icmp eq i8 %6, 0
-  br i1 %cmp5365.not.i, label %for.cond42.loopexit.i, label %for.body55.lr.ph.i
+  %i.156.i = add nsw i32 %conv50.i, -1
+  %cmp5357.not.i = icmp eq i8 %6, 0
+  br i1 %cmp5357.not.i, label %for.cond42.loopexit.i, label %for.body55.lr.ph.i
 
 for.body55.lr.ph.i:                               ; preds = %for.body45.i
-  %number59.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %4, i64 %indvars.iv.next108.i, i32 1
+  %arrayidx58.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %4, i64 %indvars.iv.next94.i
+  %number59.i = getelementptr inbounds i8, ptr %arrayidx58.i, i64 8
   %7 = load i8, ptr %number59.i, align 8
   %conv60.i = zext i8 %7 to i32
   %cmp61.i = icmp ugt i32 %1, %conv60.i
-  %indices75.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %4, i64 %indvars.iv.next108.i, i32 5
-  br i1 %cmp61.i, label %if.then82.loopexit87.i, label %for.body55.lr.ph.split.i
+  %indices75.i = getelementptr inbounds i8, ptr %arrayidx58.i, i64 24
+  br i1 %cmp61.i, label %if.then82.loopexit74.i, label %for.body55.lr.ph.split.i
 
 for.body55.lr.ph.split.i:                         ; preds = %for.body55.lr.ph.i
   %cmp69.i = icmp eq i32 %1, %conv60.i
@@ -811,76 +806,76 @@ for.body55.lr.ph.split.i:                         ; preds = %for.body55.lr.ph.i
 
 for.body55.lr.ph.split.split.us.i:                ; preds = %for.body55.lr.ph.split.i
   %8 = load ptr, ptr %indices75.i, align 8
-  br label %for.body55.us75.i
+  br label %for.body55.us64.i
 
-for.body55.us75.i:                                ; preds = %for.inc96.us.i, %for.body55.lr.ph.split.split.us.i
-  %i.166.us76.i = phi i32 [ %i.164.i, %for.body55.lr.ph.split.split.us.i ], [ %i.1.us.i, %for.inc96.us.i ]
-  %idxprom76.us.i = zext nneg i32 %i.166.us76.i to i64
+for.body55.us64.i:                                ; preds = %for.inc96.us.i, %for.body55.lr.ph.split.split.us.i
+  %i.158.us65.i = phi i32 [ %i.156.i, %for.body55.lr.ph.split.split.us.i ], [ %i.1.us.i, %for.inc96.us.i ]
+  %idxprom76.us.i = zext nneg i32 %i.158.us65.i to i64
   %number78.us.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %8, i64 %idxprom76.us.i, i32 1
   %9 = load i8, ptr %number78.us.i, align 8
   %conv79.us.i = zext i8 %9 to i32
   %cmp80.not.us.i = icmp ult i32 %2, %conv79.us.i
   br i1 %cmp80.not.us.i, label %for.inc96.us.i, label %if.then82.i
 
-for.inc96.us.i:                                   ; preds = %for.body55.us75.i
-  %i.1.us.i = add nsw i32 %i.166.us76.i, -1
-  %cmp53.us.i = icmp sgt i32 %i.166.us76.i, 0
-  br i1 %cmp53.us.i, label %for.body55.us75.i, label %for.cond42.loopexit.i, !llvm.loop !13
+for.inc96.us.i:                                   ; preds = %for.body55.us64.i
+  %i.1.us.i = add nsw i32 %i.158.us65.i, -1
+  %cmp53.us.i = icmp sgt i32 %i.158.us65.i, 0
+  br i1 %cmp53.us.i, label %for.body55.us64.i, label %for.cond42.loopexit.i, !llvm.loop !13
 
-if.then82.loopexit87.i:                           ; preds = %for.body55.lr.ph.i
-  %.pre110.i = load ptr, ptr %indices75.i, align 8
-  %.pre111.i = zext nneg i32 %i.164.i to i64
+if.then82.loopexit74.i:                           ; preds = %for.body55.lr.ph.i
+  %.pre96.i = load ptr, ptr %indices75.i, align 8
+  %.pre97.i = zext nneg i32 %i.156.i to i64
   br label %if.then82.i
 
-if.then82.i:                                      ; preds = %for.body55.us75.i, %if.then82.loopexit87.i
-  %idxprom91.pre-phi.i = phi i64 [ %.pre111.i, %if.then82.loopexit87.i ], [ %idxprom76.us.i, %for.body55.us75.i ]
-  %10 = phi ptr [ %.pre110.i, %if.then82.loopexit87.i ], [ %8, %for.body55.us75.i ]
-  %arrayidx85.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %4, i64 %indvars.iv.next108.i
+if.then82.i:                                      ; preds = %for.body55.us64.i, %if.then82.loopexit74.i
+  %idxprom91.pre-phi.i = phi i64 [ %.pre97.i, %if.then82.loopexit74.i ], [ %idxprom76.us.i, %for.body55.us64.i ]
+  %10 = phi ptr [ %.pre96.i, %if.then82.loopexit74.i ], [ %8, %for.body55.us64.i ]
   %arrayidx92.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %10, i64 %idxprom91.pre-phi.i
-  %.sink126.i = load i64, ptr %arrayidx85.i, align 8
+  %.sink111.i = load i64, ptr %arrayidx58.i, align 8
   %11 = load i64, ptr %arrayidx92.i, align 8
-  %add94.i = add i64 %11, %.sink126.i
+  %add94.i = add i64 %11, %.sink111.i
   br label %if.end
 
 if.end:                                           ; preds = %for.cond42.loopexit.i, %entry, %if.then82.i, %if.then
   %.sink = phi i64 [ 0, %if.then ], [ %add94.i, %if.then82.i ], [ 0, %entry ], [ 0, %for.cond42.loopexit.i ]
-  %value3 = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %skip_spec, i64 0, i32 2
+  %value3 = getelementptr inbounds i8, ptr %skip_spec, i64 8
   store i64 %.sink, ptr %value3, align 8
-  %has_end_point = getelementptr inbounds %struct.utils__CueSpecification, ptr %cue_spec, i64 0, i32 1
+  %has_end_point = getelementptr inbounds i8, ptr %cue_spec, i64 4
   %12 = load i32, ptr %has_end_point, align 4
   %tobool4.not = icmp eq i32 %12, 0
   br i1 %tobool4.not, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %end_track = getelementptr inbounds %struct.utils__CueSpecification, ptr %cue_spec, i64 0, i32 4
+  %end_track = getelementptr inbounds i8, ptr %cue_spec, i64 16
   %13 = load i32, ptr %end_track, align 4
-  %end_index = getelementptr inbounds %struct.utils__CueSpecification, ptr %cue_spec, i64 0, i32 5
+  %end_index = getelementptr inbounds i8, ptr %cue_spec, i64 20
   %14 = load i32, ptr %end_index, align 4
-  %num_tracks41.i15 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %cuesheet, i64 0, i32 3
+  %num_tracks41.i15 = getelementptr inbounds i8, ptr %cuesheet, i64 148
   %15 = load i32, ptr %num_tracks41.i15, align 4
-  %cmp4384.i16 = icmp sgt i32 %15, 0
-  br i1 %cmp4384.i16, label %for.cond1.preheader.lr.ph.i, label %if.end10
+  %cmp4371.i16 = icmp sgt i32 %15, 0
+  br i1 %cmp4371.i16, label %for.cond1.preheader.lr.ph.i, label %if.end10
 
 for.cond1.preheader.lr.ph.i:                      ; preds = %if.then5
-  %tracks.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet, ptr %cuesheet, i64 0, i32 4
+  %tracks.i = getelementptr inbounds i8, ptr %cuesheet, i64 152
   %16 = load ptr, ptr %tracks.i, align 8
-  %wide.trip.count105.i = zext nneg i32 %15 to i64
+  %wide.trip.count91.i = zext nneg i32 %15 to i64
   br label %for.cond1.preheader.i
 
 for.cond1.preheader.i:                            ; preds = %for.inc38.i, %for.cond1.preheader.lr.ph.i
-  %indvars.iv102.i = phi i64 [ 0, %for.cond1.preheader.lr.ph.i ], [ %indvars.iv.next103.i, %for.inc38.i ]
-  %num_indices.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %16, i64 %indvars.iv102.i, i32 4
+  %indvars.iv88.i = phi i64 [ 0, %for.cond1.preheader.lr.ph.i ], [ %indvars.iv.next89.i, %for.inc38.i ]
+  %arrayidx.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %16, i64 %indvars.iv88.i
+  %num_indices.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 23
   %17 = load i8, ptr %num_indices.i, align 1
-  %cmp246.not.i = icmp eq i8 %17, 0
-  br i1 %cmp246.not.i, label %for.inc38.i, label %for.body4.lr.ph.i
+  %cmp244.not.i = icmp eq i8 %17, 0
+  br i1 %cmp244.not.i, label %for.inc38.i, label %for.body4.lr.ph.i
 
 for.body4.lr.ph.i:                                ; preds = %for.cond1.preheader.i
-  %number.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %16, i64 %indvars.iv102.i, i32 1
+  %number.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %18 = load i8, ptr %number.i, align 8
   %conv8.i = zext i8 %18 to i32
   %cmp9.i = icmp ult i32 %13, %conv8.i
-  %indices.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %16, i64 %indvars.iv102.i, i32 5
-  br i1 %cmp9.i, label %if.then27.loopexit89.i, label %for.body4.lr.ph.split.i
+  %indices.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  br i1 %cmp9.i, label %if.then27.loopexit76.i, label %for.body4.lr.ph.split.i
 
 for.body4.lr.ph.split.i:                          ; preds = %for.body4.lr.ph.i
   %cmp16.i = icmp eq i32 %13, %conv8.i
@@ -889,9 +884,9 @@ for.body4.lr.ph.split.i:                          ; preds = %for.body4.lr.ph.i
 for.body4.lr.ph.split.split.us.i:                 ; preds = %for.body4.lr.ph.split.i
   %19 = load ptr, ptr %indices.i, align 8
   %wide.trip.count.i = zext i8 %17 to i64
-  br label %for.body4.us53.i
+  br label %for.body4.us48.i
 
-for.body4.us53.i:                                 ; preds = %for.inc.us.i, %for.body4.lr.ph.split.split.us.i
+for.body4.us48.i:                                 ; preds = %for.inc.us.i, %for.body4.lr.ph.split.split.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.us.i ], [ 0, %for.body4.lr.ph.split.split.us.i ]
   %number23.us.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %19, i64 %indvars.iv.i, i32 1
   %20 = load i8, ptr %number23.us.i, align 8
@@ -899,37 +894,36 @@ for.body4.us53.i:                                 ; preds = %for.inc.us.i, %for.
   %cmp25.not.us.i = icmp ugt i32 %14, %conv24.us.i
   br i1 %cmp25.not.us.i, label %for.inc.us.i, label %if.then27.loopexit.i
 
-for.inc.us.i:                                     ; preds = %for.body4.us53.i
+for.inc.us.i:                                     ; preds = %for.body4.us48.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.inc38.i, label %for.body4.us53.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %for.inc38.i, label %for.body4.us48.i, !llvm.loop !14
 
-if.then27.loopexit.i:                             ; preds = %for.body4.us53.i
+if.then27.loopexit.i:                             ; preds = %for.body4.us48.i
   %21 = and i64 %indvars.iv.i, 4294967295
   br label %if.then27.i
 
-if.then27.loopexit89.i:                           ; preds = %for.body4.lr.ph.i
+if.then27.loopexit76.i:                           ; preds = %for.body4.lr.ph.i
   %.pre.i = load ptr, ptr %indices.i, align 8
   br label %if.then27.i
 
-if.then27.i:                                      ; preds = %if.then27.loopexit89.i, %if.then27.loopexit.i
-  %22 = phi ptr [ %19, %if.then27.loopexit.i ], [ %.pre.i, %if.then27.loopexit89.i ]
-  %.us-phi.i = phi i64 [ %21, %if.then27.loopexit.i ], [ 0, %if.then27.loopexit89.i ]
-  %arrayidx30.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %16, i64 %indvars.iv102.i
+if.then27.i:                                      ; preds = %if.then27.loopexit76.i, %if.then27.loopexit.i
+  %22 = phi ptr [ %19, %if.then27.loopexit.i ], [ %.pre.i, %if.then27.loopexit76.i ]
+  %.us-phi.i = phi i64 [ %21, %if.then27.loopexit.i ], [ 0, %if.then27.loopexit76.i ]
   %arrayidx36.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %22, i64 %.us-phi.i
-  %.sink126.i18 = load i64, ptr %arrayidx30.i, align 8
+  %.sink111.i18 = load i64, ptr %arrayidx.i, align 8
   %23 = load i64, ptr %arrayidx36.i, align 8
-  %add94.i19 = add i64 %23, %.sink126.i18
+  %add94.i19 = add i64 %23, %.sink111.i18
   br label %if.end10
 
 for.inc38.i:                                      ; preds = %for.inc.us.i, %for.body4.lr.ph.split.i, %for.cond1.preheader.i
-  %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
-  %exitcond106.not.i = icmp eq i64 %indvars.iv.next103.i, %wide.trip.count105.i
-  br i1 %exitcond106.not.i, label %if.end10, label %for.cond1.preheader.i, !llvm.loop !15
+  %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
+  %exitcond92.not.i = icmp eq i64 %indvars.iv.next89.i, %wide.trip.count91.i
+  br i1 %exitcond92.not.i, label %if.end10, label %for.cond1.preheader.i, !llvm.loop !15
 
 if.end10:                                         ; preds = %for.inc38.i, %if.end, %if.then27.i, %if.then5
   %total_samples.sink = phi i64 [ %total_samples, %if.then5 ], [ %add94.i19, %if.then27.i ], [ %total_samples, %if.end ], [ %total_samples, %for.inc38.i ]
-  %value9 = getelementptr inbounds %struct.utils__SkipUntilSpecification, ptr %until_spec, i64 0, i32 2
+  %value9 = getelementptr inbounds i8, ptr %until_spec, i64 8
   store i64 %total_samples.sink, ptr %value9, align 8
   ret void
 }
@@ -968,7 +962,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %comments = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %object, i64 0, i32 3, i32 0, i32 0, i64 24
+  %comments = getelementptr inbounds i8, ptr %object, i64 40
   %1 = load ptr, ptr %comments, align 8
   %idxprom = zext nneg i32 %call to i64
   %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %1, i64 %idxprom
@@ -981,7 +975,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %entry10 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %1, i64 %idxprom, i32 1
+  %entry10 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load ptr, ptr %entry10, align 8
   %call11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 61) #18
   %cmp12 = icmp eq ptr %call11, null

@@ -3,27 +3,20 @@ source_filename = "bench/icu/original/calendar.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
-%"class.icu_75::SharedCalendar" = type { %"class.icu_75::SharedObject", ptr }
-%"class.icu_75::SharedObject" = type { %"class.icu_75::UObject", i32, %"struct.std::atomic", ptr }
-%"class.icu_75::UObject" = type { ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.icu_75::LocaleCacheKey" = type { %"class.icu_75::CacheKey.base", [3 x i8], %"class.icu_75::Locale" }
-%"class.icu_75::CacheKey.base" = type { %"class.icu_75::CacheKeyBase.base" }
-%"class.icu_75::CacheKeyBase.base" = type <{ %"class.icu_75::UObject", i32, i8 }>
 %"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
-%"class.icu_75::Calendar" = type <{ %"class.icu_75::UObject", i8, i8, i8, i8, [24 x i32], [24 x i8], [24 x i32], i32, double, i8, [7 x i8], ptr, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [157 x i8], [157 x i8], [6 x i8] }>
+%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::LocalUResourceBundlePointer" = type { %"class.icu_75::LocalPointerBase.1" }
 %"class.icu_75::LocalPointerBase.1" = type { ptr }
 %"class.icu_75::LocaleBased" = type { ptr, ptr }
 %"class.icu_75::LocalPointer.2" = type { %"class.icu_75::LocalPointerBase.3" }
 %"class.icu_75::LocalPointerBase.3" = type { ptr }
 %"class.icu_75::CharString" = type { %"class.icu_75::MaybeStackArray", i32, [4 x i8] }
+%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_75::CharStringByteSink" = type { %"class.icu_75::ByteSink", ptr }
 %"class.icu_75::ByteSink" = type { ptr }
-%"class.icu_75::CacheKeyBase" = type <{ %"class.icu_75::UObject", i32, i8, [3 x i8] }>
-%"class.std::type_info" = type { ptr, ptr }
+%"class.icu_75::LocaleCacheKey" = type { %"class.icu_75::CacheKey.base", [3 x i8], %"class.icu_75::Locale" }
+%"class.icu_75::CacheKey.base" = type { %"class.icu_75::CacheKeyBase.base" }
+%"class.icu_75::CacheKeyBase.base" = type <{ %"class.icu_75::UObject", i32, i8 }>
 %"class.icu_75::TimeZoneTransition" = type { %"class.icu_75::UObject", double, ptr, ptr }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
@@ -209,11 +202,11 @@ $_ZTIN6icu_7514LocaleCacheKeyINS_14SharedCalendarEEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -221,11 +214,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -286,7 +279,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -296,7 +289,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -308,7 +301,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -321,7 +314,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -345,7 +338,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -375,21 +368,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
-  %capacity3 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
-  %needToRelease4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -412,11 +405,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -424,7 +417,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -435,20 +428,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -476,7 +469,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -492,7 +485,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -524,7 +517,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -536,7 +529,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -551,7 +544,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -565,7 +558,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
@@ -582,9 +575,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.1, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -602,7 +595,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -614,7 +607,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -630,7 +623,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -647,14 +640,14 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 define void @_ZN6icu_7514SharedCalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7514SharedCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::SharedCalendar", ptr %this, i64 0, i32 1
+  %ptr = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %ptr, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(618) %0) #25
   br label %delete.end
@@ -686,7 +679,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc = getelementptr inbounds i8, ptr %this, i64 16
   %call2 = tail call noundef ptr @_ZN6icu_758Calendar12makeInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %fLoc, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %status, align 4
   %cmp.i7 = icmp slt i32 %2, 1
@@ -703,7 +696,7 @@ if.then8:                                         ; preds = %if.end6
 
 delete.notnull:                                   ; preds = %if.then8
   %vtable = load ptr, ptr %call2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(618) %call2) #25
   br label %delete.end
@@ -713,10 +706,10 @@ delete.end:                                       ; preds = %delete.notnull, %if
   br label %return
 
 if.end9:                                          ; preds = %if.end6
-  %softRefCount.i.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %call7, i64 0, i32 1
+  %softRefCount.i.i = getelementptr inbounds i8, ptr %call7, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7514SharedCalendarE, i64 0, inrange i32 0, i64 2), ptr %call7, align 8
-  %ptr.i = getelementptr inbounds %"class.icu_75::SharedCalendar", ptr %call7, i64 0, i32 1
+  %ptr.i = getelementptr inbounds i8, ptr %call7, i64 24
   store ptr %call2, ptr %ptr.i, align 8
   tail call void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %call7)
   br label %return
@@ -758,7 +751,7 @@ lpad:                                             ; preds = %if.then26, %invoke.
   br label %ehcleanup81
 
 if.else:                                          ; preds = %invoke.cont
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %aLocale, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %aLocale, i64 40
   %3 = load ptr, ptr %fullName.i, align 8
   %call11 = invoke fastcc noundef i32 @_ZN6icu_75L24getCalendarTypeForLocaleEPKc(ptr noundef %3)
           to label %invoke.cont10 unwind label %lpad
@@ -802,7 +795,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
 
 delete.notnull:                                   ; preds = %invoke.cont29
   %vtable = load ptr, ptr %u.0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %6 = load ptr, ptr %vfn, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %u.0) #25
   %call34 = invoke fastcc noundef ptr @_ZN6icu_75L18getCalendarServiceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %success)
@@ -846,14 +839,14 @@ dynamic_cast.notnull49:                           ; preds = %invoke.cont35
 if.then53:                                        ; preds = %dynamic_cast.notnull49
   store i32 2, ptr %success, align 4
   %vtable56 = load ptr, ptr %call36, align 8
-  %vfn57 = getelementptr inbounds ptr, ptr %vtable56, i64 1
+  %vfn57 = getelementptr inbounds i8, ptr %vtable56, i64 8
   %11 = load ptr, ptr %vfn57, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(618) %call36) #25
   br label %cleanup80.critedge
 
 if.end59:                                         ; preds = %dynamic_cast.notnull49
   %vtable60 = load ptr, ptr %call36, align 8
-  %vfn61 = getelementptr inbounds ptr, ptr %vtable60, i64 23
+  %vfn61 = getelementptr inbounds i8, ptr %vtable60, i64 184
   %12 = load ptr, ptr %vfn61, align 8
   %call63 = invoke noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(618) %call36)
           to label %invoke.cont62 unwind label %lpad32
@@ -877,26 +870,26 @@ invoke.cont65:                                    ; preds = %invoke.cont64
   br i1 %or.cond33, label %if.then73, label %cleanup
 
 if.then73:                                        ; preds = %invoke.cont65
-  %fFirstDayOfWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call36, i64 0, i32 15
+  %fFirstDayOfWeek.i = getelementptr inbounds i8, ptr %call36, i64 264
   %14 = load i32, ptr %fFirstDayOfWeek.i, align 8
   %cmp.i45.not = icmp eq i32 %14, 2
   br i1 %cmp.i45.not, label %_ZN6icu_758Calendar17setFirstDayOfWeekE19UCalendarDaysOfWeek.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then73
   store i32 2, ptr %fFirstDayOfWeek.i, align 8
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call36, i64 0, i32 2
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %call36, i64 9
   store i8 0, ptr %fAreFieldsSet.i, align 1
   br label %_ZN6icu_758Calendar17setFirstDayOfWeekE19UCalendarDaysOfWeek.exit
 
 _ZN6icu_758Calendar17setFirstDayOfWeekE19UCalendarDaysOfWeek.exit: ; preds = %if.then73, %if.then.i
-  %fMinimalDaysInFirstWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call36, i64 0, i32 16
+  %fMinimalDaysInFirstWeek.i = getelementptr inbounds i8, ptr %call36, i64 268
   %15 = load i8, ptr %fMinimalDaysInFirstWeek.i, align 4
   %cmp8.not.i = icmp eq i8 %15, 4
   br i1 %cmp8.not.i, label %cleanup, label %if.then9.i
 
 if.then9.i:                                       ; preds = %_ZN6icu_758Calendar17setFirstDayOfWeekE19UCalendarDaysOfWeek.exit
   store i8 4, ptr %fMinimalDaysInFirstWeek.i, align 4
-  %fAreFieldsSet.i46 = getelementptr inbounds %"class.icu_75::Calendar", ptr %call36, i64 0, i32 2
+  %fAreFieldsSet.i46 = getelementptr inbounds i8, ptr %call36, i64 9
   store i8 0, ptr %fAreFieldsSet.i46, align 1
   br label %cleanup
 
@@ -994,7 +987,7 @@ define noundef ptr @_ZN6icu_758Calendar15registerFactoryEPNS_17ICUServiceFactory
 entry:
   %call = tail call fastcc noundef ptr @_ZN6icu_75L18getCalendarServiceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(120) %call, ptr noundef %toAdopt, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %call1
@@ -1058,7 +1051,7 @@ _ZN6icu_7520BasicCalendarFactoryC2Ev.exit.i:      ; preds = %new.notnull6.i
 
 new.cont14.i:                                     ; preds = %_ZN6icu_7520BasicCalendarFactoryC2Ev.exit.i, %if.end3.i
   %vtable.i = load ptr, ptr %call1.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %4 = load ptr, ptr %vfn.i, align 8
   %call15.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(120) %call1.i, ptr noundef %call4.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %5 = load i32, ptr %status, align 4
@@ -1072,7 +1065,7 @@ if.then18.i:                                      ; preds = %new.cont14.i
 
 delete.notnull.i:                                 ; preds = %if.then18.i
   %vtable19.i = load ptr, ptr %6, align 8
-  %vfn20.i = getelementptr inbounds ptr, ptr %vtable19.i, i64 1
+  %vfn20.i = getelementptr inbounds i8, ptr %vtable19.i, i64 8
   %7 = load ptr, ptr %vfn20.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(408) %6) #25
   %.pre.pre = load i32, ptr %status, align 4
@@ -1119,7 +1112,7 @@ define noundef signext i8 @_ZN6icu_758Calendar10unregisterEPKvR10UErrorCode(ptr 
 entry:
   %call = tail call fastcc noundef ptr @_ZN6icu_75L18getCalendarServiceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef signext i8 %0(ptr noundef nonnull align 8 dereferenceable(120) %call, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret i8 %call1
@@ -1129,17 +1122,17 @@ entry:
 define void @_ZN6icu_758CalendarC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [57 x ptr] }, ptr @_ZTVN6icu_758CalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fIsTimeSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
-  %fNextStamp = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
+  %fNextStamp = getelementptr inbounds i8, ptr %this, i64 228
   store i32 2, ptr %fNextStamp, align 4
-  %fTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %fTime = getelementptr inbounds i8, ptr %this, i64 232
   store double 0.000000e+00, ptr %fTime, align 8
-  %fLenient = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient = getelementptr inbounds i8, ptr %this, i64 240
   store i8 1, ptr %fLenient, align 8
-  %fZone = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
-  %validLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 26
+  %fZone = getelementptr inbounds i8, ptr %this, i64 248
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 304
   store i8 0, ptr %validLocale, align 8
-  %actualLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 27
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 461
   store i8 0, ptr %actualLocale, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(220) %fIsTimeSet, i8 0, i64 220, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fZone, i8 0, i64 16, i1 false)
@@ -1184,20 +1177,21 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: write) uwtable
 define void @_ZN6icu_758Calendar5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(618) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %scevgep, i8 0, i64 120, i1 false)
+  %fFields = getelementptr inbounds i8, ptr %this, i64 12
+  %fStamp = getelementptr inbounds i8, ptr %this, i64 132
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %fFields, i8 0, i64 120, i1 false)
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx3 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %indvars.iv
   store i32 0, ptr %arrayidx3, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  %fIsTimeSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %fIsTimeSet, align 8
   ret void
 }
@@ -1224,14 +1218,14 @@ entry:
   br i1 %cmp.i, label %if.end, label %cleanup.cont
 
 if.end:                                           ; preds = %entry
-  %fFirstDayOfWeek = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek = getelementptr inbounds i8, ptr %this, i64 264
   store i32 1, ptr %fFirstDayOfWeek, align 8
-  %fMinimalDaysInFirstWeek = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
+  %fMinimalDaysInFirstWeek = getelementptr inbounds i8, ptr %this, i64 268
   store i8 1, ptr %fMinimalDaysInFirstWeek, align 4
-  %fWeekendOnset = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 18
-  %fWeekendOnsetMillis = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 19
-  %fWeekendCease = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 20
-  %fWeekendCeaseMillis = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 21
+  %fWeekendOnset = getelementptr inbounds i8, ptr %this, i64 272
+  %fWeekendOnsetMillis = getelementptr inbounds i8, ptr %this, i64 276
+  %fWeekendCease = getelementptr inbounds i8, ptr %this, i64 280
+  %fWeekendCeaseMillis = getelementptr inbounds i8, ptr %this, i64 284
   store <4 x i32> <i32 7, i32 0, i32 1, i32 86400000>, ptr %fWeekendOnset, align 8
   store i32 0, ptr %myStatus, align 4
   call void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %min, ptr noundef nonnull align 8 dereferenceable(217) %desiredLocale)
@@ -1243,16 +1237,16 @@ invoke.cont:                                      ; preds = %if.end
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %country.i = getelementptr inbounds %"class.icu_75::Locale", ptr %desiredLocale, i64 0, i32 3
+  %country.i = getelementptr inbounds i8, ptr %desiredLocale, i64 26
   %char0 = load i8, ptr %country.i, align 2
   %cmp = icmp eq i8 %char0, 0
   br i1 %cmp, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont2
-  %script.i = getelementptr inbounds %"class.icu_75::Locale", ptr %desiredLocale, i64 0, i32 2
+  %script.i = getelementptr inbounds i8, ptr %desiredLocale, i64 20
   %char057 = load i8, ptr %script.i, align 4
   %cmp10.not = icmp ne i8 %char057, 0
-  %script.i86 = getelementptr inbounds %"class.icu_75::Locale", ptr %min, i64 0, i32 2
+  %script.i86 = getelementptr inbounds i8, ptr %min, i64 20
   %char058 = load i8, ptr %script.i86, align 4
   %cmp14 = icmp eq i8 %char058, 0
   %or.cond108 = select i1 %cmp10.not, i1 %cmp14, i1 false
@@ -1268,8 +1262,8 @@ invoke.cont16:                                    ; preds = %if.then15
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  %language.i = getelementptr inbounds %"class.icu_75::Locale", ptr %max, i64 0, i32 1
-  %country.i87 = getelementptr inbounds %"class.icu_75::Locale", ptr %max, i64 0, i32 3
+  %language.i = getelementptr inbounds i8, ptr %max, i64 8
+  %country.i87 = getelementptr inbounds i8, ptr %max, i64 26
   invoke void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp, ptr noundef nonnull %language.i, ptr noundef nonnull %country.i87, ptr noundef null, ptr noundef null)
           to label %invoke.cont23 unwind label %lpad17
 
@@ -1377,10 +1371,10 @@ if.end80:                                         ; preds = %invoke.cont73.if.en
   br i1 %cmp.i94, label %if.else96, label %if.then84
 
 if.then84:                                        ; preds = %if.end80
-  %validLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 26
-  %actualLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 27
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 304
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 461
   store ptr %validLocale, ptr %locBased, align 8
-  %actual.i = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %locBased, i64 0, i32 1
+  %actual.i = getelementptr inbounds i8, ptr %locBased, i64 8
   store ptr %actualLocale, ptr %actual.i, align 8
   %call90 = invoke ptr @ures_getLocaleByType_75(ptr noundef %9, i32 noundef 1, ptr noundef nonnull %status)
           to label %invoke.cont89 unwind label %lpad48
@@ -1399,7 +1393,7 @@ if.else96:                                        ; preds = %if.end80
   br label %cleanup
 
 if.end97:                                         ; preds = %invoke.cont93
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %desiredLocale, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %desiredLocale, i64 40
   %12 = load ptr, ptr %fullName.i, align 8
   %call102 = invoke i32 @ulocimp_getRegionForSupplementalData_75(ptr noundef %12, i8 noundef signext 1, ptr noundef nonnull %region, i32 noundef 4, ptr noundef nonnull %status)
           to label %invoke.cont101 unwind label %lpad48
@@ -1461,21 +1455,21 @@ land.lhs.true129:                                 ; preds = %invoke.cont122
   br i1 %or.cond82, label %land.lhs.true134, label %if.else166
 
 land.lhs.true134:                                 ; preds = %land.lhs.true129
-  %arrayidx135 = getelementptr inbounds i32, ptr %call123, i64 1
+  %arrayidx135 = getelementptr inbounds i8, ptr %call123, i64 4
   %19 = load i32, ptr %arrayidx135, align 4
   %20 = add i32 %19, -1
   %or.cond83 = icmp ult i32 %20, 7
   br i1 %or.cond83, label %land.lhs.true140, label %if.else166
 
 land.lhs.true140:                                 ; preds = %land.lhs.true134
-  %arrayidx141 = getelementptr inbounds i32, ptr %call123, i64 2
+  %arrayidx141 = getelementptr inbounds i8, ptr %call123, i64 8
   %21 = load i32, ptr %arrayidx141, align 4
   %22 = add i32 %21, -1
   %or.cond84 = icmp ult i32 %22, 7
   br i1 %or.cond84, label %land.lhs.true146, label %if.else166
 
 land.lhs.true146:                                 ; preds = %land.lhs.true140
-  %arrayidx147 = getelementptr inbounds i32, ptr %call123, i64 4
+  %arrayidx147 = getelementptr inbounds i8, ptr %call123, i64 16
   %23 = load i32, ptr %arrayidx147, align 4
   %24 = add i32 %23, -1
   %or.cond85 = icmp ult i32 %24, 7
@@ -1488,12 +1482,12 @@ if.then152:                                       ; preds = %land.lhs.true146
   store i8 %conv156, ptr %fMinimalDaysInFirstWeek, align 4
   %26 = load i32, ptr %arrayidx141, align 4
   store i32 %26, ptr %fWeekendOnset, align 8
-  %arrayidx160 = getelementptr inbounds i32, ptr %call123, i64 3
+  %arrayidx160 = getelementptr inbounds i8, ptr %call123, i64 12
   %27 = load i32, ptr %arrayidx160, align 4
   store i32 %27, ptr %fWeekendOnsetMillis, align 4
   %28 = load i32, ptr %arrayidx147, align 4
   store i32 %28, ptr %fWeekendCease, align 8
-  %arrayidx164 = getelementptr inbounds i32, ptr %call123, i64 5
+  %arrayidx164 = getelementptr inbounds i8, ptr %call123, i64 20
   %29 = load i32, ptr %arrayidx164, align 4
   store i32 %29, ptr %fWeekendCeaseMillis, align 4
   br label %if.end167
@@ -1626,18 +1620,18 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %zone, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [57 x ptr] }, ptr @_ZTVN6icu_758CalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fIsTimeSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
-  %fNextStamp = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
+  %fNextStamp = getelementptr inbounds i8, ptr %this, i64 228
   store i32 0, ptr %fIsTimeSet, align 8
   store i32 2, ptr %fNextStamp, align 4
-  %fTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %fTime = getelementptr inbounds i8, ptr %this, i64 232
   store double 0.000000e+00, ptr %fTime, align 8
-  %fLenient = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient = getelementptr inbounds i8, ptr %this, i64 240
   store i8 1, ptr %fLenient, align 8
-  %fZone = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
-  %validLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 26
+  %fZone = getelementptr inbounds i8, ptr %this, i64 248
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 304
   store i8 0, ptr %validLocale, align 8
-  %actualLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 27
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 461
   store i8 0, ptr %actualLocale, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fZone, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %success, align 4
@@ -1650,7 +1644,7 @@ if.then:                                          ; preds = %entry
 
 delete.notnull:                                   ; preds = %if.then
   %vtable = load ptr, ptr %zone, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(72) %zone) #25
   br label %invoke.cont7
@@ -1682,18 +1676,18 @@ invoke.cont7:                                     ; preds = %if.then, %delete.no
 define void @_ZN6icu_758CalendarC2ERKNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(72) %zone, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [57 x ptr] }, ptr @_ZTVN6icu_758CalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fIsTimeSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
-  %fNextStamp = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
+  %fNextStamp = getelementptr inbounds i8, ptr %this, i64 228
   store i32 0, ptr %fIsTimeSet, align 8
   store i32 2, ptr %fNextStamp, align 4
-  %fTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %fTime = getelementptr inbounds i8, ptr %this, i64 232
   store double 0.000000e+00, ptr %fTime, align 8
-  %fLenient = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient = getelementptr inbounds i8, ptr %this, i64 240
   store i8 1, ptr %fLenient, align 8
-  %fZone = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
-  %validLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 26
+  %fZone = getelementptr inbounds i8, ptr %this, i64 248
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 304
   store i8 0, ptr %validLocale, align 8
-  %actualLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 27
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 461
   store i8 0, ptr %actualLocale, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fZone, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %success, align 4
@@ -1709,7 +1703,7 @@ lpad:                                             ; preds = %if.end9, %if.end
 if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(220) %fIsTimeSet, i8 0, i64 220, i1 false)
   %vtable = load ptr, ptr %zone, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %2 = load ptr, ptr %vfn, align 8
   %call5 = invoke noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(72) %zone)
           to label %invoke.cont4 unwind label %lpad
@@ -1735,14 +1729,14 @@ invoke.cont10:                                    ; preds = %entry, %if.end9
 define void @_ZN6icu_758CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(618) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [57 x ptr] }, ptr @_ZTVN6icu_758CalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fZone = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %fZone, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0) #25
   br label %delete.end
@@ -1766,7 +1760,7 @@ declare void @llvm.trap() #10
 define void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [57 x ptr] }, ptr @_ZTVN6icu_758CalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fZone = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone = getelementptr inbounds i8, ptr %this, i64 248
   store ptr null, ptr %fZone, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(618) ptr @_ZN6icu_758CalendaraSERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %source)
           to label %invoke.cont unwind label %lpad
@@ -1788,112 +1782,112 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fFields = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 5
-  %fFields2 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5
+  %fFields = getelementptr inbounds i8, ptr %right, i64 12
+  %fFields2 = getelementptr inbounds i8, ptr %this, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %fFields2, ptr noundef nonnull align 4 dereferenceable(96) %fFields, i64 96, i1 false)
-  %fIsSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 6
-  %fIsSet5 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6
+  %fIsSet = getelementptr inbounds i8, ptr %right, i64 108
+  %fIsSet5 = getelementptr inbounds i8, ptr %this, i64 108
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %fIsSet5, ptr noundef nonnull align 4 dereferenceable(24) %fIsSet, i64 24, i1 false)
-  %fStamp = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 7
-  %fStamp8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7
+  %fStamp = getelementptr inbounds i8, ptr %right, i64 132
+  %fStamp8 = getelementptr inbounds i8, ptr %this, i64 132
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %fStamp8, ptr noundef nonnull align 4 dereferenceable(96) %fStamp, i64 96, i1 false)
-  %fTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 9
+  %fTime = getelementptr inbounds i8, ptr %right, i64 232
   %0 = load double, ptr %fTime, align 8
-  %fTime10 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %fTime10 = getelementptr inbounds i8, ptr %this, i64 232
   store double %0, ptr %fTime10, align 8
-  %fIsTimeSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 1
+  %fIsTimeSet = getelementptr inbounds i8, ptr %right, i64 8
   %1 = load i8, ptr %fIsTimeSet, align 8
-  %fIsTimeSet11 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet11 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %1, ptr %fIsTimeSet11, align 8
-  %fAreAllFieldsSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 3
+  %fAreAllFieldsSet = getelementptr inbounds i8, ptr %right, i64 10
   %2 = load i8, ptr %fAreAllFieldsSet, align 2
-  %fAreAllFieldsSet12 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet12 = getelementptr inbounds i8, ptr %this, i64 10
   store i8 %2, ptr %fAreAllFieldsSet12, align 2
-  %fAreFieldsSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 2
+  %fAreFieldsSet = getelementptr inbounds i8, ptr %right, i64 9
   %3 = load i8, ptr %fAreFieldsSet, align 1
-  %fAreFieldsSet13 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet13 = getelementptr inbounds i8, ptr %this, i64 9
   store i8 %3, ptr %fAreFieldsSet13, align 1
-  %fAreFieldsVirtuallySet = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 4
+  %fAreFieldsVirtuallySet = getelementptr inbounds i8, ptr %right, i64 11
   %4 = load i8, ptr %fAreFieldsVirtuallySet, align 1
-  %fAreFieldsVirtuallySet14 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet14 = getelementptr inbounds i8, ptr %this, i64 11
   store i8 %4, ptr %fAreFieldsVirtuallySet14, align 1
-  %fLenient = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 10
+  %fLenient = getelementptr inbounds i8, ptr %right, i64 240
   %5 = load i8, ptr %fLenient, align 8
-  %fLenient15 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient15 = getelementptr inbounds i8, ptr %this, i64 240
   store i8 %5, ptr %fLenient15, align 8
-  %fRepeatedWallTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 13
+  %fRepeatedWallTime = getelementptr inbounds i8, ptr %right, i64 256
   %6 = load i32, ptr %fRepeatedWallTime, align 8
-  %fRepeatedWallTime16 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 13
+  %fRepeatedWallTime16 = getelementptr inbounds i8, ptr %this, i64 256
   store i32 %6, ptr %fRepeatedWallTime16, align 8
-  %fSkippedWallTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 14
+  %fSkippedWallTime = getelementptr inbounds i8, ptr %right, i64 260
   %7 = load i32, ptr %fSkippedWallTime, align 4
-  %fSkippedWallTime17 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 14
+  %fSkippedWallTime17 = getelementptr inbounds i8, ptr %this, i64 260
   store i32 %7, ptr %fSkippedWallTime17, align 4
-  %fZone = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone = getelementptr inbounds i8, ptr %this, i64 248
   %8 = load ptr, ptr %fZone, align 8
   %isnull = icmp eq ptr %8, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
   %vtable = load ptr, ptr %8, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(72) %8) #25
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
   store ptr null, ptr %fZone, align 8
-  %fZone19 = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 12
+  %fZone19 = getelementptr inbounds i8, ptr %right, i64 248
   %10 = load ptr, ptr %fZone19, align 8
   %cmp20.not = icmp eq ptr %10, null
   br i1 %cmp20.not, label %if.end, label %if.then21
 
 if.then21:                                        ; preds = %delete.end
   %vtable23 = load ptr, ptr %10, align 8
-  %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 12
+  %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 96
   %11 = load ptr, ptr %vfn24, align 8
   %call = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(72) %10)
   store ptr %call, ptr %fZone, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then21, %delete.end
-  %fFirstDayOfWeek = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 15
+  %fFirstDayOfWeek = getelementptr inbounds i8, ptr %right, i64 264
   %12 = load i32, ptr %fFirstDayOfWeek, align 8
-  %fFirstDayOfWeek26 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek26 = getelementptr inbounds i8, ptr %this, i64 264
   store i32 %12, ptr %fFirstDayOfWeek26, align 8
-  %fMinimalDaysInFirstWeek = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 16
+  %fMinimalDaysInFirstWeek = getelementptr inbounds i8, ptr %right, i64 268
   %13 = load i8, ptr %fMinimalDaysInFirstWeek, align 4
-  %fMinimalDaysInFirstWeek27 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
+  %fMinimalDaysInFirstWeek27 = getelementptr inbounds i8, ptr %this, i64 268
   store i8 %13, ptr %fMinimalDaysInFirstWeek27, align 4
-  %fWeekendOnset = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 18
+  %fWeekendOnset = getelementptr inbounds i8, ptr %right, i64 272
   %14 = load i32, ptr %fWeekendOnset, align 8
-  %fWeekendOnset28 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 18
+  %fWeekendOnset28 = getelementptr inbounds i8, ptr %this, i64 272
   store i32 %14, ptr %fWeekendOnset28, align 8
-  %fWeekendOnsetMillis = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 19
+  %fWeekendOnsetMillis = getelementptr inbounds i8, ptr %right, i64 276
   %15 = load i32, ptr %fWeekendOnsetMillis, align 4
-  %fWeekendOnsetMillis29 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 19
+  %fWeekendOnsetMillis29 = getelementptr inbounds i8, ptr %this, i64 276
   store i32 %15, ptr %fWeekendOnsetMillis29, align 4
-  %fWeekendCease = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 20
+  %fWeekendCease = getelementptr inbounds i8, ptr %right, i64 280
   %16 = load i32, ptr %fWeekendCease, align 8
-  %fWeekendCease30 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 20
+  %fWeekendCease30 = getelementptr inbounds i8, ptr %this, i64 280
   store i32 %16, ptr %fWeekendCease30, align 8
-  %fWeekendCeaseMillis = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 21
+  %fWeekendCeaseMillis = getelementptr inbounds i8, ptr %right, i64 284
   %17 = load i32, ptr %fWeekendCeaseMillis, align 4
-  %fWeekendCeaseMillis31 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 21
+  %fWeekendCeaseMillis31 = getelementptr inbounds i8, ptr %this, i64 284
   store i32 %17, ptr %fWeekendCeaseMillis31, align 4
-  %fNextStamp = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 8
+  %fNextStamp = getelementptr inbounds i8, ptr %right, i64 228
   %18 = load i32, ptr %fNextStamp, align 4
-  %fNextStamp32 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fNextStamp32 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %18, ptr %fNextStamp32, align 4
-  %validLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 26
-  %validLocale34 = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 26
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 304
+  %validLocale34 = getelementptr inbounds i8, ptr %right, i64 304
   %call36 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %validLocale, ptr noundef nonnull dereferenceable(1) %validLocale34, i64 noundef 157) #25
-  %actualLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 27
-  %actualLocale38 = getelementptr inbounds %"class.icu_75::Calendar", ptr %right, i64 0, i32 27
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 461
+  %actualLocale38 = getelementptr inbounds i8, ptr %right, i64 461
   %call40 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %actualLocale, ptr noundef nonnull dereferenceable(1) %actualLocale38, i64 noundef 157) #25
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 26, i64 156
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 460
   store i8 0, ptr %arrayidx, align 4
-  %arrayidx43 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 27, i64 156
+  %arrayidx43 = getelementptr inbounds i8, ptr %this, i64 617
   store i8 0, ptr %arrayidx43, align 1
   br label %if.end44
 
@@ -1934,7 +1928,7 @@ lpad:                                             ; preds = %invoke.cont4, %if.e
 
 delete.notnull.i:                                 ; preds = %lpad
   %vtable.i = load ptr, ptr %zone, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %1 = load ptr, ptr %vfn.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(72) %zone) #25
   br label %_ZN6icu_7512LocalPointerINS_8TimeZoneEED2Ev.exit
@@ -1944,10 +1938,10 @@ _ZN6icu_7512LocalPointerINS_8TimeZoneEED2Ev.exit: ; preds = %lpad, %delete.notnu
 
 if.end:                                           ; preds = %invoke.cont
   %2 = load ptr, ptr %shared, align 8
-  %ptr.i = getelementptr inbounds %"class.icu_75::SharedCalendar", ptr %2, i64 0, i32 1
+  %ptr.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %ptr.i, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %4 = load ptr, ptr %vfn, align 8
   %call5 = invoke noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(618) %3)
           to label %invoke.cont4 unwind label %lpad
@@ -1970,21 +1964,21 @@ if.end8:                                          ; preds = %invoke.cont6
   br i1 %cmp.i7, label %_ZN6icu_758Calendar13adoptTimeZoneEPNS_8TimeZoneE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end8
-  %fZone.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call5, i64 0, i32 12
+  %fZone.i = getelementptr inbounds i8, ptr %call5, i64 248
   %6 = load ptr, ptr %fZone.i, align 8
   %isnull.i8 = icmp eq ptr %6, null
   br i1 %isnull.i8, label %delete.end.i, label %delete.notnull.i9
 
 delete.notnull.i9:                                ; preds = %if.end.i
   %vtable.i10 = load ptr, ptr %6, align 8
-  %vfn.i11 = getelementptr inbounds ptr, ptr %vtable.i10, i64 1
+  %vfn.i11 = getelementptr inbounds i8, ptr %vtable.i10, i64 8
   %7 = load ptr, ptr %vfn.i11, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(72) %6) #25
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i9, %if.end.i
   store ptr %zone, ptr %fZone.i, align 8
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call5, i64 0, i32 2
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %call5, i64 9
   store i8 0, ptr %fAreFieldsSet.i, align 1
   br label %_ZN6icu_758Calendar13adoptTimeZoneEPNS_8TimeZoneE.exit
 
@@ -1999,7 +1993,7 @@ if.end.i13:                                       ; preds = %_ZN6icu_758Calendar
   br i1 %cmp.i14, label %if.then2.i, label %if.else7.i
 
 if.then2.i:                                       ; preds = %if.end.i13
-  %fLenient.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call5, i64 0, i32 10
+  %fLenient.i.i = getelementptr inbounds i8, ptr %call5, i64 240
   %9 = load i8, ptr %fLenient.i.i, align 8
   %tobool4.not.i = icmp eq i8 %9, 0
   br i1 %tobool4.not.i, label %for.end.sink.split.i, label %if.end21.i
@@ -2009,7 +2003,7 @@ if.else7.i:                                       ; preds = %if.end.i13
   br i1 %cmp8.i, label %if.then9.i, label %if.else15.i
 
 if.then9.i:                                       ; preds = %if.else7.i
-  %fLenient.i11.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call5, i64 0, i32 10
+  %fLenient.i11.i = getelementptr inbounds i8, ptr %call5, i64 240
   %10 = load i8, ptr %fLenient.i11.i, align 8
   %tobool11.not.i = icmp eq i8 %10, 0
   br i1 %tobool11.not.i, label %for.end.sink.split.i, label %if.end21.i
@@ -2021,12 +2015,12 @@ if.else15.i:                                      ; preds = %if.else7.i
 
 if.end21.i:                                       ; preds = %if.else15.i, %if.then9.i, %if.then2.i
   %millis.addr.0.i = phi double [ %call.i12, %if.else15.i ], [ 0x43846A3EDDF8CD80, %if.then2.i ], [ 0xC384763B62073280, %if.then9.i ]
-  %fTime.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call5, i64 0, i32 9
+  %fTime.i = getelementptr inbounds i8, ptr %call5, i64 232
   store double %millis.addr.0.i, ptr %fTime.i, align 8
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call5, i64 0, i32 1
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %call5, i64 8
   store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %call5, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %scevgep.i, i8 0, i64 216, i1 false)
+  %fFields.i = getelementptr inbounds i8, ptr %call5, i64 12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i, i8 0, i64 216, i1 false)
   br label %_ZN6icu_7512LocalPointerINS_8TimeZoneEED2Ev.exit22
 
 for.end.sink.split.i:                             ; preds = %if.else15.i, %if.then9.i, %if.then2.i
@@ -2039,7 +2033,7 @@ cleanup:                                          ; preds = %invoke.cont, %if.th
 
 delete.notnull.i18:                               ; preds = %cleanup
   %vtable.i19 = load ptr, ptr %zone, align 8
-  %vfn.i20 = getelementptr inbounds ptr, ptr %vtable.i19, i64 1
+  %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 8
   %11 = load ptr, ptr %vfn.i20, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(72) %zone) #25
   br label %_ZN6icu_7512LocalPointerINS_8TimeZoneEED2Ev.exit22
@@ -2063,28 +2057,28 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %vtable.i.i = load ptr, ptr %zone, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 12
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 96
   %1 = load ptr, ptr %vfn.i.i, align 8
   %call.i4.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(72) %zone)
   %cmp.i.i.i = icmp eq ptr %call.i4.i, null
   br i1 %cmp.i.i.i, label %_ZN6icu_758Calendar14createInstanceERKNS_8TimeZoneERKNS_6LocaleER10UErrorCode.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i
-  %fZone.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call1.i.i, i64 0, i32 12
+  %fZone.i.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 248
   %2 = load ptr, ptr %fZone.i.i.i, align 8
   %isnull.i.i.i = icmp eq ptr %2, null
   br i1 %isnull.i.i.i, label %delete.end.i.i.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.end.i.i.i
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(72) %2) #25
   br label %delete.end.i.i.i
 
 delete.end.i.i.i:                                 ; preds = %delete.notnull.i.i.i, %if.end.i.i.i
   store ptr %call.i4.i, ptr %fZone.i.i.i, align 8
-  %fAreFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call1.i.i, i64 0, i32 2
+  %fAreFieldsSet.i.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i.i, align 1
   br label %_ZN6icu_758Calendar14createInstanceERKNS_8TimeZoneERKNS_6LocaleER10UErrorCode.exit
 
@@ -2105,28 +2099,28 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable.i = load ptr, ptr %zone, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 12
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 96
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i4 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(72) %zone)
   %cmp.i.i = icmp eq ptr %call.i4, null
   br i1 %cmp.i.i, label %if.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
-  %fZone.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call1.i, i64 0, i32 12
+  %fZone.i.i = getelementptr inbounds i8, ptr %call1.i, i64 248
   %2 = load ptr, ptr %fZone.i.i, align 8
   %isnull.i.i = icmp eq ptr %2, null
   br i1 %isnull.i.i, label %delete.end.i.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.end.i.i
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(72) %2) #25
   br label %delete.end.i.i
 
 delete.end.i.i:                                   ; preds = %delete.notnull.i.i, %if.end.i.i
   store ptr %call.i4, ptr %fZone.i.i, align 8
-  %fAreFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call1.i, i64 0, i32 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %call1.i, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i, align 1
   br label %if.end
 
@@ -2475,7 +2469,7 @@ ehcleanup:                                        ; preds = %lpad218, %lpad205, 
 
 delete.notnull.i57:                               ; preds = %ehcleanup
   %vtable.i58 = load ptr, ptr %22, align 8
-  %vfn.i59 = getelementptr inbounds ptr, ptr %vtable.i58, i64 1
+  %vfn.i59 = getelementptr inbounds i8, ptr %vtable.i58, i64 8
   %23 = load ptr, ptr %vfn.i59, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(618) %22) #25
   br label %_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit60
@@ -2500,7 +2494,7 @@ entry:
   %len = alloca i32, align 4
   store i32 0, ptr %status, align 4
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %canonicalName)
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %canonicalName, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %canonicalName, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %canonicalName, align 8
   store i8 0, ptr %0, align 1
@@ -2533,7 +2527,7 @@ if.end:                                           ; preds = %invoke.cont2
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
-  %len.i14 = getelementptr inbounds %"class.icu_75::CharString", ptr %calTypeBuf, i64 0, i32 1
+  %len.i14 = getelementptr inbounds i8, ptr %calTypeBuf, i64 56
   store i32 0, ptr %len.i14, align 8
   %4 = load ptr, ptr %calTypeBuf, align 8
   store i8 0, ptr %4, align 1
@@ -2727,7 +2721,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_758Calendar17setFirstDayOfWeekE19UCalendarDaysOfWeek(ptr nocapture noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %value) local_unnamed_addr #14 align 2 {
 entry:
-  %fFirstDayOfWeek = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i32, ptr %fFirstDayOfWeek, align 8
   %cmp = icmp ne i32 %0, %value
   %1 = add i32 %value, -1
@@ -2737,7 +2731,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 %value, ptr %fFirstDayOfWeek, align 8
-  %fAreFieldsSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet, align 1
   br label %if.end
 
@@ -2751,14 +2745,14 @@ entry:
   %cmp = icmp eq i8 %value, 0
   %spec.store.select = tail call i8 @llvm.umin.i8(i8 %value, i8 7)
   %value.addr.0 = select i1 %cmp, i8 1, i8 %spec.store.select
-  %fMinimalDaysInFirstWeek = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
+  %fMinimalDaysInFirstWeek = getelementptr inbounds i8, ptr %this, i64 268
   %0 = load i8, ptr %fMinimalDaysInFirstWeek, align 4
   %cmp8.not = icmp eq i8 %0, %value.addr.0
   br i1 %cmp8.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %entry
   store i8 %value.addr.0, ptr %fMinimalDaysInFirstWeek, align 4
-  %fAreFieldsSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet, align 1
   br label %if.end11
 
@@ -2779,12 +2773,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fCreationStatus.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %ref.tmp, i64 0, i32 1
+  %fCreationStatus.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 0, ptr %fCreationStatus.i.i.i, align 8
-  %fIsPrimary.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %ref.tmp, i64 0, i32 2
+  %fIsPrimary.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   store i8 0, ptr %fIsPrimary.i.i.i, align 4
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_14SharedCalendarEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %fLoc.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %ref.tmp, i64 0, i32 2
+  %fLoc.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %_ZN6icu_7514LocaleCacheKeyINS_14SharedCalendarEEC2ERKNS_6LocaleE.exit unwind label %lpad.i
 
@@ -2828,21 +2822,21 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fZone = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %fZone, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0) #25
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end
   store ptr %zone, ptr %fZone, align 8
-  %fAreFieldsSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet, align 1
   br label %return
 
@@ -2862,7 +2856,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.else7
 
 if.then2:                                         ; preds = %if.end
-  %fLenient.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load i8, ptr %fLenient.i, align 8
   %tobool4.not = icmp eq i8 %1, 0
   br i1 %tobool4.not, label %for.end.sink.split, label %if.end21
@@ -2872,7 +2866,7 @@ if.else7:                                         ; preds = %if.end
   br i1 %cmp8, label %if.then9, label %if.else15
 
 if.then9:                                         ; preds = %if.else7
-  %fLenient.i11 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i11 = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load i8, ptr %fLenient.i11, align 8
   %tobool11.not = icmp eq i8 %2, 0
   br i1 %tobool11.not, label %for.end.sink.split, label %if.end21
@@ -2884,17 +2878,18 @@ if.else15:                                        ; preds = %if.else7
 
 if.end21:                                         ; preds = %if.then9, %if.then2, %if.else15
   %millis.addr.0 = phi double [ %millis, %if.else15 ], [ 0x43846A3EDDF8CD80, %if.then2 ], [ 0xC384763B62073280, %if.then9 ]
-  %fTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %fTime = getelementptr inbounds i8, ptr %this, i64 232
   store double %millis.addr.0, ptr %fTime, align 8
-  %fIsTimeSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
   store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet, align 8
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %scevgep, i8 0, i64 120, i1 false)
+  %fFields = getelementptr inbounds i8, ptr %this, i64 12
+  %fStamp = getelementptr inbounds i8, ptr %this, i64 132
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %fFields, i8 0, i64 120, i1 false)
   br label %for.body
 
 for.body:                                         ; preds = %if.end21, %for.body
   %indvars.iv = phi i64 [ 0, %if.end21 ], [ %indvars.iv.next, %for.body ]
-  %arrayidx24 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv
+  %arrayidx24 = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %indvars.iv
   store i32 0, ptr %arrayidx24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
@@ -2919,28 +2914,28 @@ entry:
 define void @_ZN6icu_758Calendar11setTimeZoneERKNS_8TimeZoneE(ptr nocapture noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(72) %zone) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %zone, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(72) %zone)
   %cmp.i = icmp eq ptr %call, null
   br i1 %cmp.i, label %_ZN6icu_758Calendar13adoptTimeZoneEPNS_8TimeZoneE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %fZone.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone.i = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load ptr, ptr %fZone.i, align 8
   %isnull.i = icmp eq ptr %1, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.end.i
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(72) %1) #25
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %if.end.i
   store ptr %call, ptr %fZone.i, align 8
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i, align 1
   br label %_ZN6icu_758Calendar13adoptTimeZoneEPNS_8TimeZoneE.exit
 
@@ -2960,10 +2955,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %shared, align 8
-  %ptr.i = getelementptr inbounds %"class.icu_75::SharedCalendar", ptr %1, i64 0, i32 1
+  %ptr.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %ptr.i, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %3 = load ptr, ptr %vfn, align 8
   %call2 = call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(618) %2)
   %conv = sext i32 %typeBufferSize to i64
@@ -2990,21 +2985,21 @@ entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef signext i8 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %that)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %land.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fIsTimeSet.i, align 8
   %tobool2.not.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end.i4
 
 if.then3.i:                                       ; preds = %if.end.i
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 31
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 248
   %2 = load ptr, ptr %vfn.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %3 = load i32, ptr %status, align 4
@@ -3012,38 +3007,38 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.i.i.i, label %if.end.i.i, label %land.rhs
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %fLenient.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load i8, ptr %fLenient.i.i.i, align 8
   %tobool3.not.i.i = icmp ne i8 %4, 0
-  %fAreAllFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %5 = load i8, ptr %fAreAllFieldsSet.i.i, align 2
   %tobool4.not.i.i = icmp eq i8 %5, 0
   %or.cond.i.i = select i1 %tobool3.not.i.i, i1 true, i1 %tobool4.not.i.i
   br i1 %or.cond.i.i, label %if.then5.i.i, label %if.end4.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %fAreFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i, align 1
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then5.i.i, %if.end.i.i
   store i8 1, ptr %fIsTimeSet.i, align 8
-  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i, align 1
   br label %if.end.i4
 
 if.end.i4:                                        ; preds = %if.end4.i, %if.end.i
   %.pr = phi i32 [ 0, %if.end.i ], [ %3, %if.end4.i ]
-  %fTime.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %fTime.i = getelementptr inbounds i8, ptr %this, i64 232
   %6 = load double, ptr %fTime.i, align 8
-  %fIsTimeSet.i5 = getelementptr inbounds %"class.icu_75::Calendar", ptr %that, i64 0, i32 1
+  %fIsTimeSet.i5 = getelementptr inbounds i8, ptr %that, i64 8
   %7 = load i8, ptr %fIsTimeSet.i5, align 8
   %tobool2.not.i6 = icmp eq i8 %7, 0
   br i1 %tobool2.not.i6, label %if.then3.i9, label %if.end8.i7
 
 if.then3.i9:                                      ; preds = %if.end.i4
   %vtable.i.i10 = load ptr, ptr %that, align 8
-  %vfn.i.i11 = getelementptr inbounds ptr, ptr %vtable.i.i10, i64 31
+  %vfn.i.i11 = getelementptr inbounds i8, ptr %vtable.i.i10, i64 248
   %8 = load ptr, ptr %vfn.i.i11, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(618) %that, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %9 = load i32, ptr %status, align 4
@@ -3051,29 +3046,29 @@ if.then3.i9:                                      ; preds = %if.end.i4
   br i1 %cmp.i.i.i12, label %if.end.i.i13, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit24
 
 if.end.i.i13:                                     ; preds = %if.then3.i9
-  %fLenient.i.i.i14 = getelementptr inbounds %"class.icu_75::Calendar", ptr %that, i64 0, i32 10
+  %fLenient.i.i.i14 = getelementptr inbounds i8, ptr %that, i64 240
   %10 = load i8, ptr %fLenient.i.i.i14, align 8
   %tobool3.not.i.i15 = icmp ne i8 %10, 0
-  %fAreAllFieldsSet.i.i16 = getelementptr inbounds %"class.icu_75::Calendar", ptr %that, i64 0, i32 3
+  %fAreAllFieldsSet.i.i16 = getelementptr inbounds i8, ptr %that, i64 10
   %11 = load i8, ptr %fAreAllFieldsSet.i.i16, align 2
   %tobool4.not.i.i17 = icmp eq i8 %11, 0
   %or.cond.i.i18 = select i1 %tobool3.not.i.i15, i1 true, i1 %tobool4.not.i.i17
   br i1 %or.cond.i.i18, label %if.then5.i.i22, label %if.end4.i19
 
 if.then5.i.i22:                                   ; preds = %if.end.i.i13
-  %fAreFieldsSet.i.i23 = getelementptr inbounds %"class.icu_75::Calendar", ptr %that, i64 0, i32 2
+  %fAreFieldsSet.i.i23 = getelementptr inbounds i8, ptr %that, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i23, align 1
   br label %if.end4.i19
 
 if.end4.i19:                                      ; preds = %if.then5.i.i22, %if.end.i.i13
   store i8 1, ptr %fIsTimeSet.i5, align 8
-  %fAreFieldsVirtuallySet.i.i20 = getelementptr inbounds %"class.icu_75::Calendar", ptr %that, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i20 = getelementptr inbounds i8, ptr %that, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i20, align 1
   br label %if.end8.i7
 
 if.end8.i7:                                       ; preds = %if.end4.i19, %if.end.i4
   %12 = phi i32 [ %9, %if.end4.i19 ], [ %.pr, %if.end.i4 ]
-  %fTime.i8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %that, i64 0, i32 9
+  %fTime.i8 = getelementptr inbounds i8, ptr %that, i64 232
   %13 = load double, ptr %fTime.i8, align 8
   br label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit24
 
@@ -3101,14 +3096,14 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fIsTimeSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fIsTimeSet, align 8
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 31
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 248
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %3 = load i32, ptr %status, align 4
@@ -3116,30 +3111,30 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then3
-  %fLenient.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load i8, ptr %fLenient.i.i, align 8
   %tobool3.not.i = icmp ne i8 %4, 0
-  %fAreAllFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 10
   %5 = load i8, ptr %fAreAllFieldsSet.i, align 2
   %tobool4.not.i = icmp eq i8 %5, 0
   %or.cond.i = select i1 %tobool3.not.i, i1 true, i1 %tobool4.not.i
   br i1 %or.cond.i, label %if.then5.i, label %if.end4
 
 if.then5.i:                                       ; preds = %if.end.i
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i, align 1
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end.i, %if.then5.i
   store i8 1, ptr %fIsTimeSet, align 8
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   %.pre = load i32, ptr %status, align 4
   %6 = icmp slt i32 %.pre, 1
   br i1 %6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end, %if.end4
-  %fTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %fTime = getelementptr inbounds i8, ptr %this, i64 232
   %7 = load double, ptr %fTime, align 8
   br label %return
 
@@ -3152,14 +3147,14 @@ return:                                           ; preds = %if.then3, %if.end4,
 define noundef signext i8 @_ZNK6icu_758Calendar14isEquivalentToERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %other) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %0 = getelementptr inbounds ptr, ptr %vtable, i64 -1
+  %0 = getelementptr inbounds i8, ptr %vtable, i64 -8
   %1 = load ptr, ptr %0, align 8
   %vtable2 = load ptr, ptr %other, align 8
-  %2 = getelementptr inbounds ptr, ptr %vtable2, i64 -1
+  %2 = getelementptr inbounds i8, ptr %vtable2, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %1, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %__name.i, align 8
-  %__name2.i = getelementptr inbounds %"class.std::type_info", ptr %3, i64 0, i32 1
+  %__name2.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %__name2.i, align 8
   %cmp.i = icmp eq ptr %4, %5
   br i1 %cmp.i, label %land.lhs.true, label %if.end.i
@@ -3179,84 +3174,84 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   br i1 %cmp7.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry, %_ZNKSt9type_infoeqERKS_.exit
-  %fLenient = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient = getelementptr inbounds i8, ptr %this, i64 240
   %8 = load i8, ptr %fLenient, align 8
-  %fLenient3 = getelementptr inbounds %"class.icu_75::Calendar", ptr %other, i64 0, i32 10
+  %fLenient3 = getelementptr inbounds i8, ptr %other, i64 240
   %9 = load i8, ptr %fLenient3, align 8
   %cmp = icmp eq i8 %8, %9
   br i1 %cmp, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %fRepeatedWallTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 13
+  %fRepeatedWallTime = getelementptr inbounds i8, ptr %this, i64 256
   %10 = load i32, ptr %fRepeatedWallTime, align 8
-  %fRepeatedWallTime6 = getelementptr inbounds %"class.icu_75::Calendar", ptr %other, i64 0, i32 13
+  %fRepeatedWallTime6 = getelementptr inbounds i8, ptr %other, i64 256
   %11 = load i32, ptr %fRepeatedWallTime6, align 8
   %cmp7 = icmp eq i32 %10, %11
   br i1 %cmp7, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %fSkippedWallTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 14
+  %fSkippedWallTime = getelementptr inbounds i8, ptr %this, i64 260
   %12 = load i32, ptr %fSkippedWallTime, align 4
-  %fSkippedWallTime9 = getelementptr inbounds %"class.icu_75::Calendar", ptr %other, i64 0, i32 14
+  %fSkippedWallTime9 = getelementptr inbounds i8, ptr %other, i64 260
   %13 = load i32, ptr %fSkippedWallTime9, align 4
   %cmp10 = icmp eq i32 %12, %13
   br i1 %cmp10, label %land.lhs.true11, label %land.end
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %fFirstDayOfWeek = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek = getelementptr inbounds i8, ptr %this, i64 264
   %14 = load i32, ptr %fFirstDayOfWeek, align 8
-  %fFirstDayOfWeek12 = getelementptr inbounds %"class.icu_75::Calendar", ptr %other, i64 0, i32 15
+  %fFirstDayOfWeek12 = getelementptr inbounds i8, ptr %other, i64 264
   %15 = load i32, ptr %fFirstDayOfWeek12, align 8
   %cmp13 = icmp eq i32 %14, %15
   br i1 %cmp13, label %land.lhs.true14, label %land.end
 
 land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %fMinimalDaysInFirstWeek = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
+  %fMinimalDaysInFirstWeek = getelementptr inbounds i8, ptr %this, i64 268
   %16 = load i8, ptr %fMinimalDaysInFirstWeek, align 4
-  %fMinimalDaysInFirstWeek16 = getelementptr inbounds %"class.icu_75::Calendar", ptr %other, i64 0, i32 16
+  %fMinimalDaysInFirstWeek16 = getelementptr inbounds i8, ptr %other, i64 268
   %17 = load i8, ptr %fMinimalDaysInFirstWeek16, align 4
   %cmp18 = icmp eq i8 %16, %17
   br i1 %cmp18, label %land.lhs.true19, label %land.end
 
 land.lhs.true19:                                  ; preds = %land.lhs.true14
-  %fWeekendOnset = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 18
+  %fWeekendOnset = getelementptr inbounds i8, ptr %this, i64 272
   %18 = load i32, ptr %fWeekendOnset, align 8
-  %fWeekendOnset20 = getelementptr inbounds %"class.icu_75::Calendar", ptr %other, i64 0, i32 18
+  %fWeekendOnset20 = getelementptr inbounds i8, ptr %other, i64 272
   %19 = load i32, ptr %fWeekendOnset20, align 8
   %cmp21 = icmp eq i32 %18, %19
   br i1 %cmp21, label %land.lhs.true22, label %land.end
 
 land.lhs.true22:                                  ; preds = %land.lhs.true19
-  %fWeekendOnsetMillis = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 19
+  %fWeekendOnsetMillis = getelementptr inbounds i8, ptr %this, i64 276
   %20 = load i32, ptr %fWeekendOnsetMillis, align 4
-  %fWeekendOnsetMillis23 = getelementptr inbounds %"class.icu_75::Calendar", ptr %other, i64 0, i32 19
+  %fWeekendOnsetMillis23 = getelementptr inbounds i8, ptr %other, i64 276
   %21 = load i32, ptr %fWeekendOnsetMillis23, align 4
   %cmp24 = icmp eq i32 %20, %21
   br i1 %cmp24, label %land.lhs.true25, label %land.end
 
 land.lhs.true25:                                  ; preds = %land.lhs.true22
-  %fWeekendCease = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 20
+  %fWeekendCease = getelementptr inbounds i8, ptr %this, i64 280
   %22 = load i32, ptr %fWeekendCease, align 8
-  %fWeekendCease26 = getelementptr inbounds %"class.icu_75::Calendar", ptr %other, i64 0, i32 20
+  %fWeekendCease26 = getelementptr inbounds i8, ptr %other, i64 280
   %23 = load i32, ptr %fWeekendCease26, align 8
   %cmp27 = icmp eq i32 %22, %23
   br i1 %cmp27, label %land.lhs.true28, label %land.end
 
 land.lhs.true28:                                  ; preds = %land.lhs.true25
-  %fWeekendCeaseMillis = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 21
+  %fWeekendCeaseMillis = getelementptr inbounds i8, ptr %this, i64 284
   %24 = load i32, ptr %fWeekendCeaseMillis, align 4
-  %fWeekendCeaseMillis29 = getelementptr inbounds %"class.icu_75::Calendar", ptr %other, i64 0, i32 21
+  %fWeekendCeaseMillis29 = getelementptr inbounds i8, ptr %other, i64 284
   %25 = load i32, ptr %fWeekendCeaseMillis29, align 4
   %cmp30 = icmp eq i32 %24, %25
   br i1 %cmp30, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true28
-  %fZone = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone = getelementptr inbounds i8, ptr %this, i64 248
   %26 = load ptr, ptr %fZone, align 8
-  %fZone31 = getelementptr inbounds %"class.icu_75::Calendar", ptr %other, i64 0, i32 12
+  %fZone31 = getelementptr inbounds i8, ptr %other, i64 248
   %27 = load ptr, ptr %fZone31, align 8
   %vtable32 = load ptr, ptr %26, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable32, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable32, i64 24
   %28 = load ptr, ptr %vfn, align 8
   %call33 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef nonnull align 8 dereferenceable(72) %27)
   %29 = zext i1 %call33 to i8
@@ -3279,14 +3274,14 @@ lor.rhs:                                          ; preds = %entry
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZNK6icu_758Calendar7getTimeER10UErrorCode.exit25
 
 if.end.i.i:                                       ; preds = %lor.rhs
-  %fIsTimeSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fIsTimeSet.i.i, align 8
   %tobool2.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %if.end.i.i5
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %vtable.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 31
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 248
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %3 = load i32, ptr %status, align 4
@@ -3294,39 +3289,39 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %_ZNK6icu_758Calendar7getTimeER10UErrorCode.exit25
 
 if.end.i.i.i:                                     ; preds = %if.then3.i.i
-  %fLenient.i.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load i8, ptr %fLenient.i.i.i.i, align 8
   %tobool3.not.i.i.i = icmp ne i8 %4, 0
-  %fAreAllFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %5 = load i8, ptr %fAreAllFieldsSet.i.i.i, align 2
   %tobool4.not.i.i.i = icmp eq i8 %5, 0
   %or.cond.i.i.i = select i1 %tobool3.not.i.i.i, i1 true, i1 %tobool4.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.then5.i.i.i, label %if.end4.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
-  %fAreFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i.i, align 1
   br label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then5.i.i.i, %if.end.i.i.i
   store i8 1, ptr %fIsTimeSet.i.i, align 8
-  %fAreFieldsVirtuallySet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i, align 1
   %.pre.i.i = load i32, ptr %status, align 4
   %6 = icmp slt i32 %.pre.i.i, 1
   br i1 %6, label %if.end.i.i5, label %_ZNK6icu_758Calendar7getTimeER10UErrorCode.exit25
 
 if.end.i.i5:                                      ; preds = %if.end.i.i, %if.end4.i.i
-  %.in = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %.in = getelementptr inbounds i8, ptr %this, i64 232
   %7 = load double, ptr %.in, align 8
-  %fIsTimeSet.i.i6 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 1
+  %fIsTimeSet.i.i6 = getelementptr inbounds i8, ptr %when, i64 8
   %8 = load i8, ptr %fIsTimeSet.i.i6, align 8
   %tobool2.not.i.i7 = icmp eq i8 %8, 0
   br i1 %tobool2.not.i.i7, label %if.then3.i.i10, label %if.end8.i.i8
 
 if.then3.i.i10:                                   ; preds = %if.end.i.i5
   %vtable.i.i.i11 = load ptr, ptr %when, align 8
-  %vfn.i.i.i12 = getelementptr inbounds ptr, ptr %vtable.i.i.i11, i64 31
+  %vfn.i.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i.i11, i64 248
   %9 = load ptr, ptr %vfn.i.i.i12, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(618) %when, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %10 = load i32, ptr %status, align 4
@@ -3334,30 +3329,30 @@ if.then3.i.i10:                                   ; preds = %if.end.i.i5
   br i1 %cmp.i.i.i.i13, label %if.end.i.i.i14, label %_ZNK6icu_758Calendar7getTimeER10UErrorCode.exit25
 
 if.end.i.i.i14:                                   ; preds = %if.then3.i.i10
-  %fLenient.i.i.i.i15 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 10
+  %fLenient.i.i.i.i15 = getelementptr inbounds i8, ptr %when, i64 240
   %11 = load i8, ptr %fLenient.i.i.i.i15, align 8
   %tobool3.not.i.i.i16 = icmp ne i8 %11, 0
-  %fAreAllFieldsSet.i.i.i17 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 3
+  %fAreAllFieldsSet.i.i.i17 = getelementptr inbounds i8, ptr %when, i64 10
   %12 = load i8, ptr %fAreAllFieldsSet.i.i.i17, align 2
   %tobool4.not.i.i.i18 = icmp eq i8 %12, 0
   %or.cond.i.i.i19 = select i1 %tobool3.not.i.i.i16, i1 true, i1 %tobool4.not.i.i.i18
   br i1 %or.cond.i.i.i19, label %if.then5.i.i.i23, label %if.end4.i.i20
 
 if.then5.i.i.i23:                                 ; preds = %if.end.i.i.i14
-  %fAreFieldsSet.i.i.i24 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 2
+  %fAreFieldsSet.i.i.i24 = getelementptr inbounds i8, ptr %when, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i.i24, align 1
   br label %if.end4.i.i20
 
 if.end4.i.i20:                                    ; preds = %if.then5.i.i.i23, %if.end.i.i.i14
   store i8 1, ptr %fIsTimeSet.i.i6, align 8
-  %fAreFieldsVirtuallySet.i.i.i21 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i.i21 = getelementptr inbounds i8, ptr %when, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i21, align 1
   %.pre.i.i22 = load i32, ptr %status, align 4
   %13 = icmp slt i32 %.pre.i.i22, 1
   br i1 %13, label %if.end8.i.i8, label %_ZNK6icu_758Calendar7getTimeER10UErrorCode.exit25
 
 if.end8.i.i8:                                     ; preds = %if.end4.i.i20, %if.end.i.i5
-  %fTime.i.i9 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 9
+  %fTime.i.i9 = getelementptr inbounds i8, ptr %when, i64 232
   %14 = load double, ptr %fTime.i.i9, align 8
   br label %_ZNK6icu_758Calendar7getTimeER10UErrorCode.exit25
 
@@ -3385,14 +3380,14 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.end.i, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit25
 
 if.end.i:                                         ; preds = %land.rhs
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fIsTimeSet.i, align 8
   %tobool2.not.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end.i5
 
 if.then3.i:                                       ; preds = %if.end.i
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 31
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 248
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %3 = load i32, ptr %status, align 4
@@ -3400,39 +3395,39 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit25
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %fLenient.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load i8, ptr %fLenient.i.i.i, align 8
   %tobool3.not.i.i = icmp ne i8 %4, 0
-  %fAreAllFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %5 = load i8, ptr %fAreAllFieldsSet.i.i, align 2
   %tobool4.not.i.i = icmp eq i8 %5, 0
   %or.cond.i.i = select i1 %tobool3.not.i.i, i1 true, i1 %tobool4.not.i.i
   br i1 %or.cond.i.i, label %if.then5.i.i, label %if.end4.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %fAreFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i, align 1
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then5.i.i, %if.end.i.i
   store i8 1, ptr %fIsTimeSet.i, align 8
-  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i, align 1
   %.pre.i = load i32, ptr %status, align 4
   %6 = icmp slt i32 %.pre.i, 1
   br i1 %6, label %if.end.i5, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit25
 
 if.end.i5:                                        ; preds = %if.end.i, %if.end4.i
-  %.in = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %.in = getelementptr inbounds i8, ptr %this, i64 232
   %7 = load double, ptr %.in, align 8
-  %fIsTimeSet.i6 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 1
+  %fIsTimeSet.i6 = getelementptr inbounds i8, ptr %when, i64 8
   %8 = load i8, ptr %fIsTimeSet.i6, align 8
   %tobool2.not.i7 = icmp eq i8 %8, 0
   br i1 %tobool2.not.i7, label %if.then3.i10, label %if.end8.i8
 
 if.then3.i10:                                     ; preds = %if.end.i5
   %vtable.i.i11 = load ptr, ptr %when, align 8
-  %vfn.i.i12 = getelementptr inbounds ptr, ptr %vtable.i.i11, i64 31
+  %vfn.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i11, i64 248
   %9 = load ptr, ptr %vfn.i.i12, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(618) %when, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %10 = load i32, ptr %status, align 4
@@ -3440,30 +3435,30 @@ if.then3.i10:                                     ; preds = %if.end.i5
   br i1 %cmp.i.i.i13, label %if.end.i.i14, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit25
 
 if.end.i.i14:                                     ; preds = %if.then3.i10
-  %fLenient.i.i.i15 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 10
+  %fLenient.i.i.i15 = getelementptr inbounds i8, ptr %when, i64 240
   %11 = load i8, ptr %fLenient.i.i.i15, align 8
   %tobool3.not.i.i16 = icmp ne i8 %11, 0
-  %fAreAllFieldsSet.i.i17 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 3
+  %fAreAllFieldsSet.i.i17 = getelementptr inbounds i8, ptr %when, i64 10
   %12 = load i8, ptr %fAreAllFieldsSet.i.i17, align 2
   %tobool4.not.i.i18 = icmp eq i8 %12, 0
   %or.cond.i.i19 = select i1 %tobool3.not.i.i16, i1 true, i1 %tobool4.not.i.i18
   br i1 %or.cond.i.i19, label %if.then5.i.i23, label %if.end4.i20
 
 if.then5.i.i23:                                   ; preds = %if.end.i.i14
-  %fAreFieldsSet.i.i24 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 2
+  %fAreFieldsSet.i.i24 = getelementptr inbounds i8, ptr %when, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i24, align 1
   br label %if.end4.i20
 
 if.end4.i20:                                      ; preds = %if.then5.i.i23, %if.end.i.i14
   store i8 1, ptr %fIsTimeSet.i6, align 8
-  %fAreFieldsVirtuallySet.i.i21 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i21 = getelementptr inbounds i8, ptr %when, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i21, align 1
   %.pre.i22 = load i32, ptr %status, align 4
   %13 = icmp slt i32 %.pre.i22, 1
   br i1 %13, label %if.end8.i8, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit25
 
 if.end8.i8:                                       ; preds = %if.end4.i20, %if.end.i5
-  %fTime.i9 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 9
+  %fTime.i9 = getelementptr inbounds i8, ptr %when, i64 232
   %14 = load double, ptr %fTime.i9, align 8
   br label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit25
 
@@ -3491,14 +3486,14 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.end.i, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit25
 
 if.end.i:                                         ; preds = %land.rhs
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fIsTimeSet.i, align 8
   %tobool2.not.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end.i5
 
 if.then3.i:                                       ; preds = %if.end.i
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 31
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 248
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %3 = load i32, ptr %status, align 4
@@ -3506,39 +3501,39 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit25
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %fLenient.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load i8, ptr %fLenient.i.i.i, align 8
   %tobool3.not.i.i = icmp ne i8 %4, 0
-  %fAreAllFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %5 = load i8, ptr %fAreAllFieldsSet.i.i, align 2
   %tobool4.not.i.i = icmp eq i8 %5, 0
   %or.cond.i.i = select i1 %tobool3.not.i.i, i1 true, i1 %tobool4.not.i.i
   br i1 %or.cond.i.i, label %if.then5.i.i, label %if.end4.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %fAreFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i, align 1
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then5.i.i, %if.end.i.i
   store i8 1, ptr %fIsTimeSet.i, align 8
-  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i, align 1
   %.pre.i = load i32, ptr %status, align 4
   %6 = icmp slt i32 %.pre.i, 1
   br i1 %6, label %if.end.i5, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit25
 
 if.end.i5:                                        ; preds = %if.end.i, %if.end4.i
-  %.in = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %.in = getelementptr inbounds i8, ptr %this, i64 232
   %7 = load double, ptr %.in, align 8
-  %fIsTimeSet.i6 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 1
+  %fIsTimeSet.i6 = getelementptr inbounds i8, ptr %when, i64 8
   %8 = load i8, ptr %fIsTimeSet.i6, align 8
   %tobool2.not.i7 = icmp eq i8 %8, 0
   br i1 %tobool2.not.i7, label %if.then3.i10, label %if.end8.i8
 
 if.then3.i10:                                     ; preds = %if.end.i5
   %vtable.i.i11 = load ptr, ptr %when, align 8
-  %vfn.i.i12 = getelementptr inbounds ptr, ptr %vtable.i.i11, i64 31
+  %vfn.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i11, i64 248
   %9 = load ptr, ptr %vfn.i.i12, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(618) %when, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %10 = load i32, ptr %status, align 4
@@ -3546,30 +3541,30 @@ if.then3.i10:                                     ; preds = %if.end.i5
   br i1 %cmp.i.i.i13, label %if.end.i.i14, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit25
 
 if.end.i.i14:                                     ; preds = %if.then3.i10
-  %fLenient.i.i.i15 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 10
+  %fLenient.i.i.i15 = getelementptr inbounds i8, ptr %when, i64 240
   %11 = load i8, ptr %fLenient.i.i.i15, align 8
   %tobool3.not.i.i16 = icmp ne i8 %11, 0
-  %fAreAllFieldsSet.i.i17 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 3
+  %fAreAllFieldsSet.i.i17 = getelementptr inbounds i8, ptr %when, i64 10
   %12 = load i8, ptr %fAreAllFieldsSet.i.i17, align 2
   %tobool4.not.i.i18 = icmp eq i8 %12, 0
   %or.cond.i.i19 = select i1 %tobool3.not.i.i16, i1 true, i1 %tobool4.not.i.i18
   br i1 %or.cond.i.i19, label %if.then5.i.i23, label %if.end4.i20
 
 if.then5.i.i23:                                   ; preds = %if.end.i.i14
-  %fAreFieldsSet.i.i24 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 2
+  %fAreFieldsSet.i.i24 = getelementptr inbounds i8, ptr %when, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i24, align 1
   br label %if.end4.i20
 
 if.end4.i20:                                      ; preds = %if.then5.i.i23, %if.end.i.i14
   store i8 1, ptr %fIsTimeSet.i6, align 8
-  %fAreFieldsVirtuallySet.i.i21 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i21 = getelementptr inbounds i8, ptr %when, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i21, align 1
   %.pre.i22 = load i32, ptr %status, align 4
   %13 = icmp slt i32 %.pre.i22, 1
   br i1 %13, label %if.end8.i8, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit25
 
 if.end8.i8:                                       ; preds = %if.end4.i20, %if.end.i5
-  %fTime.i9 = getelementptr inbounds %"class.icu_75::Calendar", ptr %when, i64 0, i32 9
+  %fTime.i9 = getelementptr inbounds i8, ptr %when, i64 232
   %14 = load double, ptr %fTime.i9, align 8
   br label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit25
 
@@ -3597,7 +3592,7 @@ declare noundef ptr @_ZN6icu_756Locale19getAvailableLocalesERi(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_758Calendar25getKeywordValuesForLocaleEPKcRKNS_6LocaleEaR10UErrorCode(ptr noundef %key, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, i8 noundef signext %commonlyUsed, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %locale, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %locale, i64 40
   %0 = load ptr, ptr %fullName.i, align 8
   %call1 = tail call ptr @ucal_getKeywordValuesForLocale_75(ptr noundef %key, ptr noundef %0, i8 noundef signext %commonlyUsed, ptr noundef nonnull %status)
   %1 = load i32, ptr %status, align 4
@@ -3644,7 +3639,7 @@ declare double @uprv_getUTCtime_75() local_unnamed_addr #5
 define void @_ZN6icu_758Calendar10updateTimeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 31
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
@@ -3652,24 +3647,24 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fLenient.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load i8, ptr %fLenient.i, align 8
   %tobool3.not = icmp ne i8 %2, 0
-  %fAreAllFieldsSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet = getelementptr inbounds i8, ptr %this, i64 10
   %3 = load i8, ptr %fAreAllFieldsSet, align 2
   %tobool4.not = icmp eq i8 %3, 0
   %or.cond = select i1 %tobool3.not, i1 true, i1 %tobool4.not
   br i1 %or.cond, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
-  %fAreFieldsSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet, align 1
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %if.then5
-  %fIsTimeSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %fIsTimeSet, align 8
-  %fAreFieldsVirtuallySet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet, align 1
   br label %return
 
@@ -3680,7 +3675,7 @@ return:                                           ; preds = %entry, %if.end6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_758Calendar9isLenientEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this) local_unnamed_addr #16 align 2 {
 entry:
-  %fLenient = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i8, ptr %fLenient, align 8
   ret i8 %0
 }
@@ -3703,14 +3698,14 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end.i:                                         ; preds = %if.end
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fIsTimeSet.i, align 8
   %tobool2.not.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end8.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 31
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 248
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %3 = load i32, ptr %status, align 4
@@ -3718,37 +3713,37 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.i.i.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %fLenient.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load i8, ptr %fLenient.i.i.i, align 8
   %tobool3.not.i.i = icmp ne i8 %4, 0
-  %fAreAllFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %5 = load i8, ptr %fAreAllFieldsSet.i.i, align 2
   %tobool4.not.i.i = icmp eq i8 %5, 0
   %or.cond.i.i = select i1 %tobool3.not.i.i, i1 true, i1 %tobool4.not.i.i
   br i1 %or.cond.i.i, label %if.then5.i.i, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %fAreFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i, align 1
   br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i
 
 _ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i: ; preds = %if.then5.i.i, %if.end.i.i
   store i8 1, ptr %fIsTimeSet.i, align 8
-  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i, align 1
   %.pre.i = load i32, ptr %status, align 4
   %6 = icmp slt i32 %.pre.i, 1
   br i1 %6, label %if.end8.i, label %return
 
 if.end8.i:                                        ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i, %if.end.i
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
   %7 = load i8, ptr %fAreFieldsSet.i, align 1
   %tobool9.not.i = icmp eq i8 %7, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %cond.true
 
 if.then10.i:                                      ; preds = %if.end8.i
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %8 = load ptr, ptr %vfn.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %9 = load i32, ptr %status, align 4
@@ -3757,15 +3752,16 @@ if.then10.i:                                      ; preds = %if.end8.i
 
 if.end8:                                          ; preds = %if.then10.i
   store i8 1, ptr %fAreFieldsSet.i, align 1
-  %fAreAllFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 10
   store i8 1, ptr %fAreAllFieldsSet.i, align 2
   %.pre = load i32, ptr %status, align 4
   %cmp.i9 = icmp sgt i32 %.pre, 0
   br i1 %cmp.i9, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end8.i, %if.end8
+  %fFields = getelementptr inbounds i8, ptr %this, i64 12
   %idxprom = zext nneg i32 %field to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fFields, i64 0, i64 %idxprom
   %10 = load i32, ptr %arrayidx, align 4
   br label %return
 
@@ -3782,14 +3778,14 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end16
 
 if.end:                                           ; preds = %entry
-  %fIsTimeSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fIsTimeSet, align 8
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 31
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 248
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %3 = load i32, ptr %status, align 4
@@ -3797,37 +3793,37 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %if.end.i, label %if.end16
 
 if.end.i:                                         ; preds = %if.then3
-  %fLenient.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load i8, ptr %fLenient.i.i, align 8
   %tobool3.not.i = icmp ne i8 %4, 0
-  %fAreAllFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 10
   %5 = load i8, ptr %fAreAllFieldsSet.i, align 2
   %tobool4.not.i = icmp eq i8 %5, 0
   %or.cond.i = select i1 %tobool3.not.i, i1 true, i1 %tobool4.not.i
   br i1 %or.cond.i, label %if.then5.i, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit
 
 if.then5.i:                                       ; preds = %if.end.i
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i, align 1
   br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit
 
 _ZN6icu_758Calendar10updateTimeER10UErrorCode.exit: ; preds = %if.end.i, %if.then5.i
   store i8 1, ptr %fIsTimeSet, align 8
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   %.pre = load i32, ptr %status, align 4
   %6 = icmp slt i32 %.pre, 1
   br i1 %6, label %if.end8, label %if.end16
 
 if.end8:                                          ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit, %if.end
-  %fAreFieldsSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet = getelementptr inbounds i8, ptr %this, i64 9
   %7 = load i8, ptr %fAreFieldsSet, align 1
   %tobool9.not = icmp eq i8 %7, 0
   br i1 %tobool9.not, label %if.then10, label %if.end16
 
 if.then10:                                        ; preds = %if.end8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %9 = load i32, ptr %status, align 4
@@ -3836,7 +3832,7 @@ if.then10:                                        ; preds = %if.end8
 
 if.end14:                                         ; preds = %if.then10
   store i8 1, ptr %fAreFieldsSet, align 1
-  %fAreAllFieldsSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet = getelementptr inbounds i8, ptr %this, i64 10
   store i8 1, ptr %fAreAllFieldsSet, align 2
   br label %if.end16
 
@@ -3852,7 +3848,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fAreFieldsVirtuallySet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet = getelementptr inbounds i8, ptr %this, i64 11
   %0 = load i8, ptr %fAreFieldsVirtuallySet, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end4, label %if.then3
@@ -3860,22 +3856,24 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   store i32 0, ptr %ec, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
+  %fFields = getelementptr inbounds i8, ptr %this, i64 12
   %idxprom = zext nneg i32 %field to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fFields, i64 0, i64 %idxprom
   store i32 %value, ptr %arrayidx, align 4
-  %fNextStamp = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fNextStamp = getelementptr inbounds i8, ptr %this, i64 228
   %2 = load i32, ptr %fNextStamp, align 4
   %cmp5 = icmp eq i32 %2, 10000
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
   store i32 1, ptr %fNextStamp, align 4
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
   br label %for.cond2.preheader.i
 
 for.cond2.preheader.i:                            ; preds = %if.then15.i, %if.then6
@@ -3887,7 +3885,7 @@ for.body4.i:                                      ; preds = %for.body4.i, %for.c
   %indvars.iv.i = phi i64 [ 0, %for.cond2.preheader.i ], [ %indvars.iv.next.i, %for.body4.i ]
   %currentValue.09.i = phi i32 [ 10000, %for.cond2.preheader.i ], [ %currentValue.1.i, %for.body4.i ]
   %index.08.i = phi i32 [ -1, %for.cond2.preheader.i ], [ %index.1.i, %for.body4.i ]
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i
   %4 = load i32, ptr %arrayidx.i, align 4
   %cmp6.i = icmp sgt i32 %4, %3
   %cmp10.i = icmp slt i32 %4, %currentValue.09.i
@@ -3907,7 +3905,7 @@ if.then15.i:                                      ; preds = %for.end.i
   %inc17.i = add nsw i32 %3, 1
   store i32 %inc17.i, ptr %fNextStamp, align 4
   %idxprom19.i = zext nneg i32 %index.1.i to i64
-  %arrayidx20.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i
+  %arrayidx20.i = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i
   store i32 %inc17.i, ptr %arrayidx20.i, align 4
   %inc23.i = add nuw nsw i32 %j.011.i, 1
   %exitcond13.not.i = icmp eq i32 %inc23.i, 24
@@ -3926,14 +3924,16 @@ if.end7:                                          ; preds = %_ZN6icu_758Calendar
   %7 = phi i32 [ %inc26.i, %_ZN6icu_758Calendar16recalculateStampEv.exit ], [ %2, %if.end4 ]
   %inc = add nsw i32 %7, 1
   store i32 %inc, ptr %fNextStamp, align 4
-  %arrayidx10 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom
+  %fStamp = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx10 = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %idxprom
   store i32 %7, ptr %arrayidx10, align 4
-  %arrayidx12 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 %idxprom
+  %fIsSet = getelementptr inbounds i8, ptr %this, i64 108
+  %arrayidx12 = getelementptr inbounds [24 x i8], ptr %fIsSet, i64 0, i64 %idxprom
   store i8 1, ptr %arrayidx12, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet, align 1
-  %fAreFieldsSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet, align 1
-  %fIsTimeSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %fIsTimeSet, align 8
   br label %return
 
@@ -3944,8 +3944,9 @@ return:                                           ; preds = %entry, %if.end7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN6icu_758Calendar16recalculateStampEv(ptr nocapture noundef nonnull align 8 dereferenceable(618) %this) local_unnamed_addr #17 align 2 {
 entry:
-  %fNextStamp = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fNextStamp = getelementptr inbounds i8, ptr %this, i64 228
   store i32 1, ptr %fNextStamp, align 4
+  %fStamp = getelementptr inbounds i8, ptr %this, i64 132
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %if.then15
@@ -3957,7 +3958,7 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ %indvars.iv.next, %for.body4 ]
   %currentValue.09 = phi i32 [ 10000, %for.cond2.preheader ], [ %currentValue.1, %for.body4 ]
   %index.08 = phi i32 [ -1, %for.cond2.preheader ], [ %index.1, %for.body4 ]
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
   %cmp6 = icmp sgt i32 %1, %0
   %cmp10 = icmp slt i32 %1, %currentValue.09
@@ -3977,7 +3978,7 @@ if.then15:                                        ; preds = %for.end
   %inc17 = add nsw i32 %0, 1
   store i32 %inc17, ptr %fNextStamp, align 4
   %idxprom19 = zext nneg i32 %index.1 to i64
-  %arrayidx20 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19
+  %arrayidx20 = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %idxprom19
   store i32 %inc17, ptr %arrayidx20, align 4
   %inc23 = add nuw nsw i32 %j.011, 1
   %exitcond13.not = icmp eq i32 %inc23, 24
@@ -3999,7 +4000,7 @@ define void @_ZN6icu_758Calendar3setEiii(ptr noundef nonnull align 8 dereference
 entry:
   %ec.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i)
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %this, i64 11
   %0 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %if.end4.i, label %if.then3.i
@@ -4007,21 +4008,22 @@ entry:
 if.then3.i:                                       ; preds = %entry
   store i32 0, ptr %ec.i, align 4
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %1 = load ptr, ptr %vfn.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i)
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %entry
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %year, ptr %arrayidx.i, align 8
-  %fNextStamp.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fNextStamp.i = getelementptr inbounds i8, ptr %this, i64 228
   %2 = load i32, ptr %fNextStamp.i, align 4
   %cmp5.i = icmp eq i32 %2, 10000
   br i1 %cmp5.i, label %if.then6.i, label %if.end4.i7
 
 if.then6.i:                                       ; preds = %if.end4.i
   store i32 1, ptr %fNextStamp.i, align 4
+  %fStamp.i.i = getelementptr inbounds i8, ptr %this, i64 132
   br label %for.cond2.preheader.i.i
 
 for.cond2.preheader.i.i:                          ; preds = %if.then15.i.i, %if.then6.i
@@ -4033,7 +4035,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   %indvars.iv.i.i = phi i64 [ 0, %for.cond2.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %currentValue.09.i.i = phi i32 [ 10000, %for.cond2.preheader.i.i ], [ %currentValue.1.i.i, %for.body4.i.i ]
   %index.08.i.i = phi i32 [ -1, %for.cond2.preheader.i.i ], [ %index.1.i.i, %for.body4.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %indvars.iv.i.i
   %4 = load i32, ptr %arrayidx.i.i, align 4
   %cmp6.i.i = icmp sgt i32 %4, %3
   %cmp10.i.i = icmp slt i32 %4, %currentValue.09.i.i
@@ -4053,7 +4055,7 @@ if.then15.i.i:                                    ; preds = %for.end.i.i
   %inc17.i.i = add nsw i32 %3, 1
   store i32 %inc17.i.i, ptr %fNextStamp.i, align 4
   %idxprom19.i.i = zext nneg i32 %index.1.i.i to i64
-  %arrayidx20.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i
+  %arrayidx20.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %idxprom19.i.i
   store i32 %inc17.i.i, ptr %arrayidx20.i.i, align 4
   %inc23.i.i = add nuw nsw i32 %j.011.i.i, 1
   %exitcond13.not.i.i = icmp eq i32 %inc23.i.i, 24
@@ -4071,134 +4073,135 @@ _ZN6icu_758Calendar16recalculateStampEv.exit.i:   ; preds = %for.end.i.i, %if.th
 if.end4.i7:                                       ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i, %if.end4.i
   %7 = phi i32 [ %inc26.i.i, %_ZN6icu_758Calendar16recalculateStampEv.exit.i ], [ %2, %if.end4.i ]
   %inc.i = add nsw i32 %7, 1
-  %arrayidx10.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 %7, ptr %arrayidx10.i, align 8
-  %arrayidx12.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 1
+  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 109
   store i8 1, ptr %arrayidx12.i, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i)
-  %arrayidx.i8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
-  store i32 %month, ptr %arrayidx.i8, align 4
-  %cmp5.i10 = icmp eq i32 %inc.i, 10000
-  br i1 %cmp5.i10, label %if.then6.i16, label %if.end4.i50
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 %month, ptr %arrayidx.i9, align 4
+  %cmp5.i11 = icmp eq i32 %inc.i, 10000
+  br i1 %cmp5.i11, label %if.then6.i19, label %if.end4.i54
 
-if.then6.i16:                                     ; preds = %if.end4.i7
+if.then6.i19:                                     ; preds = %if.end4.i7
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i17
+  br label %for.cond2.preheader.i.i21
 
-for.cond2.preheader.i.i17:                        ; preds = %if.then15.i.i35, %if.then6.i16
-  %j.011.i.i18 = phi i32 [ 0, %if.then6.i16 ], [ %inc23.i.i39, %if.then15.i.i35 ]
+for.cond2.preheader.i.i21:                        ; preds = %if.then15.i.i39, %if.then6.i19
+  %j.011.i.i22 = phi i32 [ 0, %if.then6.i19 ], [ %inc23.i.i43, %if.then15.i.i39 ]
   %8 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i19
+  br label %for.body4.i.i23
 
-for.body4.i.i19:                                  ; preds = %for.body4.i.i19, %for.cond2.preheader.i.i17
-  %indvars.iv.i.i20 = phi i64 [ 0, %for.cond2.preheader.i.i17 ], [ %indvars.iv.next.i.i29, %for.body4.i.i19 ]
-  %currentValue.09.i.i21 = phi i32 [ 10000, %for.cond2.preheader.i.i17 ], [ %currentValue.1.i.i28, %for.body4.i.i19 ]
-  %index.08.i.i22 = phi i32 [ -1, %for.cond2.preheader.i.i17 ], [ %index.1.i.i27, %for.body4.i.i19 ]
-  %arrayidx.i.i23 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i20
-  %9 = load i32, ptr %arrayidx.i.i23, align 4
-  %cmp6.i.i24 = icmp sgt i32 %9, %8
-  %cmp10.i.i25 = icmp slt i32 %9, %currentValue.09.i.i21
-  %or.cond.i.i26 = select i1 %cmp6.i.i24, i1 %cmp10.i.i25, i1 false
-  %10 = trunc i64 %indvars.iv.i.i20 to i32
-  %index.1.i.i27 = select i1 %or.cond.i.i26, i32 %10, i32 %index.08.i.i22
-  %currentValue.1.i.i28 = select i1 %or.cond.i.i26, i32 %9, i32 %currentValue.09.i.i21
-  %indvars.iv.next.i.i29 = add nuw nsw i64 %indvars.iv.i.i20, 1
-  %exitcond.not.i.i30 = icmp eq i64 %indvars.iv.next.i.i29, 24
-  br i1 %exitcond.not.i.i30, label %for.end.i.i31, label %for.body4.i.i19, !llvm.loop !8
+for.body4.i.i23:                                  ; preds = %for.body4.i.i23, %for.cond2.preheader.i.i21
+  %indvars.iv.i.i24 = phi i64 [ 0, %for.cond2.preheader.i.i21 ], [ %indvars.iv.next.i.i33, %for.body4.i.i23 ]
+  %currentValue.09.i.i25 = phi i32 [ 10000, %for.cond2.preheader.i.i21 ], [ %currentValue.1.i.i32, %for.body4.i.i23 ]
+  %index.08.i.i26 = phi i32 [ -1, %for.cond2.preheader.i.i21 ], [ %index.1.i.i31, %for.body4.i.i23 ]
+  %arrayidx.i.i27 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i24
+  %9 = load i32, ptr %arrayidx.i.i27, align 4
+  %cmp6.i.i28 = icmp sgt i32 %9, %8
+  %cmp10.i.i29 = icmp slt i32 %9, %currentValue.09.i.i25
+  %or.cond.i.i30 = select i1 %cmp6.i.i28, i1 %cmp10.i.i29, i1 false
+  %10 = trunc i64 %indvars.iv.i.i24 to i32
+  %index.1.i.i31 = select i1 %or.cond.i.i30, i32 %10, i32 %index.08.i.i26
+  %currentValue.1.i.i32 = select i1 %or.cond.i.i30, i32 %9, i32 %currentValue.09.i.i25
+  %indvars.iv.next.i.i33 = add nuw nsw i64 %indvars.iv.i.i24, 1
+  %exitcond.not.i.i34 = icmp eq i64 %indvars.iv.next.i.i33, 24
+  br i1 %exitcond.not.i.i34, label %for.end.i.i35, label %for.body4.i.i23, !llvm.loop !8
 
-for.end.i.i31:                                    ; preds = %for.body4.i.i19
-  %cmp14.i.i32 = icmp sgt i32 %index.1.i.i27, -1
-  br i1 %cmp14.i.i32, label %if.then15.i.i35, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i33
+for.end.i.i35:                                    ; preds = %for.body4.i.i23
+  %cmp14.i.i36 = icmp sgt i32 %index.1.i.i31, -1
+  br i1 %cmp14.i.i36, label %if.then15.i.i39, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i37
 
-if.then15.i.i35:                                  ; preds = %for.end.i.i31
-  %inc17.i.i36 = add nsw i32 %8, 1
-  store i32 %inc17.i.i36, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i37 = zext nneg i32 %index.1.i.i27 to i64
-  %arrayidx20.i.i38 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i37
-  store i32 %inc17.i.i36, ptr %arrayidx20.i.i38, align 4
-  %inc23.i.i39 = add nuw nsw i32 %j.011.i.i18, 1
-  %exitcond13.not.i.i40 = icmp eq i32 %inc23.i.i39, 24
-  br i1 %exitcond13.not.i.i40, label %if.then15.for.end24_crit_edge.i.i41, label %for.cond2.preheader.i.i17, !llvm.loop !9
+if.then15.i.i39:                                  ; preds = %for.end.i.i35
+  %inc17.i.i40 = add nsw i32 %8, 1
+  store i32 %inc17.i.i40, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i41 = zext nneg i32 %index.1.i.i31 to i64
+  %arrayidx20.i.i42 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i41
+  store i32 %inc17.i.i40, ptr %arrayidx20.i.i42, align 4
+  %inc23.i.i43 = add nuw nsw i32 %j.011.i.i22, 1
+  %exitcond13.not.i.i44 = icmp eq i32 %inc23.i.i43, 24
+  br i1 %exitcond13.not.i.i44, label %if.then15.for.end24_crit_edge.i.i45, label %for.cond2.preheader.i.i21, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i41:              ; preds = %if.then15.i.i35
-  %.pre.i.i42 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i33
+if.then15.for.end24_crit_edge.i.i45:              ; preds = %if.then15.i.i39
+  %.pre.i.i46 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i37
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i33: ; preds = %for.end.i.i31, %if.then15.for.end24_crit_edge.i.i41
-  %11 = phi i32 [ %.pre.i.i42, %if.then15.for.end24_crit_edge.i.i41 ], [ %8, %for.end.i.i31 ]
-  %inc26.i.i34 = add nsw i32 %11, 1
-  br label %if.end4.i50
+_ZN6icu_758Calendar16recalculateStampEv.exit.i37: ; preds = %for.end.i.i35, %if.then15.for.end24_crit_edge.i.i45
+  %11 = phi i32 [ %.pre.i.i46, %if.then15.for.end24_crit_edge.i.i45 ], [ %8, %for.end.i.i35 ]
+  %inc26.i.i38 = add nsw i32 %11, 1
+  br label %if.end4.i54
 
-if.end4.i50:                                      ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i33, %if.end4.i7
-  %12 = phi i32 [ %inc26.i.i34, %_ZN6icu_758Calendar16recalculateStampEv.exit.i33 ], [ %inc.i, %if.end4.i7 ]
-  %inc.i11 = add nsw i32 %12, 1
-  %arrayidx10.i12 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 2
-  store i32 %12, ptr %arrayidx10.i12, align 4
-  %arrayidx12.i13 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 2
-  store i8 1, ptr %arrayidx12.i13, align 2
-  %arrayidx.i51 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  store i32 %date, ptr %arrayidx.i51, align 8
-  %cmp5.i53 = icmp eq i32 %inc.i11, 10000
-  br i1 %cmp5.i53, label %if.then6.i59, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit86
+if.end4.i54:                                      ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i37, %if.end4.i7
+  %12 = phi i32 [ %inc26.i.i38, %_ZN6icu_758Calendar16recalculateStampEv.exit.i37 ], [ %inc.i, %if.end4.i7 ]
+  %inc.i12 = add nsw i32 %12, 1
+  %arrayidx10.i14 = getelementptr inbounds i8, ptr %this, i64 140
+  store i32 %12, ptr %arrayidx10.i14, align 4
+  %arrayidx12.i16 = getelementptr inbounds i8, ptr %this, i64 110
+  store i8 1, ptr %arrayidx12.i16, align 2
+  %arrayidx.i56 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 %date, ptr %arrayidx.i56, align 8
+  %cmp5.i58 = icmp eq i32 %inc.i12, 10000
+  br i1 %cmp5.i58, label %if.then6.i66, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit94
 
-if.then6.i59:                                     ; preds = %if.end4.i50
+if.then6.i66:                                     ; preds = %if.end4.i54
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i60
+  br label %for.cond2.preheader.i.i68
 
-for.cond2.preheader.i.i60:                        ; preds = %if.then15.i.i78, %if.then6.i59
-  %j.011.i.i61 = phi i32 [ 0, %if.then6.i59 ], [ %inc23.i.i82, %if.then15.i.i78 ]
+for.cond2.preheader.i.i68:                        ; preds = %if.then15.i.i86, %if.then6.i66
+  %j.011.i.i69 = phi i32 [ 0, %if.then6.i66 ], [ %inc23.i.i90, %if.then15.i.i86 ]
   %13 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i62
+  br label %for.body4.i.i70
 
-for.body4.i.i62:                                  ; preds = %for.body4.i.i62, %for.cond2.preheader.i.i60
-  %indvars.iv.i.i63 = phi i64 [ 0, %for.cond2.preheader.i.i60 ], [ %indvars.iv.next.i.i72, %for.body4.i.i62 ]
-  %currentValue.09.i.i64 = phi i32 [ 10000, %for.cond2.preheader.i.i60 ], [ %currentValue.1.i.i71, %for.body4.i.i62 ]
-  %index.08.i.i65 = phi i32 [ -1, %for.cond2.preheader.i.i60 ], [ %index.1.i.i70, %for.body4.i.i62 ]
-  %arrayidx.i.i66 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i63
-  %14 = load i32, ptr %arrayidx.i.i66, align 4
-  %cmp6.i.i67 = icmp sgt i32 %14, %13
-  %cmp10.i.i68 = icmp slt i32 %14, %currentValue.09.i.i64
-  %or.cond.i.i69 = select i1 %cmp6.i.i67, i1 %cmp10.i.i68, i1 false
-  %15 = trunc i64 %indvars.iv.i.i63 to i32
-  %index.1.i.i70 = select i1 %or.cond.i.i69, i32 %15, i32 %index.08.i.i65
-  %currentValue.1.i.i71 = select i1 %or.cond.i.i69, i32 %14, i32 %currentValue.09.i.i64
-  %indvars.iv.next.i.i72 = add nuw nsw i64 %indvars.iv.i.i63, 1
-  %exitcond.not.i.i73 = icmp eq i64 %indvars.iv.next.i.i72, 24
-  br i1 %exitcond.not.i.i73, label %for.end.i.i74, label %for.body4.i.i62, !llvm.loop !8
+for.body4.i.i70:                                  ; preds = %for.body4.i.i70, %for.cond2.preheader.i.i68
+  %indvars.iv.i.i71 = phi i64 [ 0, %for.cond2.preheader.i.i68 ], [ %indvars.iv.next.i.i80, %for.body4.i.i70 ]
+  %currentValue.09.i.i72 = phi i32 [ 10000, %for.cond2.preheader.i.i68 ], [ %currentValue.1.i.i79, %for.body4.i.i70 ]
+  %index.08.i.i73 = phi i32 [ -1, %for.cond2.preheader.i.i68 ], [ %index.1.i.i78, %for.body4.i.i70 ]
+  %arrayidx.i.i74 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i71
+  %14 = load i32, ptr %arrayidx.i.i74, align 4
+  %cmp6.i.i75 = icmp sgt i32 %14, %13
+  %cmp10.i.i76 = icmp slt i32 %14, %currentValue.09.i.i72
+  %or.cond.i.i77 = select i1 %cmp6.i.i75, i1 %cmp10.i.i76, i1 false
+  %15 = trunc i64 %indvars.iv.i.i71 to i32
+  %index.1.i.i78 = select i1 %or.cond.i.i77, i32 %15, i32 %index.08.i.i73
+  %currentValue.1.i.i79 = select i1 %or.cond.i.i77, i32 %14, i32 %currentValue.09.i.i72
+  %indvars.iv.next.i.i80 = add nuw nsw i64 %indvars.iv.i.i71, 1
+  %exitcond.not.i.i81 = icmp eq i64 %indvars.iv.next.i.i80, 24
+  br i1 %exitcond.not.i.i81, label %for.end.i.i82, label %for.body4.i.i70, !llvm.loop !8
 
-for.end.i.i74:                                    ; preds = %for.body4.i.i62
-  %cmp14.i.i75 = icmp sgt i32 %index.1.i.i70, -1
-  br i1 %cmp14.i.i75, label %if.then15.i.i78, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i76
+for.end.i.i82:                                    ; preds = %for.body4.i.i70
+  %cmp14.i.i83 = icmp sgt i32 %index.1.i.i78, -1
+  br i1 %cmp14.i.i83, label %if.then15.i.i86, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i84
 
-if.then15.i.i78:                                  ; preds = %for.end.i.i74
-  %inc17.i.i79 = add nsw i32 %13, 1
-  store i32 %inc17.i.i79, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i80 = zext nneg i32 %index.1.i.i70 to i64
-  %arrayidx20.i.i81 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i80
-  store i32 %inc17.i.i79, ptr %arrayidx20.i.i81, align 4
-  %inc23.i.i82 = add nuw nsw i32 %j.011.i.i61, 1
-  %exitcond13.not.i.i83 = icmp eq i32 %inc23.i.i82, 24
-  br i1 %exitcond13.not.i.i83, label %if.then15.for.end24_crit_edge.i.i84, label %for.cond2.preheader.i.i60, !llvm.loop !9
+if.then15.i.i86:                                  ; preds = %for.end.i.i82
+  %inc17.i.i87 = add nsw i32 %13, 1
+  store i32 %inc17.i.i87, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i88 = zext nneg i32 %index.1.i.i78 to i64
+  %arrayidx20.i.i89 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i88
+  store i32 %inc17.i.i87, ptr %arrayidx20.i.i89, align 4
+  %inc23.i.i90 = add nuw nsw i32 %j.011.i.i69, 1
+  %exitcond13.not.i.i91 = icmp eq i32 %inc23.i.i90, 24
+  br i1 %exitcond13.not.i.i91, label %if.then15.for.end24_crit_edge.i.i92, label %for.cond2.preheader.i.i68, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i84:              ; preds = %if.then15.i.i78
-  %.pre.i.i85 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i76
+if.then15.for.end24_crit_edge.i.i92:              ; preds = %if.then15.i.i86
+  %.pre.i.i93 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i84
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i76: ; preds = %for.end.i.i74, %if.then15.for.end24_crit_edge.i.i84
-  %16 = phi i32 [ %.pre.i.i85, %if.then15.for.end24_crit_edge.i.i84 ], [ %13, %for.end.i.i74 ]
-  %inc26.i.i77 = add nsw i32 %16, 1
-  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit86
+_ZN6icu_758Calendar16recalculateStampEv.exit.i84: ; preds = %for.end.i.i82, %if.then15.for.end24_crit_edge.i.i92
+  %16 = phi i32 [ %.pre.i.i93, %if.then15.for.end24_crit_edge.i.i92 ], [ %13, %for.end.i.i82 ]
+  %inc26.i.i85 = add nsw i32 %16, 1
+  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit94
 
-_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit86: ; preds = %if.end4.i50, %_ZN6icu_758Calendar16recalculateStampEv.exit.i76
-  %17 = phi i32 [ %inc26.i.i77, %_ZN6icu_758Calendar16recalculateStampEv.exit.i76 ], [ %inc.i11, %if.end4.i50 ]
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  %inc.i54 = add nsw i32 %17, 1
-  store i32 %inc.i54, ptr %fNextStamp.i, align 4
-  %arrayidx10.i55 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 5
-  store i32 %17, ptr %arrayidx10.i55, align 8
-  %arrayidx12.i56 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 5
-  store i8 1, ptr %arrayidx12.i56, align 1
+_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit94: ; preds = %if.end4.i54, %_ZN6icu_758Calendar16recalculateStampEv.exit.i84
+  %17 = phi i32 [ %inc26.i.i85, %_ZN6icu_758Calendar16recalculateStampEv.exit.i84 ], [ %inc.i12, %if.end4.i54 ]
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
+  %inc.i59 = add nsw i32 %17, 1
+  store i32 %inc.i59, ptr %fNextStamp.i, align 4
+  %arrayidx10.i61 = getelementptr inbounds i8, ptr %this, i64 152
+  store i32 %17, ptr %arrayidx10.i61, align 8
+  %arrayidx12.i63 = getelementptr inbounds i8, ptr %this, i64 113
+  store i8 1, ptr %arrayidx12.i63, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   store i8 0, ptr %fAreFieldsSet.i, align 1
   store i8 0, ptr %fIsTimeSet.i, align 8
@@ -4210,7 +4213,7 @@ define void @_ZN6icu_758Calendar3setEiiiii(ptr noundef nonnull align 8 dereferen
 entry:
   %ec.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i)
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %this, i64 11
   %0 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %if.end4.i, label %if.then3.i
@@ -4218,21 +4221,22 @@ entry:
 if.then3.i:                                       ; preds = %entry
   store i32 0, ptr %ec.i, align 4
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %1 = load ptr, ptr %vfn.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i)
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %entry
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %year, ptr %arrayidx.i, align 8
-  %fNextStamp.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fNextStamp.i = getelementptr inbounds i8, ptr %this, i64 228
   %2 = load i32, ptr %fNextStamp.i, align 4
   %cmp5.i = icmp eq i32 %2, 10000
   br i1 %cmp5.i, label %if.then6.i, label %if.end4.i7
 
 if.then6.i:                                       ; preds = %if.end4.i
   store i32 1, ptr %fNextStamp.i, align 4
+  %fStamp.i.i = getelementptr inbounds i8, ptr %this, i64 132
   br label %for.cond2.preheader.i.i
 
 for.cond2.preheader.i.i:                          ; preds = %if.then15.i.i, %if.then6.i
@@ -4244,7 +4248,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   %indvars.iv.i.i = phi i64 [ 0, %for.cond2.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %currentValue.09.i.i = phi i32 [ 10000, %for.cond2.preheader.i.i ], [ %currentValue.1.i.i, %for.body4.i.i ]
   %index.08.i.i = phi i32 [ -1, %for.cond2.preheader.i.i ], [ %index.1.i.i, %for.body4.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %indvars.iv.i.i
   %4 = load i32, ptr %arrayidx.i.i, align 4
   %cmp6.i.i = icmp sgt i32 %4, %3
   %cmp10.i.i = icmp slt i32 %4, %currentValue.09.i.i
@@ -4264,7 +4268,7 @@ if.then15.i.i:                                    ; preds = %for.end.i.i
   %inc17.i.i = add nsw i32 %3, 1
   store i32 %inc17.i.i, ptr %fNextStamp.i, align 4
   %idxprom19.i.i = zext nneg i32 %index.1.i.i to i64
-  %arrayidx20.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i
+  %arrayidx20.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %idxprom19.i.i
   store i32 %inc17.i.i, ptr %arrayidx20.i.i, align 4
   %inc23.i.i = add nuw nsw i32 %j.011.i.i, 1
   %exitcond13.not.i.i = icmp eq i32 %inc23.i.i, 24
@@ -4282,257 +4286,258 @@ _ZN6icu_758Calendar16recalculateStampEv.exit.i:   ; preds = %for.end.i.i, %if.th
 if.end4.i7:                                       ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i, %if.end4.i
   %7 = phi i32 [ %inc26.i.i, %_ZN6icu_758Calendar16recalculateStampEv.exit.i ], [ %2, %if.end4.i ]
   %inc.i = add nsw i32 %7, 1
-  %arrayidx10.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 %7, ptr %arrayidx10.i, align 8
-  %arrayidx12.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 1
+  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 109
   store i8 1, ptr %arrayidx12.i, align 1
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i)
-  %arrayidx.i8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
-  store i32 %month, ptr %arrayidx.i8, align 4
-  %cmp5.i10 = icmp eq i32 %inc.i, 10000
-  br i1 %cmp5.i10, label %if.then6.i16, label %if.end4.i50
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 %month, ptr %arrayidx.i9, align 4
+  %cmp5.i11 = icmp eq i32 %inc.i, 10000
+  br i1 %cmp5.i11, label %if.then6.i19, label %if.end4.i54
 
-if.then6.i16:                                     ; preds = %if.end4.i7
+if.then6.i19:                                     ; preds = %if.end4.i7
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i17
+  br label %for.cond2.preheader.i.i21
 
-for.cond2.preheader.i.i17:                        ; preds = %if.then15.i.i35, %if.then6.i16
-  %j.011.i.i18 = phi i32 [ 0, %if.then6.i16 ], [ %inc23.i.i39, %if.then15.i.i35 ]
+for.cond2.preheader.i.i21:                        ; preds = %if.then15.i.i39, %if.then6.i19
+  %j.011.i.i22 = phi i32 [ 0, %if.then6.i19 ], [ %inc23.i.i43, %if.then15.i.i39 ]
   %8 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i19
+  br label %for.body4.i.i23
 
-for.body4.i.i19:                                  ; preds = %for.body4.i.i19, %for.cond2.preheader.i.i17
-  %indvars.iv.i.i20 = phi i64 [ 0, %for.cond2.preheader.i.i17 ], [ %indvars.iv.next.i.i29, %for.body4.i.i19 ]
-  %currentValue.09.i.i21 = phi i32 [ 10000, %for.cond2.preheader.i.i17 ], [ %currentValue.1.i.i28, %for.body4.i.i19 ]
-  %index.08.i.i22 = phi i32 [ -1, %for.cond2.preheader.i.i17 ], [ %index.1.i.i27, %for.body4.i.i19 ]
-  %arrayidx.i.i23 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i20
-  %9 = load i32, ptr %arrayidx.i.i23, align 4
-  %cmp6.i.i24 = icmp sgt i32 %9, %8
-  %cmp10.i.i25 = icmp slt i32 %9, %currentValue.09.i.i21
-  %or.cond.i.i26 = select i1 %cmp6.i.i24, i1 %cmp10.i.i25, i1 false
-  %10 = trunc i64 %indvars.iv.i.i20 to i32
-  %index.1.i.i27 = select i1 %or.cond.i.i26, i32 %10, i32 %index.08.i.i22
-  %currentValue.1.i.i28 = select i1 %or.cond.i.i26, i32 %9, i32 %currentValue.09.i.i21
-  %indvars.iv.next.i.i29 = add nuw nsw i64 %indvars.iv.i.i20, 1
-  %exitcond.not.i.i30 = icmp eq i64 %indvars.iv.next.i.i29, 24
-  br i1 %exitcond.not.i.i30, label %for.end.i.i31, label %for.body4.i.i19, !llvm.loop !8
+for.body4.i.i23:                                  ; preds = %for.body4.i.i23, %for.cond2.preheader.i.i21
+  %indvars.iv.i.i24 = phi i64 [ 0, %for.cond2.preheader.i.i21 ], [ %indvars.iv.next.i.i33, %for.body4.i.i23 ]
+  %currentValue.09.i.i25 = phi i32 [ 10000, %for.cond2.preheader.i.i21 ], [ %currentValue.1.i.i32, %for.body4.i.i23 ]
+  %index.08.i.i26 = phi i32 [ -1, %for.cond2.preheader.i.i21 ], [ %index.1.i.i31, %for.body4.i.i23 ]
+  %arrayidx.i.i27 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i24
+  %9 = load i32, ptr %arrayidx.i.i27, align 4
+  %cmp6.i.i28 = icmp sgt i32 %9, %8
+  %cmp10.i.i29 = icmp slt i32 %9, %currentValue.09.i.i25
+  %or.cond.i.i30 = select i1 %cmp6.i.i28, i1 %cmp10.i.i29, i1 false
+  %10 = trunc i64 %indvars.iv.i.i24 to i32
+  %index.1.i.i31 = select i1 %or.cond.i.i30, i32 %10, i32 %index.08.i.i26
+  %currentValue.1.i.i32 = select i1 %or.cond.i.i30, i32 %9, i32 %currentValue.09.i.i25
+  %indvars.iv.next.i.i33 = add nuw nsw i64 %indvars.iv.i.i24, 1
+  %exitcond.not.i.i34 = icmp eq i64 %indvars.iv.next.i.i33, 24
+  br i1 %exitcond.not.i.i34, label %for.end.i.i35, label %for.body4.i.i23, !llvm.loop !8
 
-for.end.i.i31:                                    ; preds = %for.body4.i.i19
-  %cmp14.i.i32 = icmp sgt i32 %index.1.i.i27, -1
-  br i1 %cmp14.i.i32, label %if.then15.i.i35, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i33
+for.end.i.i35:                                    ; preds = %for.body4.i.i23
+  %cmp14.i.i36 = icmp sgt i32 %index.1.i.i31, -1
+  br i1 %cmp14.i.i36, label %if.then15.i.i39, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i37
 
-if.then15.i.i35:                                  ; preds = %for.end.i.i31
-  %inc17.i.i36 = add nsw i32 %8, 1
-  store i32 %inc17.i.i36, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i37 = zext nneg i32 %index.1.i.i27 to i64
-  %arrayidx20.i.i38 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i37
-  store i32 %inc17.i.i36, ptr %arrayidx20.i.i38, align 4
-  %inc23.i.i39 = add nuw nsw i32 %j.011.i.i18, 1
-  %exitcond13.not.i.i40 = icmp eq i32 %inc23.i.i39, 24
-  br i1 %exitcond13.not.i.i40, label %if.then15.for.end24_crit_edge.i.i41, label %for.cond2.preheader.i.i17, !llvm.loop !9
+if.then15.i.i39:                                  ; preds = %for.end.i.i35
+  %inc17.i.i40 = add nsw i32 %8, 1
+  store i32 %inc17.i.i40, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i41 = zext nneg i32 %index.1.i.i31 to i64
+  %arrayidx20.i.i42 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i41
+  store i32 %inc17.i.i40, ptr %arrayidx20.i.i42, align 4
+  %inc23.i.i43 = add nuw nsw i32 %j.011.i.i22, 1
+  %exitcond13.not.i.i44 = icmp eq i32 %inc23.i.i43, 24
+  br i1 %exitcond13.not.i.i44, label %if.then15.for.end24_crit_edge.i.i45, label %for.cond2.preheader.i.i21, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i41:              ; preds = %if.then15.i.i35
-  %.pre.i.i42 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i33
+if.then15.for.end24_crit_edge.i.i45:              ; preds = %if.then15.i.i39
+  %.pre.i.i46 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i37
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i33: ; preds = %for.end.i.i31, %if.then15.for.end24_crit_edge.i.i41
-  %11 = phi i32 [ %.pre.i.i42, %if.then15.for.end24_crit_edge.i.i41 ], [ %8, %for.end.i.i31 ]
-  %inc26.i.i34 = add nsw i32 %11, 1
-  br label %if.end4.i50
+_ZN6icu_758Calendar16recalculateStampEv.exit.i37: ; preds = %for.end.i.i35, %if.then15.for.end24_crit_edge.i.i45
+  %11 = phi i32 [ %.pre.i.i46, %if.then15.for.end24_crit_edge.i.i45 ], [ %8, %for.end.i.i35 ]
+  %inc26.i.i38 = add nsw i32 %11, 1
+  br label %if.end4.i54
 
-if.end4.i50:                                      ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i33, %if.end4.i7
-  %12 = phi i32 [ %inc26.i.i34, %_ZN6icu_758Calendar16recalculateStampEv.exit.i33 ], [ %inc.i, %if.end4.i7 ]
-  %inc.i11 = add nsw i32 %12, 1
-  %arrayidx10.i12 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 2
-  store i32 %12, ptr %arrayidx10.i12, align 4
-  %arrayidx12.i13 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 2
-  store i8 1, ptr %arrayidx12.i13, align 2
+if.end4.i54:                                      ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i37, %if.end4.i7
+  %12 = phi i32 [ %inc26.i.i38, %_ZN6icu_758Calendar16recalculateStampEv.exit.i37 ], [ %inc.i, %if.end4.i7 ]
+  %inc.i12 = add nsw i32 %12, 1
+  %arrayidx10.i14 = getelementptr inbounds i8, ptr %this, i64 140
+  store i32 %12, ptr %arrayidx10.i14, align 4
+  %arrayidx12.i16 = getelementptr inbounds i8, ptr %this, i64 110
+  store i8 1, ptr %arrayidx12.i16, align 2
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   store i8 0, ptr %fAreFieldsSet.i, align 1
   store i8 0, ptr %fIsTimeSet.i, align 8
-  %arrayidx.i51 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  store i32 %date, ptr %arrayidx.i51, align 8
-  %cmp5.i53 = icmp eq i32 %inc.i11, 10000
-  br i1 %cmp5.i53, label %if.then6.i59, label %if.end4.i93
+  %arrayidx.i56 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 %date, ptr %arrayidx.i56, align 8
+  %cmp5.i58 = icmp eq i32 %inc.i12, 10000
+  br i1 %cmp5.i58, label %if.then6.i66, label %if.end4.i101
 
-if.then6.i59:                                     ; preds = %if.end4.i50
+if.then6.i66:                                     ; preds = %if.end4.i54
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i60
+  br label %for.cond2.preheader.i.i68
 
-for.cond2.preheader.i.i60:                        ; preds = %if.then15.i.i78, %if.then6.i59
-  %j.011.i.i61 = phi i32 [ 0, %if.then6.i59 ], [ %inc23.i.i82, %if.then15.i.i78 ]
+for.cond2.preheader.i.i68:                        ; preds = %if.then15.i.i86, %if.then6.i66
+  %j.011.i.i69 = phi i32 [ 0, %if.then6.i66 ], [ %inc23.i.i90, %if.then15.i.i86 ]
   %13 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i62
+  br label %for.body4.i.i70
 
-for.body4.i.i62:                                  ; preds = %for.body4.i.i62, %for.cond2.preheader.i.i60
-  %indvars.iv.i.i63 = phi i64 [ 0, %for.cond2.preheader.i.i60 ], [ %indvars.iv.next.i.i72, %for.body4.i.i62 ]
-  %currentValue.09.i.i64 = phi i32 [ 10000, %for.cond2.preheader.i.i60 ], [ %currentValue.1.i.i71, %for.body4.i.i62 ]
-  %index.08.i.i65 = phi i32 [ -1, %for.cond2.preheader.i.i60 ], [ %index.1.i.i70, %for.body4.i.i62 ]
-  %arrayidx.i.i66 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i63
-  %14 = load i32, ptr %arrayidx.i.i66, align 4
-  %cmp6.i.i67 = icmp sgt i32 %14, %13
-  %cmp10.i.i68 = icmp slt i32 %14, %currentValue.09.i.i64
-  %or.cond.i.i69 = select i1 %cmp6.i.i67, i1 %cmp10.i.i68, i1 false
-  %15 = trunc i64 %indvars.iv.i.i63 to i32
-  %index.1.i.i70 = select i1 %or.cond.i.i69, i32 %15, i32 %index.08.i.i65
-  %currentValue.1.i.i71 = select i1 %or.cond.i.i69, i32 %14, i32 %currentValue.09.i.i64
-  %indvars.iv.next.i.i72 = add nuw nsw i64 %indvars.iv.i.i63, 1
-  %exitcond.not.i.i73 = icmp eq i64 %indvars.iv.next.i.i72, 24
-  br i1 %exitcond.not.i.i73, label %for.end.i.i74, label %for.body4.i.i62, !llvm.loop !8
+for.body4.i.i70:                                  ; preds = %for.body4.i.i70, %for.cond2.preheader.i.i68
+  %indvars.iv.i.i71 = phi i64 [ 0, %for.cond2.preheader.i.i68 ], [ %indvars.iv.next.i.i80, %for.body4.i.i70 ]
+  %currentValue.09.i.i72 = phi i32 [ 10000, %for.cond2.preheader.i.i68 ], [ %currentValue.1.i.i79, %for.body4.i.i70 ]
+  %index.08.i.i73 = phi i32 [ -1, %for.cond2.preheader.i.i68 ], [ %index.1.i.i78, %for.body4.i.i70 ]
+  %arrayidx.i.i74 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i71
+  %14 = load i32, ptr %arrayidx.i.i74, align 4
+  %cmp6.i.i75 = icmp sgt i32 %14, %13
+  %cmp10.i.i76 = icmp slt i32 %14, %currentValue.09.i.i72
+  %or.cond.i.i77 = select i1 %cmp6.i.i75, i1 %cmp10.i.i76, i1 false
+  %15 = trunc i64 %indvars.iv.i.i71 to i32
+  %index.1.i.i78 = select i1 %or.cond.i.i77, i32 %15, i32 %index.08.i.i73
+  %currentValue.1.i.i79 = select i1 %or.cond.i.i77, i32 %14, i32 %currentValue.09.i.i72
+  %indvars.iv.next.i.i80 = add nuw nsw i64 %indvars.iv.i.i71, 1
+  %exitcond.not.i.i81 = icmp eq i64 %indvars.iv.next.i.i80, 24
+  br i1 %exitcond.not.i.i81, label %for.end.i.i82, label %for.body4.i.i70, !llvm.loop !8
 
-for.end.i.i74:                                    ; preds = %for.body4.i.i62
-  %cmp14.i.i75 = icmp sgt i32 %index.1.i.i70, -1
-  br i1 %cmp14.i.i75, label %if.then15.i.i78, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i76
+for.end.i.i82:                                    ; preds = %for.body4.i.i70
+  %cmp14.i.i83 = icmp sgt i32 %index.1.i.i78, -1
+  br i1 %cmp14.i.i83, label %if.then15.i.i86, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i84
 
-if.then15.i.i78:                                  ; preds = %for.end.i.i74
-  %inc17.i.i79 = add nsw i32 %13, 1
-  store i32 %inc17.i.i79, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i80 = zext nneg i32 %index.1.i.i70 to i64
-  %arrayidx20.i.i81 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i80
-  store i32 %inc17.i.i79, ptr %arrayidx20.i.i81, align 4
-  %inc23.i.i82 = add nuw nsw i32 %j.011.i.i61, 1
-  %exitcond13.not.i.i83 = icmp eq i32 %inc23.i.i82, 24
-  br i1 %exitcond13.not.i.i83, label %if.then15.for.end24_crit_edge.i.i84, label %for.cond2.preheader.i.i60, !llvm.loop !9
+if.then15.i.i86:                                  ; preds = %for.end.i.i82
+  %inc17.i.i87 = add nsw i32 %13, 1
+  store i32 %inc17.i.i87, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i88 = zext nneg i32 %index.1.i.i78 to i64
+  %arrayidx20.i.i89 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i88
+  store i32 %inc17.i.i87, ptr %arrayidx20.i.i89, align 4
+  %inc23.i.i90 = add nuw nsw i32 %j.011.i.i69, 1
+  %exitcond13.not.i.i91 = icmp eq i32 %inc23.i.i90, 24
+  br i1 %exitcond13.not.i.i91, label %if.then15.for.end24_crit_edge.i.i92, label %for.cond2.preheader.i.i68, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i84:              ; preds = %if.then15.i.i78
-  %.pre.i.i85 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i76
+if.then15.for.end24_crit_edge.i.i92:              ; preds = %if.then15.i.i86
+  %.pre.i.i93 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i84
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i76: ; preds = %for.end.i.i74, %if.then15.for.end24_crit_edge.i.i84
-  %16 = phi i32 [ %.pre.i.i85, %if.then15.for.end24_crit_edge.i.i84 ], [ %13, %for.end.i.i74 ]
-  %inc26.i.i77 = add nsw i32 %16, 1
-  br label %if.end4.i93
+_ZN6icu_758Calendar16recalculateStampEv.exit.i84: ; preds = %for.end.i.i82, %if.then15.for.end24_crit_edge.i.i92
+  %16 = phi i32 [ %.pre.i.i93, %if.then15.for.end24_crit_edge.i.i92 ], [ %13, %for.end.i.i82 ]
+  %inc26.i.i85 = add nsw i32 %16, 1
+  br label %if.end4.i101
 
-if.end4.i93:                                      ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i76, %if.end4.i50
-  %17 = phi i32 [ %inc26.i.i77, %_ZN6icu_758Calendar16recalculateStampEv.exit.i76 ], [ %inc.i11, %if.end4.i50 ]
-  %inc.i54 = add nsw i32 %17, 1
-  %arrayidx10.i55 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 5
-  store i32 %17, ptr %arrayidx10.i55, align 8
-  %arrayidx12.i56 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 5
-  store i8 1, ptr %arrayidx12.i56, align 1
-  %arrayidx.i94 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 11
-  store i32 %hour, ptr %arrayidx.i94, align 8
-  %cmp5.i96 = icmp eq i32 %inc.i54, 10000
-  br i1 %cmp5.i96, label %if.then6.i102, label %if.end4.i136
+if.end4.i101:                                     ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i84, %if.end4.i54
+  %17 = phi i32 [ %inc26.i.i85, %_ZN6icu_758Calendar16recalculateStampEv.exit.i84 ], [ %inc.i12, %if.end4.i54 ]
+  %inc.i59 = add nsw i32 %17, 1
+  %arrayidx10.i61 = getelementptr inbounds i8, ptr %this, i64 152
+  store i32 %17, ptr %arrayidx10.i61, align 8
+  %arrayidx12.i63 = getelementptr inbounds i8, ptr %this, i64 113
+  store i8 1, ptr %arrayidx12.i63, align 1
+  %arrayidx.i103 = getelementptr inbounds i8, ptr %this, i64 56
+  store i32 %hour, ptr %arrayidx.i103, align 8
+  %cmp5.i105 = icmp eq i32 %inc.i59, 10000
+  br i1 %cmp5.i105, label %if.then6.i113, label %if.end4.i148
 
-if.then6.i102:                                    ; preds = %if.end4.i93
+if.then6.i113:                                    ; preds = %if.end4.i101
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i103
+  br label %for.cond2.preheader.i.i115
 
-for.cond2.preheader.i.i103:                       ; preds = %if.then15.i.i121, %if.then6.i102
-  %j.011.i.i104 = phi i32 [ 0, %if.then6.i102 ], [ %inc23.i.i125, %if.then15.i.i121 ]
+for.cond2.preheader.i.i115:                       ; preds = %if.then15.i.i133, %if.then6.i113
+  %j.011.i.i116 = phi i32 [ 0, %if.then6.i113 ], [ %inc23.i.i137, %if.then15.i.i133 ]
   %18 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i105
+  br label %for.body4.i.i117
 
-for.body4.i.i105:                                 ; preds = %for.body4.i.i105, %for.cond2.preheader.i.i103
-  %indvars.iv.i.i106 = phi i64 [ 0, %for.cond2.preheader.i.i103 ], [ %indvars.iv.next.i.i115, %for.body4.i.i105 ]
-  %currentValue.09.i.i107 = phi i32 [ 10000, %for.cond2.preheader.i.i103 ], [ %currentValue.1.i.i114, %for.body4.i.i105 ]
-  %index.08.i.i108 = phi i32 [ -1, %for.cond2.preheader.i.i103 ], [ %index.1.i.i113, %for.body4.i.i105 ]
-  %arrayidx.i.i109 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i106
-  %19 = load i32, ptr %arrayidx.i.i109, align 4
-  %cmp6.i.i110 = icmp sgt i32 %19, %18
-  %cmp10.i.i111 = icmp slt i32 %19, %currentValue.09.i.i107
-  %or.cond.i.i112 = select i1 %cmp6.i.i110, i1 %cmp10.i.i111, i1 false
-  %20 = trunc i64 %indvars.iv.i.i106 to i32
-  %index.1.i.i113 = select i1 %or.cond.i.i112, i32 %20, i32 %index.08.i.i108
-  %currentValue.1.i.i114 = select i1 %or.cond.i.i112, i32 %19, i32 %currentValue.09.i.i107
-  %indvars.iv.next.i.i115 = add nuw nsw i64 %indvars.iv.i.i106, 1
-  %exitcond.not.i.i116 = icmp eq i64 %indvars.iv.next.i.i115, 24
-  br i1 %exitcond.not.i.i116, label %for.end.i.i117, label %for.body4.i.i105, !llvm.loop !8
+for.body4.i.i117:                                 ; preds = %for.body4.i.i117, %for.cond2.preheader.i.i115
+  %indvars.iv.i.i118 = phi i64 [ 0, %for.cond2.preheader.i.i115 ], [ %indvars.iv.next.i.i127, %for.body4.i.i117 ]
+  %currentValue.09.i.i119 = phi i32 [ 10000, %for.cond2.preheader.i.i115 ], [ %currentValue.1.i.i126, %for.body4.i.i117 ]
+  %index.08.i.i120 = phi i32 [ -1, %for.cond2.preheader.i.i115 ], [ %index.1.i.i125, %for.body4.i.i117 ]
+  %arrayidx.i.i121 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i118
+  %19 = load i32, ptr %arrayidx.i.i121, align 4
+  %cmp6.i.i122 = icmp sgt i32 %19, %18
+  %cmp10.i.i123 = icmp slt i32 %19, %currentValue.09.i.i119
+  %or.cond.i.i124 = select i1 %cmp6.i.i122, i1 %cmp10.i.i123, i1 false
+  %20 = trunc i64 %indvars.iv.i.i118 to i32
+  %index.1.i.i125 = select i1 %or.cond.i.i124, i32 %20, i32 %index.08.i.i120
+  %currentValue.1.i.i126 = select i1 %or.cond.i.i124, i32 %19, i32 %currentValue.09.i.i119
+  %indvars.iv.next.i.i127 = add nuw nsw i64 %indvars.iv.i.i118, 1
+  %exitcond.not.i.i128 = icmp eq i64 %indvars.iv.next.i.i127, 24
+  br i1 %exitcond.not.i.i128, label %for.end.i.i129, label %for.body4.i.i117, !llvm.loop !8
 
-for.end.i.i117:                                   ; preds = %for.body4.i.i105
-  %cmp14.i.i118 = icmp sgt i32 %index.1.i.i113, -1
-  br i1 %cmp14.i.i118, label %if.then15.i.i121, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i119
+for.end.i.i129:                                   ; preds = %for.body4.i.i117
+  %cmp14.i.i130 = icmp sgt i32 %index.1.i.i125, -1
+  br i1 %cmp14.i.i130, label %if.then15.i.i133, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i131
 
-if.then15.i.i121:                                 ; preds = %for.end.i.i117
-  %inc17.i.i122 = add nsw i32 %18, 1
-  store i32 %inc17.i.i122, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i123 = zext nneg i32 %index.1.i.i113 to i64
-  %arrayidx20.i.i124 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i123
-  store i32 %inc17.i.i122, ptr %arrayidx20.i.i124, align 4
-  %inc23.i.i125 = add nuw nsw i32 %j.011.i.i104, 1
-  %exitcond13.not.i.i126 = icmp eq i32 %inc23.i.i125, 24
-  br i1 %exitcond13.not.i.i126, label %if.then15.for.end24_crit_edge.i.i127, label %for.cond2.preheader.i.i103, !llvm.loop !9
+if.then15.i.i133:                                 ; preds = %for.end.i.i129
+  %inc17.i.i134 = add nsw i32 %18, 1
+  store i32 %inc17.i.i134, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i135 = zext nneg i32 %index.1.i.i125 to i64
+  %arrayidx20.i.i136 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i135
+  store i32 %inc17.i.i134, ptr %arrayidx20.i.i136, align 4
+  %inc23.i.i137 = add nuw nsw i32 %j.011.i.i116, 1
+  %exitcond13.not.i.i138 = icmp eq i32 %inc23.i.i137, 24
+  br i1 %exitcond13.not.i.i138, label %if.then15.for.end24_crit_edge.i.i139, label %for.cond2.preheader.i.i115, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i127:             ; preds = %if.then15.i.i121
-  %.pre.i.i128 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i119
+if.then15.for.end24_crit_edge.i.i139:             ; preds = %if.then15.i.i133
+  %.pre.i.i140 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i131
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i119: ; preds = %for.end.i.i117, %if.then15.for.end24_crit_edge.i.i127
-  %21 = phi i32 [ %.pre.i.i128, %if.then15.for.end24_crit_edge.i.i127 ], [ %18, %for.end.i.i117 ]
-  %inc26.i.i120 = add nsw i32 %21, 1
-  br label %if.end4.i136
+_ZN6icu_758Calendar16recalculateStampEv.exit.i131: ; preds = %for.end.i.i129, %if.then15.for.end24_crit_edge.i.i139
+  %21 = phi i32 [ %.pre.i.i140, %if.then15.for.end24_crit_edge.i.i139 ], [ %18, %for.end.i.i129 ]
+  %inc26.i.i132 = add nsw i32 %21, 1
+  br label %if.end4.i148
 
-if.end4.i136:                                     ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i119, %if.end4.i93
-  %22 = phi i32 [ %inc26.i.i120, %_ZN6icu_758Calendar16recalculateStampEv.exit.i119 ], [ %inc.i54, %if.end4.i93 ]
-  %inc.i97 = add nsw i32 %22, 1
-  %arrayidx10.i98 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 11
-  store i32 %22, ptr %arrayidx10.i98, align 8
-  %arrayidx12.i99 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 11
-  store i8 1, ptr %arrayidx12.i99, align 1
-  %arrayidx.i137 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 12
-  store i32 %minute, ptr %arrayidx.i137, align 4
-  %cmp5.i139 = icmp eq i32 %inc.i97, 10000
-  br i1 %cmp5.i139, label %if.then6.i145, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit172
+if.end4.i148:                                     ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i131, %if.end4.i101
+  %22 = phi i32 [ %inc26.i.i132, %_ZN6icu_758Calendar16recalculateStampEv.exit.i131 ], [ %inc.i59, %if.end4.i101 ]
+  %inc.i106 = add nsw i32 %22, 1
+  %arrayidx10.i108 = getelementptr inbounds i8, ptr %this, i64 176
+  store i32 %22, ptr %arrayidx10.i108, align 8
+  %arrayidx12.i110 = getelementptr inbounds i8, ptr %this, i64 119
+  store i8 1, ptr %arrayidx12.i110, align 1
+  %arrayidx.i150 = getelementptr inbounds i8, ptr %this, i64 60
+  store i32 %minute, ptr %arrayidx.i150, align 4
+  %cmp5.i152 = icmp eq i32 %inc.i106, 10000
+  br i1 %cmp5.i152, label %if.then6.i160, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit188
 
-if.then6.i145:                                    ; preds = %if.end4.i136
+if.then6.i160:                                    ; preds = %if.end4.i148
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i146
+  br label %for.cond2.preheader.i.i162
 
-for.cond2.preheader.i.i146:                       ; preds = %if.then15.i.i164, %if.then6.i145
-  %j.011.i.i147 = phi i32 [ 0, %if.then6.i145 ], [ %inc23.i.i168, %if.then15.i.i164 ]
+for.cond2.preheader.i.i162:                       ; preds = %if.then15.i.i180, %if.then6.i160
+  %j.011.i.i163 = phi i32 [ 0, %if.then6.i160 ], [ %inc23.i.i184, %if.then15.i.i180 ]
   %23 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i148
+  br label %for.body4.i.i164
 
-for.body4.i.i148:                                 ; preds = %for.body4.i.i148, %for.cond2.preheader.i.i146
-  %indvars.iv.i.i149 = phi i64 [ 0, %for.cond2.preheader.i.i146 ], [ %indvars.iv.next.i.i158, %for.body4.i.i148 ]
-  %currentValue.09.i.i150 = phi i32 [ 10000, %for.cond2.preheader.i.i146 ], [ %currentValue.1.i.i157, %for.body4.i.i148 ]
-  %index.08.i.i151 = phi i32 [ -1, %for.cond2.preheader.i.i146 ], [ %index.1.i.i156, %for.body4.i.i148 ]
-  %arrayidx.i.i152 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i149
-  %24 = load i32, ptr %arrayidx.i.i152, align 4
-  %cmp6.i.i153 = icmp sgt i32 %24, %23
-  %cmp10.i.i154 = icmp slt i32 %24, %currentValue.09.i.i150
-  %or.cond.i.i155 = select i1 %cmp6.i.i153, i1 %cmp10.i.i154, i1 false
-  %25 = trunc i64 %indvars.iv.i.i149 to i32
-  %index.1.i.i156 = select i1 %or.cond.i.i155, i32 %25, i32 %index.08.i.i151
-  %currentValue.1.i.i157 = select i1 %or.cond.i.i155, i32 %24, i32 %currentValue.09.i.i150
-  %indvars.iv.next.i.i158 = add nuw nsw i64 %indvars.iv.i.i149, 1
-  %exitcond.not.i.i159 = icmp eq i64 %indvars.iv.next.i.i158, 24
-  br i1 %exitcond.not.i.i159, label %for.end.i.i160, label %for.body4.i.i148, !llvm.loop !8
+for.body4.i.i164:                                 ; preds = %for.body4.i.i164, %for.cond2.preheader.i.i162
+  %indvars.iv.i.i165 = phi i64 [ 0, %for.cond2.preheader.i.i162 ], [ %indvars.iv.next.i.i174, %for.body4.i.i164 ]
+  %currentValue.09.i.i166 = phi i32 [ 10000, %for.cond2.preheader.i.i162 ], [ %currentValue.1.i.i173, %for.body4.i.i164 ]
+  %index.08.i.i167 = phi i32 [ -1, %for.cond2.preheader.i.i162 ], [ %index.1.i.i172, %for.body4.i.i164 ]
+  %arrayidx.i.i168 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i165
+  %24 = load i32, ptr %arrayidx.i.i168, align 4
+  %cmp6.i.i169 = icmp sgt i32 %24, %23
+  %cmp10.i.i170 = icmp slt i32 %24, %currentValue.09.i.i166
+  %or.cond.i.i171 = select i1 %cmp6.i.i169, i1 %cmp10.i.i170, i1 false
+  %25 = trunc i64 %indvars.iv.i.i165 to i32
+  %index.1.i.i172 = select i1 %or.cond.i.i171, i32 %25, i32 %index.08.i.i167
+  %currentValue.1.i.i173 = select i1 %or.cond.i.i171, i32 %24, i32 %currentValue.09.i.i166
+  %indvars.iv.next.i.i174 = add nuw nsw i64 %indvars.iv.i.i165, 1
+  %exitcond.not.i.i175 = icmp eq i64 %indvars.iv.next.i.i174, 24
+  br i1 %exitcond.not.i.i175, label %for.end.i.i176, label %for.body4.i.i164, !llvm.loop !8
 
-for.end.i.i160:                                   ; preds = %for.body4.i.i148
-  %cmp14.i.i161 = icmp sgt i32 %index.1.i.i156, -1
-  br i1 %cmp14.i.i161, label %if.then15.i.i164, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i162
+for.end.i.i176:                                   ; preds = %for.body4.i.i164
+  %cmp14.i.i177 = icmp sgt i32 %index.1.i.i172, -1
+  br i1 %cmp14.i.i177, label %if.then15.i.i180, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i178
 
-if.then15.i.i164:                                 ; preds = %for.end.i.i160
-  %inc17.i.i165 = add nsw i32 %23, 1
-  store i32 %inc17.i.i165, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i166 = zext nneg i32 %index.1.i.i156 to i64
-  %arrayidx20.i.i167 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i166
-  store i32 %inc17.i.i165, ptr %arrayidx20.i.i167, align 4
-  %inc23.i.i168 = add nuw nsw i32 %j.011.i.i147, 1
-  %exitcond13.not.i.i169 = icmp eq i32 %inc23.i.i168, 24
-  br i1 %exitcond13.not.i.i169, label %if.then15.for.end24_crit_edge.i.i170, label %for.cond2.preheader.i.i146, !llvm.loop !9
+if.then15.i.i180:                                 ; preds = %for.end.i.i176
+  %inc17.i.i181 = add nsw i32 %23, 1
+  store i32 %inc17.i.i181, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i182 = zext nneg i32 %index.1.i.i172 to i64
+  %arrayidx20.i.i183 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i182
+  store i32 %inc17.i.i181, ptr %arrayidx20.i.i183, align 4
+  %inc23.i.i184 = add nuw nsw i32 %j.011.i.i163, 1
+  %exitcond13.not.i.i185 = icmp eq i32 %inc23.i.i184, 24
+  br i1 %exitcond13.not.i.i185, label %if.then15.for.end24_crit_edge.i.i186, label %for.cond2.preheader.i.i162, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i170:             ; preds = %if.then15.i.i164
-  %.pre.i.i171 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i162
+if.then15.for.end24_crit_edge.i.i186:             ; preds = %if.then15.i.i180
+  %.pre.i.i187 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i178
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i162: ; preds = %for.end.i.i160, %if.then15.for.end24_crit_edge.i.i170
-  %26 = phi i32 [ %.pre.i.i171, %if.then15.for.end24_crit_edge.i.i170 ], [ %23, %for.end.i.i160 ]
-  %inc26.i.i163 = add nsw i32 %26, 1
-  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit172
+_ZN6icu_758Calendar16recalculateStampEv.exit.i178: ; preds = %for.end.i.i176, %if.then15.for.end24_crit_edge.i.i186
+  %26 = phi i32 [ %.pre.i.i187, %if.then15.for.end24_crit_edge.i.i186 ], [ %23, %for.end.i.i176 ]
+  %inc26.i.i179 = add nsw i32 %26, 1
+  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit188
 
-_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit172: ; preds = %if.end4.i136, %_ZN6icu_758Calendar16recalculateStampEv.exit.i162
-  %27 = phi i32 [ %inc26.i.i163, %_ZN6icu_758Calendar16recalculateStampEv.exit.i162 ], [ %inc.i97, %if.end4.i136 ]
-  %inc.i140 = add nsw i32 %27, 1
-  store i32 %inc.i140, ptr %fNextStamp.i, align 4
-  %arrayidx10.i141 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 12
-  store i32 %27, ptr %arrayidx10.i141, align 4
-  %arrayidx12.i142 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 12
-  store i8 1, ptr %arrayidx12.i142, align 8
+_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit188: ; preds = %if.end4.i148, %_ZN6icu_758Calendar16recalculateStampEv.exit.i178
+  %27 = phi i32 [ %inc26.i.i179, %_ZN6icu_758Calendar16recalculateStampEv.exit.i178 ], [ %inc.i106, %if.end4.i148 ]
+  %inc.i153 = add nsw i32 %27, 1
+  store i32 %inc.i153, ptr %fNextStamp.i, align 4
+  %arrayidx10.i155 = getelementptr inbounds i8, ptr %this, i64 180
+  store i32 %27, ptr %arrayidx10.i155, align 4
+  %arrayidx12.i157 = getelementptr inbounds i8, ptr %this, i64 120
+  store i8 1, ptr %arrayidx12.i157, align 8
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   store i8 0, ptr %fAreFieldsSet.i, align 1
   store i8 0, ptr %fIsTimeSet.i, align 8
@@ -4544,7 +4549,7 @@ define void @_ZN6icu_758Calendar3setEiiiiii(ptr noundef nonnull align 8 derefere
 entry:
   %ec.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i)
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %this, i64 11
   %0 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %if.end4.i, label %if.then3.i
@@ -4552,21 +4557,22 @@ entry:
 if.then3.i:                                       ; preds = %entry
   store i32 0, ptr %ec.i, align 4
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %1 = load ptr, ptr %vfn.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i)
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %entry
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %year, ptr %arrayidx.i, align 8
-  %fNextStamp.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fNextStamp.i = getelementptr inbounds i8, ptr %this, i64 228
   %2 = load i32, ptr %fNextStamp.i, align 4
   %cmp5.i = icmp eq i32 %2, 10000
   br i1 %cmp5.i, label %if.then6.i, label %if.end4.i7
 
 if.then6.i:                                       ; preds = %if.end4.i
   store i32 1, ptr %fNextStamp.i, align 4
+  %fStamp.i.i = getelementptr inbounds i8, ptr %this, i64 132
   br label %for.cond2.preheader.i.i
 
 for.cond2.preheader.i.i:                          ; preds = %if.then15.i.i, %if.then6.i
@@ -4578,7 +4584,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   %indvars.iv.i.i = phi i64 [ 0, %for.cond2.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %currentValue.09.i.i = phi i32 [ 10000, %for.cond2.preheader.i.i ], [ %currentValue.1.i.i, %for.body4.i.i ]
   %index.08.i.i = phi i32 [ -1, %for.cond2.preheader.i.i ], [ %index.1.i.i, %for.body4.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %indvars.iv.i.i
   %4 = load i32, ptr %arrayidx.i.i, align 4
   %cmp6.i.i = icmp sgt i32 %4, %3
   %cmp10.i.i = icmp slt i32 %4, %currentValue.09.i.i
@@ -4598,7 +4604,7 @@ if.then15.i.i:                                    ; preds = %for.end.i.i
   %inc17.i.i = add nsw i32 %3, 1
   store i32 %inc17.i.i, ptr %fNextStamp.i, align 4
   %idxprom19.i.i = zext nneg i32 %index.1.i.i to i64
-  %arrayidx20.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i
+  %arrayidx20.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %idxprom19.i.i
   store i32 %inc17.i.i, ptr %arrayidx20.i.i, align 4
   %inc23.i.i = add nuw nsw i32 %j.011.i.i, 1
   %exitcond13.not.i.i = icmp eq i32 %inc23.i.i, 24
@@ -4616,317 +4622,318 @@ _ZN6icu_758Calendar16recalculateStampEv.exit.i:   ; preds = %for.end.i.i, %if.th
 if.end4.i7:                                       ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i, %if.end4.i
   %7 = phi i32 [ %inc26.i.i, %_ZN6icu_758Calendar16recalculateStampEv.exit.i ], [ %2, %if.end4.i ]
   %inc.i = add nsw i32 %7, 1
-  %arrayidx10.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 %7, ptr %arrayidx10.i, align 8
-  %arrayidx12.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 1
+  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 109
   store i8 1, ptr %arrayidx12.i, align 1
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i)
-  %arrayidx.i8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
-  store i32 %month, ptr %arrayidx.i8, align 4
-  %cmp5.i10 = icmp eq i32 %inc.i, 10000
-  br i1 %cmp5.i10, label %if.then6.i16, label %if.end4.i50
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 %month, ptr %arrayidx.i9, align 4
+  %cmp5.i11 = icmp eq i32 %inc.i, 10000
+  br i1 %cmp5.i11, label %if.then6.i19, label %if.end4.i54
 
-if.then6.i16:                                     ; preds = %if.end4.i7
+if.then6.i19:                                     ; preds = %if.end4.i7
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i17
+  br label %for.cond2.preheader.i.i21
 
-for.cond2.preheader.i.i17:                        ; preds = %if.then15.i.i35, %if.then6.i16
-  %j.011.i.i18 = phi i32 [ 0, %if.then6.i16 ], [ %inc23.i.i39, %if.then15.i.i35 ]
+for.cond2.preheader.i.i21:                        ; preds = %if.then15.i.i39, %if.then6.i19
+  %j.011.i.i22 = phi i32 [ 0, %if.then6.i19 ], [ %inc23.i.i43, %if.then15.i.i39 ]
   %8 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i19
+  br label %for.body4.i.i23
 
-for.body4.i.i19:                                  ; preds = %for.body4.i.i19, %for.cond2.preheader.i.i17
-  %indvars.iv.i.i20 = phi i64 [ 0, %for.cond2.preheader.i.i17 ], [ %indvars.iv.next.i.i29, %for.body4.i.i19 ]
-  %currentValue.09.i.i21 = phi i32 [ 10000, %for.cond2.preheader.i.i17 ], [ %currentValue.1.i.i28, %for.body4.i.i19 ]
-  %index.08.i.i22 = phi i32 [ -1, %for.cond2.preheader.i.i17 ], [ %index.1.i.i27, %for.body4.i.i19 ]
-  %arrayidx.i.i23 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i20
-  %9 = load i32, ptr %arrayidx.i.i23, align 4
-  %cmp6.i.i24 = icmp sgt i32 %9, %8
-  %cmp10.i.i25 = icmp slt i32 %9, %currentValue.09.i.i21
-  %or.cond.i.i26 = select i1 %cmp6.i.i24, i1 %cmp10.i.i25, i1 false
-  %10 = trunc i64 %indvars.iv.i.i20 to i32
-  %index.1.i.i27 = select i1 %or.cond.i.i26, i32 %10, i32 %index.08.i.i22
-  %currentValue.1.i.i28 = select i1 %or.cond.i.i26, i32 %9, i32 %currentValue.09.i.i21
-  %indvars.iv.next.i.i29 = add nuw nsw i64 %indvars.iv.i.i20, 1
-  %exitcond.not.i.i30 = icmp eq i64 %indvars.iv.next.i.i29, 24
-  br i1 %exitcond.not.i.i30, label %for.end.i.i31, label %for.body4.i.i19, !llvm.loop !8
+for.body4.i.i23:                                  ; preds = %for.body4.i.i23, %for.cond2.preheader.i.i21
+  %indvars.iv.i.i24 = phi i64 [ 0, %for.cond2.preheader.i.i21 ], [ %indvars.iv.next.i.i33, %for.body4.i.i23 ]
+  %currentValue.09.i.i25 = phi i32 [ 10000, %for.cond2.preheader.i.i21 ], [ %currentValue.1.i.i32, %for.body4.i.i23 ]
+  %index.08.i.i26 = phi i32 [ -1, %for.cond2.preheader.i.i21 ], [ %index.1.i.i31, %for.body4.i.i23 ]
+  %arrayidx.i.i27 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i24
+  %9 = load i32, ptr %arrayidx.i.i27, align 4
+  %cmp6.i.i28 = icmp sgt i32 %9, %8
+  %cmp10.i.i29 = icmp slt i32 %9, %currentValue.09.i.i25
+  %or.cond.i.i30 = select i1 %cmp6.i.i28, i1 %cmp10.i.i29, i1 false
+  %10 = trunc i64 %indvars.iv.i.i24 to i32
+  %index.1.i.i31 = select i1 %or.cond.i.i30, i32 %10, i32 %index.08.i.i26
+  %currentValue.1.i.i32 = select i1 %or.cond.i.i30, i32 %9, i32 %currentValue.09.i.i25
+  %indvars.iv.next.i.i33 = add nuw nsw i64 %indvars.iv.i.i24, 1
+  %exitcond.not.i.i34 = icmp eq i64 %indvars.iv.next.i.i33, 24
+  br i1 %exitcond.not.i.i34, label %for.end.i.i35, label %for.body4.i.i23, !llvm.loop !8
 
-for.end.i.i31:                                    ; preds = %for.body4.i.i19
-  %cmp14.i.i32 = icmp sgt i32 %index.1.i.i27, -1
-  br i1 %cmp14.i.i32, label %if.then15.i.i35, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i33
+for.end.i.i35:                                    ; preds = %for.body4.i.i23
+  %cmp14.i.i36 = icmp sgt i32 %index.1.i.i31, -1
+  br i1 %cmp14.i.i36, label %if.then15.i.i39, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i37
 
-if.then15.i.i35:                                  ; preds = %for.end.i.i31
-  %inc17.i.i36 = add nsw i32 %8, 1
-  store i32 %inc17.i.i36, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i37 = zext nneg i32 %index.1.i.i27 to i64
-  %arrayidx20.i.i38 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i37
-  store i32 %inc17.i.i36, ptr %arrayidx20.i.i38, align 4
-  %inc23.i.i39 = add nuw nsw i32 %j.011.i.i18, 1
-  %exitcond13.not.i.i40 = icmp eq i32 %inc23.i.i39, 24
-  br i1 %exitcond13.not.i.i40, label %if.then15.for.end24_crit_edge.i.i41, label %for.cond2.preheader.i.i17, !llvm.loop !9
+if.then15.i.i39:                                  ; preds = %for.end.i.i35
+  %inc17.i.i40 = add nsw i32 %8, 1
+  store i32 %inc17.i.i40, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i41 = zext nneg i32 %index.1.i.i31 to i64
+  %arrayidx20.i.i42 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i41
+  store i32 %inc17.i.i40, ptr %arrayidx20.i.i42, align 4
+  %inc23.i.i43 = add nuw nsw i32 %j.011.i.i22, 1
+  %exitcond13.not.i.i44 = icmp eq i32 %inc23.i.i43, 24
+  br i1 %exitcond13.not.i.i44, label %if.then15.for.end24_crit_edge.i.i45, label %for.cond2.preheader.i.i21, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i41:              ; preds = %if.then15.i.i35
-  %.pre.i.i42 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i33
+if.then15.for.end24_crit_edge.i.i45:              ; preds = %if.then15.i.i39
+  %.pre.i.i46 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i37
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i33: ; preds = %for.end.i.i31, %if.then15.for.end24_crit_edge.i.i41
-  %11 = phi i32 [ %.pre.i.i42, %if.then15.for.end24_crit_edge.i.i41 ], [ %8, %for.end.i.i31 ]
-  %inc26.i.i34 = add nsw i32 %11, 1
-  br label %if.end4.i50
+_ZN6icu_758Calendar16recalculateStampEv.exit.i37: ; preds = %for.end.i.i35, %if.then15.for.end24_crit_edge.i.i45
+  %11 = phi i32 [ %.pre.i.i46, %if.then15.for.end24_crit_edge.i.i45 ], [ %8, %for.end.i.i35 ]
+  %inc26.i.i38 = add nsw i32 %11, 1
+  br label %if.end4.i54
 
-if.end4.i50:                                      ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i33, %if.end4.i7
-  %12 = phi i32 [ %inc26.i.i34, %_ZN6icu_758Calendar16recalculateStampEv.exit.i33 ], [ %inc.i, %if.end4.i7 ]
-  %inc.i11 = add nsw i32 %12, 1
-  %arrayidx10.i12 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 2
-  store i32 %12, ptr %arrayidx10.i12, align 4
-  %arrayidx12.i13 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 2
-  store i8 1, ptr %arrayidx12.i13, align 2
-  %arrayidx.i51 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  store i32 %date, ptr %arrayidx.i51, align 8
-  %cmp5.i53 = icmp eq i32 %inc.i11, 10000
-  br i1 %cmp5.i53, label %if.then6.i59, label %if.end4.i93
+if.end4.i54:                                      ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i37, %if.end4.i7
+  %12 = phi i32 [ %inc26.i.i38, %_ZN6icu_758Calendar16recalculateStampEv.exit.i37 ], [ %inc.i, %if.end4.i7 ]
+  %inc.i12 = add nsw i32 %12, 1
+  %arrayidx10.i14 = getelementptr inbounds i8, ptr %this, i64 140
+  store i32 %12, ptr %arrayidx10.i14, align 4
+  %arrayidx12.i16 = getelementptr inbounds i8, ptr %this, i64 110
+  store i8 1, ptr %arrayidx12.i16, align 2
+  %arrayidx.i56 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 %date, ptr %arrayidx.i56, align 8
+  %cmp5.i58 = icmp eq i32 %inc.i12, 10000
+  br i1 %cmp5.i58, label %if.then6.i66, label %if.end4.i101
 
-if.then6.i59:                                     ; preds = %if.end4.i50
+if.then6.i66:                                     ; preds = %if.end4.i54
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i60
+  br label %for.cond2.preheader.i.i68
 
-for.cond2.preheader.i.i60:                        ; preds = %if.then15.i.i78, %if.then6.i59
-  %j.011.i.i61 = phi i32 [ 0, %if.then6.i59 ], [ %inc23.i.i82, %if.then15.i.i78 ]
+for.cond2.preheader.i.i68:                        ; preds = %if.then15.i.i86, %if.then6.i66
+  %j.011.i.i69 = phi i32 [ 0, %if.then6.i66 ], [ %inc23.i.i90, %if.then15.i.i86 ]
   %13 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i62
+  br label %for.body4.i.i70
 
-for.body4.i.i62:                                  ; preds = %for.body4.i.i62, %for.cond2.preheader.i.i60
-  %indvars.iv.i.i63 = phi i64 [ 0, %for.cond2.preheader.i.i60 ], [ %indvars.iv.next.i.i72, %for.body4.i.i62 ]
-  %currentValue.09.i.i64 = phi i32 [ 10000, %for.cond2.preheader.i.i60 ], [ %currentValue.1.i.i71, %for.body4.i.i62 ]
-  %index.08.i.i65 = phi i32 [ -1, %for.cond2.preheader.i.i60 ], [ %index.1.i.i70, %for.body4.i.i62 ]
-  %arrayidx.i.i66 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i63
-  %14 = load i32, ptr %arrayidx.i.i66, align 4
-  %cmp6.i.i67 = icmp sgt i32 %14, %13
-  %cmp10.i.i68 = icmp slt i32 %14, %currentValue.09.i.i64
-  %or.cond.i.i69 = select i1 %cmp6.i.i67, i1 %cmp10.i.i68, i1 false
-  %15 = trunc i64 %indvars.iv.i.i63 to i32
-  %index.1.i.i70 = select i1 %or.cond.i.i69, i32 %15, i32 %index.08.i.i65
-  %currentValue.1.i.i71 = select i1 %or.cond.i.i69, i32 %14, i32 %currentValue.09.i.i64
-  %indvars.iv.next.i.i72 = add nuw nsw i64 %indvars.iv.i.i63, 1
-  %exitcond.not.i.i73 = icmp eq i64 %indvars.iv.next.i.i72, 24
-  br i1 %exitcond.not.i.i73, label %for.end.i.i74, label %for.body4.i.i62, !llvm.loop !8
+for.body4.i.i70:                                  ; preds = %for.body4.i.i70, %for.cond2.preheader.i.i68
+  %indvars.iv.i.i71 = phi i64 [ 0, %for.cond2.preheader.i.i68 ], [ %indvars.iv.next.i.i80, %for.body4.i.i70 ]
+  %currentValue.09.i.i72 = phi i32 [ 10000, %for.cond2.preheader.i.i68 ], [ %currentValue.1.i.i79, %for.body4.i.i70 ]
+  %index.08.i.i73 = phi i32 [ -1, %for.cond2.preheader.i.i68 ], [ %index.1.i.i78, %for.body4.i.i70 ]
+  %arrayidx.i.i74 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i71
+  %14 = load i32, ptr %arrayidx.i.i74, align 4
+  %cmp6.i.i75 = icmp sgt i32 %14, %13
+  %cmp10.i.i76 = icmp slt i32 %14, %currentValue.09.i.i72
+  %or.cond.i.i77 = select i1 %cmp6.i.i75, i1 %cmp10.i.i76, i1 false
+  %15 = trunc i64 %indvars.iv.i.i71 to i32
+  %index.1.i.i78 = select i1 %or.cond.i.i77, i32 %15, i32 %index.08.i.i73
+  %currentValue.1.i.i79 = select i1 %or.cond.i.i77, i32 %14, i32 %currentValue.09.i.i72
+  %indvars.iv.next.i.i80 = add nuw nsw i64 %indvars.iv.i.i71, 1
+  %exitcond.not.i.i81 = icmp eq i64 %indvars.iv.next.i.i80, 24
+  br i1 %exitcond.not.i.i81, label %for.end.i.i82, label %for.body4.i.i70, !llvm.loop !8
 
-for.end.i.i74:                                    ; preds = %for.body4.i.i62
-  %cmp14.i.i75 = icmp sgt i32 %index.1.i.i70, -1
-  br i1 %cmp14.i.i75, label %if.then15.i.i78, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i76
+for.end.i.i82:                                    ; preds = %for.body4.i.i70
+  %cmp14.i.i83 = icmp sgt i32 %index.1.i.i78, -1
+  br i1 %cmp14.i.i83, label %if.then15.i.i86, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i84
 
-if.then15.i.i78:                                  ; preds = %for.end.i.i74
-  %inc17.i.i79 = add nsw i32 %13, 1
-  store i32 %inc17.i.i79, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i80 = zext nneg i32 %index.1.i.i70 to i64
-  %arrayidx20.i.i81 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i80
-  store i32 %inc17.i.i79, ptr %arrayidx20.i.i81, align 4
-  %inc23.i.i82 = add nuw nsw i32 %j.011.i.i61, 1
-  %exitcond13.not.i.i83 = icmp eq i32 %inc23.i.i82, 24
-  br i1 %exitcond13.not.i.i83, label %if.then15.for.end24_crit_edge.i.i84, label %for.cond2.preheader.i.i60, !llvm.loop !9
+if.then15.i.i86:                                  ; preds = %for.end.i.i82
+  %inc17.i.i87 = add nsw i32 %13, 1
+  store i32 %inc17.i.i87, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i88 = zext nneg i32 %index.1.i.i78 to i64
+  %arrayidx20.i.i89 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i88
+  store i32 %inc17.i.i87, ptr %arrayidx20.i.i89, align 4
+  %inc23.i.i90 = add nuw nsw i32 %j.011.i.i69, 1
+  %exitcond13.not.i.i91 = icmp eq i32 %inc23.i.i90, 24
+  br i1 %exitcond13.not.i.i91, label %if.then15.for.end24_crit_edge.i.i92, label %for.cond2.preheader.i.i68, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i84:              ; preds = %if.then15.i.i78
-  %.pre.i.i85 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i76
+if.then15.for.end24_crit_edge.i.i92:              ; preds = %if.then15.i.i86
+  %.pre.i.i93 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i84
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i76: ; preds = %for.end.i.i74, %if.then15.for.end24_crit_edge.i.i84
-  %16 = phi i32 [ %.pre.i.i85, %if.then15.for.end24_crit_edge.i.i84 ], [ %13, %for.end.i.i74 ]
-  %inc26.i.i77 = add nsw i32 %16, 1
-  br label %if.end4.i93
+_ZN6icu_758Calendar16recalculateStampEv.exit.i84: ; preds = %for.end.i.i82, %if.then15.for.end24_crit_edge.i.i92
+  %16 = phi i32 [ %.pre.i.i93, %if.then15.for.end24_crit_edge.i.i92 ], [ %13, %for.end.i.i82 ]
+  %inc26.i.i85 = add nsw i32 %16, 1
+  br label %if.end4.i101
 
-if.end4.i93:                                      ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i76, %if.end4.i50
-  %17 = phi i32 [ %inc26.i.i77, %_ZN6icu_758Calendar16recalculateStampEv.exit.i76 ], [ %inc.i11, %if.end4.i50 ]
-  %inc.i54 = add nsw i32 %17, 1
-  %arrayidx10.i55 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 5
-  store i32 %17, ptr %arrayidx10.i55, align 8
-  %arrayidx12.i56 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 5
-  store i8 1, ptr %arrayidx12.i56, align 1
+if.end4.i101:                                     ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i84, %if.end4.i54
+  %17 = phi i32 [ %inc26.i.i85, %_ZN6icu_758Calendar16recalculateStampEv.exit.i84 ], [ %inc.i12, %if.end4.i54 ]
+  %inc.i59 = add nsw i32 %17, 1
+  %arrayidx10.i61 = getelementptr inbounds i8, ptr %this, i64 152
+  store i32 %17, ptr %arrayidx10.i61, align 8
+  %arrayidx12.i63 = getelementptr inbounds i8, ptr %this, i64 113
+  store i8 1, ptr %arrayidx12.i63, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   store i8 0, ptr %fAreFieldsSet.i, align 1
   store i8 0, ptr %fIsTimeSet.i, align 8
-  %arrayidx.i94 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 11
-  store i32 %hour, ptr %arrayidx.i94, align 8
-  %cmp5.i96 = icmp eq i32 %inc.i54, 10000
-  br i1 %cmp5.i96, label %if.then6.i102, label %if.end4.i136
+  %arrayidx.i103 = getelementptr inbounds i8, ptr %this, i64 56
+  store i32 %hour, ptr %arrayidx.i103, align 8
+  %cmp5.i105 = icmp eq i32 %inc.i59, 10000
+  br i1 %cmp5.i105, label %if.then6.i113, label %if.end4.i148
 
-if.then6.i102:                                    ; preds = %if.end4.i93
+if.then6.i113:                                    ; preds = %if.end4.i101
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i103
+  br label %for.cond2.preheader.i.i115
 
-for.cond2.preheader.i.i103:                       ; preds = %if.then15.i.i121, %if.then6.i102
-  %j.011.i.i104 = phi i32 [ 0, %if.then6.i102 ], [ %inc23.i.i125, %if.then15.i.i121 ]
+for.cond2.preheader.i.i115:                       ; preds = %if.then15.i.i133, %if.then6.i113
+  %j.011.i.i116 = phi i32 [ 0, %if.then6.i113 ], [ %inc23.i.i137, %if.then15.i.i133 ]
   %18 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i105
+  br label %for.body4.i.i117
 
-for.body4.i.i105:                                 ; preds = %for.body4.i.i105, %for.cond2.preheader.i.i103
-  %indvars.iv.i.i106 = phi i64 [ 0, %for.cond2.preheader.i.i103 ], [ %indvars.iv.next.i.i115, %for.body4.i.i105 ]
-  %currentValue.09.i.i107 = phi i32 [ 10000, %for.cond2.preheader.i.i103 ], [ %currentValue.1.i.i114, %for.body4.i.i105 ]
-  %index.08.i.i108 = phi i32 [ -1, %for.cond2.preheader.i.i103 ], [ %index.1.i.i113, %for.body4.i.i105 ]
-  %arrayidx.i.i109 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i106
-  %19 = load i32, ptr %arrayidx.i.i109, align 4
-  %cmp6.i.i110 = icmp sgt i32 %19, %18
-  %cmp10.i.i111 = icmp slt i32 %19, %currentValue.09.i.i107
-  %or.cond.i.i112 = select i1 %cmp6.i.i110, i1 %cmp10.i.i111, i1 false
-  %20 = trunc i64 %indvars.iv.i.i106 to i32
-  %index.1.i.i113 = select i1 %or.cond.i.i112, i32 %20, i32 %index.08.i.i108
-  %currentValue.1.i.i114 = select i1 %or.cond.i.i112, i32 %19, i32 %currentValue.09.i.i107
-  %indvars.iv.next.i.i115 = add nuw nsw i64 %indvars.iv.i.i106, 1
-  %exitcond.not.i.i116 = icmp eq i64 %indvars.iv.next.i.i115, 24
-  br i1 %exitcond.not.i.i116, label %for.end.i.i117, label %for.body4.i.i105, !llvm.loop !8
+for.body4.i.i117:                                 ; preds = %for.body4.i.i117, %for.cond2.preheader.i.i115
+  %indvars.iv.i.i118 = phi i64 [ 0, %for.cond2.preheader.i.i115 ], [ %indvars.iv.next.i.i127, %for.body4.i.i117 ]
+  %currentValue.09.i.i119 = phi i32 [ 10000, %for.cond2.preheader.i.i115 ], [ %currentValue.1.i.i126, %for.body4.i.i117 ]
+  %index.08.i.i120 = phi i32 [ -1, %for.cond2.preheader.i.i115 ], [ %index.1.i.i125, %for.body4.i.i117 ]
+  %arrayidx.i.i121 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i118
+  %19 = load i32, ptr %arrayidx.i.i121, align 4
+  %cmp6.i.i122 = icmp sgt i32 %19, %18
+  %cmp10.i.i123 = icmp slt i32 %19, %currentValue.09.i.i119
+  %or.cond.i.i124 = select i1 %cmp6.i.i122, i1 %cmp10.i.i123, i1 false
+  %20 = trunc i64 %indvars.iv.i.i118 to i32
+  %index.1.i.i125 = select i1 %or.cond.i.i124, i32 %20, i32 %index.08.i.i120
+  %currentValue.1.i.i126 = select i1 %or.cond.i.i124, i32 %19, i32 %currentValue.09.i.i119
+  %indvars.iv.next.i.i127 = add nuw nsw i64 %indvars.iv.i.i118, 1
+  %exitcond.not.i.i128 = icmp eq i64 %indvars.iv.next.i.i127, 24
+  br i1 %exitcond.not.i.i128, label %for.end.i.i129, label %for.body4.i.i117, !llvm.loop !8
 
-for.end.i.i117:                                   ; preds = %for.body4.i.i105
-  %cmp14.i.i118 = icmp sgt i32 %index.1.i.i113, -1
-  br i1 %cmp14.i.i118, label %if.then15.i.i121, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i119
+for.end.i.i129:                                   ; preds = %for.body4.i.i117
+  %cmp14.i.i130 = icmp sgt i32 %index.1.i.i125, -1
+  br i1 %cmp14.i.i130, label %if.then15.i.i133, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i131
 
-if.then15.i.i121:                                 ; preds = %for.end.i.i117
-  %inc17.i.i122 = add nsw i32 %18, 1
-  store i32 %inc17.i.i122, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i123 = zext nneg i32 %index.1.i.i113 to i64
-  %arrayidx20.i.i124 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i123
-  store i32 %inc17.i.i122, ptr %arrayidx20.i.i124, align 4
-  %inc23.i.i125 = add nuw nsw i32 %j.011.i.i104, 1
-  %exitcond13.not.i.i126 = icmp eq i32 %inc23.i.i125, 24
-  br i1 %exitcond13.not.i.i126, label %if.then15.for.end24_crit_edge.i.i127, label %for.cond2.preheader.i.i103, !llvm.loop !9
+if.then15.i.i133:                                 ; preds = %for.end.i.i129
+  %inc17.i.i134 = add nsw i32 %18, 1
+  store i32 %inc17.i.i134, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i135 = zext nneg i32 %index.1.i.i125 to i64
+  %arrayidx20.i.i136 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i135
+  store i32 %inc17.i.i134, ptr %arrayidx20.i.i136, align 4
+  %inc23.i.i137 = add nuw nsw i32 %j.011.i.i116, 1
+  %exitcond13.not.i.i138 = icmp eq i32 %inc23.i.i137, 24
+  br i1 %exitcond13.not.i.i138, label %if.then15.for.end24_crit_edge.i.i139, label %for.cond2.preheader.i.i115, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i127:             ; preds = %if.then15.i.i121
-  %.pre.i.i128 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i119
+if.then15.for.end24_crit_edge.i.i139:             ; preds = %if.then15.i.i133
+  %.pre.i.i140 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i131
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i119: ; preds = %for.end.i.i117, %if.then15.for.end24_crit_edge.i.i127
-  %21 = phi i32 [ %.pre.i.i128, %if.then15.for.end24_crit_edge.i.i127 ], [ %18, %for.end.i.i117 ]
-  %inc26.i.i120 = add nsw i32 %21, 1
-  br label %if.end4.i136
+_ZN6icu_758Calendar16recalculateStampEv.exit.i131: ; preds = %for.end.i.i129, %if.then15.for.end24_crit_edge.i.i139
+  %21 = phi i32 [ %.pre.i.i140, %if.then15.for.end24_crit_edge.i.i139 ], [ %18, %for.end.i.i129 ]
+  %inc26.i.i132 = add nsw i32 %21, 1
+  br label %if.end4.i148
 
-if.end4.i136:                                     ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i119, %if.end4.i93
-  %22 = phi i32 [ %inc26.i.i120, %_ZN6icu_758Calendar16recalculateStampEv.exit.i119 ], [ %inc.i54, %if.end4.i93 ]
-  %inc.i97 = add nsw i32 %22, 1
-  %arrayidx10.i98 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 11
-  store i32 %22, ptr %arrayidx10.i98, align 8
-  %arrayidx12.i99 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 11
-  store i8 1, ptr %arrayidx12.i99, align 1
-  %arrayidx.i137 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 12
-  store i32 %minute, ptr %arrayidx.i137, align 4
-  %cmp5.i139 = icmp eq i32 %inc.i97, 10000
-  br i1 %cmp5.i139, label %if.then6.i145, label %if.end4.i179
+if.end4.i148:                                     ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i131, %if.end4.i101
+  %22 = phi i32 [ %inc26.i.i132, %_ZN6icu_758Calendar16recalculateStampEv.exit.i131 ], [ %inc.i59, %if.end4.i101 ]
+  %inc.i106 = add nsw i32 %22, 1
+  %arrayidx10.i108 = getelementptr inbounds i8, ptr %this, i64 176
+  store i32 %22, ptr %arrayidx10.i108, align 8
+  %arrayidx12.i110 = getelementptr inbounds i8, ptr %this, i64 119
+  store i8 1, ptr %arrayidx12.i110, align 1
+  %arrayidx.i150 = getelementptr inbounds i8, ptr %this, i64 60
+  store i32 %minute, ptr %arrayidx.i150, align 4
+  %cmp5.i152 = icmp eq i32 %inc.i106, 10000
+  br i1 %cmp5.i152, label %if.then6.i160, label %if.end4.i195
 
-if.then6.i145:                                    ; preds = %if.end4.i136
+if.then6.i160:                                    ; preds = %if.end4.i148
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i146
+  br label %for.cond2.preheader.i.i162
 
-for.cond2.preheader.i.i146:                       ; preds = %if.then15.i.i164, %if.then6.i145
-  %j.011.i.i147 = phi i32 [ 0, %if.then6.i145 ], [ %inc23.i.i168, %if.then15.i.i164 ]
+for.cond2.preheader.i.i162:                       ; preds = %if.then15.i.i180, %if.then6.i160
+  %j.011.i.i163 = phi i32 [ 0, %if.then6.i160 ], [ %inc23.i.i184, %if.then15.i.i180 ]
   %23 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i148
+  br label %for.body4.i.i164
 
-for.body4.i.i148:                                 ; preds = %for.body4.i.i148, %for.cond2.preheader.i.i146
-  %indvars.iv.i.i149 = phi i64 [ 0, %for.cond2.preheader.i.i146 ], [ %indvars.iv.next.i.i158, %for.body4.i.i148 ]
-  %currentValue.09.i.i150 = phi i32 [ 10000, %for.cond2.preheader.i.i146 ], [ %currentValue.1.i.i157, %for.body4.i.i148 ]
-  %index.08.i.i151 = phi i32 [ -1, %for.cond2.preheader.i.i146 ], [ %index.1.i.i156, %for.body4.i.i148 ]
-  %arrayidx.i.i152 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i149
-  %24 = load i32, ptr %arrayidx.i.i152, align 4
-  %cmp6.i.i153 = icmp sgt i32 %24, %23
-  %cmp10.i.i154 = icmp slt i32 %24, %currentValue.09.i.i150
-  %or.cond.i.i155 = select i1 %cmp6.i.i153, i1 %cmp10.i.i154, i1 false
-  %25 = trunc i64 %indvars.iv.i.i149 to i32
-  %index.1.i.i156 = select i1 %or.cond.i.i155, i32 %25, i32 %index.08.i.i151
-  %currentValue.1.i.i157 = select i1 %or.cond.i.i155, i32 %24, i32 %currentValue.09.i.i150
-  %indvars.iv.next.i.i158 = add nuw nsw i64 %indvars.iv.i.i149, 1
-  %exitcond.not.i.i159 = icmp eq i64 %indvars.iv.next.i.i158, 24
-  br i1 %exitcond.not.i.i159, label %for.end.i.i160, label %for.body4.i.i148, !llvm.loop !8
+for.body4.i.i164:                                 ; preds = %for.body4.i.i164, %for.cond2.preheader.i.i162
+  %indvars.iv.i.i165 = phi i64 [ 0, %for.cond2.preheader.i.i162 ], [ %indvars.iv.next.i.i174, %for.body4.i.i164 ]
+  %currentValue.09.i.i166 = phi i32 [ 10000, %for.cond2.preheader.i.i162 ], [ %currentValue.1.i.i173, %for.body4.i.i164 ]
+  %index.08.i.i167 = phi i32 [ -1, %for.cond2.preheader.i.i162 ], [ %index.1.i.i172, %for.body4.i.i164 ]
+  %arrayidx.i.i168 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i165
+  %24 = load i32, ptr %arrayidx.i.i168, align 4
+  %cmp6.i.i169 = icmp sgt i32 %24, %23
+  %cmp10.i.i170 = icmp slt i32 %24, %currentValue.09.i.i166
+  %or.cond.i.i171 = select i1 %cmp6.i.i169, i1 %cmp10.i.i170, i1 false
+  %25 = trunc i64 %indvars.iv.i.i165 to i32
+  %index.1.i.i172 = select i1 %or.cond.i.i171, i32 %25, i32 %index.08.i.i167
+  %currentValue.1.i.i173 = select i1 %or.cond.i.i171, i32 %24, i32 %currentValue.09.i.i166
+  %indvars.iv.next.i.i174 = add nuw nsw i64 %indvars.iv.i.i165, 1
+  %exitcond.not.i.i175 = icmp eq i64 %indvars.iv.next.i.i174, 24
+  br i1 %exitcond.not.i.i175, label %for.end.i.i176, label %for.body4.i.i164, !llvm.loop !8
 
-for.end.i.i160:                                   ; preds = %for.body4.i.i148
-  %cmp14.i.i161 = icmp sgt i32 %index.1.i.i156, -1
-  br i1 %cmp14.i.i161, label %if.then15.i.i164, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i162
+for.end.i.i176:                                   ; preds = %for.body4.i.i164
+  %cmp14.i.i177 = icmp sgt i32 %index.1.i.i172, -1
+  br i1 %cmp14.i.i177, label %if.then15.i.i180, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i178
 
-if.then15.i.i164:                                 ; preds = %for.end.i.i160
-  %inc17.i.i165 = add nsw i32 %23, 1
-  store i32 %inc17.i.i165, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i166 = zext nneg i32 %index.1.i.i156 to i64
-  %arrayidx20.i.i167 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i166
-  store i32 %inc17.i.i165, ptr %arrayidx20.i.i167, align 4
-  %inc23.i.i168 = add nuw nsw i32 %j.011.i.i147, 1
-  %exitcond13.not.i.i169 = icmp eq i32 %inc23.i.i168, 24
-  br i1 %exitcond13.not.i.i169, label %if.then15.for.end24_crit_edge.i.i170, label %for.cond2.preheader.i.i146, !llvm.loop !9
+if.then15.i.i180:                                 ; preds = %for.end.i.i176
+  %inc17.i.i181 = add nsw i32 %23, 1
+  store i32 %inc17.i.i181, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i182 = zext nneg i32 %index.1.i.i172 to i64
+  %arrayidx20.i.i183 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i182
+  store i32 %inc17.i.i181, ptr %arrayidx20.i.i183, align 4
+  %inc23.i.i184 = add nuw nsw i32 %j.011.i.i163, 1
+  %exitcond13.not.i.i185 = icmp eq i32 %inc23.i.i184, 24
+  br i1 %exitcond13.not.i.i185, label %if.then15.for.end24_crit_edge.i.i186, label %for.cond2.preheader.i.i162, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i170:             ; preds = %if.then15.i.i164
-  %.pre.i.i171 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i162
+if.then15.for.end24_crit_edge.i.i186:             ; preds = %if.then15.i.i180
+  %.pre.i.i187 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i178
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i162: ; preds = %for.end.i.i160, %if.then15.for.end24_crit_edge.i.i170
-  %26 = phi i32 [ %.pre.i.i171, %if.then15.for.end24_crit_edge.i.i170 ], [ %23, %for.end.i.i160 ]
-  %inc26.i.i163 = add nsw i32 %26, 1
-  br label %if.end4.i179
+_ZN6icu_758Calendar16recalculateStampEv.exit.i178: ; preds = %for.end.i.i176, %if.then15.for.end24_crit_edge.i.i186
+  %26 = phi i32 [ %.pre.i.i187, %if.then15.for.end24_crit_edge.i.i186 ], [ %23, %for.end.i.i176 ]
+  %inc26.i.i179 = add nsw i32 %26, 1
+  br label %if.end4.i195
 
-if.end4.i179:                                     ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i162, %if.end4.i136
-  %27 = phi i32 [ %inc26.i.i163, %_ZN6icu_758Calendar16recalculateStampEv.exit.i162 ], [ %inc.i97, %if.end4.i136 ]
-  %inc.i140 = add nsw i32 %27, 1
-  %arrayidx10.i141 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 12
-  store i32 %27, ptr %arrayidx10.i141, align 4
-  %arrayidx12.i142 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 12
-  store i8 1, ptr %arrayidx12.i142, align 8
-  %arrayidx.i180 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 13
-  store i32 %second, ptr %arrayidx.i180, align 8
-  %cmp5.i182 = icmp eq i32 %inc.i140, 10000
-  br i1 %cmp5.i182, label %if.then6.i188, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit215
+if.end4.i195:                                     ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i178, %if.end4.i148
+  %27 = phi i32 [ %inc26.i.i179, %_ZN6icu_758Calendar16recalculateStampEv.exit.i178 ], [ %inc.i106, %if.end4.i148 ]
+  %inc.i153 = add nsw i32 %27, 1
+  %arrayidx10.i155 = getelementptr inbounds i8, ptr %this, i64 180
+  store i32 %27, ptr %arrayidx10.i155, align 4
+  %arrayidx12.i157 = getelementptr inbounds i8, ptr %this, i64 120
+  store i8 1, ptr %arrayidx12.i157, align 8
+  %arrayidx.i197 = getelementptr inbounds i8, ptr %this, i64 64
+  store i32 %second, ptr %arrayidx.i197, align 8
+  %cmp5.i199 = icmp eq i32 %inc.i153, 10000
+  br i1 %cmp5.i199, label %if.then6.i207, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit235
 
-if.then6.i188:                                    ; preds = %if.end4.i179
+if.then6.i207:                                    ; preds = %if.end4.i195
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i189
+  br label %for.cond2.preheader.i.i209
 
-for.cond2.preheader.i.i189:                       ; preds = %if.then15.i.i207, %if.then6.i188
-  %j.011.i.i190 = phi i32 [ 0, %if.then6.i188 ], [ %inc23.i.i211, %if.then15.i.i207 ]
+for.cond2.preheader.i.i209:                       ; preds = %if.then15.i.i227, %if.then6.i207
+  %j.011.i.i210 = phi i32 [ 0, %if.then6.i207 ], [ %inc23.i.i231, %if.then15.i.i227 ]
   %28 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i191
+  br label %for.body4.i.i211
 
-for.body4.i.i191:                                 ; preds = %for.body4.i.i191, %for.cond2.preheader.i.i189
-  %indvars.iv.i.i192 = phi i64 [ 0, %for.cond2.preheader.i.i189 ], [ %indvars.iv.next.i.i201, %for.body4.i.i191 ]
-  %currentValue.09.i.i193 = phi i32 [ 10000, %for.cond2.preheader.i.i189 ], [ %currentValue.1.i.i200, %for.body4.i.i191 ]
-  %index.08.i.i194 = phi i32 [ -1, %for.cond2.preheader.i.i189 ], [ %index.1.i.i199, %for.body4.i.i191 ]
-  %arrayidx.i.i195 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i192
-  %29 = load i32, ptr %arrayidx.i.i195, align 4
-  %cmp6.i.i196 = icmp sgt i32 %29, %28
-  %cmp10.i.i197 = icmp slt i32 %29, %currentValue.09.i.i193
-  %or.cond.i.i198 = select i1 %cmp6.i.i196, i1 %cmp10.i.i197, i1 false
-  %30 = trunc i64 %indvars.iv.i.i192 to i32
-  %index.1.i.i199 = select i1 %or.cond.i.i198, i32 %30, i32 %index.08.i.i194
-  %currentValue.1.i.i200 = select i1 %or.cond.i.i198, i32 %29, i32 %currentValue.09.i.i193
-  %indvars.iv.next.i.i201 = add nuw nsw i64 %indvars.iv.i.i192, 1
-  %exitcond.not.i.i202 = icmp eq i64 %indvars.iv.next.i.i201, 24
-  br i1 %exitcond.not.i.i202, label %for.end.i.i203, label %for.body4.i.i191, !llvm.loop !8
+for.body4.i.i211:                                 ; preds = %for.body4.i.i211, %for.cond2.preheader.i.i209
+  %indvars.iv.i.i212 = phi i64 [ 0, %for.cond2.preheader.i.i209 ], [ %indvars.iv.next.i.i221, %for.body4.i.i211 ]
+  %currentValue.09.i.i213 = phi i32 [ 10000, %for.cond2.preheader.i.i209 ], [ %currentValue.1.i.i220, %for.body4.i.i211 ]
+  %index.08.i.i214 = phi i32 [ -1, %for.cond2.preheader.i.i209 ], [ %index.1.i.i219, %for.body4.i.i211 ]
+  %arrayidx.i.i215 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i212
+  %29 = load i32, ptr %arrayidx.i.i215, align 4
+  %cmp6.i.i216 = icmp sgt i32 %29, %28
+  %cmp10.i.i217 = icmp slt i32 %29, %currentValue.09.i.i213
+  %or.cond.i.i218 = select i1 %cmp6.i.i216, i1 %cmp10.i.i217, i1 false
+  %30 = trunc i64 %indvars.iv.i.i212 to i32
+  %index.1.i.i219 = select i1 %or.cond.i.i218, i32 %30, i32 %index.08.i.i214
+  %currentValue.1.i.i220 = select i1 %or.cond.i.i218, i32 %29, i32 %currentValue.09.i.i213
+  %indvars.iv.next.i.i221 = add nuw nsw i64 %indvars.iv.i.i212, 1
+  %exitcond.not.i.i222 = icmp eq i64 %indvars.iv.next.i.i221, 24
+  br i1 %exitcond.not.i.i222, label %for.end.i.i223, label %for.body4.i.i211, !llvm.loop !8
 
-for.end.i.i203:                                   ; preds = %for.body4.i.i191
-  %cmp14.i.i204 = icmp sgt i32 %index.1.i.i199, -1
-  br i1 %cmp14.i.i204, label %if.then15.i.i207, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i205
+for.end.i.i223:                                   ; preds = %for.body4.i.i211
+  %cmp14.i.i224 = icmp sgt i32 %index.1.i.i219, -1
+  br i1 %cmp14.i.i224, label %if.then15.i.i227, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i225
 
-if.then15.i.i207:                                 ; preds = %for.end.i.i203
-  %inc17.i.i208 = add nsw i32 %28, 1
-  store i32 %inc17.i.i208, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i209 = zext nneg i32 %index.1.i.i199 to i64
-  %arrayidx20.i.i210 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i209
-  store i32 %inc17.i.i208, ptr %arrayidx20.i.i210, align 4
-  %inc23.i.i211 = add nuw nsw i32 %j.011.i.i190, 1
-  %exitcond13.not.i.i212 = icmp eq i32 %inc23.i.i211, 24
-  br i1 %exitcond13.not.i.i212, label %if.then15.for.end24_crit_edge.i.i213, label %for.cond2.preheader.i.i189, !llvm.loop !9
+if.then15.i.i227:                                 ; preds = %for.end.i.i223
+  %inc17.i.i228 = add nsw i32 %28, 1
+  store i32 %inc17.i.i228, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i229 = zext nneg i32 %index.1.i.i219 to i64
+  %arrayidx20.i.i230 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i229
+  store i32 %inc17.i.i228, ptr %arrayidx20.i.i230, align 4
+  %inc23.i.i231 = add nuw nsw i32 %j.011.i.i210, 1
+  %exitcond13.not.i.i232 = icmp eq i32 %inc23.i.i231, 24
+  br i1 %exitcond13.not.i.i232, label %if.then15.for.end24_crit_edge.i.i233, label %for.cond2.preheader.i.i209, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i213:             ; preds = %if.then15.i.i207
-  %.pre.i.i214 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i205
+if.then15.for.end24_crit_edge.i.i233:             ; preds = %if.then15.i.i227
+  %.pre.i.i234 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i225
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i205: ; preds = %for.end.i.i203, %if.then15.for.end24_crit_edge.i.i213
-  %31 = phi i32 [ %.pre.i.i214, %if.then15.for.end24_crit_edge.i.i213 ], [ %28, %for.end.i.i203 ]
-  %inc26.i.i206 = add nsw i32 %31, 1
-  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit215
+_ZN6icu_758Calendar16recalculateStampEv.exit.i225: ; preds = %for.end.i.i223, %if.then15.for.end24_crit_edge.i.i233
+  %31 = phi i32 [ %.pre.i.i234, %if.then15.for.end24_crit_edge.i.i233 ], [ %28, %for.end.i.i223 ]
+  %inc26.i.i226 = add nsw i32 %31, 1
+  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit235
 
-_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit215: ; preds = %if.end4.i179, %_ZN6icu_758Calendar16recalculateStampEv.exit.i205
-  %32 = phi i32 [ %inc26.i.i206, %_ZN6icu_758Calendar16recalculateStampEv.exit.i205 ], [ %inc.i140, %if.end4.i179 ]
-  %inc.i183 = add nsw i32 %32, 1
-  store i32 %inc.i183, ptr %fNextStamp.i, align 4
-  %arrayidx10.i184 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 13
-  store i32 %32, ptr %arrayidx10.i184, align 8
-  %arrayidx12.i185 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 13
-  store i8 1, ptr %arrayidx12.i185, align 1
+_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit235: ; preds = %if.end4.i195, %_ZN6icu_758Calendar16recalculateStampEv.exit.i225
+  %32 = phi i32 [ %inc26.i.i226, %_ZN6icu_758Calendar16recalculateStampEv.exit.i225 ], [ %inc.i153, %if.end4.i195 ]
+  %inc.i200 = add nsw i32 %32, 1
+  store i32 %inc.i200, ptr %fNextStamp.i, align 4
+  %arrayidx10.i202 = getelementptr inbounds i8, ptr %this, i64 184
+  store i32 %32, ptr %arrayidx10.i202, align 8
+  %arrayidx12.i204 = getelementptr inbounds i8, ptr %this, i64 121
+  store i8 1, ptr %arrayidx12.i204, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   store i8 0, ptr %fAreFieldsSet.i, align 1
   store i8 0, ptr %fIsTimeSet.i, align 8
@@ -4941,14 +4948,14 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %fIsTimeSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fIsTimeSet.i.i, align 8
   %tobool2.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %if.end8.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i
   %vtable.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 31
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 248
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %3 = load i32, ptr %status, align 4
@@ -4956,37 +4963,37 @@ if.then3.i.i:                                     ; preds = %if.end.i
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
 if.end.i.i.i:                                     ; preds = %if.then3.i.i
-  %fLenient.i.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load i8, ptr %fLenient.i.i.i.i, align 8
   %tobool3.not.i.i.i = icmp ne i8 %4, 0
-  %fAreAllFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %5 = load i8, ptr %fAreAllFieldsSet.i.i.i, align 2
   %tobool4.not.i.i.i = icmp eq i8 %5, 0
   %or.cond.i.i.i = select i1 %tobool3.not.i.i.i, i1 true, i1 %tobool4.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.then5.i.i.i, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
-  %fAreFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i.i, align 1
   br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i
 
 _ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i: ; preds = %if.then5.i.i.i, %if.end.i.i.i
   store i8 1, ptr %fIsTimeSet.i.i, align 8
-  %fAreFieldsVirtuallySet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i, align 1
   %.pre.i.i = load i32, ptr %status, align 4
   %6 = icmp slt i32 %.pre.i.i, 1
   br i1 %6, label %if.end8.i.i, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
 if.end8.i.i:                                      ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i, %if.end.i
-  %fAreFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 9
   %7 = load i8, ptr %fAreFieldsSet.i.i, align 1
   %tobool9.not.i.i = icmp eq i8 %7, 0
   br i1 %tobool9.not.i.i, label %if.then10.i.i, label %cond.true.i
 
 if.then10.i.i:                                    ; preds = %if.end8.i.i
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 32
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 256
   %8 = load ptr, ptr %vfn.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %9 = load i32, ptr %status, align 4
@@ -4995,14 +5002,14 @@ if.then10.i.i:                                    ; preds = %if.end8.i.i
 
 if.end8.i:                                        ; preds = %if.then10.i.i
   store i8 1, ptr %fAreFieldsSet.i.i, align 1
-  %fAreAllFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 10
   store i8 1, ptr %fAreAllFieldsSet.i.i, align 2
   %.pre.i = load i32, ptr %status, align 4
   %cmp.i9.i = icmp sgt i32 %.pre.i, 0
   br i1 %cmp.i9.i, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end8.i, %if.end8.i.i
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 88
   %10 = load i32, ptr %arrayidx.i, align 8
   br label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
@@ -5016,7 +5023,7 @@ define void @_ZN6icu_758Calendar14setRelatedYearEi(ptr noundef nonnull align 8 d
 entry:
   %ec.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i)
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %this, i64 11
   %0 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %if.end4.i, label %if.then3.i
@@ -5024,21 +5031,22 @@ entry:
 if.then3.i:                                       ; preds = %entry
   store i32 0, ptr %ec.i, align 4
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %1 = load ptr, ptr %vfn.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i)
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %entry
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 88
   store i32 %year, ptr %arrayidx.i, align 8
-  %fNextStamp.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fNextStamp.i = getelementptr inbounds i8, ptr %this, i64 228
   %2 = load i32, ptr %fNextStamp.i, align 4
   %cmp5.i = icmp eq i32 %2, 10000
   br i1 %cmp5.i, label %if.then6.i, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
 
 if.then6.i:                                       ; preds = %if.end4.i
   store i32 1, ptr %fNextStamp.i, align 4
+  %fStamp.i.i = getelementptr inbounds i8, ptr %this, i64 132
   br label %for.cond2.preheader.i.i
 
 for.cond2.preheader.i.i:                          ; preds = %if.then15.i.i, %if.then6.i
@@ -5050,7 +5058,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   %indvars.iv.i.i = phi i64 [ 0, %for.cond2.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %currentValue.09.i.i = phi i32 [ 10000, %for.cond2.preheader.i.i ], [ %currentValue.1.i.i, %for.body4.i.i ]
   %index.08.i.i = phi i32 [ -1, %for.cond2.preheader.i.i ], [ %index.1.i.i, %for.body4.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %indvars.iv.i.i
   %4 = load i32, ptr %arrayidx.i.i, align 4
   %cmp6.i.i = icmp sgt i32 %4, %3
   %cmp10.i.i = icmp slt i32 %4, %currentValue.09.i.i
@@ -5070,7 +5078,7 @@ if.then15.i.i:                                    ; preds = %for.end.i.i
   %inc17.i.i = add nsw i32 %3, 1
   store i32 %inc17.i.i, ptr %fNextStamp.i, align 4
   %idxprom19.i.i = zext nneg i32 %index.1.i.i to i64
-  %arrayidx20.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i
+  %arrayidx20.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %idxprom19.i.i
   store i32 %inc17.i.i, ptr %arrayidx20.i.i, align 4
   %inc23.i.i = add nuw nsw i32 %j.011.i.i, 1
   %exitcond13.not.i.i = icmp eq i32 %inc23.i.i, 24
@@ -5089,14 +5097,14 @@ _ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %if.end4.i, %_ZN6
   %7 = phi i32 [ %inc26.i.i, %_ZN6icu_758Calendar16recalculateStampEv.exit.i ], [ %2, %if.end4.i ]
   %inc.i = add nsw i32 %7, 1
   store i32 %inc.i, ptr %fNextStamp.i, align 4
-  %arrayidx10.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 19
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 208
   store i32 %7, ptr %arrayidx10.i, align 8
-  %arrayidx12.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 19
+  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 127
   store i8 1, ptr %arrayidx12.i, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i, align 1
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %fIsTimeSet.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i)
   ret void
@@ -5110,7 +5118,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fAreFieldsVirtuallySet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet = getelementptr inbounds i8, ptr %this, i64 11
   %0 = load i8, ptr %fAreFieldsVirtuallySet, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end4, label %if.then3
@@ -5118,16 +5126,18 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   store i32 0, ptr %ec, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
+  %fFields = getelementptr inbounds i8, ptr %this, i64 12
   %idxprom = zext nneg i32 %field to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fFields, i64 0, i64 %idxprom
   store i32 0, ptr %arrayidx, align 4
-  %arrayidx6 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom
+  %fStamp = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx6 = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %idxprom
   store i32 0, ptr %arrayidx6, align 4
   switch i32 %field, label %if.end23 [
     i32 2, label %if.then8
@@ -5135,25 +5145,25 @@ if.end4:                                          ; preds = %if.then3, %if.end
   ]
 
 if.then8:                                         ; preds = %if.end4
-  %arrayidx10 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 23
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %arrayidx10, align 8
-  %arrayidx12 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 23
+  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 0, ptr %arrayidx12, align 8
-  %arrayidx13 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 23
+  %arrayidx13 = getelementptr inbounds i8, ptr %this, i64 131
   store i8 0, ptr %arrayidx13, align 1
   br label %if.end23
 
 if.then16:                                        ; preds = %if.end4
-  %arrayidx18 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %arrayidx18, align 4
-  %arrayidx20 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 2
+  %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 140
   store i32 0, ptr %arrayidx20, align 4
-  %arrayidx22 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 2
+  %arrayidx22 = getelementptr inbounds i8, ptr %this, i64 110
   store i8 0, ptr %arrayidx22, align 2
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then8, %if.end4, %if.then16
-  %fIsTimeSet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %fIsTimeSet, align 8
   br label %return
 
@@ -5168,14 +5178,15 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fAreFieldsVirtuallySet = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet = getelementptr inbounds i8, ptr %this, i64 11
   %0 = load i8, ptr %fAreFieldsVirtuallySet, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %lor.rhs, label %return
 
 lor.rhs:                                          ; preds = %if.end
+  %fStamp = getelementptr inbounds i8, ptr %this, i64 132
   %idxprom = zext nneg i32 %field to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %cmp3 = icmp ne i32 %1, 0
   %2 = zext i1 %cmp3 to i8
@@ -5190,17 +5201,18 @@ return:                                           ; preds = %if.end, %lor.rhs, %
 define noundef i32 @_ZNK6icu_758Calendar11newestStampE19UCalendarDateFieldsS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, i32 noundef %first, i32 noundef %last, i32 noundef %bestStampSoFar) local_unnamed_addr #18 align 2 {
 entry:
   %cmp.not5 = icmp sgt i32 %first, %last
-  br i1 %cmp.not5, label %for.end, label %for.body.preheader
+  br i1 %cmp.not5, label %for.end, label %for.body.lr.ph
 
-for.body.preheader:                               ; preds = %entry
+for.body.lr.ph:                                   ; preds = %entry
+  %fStamp = getelementptr inbounds i8, ptr %this, i64 132
   %0 = sext i32 %first to i64
   %1 = add i32 %last, 1
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ %0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %bestStamp.06 = phi i32 [ %bestStampSoFar, %for.body.preheader ], [ %spec.select, %for.body ]
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ %0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %bestStamp.06 = phi i32 [ %bestStampSoFar, %for.body.lr.ph ], [ %spec.select, %for.body ]
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx, align 4
   %spec.select = tail call i32 @llvm.smax.i32(i32 %2, i32 %bestStamp.06)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -5232,22 +5244,23 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %1 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 21
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 168
   %2 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %fFields = getelementptr inbounds i8, ptr %this, i64 12
   %idxprom = zext nneg i32 %field to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fFields, i64 0, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 4
   %cmp9 = icmp sgt i32 %3, %call5
   br i1 %cmp9, label %if.end.i, label %if.else
 
 if.end.i:                                         ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i)
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %this, i64 11
   %4 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %if.end4.i, label %if.then3.i
@@ -5255,20 +5268,21 @@ if.end.i:                                         ; preds = %if.end4
 if.then3.i:                                       ; preds = %if.end.i
   store i32 0, ptr %ec.i, align 4
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %5 = load ptr, ptr %vfn.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i)
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i
   store i32 %call5, ptr %arrayidx, align 4
-  %fNextStamp.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fNextStamp.i = getelementptr inbounds i8, ptr %this, i64 228
   %6 = load i32, ptr %fNextStamp.i, align 4
   %cmp5.i = icmp eq i32 %6, 10000
   br i1 %cmp5.i, label %if.then6.i, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
 
 if.then6.i:                                       ; preds = %if.end4.i
   store i32 1, ptr %fNextStamp.i, align 4
+  %fStamp.i.i = getelementptr inbounds i8, ptr %this, i64 132
   br label %for.cond2.preheader.i.i
 
 for.cond2.preheader.i.i:                          ; preds = %if.then15.i.i, %if.then6.i
@@ -5280,7 +5294,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   %indvars.iv.i.i = phi i64 [ 0, %for.cond2.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %currentValue.09.i.i = phi i32 [ 10000, %for.cond2.preheader.i.i ], [ %currentValue.1.i.i, %for.body4.i.i ]
   %index.08.i.i = phi i32 [ -1, %for.cond2.preheader.i.i ], [ %index.1.i.i, %for.body4.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %indvars.iv.i.i
   %8 = load i32, ptr %arrayidx.i.i, align 4
   %cmp6.i.i = icmp sgt i32 %8, %7
   %cmp10.i.i = icmp slt i32 %8, %currentValue.09.i.i
@@ -5300,7 +5314,7 @@ if.then15.i.i:                                    ; preds = %for.end.i.i
   %inc17.i.i = add nsw i32 %7, 1
   store i32 %inc17.i.i, ptr %fNextStamp.i, align 4
   %idxprom19.i.i = zext nneg i32 %index.1.i.i to i64
-  %arrayidx20.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i
+  %arrayidx20.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %idxprom19.i.i
   store i32 %inc17.i.i, ptr %arrayidx20.i.i, align 4
   %inc23.i.i = add nuw nsw i32 %j.011.i.i, 1
   %exitcond13.not.i.i = icmp eq i32 %inc23.i.i, 24
@@ -5319,14 +5333,16 @@ _ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %if.end4.i, %_ZN6
   %11 = phi i32 [ %inc26.i.i, %_ZN6icu_758Calendar16recalculateStampEv.exit.i ], [ %6, %if.end4.i ]
   %inc.i = add nsw i32 %11, 1
   store i32 %inc.i, ptr %fNextStamp.i, align 4
-  %arrayidx10.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx10.i = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom
   store i32 %11, ptr %arrayidx10.i, align 4
-  %arrayidx12.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 %idxprom
+  %fIsSet.i = getelementptr inbounds i8, ptr %this, i64 108
+  %arrayidx12.i = getelementptr inbounds [24 x i8], ptr %fIsSet.i, i64 0, i64 %idxprom
   store i8 1, ptr %arrayidx12.i, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i, align 1
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %fIsTimeSet.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i)
   br label %if.end17
@@ -5337,7 +5353,7 @@ if.else:                                          ; preds = %if.end4
 
 if.end.i15:                                       ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i13)
-  %fAreFieldsVirtuallySet.i16 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i16 = getelementptr inbounds i8, ptr %this, i64 11
   %12 = load i8, ptr %fAreFieldsVirtuallySet.i16, align 1
   %tobool.not.i17 = icmp eq i8 %12, 0
   br i1 %tobool.not.i17, label %if.end4.i21, label %if.then3.i18
@@ -5345,83 +5361,86 @@ if.end.i15:                                       ; preds = %if.else
 if.then3.i18:                                     ; preds = %if.end.i15
   store i32 0, ptr %ec.i13, align 4
   %vtable.i19 = load ptr, ptr %this, align 8
-  %vfn.i20 = getelementptr inbounds ptr, ptr %vtable.i19, i64 32
+  %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 256
   %13 = load ptr, ptr %vfn.i20, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i13)
   br label %if.end4.i21
 
 if.end4.i21:                                      ; preds = %if.then3.i18, %if.end.i15
   store i32 %call8, ptr %arrayidx, align 4
-  %fNextStamp.i24 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
-  %14 = load i32, ptr %fNextStamp.i24, align 4
-  %cmp5.i25 = icmp eq i32 %14, 10000
-  br i1 %cmp5.i25, label %if.then6.i32, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit59
+  %fNextStamp.i25 = getelementptr inbounds i8, ptr %this, i64 228
+  %14 = load i32, ptr %fNextStamp.i25, align 4
+  %cmp5.i26 = icmp eq i32 %14, 10000
+  br i1 %cmp5.i26, label %if.then6.i35, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit63
 
-if.then6.i32:                                     ; preds = %if.end4.i21
-  store i32 1, ptr %fNextStamp.i24, align 4
-  br label %for.cond2.preheader.i.i33
+if.then6.i35:                                     ; preds = %if.end4.i21
+  store i32 1, ptr %fNextStamp.i25, align 4
+  %fStamp.i.i36 = getelementptr inbounds i8, ptr %this, i64 132
+  br label %for.cond2.preheader.i.i37
 
-for.cond2.preheader.i.i33:                        ; preds = %if.then15.i.i51, %if.then6.i32
-  %j.011.i.i34 = phi i32 [ 0, %if.then6.i32 ], [ %inc23.i.i55, %if.then15.i.i51 ]
-  %15 = load i32, ptr %fNextStamp.i24, align 4
-  br label %for.body4.i.i35
+for.cond2.preheader.i.i37:                        ; preds = %if.then15.i.i55, %if.then6.i35
+  %j.011.i.i38 = phi i32 [ 0, %if.then6.i35 ], [ %inc23.i.i59, %if.then15.i.i55 ]
+  %15 = load i32, ptr %fNextStamp.i25, align 4
+  br label %for.body4.i.i39
 
-for.body4.i.i35:                                  ; preds = %for.body4.i.i35, %for.cond2.preheader.i.i33
-  %indvars.iv.i.i36 = phi i64 [ 0, %for.cond2.preheader.i.i33 ], [ %indvars.iv.next.i.i45, %for.body4.i.i35 ]
-  %currentValue.09.i.i37 = phi i32 [ 10000, %for.cond2.preheader.i.i33 ], [ %currentValue.1.i.i44, %for.body4.i.i35 ]
-  %index.08.i.i38 = phi i32 [ -1, %for.cond2.preheader.i.i33 ], [ %index.1.i.i43, %for.body4.i.i35 ]
-  %arrayidx.i.i39 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i36
-  %16 = load i32, ptr %arrayidx.i.i39, align 4
-  %cmp6.i.i40 = icmp sgt i32 %16, %15
-  %cmp10.i.i41 = icmp slt i32 %16, %currentValue.09.i.i37
-  %or.cond.i.i42 = select i1 %cmp6.i.i40, i1 %cmp10.i.i41, i1 false
-  %17 = trunc i64 %indvars.iv.i.i36 to i32
-  %index.1.i.i43 = select i1 %or.cond.i.i42, i32 %17, i32 %index.08.i.i38
-  %currentValue.1.i.i44 = select i1 %or.cond.i.i42, i32 %16, i32 %currentValue.09.i.i37
-  %indvars.iv.next.i.i45 = add nuw nsw i64 %indvars.iv.i.i36, 1
-  %exitcond.not.i.i46 = icmp eq i64 %indvars.iv.next.i.i45, 24
-  br i1 %exitcond.not.i.i46, label %for.end.i.i47, label %for.body4.i.i35, !llvm.loop !8
+for.body4.i.i39:                                  ; preds = %for.body4.i.i39, %for.cond2.preheader.i.i37
+  %indvars.iv.i.i40 = phi i64 [ 0, %for.cond2.preheader.i.i37 ], [ %indvars.iv.next.i.i49, %for.body4.i.i39 ]
+  %currentValue.09.i.i41 = phi i32 [ 10000, %for.cond2.preheader.i.i37 ], [ %currentValue.1.i.i48, %for.body4.i.i39 ]
+  %index.08.i.i42 = phi i32 [ -1, %for.cond2.preheader.i.i37 ], [ %index.1.i.i47, %for.body4.i.i39 ]
+  %arrayidx.i.i43 = getelementptr inbounds [24 x i32], ptr %fStamp.i.i36, i64 0, i64 %indvars.iv.i.i40
+  %16 = load i32, ptr %arrayidx.i.i43, align 4
+  %cmp6.i.i44 = icmp sgt i32 %16, %15
+  %cmp10.i.i45 = icmp slt i32 %16, %currentValue.09.i.i41
+  %or.cond.i.i46 = select i1 %cmp6.i.i44, i1 %cmp10.i.i45, i1 false
+  %17 = trunc i64 %indvars.iv.i.i40 to i32
+  %index.1.i.i47 = select i1 %or.cond.i.i46, i32 %17, i32 %index.08.i.i42
+  %currentValue.1.i.i48 = select i1 %or.cond.i.i46, i32 %16, i32 %currentValue.09.i.i41
+  %indvars.iv.next.i.i49 = add nuw nsw i64 %indvars.iv.i.i40, 1
+  %exitcond.not.i.i50 = icmp eq i64 %indvars.iv.next.i.i49, 24
+  br i1 %exitcond.not.i.i50, label %for.end.i.i51, label %for.body4.i.i39, !llvm.loop !8
 
-for.end.i.i47:                                    ; preds = %for.body4.i.i35
-  %cmp14.i.i48 = icmp sgt i32 %index.1.i.i43, -1
-  br i1 %cmp14.i.i48, label %if.then15.i.i51, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i49
+for.end.i.i51:                                    ; preds = %for.body4.i.i39
+  %cmp14.i.i52 = icmp sgt i32 %index.1.i.i47, -1
+  br i1 %cmp14.i.i52, label %if.then15.i.i55, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i53
 
-if.then15.i.i51:                                  ; preds = %for.end.i.i47
-  %inc17.i.i52 = add nsw i32 %15, 1
-  store i32 %inc17.i.i52, ptr %fNextStamp.i24, align 4
-  %idxprom19.i.i53 = zext nneg i32 %index.1.i.i43 to i64
-  %arrayidx20.i.i54 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i53
-  store i32 %inc17.i.i52, ptr %arrayidx20.i.i54, align 4
-  %inc23.i.i55 = add nuw nsw i32 %j.011.i.i34, 1
-  %exitcond13.not.i.i56 = icmp eq i32 %inc23.i.i55, 24
-  br i1 %exitcond13.not.i.i56, label %if.then15.for.end24_crit_edge.i.i57, label %for.cond2.preheader.i.i33, !llvm.loop !9
+if.then15.i.i55:                                  ; preds = %for.end.i.i51
+  %inc17.i.i56 = add nsw i32 %15, 1
+  store i32 %inc17.i.i56, ptr %fNextStamp.i25, align 4
+  %idxprom19.i.i57 = zext nneg i32 %index.1.i.i47 to i64
+  %arrayidx20.i.i58 = getelementptr inbounds [24 x i32], ptr %fStamp.i.i36, i64 0, i64 %idxprom19.i.i57
+  store i32 %inc17.i.i56, ptr %arrayidx20.i.i58, align 4
+  %inc23.i.i59 = add nuw nsw i32 %j.011.i.i38, 1
+  %exitcond13.not.i.i60 = icmp eq i32 %inc23.i.i59, 24
+  br i1 %exitcond13.not.i.i60, label %if.then15.for.end24_crit_edge.i.i61, label %for.cond2.preheader.i.i37, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i57:              ; preds = %if.then15.i.i51
-  %.pre.i.i58 = load i32, ptr %fNextStamp.i24, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i49
+if.then15.for.end24_crit_edge.i.i61:              ; preds = %if.then15.i.i55
+  %.pre.i.i62 = load i32, ptr %fNextStamp.i25, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i53
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i49: ; preds = %for.end.i.i47, %if.then15.for.end24_crit_edge.i.i57
-  %18 = phi i32 [ %.pre.i.i58, %if.then15.for.end24_crit_edge.i.i57 ], [ %15, %for.end.i.i47 ]
-  %inc26.i.i50 = add nsw i32 %18, 1
-  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit59
+_ZN6icu_758Calendar16recalculateStampEv.exit.i53: ; preds = %for.end.i.i51, %if.then15.for.end24_crit_edge.i.i61
+  %18 = phi i32 [ %.pre.i.i62, %if.then15.for.end24_crit_edge.i.i61 ], [ %15, %for.end.i.i51 ]
+  %inc26.i.i54 = add nsw i32 %18, 1
+  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit63
 
-_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit59: ; preds = %if.end4.i21, %_ZN6icu_758Calendar16recalculateStampEv.exit.i49
-  %19 = phi i32 [ %inc26.i.i50, %_ZN6icu_758Calendar16recalculateStampEv.exit.i49 ], [ %14, %if.end4.i21 ]
-  %inc.i27 = add nsw i32 %19, 1
-  store i32 %inc.i27, ptr %fNextStamp.i24, align 4
-  %arrayidx10.i28 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom
-  store i32 %19, ptr %arrayidx10.i28, align 4
-  %arrayidx12.i29 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 %idxprom
-  store i8 1, ptr %arrayidx12.i29, align 1
+_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit63: ; preds = %if.end4.i21, %_ZN6icu_758Calendar16recalculateStampEv.exit.i53
+  %19 = phi i32 [ %inc26.i.i54, %_ZN6icu_758Calendar16recalculateStampEv.exit.i53 ], [ %14, %if.end4.i21 ]
+  %inc.i28 = add nsw i32 %19, 1
+  store i32 %inc.i28, ptr %fNextStamp.i25, align 4
+  %fStamp.i29 = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx10.i30 = getelementptr inbounds [24 x i32], ptr %fStamp.i29, i64 0, i64 %idxprom
+  store i32 %19, ptr %arrayidx10.i30, align 4
+  %fIsSet.i31 = getelementptr inbounds i8, ptr %this, i64 108
+  %arrayidx12.i32 = getelementptr inbounds [24 x i8], ptr %fIsSet.i31, i64 0, i64 %idxprom
+  store i8 1, ptr %arrayidx12.i32, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i16, align 1
-  %fAreFieldsSet.i30 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  store i8 0, ptr %fAreFieldsSet.i30, align 1
-  %fIsTimeSet.i31 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
-  store i8 0, ptr %fIsTimeSet.i31, align 8
+  %fAreFieldsSet.i33 = getelementptr inbounds i8, ptr %this, i64 9
+  store i8 0, ptr %fAreFieldsSet.i33, align 1
+  %fIsTimeSet.i34 = getelementptr inbounds i8, ptr %this, i64 8
+  store i8 0, ptr %fIsTimeSet.i34, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i13)
   br label %if.end17
 
-if.end17:                                         ; preds = %if.else, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit59, %entry, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit, %if.then3
+if.end17:                                         ; preds = %if.else, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit63, %entry, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit, %if.then3
   ret void
 }
 
@@ -5437,12 +5456,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fTime.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %fTime.i = getelementptr inbounds i8, ptr %this, i64 232
   %1 = load double, ptr %fTime.i, align 8
-  %fZone.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone.i = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load ptr, ptr %fZone.i, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %3 = load ptr, ptr %vfn, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %1, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %rawOffset, ptr noundef nonnull align 4 dereferenceable(4) %dstOffset, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %4 = load i32, ptr %ec, align 4
@@ -5454,19 +5473,21 @@ if.end7:                                          ; preds = %if.end
   %6 = load i32, ptr %dstOffset, align 4
   %add = add nsw i32 %6, %5
   %conv = sitofp i32 %add to double
+  %fStamp13 = getelementptr inbounds i8, ptr %this, i64 132
+  %fIsSet16 = getelementptr inbounds i8, ptr %this, i64 108
   br label %for.body
 
 for.body:                                         ; preds = %if.end7, %for.body
   %indvars.iv = phi i64 [ 0, %if.end7 ], [ %indvars.iv.next, %for.body ]
   %mask.022 = phi i32 [ 8912999, %if.end7 ], [ %shr, %for.body ]
   %and = and i32 %mask.022, 1
-  %spec.select = xor i32 %and, 1
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fStamp13, i64 0, i64 %indvars.iv
+  %arrayidx12 = getelementptr inbounds [24 x i8], ptr %fIsSet16, i64 0, i64 %indvars.iv
+  %. = xor i32 %and, 1
   %7 = trunc i32 %and to i8
-  %spec.select26 = xor i8 %7, 1
-  %8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv
-  store i32 %spec.select, ptr %8, align 4
-  %9 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 %indvars.iv
-  store i8 %spec.select26, ptr %9, align 1
+  %.26 = xor i8 %7, 1
+  store i32 %., ptr %arrayidx, align 4
+  store i8 %.26, ptr %arrayidx12, align 1
   %shr = lshr i32 %mask.022, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
@@ -5476,15 +5497,15 @@ for.end:                                          ; preds = %for.body
   %add8 = fadd double %1, %conv
   %call20 = call noundef i32 @_ZN6icu_759ClockMath11floorDivideEdiPi(double noundef %add8, i32 noundef 86400000, ptr noundef nonnull %millisInDay)
   %add21 = add nsw i32 %call20, 2440588
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 20
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %add21, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 20
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 212
   store i32 1, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 20
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 128
   store i8 1, ptr %arrayidx5.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %gregorianDayOfWeekUnused.i.i)
-  %10 = load i32, ptr %ec, align 4
-  %cmp.i.i.i = icmp slt i32 %10, 1
+  %8 = load i32, ptr %ec, align 4
+  %cmp.i.i.i = icmp slt i32 %8, 1
   br i1 %cmp.i.i.i, label %_ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode.exit.i, label %_ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode.exit.thread.i
 
 _ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode.exit.thread.i: ; preds = %for.end
@@ -5492,15 +5513,15 @@ _ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode.exit.thread.i: ; pred
   br label %_ZN6icu_758Calendar28computeGregorianAndDOWFieldsEiR10UErrorCode.exit
 
 _ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode.exit.i: ; preds = %for.end
-  %fGregorianYear.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 22
-  %fGregorianMonth.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 23
-  %fGregorianDayOfMonth.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 25
-  %fGregorianDayOfYear.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 24
+  %fGregorianYear.i.i = getelementptr inbounds i8, ptr %this, i64 288
+  %fGregorianMonth.i.i = getelementptr inbounds i8, ptr %this, i64 292
+  %fGregorianDayOfMonth.i.i = getelementptr inbounds i8, ptr %this, i64 300
+  %fGregorianDayOfYear.i.i = getelementptr inbounds i8, ptr %this, i64 296
   call void @_ZN6icu_755Grego11dayToFieldsEiRiS1_S1_S1_S1_(i32 noundef %call20, ptr noundef nonnull align 4 dereferenceable(4) %fGregorianYear.i.i, ptr noundef nonnull align 4 dereferenceable(4) %fGregorianMonth.i.i, ptr noundef nonnull align 4 dereferenceable(4) %fGregorianDayOfMonth.i.i, ptr noundef nonnull align 4 dereferenceable(4) %gregorianDayOfWeekUnused.i.i, ptr noundef nonnull align 4 dereferenceable(4) %fGregorianDayOfYear.i.i)
   %.pre.i = load i32, ptr %ec, align 4
-  %11 = icmp slt i32 %.pre.i, 1
+  %9 = icmp slt i32 %.pre.i, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %gregorianDayOfWeekUnused.i.i)
-  br i1 %11, label %if.end.i, label %_ZN6icu_758Calendar28computeGregorianAndDOWFieldsEiR10UErrorCode.exit
+  br i1 %9, label %if.end.i, label %_ZN6icu_758Calendar28computeGregorianAndDOWFieldsEiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %_ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode.exit.i
   %add.i.i = add nsw i32 %call20, 2440589
@@ -5509,69 +5530,69 @@ if.end.i:                                         ; preds = %_ZN6icu_758Calendar
   %cond.i.i = select i1 %cmp.i7.i, i32 8, i32 1
   %add3.i.i = add nsw i32 %cond.i.i, %rem.i.i
   %conv.i17 = and i32 %add3.i.i, 255
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %conv.i17, ptr %arrayidx.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 7
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i32 1, ptr %arrayidx3.i.i, align 8
-  %arrayidx5.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 7
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %this, i64 115
   store i8 1, ptr %arrayidx5.i.i, align 1
-  %fFirstDayOfWeek.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
-  %12 = load i32, ptr %fFirstDayOfWeek.i.i, align 8
-  %sub.i = sub nsw i32 %conv.i17, %12
+  %fFirstDayOfWeek.i.i = getelementptr inbounds i8, ptr %this, i64 264
+  %10 = load i32, ptr %fFirstDayOfWeek.i.i, align 8
+  %sub.i = sub nsw i32 %conv.i17, %10
   %cmp.i18 = icmp slt i32 %sub.i, 0
   %spec.select.v.i = select i1 %cmp.i18, i32 8, i32 1
   %spec.select.i = add nsw i32 %spec.select.v.i, %sub.i
-  %arrayidx.i8.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 18
-  %arrayidx3.i9.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 18
-  store i32 1, ptr %arrayidx3.i9.i, align 4
-  %arrayidx5.i10.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 18
-  store i8 1, ptr %arrayidx5.i10.i, align 2
-  store i32 %spec.select.i, ptr %arrayidx.i8.i, align 4
+  %arrayidx.i9.i = getelementptr inbounds i8, ptr %this, i64 84
+  %arrayidx3.i11.i = getelementptr inbounds i8, ptr %this, i64 204
+  store i32 1, ptr %arrayidx3.i11.i, align 4
+  %arrayidx5.i13.i = getelementptr inbounds i8, ptr %this, i64 126
+  store i8 1, ptr %arrayidx5.i13.i, align 2
+  store i32 %spec.select.i, ptr %arrayidx.i9.i, align 4
   br label %_ZN6icu_758Calendar28computeGregorianAndDOWFieldsEiR10UErrorCode.exit
 
 _ZN6icu_758Calendar28computeGregorianAndDOWFieldsEiR10UErrorCode.exit: ; preds = %_ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode.exit.thread.i, %_ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode.exit.i, %if.end.i
-  %13 = load i32, ptr %arrayidx.i, align 4
+  %11 = load i32, ptr %arrayidx.i, align 4
   %vtable25 = load ptr, ptr %this, align 8
-  %vfn26 = getelementptr inbounds ptr, ptr %vtable25, i64 46
-  %14 = load ptr, ptr %vfn26, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %ec)
+  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 368
+  %12 = load ptr, ptr %vfn26, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   call void @_ZN6icu_758Calendar17computeWeekFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec)
-  %15 = load i32, ptr %ec, align 4
-  %cmp.i19 = icmp slt i32 %15, 1
+  %13 = load i32, ptr %ec, align 4
+  %cmp.i19 = icmp slt i32 %13, 1
   br i1 %cmp.i19, label %if.end30, label %return
 
 if.end30:                                         ; preds = %_ZN6icu_758Calendar28computeGregorianAndDOWFieldsEiR10UErrorCode.exit
-  %16 = load i32, ptr %millisInDay, align 4
-  %arrayidx32 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 21
-  store i32 %16, ptr %arrayidx32, align 8
-  %rem = srem i32 %16, 1000
-  %arrayidx34 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 14
+  %14 = load i32, ptr %millisInDay, align 4
+  %arrayidx32 = getelementptr inbounds i8, ptr %this, i64 96
+  store i32 %14, ptr %arrayidx32, align 8
+  %rem = srem i32 %14, 1000
+  %arrayidx34 = getelementptr inbounds i8, ptr %this, i64 68
   store i32 %rem, ptr %arrayidx34, align 4
-  %div = sdiv i32 %16, 1000
+  %div = sdiv i32 %14, 1000
   %rem35 = srem i32 %div, 60
-  %arrayidx37 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 13
+  %arrayidx37 = getelementptr inbounds i8, ptr %this, i64 64
   store i32 %rem35, ptr %arrayidx37, align 8
-  %div38 = sdiv i32 %16, 60000
+  %div38 = sdiv i32 %14, 60000
   %rem39 = srem i32 %div38, 60
-  %arrayidx41 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 12
+  %arrayidx41 = getelementptr inbounds i8, ptr %this, i64 60
   store i32 %rem39, ptr %arrayidx41, align 4
-  %div42 = sdiv i32 %16, 3600000
-  %arrayidx44 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 11
+  %div42 = sdiv i32 %14, 3600000
+  %arrayidx44 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %div42, ptr %arrayidx44, align 8
-  %div45 = sdiv i32 %16, 43200000
-  %arrayidx47 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 9
+  %div45 = sdiv i32 %14, 43200000
+  %arrayidx47 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %div45, ptr %arrayidx47, align 8
   %rem48.lhs.trunc = trunc i32 %div42 to i16
   %rem4821 = srem i16 %rem48.lhs.trunc, 12
   %rem48.sext = sext i16 %rem4821 to i32
-  %arrayidx50 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 10
+  %arrayidx50 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %rem48.sext, ptr %arrayidx50, align 4
-  %17 = load i32, ptr %rawOffset, align 4
-  %arrayidx52 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 15
-  store i32 %17, ptr %arrayidx52, align 8
-  %18 = load i32, ptr %dstOffset, align 4
-  %arrayidx54 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 16
-  store i32 %18, ptr %arrayidx54, align 4
+  %15 = load i32, ptr %rawOffset, align 4
+  %arrayidx52 = getelementptr inbounds i8, ptr %this, i64 72
+  store i32 %15, ptr %arrayidx52, align 8
+  %16 = load i32, ptr %dstOffset, align 4
+  %arrayidx54 = getelementptr inbounds i8, ptr %this, i64 76
+  store i32 %16, ptr %arrayidx54, align 4
   br label %return
 
 return:                                           ; preds = %_ZN6icu_758Calendar28computeGregorianAndDOWFieldsEiR10UErrorCode.exit, %if.end, %entry, %if.end30
@@ -5581,7 +5602,7 @@ return:                                           ; preds = %_ZN6icu_758Calendar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6icu_758Calendar11getTimeZoneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this) local_unnamed_addr #16 align 2 {
 entry:
-  %fZone = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %fZone, align 8
   ret ptr %0
 }
@@ -5603,10 +5624,10 @@ _ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode.exit.thread: ; preds 
 
 _ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode.exit: ; preds = %entry
   %sub.i = add nsw i32 %julianDay, -2440588
-  %fGregorianYear.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 22
-  %fGregorianMonth.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 23
-  %fGregorianDayOfMonth.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 25
-  %fGregorianDayOfYear.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 24
+  %fGregorianYear.i = getelementptr inbounds i8, ptr %this, i64 288
+  %fGregorianMonth.i = getelementptr inbounds i8, ptr %this, i64 292
+  %fGregorianDayOfMonth.i = getelementptr inbounds i8, ptr %this, i64 300
+  %fGregorianDayOfYear.i = getelementptr inbounds i8, ptr %this, i64 296
   call void @_ZN6icu_755Grego11dayToFieldsEiRiS1_S1_S1_S1_(i32 noundef %sub.i, ptr noundef nonnull align 4 dereferenceable(4) %fGregorianYear.i, ptr noundef nonnull align 4 dereferenceable(4) %fGregorianMonth.i, ptr noundef nonnull align 4 dereferenceable(4) %fGregorianDayOfMonth.i, ptr noundef nonnull align 4 dereferenceable(4) %gregorianDayOfWeekUnused.i, ptr noundef nonnull align 4 dereferenceable(4) %fGregorianDayOfYear.i)
   %.pre = load i32, ptr %ec, align 4
   %1 = icmp slt i32 %.pre, 1
@@ -5620,24 +5641,24 @@ if.end:                                           ; preds = %_ZN6icu_758Calendar
   %cond.i = select i1 %cmp.i7, i32 8, i32 1
   %add3.i = add nsw i32 %cond.i, %rem.i
   %conv = and i32 %add3.i, 255
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %conv, ptr %arrayidx.i, align 8
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 7
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 160
   store i32 1, ptr %arrayidx3.i, align 8
-  %arrayidx5.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 7
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 115
   store i8 1, ptr %arrayidx5.i, align 1
-  %fFirstDayOfWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 264
   %2 = load i32, ptr %fFirstDayOfWeek.i, align 8
   %sub = sub nsw i32 %conv, %2
   %cmp = icmp slt i32 %sub, 0
   %spec.select.v = select i1 %cmp, i32 8, i32 1
   %spec.select = add nsw i32 %spec.select.v, %sub
-  %arrayidx.i8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 18
-  %arrayidx3.i9 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 18
-  store i32 1, ptr %arrayidx3.i9, align 4
-  %arrayidx5.i10 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 18
-  store i8 1, ptr %arrayidx5.i10, align 2
-  store i32 %spec.select, ptr %arrayidx.i8, align 4
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %this, i64 84
+  %arrayidx3.i11 = getelementptr inbounds i8, ptr %this, i64 204
+  store i32 1, ptr %arrayidx3.i11, align 4
+  %arrayidx5.i13 = getelementptr inbounds i8, ptr %this, i64 126
+  store i8 1, ptr %arrayidx5.i13, align 2
+  store i32 %spec.select, ptr %arrayidx.i9, align 4
   br label %return
 
 return:                                           ; preds = %_ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode.exit.thread, %_ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode.exit, %if.end
@@ -5652,14 +5673,14 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i32, ptr %arrayidx3, align 8
-  %arrayidx5 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 6
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 36
   %3 = load i32, ptr %arrayidx5, align 4
   %add = add nsw i32 %2, 7
-  %fFirstDayOfWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 264
   %4 = load i32, ptr %fFirstDayOfWeek.i, align 8
   %sub = sub i32 %add, %4
   %rem = srem i32 %sub, 7
@@ -5671,7 +5692,7 @@ if.end:                                           ; preds = %entry
   %add13 = add nsw i32 %sub12, %rem11
   %div = sdiv i32 %add13, 7
   %sub14 = sub nsw i32 7, %rem11
-  %fMinimalDaysInFirstWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
+  %fMinimalDaysInFirstWeek.i = getelementptr inbounds i8, ptr %this, i64 268
   %6 = load i8, ptr %fMinimalDaysInFirstWeek.i, align 4
   %conv = zext i8 %6 to i32
   %cmp.not = icmp uge i32 %sub14, %conv
@@ -5683,7 +5704,7 @@ if.end:                                           ; preds = %entry
 if.then19:                                        ; preds = %if.end
   %sub20 = add nsw i32 %1, -1
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 320
   %7 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %sub20)
   %add22 = add nsw i32 %call21, %3
@@ -5708,7 +5729,7 @@ if.then19:                                        ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %vtable24 = load ptr, ptr %this, align 8
-  %vfn25 = getelementptr inbounds ptr, ptr %vtable24, i64 40
+  %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 320
   %11 = load ptr, ptr %vfn25, align 8
   %call26 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %1)
   %sub27 = add nsw i32 %call26, -5
@@ -5745,11 +5766,11 @@ if.end48:                                         ; preds = %if.else.if.end48_cr
   %conv.i.i38.pre-phi = phi i32 [ %.pre49, %if.else.if.end48_crit_edge ], [ %conv39, %land.lhs.true ], [ %conv39, %if.then29 ], [ %conv.i.i, %if.then19 ]
   %woy.1 = phi i32 [ %spec.select, %if.else.if.end48_crit_edge ], [ %spec.select23, %land.lhs.true ], [ %spec.select, %if.then29 ], [ %weekNo.0.i.i, %if.then19 ]
   %yearOfWeekOfYear.0 = phi i32 [ %1, %if.else.if.end48_crit_edge ], [ %spec.select24, %land.lhs.true ], [ %1, %if.then29 ], [ %sub20, %if.then19 ]
-  %arrayidx50 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 3
+  %arrayidx50 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %woy.1, ptr %arrayidx50, align 8
-  %arrayidx52 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 17
+  %arrayidx52 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %yearOfWeekOfYear.0, ptr %arrayidx52, align 8
-  %arrayidx54 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
+  %arrayidx54 = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load i32, ptr %arrayidx54, align 8
   %13 = load i32, ptr %fFirstDayOfWeek.i, align 8
   %.neg48 = add i32 %2, 1
@@ -5766,11 +5787,11 @@ if.end48:                                         ; preds = %if.else.if.end48_cr
   %cmp8.not.i.i39 = icmp uge i32 %sub6.i.i36, %conv.i.i38.pre-phi
   %inc.i.i40 = zext i1 %cmp8.not.i.i39 to i32
   %weekNo.0.i.i41 = add nsw i32 %div.i.i35, %inc.i.i40
-  %arrayidx57 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 4
+  %arrayidx57 = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %weekNo.0.i.i41, ptr %arrayidx57, align 4
   %div59 = sdiv i32 %add4.i.i33, 7
   %add60 = add nsw i32 %div59, 1
-  %arrayidx62 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 8
+  %arrayidx62 = getelementptr inbounds i8, ptr %this, i64 44
   store i32 %add60, ptr %arrayidx62, align 4
   br label %return
 
@@ -5800,10 +5821,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %sub = add nsw i32 %julianDay, -2440588
-  %fGregorianYear = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 22
-  %fGregorianMonth = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 23
-  %fGregorianDayOfMonth = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 25
-  %fGregorianDayOfYear = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 24
+  %fGregorianYear = getelementptr inbounds i8, ptr %this, i64 288
+  %fGregorianMonth = getelementptr inbounds i8, ptr %this, i64 292
+  %fGregorianDayOfMonth = getelementptr inbounds i8, ptr %this, i64 300
+  %fGregorianDayOfYear = getelementptr inbounds i8, ptr %this, i64 296
   call void @_ZN6icu_755Grego11dayToFieldsEiRiS1_S1_S1_S1_(i32 noundef %sub, ptr noundef nonnull align 4 dereferenceable(4) %fGregorianYear, ptr noundef nonnull align 4 dereferenceable(4) %fGregorianMonth, ptr noundef nonnull align 4 dereferenceable(4) %fGregorianDayOfMonth, ptr noundef nonnull align 4 dereferenceable(4) %gregorianDayOfWeekUnused, ptr noundef nonnull align 4 dereferenceable(4) %fGregorianDayOfYear)
   br label %return
 
@@ -5814,7 +5835,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_758Calendar17getFirstDayOfWeekEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this) local_unnamed_addr #16 align 2 {
 entry:
-  %fFirstDayOfWeek = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i32, ptr %fFirstDayOfWeek, align 8
   ret i32 %0
 }
@@ -5824,7 +5845,7 @@ declare void @_ZN6icu_755Grego11dayToFieldsEiRiS1_S1_S1_S1_(i32 noundef, ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i8 @_ZNK6icu_758Calendar25getMinimalDaysInFirstWeekEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this) local_unnamed_addr #16 align 2 {
 entry:
-  %fMinimalDaysInFirstWeek = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
+  %fMinimalDaysInFirstWeek = getelementptr inbounds i8, ptr %this, i64 268
   %0 = load i8, ptr %fMinimalDaysInFirstWeek, align 4
   ret i8 %0
 }
@@ -5832,7 +5853,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN6icu_758Calendar10weekNumberEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, i32 noundef %desiredDay, i32 noundef %dayOfPeriod, i32 noundef %dayOfWeek) local_unnamed_addr #16 align 2 {
 entry:
-  %fFirstDayOfWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i32, ptr %fFirstDayOfWeek.i, align 8
   %1 = add i32 %dayOfWeek, 1
   %2 = add i32 %0, %dayOfPeriod
@@ -5845,7 +5866,7 @@ entry:
   %sub5 = add i32 %add4, %spec.select
   %div = sdiv i32 %sub5, 7
   %sub6 = sub nuw nsw i32 7, %spec.select
-  %fMinimalDaysInFirstWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
+  %fMinimalDaysInFirstWeek.i = getelementptr inbounds i8, ptr %this, i64 268
   %3 = load i8, ptr %fMinimalDaysInFirstWeek.i, align 4
   %conv = zext i8 %3 to i32
   %cmp8.not = icmp uge i32 %sub6, %conv
@@ -5862,57 +5883,57 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fGregorianMonth.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 23
+  %fGregorianMonth.i = getelementptr inbounds i8, ptr %this, i64 292
   %2 = load i32, ptr %fGregorianMonth.i, align 4
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %2, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 2
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 140
   store i32 1, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 2
+  %fIsSet.i = getelementptr inbounds i8, ptr %this, i64 108
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 110
   store i8 1, ptr %arrayidx5.i, align 2
-  %arrayidx.i5 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 23
-  store i32 %2, ptr %arrayidx.i5, align 8
-  %arrayidx3.i6 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 23
-  store i32 1, ptr %arrayidx3.i6, align 8
-  %arrayidx5.i7 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 23
-  store i8 1, ptr %arrayidx5.i7, align 1
-  %arrayidx.i8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  %arrayidx3.i9 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 5
-  store i32 1, ptr %arrayidx3.i9, align 8
-  %arrayidx5.i10 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 5
+  %arrayidx.i6 = getelementptr inbounds i8, ptr %this, i64 104
+  store i32 %2, ptr %arrayidx.i6, align 8
+  %arrayidx3.i8 = getelementptr inbounds i8, ptr %this, i64 224
+  store i32 1, ptr %arrayidx3.i8, align 8
+  %arrayidx5.i10 = getelementptr inbounds i8, ptr %this, i64 131
   store i8 1, ptr %arrayidx5.i10, align 1
-  %fGregorianDayOfYear.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 24
+  %arrayidx.i12 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx3.i14 = getelementptr inbounds i8, ptr %this, i64 152
+  store i32 1, ptr %arrayidx3.i14, align 8
+  %arrayidx5.i16 = getelementptr inbounds i8, ptr %this, i64 113
+  store i8 1, ptr %arrayidx5.i16, align 1
+  %fGregorianDayOfYear.i = getelementptr inbounds i8, ptr %this, i64 296
   %3 = load <2 x i32>, ptr %fGregorianDayOfYear.i, align 8
   %4 = shufflevector <2 x i32> %3, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %4, ptr %arrayidx.i8, align 8
-  %arrayidx3.i12 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 6
-  store i32 1, ptr %arrayidx3.i12, align 4
-  %arrayidx5.i13 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 6
-  store i8 1, ptr %arrayidx5.i13, align 2
-  %fGregorianYear.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 22
+  store <2 x i32> %4, ptr %arrayidx.i12, align 8
+  %arrayidx3.i20 = getelementptr inbounds i8, ptr %this, i64 156
+  store i32 1, ptr %arrayidx3.i20, align 4
+  %arrayidx5.i22 = getelementptr inbounds i8, ptr %this, i64 114
+  store i8 1, ptr %arrayidx5.i22, align 2
+  %fGregorianYear.i = getelementptr inbounds i8, ptr %this, i64 288
   %5 = load i32, ptr %fGregorianYear.i, align 8
-  %arrayidx.i14 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
-  store i32 %5, ptr %arrayidx.i14, align 8
-  %arrayidx3.i15 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 19
-  store i32 1, ptr %arrayidx3.i15, align 8
-  %arrayidx5.i16 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 19
-  store i8 1, ptr %arrayidx5.i16, align 1
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %this, i64 88
+  store i32 %5, ptr %arrayidx.i24, align 8
+  %arrayidx3.i26 = getelementptr inbounds i8, ptr %this, i64 208
+  store i32 1, ptr %arrayidx3.i26, align 8
+  %arrayidx5.i28 = getelementptr inbounds i8, ptr %this, i64 127
+  store i8 1, ptr %arrayidx5.i28, align 1
   %cmp = icmp sgt i32 %5, 0
   %sub = sub nsw i32 1, %5
-  %spec.select = zext i1 %cmp to i32
-  %spec.select26 = select i1 %cmp, i32 %5, i32 %sub
-  %6 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
-  store i32 %spec.select, ptr %6, align 4
-  %7 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 0
-  store i32 1, ptr %7, align 4
-  %8 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 0
-  store i8 1, ptr %8, align 4
-  %arrayidx.i23 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  store i32 %spec.select26, ptr %arrayidx.i23, align 8
-  %arrayidx3.i24 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
-  store i32 1, ptr %arrayidx3.i24, align 8
-  %arrayidx5.i25 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 1
-  store i8 1, ptr %arrayidx5.i25, align 1
+  %storemerge = zext i1 %cmp to i32
+  %eyear.0 = select i1 %cmp, i32 %5, i32 %sub
+  store i32 %storemerge, ptr %fFields.i, align 4
+  store i32 1, ptr %fStamp.i, align 4
+  store i8 1, ptr %fIsSet.i, align 4
+  %arrayidx.i36 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %eyear.0, ptr %arrayidx.i36, align 8
+  %arrayidx3.i38 = getelementptr inbounds i8, ptr %this, i64 136
+  store i32 1, ptr %arrayidx3.i38, align 8
+  %arrayidx5.i40 = getelementptr inbounds i8, ptr %this, i64 109
+  store i8 1, ptr %arrayidx5.i40, align 1
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -5923,7 +5944,7 @@ return:                                           ; preds = %entry, %if.end
 define void @_ZN6icu_758Calendar4rollENS0_11EDateFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %amount, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %amount, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -5932,23 +5953,23 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_758Calendar4rollE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %amount, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
-  %ec.i175 = alloca i32, align 4
+  %ec.i188 = alloca i32, align 4
   %ec.i = alloca i32, align 4
   %cmp = icmp ne i32 %amount, 0
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
-  %or.cond223 = select i1 %cmp, i1 %cmp.i.i, i1 false
-  br i1 %or.cond223, label %if.end.i, label %sw.epilog
+  %or.cond245 = select i1 %cmp, i1 %cmp.i.i, i1 false
+  br i1 %or.cond245, label %if.end.i, label %sw.epilog
 
 if.end.i:                                         ; preds = %entry
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fIsTimeSet.i, align 8
   %tobool2.not.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end8.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 31
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 248
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %3 = load i32, ptr %status, align 4
@@ -5956,37 +5977,37 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.i.i.i, label %if.end.i.i, label %sw.epilog
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %fLenient.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load i8, ptr %fLenient.i.i.i, align 8
   %tobool3.not.i.i = icmp ne i8 %4, 0
-  %fAreAllFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %5 = load i8, ptr %fAreAllFieldsSet.i.i, align 2
   %tobool4.not.i.i = icmp eq i8 %5, 0
   %or.cond.i.i = select i1 %tobool3.not.i.i, i1 true, i1 %tobool4.not.i.i
   br i1 %or.cond.i.i, label %if.then5.i.i, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %fAreFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i, align 1
   br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i
 
 _ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i: ; preds = %if.then5.i.i, %if.end.i.i
   store i8 1, ptr %fIsTimeSet.i, align 8
-  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i, align 1
   %.pre.i = load i32, ptr %status, align 4
   %6 = icmp slt i32 %.pre.i, 1
   br i1 %6, label %if.end8.i, label %sw.epilog
 
 if.end8.i:                                        ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i, %if.end.i
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
   %7 = load i8, ptr %fAreFieldsSet.i, align 1
   %tobool9.not.i = icmp eq i8 %7, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %if.end3
 
 if.then10.i:                                      ; preds = %if.end8.i
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %8 = load ptr, ptr %vfn.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %9 = load i32, ptr %status, align 4
@@ -5995,7 +6016,7 @@ if.then10.i:                                      ; preds = %if.end8.i
 
 _ZN6icu_758Calendar8completeER10UErrorCode.exit:  ; preds = %if.then10.i
   store i8 1, ptr %fAreFieldsSet.i, align 1
-  %fAreAllFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 10
   store i8 1, ptr %fAreAllFieldsSet.i, align 2
   %.pre = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %.pre, 1
@@ -6036,17 +6057,18 @@ if.end7:                                          ; preds = %if.end3
 
 if.end.i149:                                      ; preds = %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7, %if.end7
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %10 = load ptr, ptr %vfn, align 8
   %call8 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable9 = load ptr, ptr %this, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 22
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 176
   %11 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %sub = sub nsw i32 %call11, %call8
   %add = add nsw i32 %sub, 1
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
   %idxprom.i = zext nneg i32 %field to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [24 x i32], ptr %fFields.i, i64 0, i64 %idxprom.i
   %12 = load i32, ptr %arrayidx.i, align 4
   %add13 = sub i32 %amount, %call8
   %sub14 = add i32 %add13, %12
@@ -6056,7 +6078,7 @@ if.end.i149:                                      ; preds = %if.end7, %if.end7, 
   %spec.select = add i32 %rem, %call8
   %add19 = add i32 %spec.select, %add17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i)
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %this, i64 11
   %13 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
   %tobool.not.i = icmp eq i8 %13, 0
   br i1 %tobool.not.i, label %if.end4.i, label %if.then3.i150
@@ -6064,20 +6086,21 @@ if.end.i149:                                      ; preds = %if.end7, %if.end7, 
 if.then3.i150:                                    ; preds = %if.end.i149
   store i32 0, ptr %ec.i, align 4
   %vtable.i151 = load ptr, ptr %this, align 8
-  %vfn.i152 = getelementptr inbounds ptr, ptr %vtable.i151, i64 32
+  %vfn.i152 = getelementptr inbounds i8, ptr %vtable.i151, i64 256
   %14 = load ptr, ptr %vfn.i152, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i)
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i150, %if.end.i149
   store i32 %add19, ptr %arrayidx.i, align 4
-  %fNextStamp.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fNextStamp.i = getelementptr inbounds i8, ptr %this, i64 228
   %15 = load i32, ptr %fNextStamp.i, align 4
   %cmp5.i = icmp eq i32 %15, 10000
   br i1 %cmp5.i, label %if.then6.i, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
 
 if.then6.i:                                       ; preds = %if.end4.i
   store i32 1, ptr %fNextStamp.i, align 4
+  %fStamp.i.i = getelementptr inbounds i8, ptr %this, i64 132
   br label %for.cond2.preheader.i.i
 
 for.cond2.preheader.i.i:                          ; preds = %if.then15.i.i, %if.then6.i
@@ -6089,14 +6112,14 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   %indvars.iv.i.i = phi i64 [ 0, %for.cond2.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %currentValue.09.i.i = phi i32 [ 10000, %for.cond2.preheader.i.i ], [ %currentValue.1.i.i, %for.body4.i.i ]
   %index.08.i.i = phi i32 [ -1, %for.cond2.preheader.i.i ], [ %index.1.i.i, %for.body4.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %indvars.iv.i.i
   %17 = load i32, ptr %arrayidx.i.i, align 4
   %cmp6.i.i = icmp sgt i32 %17, %16
   %cmp10.i.i = icmp slt i32 %17, %currentValue.09.i.i
-  %or.cond.i.i157 = select i1 %cmp6.i.i, i1 %cmp10.i.i, i1 false
+  %or.cond.i.i158 = select i1 %cmp6.i.i, i1 %cmp10.i.i, i1 false
   %18 = trunc i64 %indvars.iv.i.i to i32
-  %index.1.i.i = select i1 %or.cond.i.i157, i32 %18, i32 %index.08.i.i
-  %currentValue.1.i.i = select i1 %or.cond.i.i157, i32 %17, i32 %currentValue.09.i.i
+  %index.1.i.i = select i1 %or.cond.i.i158, i32 %18, i32 %index.08.i.i
+  %currentValue.1.i.i = select i1 %or.cond.i.i158, i32 %17, i32 %currentValue.09.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 24
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body4.i.i, !llvm.loop !8
@@ -6109,7 +6132,7 @@ if.then15.i.i:                                    ; preds = %for.end.i.i
   %inc17.i.i = add nsw i32 %16, 1
   store i32 %inc17.i.i, ptr %fNextStamp.i, align 4
   %idxprom19.i.i = zext nneg i32 %index.1.i.i to i64
-  %arrayidx20.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i
+  %arrayidx20.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %idxprom19.i.i
   store i32 %inc17.i.i, ptr %arrayidx20.i.i, align 4
   %inc23.i.i = add nuw nsw i32 %j.011.i.i, 1
   %exitcond13.not.i.i = icmp eq i32 %inc23.i.i, 24
@@ -6128,25 +6151,28 @@ _ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %if.end4.i, %_ZN6
   %20 = phi i32 [ %inc26.i.i, %_ZN6icu_758Calendar16recalculateStampEv.exit.i ], [ %15, %if.end4.i ]
   %inc.i = add nsw i32 %20, 1
   store i32 %inc.i, ptr %fNextStamp.i, align 4
-  %arrayidx10.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom.i
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx10.i = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom.i
   store i32 %20, ptr %arrayidx10.i, align 4
-  %arrayidx12.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 %idxprom.i
+  %fIsSet.i = getelementptr inbounds i8, ptr %this, i64 108
+  %arrayidx12.i = getelementptr inbounds [24 x i8], ptr %fIsSet.i, i64 0, i64 %idxprom.i
   store i8 1, ptr %arrayidx12.i, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
-  %fAreFieldsSet.i155 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  store i8 0, ptr %fAreFieldsSet.i155, align 1
-  %fIsTimeSet.i156 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
-  store i8 0, ptr %fIsTimeSet.i156, align 8
+  %fAreFieldsSet.i156 = getelementptr inbounds i8, ptr %this, i64 9
+  store i8 0, ptr %fAreFieldsSet.i156, align 1
+  %fIsTimeSet.i157 = getelementptr inbounds i8, ptr %this, i64 8
+  store i8 0, ptr %fIsTimeSet.i157, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i)
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %if.end7, %if.end7
   %call21 = tail call noundef double @_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %idxprom.i158 = zext nneg i32 %field to i64
-  %arrayidx.i159 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom.i158
-  %21 = load i32, ptr %arrayidx.i159, align 4
+  %fFields.i159 = getelementptr inbounds i8, ptr %this, i64 12
+  %idxprom.i160 = zext nneg i32 %field to i64
+  %arrayidx.i161 = getelementptr inbounds [24 x i32], ptr %fFields.i159, i64 0, i64 %idxprom.i160
+  %21 = load i32, ptr %arrayidx.i161, align 4
   %vtable24 = load ptr, ptr %this, align 8
-  %vfn25 = getelementptr inbounds ptr, ptr %vtable24, i64 16
+  %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 128
   %22 = load ptr, ptr %vfn25, align 8
   %call26 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
   %add27 = add nsw i32 %21, %amount
@@ -6164,11 +6190,11 @@ sw.bb20:                                          ; preds = %if.end7, %if.end7
 
 sw.bb37:                                          ; preds = %if.end7, %if.end7
   %vtable39 = load ptr, ptr %this, align 8
-  %vfn40 = getelementptr inbounds ptr, ptr %vtable39, i64 22
+  %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 176
   %23 = load ptr, ptr %vfn40, align 8
   %call41 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %arrayidx.i160 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
-  %24 = load i32, ptr %arrayidx.i160, align 4
+  %arrayidx.i163 = getelementptr inbounds i8, ptr %this, i64 20
+  %24 = load i32, ptr %arrayidx.i163, align 4
   %add43 = add nsw i32 %24, %amount
   %add44 = add nsw i32 %call41, 1
   %rem45 = srem i32 %add43, %add44
@@ -6177,7 +6203,7 @@ sw.bb37:                                          ; preds = %if.end7, %if.end7
   %spec.select142 = add nsw i32 %add49, %rem45
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 2, i32 noundef %spec.select142)
   %vtable51 = load ptr, ptr %this, align 8
-  %vfn52 = getelementptr inbounds ptr, ptr %vtable51, i64 49
+  %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 392
   %25 = load ptr, ptr %vfn52, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog
@@ -6189,7 +6215,7 @@ sw.bb53:                                          ; preds = %if.end7, %if.end7
 
 if.then56:                                        ; preds = %sw.bb53
   %vtable57 = load ptr, ptr %this, align 8
-  %vfn58 = getelementptr inbounds ptr, ptr %vtable57, i64 23
+  %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 184
   %26 = load ptr, ptr %vfn58, align 8
   %call59 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %call60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call59, ptr noundef nonnull dereferenceable(10) @.str.3) #28
@@ -6213,9 +6239,10 @@ if.then68:                                        ; preds = %lor.lhs.false65, %l
 if.end71:                                         ; preds = %lor.lhs.false65, %if.then68, %sw.bb53
   %tobool101.not = phi i1 [ false, %if.then68 ], [ true, %lor.lhs.false65 ], [ true, %sw.bb53 ]
   %amount.addr.0 = phi i32 [ %sub69, %if.then68 ], [ %amount, %lor.lhs.false65 ], [ %amount, %sw.bb53 ]
-  %idxprom.i161 = zext nneg i32 %field to i64
-  %arrayidx.i162 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom.i161
-  %27 = load i32, ptr %arrayidx.i162, align 4
+  %fFields.i164 = getelementptr inbounds i8, ptr %this, i64 12
+  %idxprom.i165 = zext nneg i32 %field to i64
+  %arrayidx.i166 = getelementptr inbounds [24 x i32], ptr %fFields.i164, i64 0, i64 %idxprom.i165
+  %27 = load i32, ptr %arrayidx.i166, align 4
   %add73 = add nsw i32 %27, %amount.addr.0
   %cmp74 = icmp sgt i32 %call54, 0
   %cmp76 = icmp sgt i32 %add73, 0
@@ -6224,7 +6251,7 @@ if.end71:                                         ; preds = %lor.lhs.false65, %i
 
 if.then77:                                        ; preds = %if.end71
   %vtable78 = load ptr, ptr %this, align 8
-  %vfn79 = getelementptr inbounds ptr, ptr %vtable78, i64 22
+  %vfn79 = getelementptr inbounds i8, ptr %vtable78, i64 176
   %28 = load ptr, ptr %vfn79, align 8
   %call80 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %cmp81 = icmp slt i32 %call80, 32768
@@ -6261,59 +6288,59 @@ if.end104:                                        ; preds = %if.else100, %if.els
   %newYear.0 = phi i32 [ %sub87, %if.then84 ], [ %add92, %if.then89 ], [ %add73, %if.else ], [ %spec.store.select, %if.else95 ], [ %spec.select143, %if.else100 ]
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %newYear.0)
   %vtable105 = load ptr, ptr %this, align 8
-  %vfn106 = getelementptr inbounds ptr, ptr %vtable105, i64 49
+  %vfn106 = getelementptr inbounds i8, ptr %vtable105, i64 392
   %30 = load ptr, ptr %vfn106, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable107 = load ptr, ptr %this, align 8
-  %vfn108 = getelementptr inbounds ptr, ptr %vtable107, i64 49
+  %vfn108 = getelementptr inbounds i8, ptr %vtable107, i64 392
   %31 = load ptr, ptr %vfn108, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog
 
 sw.bb109:                                         ; preds = %if.end7
-  %arrayidx.i164 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
-  %32 = load i32, ptr %arrayidx.i164, align 8
+  %arrayidx.i169 = getelementptr inbounds i8, ptr %this, i64 88
+  %32 = load i32, ptr %arrayidx.i169, align 8
   %add111 = add nsw i32 %32, %amount
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 19, i32 noundef %add111)
   %vtable112 = load ptr, ptr %this, align 8
-  %vfn113 = getelementptr inbounds ptr, ptr %vtable112, i64 49
+  %vfn113 = getelementptr inbounds i8, ptr %vtable112, i64 392
   %33 = load ptr, ptr %vfn113, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable114 = load ptr, ptr %this, align 8
-  %vfn115 = getelementptr inbounds ptr, ptr %vtable114, i64 49
+  %vfn115 = getelementptr inbounds i8, ptr %vtable114, i64 392
   %34 = load ptr, ptr %vfn115, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog
 
 sw.bb116:                                         ; preds = %if.end7
-  %arrayidx.i165 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
-  %35 = load i32, ptr %arrayidx.i165, align 8
-  %fFirstDayOfWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %arrayidx.i171 = getelementptr inbounds i8, ptr %this, i64 40
+  %35 = load i32, ptr %arrayidx.i171, align 8
+  %fFirstDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 264
   %36 = load i32, ptr %fFirstDayOfWeek.i, align 8
   %sub119 = sub nsw i32 %35, %36
   %cmp120 = icmp slt i32 %sub119, 0
   %add122 = add nsw i32 %sub119, 7
   %spec.select144 = select i1 %cmp120, i32 %add122, i32 %sub119
-  %arrayidx.i166 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  %37 = load i32, ptr %arrayidx.i166, align 8
-  %reass.sub217 = sub i32 %spec.select144, %37
-  %add126 = add i32 %reass.sub217, 1
+  %arrayidx.i173 = getelementptr inbounds i8, ptr %this, i64 32
+  %37 = load i32, ptr %arrayidx.i173, align 8
+  %reass.sub239 = sub i32 %spec.select144, %37
+  %add126 = add i32 %reass.sub239, 1
   %rem127 = srem i32 %add126, 7
   %cmp128 = icmp slt i32 %rem127, 0
   %add130 = add nsw i32 %rem127, 7
   %fdm.0 = select i1 %cmp128, i32 %add130, i32 %rem127
   %sub133 = sub nuw nsw i32 7, %fdm.0
-  %fMinimalDaysInFirstWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
+  %fMinimalDaysInFirstWeek.i = getelementptr inbounds i8, ptr %this, i64 268
   %38 = load i8, ptr %fMinimalDaysInFirstWeek.i, align 4
   %conv135 = zext i8 %38 to i32
   %cmp136 = icmp ult i32 %sub133, %conv135
   %.pn140 = select i1 %cmp136, i32 8, i32 1
   %start132.0 = sub nsw i32 %.pn140, %fdm.0
   %vtable142 = load ptr, ptr %this, align 8
-  %vfn143 = getelementptr inbounds ptr, ptr %vtable142, i64 22
+  %vfn143 = getelementptr inbounds i8, ptr %vtable142, i64 176
   %39 = load ptr, ptr %vfn143, align 8
   %call144 = tail call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %40 = load i32, ptr %arrayidx.i166, align 8
+  %40 = load i32, ptr %arrayidx.i173, align 8
   %sub146 = add i32 %call144, %spec.select144
   %add147 = sub i32 %sub146, %40
   %rem148 = srem i32 %add147, 7
@@ -6342,16 +6369,16 @@ if.end155:                                        ; preds = %sw.bb116
   br label %sw.epilog
 
 sw.bb172:                                         ; preds = %if.end7
-  %arrayidx.i169 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
-  %42 = load i32, ptr %arrayidx.i169, align 8
-  %fFirstDayOfWeek.i170 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
-  %43 = load i32, ptr %fFirstDayOfWeek.i170, align 8
+  %arrayidx.i179 = getelementptr inbounds i8, ptr %this, i64 40
+  %42 = load i32, ptr %arrayidx.i179, align 8
+  %fFirstDayOfWeek.i180 = getelementptr inbounds i8, ptr %this, i64 264
+  %43 = load i32, ptr %fFirstDayOfWeek.i180, align 8
   %sub176 = sub nsw i32 %42, %43
   %cmp177 = icmp slt i32 %sub176, 0
   %add179 = add nsw i32 %sub176, 7
   %spec.select146 = select i1 %cmp177, i32 %add179, i32 %sub176
-  %arrayidx.i171 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 6
-  %44 = load i32, ptr %arrayidx.i171, align 4
+  %arrayidx.i182 = getelementptr inbounds i8, ptr %this, i64 36
+  %44 = load i32, ptr %arrayidx.i182, align 4
   %reass.sub = sub i32 %spec.select146, %44
   %add183 = add i32 %reass.sub, 1
   %rem184 = srem i32 %add183, 7
@@ -6359,17 +6386,17 @@ sw.bb172:                                         ; preds = %if.end7
   %add187 = add nsw i32 %rem184, 7
   %fdy.0 = select i1 %cmp185, i32 %add187, i32 %rem184
   %sub190 = sub nuw nsw i32 7, %fdy.0
-  %fMinimalDaysInFirstWeek.i172 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
-  %45 = load i8, ptr %fMinimalDaysInFirstWeek.i172, align 4
+  %fMinimalDaysInFirstWeek.i183 = getelementptr inbounds i8, ptr %this, i64 268
+  %45 = load i8, ptr %fMinimalDaysInFirstWeek.i183, align 4
   %conv192 = zext i8 %45 to i32
   %cmp193 = icmp ult i32 %sub190, %conv192
   %.pn = select i1 %cmp193, i32 8, i32 1
   %start189.0 = sub nsw i32 %.pn, %fdy.0
   %vtable199 = load ptr, ptr %this, align 8
-  %vfn200 = getelementptr inbounds ptr, ptr %vtable199, i64 22
+  %vfn200 = getelementptr inbounds i8, ptr %vtable199, i64 176
   %46 = load ptr, ptr %vfn200, align 8
   %call201 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %47 = load i32, ptr %arrayidx.i171, align 4
+  %47 = load i32, ptr %arrayidx.i182, align 4
   %sub203 = add i32 %call201, %spec.select146
   %add204 = sub i32 %sub203, %47
   %rem205 = srem i32 %add204, 7
@@ -6395,51 +6422,51 @@ if.end213:                                        ; preds = %sw.bb172
   %spec.store.select3 = tail call i32 @llvm.smax.i32(i32 %add223, i32 1)
   %day_of_year.1 = tail call i32 @llvm.smin.i32(i32 %spec.store.select3, i32 %call201)
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 6, i32 noundef %day_of_year.1)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i175)
-  %fAreFieldsVirtuallySet.i177 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
-  %49 = load i8, ptr %fAreFieldsVirtuallySet.i177, align 1
-  %tobool.not.i178 = icmp eq i8 %49, 0
-  br i1 %tobool.not.i178, label %_ZN6icu_758Calendar5clearE19UCalendarDateFields.exit198, label %if.then3.i179
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i188)
+  %fAreFieldsVirtuallySet.i190 = getelementptr inbounds i8, ptr %this, i64 11
+  %49 = load i8, ptr %fAreFieldsVirtuallySet.i190, align 1
+  %tobool.not.i191 = icmp eq i8 %49, 0
+  br i1 %tobool.not.i191, label %_ZN6icu_758Calendar5clearE19UCalendarDateFields.exit215, label %if.then3.i192
 
-if.then3.i179:                                    ; preds = %if.end213
-  store i32 0, ptr %ec.i175, align 4
-  %vtable.i180 = load ptr, ptr %this, align 8
-  %vfn.i181 = getelementptr inbounds ptr, ptr %vtable.i180, i64 32
-  %50 = load ptr, ptr %vfn.i181, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i175)
-  br label %_ZN6icu_758Calendar5clearE19UCalendarDateFields.exit198
+if.then3.i192:                                    ; preds = %if.end213
+  store i32 0, ptr %ec.i188, align 4
+  %vtable.i193 = load ptr, ptr %this, align 8
+  %vfn.i194 = getelementptr inbounds i8, ptr %vtable.i193, i64 256
+  %50 = load ptr, ptr %vfn.i194, align 8
+  call void %50(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i188)
+  br label %_ZN6icu_758Calendar5clearE19UCalendarDateFields.exit215
 
-_ZN6icu_758Calendar5clearE19UCalendarDateFields.exit198: ; preds = %if.then3.i179, %if.end213
-  %arrayidx.i183 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
-  %arrayidx6.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 2
-  %arrayidx10.i184 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 23
-  %arrayidx12.i185 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 23
-  %arrayidx13.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 23
+_ZN6icu_758Calendar5clearE19UCalendarDateFields.exit215: ; preds = %if.then3.i192, %if.end213
+  %arrayidx.i197 = getelementptr inbounds i8, ptr %this, i64 20
+  %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 140
+  %arrayidx10.i199 = getelementptr inbounds i8, ptr %this, i64 104
+  %arrayidx12.i200 = getelementptr inbounds i8, ptr %this, i64 224
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 131
   store i8 0, ptr %arrayidx13.i, align 1
-  %fIsTimeSet.i186 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i175)
-  store i32 0, ptr %arrayidx10.i184, align 8
-  store i32 0, ptr %arrayidx12.i185, align 8
-  store i32 0, ptr %arrayidx.i183, align 4
+  %fIsTimeSet.i201 = getelementptr inbounds i8, ptr %this, i64 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i188)
+  store i32 0, ptr %arrayidx10.i199, align 8
+  store i32 0, ptr %arrayidx12.i200, align 8
+  store i32 0, ptr %arrayidx.i197, align 4
   store i32 0, ptr %arrayidx6.i, align 4
-  %arrayidx22.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 2
+  %arrayidx22.i = getelementptr inbounds i8, ptr %this, i64 110
   store i8 0, ptr %arrayidx22.i, align 2
-  store i32 0, ptr %fIsTimeSet.i186, align 8
+  store i32 0, ptr %fIsTimeSet.i201, align 8
   br label %sw.epilog
 
 sw.bb230:                                         ; preds = %if.end7
   %conv231 = sitofp i32 %amount to double
   %mul232 = fmul double %conv231, 8.640000e+07
-  %arrayidx.i199 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 6
-  %51 = load i32, ptr %arrayidx.i199, align 4
+  %arrayidx.i217 = getelementptr inbounds i8, ptr %this, i64 36
+  %51 = load i32, ptr %arrayidx.i217, align 4
   %sub234 = add nsw i32 %51, -1
   %conv235 = sitofp i32 %sub234 to double
   %mul236 = fmul double %conv235, 8.640000e+07
-  %fTime.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %fTime.i = getelementptr inbounds i8, ptr %this, i64 232
   %52 = load double, ptr %fTime.i, align 8
   %sub238 = fsub double %52, %mul236
   %vtable239 = load ptr, ptr %this, align 8
-  %vfn240 = getelementptr inbounds ptr, ptr %vtable239, i64 22
+  %vfn240 = getelementptr inbounds i8, ptr %vtable239, i64 176
   %53 = load ptr, ptr %vfn240, align 8
   %call241 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %conv242 = sitofp i32 %call241 to double
@@ -6458,19 +6485,20 @@ sw.bb230:                                         ; preds = %if.end7
 sw.bb253:                                         ; preds = %if.end7, %if.end7
   %conv255 = sitofp i32 %amount to double
   %mul256 = fmul double %conv255, 8.640000e+07
-  %idxprom.i201 = zext nneg i32 %field to i64
-  %arrayidx.i202 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom.i201
-  %55 = load i32, ptr %arrayidx.i202, align 4
+  %fFields.i219 = getelementptr inbounds i8, ptr %this, i64 12
+  %idxprom.i220 = zext nneg i32 %field to i64
+  %arrayidx.i221 = getelementptr inbounds [24 x i32], ptr %fFields.i219, i64 0, i64 %idxprom.i220
+  %55 = load i32, ptr %arrayidx.i221, align 4
   %cmp258 = icmp eq i32 %field, 7
-  %fFirstDayOfWeek.i203 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
-  %56 = load i32, ptr %fFirstDayOfWeek.i203, align 8
+  %fFirstDayOfWeek.i222 = getelementptr inbounds i8, ptr %this, i64 264
+  %56 = load i32, ptr %fFirstDayOfWeek.i222, align 8
   %cond = select i1 %cmp258, i32 %56, i32 1
   %sub260 = sub nsw i32 %55, %cond
   %cmp261 = icmp slt i32 %sub260, 0
   %add263 = add nsw i32 %sub260, 7
   %spec.select148 = select i1 %cmp261, i32 %add263, i32 %sub260
-  %fTime.i204 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
-  %57 = load double, ptr %fTime.i204, align 8
+  %fTime.i223 = getelementptr inbounds i8, ptr %this, i64 232
+  %57 = load double, ptr %fTime.i223, align 8
   %conv267 = sitofp i32 %spec.select148 to double
   %neg = fneg double %conv267
   %58 = tail call double @llvm.fmuladd.f64(double %neg, double 8.640000e+07, double %57)
@@ -6487,19 +6515,19 @@ sw.bb253:                                         ; preds = %if.end7, %if.end7
 sw.bb279:                                         ; preds = %if.end7
   %conv281 = sitofp i32 %amount to double
   %mul282 = fmul double %conv281, 6.048000e+08
-  %arrayidx.i206 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  %59 = load i32, ptr %arrayidx.i206, align 8
+  %arrayidx.i226 = getelementptr inbounds i8, ptr %this, i64 32
+  %59 = load i32, ptr %arrayidx.i226, align 8
   %sub284 = add nsw i32 %59, -1
   %div = sdiv i32 %sub284, 7
   %vtable285 = load ptr, ptr %this, align 8
-  %vfn286 = getelementptr inbounds ptr, ptr %vtable285, i64 22
+  %vfn286 = getelementptr inbounds i8, ptr %vtable285, i64 176
   %60 = load ptr, ptr %vfn286, align 8
   %call287 = tail call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %61 = load i32, ptr %arrayidx.i206, align 8
+  %61 = load i32, ptr %arrayidx.i226, align 8
   %sub289 = sub nsw i32 %call287, %61
   %div290 = sdiv i32 %sub289, 7
-  %fTime.i208 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
-  %62 = load double, ptr %fTime.i208, align 8
+  %fTime.i229 = getelementptr inbounds i8, ptr %this, i64 232
+  %62 = load double, ptr %fTime.i229, align 8
   %conv293 = sitofp i32 %div to double
   %neg295 = fneg double %conv293
   %63 = tail call double @llvm.fmuladd.f64(double %neg295, double 6.048000e+08, double %62)
@@ -6518,8 +6546,8 @@ sw.bb279:                                         ; preds = %if.end7
   br label %sw.epilog
 
 sw.bb310:                                         ; preds = %if.end7
-  %arrayidx.i211 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 20
-  %64 = load i32, ptr %arrayidx.i211, align 4
+  %arrayidx.i233 = getelementptr inbounds i8, ptr %this, i64 92
+  %64 = load i32, ptr %arrayidx.i233, align 4
   %add312 = add nsw i32 %64, %amount
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 20, i32 noundef %add312)
   br label %sw.epilog
@@ -6528,7 +6556,7 @@ sw.default:                                       ; preds = %if.end7
   store i32 1, ptr %status, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then10.i, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i, %if.then3.i, %_ZN6icu_758Calendar8completeER10UErrorCode.exit, %entry, %sw.default, %sw.bb310, %sw.bb279, %sw.bb253, %sw.bb230, %_ZN6icu_758Calendar5clearE19UCalendarDateFields.exit198, %if.then212, %if.end155, %if.then154, %sw.bb109, %if.end104, %sw.bb37, %sw.bb20, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit, %if.then6
+sw.epilog:                                        ; preds = %if.then10.i, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i, %if.then3.i, %_ZN6icu_758Calendar8completeER10UErrorCode.exit, %entry, %sw.default, %sw.bb310, %sw.bb279, %sw.bb253, %sw.bb230, %_ZN6icu_758Calendar5clearE19UCalendarDateFields.exit215, %if.then212, %if.end155, %if.then154, %sw.bb109, %if.end104, %sw.bb37, %sw.bb20, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit, %if.then6
   ret void
 }
 
@@ -6574,9 +6602,9 @@ if.end7:                                          ; preds = %if.end4
     i32 19, label %sw.bb27
     i32 2, label %sw.bb27
     i32 23, label %sw.bb27
-    i32 3, label %if.end.i69
-    i32 4, label %if.end.i69
-    i32 8, label %if.end.i69
+    i32 3, label %if.end.i70
+    i32 4, label %if.end.i70
+    i32 8, label %if.end.i70
     i32 9, label %sw.bb38
     i32 5, label %sw.bb40
     i32 6, label %sw.bb40
@@ -6587,8 +6615,8 @@ if.end7:                                          ; preds = %if.end4
     i32 10, label %sw.bb42
     i32 12, label %sw.bb44
     i32 13, label %sw.bb46
-    i32 14, label %if.end.i174
-    i32 21, label %if.end.i174
+    i32 14, label %if.end.i178
+    i32 21, label %if.end.i178
   ]
 
 sw.bb:                                            ; preds = %if.end7
@@ -6596,7 +6624,7 @@ sw.bb:                                            ; preds = %if.end7
   %add = add nsw i32 %call8, %amount
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 0, i32 noundef %add)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 49
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end107
@@ -6608,7 +6636,7 @@ sw.bb9:                                           ; preds = %if.end7, %if.end7
 
 if.then12:                                        ; preds = %sw.bb9
   %vtable13 = load ptr, ptr %this, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 23
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 184
   %2 = load ptr, ptr %vfn14, align 8
   %call15 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %call16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call15, ptr noundef nonnull dereferenceable(10) @.str.3) #28
@@ -6631,7 +6659,7 @@ if.then24:                                        ; preds = %lor.lhs.false21, %l
 
 sw.bb27:                                          ; preds = %sw.bb9, %if.then24, %lor.lhs.false21, %if.end7, %if.end7, %if.end7
   %amount.addr.0 = phi i32 [ %amount, %if.end7 ], [ %amount, %if.end7 ], [ %amount, %if.end7 ], [ %sub, %if.then24 ], [ %amount, %lor.lhs.false21 ], [ %amount, %sw.bb9 ]
-  %fLenient.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load i8, ptr %fLenient.i, align 8
   store i8 1, ptr %fLenient.i, align 8
   %4 = load i32, ptr %status, align 4
@@ -6639,14 +6667,14 @@ sw.bb27:                                          ; preds = %sw.bb9, %if.then24,
   br i1 %cmp.i.i, label %if.end.i.i, label %if.end.i61
 
 if.end.i.i:                                       ; preds = %sw.bb27
-  %fIsTimeSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i8, ptr %fIsTimeSet.i.i, align 8
   %tobool2.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %if.end8.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %vtable.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 31
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 248
   %6 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %7 = load i32, ptr %status, align 4
@@ -6656,34 +6684,34 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
 if.end.i.i.i:                                     ; preds = %if.then3.i.i
   %8 = load i8, ptr %fLenient.i, align 8
   %tobool3.not.i.i.i = icmp ne i8 %8, 0
-  %fAreAllFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %9 = load i8, ptr %fAreAllFieldsSet.i.i.i, align 2
   %tobool4.not.i.i.i = icmp eq i8 %9, 0
   %or.cond.i.i.i = select i1 %tobool3.not.i.i.i, i1 true, i1 %tobool4.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.then5.i.i.i, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
-  %fAreFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i.i, align 1
   br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i
 
 _ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i: ; preds = %if.then5.i.i.i, %if.end.i.i.i
   store i8 1, ptr %fIsTimeSet.i.i, align 8
-  %fAreFieldsVirtuallySet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i, align 1
   %.pre.i.i = load i32, ptr %status, align 4
   %10 = icmp slt i32 %.pre.i.i, 1
   br i1 %10, label %if.end8.i.i, label %if.end.i61
 
 if.end8.i.i:                                      ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i, %if.end.i.i
-  %fAreFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 9
   %11 = load i8, ptr %fAreFieldsSet.i.i, align 1
   %tobool9.not.i.i = icmp eq i8 %11, 0
   br i1 %tobool9.not.i.i, label %if.then10.i.i, label %cond.true.i
 
 if.then10.i.i:                                    ; preds = %if.end8.i.i
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 32
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 256
   %12 = load ptr, ptr %vfn.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %13 = load i32, ptr %status, align 4
@@ -6692,15 +6720,16 @@ if.then10.i.i:                                    ; preds = %if.end8.i.i
 
 if.end8.i:                                        ; preds = %if.then10.i.i
   store i8 1, ptr %fAreFieldsSet.i.i, align 1
-  %fAreAllFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 10
   store i8 1, ptr %fAreAllFieldsSet.i.i, align 2
   %.pre.i = load i32, ptr %status, align 4
   %cmp.i9.i = icmp sgt i32 %.pre.i, 0
   br i1 %cmp.i9.i, label %if.end.i61, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end8.i, %if.end8.i.i
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
   %idxprom.i = zext nneg i32 %field to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [24 x i32], ptr %fFields.i, i64 0, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx.i, align 4
   br label %if.end.i61
 
@@ -6708,7 +6737,7 @@ if.end.i61:                                       ; preds = %cond.true.i, %if.en
   %retval.0.i = phi i32 [ 0, %sw.bb27 ], [ %14, %cond.true.i ], [ 0, %if.end8.i ], [ 0, %if.then10.i.i ], [ 0, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i ], [ 0, %if.then3.i.i ]
   %add30 = add nsw i32 %retval.0.i, %amount.addr.0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i)
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %this, i64 11
   %15 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
   %tobool.not.i = icmp eq i8 %15, 0
   br i1 %tobool.not.i, label %if.end4.i, label %if.then3.i62
@@ -6716,22 +6745,24 @@ if.end.i61:                                       ; preds = %cond.true.i, %if.en
 if.then3.i62:                                     ; preds = %if.end.i61
   store i32 0, ptr %ec.i, align 4
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %16 = load ptr, ptr %vfn.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i)
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i62, %if.end.i61
-  %idxprom.i63 = zext nneg i32 %field to i64
-  %arrayidx.i64 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom.i63
-  store i32 %add30, ptr %arrayidx.i64, align 4
-  %fNextStamp.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fFields.i63 = getelementptr inbounds i8, ptr %this, i64 12
+  %idxprom.i64 = zext nneg i32 %field to i64
+  %arrayidx.i65 = getelementptr inbounds [24 x i32], ptr %fFields.i63, i64 0, i64 %idxprom.i64
+  store i32 %add30, ptr %arrayidx.i65, align 4
+  %fNextStamp.i = getelementptr inbounds i8, ptr %this, i64 228
   %17 = load i32, ptr %fNextStamp.i, align 4
   %cmp5.i = icmp eq i32 %17, 10000
   br i1 %cmp5.i, label %if.then6.i, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
 
 if.then6.i:                                       ; preds = %if.end4.i
   store i32 1, ptr %fNextStamp.i, align 4
+  %fStamp.i.i = getelementptr inbounds i8, ptr %this, i64 132
   br label %for.cond2.preheader.i.i
 
 for.cond2.preheader.i.i:                          ; preds = %if.then15.i.i, %if.then6.i
@@ -6743,7 +6774,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   %indvars.iv.i.i = phi i64 [ 0, %for.cond2.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %currentValue.09.i.i = phi i32 [ 10000, %for.cond2.preheader.i.i ], [ %currentValue.1.i.i, %for.body4.i.i ]
   %index.08.i.i = phi i32 [ -1, %for.cond2.preheader.i.i ], [ %index.1.i.i, %for.body4.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %indvars.iv.i.i
   %19 = load i32, ptr %arrayidx.i.i, align 4
   %cmp6.i.i = icmp sgt i32 %19, %18
   %cmp10.i.i = icmp slt i32 %19, %currentValue.09.i.i
@@ -6763,18 +6794,18 @@ if.then15.i.i:                                    ; preds = %for.end.i.i
   %inc17.i.i = add nsw i32 %18, 1
   store i32 %inc17.i.i, ptr %fNextStamp.i, align 4
   %idxprom19.i.i = zext nneg i32 %index.1.i.i to i64
-  %arrayidx20.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i
+  %arrayidx20.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %idxprom19.i.i
   store i32 %inc17.i.i, ptr %arrayidx20.i.i, align 4
   %inc23.i.i = add nuw nsw i32 %j.011.i.i, 1
   %exitcond13.not.i.i = icmp eq i32 %inc23.i.i, 24
   br i1 %exitcond13.not.i.i, label %if.then15.for.end24_crit_edge.i.i, label %for.cond2.preheader.i.i, !llvm.loop !9
 
 if.then15.for.end24_crit_edge.i.i:                ; preds = %if.then15.i.i
-  %.pre.i.i65 = load i32, ptr %fNextStamp.i, align 4
+  %.pre.i.i66 = load i32, ptr %fNextStamp.i, align 4
   br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i
 
 _ZN6icu_758Calendar16recalculateStampEv.exit.i:   ; preds = %for.end.i.i, %if.then15.for.end24_crit_edge.i.i
-  %21 = phi i32 [ %.pre.i.i65, %if.then15.for.end24_crit_edge.i.i ], [ %18, %for.end.i.i ]
+  %21 = phi i32 [ %.pre.i.i66, %if.then15.for.end24_crit_edge.i.i ], [ %18, %for.end.i.i ]
   %inc26.i.i = add nsw i32 %21, 1
   br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
 
@@ -6782,18 +6813,20 @@ _ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %if.end4.i, %_ZN6
   %22 = phi i32 [ %inc26.i.i, %_ZN6icu_758Calendar16recalculateStampEv.exit.i ], [ %17, %if.end4.i ]
   %inc.i = add nsw i32 %22, 1
   store i32 %inc.i, ptr %fNextStamp.i, align 4
-  %arrayidx10.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom.i63
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx10.i = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom.i64
   store i32 %22, ptr %arrayidx10.i, align 4
-  %arrayidx12.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 %idxprom.i63
+  %fIsSet.i = getelementptr inbounds i8, ptr %this, i64 108
+  %arrayidx12.i = getelementptr inbounds [24 x i8], ptr %fIsSet.i, i64 0, i64 %idxprom.i64
   store i8 1, ptr %arrayidx12.i, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i, align 1
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %fIsTimeSet.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i)
   %vtable31 = load ptr, ptr %this, align 8
-  %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 49
+  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 392
   %23 = load ptr, ptr %vfn32, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %cmp34 = icmp eq i8 %3, 0
@@ -6805,386 +6838,388 @@ if.then35:                                        ; preds = %_ZN6icu_758Calendar
   br label %if.end107
 
 sw.bb38:                                          ; preds = %if.end7
-  br label %if.end.i69
+  br label %if.end.i70
 
 sw.bb40:                                          ; preds = %if.end7, %if.end7, %if.end7, %if.end7, %if.end7
-  br label %if.end.i69
+  br label %if.end.i70
 
 sw.bb42:                                          ; preds = %if.end7, %if.end7
   %mul43 = fmul double %conv, 3.600000e+06
-  br label %if.end.i174
+  br label %if.end.i178
 
 sw.bb44:                                          ; preds = %if.end7
   %mul45 = fmul double %conv, 6.000000e+04
-  br label %if.end.i174
+  br label %if.end.i178
 
 sw.bb46:                                          ; preds = %if.end7
   %mul47 = fmul double %conv, 1.000000e+03
-  br label %if.end.i174
+  br label %if.end.i178
 
 sw.default:                                       ; preds = %if.end7
   store i32 1, ptr %status, align 4
   br label %if.end107
 
-if.end.i69:                                       ; preds = %if.end7, %if.end7, %if.end7, %sw.bb40, %sw.bb38
+if.end.i70:                                       ; preds = %if.end7, %if.end7, %if.end7, %sw.bb40, %sw.bb38
   %.sink = phi double [ 8.640000e+07, %sw.bb40 ], [ 4.320000e+07, %sw.bb38 ], [ 6.048000e+08, %if.end7 ], [ 6.048000e+08, %if.end7 ], [ 6.048000e+08, %if.end7 ]
   %mul41 = fmul double %.sink, %conv
-  %fIsTimeSet.i.i71 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
-  %24 = load i8, ptr %fIsTimeSet.i.i71, align 8
-  %tobool2.not.i.i72 = icmp eq i8 %24, 0
-  br i1 %tobool2.not.i.i72, label %if.then3.i.i86, label %if.end8.i.i73
+  %fIsTimeSet.i.i72 = getelementptr inbounds i8, ptr %this, i64 8
+  %24 = load i8, ptr %fIsTimeSet.i.i72, align 8
+  %tobool2.not.i.i73 = icmp eq i8 %24, 0
+  br i1 %tobool2.not.i.i73, label %if.then3.i.i88, label %if.end8.i.i74
 
-if.then3.i.i86:                                   ; preds = %if.end.i69
-  %vtable.i.i.i87 = load ptr, ptr %this, align 8
-  %vfn.i.i.i88 = getelementptr inbounds ptr, ptr %vtable.i.i.i87, i64 31
-  %25 = load ptr, ptr %vfn.i.i.i88, align 8
+if.then3.i.i88:                                   ; preds = %if.end.i70
+  %vtable.i.i.i89 = load ptr, ptr %this, align 8
+  %vfn.i.i.i90 = getelementptr inbounds i8, ptr %vtable.i.i.i89, i64 248
+  %25 = load ptr, ptr %vfn.i.i.i90, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %26 = load i32, ptr %status, align 4
-  %cmp.i.i.i.i89 = icmp slt i32 %26, 1
-  br i1 %cmp.i.i.i.i89, label %if.end.i.i.i90, label %if.end107
+  %cmp.i.i.i.i91 = icmp slt i32 %26, 1
+  br i1 %cmp.i.i.i.i91, label %if.end.i.i.i92, label %if.end107
 
-if.end.i.i.i90:                                   ; preds = %if.then3.i.i86
-  %fLenient.i.i.i.i91 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
-  %27 = load i8, ptr %fLenient.i.i.i.i91, align 8
-  %tobool3.not.i.i.i92 = icmp ne i8 %27, 0
-  %fAreAllFieldsSet.i.i.i93 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
-  %28 = load i8, ptr %fAreAllFieldsSet.i.i.i93, align 2
-  %tobool4.not.i.i.i94 = icmp eq i8 %28, 0
-  %or.cond.i.i.i95 = select i1 %tobool3.not.i.i.i92, i1 true, i1 %tobool4.not.i.i.i94
-  br i1 %or.cond.i.i.i95, label %if.then5.i.i.i99, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i96
+if.end.i.i.i92:                                   ; preds = %if.then3.i.i88
+  %fLenient.i.i.i.i93 = getelementptr inbounds i8, ptr %this, i64 240
+  %27 = load i8, ptr %fLenient.i.i.i.i93, align 8
+  %tobool3.not.i.i.i94 = icmp ne i8 %27, 0
+  %fAreAllFieldsSet.i.i.i95 = getelementptr inbounds i8, ptr %this, i64 10
+  %28 = load i8, ptr %fAreAllFieldsSet.i.i.i95, align 2
+  %tobool4.not.i.i.i96 = icmp eq i8 %28, 0
+  %or.cond.i.i.i97 = select i1 %tobool3.not.i.i.i94, i1 true, i1 %tobool4.not.i.i.i96
+  br i1 %or.cond.i.i.i97, label %if.then5.i.i.i101, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i98
 
-if.then5.i.i.i99:                                 ; preds = %if.end.i.i.i90
-  %fAreFieldsSet.i.i.i100 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  store i8 0, ptr %fAreFieldsSet.i.i.i100, align 1
-  br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i96
+if.then5.i.i.i101:                                ; preds = %if.end.i.i.i92
+  %fAreFieldsSet.i.i.i102 = getelementptr inbounds i8, ptr %this, i64 9
+  store i8 0, ptr %fAreFieldsSet.i.i.i102, align 1
+  br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i98
 
-_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i96: ; preds = %if.then5.i.i.i99, %if.end.i.i.i90
-  store i8 1, ptr %fIsTimeSet.i.i71, align 8
-  %fAreFieldsVirtuallySet.i.i.i97 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
-  store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i97, align 1
-  %.pre.i.i98 = load i32, ptr %status, align 4
-  %29 = icmp slt i32 %.pre.i.i98, 1
-  br i1 %29, label %if.end8.i.i73, label %if.end107
+_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i98: ; preds = %if.then5.i.i.i101, %if.end.i.i.i92
+  store i8 1, ptr %fIsTimeSet.i.i72, align 8
+  %fAreFieldsVirtuallySet.i.i.i99 = getelementptr inbounds i8, ptr %this, i64 11
+  store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i99, align 1
+  %.pre.i.i100 = load i32, ptr %status, align 4
+  %29 = icmp slt i32 %.pre.i.i100, 1
+  br i1 %29, label %if.end8.i.i74, label %if.end107
 
-if.end8.i.i73:                                    ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i96, %if.end.i69
-  %fAreFieldsSet.i.i74 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  %30 = load i8, ptr %fAreFieldsSet.i.i74, align 1
-  %tobool9.not.i.i75 = icmp eq i8 %30, 0
-  br i1 %tobool9.not.i.i75, label %if.then10.i.i78, label %if.end.i104
+if.end8.i.i74:                                    ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i98, %if.end.i70
+  %fAreFieldsSet.i.i75 = getelementptr inbounds i8, ptr %this, i64 9
+  %30 = load i8, ptr %fAreFieldsSet.i.i75, align 1
+  %tobool9.not.i.i76 = icmp eq i8 %30, 0
+  br i1 %tobool9.not.i.i76, label %if.then10.i.i80, label %if.end.i106
 
-if.then10.i.i78:                                  ; preds = %if.end8.i.i73
-  %vtable.i.i79 = load ptr, ptr %this, align 8
-  %vfn.i.i80 = getelementptr inbounds ptr, ptr %vtable.i.i79, i64 32
-  %31 = load ptr, ptr %vfn.i.i80, align 8
+if.then10.i.i80:                                  ; preds = %if.end8.i.i74
+  %vtable.i.i81 = load ptr, ptr %this, align 8
+  %vfn.i.i82 = getelementptr inbounds i8, ptr %vtable.i.i81, i64 256
+  %31 = load ptr, ptr %vfn.i.i82, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %32 = load i32, ptr %status, align 4
-  %cmp.i7.i.i81 = icmp slt i32 %32, 1
-  br i1 %cmp.i7.i.i81, label %if.end8.i82, label %if.end107
+  %cmp.i7.i.i83 = icmp slt i32 %32, 1
+  br i1 %cmp.i7.i.i83, label %if.end8.i84, label %if.end107
 
-if.end8.i82:                                      ; preds = %if.then10.i.i78
-  store i8 1, ptr %fAreFieldsSet.i.i74, align 1
-  %fAreAllFieldsSet.i.i83 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
-  store i8 1, ptr %fAreAllFieldsSet.i.i83, align 2
-  %.pre.i84 = load i32, ptr %status, align 4
-  %cmp.i9.i85 = icmp sgt i32 %.pre.i84, 0
-  br i1 %cmp.i9.i85, label %if.end107, label %if.end.i104
+if.end8.i84:                                      ; preds = %if.then10.i.i80
+  store i8 1, ptr %fAreFieldsSet.i.i75, align 1
+  %fAreAllFieldsSet.i.i85 = getelementptr inbounds i8, ptr %this, i64 10
+  store i8 1, ptr %fAreAllFieldsSet.i.i85, align 2
+  %.pre.i86 = load i32, ptr %status, align 4
+  %cmp.i9.i87 = icmp sgt i32 %.pre.i86, 0
+  br i1 %cmp.i9.i87, label %if.end107, label %if.end.i106
 
-if.end.i104:                                      ; preds = %if.end8.i.i73, %if.end8.i82
-  %arrayidx.i77 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 16
-  %33 = load i32, ptr %arrayidx.i77, align 4
-  %34 = load i8, ptr %fIsTimeSet.i.i71, align 8
-  %tobool2.not.i.i107 = icmp eq i8 %34, 0
-  br i1 %tobool2.not.i.i107, label %if.then3.i.i121, label %if.end.i139.thread
+if.end.i106:                                      ; preds = %if.end8.i.i74, %if.end8.i84
+  %arrayidx.i79 = getelementptr inbounds i8, ptr %this, i64 76
+  %33 = load i32, ptr %arrayidx.i79, align 4
+  %34 = load i8, ptr %fIsTimeSet.i.i72, align 8
+  %tobool2.not.i.i109 = icmp eq i8 %34, 0
+  br i1 %tobool2.not.i.i109, label %if.then3.i.i124, label %if.end.i142.thread
 
-if.then3.i.i121:                                  ; preds = %if.end.i104
-  %vtable.i.i.i122 = load ptr, ptr %this, align 8
-  %vfn.i.i.i123 = getelementptr inbounds ptr, ptr %vtable.i.i.i122, i64 31
-  %35 = load ptr, ptr %vfn.i.i.i123, align 8
+if.then3.i.i124:                                  ; preds = %if.end.i106
+  %vtable.i.i.i125 = load ptr, ptr %this, align 8
+  %vfn.i.i.i126 = getelementptr inbounds i8, ptr %vtable.i.i.i125, i64 248
+  %35 = load ptr, ptr %vfn.i.i.i126, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %36 = load i32, ptr %status, align 4
-  %cmp.i.i.i.i124 = icmp slt i32 %36, 1
-  br i1 %cmp.i.i.i.i124, label %if.end.i.i.i125, label %if.end107
+  %cmp.i.i.i.i127 = icmp slt i32 %36, 1
+  br i1 %cmp.i.i.i.i127, label %if.end.i.i.i128, label %if.end107
 
-if.end.i.i.i125:                                  ; preds = %if.then3.i.i121
-  %fLenient.i.i.i.i126 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
-  %37 = load i8, ptr %fLenient.i.i.i.i126, align 8
-  %tobool3.not.i.i.i127 = icmp ne i8 %37, 0
-  %fAreAllFieldsSet.i.i.i128 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
-  %38 = load i8, ptr %fAreAllFieldsSet.i.i.i128, align 2
-  %tobool4.not.i.i.i129 = icmp eq i8 %38, 0
-  %or.cond.i.i.i130 = select i1 %tobool3.not.i.i.i127, i1 true, i1 %tobool4.not.i.i.i129
-  br i1 %or.cond.i.i.i130, label %if.then5.i.i.i134, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i131
+if.end.i.i.i128:                                  ; preds = %if.then3.i.i124
+  %fLenient.i.i.i.i129 = getelementptr inbounds i8, ptr %this, i64 240
+  %37 = load i8, ptr %fLenient.i.i.i.i129, align 8
+  %tobool3.not.i.i.i130 = icmp ne i8 %37, 0
+  %fAreAllFieldsSet.i.i.i131 = getelementptr inbounds i8, ptr %this, i64 10
+  %38 = load i8, ptr %fAreAllFieldsSet.i.i.i131, align 2
+  %tobool4.not.i.i.i132 = icmp eq i8 %38, 0
+  %or.cond.i.i.i133 = select i1 %tobool3.not.i.i.i130, i1 true, i1 %tobool4.not.i.i.i132
+  br i1 %or.cond.i.i.i133, label %if.then5.i.i.i137, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i134
 
-if.then5.i.i.i134:                                ; preds = %if.end.i.i.i125
-  store i8 0, ptr %fAreFieldsSet.i.i74, align 1
-  br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i131
+if.then5.i.i.i137:                                ; preds = %if.end.i.i.i128
+  store i8 0, ptr %fAreFieldsSet.i.i75, align 1
+  br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i134
 
-_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i131: ; preds = %if.then5.i.i.i134, %if.end.i.i.i125
-  store i8 1, ptr %fIsTimeSet.i.i71, align 8
-  %fAreFieldsVirtuallySet.i.i.i132 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
-  store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i132, align 1
-  %.pre.i.i133 = load i32, ptr %status, align 4
-  %39 = icmp slt i32 %.pre.i.i133, 1
-  br i1 %39, label %if.end8.i.i108, label %if.end107
+_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i134: ; preds = %if.then5.i.i.i137, %if.end.i.i.i128
+  store i8 1, ptr %fIsTimeSet.i.i72, align 8
+  %fAreFieldsVirtuallySet.i.i.i135 = getelementptr inbounds i8, ptr %this, i64 11
+  store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i135, align 1
+  %.pre.i.i136 = load i32, ptr %status, align 4
+  %39 = icmp slt i32 %.pre.i.i136, 1
+  br i1 %39, label %if.end8.i.i110, label %if.end107
 
-if.end8.i.i108:                                   ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i131
-  %.pre = load i8, ptr %fAreFieldsSet.i.i74, align 1
-  %tobool9.not.i.i110 = icmp eq i8 %.pre, 0
-  br i1 %tobool9.not.i.i110, label %if.then10.i.i113, label %if.end.i139.thread
+if.end8.i.i110:                                   ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i134
+  %.pre = load i8, ptr %fAreFieldsSet.i.i75, align 1
+  %tobool9.not.i.i112 = icmp eq i8 %.pre, 0
+  br i1 %tobool9.not.i.i112, label %if.then10.i.i116, label %if.end.i142.thread
 
-if.then10.i.i113:                                 ; preds = %if.end8.i.i108
-  %vtable.i.i114 = load ptr, ptr %this, align 8
-  %vfn.i.i115 = getelementptr inbounds ptr, ptr %vtable.i.i114, i64 32
-  %40 = load ptr, ptr %vfn.i.i115, align 8
+if.then10.i.i116:                                 ; preds = %if.end8.i.i110
+  %vtable.i.i117 = load ptr, ptr %this, align 8
+  %vfn.i.i118 = getelementptr inbounds i8, ptr %vtable.i.i117, i64 256
+  %40 = load ptr, ptr %vfn.i.i118, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %41 = load i32, ptr %status, align 4
-  %cmp.i7.i.i116 = icmp slt i32 %41, 1
-  br i1 %cmp.i7.i.i116, label %if.end8.i117, label %if.end107
+  %cmp.i7.i.i119 = icmp slt i32 %41, 1
+  br i1 %cmp.i7.i.i119, label %if.end8.i120, label %if.end107
 
-if.end8.i117:                                     ; preds = %if.then10.i.i113
-  store i8 1, ptr %fAreFieldsSet.i.i74, align 1
-  %fAreAllFieldsSet.i.i118 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
-  store i8 1, ptr %fAreAllFieldsSet.i.i118, align 2
-  %.pre.i119 = load i32, ptr %status, align 4
-  %cmp.i9.i120 = icmp sgt i32 %.pre.i119, 0
-  br i1 %cmp.i9.i120, label %if.end107, label %if.end.i139
+if.end8.i120:                                     ; preds = %if.then10.i.i116
+  store i8 1, ptr %fAreFieldsSet.i.i75, align 1
+  %fAreAllFieldsSet.i.i121 = getelementptr inbounds i8, ptr %this, i64 10
+  store i8 1, ptr %fAreAllFieldsSet.i.i121, align 2
+  %.pre.i122 = load i32, ptr %status, align 4
+  %cmp.i9.i123 = icmp sgt i32 %.pre.i122, 0
+  br i1 %cmp.i9.i123, label %if.end107, label %if.end.i142
 
-if.end.i139.thread:                               ; preds = %if.end8.i.i108, %if.end.i104
-  %.pn.in381 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 15
-  %.pn382 = load i32, ptr %.pn.in381, align 8
-  br label %cond.true.i146
+if.end.i142.thread:                               ; preds = %if.end8.i.i110, %if.end.i106
+  %.pn.in383 = getelementptr inbounds i8, ptr %this, i64 72
+  %.pn384 = load i32, ptr %.pn.in383, align 8
+  br label %cond.true.i149
 
-if.end.i139:                                      ; preds = %if.end8.i117
-  %.pre369 = load i8, ptr %fIsTimeSet.i.i71, align 8
-  %.pn.in = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 15
+if.end.i142:                                      ; preds = %if.end8.i120
+  %.pre369 = load i8, ptr %fIsTimeSet.i.i72, align 8
+  %.pn.in = getelementptr inbounds i8, ptr %this, i64 72
   %.pn = load i32, ptr %.pn.in, align 8
-  %tobool2.not.i.i142 = icmp eq i8 %.pre369, 0
-  br i1 %tobool2.not.i.i142, label %if.then3.i.i156, label %cond.true.i146
+  %tobool2.not.i.i145 = icmp eq i8 %.pre369, 0
+  br i1 %tobool2.not.i.i145, label %if.then3.i.i160, label %cond.true.i149
 
-if.then3.i.i156:                                  ; preds = %if.end.i139
-  %vtable.i.i.i157 = load ptr, ptr %this, align 8
-  %vfn.i.i.i158 = getelementptr inbounds ptr, ptr %vtable.i.i.i157, i64 31
-  %42 = load ptr, ptr %vfn.i.i.i158, align 8
+if.then3.i.i160:                                  ; preds = %if.end.i142
+  %vtable.i.i.i161 = load ptr, ptr %this, align 8
+  %vfn.i.i.i162 = getelementptr inbounds i8, ptr %vtable.i.i.i161, i64 248
+  %42 = load ptr, ptr %vfn.i.i.i162, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %43 = load i32, ptr %status, align 4
-  %cmp.i.i.i.i159 = icmp slt i32 %43, 1
-  br i1 %cmp.i.i.i.i159, label %if.end.i.i.i160, label %if.end107
+  %cmp.i.i.i.i163 = icmp slt i32 %43, 1
+  br i1 %cmp.i.i.i.i163, label %if.end.i.i.i164, label %if.end107
 
-if.end.i.i.i160:                                  ; preds = %if.then3.i.i156
-  %fLenient.i.i.i.i161 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
-  %44 = load i8, ptr %fLenient.i.i.i.i161, align 8
-  %tobool3.not.i.i.i162 = icmp ne i8 %44, 0
-  %fAreAllFieldsSet.i.i.i163 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
-  %45 = load i8, ptr %fAreAllFieldsSet.i.i.i163, align 2
-  %tobool4.not.i.i.i164 = icmp eq i8 %45, 0
-  %or.cond.i.i.i165 = select i1 %tobool3.not.i.i.i162, i1 true, i1 %tobool4.not.i.i.i164
-  br i1 %or.cond.i.i.i165, label %if.then5.i.i.i169, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i166
+if.end.i.i.i164:                                  ; preds = %if.then3.i.i160
+  %fLenient.i.i.i.i165 = getelementptr inbounds i8, ptr %this, i64 240
+  %44 = load i8, ptr %fLenient.i.i.i.i165, align 8
+  %tobool3.not.i.i.i166 = icmp ne i8 %44, 0
+  %fAreAllFieldsSet.i.i.i167 = getelementptr inbounds i8, ptr %this, i64 10
+  %45 = load i8, ptr %fAreAllFieldsSet.i.i.i167, align 2
+  %tobool4.not.i.i.i168 = icmp eq i8 %45, 0
+  %or.cond.i.i.i169 = select i1 %tobool3.not.i.i.i166, i1 true, i1 %tobool4.not.i.i.i168
+  br i1 %or.cond.i.i.i169, label %if.then5.i.i.i173, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i170
 
-if.then5.i.i.i169:                                ; preds = %if.end.i.i.i160
-  store i8 0, ptr %fAreFieldsSet.i.i74, align 1
-  br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i166
+if.then5.i.i.i173:                                ; preds = %if.end.i.i.i164
+  store i8 0, ptr %fAreFieldsSet.i.i75, align 1
+  br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i170
 
-_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i166: ; preds = %if.then5.i.i.i169, %if.end.i.i.i160
-  store i8 1, ptr %fIsTimeSet.i.i71, align 8
-  %fAreFieldsVirtuallySet.i.i.i167 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
-  store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i167, align 1
-  %.pre.i.i168 = load i32, ptr %status, align 4
-  %46 = icmp slt i32 %.pre.i.i168, 1
-  br i1 %46, label %if.end8.i.i143, label %if.end107
+_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i170: ; preds = %if.then5.i.i.i173, %if.end.i.i.i164
+  store i8 1, ptr %fIsTimeSet.i.i72, align 8
+  %fAreFieldsVirtuallySet.i.i.i171 = getelementptr inbounds i8, ptr %this, i64 11
+  store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i171, align 1
+  %.pre.i.i172 = load i32, ptr %status, align 4
+  %46 = icmp slt i32 %.pre.i.i172, 1
+  br i1 %46, label %if.end8.i.i146, label %if.end107
 
-if.end8.i.i143:                                   ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i166
-  %.pre370 = load i8, ptr %fAreFieldsSet.i.i74, align 1
-  %tobool9.not.i.i145 = icmp eq i8 %.pre370, 0
-  br i1 %tobool9.not.i.i145, label %if.then10.i.i148, label %cond.true.i146
+if.end8.i.i146:                                   ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i170
+  %.pre370 = load i8, ptr %fAreFieldsSet.i.i75, align 1
+  %tobool9.not.i.i148 = icmp eq i8 %.pre370, 0
+  br i1 %tobool9.not.i.i148, label %if.then10.i.i152, label %cond.true.i149
 
-if.then10.i.i148:                                 ; preds = %if.end8.i.i143
-  %vtable.i.i149 = load ptr, ptr %this, align 8
-  %vfn.i.i150 = getelementptr inbounds ptr, ptr %vtable.i.i149, i64 32
-  %47 = load ptr, ptr %vfn.i.i150, align 8
+if.then10.i.i152:                                 ; preds = %if.end8.i.i146
+  %vtable.i.i153 = load ptr, ptr %this, align 8
+  %vfn.i.i154 = getelementptr inbounds i8, ptr %vtable.i.i153, i64 256
+  %47 = load ptr, ptr %vfn.i.i154, align 8
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %48 = load i32, ptr %status, align 4
-  %cmp.i7.i.i151 = icmp slt i32 %48, 1
-  br i1 %cmp.i7.i.i151, label %if.end8.i152, label %if.end107
+  %cmp.i7.i.i155 = icmp slt i32 %48, 1
+  br i1 %cmp.i7.i.i155, label %if.end8.i156, label %if.end107
 
-if.end8.i152:                                     ; preds = %if.then10.i.i148
-  store i8 1, ptr %fAreFieldsSet.i.i74, align 1
-  %fAreAllFieldsSet.i.i153 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
-  store i8 1, ptr %fAreAllFieldsSet.i.i153, align 2
-  %.pre.i154 = load i32, ptr %status, align 4
-  %cmp.i9.i155 = icmp sgt i32 %.pre.i154, 0
-  br i1 %cmp.i9.i155, label %if.end107, label %cond.true.i146
+if.end8.i156:                                     ; preds = %if.then10.i.i152
+  store i8 1, ptr %fAreFieldsSet.i.i75, align 1
+  %fAreAllFieldsSet.i.i157 = getelementptr inbounds i8, ptr %this, i64 10
+  store i8 1, ptr %fAreAllFieldsSet.i.i157, align 2
+  %.pre.i158 = load i32, ptr %status, align 4
+  %cmp.i9.i159 = icmp sgt i32 %.pre.i158, 0
+  br i1 %cmp.i9.i159, label %if.end107, label %cond.true.i149
 
-cond.true.i146:                                   ; preds = %if.end.i139.thread, %if.end.i139, %if.end8.i152, %if.end8.i.i143
-  %.pn.pn = phi i32 [ %.pn, %if.end8.i152 ], [ %.pn, %if.end8.i.i143 ], [ %.pn382, %if.end.i139.thread ], [ %.pn, %if.end.i139 ]
-  %add53288385389 = add nsw i32 %.pn.pn, %33
-  %arrayidx.i147 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 21
-  %49 = load i32, ptr %arrayidx.i147, align 8
-  br label %if.end.i174
+cond.true.i149:                                   ; preds = %if.end.i142.thread, %if.end.i142, %if.end8.i156, %if.end8.i.i146
+  %.pn.pn = phi i32 [ %.pn, %if.end8.i156 ], [ %.pn, %if.end8.i.i146 ], [ %.pn384, %if.end.i142.thread ], [ %.pn, %if.end.i142 ]
+  %add53296387391 = add nsw i32 %.pn.pn, %33
+  %arrayidx.i151 = getelementptr inbounds i8, ptr %this, i64 96
+  %49 = load i32, ptr %arrayidx.i151, align 8
+  br label %if.end.i178
 
-if.end.i174:                                      ; preds = %cond.true.i146, %sw.bb46, %sw.bb44, %sw.bb42, %if.end7, %if.end7
-  %delta.0235.ph.ph = phi double [ %mul47, %sw.bb46 ], [ %mul45, %sw.bb44 ], [ %mul43, %sw.bb42 ], [ %conv, %if.end7 ], [ %conv, %if.end7 ], [ %mul41, %cond.true.i146 ]
-  %tobool49.not234.ph.ph = phi i1 [ true, %sw.bb46 ], [ true, %sw.bb44 ], [ true, %sw.bb42 ], [ true, %if.end7 ], [ true, %if.end7 ], [ false, %cond.true.i146 ]
-  %prevWallTime.0.ph.ph = phi i32 [ 0, %sw.bb46 ], [ 0, %sw.bb44 ], [ 0, %sw.bb42 ], [ 0, %if.end7 ], [ 0, %if.end7 ], [ %49, %cond.true.i146 ]
-  %prevOffset.0.ph.ph = phi i32 [ 0, %sw.bb46 ], [ 0, %sw.bb44 ], [ 0, %sw.bb42 ], [ 0, %if.end7 ], [ 0, %if.end7 ], [ %add53288385389, %cond.true.i146 ]
-  %fIsTimeSet.i175 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
-  %50 = load i8, ptr %fIsTimeSet.i175, align 8
+if.end.i178:                                      ; preds = %cond.true.i149, %sw.bb46, %sw.bb44, %sw.bb42, %if.end7, %if.end7
+  %delta.0242.ph.ph = phi double [ %mul47, %sw.bb46 ], [ %mul45, %sw.bb44 ], [ %mul43, %sw.bb42 ], [ %conv, %if.end7 ], [ %conv, %if.end7 ], [ %mul41, %cond.true.i149 ]
+  %tobool49.not241.ph.ph = phi i1 [ true, %sw.bb46 ], [ true, %sw.bb44 ], [ true, %sw.bb42 ], [ true, %if.end7 ], [ true, %if.end7 ], [ false, %cond.true.i149 ]
+  %prevWallTime.0.ph.ph = phi i32 [ 0, %sw.bb46 ], [ 0, %sw.bb44 ], [ 0, %sw.bb42 ], [ 0, %if.end7 ], [ 0, %if.end7 ], [ %49, %cond.true.i149 ]
+  %prevOffset.0.ph.ph = phi i32 [ 0, %sw.bb46 ], [ 0, %sw.bb44 ], [ 0, %sw.bb42 ], [ 0, %if.end7 ], [ 0, %if.end7 ], [ %add53296387391, %cond.true.i149 ]
+  %fIsTimeSet.i179 = getelementptr inbounds i8, ptr %this, i64 8
+  %50 = load i8, ptr %fIsTimeSet.i179, align 8
   %tobool2.not.i = icmp eq i8 %50, 0
-  br i1 %tobool2.not.i, label %if.then3.i177, label %if.end.i187
+  br i1 %tobool2.not.i, label %if.then3.i181, label %if.end.i191
 
-if.then3.i177:                                    ; preds = %if.end.i174
-  %vtable.i.i178 = load ptr, ptr %this, align 8
-  %vfn.i.i179 = getelementptr inbounds ptr, ptr %vtable.i.i178, i64 31
-  %51 = load ptr, ptr %vfn.i.i179, align 8
+if.then3.i181:                                    ; preds = %if.end.i178
+  %vtable.i.i182 = load ptr, ptr %this, align 8
+  %vfn.i.i183 = getelementptr inbounds i8, ptr %vtable.i.i182, i64 248
+  %51 = load ptr, ptr %vfn.i.i183, align 8
   tail call void %51(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %52 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %52, 1
-  br i1 %cmp.i.i.i, label %if.end.i.i180, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit.thread
+  br i1 %cmp.i.i.i, label %if.end.i.i184, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit.thread
 
-if.end.i.i180:                                    ; preds = %if.then3.i177
-  %fLenient.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+if.end.i.i184:                                    ; preds = %if.then3.i181
+  %fLenient.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %53 = load i8, ptr %fLenient.i.i.i, align 8
   %tobool3.not.i.i = icmp ne i8 %53, 0
-  %fAreAllFieldsSet.i.i181 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
-  %54 = load i8, ptr %fAreAllFieldsSet.i.i181, align 2
+  %fAreAllFieldsSet.i.i185 = getelementptr inbounds i8, ptr %this, i64 10
+  %54 = load i8, ptr %fAreAllFieldsSet.i.i185, align 2
   %tobool4.not.i.i = icmp eq i8 %54, 0
-  %or.cond.i.i182 = select i1 %tobool3.not.i.i, i1 true, i1 %tobool4.not.i.i
-  br i1 %or.cond.i.i182, label %if.then5.i.i, label %if.end4.i183
+  %or.cond.i.i186 = select i1 %tobool3.not.i.i, i1 true, i1 %tobool4.not.i.i
+  br i1 %or.cond.i.i186, label %if.then5.i.i, label %if.end4.i187
 
-if.then5.i.i:                                     ; preds = %if.end.i.i180
-  %fAreFieldsSet.i.i185 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  store i8 0, ptr %fAreFieldsSet.i.i185, align 1
-  br label %if.end4.i183
+if.then5.i.i:                                     ; preds = %if.end.i.i184
+  %fAreFieldsSet.i.i189 = getelementptr inbounds i8, ptr %this, i64 9
+  store i8 0, ptr %fAreFieldsSet.i.i189, align 1
+  br label %if.end4.i187
 
-if.end4.i183:                                     ; preds = %if.then5.i.i, %if.end.i.i180
-  store i8 1, ptr %fIsTimeSet.i175, align 8
-  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+if.end4.i187:                                     ; preds = %if.then5.i.i, %if.end.i.i184
+  store i8 1, ptr %fIsTimeSet.i179, align 8
+  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i, align 1
-  %.pre.i184 = load i32, ptr %status, align 4
-  %55 = icmp slt i32 %.pre.i184, 1
-  br i1 %55, label %if.end.i187, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit.thread
+  %.pre.i188 = load i32, ptr %status, align 4
+  %55 = icmp slt i32 %.pre.i188, 1
+  br i1 %55, label %if.end.i191, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit.thread
 
-_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit.thread: ; preds = %if.then3.i177, %if.end4.i183
-  br i1 %tobool49.not234.ph.ph, label %if.end107, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit227
+_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit.thread: ; preds = %if.then3.i181, %if.end4.i187
+  br i1 %tobool49.not241.ph.ph, label %if.end107, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit234
 
-if.end.i187:                                      ; preds = %if.end.i174, %if.end4.i183
-  %.pn363.in = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
-  %.pn363 = load double, ptr %.pn363.in, align 8
-  %add57335 = fadd double %delta.0235.ph.ph, %.pn363
-  %cmp.i188 = fcmp ogt double %add57335, 0x43846A3EDDF8CD80
-  br i1 %cmp.i188, label %if.then2.i, label %if.else7.i
+if.end.i191:                                      ; preds = %if.end4.i187, %if.end.i178
+  %fTime.i = getelementptr inbounds i8, ptr %this, i64 232
+  %56 = load double, ptr %fTime.i, align 8
+  %add57 = fadd double %delta.0242.ph.ph, %56
+  %cmp.i192 = fcmp ogt double %add57, 0x43846A3EDDF8CD80
+  br i1 %cmp.i192, label %if.then2.i, label %if.else7.i
 
-if.then2.i:                                       ; preds = %if.end.i187
-  %fLenient.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
-  %56 = load i8, ptr %fLenient.i.i, align 8
-  %tobool4.not.i = icmp eq i8 %56, 0
+if.then2.i:                                       ; preds = %if.end.i191
+  %fLenient.i.i = getelementptr inbounds i8, ptr %this, i64 240
+  %57 = load i8, ptr %fLenient.i.i, align 8
+  %tobool4.not.i = icmp eq i8 %57, 0
   br i1 %tobool4.not.i, label %for.end.sink.split.i, label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit
 
-if.else7.i:                                       ; preds = %if.end.i187
-  %cmp8.i = fcmp olt double %add57335, 0xC384763B62073280
+if.else7.i:                                       ; preds = %if.end.i191
+  %cmp8.i = fcmp olt double %add57, 0xC384763B62073280
   br i1 %cmp8.i, label %if.then9.i, label %if.else15.i
 
 if.then9.i:                                       ; preds = %if.else7.i
-  %fLenient.i11.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
-  %57 = load i8, ptr %fLenient.i11.i, align 8
-  %tobool11.not.i = icmp eq i8 %57, 0
+  %fLenient.i11.i = getelementptr inbounds i8, ptr %this, i64 240
+  %58 = load i8, ptr %fLenient.i11.i, align 8
+  %tobool11.not.i = icmp eq i8 %58, 0
   br i1 %tobool11.not.i, label %for.end.sink.split.i, label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit
 
 if.else15.i:                                      ; preds = %if.else7.i
-  %call16.i = tail call signext i8 @uprv_isNaN_75(double noundef %add57335)
+  %call16.i = tail call signext i8 @uprv_isNaN_75(double noundef %add57)
   %tobool17.not.i = icmp eq i8 %call16.i, 0
   br i1 %tobool17.not.i, label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit, label %for.end.sink.split.i
 
 for.end.sink.split.i:                             ; preds = %if.else15.i, %if.then9.i, %if.then2.i
   store i32 1, ptr %status, align 4
-  br i1 %tobool49.not234.ph.ph, label %if.end107, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit227
+  br i1 %tobool49.not241.ph.ph, label %if.end107, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit234
 
 _ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit: ; preds = %if.then2.i, %if.then9.i, %if.else15.i
-  %millis.addr.0.i = phi double [ %add57335, %if.else15.i ], [ 0x43846A3EDDF8CD80, %if.then2.i ], [ 0xC384763B62073280, %if.then9.i ]
-  store double %millis.addr.0.i, ptr %.pn363.in, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i175, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %this, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %scevgep.i, i8 0, i64 216, i1 false)
-  br i1 %tobool49.not234.ph.ph, label %if.end107, label %if.then59
+  %millis.addr.0.i = phi double [ %add57, %if.else15.i ], [ 0x43846A3EDDF8CD80, %if.then2.i ], [ 0xC384763B62073280, %if.then9.i ]
+  %fTime.i193 = getelementptr inbounds i8, ptr %this, i64 232
+  store double %millis.addr.0.i, ptr %fTime.i193, align 8
+  %fIsTimeSet.i196 = getelementptr inbounds i8, ptr %this, i64 8
+  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i196, align 8
+  %fFields.i197 = getelementptr inbounds i8, ptr %this, i64 12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i197, i8 0, i64 216, i1 false)
+  br i1 %tobool49.not241.ph.ph, label %if.end107, label %if.then59
 
 if.then59:                                        ; preds = %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit
-  %.pr268.pr.pr.pre = load i32, ptr %status, align 4
-  %cmp.i.i193 = icmp slt i32 %.pr268.pr.pr.pre, 1
-  br i1 %cmp.i.i193, label %if.end.i195, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit227
+  %.pr275.pr.pr.pre = load i32, ptr %status, align 4
+  %cmp.i.i199 = icmp slt i32 %.pr275.pr.pr.pre, 1
+  br i1 %cmp.i.i199, label %if.end.i201, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit234
 
-if.end.i195:                                      ; preds = %if.then59
-  %fIsTimeSet.i.i197 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
-  %58 = load i8, ptr %fIsTimeSet.i.i197, align 8
-  %tobool2.not.i.i198 = icmp eq i8 %58, 0
-  br i1 %tobool2.not.i.i198, label %if.then3.i.i212, label %if.end8.i.i199
+if.end.i201:                                      ; preds = %if.then59
+  %fIsTimeSet.i.i203 = getelementptr inbounds i8, ptr %this, i64 8
+  %59 = load i8, ptr %fIsTimeSet.i.i203, align 8
+  %tobool2.not.i.i204 = icmp eq i8 %59, 0
+  br i1 %tobool2.not.i.i204, label %if.then3.i.i219, label %if.end8.i.i205
 
-if.then3.i.i212:                                  ; preds = %if.end.i195
-  %vtable.i.i.i213 = load ptr, ptr %this, align 8
-  %vfn.i.i.i214 = getelementptr inbounds ptr, ptr %vtable.i.i.i213, i64 31
-  %59 = load ptr, ptr %vfn.i.i.i214, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %60 = load i32, ptr %status, align 4
-  %cmp.i.i.i.i215 = icmp slt i32 %60, 1
-  br i1 %cmp.i.i.i.i215, label %if.end.i.i.i216, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit227
+if.then3.i.i219:                                  ; preds = %if.end.i201
+  %vtable.i.i.i220 = load ptr, ptr %this, align 8
+  %vfn.i.i.i221 = getelementptr inbounds i8, ptr %vtable.i.i.i220, i64 248
+  %60 = load ptr, ptr %vfn.i.i.i221, align 8
+  tail call void %60(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %61 = load i32, ptr %status, align 4
+  %cmp.i.i.i.i222 = icmp slt i32 %61, 1
+  br i1 %cmp.i.i.i.i222, label %if.end.i.i.i223, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit234
 
-if.end.i.i.i216:                                  ; preds = %if.then3.i.i212
-  %fLenient.i.i.i.i217 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
-  %61 = load i8, ptr %fLenient.i.i.i.i217, align 8
-  %tobool3.not.i.i.i218 = icmp ne i8 %61, 0
-  %fAreAllFieldsSet.i.i.i219 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
-  %62 = load i8, ptr %fAreAllFieldsSet.i.i.i219, align 2
-  %tobool4.not.i.i.i220 = icmp eq i8 %62, 0
-  %or.cond.i.i.i221 = select i1 %tobool3.not.i.i.i218, i1 true, i1 %tobool4.not.i.i.i220
-  br i1 %or.cond.i.i.i221, label %if.then5.i.i.i225, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i222
+if.end.i.i.i223:                                  ; preds = %if.then3.i.i219
+  %fLenient.i.i.i.i224 = getelementptr inbounds i8, ptr %this, i64 240
+  %62 = load i8, ptr %fLenient.i.i.i.i224, align 8
+  %tobool3.not.i.i.i225 = icmp ne i8 %62, 0
+  %fAreAllFieldsSet.i.i.i226 = getelementptr inbounds i8, ptr %this, i64 10
+  %63 = load i8, ptr %fAreAllFieldsSet.i.i.i226, align 2
+  %tobool4.not.i.i.i227 = icmp eq i8 %63, 0
+  %or.cond.i.i.i228 = select i1 %tobool3.not.i.i.i225, i1 true, i1 %tobool4.not.i.i.i227
+  br i1 %or.cond.i.i.i228, label %if.then5.i.i.i232, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i229
 
-if.then5.i.i.i225:                                ; preds = %if.end.i.i.i216
-  %fAreFieldsSet.i.i.i226 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  store i8 0, ptr %fAreFieldsSet.i.i.i226, align 1
-  br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i222
+if.then5.i.i.i232:                                ; preds = %if.end.i.i.i223
+  %fAreFieldsSet.i.i.i233 = getelementptr inbounds i8, ptr %this, i64 9
+  store i8 0, ptr %fAreFieldsSet.i.i.i233, align 1
+  br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i229
 
-_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i222: ; preds = %if.then5.i.i.i225, %if.end.i.i.i216
-  store i8 1, ptr %fIsTimeSet.i.i197, align 8
-  %fAreFieldsVirtuallySet.i.i.i223 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
-  store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i223, align 1
-  %.pre.i.i224 = load i32, ptr %status, align 4
-  %63 = icmp slt i32 %.pre.i.i224, 1
-  br i1 %63, label %if.end8.i.i199, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit227
+_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i229: ; preds = %if.then5.i.i.i232, %if.end.i.i.i223
+  store i8 1, ptr %fIsTimeSet.i.i203, align 8
+  %fAreFieldsVirtuallySet.i.i.i230 = getelementptr inbounds i8, ptr %this, i64 11
+  store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i230, align 1
+  %.pre.i.i231 = load i32, ptr %status, align 4
+  %64 = icmp slt i32 %.pre.i.i231, 1
+  br i1 %64, label %if.end8.i.i205, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit234
 
-if.end8.i.i199:                                   ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i222, %if.end.i195
-  %fAreFieldsSet.i.i200 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  %64 = load i8, ptr %fAreFieldsSet.i.i200, align 1
-  %tobool9.not.i.i201 = icmp eq i8 %64, 0
-  br i1 %tobool9.not.i.i201, label %if.then10.i.i204, label %cond.true.i202
+if.end8.i.i205:                                   ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i229, %if.end.i201
+  %fAreFieldsSet.i.i206 = getelementptr inbounds i8, ptr %this, i64 9
+  %65 = load i8, ptr %fAreFieldsSet.i.i206, align 1
+  %tobool9.not.i.i207 = icmp eq i8 %65, 0
+  br i1 %tobool9.not.i.i207, label %if.then10.i.i211, label %cond.true.i208
 
-if.then10.i.i204:                                 ; preds = %if.end8.i.i199
-  %vtable.i.i205 = load ptr, ptr %this, align 8
-  %vfn.i.i206 = getelementptr inbounds ptr, ptr %vtable.i.i205, i64 32
-  %65 = load ptr, ptr %vfn.i.i206, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %66 = load i32, ptr %status, align 4
-  %cmp.i7.i.i207 = icmp slt i32 %66, 1
-  br i1 %cmp.i7.i.i207, label %if.end8.i208, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit227
+if.then10.i.i211:                                 ; preds = %if.end8.i.i205
+  %vtable.i.i212 = load ptr, ptr %this, align 8
+  %vfn.i.i213 = getelementptr inbounds i8, ptr %vtable.i.i212, i64 256
+  %66 = load ptr, ptr %vfn.i.i213, align 8
+  tail call void %66(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %67 = load i32, ptr %status, align 4
+  %cmp.i7.i.i214 = icmp slt i32 %67, 1
+  br i1 %cmp.i7.i.i214, label %if.end8.i215, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit234
 
-if.end8.i208:                                     ; preds = %if.then10.i.i204
-  store i8 1, ptr %fAreFieldsSet.i.i200, align 1
-  %fAreAllFieldsSet.i.i209 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
-  store i8 1, ptr %fAreAllFieldsSet.i.i209, align 2
-  %.pre.i210 = load i32, ptr %status, align 4
-  %cmp.i9.i211 = icmp sgt i32 %.pre.i210, 0
-  br i1 %cmp.i9.i211, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit227, label %cond.true.i202
+if.end8.i215:                                     ; preds = %if.then10.i.i211
+  store i8 1, ptr %fAreFieldsSet.i.i206, align 1
+  %fAreAllFieldsSet.i.i216 = getelementptr inbounds i8, ptr %this, i64 10
+  store i8 1, ptr %fAreAllFieldsSet.i.i216, align 2
+  %.pre.i217 = load i32, ptr %status, align 4
+  %cmp.i9.i218 = icmp sgt i32 %.pre.i217, 0
+  br i1 %cmp.i9.i218, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit234, label %cond.true.i208
 
-cond.true.i202:                                   ; preds = %if.end8.i208, %if.end8.i.i199
-  %arrayidx.i203 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 21
-  %67 = load i32, ptr %arrayidx.i203, align 8
-  br label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit227
+cond.true.i208:                                   ; preds = %if.end8.i215, %if.end8.i.i205
+  %arrayidx.i210 = getelementptr inbounds i8, ptr %this, i64 96
+  %68 = load i32, ptr %arrayidx.i210, align 8
+  br label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit234
 
-_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit227: ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit.thread, %for.end.sink.split.i, %if.then59, %if.then3.i.i212, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i222, %if.then10.i.i204, %if.end8.i208, %cond.true.i202
-  %retval.0.i194 = phi i32 [ 0, %if.then59 ], [ %67, %cond.true.i202 ], [ 0, %if.end8.i208 ], [ 0, %if.then10.i.i204 ], [ 0, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i222 ], [ 0, %if.then3.i.i212 ], [ 0, %for.end.sink.split.i ], [ 0, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit.thread ]
-  %cmp61.not = icmp eq i32 %retval.0.i194, %prevWallTime.0.ph.ph
+_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit234: ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit.thread, %for.end.sink.split.i, %if.then59, %if.then3.i.i219, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i229, %if.then10.i.i211, %if.end8.i215, %cond.true.i208
+  %retval.0.i200 = phi i32 [ 0, %if.then59 ], [ %68, %cond.true.i208 ], [ 0, %if.end8.i215 ], [ 0, %if.then10.i.i211 ], [ 0, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i229 ], [ 0, %if.then3.i.i219 ], [ 0, %for.end.sink.split.i ], [ 0, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit.thread ]
+  %cmp61.not = icmp eq i32 %retval.0.i200, %prevWallTime.0.ph.ph
   br i1 %cmp61.not, label %if.end107, label %if.then62
 
-if.then62:                                        ; preds = %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit227
-  %fTime.i228 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
-  %68 = load double, ptr %fTime.i228, align 8
+if.then62:                                        ; preds = %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit234
+  %fTime.i235 = getelementptr inbounds i8, ptr %this, i64 232
+  %69 = load double, ptr %fTime.i235, align 8
   %call64 = tail call noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 16, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %call65 = tail call noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 15, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %add66 = add nsw i32 %call65, %call64
@@ -7202,8 +7237,8 @@ cond.true:                                        ; preds = %if.then68
 
 cond.false:                                       ; preds = %if.then68
   %sub69.nonneg = sub i32 0, %sub69
-  %69 = urem i32 %sub69.nonneg, 86400000
-  %.neg = sub nsw i32 0, %69
+  %70 = urem i32 %sub69.nonneg, 86400000
+  %.neg = sub nsw i32 0, %70
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -7213,20 +7248,20 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 if.then75:                                        ; preds = %cond.end
   %conv76 = sitofp i32 %cond to double
-  %add77 = fadd double %68, %conv76
+  %add77 = fadd double %69, %conv76
   tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %add77, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %call78 = tail call noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 21, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then75, %cond.end
-  %newWallTime.0 = phi i32 [ %call78, %if.then75 ], [ %retval.0.i194, %cond.end ]
+  %newWallTime.0 = phi i32 [ %call78, %if.then75 ], [ %retval.0.i200, %cond.end ]
   %cmp80.not = icmp eq i32 %newWallTime.0, %prevWallTime.0.ph.ph
   br i1 %cmp80.not, label %if.end107, label %if.then81
 
 if.then81:                                        ; preds = %if.end79
-  %fSkippedWallTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 14
-  %70 = load i32, ptr %fSkippedWallTime, align 4
-  switch i32 %70, label %if.end107 [
+  %fSkippedWallTime = getelementptr inbounds i8, ptr %this, i64 260
+  %71 = load i32, ptr %fSkippedWallTime, align 4
+  switch i32 %71, label %if.end107 [
     i32 1, label %sw.bb82
     i32 0, label %sw.bb86
     i32 2, label %sw.bb90
@@ -7237,7 +7272,7 @@ sw.bb82:                                          ; preds = %if.then81
   br i1 %cmp83, label %if.then84, label %if.end107
 
 if.then84:                                        ; preds = %sw.bb82
-  tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %68, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %69, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end107
 
 sw.bb86:                                          ; preds = %if.then81
@@ -7245,33 +7280,33 @@ sw.bb86:                                          ; preds = %if.then81
   br i1 %cmp87, label %if.then88, label %if.end107
 
 if.then88:                                        ; preds = %sw.bb86
-  tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %68, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %69, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end107
 
 sw.bb90:                                          ; preds = %if.then81
   %cmp91 = icmp sgt i32 %cond, 0
-  %71 = load double, ptr %fTime.i228, align 8
-  %cond96 = select i1 %cmp91, double %71, double %68
+  %72 = load double, ptr %fTime.i235, align 8
+  %cond96 = select i1 %cmp91, double %72, double %69
   %call97 = call noundef signext i8 @_ZNK6icu_758Calendar34getImmediatePreviousZoneTransitionEdPdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %cond96, ptr noundef nonnull %immediatePrevTrans, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !12
-  %72 = load i32, ptr %status, align 4
-  %cmp.i230 = icmp slt i32 %72, 1
+  %73 = load i32, ptr %status, align 4
+  %cmp.i237 = icmp slt i32 %73, 1
   %tobool100 = icmp ne i8 %call97, 0
-  %or.cond1 = and i1 %tobool100, %cmp.i230
+  %or.cond1 = and i1 %tobool100, %cmp.i237
   br i1 %or.cond1, label %if.then101, label %if.end107
 
 if.then101:                                       ; preds = %sw.bb90
-  %73 = load double, ptr %immediatePrevTrans, align 8
-  tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %73, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %74 = load double, ptr %immediatePrevTrans, align 8
+  tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %74, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end107
 
-if.end107:                                        ; preds = %if.then3.i.i86, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i96, %if.then10.i.i78, %if.end8.i82, %if.then3.i.i156, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i166, %if.then10.i.i148, %if.end8.i152, %if.end8.i117, %if.then10.i.i113, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i131, %if.then3.i.i121, %for.end.sink.split.i, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit.thread, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit227, %if.end79, %sw.bb90, %if.then101, %sw.bb86, %if.then88, %sw.bb82, %if.then84, %if.then81, %if.then62, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit, %if.then35, %if.end4, %entry, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit, %sw.default, %sw.bb, %if.then3
+if.end107:                                        ; preds = %if.then3.i.i88, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i98, %if.then10.i.i80, %if.end8.i84, %if.then3.i.i160, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i170, %if.then10.i.i152, %if.end8.i156, %if.end8.i120, %if.then10.i.i116, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i134, %if.then3.i.i124, %for.end.sink.split.i, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit.thread, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit234, %if.end79, %sw.bb90, %if.then101, %sw.bb86, %if.then88, %sw.bb82, %if.then84, %if.then81, %if.then62, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit, %if.then35, %if.end4, %entry, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit, %sw.default, %sw.bb, %if.then3
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_758Calendar10setLenientEa(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(618) %this, i8 noundef signext %lenient) local_unnamed_addr #21 align 2 {
 entry:
-  %fLenient = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient = getelementptr inbounds i8, ptr %this, i64 240
   store i8 %lenient, ptr %fLenient, align 8
   ret void
 }
@@ -7285,7 +7320,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fZone.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone.i = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load ptr, ptr %fZone.i, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %if.else11, label %dynamic_cast.notnull.i
@@ -7313,7 +7348,7 @@ dynamic_cast.notnull15.i:                         ; preds = %dynamic_cast.notnul
 if.then4:                                         ; preds = %dynamic_cast.notnull15.i, %dynamic_cast.notnull9.i, %dynamic_cast.notnull3.i, %dynamic_cast.notnull.i
   call void @_ZN6icu_7518TimeZoneTransitionC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %trans)
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %11 = load ptr, ptr %vfn, align 8
   %call5 = invoke noundef signext i8 %11(ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %base, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(32) %trans)
           to label %invoke.cont unwind label %lpad
@@ -7355,7 +7390,7 @@ return:                                           ; preds = %if.else11, %cleanup
 define noundef i32 @_ZN6icu_758Calendar15fieldDifferenceEdNS0_11EDateFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %when, i32 noundef %field, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %when, i32 noundef %field, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret i32 %call
@@ -7377,14 +7412,14 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end.i:                                         ; preds = %if.end
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fIsTimeSet.i, align 8
   %tobool2.not.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end8.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 31
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 248
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %3 = load i32, ptr %ec, align 4
@@ -7392,23 +7427,23 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %fLenient.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load i8, ptr %fLenient.i.i.i, align 8
   %tobool3.not.i.i = icmp ne i8 %4, 0
-  %fAreAllFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %5 = load i8, ptr %fAreAllFieldsSet.i.i, align 2
   %tobool4.not.i.i = icmp eq i8 %5, 0
   %or.cond.i.i = select i1 %tobool3.not.i.i, i1 true, i1 %tobool4.not.i.i
   br i1 %or.cond.i.i, label %if.then5.i.i, label %if.end4.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %fAreFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i, align 1
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then5.i.i, %if.end.i.i
   store i8 1, ptr %fIsTimeSet.i, align 8
-  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i, align 1
   %.pre.i = load i32, ptr %ec, align 4
   %6 = icmp slt i32 %.pre.i, 1
@@ -7416,7 +7451,7 @@ if.end4.i:                                        ; preds = %if.then5.i.i, %if.e
 
 if.end8.i:                                        ; preds = %if.end4.i, %if.end.i
   %7 = phi i32 [ %.pre.i, %if.end4.i ], [ %0, %if.end.i ]
-  %fTime.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
+  %fTime.i = getelementptr inbounds i8, ptr %this, i64 232
   %8 = load double, ptr %fTime.i, align 8
   br label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit
 
@@ -7427,23 +7462,23 @@ _ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit: ; preds = %if.then3.i,
   br i1 %cmp6, label %while.cond.preheader, label %if.else44
 
 while.cond.preheader:                             ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit
-  %cmp.i76323 = icmp sgt i32 %9, 0
-  br i1 %cmp.i76323, label %while.end, label %if.end.i79.lr.ph
+  %cmp.i76327 = icmp sgt i32 %9, 0
+  br i1 %cmp.i76327, label %while.end, label %if.end.i79.lr.ph
 
 if.end.i79.lr.ph:                                 ; preds = %while.cond.preheader
   %cmp.i80 = fcmp ogt double %retval.0.i, 0x43846A3EDDF8CD80
   %cmp8.i = fcmp olt double %retval.0.i, 0xC384763B62073280
-  %fLenient.i11.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
-  %fTime.i81 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
-  %fAreAllFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
-  %scevgep.i = getelementptr inbounds i8, ptr %this, i64 12
+  %fLenient.i11.i = getelementptr inbounds i8, ptr %this, i64 240
+  %fTime.i81 = getelementptr inbounds i8, ptr %this, i64 232
+  %fAreAllFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 10
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %this, i64 11
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
   br label %if.end.i79
 
 if.end.i79:                                       ; preds = %if.end.i79.lr.ph, %if.end24
-  %min.0325 = phi i32 [ 0, %if.end.i79.lr.ph ], [ %max.0324, %if.end24 ]
-  %max.0324 = phi i32 [ 1, %if.end.i79.lr.ph ], [ %spec.store.select, %if.end24 ]
+  %min.0329 = phi i32 [ 0, %if.end.i79.lr.ph ], [ %max.0328, %if.end24 ]
+  %max.0328 = phi i32 [ 1, %if.end.i79.lr.ph ], [ %spec.store.select, %if.end24 ]
   br i1 %cmp.i80, label %if.then2.i, label %if.else7.i
 
 if.then2.i:                                       ; preds = %if.end.i79
@@ -7468,7 +7503,7 @@ if.end21.i:                                       ; preds = %if.else15.i, %if.th
   %millis.addr.0.i = phi double [ %retval.0.i, %if.else15.i ], [ 0x43846A3EDDF8CD80, %if.then2.i ], [ 0xC384763B62073280, %if.then9.i ]
   store double %millis.addr.0.i, ptr %fTime.i81, align 8
   store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %scevgep.i, i8 0, i64 216, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i, i8 0, i64 216, i1 false)
   br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit
 
 for.end.sink.split.i:                             ; preds = %if.else15.i, %if.then9.i, %if.then2.i
@@ -7477,9 +7512,9 @@ for.end.sink.split.i:                             ; preds = %if.else15.i, %if.th
 
 _ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit: ; preds = %if.end21.i, %for.end.sink.split.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %12 = load ptr, ptr %vfn, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %max.0324, ptr noundef nonnull align 4 dereferenceable(4) %ec)
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %max.0328, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %13 = load i32, ptr %ec, align 4
   %cmp.i.i83 = icmp slt i32 %13, 1
   br i1 %cmp.i.i83, label %if.end.i85, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit105
@@ -7491,7 +7526,7 @@ if.end.i85:                                       ; preds = %_ZN6icu_758Calendar
 
 if.then3.i90:                                     ; preds = %if.end.i85
   %vtable.i.i91 = load ptr, ptr %this, align 8
-  %vfn.i.i92 = getelementptr inbounds ptr, ptr %vtable.i.i91, i64 31
+  %vfn.i.i92 = getelementptr inbounds i8, ptr %vtable.i.i91, i64 248
   %15 = load ptr, ptr %vfn.i.i92, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %16 = load i32, ptr %ec, align 4
@@ -7533,7 +7568,7 @@ if.else:                                          ; preds = %_ZNK6icu_758Calenda
   br i1 %cmp13, label %while.end, label %if.else15
 
 if.else15:                                        ; preds = %if.else
-  %cmp16.not = icmp eq i32 %max.0324, 2147483647
+  %cmp16.not = icmp eq i32 %max.0328, 2147483647
   br i1 %cmp16.not, label %if.end24.thread, label %if.end24
 
 if.end24.thread:                                  ; preds = %if.else15
@@ -7541,129 +7576,129 @@ if.end24.thread:                                  ; preds = %if.else15
   br label %while.end
 
 if.end24:                                         ; preds = %if.else15
-  %shl = shl nuw i32 %max.0324, 1
+  %shl = shl nuw i32 %max.0328, 1
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %shl, i32 2147483647)
   %cmp.i76 = icmp sgt i32 %22, 0
   br i1 %cmp.i76, label %while.end, label %if.end.i79, !llvm.loop !13
 
 while.end:                                        ; preds = %if.end24, %if.else, %if.end24.thread, %while.cond.preheader
   %23 = phi i32 [ %9, %while.cond.preheader ], [ 1, %if.end24.thread ], [ %22, %if.else ], [ %22, %if.end24 ]
-  %max.0.lcssa = phi i32 [ 1, %while.cond.preheader ], [ 2147483647, %if.end24.thread ], [ %spec.store.select, %if.end24 ], [ %max.0324, %if.else ]
-  %min.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %min.0325, %if.end24.thread ], [ %max.0324, %if.end24 ], [ %min.0325, %if.else ]
-  %sub330 = sub nsw i32 %max.0.lcssa, %min.0.lcssa
-  %cmp26331 = icmp sgt i32 %sub330, 1
-  br i1 %cmp26331, label %land.rhs.lr.ph, label %if.end95
+  %max.0.lcssa = phi i32 [ 1, %while.cond.preheader ], [ 2147483647, %if.end24.thread ], [ %spec.store.select, %if.end24 ], [ %max.0328, %if.else ]
+  %min.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %min.0329, %if.end24.thread ], [ %max.0328, %if.end24 ], [ %min.0329, %if.else ]
+  %sub334 = sub nsw i32 %max.0.lcssa, %min.0.lcssa
+  %cmp26335 = icmp sgt i32 %sub334, 1
+  br i1 %cmp26335, label %land.rhs.lr.ph, label %if.end95
 
 land.rhs.lr.ph:                                   ; preds = %while.end
   %cmp.i110 = fcmp ogt double %retval.0.i, 0x43846A3EDDF8CD80
   %cmp8.i112 = fcmp olt double %retval.0.i, 0xC384763B62073280
-  %fLenient.i11.i131 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
-  %fTime.i119 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
-  %fAreAllFieldsSet.i120 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
-  %fAreFieldsSet.i121 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  %fAreFieldsVirtuallySet.i122 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
-  %scevgep.i124 = getelementptr inbounds i8, ptr %this, i64 12
+  %fLenient.i11.i132 = getelementptr inbounds i8, ptr %this, i64 240
+  %fTime.i119 = getelementptr inbounds i8, ptr %this, i64 232
+  %fAreAllFieldsSet.i120 = getelementptr inbounds i8, ptr %this, i64 10
+  %fAreFieldsSet.i121 = getelementptr inbounds i8, ptr %this, i64 9
+  %fAreFieldsVirtuallySet.i122 = getelementptr inbounds i8, ptr %this, i64 11
+  %fFields.i124 = getelementptr inbounds i8, ptr %this, i64 12
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.else37
   %24 = phi i32 [ %23, %land.rhs.lr.ph ], [ %37, %if.else37 ]
-  %sub334 = phi i32 [ %sub330, %land.rhs.lr.ph ], [ %sub, %if.else37 ]
-  %min.2333 = phi i32 [ %min.0.lcssa, %land.rhs.lr.ph ], [ %min.2.add, %if.else37 ]
-  %max.2332 = phi i32 [ %max.0.lcssa, %land.rhs.lr.ph ], [ %add.max.2, %if.else37 ]
+  %sub338 = phi i32 [ %sub334, %land.rhs.lr.ph ], [ %sub, %if.else37 ]
+  %min.2337 = phi i32 [ %min.0.lcssa, %land.rhs.lr.ph ], [ %min.2.add, %if.else37 ]
+  %max.2336 = phi i32 [ %max.0.lcssa, %land.rhs.lr.ph ], [ %add.max.2, %if.else37 ]
   %cmp.i106 = icmp sgt i32 %24, 0
-  br i1 %cmp.i106, label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit296, label %while.body29
+  br i1 %cmp.i106, label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300, label %while.body29
 
 while.body29:                                     ; preds = %land.rhs
-  %div75 = lshr i32 %sub334, 1
-  %add = add nsw i32 %div75, %min.2333
-  br i1 %cmp.i110, label %if.then2.i133, label %if.else7.i111
+  %div75 = lshr i32 %sub338, 1
+  %add = add nsw i32 %div75, %min.2337
+  br i1 %cmp.i110, label %if.then2.i134, label %if.else7.i111
 
-if.then2.i133:                                    ; preds = %while.body29
-  %25 = load i8, ptr %fLenient.i11.i131, align 8
-  %tobool4.not.i135 = icmp eq i8 %25, 0
-  br i1 %tobool4.not.i135, label %for.end.sink.split.i116, label %if.end21.i117
+if.then2.i134:                                    ; preds = %while.body29
+  %25 = load i8, ptr %fLenient.i11.i132, align 8
+  %tobool4.not.i136 = icmp eq i8 %25, 0
+  br i1 %tobool4.not.i136, label %for.end.sink.split.i116, label %if.end21.i117
 
 if.else7.i111:                                    ; preds = %while.body29
-  br i1 %cmp8.i112, label %if.then9.i130, label %if.else15.i113
+  br i1 %cmp8.i112, label %if.then9.i131, label %if.else15.i113
 
-if.then9.i130:                                    ; preds = %if.else7.i111
-  %26 = load i8, ptr %fLenient.i11.i131, align 8
-  %tobool11.not.i132 = icmp eq i8 %26, 0
-  br i1 %tobool11.not.i132, label %for.end.sink.split.i116, label %if.end21.i117
+if.then9.i131:                                    ; preds = %if.else7.i111
+  %26 = load i8, ptr %fLenient.i11.i132, align 8
+  %tobool11.not.i133 = icmp eq i8 %26, 0
+  br i1 %tobool11.not.i133, label %for.end.sink.split.i116, label %if.end21.i117
 
 if.else15.i113:                                   ; preds = %if.else7.i111
   %call16.i114 = tail call signext i8 @uprv_isNaN_75(double noundef %retval.0.i)
   %tobool17.not.i115 = icmp eq i8 %call16.i114, 0
   br i1 %tobool17.not.i115, label %if.end21.i117, label %for.end.sink.split.i116
 
-if.end21.i117:                                    ; preds = %if.else15.i113, %if.then9.i130, %if.then2.i133
-  %millis.addr.0.i118 = phi double [ %retval.0.i, %if.else15.i113 ], [ 0x43846A3EDDF8CD80, %if.then2.i133 ], [ 0xC384763B62073280, %if.then9.i130 ]
+if.end21.i117:                                    ; preds = %if.else15.i113, %if.then9.i131, %if.then2.i134
+  %millis.addr.0.i118 = phi double [ %retval.0.i, %if.else15.i113 ], [ 0x43846A3EDDF8CD80, %if.then2.i134 ], [ 0xC384763B62073280, %if.then9.i131 ]
   store double %millis.addr.0.i118, ptr %fTime.i119, align 8
   store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %scevgep.i124, i8 0, i64 216, i1 false)
-  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i124, i8 0, i64 216, i1 false)
+  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit137
 
-for.end.sink.split.i116:                          ; preds = %if.else15.i113, %if.then9.i130, %if.then2.i133
+for.end.sink.split.i116:                          ; preds = %if.else15.i113, %if.then9.i131, %if.then2.i134
   store i32 1, ptr %ec, align 4
-  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit136
+  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit137
 
-_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit136: ; preds = %if.end21.i117, %for.end.sink.split.i116
+_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit137: ; preds = %if.end21.i117, %for.end.sink.split.i116
   %vtable31 = load ptr, ptr %this, align 8
-  %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 7
+  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 56
   %27 = load ptr, ptr %vfn32, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %add, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %28 = load i32, ptr %ec, align 4
-  %cmp.i.i137 = icmp slt i32 %28, 1
-  br i1 %cmp.i.i137, label %if.end.i139, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit159
+  %cmp.i.i138 = icmp slt i32 %28, 1
+  br i1 %cmp.i.i138, label %if.end.i140, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit160
 
-if.end.i139:                                      ; preds = %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit136
+if.end.i140:                                      ; preds = %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit137
   %29 = load i8, ptr %fIsTimeSet.i, align 8
-  %tobool2.not.i141 = icmp eq i8 %29, 0
-  br i1 %tobool2.not.i141, label %if.then3.i144, label %if.end8.i142
+  %tobool2.not.i142 = icmp eq i8 %29, 0
+  br i1 %tobool2.not.i142, label %if.then3.i145, label %if.end8.i143
 
-if.then3.i144:                                    ; preds = %if.end.i139
-  %vtable.i.i145 = load ptr, ptr %this, align 8
-  %vfn.i.i146 = getelementptr inbounds ptr, ptr %vtable.i.i145, i64 31
-  %30 = load ptr, ptr %vfn.i.i146, align 8
+if.then3.i145:                                    ; preds = %if.end.i140
+  %vtable.i.i146 = load ptr, ptr %this, align 8
+  %vfn.i.i147 = getelementptr inbounds i8, ptr %vtable.i.i146, i64 248
+  %30 = load ptr, ptr %vfn.i.i147, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %31 = load i32, ptr %ec, align 4
-  %cmp.i.i.i147 = icmp slt i32 %31, 1
-  br i1 %cmp.i.i.i147, label %if.end.i.i148, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit159
+  %cmp.i.i.i148 = icmp slt i32 %31, 1
+  br i1 %cmp.i.i.i148, label %if.end.i.i149, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit160
 
-if.end.i.i148:                                    ; preds = %if.then3.i144
-  %32 = load i8, ptr %fLenient.i11.i131, align 8
-  %tobool3.not.i.i150 = icmp ne i8 %32, 0
+if.end.i.i149:                                    ; preds = %if.then3.i145
+  %32 = load i8, ptr %fLenient.i11.i132, align 8
+  %tobool3.not.i.i151 = icmp ne i8 %32, 0
   %33 = load i8, ptr %fAreAllFieldsSet.i120, align 2
-  %tobool4.not.i.i152 = icmp eq i8 %33, 0
-  %or.cond.i.i153 = select i1 %tobool3.not.i.i150, i1 true, i1 %tobool4.not.i.i152
-  br i1 %or.cond.i.i153, label %if.then5.i.i157, label %if.end4.i154
+  %tobool4.not.i.i153 = icmp eq i8 %33, 0
+  %or.cond.i.i154 = select i1 %tobool3.not.i.i151, i1 true, i1 %tobool4.not.i.i153
+  br i1 %or.cond.i.i154, label %if.then5.i.i158, label %if.end4.i155
 
-if.then5.i.i157:                                  ; preds = %if.end.i.i148
+if.then5.i.i158:                                  ; preds = %if.end.i.i149
   store i8 0, ptr %fAreFieldsSet.i121, align 1
-  br label %if.end4.i154
+  br label %if.end4.i155
 
-if.end4.i154:                                     ; preds = %if.then5.i.i157, %if.end.i.i148
+if.end4.i155:                                     ; preds = %if.then5.i.i158, %if.end.i.i149
   store i8 1, ptr %fIsTimeSet.i, align 8
   store i8 0, ptr %fAreFieldsVirtuallySet.i122, align 1
-  %.pre.i156 = load i32, ptr %ec, align 4
-  %34 = icmp slt i32 %.pre.i156, 1
-  br i1 %34, label %if.end8.i142, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit159
+  %.pre.i157 = load i32, ptr %ec, align 4
+  %34 = icmp slt i32 %.pre.i157, 1
+  br i1 %34, label %if.end8.i143, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit160
 
-if.end8.i142:                                     ; preds = %if.end4.i154, %if.end.i139
-  %35 = phi i32 [ %.pre.i156, %if.end4.i154 ], [ %28, %if.end.i139 ]
+if.end8.i143:                                     ; preds = %if.end4.i155, %if.end.i140
+  %35 = phi i32 [ %.pre.i157, %if.end4.i155 ], [ %28, %if.end.i140 ]
   %36 = load double, ptr %fTime.i119, align 8
-  br label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit159
+  br label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit160
 
-_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit159: ; preds = %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit136, %if.then3.i144, %if.end4.i154, %if.end8.i142
-  %37 = phi i32 [ %35, %if.end8.i142 ], [ %28, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit136 ], [ %.pre.i156, %if.end4.i154 ], [ %31, %if.then3.i144 ]
-  %retval.0.i138 = phi double [ %36, %if.end8.i142 ], [ 0.000000e+00, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit136 ], [ 0.000000e+00, %if.end4.i154 ], [ 0.000000e+00, %if.then3.i144 ]
-  %cmp35 = fcmp oeq double %retval.0.i138, %targetMs
+_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit160: ; preds = %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit137, %if.then3.i145, %if.end4.i155, %if.end8.i143
+  %37 = phi i32 [ %35, %if.end8.i143 ], [ %28, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit137 ], [ %.pre.i157, %if.end4.i155 ], [ %31, %if.then3.i145 ]
+  %retval.0.i139 = phi double [ %36, %if.end8.i143 ], [ 0.000000e+00, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit137 ], [ 0.000000e+00, %if.end4.i155 ], [ 0.000000e+00, %if.then3.i145 ]
+  %cmp35 = fcmp oeq double %retval.0.i139, %targetMs
   br i1 %cmp35, label %return, label %if.else37
 
-if.else37:                                        ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit159
-  %cmp38 = fcmp ogt double %retval.0.i138, %targetMs
-  %add.max.2 = select i1 %cmp38, i32 %add, i32 %max.2332
-  %min.2.add = select i1 %cmp38, i32 %min.2333, i32 %add
+if.else37:                                        ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit160
+  %cmp38 = fcmp ogt double %retval.0.i139, %targetMs
+  %add.max.2 = select i1 %cmp38, i32 %add, i32 %max.2336
+  %min.2.add = select i1 %cmp38, i32 %min.2337, i32 %add
   %sub = sub nsw i32 %add.max.2, %min.2.add
   %cmp26 = icmp sgt i32 %sub, 1
   br i1 %cmp26, label %land.rhs, label %if.end95, !llvm.loop !14
@@ -7673,113 +7708,113 @@ if.else44:                                        ; preds = %_ZNK6icu_758Calenda
   br i1 %cmp45, label %while.cond48.preheader, label %if.end95
 
 while.cond48.preheader:                           ; preds = %if.else44
-  %cmp.i160312 = icmp sgt i32 %9, 0
-  br i1 %cmp.i160312, label %while.end68, label %if.end.i163.lr.ph
+  %cmp.i161316 = icmp sgt i32 %9, 0
+  br i1 %cmp.i161316, label %while.end68, label %if.end.i164.lr.ph
 
-if.end.i163.lr.ph:                                ; preds = %while.cond48.preheader
-  %cmp.i164 = fcmp ogt double %retval.0.i, 0x43846A3EDDF8CD80
-  %cmp8.i166 = fcmp olt double %retval.0.i, 0xC384763B62073280
-  %fLenient.i11.i185 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
-  %fTime.i173 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
-  %fAreAllFieldsSet.i174 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
-  %fAreFieldsSet.i175 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  %fAreFieldsVirtuallySet.i176 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
-  %scevgep.i178 = getelementptr inbounds i8, ptr %this, i64 12
-  br label %if.end.i163
+if.end.i164.lr.ph:                                ; preds = %while.cond48.preheader
+  %cmp.i165 = fcmp ogt double %retval.0.i, 0x43846A3EDDF8CD80
+  %cmp8.i167 = fcmp olt double %retval.0.i, 0xC384763B62073280
+  %fLenient.i11.i187 = getelementptr inbounds i8, ptr %this, i64 240
+  %fTime.i174 = getelementptr inbounds i8, ptr %this, i64 232
+  %fAreAllFieldsSet.i175 = getelementptr inbounds i8, ptr %this, i64 10
+  %fAreFieldsSet.i176 = getelementptr inbounds i8, ptr %this, i64 9
+  %fAreFieldsVirtuallySet.i177 = getelementptr inbounds i8, ptr %this, i64 11
+  %fFields.i179 = getelementptr inbounds i8, ptr %this, i64 12
+  br label %if.end.i164
 
-if.end.i163:                                      ; preds = %if.end.i163.lr.ph, %if.end67
-  %min.4314 = phi i32 [ 0, %if.end.i163.lr.ph ], [ %max47.0313, %if.end67 ]
-  %max47.0313 = phi i32 [ -1, %if.end.i163.lr.ph ], [ %shl62, %if.end67 ]
-  br i1 %cmp.i164, label %if.then2.i187, label %if.else7.i165
+if.end.i164:                                      ; preds = %if.end.i164.lr.ph, %if.end67
+  %min.4318 = phi i32 [ 0, %if.end.i164.lr.ph ], [ %max47.0317, %if.end67 ]
+  %max47.0317 = phi i32 [ -1, %if.end.i164.lr.ph ], [ %shl62, %if.end67 ]
+  br i1 %cmp.i165, label %if.then2.i189, label %if.else7.i166
 
-if.then2.i187:                                    ; preds = %if.end.i163
-  %38 = load i8, ptr %fLenient.i11.i185, align 8
-  %tobool4.not.i189 = icmp eq i8 %38, 0
-  br i1 %tobool4.not.i189, label %for.end.sink.split.i170, label %if.end21.i171
+if.then2.i189:                                    ; preds = %if.end.i164
+  %38 = load i8, ptr %fLenient.i11.i187, align 8
+  %tobool4.not.i191 = icmp eq i8 %38, 0
+  br i1 %tobool4.not.i191, label %for.end.sink.split.i171, label %if.end21.i172
 
-if.else7.i165:                                    ; preds = %if.end.i163
-  br i1 %cmp8.i166, label %if.then9.i184, label %if.else15.i167
+if.else7.i166:                                    ; preds = %if.end.i164
+  br i1 %cmp8.i167, label %if.then9.i186, label %if.else15.i168
 
-if.then9.i184:                                    ; preds = %if.else7.i165
-  %39 = load i8, ptr %fLenient.i11.i185, align 8
-  %tobool11.not.i186 = icmp eq i8 %39, 0
-  br i1 %tobool11.not.i186, label %for.end.sink.split.i170, label %if.end21.i171
+if.then9.i186:                                    ; preds = %if.else7.i166
+  %39 = load i8, ptr %fLenient.i11.i187, align 8
+  %tobool11.not.i188 = icmp eq i8 %39, 0
+  br i1 %tobool11.not.i188, label %for.end.sink.split.i171, label %if.end21.i172
 
-if.else15.i167:                                   ; preds = %if.else7.i165
-  %call16.i168 = tail call signext i8 @uprv_isNaN_75(double noundef %retval.0.i)
-  %tobool17.not.i169 = icmp eq i8 %call16.i168, 0
-  br i1 %tobool17.not.i169, label %if.end21.i171, label %for.end.sink.split.i170
+if.else15.i168:                                   ; preds = %if.else7.i166
+  %call16.i169 = tail call signext i8 @uprv_isNaN_75(double noundef %retval.0.i)
+  %tobool17.not.i170 = icmp eq i8 %call16.i169, 0
+  br i1 %tobool17.not.i170, label %if.end21.i172, label %for.end.sink.split.i171
 
-if.end21.i171:                                    ; preds = %if.else15.i167, %if.then9.i184, %if.then2.i187
-  %millis.addr.0.i172 = phi double [ %retval.0.i, %if.else15.i167 ], [ 0x43846A3EDDF8CD80, %if.then2.i187 ], [ 0xC384763B62073280, %if.then9.i184 ]
-  store double %millis.addr.0.i172, ptr %fTime.i173, align 8
+if.end21.i172:                                    ; preds = %if.else15.i168, %if.then9.i186, %if.then2.i189
+  %millis.addr.0.i173 = phi double [ %retval.0.i, %if.else15.i168 ], [ 0x43846A3EDDF8CD80, %if.then2.i189 ], [ 0xC384763B62073280, %if.then9.i186 ]
+  store double %millis.addr.0.i173, ptr %fTime.i174, align 8
   store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %scevgep.i178, i8 0, i64 216, i1 false)
-  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit190
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i179, i8 0, i64 216, i1 false)
+  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit192
 
-for.end.sink.split.i170:                          ; preds = %if.else15.i167, %if.then9.i184, %if.then2.i187
+for.end.sink.split.i171:                          ; preds = %if.else15.i168, %if.then9.i186, %if.then2.i189
   store i32 1, ptr %ec, align 4
-  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit190
+  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit192
 
-_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit190: ; preds = %if.end21.i171, %for.end.sink.split.i170
+_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit192: ; preds = %if.end21.i172, %for.end.sink.split.i171
   %vtable52 = load ptr, ptr %this, align 8
-  %vfn53 = getelementptr inbounds ptr, ptr %vtable52, i64 7
+  %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 56
   %40 = load ptr, ptr %vfn53, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %max47.0313, ptr noundef nonnull align 4 dereferenceable(4) %ec)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %max47.0317, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %41 = load i32, ptr %ec, align 4
-  %cmp.i.i191 = icmp slt i32 %41, 1
-  br i1 %cmp.i.i191, label %if.end.i193, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit213
+  %cmp.i.i193 = icmp slt i32 %41, 1
+  br i1 %cmp.i.i193, label %if.end.i195, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit215
 
-if.end.i193:                                      ; preds = %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit190
+if.end.i195:                                      ; preds = %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit192
   %42 = load i8, ptr %fIsTimeSet.i, align 8
-  %tobool2.not.i195 = icmp eq i8 %42, 0
-  br i1 %tobool2.not.i195, label %if.then3.i198, label %if.end8.i196
+  %tobool2.not.i197 = icmp eq i8 %42, 0
+  br i1 %tobool2.not.i197, label %if.then3.i200, label %if.end8.i198
 
-if.then3.i198:                                    ; preds = %if.end.i193
-  %vtable.i.i199 = load ptr, ptr %this, align 8
-  %vfn.i.i200 = getelementptr inbounds ptr, ptr %vtable.i.i199, i64 31
-  %43 = load ptr, ptr %vfn.i.i200, align 8
+if.then3.i200:                                    ; preds = %if.end.i195
+  %vtable.i.i201 = load ptr, ptr %this, align 8
+  %vfn.i.i202 = getelementptr inbounds i8, ptr %vtable.i.i201, i64 248
+  %43 = load ptr, ptr %vfn.i.i202, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %44 = load i32, ptr %ec, align 4
-  %cmp.i.i.i201 = icmp slt i32 %44, 1
-  br i1 %cmp.i.i.i201, label %if.end.i.i202, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit213
+  %cmp.i.i.i203 = icmp slt i32 %44, 1
+  br i1 %cmp.i.i.i203, label %if.end.i.i204, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit215
 
-if.end.i.i202:                                    ; preds = %if.then3.i198
-  %45 = load i8, ptr %fLenient.i11.i185, align 8
-  %tobool3.not.i.i204 = icmp ne i8 %45, 0
-  %46 = load i8, ptr %fAreAllFieldsSet.i174, align 2
-  %tobool4.not.i.i206 = icmp eq i8 %46, 0
-  %or.cond.i.i207 = select i1 %tobool3.not.i.i204, i1 true, i1 %tobool4.not.i.i206
-  br i1 %or.cond.i.i207, label %if.then5.i.i211, label %if.end4.i208
+if.end.i.i204:                                    ; preds = %if.then3.i200
+  %45 = load i8, ptr %fLenient.i11.i187, align 8
+  %tobool3.not.i.i206 = icmp ne i8 %45, 0
+  %46 = load i8, ptr %fAreAllFieldsSet.i175, align 2
+  %tobool4.not.i.i208 = icmp eq i8 %46, 0
+  %or.cond.i.i209 = select i1 %tobool3.not.i.i206, i1 true, i1 %tobool4.not.i.i208
+  br i1 %or.cond.i.i209, label %if.then5.i.i213, label %if.end4.i210
 
-if.then5.i.i211:                                  ; preds = %if.end.i.i202
-  store i8 0, ptr %fAreFieldsSet.i175, align 1
-  br label %if.end4.i208
+if.then5.i.i213:                                  ; preds = %if.end.i.i204
+  store i8 0, ptr %fAreFieldsSet.i176, align 1
+  br label %if.end4.i210
 
-if.end4.i208:                                     ; preds = %if.then5.i.i211, %if.end.i.i202
+if.end4.i210:                                     ; preds = %if.then5.i.i213, %if.end.i.i204
   store i8 1, ptr %fIsTimeSet.i, align 8
-  store i8 0, ptr %fAreFieldsVirtuallySet.i176, align 1
-  %.pre.i210 = load i32, ptr %ec, align 4
-  %47 = icmp slt i32 %.pre.i210, 1
-  br i1 %47, label %if.end8.i196, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit213
+  store i8 0, ptr %fAreFieldsVirtuallySet.i177, align 1
+  %.pre.i212 = load i32, ptr %ec, align 4
+  %47 = icmp slt i32 %.pre.i212, 1
+  br i1 %47, label %if.end8.i198, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit215
 
-if.end8.i196:                                     ; preds = %if.end4.i208, %if.end.i193
-  %48 = phi i32 [ %.pre.i210, %if.end4.i208 ], [ %41, %if.end.i193 ]
-  %49 = load double, ptr %fTime.i173, align 8
-  br label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit213
+if.end8.i198:                                     ; preds = %if.end4.i210, %if.end.i195
+  %48 = phi i32 [ %.pre.i212, %if.end4.i210 ], [ %41, %if.end.i195 ]
+  %49 = load double, ptr %fTime.i174, align 8
+  br label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit215
 
-_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit213: ; preds = %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit190, %if.then3.i198, %if.end4.i208, %if.end8.i196
-  %50 = phi i32 [ %48, %if.end8.i196 ], [ %41, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit190 ], [ %.pre.i210, %if.end4.i208 ], [ %44, %if.then3.i198 ]
-  %retval.0.i192 = phi double [ %49, %if.end8.i196 ], [ 0.000000e+00, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit190 ], [ 0.000000e+00, %if.end4.i208 ], [ 0.000000e+00, %if.then3.i198 ]
-  %cmp56 = fcmp oeq double %retval.0.i192, %targetMs
+_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit215: ; preds = %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit192, %if.then3.i200, %if.end4.i210, %if.end8.i198
+  %50 = phi i32 [ %48, %if.end8.i198 ], [ %41, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit192 ], [ %.pre.i212, %if.end4.i210 ], [ %44, %if.then3.i200 ]
+  %retval.0.i194 = phi double [ %49, %if.end8.i198 ], [ 0.000000e+00, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit192 ], [ 0.000000e+00, %if.end4.i210 ], [ 0.000000e+00, %if.then3.i200 ]
+  %cmp56 = fcmp oeq double %retval.0.i194, %targetMs
   br i1 %cmp56, label %return, label %if.else58
 
-if.else58:                                        ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit213
-  %cmp59 = fcmp olt double %retval.0.i192, %targetMs
+if.else58:                                        ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit215
+  %cmp59 = fcmp olt double %retval.0.i194, %targetMs
   br i1 %cmp59, label %while.end68, label %if.else61
 
 if.else61:                                        ; preds = %if.else58
-  %shl62 = shl i32 %max47.0313, 1
+  %shl62 = shl i32 %max47.0317, 1
   %cmp63 = icmp eq i32 %shl62, 0
   br i1 %cmp63, label %if.end67.thread, label %if.end67
 
@@ -7788,127 +7823,127 @@ if.end67.thread:                                  ; preds = %if.else61
   br label %while.end68
 
 if.end67:                                         ; preds = %if.else61
-  %cmp.i160 = icmp sgt i32 %50, 0
-  br i1 %cmp.i160, label %while.end68, label %if.end.i163, !llvm.loop !15
+  %cmp.i161 = icmp sgt i32 %50, 0
+  br i1 %cmp.i161, label %while.end68, label %if.end.i164, !llvm.loop !15
 
 while.end68:                                      ; preds = %if.end67, %if.else58, %if.end67.thread, %while.cond48.preheader
   %51 = phi i32 [ %9, %while.cond48.preheader ], [ 1, %if.end67.thread ], [ %50, %if.else58 ], [ %50, %if.end67 ]
-  %max47.0.lcssa = phi i32 [ -1, %while.cond48.preheader ], [ 0, %if.end67.thread ], [ %shl62, %if.end67 ], [ %max47.0313, %if.else58 ]
-  %min.4.lcssa = phi i32 [ 0, %while.cond48.preheader ], [ %max47.0313, %if.end67.thread ], [ %max47.0313, %if.end67 ], [ %min.4314, %if.else58 ]
-  %sub70318 = sub nsw i32 %min.4.lcssa, %max47.0.lcssa
-  %cmp71319 = icmp sgt i32 %sub70318, 1
-  br i1 %cmp71319, label %land.rhs72.lr.ph, label %if.end95
+  %max47.0.lcssa = phi i32 [ -1, %while.cond48.preheader ], [ 0, %if.end67.thread ], [ %shl62, %if.end67 ], [ %max47.0317, %if.else58 ]
+  %min.4.lcssa = phi i32 [ 0, %while.cond48.preheader ], [ %max47.0317, %if.end67.thread ], [ %max47.0317, %if.end67 ], [ %min.4318, %if.else58 ]
+  %sub70322 = sub nsw i32 %min.4.lcssa, %max47.0.lcssa
+  %cmp71323 = icmp sgt i32 %sub70322, 1
+  br i1 %cmp71323, label %land.rhs72.lr.ph, label %if.end95
 
 land.rhs72.lr.ph:                                 ; preds = %while.end68
-  %cmp.i218 = fcmp ogt double %retval.0.i, 0x43846A3EDDF8CD80
-  %cmp8.i220 = fcmp olt double %retval.0.i, 0xC384763B62073280
-  %fLenient.i11.i239 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
-  %fTime.i227 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
-  %fAreAllFieldsSet.i228 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
-  %fAreFieldsSet.i229 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  %fAreFieldsVirtuallySet.i230 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
-  %scevgep.i232 = getelementptr inbounds i8, ptr %this, i64 12
+  %cmp.i220 = fcmp ogt double %retval.0.i, 0x43846A3EDDF8CD80
+  %cmp8.i222 = fcmp olt double %retval.0.i, 0xC384763B62073280
+  %fLenient.i11.i242 = getelementptr inbounds i8, ptr %this, i64 240
+  %fTime.i229 = getelementptr inbounds i8, ptr %this, i64 232
+  %fAreAllFieldsSet.i230 = getelementptr inbounds i8, ptr %this, i64 10
+  %fAreFieldsSet.i231 = getelementptr inbounds i8, ptr %this, i64 9
+  %fAreFieldsVirtuallySet.i232 = getelementptr inbounds i8, ptr %this, i64 11
+  %fFields.i234 = getelementptr inbounds i8, ptr %this, i64 12
   br label %land.rhs72
 
 land.rhs72:                                       ; preds = %land.rhs72.lr.ph, %if.else87
   %52 = phi i32 [ %51, %land.rhs72.lr.ph ], [ %65, %if.else87 ]
-  %min.5321 = phi i32 [ %min.4.lcssa, %land.rhs72.lr.ph ], [ %min.5.add80, %if.else87 ]
-  %max47.1320 = phi i32 [ %max47.0.lcssa, %land.rhs72.lr.ph ], [ %add80.max47.1, %if.else87 ]
-  %cmp.i214 = icmp sgt i32 %52, 0
-  br i1 %cmp.i214, label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit296, label %while.body76
+  %min.5325 = phi i32 [ %min.4.lcssa, %land.rhs72.lr.ph ], [ %min.5.add80, %if.else87 ]
+  %max47.1324 = phi i32 [ %max47.0.lcssa, %land.rhs72.lr.ph ], [ %add80.max47.1, %if.else87 ]
+  %cmp.i216 = icmp sgt i32 %52, 0
+  br i1 %cmp.i216, label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300, label %while.body76
 
 while.body76:                                     ; preds = %land.rhs72
-  %sub78 = sub nsw i32 %max47.1320, %min.5321
+  %sub78 = sub nsw i32 %max47.1324, %min.5325
   %div79 = sdiv i32 %sub78, 2
-  %add80 = add nsw i32 %div79, %min.5321
-  br i1 %cmp.i218, label %if.then2.i241, label %if.else7.i219
+  %add80 = add nsw i32 %div79, %min.5325
+  br i1 %cmp.i220, label %if.then2.i244, label %if.else7.i221
 
-if.then2.i241:                                    ; preds = %while.body76
-  %53 = load i8, ptr %fLenient.i11.i239, align 8
-  %tobool4.not.i243 = icmp eq i8 %53, 0
-  br i1 %tobool4.not.i243, label %for.end.sink.split.i224, label %if.end21.i225
+if.then2.i244:                                    ; preds = %while.body76
+  %53 = load i8, ptr %fLenient.i11.i242, align 8
+  %tobool4.not.i246 = icmp eq i8 %53, 0
+  br i1 %tobool4.not.i246, label %for.end.sink.split.i226, label %if.end21.i227
 
-if.else7.i219:                                    ; preds = %while.body76
-  br i1 %cmp8.i220, label %if.then9.i238, label %if.else15.i221
+if.else7.i221:                                    ; preds = %while.body76
+  br i1 %cmp8.i222, label %if.then9.i241, label %if.else15.i223
 
-if.then9.i238:                                    ; preds = %if.else7.i219
-  %54 = load i8, ptr %fLenient.i11.i239, align 8
-  %tobool11.not.i240 = icmp eq i8 %54, 0
-  br i1 %tobool11.not.i240, label %for.end.sink.split.i224, label %if.end21.i225
+if.then9.i241:                                    ; preds = %if.else7.i221
+  %54 = load i8, ptr %fLenient.i11.i242, align 8
+  %tobool11.not.i243 = icmp eq i8 %54, 0
+  br i1 %tobool11.not.i243, label %for.end.sink.split.i226, label %if.end21.i227
 
-if.else15.i221:                                   ; preds = %if.else7.i219
-  %call16.i222 = tail call signext i8 @uprv_isNaN_75(double noundef %retval.0.i)
-  %tobool17.not.i223 = icmp eq i8 %call16.i222, 0
-  br i1 %tobool17.not.i223, label %if.end21.i225, label %for.end.sink.split.i224
+if.else15.i223:                                   ; preds = %if.else7.i221
+  %call16.i224 = tail call signext i8 @uprv_isNaN_75(double noundef %retval.0.i)
+  %tobool17.not.i225 = icmp eq i8 %call16.i224, 0
+  br i1 %tobool17.not.i225, label %if.end21.i227, label %for.end.sink.split.i226
 
-if.end21.i225:                                    ; preds = %if.else15.i221, %if.then9.i238, %if.then2.i241
-  %millis.addr.0.i226 = phi double [ %retval.0.i, %if.else15.i221 ], [ 0x43846A3EDDF8CD80, %if.then2.i241 ], [ 0xC384763B62073280, %if.then9.i238 ]
-  store double %millis.addr.0.i226, ptr %fTime.i227, align 8
+if.end21.i227:                                    ; preds = %if.else15.i223, %if.then9.i241, %if.then2.i244
+  %millis.addr.0.i228 = phi double [ %retval.0.i, %if.else15.i223 ], [ 0x43846A3EDDF8CD80, %if.then2.i244 ], [ 0xC384763B62073280, %if.then9.i241 ]
+  store double %millis.addr.0.i228, ptr %fTime.i229, align 8
   store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %scevgep.i232, i8 0, i64 216, i1 false)
-  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit244
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i234, i8 0, i64 216, i1 false)
+  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit247
 
-for.end.sink.split.i224:                          ; preds = %if.else15.i221, %if.then9.i238, %if.then2.i241
+for.end.sink.split.i226:                          ; preds = %if.else15.i223, %if.then9.i241, %if.then2.i244
   store i32 1, ptr %ec, align 4
-  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit244
+  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit247
 
-_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit244: ; preds = %if.end21.i225, %for.end.sink.split.i224
+_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit247: ; preds = %if.end21.i227, %for.end.sink.split.i226
   %vtable81 = load ptr, ptr %this, align 8
-  %vfn82 = getelementptr inbounds ptr, ptr %vtable81, i64 7
+  %vfn82 = getelementptr inbounds i8, ptr %vtable81, i64 56
   %55 = load ptr, ptr %vfn82, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %add80, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %56 = load i32, ptr %ec, align 4
-  %cmp.i.i245 = icmp slt i32 %56, 1
-  br i1 %cmp.i.i245, label %if.end.i247, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit267
+  %cmp.i.i248 = icmp slt i32 %56, 1
+  br i1 %cmp.i.i248, label %if.end.i250, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit270
 
-if.end.i247:                                      ; preds = %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit244
+if.end.i250:                                      ; preds = %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit247
   %57 = load i8, ptr %fIsTimeSet.i, align 8
-  %tobool2.not.i249 = icmp eq i8 %57, 0
-  br i1 %tobool2.not.i249, label %if.then3.i252, label %if.end8.i250
+  %tobool2.not.i252 = icmp eq i8 %57, 0
+  br i1 %tobool2.not.i252, label %if.then3.i255, label %if.end8.i253
 
-if.then3.i252:                                    ; preds = %if.end.i247
-  %vtable.i.i253 = load ptr, ptr %this, align 8
-  %vfn.i.i254 = getelementptr inbounds ptr, ptr %vtable.i.i253, i64 31
-  %58 = load ptr, ptr %vfn.i.i254, align 8
+if.then3.i255:                                    ; preds = %if.end.i250
+  %vtable.i.i256 = load ptr, ptr %this, align 8
+  %vfn.i.i257 = getelementptr inbounds i8, ptr %vtable.i.i256, i64 248
+  %58 = load ptr, ptr %vfn.i.i257, align 8
   tail call void %58(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %59 = load i32, ptr %ec, align 4
-  %cmp.i.i.i255 = icmp slt i32 %59, 1
-  br i1 %cmp.i.i.i255, label %if.end.i.i256, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit267
+  %cmp.i.i.i258 = icmp slt i32 %59, 1
+  br i1 %cmp.i.i.i258, label %if.end.i.i259, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit270
 
-if.end.i.i256:                                    ; preds = %if.then3.i252
-  %60 = load i8, ptr %fLenient.i11.i239, align 8
-  %tobool3.not.i.i258 = icmp ne i8 %60, 0
-  %61 = load i8, ptr %fAreAllFieldsSet.i228, align 2
-  %tobool4.not.i.i260 = icmp eq i8 %61, 0
-  %or.cond.i.i261 = select i1 %tobool3.not.i.i258, i1 true, i1 %tobool4.not.i.i260
-  br i1 %or.cond.i.i261, label %if.then5.i.i265, label %if.end4.i262
+if.end.i.i259:                                    ; preds = %if.then3.i255
+  %60 = load i8, ptr %fLenient.i11.i242, align 8
+  %tobool3.not.i.i261 = icmp ne i8 %60, 0
+  %61 = load i8, ptr %fAreAllFieldsSet.i230, align 2
+  %tobool4.not.i.i263 = icmp eq i8 %61, 0
+  %or.cond.i.i264 = select i1 %tobool3.not.i.i261, i1 true, i1 %tobool4.not.i.i263
+  br i1 %or.cond.i.i264, label %if.then5.i.i268, label %if.end4.i265
 
-if.then5.i.i265:                                  ; preds = %if.end.i.i256
-  store i8 0, ptr %fAreFieldsSet.i229, align 1
-  br label %if.end4.i262
+if.then5.i.i268:                                  ; preds = %if.end.i.i259
+  store i8 0, ptr %fAreFieldsSet.i231, align 1
+  br label %if.end4.i265
 
-if.end4.i262:                                     ; preds = %if.then5.i.i265, %if.end.i.i256
+if.end4.i265:                                     ; preds = %if.then5.i.i268, %if.end.i.i259
   store i8 1, ptr %fIsTimeSet.i, align 8
-  store i8 0, ptr %fAreFieldsVirtuallySet.i230, align 1
-  %.pre.i264 = load i32, ptr %ec, align 4
-  %62 = icmp slt i32 %.pre.i264, 1
-  br i1 %62, label %if.end8.i250, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit267
+  store i8 0, ptr %fAreFieldsVirtuallySet.i232, align 1
+  %.pre.i267 = load i32, ptr %ec, align 4
+  %62 = icmp slt i32 %.pre.i267, 1
+  br i1 %62, label %if.end8.i253, label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit270
 
-if.end8.i250:                                     ; preds = %if.end4.i262, %if.end.i247
-  %63 = phi i32 [ %.pre.i264, %if.end4.i262 ], [ %56, %if.end.i247 ]
-  %64 = load double, ptr %fTime.i227, align 8
-  br label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit267
+if.end8.i253:                                     ; preds = %if.end4.i265, %if.end.i250
+  %63 = phi i32 [ %.pre.i267, %if.end4.i265 ], [ %56, %if.end.i250 ]
+  %64 = load double, ptr %fTime.i229, align 8
+  br label %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit270
 
-_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit267: ; preds = %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit244, %if.then3.i252, %if.end4.i262, %if.end8.i250
-  %65 = phi i32 [ %63, %if.end8.i250 ], [ %56, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit244 ], [ %.pre.i264, %if.end4.i262 ], [ %59, %if.then3.i252 ]
-  %retval.0.i246 = phi double [ %64, %if.end8.i250 ], [ 0.000000e+00, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit244 ], [ 0.000000e+00, %if.end4.i262 ], [ 0.000000e+00, %if.then3.i252 ]
-  %cmp85 = fcmp oeq double %retval.0.i246, %targetMs
+_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit270: ; preds = %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit247, %if.then3.i255, %if.end4.i265, %if.end8.i253
+  %65 = phi i32 [ %63, %if.end8.i253 ], [ %56, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit247 ], [ %.pre.i267, %if.end4.i265 ], [ %59, %if.then3.i255 ]
+  %retval.0.i249 = phi double [ %64, %if.end8.i253 ], [ 0.000000e+00, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit247 ], [ 0.000000e+00, %if.end4.i265 ], [ 0.000000e+00, %if.then3.i255 ]
+  %cmp85 = fcmp oeq double %retval.0.i249, %targetMs
   br i1 %cmp85, label %return, label %if.else87
 
-if.else87:                                        ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit267
-  %cmp88 = fcmp olt double %retval.0.i246, %targetMs
-  %add80.max47.1 = select i1 %cmp88, i32 %add80, i32 %max47.1320
-  %min.5.add80 = select i1 %cmp88, i32 %min.5321, i32 %add80
+if.else87:                                        ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit270
+  %cmp88 = fcmp olt double %retval.0.i249, %targetMs
+  %add80.max47.1 = select i1 %cmp88, i32 %add80, i32 %max47.1324
+  %min.5.add80 = select i1 %cmp88, i32 %min.5325, i32 %add80
   %sub70 = sub nsw i32 %min.5.add80, %add80.max47.1
   %cmp71 = icmp sgt i32 %sub70, 1
   br i1 %cmp71, label %land.rhs72, label %if.end95, !llvm.loop !16
@@ -7917,59 +7952,59 @@ if.end95:                                         ; preds = %if.else87, %if.else
   %.pr = phi i32 [ %9, %if.else44 ], [ %23, %while.end ], [ %51, %while.end68 ], [ %37, %if.else37 ], [ %65, %if.else87 ]
   %min.7.ph = phi i32 [ 0, %if.else44 ], [ %min.0.lcssa, %while.end ], [ %min.4.lcssa, %while.end68 ], [ %min.2.add, %if.else37 ], [ %min.5.add80, %if.else87 ]
   %66 = icmp slt i32 %.pr, 1
-  br i1 %66, label %if.end.i269, label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit296
+  br i1 %66, label %if.end.i272, label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300
 
-if.end.i269:                                      ; preds = %if.end95
-  %cmp.i270 = fcmp ogt double %retval.0.i, 0x43846A3EDDF8CD80
-  br i1 %cmp.i270, label %if.then2.i293, label %if.else7.i271
+if.end.i272:                                      ; preds = %if.end95
+  %cmp.i273 = fcmp ogt double %retval.0.i, 0x43846A3EDDF8CD80
+  br i1 %cmp.i273, label %if.then2.i297, label %if.else7.i274
 
-if.then2.i293:                                    ; preds = %if.end.i269
-  %fLenient.i.i294 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
-  %67 = load i8, ptr %fLenient.i.i294, align 8
-  %tobool4.not.i295 = icmp eq i8 %67, 0
-  br i1 %tobool4.not.i295, label %for.end.sink.split.i276, label %if.end21.i277
+if.then2.i297:                                    ; preds = %if.end.i272
+  %fLenient.i.i298 = getelementptr inbounds i8, ptr %this, i64 240
+  %67 = load i8, ptr %fLenient.i.i298, align 8
+  %tobool4.not.i299 = icmp eq i8 %67, 0
+  br i1 %tobool4.not.i299, label %for.end.sink.split.i279, label %if.end21.i280
 
-if.else7.i271:                                    ; preds = %if.end.i269
-  %cmp8.i272 = fcmp olt double %retval.0.i, 0xC384763B62073280
-  br i1 %cmp8.i272, label %if.then9.i290, label %if.else15.i273
+if.else7.i274:                                    ; preds = %if.end.i272
+  %cmp8.i275 = fcmp olt double %retval.0.i, 0xC384763B62073280
+  br i1 %cmp8.i275, label %if.then9.i294, label %if.else15.i276
 
-if.then9.i290:                                    ; preds = %if.else7.i271
-  %fLenient.i11.i291 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
-  %68 = load i8, ptr %fLenient.i11.i291, align 8
-  %tobool11.not.i292 = icmp eq i8 %68, 0
-  br i1 %tobool11.not.i292, label %for.end.sink.split.i276, label %if.end21.i277
+if.then9.i294:                                    ; preds = %if.else7.i274
+  %fLenient.i11.i295 = getelementptr inbounds i8, ptr %this, i64 240
+  %68 = load i8, ptr %fLenient.i11.i295, align 8
+  %tobool11.not.i296 = icmp eq i8 %68, 0
+  br i1 %tobool11.not.i296, label %for.end.sink.split.i279, label %if.end21.i280
 
-if.else15.i273:                                   ; preds = %if.else7.i271
-  %call16.i274 = tail call signext i8 @uprv_isNaN_75(double noundef %retval.0.i)
-  %tobool17.not.i275 = icmp eq i8 %call16.i274, 0
-  br i1 %tobool17.not.i275, label %if.end21.i277, label %for.end.sink.split.i276
+if.else15.i276:                                   ; preds = %if.else7.i274
+  %call16.i277 = tail call signext i8 @uprv_isNaN_75(double noundef %retval.0.i)
+  %tobool17.not.i278 = icmp eq i8 %call16.i277, 0
+  br i1 %tobool17.not.i278, label %if.end21.i280, label %for.end.sink.split.i279
 
-if.end21.i277:                                    ; preds = %if.else15.i273, %if.then9.i290, %if.then2.i293
-  %millis.addr.0.i278 = phi double [ %retval.0.i, %if.else15.i273 ], [ 0x43846A3EDDF8CD80, %if.then2.i293 ], [ 0xC384763B62073280, %if.then9.i290 ]
-  %fTime.i279 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
-  store double %millis.addr.0.i278, ptr %fTime.i279, align 8
+if.end21.i280:                                    ; preds = %if.else15.i276, %if.then9.i294, %if.then2.i297
+  %millis.addr.0.i281 = phi double [ %retval.0.i, %if.else15.i276 ], [ 0x43846A3EDDF8CD80, %if.then2.i297 ], [ 0xC384763B62073280, %if.then9.i294 ]
+  %fTime.i282 = getelementptr inbounds i8, ptr %this, i64 232
+  store double %millis.addr.0.i281, ptr %fTime.i282, align 8
   store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i, align 8
-  %scevgep.i284 = getelementptr inbounds i8, ptr %this, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %scevgep.i284, i8 0, i64 216, i1 false)
-  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit296
+  %fFields.i287 = getelementptr inbounds i8, ptr %this, i64 12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i287, i8 0, i64 216, i1 false)
+  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300
 
-for.end.sink.split.i276:                          ; preds = %if.else15.i273, %if.then9.i290, %if.then2.i293
+for.end.sink.split.i279:                          ; preds = %if.else15.i276, %if.then9.i294, %if.then2.i297
   store i32 1, ptr %ec, align 4
-  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit296
+  br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300
 
-_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit296: ; preds = %land.rhs72, %land.rhs, %if.end21.i277, %if.end95, %for.end.sink.split.i276
-  %min.7361 = phi i32 [ %min.7.ph, %if.end21.i277 ], [ %min.7.ph, %if.end95 ], [ %min.7.ph, %for.end.sink.split.i276 ], [ %min.2333, %land.rhs ], [ %min.5321, %land.rhs72 ]
+_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300: ; preds = %land.rhs72, %land.rhs, %if.end21.i280, %if.end95, %for.end.sink.split.i279
+  %min.7361 = phi i32 [ %min.7.ph, %if.end21.i280 ], [ %min.7.ph, %if.end95 ], [ %min.7.ph, %for.end.sink.split.i279 ], [ %min.2337, %land.rhs ], [ %min.5325, %land.rhs72 ]
   %vtable96 = load ptr, ptr %this, align 8
-  %vfn97 = getelementptr inbounds ptr, ptr %vtable96, i64 7
+  %vfn97 = getelementptr inbounds i8, ptr %vtable96, i64 56
   %69 = load ptr, ptr %vfn97, align 8
   tail call void %69(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %min.7361, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %70 = load i32, ptr %ec, align 4
-  %cmp.i297.inv = icmp sgt i32 %70, 0
-  %min.7. = select i1 %cmp.i297.inv, i32 0, i32 %min.7361
+  %cmp.i301.inv = icmp sgt i32 %70, 0
+  %min.7. = select i1 %cmp.i301.inv, i32 0, i32 %min.7361
   br label %return
 
-return:                                           ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit213, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit267, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit105, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit159, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit296, %entry, %if.then3
-  %retval.0 = phi i32 [ 0, %if.then3 ], [ 0, %entry ], [ %min.7., %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit296 ], [ %add, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit159 ], [ %max.0324, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit105 ], [ %add80, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit267 ], [ %max47.0313, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit213 ]
+return:                                           ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit215, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit270, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit105, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit160, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300, %entry, %if.then3
+  %retval.0 = phi i32 [ 0, %if.then3 ], [ 0, %entry ], [ %min.7., %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300 ], [ %add, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit160 ], [ %max.0328, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit105 ], [ %add80, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit270 ], [ %max47.0317, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit215 ]
   ret i32 %retval.0
 }
 
@@ -7981,7 +8016,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fZone = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %fZone, align 8
   store ptr %call, ptr %fZone, align 8
   br label %return
@@ -7998,7 +8033,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %fRepeatedWallTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 13
+  %fRepeatedWallTime = getelementptr inbounds i8, ptr %this, i64 256
   store i32 %option, ptr %fRepeatedWallTime, align 8
   br label %if.end
 
@@ -8009,7 +8044,7 @@ if.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_758Calendar25getRepeatedWallTimeOptionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this) local_unnamed_addr #16 align 2 {
 entry:
-  %fRepeatedWallTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 13
+  %fRepeatedWallTime = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i32, ptr %fRepeatedWallTime, align 8
   ret i32 %0
 }
@@ -8017,7 +8052,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_758Calendar24setSkippedWallTimeOptionE23UCalendarWallTimeOption(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(618) %this, i32 noundef %option) local_unnamed_addr #21 align 2 {
 entry:
-  %fSkippedWallTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 14
+  %fSkippedWallTime = getelementptr inbounds i8, ptr %this, i64 260
   store i32 %option, ptr %fSkippedWallTime, align 4
   ret void
 }
@@ -8025,7 +8060,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_758Calendar24getSkippedWallTimeOptionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this) local_unnamed_addr #16 align 2 {
 entry:
-  %fSkippedWallTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 14
+  %fSkippedWallTime = getelementptr inbounds i8, ptr %this, i64 260
   %0 = load i32, ptr %fSkippedWallTime, align 4
   ret i32 %0
 }
@@ -8033,7 +8068,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_758Calendar17getFirstDayOfWeekER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #16 align 2 {
 entry:
-  %fFirstDayOfWeek = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek = getelementptr inbounds i8, ptr %this, i64 264
   %1 = load i32, ptr %fFirstDayOfWeek, align 8
   ret i32 %1
 }
@@ -8055,9 +8090,9 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %fWeekendOnset = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 18
+  %fWeekendOnset = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load i32, ptr %fWeekendOnset, align 8
-  %fWeekendCease = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 20
+  %fWeekendCease = getelementptr inbounds i8, ptr %this, i64 280
   %3 = load i32, ptr %fWeekendCease, align 8
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %if.then6, label %if.end12
@@ -8067,7 +8102,7 @@ if.then6:                                         ; preds = %if.end4
   br i1 %cmp8.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.then6
-  %fWeekendOnsetMillis = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 19
+  %fWeekendOnsetMillis = getelementptr inbounds i8, ptr %this, i64 276
   %4 = load i32, ptr %fWeekendOnsetMillis, align 4
   %cmp11 = icmp eq i32 %4, 0
   %cond = select i1 %cmp11, i32 1, i32 2
@@ -8094,7 +8129,7 @@ if.end30:                                         ; preds = %if.then16, %if.else
   br i1 %cmp32, label %if.then33, label %if.end37
 
 if.then33:                                        ; preds = %if.end30
-  %fWeekendOnsetMillis34 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 19
+  %fWeekendOnsetMillis34 = getelementptr inbounds i8, ptr %this, i64 276
   %5 = load i32, ptr %fWeekendOnsetMillis34, align 4
   %cmp35 = icmp eq i32 %5, 0
   %cond36 = select i1 %cmp35, i32 1, i32 2
@@ -8105,7 +8140,7 @@ if.end37:                                         ; preds = %if.end30
   br i1 %cmp39, label %if.then40, label %return
 
 if.then40:                                        ; preds = %if.end37
-  %fWeekendCeaseMillis = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 21
+  %fWeekendCeaseMillis = getelementptr inbounds i8, ptr %this, i64 284
   %6 = load i32, ptr %fWeekendCeaseMillis, align 4
   %cmp41 = icmp sgt i32 %6, 86399999
   %cond42 = select i1 %cmp41, i32 1, i32 3
@@ -8124,24 +8159,24 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fWeekendOnset = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 18
+  %fWeekendOnset = getelementptr inbounds i8, ptr %this, i64 272
   %1 = load i32, ptr %fWeekendOnset, align 8
   %cmp = icmp eq i32 %1, %dayOfWeek
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  %fWeekendOnsetMillis = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 19
+  %fWeekendOnsetMillis = getelementptr inbounds i8, ptr %this, i64 276
   %2 = load i32, ptr %fWeekendOnsetMillis, align 4
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %fWeekendCease = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 20
+  %fWeekendCease = getelementptr inbounds i8, ptr %this, i64 280
   %3 = load i32, ptr %fWeekendCease, align 8
   %cmp3 = icmp eq i32 %3, %dayOfWeek
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.else
-  %fWeekendCeaseMillis = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 21
+  %fWeekendCeaseMillis = getelementptr inbounds i8, ptr %this, i64 284
   %4 = load i32, ptr %fWeekendCeaseMillis, align 4
   br label %return
 
@@ -8163,7 +8198,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %cmp = icmp eq ptr %call2, null
@@ -8183,7 +8218,7 @@ if.end.i.i:                                       ; preds = %if.end4
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else7.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %fLenient.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call2, i64 0, i32 10
+  %fLenient.i.i.i = getelementptr inbounds i8, ptr %call2, i64 240
   %3 = load i8, ptr %fLenient.i.i.i, align 8
   %tobool4.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool4.not.i.i, label %for.end.sink.split.i.i, label %_ZN6icu_758Calendar7setTimeEdR10UErrorCode.exit
@@ -8193,7 +8228,7 @@ if.else7.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.else15.i.i
 
 if.then9.i.i:                                     ; preds = %if.else7.i.i
-  %fLenient.i11.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call2, i64 0, i32 10
+  %fLenient.i11.i.i = getelementptr inbounds i8, ptr %call2, i64 240
   %4 = load i8, ptr %fLenient.i11.i.i, align 8
   %tobool11.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool11.not.i.i, label %for.end.sink.split.i.i, label %_ZN6icu_758Calendar7setTimeEdR10UErrorCode.exit
@@ -8209,19 +8244,19 @@ for.end.sink.split.i.i:                           ; preds = %if.else15.i.i, %if.
 
 _ZN6icu_758Calendar7setTimeEdR10UErrorCode.exit:  ; preds = %if.then2.i.i, %if.then9.i.i, %if.else15.i.i
   %millis.addr.0.i.i = phi double [ %date, %if.else15.i.i ], [ 0x43846A3EDDF8CD80, %if.then2.i.i ], [ 0xC384763B62073280, %if.then9.i.i ]
-  %fTime.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call2, i64 0, i32 9
+  %fTime.i.i = getelementptr inbounds i8, ptr %call2, i64 232
   store double %millis.addr.0.i.i, ptr %fTime.i.i, align 8
-  %fIsTimeSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call2, i64 0, i32 1
+  %fIsTimeSet.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i.i, align 8
-  %scevgep.i.i = getelementptr inbounds i8, ptr %call2, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %scevgep.i.i, i8 0, i64 216, i1 false)
+  %fFields.i.i = getelementptr inbounds i8, ptr %call2, i64 12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i.i, i8 0, i64 216, i1 false)
   %.pre = load i32, ptr %status, align 4
   %5 = icmp sgt i32 %.pre, 0
   br i1 %5, label %delete.notnull, label %if.then7
 
 if.then7:                                         ; preds = %_ZN6icu_758Calendar7setTimeEdR10UErrorCode.exit
   %vtable8 = load ptr, ptr %call2, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 27
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 216
   %6 = load ptr, ptr %vfn9, align 8
   %call10 = tail call noundef signext i8 %6(ptr noundef nonnull align 8 dereferenceable(618) %call2)
   br label %delete.notnull
@@ -8229,7 +8264,7 @@ if.then7:                                         ; preds = %_ZN6icu_758Calendar
 delete.notnull:                                   ; preds = %for.end.sink.split.i.i, %if.end4, %_ZN6icu_758Calendar7setTimeEdR10UErrorCode.exit, %if.then7
   %result.0 = phi i8 [ %call10, %if.then7 ], [ 0, %_ZN6icu_758Calendar7setTimeEdR10UErrorCode.exit ], [ 0, %if.end4 ], [ 0, %for.end.sink.split.i.i ]
   %vtable12 = load ptr, ptr %call2, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 1
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 8
   %7 = load ptr, ptr %vfn13, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(618) %call2) #25
   br label %return
@@ -8244,14 +8279,14 @@ define noundef signext i8 @_ZNK6icu_758Calendar9isWeekendEv(ptr noundef nonnull 
 if.end.i:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %fIsTimeSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %fIsTimeSet.i.i, align 8
   %tobool2.not.i.i = icmp eq i8 %0, 0
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %if.end8.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i
   %vtable.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 31
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 248
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %status, align 4
@@ -8259,35 +8294,35 @@ if.then3.i.i:                                     ; preds = %if.end.i
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
 if.end.i.i.i:                                     ; preds = %if.then3.i.i
-  %fLenient.i.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load i8, ptr %fLenient.i.i.i.i, align 8
   %tobool3.not.i.i.i = icmp ne i8 %3, 0
-  %fAreAllFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %4 = load i8, ptr %fAreAllFieldsSet.i.i.i, align 2
   %tobool4.not.i.i.i = icmp eq i8 %4, 0
   %or.cond.i.i.i = select i1 %tobool3.not.i.i.i, i1 true, i1 %tobool4.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.then5.i.i.i, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
-  %fAreFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i.i, align 1
   br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i
 
 _ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i: ; preds = %if.then5.i.i.i, %if.end.i.i.i
   store i8 1, ptr %fIsTimeSet.i.i, align 8
-  %fAreFieldsVirtuallySet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i, align 1
   br label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i, %if.end.i
-  %fAreFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 9
   %5 = load i8, ptr %fAreFieldsSet.i.i, align 1
   %tobool9.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool9.not.i.i, label %if.then10.i.i, label %cond.true.i
 
 if.then10.i.i:                                    ; preds = %if.end8.i.i
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 32
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 256
   %6 = load ptr, ptr %vfn.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %7 = load i32, ptr %status, align 4
@@ -8296,19 +8331,19 @@ if.then10.i.i:                                    ; preds = %if.end8.i.i
 
 if.end8.i:                                        ; preds = %if.then10.i.i
   store i8 1, ptr %fAreFieldsSet.i.i, align 1
-  %fAreAllFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 10
   store i8 1, ptr %fAreAllFieldsSet.i.i, align 2
   br label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end8.i, %if.end8.i.i
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load i32, ptr %arrayidx.i, align 8
   br label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
 _ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %if.then3.i.i, %if.then10.i.i, %cond.true.i
   %retval.0.i = phi i32 [ %8, %cond.true.i ], [ 0, %if.then10.i.i ], [ 0, %if.then3.i.i ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
   %9 = load ptr, ptr %vfn, align 8
   %call2 = call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %retval.0.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %10 = load i32, ptr %status, align 4
@@ -8326,15 +8361,15 @@ sw.bb4:                                           ; preds = %if.then
   br label %return
 
 sw.bb5:                                           ; preds = %if.then, %if.then
-  %arrayidx.i5 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 21
-  %11 = load i32, ptr %arrayidx.i5, align 8
+  %arrayidx.i6 = getelementptr inbounds i8, ptr %this, i64 96
+  %11 = load i32, ptr %arrayidx.i6, align 8
   %vtable7 = load ptr, ptr %this, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 25
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 200
   %12 = load ptr, ptr %vfn8, align 8
   %call9 = call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %retval.0.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %13 = load i32, ptr %status, align 4
-  %cmp.i6 = icmp sgt i32 %13, 0
-  br i1 %cmp.i6, label %return, label %if.then12
+  %cmp.i7 = icmp sgt i32 %13, 0
+  br i1 %cmp.i7, label %return, label %if.then12
 
 if.then12:                                        ; preds = %sw.bb5
   %cmp = icmp eq i32 %call2, 2
@@ -8353,7 +8388,7 @@ return:                                           ; preds = %_ZNK6icu_758Calenda
 define noundef i32 @_ZNK6icu_758Calendar10getMinimumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 37
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef 0)
   ret i32 %call
@@ -8363,7 +8398,7 @@ entry:
 define noundef i32 @_ZNK6icu_758Calendar10getMinimumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 37
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef 0)
   ret i32 %call
@@ -8373,7 +8408,7 @@ entry:
 define noundef i32 @_ZNK6icu_758Calendar10getMaximumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 37
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef 3)
   ret i32 %call
@@ -8383,7 +8418,7 @@ entry:
 define noundef i32 @_ZNK6icu_758Calendar10getMaximumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 37
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef 3)
   ret i32 %call
@@ -8393,7 +8428,7 @@ entry:
 define noundef i32 @_ZNK6icu_758Calendar18getGreatestMinimumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 37
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef 1)
   ret i32 %call
@@ -8403,7 +8438,7 @@ entry:
 define noundef i32 @_ZNK6icu_758Calendar18getGreatestMinimumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 37
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef 1)
   ret i32 %call
@@ -8413,7 +8448,7 @@ entry:
 define noundef i32 @_ZNK6icu_758Calendar15getLeastMaximumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 37
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef 2)
   ret i32 %call
@@ -8423,7 +8458,7 @@ entry:
 define noundef i32 @_ZNK6icu_758Calendar15getLeastMaximumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 37
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef 2)
   ret i32 %call
@@ -8433,7 +8468,7 @@ entry:
 define noundef i32 @_ZNK6icu_758Calendar16getActualMinimumENS0_11EDateFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret i32 %call
@@ -8473,18 +8508,18 @@ sw.bb4:                                           ; preds = %entry
   ]
 
 if.then:                                          ; preds = %sw.bb4
-  %fMinimalDaysInFirstWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
+  %fMinimalDaysInFirstWeek.i = getelementptr inbounds i8, ptr %this, i64 268
   %1 = load i8, ptr %fMinimalDaysInFirstWeek.i, align 4
   %cmp5 = icmp eq i8 %1, 1
   %cond = zext i1 %cmp5 to i32
   br label %return
 
 if.else8:                                         ; preds = %sw.bb4
-  %fMinimalDaysInFirstWeek.i10 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
+  %fMinimalDaysInFirstWeek.i10 = getelementptr inbounds i8, ptr %this, i64 268
   %2 = load i8, ptr %fMinimalDaysInFirstWeek.i10, align 4
   %conv10 = zext i8 %2 to i32
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 36
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 288
   %3 = load ptr, ptr %vfn, align 8
   %call11 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 5, i32 noundef %limitType)
   %cmp12 = icmp eq i32 %limitType, 2
@@ -8503,7 +8538,7 @@ if.else14:                                        ; preds = %if.else8
 
 sw.default:                                       ; preds = %entry
   %vtable21 = load ptr, ptr %this, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 36
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 288
   %4 = load ptr, ptr %vfn22, align 8
   %call23 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %limitType)
   br label %return
@@ -8531,11 +8566,11 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 14
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 112
   %2 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
   %cmp9 = icmp eq i32 %call5, %call8
@@ -8543,7 +8578,7 @@ if.end4:                                          ; preds = %if.end
 
 if.end11:                                         ; preds = %if.end4
   %vtable12 = load ptr, ptr %this, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 3
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 24
   %3 = load ptr, ptr %vfn13, align 8
   %call14 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %cmp15 = icmp eq ptr %call14, null
@@ -8554,17 +8589,20 @@ if.then16:                                        ; preds = %if.end11
   br label %return
 
 if.end17:                                         ; preds = %if.end11
-  %fLenient.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call14, i64 0, i32 10
+  %fLenient.i = getelementptr inbounds i8, ptr %call14, i64 240
   store i8 1, ptr %fLenient.i, align 8
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call14, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %call14, i64 11
+  %fFields.i = getelementptr inbounds i8, ptr %call14, i64 12
   %idxprom.i = zext nneg i32 %field to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call14, i64 0, i32 5, i64 %idxprom.i
-  %fNextStamp.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call14, i64 0, i32 8
-  %arrayidx10.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call14, i64 0, i32 7, i64 %idxprom.i
-  %arrayidx12.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call14, i64 0, i32 6, i64 %idxprom.i
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call14, i64 0, i32 2
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call14, i64 0, i32 1
-  %fAreAllFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call14, i64 0, i32 3
+  %arrayidx.i = getelementptr inbounds [24 x i32], ptr %fFields.i, i64 0, i64 %idxprom.i
+  %fNextStamp.i = getelementptr inbounds i8, ptr %call14, i64 228
+  %fStamp.i.i = getelementptr inbounds i8, ptr %call14, i64 132
+  %arrayidx10.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %idxprom.i
+  %fIsSet.i = getelementptr inbounds i8, ptr %call14, i64 108
+  %arrayidx12.i = getelementptr inbounds [24 x i8], ptr %fIsSet.i, i64 0, i64 %idxprom.i
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %call14, i64 9
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %call14, i64 8
+  %fAreAllFieldsSet.i.i.i = getelementptr inbounds i8, ptr %call14, i64 10
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end17, %if.else
@@ -8578,7 +8616,7 @@ if.end.i:                                         ; preds = %if.end17, %if.else
 if.then3.i:                                       ; preds = %if.end.i
   store i32 0, ptr %ec.i, align 4
   %vtable.i = load ptr, ptr %call14, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %5 = load ptr, ptr %vfn.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(618) %call14, ptr noundef nonnull align 4 dereferenceable(4) %ec.i)
   br label %if.end4.i
@@ -8602,7 +8640,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   %indvars.iv.i.i = phi i64 [ 0, %for.cond2.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %currentValue.09.i.i = phi i32 [ 10000, %for.cond2.preheader.i.i ], [ %currentValue.1.i.i, %for.body4.i.i ]
   %index.08.i.i = phi i32 [ -1, %for.cond2.preheader.i.i ], [ %index.1.i.i, %for.body4.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call14, i64 0, i32 7, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %indvars.iv.i.i
   %8 = load i32, ptr %arrayidx.i.i, align 4
   %cmp6.i.i = icmp sgt i32 %8, %7
   %cmp10.i.i = icmp slt i32 %8, %currentValue.09.i.i
@@ -8622,7 +8660,7 @@ if.then15.i.i:                                    ; preds = %for.end.i.i
   %inc17.i.i = add nsw i32 %7, 1
   store i32 %inc17.i.i, ptr %fNextStamp.i, align 4
   %idxprom19.i.i = zext nneg i32 %index.1.i.i to i64
-  %arrayidx20.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call14, i64 0, i32 7, i64 %idxprom19.i.i
+  %arrayidx20.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %idxprom19.i.i
   store i32 %inc17.i.i, ptr %arrayidx20.i.i, align 4
   %inc23.i.i = add nuw nsw i32 %j.011.i.i, 1
   %exitcond13.not.i.i = icmp eq i32 %inc23.i.i, 24
@@ -8653,7 +8691,7 @@ _ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %if.end4.i, %_ZN6
 
 if.then3.i.i:                                     ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
   %vtable.i.i.i = load ptr, ptr %call14, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 31
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 248
   %13 = load ptr, ptr %vfn.i.i.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(618) %call14, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %14 = load i32, ptr %status, align 4
@@ -8675,8 +8713,8 @@ if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
 _ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i: ; preds = %if.then5.i.i.i, %if.end.i.i.i
   store i8 1, ptr %fIsTimeSet.i, align 8
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
-  %.pre.i.i26 = load i32, ptr %status, align 4
-  %17 = icmp slt i32 %.pre.i.i26, 1
+  %.pre.i.i27 = load i32, ptr %status, align 4
+  %17 = icmp slt i32 %.pre.i.i27, 1
   br i1 %17, label %if.end8.i.i, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
 if.end8.i.i:                                      ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i
@@ -8686,7 +8724,7 @@ if.end8.i.i:                                      ; preds = %_ZN6icu_758Calendar
 
 if.then10.i.i:                                    ; preds = %if.end8.i.i
   %vtable.i.i = load ptr, ptr %call14, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 32
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 256
   %18 = load ptr, ptr %vfn.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(618) %call14, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %19 = load i32, ptr %status, align 4
@@ -8717,12 +8755,12 @@ if.else:                                          ; preds = %_ZNK6icu_758Calenda
 delete.notnull:                                   ; preds = %if.else, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
   %result.1 = phi i32 [ %result.0, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ %fieldValue.0, %if.else ]
   %vtable23 = load ptr, ptr %call14, align 8
-  %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 1
+  %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 8
   %21 = load ptr, ptr %vfn24, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(618) %call14) #25
   %22 = load i32, ptr %status, align 4
-  %cmp.i28.inv = icmp sgt i32 %22, 0
-  %spec.select = select i1 %cmp.i28.inv, i32 0, i32 %result.1
+  %cmp.i29.inv = icmp sgt i32 %22, 0
+  %spec.select = select i1 %cmp.i29.inv, i32 0, i32 %result.1
   br label %return
 
 return:                                           ; preds = %delete.notnull, %if.end4, %entry, %if.then16, %if.then3
@@ -8738,10 +8776,10 @@ entry:
   br i1 %cmp.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %fZone.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone.i = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load ptr, ptr %fZone.i, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %2 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef signext i8 %2(ptr noundef nonnull align 8 dereferenceable(72) %1)
   %tobool4.not = icmp ne i8 %call3, 0
@@ -8751,14 +8789,14 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i8, ptr %fIsTimeSet.i, align 8
   %tobool2.not.i = icmp eq i8 %4, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end8.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 31
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 248
   %5 = load ptr, ptr %vfn.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %6 = load i32, ptr %status, align 4
@@ -8766,37 +8804,37 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.i.i.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %fLenient.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %7 = load i8, ptr %fLenient.i.i.i, align 8
   %tobool3.not.i.i = icmp ne i8 %7, 0
-  %fAreAllFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %8 = load i8, ptr %fAreAllFieldsSet.i.i, align 2
   %tobool4.not.i.i = icmp eq i8 %8, 0
   %or.cond.i.i = select i1 %tobool3.not.i.i, i1 true, i1 %tobool4.not.i.i
   br i1 %or.cond.i.i, label %if.then5.i.i, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %fAreFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i, align 1
   br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i
 
 _ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i: ; preds = %if.then5.i.i, %if.end.i.i
   store i8 1, ptr %fIsTimeSet.i, align 8
-  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i, align 1
   %.pre.i = load i32, ptr %status, align 4
   %9 = icmp slt i32 %.pre.i, 1
   br i1 %9, label %if.end8.i, label %return
 
 if.end8.i:                                        ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i, %if.end.i
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
   %10 = load i8, ptr %fAreFieldsSet.i, align 1
   %tobool9.not.i = icmp eq i8 %10, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %cond.true
 
 if.then10.i:                                      ; preds = %if.end8.i
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %11 = load ptr, ptr %vfn.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %12 = load i32, ptr %status, align 4
@@ -8805,14 +8843,14 @@ if.then10.i:                                      ; preds = %if.end8.i
 
 _ZN6icu_758Calendar8completeER10UErrorCode.exit:  ; preds = %if.then10.i
   store i8 1, ptr %fAreFieldsSet.i, align 1
-  %fAreAllFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 10
   store i8 1, ptr %fAreAllFieldsSet.i, align 2
   %.pre = load i32, ptr %status, align 4
   %cmp.i3 = icmp sgt i32 %.pre, 0
   br i1 %cmp.i3, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end8.i, %_ZN6icu_758Calendar8completeER10UErrorCode.exit
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 16
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 76
   %13 = load i32, ptr %arrayidx.i, align 4
   %cmp = icmp ne i32 %13, 0
   %14 = zext i1 %cmp to i8
@@ -8827,7 +8865,7 @@ return:                                           ; preds = %if.then10.i, %_ZN6i
 define noundef zeroext i1 @_ZNK6icu_758Calendar18inTemporalLeapYearER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %cmp = icmp eq i32 %call, 366
@@ -8842,14 +8880,14 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %fIsTimeSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fIsTimeSet.i.i, align 8
   %tobool2.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %if.end8.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i
   %vtable.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 31
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 248
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %3 = load i32, ptr %status, align 4
@@ -8857,37 +8895,37 @@ if.then3.i.i:                                     ; preds = %if.end.i
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %return
 
 if.end.i.i.i:                                     ; preds = %if.then3.i.i
-  %fLenient.i.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load i8, ptr %fLenient.i.i.i.i, align 8
   %tobool3.not.i.i.i = icmp ne i8 %4, 0
-  %fAreAllFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %5 = load i8, ptr %fAreAllFieldsSet.i.i.i, align 2
   %tobool4.not.i.i.i = icmp eq i8 %5, 0
   %or.cond.i.i.i = select i1 %tobool3.not.i.i.i, i1 true, i1 %tobool4.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.then5.i.i.i, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
-  %fAreFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i.i, align 1
   br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i
 
 _ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i: ; preds = %if.then5.i.i.i, %if.end.i.i.i
   store i8 1, ptr %fIsTimeSet.i.i, align 8
-  %fAreFieldsVirtuallySet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i.i = getelementptr inbounds i8, ptr %this, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i.i, align 1
   %.pre.i.i = load i32, ptr %status, align 4
   %6 = icmp slt i32 %.pre.i.i, 1
   br i1 %6, label %if.end8.i.i, label %return
 
 if.end8.i.i:                                      ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i, %if.end.i
-  %fAreFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 9
   %7 = load i8, ptr %fAreFieldsSet.i.i, align 1
   %tobool9.not.i.i = icmp eq i8 %7, 0
   br i1 %tobool9.not.i.i, label %if.then10.i.i, label %if.end
 
 if.then10.i.i:                                    ; preds = %if.end8.i.i
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 32
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 256
   %8 = load ptr, ptr %vfn.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %9 = load i32, ptr %status, align 4
@@ -8896,14 +8934,14 @@ if.then10.i.i:                                    ; preds = %if.end8.i.i
 
 if.end8.i:                                        ; preds = %if.then10.i.i
   store i8 1, ptr %fAreFieldsSet.i.i, align 1
-  %fAreAllFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i = getelementptr inbounds i8, ptr %this, i64 10
   store i8 1, ptr %fAreAllFieldsSet.i.i, align 2
   %.pre.i = load i32, ptr %status, align 4
   %cmp.i9.i = icmp sgt i32 %.pre.i, 0
   br i1 %cmp.i9.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end8.i, %if.end8.i.i
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 20
   %10 = load i32, ptr %arrayidx.i, align 4
   %11 = sext i32 %10 to i64
   %arrayidx = getelementptr inbounds [13 x ptr], ptr @_ZN6icu_75L19gTemporalMonthCodesE, i64 0, i64 %11
@@ -8945,7 +8983,7 @@ for.body:                                         ; preds = %land.lhs.true, %for
 if.then12:                                        ; preds = %for.body
   %4 = trunc i64 %indvars.iv to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i)
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %this, i64 11
   %5 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
   %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %if.end4.i, label %if.then3.i
@@ -8953,21 +8991,22 @@ if.then12:                                        ; preds = %for.body
 if.then3.i:                                       ; preds = %if.then12
   store i32 0, ptr %ec.i, align 4
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %6 = load ptr, ptr %vfn.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i)
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.then12
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %4, ptr %arrayidx.i, align 4
-  %fNextStamp.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fNextStamp.i = getelementptr inbounds i8, ptr %this, i64 228
   %7 = load i32, ptr %fNextStamp.i, align 4
   %cmp5.i = icmp eq i32 %7, 10000
   br i1 %cmp5.i, label %if.then6.i, label %if.end4.i13
 
 if.then6.i:                                       ; preds = %if.end4.i
   store i32 1, ptr %fNextStamp.i, align 4
+  %fStamp.i.i = getelementptr inbounds i8, ptr %this, i64 132
   br label %for.cond2.preheader.i.i
 
 for.cond2.preheader.i.i:                          ; preds = %if.then15.i.i, %if.then6.i
@@ -8979,7 +9018,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   %indvars.iv.i.i = phi i64 [ 0, %for.cond2.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %currentValue.09.i.i = phi i32 [ 10000, %for.cond2.preheader.i.i ], [ %currentValue.1.i.i, %for.body4.i.i ]
   %index.08.i.i = phi i32 [ -1, %for.cond2.preheader.i.i ], [ %index.1.i.i, %for.body4.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %indvars.iv.i.i
   %9 = load i32, ptr %arrayidx.i.i, align 4
   %cmp6.i.i = icmp sgt i32 %9, %8
   %cmp10.i.i = icmp slt i32 %9, %currentValue.09.i.i
@@ -8999,7 +9038,7 @@ if.then15.i.i:                                    ; preds = %for.end.i.i
   %inc17.i.i = add nsw i32 %8, 1
   store i32 %inc17.i.i, ptr %fNextStamp.i, align 4
   %idxprom19.i.i = zext nneg i32 %index.1.i.i to i64
-  %arrayidx20.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i
+  %arrayidx20.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %idxprom19.i.i
   store i32 %inc17.i.i, ptr %arrayidx20.i.i, align 4
   %inc23.i.i = add nuw nsw i32 %j.011.i.i, 1
   %exitcond13.not.i.i = icmp eq i32 %inc23.i.i, 24
@@ -9017,74 +9056,75 @@ _ZN6icu_758Calendar16recalculateStampEv.exit.i:   ; preds = %for.end.i.i, %if.th
 if.end4.i13:                                      ; preds = %_ZN6icu_758Calendar16recalculateStampEv.exit.i, %if.end4.i
   %12 = phi i32 [ %inc26.i.i, %_ZN6icu_758Calendar16recalculateStampEv.exit.i ], [ %7, %if.end4.i ]
   %inc.i = add nsw i32 %12, 1
-  %arrayidx10.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 2
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 140
   store i32 %12, ptr %arrayidx10.i, align 4
-  %arrayidx12.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 110
   store i8 1, ptr %arrayidx12.i, align 2
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i)
-  %arrayidx.i14 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 22
-  store i32 0, ptr %arrayidx.i14, align 4
-  %cmp5.i16 = icmp eq i32 %inc.i, 10000
-  br i1 %cmp5.i16, label %if.then6.i22, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit49
+  %arrayidx.i15 = getelementptr inbounds i8, ptr %this, i64 100
+  store i32 0, ptr %arrayidx.i15, align 4
+  %cmp5.i17 = icmp eq i32 %inc.i, 10000
+  br i1 %cmp5.i17, label %if.then6.i25, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit53
 
-if.then6.i22:                                     ; preds = %if.end4.i13
+if.then6.i25:                                     ; preds = %if.end4.i13
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i23
+  br label %for.cond2.preheader.i.i27
 
-for.cond2.preheader.i.i23:                        ; preds = %if.then15.i.i41, %if.then6.i22
-  %j.011.i.i24 = phi i32 [ 0, %if.then6.i22 ], [ %inc23.i.i45, %if.then15.i.i41 ]
+for.cond2.preheader.i.i27:                        ; preds = %if.then15.i.i45, %if.then6.i25
+  %j.011.i.i28 = phi i32 [ 0, %if.then6.i25 ], [ %inc23.i.i49, %if.then15.i.i45 ]
   %13 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i25
+  br label %for.body4.i.i29
 
-for.body4.i.i25:                                  ; preds = %for.body4.i.i25, %for.cond2.preheader.i.i23
-  %indvars.iv.i.i26 = phi i64 [ 0, %for.cond2.preheader.i.i23 ], [ %indvars.iv.next.i.i35, %for.body4.i.i25 ]
-  %currentValue.09.i.i27 = phi i32 [ 10000, %for.cond2.preheader.i.i23 ], [ %currentValue.1.i.i34, %for.body4.i.i25 ]
-  %index.08.i.i28 = phi i32 [ -1, %for.cond2.preheader.i.i23 ], [ %index.1.i.i33, %for.body4.i.i25 ]
-  %arrayidx.i.i29 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i26
-  %14 = load i32, ptr %arrayidx.i.i29, align 4
-  %cmp6.i.i30 = icmp sgt i32 %14, %13
-  %cmp10.i.i31 = icmp slt i32 %14, %currentValue.09.i.i27
-  %or.cond.i.i32 = select i1 %cmp6.i.i30, i1 %cmp10.i.i31, i1 false
-  %15 = trunc i64 %indvars.iv.i.i26 to i32
-  %index.1.i.i33 = select i1 %or.cond.i.i32, i32 %15, i32 %index.08.i.i28
-  %currentValue.1.i.i34 = select i1 %or.cond.i.i32, i32 %14, i32 %currentValue.09.i.i27
-  %indvars.iv.next.i.i35 = add nuw nsw i64 %indvars.iv.i.i26, 1
-  %exitcond.not.i.i36 = icmp eq i64 %indvars.iv.next.i.i35, 24
-  br i1 %exitcond.not.i.i36, label %for.end.i.i37, label %for.body4.i.i25, !llvm.loop !8
+for.body4.i.i29:                                  ; preds = %for.body4.i.i29, %for.cond2.preheader.i.i27
+  %indvars.iv.i.i30 = phi i64 [ 0, %for.cond2.preheader.i.i27 ], [ %indvars.iv.next.i.i39, %for.body4.i.i29 ]
+  %currentValue.09.i.i31 = phi i32 [ 10000, %for.cond2.preheader.i.i27 ], [ %currentValue.1.i.i38, %for.body4.i.i29 ]
+  %index.08.i.i32 = phi i32 [ -1, %for.cond2.preheader.i.i27 ], [ %index.1.i.i37, %for.body4.i.i29 ]
+  %arrayidx.i.i33 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i30
+  %14 = load i32, ptr %arrayidx.i.i33, align 4
+  %cmp6.i.i34 = icmp sgt i32 %14, %13
+  %cmp10.i.i35 = icmp slt i32 %14, %currentValue.09.i.i31
+  %or.cond.i.i36 = select i1 %cmp6.i.i34, i1 %cmp10.i.i35, i1 false
+  %15 = trunc i64 %indvars.iv.i.i30 to i32
+  %index.1.i.i37 = select i1 %or.cond.i.i36, i32 %15, i32 %index.08.i.i32
+  %currentValue.1.i.i38 = select i1 %or.cond.i.i36, i32 %14, i32 %currentValue.09.i.i31
+  %indvars.iv.next.i.i39 = add nuw nsw i64 %indvars.iv.i.i30, 1
+  %exitcond.not.i.i40 = icmp eq i64 %indvars.iv.next.i.i39, 24
+  br i1 %exitcond.not.i.i40, label %for.end.i.i41, label %for.body4.i.i29, !llvm.loop !8
 
-for.end.i.i37:                                    ; preds = %for.body4.i.i25
-  %cmp14.i.i38 = icmp sgt i32 %index.1.i.i33, -1
-  br i1 %cmp14.i.i38, label %if.then15.i.i41, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i39
+for.end.i.i41:                                    ; preds = %for.body4.i.i29
+  %cmp14.i.i42 = icmp sgt i32 %index.1.i.i37, -1
+  br i1 %cmp14.i.i42, label %if.then15.i.i45, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i43
 
-if.then15.i.i41:                                  ; preds = %for.end.i.i37
-  %inc17.i.i42 = add nsw i32 %13, 1
-  store i32 %inc17.i.i42, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i43 = zext nneg i32 %index.1.i.i33 to i64
-  %arrayidx20.i.i44 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i43
-  store i32 %inc17.i.i42, ptr %arrayidx20.i.i44, align 4
-  %inc23.i.i45 = add nuw nsw i32 %j.011.i.i24, 1
-  %exitcond13.not.i.i46 = icmp eq i32 %inc23.i.i45, 24
-  br i1 %exitcond13.not.i.i46, label %if.then15.for.end24_crit_edge.i.i47, label %for.cond2.preheader.i.i23, !llvm.loop !9
+if.then15.i.i45:                                  ; preds = %for.end.i.i41
+  %inc17.i.i46 = add nsw i32 %13, 1
+  store i32 %inc17.i.i46, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i47 = zext nneg i32 %index.1.i.i37 to i64
+  %arrayidx20.i.i48 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i47
+  store i32 %inc17.i.i46, ptr %arrayidx20.i.i48, align 4
+  %inc23.i.i49 = add nuw nsw i32 %j.011.i.i28, 1
+  %exitcond13.not.i.i50 = icmp eq i32 %inc23.i.i49, 24
+  br i1 %exitcond13.not.i.i50, label %if.then15.for.end24_crit_edge.i.i51, label %for.cond2.preheader.i.i27, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i47:              ; preds = %if.then15.i.i41
-  %.pre.i.i48 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i39
+if.then15.for.end24_crit_edge.i.i51:              ; preds = %if.then15.i.i45
+  %.pre.i.i52 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i43
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i39: ; preds = %for.end.i.i37, %if.then15.for.end24_crit_edge.i.i47
-  %16 = phi i32 [ %.pre.i.i48, %if.then15.for.end24_crit_edge.i.i47 ], [ %13, %for.end.i.i37 ]
-  %inc26.i.i40 = add nsw i32 %16, 1
-  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit49
+_ZN6icu_758Calendar16recalculateStampEv.exit.i43: ; preds = %for.end.i.i41, %if.then15.for.end24_crit_edge.i.i51
+  %16 = phi i32 [ %.pre.i.i52, %if.then15.for.end24_crit_edge.i.i51 ], [ %13, %for.end.i.i41 ]
+  %inc26.i.i44 = add nsw i32 %16, 1
+  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit53
 
-_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit49: ; preds = %if.end4.i13, %_ZN6icu_758Calendar16recalculateStampEv.exit.i39
-  %17 = phi i32 [ %inc26.i.i40, %_ZN6icu_758Calendar16recalculateStampEv.exit.i39 ], [ %inc.i, %if.end4.i13 ]
-  %inc.i17 = add nsw i32 %17, 1
-  store i32 %inc.i17, ptr %fNextStamp.i, align 4
-  %arrayidx10.i18 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 22
-  store i32 %17, ptr %arrayidx10.i18, align 4
-  %arrayidx12.i19 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 22
-  store i8 1, ptr %arrayidx12.i19, align 2
+_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit53: ; preds = %if.end4.i13, %_ZN6icu_758Calendar16recalculateStampEv.exit.i43
+  %17 = phi i32 [ %inc26.i.i44, %_ZN6icu_758Calendar16recalculateStampEv.exit.i43 ], [ %inc.i, %if.end4.i13 ]
+  %inc.i18 = add nsw i32 %17, 1
+  store i32 %inc.i18, ptr %fNextStamp.i, align 4
+  %arrayidx10.i20 = getelementptr inbounds i8, ptr %this, i64 220
+  store i32 %17, ptr %arrayidx10.i20, align 4
+  %arrayidx12.i22 = getelementptr inbounds i8, ptr %this, i64 130
+  store i8 1, ptr %arrayidx12.i22, align 2
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   store i8 0, ptr %fAreFieldsSet.i, align 1
   store i8 0, ptr %fIsTimeSet.i, align 8
@@ -9099,7 +9139,7 @@ if.end14:                                         ; preds = %for.inc, %land.lhs.
   store i32 1, ptr %status, align 4
   br label %return
 
-return:                                           ; preds = %entry, %if.end14, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit49
+return:                                           ; preds = %entry, %if.end14, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit53
   ret void
 }
 
@@ -9111,19 +9151,23 @@ define void @_ZN6icu_758Calendar14validateFieldsER10UErrorCode(ptr noundef nonnu
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i68 = icmp slt i32 %0, 1
-  br i1 %cmp.i68, label %for.body, label %for.end
+  br i1 %cmp.i68, label %for.body.lr.ph, label %for.end
 
-for.body:                                         ; preds = %entry, %for.inc
-  %1 = phi i32 [ %5, %for.inc ], [ %0, %entry ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv
+for.body.lr.ph:                                   ; preds = %entry
+  %fStamp = getelementptr inbounds i8, ptr %this, i64 132
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %5, %for.inc ]
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx, align 4
   %cmp4 = icmp sgt i32 %2, 1
   br i1 %cmp4, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %for.body
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 44
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 352
   %3 = load ptr, ptr %vfn, align 8
   %4 = trunc i64 %indvars.iv to i32
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -9162,15 +9206,15 @@ if.end4:                                          ; preds = %if.end
 
 sw.bb:                                            ; preds = %if.end4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 41
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 328
   %1 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 33
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 264
   %2 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %vtable9 = load ptr, ptr %this, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 39
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 312
   %3 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %call5, i32 noundef %call8)
   %4 = load i32, ptr %status, align 4
@@ -9178,7 +9222,7 @@ sw.bb:                                            ; preds = %if.end4
   br i1 %cmp.i.i, label %if.end4.i, label %sw.epilog
 
 if.end4.i:                                        ; preds = %sw.bb
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load i32, ptr %arrayidx.i, align 8
   %cmp5.i = icmp slt i32 %5, 1
   %cmp7.i = icmp sgt i32 %5, %call11
@@ -9187,11 +9231,11 @@ if.end4.i:                                        ; preds = %sw.bb
 
 sw.bb12:                                          ; preds = %if.end4
   %vtable13 = load ptr, ptr %this, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 41
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 328
   %6 = load ptr, ptr %vfn14, align 8
   %call15 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %vtable16 = load ptr, ptr %this, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 40
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 320
   %7 = load ptr, ptr %vfn17, align 8
   %call18 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %call15)
   %8 = load i32, ptr %status, align 4
@@ -9199,66 +9243,67 @@ sw.bb12:                                          ; preds = %if.end4
   br i1 %cmp.i.i19, label %if.end4.i22, label %sw.epilog
 
 if.end4.i22:                                      ; preds = %sw.bb12
-  %arrayidx.i24 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 6
-  %9 = load i32, ptr %arrayidx.i24, align 4
-  %cmp5.i25 = icmp slt i32 %9, 1
-  %cmp7.i26 = icmp sgt i32 %9, %call18
-  %or.cond6.i27 = or i1 %cmp5.i25, %cmp7.i26
-  br i1 %or.cond6.i27, label %sw.epilog.sink.split, label %sw.epilog
+  %arrayidx.i25 = getelementptr inbounds i8, ptr %this, i64 36
+  %9 = load i32, ptr %arrayidx.i25, align 4
+  %cmp5.i26 = icmp slt i32 %9, 1
+  %cmp7.i27 = icmp sgt i32 %9, %call18
+  %or.cond6.i28 = or i1 %cmp5.i26, %cmp7.i27
+  br i1 %or.cond6.i28, label %sw.epilog.sink.split, label %sw.epilog
 
 sw.bb19:                                          ; preds = %if.end4
-  %arrayidx.i31 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 8
-  %10 = load i32, ptr %arrayidx.i31, align 4
+  %arrayidx.i33 = getelementptr inbounds i8, ptr %this, i64 44
+  %10 = load i32, ptr %arrayidx.i33, align 4
   %cmp21 = icmp eq i32 %10, 0
   br i1 %cmp21, label %sw.epilog.sink.split, label %if.end23
 
 if.end23:                                         ; preds = %sw.bb19
   %vtable24 = load ptr, ptr %this, align 8
-  %vfn25 = getelementptr inbounds ptr, ptr %vtable24, i64 14
+  %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 112
   %11 = load ptr, ptr %vfn25, align 8
   %call26 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 8)
   %vtable27 = load ptr, ptr %this, align 8
-  %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 16
+  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 128
   %12 = load ptr, ptr %vfn28, align 8
   %call29 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 8)
   %13 = load i32, ptr %status, align 4
-  %cmp.i.i32 = icmp slt i32 %13, 1
-  br i1 %cmp.i.i32, label %if.end4.i35, label %sw.epilog
+  %cmp.i.i34 = icmp slt i32 %13, 1
+  br i1 %cmp.i.i34, label %if.end4.i37, label %sw.epilog
 
-if.end4.i35:                                      ; preds = %if.end23
-  %14 = load i32, ptr %arrayidx.i31, align 4
-  %cmp5.i38 = icmp slt i32 %14, %call26
-  %cmp7.i39 = icmp sgt i32 %14, %call29
-  %or.cond6.i40 = or i1 %cmp5.i38, %cmp7.i39
-  br i1 %or.cond6.i40, label %sw.epilog.sink.split, label %sw.epilog
+if.end4.i37:                                      ; preds = %if.end23
+  %14 = load i32, ptr %arrayidx.i33, align 4
+  %cmp5.i41 = icmp slt i32 %14, %call26
+  %cmp7.i42 = icmp sgt i32 %14, %call29
+  %or.cond6.i43 = or i1 %cmp5.i41, %cmp7.i42
+  br i1 %or.cond6.i43, label %sw.epilog.sink.split, label %sw.epilog
 
 sw.default:                                       ; preds = %if.end4
   %vtable30 = load ptr, ptr %this, align 8
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 14
+  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 112
   %15 = load ptr, ptr %vfn31, align 8
   %call32 = tail call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
   %vtable33 = load ptr, ptr %this, align 8
-  %vfn34 = getelementptr inbounds ptr, ptr %vtable33, i64 16
+  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 128
   %16 = load ptr, ptr %vfn34, align 8
   %call35 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
   %17 = load i32, ptr %status, align 4
-  %cmp.i.i43 = icmp slt i32 %17, 1
-  br i1 %cmp.i.i43, label %if.end4.i46, label %sw.epilog
+  %cmp.i.i46 = icmp slt i32 %17, 1
+  br i1 %cmp.i.i46, label %if.end4.i49, label %sw.epilog
 
-if.end4.i46:                                      ; preds = %sw.default
-  %idxprom.i47 = zext nneg i32 %field to i64
-  %arrayidx.i48 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom.i47
-  %18 = load i32, ptr %arrayidx.i48, align 4
-  %cmp5.i49 = icmp slt i32 %18, %call32
-  %cmp7.i50 = icmp sgt i32 %18, %call35
-  %or.cond6.i51 = or i1 %cmp5.i49, %cmp7.i50
-  br i1 %or.cond6.i51, label %sw.epilog.sink.split, label %sw.epilog
+if.end4.i49:                                      ; preds = %sw.default
+  %fFields.i50 = getelementptr inbounds i8, ptr %this, i64 12
+  %idxprom.i51 = zext nneg i32 %field to i64
+  %arrayidx.i52 = getelementptr inbounds [24 x i32], ptr %fFields.i50, i64 0, i64 %idxprom.i51
+  %18 = load i32, ptr %arrayidx.i52, align 4
+  %cmp5.i53 = icmp slt i32 %18, %call32
+  %cmp7.i54 = icmp sgt i32 %18, %call35
+  %or.cond6.i55 = or i1 %cmp5.i53, %cmp7.i54
+  br i1 %or.cond6.i55, label %sw.epilog.sink.split, label %sw.epilog
 
-sw.epilog.sink.split:                             ; preds = %if.end4.i46, %if.end4.i35, %sw.bb19, %if.end4.i22, %if.end4.i, %if.end
+sw.epilog.sink.split:                             ; preds = %if.end4.i49, %if.end4.i37, %sw.bb19, %if.end4.i22, %if.end4.i, %if.end
   store i32 1, ptr %status, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end4.i46, %sw.default, %if.end4.i35, %if.end23, %if.end4.i22, %sw.bb12, %if.end4.i, %sw.bb, %entry
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end4.i49, %sw.default, %if.end4.i37, %if.end23, %if.end4.i22, %sw.bb12, %if.end4.i, %sw.bb, %entry
   ret void
 }
 
@@ -9274,8 +9319,9 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end9.sink.split, label %if.end4
 
 if.end4:                                          ; preds = %if.end
+  %fFields = getelementptr inbounds i8, ptr %this, i64 12
   %idxprom = zext nneg i32 %field to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fFields, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %cmp5 = icmp slt i32 %1, %min
   %cmp7 = icmp sgt i32 %1, %max
@@ -9299,11 +9345,12 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_758Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, i32 noundef %defaultField, i32 noundef %alternateField) local_unnamed_addr #16 align 2 {
 entry:
+  %fStamp = getelementptr inbounds i8, ptr %this, i64 132
   %idxprom = zext i32 %alternateField to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %idxprom3 = zext i32 %defaultField to i64
-  %arrayidx4 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom3
+  %arrayidx4 = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %idxprom3
   %1 = load i32, ptr %arrayidx4, align 4
   %cmp = icmp sgt i32 %0, %1
   %alternateField.defaultField = select i1 %cmp, i32 %alternateField, i32 %defaultField
@@ -9318,9 +9365,10 @@ entry:
   br i1 %cmp48.not, label %for.end69, label %for.cond5.preheader.lr.ph
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
-  %arrayidx51 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 4
+  %fStamp = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx51 = getelementptr inbounds i8, ptr %this, i64 148
   %1 = load i32, ptr %arrayidx51, align 4
-  %arrayidx54 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 5
+  %arrayidx54 = getelementptr inbounds i8, ptr %this, i64 152
   %2 = load i32, ptr %arrayidx54, align 8
   %cmp55 = icmp slt i32 %1, %2
   %cmp55.fr = freeze i1 %cmp55
@@ -9360,7 +9408,7 @@ for.body27.us.us:                                 ; preds = %for.body12.us.us, %
   %8 = phi i32 [ %10, %if.else.us.us ], [ %7, %for.body12.us.us ]
   %lineStamp.039.us.us = phi i32 [ %spec.select.us.us, %if.else.us.us ], [ 0, %for.body12.us.us ]
   %idxprom34.us.us = sext i32 %8 to i64
-  %arrayidx35.us.us = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom34.us.us
+  %arrayidx35.us.us = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %idxprom34.us.us
   %9 = load i32, ptr %arrayidx35.us.us, align 4
   %cmp36.us.us = icmp eq i32 %9, 0
   br i1 %cmp36.us.us, label %for.inc64.us.us, label %if.else.us.us
@@ -9416,7 +9464,7 @@ for.body27:                                       ; preds = %for.body12, %if.els
   %15 = phi i32 [ %17, %if.else ], [ %14, %for.body12 ]
   %lineStamp.039 = phi i32 [ %spec.select, %if.else ], [ 0, %for.body12 ]
   %idxprom34 = sext i32 %15 to i64
-  %arrayidx35 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom34
+  %arrayidx35 = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %idxprom34
   %16 = load i32, ptr %arrayidx35, align 4
   %cmp36 = icmp eq i32 %16, 0
   br i1 %cmp36, label %for.inc64, label %if.else
@@ -9479,22 +9527,26 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end76
 
 if.end:                                           ; preds = %entry
-  %fLenient.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load i8, ptr %fLenient.i, align 8
   %tobool3.not = icmp eq i8 %1, 0
-  br i1 %tobool3.not, label %for.body.i, label %if.end9
+  br i1 %tobool3.not, label %for.body.lr.ph.i, label %if.end9
 
-for.body.i:                                       ; preds = %if.end, %for.inc.i
-  %2 = phi i32 [ %6, %for.inc.i ], [ %0, %if.end ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.end ]
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i
+for.body.lr.ph.i:                                 ; preds = %if.end
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
+  %2 = phi i32 [ %0, %for.body.lr.ph.i ], [ %6, %for.inc.i ]
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %arrayidx.i = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i
   %3 = load i32, ptr %arrayidx.i, align 4
   %cmp4.i = icmp sgt i32 %3, 1
   br i1 %cmp4.i, label %if.then5.i, label %for.inc.i
 
 if.then5.i:                                       ; preds = %for.body.i
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 44
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 352
   %4 = load ptr, ptr %vfn.i, align 8
   %5 = trunc i64 %indvars.iv.i to i32
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -9514,53 +9566,57 @@ _ZN6icu_758Calendar14validateFieldsER10UErrorCode.exit: ; preds = %for.inc.i
 
 if.end9:                                          ; preds = %_ZN6icu_758Calendar14validateFieldsER10UErrorCode.exit, %if.end
   %8 = phi i32 [ %6, %_ZN6icu_758Calendar14validateFieldsER10UErrorCode.exit ], [ %0, %if.end ]
-  %arrayidx.i29 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 20
+  %arrayidx.i29 = getelementptr inbounds i8, ptr %this, i64 212
   %9 = load i32, ptr %arrayidx.i29, align 4
   %cmp.i30 = icmp sgt i32 %9, 1
-  br i1 %cmp.i30, label %for.body.i.i, label %if.end9.i
+  br i1 %cmp.i30, label %if.then.i, label %if.end9.i
 
-for.body.i.i:                                     ; preds = %if.end9, %for.body.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %if.end9 ]
-  %bestStamp.06.i.i = phi i32 [ %spec.select.i.i, %for.body.i.i ], [ 0, %if.end9 ]
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i
+if.then.i:                                        ; preds = %if.end9
+  %fStamp.i.i = getelementptr inbounds i8, ptr %this, i64 132
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
+  %indvars.iv.i.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+  %bestStamp.06.i.i = phi i32 [ 0, %if.then.i ], [ %spec.select.i.i, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %indvars.iv.i.i
   %10 = load i32, ptr %arrayidx.i.i, align 4
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %10, i32 %bestStamp.06.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.i, label %for.body.i4.i, label %for.body.i.i, !llvm.loop !10
+  br i1 %exitcond.i, label %for.body.i5.i, label %for.body.i.i, !llvm.loop !10
 
-for.body.i4.i:                                    ; preds = %for.body.i.i, %for.body.i4.i
-  %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i9.i, %for.body.i4.i ], [ 17, %for.body.i.i ]
-  %bestStamp.06.i6.i = phi i32 [ %spec.select.i8.i, %for.body.i4.i ], [ %spec.select.i.i, %for.body.i.i ]
-  %arrayidx.i7.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i5.i
-  %11 = load i32, ptr %arrayidx.i7.i, align 4
-  %spec.select.i8.i = tail call i32 @llvm.smax.i32(i32 %11, i32 %bestStamp.06.i6.i)
-  %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i5.i, 1
-  %exitcond23.i = icmp eq i64 %indvars.iv.next.i9.i, 20
-  br i1 %exitcond23.i, label %for.body.i13.preheader.i, label %for.body.i4.i, !llvm.loop !10
+for.body.i5.i:                                    ; preds = %for.body.i.i, %for.body.i5.i
+  %indvars.iv.i6.i = phi i64 [ %indvars.iv.next.i10.i, %for.body.i5.i ], [ 17, %for.body.i.i ]
+  %bestStamp.06.i7.i = phi i32 [ %spec.select.i9.i, %for.body.i5.i ], [ %spec.select.i.i, %for.body.i.i ]
+  %arrayidx.i8.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %indvars.iv.i6.i
+  %11 = load i32, ptr %arrayidx.i8.i, align 4
+  %spec.select.i9.i = tail call i32 @llvm.smax.i32(i32 %11, i32 %bestStamp.06.i7.i)
+  %indvars.iv.next.i10.i = add nuw nsw i64 %indvars.iv.i6.i, 1
+  %exitcond25.i = icmp eq i64 %indvars.iv.next.i10.i, 20
+  br i1 %exitcond25.i, label %for.body.i15.preheader.i, label %for.body.i5.i, !llvm.loop !10
 
-for.body.i13.preheader.i:                         ; preds = %for.body.i4.i
-  %arrayidx.i16.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 23
-  %12 = load i32, ptr %arrayidx.i16.i, align 8
-  %spec.select.i17.i = tail call i32 @llvm.smax.i32(i32 %12, i32 %spec.select.i8.i)
-  %cmp6.not.i = icmp sgt i32 %spec.select.i17.i, %9
+for.body.i15.preheader.i:                         ; preds = %for.body.i5.i
+  %arrayidx.i18.i = getelementptr inbounds i8, ptr %this, i64 224
+  %12 = load i32, ptr %arrayidx.i18.i, align 8
+  %spec.select.i19.i = tail call i32 @llvm.smax.i32(i32 %12, i32 %spec.select.i9.i)
+  %cmp6.not.i = icmp sgt i32 %spec.select.i19.i, %9
   br i1 %cmp6.not.i, label %if.end9.i, label %if.then7.i
 
-if.then7.i:                                       ; preds = %for.body.i13.preheader.i
-  %arrayidx.i22.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 20
-  %13 = load i32, ptr %arrayidx.i22.i, align 4
+if.then7.i:                                       ; preds = %for.body.i15.preheader.i
+  %arrayidx.i24.i = getelementptr inbounds i8, ptr %this, i64 92
+  %13 = load i32, ptr %arrayidx.i24.i, align 4
   br label %_ZN6icu_758Calendar16computeJulianDayER10UErrorCode.exit
 
-if.end9.i:                                        ; preds = %for.body.i13.preheader.i, %if.end9
+if.end9.i:                                        ; preds = %for.body.i15.preheader.i, %if.end9
   %vtable.i31 = load ptr, ptr %this, align 8
-  %vfn.i32 = getelementptr inbounds ptr, ptr %vtable.i31, i64 45
+  %vfn.i32 = getelementptr inbounds i8, ptr %vtable.i31, i64 360
   %14 = load ptr, ptr %vfn.i32, align 8
   %call10.i = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %call11.i = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call10.i), !range !23
   %cmp12.i = icmp eq i32 %call11.i, 24
   %spec.store.select.i = select i1 %cmp12.i, i32 5, i32 %call11.i
   %vtable15.i = load ptr, ptr %this, align 8
-  %vfn16.i = getelementptr inbounds ptr, ptr %vtable15.i, i64 42
+  %vfn16.i = getelementptr inbounds i8, ptr %vtable15.i, i64 336
   %15 = load ptr, ptr %vfn16.i, align 8
   %call17.i = tail call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %spec.store.select.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %.pre = load i32, ptr %status, align 4
@@ -9576,89 +9632,93 @@ if.end14:                                         ; preds = %_ZN6icu_758Calendar
   %sub.i = add nsw i32 %retval.0.i, -2440588
   %conv.i35 = sitofp i32 %sub.i to double
   %mul.i = fmul double %conv.i35, 8.640000e+07
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 21
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 216
   %17 = load i32, ptr %arrayidx, align 8
   %cmp = icmp sgt i32 %17, 1
-  br i1 %cmp, label %for.body.i36, label %if.else
+  br i1 %cmp, label %land.lhs.true, label %if.else
 
-for.body.i36:                                     ; preds = %if.end14, %for.body.i36
-  %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i39, %for.body.i36 ], [ 9, %if.end14 ]
-  %bestStamp.06.i = phi i32 [ %spec.select.i, %for.body.i36 ], [ 0, %if.end14 ]
-  %arrayidx.i38 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i37
-  %18 = load i32, ptr %arrayidx.i38, align 4
+land.lhs.true:                                    ; preds = %if.end14
+  %fStamp.i37 = getelementptr inbounds i8, ptr %this, i64 132
+  br label %for.body.i38
+
+for.body.i38:                                     ; preds = %for.body.i38, %land.lhs.true
+  %indvars.iv.i39 = phi i64 [ 9, %land.lhs.true ], [ %indvars.iv.next.i41, %for.body.i38 ]
+  %bestStamp.06.i = phi i32 [ 0, %land.lhs.true ], [ %spec.select.i, %for.body.i38 ]
+  %arrayidx.i40 = getelementptr inbounds [24 x i32], ptr %fStamp.i37, i64 0, i64 %indvars.iv.i39
+  %18 = load i32, ptr %arrayidx.i40, align 4
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %18, i32 %bestStamp.06.i)
-  %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i37, 1
-  %exitcond = icmp eq i64 %indvars.iv.next.i39, 15
-  br i1 %exitcond, label %_ZNK6icu_758Calendar11newestStampE19UCalendarDateFieldsS1_i.exit, label %for.body.i36, !llvm.loop !10
+  %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i39, 1
+  %exitcond = icmp eq i64 %indvars.iv.next.i41, 15
+  br i1 %exitcond, label %_ZNK6icu_758Calendar11newestStampE19UCalendarDateFieldsS1_i.exit, label %for.body.i38, !llvm.loop !10
 
-_ZNK6icu_758Calendar11newestStampE19UCalendarDateFieldsS1_i.exit: ; preds = %for.body.i36
+_ZNK6icu_758Calendar11newestStampE19UCalendarDateFieldsS1_i.exit: ; preds = %for.body.i38
   %cmp19.not = icmp sgt i32 %spec.select.i, %17
   br i1 %cmp19.not, label %if.else, label %if.then20
 
 if.then20:                                        ; preds = %_ZNK6icu_758Calendar11newestStampE19UCalendarDateFieldsS1_i.exit
-  %arrayidx.i40 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 21
-  %19 = load i32, ptr %arrayidx.i40, align 8
+  %arrayidx.i42 = getelementptr inbounds i8, ptr %this, i64 96
+  %19 = load i32, ptr %arrayidx.i42, align 8
   %conv = sitofp i32 %19 to double
   br label %if.end23
 
 if.else:                                          ; preds = %_ZNK6icu_758Calendar11newestStampE19UCalendarDateFieldsS1_i.exit, %if.end14
-  %arrayidx.i41 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 11
-  %20 = load i32, ptr %arrayidx.i41, align 8
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 10
+  %arrayidx.i43 = getelementptr inbounds i8, ptr %this, i64 176
+  %20 = load i32, ptr %arrayidx.i43, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 172
   %21 = load i32, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 9
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 168
   %22 = load i32, ptr %arrayidx5.i, align 8
   %..i = tail call i32 @llvm.smax.i32(i32 %21, i32 %22)
   %cond14.i = tail call i32 @llvm.smax.i32(i32 %..i, i32 %20)
   %cmp15.not.i = icmp eq i32 %cond14.i, 0
-  br i1 %cmp15.not.i, label %_ZN6icu_758Calendar18computeMillisInDayEv.exit, label %if.then.i
+  br i1 %cmp15.not.i, label %_ZN6icu_758Calendar18computeMillisInDayEv.exit, label %if.then.i44
 
-if.then.i:                                        ; preds = %if.else
+if.then.i44:                                      ; preds = %if.else
   %cmp16.not.i = icmp slt i32 %20, %..i
   br i1 %cmp16.not.i, label %if.else.i, label %if.then17.i
 
-if.then17.i:                                      ; preds = %if.then.i
-  %arrayidx.i.i42 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 11
-  %23 = load i32, ptr %arrayidx.i.i42, align 8
-  %conv.i43 = sitofp i32 %23 to double
+if.then17.i:                                      ; preds = %if.then.i44
+  %arrayidx.i.i45 = getelementptr inbounds i8, ptr %this, i64 56
+  %23 = load i32, ptr %arrayidx.i.i45, align 8
+  %conv.i46 = sitofp i32 %23 to double
   br label %_ZN6icu_758Calendar18computeMillisInDayEv.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %arrayidx.i15.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 10
-  %24 = load i32, ptr %arrayidx.i15.i, align 4
+if.else.i:                                        ; preds = %if.then.i44
+  %arrayidx.i16.i = getelementptr inbounds i8, ptr %this, i64 52
+  %24 = load i32, ptr %arrayidx.i16.i, align 4
   %conv19.i = sitofp i32 %24 to double
-  %arrayidx.i16.i44 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 9
-  %25 = load i32, ptr %arrayidx.i16.i44, align 8
-  %mul.i45 = mul nsw i32 %25, 12
-  %conv22.i = sitofp i32 %mul.i45 to double
+  %arrayidx.i18.i48 = getelementptr inbounds i8, ptr %this, i64 48
+  %25 = load i32, ptr %arrayidx.i18.i48, align 8
+  %mul.i49 = mul nsw i32 %25, 12
+  %conv22.i = sitofp i32 %mul.i49 to double
   %add23.i = fadd double %conv19.i, %conv22.i
   br label %_ZN6icu_758Calendar18computeMillisInDayEv.exit
 
 _ZN6icu_758Calendar18computeMillisInDayEv.exit:   ; preds = %if.else, %if.then17.i, %if.else.i
-  %millisInDay.0.i = phi double [ %conv.i43, %if.then17.i ], [ %add23.i, %if.else.i ], [ 0.000000e+00, %if.else ]
+  %millisInDay.0.i = phi double [ %conv.i46, %if.then17.i ], [ %add23.i, %if.else.i ], [ 0.000000e+00, %if.else ]
   %mul25.i = fmul double %millisInDay.0.i, 6.000000e+01
-  %arrayidx.i17.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 12
-  %26 = load i32, ptr %arrayidx.i17.i, align 4
+  %arrayidx.i20.i = getelementptr inbounds i8, ptr %this, i64 60
+  %26 = load i32, ptr %arrayidx.i20.i, align 4
   %conv27.i = sitofp i32 %26 to double
   %add28.i = fadd double %mul25.i, %conv27.i
   %mul29.i = fmul double %add28.i, 6.000000e+01
-  %arrayidx.i18.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 13
-  %27 = load i32, ptr %arrayidx.i18.i, align 8
+  %arrayidx.i22.i = getelementptr inbounds i8, ptr %this, i64 64
+  %27 = load i32, ptr %arrayidx.i22.i, align 8
   %conv31.i = sitofp i32 %27 to double
   %add32.i = fadd double %mul29.i, %conv31.i
   %mul33.i = fmul double %add32.i, 1.000000e+03
-  %arrayidx.i19.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 14
-  %28 = load i32, ptr %arrayidx.i19.i, align 4
+  %arrayidx.i24.i47 = getelementptr inbounds i8, ptr %this, i64 68
+  %28 = load i32, ptr %arrayidx.i24.i47, align 4
   %conv35.i = sitofp i32 %28 to double
   %add36.i = fadd double %mul33.i, %conv35.i
   br label %if.end23
 
 if.end23:                                         ; preds = %_ZN6icu_758Calendar18computeMillisInDayEv.exit, %if.then20
   %millisInDay.0 = phi double [ %conv, %if.then20 ], [ %add36.i, %_ZN6icu_758Calendar18computeMillisInDayEv.exit ]
-  %arrayidx25 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 15
+  %arrayidx25 = getelementptr inbounds i8, ptr %this, i64 192
   %29 = load i32, ptr %arrayidx25, align 8
   %cmp26 = icmp sgt i32 %29, 1
-  %arrayidx28 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 16
+  %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 196
   %30 = load i32, ptr %arrayidx28, align 4
   %cmp29 = icmp sgt i32 %30, 1
   %or.cond24 = select i1 %cmp26, i1 true, i1 %cmp29
@@ -9666,10 +9726,10 @@ if.end23:                                         ; preds = %_ZN6icu_758Calendar
 
 if.then30:                                        ; preds = %if.end23
   %add = fadd double %mul.i, %millisInDay.0
-  %arrayidx.i46 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 15
-  %31 = load i32, ptr %arrayidx.i46, align 8
-  %arrayidx.i47 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 16
-  %32 = load i32, ptr %arrayidx.i47, align 4
+  %arrayidx.i51 = getelementptr inbounds i8, ptr %this, i64 72
+  %31 = load i32, ptr %arrayidx.i51, align 8
+  %arrayidx.i53 = getelementptr inbounds i8, ptr %this, i64 76
+  %32 = load i32, ptr %arrayidx.i53, align 4
   %add33 = add nsw i32 %32, %31
   %conv34 = sitofp i32 %add33 to double
   %sub = fsub double %add, %conv34
@@ -9678,7 +9738,7 @@ if.then30:                                        ; preds = %if.end23
 if.else35:                                        ; preds = %if.end23
   %33 = load i8, ptr %fLenient.i, align 8
   %tobool37.not = icmp eq i8 %33, 0
-  %fSkippedWallTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 14
+  %fSkippedWallTime = getelementptr inbounds i8, ptr %this, i64 260
   %34 = load i32, ptr %fSkippedWallTime, align 4
   %cmp39 = icmp eq i32 %34, 2
   %or.cond25 = select i1 %tobool37.not, i1 true, i1 %cmp39
@@ -9689,15 +9749,15 @@ if.then40:                                        ; preds = %if.else35
   %add42 = fadd double %mul.i, %millisInDay.0
   %conv43 = sitofp i32 %call41 to double
   %sub44 = fsub double %add42, %conv43
-  %fZone = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone = getelementptr inbounds i8, ptr %this, i64 248
   %35 = load ptr, ptr %fZone, align 8
   %vtable = load ptr, ptr %35, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %36 = load ptr, ptr %vfn, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(72) %35, double noundef %sub44, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %raw, ptr noundef nonnull align 4 dereferenceable(4) %dst, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %37 = load i32, ptr %status, align 4
-  %cmp.i49 = icmp sgt i32 %37, 0
-  br i1 %cmp.i49, label %if.end76, label %if.then47
+  %cmp.i55 = icmp sgt i32 %37, 0
+  br i1 %cmp.i55, label %if.end76, label %if.then47
 
 if.then47:                                        ; preds = %if.then40
   %38 = load i32, ptr %raw, align 4
@@ -9718,9 +9778,9 @@ if.then53:                                        ; preds = %if.then50
 if.else54:                                        ; preds = %if.then50
   %call55 = call noundef signext i8 @_ZNK6icu_758Calendar34getImmediatePreviousZoneTransitionEdPdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %sub44, ptr noundef nonnull %immediatePrevTransition, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !12
   %41 = load i32, ptr %status, align 4
-  %cmp.i52 = icmp slt i32 %41, 1
+  %cmp.i58 = icmp slt i32 %41, 1
   %tobool59 = icmp ne i8 %call55, 0
-  %or.cond = and i1 %tobool59, %cmp.i52
+  %or.cond = and i1 %tobool59, %cmp.i58
   br i1 %or.cond, label %if.then60, label %if.end72
 
 if.then60:                                        ; preds = %if.else54
@@ -9732,19 +9792,19 @@ if.else66:                                        ; preds = %if.else35
   %call68 = tail call noundef i32 @_ZN6icu_758Calendar17computeZoneOffsetEddR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %mul.i, double noundef %millisInDay.0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %conv69 = sitofp i32 %call68 to double
   %sub70 = fsub double %add67, %conv69
-  %.pre56 = load i32, ptr %status, align 4
+  %.pre62 = load i32, ptr %status, align 4
   br label %if.end72
 
 if.end72:                                         ; preds = %if.else66, %if.else54, %if.then30
-  %43 = phi i32 [ %16, %if.then30 ], [ %41, %if.else54 ], [ %.pre56, %if.else66 ]
+  %43 = phi i32 [ %16, %if.then30 ], [ %41, %if.else54 ], [ %.pre62, %if.else66 ]
   %t.0 = phi double [ %sub, %if.then30 ], [ 0.000000e+00, %if.else54 ], [ %sub70, %if.else66 ]
-  %cmp.i54 = icmp sgt i32 %43, 0
-  br i1 %cmp.i54, label %if.end76, label %if.then75
+  %cmp.i60 = icmp sgt i32 %43, 0
+  br i1 %cmp.i60, label %if.end76, label %if.then75
 
 if.then75:                                        ; preds = %if.then47, %if.then60, %if.end72
-  %t.063 = phi double [ %t.0, %if.end72 ], [ %sub44, %if.then47 ], [ %42, %if.then60 ]
-  %fTime.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 9
-  store double %t.063, ptr %fTime.i, align 8
+  %t.069 = phi double [ %t.0, %if.end72 ], [ %sub44, %if.then47 ], [ %42, %if.then60 ]
+  %fTime.i = getelementptr inbounds i8, ptr %this, i64 232
+  store double %t.069, ptr %fTime.i, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then40, %if.then53, %_ZN6icu_758Calendar16computeJulianDayER10UErrorCode.exit, %_ZN6icu_758Calendar14validateFieldsER10UErrorCode.exit, %entry, %if.then75, %if.end72
@@ -9754,53 +9814,57 @@ if.end76:                                         ; preds = %if.then40, %if.then
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_758Calendar16computeJulianDayER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 20
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 212
   %0 = load i32, ptr %arrayidx, align 4
   %cmp = icmp sgt i32 %0, 1
-  br i1 %cmp, label %for.body.i, label %if.end9
+  br i1 %cmp, label %if.then, label %if.end9
 
-for.body.i:                                       ; preds = %entry, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %entry ]
-  %bestStamp.06.i = phi i32 [ %spec.select.i, %for.body.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i
+if.then:                                          ; preds = %entry
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %if.then
+  %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.body.i ]
+  %bestStamp.06.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %1, i32 %bestStamp.06.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond, label %for.body.i4, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond, label %for.body.i5, label %for.body.i, !llvm.loop !10
 
-for.body.i4:                                      ; preds = %for.body.i, %for.body.i4
-  %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i9, %for.body.i4 ], [ 17, %for.body.i ]
-  %bestStamp.06.i6 = phi i32 [ %spec.select.i8, %for.body.i4 ], [ %spec.select.i, %for.body.i ]
-  %arrayidx.i7 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i5
-  %2 = load i32, ptr %arrayidx.i7, align 4
-  %spec.select.i8 = tail call i32 @llvm.smax.i32(i32 %2, i32 %bestStamp.06.i6)
-  %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i5, 1
-  %exitcond23 = icmp eq i64 %indvars.iv.next.i9, 20
-  br i1 %exitcond23, label %for.body.i13.preheader, label %for.body.i4, !llvm.loop !10
+for.body.i5:                                      ; preds = %for.body.i, %for.body.i5
+  %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i10, %for.body.i5 ], [ 17, %for.body.i ]
+  %bestStamp.06.i7 = phi i32 [ %spec.select.i9, %for.body.i5 ], [ %spec.select.i, %for.body.i ]
+  %arrayidx.i8 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i6
+  %2 = load i32, ptr %arrayidx.i8, align 4
+  %spec.select.i9 = tail call i32 @llvm.smax.i32(i32 %2, i32 %bestStamp.06.i7)
+  %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i6, 1
+  %exitcond25 = icmp eq i64 %indvars.iv.next.i10, 20
+  br i1 %exitcond25, label %for.body.i15.preheader, label %for.body.i5, !llvm.loop !10
 
-for.body.i13.preheader:                           ; preds = %for.body.i4
-  %arrayidx.i16 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 23
-  %3 = load i32, ptr %arrayidx.i16, align 8
-  %spec.select.i17 = tail call i32 @llvm.smax.i32(i32 %3, i32 %spec.select.i8)
-  %cmp6.not = icmp sgt i32 %spec.select.i17, %0
+for.body.i15.preheader:                           ; preds = %for.body.i5
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %this, i64 224
+  %3 = load i32, ptr %arrayidx.i18, align 8
+  %spec.select.i19 = tail call i32 @llvm.smax.i32(i32 %3, i32 %spec.select.i9)
+  %cmp6.not = icmp sgt i32 %spec.select.i19, %0
   br i1 %cmp6.not, label %if.end9, label %if.then7
 
-if.then7:                                         ; preds = %for.body.i13.preheader
-  %arrayidx.i22 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 20
-  %4 = load i32, ptr %arrayidx.i22, align 4
+if.then7:                                         ; preds = %for.body.i15.preheader
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %this, i64 92
+  %4 = load i32, ptr %arrayidx.i24, align 4
   br label %return
 
-if.end9:                                          ; preds = %for.body.i13.preheader, %entry
+if.end9:                                          ; preds = %for.body.i15.preheader, %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 45
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 360
   %5 = load ptr, ptr %vfn, align 8
   %call10 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %call11 = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call10), !range !23
   %cmp12 = icmp eq i32 %call11, 24
   %spec.store.select = select i1 %cmp12, i32 5, i32 %call11
   %vtable15 = load ptr, ptr %this, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 42
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 336
   %6 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %spec.store.select, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -9813,11 +9877,11 @@ return:                                           ; preds = %if.end9, %if.then7
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef double @_ZN6icu_758Calendar18computeMillisInDayEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this) local_unnamed_addr #18 align 2 {
 entry:
-  %arrayidx = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 11
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i32, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 10
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 172
   %1 = load i32, ptr %arrayidx3, align 4
-  %arrayidx5 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 9
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 168
   %2 = load i32, ptr %arrayidx5, align 8
   %. = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
   %cond14 = tail call i32 @llvm.smax.i32(i32 %., i32 %0)
@@ -9829,17 +9893,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp16.not, label %if.else, label %if.then17
 
 if.then17:                                        ; preds = %if.then
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 11
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i32, ptr %arrayidx.i, align 8
   %conv = sitofp i32 %3 to double
   br label %if.end24
 
 if.else:                                          ; preds = %if.then
-  %arrayidx.i15 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 10
-  %4 = load i32, ptr %arrayidx.i15, align 4
+  %arrayidx.i16 = getelementptr inbounds i8, ptr %this, i64 52
+  %4 = load i32, ptr %arrayidx.i16, align 4
   %conv19 = sitofp i32 %4 to double
-  %arrayidx.i16 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 9
-  %5 = load i32, ptr %arrayidx.i16, align 8
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %this, i64 48
+  %5 = load i32, ptr %arrayidx.i18, align 8
   %mul = mul nsw i32 %5, 12
   %conv22 = sitofp i32 %mul to double
   %add23 = fadd double %conv19, %conv22
@@ -9848,18 +9912,18 @@ if.else:                                          ; preds = %if.then
 if.end24:                                         ; preds = %if.then17, %if.else, %entry
   %millisInDay.0 = phi double [ %conv, %if.then17 ], [ %add23, %if.else ], [ 0.000000e+00, %entry ]
   %mul25 = fmul double %millisInDay.0, 6.000000e+01
-  %arrayidx.i17 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 12
-  %6 = load i32, ptr %arrayidx.i17, align 4
+  %arrayidx.i20 = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = load i32, ptr %arrayidx.i20, align 4
   %conv27 = sitofp i32 %6 to double
   %add28 = fadd double %mul25, %conv27
   %mul29 = fmul double %add28, 6.000000e+01
-  %arrayidx.i18 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 13
-  %7 = load i32, ptr %arrayidx.i18, align 8
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %this, i64 64
+  %7 = load i32, ptr %arrayidx.i22, align 8
   %conv31 = sitofp i32 %7 to double
   %add32 = fadd double %mul29, %conv31
   %mul33 = fmul double %add32, 1.000000e+03
-  %arrayidx.i19 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 14
-  %8 = load i32, ptr %arrayidx.i19, align 4
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %this, i64 68
+  %8 = load i32, ptr %arrayidx.i24, align 4
   %conv35 = sitofp i32 %8 to double
   %add36 = fadd double %mul33, %conv35
   ret double %add36
@@ -9878,7 +9942,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %add = fadd double %millis, %millisInDay
-  %fZone.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone.i = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load ptr, ptr %fZone.i, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %if.else, label %dynamic_cast.notnull.i
@@ -9904,26 +9968,26 @@ dynamic_cast.notnull15.i:                         ; preds = %dynamic_cast.notnul
   br i1 %10, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %dynamic_cast.notnull15.i, %dynamic_cast.notnull9.i, %dynamic_cast.notnull3.i, %dynamic_cast.notnull.i
-  %fRepeatedWallTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 13
+  %fRepeatedWallTime = getelementptr inbounds i8, ptr %this, i64 256
   %11 = load i32, ptr %fRepeatedWallTime, align 8
   %cmp = icmp eq i32 %11, 1
   %cond = select i1 %cmp, i32 4, i32 12
-  %fSkippedWallTime = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 14
+  %fSkippedWallTime = getelementptr inbounds i8, ptr %this, i64 260
   %12 = load i32, ptr %fSkippedWallTime, align 4
   %cmp5 = icmp eq i32 %12, 1
   %cond6 = select i1 %cmp5, i32 12, i32 4
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %13 = load ptr, ptr %vfn, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %add, i32 noundef %cond6, i32 noundef %cond, ptr noundef nonnull align 4 dereferenceable(4) %rawOffset, ptr noundef nonnull align 4 dereferenceable(4) %dstOffset, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %if.end39
 
 if.else:                                          ; preds = %dynamic_cast.notnull15.i, %if.end
   %vtable8 = load ptr, ptr %1, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 6
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 48
   %14 = load ptr, ptr %vfn9, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %add, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %rawOffset, ptr noundef nonnull align 4 dereferenceable(4) %dstOffset, ptr noundef nonnull align 4 dereferenceable(4) %ec)
-  %fRepeatedWallTime10 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 13
+  %fRepeatedWallTime10 = getelementptr inbounds i8, ptr %this, i64 256
   %15 = load i32, ptr %fRepeatedWallTime10, align 8
   %cmp11 = icmp eq i32 %15, 1
   br i1 %cmp11, label %if.then12, label %land.lhs.true
@@ -9936,7 +10000,7 @@ if.then12:                                        ; preds = %if.else
   %sub = fsub double %add, %conv
   %sub14 = fadd double %sub, -2.160000e+07
   %vtable15 = load ptr, ptr %1, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 6
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 48
   %18 = load ptr, ptr %vfn16, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %sub14, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %tmpRaw, ptr noundef nonnull align 4 dereferenceable(4) %tmpDst, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %19 = load i32, ptr %rawOffset, align 4
@@ -9953,13 +10017,13 @@ if.then21:                                        ; preds = %if.then12
   %conv22 = sitofp i32 %sub19 to double
   %add23 = fadd double %add, %conv22
   %vtable24 = load ptr, ptr %1, align 8
-  %vfn25 = getelementptr inbounds ptr, ptr %vtable24, i64 6
+  %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 48
   %24 = load ptr, ptr %vfn25, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %add23, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %rawOffset, ptr noundef nonnull align 4 dereferenceable(4) %dstOffset, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %if.end39
 
 land.lhs.true:                                    ; preds = %if.else, %if.then12
-  %fSkippedWallTime29 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 14
+  %fSkippedWallTime29 = getelementptr inbounds i8, ptr %this, i64 260
   %25 = load i32, ptr %fSkippedWallTime29, align 4
   %cmp30 = icmp eq i32 %25, 1
   br i1 %cmp30, label %if.then31, label %if.end39
@@ -9971,7 +10035,7 @@ if.then31:                                        ; preds = %land.lhs.true
   %conv34 = sitofp i32 %add33 to double
   %sub35 = fsub double %add, %conv34
   %vtable36 = load ptr, ptr %1, align 8
-  %vfn37 = getelementptr inbounds ptr, ptr %vtable36, i64 6
+  %vfn37 = getelementptr inbounds i8, ptr %vtable36, i64 48
   %28 = load ptr, ptr %vfn37, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %sub35, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %rawOffset, ptr noundef nonnull align 4 dereferenceable(4) %dstOffset, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %if.end39
@@ -9990,7 +10054,7 @@ return:                                           ; preds = %entry, %if.end39
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define noundef ptr @_ZNK6icu_758Calendar16getBasicTimeZoneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this) local_unnamed_addr #22 align 2 {
 entry:
-  %fZone = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 12
+  %fZone = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %fZone, align 8
   %1 = icmp eq ptr %0, null
   br i1 %1, label %return, label %dynamic_cast.notnull
@@ -10047,32 +10111,33 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 136
   %2 = load i32, ptr %arrayidx.i, align 8
-  %arrayidx4.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 17
+  %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 200
   %3 = load i32, ptr %arrayidx4.i, align 8
   %cmp.i71.not = icmp sgt i32 %2, %3
   br i1 %cmp.i71.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true
-  %arrayidx.i72 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 17
+  %arrayidx.i72 = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load i32, ptr %arrayidx.i72, align 8
   br label %if.end10
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 41
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 328
   %5 = load ptr, ptr %vfn, align 8
   %call9 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(618) %this)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else, %if.then7
   %year.0 = phi i32 [ %4, %if.then7 ], [ %call9, %if.else ]
-  %arrayidx.i73 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
-  store i32 %year.0, ptr %arrayidx.i73, align 8
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 19
+  %fFields.i73 = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx.i74 = getelementptr inbounds i8, ptr %this, i64 88
+  store i32 %year.0, ptr %arrayidx.i74, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 208
   store i32 1, ptr %arrayidx3.i, align 8
-  %arrayidx5.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 19
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 127
   store i8 1, ptr %arrayidx5.i, align 1
   %cmp11 = icmp sgt i32 %year.0, 5368709
   br i1 %cmp11, label %if.then12, label %if.end13
@@ -10082,28 +10147,28 @@ if.then12:                                        ; preds = %if.end10
   br label %return
 
 if.end13:                                         ; preds = %if.end10
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %this, i64 11
   %6 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
   %tobool.not.i = icmp eq i8 %6, 0
-  %arrayidx.i74 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 2
-  %7 = load i32, ptr %arrayidx.i74, align 4
+  %arrayidx.i77 = getelementptr inbounds i8, ptr %this, i64 140
+  %7 = load i32, ptr %arrayidx.i77, align 4
   %cmp3.i.not = icmp eq i32 %7, 0
-  %or.cond144 = select i1 %tobool.not.i, i1 %cmp3.i.not, i1 false
-  %arrayidx.i79 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 23
-  %8 = load i32, ptr %arrayidx.i79, align 8
-  %cmp3.i80.not = icmp eq i32 %8, 0
-  %or.cond145 = select i1 %or.cond144, i1 %cmp3.i80.not, i1 false
+  %or.cond157 = select i1 %tobool.not.i, i1 %cmp3.i.not, i1 false
+  %arrayidx.i83 = getelementptr inbounds i8, ptr %this, i64 224
+  %8 = load i32, ptr %arrayidx.i83, align 8
+  %cmp3.i84.not = icmp eq i32 %8, 0
+  %or.cond158 = select i1 %or.cond157, i1 %cmp3.i84.not, i1 false
   %vtable24 = load ptr, ptr %this, align 8
-  br i1 %or.cond145, label %if.else23, label %if.then19
+  br i1 %or.cond158, label %if.else23, label %if.then19
 
 if.then19:                                        ; preds = %if.end13
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable24, i64 33
+  %vfn21 = getelementptr inbounds i8, ptr %vtable24, i64 264
   %9 = load ptr, ptr %vfn21, align 8
   %call22 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(618) %this)
   br label %if.end27
 
 if.else23:                                        ; preds = %if.end13
-  %vfn25 = getelementptr inbounds ptr, ptr %vtable24, i64 47
+  %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 376
   %10 = load ptr, ptr %vfn25, align 8
   %call26 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year.0)
   br label %if.end27
@@ -10112,7 +10177,7 @@ if.end27:                                         ; preds = %if.else23, %if.then
   %month.0 = phi i32 [ %call22, %if.then19 ], [ %call26, %if.else23 ]
   %cond = select i1 %spec.select, i32 %month.0, i32 0
   %vtable29 = load ptr, ptr %this, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 38
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 304
   %11 = load ptr, ptr %vfn30, align 8
   %call31 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year.0, i32 noundef %cond, i8 noundef signext %conv)
   switch i32 %bestField, label %if.end48 [
@@ -10122,25 +10187,25 @@ if.end27:                                         ; preds = %if.else23, %if.then
 
 if.then33:                                        ; preds = %if.end27
   %12 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
-  %tobool.not.i83 = icmp eq i8 %12, 0
-  %arrayidx.i86 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 5
-  %13 = load i32, ptr %arrayidx.i86, align 8
-  %cmp3.i87.not = icmp eq i32 %13, 0
-  %or.cond146 = select i1 %tobool.not.i83, i1 %cmp3.i87.not, i1 false
-  br i1 %or.cond146, label %if.else38, label %if.then36
+  %tobool.not.i87 = icmp eq i8 %12, 0
+  %arrayidx.i91 = getelementptr inbounds i8, ptr %this, i64 152
+  %13 = load i32, ptr %arrayidx.i91, align 8
+  %cmp3.i92.not = icmp eq i32 %13, 0
+  %or.cond159 = select i1 %tobool.not.i87, i1 %cmp3.i92.not, i1 false
+  br i1 %or.cond159, label %if.else38, label %if.then36
 
 if.then36:                                        ; preds = %if.then33
-  %cmp.i90 = icmp sgt i32 %13, 0
-  br i1 %cmp.i90, label %cond.true.i, label %if.end42
+  %cmp.i96 = icmp sgt i32 %13, 0
+  br i1 %cmp.i96, label %cond.true.i, label %if.end42
 
 cond.true.i:                                      ; preds = %if.then36
-  %arrayidx3.i91 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  %14 = load i32, ptr %arrayidx3.i91, align 8
+  %arrayidx3.i98 = getelementptr inbounds i8, ptr %this, i64 32
+  %14 = load i32, ptr %arrayidx3.i98, align 8
   br label %if.end42
 
 if.else38:                                        ; preds = %if.then33
   %vtable39 = load ptr, ptr %this, align 8
-  %vfn40 = getelementptr inbounds ptr, ptr %vtable39, i64 48
+  %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 384
   %15 = load ptr, ptr %vfn40, align 8
   %call41 = tail call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year.0, i32 noundef %month.0)
   br label %if.end42
@@ -10151,19 +10216,19 @@ if.end42:                                         ; preds = %cond.true.i, %if.th
   br label %return
 
 if.then45:                                        ; preds = %if.end27
-  %arrayidx.i92 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 6
-  %16 = load i32, ptr %arrayidx.i92, align 4
+  %arrayidx.i100 = getelementptr inbounds i8, ptr %this, i64 36
+  %16 = load i32, ptr %arrayidx.i100, align 4
   %add47 = add nsw i32 %16, %call31
   br label %return
 
 if.end48:                                         ; preds = %if.end27
-  %fFirstDayOfWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 264
   %17 = load i32, ptr %fFirstDayOfWeek.i, align 8
   %add.i = add nsw i32 %call31, 2
   %rem.i = srem i32 %add.i, 7
-  %cmp.i93 = icmp slt i32 %rem.i, 0
-  %cond.i94 = select i1 %cmp.i93, i32 8, i32 1
-  %add3.i = add nsw i32 %cond.i94, %rem.i
+  %cmp.i101 = icmp slt i32 %rem.i, 0
+  %cond.i102 = select i1 %cmp.i101, i32 8, i32 1
+  %add3.i = add nsw i32 %cond.i102, %rem.i
   %conv52 = and i32 %add3.i, 255
   %sub = sub nsw i32 %conv52, %17
   %cmp53 = icmp slt i32 %sub, 0
@@ -10176,23 +10241,23 @@ if.end48:                                         ; preds = %if.end27
   ]
 
 sw.bb.i:                                          ; preds = %if.end48
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load i32, ptr %arrayidx.i.i, align 8
   %sub.i = sub nsw i32 %18, %17
   br label %_ZN6icu_758Calendar11getLocalDOWEv.exit
 
 sw.bb3.i:                                         ; preds = %if.end48
-  %arrayidx.i4.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 18
-  %19 = load i32, ptr %arrayidx.i4.i, align 4
+  %arrayidx.i5.i = getelementptr inbounds i8, ptr %this, i64 84
+  %19 = load i32, ptr %arrayidx.i5.i, align 4
   %sub5.i = add nsw i32 %19, -1
   br label %_ZN6icu_758Calendar11getLocalDOWEv.exit
 
 _ZN6icu_758Calendar11getLocalDOWEv.exit:          ; preds = %if.end48, %sw.bb.i, %sw.bb3.i
   %dowLocal.0.i = phi i32 [ 0, %if.end48 ], [ %sub5.i, %sw.bb3.i ], [ %sub.i, %sw.bb.i ]
-  %rem.i95 = srem i32 %dowLocal.0.i, 7
-  %cmp.i96 = icmp slt i32 %rem.i95, 0
-  %add.i97 = add nsw i32 %rem.i95, 7
-  %spec.select.i = select i1 %cmp.i96, i32 %add.i97, i32 %rem.i95
+  %rem.i103 = srem i32 %dowLocal.0.i, 7
+  %cmp.i104 = icmp slt i32 %rem.i103, 0
+  %add.i105 = add nsw i32 %rem.i103, 7
+  %spec.select.i = select i1 %cmp.i104, i32 %add.i105, i32 %rem.i103
   %reass.sub = sub i32 %spec.select.i, %spec.select63
   %add59 = add i32 %reass.sub, 1
   br i1 %cmp3, label %if.then61, label %if.else84
@@ -10201,31 +10266,31 @@ if.then61:                                        ; preds = %_ZN6icu_758Calendar
   %cmp62 = icmp ugt i32 %reass.sub, 2147483646
   %add64 = add i32 %reass.sub, 8
   %spec.select64 = select i1 %cmp62, i32 %add64, i32 %add59
-  %arrayidx.i99 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 8
-  %20 = load i32, ptr %arrayidx.i99, align 4
-  %cmp.i100 = icmp sgt i32 %20, 0
-  br i1 %cmp.i100, label %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit104, label %if.then68
+  %arrayidx.i108 = getelementptr inbounds i8, ptr %this, i64 164
+  %20 = load i32, ptr %arrayidx.i108, align 4
+  %cmp.i109 = icmp sgt i32 %20, 0
+  br i1 %cmp.i109, label %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit114, label %if.then68
 
-_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit104: ; preds = %if.then61
-  %arrayidx3.i103 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 8
-  %21 = load i32, ptr %arrayidx3.i103, align 4
+_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit114: ; preds = %if.then61
+  %arrayidx3.i113 = getelementptr inbounds i8, ptr %this, i64 44
+  %21 = load i32, ptr %arrayidx3.i113, align 4
   %cmp67 = icmp sgt i32 %21, -1
   br i1 %cmp67, label %if.then68, label %if.else71
 
-if.then68:                                        ; preds = %if.then61, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit104
-  %cond.i101141 = phi i32 [ %21, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit104 ], [ 1, %if.then61 ]
-  %22 = mul i32 %cond.i101141, 7
+if.then68:                                        ; preds = %if.then61, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit114
+  %cond.i110154 = phi i32 [ %21, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit114 ], [ 1, %if.then61 ]
+  %22 = mul i32 %cond.i110154, 7
   %mul = add i32 %spec.select64, -7
   %add70 = add i32 %mul, %22
   br label %if.end177
 
-if.else71:                                        ; preds = %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit104
+if.else71:                                        ; preds = %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit114
   %vtable72 = load ptr, ptr %this, align 8
-  %vfn73 = getelementptr inbounds ptr, ptr %vtable72, i64 34
+  %vfn73 = getelementptr inbounds i8, ptr %vtable72, i64 272
   %23 = load ptr, ptr %vfn73, align 8
   %call74 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 0)
   %vtable75 = load ptr, ptr %this, align 8
-  %vfn76 = getelementptr inbounds ptr, ptr %vtable75, i64 39
+  %vfn76 = getelementptr inbounds i8, ptr %vtable75, i64 312
   %24 = load ptr, ptr %vfn76, align 8
   %call77 = tail call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year.0, i32 noundef %call74)
   %sub78 = sub nsw i32 %call77, %spec.select64
@@ -10241,12 +10306,12 @@ if.else84:                                        ; preds = %_ZN6icu_758Calendar
 
 if.then86:                                        ; preds = %if.else84
   %26 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
-  %tobool.not.i106 = icmp eq i8 %26, 0
-  %arrayidx.i109 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 17
-  %27 = load i32, ptr %arrayidx.i109, align 8
-  %cmp3.i110.not = icmp eq i32 %27, 0
-  %or.cond147 = select i1 %tobool.not.i106, i1 %cmp3.i110.not, i1 false
-  br i1 %or.cond147, label %if.then94, label %lor.lhs.false89
+  %tobool.not.i116 = icmp eq i8 %26, 0
+  %arrayidx.i120 = getelementptr inbounds i8, ptr %this, i64 200
+  %27 = load i32, ptr %arrayidx.i120, align 8
+  %cmp3.i121.not = icmp eq i32 %27, 0
+  %or.cond160 = select i1 %tobool.not.i116, i1 %cmp3.i121.not, i1 false
+  br i1 %or.cond160, label %if.then94, label %lor.lhs.false89
 
 lor.lhs.false89:                                  ; preds = %if.then86
   %call90 = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar15kYearPrecedenceE), !range !23
@@ -10256,19 +10321,19 @@ lor.lhs.false89:                                  ; preds = %if.then86
   br i1 %or.cond65, label %if.end165, label %if.then94
 
 if.then94:                                        ; preds = %if.then86, %lor.lhs.false89
-  %arrayidx.i112 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 3
-  %28 = load i32, ptr %arrayidx.i112, align 8
+  %arrayidx.i124 = getelementptr inbounds i8, ptr %this, i64 24
+  %28 = load i32, ptr %arrayidx.i124, align 8
   %add96 = add nsw i32 %year.0, 1
   %vtable97 = load ptr, ptr %this, align 8
-  %vfn98 = getelementptr inbounds ptr, ptr %vtable97, i64 38
+  %vfn98 = getelementptr inbounds i8, ptr %vtable97, i64 304
   %29 = load ptr, ptr %vfn98, align 8
   %call99 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %add96, i32 noundef 0, i8 noundef signext 0)
-  %add.i113 = add nsw i32 %call99, 2
-  %rem.i114 = srem i32 %add.i113, 7
-  %cmp.i115 = icmp slt i32 %rem.i114, 0
-  %cond.i116 = select i1 %cmp.i115, i32 8, i32 1
-  %add3.i117 = add nsw i32 %cond.i116, %rem.i114
-  %conv102 = and i32 %add3.i117, 255
+  %add.i125 = add nsw i32 %call99, 2
+  %rem.i126 = srem i32 %add.i125, 7
+  %cmp.i127 = icmp slt i32 %rem.i126, 0
+  %cond.i128 = select i1 %cmp.i127, i32 8, i32 1
+  %add3.i129 = add nsw i32 %cond.i128, %rem.i126
+  %conv102 = and i32 %add3.i129, 255
   %sub103 = sub nsw i32 %conv102, %17
   %cmp104 = icmp slt i32 %sub103, 0
   %add106 = add nsw i32 %sub103, 7
@@ -10282,7 +10347,7 @@ if.then109:                                       ; preds = %if.then94
 
 land.lhs.true111:                                 ; preds = %if.then109
   %sub112 = sub nsw i32 7, %spec.select66
-  %fMinimalDaysInFirstWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
+  %fMinimalDaysInFirstWeek.i = getelementptr inbounds i8, ptr %this, i64 268
   %30 = load i8, ptr %fMinimalDaysInFirstWeek.i, align 4
   %conv114 = zext i8 %30 to i32
   %cmp115.not = icmp slt i32 %sub112, %conv114
@@ -10295,7 +10360,7 @@ if.then116:                                       ; preds = %land.lhs.true111
 
 if.else128:                                       ; preds = %if.then94
   %vtable129 = load ptr, ptr %this, align 8
-  %vfn130 = getelementptr inbounds ptr, ptr %vtable129, i64 20
+  %vfn130 = getelementptr inbounds i8, ptr %vtable129, i64 160
   %31 = load ptr, ptr %vfn130, align 8
   %call131 = tail call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 3)
   %cmp132.not = icmp slt i32 %28, %call131
@@ -10303,8 +10368,8 @@ if.else128:                                       ; preds = %if.then94
 
 if.then133:                                       ; preds = %if.else128
   %sub134 = sub nsw i32 7, %spec.select63
-  %fMinimalDaysInFirstWeek.i125 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
-  %32 = load i8, ptr %fMinimalDaysInFirstWeek.i125, align 4
+  %fMinimalDaysInFirstWeek.i137 = getelementptr inbounds i8, ptr %this, i64 268
+  %32 = load i8, ptr %fMinimalDaysInFirstWeek.i137, align 4
   %conv136 = zext i8 %32 to i32
   %cmp137 = icmp slt i32 %sub134, %conv136
   %add139 = add i32 %reass.sub, 8
@@ -10319,15 +10384,15 @@ if.then133:                                       ; preds = %if.else128
 if.then146:                                       ; preds = %if.then133
   %sub147 = add nsw i32 %year.0, -1
   %vtable148 = load ptr, ptr %this, align 8
-  %vfn149 = getelementptr inbounds ptr, ptr %vtable148, i64 38
+  %vfn149 = getelementptr inbounds i8, ptr %vtable148, i64 304
   %34 = load ptr, ptr %vfn149, align 8
   %call150 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %sub147, i32 noundef 0, i8 noundef signext 0)
-  %add.i126 = add nsw i32 %call150, 2
-  %rem.i127 = srem i32 %add.i126, 7
-  %cmp.i128 = icmp slt i32 %rem.i127, 0
-  %cond.i129 = select i1 %cmp.i128, i32 8, i32 1
-  %add3.i130 = add nsw i32 %cond.i129, %rem.i127
-  %conv153 = and i32 %add3.i130, 255
+  %add.i138 = add nsw i32 %call150, 2
+  %rem.i139 = srem i32 %add.i138, 7
+  %cmp.i140 = icmp slt i32 %rem.i139, 0
+  %cond.i141 = select i1 %cmp.i140, i32 8, i32 1
+  %add3.i142 = add nsw i32 %cond.i141, %rem.i139
+  %conv153 = and i32 %add3.i142, 255
   %sub154 = sub nsw i32 %conv153, %17
   %cmp155 = icmp slt i32 %sub154, 0
   %add157 = add nsw i32 %sub154, 7
@@ -10341,15 +10406,15 @@ if.end165:                                        ; preds = %lor.lhs.false89, %i
   %date.1 = phi i32 [ %add126, %if.then116 ], [ %add59, %land.lhs.true111 ], [ %add59, %if.then109 ], [ %add160, %if.then146 ], [ %add59, %if.then133 ], [ %add59, %if.else128 ], [ %add59, %lor.lhs.false89 ], [ %add59, %if.else84 ]
   %julianDay.0 = phi i32 [ %call99, %if.then116 ], [ %call31, %land.lhs.true111 ], [ %call31, %if.then109 ], [ %call150, %if.then146 ], [ %call31, %if.then133 ], [ %call31, %if.else128 ], [ %call31, %lor.lhs.false89 ], [ %call31, %if.else84 ]
   %sub166 = sub nsw i32 7, %first.3
-  %fMinimalDaysInFirstWeek.i132 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
-  %35 = load i8, ptr %fMinimalDaysInFirstWeek.i132, align 4
+  %fMinimalDaysInFirstWeek.i144 = getelementptr inbounds i8, ptr %this, i64 268
+  %35 = load i8, ptr %fMinimalDaysInFirstWeek.i144, align 4
   %conv168 = zext i8 %35 to i32
   %cmp169 = icmp slt i32 %sub166, %conv168
   %add171 = add nsw i32 %date.1, 7
   %spec.select70 = select i1 %cmp169, i32 %add171, i32 %date.1
-  %idxprom.i133 = zext i32 %bestField to i64
-  %arrayidx.i134 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom.i133
-  %36 = load i32, ptr %arrayidx.i134, align 4
+  %idxprom.i146 = zext i32 %bestField to i64
+  %arrayidx.i147 = getelementptr inbounds [24 x i32], ptr %fFields.i73, i64 0, i64 %idxprom.i146
+  %36 = load i32, ptr %arrayidx.i147, align 4
   %37 = mul i32 %36, 7
   %mul175 = add i32 %37, -7
   %add176 = add nsw i32 %mul175, %spec.select70
@@ -10376,16 +10441,16 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %arrayidx.i, align 8
-  %fFirstDayOfWeek = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek = getelementptr inbounds i8, ptr %this, i64 264
   %1 = load i32, ptr %fFirstDayOfWeek, align 8
   %sub = sub nsw i32 %0, %1
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %arrayidx.i4 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 18
-  %2 = load i32, ptr %arrayidx.i4, align 4
+  %arrayidx.i5 = getelementptr inbounds i8, ptr %this, i64 84
+  %2 = load i32, ptr %arrayidx.i5, align 4
   %sub5 = add nsw i32 %2, -1
   br label %sw.epilog
 
@@ -10421,16 +10486,16 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %arrayidx.i.i, align 8
-  %fFirstDayOfWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 264
   %1 = load i32, ptr %fFirstDayOfWeek.i, align 8
   %sub.i = sub nsw i32 %0, %1
   br label %_ZN6icu_758Calendar11getLocalDOWEv.exit
 
 sw.bb3.i:                                         ; preds = %entry
-  %arrayidx.i4.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 18
-  %2 = load i32, ptr %arrayidx.i4.i, align 4
+  %arrayidx.i5.i = getelementptr inbounds i8, ptr %this, i64 84
+  %2 = load i32, ptr %arrayidx.i5.i, align 4
   %sub5.i = add nsw i32 %2, -1
   br label %_ZN6icu_758Calendar11getLocalDOWEv.exit
 
@@ -10440,15 +10505,15 @@ _ZN6icu_758Calendar11getLocalDOWEv.exit:          ; preds = %entry, %sw.bb.i, %s
   %cmp.i = icmp slt i32 %rem.i, 0
   %add.i = add nsw i32 %rem.i, 7
   %spec.select.i = select i1 %cmp.i, i32 %add.i, i32 %rem.i
-  %fFirstDayOfWeek.i31 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek.i31 = getelementptr inbounds i8, ptr %this, i64 264
   %3 = load i32, ptr %fFirstDayOfWeek.i31, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 38
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
   %4 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %yearWoy, i32 noundef 0, i8 noundef signext 0)
   %add = add nsw i32 %yearWoy, 1
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 38
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 304
   %5 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %add, i32 noundef 0, i8 noundef signext 0)
   %add.i32 = add nsw i32 %call4, 2
@@ -10461,7 +10526,7 @@ _ZN6icu_758Calendar11getLocalDOWEv.exit:          ; preds = %entry, %sw.bb.i, %s
   %cmp = icmp slt i32 %sub, 0
   %add10 = add nsw i32 %sub, 7
   %spec.select = select i1 %cmp, i32 %add10, i32 %sub
-  %fMinimalDaysInFirstWeek.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 16
+  %fMinimalDaysInFirstWeek.i = getelementptr inbounds i8, ptr %this, i64 268
   %6 = load i8, ptr %fMinimalDaysInFirstWeek.i, align 4
   %conv12 = zext i8 %6 to i32
   %sub13 = sub nsw i32 7, %spec.select
@@ -10484,7 +10549,7 @@ if.then18:                                        ; preds = %sw.bb
 
 if.else24:                                        ; preds = %sw.bb
   %vtable25 = load ptr, ptr %this, align 8
-  %vfn26 = getelementptr inbounds ptr, ptr %vtable25, i64 20
+  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 160
   %7 = load ptr, ptr %vfn26, align 8
   %call27 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 3)
   %cmp28.not = icmp sgt i32 %call27, %woy
@@ -10505,7 +10570,7 @@ if.then29:                                        ; preds = %if.else24
 
 sw.bb46:                                          ; preds = %_ZN6icu_758Calendar11getLocalDOWEv.exit
   %vtable47 = load ptr, ptr %this, align 8
-  %vfn48 = getelementptr inbounds ptr, ptr %vtable47, i64 33
+  %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 264
   %9 = load ptr, ptr %vfn48, align 8
   %call49 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %cmp50 = icmp ne i32 %call49, 0
@@ -10513,7 +10578,7 @@ sw.bb46:                                          ; preds = %_ZN6icu_758Calendar
 
 land.lhs.true:                                    ; preds = %sw.bb46
   %vtable51 = load ptr, ptr %this, align 8
-  %vfn52 = getelementptr inbounds ptr, ptr %vtable51, i64 20
+  %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 160
   %10 = load ptr, ptr %vfn52, align 8
   %call53 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 3)
   %cmp54.not = icmp sgt i32 %call53, %woy
@@ -10538,11 +10603,11 @@ define noundef i32 @_ZNK6icu_758Calendar20handleGetMonthLengthEii(ptr noundef no
 entry:
   %add = add nsw i32 %month, 1
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 38
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %extendedYear, i32 noundef %add, i8 noundef signext 1)
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 38
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 304
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %extendedYear, i32 noundef %month, i8 noundef signext 1)
   %sub = sub nsw i32 %call, %call4
@@ -10554,11 +10619,11 @@ define noundef i32 @_ZNK6icu_758Calendar19handleGetYearLengthEi(ptr noundef nonn
 entry:
   %add = add nsw i32 %eyear, 1
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 38
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %add, i32 noundef 0, i8 noundef signext 0)
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 38
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 304
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %eyear, i32 noundef 0, i8 noundef signext 0)
   %sub = sub nsw i32 %call, %call4
@@ -10601,7 +10666,7 @@ if.end4:                                          ; preds = %if.end
 
 sw.bb:                                            ; preds = %if.end4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %tobool6.not = icmp eq ptr %call5, null
@@ -10612,27 +10677,27 @@ if.then7:                                         ; preds = %sw.bb
   br label %return
 
 if.end8:                                          ; preds = %sw.bb
-  %fLenient.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call5, i64 0, i32 10
+  %fLenient.i = getelementptr inbounds i8, ptr %call5, i64 240
   store i8 1, ptr %fLenient.i, align 8
   %vtable9 = load ptr, ptr %call5, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 35
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 280
   %2 = load ptr, ptr %vfn10, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(618) %call5, i32 noundef 5, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %call11 = tail call noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %call5, i32 noundef 19, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %call12 = tail call noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %call5, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable13 = load ptr, ptr %this, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 39
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 312
   %3 = load ptr, ptr %vfn14, align 8
   %call15 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %call11, i32 noundef %call12)
   %vtable16 = load ptr, ptr %call5, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 1
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 8
   %4 = load ptr, ptr %vfn17, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(618) %call5) #25
   br label %return
 
 sw.bb18:                                          ; preds = %if.end4
   %vtable20 = load ptr, ptr %this, align 8
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 3
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 24
   %5 = load ptr, ptr %vfn21, align 8
   %call22 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %tobool23.not = icmp eq ptr %call22, null
@@ -10643,57 +10708,57 @@ if.then24:                                        ; preds = %sw.bb18
   br label %return
 
 if.end25:                                         ; preds = %sw.bb18
-  %fLenient.i28 = getelementptr inbounds %"class.icu_75::Calendar", ptr %call22, i64 0, i32 10
+  %fLenient.i28 = getelementptr inbounds i8, ptr %call22, i64 240
   store i8 1, ptr %fLenient.i28, align 8
   %vtable26 = load ptr, ptr %call22, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 35
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 280
   %6 = load ptr, ptr %vfn27, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(618) %call22, i32 noundef 6, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %call28 = tail call noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %call22, i32 noundef 19, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable29 = load ptr, ptr %this, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 40
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 320
   %7 = load ptr, ptr %vfn30, align 8
   %call31 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %call28)
   %vtable34 = load ptr, ptr %call22, align 8
-  %vfn35 = getelementptr inbounds ptr, ptr %vtable34, i64 1
+  %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 8
   %8 = load ptr, ptr %vfn35, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(618) %call22) #25
   br label %return
 
 sw.bb37:                                          ; preds = %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4
   %vtable38 = load ptr, ptr %this, align 8
-  %vfn39 = getelementptr inbounds ptr, ptr %vtable38, i64 16
+  %vfn39 = getelementptr inbounds i8, ptr %vtable38, i64 128
   %9 = load ptr, ptr %vfn39, align 8
   %call40 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
   br label %return
 
 sw.bb41:                                          ; preds = %if.end4
   %vtable42 = load ptr, ptr %this, align 8
-  %vfn43 = getelementptr inbounds ptr, ptr %vtable42, i64 28
+  %vfn43 = getelementptr inbounds i8, ptr %vtable42, i64 224
   %10 = load ptr, ptr %vfn43, align 8
   %call44 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable45 = load ptr, ptr %this, align 8
   br i1 %call44, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %sw.bb41
-  %vfn46 = getelementptr inbounds ptr, ptr %vtable45, i64 16
+  %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 128
   %11 = load ptr, ptr %vfn46, align 8
   %call47 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 23)
   br label %return
 
 cond.false:                                       ; preds = %sw.bb41
-  %vfn49 = getelementptr inbounds ptr, ptr %vtable45, i64 20
+  %vfn49 = getelementptr inbounds i8, ptr %vtable45, i64 160
   %12 = load ptr, ptr %vfn49, align 8
   %call50 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 23)
   br label %return
 
 sw.default:                                       ; preds = %if.end4
   %vtable51 = load ptr, ptr %this, align 8
-  %vfn52 = getelementptr inbounds ptr, ptr %vtable51, i64 20
+  %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 160
   %13 = load ptr, ptr %vfn52, align 8
   %call53 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
   %vtable54 = load ptr, ptr %this, align 8
-  %vfn55 = getelementptr inbounds ptr, ptr %vtable54, i64 16
+  %vfn55 = getelementptr inbounds i8, ptr %vtable54, i64 128
   %14 = load ptr, ptr %vfn55, align 8
   %call56 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
   %call57 = tail call noundef i32 @_ZNK6icu_758Calendar15getActualHelperE19UCalendarDateFieldsiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %call53, i32 noundef %call56, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -10728,7 +10793,7 @@ if.end12:                                         ; preds = %if.end4
   %cmp8 = icmp sgt i32 %endValue, %startValue
   %cond = select i1 %cmp8, i32 1, i32 -1
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call13 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %tobool14.not = icmp eq ptr %call13, null
@@ -10744,14 +10809,14 @@ if.end16:                                         ; preds = %if.end12
   br i1 %cmp.i.i, label %if.end.i, label %if.end.i46
 
 if.end.i:                                         ; preds = %if.end16
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 1
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %call13, i64 8
   %3 = load i8, ptr %fIsTimeSet.i, align 8
   %tobool2.not.i = icmp eq i8 %3, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end8.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %vtable.i.i = load ptr, ptr %call13, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 31
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 248
   %4 = load ptr, ptr %vfn.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(618) %call13, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %5 = load i32, ptr %status, align 4
@@ -10759,37 +10824,37 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.i.i.i, label %if.end.i.i, label %if.end.i46
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %fLenient.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 10
+  %fLenient.i.i.i = getelementptr inbounds i8, ptr %call13, i64 240
   %6 = load i8, ptr %fLenient.i.i.i, align 8
   %tobool3.not.i.i = icmp ne i8 %6, 0
-  %fAreAllFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 3
+  %fAreAllFieldsSet.i.i = getelementptr inbounds i8, ptr %call13, i64 10
   %7 = load i8, ptr %fAreAllFieldsSet.i.i, align 2
   %tobool4.not.i.i = icmp eq i8 %7, 0
   %or.cond.i.i = select i1 %tobool3.not.i.i, i1 true, i1 %tobool4.not.i.i
   br i1 %or.cond.i.i, label %if.then5.i.i, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %fAreFieldsSet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %call13, i64 9
   store i8 0, ptr %fAreFieldsSet.i.i, align 1
   br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i
 
 _ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i: ; preds = %if.then5.i.i, %if.end.i.i
   store i8 1, ptr %fIsTimeSet.i, align 8
-  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds i8, ptr %call13, i64 11
   store i8 0, ptr %fAreFieldsVirtuallySet.i.i, align 1
   %.pre.i = load i32, ptr %status, align 4
   %8 = icmp slt i32 %.pre.i, 1
   br i1 %8, label %if.end8.i, label %if.end.i46
 
 if.end8.i:                                        ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i, %if.end.i
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 2
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %call13, i64 9
   %9 = load i8, ptr %fAreFieldsSet.i, align 1
   %tobool9.not.i = icmp eq i8 %9, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %if.end.i46
 
 if.then10.i:                                      ; preds = %if.end8.i
   %vtable.i = load ptr, ptr %call13, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %10 = load ptr, ptr %vfn.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(618) %call13, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %11 = load i32, ptr %status, align 4
@@ -10798,21 +10863,21 @@ if.then10.i:                                      ; preds = %if.end8.i
 
 if.end14.i:                                       ; preds = %if.then10.i
   store i8 1, ptr %fAreFieldsSet.i, align 1
-  %fAreAllFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 3
+  %fAreAllFieldsSet.i = getelementptr inbounds i8, ptr %call13, i64 10
   store i8 1, ptr %fAreAllFieldsSet.i, align 2
   br label %if.end.i46
 
 if.end.i46:                                       ; preds = %if.end14.i, %if.then10.i, %if.end8.i, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i, %if.then3.i, %if.end16
-  %fLenient.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 10
+  %fLenient.i = getelementptr inbounds i8, ptr %call13, i64 240
   store i8 1, ptr %fLenient.i, align 8
   %not.cmp8 = xor i1 %cmp8, true
   %conv = zext i1 %not.cmp8 to i8
   %vtable18 = load ptr, ptr %call13, align 8
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 35
+  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 280
   %12 = load ptr, ptr %vfn19, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(618) %call13, i32 noundef %field, i8 noundef signext %conv, ptr noundef nonnull align 4 dereferenceable(4) %status)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i)
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %call13, i64 11
   %13 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
   %tobool.not.i = icmp eq i8 %13, 0
   br i1 %tobool.not.i, label %if.end4.i, label %if.then3.i47
@@ -10820,22 +10885,24 @@ if.end.i46:                                       ; preds = %if.end14.i, %if.the
 if.then3.i47:                                     ; preds = %if.end.i46
   store i32 0, ptr %ec.i, align 4
   %vtable.i48 = load ptr, ptr %call13, align 8
-  %vfn.i49 = getelementptr inbounds ptr, ptr %vtable.i48, i64 32
+  %vfn.i49 = getelementptr inbounds i8, ptr %vtable.i48, i64 256
   %14 = load ptr, ptr %vfn.i49, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(618) %call13, ptr noundef nonnull align 4 dereferenceable(4) %ec.i)
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i47, %if.end.i46
+  %fFields.i = getelementptr inbounds i8, ptr %call13, i64 12
   %idxprom.i = zext nneg i32 %field to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 5, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [24 x i32], ptr %fFields.i, i64 0, i64 %idxprom.i
   store i32 %startValue, ptr %arrayidx.i, align 4
-  %fNextStamp.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 8
+  %fNextStamp.i = getelementptr inbounds i8, ptr %call13, i64 228
   %15 = load i32, ptr %fNextStamp.i, align 4
   %cmp5.i = icmp eq i32 %15, 10000
   br i1 %cmp5.i, label %if.then6.i, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
 
 if.then6.i:                                       ; preds = %if.end4.i
   store i32 1, ptr %fNextStamp.i, align 4
+  %fStamp.i.i = getelementptr inbounds i8, ptr %call13, i64 132
   br label %for.cond2.preheader.i.i
 
 for.cond2.preheader.i.i:                          ; preds = %if.then15.i.i, %if.then6.i
@@ -10847,7 +10914,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   %indvars.iv.i.i = phi i64 [ 0, %for.cond2.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %currentValue.09.i.i = phi i32 [ 10000, %for.cond2.preheader.i.i ], [ %currentValue.1.i.i, %for.body4.i.i ]
   %index.08.i.i = phi i32 [ -1, %for.cond2.preheader.i.i ], [ %index.1.i.i, %for.body4.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 7, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %indvars.iv.i.i
   %17 = load i32, ptr %arrayidx.i.i, align 4
   %cmp6.i.i = icmp sgt i32 %17, %16
   %cmp10.i.i = icmp slt i32 %17, %currentValue.09.i.i
@@ -10867,7 +10934,7 @@ if.then15.i.i:                                    ; preds = %for.end.i.i
   %inc17.i.i = add nsw i32 %16, 1
   store i32 %inc17.i.i, ptr %fNextStamp.i, align 4
   %idxprom19.i.i = zext nneg i32 %index.1.i.i to i64
-  %arrayidx20.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 7, i64 %idxprom19.i.i
+  %arrayidx20.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %idxprom19.i.i
   store i32 %inc17.i.i, ptr %arrayidx20.i.i, align 4
   %inc23.i.i = add nuw nsw i32 %j.011.i.i, 1
   %exitcond13.not.i.i = icmp eq i32 %inc23.i.i, 24
@@ -10886,14 +10953,16 @@ _ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %if.end4.i, %_ZN6
   %20 = phi i32 [ %inc26.i.i, %_ZN6icu_758Calendar16recalculateStampEv.exit.i ], [ %15, %if.end4.i ]
   %inc.i = add nsw i32 %20, 1
   store i32 %inc.i, ptr %fNextStamp.i, align 4
-  %arrayidx10.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 7, i64 %idxprom.i
+  %fStamp.i = getelementptr inbounds i8, ptr %call13, i64 132
+  %arrayidx10.i = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom.i
   store i32 %20, ptr %arrayidx10.i, align 4
-  %arrayidx12.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 6, i64 %idxprom.i
+  %fIsSet.i = getelementptr inbounds i8, ptr %call13, i64 108
+  %arrayidx12.i = getelementptr inbounds [24 x i8], ptr %fIsSet.i, i64 0, i64 %idxprom.i
   store i8 1, ptr %arrayidx12.i, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
-  %fAreFieldsSet.i50 = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 2
+  %fAreFieldsSet.i50 = getelementptr inbounds i8, ptr %call13, i64 9
   store i8 0, ptr %fAreFieldsSet.i50, align 1
-  %fIsTimeSet.i51 = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 1
+  %fIsTimeSet.i51 = getelementptr inbounds i8, ptr %call13, i64 8
   store i8 0, ptr %fIsTimeSet.i51, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i)
   %21 = load i32, ptr %status, align 4
@@ -10902,7 +10971,7 @@ _ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %if.end4.i, %_ZN6
 
 if.then3.i.i:                                     ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
   %vtable.i.i.i = load ptr, ptr %call13, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 31
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 248
   %22 = load ptr, ptr %vfn.i.i.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(618) %call13, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %23 = load i32, ptr %status, align 4
@@ -10912,7 +10981,7 @@ if.then3.i.i:                                     ; preds = %_ZN6icu_758Calendar
 if.end.i.i.i:                                     ; preds = %if.then3.i.i
   %24 = load i8, ptr %fLenient.i, align 8
   %tobool3.not.i.i.i = icmp ne i8 %24, 0
-  %fAreAllFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 3
+  %fAreAllFieldsSet.i.i.i = getelementptr inbounds i8, ptr %call13, i64 10
   %25 = load i8, ptr %fAreAllFieldsSet.i.i.i, align 2
   %tobool4.not.i.i.i = icmp eq i8 %25, 0
   %or.cond.i.i.i = select i1 %tobool3.not.i.i.i, i1 true, i1 %tobool4.not.i.i.i
@@ -10925,8 +10994,8 @@ if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
 _ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i: ; preds = %if.then5.i.i.i, %if.end.i.i.i
   store i8 1, ptr %fIsTimeSet.i51, align 8
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
-  %.pre.i.i65 = load i32, ptr %status, align 4
-  %26 = icmp slt i32 %.pre.i.i65, 1
+  %.pre.i.i66 = load i32, ptr %status, align 4
+  %26 = icmp slt i32 %.pre.i.i66, 1
   br i1 %26, label %if.end8.i.i, label %delete.notnull
 
 if.end8.i.i:                                      ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i
@@ -10935,23 +11004,23 @@ if.end8.i.i:                                      ; preds = %_ZN6icu_758Calendar
   br i1 %tobool9.not.i.i, label %if.then10.i.i, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
 if.then10.i.i:                                    ; preds = %if.end8.i.i
-  %vtable.i.i60 = load ptr, ptr %call13, align 8
-  %vfn.i.i61 = getelementptr inbounds ptr, ptr %vtable.i.i60, i64 32
-  %27 = load ptr, ptr %vfn.i.i61, align 8
+  %vtable.i.i61 = load ptr, ptr %call13, align 8
+  %vfn.i.i62 = getelementptr inbounds i8, ptr %vtable.i.i61, i64 256
+  %27 = load ptr, ptr %vfn.i.i62, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(618) %call13, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %28 = load i32, ptr %status, align 4
   %cmp.i7.i.i = icmp slt i32 %28, 1
-  br i1 %cmp.i7.i.i, label %if.end8.i62, label %delete.notnull
+  br i1 %cmp.i7.i.i, label %if.end8.i63, label %delete.notnull
 
-if.end8.i62:                                      ; preds = %if.then10.i.i
+if.end8.i63:                                      ; preds = %if.then10.i.i
   store i8 1, ptr %fAreFieldsSet.i50, align 1
-  %fAreAllFieldsSet.i.i63 = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 3
-  store i8 1, ptr %fAreAllFieldsSet.i.i63, align 2
-  %.pre.i64 = load i32, ptr %status, align 4
-  %cmp.i9.i = icmp sgt i32 %.pre.i64, 0
+  %fAreAllFieldsSet.i.i64 = getelementptr inbounds i8, ptr %call13, i64 10
+  store i8 1, ptr %fAreAllFieldsSet.i.i64, align 2
+  %.pre.i65 = load i32, ptr %status, align 4
+  %cmp.i9.i = icmp sgt i32 %.pre.i65, 0
   br i1 %cmp.i9.i, label %delete.notnull, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
-_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %if.end8.i.i, %if.end8.i62
+_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %if.end8.i.i, %if.end8.i63
   %29 = load i32, ptr %arrayidx.i, align 4
   %cmp21 = icmp ne i32 %29, %startValue
   %cmp22 = icmp ne i32 %field, 4
@@ -10960,87 +11029,87 @@ _ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %if.
   br i1 %or.cond2, label %delete.notnull, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
-  %fAreAllFieldsSet.i.i.i97 = getelementptr inbounds %"class.icu_75::Calendar", ptr %call13, i64 0, i32 3
+  %fAreAllFieldsSet.i.i.i99 = getelementptr inbounds i8, ptr %call13, i64 10
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end37
   %result.0 = phi i32 [ %add, %if.end37 ], [ %startValue, %do.body.preheader ]
   %add = add nsw i32 %result.0, %cond
   %vtable29 = load ptr, ptr %call13, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 7
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 56
   %30 = load ptr, ptr %vfn30, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(618) %call13, i32 noundef %field, i32 noundef %cond, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %31 = load i32, ptr %status, align 4
-  %cmp.i.i69 = icmp slt i32 %31, 1
-  br i1 %cmp.i.i69, label %if.end.i.i73, label %delete.notnull
+  %cmp.i.i70 = icmp slt i32 %31, 1
+  br i1 %cmp.i.i70, label %if.end.i.i74, label %delete.notnull
 
-if.end.i.i73:                                     ; preds = %do.body
+if.end.i.i74:                                     ; preds = %do.body
   %32 = load i8, ptr %fIsTimeSet.i51, align 8
-  %tobool2.not.i.i75 = icmp eq i8 %32, 0
-  br i1 %tobool2.not.i.i75, label %if.then3.i.i90, label %if.end8.i.i76
+  %tobool2.not.i.i76 = icmp eq i8 %32, 0
+  br i1 %tobool2.not.i.i76, label %if.then3.i.i92, label %if.end8.i.i77
 
-if.then3.i.i90:                                   ; preds = %if.end.i.i73
-  %vtable.i.i.i91 = load ptr, ptr %call13, align 8
-  %vfn.i.i.i92 = getelementptr inbounds ptr, ptr %vtable.i.i.i91, i64 31
-  %33 = load ptr, ptr %vfn.i.i.i92, align 8
+if.then3.i.i92:                                   ; preds = %if.end.i.i74
+  %vtable.i.i.i93 = load ptr, ptr %call13, align 8
+  %vfn.i.i.i94 = getelementptr inbounds i8, ptr %vtable.i.i.i93, i64 248
+  %33 = load ptr, ptr %vfn.i.i.i94, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(618) %call13, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %34 = load i32, ptr %status, align 4
-  %cmp.i.i.i.i93 = icmp slt i32 %34, 1
-  br i1 %cmp.i.i.i.i93, label %if.end.i.i.i94, label %delete.notnull
+  %cmp.i.i.i.i95 = icmp slt i32 %34, 1
+  br i1 %cmp.i.i.i.i95, label %if.end.i.i.i96, label %delete.notnull
 
-if.end.i.i.i94:                                   ; preds = %if.then3.i.i90
+if.end.i.i.i96:                                   ; preds = %if.then3.i.i92
   %35 = load i8, ptr %fLenient.i, align 8
-  %tobool3.not.i.i.i96 = icmp ne i8 %35, 0
-  %36 = load i8, ptr %fAreAllFieldsSet.i.i.i97, align 2
-  %tobool4.not.i.i.i98 = icmp eq i8 %36, 0
-  %or.cond.i.i.i99 = select i1 %tobool3.not.i.i.i96, i1 true, i1 %tobool4.not.i.i.i98
-  br i1 %or.cond.i.i.i99, label %if.then5.i.i.i103, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i100
+  %tobool3.not.i.i.i98 = icmp ne i8 %35, 0
+  %36 = load i8, ptr %fAreAllFieldsSet.i.i.i99, align 2
+  %tobool4.not.i.i.i100 = icmp eq i8 %36, 0
+  %or.cond.i.i.i101 = select i1 %tobool3.not.i.i.i98, i1 true, i1 %tobool4.not.i.i.i100
+  br i1 %or.cond.i.i.i101, label %if.then5.i.i.i105, label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i102
 
-if.then5.i.i.i103:                                ; preds = %if.end.i.i.i94
+if.then5.i.i.i105:                                ; preds = %if.end.i.i.i96
   store i8 0, ptr %fAreFieldsSet.i50, align 1
-  br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i100
+  br label %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i102
 
-_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i100: ; preds = %if.then5.i.i.i103, %if.end.i.i.i94
+_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i102: ; preds = %if.then5.i.i.i105, %if.end.i.i.i96
   store i8 1, ptr %fIsTimeSet.i51, align 8
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
-  %.pre.i.i102 = load i32, ptr %status, align 4
-  %37 = icmp slt i32 %.pre.i.i102, 1
-  br i1 %37, label %if.end8.i.i76, label %delete.notnull
+  %.pre.i.i104 = load i32, ptr %status, align 4
+  %37 = icmp slt i32 %.pre.i.i104, 1
+  br i1 %37, label %if.end8.i.i77, label %delete.notnull
 
-if.end8.i.i76:                                    ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i100, %if.end.i.i73
+if.end8.i.i77:                                    ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i102, %if.end.i.i74
   %38 = load i8, ptr %fAreFieldsSet.i50, align 1
-  %tobool9.not.i.i78 = icmp eq i8 %38, 0
-  br i1 %tobool9.not.i.i78, label %if.then10.i.i82, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit106
+  %tobool9.not.i.i79 = icmp eq i8 %38, 0
+  br i1 %tobool9.not.i.i79, label %if.then10.i.i84, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit108
 
-if.then10.i.i82:                                  ; preds = %if.end8.i.i76
-  %vtable.i.i83 = load ptr, ptr %call13, align 8
-  %vfn.i.i84 = getelementptr inbounds ptr, ptr %vtable.i.i83, i64 32
-  %39 = load ptr, ptr %vfn.i.i84, align 8
+if.then10.i.i84:                                  ; preds = %if.end8.i.i77
+  %vtable.i.i85 = load ptr, ptr %call13, align 8
+  %vfn.i.i86 = getelementptr inbounds i8, ptr %vtable.i.i85, i64 256
+  %39 = load ptr, ptr %vfn.i.i86, align 8
   call void %39(ptr noundef nonnull align 8 dereferenceable(618) %call13, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %40 = load i32, ptr %status, align 4
-  %cmp.i7.i.i85 = icmp slt i32 %40, 1
-  br i1 %cmp.i7.i.i85, label %if.end8.i86, label %delete.notnull
+  %cmp.i7.i.i87 = icmp slt i32 %40, 1
+  br i1 %cmp.i7.i.i87, label %if.end8.i88, label %delete.notnull
 
-if.end8.i86:                                      ; preds = %if.then10.i.i82
+if.end8.i88:                                      ; preds = %if.then10.i.i84
   store i8 1, ptr %fAreFieldsSet.i50, align 1
-  store i8 1, ptr %fAreAllFieldsSet.i.i.i97, align 2
-  %.pre.i88 = load i32, ptr %status, align 4
-  %cmp.i9.i89 = icmp sgt i32 %.pre.i88, 0
-  br i1 %cmp.i9.i89, label %delete.notnull, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit106
+  store i8 1, ptr %fAreAllFieldsSet.i.i.i99, align 2
+  %.pre.i90 = load i32, ptr %status, align 4
+  %cmp.i9.i91 = icmp sgt i32 %.pre.i90, 0
+  br i1 %cmp.i9.i91, label %delete.notnull, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit108
 
-_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit106: ; preds = %if.end8.i.i76, %if.end8.i86
+_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit108: ; preds = %if.end8.i.i77, %if.end8.i88
   %41 = load i32, ptr %arrayidx.i, align 4
   %cmp32.not = icmp eq i32 %41, %add
   br i1 %cmp32.not, label %if.end37, label %delete.notnull
 
-if.end37:                                         ; preds = %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit106
+if.end37:                                         ; preds = %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit108
   %cmp38.not = icmp eq i32 %add, %endValue
   br i1 %cmp38.not, label %delete.notnull, label %do.body, !llvm.loop !24
 
-delete.notnull:                                   ; preds = %if.then3.i.i90, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i100, %if.then10.i.i82, %if.end8.i86, %do.body, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit106, %if.end37, %if.then3.i.i, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i, %if.then10.i.i, %if.end8.i62, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
-  %result.1 = phi i32 [ %startValue, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ %startValue, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit ], [ %startValue, %if.end8.i62 ], [ %startValue, %if.then10.i.i ], [ %startValue, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i ], [ %startValue, %if.then3.i.i ], [ %result.0, %if.then3.i.i90 ], [ %result.0, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i100 ], [ %result.0, %if.then10.i.i82 ], [ %result.0, %if.end8.i86 ], [ %result.0, %do.body ], [ %endValue, %if.end37 ], [ %result.0, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit106 ]
+delete.notnull:                                   ; preds = %if.then3.i.i92, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i102, %if.then10.i.i84, %if.end8.i88, %do.body, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit108, %if.end37, %if.then3.i.i, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i, %if.then10.i.i, %if.end8.i63, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
+  %result.1 = phi i32 [ %startValue, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ %startValue, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit ], [ %startValue, %if.end8.i63 ], [ %startValue, %if.then10.i.i ], [ %startValue, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i ], [ %startValue, %if.then3.i.i ], [ %result.0, %if.then3.i.i92 ], [ %result.0, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i102 ], [ %result.0, %if.then10.i.i84 ], [ %result.0, %if.end8.i88 ], [ %result.0, %do.body ], [ %endValue, %if.end37 ], [ %result.0, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit108 ]
   %vtable40 = load ptr, ptr %call13, align 8
-  %vfn41 = getelementptr inbounds ptr, ptr %vtable40, i64 1
+  %vfn41 = getelementptr inbounds i8, ptr %vtable40, i64 8
   %42 = load ptr, ptr %vfn41, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(618) %call13) #25
   br label %return
@@ -11053,10 +11122,10 @@ return:                                           ; preds = %if.end4, %entry, %d
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_758Calendar16prepareGetActualE19UCalendarDateFieldsaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i8 noundef signext %isMinimum, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
-  %ec.i272 = alloca i32, align 4
-  %ec.i184 = alloca i32, align 4
-  %ec.i96 = alloca i32, align 4
-  %ec.i53 = alloca i32, align 4
+  %ec.i297 = alloca i32, align 4
+  %ec.i201 = alloca i32, align 4
+  %ec.i104 = alloca i32, align 4
+  %ec.i57 = alloca i32, align 4
   %ec.i10 = alloca i32, align 4
   %ec.i = alloca i32, align 4
   %0 = load i32, ptr %status, align 4
@@ -11073,7 +11142,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i)
-  %fAreFieldsVirtuallySet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 4
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %this, i64 11
   %1 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end4.i, label %if.then3.i
@@ -11081,21 +11150,23 @@ if.end4:                                          ; preds = %if.end
 if.then3.i:                                       ; preds = %if.end4
   store i32 0, ptr %ec.i, align 4
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %2 = load ptr, ptr %vfn.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i)
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end4
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 21
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 0, ptr %arrayidx.i, align 8
-  %fNextStamp.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 8
+  %fNextStamp.i = getelementptr inbounds i8, ptr %this, i64 228
   %3 = load i32, ptr %fNextStamp.i, align 4
   %cmp5.i = icmp eq i32 %3, 10000
   br i1 %cmp5.i, label %if.then6.i, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
 
 if.then6.i:                                       ; preds = %if.end4.i
   store i32 1, ptr %fNextStamp.i, align 4
+  %fStamp.i.i = getelementptr inbounds i8, ptr %this, i64 132
   br label %for.cond2.preheader.i.i
 
 for.cond2.preheader.i.i:                          ; preds = %if.then15.i.i, %if.then6.i
@@ -11107,7 +11178,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   %indvars.iv.i.i = phi i64 [ 0, %for.cond2.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %currentValue.09.i.i = phi i32 [ 10000, %for.cond2.preheader.i.i ], [ %currentValue.1.i.i, %for.body4.i.i ]
   %index.08.i.i = phi i32 [ -1, %for.cond2.preheader.i.i ], [ %index.1.i.i, %for.body4.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %indvars.iv.i.i
   %5 = load i32, ptr %arrayidx.i.i, align 4
   %cmp6.i.i = icmp sgt i32 %5, %4
   %cmp10.i.i = icmp slt i32 %5, %currentValue.09.i.i
@@ -11127,7 +11198,7 @@ if.then15.i.i:                                    ; preds = %for.end.i.i
   %inc17.i.i = add nsw i32 %4, 1
   store i32 %inc17.i.i, ptr %fNextStamp.i, align 4
   %idxprom19.i.i = zext nneg i32 %index.1.i.i to i64
-  %arrayidx20.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i
+  %arrayidx20.i.i = getelementptr inbounds [24 x i32], ptr %fStamp.i.i, i64 0, i64 %idxprom19.i.i
   store i32 %inc17.i.i, ptr %arrayidx20.i.i, align 4
   %inc23.i.i = add nuw nsw i32 %j.011.i.i, 1
   %exitcond13.not.i.i = icmp eq i32 %inc23.i.i, 24
@@ -11146,29 +11217,31 @@ _ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %if.end4.i, %_ZN6
   %8 = phi i32 [ %inc26.i.i, %_ZN6icu_758Calendar16recalculateStampEv.exit.i ], [ %3, %if.end4.i ]
   %inc.i = add nsw i32 %8, 1
   store i32 %inc.i, ptr %fNextStamp.i, align 4
-  %arrayidx10.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 21
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 216
   store i32 %8, ptr %arrayidx10.i, align 8
-  %arrayidx12.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 21
+  %fIsSet.i = getelementptr inbounds i8, ptr %this, i64 108
+  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 129
   store i8 1, ptr %arrayidx12.i, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
-  %fAreFieldsSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 2
+  %fAreFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 9
   store i8 0, ptr %fAreFieldsSet.i, align 1
-  %fIsTimeSet.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 1
+  %fIsTimeSet.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %fIsTimeSet.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i)
-  switch i32 %field, label %if.end.i273 [
+  switch i32 %field, label %if.end.i298 [
     i32 1, label %sw.bb
     i32 19, label %sw.bb
     i32 17, label %sw.bb6
     i32 2, label %sw.bb10
-    i32 8, label %if.end4.i145
+    i32 8, label %if.end4.i157
     i32 4, label %sw.bb16
     i32 3, label %sw.bb16
   ]
 
 sw.bb:                                            ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %9 = load ptr, ptr %vfn, align 8
   %call5 = call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i10)
@@ -11179,330 +11252,330 @@ sw.bb:                                            ; preds = %_ZN6icu_758Calendar
 if.then3.i13:                                     ; preds = %sw.bb
   store i32 0, ptr %ec.i10, align 4
   %vtable.i14 = load ptr, ptr %this, align 8
-  %vfn.i15 = getelementptr inbounds ptr, ptr %vtable.i14, i64 32
+  %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 256
   %11 = load ptr, ptr %vfn.i15, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i10)
   br label %if.end4.i16
 
 if.end4.i16:                                      ; preds = %if.then3.i13, %sw.bb
-  %arrayidx.i17 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 6
-  store i32 %call5, ptr %arrayidx.i17, align 4
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 %call5, ptr %arrayidx.i18, align 4
   %12 = load i32, ptr %fNextStamp.i, align 4
-  %cmp5.i19 = icmp eq i32 %12, 10000
-  br i1 %cmp5.i19, label %if.then6.i25, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit52
+  %cmp5.i20 = icmp eq i32 %12, 10000
+  br i1 %cmp5.i20, label %if.then6.i28, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit56
 
-if.then6.i25:                                     ; preds = %if.end4.i16
+if.then6.i28:                                     ; preds = %if.end4.i16
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i26
+  br label %for.cond2.preheader.i.i30
 
-for.cond2.preheader.i.i26:                        ; preds = %if.then15.i.i44, %if.then6.i25
-  %j.011.i.i27 = phi i32 [ 0, %if.then6.i25 ], [ %inc23.i.i48, %if.then15.i.i44 ]
+for.cond2.preheader.i.i30:                        ; preds = %if.then15.i.i48, %if.then6.i28
+  %j.011.i.i31 = phi i32 [ 0, %if.then6.i28 ], [ %inc23.i.i52, %if.then15.i.i48 ]
   %13 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i28
+  br label %for.body4.i.i32
 
-for.body4.i.i28:                                  ; preds = %for.body4.i.i28, %for.cond2.preheader.i.i26
-  %indvars.iv.i.i29 = phi i64 [ 0, %for.cond2.preheader.i.i26 ], [ %indvars.iv.next.i.i38, %for.body4.i.i28 ]
-  %currentValue.09.i.i30 = phi i32 [ 10000, %for.cond2.preheader.i.i26 ], [ %currentValue.1.i.i37, %for.body4.i.i28 ]
-  %index.08.i.i31 = phi i32 [ -1, %for.cond2.preheader.i.i26 ], [ %index.1.i.i36, %for.body4.i.i28 ]
-  %arrayidx.i.i32 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i29
-  %14 = load i32, ptr %arrayidx.i.i32, align 4
-  %cmp6.i.i33 = icmp sgt i32 %14, %13
-  %cmp10.i.i34 = icmp slt i32 %14, %currentValue.09.i.i30
-  %or.cond.i.i35 = select i1 %cmp6.i.i33, i1 %cmp10.i.i34, i1 false
-  %15 = trunc i64 %indvars.iv.i.i29 to i32
-  %index.1.i.i36 = select i1 %or.cond.i.i35, i32 %15, i32 %index.08.i.i31
-  %currentValue.1.i.i37 = select i1 %or.cond.i.i35, i32 %14, i32 %currentValue.09.i.i30
-  %indvars.iv.next.i.i38 = add nuw nsw i64 %indvars.iv.i.i29, 1
-  %exitcond.not.i.i39 = icmp eq i64 %indvars.iv.next.i.i38, 24
-  br i1 %exitcond.not.i.i39, label %for.end.i.i40, label %for.body4.i.i28, !llvm.loop !8
+for.body4.i.i32:                                  ; preds = %for.body4.i.i32, %for.cond2.preheader.i.i30
+  %indvars.iv.i.i33 = phi i64 [ 0, %for.cond2.preheader.i.i30 ], [ %indvars.iv.next.i.i42, %for.body4.i.i32 ]
+  %currentValue.09.i.i34 = phi i32 [ 10000, %for.cond2.preheader.i.i30 ], [ %currentValue.1.i.i41, %for.body4.i.i32 ]
+  %index.08.i.i35 = phi i32 [ -1, %for.cond2.preheader.i.i30 ], [ %index.1.i.i40, %for.body4.i.i32 ]
+  %arrayidx.i.i36 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i33
+  %14 = load i32, ptr %arrayidx.i.i36, align 4
+  %cmp6.i.i37 = icmp sgt i32 %14, %13
+  %cmp10.i.i38 = icmp slt i32 %14, %currentValue.09.i.i34
+  %or.cond.i.i39 = select i1 %cmp6.i.i37, i1 %cmp10.i.i38, i1 false
+  %15 = trunc i64 %indvars.iv.i.i33 to i32
+  %index.1.i.i40 = select i1 %or.cond.i.i39, i32 %15, i32 %index.08.i.i35
+  %currentValue.1.i.i41 = select i1 %or.cond.i.i39, i32 %14, i32 %currentValue.09.i.i34
+  %indvars.iv.next.i.i42 = add nuw nsw i64 %indvars.iv.i.i33, 1
+  %exitcond.not.i.i43 = icmp eq i64 %indvars.iv.next.i.i42, 24
+  br i1 %exitcond.not.i.i43, label %for.end.i.i44, label %for.body4.i.i32, !llvm.loop !8
 
-for.end.i.i40:                                    ; preds = %for.body4.i.i28
-  %cmp14.i.i41 = icmp sgt i32 %index.1.i.i36, -1
-  br i1 %cmp14.i.i41, label %if.then15.i.i44, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i42
+for.end.i.i44:                                    ; preds = %for.body4.i.i32
+  %cmp14.i.i45 = icmp sgt i32 %index.1.i.i40, -1
+  br i1 %cmp14.i.i45, label %if.then15.i.i48, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i46
 
-if.then15.i.i44:                                  ; preds = %for.end.i.i40
-  %inc17.i.i45 = add nsw i32 %13, 1
-  store i32 %inc17.i.i45, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i46 = zext nneg i32 %index.1.i.i36 to i64
-  %arrayidx20.i.i47 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i46
-  store i32 %inc17.i.i45, ptr %arrayidx20.i.i47, align 4
-  %inc23.i.i48 = add nuw nsw i32 %j.011.i.i27, 1
-  %exitcond13.not.i.i49 = icmp eq i32 %inc23.i.i48, 24
-  br i1 %exitcond13.not.i.i49, label %if.then15.for.end24_crit_edge.i.i50, label %for.cond2.preheader.i.i26, !llvm.loop !9
+if.then15.i.i48:                                  ; preds = %for.end.i.i44
+  %inc17.i.i49 = add nsw i32 %13, 1
+  store i32 %inc17.i.i49, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i50 = zext nneg i32 %index.1.i.i40 to i64
+  %arrayidx20.i.i51 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i50
+  store i32 %inc17.i.i49, ptr %arrayidx20.i.i51, align 4
+  %inc23.i.i52 = add nuw nsw i32 %j.011.i.i31, 1
+  %exitcond13.not.i.i53 = icmp eq i32 %inc23.i.i52, 24
+  br i1 %exitcond13.not.i.i53, label %if.then15.for.end24_crit_edge.i.i54, label %for.cond2.preheader.i.i30, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i50:              ; preds = %if.then15.i.i44
-  %.pre.i.i51 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i42
+if.then15.for.end24_crit_edge.i.i54:              ; preds = %if.then15.i.i48
+  %.pre.i.i55 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i46
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i42: ; preds = %for.end.i.i40, %if.then15.for.end24_crit_edge.i.i50
-  %16 = phi i32 [ %.pre.i.i51, %if.then15.for.end24_crit_edge.i.i50 ], [ %13, %for.end.i.i40 ]
-  %inc26.i.i43 = add nsw i32 %16, 1
-  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit52
+_ZN6icu_758Calendar16recalculateStampEv.exit.i46: ; preds = %for.end.i.i44, %if.then15.for.end24_crit_edge.i.i54
+  %16 = phi i32 [ %.pre.i.i55, %if.then15.for.end24_crit_edge.i.i54 ], [ %13, %for.end.i.i44 ]
+  %inc26.i.i47 = add nsw i32 %16, 1
+  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit56
 
-_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit52: ; preds = %if.end4.i16, %_ZN6icu_758Calendar16recalculateStampEv.exit.i42
-  %17 = phi i32 [ %inc26.i.i43, %_ZN6icu_758Calendar16recalculateStampEv.exit.i42 ], [ %12, %if.end4.i16 ]
-  %inc.i20 = add nsw i32 %17, 1
-  store i32 %inc.i20, ptr %fNextStamp.i, align 4
-  %arrayidx10.i21 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 6
-  store i32 %17, ptr %arrayidx10.i21, align 4
-  %arrayidx12.i22 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 6
-  store i8 1, ptr %arrayidx12.i22, align 2
+_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit56: ; preds = %if.end4.i16, %_ZN6icu_758Calendar16recalculateStampEv.exit.i46
+  %17 = phi i32 [ %inc26.i.i47, %_ZN6icu_758Calendar16recalculateStampEv.exit.i46 ], [ %12, %if.end4.i16 ]
+  %inc.i21 = add nsw i32 %17, 1
+  store i32 %inc.i21, ptr %fNextStamp.i, align 4
+  %arrayidx10.i23 = getelementptr inbounds i8, ptr %this, i64 156
+  store i32 %17, ptr %arrayidx10.i23, align 4
+  %arrayidx12.i25 = getelementptr inbounds i8, ptr %this, i64 114
+  store i8 1, ptr %arrayidx12.i25, align 2
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   store i8 0, ptr %fAreFieldsSet.i, align 1
   store i8 0, ptr %fIsTimeSet.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i10)
-  br label %if.end.i273
+  br label %if.end.i298
 
 sw.bb6:                                           ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
   %vtable7 = load ptr, ptr %this, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 18
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 144
   %18 = load ptr, ptr %vfn8, align 8
   %call9 = call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i53)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i57)
   %19 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
-  %tobool.not.i55 = icmp eq i8 %19, 0
-  br i1 %tobool.not.i55, label %if.end4.i59, label %if.then3.i56
+  %tobool.not.i59 = icmp eq i8 %19, 0
+  br i1 %tobool.not.i59, label %if.end4.i63, label %if.then3.i60
 
-if.then3.i56:                                     ; preds = %sw.bb6
-  store i32 0, ptr %ec.i53, align 4
-  %vtable.i57 = load ptr, ptr %this, align 8
-  %vfn.i58 = getelementptr inbounds ptr, ptr %vtable.i57, i64 32
-  %20 = load ptr, ptr %vfn.i58, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i53)
-  br label %if.end4.i59
+if.then3.i60:                                     ; preds = %sw.bb6
+  store i32 0, ptr %ec.i57, align 4
+  %vtable.i61 = load ptr, ptr %this, align 8
+  %vfn.i62 = getelementptr inbounds i8, ptr %vtable.i61, i64 256
+  %20 = load ptr, ptr %vfn.i62, align 8
+  call void %20(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i57)
+  br label %if.end4.i63
 
-if.end4.i59:                                      ; preds = %if.then3.i56, %sw.bb6
-  %arrayidx.i60 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 3
-  store i32 %call9, ptr %arrayidx.i60, align 8
+if.end4.i63:                                      ; preds = %if.then3.i60, %sw.bb6
+  %arrayidx.i65 = getelementptr inbounds i8, ptr %this, i64 24
+  store i32 %call9, ptr %arrayidx.i65, align 8
   %21 = load i32, ptr %fNextStamp.i, align 4
-  %cmp5.i62 = icmp eq i32 %21, 10000
-  br i1 %cmp5.i62, label %if.then6.i68, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit95
+  %cmp5.i67 = icmp eq i32 %21, 10000
+  br i1 %cmp5.i67, label %if.then6.i75, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit103
 
-if.then6.i68:                                     ; preds = %if.end4.i59
+if.then6.i75:                                     ; preds = %if.end4.i63
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i69
+  br label %for.cond2.preheader.i.i77
 
-for.cond2.preheader.i.i69:                        ; preds = %if.then15.i.i87, %if.then6.i68
-  %j.011.i.i70 = phi i32 [ 0, %if.then6.i68 ], [ %inc23.i.i91, %if.then15.i.i87 ]
+for.cond2.preheader.i.i77:                        ; preds = %if.then15.i.i95, %if.then6.i75
+  %j.011.i.i78 = phi i32 [ 0, %if.then6.i75 ], [ %inc23.i.i99, %if.then15.i.i95 ]
   %22 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i71
+  br label %for.body4.i.i79
 
-for.body4.i.i71:                                  ; preds = %for.body4.i.i71, %for.cond2.preheader.i.i69
-  %indvars.iv.i.i72 = phi i64 [ 0, %for.cond2.preheader.i.i69 ], [ %indvars.iv.next.i.i81, %for.body4.i.i71 ]
-  %currentValue.09.i.i73 = phi i32 [ 10000, %for.cond2.preheader.i.i69 ], [ %currentValue.1.i.i80, %for.body4.i.i71 ]
-  %index.08.i.i74 = phi i32 [ -1, %for.cond2.preheader.i.i69 ], [ %index.1.i.i79, %for.body4.i.i71 ]
-  %arrayidx.i.i75 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i72
-  %23 = load i32, ptr %arrayidx.i.i75, align 4
-  %cmp6.i.i76 = icmp sgt i32 %23, %22
-  %cmp10.i.i77 = icmp slt i32 %23, %currentValue.09.i.i73
-  %or.cond.i.i78 = select i1 %cmp6.i.i76, i1 %cmp10.i.i77, i1 false
-  %24 = trunc i64 %indvars.iv.i.i72 to i32
-  %index.1.i.i79 = select i1 %or.cond.i.i78, i32 %24, i32 %index.08.i.i74
-  %currentValue.1.i.i80 = select i1 %or.cond.i.i78, i32 %23, i32 %currentValue.09.i.i73
-  %indvars.iv.next.i.i81 = add nuw nsw i64 %indvars.iv.i.i72, 1
-  %exitcond.not.i.i82 = icmp eq i64 %indvars.iv.next.i.i81, 24
-  br i1 %exitcond.not.i.i82, label %for.end.i.i83, label %for.body4.i.i71, !llvm.loop !8
+for.body4.i.i79:                                  ; preds = %for.body4.i.i79, %for.cond2.preheader.i.i77
+  %indvars.iv.i.i80 = phi i64 [ 0, %for.cond2.preheader.i.i77 ], [ %indvars.iv.next.i.i89, %for.body4.i.i79 ]
+  %currentValue.09.i.i81 = phi i32 [ 10000, %for.cond2.preheader.i.i77 ], [ %currentValue.1.i.i88, %for.body4.i.i79 ]
+  %index.08.i.i82 = phi i32 [ -1, %for.cond2.preheader.i.i77 ], [ %index.1.i.i87, %for.body4.i.i79 ]
+  %arrayidx.i.i83 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i80
+  %23 = load i32, ptr %arrayidx.i.i83, align 4
+  %cmp6.i.i84 = icmp sgt i32 %23, %22
+  %cmp10.i.i85 = icmp slt i32 %23, %currentValue.09.i.i81
+  %or.cond.i.i86 = select i1 %cmp6.i.i84, i1 %cmp10.i.i85, i1 false
+  %24 = trunc i64 %indvars.iv.i.i80 to i32
+  %index.1.i.i87 = select i1 %or.cond.i.i86, i32 %24, i32 %index.08.i.i82
+  %currentValue.1.i.i88 = select i1 %or.cond.i.i86, i32 %23, i32 %currentValue.09.i.i81
+  %indvars.iv.next.i.i89 = add nuw nsw i64 %indvars.iv.i.i80, 1
+  %exitcond.not.i.i90 = icmp eq i64 %indvars.iv.next.i.i89, 24
+  br i1 %exitcond.not.i.i90, label %for.end.i.i91, label %for.body4.i.i79, !llvm.loop !8
 
-for.end.i.i83:                                    ; preds = %for.body4.i.i71
-  %cmp14.i.i84 = icmp sgt i32 %index.1.i.i79, -1
-  br i1 %cmp14.i.i84, label %if.then15.i.i87, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i85
+for.end.i.i91:                                    ; preds = %for.body4.i.i79
+  %cmp14.i.i92 = icmp sgt i32 %index.1.i.i87, -1
+  br i1 %cmp14.i.i92, label %if.then15.i.i95, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i93
 
-if.then15.i.i87:                                  ; preds = %for.end.i.i83
-  %inc17.i.i88 = add nsw i32 %22, 1
-  store i32 %inc17.i.i88, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i89 = zext nneg i32 %index.1.i.i79 to i64
-  %arrayidx20.i.i90 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i89
-  store i32 %inc17.i.i88, ptr %arrayidx20.i.i90, align 4
-  %inc23.i.i91 = add nuw nsw i32 %j.011.i.i70, 1
-  %exitcond13.not.i.i92 = icmp eq i32 %inc23.i.i91, 24
-  br i1 %exitcond13.not.i.i92, label %if.then15.for.end24_crit_edge.i.i93, label %for.cond2.preheader.i.i69, !llvm.loop !9
+if.then15.i.i95:                                  ; preds = %for.end.i.i91
+  %inc17.i.i96 = add nsw i32 %22, 1
+  store i32 %inc17.i.i96, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i97 = zext nneg i32 %index.1.i.i87 to i64
+  %arrayidx20.i.i98 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i97
+  store i32 %inc17.i.i96, ptr %arrayidx20.i.i98, align 4
+  %inc23.i.i99 = add nuw nsw i32 %j.011.i.i78, 1
+  %exitcond13.not.i.i100 = icmp eq i32 %inc23.i.i99, 24
+  br i1 %exitcond13.not.i.i100, label %if.then15.for.end24_crit_edge.i.i101, label %for.cond2.preheader.i.i77, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i93:              ; preds = %if.then15.i.i87
-  %.pre.i.i94 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i85
+if.then15.for.end24_crit_edge.i.i101:             ; preds = %if.then15.i.i95
+  %.pre.i.i102 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i93
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i85: ; preds = %for.end.i.i83, %if.then15.for.end24_crit_edge.i.i93
-  %25 = phi i32 [ %.pre.i.i94, %if.then15.for.end24_crit_edge.i.i93 ], [ %22, %for.end.i.i83 ]
-  %inc26.i.i86 = add nsw i32 %25, 1
-  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit95
+_ZN6icu_758Calendar16recalculateStampEv.exit.i93: ; preds = %for.end.i.i91, %if.then15.for.end24_crit_edge.i.i101
+  %25 = phi i32 [ %.pre.i.i102, %if.then15.for.end24_crit_edge.i.i101 ], [ %22, %for.end.i.i91 ]
+  %inc26.i.i94 = add nsw i32 %25, 1
+  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit103
 
-_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit95: ; preds = %if.end4.i59, %_ZN6icu_758Calendar16recalculateStampEv.exit.i85
-  %26 = phi i32 [ %inc26.i.i86, %_ZN6icu_758Calendar16recalculateStampEv.exit.i85 ], [ %21, %if.end4.i59 ]
-  %inc.i63 = add nsw i32 %26, 1
-  store i32 %inc.i63, ptr %fNextStamp.i, align 4
-  %arrayidx10.i64 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 3
-  store i32 %26, ptr %arrayidx10.i64, align 8
-  %arrayidx12.i65 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 3
-  store i8 1, ptr %arrayidx12.i65, align 1
+_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit103: ; preds = %if.end4.i63, %_ZN6icu_758Calendar16recalculateStampEv.exit.i93
+  %26 = phi i32 [ %inc26.i.i94, %_ZN6icu_758Calendar16recalculateStampEv.exit.i93 ], [ %21, %if.end4.i63 ]
+  %inc.i68 = add nsw i32 %26, 1
+  store i32 %inc.i68, ptr %fNextStamp.i, align 4
+  %arrayidx10.i70 = getelementptr inbounds i8, ptr %this, i64 144
+  store i32 %26, ptr %arrayidx10.i70, align 8
+  %arrayidx12.i72 = getelementptr inbounds i8, ptr %this, i64 111
+  store i8 1, ptr %arrayidx12.i72, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   store i8 0, ptr %fAreFieldsSet.i, align 1
   store i8 0, ptr %fIsTimeSet.i, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i53)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i57)
   br label %sw.bb10
 
-sw.bb10:                                          ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit95, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
+sw.bb10:                                          ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit103, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
   %vtable11 = load ptr, ptr %this, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 18
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 144
   %27 = load ptr, ptr %vfn12, align 8
   %call13 = call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i96)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i104)
   %28 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
-  %tobool.not.i98 = icmp eq i8 %28, 0
-  br i1 %tobool.not.i98, label %if.end4.i102, label %if.then3.i99
+  %tobool.not.i106 = icmp eq i8 %28, 0
+  br i1 %tobool.not.i106, label %if.end4.i110, label %if.then3.i107
 
-if.then3.i99:                                     ; preds = %sw.bb10
-  store i32 0, ptr %ec.i96, align 4
-  %vtable.i100 = load ptr, ptr %this, align 8
-  %vfn.i101 = getelementptr inbounds ptr, ptr %vtable.i100, i64 32
-  %29 = load ptr, ptr %vfn.i101, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i96)
-  br label %if.end4.i102
+if.then3.i107:                                    ; preds = %sw.bb10
+  store i32 0, ptr %ec.i104, align 4
+  %vtable.i108 = load ptr, ptr %this, align 8
+  %vfn.i109 = getelementptr inbounds i8, ptr %vtable.i108, i64 256
+  %29 = load ptr, ptr %vfn.i109, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i104)
+  br label %if.end4.i110
 
-if.end4.i102:                                     ; preds = %if.then3.i99, %sw.bb10
-  %arrayidx.i103 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  store i32 %call13, ptr %arrayidx.i103, align 8
+if.end4.i110:                                     ; preds = %if.then3.i107, %sw.bb10
+  %arrayidx.i112 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 %call13, ptr %arrayidx.i112, align 8
   %30 = load i32, ptr %fNextStamp.i, align 4
-  %cmp5.i105 = icmp eq i32 %30, 10000
-  br i1 %cmp5.i105, label %if.then6.i111, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit138
+  %cmp5.i114 = icmp eq i32 %30, 10000
+  br i1 %cmp5.i114, label %if.then6.i122, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit150
 
-if.then6.i111:                                    ; preds = %if.end4.i102
+if.then6.i122:                                    ; preds = %if.end4.i110
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i112
+  br label %for.cond2.preheader.i.i124
 
-for.cond2.preheader.i.i112:                       ; preds = %if.then15.i.i130, %if.then6.i111
-  %j.011.i.i113 = phi i32 [ 0, %if.then6.i111 ], [ %inc23.i.i134, %if.then15.i.i130 ]
+for.cond2.preheader.i.i124:                       ; preds = %if.then15.i.i142, %if.then6.i122
+  %j.011.i.i125 = phi i32 [ 0, %if.then6.i122 ], [ %inc23.i.i146, %if.then15.i.i142 ]
   %31 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i114
+  br label %for.body4.i.i126
 
-for.body4.i.i114:                                 ; preds = %for.body4.i.i114, %for.cond2.preheader.i.i112
-  %indvars.iv.i.i115 = phi i64 [ 0, %for.cond2.preheader.i.i112 ], [ %indvars.iv.next.i.i124, %for.body4.i.i114 ]
-  %currentValue.09.i.i116 = phi i32 [ 10000, %for.cond2.preheader.i.i112 ], [ %currentValue.1.i.i123, %for.body4.i.i114 ]
-  %index.08.i.i117 = phi i32 [ -1, %for.cond2.preheader.i.i112 ], [ %index.1.i.i122, %for.body4.i.i114 ]
-  %arrayidx.i.i118 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i115
-  %32 = load i32, ptr %arrayidx.i.i118, align 4
-  %cmp6.i.i119 = icmp sgt i32 %32, %31
-  %cmp10.i.i120 = icmp slt i32 %32, %currentValue.09.i.i116
-  %or.cond.i.i121 = select i1 %cmp6.i.i119, i1 %cmp10.i.i120, i1 false
-  %33 = trunc i64 %indvars.iv.i.i115 to i32
-  %index.1.i.i122 = select i1 %or.cond.i.i121, i32 %33, i32 %index.08.i.i117
-  %currentValue.1.i.i123 = select i1 %or.cond.i.i121, i32 %32, i32 %currentValue.09.i.i116
-  %indvars.iv.next.i.i124 = add nuw nsw i64 %indvars.iv.i.i115, 1
-  %exitcond.not.i.i125 = icmp eq i64 %indvars.iv.next.i.i124, 24
-  br i1 %exitcond.not.i.i125, label %for.end.i.i126, label %for.body4.i.i114, !llvm.loop !8
+for.body4.i.i126:                                 ; preds = %for.body4.i.i126, %for.cond2.preheader.i.i124
+  %indvars.iv.i.i127 = phi i64 [ 0, %for.cond2.preheader.i.i124 ], [ %indvars.iv.next.i.i136, %for.body4.i.i126 ]
+  %currentValue.09.i.i128 = phi i32 [ 10000, %for.cond2.preheader.i.i124 ], [ %currentValue.1.i.i135, %for.body4.i.i126 ]
+  %index.08.i.i129 = phi i32 [ -1, %for.cond2.preheader.i.i124 ], [ %index.1.i.i134, %for.body4.i.i126 ]
+  %arrayidx.i.i130 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i127
+  %32 = load i32, ptr %arrayidx.i.i130, align 4
+  %cmp6.i.i131 = icmp sgt i32 %32, %31
+  %cmp10.i.i132 = icmp slt i32 %32, %currentValue.09.i.i128
+  %or.cond.i.i133 = select i1 %cmp6.i.i131, i1 %cmp10.i.i132, i1 false
+  %33 = trunc i64 %indvars.iv.i.i127 to i32
+  %index.1.i.i134 = select i1 %or.cond.i.i133, i32 %33, i32 %index.08.i.i129
+  %currentValue.1.i.i135 = select i1 %or.cond.i.i133, i32 %32, i32 %currentValue.09.i.i128
+  %indvars.iv.next.i.i136 = add nuw nsw i64 %indvars.iv.i.i127, 1
+  %exitcond.not.i.i137 = icmp eq i64 %indvars.iv.next.i.i136, 24
+  br i1 %exitcond.not.i.i137, label %for.end.i.i138, label %for.body4.i.i126, !llvm.loop !8
 
-for.end.i.i126:                                   ; preds = %for.body4.i.i114
-  %cmp14.i.i127 = icmp sgt i32 %index.1.i.i122, -1
-  br i1 %cmp14.i.i127, label %if.then15.i.i130, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i128
+for.end.i.i138:                                   ; preds = %for.body4.i.i126
+  %cmp14.i.i139 = icmp sgt i32 %index.1.i.i134, -1
+  br i1 %cmp14.i.i139, label %if.then15.i.i142, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i140
 
-if.then15.i.i130:                                 ; preds = %for.end.i.i126
-  %inc17.i.i131 = add nsw i32 %31, 1
-  store i32 %inc17.i.i131, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i132 = zext nneg i32 %index.1.i.i122 to i64
-  %arrayidx20.i.i133 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i132
-  store i32 %inc17.i.i131, ptr %arrayidx20.i.i133, align 4
-  %inc23.i.i134 = add nuw nsw i32 %j.011.i.i113, 1
-  %exitcond13.not.i.i135 = icmp eq i32 %inc23.i.i134, 24
-  br i1 %exitcond13.not.i.i135, label %if.then15.for.end24_crit_edge.i.i136, label %for.cond2.preheader.i.i112, !llvm.loop !9
+if.then15.i.i142:                                 ; preds = %for.end.i.i138
+  %inc17.i.i143 = add nsw i32 %31, 1
+  store i32 %inc17.i.i143, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i144 = zext nneg i32 %index.1.i.i134 to i64
+  %arrayidx20.i.i145 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i144
+  store i32 %inc17.i.i143, ptr %arrayidx20.i.i145, align 4
+  %inc23.i.i146 = add nuw nsw i32 %j.011.i.i125, 1
+  %exitcond13.not.i.i147 = icmp eq i32 %inc23.i.i146, 24
+  br i1 %exitcond13.not.i.i147, label %if.then15.for.end24_crit_edge.i.i148, label %for.cond2.preheader.i.i124, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i136:             ; preds = %if.then15.i.i130
-  %.pre.i.i137 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i128
+if.then15.for.end24_crit_edge.i.i148:             ; preds = %if.then15.i.i142
+  %.pre.i.i149 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i140
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i128: ; preds = %for.end.i.i126, %if.then15.for.end24_crit_edge.i.i136
-  %34 = phi i32 [ %.pre.i.i137, %if.then15.for.end24_crit_edge.i.i136 ], [ %31, %for.end.i.i126 ]
-  %inc26.i.i129 = add nsw i32 %34, 1
-  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit138
+_ZN6icu_758Calendar16recalculateStampEv.exit.i140: ; preds = %for.end.i.i138, %if.then15.for.end24_crit_edge.i.i148
+  %34 = phi i32 [ %.pre.i.i149, %if.then15.for.end24_crit_edge.i.i148 ], [ %31, %for.end.i.i138 ]
+  %inc26.i.i141 = add nsw i32 %34, 1
+  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit150
 
-_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit138: ; preds = %if.end4.i102, %_ZN6icu_758Calendar16recalculateStampEv.exit.i128
-  %35 = phi i32 [ %inc26.i.i129, %_ZN6icu_758Calendar16recalculateStampEv.exit.i128 ], [ %30, %if.end4.i102 ]
-  %inc.i106 = add nsw i32 %35, 1
-  store i32 %inc.i106, ptr %fNextStamp.i, align 4
-  %arrayidx10.i107 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 5
-  store i32 %35, ptr %arrayidx10.i107, align 8
-  %arrayidx12.i108 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 5
-  store i8 1, ptr %arrayidx12.i108, align 1
+_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit150: ; preds = %if.end4.i110, %_ZN6icu_758Calendar16recalculateStampEv.exit.i140
+  %35 = phi i32 [ %inc26.i.i141, %_ZN6icu_758Calendar16recalculateStampEv.exit.i140 ], [ %30, %if.end4.i110 ]
+  %inc.i115 = add nsw i32 %35, 1
+  store i32 %inc.i115, ptr %fNextStamp.i, align 4
+  %arrayidx10.i117 = getelementptr inbounds i8, ptr %this, i64 152
+  store i32 %35, ptr %arrayidx10.i117, align 8
+  %arrayidx12.i119 = getelementptr inbounds i8, ptr %this, i64 113
+  store i8 1, ptr %arrayidx12.i119, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   store i8 0, ptr %fAreFieldsSet.i, align 1
   store i8 0, ptr %fIsTimeSet.i, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i96)
-  br label %if.end.i273
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i104)
+  br label %if.end.i298
 
-if.end4.i145:                                     ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
-  %arrayidx.i146 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  store i32 1, ptr %arrayidx.i146, align 8
-  %cmp5.i148 = icmp eq i32 %inc.i, 10000
-  br i1 %cmp5.i148, label %if.then6.i154, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit181
+if.end4.i157:                                     ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
+  %arrayidx.i159 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 1, ptr %arrayidx.i159, align 8
+  %cmp5.i161 = icmp eq i32 %inc.i, 10000
+  br i1 %cmp5.i161, label %if.then6.i169, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit197
 
-if.then6.i154:                                    ; preds = %if.end4.i145
+if.then6.i169:                                    ; preds = %if.end4.i157
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i155
+  br label %for.cond2.preheader.i.i171
 
-for.cond2.preheader.i.i155:                       ; preds = %if.then15.i.i173, %if.then6.i154
-  %j.011.i.i156 = phi i32 [ 0, %if.then6.i154 ], [ %inc23.i.i177, %if.then15.i.i173 ]
+for.cond2.preheader.i.i171:                       ; preds = %if.then15.i.i189, %if.then6.i169
+  %j.011.i.i172 = phi i32 [ 0, %if.then6.i169 ], [ %inc23.i.i193, %if.then15.i.i189 ]
   %36 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i157
+  br label %for.body4.i.i173
 
-for.body4.i.i157:                                 ; preds = %for.body4.i.i157, %for.cond2.preheader.i.i155
-  %indvars.iv.i.i158 = phi i64 [ 0, %for.cond2.preheader.i.i155 ], [ %indvars.iv.next.i.i167, %for.body4.i.i157 ]
-  %currentValue.09.i.i159 = phi i32 [ 10000, %for.cond2.preheader.i.i155 ], [ %currentValue.1.i.i166, %for.body4.i.i157 ]
-  %index.08.i.i160 = phi i32 [ -1, %for.cond2.preheader.i.i155 ], [ %index.1.i.i165, %for.body4.i.i157 ]
-  %arrayidx.i.i161 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i158
-  %37 = load i32, ptr %arrayidx.i.i161, align 4
-  %cmp6.i.i162 = icmp sgt i32 %37, %36
-  %cmp10.i.i163 = icmp slt i32 %37, %currentValue.09.i.i159
-  %or.cond.i.i164 = select i1 %cmp6.i.i162, i1 %cmp10.i.i163, i1 false
-  %38 = trunc i64 %indvars.iv.i.i158 to i32
-  %index.1.i.i165 = select i1 %or.cond.i.i164, i32 %38, i32 %index.08.i.i160
-  %currentValue.1.i.i166 = select i1 %or.cond.i.i164, i32 %37, i32 %currentValue.09.i.i159
-  %indvars.iv.next.i.i167 = add nuw nsw i64 %indvars.iv.i.i158, 1
-  %exitcond.not.i.i168 = icmp eq i64 %indvars.iv.next.i.i167, 24
-  br i1 %exitcond.not.i.i168, label %for.end.i.i169, label %for.body4.i.i157, !llvm.loop !8
+for.body4.i.i173:                                 ; preds = %for.body4.i.i173, %for.cond2.preheader.i.i171
+  %indvars.iv.i.i174 = phi i64 [ 0, %for.cond2.preheader.i.i171 ], [ %indvars.iv.next.i.i183, %for.body4.i.i173 ]
+  %currentValue.09.i.i175 = phi i32 [ 10000, %for.cond2.preheader.i.i171 ], [ %currentValue.1.i.i182, %for.body4.i.i173 ]
+  %index.08.i.i176 = phi i32 [ -1, %for.cond2.preheader.i.i171 ], [ %index.1.i.i181, %for.body4.i.i173 ]
+  %arrayidx.i.i177 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i174
+  %37 = load i32, ptr %arrayidx.i.i177, align 4
+  %cmp6.i.i178 = icmp sgt i32 %37, %36
+  %cmp10.i.i179 = icmp slt i32 %37, %currentValue.09.i.i175
+  %or.cond.i.i180 = select i1 %cmp6.i.i178, i1 %cmp10.i.i179, i1 false
+  %38 = trunc i64 %indvars.iv.i.i174 to i32
+  %index.1.i.i181 = select i1 %or.cond.i.i180, i32 %38, i32 %index.08.i.i176
+  %currentValue.1.i.i182 = select i1 %or.cond.i.i180, i32 %37, i32 %currentValue.09.i.i175
+  %indvars.iv.next.i.i183 = add nuw nsw i64 %indvars.iv.i.i174, 1
+  %exitcond.not.i.i184 = icmp eq i64 %indvars.iv.next.i.i183, 24
+  br i1 %exitcond.not.i.i184, label %for.end.i.i185, label %for.body4.i.i173, !llvm.loop !8
 
-for.end.i.i169:                                   ; preds = %for.body4.i.i157
-  %cmp14.i.i170 = icmp sgt i32 %index.1.i.i165, -1
-  br i1 %cmp14.i.i170, label %if.then15.i.i173, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i171
+for.end.i.i185:                                   ; preds = %for.body4.i.i173
+  %cmp14.i.i186 = icmp sgt i32 %index.1.i.i181, -1
+  br i1 %cmp14.i.i186, label %if.then15.i.i189, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i187
 
-if.then15.i.i173:                                 ; preds = %for.end.i.i169
-  %inc17.i.i174 = add nsw i32 %36, 1
-  store i32 %inc17.i.i174, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i175 = zext nneg i32 %index.1.i.i165 to i64
-  %arrayidx20.i.i176 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i175
-  store i32 %inc17.i.i174, ptr %arrayidx20.i.i176, align 4
-  %inc23.i.i177 = add nuw nsw i32 %j.011.i.i156, 1
-  %exitcond13.not.i.i178 = icmp eq i32 %inc23.i.i177, 24
-  br i1 %exitcond13.not.i.i178, label %if.then15.for.end24_crit_edge.i.i179, label %for.cond2.preheader.i.i155, !llvm.loop !9
+if.then15.i.i189:                                 ; preds = %for.end.i.i185
+  %inc17.i.i190 = add nsw i32 %36, 1
+  store i32 %inc17.i.i190, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i191 = zext nneg i32 %index.1.i.i181 to i64
+  %arrayidx20.i.i192 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i191
+  store i32 %inc17.i.i190, ptr %arrayidx20.i.i192, align 4
+  %inc23.i.i193 = add nuw nsw i32 %j.011.i.i172, 1
+  %exitcond13.not.i.i194 = icmp eq i32 %inc23.i.i193, 24
+  br i1 %exitcond13.not.i.i194, label %if.then15.for.end24_crit_edge.i.i195, label %for.cond2.preheader.i.i171, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i179:             ; preds = %if.then15.i.i173
-  %.pre.i.i180 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i171
+if.then15.for.end24_crit_edge.i.i195:             ; preds = %if.then15.i.i189
+  %.pre.i.i196 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i187
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i171: ; preds = %for.end.i.i169, %if.then15.for.end24_crit_edge.i.i179
-  %39 = phi i32 [ %.pre.i.i180, %if.then15.for.end24_crit_edge.i.i179 ], [ %36, %for.end.i.i169 ]
-  %inc26.i.i172 = add nsw i32 %39, 1
-  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit181
+_ZN6icu_758Calendar16recalculateStampEv.exit.i187: ; preds = %for.end.i.i185, %if.then15.for.end24_crit_edge.i.i195
+  %39 = phi i32 [ %.pre.i.i196, %if.then15.for.end24_crit_edge.i.i195 ], [ %36, %for.end.i.i185 ]
+  %inc26.i.i188 = add nsw i32 %39, 1
+  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit197
 
-_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit181: ; preds = %if.end4.i145, %_ZN6icu_758Calendar16recalculateStampEv.exit.i171
-  %40 = phi i32 [ %inc26.i.i172, %_ZN6icu_758Calendar16recalculateStampEv.exit.i171 ], [ %inc.i, %if.end4.i145 ]
-  %inc.i149 = add nsw i32 %40, 1
-  store i32 %inc.i149, ptr %fNextStamp.i, align 4
-  %arrayidx10.i150 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 5
-  store i32 %40, ptr %arrayidx10.i150, align 8
-  %arrayidx12.i151 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 5
-  store i8 1, ptr %arrayidx12.i151, align 1
+_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit197: ; preds = %if.end4.i157, %_ZN6icu_758Calendar16recalculateStampEv.exit.i187
+  %40 = phi i32 [ %inc26.i.i188, %_ZN6icu_758Calendar16recalculateStampEv.exit.i187 ], [ %inc.i, %if.end4.i157 ]
+  %inc.i162 = add nsw i32 %40, 1
+  store i32 %inc.i162, ptr %fNextStamp.i, align 4
+  %arrayidx10.i164 = getelementptr inbounds i8, ptr %this, i64 152
+  store i32 %40, ptr %arrayidx10.i164, align 8
+  %arrayidx12.i166 = getelementptr inbounds i8, ptr %this, i64 113
+  store i8 1, ptr %arrayidx12.i166, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   store i8 0, ptr %fAreFieldsSet.i, align 1
   store i8 0, ptr %fIsTimeSet.i, align 8
   %41 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %41, 1
-  br i1 %cmp.i.i, label %if.then3.i.i, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread349
+  br i1 %cmp.i.i, label %if.then3.i.i, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread378
 
-_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread349: ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit181
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i184)
-  br label %if.end4.i191
+_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread378: ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit197
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i201)
+  br label %if.end4.i208
 
-if.then3.i.i:                                     ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit181
+if.then3.i.i:                                     ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit197
   %vtable.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 31
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 248
   %42 = load ptr, ptr %vfn.i.i.i, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %43 = load i32, ptr %status, align 4
@@ -11510,10 +11583,10 @@ if.then3.i.i:                                     ; preds = %_ZN6icu_758Calendar
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
 if.end.i.i.i:                                     ; preds = %if.then3.i.i
-  %fLenient.i.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 10
+  %fLenient.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %44 = load i8, ptr %fLenient.i.i.i.i, align 8
   %tobool3.not.i.i.i = icmp ne i8 %44, 0
-  %fAreAllFieldsSet.i.i.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 3
+  %fAreAllFieldsSet.i.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %45 = load i8, ptr %fAreAllFieldsSet.i.i.i, align 2
   %tobool4.not.i.i.i = icmp eq i8 %45, 0
   %or.cond.i.i.i = select i1 %tobool3.not.i.i.i, i1 true, i1 %tobool4.not.i.i.i
@@ -11526,13 +11599,13 @@ if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
 _ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i: ; preds = %if.then5.i.i.i, %if.end.i.i.i
   store i8 1, ptr %fIsTimeSet.i, align 8
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
-  %.pre.i.i183 = load i32, ptr %status, align 4
-  %46 = icmp slt i32 %.pre.i.i183, 1
+  %.pre.i.i200 = load i32, ptr %status, align 4
+  %46 = icmp slt i32 %.pre.i.i200, 1
   br i1 %46, label %if.end8.i.i, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread
 
 _ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread: ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i184)
-  br label %if.end4.i191
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i201)
+  br label %if.end4.i208
 
 if.end8.i.i:                                      ; preds = %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i
   %47 = load i8, ptr %fAreFieldsSet.i, align 1
@@ -11541,7 +11614,7 @@ if.end8.i.i:                                      ; preds = %_ZN6icu_758Calendar
 
 if.then10.i.i:                                    ; preds = %if.end8.i.i
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 32
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 256
   %48 = load ptr, ptr %vfn.i.i, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %49 = load i32, ptr %status, align 4
@@ -11556,100 +11629,100 @@ if.end8.i:                                        ; preds = %if.then10.i.i
   br i1 %cmp.i9.i, label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end8.i, %if.end8.i.i
-  %arrayidx.i182 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
-  %50 = load i32, ptr %arrayidx.i182, align 8
+  %arrayidx.i199 = getelementptr inbounds i8, ptr %this, i64 40
+  %50 = load i32, ptr %arrayidx.i199, align 8
   br label %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
 _ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %if.then3.i.i, %if.then10.i.i, %if.end8.i, %cond.true.i
   %retval.0.i.ph.ph = phi i32 [ %50, %cond.true.i ], [ 0, %if.end8.i ], [ 0, %if.then10.i.i ], [ 0, %if.then3.i.i ]
   %.pr.pr = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i184)
-  %tobool.not.i187 = icmp eq i8 %.pr.pr, 0
-  br i1 %tobool.not.i187, label %if.end4.i191, label %if.then3.i188
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i201)
+  %tobool.not.i204 = icmp eq i8 %.pr.pr, 0
+  br i1 %tobool.not.i204, label %if.end4.i208, label %if.then3.i205
 
-if.then3.i188:                                    ; preds = %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
-  store i32 0, ptr %ec.i184, align 4
-  %vtable.i189 = load ptr, ptr %this, align 8
-  %vfn.i190 = getelementptr inbounds ptr, ptr %vtable.i189, i64 32
-  %51 = load ptr, ptr %vfn.i190, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i184)
-  br label %if.end4.i191
+if.then3.i205:                                    ; preds = %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
+  store i32 0, ptr %ec.i201, align 4
+  %vtable.i206 = load ptr, ptr %this, align 8
+  %vfn.i207 = getelementptr inbounds i8, ptr %vtable.i206, i64 256
+  %51 = load ptr, ptr %vfn.i207, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i201)
+  br label %if.end4.i208
 
-if.end4.i191:                                     ; preds = %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread349, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread, %if.then3.i188, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
-  %retval.0.i318 = phi i32 [ 0, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread ], [ %retval.0.i.ph.ph, %if.then3.i188 ], [ %retval.0.i.ph.ph, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ 0, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread349 ]
-  %arrayidx.i192 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
-  store i32 %retval.0.i318, ptr %arrayidx.i192, align 8
+if.end4.i208:                                     ; preds = %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread378, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread, %if.then3.i205, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
+  %retval.0.i347 = phi i32 [ 0, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread ], [ %retval.0.i.ph.ph, %if.then3.i205 ], [ %retval.0.i.ph.ph, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ 0, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread378 ]
+  %arrayidx.i210 = getelementptr inbounds i8, ptr %this, i64 40
+  store i32 %retval.0.i347, ptr %arrayidx.i210, align 8
   %52 = load i32, ptr %fNextStamp.i, align 4
-  %cmp5.i194 = icmp eq i32 %52, 10000
-  br i1 %cmp5.i194, label %if.then6.i200, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit227
+  %cmp5.i212 = icmp eq i32 %52, 10000
+  br i1 %cmp5.i212, label %if.then6.i220, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit248
 
-if.then6.i200:                                    ; preds = %if.end4.i191
+if.then6.i220:                                    ; preds = %if.end4.i208
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i201
+  br label %for.cond2.preheader.i.i222
 
-for.cond2.preheader.i.i201:                       ; preds = %if.then15.i.i219, %if.then6.i200
-  %j.011.i.i202 = phi i32 [ 0, %if.then6.i200 ], [ %inc23.i.i223, %if.then15.i.i219 ]
+for.cond2.preheader.i.i222:                       ; preds = %if.then15.i.i240, %if.then6.i220
+  %j.011.i.i223 = phi i32 [ 0, %if.then6.i220 ], [ %inc23.i.i244, %if.then15.i.i240 ]
   %53 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i203
+  br label %for.body4.i.i224
 
-for.body4.i.i203:                                 ; preds = %for.body4.i.i203, %for.cond2.preheader.i.i201
-  %indvars.iv.i.i204 = phi i64 [ 0, %for.cond2.preheader.i.i201 ], [ %indvars.iv.next.i.i213, %for.body4.i.i203 ]
-  %currentValue.09.i.i205 = phi i32 [ 10000, %for.cond2.preheader.i.i201 ], [ %currentValue.1.i.i212, %for.body4.i.i203 ]
-  %index.08.i.i206 = phi i32 [ -1, %for.cond2.preheader.i.i201 ], [ %index.1.i.i211, %for.body4.i.i203 ]
-  %arrayidx.i.i207 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i204
-  %54 = load i32, ptr %arrayidx.i.i207, align 4
-  %cmp6.i.i208 = icmp sgt i32 %54, %53
-  %cmp10.i.i209 = icmp slt i32 %54, %currentValue.09.i.i205
-  %or.cond.i.i210 = select i1 %cmp6.i.i208, i1 %cmp10.i.i209, i1 false
-  %55 = trunc i64 %indvars.iv.i.i204 to i32
-  %index.1.i.i211 = select i1 %or.cond.i.i210, i32 %55, i32 %index.08.i.i206
-  %currentValue.1.i.i212 = select i1 %or.cond.i.i210, i32 %54, i32 %currentValue.09.i.i205
-  %indvars.iv.next.i.i213 = add nuw nsw i64 %indvars.iv.i.i204, 1
-  %exitcond.not.i.i214 = icmp eq i64 %indvars.iv.next.i.i213, 24
-  br i1 %exitcond.not.i.i214, label %for.end.i.i215, label %for.body4.i.i203, !llvm.loop !8
+for.body4.i.i224:                                 ; preds = %for.body4.i.i224, %for.cond2.preheader.i.i222
+  %indvars.iv.i.i225 = phi i64 [ 0, %for.cond2.preheader.i.i222 ], [ %indvars.iv.next.i.i234, %for.body4.i.i224 ]
+  %currentValue.09.i.i226 = phi i32 [ 10000, %for.cond2.preheader.i.i222 ], [ %currentValue.1.i.i233, %for.body4.i.i224 ]
+  %index.08.i.i227 = phi i32 [ -1, %for.cond2.preheader.i.i222 ], [ %index.1.i.i232, %for.body4.i.i224 ]
+  %arrayidx.i.i228 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i225
+  %54 = load i32, ptr %arrayidx.i.i228, align 4
+  %cmp6.i.i229 = icmp sgt i32 %54, %53
+  %cmp10.i.i230 = icmp slt i32 %54, %currentValue.09.i.i226
+  %or.cond.i.i231 = select i1 %cmp6.i.i229, i1 %cmp10.i.i230, i1 false
+  %55 = trunc i64 %indvars.iv.i.i225 to i32
+  %index.1.i.i232 = select i1 %or.cond.i.i231, i32 %55, i32 %index.08.i.i227
+  %currentValue.1.i.i233 = select i1 %or.cond.i.i231, i32 %54, i32 %currentValue.09.i.i226
+  %indvars.iv.next.i.i234 = add nuw nsw i64 %indvars.iv.i.i225, 1
+  %exitcond.not.i.i235 = icmp eq i64 %indvars.iv.next.i.i234, 24
+  br i1 %exitcond.not.i.i235, label %for.end.i.i236, label %for.body4.i.i224, !llvm.loop !8
 
-for.end.i.i215:                                   ; preds = %for.body4.i.i203
-  %cmp14.i.i216 = icmp sgt i32 %index.1.i.i211, -1
-  br i1 %cmp14.i.i216, label %if.then15.i.i219, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i217
+for.end.i.i236:                                   ; preds = %for.body4.i.i224
+  %cmp14.i.i237 = icmp sgt i32 %index.1.i.i232, -1
+  br i1 %cmp14.i.i237, label %if.then15.i.i240, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i238
 
-if.then15.i.i219:                                 ; preds = %for.end.i.i215
-  %inc17.i.i220 = add nsw i32 %53, 1
-  store i32 %inc17.i.i220, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i221 = zext nneg i32 %index.1.i.i211 to i64
-  %arrayidx20.i.i222 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i221
-  store i32 %inc17.i.i220, ptr %arrayidx20.i.i222, align 4
-  %inc23.i.i223 = add nuw nsw i32 %j.011.i.i202, 1
-  %exitcond13.not.i.i224 = icmp eq i32 %inc23.i.i223, 24
-  br i1 %exitcond13.not.i.i224, label %if.then15.for.end24_crit_edge.i.i225, label %for.cond2.preheader.i.i201, !llvm.loop !9
+if.then15.i.i240:                                 ; preds = %for.end.i.i236
+  %inc17.i.i241 = add nsw i32 %53, 1
+  store i32 %inc17.i.i241, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i242 = zext nneg i32 %index.1.i.i232 to i64
+  %arrayidx20.i.i243 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i242
+  store i32 %inc17.i.i241, ptr %arrayidx20.i.i243, align 4
+  %inc23.i.i244 = add nuw nsw i32 %j.011.i.i223, 1
+  %exitcond13.not.i.i245 = icmp eq i32 %inc23.i.i244, 24
+  br i1 %exitcond13.not.i.i245, label %if.then15.for.end24_crit_edge.i.i246, label %for.cond2.preheader.i.i222, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i225:             ; preds = %if.then15.i.i219
-  %.pre.i.i226 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i217
+if.then15.for.end24_crit_edge.i.i246:             ; preds = %if.then15.i.i240
+  %.pre.i.i247 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i238
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i217: ; preds = %for.end.i.i215, %if.then15.for.end24_crit_edge.i.i225
-  %56 = phi i32 [ %.pre.i.i226, %if.then15.for.end24_crit_edge.i.i225 ], [ %53, %for.end.i.i215 ]
-  %inc26.i.i218 = add nsw i32 %56, 1
-  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit227
+_ZN6icu_758Calendar16recalculateStampEv.exit.i238: ; preds = %for.end.i.i236, %if.then15.for.end24_crit_edge.i.i246
+  %56 = phi i32 [ %.pre.i.i247, %if.then15.for.end24_crit_edge.i.i246 ], [ %53, %for.end.i.i236 ]
+  %inc26.i.i239 = add nsw i32 %56, 1
+  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit248
 
-_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit227: ; preds = %if.end4.i191, %_ZN6icu_758Calendar16recalculateStampEv.exit.i217
-  %57 = phi i32 [ %inc26.i.i218, %_ZN6icu_758Calendar16recalculateStampEv.exit.i217 ], [ %52, %if.end4.i191 ]
-  %inc.i195 = add nsw i32 %57, 1
-  store i32 %inc.i195, ptr %fNextStamp.i, align 4
-  %arrayidx10.i196 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 7
-  store i32 %57, ptr %arrayidx10.i196, align 8
-  %arrayidx12.i197 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 7
-  store i8 1, ptr %arrayidx12.i197, align 1
+_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit248: ; preds = %if.end4.i208, %_ZN6icu_758Calendar16recalculateStampEv.exit.i238
+  %57 = phi i32 [ %inc26.i.i239, %_ZN6icu_758Calendar16recalculateStampEv.exit.i238 ], [ %52, %if.end4.i208 ]
+  %inc.i213 = add nsw i32 %57, 1
+  store i32 %inc.i213, ptr %fNextStamp.i, align 4
+  %arrayidx10.i215 = getelementptr inbounds i8, ptr %this, i64 160
+  store i32 %57, ptr %arrayidx10.i215, align 8
+  %arrayidx12.i217 = getelementptr inbounds i8, ptr %this, i64 115
+  store i8 1, ptr %arrayidx12.i217, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   store i8 0, ptr %fAreFieldsSet.i, align 1
   store i8 0, ptr %fIsTimeSet.i, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i184)
-  br label %if.end.i273
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i201)
+  br label %if.end.i298
 
 sw.bb16:                                          ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
-  %fFirstDayOfWeek = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 15
+  %fFirstDayOfWeek = getelementptr inbounds i8, ptr %this, i64 264
   %58 = load i32, ptr %fFirstDayOfWeek, align 8
   %tobool17.not = icmp eq i8 %isMinimum, 0
-  br i1 %tobool17.not, label %if.end4.i235, label %if.then18
+  br i1 %tobool17.not, label %if.end4.i256, label %if.then18
 
 if.then18:                                        ; preds = %sw.bb16
   %add = add nsw i32 %58, 6
@@ -11657,165 +11730,165 @@ if.then18:                                        ; preds = %sw.bb16
   %cmp19 = icmp slt i32 %rem, 1
   %add21 = add nsw i32 %rem, 7
   %spec.select = select i1 %cmp19, i32 %add21, i32 %rem
-  br label %if.end4.i235
+  br label %if.end4.i256
 
-if.end4.i235:                                     ; preds = %sw.bb16, %if.then18
+if.end4.i256:                                     ; preds = %sw.bb16, %if.then18
   %dow.0 = phi i32 [ %58, %sw.bb16 ], [ %spec.select, %if.then18 ]
-  %arrayidx.i236 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 7
-  store i32 %dow.0, ptr %arrayidx.i236, align 8
-  %cmp5.i238 = icmp eq i32 %inc.i, 10000
-  br i1 %cmp5.i238, label %if.then6.i244, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit271
+  %arrayidx.i258 = getelementptr inbounds i8, ptr %this, i64 40
+  store i32 %dow.0, ptr %arrayidx.i258, align 8
+  %cmp5.i260 = icmp eq i32 %inc.i, 10000
+  br i1 %cmp5.i260, label %if.then6.i268, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit296
 
-if.then6.i244:                                    ; preds = %if.end4.i235
+if.then6.i268:                                    ; preds = %if.end4.i256
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i245
+  br label %for.cond2.preheader.i.i270
 
-for.cond2.preheader.i.i245:                       ; preds = %if.then15.i.i263, %if.then6.i244
-  %j.011.i.i246 = phi i32 [ 0, %if.then6.i244 ], [ %inc23.i.i267, %if.then15.i.i263 ]
+for.cond2.preheader.i.i270:                       ; preds = %if.then15.i.i288, %if.then6.i268
+  %j.011.i.i271 = phi i32 [ 0, %if.then6.i268 ], [ %inc23.i.i292, %if.then15.i.i288 ]
   %59 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i247
+  br label %for.body4.i.i272
 
-for.body4.i.i247:                                 ; preds = %for.body4.i.i247, %for.cond2.preheader.i.i245
-  %indvars.iv.i.i248 = phi i64 [ 0, %for.cond2.preheader.i.i245 ], [ %indvars.iv.next.i.i257, %for.body4.i.i247 ]
-  %currentValue.09.i.i249 = phi i32 [ 10000, %for.cond2.preheader.i.i245 ], [ %currentValue.1.i.i256, %for.body4.i.i247 ]
-  %index.08.i.i250 = phi i32 [ -1, %for.cond2.preheader.i.i245 ], [ %index.1.i.i255, %for.body4.i.i247 ]
-  %arrayidx.i.i251 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i248
-  %60 = load i32, ptr %arrayidx.i.i251, align 4
-  %cmp6.i.i252 = icmp sgt i32 %60, %59
-  %cmp10.i.i253 = icmp slt i32 %60, %currentValue.09.i.i249
-  %or.cond.i.i254 = select i1 %cmp6.i.i252, i1 %cmp10.i.i253, i1 false
-  %61 = trunc i64 %indvars.iv.i.i248 to i32
-  %index.1.i.i255 = select i1 %or.cond.i.i254, i32 %61, i32 %index.08.i.i250
-  %currentValue.1.i.i256 = select i1 %or.cond.i.i254, i32 %60, i32 %currentValue.09.i.i249
-  %indvars.iv.next.i.i257 = add nuw nsw i64 %indvars.iv.i.i248, 1
-  %exitcond.not.i.i258 = icmp eq i64 %indvars.iv.next.i.i257, 24
-  br i1 %exitcond.not.i.i258, label %for.end.i.i259, label %for.body4.i.i247, !llvm.loop !8
+for.body4.i.i272:                                 ; preds = %for.body4.i.i272, %for.cond2.preheader.i.i270
+  %indvars.iv.i.i273 = phi i64 [ 0, %for.cond2.preheader.i.i270 ], [ %indvars.iv.next.i.i282, %for.body4.i.i272 ]
+  %currentValue.09.i.i274 = phi i32 [ 10000, %for.cond2.preheader.i.i270 ], [ %currentValue.1.i.i281, %for.body4.i.i272 ]
+  %index.08.i.i275 = phi i32 [ -1, %for.cond2.preheader.i.i270 ], [ %index.1.i.i280, %for.body4.i.i272 ]
+  %arrayidx.i.i276 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i273
+  %60 = load i32, ptr %arrayidx.i.i276, align 4
+  %cmp6.i.i277 = icmp sgt i32 %60, %59
+  %cmp10.i.i278 = icmp slt i32 %60, %currentValue.09.i.i274
+  %or.cond.i.i279 = select i1 %cmp6.i.i277, i1 %cmp10.i.i278, i1 false
+  %61 = trunc i64 %indvars.iv.i.i273 to i32
+  %index.1.i.i280 = select i1 %or.cond.i.i279, i32 %61, i32 %index.08.i.i275
+  %currentValue.1.i.i281 = select i1 %or.cond.i.i279, i32 %60, i32 %currentValue.09.i.i274
+  %indvars.iv.next.i.i282 = add nuw nsw i64 %indvars.iv.i.i273, 1
+  %exitcond.not.i.i283 = icmp eq i64 %indvars.iv.next.i.i282, 24
+  br i1 %exitcond.not.i.i283, label %for.end.i.i284, label %for.body4.i.i272, !llvm.loop !8
 
-for.end.i.i259:                                   ; preds = %for.body4.i.i247
-  %cmp14.i.i260 = icmp sgt i32 %index.1.i.i255, -1
-  br i1 %cmp14.i.i260, label %if.then15.i.i263, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i261
+for.end.i.i284:                                   ; preds = %for.body4.i.i272
+  %cmp14.i.i285 = icmp sgt i32 %index.1.i.i280, -1
+  br i1 %cmp14.i.i285, label %if.then15.i.i288, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i286
 
-if.then15.i.i263:                                 ; preds = %for.end.i.i259
-  %inc17.i.i264 = add nsw i32 %59, 1
-  store i32 %inc17.i.i264, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i265 = zext nneg i32 %index.1.i.i255 to i64
-  %arrayidx20.i.i266 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i265
-  store i32 %inc17.i.i264, ptr %arrayidx20.i.i266, align 4
-  %inc23.i.i267 = add nuw nsw i32 %j.011.i.i246, 1
-  %exitcond13.not.i.i268 = icmp eq i32 %inc23.i.i267, 24
-  br i1 %exitcond13.not.i.i268, label %if.then15.for.end24_crit_edge.i.i269, label %for.cond2.preheader.i.i245, !llvm.loop !9
+if.then15.i.i288:                                 ; preds = %for.end.i.i284
+  %inc17.i.i289 = add nsw i32 %59, 1
+  store i32 %inc17.i.i289, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i290 = zext nneg i32 %index.1.i.i280 to i64
+  %arrayidx20.i.i291 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i290
+  store i32 %inc17.i.i289, ptr %arrayidx20.i.i291, align 4
+  %inc23.i.i292 = add nuw nsw i32 %j.011.i.i271, 1
+  %exitcond13.not.i.i293 = icmp eq i32 %inc23.i.i292, 24
+  br i1 %exitcond13.not.i.i293, label %if.then15.for.end24_crit_edge.i.i294, label %for.cond2.preheader.i.i270, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i269:             ; preds = %if.then15.i.i263
-  %.pre.i.i270 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i261
+if.then15.for.end24_crit_edge.i.i294:             ; preds = %if.then15.i.i288
+  %.pre.i.i295 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i286
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i261: ; preds = %for.end.i.i259, %if.then15.for.end24_crit_edge.i.i269
-  %62 = phi i32 [ %.pre.i.i270, %if.then15.for.end24_crit_edge.i.i269 ], [ %59, %for.end.i.i259 ]
-  %inc26.i.i262 = add nsw i32 %62, 1
-  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit271
+_ZN6icu_758Calendar16recalculateStampEv.exit.i286: ; preds = %for.end.i.i284, %if.then15.for.end24_crit_edge.i.i294
+  %62 = phi i32 [ %.pre.i.i295, %if.then15.for.end24_crit_edge.i.i294 ], [ %59, %for.end.i.i284 ]
+  %inc26.i.i287 = add nsw i32 %62, 1
+  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit296
 
-_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit271: ; preds = %if.end4.i235, %_ZN6icu_758Calendar16recalculateStampEv.exit.i261
-  %63 = phi i32 [ %inc26.i.i262, %_ZN6icu_758Calendar16recalculateStampEv.exit.i261 ], [ %inc.i, %if.end4.i235 ]
-  %inc.i239 = add nsw i32 %63, 1
-  store i32 %inc.i239, ptr %fNextStamp.i, align 4
-  %arrayidx10.i240 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 7
-  store i32 %63, ptr %arrayidx10.i240, align 8
-  %arrayidx12.i241 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 7
-  store i8 1, ptr %arrayidx12.i241, align 1
+_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit296: ; preds = %if.end4.i256, %_ZN6icu_758Calendar16recalculateStampEv.exit.i286
+  %63 = phi i32 [ %inc26.i.i287, %_ZN6icu_758Calendar16recalculateStampEv.exit.i286 ], [ %inc.i, %if.end4.i256 ]
+  %inc.i261 = add nsw i32 %63, 1
+  store i32 %inc.i261, ptr %fNextStamp.i, align 4
+  %arrayidx10.i263 = getelementptr inbounds i8, ptr %this, i64 160
+  store i32 %63, ptr %arrayidx10.i263, align 8
+  %arrayidx12.i265 = getelementptr inbounds i8, ptr %this, i64 115
+  store i8 1, ptr %arrayidx12.i265, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   store i8 0, ptr %fAreFieldsSet.i, align 1
   store i8 0, ptr %fIsTimeSet.i, align 8
-  br label %if.end.i273
+  br label %if.end.i298
 
-if.end.i273:                                      ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit52, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit138, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit227, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit271, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
+if.end.i298:                                      ; preds = %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit56, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit150, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit248, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit296, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit
   %vtable24 = load ptr, ptr %this, align 8
-  %vfn25 = getelementptr inbounds ptr, ptr %vtable24, i64 18
+  %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 144
   %64 = load ptr, ptr %vfn25, align 8
   %call26 = call noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i272)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i297)
   %65 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
-  %tobool.not.i275 = icmp eq i8 %65, 0
-  br i1 %tobool.not.i275, label %if.end4.i279, label %if.then3.i276
+  %tobool.not.i300 = icmp eq i8 %65, 0
+  br i1 %tobool.not.i300, label %if.end4.i304, label %if.then3.i301
 
-if.then3.i276:                                    ; preds = %if.end.i273
-  store i32 0, ptr %ec.i272, align 4
-  %vtable.i277 = load ptr, ptr %this, align 8
-  %vfn.i278 = getelementptr inbounds ptr, ptr %vtable.i277, i64 32
-  %66 = load ptr, ptr %vfn.i278, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i272)
-  br label %if.end4.i279
+if.then3.i301:                                    ; preds = %if.end.i298
+  store i32 0, ptr %ec.i297, align 4
+  %vtable.i302 = load ptr, ptr %this, align 8
+  %vfn.i303 = getelementptr inbounds i8, ptr %vtable.i302, i64 256
+  %66 = load ptr, ptr %vfn.i303, align 8
+  call void %66(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec.i297)
+  br label %if.end4.i304
 
-if.end4.i279:                                     ; preds = %if.then3.i276, %if.end.i273
+if.end4.i304:                                     ; preds = %if.then3.i301, %if.end.i298
   %idxprom.i = zext nneg i32 %field to i64
-  %arrayidx.i280 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom.i
-  store i32 %call26, ptr %arrayidx.i280, align 4
+  %arrayidx.i306 = getelementptr inbounds [24 x i32], ptr %fFields.i, i64 0, i64 %idxprom.i
+  store i32 %call26, ptr %arrayidx.i306, align 4
   %67 = load i32, ptr %fNextStamp.i, align 4
-  %cmp5.i282 = icmp eq i32 %67, 10000
-  br i1 %cmp5.i282, label %if.then6.i288, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit315
+  %cmp5.i308 = icmp eq i32 %67, 10000
+  br i1 %cmp5.i308, label %if.then6.i316, label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit344
 
-if.then6.i288:                                    ; preds = %if.end4.i279
+if.then6.i316:                                    ; preds = %if.end4.i304
   store i32 1, ptr %fNextStamp.i, align 4
-  br label %for.cond2.preheader.i.i289
+  br label %for.cond2.preheader.i.i318
 
-for.cond2.preheader.i.i289:                       ; preds = %if.then15.i.i307, %if.then6.i288
-  %j.011.i.i290 = phi i32 [ 0, %if.then6.i288 ], [ %inc23.i.i311, %if.then15.i.i307 ]
+for.cond2.preheader.i.i318:                       ; preds = %if.then15.i.i336, %if.then6.i316
+  %j.011.i.i319 = phi i32 [ 0, %if.then6.i316 ], [ %inc23.i.i340, %if.then15.i.i336 ]
   %68 = load i32, ptr %fNextStamp.i, align 4
-  br label %for.body4.i.i291
+  br label %for.body4.i.i320
 
-for.body4.i.i291:                                 ; preds = %for.body4.i.i291, %for.cond2.preheader.i.i289
-  %indvars.iv.i.i292 = phi i64 [ 0, %for.cond2.preheader.i.i289 ], [ %indvars.iv.next.i.i301, %for.body4.i.i291 ]
-  %currentValue.09.i.i293 = phi i32 [ 10000, %for.cond2.preheader.i.i289 ], [ %currentValue.1.i.i300, %for.body4.i.i291 ]
-  %index.08.i.i294 = phi i32 [ -1, %for.cond2.preheader.i.i289 ], [ %index.1.i.i299, %for.body4.i.i291 ]
-  %arrayidx.i.i295 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %indvars.iv.i.i292
-  %69 = load i32, ptr %arrayidx.i.i295, align 4
-  %cmp6.i.i296 = icmp sgt i32 %69, %68
-  %cmp10.i.i297 = icmp slt i32 %69, %currentValue.09.i.i293
-  %or.cond.i.i298 = select i1 %cmp6.i.i296, i1 %cmp10.i.i297, i1 false
-  %70 = trunc i64 %indvars.iv.i.i292 to i32
-  %index.1.i.i299 = select i1 %or.cond.i.i298, i32 %70, i32 %index.08.i.i294
-  %currentValue.1.i.i300 = select i1 %or.cond.i.i298, i32 %69, i32 %currentValue.09.i.i293
-  %indvars.iv.next.i.i301 = add nuw nsw i64 %indvars.iv.i.i292, 1
-  %exitcond.not.i.i302 = icmp eq i64 %indvars.iv.next.i.i301, 24
-  br i1 %exitcond.not.i.i302, label %for.end.i.i303, label %for.body4.i.i291, !llvm.loop !8
+for.body4.i.i320:                                 ; preds = %for.body4.i.i320, %for.cond2.preheader.i.i318
+  %indvars.iv.i.i321 = phi i64 [ 0, %for.cond2.preheader.i.i318 ], [ %indvars.iv.next.i.i330, %for.body4.i.i320 ]
+  %currentValue.09.i.i322 = phi i32 [ 10000, %for.cond2.preheader.i.i318 ], [ %currentValue.1.i.i329, %for.body4.i.i320 ]
+  %index.08.i.i323 = phi i32 [ -1, %for.cond2.preheader.i.i318 ], [ %index.1.i.i328, %for.body4.i.i320 ]
+  %arrayidx.i.i324 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %indvars.iv.i.i321
+  %69 = load i32, ptr %arrayidx.i.i324, align 4
+  %cmp6.i.i325 = icmp sgt i32 %69, %68
+  %cmp10.i.i326 = icmp slt i32 %69, %currentValue.09.i.i322
+  %or.cond.i.i327 = select i1 %cmp6.i.i325, i1 %cmp10.i.i326, i1 false
+  %70 = trunc i64 %indvars.iv.i.i321 to i32
+  %index.1.i.i328 = select i1 %or.cond.i.i327, i32 %70, i32 %index.08.i.i323
+  %currentValue.1.i.i329 = select i1 %or.cond.i.i327, i32 %69, i32 %currentValue.09.i.i322
+  %indvars.iv.next.i.i330 = add nuw nsw i64 %indvars.iv.i.i321, 1
+  %exitcond.not.i.i331 = icmp eq i64 %indvars.iv.next.i.i330, 24
+  br i1 %exitcond.not.i.i331, label %for.end.i.i332, label %for.body4.i.i320, !llvm.loop !8
 
-for.end.i.i303:                                   ; preds = %for.body4.i.i291
-  %cmp14.i.i304 = icmp sgt i32 %index.1.i.i299, -1
-  br i1 %cmp14.i.i304, label %if.then15.i.i307, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i305
+for.end.i.i332:                                   ; preds = %for.body4.i.i320
+  %cmp14.i.i333 = icmp sgt i32 %index.1.i.i328, -1
+  br i1 %cmp14.i.i333, label %if.then15.i.i336, label %_ZN6icu_758Calendar16recalculateStampEv.exit.i334
 
-if.then15.i.i307:                                 ; preds = %for.end.i.i303
-  %inc17.i.i308 = add nsw i32 %68, 1
-  store i32 %inc17.i.i308, ptr %fNextStamp.i, align 4
-  %idxprom19.i.i309 = zext nneg i32 %index.1.i.i299 to i64
-  %arrayidx20.i.i310 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom19.i.i309
-  store i32 %inc17.i.i308, ptr %arrayidx20.i.i310, align 4
-  %inc23.i.i311 = add nuw nsw i32 %j.011.i.i290, 1
-  %exitcond13.not.i.i312 = icmp eq i32 %inc23.i.i311, 24
-  br i1 %exitcond13.not.i.i312, label %if.then15.for.end24_crit_edge.i.i313, label %for.cond2.preheader.i.i289, !llvm.loop !9
+if.then15.i.i336:                                 ; preds = %for.end.i.i332
+  %inc17.i.i337 = add nsw i32 %68, 1
+  store i32 %inc17.i.i337, ptr %fNextStamp.i, align 4
+  %idxprom19.i.i338 = zext nneg i32 %index.1.i.i328 to i64
+  %arrayidx20.i.i339 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom19.i.i338
+  store i32 %inc17.i.i337, ptr %arrayidx20.i.i339, align 4
+  %inc23.i.i340 = add nuw nsw i32 %j.011.i.i319, 1
+  %exitcond13.not.i.i341 = icmp eq i32 %inc23.i.i340, 24
+  br i1 %exitcond13.not.i.i341, label %if.then15.for.end24_crit_edge.i.i342, label %for.cond2.preheader.i.i318, !llvm.loop !9
 
-if.then15.for.end24_crit_edge.i.i313:             ; preds = %if.then15.i.i307
-  %.pre.i.i314 = load i32, ptr %fNextStamp.i, align 4
-  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i305
+if.then15.for.end24_crit_edge.i.i342:             ; preds = %if.then15.i.i336
+  %.pre.i.i343 = load i32, ptr %fNextStamp.i, align 4
+  br label %_ZN6icu_758Calendar16recalculateStampEv.exit.i334
 
-_ZN6icu_758Calendar16recalculateStampEv.exit.i305: ; preds = %for.end.i.i303, %if.then15.for.end24_crit_edge.i.i313
-  %71 = phi i32 [ %.pre.i.i314, %if.then15.for.end24_crit_edge.i.i313 ], [ %68, %for.end.i.i303 ]
-  %inc26.i.i306 = add nsw i32 %71, 1
-  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit315
+_ZN6icu_758Calendar16recalculateStampEv.exit.i334: ; preds = %for.end.i.i332, %if.then15.for.end24_crit_edge.i.i342
+  %71 = phi i32 [ %.pre.i.i343, %if.then15.for.end24_crit_edge.i.i342 ], [ %68, %for.end.i.i332 ]
+  %inc26.i.i335 = add nsw i32 %71, 1
+  br label %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit344
 
-_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit315: ; preds = %if.end4.i279, %_ZN6icu_758Calendar16recalculateStampEv.exit.i305
-  %72 = phi i32 [ %inc26.i.i306, %_ZN6icu_758Calendar16recalculateStampEv.exit.i305 ], [ %67, %if.end4.i279 ]
-  %inc.i283 = add nsw i32 %72, 1
-  store i32 %inc.i283, ptr %fNextStamp.i, align 4
-  %arrayidx10.i284 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom.i
-  store i32 %72, ptr %arrayidx10.i284, align 4
-  %arrayidx12.i285 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 %idxprom.i
-  store i8 1, ptr %arrayidx12.i285, align 1
+_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit344: ; preds = %if.end4.i304, %_ZN6icu_758Calendar16recalculateStampEv.exit.i334
+  %72 = phi i32 [ %inc26.i.i335, %_ZN6icu_758Calendar16recalculateStampEv.exit.i334 ], [ %67, %if.end4.i304 ]
+  %inc.i309 = add nsw i32 %72, 1
+  store i32 %inc.i309, ptr %fNextStamp.i, align 4
+  %arrayidx10.i311 = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom.i
+  store i32 %72, ptr %arrayidx10.i311, align 4
+  %arrayidx12.i313 = getelementptr inbounds [24 x i8], ptr %fIsSet.i, i64 0, i64 %idxprom.i
+  store i8 1, ptr %arrayidx12.i313, align 1
   store i8 0, ptr %fAreFieldsVirtuallySet.i, align 1
   store i8 0, ptr %fAreFieldsSet.i, align 1
   store i8 0, ptr %fIsTimeSet.i, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i272)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i297)
   br label %return
 
-return:                                           ; preds = %entry, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit315, %if.then3
+return:                                           ; preds = %entry, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit344, %if.then3
   ret void
 }
 
@@ -11876,10 +11949,10 @@ terminate.lpad:                                   ; preds = %if.then
 define void @_ZNK6icu_758Calendar9getLocaleE18ULocDataLocaleTypeR10UErrorCode(ptr noalias sret(%"class.icu_75::Locale") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %locBased = alloca %"class.icu_75::LocaleBased", align 8
-  %validLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 26
-  %actualLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 27
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 304
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 461
   store ptr %validLocale, ptr %locBased, align 8
-  %actual.i = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %locBased, i64 0, i32 1
+  %actual.i = getelementptr inbounds i8, ptr %locBased, i64 8
   store ptr %actualLocale, ptr %actual.i, align 8
   call void @_ZNK6icu_7511LocaleBased9getLocaleE18ULocDataLocaleTypeR10UErrorCode(ptr sret(%"class.icu_75::Locale") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %locBased, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -11891,10 +11964,10 @@ declare void @_ZNK6icu_7511LocaleBased9getLocaleE18ULocDataLocaleTypeR10UErrorCo
 define noundef ptr @_ZNK6icu_758Calendar11getLocaleIDE18ULocDataLocaleTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %locBased = alloca %"class.icu_75::LocaleBased", align 8
-  %validLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 26
-  %actualLocale = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 27
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 304
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 461
   store ptr %validLocale, ptr %locBased, align 8
-  %actual.i = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %locBased, i64 0, i32 1
+  %actual.i = getelementptr inbounds i8, ptr %locBased, i64 8
   store ptr %actualLocale, ptr %actual.i, align 8
   %call = call noundef ptr @_ZNK6icu_7511LocaleBased11getLocaleIDE18ULocDataLocaleTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %locBased, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %call
@@ -11905,12 +11978,15 @@ declare noundef ptr @_ZNK6icu_7511LocaleBased11getLocaleIDE18ULocDataLocaleTypeR
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_758Calendar11internalSetENS0_11EDateFieldsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %value) local_unnamed_addr #21 align 2 {
 entry:
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
   %idxprom.i = zext i32 %field to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [24 x i32], ptr %fFields.i, i64 0, i64 %idxprom.i
   store i32 %value, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 %idxprom.i
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx3.i = getelementptr inbounds [24 x i32], ptr %fStamp.i, i64 0, i64 %idxprom.i
   store i32 1, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 %idxprom.i
+  %fIsSet.i = getelementptr inbounds i8, ptr %this, i64 108
+  %arrayidx5.i = getelementptr inbounds [24 x i8], ptr %fIsSet.i, i64 0, i64 %idxprom.i
   store i8 1, ptr %arrayidx5.i, align 1
   ret void
 }
@@ -11920,10 +11996,10 @@ define noundef i32 @_ZNK6icu_758Calendar16internalGetMonthEv(ptr nocapture nound
 entry:
   %call = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar16kMonthPrecedenceE), !range !23
   %cmp = icmp eq i32 %call, 2
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx.i1 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 23
-  %1 = load i32, ptr %arrayidx.i1, align 8
+  %arrayidx.i2 = getelementptr inbounds i8, ptr %this, i64 104
+  %1 = load i32, ptr %arrayidx.i2, align 8
   %retval.0 = select i1 %cmp, i32 %0, i32 %1
   ret i32 %retval.0
 }
@@ -11936,19 +12012,19 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 140
   %0 = load i32, ptr %arrayidx.i, align 4
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %cond.true.i, label %return
 
 cond.true.i:                                      ; preds = %if.then
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %arrayidx3.i, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx.i1 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 23
-  %2 = load i32, ptr %arrayidx.i1, align 8
+  %arrayidx.i2 = getelementptr inbounds i8, ptr %this, i64 104
+  %2 = load i32, ptr %arrayidx.i2, align 8
   br label %return
 
 return:                                           ; preds = %cond.true.i, %if.then, %if.end
@@ -11978,14 +12054,14 @@ dynamic_cast.notnull:                             ; preds = %entry
 
 invoke.cont:                                      ; preds = %dynamic_cast.notnull
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %3 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef nonnull align 8 dereferenceable(217) ptr %3(ptr noundef nonnull align 8 dereferenceable(272) %2, ptr noundef nonnull align 8 dereferenceable(217) %curLoc)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %vtable5 = load ptr, ptr %2, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 11
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 88
   %4 = load ptr, ptr %vfn6, align 8
   %call8 = invoke noundef nonnull align 8 dereferenceable(217) ptr %4(ptr noundef nonnull align 8 dereferenceable(272) %2, ptr noundef nonnull align 8 dereferenceable(217) %canLoc)
           to label %invoke.cont7 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
@@ -12098,10 +12174,10 @@ entry:
   br i1 %cmp.i, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i.i.i8 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp7, i64 0, i32 1
-  %fLength.i.i11 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp7, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %fLength.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %fUnion.i.i.i8 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
+  %fLength.i.i11 = getelementptr inbounds i8, ptr %ref.tmp7, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %invoke.cont15
@@ -12231,7 +12307,7 @@ dynamic_cast.notnull:                             ; preds = %entry
   %2 = tail call ptr @__dynamic_cast(ptr nonnull %key, ptr nonnull @_ZTIN6icu_7513ICUServiceKeyE, ptr nonnull @_ZTIN6icu_759LocaleKeyE, i64 0) #25
   call void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %loc)
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %3 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef nonnull align 8 dereferenceable(217) ptr %3(ptr noundef nonnull align 8 dereferenceable(272) %2, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont unwind label %lpad
@@ -12252,7 +12328,7 @@ lpad:                                             ; preds = %if.else, %invoke.co
 
 if.else:                                          ; preds = %invoke.cont
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call3, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %call3, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i)
   store i16 64, ptr %srcChar.addr.i, align 2
@@ -12266,12 +12342,12 @@ invoke.cont7:                                     ; preds = %if.else
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont7
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %5, 0
   %6 = ashr i16 %5, 5
   %shr.i.i.i = sext i16 %6 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   %7 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %7, i32 %shr.i.i.i
   %call2.i10 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %call3, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef 0, i32 noundef %cond.i.i)
@@ -12281,7 +12357,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #25
   %8 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #25, !srcloc !25
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %loc, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %loc, i64 40
   %9 = load ptr, ptr %fullName.i, align 8
   %call18 = invoke fastcc noundef i32 @_ZN6icu_75L24getCalendarTypeForLocaleEPKc(ptr noundef %9)
           to label %invoke.cont17 unwind label %lpad
@@ -12294,12 +12370,12 @@ invoke.cont17:                                    ; preds = %invoke.cont13
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont17
-  %fUnion.i.i.i11 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp15, i64 0, i32 1
+  %fUnion.i.i.i11 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   %11 = load i16, ptr %fUnion.i.i.i11, align 8
   %cmp.i.i.i12 = icmp slt i16 %11, 0
   %12 = ashr i16 %11, 5
   %shr.i.i.i13 = sext i16 %12 to i32
-  %fLength.i.i14 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp15, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i14 = getelementptr inbounds i8, ptr %ref.tmp15, i64 12
   %13 = load i32, ptr %fLength.i.i14, align 4
   %cond.i.i15 = select i1 %cmp.i.i.i12, i32 %13, i32 %shr.i.i.i13
   %call2.i16 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %call3, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp15, i32 noundef 0, i32 noundef %cond.i.i15)
@@ -12396,14 +12472,14 @@ dynamic_cast.end:                                 ; preds = %entry
 
 if.then:                                          ; preds = %dynamic_cast.end
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(64) %1)
   br label %return
 
 if.else:                                          ; preds = %entry, %dynamic_cast.end
   %vtable2 = load ptr, ptr %instance, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 3
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 24
   %3 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(618) %instance)
   br label %return
@@ -12428,7 +12504,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %loc)
   %vtable = load ptr, ptr %key, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %2 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef nonnull align 8 dereferenceable(217) ptr %2(ptr noundef nonnull align 8 dereferenceable(272) %key, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont unwind label %lpad
@@ -12500,7 +12576,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(408) %0) #25
   store ptr null, ptr @_ZL8gService, align 8
@@ -12545,7 +12621,7 @@ _ZN6icu_7522DefaultCalendarFactoryC2Ev.exit:      ; preds = %new.notnull
 
 new.cont:                                         ; preds = %_ZN6icu_7522DefaultCalendarFactoryC2Ev.exit, %invoke.cont3
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call9 = invoke noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont8 unwind label %lpad7
@@ -12616,7 +12692,7 @@ if.then:                                          ; preds = %entry
 
 delete.notnull:                                   ; preds = %if.then
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(618) %1) #25
   br label %delete.end
@@ -12636,7 +12712,7 @@ if.else:                                          ; preds = %entry
 
 delete.notnull5:                                  ; preds = %if.else
   %vtable6 = load ptr, ptr %p, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 1
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 8
   %3 = load ptr, ptr %vfn7, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(618) %p) #25
   br label %if.end9
@@ -12784,7 +12860,7 @@ _ZNK6icu_7512UnifiedCache3getINS_14SharedCalendarEEEvRKNS_8CacheKeyIT_EEPKvRPKS4
 define linkonce_odr void @_ZN6icu_7514LocaleCacheKeyINS_14SharedCalendarEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_14SharedCalendarEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc) #25
   tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #25
   ret void
@@ -12796,7 +12872,7 @@ declare void @_ZNK6icu_7512UnifiedCache4_getERKNS_12CacheKeyBaseERPKNS_12SharedO
 define linkonce_odr void @_ZN6icu_7514LocaleCacheKeyINS_14SharedCalendarEED0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_14SharedCalendarEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fLoc.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #25
   tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #25
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #25
@@ -12808,7 +12884,7 @@ define linkonce_odr noundef i32 @_ZNK6icu_7514LocaleCacheKeyINS_14SharedCalendar
 entry:
   %call3.i = tail call noundef i32 @ustr_hashCharsN_75(ptr noundef nonnull @_ZTSN6icu_7514SharedCalendarE, i32 noundef 25)
   %mul = mul i32 %call3.i, 37
-  %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc = getelementptr inbounds i8, ptr %this, i64 16
   %call2 = tail call noundef i32 @_ZNK6icu_756Locale8hashCodeEv(ptr noundef nonnull align 8 dereferenceable(217) %fLoc)
   %add = add i32 %mul, %call2
   ret i32 %add
@@ -12823,15 +12899,15 @@ entry:
 
 new.notnull:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7512CacheKeyBaseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %fCreationStatus.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %call, i64 0, i32 1
-  %fCreationStatus2.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %this, i64 0, i32 1
+  %fCreationStatus.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %fCreationStatus2.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fCreationStatus2.i.i.i, align 8
   store i32 %0, ptr %fCreationStatus.i.i.i, align 8
-  %fIsPrimary.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %call, i64 0, i32 2
+  %fIsPrimary.i.i.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 0, ptr %fIsPrimary.i.i.i, align 4
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_14SharedCalendarEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %fLoc.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %call, i64 0, i32 2
-  %fLoc2.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc.i = getelementptr inbounds i8, ptr %call, i64 16
+  %fLoc2.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %fLoc2.i)
           to label %new.cont unwind label %lpad.i
 
@@ -12849,7 +12925,7 @@ new.cont:                                         ; preds = %new.notnull, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK6icu_7514LocaleCacheKeyINS_14SharedCalendarEE16writeDescriptionEPci(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef %buffer, i32 noundef %bufLen) unnamed_addr #0 comdat align 2 {
 entry:
-  %fullName.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %fullName.i, align 8
   %conv = sext i32 %bufLen to i64
   %call2 = tail call ptr @strncpy(ptr noundef %buffer, ptr noundef %0, i64 noundef %conv) #25
@@ -12867,14 +12943,14 @@ entry:
 
 typeid.end.i:                                     ; preds = %entry
   %vtable.i = load ptr, ptr %this, align 8
-  %0 = getelementptr inbounds ptr, ptr %vtable.i, i64 -1
+  %0 = getelementptr inbounds i8, ptr %vtable.i, i64 -8
   %1 = load ptr, ptr %0, align 8
   %vtable2.i = load ptr, ptr %other, align 8
-  %2 = getelementptr inbounds ptr, ptr %vtable2.i, i64 -1
+  %2 = getelementptr inbounds i8, ptr %vtable2.i, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %__name.i.i = getelementptr inbounds %"class.std::type_info", ptr %1, i64 0, i32 1
+  %__name.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %__name.i.i, align 8
-  %__name2.i.i = getelementptr inbounds %"class.std::type_info", ptr %3, i64 0, i32 1
+  %__name2.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %__name2.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i, label %if.end, label %if.end.i.i
@@ -12894,8 +12970,8 @@ _ZNK6icu_758CacheKeyINS_14SharedCalendarEE6equalsERKNS_12CacheKeyBaseE.exit: ; p
   br i1 %cmp7.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %typeid.end.i, %entry, %_ZNK6icu_758CacheKeyINS_14SharedCalendarEE6equalsERKNS_12CacheKeyBaseE.exit
-  %fLoc.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
-  %fLoc2.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %other, i64 0, i32 2
+  %fLoc.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fLoc2.i = getelementptr inbounds i8, ptr %other, i64 16
   %call.i = tail call noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %fLoc2.i)
   br label %return
 

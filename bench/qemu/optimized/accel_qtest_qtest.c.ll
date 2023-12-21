@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.AccelClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.AccelOpsClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @qtest_accel_type = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 0, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @qtest_accel_class_init, ptr null, ptr null, ptr null }, align 8
 @qtest_accel_ops_type = internal constant %struct.TypeInfo { ptr @.str.4, ptr @.str.5, i64 0, i64 0, ptr null, ptr null, ptr null, i8 1, i64 0, ptr @qtest_accel_ops_class_init, ptr null, ptr null, ptr null }, align 8
@@ -45,11 +42,11 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qtest_accel_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 34, ptr noundef nonnull @__func__.qtest_accel_class_init) #3
-  %name = getelementptr inbounds %struct.AccelClass, ptr %call, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call, i64 96
   store ptr @.str.3, ptr %name, align 8
-  %init_machine = getelementptr inbounds %struct.AccelClass, ptr %call, i64 0, i32 2
+  %init_machine = getelementptr inbounds i8, ptr %call, i64 104
   store ptr @qtest_init_accel, ptr %init_machine, align 8
-  %allowed = getelementptr inbounds %struct.AccelClass, ptr %call, i64 0, i32 8
+  %allowed = getelementptr inbounds i8, ptr %call, i64 152
   store ptr @qtest_allowed, ptr %allowed, align 8
   ret void
 }
@@ -66,9 +63,9 @@ entry:
 define internal void @qtest_accel_ops_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 21, ptr noundef nonnull @__func__.ACCEL_OPS_CLASS) #3
-  %create_vcpu_thread = getelementptr inbounds %struct.AccelOpsClass, ptr %call.i, i64 0, i32 4
+  %create_vcpu_thread = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @dummy_start_vcpu_thread, ptr %create_vcpu_thread, align 8
-  %get_virtual_clock = getelementptr inbounds %struct.AccelOpsClass, ptr %call.i, i64 0, i32 13
+  %get_virtual_clock = getelementptr inbounds i8, ptr %call.i, i64 192
   store ptr @qtest_get_virtual_clock, ptr %get_virtual_clock, align 8
   ret void
 }

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cineon::ElementReadStream" = type { ptr, ptr }
-%"struct.cineon::GenericHeader" = type { i32, i32, i32, i32, i32, i32, [8 x i8], [100 x i8], [12 x i8], [12 x i8], [36 x i8], i8, i8, [2 x i8], [8 x %"struct.cineon::ImageElement"], [2 x float], [2 x float], [2 x float], [2 x float], [200 x i8], [28 x i8], i8, i8, i8, i8, i32, i32, [20 x i8], i32, i32, [100 x i8], [12 x i8], [12 x i8], [64 x i8], [32 x i8], [32 x i8], float, float, float, [40 x i8] }
-%"struct.cineon::ImageElement" = type { [2 x i8], i8, i8, i32, i32, float, float, float, float }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -34,7 +31,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 define hidden void @_ZN6cineon17ElementReadStreamC2EPNS_8InStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %fd) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6cineon17ElementReadStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fd2 = getelementptr inbounds %"class.cineon::ElementReadStream", ptr %this, i64 0, i32 1
+  %fd2 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %fd, ptr %fd2, align 8
   ret void
 }
@@ -61,14 +58,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6cineon17ElementReadStream4ReadERKNS_6HeaderElPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %offset, ptr noundef %buf, i64 noundef %size) unnamed_addr #7 align 2 {
 entry:
-  %imageOffset.i = getelementptr inbounds %"struct.cineon::GenericHeader", ptr %dpxHeader, i64 0, i32 1
+  %imageOffset.i = getelementptr inbounds i8, ptr %dpxHeader, i64 4
   %0 = load i32, ptr %imageOffset.i, align 4
   %conv = zext i32 %0 to i64
   %add = add nsw i64 %conv, %offset
-  %fd = getelementptr inbounds %"class.cineon::ElementReadStream", ptr %this, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fd, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %add, i32 noundef 0)
   br i1 %call2, label %if.end, label %return
@@ -76,7 +73,7 @@ entry:
 if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %fd, align 8
   %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 5
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 40
   %4 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %buf, i64 noundef %size)
   %cmp8.not = icmp eq i64 %call7, %size
@@ -99,7 +96,7 @@ entry:
   br i1 %call.i, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %entry
-  %bitDepth.i = getelementptr inbounds %"struct.cineon::GenericHeader", ptr %dpxHeader, i64 0, i32 14, i64 0, i32 1
+  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
   %1 = load i8, ptr %bitDepth.i, align 2
   switch i8 %1, label %sw.default [
     i8 8, label %if.end14
@@ -108,7 +105,7 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb3:                                           ; preds = %if.then
-  %packing.i = getelementptr inbounds %"struct.cineon::GenericHeader", ptr %dpxHeader, i64 0, i32 22
+  %packing.i = getelementptr inbounds i8, ptr %dpxHeader, i64 681
   %2 = load i8, ptr %packing.i, align 1
   %cmp = icmp eq i8 %2, 0
   br i1 %cmp, label %if.then5, label %if.else
@@ -234,14 +231,14 @@ if.end14:                                         ; preds = %for.body.i.i24, %fo
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6cineon17ElementReadStream10ReadDirectERKNS_6HeaderElPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %offset, ptr noundef %buf, i64 noundef %size) unnamed_addr #7 align 2 {
 entry:
-  %imageOffset.i = getelementptr inbounds %"struct.cineon::GenericHeader", ptr %dpxHeader, i64 0, i32 1
+  %imageOffset.i = getelementptr inbounds i8, ptr %dpxHeader, i64 4
   %0 = load i32, ptr %imageOffset.i, align 4
   %conv = zext i32 %0 to i64
   %add = add nsw i64 %conv, %offset
-  %fd = getelementptr inbounds %"class.cineon::ElementReadStream", ptr %this, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fd, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %add, i32 noundef 0)
   br i1 %call2, label %if.end, label %return
@@ -249,7 +246,7 @@ entry:
 if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %fd, align 8
   %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 6
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 48
   %4 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %buf, i64 noundef %size)
   %cmp8.not = icmp eq i64 %call7, %size

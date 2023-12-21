@@ -10,9 +10,9 @@ entry:
   %prev_err1_scalar = alloca [2 x i64], align 16
   %prev_err2_scalar = alloca [2 x i64], align 16
   %prev_err3_scalar = alloca [2 x i64], align 16
-  %arrayidx116 = getelementptr inbounds i32, ptr %data, i64 -2
-  %arrayidx122 = getelementptr inbounds i32, ptr %data, i64 -3
-  %arrayidx128 = getelementptr inbounds i32, ptr %data, i64 -4
+  %arrayidx116 = getelementptr inbounds i8, ptr %data, i64 -8
+  %arrayidx122 = getelementptr inbounds i8, ptr %data, i64 -12
+  %arrayidx128 = getelementptr inbounds i8, ptr %data, i64 -16
   br label %for.body
 
 for.cond188.preheader:                            ; preds = %cond.end179
@@ -39,7 +39,7 @@ for.body:                                         ; preds = %entry, %cond.end179
   br i1 %cmp18, label %cond.end53, label %cond.end179
 
 cond.end53:                                       ; preds = %for.body
-  %arrayidx26 = getelementptr i32, ptr %arrayidx, i64 -1
+  %arrayidx26 = getelementptr i8, ptr %arrayidx, i64 -4
   %3 = load i32, ptr %arrayidx26, align 4
   %conv27 = sext i32 %3 to i64
   %sub28 = sub nsw i64 %conv, %conv27
@@ -50,7 +50,7 @@ cond.end53:                                       ; preds = %for.body
 cond.end106:                                      ; preds = %cond.end53
   %5 = shl nsw i64 %conv27, 1
   %sub65 = sub nsw i64 %conv, %5
-  %arrayidx68 = getelementptr i32, ptr %arrayidx, i64 -2
+  %arrayidx68 = getelementptr i8, ptr %arrayidx, i64 -8
   %6 = load i32, ptr %arrayidx68, align 4
   %conv69 = sext i32 %6 to i64
   %add = add nsw i64 %sub65, %conv69
@@ -93,18 +93,18 @@ for.body191:                                      ; preds = %for.cond188.prehead
   %indvars.iv440 = phi i64 [ 0, %for.cond188.preheader ], [ 1, %for.body191 ]
   %11 = mul nuw nsw i64 %indvars.iv440, %0
   %12 = getelementptr i32, ptr %data, i64 %11
-  %arrayidx195 = getelementptr i32, ptr %12, i64 -1
+  %arrayidx195 = getelementptr i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx195, align 4
   %conv196 = sext i32 %13 to i64
   %arrayidx198 = getelementptr inbounds [2 x i64], ptr %prev_err0_scalar, i64 0, i64 %indvars.iv440
   store i64 %conv196, ptr %arrayidx198, align 8
-  %arrayidx209 = getelementptr i32, ptr %12, i64 -2
+  %arrayidx209 = getelementptr i8, ptr %12, i64 -8
   %14 = load i32, ptr %arrayidx209, align 4
   %conv210 = sext i32 %14 to i64
   %sub211 = sub nsw i64 %conv196, %conv210
   %arrayidx213 = getelementptr inbounds [2 x i64], ptr %prev_err1_scalar, i64 0, i64 %indvars.iv440
   store i64 %sub211, ptr %arrayidx213, align 8
-  %arrayidx226 = getelementptr i32, ptr %12, i64 -3
+  %arrayidx226 = getelementptr i8, ptr %12, i64 -12
   %15 = load i32, ptr %arrayidx226, align 4
   %conv227 = sext i32 %15 to i64
   %sub228.neg = sub nsw i64 %conv227, %conv210
@@ -112,7 +112,7 @@ for.body191:                                      ; preds = %for.cond188.prehead
   %arrayidx231 = getelementptr inbounds [2 x i64], ptr %prev_err2_scalar, i64 0, i64 %indvars.iv440
   store i64 %sub229, ptr %arrayidx231, align 8
   %mul246 = shl nsw i64 %conv227, 1
-  %arrayidx252 = getelementptr i32, ptr %12, i64 -4
+  %arrayidx252 = getelementptr i8, ptr %12, i64 -16
   %16 = load i32, ptr %arrayidx252, align 4
   %conv253 = sext i32 %16 to i64
   %17 = add nsw i64 %conv210, %conv253
@@ -246,19 +246,19 @@ if.then:                                          ; preds = %for.end321
   %36 = load i32, ptr %arrayidx377, align 4
   %conv378 = sext i32 %36 to i64
   %cond391 = tail call i64 @llvm.abs.i64(i64 %conv378, i1 true)
-  %arrayidx397 = getelementptr i32, ptr %arrayidx377, i64 -1
+  %arrayidx397 = getelementptr i8, ptr %arrayidx377, i64 -4
   %37 = load i32, ptr %arrayidx397, align 4
   %conv398 = sext i32 %37 to i64
   %sub399 = sub nsw i64 %conv378, %conv398
   %cond422 = tail call i64 @llvm.abs.i64(i64 %sub399, i1 true)
   %38 = shl nsw i64 %conv398, 1
   %sub431 = sub nsw i64 %conv378, %38
-  %arrayidx434 = getelementptr i32, ptr %arrayidx377, i64 -2
+  %arrayidx434 = getelementptr i8, ptr %arrayidx377, i64 -8
   %39 = load i32, ptr %arrayidx434, align 4
   %conv435 = sext i32 %39 to i64
   %add436 = add nsw i64 %sub431, %conv435
   %cond471 = tail call i64 @llvm.abs.i64(i64 %add436, i1 true)
-  %arrayidx489 = getelementptr i32, ptr %arrayidx377, i64 -3
+  %arrayidx489 = getelementptr i8, ptr %arrayidx377, i64 -12
   %40 = load i32, ptr %arrayidx489, align 4
   %conv490 = sext i32 %40 to i64
   %reass.add = sub nsw i64 %conv435, %conv398
@@ -269,7 +269,7 @@ if.then:                                          ; preds = %for.end321
   %mul552 = mul nsw i64 %conv435, 6
   %41 = add nsw i64 %mul552, %conv378
   %mul546365 = add nsw i64 %conv490, %conv398
-  %arrayidx562 = getelementptr i32, ptr %arrayidx377, i64 -4
+  %arrayidx562 = getelementptr i8, ptr %arrayidx377, i64 -16
   %42 = load i32, ptr %arrayidx562, align 4
   %conv563 = sext i32 %42 to i64
   %sub559 = add nsw i64 %41, %conv563
@@ -355,7 +355,7 @@ if.end680:                                        ; preds = %if.end656, %if.end6
   %.sink = phi float [ %cond675, %cond.end674 ], [ 3.400000e+01, %if.end656.thread ], [ 3.400000e+01, %if.end656 ]
   %smallest_error.3 = phi i64 [ %spec.select367395, %cond.end674 ], [ 0, %if.end656.thread ], [ %smallest_error.1, %if.end656 ]
   %order.3 = phi i32 [ %spec.select368396, %cond.end674 ], [ 0, %if.end656.thread ], [ 0, %if.end656 ]
-  %arrayidx679 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 1
+  %arrayidx679 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 4
   store float %.sink, ptr %arrayidx679, align 4
   %cmp681 = icmp ult i64 %shadow_error_2.1, 2147483648
   br i1 %cmp681, label %if.then683, label %if.end704
@@ -381,7 +381,7 @@ if.end704:                                        ; preds = %if.end680, %cond.tr
   %.sink449 = phi float [ %46, %cond.true690 ], [ 0.000000e+00, %if.then683 ], [ 3.400000e+01, %if.end680 ]
   %smallest_error.5 = phi i64 [ %spec.select369, %cond.true690 ], [ %spec.select369, %if.then683 ], [ %smallest_error.3, %if.end680 ]
   %order.5 = phi i32 [ %spec.select370, %cond.true690 ], [ %spec.select370, %if.then683 ], [ %order.3, %if.end680 ]
-  %arrayidx703 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 2
+  %arrayidx703 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
   store float %.sink449, ptr %arrayidx703, align 4
   %cmp705 = icmp ult i64 %shadow_error_3.1, 2147483648
   br i1 %cmp705, label %if.then707, label %if.end728
@@ -407,7 +407,7 @@ if.end728:                                        ; preds = %if.end704, %cond.tr
   %.sink450 = phi float [ %47, %cond.true714 ], [ 0.000000e+00, %if.then707 ], [ 3.400000e+01, %if.end704 ]
   %smallest_error.7 = phi i64 [ %spec.select371, %cond.true714 ], [ %spec.select371, %if.then707 ], [ %smallest_error.5, %if.end704 ]
   %order.7 = phi i32 [ %spec.select372, %cond.true714 ], [ %spec.select372, %if.then707 ], [ %order.5, %if.end704 ]
-  %arrayidx727 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 3
+  %arrayidx727 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
   store float %.sink450, ptr %arrayidx727, align 4
   %cmp729 = icmp ult i64 %shadow_error_4.0, 2147483648
   br i1 %cmp729, label %if.then731, label %if.end752
@@ -431,7 +431,7 @@ cond.true738:                                     ; preds = %if.then731
 if.end752:                                        ; preds = %if.end728, %cond.true738, %if.then731
   %.sink451 = phi float [ %48, %cond.true738 ], [ 0.000000e+00, %if.then731 ], [ 3.400000e+01, %if.end728 ]
   %order.9 = phi i32 [ %spec.select373, %cond.true738 ], [ %spec.select373, %if.then731 ], [ %order.7, %if.end728 ]
-  %arrayidx751 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 4
+  %arrayidx751 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 16
   store float %.sink451, ptr %arrayidx751, align 4
   ret i32 %order.9
 }

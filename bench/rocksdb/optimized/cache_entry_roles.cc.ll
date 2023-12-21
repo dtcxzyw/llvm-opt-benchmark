@@ -120,12 +120,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm14EED2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 14
+  %0 = getelementptr inbounds i8, ptr %this, i64 448
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
   %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
-  %arraydestroy.element = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #12
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %this
   br i1 %arraydestroy.done, label %arraydestroy.done2, label %arraydestroy.body
@@ -1295,7 +1295,7 @@ ehcleanup51.i:                                    ; preds = %ehcleanup49.i, %lpa
 
 arraydestroy.body.i:                              ; preds = %ehcleanup51.i, %arraydestroy.body.i
   %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %arraydestroy.body.i ], [ %arrayinit.endOfInit.11.i, %ehcleanup51.i ]
-  %arraydestroy.element.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast.i, i64 -1
+  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i) #12
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E
   br i1 %arraydestroy.done.i, label %common.resume, label %arraydestroy.body.i
@@ -1959,7 +1959,7 @@ ehcleanup51.i27:                                  ; preds = %ehcleanup49.i41, %l
 
 arraydestroy.body.i31:                            ; preds = %ehcleanup51.i27, %arraydestroy.body.i31
   %arraydestroy.elementPast.i32 = phi ptr [ %arraydestroy.element.i33, %arraydestroy.body.i31 ], [ %arrayinit.endOfInit.11.i28, %ehcleanup51.i27 ]
-  %arraydestroy.element.i33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast.i32, i64 -1
+  %arraydestroy.element.i33 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i32, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i33) #12
   %arraydestroy.done.i34 = icmp eq ptr %arraydestroy.element.i33, @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E
   br i1 %arraydestroy.done.i34, label %common.resume, label %arraydestroy.body.i31

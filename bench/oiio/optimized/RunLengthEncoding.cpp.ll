@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.dpx::RunLengthEncoding" = type { %"class.dpx::Codec", ptr }
-%"class.dpx::Codec" = type { ptr, ptr }
-%"struct.dpx::GenericHeader" = type { i32, i32, [8 x i8], i32, i32, i32, i32, i32, [100 x i8], [24 x i8], [100 x i8], [200 x i8], [200 x i8], i32, [104 x i8], i16, i16, i32, i32, [8 x %"struct.dpx::ImageElement"], [52 x i8], i32, i32, float, float, i32, i32, [100 x i8], [24 x i8], [32 x i8], [32 x i8], [4 x i16], [2 x i32], float, float, [20 x i8] }
 %"struct.dpx::ImageElement" = type { i32, i32, float, i32, float, i8, i8, i8, i8, i16, i16, i32, i32, i32, [32 x i8] }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
@@ -37,7 +34,7 @@ define hidden void @_ZN3dpx17RunLengthEncodingC2Ev(ptr noundef nonnull align 8 d
 entry:
   tail call void @_ZN3dpx5CodecC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buf = getelementptr inbounds %"class.dpx::RunLengthEncoding", ptr %this, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %buf, align 8
   ret void
 }
@@ -48,7 +45,7 @@ declare void @_ZN3dpx5CodecC2Ev(ptr noundef nonnull align 8 dereferenceable(16))
 define hidden void @_ZN3dpx17RunLengthEncodingD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buf = getelementptr inbounds %"class.dpx::RunLengthEncoding", ptr %this, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %buf, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -72,7 +69,7 @@ declare void @_ZN3dpx5CodecD2Ev(ptr noundef nonnull align 8 dereferenceable(16))
 define hidden void @_ZN3dpx17RunLengthEncodingD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buf.i = getelementptr inbounds %"class.dpx::RunLengthEncoding", ptr %this, i64 0, i32 1
+  %buf.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN3dpx17RunLengthEncodingD2Ev.exit, label %delete.notnull.i
@@ -90,7 +87,7 @@ _ZN3dpx17RunLengthEncodingD2Ev.exit:              ; preds = %entry, %delete.notn
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3dpx17RunLengthEncoding5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 {
 entry:
-  %buf = getelementptr inbounds %"class.dpx::RunLengthEncoding", ptr %this, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %buf, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -111,8 +108,9 @@ entry:
   br i1 %or.cond.i, label %return, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
 
 _ZNK3dpx13GenericHeader13ImageEncodingEi.exit:    ; preds = %entry
+  %chan.i = getelementptr inbounds i8, ptr %dpxHeader, i64 780
   %idxprom.i = zext nneg i32 %element to i64
-  %encoding.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %dpxHeader, i64 0, i32 19, i64 %idxprom.i, i32 10
+  %encoding.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 10
   %0 = load i16, ptr %encoding.i, align 2
   %cmp3.i = icmp eq i16 %0, 1
   br i1 %cmp3.i, label %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, label %return
@@ -122,17 +120,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %_ZNK3dpx13GenericHe
   %call3 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader)
   %call4 = tail call noundef i32 @_ZNK3dpx6Header6HeightEv(ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader)
   %call5 = tail call noundef i32 @_ZNK3dpx13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1664) %dpxHeader, i32 noundef %element)
-  %endOfLinePadding.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %dpxHeader, i64 0, i32 19, i64 %idxprom.i, i32 12
+  %endOfLinePadding.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 12
   %1 = load i32, ptr %endOfLinePadding.i, align 4
-  %cmp3.i46 = icmp eq i32 %1, -1
-  %..i = select i1 %cmp3.i46, i32 0, i32 %1
-  %buf = getelementptr inbounds %"class.dpx::RunLengthEncoding", ptr %this, i64 0, i32 1
+  %cmp3.i47 = icmp eq i32 %1, -1
+  %..i = select i1 %cmp3.i47, i32 0, i32 %1
+  %buf = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %buf, align 8
   %cmp7 = icmp eq ptr %2, null
   br i1 %cmp7, label %_ZNK3dpx13GenericHeader8BitDepthEi.exit, label %return
 
 _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
-  %bitDepth.i = getelementptr inbounds %"struct.dpx::GenericHeader", ptr %dpxHeader, i64 0, i32 19, i64 %idxprom.i, i32 8
+  %bitDepth.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 8
   %3 = load i8, ptr %bitDepth.i, align 1
   %cmp13.not = icmp eq i32 %..i, 0
   br i1 %cmp13.not, label %if.else, label %switch.early.test
@@ -165,7 +163,7 @@ _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %if.else
   store ptr %call49, ptr %buf, align 8
   %call51 = tail call noalias noundef nonnull dereferenceable(53440) ptr @_Znam(i64 noundef 53440) #10
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %7 = load ptr, ptr %vfn, align 8
   %call54 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader, i32 noundef %element, i64 noundef 0, ptr noundef nonnull %call51, i64 noundef 40080)
   tail call void @_ZdaPv(ptr noundef nonnull %call51) #8

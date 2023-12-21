@@ -6,13 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon = type { ptr }
 %struct.AioWait = type { i32 }
 %struct.BlockExportDriver = type { i32, i64, ptr, ptr, ptr }
-%struct.BlockExport = type { ptr, ptr, i32, i8, ptr, ptr, %struct.anon.0 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.BlockExportOptions = type { i32, ptr, i8, i8, ptr, ptr, i8, i8, i8, i8, %union.anon }
-%union.anon = type { %struct.BlockExportOptionsNbd }
-%struct.BlockExportOptionsNbd = type { ptr, ptr, i8, ptr, i8, i8 }
 %struct.ErrorPropagator = type { ptr, ptr }
-%struct.BlockExportInfoList = type { ptr, ptr }
 
 @block_exports = internal global %struct.anon zeroinitializer, align 8
 @.str = private unnamed_addr constant [22 x i8] c"qemu_in_main_thread()\00", align 1
@@ -63,14 +57,14 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %exp.06 = phi ptr [ %exp.0, %for.inc ], [ %exp.04, %entry ]
-  %id1 = getelementptr inbounds %struct.BlockExport, ptr %exp.06, i64 0, i32 1
+  %id1 = getelementptr inbounds i8, ptr %exp.06, i64 8
   %0 = load ptr, ptr %id1, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %0) #8
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds %struct.BlockExport, ptr %exp.06, i64 0, i32 6
+  %next = getelementptr inbounds i8, ptr %exp.06, i64 40
   %exp.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %exp.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !5
@@ -86,14 +80,14 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @blk_exp_add(ptr noundef %export, ptr noundef %errp) local_unnamed_addr #2 {
 entry:
-  %has_fixed_iothread = getelementptr inbounds %struct.BlockExportOptions, ptr %export, i64 0, i32 2
+  %has_fixed_iothread = getelementptr inbounds i8, ptr %export, i64 16
   %0 = load i8, ptr %has_fixed_iothread, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %fixed_iothread1 = getelementptr inbounds %struct.BlockExportOptions, ptr %export, i64 0, i32 3
+  %fixed_iothread1 = getelementptr inbounds i8, ptr %export, i64 17
   %2 = load i8, ptr %fixed_iothread1, align 1
   %3 = and i8 %2, 1
   %tobool2 = icmp ne i8 %3, 0
@@ -109,7 +103,7 @@ if.else:                                          ; preds = %land.end
   unreachable
 
 do.end:                                           ; preds = %land.end
-  %id = getelementptr inbounds %struct.BlockExportOptions, ptr %export, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %export, i64 8
   %5 = load ptr, ptr %id, align 8
   %call3 = tail call zeroext i1 @id_wellformed(ptr noundef %5) #9
   br i1 %call3, label %if.end5, label %if.then4
@@ -126,14 +120,14 @@ if.end5:                                          ; preds = %do.end
 
 for.body.i:                                       ; preds = %if.end5, %for.inc.i
   %exp.06.i = phi ptr [ %exp.0.i, %for.inc.i ], [ %exp.04.i, %if.end5 ]
-  %id1.i = getelementptr inbounds %struct.BlockExport, ptr %exp.06.i, i64 0, i32 1
+  %id1.i = getelementptr inbounds i8, ptr %exp.06.i, i64 8
   %7 = load ptr, ptr %id1.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %7) #8
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then9, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct.BlockExport, ptr %exp.06.i, i64 0, i32 6
+  %next.i = getelementptr inbounds i8, ptr %exp.06.i, i64 40
   %exp.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %exp.0.i, null
   br i1 %tobool.not.i, label %if.end11, label %for.body.i, !llvm.loop !5
@@ -164,21 +158,21 @@ if.then14:                                        ; preds = %for.cond.i
   br label %return
 
 if.end15:                                         ; preds = %for.body.i67
-  %node_name = getelementptr inbounds %struct.BlockExportOptions, ptr %export, i64 0, i32 5
+  %node_name = getelementptr inbounds i8, ptr %export, i64 32
   %11 = load ptr, ptr %node_name, align 8
   %call16 = tail call ptr @bdrv_lookup_bs(ptr noundef null, ptr noundef %11, ptr noundef %errp) #9
   %tobool17.not = icmp eq ptr %call16, null
   br i1 %tobool17.not, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end15
-  %has_writable = getelementptr inbounds %struct.BlockExportOptions, ptr %export, i64 0, i32 6
+  %has_writable = getelementptr inbounds i8, ptr %export, i64 40
   %12 = load i8, ptr %has_writable, align 8
   %13 = and i8 %12, 1
   %tobool20.not = icmp eq i8 %13, 0
   br i1 %tobool20.not, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end19
-  %writable = getelementptr inbounds %struct.BlockExportOptions, ptr %export, i64 0, i32 7
+  %writable = getelementptr inbounds i8, ptr %export, i64 41
   store i8 0, ptr %writable, align 1
   br label %if.end22
 
@@ -187,7 +181,7 @@ if.end22:                                         ; preds = %if.then21, %if.end1
   br i1 %call23, label %land.lhs.true, label %if.end27
 
 land.lhs.true:                                    ; preds = %if.end22
-  %writable24 = getelementptr inbounds %struct.BlockExportOptions, ptr %export, i64 0, i32 7
+  %writable24 = getelementptr inbounds i8, ptr %export, i64 41
   %14 = load i8, ptr %writable24, align 1
   %15 = and i8 %14, 1
   %tobool25.not = icmp eq i8 %15, 0
@@ -200,7 +194,7 @@ if.then26:                                        ; preds = %land.lhs.true
 if.end27:                                         ; preds = %land.lhs.true, %if.end22
   %call28 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %call16) #9
   tail call void @aio_context_acquire(ptr noundef %call28) #9
-  %iothread = getelementptr inbounds %struct.BlockExportOptions, ptr %export, i64 0, i32 4
+  %iothread = getelementptr inbounds i8, ptr %export, i64 24
   %16 = load ptr, ptr %iothread, align 8
   %tobool29.not = icmp eq ptr %16, null
   br i1 %tobool29.not, label %if.end47, label %if.then30
@@ -235,7 +229,7 @@ if.end47:                                         ; preds = %if.then41, %if.else
   tail call void @bdrv_graph_rdlock_main_loop() #9
   %call48 = tail call i32 @bdrv_activate(ptr noundef nonnull %call16, ptr noundef null) #9
   tail call void @bdrv_graph_rdunlock_main_loop() #9
-  %writable49 = getelementptr inbounds %struct.BlockExportOptions, ptr %export, i64 0, i32 7
+  %writable49 = getelementptr inbounds i8, ptr %export, i64 41
   %18 = load i8, ptr %writable49, align 1
   %19 = and i8 %18, 1
   %tobool50.not = icmp eq i8 %19, 0
@@ -253,11 +247,11 @@ if.end56:                                         ; preds = %if.then55, %if.end4
   br i1 %cmp58, label %fail, label %if.end60
 
 if.end60:                                         ; preds = %if.end56
-  %has_writethrough = getelementptr inbounds %struct.BlockExportOptions, ptr %export, i64 0, i32 8
+  %has_writethrough = getelementptr inbounds i8, ptr %export, i64 42
   %20 = load i8, ptr %has_writethrough, align 2
   %21 = and i8 %20, 1
   %tobool61.not = icmp eq i8 %21, 0
-  %writethrough = getelementptr inbounds %struct.BlockExportOptions, ptr %export, i64 0, i32 9
+  %writethrough = getelementptr inbounds i8, ptr %export, i64 43
   br i1 %tobool61.not, label %if.then62, label %if.end60.if.end63_crit_edge
 
 if.end60.if.end63_crit_edge:                      ; preds = %if.end60
@@ -273,7 +267,7 @@ if.then62:                                        ; preds = %if.end60
 if.end63:                                         ; preds = %if.end60.if.end63_crit_edge, %if.then62
   %tobool65.not = phi i1 [ %23, %if.end60.if.end63_crit_edge ], [ true, %if.then62 ]
   tail call void @blk_set_enable_write_cache(ptr noundef %call53, i1 noundef zeroext %tobool65.not) #9
-  %instance_size = getelementptr inbounds %struct.BlockExportDriver, ptr %9, i64 0, i32 1
+  %instance_size = getelementptr inbounds i8, ptr %9, i64 8
   %24 = load i64, ptr %instance_size, align 8
   %cmp66 = icmp ugt i64 %24, 55
   br i1 %cmp66, label %if.end69, label %if.else68
@@ -299,7 +293,7 @@ if.end69:                                         ; preds = %if.end63
   store ptr %call53, ptr %.compoundliteral.sroa.6.0..sroa_idx, align 8
   %.compoundliteral.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %call71, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral.sroa.7.0..sroa_idx, i8 0, i64 16, i1 false)
-  %create = getelementptr inbounds %struct.BlockExportDriver, ptr %9, i64 0, i32 2
+  %create = getelementptr inbounds i8, ptr %9, i64 16
   %26 = load ptr, ptr %create, align 8
   %call78 = tail call i32 %26(ptr noundef nonnull %call71, ptr noundef nonnull %export, ptr noundef %errp) #9
   %cmp79 = icmp slt i32 %call78, 0
@@ -321,7 +315,7 @@ do.body87:                                        ; preds = %if.end81
   br i1 %cmp89.not, label %if.end94, label %if.then90
 
 if.then90:                                        ; preds = %do.body87
-  %le_prev = getelementptr inbounds %struct.BlockExport, ptr %28, i64 0, i32 6, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %28, i64 48
   store ptr %.compoundliteral.sroa.7.0..sroa_idx, ptr %le_prev, align 8
   br label %if.end94
 
@@ -352,7 +346,7 @@ if.end100:                                        ; preds = %if.then99, %fail
   br i1 %tobool101.not, label %return, label %if.then102
 
 if.then102:                                       ; preds = %if.end100
-  %id103 = getelementptr inbounds %struct.BlockExport, ptr %exp.0, i64 0, i32 1
+  %id103 = getelementptr inbounds i8, ptr %exp.0, i64 8
   %29 = load ptr, ptr %id103, align 8
   tail call void @g_free(ptr noundef %29) #9
   tail call void @g_free(ptr noundef nonnull %exp.0) #9
@@ -419,7 +413,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @blk_exp_ref(ptr nocapture noundef %exp) local_unnamed_addr #2 {
 entry:
-  %refcount = getelementptr inbounds %struct.BlockExport, ptr %exp, i64 0, i32 2
+  %refcount = getelementptr inbounds i8, ptr %exp, i64 16
   %0 = load atomic i32, ptr %refcount monotonic, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -436,7 +430,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @blk_exp_unref(ptr noundef %exp) local_unnamed_addr #2 {
 entry:
-  %refcount = getelementptr inbounds %struct.BlockExport, ptr %exp, i64 0, i32 2
+  %refcount = getelementptr inbounds i8, ptr %exp, i64 16
   %0 = load atomic i32, ptr %refcount monotonic, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -466,10 +460,10 @@ declare ptr @qemu_get_aio_context() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_exp_delete_bh(ptr noundef %opaque) #2 {
 entry:
-  %ctx = getelementptr inbounds %struct.BlockExport, ptr %opaque, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %ctx, align 8
   tail call void @aio_context_acquire(ptr noundef %0) #9
-  %refcount = getelementptr inbounds %struct.BlockExport, ptr %opaque, i64 0, i32 2
+  %refcount = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load i32, ptr %refcount, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %do.body, label %if.else
@@ -479,15 +473,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body:                                          ; preds = %entry
-  %next = getelementptr inbounds %struct.BlockExport, ptr %opaque, i64 0, i32 6
+  %next = getelementptr inbounds i8, ptr %opaque, i64 40
   %2 = load ptr, ptr %next, align 8
   %cmp1.not = icmp eq ptr %2, null
-  %le_prev12.phi.trans.insert = getelementptr inbounds %struct.BlockExport, ptr %opaque, i64 0, i32 6, i32 1
+  %le_prev12.phi.trans.insert = getelementptr inbounds i8, ptr %opaque, i64 48
   %.pre17 = load ptr, ptr %le_prev12.phi.trans.insert, align 8
   br i1 %cmp1.not, label %if.end8, label %if.then2
 
 if.then2:                                         ; preds = %do.body
-  %le_prev7 = getelementptr inbounds %struct.BlockExport, ptr %2, i64 0, i32 6, i32 1
+  %le_prev7 = getelementptr inbounds i8, ptr %2, i64 48
   store ptr %.pre17, ptr %le_prev7, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %if.end8
@@ -497,15 +491,15 @@ if.end8:                                          ; preds = %do.body, %if.then2
   store ptr %3, ptr %.pre17, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %opaque, align 8
-  %delete = getelementptr inbounds %struct.BlockExportDriver, ptr %4, i64 0, i32 3
+  %delete = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %delete, align 8
   tail call void %5(ptr noundef nonnull %opaque) #9
-  %blk = getelementptr inbounds %struct.BlockExport, ptr %opaque, i64 0, i32 5
+  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
   %6 = load ptr, ptr %blk, align 8
   tail call void @blk_set_dev_ops(ptr noundef %6, ptr noundef null, ptr noundef null) #9
   %7 = load ptr, ptr %blk, align 8
   tail call void @blk_unref(ptr noundef %7) #9
-  %id = getelementptr inbounds %struct.BlockExport, ptr %opaque, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %opaque, i64 8
   %8 = load ptr, ptr %id, align 8
   tail call void @qapi_event_send_block_export_deleted(ptr noundef %8) #9
   %9 = load ptr, ptr %id, align 8
@@ -518,10 +512,10 @@ if.end8:                                          ; preds = %do.body, %if.then2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @blk_exp_request_shutdown(ptr noundef %exp) local_unnamed_addr #2 {
 entry:
-  %ctx = getelementptr inbounds %struct.BlockExport, ptr %exp, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %exp, i64 24
   %0 = load ptr, ptr %ctx, align 8
   tail call void @aio_context_acquire(ptr noundef %0) #9
-  %user_owned = getelementptr inbounds %struct.BlockExport, ptr %exp, i64 0, i32 3
+  %user_owned = getelementptr inbounds i8, ptr %exp, i64 20
   %1 = load i8, ptr %user_owned, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -529,7 +523,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %exp, align 8
-  %request_shutdown = getelementptr inbounds %struct.BlockExportDriver, ptr %3, i64 0, i32 4
+  %request_shutdown = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %request_shutdown, align 8
   tail call void %4(ptr noundef nonnull %exp) #9
   %5 = load i8, ptr %user_owned, align 4
@@ -543,7 +537,7 @@ if.else:                                          ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   store i8 0, ptr %user_owned, align 4
-  %refcount.i = getelementptr inbounds %struct.BlockExport, ptr %exp, i64 0, i32 2
+  %refcount.i = getelementptr inbounds i8, ptr %exp, i64 16
   %7 = load atomic i32, ptr %refcount.i monotonic, align 8
   %cmp.i = icmp sgt i32 %7, 0
   br i1 %cmp.i, label %if.end.i, label %if.else.i
@@ -599,7 +593,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end
 
 land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %land.rhs.us
   %exp.020.us = phi ptr [ %1, %land.rhs.us ], [ %0, %land.rhs.lr.ph ]
-  %next2.us = getelementptr inbounds %struct.BlockExport, ptr %exp.020.us, i64 0, i32 6
+  %next2.us = getelementptr inbounds i8, ptr %exp.020.us, i64 40
   %1 = load ptr, ptr %next2.us, align 8
   tail call void @blk_exp_request_shutdown(ptr noundef nonnull %exp.020.us)
   %tobool.not.us = icmp eq ptr %1, null
@@ -607,7 +601,7 @@ land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %la
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %exp.020 = phi ptr [ %2, %for.inc ], [ %0, %land.rhs.lr.ph ]
-  %next2 = getelementptr inbounds %struct.BlockExport, ptr %exp.020, i64 0, i32 6
+  %next2 = getelementptr inbounds i8, ptr %exp.020, i64 40
   %2 = load ptr, ptr %next2, align 8
   %3 = load ptr, ptr %exp.020, align 8
   %4 = load i32, ptr %3, align 8
@@ -654,7 +648,7 @@ if.else18:                                        ; preds = %for.end
   unreachable
 
 for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct.BlockExport, ptr %exp.06.i, i64 0, i32 6
+  %next.i = getelementptr inbounds i8, ptr %exp.06.i, i64 40
   %exp.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %exp.0.i, null
   br i1 %tobool.not.i, label %if.end26, label %for.body.i.backedge
@@ -705,7 +699,7 @@ define dso_local void @qmp_block_export_del(ptr noundef %id, i1 noundef zeroext 
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -717,14 +711,14 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %exp.06.i = phi ptr [ %exp.0.i, %for.inc.i ], [ %exp.04.i, %entry ]
-  %id1.i = getelementptr inbounds %struct.BlockExport, ptr %exp.06.i, i64 0, i32 1
+  %id1.i = getelementptr inbounds i8, ptr %exp.06.i, i64 8
   %0 = load ptr, ptr %id1.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %0) #8
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end5, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct.BlockExport, ptr %exp.06.i, i64 0, i32 6
+  %next.i = getelementptr inbounds i8, ptr %exp.06.i, i64 40
   %exp.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %exp.0.i, null
   br i1 %tobool.not.i, label %if.then4, label %for.body.i, !llvm.loop !5
@@ -734,7 +728,7 @@ if.then4:                                         ; preds = %for.inc.i, %entry
   br label %cleanup
 
 if.end5:                                          ; preds = %for.body.i
-  %user_owned = getelementptr inbounds %struct.BlockExport, ptr %exp.06.i, i64 0, i32 3
+  %user_owned = getelementptr inbounds i8, ptr %exp.06.i, i64 20
   %1 = load i8, ptr %user_owned, align 4
   %2 = and i8 %1, 1
   %tobool6.not = icmp eq i8 %2, 0
@@ -750,7 +744,7 @@ if.end8:                                          ; preds = %if.end5
   br i1 %cmp12.not, label %if.end19, label %while.end
 
 while.end:                                        ; preds = %if.end8
-  %refcount = getelementptr inbounds %struct.BlockExport, ptr %exp.06.i, i64 0, i32 2
+  %refcount = getelementptr inbounds i8, ptr %exp.06.i, i64 16
   %3 = load atomic i32, ptr %refcount monotonic, align 8
   %cmp16 = icmp sgt i32 %3, 1
   br i1 %cmp16, label %if.then17, label %if.end19
@@ -786,17 +780,17 @@ for.body:                                         ; preds = %entry, %for.body
   %exp.013 = phi ptr [ %exp.0, %for.body ], [ %exp.010, %entry ]
   %tail.012 = phi ptr [ %6, %for.body ], [ %head, %entry ]
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #12
-  %id1 = getelementptr inbounds %struct.BlockExport, ptr %exp.013, i64 0, i32 1
+  %id1 = getelementptr inbounds i8, ptr %exp.013, i64 8
   %0 = load ptr, ptr %id1, align 8
   %call2 = tail call noalias ptr @g_strdup(ptr noundef %0) #9
   %1 = load ptr, ptr %exp.013, align 8
   %2 = load i32, ptr %1, align 8
-  %blk = getelementptr inbounds %struct.BlockExport, ptr %exp.013, i64 0, i32 5
+  %blk = getelementptr inbounds i8, ptr %exp.013, i64 32
   %3 = load ptr, ptr %blk, align 8
   %call4 = tail call ptr @blk_bs(ptr noundef %3) #9
   %call5 = tail call ptr @bdrv_get_node_name(ptr noundef %call4) #9
   %call6 = tail call noalias ptr @g_strdup(ptr noundef %call5) #9
-  %user_owned = getelementptr inbounds %struct.BlockExport, ptr %exp.013, i64 0, i32 3
+  %user_owned = getelementptr inbounds i8, ptr %exp.013, i64 20
   %4 = load i8, ptr %user_owned, align 4
   %5 = and i8 %4, 1
   %frombool = xor i8 %5, 1
@@ -809,10 +803,10 @@ for.body:                                         ; preds = %entry, %for.body
   store i8 %frombool, ptr %.compoundliteral.sroa.4.0..sroa_idx, align 8
   %call8 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call8, ptr %tail.012, align 8
-  %value = getelementptr inbounds %struct.BlockExportInfoList, ptr %call8, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call8, i64 8
   store ptr %call, ptr %value, align 8
   %6 = load ptr, ptr %tail.012, align 8
-  %next9 = getelementptr inbounds %struct.BlockExport, ptr %exp.013, i64 0, i32 6
+  %next9 = getelementptr inbounds i8, ptr %exp.013, i64 40
   %exp.0 = load ptr, ptr %next9, align 8
   %tobool.not = icmp eq ptr %exp.0, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !10

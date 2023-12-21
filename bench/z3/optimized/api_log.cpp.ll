@@ -167,8 +167,8 @@ entry:
   br i1 %tobool.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %arrayidx = getelementptr inbounds [4 x i8], ptr %str, i64 0, i64 2
-  %arrayidx76 = getelementptr inbounds [4 x i8], ptr %str, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %str, i64 2
+  %arrayidx76 = getelementptr inbounds i8, ptr %str, i64 1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end

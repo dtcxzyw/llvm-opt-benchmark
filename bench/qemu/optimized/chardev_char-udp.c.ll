@@ -4,22 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.UdpChardev = type { %struct.Chardev, ptr, [4096 x i8], i32, i32, i32 }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.ChardevClass = type { %struct.ObjectClass, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.ChardevBackend = type { i32, %union.anon }
-%union.anon = type { %struct.ChardevFileWrapper }
-%struct.ChardevFileWrapper = type { ptr }
-%struct.SocketAddressLegacy = type { i32, %union.anon.0 }
-%union.anon.0 = type { %struct.InetSocketAddressWrapper }
-%struct.InetSocketAddressWrapper = type { ptr }
-%struct.ChardevUdp = type { ptr, i8, i8, ptr, ptr }
 
 @char_udp_type_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 4272, i64 0, ptr null, ptr null, ptr @char_udp_finalize, i8 0, i64 0, ptr @char_udp_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [12 x i8] c"chardev-udp\00", align 1
@@ -70,7 +54,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #5
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 49, ptr noundef nonnull @__func__.UDP_CHARDEV) #5
   tail call void @remove_fd_in_watch(ptr noundef %call.i) #5
-  %ioc = getelementptr inbounds %struct.UdpChardev, ptr %call.i4, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i4, i64 152
   %0 = load ptr, ptr %ioc, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -88,13 +72,13 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @char_udp_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #5
-  %parse = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 3
+  %parse = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qemu_chr_parse_udp, ptr %parse, align 8
-  %open = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 4
+  %open = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qmp_chardev_open_udp, ptr %open, align 8
-  %chr_write = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 5
+  %chr_write = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @udp_chr_write, ptr %chr_write, align 8
-  %chr_update_read_handler = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 8
+  %chr_update_read_handler = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @udp_chr_update_read_handler, ptr %chr_update_read_handler, align 8
   ret void
 }
@@ -167,13 +151,13 @@ if.end24:                                         ; preds = %lor.lhs.false19, %i
   %has_local.1 = phi i1 [ %has_local.0, %if.end17 ], [ %spec.select33, %lor.lhs.false19 ]
   %localaddr.0 = phi ptr [ @.str.11, %if.end17 ], [ %spec.select34, %lor.lhs.false19 ]
   %call25 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #6
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   store ptr %call25, ptr %u, align 8
   tail call void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef %call25) #5
   %call27 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #6
   store i32 0, ptr %call27, align 8
   %call29 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #6
-  %u30 = getelementptr inbounds %struct.SocketAddressLegacy, ptr %call27, i64 0, i32 1
+  %u30 = getelementptr inbounds i8, ptr %call27, i64 8
   store ptr %call29, ptr %u30, align 8
   %call35 = tail call noalias ptr @g_strdup(ptr noundef nonnull %host.0) #5
   %call37 = tail call noalias ptr @g_strdup(ptr noundef nonnull %call1) #5
@@ -207,7 +191,7 @@ if.end24:                                         ; preds = %lor.lhs.false19, %i
   %.compoundliteral.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %call29, i64 25
   store i8 %frombool45, ptr %.compoundliteral.sroa.10.0..sroa_idx, align 1
   %.compoundliteral.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %call29, i64 26
-  %remote = getelementptr inbounds %struct.ChardevUdp, ptr %call25, i64 0, i32 3
+  %remote = getelementptr inbounds i8, ptr %call25, i64 16
   store i32 0, ptr %.compoundliteral.sroa.11.0..sroa_idx, align 2
   store ptr %call27, ptr %remote, align 8
   br i1 %has_local.1, label %if.then47, label %if.end72
@@ -216,7 +200,7 @@ if.then47:                                        ; preds = %if.end24
   %call48 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #6
   store i32 0, ptr %call48, align 8
   %call50 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #6
-  %u51 = getelementptr inbounds %struct.SocketAddressLegacy, ptr %call48, i64 0, i32 1
+  %u51 = getelementptr inbounds i8, ptr %call48, i64 8
   store ptr %call50, ptr %u51, align 8
   %call57 = tail call noalias ptr @g_strdup(ptr noundef nonnull %localaddr.0) #5
   %call59 = tail call noalias ptr @g_strdup(ptr noundef nonnull %localport.0) #5
@@ -230,7 +214,7 @@ if.then47:                                        ; preds = %if.end24
   %.compoundliteral55.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %call50, i64 18
   store i8 0, ptr %.compoundliteral55.sroa.5.0..sroa_idx, align 2
   %.compoundliteral55.sroa.61.0..sroa_idx = getelementptr inbounds i8, ptr %call50, i64 20
-  %local = getelementptr inbounds %struct.ChardevUdp, ptr %call25, i64 0, i32 4
+  %local = getelementptr inbounds i8, ptr %call25, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %.compoundliteral55.sroa.61.0..sroa_idx, i8 0, i64 10, i1 false)
   store ptr %call48, ptr %local, align 8
   br label %if.end72
@@ -242,12 +226,12 @@ if.end72:                                         ; preds = %if.then47, %if.end2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qmp_chardev_open_udp(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture noundef writeonly %be_opened, ptr noundef %errp) #0 {
 entry:
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
-  %local = getelementptr inbounds %struct.ChardevUdp, ptr %0, i64 0, i32 4
+  %local = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %local, align 8
   %call = tail call ptr @socket_address_flatten(ptr noundef %1) #5
-  %remote = getelementptr inbounds %struct.ChardevUdp, ptr %0, i64 0, i32 3
+  %remote = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %remote, align 8
   %call1 = tail call ptr @socket_address_flatten(ptr noundef %2) #5
   %call2 = tail call ptr @qio_channel_socket_new() #5
@@ -263,14 +247,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %label = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %chr, i64 96
   %3 = load ptr, ptr %label, align 8
   %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.14, ptr noundef %3) #5
   %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #5
   tail call void @qio_channel_set_name(ptr noundef %call.i9, ptr noundef %call5) #5
   tail call void @g_free(ptr noundef %call5) #5
   %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #5
-  %ioc = getelementptr inbounds %struct.UdpChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr %call.i10, ptr %ioc, align 8
   store i8 0, ptr %be_opened, align 1
   br label %return
@@ -283,7 +267,7 @@ return:                                           ; preds = %if.end, %if.then
 define internal i32 @udp_chr_write(ptr noundef %chr, ptr noundef %buf, i32 noundef %len) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 49, ptr noundef nonnull @__func__.UDP_CHARDEV) #5
-  %ioc = getelementptr inbounds %struct.UdpChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %ioc, align 8
   %conv = sext i32 %len to i64
   %call1 = tail call i64 @qio_channel_write(ptr noundef %0, ptr noundef %buf, i64 noundef %conv, ptr noundef null) #5
@@ -296,16 +280,16 @@ define internal void @udp_chr_update_read_handler(ptr noundef %chr) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 49, ptr noundef nonnull @__func__.UDP_CHARDEV) #5
   tail call void @remove_fd_in_watch(ptr noundef %chr) #5
-  %ioc = getelementptr inbounds %struct.UdpChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %ioc, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %gcontext = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 9
+  %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %1 = load ptr, ptr %gcontext, align 8
   %call2 = tail call ptr @io_add_watch_poll(ptr noundef %chr, ptr noundef nonnull %0, ptr noundef nonnull @udp_chr_read_poll, ptr noundef nonnull @udp_chr_read, ptr noundef %chr, ptr noundef %1) #5
-  %gsource = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 8
+  %gsource = getelementptr inbounds i8, ptr %chr, i64 128
   store ptr %call2, ptr %gsource, align 8
   br label %if.end
 
@@ -355,16 +339,17 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #5
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 49, ptr noundef nonnull @__func__.UDP_CHARDEV) #5
   %call2 = tail call i32 @qemu_chr_be_can_write(ptr noundef %call.i) #5
-  %max_size = getelementptr inbounds %struct.UdpChardev, ptr %call.i4, i64 0, i32 5
+  %max_size = getelementptr inbounds i8, ptr %call.i4, i64 4264
   store i32 %call2, ptr %max_size, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #5
-  %bufptr.i = getelementptr inbounds %struct.UdpChardev, ptr %call.i4, i64 0, i32 4
+  %bufptr.i = getelementptr inbounds i8, ptr %call.i4, i64 4260
   %0 = load i32, ptr %max_size, align 8
   %cmp17.i = icmp sgt i32 %0, 0
   br i1 %cmp17.i, label %land.rhs.lr.ph.i, label %udp_chr_flush_buffer.exit
 
 land.rhs.lr.ph.i:                                 ; preds = %entry
-  %bufcnt.i = getelementptr inbounds %struct.UdpChardev, ptr %call.i4, i64 0, i32 3
+  %bufcnt.i = getelementptr inbounds i8, ptr %call.i4, i64 4256
+  %buf.i = getelementptr inbounds i8, ptr %call.i4, i64 160
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
@@ -378,7 +363,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %sub.i = sub i32 %3, %2
   %cond.i = tail call i32 @llvm.smin.i32(i32 %1, i32 %sub.i)
   %idxprom.i = sext i32 %2 to i64
-  %arrayidx.i = getelementptr %struct.UdpChardev, ptr %call.i4, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [4096 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
   tail call void @qemu_chr_be_write(ptr noundef %call.i.i, ptr noundef %arrayidx.i, i32 noundef %cond.i) #5
   %4 = load i32, ptr %bufptr.i, align 4
   %add.i = add i32 %4, %cond.i
@@ -398,15 +383,15 @@ define internal i32 @udp_chr_read(ptr nocapture readnone %chan, i32 %cond, ptr n
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #5
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 49, ptr noundef nonnull @__func__.UDP_CHARDEV) #5
-  %max_size = getelementptr inbounds %struct.UdpChardev, ptr %call.i8, i64 0, i32 5
+  %max_size = getelementptr inbounds i8, ptr %call.i8, i64 4264
   %0 = load i32, ptr %max_size, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ioc = getelementptr inbounds %struct.UdpChardev, ptr %call.i8, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i8, i64 152
   %1 = load ptr, ptr %ioc, align 8
-  %buf = getelementptr inbounds %struct.UdpChardev, ptr %call.i8, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %call.i8, i64 160
   %call2 = tail call i64 @qio_channel_read(ptr noundef %1, ptr noundef nonnull %buf, i64 noundef 4096, ptr noundef null) #5
   %cmp3 = icmp slt i64 %call2, 1
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -417,9 +402,9 @@ if.then4:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %conv = trunc i64 %call2 to i32
-  %bufcnt = getelementptr inbounds %struct.UdpChardev, ptr %call.i8, i64 0, i32 3
+  %bufcnt = getelementptr inbounds i8, ptr %call.i8, i64 4256
   store i32 %conv, ptr %bufcnt, align 8
-  %bufptr = getelementptr inbounds %struct.UdpChardev, ptr %call.i8, i64 0, i32 4
+  %bufptr = getelementptr inbounds i8, ptr %call.i8, i64 4260
   store i32 0, ptr %bufptr, align 4
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i8, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #5
   %2 = load i32, ptr %max_size, align 8
@@ -437,7 +422,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %sub.i = sub i32 %5, %4
   %cond.i = tail call i32 @llvm.smin.i32(i32 %3, i32 %sub.i)
   %idxprom.i = sext i32 %4 to i64
-  %arrayidx.i = getelementptr %struct.UdpChardev, ptr %call.i8, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [4096 x i8], ptr %buf, i64 0, i64 %idxprom.i
   tail call void @qemu_chr_be_write(ptr noundef %call.i.i, ptr noundef %arrayidx.i, i32 noundef %cond.i) #5
   %6 = load i32, ptr %bufptr, align 4
   %add.i = add i32 %6, %cond.i

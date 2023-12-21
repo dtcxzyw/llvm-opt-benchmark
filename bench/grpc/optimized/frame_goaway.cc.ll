@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.grpc_core::NoDestruct" = type { [8 x i8] }
-%struct.grpc_chttp2_goaway_parser = type { i32, i32, i32, ptr, i32, i32 }
 %"class.absl::lts_20230802::Status" = type { i64 }
 %"class.absl::lts_20230802::str_format_internal::FormatArgImpl" = type { %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data" = type { ptr }
@@ -52,7 +51,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z30grpc_chttp2_goaway_parser_initP25grpc_chttp2_goaway_parser(ptr nocapture noundef writeonly %p) local_unnamed_addr #3 {
 entry:
-  %debug_data = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %p, i64 0, i32 3
+  %debug_data = getelementptr inbounds i8, ptr %p, i64 16
   store ptr null, ptr %debug_data, align 8
   ret void
 }
@@ -60,7 +59,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_Z33grpc_chttp2_goaway_parser_destroyP25grpc_chttp2_goaway_parser(ptr nocapture noundef readonly %p) local_unnamed_addr #4 {
 entry:
-  %debug_data = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %p, i64 0, i32 3
+  %debug_data = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load ptr, ptr %debug_data, align 8
   tail call void @gpr_free(ptr noundef %0)
   ret void
@@ -83,7 +82,7 @@ if.then:                                          ; preds = %entry
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext nneg i32 %length to i64
   %1 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %1, ptr %ref.tmp.i, align 8, !noalias !4
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !4
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str, i64 33, ptr nonnull %ref.tmp.i, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -96,7 +95,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont5:                                     ; preds = %if.then
   %4 = load ptr, ptr %agg.tmp3, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp3, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -120,7 +119,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %5
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !7
 
@@ -149,16 +148,16 @@ lpad4:                                            ; preds = %if.then
   resume { ptr, i32 } %10
 
 if.end:                                           ; preds = %entry
-  %debug_data = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %p, i64 0, i32 3
+  %debug_data = getelementptr inbounds i8, ptr %p, i64 16
   %11 = load ptr, ptr %debug_data, align 8
   tail call void @gpr_free(ptr noundef %11)
   %sub = add i32 %length, -8
-  %debug_length = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %p, i64 0, i32 4
+  %debug_length = getelementptr inbounds i8, ptr %p, i64 24
   store i32 %sub, ptr %debug_length, align 8
   %conv = zext i32 %sub to i64
   %call7 = tail call ptr @gpr_malloc(i64 noundef %conv)
   store ptr %call7, ptr %debug_data, align 8
-  %debug_pos = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %p, i64 0, i32 5
+  %debug_pos = getelementptr inbounds i8, ptr %p, i64 28
   store i32 0, ptr %debug_pos, align 4
   store i32 0, ptr %p, align 8
   store i64 0, ptr %agg.result, align 8, !alias.scope !9
@@ -182,7 +181,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -206,7 +205,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !7
 
@@ -237,11 +236,11 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
 entry:
   %1 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %1, null
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %slice, i64 16
   %2 = load ptr, ptr %bytes, align 8
   %bytes2 = getelementptr inbounds i8, ptr %slice, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %2
-  %data17 = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1
+  %data17 = getelementptr inbounds i8, ptr %slice, i64 8
   %3 = load i64, ptr %data17, align 8
   %conv = and i64 %3, 255
   %cond22 = select i1 %tobool.not, i64 %conv, i64 %3
@@ -271,7 +270,7 @@ if.end:                                           ; preds = %sw.bb
   %5 = load i8, ptr %cond, align 1
   %conv24 = zext i8 %5 to i32
   %shl = shl nuw i32 %conv24, 24
-  %last_stream_id = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 1
+  %last_stream_id = getelementptr inbounds i8, ptr %parser, i64 4
   store i32 %shl, ptr %last_stream_id, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %cond, i64 1
   br label %sw.bb25
@@ -289,7 +288,7 @@ if.end29:                                         ; preds = %sw.bb25
   %6 = load i8, ptr %cur.0, align 1
   %conv30 = zext i8 %6 to i32
   %shl31 = shl nuw nsw i32 %conv30, 16
-  %last_stream_id32 = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 1
+  %last_stream_id32 = getelementptr inbounds i8, ptr %parser, i64 4
   %7 = load i32, ptr %last_stream_id32, align 4
   %or = or i32 %shl31, %7
   store i32 %or, ptr %last_stream_id32, align 4
@@ -309,7 +308,7 @@ if.end38:                                         ; preds = %sw.bb34
   %8 = load i8, ptr %cur.1, align 1
   %conv39 = zext i8 %8 to i32
   %shl40 = shl nuw nsw i32 %conv39, 8
-  %last_stream_id41 = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 1
+  %last_stream_id41 = getelementptr inbounds i8, ptr %parser, i64 4
   %9 = load i32, ptr %last_stream_id41, align 4
   %or42 = or i32 %shl40, %9
   store i32 %or42, ptr %last_stream_id41, align 4
@@ -328,7 +327,7 @@ if.then46:                                        ; preds = %sw.bb44
 if.end48:                                         ; preds = %sw.bb44
   %10 = load i8, ptr %cur.2, align 1
   %conv49 = zext i8 %10 to i32
-  %last_stream_id50 = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 1
+  %last_stream_id50 = getelementptr inbounds i8, ptr %parser, i64 4
   %11 = load i32, ptr %last_stream_id50, align 4
   %or51 = or i32 %11, %conv49
   store i32 %or51, ptr %last_stream_id50, align 4
@@ -348,7 +347,7 @@ if.end57:                                         ; preds = %sw.bb53
   %12 = load i8, ptr %cur.3, align 1
   %conv58 = zext i8 %12 to i32
   %shl59 = shl nuw i32 %conv58, 24
-  %error_code = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 2
+  %error_code = getelementptr inbounds i8, ptr %parser, i64 8
   store i32 %shl59, ptr %error_code, align 8
   %incdec.ptr60 = getelementptr inbounds i8, ptr %cur.3, i64 1
   br label %sw.bb61
@@ -366,7 +365,7 @@ if.end65:                                         ; preds = %sw.bb61
   %13 = load i8, ptr %cur.4, align 1
   %conv66 = zext i8 %13 to i32
   %shl67 = shl nuw nsw i32 %conv66, 16
-  %error_code68 = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 2
+  %error_code68 = getelementptr inbounds i8, ptr %parser, i64 8
   %14 = load i32, ptr %error_code68, align 8
   %or69 = or i32 %shl67, %14
   store i32 %or69, ptr %error_code68, align 8
@@ -386,7 +385,7 @@ if.end75:                                         ; preds = %sw.bb71
   %15 = load i8, ptr %cur.5, align 1
   %conv76 = zext i8 %15 to i32
   %shl77 = shl nuw nsw i32 %conv76, 8
-  %error_code78 = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 2
+  %error_code78 = getelementptr inbounds i8, ptr %parser, i64 8
   %16 = load i32, ptr %error_code78, align 8
   %or79 = or i32 %shl77, %16
   store i32 %or79, ptr %error_code78, align 8
@@ -405,7 +404,7 @@ if.then83:                                        ; preds = %sw.bb81
 if.end85:                                         ; preds = %sw.bb81
   %17 = load i8, ptr %cur.6, align 1
   %conv86 = zext i8 %17 to i32
-  %error_code87 = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 2
+  %error_code87 = getelementptr inbounds i8, ptr %parser, i64 8
   %18 = load i32, ptr %error_code87, align 8
   %or88 = or i32 %18, %conv86
   store i32 %or88, ptr %error_code87, align 8
@@ -424,9 +423,9 @@ sw.bb90.do.body_crit_edge:                        ; preds = %sw.bb90
   br label %do.body
 
 if.then92:                                        ; preds = %sw.bb90
-  %debug_data = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 3
+  %debug_data = getelementptr inbounds i8, ptr %parser, i64 16
   %19 = load ptr, ptr %debug_data, align 8
-  %debug_pos = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 5
+  %debug_pos = getelementptr inbounds i8, ptr %parser, i64 28
   %20 = load i32, ptr %debug_pos, align 4
   %idx.ext = zext i32 %20 to i64
   %add.ptr93 = getelementptr inbounds i8, ptr %19, i64 %idx.ext
@@ -438,7 +437,7 @@ if.then92:                                        ; preds = %sw.bb90
 
 do.body:                                          ; preds = %sw.bb90.do.body_crit_edge, %if.then92
   %sub.ptr.sub97.pre-phi = phi i64 [ %.pre76, %sw.bb90.do.body_crit_edge ], [ %sub.ptr.sub, %if.then92 ]
-  %debug_pos98 = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 5
+  %debug_pos98 = getelementptr inbounds i8, ptr %parser, i64 28
   %21 = load i32, ptr %debug_pos98, align 4
   %sub = xor i32 %21, -1
   %conv99 = zext i32 %sub to i64
@@ -458,13 +457,13 @@ do.end:                                           ; preds = %do.body
   br i1 %tobool110.not, label %return, label %if.then111
 
 if.then111:                                       ; preds = %do.end
-  %error_code112 = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 2
+  %error_code112 = getelementptr inbounds i8, ptr %parser, i64 8
   %22 = load i32, ptr %error_code112, align 8
-  %last_stream_id113 = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 1
+  %last_stream_id113 = getelementptr inbounds i8, ptr %parser, i64 4
   %23 = load i32, ptr %last_stream_id113, align 4
-  %debug_data114 = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 3
+  %debug_data114 = getelementptr inbounds i8, ptr %parser, i64 16
   %24 = load ptr, ptr %debug_data114, align 8
-  %debug_length = getelementptr inbounds %struct.grpc_chttp2_goaway_parser, ptr %parser, i64 0, i32 4
+  %debug_length = getelementptr inbounds i8, ptr %parser, i64 24
   %25 = load i32, ptr %debug_length, align 8
   %conv115 = zext i32 %25 to i64
   tail call void @_Z31grpc_chttp2_add_incoming_goawayP21grpc_chttp2_transportjjSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %t, i32 noundef %22, i32 noundef %23, i64 %conv115, ptr %24)
@@ -500,7 +499,7 @@ entry:
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %header, i64 noundef 17)
   %0 = load ptr, ptr %debug_data, align 8
   %tobool4.not = icmp ne ptr %0, null
-  %data6 = getelementptr inbounds %struct.grpc_slice, ptr %debug_data, i64 0, i32 1
+  %data6 = getelementptr inbounds i8, ptr %debug_data, i64 8
   %1 = load i64, ptr %data6, align 8
   %2 = icmp ugt i64 %1, 4294967286
   %cond11 = select i1 %tobool4.not, i1 %2, i1 false
@@ -514,10 +513,10 @@ do.end:                                           ; preds = %entry
   %3 = load ptr, ptr %header, align 8
   %tobool.not = icmp eq ptr %3, null
   %bytes2 = getelementptr inbounds i8, ptr %header, i64 9
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %header, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %header, i64 16
   %4 = load ptr, ptr %bytes, align 8
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %4
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %header, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %header, i64 8
   %conv21 = and i64 %1, 255
   %cond23 = select i1 %tobool4.not, i64 %1, i64 %conv21
   %conv24 = trunc i64 %cond23 to i32

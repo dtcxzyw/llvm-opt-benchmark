@@ -94,7 +94,7 @@ for.body:                                         ; preds = %mi_add_stderr_outpu
   %2 = trunc i64 %indvars.iv to i32
   %call = tail call i64 @mi_option_get(i32 noundef %2) #19
   %arrayidx = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %indvars.iv
-  %name = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %indvars.iv, i32 3
+  %name = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load ptr, ptr %name, align 16
   %4 = load i64, ptr %arrayidx, align 16
   tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str, ptr noundef %3, i64 noundef %4) #19
@@ -122,7 +122,7 @@ entry:
 if.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %option to i64
   %arrayidx = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom
-  %init = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom, i32 1
+  %init = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i32, ptr %init, align 8
   %cmp2 = icmp eq i32 %0, 0
   br i1 %cmp2, label %if.then4, label %if.end5
@@ -147,7 +147,7 @@ while.body.i50:                                   ; preds = %while.body.i50, %if
 
 _mi_strlcpy.exit60:                               ; preds = %while.body.i50
   store i8 0, ptr %incdec.ptr8.i55, align 1
-  %name.i = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom, i32 3
+  %name.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load ptr, ptr %name.i, align 16
   %cmp1.i22 = icmp eq ptr %3, null
   br i1 %cmp1.i22, label %_mi_strlcat.exit48, label %while.cond.preheader.i23
@@ -202,7 +202,7 @@ _mi_strlcat.exit48:                               ; preds = %_mi_strlcpy.exit60,
   br i1 %call.i20, label %while.cond.i.preheader, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_mi_strlcat.exit48
-  %legacy_name.i = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom, i32 4
+  %legacy_name.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %12 = load ptr, ptr %legacy_name.i, align 8
   %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %if.else116.i, label %while.body.i13
@@ -333,7 +333,7 @@ if.then36.i:                                      ; preds = %if.else.i
 if.else39.i:                                      ; preds = %if.else.i
   store ptr %buf.i, ptr %end.i, align 8
   %call43.i = call i64 @strtol(ptr noundef nonnull %buf.i, ptr noundef nonnull %end.i, i32 noundef 10) #18
-  %option.i = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom, i32 2
+  %option.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %30 = load i32, ptr %option.i, align 4
   switch i32 %30, label %if.else39.i.if.end90.i_crit_edge [
     i32 9, label %if.then50.i
@@ -538,7 +538,7 @@ if.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %option to i64
   %arrayidx = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom
   store i64 %value, ptr %arrayidx, align 16
-  %init = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom, i32 1
+  %init = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 2, ptr %init, align 8
   br label %return
 
@@ -554,13 +554,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %option to i64
-  %init = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom, i32 1
+  %arrayidx = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom
+  %init = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i32, ptr %init, align 8
   %cmp2.not = icmp eq i32 %0, 2
   br i1 %cmp2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %arrayidx = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom
   store i64 %value, ptr %arrayidx, align 16
   br label %if.end5
 
@@ -587,7 +587,7 @@ if.end.i:                                         ; preds = %entry
   %idxprom.i = zext nneg i32 %option to i64
   %arrayidx.i = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom.i
   store i64 %conv, ptr %arrayidx.i, align 16
-  %init.i = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom.i, i32 1
+  %init.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i32 2, ptr %init.i, align 8
   br label %mi_option_set.exit
 
@@ -604,13 +604,13 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %idxprom.i = zext nneg i32 %option to i64
-  %init.i = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom.i, i32 1
+  %arrayidx.i = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom.i
+  %init.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %init.i, align 8
   %cmp2.not.i = icmp eq i32 %0, 2
   br i1 %cmp2.not.i, label %mi_option_set_default.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %arrayidx.i = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom.i
   store i64 %conv, ptr %arrayidx.i, align 16
   br label %mi_option_set_default.exit
 
@@ -628,7 +628,7 @@ if.end.i.i:                                       ; preds = %entry
   %idxprom.i.i = zext nneg i32 %option to i64
   %arrayidx.i.i = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom.i.i
   store i64 1, ptr %arrayidx.i.i, align 16
-  %init.i.i = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom.i.i, i32 1
+  %init.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   store i32 2, ptr %init.i.i, align 8
   br label %mi_option_set_enabled.exit
 
@@ -646,7 +646,7 @@ if.end.i.i:                                       ; preds = %entry
   %idxprom.i.i = zext nneg i32 %option to i64
   %arrayidx.i.i = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom.i.i
   store i64 0, ptr %arrayidx.i.i, align 16
-  %init.i.i = getelementptr inbounds [26 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %idxprom.i.i, i32 1
+  %init.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   store i32 2, ptr %init.i.i, align 8
   br label %mi_option_set_enabled.exit
 

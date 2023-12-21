@@ -25,7 +25,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx1 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %argv, i64 8
   %2 = load ptr, ptr %arrayidx1, align 8
   %call2 = call i64 @strtol(ptr noundef %2, ptr noundef nonnull %End, i32 noundef 10) #4
   %conv = trunc i64 %call2 to i32

@@ -3,11 +3,6 @@ source_filename = "bench/qemu/original/generic-pcihost.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QGenericPCIHost = type { %struct.QOSGraphObject, %struct.QGenericPCIBus }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QGenericPCIBus = type { %struct.QOSGraphObject, %struct.QPCIBus, i64, i64 }
-%struct.QPCIBus = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i8, i8 }
-
 @.str = private unnamed_addr constant [16 x i8] c"pci-bus-generic\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [35 x i8] c"%s not present in generic-pcihost\0A\00", align 1
@@ -29,7 +24,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %pci = getelementptr inbounds %struct.QGenericPCIHost, ptr %obj, i64 0, i32 1
+  %pci = getelementptr inbounds i8, ptr %obj, i64 40
   ret ptr %pci
 
 if.end:                                           ; preds = %entry
@@ -50,7 +45,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qos_create_generic_pcihost(ptr nocapture noundef writeonly %host, ptr noundef %qts, ptr nocapture noundef readnone %alloc) local_unnamed_addr #0 {
 entry:
-  %get_device = getelementptr inbounds %struct.QOSGraphObject, ptr %host, i64 0, i32 1
+  %get_device = getelementptr inbounds i8, ptr %host, i64 8
   store ptr @generic_pcihost_get_device, ptr %get_device, align 8
   %tobool.not.i = icmp eq ptr %qts, null
   br i1 %tobool.not.i, label %if.else.i, label %qpci_init_generic.exit
@@ -60,56 +55,56 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 qpci_init_generic.exit:                           ; preds = %entry
-  %pci = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1
-  %gpex_pio_base.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 2
+  %pci = getelementptr inbounds i8, ptr %host, i64 40
+  %gpex_pio_base.i = getelementptr inbounds i8, ptr %host, i64 256
   store i64 1056899072, ptr %gpex_pio_base.i, align 8
-  %bus.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1
-  %not_hotpluggable.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 22
+  %bus.i = getelementptr inbounds i8, ptr %host, i64 80
+  %not_hotpluggable.i = getelementptr inbounds i8, ptr %host, i64 249
   store i8 1, ptr %not_hotpluggable.i, align 1
-  %has_buggy_msi.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 21
+  %has_buggy_msi.i = getelementptr inbounds i8, ptr %host, i64 248
   store i8 0, ptr %has_buggy_msi.i, align 8
   store ptr @qpci_generic_pio_readb, ptr %bus.i, align 8
-  %pio_readw.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 1
+  %pio_readw.i = getelementptr inbounds i8, ptr %host, i64 88
   store ptr @qpci_generic_pio_readw, ptr %pio_readw.i, align 8
-  %pio_readl.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 2
+  %pio_readl.i = getelementptr inbounds i8, ptr %host, i64 96
   store ptr @qpci_generic_pio_readl, ptr %pio_readl.i, align 8
-  %pio_readq.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 3
+  %pio_readq.i = getelementptr inbounds i8, ptr %host, i64 104
   store ptr @qpci_generic_pio_readq, ptr %pio_readq.i, align 8
-  %pio_writeb.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 4
+  %pio_writeb.i = getelementptr inbounds i8, ptr %host, i64 112
   store ptr @qpci_generic_pio_writeb, ptr %pio_writeb.i, align 8
-  %pio_writew.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 5
+  %pio_writew.i = getelementptr inbounds i8, ptr %host, i64 120
   store ptr @qpci_generic_pio_writew, ptr %pio_writew.i, align 8
-  %pio_writel.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 6
+  %pio_writel.i = getelementptr inbounds i8, ptr %host, i64 128
   store ptr @qpci_generic_pio_writel, ptr %pio_writel.i, align 8
-  %pio_writeq.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 7
+  %pio_writeq.i = getelementptr inbounds i8, ptr %host, i64 136
   store ptr @qpci_generic_pio_writeq, ptr %pio_writeq.i, align 8
-  %memread.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 8
+  %memread.i = getelementptr inbounds i8, ptr %host, i64 144
   store ptr @qpci_generic_memread, ptr %memread.i, align 8
-  %memwrite.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 9
+  %memwrite.i = getelementptr inbounds i8, ptr %host, i64 152
   store ptr @qpci_generic_memwrite, ptr %memwrite.i, align 8
-  %config_readb.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 10
+  %config_readb.i = getelementptr inbounds i8, ptr %host, i64 160
   store ptr @qpci_generic_config_readb, ptr %config_readb.i, align 8
-  %config_readw.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 11
+  %config_readw.i = getelementptr inbounds i8, ptr %host, i64 168
   store ptr @qpci_generic_config_readw, ptr %config_readw.i, align 8
-  %config_readl.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 12
+  %config_readl.i = getelementptr inbounds i8, ptr %host, i64 176
   store ptr @qpci_generic_config_readl, ptr %config_readl.i, align 8
-  %config_writeb.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 13
+  %config_writeb.i = getelementptr inbounds i8, ptr %host, i64 184
   store ptr @qpci_generic_config_writeb, ptr %config_writeb.i, align 8
-  %config_writew.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 14
+  %config_writew.i = getelementptr inbounds i8, ptr %host, i64 192
   store ptr @qpci_generic_config_writew, ptr %config_writew.i, align 8
-  %config_writel.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 15
+  %config_writel.i = getelementptr inbounds i8, ptr %host, i64 200
   store ptr @qpci_generic_config_writel, ptr %config_writel.i, align 8
-  %qts21.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 16
+  %qts21.i = getelementptr inbounds i8, ptr %host, i64 208
   store ptr %qts, ptr %qts21.i, align 8
-  %pio_alloc_ptr.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 17
+  %pio_alloc_ptr.i = getelementptr inbounds i8, ptr %host, i64 216
   store i64 0, ptr %pio_alloc_ptr.i, align 8
-  %pio_limit.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 18
+  %pio_limit.i = getelementptr inbounds i8, ptr %host, i64 224
   store i64 65536, ptr %pio_limit.i, align 8
-  %mmio_alloc_ptr.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 19
+  %mmio_alloc_ptr.i = getelementptr inbounds i8, ptr %host, i64 232
   store i64 268435456, ptr %mmio_alloc_ptr.i, align 8
-  %mmio_limit.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 1, i32 20
+  %mmio_limit.i = getelementptr inbounds i8, ptr %host, i64 240
   store i64 788463616, ptr %mmio_limit.i, align 8
-  %ecam_alloc_ptr.i = getelementptr inbounds %struct.QGenericPCIHost, ptr %host, i64 0, i32 1, i32 3
+  %ecam_alloc_ptr.i = getelementptr inbounds i8, ptr %host, i64 264
   store i64 275146342400, ptr %ecam_alloc_ptr.i, align 8
   store ptr @qpci_generic_get_driver, ptr %pci, align 8
   ret void
@@ -126,57 +121,57 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %gpex_pio_base = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 2
+  %gpex_pio_base = getelementptr inbounds i8, ptr %qpci, i64 216
   store i64 1056899072, ptr %gpex_pio_base, align 8
   %lnot = xor i1 %hotpluggable, true
-  %bus = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1
-  %not_hotpluggable = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 22
+  %bus = getelementptr inbounds i8, ptr %qpci, i64 40
+  %not_hotpluggable = getelementptr inbounds i8, ptr %qpci, i64 209
   %frombool2 = zext i1 %lnot to i8
   store i8 %frombool2, ptr %not_hotpluggable, align 1
-  %has_buggy_msi = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 21
+  %has_buggy_msi = getelementptr inbounds i8, ptr %qpci, i64 208
   store i8 0, ptr %has_buggy_msi, align 8
   store ptr @qpci_generic_pio_readb, ptr %bus, align 8
-  %pio_readw = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 1
+  %pio_readw = getelementptr inbounds i8, ptr %qpci, i64 48
   store ptr @qpci_generic_pio_readw, ptr %pio_readw, align 8
-  %pio_readl = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 2
+  %pio_readl = getelementptr inbounds i8, ptr %qpci, i64 56
   store ptr @qpci_generic_pio_readl, ptr %pio_readl, align 8
-  %pio_readq = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 3
+  %pio_readq = getelementptr inbounds i8, ptr %qpci, i64 64
   store ptr @qpci_generic_pio_readq, ptr %pio_readq, align 8
-  %pio_writeb = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 4
+  %pio_writeb = getelementptr inbounds i8, ptr %qpci, i64 72
   store ptr @qpci_generic_pio_writeb, ptr %pio_writeb, align 8
-  %pio_writew = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 5
+  %pio_writew = getelementptr inbounds i8, ptr %qpci, i64 80
   store ptr @qpci_generic_pio_writew, ptr %pio_writew, align 8
-  %pio_writel = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 6
+  %pio_writel = getelementptr inbounds i8, ptr %qpci, i64 88
   store ptr @qpci_generic_pio_writel, ptr %pio_writel, align 8
-  %pio_writeq = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 7
+  %pio_writeq = getelementptr inbounds i8, ptr %qpci, i64 96
   store ptr @qpci_generic_pio_writeq, ptr %pio_writeq, align 8
-  %memread = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 8
+  %memread = getelementptr inbounds i8, ptr %qpci, i64 104
   store ptr @qpci_generic_memread, ptr %memread, align 8
-  %memwrite = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 9
+  %memwrite = getelementptr inbounds i8, ptr %qpci, i64 112
   store ptr @qpci_generic_memwrite, ptr %memwrite, align 8
-  %config_readb = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 10
+  %config_readb = getelementptr inbounds i8, ptr %qpci, i64 120
   store ptr @qpci_generic_config_readb, ptr %config_readb, align 8
-  %config_readw = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 11
+  %config_readw = getelementptr inbounds i8, ptr %qpci, i64 128
   store ptr @qpci_generic_config_readw, ptr %config_readw, align 8
-  %config_readl = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 12
+  %config_readl = getelementptr inbounds i8, ptr %qpci, i64 136
   store ptr @qpci_generic_config_readl, ptr %config_readl, align 8
-  %config_writeb = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 13
+  %config_writeb = getelementptr inbounds i8, ptr %qpci, i64 144
   store ptr @qpci_generic_config_writeb, ptr %config_writeb, align 8
-  %config_writew = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 14
+  %config_writew = getelementptr inbounds i8, ptr %qpci, i64 152
   store ptr @qpci_generic_config_writew, ptr %config_writew, align 8
-  %config_writel = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 15
+  %config_writel = getelementptr inbounds i8, ptr %qpci, i64 160
   store ptr @qpci_generic_config_writel, ptr %config_writel, align 8
-  %qts21 = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 16
+  %qts21 = getelementptr inbounds i8, ptr %qpci, i64 168
   store ptr %qts, ptr %qts21, align 8
-  %pio_alloc_ptr = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 17
+  %pio_alloc_ptr = getelementptr inbounds i8, ptr %qpci, i64 176
   store i64 0, ptr %pio_alloc_ptr, align 8
-  %pio_limit = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 18
+  %pio_limit = getelementptr inbounds i8, ptr %qpci, i64 184
   store i64 65536, ptr %pio_limit, align 8
-  %mmio_alloc_ptr = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 19
+  %mmio_alloc_ptr = getelementptr inbounds i8, ptr %qpci, i64 192
   store i64 268435456, ptr %mmio_alloc_ptr, align 8
-  %mmio_limit = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 1, i32 20
+  %mmio_limit = getelementptr inbounds i8, ptr %qpci, i64 200
   store i64 788463616, ptr %mmio_limit, align 8
-  %ecam_alloc_ptr = getelementptr inbounds %struct.QGenericPCIBus, ptr %qpci, i64 0, i32 3
+  %ecam_alloc_ptr = getelementptr inbounds i8, ptr %qpci, i64 224
   store i64 275146342400, ptr %ecam_alloc_ptr, align 8
   store ptr @qpci_generic_get_driver, ptr %qpci, align 8
   ret void
@@ -188,7 +183,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i8 @qpci_generic_pio_readb(ptr nocapture noundef readonly %bus, i32 noundef %addr) #0 {
 entry:
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %0 = load ptr, ptr %qts, align 8
   %gpex_pio_base = getelementptr i8, ptr %bus, i64 176
   %1 = load i64, ptr %gpex_pio_base, align 8
@@ -201,7 +196,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i16 @qpci_generic_pio_readw(ptr nocapture noundef readonly %bus, i32 noundef %addr) #0 {
 entry:
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %0 = load ptr, ptr %qts, align 8
   %gpex_pio_base = getelementptr i8, ptr %bus, i64 176
   %1 = load i64, ptr %gpex_pio_base, align 8
@@ -214,7 +209,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @qpci_generic_pio_readl(ptr nocapture noundef readonly %bus, i32 noundef %addr) #0 {
 entry:
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %0 = load ptr, ptr %qts, align 8
   %gpex_pio_base = getelementptr i8, ptr %bus, i64 176
   %1 = load i64, ptr %gpex_pio_base, align 8
@@ -227,7 +222,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @qpci_generic_pio_readq(ptr nocapture noundef readonly %bus, i32 noundef %addr) #0 {
 entry:
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %0 = load ptr, ptr %qts, align 8
   %gpex_pio_base = getelementptr i8, ptr %bus, i64 176
   %1 = load i64, ptr %gpex_pio_base, align 8
@@ -240,7 +235,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qpci_generic_pio_writeb(ptr nocapture noundef readonly %bus, i32 noundef %addr, i8 noundef zeroext %val) #0 {
 entry:
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %0 = load ptr, ptr %qts, align 8
   %gpex_pio_base = getelementptr i8, ptr %bus, i64 176
   %1 = load i64, ptr %gpex_pio_base, align 8
@@ -253,7 +248,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qpci_generic_pio_writew(ptr nocapture noundef readonly %bus, i32 noundef %addr, i16 noundef zeroext %val) #0 {
 entry:
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %0 = load ptr, ptr %qts, align 8
   %gpex_pio_base = getelementptr i8, ptr %bus, i64 176
   %1 = load i64, ptr %gpex_pio_base, align 8
@@ -266,7 +261,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qpci_generic_pio_writel(ptr nocapture noundef readonly %bus, i32 noundef %addr, i32 noundef %val) #0 {
 entry:
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %0 = load ptr, ptr %qts, align 8
   %gpex_pio_base = getelementptr i8, ptr %bus, i64 176
   %1 = load i64, ptr %gpex_pio_base, align 8
@@ -279,7 +274,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qpci_generic_pio_writeq(ptr nocapture noundef readonly %bus, i32 noundef %addr, i64 noundef %val) #0 {
 entry:
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %0 = load ptr, ptr %qts, align 8
   %gpex_pio_base = getelementptr i8, ptr %bus, i64 176
   %1 = load i64, ptr %gpex_pio_base, align 8
@@ -292,7 +287,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qpci_generic_memread(ptr nocapture noundef readonly %bus, i32 noundef %addr, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %0 = load ptr, ptr %qts, align 8
   %conv = zext i32 %addr to i64
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %conv, ptr noundef %buf, i64 noundef %len) #5
@@ -302,7 +297,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qpci_generic_memwrite(ptr nocapture noundef readonly %bus, i32 noundef %addr, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %0 = load ptr, ptr %qts, align 8
   %conv = zext i32 %addr to i64
   tail call void @qtest_memwrite(ptr noundef %0, i64 noundef %conv, ptr noundef %buf, i64 noundef %len) #5
@@ -320,7 +315,7 @@ entry:
   %or1 = or disjoint i32 %shl, %conv
   %conv2 = sext i32 %or1 to i64
   %add = add i64 %0, %conv2
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %1 = load ptr, ptr %qts, align 8
   call void @qtest_memread(ptr noundef %1, i64 noundef %add, ptr noundef nonnull %val, i64 noundef 1) #5
   %2 = load i8, ptr %val, align 1
@@ -338,7 +333,7 @@ entry:
   %or1 = or disjoint i32 %shl, %conv
   %conv2 = sext i32 %or1 to i64
   %add = add i64 %0, %conv2
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %1 = load ptr, ptr %qts, align 8
   call void @qtest_memread(ptr noundef %1, i64 noundef %add, ptr noundef nonnull %val, i64 noundef 2) #5
   %2 = load i16, ptr %val, align 2
@@ -356,7 +351,7 @@ entry:
   %or1 = or disjoint i32 %shl, %conv
   %conv2 = sext i32 %or1 to i64
   %add = add i64 %0, %conv2
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %1 = load ptr, ptr %qts, align 8
   call void @qtest_memread(ptr noundef %1, i64 noundef %add, ptr noundef nonnull %val, i64 noundef 4) #5
   %2 = load i32, ptr %val, align 4
@@ -375,7 +370,7 @@ entry:
   %or1 = or disjoint i32 %shl, %conv
   %conv2 = sext i32 %or1 to i64
   %add = add i64 %0, %conv2
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %1 = load ptr, ptr %qts, align 8
   call void @qtest_memwrite(ptr noundef %1, i64 noundef %add, ptr noundef nonnull %value.addr, i64 noundef 1) #5
   ret void
@@ -393,7 +388,7 @@ entry:
   %conv2 = sext i32 %or1 to i64
   %add = add i64 %0, %conv2
   store i16 %value, ptr %val, align 2
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %1 = load ptr, ptr %qts, align 8
   call void @qtest_memwrite(ptr noundef %1, i64 noundef %add, ptr noundef nonnull %val, i64 noundef 2) #5
   ret void
@@ -411,7 +406,7 @@ entry:
   %conv2 = sext i32 %or1 to i64
   %add = add i64 %0, %conv2
   store i32 %value, ptr %val, align 4
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %bus, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %bus, i64 128
   %1 = load ptr, ptr %qts, align 8
   call void @qtest_memwrite(ptr noundef %1, i64 noundef %add, ptr noundef nonnull %val, i64 noundef 4) #5
   ret void
@@ -425,7 +420,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %bus = getelementptr inbounds %struct.QGenericPCIBus, ptr %obj, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %obj, i64 40
   ret ptr %bus
 
 if.end:                                           ; preds = %entry

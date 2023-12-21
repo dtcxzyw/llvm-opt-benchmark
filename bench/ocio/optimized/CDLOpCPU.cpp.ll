@@ -4,60 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.OpenColorIO_v2_4dev::RenderParams" = type <{ [4 x float], [4 x float], [4 x float], float, i8, i8, [2 x i8] }>
-%"class.OpenColorIO_v2_4dev::CDLOpData" = type { %"class.OpenColorIO_v2_4dev::OpData", i32, %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", double }
-%"class.OpenColorIO_v2_4dev::OpData" = type { ptr, %"class.std::mutex", %"class.OpenColorIO_v2_4dev::FormatMetadataImpl" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.OpenColorIO_v2_4dev::FormatMetadataImpl" = type { %"class.OpenColorIO_v2_4dev::FormatMetadata", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::vector.3" }
-%"class.OpenColorIO_v2_4dev::FormatMetadata" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams" = type { [3 x double] }
-%"class.OpenColorIO_v2_4dev::CDLOpCPU" = type { %"class.OpenColorIO_v2_4dev::OpCPU", %"struct.OpenColorIO_v2_4dev::RenderParams" }
-%"class.OpenColorIO_v2_4dev::OpCPU" = type { ptr }
 %"class.std::shared_ptr.8" = type { %"class.std::__shared_ptr.9" }
 %"class.std::__shared_ptr.9" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererFwdSSE<true>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererFwdSSE<true>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<64, 8>::type" }
-%"union.std::aligned_storage<64, 8>::type" = type { [64 x i8] }
-%"class.std::_Sp_counted_ptr_inplace.44" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererFwd<true>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererFwd<true>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.45" }
-%"struct.__gnu_cxx::__aligned_buffer.45" = type { %"union.std::aligned_storage<64, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.50" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererFwdSSE<false>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererFwdSSE<false>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.51" }
-%"struct.__gnu_cxx::__aligned_buffer.51" = type { %"union.std::aligned_storage<64, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.58" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererFwd<false>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererFwd<false>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.59" }
-%"struct.__gnu_cxx::__aligned_buffer.59" = type { %"union.std::aligned_storage<64, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.64" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererRevSSE<true>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererRevSSE<true>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.65" }
-%"struct.__gnu_cxx::__aligned_buffer.65" = type { %"union.std::aligned_storage<64, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.70" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererRev<true>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererRev<true>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.71" }
-%"struct.__gnu_cxx::__aligned_buffer.71" = type { %"union.std::aligned_storage<64, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.76" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererRevSSE<false>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererRevSSE<false>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.77" }
-%"struct.__gnu_cxx::__aligned_buffer.77" = type { %"union.std::aligned_storage<64, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.84" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererRev<false>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::CDLRendererRev<false>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.85" }
-%"struct.__gnu_cxx::__aligned_buffer.85" = type { %"union.std::aligned_storage<64, 8>::type" }
-%"class.std::type_info" = type { ptr, ptr }
 
 $_ZN19OpenColorIO_v2_4dev8CDLOpCPUD2Ev = comdat any
 
@@ -402,16 +351,16 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev12RenderParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(54) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_isReverse = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 4
+  %m_isReverse = getelementptr inbounds i8, ptr %this, i64 52
   store i8 0, ptr %m_isReverse, align 4
-  %m_isNoClamp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 5
+  %m_isNoClamp = getelementptr inbounds i8, ptr %this, i64 53
   store i8 0, ptr %m_isNoClamp, align 1
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %this, align 4
-  %m_offset.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 1
-  %m_power.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 2
+  %m_offset.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_power.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_offset.i, i8 0, i64 16, i1 false)
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i, align 4
-  %m_saturation.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 3
+  %m_saturation.i = getelementptr inbounds i8, ptr %this, i64 48
   store float 1.000000e+00, ptr %m_saturation.i, align 4
   ret void
 }
@@ -420,11 +369,11 @@ entry:
 define hidden void @_ZN19OpenColorIO_v2_4dev12RenderParams8setSlopeEfff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(54) %this, float noundef %r, float noundef %g, float noundef %b) local_unnamed_addr #4 align 2 {
 entry:
   store float %r, ptr %this, align 4
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 4
   store float %g, ptr %arrayidx3, align 4
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 8
   store float %b, ptr %arrayidx5, align 4
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 3
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 12
   store float 1.000000e+00, ptr %arrayidx7, align 4
   ret void
 }
@@ -432,13 +381,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev12RenderParams9setOffsetEfff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(54) %this, float noundef %r, float noundef %g, float noundef %b) local_unnamed_addr #4 align 2 {
 entry:
-  %m_offset = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 1
+  %m_offset = getelementptr inbounds i8, ptr %this, i64 16
   store float %r, ptr %m_offset, align 4
-  %arrayidx3 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 20
   store float %g, ptr %arrayidx3, align 4
-  %arrayidx5 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 24
   store float %b, ptr %arrayidx5, align 4
-  %arrayidx7 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 1, i64 3
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 28
   store float 0.000000e+00, ptr %arrayidx7, align 4
   ret void
 }
@@ -446,13 +395,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev12RenderParams8setPowerEfff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(54) %this, float noundef %r, float noundef %g, float noundef %b) local_unnamed_addr #4 align 2 {
 entry:
-  %m_power = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 2
+  %m_power = getelementptr inbounds i8, ptr %this, i64 32
   store float %r, ptr %m_power, align 4
-  %arrayidx3 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 2, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 36
   store float %g, ptr %arrayidx3, align 4
-  %arrayidx5 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 2, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 40
   store float %b, ptr %arrayidx5, align 4
-  %arrayidx7 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 2, i64 3
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 44
   store float 1.000000e+00, ptr %arrayidx7, align 4
   ret void
 }
@@ -460,7 +409,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev12RenderParams13setSaturationEf(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(54) %this, float noundef %sat) local_unnamed_addr #4 align 2 {
 entry:
-  %m_saturation = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 3
+  %m_saturation = getelementptr inbounds i8, ptr %this, i64 48
   store float %sat, ptr %m_saturation, align 4
   ret void
 }
@@ -469,31 +418,31 @@ entry:
 define hidden void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(54) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cdl) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %cdl, align 8
-  %m_slopeParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpData", ptr %0, i64 0, i32 2
+  %m_slopeParams.i = getelementptr inbounds i8, ptr %0, i64 176
   %1 = load double, ptr %m_slopeParams.i, align 8
-  %arrayidx4.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpData", ptr %0, i64 0, i32 2, i32 0, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %0, i64 184
   %2 = load <2 x double>, ptr %arrayidx4.i, align 8
-  %m_offsetParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpData", ptr %0, i64 0, i32 3
+  %m_offsetParams.i = getelementptr inbounds i8, ptr %0, i64 200
   %3 = load <2 x double>, ptr %m_offsetParams.i, align 8
-  %arrayidx7.i11 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpData", ptr %0, i64 0, i32 3, i32 0, i64 2
+  %arrayidx7.i11 = getelementptr inbounds i8, ptr %0, i64 216
   %4 = load double, ptr %arrayidx7.i11, align 8
-  %m_powerParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpData", ptr %0, i64 0, i32 4
+  %m_powerParams.i = getelementptr inbounds i8, ptr %0, i64 224
   %5 = load <2 x double>, ptr %m_powerParams.i, align 8
-  %arrayidx7.i15 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpData", ptr %0, i64 0, i32 4, i32 0, i64 2
+  %arrayidx7.i15 = getelementptr inbounds i8, ptr %0, i64 240
   %6 = load double, ptr %arrayidx7.i15, align 8
-  %m_saturation.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpData", ptr %0, i64 0, i32 5
+  %m_saturation.i = getelementptr inbounds i8, ptr %0, i64 248
   %7 = load double, ptr %m_saturation.i, align 8
   %conv = fptrunc double %7 to float
-  %m_style.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpData", ptr %0, i64 0, i32 1
+  %m_style.i = getelementptr inbounds i8, ptr %0, i64 168
   %8 = load i32, ptr %m_style.i, align 8
   %9 = and i32 %8, -3
   %10 = icmp eq i32 %9, 1
-  %m_isReverse = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 4
+  %m_isReverse = getelementptr inbounds i8, ptr %this, i64 52
   %frombool = zext i1 %10 to i8
   store i8 %frombool, ptr %m_isReverse, align 4
   %11 = and i32 %8, -2
   %12 = icmp eq i32 %11, 2
-  %m_isNoClamp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 5
+  %m_isNoClamp = getelementptr inbounds i8, ptr %this, i64 53
   %frombool18 = zext i1 %12 to i8
   store i8 %frombool18, ptr %m_isNoClamp, align 1
   %conv20 = fptrunc double %1 to float
@@ -513,14 +462,14 @@ if.then:                                          ; preds = %entry
   %18 = select <2 x i1> %17, <2 x float> <float 0x3F847AE140000000, float 0x3F847AE140000000>, <2 x float> %16
   %19 = fdiv <2 x float> <float 1.000000e+00, float 1.000000e+00>, %18
   store <2 x float> %19, ptr %this, align 4
-  %arrayidx5.i23 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 2
+  %arrayidx5.i23 = getelementptr inbounds i8, ptr %this, i64 8
   store float %div.i22, ptr %arrayidx5.i23, align 4
-  %arrayidx7.i24 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 3
+  %arrayidx7.i24 = getelementptr inbounds i8, ptr %this, i64 12
   store float 1.000000e+00, ptr %arrayidx7.i24, align 4
   %20 = fptrunc <2 x double> %3 to <2 x float>
   %21 = fptrunc double %4 to float
   %conv35 = fneg float %21
-  %m_offset.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 1
+  %m_offset.i = getelementptr inbounds i8, ptr %this, i64 16
   %22 = fneg <2 x float> %20
   store <2 x float> %22, ptr %m_offset.i, align 4
   %23 = fptrunc <2 x double> %5 to <2 x float>
@@ -538,12 +487,12 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %32 = fptrunc <2 x double> %2 to <2 x float>
   store float %conv20, ptr %this, align 4
-  %arrayidx3.i44 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 1
+  %arrayidx3.i44 = getelementptr inbounds i8, ptr %this, i64 4
   store <2 x float> %32, ptr %arrayidx3.i44, align 4
-  %arrayidx7.i46 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 3
+  %arrayidx7.i46 = getelementptr inbounds i8, ptr %this, i64 12
   store float 1.000000e+00, ptr %arrayidx7.i46, align 4
   %conv57 = fptrunc double %4 to float
-  %m_offset.i47 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 1
+  %m_offset.i47 = getelementptr inbounds i8, ptr %this, i64 16
   %33 = fptrunc <2 x double> %3 to <2 x float>
   store <2 x float> %33, ptr %m_offset.i47, align 4
   %34 = fptrunc <2 x double> %5 to <2 x float>
@@ -556,18 +505,18 @@ if.end:                                           ; preds = %if.else, %if.then
   %conv57.sink = phi float [ %conv35, %if.then ], [ %conv57, %if.else ]
   %37 = phi <2 x float> [ %26, %if.then ], [ %34, %if.else ]
   %38 = phi <2 x float> [ %31, %if.then ], [ %36, %if.else ]
-  %39 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 1, i64 2
+  %39 = getelementptr inbounds i8, ptr %this, i64 24
   store float %conv57.sink, ptr %39, align 4
-  %40 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 1, i64 3
+  %40 = getelementptr inbounds i8, ptr %this, i64 28
   store float 0.000000e+00, ptr %40, align 4
-  %41 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 2
+  %41 = getelementptr inbounds i8, ptr %this, i64 32
   store <2 x float> %37, ptr %41, align 4
-  %42 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 2, i64 2
+  %42 = getelementptr inbounds i8, ptr %this, i64 40
   %43 = extractelement <2 x float> %38, i64 1
   store float %43, ptr %42, align 4
-  %44 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 2, i64 3
+  %44 = getelementptr inbounds i8, ptr %this, i64 44
   store float 1.000000e+00, ptr %44, align 4
-  %45 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %this, i64 0, i32 3
+  %45 = getelementptr inbounds i8, ptr %this, i64 48
   %46 = extractelement <2 x float> %38, i64 0
   store float %46, ptr %45, align 4
   ret void
@@ -577,17 +526,17 @@ if.end:                                           ; preds = %if.else, %if.then
 define hidden void @_ZN19OpenColorIO_v2_4dev8CDLOpCPUC2ERSt10shared_ptrIKNS_9CDLOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cdl) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev8CDLOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_renderParams = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1
-  %m_isReverse.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 4
+  %m_renderParams = getelementptr inbounds i8, ptr %this, i64 8
+  %m_isReverse.i = getelementptr inbounds i8, ptr %this, i64 60
   store i8 0, ptr %m_isReverse.i, align 4
-  %m_isNoClamp.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 5
+  %m_isNoClamp.i = getelementptr inbounds i8, ptr %this, i64 61
   store i8 0, ptr %m_isNoClamp.i, align 1
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams, align 8
-  %m_offset.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1
-  %m_power.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2
+  %m_offset.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_power.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i, i8 0, i64 16, i1 false)
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i, align 8
-  %m_saturation.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %m_saturation.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store float 1.000000e+00, ptr %m_saturation.i.i, align 8
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams, ptr noundef nonnull align 8 dereferenceable(16) %cdl)
   ret void
@@ -603,13 +552,13 @@ define hidden void @_ZN19OpenColorIO_v2_4dev16LoadRenderParamsERKNS_12RenderPara
 entry:
   %0 = load <4 x float>, ptr %renderParams, align 4
   store <4 x float> %0, ptr %slope, align 16
-  %m_offset.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %renderParams, i64 0, i32 1
+  %m_offset.i = getelementptr inbounds i8, ptr %renderParams, i64 16
   %1 = load <4 x float>, ptr %m_offset.i, align 4
   store <4 x float> %1, ptr %offset, align 16
-  %m_power.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %renderParams, i64 0, i32 2
+  %m_power.i = getelementptr inbounds i8, ptr %renderParams, i64 32
   %2 = load <4 x float>, ptr %m_power.i, align 4
   store <4 x float> %2, ptr %power, align 16
-  %m_saturation.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %renderParams, i64 0, i32 3
+  %m_saturation.i = getelementptr inbounds i8, ptr %renderParams, i64 48
   %3 = load float, ptr %m_saturation.i, align 4
   %vecinit.i = insertelement <4 x float> poison, float %3, i64 0
   %vecinit3.i = shufflevector <4 x float> %vecinit.i, <4 x float> poison, <4 x i32> zeroinitializer
@@ -621,7 +570,7 @@ entry:
 define hidden void @_ZN19OpenColorIO_v2_4dev17GetCDLCPURendererERSt10shared_ptrIKNS_9CDLOpDataEEb(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.8") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cdl, i1 noundef zeroext %fastPower) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %cdl, align 8
-  %m_style.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpData", ptr %0, i64 0, i32 1
+  %m_style.i = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load i32, ptr %m_style.i, align 8
   switch i32 %1, label %sw.epilog [
     i32 0, label %sw.bb
@@ -632,186 +581,178 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22, !noalias !4
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !4
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !4
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
+  %m_renderParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
+  %m_isReverse.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 76
+  %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 77
+  %m_offset.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 40
+  %m_power.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
+  %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 72
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEEED2Ev.exit: ; preds = %sw.bb
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !5
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
-  %m_renderParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_isReverse.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 60
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
-  %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 61
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !5
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
-  %m_offset.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
-  %m_power.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !5
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
-  %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %cdl), !noalias !5
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !5
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
+  store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i, align 8
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEEED2Ev.exit: ; preds = %sw.bb
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !8
-  %_M_impl.i.i.i.i.i.i18 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.44", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
-  %m_renderParams.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.44", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_isReverse.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.44", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 60
-  store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
-  %m_isNoClamp.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.44", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 61
-  store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !8
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
-  %m_offset.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.44", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
-  %m_power.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.44", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !8
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
-  %m_saturation.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.44", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
-  store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
-  tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %cdl), !noalias !8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i18, align 8, !noalias !8
+  store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
+  store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !8
+  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !8
+  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
+  store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
+  tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %cdl), !noalias !8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !8
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
+  store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i, align 8
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   %call5.i.i.i3.i.i.i.i53 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22, !noalias !4
-  %_M_use_count.i.i.i.i.i.i54 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i54, align 8, !noalias !4
-  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i55, align 4, !noalias !4
+  %_M_impl.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 16
+  %m_renderParams.i.i.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 24
+  %m_isReverse.i.i.i.i.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 76
+  %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 77
+  %m_offset.i.i.i.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 40
+  %m_power.i.i.i.i.i.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 56
+  %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 72
+  %_M_refcount.i.i69 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEEED2Ev.exit: ; preds = %sw.bb3
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i53, align 8, !noalias !11
-  %_M_impl.i.i.i.i.i.i56 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.50", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1
-  %m_renderParams.i.i.i.i.i.i.i.i.i.i57 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.50", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_isReverse.i.i.i.i.i.i.i.i.i.i.i58 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.50", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 60
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i58, align 4, !noalias !11
-  %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i59 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.50", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 61
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i59, align 1, !noalias !11
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i57, align 4, !noalias !11
-  %m_offset.i.i.i.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.50", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
-  %m_power.i.i.i.i.i.i.i.i.i.i.i.i64 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.50", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i63, i8 0, i64 16, i1 false), !noalias !11
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i64, align 4, !noalias !11
-  %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i68 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.50", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i68, align 4, !noalias !11
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i57, ptr noundef nonnull align 8 dereferenceable(16) %cdl), !noalias !11
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i56, align 8, !noalias !11
+  store ptr %_M_impl.i.i.i.i.i.i56, ptr %agg.result, align 8
+  store ptr %call5.i.i.i3.i.i.i.i53, ptr %_M_refcount.i.i69, align 8
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEEED2Ev.exit: ; preds = %sw.bb3
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i53, align 8, !noalias !14
-  %_M_impl.i.i.i.i.i.i106 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.58", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1
-  %m_renderParams.i.i.i.i.i.i.i.i.i107 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.58", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_isReverse.i.i.i.i.i.i.i.i.i.i108 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.58", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 60
-  store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i108, align 4, !noalias !14
-  %m_isNoClamp.i.i.i.i.i.i.i.i.i.i109 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.58", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 61
-  store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i109, align 1, !noalias !14
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i107, align 4, !noalias !14
-  %m_offset.i.i.i.i.i.i.i.i.i.i.i113 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.58", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
-  %m_power.i.i.i.i.i.i.i.i.i.i.i114 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.58", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i113, i8 0, i64 16, i1 false), !noalias !14
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i114, align 4, !noalias !14
-  %m_saturation.i.i.i.i.i.i.i.i.i.i.i118 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.58", ptr %call5.i.i.i3.i.i.i.i53, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
-  store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i118, align 4, !noalias !14
-  tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i107, ptr noundef nonnull align 8 dereferenceable(16) %cdl), !noalias !14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i106, align 8, !noalias !14
+  store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i58, align 4, !noalias !14
+  store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i59, align 1, !noalias !14
+  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i57, align 4, !noalias !14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i63, i8 0, i64 16, i1 false), !noalias !14
+  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i64, align 4, !noalias !14
+  store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i68, align 4, !noalias !14
+  tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i57, ptr noundef nonnull align 8 dereferenceable(16) %cdl), !noalias !14
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i56, align 8, !noalias !14
+  store ptr %_M_impl.i.i.i.i.i.i56, ptr %agg.result, align 8
+  store ptr %call5.i.i.i3.i.i.i.i53, ptr %_M_refcount.i.i69, align 8
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   %call5.i.i.i3.i.i.i.i153 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22, !noalias !4
-  %_M_use_count.i.i.i.i.i.i154 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i154 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i154, align 8, !noalias !4
-  %_M_weak_count.i.i.i.i.i.i155 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i155 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i155, align 4, !noalias !4
+  %_M_impl.i.i.i.i.i.i156 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 16
+  %m_renderParams.i.i.i.i.i.i.i.i.i.i157 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 24
+  %m_isReverse.i.i.i.i.i.i.i.i.i.i.i158 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 76
+  %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i159 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 77
+  %m_offset.i.i.i.i.i.i.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 40
+  %m_power.i.i.i.i.i.i.i.i.i.i.i.i164 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 56
+  %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i168 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 72
+  %_M_refcount.i.i169 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEEED2Ev.exit: ; preds = %sw.bb9
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i153, align 8, !noalias !17
-  %_M_impl.i.i.i.i.i.i156 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.64", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1
-  %m_renderParams.i.i.i.i.i.i.i.i.i.i157 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.64", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_isReverse.i.i.i.i.i.i.i.i.i.i.i158 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.64", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1, i32 0, i32 0, i32 0, i64 60
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i158, align 4, !noalias !17
-  %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i159 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.64", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1, i32 0, i32 0, i32 0, i64 61
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i159, align 1, !noalias !17
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i157, align 4, !noalias !17
-  %m_offset.i.i.i.i.i.i.i.i.i.i.i.i163 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.64", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
-  %m_power.i.i.i.i.i.i.i.i.i.i.i.i164 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.64", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i163, i8 0, i64 16, i1 false), !noalias !17
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i164, align 4, !noalias !17
-  %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i168 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.64", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i168, align 4, !noalias !17
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i157, ptr noundef nonnull align 8 dereferenceable(16) %cdl), !noalias !17
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i156, align 8, !noalias !17
+  store ptr %_M_impl.i.i.i.i.i.i156, ptr %agg.result, align 8
+  store ptr %call5.i.i.i3.i.i.i.i153, ptr %_M_refcount.i.i169, align 8
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEEED2Ev.exit: ; preds = %sw.bb9
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i153, align 8, !noalias !20
-  %_M_impl.i.i.i.i.i.i206 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.70", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1
-  %m_renderParams.i.i.i.i.i.i.i.i.i207 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.70", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_isReverse.i.i.i.i.i.i.i.i.i.i208 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.70", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1, i32 0, i32 0, i32 0, i64 60
-  store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i208, align 4, !noalias !20
-  %m_isNoClamp.i.i.i.i.i.i.i.i.i.i209 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.70", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1, i32 0, i32 0, i32 0, i64 61
-  store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i209, align 1, !noalias !20
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i207, align 4, !noalias !20
-  %m_offset.i.i.i.i.i.i.i.i.i.i.i213 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.70", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
-  %m_power.i.i.i.i.i.i.i.i.i.i.i214 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.70", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i213, i8 0, i64 16, i1 false), !noalias !20
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i214, align 4, !noalias !20
-  %m_saturation.i.i.i.i.i.i.i.i.i.i.i218 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.70", ptr %call5.i.i.i3.i.i.i.i153, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
-  store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i218, align 4, !noalias !20
-  tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i207, ptr noundef nonnull align 8 dereferenceable(16) %cdl), !noalias !20
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i206, align 8, !noalias !20
+  store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i158, align 4, !noalias !20
+  store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i159, align 1, !noalias !20
+  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i157, align 4, !noalias !20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i163, i8 0, i64 16, i1 false), !noalias !20
+  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i164, align 4, !noalias !20
+  store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i168, align 4, !noalias !20
+  tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i157, ptr noundef nonnull align 8 dereferenceable(16) %cdl), !noalias !20
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i156, align 8, !noalias !20
+  store ptr %_M_impl.i.i.i.i.i.i156, ptr %agg.result, align 8
+  store ptr %call5.i.i.i3.i.i.i.i153, ptr %_M_refcount.i.i169, align 8
   br label %return
 
 sw.bb15:                                          ; preds = %entry
   %call5.i.i.i3.i.i.i.i253 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22, !noalias !4
-  %_M_use_count.i.i.i.i.i.i254 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i254 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i254, align 8, !noalias !4
-  %_M_weak_count.i.i.i.i.i.i255 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i255 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i255, align 4, !noalias !4
+  %_M_impl.i.i.i.i.i.i256 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 16
+  %m_renderParams.i.i.i.i.i.i.i.i.i.i257 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 24
+  %m_isReverse.i.i.i.i.i.i.i.i.i.i.i258 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 76
+  %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i259 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 77
+  %m_offset.i.i.i.i.i.i.i.i.i.i.i.i263 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 40
+  %m_power.i.i.i.i.i.i.i.i.i.i.i.i264 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 56
+  %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i268 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 72
+  %_M_refcount.i.i269 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEEED2Ev.exit: ; preds = %sw.bb15
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i253, align 8, !noalias !23
-  %_M_impl.i.i.i.i.i.i256 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.76", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1
-  %m_renderParams.i.i.i.i.i.i.i.i.i.i257 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.76", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_isReverse.i.i.i.i.i.i.i.i.i.i.i258 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.76", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1, i32 0, i32 0, i32 0, i64 60
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i258, align 4, !noalias !23
-  %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i259 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.76", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1, i32 0, i32 0, i32 0, i64 61
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i259, align 1, !noalias !23
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i257, align 4, !noalias !23
-  %m_offset.i.i.i.i.i.i.i.i.i.i.i.i263 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.76", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
-  %m_power.i.i.i.i.i.i.i.i.i.i.i.i264 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.76", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i263, i8 0, i64 16, i1 false), !noalias !23
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i264, align 4, !noalias !23
-  %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i268 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.76", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i268, align 4, !noalias !23
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i257, ptr noundef nonnull align 8 dereferenceable(16) %cdl), !noalias !23
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i256, align 8, !noalias !23
+  store ptr %_M_impl.i.i.i.i.i.i256, ptr %agg.result, align 8
+  store ptr %call5.i.i.i3.i.i.i.i253, ptr %_M_refcount.i.i269, align 8
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEEED2Ev.exit: ; preds = %sw.bb15
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i253, align 8, !noalias !26
-  %_M_impl.i.i.i.i.i.i306 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.84", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1
-  %m_renderParams.i.i.i.i.i.i.i.i.i307 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.84", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %m_isReverse.i.i.i.i.i.i.i.i.i.i308 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.84", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1, i32 0, i32 0, i32 0, i64 60
-  store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i308, align 4, !noalias !26
-  %m_isNoClamp.i.i.i.i.i.i.i.i.i.i309 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.84", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1, i32 0, i32 0, i32 0, i64 61
-  store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i309, align 1, !noalias !26
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i307, align 4, !noalias !26
-  %m_offset.i.i.i.i.i.i.i.i.i.i.i313 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.84", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
-  %m_power.i.i.i.i.i.i.i.i.i.i.i314 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.84", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i313, i8 0, i64 16, i1 false), !noalias !26
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i314, align 4, !noalias !26
-  %m_saturation.i.i.i.i.i.i.i.i.i.i.i318 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.84", ptr %call5.i.i.i3.i.i.i.i253, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
-  store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i318, align 4, !noalias !26
-  tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i307, ptr noundef nonnull align 8 dereferenceable(16) %cdl), !noalias !26
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i306, align 8, !noalias !26
+  store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i258, align 4, !noalias !26
+  store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i259, align 1, !noalias !26
+  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i257, align 4, !noalias !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i263, i8 0, i64 16, i1 false), !noalias !26
+  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i264, align 4, !noalias !26
+  store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i268, align 4, !noalias !26
+  tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i257, ptr noundef nonnull align 8 dereferenceable(16) %cdl), !noalias !26
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i256, align 8, !noalias !26
+  store ptr %_M_impl.i.i.i.i.i.i256, ptr %agg.result, align 8
+  store ptr %call5.i.i.i3.i.i.i.i253, ptr %_M_refcount.i.i269, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -830,11 +771,6 @@ lpad:                                             ; preds = %sw.epilog
   resume { ptr, i32 } %2
 
 return:                                           ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEEED2Ev.exit
-  %_M_impl.i.i.i.i.i.i306.sink = phi ptr [ %_M_impl.i.i.i.i.i.i306, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i256, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i206, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i156, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i106, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i56, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i18, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEEED2Ev.exit ]
-  %call5.i.i.i3.i.i.i.i253.sink = phi ptr [ %call5.i.i.i3.i.i.i.i253, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i253, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i153, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i153, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i53, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i53, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEEED2Ev.exit ]
-  store ptr %_M_impl.i.i.i.i.i.i306.sink, ptr %agg.result, align 8
-  %_M_refcount.i.i319 = getelementptr inbounds %"class.std::__shared_ptr.9", ptr %agg.result, i64 0, i32 1
-  store ptr %call5.i.i.i3.i.i.i.i253.sink, ptr %_M_refcount.i.i319, align 8
   ret void
 }
 
@@ -892,7 +828,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #23
@@ -909,12 +845,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CD
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -957,13 +893,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EE5applyEPKvPvl(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #14 comdat align 2 {
 entry:
-  %m_renderParams = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1
+  %m_renderParams = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load <4 x float>, ptr %m_renderParams, align 8
-  %m_offset.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1
+  %m_offset.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load <4 x float>, ptr %m_offset.i.i, align 8
-  %m_power.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2
+  %m_power.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load <4 x float>, ptr %m_power.i.i, align 8
-  %m_saturation.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %m_saturation.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load float, ptr %m_saturation.i.i, align 8
   %vecinit.i.i = insertelement <4 x float> poison, float %3, i64 0
   %vecinit3.i.i = shufflevector <4 x float> %vecinit.i.i, <4 x float> poison, <4 x i32> zeroinitializer
@@ -998,7 +934,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.011 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %out.010 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr4, %for.body ]
   %in.09 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %arrayidx.i = getelementptr inbounds float, ptr %in.09, i64 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %in.09, i64 12
   %24 = load float, ptr %arrayidx.i, align 4
   %25 = load <4 x float>, ptr %in.09, align 1
   %mul.i = fmul <4 x float> %0, %25
@@ -1062,10 +998,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %44 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %add.i.i, <4 x float> zeroinitializer)
   %45 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %44, <4 x float> %4)
   store <4 x float> %45, ptr %out.010, align 1
-  %arrayidx.i4 = getelementptr inbounds float, ptr %out.010, i64 3
+  %arrayidx.i4 = getelementptr inbounds i8, ptr %out.010, i64 12
   store float %24, ptr %arrayidx.i4, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.09, i64 4
-  %add.ptr4 = getelementptr inbounds float, ptr %out.010, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.09, i64 16
+  %add.ptr4 = getelementptr inbounds i8, ptr %out.010, i64 16
   %inc = add nuw nsw i64 %idx.011, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
@@ -1090,35 +1026,35 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_4dev14CDLRendererFwdILb1EE5applyEPKvPvl(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_renderParams = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1
+  %m_renderParams = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load <2 x float>, ptr %m_renderParams, align 8
-  %arrayidx4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load float, ptr %arrayidx4, align 8
   %cmp21 = icmp sgt i64 %numPixels, 0
   br i1 %cmp21, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_offset.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1
-  %arrayidx4.i14 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1, i64 1
-  %arrayidx8.i16 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1, i64 2
-  %m_power.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2
-  %arrayidx4.i17 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2, i64 1
-  %arrayidx8.i18 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2, i64 2
-  %m_saturation.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %m_offset.i = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx4.i14 = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx8.i16 = getelementptr inbounds i8, ptr %this, i64 32
+  %m_power.i = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx4.i17 = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx8.i18 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_saturation.i = getelementptr inbounds i8, ptr %this, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %in.024 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
   %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %out.022 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %arrayidx5 = getelementptr inbounds float, ptr %in.024, i64 3
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.024, i64 12
   %2 = load float, ptr %arrayidx5, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %out.022, ptr noundef nonnull align 4 dereferenceable(16) %in.024, i64 16, i1 false)
-  %arrayidx3.i = getelementptr inbounds float, ptr %out.022, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %out.022, i64 4
   %3 = load <2 x float>, ptr %out.022, align 4
   %4 = fmul <2 x float> %0, %3
   store <2 x float> %4, ptr %out.022, align 4
-  %arrayidx7.i = getelementptr inbounds float, ptr %out.022, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %out.022, i64 8
   %5 = load float, ptr %arrayidx7.i, align 4
   %mul9.i = fmul float %1, %5
   store float %mul9.i, ptr %arrayidx7.i, align 4
@@ -1182,10 +1118,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp.i1.i12.i = fcmp ogt float %.sroa.speculated3.i11.i, 1.000000e+00
   %.sroa.speculated.i13.i = select i1 %cmp.i1.i12.i, float 1.000000e+00, float %.sroa.speculated3.i11.i
   store float %.sroa.speculated.i13.i, ptr %arrayidx7.i, align 4
-  %arrayidx12 = getelementptr inbounds float, ptr %out.022, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.022, i64 12
   store float %2, ptr %arrayidx12, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.024, i64 4
-  %add.ptr13 = getelementptr inbounds float, ptr %out.022, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.024, i64 16
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.022, i64 16
   %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
@@ -1231,7 +1167,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.44", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #23
@@ -1248,12 +1184,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CD
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.44", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -1293,7 +1229,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.50", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #23
@@ -1310,12 +1246,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CD
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.50", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -1355,13 +1291,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EE5applyEPKvPvl(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #14 comdat align 2 {
 entry:
-  %m_renderParams = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1
+  %m_renderParams = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load <4 x float>, ptr %m_renderParams, align 8
-  %m_offset.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1
+  %m_offset.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load <4 x float>, ptr %m_offset.i.i, align 8
-  %m_power.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2
+  %m_power.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load <4 x float>, ptr %m_power.i.i, align 8
-  %m_saturation.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %m_saturation.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load float, ptr %m_saturation.i.i, align 8
   %vecinit.i.i = insertelement <4 x float> poison, float %3, i64 0
   %vecinit3.i.i = shufflevector <4 x float> %vecinit.i.i, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1395,7 +1331,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.010 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %out.09 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr4, %for.body ]
   %in.08 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %arrayidx.i = getelementptr inbounds float, ptr %in.08, i64 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %in.08, i64 12
   %23 = load float, ptr %arrayidx.i, align 4
   %24 = load <4 x float>, ptr %in.08, align 1
   %mul.i = fmul <4 x float> %0, %24
@@ -1457,10 +1393,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul.i.i = fmul <4 x float> %vecinit3.i.i, %sub.i.i
   %add.i.i = fadd <4 x float> %add.i14.i, %mul.i.i
   store <4 x float> %add.i.i, ptr %out.09, align 1
-  %arrayidx.i4 = getelementptr inbounds float, ptr %out.09, i64 3
+  %arrayidx.i4 = getelementptr inbounds i8, ptr %out.09, i64 12
   store float %23, ptr %arrayidx.i4, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.08, i64 4
-  %add.ptr4 = getelementptr inbounds float, ptr %out.09, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.08, i64 16
+  %add.ptr4 = getelementptr inbounds i8, ptr %out.09, i64 16
   %inc = add nuw nsw i64 %idx.010, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
@@ -1485,35 +1421,35 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_4dev14CDLRendererFwdILb0EE5applyEPKvPvl(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_renderParams = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1
+  %m_renderParams = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load <2 x float>, ptr %m_renderParams, align 8
-  %arrayidx4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load float, ptr %arrayidx4, align 8
   %cmp19 = icmp sgt i64 %numPixels, 0
   br i1 %cmp19, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_offset.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1
-  %arrayidx4.i14 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1, i64 1
-  %arrayidx8.i16 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1, i64 2
-  %m_power.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2
-  %arrayidx21.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2, i64 1
-  %arrayidx38.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2, i64 2
-  %m_saturation.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %m_offset.i = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx4.i14 = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx8.i16 = getelementptr inbounds i8, ptr %this, i64 32
+  %m_power.i = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx38.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_saturation.i = getelementptr inbounds i8, ptr %this, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit
   %in.022 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit ]
   %idx.021 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit ]
   %out.020 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit ]
-  %arrayidx5 = getelementptr inbounds float, ptr %in.022, i64 3
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.022, i64 12
   %2 = load float, ptr %arrayidx5, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %out.020, ptr noundef nonnull align 4 dereferenceable(16) %in.022, i64 16, i1 false)
-  %arrayidx3.i = getelementptr inbounds float, ptr %out.020, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %out.020, i64 4
   %3 = load <2 x float>, ptr %out.020, align 4
   %4 = fmul <2 x float> %0, %3
   store <2 x float> %4, ptr %out.020, align 4
-  %arrayidx7.i = getelementptr inbounds float, ptr %out.020, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %out.020, i64 8
   %5 = load float, ptr %arrayidx7.i, align 4
   %mul9.i = fmul float %1, %5
   store float %mul9.i, ptr %arrayidx7.i, align 4
@@ -1597,10 +1533,10 @@ _ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit: ; preds = %cond.end25.i,
   %sub14.i = fsub float %cond43.i, %add7.i
   %30 = tail call float @llvm.fmuladd.f32(float %20, float %sub14.i, float %add7.i)
   store float %30, ptr %arrayidx7.i, align 4
-  %arrayidx12 = getelementptr inbounds float, ptr %out.020, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.020, i64 12
   store float %2, ptr %arrayidx12, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.022, i64 4
-  %add.ptr13 = getelementptr inbounds float, ptr %out.020, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.022, i64 16
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.020, i64 16
   %inc = add nuw nsw i64 %idx.021, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
@@ -1625,7 +1561,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.58", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #23
@@ -1642,12 +1578,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CD
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.58", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -1687,7 +1623,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.64", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #23
@@ -1704,12 +1640,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CD
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.64", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -1749,13 +1685,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EE5applyEPKvPvl(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #14 comdat align 2 {
 entry:
-  %m_renderParams = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1
+  %m_renderParams = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load <4 x float>, ptr %m_renderParams, align 8
-  %m_offset.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1
+  %m_offset.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load <4 x float>, ptr %m_offset.i.i, align 8
-  %m_power.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2
+  %m_power.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load <4 x float>, ptr %m_power.i.i, align 8
-  %m_saturation.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %m_saturation.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load float, ptr %m_saturation.i.i, align 8
   %vecinit.i.i = insertelement <4 x float> poison, float %3, i64 0
   %vecinit3.i.i = shufflevector <4 x float> %vecinit.i.i, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1790,7 +1726,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.013 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %out.012 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr4, %for.body ]
   %in.011 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %arrayidx.i = getelementptr inbounds float, ptr %in.011, i64 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %in.011, i64 12
   %24 = load float, ptr %arrayidx.i, align 4
   %25 = load <4 x float>, ptr %in.011, align 1
   %26 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %25, <4 x float> zeroinitializer)
@@ -1856,10 +1792,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %46 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %mul.i, <4 x float> zeroinitializer)
   %47 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %46, <4 x float> %4)
   store <4 x float> %47, ptr %out.012, align 1
-  %arrayidx.i4 = getelementptr inbounds float, ptr %out.012, i64 3
+  %arrayidx.i4 = getelementptr inbounds i8, ptr %out.012, i64 12
   store float %24, ptr %arrayidx.i4, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.011, i64 4
-  %add.ptr4 = getelementptr inbounds float, ptr %out.012, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.011, i64 16
+  %add.ptr4 = getelementptr inbounds i8, ptr %out.012, i64 16
   %inc = add nuw nsw i64 %idx.013, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !34
@@ -1888,27 +1824,27 @@ entry:
   br i1 %cmp34, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_renderParams = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1
-  %m_saturation.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 3
-  %m_power.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2
-  %arrayidx4.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2, i64 1
-  %arrayidx8.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2, i64 2
-  %m_offset.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1
-  %arrayidx4.i14 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1, i64 1
-  %arrayidx8.i15 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1, i64 2
-  %arrayidx4.i17 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 0, i64 1
-  %arrayidx8.i19 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 0, i64 2
+  %m_renderParams = getelementptr inbounds i8, ptr %this, i64 8
+  %m_saturation.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_power.i = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_offset.i = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx4.i14 = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx8.i15 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx4.i17 = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx8.i19 = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %in.037 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
   %idx.036 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %out.035 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr9, %for.body ]
-  %arrayidx = getelementptr inbounds float, ptr %in.037, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %in.037, i64 12
   %0 = load float, ptr %arrayidx, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %out.035, ptr noundef nonnull align 4 dereferenceable(16) %in.037, i64 16, i1 false)
-  %arrayidx2.i = getelementptr inbounds float, ptr %out.035, i64 1
-  %arrayidx5.i = getelementptr inbounds float, ptr %out.035, i64 2
+  %arrayidx2.i = getelementptr inbounds i8, ptr %out.035, i64 4
+  %arrayidx5.i = getelementptr inbounds i8, ptr %out.035, i64 8
   %1 = load float, ptr %arrayidx5.i, align 4
   %cmp.i.i10.i = fcmp ogt float %1, 0.000000e+00
   %.sroa.speculated3.i11.i = select i1 %cmp.i.i10.i, float %1, float 0.000000e+00
@@ -1989,10 +1925,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp.i1.i12.i32 = fcmp ogt float %.sroa.speculated3.i11.i31, 1.000000e+00
   %.sroa.speculated.i13.i33 = select i1 %cmp.i1.i12.i32, float 1.000000e+00, float %.sroa.speculated3.i11.i31
   store float %.sroa.speculated.i13.i33, ptr %arrayidx5.i, align 4
-  %arrayidx8 = getelementptr inbounds float, ptr %out.035, i64 3
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.035, i64 12
   store float %0, ptr %arrayidx8, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.037, i64 4
-  %add.ptr9 = getelementptr inbounds float, ptr %out.035, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.037, i64 16
+  %add.ptr9 = getelementptr inbounds i8, ptr %out.035, i64 16
   %inc = add nuw nsw i64 %idx.036, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
@@ -2017,7 +1953,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.70", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #23
@@ -2034,12 +1970,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CD
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.70", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -2079,7 +2015,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.76", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #23
@@ -2096,12 +2032,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CD
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.76", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -2141,13 +2077,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EE5applyEPKvPvl(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #14 comdat align 2 {
 entry:
-  %m_renderParams = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1
+  %m_renderParams = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load <4 x float>, ptr %m_renderParams, align 8
-  %m_offset.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1
+  %m_offset.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load <4 x float>, ptr %m_offset.i.i, align 8
-  %m_power.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2
+  %m_power.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load <4 x float>, ptr %m_power.i.i, align 8
-  %m_saturation.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 3
+  %m_saturation.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load float, ptr %m_saturation.i.i, align 8
   %vecinit.i.i = insertelement <4 x float> poison, float %3, i64 0
   %vecinit3.i.i = shufflevector <4 x float> %vecinit.i.i, <4 x float> poison, <4 x i32> zeroinitializer
@@ -2181,7 +2117,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.011 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %out.010 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr4, %for.body ]
   %in.09 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %arrayidx.i = getelementptr inbounds float, ptr %in.09, i64 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %in.09, i64 12
   %23 = load float, ptr %arrayidx.i, align 4
   %24 = load <4 x float>, ptr %in.09, align 1
   %mul.i9.i = fmul <4 x float> %24, %4
@@ -2243,10 +2179,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.i = fadd <4 x float> %1, %42
   %mul.i = fmul <4 x float> %0, %add.i
   store <4 x float> %mul.i, ptr %out.010, align 1
-  %arrayidx.i4 = getelementptr inbounds float, ptr %out.010, i64 3
+  %arrayidx.i4 = getelementptr inbounds i8, ptr %out.010, i64 12
   store float %23, ptr %arrayidx.i4, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.09, i64 4
-  %add.ptr4 = getelementptr inbounds float, ptr %out.010, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.09, i64 16
+  %add.ptr4 = getelementptr inbounds i8, ptr %out.010, i64 16
   %inc = add nuw nsw i64 %idx.011, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
@@ -2275,29 +2211,29 @@ entry:
   br i1 %cmp18, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_renderParams = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1
-  %m_saturation.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 3
-  %m_power.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2
-  %arrayidx21.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2, i64 1
-  %arrayidx38.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 2, i64 2
-  %m_offset.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1
-  %arrayidx4.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1, i64 1
-  %arrayidx8.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 1, i64 2
-  %arrayidx4.i15 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 0, i64 1
-  %arrayidx8.i17 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpCPU", ptr %this, i64 0, i32 1, i32 0, i64 2
+  %m_renderParams = getelementptr inbounds i8, ptr %this, i64 8
+  %m_saturation.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_power.i = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx38.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_offset.i = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx4.i15 = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx8.i17 = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit
   %in.021 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit ]
   %idx.020 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit ]
   %out.019 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr9, %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit ]
-  %arrayidx = getelementptr inbounds float, ptr %in.021, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %in.021, i64 12
   %0 = load float, ptr %arrayidx, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %out.019, ptr noundef nonnull align 4 dereferenceable(16) %in.021, i64 16, i1 false)
   %1 = load float, ptr %m_saturation.i, align 8
   %2 = load float, ptr %out.019, align 4
-  %arrayidx1.i = getelementptr inbounds float, ptr %out.019, i64 1
-  %arrayidx3.i = getelementptr inbounds float, ptr %out.019, i64 2
+  %arrayidx1.i = getelementptr inbounds i8, ptr %out.019, i64 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %out.019, i64 8
   %mul.i.i = fmul float %2, 0x3FCB367A00000000
   %3 = load <2 x float>, ptr %arrayidx1.i, align 4
   %4 = fmul <2 x float> %3, <float 0x3FE6E2EB20000000, float 0x3FB27BB300000000>
@@ -2389,10 +2325,10 @@ _ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit: ; preds = %cond.end25.i,
   %34 = load float, ptr %arrayidx8.i17, align 8
   %mul9.i = fmul float %add9.i, %34
   store float %mul9.i, ptr %arrayidx3.i, align 4
-  %arrayidx8 = getelementptr inbounds float, ptr %out.019, i64 3
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.019, i64 12
   store float %0, ptr %arrayidx8, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.021, i64 4
-  %add.ptr9 = getelementptr inbounds float, ptr %out.019, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.021, i64 16
+  %add.ptr9 = getelementptr inbounds i8, ptr %out.019, i64 16
   %inc = add nuw nsw i64 %idx.020, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
@@ -2417,7 +2353,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.84", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #23
@@ -2434,12 +2370,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CD
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #10 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.84", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i

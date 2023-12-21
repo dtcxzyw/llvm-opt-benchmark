@@ -4,18 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.dsa_st = type { i32, i32, %struct.ffc_params_st, ptr, ptr, i32, ptr, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i64 }
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon }
-%union.legacy_pkey_st = type { ptr }
-%struct.anon = type { i32, i32, i32 }
-%struct.evp_pkey_ctx_st = type { i32, ptr, ptr, ptr, ptr, %union.anon, %struct.anon.5, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%struct.anon.5 = type { ptr, ptr, i64, i8 }
 
 @.str = private unnamed_addr constant [4 x i8] c"DSA\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"OpenSSL DSA method\00", align 1
@@ -65,7 +53,7 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %2 = load ptr, ptr %pval, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %2, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %data, align 8
   store ptr %3, ptr %pm, align 8
   %4 = load i32, ptr %2, align 8
@@ -89,13 +77,13 @@ if.end19:                                         ; preds = %if.then11, %if.then
 
 if.end25:                                         ; preds = %if.end19
   %call26 = call ptr @ASN1_INTEGER_to_BN(ptr noundef nonnull %call21, ptr noundef null) #4
-  %pub_key = getelementptr inbounds %struct.dsa_st, ptr %dsa.0, i64 0, i32 3
+  %pub_key = getelementptr inbounds i8, ptr %dsa.0, i64 104
   store ptr %call26, ptr %pub_key, align 8
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %err, label %if.end30
 
 if.end30:                                         ; preds = %if.end25
-  %dirty_cnt = getelementptr inbounds %struct.dsa_st, ptr %dsa.0, i64 0, i32 13
+  %dirty_cnt = getelementptr inbounds i8, ptr %dsa.0, i64 192
   %6 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %6, 1
   store i64 %inc, ptr %dirty_cnt, align 8
@@ -125,27 +113,27 @@ define internal i32 @dsa_pub_encode(ptr noundef %pk, ptr nocapture noundef reado
 entry:
   %penc = alloca ptr, align 8
   store ptr null, ptr %penc, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
-  %save_parameters = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 10
+  %save_parameters = getelementptr inbounds i8, ptr %pkey, i64 72
   %1 = load i32, ptr %save_parameters, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end15, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %params = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %params, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end15, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %q = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 2, i32 1
+  %q = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %q, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %if.end15, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %land.lhs.true2
-  %g = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 2, i32 2
+  %g = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %g, align 8
   %cmp7.not = icmp eq ptr %4, null
   br i1 %cmp7.not, label %if.end15, label %if.then
@@ -162,7 +150,7 @@ if.then9:                                         ; preds = %if.then
   br label %err
 
 if.end:                                           ; preds = %if.then
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   %call10 = tail call i32 @i2d_DSAparams(ptr noundef nonnull %0, ptr noundef nonnull %data) #4
   store i32 %call10, ptr %call, align 8
   %cmp12 = icmp slt i32 %call10, 1
@@ -177,7 +165,7 @@ if.then13:                                        ; preds = %if.end
 if.end15:                                         ; preds = %entry, %land.lhs.true, %land.lhs.true2, %land.lhs.true5, %if.end
   %ptype.0 = phi i32 [ 16, %if.end ], [ -1, %land.lhs.true5 ], [ -1, %land.lhs.true2 ], [ -1, %land.lhs.true ], [ -1, %entry ]
   %str.0 = phi ptr [ %call, %if.end ], [ null, %land.lhs.true5 ], [ null, %land.lhs.true2 ], [ null, %land.lhs.true ], [ null, %entry ]
-  %pub_key = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 3
+  %pub_key = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load ptr, ptr %pub_key, align 8
   %call16 = tail call ptr @BN_to_ASN1_INTEGER(ptr noundef %5, ptr noundef null) #4
   %cmp17 = icmp eq ptr %call16, null
@@ -227,13 +215,13 @@ return:                                           ; preds = %if.end27, %err
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %b, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %b, i64 32
   %0 = load ptr, ptr %pkey, align 8
-  %pub_key = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 3
+  %pub_key = getelementptr inbounds i8, ptr %0, i64 104
   %1 = load ptr, ptr %pub_key, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %a, i64 32
   %2 = load ptr, ptr %pkey1, align 8
-  %pub_key2 = getelementptr inbounds %struct.dsa_st, ptr %2, i64 0, i32 3
+  %pub_key2 = getelementptr inbounds i8, ptr %2, i64 104
   %3 = load ptr, ptr %pub_key2, align 8
   %call = tail call i32 @BN_cmp(ptr noundef %1, ptr noundef %3) #4
   %cmp = icmp eq i32 %call, 0
@@ -244,9 +232,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_pub_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
-  %params.i = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 2
+  %params.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %params.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -257,7 +245,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %mod_len.0.i = phi i32 [ %call.i, %if.then.i ], [ 0, %entry ]
-  %pub_key734.i = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 3
+  %pub_key734.i = getelementptr inbounds i8, ptr %0, i64 104
   %2 = load ptr, ptr %pub_key734.i, align 8
   %call28.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.7, i32 noundef %mod_len.0.i) #4
   %cmp29.i = icmp slt i32 %call28.i, 1
@@ -305,13 +293,13 @@ define internal i32 @dsa_priv_encode(ptr noundef %p8, ptr nocapture noundef read
 entry:
   %dp = alloca ptr, align 8
   store ptr null, ptr %dp, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %priv_key = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 4
+  %priv_key = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %priv_key, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.then, label %if.end
@@ -335,7 +323,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %2 = load ptr, ptr %pkey1, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   %call8 = tail call i32 @i2d_DSAparams(ptr noundef %2, ptr noundef nonnull %data) #4
   store i32 %call8, ptr %call, align 8
   %cmp10 = icmp slt i32 %call8, 1
@@ -348,10 +336,10 @@ if.then11:                                        ; preds = %if.end6
   br label %err
 
 if.end12:                                         ; preds = %if.end6
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call, i64 4
   store i32 16, ptr %type, align 4
   %3 = load ptr, ptr %pkey1, align 8
-  %priv_key14 = getelementptr inbounds %struct.dsa_st, ptr %3, i64 0, i32 4
+  %priv_key14 = getelementptr inbounds i8, ptr %3, i64 112
   %4 = load ptr, ptr %priv_key14, align 8
   %call15 = tail call ptr @BN_to_ASN1_INTEGER(ptr noundef %4, ptr noundef null) #4
   %cmp16 = icmp eq ptr %call15, null
@@ -401,7 +389,7 @@ return:                                           ; preds = %if.end22, %err
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_priv_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call fastcc i32 @do_dsa_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 2), !range !4
   ret i32 %call
@@ -410,7 +398,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @int_dsa_size(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @DSA_size(ptr noundef %0) #4
   ret i32 %call
@@ -419,7 +407,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_bits(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @DSA_bits(ptr noundef %0) #4
   ret i32 %call
@@ -428,7 +416,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_security_bits(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @DSA_security_bits(ptr noundef %0) #4
   ret i32 %call
@@ -443,7 +431,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dirty_cnt = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 13
+  %dirty_cnt = getelementptr inbounds i8, ptr %call, i64 192
   %0 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %dirty_cnt, align 8
@@ -458,7 +446,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_param_encode(ptr nocapture noundef readonly %pkey, ptr noundef %pder) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @i2d_DSAparams(ptr noundef %0, ptr noundef %pder) #4
   ret i32 %call
@@ -467,25 +455,25 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @dsa_missing_parameters(ptr nocapture noundef readonly %pkey) #1 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %lor.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %params = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %params, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %lor.end, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %q = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 2, i32 1
+  %q = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %q, align 8
   %cmp5 = icmp eq ptr %2, null
   br i1 %cmp5, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false3
-  %g = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 2, i32 2
+  %g = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %g, align 8
   %cmp7 = icmp eq ptr %3, null
   %4 = zext i1 %cmp7 to i32
@@ -499,7 +487,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_copy_parameters(ptr nocapture noundef %to, ptr nocapture noundef readonly %from) #0 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %to, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %to, i64 32
   %0 = load ptr, ptr %pkey, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end5
@@ -512,17 +500,17 @@ if.then:                                          ; preds = %entry
 
 if.end5:                                          ; preds = %if.then, %entry
   %1 = phi ptr [ %call, %if.then ], [ %0, %entry ]
-  %params = getelementptr inbounds %struct.dsa_st, ptr %1, i64 0, i32 2
-  %pkey7 = getelementptr inbounds %struct.evp_pkey_st, ptr %from, i64 0, i32 5
+  %params = getelementptr inbounds i8, ptr %1, i64 8
+  %pkey7 = getelementptr inbounds i8, ptr %from, i64 32
   %2 = load ptr, ptr %pkey7, align 8
-  %params8 = getelementptr inbounds %struct.dsa_st, ptr %2, i64 0, i32 2
+  %params8 = getelementptr inbounds i8, ptr %2, i64 8
   %call9 = tail call i32 @ossl_ffc_params_copy(ptr noundef nonnull %params, ptr noundef nonnull %params8) #4
   %tobool.not = icmp eq i32 %call9, 0
   br i1 %tobool.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end5
   %3 = load ptr, ptr %pkey, align 8
-  %dirty_cnt = getelementptr inbounds %struct.dsa_st, ptr %3, i64 0, i32 13
+  %dirty_cnt = getelementptr inbounds i8, ptr %3, i64 192
   %4 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %4, 1
   store i64 %inc, ptr %dirty_cnt, align 8
@@ -536,12 +524,12 @@ return:                                           ; preds = %if.end5, %if.then, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_cmp_parameters(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %a, i64 32
   %0 = load ptr, ptr %pkey, align 8
-  %params = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 2
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %b, i64 0, i32 5
+  %params = getelementptr inbounds i8, ptr %0, i64 8
+  %pkey1 = getelementptr inbounds i8, ptr %b, i64 32
   %1 = load ptr, ptr %pkey1, align 8
-  %params2 = getelementptr inbounds %struct.dsa_st, ptr %1, i64 0, i32 2
+  %params2 = getelementptr inbounds i8, ptr %1, i64 8
   %call = tail call i32 @ossl_ffc_params_cmp(ptr noundef nonnull %params, ptr noundef nonnull %params2, i32 noundef 1) #4
   ret i32 %call
 }
@@ -549,9 +537,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_param_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
-  %params.i = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 2
+  %params.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %params.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -603,7 +591,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %sig, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %sig, i64 8
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %p, align 8
   %1 = load i32, ptr %sig, align 8
@@ -653,7 +641,7 @@ return:                                           ; preds = %if.end19, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal void @int_dsa_free(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   tail call void @DSA_free(ptr noundef %0) #4
   ret void
@@ -689,7 +677,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %dirty_cnt = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 13
+  %dirty_cnt = getelementptr inbounds i8, ptr %call, i64 192
   %0 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %dirty_cnt, align 8
@@ -704,7 +692,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @old_dsa_priv_encode(ptr nocapture noundef readonly %pkey, ptr noundef %pder) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @i2d_DSAPrivateKey(ptr noundef %0, ptr noundef %pder) #4
   ret i32 %call
@@ -713,9 +701,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i64 @dsa_pkey_dirty_cnt(ptr nocapture noundef readonly %pkey) #1 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 5
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
-  %dirty_cnt = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 13
+  %dirty_cnt = getelementptr inbounds i8, ptr %0, i64 192
   %1 = load i64, ptr %dirty_cnt, align 8
   ret i64 %1
 }
@@ -723,7 +711,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_pkey_export_to(ptr nocapture noundef readonly %from, ptr noundef %to_keydata, ptr nocapture noundef readonly %importer, ptr nocapture readnone %libctx, ptr nocapture readnone %propq) #0 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %from, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %from, i64 32
   %0 = load ptr, ptr %pkey, align 8
   %call = tail call ptr @DSA_get0_p(ptr noundef %0) #4
   %call1 = tail call ptr @DSA_get0_g(ptr noundef %0) #4
@@ -805,7 +793,7 @@ return:                                           ; preds = %if.end, %entry, %er
 define internal i32 @dsa_pkey_import_from(ptr noundef %params, ptr noundef %vpctx) #0 {
 entry:
   %call = tail call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %vpctx) #4
-  %libctx = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %vpctx, i64 0, i32 1
+  %libctx = getelementptr inbounds i8, ptr %vpctx, i64 8
   %0 = load ptr, ptr %libctx, align 8
   %call1 = tail call ptr @ossl_dsa_new(ptr noundef %0) #4
   %cmp = icmp eq ptr %call1, null
@@ -844,7 +832,7 @@ return:                                           ; preds = %lor.lhs.false5, %if
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_pkey_copy(ptr noundef %to, ptr nocapture noundef readonly %from) #0 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %from, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %from, i64 32
   %0 = load ptr, ptr %pkey, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -914,7 +902,7 @@ declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @do_dsa_print(ptr noundef %bp, ptr noundef %x, i32 noundef %off, i32 noundef %ptype) unnamed_addr #0 {
 entry:
-  %params = getelementptr inbounds %struct.dsa_st, ptr %x, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %params, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -933,14 +921,14 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %if.end9.thread32, label %if.else27
 
 if.end9.thread32:                                 ; preds = %if.end4
-  %pub_key734 = getelementptr inbounds %struct.dsa_st, ptr %x, i64 0, i32 3
+  %pub_key734 = getelementptr inbounds i8, ptr %x, i64 104
   %1 = load ptr, ptr %pub_key734, align 8
   br label %if.else27
 
 if.end9:                                          ; preds = %if.end
-  %priv_key3 = getelementptr inbounds %struct.dsa_st, ptr %x, i64 0, i32 4
+  %priv_key3 = getelementptr inbounds i8, ptr %x, i64 112
   %2 = load ptr, ptr %priv_key3, align 8
-  %pub_key7 = getelementptr inbounds %struct.dsa_st, ptr %x, i64 0, i32 3
+  %pub_key7 = getelementptr inbounds i8, ptr %x, i64 104
   %3 = load ptr, ptr %pub_key7, align 8
   %cmp18.not = icmp eq ptr %2, null
   br i1 %cmp18.not, label %if.else27, label %if.then19

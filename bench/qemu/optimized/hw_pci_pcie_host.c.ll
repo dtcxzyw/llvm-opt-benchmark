@@ -7,23 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon.3, %struct.anon.4 }
 %struct.anon.3 = type { i32, i32, i8, ptr }
 %struct.anon.4 = type { i32, i32, i8 }
-%struct.PCIExpressHost = type { %struct.PCIHostState, i64, i64, %struct.MemoryRegion }
-%struct.PCIHostState = type { %struct.SysBusDevice, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, i32, i8, ptr, i8, %struct.anon.2 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
 
 @.str = private unnamed_addr constant [21 x i8] c"!(size & (size - 1))\00", align 1
 @.str.1 = private unnamed_addr constant [27 x i8] c"../qemu/hw/pci/pcie_host.c\00", align 1
@@ -42,14 +25,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_host_mmcfg_unmap(ptr noundef %e) local_unnamed_addr #0 {
 entry:
-  %base_addr = getelementptr inbounds %struct.PCIExpressHost, ptr %e, i64 0, i32 1
+  %base_addr = getelementptr inbounds i8, ptr %e, i64 1680
   %0 = load i64, ptr %base_addr, align 16
   %cmp.not = icmp eq i64 %0, -1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @get_system_memory() #4
-  %mmio = getelementptr inbounds %struct.PCIExpressHost, ptr %e, i64 0, i32 3
+  %mmio = getelementptr inbounds i8, ptr %e, i64 1696
   tail call void @memory_region_del_subregion(ptr noundef %call, ptr noundef nonnull %mmio) #4
   store i64 -1, ptr %base_addr, align 16
   br label %if.end
@@ -91,9 +74,9 @@ if.else9:                                         ; preds = %if.end4
 
 if.end10:                                         ; preds = %if.end4
   %conv = zext nneg i32 %size to i64
-  %size12 = getelementptr inbounds %struct.PCIExpressHost, ptr %e, i64 0, i32 2
+  %size12 = getelementptr inbounds i8, ptr %e, i64 1688
   store i64 %conv, ptr %size12, align 8
-  %mmio = getelementptr inbounds %struct.PCIExpressHost, ptr %e, i64 0, i32 3
+  %mmio = getelementptr inbounds i8, ptr %e, i64 1696
   tail call void @memory_region_set_size(ptr noundef nonnull %mmio, i64 noundef %conv) #4
   ret void
 }
@@ -132,11 +115,11 @@ if.else9.i:                                       ; preds = %if.end4.i
 
 pcie_host_mmcfg_init.exit:                        ; preds = %if.end4.i
   %conv.i = zext nneg i32 %size to i64
-  %size12.i = getelementptr inbounds %struct.PCIExpressHost, ptr %e, i64 0, i32 2
+  %size12.i = getelementptr inbounds i8, ptr %e, i64 1688
   store i64 %conv.i, ptr %size12.i, align 8
-  %mmio.i = getelementptr inbounds %struct.PCIExpressHost, ptr %e, i64 0, i32 3
+  %mmio.i = getelementptr inbounds i8, ptr %e, i64 1696
   tail call void @memory_region_set_size(ptr noundef nonnull %mmio.i, i64 noundef %conv.i) #4
-  %base_addr = getelementptr inbounds %struct.PCIExpressHost, ptr %e, i64 0, i32 1
+  %base_addr = getelementptr inbounds i8, ptr %e, i64 1680
   store i64 %addr, ptr %base_addr, align 16
   %call = tail call ptr @get_system_memory() #4
   %1 = load i64, ptr %base_addr, align 16
@@ -150,14 +133,14 @@ declare void @memory_region_add_subregion(ptr noundef, i64 noundef, ptr noundef)
 define dso_local void @pcie_host_mmcfg_update(ptr noundef %e, i32 noundef %enable, i64 noundef %addr, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   tail call void @memory_region_transaction_begin() #4
-  %base_addr.i = getelementptr inbounds %struct.PCIExpressHost, ptr %e, i64 0, i32 1
+  %base_addr.i = getelementptr inbounds i8, ptr %e, i64 1680
   %0 = load i64, ptr %base_addr.i, align 16
   %cmp.not.i = icmp eq i64 %0, -1
   br i1 %cmp.not.i, label %pcie_host_mmcfg_unmap.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call ptr @get_system_memory() #4
-  %mmio.i = getelementptr inbounds %struct.PCIExpressHost, ptr %e, i64 0, i32 3
+  %mmio.i = getelementptr inbounds i8, ptr %e, i64 1696
   tail call void @memory_region_del_subregion(ptr noundef %call.i, ptr noundef nonnull %mmio.i) #4
   store i64 -1, ptr %base_addr.i, align 16
   br label %pcie_host_mmcfg_unmap.exit
@@ -201,9 +184,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @pcie_host_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i32 noundef 29, ptr noundef nonnull @__func__.PCIE_HOST_BRIDGE) #4
-  %base_addr = getelementptr inbounds %struct.PCIExpressHost, ptr %call.i, i64 0, i32 1
+  %base_addr = getelementptr inbounds i8, ptr %call.i, i64 1680
   store i64 -1, ptr %base_addr, align 16
-  %mmio = getelementptr inbounds %struct.PCIExpressHost, ptr %call.i, i64 0, i32 3
+  %mmio = getelementptr inbounds i8, ptr %call.i, i64 1696
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %call.i, ptr noundef nonnull @pcie_mmcfg_ops, ptr noundef %call.i, ptr noundef nonnull @.str.6, i64 noundef 268435456) #4
   ret void
 }
@@ -215,7 +198,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @pcie_mmcfg_data_read(ptr nocapture noundef readonly %opaque, i64 noundef %mmcfg_addr, i32 noundef %len) #0 {
 entry:
-  %bus = getelementptr inbounds %struct.PCIHostState, ptr %opaque, i64 0, i32 6
+  %bus = getelementptr inbounds i8, ptr %opaque, i64 1640
   %0 = load ptr, ptr %bus, align 8
   %conv = trunc i64 %mmcfg_addr to i32
   %shr.i = lshr i32 %conv, 20
@@ -245,7 +228,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pcie_mmcfg_data_write(ptr nocapture noundef readonly %opaque, i64 noundef %mmcfg_addr, i64 noundef %val, i32 noundef %len) #0 {
 entry:
-  %bus = getelementptr inbounds %struct.PCIHostState, ptr %opaque, i64 0, i32 6
+  %bus = getelementptr inbounds i8, ptr %opaque, i64 1640
   %0 = load ptr, ptr %bus, align 8
   %conv = trunc i64 %mmcfg_addr to i32
   %shr.i = lshr i32 %conv, 20

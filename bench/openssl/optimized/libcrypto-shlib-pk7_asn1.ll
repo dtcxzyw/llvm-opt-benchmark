@@ -8,12 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_AUX_st = type { ptr, i32, i32, i32, ptr, i32, ptr }
 %struct.ASN1_ADB_st = type { i64, i64, ptr, ptr, i64, ptr, ptr }
 %struct.ASN1_ADB_TABLE_st = type { i64, %struct.ASN1_TEMPLATE_st }
-%struct.pkcs7_st = type { ptr, i64, i32, i32, ptr, %union.anon, %struct.PKCS7_CTX_st }
-%union.anon = type { ptr }
-%struct.PKCS7_CTX_st = type { ptr, ptr }
-%struct.ASN1_STREAM_ARG_st = type { ptr, ptr, ptr }
-%struct.pkcs7_signer_info_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.pkcs7_recip_info_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
 
 @PKCS7_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 6, i64 16, ptr @PKCS7_seq_tt, i64 2, ptr @PKCS7_aux, i64 56, ptr @.str }, align 8
 @PKCS7_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 24, ptr @.str.13, ptr @ASN1_OBJECT_it }, %struct.ASN1_TEMPLATE_st { i64 256, i64 -1, i64 0, ptr @.str, ptr @PKCS7_adb }], align 16
@@ -108,9 +102,9 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %ctx = getelementptr inbounds %struct.pkcs7_st, ptr %0, i64 0, i32 6
+  %ctx = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %ctx, align 8
-  %propq4 = getelementptr inbounds %struct.pkcs7_st, ptr %0, i64 0, i32 6, i32 1
+  %propq4 = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %propq4, align 8
   br label %if.end
 
@@ -159,9 +153,9 @@ entry:
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ctx = getelementptr inbounds %struct.pkcs7_st, ptr %call1, i64 0, i32 6
+  %ctx = getelementptr inbounds i8, ptr %call1, i64 40
   store ptr %libctx, ptr %ctx, align 8
-  %propq4 = getelementptr inbounds %struct.pkcs7_st, ptr %call1, i64 0, i32 6, i32 1
+  %propq4 = getelementptr inbounds i8, ptr %call1, i64 48
   store ptr null, ptr %propq4, align 8
   %cmp5.not = icmp eq ptr %propq, null
   br i1 %cmp5.not, label %if.end15, label %if.then6
@@ -193,7 +187,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %propq = getelementptr inbounds %struct.pkcs7_st, ptr %p7, i64 0, i32 6, i32 1
+  %propq = getelementptr inbounds i8, ptr %p7, i64 48
   %0 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 116) #3
   tail call void @ASN1_item_free(ptr noundef nonnull %p7, ptr noundef nonnull @PKCS7_it.local_it) #3
@@ -577,7 +571,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %boundary = getelementptr inbounds %struct.ASN1_STREAM_ARG_st, ptr %exarg, i64 0, i32 2
+  %boundary = getelementptr inbounds i8, ptr %exarg, i64 16
   %0 = load ptr, ptr %pval, align 8
   %call = tail call i32 @PKCS7_stream(ptr noundef nonnull %boundary, ptr noundef %0) #3
   %cmp = icmp slt i32 %call, 1
@@ -587,14 +581,14 @@ sw.bb1:                                           ; preds = %sw.bb, %entry
   %1 = load ptr, ptr %pval, align 8
   %2 = load ptr, ptr %exarg, align 8
   %call2 = tail call ptr @PKCS7_dataInit(ptr noundef %1, ptr noundef %2) #3
-  %ndef_bio = getelementptr inbounds %struct.ASN1_STREAM_ARG_st, ptr %exarg, i64 0, i32 1
+  %ndef_bio = getelementptr inbounds i8, ptr %exarg, i64 8
   store ptr %call2, ptr %ndef_bio, align 8
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %return, label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry, %entry
   %3 = load ptr, ptr %pval, align 8
-  %ndef_bio7 = getelementptr inbounds %struct.ASN1_STREAM_ARG_st, ptr %exarg, i64 0, i32 1
+  %ndef_bio7 = getelementptr inbounds i8, ptr %exarg, i64 8
   %4 = load ptr, ptr %ndef_bio7, align 8
   %call8 = tail call i32 @PKCS7_dataFinal(ptr noundef %3, ptr noundef %4) #3
   %cmp9 = icmp slt i32 %call8, 1
@@ -634,7 +628,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pval, align 8
-  %pkey = getelementptr inbounds %struct.pkcs7_signer_info_st, ptr %0, i64 0, i32 7
+  %pkey = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef %1) #3
   br label %if.end
@@ -655,7 +649,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pval, align 8
-  %cert = getelementptr inbounds %struct.pkcs7_recip_info_st, ptr %0, i64 0, i32 4
+  %cert = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %cert, align 8
   tail call void @X509_free(ptr noundef %1) #3
   br label %if.end

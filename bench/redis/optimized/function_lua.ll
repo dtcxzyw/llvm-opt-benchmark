@@ -251,8 +251,8 @@ for.body.i.i.i:                                   ; preds = %if.end4.i.i.i, %for
   br i1 %tobool9.not.i.i.i, label %for.end.i.i.i, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %struct.scriptFlag, ptr %flag.017.i.i.i, i64 1
-  %str.i.i.i = getelementptr inbounds %struct.scriptFlag, ptr %flag.017.i.i.i, i64 1, i32 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %flag.017.i.i.i, i64 16
+  %str.i.i.i = getelementptr inbounds i8, ptr %flag.017.i.i.i, i64 24
   %4 = load ptr, ptr %str.i.i.i, align 8
   %tobool6.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool6.not.i.i.i, label %error.sink.split.i.i, label %for.body.i.i.i, !llvm.loop !7
@@ -503,11 +503,11 @@ cond.false:                                       ; preds = %if.end
 
 cond.end:                                         ; preds = %if.end
   store ptr %li, ptr %load_ctx, align 8
-  %start_time = getelementptr inbounds %struct.loadCtx, ptr %load_ctx, i64 0, i32 1
+  %start_time = getelementptr inbounds i8, ptr %load_ctx, i64 8
   %6 = load ptr, ptr @getMonotonicUs, align 8
   %call11 = tail call i64 %6() #8
   store i64 %call11, ptr %start_time, align 8
-  %timeout12 = getelementptr inbounds %struct.loadCtx, ptr %load_ctx, i64 0, i32 2
+  %timeout12 = getelementptr inbounds i8, ptr %load_ctx, i64 16
   store i64 %timeout, ptr %timeout12, align 8
   call void @luaSaveOnRegistry(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %load_ctx) #8
   %call13 = call i32 @lua_sethook(ptr noundef %0, ptr noundef nonnull @luaEngineLoadHook, i32 noundef 8, i32 noundef 100000) #8
@@ -664,13 +664,13 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %start_time = getelementptr inbounds %struct.loadCtx, ptr %call, i64 0, i32 1
+  %start_time = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i64, ptr %start_time, align 8
   %1 = load ptr, ptr @getMonotonicUs, align 8
   %call.i.i = tail call i64 %1() #8
   %sub.i.i = sub i64 %call.i.i, %0
   %div.i = udiv i64 %sub.i.i, 1000
-  %timeout = getelementptr inbounds %struct.loadCtx, ptr %call, i64 0, i32 2
+  %timeout = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load i64, ptr %timeout, align 8
   %cmp.not = icmp ne i64 %2, 0
   %cmp6 = icmp ugt i64 %div.i, %2

@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
-%struct.prov_gcm_ctx_st = type { i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i8, [128 x i8], [16 x i8], ptr, ptr, %struct.gcm128_context, ptr }
-%struct.gcm128_context = type { %union.anon, %union.anon, %union.anon, %union.anon, %union.anon, %union.anon, [16 x %struct.u128], %struct.gcm_funcs_st, i32, i32, ptr, ptr, [48 x i8] }
-%union.anon = type { [2 x i64] }
-%struct.u128 = type { i64, i64 }
-%struct.gcm_funcs_st = type { ptr, ptr, ptr }
-%struct.prov_sm4_gcm_ctx_st = type { %struct.prov_gcm_ctx_st, %union.anon.0 }
-%union.anon.0 = type { double, [120 x i8] }
 
 @ossl_sm4128gcm_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @sm4128gcm_newctx }, %struct.ossl_dispatch_st { i32 7, ptr @sm4_gcm_freectx }, %struct.ossl_dispatch_st { i32 8, ptr @sm4128gcm_dupctx }, %struct.ossl_dispatch_st { i32 2, ptr @ossl_gcm_einit }, %struct.ossl_dispatch_st { i32 3, ptr @ossl_gcm_dinit }, %struct.ossl_dispatch_st { i32 4, ptr @ossl_gcm_stream_update }, %struct.ossl_dispatch_st { i32 5, ptr @ossl_gcm_stream_final }, %struct.ossl_dispatch_st { i32 6, ptr @ossl_gcm_cipher }, %struct.ossl_dispatch_st { i32 9, ptr @sm4_128_gcm_get_params }, %struct.ossl_dispatch_st { i32 10, ptr @ossl_gcm_get_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @ossl_gcm_set_ctx_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 13, ptr @ossl_cipher_aead_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @ossl_cipher_aead_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [62 x i8] c"../openssl/providers/implementations/ciphers/cipher_sm4_gcm.c\00", align 1
@@ -56,13 +49,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.not.i, label %sm4_gcm_dupctx.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %key.i = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %call.i, i64 0, i32 16, i32 11
+  %key.i = getelementptr inbounds i8, ptr %call.i, i64 640
   %0 = load ptr, ptr %key.i, align 8
   %cmp2.not.i = icmp eq ptr %0, null
   br i1 %cmp2.not.i, label %sm4_gcm_dupctx.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
-  %ks.i = getelementptr inbounds %struct.prov_sm4_gcm_ctx_st, ptr %call.i, i64 0, i32 1
+  %ks.i = getelementptr inbounds i8, ptr %call.i, i64 704
   store ptr %ks.i, ptr %key.i, align 8
   br label %sm4_gcm_dupctx.exit
 

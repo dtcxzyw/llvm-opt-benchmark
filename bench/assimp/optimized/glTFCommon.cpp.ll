@@ -3,8 +3,6 @@ source_filename = "bench/assimp/original/glTFCommon.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.glTFCommon::Util::DataURI" = type { ptr, ptr, i8, ptr, i64 }
-
 @.str = private unnamed_addr constant [6 x i8] c"data:\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"text/plain\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"US-ASCII\00", align 1
@@ -29,9 +27,9 @@ if.then2:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.then2, %if.end
   store ptr @.str.1, ptr %out, align 8
-  %charset = getelementptr inbounds %"struct.glTFCommon::Util::DataURI", ptr %out, i64 0, i32 1
+  %charset = getelementptr inbounds i8, ptr %out, i64 8
   store ptr @.str.2, ptr %charset, align 8
-  %base64 = getelementptr inbounds %"struct.glTFCommon::Util::DataURI", ptr %out, i64 0, i32 2
+  %base64 = getelementptr inbounds i8, ptr %out, i64 16
   store i8 0, ptr %base64, align 8
   %1 = load i8, ptr %const_uri, align 1
   %cmp9.not = icmp eq i8 %1, 16
@@ -185,13 +183,13 @@ if.end107:                                        ; preds = %if.then105, %if.end
   %11 = load i8, ptr %arrayidx108, align 1
   %idx.ext110 = sext i8 %11 to i64
   %add.ptr111 = getelementptr inbounds i8, ptr %const_uri, i64 %idx.ext110
-  %data = getelementptr inbounds %"struct.glTFCommon::Util::DataURI", ptr %out, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %out, i64 24
   store ptr %add.ptr111, ptr %data, align 8
   %add.ptr112 = getelementptr inbounds i8, ptr %const_uri, i64 %uriLen
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr112 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr111 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %dataLength = getelementptr inbounds %"struct.glTFCommon::Util::DataURI", ptr %out, i64 0, i32 4
+  %dataLength = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %sub.ptr.sub, ptr %dataLength, align 8
   br label %return
 

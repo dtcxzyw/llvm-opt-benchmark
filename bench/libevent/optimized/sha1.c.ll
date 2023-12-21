@@ -12,14 +12,14 @@ entry:
   %c.i = alloca i8, align 1
   %ctx = alloca %struct.SHA1_CTX, align 16
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %ctx, align 16
-  %arrayidx8.i = getelementptr inbounds [5 x i32], ptr %ctx, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 -1009589776, ptr %arrayidx8.i, align 16
-  %count.i = getelementptr inbounds %struct.SHA1_CTX, ptr %ctx, i64 0, i32 1
-  %arrayidx9.i = getelementptr inbounds %struct.SHA1_CTX, ptr %ctx, i64 0, i32 1, i64 1
+  %count.i = getelementptr inbounds i8, ptr %ctx, i64 20
+  %arrayidx9.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i32 0, ptr %arrayidx9.i, align 8
   store i32 0, ptr %count.i, align 4
-  %cmp4 = icmp sgt i32 %len, 0
-  br i1 %cmp4, label %for.body.preheader, label %for.end
+  %cmp5 = icmp sgt i32 %len, 0
+  br i1 %cmp5, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %len to i64
@@ -42,7 +42,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
   %indvars.iv.i = phi i64 [ 0, %for.end ], [ %indvars.iv.next.i, %for.body.i ]
   %cmp1.i = icmp ult i64 %indvars.iv.i, 4
   %idxprom.i = zext i1 %cmp1.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %ctx, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [2 x i32], ptr %count.i, i64 0, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
   %1 = shl i32 %indvars.iv.tr.i, 3
@@ -50,8 +50,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
   %mul.i = xor i32 %sub.i, 24
   %shr.i = lshr i32 %0, %mul.i
   %conv.i = trunc i32 %shr.i to i8
-  %arrayidx4.i3 = getelementptr inbounds [8 x i8], ptr %finalcount.i, i64 0, i64 %indvars.iv.i
-  store i8 %conv.i, ptr %arrayidx4.i3, align 1
+  %arrayidx4.i4 = getelementptr inbounds [8 x i8], ptr %finalcount.i, i64 0, i64 %indvars.iv.i
+  store i8 %conv.i, ptr %arrayidx4.i4, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
@@ -103,7 +103,7 @@ SHA1Final.exit:                                   ; preds = %for.body13.i
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @SHA1Update(ptr nocapture noundef %context, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #1 {
 entry:
-  %count = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %context, i64 20
   %0 = load i32, ptr %count, align 4
   %shl = shl nuw nsw i32 %len, 3
   %add = add i32 %0, %shl
@@ -112,7 +112,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx4 = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 1, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %context, i64 24
   %1 = load i32, ptr %arrayidx4, align 4
   %inc = add i32 %1, 1
   store i32 %inc, ptr %arrayidx4, align 4
@@ -126,51 +126,51 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end
-  %buffer = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2
+  %buffer = getelementptr inbounds i8, ptr %context, i64 28
   %idxprom = zext nneg i32 %and to i64
-  %arrayidx12 = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 %idxprom
+  %arrayidx12 = getelementptr inbounds [64 x i8], ptr %buffer, i64 0, i64 %idxprom
   %sub = sub nuw nsw i32 64, %and
   %conv = zext nneg i32 %sub to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx12, ptr noundef nonnull align 1 dereferenceable(1) %data, i64 %conv, i1 false)
   %block.sroa.0.0.copyload.i = load i32, ptr %buffer, align 1
-  %block.sroa.43.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 4
+  %block.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 32
   %block.sroa.43.0.copyload.i = load i32, ptr %block.sroa.43.0..sroa_idx.i, align 1
-  %block.sroa.84.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 8
+  %block.sroa.84.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 36
   %block.sroa.84.0.copyload.i = load i32, ptr %block.sroa.84.0..sroa_idx.i, align 1
-  %block.sroa.125.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 12
+  %block.sroa.125.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 40
   %block.sroa.125.0.copyload.i = load i32, ptr %block.sroa.125.0..sroa_idx.i, align 1
-  %block.sroa.166.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 16
+  %block.sroa.166.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 44
   %block.sroa.166.0.copyload.i = load i32, ptr %block.sroa.166.0..sroa_idx.i, align 1
-  %block.sroa.207.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 20
+  %block.sroa.207.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 48
   %block.sroa.207.0.copyload.i = load i32, ptr %block.sroa.207.0..sroa_idx.i, align 1
-  %block.sroa.248.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 24
+  %block.sroa.248.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 52
   %block.sroa.248.0.copyload.i = load i32, ptr %block.sroa.248.0..sroa_idx.i, align 1
-  %block.sroa.289.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 28
+  %block.sroa.289.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 56
   %block.sroa.289.0.copyload.i = load i32, ptr %block.sroa.289.0..sroa_idx.i, align 1
-  %block.sroa.330.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 32
+  %block.sroa.330.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 60
   %block.sroa.330.0.copyload.i = load i32, ptr %block.sroa.330.0..sroa_idx.i, align 1
-  %block.sroa.371.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 36
+  %block.sroa.371.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 64
   %block.sroa.371.0.copyload.i = load i32, ptr %block.sroa.371.0..sroa_idx.i, align 1
-  %block.sroa.412.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 40
+  %block.sroa.412.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 68
   %block.sroa.412.0.copyload.i = load i32, ptr %block.sroa.412.0..sroa_idx.i, align 1
-  %block.sroa.453.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 44
+  %block.sroa.453.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 72
   %block.sroa.453.0.copyload.i = load i32, ptr %block.sroa.453.0..sroa_idx.i, align 1
-  %block.sroa.494.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 48
+  %block.sroa.494.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 76
   %block.sroa.494.0.copyload.i = load i32, ptr %block.sroa.494.0..sroa_idx.i, align 1
-  %block.sroa.535.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 52
+  %block.sroa.535.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 80
   %block.sroa.535.0.copyload.i = load i32, ptr %block.sroa.535.0..sroa_idx.i, align 1
-  %block.sroa.576.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 56
+  %block.sroa.576.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 84
   %block.sroa.576.0.copyload.i = load i32, ptr %block.sroa.576.0..sroa_idx.i, align 1
-  %block.sroa.617.0..sroa_idx.i = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 60
+  %block.sroa.617.0..sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 88
   %block.sroa.617.0.copyload.i = load i32, ptr %block.sroa.617.0..sroa_idx.i, align 1
   %2 = load i32, ptr %context, align 4
-  %arrayidx1.i = getelementptr inbounds i32, ptr %context, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %context, i64 4
   %3 = load i32, ptr %arrayidx1.i, align 4
-  %arrayidx2.i = getelementptr inbounds i32, ptr %context, i64 2
+  %arrayidx2.i = getelementptr inbounds i8, ptr %context, i64 8
   %4 = load i32, ptr %arrayidx2.i, align 4
-  %arrayidx3.i = getelementptr inbounds i32, ptr %context, i64 3
+  %arrayidx3.i = getelementptr inbounds i8, ptr %context, i64 12
   %5 = load i32, ptr %arrayidx3.i, align 4
-  %arrayidx4.i = getelementptr inbounds i32, ptr %context, i64 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %context, i64 16
   %6 = load i32, ptr %arrayidx4.i, align 4
   %xor.i = xor i32 %5, %4
   %and.i = and i32 %xor.i, %3
@@ -1163,7 +1163,8 @@ if.else:                                          ; preds = %if.end
 if.end23:                                         ; preds = %if.else, %if.then11
   %i.1 = phi i32 [ %sub, %if.then11 ], [ 0, %if.else ]
   %j.0 = phi i64 [ 0, %if.then11 ], [ %7, %if.else ]
-  %arrayidx26 = getelementptr inbounds %struct.SHA1_CTX, ptr %context, i64 0, i32 2, i64 %j.0
+  %buffer24 = getelementptr inbounds i8, ptr %context, i64 28
+  %arrayidx26 = getelementptr inbounds [64 x i8], ptr %buffer24, i64 0, i64 %j.0
   %idxprom27 = zext nneg i32 %i.1 to i64
   %arrayidx28 = getelementptr inbounds i8, ptr %data, i64 %idxprom27
   %sub29 = sub nsw i32 %len, %i.1

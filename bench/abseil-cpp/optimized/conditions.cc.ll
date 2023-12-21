@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.std::atomic.2" = type { %"struct.std::__atomic_base.3" }
 %"struct.std::__atomic_base.3" = type { ptr }
-%"class.absl::log_internal::LogEveryNSecState" = type { %"struct.std::atomic", %"struct.std::atomic.0" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i64 }
 
 @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E = external local_unnamed_addr global %"struct.std::atomic.2", align 8
 
@@ -87,7 +82,7 @@ if.end.i:                                         ; preds = %entry
 _ZN4absl13base_internal10CycleClock3NowEv.exit:   ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi i64 [ %or.i.i, %if.then.i ], [ %call2.i, %if.end.i ]
   %retval.0.i = ashr i64 %retval.0.in.i, 1
-  %next_log_time_cycles_ = getelementptr inbounds %"class.absl::log_internal::LogEveryNSecState", ptr %this, i64 0, i32 1
+  %next_log_time_cycles_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load atomic i64, ptr %next_log_time_cycles_ monotonic, align 8
   %conv = sitofp i64 %retval.0.i to double
   br label %do.body

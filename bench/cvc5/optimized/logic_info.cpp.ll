@@ -5,16 +5,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.std::allocator" = type { i8 }
-%"class.cvc5::internal::LogicInfo" = type { %"class.std::__cxx11::basic_string", %"class.std::vector", i64, i8, i8, i8, i8, i8, i8, i8, i8 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Bvector_base" }
-%"struct.std::_Bvector_base" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" }
-%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" }
-%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" = type { %"struct.std::_Bit_iterator", %"struct.std::_Bit_iterator", ptr }
-%"struct.std::_Bit_iterator" = type { %"struct.std::_Bit_iterator_base.base", [4 x i8] }
-%"struct.std::_Bit_iterator_base.base" = type <{ ptr, i32 }>
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -25,10 +18,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.cvc5::internal::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string" }
-%"class.std::exception" = type { ptr }
+%"class.cvc5::internal::LogicInfo" = type { %"class.std::__cxx11::basic_string", %"class.std::vector", i64, i8, i8, i8, i8, i8, i8, i8, i8 }
+%"class.std::vector" = type { %"struct.std::_Bvector_base" }
+%"struct.std::_Bvector_base" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" }
+%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" }
+%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" = type { %"struct.std::_Bit_iterator", %"struct.std::_Bit_iterator", ptr }
+%"struct.std::_Bit_iterator" = type { %"struct.std::_Bit_iterator_base.base", [4 x i8] }
+%"struct.std::_Bit_iterator_base.base" = type <{ ptr, i32 }>
 %"class.cvc5::internal::FatalStream" = type { i8 }
-%"struct.std::_Bit_iterator_base" = type <{ ptr, i32, [4 x i8] }>
 %struct._Guard = type { ptr }
 
 $_ZNSt6vectorIbSaIbEED2Ev = comdat any
@@ -204,15 +201,15 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %d_theories, align 8
-  %_M_offset.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_finish.i.i.i.i, align 8
-  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %_M_offset.i.i1.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   %call5.i.i.i.i1.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
           to label %invoke.cont5 unwind label %lpad.i4
@@ -224,22 +221,22 @@ lpad.i4:                                          ; preds = %invoke.cont
   br label %ehcleanup
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i1.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 8
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %d_theories, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i.i, align 8
   store i32 14, ptr %_M_offset.i.i1.i.i.i.i, align 8
   store i64 0, ptr %call5.i.i.i.i1.i, align 8
-  %d_sharingTheories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
+  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
   store i64 0, ptr %d_sharingTheories, align 8
-  %d_integers = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 3
+  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
   store i8 1, ptr %d_integers, align 8
-  %d_reals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 4
+  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
   store i8 1, ptr %d_reals, align 1
-  %d_transcendentals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 5
+  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
   store i8 1, ptr %d_transcendentals, align 2
-  %d_linear = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 6
+  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %d_linear, i8 0, i64 5, i1 false)
   store i32 0, ptr %id, align 4
   br label %for.body
@@ -299,7 +296,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %theory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -342,16 +339,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread18,
   br label %eh.resume
 
 do.end:                                           ; preds = %entry
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %d_theories, align 8
-  %div.i.i.i.i.i212225 = lshr i32 %theory, 6
-  %div.i.i.i.i.i21.zext = zext nneg i32 %div.i.i.i.i.i212225 to i64
+  %div.i.i.i.i.i212223 = lshr i32 %theory, 6
+  %div.i.i.i.i.i21.zext = zext nneg i32 %div.i.i.i.i.i212223 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %5, i64 %div.i.i.i.i.i21.zext
-  %rem.i.i.i.i.i2324 = and i32 %theory, 63
-  %rem.i.i.i.i.i23.zext = zext nneg i32 %rem.i.i.i.i.i2324 to i64
-  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i23.zext
-  %6 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %and.i = and i64 %6, %shl.i.i.i
+  %6 = and i32 %theory, 63
+  %conv4.i.i.i.i.i = zext nneg i32 %6 to i64
+  %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
+  %7 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %and.i = and i64 %7, %shl.i.i.i
   %tobool.i.not = icmp eq i64 %and.i, 0
   br i1 %tobool.i.not, label %if.then9, label %if.end19
 
@@ -363,18 +360,18 @@ if.then9:                                         ; preds = %do.end
   ]
 
 if.then11:                                        ; preds = %if.then9
-  %d_sharingTheories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
-  %7 = load i64, ptr %d_sharingTheories, align 8
-  %inc = add i64 %7, 1
+  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %8 = load i64, ptr %d_sharingTheories, align 8
+  %inc = add i64 %8, 1
   store i64 %inc, ptr %d_sharingTheories, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then9, %if.then9, %if.then9, %if.then11
   %call13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %8 = load ptr, ptr %d_theories, align 8
-  %add.ptr.i.i.i.i.i5 = getelementptr inbounds i64, ptr %8, i64 %div.i.i.i.i.i21.zext
-  %9 = load i64, ptr %add.ptr.i.i.i.i.i5, align 8
-  %or.i = or i64 %9, %shl.i.i.i
+  %9 = load ptr, ptr %d_theories, align 8
+  %add.ptr.i.i.i.i.i5 = getelementptr inbounds i64, ptr %9, i64 %div.i.i.i.i.i21.zext
+  %10 = load i64, ptr %add.ptr.i.i.i.i.i5, align 8
+  %or.i = or i64 %10, %shl.i.i.i
   store i64 %or.i, ptr %add.ptr.i.i.i.i.i5, align 8
   br label %if.end19
 
@@ -399,7 +396,7 @@ entry:
   br i1 %tobool.not.i.i, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -450,15 +447,15 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %d_theories, align 8
-  %_M_offset.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_finish.i.i.i.i, align 8
-  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %_M_offset.i.i1.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   %call5.i.i.i.i1.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
           to label %invoke.cont5 unwind label %lpad.i5
@@ -470,14 +467,14 @@ lpad.i5:                                          ; preds = %invoke.cont
   br label %ehcleanup11
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i1.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 8
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %d_theories, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i.i, align 8
   store i32 14, ptr %_M_offset.i.i1.i.i.i.i, align 8
   store i64 0, ptr %call5.i.i.i.i1.i, align 8
-  %d_sharingTheories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
+  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories, i8 0, i64 16, i1 false)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %logicString)
           to label %invoke.cont7 unwind label %lpad6
@@ -487,7 +484,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #14
   store i8 1, ptr %d_locked, align 1
   ret void
@@ -536,7 +533,7 @@ entry:
   %err = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp220 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp221 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -580,21 +577,21 @@ cleanup.action:                                   ; preds = %ehcleanup.thread82,
 
 do.end:                                           ; preds = %entry
   store i32 0, ptr %id, align 4
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %do.end, %for.body
   %5 = phi i32 [ 0, %do.end ], [ %.pr, %for.body ]
   %6 = load ptr, ptr %d_theories, align 8
-  %div.i.i.i.i.i909194 = lshr i32 %5, 6
-  %div.i.i.i.i.i90.zext = zext nneg i32 %div.i.i.i.i.i909194 to i64
+  %div.i.i.i.i.i909192 = lshr i32 %5, 6
+  %div.i.i.i.i.i90.zext = zext nneg i32 %div.i.i.i.i.i909192 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %6, i64 %div.i.i.i.i.i90.zext
-  %rem.i.i.i.i.i9293 = and i32 %5, 63
-  %rem.i.i.i.i.i92.zext = zext nneg i32 %rem.i.i.i.i.i9293 to i64
-  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i92.zext
+  %7 = and i32 %5, 63
+  %conv4.i.i.i.i.i = zext nneg i32 %7 to i64
+  %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
   %not.i = xor i64 %shl.i.i.i, -1
-  %7 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %and.i = and i64 %7, %not.i
+  %8 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %and.i = and i64 %8, %not.i
   store i64 %and.i, ptr %add.ptr.i.i.i.i.i, align 8
   %call8 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryppERNS1_8TheoryIdE(ptr noundef nonnull align 4 dereferenceable(4) %id)
   %.pr = load i32, ptr %id, align 4
@@ -602,7 +599,7 @@ for.body:                                         ; preds = %do.end, %for.body
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body
-  %d_sharingTheories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
+  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
   store i64 0, ptr %d_sharingTheories, align 8
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 0)
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 1)
@@ -618,8 +615,8 @@ if.then12:                                        ; preds = %for.end
 
 if.end13:                                         ; preds = %if.then12, %for.end
   %p.0 = phi ptr [ %call9, %for.end ], [ %add.ptr, %if.then12 ]
-  %8 = load i8, ptr %p.0, align 1
-  %cmp15 = icmp eq i8 %8, 0
+  %9 = load i8, ptr %p.0, align 1
+  %cmp15 = icmp eq i8 %9, 0
   br i1 %cmp15, label %if.end186, label %if.else
 
 if.else:                                          ; preds = %if.end13
@@ -647,10 +644,10 @@ if.else26:                                        ; preds = %if.else21
   br i1 %tobool28.not, label %if.then29, label %if.else32
 
 if.then29:                                        ; preds = %if.else26
-  %d_higherOrder = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 9
-  %9 = load i8, ptr %d_higherOrder, align 2
-  %10 = and i8 %9, 1
-  %tobool30 = icmp ne i8 %10, 0
+  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
+  %10 = load i8, ptr %d_higherOrder, align 2
+  %11 = and i8 %10, 1
+  %tobool30 = icmp ne i8 %11, 0
   call void @_ZN4cvc58internal9LogicInfo16enableEverythingEb(ptr noundef nonnull align 8 dereferenceable(88) %this, i1 noundef zeroext %tobool30)
   call void @_ZN4cvc58internal9LogicInfo13disableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 13)
   call void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
@@ -663,10 +660,10 @@ if.else32:                                        ; preds = %if.else26
   br i1 %tobool34.not, label %if.then35, label %if.else39
 
 if.then35:                                        ; preds = %if.else32
-  %d_higherOrder36 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 9
-  %11 = load i8, ptr %d_higherOrder36, align 2
-  %12 = and i8 %11, 1
-  %tobool37 = icmp ne i8 %12, 0
+  %d_higherOrder36 = getelementptr inbounds i8, ptr %this, i64 86
+  %12 = load i8, ptr %d_higherOrder36, align 2
+  %13 = and i8 %12, 1
+  %tobool37 = icmp ne i8 %13, 0
   call void @_ZN4cvc58internal9LogicInfo16enableEverythingEb(ptr noundef nonnull align 8 dereferenceable(88) %this, i1 noundef zeroext %tobool37)
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 13)
   call void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
@@ -679,10 +676,10 @@ if.else39:                                        ; preds = %if.else32
   br i1 %tobool41.not, label %if.then42, label %if.else46
 
 if.then42:                                        ; preds = %if.else39
-  %d_higherOrder43 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 9
-  %13 = load i8, ptr %d_higherOrder43, align 2
-  %14 = and i8 %13, 1
-  %tobool44 = icmp ne i8 %14, 0
+  %d_higherOrder43 = getelementptr inbounds i8, ptr %this, i64 86
+  %14 = load i8, ptr %d_higherOrder43, align 2
+  %15 = and i8 %14, 1
+  %tobool44 = icmp ne i8 %15, 0
   call void @_ZN4cvc58internal9LogicInfo16enableEverythingEb(ptr noundef nonnull align 8 dereferenceable(88) %this, i1 noundef zeroext %tobool44)
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 13)
   call void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
@@ -728,8 +725,8 @@ if.then60:                                        ; preds = %if.end57
   br label %if.end186
 
 if.else62:                                        ; preds = %if.end57
-  %15 = load i8, ptr %p.2, align 1
-  %cmp64 = icmp eq i8 %15, 65
+  %16 = load i8, ptr %p.2, align 1
+  %cmp64 = icmp eq i8 %16, 65
   br i1 %cmp64, label %if.then65, label %if.end66
 
 if.then65:                                        ; preds = %if.else62
@@ -755,7 +752,7 @@ if.end71:                                         ; preds = %if.then69, %if.end6
   br i1 %tobool73.not, label %if.then74, label %if.end76
 
 if.then74:                                        ; preds = %if.end71
-  %d_cardinalityConstraints = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 8
+  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
   store i8 1, ptr %d_cardinalityConstraints, align 1
   %add.ptr75 = getelementptr inbounds i8, ptr %p.4, i64 1
   br label %if.end76
@@ -806,9 +803,9 @@ if.then94:                                        ; preds = %if.end91
 
 if.end96:                                         ; preds = %if.then94, %if.end91
   %p.9 = phi ptr [ %p.8, %if.end91 ], [ %add.ptr95, %if.then94 ]
-  %16 = load ptr, ptr %d_theories, align 8
-  %17 = load i64, ptr %16, align 8
-  %and.i73 = and i64 %17, 16
+  %17 = load ptr, ptr %d_theories, align 8
+  %18 = load i64, ptr %17, align 8
+  %and.i73 = and i64 %18, 16
   %tobool.i.not = icmp eq i64 %and.i73, 0
   br i1 %tobool.i.not, label %land.rhs, label %if.end106
 
@@ -824,8 +821,8 @@ if.then104:                                       ; preds = %land.rhs
 
 if.end106:                                        ; preds = %if.end96, %if.then104, %land.rhs
   %p.10 = phi ptr [ %p.9, %if.end96 ], [ %add.ptr105, %if.then104 ], [ %p.9, %land.rhs ]
-  %18 = load i8, ptr %p.10, align 1
-  %cmp108 = icmp eq i8 %18, 83
+  %19 = load i8, ptr %p.10, align 1
+  %cmp108 = icmp eq i8 %19, 83
   br i1 %cmp108, label %if.then109, label %if.end111
 
 if.then109:                                       ; preds = %if.end106
@@ -928,8 +925,8 @@ if.then149:                                       ; preds = %if.else146
   call void @_ZN4cvc58internal9LogicInfo11enableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   %add.ptr150 = getelementptr inbounds i8, ptr %p.11, i64 3
-  %19 = load i8, ptr %add.ptr150, align 1
-  %cmp152 = icmp eq i8 %19, 84
+  %20 = load i8, ptr %add.ptr150, align 1
+  %cmp152 = icmp eq i8 %20, 84
   br i1 %cmp152, label %if.then153, label %if.end174
 
 if.then153:                                       ; preds = %if.then149
@@ -947,8 +944,8 @@ if.then159:                                       ; preds = %if.else156
   call void @_ZN4cvc58internal9LogicInfo11enableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   %add.ptr160 = getelementptr inbounds i8, ptr %p.11, i64 4
-  %20 = load i8, ptr %add.ptr160, align 1
-  %cmp162 = icmp eq i8 %20, 84
+  %21 = load i8, ptr %add.ptr160, align 1
+  %cmp162 = icmp eq i8 %21, 84
   br i1 %cmp162, label %if.then163, label %if.end174
 
 if.then163:                                       ; preds = %if.then159
@@ -969,9 +966,9 @@ if.then177:                                       ; preds = %if.end174
 
 if.end186:                                        ; preds = %if.then19, %if.then29, %if.then42, %if.end174, %if.then177, %if.then60, %if.then35, %if.then24, %if.end13
   %p.13 = phi ptr [ %p.0, %if.end13 ], [ %p.12, %if.end174 ], [ %add.ptr178, %if.then177 ], [ %add.ptr61, %if.then60 ], [ %add.ptr45, %if.then42 ], [ %add.ptr38, %if.then35 ], [ %add.ptr31, %if.then29 ], [ %add.ptr25, %if.then24 ], [ %add.ptr20, %if.then19 ]
-  %21 = load ptr, ptr %d_theories, align 8
-  %22 = load i64, ptr %21, align 8
-  %and.i77 = and i64 %22, 64
+  %22 = load ptr, ptr %d_theories, align 8
+  %23 = load i64, ptr %22, align 8
+  %and.i77 = and i64 %23, 64
   %tobool.i78.not = icmp eq i64 %and.i77, 0
   br i1 %tobool.i78.not, label %if.end192, label %if.then191
 
@@ -980,8 +977,8 @@ if.then191:                                       ; preds = %if.end186
   br label %if.end192
 
 if.end192:                                        ; preds = %if.then191, %if.end186
-  %23 = load i8, ptr %p.13, align 1
-  %cmp194.not = icmp eq i8 %23, 0
+  %24 = load i8, ptr %p.13, align 1
+  %cmp194.not = icmp eq i8 %24, 0
   br i1 %cmp194.not, label %if.end238, label %if.then195
 
 if.then195:                                       ; preds = %if.end192
@@ -996,7 +993,7 @@ invoke.cont198:                                   ; preds = %if.then195
   br i1 %cmp.i, label %invoke.cont212.invoke, label %if.else208
 
 lpad197:                                          ; preds = %invoke.cont212.invoke, %invoke.cont214.invoke, %invoke.cont210, %if.else208, %if.then195
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup237
 
@@ -1009,13 +1006,13 @@ invoke.cont210:                                   ; preds = %if.else208
           to label %invoke.cont212.invoke unwind label %lpad197
 
 invoke.cont212.invoke:                            ; preds = %invoke.cont198, %invoke.cont210
-  %25 = phi ptr [ %call213, %invoke.cont210 ], [ %add.ptr196, %invoke.cont198 ]
-  %26 = phi ptr [ @.str.57, %invoke.cont210 ], [ @.str.55, %invoke.cont198 ]
-  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %26)
+  %26 = phi ptr [ %call213, %invoke.cont210 ], [ %add.ptr196, %invoke.cont198 ]
+  %27 = phi ptr [ @.str.57, %invoke.cont210 ], [ @.str.55, %invoke.cont198 ]
+  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %27)
           to label %invoke.cont214.invoke unwind label %lpad197
 
 invoke.cont214.invoke:                            ; preds = %invoke.cont212.invoke
-  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(32) %logicString)
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(32) %logicString)
           to label %if.end218 unwind label %lpad197
 
 if.end218:                                        ; preds = %invoke.cont214.invoke
@@ -1038,31 +1035,31 @@ invoke.cont229:                                   ; preds = %invoke.cont226
           to label %unreachable unwind label %ehcleanup233
 
 ehcleanup233.thread:                              ; preds = %if.end218
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action235
 
 ehcleanup233.thread87:                            ; preds = %invoke.cont223
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp221) #14
   br label %cleanup.action235
 
 ehcleanup233:                                     ; preds = %invoke.cont226, %invoke.cont229
   %cleanup.isactive230.0 = phi i1 [ false, %invoke.cont229 ], [ true, %invoke.cont226 ]
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp220) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp221) #14
   br i1 %cleanup.isactive230.0, label %cleanup.action235, label %ehcleanup237
 
 cleanup.action235:                                ; preds = %ehcleanup233.thread87, %ehcleanup233.thread, %ehcleanup233
-  %.pn.pn86 = phi { ptr, i32 } [ %29, %ehcleanup233.thread ], [ %31, %ehcleanup233 ], [ %30, %ehcleanup233.thread87 ]
+  %.pn.pn86 = phi { ptr, i32 } [ %30, %ehcleanup233.thread ], [ %32, %ehcleanup233 ], [ %31, %ehcleanup233.thread87 ]
   call void @__cxa_free_exception(ptr %exception219) #14
   br label %ehcleanup237
 
 ehcleanup237:                                     ; preds = %ehcleanup233, %cleanup.action235, %lpad197
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn86, %cleanup.action235 ], [ %31, %ehcleanup233 ], [ %24, %lpad197 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn86, %cleanup.action235 ], [ %32, %ehcleanup233 ], [ %25, %lpad197 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %err) #14
   br label %eh.resume
 
@@ -1106,15 +1103,15 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %d_theories, align 8
-  %_M_offset.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_finish.i.i.i.i, align 8
-  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %_M_offset.i.i1.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   %call5.i.i.i.i1.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
           to label %invoke.cont5 unwind label %lpad.i5
@@ -1126,14 +1123,14 @@ lpad.i5:                                          ; preds = %invoke.cont
   br label %ehcleanup14
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i1.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 8
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %d_theories, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i.i, align 8
   store i32 14, ptr %_M_offset.i.i1.i.i.i.i, align 8
   store i64 0, ptr %call5.i.i.i.i1.i, align 8
-  %d_sharingTheories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
+  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories, i8 0, i64 16, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #14
   %call.i11 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp)
@@ -1171,7 +1168,7 @@ invoke.cont8:                                     ; preds = %if.end.i
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #14
   store i8 1, ptr %d_locked, align 1
@@ -1218,7 +1215,7 @@ eh.resume:                                        ; preds = %ehcleanup14, %lpad.
 define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo16isSharingEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1261,7 +1258,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
   br label %eh.resume
 
 do.end:                                           ; preds = %entry
-  %d_sharingTheories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
+  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load i64, ptr %d_sharingTheories, align 8
   %cmp = icmp ugt i64 %5, 1
   ret i1 %cmp
@@ -1314,7 +1311,7 @@ lpad2:                                            ; preds = %invoke.cont
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %1, %lpad ]
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #14
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   resume { ptr, i32 } %.pn
@@ -1324,7 +1321,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 define linkonce_odr hidden void @_ZN4cvc58internal24IllegalArgumentExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #14
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   ret void
@@ -1338,7 +1335,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo15isTheoryEnabledENS0_6theory8TheoryIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i32 noundef %theory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1381,16 +1378,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
   br label %eh.resume
 
 do.end:                                           ; preds = %entry
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %d_theories, align 8
-  %div.i.i.i.i.i8912 = lshr i32 %theory, 6
-  %div.i.i.i.i.i8.zext = zext nneg i32 %div.i.i.i.i.i8912 to i64
+  %div.i.i.i.i.i8910 = lshr i32 %theory, 6
+  %div.i.i.i.i.i8.zext = zext nneg i32 %div.i.i.i.i.i8910 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %5, i64 %div.i.i.i.i.i8.zext
-  %rem.i.i.i.i.i1011 = and i32 %theory, 63
-  %rem.i.i.i.i.i10.zext = zext nneg i32 %rem.i.i.i.i.i1011 to i64
-  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i10.zext
-  %6 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %and.i.i.i.i = and i64 %6, %shl.i.i.i
+  %6 = and i32 %theory, 63
+  %conv4.i.i.i.i.i = zext nneg i32 %6 to i64
+  %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
+  %7 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %and.i.i.i.i = and i64 %7, %shl.i.i.i
   %tobool.i.i.i.i = icmp ne i64 %and.i.i.i.i, 0
   ret i1 %tobool.i.i.i.i
 
@@ -1406,7 +1403,7 @@ unreachable:                                      ; preds = %invoke.cont3
 define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo12isQuantifiedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1464,7 +1461,7 @@ unreachable:                                      ; preds = %invoke.cont3
 define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo13isHigherOrderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1507,7 +1504,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
   br label %eh.resume
 
 do.end:                                           ; preds = %entry
-  %d_higherOrder = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 9
+  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
   %5 = load i8, ptr %d_higherOrder, align 2
   %6 = and i8 %5, 1
   %tobool4 = icmp ne i8 %6, 0
@@ -1526,7 +1523,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo13hasEverythingEv(ptr noc
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %everything = alloca %"class.cvc5::internal::LogicInfo", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1578,19 +1575,19 @@ invoke.cont5:                                     ; preds = %do.end
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %d_locked.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %everything, i64 0, i32 10
+  %d_locked.i = getelementptr inbounds i8, ptr %everything, i64 87
   store i8 1, ptr %d_locked.i, align 1
   %call10 = invoke noundef zeroext i1 @_ZNK4cvc58internal9LogicInfoeqERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %everything)
           to label %invoke.cont9 unwind label %lpad4
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %d_theories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %everything, i64 0, i32 1
+  %d_theories.i = getelementptr inbounds i8, ptr %everything, i64 32
   %5 = load ptr, ptr %d_theories.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4cvc58internal9LogicInfoD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont9
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %everything, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %everything, i64 64
   %6 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
@@ -1600,11 +1597,11 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont9
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %6, i64 %idx.neg.i.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i.i) #17
   store ptr null, ptr %d_theories.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %everything, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %everything, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %everything, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %everything, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %everything, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %everything, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit
@@ -1632,7 +1629,7 @@ define void @_ZN4cvc58internal9LogicInfo16enableEverythingEb(ptr noundef nonnull
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.cvc5::internal::LogicInfo", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1677,13 +1674,13 @@ cleanup.action:                                   ; preds = %ehcleanup.thread10,
 do.end:                                           ; preds = %entry
   call void @_ZN4cvc58internal9LogicInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp5)
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #14
-  %d_theories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %d_theories.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZN4cvc58internal9LogicInfoD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
@@ -1693,33 +1690,33 @@ if.then.i.i.i:                                    ; preds = %do.end
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %6, i64 %idx.neg.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #17
   store ptr null, ptr %d_theories.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit
 
 _ZN4cvc58internal9LogicInfoD2Ev.exit:             ; preds = %if.then.i.i.i, %do.end
   %frombool = zext i1 %enableHigherOrder to i8
-  %d_theories3.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp5, i64 0, i32 1
+  %d_theories3.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i, i64 40, i1 false)
   store ptr null, ptr %d_theories3.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 64
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i, align 8
-  %d_sharingTheories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
-  %d_sharingTheories5.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp5, i64 0, i32 2
+  %d_sharingTheories.i = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories5.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #14
-  %d_higherOrder = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 9
+  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
   store i8 %frombool, ptr %d_higherOrder, align 2
   ret void
 
@@ -1737,14 +1734,14 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %id = alloca i32, align 4
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked.i = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked.i, align 1
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.not, label %if.then, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %d_locked.i14 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 10
+  %d_locked.i14 = getelementptr inbounds i8, ptr %other, i64 87
   %2 = load i8, ptr %d_locked.i14, align 1
   %3 = and i8 %2, 1
   %tobool.i15.not = icmp eq i8 %3, 0
@@ -1788,29 +1785,29 @@ cleanup.action:                                   ; preds = %ehcleanup.thread28,
 
 do.end:                                           ; preds = %land.rhs
   store i32 0, ptr %id, align 4
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
-  %d_theories8 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories8 = getelementptr inbounds i8, ptr %other, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %do.end, %for.inc
   %7 = phi i32 [ 0, %do.end ], [ %.pr, %for.inc ]
   %8 = load ptr, ptr %d_theories, align 8
-  %div.i.i.i.i.i353639 = lshr i32 %7, 6
-  %div.i.i.i.i.i35.zext = zext nneg i32 %div.i.i.i.i.i353639 to i64
+  %div.i.i.i.i.i353637 = lshr i32 %7, 6
+  %div.i.i.i.i.i35.zext = zext nneg i32 %div.i.i.i.i.i353637 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %8, i64 %div.i.i.i.i.i35.zext
-  %rem.i.i.i.i.i3738 = and i32 %7, 63
-  %rem.i.i.i.i.i37.zext = zext nneg i32 %rem.i.i.i.i.i3738 to i64
-  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i37.zext
-  %9 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %and.i.i.i.i = and i64 %9, %shl.i.i.i
+  %9 = and i32 %7, 63
+  %conv4.i.i.i.i.i = zext nneg i32 %9 to i64
+  %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
+  %10 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %and.i.i.i.i = and i64 %10, %shl.i.i.i
   %tobool.i.i.i.i = icmp ne i64 %and.i.i.i.i, 0
-  %10 = load ptr, ptr %d_theories8, align 8
-  %add.ptr.i.i.i.i.i17 = getelementptr inbounds i64, ptr %10, i64 %div.i.i.i.i.i35.zext
-  %11 = load i64, ptr %add.ptr.i.i.i.i.i17, align 8
-  %and.i.i.i.i23 = and i64 %11, %shl.i.i.i
+  %11 = load ptr, ptr %d_theories8, align 8
+  %add.ptr.i.i.i.i.i17 = getelementptr inbounds i64, ptr %11, i64 %div.i.i.i.i.i35.zext
+  %12 = load i64, ptr %add.ptr.i.i.i.i.i17, align 8
+  %and.i.i.i.i23 = and i64 %12, %shl.i.i.i
   %tobool.i.i.i.i24 = icmp ne i64 %and.i.i.i.i23, 0
-  %12 = xor i1 %tobool.i.i.i.i, %tobool.i.i.i.i24
-  br i1 %12, label %return, label %for.inc
+  %13 = xor i1 %tobool.i.i.i.i, %tobool.i.i.i.i24
+  br i1 %13, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %call15 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryppERNS1_8TheoryIdE(ptr noundef nonnull align 4 dereferenceable(4) %id)
@@ -1819,11 +1816,11 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp, label %for.body, label %do.body16, !llvm.loop !7
 
 do.body16:                                        ; preds = %for.inc
-  %d_sharingTheories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
-  %13 = load i64, ptr %d_sharingTheories, align 8
-  %d_sharingTheories17 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 2
-  %14 = load i64, ptr %d_sharingTheories17, align 8
-  %cmp18.not = icmp eq i64 %13, %14
+  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %14 = load i64, ptr %d_sharingTheories, align 8
+  %d_sharingTheories17 = getelementptr inbounds i8, ptr %other, i64 72
+  %15 = load i64, ptr %d_sharingTheories17, align 8
+  %cmp18.not = icmp eq i64 %14, %15
   br i1 %cmp18.not, label %do.end36, label %if.then21
 
 if.then21:                                        ; preds = %do.body16
@@ -1837,7 +1834,7 @@ invoke.cont25:                                    ; preds = %if.then21
           to label %invoke.cont28 unwind label %ehcleanup31.thread33
 
 ehcleanup31.thread33:                             ; preds = %invoke.cont25
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #14
   br label %cleanup.action33
@@ -1847,39 +1844,39 @@ invoke.cont28:                                    ; preds = %invoke.cont25
           to label %unreachable unwind label %ehcleanup31
 
 ehcleanup31.thread:                               ; preds = %if.then21
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action33
 
 ehcleanup31:                                      ; preds = %invoke.cont28
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #14
   br label %eh.resume
 
 cleanup.action33:                                 ; preds = %ehcleanup31.thread33, %ehcleanup31.thread
-  %.pn32 = phi { ptr, i32 } [ %16, %ehcleanup31.thread ], [ %15, %ehcleanup31.thread33 ]
+  %.pn32 = phi { ptr, i32 } [ %17, %ehcleanup31.thread ], [ %16, %ehcleanup31.thread33 ]
   call void @__cxa_free_exception(ptr %exception22) #14
   br label %eh.resume
 
 do.end36:                                         ; preds = %do.body16
-  %d_cardinalityConstraints = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 8
-  %18 = load i8, ptr %d_cardinalityConstraints, align 1
-  %d_cardinalityConstraints38 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 8
-  %19 = load i8, ptr %d_cardinalityConstraints38, align 1
-  %20 = xor i8 %19, %18
-  %21 = and i8 %20, 1
-  %cmp41.not = icmp eq i8 %21, 0
+  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
+  %19 = load i8, ptr %d_cardinalityConstraints, align 1
+  %d_cardinalityConstraints38 = getelementptr inbounds i8, ptr %other, i64 85
+  %20 = load i8, ptr %d_cardinalityConstraints38, align 1
+  %21 = xor i8 %20, %19
+  %22 = and i8 %21, 1
+  %cmp41.not = icmp eq i8 %22, 0
   br i1 %cmp41.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %do.end36
-  %d_higherOrder = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 9
-  %22 = load i8, ptr %d_higherOrder, align 2
-  %d_higherOrder44 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 9
-  %23 = load i8, ptr %d_higherOrder44, align 2
-  %24 = xor i8 %23, %22
-  %25 = and i8 %24, 1
-  %cmp47.not = icmp eq i8 %25, 0
+  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
+  %23 = load i8, ptr %d_higherOrder, align 2
+  %d_higherOrder44 = getelementptr inbounds i8, ptr %other, i64 86
+  %24 = load i8, ptr %d_higherOrder44, align 2
+  %25 = xor i8 %24, %23
+  %26 = and i8 %25, 1
+  %cmp47.not = icmp eq i8 %26, 0
   br i1 %cmp47.not, label %if.end49, label %return
 
 if.end49:                                         ; preds = %lor.lhs.false
@@ -1887,53 +1884,53 @@ if.end49:                                         ; preds = %lor.lhs.false
   br i1 %call50, label %if.then51, label %return
 
 if.then51:                                        ; preds = %if.end49
-  %d_integers = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 3
-  %26 = load i8, ptr %d_integers, align 8
-  %d_integers54 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 3
-  %27 = load i8, ptr %d_integers54, align 8
-  %28 = xor i8 %27, %26
-  %29 = and i8 %28, 1
-  %cmp57 = icmp eq i8 %29, 0
+  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
+  %27 = load i8, ptr %d_integers, align 8
+  %d_integers54 = getelementptr inbounds i8, ptr %other, i64 80
+  %28 = load i8, ptr %d_integers54, align 8
+  %29 = xor i8 %28, %27
+  %30 = and i8 %29, 1
+  %cmp57 = icmp eq i8 %30, 0
   br i1 %cmp57, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.then51
-  %d_reals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 4
-  %30 = load i8, ptr %d_reals, align 1
-  %d_reals60 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 4
-  %31 = load i8, ptr %d_reals60, align 1
-  %32 = xor i8 %31, %30
-  %33 = and i8 %32, 1
-  %cmp63 = icmp eq i8 %33, 0
+  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
+  %31 = load i8, ptr %d_reals, align 1
+  %d_reals60 = getelementptr inbounds i8, ptr %other, i64 81
+  %32 = load i8, ptr %d_reals60, align 1
+  %33 = xor i8 %32, %31
+  %34 = and i8 %33, 1
+  %cmp63 = icmp eq i8 %34, 0
   br i1 %cmp63, label %land.lhs.true64, label %return
 
 land.lhs.true64:                                  ; preds = %land.lhs.true
-  %d_transcendentals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 5
-  %34 = load i8, ptr %d_transcendentals, align 2
-  %d_transcendentals67 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 5
-  %35 = load i8, ptr %d_transcendentals67, align 2
-  %36 = xor i8 %35, %34
-  %37 = and i8 %36, 1
-  %cmp70 = icmp eq i8 %37, 0
+  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
+  %35 = load i8, ptr %d_transcendentals, align 2
+  %d_transcendentals67 = getelementptr inbounds i8, ptr %other, i64 82
+  %36 = load i8, ptr %d_transcendentals67, align 2
+  %37 = xor i8 %36, %35
+  %38 = and i8 %37, 1
+  %cmp70 = icmp eq i8 %38, 0
   br i1 %cmp70, label %land.lhs.true71, label %return
 
 land.lhs.true71:                                  ; preds = %land.lhs.true64
-  %d_linear = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 6
-  %38 = load i8, ptr %d_linear, align 1
-  %d_linear74 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 6
-  %39 = load i8, ptr %d_linear74, align 1
-  %40 = xor i8 %39, %38
-  %41 = and i8 %40, 1
-  %cmp77 = icmp eq i8 %41, 0
+  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
+  %39 = load i8, ptr %d_linear, align 1
+  %d_linear74 = getelementptr inbounds i8, ptr %other, i64 83
+  %40 = load i8, ptr %d_linear74, align 1
+  %41 = xor i8 %40, %39
+  %42 = and i8 %41, 1
+  %cmp77 = icmp eq i8 %42, 0
   br i1 %cmp77, label %land.rhs78, label %return
 
 land.rhs78:                                       ; preds = %land.lhs.true71
-  %d_differenceLogic = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 7
-  %42 = load i8, ptr %d_differenceLogic, align 4
-  %d_differenceLogic81 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 7
-  %43 = load i8, ptr %d_differenceLogic81, align 4
-  %44 = xor i8 %43, %42
-  %45 = and i8 %44, 1
-  %cmp84 = icmp eq i8 %45, 0
+  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
+  %43 = load i8, ptr %d_differenceLogic, align 4
+  %d_differenceLogic81 = getelementptr inbounds i8, ptr %other, i64 84
+  %44 = load i8, ptr %d_differenceLogic81, align 4
+  %45 = xor i8 %44, %43
+  %46 = and i8 %45, 1
+  %cmp84 = icmp eq i8 %46, 0
   br label %return
 
 return:                                           ; preds = %for.body, %if.end49, %if.then51, %land.lhs.true, %land.lhs.true64, %land.lhs.true71, %land.rhs78, %do.end36, %lor.lhs.false
@@ -1941,7 +1938,7 @@ return:                                           ; preds = %for.body, %if.end49
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup31, %ehcleanup, %cleanup.action33, %cleanup.action
-  %.pn11.pn = phi { ptr, i32 } [ %.pn1127, %cleanup.action ], [ %6, %ehcleanup ], [ %.pn32, %cleanup.action33 ], [ %17, %ehcleanup31 ]
+  %.pn11.pn = phi { ptr, i32 } [ %.pn1127, %cleanup.action ], [ %6, %ehcleanup ], [ %.pn32, %cleanup.action33 ], [ %18, %ehcleanup31 ]
   resume { ptr, i32 } %.pn11.pn
 
 unreachable:                                      ; preds = %invoke.cont28, %invoke.cont5
@@ -1951,13 +1948,13 @@ unreachable:                                      ; preds = %invoke.cont28, %inv
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal9LogicInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_theories, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
@@ -1967,11 +1964,11 @@ if.then.i.i.i:                                    ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #17
   store ptr null, ptr %d_theories, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
@@ -1986,7 +1983,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo10hasNothingEv(ptr nocapt
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %nothing = alloca %"class.cvc5::internal::LogicInfo", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2030,19 +2027,19 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   call void @_ZN4cvc58internal9LogicInfoC1EPKc(ptr noundef nonnull align 8 dereferenceable(88) %nothing, ptr noundef nonnull @.str)
-  %d_locked.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %nothing, i64 0, i32 10
+  %d_locked.i = getelementptr inbounds i8, ptr %nothing, i64 87
   store i8 1, ptr %d_locked.i, align 1
   %call7 = invoke noundef zeroext i1 @_ZNK4cvc58internal9LogicInfoeqERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %nothing)
           to label %invoke.cont6 unwind label %lpad4
 
 invoke.cont6:                                     ; preds = %do.end
-  %d_theories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %nothing, i64 0, i32 1
+  %d_theories.i = getelementptr inbounds i8, ptr %nothing, i64 32
   %5 = load ptr, ptr %d_theories.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4cvc58internal9LogicInfoD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont6
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %nothing, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %nothing, i64 64
   %6 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
@@ -2052,11 +2049,11 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont6
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %6, i64 %idx.neg.i.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i.i) #17
   store ptr null, ptr %d_theories.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %nothing, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %nothing, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %nothing, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %nothing, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %nothing, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %nothing, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit
@@ -2083,7 +2080,7 @@ unreachable:                                      ; preds = %invoke.cont3
 define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo6isPureENS0_6theory8TheoryIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i32 noundef %theory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2141,13 +2138,13 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
   ]
 
 _ZN4cvc58internal9LogicInfo12isTrueTheoryENS0_6theory8TheoryIdE.exit.thread: ; preds = %land.lhs.true6, %land.lhs.true6, %land.lhs.true6
-  %d_sharingTheories15 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
+  %d_sharingTheories15 = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load i64, ptr %d_sharingTheories15, align 8
   %6 = icmp eq i64 %5, 0
   br label %land.rhs
 
 _ZN4cvc58internal9LogicInfo12isTrueTheoryENS0_6theory8TheoryIdE.exit: ; preds = %land.lhs.true6
-  %d_sharingTheories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
+  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load i64, ptr %d_sharingTheories, align 8
   %cmp = icmp eq i64 %7, 1
   br i1 %cmp, label %land.rhs, label %land.end
@@ -2180,7 +2177,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo15areIntegersUsedEv(ptr n
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2263,7 +2260,7 @@ cleanup.action19:                                 ; preds = %ehcleanup17.thread1
   br label %eh.resume
 
 do.end22:                                         ; preds = %do.body4
-  %d_integers = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 3
+  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load i8, ptr %d_integers, align 8
   %9 = and i8 %8, 1
   %tobool23 = icmp ne i8 %9, 0
@@ -2282,7 +2279,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo12areRealsUsedEv(ptr noca
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2365,7 +2362,7 @@ cleanup.action19:                                 ; preds = %ehcleanup17.thread1
   br label %eh.resume
 
 do.end22:                                         ; preds = %do.body4
-  %d_reals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 4
+  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
   %8 = load i8, ptr %d_reals, align 1
   %9 = and i8 %8, 1
   %tobool23 = icmp ne i8 %9, 0
@@ -2384,7 +2381,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo22areTranscendentalsUsedE
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2467,7 +2464,7 @@ cleanup.action19:                                 ; preds = %ehcleanup17.thread1
   br label %eh.resume
 
 do.end22:                                         ; preds = %do.body4
-  %d_transcendentals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 5
+  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
   %8 = load i8, ptr %d_transcendentals, align 2
   %9 = and i8 %8, 1
   %tobool23 = icmp ne i8 %9, 0
@@ -2486,7 +2483,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo8isLinearEv(ptr nocapture
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2569,11 +2566,11 @@ cleanup.action19:                                 ; preds = %ehcleanup17.thread1
   br label %eh.resume
 
 do.end22:                                         ; preds = %do.body4
-  %d_linear = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 6
+  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
   %8 = load i8, ptr %d_linear, align 1
   %9 = and i8 %8, 1
   %tobool23.not = icmp ne i8 %9, 0
-  %d_differenceLogic = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 7
+  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
   %10 = load i8, ptr %d_differenceLogic, align 4
   %11 = and i8 %10, 1
   %tobool24 = icmp ne i8 %11, 0
@@ -2593,7 +2590,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo17isDifferenceLogicEv(ptr
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2676,7 +2673,7 @@ cleanup.action19:                                 ; preds = %ehcleanup17.thread1
   br label %eh.resume
 
 do.end22:                                         ; preds = %do.body4
-  %d_differenceLogic = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 7
+  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
   %8 = load i8, ptr %d_differenceLogic, align 4
   %9 = and i8 %8, 1
   %tobool23 = icmp ne i8 %9, 0
@@ -2694,7 +2691,7 @@ unreachable:                                      ; preds = %invoke.cont14, %inv
 define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo25hasCardinalityConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2737,7 +2734,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
   br label %eh.resume
 
 do.end:                                           ; preds = %entry
-  %d_cardinalityConstraints = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 8
+  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
   %5 = load i8, ptr %d_cardinalityConstraints, align 1
   %6 = and i8 %5, 1
   %tobool4 = icmp ne i8 %6, 0
@@ -2757,14 +2754,14 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %id = alloca i32, align 4
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked.i = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked.i, align 1
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.not, label %if.then, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %d_locked.i16 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 10
+  %d_locked.i16 = getelementptr inbounds i8, ptr %other, i64 87
   %2 = load i8, ptr %d_locked.i16, align 1
   %3 = and i8 %2, 1
   %tobool.i17.not = icmp eq i8 %3, 0
@@ -2808,29 +2805,29 @@ cleanup.action:                                   ; preds = %ehcleanup.thread30,
 
 do.end:                                           ; preds = %land.rhs
   store i32 0, ptr %id, align 4
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
-  %d_theories7 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories7 = getelementptr inbounds i8, ptr %other, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %do.end, %for.inc
   %7 = phi i32 [ 0, %do.end ], [ %.pr, %for.inc ]
   %8 = load ptr, ptr %d_theories, align 8
-  %div.i.i.i.i.i373841 = lshr i32 %7, 6
-  %div.i.i.i.i.i37.zext = zext nneg i32 %div.i.i.i.i.i373841 to i64
+  %div.i.i.i.i.i373839 = lshr i32 %7, 6
+  %div.i.i.i.i.i37.zext = zext nneg i32 %div.i.i.i.i.i373839 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %8, i64 %div.i.i.i.i.i37.zext
-  %rem.i.i.i.i.i3940 = and i32 %7, 63
-  %rem.i.i.i.i.i39.zext = zext nneg i32 %rem.i.i.i.i.i3940 to i64
-  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i39.zext
-  %9 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %and.i.i.i.i = and i64 %9, %shl.i.i.i
+  %9 = and i32 %7, 63
+  %conv4.i.i.i.i.i = zext nneg i32 %9 to i64
+  %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
+  %10 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %and.i.i.i.i = and i64 %10, %shl.i.i.i
   %tobool.i.i.i.i.not = icmp eq i64 %and.i.i.i.i, 0
   br i1 %tobool.i.i.i.i.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %10 = load ptr, ptr %d_theories7, align 8
-  %add.ptr.i.i.i.i.i19 = getelementptr inbounds i64, ptr %10, i64 %div.i.i.i.i.i37.zext
-  %11 = load i64, ptr %add.ptr.i.i.i.i.i19, align 8
-  %and.i.i.i.i25 = and i64 %11, %shl.i.i.i
+  %11 = load ptr, ptr %d_theories7, align 8
+  %add.ptr.i.i.i.i.i19 = getelementptr inbounds i64, ptr %11, i64 %div.i.i.i.i.i37.zext
+  %12 = load i64, ptr %add.ptr.i.i.i.i.i19, align 8
+  %and.i.i.i.i25 = and i64 %12, %shl.i.i.i
   %tobool.i.i.i.i26.not = icmp eq i64 %and.i.i.i.i25, 0
   br i1 %tobool.i.i.i.i26.not, label %return, label %for.inc
 
@@ -2841,11 +2838,11 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp, label %for.body, label %do.body13, !llvm.loop !8
 
 do.body13:                                        ; preds = %for.inc
-  %d_sharingTheories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
-  %12 = load i64, ptr %d_sharingTheories, align 8
-  %d_sharingTheories14 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 2
-  %13 = load i64, ptr %d_sharingTheories14, align 8
-  %cmp15.not = icmp ugt i64 %12, %13
+  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %13 = load i64, ptr %d_sharingTheories, align 8
+  %d_sharingTheories14 = getelementptr inbounds i8, ptr %other, i64 72
+  %14 = load i64, ptr %d_sharingTheories14, align 8
+  %cmp15.not = icmp ugt i64 %13, %14
   br i1 %cmp15.not, label %if.then18, label %do.end33
 
 if.then18:                                        ; preds = %do.body13
@@ -2859,7 +2856,7 @@ invoke.cont22:                                    ; preds = %if.then18
           to label %invoke.cont25 unwind label %ehcleanup28.thread35
 
 ehcleanup28.thread35:                             ; preds = %invoke.cont22
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #14
   br label %cleanup.action30
@@ -2869,51 +2866,51 @@ invoke.cont25:                                    ; preds = %invoke.cont22
           to label %unreachable unwind label %ehcleanup28
 
 ehcleanup28.thread:                               ; preds = %if.then18
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action30
 
 ehcleanup28:                                      ; preds = %invoke.cont25
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #14
   br label %eh.resume
 
 cleanup.action30:                                 ; preds = %ehcleanup28.thread35, %ehcleanup28.thread
-  %.pn34 = phi { ptr, i32 } [ %15, %ehcleanup28.thread ], [ %14, %ehcleanup28.thread35 ]
+  %.pn34 = phi { ptr, i32 } [ %16, %ehcleanup28.thread ], [ %15, %ehcleanup28.thread35 ]
   call void @__cxa_free_exception(ptr %exception19) #14
   br label %eh.resume
 
 do.end33:                                         ; preds = %do.body13
-  %d_cardinalityConstraints = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 8
-  %17 = load i8, ptr %d_cardinalityConstraints, align 1
-  %18 = and i8 %17, 1
-  %tobool.not = icmp eq i8 %18, 0
+  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
+  %18 = load i8, ptr %d_cardinalityConstraints, align 1
+  %19 = and i8 %18, 1
+  %tobool.not = icmp eq i8 %19, 0
   br i1 %tobool.not, label %land.rhs36, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end33
-  %d_cardinalityConstraints34 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 8
-  %19 = load i8, ptr %d_cardinalityConstraints34, align 1
-  %20 = and i8 %19, 1
-  %tobool35.not = icmp eq i8 %20, 0
+  %d_cardinalityConstraints34 = getelementptr inbounds i8, ptr %other, i64 85
+  %20 = load i8, ptr %d_cardinalityConstraints34, align 1
+  %21 = and i8 %20, 1
+  %tobool35.not = icmp eq i8 %21, 0
   br i1 %tobool35.not, label %land.end40, label %land.rhs36
 
 land.rhs36:                                       ; preds = %lor.lhs.false, %do.end33
-  %d_higherOrder = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 9
-  %21 = load i8, ptr %d_higherOrder, align 2
-  %22 = and i8 %21, 1
-  %tobool37.not = icmp eq i8 %22, 0
+  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
+  %22 = load i8, ptr %d_higherOrder, align 2
+  %23 = and i8 %22, 1
+  %tobool37.not = icmp eq i8 %23, 0
   br i1 %tobool37.not, label %land.end40, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs36
-  %d_higherOrder38 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 9
-  %23 = load i8, ptr %d_higherOrder38, align 2
-  %24 = and i8 %23, 1
-  %tobool39 = icmp ne i8 %24, 0
+  %d_higherOrder38 = getelementptr inbounds i8, ptr %other, i64 86
+  %24 = load i8, ptr %d_higherOrder38, align 2
+  %25 = and i8 %24, 1
+  %tobool39 = icmp ne i8 %25, 0
   br label %land.end40
 
 land.end40:                                       ; preds = %land.rhs36, %lor.rhs, %lor.lhs.false
-  %25 = phi i1 [ false, %lor.lhs.false ], [ true, %land.rhs36 ], [ %tobool39, %lor.rhs ]
+  %26 = phi i1 [ false, %lor.lhs.false ], [ true, %land.rhs36 ], [ %tobool39, %lor.rhs ]
   %call41 = call noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo15isTheoryEnabledENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 3)
   br i1 %call41, label %land.lhs.true42, label %return
 
@@ -2922,84 +2919,84 @@ land.lhs.true42:                                  ; preds = %land.end40
   br i1 %call43, label %if.then44, label %return
 
 if.then44:                                        ; preds = %land.lhs.true42
-  %d_integers = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 3
-  %26 = load i8, ptr %d_integers, align 8
-  %27 = and i8 %26, 1
-  %tobool45.not = icmp eq i8 %27, 0
+  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
+  %27 = load i8, ptr %d_integers, align 8
+  %28 = and i8 %27, 1
+  %tobool45.not = icmp eq i8 %28, 0
   br i1 %tobool45.not, label %land.lhs.true49, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %if.then44
-  %d_integers47 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 3
-  %28 = load i8, ptr %d_integers47, align 8
-  %29 = and i8 %28, 1
-  %tobool48.not = icmp eq i8 %29, 0
+  %d_integers47 = getelementptr inbounds i8, ptr %other, i64 80
+  %29 = load i8, ptr %d_integers47, align 8
+  %30 = and i8 %29, 1
+  %tobool48.not = icmp eq i8 %30, 0
   br i1 %tobool48.not, label %return, label %land.lhs.true49
 
 land.lhs.true49:                                  ; preds = %lor.lhs.false46, %if.then44
-  %d_reals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 4
-  %30 = load i8, ptr %d_reals, align 1
-  %31 = and i8 %30, 1
-  %tobool50.not = icmp eq i8 %31, 0
+  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
+  %31 = load i8, ptr %d_reals, align 1
+  %32 = and i8 %31, 1
+  %tobool50.not = icmp eq i8 %32, 0
   br i1 %tobool50.not, label %land.lhs.true54, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %land.lhs.true49
-  %d_reals52 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 4
-  %32 = load i8, ptr %d_reals52, align 1
-  %33 = and i8 %32, 1
-  %tobool53.not = icmp eq i8 %33, 0
+  %d_reals52 = getelementptr inbounds i8, ptr %other, i64 81
+  %33 = load i8, ptr %d_reals52, align 1
+  %34 = and i8 %33, 1
+  %tobool53.not = icmp eq i8 %34, 0
   br i1 %tobool53.not, label %return, label %land.lhs.true54
 
 land.lhs.true54:                                  ; preds = %lor.lhs.false51, %land.lhs.true49
-  %d_transcendentals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 5
-  %34 = load i8, ptr %d_transcendentals, align 2
-  %35 = and i8 %34, 1
-  %tobool55.not = icmp eq i8 %35, 0
+  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
+  %35 = load i8, ptr %d_transcendentals, align 2
+  %36 = and i8 %35, 1
+  %tobool55.not = icmp eq i8 %36, 0
   br i1 %tobool55.not, label %land.lhs.true59, label %lor.lhs.false56
 
 lor.lhs.false56:                                  ; preds = %land.lhs.true54
-  %d_transcendentals57 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 5
-  %36 = load i8, ptr %d_transcendentals57, align 2
-  %37 = and i8 %36, 1
-  %tobool58.not = icmp eq i8 %37, 0
+  %d_transcendentals57 = getelementptr inbounds i8, ptr %other, i64 82
+  %37 = load i8, ptr %d_transcendentals57, align 2
+  %38 = and i8 %37, 1
+  %tobool58.not = icmp eq i8 %38, 0
   br i1 %tobool58.not, label %return, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %lor.lhs.false56, %land.lhs.true54
-  %d_linear = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 6
-  %38 = load i8, ptr %d_linear, align 1
-  %39 = and i8 %38, 1
-  %tobool60.not = icmp eq i8 %39, 0
+  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
+  %39 = load i8, ptr %d_linear, align 1
+  %40 = and i8 %39, 1
+  %tobool60.not = icmp eq i8 %40, 0
   br i1 %tobool60.not, label %lor.lhs.false61, label %land.lhs.true64
 
 lor.lhs.false61:                                  ; preds = %land.lhs.true59
-  %d_linear62 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 6
-  %40 = load i8, ptr %d_linear62, align 1
-  %41 = and i8 %40, 1
-  %tobool63.not = icmp eq i8 %41, 0
+  %d_linear62 = getelementptr inbounds i8, ptr %other, i64 83
+  %41 = load i8, ptr %d_linear62, align 1
+  %42 = and i8 %41, 1
+  %tobool63.not = icmp eq i8 %42, 0
   br i1 %tobool63.not, label %land.lhs.true64, label %return
 
 land.lhs.true64:                                  ; preds = %lor.lhs.false61, %land.lhs.true59
-  %d_differenceLogic = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 7
-  %42 = load i8, ptr %d_differenceLogic, align 4
-  %43 = and i8 %42, 1
-  %tobool65.not = icmp eq i8 %43, 0
+  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
+  %43 = load i8, ptr %d_differenceLogic, align 4
+  %44 = and i8 %43, 1
+  %tobool65.not = icmp eq i8 %44, 0
   br i1 %tobool65.not, label %lor.lhs.false66, label %land.rhs69
 
 lor.lhs.false66:                                  ; preds = %land.lhs.true64
-  %d_differenceLogic67 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 7
-  %44 = load i8, ptr %d_differenceLogic67, align 4
-  %45 = and i8 %44, 1
-  %tobool68.not = icmp eq i8 %45, 0
+  %d_differenceLogic67 = getelementptr inbounds i8, ptr %other, i64 84
+  %45 = load i8, ptr %d_differenceLogic67, align 4
+  %46 = and i8 %45, 1
+  %tobool68.not = icmp eq i8 %46, 0
   br i1 %tobool68.not, label %land.rhs69, label %return
 
 land.rhs69:                                       ; preds = %lor.lhs.false66, %land.lhs.true64
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %land.end40, %land.lhs.true42, %lor.lhs.false46, %lor.lhs.false51, %lor.lhs.false56, %lor.lhs.false61, %lor.lhs.false66, %land.rhs69
-  %retval.0 = phi i1 [ false, %lor.lhs.false66 ], [ false, %lor.lhs.false61 ], [ false, %lor.lhs.false56 ], [ false, %lor.lhs.false51 ], [ false, %lor.lhs.false46 ], [ %25, %land.rhs69 ], [ %25, %land.lhs.true42 ], [ %25, %land.end40 ], [ false, %land.lhs.true ]
+  %retval.0 = phi i1 [ false, %lor.lhs.false66 ], [ false, %lor.lhs.false61 ], [ false, %lor.lhs.false56 ], [ false, %lor.lhs.false51 ], [ false, %lor.lhs.false46 ], [ %26, %land.rhs69 ], [ %26, %land.lhs.true42 ], [ %26, %land.end40 ], [ false, %land.lhs.true ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup28, %ehcleanup, %cleanup.action30, %cleanup.action
-  %.pn13.pn = phi { ptr, i32 } [ %.pn1329, %cleanup.action ], [ %6, %ehcleanup ], [ %.pn34, %cleanup.action30 ], [ %16, %ehcleanup28 ]
+  %.pn13.pn = phi { ptr, i32 } [ %.pn1329, %cleanup.action ], [ %6, %ehcleanup ], [ %.pn34, %cleanup.action30 ], [ %17, %ehcleanup28 ]
   resume { ptr, i32 } %.pn13.pn
 
 unreachable:                                      ; preds = %invoke.cont25, %invoke.cont5
@@ -3012,14 +3009,14 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %id = alloca i32, align 4
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked.i = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked.i, align 1
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.not, label %if.then, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %d_locked.i16 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 10
+  %d_locked.i16 = getelementptr inbounds i8, ptr %other, i64 87
   %2 = load i8, ptr %d_locked.i16, align 1
   %3 = and i8 %2, 1
   %tobool.i17.not = icmp eq i8 %3, 0
@@ -3063,29 +3060,29 @@ cleanup.action:                                   ; preds = %ehcleanup.thread30,
 
 do.end:                                           ; preds = %land.rhs
   store i32 0, ptr %id, align 4
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
-  %d_theories7 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories7 = getelementptr inbounds i8, ptr %other, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %do.end, %for.inc
   %7 = phi i32 [ 0, %do.end ], [ %.pr, %for.inc ]
   %8 = load ptr, ptr %d_theories, align 8
-  %div.i.i.i.i.i373841 = lshr i32 %7, 6
-  %div.i.i.i.i.i37.zext = zext nneg i32 %div.i.i.i.i.i373841 to i64
+  %div.i.i.i.i.i373839 = lshr i32 %7, 6
+  %div.i.i.i.i.i37.zext = zext nneg i32 %div.i.i.i.i.i373839 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %8, i64 %div.i.i.i.i.i37.zext
-  %rem.i.i.i.i.i3940 = and i32 %7, 63
-  %rem.i.i.i.i.i39.zext = zext nneg i32 %rem.i.i.i.i.i3940 to i64
-  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i39.zext
-  %9 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %and.i.i.i.i = and i64 %9, %shl.i.i.i
+  %9 = and i32 %7, 63
+  %conv4.i.i.i.i.i = zext nneg i32 %9 to i64
+  %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
+  %10 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %and.i.i.i.i = and i64 %10, %shl.i.i.i
   %tobool.i.i.i.i.not = icmp eq i64 %and.i.i.i.i, 0
   br i1 %tobool.i.i.i.i.not, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %10 = load ptr, ptr %d_theories7, align 8
-  %add.ptr.i.i.i.i.i19 = getelementptr inbounds i64, ptr %10, i64 %div.i.i.i.i.i37.zext
-  %11 = load i64, ptr %add.ptr.i.i.i.i.i19, align 8
-  %and.i.i.i.i25 = and i64 %11, %shl.i.i.i
+  %11 = load ptr, ptr %d_theories7, align 8
+  %add.ptr.i.i.i.i.i19 = getelementptr inbounds i64, ptr %11, i64 %div.i.i.i.i.i37.zext
+  %12 = load i64, ptr %add.ptr.i.i.i.i.i19, align 8
+  %and.i.i.i.i25 = and i64 %12, %shl.i.i.i
   %tobool.i.i.i.i26.not = icmp eq i64 %and.i.i.i.i25, 0
   br i1 %tobool.i.i.i.i26.not, label %for.inc, label %return
 
@@ -3096,11 +3093,11 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp, label %for.body, label %do.body13, !llvm.loop !9
 
 do.body13:                                        ; preds = %for.inc
-  %d_sharingTheories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
-  %12 = load i64, ptr %d_sharingTheories, align 8
-  %d_sharingTheories14 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 2
-  %13 = load i64, ptr %d_sharingTheories14, align 8
-  %cmp15.not = icmp ult i64 %12, %13
+  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %13 = load i64, ptr %d_sharingTheories, align 8
+  %d_sharingTheories14 = getelementptr inbounds i8, ptr %other, i64 72
+  %14 = load i64, ptr %d_sharingTheories14, align 8
+  %cmp15.not = icmp ult i64 %13, %14
   br i1 %cmp15.not, label %if.then18, label %do.end33
 
 if.then18:                                        ; preds = %do.body13
@@ -3114,7 +3111,7 @@ invoke.cont22:                                    ; preds = %if.then18
           to label %invoke.cont25 unwind label %ehcleanup28.thread35
 
 ehcleanup28.thread35:                             ; preds = %invoke.cont22
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #14
   br label %cleanup.action30
@@ -3124,51 +3121,51 @@ invoke.cont25:                                    ; preds = %invoke.cont22
           to label %unreachable unwind label %ehcleanup28
 
 ehcleanup28.thread:                               ; preds = %if.then18
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action30
 
 ehcleanup28:                                      ; preds = %invoke.cont25
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #14
   br label %eh.resume
 
 cleanup.action30:                                 ; preds = %ehcleanup28.thread35, %ehcleanup28.thread
-  %.pn34 = phi { ptr, i32 } [ %15, %ehcleanup28.thread ], [ %14, %ehcleanup28.thread35 ]
+  %.pn34 = phi { ptr, i32 } [ %16, %ehcleanup28.thread ], [ %15, %ehcleanup28.thread35 ]
   call void @__cxa_free_exception(ptr %exception19) #14
   br label %eh.resume
 
 do.end33:                                         ; preds = %do.body13
-  %d_cardinalityConstraints = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 8
-  %17 = load i8, ptr %d_cardinalityConstraints, align 1
-  %18 = and i8 %17, 1
-  %tobool.not = icmp eq i8 %18, 0
+  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
+  %18 = load i8, ptr %d_cardinalityConstraints, align 1
+  %19 = and i8 %18, 1
+  %tobool.not = icmp eq i8 %19, 0
   br i1 %tobool.not, label %lor.lhs.false, label %land.rhs36
 
 lor.lhs.false:                                    ; preds = %do.end33
-  %d_cardinalityConstraints34 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 8
-  %19 = load i8, ptr %d_cardinalityConstraints34, align 1
-  %20 = and i8 %19, 1
-  %tobool35.not = icmp eq i8 %20, 0
+  %d_cardinalityConstraints34 = getelementptr inbounds i8, ptr %other, i64 85
+  %20 = load i8, ptr %d_cardinalityConstraints34, align 1
+  %21 = and i8 %20, 1
+  %tobool35.not = icmp eq i8 %21, 0
   br i1 %tobool35.not, label %land.rhs36, label %land.end41
 
 land.rhs36:                                       ; preds = %lor.lhs.false, %do.end33
-  %d_higherOrder = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 9
-  %21 = load i8, ptr %d_higherOrder, align 2
-  %22 = and i8 %21, 1
-  %tobool37.not = icmp eq i8 %22, 0
+  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
+  %22 = load i8, ptr %d_higherOrder, align 2
+  %23 = and i8 %22, 1
+  %tobool37.not = icmp eq i8 %23, 0
   br i1 %tobool37.not, label %lor.rhs, label %land.end41
 
 lor.rhs:                                          ; preds = %land.rhs36
-  %d_higherOrder38 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 9
-  %23 = load i8, ptr %d_higherOrder38, align 2
-  %24 = and i8 %23, 1
-  %tobool39.not = icmp eq i8 %24, 0
+  %d_higherOrder38 = getelementptr inbounds i8, ptr %other, i64 86
+  %24 = load i8, ptr %d_higherOrder38, align 2
+  %25 = and i8 %24, 1
+  %tobool39.not = icmp eq i8 %25, 0
   br label %land.end41
 
 land.end41:                                       ; preds = %land.rhs36, %lor.rhs, %lor.lhs.false
-  %25 = phi i1 [ false, %lor.lhs.false ], [ true, %land.rhs36 ], [ %tobool39.not, %lor.rhs ]
+  %26 = phi i1 [ false, %lor.lhs.false ], [ true, %land.rhs36 ], [ %tobool39.not, %lor.rhs ]
   %call42 = call noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo15isTheoryEnabledENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 3)
   br i1 %call42, label %land.lhs.true43, label %return
 
@@ -3177,84 +3174,84 @@ land.lhs.true43:                                  ; preds = %land.end41
   br i1 %call44, label %if.then45, label %return
 
 if.then45:                                        ; preds = %land.lhs.true43
-  %d_integers = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 3
-  %26 = load i8, ptr %d_integers, align 8
-  %27 = and i8 %26, 1
-  %tobool46.not = icmp eq i8 %27, 0
+  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
+  %27 = load i8, ptr %d_integers, align 8
+  %28 = and i8 %27, 1
+  %tobool46.not = icmp eq i8 %28, 0
   br i1 %tobool46.not, label %lor.lhs.false47, label %land.lhs.true50
 
 lor.lhs.false47:                                  ; preds = %if.then45
-  %d_integers48 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 3
-  %28 = load i8, ptr %d_integers48, align 8
-  %29 = and i8 %28, 1
-  %tobool49.not = icmp eq i8 %29, 0
+  %d_integers48 = getelementptr inbounds i8, ptr %other, i64 80
+  %29 = load i8, ptr %d_integers48, align 8
+  %30 = and i8 %29, 1
+  %tobool49.not = icmp eq i8 %30, 0
   br i1 %tobool49.not, label %land.lhs.true50, label %return
 
 land.lhs.true50:                                  ; preds = %lor.lhs.false47, %if.then45
-  %d_reals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 4
-  %30 = load i8, ptr %d_reals, align 1
-  %31 = and i8 %30, 1
-  %tobool51.not = icmp eq i8 %31, 0
+  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
+  %31 = load i8, ptr %d_reals, align 1
+  %32 = and i8 %31, 1
+  %tobool51.not = icmp eq i8 %32, 0
   br i1 %tobool51.not, label %lor.lhs.false52, label %land.lhs.true55
 
 lor.lhs.false52:                                  ; preds = %land.lhs.true50
-  %d_reals53 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 4
-  %32 = load i8, ptr %d_reals53, align 1
-  %33 = and i8 %32, 1
-  %tobool54.not = icmp eq i8 %33, 0
+  %d_reals53 = getelementptr inbounds i8, ptr %other, i64 81
+  %33 = load i8, ptr %d_reals53, align 1
+  %34 = and i8 %33, 1
+  %tobool54.not = icmp eq i8 %34, 0
   br i1 %tobool54.not, label %land.lhs.true55, label %return
 
 land.lhs.true55:                                  ; preds = %lor.lhs.false52, %land.lhs.true50
-  %d_transcendentals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 5
-  %34 = load i8, ptr %d_transcendentals, align 2
-  %35 = and i8 %34, 1
-  %tobool56.not = icmp eq i8 %35, 0
+  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
+  %35 = load i8, ptr %d_transcendentals, align 2
+  %36 = and i8 %35, 1
+  %tobool56.not = icmp eq i8 %36, 0
   br i1 %tobool56.not, label %lor.lhs.false57, label %land.lhs.true60
 
 lor.lhs.false57:                                  ; preds = %land.lhs.true55
-  %d_transcendentals58 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 5
-  %36 = load i8, ptr %d_transcendentals58, align 2
-  %37 = and i8 %36, 1
-  %tobool59.not = icmp eq i8 %37, 0
+  %d_transcendentals58 = getelementptr inbounds i8, ptr %other, i64 82
+  %37 = load i8, ptr %d_transcendentals58, align 2
+  %38 = and i8 %37, 1
+  %tobool59.not = icmp eq i8 %38, 0
   br i1 %tobool59.not, label %land.lhs.true60, label %return
 
 land.lhs.true60:                                  ; preds = %lor.lhs.false57, %land.lhs.true55
-  %d_linear = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 6
-  %38 = load i8, ptr %d_linear, align 1
-  %39 = and i8 %38, 1
-  %tobool61.not = icmp eq i8 %39, 0
+  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
+  %39 = load i8, ptr %d_linear, align 1
+  %40 = and i8 %39, 1
+  %tobool61.not = icmp eq i8 %40, 0
   br i1 %tobool61.not, label %land.lhs.true65, label %lor.lhs.false62
 
 lor.lhs.false62:                                  ; preds = %land.lhs.true60
-  %d_linear63 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 6
-  %40 = load i8, ptr %d_linear63, align 1
-  %41 = and i8 %40, 1
-  %tobool64.not = icmp eq i8 %41, 0
+  %d_linear63 = getelementptr inbounds i8, ptr %other, i64 83
+  %41 = load i8, ptr %d_linear63, align 1
+  %42 = and i8 %41, 1
+  %tobool64.not = icmp eq i8 %42, 0
   br i1 %tobool64.not, label %return, label %land.lhs.true65
 
 land.lhs.true65:                                  ; preds = %lor.lhs.false62, %land.lhs.true60
-  %d_differenceLogic = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 7
-  %42 = load i8, ptr %d_differenceLogic, align 4
-  %43 = and i8 %42, 1
-  %tobool66.not = icmp eq i8 %43, 0
+  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
+  %43 = load i8, ptr %d_differenceLogic, align 4
+  %44 = and i8 %43, 1
+  %tobool66.not = icmp eq i8 %44, 0
   br i1 %tobool66.not, label %land.rhs70, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %land.lhs.true65
-  %d_differenceLogic68 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %other, i64 0, i32 7
-  %44 = load i8, ptr %d_differenceLogic68, align 4
-  %45 = and i8 %44, 1
-  %tobool69.not = icmp eq i8 %45, 0
+  %d_differenceLogic68 = getelementptr inbounds i8, ptr %other, i64 84
+  %45 = load i8, ptr %d_differenceLogic68, align 4
+  %46 = and i8 %45, 1
+  %tobool69.not = icmp eq i8 %46, 0
   br i1 %tobool69.not, label %return, label %land.rhs70
 
 land.rhs70:                                       ; preds = %lor.lhs.false67, %land.lhs.true65
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %land.end41, %land.lhs.true43, %lor.lhs.false47, %lor.lhs.false52, %lor.lhs.false57, %lor.lhs.false62, %lor.lhs.false67, %land.rhs70
-  %retval.0 = phi i1 [ false, %lor.lhs.false67 ], [ false, %lor.lhs.false62 ], [ false, %lor.lhs.false57 ], [ false, %lor.lhs.false52 ], [ false, %lor.lhs.false47 ], [ %25, %land.rhs70 ], [ %25, %land.lhs.true43 ], [ %25, %land.end41 ], [ false, %land.lhs.true ]
+  %retval.0 = phi i1 [ false, %lor.lhs.false67 ], [ false, %lor.lhs.false62 ], [ false, %lor.lhs.false57 ], [ false, %lor.lhs.false52 ], [ false, %lor.lhs.false47 ], [ %26, %land.rhs70 ], [ %26, %land.lhs.true43 ], [ %26, %land.end41 ], [ false, %land.lhs.true ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup28, %ehcleanup, %cleanup.action30, %cleanup.action
-  %.pn13.pn = phi { ptr, i32 } [ %.pn1329, %cleanup.action ], [ %6, %ehcleanup ], [ %.pn34, %cleanup.action30 ], [ %16, %ehcleanup28 ]
+  %.pn13.pn = phi { ptr, i32 } [ %.pn1329, %cleanup.action ], [ %6, %ehcleanup ], [ %.pn34, %cleanup.action30 ], [ %17, %ehcleanup28 ]
   resume { ptr, i32 } %.pn13.pn
 
 unreachable:                                      ; preds = %invoke.cont25, %invoke.cont5
@@ -3269,7 +3266,7 @@ entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp181 = alloca %"class.cvc5::internal::FatalStream", align 1
   %ref.tmp199 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -3322,7 +3319,7 @@ if.then5:                                         ; preds = %do.end
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %if.then5
-  %d_locked.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %qf_all_supported, i64 0, i32 10
+  %d_locked.i = getelementptr inbounds i8, ptr %qf_all_supported, i64 87
   store i8 1, ptr %d_locked.i, align 1
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)
           to label %invoke.cont9 unwind label %lpad6
@@ -3377,7 +3374,7 @@ invoke.cont26:                                    ; preds = %lor.lhs.false
   br i1 %call27, label %if.then193.invoke, label %invoke.cont32
 
 invoke.cont32:                                    ; preds = %invoke.cont26
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %d_theories, align 8
   %8 = load i64, ptr %7, align 8
   %and.i.i.i.i = and i64 %8, 512
@@ -3403,7 +3400,7 @@ invoke.cont40:                                    ; preds = %if.then34.invoke.co
 
 if.then42:                                        ; preds = %invoke.cont40
   %add.ptr43 = getelementptr inbounds i8, ptr %ss, i64 16
-  %d_sharingTheories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
+  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
   %10 = load i64, ptr %d_sharingTheories, align 8
   %cmp = icmp eq i64 %10, 1
   %cond = select i1 %cmp, ptr @.str.19, ptr @.str.20
@@ -3434,7 +3431,7 @@ invoke.cont53:                                    ; preds = %if.then51
 
 if.end56:                                         ; preds = %invoke.cont53, %invoke.cont49
   %seen.2 = phi i64 [ %inc55, %invoke.cont53 ], [ %seen.1, %invoke.cont49 ]
-  %d_cardinalityConstraints = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 8
+  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
   %12 = load i8, ptr %d_cardinalityConstraints, align 1
   %13 = and i8 %12, 1
   %tobool57.not = icmp eq i8 %13, 0
@@ -3654,7 +3651,7 @@ invoke.cont174:                                   ; preds = %if.then172
 
 if.end177:                                        ; preds = %invoke.cont174, %invoke.cont170
   %seen.10 = phi i64 [ %inc176, %invoke.cont174 ], [ %seen.9, %invoke.cont170 ]
-  %d_sharingTheories178 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
+  %d_sharingTheories178 = getelementptr inbounds i8, ptr %this, i64 72
   %25 = load i64, ptr %d_sharingTheories178, align 8
   %cmp179.not = icmp eq i64 %seen.10, %25
   br i1 %cmp179.not, label %if.end191, label %if.then180
@@ -3703,13 +3700,13 @@ invoke.cont200:                                   ; preds = %if.end198
   %call202 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp199) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp199) #14
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #14
-  %d_theories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %qf_all_supported, i64 0, i32 1
+  %d_theories.i = getelementptr inbounds i8, ptr %qf_all_supported, i64 32
   %29 = load ptr, ptr %d_theories.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4cvc58internal9LogicInfoD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont200
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %qf_all_supported, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %qf_all_supported, i64 64
   %30 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %29 to i64
@@ -3719,11 +3716,11 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont200
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %30, i64 %idx.neg.i.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i.i) #17
   store ptr null, ptr %d_theories.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %qf_all_supported, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %qf_all_supported, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %qf_all_supported, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %qf_all_supported, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %qf_all_supported, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %qf_all_supported, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit
@@ -3775,7 +3772,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 define void @_ZN4cvc58internal9LogicInfo17enableHigherOrderEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -3819,7 +3816,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_higherOrder = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 9
+  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
   store i8 1, ptr %d_higherOrder, align 2
   ret void
 
@@ -3838,7 +3835,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -3882,9 +3879,9 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_linear = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 6
+  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
   store i8 0, ptr %d_linear, align 1
-  %d_differenceLogic = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 7
+  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
   store i8 0, ptr %d_differenceLogic, align 4
   ret void
 
@@ -3909,7 +3906,7 @@ entry:
 define void @_ZN4cvc58internal9LogicInfo14enableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -3954,7 +3951,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
   tail call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 3)
-  %d_integers = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 3
+  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
   store i8 1, ptr %d_integers, align 8
   ret void
 
@@ -3970,7 +3967,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo12disableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -4014,9 +4011,9 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_reals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 4
+  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
   store i8 0, ptr %d_reals, align 1
-  %d_integers = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 3
+  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
   %5 = load i8, ptr %d_integers, align 8
   %6 = and i8 %5, 1
   %tobool6.not = icmp eq i8 %6, 0
@@ -4041,7 +4038,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo19arithOnlyDifferenceEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -4085,11 +4082,11 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_linear = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 6
+  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
   store i8 1, ptr %d_linear, align 1
-  %d_differenceLogic = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 7
+  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
   store i8 1, ptr %d_differenceLogic, align 4
-  %d_transcendentals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 5
+  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
   store i8 0, ptr %d_transcendentals, align 2
   ret void
 
@@ -4105,7 +4102,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo15disableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -4149,9 +4146,9 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_integers = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 3
+  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %d_integers, align 8
-  %d_reals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 4
+  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
   %5 = load i8, ptr %d_reals, align 1
   %6 = and i8 %5, 1
   %tobool6.not = icmp eq i8 %6, 0
@@ -4176,7 +4173,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo11enableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -4221,7 +4218,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
   tail call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 3)
-  %d_reals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 4
+  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
   store i8 1, ptr %d_reals, align 1
   ret void
 
@@ -4237,7 +4234,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo15arithOnlyLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -4281,11 +4278,11 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_linear = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 6
+  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
   store i8 1, ptr %d_linear, align 1
-  %d_differenceLogic = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 7
+  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
   store i8 0, ptr %d_differenceLogic, align 4
-  %d_transcendentals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 5
+  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
   store i8 0, ptr %d_transcendentals, align 2
   ret void
 
@@ -4301,7 +4298,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo20arithTranscendentalsEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -4345,9 +4342,9 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_transcendentals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 5
+  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
   store i8 1, ptr %d_transcendentals, align 2
-  %d_reals = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 4
+  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
   %5 = load i8, ptr %d_reals, align 1
   %6 = and i8 %5, 1
   %tobool6.not = icmp eq i8 %6, 0
@@ -4358,7 +4355,7 @@ if.then7:                                         ; preds = %do.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %do.end
-  %d_linear = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 6
+  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
   %7 = load i8, ptr %d_linear, align 1
   %8 = and i8 %7, 1
   %tobool9.not = icmp eq i8 %8, 0
@@ -4388,7 +4385,7 @@ define void @_ZN4cvc58internal9LogicInfo17disableEverythingEv(ptr noundef nonnul
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.cvc5::internal::LogicInfo", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -4433,13 +4430,13 @@ cleanup.action:                                   ; preds = %ehcleanup.thread10,
 do.end:                                           ; preds = %entry
   call void @_ZN4cvc58internal9LogicInfoC1EPKc(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp5, ptr noundef nonnull @.str)
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #14
-  %d_theories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %d_theories.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZN4cvc58internal9LogicInfoD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
@@ -4449,29 +4446,29 @@ if.then.i.i.i:                                    ; preds = %do.end
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %6, i64 %idx.neg.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #17
   store ptr null, ptr %d_theories.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit
 
 _ZN4cvc58internal9LogicInfoD2Ev.exit:             ; preds = %if.then.i.i.i, %do.end
-  %d_theories3.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp5, i64 0, i32 1
+  %d_theories3.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i, i64 40, i1 false)
   store ptr null, ptr %d_theories3.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 64
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i, align 8
-  %d_sharingTheories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
-  %d_sharingTheories5.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp5, i64 0, i32 2
+  %d_sharingTheories.i = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories5.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #14
   ret void
@@ -4490,7 +4487,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define void @_ZN4cvc58internal9LogicInfo13disableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %theory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -4533,16 +4530,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread21,
   br label %eh.resume
 
 do.end:                                           ; preds = %entry
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %d_theories, align 8
-  %div.i.i.i.i.i252629 = lshr i32 %theory, 6
-  %div.i.i.i.i.i25.zext = zext nneg i32 %div.i.i.i.i.i252629 to i64
+  %div.i.i.i.i.i252627 = lshr i32 %theory, 6
+  %div.i.i.i.i.i25.zext = zext nneg i32 %div.i.i.i.i.i252627 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %5, i64 %div.i.i.i.i.i25.zext
-  %rem.i.i.i.i.i2728 = and i32 %theory, 63
-  %rem.i.i.i.i.i27.zext = zext nneg i32 %rem.i.i.i.i.i2728 to i64
-  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i27.zext
-  %6 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %and.i = and i64 %6, %shl.i.i.i
+  %6 = and i32 %theory, 63
+  %conv4.i.i.i.i.i = zext nneg i32 %6 to i64
+  %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
+  %7 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %and.i = and i64 %7, %shl.i.i.i
   %tobool.i.not = icmp eq i64 %and.i, 0
   br i1 %tobool.i.not, label %if.end21, label %if.then8
 
@@ -4554,9 +4551,9 @@ if.then8:                                         ; preds = %do.end
   ]
 
 if.end11.thread:                                  ; preds = %if.then8
-  %d_sharingTheories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
-  %7 = load i64, ptr %d_sharingTheories, align 8
-  %dec = add i64 %7, -1
+  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %8 = load i64, ptr %d_sharingTheories, align 8
+  %dec = add i64 %8, -1
   store i64 %dec, ptr %d_sharingTheories, align 8
   br label %if.end14
 
@@ -4566,11 +4563,11 @@ if.end11:                                         ; preds = %if.then8, %if.then8
 
 if.end14:                                         ; preds = %if.end11.thread, %if.end11
   %call15 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %8 = load ptr, ptr %d_theories, align 8
-  %add.ptr.i.i.i.i.i7 = getelementptr inbounds i64, ptr %8, i64 %div.i.i.i.i.i25.zext
+  %9 = load ptr, ptr %d_theories, align 8
+  %add.ptr.i.i.i.i.i7 = getelementptr inbounds i64, ptr %9, i64 %div.i.i.i.i.i25.zext
   %not.i = xor i64 %shl.i.i.i, -1
-  %9 = load i64, ptr %add.ptr.i.i.i.i.i7, align 8
-  %and.i16 = and i64 %9, %not.i
+  %10 = load i64, ptr %add.ptr.i.i.i.i.i7, align 8
+  %and.i16 = and i64 %10, %not.i
   store i64 %and.i16, ptr %add.ptr.i.i.i.i.i7, align 8
   br label %if.end21
 
@@ -4599,7 +4596,7 @@ entry:
 define void @_ZN4cvc58internal9LogicInfo28enableCardinalityConstraintsEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -4643,7 +4640,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_cardinalityConstraints = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 8
+  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
   store i8 1, ptr %d_cardinalityConstraints, align 1
   ret void
 
@@ -4659,7 +4656,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo29disableCardinalityConstraintsEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -4703,7 +4700,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_cardinalityConstraints = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 8
+  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
   store i8 0, ptr %d_cardinalityConstraints, align 1
   ret void
 
@@ -4719,7 +4716,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo18disableHigherOrderEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -4763,7 +4760,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_higherOrder = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 9
+  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
   store i8 0, ptr %d_higherOrder, align 2
   ret void
 
@@ -4778,13 +4775,13 @@ unreachable:                                      ; preds = %invoke.cont4
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4cvc58internal9LogicInfo15getUnlockedCopyEv(ptr noalias nonnull sret(%"class.cvc5::internal::LogicInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_locked = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 10
+  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %d_theories.i1 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %agg.result, i64 0, i32 1
-  %d_theories3.i2 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories.i1 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %d_theories3.i2 = getelementptr inbounds i8, ptr %this, i64 32
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -4802,10 +4799,10 @@ lpad.i:                                           ; preds = %if.then
   br label %common.resume
 
 _ZN4cvc58internal9LogicInfoC2ERKS1_.exit:         ; preds = %if.then
-  %d_sharingTheories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %agg.result, i64 0, i32 2
-  %d_sharingTheories4.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
+  %d_sharingTheories.i = getelementptr inbounds i8, ptr %agg.result, i64 72
+  %d_sharingTheories4.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories4.i, i64 16, i1 false)
-  %d_locked2 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %agg.result, i64 0, i32 10
+  %d_locked2 = getelementptr inbounds i8, ptr %agg.result, i64 87
   store i8 0, ptr %d_locked2, align 1
   br label %return
 
@@ -4819,8 +4816,8 @@ lpad.i3:                                          ; preds = %if.else
   br label %common.resume
 
 _ZN4cvc58internal9LogicInfoC2ERKS1_.exit6:        ; preds = %if.else
-  %d_sharingTheories.i4 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %agg.result, i64 0, i32 2
-  %d_sharingTheories4.i5 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 2
+  %d_sharingTheories.i4 = getelementptr inbounds i8, ptr %agg.result, i64 72
+  %d_sharingTheories4.i5 = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i4, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories4.i5, i64 16, i1 false)
   br label %return
 
@@ -4852,7 +4849,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9ExceptionC2Ev(ptr noundef non
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg)
           to label %call.i.noexc unwind label %lpad
@@ -4895,7 +4892,7 @@ declare void @_ZN4cvc58internal24IllegalArgumentException12format_extraB5cxx11EP
 define linkonce_odr hidden void @_ZN4cvc58internal24IllegalArgumentExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #14
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
@@ -4905,7 +4902,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4cvc58internal9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #14
   ret ptr %call
 }
@@ -4936,17 +4933,17 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define linkonce_odr hidden void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %__x) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
-  %_M_offset.i.i.i.i.i = getelementptr inbounds %"struct.std::_Bit_iterator_base", ptr %this, i64 0, i32 1
+  %_M_offset.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %_M_offset.i.i.i.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %_M_finish.i.i.i, align 8
-  %_M_offset.i.i1.i.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_offset.i.i1.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_M_offset.i.i1.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %__x, i64 16
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_offset.i.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %__x, i64 0, i32 1, i32 0, i32 1
+  %_M_offset.i.i.i = getelementptr inbounds i8, ptr %__x, i64 24
   %1 = load i32, ptr %_M_offset.i.i.i, align 8
   %2 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4973,11 +4970,12 @@ call5.i.i.i.i.noexc:                              ; preds = %if.then.i
   store i32 0, ptr %_M_offset.i.i.i.i.i, align 8
   %div.i.i.i.i = sdiv i64 %add.i.i, 64
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i4, i64 %div.i.i.i.i
-  %rem.i.i.i.i = srem i64 %add.i.i, 64
-  %rem.lobit.i.i.i.i = ashr i64 %rem.i.i.i.i, 63
-  %storemerge.i.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i, i64 %rem.lobit.i.i.i.i
-  %4 = trunc i64 %rem.i.i.i.i to i32
-  %conv4.i.i.i.i = and i32 %4, 63
+  %4 = and i64 %add.i.i, -9223372036854775745
+  %cmp.i.i.i.i = icmp ugt i64 %4, -9223372036854775808
+  %storemerge.idx.i.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 0
+  %storemerge.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %storemerge.idx.i.i.i.i
+  %5 = trunc i64 %add.i.i to i32
+  %conv4.i.i.i.i = and i32 %5, 63
   store ptr %storemerge.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   store i32 %conv4.i.i.i.i, ptr %_M_offset.i.i1.i.i.i, align 8
   %.pre = load ptr, ptr %__x, align 8
@@ -4990,51 +4988,51 @@ call5.i.i.i.i.noexc:                              ; preds = %if.then.i
 
 invoke.cont5:                                     ; preds = %call5.i.i.i.i.noexc, %entry
   %sub.ptr.sub.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre15, %call5.i.i.i.i.noexc ], [ %sub.ptr.sub.i.i, %entry ]
-  %5 = phi ptr [ %call5.i.i.i.i4, %call5.i.i.i.i.noexc ], [ null, %entry ]
-  %6 = phi i32 [ %.pre12, %call5.i.i.i.i.noexc ], [ %1, %entry ]
-  %7 = phi ptr [ %.pre11, %call5.i.i.i.i.noexc ], [ %0, %entry ]
-  %8 = phi ptr [ %.pre, %call5.i.i.i.i.noexc ], [ %2, %entry ]
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, %8
+  %6 = phi ptr [ %call5.i.i.i.i4, %call5.i.i.i.i.noexc ], [ null, %entry ]
+  %7 = phi i32 [ %.pre12, %call5.i.i.i.i.noexc ], [ %1, %entry ]
+  %8 = phi ptr [ %.pre11, %call5.i.i.i.i.noexc ], [ %0, %entry ]
+  %9 = phi ptr [ %.pre, %call5.i.i.i.i.noexc ], [ %2, %entry ]
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont5
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %8, i64 %sub.ptr.sub.i.i.i.i.i.i.pre-phi, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %6, ptr align 8 %9, i64 %sub.ptr.sub.i.i.i.i.i.i.pre-phi, i1 false)
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %if.then.i.i.i.i.i.i, %invoke.cont5
-  %cmp20.i.i.i.i.i.not.i = icmp eq i32 %6, 0
+  %cmp20.i.i.i.i.i.not.i = icmp eq i32 %7, 0
   br i1 %cmp20.i.i.i.i.i.not.i, label %invoke.cont11, label %for.body.i.i.i.i.i.preheader.i
 
 for.body.i.i.i.i.i.preheader.i:                   ; preds = %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.pre-phi, 3
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %5, i64 %sub.ptr.div.i.i.i.i.i.i
-  %conv.i.i.i.i.i.i.i = zext i32 %6 to i64
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %6, i64 %sub.ptr.div.i.i.i.i.i.i
+  %conv.i.i.i.i.i.i.i = zext i32 %7 to i64
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
   %__n.025.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i ]
   %__first.sroa.5.024.i.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.preheader.i ]
-  %__first.sroa.0.023.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %7, %for.body.i.i.i.i.i.preheader.i ]
+  %__first.sroa.0.023.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %8, %for.body.i.i.i.i.i.preheader.i ]
   %__result.sroa.0.022.i.i.i.i.i.i = phi ptr [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i ]
   %__result.sroa.5.021.i.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.preheader.i ]
   %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %__first.sroa.5.024.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i.i
-  %9 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i.i = and i64 %9, %shl.i.i.i.i.i.i.i
+  %10 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i.i = and i64 %10, %shl.i.i.i.i.i.i.i
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
   %sh_prom.i4.i.i.i.i.i.i = zext nneg i32 %__result.sroa.5.021.i.i.i.i.i.i to i64
   %shl.i5.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i.i
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
-  %10 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i.i = or i64 %10, %shl.i5.i.i.i.i.i.i
+  %11 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %or.i.i.i.i.i.i.i = or i64 %11, %shl.i5.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
   %not.i.i.i.i.i.i.i = xor i64 %shl.i5.i.i.i.i.i.i, -1
-  %11 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i = and i64 %11, %not.i.i.i.i.i.i.i
+  %12 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i = and i64 %12, %not.i.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -5042,14 +5040,14 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i
   store i64 %storemerge.i.i.i.i.i.i, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
   %inc.i.i.i.i.i.i.i.i = add i32 %__first.sroa.5.024.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %__first.sroa.5.024.i.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i.i = zext i1 %cmp.i.i.i.i.i.i.i.i to i64
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
+  %spec.select.idx.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 8, i64 0
+  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
   %spec.select19.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i32 0, i32 %inc.i.i.i.i.i.i.i.i
   %inc.i.i7.i.i.i.i.i.i = add i32 %__result.sroa.5.021.i.i.i.i.i.i, 1
   %cmp.i.i8.i.i.i.i.i.i = icmp eq i32 %__result.sroa.5.021.i.i.i.i.i.i, 63
   %__result.sroa.5.1.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i32 0, i32 %inc.i.i7.i.i.i.i.i.i
-  %__result.sroa.0.1.idx.i.i.i.i.i.i = zext i1 %cmp.i.i8.i.i.i.i.i.i to i64
-  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
+  %__result.sroa.0.1.idx.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i64 8, i64 0
+  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
   %dec.i.i.i.i.i.i = add nsw i64 %__n.025.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__n.025.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont11, !llvm.loop !10
@@ -5058,10 +5056,10 @@ invoke.cont11:                                    ; preds = %_ZNSt14_Bit_referen
   ret void
 
 lpad4:                                            ; preds = %if.then.i
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5072,7 +5070,7 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64

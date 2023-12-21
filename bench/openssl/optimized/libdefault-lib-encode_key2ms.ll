@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.key2ms_ctx_st = type { ptr, i32, %struct.ossl_passphrase_data_st }
-%struct.ossl_passphrase_data_st = type { i32, %union.anon, i8, ptr, i64 }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, i64 }
 
 @ossl_dsa_to_pvk_encoder_functions = local_unnamed_addr constant [9 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @key2ms_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @key2ms_freectx }, %struct.ossl_dispatch_st { i32 6, ptr @key2pvk_settable_ctx_params }, %struct.ossl_dispatch_st { i32 5, ptr @key2pvk_set_ctx_params }, %struct.ossl_dispatch_st { i32 10, ptr @key2ms_does_selection }, %struct.ossl_dispatch_st { i32 20, ptr @dsa2pvk_import_object }, %struct.ossl_dispatch_st { i32 21, ptr @dsa2pvk_free_object }, %struct.ossl_dispatch_st { i32 11, ptr @dsa2pvk_encode }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @ossl_dsa_to_msblob_encoder_functions = local_unnamed_addr constant [7 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @key2ms_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @key2ms_freectx }, %struct.ossl_dispatch_st { i32 10, ptr @key2ms_does_selection }, %struct.ossl_dispatch_st { i32 20, ptr @dsa2msblob_import_object }, %struct.ossl_dispatch_st { i32 21, ptr @dsa2msblob_free_object }, %struct.ossl_dispatch_st { i32 11, ptr @dsa2msblob_encode }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -33,7 +29,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr %provctx, ptr %call, align 8
-  %pvk_encr_level = getelementptr inbounds %struct.key2ms_ctx_st, ptr %call, i64 0, i32 1
+  %pvk_encr_level = getelementptr inbounds i8, ptr %call, i64 8
   store i32 2, ptr %pvk_encr_level, align 8
   br label %if.end
 
@@ -44,7 +40,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal void @key2ms_freectx(ptr noundef %vctx) #0 {
 entry:
-  %pwdata = getelementptr inbounds %struct.key2ms_ctx_st, ptr %vctx, i64 0, i32 2
+  %pwdata = getelementptr inbounds i8, ptr %vctx, i64 16
   tail call void @ossl_pw_clear_passphrase_data(ptr noundef nonnull %pwdata) #3
   tail call void @CRYPTO_free(ptr noundef %vctx, ptr noundef nonnull @.str, i32 noundef 88) #3
   ret void
@@ -64,7 +60,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %pvk_encr_level = getelementptr inbounds %struct.key2ms_ctx_st, ptr %vctx, i64 0, i32 1
+  %pvk_encr_level = getelementptr inbounds i8, ptr %vctx, i64 8
   %call1 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %call, ptr noundef nonnull %pvk_encr_level) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -132,7 +128,7 @@ land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp4.i, label %if.then7.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true3.i
-  %pwdata.i = getelementptr inbounds %struct.key2ms_ctx_st, ptr %vctx, i64 0, i32 2
+  %pwdata.i = getelementptr inbounds i8, ptr %vctx, i64 16
   %call5.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #3
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.end9.i, label %if.then7.i
@@ -146,9 +142,9 @@ if.then7.i:                                       ; preds = %lor.lhs.false.i, %l
   br i1 %cmp.i.i, label %if.end9.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then7.i
-  %pvk_encr_level.i.i = getelementptr inbounds %struct.key2ms_ctx_st, ptr %vctx, i64 0, i32 1
+  %pvk_encr_level.i.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %2 = load i32, ptr %pvk_encr_level.i.i, align 8
-  %pwdata.i.i = getelementptr inbounds %struct.key2ms_ctx_st, ptr %vctx, i64 0, i32 2
+  %pwdata.i.i = getelementptr inbounds i8, ptr %vctx, i64 16
   %call3.i.i = tail call i32 @i2b_PVK_bio_ex(ptr noundef nonnull %call2.i.i, ptr noundef nonnull %call.i, i32 noundef %2, ptr noundef nonnull @ossl_pw_pvk_password, ptr noundef nonnull %pwdata.i.i, ptr noundef %call.i.i, ptr noundef null) #3
   %call4.i.i = tail call i32 @BIO_free(ptr noundef nonnull %call2.i.i) #3
   br label %if.end9.i
@@ -284,7 +280,7 @@ land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp4.i, label %if.then7.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true3.i
-  %pwdata.i = getelementptr inbounds %struct.key2ms_ctx_st, ptr %vctx, i64 0, i32 2
+  %pwdata.i = getelementptr inbounds i8, ptr %vctx, i64 16
   %call5.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #3
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.end9.i, label %if.then7.i
@@ -298,9 +294,9 @@ if.then7.i:                                       ; preds = %lor.lhs.false.i, %l
   br i1 %cmp.i.i, label %if.end9.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then7.i
-  %pvk_encr_level.i.i = getelementptr inbounds %struct.key2ms_ctx_st, ptr %vctx, i64 0, i32 1
+  %pvk_encr_level.i.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %2 = load i32, ptr %pvk_encr_level.i.i, align 8
-  %pwdata.i.i = getelementptr inbounds %struct.key2ms_ctx_st, ptr %vctx, i64 0, i32 2
+  %pwdata.i.i = getelementptr inbounds i8, ptr %vctx, i64 16
   %call3.i.i = tail call i32 @i2b_PVK_bio_ex(ptr noundef nonnull %call2.i.i, ptr noundef nonnull %call.i, i32 noundef %2, ptr noundef nonnull @ossl_pw_pvk_password, ptr noundef nonnull %pwdata.i.i, ptr noundef %call.i.i, ptr noundef null) #3
   %call4.i.i = tail call i32 @BIO_free(ptr noundef nonnull %call2.i.i) #3
   br label %if.end9.i

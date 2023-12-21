@@ -13,10 +13,10 @@ define void @gf_serialize(ptr nocapture noundef writeonly %serial, ptr nocapture
 entry:
   %red = alloca [1 x %struct.gf_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %red, ptr noundef nonnull align 16 dereferenceable(64) %x, i64 64, i1 false)
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %red, i64 0, i64 7
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %red, i64 56
   %0 = load i64, ptr %arrayidx.i.i, align 8
   %shr.i.i = lshr i64 %0, 56
-  %arrayidx2.i.i = getelementptr inbounds [8 x i64], ptr %red, i64 0, i64 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %red, i64 32
   %1 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i.i = add i64 %1, %shr.i.i
   store i64 %add.i.i, ptr %arrayidx2.i.i, align 16
@@ -128,10 +128,10 @@ for.end:                                          ; preds = %if.end9
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @gf_strong_reduce(ptr nocapture noundef %a) local_unnamed_addr #1 {
 entry:
-  %arrayidx.i = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 7
+  %arrayidx.i = getelementptr inbounds i8, ptr %a, i64 56
   %0 = load i64, ptr %arrayidx.i, align 8
   %shr.i = lshr i64 %0, 56
-  %arrayidx2.i = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %a, i64 32
   %1 = load i64, ptr %arrayidx2.i, align 16
   %add.i = add i64 %1, %shr.i
   store i64 %add.i, ptr %arrayidx2.i, align 16
@@ -223,10 +223,10 @@ for.body.i5.i:                                    ; preds = %for.body.i5.i, %ent
   br i1 %exitcond.not.i, label %for.end.i.i, label %for.body.i5.i, !llvm.loop !9
 
 for.end.i.i:                                      ; preds = %for.body.i5.i
-  %arrayidx.i.i.i = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 7
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %y, i64 56
   %1 = load i64, ptr %arrayidx.i.i.i, align 8
   %shr.i.i.i = lshr i64 %1, 56
-  %arrayidx2.i.i.i = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 4
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %y, i64 32
   %2 = load i64, ptr %arrayidx2.i.i.i, align 16
   %add.i.i.i = add i64 %2, %shr.i.i.i
   store i64 %add.i.i.i, ptr %arrayidx2.i.i.i, align 16
@@ -372,10 +372,10 @@ for.body.i5:                                      ; preds = %entry, %for.body.i5
   br i1 %exitcond.not, label %for.end.i, label %for.body.i5, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i5
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 7
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %d, i64 56
   %2 = load i64, ptr %arrayidx.i.i, align 8
   %shr.i.i = lshr i64 %2, 56
-  %arrayidx2.i.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %d, i64 32
   %3 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i.i = add i64 %3, %shr.i.i
   store i64 %add.i.i, ptr %arrayidx2.i.i, align 16
@@ -433,10 +433,10 @@ define i64 @gf_lobit(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %y = alloca [1 x %struct.gf_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %y, ptr noundef nonnull align 16 dereferenceable(64) %x, i64 64, i1 false)
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 7
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %y, i64 56
   %0 = load i64, ptr %arrayidx.i.i, align 8
   %shr.i.i = lshr i64 %0, 56
-  %arrayidx2.i.i = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %y, i64 32
   %1 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i.i = add i64 %1, %shr.i.i
   store i64 %add.i.i, ptr %arrayidx2.i.i, align 16
@@ -623,10 +623,10 @@ for.body.i6:                                      ; preds = %entry, %for.body.i6
   br i1 %exitcond.not, label %for.end.i, label %for.body.i6, !llvm.loop !13
 
 for.end.i:                                        ; preds = %for.body.i6
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 7
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %d, i64 56
   %2 = load i64, ptr %arrayidx.i.i, align 8
   %shr.i.i = lshr i64 %2, 56
-  %arrayidx2.i.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %d, i64 32
   %3 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i.i = add i64 %3, %shr.i.i
   store i64 %add.i.i, ptr %arrayidx2.i.i, align 16
@@ -702,10 +702,10 @@ for.body.i6.i:                                    ; preds = %for.body.i6.i, %ent
   br i1 %exitcond.not.i, label %for.end.i.i, label %for.body.i6.i, !llvm.loop !13
 
 for.end.i.i:                                      ; preds = %for.body.i6.i
-  %arrayidx.i.i.i = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 7
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %c, i64 56
   %2 = load i64, ptr %arrayidx.i.i.i, align 8
   %shr.i.i.i = lshr i64 %2, 56
-  %arrayidx2.i.i.i = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 4
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %c, i64 32
   %3 = load i64, ptr %arrayidx2.i.i.i, align 16
   %add.i.i.i = add i64 %3, %shr.i.i.i
   store i64 %add.i.i.i, ptr %arrayidx2.i.i.i, align 16

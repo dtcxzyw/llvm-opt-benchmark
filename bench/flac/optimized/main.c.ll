@@ -17,7 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.utils__CueSpecification = type { i32, i32, i32, i32, i32, i32 }
 %union.anon.2 = type { %struct.anon.4 }
 %struct.anon.4 = type { ptr }
-%struct.foreign_metadata_t = type { i32, ptr, i64, i64, i64, i32, i32, i32, i32, i32, i32 }
 %struct.encode_options_t = type { %struct.utils__SkipUntilSpecification, %struct.utils__SkipUntilSpecification, i32, i32, i64, i32, i32, i64, [64 x %struct.compression_setting_t], i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, [64 x ptr], i32, i32, %union.anon.5, %struct.anon.8 }
 %union.anon.5 = type { %struct.anon.7, [16 x i8] }
 %struct.anon.7 = type { ptr }
@@ -2088,7 +2087,7 @@ if.then12:                                        ; preds = %lor.lhs.false9, %if
   br label %return
 
 if.end18:                                         ; preds = %lor.lhs.false9
-  %format_options = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 14
+  %format_options = getelementptr inbounds i8, ptr %decode_options, i64 128
   store ptr null, ptr %format_options, align 8
   %call20 = tail call ptr @flac__foreign_metadata_new(i32 noundef 1) #21
   %cmp21 = icmp eq ptr %call20, null
@@ -2202,7 +2201,7 @@ if.then83:                                        ; preds = %if.else81
   br i1 %cmp84, label %if.end105, label %if.else86
 
 if.else86:                                        ; preds = %if.then83
-  %is_rf64 = getelementptr inbounds %struct.foreign_metadata_t, ptr %foreign_metadata.0, i64 0, i32 5
+  %is_rf64 = getelementptr inbounds i8, ptr %foreign_metadata.0, i64 40
   %19 = load i32, ptr %is_rf64, align 8
   %tobool87.not = icmp eq i32 %19, 0
   br i1 %tobool87.not, label %if.else89, label %if.end105
@@ -2212,7 +2211,7 @@ if.else89:                                        ; preds = %if.else86
   br i1 %cmp91, label %if.then92, label %if.end105
 
 if.then92:                                        ; preds = %if.else89
-  %is_aifc = getelementptr inbounds %struct.foreign_metadata_t, ptr %foreign_metadata.0, i64 0, i32 7
+  %is_aifc = getelementptr inbounds i8, ptr %foreign_metadata.0, i64 48
   %20 = load i32, ptr %is_aifc, align 8
   %tobool93.not = icmp eq i32 %20, 0
   %spec.store.select = select i1 %tobool93.not, i32 4, i32 5
@@ -2244,7 +2243,7 @@ if.else117:                                       ; preds = %if.else114
   br i1 %cmp118.not, label %if.end172, label %if.then119
 
 if.then119:                                       ; preds = %if.else117
-  %is_wavefmtex = getelementptr inbounds %struct.foreign_metadata_t, ptr %foreign_metadata.0, i64 0, i32 6
+  %is_wavefmtex = getelementptr inbounds i8, ptr %foreign_metadata.0, i64 44
   %25 = load i32, ptr %is_wavefmtex, align 4
   %tobool120.not = icmp eq i32 %25, 0
   br i1 %tobool120.not, label %if.else122, label %if.then142
@@ -2254,13 +2253,13 @@ if.else122:                                       ; preds = %if.then119
   br i1 %cmp123, label %if.end151.thread, label %if.else125
 
 if.else125:                                       ; preds = %if.else122
-  %is_aifc126 = getelementptr inbounds %struct.foreign_metadata_t, ptr %foreign_metadata.0, i64 0, i32 7
+  %is_aifc126 = getelementptr inbounds i8, ptr %foreign_metadata.0, i64 48
   %26 = load i32, ptr %is_aifc126, align 8
   %tobool127.not = icmp eq i32 %26, 0
   br i1 %tobool127.not, label %if.then142, label %if.then128
 
 if.then128:                                       ; preds = %if.else125
-  %is_sowt = getelementptr inbounds %struct.foreign_metadata_t, ptr %foreign_metadata.0, i64 0, i32 8
+  %is_sowt = getelementptr inbounds i8, ptr %foreign_metadata.0, i64 52
   %27 = load i32, ptr %is_sowt, align 4
   %tobool129.not = icmp eq i32 %27, 0
   %. = select i1 %tobool129.not, i32 3, i32 4
@@ -2445,7 +2444,7 @@ if.else217:                                       ; preds = %if.else201, %land.l
 if.end220:                                        ; preds = %land.lhs.true211, %land.lhs.true203, %if.end197, %if.else217
   %treat_as_ogg.0 = phi i32 [ 0, %if.else217 ], [ 1, %if.end197 ], [ 1, %land.lhs.true203 ], [ 1, %land.lhs.true211 ]
   %47 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 38), align 8
-  %skip_specification = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 6
+  %skip_specification = getelementptr inbounds i8, ptr %decode_options, i64 48
   %call221 = call i32 @flac__utils_parse_skip_until_specification(ptr noundef %47, ptr noundef nonnull %skip_specification) #21
   %tobool222 = icmp eq i32 %call221, 0
   %48 = load i32, ptr %skip_specification, align 8
@@ -2460,7 +2459,7 @@ if.then226:                                       ; preds = %if.end220
 
 if.end228:                                        ; preds = %if.end220
   %49 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 39), align 8
-  %until_specification = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 7
+  %until_specification = getelementptr inbounds i8, ptr %decode_options, i64 64
   %call229 = call i32 @flac__utils_parse_skip_until_specification(ptr noundef %49, ptr noundef nonnull %until_specification) #21
   %tobool230.not = icmp eq i32 %call229, 0
   br i1 %tobool230.not, label %if.then231, label %if.end233
@@ -2485,7 +2484,7 @@ if.end238:                                        ; preds = %if.then235, %if.end
   br i1 %tobool239.not, label %if.end248, label %if.then240
 
 if.then240:                                       ; preds = %if.end238
-  %cue_specification = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 9
+  %cue_specification = getelementptr inbounds i8, ptr %decode_options, i64 84
   %call241 = call i32 @flac__utils_parse_cue_specification(ptr noundef nonnull %51, ptr noundef nonnull %cue_specification) #21
   %tobool242.not = icmp eq i32 %call241, 0
   br i1 %tobool242.not, label %if.then243, label %if.end248
@@ -2497,45 +2496,45 @@ if.then243:                                       ; preds = %if.then240
 
 if.end248:                                        ; preds = %if.end238, %if.then240
   %.sink = phi i32 [ 1, %if.then240 ], [ 0, %if.end238 ]
-  %has_cue_specification247 = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 8
+  %has_cue_specification247 = getelementptr inbounds i8, ptr %decode_options, i64 80
   store i32 %.sink, ptr %has_cue_specification247, align 8
   %52 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 5), align 4
   store i32 %52, ptr %decode_options, align 8
   %53 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 7), align 4
-  %continue_through_decode_errors = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 1
+  %continue_through_decode_errors = getelementptr inbounds i8, ptr %decode_options, i64 4
   store i32 %53, ptr %continue_through_decode_errors, align 4
   %54 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 27), align 8
-  %relaxed_foreign_metadata_handling = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 11
+  %relaxed_foreign_metadata_handling = getelementptr inbounds i8, ptr %decode_options, i64 112
   store i32 %54, ptr %relaxed_foreign_metadata_handling, align 8
-  %replaygain_synthesis_spec = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 2
+  %replaygain_synthesis_spec = getelementptr inbounds i8, ptr %decode_options, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %replaygain_synthesis_spec, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 8), i64 24, i1 false)
-  %force_subformat = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 12
+  %force_subformat = getelementptr inbounds i8, ptr %decode_options, i64 116
   store i32 %output_subformat.0105, ptr %force_subformat, align 4
-  %is_ogg = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 3
+  %is_ogg = getelementptr inbounds i8, ptr %decode_options, i64 32
   store i32 %treat_as_ogg.0, ptr %is_ogg, align 8
   %55 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 13), align 8
   %tobool249.not = icmp eq i32 %55, 0
   %lnot.ext = zext i1 %tobool249.not to i32
-  %use_first_serial_number = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 4
+  %use_first_serial_number = getelementptr inbounds i8, ptr %decode_options, i64 36
   store i32 %lnot.ext, ptr %use_first_serial_number, align 4
   %56 = load i64, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 14), align 8
-  %serial_number = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 5
+  %serial_number = getelementptr inbounds i8, ptr %decode_options, i64 40
   store i64 %56, ptr %serial_number, align 8
   %57 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 51), align 4
-  %channel_map_none = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 10
+  %channel_map_none = getelementptr inbounds i8, ptr %decode_options, i64 108
   store i32 %57, ptr %channel_map_none, align 4
-  %format = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 13
+  %format = getelementptr inbounds i8, ptr %decode_options, i64 120
   store i32 %output_format.1103, ptr %format, align 8
   br i1 %cmp189, label %if.then251, label %if.else256
 
 if.then251:                                       ; preds = %if.end248
-  %format_options252 = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 14
+  %format_options252 = getelementptr inbounds i8, ptr %decode_options, i64 128
   %58 = load <2 x i32>, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 41), align 8
   store <2 x i32> %58, ptr %format_options252, align 8
   br label %if.end265
 
 if.else256:                                       ; preds = %if.end248
-  %format_options257 = getelementptr inbounds %struct.decode_options_t, ptr %decode_options, i64 0, i32 14
+  %format_options257 = getelementptr inbounds i8, ptr %decode_options, i64 128
   store ptr %foreign_metadata.0, ptr %format_options257, align 8
   br label %if.end265
 
@@ -3195,7 +3194,7 @@ conditional_fclose.exit312:                       ; preds = %if.then355, %if.els
 
 if.end358:                                        ; preds = %if.end349
   %61 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 39), align 8
-  %until_specification = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 1
+  %until_specification = getelementptr inbounds i8, ptr %encode_options, i64 16
   %call359 = call i32 @flac__utils_parse_skip_until_specification(ptr noundef %61, ptr noundef nonnull %until_specification) #21
   %tobool360.not = icmp eq i32 %call359, 0
   br i1 %tobool360.not, label %if.then361, label %if.end364
@@ -3229,13 +3228,13 @@ if.then367:                                       ; preds = %if.end364
 
 if.end370:                                        ; preds = %if.then367, %if.end364
   %65 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 4), align 8
-  %verify = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 2
+  %verify = getelementptr inbounds i8, ptr %encode_options, i64 32
   store i32 %65, ptr %verify, align 8
   %66 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 5), align 4
-  %treat_warnings_as_errors = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 13
+  %treat_warnings_as_errors = getelementptr inbounds i8, ptr %encode_options, i64 1120
   store i32 %66, ptr %treat_warnings_as_errors, align 8
   %67 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 12), align 4
-  %use_ogg = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 3
+  %use_ogg = getelementptr inbounds i8, ptr %encode_options, i64 36
   store i32 %67, ptr %use_ogg, align 4
   %68 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 13), align 8
   %tobool371.not = icmp eq i32 %68, 0
@@ -3255,60 +3254,60 @@ if.end375:                                        ; preds = %if.end370.if.end375
   %69 = phi i64 [ %.pre, %if.end370.if.end375_crit_edge ], [ %conv374, %if.then372 ]
   %inc = add nsw i64 %69, 1
   store i64 %inc, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 14), align 8
-  %serial_number = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 4
+  %serial_number = getelementptr inbounds i8, ptr %encode_options, i64 40
   store i64 %69, ptr %serial_number, align 8
   %70 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 9), align 8
-  %lax = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 5
+  %lax = getelementptr inbounds i8, ptr %encode_options, i64 48
   store i32 %70, ptr %lax, align 8
   %71 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 34), align 8
-  %padding = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 6
+  %padding = getelementptr inbounds i8, ptr %encode_options, i64 52
   store i32 %71, ptr %padding, align 4
   %72 = load i64, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 35), align 8
-  %num_compression_settings = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 7
+  %num_compression_settings = getelementptr inbounds i8, ptr %encode_options, i64 56
   store i64 %72, ptr %num_compression_settings, align 8
-  %compression_settings = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 8
+  %compression_settings = getelementptr inbounds i8, ptr %encode_options, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %compression_settings, ptr noundef nonnull align 8 dereferenceable(1024) getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 36), i64 1024, i1 false)
   %73 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 37), align 8
-  %threads = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 9
+  %threads = getelementptr inbounds i8, ptr %encode_options, i64 1088
   store i32 %73, ptr %threads, align 8
-  %requested_seek_points = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 10
+  %requested_seek_points = getelementptr inbounds i8, ptr %encode_options, i64 1096
   store ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 47), ptr %requested_seek_points, align 8
   %74 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 48), align 8
-  %num_requested_seek_points = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 11
+  %num_requested_seek_points = getelementptr inbounds i8, ptr %encode_options, i64 1104
   store i32 %74, ptr %num_requested_seek_points, align 8
   %75 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 49), align 8
-  %cuesheet_filename = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 12
+  %cuesheet_filename = getelementptr inbounds i8, ptr %encode_options, i64 1112
   store ptr %75, ptr %cuesheet_filename, align 8
   %76 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 7), align 4
-  %continue_through_decode_errors = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 14
+  %continue_through_decode_errors = getelementptr inbounds i8, ptr %encode_options, i64 1124
   store i32 %76, ptr %continue_through_decode_errors, align 4
-  %cued_seekpoints = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 15
+  %cued_seekpoints = getelementptr inbounds i8, ptr %encode_options, i64 1128
   %77 = load <2 x i32>, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 50), align 8
   store <2 x i32> %77, ptr %cued_seekpoints, align 8
-  %is_first_file377 = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 17
+  %is_first_file377 = getelementptr inbounds i8, ptr %encode_options, i64 1136
   store i32 %is_first_file, ptr %is_first_file377, align 8
-  %is_last_file378 = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 18
+  %is_last_file378 = getelementptr inbounds i8, ptr %encode_options, i64 1140
   store i32 %is_last_file, ptr %is_last_file378, align 4
-  %replay_gain = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 19
+  %replay_gain = getelementptr inbounds i8, ptr %encode_options, i64 1144
   %78 = load <4 x i32>, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 28), align 4
   %79 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 56), align 8
-  %vorbis_comment = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 24
+  %vorbis_comment = getelementptr inbounds i8, ptr %encode_options, i64 1168
   store ptr %79, ptr %vorbis_comment, align 8
-  %pictures = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 26
+  %pictures = getelementptr inbounds i8, ptr %encode_options, i64 1184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %pictures, ptr noundef nonnull align 8 dereferenceable(512) getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 57), i64 512, i1 false)
   %80 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 58), align 8
-  %num_pictures = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 27
+  %num_pictures = getelementptr inbounds i8, ptr %encode_options, i64 1696
   store i32 %80, ptr %num_pictures, align 8
-  %format = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 28
+  %format = getelementptr inbounds i8, ptr %encode_options, i64 1700
   store i32 %input_format.1, ptr %format, align 4
-  %debug = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 30
+  %debug = getelementptr inbounds i8, ptr %encode_options, i64 1728
   %81 = load <4 x i32>, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 59), align 4
   store <4 x i32> %81, ptr %debug, align 8
   %82 = load <4 x i32>, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 52), align 8
   %83 = shufflevector <4 x i32> %78, <4 x i32> %82, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x i32> %83, ptr %replay_gain, align 8
   %84 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 27), align 8
-  %relaxed_foreign_metadata_handling = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 23
+  %relaxed_foreign_metadata_handling = getelementptr inbounds i8, ptr %encode_options, i64 1160
   store i32 %84, ptr %relaxed_foreign_metadata_handling, align 8
   %85 = load ptr, ptr @stdin, align 8
   %cmp383.not = icmp eq ptr %encode_infile.0, %85
@@ -3352,11 +3351,11 @@ if.end399:                                        ; preds = %if.end397, %land.lh
   br i1 %cmp294, label %if.then402, label %if.else411
 
 if.then402:                                       ; preds = %if.end399
-  %format_options = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 29
+  %format_options = getelementptr inbounds i8, ptr %encode_options, i64 1704
   %89 = load <4 x i32>, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 41), align 8
   store <4 x i32> %89, ptr %format_options, align 8
   %90 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 45), align 8
-  %sample_rate = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 29, i32 1, i64 8
+  %sample_rate = getelementptr inbounds i8, ptr %encode_options, i64 1720
   store i32 %90, ptr %sample_rate, align 8
   %tobool407.not = icmp eq ptr %internal_outfilename.0, null
   %cond408 = select i1 %tobool407.not, ptr %call2.i, ptr %internal_outfilename.0
@@ -3381,7 +3380,7 @@ if.else425:                                       ; preds = %if.else411
   br i1 %or.cond28, label %if.then440, label %if.end531.thread
 
 if.then440:                                       ; preds = %if.else425
-  %format_options441 = getelementptr inbounds %struct.encode_options_t, ptr %encode_options, i64 0, i32 29
+  %format_options441 = getelementptr inbounds i8, ptr %encode_options, i64 1704
   store ptr null, ptr %format_options441, align 8
   %91 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @option_values, i64 0, i32 26), align 4
   %tobool442 = icmp ne i32 %91, 0

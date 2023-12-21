@@ -16,46 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.E1000BaseClass = type { %struct.PCIDeviceClass, i16 }
-%struct.ResettableClass = type { %struct.InterfaceClass, %struct.ResettablePhases, ptr, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ResettablePhases = type { ptr, ptr, ptr }
-%struct.E1000State_st = type { %struct.PCIDevice, ptr, %struct.NICConf, %struct.MemoryRegion, %struct.MemoryRegion, [32768 x i32], [32 x i16], [64 x i16], i32, i32, %struct.e1000_tx, %struct.anon, ptr, ptr, i8, i8, i32, ptr, i32, i8, i8, %struct.e1000x_txd_props }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.NICConf = type { %struct.MACAddr, %struct.NICPeers, i32 }
-%struct.MACAddr = type { [6 x i8] }
-%struct.NICPeers = type { [1024 x ptr], i32 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.e1000_tx = type { [256 x i8], [4 x i8], [4 x i8], [65536 x i8], i16, i8, i8, i8, %struct.e1000x_txd_props, %struct.e1000x_txd_props, i16, i8 }
-%struct.anon = type { i32, i16, i16, i16, i32 }
-%struct.e1000x_txd_props = type { i8, i8, i16, i8, i8, i16, i32, i8, i16, i8, i8, i8 }
-%struct.NetClientState = type { ptr, i32, %union.anon.17, ptr, ptr, ptr, ptr, [256 x i8], i8, ptr, i32, i8, i32, i32, i8, i8, i8, %union.anon.18 }
-%union.anon.17 = type { %struct.QTailQLink }
-%union.anon.18 = type { %struct.QTailQLink }
 %struct.e1000_tx_desc = type { i64, %union.anon.7, %union.anon.9 }
 %union.anon.7 = type { i32 }
 %union.anon.9 = type { i32 }
@@ -237,9 +197,9 @@ define internal void @e1000_register_types() #0 {
 entry:
   %type_info = alloca %struct.TypeInfo, align 8
   %call = tail call ptr @type_register_static(ptr noundef nonnull @e1000_base_info) #14
-  %parent = getelementptr inbounds %struct.TypeInfo, ptr %type_info, i64 0, i32 1
-  %class_data = getelementptr inbounds %struct.TypeInfo, ptr %type_info, i64 0, i32 11
-  %class_init = getelementptr inbounds %struct.TypeInfo, ptr %type_info, i64 0, i32 9
+  %parent = getelementptr inbounds i8, ptr %type_info, i64 8
+  %class_data = getelementptr inbounds i8, ptr %type_info, i64 88
+  %class_init = getelementptr inbounds i8, ptr %type_info, i64 72
   %0 = getelementptr inbounds i8, ptr %type_info, i64 16
   br label %for.body
 
@@ -273,37 +233,37 @@ entry:
   %call.i15 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #14
   %call.i16 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #14
   %call.i17 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 155, ptr noundef nonnull @__func__.E1000_CLASS) #14
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i16, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i16, i64 176
   store ptr @pci_e1000_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i16, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i16, i64 184
   store ptr @pci_e1000_uninit, ptr %exit, align 8
-  %romfile = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i16, i64 0, i32 11
+  %romfile = getelementptr inbounds i8, ptr %call.i16, i64 224
   store ptr @.str.11, ptr %romfile, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i16, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i16, i64 208
   store i16 -32634, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.E1000Info, ptr %data, i64 0, i32 1
+  %device_id = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load i16, ptr %device_id, align 8
-  %device_id4 = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i16, i64 0, i32 6
+  %device_id4 = getelementptr inbounds i8, ptr %call.i16, i64 210
   store i16 %0, ptr %device_id4, align 2
-  %revision = getelementptr inbounds %struct.E1000Info, ptr %data, i64 0, i32 2
+  %revision = getelementptr inbounds i8, ptr %data, i64 10
   %1 = load i8, ptr %revision, align 2
-  %revision5 = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i16, i64 0, i32 7
+  %revision5 = getelementptr inbounds i8, ptr %call.i16, i64 212
   store i8 %1, ptr %revision5, align 4
-  %phy_id2 = getelementptr inbounds %struct.E1000Info, ptr %data, i64 0, i32 3
+  %phy_id2 = getelementptr inbounds i8, ptr %data, i64 12
   %2 = load i16, ptr %phy_id2, align 4
-  %phy_id26 = getelementptr inbounds %struct.E1000BaseClass, ptr %call.i17, i64 0, i32 1
+  %phy_id26 = getelementptr inbounds i8, ptr %call.i17, i64 232
   store i16 %2, ptr %phy_id26, align 8
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i16, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i16, i64 214
   store i16 512, ptr %class_id, align 2
-  %hold = getelementptr inbounds %struct.ResettableClass, ptr %call.i15, i64 0, i32 1, i32 1
+  %hold = getelementptr inbounds i8, ptr %call.i15, i64 120
   store ptr @e1000_reset_hold, ptr %hold, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %3 = load i64, ptr %categories, align 8
   %or.i = or i64 %3, 8
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.12, ptr %desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_e1000, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @e1000_properties) #14
   ret void
@@ -315,7 +275,7 @@ declare ptr @type_register(ptr noundef) local_unnamed_addr #1
 define internal void @e1000_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 155, ptr noundef nonnull @__func__.E1000) #14
-  %bootindex = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 2, i32 2
+  %bootindex = getelementptr inbounds i8, ptr %call.i, i64 10824
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef %call.i3) #14
   ret void
@@ -330,15 +290,15 @@ define internal void @pci_e1000_realize(ptr noundef %pci_dev, ptr nocapture read
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %call.i26 = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 155, ptr noundef nonnull @__func__.E1000) #14
-  %config_write = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 16
+  %config_write = getelementptr inbounds i8, ptr %pci_dev, i64 1224
   store ptr @e1000_write_config, ptr %config_write, align 8
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %pci_dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 12
   store i8 16, ptr %arrayidx, align 1
   %arrayidx2 = getelementptr i8, ptr %0, i64 61
   store i8 1, ptr %arrayidx2, align 1
-  %mmio.i = getelementptr inbounds %struct.E1000State_st, ptr %call.i26, i64 0, i32 3
+  %mmio.i = getelementptr inbounds i8, ptr %call.i26, i64 10832
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio.i, ptr noundef %call.i26, ptr noundef nonnull @e1000_mmio_ops, ptr noundef %call.i26, ptr noundef nonnull @.str.16, i64 noundef 131072) #14
   tail call void @memory_region_add_coalescing(ptr noundef nonnull %mmio.i, i64 noundef 0, i64 noundef 32) #14
   br label %for.body.i
@@ -359,38 +319,38 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %cmp.not.i, label %e1000_mmio_setup.exit, label %for.body.i, !llvm.loop !7
 
 e1000_mmio_setup.exit:                            ; preds = %for.body.i
-  %io.i = getelementptr inbounds %struct.E1000State_st, ptr %call.i26, i64 0, i32 4
+  %io.i = getelementptr inbounds i8, ptr %call.i26, i64 11104
   tail call void @memory_region_init_io(ptr noundef nonnull %io.i, ptr noundef %call.i26, ptr noundef nonnull @e1000_io_ops, ptr noundef %call.i26, ptr noundef nonnull @.str.17, i64 noundef 64) #14
   tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %mmio.i) #14
   tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull %io.i) #14
-  %conf = getelementptr inbounds %struct.E1000State_st, ptr %call.i26, i64 0, i32 2
+  %conf = getelementptr inbounds i8, ptr %call.i26, i64 2616
   tail call void @qemu_macaddr_default_if_unset(ptr noundef nonnull %conf) #14
-  %eeprom_data = getelementptr inbounds %struct.E1000State_st, ptr %call.i26, i64 0, i32 7
+  %eeprom_data = getelementptr inbounds i8, ptr %call.i26, i64 142512
   %call.i27 = tail call ptr @object_get_class(ptr noundef %pci_dev) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i27, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #14
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call1.i, i64 210
   %3 = load i16, ptr %device_id, align 2
   tail call void @e1000x_core_prepare_eeprom(ptr noundef nonnull %eeprom_data, ptr noundef nonnull @e1000_eeprom_template, i32 noundef 128, i16 noundef zeroext %3, ptr noundef nonnull %conf) #14
   %call9 = tail call ptr @object_get_typename(ptr noundef %call.i26) #14
-  %id = getelementptr inbounds %struct.DeviceState, ptr %call.i, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %call.i, i64 40
   %4 = load ptr, ptr %id, align 8
-  %mem_reentrancy_guard = getelementptr inbounds %struct.DeviceState, ptr %call.i, i64 0, i32 18
+  %mem_reentrancy_guard = getelementptr inbounds i8, ptr %call.i, i64 152
   %call10 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_e1000_info, ptr noundef nonnull %conf, ptr noundef %call9, ptr noundef %4, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef %call.i26) #14
-  %nic = getelementptr inbounds %struct.E1000State_st, ptr %call.i26, i64 0, i32 1
+  %nic = getelementptr inbounds i8, ptr %call.i26, i64 2608
   store ptr %call10, ptr %nic, align 16
   %call12 = tail call ptr @qemu_get_queue(ptr noundef %call10) #14
   tail call void @qemu_format_nic_info_str(ptr noundef %call12, ptr noundef nonnull %conf) #14
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #15
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @e1000_autoneg_timer, ptr noundef %call.i26) #14
-  %autoneg_timer = getelementptr inbounds %struct.E1000State_st, ptr %call.i26, i64 0, i32 12
+  %autoneg_timer = getelementptr inbounds i8, ptr %call.i26, i64 208520
   store ptr %call.i.i.i, ptr %autoneg_timer, align 8
   %call.i.i.i28 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #15
   tail call void @timer_init_full(ptr noundef %call.i.i.i28, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @e1000_mit_timer, ptr noundef %call.i26) #14
-  %mit_timer = getelementptr inbounds %struct.E1000State_st, ptr %call.i26, i64 0, i32 13
+  %mit_timer = getelementptr inbounds i8, ptr %call.i26, i64 208528
   store ptr %call.i.i.i28, ptr %mit_timer, align 16
   %call.i.i.i29 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #15
   tail call void @timer_init_full(ptr noundef %call.i.i.i29, ptr noundef null, i32 noundef 1, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @e1000_flush_queue_timer, ptr noundef %call.i26) #14
-  %flush_queue_timer = getelementptr inbounds %struct.E1000State_st, ptr %call.i26, i64 0, i32 17
+  %flush_queue_timer = getelementptr inbounds i8, ptr %call.i26, i64 208544
   store ptr %call.i.i.i29, ptr %flush_queue_timer, align 16
   ret void
 }
@@ -399,7 +359,7 @@ e1000_mmio_setup.exit:                            ; preds = %for.body.i
 define internal void @pci_e1000_uninit(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 155, ptr noundef nonnull @__func__.E1000) #14
-  %autoneg_timer = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 12
+  %autoneg_timer = getelementptr inbounds i8, ptr %call.i, i64 208520
   %0 = load ptr, ptr %autoneg_timer, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
@@ -410,7 +370,7 @@ if.then.i:                                        ; preds = %entry
   br label %timer_free.exit
 
 timer_free.exit:                                  ; preds = %entry, %if.then.i
-  %mit_timer = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 13
+  %mit_timer = getelementptr inbounds i8, ptr %call.i, i64 208528
   %1 = load ptr, ptr %mit_timer, align 16
   %tobool.not.i4 = icmp eq ptr %1, null
   br i1 %tobool.not.i4, label %timer_free.exit6, label %if.then.i5
@@ -421,7 +381,7 @@ if.then.i5:                                       ; preds = %timer_free.exit
   br label %timer_free.exit6
 
 timer_free.exit6:                                 ; preds = %timer_free.exit, %if.then.i5
-  %flush_queue_timer = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 17
+  %flush_queue_timer = getelementptr inbounds i8, ptr %call.i, i64 208544
   %2 = load ptr, ptr %flush_queue_timer, align 16
   %tobool.not.i7 = icmp eq ptr %2, null
   br i1 %tobool.not.i7, label %timer_free.exit9, label %if.then.i8
@@ -432,7 +392,7 @@ if.then.i8:                                       ; preds = %timer_free.exit6
   br label %timer_free.exit9
 
 timer_free.exit9:                                 ; preds = %timer_free.exit6, %if.then.i8
-  %nic = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 1
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 2608
   %3 = load ptr, ptr %nic, align 16
   tail call void @qemu_del_nic(ptr noundef %3) #14
   ret void
@@ -444,56 +404,56 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 155, ptr noundef nonnull @__func__.E1000) #14
   %call.i22 = tail call ptr @object_get_class(ptr noundef %call.i) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 155, ptr noundef nonnull @__func__.E1000_GET_CLASS) #14
-  %conf = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 2
-  %autoneg_timer = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 12
+  %conf = getelementptr inbounds i8, ptr %call.i, i64 2616
+  %autoneg_timer = getelementptr inbounds i8, ptr %call.i, i64 208520
   %0 = load ptr, ptr %autoneg_timer, align 8
   tail call void @timer_del(ptr noundef %0) #14
-  %mit_timer = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 13
+  %mit_timer = getelementptr inbounds i8, ptr %call.i, i64 208528
   %1 = load ptr, ptr %mit_timer, align 16
   tail call void @timer_del(ptr noundef %1) #14
-  %flush_queue_timer = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 17
+  %flush_queue_timer = getelementptr inbounds i8, ptr %call.i, i64 208544
   %2 = load ptr, ptr %flush_queue_timer, align 16
   tail call void @timer_del(ptr noundef %2) #14
-  %mit_timer_on = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 14
+  %mit_timer_on = getelementptr inbounds i8, ptr %call.i, i64 208536
   store i8 0, ptr %mit_timer_on, align 8
-  %mit_irq_level = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 15
+  %mit_irq_level = getelementptr inbounds i8, ptr %call.i, i64 208537
   store i8 0, ptr %mit_irq_level, align 1
-  %mit_ide = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 16
+  %mit_ide = getelementptr inbounds i8, ptr %call.i, i64 208540
   store i32 0, ptr %mit_ide, align 4
-  %phy_reg = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 6
-  %3 = getelementptr %struct.E1000State_st, ptr %call.i, i64 0, i32 6, i64 21
+  %phy_reg = getelementptr inbounds i8, ptr %call.i, i64 142448
+  %3 = getelementptr i8, ptr %call.i, i64 142490
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %3, i8 0, i64 22, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) %phy_reg, ptr noundef nonnull align 16 dereferenceable(42) @phy_reg_init, i64 42, i1 false)
-  %phy_id2 = getelementptr inbounds %struct.E1000BaseClass, ptr %call1.i, i64 0, i32 1
+  %phy_id2 = getelementptr inbounds i8, ptr %call1.i, i64 232
   %4 = load i16, ptr %phy_id2, align 8
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %call.i, i64 0, i32 6, i64 3
+  %arrayidx = getelementptr i8, ptr %call.i, i64 142454
   store i16 %4, ptr %arrayidx, align 2
-  %mac_reg = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 5
-  %5 = getelementptr %struct.E1000State_st, ptr %call.i, i64 0, i32 5, i64 5641
+  %mac_reg = getelementptr inbounds i8, ptr %call.i, i64 11376
+  %5 = getelementptr i8, ptr %call.i, i64 33940
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108508) %5, i8 0, i64 108508, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(22564) %mac_reg, ptr noundef nonnull align 16 dereferenceable(22564) @mac_reg_init, i64 22564, i1 false)
-  %rxbuf_min_shift = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 9
+  %rxbuf_min_shift = getelementptr inbounds i8, ptr %call.i, i64 142644
   store i32 1, ptr %rxbuf_min_shift, align 4
-  %tx = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 10
+  %tx = getelementptr inbounds i8, ptr %call.i, i64 142648
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65852) %tx, i8 0, i64 65852, i1 false)
-  %nic = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 1
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 2608
   %6 = load ptr, ptr %nic, align 16
   %call10 = tail call ptr @qemu_get_queue(ptr noundef %6) #14
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %call10, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %call10, i64 8
   %7 = load i32, ptr %link_down, align 8
   %tobool.not = icmp eq i32 %7, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i = getelementptr %struct.E1000State_st, ptr %call.i, i64 0, i32 5, i64 2
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 11384
   %8 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %8, -3
   store i32 %and.i, ptr %arrayidx.i, align 4
-  %arrayidx1.i = getelementptr %struct.E1000State_st, ptr %call.i, i64 0, i32 6, i64 1
+  %arrayidx1.i = getelementptr i8, ptr %call.i, i64 142450
   %9 = load i16, ptr %arrayidx1.i, align 2
   %10 = and i16 %9, -37
   store i16 %10, ptr %arrayidx1.i, align 2
-  %arrayidx8.i = getelementptr %struct.E1000State_st, ptr %call.i, i64 0, i32 6, i64 5
+  %arrayidx8.i = getelementptr i8, ptr %call.i, i64 142458
   %11 = load i16, ptr %arrayidx8.i, align 2
   %12 = and i16 %11, -16385
   store i16 %12, ptr %arrayidx8.i, align 2
@@ -509,7 +469,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.i.not, label %if.end22, label %if.then19
 
 if.then19:                                        ; preds = %if.end
-  %arrayidx21 = getelementptr %struct.E1000State_st, ptr %call.i, i64 0, i32 5, i64 14
+  %arrayidx21 = getelementptr i8, ptr %call.i, i64 11432
   store i32 33024, ptr %arrayidx21, align 8
   br label %if.end22
 
@@ -536,7 +496,7 @@ entry:
   br i1 %narrow.i.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %pci_dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 4
   %1 = load i8, ptr %arrayidx, align 1
@@ -545,7 +505,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %nic = getelementptr inbounds %struct.E1000State_st, ptr %call.i, i64 0, i32 1
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 2608
   %3 = load ptr, ptr %nic, align 16
   %call5 = tail call ptr @qemu_get_queue(ptr noundef %3) #14
   tail call void @qemu_flush_queued_packets(ptr noundef %call5) #14
@@ -572,22 +532,22 @@ declare ptr @qemu_get_queue(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @e1000_autoneg_timer(ptr noundef %opaque) #0 {
 entry:
-  %nic = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 1
+  %nic = getelementptr inbounds i8, ptr %opaque, i64 2608
   %0 = load ptr, ptr %nic, align 16
   %call = tail call ptr @qemu_get_queue(ptr noundef %0) #14
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %call, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load i32, ptr %link_down, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %mac_reg.i = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 5
-  %phy_reg.i = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 6
+  %mac_reg.i = getelementptr inbounds i8, ptr %opaque, i64 11376
+  %phy_reg.i = getelementptr inbounds i8, ptr %opaque, i64 142448
   tail call void @e1000x_update_regs_on_autoneg_done(ptr noundef nonnull %mac_reg.i, ptr noundef nonnull %phy_reg.i) #14
   %2 = load ptr, ptr %nic, align 16
   %call.i = tail call ptr @qemu_get_queue(ptr noundef %2) #14
   tail call void @qemu_flush_queued_packets(ptr noundef %call.i) #14
-  %arrayidx.i = getelementptr %struct.E1000State_st, ptr %opaque, i64 0, i32 5, i64 48
+  %arrayidx.i = getelementptr i8, ptr %opaque, i64 11568
   %3 = load i32, ptr %arrayidx.i, align 16
   %or.i = or i32 %3, 4
   tail call fastcc void @set_interrupt_cause(ptr noundef nonnull %opaque, i32 noundef %or.i)
@@ -600,9 +560,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @e1000_mit_timer(ptr noundef %opaque) #0 {
 entry:
-  %mit_timer_on = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 14
+  %mit_timer_on = getelementptr inbounds i8, ptr %opaque, i64 208536
   store i8 0, ptr %mit_timer_on, align 8
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %opaque, i64 0, i32 5, i64 48
+  %arrayidx = getelementptr i8, ptr %opaque, i64 11568
   %0 = load i32, ptr %arrayidx, align 16
   tail call fastcc void @set_interrupt_cause(ptr noundef %opaque, i32 noundef %0)
   ret void
@@ -611,7 +571,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @e1000_flush_queue_timer(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %nic = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 1
+  %nic = getelementptr inbounds i8, ptr %opaque, i64 2608
   %0 = load ptr, ptr %nic, align 16
   %call = tail call ptr @qemu_get_queue(ptr noundef %0) #14
   tail call void @qemu_flush_queued_packets(ptr noundef %call) #14
@@ -650,7 +610,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool6.not, label %if.then13, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %compat_flags = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 18
+  %compat_flags = getelementptr inbounds i8, ptr %opaque, i64 208552
   %4 = load i32, ptr %compat_flags, align 8
   %shr10 = lshr i32 %conv4, 2
   %and11 = and i32 %4, %shr10
@@ -688,7 +648,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool6.not, label %if.then13, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %compat_flags = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 18
+  %compat_flags = getelementptr inbounds i8, ptr %opaque, i64 208552
   %4 = load i32, ptr %compat_flags, align 8
   %shr10 = lshr i32 %conv4, 2
   %and11 = and i32 %4, %shr10
@@ -707,8 +667,9 @@ if.end40:                                         ; preds = %entry, %if.then13, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @mac_readreg(ptr nocapture noundef readonly %s, i32 noundef %index) #4 {
 entry:
+  %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [32768 x i32], ptr %mac_reg, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   ret i32 %0
 }
@@ -716,22 +677,23 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @get_eecd(ptr nocapture noundef readonly %s, i32 %index) #4 {
 entry:
-  %old_eecd = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 11, i32 4
+  %old_eecd = getelementptr inbounds i8, ptr %s, i64 208512
   %0 = load i32, ptr %old_eecd, align 4
-  %reading = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 11, i32 3
+  %reading = getelementptr inbounds i8, ptr %s, i64 208508
   %1 = load i16, ptr %reading, align 4
   %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %or = or i32 %0, 384
-  %bitnum_out = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 11, i32 2
+  %eeprom_data = getelementptr inbounds i8, ptr %s, i64 142512
+  %bitnum_out = getelementptr inbounds i8, ptr %s, i64 208506
   %2 = load i16, ptr %bitnum_out, align 2
   %conv = zext i16 %2 to i32
   %shr = lshr i32 %conv, 4
   %and = and i32 %shr, 63
   %idxprom = zext nneg i32 %and to i64
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 7, i64 %idxprom
+  %arrayidx = getelementptr [64 x i16], ptr %eeprom_data, i64 0, i64 %idxprom
   %3 = load i16, ptr %arrayidx, align 2
   %conv3 = zext i16 %3 to i32
   %and7 = and i32 %conv, 15
@@ -753,7 +715,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @flash_eerd_read(ptr nocapture noundef readonly %s, i32 %x) #4 {
 entry:
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 5
+  %arrayidx = getelementptr i8, ptr %s, i64 11396
   %0 = load i32, ptr %arrayidx, align 4
   %and = and i32 %0, -2
   %and3 = and i32 %0, 1
@@ -770,8 +732,9 @@ if.then7:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end
   %shr = lshr i32 %0, 8
+  %eeprom_data = getelementptr inbounds i8, ptr %s, i64 142512
   %idxprom = zext nneg i32 %shr to i64
-  %arrayidx9 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 7, i64 %idxprom
+  %arrayidx9 = getelementptr [64 x i16], ptr %eeprom_data, i64 0, i64 %idxprom
   %1 = load i16, ptr %arrayidx9, align 2
   %conv = zext i16 %1 to i32
   %shl = shl nuw i32 %conv, 16
@@ -787,13 +750,13 @@ return:                                           ; preds = %entry, %if.end8, %i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @mac_icr_read(ptr noundef %s, i32 %index) #0 {
 entry:
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 48
+  %arrayidx = getelementptr i8, ptr %s, i64 11568
   %0 = load i32, ptr %arrayidx, align 16
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
   store i32 0, ptr %arrayidx, align 16
-  %arrayidx2.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 50
+  %arrayidx2.i = getelementptr i8, ptr %s, i64 11576
   store i32 0, ptr %arrayidx2.i, align 8
-  %mit_irq_level.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 15
+  %mit_irq_level.i = getelementptr inbounds i8, ptr %s, i64 208537
   store i8 0, ptr %mit_irq_level.i, align 1
   tail call void @pci_set_irq(ptr noundef %call.i.i, i32 noundef 0) #14
   ret i32 %0
@@ -802,8 +765,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal i32 @mac_read_clr4(ptr nocapture noundef %s, i32 noundef %index) #5 {
 entry:
+  %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [32768 x i32], ptr %mac_reg, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   store i32 0, ptr %arrayidx, align 4
   ret i32 %0
@@ -812,13 +776,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal i32 @mac_read_clr8(ptr nocapture noundef %s, i32 noundef %index) #5 {
 entry:
+  %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [32768 x i32], ptr %mac_reg, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   store i32 0, ptr %arrayidx, align 4
   %sub = add i32 %index, -1
   %idxprom5 = sext i32 %sub to i64
-  %arrayidx6 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 %idxprom5
+  %arrayidx6 = getelementptr [32768 x i32], ptr %mac_reg, i64 0, i64 %idxprom5
   store i32 0, ptr %arrayidx6, align 4
   ret i32 %0
 }
@@ -827,14 +792,14 @@ entry:
 define internal fastcc void @set_interrupt_cause(ptr noundef %s, i32 noundef %val) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 48
+  %arrayidx = getelementptr i8, ptr %s, i64 11568
   store i32 %val, ptr %arrayidx, align 16
-  %arrayidx2 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 50
+  %arrayidx2 = getelementptr i8, ptr %s, i64 11576
   store i32 %val, ptr %arrayidx2, align 8
-  %arrayidx4 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 52
+  %arrayidx4 = getelementptr i8, ptr %s, i64 11584
   %0 = load i32, ptr %arrayidx4, align 16
   %and = and i32 %0, %val
-  %mit_irq_level = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 15
+  %mit_irq_level = getelementptr inbounds i8, ptr %s, i64 208537
   %1 = load i8, ptr %mit_irq_level, align 1
   %2 = and i8 %1, 1
   %tobool.not21 = icmp eq i8 %2, 0
@@ -843,14 +808,14 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end35
 
 if.then:                                          ; preds = %entry
-  %mit_timer_on = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 14
+  %mit_timer_on = getelementptr inbounds i8, ptr %s, i64 208536
   %3 = load i8, ptr %mit_timer_on, align 8
   %4 = and i8 %3, 1
   %tobool8.not = icmp eq i8 %4, 0
   br i1 %tobool8.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %mit_ide = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 16
+  %mit_ide = getelementptr inbounds i8, ptr %s, i64 208540
   %5 = load i32, ptr %mit_ide, align 4
   %tobool10.not = icmp eq i32 %5, 0
   %and12 = and i32 %and, 3
@@ -859,14 +824,14 @@ if.end:                                           ; preds = %if.then
   br i1 %or.cond22, label %if.end17, label %if.then14
 
 if.then14:                                        ; preds = %if.end
-  %arrayidx16 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 3595
+  %arrayidx16 = getelementptr i8, ptr %s, i64 25756
   %6 = load i32, ptr %arrayidx16, align 4
   %mul = shl i32 %6, 2
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %if.end
   %mit_delay.1 = phi i32 [ 0, %if.end ], [ %mul, %if.then14 ]
-  %arrayidx19 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 2568
+  %arrayidx19 = getelementptr i8, ptr %s, i64 21648
   %7 = load i32, ptr %arrayidx19, align 16
   %tobool20.not = icmp eq i32 %7, 0
   %and22 = and i32 %and, 128
@@ -875,7 +840,7 @@ if.end17:                                         ; preds = %if.then14, %if.end
   br i1 %or.cond23, label %if.end28, label %if.then24
 
 if.then24:                                        ; preds = %if.end17
-  %arrayidx26 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 2571
+  %arrayidx26 = getelementptr i8, ptr %s, i64 21660
   %8 = load i32, ptr %arrayidx26, align 4
   %mul27 = shl i32 %8, 2
   %9 = add i32 %mit_delay.1, -1
@@ -886,7 +851,7 @@ if.then24:                                        ; preds = %if.end17
 
 if.end28:                                         ; preds = %if.then24, %if.end17
   %mit_delay.3 = phi i32 [ %mit_delay.1, %if.end17 ], [ %spec.select40, %if.then24 ]
-  %arrayidx30 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 49
+  %arrayidx30 = getelementptr i8, ptr %s, i64 11572
   %11 = load i32, ptr %arrayidx30, align 4
   %12 = add i32 %mit_delay.3, -1
   %13 = add i32 %11, -1
@@ -894,7 +859,7 @@ if.end28:                                         ; preds = %if.then24, %if.end1
   %mit_delay.4 = select i1 %or.cond39.not, i32 %11, i32 %mit_delay.3
   %cond = tail call i32 @llvm.umax.i32(i32 %mit_delay.4, i32 500)
   store i8 1, ptr %mit_timer_on, align 8
-  %mit_timer = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 13
+  %mit_timer = getelementptr inbounds i8, ptr %s, i64 208528
   %14 = load ptr, ptr %mit_timer, align 16
   %call32 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #14
   %mul33 = shl i32 %cond, 8
@@ -925,7 +890,7 @@ declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal void @set_ctrl(ptr nocapture noundef writeonly %s, i32 %index, i32 noundef %val) #6 {
 entry:
   %and = and i32 %val, -67108865
-  %mac_reg = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 5
+  %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   store i32 %and, ptr %mac_reg, align 16
   ret void
 }
@@ -933,8 +898,8 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @set_eecd(ptr nocapture noundef %s, i32 %index, i32 noundef %val) #7 {
 entry:
-  %eecd_state = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 11
-  %old_eecd = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 11, i32 4
+  %eecd_state = getelementptr inbounds i8, ptr %s, i64 208500
+  %old_eecd = getelementptr inbounds i8, ptr %s, i64 208512
   %0 = load i32, ptr %old_eecd, align 4
   %and = and i32 %val, 119
   store i32 %and, ptr %old_eecd, align 4
@@ -963,7 +928,7 @@ if.end16:                                         ; preds = %if.end11
   br i1 %tobool18.not, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %if.end16
-  %bitnum_out21 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 11, i32 2
+  %bitnum_out21 = getelementptr inbounds i8, ptr %s, i64 208506
   %1 = load i16, ptr %bitnum_out21, align 2
   %inc = add i16 %1, 1
   store i16 %inc, ptr %bitnum_out21, align 2
@@ -976,7 +941,7 @@ if.end22:                                         ; preds = %if.end16
   %3 = and i32 %and25, 1
   %spec.select = or disjoint i32 %shl, %3
   store i32 %spec.select, ptr %eecd_state, align 4
-  %bitnum_in32 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 11, i32 1
+  %bitnum_in32 = getelementptr inbounds i8, ptr %s, i64 208504
   %4 = load i16, ptr %bitnum_in32, align 4
   %inc33 = add i16 %4, 1
   store i16 %inc33, ptr %bitnum_in32, align 4
@@ -984,7 +949,7 @@ if.end22:                                         ; preds = %if.end16
   br i1 %cmp, label %land.lhs.true, label %do.end
 
 land.lhs.true:                                    ; preds = %if.end22
-  %reading36 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 11, i32 3
+  %reading36 = getelementptr inbounds i8, ptr %s, i64 208508
   %5 = load i16, ptr %reading36, align 4
   %tobool37.not = icmp eq i16 %5, 0
   br i1 %tobool37.not, label %if.then38, label %do.end
@@ -994,7 +959,7 @@ if.then38:                                        ; preds = %land.lhs.true
   %6 = shl i16 %.tr, 4
   %7 = and i16 %6, 1008
   %conv43 = add nsw i16 %7, -1
-  %bitnum_out45 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 11, i32 2
+  %bitnum_out45 = getelementptr inbounds i8, ptr %s, i64 208506
   store i16 %conv43, ptr %bitnum_out45, align 2
   %8 = and i32 %2, 224
   %cmp49 = icmp eq i32 %8, 192
@@ -1010,17 +975,18 @@ do.end:                                           ; preds = %if.then38, %land.lh
 define internal void @mac_writereg(ptr nocapture noundef %s, i32 noundef %index, i32 noundef %val) #0 {
 entry:
   %macaddr = alloca [2 x i32], align 8
+  %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [32768 x i32], ptr %mac_reg, i64 0, i64 %idxprom
   store i32 %val, ptr %arrayidx, align 4
   %cmp = icmp eq i32 %index, 5377
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx2 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 5376
+  %arrayidx2 = getelementptr i8, ptr %s, i64 32880
   %0 = load <2 x i32>, ptr %arrayidx2, align 16
   store <2 x i32> %0, ptr %macaddr, align 8
-  %nic = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 1
+  %nic = getelementptr inbounds i8, ptr %s, i64 2608
   %1 = load ptr, ptr %nic, align 16
   %call8 = tail call ptr @qemu_get_queue(ptr noundef %1) #14
   call void @qemu_format_nic_info_str(ptr noundef %call8, ptr noundef nonnull %macaddr) #14
@@ -1040,7 +1006,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 8
+  %arrayidx = getelementptr i8, ptr %s, i64 11408
   %1 = load i32, ptr %arrayidx, align 16
   %or = or i32 %1, 1073741824
   br label %if.end52
@@ -1064,7 +1030,8 @@ do.end11:                                         ; preds = %do.end
 
 if.else13:                                        ; preds = %do.end
   %xor = and i32 %val, -62980096
-  %arrayidx15 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 6, i64 %idxprom
+  %phy_reg = getelementptr inbounds i8, ptr %s, i64 142448
+  %arrayidx15 = getelementptr [32 x i16], ptr %phy_reg, i64 0, i64 %idxprom
   %4 = load i16, ptr %arrayidx15, align 2
   %conv16 = zext i16 %4 to i32
   %or17 = or disjoint i32 %xor, %conv16
@@ -1094,35 +1061,36 @@ if.else33:                                        ; preds = %do.end23
 
 if.then39:                                        ; preds = %if.else33
   %and.i = and i16 %conv42, 32192
-  %phy_reg.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 6
+  %phy_reg.i = getelementptr inbounds i8, ptr %s, i64 142448
   store i16 %and.i, ptr %phy_reg.i, align 16
   %7 = and i16 %conv42, 4608
   %or.cond.not.i = icmp eq i16 %7, 4608
   br i1 %or.cond.not.i, label %if.then.i, label %if.end52
 
 if.then.i:                                        ; preds = %if.then39
-  %mac_reg.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 5
-  %autoneg_timer.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 12
+  %mac_reg.i = getelementptr inbounds i8, ptr %s, i64 11376
+  %autoneg_timer.i = getelementptr inbounds i8, ptr %s, i64 208520
   %8 = load ptr, ptr %autoneg_timer.i, align 8
   tail call void @e1000x_restart_autoneg(ptr noundef nonnull %mac_reg.i, ptr noundef nonnull %phy_reg.i, ptr noundef %8) #14
   br label %if.end52
 
 if.else43:                                        ; preds = %if.else33
-  %arrayidx47 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 6, i64 %idxprom24
+  %phy_reg45 = getelementptr inbounds i8, ptr %s, i64 142448
+  %arrayidx47 = getelementptr [32 x i16], ptr %phy_reg45, i64 0, i64 %idxprom24
   store i16 %conv42, ptr %arrayidx47, align 2
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then.i, %if.then39, %if.else13, %do.end11, %do.end31, %if.else43, %if.else18, %if.then
   %val.addr.0 = phi i32 [ %or, %if.then ], [ %or17, %if.else13 ], [ %or12, %do.end11 ], [ %val, %if.else43 ], [ %or32, %do.end31 ], [ %val, %if.else18 ], [ %val, %if.then39 ], [ %val, %if.then.i ]
   %or53 = or i32 %val.addr.0, 268435456
-  %arrayidx55 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 8
+  %arrayidx55 = getelementptr i8, ptr %s, i64 11408
   store i32 %or53, ptr %arrayidx55, align 16
   %and56 = and i32 %val.addr.0, 536870912
   %tobool57.not = icmp eq i32 %and56, 0
   br i1 %tobool57.not, label %if.end59, label %if.then58
 
 if.then58:                                        ; preds = %if.end52
-  %arrayidx.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 48
+  %arrayidx.i = getelementptr i8, ptr %s, i64 11568
   %9 = load i32, ptr %arrayidx.i, align 16
   %or.i = or i32 %9, 512
   tail call fastcc void @set_interrupt_cause(ptr noundef nonnull %s, i32 noundef %or.i)
@@ -1135,7 +1103,7 @@ if.end59:                                         ; preds = %if.then58, %if.end5
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @set_icr(ptr noundef %s, i32 %index, i32 noundef %val) #0 {
 entry:
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 48
+  %arrayidx = getelementptr i8, ptr %s, i64 11568
   %0 = load i32, ptr %arrayidx, align 16
   %not = xor i32 %val, -1
   %and = and i32 %0, %not
@@ -1147,8 +1115,9 @@ entry:
 define internal void @set_16bit(ptr nocapture noundef writeonly %s, i32 noundef %index, i32 noundef %val) #6 {
 entry:
   %0 = and i32 %val, 65535
+  %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [32768 x i32], ptr %mac_reg, i64 0, i64 %idxprom
   store i32 %0, ptr %arrayidx, align 4
   ret void
 }
@@ -1156,7 +1125,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @set_ics(ptr noundef %s, i32 %index, i32 noundef %val) #0 {
 entry:
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 48
+  %arrayidx = getelementptr i8, ptr %s, i64 11568
   %0 = load i32, ptr %arrayidx, align 16
   %or = or i32 %0, %val
   tail call fastcc void @set_interrupt_cause(ptr noundef %s, i32 noundef %or)
@@ -1166,11 +1135,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @set_ims(ptr noundef %s, i32 %index, i32 noundef %val) #0 {
 entry:
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 52
+  %arrayidx = getelementptr i8, ptr %s, i64 11584
   %0 = load i32, ptr %arrayidx, align 16
   %or = or i32 %0, %val
   store i32 %or, ptr %arrayidx, align 16
-  %arrayidx.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 48
+  %arrayidx.i = getelementptr i8, ptr %s, i64 11568
   %1 = load i32, ptr %arrayidx.i, align 16
   tail call fastcc void @set_interrupt_cause(ptr noundef %s, i32 noundef %1)
   ret void
@@ -1180,11 +1149,11 @@ entry:
 define internal void @set_imc(ptr noundef %s, i32 %index, i32 noundef %val) #0 {
 entry:
   %not = xor i32 %val, -1
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 52
+  %arrayidx = getelementptr i8, ptr %s, i64 11584
   %0 = load i32, ptr %arrayidx, align 16
   %and = and i32 %0, %not
   store i32 %and, ptr %arrayidx, align 16
-  %arrayidx.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 48
+  %arrayidx.i = getelementptr i8, ptr %s, i64 11568
   %1 = load i32, ptr %arrayidx.i, align 16
   tail call fastcc void @set_interrupt_cause(ptr noundef %s, i32 noundef %1)
   ret void
@@ -1193,17 +1162,17 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @set_rx_control(ptr nocapture noundef %s, i32 %index, i32 noundef %val) #0 {
 entry:
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 64
+  %arrayidx = getelementptr i8, ptr %s, i64 11632
   store i32 %val, ptr %arrayidx, align 16
   %call = tail call i32 @e1000x_rxbufsize(i32 noundef %val) #14
-  %rxbuf_size = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 8
+  %rxbuf_size = getelementptr inbounds i8, ptr %s, i64 142640
   store i32 %call, ptr %rxbuf_size, align 16
   %div6 = lshr i32 %val, 8
   %and = and i32 %div6, 3
   %add = add nuw nsw i32 %and, 1
-  %rxbuf_min_shift = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 9
+  %rxbuf_min_shift = getelementptr inbounds i8, ptr %s, i64 142644
   store i32 %add, ptr %rxbuf_min_shift, align 4
-  %flush_queue_timer = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 17
+  %flush_queue_timer = getelementptr inbounds i8, ptr %s, i64 208544
   %0 = load ptr, ptr %flush_queue_timer, align 16
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #14
   %div.i = sdiv i64 %call.i, 1000000
@@ -1216,25 +1185,26 @@ entry:
 define internal void @set_tctl(ptr noundef %s, i32 noundef %index, i32 noundef %val) #0 {
 entry:
   %desc.i = alloca %struct.e1000_tx_desc, align 8
+  %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [32768 x i32], ptr %mac_reg, i64 0, i64 %idxprom
   store i32 %val, ptr %arrayidx, align 4
-  %arrayidx2 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 3590
+  %arrayidx2 = getelementptr i8, ptr %s, i64 25736
   %0 = load i32, ptr %arrayidx2, align 8
   %and = and i32 %0, 65535
   store i32 %and, ptr %arrayidx2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %desc.i)
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %arrayidx.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 3588
+  %arrayidx.i = getelementptr i8, ptr %s, i64 25728
   %1 = load i32, ptr %arrayidx.i, align 16
-  %arrayidx2.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 256
+  %arrayidx2.i = getelementptr i8, ptr %s, i64 12400
   %2 = load i32, ptr %arrayidx2.i, align 16
   %and.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %start_xmit.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %busy.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 11
+  %busy.i = getelementptr inbounds i8, ptr %s, i64 208498
   %3 = load i8, ptr %busy.i, align 2
   %4 = and i8 %3, 1
   %tobool3.not.i = icmp eq i8 %4, 0
@@ -1244,28 +1214,27 @@ if.end5.i:                                        ; preds = %if.end.i
   store i8 1, ptr %busy.i, align 2
   %5 = getelementptr i8, ptr %s, i64 25712
   %6 = getelementptr i8, ptr %s, i64 25716
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i, i64 0, i32 12
-  %lower.i.i = getelementptr inbounds %struct.e1000_tx_desc, ptr %desc.i, i64 0, i32 1
-  %tx.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10
-  %mit_ide.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 16
-  %size.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 4
-  %upper.i.i = getelementptr inbounds %struct.e1000_tx_desc, ptr %desc.i, i64 0, i32 2
-  %sum_needed.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 6
-  %cptse.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 7
-  %use_tso_for_migration7.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 20
-  %tso_props.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 9
-  %tso_frames.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 10
-  %props.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 8
-  %mac_reg.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 5
-  %vlan_needed.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 5
-  %vlan_header.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 1
-  %arrayidx.i.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 14
-  %add.ptr.i.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 1, i64 2
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 576
+  %lower.i.i = getelementptr inbounds i8, ptr %desc.i, i64 8
+  %tx.i.i = getelementptr inbounds i8, ptr %s, i64 142648
+  %mit_ide.i.i = getelementptr inbounds i8, ptr %s, i64 208540
+  %size.i.i = getelementptr inbounds i8, ptr %s, i64 208448
+  %upper.i.i = getelementptr inbounds i8, ptr %desc.i, i64 12
+  %sum_needed.i.i = getelementptr inbounds i8, ptr %s, i64 208451
+  %cptse.i.i = getelementptr inbounds i8, ptr %s, i64 208452
+  %use_tso_for_migration7.i.i = getelementptr inbounds i8, ptr %s, i64 208557
+  %tso_props.i.i = getelementptr inbounds i8, ptr %s, i64 208476
+  %tso_frames.i.i = getelementptr inbounds i8, ptr %s, i64 208496
+  %props.i.i = getelementptr inbounds i8, ptr %s, i64 208456
+  %vlan_needed.i.i = getelementptr inbounds i8, ptr %s, i64 208450
+  %vlan_header.i.i = getelementptr inbounds i8, ptr %s, i64 142904
+  %arrayidx.i.i = getelementptr i8, ptr %s, i64 11432
+  %add.ptr.i.i = getelementptr i8, ptr %s, i64 142906
   %special.i.i = getelementptr inbounds i8, ptr %desc.i, i64 14
-  %hdr_len.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 9, i32 7
-  %mss.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 9, i32 8
-  %data.i.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 3
-  %arrayidx24.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 3586
+  %hdr_len.i.i = getelementptr inbounds i8, ptr %s, i64 208488
+  %mss.i.i = getelementptr inbounds i8, ptr %s, i64 208490
+  %data.i.i = getelementptr inbounds i8, ptr %s, i64 142912
+  %arrayidx24.i = getelementptr i8, ptr %s, i64 25720
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %txdesc_writeback.exit.i, %if.end5.i
@@ -1344,7 +1313,7 @@ if.else20.i.i:                                    ; preds = %while.body.i
 
 if.end23.i.i:                                     ; preds = %if.else20.i.i, %if.end16.i.i
   %tobool30.not.i.i = phi i1 [ %14, %if.end16.i.i ], [ true, %if.else20.i.i ]
-  %mac_reg.val.i.i = load i32, ptr %mac_reg.i.i, align 4
+  %mac_reg.val.i.i = load i32, ptr %mac_reg, align 4
   %15 = and i32 %9, 1073741824
   %16 = and i32 %15, %mac_reg.val.i.i
   %or.cond94.not.not.i.i = icmp eq i32 %16, 0
@@ -1369,7 +1338,7 @@ if.then34.i.i:                                    ; preds = %land.lhs.true28.i.i
 
 if.end43.i.i:                                     ; preds = %if.then34.i.i, %land.lhs.true28.i.i, %if.end23.i.i
   %21 = load i64, ptr %desc.i, align 8
-  %bus_master_as.i.i.i92.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i92.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 576
   br i1 %tobool30.not.i.i, label %if.else127.i.i, label %if.then47.i.i
 
 if.then47.i.i:                                    ; preds = %if.end43.i.i
@@ -1499,7 +1468,7 @@ if.end.i.i:                                       ; preds = %process_tx_desc.exi
   %and3.i30.i = or disjoint i32 %or.i29.i, 1
   store i32 %and3.i30.i, ptr %upper.i.i, align 4
   %add.i31.i = or disjoint i64 %add.i, 12
-  %bus_master_as.i.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i24.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i24.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i32.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %add.i31.i, i32 1, ptr noundef nonnull %upper.i.i, i64 noundef 4, i1 noundef zeroext true) #14
@@ -1526,7 +1495,7 @@ txdesc_writeback.exit.i:                          ; preds = %if.end.i.i, %proces
 while.end.i:                                      ; preds = %txdesc_writeback.exit.i, %while.cond.i
   %cause.1.i = phi i32 [ %or.i, %txdesc_writeback.exit.i ], [ %cause.0.i, %while.cond.i ]
   store i8 0, ptr %busy.i, align 2
-  %arrayidx.i33.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 48
+  %arrayidx.i33.i = getelementptr i8, ptr %s, i64 11568
   %43 = load i32, ptr %arrayidx.i33.i, align 16
   %or.i34.i = or i32 %43, %cause.1.i
   call fastcc void @set_interrupt_cause(ptr noundef nonnull %s, i32 noundef %or.i34.i)
@@ -1541,8 +1510,9 @@ start_xmit.exit:                                  ; preds = %entry, %if.end.i, %
 define internal void @set_13bit(ptr nocapture noundef writeonly %s, i32 noundef %index, i32 noundef %val) #6 {
 entry:
   %0 = and i32 %val, 8191
+  %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [32768 x i32], ptr %mac_reg, i64 0, i64 %idxprom
   store i32 %0, ptr %arrayidx, align 4
   ret void
 }
@@ -1551,8 +1521,9 @@ entry:
 define internal void @set_dlen(ptr nocapture noundef writeonly %s, i32 noundef %index, i32 noundef %val) #6 {
 entry:
   %and = and i32 %val, 1048448
+  %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [32768 x i32], ptr %mac_reg, i64 0, i64 %idxprom
   store i32 %and, ptr %arrayidx, align 4
   ret void
 }
@@ -1561,22 +1532,23 @@ entry:
 define internal void @set_rdt(ptr nocapture noundef %s, i32 noundef %index, i32 noundef %val) #0 {
 entry:
   %and = and i32 %val, 65535
+  %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [32768 x i32], ptr %mac_reg, i64 0, i64 %idxprom
   store i32 %and, ptr %arrayidx, align 4
-  %rxbuf_size.i = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 8
+  %rxbuf_size.i = getelementptr inbounds i8, ptr %s, i64 142640
   %0 = load i32, ptr %rxbuf_size.i, align 16
   %cmp.not.i = icmp eq i32 %0, 0
-  %arrayidx7.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 2564
+  %arrayidx7.i = getelementptr i8, ptr %s, i64 21632
   %1 = load i32, ptr %arrayidx7.i, align 16
-  %arrayidx9.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 2566
+  %arrayidx9.i = getelementptr i8, ptr %s, i64 21640
   %2 = load i32, ptr %arrayidx9.i, align 8
   %cmp4.i.not = icmp eq i32 %1, %2
   %or.cond = select i1 %cmp.not.i, i1 true, i1 %cmp4.i.not
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %nic = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 1
+  %nic = getelementptr inbounds i8, ptr %s, i64 2608
   %3 = load ptr, ptr %nic, align 16
   %call1 = tail call ptr @qemu_get_queue(ptr noundef %3) #14
   tail call void @qemu_flush_queued_packets(ptr noundef %call1) #14
@@ -1590,8 +1562,9 @@ if.end:                                           ; preds = %entry, %if.then
 define internal void @set_11bit(ptr nocapture noundef writeonly %s, i32 noundef %index, i32 noundef %val) #6 {
 entry:
   %0 = and i32 %val, 2047
+  %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [32768 x i32], ptr %mac_reg, i64 0, i64 %idxprom
   store i32 %0, ptr %arrayidx, align 4
   ret void
 }
@@ -1600,8 +1573,9 @@ entry:
 define internal void @set_4bit(ptr nocapture noundef writeonly %s, i32 noundef %index, i32 noundef %val) #6 {
 entry:
   %0 = and i32 %val, 15
+  %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [32768 x i32], ptr %mac_reg, i64 0, i64 %idxprom
   store i32 %0, ptr %arrayidx, align 4
   ret void
 }
@@ -1620,38 +1594,37 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @xmit_seg(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %tso_frames = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 10
+  %tso_frames = getelementptr inbounds i8, ptr %s, i64 208496
   %0 = load i16, ptr %tso_frames, align 8
   %conv = zext i16 %0 to i32
-  %cptse = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 7
+  %cptse = getelementptr inbounds i8, ptr %s, i64 208452
   %1 = load i8, ptr %cptse, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
-  %tso_props = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 9
-  %props3 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 8
-  %cond = select i1 %tobool.not, ptr %props3, ptr %tso_props
+  %cond.v = select i1 %tobool.not, i64 208456, i64 208476
+  %cond = getelementptr inbounds i8, ptr %s, i64 %cond.v
   br i1 %tobool.not, label %entry.if.end93_crit_edge, label %if.then
 
 entry.if.end93_crit_edge:                         ; preds = %entry
-  %sum_needed94.phi.trans.insert = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 6
+  %sum_needed94.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 208451
   %.pre = load i8, ptr %sum_needed94.phi.trans.insert, align 1
   %.pre117 = and i8 %.pre, 2
   br label %if.end93
 
 if.then:                                          ; preds = %entry
-  %3 = load i8, ptr %tso_props, align 4
-  %ip = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 9, i32 9
+  %3 = load i8, ptr %cond, align 4
+  %ip = getelementptr inbounds i8, ptr %cond, i64 16
   %4 = load i8, ptr %ip, align 4
   %tobool7.not = icmp eq i8 %4, 0
   br i1 %tobool7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.then
   %conv6 = zext i8 %3 to i16
-  %data = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 3
+  %data = getelementptr inbounds i8, ptr %s, i64 142912
   %idx.ext = zext i8 %3 to i64
   %add.ptr = getelementptr i8, ptr %data, i64 %idx.ext
   %add.ptr9 = getelementptr i8, ptr %add.ptr, i64 2
-  %size = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 4
+  %size = getelementptr inbounds i8, ptr %s, i64 208448
   %5 = load i16, ptr %size, align 4
   %sub = sub i16 %5, %conv6
   %6 = tail call i16 @llvm.bswap.i16(i16 %sub)
@@ -1663,11 +1636,11 @@ if.then8:                                         ; preds = %if.then
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %data23 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 3
+  %data23 = getelementptr inbounds i8, ptr %s, i64 142912
   %idx.ext25 = zext i8 %3 to i64
   %add.ptr26 = getelementptr i8, ptr %data23, i64 %idx.ext25
   %add.ptr27 = getelementptr i8, ptr %add.ptr26, i64 4
-  %size28 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 4
+  %size28 = getelementptr inbounds i8, ptr %s, i64 208448
   %8 = load i16, ptr %size28, align 4
   %9 = zext i8 %3 to i16
   %conv31 = sub i16 %8, %9
@@ -1679,22 +1652,22 @@ if.end:                                           ; preds = %if.else, %if.then8
   %10 = phi i16 [ %8, %if.else ], [ %5, %if.then8 ]
   %11 = tail call i16 @llvm.bswap.i16(i16 %conv31.sink)
   store i16 %11, ptr %add.ptr27.sink, align 1
-  %tucss = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 9, i32 3
+  %tucss = getelementptr inbounds i8, ptr %cond, i64 4
   %12 = load i8, ptr %tucss, align 4
   %conv32 = zext i8 %12 to i64
   %13 = zext i8 %12 to i16
   %conv36 = sub i16 %10, %13
-  %tcp = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 9, i32 10
+  %tcp = getelementptr inbounds i8, ptr %cond, i64 17
   %14 = load i8, ptr %tcp, align 1
   %tobool39.not = icmp eq i8 %14, 0
   br i1 %tobool39.not, label %if.else69, label %if.then40
 
 if.then40:                                        ; preds = %if.end
-  %mss = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 9, i32 8
+  %mss = getelementptr inbounds i8, ptr %cond, i64 14
   %15 = load i16, ptr %mss, align 2
   %conv41 = zext i16 %15 to i32
   %mul = mul nuw i32 %conv41, %conv
-  %data42 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 3
+  %data42 = getelementptr inbounds i8, ptr %s, i64 142912
   %add.ptr45 = getelementptr i8, ptr %data42, i64 %conv32
   %add.ptr46 = getelementptr i8, ptr %add.ptr45, i64 4
   %add.ptr46.val = load i32, ptr %add.ptr46, align 1
@@ -1702,7 +1675,7 @@ if.then40:                                        ; preds = %if.end
   %add53 = add i32 %16, %mul
   %17 = tail call i32 @llvm.bswap.i32(i32 %add53)
   store i32 %17, ptr %add.ptr46, align 1
-  %paylen = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 9, i32 6
+  %paylen = getelementptr inbounds i8, ptr %cond, i64 8
   %18 = load i32, ptr %paylen, align 4
   %sub54 = sub i32 %18, %mul
   %cmp = icmp ugt i32 %sub54, %conv41
@@ -1710,7 +1683,7 @@ if.then40:                                        ; preds = %if.end
 
 if.then58:                                        ; preds = %if.then40
   %add60 = add nuw nsw i64 %conv32, 13
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 3, i64 %add60
+  %arrayidx = getelementptr [65536 x i8], ptr %data42, i64 0, i64 %add60
   %19 = load i8, ptr %arrayidx, align 1
   %20 = and i8 %19, -10
   store i8 %20, ptr %arrayidx, align 1
@@ -1721,7 +1694,7 @@ if.else63:                                        ; preds = %if.then40
   br i1 %tobool64.not, label %if.end75, label %if.then65
 
 if.then65:                                        ; preds = %if.else63
-  %arrayidx.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 4158
+  %arrayidx.i = getelementptr i8, ptr %s, i64 28008
   %21 = load i32, ptr %arrayidx.i, align 4
   %cmp.not.i = icmp eq i32 %21, -1
   br i1 %cmp.not.i, label %if.end75, label %if.then.i
@@ -1732,7 +1705,7 @@ if.then.i:                                        ; preds = %if.then65
   br label %if.end75
 
 if.else69:                                        ; preds = %if.end
-  %data70 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 3
+  %data70 = getelementptr inbounds i8, ptr %s, i64 142912
   %add.ptr73 = getelementptr i8, ptr %data70, i64 %conv32
   %add.ptr74 = getelementptr i8, ptr %add.ptr73, i64 4
   %22 = tail call i16 @llvm.bswap.i16(i16 %conv36)
@@ -1740,15 +1713,15 @@ if.else69:                                        ; preds = %if.end
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then.i, %if.then65, %if.then58, %if.else63, %if.else69
-  %sum_needed = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 6
+  %sum_needed = getelementptr inbounds i8, ptr %s, i64 208451
   %23 = load i8, ptr %sum_needed, align 1
   %24 = and i8 %23, 2
   %tobool78.not = icmp eq i8 %24, 0
   br i1 %tobool78.not, label %if.end91, label %if.then79
 
 if.then79:                                        ; preds = %if.end75
-  %data80 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 3
-  %tucso = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 9, i32 4
+  %data80 = getelementptr inbounds i8, ptr %s, i64 142912
+  %tucso = getelementptr inbounds i8, ptr %cond, i64 5
   %25 = load i8, ptr %tucso, align 1
   %idx.ext83 = zext i8 %25 to i64
   %add.ptr84 = getelementptr i8, ptr %data80, i64 %idx.ext83
@@ -1772,18 +1745,18 @@ if.end91:                                         ; preds = %if.then79, %if.end7
 if.end93:                                         ; preds = %entry.if.end93_crit_edge, %if.end91
   %.pre-phi = phi i8 [ %.pre117, %entry.if.end93_crit_edge ], [ %24, %if.end91 ]
   %28 = phi i8 [ %.pre, %entry.if.end93_crit_edge ], [ %23, %if.end91 ]
-  %sum_needed94 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 6
+  %sum_needed94 = getelementptr inbounds i8, ptr %s, i64 208451
   %tobool97.not = icmp eq i8 %.pre-phi, 0
   br i1 %tobool97.not, label %if.end108, label %if.then98
 
 if.then98:                                        ; preds = %if.end93
-  %size101 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 4
+  %size101 = getelementptr inbounds i8, ptr %s, i64 208448
   %29 = load i16, ptr %size101, align 4
   %conv102 = zext i16 %29 to i32
-  %tucso103 = getelementptr inbounds %struct.e1000x_txd_props, ptr %cond, i64 0, i32 4
+  %tucso103 = getelementptr inbounds i8, ptr %cond, i64 5
   %30 = load i8, ptr %tucso103, align 1
   %conv104 = zext i8 %30 to i32
-  %tucse = getelementptr inbounds %struct.e1000x_txd_props, ptr %cond, i64 0, i32 5
+  %tucse = getelementptr inbounds i8, ptr %cond, i64 6
   %31 = load i16, ptr %tucse, align 2
   %conv107 = zext i16 %31 to i32
   %tobool.not.i = icmp ne i16 %31, 0
@@ -1796,10 +1769,10 @@ if.then98:                                        ; preds = %if.end93
   br i1 %cmp1.i, label %if.then2.i, label %if.end108
 
 if.then2.i:                                       ; preds = %if.then98
-  %tucss105 = getelementptr inbounds %struct.e1000x_txd_props, ptr %cond, i64 0, i32 3
+  %tucss105 = getelementptr inbounds i8, ptr %cond, i64 4
   %32 = load i8, ptr %tucss105, align 4
   %conv106 = zext i8 %32 to i32
-  %data99 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 3
+  %data99 = getelementptr inbounds i8, ptr %s, i64 142912
   %sub3.i = sub nsw i32 %n.addr.0.i, %conv106
   %idx.ext.i = zext i8 %32 to i64
   %add.ptr.i = getelementptr i8, ptr %data99, i64 %idx.ext.i
@@ -1821,13 +1794,13 @@ if.end108:                                        ; preds = %if.then2.i, %if.the
   br i1 %tobool112.not, label %if.end122, label %if.then113
 
 if.then113:                                       ; preds = %if.end108
-  %size116 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 4
+  %size116 = getelementptr inbounds i8, ptr %s, i64 208448
   %36 = load i16, ptr %size116, align 4
   %conv117 = zext i16 %36 to i32
-  %ipcso = getelementptr inbounds %struct.e1000x_txd_props, ptr %cond, i64 0, i32 1
+  %ipcso = getelementptr inbounds i8, ptr %cond, i64 1
   %37 = load i8, ptr %ipcso, align 1
   %conv118 = zext i8 %37 to i32
-  %ipcse = getelementptr inbounds %struct.e1000x_txd_props, ptr %cond, i64 0, i32 2
+  %ipcse = getelementptr inbounds i8, ptr %cond, i64 2
   %38 = load i16, ptr %ipcse, align 2
   %conv121 = zext i16 %38 to i32
   %tobool.not.i76 = icmp ne i16 %38, 0
@@ -1842,7 +1815,7 @@ if.then113:                                       ; preds = %if.end108
 if.then2.i83:                                     ; preds = %if.then113
   %39 = load i8, ptr %cond, align 4
   %conv120 = zext i8 %39 to i32
-  %data114 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 3
+  %data114 = getelementptr inbounds i8, ptr %s, i64 142912
   %sub3.i84 = sub nsw i32 %n.addr.0.i80, %conv120
   %idx.ext.i85 = zext i8 %39 to i64
   %add.ptr.i86 = getelementptr i8, ptr %data114, i64 %idx.ext.i85
@@ -1857,24 +1830,24 @@ if.then2.i83:                                     ; preds = %if.then113
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then2.i83, %if.then113, %if.end108
-  %vlan_needed = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 5
+  %vlan_needed = getelementptr inbounds i8, ptr %s, i64 208450
   %41 = load i8, ptr %vlan_needed, align 2
   %tobool123.not = icmp eq i8 %41, 0
   br i1 %tobool123.not, label %if.else142, label %if.then124
 
 if.then124:                                       ; preds = %if.end122
-  %vlan = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 2
-  %data126 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 3
+  %vlan = getelementptr inbounds i8, ptr %s, i64 142908
+  %data126 = getelementptr inbounds i8, ptr %s, i64 142912
   %42 = load i32, ptr %data126, align 4
   store i32 %42, ptr %vlan, align 4
-  %add.ptr132 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 3, i64 4
+  %add.ptr132 = getelementptr i8, ptr %s, i64 142916
   %43 = load i64, ptr %add.ptr132, align 1
   store i64 %43, ptr %data126, align 4
-  %add.ptr135 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 3, i64 8
-  %vlan_header = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 1
+  %add.ptr135 = getelementptr i8, ptr %s, i64 142920
+  %vlan_header = getelementptr inbounds i8, ptr %s, i64 142904
   %44 = load i32, ptr %vlan_header, align 4
   store i32 %44, ptr %add.ptr135, align 1
-  %size139 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 4
+  %size139 = getelementptr inbounds i8, ptr %s, i64 208448
   %45 = load i16, ptr %size139, align 4
   %conv140 = zext i16 %45 to i32
   %add141 = add nuw nsw i32 %conv140, 4
@@ -1882,15 +1855,15 @@ if.then124:                                       ; preds = %if.end122
   br label %if.end147
 
 if.else142:                                       ; preds = %if.end122
-  %data143 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 3
-  %size145 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 4
+  %data143 = getelementptr inbounds i8, ptr %s, i64 142912
+  %size145 = getelementptr inbounds i8, ptr %s, i64 208448
   %46 = load i16, ptr %size145, align 4
   %conv146 = zext i16 %46 to i32
   tail call fastcc void @e1000_send_packet(ptr noundef nonnull %s, ptr noundef nonnull %data143, i32 noundef %conv146)
   br label %if.end147
 
 if.end147:                                        ; preds = %if.else142, %if.then124
-  %arrayidx.i94 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 4149
+  %arrayidx.i94 = getelementptr i8, ptr %s, i64 27972
   %47 = load i32, ptr %arrayidx.i94, align 4
   %cmp.not.i95 = icmp eq i32 %47, -1
   br i1 %cmp.not.i95, label %e1000x_inc_reg_if_not_full.exit98, label %if.then.i96
@@ -1901,20 +1874,20 @@ if.then.i96:                                      ; preds = %if.end147
   br label %e1000x_inc_reg_if_not_full.exit98
 
 e1000x_inc_reg_if_not_full.exit98:                ; preds = %if.end147, %if.then.i96
-  %size153 = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 10, i32 4
+  %size153 = getelementptr inbounds i8, ptr %s, i64 208448
   %48 = load i16, ptr %size153, align 8
   %conv154 = zext i16 %48 to i64
   %add155 = add nuw nsw i64 %conv154, 4
-  %arrayidx.i99 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 4146
+  %arrayidx.i99 = getelementptr i8, ptr %s, i64 27960
   %49 = load i64, ptr %arrayidx.i99, align 4
-  %arrayidx2.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 4147
+  %arrayidx2.i = getelementptr i8, ptr %s, i64 27964
   %.add5.i = tail call i64 @llvm.uadd.sat.i64(i64 %49, i64 %add155)
   %conv9.i = trunc i64 %.add5.i to i32
   store i32 %conv9.i, ptr %arrayidx.i99, align 4
   %shr.i = lshr i64 %.add5.i, 32
   %conv12.i = trunc i64 %shr.i to i32
   store i32 %conv12.i, ptr %arrayidx2.i, align 4
-  %arrayidx.i100 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 4128
+  %arrayidx.i100 = getelementptr i8, ptr %s, i64 27888
   %50 = load i32, ptr %arrayidx.i100, align 4
   %cmp.not.i101 = icmp eq i32 %50, -1
   br i1 %cmp.not.i101, label %e1000x_inc_reg_if_not_full.exit104, label %if.then.i102
@@ -1925,9 +1898,9 @@ if.then.i102:                                     ; preds = %e1000x_inc_reg_if_n
   br label %e1000x_inc_reg_if_not_full.exit104
 
 e1000x_inc_reg_if_not_full.exit104:               ; preds = %e1000x_inc_reg_if_not_full.exit98, %if.then.i102
-  %arrayidx.i105 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 4132
+  %arrayidx.i105 = getelementptr i8, ptr %s, i64 27904
   %51 = load i64, ptr %arrayidx.i105, align 4
-  %arrayidx2.i107 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 4133
+  %arrayidx2.i107 = getelementptr i8, ptr %s, i64 27908
   %.add5.i112 = tail call i64 @llvm.uadd.sat.i64(i64 %51, i64 %add155)
   %conv9.i113 = trunc i64 %.add5.i112 to i32
   store i32 %conv9.i113, ptr %arrayidx.i105, align 4
@@ -1943,10 +1916,10 @@ declare i16 @llvm.bswap.i16(i16) #8
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @e1000_send_packet(ptr noundef %s, ptr noundef %buf, i32 noundef %size) unnamed_addr #0 {
 entry:
-  %nic = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 1
+  %nic = getelementptr inbounds i8, ptr %s, i64 2608
   %0 = load ptr, ptr %nic, align 16
   %call = tail call ptr @qemu_get_queue(ptr noundef %0) #14
-  %phy_reg = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 6
+  %phy_reg = getelementptr inbounds i8, ptr %s, i64 142448
   %1 = load i16, ptr %phy_reg, align 16
   %2 = and i16 %1, 16384
   %tobool.not = icmp eq i16 %2, 0
@@ -1973,7 +1946,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp.i.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %arrayidx.i.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 4157
+  %arrayidx.i.i = getelementptr i8, ptr %s, i64 28004
   %7 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %7, -1
   br i1 %cmp.not.i.i, label %inc_tx_bcast_or_mcast_count.exit, label %if.end6.sink.split.i
@@ -1984,7 +1957,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %tobool2.not.i, label %inc_tx_bcast_or_mcast_count.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.else.i
-  %arrayidx.i3.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 4156
+  %arrayidx.i3.i = getelementptr i8, ptr %s, i64 28000
   %9 = load i32, ptr %arrayidx.i3.i, align 4
   %cmp.not.i4.i = icmp eq i32 %9, -1
   br i1 %cmp.not.i4.i, label %inc_tx_bcast_or_mcast_count.exit, label %if.end6.sink.split.i
@@ -1997,7 +1970,7 @@ if.end6.sink.split.i:                             ; preds = %if.then3.i, %if.the
   br label %inc_tx_bcast_or_mcast_count.exit
 
 inc_tx_bcast_or_mcast_count.exit:                 ; preds = %if.then.i, %if.else.i, %if.then3.i, %if.end6.sink.split.i
-  %mac_reg = getelementptr inbounds %struct.E1000State_st, ptr %s, i64 0, i32 5
+  %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
   %add = add nuw nsw i32 %size, 4
   tail call void @e1000x_increase_size_stats(ptr noundef nonnull %mac_reg, ptr noundef nonnull @e1000_send_packet.PTCregs, i32 noundef %add) #14
   ret void
@@ -2035,7 +2008,7 @@ define internal i64 @e1000_receive(ptr noundef %nc, ptr noundef %buf, i64 nounde
 entry:
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %size, ptr %iov_len, align 8
   %call = call i64 @e1000_receive_iov(ptr noundef %nc, ptr noundef nonnull %iov, i32 noundef 1)
   ret i64 %call
@@ -2050,18 +2023,18 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
   %0 = load ptr, ptr %iov, align 8
   %call2 = tail call i64 @iov_size(ptr noundef nonnull %iov, i32 noundef %iovcnt) #14
-  %mac_reg = getelementptr inbounds %struct.E1000State_st, ptr %call, i64 0, i32 5
+  %mac_reg = getelementptr inbounds i8, ptr %call, i64 11376
   %call3 = tail call zeroext i1 @e1000x_hw_rx_enabled(ptr noundef nonnull %mac_reg) #14
   br i1 %call3, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %flush_queue_timer = getelementptr inbounds %struct.E1000State_st, ptr %call, i64 0, i32 17
+  %flush_queue_timer = getelementptr inbounds i8, ptr %call, i64 208544
   %1 = load ptr, ptr %flush_queue_timer, align 16
   %call4 = tail call zeroext i1 @timer_pending(ptr noundef %1) #14
   br i1 %call4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %cmp = icmp ult i64 %2, 18
   br i1 %cmp, label %iov_to_buf.exit, label %if.end11
@@ -2076,7 +2049,7 @@ if.end11:                                         ; preds = %iov_to_buf.exit, %i
   br i1 %call14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %arrayidx.i = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 5, i64 14
+  %arrayidx.i = getelementptr i8, ptr %call, i64 11432
   %3 = load i32, ptr %arrayidx.i, align 8
   %conv.i = trunc i32 %3 to i16
   %call.i104 = call zeroext i1 @e1000x_is_vlan_packet(ptr noundef %filter_buf.0, i16 noundef zeroext %conv.i) #14
@@ -2144,8 +2117,8 @@ while.body:                                       ; preds = %iov_from_buf.exit, 
   %iov.addr.0137 = phi ptr [ %incdec.ptr, %while.body ], [ %iov, %iov_from_buf.exit ]
   %iov_ofs.0136 = phi i64 [ %sub, %while.body ], [ 4, %iov_from_buf.exit ]
   %sub = sub i64 %iov_ofs.0136, %10
-  %incdec.ptr = getelementptr %struct.iovec, ptr %iov.addr.0137, i64 1
-  %iov_len38 = getelementptr %struct.iovec, ptr %iov.addr.0137, i64 1, i32 1
+  %incdec.ptr = getelementptr i8, ptr %iov.addr.0137, i64 16
+  %iov_len38 = getelementptr i8, ptr %iov.addr.0137, i64 24
   %11 = load i64, ptr %iov_len38, align 8
   %cmp39.not = icmp ugt i64 %11, %sub
   br i1 %cmp39.not, label %if.end42, label %while.body, !llvm.loop !11
@@ -2175,20 +2148,20 @@ if.end44:                                         ; preds = %if.end42, %land.lhs
   %tobool4.not.i = icmp eq i8 %16, 0
   %..i = select i1 %tobool4.not.i, i32 -1430533120, i32 -1430533118
   %retval.0.i112 = select i1 %cmp.i.not.i, i32 -1430533119, i32 %..i
-  %arrayidx47 = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 5, i64 2564
+  %arrayidx47 = getelementptr i8, ptr %call, i64 21632
   %17 = load i32, ptr %arrayidx47, align 16
-  %18 = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 5, i64 64
+  %18 = getelementptr i8, ptr %call, i64 11632
   %mac_reg.val101 = load i32, ptr %18, align 4
   %and.i113 = lshr i32 %mac_reg.val101, 24
   %19 = and i32 %and.i113, 4
   %cond.i = xor i32 %19, 4
   %conv51 = zext nneg i32 %cond.i to i64
   %add = add i64 %size.0, %conv51
-  %rxbuf_size.i = getelementptr inbounds %struct.E1000State_st, ptr %call, i64 0, i32 8
+  %rxbuf_size.i = getelementptr inbounds i8, ptr %call, i64 142640
   %20 = load i32, ptr %rxbuf_size.i, align 16
   %conv.i114 = zext i32 %20 to i64
   %cmp.not.i = icmp ugt i64 %add, %conv.i114
-  %arrayidx9.i = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 5, i64 2566
+  %arrayidx9.i = getelementptr i8, ptr %call, i64 21640
   %21 = load i32, ptr %arrayidx9.i, align 8
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i115
 
@@ -2199,11 +2172,11 @@ if.then.i115:                                     ; preds = %if.end44
 do.body.preheader:                                ; preds = %e1000_has_rxbufs.exit, %if.then.i115
   %22 = getelementptr i8, ptr %call, i64 21616
   %23 = getelementptr i8, ptr %call, i64 21620
-  %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 12
-  %special = getelementptr inbounds %struct.e1000_rx_desc, ptr %desc, i64 0, i32 5
-  %status = getelementptr inbounds %struct.e1000_rx_desc, ptr %desc, i64 0, i32 3
-  %length = getelementptr inbounds %struct.e1000_rx_desc, ptr %desc, i64 0, i32 1
-  %arrayidx141 = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 5, i64 2562
+  %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
+  %special = getelementptr inbounds i8, ptr %desc, i64 14
+  %status = getelementptr inbounds i8, ptr %desc, i64 12
+  %length = getelementptr inbounds i8, ptr %desc, i64 8
+  %arrayidx141 = getelementptr i8, ptr %call, i64 21624
   br label %do.body
 
 if.end.i:                                         ; preds = %if.end44
@@ -2215,7 +2188,7 @@ if.else.i117:                                     ; preds = %if.end.i
   br i1 %cmp21.i, label %if.then23.i, label %if.then53
 
 if.then23.i:                                      ; preds = %if.else.i117
-  %arrayidx25.i = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 5, i64 2562
+  %arrayidx25.i = getelementptr i8, ptr %call, i64 21624
   %24 = load i32, ptr %arrayidx25.i, align 8
   %25 = lshr i32 %24, 4
   %add.i = add i32 %25, %21
@@ -2279,7 +2252,7 @@ do.body87:                                        ; preds = %do.body87, %if.then
   %ba.0 = phi i64 [ %30, %if.then75 ], [ %add96, %do.body87 ]
   %copy_size.1 = phi i64 [ %spec.select98, %if.then75 ], [ %sub95, %do.body87 ]
   %iov.addr.4 = phi ptr [ %iov.addr.3, %if.then75 ], [ %spec.select100, %do.body87 ]
-  %iov_len88 = getelementptr inbounds %struct.iovec, ptr %iov.addr.4, i64 0, i32 1
+  %iov_len88 = getelementptr inbounds i8, ptr %iov.addr.4, i64 8
   %32 = load i64, ptr %iov_len88, align 8
   %sub89 = sub i64 %32, %iov_ofs.4
   %cond = call i64 @llvm.umin.i64(i64 %copy_size.1, i64 %sub89)
@@ -2294,8 +2267,8 @@ do.body87:                                        ; preds = %do.body87, %if.then
   %34 = load i64, ptr %iov_len88, align 8
   %cmp99 = icmp eq i64 %add97, %34
   %spec.select99 = select i1 %cmp99, i64 0, i64 %add97
-  %spec.select100.idx = zext i1 %cmp99 to i64
-  %spec.select100 = getelementptr %struct.iovec, ptr %iov.addr.4, i64 %spec.select100.idx
+  %spec.select100.idx = select i1 %cmp99, i64 16, i64 0
+  %spec.select100 = getelementptr i8, ptr %iov.addr.4, i64 %spec.select100.idx
   %tobool104.not = icmp eq i64 %sub95, 0
   br i1 %tobool104.not, label %if.end105, label %do.body87, !llvm.loop !12
 
@@ -2362,12 +2335,12 @@ do.end167:                                        ; preds = %do.cond164
   %sub187 = sub i32 %rdt.0, %43
   %conv188 = zext i32 %sub187 to i64
   %mul189 = shl nuw nsw i64 %conv188, 4
-  %rxbuf_min_shift = getelementptr inbounds %struct.E1000State_st, ptr %call, i64 0, i32 9
+  %rxbuf_min_shift = getelementptr inbounds i8, ptr %call, i64 142644
   %45 = load i32, ptr %rxbuf_min_shift, align 4
   %shr = lshr i32 %.pre, %45
   %conv192 = zext i32 %shr to i64
   %cmp193.not = icmp ugt i64 %mul189, %conv192
-  %arrayidx.i127 = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 5, i64 48
+  %arrayidx.i127 = getelementptr i8, ptr %call, i64 11568
   %46 = load i32, ptr %arrayidx.i127, align 16
   br i1 %cmp193.not, label %if.end184.split, label %if.then195.split
 
@@ -2390,24 +2363,24 @@ return:                                           ; preds = %lor.lhs.false.i, %i
 define internal zeroext i1 @e1000_can_receive(ptr noundef %nc) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #14
-  %mac_reg = getelementptr inbounds %struct.E1000State_st, ptr %call, i64 0, i32 5
+  %mac_reg = getelementptr inbounds i8, ptr %call, i64 11376
   %call1 = tail call zeroext i1 @e1000x_rx_ready(ptr noundef %call, ptr noundef nonnull %mac_reg) #14
   br i1 %call1, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %rxbuf_size.i = getelementptr inbounds %struct.E1000State_st, ptr %call, i64 0, i32 8
+  %rxbuf_size.i = getelementptr inbounds i8, ptr %call, i64 142640
   %0 = load i32, ptr %rxbuf_size.i, align 16
   %cmp.not.i = icmp eq i32 %0, 0
-  %arrayidx7.i = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 5, i64 2564
+  %arrayidx7.i = getelementptr i8, ptr %call, i64 21632
   %1 = load i32, ptr %arrayidx7.i, align 16
-  %arrayidx9.i = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 5, i64 2566
+  %arrayidx9.i = getelementptr i8, ptr %call, i64 21640
   %2 = load i32, ptr %arrayidx9.i, align 8
   %cmp4.i.not = icmp eq i32 %1, %2
   %or.cond = select i1 %cmp.not.i, i1 true, i1 %cmp4.i.not
   br i1 %or.cond, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %flush_queue_timer = getelementptr inbounds %struct.E1000State_st, ptr %call, i64 0, i32 17
+  %flush_queue_timer = getelementptr inbounds i8, ptr %call, i64 208544
   %3 = load ptr, ptr %flush_queue_timer, align 16
   %call3 = tail call zeroext i1 @timer_pending(ptr noundef %3) #14
   %lnot = xor i1 %call3, true
@@ -2422,10 +2395,10 @@ land.end:                                         ; preds = %land.lhs.true, %lan
 define internal void @e1000_set_link_status(ptr noundef %nc) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #14
-  %mac_reg = getelementptr inbounds %struct.E1000State_st, ptr %call, i64 0, i32 5
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 5, i64 2
+  %mac_reg = getelementptr inbounds i8, ptr %call, i64 11376
+  %arrayidx = getelementptr i8, ptr %call, i64 11384
   %0 = load i32, ptr %arrayidx, align 8
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %nc, i64 8
   %1 = load i32, ptr %link_down, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -2433,11 +2406,11 @@ entry:
 if.then:                                          ; preds = %entry
   %and.i = and i32 %0, -3
   store i32 %and.i, ptr %arrayidx, align 4
-  %arrayidx1.i = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 6, i64 1
+  %arrayidx1.i = getelementptr i8, ptr %call, i64 142450
   %2 = load i16, ptr %arrayidx1.i, align 2
   %3 = and i16 %2, -37
   store i16 %3, ptr %arrayidx1.i, align 2
-  %arrayidx8.i = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 6, i64 5
+  %arrayidx8.i = getelementptr i8, ptr %call, i64 142458
   %4 = load i16, ptr %arrayidx8.i, align 2
   %5 = and i16 %4, -16385
   store i16 %5, ptr %arrayidx8.i, align 2
@@ -2448,7 +2421,7 @@ if.else:                                          ; preds = %entry
   %call.val = load i16, ptr %6, align 16
   %7 = and i16 %call.val, 4096
   %tobool.i.not = icmp ne i16 %7, 0
-  %arrayidx1.i.i.phi.trans.insert = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 6, i64 1
+  %arrayidx1.i.i.phi.trans.insert = getelementptr i8, ptr %call, i64 142450
   %.pre = load i16, ptr %arrayidx1.i.i.phi.trans.insert, align 2
   %8 = and i16 %.pre, 32
   %tobool6.not = icmp eq i16 %8, 0
@@ -2456,7 +2429,7 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond, label %if.then7, label %if.else12
 
 if.then7:                                         ; preds = %if.else
-  %autoneg_timer = getelementptr inbounds %struct.E1000State_st, ptr %call, i64 0, i32 12
+  %autoneg_timer = getelementptr inbounds i8, ptr %call, i64 208520
   %9 = load ptr, ptr %autoneg_timer, align 8
   tail call void @e1000x_restart_autoneg(ptr noundef nonnull %mac_reg, ptr noundef nonnull %6, ptr noundef %9) #14
   br label %if.end13
@@ -2464,10 +2437,10 @@ if.then7:                                         ; preds = %if.else
 if.else12:                                        ; preds = %if.else
   %or.i.i = or i32 %0, 2
   store i32 %or.i.i, ptr %arrayidx, align 4
-  %arrayidx1.i.i = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 6, i64 1
+  %arrayidx1.i.i = getelementptr i8, ptr %call, i64 142450
   %10 = or i16 %.pre, 4
   store i16 %10, ptr %arrayidx1.i.i, align 2
-  %nic.i = getelementptr inbounds %struct.E1000State_st, ptr %call, i64 0, i32 1
+  %nic.i = getelementptr inbounds i8, ptr %call, i64 2608
   %11 = load ptr, ptr %nic.i, align 16
   %call.i = tail call ptr @qemu_get_queue(ptr noundef %11) #14
   tail call void @qemu_flush_queued_packets(ptr noundef %call.i) #14
@@ -2479,7 +2452,7 @@ if.end13:                                         ; preds = %if.then7, %if.else1
   br i1 %cmp.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end13
-  %arrayidx.i12 = getelementptr %struct.E1000State_st, ptr %call, i64 0, i32 5, i64 48
+  %arrayidx.i12 = getelementptr i8, ptr %call, i64 11568
   %13 = load i32, ptr %arrayidx.i12, align 16
   %or.i = or i32 %13, 4
   tail call fastcc void @set_interrupt_cause(ptr noundef nonnull %call, i32 noundef %or.i)
@@ -2505,9 +2478,9 @@ declare zeroext i1 @e1000x_is_vlan_packet(ptr noundef, i16 noundef zeroext) loca
 define internal fastcc void @e1000_receiver_overrun(ptr noundef %s, i64 noundef %size) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 2564
+  %arrayidx = getelementptr i8, ptr %s, i64 21632
   %0 = load i32, ptr %arrayidx, align 16
-  %arrayidx2 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 2566
+  %arrayidx2 = getelementptr i8, ptr %s, i64 21640
   %1 = load i32, ptr %arrayidx2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2533,7 +2506,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %size, i32 noundef %0, i32 noundef %1) #14
   br label %trace_e1000_receiver_overrun.exit
@@ -2544,7 +2517,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_e1000_receiver_overrun.exit:                ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %arrayidx.i = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 4136
+  %arrayidx.i = getelementptr i8, ptr %s, i64 27920
   %9 = load i32, ptr %arrayidx.i, align 4
   %cmp.not.i = icmp eq i32 %9, -1
   br i1 %cmp.not.i, label %e1000x_inc_reg_if_not_full.exit, label %if.then.i
@@ -2555,7 +2528,7 @@ if.then.i:                                        ; preds = %trace_e1000_receive
   br label %e1000x_inc_reg_if_not_full.exit
 
 e1000x_inc_reg_if_not_full.exit:                  ; preds = %trace_e1000_receiver_overrun.exit, %if.then.i
-  %arrayidx.i5 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 4100
+  %arrayidx.i5 = getelementptr i8, ptr %s, i64 27776
   %10 = load i32, ptr %arrayidx.i5, align 4
   %cmp.not.i6 = icmp eq i32 %10, -1
   br i1 %cmp.not.i6, label %e1000x_inc_reg_if_not_full.exit9, label %if.then.i7
@@ -2566,7 +2539,7 @@ if.then.i7:                                       ; preds = %e1000x_inc_reg_if_n
   br label %e1000x_inc_reg_if_not_full.exit9
 
 e1000x_inc_reg_if_not_full.exit9:                 ; preds = %e1000x_inc_reg_if_not_full.exit, %if.then.i7
-  %arrayidx.i10 = getelementptr %struct.E1000State_st, ptr %s, i64 0, i32 5, i64 48
+  %arrayidx.i10 = getelementptr i8, ptr %s, i64 11568
   %11 = load i32, ptr %arrayidx.i10, align 16
   %or.i = or i32 %11, 64
   tail call fastcc void @set_interrupt_cause(ptr noundef nonnull %s, i32 noundef %or.i)
@@ -2610,24 +2583,24 @@ declare void @e1000x_reset_mac_addr(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @e1000_post_load(ptr nocapture noundef %opaque, i32 %version_id) #0 {
 entry:
-  %nic = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 1
+  %nic = getelementptr inbounds i8, ptr %opaque, i64 2608
   %0 = load ptr, ptr %nic, align 16
   %call = tail call ptr @qemu_get_queue(ptr noundef %0) #14
-  %mit_ide = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 16
+  %mit_ide = getelementptr inbounds i8, ptr %opaque, i64 208540
   store i32 0, ptr %mit_ide, align 4
-  %mit_timer_on = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 14
+  %mit_timer_on = getelementptr inbounds i8, ptr %opaque, i64 208536
   store i8 1, ptr %mit_timer_on, align 8
-  %mit_timer = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 13
+  %mit_timer = getelementptr inbounds i8, ptr %opaque, i64 208528
   %1 = load ptr, ptr %mit_timer, align 16
   %call1 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #14
   %add = add i64 %call1, 1
   tail call void @timer_mod(ptr noundef %1, i64 noundef %add) #14
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %opaque, i64 0, i32 5, i64 2
+  %arrayidx = getelementptr i8, ptr %opaque, i64 11384
   %2 = load i32, ptr %arrayidx, align 8
   %and = lshr i32 %2, 1
   %and.lobit = and i32 %and, 1
   %conv = xor i32 %and.lobit, 1
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %call, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %conv, ptr %link_down, align 8
   %3 = getelementptr i8, ptr %opaque, i64 142448
   %opaque.val = load i16, ptr %3, align 16
@@ -2636,7 +2609,7 @@ entry:
   br i1 %tobool.i.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx4 = getelementptr %struct.E1000State_st, ptr %opaque, i64 0, i32 6, i64 1
+  %arrayidx4 = getelementptr i8, ptr %opaque, i64 142450
   %5 = load i16, ptr %arrayidx4, align 2
   %6 = and i16 %5, 32
   %tobool.not = icmp eq i16 %6, 0
@@ -2644,7 +2617,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   store i32 0, ptr %link_down, align 8
-  %autoneg_timer = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 12
+  %autoneg_timer = getelementptr inbounds i8, ptr %opaque, i64 208520
   %7 = load ptr, ptr %autoneg_timer, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #14
   %div.i = sdiv i64 %call.i, 1000000
@@ -2653,17 +2626,17 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %props = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 10, i32 8
-  %mig_props = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 21
+  %props = getelementptr inbounds i8, ptr %opaque, i64 208456
+  %mig_props = getelementptr inbounds i8, ptr %opaque, i64 208560
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %props, ptr noundef nonnull align 16 dereferenceable(20) %mig_props, i64 20, i1 false)
-  %received_tx_tso = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 19
+  %received_tx_tso = getelementptr inbounds i8, ptr %opaque, i64 208556
   %8 = load i8, ptr %received_tx_tso, align 4
   %9 = and i8 %8, 1
   %tobool10.not = icmp eq i8 %9, 0
   br i1 %tobool10.not, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %if.end
-  %tso_props = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 10, i32 9
+  %tso_props = getelementptr inbounds i8, ptr %opaque, i64 208476
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %tso_props, ptr noundef nonnull align 16 dereferenceable(20) %mig_props, i64 20, i1 false)
   br label %if.end14
 
@@ -2674,10 +2647,10 @@ if.end14:                                         ; preds = %if.then11, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @e1000_pre_save(ptr nocapture noundef %opaque) #0 {
 entry:
-  %nic = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 1
+  %nic = getelementptr inbounds i8, ptr %opaque, i64 2608
   %0 = load ptr, ptr %nic, align 16
   %call = tail call ptr @qemu_get_queue(ptr noundef %0) #14
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %call, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load i32, ptr %link_down, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -2690,35 +2663,35 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %arrayidx = getelementptr %struct.E1000State_st, ptr %opaque, i64 0, i32 6, i64 1
+  %arrayidx = getelementptr i8, ptr %opaque, i64 142450
   %4 = load i16, ptr %arrayidx, align 2
   %5 = or i16 %4, 32
   store i16 %5, ptr %arrayidx, align 2
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %compat_flags = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 18
+  %compat_flags = getelementptr inbounds i8, ptr %opaque, i64 208552
   %6 = load i32, ptr %compat_flags, align 8
   %and = and i32 %6, 8
   %tobool3.not = icmp eq i32 %and, 0
   br i1 %tobool3.not, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %if.end
-  %use_tso_for_migration = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 20
+  %use_tso_for_migration = getelementptr inbounds i8, ptr %opaque, i64 208557
   %7 = load i8, ptr %use_tso_for_migration, align 1
   %8 = and i8 %7, 1
   %tobool4.not = icmp eq i8 %8, 0
   br i1 %tobool4.not, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  %mig_props = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 21
-  %props = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 10, i32 8
+  %mig_props = getelementptr inbounds i8, ptr %opaque, i64 208560
+  %props = getelementptr inbounds i8, ptr %opaque, i64 208456
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %mig_props, ptr noundef nonnull align 8 dereferenceable(20) %props, i64 20, i1 false)
   br label %if.end8
 
 if.else:                                          ; preds = %lor.lhs.false
-  %mig_props6 = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 21
-  %tso_props = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 10, i32 9
+  %mig_props6 = getelementptr inbounds i8, ptr %opaque, i64 208560
+  %tso_props = getelementptr inbounds i8, ptr %opaque, i64 208476
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %mig_props6, ptr noundef nonnull align 4 dereferenceable(20) %tso_props, i64 20, i1 false)
   br label %if.end8
 
@@ -2736,7 +2709,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @e1000_full_mac_needed(ptr nocapture noundef readonly %opaque) #4 {
 entry:
-  %compat_flags = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 18
+  %compat_flags = getelementptr inbounds i8, ptr %opaque, i64 208552
   %0 = load i32, ptr %compat_flags, align 8
   %and = and i32 %0, 4
   %tobool = icmp ne i32 %and, 0
@@ -2746,7 +2719,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal i32 @e1000_tx_tso_post_load(ptr nocapture noundef writeonly %opaque, i32 %version_id) #6 {
 entry:
-  %received_tx_tso = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 19
+  %received_tx_tso = getelementptr inbounds i8, ptr %opaque, i64 208556
   store i8 1, ptr %received_tx_tso, align 4
   ret i32 0
 }
@@ -2754,7 +2727,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @e1000_tso_state_needed(ptr nocapture noundef readonly %opaque) #4 {
 entry:
-  %compat_flags = getelementptr inbounds %struct.E1000State_st, ptr %opaque, i64 0, i32 18
+  %compat_flags = getelementptr inbounds i8, ptr %opaque, i64 208552
   %0 = load i32, ptr %compat_flags, align 8
   %and = and i32 %0, 8
   %tobool = icmp ne i32 %and, 0

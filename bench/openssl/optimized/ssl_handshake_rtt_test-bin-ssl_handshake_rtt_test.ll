@@ -3,27 +3,6 @@ source_filename = "bench/openssl/original/ssl_handshake_rtt_test-bin-ssl_handsha
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.quic_conn_st = type { %struct.ssl_st, ptr, ptr, ptr, ptr, ptr, ptr, %union.bio_addr_st, %struct.quic_thread_assist_st, ptr, ptr, i64, i16, i32, i32, i64, i32, i64, i32 }
-%struct.ssl_st = type { i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%union.bio_addr_st = type { %struct.sockaddr_in6, [84 x i8] }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon }
-%union.anon = type { [4 x i32] }
-%struct.quic_thread_assist_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
-%struct.ssl_connection_st = type { %struct.ssl_st, i32, ptr, ptr, ptr, i32, ptr, i32, i32, i32, i32, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.ossl_statem_st, i32, ptr, ptr, i64, i64, i64, %struct.anon, ptr, ptr, ptr, i32, ptr, %struct.ssl_dane_st, ptr, ptr, ptr, ptr, i32, [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], ptr, [64 x i8], i64, i32, i64, [32 x i8], ptr, ptr, ptr, i64, ptr, [32 x i8], i64, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i64, i32, i32, i32, i64, i32, i32, i64, i64, i64, %struct.anon.1, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, i32, ptr, %struct.srp_ctx_st, ptr, %struct.record_layer_st, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i64 }
-%struct.OSSL_TIME = type { i64 }
-%struct.ossl_statem_st = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i8 }
-%struct.anon = type { i64, [32 x i8], [32 x i8], ptr, ptr, i32, i32, i32, i32, [2 x i8], i32, i32, i32, i32, %struct.anon.0, [64 x i8], i64, [64 x i8], i64, i32, i32, ptr, i64, ptr, i64, i32, i8, i8, i16, ptr }
-%struct.anon.0 = type { [128 x i8], i64, [128 x i8], i64, i64, i32, ptr, ptr, i32, ptr, i64, ptr, i64, ptr, ptr, ptr, i32, i64, ptr, i32, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32 }
-%struct.ssl_dane_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i64 }
-%struct.anon.1 = type { [29 x i8], ptr, ptr, ptr, i32, ptr, i16, i32, %struct.anon.2, i32, i32, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, i32, i32, i32, ptr, i64, i32, i8, i32, [4 x i32], i32, i8, i8, i8, i8 }
-%struct.anon.2 = type { ptr, ptr, ptr, i64 }
-%struct.srp_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64 }
-%struct.record_layer_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i64, [4 x i8], i64, i64, i8, i64, ptr, i32, ptr, ptr, ptr, i64, i64, i64, [32 x %struct.tls_record_st] }
-%struct.tls_record_st = type { ptr, i32, i8, ptr, ptr, i64, i64, i16, [8 x i8] }
-
 @.str = private unnamed_addr constant [19 x i8] c"test_handshake_rtt\00", align 1
 @.str.1 = private unnamed_addr constant [41 x i8] c"../openssl/test/ssl_handshake_rtt_test.c\00", align 1
 @.str.2 = private unnamed_addr constant [159 x i8] c"create_ssl_ctx_pair(libctx, TLS_server_method(), TLS_client_method(), TLS1_VERSION, (tst <= 1) ? TLS1_2_VERSION : TLS1_3_VERSION, &sctx, &cctx, cert, privkey)\00", align 1
@@ -94,7 +73,7 @@ cond.false16:                                     ; preds = %if.end
   ]
 
 cond.true45:                                      ; preds = %cond.false16
-  %tls = getelementptr inbounds %struct.quic_conn_st, ptr %cond12, i64 0, i32 1
+  %tls = getelementptr inbounds i8, ptr %cond12, i64 64
   %6 = load ptr, ptr %tls, align 8
   br label %cond.end58
 
@@ -108,7 +87,7 @@ cond.end58:                                       ; preds = %cond.false16, %cond
   br i1 %tobool61.not, label %return, label %lor.lhs.false62
 
 lor.lhs.false62:                                  ; preds = %cond.end58
-  %statem = getelementptr inbounds %struct.ssl_connection_st, ptr %cond59, i64 0, i32 13
+  %statem = getelementptr inbounds i8, ptr %cond59, i64 144
   %call63 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 74, ptr noundef nonnull @.str.5, ptr noundef nonnull %statem) #2
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %return, label %if.end66
@@ -123,7 +102,7 @@ if.end66:                                         ; preds = %lor.lhs.false62
   ]
 
 sw.bb:                                            ; preds = %if.end66
-  %hand_state = getelementptr inbounds %struct.ssl_connection_st, ptr %cond59, i64 0, i32 13, i32 5
+  %hand_state = getelementptr inbounds i8, ptr %cond59, i64 164
   store i32 13, ptr %hand_state, align 4
   %call67 = call i32 @ossl_statem_client_write_transition(ptr noundef %cond59) #2
   call void @OSSL_sleep(i64 noundef 1) #2
@@ -132,7 +111,7 @@ sw.bb:                                            ; preds = %if.end66
   br label %sw.epilog
 
 sw.bb70:                                          ; preds = %if.end66
-  %hand_state71 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond59, i64 0, i32 13, i32 5
+  %hand_state71 = getelementptr inbounds i8, ptr %cond59, i64 164
   store i32 29, ptr %hand_state71, align 4
   %call72 = call i32 @ossl_statem_server_write_transition(ptr noundef %cond59) #2
   call void @OSSL_sleep(i64 noundef 1) #2
@@ -141,7 +120,7 @@ sw.bb70:                                          ; preds = %if.end66
   br label %sw.epilog
 
 sw.bb75:                                          ; preds = %if.end66
-  %hand_state76 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond59, i64 0, i32 13, i32 5
+  %hand_state76 = getelementptr inbounds i8, ptr %cond59, i64 164
   store i32 13, ptr %hand_state76, align 4
   %call77 = call i32 @ossl_statem_client_write_transition(ptr noundef %cond59) #2
   call void @OSSL_sleep(i64 noundef 1) #2
@@ -150,7 +129,7 @@ sw.bb75:                                          ; preds = %if.end66
   br label %sw.epilog
 
 sw.bb80:                                          ; preds = %if.end66
-  %hand_state81 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond59, i64 0, i32 13, i32 5
+  %hand_state81 = getelementptr inbounds i8, ptr %cond59, i64 164
   store i32 29, ptr %hand_state81, align 4
   %call82 = call i32 @ossl_statem_server_write_transition(ptr noundef %cond59) #2
   call void @OSSL_sleep(i64 noundef 1) #2
@@ -159,7 +138,7 @@ sw.bb80:                                          ; preds = %if.end66
   br label %sw.epilog
 
 sw.bb85:                                          ; preds = %if.end66
-  %hand_state86 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond59, i64 0, i32 13, i32 5
+  %hand_state86 = getelementptr inbounds i8, ptr %cond59, i64 164
   store i32 50, ptr %hand_state86, align 4
   %call87 = call i32 @ossl_statem_client_write_transition(ptr noundef %cond59) #2
   call void @OSSL_sleep(i64 noundef 1) #2

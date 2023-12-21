@@ -4,17 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.arrow::util::CountingSemaphore::Impl" = type { i32, double, i32, i8, %"class.std::mutex", %"class.std::condition_variable", %"class.std::condition_variable" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.std::condition_variable" = type { %"class.std::__condvar" }
-%"class.std::__condvar" = type { %union.pthread_cond_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %"class.arrow::Status" = type { ptr }
 %struct.timespec = type { i64, i64 }
 %"class.arrow::util::detail::StringStreamWrapper" = type { %"class.std::unique_ptr.2", ptr }
@@ -76,17 +65,17 @@ define void @_ZN5arrow4util17CountingSemaphoreC2Ejd(ptr nocapture noundef nonnul
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #12
   store i32 %initial_avail, ptr %call, align 8
-  %timeout_seconds_.i = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %call, i64 0, i32 1
+  %timeout_seconds_.i = getelementptr inbounds i8, ptr %call, i64 8
   store double %timeout_seconds, ptr %timeout_seconds_.i, align 8
-  %num_waiters_.i = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %call, i64 0, i32 2
+  %num_waiters_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %num_waiters_.i, align 8
-  %closed_.i = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %call, i64 0, i32 3
+  %closed_.i = getelementptr inbounds i8, ptr %call, i64 20
   store i8 0, ptr %closed_.i, align 4
-  %mutex_.i = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %call, i64 0, i32 4
+  %mutex_.i = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i, i8 0, i64 40, i1 false)
-  %acquirer_cv_.i = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %call, i64 0, i32 5
+  %acquirer_cv_.i = getelementptr inbounds i8, ptr %call, i64 64
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %acquirer_cv_.i) #13
-  %waiter_cv_.i = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %call, i64 0, i32 6
+  %waiter_cv_.i = getelementptr inbounds i8, ptr %call, i64 112
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %waiter_cv_.i) #13
   store ptr %call, ptr %this, align 8
   ret void
@@ -108,9 +97,9 @@ entry:
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5arrow4util17CountingSemaphore4ImplESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN5arrow4util17CountingSemaphore4ImplEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN5arrow4util17CountingSemaphore4ImplEEclEPS3_.exit.i: ; preds = %entry
-  %waiter_cv_.i.i.i = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %0, i64 0, i32 6
+  %waiter_cv_.i.i.i = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %waiter_cv_.i.i.i) #13
-  %acquirer_cv_.i.i.i = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %0, i64 0, i32 5
+  %acquirer_cv_.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %acquirer_cv_.i.i.i) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   br label %_ZNSt10unique_ptrIN5arrow4util17CountingSemaphore4ImplESt14default_deleteIS3_EED2Ev.exit
@@ -135,7 +124,7 @@ entry:
   %num_permits.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.arrow::Status", align 8
   store i32 %num_permits, ptr %num_permits.addr, align 4
-  %mutex_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 4
+  %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #13
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
@@ -145,7 +134,7 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
-  %closed_.i = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 3
+  %closed_.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %closed_.i, align 4, !noalias !4
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -185,20 +174,20 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt11unique_lockI
   resume { ptr, i32 } %lpad.phi
 
 _ZN5arrow6StatusD2Ev.exit42:                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit.thread
-  %num_waiters_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 2
+  %num_waiters_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %num_waiters_, align 8
   %add = add i32 %2, %num_permits
   store i32 %add, ptr %num_waiters_, align 8
-  %waiter_cv_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 6
+  %waiter_cv_ = getelementptr inbounds i8, ptr %this, i64 112
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %waiter_cv_) #13
-  %acquirer_cv_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 5
-  %timeout_seconds_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 1
+  %acquirer_cv_ = getelementptr inbounds i8, ptr %this, i64 64
+  %timeout_seconds_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load double, ptr %timeout_seconds_, align 8
   %mul = fmul double %3, 1.000000e+09
   %conv = fptosi double %mul to i64
   %call.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
   %add.i.i.i = add nsw i64 %call.i, %conv
-  %tv_nsec.i.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i.i, i64 0, i32 1
+  %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i.i, i64 8
   %div.i.i.i.i.i.i.i = sdiv i64 %add.i.i.i, 1000000000
   %mul.i.i.i.neg.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i, -1000000000
   %sub.i.i.i.i.i.i = add i64 %mul.i.i.i.neg.i.i.i.i.i.i, %add.i.i.i
@@ -285,7 +274,7 @@ entry:
 define linkonce_odr void @_ZN5arrow4util17CountingSemaphore4Impl7ReleaseEj(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %num_permits) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
-  %mutex_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 4
+  %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #13
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -295,7 +284,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %closed_.i = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 3
+  %closed_.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %closed_.i, align 4, !noalias !17
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -329,7 +318,7 @@ _ZN5arrow6StatusD2Ev.exit39:                      ; preds = %_ZN5arrow6StatusD2E
   %3 = load i32, ptr %this, align 8
   %add = add i32 %3, %num_permits
   store i32 %add, ptr %this, align 8
-  %acquirer_cv_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 5
+  %acquirer_cv_ = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %acquirer_cv_) #13
   store ptr null, ptr %agg.result, align 8, !alias.scope !25
   br label %cleanup7
@@ -354,7 +343,7 @@ entry:
   %num_waiters.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.arrow::Status", align 8
   store i32 %num_waiters, ptr %num_waiters.addr, align 4
-  %mutex_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 4
+  %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #13
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
@@ -364,7 +353,7 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
-  %closed_.i = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 3
+  %closed_.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %closed_.i, align 4, !noalias !28
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -404,15 +393,15 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt11unique_lockI
   resume { ptr, i32 } %lpad.phi
 
 _ZN5arrow6StatusD2Ev.exit42:                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit.thread
-  %waiter_cv_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 6
-  %timeout_seconds_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 1
+  %waiter_cv_ = getelementptr inbounds i8, ptr %this, i64 112
+  %timeout_seconds_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load double, ptr %timeout_seconds_, align 8
   %mul = fmul double %2, 1.000000e+09
   %conv = fptosi double %mul to i64
   %call.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
   %add.i.i.i = add nsw i64 %call.i, %conv
-  %num_waiters_.i.i.i = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 2
-  %tv_nsec.i.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i.i, i64 0, i32 1
+  %num_waiters_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i.i, i64 8
   %div.i.i.i.i.i.i.i = sdiv i64 %add.i.i.i, 1000000000
   %mul.i.i.i.neg.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i, -1000000000
   %sub.i.i.i.i.i.i = add i64 %mul.i.i.i.neg.i.i.i.i.i.i, %add.i.i.i
@@ -484,7 +473,7 @@ entry:
 define linkonce_odr void @_ZN5arrow4util17CountingSemaphore4Impl5CloseEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
-  %mutex_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 4
+  %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #13
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -494,7 +483,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %closed_.i = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 3
+  %closed_.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %closed_.i, align 4, !noalias !40
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -526,15 +515,15 @@ lpad:                                             ; preds = %if.then7, %if.then.
 
 _ZN5arrow6StatusD2Ev.exit39:                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit.thread
   store i8 1, ptr %closed_.i, align 4
-  %num_waiters_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 2
+  %num_waiters_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %num_waiters_, align 8
   %cmp.not = icmp eq i32 %3, 0
   br i1 %cmp.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit39
-  %waiter_cv_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 6
+  %waiter_cv_ = getelementptr inbounds i8, ptr %this, i64 112
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %waiter_cv_) #13
-  %acquirer_cv_ = getelementptr inbounds %"class.arrow::util::CountingSemaphore::Impl", ptr %this, i64 0, i32 5
+  %acquirer_cv_ = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %acquirer_cv_) #13
   invoke void @_ZN5arrow6Status8FromArgsIJRA73_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(73) @.str.7)
           to label %cleanup10 unwind label %lpad
@@ -570,7 +559,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ss.i)
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !51
-  %ostream_.i.i = getelementptr inbounds %"class.arrow::util::detail::StringStreamWrapper", ptr %ss.i, i64 0, i32 1
+  %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !51
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
           to label %invoke.cont1.i unwind label %lpad.i, !noalias !51
@@ -632,7 +621,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ss.i)
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !54
-  %ostream_.i.i = getelementptr inbounds %"class.arrow::util::detail::StringStreamWrapper", ptr %ss.i, i64 0, i32 1
+  %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !54
   %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !54
@@ -686,7 +675,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ss.i)
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !57
-  %ostream_.i.i = getelementptr inbounds %"class.arrow::util::detail::StringStreamWrapper", ptr %ss.i, i64 0, i32 1
+  %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !57
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !57
@@ -732,7 +721,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ss.i)
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !60
-  %ostream_.i.i = getelementptr inbounds %"class.arrow::util::detail::StringStreamWrapper", ptr %ss.i, i64 0, i32 1
+  %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !60
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !60
@@ -775,7 +764,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ss.i)
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !63
-  %ostream_.i.i = getelementptr inbounds %"class.arrow::util::detail::StringStreamWrapper", ptr %ss.i, i64 0, i32 1
+  %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !63
   %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !63
@@ -827,7 +816,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ss.i)
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !66
-  %ostream_.i.i = getelementptr inbounds %"class.arrow::util::detail::StringStreamWrapper", ptr %ss.i, i64 0, i32 1
+  %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !66
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !66

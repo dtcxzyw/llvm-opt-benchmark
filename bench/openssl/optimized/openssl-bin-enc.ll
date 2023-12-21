@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.doall_enc_ciphers = type { ptr, i32 }
-%struct.obj_name_st = type { i32, i32, ptr, ptr }
 
 @OPT_SECTION_STR = external constant [0 x i8], align 1
 @.str = private unnamed_addr constant [18 x i8] c"General options:\0A\00", align 1
@@ -278,7 +277,7 @@ sw.bb12:                                          ; preds = %while.cond
   %call13 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.84) #11
   %3 = load ptr, ptr @bio_out, align 8
   store ptr %3, ptr %dec, align 8
-  %n14 = getelementptr inbounds %struct.doall_enc_ciphers, ptr %dec, i64 0, i32 1
+  %n14 = getelementptr inbounds i8, ptr %dec, i64 8
   store i32 0, ptr %n14, align 8
   call void @OBJ_NAME_do_all_sorted(i32 noundef 2, ptr noundef nonnull @show_ciphers, ptr noundef nonnull %dec) #11
   %4 = load ptr, ptr @bio_out, align 8
@@ -1247,7 +1246,7 @@ define internal void @show_ciphers(ptr nocapture noundef readonly %name, ptr noc
 entry:
   %call = tail call ptr @__ctype_b_loc() #12
   %0 = load ptr, ptr %call, align 8
-  %name1 = getelementptr inbounds %struct.obj_name_st, ptr %name, i64 0, i32 2
+  %name1 = getelementptr inbounds i8, ptr %name, i64 8
   %1 = load ptr, ptr %name1, align 8
   %2 = load i8, ptr %1, align 1
   %idxprom = zext i8 %2 to i64
@@ -1277,7 +1276,7 @@ if.end15:                                         ; preds = %lor.lhs.false10
   %5 = load ptr, ptr %arg, align 8
   %6 = load ptr, ptr %name1, align 8
   %call17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %5, ptr noundef nonnull @.str.119, ptr noundef %6) #11
-  %n = getelementptr inbounds %struct.doall_enc_ciphers, ptr %arg, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %arg, i64 8
   %7 = load i32, ptr %n, align 8
   %inc = add nsw i32 %7, 1
   store i32 %inc, ptr %n, align 8

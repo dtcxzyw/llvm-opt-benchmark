@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QTailQLink = type { ptr, ptr }
 %struct.QemuOptDesc = type { ptr, i32, ptr, ptr }
 %struct.TraceEventGroup = type { ptr }
-%struct.TraceEventIter = type { i64, i64, i64, ptr }
 %struct.Location = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"trace\00", align 1
@@ -133,10 +132,10 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @trace_event_iter_init_all(ptr nocapture noundef writeonly %iter) local_unnamed_addr #3 {
 entry:
-  %group_id = getelementptr inbounds %struct.TraceEventIter, ptr %iter, i64 0, i32 2
+  %group_id = getelementptr inbounds i8, ptr %iter, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
   store i64 -1, ptr %group_id, align 8
-  %pattern = getelementptr inbounds %struct.TraceEventIter, ptr %iter, i64 0, i32 3
+  %pattern = getelementptr inbounds i8, ptr %iter, i64 24
   store ptr null, ptr %pattern, align 8
   ret void
 }
@@ -144,15 +143,15 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @trace_event_iter_next(ptr nocapture noundef %iter) local_unnamed_addr #0 {
 entry:
-  %group = getelementptr inbounds %struct.TraceEventIter, ptr %iter, i64 0, i32 1
+  %group = getelementptr inbounds i8, ptr %iter, i64 8
   %0 = load i64, ptr %group, align 8
   %1 = load i64, ptr @nevent_groups, align 8
   %cmp19 = icmp ult i64 %0, %1
   br i1 %cmp19, label %land.rhs.lr.ph, label %return
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %pattern = getelementptr inbounds %struct.TraceEventIter, ptr %iter, i64 0, i32 3
-  %group_id = getelementptr inbounds %struct.TraceEventIter, ptr %iter, i64 0, i32 2
+  %pattern = getelementptr inbounds i8, ptr %iter, i64 24
+  %group_id = getelementptr inbounds i8, ptr %iter, i64 16
   %.pre22 = load ptr, ptr @event_groups, align 8
   br label %land.rhs
 
@@ -221,10 +220,10 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @trace_event_iter_init_pattern(ptr nocapture noundef writeonly %iter, ptr noundef %pattern) local_unnamed_addr #3 {
 entry:
-  %group_id.i = getelementptr inbounds %struct.TraceEventIter, ptr %iter, i64 0, i32 2
+  %group_id.i = getelementptr inbounds i8, ptr %iter, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
   store i64 -1, ptr %group_id.i, align 8
-  %pattern.i = getelementptr inbounds %struct.TraceEventIter, ptr %iter, i64 0, i32 3
+  %pattern.i = getelementptr inbounds i8, ptr %iter, i64 24
   store ptr %pattern, ptr %pattern.i, align 8
   ret void
 }
@@ -232,9 +231,9 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @trace_event_iter_init_group(ptr nocapture noundef writeonly %iter, i64 noundef %group_id) local_unnamed_addr #3 {
 entry:
-  %group_id.i = getelementptr inbounds %struct.TraceEventIter, ptr %iter, i64 0, i32 2
+  %group_id.i = getelementptr inbounds i8, ptr %iter, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
-  %pattern.i = getelementptr inbounds %struct.TraceEventIter, ptr %iter, i64 0, i32 3
+  %pattern.i = getelementptr inbounds i8, ptr %iter, i64 24
   store ptr null, ptr %pattern.i, align 8
   store i64 %group_id, ptr %group_id.i, align 8
   ret void

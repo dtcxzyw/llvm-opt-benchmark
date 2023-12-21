@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.UEnumeration = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"struct.icu_75::CSRecognizerInfo" = type <{ ptr, i8, [7 x i8] }>
-%"class.icu_75::CharsetDetector" = type { ptr, ptr, i32, i8, i8, ptr }
-%struct.Context = type { i32, i8, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -82,13 +79,13 @@ new.notnull3.i:                                   ; preds = %new.notnull.i
 
 new.cont.i:                                       ; preds = %new.notnull3.i, %new.notnull.i
   store ptr %call1.i, ptr %call.i, align 8
-  %isDefaultEnabled3.i.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call.i, i64 0, i32 1
+  %isDefaultEnabled3.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i.i, align 8
   br label %new.cont5.i
 
 new.cont5.i:                                      ; preds = %new.cont.i, %if.then4.i
   store ptr %call.i, ptr %tempArray.i, align 16
-  %arrayinit.element.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %tempArray.i, i64 8
   %call6.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull7.i = icmp eq ptr %call6.i, null
   br i1 %new.isnull7.i, label %new.cont22.i, label %new.notnull8.i
@@ -104,13 +101,13 @@ new.notnull13.i:                                  ; preds = %new.notnull8.i
 
 new.cont16.i:                                     ; preds = %new.notnull13.i, %new.notnull8.i
   store ptr %call11.i, ptr %call6.i, align 8
-  %isDefaultEnabled3.i9.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call6.i, i64 0, i32 1
+  %isDefaultEnabled3.i9.i = getelementptr inbounds i8, ptr %call6.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i9.i, align 8
   br label %new.cont22.i
 
 new.cont22.i:                                     ; preds = %new.cont16.i, %new.cont5.i
   store ptr %call6.i, ptr %arrayinit.element.i, align 8
-  %arrayinit.element23.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 2
+  %arrayinit.element23.i = getelementptr inbounds i8, ptr %tempArray.i, i64 16
   %call24.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull25.i = icmp eq ptr %call24.i, null
   br i1 %new.isnull25.i, label %new.cont40.i, label %new.notnull26.i
@@ -126,13 +123,13 @@ new.notnull31.i:                                  ; preds = %new.notnull26.i
 
 new.cont34.i:                                     ; preds = %new.notnull31.i, %new.notnull26.i
   store ptr %call29.i, ptr %call24.i, align 8
-  %isDefaultEnabled3.i10.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call24.i, i64 0, i32 1
+  %isDefaultEnabled3.i10.i = getelementptr inbounds i8, ptr %call24.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i10.i, align 8
   br label %new.cont40.i
 
 new.cont40.i:                                     ; preds = %new.cont34.i, %new.cont22.i
   store ptr %call24.i, ptr %arrayinit.element23.i, align 16
-  %arrayinit.element41.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 3
+  %arrayinit.element41.i = getelementptr inbounds i8, ptr %tempArray.i, i64 24
   %call42.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull43.i = icmp eq ptr %call42.i, null
   br i1 %new.isnull43.i, label %new.cont58.i, label %new.notnull44.i
@@ -148,13 +145,13 @@ new.notnull49.i:                                  ; preds = %new.notnull44.i
 
 new.cont52.i:                                     ; preds = %new.notnull49.i, %new.notnull44.i
   store ptr %call47.i, ptr %call42.i, align 8
-  %isDefaultEnabled3.i11.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call42.i, i64 0, i32 1
+  %isDefaultEnabled3.i11.i = getelementptr inbounds i8, ptr %call42.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i11.i, align 8
   br label %new.cont58.i
 
 new.cont58.i:                                     ; preds = %new.cont52.i, %new.cont40.i
   store ptr %call42.i, ptr %arrayinit.element41.i, align 8
-  %arrayinit.element59.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 4
+  %arrayinit.element59.i = getelementptr inbounds i8, ptr %tempArray.i, i64 32
   %call60.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull61.i = icmp eq ptr %call60.i, null
   br i1 %new.isnull61.i, label %new.cont76.i, label %new.notnull62.i
@@ -170,13 +167,13 @@ new.notnull67.i:                                  ; preds = %new.notnull62.i
 
 new.cont70.i:                                     ; preds = %new.notnull67.i, %new.notnull62.i
   store ptr %call65.i, ptr %call60.i, align 8
-  %isDefaultEnabled3.i12.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call60.i, i64 0, i32 1
+  %isDefaultEnabled3.i12.i = getelementptr inbounds i8, ptr %call60.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i12.i, align 8
   br label %new.cont76.i
 
 new.cont76.i:                                     ; preds = %new.cont70.i, %new.cont58.i
   store ptr %call60.i, ptr %arrayinit.element59.i, align 16
-  %arrayinit.element77.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 5
+  %arrayinit.element77.i = getelementptr inbounds i8, ptr %tempArray.i, i64 40
   %call78.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull79.i = icmp eq ptr %call78.i, null
   br i1 %new.isnull79.i, label %new.cont99.i, label %new.notnull80.i
@@ -197,13 +194,13 @@ _ZN6icu_7519CharsetRecog_8859_1C2Ev.exit.i:       ; preds = %new.notnull85.i
 
 new.cont93.i:                                     ; preds = %_ZN6icu_7519CharsetRecog_8859_1C2Ev.exit.i, %new.notnull80.i
   store ptr %call83.i, ptr %call78.i, align 8
-  %isDefaultEnabled3.i13.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call78.i, i64 0, i32 1
+  %isDefaultEnabled3.i13.i = getelementptr inbounds i8, ptr %call78.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i13.i, align 8
   br label %new.cont99.i
 
 new.cont99.i:                                     ; preds = %new.cont93.i, %new.cont76.i
   store ptr %call78.i, ptr %arrayinit.element77.i, align 8
-  %arrayinit.element100.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 6
+  %arrayinit.element100.i = getelementptr inbounds i8, ptr %tempArray.i, i64 48
   %call101.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull102.i = icmp eq ptr %call101.i, null
   br i1 %new.isnull102.i, label %new.cont124.i, label %new.notnull103.i
@@ -224,13 +221,13 @@ _ZN6icu_7519CharsetRecog_8859_2C2Ev.exit.i:       ; preds = %new.notnull108.i
 
 new.cont117.i:                                    ; preds = %_ZN6icu_7519CharsetRecog_8859_2C2Ev.exit.i, %new.notnull103.i
   store ptr %call106.i, ptr %call101.i, align 8
-  %isDefaultEnabled3.i14.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call101.i, i64 0, i32 1
+  %isDefaultEnabled3.i14.i = getelementptr inbounds i8, ptr %call101.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i14.i, align 8
   br label %new.cont124.i
 
 new.cont124.i:                                    ; preds = %new.cont117.i, %new.cont99.i
   store ptr %call101.i, ptr %arrayinit.element100.i, align 16
-  %arrayinit.element125.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 7
+  %arrayinit.element125.i = getelementptr inbounds i8, ptr %tempArray.i, i64 56
   %call126.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull127.i = icmp eq ptr %call126.i, null
   br i1 %new.isnull127.i, label %new.cont149.i, label %new.notnull128.i
@@ -251,13 +248,13 @@ _ZN6icu_7522CharsetRecog_8859_5_ruC2Ev.exit.i:    ; preds = %new.notnull133.i
 
 new.cont142.i:                                    ; preds = %_ZN6icu_7522CharsetRecog_8859_5_ruC2Ev.exit.i, %new.notnull128.i
   store ptr %call131.i, ptr %call126.i, align 8
-  %isDefaultEnabled3.i15.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call126.i, i64 0, i32 1
+  %isDefaultEnabled3.i15.i = getelementptr inbounds i8, ptr %call126.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i15.i, align 8
   br label %new.cont149.i
 
 new.cont149.i:                                    ; preds = %new.cont142.i, %new.cont124.i
   store ptr %call126.i, ptr %arrayinit.element125.i, align 8
-  %arrayinit.element150.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 8
+  %arrayinit.element150.i = getelementptr inbounds i8, ptr %tempArray.i, i64 64
   %call151.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull152.i = icmp eq ptr %call151.i, null
   br i1 %new.isnull152.i, label %new.cont174.i, label %new.notnull153.i
@@ -278,13 +275,13 @@ _ZN6icu_7522CharsetRecog_8859_6_arC2Ev.exit.i:    ; preds = %new.notnull158.i
 
 new.cont167.i:                                    ; preds = %_ZN6icu_7522CharsetRecog_8859_6_arC2Ev.exit.i, %new.notnull153.i
   store ptr %call156.i, ptr %call151.i, align 8
-  %isDefaultEnabled3.i16.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call151.i, i64 0, i32 1
+  %isDefaultEnabled3.i16.i = getelementptr inbounds i8, ptr %call151.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i16.i, align 8
   br label %new.cont174.i
 
 new.cont174.i:                                    ; preds = %new.cont167.i, %new.cont149.i
   store ptr %call151.i, ptr %arrayinit.element150.i, align 16
-  %arrayinit.element175.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 9
+  %arrayinit.element175.i = getelementptr inbounds i8, ptr %tempArray.i, i64 72
   %call176.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull177.i = icmp eq ptr %call176.i, null
   br i1 %new.isnull177.i, label %new.cont199.i, label %new.notnull178.i
@@ -305,13 +302,13 @@ _ZN6icu_7522CharsetRecog_8859_7_elC2Ev.exit.i:    ; preds = %new.notnull183.i
 
 new.cont192.i:                                    ; preds = %_ZN6icu_7522CharsetRecog_8859_7_elC2Ev.exit.i, %new.notnull178.i
   store ptr %call181.i, ptr %call176.i, align 8
-  %isDefaultEnabled3.i17.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call176.i, i64 0, i32 1
+  %isDefaultEnabled3.i17.i = getelementptr inbounds i8, ptr %call176.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i17.i, align 8
   br label %new.cont199.i
 
 new.cont199.i:                                    ; preds = %new.cont192.i, %new.cont174.i
   store ptr %call176.i, ptr %arrayinit.element175.i, align 8
-  %arrayinit.element200.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 10
+  %arrayinit.element200.i = getelementptr inbounds i8, ptr %tempArray.i, i64 80
   %call201.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull202.i = icmp eq ptr %call201.i, null
   br i1 %new.isnull202.i, label %new.cont224.i, label %new.notnull203.i
@@ -332,13 +329,13 @@ _ZN6icu_7524CharsetRecog_8859_8_I_heC2Ev.exit.i:  ; preds = %new.notnull208.i
 
 new.cont217.i:                                    ; preds = %_ZN6icu_7524CharsetRecog_8859_8_I_heC2Ev.exit.i, %new.notnull203.i
   store ptr %call206.i, ptr %call201.i, align 8
-  %isDefaultEnabled3.i18.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call201.i, i64 0, i32 1
+  %isDefaultEnabled3.i18.i = getelementptr inbounds i8, ptr %call201.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i18.i, align 8
   br label %new.cont224.i
 
 new.cont224.i:                                    ; preds = %new.cont217.i, %new.cont199.i
   store ptr %call201.i, ptr %arrayinit.element200.i, align 16
-  %arrayinit.element225.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 11
+  %arrayinit.element225.i = getelementptr inbounds i8, ptr %tempArray.i, i64 88
   %call226.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull227.i = icmp eq ptr %call226.i, null
   br i1 %new.isnull227.i, label %new.cont249.i, label %new.notnull228.i
@@ -359,13 +356,13 @@ _ZN6icu_7522CharsetRecog_8859_8_heC2Ev.exit.i:    ; preds = %new.notnull233.i
 
 new.cont242.i:                                    ; preds = %_ZN6icu_7522CharsetRecog_8859_8_heC2Ev.exit.i, %new.notnull228.i
   store ptr %call231.i, ptr %call226.i, align 8
-  %isDefaultEnabled3.i19.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call226.i, i64 0, i32 1
+  %isDefaultEnabled3.i19.i = getelementptr inbounds i8, ptr %call226.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i19.i, align 8
   br label %new.cont249.i
 
 new.cont249.i:                                    ; preds = %new.cont242.i, %new.cont224.i
   store ptr %call226.i, ptr %arrayinit.element225.i, align 8
-  %arrayinit.element250.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 12
+  %arrayinit.element250.i = getelementptr inbounds i8, ptr %tempArray.i, i64 96
   %call251.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull252.i = icmp eq ptr %call251.i, null
   br i1 %new.isnull252.i, label %new.cont274.i, label %new.notnull253.i
@@ -386,13 +383,13 @@ _ZN6icu_7525CharsetRecog_windows_1251C2Ev.exit.i: ; preds = %new.notnull258.i
 
 new.cont267.i:                                    ; preds = %_ZN6icu_7525CharsetRecog_windows_1251C2Ev.exit.i, %new.notnull253.i
   store ptr %call256.i, ptr %call251.i, align 8
-  %isDefaultEnabled3.i20.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call251.i, i64 0, i32 1
+  %isDefaultEnabled3.i20.i = getelementptr inbounds i8, ptr %call251.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i20.i, align 8
   br label %new.cont274.i
 
 new.cont274.i:                                    ; preds = %new.cont267.i, %new.cont249.i
   store ptr %call251.i, ptr %arrayinit.element250.i, align 16
-  %arrayinit.element275.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 13
+  %arrayinit.element275.i = getelementptr inbounds i8, ptr %tempArray.i, i64 104
   %call276.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull277.i = icmp eq ptr %call276.i, null
   br i1 %new.isnull277.i, label %new.cont299.i, label %new.notnull278.i
@@ -413,13 +410,13 @@ _ZN6icu_7525CharsetRecog_windows_1256C2Ev.exit.i: ; preds = %new.notnull283.i
 
 new.cont292.i:                                    ; preds = %_ZN6icu_7525CharsetRecog_windows_1256C2Ev.exit.i, %new.notnull278.i
   store ptr %call281.i, ptr %call276.i, align 8
-  %isDefaultEnabled3.i21.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call276.i, i64 0, i32 1
+  %isDefaultEnabled3.i21.i = getelementptr inbounds i8, ptr %call276.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i21.i, align 8
   br label %new.cont299.i
 
 new.cont299.i:                                    ; preds = %new.cont292.i, %new.cont274.i
   store ptr %call276.i, ptr %arrayinit.element275.i, align 8
-  %arrayinit.element300.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 14
+  %arrayinit.element300.i = getelementptr inbounds i8, ptr %tempArray.i, i64 112
   %call301.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull302.i = icmp eq ptr %call301.i, null
   br i1 %new.isnull302.i, label %new.cont324.i, label %new.notnull303.i
@@ -440,13 +437,13 @@ _ZN6icu_7519CharsetRecog_KOI8_RC2Ev.exit.i:       ; preds = %new.notnull308.i
 
 new.cont317.i:                                    ; preds = %_ZN6icu_7519CharsetRecog_KOI8_RC2Ev.exit.i, %new.notnull303.i
   store ptr %call306.i, ptr %call301.i, align 8
-  %isDefaultEnabled3.i22.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call301.i, i64 0, i32 1
+  %isDefaultEnabled3.i22.i = getelementptr inbounds i8, ptr %call301.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i22.i, align 8
   br label %new.cont324.i
 
 new.cont324.i:                                    ; preds = %new.cont317.i, %new.cont299.i
   store ptr %call301.i, ptr %arrayinit.element300.i, align 16
-  %arrayinit.element325.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 15
+  %arrayinit.element325.i = getelementptr inbounds i8, ptr %tempArray.i, i64 120
   %call326.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull327.i = icmp eq ptr %call326.i, null
   br i1 %new.isnull327.i, label %new.cont349.i, label %new.notnull328.i
@@ -467,13 +464,13 @@ _ZN6icu_7522CharsetRecog_8859_9_trC2Ev.exit.i:    ; preds = %new.notnull333.i
 
 new.cont342.i:                                    ; preds = %_ZN6icu_7522CharsetRecog_8859_9_trC2Ev.exit.i, %new.notnull328.i
   store ptr %call331.i, ptr %call326.i, align 8
-  %isDefaultEnabled3.i23.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call326.i, i64 0, i32 1
+  %isDefaultEnabled3.i23.i = getelementptr inbounds i8, ptr %call326.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i23.i, align 8
   br label %new.cont349.i
 
 new.cont349.i:                                    ; preds = %new.cont342.i, %new.cont324.i
   store ptr %call326.i, ptr %arrayinit.element325.i, align 8
-  %arrayinit.element350.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 16
+  %arrayinit.element350.i = getelementptr inbounds i8, ptr %tempArray.i, i64 128
   %call351.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull352.i = icmp eq ptr %call351.i, null
   br i1 %new.isnull352.i, label %new.cont368.i, label %new.notnull353.i
@@ -489,13 +486,13 @@ new.notnull358.i:                                 ; preds = %new.notnull353.i
 
 new.cont361.i:                                    ; preds = %new.notnull358.i, %new.notnull353.i
   store ptr %call356.i, ptr %call351.i, align 8
-  %isDefaultEnabled3.i24.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call351.i, i64 0, i32 1
+  %isDefaultEnabled3.i24.i = getelementptr inbounds i8, ptr %call351.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i24.i, align 8
   br label %new.cont368.i
 
 new.cont368.i:                                    ; preds = %new.cont361.i, %new.cont349.i
   store ptr %call351.i, ptr %arrayinit.element350.i, align 16
-  %arrayinit.element369.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 17
+  %arrayinit.element369.i = getelementptr inbounds i8, ptr %tempArray.i, i64 136
   %call370.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull371.i = icmp eq ptr %call370.i, null
   br i1 %new.isnull371.i, label %new.cont387.i, label %new.notnull372.i
@@ -511,13 +508,13 @@ new.notnull377.i:                                 ; preds = %new.notnull372.i
 
 new.cont380.i:                                    ; preds = %new.notnull377.i, %new.notnull372.i
   store ptr %call375.i, ptr %call370.i, align 8
-  %isDefaultEnabled3.i25.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call370.i, i64 0, i32 1
+  %isDefaultEnabled3.i25.i = getelementptr inbounds i8, ptr %call370.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i25.i, align 8
   br label %new.cont387.i
 
 new.cont387.i:                                    ; preds = %new.cont380.i, %new.cont368.i
   store ptr %call370.i, ptr %arrayinit.element369.i, align 8
-  %arrayinit.element388.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 18
+  %arrayinit.element388.i = getelementptr inbounds i8, ptr %tempArray.i, i64 144
   %call389.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull390.i = icmp eq ptr %call389.i, null
   br i1 %new.isnull390.i, label %new.cont406.i, label %new.notnull391.i
@@ -533,13 +530,13 @@ new.notnull396.i:                                 ; preds = %new.notnull391.i
 
 new.cont399.i:                                    ; preds = %new.notnull396.i, %new.notnull391.i
   store ptr %call394.i, ptr %call389.i, align 8
-  %isDefaultEnabled3.i26.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call389.i, i64 0, i32 1
+  %isDefaultEnabled3.i26.i = getelementptr inbounds i8, ptr %call389.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i26.i, align 8
   br label %new.cont406.i
 
 new.cont406.i:                                    ; preds = %new.cont399.i, %new.cont387.i
   store ptr %call389.i, ptr %arrayinit.element388.i, align 16
-  %arrayinit.element407.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 19
+  %arrayinit.element407.i = getelementptr inbounds i8, ptr %tempArray.i, i64 152
   %call408.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull409.i = icmp eq ptr %call408.i, null
   br i1 %new.isnull409.i, label %new.cont425.i, label %new.notnull410.i
@@ -555,13 +552,13 @@ new.notnull415.i:                                 ; preds = %new.notnull410.i
 
 new.cont418.i:                                    ; preds = %new.notnull415.i, %new.notnull410.i
   store ptr %call413.i, ptr %call408.i, align 8
-  %isDefaultEnabled3.i27.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call408.i, i64 0, i32 1
+  %isDefaultEnabled3.i27.i = getelementptr inbounds i8, ptr %call408.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i27.i, align 8
   br label %new.cont425.i
 
 new.cont425.i:                                    ; preds = %new.cont418.i, %new.cont406.i
   store ptr %call408.i, ptr %arrayinit.element407.i, align 8
-  %arrayinit.element426.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 20
+  %arrayinit.element426.i = getelementptr inbounds i8, ptr %tempArray.i, i64 160
   %call427.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull428.i = icmp eq ptr %call427.i, null
   br i1 %new.isnull428.i, label %new.cont444.i, label %new.notnull429.i
@@ -577,13 +574,13 @@ new.notnull434.i:                                 ; preds = %new.notnull429.i
 
 new.cont437.i:                                    ; preds = %new.notnull434.i, %new.notnull429.i
   store ptr %call432.i, ptr %call427.i, align 8
-  %isDefaultEnabled3.i28.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call427.i, i64 0, i32 1
+  %isDefaultEnabled3.i28.i = getelementptr inbounds i8, ptr %call427.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i28.i, align 8
   br label %new.cont444.i
 
 new.cont444.i:                                    ; preds = %new.cont437.i, %new.cont425.i
   store ptr %call427.i, ptr %arrayinit.element426.i, align 16
-  %arrayinit.element445.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 21
+  %arrayinit.element445.i = getelementptr inbounds i8, ptr %tempArray.i, i64 168
   %call446.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull447.i = icmp eq ptr %call446.i, null
   br i1 %new.isnull447.i, label %new.cont463.i, label %new.notnull448.i
@@ -599,13 +596,13 @@ new.notnull453.i:                                 ; preds = %new.notnull448.i
 
 new.cont456.i:                                    ; preds = %new.notnull453.i, %new.notnull448.i
   store ptr %call451.i, ptr %call446.i, align 8
-  %isDefaultEnabled3.i29.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call446.i, i64 0, i32 1
+  %isDefaultEnabled3.i29.i = getelementptr inbounds i8, ptr %call446.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i29.i, align 8
   br label %new.cont463.i
 
 new.cont463.i:                                    ; preds = %new.cont456.i, %new.cont444.i
   store ptr %call446.i, ptr %arrayinit.element445.i, align 8
-  %arrayinit.element464.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 22
+  %arrayinit.element464.i = getelementptr inbounds i8, ptr %tempArray.i, i64 176
   %call465.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull466.i = icmp eq ptr %call465.i, null
   br i1 %new.isnull466.i, label %new.cont482.i, label %new.notnull467.i
@@ -621,13 +618,13 @@ new.notnull472.i:                                 ; preds = %new.notnull467.i
 
 new.cont475.i:                                    ; preds = %new.notnull472.i, %new.notnull467.i
   store ptr %call470.i, ptr %call465.i, align 8
-  %isDefaultEnabled3.i30.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call465.i, i64 0, i32 1
+  %isDefaultEnabled3.i30.i = getelementptr inbounds i8, ptr %call465.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i30.i, align 8
   br label %new.cont482.i
 
 new.cont482.i:                                    ; preds = %new.cont475.i, %new.cont463.i
   store ptr %call465.i, ptr %arrayinit.element464.i, align 16
-  %arrayinit.element483.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 23
+  %arrayinit.element483.i = getelementptr inbounds i8, ptr %tempArray.i, i64 184
   %call484.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull485.i = icmp eq ptr %call484.i, null
   br i1 %new.isnull485.i, label %new.cont501.i, label %new.notnull486.i
@@ -643,13 +640,13 @@ new.notnull491.i:                                 ; preds = %new.notnull486.i
 
 new.cont494.i:                                    ; preds = %new.notnull491.i, %new.notnull486.i
   store ptr %call489.i, ptr %call484.i, align 8
-  %isDefaultEnabled3.i31.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call484.i, i64 0, i32 1
+  %isDefaultEnabled3.i31.i = getelementptr inbounds i8, ptr %call484.i, i64 8
   store i8 1, ptr %isDefaultEnabled3.i31.i, align 8
   br label %new.cont501.i
 
 new.cont501.i:                                    ; preds = %new.cont494.i, %new.cont482.i
   store ptr %call484.i, ptr %arrayinit.element483.i, align 8
-  %arrayinit.element502.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 24
+  %arrayinit.element502.i = getelementptr inbounds i8, ptr %tempArray.i, i64 192
   %call503.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull504.i = icmp eq ptr %call503.i, null
   br i1 %new.isnull504.i, label %new.cont526.i, label %new.notnull505.i
@@ -670,13 +667,13 @@ _ZN6icu_7526CharsetRecog_IBM424_he_rtlC2Ev.exit.i: ; preds = %new.notnull510.i
 
 new.cont519.i:                                    ; preds = %_ZN6icu_7526CharsetRecog_IBM424_he_rtlC2Ev.exit.i, %new.notnull505.i
   store ptr %call508.i, ptr %call503.i, align 8
-  %isDefaultEnabled3.i32.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call503.i, i64 0, i32 1
+  %isDefaultEnabled3.i32.i = getelementptr inbounds i8, ptr %call503.i, i64 8
   store i8 0, ptr %isDefaultEnabled3.i32.i, align 8
   br label %new.cont526.i
 
 new.cont526.i:                                    ; preds = %new.cont519.i, %new.cont501.i
   store ptr %call503.i, ptr %arrayinit.element502.i, align 16
-  %arrayinit.element527.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 25
+  %arrayinit.element527.i = getelementptr inbounds i8, ptr %tempArray.i, i64 200
   %call528.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull529.i = icmp eq ptr %call528.i, null
   br i1 %new.isnull529.i, label %new.cont551.i, label %new.notnull530.i
@@ -697,13 +694,13 @@ _ZN6icu_7526CharsetRecog_IBM424_he_ltrC2Ev.exit.i: ; preds = %new.notnull535.i
 
 new.cont544.i:                                    ; preds = %_ZN6icu_7526CharsetRecog_IBM424_he_ltrC2Ev.exit.i, %new.notnull530.i
   store ptr %call533.i, ptr %call528.i, align 8
-  %isDefaultEnabled3.i33.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call528.i, i64 0, i32 1
+  %isDefaultEnabled3.i33.i = getelementptr inbounds i8, ptr %call528.i, i64 8
   store i8 0, ptr %isDefaultEnabled3.i33.i, align 8
   br label %new.cont551.i
 
 new.cont551.i:                                    ; preds = %new.cont544.i, %new.cont526.i
   store ptr %call528.i, ptr %arrayinit.element527.i, align 8
-  %arrayinit.element552.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 26
+  %arrayinit.element552.i = getelementptr inbounds i8, ptr %tempArray.i, i64 208
   %call553.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull554.i = icmp eq ptr %call553.i, null
   br i1 %new.isnull554.i, label %new.cont576.i, label %new.notnull555.i
@@ -724,13 +721,13 @@ _ZN6icu_7526CharsetRecog_IBM420_ar_rtlC2Ev.exit.i: ; preds = %new.notnull560.i
 
 new.cont569.i:                                    ; preds = %_ZN6icu_7526CharsetRecog_IBM420_ar_rtlC2Ev.exit.i, %new.notnull555.i
   store ptr %call558.i, ptr %call553.i, align 8
-  %isDefaultEnabled3.i34.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call553.i, i64 0, i32 1
+  %isDefaultEnabled3.i34.i = getelementptr inbounds i8, ptr %call553.i, i64 8
   store i8 0, ptr %isDefaultEnabled3.i34.i, align 8
   br label %new.cont576.i
 
 new.cont576.i:                                    ; preds = %new.cont569.i, %new.cont551.i
   store ptr %call553.i, ptr %arrayinit.element552.i, align 16
-  %arrayinit.element577.i = getelementptr inbounds ptr, ptr %tempArray.i, i64 27
+  %arrayinit.element577.i = getelementptr inbounds i8, ptr %tempArray.i, i64 216
   %call578.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
   %new.isnull579.i = icmp eq ptr %call578.i, null
   br i1 %new.isnull579.i, label %new.cont601.i, label %new.notnull580.i
@@ -751,7 +748,7 @@ _ZN6icu_7526CharsetRecog_IBM420_ar_ltrC2Ev.exit.i: ; preds = %new.notnull585.i
 
 new.cont594.i:                                    ; preds = %_ZN6icu_7526CharsetRecog_IBM420_ar_ltrC2Ev.exit.i, %new.notnull580.i
   store ptr %call583.i, ptr %call578.i, align 8
-  %isDefaultEnabled3.i35.i = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %call578.i, i64 0, i32 1
+  %isDefaultEnabled3.i35.i = getelementptr inbounds i8, ptr %call578.i, i64 8
   store i8 0, ptr %isDefaultEnabled3.i35.i, align 8
   br label %new.cont601.i
 
@@ -907,8 +904,8 @@ new.notnull:                                      ; preds = %entry
 
 new.cont:                                         ; preds = %new.notnull, %entry
   store ptr %call, ptr %this, align 8
-  %resultArray = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 1
-  %fEnabledRecognizers = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 5
+  %resultArray = getelementptr inbounds i8, ptr %this, i64 8
+  %fEnabledRecognizers = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %fEnabledRecognizers, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %resultArray, i8 0, i64 14, i1 false)
   %0 = load i32, ptr %status, align 4
@@ -1016,7 +1013,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
   br i1 %.b6, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %delete.end
-  %resultArray = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 1
+  %resultArray = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1040,13 +1037,13 @@ for.inc:                                          ; preds = %for.body, %delete.n
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %delete.end
-  %resultArray5 = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 1
+  %resultArray5 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %resultArray5, align 8
   invoke void @uprv_free_75(ptr noundef %3)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %for.end
-  %fEnabledRecognizers = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 5
+  %fEnabledRecognizers = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %fEnabledRecognizers, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1087,7 +1084,7 @@ define void @_ZN6icu_7515CharsetDetector7setTextEPKci(ptr nocapture noundef nonn
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN6icu_759InputText7setTextEPKci(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %in, i32 noundef %len)
-  %fFreshTextSet = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 4
+  %fFreshTextSet = getelementptr inbounds i8, ptr %this, i64 21
   store i8 1, ptr %fFreshTextSet, align 1
   ret void
 }
@@ -1097,10 +1094,10 @@ declare void @_ZN6icu_759InputText7setTextEPKci(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef signext i8 @_ZN6icu_7515CharsetDetector16setStripTagsFlagEa(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i8 noundef signext %flag) local_unnamed_addr #6 align 2 {
 entry:
-  %fStripTags = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 3
+  %fStripTags = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %fStripTags, align 4
   store i8 %flag, ptr %fStripTags, align 4
-  %fFreshTextSet = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 4
+  %fFreshTextSet = getelementptr inbounds i8, ptr %this, i64 21
   store i8 1, ptr %fFreshTextSet, align 1
   ret i8 %0
 }
@@ -1108,7 +1105,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_7515CharsetDetector16getStripTagsFlagEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fStripTags = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 3
+  %fStripTags = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %fStripTags, align 4
   ret i8 %0
 }
@@ -1145,7 +1142,7 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %resultArray = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 1
+  %resultArray = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %resultArray, align 8
   %2 = load ptr, ptr %1, align 8
   br label %return
@@ -1168,23 +1165,23 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %fFreshTextSet = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 4
+  %fFreshTextSet = getelementptr inbounds i8, ptr %this, i64 21
   %1 = load i8, ptr %fFreshTextSet, align 1
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end21, label %if.then3
 
 if.then3:                                         ; preds = %if.else
   %2 = load ptr, ptr %this, align 8
-  %fStripTags = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 3
+  %fStripTags = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load i8, ptr %fStripTags, align 4
   tail call void @_ZN6icu_759InputText10MungeInputEa(ptr noundef nonnull align 8 dereferenceable(52) %2, i8 noundef signext %3)
-  %resultCount = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 2
+  %resultCount = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %resultCount, align 8
   %.b7 = load i1, ptr @_ZL19fCSRecognizers_size, align 4
   br i1 %.b7, label %for.body.lr.ph, label %if.end18
 
 for.body.lr.ph:                                   ; preds = %if.then3
-  %resultArray = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 1
+  %resultArray = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1200,7 +1197,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx8 = getelementptr inbounds ptr, ptr %8, i64 %idxprom7
   %10 = load ptr, ptr %arrayidx8, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %11 = load ptr, ptr %vfn, align 8
   %call9 = tail call noundef signext i8 %11(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7, ptr noundef %10)
   %tobool10.not = icmp eq i8 %call9, 0
@@ -1225,7 +1222,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp14, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %for.end
-  %resultArray16 = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 1
+  %resultArray16 = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load ptr, ptr %resultArray16, align 8
   tail call void @uprv_sortArray_75(ptr noundef %13, i32 noundef %.pre, i32 noundef 8, ptr noundef nonnull @_ZL22charsetMatchComparatorPKvS0_S0_, ptr noundef null, i8 noundef signext 1, ptr noundef nonnull %status)
   br label %if.end18
@@ -1235,7 +1232,7 @@ if.end18:                                         ; preds = %if.then3, %if.then1
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.end18
-  %resultCount22 = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 2
+  %resultCount22 = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load i32, ptr %resultCount22, align 8
   store i32 %14, ptr %maxMatchesFound, align 4
   %cmp23 = icmp eq i32 %14, 0
@@ -1246,7 +1243,7 @@ if.then24:                                        ; preds = %if.end21
   br label %return
 
 if.end25:                                         ; preds = %if.end21
-  %resultArray26 = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 1
+  %resultArray26 = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load ptr, ptr %resultArray26, align 8
   br label %return
 
@@ -1308,10 +1305,10 @@ if.then11:                                        ; preds = %for.inc, %for.cond.
   br label %if.end43
 
 if.end12:                                         ; preds = %for.body
-  %isDefaultEnabled = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %2, i64 0, i32 1
+  %isDefaultEnabled = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i8, ptr %isDefaultEnabled, align 8
   %cmp7 = icmp eq i8 %5, %enabled
-  %fEnabledRecognizers = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 5
+  %fEnabledRecognizers = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %fEnabledRecognizers, align 8
   %cmp13 = icmp ne ptr %6, null
   %or.cond = select i1 %cmp13, i1 true, i1 %cmp7
@@ -1341,7 +1338,7 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   %indvars.iv26 = phi i64 [ 0, %for.body26.lr.ph ], [ %indvars.iv.next27, %for.body26 ]
   %arrayidx28 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv26
   %8 = load ptr, ptr %arrayidx28, align 8
-  %isDefaultEnabled29 = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %8, i64 0, i32 1
+  %isDefaultEnabled29 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i8, ptr %isDefaultEnabled29, align 8
   %10 = load ptr, ptr %fEnabledRecognizers, align 8
   %arrayidx32 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv26
@@ -1393,7 +1390,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call1, ptr noundef nonnull align 8 dereferenceable(56) @_ZL17gCSDetEnumeration, i64 56, i1 false)
   %call4 = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #15
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %call1, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %call4, ptr %context, align 8
   %cmp6 = icmp eq ptr %call4, null
   br i1 %cmp6, label %if.then7, label %if.end8
@@ -1405,7 +1402,7 @@ if.then7:                                         ; preds = %if.end3
 
 if.end8:                                          ; preds = %if.end3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call4, i8 0, i64 16, i1 false)
-  %all = getelementptr inbounds %struct.Context, ptr %call4, i64 0, i32 1
+  %all = getelementptr inbounds i8, ptr %call4, i64 4
   store i8 1, ptr %all, align 4
   br label %return
 
@@ -1439,7 +1436,7 @@ if.then3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2, ptr noundef nonnull align 8 dereferenceable(56) @_ZL17gCSDetEnumeration, i64 56, i1 false)
   %call5 = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #15
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %call2, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %call5, ptr %context, align 8
   %cmp7 = icmp eq ptr %call5, null
   br i1 %cmp7, label %if.then8, label %if.end9
@@ -1450,10 +1447,10 @@ if.then8:                                         ; preds = %if.end4
   br label %return
 
 if.end9:                                          ; preds = %if.end4
-  %fEnabledRecognizers = getelementptr inbounds %"class.icu_75::CharsetDetector", ptr %this, i64 0, i32 5
+  %fEnabledRecognizers = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %call5, align 1
   %1 = load ptr, ptr %fEnabledRecognizers, align 8
-  %enabledRecognizers = getelementptr inbounds %struct.Context, ptr %call5, i64 0, i32 2
+  %enabledRecognizers = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %1, ptr %enabledRecognizers, align 8
   br label %return
 
@@ -1494,7 +1491,7 @@ delete.notnull:                                   ; preds = %for.body
 
 delete.notnull.i:                                 ; preds = %delete.notnull
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   br label %_ZN6icu_7516CSRecognizerInfoD2Ev.exit
@@ -1534,7 +1531,7 @@ declare noundef i32 @_ZNK6icu_7512CharsetMatch13getConfidenceEv(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL9enumCloseP12UEnumeration(ptr noundef %en) #0 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %0 = load ptr, ptr %context, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1551,9 +1548,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL9enumCountP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %en, ptr nocapture readnone %0) #11 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8
-  %all = getelementptr inbounds %struct.Context, ptr %1, i64 0, i32 1
+  %all = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i8, ptr %all, align 4
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1564,7 +1561,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %enabledRecognizers = getelementptr inbounds %struct.Context, ptr %1, i64 0, i32 2
+  %enabledRecognizers = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %enabledRecognizers, align 8
   %cmp.not = icmp eq ptr %4, null
   %.b = load i1, ptr @_ZL19fCSRecognizers_size, align 4
@@ -1597,7 +1594,7 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   %count.217 = phi i32 [ 0, %for.body11.lr.ph ], [ %spec.select13, %for.body11 ]
   %arrayidx13 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv23
   %7 = load ptr, ptr %arrayidx13, align 8
-  %isDefaultEnabled = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %7, i64 0, i32 1
+  %isDefaultEnabled = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr %isDefaultEnabled, align 8
   %tobool14.not = icmp ne i8 %8, 0
   %inc16 = zext i1 %tobool14.not to i32
@@ -1616,7 +1613,7 @@ declare ptr @uenum_unextDefault_75(ptr noundef, ptr noundef, ptr noundef) #2
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZL8enumNextP12UEnumerationPiP10UErrorCode(ptr nocapture noundef readonly %en, ptr noundef writeonly %resultLength, ptr nocapture readnone %0) #0 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8
   %2 = load i32, ptr %1, align 8
   %.b22 = load i1, ptr @_ZL19fCSRecognizers_size, align 4
@@ -1625,7 +1622,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end61
 
 if.then:                                          ; preds = %entry
-  %all = getelementptr inbounds %struct.Context, ptr %1, i64 0, i32 1
+  %all = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %all, align 4
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %if.else, label %if.then2
@@ -1646,7 +1643,7 @@ if.then2:                                         ; preds = %if.then
   br label %if.end61
 
 if.else:                                          ; preds = %if.then
-  %enabledRecognizers = getelementptr inbounds %struct.Context, ptr %1, i64 0, i32 2
+  %enabledRecognizers = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %enabledRecognizers, align 8
   %cmp8.not = icmp eq ptr %11, null
   br i1 %cmp8.not, label %land.rhs34, label %land.rhs
@@ -1702,7 +1699,7 @@ while.body39:                                     ; preds = %land.rhs34
   %idxprom42 = sext i32 %23 to i64
   %arrayidx43 = getelementptr inbounds ptr, ptr %25, i64 %idxprom42
   %26 = load ptr, ptr %arrayidx43, align 8
-  %isDefaultEnabled = getelementptr inbounds %"struct.icu_75::CSRecognizerInfo", ptr %26, i64 0, i32 1
+  %isDefaultEnabled = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load i8, ptr %isDefaultEnabled, align 8
   %tobool44.not = icmp eq i8 %27, 0
   br i1 %tobool44.not, label %if.end54, label %if.then45
@@ -1753,7 +1750,7 @@ if.end66:                                         ; preds = %cond.end, %if.end61
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL9enumResetP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %en, ptr nocapture readnone %0) #12 {
 entry:
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %en, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8
   store i32 0, ptr %1, align 8
   ret void

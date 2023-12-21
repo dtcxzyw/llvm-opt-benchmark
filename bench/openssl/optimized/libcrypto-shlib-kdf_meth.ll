@@ -3,12 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-kdf_meth.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_algorithm_st = type { ptr, ptr, ptr, ptr }
-%struct.evp_kdf_st = type { ptr, i32, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.ossl_dispatch_st = type { i32, ptr }
-%struct.evp_kdf_ctx_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/evp/kdf_meth.c\00", align 1
 @__func__.evp_kdf_from_algorithm = private unnamed_addr constant [23 x i8] c"evp_kdf_from_algorithm\00", align 1
 
@@ -24,7 +18,7 @@ declare ptr @evp_generic_fetch(ptr noundef, i32 noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal ptr @evp_kdf_from_algorithm(i32 noundef %name_id, ptr noundef %algodef, ptr noundef %prov) #0 {
 entry:
-  %implementation = getelementptr inbounds %struct.ossl_algorithm_st, ptr %algodef, i64 0, i32 2
+  %implementation = getelementptr inbounds i8, ptr %algodef, i64 16
   %0 = load ptr, ptr %implementation, align 8
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 128, ptr noundef nonnull @.str, i32 noundef 50) #3
   %cmp.i = icmp eq ptr %call.i, null
@@ -38,12 +32,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 4
+  %refcnt.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store atomic i32 1, ptr %refcnt.i seq_cst, align 4
-  %name_id1 = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 1
+  %name_id1 = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %name_id, ptr %name_id1, align 8
   %call2 = tail call ptr @ossl_algorithm_get1_first_name(ptr noundef nonnull %algodef) #3
-  %type_name = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 2
+  %type_name = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call2, ptr %type_name, align 8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.end.i, label %if.end5
@@ -71,21 +65,21 @@ if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exi
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %algorithm_description = getelementptr inbounds %struct.ossl_algorithm_st, ptr %algodef, i64 0, i32 3
+  %algorithm_description = getelementptr inbounds i8, ptr %algodef, i64 24
   %4 = load ptr, ptr %algorithm_description, align 8
-  %description = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 3
+  %description = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %4, ptr %description, align 8
-  %set_ctx_params = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 15
-  %get_ctx_params = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 14
-  %get_params = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 13
-  %settable_ctx_params = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 12
-  %gettable_ctx_params = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 11
-  %gettable_params = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 10
-  %derive = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 9
-  %reset = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 8
-  %freectx = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 7
-  %dupctx = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 6
-  %newctx = getelementptr inbounds %struct.evp_kdf_st, ptr %call.i, i64 0, i32 5
+  %set_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 120
+  %get_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 112
+  %get_params = getelementptr inbounds i8, ptr %call.i, i64 104
+  %settable_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 96
+  %gettable_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 88
+  %gettable_params = getelementptr inbounds i8, ptr %call.i, i64 80
+  %derive = getelementptr inbounds i8, ptr %call.i, i64 72
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 64
+  %freectx = getelementptr inbounds i8, ptr %call.i, i64 56
+  %dupctx = getelementptr inbounds i8, ptr %call.i, i64 48
+  %newctx = getelementptr inbounds i8, ptr %call.i, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end5
@@ -235,7 +229,7 @@ if.end72:                                         ; preds = %sw.bb69
 for.inc:                                          ; preds = %for.cond, %if.end10, %if.end16, %if.end22, %if.end29, %if.end35, %if.end42, %if.end48, %if.end54, %if.end60, %if.end66, %if.end72, %sw.bb, %sw.bb13, %sw.bb19, %sw.bb26, %sw.bb32, %sw.bb39, %sw.bb45, %sw.bb51, %sw.bb57, %sw.bb63, %sw.bb69
   %fnkdfcnt.1 = phi i32 [ %fnkdfcnt.0, %sw.bb69 ], [ %fnkdfcnt.0, %if.end72 ], [ %fnkdfcnt.0, %sw.bb63 ], [ %fnkdfcnt.0, %if.end66 ], [ %fnkdfcnt.0, %sw.bb57 ], [ %fnkdfcnt.0, %if.end60 ], [ %fnkdfcnt.0, %sw.bb51 ], [ %fnkdfcnt.0, %if.end54 ], [ %fnkdfcnt.0, %sw.bb45 ], [ %fnkdfcnt.0, %if.end48 ], [ %fnkdfcnt.0, %sw.bb39 ], [ %fnkdfcnt.0, %if.end42 ], [ %fnkdfcnt.0, %sw.bb32 ], [ %inc38, %if.end35 ], [ %fnkdfcnt.0, %sw.bb26 ], [ %fnkdfcnt.0, %if.end29 ], [ %fnkdfcnt.0, %sw.bb19 ], [ %fnkdfcnt.0, %if.end22 ], [ %fnkdfcnt.0, %sw.bb13 ], [ %fnkdfcnt.0, %if.end16 ], [ %fnkdfcnt.0, %sw.bb ], [ %fnkdfcnt.0, %if.end10 ], [ %fnkdfcnt.0, %for.cond ]
   %fnctxcnt.1 = phi i32 [ %fnctxcnt.0, %sw.bb69 ], [ %fnctxcnt.0, %if.end72 ], [ %fnctxcnt.0, %sw.bb63 ], [ %fnctxcnt.0, %if.end66 ], [ %fnctxcnt.0, %sw.bb57 ], [ %fnctxcnt.0, %if.end60 ], [ %fnctxcnt.0, %sw.bb51 ], [ %fnctxcnt.0, %if.end54 ], [ %fnctxcnt.0, %sw.bb45 ], [ %fnctxcnt.0, %if.end48 ], [ %fnctxcnt.0, %sw.bb39 ], [ %fnctxcnt.0, %if.end42 ], [ %fnctxcnt.0, %sw.bb32 ], [ %fnctxcnt.0, %if.end35 ], [ %fnctxcnt.0, %sw.bb26 ], [ %fnctxcnt.0, %if.end29 ], [ %fnctxcnt.0, %sw.bb19 ], [ %inc25, %if.end22 ], [ %fnctxcnt.0, %sw.bb13 ], [ %fnctxcnt.0, %if.end16 ], [ %fnctxcnt.0, %sw.bb ], [ %inc, %if.end10 ], [ %fnctxcnt.0, %for.cond ]
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fns.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
@@ -289,7 +283,7 @@ return:                                           ; preds = %if.end3.i, %CRYPTO_
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define internal i32 @evp_kdf_up_ref(ptr nocapture noundef %vkdf) #2 {
 entry:
-  %refcnt = getelementptr inbounds %struct.evp_kdf_st, ptr %vkdf, i64 0, i32 4
+  %refcnt = getelementptr inbounds i8, ptr %vkdf, i64 32
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
   ret i32 1
 }
@@ -301,7 +295,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcnt = getelementptr inbounds %struct.evp_kdf_st, ptr %vkdf, i64 0, i32 4
+  %refcnt = getelementptr inbounds i8, ptr %vkdf, i64 32
   %0 = atomicrmw sub ptr %refcnt, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -315,7 +309,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  %type_name = getelementptr inbounds %struct.evp_kdf_st, ptr %vkdf, i64 0, i32 2
+  %type_name = getelementptr inbounds i8, ptr %vkdf, i64 16
   %1 = load ptr, ptr %type_name, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 40) #3
   %2 = load ptr, ptr %vkdf, align 8
@@ -330,7 +324,7 @@ return:                                           ; preds = %CRYPTO_DOWN_REF.exi
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @EVP_KDF_up_ref(ptr nocapture noundef %kdf) local_unnamed_addr #2 {
 entry:
-  %refcnt.i = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 4
+  %refcnt.i = getelementptr inbounds i8, ptr %kdf, i64 32
   %0 = atomicrmw add ptr %refcnt.i, i32 1 monotonic, align 4
   ret i32 1
 }
@@ -342,7 +336,7 @@ entry:
   br i1 %cmp.i, label %evp_kdf_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 4
+  %refcnt.i = getelementptr inbounds i8, ptr %kdf, i64 32
   %0 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -356,7 +350,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %evp_kdf_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %type_name.i = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 2
+  %type_name.i = getelementptr inbounds i8, ptr %kdf, i64 16
   %1 = load ptr, ptr %type_name.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 40) #3
   %2 = load ptr, ptr %kdf, align 8
@@ -371,7 +365,7 @@ evp_kdf_free.exit:                                ; preds = %entry, %CRYPTO_DOWN
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_KDF_gettable_params(ptr noundef %kdf) local_unnamed_addr #0 {
 entry:
-  %gettable_params = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 10
+  %gettable_params = getelementptr inbounds i8, ptr %kdf, i64 80
   %0 = load ptr, ptr %gettable_params, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -394,7 +388,7 @@ declare ptr @EVP_KDF_get0_provider(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_KDF_gettable_ctx_params(ptr noundef %kdf) local_unnamed_addr #0 {
 entry:
-  %gettable_ctx_params = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 11
+  %gettable_ctx_params = getelementptr inbounds i8, ptr %kdf, i64 88
   %0 = load ptr, ptr %gettable_ctx_params, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -414,7 +408,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_KDF_settable_ctx_params(ptr noundef %kdf) local_unnamed_addr #0 {
 entry:
-  %settable_ctx_params = getelementptr inbounds %struct.evp_kdf_st, ptr %kdf, i64 0, i32 12
+  %settable_ctx_params = getelementptr inbounds i8, ptr %kdf, i64 96
   %0 = load ptr, ptr %settable_ctx_params, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -435,7 +429,7 @@ return:                                           ; preds = %entry, %if.end
 define ptr @EVP_KDF_CTX_gettable_params(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %gettable_ctx_params = getelementptr inbounds %struct.evp_kdf_st, ptr %0, i64 0, i32 11
+  %gettable_ctx_params = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %gettable_ctx_params, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -444,9 +438,9 @@ if.end:                                           ; preds = %entry
   %call = tail call ptr @EVP_KDF_get0_provider(ptr noundef nonnull %0) #3
   %call2 = tail call ptr @ossl_provider_ctx(ptr noundef %call) #3
   %2 = load ptr, ptr %ctx, align 8
-  %gettable_ctx_params4 = getelementptr inbounds %struct.evp_kdf_st, ptr %2, i64 0, i32 11
+  %gettable_ctx_params4 = getelementptr inbounds i8, ptr %2, i64 88
   %3 = load ptr, ptr %gettable_ctx_params4, align 8
-  %algctx = getelementptr inbounds %struct.evp_kdf_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %algctx, align 8
   %call5 = tail call ptr %3(ptr noundef %4, ptr noundef %call2) #3
   br label %return
@@ -460,7 +454,7 @@ return:                                           ; preds = %entry, %if.end
 define ptr @EVP_KDF_CTX_settable_params(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %settable_ctx_params = getelementptr inbounds %struct.evp_kdf_st, ptr %0, i64 0, i32 12
+  %settable_ctx_params = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %settable_ctx_params, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -469,9 +463,9 @@ if.end:                                           ; preds = %entry
   %call = tail call ptr @EVP_KDF_get0_provider(ptr noundef nonnull %0) #3
   %call2 = tail call ptr @ossl_provider_ctx(ptr noundef %call) #3
   %2 = load ptr, ptr %ctx, align 8
-  %settable_ctx_params4 = getelementptr inbounds %struct.evp_kdf_st, ptr %2, i64 0, i32 12
+  %settable_ctx_params4 = getelementptr inbounds i8, ptr %2, i64 96
   %3 = load ptr, ptr %settable_ctx_params4, align 8
-  %algctx = getelementptr inbounds %struct.evp_kdf_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %algctx, align 8
   %call5 = tail call ptr %3(ptr noundef %4, ptr noundef %call2) #3
   br label %return

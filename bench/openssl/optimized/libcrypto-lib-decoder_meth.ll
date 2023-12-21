@@ -4,17 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_method_construct_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_endecode_base_st = type { ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.ossl_algorithm_st = type { ptr, ptr, ptr, ptr }
-%struct.ossl_decoder_st = type { %struct.ossl_endecode_base_st, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_dispatch_st = type { i32, ptr }
 %struct.decoder_data_st = type { ptr, i32, ptr, ptr, ptr, i8 }
 %struct.do_one_data_st = type { ptr, ptr }
-%struct.ossl_decoder_ctx_st = type { ptr, ptr, i32, ptr, ptr, ptr, ptr, %struct.ossl_passphrase_data_st }
-%struct.ossl_passphrase_data_st = type { i32, %union.anon, i8, ptr, i64 }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [47 x i8] c"../openssl/crypto/encode_decode/decoder_meth.c\00", align 1
 @__func__.ossl_decoder_from_algorithm = private unnamed_addr constant [28 x i8] c"ossl_decoder_from_algorithm\00", align 1
@@ -32,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @OSSL_DECODER_up_ref(ptr nocapture noundef %decoder) #0 {
 entry:
-  %refcnt = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %decoder, i64 0, i32 5
+  %refcnt = getelementptr inbounds i8, ptr %decoder, i64 40
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
   ret i32 1
 }
@@ -44,7 +35,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcnt = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %decoder, i64 0, i32 5
+  %refcnt = getelementptr inbounds i8, ptr %decoder, i64 40
   %0 = atomicrmw sub ptr %refcnt, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -58,10 +49,10 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  %name = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %decoder, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %decoder, i64 16
   %1 = load ptr, ptr %name, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 60) #7
-  %parsed_propdef = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %decoder, i64 0, i32 4
+  %parsed_propdef = getelementptr inbounds i8, ptr %decoder, i64 32
   %2 = load ptr, ptr %parsed_propdef, align 8
   tail call void @ossl_property_free(ptr noundef %2) #7
   %3 = load ptr, ptr %decoder, align 8
@@ -82,7 +73,7 @@ declare void @ossl_provider_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_decoder_from_algorithm(i32 noundef %id, ptr noundef %algodef, ptr noundef %prov) local_unnamed_addr #1 {
 entry:
-  %implementation = getelementptr inbounds %struct.ossl_algorithm_st, ptr %algodef, i64 0, i32 2
+  %implementation = getelementptr inbounds i8, ptr %algodef, i64 16
   %0 = load ptr, ptr %implementation, align 8
   %call = tail call ptr @ossl_provider_libctx(ptr noundef %prov) #7
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 120, ptr noundef nonnull @.str, i32 noundef 32) #7
@@ -90,12 +81,12 @@ entry:
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %call.i, i64 0, i32 5
+  %refcnt.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store atomic i32 1, ptr %refcnt.i seq_cst, align 4
-  %id2 = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %call.i, i64 0, i32 1
+  %id2 = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %id, ptr %id2, align 8
   %call3 = tail call ptr @ossl_algorithm_get1_first_name(ptr noundef nonnull %algodef) #7
-  %name = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %call.i, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call3, ptr %name, align 8
   %cmp5 = icmp eq ptr %call3, null
   br i1 %cmp5, label %if.end.i59, label %if.end7
@@ -117,7 +108,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i59
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %2 = phi ptr [ null, %CRYPTO_DOWN_REF.exit.i ], [ %.pre, %CRYPTO_DOWN_REF.exit.thread.i ]
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 60) #7
-  %parsed_propdef.i = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %call.i, i64 0, i32 4
+  %parsed_propdef.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %3 = load ptr, ptr %parsed_propdef.i, align 8
   tail call void @ossl_property_free(ptr noundef %3) #7
   %4 = load ptr, ptr %call.i, align 8
@@ -126,26 +117,26 @@ if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exi
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %algodef9 = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %call.i, i64 0, i32 3
+  %algodef9 = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %algodef, ptr %algodef9, align 8
-  %property_definition = getelementptr inbounds %struct.ossl_algorithm_st, ptr %algodef, i64 0, i32 1
+  %property_definition = getelementptr inbounds i8, ptr %algodef, i64 8
   %5 = load ptr, ptr %property_definition, align 8
   %call10 = tail call ptr @ossl_parse_property(ptr noundef %call, ptr noundef %5) #7
-  %parsed_propdef = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %call.i, i64 0, i32 4
+  %parsed_propdef = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %call10, ptr %parsed_propdef, align 8
   %cmp12 = icmp eq ptr %call10, null
   br i1 %cmp12, label %if.end.i62, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end7
-  %export_object = getelementptr inbounds %struct.ossl_decoder_st, ptr %call.i, i64 0, i32 9
-  %decode = getelementptr inbounds %struct.ossl_decoder_st, ptr %call.i, i64 0, i32 8
-  %does_selection = getelementptr inbounds %struct.ossl_decoder_st, ptr %call.i, i64 0, i32 7
-  %settable_ctx_params = getelementptr inbounds %struct.ossl_decoder_st, ptr %call.i, i64 0, i32 6
-  %set_ctx_params = getelementptr inbounds %struct.ossl_decoder_st, ptr %call.i, i64 0, i32 5
-  %gettable_params = getelementptr inbounds %struct.ossl_decoder_st, ptr %call.i, i64 0, i32 4
-  %get_params = getelementptr inbounds %struct.ossl_decoder_st, ptr %call.i, i64 0, i32 3
-  %freectx = getelementptr inbounds %struct.ossl_decoder_st, ptr %call.i, i64 0, i32 2
-  %newctx = getelementptr inbounds %struct.ossl_decoder_st, ptr %call.i, i64 0, i32 1
+  %export_object = getelementptr inbounds i8, ptr %call.i, i64 112
+  %decode = getelementptr inbounds i8, ptr %call.i, i64 104
+  %does_selection = getelementptr inbounds i8, ptr %call.i, i64 96
+  %settable_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 88
+  %set_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 80
+  %gettable_params = getelementptr inbounds i8, ptr %call.i, i64 72
+  %get_params = getelementptr inbounds i8, ptr %call.i, i64 64
+  %freectx = getelementptr inbounds i8, ptr %call.i, i64 56
+  %newctx = getelementptr inbounds i8, ptr %call.i, i64 48
   br label %for.cond
 
 if.end.i62:                                       ; preds = %if.end7
@@ -240,7 +231,7 @@ for.inc.sink.split:                               ; preds = %sw.bb64, %sw.bb58, 
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.cond, %sw.bb, %sw.bb22, %sw.bb28, %sw.bb34, %sw.bb40, %sw.bb46, %sw.bb52, %sw.bb58, %sw.bb64
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fns.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
@@ -331,7 +322,7 @@ define ptr @OSSL_DECODER_fetch(ptr noundef %libctx, ptr noundef %name, ptr nound
 entry:
   %methdata = alloca %struct.decoder_data_st, align 8
   store ptr %libctx, ptr %methdata, align 8
-  %tmp_store = getelementptr inbounds %struct.decoder_data_st, ptr %methdata, i64 0, i32 4
+  %tmp_store = getelementptr inbounds i8, ptr %methdata, i64 32
   store ptr null, ptr %tmp_store, align 8
   %call = call fastcc ptr @inner_ossl_decoder_fetch(ptr noundef nonnull %methdata, ptr noundef %name, ptr noundef %properties)
   %0 = load ptr, ptr %tmp_store, align 8
@@ -389,13 +380,13 @@ if.then16:                                        ; preds = %if.end, %lor.lhs.fa
   %cond1042 = phi i32 [ %call7, %lor.lhs.false14 ], [ 0, %cond.end9 ], [ 0, %if.end ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mcm, ptr noundef nonnull align 8 dereferenceable(56) @__const.inner_ossl_decoder_fetch.mcm, i64 56, i1 false)
   store ptr null, ptr %prov, align 8
-  %id17 = getelementptr inbounds %struct.decoder_data_st, ptr %methdata, i64 0, i32 1
+  %id17 = getelementptr inbounds i8, ptr %methdata, i64 8
   store i32 %cond1042, ptr %id17, align 8
-  %names = getelementptr inbounds %struct.decoder_data_st, ptr %methdata, i64 0, i32 2
+  %names = getelementptr inbounds i8, ptr %methdata, i64 16
   store ptr %name, ptr %names, align 8
-  %propquery = getelementptr inbounds %struct.decoder_data_st, ptr %methdata, i64 0, i32 3
+  %propquery = getelementptr inbounds i8, ptr %methdata, i64 24
   store ptr %cond, ptr %propquery, align 8
-  %flag_construct_error_occurred = getelementptr inbounds %struct.decoder_data_st, ptr %methdata, i64 0, i32 5
+  %flag_construct_error_occurred = getelementptr inbounds i8, ptr %methdata, i64 40
   %bf.load = load i8, ptr %flag_construct_error_occurred, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %flag_construct_error_occurred, align 8
@@ -539,9 +530,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %algodef = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %decoder, i64 0, i32 3
+  %algodef = getelementptr inbounds i8, ptr %decoder, i64 24
   %0 = load ptr, ptr %algodef, align 8
-  %property_definition = getelementptr inbounds %struct.ossl_algorithm_st, ptr %0, i64 0, i32 1
+  %property_definition = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %property_definition, align 8
   br label %return
 
@@ -563,7 +554,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %parsed_propdef = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %decoder, i64 0, i32 4
+  %parsed_propdef = getelementptr inbounds i8, ptr %decoder, i64 32
   %0 = load ptr, ptr %parsed_propdef, align 8
   br label %return
 
@@ -585,7 +576,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %decoder, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %decoder, i64 8
   %0 = load i32, ptr %id, align 8
   br label %return
 
@@ -597,7 +588,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_DECODER_get0_name(ptr nocapture noundef readonly %decoder) local_unnamed_addr #3 {
 entry:
-  %name = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %decoder, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %decoder, i64 16
   %0 = load ptr, ptr %name, align 8
   ret ptr %0
 }
@@ -605,9 +596,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @OSSL_DECODER_get0_description(ptr nocapture noundef readonly %decoder) local_unnamed_addr #4 {
 entry:
-  %algodef = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %decoder, i64 0, i32 3
+  %algodef = getelementptr inbounds i8, ptr %decoder, i64 24
   %0 = load ptr, ptr %algodef, align 8
-  %algorithm_description = getelementptr inbounds %struct.ossl_algorithm_st, ptr %0, i64 0, i32 3
+  %algorithm_description = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %algorithm_description, align 8
   ret ptr %1
 }
@@ -623,7 +614,7 @@ if.then:                                          ; preds = %entry
   %call = tail call ptr @ossl_provider_libctx(ptr noundef nonnull %0) #7
   %call3 = tail call ptr @ossl_namemap_stored(ptr noundef %call) #7
   %call4 = tail call i32 @ossl_namemap_name2num(ptr noundef %call3, ptr noundef %name) #7
-  %id = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %decoder, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %decoder, i64 8
   %1 = load i32, ptr %id, align 8
   %cmp6 = icmp eq i32 %call4, %1
   %conv = zext i1 %cmp6 to i32
@@ -666,7 +657,7 @@ if.then.i:                                        ; preds = %land.rhs
 
 if.end.i:                                         ; preds = %if.end, %land.rhs
   %id.0711 = phi i32 [ %0, %land.rhs ], [ %call2.i, %if.end ]
-  %id.i = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %decoder, i64 0, i32 1
+  %id.i = getelementptr inbounds i8, ptr %decoder, i64 8
   %1 = load i32, ptr %id.i, align 8
   br label %ossl_decoder_get_number.exit
 
@@ -688,11 +679,11 @@ entry:
   %methdata = alloca %struct.decoder_data_st, align 8
   %data = alloca %struct.do_one_data_st, align 8
   store ptr %libctx, ptr %methdata, align 8
-  %tmp_store = getelementptr inbounds %struct.decoder_data_st, ptr %methdata, i64 0, i32 4
+  %tmp_store = getelementptr inbounds i8, ptr %methdata, i64 32
   store ptr null, ptr %tmp_store, align 8
   %call = call fastcc ptr @inner_ossl_decoder_fetch(ptr noundef nonnull %methdata, ptr noundef null, ptr noundef null)
   store ptr %user_fn, ptr %data, align 8
-  %user_arg3 = getelementptr inbounds %struct.do_one_data_st, ptr %data, i64 0, i32 1
+  %user_arg3 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %user_arg, ptr %user_arg3, align 8
   %0 = load ptr, ptr %tmp_store, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -723,7 +714,7 @@ declare void @ossl_method_store_do_all(ptr noundef, ptr noundef, ptr noundef) lo
 define internal void @do_one(i32 %id, ptr noundef %method, ptr nocapture noundef readonly %arg) #1 {
 entry:
   %0 = load ptr, ptr %arg, align 8
-  %user_arg = getelementptr inbounds %struct.do_one_data_st, ptr %arg, i64 0, i32 1
+  %user_arg = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %user_arg, align 8
   tail call void %0(ptr noundef %method, ptr noundef %1) #7
   ret void
@@ -743,7 +734,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call = tail call ptr @ossl_provider_libctx(ptr noundef nonnull %0) #7
   %call5 = tail call ptr @ossl_namemap_stored(ptr noundef %call) #7
-  %id = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %decoder, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %decoder, i64 8
   %1 = load i32, ptr %id, align 8
   %call7 = tail call i32 @ossl_namemap_doall_names(ptr noundef %call5, i32 noundef %1, ptr noundef %fn, ptr noundef %data) #7
   br label %return
@@ -762,7 +753,7 @@ entry:
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %gettable_params = getelementptr inbounds %struct.ossl_decoder_st, ptr %decoder, i64 0, i32 4
+  %gettable_params = getelementptr inbounds i8, ptr %decoder, i64 72
   %0 = load ptr, ptr %gettable_params, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %return, label %OSSL_DECODER_get0_provider.exit
@@ -788,7 +779,7 @@ entry:
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %get_params = getelementptr inbounds %struct.ossl_decoder_st, ptr %decoder, i64 0, i32 3
+  %get_params = getelementptr inbounds i8, ptr %decoder, i64 64
   %0 = load ptr, ptr %get_params, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %return, label %if.then
@@ -809,7 +800,7 @@ entry:
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %settable_ctx_params = getelementptr inbounds %struct.ossl_decoder_st, ptr %decoder, i64 0, i32 6
+  %settable_ctx_params = getelementptr inbounds i8, ptr %decoder, i64 88
   %0 = load ptr, ptr %settable_ctx_params, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %return, label %OSSL_DECODER_get0_provider.exit
@@ -848,7 +839,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %decoder_insts = getelementptr inbounds %struct.ossl_decoder_ctx_st, ptr %ctx, i64 0, i32 3
+  %decoder_insts = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %decoder_insts, align 8
   %cmp5 = icmp eq ptr %0, null
   br i1 %cmp5, label %return, label %if.end8
@@ -871,7 +862,7 @@ for.body:                                         ; preds = %if.end8, %for.inc
   br i1 %cmp17, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %set_ctx_params = getelementptr inbounds %struct.ossl_decoder_st, ptr %call15, i64 0, i32 5
+  %set_ctx_params = getelementptr inbounds i8, ptr %call15, i64 80
   %2 = load ptr, ptr %set_ctx_params, align 8
   %cmp19 = icmp eq ptr %2, null
   br i1 %cmp19, label %for.inc, label %if.end22
@@ -906,22 +897,22 @@ entry:
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cleanup = getelementptr inbounds %struct.ossl_decoder_ctx_st, ptr %ctx, i64 0, i32 5
+  %cleanup = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %cleanup, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %construct_data = getelementptr inbounds %struct.ossl_decoder_ctx_st, ptr %ctx, i64 0, i32 6
+  %construct_data = getelementptr inbounds i8, ptr %ctx, i64 48
   %1 = load ptr, ptr %construct_data, align 8
   tail call void %0(ptr noundef %1) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then
-  %decoder_insts = getelementptr inbounds %struct.ossl_decoder_ctx_st, ptr %ctx, i64 0, i32 3
+  %decoder_insts = getelementptr inbounds i8, ptr %ctx, i64 24
   %2 = load ptr, ptr %decoder_insts, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %2, ptr noundef nonnull @ossl_decoder_instance_free) #7
-  %pwdata = getelementptr inbounds %struct.ossl_decoder_ctx_st, ptr %ctx, i64 0, i32 7
+  %pwdata = getelementptr inbounds i8, ptr %ctx, i64 56
   tail call void @ossl_pw_clear_passphrase_data(ptr noundef nonnull %pwdata) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %ctx, ptr noundef nonnull @.str, i32 noundef 670) #7
   br label %if.end4
@@ -939,7 +930,7 @@ declare i32 @ossl_method_store_cache_get(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_tmp_decoder_store(ptr nocapture noundef %data) #1 {
 entry:
-  %tmp_store = getelementptr inbounds %struct.decoder_data_st, ptr %data, i64 0, i32 4
+  %tmp_store = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %tmp_store, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1004,13 +995,13 @@ define internal ptr @get_decoder_from_store(ptr noundef %store, ptr noundef %pro
 entry:
   %method = alloca ptr, align 8
   store ptr null, ptr %method, align 8
-  %id1 = getelementptr inbounds %struct.decoder_data_st, ptr %data, i64 0, i32 1
+  %id1 = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load i32, ptr %id1, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %entry
-  %names = getelementptr inbounds %struct.decoder_data_st, ptr %data, i64 0, i32 2
+  %names = getelementptr inbounds i8, ptr %data, i64 16
   %1 = load ptr, ptr %names, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %return, label %if.then
@@ -1056,7 +1047,7 @@ land.lhs.true16:                                  ; preds = %if.end14
 
 if.end21:                                         ; preds = %land.lhs.true16, %if.end14
   %store.addr.0 = phi ptr [ %call.i, %land.lhs.true16 ], [ %store, %if.end14 ]
-  %propquery = getelementptr inbounds %struct.decoder_data_st, ptr %data, i64 0, i32 3
+  %propquery = getelementptr inbounds i8, ptr %data, i64 24
   %5 = load ptr, ptr %propquery, align 8
   %call22 = call i32 @ossl_method_store_fetch(ptr noundef nonnull %store.addr.0, i32 noundef %id.018, ptr noundef %5, ptr noundef %prov, ptr noundef nonnull %method) #7
   %tobool.not = icmp eq i32 %call22, 0
@@ -1138,7 +1129,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %entry, %if.end
-  %flag_construct_error_occurred = getelementptr inbounds %struct.decoder_data_st, ptr %data, i64 0, i32 5
+  %flag_construct_error_occurred = getelementptr inbounds i8, ptr %data, i64 40
   %bf.load = load i8, ptr %flag_construct_error_occurred, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_construct_error_occurred, align 8
@@ -1156,7 +1147,7 @@ entry:
   br i1 %cmp.i, label %OSSL_DECODER_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %method, i64 0, i32 5
+  %refcnt.i = getelementptr inbounds i8, ptr %method, i64 40
   %0 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -1170,10 +1161,10 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %OSSL_DECODER_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %name.i = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %method, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %method, i64 16
   %1 = load ptr, ptr %name.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 60) #7
-  %parsed_propdef.i = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %method, i64 0, i32 4
+  %parsed_propdef.i = getelementptr inbounds i8, ptr %method, i64 32
   %2 = load ptr, ptr %parsed_propdef.i, align 8
   tail call void @ossl_property_free(ptr noundef %2) #7
   %3 = load ptr, ptr %method, align 8
@@ -1195,7 +1186,7 @@ declare i32 @ossl_method_store_cache_set(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define internal i32 @up_ref_decoder(ptr nocapture noundef %method) #0 {
 entry:
-  %refcnt.i = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %method, i64 0, i32 5
+  %refcnt.i = getelementptr inbounds i8, ptr %method, i64 40
   %0 = atomicrmw add ptr %refcnt.i, i32 1 monotonic, align 4
   ret i32 1
 }
@@ -1207,7 +1198,7 @@ entry:
   br i1 %cmp.i, label %OSSL_DECODER_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %method, i64 0, i32 5
+  %refcnt.i = getelementptr inbounds i8, ptr %method, i64 40
   %0 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -1221,10 +1212,10 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %OSSL_DECODER_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %name.i = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %method, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %method, i64 16
   %1 = load ptr, ptr %name.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 60) #7
-  %parsed_propdef.i = getelementptr inbounds %struct.ossl_endecode_base_st, ptr %method, i64 0, i32 4
+  %parsed_propdef.i = getelementptr inbounds i8, ptr %method, i64 32
   %2 = load ptr, ptr %parsed_propdef.i, align 8
   tail call void @ossl_property_free(ptr noundef %2) #7
   %3 = load ptr, ptr %method, align 8

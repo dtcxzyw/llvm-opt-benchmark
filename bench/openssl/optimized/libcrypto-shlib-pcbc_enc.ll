@@ -18,7 +18,7 @@ for.body.lr.ph:                                   ; preds = %if.then
   %incdec.ptr7 = getelementptr inbounds i8, ptr %ivec, i64 4
   %0 = load i32, ptr %incdec.ptr7, align 1
   %1 = load i32, ptr %ivec, align 1
-  %arrayidx94 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx94 = getelementptr inbounds i8, ptr %tin, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -170,7 +170,7 @@ for.body159.lr.ph:                                ; preds = %if.else127
   %incdec.ptr138 = getelementptr inbounds i8, ptr %ivec, i64 4
   %13 = load i32, ptr %incdec.ptr138, align 1
   %14 = load i32, ptr %ivec, align 1
-  %arrayidx189 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx189 = getelementptr inbounds i8, ptr %tin, i64 4
   br label %for.body159
 
 for.body159:                                      ; preds = %for.body159.lr.ph, %if.end269

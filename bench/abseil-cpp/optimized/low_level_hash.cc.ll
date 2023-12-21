@@ -13,13 +13,13 @@ entry:
   br i1 %cmp, label %do.body.preheader, label %if.end
 
 do.body.preheader:                                ; preds = %entry
-  %arrayidx15 = getelementptr inbounds i64, ptr %salt, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %salt, i64 8
   %1 = load i64, ptr %arrayidx15, align 8
-  %arrayidx19 = getelementptr inbounds i64, ptr %salt, i64 2
+  %arrayidx19 = getelementptr inbounds i8, ptr %salt, i64 16
   %2 = load i64, ptr %arrayidx19, align 8
-  %arrayidx24 = getelementptr inbounds i64, ptr %salt, i64 3
+  %arrayidx24 = getelementptr inbounds i8, ptr %salt, i64 24
   %3 = load i64, ptr %arrayidx24, align 8
-  %arrayidx28 = getelementptr inbounds i64, ptr %salt, i64 4
+  %arrayidx28 = getelementptr inbounds i8, ptr %salt, i64 32
   %4 = load i64, ptr %arrayidx28, align 8
   br label %do.body
 
@@ -91,7 +91,7 @@ if.end:                                           ; preds = %do.end, %entry
   br i1 %cmp3698, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %arrayidx42 = getelementptr inbounds i64, ptr %salt, i64 1
+  %arrayidx42 = getelementptr inbounds i8, ptr %salt, i64 8
   %11 = load i64, ptr %arrayidx42, align 8
   br label %while.body
 
@@ -166,7 +166,7 @@ if.then65:                                        ; preds = %if.else63
 if.end79:                                         ; preds = %if.else63, %if.then57, %if.then65, %if.then51
   %a48.0 = phi i64 [ %t.0.copyload.i80, %if.then51 ], [ %conv, %if.then57 ], [ %or74, %if.then65 ], [ 0, %if.else63 ]
   %b49.0 = phi i64 [ %t.0.copyload.i81, %if.then51 ], [ %conv62, %if.then57 ], [ 0, %if.then65 ], [ 0, %if.else63 ]
-  %arrayidx80 = getelementptr inbounds i64, ptr %salt, i64 1
+  %arrayidx80 = getelementptr inbounds i8, ptr %salt, i64 8
   %15 = load i64, ptr %arrayidx80, align 8
   %xor81 = xor i64 %15, %a48.0
   %xor82 = xor i64 %b49.0, %current_state.2.lcssa

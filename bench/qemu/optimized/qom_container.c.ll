@@ -32,7 +32,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %tobool.not, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %land.lhs.true2
-  %arrayidx516 = getelementptr ptr, ptr %call, i64 1
+  %arrayidx516 = getelementptr i8, ptr %call, i64 8
   %2 = load ptr, ptr %arrayidx516, align 8
   %cmp6.not17 = icmp eq ptr %2, null
   br i1 %cmp6.not17, label %for.end, label %for.body

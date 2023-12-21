@@ -3,11 +3,6 @@ source_filename = "bench/velox/original/Allocation.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.facebook::velox::memory::Allocation" = type <{ ptr, %"class.std::vector", i32, [4 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.facebook::velox::memory::Allocation::PageRun" = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -16,14 +11,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.fmt::v8::detail::arg_data" = type { [3 x %"class.fmt::v8::detail::value"] }
 %"class.fmt::v8::detail::value" = type { %union.anon.13 }
 %union.anon.13 = type { i128 }
-%"class.facebook::velox::memory::ContiguousAllocation" = type { ptr, ptr, i64, i64 }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<folly::Range<char *>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<folly::Range<char *>>::_Storage" = type { %"class.folly::Range" }
 %"class.folly::Range" = type { ptr, ptr }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<folly::Range<char *>>::_Storage", i8, [7 x i8] }>
 %"class.fmt::v8::format_arg_store.14" = type { %"struct.fmt::v8::detail::arg_data.15" }
 %"struct.fmt::v8::detail::arg_data.15" = type { [4 x %"class.fmt::v8::detail::value"] }
 
@@ -49,21 +42,21 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(36) %this)
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %numPages_ = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 2
+  %numPages_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %numPages_, align 8
   %cmp3.not = icmp eq i32 %2, 0
   br i1 %cmp3.not, label %lor.lhs.false, label %if.then4
 
 lor.lhs.false:                                    ; preds = %if.end
-  %runs_ = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 1
+  %runs_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %runs_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i, label %if.end5, label %if.then4
@@ -114,19 +107,19 @@ entry:
   %numPages.addr = alloca i32, align 4
   store ptr %address, ptr %address.addr, align 8
   store i32 %numPages, ptr %numPages.addr, align 4
-  %numPages_ = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 2
+  %numPages_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %numPages_, align 8
   %add = add nsw i32 %0, %numPages
   store i32 %add, ptr %numPages_, align 8
-  %runs_ = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 1
+  %runs_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %runs_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %2, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load i64, ptr %add.ptr.i.i, align 8
   %and.i = and i64 %3, 281474976710655
   %4 = inttoptr i64 %and.i to ptr
@@ -138,7 +131,7 @@ if.then:                                          ; preds = %lor.rhs
   unreachable
 
 if.end:                                           ; preds = %entry, %lor.rhs
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %2, %5
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -166,7 +159,7 @@ _ZNSt16allocator_traitsISaIN8facebook5velox6memory10Allocation7PageRunEEE9constr
   %or.i.i.i.i = or i64 %shl.i.i.i.i, %6
   store i64 %or.i.i.i.i, ptr %2, align 8
   %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE12emplace_backIJRPhRiEEERS4_DpOT_.exit
 
@@ -181,18 +174,18 @@ _ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE12emplace_backI
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox6memory10Allocation10appendMoveERS2_(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull align 8 dereferenceable(36) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %runs_ = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %other, i64 0, i32 1
+  %runs_ = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %runs_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %other, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %other, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not8 = icmp eq ptr %0, %1
   br i1 %cmp.i.not8, label %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE5clearEv.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %numPages_ = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 2
-  %runs_8 = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %numPages_ = getelementptr inbounds i8, ptr %this, i64 32
+  %runs_8 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
   br label %for.body
 
@@ -213,7 +206,7 @@ if.then.i.i:                                      ; preds = %for.body
   %7 = load i64, ptr %__begin2.sroa.0.09, align 8
   store i64 %7, ptr %2, align 8
   %8 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %8, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE9push_backEOS4_.exit
 
@@ -260,14 +253,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %11 = load i64, ptr %__first.addr.06.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !4
   store i64 %11, ptr %__cur.07.i.i.i.i.i.i, align 8, !alias.scope !4, !noalias !7
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !9
 
 _ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"class.facebook::velox::memory::Allocation::PageRun", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -284,7 +277,7 @@ _ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE17_M_realloc_in
 
 _ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE9push_backEOS4_.exit: ; preds = %if.then.i.i, %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
   %12 = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ]
-  %incdec.ptr.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %__begin2.sroa.0.09, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.09, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -299,7 +292,7 @@ invoke.cont.i.i:                                  ; preds = %for.end
   br label %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE5clearEv.exit
 
 _ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE5clearEv.exit: ; preds = %entry, %for.end, %invoke.cont.i.i
-  %numPages_11 = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %other, i64 0, i32 2
+  %numPages_11 = getelementptr inbounds i8, ptr %other, i64 32
   store i32 0, ptr %numPages_11, align 8
   ret void
 }
@@ -307,8 +300,8 @@ _ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE5clearEv.exit: 
 ; Function Attrs: mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
 define void @_ZNK8facebook5velox6memory10Allocation7findRunEmPiS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, i64 noundef %offset, ptr nocapture noundef writeonly %index, ptr nocapture noundef writeonly %offsetInRun) local_unnamed_addr #4 align 2 {
 entry:
-  %runs_ = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %runs_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %runs_, align 8
   %cmp9.not = icmp eq ptr %0, %1
@@ -355,9 +348,9 @@ for.end:                                          ; preds = %if.end, %entry
 define void @_ZNK8facebook5velox6memory10Allocation8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store", align 16
-  %numPages_ = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 2
-  %runs_ = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %numPages_ = getelementptr inbounds i8, ptr %this, i64 32
+  %runs_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %runs_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -372,9 +365,9 @@ entry:
   %retval.i.sroa.0.0.insert.ext.i = zext i32 %3 to i64
   %4 = ptrtoint ptr %cond to i64
   store i64 %retval.i.sroa.0.0.insert.ext.i, ptr %ref.tmp.i, align 16, !alias.scope !12
-  %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %sub.ptr.div.i, ptr %arrayinit.element.i.i, align 16, !alias.scope !12
-  %arrayinit.element6.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 2
+  %arrayinit.element6.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 %4, ptr %arrayinit.element6.i.i, align 16, !alias.scope !12
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str, i64 44, i64 3137, ptr nonnull %ref.tmp.i)
   ret void
@@ -389,7 +382,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %invoke.cont unwind label %terminate.lpad
@@ -399,10 +392,10 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %data_ = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %data_, align 8
   %cmp4.not = icmp eq ptr %2, null
-  %size_ = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %this, i64 0, i32 2
+  %size_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %size_, align 8
   %cmp5.not = icmp eq i64 %3, 0
   %or.cond = select i1 %cmp4.not, i1 %cmp5.not, i1 false
@@ -426,13 +419,13 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define void @_ZN8facebook5velox6memory20ContiguousAllocation3setEPvmm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %data, i64 noundef %size, i64 noundef %maxSize) local_unnamed_addr #5 align 2 {
 entry:
-  %data_ = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %data, ptr %data_, align 8
-  %size_ = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %this, i64 0, i32 2
+  %size_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %size, ptr %size_, align 8
   %cmp.not = icmp eq i64 %maxSize, 0
   %cond = select i1 %cmp.not, i64 %size, i64 %maxSize
-  %maxSize_ = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %this, i64 0, i32 3
+  %maxSize_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %cond, ptr %maxSize_, align 8
   %cmp.i = icmp eq i64 %size, 0
   %0 = icmp eq ptr %data, null
@@ -462,7 +455,7 @@ define void @_ZN8facebook5velox6memory20ContiguousAllocation4growEm(ptr noundef 
 entry:
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(168) %0, i64 noundef %increment, ptr noundef nonnull align 8 dereferenceable(32) %this)
   ret void
@@ -478,7 +471,7 @@ _ZN8facebook5velox6memory20ContiguousAllocation3setEPvmm.exit:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK8facebook5velox6memory20ContiguousAllocation8numPagesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %size_ = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %this, i64 0, i32 2
+  %size_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %size_, align 8
   %add.i = add i64 %0, 4095
   %div.i1 = lshr i64 %add.i, 12
@@ -488,12 +481,12 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK8facebook5velox6memory20ContiguousAllocation13hugePageRangeEv(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_ = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
   %1 = ptrtoint ptr %0 to i64
   %add.i = add i64 %1, 2097151
   %mul.i = and i64 %add.i, -2097152
-  %maxSize_ = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %this, i64 0, i32 3
+  %maxSize_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %maxSize_, align 8
   %add = add i64 %2, %1
   %div5 = and i64 %add, -2097152
@@ -511,7 +504,7 @@ if.end:                                           ; preds = %entry
 
 return:                                           ; preds = %entry, %if.end
   %.sink = phi i8 [ 1, %if.end ], [ 0, %entry ]
-  %4 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 %.sink, ptr %4, align 8
   ret void
 }
@@ -520,9 +513,9 @@ return:                                           ; preds = %entry, %if.end
 define void @_ZNK8facebook5velox6memory20ContiguousAllocation8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.14", align 16
-  %data_ = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %this, i64 0, i32 1
-  %size_ = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %this, i64 0, i32 2
-  %maxSize_ = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %this, i64 0, i32 3
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
+  %size_ = getelementptr inbounds i8, ptr %this, i64 16
+  %maxSize_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %this, align 8
   %cmp = icmp eq ptr %0, null
   %cond = select i1 %cmp, ptr @.str.1, ptr @.str.2
@@ -533,11 +526,11 @@ entry:
   %4 = load i64, ptr %maxSize_, align 8, !noalias !15
   %5 = ptrtoint ptr %cond to i64
   store i64 %2, ptr %ref.tmp.i, align 16, !alias.scope !15
-  %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %3, ptr %arrayinit.element.i.i, align 16, !alias.scope !15
-  %arrayinit.element8.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 2
+  %arrayinit.element8.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 %4, ptr %arrayinit.element8.i.i, align 16, !alias.scope !15
-  %arrayinit.element9.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 3
+  %arrayinit.element9.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 %5, ptr %arrayinit.element9.i.i, align 16, !alias.scope !15
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.3, i64 60, i64 50254, ptr nonnull %ref.tmp.i)
   ret void
@@ -549,7 +542,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE17_M_realloc_insertIJRPhRiEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -617,14 +610,14 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %5 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !21, !noalias !18
   store i64 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !18, !noalias !21
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %for.body.i.i.i, !llvm.loop !9
 
 _ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr %"class.facebook::velox::memory::Allocation::PageRun", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
   %cmp.not5.i.i.i21 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i21, label %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit29, label %for.body.i.i.i22
 
@@ -635,8 +628,8 @@ for.body.i.i.i22:                                 ; preds = %_ZNSt6vectorIN8face
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %6 = load i64, ptr %__first.addr.06.i.i.i24, align 8, !alias.scope !26, !noalias !23
   store i64 %6, ptr %__cur.07.i.i.i23, align 8, !alias.scope !23, !noalias !26
-  %incdec.ptr.i.i.i25 = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %__first.addr.06.i.i.i24, i64 1
-  %incdec.ptr1.i.i.i26 = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %__cur.07.i.i.i23, i64 1
+  %incdec.ptr.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i24, i64 8
+  %incdec.ptr1.i.i.i26 = getelementptr inbounds i8, ptr %__cur.07.i.i.i23, i64 8
   %cmp.not.i.i.i27 = icmp eq ptr %incdec.ptr.i.i.i25, %0
   br i1 %cmp.not.i.i.i27, label %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit29, label %for.body.i.i.i22, !llvm.loop !9
 
@@ -650,7 +643,7 @@ if.then.i30:                                      ; preds = %_ZNSt6vectorIN8face
   br label %_ZNSt12_Vector_baseIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE13_M_deallocateEPS4_m.exit
 
 _ZNSt12_Vector_baseIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit29, %if.then.i30
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i28, ptr %_M_finish.i.i, align 8
   %add.ptr28 = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %cond.i17, i64 %cond.i

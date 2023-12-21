@@ -4,19 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.Imf_3_2::InputPartData" = type <{ %"class.Imf_3_2::Header", i32, i32, i32, [4 x i8], ptr, %"class.std::vector", i8, [7 x i8] }>
-%"class.Imf_3_2::Header" = type <{ %"class.std::map", i8, [7 x i8] }>
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Attribute *>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Attribute *>>, std::less<Imf_3_2::Name>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Attribute *>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Attribute *>>, std::less<Imf_3_2::Name>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -36,15 +23,15 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN7Imf_3_213InputPartDataC2EPNS_16InputStreamMutexERKNS_6HeaderEiii(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef %mutex, ptr noundef nonnull align 8 dereferenceable(49) %header, i32 noundef %partNumber, i32 noundef %numThreads, i32 noundef %version) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN7Imf_3_26HeaderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(49) %header)
-  %numThreads3 = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %this, i64 0, i32 1
+  %numThreads3 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %numThreads, ptr %numThreads3, align 8
-  %partNumber4 = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %this, i64 0, i32 2
+  %partNumber4 = getelementptr inbounds i8, ptr %this, i64 60
   store i32 %partNumber, ptr %partNumber4, align 4
-  %version5 = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %this, i64 0, i32 3
+  %version5 = getelementptr inbounds i8, ptr %this, i64 64
   store i32 %version, ptr %version5, align 8
-  %mutex6 = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %this, i64 0, i32 5
+  %mutex6 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %mutex, ptr %mutex6, align 8
-  %chunkOffsets = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %this, i64 0, i32 6
+  %chunkOffsets = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %chunkOffsets, i8 0, i64 25, i1 false)
   ret void
 }

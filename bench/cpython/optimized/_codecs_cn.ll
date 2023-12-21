@@ -12,9 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.dbcs_index = type { ptr, i8, i8 }
 %struct.unim_index = type { ptr, i8, i8 }
 %struct._gb18030_to_unibmp_ranges = type { i32, i32, i16 }
-%struct._cjk_mod_state = type { i32, i32, ptr, ptr }
 %struct._multibyte_codec = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.codec_capsule = type { ptr, ptr }
 %struct.dbcs_map = type { ptr, ptr, ptr }
 
 @_cjk_module = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 24, ptr @_cjk_methods, ptr @_cjk_slots, ptr null, ptr null, ptr @_cjk_free }, align 8
@@ -63,10 +61,10 @@ declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 define internal void @_cjk_free(ptr noundef %mod) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #9
-  %mapping_list = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i, i64 0, i32 2
+  %mapping_list = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %mapping_list, align 8
   tail call void @PyMem_Free(ptr noundef %0) #9
-  %codec_list = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i, i64 0, i32 3
+  %codec_list = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %codec_list, align 8
   tail call void @PyMem_Free(ptr noundef %1) #9
   ret void
@@ -95,13 +93,13 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %self) #9
-  %num_codecs = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i, i64 0, i32 1
+  %num_codecs = getelementptr inbounds i8, ptr %call.i, i64 4
   %4 = load i32, ptr %num_codecs, align 4
   %cmp68 = icmp sgt i32 %4, 0
   br i1 %cmp68, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end4
-  %codec_list = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i, i64 0, i32 3
+  %codec_list = getelementptr inbounds i8, ptr %call.i, i64 16
   %5 = load ptr, ptr %codec_list, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %for.body
@@ -154,7 +152,7 @@ if.end.i31.i:                                     ; preds = %if.then3.i
   br i1 %cmp.i33.i, label %return.sink.split.i, label %return
 
 if.end4.i:                                        ; preds = %if.end.i.i.i.i, %if.end.i19.i
-  %cjk_module.i.i = getelementptr inbounds %struct.codec_capsule, ptr %call.i17.i, i64 0, i32 1
+  %cjk_module.i.i = getelementptr inbounds i8, ptr %call.i17.i, i64 8
   store ptr %self, ptr %cjk_module.i.i, align 8
   %call5.i = tail call ptr @PyCapsule_New(ptr noundef nonnull %call.i17.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @destroy_codec_capsule) #9
   %cmp6.i = icmp eq ptr %call5.i, null
@@ -232,7 +230,7 @@ declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define internal void @destroy_codec_capsule(ptr noundef %capsule) #0 {
 entry:
   %call = tail call ptr @PyCapsule_GetPointer(ptr noundef %capsule, ptr noundef nonnull @.str.5) #9
-  %cjk_module = getelementptr inbounds %struct.codec_capsule, ptr %call, i64 0, i32 1
+  %cjk_module = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cjk_module, align 8
   %1 = load i64, ptr %0, align 8
   %2 = and i64 %1, 2147483648
@@ -276,7 +274,7 @@ entry:
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   store i32 4, ptr %call.i.i, align 8
   %call.i8.i = tail call ptr @PyMem_Calloc(i64 noundef 4, i64 noundef 24) #9
-  %mapping_list.i.i = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i.i, i64 0, i32 2
+  %mapping_list.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %call.i8.i, ptr %mapping_list.i.i, align 8
   %cmp.i.i = icmp eq ptr %call.i8.i, null
   br i1 %cmp.i.i, label %register_maps.exit, label %if.end.i
@@ -288,30 +286,30 @@ if.end.i:                                         ; preds = %entry
   %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i8.i, i64 16
   store ptr @gb2312_decmap, ptr %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i, align 8
   %0 = load ptr, ptr %mapping_list.i.i, align 8
-  %arrayidx6.i.i = getelementptr %struct.dbcs_map, ptr %0, i64 1
+  %arrayidx6.i.i = getelementptr i8, ptr %0, i64 24
   store ptr @.str.10, ptr %arrayidx6.i.i, align 8
-  %.compoundliteral7.sroa.2.0.arrayidx6.sroa_idx.i.i = getelementptr %struct.dbcs_map, ptr %0, i64 1, i32 1
+  %.compoundliteral7.sroa.2.0.arrayidx6.sroa_idx.i.i = getelementptr i8, ptr %0, i64 32
   store ptr null, ptr %.compoundliteral7.sroa.2.0.arrayidx6.sroa_idx.i.i, align 8
-  %.compoundliteral7.sroa.3.0.arrayidx6.sroa_idx.i.i = getelementptr %struct.dbcs_map, ptr %0, i64 1, i32 2
+  %.compoundliteral7.sroa.3.0.arrayidx6.sroa_idx.i.i = getelementptr i8, ptr %0, i64 40
   store ptr @gbkext_decmap, ptr %.compoundliteral7.sroa.3.0.arrayidx6.sroa_idx.i.i, align 8
   %1 = load ptr, ptr %mapping_list.i.i, align 8
-  %arrayidx14.i.i = getelementptr %struct.dbcs_map, ptr %1, i64 2
+  %arrayidx14.i.i = getelementptr i8, ptr %1, i64 48
   store ptr @.str.11, ptr %arrayidx14.i.i, align 8
-  %.compoundliteral15.sroa.2.0.arrayidx14.sroa_idx.i.i = getelementptr %struct.dbcs_map, ptr %1, i64 2, i32 1
+  %.compoundliteral15.sroa.2.0.arrayidx14.sroa_idx.i.i = getelementptr i8, ptr %1, i64 56
   store ptr @gbcommon_encmap, ptr %.compoundliteral15.sroa.2.0.arrayidx14.sroa_idx.i.i, align 8
-  %.compoundliteral15.sroa.3.0.arrayidx14.sroa_idx.i.i = getelementptr %struct.dbcs_map, ptr %1, i64 2, i32 2
+  %.compoundliteral15.sroa.3.0.arrayidx14.sroa_idx.i.i = getelementptr i8, ptr %1, i64 64
   store ptr null, ptr %.compoundliteral15.sroa.3.0.arrayidx14.sroa_idx.i.i, align 8
   %2 = load ptr, ptr %mapping_list.i.i, align 8
-  %arrayidx22.i.i = getelementptr %struct.dbcs_map, ptr %2, i64 3
+  %arrayidx22.i.i = getelementptr i8, ptr %2, i64 72
   store ptr @.str.12, ptr %arrayidx22.i.i, align 8
-  %.compoundliteral23.sroa.2.0.arrayidx22.sroa_idx.i.i = getelementptr %struct.dbcs_map, ptr %2, i64 3, i32 1
+  %.compoundliteral23.sroa.2.0.arrayidx22.sroa_idx.i.i = getelementptr i8, ptr %2, i64 80
   store ptr @gb18030ext_encmap, ptr %.compoundliteral23.sroa.2.0.arrayidx22.sroa_idx.i.i, align 8
-  %.compoundliteral23.sroa.3.0.arrayidx22.sroa_idx.i.i = getelementptr %struct.dbcs_map, ptr %2, i64 3, i32 2
+  %.compoundliteral23.sroa.3.0.arrayidx22.sroa_idx.i.i = getelementptr i8, ptr %2, i64 88
   store ptr @gb18030ext_decmap, ptr %.compoundliteral23.sroa.3.0.arrayidx22.sroa_idx.i.i, align 8
-  %num_codecs.i.i = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i.i, i64 0, i32 1
+  %num_codecs.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   store i32 4, ptr %num_codecs.i.i, align 4
   %call.i9.i = tail call ptr @PyMem_Calloc(i64 noundef 4, i64 noundef 80) #9
-  %codec_list.i.i = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i.i, i64 0, i32 3
+  %codec_list.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %call.i9.i, ptr %codec_list.i.i, align 8
   %cmp.i10.i = icmp eq ptr %call.i9.i, null
   br i1 %cmp.i10.i, label %register_maps.exit, label %if.end.i11.i
@@ -329,49 +327,49 @@ if.end.i11.i:                                     ; preds = %if.end.i
   %.compoundliteral.sroa.8.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i9.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral.sroa.8.0.arrayidx.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %codec_list.i.i, align 8
-  %arrayidx6.i13.i = getelementptr %struct._multibyte_codec, ptr %3, i64 1
+  %arrayidx6.i13.i = getelementptr i8, ptr %3, i64 80
   store ptr @.str.15, ptr %arrayidx6.i13.i, align 8
-  %.compoundliteral7.sroa.2.0.arrayidx6.sroa_idx.i14.i = getelementptr %struct._multibyte_codec, ptr %3, i64 1, i32 1
-  %.compoundliteral7.sroa.4.0.arrayidx6.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %3, i64 1, i32 3
+  %.compoundliteral7.sroa.2.0.arrayidx6.sroa_idx.i14.i = getelementptr i8, ptr %3, i64 88
+  %.compoundliteral7.sroa.4.0.arrayidx6.sroa_idx.i.i = getelementptr i8, ptr %3, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral7.sroa.2.0.arrayidx6.sroa_idx.i14.i, i8 0, i64 16, i1 false)
   store ptr @gbk_encode, ptr %.compoundliteral7.sroa.4.0.arrayidx6.sroa_idx.i.i, align 8
-  %.compoundliteral7.sroa.5.0.arrayidx6.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %3, i64 1, i32 4
-  %.compoundliteral7.sroa.7.0.arrayidx6.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %3, i64 1, i32 6
+  %.compoundliteral7.sroa.5.0.arrayidx6.sroa_idx.i.i = getelementptr i8, ptr %3, i64 112
+  %.compoundliteral7.sroa.7.0.arrayidx6.sroa_idx.i.i = getelementptr i8, ptr %3, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral7.sroa.5.0.arrayidx6.sroa_idx.i.i, i8 0, i64 16, i1 false)
   store ptr @gbk_decode, ptr %.compoundliteral7.sroa.7.0.arrayidx6.sroa_idx.i.i, align 8
-  %.compoundliteral7.sroa.8.0.arrayidx6.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %3, i64 1, i32 7
+  %.compoundliteral7.sroa.8.0.arrayidx6.sroa_idx.i.i = getelementptr i8, ptr %3, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral7.sroa.8.0.arrayidx6.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %codec_list.i.i, align 8
-  %arrayidx21.i.i = getelementptr %struct._multibyte_codec, ptr %4, i64 2
+  %arrayidx21.i.i = getelementptr i8, ptr %4, i64 160
   store ptr @.str.16, ptr %arrayidx21.i.i, align 8
-  %.compoundliteral22.sroa.2.0.arrayidx21.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %4, i64 2, i32 1
-  %.compoundliteral22.sroa.4.0.arrayidx21.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %4, i64 2, i32 3
+  %.compoundliteral22.sroa.2.0.arrayidx21.sroa_idx.i.i = getelementptr i8, ptr %4, i64 168
+  %.compoundliteral22.sroa.4.0.arrayidx21.sroa_idx.i.i = getelementptr i8, ptr %4, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral22.sroa.2.0.arrayidx21.sroa_idx.i.i, i8 0, i64 16, i1 false)
   store ptr @gb18030_encode, ptr %.compoundliteral22.sroa.4.0.arrayidx21.sroa_idx.i.i, align 8
-  %.compoundliteral22.sroa.5.0.arrayidx21.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %4, i64 2, i32 4
-  %.compoundliteral22.sroa.7.0.arrayidx21.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %4, i64 2, i32 6
+  %.compoundliteral22.sroa.5.0.arrayidx21.sroa_idx.i.i = getelementptr i8, ptr %4, i64 192
+  %.compoundliteral22.sroa.7.0.arrayidx21.sroa_idx.i.i = getelementptr i8, ptr %4, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral22.sroa.5.0.arrayidx21.sroa_idx.i.i, i8 0, i64 16, i1 false)
   store ptr @gb18030_decode, ptr %.compoundliteral22.sroa.7.0.arrayidx21.sroa_idx.i.i, align 8
-  %.compoundliteral22.sroa.8.0.arrayidx21.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %4, i64 2, i32 7
+  %.compoundliteral22.sroa.8.0.arrayidx21.sroa_idx.i.i = getelementptr i8, ptr %4, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral22.sroa.8.0.arrayidx21.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %codec_list.i.i, align 8
-  %arrayidx36.i.i = getelementptr %struct._multibyte_codec, ptr %5, i64 3
+  %arrayidx36.i.i = getelementptr i8, ptr %5, i64 240
   store ptr @.str.17, ptr %arrayidx36.i.i, align 8
-  %.compoundliteral37.sroa.2.0.arrayidx36.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %5, i64 3, i32 1
-  %.compoundliteral37.sroa.4.0.arrayidx36.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %5, i64 3, i32 3
+  %.compoundliteral37.sroa.2.0.arrayidx36.sroa_idx.i.i = getelementptr i8, ptr %5, i64 248
+  %.compoundliteral37.sroa.4.0.arrayidx36.sroa_idx.i.i = getelementptr i8, ptr %5, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral37.sroa.2.0.arrayidx36.sroa_idx.i.i, i8 0, i64 16, i1 false)
   store ptr @hz_encode, ptr %.compoundliteral37.sroa.4.0.arrayidx36.sroa_idx.i.i, align 8
-  %.compoundliteral37.sroa.5.0.arrayidx36.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %5, i64 3, i32 4
+  %.compoundliteral37.sroa.5.0.arrayidx36.sroa_idx.i.i = getelementptr i8, ptr %5, i64 272
   store ptr @hz_encode_init, ptr %.compoundliteral37.sroa.5.0.arrayidx36.sroa_idx.i.i, align 8
-  %.compoundliteral37.sroa.6.0.arrayidx36.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %5, i64 3, i32 5
+  %.compoundliteral37.sroa.6.0.arrayidx36.sroa_idx.i.i = getelementptr i8, ptr %5, i64 280
   store ptr @hz_encode_reset, ptr %.compoundliteral37.sroa.6.0.arrayidx36.sroa_idx.i.i, align 8
-  %.compoundliteral37.sroa.7.0.arrayidx36.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %5, i64 3, i32 6
+  %.compoundliteral37.sroa.7.0.arrayidx36.sroa_idx.i.i = getelementptr i8, ptr %5, i64 288
   store ptr @hz_decode, ptr %.compoundliteral37.sroa.7.0.arrayidx36.sroa_idx.i.i, align 8
-  %.compoundliteral37.sroa.8.0.arrayidx36.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %5, i64 3, i32 7
+  %.compoundliteral37.sroa.8.0.arrayidx36.sroa_idx.i.i = getelementptr i8, ptr %5, i64 296
   store ptr @hz_decode_init, ptr %.compoundliteral37.sroa.8.0.arrayidx36.sroa_idx.i.i, align 8
-  %.compoundliteral37.sroa.9.0.arrayidx36.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %5, i64 3, i32 8
+  %.compoundliteral37.sroa.9.0.arrayidx36.sroa_idx.i.i = getelementptr i8, ptr %5, i64 304
   store ptr @hz_decode_reset, ptr %.compoundliteral37.sroa.9.0.arrayidx36.sroa_idx.i.i, align 8
-  %.compoundliteral37.sroa.10.0.arrayidx36.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %5, i64 3, i32 9
+  %.compoundliteral37.sroa.10.0.arrayidx36.sroa_idx.i.i = getelementptr i8, ptr %5, i64 312
   store ptr null, ptr %.compoundliteral37.sroa.10.0.arrayidx36.sroa_idx.i.i, align 8
   %6 = load i32, ptr %num_codecs.i.i, align 4
   %cmp4915.i.i = icmp sgt i32 %6, 0
@@ -394,8 +392,8 @@ add_codecs.exit.i:                                ; preds = %for.body.i.i, %if.e
   br i1 %cmp620.i, label %for.body.lr.ph.i, label %register_maps.exit
 
 for.body.lr.ph.i:                                 ; preds = %add_codecs.exit.i
-  %11 = getelementptr inbounds [256 x i8], ptr %mhname.i, i64 0, i64 4
-  %12 = getelementptr inbounds [256 x i8], ptr %mhname.i, i64 0, i64 5
+  %11 = getelementptr inbounds i8, ptr %mhname.i, i64 4
+  %12 = getelementptr inbounds i8, ptr %mhname.i, i64 5
   %add.ptr7.i = getelementptr inbounds i8, ptr %mhname.i, i64 6
   br label %for.body.i
 
@@ -516,14 +514,14 @@ do.end24:                                         ; preds = %do.body19
 
 land.lhs.true:                                    ; preds = %do.end24
   %and = and i32 %retval.0.i, 255
-  %bottom = getelementptr [256 x %struct.unim_index], ptr @gbcommon_encmap, i64 0, i64 %idxprom, i32 1
+  %bottom = getelementptr inbounds i8, ptr %arrayidx25, i64 8
   %10 = load i8, ptr %bottom, align 8
   %conv31 = zext i8 %10 to i32
   %cmp32.not = icmp ult i32 %and, %conv31
   br i1 %cmp32.not, label %return, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %land.lhs.true
-  %top = getelementptr [256 x %struct.unim_index], ptr @gbcommon_encmap, i64 0, i64 %idxprom, i32 2
+  %top = getelementptr inbounds i8, ptr %arrayidx25, i64 9
   %11 = load i8, ptr %top, align 1
   %conv39 = zext i8 %11 to i32
   %cmp40.not = icmp ugt i32 %and, %conv39
@@ -605,14 +603,14 @@ land.lhs.true:                                    ; preds = %do.end15
   %4 = load i8, ptr %arrayidx19, align 1
   %5 = xor i8 %4, -128
   %xor21 = zext i8 %5 to i64
-  %bottom = getelementptr [256 x %struct.dbcs_index], ptr @gb2312_decmap, i64 0, i64 %idxprom, i32 1
+  %bottom = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %6 = load i8, ptr %bottom, align 8
   %conv26 = zext i8 %6 to i64
   %cmp27.not = icmp ult i8 %5, %6
   br i1 %cmp27.not, label %return, label %land.lhs.true29
 
 land.lhs.true29:                                  ; preds = %land.lhs.true
-  %top = getelementptr [256 x %struct.dbcs_index], ptr @gb2312_decmap, i64 0, i64 %idxprom, i32 2
+  %top = getelementptr inbounds i8, ptr %arrayidx, i64 9
   %7 = load i8, ptr %top, align 1
   %cmp38.not = icmp ugt i8 %5, %7
   br i1 %cmp38.not, label %return, label %land.lhs.true40
@@ -729,14 +727,14 @@ land.lhs.true:                                    ; preds = %do.end24
 
 land.lhs.true41:                                  ; preds = %land.lhs.true
   %and = and i32 %retval.0.i, 255
-  %bottom = getelementptr [256 x %struct.unim_index], ptr @gbcommon_encmap, i64 0, i64 %idxprom, i32 1
+  %bottom = getelementptr inbounds i8, ptr %arrayidx38, i64 8
   %10 = load i8, ptr %bottom, align 8
   %conv45 = zext i8 %10 to i32
   %cmp46.not = icmp ult i32 %and, %conv45
   br i1 %cmp46.not, label %return, label %land.lhs.true48
 
 land.lhs.true48:                                  ; preds = %land.lhs.true41
-  %top = getelementptr [256 x %struct.unim_index], ptr @gbcommon_encmap, i64 0, i64 %idxprom, i32 2
+  %top = getelementptr inbounds i8, ptr %arrayidx38, i64 9
   %11 = load i8, ptr %top, align 1
   %conv53 = zext i8 %11 to i32
   %cmp54.not = icmp ugt i32 %and, %conv53
@@ -874,14 +872,14 @@ land.lhs.true69:                                  ; preds = %if.else64
   %6 = load i8, ptr %arrayidx70, align 1
   %7 = xor i8 %6, -128
   %xor72 = zext i8 %7 to i64
-  %bottom = getelementptr [256 x %struct.dbcs_index], ptr @gb2312_decmap, i64 0, i64 %idxprom, i32 1
+  %bottom = getelementptr inbounds i8, ptr %arrayidx66, i64 8
   %8 = load i8, ptr %bottom, align 8
   %conv77 = zext i8 %8 to i64
   %cmp78.not = icmp ult i8 %7, %8
   br i1 %cmp78.not, label %if.else120, label %land.lhs.true80
 
 land.lhs.true80:                                  ; preds = %land.lhs.true69
-  %top = getelementptr [256 x %struct.dbcs_index], ptr @gb2312_decmap, i64 0, i64 %idxprom, i32 2
+  %top = getelementptr inbounds i8, ptr %arrayidx66, i64 9
   %9 = load i8, ptr %top, align 1
   %cmp89.not = icmp ugt i8 %7, %9
   br i1 %cmp89.not, label %if.else120, label %land.lhs.true91
@@ -910,14 +908,14 @@ land.lhs.true126:                                 ; preds = %if.else120
   %arrayidx127 = getelementptr i8, ptr %0, i64 1
   %12 = load i8, ptr %arrayidx127, align 1
   %conv128 = zext i8 %12 to i64
-  %bottom131 = getelementptr [256 x %struct.dbcs_index], ptr @gbkext_decmap, i64 0, i64 %idxprom121, i32 1
+  %bottom131 = getelementptr inbounds i8, ptr %arrayidx122, i64 8
   %13 = load i8, ptr %bottom131, align 8
   %conv132 = zext i8 %13 to i64
   %cmp133.not = icmp ult i8 %12, %13
   br i1 %cmp133.not, label %return, label %land.lhs.true135
 
 land.lhs.true135:                                 ; preds = %land.lhs.true126
-  %top140 = getelementptr [256 x %struct.dbcs_index], ptr @gbkext_decmap, i64 0, i64 %idxprom121, i32 2
+  %top140 = getelementptr inbounds i8, ptr %arrayidx122, i64 9
   %14 = load i8, ptr %top140, align 1
   %cmp142.not = icmp ugt i8 %12, %14
   br i1 %cmp142.not, label %return, label %land.lhs.true144
@@ -1072,14 +1070,14 @@ land.lhs.true:                                    ; preds = %do.end70
 
 land.lhs.true87:                                  ; preds = %land.lhs.true
   %and = and i32 %retval.0.i, 255
-  %bottom = getelementptr [256 x %struct.unim_index], ptr @gbcommon_encmap, i64 0, i64 %idxprom, i32 1
+  %bottom = getelementptr inbounds i8, ptr %arrayidx84, i64 8
   %18 = load i8, ptr %bottom, align 8
   %conv91 = zext i8 %18 to i32
   %cmp92.not = icmp ult i32 %and, %conv91
   br i1 %cmp92.not, label %if.else120, label %land.lhs.true94
 
 land.lhs.true94:                                  ; preds = %land.lhs.true87
-  %top = getelementptr [256 x %struct.unim_index], ptr @gbcommon_encmap, i64 0, i64 %idxprom, i32 2
+  %top = getelementptr inbounds i8, ptr %arrayidx84, i64 9
   %19 = load i8, ptr %top, align 1
   %conv99 = zext i8 %19 to i32
   %cmp100.not = icmp ugt i32 %and, %conv99
@@ -1102,14 +1100,14 @@ if.else120:                                       ; preds = %do.end70.if.else120
 
 land.lhs.true127:                                 ; preds = %if.else120
   %and128 = and i32 %retval.0.i, 255
-  %bottom132 = getelementptr [256 x %struct.unim_index], ptr @gb18030ext_encmap, i64 0, i64 %idxprom122.pre-phi, i32 1
+  %bottom132 = getelementptr inbounds i8, ptr %arrayidx123, i64 8
   %22 = load i8, ptr %bottom132, align 8
   %conv133 = zext i8 %22 to i32
   %cmp134.not = icmp ult i32 %and128, %conv133
   br i1 %cmp134.not, label %do.body164, label %land.lhs.true136
 
 land.lhs.true136:                                 ; preds = %land.lhs.true127
-  %top141 = getelementptr [256 x %struct.unim_index], ptr @gb18030ext_encmap, i64 0, i64 %idxprom122.pre-phi, i32 2
+  %top141 = getelementptr inbounds i8, ptr %arrayidx123, i64 9
   %23 = load i8, ptr %top141, align 1
   %conv142 = zext i8 %23 to i32
   %cmp143.not = icmp ugt i32 %and128, %conv142
@@ -1134,20 +1132,20 @@ for.body:                                         ; preds = %do.body164, %for.in
   br i1 %cmp173.not, label %for.inc, label %land.lhs.true175
 
 land.lhs.true175:                                 ; preds = %for.body
-  %last = getelementptr inbounds %struct._gb18030_to_unibmp_ranges, ptr %utrrange.087, i64 0, i32 1
+  %last = getelementptr inbounds i8, ptr %utrrange.087, i64 4
   %26 = load i32, ptr %last, align 4
   %cmp176.not = icmp ugt i32 %retval.0.i, %26
   br i1 %cmp176.not, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true175
-  %incdec.ptr = getelementptr %struct._gb18030_to_unibmp_ranges, ptr %utrrange.087, i64 1
+  %incdec.ptr = getelementptr i8, ptr %utrrange.087, i64 12
   %27 = load i32, ptr %incdec.ptr, align 4
   %cmp170.not = icmp eq i32 %27, 0
   br i1 %cmp170.not, label %return, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %land.lhs.true175
   %sub181 = sub nsw i32 %retval.0.i, %25
-  %base = getelementptr inbounds %struct._gb18030_to_unibmp_ranges, ptr %utrrange.087, i64 0, i32 2
+  %base = getelementptr inbounds i8, ptr %utrrange.087, i64 8
   %28 = load i16, ptr %base, align 4
   %conv182 = zext i16 %28 to i32
   %add183 = add nsw i32 %sub181, %conv182
@@ -1312,15 +1310,15 @@ for.cond.preheader:                               ; preds = %if.then71
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.cond
   %utr.0 = phi ptr [ %add.ptr83, %for.cond ], [ @gb18030_to_unibmp_ranges, %for.cond.preheader ]
-  %base = getelementptr %struct._gb18030_to_unibmp_ranges, ptr %utr.0, i64 1, i32 2
+  %base = getelementptr i8, ptr %utr.0, i64 20
   %8 = load i16, ptr %base, align 4
   %cmp85.not = icmp ugt i16 %8, %7
-  %add.ptr83 = getelementptr %struct._gb18030_to_unibmp_ranges, ptr %utr.0, i64 1
+  %add.ptr83 = getelementptr i8, ptr %utr.0, i64 12
   br i1 %cmp85.not, label %do.body87, label %for.cond, !llvm.loop !15
 
 do.body87:                                        ; preds = %for.cond
   %9 = load i32, ptr %utr.0, align 4
-  %base88 = getelementptr inbounds %struct._gb18030_to_unibmp_ranges, ptr %utr.0, i64 0, i32 2
+  %base88 = getelementptr inbounds i8, ptr %utr.0, i64 8
   %10 = load i16, ptr %base88, align 4
   %conv89 = zext i16 %10 to i32
   %sub90 = add i32 %9, %add79
@@ -1395,14 +1393,14 @@ if.else184:                                       ; preds = %if.else168
 
 land.lhs.true189:                                 ; preds = %if.else184
   %xor191 = xor i32 %conv17, 128
-  %bottom = getelementptr [256 x %struct.dbcs_index], ptr @gb2312_decmap, i64 0, i64 %idxprom, i32 1
+  %bottom = getelementptr inbounds i8, ptr %arrayidx186, i64 8
   %13 = load i8, ptr %bottom, align 8
   %conv196 = zext i8 %13 to i32
   %cmp197.not = icmp ult i32 %xor191, %conv196
   br i1 %cmp197.not, label %if.else237, label %land.lhs.true199
 
 land.lhs.true199:                                 ; preds = %land.lhs.true189
-  %top = getelementptr [256 x %struct.dbcs_index], ptr @gb2312_decmap, i64 0, i64 %idxprom, i32 2
+  %top = getelementptr inbounds i8, ptr %arrayidx186, i64 9
   %14 = load i8, ptr %top, align 1
   %conv206 = zext i8 %14 to i32
   %cmp207.not = icmp ugt i32 %xor191, %conv206
@@ -1430,14 +1428,14 @@ if.else237:                                       ; preds = %land.lhs.true209, %
   br i1 %cmp241.not, label %if.else282, label %land.lhs.true243
 
 land.lhs.true243:                                 ; preds = %if.else237
-  %bottom247 = getelementptr [256 x %struct.dbcs_index], ptr @gbkext_decmap, i64 0, i64 %idxprom238, i32 1
+  %bottom247 = getelementptr inbounds i8, ptr %arrayidx239, i64 8
   %17 = load i8, ptr %bottom247, align 8
   %conv248 = zext i8 %17 to i32
   %cmp249.not = icmp ult i8 %3, %17
   br i1 %cmp249.not, label %if.else282, label %land.lhs.true251
 
 land.lhs.true251:                                 ; preds = %land.lhs.true243
-  %top255 = getelementptr [256 x %struct.dbcs_index], ptr @gbkext_decmap, i64 0, i64 %idxprom238, i32 2
+  %top255 = getelementptr inbounds i8, ptr %arrayidx239, i64 9
   %18 = load i8, ptr %top255, align 1
   %cmp257.not = icmp ugt i8 %3, %18
   br i1 %cmp257.not, label %if.else282, label %land.lhs.true259
@@ -1463,14 +1461,14 @@ if.else282:                                       ; preds = %land.lhs.true259, %
   br i1 %cmp286.not, label %return, label %land.lhs.true288
 
 land.lhs.true288:                                 ; preds = %if.else282
-  %bottom292 = getelementptr [256 x %struct.dbcs_index], ptr @gb18030ext_decmap, i64 0, i64 %idxprom238, i32 1
+  %bottom292 = getelementptr inbounds i8, ptr %arrayidx284, i64 8
   %21 = load i8, ptr %bottom292, align 8
   %conv293 = zext i8 %21 to i32
   %cmp294.not = icmp ult i8 %3, %21
   br i1 %cmp294.not, label %return, label %land.lhs.true296
 
 land.lhs.true296:                                 ; preds = %land.lhs.true288
-  %top300 = getelementptr [256 x %struct.dbcs_index], ptr @gb18030ext_decmap, i64 0, i64 %idxprom238, i32 2
+  %top300 = getelementptr inbounds i8, ptr %arrayidx284, i64 9
   %22 = load i8, ptr %top300, align 1
   %cmp302.not = icmp ugt i8 %3, %22
   br i1 %cmp302.not, label %return, label %land.lhs.true304
@@ -1604,14 +1602,14 @@ if.end60:                                         ; preds = %if.end56
 
 land.lhs.true:                                    ; preds = %if.end60
   %and = and i32 %retval.0.i, 255
-  %bottom = getelementptr [256 x %struct.unim_index], ptr @gbcommon_encmap, i64 0, i64 %idxprom, i32 1
+  %bottom = getelementptr inbounds i8, ptr %arrayidx61, i64 8
   %15 = load i8, ptr %bottom, align 8
   %conv67 = zext i8 %15 to i32
   %cmp68.not = icmp ult i32 %and, %conv67
   br i1 %cmp68.not, label %return, label %land.lhs.true70
 
 land.lhs.true70:                                  ; preds = %land.lhs.true
-  %top = getelementptr [256 x %struct.unim_index], ptr @gbcommon_encmap, i64 0, i64 %idxprom, i32 2
+  %top = getelementptr inbounds i8, ptr %arrayidx61, i64 9
   %16 = load i8, ptr %top, align 1
   %conv75 = zext i8 %16 to i32
   %cmp76.not = icmp ugt i32 %and, %conv75
@@ -1822,14 +1820,14 @@ land.lhs.true97:                                  ; preds = %do.end93
   %arrayidx98 = getelementptr i8, ptr %0, i64 1
   %10 = load i8, ptr %arrayidx98, align 1
   %conv99 = zext i8 %10 to i64
-  %bottom = getelementptr [256 x %struct.dbcs_index], ptr @gb2312_decmap, i64 0, i64 %idxprom, i32 1
+  %bottom = getelementptr inbounds i8, ptr %arrayidx94, i64 8
   %11 = load i8, ptr %bottom, align 8
   %conv102 = zext i8 %11 to i64
   %cmp103.not = icmp ult i8 %10, %11
   br i1 %cmp103.not, label %return, label %land.lhs.true105
 
 land.lhs.true105:                                 ; preds = %land.lhs.true97
-  %top = getelementptr [256 x %struct.dbcs_index], ptr @gb2312_decmap, i64 0, i64 %idxprom, i32 2
+  %top = getelementptr inbounds i8, ptr %arrayidx94, i64 9
   %12 = load i8, ptr %top, align 1
   %cmp111.not = icmp ugt i8 %10, %12
   br i1 %cmp111.not, label %return, label %land.lhs.true113

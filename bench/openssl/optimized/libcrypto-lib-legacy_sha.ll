@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_md_st = type { i32, i32, i32, i64, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.evp_md_ctx_st = type { ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr }
-%struct.keccak_st = type { [5 x [5 x i64]], [168 x i8], i64, i64, i64, i8, %struct.prov_sha3_meth_st, i32 }
-%struct.prov_sha3_meth_st = type { ptr, ptr, ptr }
 
 @sha1_md = internal constant %struct.evp_md_st { i32 64, i32 65, i32 20, i64 8, i32 1, ptr @sha1_init, ptr @sha1_update, ptr @sha1_final, ptr null, ptr null, i32 64, i32 0, ptr @sha1_int_ctrl, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @sha224_md = internal constant %struct.evp_md_st { i32 675, i32 671, i32 28, i64 8, i32 1, ptr @sha224_init, ptr @sha224_update, ptr @sha224_final, ptr null, ptr null, i32 64, i32 0, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -75,9 +72,9 @@ entry:
 define internal i32 @sha3_int_init(ptr noundef %ctx) #1 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_get0_md_data(ptr noundef %ctx) #4
-  %digest = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %digest, align 8
-  %md_size = getelementptr inbounds %struct.evp_md_st, ptr %0, i64 0, i32 2
+  %md_size = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %md_size, align 8
   %mul = shl nsw i32 %1, 3
   %conv = sext i32 %mul to i64
@@ -97,7 +94,7 @@ entry:
 define internal i32 @sha3_int_final(ptr noundef %ctx, ptr noundef %md) #1 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_get0_md_data(ptr noundef %ctx) #4
-  %md_size = getelementptr inbounds %struct.keccak_st, ptr %call, i64 0, i32 3
+  %md_size = getelementptr inbounds i8, ptr %call, i64 376
   %0 = load i64, ptr %md_size, align 8
   %call1 = tail call i32 @ossl_sha3_final(ptr noundef %call, ptr noundef %md, i64 noundef %0) #4
   ret i32 %call1
@@ -131,9 +128,9 @@ entry:
 define internal i32 @shake_init(ptr noundef %ctx) #1 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_get0_md_data(ptr noundef %ctx) #4
-  %digest = getelementptr inbounds %struct.evp_md_ctx_st, ptr %ctx, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %digest, align 8
-  %md_size = getelementptr inbounds %struct.evp_md_st, ptr %0, i64 0, i32 2
+  %md_size = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %md_size, align 8
   %mul = shl nsw i32 %1, 3
   %conv = sext i32 %mul to i64
@@ -150,10 +147,10 @@ entry:
   br i1 %or.cond, label %sw.bb, label %return
 
 sw.bb:                                            ; preds = %entry
-  %md_data = getelementptr inbounds %struct.evp_md_ctx_st, ptr %evp_ctx, i64 0, i32 4
+  %md_data = getelementptr inbounds i8, ptr %evp_ctx, i64 32
   %0 = load ptr, ptr %md_data, align 8
   %conv = sext i32 %p1 to i64
-  %md_size = getelementptr inbounds %struct.keccak_st, ptr %0, i64 0, i32 3
+  %md_size = getelementptr inbounds i8, ptr %0, i64 376
   store i64 %conv, ptr %md_size, align 8
   br label %return
 

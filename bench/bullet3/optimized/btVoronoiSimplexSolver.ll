@@ -3,7 +3,6 @@ source_filename = "bench/bullet3/original/btVoronoiSimplexSolver.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btVoronoiSimplexSolver = type <{ i32, [5 x %class.btVector3], [5 x %class.btVector3], [5 x %class.btVector3], %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, i8, [3 x i8], %struct.btSubSimplexClosestResult, i8, [3 x i8] }>
 %class.btVector3 = type { [4 x float] }
 %struct.btSubSimplexClosestResult = type <{ %class.btVector3, %struct.btUsageBitfield, [2 x i8], [4 x float], i8, [3 x i8] }>
 %struct.btUsageBitfield = type { i8, i8 }
@@ -16,20 +15,23 @@ entry:
   %0 = load i32, ptr %this, align 4
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %this, align 4
+  %m_simplexVectorW = getelementptr inbounds i8, ptr %this, i64 4
   %idxprom = sext i32 %dec to i64
-  %arrayidx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW, i64 0, i64 %idxprom
   %idxprom4 = sext i32 %index to i64
-  %arrayidx5 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW, i64 0, i64 %idxprom4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, i64 16, i1 false)
+  %m_simplexPointsP = getelementptr inbounds i8, ptr %this, i64 84
   %1 = load i32, ptr %this, align 4
   %idxprom7 = sext i32 %1 to i64
-  %arrayidx8 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom7
-  %arrayidx11 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom4
+  %arrayidx8 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP, i64 0, i64 %idxprom7
+  %arrayidx11 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP, i64 0, i64 %idxprom4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8, i64 16, i1 false)
+  %m_simplexPointsQ = getelementptr inbounds i8, ptr %this, i64 164
   %2 = load i32, ptr %this, align 4
   %idxprom13 = sext i32 %2 to i64
-  %arrayidx14 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom13
-  %arrayidx17 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom4
+  %arrayidx14 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ, i64 0, i64 %idxprom13
+  %arrayidx17 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ, i64 0, i64 %idxprom4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx17, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14, i64 16, i1 false)
   ret void
 }
@@ -53,15 +55,18 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %dec.i = add nsw i32 %0, -1
   store i32 %dec.i, ptr %this, align 4
+  %m_simplexVectorW.i = getelementptr inbounds i8, ptr %this, i64 4
   %idxprom.i = zext nneg i32 %dec.i to i64
-  %arrayidx.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom.i
-  %arrayidx5.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 3
+  %arrayidx.i = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW.i, i64 0, i64 %idxprom.i
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 52
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
-  %arrayidx8.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom.i
-  %arrayidx11.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 3
+  %m_simplexPointsP.i = getelementptr inbounds i8, ptr %this, i64 84
+  %arrayidx8.i = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP.i, i64 0, i64 %idxprom.i
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 132
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i, i64 16, i1 false)
-  %arrayidx14.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom.i
-  %arrayidx17.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 3
+  %m_simplexPointsQ.i = getelementptr inbounds i8, ptr %this, i64 164
+  %arrayidx14.i = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ.i, i64 0, i64 %idxprom.i
+  %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 212
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx17.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i, i64 16, i1 false)
   br label %land.lhs.true4
 
@@ -79,16 +84,19 @@ land.lhs.true4:                                   ; preds = %if.then, %land.lhs.
 if.then10:                                        ; preds = %land.lhs.true4
   %dec.i4 = add nsw i32 %2, -1
   store i32 %dec.i4, ptr %this, align 4
-  %idxprom.i5 = zext nneg i32 %dec.i4 to i64
-  %arrayidx.i6 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom.i5
-  %arrayidx5.i7 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i7, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i6, i64 16, i1 false)
-  %arrayidx8.i9 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom.i5
-  %arrayidx11.i10 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i10, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i9, i64 16, i1 false)
-  %arrayidx14.i12 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom.i5
-  %arrayidx17.i13 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx17.i13, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i12, i64 16, i1 false)
+  %m_simplexVectorW.i5 = getelementptr inbounds i8, ptr %this, i64 4
+  %idxprom.i6 = zext nneg i32 %dec.i4 to i64
+  %arrayidx.i7 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW.i5, i64 0, i64 %idxprom.i6
+  %arrayidx5.i8 = getelementptr inbounds i8, ptr %this, i64 36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i8, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i7, i64 16, i1 false)
+  %m_simplexPointsP.i9 = getelementptr inbounds i8, ptr %this, i64 84
+  %arrayidx8.i11 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP.i9, i64 0, i64 %idxprom.i6
+  %arrayidx11.i12 = getelementptr inbounds i8, ptr %this, i64 116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i12, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i11, i64 16, i1 false)
+  %m_simplexPointsQ.i13 = getelementptr inbounds i8, ptr %this, i64 164
+  %arrayidx14.i15 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ.i13, i64 0, i64 %idxprom.i6
+  %arrayidx17.i16 = getelementptr inbounds i8, ptr %this, i64 196
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx17.i16, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i15, i64 16, i1 false)
   br label %land.lhs.true14
 
 if.end11:                                         ; preds = %if.end
@@ -103,18 +111,21 @@ land.lhs.true14:                                  ; preds = %land.lhs.true4, %if
   br i1 %tobool19.not, label %if.then20, label %land.lhs.true24
 
 if.then20:                                        ; preds = %land.lhs.true14
-  %dec.i14 = add nsw i32 %4, -1
-  store i32 %dec.i14, ptr %this, align 4
-  %idxprom.i15 = zext nneg i32 %dec.i14 to i64
-  %arrayidx.i16 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom.i15
-  %arrayidx5.i17 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i17, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i16, i64 16, i1 false)
-  %arrayidx8.i19 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom.i15
-  %arrayidx11.i20 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i20, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i19, i64 16, i1 false)
-  %arrayidx14.i22 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom.i15
-  %arrayidx17.i23 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx17.i23, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i22, i64 16, i1 false)
+  %dec.i17 = add nsw i32 %4, -1
+  store i32 %dec.i17, ptr %this, align 4
+  %m_simplexVectorW.i18 = getelementptr inbounds i8, ptr %this, i64 4
+  %idxprom.i19 = zext nneg i32 %dec.i17 to i64
+  %arrayidx.i20 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW.i18, i64 0, i64 %idxprom.i19
+  %arrayidx5.i21 = getelementptr inbounds i8, ptr %this, i64 20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i21, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i20, i64 16, i1 false)
+  %m_simplexPointsP.i22 = getelementptr inbounds i8, ptr %this, i64 84
+  %arrayidx8.i24 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP.i22, i64 0, i64 %idxprom.i19
+  %arrayidx11.i25 = getelementptr inbounds i8, ptr %this, i64 100
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i25, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i24, i64 16, i1 false)
+  %m_simplexPointsQ.i26 = getelementptr inbounds i8, ptr %this, i64 164
+  %arrayidx14.i28 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ.i26, i64 0, i64 %idxprom.i19
+  %arrayidx17.i29 = getelementptr inbounds i8, ptr %this, i64 180
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx17.i29, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i28, i64 16, i1 false)
   br label %land.lhs.true24
 
 if.end21:                                         ; preds = %if.end11
@@ -122,25 +133,25 @@ if.end21:                                         ; preds = %if.end11
   br i1 %cmp23, label %land.lhs.true24, label %if.end30
 
 land.lhs.true24:                                  ; preds = %if.then20, %land.lhs.true14, %if.end21
-  %6 = phi i32 [ 1, %if.end21 ], [ %dec.i14, %if.then20 ], [ %4, %land.lhs.true14 ]
+  %6 = phi i32 [ 1, %if.end21 ], [ %dec.i17, %if.then20 ], [ %4, %land.lhs.true14 ]
   %bf.load25 = load i8, ptr %usedVerts, align 2
   %bf.clear26 = and i8 %bf.load25, 1
   %tobool28.not = icmp eq i8 %bf.clear26, 0
   br i1 %tobool28.not, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %land.lhs.true24
-  %dec.i24 = add nsw i32 %6, -1
-  store i32 %dec.i24, ptr %this, align 4
-  %idxprom.i25 = zext nneg i32 %dec.i24 to i64
-  %arrayidx.i26 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom.i25
-  %arrayidx5.i27 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i27, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i26, i64 16, i1 false)
-  %arrayidx8.i29 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom.i25
-  %arrayidx11.i30 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i30, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i29, i64 16, i1 false)
-  %arrayidx14.i32 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom.i25
-  %arrayidx17.i33 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx17.i33, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i32, i64 16, i1 false)
+  %dec.i30 = add nsw i32 %6, -1
+  store i32 %dec.i30, ptr %this, align 4
+  %m_simplexVectorW.i31 = getelementptr inbounds i8, ptr %this, i64 4
+  %idxprom.i32 = zext nneg i32 %dec.i30 to i64
+  %arrayidx.i33 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW.i31, i64 0, i64 %idxprom.i32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexVectorW.i31, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i33, i64 16, i1 false)
+  %m_simplexPointsP.i34 = getelementptr inbounds i8, ptr %this, i64 84
+  %arrayidx8.i36 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP.i34, i64 0, i64 %idxprom.i32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsP.i34, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i36, i64 16, i1 false)
+  %m_simplexPointsQ.i37 = getelementptr inbounds i8, ptr %this, i64 164
+  %arrayidx14.i39 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ.i37, i64 0, i64 %idxprom.i32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsQ.i37, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i39, i64 16, i1 false)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then29, %land.lhs.true24, %if.end21
@@ -150,15 +161,15 @@ if.end30:                                         ; preds = %if.then29, %land.lh
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN22btVoronoiSimplexSolver5resetEv(ptr nocapture noundef nonnull align 4 dereferenceable(357) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_cachedValidClosest = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 9
+  %m_cachedValidClosest = getelementptr inbounds i8, ptr %this, i64 312
   store i8 0, ptr %m_cachedValidClosest, align 4
   store i32 0, ptr %this, align 4
-  %m_needsUpdate = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 12
+  %m_needsUpdate = getelementptr inbounds i8, ptr %this, i64 356
   store i8 1, ptr %m_needsUpdate, align 4
-  %m_lastW = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 7
+  %m_lastW = getelementptr inbounds i8, ptr %this, i64 292
   store <4 x float> <float 0x43ABC16D60000000, float 0x43ABC16D60000000, float 0x43ABC16D60000000, float 0.000000e+00>, ptr %m_lastW, align 4
-  %m_barycentricCoords.i.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 11, i32 3
-  %m_usedVertices.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 11, i32 1
+  %m_barycentricCoords.i.i = getelementptr inbounds i8, ptr %this, i64 336
+  %m_usedVertices.i = getelementptr inbounds i8, ptr %this, i64 332
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %m_barycentricCoords.i.i, i8 0, i64 17, i1 false)
   %bf.load.i.i = load i8, ptr %m_usedVertices.i, align 4
   %bf.clear9.i.i = and i8 %bf.load.i.i, -16
@@ -169,21 +180,24 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN22btVoronoiSimplexSolver9addVertexERK9btVector3S2_S2_(ptr nocapture noundef nonnull align 4 dereferenceable(357) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %w, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %q) local_unnamed_addr #0 align 2 {
 entry:
-  %m_lastW = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 7
+  %m_lastW = getelementptr inbounds i8, ptr %this, i64 292
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_lastW, ptr noundef nonnull align 4 dereferenceable(16) %w, i64 16, i1 false)
-  %m_needsUpdate = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 12
+  %m_needsUpdate = getelementptr inbounds i8, ptr %this, i64 356
   store i8 1, ptr %m_needsUpdate, align 4
+  %m_simplexVectorW = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %this, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW, i64 0, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %w, i64 16, i1 false)
+  %m_simplexPointsP = getelementptr inbounds i8, ptr %this, i64 84
   %1 = load i32, ptr %this, align 4
   %idxprom3 = sext i32 %1 to i64
-  %arrayidx4 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom3
+  %arrayidx4 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP, i64 0, i64 %idxprom3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx4, ptr noundef nonnull align 4 dereferenceable(16) %p, i64 16, i1 false)
+  %m_simplexPointsQ = getelementptr inbounds i8, ptr %this, i64 164
   %2 = load i32, ptr %this, align 4
   %idxprom6 = sext i32 %2 to i64
-  %arrayidx7 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ, i64 0, i64 %idxprom6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7, ptr noundef nonnull align 4 dereferenceable(16) %q, i64 16, i1 false)
   %3 = load i32, ptr %this, align 4
   %inc = add nsw i32 %3, 1
@@ -196,21 +210,21 @@ define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver28updateClosestV
 entry:
   %p104 = alloca %class.btVector3, align 4
   %p190 = alloca %class.btVector3, align 4
-  %m_needsUpdate = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 12
+  %m_needsUpdate = getelementptr inbounds i8, ptr %this, i64 356
   %0 = load i8, ptr %m_needsUpdate, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %entry.if.end320_crit_edge, label %if.then
 
 entry.if.end320_crit_edge:                        ; preds = %entry
-  %m_cachedValidClosest321.phi.trans.insert = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 9
+  %m_cachedValidClosest321.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 312
   %.pre = load i8, ptr %m_cachedValidClosest321.phi.trans.insert, align 4
   br label %if.end320
 
 if.then:                                          ; preds = %entry
-  %m_cachedBC = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 11
-  %m_barycentricCoords.i.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 11, i32 3
-  %m_usedVertices.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 11, i32 1
+  %m_cachedBC = getelementptr inbounds i8, ptr %this, i64 316
+  %m_barycentricCoords.i.i = getelementptr inbounds i8, ptr %this, i64 336
+  %m_usedVertices.i = getelementptr inbounds i8, ptr %this, i64 332
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %m_barycentricCoords.i.i, i8 0, i64 17, i1 false)
   %bf.load.i.i = load i8, ptr %m_usedVertices.i, align 4
   %bf.clear9.i.i = and i8 %bf.load.i.i, -16
@@ -226,54 +240,54 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.then
-  %m_cachedValidClosest = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 9
+  %m_cachedValidClosest = getelementptr inbounds i8, ptr %this, i64 312
   store i8 0, ptr %m_cachedValidClosest, align 4
   br label %if.end320
 
 _ZN25btSubSimplexClosestResult7isValidEv.exit:    ; preds = %if.then
-  %m_simplexPointsP = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2
-  %m_cachedP1 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 4
+  %m_simplexPointsP = getelementptr inbounds i8, ptr %this, i64 84
+  %m_cachedP1 = getelementptr inbounds i8, ptr %this, i64 244
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_cachedP1, ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsP, i64 16, i1 false)
-  %m_simplexPointsQ = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3
-  %m_cachedP2 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 5
+  %m_simplexPointsQ = getelementptr inbounds i8, ptr %this, i64 164
+  %m_cachedP2 = getelementptr inbounds i8, ptr %this, i64 260
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_cachedP2, ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsQ, i64 16, i1 false)
   %3 = load <2 x float>, ptr %m_cachedP1, align 4
   %4 = load <2 x float>, ptr %m_cachedP2, align 4
   %5 = fsub <2 x float> %3, %4
-  %arrayidx11.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 252
   %6 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 5, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 268
   %7 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %6, %7
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
-  %m_cachedV = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 6
+  %m_cachedV = getelementptr inbounds i8, ptr %this, i64 276
   store <2 x float> %5, ptr %m_cachedV, align 4
-  %ref.tmp.sroa.2.0.m_cachedV.sroa_idx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 6, i32 0, i64 2
+  %ref.tmp.sroa.2.0.m_cachedV.sroa_idx = getelementptr inbounds i8, ptr %this, i64 284
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.m_cachedV.sroa_idx, align 4
-  %8 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 11, i32 4
+  %8 = getelementptr inbounds i8, ptr %this, i64 352
   store i8 0, ptr %8, align 4
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %m_barycentricCoords.i.i, align 4
-  %m_cachedValidClosest12 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 9
+  %m_cachedValidClosest12 = getelementptr inbounds i8, ptr %this, i64 312
   store i8 1, ptr %m_cachedValidClosest12, align 4
   br label %if.end320
 
 sw.bb13:                                          ; preds = %if.then
-  %m_simplexVectorW = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1
-  %arrayidx16 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 1
+  %m_simplexVectorW = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx16 = getelementptr inbounds i8, ptr %this, i64 20
   %9 = load float, ptr %m_simplexVectorW, align 4
   %sub.i16 = fsub float 0.000000e+00, %9
-  %arrayidx7.i18 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 0, i32 0, i64 1
+  %arrayidx7.i18 = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load float, ptr %arrayidx7.i18, align 4
   %sub8.i19 = fsub float 0.000000e+00, %10
-  %arrayidx13.i21 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 0, i32 0, i64 2
+  %arrayidx13.i21 = getelementptr inbounds i8, ptr %this, i64 12
   %11 = load float, ptr %arrayidx13.i21, align 4
   %sub14.i22 = fsub float 0.000000e+00, %11
   %12 = load float, ptr %arrayidx16, align 4
   %sub.i28 = fsub float %12, %9
-  %arrayidx5.i29 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 1, i32 0, i64 1
+  %arrayidx5.i29 = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load float, ptr %arrayidx5.i29, align 4
   %sub8.i31 = fsub float %13, %10
-  %arrayidx11.i32 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 1, i32 0, i64 2
+  %arrayidx11.i32 = getelementptr inbounds i8, ptr %this, i64 28
   %14 = load float, ptr %arrayidx11.i32, align 4
   %sub14.i34 = fsub float %14, %11
   %mul8.i = fmul float %sub8.i19, %sub8.i31
@@ -300,15 +314,15 @@ land.lhs.true14.i:                                ; preds = %sw.bb13, %if.then25
   store i8 %bf.set50, ptr %m_usedVertices.i, align 4
   %sub = fsub float 1.000000e+00, %19
   store float %sub, ptr %m_barycentricCoords.i.i, align 4
-  %arrayidx3.i62 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 11, i32 3, i64 1
+  %arrayidx3.i62 = getelementptr inbounds i8, ptr %this, i64 340
   store float %19, ptr %arrayidx3.i62, align 4
-  %arrayidx5.i63 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 11, i32 3, i64 2
+  %arrayidx5.i63 = getelementptr inbounds i8, ptr %this, i64 344
   store <2 x float> zeroinitializer, ptr %arrayidx5.i63, align 4
-  %m_simplexPointsP60 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2
-  %arrayidx65 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 1
-  %arrayidx11.i88 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 1, i32 0, i64 2
+  %m_simplexPointsP60 = getelementptr inbounds i8, ptr %this, i64 84
+  %arrayidx65 = getelementptr inbounds i8, ptr %this, i64 100
+  %arrayidx11.i88 = getelementptr inbounds i8, ptr %this, i64 108
   %20 = load float, ptr %arrayidx11.i88, align 4
-  %arrayidx13.i89 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 0, i32 0, i64 2
+  %arrayidx13.i89 = getelementptr inbounds i8, ptr %this, i64 92
   %21 = load float, ptr %arrayidx13.i89, align 4
   %sub14.i90 = fsub float %20, %21
   %mul8.i.i100 = fmul float %19, %sub14.i90
@@ -321,15 +335,15 @@ land.lhs.true14.i:                                ; preds = %sw.bb13, %if.then25
   %28 = fadd <2 x float> %23, %27
   %add14.i112 = fadd float %21, %mul8.i.i100
   %retval.sroa.3.12.vec.insert.i115 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i112, i64 0
-  %m_cachedP174 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 4
+  %m_cachedP174 = getelementptr inbounds i8, ptr %this, i64 244
   store <2 x float> %28, ptr %m_cachedP174, align 4
-  %ref.tmp59.sroa.2.0.m_cachedP174.sroa_idx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 4, i32 0, i64 2
+  %ref.tmp59.sroa.2.0.m_cachedP174.sroa_idx = getelementptr inbounds i8, ptr %this, i64 252
   store <2 x float> %retval.sroa.3.12.vec.insert.i115, ptr %ref.tmp59.sroa.2.0.m_cachedP174.sroa_idx, align 4
-  %m_simplexPointsQ76 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3
-  %arrayidx81 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 1
-  %arrayidx11.i122 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 1, i32 0, i64 2
+  %m_simplexPointsQ76 = getelementptr inbounds i8, ptr %this, i64 164
+  %arrayidx81 = getelementptr inbounds i8, ptr %this, i64 180
+  %arrayidx11.i122 = getelementptr inbounds i8, ptr %this, i64 188
   %29 = load float, ptr %arrayidx11.i122, align 4
-  %arrayidx13.i123 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 0, i32 0, i64 2
+  %arrayidx13.i123 = getelementptr inbounds i8, ptr %this, i64 172
   %30 = load float, ptr %arrayidx13.i123, align 4
   %sub14.i124 = fsub float %29, %30
   %mul8.i.i134 = fmul float %19, %sub14.i124
@@ -340,16 +354,16 @@ land.lhs.true14.i:                                ; preds = %sw.bb13, %if.then25
   %35 = fadd <2 x float> %32, %34
   %add14.i146 = fadd float %30, %mul8.i.i134
   %retval.sroa.3.12.vec.insert.i149 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i146, i64 0
-  %m_cachedP290 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 5
+  %m_cachedP290 = getelementptr inbounds i8, ptr %this, i64 260
   store <2 x float> %35, ptr %m_cachedP290, align 4
-  %ref.tmp75.sroa.2.0.m_cachedP290.sroa_idx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 5, i32 0, i64 2
+  %ref.tmp75.sroa.2.0.m_cachedP290.sroa_idx = getelementptr inbounds i8, ptr %this, i64 268
   store <2 x float> %retval.sroa.3.12.vec.insert.i149, ptr %ref.tmp75.sroa.2.0.m_cachedP290.sroa_idx, align 4
   %36 = fsub <2 x float> %28, %35
   %sub14.i158 = fsub float %add14.i112, %add14.i146
   %retval.sroa.3.12.vec.insert.i161 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i158, i64 0
-  %m_cachedV96 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 6
+  %m_cachedV96 = getelementptr inbounds i8, ptr %this, i64 276
   store <2 x float> %36, ptr %m_cachedV96, align 4
-  %ref.tmp91.sroa.2.0.m_cachedV96.sroa_idx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 6, i32 0, i64 2
+  %ref.tmp91.sroa.2.0.m_cachedV96.sroa_idx = getelementptr inbounds i8, ptr %this, i64 284
   store <2 x float> %retval.sroa.3.12.vec.insert.i161, ptr %ref.tmp91.sroa.2.0.m_cachedV96.sroa_idx, align 4
   br i1 %cmp, label %if.then20.i, label %land.lhs.true24.i
 
@@ -358,21 +372,21 @@ if.then20.i:                                      ; preds = %land.lhs.true14.i
   br label %land.lhs.true24.i
 
 land.lhs.true24.i:                                ; preds = %if.then20.i, %land.lhs.true14.i
-  %dec.i24.i = phi i32 [ 0, %if.then20.i ], [ 1, %land.lhs.true14.i ]
+  %dec.i30.i = phi i32 [ 0, %if.then20.i ], [ 1, %land.lhs.true14.i ]
   %bf.load25.i = load i8, ptr %m_usedVertices.i, align 4
   %bf.clear26.i = and i8 %bf.load25.i, 1
   %tobool28.not.i = icmp eq i8 %bf.clear26.i, 0
   br i1 %tobool28.not.i, label %if.then29.i, label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit
 
 if.then29.i:                                      ; preds = %land.lhs.true24.i
-  store i32 %dec.i24.i, ptr %this, align 4
-  %idxprom.i25.i = zext nneg i32 %dec.i24.i to i64
-  %arrayidx.i26.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom.i25.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexVectorW, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i26.i, i64 16, i1 false)
-  %arrayidx8.i29.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom.i25.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsP60, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i29.i, i64 16, i1 false)
-  %arrayidx14.i32.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom.i25.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsQ76, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i32.i, i64 16, i1 false)
+  store i32 %dec.i30.i, ptr %this, align 4
+  %idxprom.i32.i = zext nneg i32 %dec.i30.i to i64
+  %arrayidx.i33.i = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW, i64 0, i64 %idxprom.i32.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexVectorW, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i33.i, i64 16, i1 false)
+  %arrayidx8.i36.i = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP60, i64 0, i64 %idxprom.i32.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsP60, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i36.i, i64 16, i1 false)
+  %arrayidx14.i39.i = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ76, i64 0, i64 %idxprom.i32.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsQ76, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i39.i, i64 16, i1 false)
   br label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit
 
 _ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit: ; preds = %land.lhs.true24.i, %if.then29.i
@@ -380,40 +394,40 @@ _ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit: ; preds = 
   %cmp4.i168 = fcmp oge float %19, 0.000000e+00
   %or.cond.i169.not = and i1 %cmp.i166, %cmp4.i168
   %frombool102 = zext i1 %or.cond.i169.not to i8
-  %m_cachedValidClosest101 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 9
+  %m_cachedValidClosest101 = getelementptr inbounds i8, ptr %this, i64 312
   store i8 %frombool102, ptr %m_cachedValidClosest101, align 4
   br label %if.end320
 
 sw.bb103:                                         ; preds = %if.then
-  %m_simplexVectorW108 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1
-  %arrayidx111 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 1
-  %arrayidx113 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 2
+  %m_simplexVectorW108 = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx111 = getelementptr inbounds i8, ptr %this, i64 20
+  %arrayidx113 = getelementptr inbounds i8, ptr %this, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %p104, i8 0, i64 16, i1 false)
   %call115 = call noundef zeroext i1 @_ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSubSimplexClosestResult(ptr nonnull align 4 poison, ptr noundef nonnull align 4 dereferenceable(16) %p104, ptr noundef nonnull align 4 dereferenceable(16) %m_simplexVectorW108, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx111, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx113, ptr noundef nonnull align 4 dereferenceable(37) %m_cachedBC)
-  %m_simplexPointsP119 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2
+  %m_simplexPointsP119 = getelementptr inbounds i8, ptr %this, i64 84
   %37 = load <4 x float>, ptr %m_simplexPointsP119, align 4
   %38 = shufflevector <4 x float> %37, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %39 = load float, ptr %m_barycentricCoords.i.i, align 4
-  %arrayidx3.i180 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 0, i32 0, i64 1
+  %arrayidx3.i180 = getelementptr inbounds i8, ptr %this, i64 88
   %40 = load float, ptr %arrayidx3.i180, align 4
-  %arrayidx7.i181 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 0, i32 0, i64 2
+  %arrayidx7.i181 = getelementptr inbounds i8, ptr %this, i64 92
   %41 = load float, ptr %arrayidx7.i181, align 4
   %mul8.i182 = fmul float %39, %41
-  %arrayidx127 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 1
-  %arrayidx130 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 11, i32 3, i64 1
+  %arrayidx127 = getelementptr inbounds i8, ptr %this, i64 100
+  %arrayidx130 = getelementptr inbounds i8, ptr %this, i64 340
   %42 = load <4 x float>, ptr %arrayidx127, align 4
   %43 = shufflevector <4 x float> %42, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx3.i189 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 1, i32 0, i64 1
+  %arrayidx3.i189 = getelementptr inbounds i8, ptr %this, i64 104
   %44 = load float, ptr %arrayidx3.i189, align 4
-  %arrayidx7.i191 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 1, i32 0, i64 2
+  %arrayidx7.i191 = getelementptr inbounds i8, ptr %this, i64 108
   %45 = load <4 x float>, ptr %arrayidx7.i191, align 4
   %46 = shufflevector <4 x float> %45, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx137 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 2
+  %arrayidx137 = getelementptr inbounds i8, ptr %this, i64 116
   %47 = load <4 x float>, ptr %arrayidx137, align 4
   %48 = shufflevector <4 x float> %47, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx3.i211 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 2, i32 0, i64 1
+  %arrayidx3.i211 = getelementptr inbounds i8, ptr %this, i64 120
   %49 = load float, ptr %arrayidx3.i211, align 4
-  %arrayidx7.i213 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 2, i32 0, i64 2
+  %arrayidx7.i213 = getelementptr inbounds i8, ptr %this, i64 124
   %50 = load float, ptr %arrayidx7.i213, align 4
   %51 = load <2 x float>, ptr %arrayidx130, align 4
   %52 = insertelement <2 x float> %46, float %50, i64 1
@@ -436,24 +450,24 @@ sw.bb103:                                         ; preds = %if.then
   %68 = extractelement <2 x float> %53, i64 1
   %add14.i226 = fadd float %add14.i204, %68
   %retval.sroa.3.12.vec.insert.i229 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i226, i64 0
-  %m_cachedP1145 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 4
+  %m_cachedP1145 = getelementptr inbounds i8, ptr %this, i64 244
   store <2 x float> %67, ptr %m_cachedP1145, align 4
-  %ref.tmp116.sroa.2.0.m_cachedP1145.sroa_idx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 4, i32 0, i64 2
+  %ref.tmp116.sroa.2.0.m_cachedP1145.sroa_idx = getelementptr inbounds i8, ptr %this, i64 252
   store <2 x float> %retval.sroa.3.12.vec.insert.i229, ptr %ref.tmp116.sroa.2.0.m_cachedP1145.sroa_idx, align 4
-  %m_simplexPointsQ149 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3
+  %m_simplexPointsQ149 = getelementptr inbounds i8, ptr %this, i64 164
   %69 = load <4 x float>, ptr %m_simplexPointsQ149, align 4
   %70 = shufflevector <4 x float> %69, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx3.i233 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 0, i32 0, i64 1
+  %arrayidx3.i233 = getelementptr inbounds i8, ptr %this, i64 168
   %71 = load float, ptr %arrayidx3.i233, align 4
-  %arrayidx7.i235 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 0, i32 0, i64 2
+  %arrayidx7.i235 = getelementptr inbounds i8, ptr %this, i64 172
   %72 = load float, ptr %arrayidx7.i235, align 4
   %mul8.i236 = fmul float %39, %72
-  %arrayidx158 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 1
-  %arrayidx7.i245 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 1, i32 0, i64 2
+  %arrayidx158 = getelementptr inbounds i8, ptr %this, i64 180
+  %arrayidx7.i245 = getelementptr inbounds i8, ptr %this, i64 188
   %73 = load <4 x float>, ptr %arrayidx7.i245, align 4
   %74 = shufflevector <4 x float> %73, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx168 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 2
-  %arrayidx7.i267 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 2, i32 0, i64 2
+  %arrayidx168 = getelementptr inbounds i8, ptr %this, i64 196
+  %arrayidx7.i267 = getelementptr inbounds i8, ptr %this, i64 204
   %75 = load float, ptr %arrayidx7.i267, align 4
   %76 = insertelement <2 x float> %74, float %75, i64 1
   %77 = fmul <2 x float> %51, %76
@@ -472,67 +486,67 @@ sw.bb103:                                         ; preds = %if.then
   %89 = extractelement <2 x float> %77, i64 1
   %add14.i280 = fadd float %add14.i258, %89
   %retval.sroa.3.12.vec.insert.i283 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i280, i64 0
-  %m_cachedP2176 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 5
+  %m_cachedP2176 = getelementptr inbounds i8, ptr %this, i64 260
   store <2 x float> %88, ptr %m_cachedP2176, align 4
-  %ref.tmp146.sroa.2.0.m_cachedP2176.sroa_idx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 5, i32 0, i64 2
+  %ref.tmp146.sroa.2.0.m_cachedP2176.sroa_idx = getelementptr inbounds i8, ptr %this, i64 268
   store <2 x float> %retval.sroa.3.12.vec.insert.i283, ptr %ref.tmp146.sroa.2.0.m_cachedP2176.sroa_idx, align 4
   %90 = fsub <2 x float> %67, %88
   %sub14.i292 = fsub float %add14.i226, %add14.i280
   %retval.sroa.3.12.vec.insert.i295 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i292, i64 0
-  %m_cachedV182 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 6
+  %m_cachedV182 = getelementptr inbounds i8, ptr %this, i64 276
   store <2 x float> %90, ptr %m_cachedV182, align 4
-  %ref.tmp177.sroa.2.0.m_cachedV182.sroa_idx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 6, i32 0, i64 2
+  %ref.tmp177.sroa.2.0.m_cachedV182.sroa_idx = getelementptr inbounds i8, ptr %this, i64 284
   store <2 x float> %retval.sroa.3.12.vec.insert.i295, ptr %ref.tmp177.sroa.2.0.m_cachedV182.sroa_idx, align 4
   %91 = load i32, ptr %this, align 4
   %cmp.i298 = icmp sgt i32 %91, 3
-  br i1 %cmp.i298, label %land.lhs.true.i342, label %if.end.i299
+  br i1 %cmp.i298, label %land.lhs.true.i348, label %if.end.i299
 
-land.lhs.true.i342:                               ; preds = %sw.bb103
-  %bf.load.i343 = load i8, ptr %m_usedVertices.i, align 4
-  %92 = and i8 %bf.load.i343, 8
-  %tobool.not.i344 = icmp eq i8 %92, 0
-  br i1 %tobool.not.i344, label %if.then.i345, label %land.lhs.true4.i330
+land.lhs.true.i348:                               ; preds = %sw.bb103
+  %bf.load.i349 = load i8, ptr %m_usedVertices.i, align 4
+  %92 = and i8 %bf.load.i349, 8
+  %tobool.not.i350 = icmp eq i8 %92, 0
+  br i1 %tobool.not.i350, label %if.then.i351, label %land.lhs.true4.i333
 
-if.then.i345:                                     ; preds = %land.lhs.true.i342
-  %dec.i.i346 = add nsw i32 %91, -1
-  store i32 %dec.i.i346, ptr %this, align 4
-  %idxprom.i.i347 = zext nneg i32 %dec.i.i346 to i64
-  %arrayidx.i.i348 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom.i.i347
-  %arrayidx5.i.i349 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i349, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i348, i64 16, i1 false)
-  %arrayidx8.i.i350 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom.i.i347
-  %arrayidx11.i.i351 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i351, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i350, i64 16, i1 false)
-  %arrayidx14.i.i352 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom.i.i347
-  %arrayidx17.i.i353 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx17.i.i353, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i.i352, i64 16, i1 false)
-  br label %land.lhs.true4.i330
+if.then.i351:                                     ; preds = %land.lhs.true.i348
+  %dec.i.i352 = add nsw i32 %91, -1
+  store i32 %dec.i.i352, ptr %this, align 4
+  %idxprom.i.i354 = zext nneg i32 %dec.i.i352 to i64
+  %arrayidx.i.i355 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW108, i64 0, i64 %idxprom.i.i354
+  %arrayidx5.i.i356 = getelementptr inbounds i8, ptr %this, i64 52
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i356, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i355, i64 16, i1 false)
+  %arrayidx8.i.i358 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP119, i64 0, i64 %idxprom.i.i354
+  %arrayidx11.i.i359 = getelementptr inbounds i8, ptr %this, i64 132
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i359, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i358, i64 16, i1 false)
+  %arrayidx14.i.i361 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ149, i64 0, i64 %idxprom.i.i354
+  %arrayidx17.i.i362 = getelementptr inbounds i8, ptr %this, i64 212
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx17.i.i362, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i.i361, i64 16, i1 false)
+  br label %land.lhs.true4.i333
 
 if.end.i299:                                      ; preds = %sw.bb103
   %cmp3.i300 = icmp eq i32 %91, 3
-  br i1 %cmp3.i300, label %if.end.i299.land.lhs.true4.i330_crit_edge, label %if.end11.i301
+  br i1 %cmp3.i300, label %if.end.i299.land.lhs.true4.i333_crit_edge, label %if.end11.i301
 
-if.end.i299.land.lhs.true4.i330_crit_edge:        ; preds = %if.end.i299
-  %bf.load5.i331.pre = load i8, ptr %m_usedVertices.i, align 4
-  br label %land.lhs.true4.i330
+if.end.i299.land.lhs.true4.i333_crit_edge:        ; preds = %if.end.i299
+  %bf.load5.i334.pre = load i8, ptr %m_usedVertices.i, align 4
+  br label %land.lhs.true4.i333
 
-land.lhs.true4.i330:                              ; preds = %if.end.i299.land.lhs.true4.i330_crit_edge, %if.then.i345, %land.lhs.true.i342
-  %bf.load5.i331 = phi i8 [ %bf.load5.i331.pre, %if.end.i299.land.lhs.true4.i330_crit_edge ], [ %bf.load.i343, %if.then.i345 ], [ %bf.load.i343, %land.lhs.true.i342 ]
-  %93 = phi i32 [ 3, %if.end.i299.land.lhs.true4.i330_crit_edge ], [ %dec.i.i346, %if.then.i345 ], [ %91, %land.lhs.true.i342 ]
-  %94 = and i8 %bf.load5.i331, 4
-  %tobool9.not.i332 = icmp eq i8 %94, 0
-  br i1 %tobool9.not.i332, label %if.then10.i333, label %land.lhs.true14.i318
+land.lhs.true4.i333:                              ; preds = %if.end.i299.land.lhs.true4.i333_crit_edge, %if.then.i351, %land.lhs.true.i348
+  %bf.load5.i334 = phi i8 [ %bf.load5.i334.pre, %if.end.i299.land.lhs.true4.i333_crit_edge ], [ %bf.load.i349, %if.then.i351 ], [ %bf.load.i349, %land.lhs.true.i348 ]
+  %93 = phi i32 [ 3, %if.end.i299.land.lhs.true4.i333_crit_edge ], [ %dec.i.i352, %if.then.i351 ], [ %91, %land.lhs.true.i348 ]
+  %94 = and i8 %bf.load5.i334, 4
+  %tobool9.not.i335 = icmp eq i8 %94, 0
+  br i1 %tobool9.not.i335, label %if.then10.i336, label %land.lhs.true14.i318
 
-if.then10.i333:                                   ; preds = %land.lhs.true4.i330
-  %dec.i4.i334 = add nsw i32 %93, -1
-  store i32 %dec.i4.i334, ptr %this, align 4
-  %idxprom.i5.i335 = zext nneg i32 %dec.i4.i334 to i64
-  %arrayidx.i6.i336 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom.i5.i335
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx113, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i6.i336, i64 16, i1 false)
-  %arrayidx8.i9.i338 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom.i5.i335
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx137, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i9.i338, i64 16, i1 false)
-  %arrayidx14.i12.i340 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom.i5.i335
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx168, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i12.i340, i64 16, i1 false)
+if.then10.i336:                                   ; preds = %land.lhs.true4.i333
+  %dec.i4.i337 = add nsw i32 %93, -1
+  store i32 %dec.i4.i337, ptr %this, align 4
+  %idxprom.i6.i339 = zext nneg i32 %dec.i4.i337 to i64
+  %arrayidx.i7.i340 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW108, i64 0, i64 %idxprom.i6.i339
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx113, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i7.i340, i64 16, i1 false)
+  %arrayidx8.i11.i343 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP119, i64 0, i64 %idxprom.i6.i339
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx137, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i11.i343, i64 16, i1 false)
+  %arrayidx14.i15.i346 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ149, i64 0, i64 %idxprom.i6.i339
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx168, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i15.i346, i64 16, i1 false)
   br label %land.lhs.true14.i318
 
 if.end11.i301:                                    ; preds = %if.end.i299
@@ -543,28 +557,28 @@ if.end11.i301.land.lhs.true14.i318_crit_edge:     ; preds = %if.end11.i301
   %bf.load15.i319.pre = load i8, ptr %m_usedVertices.i, align 4
   br label %land.lhs.true14.i318
 
-land.lhs.true14.i318:                             ; preds = %if.end11.i301.land.lhs.true14.i318_crit_edge, %if.then10.i333, %land.lhs.true4.i330
-  %bf.load15.i319 = phi i8 [ %bf.load15.i319.pre, %if.end11.i301.land.lhs.true14.i318_crit_edge ], [ %bf.load5.i331, %land.lhs.true4.i330 ], [ %bf.load5.i331, %if.then10.i333 ]
-  %95 = phi i32 [ 2, %if.end11.i301.land.lhs.true14.i318_crit_edge ], [ %93, %land.lhs.true4.i330 ], [ %dec.i4.i334, %if.then10.i333 ]
+land.lhs.true14.i318:                             ; preds = %if.end11.i301.land.lhs.true14.i318_crit_edge, %if.then10.i336, %land.lhs.true4.i333
+  %bf.load15.i319 = phi i8 [ %bf.load15.i319.pre, %if.end11.i301.land.lhs.true14.i318_crit_edge ], [ %bf.load5.i334, %land.lhs.true4.i333 ], [ %bf.load5.i334, %if.then10.i336 ]
+  %95 = phi i32 [ 2, %if.end11.i301.land.lhs.true14.i318_crit_edge ], [ %93, %land.lhs.true4.i333 ], [ %dec.i4.i337, %if.then10.i336 ]
   %96 = and i8 %bf.load15.i319, 2
   %tobool19.not.i320 = icmp eq i8 %96, 0
   br i1 %tobool19.not.i320, label %if.then20.i321, label %land.lhs.true24.i305
 
 if.then20.i321:                                   ; preds = %land.lhs.true14.i318
-  %dec.i14.i322 = add nsw i32 %95, -1
-  store i32 %dec.i14.i322, ptr %this, align 4
-  %idxprom.i15.i323 = zext nneg i32 %dec.i14.i322 to i64
-  %arrayidx.i16.i324 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom.i15.i323
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx111, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i16.i324, i64 16, i1 false)
-  %arrayidx8.i19.i326 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom.i15.i323
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx127, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i19.i326, i64 16, i1 false)
-  %arrayidx14.i22.i328 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom.i15.i323
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx158, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i22.i328, i64 16, i1 false)
+  %dec.i17.i322 = add nsw i32 %95, -1
+  store i32 %dec.i17.i322, ptr %this, align 4
+  %idxprom.i19.i324 = zext nneg i32 %dec.i17.i322 to i64
+  %arrayidx.i20.i325 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW108, i64 0, i64 %idxprom.i19.i324
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx111, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i20.i325, i64 16, i1 false)
+  %arrayidx8.i24.i328 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP119, i64 0, i64 %idxprom.i19.i324
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx127, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i24.i328, i64 16, i1 false)
+  %arrayidx14.i28.i331 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ149, i64 0, i64 %idxprom.i19.i324
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx158, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i28.i331, i64 16, i1 false)
   br label %land.lhs.true24.i305
 
 if.end21.i303:                                    ; preds = %if.end11.i301
   %cmp23.i304 = icmp eq i32 %91, 1
-  br i1 %cmp23.i304, label %if.end21.i303.land.lhs.true24.i305_crit_edge, label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit354
+  br i1 %cmp23.i304, label %if.end21.i303.land.lhs.true24.i305_crit_edge, label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit363
 
 if.end21.i303.land.lhs.true24.i305_crit_edge:     ; preds = %if.end21.i303
   %bf.load25.i306.pre = load i8, ptr %m_usedVertices.i, align 4
@@ -572,85 +586,85 @@ if.end21.i303.land.lhs.true24.i305_crit_edge:     ; preds = %if.end21.i303
 
 land.lhs.true24.i305:                             ; preds = %if.end21.i303.land.lhs.true24.i305_crit_edge, %if.then20.i321, %land.lhs.true14.i318
   %bf.load25.i306 = phi i8 [ %bf.load25.i306.pre, %if.end21.i303.land.lhs.true24.i305_crit_edge ], [ %bf.load15.i319, %if.then20.i321 ], [ %bf.load15.i319, %land.lhs.true14.i318 ]
-  %97 = phi i32 [ 1, %if.end21.i303.land.lhs.true24.i305_crit_edge ], [ %dec.i14.i322, %if.then20.i321 ], [ %95, %land.lhs.true14.i318 ]
+  %97 = phi i32 [ 1, %if.end21.i303.land.lhs.true24.i305_crit_edge ], [ %dec.i17.i322, %if.then20.i321 ], [ %95, %land.lhs.true14.i318 ]
   %bf.clear26.i307 = and i8 %bf.load25.i306, 1
   %tobool28.not.i308 = icmp eq i8 %bf.clear26.i307, 0
-  br i1 %tobool28.not.i308, label %if.then29.i309, label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit354
+  br i1 %tobool28.not.i308, label %if.then29.i309, label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit363
 
 if.then29.i309:                                   ; preds = %land.lhs.true24.i305
-  %dec.i24.i310 = add nsw i32 %97, -1
-  store i32 %dec.i24.i310, ptr %this, align 4
-  %idxprom.i25.i311 = zext nneg i32 %dec.i24.i310 to i64
-  %arrayidx.i26.i312 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom.i25.i311
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexVectorW108, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i26.i312, i64 16, i1 false)
-  %arrayidx8.i29.i314 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom.i25.i311
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsP119, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i29.i314, i64 16, i1 false)
-  %arrayidx14.i32.i316 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom.i25.i311
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsQ149, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i32.i316, i64 16, i1 false)
-  br label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit354
+  %dec.i30.i310 = add nsw i32 %97, -1
+  store i32 %dec.i30.i310, ptr %this, align 4
+  %idxprom.i32.i312 = zext nneg i32 %dec.i30.i310 to i64
+  %arrayidx.i33.i313 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW108, i64 0, i64 %idxprom.i32.i312
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexVectorW108, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i33.i313, i64 16, i1 false)
+  %arrayidx8.i36.i315 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP119, i64 0, i64 %idxprom.i32.i312
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsP119, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i36.i315, i64 16, i1 false)
+  %arrayidx14.i39.i317 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ149, i64 0, i64 %idxprom.i32.i312
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsQ149, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i39.i317, i64 16, i1 false)
+  br label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit363
 
-_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit354: ; preds = %if.end21.i303, %land.lhs.true24.i305, %if.then29.i309
+_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit363: ; preds = %if.end21.i303, %land.lhs.true24.i305, %if.then29.i309
   %98 = load float, ptr %m_barycentricCoords.i.i, align 4
   %99 = load float, ptr %arrayidx130, align 4
-  %arrayidx10.i364 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 11, i32 3, i64 3
-  %100 = load float, ptr %arrayidx10.i364, align 4
+  %arrayidx10.i373 = getelementptr inbounds i8, ptr %this, i64 348
+  %100 = load float, ptr %arrayidx10.i373, align 4
   %101 = shufflevector <2 x float> %51, <2 x float> poison, <4 x i32> <i32 poison, i32 poison, i32 1, i32 poison>
   %102 = insertelement <4 x float> %101, float %98, i64 0
   %103 = insertelement <4 x float> %102, float %99, i64 1
   %104 = insertelement <4 x float> %103, float %100, i64 3
-  %.fr678 = freeze <4 x float> %104
-  %105 = fcmp ult <4 x float> %.fr678, zeroinitializer
+  %.fr696 = freeze <4 x float> %104
+  %105 = fcmp ult <4 x float> %.fr696, zeroinitializer
   %106 = bitcast <4 x i1> %105 to i4
   %107 = icmp eq i4 %106, 0
   %frombool188 = zext i1 %107 to i8
-  %m_cachedValidClosest187 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 9
+  %m_cachedValidClosest187 = getelementptr inbounds i8, ptr %this, i64 312
   store i8 %frombool188, ptr %m_cachedValidClosest187, align 4
   br label %if.end320
 
 sw.bb189:                                         ; preds = %if.then
-  %m_simplexVectorW195 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1
-  %arrayidx199 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 1
-  %arrayidx202 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 2
-  %arrayidx204 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 3
+  %m_simplexVectorW195 = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx199 = getelementptr inbounds i8, ptr %this, i64 20
+  %arrayidx202 = getelementptr inbounds i8, ptr %this, i64 36
+  %arrayidx204 = getelementptr inbounds i8, ptr %this, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %p190, i8 0, i64 16, i1 false)
   %call206 = call noundef zeroext i1 @_ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult(ptr nonnull align 4 poison, ptr noundef nonnull align 4 dereferenceable(16) %p190, ptr noundef nonnull align 4 dereferenceable(16) %m_simplexVectorW195, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx199, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx202, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx204, ptr noundef nonnull align 4 dereferenceable(37) %m_cachedBC)
   br i1 %call206, label %if.then209, label %if.else302
 
 if.then209:                                       ; preds = %sw.bb189
-  %m_simplexPointsP214 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2
+  %m_simplexPointsP214 = getelementptr inbounds i8, ptr %this, i64 84
   %108 = load <4 x float>, ptr %m_simplexPointsP214, align 4
   %109 = shufflevector <4 x float> %108, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx3.i371 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 0, i32 0, i64 1
-  %110 = load float, ptr %arrayidx3.i371, align 4
-  %arrayidx7.i373 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 0, i32 0, i64 2
-  %111 = load <4 x float>, ptr %arrayidx7.i373, align 4
+  %arrayidx3.i380 = getelementptr inbounds i8, ptr %this, i64 88
+  %110 = load float, ptr %arrayidx3.i380, align 4
+  %arrayidx7.i382 = getelementptr inbounds i8, ptr %this, i64 92
+  %111 = load <4 x float>, ptr %arrayidx7.i382, align 4
   %112 = shufflevector <4 x float> %111, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx223 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 1
+  %arrayidx223 = getelementptr inbounds i8, ptr %this, i64 100
   %113 = load <4 x float>, ptr %arrayidx223, align 4
   %114 = shufflevector <4 x float> %113, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx3.i381 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 1, i32 0, i64 1
-  %115 = load float, ptr %arrayidx3.i381, align 4
-  %arrayidx7.i383 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 1, i32 0, i64 2
-  %116 = load float, ptr %arrayidx7.i383, align 4
-  %arrayidx233 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 2
-  %arrayidx236 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 11, i32 3, i64 2
+  %arrayidx3.i390 = getelementptr inbounds i8, ptr %this, i64 104
+  %115 = load float, ptr %arrayidx3.i390, align 4
+  %arrayidx7.i392 = getelementptr inbounds i8, ptr %this, i64 108
+  %116 = load float, ptr %arrayidx7.i392, align 4
+  %arrayidx233 = getelementptr inbounds i8, ptr %this, i64 116
+  %arrayidx236 = getelementptr inbounds i8, ptr %this, i64 344
   %117 = load <4 x float>, ptr %arrayidx233, align 4
   %118 = shufflevector <4 x float> %117, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %119 = load float, ptr %arrayidx236, align 4
-  %arrayidx3.i403 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 2, i32 0, i64 1
-  %120 = load float, ptr %arrayidx3.i403, align 4
-  %arrayidx7.i405 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 2, i32 0, i64 2
-  %121 = load <4 x float>, ptr %arrayidx7.i405, align 4
+  %arrayidx3.i412 = getelementptr inbounds i8, ptr %this, i64 120
+  %120 = load float, ptr %arrayidx3.i412, align 4
+  %arrayidx7.i414 = getelementptr inbounds i8, ptr %this, i64 124
+  %121 = load <4 x float>, ptr %arrayidx7.i414, align 4
   %122 = shufflevector <4 x float> %121, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx243 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 3
-  %arrayidx246 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 11, i32 3, i64 3
+  %arrayidx243 = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx246 = getelementptr inbounds i8, ptr %this, i64 348
   %123 = load <4 x float>, ptr %arrayidx243, align 4
   %124 = shufflevector <4 x float> %123, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %125 = load float, ptr %arrayidx246, align 4
-  %arrayidx3.i425 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 3, i32 0, i64 1
-  %126 = load float, ptr %arrayidx3.i425, align 4
-  %arrayidx7.i427 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 3, i32 0, i64 2
-  %127 = load <4 x float>, ptr %arrayidx7.i427, align 4
+  %arrayidx3.i434 = getelementptr inbounds i8, ptr %this, i64 136
+  %126 = load float, ptr %arrayidx3.i434, align 4
+  %arrayidx7.i436 = getelementptr inbounds i8, ptr %this, i64 140
+  %127 = load <4 x float>, ptr %arrayidx7.i436, align 4
   %128 = shufflevector <4 x float> %127, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %129 = insertelement <2 x float> %118, float %119, i64 1
   %130 = insertelement <2 x float> poison, float %119, i64 0
@@ -660,37 +674,37 @@ if.then209:                                       ; preds = %sw.bb189
   %134 = insertelement <2 x float> poison, float %125, i64 0
   %135 = insertelement <2 x float> %134, float %126, i64 1
   %136 = fmul <2 x float> %133, %135
-  %m_cachedP1251 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 4
-  %ref.tmp210.sroa.2.0.m_cachedP1251.sroa_idx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 4, i32 0, i64 2
-  %m_simplexPointsQ256 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3
+  %m_cachedP1251 = getelementptr inbounds i8, ptr %this, i64 244
+  %ref.tmp210.sroa.2.0.m_cachedP1251.sroa_idx = getelementptr inbounds i8, ptr %this, i64 252
+  %m_simplexPointsQ256 = getelementptr inbounds i8, ptr %this, i64 164
   %137 = load <4 x float>, ptr %m_simplexPointsQ256, align 4
   %138 = shufflevector <4 x float> %137, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx3.i447 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 0, i32 0, i64 1
-  %139 = load float, ptr %arrayidx3.i447, align 4
-  %arrayidx7.i449 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 0, i32 0, i64 2
-  %140 = load <4 x float>, ptr %arrayidx7.i449, align 4
+  %arrayidx3.i456 = getelementptr inbounds i8, ptr %this, i64 168
+  %139 = load float, ptr %arrayidx3.i456, align 4
+  %arrayidx7.i458 = getelementptr inbounds i8, ptr %this, i64 172
+  %140 = load <4 x float>, ptr %arrayidx7.i458, align 4
   %141 = shufflevector <4 x float> %140, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx265 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 1
+  %arrayidx265 = getelementptr inbounds i8, ptr %this, i64 180
   %142 = load <4 x float>, ptr %arrayidx265, align 4
   %143 = shufflevector <4 x float> %142, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx3.i457 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 1, i32 0, i64 1
-  %144 = load float, ptr %arrayidx3.i457, align 4
-  %arrayidx7.i459 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 1, i32 0, i64 2
-  %145 = load float, ptr %arrayidx7.i459, align 4
-  %arrayidx275 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 2
+  %arrayidx3.i466 = getelementptr inbounds i8, ptr %this, i64 184
+  %144 = load float, ptr %arrayidx3.i466, align 4
+  %arrayidx7.i468 = getelementptr inbounds i8, ptr %this, i64 188
+  %145 = load float, ptr %arrayidx7.i468, align 4
+  %arrayidx275 = getelementptr inbounds i8, ptr %this, i64 196
   %146 = load <4 x float>, ptr %arrayidx275, align 4
   %147 = shufflevector <4 x float> %146, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx3.i479 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 2, i32 0, i64 1
-  %148 = load float, ptr %arrayidx3.i479, align 4
-  %arrayidx7.i481 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 2, i32 0, i64 2
-  %149 = load float, ptr %arrayidx7.i481, align 4
-  %arrayidx285 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 3
+  %arrayidx3.i488 = getelementptr inbounds i8, ptr %this, i64 200
+  %148 = load float, ptr %arrayidx3.i488, align 4
+  %arrayidx7.i490 = getelementptr inbounds i8, ptr %this, i64 204
+  %149 = load float, ptr %arrayidx7.i490, align 4
+  %arrayidx285 = getelementptr inbounds i8, ptr %this, i64 212
   %150 = load <4 x float>, ptr %arrayidx285, align 4
   %151 = shufflevector <4 x float> %150, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx3.i501 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 3, i32 0, i64 1
-  %152 = load float, ptr %arrayidx3.i501, align 4
-  %arrayidx7.i503 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 3, i32 0, i64 2
-  %153 = load float, ptr %arrayidx7.i503, align 4
+  %arrayidx3.i510 = getelementptr inbounds i8, ptr %this, i64 216
+  %152 = load float, ptr %arrayidx3.i510, align 4
+  %arrayidx7.i512 = getelementptr inbounds i8, ptr %this, i64 220
+  %153 = load float, ptr %arrayidx7.i512, align 4
   %154 = insertelement <2 x float> %147, float %119, i64 1
   %155 = insertelement <2 x float> %130, float %148, i64 1
   %156 = fmul <2 x float> %154, %155
@@ -735,138 +749,138 @@ if.then209:                                       ; preds = %sw.bb189
   %193 = fadd <2 x float> %192, %156
   %194 = fadd <2 x float> %193, %159
   %195 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %184, <2 x i32> <i32 3, i32 1>
-  %m_cachedP2293 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 5
+  %m_cachedP2293 = getelementptr inbounds i8, ptr %this, i64 260
   store <2 x float> %194, ptr %m_cachedP2293, align 4
-  %ref.tmp252.sroa.2.0.m_cachedP2293.sroa_idx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 5, i32 0, i64 2
+  %ref.tmp252.sroa.2.0.m_cachedP2293.sroa_idx = getelementptr inbounds i8, ptr %this, i64 268
   store <2 x float> %195, ptr %ref.tmp252.sroa.2.0.m_cachedP2293.sroa_idx, align 4
   %196 = fsub <2 x float> %170, %194
   %shift = shufflevector <2 x float> %184, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %197 = fsub <2 x float> %184, %shift
-  %retval.sroa.3.12.vec.insert.i531677 = insertelement <2 x float> %197, float 0.000000e+00, i64 1
-  %m_cachedV299 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 6
+  %retval.sroa.3.12.vec.insert.i540695 = insertelement <2 x float> %197, float 0.000000e+00, i64 1
+  %m_cachedV299 = getelementptr inbounds i8, ptr %this, i64 276
   store <2 x float> %196, ptr %m_cachedV299, align 4
-  %ref.tmp294.sroa.2.0.m_cachedV299.sroa_idx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 6, i32 0, i64 2
-  store <2 x float> %retval.sroa.3.12.vec.insert.i531677, ptr %ref.tmp294.sroa.2.0.m_cachedV299.sroa_idx, align 4
+  %ref.tmp294.sroa.2.0.m_cachedV299.sroa_idx = getelementptr inbounds i8, ptr %this, i64 284
+  store <2 x float> %retval.sroa.3.12.vec.insert.i540695, ptr %ref.tmp294.sroa.2.0.m_cachedV299.sroa_idx, align 4
   %198 = load i32, ptr %this, align 4
-  %cmp.i534 = icmp sgt i32 %198, 3
-  br i1 %cmp.i534, label %land.lhs.true.i578, label %if.end.i535
+  %cmp.i543 = icmp sgt i32 %198, 3
+  br i1 %cmp.i543, label %land.lhs.true.i593, label %if.end.i544
 
-land.lhs.true.i578:                               ; preds = %if.then209
-  %bf.load.i579 = load i8, ptr %m_usedVertices.i, align 4
-  %199 = and i8 %bf.load.i579, 8
-  %tobool.not.i580 = icmp eq i8 %199, 0
-  br i1 %tobool.not.i580, label %if.then.i581, label %land.lhs.true4.i566
+land.lhs.true.i593:                               ; preds = %if.then209
+  %bf.load.i594 = load i8, ptr %m_usedVertices.i, align 4
+  %199 = and i8 %bf.load.i594, 8
+  %tobool.not.i595 = icmp eq i8 %199, 0
+  br i1 %tobool.not.i595, label %if.then.i596, label %land.lhs.true4.i578
 
-if.then.i581:                                     ; preds = %land.lhs.true.i578
-  %dec.i.i582 = add nsw i32 %198, -1
-  store i32 %dec.i.i582, ptr %this, align 4
-  %idxprom.i.i583 = zext nneg i32 %dec.i.i582 to i64
-  %arrayidx.i.i584 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom.i.i583
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx204, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i584, i64 16, i1 false)
-  %arrayidx8.i.i586 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom.i.i583
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx243, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i586, i64 16, i1 false)
-  %arrayidx14.i.i588 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom.i.i583
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx285, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i.i588, i64 16, i1 false)
-  br label %land.lhs.true4.i566
+if.then.i596:                                     ; preds = %land.lhs.true.i593
+  %dec.i.i597 = add nsw i32 %198, -1
+  store i32 %dec.i.i597, ptr %this, align 4
+  %idxprom.i.i599 = zext nneg i32 %dec.i.i597 to i64
+  %arrayidx.i.i600 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW195, i64 0, i64 %idxprom.i.i599
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx204, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i600, i64 16, i1 false)
+  %arrayidx8.i.i603 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP214, i64 0, i64 %idxprom.i.i599
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx243, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i603, i64 16, i1 false)
+  %arrayidx14.i.i606 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ256, i64 0, i64 %idxprom.i.i599
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx285, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i.i606, i64 16, i1 false)
+  br label %land.lhs.true4.i578
 
-if.end.i535:                                      ; preds = %if.then209
-  %cmp3.i536 = icmp eq i32 %198, 3
-  br i1 %cmp3.i536, label %if.end.i535.land.lhs.true4.i566_crit_edge, label %if.end11.i537
+if.end.i544:                                      ; preds = %if.then209
+  %cmp3.i545 = icmp eq i32 %198, 3
+  br i1 %cmp3.i545, label %if.end.i544.land.lhs.true4.i578_crit_edge, label %if.end11.i546
 
-if.end.i535.land.lhs.true4.i566_crit_edge:        ; preds = %if.end.i535
-  %bf.load5.i567.pre = load i8, ptr %m_usedVertices.i, align 4
-  br label %land.lhs.true4.i566
+if.end.i544.land.lhs.true4.i578_crit_edge:        ; preds = %if.end.i544
+  %bf.load5.i579.pre = load i8, ptr %m_usedVertices.i, align 4
+  br label %land.lhs.true4.i578
 
-land.lhs.true4.i566:                              ; preds = %if.end.i535.land.lhs.true4.i566_crit_edge, %if.then.i581, %land.lhs.true.i578
-  %bf.load5.i567 = phi i8 [ %bf.load5.i567.pre, %if.end.i535.land.lhs.true4.i566_crit_edge ], [ %bf.load.i579, %if.then.i581 ], [ %bf.load.i579, %land.lhs.true.i578 ]
-  %200 = phi i32 [ 3, %if.end.i535.land.lhs.true4.i566_crit_edge ], [ %dec.i.i582, %if.then.i581 ], [ %198, %land.lhs.true.i578 ]
-  %201 = and i8 %bf.load5.i567, 4
-  %tobool9.not.i568 = icmp eq i8 %201, 0
-  br i1 %tobool9.not.i568, label %if.then10.i569, label %land.lhs.true14.i554
+land.lhs.true4.i578:                              ; preds = %if.end.i544.land.lhs.true4.i578_crit_edge, %if.then.i596, %land.lhs.true.i593
+  %bf.load5.i579 = phi i8 [ %bf.load5.i579.pre, %if.end.i544.land.lhs.true4.i578_crit_edge ], [ %bf.load.i594, %if.then.i596 ], [ %bf.load.i594, %land.lhs.true.i593 ]
+  %200 = phi i32 [ 3, %if.end.i544.land.lhs.true4.i578_crit_edge ], [ %dec.i.i597, %if.then.i596 ], [ %198, %land.lhs.true.i593 ]
+  %201 = and i8 %bf.load5.i579, 4
+  %tobool9.not.i580 = icmp eq i8 %201, 0
+  br i1 %tobool9.not.i580, label %if.then10.i581, label %land.lhs.true14.i563
 
-if.then10.i569:                                   ; preds = %land.lhs.true4.i566
-  %dec.i4.i570 = add nsw i32 %200, -1
-  store i32 %dec.i4.i570, ptr %this, align 4
-  %idxprom.i5.i571 = zext nneg i32 %dec.i4.i570 to i64
-  %arrayidx.i6.i572 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom.i5.i571
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx202, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i6.i572, i64 16, i1 false)
-  %arrayidx8.i9.i574 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom.i5.i571
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx233, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i9.i574, i64 16, i1 false)
-  %arrayidx14.i12.i576 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom.i5.i571
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx275, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i12.i576, i64 16, i1 false)
-  br label %land.lhs.true14.i554
+if.then10.i581:                                   ; preds = %land.lhs.true4.i578
+  %dec.i4.i582 = add nsw i32 %200, -1
+  store i32 %dec.i4.i582, ptr %this, align 4
+  %idxprom.i6.i584 = zext nneg i32 %dec.i4.i582 to i64
+  %arrayidx.i7.i585 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW195, i64 0, i64 %idxprom.i6.i584
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx202, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i7.i585, i64 16, i1 false)
+  %arrayidx8.i11.i588 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP214, i64 0, i64 %idxprom.i6.i584
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx233, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i11.i588, i64 16, i1 false)
+  %arrayidx14.i15.i591 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ256, i64 0, i64 %idxprom.i6.i584
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx275, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i15.i591, i64 16, i1 false)
+  br label %land.lhs.true14.i563
 
-if.end11.i537:                                    ; preds = %if.end.i535
-  %cmp13.i538 = icmp sgt i32 %198, 1
-  br i1 %cmp13.i538, label %if.end11.i537.land.lhs.true14.i554_crit_edge, label %if.end21.i539
+if.end11.i546:                                    ; preds = %if.end.i544
+  %cmp13.i547 = icmp sgt i32 %198, 1
+  br i1 %cmp13.i547, label %if.end11.i546.land.lhs.true14.i563_crit_edge, label %if.end21.i548
 
-if.end11.i537.land.lhs.true14.i554_crit_edge:     ; preds = %if.end11.i537
-  %bf.load15.i555.pre = load i8, ptr %m_usedVertices.i, align 4
-  br label %land.lhs.true14.i554
+if.end11.i546.land.lhs.true14.i563_crit_edge:     ; preds = %if.end11.i546
+  %bf.load15.i564.pre = load i8, ptr %m_usedVertices.i, align 4
+  br label %land.lhs.true14.i563
 
-land.lhs.true14.i554:                             ; preds = %if.end11.i537.land.lhs.true14.i554_crit_edge, %if.then10.i569, %land.lhs.true4.i566
-  %bf.load15.i555 = phi i8 [ %bf.load15.i555.pre, %if.end11.i537.land.lhs.true14.i554_crit_edge ], [ %bf.load5.i567, %land.lhs.true4.i566 ], [ %bf.load5.i567, %if.then10.i569 ]
-  %202 = phi i32 [ 2, %if.end11.i537.land.lhs.true14.i554_crit_edge ], [ %200, %land.lhs.true4.i566 ], [ %dec.i4.i570, %if.then10.i569 ]
-  %203 = and i8 %bf.load15.i555, 2
-  %tobool19.not.i556 = icmp eq i8 %203, 0
-  br i1 %tobool19.not.i556, label %if.then20.i557, label %land.lhs.true24.i541
+land.lhs.true14.i563:                             ; preds = %if.end11.i546.land.lhs.true14.i563_crit_edge, %if.then10.i581, %land.lhs.true4.i578
+  %bf.load15.i564 = phi i8 [ %bf.load15.i564.pre, %if.end11.i546.land.lhs.true14.i563_crit_edge ], [ %bf.load5.i579, %land.lhs.true4.i578 ], [ %bf.load5.i579, %if.then10.i581 ]
+  %202 = phi i32 [ 2, %if.end11.i546.land.lhs.true14.i563_crit_edge ], [ %200, %land.lhs.true4.i578 ], [ %dec.i4.i582, %if.then10.i581 ]
+  %203 = and i8 %bf.load15.i564, 2
+  %tobool19.not.i565 = icmp eq i8 %203, 0
+  br i1 %tobool19.not.i565, label %if.then20.i566, label %land.lhs.true24.i550
 
-if.then20.i557:                                   ; preds = %land.lhs.true14.i554
-  %dec.i14.i558 = add nsw i32 %202, -1
-  store i32 %dec.i14.i558, ptr %this, align 4
-  %idxprom.i15.i559 = zext nneg i32 %dec.i14.i558 to i64
-  %arrayidx.i16.i560 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom.i15.i559
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx199, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i16.i560, i64 16, i1 false)
-  %arrayidx8.i19.i562 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom.i15.i559
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx223, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i19.i562, i64 16, i1 false)
-  %arrayidx14.i22.i564 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom.i15.i559
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx265, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i22.i564, i64 16, i1 false)
-  br label %land.lhs.true24.i541
+if.then20.i566:                                   ; preds = %land.lhs.true14.i563
+  %dec.i17.i567 = add nsw i32 %202, -1
+  store i32 %dec.i17.i567, ptr %this, align 4
+  %idxprom.i19.i569 = zext nneg i32 %dec.i17.i567 to i64
+  %arrayidx.i20.i570 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW195, i64 0, i64 %idxprom.i19.i569
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx199, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i20.i570, i64 16, i1 false)
+  %arrayidx8.i24.i573 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP214, i64 0, i64 %idxprom.i19.i569
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx223, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i24.i573, i64 16, i1 false)
+  %arrayidx14.i28.i576 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ256, i64 0, i64 %idxprom.i19.i569
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx265, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i28.i576, i64 16, i1 false)
+  br label %land.lhs.true24.i550
 
-if.end21.i539:                                    ; preds = %if.end11.i537
-  %cmp23.i540 = icmp eq i32 %198, 1
-  br i1 %cmp23.i540, label %if.end21.i539.land.lhs.true24.i541_crit_edge, label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit590
+if.end21.i548:                                    ; preds = %if.end11.i546
+  %cmp23.i549 = icmp eq i32 %198, 1
+  br i1 %cmp23.i549, label %if.end21.i548.land.lhs.true24.i550_crit_edge, label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit608
 
-if.end21.i539.land.lhs.true24.i541_crit_edge:     ; preds = %if.end21.i539
-  %bf.load25.i542.pre = load i8, ptr %m_usedVertices.i, align 4
-  br label %land.lhs.true24.i541
+if.end21.i548.land.lhs.true24.i550_crit_edge:     ; preds = %if.end21.i548
+  %bf.load25.i551.pre = load i8, ptr %m_usedVertices.i, align 4
+  br label %land.lhs.true24.i550
 
-land.lhs.true24.i541:                             ; preds = %if.end21.i539.land.lhs.true24.i541_crit_edge, %if.then20.i557, %land.lhs.true14.i554
-  %bf.load25.i542 = phi i8 [ %bf.load25.i542.pre, %if.end21.i539.land.lhs.true24.i541_crit_edge ], [ %bf.load15.i555, %if.then20.i557 ], [ %bf.load15.i555, %land.lhs.true14.i554 ]
-  %204 = phi i32 [ 1, %if.end21.i539.land.lhs.true24.i541_crit_edge ], [ %dec.i14.i558, %if.then20.i557 ], [ %202, %land.lhs.true14.i554 ]
-  %bf.clear26.i543 = and i8 %bf.load25.i542, 1
-  %tobool28.not.i544 = icmp eq i8 %bf.clear26.i543, 0
-  br i1 %tobool28.not.i544, label %if.then29.i545, label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit590
+land.lhs.true24.i550:                             ; preds = %if.end21.i548.land.lhs.true24.i550_crit_edge, %if.then20.i566, %land.lhs.true14.i563
+  %bf.load25.i551 = phi i8 [ %bf.load25.i551.pre, %if.end21.i548.land.lhs.true24.i550_crit_edge ], [ %bf.load15.i564, %if.then20.i566 ], [ %bf.load15.i564, %land.lhs.true14.i563 ]
+  %204 = phi i32 [ 1, %if.end21.i548.land.lhs.true24.i550_crit_edge ], [ %dec.i17.i567, %if.then20.i566 ], [ %202, %land.lhs.true14.i563 ]
+  %bf.clear26.i552 = and i8 %bf.load25.i551, 1
+  %tobool28.not.i553 = icmp eq i8 %bf.clear26.i552, 0
+  br i1 %tobool28.not.i553, label %if.then29.i554, label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit608
 
-if.then29.i545:                                   ; preds = %land.lhs.true24.i541
-  %dec.i24.i546 = add nsw i32 %204, -1
-  store i32 %dec.i24.i546, ptr %this, align 4
-  %idxprom.i25.i547 = zext nneg i32 %dec.i24.i546 to i64
-  %arrayidx.i26.i548 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %idxprom.i25.i547
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexVectorW195, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i26.i548, i64 16, i1 false)
-  %arrayidx8.i29.i550 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %idxprom.i25.i547
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsP214, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i29.i550, i64 16, i1 false)
-  %arrayidx14.i32.i552 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %idxprom.i25.i547
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsQ256, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i32.i552, i64 16, i1 false)
-  br label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit590
+if.then29.i554:                                   ; preds = %land.lhs.true24.i550
+  %dec.i30.i555 = add nsw i32 %204, -1
+  store i32 %dec.i30.i555, ptr %this, align 4
+  %idxprom.i32.i557 = zext nneg i32 %dec.i30.i555 to i64
+  %arrayidx.i33.i558 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW195, i64 0, i64 %idxprom.i32.i557
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexVectorW195, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i33.i558, i64 16, i1 false)
+  %arrayidx8.i36.i560 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP214, i64 0, i64 %idxprom.i32.i557
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsP214, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i36.i560, i64 16, i1 false)
+  %arrayidx14.i39.i562 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ256, i64 0, i64 %idxprom.i32.i557
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_simplexPointsQ256, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i39.i562, i64 16, i1 false)
+  br label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit608
 
-_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit590: ; preds = %if.end21.i539, %land.lhs.true24.i541, %if.then29.i545
+_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit608: ; preds = %if.end21.i548, %land.lhs.true24.i550, %if.then29.i554
   %205 = load <4 x float>, ptr %m_barycentricCoords.i.i, align 4
   %.fr = freeze <4 x float> %205
   %206 = fcmp ult <4 x float> %.fr, zeroinitializer
   %207 = bitcast <4 x i1> %206 to i4
   %208 = icmp eq i4 %207, 0
   %frombool318 = zext i1 %208 to i8
-  %m_cachedValidClosest317 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 9
+  %m_cachedValidClosest317 = getelementptr inbounds i8, ptr %this, i64 312
   store i8 %frombool318, ptr %m_cachedValidClosest317, align 4
   br label %if.end320
 
 if.else302:                                       ; preds = %sw.bb189
-  %m_degenerate = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 11, i32 4
+  %m_degenerate = getelementptr inbounds i8, ptr %this, i64 352
   %209 = load i8, ptr %m_degenerate, align 4
   %210 = and i8 %209, 1
   %tobool304.not = icmp eq i8 %210, 0
-  %m_cachedValidClosest308 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 9
+  %m_cachedValidClosest308 = getelementptr inbounds i8, ptr %this, i64 312
   br i1 %tobool304.not, label %if.else307, label %if.then305
 
 if.then305:                                       ; preds = %if.else302
@@ -875,17 +889,17 @@ if.then305:                                       ; preds = %if.else302
 
 if.else307:                                       ; preds = %if.else302
   store i8 1, ptr %m_cachedValidClosest308, align 4
-  %m_cachedV309 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 6
+  %m_cachedV309 = getelementptr inbounds i8, ptr %this, i64 276
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_cachedV309, i8 0, i64 16, i1 false)
   br label %if.end320
 
 sw.default:                                       ; preds = %if.then
-  %m_cachedValidClosest319 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 9
+  %m_cachedValidClosest319 = getelementptr inbounds i8, ptr %this, i64 312
   store i8 0, ptr %m_cachedValidClosest319, align 4
   br label %if.end320
 
-if.end320:                                        ; preds = %entry.if.end320_crit_edge, %sw.bb, %_ZN25btSubSimplexClosestResult7isValidEv.exit, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit354, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit590, %sw.default, %if.else307, %if.then305
-  %211 = phi i8 [ %.pre, %entry.if.end320_crit_edge ], [ 0, %sw.bb ], [ 1, %_ZN25btSubSimplexClosestResult7isValidEv.exit ], [ %frombool102, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit ], [ %frombool188, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit354 ], [ %frombool318, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit590 ], [ 0, %sw.default ], [ 1, %if.else307 ], [ 0, %if.then305 ]
+if.end320:                                        ; preds = %entry.if.end320_crit_edge, %sw.bb, %_ZN25btSubSimplexClosestResult7isValidEv.exit, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit363, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit608, %sw.default, %if.else307, %if.then305
+  %211 = phi i8 [ %.pre, %entry.if.end320_crit_edge ], [ 0, %sw.bb ], [ 1, %_ZN25btSubSimplexClosestResult7isValidEv.exit ], [ %frombool102, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit ], [ %frombool188, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit363 ], [ %frombool318, %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit608 ], [ 0, %sw.default ], [ 1, %if.else307 ], [ 0, %if.then305 ]
   %212 = and i8 %211, 1
   %tobool322 = icmp ne i8 %212, 0
   ret i1 %tobool322
@@ -894,20 +908,20 @@ if.end320:                                        ; preds = %entry.if.end320_cri
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSubSimplexClosestResult(ptr nocapture nonnull readnone align 4 %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %c, ptr nocapture noundef nonnull align 4 dereferenceable(37) %result) local_unnamed_addr #2 align 2 {
 entry:
-  %m_usedVertices = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %result, i64 0, i32 1
+  %m_usedVertices = getelementptr inbounds i8, ptr %result, i64 16
   %bf.load.i = load i8, ptr %m_usedVertices, align 4
   %bf.clear9.i = and i8 %bf.load.i, -16
   store i8 %bf.clear9.i, ptr %m_usedVertices, align 4
   %0 = load <2 x float>, ptr %b, align 4
   %1 = load <2 x float>, ptr %a, align 4
   %2 = fsub <2 x float> %0, %1
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %b, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds [4 x float], ptr %a, i64 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %a, i64 8
   %4 = load float, ptr %arrayidx13.i, align 4
   %5 = load <2 x float>, ptr %c, align 4
   %6 = fsub <2 x float> %5, %1
-  %arrayidx11.i92 = getelementptr inbounds [4 x float], ptr %c, i64 0, i64 2
+  %arrayidx11.i92 = getelementptr inbounds i8, ptr %c, i64 8
   %7 = load float, ptr %arrayidx11.i92, align 4
   %8 = insertelement <2 x float> poison, float %3, i64 0
   %9 = insertelement <2 x float> %8, float %7, i64 1
@@ -917,11 +931,11 @@ entry:
   %13 = load float, ptr %p, align 4
   %14 = extractelement <2 x float> %1, i64 0
   %sub.i100 = fsub float %13, %14
-  %arrayidx5.i101 = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 1
+  %arrayidx5.i101 = getelementptr inbounds i8, ptr %p, i64 4
   %15 = load float, ptr %arrayidx5.i101, align 4
   %16 = extractelement <2 x float> %1, i64 1
   %sub8.i103 = fsub float %15, %16
-  %arrayidx11.i104 = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 2
+  %arrayidx11.i104 = getelementptr inbounds i8, ptr %p, i64 8
   %17 = load float, ptr %arrayidx11.i104, align 4
   %sub14.i106 = fsub float %17, %4
   %18 = shufflevector <2 x float> %2, <2 x float> %6, <2 x i32> <i32 1, i32 3>
@@ -1137,13 +1151,13 @@ return:                                           ; preds = %if.end122, %if.then
   %sub155.sink = phi float [ %sub155, %if.end122 ], [ 0.000000e+00, %if.then97 ], [ %sub86, %if.then68 ], [ 0.000000e+00, %if.then54 ], [ %sub45, %if.then30 ], [ 0.000000e+00, %if.then17 ], [ 1.000000e+00, %if.then ]
   %mul.sink = phi float [ %mul, %if.end122 ], [ %sub121, %if.then97 ], [ 0.000000e+00, %if.then68 ], [ 0.000000e+00, %if.then54 ], [ %div, %if.then30 ], [ 1.000000e+00, %if.then17 ], [ 0.000000e+00, %if.then ]
   %mul128.sink = phi float [ %mul128, %if.end122 ], [ %div102, %if.then97 ], [ %div70, %if.then68 ], [ 1.000000e+00, %if.then54 ], [ 0.000000e+00, %if.then30 ], [ 0.000000e+00, %if.then17 ], [ 0.000000e+00, %if.then ]
-  %m_barycentricCoords.i292 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %result, i64 0, i32 3
+  %m_barycentricCoords.i292 = getelementptr inbounds i8, ptr %result, i64 20
   store float %sub155.sink, ptr %m_barycentricCoords.i292, align 4
-  %arrayidx3.i293 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %result, i64 0, i32 3, i64 1
+  %arrayidx3.i293 = getelementptr inbounds i8, ptr %result, i64 24
   store float %mul.sink, ptr %arrayidx3.i293, align 4
-  %arrayidx5.i294 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %result, i64 0, i32 3, i64 2
+  %arrayidx5.i294 = getelementptr inbounds i8, ptr %result, i64 28
   store float %mul128.sink, ptr %arrayidx5.i294, align 4
-  %arrayidx7.i295 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %result, i64 0, i32 3, i64 3
+  %arrayidx7.i295 = getelementptr inbounds i8, ptr %result, i64 32
   store float 0.000000e+00, ptr %arrayidx7.i295, align 4
   ret i1 true
 }
@@ -1152,10 +1166,10 @@ return:                                           ; preds = %if.end122, %if.then
 define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult(ptr nocapture nonnull readnone align 4 %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %c, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %d, ptr nocapture noundef nonnull align 4 dereferenceable(37) %finalResult) local_unnamed_addr #2 align 2 {
 entry:
   %tempResult = alloca %struct.btSubSimplexClosestResult, align 8
-  %m_usedVertices.i = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %tempResult, i64 0, i32 1
+  %m_usedVertices.i = getelementptr inbounds i8, ptr %tempResult, i64 16
   store i8 0, ptr %m_usedVertices.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %finalResult, ptr noundef nonnull align 4 dereferenceable(16) %p, i64 16, i1 false)
-  %m_usedVertices = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 1
+  %m_usedVertices = getelementptr inbounds i8, ptr %finalResult, i64 16
   %bf.load.i = load i8, ptr %m_usedVertices, align 4
   %bf.clear9.i = and i8 %bf.load.i, -16
   %bf.set14 = or i8 %bf.load.i, 15
@@ -1163,32 +1177,32 @@ entry:
   %0 = load float, ptr %b, align 4
   %1 = load float, ptr %a, align 4
   %sub.i.i = fsub float %0, %1
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %b, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %b, i64 4
   %2 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %a, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %3 = load float, ptr %arrayidx7.i.i, align 4
-  %arrayidx11.i.i = getelementptr inbounds [4 x float], ptr %b, i64 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %b, i64 8
   %4 = load float, ptr %arrayidx11.i.i, align 4
-  %arrayidx13.i.i = getelementptr inbounds [4 x float], ptr %a, i64 0, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %5 = load float, ptr %arrayidx13.i.i, align 4
   %6 = load float, ptr %c, align 4
-  %arrayidx5.i7.i = getelementptr inbounds [4 x float], ptr %c, i64 0, i64 1
+  %arrayidx5.i7.i = getelementptr inbounds i8, ptr %c, i64 4
   %7 = load float, ptr %arrayidx5.i7.i, align 4
   %sub8.i9.i = fsub float %7, %3
-  %arrayidx11.i10.i = getelementptr inbounds [4 x float], ptr %c, i64 0, i64 2
+  %arrayidx11.i10.i = getelementptr inbounds i8, ptr %c, i64 8
   %8 = load float, ptr %arrayidx11.i10.i, align 4
   %9 = fneg float %sub.i.i
   %10 = load float, ptr %p, align 4
   %sub.i25.i = fsub float %10, %1
-  %arrayidx5.i26.i = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 1
+  %arrayidx5.i26.i = getelementptr inbounds i8, ptr %p, i64 4
   %11 = load float, ptr %arrayidx5.i26.i, align 4
   %sub8.i28.i = fsub float %11, %3
-  %arrayidx11.i29.i = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 2
+  %arrayidx11.i29.i = getelementptr inbounds i8, ptr %p, i64 8
   %12 = load float, ptr %arrayidx11.i29.i, align 4
   %13 = load float, ptr %d, align 4
-  %arrayidx5.i40.i = getelementptr inbounds [4 x float], ptr %d, i64 0, i64 1
+  %arrayidx5.i40.i = getelementptr inbounds i8, ptr %d, i64 4
   %14 = load float, ptr %arrayidx5.i40.i, align 4
-  %arrayidx11.i43.i = getelementptr inbounds [4 x float], ptr %d, i64 0, i64 2
+  %arrayidx11.i43.i = getelementptr inbounds i8, ptr %d, i64 8
   %15 = load float, ptr %arrayidx11.i43.i, align 4
   %16 = insertelement <2 x float> poison, float %8, i64 0
   %17 = insertelement <2 x float> %16, float %4, i64 1
@@ -1324,7 +1338,7 @@ entry:
   br i1 %or.cond2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_degenerate = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 4
+  %m_degenerate = getelementptr inbounds i8, ptr %finalResult, i64 36
   store i8 1, ptr %m_degenerate, align 4
   br label %return
 
@@ -1366,15 +1380,15 @@ if.then40:                                        ; preds = %if.then31
   %136 = and i8 %bf.load44, 7
   %bf.set69 = or disjoint i8 %136, %bf.clear9.i
   store i8 %bf.set69, ptr %m_usedVertices, align 4
-  %m_barycentricCoords = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %tempResult, i64 0, i32 3
-  %arrayidx73 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %tempResult, i64 0, i32 3, i64 2
+  %m_barycentricCoords = getelementptr inbounds i8, ptr %tempResult, i64 20
+  %arrayidx73 = getelementptr inbounds i8, ptr %tempResult, i64 28
   %137 = load float, ptr %arrayidx73, align 4
-  %m_barycentricCoords.i = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 3
+  %m_barycentricCoords.i = getelementptr inbounds i8, ptr %finalResult, i64 20
   %138 = load <2 x float>, ptr %m_barycentricCoords, align 4
   store <2 x float> %138, ptr %m_barycentricCoords.i, align 4
-  %arrayidx5.i212 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 3, i64 2
+  %arrayidx5.i212 = getelementptr inbounds i8, ptr %finalResult, i64 28
   store float %137, ptr %arrayidx5.i212, align 4
-  %arrayidx7.i213 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 3, i64 3
+  %arrayidx7.i213 = getelementptr inbounds i8, ptr %finalResult, i64 32
   store float 0.000000e+00, ptr %arrayidx7.i213, align 4
   br label %if.end75
 
@@ -1419,14 +1433,14 @@ if.then90:                                        ; preds = %if.then77
   %150 = or disjoint i8 %bf.clear95, %149
   %bf.set123 = or disjoint i8 %150, %bf.clear9.i244
   store i8 %bf.set123, ptr %m_usedVertices, align 4
-  %m_barycentricCoords124 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %tempResult, i64 0, i32 3
+  %m_barycentricCoords124 = getelementptr inbounds i8, ptr %tempResult, i64 20
   %151 = load float, ptr %m_barycentricCoords124, align 4
-  %arrayidx127 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %tempResult, i64 0, i32 3, i64 1
-  %m_barycentricCoords.i245 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 3
+  %arrayidx127 = getelementptr inbounds i8, ptr %tempResult, i64 24
+  %m_barycentricCoords.i245 = getelementptr inbounds i8, ptr %finalResult, i64 20
   store float %151, ptr %m_barycentricCoords.i245, align 4
-  %arrayidx3.i246 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 3, i64 1
+  %arrayidx3.i246 = getelementptr inbounds i8, ptr %finalResult, i64 24
   store float 0.000000e+00, ptr %arrayidx3.i246, align 4
-  %arrayidx5.i247 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 3, i64 2
+  %arrayidx5.i247 = getelementptr inbounds i8, ptr %finalResult, i64 28
   %152 = load <2 x float>, ptr %arrayidx127, align 8
   store <2 x float> %152, ptr %arrayidx5.i247, align 4
   br label %if.end131
@@ -1475,19 +1489,19 @@ if.then146:                                       ; preds = %if.then133
   %165 = or disjoint i8 %164, %bf.shl177
   %bf.set179 = or disjoint i8 %165, %bf.clear9.i279
   store i8 %bf.set179, ptr %m_usedVertices, align 4
-  %m_barycentricCoords180 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %tempResult, i64 0, i32 3
+  %m_barycentricCoords180 = getelementptr inbounds i8, ptr %tempResult, i64 20
   %166 = load float, ptr %m_barycentricCoords180, align 4
-  %arrayidx183 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %tempResult, i64 0, i32 3, i64 2
+  %arrayidx183 = getelementptr inbounds i8, ptr %tempResult, i64 28
   %167 = load float, ptr %arrayidx183, align 4
-  %arrayidx185 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %tempResult, i64 0, i32 3, i64 1
+  %arrayidx185 = getelementptr inbounds i8, ptr %tempResult, i64 24
   %168 = load float, ptr %arrayidx185, align 8
-  %m_barycentricCoords.i280 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 3
+  %m_barycentricCoords.i280 = getelementptr inbounds i8, ptr %finalResult, i64 20
   store float %166, ptr %m_barycentricCoords.i280, align 4
-  %arrayidx3.i281 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 3, i64 1
+  %arrayidx3.i281 = getelementptr inbounds i8, ptr %finalResult, i64 24
   store float %167, ptr %arrayidx3.i281, align 4
-  %arrayidx5.i282 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 3, i64 2
+  %arrayidx5.i282 = getelementptr inbounds i8, ptr %finalResult, i64 28
   store float 0.000000e+00, ptr %arrayidx5.i282, align 4
-  %arrayidx7.i283 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 3, i64 3
+  %arrayidx7.i283 = getelementptr inbounds i8, ptr %finalResult, i64 32
   store float %168, ptr %arrayidx7.i283, align 4
   br label %if.end187
 
@@ -1534,14 +1548,14 @@ if.then202:                                       ; preds = %if.then189
   %179 = or disjoint i8 %178, %bf.shl234
   %bf.set236 = or disjoint i8 %179, %bf.clear9.i314
   store i8 %bf.set236, ptr %m_usedVertices, align 4
-  %m_barycentricCoords237 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %tempResult, i64 0, i32 3
+  %m_barycentricCoords237 = getelementptr inbounds i8, ptr %tempResult, i64 20
   %180 = load float, ptr %m_barycentricCoords237, align 4
-  %arrayidx242 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %tempResult, i64 0, i32 3, i64 1
-  %m_barycentricCoords.i315 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 3
+  %arrayidx242 = getelementptr inbounds i8, ptr %tempResult, i64 24
+  %m_barycentricCoords.i315 = getelementptr inbounds i8, ptr %finalResult, i64 20
   store float 0.000000e+00, ptr %m_barycentricCoords.i315, align 4
-  %arrayidx3.i316 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 3, i64 1
+  %arrayidx3.i316 = getelementptr inbounds i8, ptr %finalResult, i64 24
   store float %180, ptr %arrayidx3.i316, align 4
-  %arrayidx5.i317 = getelementptr inbounds %struct.btSubSimplexClosestResult, ptr %finalResult, i64 0, i32 3, i64 2
+  %arrayidx5.i317 = getelementptr inbounds i8, ptr %finalResult, i64 28
   %181 = load <2 x float>, ptr %arrayidx242, align 8
   %182 = shufflevector <2 x float> %181, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   store <2 x float> %182, ptr %arrayidx5.i317, align 4
@@ -1556,7 +1570,7 @@ return:                                           ; preds = %if.end187, %if.then
 define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver7closestER9btVector3(ptr noundef nonnull align 4 dereferenceable(357) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %v) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN22btVoronoiSimplexSolver28updateClosestVectorAndPointsEv(ptr noundef nonnull align 4 dereferenceable(357) %this)
-  %m_cachedV = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 6
+  %m_cachedV = getelementptr inbounds i8, ptr %this, i64 276
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %v, ptr noundef nonnull align 4 dereferenceable(16) %m_cachedV, i64 16, i1 false)
   ret i1 %call
 }
@@ -1566,22 +1580,23 @@ define dso_local noundef float @_ZN22btVoronoiSimplexSolver9maxVertexEv(ptr noca
 entry:
   %0 = load i32, ptr %this, align 4
   %cmp5 = icmp sgt i32 %0, 0
-  br i1 %cmp5, label %for.body.preheader, label %for.end
+  br i1 %cmp5, label %for.body.lr.ph, label %for.end
 
-for.body.preheader:                               ; preds = %entry
+for.body.lr.ph:                                   ; preds = %entry
+  %m_simplexVectorW = getelementptr inbounds i8, ptr %this, i64 4
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %maxV.06 = phi float [ 0.000000e+00, %for.body.preheader ], [ %maxV.1, %for.body ]
-  %arrayidx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %indvars.iv
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %maxV.06 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %maxV.1, %for.body ]
+  %arrayidx = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW, i64 0, i64 %indvars.iv
   %1 = load float, ptr %arrayidx, align 4
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %2 = load float, ptr %arrayidx5.i.i, align 4
   %mul8.i.i = fmul float %2, %2
   %3 = tail call float @llvm.fmuladd.f32(float %1, float %1, float %mul8.i.i)
-  %arrayidx10.i.i = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load float, ptr %arrayidx10.i.i, align 4
   %5 = tail call noundef float @llvm.fmuladd.f32(float %4, float %4, float %3)
   %cmp3 = fcmp olt float %maxV.06, %5
@@ -1600,17 +1615,23 @@ define dso_local noundef i32 @_ZNK22btVoronoiSimplexSolver10getSimplexEP9btVecto
 entry:
   %0 = load i32, ptr %this, align 4
   %cmp8 = icmp sgt i32 %0, 0
-  br i1 %cmp8, label %for.body, label %for.end
+  br i1 %cmp8, label %for.body.lr.ph, label %for.end
 
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %indvars.iv
+for.body.lr.ph:                                   ; preds = %entry
+  %m_simplexVectorW = getelementptr inbounds i8, ptr %this, i64 4
+  %m_simplexPointsP = getelementptr inbounds i8, ptr %this, i64 84
+  %m_simplexPointsQ = getelementptr inbounds i8, ptr %this, i64 164
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW, i64 0, i64 %indvars.iv
   %arrayidx3 = getelementptr inbounds %class.btVector3, ptr %yBuf, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, i64 16, i1 false)
-  %arrayidx5 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx5 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsP, i64 0, i64 %indvars.iv
   %arrayidx7 = getelementptr inbounds %class.btVector3, ptr %pBuf, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5, i64 16, i1 false)
-  %arrayidx9 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 3, i64 %indvars.iv
+  %arrayidx9 = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexPointsQ, i64 0, i64 %indvars.iv
   %arrayidx11 = getelementptr inbounds %class.btVector3, ptr %qBuf, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1628,48 +1649,48 @@ for.end:                                          ; preds = %for.body, %entry
 define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver9inSimplexERK9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(357) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %w) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
+  %m_simplexVectorW = getelementptr inbounds i8, ptr %this, i64 4
   %cmp4 = icmp sgt i32 %0, 0
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %1 = load float, ptr %w, align 4
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %w, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %w, i64 4
   %2 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx11.i.i = getelementptr inbounds [4 x float], ptr %w, i64 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %w, i64 8
   %3 = load float, ptr %arrayidx11.i.i, align 4
-  %m_equalVertexThreshold = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 8
+  %m_equalVertexThreshold = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load float, ptr %m_equalVertexThreshold, align 4
   %5 = zext nneg i32 %0 to i64
   %wide.trip.count = zext nneg i32 %0 to i64
-  %arrayidx8 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 0
-  %6 = load float, ptr %arrayidx8, align 4
-  %sub.i.i9 = fsub float %1, %6
-  %arrayidx7.i.i10 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 0, i32 0, i64 1
-  %7 = load float, ptr %arrayidx7.i.i10, align 4
-  %sub8.i.i11 = fsub float %2, %7
-  %arrayidx13.i.i12 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 0, i32 0, i64 2
-  %8 = load float, ptr %arrayidx13.i.i12, align 4
-  %sub14.i.i13 = fsub float %3, %8
-  %mul8.i.i.i14 = fmul float %sub8.i.i11, %sub8.i.i11
-  %9 = tail call float @llvm.fmuladd.f32(float %sub.i.i9, float %sub.i.i9, float %mul8.i.i.i14)
-  %10 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i.i13, float %sub14.i.i13, float %9)
-  %cmp315 = fcmp ugt float %10, %4
-  br i1 %cmp315, label %for.cond, label %for.end
+  %6 = load float, ptr %m_simplexVectorW, align 4
+  %sub.i.i8 = fsub float %1, %6
+  %arrayidx7.i.i9 = getelementptr inbounds i8, ptr %this, i64 8
+  %7 = load float, ptr %arrayidx7.i.i9, align 4
+  %sub8.i.i10 = fsub float %2, %7
+  %arrayidx13.i.i11 = getelementptr inbounds i8, ptr %this, i64 12
+  %8 = load float, ptr %arrayidx13.i.i11, align 4
+  %sub14.i.i12 = fsub float %3, %8
+  %mul8.i.i.i13 = fmul float %sub8.i.i10, %sub8.i.i10
+  %9 = tail call float @llvm.fmuladd.f32(float %sub.i.i8, float %sub.i.i8, float %mul8.i.i.i13)
+  %10 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i.i12, float %sub14.i.i12, float %9)
+  %cmp314 = fcmp ugt float %10, %4
+  br i1 %cmp314, label %for.cond, label %for.end
 
 for.cond:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv16 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv16, 1
+  %indvars.iv15 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv15, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !8
 
 for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 1, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW, i64 0, i64 %indvars.iv.next
   %11 = load float, ptr %arrayidx, align 4
   %sub.i.i = fsub float %1, %11
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %12 = load float, ptr %arrayidx7.i.i, align 4
   %sub8.i.i = fsub float %2, %12
-  %arrayidx13.i.i = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %13 = load float, ptr %arrayidx13.i.i, align 4
   %sub14.i.i = fsub float %3, %13
   %mul8.i.i.i = fmul float %sub8.i.i, %sub8.i.i
@@ -1684,26 +1705,26 @@ for.end.loopexit:                                 ; preds = %for.cond, %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %for.body.lr.ph, %entry
   %cmp.lcssa = phi i1 [ false, %entry ], [ true, %for.body.lr.ph ], [ %cmp.le, %for.end.loopexit ]
-  %m_lastW = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 7
-  %arrayidx.i = getelementptr inbounds [4 x float], ptr %w, i64 0, i64 3
+  %m_lastW = getelementptr inbounds i8, ptr %this, i64 292
+  %arrayidx.i = getelementptr inbounds i8, ptr %w, i64 12
   %16 = load float, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 7, i32 0, i64 3
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 304
   %17 = load float, ptr %arrayidx3.i, align 4
   %cmp.i = fcmp oeq float %16, %17
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZNK9btVector3eqERKS_.exit
 
 land.lhs.true.i:                                  ; preds = %for.end
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %w, i64 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %w, i64 8
   %18 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 7, i32 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 300
   %19 = load float, ptr %arrayidx7.i, align 4
   %cmp8.i = fcmp oeq float %18, %19
   br i1 %cmp8.i, label %land.lhs.true9.i, label %_ZNK9btVector3eqERKS_.exit
 
 land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %w, i64 0, i64 1
+  %arrayidx11.i = getelementptr inbounds i8, ptr %w, i64 4
   %20 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 7, i32 0, i64 1
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 296
   %21 = load float, ptr %arrayidx13.i, align 4
   %cmp14.i = fcmp oeq float %20, %21
   br i1 %cmp14.i, label %land.rhs.i, label %_ZNK9btVector3eqERKS_.exit
@@ -1723,7 +1744,7 @@ _ZNK9btVector3eqERKS_.exit:                       ; preds = %for.end, %land.lhs.
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN22btVoronoiSimplexSolver14backup_closestER9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(357) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %v) local_unnamed_addr #0 align 2 {
 entry:
-  %m_cachedV = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 6
+  %m_cachedV = getelementptr inbounds i8, ptr %this, i64 276
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %v, ptr noundef nonnull align 4 dereferenceable(16) %m_cachedV, i64 16, i1 false)
   ret void
 }
@@ -1740,9 +1761,9 @@ entry:
 define dso_local void @_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(357) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %p1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %p2) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN22btVoronoiSimplexSolver28updateClosestVectorAndPointsEv(ptr noundef nonnull align 4 dereferenceable(357) %this)
-  %m_cachedP1 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 4
+  %m_cachedP1 = getelementptr inbounds i8, ptr %this, i64 244
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %p1, ptr noundef nonnull align 4 dereferenceable(16) %m_cachedP1, i64 16, i1 false)
-  %m_cachedP2 = getelementptr inbounds %class.btVoronoiSimplexSolver, ptr %this, i64 0, i32 5
+  %m_cachedP2 = getelementptr inbounds i8, ptr %this, i64 260
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %p2, ptr noundef nonnull align 4 dereferenceable(16) %m_cachedP2, i64 16, i1 false)
   ret void
 }
@@ -1756,22 +1777,22 @@ entry:
   %0 = load float, ptr %b, align 4
   %1 = load float, ptr %a, align 4
   %sub.i = fsub float %0, %1
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %b, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %b, i64 4
   %2 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %a, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %a, i64 4
   %3 = load float, ptr %arrayidx7.i, align 4
   %sub8.i = fsub float %2, %3
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %b, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %b, i64 8
   %4 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds [4 x float], ptr %a, i64 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %a, i64 8
   %5 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %4, %5
   %6 = load float, ptr %c, align 4
   %sub.i6 = fsub float %6, %1
-  %arrayidx5.i7 = getelementptr inbounds [4 x float], ptr %c, i64 0, i64 1
+  %arrayidx5.i7 = getelementptr inbounds i8, ptr %c, i64 4
   %7 = load float, ptr %arrayidx5.i7, align 4
   %sub8.i9 = fsub float %7, %3
-  %arrayidx11.i10 = getelementptr inbounds [4 x float], ptr %c, i64 0, i64 2
+  %arrayidx11.i10 = getelementptr inbounds i8, ptr %c, i64 8
   %8 = load float, ptr %arrayidx11.i10, align 4
   %sub14.i12 = fsub float %8, %5
   %9 = fneg float %sub14.i
@@ -1785,13 +1806,13 @@ entry:
   %14 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub8.i9, float %neg30.i)
   %15 = load <4 x float>, ptr %p, align 4
   %16 = shufflevector <4 x float> %15, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx5.i26 = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 1
+  %arrayidx5.i26 = getelementptr inbounds i8, ptr %p, i64 4
   %17 = load float, ptr %arrayidx5.i26, align 4
   %18 = shufflevector <4 x float> %15, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %19 = load float, ptr %d, align 4
-  %arrayidx5.i40 = getelementptr inbounds [4 x float], ptr %d, i64 0, i64 1
+  %arrayidx5.i40 = getelementptr inbounds i8, ptr %d, i64 4
   %20 = load float, ptr %arrayidx5.i40, align 4
-  %arrayidx11.i43 = getelementptr inbounds [4 x float], ptr %d, i64 0, i64 2
+  %arrayidx11.i43 = getelementptr inbounds i8, ptr %d, i64 8
   %21 = load float, ptr %arrayidx11.i43, align 4
   %22 = insertelement <2 x float> %16, float %19, i64 1
   %23 = insertelement <2 x float> poison, float %1, i64 0

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.x509_lookup_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.x509_lookup_st = type { i32, i32, ptr, ptr, ptr }
-%struct.X509_info_st = type { ptr, ptr, ptr, %struct.evp_cipher_info_st, i32, ptr }
-%struct.evp_cipher_info_st = type { ptr, [16 x i8] }
 
 @x509_file_lookup = internal global %struct.x509_lookup_method_st { ptr @.str.3, ptr null, ptr null, ptr null, ptr null, ptr @by_file_ctrl, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @by_file_ctrl_ex }, align 8
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/x509/by_file.c\00", align 1
@@ -71,7 +68,7 @@ for.cond.preheader:                               ; preds = %if.end9
   br i1 %cmp1516, label %if.then17, label %if.end32.lr.ph
 
 if.end32.lr.ph:                                   ; preds = %for.cond.preheader
-  %store_ctx = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 4
+  %store_ctx = getelementptr inbounds i8, ptr %ctx, i64 24
   br label %if.end32
 
 if.then17:                                        ; preds = %if.end41, %for.cond.preheader
@@ -149,7 +146,7 @@ if.then49:                                        ; preds = %if.then45
   br label %err
 
 if.end50:                                         ; preds = %if.then45
-  %store_ctx51 = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 4
+  %store_ctx51 = getelementptr inbounds i8, ptr %ctx, i64 24
   %4 = load ptr, ptr %store_ctx51, align 8
   %5 = load ptr, ptr %x, align 8
   %call52 = call i32 @X509_STORE_add_cert(ptr noundef %4, ptr noundef %5) #3
@@ -240,7 +237,7 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp917, label %if.then11, label %if.end24.lr.ph
 
 if.end24.lr.ph:                                   ; preds = %for.cond.preheader
-  %store_ctx = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 4
+  %store_ctx = getelementptr inbounds i8, ptr %ctx, i64 24
   br label %if.end24
 
 if.then11:                                        ; preds = %if.end27, %for.cond.preheader
@@ -301,7 +298,7 @@ if.then35:                                        ; preds = %if.then31
   br label %err
 
 if.end36:                                         ; preds = %if.then31
-  %store_ctx37 = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 4
+  %store_ctx37 = getelementptr inbounds i8, ptr %ctx, i64 24
   %2 = load ptr, ptr %store_ctx37, align 8
   %call38 = tail call i32 @X509_STORE_add_crl(ptr noundef %2, ptr noundef nonnull %call32) #3
   br label %err
@@ -363,7 +360,7 @@ for.cond.preheader:                               ; preds = %if.end4
   br i1 %cmp1223, label %for.body.lr.ph, label %if.then34
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %store_ctx = getelementptr inbounds %struct.x509_lookup_st, ptr %ctx, i64 0, i32 4
+  %store_ctx = getelementptr inbounds i8, ptr %ctx, i64 24
   br label %for.body
 
 if.then8:                                         ; preds = %if.end4
@@ -392,7 +389,7 @@ if.end20:                                         ; preds = %if.then15
 
 if.end21:                                         ; preds = %if.end20, %for.body
   %count.1 = phi i32 [ %inc, %if.end20 ], [ %count.025, %for.body ]
-  %crl = getelementptr inbounds %struct.X509_info_st, ptr %call14, i64 0, i32 1
+  %crl = getelementptr inbounds i8, ptr %call14, i64 8
   %2 = load ptr, ptr %crl, align 8
   %tobool22.not = icmp eq ptr %2, null
   br i1 %tobool22.not, label %for.inc, label %if.then23

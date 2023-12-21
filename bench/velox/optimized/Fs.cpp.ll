@@ -29,7 +29,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.fmt::v8::detail::arg_data" = type { [2 x %"class.fmt::v8::detail::value"] }
 %"class.fmt::v8::detail::value" = type { %union.anon.5 }
 %union.anon.5 = type { i128 }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8, [7 x i8] }>
 
 $_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE = comdat any
 
@@ -52,7 +51,7 @@ entry:
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %dirPath, ptr %dirPath.addr, align 8
   store i32 0, ptr %errorCode, align 8
-  %_M_cat.i = getelementptr inbounds %"class.std::error_code", ptr %errorCode, i64 0, i32 1
+  %_M_cat.i = getelementptr inbounds i8, ptr %errorCode, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #7
   store ptr %call.i, ptr %_M_cat.i, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %dirPath.addr, i8 noundef zeroext 2)
@@ -60,7 +59,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_cmpts.i = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %ref.tmp, i64 0, i32 1
+  %_M_cmpts.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %0 = load ptr, ptr %_M_cmpts.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %if.then.i.i.i
@@ -77,7 +76,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %invoke.cont, %if.th
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
-  %_M_cmpts.i3 = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %ref.tmp1, i64 0, i32 1
+  %_M_cmpts.i3 = getelementptr inbounds i8, ptr %ref.tmp1, i64 32
   %1 = load ptr, ptr %_M_cmpts.i3, align 8
   %cmp.not.i.i.i4 = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i4, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit6, label %if.then.i.i.i5
@@ -116,7 +115,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   %4 = load ptr, ptr %_M_cat.i, align 8, !noalias !4
   %5 = load i32, ptr %errorCode, align 8, !noalias !4
   %vtable.i = load ptr, ptr %4, align 8, !noalias !4
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8, !noalias !4
   invoke void %6(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %5)
           to label %invoke.cont16 unwind label %lpad6
@@ -191,7 +190,7 @@ entry:
   %3 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %2, ptr %3) #8
   %4 = load i64, ptr %agg.tmp.i, align 8
-  %5 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %6 = load ptr, ptr %5, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %4, ptr %6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %invoke.cont unwind label %lpad
@@ -199,7 +198,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #8
-  %_M_cmpts = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %this, i64 0, i32 1
+  %_M_cmpts = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -251,7 +250,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %_M_cmpts = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %this, i64 0, i32 1
+  %_M_cmpts = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_cmpts, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %if.then.i.i
@@ -292,7 +291,7 @@ entry:
   %0 = ptrtoint ptr %basePath to i64
   %1 = ptrtoint ptr %prefix to i64
   store i64 %0, ptr %ref.tmp.i, align 16, !alias.scope !7
-  %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %1, ptr %arrayinit.element.i.i, align 16, !alias.scope !7
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %path, ptr nonnull @.str.4, i64 18, i64 204, ptr nonnull %ref.tmp.i)
   %call = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #8
@@ -315,7 +314,7 @@ if.end:                                           ; preds = %invoke.cont
 
 cleanup:                                          ; preds = %invoke.cont, %if.end
   %.sink = phi i8 [ 1, %if.end ], [ 0, %invoke.cont ]
-  %3 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 %.sink, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #8
   ret void
@@ -334,7 +333,7 @@ entry:
   %0 = ptrtoint ptr %basePath to i64
   %1 = ptrtoint ptr %prefix to i64
   store i64 %0, ptr %ref.tmp.i, align 16, !alias.scope !10
-  %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %1, ptr %arrayinit.element.i.i, align 16, !alias.scope !10
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %path, ptr nonnull @.str.4, i64 18, i64 204, ptr nonnull %ref.tmp.i)
   %call = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #8
@@ -348,7 +347,7 @@ if.end:                                           ; preds = %entry
 
 cleanup:                                          ; preds = %entry, %if.end
   %.sink = phi i8 [ 1, %if.end ], [ 0, %entry ]
-  %2 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 %.sink, ptr %2, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #8
   ret void

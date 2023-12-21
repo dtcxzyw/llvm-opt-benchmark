@@ -47,7 +47,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN4absl12_GLOBAL__N_19CrcEngineEv.exit:          ; preds = %entry, %init.check.i, %invoke.cont.i
   %3 = load ptr, ptr @_ZZN4absl12_GLOBAL__N_19CrcEngineEvE6engine, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %crc, i64 noundef %length)
   %5 = load i32, ptr %crc, align 4
@@ -88,7 +88,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN4absl12_GLOBAL__N_19CrcEngineEv.exit:          ; preds = %entry, %init.check.i, %invoke.cont.i
   %3 = load ptr, ptr @_ZZN4absl12_GLOBAL__N_19CrcEngineEvE6engine, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %crc, ptr noundef %buf_to_add.coerce1, i64 noundef %buf_to_add.coerce0)
   %5 = load i32, ptr %crc, align 4
@@ -129,7 +129,7 @@ lpad.i.i.i:                                       ; preds = %init.i.i.i
 _ZN4absl12ExtendCrc32cENS_8crc32c_tESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %entry, %init.check.i.i.i, %invoke.cont.i.i.i
   %3 = load ptr, ptr @_ZZN4absl12_GLOBAL__N_19CrcEngineEvE6engine, align 8
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %crc.i.i, ptr noundef %buf.coerce1, i64 noundef %buf.coerce0)
   %5 = load i32, ptr %crc.i.i, align 4
@@ -171,7 +171,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN4absl12_GLOBAL__N_19CrcEngineEv.exit:          ; preds = %entry, %init.check.i, %invoke.cont.i
   %3 = load ptr, ptr @_ZZN4absl12_GLOBAL__N_19CrcEngineEvE6engine, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %crc, i64 noundef %length)
   %5 = load i32, ptr %crc, align 4
@@ -211,7 +211,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN4absl12_GLOBAL__N_19CrcEngineEv.exit:          ; preds = %entry, %init.check.i, %invoke.cont.i
   %3 = load ptr, ptr @_ZZN4absl12_GLOBAL__N_19CrcEngineEvE6engine, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %result, i64 noundef %rhs_len)
   %5 = load i32, ptr %result, align 4
@@ -252,7 +252,7 @@ lpad.i.i:                                         ; preds = %init.i.i
 _ZN4absl12ConcatCrc32cENS_8crc32c_tES0_m.exit:    ; preds = %entry, %init.check.i.i, %invoke.cont.i.i
   %3 = load ptr, ptr @_ZZN4absl12_GLOBAL__N_19CrcEngineEvE6engine, align 8
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %4 = load ptr, ptr %vfn.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %result.i, i64 noundef %length_b)
   %5 = load i32, ptr %result.i, align 4
@@ -294,7 +294,7 @@ lpad.i.i:                                         ; preds = %init.i.i
 _ZN4absl12crc_internal13Crc32CAndCopyEPvPKvmNS_8crc32c_tEb.exit: ; preds = %entry, %init.check.i.i, %invoke.cont.i.i
   %5 = load ptr, ptr @_ZZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines, align 8, !noalias !6
   %vtable.i.i = load ptr, ptr %5, align 8, !noalias !6
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i, align 8, !noalias !6
   %call3.i.i = tail call i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %dest, ptr noundef %src, i64 noundef %count, i32 %initial_crc.coerce)
   ret i32 %call3.i.i
@@ -333,7 +333,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN4absl12_GLOBAL__N_19CrcEngineEv.exit:          ; preds = %entry, %init.check.i, %invoke.cont.i
   %3 = load ptr, ptr @_ZZN4absl12_GLOBAL__N_19CrcEngineEvE6engine, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %result, i64 noundef %suffix_len)
   %5 = load i32, ptr %result, align 4

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg = type { ptr, ptr, ptr, i8, i64, i8, i64, i8 }
-%struct.QObjectBase_ = type { i32, i64 }
 %struct.q_obj_BLOCK_IO_ERROR_arg = type { ptr, ptr, i32, i32, i8, i8, ptr }
 %struct.q_obj_BLOCK_JOB_COMPLETED_arg = type { i32, ptr, i64, i64, i64, ptr }
 %struct.q_obj_BLOCK_JOB_CANCELLED_arg = type { i32, ptr, i64, i64, i64 }
@@ -43,19 +42,19 @@ entry:
   %frombool1 = zext i1 %has_size to i8
   %frombool2 = zext i1 %fatal to i8
   store ptr %device, ptr %param, align 8
-  %node_name4 = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %param, i64 0, i32 1
+  %node_name4 = getelementptr inbounds i8, ptr %param, i64 8
   store ptr %node_name, ptr %node_name4, align 8
-  %msg5 = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %param, i64 0, i32 2
+  %msg5 = getelementptr inbounds i8, ptr %param, i64 16
   store ptr %msg, ptr %msg5, align 8
-  %has_offset6 = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %param, i64 0, i32 3
+  %has_offset6 = getelementptr inbounds i8, ptr %param, i64 24
   store i8 %frombool, ptr %has_offset6, align 8
-  %offset8 = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %param, i64 0, i32 4
+  %offset8 = getelementptr inbounds i8, ptr %param, i64 32
   store i64 %offset, ptr %offset8, align 8
-  %has_size9 = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %param, i64 0, i32 5
+  %has_size9 = getelementptr inbounds i8, ptr %param, i64 40
   store i8 %frombool1, ptr %has_size9, align 8
-  %size12 = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %param, i64 0, i32 6
+  %size12 = getelementptr inbounds i8, ptr %param, i64 48
   store i64 %size, ptr %size12, align 8
-  %fatal13 = getelementptr inbounds %struct.q_obj_BLOCK_IMAGE_CORRUPTED_arg, ptr %param, i64 0, i32 7
+  %fatal13 = getelementptr inbounds i8, ptr %param, i64 56
   store i8 %frombool2, ptr %fatal13, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str) #3
   %call16 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -101,7 +100,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool23.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -127,7 +126,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool26.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
@@ -180,17 +179,17 @@ entry:
   %frombool = zext i1 %has_nospace to i8
   %frombool1 = zext i1 %nospace to i8
   store ptr %device, ptr %param, align 8
-  %node_name3 = getelementptr inbounds %struct.q_obj_BLOCK_IO_ERROR_arg, ptr %param, i64 0, i32 1
+  %node_name3 = getelementptr inbounds i8, ptr %param, i64 8
   store ptr %node_name, ptr %node_name3, align 8
-  %operation4 = getelementptr inbounds %struct.q_obj_BLOCK_IO_ERROR_arg, ptr %param, i64 0, i32 2
+  %operation4 = getelementptr inbounds i8, ptr %param, i64 16
   store i32 %operation, ptr %operation4, align 8
-  %action5 = getelementptr inbounds %struct.q_obj_BLOCK_IO_ERROR_arg, ptr %param, i64 0, i32 3
+  %action5 = getelementptr inbounds i8, ptr %param, i64 20
   store i32 %action, ptr %action5, align 4
-  %has_nospace6 = getelementptr inbounds %struct.q_obj_BLOCK_IO_ERROR_arg, ptr %param, i64 0, i32 4
+  %has_nospace6 = getelementptr inbounds i8, ptr %param, i64 24
   store i8 %frombool, ptr %has_nospace6, align 8
-  %nospace8 = getelementptr inbounds %struct.q_obj_BLOCK_IO_ERROR_arg, ptr %param, i64 0, i32 5
+  %nospace8 = getelementptr inbounds i8, ptr %param, i64 25
   store i8 %frombool1, ptr %nospace8, align 1
-  %reason11 = getelementptr inbounds %struct.q_obj_BLOCK_IO_ERROR_arg, ptr %param, i64 0, i32 6
+  %reason11 = getelementptr inbounds i8, ptr %param, i64 32
   store ptr %reason, ptr %reason11, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str.2) #3
   %call12 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -236,7 +235,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool19.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -262,7 +261,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool22.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
@@ -293,15 +292,15 @@ entry:
   %obj = alloca ptr, align 8
   %param = alloca %struct.q_obj_BLOCK_JOB_COMPLETED_arg, align 8
   store i32 %type, ptr %param, align 8
-  %device2 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_COMPLETED_arg, ptr %param, i64 0, i32 1
+  %device2 = getelementptr inbounds i8, ptr %param, i64 8
   store ptr %device, ptr %device2, align 8
-  %len3 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_COMPLETED_arg, ptr %param, i64 0, i32 2
+  %len3 = getelementptr inbounds i8, ptr %param, i64 16
   store i64 %len, ptr %len3, align 8
-  %offset4 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_COMPLETED_arg, ptr %param, i64 0, i32 3
+  %offset4 = getelementptr inbounds i8, ptr %param, i64 24
   store i64 %offset, ptr %offset4, align 8
-  %speed5 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_COMPLETED_arg, ptr %param, i64 0, i32 4
+  %speed5 = getelementptr inbounds i8, ptr %param, i64 32
   store i64 %speed, ptr %speed5, align 8
-  %error6 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_COMPLETED_arg, ptr %param, i64 0, i32 5
+  %error6 = getelementptr inbounds i8, ptr %param, i64 40
   store ptr %error, ptr %error6, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str.3) #3
   %call7 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -347,7 +346,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool13.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -373,7 +372,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool16.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
@@ -404,13 +403,13 @@ entry:
   %obj = alloca ptr, align 8
   %param = alloca %struct.q_obj_BLOCK_JOB_CANCELLED_arg, align 8
   store i32 %type, ptr %param, align 8
-  %device2 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_CANCELLED_arg, ptr %param, i64 0, i32 1
+  %device2 = getelementptr inbounds i8, ptr %param, i64 8
   store ptr %device, ptr %device2, align 8
-  %len3 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_CANCELLED_arg, ptr %param, i64 0, i32 2
+  %len3 = getelementptr inbounds i8, ptr %param, i64 16
   store i64 %len, ptr %len3, align 8
-  %offset4 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_CANCELLED_arg, ptr %param, i64 0, i32 3
+  %offset4 = getelementptr inbounds i8, ptr %param, i64 24
   store i64 %offset, ptr %offset4, align 8
-  %speed5 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_CANCELLED_arg, ptr %param, i64 0, i32 4
+  %speed5 = getelementptr inbounds i8, ptr %param, i64 32
   store i64 %speed, ptr %speed5, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str.4) #3
   %call6 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -456,7 +455,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool12.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -482,7 +481,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool15.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
@@ -513,9 +512,9 @@ entry:
   %obj = alloca ptr, align 8
   %param = alloca %struct.q_obj_BLOCK_JOB_ERROR_arg, align 8
   store ptr %device, ptr %param, align 8
-  %operation2 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_ERROR_arg, ptr %param, i64 0, i32 1
+  %operation2 = getelementptr inbounds i8, ptr %param, i64 8
   store i32 %operation, ptr %operation2, align 8
-  %action3 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_ERROR_arg, ptr %param, i64 0, i32 2
+  %action3 = getelementptr inbounds i8, ptr %param, i64 12
   store i32 %action, ptr %action3, align 4
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str.5) #3
   %call4 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -561,7 +560,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool10.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -587,7 +586,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool13.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
@@ -618,13 +617,13 @@ entry:
   %obj = alloca ptr, align 8
   %param = alloca %struct.q_obj_BLOCK_JOB_READY_arg, align 8
   store i32 %type, ptr %param, align 8
-  %device2 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_READY_arg, ptr %param, i64 0, i32 1
+  %device2 = getelementptr inbounds i8, ptr %param, i64 8
   store ptr %device, ptr %device2, align 8
-  %len3 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_READY_arg, ptr %param, i64 0, i32 2
+  %len3 = getelementptr inbounds i8, ptr %param, i64 16
   store i64 %len, ptr %len3, align 8
-  %offset4 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_READY_arg, ptr %param, i64 0, i32 3
+  %offset4 = getelementptr inbounds i8, ptr %param, i64 24
   store i64 %offset, ptr %offset4, align 8
-  %speed5 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_READY_arg, ptr %param, i64 0, i32 4
+  %speed5 = getelementptr inbounds i8, ptr %param, i64 32
   store i64 %speed, ptr %speed5, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str.6) #3
   %call6 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -670,7 +669,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool12.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -696,7 +695,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool15.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
@@ -727,7 +726,7 @@ entry:
   %obj = alloca ptr, align 8
   %param = alloca %struct.q_obj_BLOCK_JOB_PENDING_arg, align 8
   store i32 %type, ptr %param, align 8
-  %id2 = getelementptr inbounds %struct.q_obj_BLOCK_JOB_PENDING_arg, ptr %param, i64 0, i32 1
+  %id2 = getelementptr inbounds i8, ptr %param, i64 8
   store ptr %id, ptr %id2, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str.7) #3
   %call3 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -773,7 +772,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool9.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -799,7 +798,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool12.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
@@ -830,9 +829,9 @@ entry:
   %obj = alloca ptr, align 8
   %param = alloca %struct.q_obj_BLOCK_WRITE_THRESHOLD_arg, align 8
   store ptr %node_name, ptr %param, align 8
-  %amount_exceeded2 = getelementptr inbounds %struct.q_obj_BLOCK_WRITE_THRESHOLD_arg, ptr %param, i64 0, i32 1
+  %amount_exceeded2 = getelementptr inbounds i8, ptr %param, i64 8
   store i64 %amount_exceeded, ptr %amount_exceeded2, align 8
-  %write_threshold3 = getelementptr inbounds %struct.q_obj_BLOCK_WRITE_THRESHOLD_arg, ptr %param, i64 0, i32 2
+  %write_threshold3 = getelementptr inbounds i8, ptr %param, i64 16
   store i64 %write_threshold, ptr %write_threshold3, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str.8) #3
   %call4 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -878,7 +877,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool10.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -904,7 +903,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool13.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
@@ -935,9 +934,9 @@ entry:
   %obj = alloca ptr, align 8
   %param = alloca %struct.q_obj_QUORUM_FAILURE_arg, align 8
   store ptr %reference, ptr %param, align 8
-  %sector_num2 = getelementptr inbounds %struct.q_obj_QUORUM_FAILURE_arg, ptr %param, i64 0, i32 1
+  %sector_num2 = getelementptr inbounds i8, ptr %param, i64 8
   store i64 %sector_num, ptr %sector_num2, align 8
-  %sectors_count3 = getelementptr inbounds %struct.q_obj_QUORUM_FAILURE_arg, ptr %param, i64 0, i32 2
+  %sectors_count3 = getelementptr inbounds i8, ptr %param, i64 16
   store i64 %sectors_count, ptr %sectors_count3, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str.9) #3
   %call4 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -983,7 +982,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool10.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -1009,7 +1008,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool13.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
@@ -1040,13 +1039,13 @@ entry:
   %obj = alloca ptr, align 8
   %param = alloca %struct.q_obj_QUORUM_REPORT_BAD_arg, align 8
   store i32 %type, ptr %param, align 8
-  %error2 = getelementptr inbounds %struct.q_obj_QUORUM_REPORT_BAD_arg, ptr %param, i64 0, i32 1
+  %error2 = getelementptr inbounds i8, ptr %param, i64 8
   store ptr %error, ptr %error2, align 8
-  %node_name3 = getelementptr inbounds %struct.q_obj_QUORUM_REPORT_BAD_arg, ptr %param, i64 0, i32 2
+  %node_name3 = getelementptr inbounds i8, ptr %param, i64 16
   store ptr %node_name, ptr %node_name3, align 8
-  %sector_num4 = getelementptr inbounds %struct.q_obj_QUORUM_REPORT_BAD_arg, ptr %param, i64 0, i32 3
+  %sector_num4 = getelementptr inbounds i8, ptr %param, i64 24
   store i64 %sector_num, ptr %sector_num4, align 8
-  %sectors_count5 = getelementptr inbounds %struct.q_obj_QUORUM_REPORT_BAD_arg, ptr %param, i64 0, i32 4
+  %sectors_count5 = getelementptr inbounds i8, ptr %param, i64 32
   store i64 %sectors_count, ptr %sectors_count5, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str.10) #3
   %call6 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -1092,7 +1091,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool12.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -1118,7 +1117,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool15.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17

@@ -108,7 +108,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %length.0 = phi i64 [ 1, %if.then ], [ 0, %entry ]
   %uval.0 = phi i32 [ %sub, %if.then ], [ %v, %entry ]
-  %arrayidx3 = getelementptr inbounds [30 x i8], ptr %tbuf, i64 0, i64 29
+  %arrayidx3 = getelementptr inbounds i8, ptr %tbuf, i64 29
   store i8 0, ptr %arrayidx3, align 1
   br label %do.body
 
@@ -160,7 +160,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %length.0 = phi i64 [ 1, %if.then ], [ 0, %entry ]
   %uval.0 = phi i64 [ %sub, %if.then ], [ %v, %entry ]
-  %arrayidx3 = getelementptr inbounds [30 x i8], ptr %tbuf, i64 0, i64 29
+  %arrayidx3 = getelementptr inbounds i8, ptr %tbuf, i64 29
   store i8 0, ptr %arrayidx3, align 1
   %conv = zext i32 %radix to i64
   br label %do.body

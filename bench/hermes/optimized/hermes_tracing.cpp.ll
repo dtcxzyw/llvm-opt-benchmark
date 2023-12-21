@@ -28,16 +28,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.hermes::vm::RuntimeConfig" = type <{ %"class.hermes::vm::GCConfig", ptr, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::function.15", i8, i8, i8, i8, i32, i8, i8, i8, i8, i32, i8, [7 x i8], %"class.std::shared_ptr", i32, i8, [3 x i8] }>
-%"class.hermes::vm::GCConfig" = type { i32, i32, i32, double, i32, %"class.hermes::vm::GCSanitizeConfig", i8, i32, %"class.std::__cxx11::basic_string", %"class.hermes::vm::GCTripwireConfig", i8, i8, i8, i8, %"class.std::function.10", %"class.std::function.13" }
-%"class.hermes::vm::GCSanitizeConfig" = type { double, i64 }
-%"class.hermes::vm::GCTripwireConfig" = type { i32, %"class.std::function" }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.10" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.13" = type { %"class.std::_Function_base", ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"class.std::unique_ptr.25" = type { %"struct.std::__uniq_ptr_data.26" }
 %"struct.std::__uniq_ptr_data.26" = type { %"class.std::__uniq_ptr_impl.27" }
 %"class.std::__uniq_ptr_impl.27" = type { %"class.std::tuple.28" }
@@ -55,7 +45,7 @@ entry:
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp6 = alloca %"class.std::function.15", align 8
-  %SynthTraceMode_.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %runtimeConfig, i64 0, i32 14
+  %SynthTraceMode_.i = getelementptr inbounds i8, ptr %runtimeConfig, i64 226
   %0 = load i8, ptr %SynthTraceMode_.i, align 2
   %1 = and i8 %0, -2
   %or.cond = icmp eq i8 %1, 2
@@ -65,26 +55,26 @@ if.then:                                          ; preds = %entry
   %2 = load i64, ptr %hermesRuntime, align 8
   store i64 %2, ptr %agg.tmp, align 8
   store ptr null, ptr %hermesRuntime, align 8
-  %TraceScratchPath_.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %runtimeConfig, i64 0, i32 16
+  %TraceScratchPath_.i = getelementptr inbounds i8, ptr %runtimeConfig, i64 232
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %TraceScratchPath_.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %TraceResultPath_.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %runtimeConfig, i64 0, i32 17
+  %TraceResultPath_.i = getelementptr inbounds i8, ptr %runtimeConfig, i64 264
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %TraceResultPath_.i)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp6, i64 0, i32 1
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %runtimeConfig, i64 0, i32 18, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp6, i64 16
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %runtimeConfig, i64 312
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6, i8 0, i64 32, i1 false), !alias.scope !4
   %3 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !noalias !4
   %tobool.not.i.i.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.not.i.i, label %invoke.cont8, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont5
-  %TraceRegisterCallback_.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %runtimeConfig, i64 0, i32 18
+  %TraceRegisterCallback_.i = getelementptr inbounds i8, ptr %runtimeConfig, i64 296
   %call3.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(16) %TraceRegisterCallback_.i, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -143,7 +133,7 @@ _ZNSt8functionIFbvEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN
 
 _ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i: ; preds = %_ZNSt8functionIFbvEED2Ev.exit
   %vtable.i.i = load ptr, ptr %13, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %14 = load ptr, ptr %vfn.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #7
   br label %return
@@ -196,7 +186,7 @@ ehcleanup12:                                      ; preds = %ehcleanup11, %lpad
 
 _ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i18: ; preds = %ehcleanup12
   %vtable.i.i19 = load ptr, ptr %22, align 8
-  %vfn.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i19, i64 1
+  %vfn.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i19, i64 8
   %23 = load ptr, ptr %vfn.i.i20, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22) #7
   br label %_ZNSt10unique_ptrIN8facebook6hermes13HermesRuntimeESt14default_deleteIS2_EED2Ev.exit21
@@ -246,7 +236,7 @@ _ZNSt10unique_ptrIN8facebook6hermes7tracing20TracingHermesRuntimeESt14default_de
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN8facebook6hermes7tracing20TracingHermesRuntimeESt14default_deleteIS3_EED2Ev.exit
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(36) %3) #7
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
@@ -259,7 +249,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds
 
 _ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
   %vtable.i.i3 = load ptr, ptr %5, align 8
-  %vfn.i.i4 = getelementptr inbounds ptr, ptr %vtable.i.i3, i64 1
+  %vfn.i.i4 = getelementptr inbounds i8, ptr %vtable.i.i3, i64 8
   %6 = load ptr, ptr %vfn.i.i4, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
   br label %_ZNSt10unique_ptrIN8facebook6hermes13HermesRuntimeESt14default_deleteIS2_EED2Ev.exit
@@ -276,7 +266,7 @@ lpad:                                             ; preds = %entry
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i6: ; preds = %lpad
   %vtable.i.i7 = load ptr, ptr %8, align 8
-  %vfn.i.i8 = getelementptr inbounds ptr, ptr %vtable.i.i7, i64 1
+  %vfn.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i7, i64 8
   %9 = load ptr, ptr %vfn.i.i8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(36) %8) #7
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit9
@@ -289,7 +279,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit9: ; pred
 
 _ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i11: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit9
   %vtable.i.i12 = load ptr, ptr %10, align 8
-  %vfn.i.i13 = getelementptr inbounds ptr, ptr %vtable.i.i12, i64 1
+  %vfn.i.i13 = getelementptr inbounds i8, ptr %vtable.i.i12, i64 8
   %11 = load ptr, ptr %vfn.i.i13, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
   br label %_ZNSt10unique_ptrIN8facebook6hermes13HermesRuntimeESt14default_deleteIS2_EED2Ev.exit14

@@ -3,10 +3,8 @@ source_filename = "bench/libevent/original/evutil_time.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.timeval = type { i64, i64 }
 %struct.timespec = type { i64, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%struct.evutil_monotonic_timer = type { i32, %struct.timeval, %struct.timeval }
 
 @evutil_date_rfc1123.DAYS = internal unnamed_addr constant [7 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6], align 16
 @.str = private unnamed_addr constant [4 x i8] c"Sun\00", align 1
@@ -34,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @evutil_tv_to_msec_(ptr nocapture noundef readonly %tv) local_unnamed_addr #0 {
 entry:
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %0 = load i64, ptr %tv_usec, align 8
   %cmp = icmp sgt i64 %0, 1000000
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -66,10 +64,10 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %tv, align 8
   store i64 %0, ptr %ts, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %1 = load i64, ptr %tv_usec, align 8
   %mul = mul nsw i64 %1, 1000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   store i64 %mul, ptr %tv_nsec, align 8
   %call = call i32 @nanosleep(ptr noundef nonnull %ts, ptr noundef null) #8
   br label %return
@@ -96,24 +94,24 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %tm.addr.0 = phi ptr [ %sys, %if.then ], [ %tm, %entry ]
-  %tm_wday = getelementptr inbounds %struct.tm, ptr %tm.addr.0, i64 0, i32 6
+  %tm_wday = getelementptr inbounds i8, ptr %tm.addr.0, i64 24
   %0 = load i32, ptr %tm_wday, align 8
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [7 x ptr], ptr @evutil_date_rfc1123.DAYS, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %tm.addr.0, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %tm.addr.0, i64 12
   %2 = load i32, ptr %tm_mday, align 4
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %tm.addr.0, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %tm.addr.0, i64 16
   %3 = load i32, ptr %tm_mon, align 8
   %idxprom2 = sext i32 %3 to i64
   %arrayidx3 = getelementptr inbounds [12 x ptr], ptr @evutil_date_rfc1123.MONTHS, i64 0, i64 %idxprom2
   %4 = load ptr, ptr %arrayidx3, align 8
-  %tm_year = getelementptr inbounds %struct.tm, ptr %tm.addr.0, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %tm.addr.0, i64 20
   %5 = load i32, ptr %tm_year, align 4
   %add = add nsw i32 %5, 1900
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %tm.addr.0, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %tm.addr.0, i64 8
   %6 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %tm.addr.0, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %tm.addr.0, i64 4
   %7 = load i32, ptr %tm_min, align 4
   %8 = load i32, ptr %tm.addr.0, align 8
   %call4 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef %date, i64 noundef %datelen, ptr noundef nonnull @.str.19, ptr noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %add, i32 noundef %6, i32 noundef %7, i32 noundef %8) #8
@@ -252,13 +250,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %1 = load i64, ptr %tp, align 8
-  %adjust_monotonic_clock.i = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %base, i64 0, i32 1
+  %adjust_monotonic_clock.i = getelementptr inbounds i8, ptr %base, i64 8
   %2 = load i64, ptr %adjust_monotonic_clock.i, align 8
   %add.i = add nsw i64 %2, %1
   store i64 %add.i, ptr %tp, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %tp, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %tp, i64 8
   %3 = load i64, ptr %tv_usec.i, align 8
-  %tv_usec4.i = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %base, i64 0, i32 1, i32 1
+  %tv_usec4.i = getelementptr inbounds i8, ptr %base, i64 16
   %4 = load i64, ptr %tv_usec4.i, align 8
   %add5.i = add nsw i64 %4, %3
   store i64 %add5.i, ptr %tv_usec.i, align 8
@@ -275,13 +273,13 @@ if.then.i:                                        ; preds = %if.end
 do.end.i:                                         ; preds = %if.then.i, %if.end
   %5 = phi i64 [ %add5.i, %if.end ], [ %sub.i, %if.then.i ]
   %6 = phi i64 [ %add.i, %if.end ], [ %inc.i, %if.then.i ]
-  %last_time.i = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %base, i64 0, i32 2
+  %last_time.i = getelementptr inbounds i8, ptr %base, i64 24
   %7 = load i64, ptr %last_time.i, align 8
   %cmp12.i = icmp eq i64 %6, %7
   br i1 %cmp12.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %do.end.i
-  %tv_usec15.i = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %base, i64 0, i32 2, i32 1
+  %tv_usec15.i = getelementptr inbounds i8, ptr %base, i64 32
   %8 = load i64, ptr %tv_usec15.i, align 8
   %cmp16.i = icmp slt i64 %5, %8
   br i1 %cmp16.i, label %do.body22.i, label %adjust_monotonic_time.exit
@@ -291,7 +289,7 @@ cond.false.i:                                     ; preds = %do.end.i
   br i1 %cmp20.i, label %cond.false.do.body22_crit_edge.i, label %adjust_monotonic_time.exit
 
 cond.false.do.body22_crit_edge.i:                 ; preds = %cond.false.i
-  %tv_usec29.phi.trans.insert.i = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %base, i64 0, i32 2, i32 1
+  %tv_usec29.phi.trans.insert.i = getelementptr inbounds i8, ptr %base, i64 32
   %.pre.i = load i64, ptr %tv_usec29.phi.trans.insert.i, align 8
   br label %do.body22.i
 
@@ -336,10 +334,10 @@ if.end3:                                          ; preds = %entry
 if.end8:                                          ; preds = %if.end3
   %12 = load i64, ptr %ts, align 8
   store i64 %12, ptr %tp, align 8
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   %13 = load i64, ptr %tv_nsec, align 8
   %div = sdiv i64 %13, 1000
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tp, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tp, i64 8
   store i64 %div, ptr %tv_usec, align 8
   br label %return
 

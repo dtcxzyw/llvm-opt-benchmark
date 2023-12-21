@@ -7,12 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon = type { ptr }
 %struct.QemuClipboardNotify = type { i32, %union.anon }
 %union.anon = type { ptr }
-%struct.QemuClipboardPeer = type { ptr, %struct.Notifier, ptr }
-%struct.Notifier = type { ptr, %struct.anon.0 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.QemuClipboardInfo = type { i32, ptr, i32, i8, i32, [1 x %struct.anon.1] }
-%struct.anon.1 = type { i8, i8, i64, ptr }
 %struct.timeval = type { i64, i64 }
+%struct.anon.1 = type { i8, i8, i64, ptr }
 
 @clipboard_notifiers = internal global %struct.NotifierList zeroinitializer, align 8
 @cbinfo = internal unnamed_addr global [3 x ptr] zeroinitializer, align 16
@@ -32,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_clipboard_peer_register(ptr noundef %peer) local_unnamed_addr #0 {
 entry:
-  %notifier = getelementptr inbounds %struct.QemuClipboardPeer, ptr %peer, i64 0, i32 1
+  %notifier = getelementptr inbounds i8, ptr %peer, i64 8
   tail call void @notifier_list_add(ptr noundef nonnull @clipboard_notifiers, ptr noundef nonnull %notifier) #9
   ret void
 }
@@ -52,7 +48,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
-  %notifier = getelementptr inbounds %struct.QemuClipboardPeer, ptr %peer, i64 0, i32 1
+  %notifier = getelementptr inbounds i8, ptr %peer, i64 8
   tail call void @notifier_remove(ptr noundef nonnull %notifier) #9
   ret void
 }
@@ -76,21 +72,21 @@ qemu_clipboard_info.exit.i:                       ; preds = %entry
   br i1 %tobool.not.i, label %glib_autoptr_cleanup_QemuClipboardInfo.exit, label %qemu_clipboard_peer_owns.exit
 
 qemu_clipboard_peer_owns.exit:                    ; preds = %qemu_clipboard_info.exit.i
-  %owner.i = getelementptr inbounds %struct.QemuClipboardInfo, ptr %0, i64 0, i32 1
+  %owner.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %owner.i, align 8
   %cmp.i = icmp eq ptr %1, %peer
   br i1 %cmp.i, label %if.end.i, label %glib_autoptr_cleanup_QemuClipboardInfo.exit
 
 if.end.i:                                         ; preds = %qemu_clipboard_peer_owns.exit
   %call.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #11
-  %owner1.i = getelementptr inbounds %struct.QemuClipboardInfo, ptr %call.i, i64 0, i32 1
+  %owner1.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %owner1.i, align 8
-  %selection2.i = getelementptr inbounds %struct.QemuClipboardInfo, ptr %call.i, i64 0, i32 2
+  %selection2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 %selection, ptr %selection2.i, align 8
   store i32 1, ptr %call.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %notify.i)
   store i32 0, ptr %notify.i, align 8
-  %2 = getelementptr inbounds %struct.QemuClipboardNotify, ptr %notify.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %notify.i, i64 8
   store ptr %call.i, ptr %2, align 8
   call void @notifier_list_notify(ptr noundef nonnull @clipboard_notifiers, ptr noundef nonnull %notify.i) #9
   %3 = load i32, ptr %selection2.i, align 8
@@ -117,7 +113,7 @@ if.end.i.i:                                       ; preds = %if.then3.i
   br i1 %cmp.not.i.i, label %for.body.i.i, label %qemu_clipboard_info_unref.exit.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i
-  %data.i.i = getelementptr inbounds %struct.QemuClipboardInfo, ptr %4, i64 0, i32 5, i64 0, i32 3
+  %data.i.i = getelementptr inbounds i8, ptr %4, i64 48
   %7 = load ptr, ptr %data.i.i, align 8
   call void @g_free(ptr noundef %7) #9
   call void @g_free(ptr noundef nonnull %4) #9
@@ -139,7 +135,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i.if.end.i.i
   br i1 %cmp.not.i.i.i, label %for.body.i.i.i, label %glib_autoptr_cleanup_QemuClipboardInfo.exit
 
 for.body.i.i.i:                                   ; preds = %if.end.i.i.i
-  %data.i.i.i = getelementptr inbounds %struct.QemuClipboardInfo, ptr %call.i, i64 0, i32 5, i64 0, i32 3
+  %data.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %10 = load ptr, ptr %data.i.i.i, align 8
   call void @g_free(ptr noundef %10) #9
   call void @g_free(ptr noundef nonnull %call.i) #9
@@ -169,7 +165,7 @@ qemu_clipboard_info.exit:                         ; preds = %entry
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %qemu_clipboard_info.exit
-  %owner = getelementptr inbounds %struct.QemuClipboardInfo, ptr %0, i64 0, i32 1
+  %owner = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %owner, align 8
   %cmp = icmp eq ptr %1, %peer
   br label %land.end
@@ -200,9 +196,9 @@ if.end:                                           ; preds = %entry
 define dso_local noalias ptr @qemu_clipboard_info_new(ptr noundef %owner, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #11
-  %owner1 = getelementptr inbounds %struct.QemuClipboardInfo, ptr %call, i64 0, i32 1
+  %owner1 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %owner, ptr %owner1, align 8
-  %selection2 = getelementptr inbounds %struct.QemuClipboardInfo, ptr %call, i64 0, i32 2
+  %selection2 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %selection, ptr %selection2, align 8
   store i32 1, ptr %call, align 8
   ret ptr %call
@@ -213,9 +209,9 @@ define dso_local void @qemu_clipboard_update(ptr noundef %info) local_unnamed_ad
 entry:
   %notify = alloca %struct.QemuClipboardNotify, align 8
   store i32 0, ptr %notify, align 8
-  %0 = getelementptr inbounds %struct.QemuClipboardNotify, ptr %notify, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %notify, i64 8
   store ptr %info, ptr %0, align 8
-  %selection = getelementptr inbounds %struct.QemuClipboardInfo, ptr %info, i64 0, i32 2
+  %selection = getelementptr inbounds i8, ptr %info, i64 16
   %1 = load i32, ptr %selection, align 8
   %cmp = icmp ult i32 %1, 3
   br i1 %cmp, label %if.end, label %if.else
@@ -245,7 +241,7 @@ if.end.i:                                         ; preds = %if.then3
   br i1 %cmp.not.i, label %for.body.i, label %qemu_clipboard_info_unref.exit
 
 for.body.i:                                       ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.QemuClipboardInfo, ptr %3, i64 0, i32 5, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load ptr, ptr %data.i, align 8
   call void @g_free(ptr noundef %5) #9
   call void @g_free(ptr noundef nonnull %3) #9
@@ -270,14 +266,14 @@ define dso_local zeroext i1 @qemu_clipboard_check_serial(ptr nocapture noundef r
 entry:
   %_now.i.i10 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %has_serial = getelementptr inbounds %struct.QemuClipboardInfo, ptr %info, i64 0, i32 3
+  %has_serial = getelementptr inbounds i8, ptr %info, i64 20
   %0 = load i8, ptr %has_serial, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %selection = getelementptr inbounds %struct.QemuClipboardInfo, ptr %info, i64 0, i32 2
+  %selection = getelementptr inbounds i8, ptr %info, i64 16
   %2 = load i32, ptr %selection, align 8
   %idxprom = zext i32 %2 to i64
   %arrayidx = getelementptr [3 x ptr], ptr @cbinfo, i64 0, i64 %idxprom
@@ -286,7 +282,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %has_serial6 = getelementptr inbounds %struct.QemuClipboardInfo, ptr %3, i64 0, i32 3
+  %has_serial6 = getelementptr inbounds i8, ptr %3, i64 20
   %4 = load i8, ptr %has_serial6, align 4
   %5 = and i8 %4, 1
   %tobool7.not = icmp eq i8 %5, 0
@@ -317,7 +313,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef -1, i32 noundef -1, i32 noundef 1) #9
   br label %trace_clipboard_check_serial.exit
@@ -331,9 +327,9 @@ trace_clipboard_check_serial.exit:                ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %serial = getelementptr inbounds %struct.QemuClipboardInfo, ptr %info, i64 0, i32 4
+  %serial = getelementptr inbounds i8, ptr %info, i64 24
   %13 = load i32, ptr %serial, align 8
-  %serial13 = getelementptr inbounds %struct.QemuClipboardInfo, ptr %3, i64 0, i32 4
+  %serial13 = getelementptr inbounds i8, ptr %3, i64 24
   %14 = load i32, ptr %serial13, align 8
   %cmp = icmp uge i32 %13, %14
   %cmp20 = icmp ugt i32 %13, %14
@@ -362,7 +358,7 @@ if.then8.i.i19:                                   ; preds = %if.then.i.i17
   %call9.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #9
   %call10.i.i21 = tail call i32 @qemu_get_thread_id() #9
   %20 = load i64, ptr %_now.i.i10, align 8
-  %tv_usec.i.i22 = getelementptr inbounds %struct.timeval, ptr %_now.i.i10, i64 0, i32 1
+  %tv_usec.i.i22 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   %21 = load i64, ptr %tv_usec.i.i22, align 8
   %conv12.i.i = zext i1 %ok.0.in to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i21, i64 noundef %20, i64 noundef %21, i32 noundef %14, i32 noundef %13, i32 noundef %conv12.i.i) #9
@@ -401,7 +397,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %for.body, label %return
 
 for.body:                                         ; preds = %if.end
-  %data = getelementptr inbounds %struct.QemuClipboardInfo, ptr %info, i64 0, i32 5, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %info, i64 48
   %1 = load ptr, ptr %data, align 8
   tail call void @g_free(ptr noundef %1) #9
   tail call void @g_free(ptr noundef nonnull %info) #9
@@ -428,15 +424,16 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_clipboard_request(ptr noundef %info, i32 noundef %type) local_unnamed_addr #0 {
 entry:
+  %types = getelementptr inbounds i8, ptr %info, i64 32
   %idxprom = zext i32 %type to i64
-  %arrayidx = getelementptr %struct.QemuClipboardInfo, ptr %info, i64 0, i32 5, i64 %idxprom
-  %data = getelementptr %struct.QemuClipboardInfo, ptr %info, i64 0, i32 5, i64 %idxprom, i32 3
+  %arrayidx = getelementptr [1 x %struct.anon.1], ptr %types, i64 0, i64 %idxprom
+  %data = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %0 = load ptr, ptr %data, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %requested = getelementptr %struct.QemuClipboardInfo, ptr %info, i64 0, i32 5, i64 %idxprom, i32 1
+  %requested = getelementptr inbounds i8, ptr %arrayidx, i64 1
   %1 = load i8, ptr %requested, align 1
   %2 = and i8 %1, 1
   %tobool4.not = icmp eq i8 %2, 0
@@ -449,14 +446,14 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br i1 %tobool9.not, label %return, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false5
-  %owner = getelementptr inbounds %struct.QemuClipboardInfo, ptr %info, i64 0, i32 1
+  %owner = getelementptr inbounds i8, ptr %info, i64 8
   %5 = load ptr, ptr %owner, align 8
   %tobool11.not = icmp eq ptr %5, null
   br i1 %tobool11.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false10
   store i8 1, ptr %requested, align 1
-  %request = getelementptr inbounds %struct.QemuClipboardPeer, ptr %5, i64 0, i32 2
+  %request = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load ptr, ptr %request, align 8
   tail call void %6(ptr noundef nonnull %info, i32 noundef %type) #9
   br label %return
@@ -480,7 +477,7 @@ qemu_clipboard_info.exit:                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %qemu_clipboard_info.exit
-  %serial = getelementptr inbounds %struct.QemuClipboardInfo, ptr %0, i64 0, i32 4
+  %serial = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %serial, align 8
   br label %for.inc
 
@@ -505,21 +502,22 @@ entry:
   br i1 %tobool.not, label %if.end15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %owner = getelementptr inbounds %struct.QemuClipboardInfo, ptr %info, i64 0, i32 1
+  %owner = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %owner, align 8
   %cmp.not = icmp eq ptr %0, %peer
   br i1 %cmp.not, label %if.end, label %if.end15
 
 if.end:                                           ; preds = %lor.lhs.false
+  %types = getelementptr inbounds i8, ptr %info, i64 32
   %idxprom = zext i32 %type to i64
-  %arrayidx = getelementptr %struct.QemuClipboardInfo, ptr %info, i64 0, i32 5, i64 %idxprom
-  %data1 = getelementptr %struct.QemuClipboardInfo, ptr %info, i64 0, i32 5, i64 %idxprom, i32 3
+  %arrayidx = getelementptr [1 x %struct.anon.1], ptr %types, i64 0, i64 %idxprom
+  %data1 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load ptr, ptr %data1, align 8
   tail call void @g_free(ptr noundef %1) #9
   %call = tail call ptr @g_memdup(ptr noundef %data, i32 noundef %size) #12
   store ptr %call, ptr %data1, align 8
   %conv = zext i32 %size to i64
-  %size9 = getelementptr %struct.QemuClipboardInfo, ptr %info, i64 0, i32 5, i64 %idxprom, i32 2
+  %size9 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 %conv, ptr %size9, align 8
   store i8 1, ptr %arrayidx, align 8
   br i1 %update, label %if.then14, label %if.end15
@@ -527,9 +525,9 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then14:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %notify.i)
   store i32 0, ptr %notify.i, align 8
-  %2 = getelementptr inbounds %struct.QemuClipboardNotify, ptr %notify.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %notify.i, i64 8
   store ptr %info, ptr %2, align 8
-  %selection.i = getelementptr inbounds %struct.QemuClipboardInfo, ptr %info, i64 0, i32 2
+  %selection.i = getelementptr inbounds i8, ptr %info, i64 16
   %3 = load i32, ptr %selection.i, align 8
   %cmp.i = icmp ult i32 %3, 3
   br i1 %cmp.i, label %if.end.i, label %if.else.i
@@ -559,7 +557,7 @@ if.end.i.i:                                       ; preds = %if.then3.i
   br i1 %cmp.not.i.i, label %for.body.i.i, label %qemu_clipboard_info_unref.exit.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i
-  %data.i.i = getelementptr inbounds %struct.QemuClipboardInfo, ptr %5, i64 0, i32 5, i64 0, i32 3
+  %data.i.i = getelementptr inbounds i8, ptr %5, i64 48
   %7 = load ptr, ptr %data.i.i, align 8
   call void @g_free(ptr noundef %7) #9
   call void @g_free(ptr noundef nonnull %5) #9

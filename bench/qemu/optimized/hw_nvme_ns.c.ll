@@ -9,90 +9,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.11 = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.BlockDriverInfo = type { i32, i32, i64, i8, i8 }
-%struct.NvmeNamespace = type { %struct.DeviceState, %struct.BlockConf, i32, i64, i64, %struct.NvmeIdNs, %struct.NvmeIdNsNvm, %struct.NvmeLBAF, i32, i64, ptr, i8, i16, i32, i8, %struct.anon, %union.anon, ptr, ptr, %union.anon.0, %union.anon.1, %union.anon.2, %union.anon.3, i32, i64, i64, i32, ptr, i32, i32, %struct.NvmeNamespaceParams, ptr, ptr, %struct.anon.7, %struct.anon.8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.BlockConf = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32 }
-%struct.NvmeIdNs = type { i64, i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i16, i16, i16, i16, [16 x i8], i16, i16, i16, i16, i16, i16, i32, i8, [18 x i8], i8, i16, i16, [16 x i8], i64, [64 x %struct.NvmeLBAF], [3712 x i8] }
-%struct.NvmeIdNsNvm = type { i64, i8, [3 x i8], [64 x i32], [3828 x i8] }
-%struct.anon = type { i16, i16, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.NvmeNamespaceParams = type { i8, i8, i32, %struct.QemuUUID, i64, i8, i16, i8, i8, i8, i8, i16, i32, i8, i8, i8, i64, i64, i32, i32, i32, i32, i64, i64, %struct.anon.6 }
-%struct.QemuUUID = type { %union.anon.4 }
-%union.anon.4 = type { %struct.anon.5 }
-%struct.anon.5 = type { i32, i16, i16, i8, i8, [6 x i8] }
-%struct.anon.6 = type { ptr }
-%struct.anon.7 = type { i32 }
-%struct.anon.8 = type { i16, ptr }
-%struct.NvmeEnduranceGroup = type { i8, %struct.anon.9 }
-%struct.anon.9 = type { %struct.NvmeFdpEventBuffer, %struct.NvmeFdpEventBuffer, i16, i16, i8, i64, i64, i64, i64, i8, ptr }
-%struct.NvmeFdpEventBuffer = type { [63 x %struct.NvmeFdpEvent], i32, i32, i32 }
-%struct.NvmeFdpEvent = type <{ i8, i8, i16, i64, i32, [2 x i64], i16, i8, [5 x i8], [3 x i64] }>
-%struct.NvmeZoneDescr = type { i8, i8, i8, [5 x i8], i64, i64, i64, [32 x i8] }
-%struct.NvmeZone = type { %struct.NvmeZoneDescr, i64, %union.anon.10 }
-%union.anon.10 = type { %struct.QTailQLink }
-%struct.NvmeIdNsZoned = type { i16, i16, i32, i32, i32, i32, [24 x i8], i32, i16, i16, i8, [2763 x i8], [16 x %struct.NvmeLBAFE], [768 x i8], [256 x i8] }
 %struct.NvmeLBAFE = type { i64, i8, [7 x i8] }
 %struct.NvmeRuHandle = type { i8, i8, i64, i8, i64, ptr }
 %struct.NvmeReclaimUnit = type { i64 }
 %struct.timeval = type { i64, i64 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.NvmeCtrl = type { %struct.PCIDevice, %struct.MemoryRegion, %struct.MemoryRegion, %struct.NvmeBar, %struct.NvmeParams, %struct.NvmeBus, i16, i8, i32, i16, i16, i32, i8, i32, i32, i64, i64, i64, i16, i8, i32, i32, i64, i64, i8, %struct.anon.17, %struct.anon.18, i8, ptr, %union.anon.19, i32, i32, [5 x i64], ptr, %struct.NvmeNamespace, [257 x ptr], ptr, ptr, %struct.NvmeSQueue, %struct.NvmeCQueue, %struct.NvmeIdCtrl, %struct.anon.25, %struct.NvmePriCtrlCap, %struct.NvmeSecCtrlList, %struct.anon.27 }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.12, %union.anon.13 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.12 = type { %struct.QTailQLink }
-%union.anon.13 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.14, %union.anon.15, %union.anon.16, ptr, i32, ptr, ptr, i8 }
-%union.anon.14 = type { %struct.QTailQLink }
-%union.anon.15 = type { %struct.QTailQLink }
-%union.anon.16 = type { %struct.QTailQLink }
-%struct.NvmeBar = type { i64, i32, i32, i32, i32, [4 x i8], i32, i32, i32, i64, i64, i32, i32, i32, i32, i64, i64, i32, [3492 x i8], i32, i32, i32, i32, i32, i32, i32, [484 x i8] }
-%struct.NvmeParams = type { ptr, i32, i32, i16, i32, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i8, i8 }
-%struct.NvmeBus = type { %struct.BusState }
-%struct.anon.17 = type { %struct.MemoryRegion, ptr, i8, i64 }
-%struct.anon.18 = type { ptr, i8, i64 }
-%union.anon.19 = type { %struct.QTailQLink }
-%struct.NvmeSQueue = type { ptr, i16, i16, i32, i32, i32, i64, i64, i64, ptr, %struct.EventNotifier, i8, ptr, %union.anon.20, %union.anon.21, %union.anon.22 }
-%struct.EventNotifier = type { i32, i32, i8 }
-%union.anon.20 = type { %struct.QTailQLink }
-%union.anon.21 = type { %struct.QTailQLink }
-%union.anon.22 = type { %struct.QTailQLink }
-%struct.NvmeCQueue = type { ptr, i8, i16, i16, i32, i32, i32, i32, i64, i64, i64, ptr, %struct.EventNotifier, i8, %union.anon.23, %union.anon.24 }
-%union.anon.23 = type { %struct.QTailQLink }
-%union.anon.24 = type { %struct.QTailQLink }
-%struct.NvmeIdCtrl = type { i16, i16, [20 x i8], [40 x i8], [8 x i8], i8, [3 x i8], i8, i8, i16, i32, i32, i32, i32, i32, [11 x i8], i8, [16 x i8], [128 x i8], i16, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i32, i32, [16 x i8], [16 x i8], i32, i16, i8, i8, i16, i16, i16, i16, i32, [6 x i8], i16, i16, [170 x i8], i8, i8, i16, i32, i16, i16, i8, i8, i16, i16, i8, i8, i16, i16, i32, [228 x i8], [256 x i8], [1024 x i8], [32 x %struct.NvmePSD], [1024 x i8] }
-%struct.NvmePSD = type { i16, i16, i32, i32, i8, i8, i8, i8, [16 x i8] }
-%struct.anon.25 = type { %struct.anon.26, i32, %struct.NvmeHostBehaviorSupport }
-%struct.anon.26 = type { i16, i16 }
-%struct.NvmeHostBehaviorSupport = type { i8, i8, i8, [509 x i8] }
-%struct.NvmePriCtrlCap = type { i16, i16, i8, [27 x i8], i32, i32, i16, i16, i16, i16, [16 x i8], i32, i32, i16, i16, i16, i16, [4016 x i8] }
-%struct.NvmeSecCtrlList = type { i8, [31 x i8], [127 x %struct.NvmeSecCtrlEntry] }
-%struct.NvmeSecCtrlEntry = type { i16, i16, i8, [3 x i8], i16, i16, i16, [18 x i8] }
-%struct.anon.27 = type { i16, i16 }
-%struct.NvmeSubsystem = type { %struct.DeviceState, %struct.NvmeBus, [256 x i8], ptr, [256 x ptr], [257 x ptr], %struct.NvmeEnduranceGroup, %struct.anon.28 }
-%struct.anon.28 = type { ptr, %struct.anon.29 }
-%struct.anon.29 = type { i8, i64, i16, i32 }
 
 @.str = private unnamed_addr constant [21 x i8] c"../qemu/hw/nvme/ns.c\00", align 1
 @__func__.nvme_ns_check_constraints = private unnamed_addr constant [26 x i8] c"nvme_ns_check_constraints\00", align 1
@@ -227,39 +147,40 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @nvme_ns_init_format(ptr nocapture noundef %ns) local_unnamed_addr #0 {
 entry:
   %bdi = alloca %struct.BlockDriverInfo, align 8
-  %id_ns1 = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5
-  %lbaf = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 7
-  %flbas = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 5
+  %id_ns1 = getelementptr inbounds i8, ptr %ns, i64 272
+  %lbaf = getelementptr inbounds i8, ptr %ns, i64 8464
+  %lbaf2 = getelementptr inbounds i8, ptr %ns, i64 400
+  %flbas = getelementptr inbounds i8, ptr %ns, i64 298
   %0 = load i8, ptr %flbas, align 1
   %1 = and i8 %0, 15
   %idxprom = zext nneg i8 %1 to i64
-  %arrayidx = getelementptr %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 35, i64 %idxprom
+  %arrayidx = getelementptr [64 x %struct.NvmeLBAF], ptr %lbaf2, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 1
   store i32 %2, ptr %lbaf, align 8
   %3 = lshr i32 %2, 16
   %conv4 = and i32 %3, 255
   %shl = shl nuw i32 1, %conv4
   %conv5 = sext i32 %shl to i64
-  %lbasz = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 9
+  %lbasz = getelementptr inbounds i8, ptr %ns, i64 8472
   store i64 %conv5, ptr %lbasz, align 8
-  %size = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %ns, i64 256
   %4 = load i64, ptr %size, align 8
   %5 = and i32 %2, 65535
   %conv8 = zext nneg i32 %5 to i64
   %add = add nsw i64 %conv8, %conv5
   %div = udiv i64 %4, %add
   store i64 %div, ptr %id_ns1, align 1
-  %ncap = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 1
+  %ncap = getelementptr inbounds i8, ptr %ns, i64 280
   store i64 %div, ptr %ncap, align 1
-  %nuse = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 2
+  %nuse = getelementptr inbounds i8, ptr %ns, i64 288
   store i64 %div, ptr %nuse, align 1
   %6 = and i32 %3, 255
   %sh_prom = zext nneg i32 %6 to i64
   %shl14 = shl i64 %div, %sh_prom
-  %moff = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 4
+  %moff = getelementptr inbounds i8, ptr %ns, i64 264
   store i64 %shl14, ptr %moff, align 8
-  %blkconf = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 1
-  %discard_granularity = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 1, i32 7
+  %blkconf = getelementptr inbounds i8, ptr %ns, i64 160
+  %discard_granularity = getelementptr inbounds i8, ptr %ns, i64 192
   %7 = load i32, ptr %discard_granularity, align 8
   %conv15 = zext i32 %7 to i64
   %div17 = udiv i64 %conv15, %conv5
@@ -285,9 +206,9 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %npdg.0.in = phi i64 [ %div30, %if.then ], [ %div17, %land.lhs.true ], [ %div17, %entry ]
   %npdg.0 = trunc i64 %npdg.0.in to i16
   %sub = add i16 %npdg.0, -1
-  %npdg33 = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 23
+  %npdg33 = getelementptr inbounds i8, ptr %ns, i64 340
   store i16 %sub, ptr %npdg33, align 1
-  %npda = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 24
+  %npda = getelementptr inbounds i8, ptr %ns, i64 342
   store i16 %sub, ptr %npda, align 1
   ret void
 }
@@ -307,7 +228,7 @@ entry:
   %endptr.i = alloca ptr, align 8
   %p.i = alloca ptr, align 8
   %bdi.i.i = alloca %struct.BlockDriverInfo, align 8
-  %blkconf.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 1
+  %blkconf.i = getelementptr inbounds i8, ptr %ns, i64 160
   %0 = load ptr, ptr %blkconf.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -317,7 +238,7 @@ if.then.i:                                        ; preds = %entry
   br label %return
 
 if.end.i:                                         ; preds = %entry
-  %pi.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 8
+  %pi.i = getelementptr inbounds i8, ptr %ns, i64 8693
   %1 = load i8, ptr %pi.i, align 1
   %tobool1.not.i = icmp eq i8 %1, 0
   br i1 %tobool1.not.i, label %if.end17.i, label %if.then2.i
@@ -331,7 +252,7 @@ if.then6.i:                                       ; preds = %if.then2.i
   br label %return
 
 if.end7.i:                                        ; preds = %if.then2.i
-  %pif.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 10
+  %pif.i = getelementptr inbounds i8, ptr %ns, i64 8695
   %2 = load i8, ptr %pif.i, align 1
   switch i8 %2, label %sw.default.i [
     i8 0, label %sw.epilog.i
@@ -347,7 +268,7 @@ sw.default.i:                                     ; preds = %if.end7.i
 
 sw.epilog.i:                                      ; preds = %sw.bb10.i, %if.end7.i
   %pi_size.0.i = phi i32 [ 16, %sw.bb10.i ], [ 8, %if.end7.i ]
-  %ms.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 6
+  %ms.i = getelementptr inbounds i8, ptr %ns, i64 8690
   %3 = load i16, ptr %ms.i, align 2
   %conv12.i = zext i16 %3 to i32
   %cmp13.i = icmp ugt i32 %pi_size.0.i, %conv12.i
@@ -358,7 +279,7 @@ if.then15.i:                                      ; preds = %sw.epilog.i
   br label %return
 
 if.end17.i:                                       ; preds = %sw.epilog.i, %if.end.i
-  %nsid.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 2
+  %nsid.i = getelementptr inbounds i8, ptr %ns, i64 8660
   %4 = load i32, ptr %nsid.i, align 4
   %cmp19.i = icmp ugt i32 %4, 256
   br i1 %cmp19.i, label %if.then21.i, label %if.end22.i
@@ -368,20 +289,20 @@ if.then21.i:                                      ; preds = %if.end17.i
   br label %return
 
 if.end22.i:                                       ; preds = %if.end17.i
-  %zoned.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 14
+  %zoned.i = getelementptr inbounds i8, ptr %ns, i64 8705
   %5 = load i8, ptr %zoned.i, align 1
   %6 = and i8 %5, 1
   %tobool24.not.i = icmp eq i8 %6, 0
   br i1 %tobool24.not.i, label %if.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end22.i
-  %endgrp.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 32
+  %endgrp.i = getelementptr inbounds i8, ptr %ns, i64 8776
   %7 = load ptr, ptr %endgrp.i, align 8
   %tobool26.not.i = icmp eq ptr %7, null
   br i1 %tobool26.not.i, label %if.then36.i, label %land.lhs.true27.i
 
 land.lhs.true27.i:                                ; preds = %land.lhs.true.i
-  %enabled.i = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %7, i64 0, i32 1, i32 9
+  %enabled.i = getelementptr inbounds i8, ptr %7, i64 8136
   %8 = load i8, ptr %enabled.i, align 8
   %9 = and i8 %8, 1
   %tobool29.not.i = icmp eq i8 %9, 0
@@ -392,13 +313,13 @@ if.then31.i:                                      ; preds = %land.lhs.true27.i
   br label %return
 
 if.then36.i:                                      ; preds = %land.lhs.true27.i, %land.lhs.true.i
-  %max_active_zones.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 18
+  %max_active_zones.i = getelementptr inbounds i8, ptr %ns, i64 8728
   %10 = load i32, ptr %max_active_zones.i, align 8
   %tobool38.not.i = icmp eq i32 %10, 0
   br i1 %tobool38.not.i, label %if.end60.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %if.then36.i
-  %max_open_zones.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 19
+  %max_open_zones.i = getelementptr inbounds i8, ptr %ns, i64 8732
   %11 = load i32, ptr %max_open_zones.i, align 4
   %cmp43.i = icmp ugt i32 %11, %10
   br i1 %cmp43.i, label %if.then45.i, label %if.end50.i
@@ -416,7 +337,7 @@ if.then54.i:                                      ; preds = %if.end50.i
   br label %if.end60.i
 
 if.end60.i:                                       ; preds = %if.then54.i, %if.end50.i, %if.then36.i
-  %zd_extension_size.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 20
+  %zd_extension_size.i = getelementptr inbounds i8, ptr %ns, i64 8736
   %12 = load i32, ptr %zd_extension_size.i, align 8
   %tobool62.not.i = icmp eq i32 %12, 0
   br i1 %tobool62.not.i, label %if.end75.i, label %if.then63.i
@@ -439,13 +360,13 @@ if.then73.i:                                      ; preds = %if.end68.i
   br label %return
 
 if.end75.i:                                       ; preds = %if.end68.i, %if.end60.i
-  %zrwas.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 22
+  %zrwas.i = getelementptr inbounds i8, ptr %ns, i64 8744
   %13 = load i64, ptr %zrwas.i, align 8
   %tobool77.not.i = icmp eq i64 %13, 0
   br i1 %tobool77.not.i, label %if.end, label %if.then78.i
 
 if.then78.i:                                      ; preds = %if.end75.i
-  %logical_block_size.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 1, i32 3
+  %logical_block_size.i = getelementptr inbounds i8, ptr %ns, i64 176
   %14 = load i32, ptr %logical_block_size.i, align 8
   %conv82.i = zext i32 %14 to i64
   %rem.i = urem i64 %13, %conv82.i
@@ -457,7 +378,7 @@ if.then84.i:                                      ; preds = %if.then78.i
   br label %return
 
 if.end89.i:                                       ; preds = %if.then78.i
-  %zrwafg.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 23
+  %zrwafg.i = getelementptr inbounds i8, ptr %ns, i64 8752
   %15 = load i64, ptr %zrwafg.i, align 8
   %cmp91.i = icmp eq i64 %15, -1
   br i1 %cmp91.i, label %if.then93.i, label %if.end99.i
@@ -480,7 +401,7 @@ if.end111.i:                                      ; preds = %if.end99.i
   br i1 %tobool38.not.i, label %if.end, label %if.then115.i
 
 if.then115.i:                                     ; preds = %if.end111.i
-  %numzrwa.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 21
+  %numzrwa.i = getelementptr inbounds i8, ptr %ns, i64 8740
   %17 = load i32, ptr %numzrwa.i, align 4
   %cmp119.i = icmp ugt i32 %17, %10
   br i1 %cmp119.i, label %if.then121.i, label %if.end
@@ -501,13 +422,13 @@ if.end.i15:                                       ; preds = %if.end
   br i1 %call4.i, label %if.end6.i, label %return
 
 if.end6.i:                                        ; preds = %if.end.i15
-  %discard_granularity.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 1, i32 7
+  %discard_granularity.i = getelementptr inbounds i8, ptr %ns, i64 192
   %19 = load i32, ptr %discard_granularity.i, align 8
   %cmp.i16 = icmp eq i32 %19, -1
   br i1 %cmp.i16, label %if.then8.i, label %if.end15.i
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %logical_block_size.i17 = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 1, i32 3
+  %logical_block_size.i17 = getelementptr inbounds i8, ptr %ns, i64 176
   %20 = load i32, ptr %logical_block_size.i17, align 8
   %21 = tail call i32 @llvm.umax.i32(i32 %20, i32 4096)
   store i32 %21, ptr %discard_granularity.i, align 8
@@ -516,7 +437,7 @@ if.then8.i:                                       ; preds = %if.end6.i
 if.end15.i:                                       ; preds = %if.then8.i, %if.end6.i
   %22 = load ptr, ptr %blkconf.i, align 8
   %call18.i = tail call i64 @blk_getlength(ptr noundef %22) #13
-  %size.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 3
+  %size.i = getelementptr inbounds i8, ptr %ns, i64 256
   store i64 %call18.i, ptr %size.i, align 8
   %cmp20.i = icmp slt i64 %call18.i, 0
   br i1 %cmp20.i, label %if.then22.i, label %if.end4
@@ -528,24 +449,24 @@ if.then22.i:                                      ; preds = %if.end15.i
   br label %return
 
 if.end4:                                          ; preds = %if.end15.i
-  %csi.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 11
+  %csi.i = getelementptr inbounds i8, ptr %ns, i64 8488
   store i8 0, ptr %csi.i, align 8
-  %status.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 12
+  %status.i = getelementptr inbounds i8, ptr %ns, i64 8490
   store i16 0, ptr %status.i, align 2
-  %dlfeat.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 12
+  %dlfeat.i = getelementptr inbounds i8, ptr %ns, i64 305
   store i8 1, ptr %dlfeat.i, align 1
-  %nsfeat.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 3
+  %nsfeat.i = getelementptr inbounds i8, ptr %ns, i64 296
   %24 = load i8, ptr %nsfeat.i, align 1
   %25 = or i8 %24, 20
   store i8 %25, ptr %nsfeat.i, align 1
-  %shared.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 1
+  %shared.i = getelementptr inbounds i8, ptr %ns, i64 8657
   %26 = load i8, ptr %shared.i, align 1
   %27 = and i8 %26, 1
   %tobool.not.i18 = icmp eq i8 %27, 0
   br i1 %tobool.not.i18, label %if.end.i20, label %if.then.i19
 
 if.then.i19:                                      ; preds = %if.end4
-  %nmic.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 9
+  %nmic.i = getelementptr inbounds i8, ptr %ns, i64 302
   %28 = load i8, ptr %nmic.i, align 1
   %29 = or i8 %28, 1
   store i8 %29, ptr %nmic.i, align 1
@@ -555,13 +476,13 @@ if.end.i20:                                       ; preds = %if.then.i19, %if.en
   %30 = load i64, ptr @nvme_ns_init.ns_count, align 8
   %inc.i = add i64 %30, 1
   store i64 %inc.i, ptr @nvme_ns_init.ns_count, align 8
-  %eui64.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 4
+  %eui64.i = getelementptr inbounds i8, ptr %ns, i64 8680
   %31 = load i64, ptr %eui64.i, align 8
   %tobool9.not.i = icmp eq i64 %31, 0
   br i1 %tobool9.not.i, label %land.lhs.true.i25, label %if.end16.i
 
 land.lhs.true.i25:                                ; preds = %if.end.i20
-  %eui64_default.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 5
+  %eui64_default.i = getelementptr inbounds i8, ptr %ns, i64 8688
   %32 = load i8, ptr %eui64_default.i, align 8
   %33 = and i8 %32, 1
   %tobool11.not.i = icmp eq i8 %33, 0
@@ -574,57 +495,57 @@ if.then13.i:                                      ; preds = %land.lhs.true.i25
 
 if.end16.i:                                       ; preds = %if.then13.i, %land.lhs.true.i25, %if.end.i20
   %34 = phi i64 [ %add.i, %if.then13.i ], [ 0, %land.lhs.true.i25 ], [ %31, %if.end.i20 ]
-  %mssrl.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 11
+  %mssrl.i = getelementptr inbounds i8, ptr %ns, i64 8696
   %35 = load i16, ptr %mssrl.i, align 8
-  %mssrl18.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 26
+  %mssrl18.i = getelementptr inbounds i8, ptr %ns, i64 346
   store i16 %35, ptr %mssrl18.i, align 1
-  %mcl.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 12
+  %mcl.i = getelementptr inbounds i8, ptr %ns, i64 8700
   %36 = load i32, ptr %mcl.i, align 4
-  %mcl21.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 27
+  %mcl21.i = getelementptr inbounds i8, ptr %ns, i64 348
   store i32 %36, ptr %mcl21.i, align 1
-  %msrc.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 13
+  %msrc.i = getelementptr inbounds i8, ptr %ns, i64 8704
   %37 = load i8, ptr %msrc.i, align 8
-  %msrc23.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 28
+  %msrc23.i = getelementptr inbounds i8, ptr %ns, i64 352
   store i8 %37, ptr %msrc23.i, align 1
   %38 = tail call i64 @llvm.bswap.i64(i64 %34)
-  %eui6427.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 34
+  %eui6427.i = getelementptr inbounds i8, ptr %ns, i64 392
   store i64 %38, ptr %eui6427.i, align 1
-  %logical_block_size.i21 = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 1, i32 3
+  %logical_block_size.i21 = getelementptr inbounds i8, ptr %ns, i64 176
   %39 = load i32, ptr %logical_block_size.i21, align 8
   %40 = tail call i32 @llvm.ctlz.i32(i32 %39, i1 false), !range !5
   %41 = trunc i32 %40 to i8
   %conv29.i = sub nsw i8 31, %41
-  %ms31.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 6
+  %ms31.i = getelementptr inbounds i8, ptr %ns, i64 8690
   %42 = load i16, ptr %ms31.i, align 2
-  %mc.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 6
+  %mc.i = getelementptr inbounds i8, ptr %ns, i64 299
   store i8 3, ptr %mc.i, align 1
   %tobool33.not.i = icmp eq i16 %42, 0
   br i1 %tobool33.not.i, label %if.end42.i, label %land.lhs.true34.i
 
 land.lhs.true34.i:                                ; preds = %if.end16.i
-  %mset.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 7
+  %mset.i = getelementptr inbounds i8, ptr %ns, i64 8692
   %43 = load i8, ptr %mset.i, align 4
   %tobool37.not.i = icmp eq i8 %43, 0
   br i1 %tobool37.not.i, label %if.end42.i, label %if.then38.i
 
 if.then38.i:                                      ; preds = %land.lhs.true34.i
-  %flbas.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 5
+  %flbas.i = getelementptr inbounds i8, ptr %ns, i64 298
   %44 = load i8, ptr %flbas.i, align 1
   %45 = or i8 %44, 16
   store i8 %45, ptr %flbas.i, align 1
   br label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.then38.i, %land.lhs.true34.i, %if.end16.i
-  %dpc.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 7
+  %dpc.i = getelementptr inbounds i8, ptr %ns, i64 300
   store i8 31, ptr %dpc.i, align 1
   %46 = load i8, ptr %pi.i, align 1
-  %dps.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 8
+  %dps.i = getelementptr inbounds i8, ptr %ns, i64 301
   store i8 %46, ptr %dps.i, align 1
   %tobool47.not.i = icmp eq i8 %46, 0
   br i1 %tobool47.not.i, label %if.end57.i, label %land.lhs.true48.i
 
 land.lhs.true48.i:                                ; preds = %if.end42.i
-  %pil.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 9
+  %pil.i = getelementptr inbounds i8, ptr %ns, i64 8694
   %47 = load i8, ptr %pil.i, align 2
   %tobool51.not.i = icmp eq i8 %47, 0
   br i1 %tobool51.not.i, label %if.end57.i, label %if.then52.i
@@ -635,31 +556,31 @@ if.then52.i:                                      ; preds = %land.lhs.true48.i
   br label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.then52.i, %land.lhs.true48.i, %if.end42.i
-  %pif.i23 = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 10
+  %pif.i23 = getelementptr inbounds i8, ptr %ns, i64 8695
   %49 = load i8, ptr %pif.i23, align 1
-  %pif59.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 14
+  %pif59.i = getelementptr inbounds i8, ptr %ns, i64 8496
   store i8 %49, ptr %pif59.i, align 8
-  %nlbaf.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 8
+  %nlbaf.i = getelementptr inbounds i8, ptr %ns, i64 8468
   store i32 8, ptr %nlbaf.i, align 4
-  %lbaf.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 35
+  %lbaf.i = getelementptr inbounds i8, ptr %ns, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %lbaf.i, ptr noundef nonnull align 16 dereferenceable(64) @nvme_ns_init.defaults, i64 64, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end57.i
   %indvars.iv.i = phi i64 [ 0, %if.end57.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %ds64.i = getelementptr %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 35, i64 %indvars.iv.i, i32 1
+  %arrayidx.i = getelementptr [64 x %struct.NvmeLBAF], ptr %lbaf.i, i64 0, i64 %indvars.iv.i
+  %ds64.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
   %50 = load i8, ptr %ds64.i, align 1
   %cmp67.i = icmp eq i8 %50, %conv29.i
   br i1 %cmp67.i, label %if.then69.i, label %for.inc.i
 
 if.then69.i:                                      ; preds = %for.body.i
-  %arrayidx.i = getelementptr %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 35, i64 %indvars.iv.i
   %51 = load i16, ptr %arrayidx.i, align 1
   %cmp73.i = icmp eq i16 %51, %42
   br i1 %cmp73.i, label %if.then75.i, label %for.inc.i
 
 if.then75.i:                                      ; preds = %if.then69.i
-  %flbas76.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 5
+  %flbas76.i = getelementptr inbounds i8, ptr %ns, i64 298
   %52 = load i8, ptr %flbas76.i, align 1
   %53 = trunc i64 %indvars.iv.i to i8
   %conv79.i = or i8 %52, %53
@@ -673,12 +594,12 @@ for.inc.i:                                        ; preds = %if.then69.i, %for.b
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %for.inc.i
-  %ds87.i = getelementptr %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 35, i64 8, i32 1
+  %ds87.i = getelementptr i8, ptr %ns, i64 434
   store i8 %conv29.i, ptr %ds87.i, align 1
-  %arrayidx91.i = getelementptr %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 35, i64 8
+  %arrayidx91.i = getelementptr i8, ptr %ns, i64 432
   store i16 %42, ptr %arrayidx91.i, align 1
   store i32 9, ptr %nlbaf.i, align 4
-  %flbas95.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 5
+  %flbas95.i = getelementptr inbounds i8, ptr %ns, i64 298
   %55 = load i8, ptr %flbas95.i, align 1
   %conv98.i = or i8 %55, 8
   store i8 %conv98.i, ptr %flbas95.i, align 1
@@ -690,39 +611,40 @@ lbaf_found.i:                                     ; preds = %for.end.i, %if.then
   %57 = and i8 %49, 3
   %and.i24 = zext nneg i8 %57 to i32
   %shl.i = shl nuw nsw i32 %and.i24, 7
-  %arrayidx102.i = getelementptr %struct.NvmeNamespace, ptr %ns, i64 0, i32 6, i32 3, i64 %i.02.i
+  %elbaf.i = getelementptr inbounds i8, ptr %ns, i64 4380
+  %arrayidx102.i = getelementptr [64 x i32], ptr %elbaf.i, i64 0, i64 %i.02.i
   store i32 %shl.i, ptr %arrayidx102.i, align 1
   %58 = load i32, ptr %nlbaf.i, align 4
   %59 = trunc i32 %58 to i8
   %conv105.i = add i8 %59, -1
-  %nlbaf106.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 4
+  %nlbaf106.i = getelementptr inbounds i8, ptr %ns, i64 297
   store i8 %conv105.i, ptr %nlbaf106.i, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %bdi.i.i)
-  %id_ns1.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5
-  %lbaf.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 7
+  %id_ns1.i.i = getelementptr inbounds i8, ptr %ns, i64 272
+  %lbaf.i.i = getelementptr inbounds i8, ptr %ns, i64 8464
   %60 = and i8 %56, 15
   %idxprom.i.i = zext nneg i8 %60 to i64
-  %arrayidx.i.i = getelementptr %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 35, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [64 x %struct.NvmeLBAF], ptr %lbaf.i, i64 0, i64 %idxprom.i.i
   %61 = load i32, ptr %arrayidx.i.i, align 1
   store i32 %61, ptr %lbaf.i.i, align 8
   %62 = lshr i32 %61, 16
   %conv4.i.i = and i32 %62, 255
   %shl.i.i = shl nuw i32 1, %conv4.i.i
   %conv5.i.i = sext i32 %shl.i.i to i64
-  %lbasz.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 9
+  %lbasz.i.i = getelementptr inbounds i8, ptr %ns, i64 8472
   store i64 %conv5.i.i, ptr %lbasz.i.i, align 8
   %63 = and i32 %61, 65535
   %conv8.i.i = zext nneg i32 %63 to i64
   %add.i.i = add nsw i64 %conv5.i.i, %conv8.i.i
   %div.i.i = udiv i64 %call18.i, %add.i.i
   store i64 %div.i.i, ptr %id_ns1.i.i, align 1
-  %ncap.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 1
+  %ncap.i.i = getelementptr inbounds i8, ptr %ns, i64 280
   store i64 %div.i.i, ptr %ncap.i.i, align 1
-  %nuse.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 2
+  %nuse.i.i = getelementptr inbounds i8, ptr %ns, i64 288
   store i64 %div.i.i, ptr %nuse.i.i, align 1
   %sh_prom.i.i = zext nneg i32 %conv4.i.i to i64
   %shl14.i.i = shl i64 %div.i.i, %sh_prom.i.i
-  %moff.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 4
+  %moff.i.i = getelementptr inbounds i8, ptr %ns, i64 264
   store i64 %shl14.i.i, ptr %moff.i.i, align 8
   %64 = load i32, ptr %discard_granularity.i, align 8
   %conv15.i.i = zext i32 %64 to i64
@@ -749,9 +671,9 @@ nvme_ns_init.exit:                                ; preds = %lbaf_found.i, %land
   %npdg.0.in.i.i = phi i64 [ %div30.i.i, %if.then.i.i ], [ %div17.i.i, %land.lhs.true.i.i ], [ %div17.i.i, %lbaf_found.i ]
   %npdg.0.i.i = trunc i64 %npdg.0.in.i.i to i16
   %sub.i.i = add i16 %npdg.0.i.i, -1
-  %npdg33.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 23
+  %npdg33.i.i = getelementptr inbounds i8, ptr %ns, i64 340
   store i16 %sub.i.i, ptr %npdg33.i.i, align 1
-  %npda.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 24
+  %npda.i.i = getelementptr inbounds i8, ptr %ns, i64 342
   store i16 %sub.i.i, ptr %npda.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %bdi.i.i)
   %69 = load i8, ptr %zoned.i, align 1
@@ -760,11 +682,11 @@ nvme_ns_init.exit:                                ; preds = %lbaf_found.i, %land
   br i1 %tobool9.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %nvme_ns_init.exit
-  %zone_size_bs.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 16
+  %zone_size_bs.i = getelementptr inbounds i8, ptr %ns, i64 8712
   %71 = load i64, ptr %zone_size_bs.i, align 8
   %tobool.not.i26 = icmp eq i64 %71, 0
   %..i = select i1 %tobool.not.i26, i64 134217728, i64 %71
-  %zone_cap_bs.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 17
+  %zone_cap_bs.i = getelementptr inbounds i8, ptr %ns, i64 8720
   %72 = load i64, ptr %zone_cap_bs.i, align 8
   %tobool4.not.i = icmp eq i64 %72, 0
   %zone_cap.0.i = select i1 %tobool4.not.i, i64 %..i, i64 %72
@@ -794,15 +716,15 @@ if.then18.i:                                      ; preds = %if.end15.i28
 
 if.end20.i:                                       ; preds = %if.end15.i28
   %div.i = udiv i64 %..i, %73
-  %zone_size22.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 24
+  %zone_size22.i = getelementptr inbounds i8, ptr %ns, i64 8616
   store i64 %div.i, ptr %zone_size22.i, align 8
   %div24.i = udiv i64 %zone_cap.0.i, %73
-  %zone_capacity.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 25
+  %zone_capacity.i = getelementptr inbounds i8, ptr %ns, i64 8624
   store i64 %div24.i, ptr %zone_capacity.i, align 8
   %74 = load i64, ptr %id_ns1.i.i, align 8
   %div26.i = udiv i64 %74, %div.i
   %conv.i = trunc i64 %div26.i to i32
-  %num_zones.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 23
+  %num_zones.i = getelementptr inbounds i8, ptr %ns, i64 8608
   store i32 %conv.i, ptr %num_zones.i, align 8
   %tobool28.not.i = icmp eq i32 %conv.i, 0
   br i1 %tobool28.not.i, label %if.then29.i, label %if.end13
@@ -815,9 +737,9 @@ if.end13:                                         ; preds = %if.end20.i
   %conv.i.i = and i64 %div26.i, 4294967295
   %mul.i.i = mul i64 %div.i, %conv.i.i
   %call.i.i = call noalias ptr @g_malloc0_n(i64 noundef %conv.i.i, i64 noundef 88) #14
-  %zone_array.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 18
+  %zone_array.i.i = getelementptr inbounds i8, ptr %ns, i64 8536
   store ptr %call.i.i, ptr %zone_array.i.i, align 8
-  %zd_extension_size.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 20
+  %zd_extension_size.i.i = getelementptr inbounds i8, ptr %ns, i64 8736
   %75 = load i32, ptr %zd_extension_size.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %75, 0
   br i1 %tobool.not.i.i, label %do.body.i.i, label %if.then.i.i31
@@ -827,26 +749,26 @@ if.then.i.i31:                                    ; preds = %if.end13
   %mul7.i.i = mul i32 %76, %75
   %conv8.i.i32 = zext i32 %mul7.i.i to i64
   %call9.i.i = call noalias ptr @g_malloc0(i64 noundef %conv8.i.i32) #15
-  %zd_extensions.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 27
+  %zd_extensions.i.i = getelementptr inbounds i8, ptr %ns, i64 8640
   store ptr %call9.i.i, ptr %zd_extensions.i.i, align 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.then.i.i31, %if.end13
-  %exp_open_zones.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 19
+  %exp_open_zones.i.i = getelementptr inbounds i8, ptr %ns, i64 8544
   store ptr null, ptr %exp_open_zones.i.i, align 8
-  %tql_prev.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 19, i32 0, i32 1
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %ns, i64 8552
   store ptr %exp_open_zones.i.i, ptr %tql_prev.i.i, align 8
-  %imp_open_zones.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 20
+  %imp_open_zones.i.i = getelementptr inbounds i8, ptr %ns, i64 8560
   store ptr null, ptr %imp_open_zones.i.i, align 8
-  %tql_prev15.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 20, i32 0, i32 1
+  %tql_prev15.i.i = getelementptr inbounds i8, ptr %ns, i64 8568
   store ptr %imp_open_zones.i.i, ptr %tql_prev15.i.i, align 8
-  %closed_zones.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 21
+  %closed_zones.i.i = getelementptr inbounds i8, ptr %ns, i64 8576
   store ptr null, ptr %closed_zones.i.i, align 8
-  %tql_prev20.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 21, i32 0, i32 1
+  %tql_prev20.i.i = getelementptr inbounds i8, ptr %ns, i64 8584
   store ptr %closed_zones.i.i, ptr %tql_prev20.i.i, align 8
-  %full_zones.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 22
+  %full_zones.i.i = getelementptr inbounds i8, ptr %ns, i64 8592
   store ptr null, ptr %full_zones.i.i, align 8
-  %tql_prev25.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 22, i32 0, i32 1
+  %tql_prev25.i.i = getelementptr inbounds i8, ptr %ns, i64 8600
   store ptr %full_zones.i.i, ptr %tql_prev25.i.i, align 8
   %77 = load i32, ptr %num_zones.i, align 8
   %cmp44.not.i.i = icmp eq i32 %77, 0
@@ -866,28 +788,28 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %sub.i.i34 = sub i64 %mul.i.i, %start.046.i.i
   %spec.select.i.i = select i1 %cmp30.i.i, i64 %sub.i.i34, i64 %zone_size.045.i.i
   store i8 2, ptr %zone.047.i.i, align 8
-  %zs.i.i.i = getelementptr inbounds %struct.NvmeZoneDescr, ptr %zone.047.i.i, i64 0, i32 1
+  %zs.i.i.i = getelementptr inbounds i8, ptr %zone.047.i.i, i64 1
   store i8 16, ptr %zs.i.i.i, align 1
-  %za.i.i = getelementptr inbounds %struct.NvmeZoneDescr, ptr %zone.047.i.i, i64 0, i32 2
+  %za.i.i = getelementptr inbounds i8, ptr %zone.047.i.i, i64 2
   store i8 0, ptr %za.i.i, align 2
   %79 = load i64, ptr %zone_capacity.i, align 8
-  %zcap.i.i = getelementptr inbounds %struct.NvmeZoneDescr, ptr %zone.047.i.i, i64 0, i32 4
+  %zcap.i.i = getelementptr inbounds i8, ptr %zone.047.i.i, i64 8
   store i64 %79, ptr %zcap.i.i, align 8
-  %zslba.i.i = getelementptr inbounds %struct.NvmeZoneDescr, ptr %zone.047.i.i, i64 0, i32 5
+  %zslba.i.i = getelementptr inbounds i8, ptr %zone.047.i.i, i64 16
   store i64 %start.046.i.i, ptr %zslba.i.i, align 8
-  %wp.i.i = getelementptr inbounds %struct.NvmeZoneDescr, ptr %zone.047.i.i, i64 0, i32 6
+  %wp.i.i = getelementptr inbounds i8, ptr %zone.047.i.i, i64 24
   store i64 %start.046.i.i, ptr %wp.i.i, align 8
-  %w_ptr.i.i = getelementptr inbounds %struct.NvmeZone, ptr %zone.047.i.i, i64 0, i32 1
+  %w_ptr.i.i = getelementptr inbounds i8, ptr %zone.047.i.i, i64 64
   store i64 %start.046.i.i, ptr %w_ptr.i.i, align 8
   %add38.i.i = add i64 %spec.select.i.i, %start.046.i.i
   %inc.i.i = add nuw i32 %i.048.i.i, 1
-  %incdec.ptr.i.i = getelementptr %struct.NvmeZone, ptr %zone.047.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %zone.047.i.i, i64 88
   %80 = load i32, ptr %num_zones.i, align 8
   %cmp.i.i35 = icmp ult i32 %inc.i.i, %80
   br i1 %cmp.i.i35, label %for.body.i.i, label %for.end.i.i, !llvm.loop !8
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %do.body.i.i
-  %zone_size_log2.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 26
+  %zone_size_log2.i.i = getelementptr inbounds i8, ptr %ns, i64 8632
   store i32 0, ptr %zone_size_log2.i.i, align 8
   %81 = load i64, ptr %zone_size22.i, align 8
   %82 = call i64 @llvm.ctpop.i64(i64 %81), !range !9
@@ -903,21 +825,22 @@ if.then41.i.i:                                    ; preds = %for.end.i.i
 
 nvme_ns_zoned_init_state.exit.i:                  ; preds = %if.then41.i.i, %for.end.i.i
   %call.i36 = call noalias dereferenceable_or_null(4096) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 4096) #14
-  %max_active_zones.i37 = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 18
-  %mar.i = getelementptr inbounds %struct.NvmeIdNsZoned, ptr %call.i36, i64 0, i32 2
+  %max_active_zones.i37 = getelementptr inbounds i8, ptr %ns, i64 8728
+  %mar.i = getelementptr inbounds i8, ptr %call.i36, i64 4
   %84 = load <2 x i32>, ptr %max_active_zones.i37, align 8
   %85 = add <2 x i32> %84, <i32 -1, i32 -1>
   store <2 x i32> %85, ptr %mar.i, align 1
   store i16 0, ptr %call.i36, align 1
-  %cross_zone_read.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 15
+  %cross_zone_read.i = getelementptr inbounds i8, ptr %ns, i64 8706
   %86 = load i8, ptr %cross_zone_read.i, align 2
   %87 = and i8 %86, 1
   %conv.i39 = zext nneg i8 %87 to i16
-  %ozcs.i = getelementptr inbounds %struct.NvmeIdNsZoned, ptr %call.i36, i64 0, i32 1
+  %ozcs.i = getelementptr inbounds i8, ptr %call.i36, i64 2
   store i16 %conv.i39, ptr %ozcs.i, align 1
   %88 = load i8, ptr %nlbaf106.i, align 1
   %conv6.i = zext i8 %88 to i64
   %89 = load i64, ptr %zone_size22.i, align 8
+  %lbafe.i = getelementptr inbounds i8, ptr %call.i36, i64 2816
   %90 = load i32, ptr %zd_extension_size.i.i, align 8
   %shr.i = lshr i32 %90, 6
   %conv10.i = trunc i32 %shr.i to i8
@@ -925,22 +848,22 @@ nvme_ns_zoned_init_state.exit.i:                  ; preds = %if.then41.i.i, %for
 
 for.body.i41:                                     ; preds = %for.body.i41, %nvme_ns_zoned_init_state.exit.i
   %indvars.iv.i42 = phi i64 [ 0, %nvme_ns_zoned_init_state.exit.i ], [ %indvars.iv.next.i44, %for.body.i41 ]
-  %arrayidx.i43 = getelementptr %struct.NvmeIdNsZoned, ptr %call.i36, i64 0, i32 12, i64 %indvars.iv.i42
+  %arrayidx.i43 = getelementptr [16 x %struct.NvmeLBAFE], ptr %lbafe.i, i64 0, i64 %indvars.iv.i42
   store i64 %89, ptr %arrayidx.i43, align 1
-  %zdes.i = getelementptr %struct.NvmeIdNsZoned, ptr %call.i36, i64 0, i32 12, i64 %indvars.iv.i42, i32 1
+  %zdes.i = getelementptr inbounds i8, ptr %arrayidx.i43, i64 8
   store i8 %conv10.i, ptr %zdes.i, align 1
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.i42, %conv6.i
   br i1 %exitcond.not.i45, label %for.end.i46, label %for.body.i41, !llvm.loop !10
 
 for.end.i46:                                      ; preds = %for.body.i41
-  %zrwas.i47 = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 22
+  %zrwas.i47 = getelementptr inbounds i8, ptr %ns, i64 8744
   %91 = load i64, ptr %zrwas.i47, align 8
   %tobool15.not.i = icmp eq i64 %91, 0
   br i1 %tobool15.not.i, label %if.end.i51, label %if.then.i48
 
 if.then.i48:                                      ; preds = %for.end.i46
-  %numzrwa.i49 = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 21
+  %numzrwa.i49 = getelementptr inbounds i8, ptr %ns, i64 8740
   %92 = load i32, ptr %numzrwa.i49, align 4
   %tobool17.not.i = icmp eq i32 %92, 0
   br i1 %tobool17.not.i, label %cond.false.i, label %cond.end.i
@@ -951,31 +874,31 @@ cond.false.i:                                     ; preds = %if.then.i48
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.then.i48
   %cond20.i = phi i32 [ %93, %cond.false.i ], [ %92, %if.then.i48 ]
-  %zns.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 15
-  %numzrwa21.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 15, i32 2
+  %zns.i = getelementptr inbounds i8, ptr %ns, i64 8500
+  %numzrwa21.i = getelementptr inbounds i8, ptr %ns, i64 8504
   store i32 %cond20.i, ptr %numzrwa21.i, align 4
-  %ds.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 7, i32 1
+  %ds.i = getelementptr inbounds i8, ptr %ns, i64 8466
   %94 = load i8, ptr %ds.i, align 2
   %sh_prom.i = zext nneg i8 %94 to i64
   %shr25.i = lshr i64 %91, %sh_prom.i
   %conv26.i = trunc i64 %shr25.i to i16
   store i16 %conv26.i, ptr %zns.i, align 4
-  %zrwafg.i50 = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 23
+  %zrwafg.i50 = getelementptr inbounds i8, ptr %ns, i64 8752
   %95 = load i64, ptr %zrwafg.i50, align 8
   %shr34.i = lshr i64 %95, %sh_prom.i
   %conv35.i = trunc i64 %shr34.i to i16
-  %zrwafg37.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 15, i32 1
+  %zrwafg37.i = getelementptr inbounds i8, ptr %ns, i64 8502
   store i16 %conv35.i, ptr %zrwafg37.i, align 2
   %96 = load i16, ptr %ozcs.i, align 1
   %97 = or i16 %96, 2
   store i16 %97, ptr %ozcs.i, align 1
-  %zrwacap.i = getelementptr inbounds %struct.NvmeIdNsZoned, ptr %call.i36, i64 0, i32 10
+  %zrwacap.i = getelementptr inbounds i8, ptr %call.i36, i64 52
   store i8 1, ptr %zrwacap.i, align 1
-  %numzrwa44.i = getelementptr inbounds %struct.NvmeIdNsZoned, ptr %call.i36, i64 0, i32 7
+  %numzrwa44.i = getelementptr inbounds i8, ptr %call.i36, i64 44
   store i32 %92, ptr %numzrwa44.i, align 1
-  %zrwas48.i = getelementptr inbounds %struct.NvmeIdNsZoned, ptr %call.i36, i64 0, i32 9
+  %zrwas48.i = getelementptr inbounds i8, ptr %call.i36, i64 50
   store i16 %conv26.i, ptr %zrwas48.i, align 1
-  %zrwafg52.i = getelementptr inbounds %struct.NvmeIdNsZoned, ptr %call.i36, i64 0, i32 8
+  %zrwafg52.i = getelementptr inbounds i8, ptr %call.i36, i64 48
   store i16 %conv35.i, ptr %zrwafg52.i, align 1
   br label %if.end.i51
 
@@ -1003,18 +926,18 @@ if.then72.i:                                      ; preds = %if.end.i51
   br label %nvme_ns_init_zoned.exit
 
 nvme_ns_init_zoned.exit:                          ; preds = %if.end.i51, %if.then72.i
-  %id_ns_zoned.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 17
+  %id_ns_zoned.i = getelementptr inbounds i8, ptr %ns, i64 8528
   store ptr %call.i36, ptr %id_ns_zoned.i, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %nvme_ns_init_zoned.exit, %nvme_ns_init.exit
-  %endgrp = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 32
+  %endgrp = getelementptr inbounds i8, ptr %ns, i64 8776
   %102 = load ptr, ptr %endgrp, align 8
   %tobool15.not = icmp eq ptr %102, null
   br i1 %tobool15.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end14
-  %enabled = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %102, i64 0, i32 1, i32 9
+  %enabled = getelementptr inbounds i8, ptr %102, i64 8136
   %103 = load i8, ptr %enabled, align 8
   %104 = and i8 %103, 1
   %tobool17.not = icmp eq i8 %104, 0
@@ -1025,34 +948,35 @@ if.then18:                                        ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %m.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
-  %flbas.i56 = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 5, i32 5
+  %flbas.i56 = getelementptr inbounds i8, ptr %ns, i64 298
   %105 = load i8, ptr %flbas.i56, align 2
   %106 = and i8 %105, 15
-  %fdp.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 24
+  %fdp.i = getelementptr inbounds i8, ptr %ns, i64 8760
   %107 = load ptr, ptr %fdp.i, align 8
   %tobool.not.i57 = icmp eq ptr %107, null
   br i1 %tobool.not.i57, label %if.then.i65, label %if.end28.i
 
 if.then.i65:                                      ; preds = %if.then18
-  %fdp3.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 34
+  %fdp3.i = getelementptr inbounds i8, ptr %ns, i64 8792
   store i16 1, ptr %fdp3.i, align 8
   %call.i66 = call noalias dereferenceable_or_null(2) ptr @g_malloc_n(i64 noundef 1, i64 noundef 2) #14
-  %phs.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 34, i32 1
+  %phs.i = getelementptr inbounds i8, ptr %ns, i64 8800
   store ptr %call.i66, ptr %phs.i, align 8
-  %nruh.i.i = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %102, i64 0, i32 1, i32 2
+  %nruh.i.i = getelementptr inbounds i8, ptr %102, i64 8096
   %108 = load i16, ptr %nruh.i.i, align 8
   %cmp8.not.i.i = icmp eq i16 %108, 0
-  br i1 %cmp8.not.i.i, label %if.then10.i69, label %for.body.lr.ph.i.i67
+  br i1 %cmp8.not.i.i, label %if.then10.i70, label %for.body.lr.ph.i.i67
 
 for.body.lr.ph.i.i67:                             ; preds = %if.then.i65
-  %ruhs.i.i = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %102, i64 0, i32 1, i32 10
+  %ruhs.i.i = getelementptr inbounds i8, ptr %102, i64 8144
   %109 = load ptr, ptr %ruhs.i.i, align 8
   %wide.trip.count.i.i = zext i16 %108 to i64
   br label %for.body.i.i68
 
 for.body.i.i68:                                   ; preds = %for.inc.i.i, %for.body.lr.ph.i.i67
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i67 ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %ruha4.i.i = getelementptr %struct.NvmeRuHandle, ptr %109, i64 %indvars.iv.i.i, i32 1
+  %arrayidx.i.i69 = getelementptr %struct.NvmeRuHandle, ptr %109, i64 %indvars.iv.i.i
+  %ruha4.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i69, i64 1
   %110 = load i8, ptr %ruha4.i.i, align 1
   %cmp7.i.i = icmp eq i8 %110, 2
   br i1 %cmp7.i.i, label %nvme_find_ruh_by_attr.exit.i, label %for.inc.i.i
@@ -1064,71 +988,71 @@ for.inc.i.i:                                      ; preds = %for.body.i.i68
 
 nvme_find_ruh_by_attr.exit.i:                     ; preds = %for.body.i.i68
   %111 = trunc i64 %indvars.iv.i.i to i16
-  %arrayidx.i.i78 = getelementptr %struct.NvmeRuHandle, ptr %109, i64 %indvars.iv.i.i
   store i16 %111, ptr %call.i66, align 2
-  %tobool6.not.i = icmp eq ptr %arrayidx.i.i78, null
+  %tobool6.not.i = icmp eq ptr %arrayidx.i.i69, null
   br i1 %tobool6.not.i, label %for.body.i78.i.preheader, label %if.else.i
 
 for.body.i78.i.preheader:                         ; preds = %for.inc.i.i, %nvme_find_ruh_by_attr.exit.i
   br label %for.body.i78.i
 
-for.body.i78.i:                                   ; preds = %for.body.i78.i.preheader, %for.inc.i82.i
-  %indvars.iv.i79.i = phi i64 [ %indvars.iv.next.i83.i, %for.inc.i82.i ], [ 0, %for.body.i78.i.preheader ]
-  %ruha4.i80.i = getelementptr %struct.NvmeRuHandle, ptr %109, i64 %indvars.iv.i79.i, i32 1
-  %112 = load i8, ptr %ruha4.i80.i, align 1
-  %cmp7.i81.i = icmp eq i8 %112, 0
-  br i1 %cmp7.i81.i, label %nvme_find_ruh_by_attr.exit88.i, label %for.inc.i82.i
+for.body.i78.i:                                   ; preds = %for.body.i78.i.preheader, %for.inc.i83.i
+  %indvars.iv.i79.i = phi i64 [ %indvars.iv.next.i84.i, %for.inc.i83.i ], [ 0, %for.body.i78.i.preheader ]
+  %arrayidx.i80.i = getelementptr %struct.NvmeRuHandle, ptr %109, i64 %indvars.iv.i79.i
+  %ruha4.i81.i = getelementptr inbounds i8, ptr %arrayidx.i80.i, i64 1
+  %112 = load i8, ptr %ruha4.i81.i, align 1
+  %cmp7.i82.i = icmp eq i8 %112, 0
+  br i1 %cmp7.i82.i, label %nvme_find_ruh_by_attr.exit88.i, label %for.inc.i83.i
 
-for.inc.i82.i:                                    ; preds = %for.body.i78.i
-  %indvars.iv.next.i83.i = add nuw nsw i64 %indvars.iv.i79.i, 1
-  %exitcond.not.i84.i = icmp eq i64 %indvars.iv.next.i83.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i84.i, label %if.then10.i69, label %for.body.i78.i, !llvm.loop !11
+for.inc.i83.i:                                    ; preds = %for.body.i78.i
+  %indvars.iv.next.i84.i = add nuw nsw i64 %indvars.iv.i79.i, 1
+  %exitcond.not.i85.i = icmp eq i64 %indvars.iv.next.i84.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i85.i, label %if.then10.i70, label %for.body.i78.i, !llvm.loop !11
 
 nvme_find_ruh_by_attr.exit88.i:                   ; preds = %for.body.i78.i
   %113 = trunc i64 %indvars.iv.i79.i to i16
-  %arrayidx.i87.i = getelementptr %struct.NvmeRuHandle, ptr %109, i64 %indvars.iv.i79.i
   store i16 %113, ptr %call.i66, align 2
-  %tobool9.not.i70 = icmp eq ptr %arrayidx.i87.i, null
-  br i1 %tobool9.not.i70, label %if.then10.i69, label %if.end.i71
+  %tobool9.not.i71 = icmp eq ptr %arrayidx.i80.i, null
+  br i1 %tobool9.not.i71, label %if.then10.i70, label %if.end.i72
 
-if.then10.i69:                                    ; preds = %for.inc.i82.i, %nvme_find_ruh_by_attr.exit88.i, %if.then.i65
+if.then10.i70:                                    ; preds = %for.inc.i83.i, %nvme_find_ruh_by_attr.exit88.i, %if.then.i65
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 416, ptr noundef nonnull @__func__.nvme_ns_init_fdp, ptr noundef nonnull @.str.19) #13
   br label %nvme_ns_init_fdp.exit.thread
 
-if.end.i71:                                       ; preds = %nvme_find_ruh_by_attr.exit88.i
-  store i8 2, ptr %ruha4.i80.i, align 1
-  %lbafi11.i = getelementptr %struct.NvmeRuHandle, ptr %109, i64 %indvars.iv.i79.i, i32 3
+if.end.i72:                                       ; preds = %nvme_find_ruh_by_attr.exit88.i
+  %ruha4.i81.i.le = getelementptr inbounds i8, ptr %arrayidx.i80.i, i64 1
+  store i8 2, ptr %ruha4.i81.i.le, align 1
+  %lbafi11.i = getelementptr inbounds i8, ptr %arrayidx.i80.i, i64 16
   store i8 %106, ptr %lbafi11.i, align 8
-  %runs.i = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %102, i64 0, i32 1, i32 5
+  %runs.i = getelementptr inbounds i8, ptr %102, i64 8104
   %114 = load i64, ptr %runs.i, align 8
-  %ds.i72 = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 7, i32 1
-  %115 = load i8, ptr %ds.i72, align 2
-  %sh_prom.i73 = zext nneg i8 %115 to i64
-  %shr.i74 = lshr i64 %114, %sh_prom.i73
-  %ruamw.i = getelementptr %struct.NvmeRuHandle, ptr %109, i64 %indvars.iv.i79.i, i32 4
-  store i64 %shr.i74, ptr %ruamw.i, align 8
-  %nrg.i = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %102, i64 0, i32 1, i32 3
+  %ds.i73 = getelementptr inbounds i8, ptr %ns, i64 8466
+  %115 = load i8, ptr %ds.i73, align 2
+  %sh_prom.i74 = zext nneg i8 %115 to i64
+  %shr.i75 = lshr i64 %114, %sh_prom.i74
+  %ruamw.i = getelementptr inbounds i8, ptr %arrayidx.i80.i, i64 24
+  store i64 %shr.i75, ptr %ruamw.i, align 8
+  %nrg.i = getelementptr inbounds i8, ptr %102, i64 8098
   %116 = load i16, ptr %nrg.i, align 2
-  %cmp120.not.i = icmp eq i16 %116, 0
-  br i1 %cmp120.not.i, label %nvme_ns_init_fdp.exit, label %for.body.lr.ph.i
+  %cmp122.not.i = icmp eq i16 %116, 0
+  br i1 %cmp122.not.i, label %nvme_ns_init_fdp.exit, label %for.body.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %if.end.i71
-  %rus.i = getelementptr %struct.NvmeRuHandle, ptr %109, i64 %indvars.iv.i79.i, i32 5
-  br label %for.body.i75
+for.body.lr.ph.i:                                 ; preds = %if.end.i72
+  %rus.i = getelementptr inbounds i8, ptr %arrayidx.i80.i, i64 32
+  br label %for.body.i76
 
-for.body.i75:                                     ; preds = %for.body.i75, %for.body.lr.ph.i
-  %indvars.iv136.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next137.i, %for.body.i75 ]
+for.body.i76:                                     ; preds = %for.body.i76, %for.body.lr.ph.i
+  %indvars.iv140.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next141.i, %for.body.i76 ]
   %117 = load ptr, ptr %rus.i, align 8
-  %arrayidx.i76 = getelementptr %struct.NvmeReclaimUnit, ptr %117, i64 %indvars.iv136.i
-  store i64 %shr.i74, ptr %arrayidx.i76, align 8
-  %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
+  %arrayidx.i77 = getelementptr %struct.NvmeReclaimUnit, ptr %117, i64 %indvars.iv140.i
+  store i64 %shr.i75, ptr %arrayidx.i77, align 8
+  %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
   %118 = load i16, ptr %nrg.i, align 2
   %119 = zext i16 %118 to i64
-  %cmp.i77 = icmp ult i64 %indvars.iv.next137.i, %119
-  br i1 %cmp.i77, label %for.body.i75, label %nvme_ns_init_fdp.exit, !llvm.loop !12
+  %cmp.i78 = icmp ult i64 %indvars.iv.next141.i, %119
+  br i1 %cmp.i78, label %for.body.i76, label %nvme_ns_init_fdp.exit, !llvm.loop !12
 
 if.else.i:                                        ; preds = %nvme_find_ruh_by_attr.exit.i
-  %lbafi20.i = getelementptr %struct.NvmeRuHandle, ptr %109, i64 %indvars.iv.i.i, i32 3
+  %lbafi20.i = getelementptr inbounds i8, ptr %arrayidx.i.i69, i64 16
   %120 = load i8, ptr %lbafi20.i, align 8
   %cmp23.not.i = icmp eq i8 %120, %106
   br i1 %cmp23.not.i, label %nvme_ns_init_fdp.exit, label %if.then25.i
@@ -1138,19 +1062,19 @@ if.then25.i:                                      ; preds = %if.else.i
   br label %nvme_ns_init_fdp.exit.thread
 
 if.end28.i:                                       ; preds = %if.then18
-  %nruh.i = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %102, i64 0, i32 1, i32 2
+  %nruh.i = getelementptr inbounds i8, ptr %102, i64 8096
   %121 = load i16, ptr %nruh.i, align 8
   %conv30.i = zext i16 %121 to i64
   %call31.i = call noalias ptr @g_malloc0_n(i64 noundef %conv30.i, i64 noundef 4) #14
   %122 = load ptr, ptr %fdp.i, align 8
   %call35.i = call noalias ptr @strdup(ptr noundef %122) #13
   store ptr %call35.i, ptr %p.i, align 8
-  %call36104.i = call ptr @qemu_strsep(ptr noundef nonnull %p.i, ptr noundef nonnull @.str.21) #13
-  %cmp37.not105.i = icmp eq ptr %call36104.i, null
-  br i1 %cmp37.not105.i, label %while.end.i, label %while.body.lr.ph.i
+  %call36106.i = call ptr @qemu_strsep(ptr noundef nonnull %p.i, ptr noundef nonnull @.str.21) #13
+  %cmp37.not107.i = icmp eq ptr %call36106.i, null
+  br i1 %cmp37.not107.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end28.i
-  %fdp62.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 34
+  %fdp62.i = getelementptr inbounds i8, ptr %ns, i64 8792
   br label %while.body.i
 
 while.cond.loopexit.i:                            ; preds = %if.end72.i
@@ -1159,9 +1083,9 @@ while.cond.loopexit.i:                            ; preds = %if.end72.i
   br i1 %cmp37.not.i, label %while.end.i, label %while.body.i, !llvm.loop !13
 
 while.body.i:                                     ; preds = %while.cond.loopexit.i, %while.body.lr.ph.i
-  %call36107.i = phi ptr [ %call36104.i, %while.body.lr.ph.i ], [ %call36.i, %while.cond.loopexit.i ]
-  %ruhid.0106.i = phi ptr [ %call31.i, %while.body.lr.ph.i ], [ %incdec.ptr.i, %while.cond.loopexit.i ]
-  %call39.i = call i32 @qemu_strtoui(ptr noundef nonnull %call36107.i, ptr noundef nonnull %endptr.i, i32 noundef 0, ptr noundef nonnull %n.i) #13
+  %call36109.i = phi ptr [ %call36106.i, %while.body.lr.ph.i ], [ %call36.i, %while.cond.loopexit.i ]
+  %ruhid.0108.i = phi ptr [ %call31.i, %while.body.lr.ph.i ], [ %incdec.ptr.i, %while.cond.loopexit.i ]
+  %call39.i = call i32 @qemu_strtoui(ptr noundef nonnull %call36109.i, ptr noundef nonnull %endptr.i, i32 noundef 0, ptr noundef nonnull %n.i) #13
   %cmp40.i = icmp slt i32 %call39.i, 0
   br i1 %cmp40.i, label %if.then42.i, label %if.end43.i
 
@@ -1206,7 +1130,7 @@ if.then55.i:                                      ; preds = %if.end52.i
 
 for.body61.i:                                     ; preds = %for.body61.i.preheader, %if.end72.i
   %128 = phi i32 [ %inc74.i, %if.end72.i ], [ %.ph, %for.body61.i.preheader ]
-  %ruhid.1103.i = phi ptr [ %incdec.ptr.i, %if.end72.i ], [ %ruhid.0106.i, %for.body61.i.preheader ]
+  %ruhid.1105.i = phi ptr [ %incdec.ptr.i, %if.end72.i ], [ %ruhid.0108.i, %for.body61.i.preheader ]
   %129 = load i16, ptr %fdp62.i, align 8
   %inc64.i = add i16 %129, 1
   store i16 %inc64.i, ptr %fdp62.i, align 8
@@ -1220,8 +1144,8 @@ if.then71.i:                                      ; preds = %for.body61.i
   br label %nvme_ns_init_fdp.exit.thread
 
 if.end72.i:                                       ; preds = %for.body61.i
-  %incdec.ptr.i = getelementptr i32, ptr %ruhid.1103.i, i64 1
-  store i32 %128, ptr %ruhid.1103.i, align 4
+  %incdec.ptr.i = getelementptr i8, ptr %ruhid.1105.i, i64 4
+  store i32 %128, ptr %ruhid.1105.i, align 4
   %131 = load i32, ptr %n.i, align 4
   %inc74.i = add i32 %131, 1
   store i32 %inc74.i, ptr %n.i, align 4
@@ -1231,10 +1155,10 @@ if.end72.i:                                       ; preds = %for.body61.i
 
 while.end.i:                                      ; preds = %while.cond.loopexit.i, %if.end28.i
   call void @free(ptr noundef %call35.i) #13
-  %fdp77.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 34
+  %fdp77.i = getelementptr inbounds i8, ptr %ns, i64 8792
   %133 = load i16, ptr %fdp77.i, align 8
-  %cmp80110.not.i = icmp eq i16 %133, 0
-  br i1 %cmp80110.not.i, label %for.end105.i, label %for.body82.preheader.i
+  %cmp80112.not.i = icmp eq i16 %133, 0
+  br i1 %cmp80112.not.i, label %for.end105.i, label %for.body82.preheader.i
 
 for.body82.preheader.i:                           ; preds = %while.end.i
   %134 = zext i16 %133 to i64
@@ -1242,29 +1166,29 @@ for.body82.preheader.i:                           ; preds = %while.end.i
 
 for.cond76.loopexit.i:                            ; preds = %for.cond83.i, %for.body82.i
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
-  %exitcond132.not.i = icmp eq i64 %indvars.iv.next129.i, %134
-  br i1 %exitcond132.not.i, label %for.end105.i, label %for.body82.i, !llvm.loop !15
+  %exitcond136.not.i = icmp eq i64 %indvars.iv.next133.i, %134
+  br i1 %exitcond136.not.i, label %for.end105.i, label %for.body82.i, !llvm.loop !15
 
 for.body82.i:                                     ; preds = %for.cond76.loopexit.i, %for.body82.preheader.i
-  %indvars.iv128.i = phi i64 [ 0, %for.body82.preheader.i ], [ %indvars.iv.next129.i, %for.cond76.loopexit.i ]
+  %indvars.iv132.i = phi i64 [ 0, %for.body82.preheader.i ], [ %indvars.iv.next133.i, %for.cond76.loopexit.i ]
   %indvars.iv.i58 = phi i64 [ 1, %for.body82.preheader.i ], [ %indvars.iv.next.i59, %for.cond76.loopexit.i ]
-  %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
-  %cmp87108.i = icmp ult i64 %indvars.iv.next129.i, %134
-  br i1 %cmp87108.i, label %for.body89.lr.ph.i, label %for.cond76.loopexit.i
+  %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
+  %cmp87110.i = icmp ult i64 %indvars.iv.next133.i, %134
+  br i1 %cmp87110.i, label %for.body89.lr.ph.i, label %for.cond76.loopexit.i
 
 for.body89.lr.ph.i:                               ; preds = %for.body82.i
-  %arrayidx91.i63 = getelementptr i32, ptr %call31.i, i64 %indvars.iv128.i
+  %arrayidx91.i63 = getelementptr i32, ptr %call31.i, i64 %indvars.iv132.i
   %135 = load i32, ptr %arrayidx91.i63, align 4
   br label %for.body89.i
 
 for.cond83.i:                                     ; preds = %for.body89.i
-  %indvars.iv.next126.i = add nuw nsw i64 %indvars.iv125.i, 1
-  %exitcond.not.i64 = icmp eq i64 %indvars.iv.next126.i, %134
+  %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
+  %exitcond.not.i64 = icmp eq i64 %indvars.iv.next130.i, %134
   br i1 %exitcond.not.i64, label %for.cond76.loopexit.i, label %for.body89.i, !llvm.loop !16
 
 for.body89.i:                                     ; preds = %for.cond83.i, %for.body89.lr.ph.i
-  %indvars.iv125.i = phi i64 [ %indvars.iv.i58, %for.body89.lr.ph.i ], [ %indvars.iv.next126.i, %for.cond83.i ]
-  %arrayidx93.i = getelementptr i32, ptr %call31.i, i64 %indvars.iv125.i
+  %indvars.iv129.i = phi i64 [ %indvars.iv.i58, %for.body89.lr.ph.i ], [ %indvars.iv.next130.i, %for.cond83.i ]
+  %arrayidx93.i = getelementptr i32, ptr %call31.i, i64 %indvars.iv129.i
   %136 = load i32, ptr %arrayidx93.i, align 4
   %cmp94.i = icmp eq i32 %135, %136
   br i1 %cmp94.i, label %if.then96.i, label %for.cond83.i
@@ -1276,24 +1200,24 @@ if.then96.i:                                      ; preds = %for.body89.i
 for.end105.i:                                     ; preds = %for.cond76.loopexit.i, %while.end.i
   %conv108.i.pre-phi = phi i64 [ 0, %while.end.i ], [ %134, %for.cond76.loopexit.i ]
   %call109.i = call noalias ptr @g_malloc_n(i64 noundef %conv108.i.pre-phi, i64 noundef 2) #14
-  %phs111.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 34, i32 1
+  %phs111.i = getelementptr inbounds i8, ptr %ns, i64 8800
   store ptr %call109.i, ptr %phs111.i, align 8
   %137 = load i16, ptr %fdp77.i, align 8
-  %cmp117116.not.i = icmp eq i16 %137, 0
-  br i1 %cmp117116.not.i, label %nvme_ns_init_fdp.exit, label %for.body119.lr.ph.i
+  %cmp117118.not.i = icmp eq i16 %137, 0
+  br i1 %cmp117118.not.i, label %nvme_ns_init_fdp.exit, label %for.body119.lr.ph.i
 
 for.body119.lr.ph.i:                              ; preds = %for.end105.i
-  %ruhs128.i = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %102, i64 0, i32 1, i32 10
-  %runs136.i = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %102, i64 0, i32 1, i32 5
-  %ds138.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 7, i32 1
-  %nrg147.i = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %102, i64 0, i32 1, i32 3
+  %ruhs128.i = getelementptr inbounds i8, ptr %102, i64 8144
+  %runs136.i = getelementptr inbounds i8, ptr %102, i64 8104
+  %ds138.i = getelementptr inbounds i8, ptr %ns, i64 8466
+  %nrg147.i = getelementptr inbounds i8, ptr %102, i64 8098
   br label %for.body119.i
 
 for.body119.i:                                    ; preds = %sw.epilog.i61, %for.body119.lr.ph.i
-  %i112.0119.i = phi i32 [ 0, %for.body119.lr.ph.i ], [ %inc171.i, %sw.epilog.i61 ]
-  %ph.0118.i = phi ptr [ %call109.i, %for.body119.lr.ph.i ], [ %incdec.ptr173.i, %sw.epilog.i61 ]
-  %ruhid.2117.i = phi ptr [ %call31.i, %for.body119.lr.ph.i ], [ %incdec.ptr172.i, %sw.epilog.i61 ]
-  %138 = load i32, ptr %ruhid.2117.i, align 4
+  %i112.0121.i = phi i32 [ 0, %for.body119.lr.ph.i ], [ %inc171.i, %sw.epilog.i61 ]
+  %ph.0120.i = phi ptr [ %call109.i, %for.body119.lr.ph.i ], [ %incdec.ptr173.i, %sw.epilog.i61 ]
+  %ruhid.2119.i = phi ptr [ %call31.i, %for.body119.lr.ph.i ], [ %incdec.ptr172.i, %sw.epilog.i61 ]
+  %138 = load i32, ptr %ruhid.2119.i, align 4
   %139 = load i16, ptr %nruh.i, align 8
   %conv122.i = zext i16 %139 to i32
   %cmp123.not.i = icmp ult i32 %138, %conv122.i
@@ -1306,7 +1230,8 @@ if.then125.i:                                     ; preds = %for.body119.i
 if.end126.i:                                      ; preds = %for.body119.i
   %140 = load ptr, ptr %ruhs128.i, align 8
   %idxprom129.i = zext nneg i32 %138 to i64
-  %ruha131.i = getelementptr %struct.NvmeRuHandle, ptr %140, i64 %idxprom129.i, i32 1
+  %arrayidx130.i = getelementptr %struct.NvmeRuHandle, ptr %140, i64 %idxprom129.i
+  %ruha131.i = getelementptr inbounds i8, ptr %arrayidx130.i, i64 1
   %141 = load i8, ptr %ruha131.i, align 1
   switch i8 %141, label %sw.default.i62 [
     i8 0, label %sw.bb.i
@@ -1316,35 +1241,35 @@ if.end126.i:                                      ; preds = %for.body119.i
 
 sw.bb.i:                                          ; preds = %if.end126.i
   store i8 1, ptr %ruha131.i, align 1
-  %lbafi134.i = getelementptr %struct.NvmeRuHandle, ptr %140, i64 %idxprom129.i, i32 3
+  %lbafi134.i = getelementptr inbounds i8, ptr %arrayidx130.i, i64 16
   store i8 %106, ptr %lbafi134.i, align 8
   %142 = load i64, ptr %runs136.i, align 8
   %143 = load i8, ptr %ds138.i, align 2
   %sh_prom140.i = zext nneg i8 %143 to i64
   %shr141.i = lshr i64 %142, %sh_prom140.i
-  %ruamw142.i = getelementptr %struct.NvmeRuHandle, ptr %140, i64 %idxprom129.i, i32 4
+  %ruamw142.i = getelementptr inbounds i8, ptr %arrayidx130.i, i64 24
   store i64 %shr141.i, ptr %ruamw142.i, align 8
   %144 = load i16, ptr %nrg147.i, align 2
-  %cmp149113.not.i = icmp eq i16 %144, 0
-  br i1 %cmp149113.not.i, label %sw.epilog.i61, label %for.body151.lr.ph.i
+  %cmp149115.not.i = icmp eq i16 %144, 0
+  br i1 %cmp149115.not.i, label %sw.epilog.i61, label %for.body151.lr.ph.i
 
 for.body151.lr.ph.i:                              ; preds = %sw.bb.i
-  %rus153.i = getelementptr %struct.NvmeRuHandle, ptr %140, i64 %idxprom129.i, i32 5
+  %rus153.i = getelementptr inbounds i8, ptr %arrayidx130.i, i64 32
   br label %for.body151.i
 
 for.body151.i:                                    ; preds = %for.body151.i, %for.body151.lr.ph.i
-  %indvars.iv133.i = phi i64 [ 0, %for.body151.lr.ph.i ], [ %indvars.iv.next134.i, %for.body151.i ]
+  %indvars.iv137.i = phi i64 [ 0, %for.body151.lr.ph.i ], [ %indvars.iv.next138.i, %for.body151.i ]
   %145 = load ptr, ptr %rus153.i, align 8
-  %arrayidx155.i = getelementptr %struct.NvmeReclaimUnit, ptr %145, i64 %indvars.iv133.i
+  %arrayidx155.i = getelementptr %struct.NvmeReclaimUnit, ptr %145, i64 %indvars.iv137.i
   store i64 %shr141.i, ptr %arrayidx155.i, align 8
-  %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
+  %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 1
   %146 = load i16, ptr %nrg147.i, align 2
   %147 = zext i16 %146 to i64
-  %cmp149.i = icmp ult i64 %indvars.iv.next134.i, %147
+  %cmp149.i = icmp ult i64 %indvars.iv.next138.i, %147
   br i1 %cmp149.i, label %for.body151.i, label %sw.epilog.i61, !llvm.loop !17
 
 sw.bb160.i:                                       ; preds = %if.end126.i
-  %lbafi161.i = getelementptr %struct.NvmeRuHandle, ptr %140, i64 %idxprom129.i, i32 3
+  %lbafi161.i = getelementptr inbounds i8, ptr %arrayidx130.i, i64 16
   %148 = load i8, ptr %lbafi161.i, align 8
   %cmp164.not.i = icmp eq i8 %148, %106
   br i1 %cmp164.not.i, label %sw.epilog.i61, label %if.then166.i
@@ -1363,17 +1288,17 @@ sw.default.i62:                                   ; preds = %if.end126.i
 
 sw.epilog.i61:                                    ; preds = %for.body151.i, %sw.bb160.i, %sw.bb.i
   %conv169.i = trunc i32 %138 to i16
-  store i16 %conv169.i, ptr %ph.0118.i, align 2
-  %inc171.i = add nuw nsw i32 %i112.0119.i, 1
-  %incdec.ptr172.i = getelementptr i32, ptr %ruhid.2117.i, i64 1
-  %incdec.ptr173.i = getelementptr i16, ptr %ph.0118.i, i64 1
+  store i16 %conv169.i, ptr %ph.0120.i, align 2
+  %inc171.i = add nuw nsw i32 %i112.0121.i, 1
+  %incdec.ptr172.i = getelementptr i8, ptr %ruhid.2119.i, i64 4
+  %incdec.ptr173.i = getelementptr i8, ptr %ph.0120.i, i64 2
   %149 = load i16, ptr %fdp77.i, align 8
   %conv116.i = zext i16 %149 to i32
   %cmp117.i = icmp ult i32 %inc171.i, %conv116.i
   br i1 %cmp117.i, label %for.body119.i, label %nvme_ns_init_fdp.exit, !llvm.loop !18
 
-nvme_ns_init_fdp.exit.thread:                     ; preds = %if.then10.i69, %if.then25.i, %if.then96.i, %sw.bb168.i, %if.then166.i, %if.then125.i, %if.then42.i, %if.then51.i, %if.then55.i, %if.then71.i
-  %ruhids.0.i.ph = phi ptr [ %call31.i, %if.then71.i ], [ %call31.i, %if.then55.i ], [ %call31.i, %if.then51.i ], [ %call31.i, %if.then42.i ], [ %call31.i, %if.then125.i ], [ %call31.i, %if.then166.i ], [ %call31.i, %sw.bb168.i ], [ %call31.i, %if.then96.i ], [ null, %if.then25.i ], [ null, %if.then10.i69 ]
+nvme_ns_init_fdp.exit.thread:                     ; preds = %if.then10.i70, %if.then25.i, %if.then96.i, %sw.bb168.i, %if.then166.i, %if.then125.i, %if.then42.i, %if.then51.i, %if.then55.i, %if.then71.i
+  %ruhids.0.i.ph = phi ptr [ %call31.i, %if.then71.i ], [ %call31.i, %if.then55.i ], [ %call31.i, %if.then51.i ], [ %call31.i, %if.then42.i ], [ %call31.i, %if.then125.i ], [ %call31.i, %if.then166.i ], [ %call31.i, %sw.bb168.i ], [ %call31.i, %if.then96.i ], [ null, %if.then25.i ], [ null, %if.then10.i70 ]
   call void @g_free(ptr noundef %ruhids.0.i.ph) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %m.i)
@@ -1381,8 +1306,8 @@ nvme_ns_init_fdp.exit.thread:                     ; preds = %if.then10.i69, %if.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   br label %return
 
-nvme_ns_init_fdp.exit:                            ; preds = %sw.epilog.i61, %for.body.i75, %if.end.i71, %if.else.i, %for.end105.i
-  %ruhids.0.i = phi ptr [ null, %if.else.i ], [ null, %if.end.i71 ], [ %call31.i, %for.end105.i ], [ null, %for.body.i75 ], [ %call31.i, %sw.epilog.i61 ]
+nvme_ns_init_fdp.exit:                            ; preds = %sw.epilog.i61, %for.body.i76, %if.end.i72, %if.else.i, %for.end105.i
+  %ruhids.0.i = phi ptr [ null, %if.else.i ], [ null, %if.end.i72 ], [ %call31.i, %for.end105.i ], [ null, %for.body.i76 ], [ %call31.i, %sw.epilog.i61 ]
   call void @g_free(ptr noundef %ruhids.0.i) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %m.i)
@@ -1398,7 +1323,7 @@ return:                                           ; preds = %if.then29.i, %if.th
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @nvme_ns_drain(ptr nocapture noundef readonly %ns) local_unnamed_addr #0 {
 entry:
-  %blkconf = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 1
+  %blkconf = getelementptr inbounds i8, ptr %ns, i64 160
   %0 = load ptr, ptr %blkconf, align 8
   tail call void @blk_drain(ptr noundef %0) #13
   ret void
@@ -1409,36 +1334,36 @@ declare void @blk_drain(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @nvme_ns_shutdown(ptr noundef %ns) local_unnamed_addr #0 {
 entry:
-  %blkconf = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 1
+  %blkconf = getelementptr inbounds i8, ptr %ns, i64 160
   %0 = load ptr, ptr %blkconf, align 8
   %call = tail call i32 @blk_flush(ptr noundef %0) #13
-  %zoned = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 14
+  %zoned = getelementptr inbounds i8, ptr %ns, i64 8705
   %1 = load i8, ptr %zoned, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %closed_zones.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 21
+  %closed_zones.i = getelementptr inbounds i8, ptr %ns, i64 8576
   %3 = load ptr, ptr %closed_zones.i, align 8
   %tobool.not104.i = icmp eq ptr %3, null
   br i1 %tobool.not104.i, label %for.end.i, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %if.then
-  %tql_prev10.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 21, i32 0, i32 1
-  %max_active_zones.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 18
-  %nr_active_zones9.phi.trans.insert.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 29
-  %nr_open_zones.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 28
+  %tql_prev10.i = getelementptr inbounds i8, ptr %ns, i64 8584
+  %max_active_zones.i.i = getelementptr inbounds i8, ptr %ns, i64 8728
+  %nr_active_zones9.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ns, i64 8652
+  %nr_open_zones.i.i = getelementptr inbounds i8, ptr %ns, i64 8648
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %nvme_aor_dec_active.exit.i, %land.rhs.lr.ph.i
   %zone.0105.i = phi ptr [ %3, %land.rhs.lr.ph.i ], [ %4, %nvme_aor_dec_active.exit.i ]
-  %entry1.i = getelementptr inbounds %struct.NvmeZone, ptr %zone.0105.i, i64 0, i32 2
+  %entry1.i = getelementptr inbounds i8, ptr %zone.0105.i, i64 72
   %4 = load ptr, ptr %entry1.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
-  %tql_prev8.i = getelementptr inbounds %struct.NvmeZone, ptr %zone.0105.i, i64 0, i32 2, i32 0, i32 1
+  %tql_prev8.i = getelementptr inbounds i8, ptr %zone.0105.i, i64 80
   %5 = load ptr, ptr %tql_prev8.i, align 8
-  %tql_prev6.i = getelementptr inbounds %struct.NvmeZone, ptr %4, i64 0, i32 2, i32 0, i32 1
+  %tql_prev6.i = getelementptr inbounds i8, ptr %4, i64 80
   %tql_prev10.sink.i = select i1 %cmp.not.i, ptr %tql_prev10.i, ptr %tql_prev6.i
   store ptr %5, ptr %tql_prev10.sink.i, align 8
   %6 = load ptr, ptr %entry1.i, align 8
@@ -1481,27 +1406,27 @@ nvme_aor_dec_active.exit.i:                       ; preds = %if.end8.i.i, %if.en
   br i1 %cmp.not.i, label %for.end.i, label %land.rhs.i, !llvm.loop !19
 
 for.end.i:                                        ; preds = %nvme_aor_dec_active.exit.i, %if.then
-  %imp_open_zones.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 20
+  %imp_open_zones.i = getelementptr inbounds i8, ptr %ns, i64 8560
   %10 = load ptr, ptr %imp_open_zones.i, align 8
   %tobool20.not106.i = icmp eq ptr %10, null
   br i1 %tobool20.not106.i, label %for.end51.i, label %land.rhs21.lr.ph.i
 
 land.rhs21.lr.ph.i:                               ; preds = %for.end.i
-  %tql_prev38.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 20, i32 0, i32 1
-  %max_open_zones.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 19
-  %nr_open_zones4.phi.trans.insert.i.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 28
-  %max_active_zones.i61.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 18
-  %nr_active_zones9.phi.trans.insert.i63.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 29
+  %tql_prev38.i = getelementptr inbounds i8, ptr %ns, i64 8568
+  %max_open_zones.i.i = getelementptr inbounds i8, ptr %ns, i64 8732
+  %nr_open_zones4.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ns, i64 8648
+  %max_active_zones.i61.i = getelementptr inbounds i8, ptr %ns, i64 8728
+  %nr_active_zones9.phi.trans.insert.i63.i = getelementptr inbounds i8, ptr %ns, i64 8652
   br label %land.rhs21.i
 
 land.rhs21.i:                                     ; preds = %nvme_aor_dec_active.exit75.i, %land.rhs21.lr.ph.i
   %zone.1107.i = phi ptr [ %10, %land.rhs21.lr.ph.i ], [ %11, %nvme_aor_dec_active.exit75.i ]
-  %entry22.i = getelementptr inbounds %struct.NvmeZone, ptr %zone.1107.i, i64 0, i32 2
+  %entry22.i = getelementptr inbounds i8, ptr %zone.1107.i, i64 72
   %11 = load ptr, ptr %entry22.i, align 8
   %cmp27.not.i = icmp eq ptr %11, null
-  %tql_prev36.i = getelementptr inbounds %struct.NvmeZone, ptr %zone.1107.i, i64 0, i32 2, i32 0, i32 1
+  %tql_prev36.i = getelementptr inbounds i8, ptr %zone.1107.i, i64 80
   %12 = load ptr, ptr %tql_prev36.i, align 8
-  %tql_prev33.i = getelementptr inbounds %struct.NvmeZone, ptr %11, i64 0, i32 2, i32 0, i32 1
+  %tql_prev33.i = getelementptr inbounds i8, ptr %11, i64 80
   %tql_prev38.sink.i = select i1 %cmp27.not.i, ptr %tql_prev38.i, ptr %tql_prev33.i
   store ptr %12, ptr %tql_prev38.sink.i, align 8
   %13 = load ptr, ptr %entry22.i, align 8
@@ -1571,27 +1496,27 @@ nvme_aor_dec_active.exit75.i:                     ; preds = %if.end8.i73.i, %if.
   br i1 %cmp27.not.i, label %for.end51.i, label %land.rhs21.i, !llvm.loop !20
 
 for.end51.i:                                      ; preds = %nvme_aor_dec_active.exit75.i, %for.end.i
-  %exp_open_zones.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 19
+  %exp_open_zones.i = getelementptr inbounds i8, ptr %ns, i64 8544
   %19 = load ptr, ptr %exp_open_zones.i, align 8
   %tobool53.not108.i = icmp eq ptr %19, null
   br i1 %tobool53.not108.i, label %for.end84.i, label %land.rhs54.lr.ph.i
 
 land.rhs54.lr.ph.i:                               ; preds = %for.end51.i
-  %tql_prev71.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 19, i32 0, i32 1
-  %max_open_zones.i76.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 19
-  %nr_open_zones4.phi.trans.insert.i78.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 28
-  %max_active_zones.i89.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 18
-  %nr_active_zones9.phi.trans.insert.i91.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 29
+  %tql_prev71.i = getelementptr inbounds i8, ptr %ns, i64 8552
+  %max_open_zones.i76.i = getelementptr inbounds i8, ptr %ns, i64 8732
+  %nr_open_zones4.phi.trans.insert.i78.i = getelementptr inbounds i8, ptr %ns, i64 8648
+  %max_active_zones.i89.i = getelementptr inbounds i8, ptr %ns, i64 8728
+  %nr_active_zones9.phi.trans.insert.i91.i = getelementptr inbounds i8, ptr %ns, i64 8652
   br label %land.rhs54.i
 
 land.rhs54.i:                                     ; preds = %nvme_aor_dec_active.exit103.i, %land.rhs54.lr.ph.i
   %zone.2109.i = phi ptr [ %19, %land.rhs54.lr.ph.i ], [ %20, %nvme_aor_dec_active.exit103.i ]
-  %entry55.i = getelementptr inbounds %struct.NvmeZone, ptr %zone.2109.i, i64 0, i32 2
+  %entry55.i = getelementptr inbounds i8, ptr %zone.2109.i, i64 72
   %20 = load ptr, ptr %entry55.i, align 8
   %cmp60.not.i = icmp eq ptr %20, null
-  %tql_prev69.i = getelementptr inbounds %struct.NvmeZone, ptr %zone.2109.i, i64 0, i32 2, i32 0, i32 1
+  %tql_prev69.i = getelementptr inbounds i8, ptr %zone.2109.i, i64 80
   %21 = load ptr, ptr %tql_prev69.i, align 8
-  %tql_prev66.i = getelementptr inbounds %struct.NvmeZone, ptr %20, i64 0, i32 2, i32 0, i32 1
+  %tql_prev66.i = getelementptr inbounds i8, ptr %20, i64 80
   %tql_prev71.sink.i = select i1 %cmp60.not.i, ptr %tql_prev71.i, ptr %tql_prev66.i
   store ptr %21, ptr %tql_prev71.sink.i, align 8
   %22 = load ptr, ptr %entry55.i, align 8
@@ -1661,7 +1586,7 @@ nvme_aor_dec_active.exit103.i:                    ; preds = %if.end8.i101.i, %if
   br i1 %cmp60.not.i, label %for.end84.i, label %land.rhs54.i, !llvm.loop !21
 
 for.end84.i:                                      ; preds = %nvme_aor_dec_active.exit103.i, %for.end51.i
-  %nr_open_zones.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 28
+  %nr_open_zones.i = getelementptr inbounds i8, ptr %ns, i64 8648
   %28 = load i32, ptr %nr_open_zones.i, align 8
   %cmp85.i = icmp eq i32 %28, 0
   br i1 %cmp85.i, label %if.end, label %if.else87.i
@@ -1679,39 +1604,39 @@ declare i32 @blk_flush(ptr noundef) #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @nvme_ns_cleanup(ptr nocapture noundef readonly %ns) local_unnamed_addr #0 {
 entry:
-  %zoned = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 14
+  %zoned = getelementptr inbounds i8, ptr %ns, i64 8705
   %0 = load i8, ptr %zoned, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %id_ns_zoned = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 17
+  %id_ns_zoned = getelementptr inbounds i8, ptr %ns, i64 8528
   %2 = load ptr, ptr %id_ns_zoned, align 8
   tail call void @g_free(ptr noundef %2) #13
-  %zone_array = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 18
+  %zone_array = getelementptr inbounds i8, ptr %ns, i64 8536
   %3 = load ptr, ptr %zone_array, align 8
   tail call void @g_free(ptr noundef %3) #13
-  %zd_extensions = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 27
+  %zd_extensions = getelementptr inbounds i8, ptr %ns, i64 8640
   %4 = load ptr, ptr %zd_extensions, align 8
   tail call void @g_free(ptr noundef %4) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %endgrp = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 32
+  %endgrp = getelementptr inbounds i8, ptr %ns, i64 8776
   %5 = load ptr, ptr %endgrp, align 8
   %tobool1.not = icmp eq ptr %5, null
   br i1 %tobool1.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %enabled = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %5, i64 0, i32 1, i32 9
+  %enabled = getelementptr inbounds i8, ptr %5, i64 8136
   %6 = load i8, ptr %enabled, align 8
   %7 = and i8 %6, 1
   %tobool3.not = icmp eq i8 %7, 0
   br i1 %tobool3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true
-  %phs = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 34, i32 1
+  %phs = getelementptr inbounds i8, ptr %ns, i64 8800
   %8 = load ptr, ptr %phs, align 8
   tail call void @g_free(ptr noundef %8) #13
   br label %if.end6
@@ -1788,21 +1713,21 @@ define internal fastcc void @nvme_clear_zone(ptr noundef %ns, ptr noundef %zone)
 entry:
   %_now.i.i25 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %wp = getelementptr inbounds %struct.NvmeZoneDescr, ptr %zone, i64 0, i32 6
+  %wp = getelementptr inbounds i8, ptr %zone, i64 24
   %0 = load i64, ptr %wp, align 8
-  %w_ptr = getelementptr inbounds %struct.NvmeZone, ptr %zone, i64 0, i32 1
+  %w_ptr = getelementptr inbounds i8, ptr %zone, i64 64
   store i64 %0, ptr %w_ptr, align 8
   %1 = getelementptr i8, ptr %zone, i64 1
   %zone.val = load i8, ptr %1, align 1
   %2 = lshr i8 %zone.val, 4
   %shr.i = zext nneg i8 %2 to i32
-  %zslba = getelementptr inbounds %struct.NvmeZoneDescr, ptr %zone, i64 0, i32 5
+  %zslba = getelementptr inbounds i8, ptr %zone, i64 16
   %3 = load i64, ptr %zslba, align 8
   %cmp.not = icmp eq i64 %0, %3
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %za = getelementptr inbounds %struct.NvmeZoneDescr, ptr %zone, i64 0, i32 2
+  %za = getelementptr inbounds i8, ptr %zone, i64 2
   %4 = load i8, ptr %za, align 2
   %tobool.not = icmp sgt i8 %4, -1
   br i1 %tobool.not, label %if.else29, label %if.then
@@ -1836,7 +1761,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %shr.i, i64 noundef %3) #13
   br label %trace_pci_nvme_clear_ns_close.exit
@@ -1851,7 +1776,7 @@ trace_pci_nvme_clear_ns_close.exit:               ; preds = %if.then10, %land.lh
   br label %if.end
 
 if.end:                                           ; preds = %trace_pci_nvme_clear_ns_close.exit, %if.then
-  %nr_active_zones.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 29
+  %nr_active_zones.i = getelementptr inbounds i8, ptr %ns, i64 8652
   %12 = load i32, ptr %nr_active_zones.i, align 4
   %cmp.i = icmp sgt i32 %12, -1
   br i1 %cmp.i, label %if.end.i, label %if.else.i
@@ -1861,7 +1786,7 @@ if.else.i:                                        ; preds = %if.end
   unreachable
 
 if.end.i:                                         ; preds = %if.end
-  %max_active_zones.i = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 30, i32 18
+  %max_active_zones.i = getelementptr inbounds i8, ptr %ns, i64 8728
   %13 = load i32, ptr %max_active_zones.i, align 8
   %tobool.not.i = icmp eq i32 %13, 0
   br i1 %tobool.not.i, label %nvme_aor_inc_active.exit, label %if.then1.i
@@ -1877,17 +1802,17 @@ if.else8.i:                                       ; preds = %if.then1.i
   unreachable
 
 nvme_aor_inc_active.exit:                         ; preds = %if.end.i, %if.then1.i
-  %closed_zones = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 21
+  %closed_zones = getelementptr inbounds i8, ptr %ns, i64 8576
   %14 = load ptr, ptr %closed_zones, align 8
-  %entry14 = getelementptr inbounds %struct.NvmeZone, ptr %zone, i64 0, i32 2
+  %entry14 = getelementptr inbounds i8, ptr %zone, i64 72
   store ptr %14, ptr %entry14, align 8
   %cmp15.not = icmp eq ptr %14, null
-  %tql_prev23 = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 21, i32 0, i32 1
-  %tql_prev = getelementptr inbounds %struct.NvmeZone, ptr %14, i64 0, i32 2, i32 0, i32 1
+  %tql_prev23 = getelementptr inbounds i8, ptr %ns, i64 8584
+  %tql_prev = getelementptr inbounds i8, ptr %14, i64 80
   %tql_prev23.sink = select i1 %cmp15.not, ptr %tql_prev23, ptr %tql_prev
   store ptr %entry14, ptr %tql_prev23.sink, align 8
   store ptr %zone, ptr %closed_zones, align 8
-  %tql_prev28 = getelementptr inbounds %struct.NvmeZone, ptr %zone, i64 0, i32 2, i32 0, i32 1
+  %tql_prev28 = getelementptr inbounds i8, ptr %zone, i64 80
   store ptr %closed_zones, ptr %tql_prev28, align 8
   br label %if.end45
 
@@ -1916,7 +1841,7 @@ if.then8.i.i34:                                   ; preds = %if.then.i.i32
   %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i25, ptr noundef null) #13
   %call10.i.i36 = tail call i32 @qemu_get_thread_id() #13
   %20 = load i64, ptr %_now.i.i25, align 8
-  %tv_usec.i.i37 = getelementptr inbounds %struct.timeval, ptr %_now.i.i25, i64 0, i32 1
+  %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i25, i64 8
   %21 = load i64, ptr %tv_usec.i.i37, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i36, i64 noundef %20, i64 noundef %21, i32 noundef %shr.i, i64 noundef %0) #13
   br label %trace_pci_nvme_clear_ns_reset.exit
@@ -1935,7 +1860,7 @@ trace_pci_nvme_clear_ns_reset.exit:               ; preds = %if.else29, %land.lh
 if.then38:                                        ; preds = %trace_pci_nvme_clear_ns_reset.exit
   %and42 = and i8 %22, -9
   store i8 %and42, ptr %za, align 2
-  %numzrwa = getelementptr inbounds %struct.NvmeNamespace, ptr %ns, i64 0, i32 15, i32 2
+  %numzrwa = getelementptr inbounds i8, ptr %ns, i64 8504
   %24 = load i32, ptr %numzrwa, align 4
   %inc = add i32 %24, 1
   store i32 %inc, ptr %numzrwa, align 4
@@ -1965,10 +1890,10 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 define internal void @nvme_ns_instance_init(ptr noundef %obj) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str, i32 noundef 846, ptr noundef nonnull @__func__.nvme_ns_instance_init) #13
-  %nsid = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 30, i32 2
+  %nsid = getelementptr inbounds i8, ptr %call, i64 8660
   %0 = load i32, ptr %nsid, align 4
   %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.43, i32 noundef %0) #13
-  %bootindex2 = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 2
+  %bootindex2 = getelementptr inbounds i8, ptr %call, i64 248
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.45, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
   tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex2, ptr noundef nonnull @.str.44, ptr noundef %call1, ptr noundef %call.i) #13
   tail call void @g_free(ptr noundef %call1) #13
@@ -1979,18 +1904,18 @@ entry:
 define internal void @nvme_ns_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.45, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #13
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
-  %bus_type = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 11
+  %bus_type = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr @.str.46, ptr %bus_type, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @nvme_ns_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 9
+  %unrealize = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @nvme_ns_unrealize, ptr %unrealize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @nvme_ns_props) #13
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.47, ptr %desc, align 8
   ret void
 }
@@ -2006,19 +1931,19 @@ define internal void @nvme_ns_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str, i32 noundef 716, ptr noundef nonnull @__func__.nvme_ns_realize) #13
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %dev) #13
-  %parent = getelementptr inbounds %struct.BusState, ptr %call1, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call1, i64 40
   %0 = load ptr, ptr %parent, align 8
   %call2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str, i32 noundef 718, ptr noundef nonnull @__func__.nvme_ns_realize) #13
-  %subsys3 = getelementptr inbounds %struct.NvmeCtrl, ptr %call2, i64 0, i32 33
+  %subsys3 = getelementptr inbounds i8, ptr %call2, i64 7928
   %1 = load ptr, ptr %subsys3, align 8
-  %params = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 30
-  %nsid4 = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 30, i32 2
+  %params = getelementptr inbounds i8, ptr %call, i64 8656
+  %nsid4 = getelementptr inbounds i8, ptr %call, i64 8660
   %2 = load i32, ptr %nsid4, align 4
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %shared = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 30, i32 1
+  %shared = getelementptr inbounds i8, ptr %call, i64 8657
   store i8 0, ptr %shared, align 1
   %3 = load i8, ptr %params, align 8
   %4 = and i8 %3, 1
@@ -2030,15 +1955,15 @@ if.then9:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %bus = getelementptr inbounds %struct.NvmeSubsystem, ptr %1, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %1, i64 160
   %call10 = tail call zeroext i1 @qdev_set_parent_bus(ptr noundef %dev, ptr noundef nonnull %bus, ptr noundef %errp) #13
   br i1 %call10, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.else
-  %subsys13 = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 31
+  %subsys13 = getelementptr inbounds i8, ptr %call, i64 8768
   store ptr %1, ptr %subsys13, align 8
-  %endgrp = getelementptr inbounds %struct.NvmeSubsystem, ptr %1, i64 0, i32 6
-  %endgrp14 = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 32
+  %endgrp = getelementptr inbounds i8, ptr %1, i64 4648
+  %endgrp14 = getelementptr inbounds i8, ptr %call, i64 8776
   store ptr %endgrp, ptr %endgrp14, align 8
   br label %if.end15
 
@@ -2052,30 +1977,32 @@ if.end19:                                         ; preds = %if.end15
   br i1 %tobool20.not, label %for.cond.preheader, label %if.else33
 
 for.cond.preheader:                               ; preds = %if.end19
+  %namespaces.i = getelementptr inbounds i8, ptr %call2, i64 16744
+  %namespaces.i48 = getelementptr inbounds i8, ptr %1, i64 2592
   br i1 %tobool.not, label %nvme_ns.exit.us, label %nvme_ns.exit
 
 nvme_ns.exit.us:                                  ; preds = %for.cond.preheader, %for.inc.us
-  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %for.inc.us ], [ 1, %for.cond.preheader ]
-  %arrayidx.i.us = getelementptr %struct.NvmeCtrl, ptr %call2, i64 0, i32 35, i64 %indvars.iv89
+  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %for.inc.us ], [ 1, %for.cond.preheader ]
+  %arrayidx.i.us = getelementptr [257 x ptr], ptr %namespaces.i, i64 0, i64 %indvars.iv92
   %5 = load ptr, ptr %arrayidx.i.us, align 8
   %tobool23.not.us = icmp eq ptr %5, null
   br i1 %tobool23.not.us, label %for.end, label %for.inc.us
 
 for.inc.us:                                       ; preds = %nvme_ns.exit.us
-  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next90, 257
-  br i1 %exitcond92.not, label %if.then31, label %nvme_ns.exit.us, !llvm.loop !23
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond95.not = icmp eq i64 %indvars.iv.next93, 257
+  br i1 %exitcond95.not, label %if.then31, label %nvme_ns.exit.us, !llvm.loop !23
 
 nvme_ns.exit:                                     ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %for.cond.preheader ]
-  %arrayidx.i = getelementptr %struct.NvmeCtrl, ptr %call2, i64 0, i32 35, i64 %indvars.iv
+  %arrayidx.i = getelementptr [257 x ptr], ptr %namespaces.i, i64 0, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx.i, align 8
   %tobool23.not = icmp eq ptr %6, null
   br i1 %tobool23.not, label %lor.lhs.false, label %for.inc
 
 lor.lhs.false:                                    ; preds = %nvme_ns.exit
-  %arrayidx.i49 = getelementptr %struct.NvmeSubsystem, ptr %1, i64 0, i32 5, i64 %indvars.iv
-  %7 = load ptr, ptr %arrayidx.i49, align 8
+  %arrayidx.i50 = getelementptr [257 x ptr], ptr %namespaces.i48, i64 0, i64 %indvars.iv
+  %7 = load ptr, ptr %arrayidx.i50, align 8
   %tobool25.not = icmp eq ptr %7, null
   br i1 %tobool25.not, label %for.end, label %for.inc
 
@@ -2085,7 +2012,7 @@ for.inc:                                          ; preds = %nvme_ns.exit, %lor.
   br i1 %exitcond.not, label %if.then31, label %nvme_ns.exit, !llvm.loop !23
 
 for.end:                                          ; preds = %lor.lhs.false, %nvme_ns.exit.us
-  %.us-phi.in = phi i64 [ %indvars.iv89, %nvme_ns.exit.us ], [ %indvars.iv, %lor.lhs.false ]
+  %.us-phi.in = phi i64 [ %indvars.iv92, %nvme_ns.exit.us ], [ %indvars.iv, %lor.lhs.false ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   store i32 %.us-phi, ptr %nsid4, align 4
   br label %if.end41
@@ -2096,26 +2023,28 @@ if.then31:                                        ; preds = %for.inc, %for.inc.u
 
 if.else33:                                        ; preds = %if.end19
   %8 = add i32 %2, -257
-  %or.cond.i51 = icmp ult i32 %8, -256
-  br i1 %or.cond.i51, label %if.end41, label %nvme_ns.exit56
+  %or.cond.i52 = icmp ult i32 %8, -256
+  br i1 %or.cond.i52, label %if.end41, label %nvme_ns.exit58
 
-nvme_ns.exit56:                                   ; preds = %if.else33
-  %idxprom.i53 = zext nneg i32 %2 to i64
-  %arrayidx.i54 = getelementptr %struct.NvmeCtrl, ptr %call2, i64 0, i32 35, i64 %idxprom.i53
-  %9 = load ptr, ptr %arrayidx.i54, align 8
+nvme_ns.exit58:                                   ; preds = %if.else33
+  %namespaces.i54 = getelementptr inbounds i8, ptr %call2, i64 16744
+  %idxprom.i55 = zext nneg i32 %2 to i64
+  %arrayidx.i56 = getelementptr [257 x ptr], ptr %namespaces.i54, i64 0, i64 %idxprom.i55
+  %9 = load ptr, ptr %arrayidx.i56, align 8
   %tobool35.not = icmp eq ptr %9, null
   br i1 %tobool35.not, label %lor.lhs.false36, label %if.then39
 
-lor.lhs.false36:                                  ; preds = %nvme_ns.exit56
-  br i1 %tobool.not, label %if.end69, label %nvme_subsys_ns.exit63
+lor.lhs.false36:                                  ; preds = %nvme_ns.exit58
+  br i1 %tobool.not, label %if.end69, label %nvme_subsys_ns.exit66
 
-nvme_subsys_ns.exit63:                            ; preds = %lor.lhs.false36
-  %arrayidx.i61 = getelementptr %struct.NvmeSubsystem, ptr %1, i64 0, i32 5, i64 %idxprom.i53
-  %10 = load ptr, ptr %arrayidx.i61, align 8
+nvme_subsys_ns.exit66:                            ; preds = %lor.lhs.false36
+  %namespaces.i62 = getelementptr inbounds i8, ptr %1, i64 2592
+  %arrayidx.i64 = getelementptr [257 x ptr], ptr %namespaces.i62, i64 0, i64 %idxprom.i55
+  %10 = load ptr, ptr %arrayidx.i64, align 8
   %tobool38.not = icmp eq ptr %10, null
   br i1 %tobool38.not, label %if.then43, label %if.then39
 
-if.then39:                                        ; preds = %nvme_subsys_ns.exit63, %nvme_ns.exit56
+if.then39:                                        ; preds = %nvme_subsys_ns.exit66, %nvme_ns.exit58
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 763, ptr noundef nonnull @__func__.nvme_ns_realize, ptr noundef nonnull @.str.51, i32 noundef %2) #13
   br label %return
 
@@ -2127,11 +2056,12 @@ if.end41.if.then43_crit_edge:                     ; preds = %if.end41
   %.pre = zext i32 %nsid.1 to i64
   br label %if.then43
 
-if.then43:                                        ; preds = %if.end41.if.then43_crit_edge, %nvme_subsys_ns.exit63
-  %idxprom.pre-phi = phi i64 [ %.pre, %if.end41.if.then43_crit_edge ], [ %idxprom.i53, %nvme_subsys_ns.exit63 ]
-  %arrayidx = getelementptr %struct.NvmeSubsystem, ptr %1, i64 0, i32 5, i64 %idxprom.pre-phi
+if.then43:                                        ; preds = %if.end41.if.then43_crit_edge, %nvme_subsys_ns.exit66
+  %idxprom.pre-phi = phi i64 [ %.pre, %if.end41.if.then43_crit_edge ], [ %idxprom.i55, %nvme_subsys_ns.exit66 ]
+  %namespaces = getelementptr inbounds i8, ptr %1, i64 2592
+  %arrayidx = getelementptr [257 x ptr], ptr %namespaces, i64 0, i64 %idxprom.pre-phi
   store ptr %call, ptr %arrayidx, align 8
-  %endgid = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 5, i32 32
+  %endgid = getelementptr inbounds i8, ptr %call, i64 374
   store i16 1, ptr %endgid, align 2
   %11 = load i8, ptr %params, align 8
   %12 = and i8 %11, 1
@@ -2139,15 +2069,19 @@ if.then43:                                        ; preds = %if.end41.if.then43_
   br i1 %tobool47.not, label %if.end49, label %return
 
 if.end49:                                         ; preds = %if.then43
-  %shared51 = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 30, i32 1
+  %shared51 = getelementptr inbounds i8, ptr %call, i64 8657
   %13 = load i8, ptr %shared51, align 1
   %14 = and i8 %13, 1
   %tobool52.not = icmp eq i8 %14, 0
-  br i1 %tobool52.not, label %if.end69, label %for.body57
+  br i1 %tobool52.not, label %if.end69, label %for.cond54.preheader
 
-for.body57:                                       ; preds = %if.end49, %for.inc65
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %for.inc65 ], [ 0, %if.end49 ]
-  %arrayidx59 = getelementptr %struct.NvmeSubsystem, ptr %1, i64 0, i32 4, i64 %indvars.iv93
+for.cond54.preheader:                             ; preds = %if.end49
+  %ctrls = getelementptr inbounds i8, ptr %1, i64 544
+  br label %for.body57
+
+for.body57:                                       ; preds = %for.cond54.preheader, %for.inc65
+  %indvars.iv96 = phi i64 [ 0, %for.cond54.preheader ], [ %indvars.iv.next97, %for.inc65 ]
+  %arrayidx59 = getelementptr [256 x ptr], ptr %ctrls, i64 0, i64 %indvars.iv96
   %15 = load ptr, ptr %arrayidx59, align 8
   %magicptr = ptrtoint ptr %15 to i64
   switch i64 %magicptr, label %if.then63 [
@@ -2160,9 +2094,9 @@ if.then63:                                        ; preds = %for.body57
   br label %for.inc65
 
 for.inc65:                                        ; preds = %for.body57, %for.body57, %if.then63
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next94, 256
-  br i1 %exitcond96.not, label %return, label %for.body57, !llvm.loop !24
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %exitcond99.not = icmp eq i64 %indvars.iv.next97, 256
+  br i1 %exitcond99.not, label %return, label %for.body57, !llvm.loop !24
 
 if.end69:                                         ; preds = %lor.lhs.false36, %if.end49, %if.end41
   tail call void @nvme_attach_ns(ptr noundef nonnull %call2, ptr noundef nonnull %call) #13
@@ -2176,43 +2110,43 @@ return:                                           ; preds = %for.inc65, %if.then
 define internal void @nvme_ns_unrealize(ptr noundef %dev) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str, i32 noundef 707, ptr noundef nonnull @__func__.nvme_ns_unrealize) #13
-  %blkconf.i = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 1
+  %blkconf.i = getelementptr inbounds i8, ptr %call, i64 160
   %0 = load ptr, ptr %blkconf.i, align 8
   tail call void @blk_drain(ptr noundef %0) #13
   tail call void @nvme_ns_shutdown(ptr noundef %call)
-  %zoned.i = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 30, i32 14
+  %zoned.i = getelementptr inbounds i8, ptr %call, i64 8705
   %1 = load i8, ptr %zoned.i, align 1
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %id_ns_zoned.i = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 17
+  %id_ns_zoned.i = getelementptr inbounds i8, ptr %call, i64 8528
   %3 = load ptr, ptr %id_ns_zoned.i, align 8
   tail call void @g_free(ptr noundef %3) #13
-  %zone_array.i = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 18
+  %zone_array.i = getelementptr inbounds i8, ptr %call, i64 8536
   %4 = load ptr, ptr %zone_array.i, align 8
   tail call void @g_free(ptr noundef %4) #13
-  %zd_extensions.i = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 27
+  %zd_extensions.i = getelementptr inbounds i8, ptr %call, i64 8640
   %5 = load ptr, ptr %zd_extensions.i, align 8
   tail call void @g_free(ptr noundef %5) #13
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %endgrp.i = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 32
+  %endgrp.i = getelementptr inbounds i8, ptr %call, i64 8776
   %6 = load ptr, ptr %endgrp.i, align 8
   %tobool1.not.i = icmp eq ptr %6, null
   br i1 %tobool1.not.i, label %nvme_ns_cleanup.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %enabled.i = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %6, i64 0, i32 1, i32 9
+  %enabled.i = getelementptr inbounds i8, ptr %6, i64 8136
   %7 = load i8, ptr %enabled.i, align 8
   %8 = and i8 %7, 1
   %tobool3.not.i = icmp eq i8 %8, 0
   br i1 %tobool3.not.i, label %nvme_ns_cleanup.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
-  %phs.i = getelementptr inbounds %struct.NvmeNamespace, ptr %call, i64 0, i32 34, i32 1
+  %phs.i = getelementptr inbounds i8, ptr %call, i64 8800
   %9 = load ptr, ptr %phs.i, align 8
   tail call void @g_free(ptr noundef %9) #13
   br label %nvme_ns_cleanup.exit

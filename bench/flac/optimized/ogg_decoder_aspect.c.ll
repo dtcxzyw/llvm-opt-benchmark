@@ -3,20 +3,14 @@ source_filename = "bench/flac/original/ogg_decoder_aspect.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.FLAC__OggDecoderAspect = type { i32, i64, %struct.ogg_stream_state, %struct.ogg_sync_state, i32, i32, i32, i32, i32, %struct.ogg_page, i32, %struct.ogg_packet }
-%struct.ogg_stream_state = type { ptr, i64, i64, i64, ptr, ptr, i64, i64, i64, i64, [282 x i8], i32, i32, i32, i64, i64, i64, i64 }
-%struct.ogg_sync_state = type { ptr, i32, i32, i32, i32, i32, i32 }
-%struct.ogg_page = type { ptr, i64, ptr, i64 }
-%struct.ogg_packet = type { ptr, i64, i64, i64, i64, i64 }
-
 @FLAC__OGG_MAPPING_FIRST_HEADER_PACKET_TYPE = external local_unnamed_addr constant i8, align 1
 @FLAC__OGG_MAPPING_MAGIC = external local_unnamed_addr constant ptr, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i32 @FLAC__ogg_decoder_aspect_init(ptr noundef %aspect) local_unnamed_addr #0 {
 entry:
-  %stream_state = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 2
-  %serial_number = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 1
+  %stream_state = getelementptr inbounds i8, ptr %aspect, i64 16
+  %serial_number = getelementptr inbounds i8, ptr %aspect, i64 8
   %0 = load i64, ptr %serial_number, align 8
   %conv = trunc i64 %0 to i32
   %call = tail call i32 @ogg_stream_init(ptr noundef nonnull %stream_state, i32 noundef %conv) #6
@@ -24,22 +18,22 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %sync_state = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 3
+  %sync_state = getelementptr inbounds i8, ptr %aspect, i64 424
   %call2 = tail call i32 @ogg_sync_init(ptr noundef nonnull %sync_state) #6
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  %version_major = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 4
+  %version_major = getelementptr inbounds i8, ptr %aspect, i64 456
   store i32 -1, ptr %version_major, align 8
-  %version_minor = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 5
+  %version_minor = getelementptr inbounds i8, ptr %aspect, i64 460
   store i32 -1, ptr %version_minor, align 4
   %1 = load i32, ptr %aspect, align 8
-  %need_serial_number = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 6
+  %need_serial_number = getelementptr inbounds i8, ptr %aspect, i64 464
   store i32 %1, ptr %need_serial_number, align 8
-  %end_of_stream = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 7
+  %end_of_stream = getelementptr inbounds i8, ptr %aspect, i64 468
   store i32 0, ptr %end_of_stream, align 4
-  %have_working_page = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 8
+  %have_working_page = getelementptr inbounds i8, ptr %aspect, i64 472
   store i32 0, ptr %have_working_page, align 8
   br label %return
 
@@ -55,9 +49,9 @@ declare i32 @ogg_sync_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @FLAC__ogg_decoder_aspect_finish(ptr noundef %aspect) local_unnamed_addr #0 {
 entry:
-  %sync_state = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 3
+  %sync_state = getelementptr inbounds i8, ptr %aspect, i64 424
   %call = tail call i32 @ogg_sync_clear(ptr noundef nonnull %sync_state) #6
-  %stream_state = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 2
+  %stream_state = getelementptr inbounds i8, ptr %aspect, i64 16
   %call1 = tail call i32 @ogg_stream_clear(ptr noundef nonnull %stream_state) #6
   ret void
 }
@@ -70,7 +64,7 @@ declare i32 @ogg_stream_clear(ptr noundef) local_unnamed_addr #1
 define hidden void @FLAC__ogg_decoder_aspect_set_serial_number(ptr nocapture noundef writeonly %aspect, i64 noundef %value) local_unnamed_addr #2 {
 entry:
   store i32 0, ptr %aspect, align 8
-  %serial_number = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 1
+  %serial_number = getelementptr inbounds i8, ptr %aspect, i64 8
   store i64 %value, ptr %serial_number, align 8
   ret void
 }
@@ -85,13 +79,13 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @FLAC__ogg_decoder_aspect_flush(ptr noundef %aspect) local_unnamed_addr #0 {
 entry:
-  %stream_state = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 2
+  %stream_state = getelementptr inbounds i8, ptr %aspect, i64 16
   %call = tail call i32 @ogg_stream_reset(ptr noundef nonnull %stream_state) #6
-  %sync_state = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 3
+  %sync_state = getelementptr inbounds i8, ptr %aspect, i64 424
   %call1 = tail call i32 @ogg_sync_reset(ptr noundef nonnull %sync_state) #6
-  %end_of_stream = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 7
+  %end_of_stream = getelementptr inbounds i8, ptr %aspect, i64 468
   store i32 0, ptr %end_of_stream, align 4
-  %have_working_page = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 8
+  %have_working_page = getelementptr inbounds i8, ptr %aspect, i64 472
   store i32 0, ptr %have_working_page, align 8
   ret void
 }
@@ -103,20 +97,20 @@ declare i32 @ogg_sync_reset(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @FLAC__ogg_decoder_aspect_reset(ptr noundef %aspect) local_unnamed_addr #0 {
 entry:
-  %stream_state.i = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 2
+  %stream_state.i = getelementptr inbounds i8, ptr %aspect, i64 16
   %call.i = tail call i32 @ogg_stream_reset(ptr noundef nonnull %stream_state.i) #6
-  %sync_state.i = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 3
+  %sync_state.i = getelementptr inbounds i8, ptr %aspect, i64 424
   %call1.i = tail call i32 @ogg_sync_reset(ptr noundef nonnull %sync_state.i) #6
-  %end_of_stream.i = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 7
+  %end_of_stream.i = getelementptr inbounds i8, ptr %aspect, i64 468
   store i32 0, ptr %end_of_stream.i, align 4
-  %have_working_page.i = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 8
+  %have_working_page.i = getelementptr inbounds i8, ptr %aspect, i64 472
   store i32 0, ptr %have_working_page.i, align 8
   %0 = load i32, ptr %aspect, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %need_serial_number = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 6
+  %need_serial_number = getelementptr inbounds i8, ptr %aspect, i64 464
   store i32 1, ptr %need_serial_number, align 8
   br label %if.end
 
@@ -134,21 +128,21 @@ entry:
   br i1 %cmp74.not, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %end_of_stream = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 7
-  %have_working_page = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 8
-  %have_working_packet = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 10
-  %working_packet = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 11
-  %bytes4 = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 11, i32 1
-  %stream_state = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 2
+  %end_of_stream = getelementptr inbounds i8, ptr %aspect, i64 468
+  %have_working_page = getelementptr inbounds i8, ptr %aspect, i64 472
+  %have_working_packet = getelementptr inbounds i8, ptr %aspect, i64 512
+  %working_packet = getelementptr inbounds i8, ptr %aspect, i64 520
+  %bytes4 = getelementptr inbounds i8, ptr %aspect, i64 528
+  %stream_state = getelementptr inbounds i8, ptr %aspect, i64 16
   %1 = load i8, ptr @FLAC__OGG_MAPPING_FIRST_HEADER_PACKET_TYPE, align 1
   %2 = load ptr, ptr @FLAC__OGG_MAPPING_MAGIC, align 8
-  %version_major = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 4
-  %version_minor = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 5
-  %sync_state = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 3
-  %working_page = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 9
-  %need_serial_number = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 6
-  %serial_number = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 1
-  %serialno = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 2, i32 14
+  %version_major = getelementptr inbounds i8, ptr %aspect, i64 456
+  %version_minor = getelementptr inbounds i8, ptr %aspect, i64 460
+  %sync_state = getelementptr inbounds i8, ptr %aspect, i64 424
+  %working_page = getelementptr inbounds i8, ptr %aspect, i64 480
+  %need_serial_number = getelementptr inbounds i8, ptr %aspect, i64 464
+  %serial_number = getelementptr inbounds i8, ptr %aspect, i64 8
+  %serialno = getelementptr inbounds i8, ptr %aspect, i64 392
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end124
@@ -323,7 +317,7 @@ while.end.loopexit:                               ; preds = %if.end124, %land.rh
 
 while.end:                                        ; preds = %while.end.loopexit, %entry
   %.lcssa = phi i1 [ true, %entry ], [ %21, %while.end.loopexit ]
-  %end_of_stream125 = getelementptr inbounds %struct.FLAC__OggDecoderAspect, ptr %aspect, i64 0, i32 7
+  %end_of_stream125 = getelementptr inbounds i8, ptr %aspect, i64 468
   %22 = load i32, ptr %end_of_stream125, align 4
   %tobool126.not = icmp ne i32 %22, 0
   %or.cond = and i1 %.lcssa, %tobool126.not
